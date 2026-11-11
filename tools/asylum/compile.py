@@ -161,20 +161,25 @@ def _transient(text: str) -> bool:
     return "C1083" in text and ".pch" in text.lower() and ("Permission denied" in text or "Access is denied" in text)
 
 
+PCH_MEMORY = "/Zm200"  # the engine headers outgrew VC8's default PCH memory (C3859); no effect on the code
+
+
 def _pch(src: str, p: Profile) -> tuple[str, Path] | None:
-    """The engine header precompiled once per profile, when the source starts by including it."""
+    """The engine header the source starts by including, precompiled once per profile and header."""
     if p.c:
         return None
     first = next((l.strip() for l in src.split("\n") if l.strip() and not l.strip().startswith("//")), "")
-    if not re.fullmatch(r'#\s*include\s*"ue3/Classes\.h"', first):
+    m = re.fullmatch(r'#\s*include\s*"(ue3/\w+\.h)"', first)
+    if not m:
         return None
-    tag = hashlib.sha256(json.dumps(["ue3/Classes.h", p.compiler, p.flags, p.prelude, headers_hash()]).encode()).hexdigest()[:16]
+    header = m.group(1)
+    tag = hashlib.sha256(json.dumps([header, p.compiler, p.flags, p.prelude, headers_hash()]).encode()).hexdigest()[:16]
     d = HOME / "cache" / "pch"
     hdr, out = "asylum_pch_%s.h" % tag, d / ("%s.pch" % tag)
     if out.exists():
         return hdr, out
     d.mkdir(parents=True, exist_ok=True)
-    text = "".join('#include "%s"\n' % h for h in p.prelude + ["ue3/Classes.h"])
+    text = "".join('#include "%s"\n' % h for h in p.prelude + [header])
     t = d / ("%s.%d.tmp" % (hdr, os.getpid()))
     if not (d / hdr).exists():
         t.write_text(text, encoding="utf-8")
@@ -185,7 +190,7 @@ def _pch(src: str, p: Profile) -> tuple[str, Path] | None:
     work = Path(tempfile.mkdtemp(prefix="pch_", dir=_tmp()))
     try:
         (work / "pch.cpp").write_text('#include "%s"\n' % hdr, encoding="utf-8")
-        r = _run(_cl(p) + ["/nologo", "/c", *p.flags, "/I" + str(d), "/Yc" + hdr, "/Fp" + str(work / "out.pch"),
+        r = _run(_cl(p) + ["/nologo", "/c", *p.flags, PCH_MEMORY, "/I" + str(d), "/Yc" + hdr, "/Fp" + str(work / "out.pch"),
                            "/Fo" + str(work / "pch.obj"), "pch.cpp"], p, work, 300)
         if r and r[0] == 0 and (work / "out.pch").exists():
             try:
@@ -217,7 +222,7 @@ def compile(src: str, p: Profile, check: bool = True) -> Compiled:
         i = next(k for k, l in enumerate(lines) if l.strip() and not l.strip().startswith("//"))
         lines[i] = ""
         tu = '#include "%s"\n#line 1 "candidate.%s"\n%s\n' % (pch[0], ext, "\n".join(lines))
-        flags += ["/Yu" + pch[0], "/Fp" + str(pch[1]), "/I" + str(pch[1].parent)]
+        flags += [PCH_MEMORY, "/Yu" + pch[0], "/Fp" + str(pch[1]), "/I" + str(pch[1].parent)]
     else:
         tu = "".join('#include "%s"\n' % h for h in p.prelude) + '#line 1 "candidate.%s"\n%s\n' % (ext, src)
     key = hashlib.sha256(json.dumps([tu, p.compiler, flags, p.c, headers_hash()]).encode()).hexdigest()[:32]
