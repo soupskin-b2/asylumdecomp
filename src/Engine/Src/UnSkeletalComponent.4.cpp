@@ -1,4 +1,4 @@
-// UnSkeletalComponent.cpp: 3 functions
+// UnSkeletalComponent.cpp: 4 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -35,4 +35,19 @@ void USkeletalMeshComponent__00935ce0::execUpdateAnimations( FFrame& Stack, RESU
 {
 	P_FINISH;
 	UpdateAnimations();
+}
+
+struct USkeletalMeshComponent__00935bf0 : public USkeletalMeshComponent {
+	void sub_0092db40();
+	void execSetParentAnimComponent(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00935bf0
+void USkeletalMeshComponent__00935bf0::execSetParentAnimComponent(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(USkeletalMeshComponent, NewParentAnimComp);
+	P_FINISH;
+
+	ParentAnimComponent = NewParentAnimComp;
+	sub_0092db40();
 }

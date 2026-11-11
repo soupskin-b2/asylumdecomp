@@ -1,4 +1,4 @@
-// UnUIObjects.cpp: 25 functions
+// UnUIObjects.cpp: 27 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -280,4 +280,29 @@ INT UUIScreenObject::GetScene()
 BYTE UUIScreenObject::GetInputMask(UINT, UINT)
 {
     PURE_VIRTUAL(UUIScreenObject::GetInputMask, return 0xff;);
+}
+
+struct UUIScene__00ca6510 : public UUIScene
+{
+	USceneDataStore* sub_00db0a70();
+	void execGetSceneDataStore(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00ca6510
+void UUIScene__00ca6510::execGetSceneDataStore(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+
+	*(USceneDataStore**)Result = sub_00db0a70();
+}
+
+struct UUIScreenObject__00d990d0 : public UUIScreenObject
+{
+	void sub_00d990d0(INT bReinitialize, INT bReviewNow);
+};
+
+// @baa 0x00d990d0
+void UUIScreenObject__00d990d0::sub_00d990d0(INT bReinitialize, INT bReviewNow)
+{
+	PURE_VIRTUAL(UUIScreenObject::RequestPrimitiveReview,);
 }

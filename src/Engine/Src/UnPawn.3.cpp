@@ -1,4 +1,4 @@
-// UnPawn.cpp: 8 functions
+// UnPawn.cpp: 10 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -93,4 +93,21 @@ void APawn::execClearPathStep( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	vf_3b8();
+}
+
+// @baa 0x00c8a810
+void APawn::execIsAliveAndWell(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+
+	*(UBOOL*)Result = vf_354();
+}
+
+// @baa 0x00c8b2a0
+void APawn::execAddPathConstraint(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(UPathConstraint, Constraint);
+	P_FINISH;
+
+	vf_3a4((INT)Constraint);
 }

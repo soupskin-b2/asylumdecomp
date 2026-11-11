@@ -1,4 +1,4 @@
-// Engine_06d0000.cpp: 5 functions
+// Engine_06d0000.cpp: 6 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -45,4 +45,13 @@ void UMeshComponent::execGetNumElements( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	*(INT*)Result = vf_258();
+}
+
+// @baa 0x006dbed0
+void UPrimitiveComponent::execSetShadowParent(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(UPrimitiveComponent, NewShadowParent);
+	P_FINISH;
+
+	vf_234((UINT)NewShadowParent);
 }

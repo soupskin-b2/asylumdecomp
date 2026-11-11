@@ -1,4 +1,4 @@
-// RPlayerController.cpp (part 6 of 6): 22 functions
+// RPlayerController.cpp (part 6 of 6): 23 functions
 // Placed here by: class 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -223,4 +223,12 @@ void ARPlayerController__016f9730::execCheckSpaceToJump( FFrame& Stack, RESULT_D
 {
 	P_FINISH;
 	*(UBOOL*)Result = CheckSpaceToJump();
+}
+
+// @baa 0x016f8480
+void ARPlayerController::execInitGamePadSettings(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+
+	vf_4d4();
 }

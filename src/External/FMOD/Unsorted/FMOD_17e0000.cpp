@@ -1,4 +1,4 @@
-// FMOD_17e0000.cpp (part 1 of 2): 9 functions
+// FMOD_17e0000.cpp (part 1 of 2): 10 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -223,3 +223,16 @@ struct C_017e8b80 { int a, b; C_017e8b80(int, int); };
 
 // @baa 0x017e8b80
 C_017e8b80::C_017e8b80(int x, int y) : a(x), b(y) {}
+
+// 017e7220: member of an anonymous FMOD object range struct; returns Data + Count.
+struct S017e7220_ {
+    int Count;
+    unsigned __int64 *Data;
+    unsigned __int64 *sub_017e7220();
+};
+
+// @baa 0x017e7220
+unsigned __int64 *S017e7220_::sub_017e7220()
+{
+    return Data + Count;
+}

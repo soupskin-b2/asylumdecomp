@@ -1,4 +1,4 @@
-// CommonGame_1500000.cpp (part 2 of 3): 23 functions
+// CommonGame_1500000.cpp (part 2 of 3): 24 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -168,4 +168,13 @@ void ARRainVolumeBase::execShrinkSplashPoints( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	vf_36c();
+}
+
+// @baa 0x0150c4d0
+void URReachSpec::execAddBlocker(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(UObject, NewBlocker);
+	P_FINISH;
+
+	vf_13c((INT)NewBlocker);
 }

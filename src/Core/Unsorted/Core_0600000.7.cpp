@@ -1,4 +1,4 @@
-// Core_0600000.cpp: 4 functions
+// Core_0600000.cpp: 7 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -27,4 +27,22 @@ INT UProperty::GetPropertyValue(INT, INT)
 INT UProperty::HasValue(INT, INT)
 {
     PURE_VIRTUAL(UProperty::HasValue, return 0;);
+}
+
+// @baa 0x00600590
+void UProperty::ExportTextItem(UINT Value, UINT DefaultValue, UINT Parent, UINT PortFlags, UINT ExportFlags)
+{
+	PURE_VIRTUAL(UProperty::ExportTextItem,);
+}
+
+// @baa 0x00600630
+void UProperty::ClearValue(BYTE* Data, DWORD ArrayDim)
+{
+	PURE_VIRTUAL(UProperty::ClearValue,);
+}
+
+// @baa 0x00600550
+INT UProperty::Identical(INT A, INT B, INT Property)
+{
+	PURE_VIRTUAL(UProperty::Identical, return 0;);
 }
