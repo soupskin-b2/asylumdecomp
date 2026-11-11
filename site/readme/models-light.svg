@@ -9,8 +9,8 @@
 <text x="860" y="50" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">1,011</text>
 <text x="0" y="80" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">deepseek-v4.1-flash</text>
 <rect x="242" y="70" width="528" height="10" fill="#eaeef2" stroke="#d1d9e0"/>
-<rect x="242" y="70" width="3.13594" height="10" fill="#1f2328"/>
-<text x="860" y="80" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">561</text>
+<rect x="242" y="70" width="3.21419" height="10" fill="#1f2328"/>
+<text x="860" y="80" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">575</text>
 <text x="0" y="110" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">not specified</text>
 <rect x="242" y="100" width="528" height="10" fill="#eaeef2" stroke="#d1d9e0"/>
 <rect x="242" y="100" width="1.88939" height="10" fill="#1f2328"/>
@@ -21,8 +21,8 @@
 <text x="860" y="140" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">122</text>
 <text x="0" y="170" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">gpt-6.1-sol</text>
 <rect x="242" y="160" width="528" height="10" fill="#eaeef2" stroke="#d1d9e0"/>
-<rect x="242" y="160" width="0.436013" height="10" fill="#1f2328"/>
-<text x="860" y="170" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">78</text>
+<rect x="242" y="160" width="0.480732" height="10" fill="#1f2328"/>
+<text x="860" y="170" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">86</text>
 <text x="0" y="200" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">claude-sonnet-5.5</text>
 <rect x="242" y="190" width="528" height="10" fill="#eaeef2" stroke="#d1d9e0"/>
 <rect x="242" y="190" width="0.206826" height="10" fill="#1f2328"/>

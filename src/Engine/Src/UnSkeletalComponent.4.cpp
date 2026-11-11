@@ -1,4 +1,4 @@
-// UnSkeletalComponent.cpp: 16 functions
+// UnSkeletalComponent.cpp: 17 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -198,4 +198,19 @@ void USkeletalMeshComponent::execSetDisableColourWrites(FFrame& Stack, RESULT_DE
     P_GET_UBOOL(bNewDisableColourWrites);
     P_FINISH;
     static_cast<SkeletalMeshNative_0091fa30*>(this)->sub_009143d0(bNewDisableColourWrites);
+}
+
+struct SkeletalMeshNative_0091f940 : USkeletalMeshComponent
+{
+    void sub_00914150(FLOAT NewDepthBias, FExtraDepthBiasData NewDepthBiasData);
+};
+
+// @baa 0x0091f940
+void USkeletalMeshComponent::execSetDepthBias(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_FLOAT(NewDepthBias);
+    FExtraDepthBiasData NewDepthBiasData = {0, {0.0f, 0.0f, 0.0f}, -1.0f, 0.5f};
+    Stack.Step(Stack.Object, &NewDepthBiasData);
+    P_FINISH;
+    static_cast<SkeletalMeshNative_0091f940*>(this)->sub_00914150(NewDepthBias, NewDepthBiasData);
 }

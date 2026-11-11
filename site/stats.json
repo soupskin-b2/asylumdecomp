@@ -2,19 +2,19 @@
  "updated": "2026-11-11",
  "functions": {
   "total": 174153,
-  "matched": 96659
+  "matched": 96681
  },
  "bytes": {
   "total": 24308134,
-  "matched": 3578535
+  "matched": 3581575
  },
  "areas": [
   {
    "name": "Engine",
    "functions": 69863,
    "bytes": 9201956,
-   "matched": 40651,
-   "matched_bytes": 1632859
+   "matched": 40664,
+   "matched_bytes": 1634480
   },
   {
    "name": "Editor",
@@ -34,15 +34,15 @@
    "name": "Game",
    "functions": 13563,
    "bytes": 1853804,
-   "matched": 9097,
-   "matched_bytes": 512264
+   "matched": 9105,
+   "matched_bytes": 513579
   },
   {
    "name": "Core",
    "functions": 12072,
    "bytes": 1275961,
-   "matched": 7776,
-   "matched_bytes": 234339
+   "matched": 7777,
+   "matched_bytes": 234443
   },
   {
    "name": "CommonGame",
@@ -97,15 +97,15 @@
  "contributors": [
   {
    "login": "soupskin-b2",
-   "functions": 96659,
-   "bytes": 3578535,
+   "functions": 96681,
+   "bytes": 3581575,
    "models": {
     "tooling": 94456,
     "qwen3.8-27b": 1011,
-    "deepseek-v4.1-flash": 561,
+    "deepseek-v4.1-flash": 575,
     "not specified": 338,
     "claude-opus-5.5": 122,
-    "gpt-6.1-sol": 78,
+    "gpt-6.1-sol": 86,
     "claude-sonnet-5.5": 37,
     "deepseek-v4.1": 26,
     "qwen": 14,
@@ -128,7 +128,7 @@
   },
   {
    "model": "deepseek-v4.1-flash",
-   "functions": 561
+   "functions": 575
   },
   {
    "model": "not specified",
@@ -140,7 +140,7 @@
   },
   {
    "model": "gpt-6.1-sol",
-   "functions": 78
+   "functions": 86
   },
   {
    "model": "claude-sonnet-5.5",

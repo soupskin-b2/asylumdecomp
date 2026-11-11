@@ -1,4 +1,4 @@
-// Engine_0c90000.cpp: 19 functions
+// Engine_0c90000.cpp: 20 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -161,4 +161,11 @@ void AFracturedStaticMeshActor::execRemoveDecals(FFrame& Stack, RESULT_DECL)
 	P_GET_INT(IndexToRemoveDecalsFrom);
 	P_FINISH;
 	((AFracturedStaticMeshActor_*)this)->vf_37c(IndexToRemoveDecalsFrom);
+}
+
+// @baa 0x00c93ef0
+void URB_Handle::execGetOrientation(FFrame& Stack, RESULT_DECL)
+{
+    P_FINISH;
+    *(FQuat*)Result = vf_164();
 }

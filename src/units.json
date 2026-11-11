@@ -2,8 +2,8 @@
  "note": "Maintained by CI (tools/ci); every file is checked by python tools/asylum unit-check.",
  "totals": {
   "units": 1429,
-  "files": 3828,
-  "functions": 96659,
+  "files": 3832,
+  "functions": 96681,
   "failed": 0
  },
  "units": [
@@ -15651,6 +15651,26 @@
      "va": "0171e760",
      "size": 231,
      "symbol": "?execGetNPCCountString@URGFxMovieInvestigate@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "0171e660",
+     "size": 241,
+     "symbol": "?execSetPicture@URGFxMovie@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "0171c4d0",
+     "size": 334,
+     "symbol": "?execChopOffFront@ARPlayerController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016f8b80",
+     "size": 221,
+     "symbol": "?execProcessViewRotation@ARPlayerController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016f9850",
+     "size": 105,
+     "symbol": "?execAmIInSoftCover@ARPlayerController@@QAEXAAUFFrame@@QAX@Z"
     }
    ]
   },
@@ -17258,6 +17278,21 @@
      "va": "00c84130",
      "size": 100,
      "symbol": "?execRouteCache_RemoveItem@AController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "00c84020",
+     "size": 100,
+     "symbol": "?execRouteCache_AddItem@AController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "00c86d20",
+     "size": 105,
+     "symbol": "?execCheckSpeedHack@APlayerController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "00c86d90",
+     "size": 105,
+     "symbol": "?execFindStairRotation@APlayerController@@QAEXAAUFFrame@@QAX@Z"
     }
    ]
   },
@@ -48447,6 +48482,11 @@
      "va": "01709ad0",
      "size": 101,
      "symbol": "?execCorrectedAspectRatioFOV@ARCameraActor@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "01701480",
+     "size": 104,
+     "symbol": "?execTick@ARWindVolume@@QAEXAAUFFrame@@QAX@Z"
     }
    ]
   },
@@ -68252,6 +68292,11 @@
      "va": "005962a0",
      "size": 97,
      "symbol": "?execVSize2D@UObject@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "00596230",
+     "size": 104,
+     "symbol": "?execVSize@UObject@@QAEXAAUFFrame@@QAX@Z"
     }
    ]
   },
@@ -155517,6 +155562,11 @@
      "va": "006974f0",
      "size": 61,
      "symbol": "?GetPosition@ULightComponent_@@QAEXAAUFVector4@@@Z"
+    },
+    {
+     "va": "006ad3e0",
+     "size": 104,
+     "symbol": "?execGetDirection@ULightComponent@@QAEXAAUFFrame@@QAX@Z"
     }
    ]
   },
@@ -195311,6 +195361,11 @@
      "va": "009fe160",
      "size": 94,
      "symbol": "?execInitRBPhys@UPrimitiveComponent@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "009fe1c0",
+     "size": 100,
+     "symbol": "?execSetPhysMaterialOverride@UPrimitiveComponent@@QAEXAAUFFrame@@QAX@Z"
     }
    ]
   },
@@ -207681,6 +207736,11 @@
      "va": "0091fa30",
      "size": 108,
      "symbol": "?execSetDisableColourWrites@USkeletalMeshComponent@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "0091f940",
+     "size": 236,
+     "symbol": "?execSetDepthBias@USkeletalMeshComponent@@QAEXAAUFFrame@@QAX@Z"
     }
    ]
   },
@@ -207698,6 +207758,18 @@
      "va": "009140b0",
      "size": 150,
      "symbol": "?execFindMorphNode@USkeletalMeshComponent@@QAEXAAUFFrame@@QAX@Z"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Src/UnSkeletalComponent.cpp",
+   "source": "Engine/Src/UnSkeletalComponent.6.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "0091d730",
+     "size": 249,
+     "symbol": "?execGetRefPosePosition@USkeletalMeshComponent@@QAEXAAUFFrame@@QAX@Z"
     }
    ]
   },
@@ -242415,6 +242487,21 @@
      "va": "006dc0a0",
      "size": 90,
      "symbol": "?execSetLightingChannels@UPrimitiveComponent@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "006dc000",
+     "size": 104,
+     "symbol": "?execSetCullDistance@UPrimitiveComponent@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "006dc8c0",
+     "size": 106,
+     "symbol": "?execGetMaterial@UMeshComponent@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "006dc740",
+     "size": 106,
+     "symbol": "?execGetPhysicalMaterial@USkeletalMeshComponent@@QAEXAAUFFrame@@QAX@Z"
     }
    ]
   },
@@ -247643,6 +247730,23 @@
      "va": "0070a880",
      "size": 111,
      "symbol": "?Add@?$TArray@UT_0070a880@@@@QAEHH@Z"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Unsorted/Engine_0700000.cpp",
+   "source": "Engine/Unsorted/Engine_0700000.3.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "007027b0",
+     "size": 105,
+     "symbol": "?SetTextureParameterValue@UMaterialInstanceConstant_@@QAEXUFName@@PAUUTexture@@@Z"
+    },
+    {
+     "va": "00702740",
+     "size": 106,
+     "symbol": "?SetScalarParameterValue@UMaterialInstanceConstant__00702740@@QAEXUFName@@M@Z"
     }
    ]
   },
@@ -272385,6 +272489,18 @@
   },
   {
    "unit": "Engine/Unsorted/Engine_0870000.cpp",
+   "source": "Engine/Unsorted/Engine_0870000.2.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "00873b30",
+     "size": 104,
+     "symbol": "?execMoveSmooth@AActor@@QAEXAAUFFrame@@QAX@Z"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Unsorted/Engine_0870000.cpp",
    "source": "Engine/Unsorted/Engine_0870000.cpp",
    "profile": "ue3",
    "functions": [
@@ -277356,6 +277472,18 @@
      "va": "0092e110",
      "size": 48,
      "symbol": "?execInitSkelControls@USkeletalMeshComponent__0092e110@@QAEXAAUFFrame@@QAX@Z"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Unsorted/Engine_0920000.cpp",
+   "source": "Engine/Unsorted/Engine_0920000.4.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "0092ea10",
+     "size": 106,
+     "symbol": "?execClearAdditionalMaterialsForTextureStreaming@USkeletalMeshComponent@@QAEXAAUFFrame@@QAX@Z"
     }
    ]
   },
@@ -317441,6 +317569,11 @@
      "va": "00c9fb70",
      "size": 100,
      "symbol": "?execRemoveDecals@AFracturedStaticMeshActor@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "00c93ef0",
+     "size": 90,
+     "symbol": "?execGetOrientation@URB_Handle@@QAEXAAUFFrame@@QAX@Z"
     }
    ]
   },
@@ -421733,6 +421866,11 @@
      "va": "00c89650",
      "size": 101,
      "symbol": "?execAreUniqueNetIdsEqual@APlayerReplicationInfo@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "00c89b00",
+     "size": 105,
+     "symbol": "?execIsConsoleBuild@AWorldInfo@@QAEXAAUFFrame@@QAX@Z"
     }
    ]
   },

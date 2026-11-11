@@ -1,4 +1,4 @@
-// BmGame_0c80000.cpp: 18 functions
+// BmGame_0c80000.cpp: 21 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -171,4 +171,38 @@ void AController::execRouteCache_RemoveItem(FFrame& Stack, RESULT_DECL)
 	P_GET_OBJECT(ANavigationPoint, Nav);
 	P_FINISH;
 	vf_364((INT)Nav);
+}
+
+// @baa 0x00c84020
+void AController::execRouteCache_AddItem(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(ANavigationPoint, Nav);
+    P_FINISH;
+    vf_35c(Nav);
+}
+
+struct APlayerController__00c86d20 : public APlayerController
+{
+	UBOOL sub_007a0040(FLOAT);
+};
+
+// @baa 0x00c86d20
+void APlayerController::execCheckSpeedHack(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(DeltaTime);
+	P_FINISH;
+	*(UBOOL*)Result = ((APlayerController__00c86d20*)this)->sub_007a0040(DeltaTime);
+}
+
+struct APlayerController__00c86d90 : public APlayerController
+{
+	INT sub_007acd30(FLOAT);
+};
+
+// @baa 0x00c86d90
+void APlayerController::execFindStairRotation(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(DeltaTime);
+	P_FINISH;
+	*(INT*)Result = ((APlayerController__00c86d90*)this)->sub_007acd30(DeltaTime);
 }

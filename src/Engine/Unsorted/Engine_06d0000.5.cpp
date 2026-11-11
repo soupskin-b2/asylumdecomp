@@ -1,4 +1,4 @@
-// Engine_06d0000.cpp: 10 functions
+// Engine_06d0000.cpp: 13 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -85,4 +85,28 @@ void UPrimitiveComponent::execSetLightingChannels(FFrame& Stack, RESULT_DECL)
 	P_GET_STRUCT(FLightingChannelContainer, NewLightingChannels);
 	P_FINISH;
 	vf_240(*(UINT*)&NewLightingChannels);
+}
+
+// @baa 0x006dc000
+void UPrimitiveComponent::execSetCullDistance(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(NewCullDistance);
+	P_FINISH;
+	vf_23c(NewCullDistance);
+}
+
+// @baa 0x006dc8c0
+void UMeshComponent::execGetMaterial(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(ElementIndex);
+	P_FINISH;
+	*(UMaterialInterface**)Result = (UMaterialInterface*)vf_25c(ElementIndex);
+}
+
+// @baa 0x006dc740
+void USkeletalMeshComponent::execGetPhysicalMaterial(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(BodyIndex);
+	P_FINISH;
+	*(UPhysicalMaterial**)Result = (UPhysicalMaterial*)vf_1ec(BodyIndex);
 }

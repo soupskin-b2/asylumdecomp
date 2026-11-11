@@ -1,4 +1,4 @@
-// RPlayerController.cpp (part 6 of 6): 126 functions
+// RPlayerController.cpp (part 6 of 6): 130 functions
 // Placed here by: class 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -1088,4 +1088,46 @@ void URGFxMovieInvestigate::execGetNPCCountString(FFrame& Stack, RESULT_DECL)
     P_GET_INT(UnArmed);
     P_FINISH;
     *(FString*)Result = vf_17c(Armed, UnArmed);
+}
+
+// @baa 0x0171e660
+void URGFxMovie::execSetPicture(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STR(BaseName);
+    P_GET_STR(StreamedName);
+    P_FINISH;
+    vf_174(BaseName, StreamedName);
+}
+
+// @baa 0x0171c4d0
+void ARPlayerController::execChopOffFront(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STR(Data);
+    P_GET_STR(ChopOff);
+    P_GET_UBOOL_OPTX(QuoteIt, FALSE);
+    P_FINISH;
+    *(FString*)Result = vf_4ec(Data, ChopOff, QuoteIt);
+}
+
+// @baa 0x016f8b80
+void ARPlayerController::execProcessViewRotation(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_FLOAT(DeltaTime);
+    P_GET_STRUCT_REF(FRotator, out_ViewRotation);
+    P_GET_STRUCT(FRotator, DeltaRot);
+    P_FINISH;
+    vf_528(DeltaTime, out_ViewRotation, DeltaRot);
+}
+
+struct ARPlayerController__016f9850 : public ARPlayerController
+{
+	UBOOL sub_016184f0(FLOAT);
+};
+
+// @baa 0x016f9850
+void ARPlayerController::execAmIInSoftCover(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(DeltaTime);
+	P_FINISH;
+	*(UBOOL*)Result = ((ARPlayerController__016f9850*)this)->sub_016184f0(DeltaTime);
 }

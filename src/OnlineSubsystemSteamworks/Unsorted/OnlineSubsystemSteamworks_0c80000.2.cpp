@@ -1,4 +1,4 @@
-// OnlineSubsystemSteamworks_0c80000.cpp: 11 functions
+// OnlineSubsystemSteamworks_0c80000.cpp: 12 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -127,4 +127,17 @@ void APlayerReplicationInfo::execAreUniqueNetIdsEqual(FFrame& Stack, RESULT_DECL
 	P_GET_OBJECT(APlayerReplicationInfo, OtherPRI);
 	P_FINISH;
 	*(UBOOL*)Result = ((APlayerReplicationInfo__00c89650*)this)->sub_00758b80(OtherPRI);
+}
+
+struct AWorldInfo__00c89b00 : public AWorldInfo
+{
+	UBOOL sub_008a77d0(BYTE);
+};
+
+// @baa 0x00c89b00
+void AWorldInfo::execIsConsoleBuild(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_BYTE_OPTX(ConsoleType, 0);
+	P_FINISH;
+	*(UBOOL*)Result = ((AWorldInfo__00c89b00*)this)->sub_008a77d0(ConsoleType);
 }
