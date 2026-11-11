@@ -3184,6 +3184,7 @@ struct FGuidImplementation {
 struct FGuid {
     /* Core.Guid */
     INT A; /* 0x0 */
+    void Invalidate() { A = 0; }
 };
 
 struct FVector {
@@ -5823,6 +5824,7 @@ struct FFontParameterValue {
     class UFont* FontValue; /* 0x8 */
     INT FontPage; /* 0xc */
     FGuid ExpressionGUID; /* 0x10 */
+    FFontParameterValue() { ExpressionGUID.Invalidate(); }  /* new(Array) FFontParameterValue: the game clears the GUID */
 };
 
 struct FScalarParameterValue {
@@ -5830,6 +5832,7 @@ struct FScalarParameterValue {
     FName ParameterName; /* 0x0 */
     FLOAT ParameterValue; /* 0x8 */
     FGuid ExpressionGUID; /* 0xc */
+    FScalarParameterValue() { ExpressionGUID.Invalidate(); }  /* new(Array) FScalarParameterValue: the game clears the GUID */
 };
 
 struct FTextureParameterValue {
@@ -5837,6 +5840,7 @@ struct FTextureParameterValue {
     FName ParameterName; /* 0x0 */
     class UTexture* ParameterValue; /* 0x8 */
     FGuid ExpressionGUID; /* 0xc */
+    FTextureParameterValue() { ExpressionGUID.Invalidate(); }  /* new(Array) FTextureParameterValue: the game clears the GUID */
 };
 
 struct FVectorParameterValue {
@@ -5844,6 +5848,7 @@ struct FVectorParameterValue {
     FName ParameterName; /* 0x0 */
     FLinearColor ParameterValue; /* 0x8 */
     FGuid ExpressionGUID; /* 0x18 */
+    FVectorParameterValue() { ExpressionGUID.Invalidate(); }  /* new(Array) FVectorParameterValue: the game clears the GUID */
 };
 
 struct FParameterValueOverTime {
@@ -9620,7 +9625,7 @@ struct UObject {
     virtual INT vf_088(); /* 0x088 */
     virtual INT vf_08c(); /* 0x08c */
     virtual INT vf_090(); /* 0x090 */
-    virtual FString vf_094(); /* 0x094 */
+    virtual FString GetDetailedInfoInternal(); /* 0x094 */
     virtual INT vf_098(); /* 0x098 */
     virtual void vf_09c(); /* 0x09c */
     virtual INT vf_0a0(INT); /* 0x0a0 */
@@ -9893,6 +9898,7 @@ struct UObject {
     void execPopState(FFrame& Stack, RESULT_DECL); /* 0x005aeed0 */
     void execGetPerObjectConfigSections(FFrame& Stack, RESULT_DECL); /* 0x005aef50 */
     /* other member functions */
+    FString GetPathName(UObject* StopOuter = NULL) const; /* 0x005d59a0 */
     void sub_005aecc0(FFrame&, UBOOL); /* 0x005aecc0 */
     void sub_005de600(INT, INT, INT); /* 0x005de600 */
     void sub_004140a0(INT); /* 0x004140a0 */
@@ -16034,7 +16040,7 @@ struct UAudioComponent : public UActorComponent {
     virtual void vf_02c(); /* 0x02c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual void vf_04c(UINT); /* 0x04c */
-    virtual FString vf_094(); /* 0x094 */
+    virtual FString GetDetailedInfoInternal(); /* 0x094 */
     virtual FLOAT vf_110(INT); /* 0x110 */
     virtual void vf_114(); /* 0x114 */
     virtual void vf_11c(UINT); /* 0x11c */
@@ -16144,7 +16150,6 @@ struct USoundCue : public UObject {
     void execGetCueDuration(FFrame& Stack, RESULT_DECL); /* 0x00c8ee40 */
     void execGetDistanceProperties(FFrame& Stack, RESULT_DECL); /* 0x00c8ee80 */
     /* other member functions */
-    FString sub_005d59a0(INT Value); /* 0x005d59a0 */
     UINT sub_00cdbae0(BYTE); /* 0x00cdbae0 */
     UINT sub_00cdbd90(BYTE); /* 0x00cdbd90 */
     /* registered size 0xd8 */
@@ -18150,7 +18155,7 @@ struct UStaticMeshComponent : public UMeshComponent {
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual void vf_04c(UINT); /* 0x04c */
     virtual void vf_054(); /* 0x054 */
-    virtual FString vf_094(); /* 0x094 */
+    virtual FString GetDetailedInfoInternal(); /* 0x094 */
     virtual void vf_0e8(INT); /* 0x0e8 */
     virtual INT vf_10c(UINT); /* 0x10c */
     virtual void vf_114(); /* 0x114 */
@@ -19457,7 +19462,7 @@ struct USkeletalMeshComponent : public UMeshComponent {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_02c(); /* 0x02c */
-    virtual FString vf_094(); /* 0x094 */
+    virtual FString GetDetailedInfoInternal(); /* 0x094 */
     virtual FLOAT vf_110(INT); /* 0x110 */
     virtual void vf_114(); /* 0x114 */
     virtual void vf_118(); /* 0x118 */
@@ -21298,7 +21303,7 @@ struct ADynamicSMActor : public AActor {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual FString vf_094(); /* 0x094 */
+    virtual FString GetDetailedInfoInternal(); /* 0x094 */
     virtual UINT vf_178(); /* 0x178 */
     virtual void vf_2b8(); /* 0x2b8 */
     /* registered size 0x1e0 */
@@ -21439,7 +21444,7 @@ struct UParticleSystemComponent : public UPrimitiveComponent {
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual void vf_044(UINT); /* 0x044 */
     virtual void vf_04c(UINT); /* 0x04c */
-    virtual FString vf_094(); /* 0x094 */
+    virtual FString GetDetailedInfoInternal(); /* 0x094 */
     virtual void vf_114(); /* 0x114 */
     virtual void vf_118(); /* 0x118 */
     virtual void vf_11c(UINT); /* 0x11c */
@@ -21539,7 +21544,7 @@ struct AEmitter : public AActor {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual FString vf_094(); /* 0x094 */
+    virtual FString GetDetailedInfoInternal(); /* 0x094 */
     virtual INT vf_174(INT, INT); /* 0x174 */
     virtual UINT vf_178(); /* 0x178 */
     virtual void vf_180(); /* 0x180 */
@@ -27309,6 +27314,7 @@ struct UMaterialInstance : public UMaterialInterface {
     /* UnrealScript natives */
     void execIsInMapOrTransientPackage(FFrame& Stack, RESULT_DECL); /* 0x00c9b790 */
     /* other member functions */
+    void sub_006c47c0(const TCHAR* Caller); /* 0x006c47c0 */
     UINT sub_006aeb10(); /* 0x006aeb10 */
     void sub_006aeb30(); /* 0x006aeb30 */
     UINT* sub_006aeb40(BYTE); /* 0x006aeb40 */
@@ -27358,6 +27364,9 @@ struct UMaterialInstanceConstant : public UMaterialInstance {
     virtual void vf_180(); /* 0x180 */
     virtual void vf_184(); /* 0x184 */
     /* other member functions */
+    void SetScalarParameterValue(FName ParameterName, FLOAT Value); /* 0x00702740 */
+    void SetTextureParameterValue(FName ParameterName, UTexture* Value); /* 0x007027b0 */
+    void SetFontParameterValue(FName ParameterName, UFont* FontValue, INT FontPage); /* 0x00702820 */
     void sub_006d89d0(); /* 0x006d89d0 */
     UINT* sub_006d89e0(BYTE); /* 0x006d89e0 */
     void sub_006d8a60(); /* 0x006d8a60 */
@@ -35686,7 +35695,7 @@ struct USkeletalMesh : public UObject {
     virtual void vf_044(UINT); /* 0x044 */
     virtual void vf_04c(UINT); /* 0x04c */
     virtual void vf_05c(); /* 0x05c */
-    virtual FString vf_094(); /* 0x094 */
+    virtual FString GetDetailedInfoInternal(); /* 0x094 */
     virtual INT vf_0b4(INT); /* 0x0b4 */
     virtual FString vf_0b8(); /* 0x0b8 */
     virtual void vf_0bc(INT, INT); /* 0x0bc */
@@ -35718,7 +35727,7 @@ struct ASkeletalMeshActor : public AActor {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual FString vf_094(); /* 0x094 */
+    virtual FString GetDetailedInfoInternal(); /* 0x094 */
     virtual void vf_10c(INT, UINT); /* 0x10c */
     virtual UINT vf_178(); /* 0x178 */
     virtual void vf_1b4(FLOAT); /* 0x1b4 */
@@ -36459,7 +36468,7 @@ struct AStaticMeshActor : public AStaticMeshActorBase {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_04c(UINT); /* 0x04c */
-    virtual FString vf_094(); /* 0x094 */
+    virtual FString GetDetailedInfoInternal(); /* 0x094 */
     virtual UINT vf_178(); /* 0x178 */
     virtual void vf_2b8(); /* 0x2b8 */
     /* registered size 0x1b0 */

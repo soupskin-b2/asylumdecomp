@@ -2178,18 +2178,13 @@ struct C_0078fd70 { void sub_0078fd70(void); };
 // @baa 0x0078fd70
 void C_0078fd70::sub_0078fd70(void) { *(int*)((char*)this + 4) = 0; }
 
-/* USoundCue's FString-returning lookup (005d59a0 has no name in the headers: it ignores `this`
- * and takes one INT). */
-
 // @baa 0x0078d960
-/* UAudioComponent's FString-returning virtual at vtable slot 0x94 (the headers have only the
- * slot name). */
-FString UAudioComponent::vf_094()
+FString UAudioComponent::GetDetailedInfoInternal()
 {
 	FString Result;
 	if (SoundCue)
 	{
-		Result = ((USoundCue*)SoundCue)->sub_005d59a0(0);
+		Result = SoundCue->GetPathName();
 	}
 	else
 	{

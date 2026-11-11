@@ -224,8 +224,15 @@ public:
     }
 };
 
+// The game's compiler sometimes kept new(Array) T out of line (a call to a per-T function holding the
+// check): #define BAA_OUTLINE_NEW before the includes for such a file.
+#ifdef BAA_OUTLINE_NEW
+#define BAA_NEW_INLINE __declspec(noinline)
+#else
+#define BAA_NEW_INLINE inline
+#endif
 template<typename T>
-inline void* operator new(SIZE_T Size, TArray<T>& Array) {
+BAA_NEW_INLINE void* operator new(SIZE_T Size, TArray<T>& Array) {
 #line 1275 BAA_ARRAY_FILE
     check(Size == sizeof(T));
     const INT Index = Array.Add(1);

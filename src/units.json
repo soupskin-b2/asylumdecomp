@@ -66016,7 +66016,7 @@
     {
      "va": "00417f50",
      "size": 33,
-     "symbol": "?vf_094@UObject@@UAE?AVFString@@XZ"
+     "symbol": "?GetDetailedInfoInternal@UObject@@UAE?AVFString@@XZ"
     },
     {
      "va": "00417f80",
@@ -250813,17 +250813,17 @@
     {
      "va": "007027b0",
      "size": 105,
-     "symbol": "?SetTextureParameterValue@UMaterialInstanceConstant_@@QAEXUFName@@PAUUTexture@@@Z"
+     "symbol": "?SetTextureParameterValue@UMaterialInstanceConstant@@QAEXUFName@@PAUUTexture@@@Z"
     },
     {
      "va": "00702740",
      "size": 106,
-     "symbol": "?SetScalarParameterValue@UMaterialInstanceConstant__00702740@@QAEXUFName@@M@Z"
+     "symbol": "?SetScalarParameterValue@UMaterialInstanceConstant@@QAEXUFName@@M@Z"
     },
     {
      "va": "00702820",
      "size": 109,
-     "symbol": "?SetFontParameterValue@UMaterialInstanceConstant__00702820@@QAEXUFName@@PAUUFont@@H@Z"
+     "symbol": "?SetFontParameterValue@UMaterialInstanceConstant@@QAEXUFName@@PAUUFont@@H@Z"
     }
    ]
   },
@@ -264463,7 +264463,7 @@
     {
      "va": "0078d960",
      "size": 150,
-     "symbol": "?vf_094@UAudioComponent@@UAE?AVFString@@XZ"
+     "symbol": "?GetDetailedInfoInternal@UAudioComponent@@UAE?AVFString@@XZ"
     }
    ]
   },

@@ -372,7 +372,7 @@ int UObject::vf_0d4(void) { return 0; }
 int UObject::sub_00417e30(void) { return *(int*)((char*)this + 0); }
 
 // @baa 0x00417f50
-FString UObject::vf_094()
+FString UObject::GetDetailedInfoInternal()
 {
     return TEXT("No_Detailed_Info_Specified");
 }
