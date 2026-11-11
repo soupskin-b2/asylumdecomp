@@ -1915,13 +1915,10 @@ void UPrimitiveComponent::sub_006dbe90(uint param_2)
 }
 
 // @baa 0x006dbf40
-void UPrimitiveComponent::vf_234(undefined4 param_2)
+void UPrimitiveComponent::vf_234(UPrimitiveComponent* NewShadowParent)
 {
-    int param_1 = (int)this;
-
-  *(undefined4 *)(param_1 + 0xf8) = param_2;
-  sub_00765d00();
-  return;
+    ShadowParent = NewShadowParent;
+    sub_00765d00();
 }
 
 // @baa 0x006dbfd0

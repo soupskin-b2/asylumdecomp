@@ -304,7 +304,7 @@ void URAnimNode_AnimCapture::execCapture(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(USkeletalMeshComponent, Mesh);
 	P_FINISH;
-	vf_19c((INT)Mesh);
+	vf_19c(Mesh);
 }
 
 struct ARPawn_ : public ARPawn

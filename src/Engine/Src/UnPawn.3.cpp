@@ -109,7 +109,7 @@ void APawn::execAddPathConstraint(FFrame& Stack, RESULT_DECL)
 	P_GET_OBJECT(UPathConstraint, Constraint);
 	P_FINISH;
 
-	vf_3a4((INT)Constraint);
+	vf_3a4(Constraint);
 }
 
 // @baa 0x00c8aba0

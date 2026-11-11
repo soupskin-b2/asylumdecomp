@@ -61,7 +61,7 @@ public: \
     static void InternalConstructor(void* X) { new((EInternal*)X) TClass; }
 /* objects of this class live inside a TWithinClass (UClass::ClassWithin) */
 #define DECLARE_WITHIN(TWithinClass) \
-    typedef class TWithinClass WithinClass;
+    typedef class TWithinClass WithinClass; TWithinClass* GetOuter##TWithinClass() const { return (TWithinClass*)Outer; }
 
 /* UE3 compiles its classes packed to 4 on Win32 (and keeps MS_ALIGN types aligned) */
 #pragma pack(push, 4)
@@ -12370,7 +12370,7 @@ struct AActor : public UObject {
     virtual INT vf_308(); /* 0x308 */
     virtual bool vf_30c(); /* 0x30c */
     virtual INT vf_310(INT); /* 0x310 */
-    virtual FLOAT vf_314(INT); /* 0x314 */
+    virtual void vf_314(INT); /* 0x314 */
     virtual INT vf_318(INT, INT); /* 0x318 */
     virtual void vf_31c(INT); /* 0x31c */
     virtual INT vf_320(INT, INT, INT, INT, INT); /* 0x320 */
@@ -12732,7 +12732,7 @@ struct UPrimitiveComponent : public UActorComponent {
     virtual void vf_228(UINT); /* 0x228 */
     virtual void vf_22c(UINT); /* 0x22c */
     virtual void vf_230(UINT); /* 0x230 */
-    virtual void vf_234(UINT); /* 0x234 */
+    virtual void vf_234(UPrimitiveComponent*); /* 0x234 */
     virtual void vf_238(UINT); /* 0x238 */
     virtual void vf_23c(FLOAT); /* 0x23c */
     virtual void vf_240(UINT); /* 0x240 */
@@ -15781,7 +15781,7 @@ struct ANavigationPoint : public AActor {
     virtual void vf_2ac(INT, UINT, UINT); /* 0x2ac */
     virtual UINT vf_2b0(INT, FLOAT*); /* 0x2b0 */
     virtual void vf_2b8(); /* 0x2b8 */
-    virtual FLOAT vf_314(INT); /* 0x314 */
+    virtual void vf_314(INT); /* 0x314 */
     virtual void vf_31c(INT); /* 0x31c */
     virtual void vf_324(); /* 0x324 */
     virtual void vf_328(INT, INT); /* 0x328 */
@@ -16019,7 +16019,7 @@ struct AAmbientSound : public AKeypoint {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_2b8(); /* 0x2b8 */
-    virtual FLOAT vf_314(INT); /* 0x314 */
+    virtual void vf_314(INT); /* 0x314 */
     /* registered size 0x1b0 */
 };
 
@@ -18137,7 +18137,7 @@ struct ACameraActor : public AActor {
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_04c(UINT); /* 0x04c */
     virtual void vf_180(); /* 0x180 */
-    virtual FLOAT vf_314(INT); /* 0x314 */
+    virtual void vf_314(INT); /* 0x314 */
     /* registered size 0x25c */
 };
 
@@ -19616,7 +19616,7 @@ struct ACrowdAttractor : public AActor {
     virtual void vf_04c(UINT); /* 0x04c */
     virtual void vf_170(FLOAT*, INT, INT, INT, INT, INT); /* 0x170 */
     virtual INT vf_310(INT); /* 0x310 */
-    virtual FLOAT vf_314(INT); /* 0x314 */
+    virtual void vf_314(INT); /* 0x314 */
     /* registered size 0x1d4 */
 };
 
@@ -30544,11 +30544,11 @@ struct APawn : public AActor {
     virtual INT vf_388(); /* 0x388 */
     virtual INT vf_38c(); /* 0x38c */
     virtual INT vf_390(); /* 0x390 */
-    virtual INT vf_394(INT); /* 0x394 */
-    virtual INT vf_398(INT); /* 0x398 */
+    virtual FRotator vf_394(); /* 0x394 */
+    virtual FVector vf_398(); /* 0x398 */
     virtual INT vf_39c(); /* 0x39c */
     virtual void vf_3a0(); /* 0x3a0 */
-    virtual INT vf_3a4(INT); /* 0x3a4 */
+    virtual INT vf_3a4(UPathConstraint*); /* 0x3a4 */
     virtual void vf_3a8(INT); /* 0x3a8 */
     virtual void vf_3ac(INT, INT); /* 0x3ac */
     virtual void vf_3b0(INT, INT); /* 0x3b0 */
@@ -31274,7 +31274,7 @@ struct APortalVolume : public AVolume {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual INT vf_310(INT); /* 0x310 */
-    virtual FLOAT vf_314(INT); /* 0x314 */
+    virtual void vf_314(INT); /* 0x314 */
     /* registered size 0x1dc */
 };
 
@@ -31303,7 +31303,7 @@ struct APostProcessVolume : public AVolume {
     virtual void vf_01c(); /* 0x01c */
     virtual void vf_04c(UINT); /* 0x04c */
     virtual INT vf_310(INT); /* 0x310 */
-    virtual FLOAT vf_314(INT); /* 0x314 */
+    virtual void vf_314(INT); /* 0x314 */
     /* registered size 0x27c */
 };
 
@@ -32135,7 +32135,7 @@ struct AReverbVolume : public AVolume {
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_04c(UINT); /* 0x04c */
     virtual INT vf_310(INT); /* 0x310 */
-    virtual FLOAT vf_314(INT); /* 0x314 */
+    virtual void vf_314(INT); /* 0x314 */
     /* registered size 0x1e8 */
 };
 
@@ -32619,7 +32619,7 @@ struct USeqAct_Latent : public USequenceAction {
     TArrayNoInit<class AActor*> LatentActors; /* 0xd4 */
     BITFIELD bAborted : 1; /* 0xe0 */
     /* virtual functions this class introduces (vtable 0x01f647b8) */
-    virtual void vf_19c(INT); /* 0x19c */
+    virtual void vf_19c(AActor*); /* 0x19c */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -36045,7 +36045,7 @@ struct AStaticLightCollectionActor : public ALight {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
-    virtual FLOAT vf_314(INT); /* 0x314 */
+    virtual void vf_314(INT); /* 0x314 */
     /* registered size 0x1c8 */
 };
 
@@ -36097,7 +36097,7 @@ struct AStaticMeshCollectionActor : public AStaticMeshActorBase {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
-    virtual FLOAT vf_314(INT); /* 0x314 */
+    virtual void vf_314(INT); /* 0x314 */
     /* registered size 0x1bc */
 };
 
@@ -36291,7 +36291,7 @@ struct ATerrain : public AInfo {
     virtual void vf_23c(INT); /* 0x23c */
     virtual void vf_2b8(); /* 0x2b8 */
     virtual INT vf_310(INT); /* 0x310 */
-    virtual FLOAT vf_314(INT); /* 0x314 */
+    virtual void vf_314(INT); /* 0x314 */
     virtual INT vf_320(INT, INT, INT, INT, INT); /* 0x320 */
     /* UnrealScript natives */
     void execCalcLayerBounds(FFrame& Stack, RESULT_DECL); /* 0x00c9b9e0 */
@@ -39367,7 +39367,7 @@ struct URReachSpec : public UReachSpec {
     DECLARE_CLASS(URReachSpec, UReachSpec, 0x0, 0x0, CommonGame)
     TArrayNoInit<class UObject*> PathBlockers; /* 0x90 */
     /* virtual functions this class introduces (vtable 0x022e6688) */
-    virtual INT vf_13c(INT); /* 0x13c */
+    virtual INT vf_13c(UObject*); /* 0x13c */
     virtual INT vf_140(INT); /* 0x140 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
@@ -40081,7 +40081,7 @@ struct UOnlineSubsystemSteamworks : public UOnlineSubsystemCommonImpl {
     FStringNoInit LocalProfileName; /* 0xec */
     FStringNoInit LoggedInPlayerName; /* 0xf8 */
     FUniqueNetId LoggedInPlayerId; /* 0x104 */
-    INT LoggedInPlayerNum; /* 0x10c */
+    BYTE LoggedInPlayerNum; /* 0x10c */
     FStringNoInit ProfileDataDirectory; /* 0x110 */
     FStringNoInit ProfileDataExtension; /* 0x11c */
     TArrayNoInit<FScriptDelegate> WriteProfileSettingsDelegates; /* 0x128 */
@@ -41148,7 +41148,7 @@ struct URAnimNode_AnimCapture : public UAnimNodeBlendBase {
     DECLARE_CLASS(URAnimNode_AnimCapture, UAnimNodeBlendBase, 0x0, 0x0, BmGame)
     TArrayNoInit<FBoneAtom> SavedAtoms; /* 0xc8 */
     /* virtual functions this class introduces (vtable 0x022fe5b8) */
-    virtual void vf_19c(INT); /* 0x19c */
+    virtual void vf_19c(USkeletalMeshComponent*); /* 0x19c */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -49934,7 +49934,7 @@ struct ARExplodableWallBase : public AActor {
     virtual INT vf_1a0(INT, INT, INT); /* 0x1a0 */
     virtual void vf_1d8(); /* 0x1d8 */
     virtual void vf_244(INT, INT, INT); /* 0x244 */
-    virtual FLOAT vf_314(INT); /* 0x314 */
+    virtual void vf_314(INT); /* 0x314 */
     virtual FLOAT vf_350(INT); /* 0x350 */
     /* UnrealScript natives */
     void execGetTargetLocation(FFrame& Stack, RESULT_DECL); /* 0x00c83160 */
@@ -60347,7 +60347,7 @@ struct UThumbnailRenderer : public UObject {
     /* UnrealEd.ThumbnailRenderer (native only: no script package describes it) */
     DECLARE_CLASS(UThumbnailRenderer, UObject, 0x1, 0x0, UnrealEd)
     /* virtual functions this class introduces (vtable 0x02210a90) */
-    virtual INT vf_10c(INT, INT); /* 0x10c */
+    virtual UBOOL SupportsThumbnailRendering(UObject* Object, UBOOL bCheckObjectState); /* 0x10c */
     virtual INT GetThumbnailSize(INT, INT, INT, INT, INT); /* 0x110 */
     virtual void Draw(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x114 */
     /* overrides */
@@ -60375,7 +60375,7 @@ struct UArchetypeThumbnailRenderer : public UIconThumbnailRenderer {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(INT, INT); /* 0x10c */
+    virtual UBOOL SupportsThumbnailRendering(UObject* Object, UBOOL bCheckObjectState); /* 0x10c */
     /* registered size 0x40 */
 };
 
@@ -63346,7 +63346,7 @@ struct UGFxMovieThumbnailRenderer : public UIconThumbnailRenderer {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(INT, INT); /* 0x10c */
+    virtual UBOOL SupportsThumbnailRendering(UObject* Object, UBOOL bCheckObjectState); /* 0x10c */
     /* registered size 0x40 */
 };
 

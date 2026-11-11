@@ -90,12 +90,25 @@ enum { RUC_SkippedOptionalParm = 0x02 };
 #define P_GET_OBJECT_REF(c, v) c* v##T = 0; GPropAddr = 0; Stack.Step(Stack.Object, &v##T); c*& v = GPropAddr ? *(c**)GPropAddr : v##T;
 #define P_GET_STR_REF(v)       FString v##T; GPropAddr = 0; Stack.Step(Stack.Object, &v##T); FString& v = GPropAddr ? *(FString*)GPropAddr : v##T;
 
-#define P_GET_INT_OPTX(v, d)    GRuntimeUCFlags &= ~RUC_SkippedOptionalParm; INT v = d; Stack.Step(Stack.Object, &v);
-#define P_GET_FLOAT_OPTX(v, d)  GRuntimeUCFlags &= ~RUC_SkippedOptionalParm; FLOAT v = d; Stack.Step(Stack.Object, &v);
-#define P_GET_BYTE_OPTX(v, d)   GRuntimeUCFlags &= ~RUC_SkippedOptionalParm; BYTE v = d; Stack.Step(Stack.Object, &v);
-#define P_GET_UBOOL_OPTX(v, d)  GRuntimeUCFlags &= ~RUC_SkippedOptionalParm; UBOOL v = d; Stack.Step(Stack.Object, &v); v = (v != 0);
-#define P_GET_OBJECT_OPTX(c, v, d) GRuntimeUCFlags &= ~RUC_SkippedOptionalParm; c* v = d; Stack.Step(Stack.Object, &v);
-#define P_GET_NAME_OPTX(v, d)   GRuntimeUCFlags &= ~RUC_SkippedOptionalParm; FName v = d; Stack.Step(Stack.Object, &v);
+/* an interface parameter (UnrealScript `SomeInterface`): object and interface pointers, zeroed */
+template<class T> struct TScriptInterface : public FScriptInterface {
+    TScriptInterface() { Object = NULL; Interface = NULL; }
+    T* GetInterface() const { return (T*)Interface; }
+    T* operator->() const { return (T*)Interface; }
+    UObject* GetObject() const { return Object; }
+};
+#define P_GET_TINTERFACE(t, v)     TScriptInterface<t> v; Stack.Step(Stack.Object, &v);
+#define P_GET_TINTERFACE_REF(t, v) TScriptInterface<t> v##T; GPropAddr = 0; Stack.Step(Stack.Object, &v##T); TScriptInterface<t>& v = GPropAddr ? *(TScriptInterface<t>*)GPropAddr : v##T;
+/* an array parameter, and an `out` one */
+#define P_GET_TARRAY(t, v)         TArray<t> v; Stack.Step(Stack.Object, &v);
+#define P_GET_TARRAY_REF(t, v)     TArray<t> v##T; GPropAddr = 0; Stack.Step(Stack.Object, &v##T); TArray<t>& v = GPropAddr ? *(TArray<t>*)GPropAddr : v##T;
+
+#define P_GET_INT_OPTX(v, d)    INT v = d; GRuntimeUCFlags &= ~RUC_SkippedOptionalParm; Stack.Step(Stack.Object, &v);
+#define P_GET_FLOAT_OPTX(v, d)  FLOAT v = d; GRuntimeUCFlags &= ~RUC_SkippedOptionalParm; Stack.Step(Stack.Object, &v);
+#define P_GET_BYTE_OPTX(v, d)   BYTE v = d; GRuntimeUCFlags &= ~RUC_SkippedOptionalParm; Stack.Step(Stack.Object, &v);
+#define P_GET_UBOOL_OPTX(v, d)  UBOOL v = d; GRuntimeUCFlags &= ~RUC_SkippedOptionalParm; Stack.Step(Stack.Object, &v); v = (v != 0);
+#define P_GET_OBJECT_OPTX(c, v, d) c* v = d; GRuntimeUCFlags &= ~RUC_SkippedOptionalParm; Stack.Step(Stack.Object, &v);
+#define P_GET_NAME_OPTX(v, d)   FName v = d; GRuntimeUCFlags &= ~RUC_SkippedOptionalParm; Stack.Step(Stack.Object, &v);
 #define P_GET_STR_OPTX(v, d)    FString v(d); GRuntimeUCFlags &= ~RUC_SkippedOptionalParm; Stack.Step(Stack.Object, &v);
 
 // After the last parameter: skip EX_EndFunctionParms, then a debug-info opcode if there is one.

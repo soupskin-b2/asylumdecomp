@@ -852,7 +852,7 @@ int sub_0124cd90(int a0, int a1) { return a1; }
 IMPLEMENT_CLASS_AT(UThumbnailRenderer, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\ThumbnailManager.cpp", 22);
 
 // @baa 0x0124ce00
-int UThumbnailRenderer::vf_10c(int a0, int a1) { return 1; }
+UBOOL UThumbnailRenderer::SupportsThumbnailRendering(UObject* Object, UBOOL bCheckObjectState) { return TRUE; }
 
 // @baa 0x0124ce10
 extern undefined * g_02210a90;

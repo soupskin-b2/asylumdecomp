@@ -53,7 +53,7 @@ void UPrimitiveComponent::execSetShadowParent(FFrame& Stack, RESULT_DECL)
 	P_GET_OBJECT(UPrimitiveComponent, NewShadowParent);
 	P_FINISH;
 
-	vf_234((UINT)NewShadowParent);
+	vf_234(NewShadowParent);
 }
 
 // @baa 0x006d92d0

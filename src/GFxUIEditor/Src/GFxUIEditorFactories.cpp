@@ -125,9 +125,8 @@ int sub_014ff150(void)
 // @baa 0x014ff190
 
 // @baa 0x014fa880
-// UThumbnailRenderer's vtable slot 0x10c is SupportsThumbnailRendering(UObject* Object, UBOOL bCheckObjectState):
-// a GFx movie can be drawn whenever there is one.
-INT UGFxMovieThumbnailRenderer::vf_10c(INT Object, INT bCheckObjectState)
+// a GFx movie can be drawn whenever there is one
+UBOOL UGFxMovieThumbnailRenderer::SupportsThumbnailRendering(UObject* Object, UBOOL bCheckObjectState)
 {
-    return Object != 0;
+    return Object != NULL;
 }

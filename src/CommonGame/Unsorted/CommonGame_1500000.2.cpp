@@ -176,7 +176,7 @@ void URReachSpec::execAddBlocker(FFrame& Stack, RESULT_DECL)
 	P_GET_OBJECT(UObject, NewBlocker);
 	P_FINISH;
 
-	vf_13c((INT)NewBlocker);
+	vf_13c(NewBlocker);
 }
 
 // @baa 0x0150bac0

@@ -244580,7 +244580,7 @@
     {
      "va": "006dbf40",
      "size": 18,
-     "symbol": "?vf_234@UPrimitiveComponent@@UAEXI@Z"
+     "symbol": "?vf_234@UPrimitiveComponent@@UAEXPAU1@@Z"
     },
     {
      "va": "006dbfd0",
@@ -412529,7 +412529,7 @@
     {
      "va": "014fa880",
      "size": 12,
-     "symbol": "?vf_10c@UGFxMovieThumbnailRenderer@@UAEHHH@Z"
+     "symbol": "?SupportsThumbnailRendering@UGFxMovieThumbnailRenderer@@UAEHPAUUObject@@H@Z"
     }
    ]
   },
@@ -451367,7 +451367,7 @@
     {
      "va": "0124ce00",
      "size": 8,
-     "symbol": "?vf_10c@UThumbnailRenderer@@UAEHHH@Z"
+     "symbol": "?SupportsThumbnailRendering@UThumbnailRenderer@@UAEHPAUUObject@@H@Z"
     },
     {
      "va": "0124ce10",

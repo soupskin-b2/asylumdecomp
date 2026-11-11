@@ -36,7 +36,7 @@ void USeqAct_Latent::execAbortFor(FFrame& Stack, RESULT_DECL)
 	P_GET_OBJECT(AActor, latentActor);
 	P_FINISH;
 
-	vf_19c((INT)latentActor);
+	vf_19c(latentActor);
 }
 
 struct USequenceObject_ : public USequenceObject

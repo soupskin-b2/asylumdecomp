@@ -22,6 +22,8 @@ inline void* operator new(SIZE_T Size, FNameArray& Array) { return sub_0056fa40(
 
 extern UWorld* g_026b62b8;
 #define GWorld g_026b62b8
+extern UEngine* g_026c3cdc;
+#define GEngine g_026c3cdc
 extern TArray<UObject*> g_026a1ca4;
 #define GObjObjects g_026a1ca4
 
