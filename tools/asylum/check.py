@@ -105,9 +105,14 @@ SMELLS = [
 ]
 
 
+_PROSE = re.compile(r'//[^\n]*|/\*.*?\*/|"(?:\\.|[^"\\\n])*"', re.S)
+
+
 def smells(src: str) -> list[str]:
+    # comments and strings are prose: blank them, keeping the line numbers
+    code = _PROSE.sub(lambda m: re.sub(r"[^\n]", " ", m.group(0)), src)
     out = []
-    for n, line in enumerate(src.splitlines(), 1):
+    for n, line in enumerate(code.splitlines(), 1):
         for rx, why in SMELLS:
             if rx.search(line):
                 out.append("line %d: %s" % (n, why))
