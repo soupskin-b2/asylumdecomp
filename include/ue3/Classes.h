@@ -54617,22 +54617,22 @@ struct ARPlayerController : public ARPlayerControllerBase {
     virtual void vf_508(INT, INT, INT, INT); /* 0x508 */
     virtual DOUBLE vf_50c(); /* 0x50c */
     virtual DOUBLE vf_510(); /* 0x510 */
-    virtual INT vf_514(INT); /* 0x514 */
+    virtual INT vf_514(class USoundCue* Cue); /* 0x514 */
     virtual INT vf_518(INT); /* 0x518 */
     virtual INT vf_51c(INT); /* 0x51c */
     virtual INT vf_520(INT); /* 0x520 */
     virtual INT vf_524(INT); /* 0x524 */
     virtual INT vf_528(INT, INT, INT, INT, INT); /* 0x528 */
     virtual INT vf_52c(); /* 0x52c */
-    virtual void vf_530(INT); /* 0x530 */
+    virtual void vf_530(FLOAT); /* 0x530 */
     virtual void vf_534(); /* 0x534 */
-    virtual void vf_538(INT); /* 0x538 */
+    virtual void vf_538(const FString&); /* 0x538 */
     virtual INT vf_53c(); /* 0x53c */
     virtual void vf_540(); /* 0x540 */
     virtual void vf_544(); /* 0x544 */
     virtual void vf_548(); /* 0x548 */
     virtual void vf_54c(); /* 0x54c */
-    virtual INT vf_550(INT); /* 0x550 */
+    virtual INT vf_550(const FString&); /* 0x550 */
     virtual INT vf_554(INT, INT); /* 0x554 */
     virtual INT vf_558(); /* 0x558 */
     virtual void vf_55c(); /* 0x55c */
@@ -54643,10 +54643,10 @@ struct ARPlayerController : public ARPlayerControllerBase {
     virtual INT vf_570(INT); /* 0x570 */
     virtual INT vf_574(); /* 0x574 */
     virtual INT vf_578(INT); /* 0x578 */
-    virtual INT vf_57c(INT); /* 0x57c */
+    virtual INT vf_57c(const FString&); /* 0x57c */
     virtual INT vf_580(INT); /* 0x580 */
     virtual void vf_584(UINT); /* 0x584 */
-    virtual INT vf_588(INT); /* 0x588 */
+    virtual INT vf_588(INT&); /* 0x588 */
     virtual void vf_58c(); /* 0x58c */
     virtual void vf_590(); /* 0x590 */
     virtual INT vf_594(INT); /* 0x594 */

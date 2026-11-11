@@ -96,6 +96,7 @@ enum { RUC_SkippedOptionalParm = 0x02 };
 #define P_GET_UBOOL_OPTX(v, d)  GRuntimeUCFlags &= ~RUC_SkippedOptionalParm; UBOOL v = d; Stack.Step(Stack.Object, &v); v = (v != 0);
 #define P_GET_OBJECT_OPTX(c, v, d) GRuntimeUCFlags &= ~RUC_SkippedOptionalParm; c* v = d; Stack.Step(Stack.Object, &v);
 #define P_GET_NAME_OPTX(v, d)   GRuntimeUCFlags &= ~RUC_SkippedOptionalParm; FName v = d; Stack.Step(Stack.Object, &v);
+#define P_GET_STR_OPTX(v, d)    GRuntimeUCFlags &= ~RUC_SkippedOptionalParm; FString v(d); Stack.Step(Stack.Object, &v);
 
 // After the last parameter: skip EX_EndFunctionParms, then a debug-info opcode if there is one.
 #define P_FINISH           Stack.Code++; if (*Stack.Code == EX_DebugInfo) Stack.Step(Stack.Object, 0);
