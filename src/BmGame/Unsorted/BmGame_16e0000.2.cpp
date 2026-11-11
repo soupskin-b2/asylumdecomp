@@ -1,4 +1,4 @@
-// BmGame_16e0000.cpp: 54 functions
+// BmGame_16e0000.cpp: 59 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -418,4 +418,44 @@ void ARGameRI::execStartChapterSpecificLevels(FFrame& Stack, RESULT_DECL)
     P_GET_NAME(Level);
     P_FINISH;
     StartChapterSpecificLevels(Level);
+}
+
+// @baa 0x016e9000
+void ARGameRI::execIsInCurrentLevel(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(UObject, Obj);
+	P_FINISH;
+	*(UBOOL*)Result = vf_39c((INT)Obj);
+}
+
+// @baa 0x016e96b0
+void ARCrowdAgent::execCanRespondToAttractor(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(ARCrowdAttractor, Attractor);
+	P_FINISH;
+	*(UBOOL*)Result = vf_354((INT)Attractor);
+}
+
+// @baa 0x016e9830
+void ARCrowdManager::execGetNumAgentsInFlock(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(FlockID);
+	P_FINISH;
+	*(INT*)Result = vf_354(FlockID);
+}
+
+// @baa 0x016e9070
+void ARGameRI::execGetLevelForObject(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(UObject, Obj);
+	P_FINISH;
+	*(ULevelStreaming**)Result = (ULevelStreaming*)vf_3a0((INT)Obj);
+}
+
+// @baa 0x016e9160
+void ARGameRI::execSetCombatFlag(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bNewValue);
+	P_FINISH;
+	vf_3ac(bNewValue);
 }

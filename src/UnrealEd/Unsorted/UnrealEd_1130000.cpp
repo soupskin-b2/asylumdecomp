@@ -1,4 +1,4 @@
-// UnrealEd_1130000.cpp: 39 functions
+// UnrealEd_1130000.cpp: 40 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -671,4 +671,23 @@ undefined4 C_0113d0c0::sub_0113d0c0(byte param_2)
     sub_0053dfa0(param_1);
   }
   return param_1;
+}
+
+struct F0113c840
+{
+    INT Field[6];
+    INT __thiscall sub_0113c840(INT);
+};
+
+// @baa 0x0113c840
+INT F0113c840::sub_0113c840(INT)
+{
+    INT* p = Field;
+    p[0] = 0;
+    p[1] = 0;
+    p[2] = 0;
+    p[3] = 0;
+    p[4] = 0;
+    p[5] = 0;
+    return (INT)this;
 }

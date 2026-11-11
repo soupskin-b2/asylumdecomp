@@ -2,26 +2,26 @@
  "updated": "2026-11-11",
  "functions": {
   "total": 174153,
-  "matched": 97381
+  "matched": 97581
  },
  "bytes": {
   "total": 24308134,
-  "matched": 3647881
+  "matched": 3666443
  },
  "areas": [
   {
    "name": "Engine",
    "functions": 69863,
    "bytes": 9201956,
-   "matched": 40938,
-   "matched_bytes": 1679321
+   "matched": 41071,
+   "matched_bytes": 1692001
   },
   {
    "name": "Editor",
    "functions": 42961,
    "bytes": 8040643,
-   "matched": 23583,
-   "matched_bytes": 789592
+   "matched": 23601,
+   "matched_bytes": 790238
   },
   {
    "name": "External",
@@ -34,22 +34,22 @@
    "name": "Game",
    "functions": 13563,
    "bytes": 1853804,
-   "matched": 9260,
-   "matched_bytes": 526687
+   "matched": 9300,
+   "matched_bytes": 531062
   },
   {
    "name": "Core",
    "functions": 12072,
    "bytes": 1275961,
-   "matched": 7799,
-   "matched_bytes": 236140
+   "matched": 7803,
+   "matched_bytes": 236474
   },
   {
    "name": "CommonGame",
    "functions": 1422,
    "bytes": 173518,
-   "matched": 989,
-   "matched_bytes": 42266
+   "matched": 993,
+   "matched_bytes": 42697
   },
   {
    "name": "Unsorted",
@@ -76,8 +76,8 @@
    "name": "Libjpeg",
    "functions": 304,
    "bytes": 80285,
-   "matched": 287,
-   "matched_bytes": 74827
+   "matched": 288,
+   "matched_bytes": 74923
   },
   {
    "name": "GFxUIEditor",
@@ -97,22 +97,22 @@
  "contributors": [
   {
    "login": "soupskin-b2",
-   "functions": 97381,
-   "bytes": 3647881,
+   "functions": 97581,
+   "bytes": 3666443,
    "models": {
     "tooling": 94456,
-    "qwen3.8-27b": 1062,
-    "deepseek-v4.1-flash": 1010,
+    "deepseek-v4.1-flash": 1120,
+    "qwen3.8-27b": 1092,
     "not specified": 338,
+    "Claude Opus 5.5": 206,
     "claude-opus-5.5": 172,
-    "Claude Opus 5.5": 149,
     "gpt-6.1-sol": 86,
     "claude-sonnet-5.5": 37,
+    "qwen": 28,
     "deepseek-v4.1": 26,
-    "qwen": 26,
     "gpt-6.1-terra": 10,
+    "Qwen": 3,
     "e2e-test": 2,
-    "Qwen": 2,
     "Qwen3": 2,
     "claude-haiku-5.5": 1,
     "qwen3.8-27b qwen3.8-27b": 1,
@@ -126,24 +126,24 @@
    "functions": 94456
   },
   {
-   "model": "qwen3.8-27b",
-   "functions": 1062
+   "model": "deepseek-v4.1-flash",
+   "functions": 1120
   },
   {
-   "model": "deepseek-v4.1-flash",
-   "functions": 1010
+   "model": "qwen3.8-27b",
+   "functions": 1092
   },
   {
    "model": "not specified",
    "functions": 338
   },
   {
-   "model": "claude-opus-5.5",
-   "functions": 172
+   "model": "Claude Opus 5.5",
+   "functions": 206
   },
   {
-   "model": "Claude Opus 5.5",
-   "functions": 149
+   "model": "claude-opus-5.5",
+   "functions": 172
   },
   {
    "model": "gpt-6.1-sol",
@@ -154,11 +154,11 @@
    "functions": 37
   },
   {
-   "model": "deepseek-v4.1",
-   "functions": 26
+   "model": "qwen",
+   "functions": 28
   },
   {
-   "model": "qwen",
+   "model": "deepseek-v4.1",
    "functions": 26
   },
   {
@@ -166,11 +166,11 @@
    "functions": 10
   },
   {
-   "model": "e2e-test",
-   "functions": 2
+   "model": "Qwen",
+   "functions": 3
   },
   {
-   "model": "Qwen",
+   "model": "e2e-test",
    "functions": 2
   },
   {

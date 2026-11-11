@@ -1,4 +1,4 @@
-// UnActorComponent.cpp: 4 functions
+// UnActorComponent.cpp: 5 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -64,4 +64,12 @@ void UActorComponent__0076a290::execQueueReattach(FFrame& Stack, RESULT_DECL)
 			BeginDeferredReattach();
 		}
 	}
+}
+
+// @baa 0x00c80900
+void UActorComponent::execSetComponentRBFixed(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bFixed);
+	P_FINISH;
+	vf_138(bFixed);
 }

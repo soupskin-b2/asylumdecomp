@@ -1,4 +1,4 @@
-// Engine_0920000.cpp: 5 functions
+// Engine_0920000.cpp: 7 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -67,4 +67,30 @@ void USkeletalMeshComponent::execFindBodyInstanceNamed(FFrame& Stack, RESULT_DEC
 	P_GET_NAME(BoneName);
 	P_FINISH;
 	*(void**)Result = ((USkeletalMeshComponent__0092e3c0*)this)->sub_0091f3f0(BoneName);
+}
+
+struct USkeletalMeshComponent__009206c0 : public USkeletalMeshComponent
+{
+	void sub_009200e0(UBOOL);
+};
+
+// @baa 0x009206c0
+void USkeletalMeshComponent::execSetForceJointProjection(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bNewForceJointProjection);
+	P_FINISH;
+	((USkeletalMeshComponent__009206c0*)this)->sub_009200e0(bNewForceJointProjection);
+}
+
+struct USkeletalMeshComponent__0092e9a0 : public USkeletalMeshComponent
+{
+	void sub_0092e930(UBOOL);
+};
+
+// @baa 0x0092e9a0
+void USkeletalMeshComponent::execToggleInstanceVertexWeights(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bEnable);
+	P_FINISH;
+	((USkeletalMeshComponent__0092e9a0*)this)->sub_0092e930(bEnable);
 }

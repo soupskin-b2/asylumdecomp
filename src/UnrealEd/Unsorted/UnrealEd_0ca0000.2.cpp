@@ -1,4 +1,4 @@
-// UnrealEd_0ca0000.cpp: 8 functions
+// UnrealEd_0ca0000.cpp: 9 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -58,4 +58,12 @@ void AFractureManager::execGetFSMFractureCullDistanceScale(FFrame& Stack, RESULT
 {
 	P_FINISH;
 	*(FLOAT*)Result = vf_360();
+}
+
+// @baa 0x00ca0300
+void AFracturedStaticMeshPart::execRecyclePart(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bAddToFreePool);
+	P_FINISH;
+	vf_398(bAddToFreePool);
 }

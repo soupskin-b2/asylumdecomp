@@ -1,4 +1,4 @@
-// Core_0600000.cpp: 7 functions
+// Core_0600000.cpp: 9 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -45,4 +45,31 @@ void UProperty::ClearValue(BYTE* Data, DWORD ArrayDim)
 INT UProperty::Identical(INT A, INT B, INT Property)
 {
 	PURE_VIRTUAL(UProperty::Identical, return 0;);
+}
+
+extern void* g_026667a8;
+extern TCHAR g_01e3f3dc[];
+int sub_00630f20(void*, const TCHAR*, ...);
+struct UProperty__006004d0 : public UProperty
+{
+	FString GetCPPMacroType(FString& ExtendedTypeText);
+};
+
+// @baa 0x006004d0
+FString UProperty__006004d0::GetCPPMacroType(FString& ExtendedTypeText)
+{
+	sub_00630f20(g_026667a8, L"Pure virtual not implemented (UProperty::GetCPPMacroType)", L"UProperty::GetCPPMacroType");
+	return FString(g_01e3f3dc);
+}
+
+struct UProperty__00600510 : public UProperty
+{
+	FString GetCPPType(FString* ExtendedTypeText, INT CPPExportFlags);
+};
+
+// @baa 0x00600510
+FString UProperty__00600510::GetCPPType(FString* ExtendedTypeText, INT CPPExportFlags)
+{
+	sub_00630f20(g_026667a8, L"Pure virtual not implemented (UProperty::GetCPPType)", L"UProperty::GetCPPType");
+	return FString(g_01e3f3dc);
 }

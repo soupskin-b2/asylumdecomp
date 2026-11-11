@@ -1,4 +1,4 @@
-// TerrainEditor.cpp (part 2 of 4): 2 functions
+// TerrainEditor.cpp (part 2 of 4): 3 functions
 // Placed here by: neighbours 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -34,4 +34,11 @@ void C::sub_0124b750()
 {
     *(void**)this = g_0220f938;
     ((wxMenu*)this)->wxMenu::~wxMenu();
+}
+
+int sub_00630f20(...);
+extern INT g_026667a8;
+// @baa 0x012508c0
+void UThumbnailRenderer::Draw(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT) {
+  sub_00630f20(g_026667a8, L"Pure virtual not implemented (%s)", L"UThumbnailRenderer::Draw");
 }

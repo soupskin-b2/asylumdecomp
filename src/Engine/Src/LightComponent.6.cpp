@@ -1,4 +1,4 @@
-// LightComponent.cpp: 3 functions
+// LightComponent.cpp: 4 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -34,4 +34,26 @@ void ULightComponent::execGetOrigin(FFrame& Stack, RESULT_DECL)
 	Origin.Y = LightToWorld.WPlane.Y;
 	Origin.Z = LightToWorld.WPlane.Z;
 	*(FVector*)Result = Origin;
+}
+
+struct ULightComponent__006b4b20 : public ULightComponent
+{
+	void BeginDeferredReattach();
+	void SetEnabled( UBOOL bSetEnabled )
+	{
+		if ( bEnabled != bSetEnabled )
+		{
+			bEnabled = bSetEnabled;
+			BeginDeferredReattach();
+		}
+	}
+	void execSetEnabled(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x006b4b20
+void ULightComponent__006b4b20::execSetEnabled(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bSetEnabled);
+	P_FINISH;
+	SetEnabled(bSetEnabled);
 }

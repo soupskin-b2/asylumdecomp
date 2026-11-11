@@ -1,4 +1,4 @@
-// UnSkeletalComponent.cpp: 19 functions
+// UnSkeletalComponent.cpp: 22 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -247,4 +247,40 @@ void USkeletalMeshComponent__0091f7b0::execSetFaceFXRegisterEx(FFrame& Stack, RE
 	P_GET_FLOAT(NextInterpDuration);
 	P_FINISH;
 	SetFaceFXRegisterEx(RegName, RegOp, FirstValue, FirstInterpDuration, NextValue, NextInterpDuration);
+}
+
+struct USkeletalMeshComponent__0091dbe0 : public USkeletalMeshComponent
+{
+	UMorphTarget* FindMorphTarget(FName MorphTargetName);
+	void execFindMorphTarget(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x0091dbe0
+void USkeletalMeshComponent__0091dbe0::execFindMorphTarget(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_NAME(MorphTargetName);
+	P_FINISH;
+	*(UMorphTarget**)Result = FindMorphTarget(MorphTargetName);
+}
+
+struct USkeletalMeshComponent__0091d3f0 : public USkeletalMeshComponent
+{
+	FMatrix GetBoneMatrix(INT BoneIndex);
+	void execGetBoneMatrix(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x0091d3f0
+void USkeletalMeshComponent__0091d3f0::execGetBoneMatrix(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(BoneIndex);
+	P_FINISH;
+	*(FMatrix*)Result = GetBoneMatrix(BoneIndex);
+}
+
+// @baa 0x0090f460
+void USkeletalMeshComponent::execSetDisableRagdollCalmingMeasures(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bEnabled);
+	P_FINISH;
+	bDisableRagdollCalmingMeasures = bEnabled;
 }

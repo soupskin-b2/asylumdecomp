@@ -1,4 +1,4 @@
-// UnFracturedStaticMesh.cpp: 4 functions
+// UnFracturedStaticMesh.cpp: 6 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -30,4 +30,20 @@ void UFracturedBaseComponent::execGetNumVisibleFragments(FFrame& Stack, RESULT_D
 {
 	P_FINISH;
 	*(INT*)Result = vf_284();
+}
+
+// @baa 0x00c9f090
+void UFracturedBaseComponent::execIsFragmentVisible(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(FragmentIndex);
+	P_FINISH;
+	*(UBOOL*)Result = vf_27c(FragmentIndex);
+}
+
+// @baa 0x00947170
+void UStaticMeshComponent::execSetForceStaticDecals(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bForce);
+	P_FINISH;
+	vf_264(bForce);
 }

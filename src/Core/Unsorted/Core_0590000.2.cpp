@@ -1,4 +1,4 @@
-// Core_0590000.cpp (part 2 of 4): 33 functions
+// Core_0590000.cpp (part 2 of 4): 35 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -308,4 +308,20 @@ void UObject::execSubtractSubtract_PreInt(FFrame& Stack, RESULT_DECL)
 	P_GET_INT_REF(A);
 	P_FINISH;
 	*(INT*)Result = --A;
+}
+
+// @baa 0x00591400
+void UObject::execNot_PreBool(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(A);
+	P_FINISH;
+	*(UBOOL*)Result = !A;
+}
+
+// @baa 0x00591b50
+void UObject::execAddAdd_PreByte(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_BYTE_REF(A);
+	P_FINISH;
+	*(BYTE*)Result = ++A;
 }

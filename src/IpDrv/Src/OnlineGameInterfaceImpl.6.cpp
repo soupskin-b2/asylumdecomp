@@ -1,4 +1,4 @@
-// OnlineGameInterfaceImpl.cpp: 4 functions
+// OnlineGameInterfaceImpl.cpp: 5 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -36,4 +36,12 @@ void UOnlineGameInterfaceImpl::execEndOnlineGame(FFrame& Stack, RESULT_DECL)
     P_GET_NAME(SessionName);
     P_FINISH;
     *(INT*)Result = EndOnlineGame(SessionName);
+}
+
+// @baa 0x00e29d20
+void UOnlineGameInterfaceImpl::execFreeSearchResults(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(UOnlineGameSearch, Search);
+	P_FINISH;
+	*(UBOOL*)Result = vf_11c((INT)Search);
 }

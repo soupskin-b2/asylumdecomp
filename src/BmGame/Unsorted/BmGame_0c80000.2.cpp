@@ -1,4 +1,4 @@
-// BmGame_0c80000.cpp: 25 functions
+// BmGame_0c80000.cpp: 29 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -248,4 +248,36 @@ void AActor::execSetHUDLocation(FFrame& Stack, RESULT_DECL)
     P_GET_STRUCT(FVector, NewHUDLocation);
     P_FINISH;
     SetHUDLocation(NewHUDLocation);
+}
+
+// @baa 0x00c86ca0
+void APlayerController::execSetAllowMatureLanguage(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bAllowMatureLanguge);
+	P_FINISH;
+	vf_414(bAllowMatureLanguge);
+}
+
+// @baa 0x00c86f80
+void APlayerController::execSetOnlyUseControllerTiltInput(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bActive);
+	P_FINISH;
+	vf_428(bActive);
+}
+
+// @baa 0x00c87000
+void APlayerController::execSetUseTiltForwardAndBack(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bActive);
+	P_FINISH;
+	vf_42c(bActive);
+}
+
+// @baa 0x00c87750
+void APlayerController::execSetShowSubtitles(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bValue);
+	P_FINISH;
+	vf_444(bValue);
 }

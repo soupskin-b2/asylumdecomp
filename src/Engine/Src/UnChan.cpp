@@ -1,4 +1,4 @@
-// UnChan.cpp (part 1 of 2): 82 functions
+// UnChan.cpp (part 1 of 2): 83 functions
 // Placed here by: neighbours 42, class 27, callers 7, file 6.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -721,3 +721,20 @@ int UGuidCache::sub_00e121e0(void)
 void sub_00e11a60();
 // @baa 0x00e12340
 void sub_00e12340(void) { sub_00e11a60(); }
+
+struct UChannel_ {
+    BYTE _base[0x30];
+    UNetConnection* Connection;   /* 0x30 */
+    BYTE Pad34[0x18];
+    INT ChannelIndex;             /* 0x4c */
+    INT sub_00df3450(INT InChannelIndex);
+};
+
+// @baa 0x00df3450
+// @baa 0x00df3450
+INT UChannel_::sub_00df3450(INT InChannelIndex)
+{
+    if (ChannelIndex >= 0x7f)
+        return 0;
+    return Connection->vf_134(InChannelIndex);
+}

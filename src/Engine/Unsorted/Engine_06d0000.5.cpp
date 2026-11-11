@@ -1,4 +1,4 @@
-// Engine_06d0000.cpp: 15 functions
+// Engine_06d0000.cpp: 22 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -134,4 +134,60 @@ void UPrimitiveComponent::execSetScale(FFrame& Stack, RESULT_DECL)
 		Scale = NewScale;
 		((UPrimitiveComponent_*)this)->sub_007596c0();
 	}
+}
+
+// @baa 0x006db9b0
+void UPrimitiveComponent::execSetOnlyOwnerSee(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bOnlyOwnerSee);
+	P_FINISH;
+	vf_218(bOnlyOwnerSee);
+}
+
+// @baa 0x006dba50
+void UPrimitiveComponent::execSetIgnoreOwnerHidden(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bIgnoreOwnerHidden);
+	P_FINISH;
+	vf_21c(bIgnoreOwnerHidden);
+}
+
+// @baa 0x006dbb00
+void UPrimitiveComponent::execSetHidden(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bHidden);
+	P_FINISH;
+	vf_220(bHidden);
+}
+
+// @baa 0x006dbbb0
+void UPrimitiveComponent::execSetHiddenEditor(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bHiddenEditor);
+	P_FINISH;
+	vf_224(bHiddenEditor);
+}
+
+// @baa 0x006dbc70
+void UPrimitiveComponent::execSetXrayNoSee(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bXrayNoSee);
+	P_FINISH;
+	vf_228(bXrayNoSee);
+}
+
+// @baa 0x006dbd20
+void UPrimitiveComponent::execSetOnlyXraySee(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bOnlyXraySee);
+	P_FINISH;
+	vf_22c(bOnlyXraySee);
+}
+
+// @baa 0x006dbdd0
+void UPrimitiveComponent::execSetDontDrawThisFrame(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bDontDrawThisFrame);
+	P_FINISH;
+	vf_230(bDontDrawThisFrame);
 }

@@ -1,4 +1,4 @@
-// Texture.cpp (part 3 of 3): 12 functions
+// Texture.cpp (part 3 of 3): 13 functions
 // Placed here by: class 9, neighbours 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -111,4 +111,15 @@ void UTexture::vf_014()
 		vf_11c();
 		DeferCompression = 0;
 	}
+}
+
+struct UTexture_ : public UTexture
+{
+    void sub_00d45fb0();
+};
+
+// @baa 0x00d45fb0
+void UTexture_::sub_00d45fb0()
+{
+    RGBE = (CompressionSettings == 5);
 }

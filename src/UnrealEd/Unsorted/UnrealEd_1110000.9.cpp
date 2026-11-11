@@ -1,7 +1,7 @@
-// UnrealEd_1110000.cpp: 6 functions
+// UnrealEd_1110000.cpp: 14 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
-#include "ue3/Core.h"
+#include "ue3/Classes.h"
 
 struct T_01115070 {
     virtual void v00() {}
@@ -132,4 +132,94 @@ void C_01119270::sub_01119270()
 {
     *(void**)this = g_021bd658;
     ((wxAuiManager*)this)->wxAuiManager::~wxAuiManager();
+}
+
+class wxUpdateUIEvent {
+public:
+    __declspec(dllimport) void Check(bool checkEnabled);
+};
+
+extern int g_025d5748;
+// @baa 0x01117df0
+void __stdcall sub_01117df0(wxUpdateUIEvent *event)
+{
+    event->Check(g_025d5748 == 0);
+}
+
+struct Object_012b56b0 {
+    void sub_012b56b0(int Index);
+};
+
+struct Object_025e8cfc {
+    Object_012b56b0* sub_012a44e0(int Index);
+};
+
+extern Object_025e8cfc g_025e8cfc;
+// @baa 0x01118150
+void __stdcall sub_01118150(int Index)
+{
+    (void)Index;
+    g_025e8cfc.sub_012a44e0(100)->sub_012b56b0(100);
+}
+
+// @baa 0x01118190
+void __stdcall sub_01118190(int Index)
+{
+    (void)Index;
+    g_025e8cfc.sub_012a44e0(102)->sub_012b56b0(102);
+}
+
+// @baa 0x011181b0
+void __stdcall sub_011181b0(int Index)
+{
+    (void)Index;
+    g_025e8cfc.sub_012a44e0(1)->sub_012b56b0(1);
+}
+
+// @baa 0x011181d0
+void __stdcall sub_011181d0(int Index)
+{
+    (void)Index;
+    g_025e8cfc.sub_012a44e0(0)->sub_012b56b0(0);
+}
+
+struct FSubA
+{
+	INT sub_012a44e0(INT Arg);
+};
+
+struct FSubB
+{
+	INT sub_012b56b0(INT Arg);
+};
+
+// @baa 0x01118170
+INT __stdcall sub_01118170(INT Param)
+{
+	(void)Param;
+	return ((FSubB*)((FSubA*)&g_025e8cfc)->sub_012a44e0(0x65))->sub_012b56b0(0x65);
+}
+
+// @baa 0x011181f0
+void __stdcall sub_011181f0(int Index)
+{
+    (void)Index;
+    g_025e8cfc.sub_012a44e0(3)->sub_012b56b0(3);
+}
+
+extern double g_01e5f588;
+struct V
+{
+    float x;
+    float y;
+
+    float sub_0111b010();
+};
+
+// @baa 0x0111b010
+float V::sub_0111b010()
+{
+    if (g_01e5f588 <= x)
+        return y / x;
+    return y / (float)g_01e5f588;
 }

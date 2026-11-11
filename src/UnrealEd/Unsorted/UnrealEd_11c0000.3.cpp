@@ -1,4 +1,4 @@
-// UnrealEd_11c0000.cpp (part 3 of 3): 4 functions
+// UnrealEd_11c0000.cpp (part 3 of 3): 5 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -77,4 +77,18 @@ void C_011c1220::sub_011c1220()
 {
     *(void**)this = g_021e92a0;
     ((wxPanel*)this)->wxPanel::~wxPanel();
+}
+
+extern int g_026d4e00;
+struct FEditorFrameObject
+{
+    char _pad[0x58];
+    int Field_0058;
+};
+
+void sub_011bf200(int A, int B, int C);
+// @baa 0x011c0010
+void __stdcall sub_011c0010(void *Unused)
+{
+    sub_011bf200(0, 1, ((FEditorFrameObject *)g_026d4e00)->Field_0058);
 }

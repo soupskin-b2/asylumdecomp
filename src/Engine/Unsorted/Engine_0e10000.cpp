@@ -1,4 +1,4 @@
-// Engine_0e10000.cpp (part 1 of 3): 59 functions
+// Engine_0e10000.cpp (part 1 of 3): 60 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -417,4 +417,13 @@ void sub_00e195c0(undefined4 * param_1, undefined4 * param_2)
     param_1[1] = param_2[1];
   }
   return;
+}
+
+extern "C" int sub_00630f20(int, const wchar_t*);
+extern int g_026667a8;
+// @baa 0x00e14a10
+INT UPackageMapSeekFree::vf_138(INT a, INT b)
+{
+    sub_00630f20(g_026667a8, L"This should never have been called with UPackageMapSeekFree!");
+    return 0;
 }

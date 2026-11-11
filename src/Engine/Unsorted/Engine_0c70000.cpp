@@ -1,4 +1,4 @@
-// Engine_0c70000.cpp (part 1 of 2): 41 functions
+// Engine_0c70000.cpp (part 1 of 2): 42 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -299,4 +299,14 @@ IMPLEMENT_CLASS_AT(UAnimNodePlayCustomAnim, "e:\\Projects\\Amadeus\\AA\\Game\\Un
 bool UAnimNodePlayCustomAnim::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+struct UAnimNodeAimOffset_ : public UAnimNodeAimOffset {
+    FVector2D sub_00c78fe0();
+};
+
+// @baa 0x00c78fe0
+FVector2D UAnimNodeAimOffset_::sub_00c78fe0()
+{
+    return Aim;
 }

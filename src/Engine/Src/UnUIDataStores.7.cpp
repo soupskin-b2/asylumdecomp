@@ -1,4 +1,4 @@
-// UnUIDataStores.cpp: 19 functions
+// UnUIDataStores.cpp: 22 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -283,4 +283,46 @@ void UDataStoreClient__00cc7390::execGetAvailableDataStores(FFrame& Stack, RESUL
 	P_GET_TARRAY_REF(UUIDataStore*, out_DataStores);
 	P_FINISH;
 	GetAvailableDataStores(CurrentScene, out_DataStores);
+}
+
+struct UUIDataStore_InputAlias__00ca27d0 : public UUIDataStore_InputAlias
+{
+	INT FindInputAliasIndex(FName DesiredAlias);
+	void execFindInputAliasIndex(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00ca27d0
+void UUIDataStore_InputAlias__00ca27d0::execFindInputAliasIndex(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_NAME(DesiredAlias);
+	P_FINISH;
+	*(INT*)Result = FindInputAliasIndex(DesiredAlias);
+}
+
+struct UUISkin__00ca2950 : public UUISkin
+{
+	UUITexture* GetCursorResource(FName CursorName);
+	void execGetCursorResource(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00ca2950
+void UUISkin__00ca2950::execGetCursorResource(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_NAME(CursorName);
+	P_FINISH;
+	*(UUITexture**)Result = GetCursorResource(CursorName);
+}
+
+struct UUISkin__00ca2a80 : public UUISkin
+{
+	UBOOL RemoveUISoundCue(FName SoundCueName);
+	void execRemoveUISoundCue(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00ca2a80
+void UUISkin__00ca2a80::execRemoveUISoundCue(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_NAME(SoundCueName);
+	P_FINISH;
+	*(UBOOL*)Result = RemoveUISoundCue(SoundCueName);
 }

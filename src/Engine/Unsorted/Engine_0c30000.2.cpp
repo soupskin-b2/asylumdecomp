@@ -1,4 +1,4 @@
-// Engine_0c30000.cpp (part 2 of 2): 2 functions
+// Engine_0c30000.cpp (part 2 of 2): 3 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -27,4 +27,18 @@ undefined4 ULensFlare::sub_00c3ed90(byte param_2)
     sub_0053dfa0(param_1);
   }
   return param_1;
+}
+
+extern INT g_025df1e8;
+struct sub_00c3fdc0_T
+{
+    void sub_00c3f6b0(void* InParam);
+    void sub_00c3fdc0();
+};
+
+// @baa 0x00c3fdc0
+void sub_00c3fdc0_T::sub_00c3fdc0()
+{
+    if (!((DWORD*)this)[0x2d4 / 4])
+        ((sub_00c3fdc0_T*)((char*)this + 4))->sub_00c3f6b0((void*)g_025df1e8);
 }

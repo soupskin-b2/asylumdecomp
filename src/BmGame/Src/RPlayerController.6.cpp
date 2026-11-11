@@ -1,4 +1,4 @@
-// RPlayerController.cpp (part 6 of 6): 145 functions
+// RPlayerController.cpp (part 6 of 6): 163 functions
 // Placed here by: class 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -1270,4 +1270,148 @@ void ARPlayerController::execShouldIKickOffWall(FFrame& Stack, RESULT_DECL)
 	P_GET_STRUCT(FVector, HitNormal);
 	P_FINISH;
 	*(UBOOL*)Result = ((ARPlayerController__016f9470*)this)->sub_01618d10(HitNormal);
+}
+
+// @baa 0x016f9d60
+void ARPlayerController::execLive_IsMemoryCard(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(DeviceID);
+	P_FINISH;
+	*(UBOOL*)Result = vf_578(DeviceID);
+}
+
+// @baa 0x016fa0d0
+void ARPlayerController::execCheckActiveSaveDeviceFreeSpace(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(SizeNeeded);
+	P_FINISH;
+	*(UBOOL*)Result = vf_5b4(SizeNeeded);
+}
+
+// @baa 0x016fa2d0
+void ARPlayerController::execLive_SaveSavedGame(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(Id);
+	P_FINISH;
+	*(UBOOL*)Result = vf_5c8(Id);
+}
+
+// @baa 0x016fa3f0
+void ARPlayerController::execLive_DoesSaveExist(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(Id);
+	P_FINISH;
+	*(UBOOL*)Result = vf_5d8(Id);
+}
+
+// @baa 0x00c86e80
+void ARPlayerController::execSetControllerTiltDesiredIfAvailable(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bActive);
+	P_FINISH;
+	vf_420(bActive);
+}
+
+// @baa 0x00c86f00
+void ARPlayerController::execSetControllerTiltActive(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bActive);
+	P_FINISH;
+	vf_424(bActive);
+}
+
+// @baa 0x016f84c0
+void ARPlayerController::execSaveUsingGamePad(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(SavedUsingGamePad);
+	P_FINISH;
+	vf_4d8(SavedUsingGamePad);
+}
+
+// @baa 0x016f85f0
+void ARPlayerController::execSetMetricsEnabled(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(Enabled);
+	P_FINISH;
+	vf_4e0(Enabled);
+}
+
+// @baa 0x016f86b0
+void ARPlayerController::execSetMetricsPopupEnabled(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(Enabled);
+	P_FINISH;
+	vf_4e8(Enabled);
+}
+
+// @baa 0x016f9b70
+void ARPlayerController::execLive_SetRequestOnline(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(State);
+	P_FINISH;
+	vf_564(State);
+}
+
+// @baa 0x016f9ca0
+void ARPlayerController::execLive_SetStorageSelectPending(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bState);
+	P_FINISH;
+	vf_570(bState);
+}
+
+// @baa 0x016f9f50
+void ARPlayerController::execLive_SetSavingEnabledState(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bState);
+	P_FINISH;
+	vf_594(bState);
+}
+
+// @baa 0x016fa650
+void ARPlayerController::execFE_BufferDLCRemoval(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bState);
+	P_FINISH;
+	vf_614(bState);
+}
+
+// @baa 0x016fa790
+void ARPlayerController::execFE_DLCScanningActive(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bState);
+	P_FINISH;
+	vf_624(bState);
+}
+
+// @baa 0x016fa850
+void ARPlayerController::execFE_DLCScanning(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bState);
+	P_FINISH;
+	vf_62c(bState);
+}
+
+// @baa 0x016fa910
+void ARPlayerController::execFE_DLCRescanPending(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bState);
+	P_FINISH;
+	vf_634(bState);
+}
+
+// @baa 0x016fa9d0
+void ARPlayerController::execFE_SetNeedsFrontendSave(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bState);
+	P_FINISH;
+	vf_63c(bState);
+}
+
+// @baa 0x016fac10
+void ARPlayerController::execSetDLCLoadingFlag(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bDLC);
+	P_FINISH;
+	vf_674(bDLC);
 }

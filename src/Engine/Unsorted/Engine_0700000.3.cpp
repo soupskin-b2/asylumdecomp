@@ -1,4 +1,4 @@
-// Engine_0700000.cpp: 2 functions
+// Engine_0700000.cpp: 3 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -58,4 +58,33 @@ void UMaterialInstanceConstant__00702740::SetScalarParameterValue(FName Paramete
 	}
 	Param->ParameterValue = Value;
 	sub_00701fc0(this, Param);
+}
+
+struct UMaterialInstanceConstant__00702820 : public UMaterialInstanceConstant
+{
+	void sub_006c47c0(const TCHAR*);
+	void SetFontParameterValue(FName ParameterName, UFont* FontValue, INT FontPage);
+};
+
+FFontParameterValue* sub_006e8bb0(UMaterialInstanceConstant*, FName);
+FFontParameterValue* sub_006e7d60(INT, TArrayNoInit<FFontParameterValue>&);
+void sub_007024d0(UMaterialInstanceConstant*, FFontParameterValue*);
+// @baa 0x00702820
+void UMaterialInstanceConstant__00702820::SetFontParameterValue(FName ParameterName, UFont* FontValue, INT FontPage)
+{
+	sub_006c47c0(L"MIC::SetFontParameterValue");
+	FFontParameterValue* Param = sub_006e8bb0(this, ParameterName);
+	if (Param == NULL)
+	{
+		Param = sub_006e7d60(0x14, FontParameterValues);
+		if (Param != NULL)
+			Param->ExpressionGUID.A = 0;
+		else
+			Param = NULL;
+		Param->ParameterName = ParameterName;
+		Param->ExpressionGUID.A = 0;
+	}
+	Param->FontValue = FontValue;
+	Param->FontPage = FontPage;
+	sub_007024d0(this, Param);
 }

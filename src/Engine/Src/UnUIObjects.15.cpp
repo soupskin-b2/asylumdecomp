@@ -1,4 +1,4 @@
-// UnUIObjects.cpp (part 15 of 17): 7 functions
+// UnUIObjects.cpp (part 15 of 17): 9 functions
 // Placed here by: class 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -64,4 +64,23 @@ struct C
 INT C::sub_00da6660(INT Index)
 {
     return Values[Index];
+}
+
+extern int GetOutermost();
+extern int sub_005c1d70();
+// @baa 0x00ca5000
+int sub_00ca5000()
+{
+    return GetOutermost() == sub_005c1d70();
+}
+
+struct UUIObject__00daabb0 : public UUIObject
+{
+    int sub_00daabb0(INT Flags);
+};
+
+// @baa 0x00daabb0
+int UUIObject__00daabb0::sub_00daabb0(INT Flags)
+{
+    return (PrivateFlags & Flags) == Flags;
 }

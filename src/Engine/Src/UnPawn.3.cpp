@@ -1,4 +1,4 @@
-// UnPawn.cpp: 19 functions
+// UnPawn.cpp: 22 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -182,4 +182,28 @@ void APawn::execAddGoalEvaluator(FFrame& Stack, RESULT_DECL)
 	P_GET_OBJECT(UPathGoalEvaluator, Evaluator);
 	P_FINISH;
 	vf_3a8((INT)Evaluator);
+}
+
+// @baa 0x00c8aa80
+void APawn::execIsValidTargetFor(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(AController, C);
+	P_FINISH;
+	*(UBOOL*)Result = vf_360((INT)C);
+}
+
+// @baa 0x00c8ae00
+void APawn::execReachedDestination(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(AActor, Goal);
+	P_FINISH;
+	*(UBOOL*)Result = vf_378((INT)Goal);
+}
+
+// @baa 0x00c8af60
+void APawn::execSetPushesRigidBodies(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(NewPush);
+	P_FINISH;
+	vf_384(NewPush);
 }

@@ -1,4 +1,4 @@
-// Engine_0c80000.cpp: 59 functions
+// Engine_0c80000.cpp: 70 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -694,4 +694,92 @@ void ULensFlareComponent::execSetSourceColor(FFrame& Stack, RESULT_DECL)
     P_GET_STRUCT(FLinearColor, InSourceColor);
     P_FINISH;
     SetSourceColor(InSourceColor);
+}
+
+// @baa 0x00c87de0
+void UReachSpec::execCostFor(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(APawn, P);
+	P_FINISH;
+	*(INT*)Result = vf_10c((INT)P);
+}
+
+// @baa 0x00c87fc0
+void ANavigationPoint::execIsUsableAnchorFor(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(APawn, P);
+	P_FINISH;
+	*(UBOOL*)Result = vf_354((INT)P);
+}
+
+// @baa 0x00c88030
+void ATeleporter::execCanTeleport(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(AActor, A);
+	P_FINISH;
+	*(UBOOL*)Result = vf_358((INT)A);
+}
+
+// @baa 0x00c81ff0
+void AActor::execSetHidden(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bNewHidden);
+	P_FINISH;
+	vf_12c(bNewHidden);
+}
+
+// @baa 0x00c88d50
+void ACoverSlotMarker::execSetSlotEnabled(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bEnable);
+	P_FINISH;
+	vf_3b8(bEnable);
+}
+
+// @baa 0x00c8fbe0
+void ULensFlareComponent::execSetIsActive(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bInIsActive);
+	P_FINISH;
+	vf_254(bInIsActive);
+}
+
+// @baa 0x00c8ca00
+void UFont::execGetResolutionPageIndex(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(HeightTest);
+	P_FINISH;
+	*(INT*)Result = vf_10c(HeightTest);
+}
+
+// @baa 0x00c8ca70
+void UFont::execGetScalingFactor(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(HeightTest);
+	P_FINISH;
+	*(FLOAT*)Result = vf_110(HeightTest);
+}
+
+// @baa 0x00c8cae0
+void UFont::execGetAuthoredViewportHeight(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(ViewportHeight);
+	P_FINISH;
+	*(FLOAT*)Result = vf_114(ViewportHeight);
+}
+
+// @baa 0x00c8cbc0
+void UMultiFont::execGetResolutionTestTableIndex(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(HeightTest);
+	P_FINISH;
+	*(INT*)Result = vf_124(HeightTest);
+}
+
+// @baa 0x00c8f2f0
+void UMaterialInterface::execSetForceMipLevelsToBeResident(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(ForceDuration);
+	P_FINISH;
+	vf_12c(ForceDuration);
 }

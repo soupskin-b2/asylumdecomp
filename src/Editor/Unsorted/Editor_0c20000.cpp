@@ -1,4 +1,4 @@
-// Editor_0c20000.cpp: 21 functions
+// Editor_0c20000.cpp: 22 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -214,4 +214,34 @@ int C_00c29880::sub_00c29880(int param_2)
     int * param_1 = (int *)this;
 
   return *param_1 + param_2 * 4;
+}
+
+struct S {
+    int Object;
+    int F4;
+    int F8;
+    int FC;
+    volatile int F10;
+    int F14;
+
+    int sub_00c250f0();
+};
+
+extern int g_02044710;
+// @baa 0x00c250f0
+int S::sub_00c250f0()
+{
+    int T = (int)this;
+    this->F8 = 0;
+    this->FC = 0;
+    this->F10 &= 0xfffffffe;
+    this->Object = (int)&g_02044710;
+    this->F14 = 0;
+    return T;
+}
+
+static S g_self_00c250f0;
+static int caller_00c250f0()
+{
+    return g_self_00c250f0.sub_00c250f0();
 }

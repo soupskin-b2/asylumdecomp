@@ -1,37 +1,37 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="860" height="510" viewBox="0 0 860 510" font-family="ui-monospace, SFMono-Regular, &#x27;Cascadia Mono&#x27;, Consolas, &#x27;DejaVu Sans Mono&#x27;, monospace">
 <text x="0" y="24" font-size="14" fill="#1f2328" text-anchor="start" font-weight="normal">functions</text>
 <rect x="150" y="10" width="438" height="16" fill="#eaeef2" stroke="#d1d9e0"/>
-<rect x="150" y="10" width="244.916" height="16" fill="#1f2328"/>
-<text x="860" y="24" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">97,381 / 174,153  55.9%</text>
+<rect x="150" y="10" width="245.419" height="16" fill="#1f2328"/>
+<text x="860" y="24" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">97,581 / 174,153  56.0%</text>
 <text x="0" y="56" font-size="14" fill="#1f2328" text-anchor="start" font-weight="normal">code</text>
 <rect x="150" y="42" width="438" height="16" fill="#eaeef2" stroke="#d1d9e0"/>
-<rect x="150" y="42" width="65.7299" height="16" fill="#1f2328"/>
-<text x="860" y="56" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">3.5 MB / 23.2 MB  15.0%</text>
+<rect x="150" y="42" width="66.0644" height="16" fill="#1f2328"/>
+<text x="860" y="56" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">3.5 MB / 23.2 MB  15.1%</text>
 <text x="0" y="104" font-size="13" fill="#59636e" text-anchor="start" font-weight="normal">by area</text>
 <text x="0" y="128" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">Engine</text>
 <rect x="150" y="120" width="438" height="10" fill="#eaeef2" stroke="#d1d9e0"/>
-<rect x="150" y="120" width="79.9333" height="10" fill="#1f2328"/>
-<text x="860" y="128" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">1.6 MB / 8.8 MB  18.2%</text>
+<rect x="150" y="120" width="80.5368" height="10" fill="#1f2328"/>
+<text x="860" y="128" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">1.6 MB / 8.8 MB  18.4%</text>
 <text x="0" y="158" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">Editor</text>
 <rect x="150" y="150" width="438" height="10" fill="#eaeef2" stroke="#d1d9e0"/>
-<rect x="150" y="150" width="43.0116" height="10" fill="#1f2328"/>
-<text x="860" y="158" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">771 KB / 7.7 MB  9.8%</text>
+<rect x="150" y="150" width="43.0468" height="10" fill="#1f2328"/>
+<text x="860" y="158" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">772 KB / 7.7 MB  9.8%</text>
 <text x="0" y="188" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">External</text>
 <rect x="150" y="180" width="438" height="10" fill="#eaeef2" stroke="#d1d9e0"/>
 <rect x="150" y="180" width="25.0759" height="10" fill="#1f2328"/>
 <text x="860" y="188" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">179 KB / 3.0 MB  5.7%</text>
 <text x="0" y="218" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">Game</text>
 <rect x="150" y="210" width="438" height="10" fill="#eaeef2" stroke="#d1d9e0"/>
-<rect x="150" y="210" width="124.441" height="10" fill="#1f2328"/>
-<text x="860" y="218" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">514 KB / 1.8 MB  28.4%</text>
+<rect x="150" y="210" width="125.475" height="10" fill="#1f2328"/>
+<text x="860" y="218" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">519 KB / 1.8 MB  28.6%</text>
 <text x="0" y="248" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">Core</text>
 <rect x="150" y="240" width="438" height="10" fill="#eaeef2" stroke="#d1d9e0"/>
-<rect x="150" y="240" width="81.0599" height="10" fill="#1f2328"/>
+<rect x="150" y="240" width="81.1746" height="10" fill="#1f2328"/>
 <text x="860" y="248" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">231 KB / 1.2 MB  18.5%</text>
 <text x="0" y="278" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">CommonGame</text>
 <rect x="150" y="270" width="438" height="10" fill="#eaeef2" stroke="#d1d9e0"/>
-<rect x="150" y="270" width="106.689" height="10" fill="#1f2328"/>
-<text x="860" y="278" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">41 KB / 169 KB  24.4%</text>
+<rect x="150" y="270" width="107.777" height="10" fill="#1f2328"/>
+<text x="860" y="278" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">42 KB / 169 KB  24.6%</text>
 <text x="0" y="308" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">Unsorted</text>
 <rect x="150" y="300" width="438" height="10" fill="#eaeef2" stroke="#d1d9e0"/>
 <rect x="150" y="300" width="57.0011" height="10" fill="#1f2328"/>
@@ -46,8 +46,8 @@
 <text x="860" y="368" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">13 KB / 92 KB  14.2%</text>
 <text x="0" y="398" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">Libjpeg</text>
 <rect x="150" y="390" width="438" height="10" fill="#eaeef2" stroke="#d1d9e0"/>
-<rect x="150" y="390" width="408.224" height="10" fill="#1f2328"/>
-<text x="860" y="398" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">73 KB / 78 KB  93.2%</text>
+<rect x="150" y="390" width="408.747" height="10" fill="#1f2328"/>
+<text x="860" y="398" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">73 KB / 78 KB  93.3%</text>
 <text x="0" y="428" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">GFxUIEditor</text>
 <rect x="150" y="420" width="438" height="10" fill="#eaeef2" stroke="#d1d9e0"/>
 <rect x="150" y="420" width="68.7151" height="10" fill="#1f2328"/>

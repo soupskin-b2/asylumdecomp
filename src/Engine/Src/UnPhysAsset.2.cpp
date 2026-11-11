@@ -1,4 +1,4 @@
-// UnPhysAsset.cpp: 32 functions
+// UnPhysAsset.cpp: 37 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -484,4 +484,70 @@ void UPhysicsAssetInstance__00cc1560::execSetNamedBodiesFixed(FFrame& Stack, RES
 	P_GET_UBOOL_OPTX(bSkipFullAnimWeightBodies, FALSE);
 	P_FINISH;
 	SetNamedBodiesFixed(bNewFixed, BoneNames, SkelMesh, bSetOtherBodiesToComplement, bSkipFullAnimWeightBodies);
+}
+
+struct URB_BodyInstance__00c94f50 : public URB_BodyInstance
+{
+	FMatrix GetUnrealWorldTM();
+	void execGetUnrealWorldTM(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00c94f50
+void URB_BodyInstance__00c94f50::execGetUnrealWorldTM(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(FMatrix*)Result = GetUnrealWorldTM();
+}
+
+struct URB_BodyInstance__00c94fa0 : public URB_BodyInstance
+{
+	FVector GetUnrealWorldVelocity();
+	void execGetUnrealWorldVelocity(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00c94fa0
+void URB_BodyInstance__00c94fa0::execGetUnrealWorldVelocity(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(FVector*)Result = GetUnrealWorldVelocity();
+}
+
+struct URB_BodyInstance__00c94ff0 : public URB_BodyInstance
+{
+	FVector GetUnrealWorldAngularVelocity();
+	void execGetUnrealWorldAngularVelocity(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00c94ff0
+void URB_BodyInstance__00c94ff0::execGetUnrealWorldAngularVelocity(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(FVector*)Result = GetUnrealWorldAngularVelocity();
+}
+
+struct URB_BodyInstance__00c95040 : public URB_BodyInstance
+{
+	FVector GetUnrealWorldPosition();
+	void execGetUnrealWorldPosition(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00c95040
+void URB_BodyInstance__00c95040::execGetUnrealWorldPosition(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(FVector*)Result = GetUnrealWorldPosition();
+}
+
+struct URB_BodyInstance__00c95090 : public URB_BodyInstance
+{
+	FVector GetUnrealWorldVelocityAtPoint(FVector Point);
+	void execGetUnrealWorldVelocityAtPoint(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00c95090
+void URB_BodyInstance__00c95090::execGetUnrealWorldVelocityAtPoint(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT(FVector, Point);
+	P_FINISH;
+	*(FVector*)Result = GetUnrealWorldVelocityAtPoint(Point);
 }

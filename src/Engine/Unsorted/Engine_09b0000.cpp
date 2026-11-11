@@ -1,4 +1,4 @@
-// Engine_09b0000.cpp: 44 functions
+// Engine_09b0000.cpp: 46 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -501,4 +501,17 @@ int __cdecl sub_00630f20(void* Log, const wchar_t* Format, const wchar_t* Name);
 void __stdcall sub_009b4840(float Progress, float Total, float Delta)
 {
     sub_00630f20(g_026667a8, L"Pure virtual not implemented (%s)", L"FNetworkNotify::NotifyProgress");
+}
+
+// @baa 0x009b47e0
+void __stdcall sub_009b47e0(const wchar_t* Text, const wchar_t* Channel)
+{
+    sub_00630f20(g_026667a8, L"Pure virtual not implemented (%s)", L"FNetworkNotify::NotifyReceivedText");
+}
+
+// @baa 0x009b4800
+INT __stdcall sub_009b4800(wchar_t* FileName, wchar_t* ComputerName)
+{
+    sub_00630f20(g_026667a8, L"Pure virtual not implemented (%s)", L"FNetworkNotify::NotifySendingFile");
+    return 0;
 }

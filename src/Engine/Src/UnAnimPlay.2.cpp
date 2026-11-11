@@ -1,4 +1,4 @@
-// UnAnimPlay.cpp (part 2 of 2): 8 functions
+// UnAnimPlay.cpp (part 2 of 2): 9 functions
 // Placed here by: class 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -68,4 +68,12 @@ void UAnimNodeSequence::execSetAnim(FFrame& Stack, RESULT_DECL)
     P_GET_NAME(Sequence);
     P_FINISH;
     SetAnim(Sequence);
+}
+
+// @baa 0x00c908a0
+void UAnimNodeSequence::execFindNormalizedPositionFromGroupRelativePosition(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(GroupRelativePosition);
+	P_FINISH;
+	*(FLOAT*)Result = vf_18c(GroupRelativePosition);
 }

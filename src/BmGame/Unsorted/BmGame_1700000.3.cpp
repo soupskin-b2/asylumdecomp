@@ -1,4 +1,4 @@
-// BmGame_1700000.cpp: 38 functions
+// BmGame_1700000.cpp: 44 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -342,4 +342,52 @@ void URBMBehaviour_Combat::execIsLocationInCombatArea(FFrame& Stack, RESULT_DECL
     P_GET_STRUCT(FVector, TestLocation);
     P_FINISH;
     *(UBOOL*)Result = IsLocationInCombatArea(TestLocation);
+}
+
+// @baa 0x01703220
+void ARBMAIController::execIsRunningBehaviour(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(URBMBehaviour, TestBehaviour);
+	P_FINISH;
+	*(UBOOL*)Result = vf_40c((INT)TestBehaviour);
+}
+
+// @baa 0x01704040
+void ARBMAIManager::execCanUpdateCombatCollision(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(ARPawn, TestPawn);
+	P_FINISH;
+	*(UBOOL*)Result = vf_354((INT)TestPawn);
+}
+
+// @baa 0x01705f50
+void URBMPawnSpawnerController::execGetNumberActive(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(Index);
+	P_FINISH;
+	*(INT*)Result = vf_1a4(Index);
+}
+
+// @baa 0x01703c60
+void ARBMAIController::execFindAlertFor(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(AActor, A);
+	P_FINISH;
+	*(UAlertInstance**)Result = (UAlertInstance*)vf_464((INT)A);
+}
+
+// @baa 0x01705fc0
+void URBMPawnSpawnerController::execGetPawnSpawner(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(Index);
+	P_FINISH;
+	*(URBmPawnSpawner**)Result = (URBmPawnSpawner*)vf_1a8(Index);
+}
+
+// @baa 0x01708c40
+void ARLevelTransitionDoorBunkerNativeBase::execIsInActivationRange(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(ARPlayerController, PC);
+	P_FINISH;
+	*(UBOOL*)Result = vf_38c((INT)PC);
 }

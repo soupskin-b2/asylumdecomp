@@ -1,4 +1,4 @@
-// Engine_0c90000.cpp: 37 functions
+// Engine_0c90000.cpp: 42 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -372,4 +372,44 @@ void URB_Handle::execSetOrientation(FFrame& Stack, RESULT_DECL)
     P_GET_STRUCT(FQuat, NewOrientation);
     P_FINISH;
     SetOrientation(NewOrientation);
+}
+
+// @baa 0x00c9f1b0
+void UFracturedStaticMeshComponent::execIsFragmentDestroyable(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(FragmentIndex);
+	P_FINISH;
+	*(UBOOL*)Result = vf_29c(FragmentIndex);
+}
+
+// @baa 0x00c9f220
+void UFracturedStaticMeshComponent::execIsRootFragment(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(FragmentIndex);
+	P_FINISH;
+	*(UBOOL*)Result = vf_2a0(FragmentIndex);
+}
+
+// @baa 0x00c9f290
+void UFracturedStaticMeshComponent::execIsNoPhysFragment(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(FragmentIndex);
+	P_FINISH;
+	*(UBOOL*)Result = vf_2a4(FragmentIndex);
+}
+
+// @baa 0x00c9f9f0
+void AFracturedStaticMeshActor::execSetInXrayModeNative(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(On);
+	P_FINISH;
+	vf_364(On);
+}
+
+// @baa 0x00c9fa70
+void AFracturedStaticMeshActor::execUpdateStasis(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(NewValue);
+	P_FINISH;
+	vf_368(NewValue);
 }

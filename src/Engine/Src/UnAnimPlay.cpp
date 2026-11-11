@@ -1,4 +1,4 @@
-// UnAnimPlay.cpp (part 1 of 2): 36 functions
+// UnAnimPlay.cpp (part 1 of 2): 37 functions
 // Placed here by: class 21, neighbours 6, file 5, callers 4.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -240,4 +240,14 @@ bool UAnimNodeSequenceBlendBase::vf_004()
 bool UAnimNodeSequenceBlendByAim::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+struct UAnimNodeSequenceBlendByAim2 : public UAnimNodeSequenceBlendByAim {
+    FVector2D sub_00c4b080();
+};
+
+// @baa 0x00c4b080
+FVector2D UAnimNodeSequenceBlendByAim2::sub_00c4b080()
+{
+    return Aim;
 }

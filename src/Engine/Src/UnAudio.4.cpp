@@ -1,4 +1,4 @@
-// UnAudio.cpp (part 4 of 13): 3 functions
+// UnAudio.cpp (part 4 of 13): 4 functions
 // Placed here by: neighbours 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -28,4 +28,12 @@ void UAudioComponent::execIsPaused(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
 	*(UBOOL*)Result = bIsPaused;
+}
+
+// @baa 0x00786430
+void UAudioComponent::execPause(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bDoPause);
+	P_FINISH;
+	bIsPaused = bDoPause;
 }

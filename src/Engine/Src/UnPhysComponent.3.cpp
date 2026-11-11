@@ -1,4 +1,4 @@
-// UnPhysComponent.cpp: 8 functions
+// UnPhysComponent.cpp: 14 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -88,4 +88,71 @@ void USkeletalMeshComponent::execSetAttachClothVertsToBaseBody(FFrame& Stack, RE
 	P_GET_UBOOL(bAttachVerts);
 	P_FINISH;
 	((USkeletalMeshComponent__00a14800*)this)->sub_00a13fc0(bAttachVerts);
+}
+
+struct UPrimitiveComponent_ : public UPrimitiveComponent
+{
+	void sub_009feb00(UBOOL);
+};
+
+// @baa 0x009feb70
+void UPrimitiveComponent::execSetDisableAllRigidBody(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bNewDisableAllRigidBody);
+	P_FINISH;
+	((UPrimitiveComponent_*)this)->sub_009feb00(bNewDisableAllRigidBody);
+}
+
+// @baa 0x009fdf40
+void UPrimitiveComponent::execSetBlockRigidBody(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bNewBlockRigidBody);
+	P_FINISH;
+	vf_1c4(bNewBlockRigidBody);
+}
+
+// @baa 0x009fe010
+void UPrimitiveComponent::execSetContactModification(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(isEnableContactModificationCallback);
+	P_FINISH;
+	vf_1cc(isEnableContactModificationCallback);
+}
+
+// @baa 0x009fe0e0
+void UPrimitiveComponent::execSetNotifyRigidBodyCollision(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bNewNotifyRigidBodyCollision);
+	P_FINISH;
+	vf_1c8(bNewNotifyRigidBodyCollision);
+}
+
+struct USkeletalMeshComponent__00a132a0 : public USkeletalMeshComponent
+{
+	void SetClothValidBounds(const FVector& ClothValidBoundsMin, const FVector& ClothValidBoundsMax);
+	void execSetClothValidBounds(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00a132a0
+void USkeletalMeshComponent__00a132a0::execSetClothValidBounds(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT(FVector, ClothValidBoundsMin);
+	P_GET_STRUCT(FVector, ClothValidBoundsMax);
+	P_FINISH;
+	SetClothValidBounds(ClothValidBoundsMin, ClothValidBoundsMax);
+}
+
+struct UStaticMeshComponent_ : public UStaticMeshComponent
+{
+	void DisableRBCollisionWithSMC(UStaticMeshComponent* OtherSMC, UBOOL bDisabled);
+	void execDisableRBCollisionWithSMC(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00a01d30
+void UStaticMeshComponent_::execDisableRBCollisionWithSMC(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(UStaticMeshComponent, OtherSMC);
+	P_GET_UBOOL(bDisabled);
+	P_FINISH;
+	DisableRBCollisionWithSMC(OtherSMC, bDisabled);
 }

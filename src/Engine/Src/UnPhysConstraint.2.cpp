@@ -1,4 +1,4 @@
-// UnPhysConstraint.cpp (part 2 of 2): 18 functions
+// UnPhysConstraint.cpp (part 2 of 2): 21 functions
 // Placed here by: class 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -278,4 +278,45 @@ void URB_ConstraintInstance__00c95680::execInitConstraint(FFrame& Stack, RESULT_
 	P_GET_OBJECT(UPhysicsAssetInstance, PhysicsAssetInstance);
 	P_FINISH;
 	InitConstraint(PrimComp1, PrimComp2, Setup, Scale, InOwner, InPrimComp, bMakeKinForBody1, PhysicsAssetInstance);
+}
+
+struct URB_ConstraintInstance__00c95850 : public URB_ConstraintInstance
+{
+	FVector GetConstraintLocation();
+	void execGetConstraintLocation(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00c95850
+void URB_ConstraintInstance__00c95850::execGetConstraintLocation(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(FVector*)Result = GetConstraintLocation();
+}
+
+struct URB_ConstraintInstance__00c95d70 : public URB_ConstraintInstance
+{
+	void SetAngularPositionTarget(FQuat InPosTarget);
+	void execSetAngularPositionTarget(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00c95d70
+void URB_ConstraintInstance__00c95d70::execSetAngularPositionTarget(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT(FQuat, InPosTarget);
+	P_FINISH;
+	SetAngularPositionTarget(InPosTarget);
+}
+
+struct URB_ConstraintInstance__00c96480 : public URB_ConstraintInstance
+{
+	void MoveKinActorTransform(FMatrix& NewTM);
+	void execMoveKinActorTransform(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00c96480
+void URB_ConstraintInstance__00c96480::execMoveKinActorTransform(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT_REF(FMatrix, NewTM);
+	P_FINISH;
+	MoveKinActorTransform(NewTM);
 }

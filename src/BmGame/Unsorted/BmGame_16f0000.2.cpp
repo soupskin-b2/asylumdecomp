@@ -1,4 +1,4 @@
-// BmGame_16f0000.cpp: 120 functions
+// BmGame_16f0000.cpp: 126 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -988,4 +988,52 @@ void ARBMRouter::execGetDistanceSquaredFromPath(FFrame& Stack, RESULT_DECL)
     P_GET_STRUCT(FVector, TestLocation);
     P_FINISH;
     *(FLOAT*)Result = GetDistanceSquaredFromPath(TestLocation);
+}
+
+// @baa 0x016f6c40
+void ARPawnPlayerCombat::execGetStrikeContactTime(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(UAnimSequence, StrikeAnimSequence);
+	P_FINISH;
+	*(FLOAT*)Result = vf_660((INT)StrikeAnimSequence);
+}
+
+// @baa 0x016f7c50
+void ARCombatMove_BatmanStrike::execCanHitPawn(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(ARPawnCombat, TargetPawn);
+	P_FINISH;
+	*(UBOOL*)Result = vf_374((INT)TargetPawn);
+}
+
+// @baa 0x016f01f0
+void ARPawn::execGetSniperPoint(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(MaxJumps);
+	P_FINISH;
+	*(AActor**)Result = (AActor*)vf_484(MaxJumps);
+}
+
+// @baa 0x016feb10
+void URBMRouterPath::execIsRPathNode(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(Index);
+	P_FINISH;
+	*(UBOOL*)Result = vf_11c(Index);
+}
+
+// @baa 0x016feb80
+void URBMRouterPath::execMustGoToNode(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(Index);
+	P_FINISH;
+	*(UBOOL*)Result = vf_120(Index);
+}
+
+// @baa 0x016fea20
+void URBMRouterPath::execGetNodeOwner(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(Index);
+	P_FINISH;
+	*(AActor**)Result = (AActor*)vf_110(Index);
 }

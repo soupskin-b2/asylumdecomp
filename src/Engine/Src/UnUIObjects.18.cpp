@@ -1,4 +1,4 @@
-// UnUIObjects.cpp: 83 functions
+// UnUIObjects.cpp: 116 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -1130,4 +1130,469 @@ void UUIScene__00cb3e90::execRegisterTickableObject(FFrame& Stack, RESULT_DECL)
 	P_GET_INT_OPTX(InsertIndex, INDEX_NONE);
 	P_FINISH;
 	*(UBOOL*)Result = RegisterTickableObject(ObjectToRegister, InsertIndex);
+}
+
+struct UUIObject__00cb3d20 : public UUIObject
+{
+	void sub_00db5880(FName&);
+};
+
+// @baa 0x00cb3d20
+void UUIObject::execAddStyleSubscriber(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_NAME(Subscriber);
+	P_FINISH;
+	((UUIObject__00cb3d20*)this)->sub_00db5880(Subscriber);
+}
+
+struct UUIObject__00cb3d90 : public UUIObject
+{
+	void sub_00db58c0(FName&);
+};
+
+// @baa 0x00cb3d90
+void UUIObject::execRemoveStyleSubscriber(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_NAME(Subscriber);
+	P_FINISH;
+	((UUIObject__00cb3d90*)this)->sub_00db58c0(Subscriber);
+}
+
+// @baa 0x00d99130
+INT UUIScreenObject::HasPositionBeenResolved(BYTE Face)
+{
+    PURE_VIRTUAL(UUIScreenObject::HasPositionBeenResolved, return 0;);
+}
+
+// @baa 0x00daa360
+BYTE UUIObject::GetInputMask(UINT PlayerIndex, UINT bShift)
+{
+	if (bShift)
+		return PlayerInputMask >> 4;
+	if (PlayerIndex)
+		return PlayerInputMask & 0xf;
+	if (PlayerInputMask & 0xf0)
+		return PlayerInputMask >> 4;
+	return PlayerInputMask & 0xf;
+}
+
+struct UUIScreenObject__00ca4ec0 : public UUIScreenObject
+{
+	FMatrix GetCanvasToScreen();
+	void execGetCanvasToScreen(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00ca4ec0
+void UUIScreenObject__00ca4ec0::execGetCanvasToScreen(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(FMatrix*)Result = GetCanvasToScreen();
+}
+
+struct UUIScreenObject__00ca4f10 : public UUIScreenObject
+{
+	FMatrix GetInverseCanvasToScreen();
+	void execGetInverseCanvasToScreen(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00ca4f10
+void UUIScreenObject__00ca4f10::execGetInverseCanvasToScreen(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(FMatrix*)Result = GetInverseCanvasToScreen();
+}
+
+// @baa 0x00da9b10
+INT UUIScene::AnimGetCurrentPPSettings(INT OutSettings)
+{
+	INT Result = 0;
+	switch (vf_1f8())
+	{
+	case 1:
+		*(FPostProcessSettings**)(UINT)OutSettings = &CurrentBackgroundSettings;
+		Result = 1;
+		break;
+	case 2:
+		*(FPostProcessSettings**)(UINT)OutSettings = &CurrentForegroundSettings;
+		Result = 1;
+		break;
+	}
+	return Result;
+}
+
+struct UUIScreenObject__00ca4540 : public UUIScreenObject
+{
+	void InvalidateAllPositions(UBOOL bIgnoreDockedFaces);
+	void execInvalidateAllPositions(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00ca4540
+void UUIScreenObject__00ca4540::execInvalidateAllPositions(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL_OPTX(bIgnoreDockedFaces, TRUE);
+	P_FINISH;
+	InvalidateAllPositions(bIgnoreDockedFaces);
+}
+
+struct UUIScene__00ca6580 : public UUIScene
+{
+	void SaveSceneDataValues(UBOOL bUnbindSubscribers);
+	void execSaveSceneDataValues(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00ca6580
+void UUIScene__00ca6580::execSaveSceneDataValues(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL_OPTX(bUnbindSubscribers, FALSE);
+	P_FINISH;
+	SaveSceneDataValues(bUnbindSubscribers);
+}
+
+struct UUIScreenObject__00ca3a70 : public UUIScreenObject
+{
+	UBOOL GetViewportOffset(FVector2D& out_ViewportOffset);
+	void execGetViewportOffset(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00ca3a70
+void UUIScreenObject__00ca3a70::execGetViewportOffset(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT_REF(FVector2D, out_ViewportOffset);
+	P_FINISH;
+	*(UBOOL*)Result = GetViewportOffset(out_ViewportOffset);
+}
+
+struct UUIScreenObject__00ca3b30 : public UUIScreenObject
+{
+	UBOOL GetViewportOrigin(FVector2D& out_ViewportOrigin);
+	void execGetViewportOrigin(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00ca3b30
+void UUIScreenObject__00ca3b30::execGetViewportOrigin(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT_REF(FVector2D, out_ViewportOrigin);
+	P_FINISH;
+	*(UBOOL*)Result = GetViewportOrigin(out_ViewportOrigin);
+}
+
+struct UUIScreenObject__00ca3bb0 : public UUIScreenObject
+{
+	UBOOL GetViewportSize(FVector2D& out_ViewportSize);
+	void execGetViewportSize(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00ca3bb0
+void UUIScreenObject__00ca3bb0::execGetViewportSize(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT_REF(FVector2D, out_ViewportSize);
+	P_FINISH;
+	*(UBOOL*)Result = GetViewportSize(out_ViewportSize);
+}
+
+struct UUIScreenObject__00ca2ec0 : public UUIScreenObject
+{
+	UBOOL IsVisible(UBOOL bIncludeParents);
+	void execIsVisible(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00ca2ec0
+void UUIScreenObject__00ca2ec0::execIsVisible(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL_OPTX(bIncludeParents, FALSE);
+	P_FINISH;
+	*(UBOOL*)Result = IsVisible(bIncludeParents);
+}
+
+struct UUIScreenObject__00ca2f40 : public UUIScreenObject
+{
+	UBOOL IsHidden(UBOOL bIncludeParents);
+	void execIsHidden(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00ca2f40
+void UUIScreenObject__00ca2f40::execIsHidden(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL_OPTX(bIncludeParents, FALSE);
+	P_FINISH;
+	*(UBOOL*)Result = IsHidden(bIncludeParents);
+}
+
+struct UUIScreenObject__00ca4460 : public UUIScreenObject
+{
+	INT GetPlayerOwnerIndex(UBOOL bRequireValidIndex);
+	void execGetPlayerOwnerIndex(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00ca4460
+void UUIScreenObject__00ca4460::execGetPlayerOwnerIndex(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL_OPTX(bRequireValidIndex, TRUE);
+	P_FINISH;
+	*(INT*)Result = GetPlayerOwnerIndex(bRequireValidIndex);
+}
+
+struct UUIObject__00ca5100 : public UUIObject
+{
+	UBOOL HasTransform(UBOOL bIncludeParentTransforms);
+	void execHasTransform(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00ca5100
+void UUIObject__00ca5100::execHasTransform(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL_OPTX(bIncludeParentTransforms, TRUE);
+	P_FINISH;
+	*(UBOOL*)Result = HasTransform(bIncludeParentTransforms);
+}
+
+struct UUIScene__00ca6900 : public UUIScene
+{
+	BYTE GetSceneInputMode(UBOOL bMemberValueOnly);
+	void execGetSceneInputMode(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00ca6900
+void UUIScene__00ca6900::execGetSceneInputMode(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL_OPTX(bMemberValueOnly, FALSE);
+	P_FINISH;
+	*(BYTE*)Result = GetSceneInputMode(bMemberValueOnly);
+}
+
+struct UUIScene__00ca6a00 : public UUIScene
+{
+	UBOOL IsSceneActive(UBOOL bTopmostScene);
+	void execIsSceneActive(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00ca6a00
+void UUIScene__00ca6a00::execIsSceneActive(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL_OPTX(bTopmostScene, FALSE);
+	P_FINISH;
+	*(UBOOL*)Result = IsSceneActive(bTopmostScene);
+}
+
+struct UUIScreenObject__00ca37d0 : public UUIScreenObject
+{
+	INT FindChildIndex(FName WidgetName);
+	void execFindChildIndex(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00ca37d0
+void UUIScreenObject__00ca37d0::execFindChildIndex(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_NAME(WidgetName);
+	P_FINISH;
+	*(INT*)Result = FindChildIndex(WidgetName);
+}
+
+struct UUIObject__00ca6140 : public UUIObject
+{
+	INT FindStyleSubscriberIndexById(FName StyleSubscriberId);
+	void execFindStyleSubscriberIndexById(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00ca6140
+void UUIObject__00ca6140::execFindStyleSubscriberIndexById(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_NAME(StyleSubscriberId);
+	P_FINISH;
+	*(INT*)Result = FindStyleSubscriberIndexById(StyleSubscriberId);
+}
+
+enum ESplitScreenRenderMode
+{
+	SPLITRENDER_Fullscreen,
+	SPLITRENDER_PlayerOwner,
+	SPLITRENDER_MAX,
+};
+
+struct UUIScene__00cb4040 : public UUIScene
+{
+	void SetSceneRenderMode( BYTE NewRenderMode )
+	{
+#line 6236 "Engine/Inc\\EngineUIPrivateClasses.h"
+		check(NewRenderMode<SPLITRENDER_MAX);
+		SceneRenderMode = NewRenderMode;
+	}
+	void execSetSceneRenderMode(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00cb4040
+void UUIScene__00cb4040::execSetSceneRenderMode(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_BYTE(NewRenderMode);
+	P_FINISH;
+	SetSceneRenderMode(NewRenderMode);
+}
+
+#line 1432 "candidate.cpp"
+
+struct UUIRoot__00da8920 : public UUIRoot
+{
+	static UUIInteraction* GetCurrentUIController()
+	{
+		UUIInteraction* Result = NULL;
+		if ( GEngine != NULL && GEngine->GameViewport != NULL )
+		{
+			Result = GEngine->GameViewport->UIController;
+		}
+		return Result;
+	}
+	void execGetCurrentUIController(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00da8920
+void UUIRoot__00da8920::execGetCurrentUIController(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UUIInteraction**)Result = GetCurrentUIController();
+}
+
+struct UUIObject__00cbdd20 : public UUIObject
+{
+	FString GetToolTipValue();
+	void execGetToolTipValue(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00cbdd20
+void UUIObject__00cbdd20::execGetToolTipValue(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(FString*)Result = GetToolTipValue();
+}
+
+struct UUIScreenObject__00ca4a60 : public UUIScreenObject
+{
+	FVector Project(const FVector& CanvasPosition);
+	void execProject(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00ca4a60
+void UUIScreenObject__00ca4a60::execProject(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT_REF(FVector, CanvasPosition);
+	P_FINISH;
+	*(FVector*)Result = Project(CanvasPosition);
+}
+
+// @baa 0x00ca5dd0
+void UUIObject::execSetActiveCursorUpdate(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bShouldReceiveCursorUpdates);
+	P_FINISH;
+	vf_204(bShouldReceiveCursorUpdates);
+}
+
+struct UUIScene__00cb3f40 : public UUIScene
+{
+	UBOOL sub_00db42a0(FName&);
+};
+
+// @baa 0x00cb3f40
+void UUIScene::execUnregisterTickableObject(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_NAME(ObjName);
+	P_FINISH;
+	*(UBOOL*)Result = ((UUIScene__00cb3f40*)this)->sub_00db42a0(ObjName);
+}
+
+struct UUIScene__00cb3fc0 : public UUIScene
+{
+	INT sub_00db0a90(FName&);
+};
+
+// @baa 0x00cb3fc0
+void UUIScene::execFindTickableObjectIndex(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_NAME(ObjName);
+	P_FINISH;
+	*(INT*)Result = ((UUIScene__00cb3fc0*)this)->sub_00db0a90(ObjName);
+}
+
+struct UUIScreenObject__00ca4af0 : public UUIScreenObject
+{
+	FVector DeProject(const FVector& PixelPosition);
+	void execDeProject(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00ca4af0
+void UUIScreenObject__00ca4af0::execDeProject(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT_REF(FVector, PixelPosition);
+	P_FINISH;
+	*(FVector*)Result = DeProject(PixelPosition);
+}
+
+struct UUIScreenObject__00ca4e30 : public UUIScreenObject
+{
+	FVector PixelToCanvas(const FVector2D& PixelPosition);
+	void execPixelToCanvas(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00ca4e30
+void UUIScreenObject__00ca4e30::execPixelToCanvas(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT_REF(FVector2D, PixelPosition);
+	P_FINISH;
+	*(FVector*)Result = PixelToCanvas(PixelPosition);
+}
+
+struct UUIObject__00ca53d0 : public UUIObject
+{
+	FMatrix GenerateTransformMatrix(UBOOL bIncludeParentTransforms);
+	void execGenerateTransformMatrix(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00ca53d0
+void UUIObject__00ca53d0::execGenerateTransformMatrix(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL_OPTX(bIncludeParentTransforms, TRUE);
+	P_FINISH;
+	*(FMatrix*)Result = GenerateTransformMatrix(bIncludeParentTransforms);
+}
+
+struct UUIObject__00ca5460 : public UUIObject
+{
+	FMatrix GetRotationMatrix(UBOOL bIncludeParentRotations);
+	void execGetRotationMatrix(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00ca5460
+void UUIObject__00ca5460::execGetRotationMatrix(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL_OPTX(bIncludeParentRotations, TRUE);
+	P_FINISH;
+	*(FMatrix*)Result = GetRotationMatrix(bIncludeParentRotations);
+}
+
+struct UUIObject__00ca5b20 : public UUIObject
+{
+	UBOOL SetNavigationTarget(BYTE Face, UUIObject* NewNavTarget);
+	void execSetNavigationTarget(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00ca5b20
+void UUIObject__00ca5b20::execSetNavigationTarget(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_BYTE(Face);
+	P_GET_OBJECT(UUIObject, NewNavTarget);
+	P_FINISH;
+	*(UBOOL*)Result = SetNavigationTarget(Face, NewNavTarget);
+}
+
+struct UUIScreenObject__00ca48f0 : public UUIScreenObject
+{
+	FVector GetPositionVector(UBOOL bIncludeParentPosition);
+	void execGetPositionVector(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00ca48f0
+void UUIScreenObject__00ca48f0::execGetPositionVector(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL_OPTX(bIncludeParentPosition, TRUE);
+	P_FINISH;
+	*(FVector*)Result = GetPositionVector(bIncludeParentPosition);
 }

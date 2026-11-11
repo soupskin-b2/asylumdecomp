@@ -1,4 +1,4 @@
-// UnCanvas.cpp: 18 functions
+// UnCanvas.cpp: 19 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -537,4 +537,23 @@ void UCanvas__00ab0a80::execDrawTextureDoubleLine(FFrame& Stack, RESULT_DECL)
 	P_GET_FLOAT(VL);
 	P_FINISH;
 	DrawTextureDoubleLine(StartPoint, EndPoint, Perc, Spacing, Width, LineColor, AltLineColor, Tex, U, V, UL, VL);
+}
+
+struct UCanvas__00a58750 : public UCanvas
+{
+	void SetPos( FLOAT X, FLOAT Y )
+	{
+		CurX = X;
+		CurY = Y;
+	}
+	void execSetPos(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00a58750
+void UCanvas__00a58750::execSetPos(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(PosX);
+	P_GET_FLOAT(PosY);
+	P_FINISH;
+	SetPos(PosX, PosY);
 }

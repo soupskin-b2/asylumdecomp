@@ -1,4 +1,4 @@
-// Engine_0d20000.cpp (part 1 of 3): 63 functions
+// Engine_0d20000.cpp (part 1 of 3): 64 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -775,4 +775,20 @@ INT* C_00d291d0::sub_00d291d0(INT* Out)
 {
     *Out = Value;
     return Out;
+}
+
+// Member: byte state at offset 0, float value at offset 4.
+struct sub_00d212f0_Obj
+{
+	BYTE  State;	// +0
+	float Value;	// +4 (2 bytes padding after State)
+
+	void sub_00d212f0(float Amount);
+};
+
+// @baa 0x00d212f0
+void sub_00d212f0_Obj::sub_00d212f0(float Amount)
+{
+	if (State == 5)
+		Value += Amount;
 }

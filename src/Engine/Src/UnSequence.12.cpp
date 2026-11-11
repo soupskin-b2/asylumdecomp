@@ -1,4 +1,4 @@
-// UnSequence.cpp: 1 function
+// UnSequence.cpp: 2 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -18,4 +18,18 @@ void USequenceOp_::execGetLinkedObjects(FFrame& Stack, RESULT_DECL)
 	P_GET_UBOOL_OPTX(bRecurse, FALSE);
 	P_FINISH;
 	GetLinkedObjects(out_Objects, ObjectType, bRecurse);
+}
+
+struct USequenceOp__00c98110 : public USequenceOp
+{
+	UBOOL HasLinkedOps(UBOOL bConsiderInputLinks);
+	void execHasLinkedOps(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00c98110
+void USequenceOp__00c98110::execHasLinkedOps(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL_OPTX(bConsiderInputLinks, FALSE);
+	P_FINISH;
+	*(UBOOL*)Result = HasLinkedOps(bConsiderInputLinks);
 }
