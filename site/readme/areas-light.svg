@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="860" height="394" viewBox="0 0 860 394" font-family="ui-monospace, SFMono-Regular, &#x27;Cascadia Mono&#x27;, Consolas, &#x27;DejaVu Sans Mono&#x27;, monospace">
 <text x="0" y="16" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">Engine</text>
 <rect x="150" y="8" width="438" height="10" fill="#eaeef2" stroke="#d1d9e0"/>
-<rect x="150" y="8" width="76.8873" height="10" fill="#1f2328"/>
+<rect x="150" y="8" width="76.901" height="10" fill="#1f2328"/>
 <text x="860" y="16" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">1.5 MB / 8.8 MB  17.6%</text>
 <text x="0" y="46" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">Editor</text>
 <rect x="150" y="38" width="438" height="10" fill="#eaeef2" stroke="#d1d9e0"/>

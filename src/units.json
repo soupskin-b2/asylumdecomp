@@ -2,8 +2,8 @@
  "note": "Maintained by CI (tools/ci); every file is checked by python tools/asylum unit-check.",
  "totals": {
   "units": 1429,
-  "files": 3779,
-  "functions": 96005,
+  "files": 3780,
+  "functions": 96025,
   "failed": 0
  },
  "units": [
@@ -417153,136 +417153,6 @@
      "symbol": "?sub_00e8b6c0@S_00e8b6c0@@QAEPAUE_00e8b6c0@@H@Z"
     },
     {
-     "va": "00e8b710",
-     "size": 21,
-     "symbol": "?sub_00e8b710@C_00e8b710@@QAEXXZ"
-    },
-    {
-     "va": "00e8b760",
-     "size": 6,
-     "symbol": "?sub_00e8b760@@YAHXZ"
-    },
-    {
-     "va": "00e8b770",
-     "size": 21,
-     "symbol": "?sub_00e8b770@C_00e8b770@@QAEXXZ"
-    },
-    {
-     "va": "00e8b7c0",
-     "size": 6,
-     "symbol": "?sub_00e8b7c0@@YAHXZ"
-    },
-    {
-     "va": "00e8b7d0",
-     "size": 21,
-     "symbol": "?sub_00e8b7d0@C_00e8b7d0@@QAEXXZ"
-    },
-    {
-     "va": "00e8b820",
-     "size": 6,
-     "symbol": "?sub_00e8b820@@YAHXZ"
-    },
-    {
-     "va": "00e8b830",
-     "size": 21,
-     "symbol": "?sub_00e8b830@C_00e8b830@@QAEXXZ"
-    },
-    {
-     "va": "00e8b880",
-     "size": 6,
-     "symbol": "?sub_00e8b880@@YAHXZ"
-    },
-    {
-     "va": "00e8b890",
-     "size": 21,
-     "symbol": "?sub_00e8b890@C_00e8b890@@QAEXXZ"
-    },
-    {
-     "va": "00e8b8e0",
-     "size": 6,
-     "symbol": "?sub_00e8b8e0@@YAHXZ"
-    },
-    {
-     "va": "00e8b8f0",
-     "size": 21,
-     "symbol": "?sub_00e8b8f0@C_00e8b8f0@@QAEXXZ"
-    },
-    {
-     "va": "00e8b940",
-     "size": 6,
-     "symbol": "?sub_00e8b940@@YAHXZ"
-    },
-    {
-     "va": "00e8b950",
-     "size": 21,
-     "symbol": "?sub_00e8b950@C_00e8b950@@QAEXXZ"
-    },
-    {
-     "va": "00e8b9a0",
-     "size": 6,
-     "symbol": "?sub_00e8b9a0@@YAHXZ"
-    },
-    {
-     "va": "00e8b9b0",
-     "size": 21,
-     "symbol": "?sub_00e8b9b0@C_00e8b9b0@@QAEXXZ"
-    },
-    {
-     "va": "00e8ba00",
-     "size": 6,
-     "symbol": "?sub_00e8ba00@@YAHXZ"
-    },
-    {
-     "va": "00e8ba10",
-     "size": 21,
-     "symbol": "?sub_00e8ba10@C_00e8ba10@@QAEXXZ"
-    },
-    {
-     "va": "00e8ba60",
-     "size": 6,
-     "symbol": "?sub_00e8ba60@@YAHXZ"
-    },
-    {
-     "va": "00e8ba70",
-     "size": 21,
-     "symbol": "?sub_00e8ba70@C_00e8ba70@@QAEXXZ"
-    },
-    {
-     "va": "00e8bac0",
-     "size": 6,
-     "symbol": "?sub_00e8bac0@@YAHXZ"
-    },
-    {
-     "va": "00e8bad0",
-     "size": 21,
-     "symbol": "?sub_00e8bad0@C_00e8bad0@@QAEXXZ"
-    },
-    {
-     "va": "00e8bb20",
-     "size": 6,
-     "symbol": "?sub_00e8bb20@@YAHXZ"
-    },
-    {
-     "va": "00e8bb30",
-     "size": 21,
-     "symbol": "?sub_00e8bb30@C_00e8bb30@@QAEXXZ"
-    },
-    {
-     "va": "00e8bb80",
-     "size": 6,
-     "symbol": "?sub_00e8bb80@@YAHXZ"
-    },
-    {
-     "va": "00e8bb90",
-     "size": 21,
-     "symbol": "?sub_00e8bb90@C_00e8bb90@@QAEXXZ"
-    },
-    {
-     "va": "00e8bbe0",
-     "size": 6,
-     "symbol": "?sub_00e8bbe0@@YAHXZ"
-    },
-    {
      "va": "00e8bc20",
      "size": 12,
      "symbol": "?sub_00e8bc20@C_00e8bc20@@QAEHH@Z"
@@ -417361,71 +417231,6 @@
      "va": "00e8bd20",
      "size": 12,
      "symbol": "?sub_00e8bd20@C_00e8bd20@@QAEHH@Z"
-    },
-    {
-     "va": "00e8bd30",
-     "size": 64,
-     "symbol": "?sub_00e8bd30@C_00e8bd30@@QAEXHH@Z"
-    },
-    {
-     "va": "00e8bd70",
-     "size": 64,
-     "symbol": "?sub_00e8bd70@C_00e8bd70@@QAEXHH@Z"
-    },
-    {
-     "va": "00e8bdb0",
-     "size": 64,
-     "symbol": "?sub_00e8bdb0@C_00e8bdb0@@QAEXHH@Z"
-    },
-    {
-     "va": "00e8bdf0",
-     "size": 64,
-     "symbol": "?sub_00e8bdf0@C_00e8bdf0@@QAEXHH@Z"
-    },
-    {
-     "va": "00e8be30",
-     "size": 64,
-     "symbol": "?sub_00e8be30@C_00e8be30@@QAEXHH@Z"
-    },
-    {
-     "va": "00e8be70",
-     "size": 61,
-     "symbol": "?sub_00e8be70@C_00e8be70@@QAEXHH@Z"
-    },
-    {
-     "va": "00e8beb0",
-     "size": 61,
-     "symbol": "?sub_00e8beb0@C_00e8beb0@@QAEXHH@Z"
-    },
-    {
-     "va": "00e8bef0",
-     "size": 61,
-     "symbol": "?sub_00e8bef0@C_00e8bef0@@QAEXHH@Z"
-    },
-    {
-     "va": "00e8bf30",
-     "size": 68,
-     "symbol": "?sub_00e8bf30@C_00e8bf30@@QAEXHH@Z"
-    },
-    {
-     "va": "00e8bf80",
-     "size": 68,
-     "symbol": "?sub_00e8bf80@C_00e8bf80@@QAEXHH@Z"
-    },
-    {
-     "va": "00e8bfd0",
-     "size": 68,
-     "symbol": "?sub_00e8bfd0@C_00e8bfd0@@QAEXHH@Z"
-    },
-    {
-     "va": "00e8c020",
-     "size": 65,
-     "symbol": "?sub_00e8c020@C_00e8c020@@QAEXHH@Z"
-    },
-    {
-     "va": "00e8c070",
-     "size": 68,
-     "symbol": "?sub_00e8c070@C_00e8c070@@QAEXHH@Z"
     },
     {
      "va": "00e8c0c0",
@@ -417531,71 +417336,6 @@
      "va": "00e8f290",
      "size": 96,
      "symbol": "?sub_00e8f290@C_00e8f290@@QAEXXZ"
-    },
-    {
-     "va": "00e8f2f0",
-     "size": 54,
-     "symbol": "?sub_00e8f2f0@C_00e8f2f0@@QAEPAIHH@Z"
-    },
-    {
-     "va": "00e8f330",
-     "size": 54,
-     "symbol": "?sub_00e8f330@C_00e8f330@@QAEPAIHH@Z"
-    },
-    {
-     "va": "00e8f370",
-     "size": 54,
-     "symbol": "?sub_00e8f370@C_00e8f370@@QAEPAIHH@Z"
-    },
-    {
-     "va": "00e8f3b0",
-     "size": 54,
-     "symbol": "?sub_00e8f3b0@C_00e8f3b0@@QAEPAIHH@Z"
-    },
-    {
-     "va": "00e8f3f0",
-     "size": 54,
-     "symbol": "?sub_00e8f3f0@C_00e8f3f0@@QAEPAIHH@Z"
-    },
-    {
-     "va": "00e8f430",
-     "size": 54,
-     "symbol": "?sub_00e8f430@C_00e8f430@@QAEPAIHH@Z"
-    },
-    {
-     "va": "00e8f470",
-     "size": 54,
-     "symbol": "?sub_00e8f470@C_00e8f470@@QAEPAIHH@Z"
-    },
-    {
-     "va": "00e8f4b0",
-     "size": 54,
-     "symbol": "?sub_00e8f4b0@C_00e8f4b0@@QAEPAIHH@Z"
-    },
-    {
-     "va": "00e8f4f0",
-     "size": 54,
-     "symbol": "?sub_00e8f4f0@C_00e8f4f0@@QAEPAIHH@Z"
-    },
-    {
-     "va": "00e8f530",
-     "size": 54,
-     "symbol": "?sub_00e8f530@C_00e8f530@@QAEPAIHH@Z"
-    },
-    {
-     "va": "00e8f570",
-     "size": 54,
-     "symbol": "?sub_00e8f570@C_00e8f570@@QAEPAIHH@Z"
-    },
-    {
-     "va": "00e8f5b0",
-     "size": 54,
-     "symbol": "?sub_00e8f5b0@C_00e8f5b0@@QAEPAIHH@Z"
-    },
-    {
-     "va": "00e8f5f0",
-     "size": 54,
-     "symbol": "?sub_00e8f5f0@C_00e8f5f0@@QAEPAIHH@Z"
     },
     {
      "va": "00e8f690",
@@ -417986,36 +417726,403 @@
      "va": "00e9a180",
      "size": 10,
      "symbol": "?sub_00e9a180@Outer@@QAEXXZ"
+    }
+   ]
+  },
+  {
+   "unit": "OnlineSubsystemSteamworks/Src/OnlineSubsystemSteamworks.cpp",
+   "source": "OnlineSubsystemSteamworks/Src/OnlineSubsystemSteamworks.3.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "00e8b710",
+     "size": 21,
+     "symbol": "??1?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@UUserStatsReceived_t@@$0A@@@QAE@XZ"
     },
     {
      "va": "00e8b730",
      "size": 10,
-     "symbol": "?sub_00e8b730@C_00e8b730@@QAEXH@Z"
+     "symbol": "?Run@?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@UUserStatsReceived_t@@$0A@@@EAEXPAX@Z"
+    },
+    {
+     "va": "00e8b740",
+     "size": 18,
+     "symbol": "?Run@?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@UUserStatsReceived_t@@$0A@@@EAEXPAX_N_K@Z"
+    },
+    {
+     "va": "00e8b760",
+     "size": 6,
+     "symbol": "?GetCallbackSizeBytes@?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@UUserStatsReceived_t@@$0A@@@EAEHXZ"
+    },
+    {
+     "va": "00e8b770",
+     "size": 21,
+     "symbol": "??1?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@UUserStatsStored_t@@$0A@@@QAE@XZ"
     },
     {
      "va": "00e8b790",
      "size": 10,
-     "symbol": "?sub_00e8b790@CCallbackBase_00e8b790@@QAEXPAX@Z"
+     "symbol": "?Run@?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@UUserStatsStored_t@@$0A@@@EAEXPAX@Z"
     },
     {
      "va": "00e8b7a0",
      "size": 18,
-     "symbol": "?sub_00e8b7a0@CCallbackBase_00e8b7a0@@QAEXPAX_N_K@Z"
+     "symbol": "?Run@?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@UUserStatsStored_t@@$0A@@@EAEXPAX_N_K@Z"
+    },
+    {
+     "va": "00e8b7c0",
+     "size": 6,
+     "symbol": "?GetCallbackSizeBytes@?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@UUserStatsStored_t@@$0A@@@EAEHXZ"
+    },
+    {
+     "va": "00e8b7d0",
+     "size": 21,
+     "symbol": "??1?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@UGameOverlayActivated_t@@$0A@@@QAE@XZ"
     },
     {
      "va": "00e8b7f0",
      "size": 10,
-     "symbol": "?sub_00e8b7f0@CCallbackBase_00e8b7f0@@QAEXPAX@Z"
+     "symbol": "?Run@?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@UGameOverlayActivated_t@@$0A@@@EAEXPAX@Z"
     },
     {
      "va": "00e8b800",
      "size": 18,
-     "symbol": "?sub_00e8b800@CCallbackBase_00e8b800@@QAEXPAX_N_K@Z"
+     "symbol": "?Run@?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@UGameOverlayActivated_t@@$0A@@@EAEXPAX_N_K@Z"
+    },
+    {
+     "va": "00e8b820",
+     "size": 6,
+     "symbol": "?GetCallbackSizeBytes@?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@UGameOverlayActivated_t@@$0A@@@EAEHXZ"
+    },
+    {
+     "va": "00e8b830",
+     "size": 21,
+     "symbol": "??1?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@USteamShutdown_t@@$0A@@@QAE@XZ"
+    },
+    {
+     "va": "00e8b850",
+     "size": 10,
+     "symbol": "?Run@?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@USteamShutdown_t@@$0A@@@EAEXPAX@Z"
+    },
+    {
+     "va": "00e8b860",
+     "size": 18,
+     "symbol": "?Run@?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@USteamShutdown_t@@$0A@@@EAEXPAX_N_K@Z"
+    },
+    {
+     "va": "00e8b880",
+     "size": 6,
+     "symbol": "?GetCallbackSizeBytes@?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@USteamShutdown_t@@$0A@@@EAEHXZ"
+    },
+    {
+     "va": "00e8b890",
+     "size": 21,
+     "symbol": "??1?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@UGameServerChangeRequested_t@@$0A@@@QAE@XZ"
+    },
+    {
+     "va": "00e8b8b0",
+     "size": 10,
+     "symbol": "?Run@?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@UGameServerChangeRequested_t@@$0A@@@EAEXPAX@Z"
+    },
+    {
+     "va": "00e8b8c0",
+     "size": 18,
+     "symbol": "?Run@?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@UGameServerChangeRequested_t@@$0A@@@EAEXPAX_N_K@Z"
+    },
+    {
+     "va": "00e8b8e0",
+     "size": 6,
+     "symbol": "?GetCallbackSizeBytes@?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@UGameServerChangeRequested_t@@$0A@@@EAEHXZ"
+    },
+    {
+     "va": "00e8b8f0",
+     "size": 21,
+     "symbol": "??1?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@USteamServersConnected_t@@$0A@@@QAE@XZ"
     },
     {
      "va": "00e8b910",
      "size": 10,
-     "symbol": "?sub_00e8b910@CCallbackBase_00e8b910@@QAEXPAX@Z"
+     "symbol": "?Run@?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@USteamServersConnected_t@@$0A@@@EAEXPAX@Z"
+    },
+    {
+     "va": "00e8b920",
+     "size": 18,
+     "symbol": "?Run@?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@USteamServersConnected_t@@$0A@@@EAEXPAX_N_K@Z"
+    },
+    {
+     "va": "00e8b940",
+     "size": 6,
+     "symbol": "?GetCallbackSizeBytes@?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@USteamServersConnected_t@@$0A@@@EAEHXZ"
+    },
+    {
+     "va": "00e8b950",
+     "size": 21,
+     "symbol": "??1?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@USteamServersDisconnected_t@@$0A@@@QAE@XZ"
+    },
+    {
+     "va": "00e8b970",
+     "size": 10,
+     "symbol": "?Run@?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@USteamServersDisconnected_t@@$0A@@@EAEXPAX@Z"
+    },
+    {
+     "va": "00e8b980",
+     "size": 18,
+     "symbol": "?Run@?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@USteamServersDisconnected_t@@$0A@@@EAEXPAX_N_K@Z"
+    },
+    {
+     "va": "00e8b9a0",
+     "size": 6,
+     "symbol": "?GetCallbackSizeBytes@?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@USteamServersDisconnected_t@@$0A@@@EAEHXZ"
+    },
+    {
+     "va": "00e8b9b0",
+     "size": 21,
+     "symbol": "??1?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@UClientGameServerDeny_t@@$0A@@@QAE@XZ"
+    },
+    {
+     "va": "00e8b9d0",
+     "size": 10,
+     "symbol": "?Run@?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@UClientGameServerDeny_t@@$0A@@@EAEXPAX@Z"
+    },
+    {
+     "va": "00e8b9e0",
+     "size": 18,
+     "symbol": "?Run@?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@UClientGameServerDeny_t@@$0A@@@EAEXPAX_N_K@Z"
+    },
+    {
+     "va": "00e8ba00",
+     "size": 6,
+     "symbol": "?GetCallbackSizeBytes@?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@UClientGameServerDeny_t@@$0A@@@EAEHXZ"
+    },
+    {
+     "va": "00e8ba10",
+     "size": 21,
+     "symbol": "??1?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@UGSClientApprove_t@@$00@@QAE@XZ"
+    },
+    {
+     "va": "00e8ba30",
+     "size": 10,
+     "symbol": "?Run@?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@UGSClientApprove_t@@$00@@EAEXPAX@Z"
+    },
+    {
+     "va": "00e8ba40",
+     "size": 18,
+     "symbol": "?Run@?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@UGSClientApprove_t@@$00@@EAEXPAX_N_K@Z"
+    },
+    {
+     "va": "00e8ba60",
+     "size": 6,
+     "symbol": "?GetCallbackSizeBytes@?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@UGSClientApprove_t@@$00@@EAEHXZ"
+    },
+    {
+     "va": "00e8ba70",
+     "size": 21,
+     "symbol": "??1?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@UGSClientDeny_t@@$00@@QAE@XZ"
+    },
+    {
+     "va": "00e8ba90",
+     "size": 10,
+     "symbol": "?Run@?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@UGSClientDeny_t@@$00@@EAEXPAX@Z"
+    },
+    {
+     "va": "00e8baa0",
+     "size": 18,
+     "symbol": "?Run@?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@UGSClientDeny_t@@$00@@EAEXPAX_N_K@Z"
+    },
+    {
+     "va": "00e8bac0",
+     "size": 6,
+     "symbol": "?GetCallbackSizeBytes@?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@UGSClientDeny_t@@$00@@EAEHXZ"
+    },
+    {
+     "va": "00e8bad0",
+     "size": 21,
+     "symbol": "??1?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@UGSClientKick_t@@$00@@QAE@XZ"
+    },
+    {
+     "va": "00e8baf0",
+     "size": 10,
+     "symbol": "?Run@?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@UGSClientKick_t@@$00@@EAEXPAX@Z"
+    },
+    {
+     "va": "00e8bb00",
+     "size": 18,
+     "symbol": "?Run@?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@UGSClientKick_t@@$00@@EAEXPAX_N_K@Z"
+    },
+    {
+     "va": "00e8bb20",
+     "size": 6,
+     "symbol": "?GetCallbackSizeBytes@?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@UGSClientKick_t@@$00@@EAEHXZ"
+    },
+    {
+     "va": "00e8bb30",
+     "size": 21,
+     "symbol": "??1?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@UGSPolicyResponse_t@@$00@@QAE@XZ"
+    },
+    {
+     "va": "00e8bb50",
+     "size": 10,
+     "symbol": "?Run@?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@UGSPolicyResponse_t@@$00@@EAEXPAX@Z"
+    },
+    {
+     "va": "00e8bb60",
+     "size": 18,
+     "symbol": "?Run@?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@UGSPolicyResponse_t@@$00@@EAEXPAX_N_K@Z"
+    },
+    {
+     "va": "00e8bb80",
+     "size": 6,
+     "symbol": "?GetCallbackSizeBytes@?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@UGSPolicyResponse_t@@$00@@EAEHXZ"
+    },
+    {
+     "va": "00e8bb90",
+     "size": 21,
+     "symbol": "??1?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@UGSClientAchievementStatus_t@@$00@@QAE@XZ"
+    },
+    {
+     "va": "00e8bbb0",
+     "size": 10,
+     "symbol": "?Run@?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@UGSClientAchievementStatus_t@@$00@@EAEXPAX@Z"
+    },
+    {
+     "va": "00e8bbc0",
+     "size": 18,
+     "symbol": "?Run@?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@UGSClientAchievementStatus_t@@$00@@EAEXPAX_N_K@Z"
+    },
+    {
+     "va": "00e8bbe0",
+     "size": 6,
+     "symbol": "?GetCallbackSizeBytes@?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@UGSClientAchievementStatus_t@@$00@@EAEHXZ"
+    },
+    {
+     "va": "00e8bd30",
+     "size": 64,
+     "symbol": "?Register@?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@UUserStatsReceived_t@@$0A@@@QAEXPAVFOnlineSubsystemSteamworksCallbacks@@P82@AEXPAUUserStatsReceived_t@@@Z@Z"
+    },
+    {
+     "va": "00e8bd70",
+     "size": 64,
+     "symbol": "?Register@?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@UUserStatsStored_t@@$0A@@@QAEXPAVFOnlineSubsystemSteamworksCallbacks@@P82@AEXPAUUserStatsStored_t@@@Z@Z"
+    },
+    {
+     "va": "00e8bdb0",
+     "size": 64,
+     "symbol": "?Register@?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@UGameOverlayActivated_t@@$0A@@@QAEXPAVFOnlineSubsystemSteamworksCallbacks@@P82@AEXPAUGameOverlayActivated_t@@@Z@Z"
+    },
+    {
+     "va": "00e8bdf0",
+     "size": 64,
+     "symbol": "?Register@?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@USteamShutdown_t@@$0A@@@QAEXPAVFOnlineSubsystemSteamworksCallbacks@@P82@AEXPAUSteamShutdown_t@@@Z@Z"
+    },
+    {
+     "va": "00e8be30",
+     "size": 64,
+     "symbol": "?Register@?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@UGameServerChangeRequested_t@@$0A@@@QAEXPAVFOnlineSubsystemSteamworksCallbacks@@P82@AEXPAUGameServerChangeRequested_t@@@Z@Z"
+    },
+    {
+     "va": "00e8be70",
+     "size": 61,
+     "symbol": "?Register@?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@USteamServersConnected_t@@$0A@@@QAEXPAVFOnlineSubsystemSteamworksCallbacks@@P82@AEXPAUSteamServersConnected_t@@@Z@Z"
+    },
+    {
+     "va": "00e8beb0",
+     "size": 61,
+     "symbol": "?Register@?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@USteamServersDisconnected_t@@$0A@@@QAEXPAVFOnlineSubsystemSteamworksCallbacks@@P82@AEXPAUSteamServersDisconnected_t@@@Z@Z"
+    },
+    {
+     "va": "00e8bef0",
+     "size": 61,
+     "symbol": "?Register@?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@UClientGameServerDeny_t@@$0A@@@QAEXPAVFOnlineSubsystemSteamworksCallbacks@@P82@AEXPAUClientGameServerDeny_t@@@Z@Z"
+    },
+    {
+     "va": "00e8bf30",
+     "size": 68,
+     "symbol": "?Register@?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@UGSClientApprove_t@@$00@@QAEXPAVFOnlineSubsystemSteamworksCallbacks@@P82@AEXPAUGSClientApprove_t@@@Z@Z"
+    },
+    {
+     "va": "00e8bf80",
+     "size": 68,
+     "symbol": "?Register@?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@UGSClientDeny_t@@$00@@QAEXPAVFOnlineSubsystemSteamworksCallbacks@@P82@AEXPAUGSClientDeny_t@@@Z@Z"
+    },
+    {
+     "va": "00e8bfd0",
+     "size": 68,
+     "symbol": "?Register@?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@UGSClientKick_t@@$00@@QAEXPAVFOnlineSubsystemSteamworksCallbacks@@P82@AEXPAUGSClientKick_t@@@Z@Z"
+    },
+    {
+     "va": "00e8c020",
+     "size": 65,
+     "symbol": "?Register@?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@UGSPolicyResponse_t@@$00@@QAEXPAVFOnlineSubsystemSteamworksCallbacks@@P82@AEXPAUGSPolicyResponse_t@@@Z@Z"
+    },
+    {
+     "va": "00e8c070",
+     "size": 68,
+     "symbol": "?Register@?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@UGSClientAchievementStatus_t@@$00@@QAEXPAVFOnlineSubsystemSteamworksCallbacks@@P82@AEXPAUGSClientAchievementStatus_t@@@Z@Z"
+    },
+    {
+     "va": "00e8f2f0",
+     "size": 54,
+     "symbol": "??0?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@UUserStatsReceived_t@@$0A@@@QAE@PAVFOnlineSubsystemSteamworksCallbacks@@P81@AEXPAUUserStatsReceived_t@@@Z@Z"
+    },
+    {
+     "va": "00e8f330",
+     "size": 54,
+     "symbol": "??0?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@UUserStatsStored_t@@$0A@@@QAE@PAVFOnlineSubsystemSteamworksCallbacks@@P81@AEXPAUUserStatsStored_t@@@Z@Z"
+    },
+    {
+     "va": "00e8f370",
+     "size": 54,
+     "symbol": "??0?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@UGameOverlayActivated_t@@$0A@@@QAE@PAVFOnlineSubsystemSteamworksCallbacks@@P81@AEXPAUGameOverlayActivated_t@@@Z@Z"
+    },
+    {
+     "va": "00e8f3b0",
+     "size": 54,
+     "symbol": "??0?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@USteamShutdown_t@@$0A@@@QAE@PAVFOnlineSubsystemSteamworksCallbacks@@P81@AEXPAUSteamShutdown_t@@@Z@Z"
+    },
+    {
+     "va": "00e8f3f0",
+     "size": 54,
+     "symbol": "??0?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@UGameServerChangeRequested_t@@$0A@@@QAE@PAVFOnlineSubsystemSteamworksCallbacks@@P81@AEXPAUGameServerChangeRequested_t@@@Z@Z"
+    },
+    {
+     "va": "00e8f430",
+     "size": 54,
+     "symbol": "??0?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@USteamServersConnected_t@@$0A@@@QAE@PAVFOnlineSubsystemSteamworksCallbacks@@P81@AEXPAUSteamServersConnected_t@@@Z@Z"
+    },
+    {
+     "va": "00e8f470",
+     "size": 54,
+     "symbol": "??0?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@USteamServersDisconnected_t@@$0A@@@QAE@PAVFOnlineSubsystemSteamworksCallbacks@@P81@AEXPAUSteamServersDisconnected_t@@@Z@Z"
+    },
+    {
+     "va": "00e8f4b0",
+     "size": 54,
+     "symbol": "??0?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@UClientGameServerDeny_t@@$0A@@@QAE@PAVFOnlineSubsystemSteamworksCallbacks@@P81@AEXPAUClientGameServerDeny_t@@@Z@Z"
+    },
+    {
+     "va": "00e8f4f0",
+     "size": 54,
+     "symbol": "??0?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@UGSClientApprove_t@@$00@@QAE@PAVFOnlineSubsystemSteamworksCallbacks@@P81@AEXPAUGSClientApprove_t@@@Z@Z"
+    },
+    {
+     "va": "00e8f530",
+     "size": 54,
+     "symbol": "??0?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@UGSClientDeny_t@@$00@@QAE@PAVFOnlineSubsystemSteamworksCallbacks@@P81@AEXPAUGSClientDeny_t@@@Z@Z"
+    },
+    {
+     "va": "00e8f570",
+     "size": 54,
+     "symbol": "??0?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@UGSClientKick_t@@$00@@QAE@PAVFOnlineSubsystemSteamworksCallbacks@@P81@AEXPAUGSClientKick_t@@@Z@Z"
+    },
+    {
+     "va": "00e8f5b0",
+     "size": 54,
+     "symbol": "??0?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@UGSPolicyResponse_t@@$00@@QAE@PAVFOnlineSubsystemSteamworksCallbacks@@P81@AEXPAUGSPolicyResponse_t@@@Z@Z"
+    },
+    {
+     "va": "00e8f5f0",
+     "size": 54,
+     "symbol": "??0?$CCallback@VFOnlineSubsystemSteamworksCallbacks@@UGSClientAchievementStatus_t@@$00@@QAE@PAVFOnlineSubsystemSteamworksCallbacks@@P81@AEXPAUGSClientAchievementStatus_t@@@Z@Z"
     }
    ]
   },

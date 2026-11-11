@@ -2,19 +2,19 @@
  "updated": "2026-11-11",
  "functions": {
   "total": 174153,
-  "matched": 96005
+  "matched": 96025
  },
  "bytes": {
   "total": 24308134,
-  "matched": 3531956
+  "matched": 3532244
  },
  "areas": [
   {
    "name": "Engine",
    "functions": 69863,
    "bytes": 9201956,
-   "matched": 40387,
-   "matched_bytes": 1615327
+   "matched": 40407,
+   "matched_bytes": 1615615
   },
   {
    "name": "Editor",
@@ -97,13 +97,13 @@
  "contributors": [
   {
    "login": "soupskin-b2",
-   "functions": 96005,
-   "bytes": 3531956,
+   "functions": 96025,
+   "bytes": 3532244,
    "models": {
     "tooling": 94456,
     "qwen3.8-27b": 931,
     "not specified": 338,
-    "claude-opus-5.5": 102,
+    "claude-opus-5.5": 122,
     "deepseek-v4.1-flash": 98,
     "claude-sonnet-5.5": 37,
     "deepseek-v4.1": 26,
@@ -129,7 +129,7 @@
   },
   {
    "model": "claude-opus-5.5",
-   "functions": 102
+   "functions": 122
   },
   {
    "model": "deepseek-v4.1-flash",

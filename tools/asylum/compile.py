@@ -29,7 +29,7 @@ LIB_DIRS = ["jpeg-6b", "zlib-1.2.3", "libpng-1.2.8"]
 PRAGMAS = {"pack", "intrinsic", "function", "once", "optimize", "warning", "inline_depth", "inline_recursion",
            "auto_inline", "push_macro", "pop_macro", "float_control", "fenv_access", "fp_contract", "check_stack",
            "runtime_checks", "strict_gs_check", "deprecated", "message", "vtordisp", "pointers_to_members", "conform"}
-_OK_INC = re.compile(r'^"ue3/\w+\.h"\s*$|^<(%s)\.h>\s*$|^"(%s)\.h"\s*$' % ("|".join(STD_HEADERS), "|".join(LIB_HEADERS)))
+_OK_INC = re.compile(r'^"(ue3|steam)/\w+\.h"\s*$|^<(%s)\.h>\s*$|^"(%s)\.h"\s*$' % ("|".join(STD_HEADERS), "|".join(LIB_HEADERS)))
 _TRIGRAPH = re.compile(r"\?\?[=/'()!<>-]")
 _TOKENS = re.compile(r'//[^\n]*|/\*.*?(?:\*/|$)|"(?:\\.|[^"\\\n])*"?|\'(?:\\.|[^\'\\\n])*\'?', re.S)
 _OTHER = [
@@ -59,7 +59,7 @@ def check_source(src: str) -> str | None:
             continue
         name, arg = m.group(1), m.group(2).strip()
         if name == "include" and not _OK_INC.match(arg):
-            return ("line %d: #include %s is not allowed: only the shared engine headers (\"ue3/Classes.h\" ...), the zlib, "
+            return ("line %d: #include %s is not allowed: only the shared headers (\"ue3/Classes.h\" ..., \"steam/steam_api.h\"), the zlib, "
                     "libpng and libjpeg headers and these standard headers: %s" % (n, arg, " ".join("<%s.h>" % h for h in STD_HEADERS)))
         if name in ("import", "using", "include_next"):
             return "line %d: #%s is not allowed" % (n, name)
