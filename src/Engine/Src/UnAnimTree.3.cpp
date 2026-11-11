@@ -2,6 +2,7 @@
 // Placed here by: neighbours 6.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
+#include "ue3/AppMath.h"
 
 struct C {
     void sub_00c57500(int);
@@ -115,11 +116,6 @@ undefined4 C_00c6aa30::sub_00c6aa30(byte param_2)
   return param_1;
 }
 
-/* UE3 UnTemplate.h (not in the kit). */
-template< class T > inline T Clamp( const T X, const T Min, const T Max )
-{
-	return X<Min ? Min : X<Max ? X : Max;
-}
 
 /* UAnimNodeSlot::UpdateWeightsForAdditiveAnimations isn't declared in Classes.h. */
 struct UAnimNodeSlot_ : public UAnimNodeSlot

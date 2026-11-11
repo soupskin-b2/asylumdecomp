@@ -2,10 +2,7 @@
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
-#include <stdlib.h>
-
-/* UE3 UnVcWin32.h (not in the kit). */
-inline FLOAT appFrand() { return rand() / (FLOAT)RAND_MAX; }
+#include "ue3/AppMath.h"
 
 /* USoundNodeAmbientNonLoop::PickNewSlot isn't declared in Classes.h. */
 struct USoundNodeAmbientNonLoop_ : public USoundNodeAmbientNonLoop
