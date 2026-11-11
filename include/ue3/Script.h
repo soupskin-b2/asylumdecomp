@@ -91,7 +91,9 @@ enum { RUC_SkippedOptionalParm = 0x02 };
 #define P_GET_STR_REF(v)       FString v##T; GPropAddr = 0; Stack.Step(Stack.Object, &v##T); FString& v = GPropAddr ? *(FString*)GPropAddr : v##T;
 
 /* an interface parameter (UnrealScript `SomeInterface`): object and interface pointers, zeroed */
-template<class T> struct TScriptInterface : public FScriptInterface {
+template<class T> struct TScriptInterface {  /* FScriptInterface's layout (Classes.h), usable without it */
+    class UObject* Object;
+    void* Interface;
     TScriptInterface() { Object = NULL; Interface = NULL; }
     T* GetInterface() const { return (T*)Interface; }
     T* operator->() const { return (T*)Interface; }

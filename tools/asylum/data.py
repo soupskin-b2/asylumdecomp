@@ -81,7 +81,8 @@ def header_addresses() -> dict[str, int]:
     """`Class::Name` -> address for declarations the headers pin with an address comment
     (`void Foo(INT); /* 0x005d7d10 */`); names given two addresses are left out. Cached per header state."""
     files = sorted((ROOT / "include" / "ue3").glob("*.h"))
-    tag = "%x" % (hash(tuple((f.name, f.stat().st_size, f.stat().st_mtime_ns) for f in files)) & 0xFFFFFFFFFFFF)
+    import hashlib  # (not hash(): it differs per process, so the cache would never hit)
+    tag = hashlib.sha256(repr([(f.name, f.stat().st_size, f.stat().st_mtime_ns) for f in files]).encode()).hexdigest()[:12]
     c = HOME / "cache" / ("header-addresses-%s.json" % tag)
     if c.exists():
         return json.loads(c.read_text(encoding="utf-8"))
@@ -89,7 +90,16 @@ def header_addresses() -> dict[str, int]:
     c.parent.mkdir(parents=True, exist_ok=True)
     tmp = c.with_name(c.name + ".%d.tmp" % os.getpid())
     tmp.write_text(json.dumps(out), encoding="utf-8")
-    os.replace(tmp, c)
+    try:
+        os.replace(tmp, c)
+    except OSError:  # another process just wrote the same file (Windows refuses the replace)
+        tmp.unlink(missing_ok=True)
+    for old in c.parent.glob("header-addresses-*.json"):  # earlier headers' copies
+        if old != c:
+            try:
+                old.unlink()
+            except OSError:
+                pass
     return out
 
 

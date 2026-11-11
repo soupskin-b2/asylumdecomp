@@ -60,6 +60,7 @@ class Coff:
         strtab = symptr + 18 * symcount
         strings = d[strtab:strtab + struct.unpack_from("<I", d, strtab)[0]] if symcount else b""
         self.symbols: dict[int, Symbol] = {}
+        self._functions: list[Symbol] | None = None
         i = 0
         while i < symcount:
             raw, value, sec, typ, storage, aux = struct.unpack_from("<8sIhHBB", d, symptr + 18 * i)
@@ -75,8 +76,19 @@ class Coff:
             i += 1 + aux
 
     def functions(self) -> list[Symbol]:
-        return [s for s in self.symbols.values()
-                if s.defined and s.is_function and s.storage in (2, 3) and self.sections[s.section].is_code]
+        if self._functions is None:  # an object doesn't change: listed once (a big file asks hundreds of times)
+            self._functions = [s for s in self.symbols.values()
+                               if s.defined and s.is_function and s.storage in (2, 3) and self.sections[s.section].is_code]
+            self._by_name = {}
+            for s in self._functions:
+                self._by_name.setdefault(s.name, s)
+            self._starts = {}
+            for s in self.symbols.values():
+                if s.is_function:
+                    self._starts.setdefault(s.section, []).append(s.value)
+            for v in self._starts.values():
+                v.sort()
+        return self._functions
 
     def written_functions(self) -> list[Symbol]:
         """The source's own functions: no compiler helpers, no inline functions of the headers."""
@@ -85,18 +97,20 @@ class Coff:
 
     def function_body(self, sym: Symbol) -> tuple[CSection, int, int]:
         """The section holding sym, and its [start, end) there (to the next function or the end)."""
+        import bisect
         sec = self.sections[sym.section]
-        later = [s.value for s in self.symbols.values() if s.section == sym.section and s.is_function and s.value > sym.value]
-        return sec, sym.value, min(later) if later else len(sec.data)
+        self.functions()
+        starts = self._starts.get(sym.section, [])
+        k = bisect.bisect_right(starts, sym.value)
+        return sec, sym.value, starts[k] if k < len(starts) else len(sec.data)
 
     def find_function(self, want: list[str]) -> Symbol | None:
         """The function to compare: by decorated name, else by a unique name part, else the only
         out-of-line function the source defines."""
         funcs = self.functions()
         for w in want:
-            for s in funcs:
-                if s.name == w:
-                    return s
+            if w in self._by_name:
+                return self._by_name[w]
         for w in want:
             if not w:
                 continue

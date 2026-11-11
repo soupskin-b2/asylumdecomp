@@ -190,6 +190,24 @@ def _pch(src: str, p: Profile) -> tuple[str, Path] | None:
             os.replace(t, d / hdr)
         except OSError:  # another process wrote the same file
             t.unlink(missing_ok=True)
+    # one process builds it, the others wait (parallel checks would all build the same one)
+    lock = d / ("%s.lock" % tag)
+    while True:
+        try:
+            os.close(os.open(lock, os.O_CREAT | os.O_EXCL | os.O_WRONLY))
+            break
+        except FileExistsError:
+            try:
+                if time.time() - lock.stat().st_mtime > 300:  # its builder died
+                    lock.unlink(missing_ok=True)
+            except OSError:
+                pass
+            time.sleep(0.2)
+            if out.exists():
+                return hdr, out
+    if out.exists():
+        lock.unlink(missing_ok=True)
+        return hdr, out
     work = Path(tempfile.mkdtemp(prefix="pch_", dir=_tmp()))
     try:
         (work / "pch.cpp").write_text('#include "%s"\n' % hdr, encoding="utf-8")
@@ -202,6 +220,7 @@ def _pch(src: str, p: Profile) -> tuple[str, Path] | None:
                 pass
         return (hdr, out) if out.exists() else None
     finally:
+        lock.unlink(missing_ok=True)
         shutil.rmtree(work, ignore_errors=True)
 
 

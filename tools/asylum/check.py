@@ -75,9 +75,8 @@ def unit_check(src: str, profile: str, funcs: list[tuple[int, list[str]]], libra
     obj = Coff(c.obj)
     k = known(obj)
     out, seen, conflicts = {}, {}, []
-    fps = data.fingerprints()
     for va, w in funcs:
-        fp = fps.get("%08x" % va)
+        fp = data.fingerprint(va)
         if fp is None:
             out["%08x" % va] = {"status": "error", "problems": ["no fingerprint"]}
             continue
