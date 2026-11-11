@@ -1,4 +1,4 @@
-// GFx_1920000.cpp (part 5 of 5): 2 functions
+// GFx_1920000.cpp (part 5 of 5): 4 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -45,4 +45,48 @@ INT* C_0192aef0::sub_0192aef0(INT* Out)
 {
     *Out = Value;
     return Out;
+}
+
+// GFx (Flash) runtime: minimal layout for the object this method belongs to.
+// GFxShapeCharacterDef's vtable (023f5b24) holds this function at slot 12.
+struct GFxShapeCharacterDef_
+{
+	char pad[0x10]; // includes the vtable pointer
+
+	struct GFxMember_01927190
+	{
+		void sub_01927190(int InParam, float InValue);
+	} m01927190;
+
+	void sub_01928e70(int Arg1, float Arg2);
+};
+
+// @baa 0x01928e70
+void GFxShapeCharacterDef_::sub_01928e70(int Arg1, float Arg2)
+{
+	m01927190.sub_01927190(Arg1, Arg2);
+}
+
+// External/GFx/Unsorted/GFx_1920000.cpp
+// The subobject of GFxConstShapeCharacterDef at offset 0x10; owns the
+// character advance bookkeeping.
+struct GFxConstShapeCharacterBase {
+    void sub_01926fa0(int a, float b);
+};
+
+// GFxConstShapeCharacterDef: 16 bytes of prefix (its vtable pointer), then
+// the character base at offset 0x10.
+struct GFxConstShapeCharacterDef {
+    char Prefix[0x10];
+    GFxConstShapeCharacterBase Base;
+
+    // vtable slot 12: forwards to the subobject's method.
+    void sub_01928ec0(int a, float b) ;
+};
+
+// @baa 0x01928ec0
+// GFxConstShapeCharacterDef::sub_01928ec0
+void GFxConstShapeCharacterDef::sub_01928ec0(int a, float b)
+{
+    Base.sub_01926fa0(a, b);
 }

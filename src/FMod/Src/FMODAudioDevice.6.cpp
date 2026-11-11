@@ -1,4 +1,4 @@
-// FMODAudioDevice.cpp (part 6 of 6): 2 functions
+// FMODAudioDevice.cpp (part 6 of 6): 3 functions
 // Placed here by: neighbours 1, callers 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -44,4 +44,11 @@ bool sub_00e85a80(undefined4 param_1)
   }
   iVar1 = sub_017623ea(param_1, (int)(sub_00e855a0), (int)(sub_00e85970), (int)(sub_00e84ae0), (int)(sub_00e84c70), 0xffffffff);
   return iVar1 == 0;
+}
+
+void __stdcall sub_00e85970(INT A, INT B);
+// @baa 0x00e85a70
+void sub_00e85a70(INT A)
+{
+    sub_00e85970(A, 0);
 }

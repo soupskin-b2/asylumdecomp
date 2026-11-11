@@ -1,4 +1,4 @@
-// Engine_0980000.cpp (part 6 of 6): 3 functions
+// Engine_0980000.cpp (part 6 of 6): 4 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -67,4 +67,18 @@ void C_00989c40::sub_00989c40(int param_2)
     }
   }
   return;
+}
+
+struct C_00981e40
+{
+    WORD Value;
+
+    C_00981e40* sub_00981e40(WORD In);
+};
+
+// @baa 0x00981e40
+C_00981e40* C_00981e40::sub_00981e40(WORD In)
+{
+    Value = In;
+    return this;
 }

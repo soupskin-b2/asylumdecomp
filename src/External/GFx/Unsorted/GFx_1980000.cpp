@@ -1,4 +1,4 @@
-// GFx_1980000.cpp (part 1 of 2): 68 functions
+// GFx_1980000.cpp (part 1 of 2): 69 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -819,4 +819,19 @@ struct GFxFlagsOwner
 bool GFxFlagsOwner::sub_0198cca0() const
 {
     return (Flags & 0x80) != 0;
+}
+
+struct C_0198f7b0
+{
+    BYTE pad_00;
+    BYTE Value;
+
+    BYTE* sub_0198f7b0(BYTE* Out);
+};
+
+// @baa 0x0198f7b0
+BYTE* C_0198f7b0::sub_0198f7b0(BYTE* Out)
+{
+    *Out = Value;
+    return Out;
 }

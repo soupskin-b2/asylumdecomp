@@ -1,4 +1,4 @@
-// UnPhysAsset.cpp: 33 functions
+// UnPhysAsset.cpp: 34 functions
 // Placed here by: class 16, neighbours 9, file 6, callers 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -177,4 +177,21 @@ int sub_00c94df0(void)
     sub_00df1fd0();
   }
   return g_026c5e7c;
+}
+
+struct C_00a04940
+{
+    char pad_00[0x58];
+    INT Value;
+
+    INT sub_00a04940();
+};
+
+// @baa 0x00a04940
+INT C_00a04940::sub_00a04940()
+{
+    INT Result = 0;
+    if (Value)
+        Result = 1;
+    return Result;
 }

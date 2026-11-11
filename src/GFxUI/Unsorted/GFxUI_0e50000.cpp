@@ -1,4 +1,4 @@
-// GFxUI_0e50000.cpp (part 1 of 2): 75 functions
+// GFxUI_0e50000.cpp (part 1 of 2): 76 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -973,4 +973,19 @@ void UGFxInteraction_::sub_00e53860(INT Argument)
 {
     if (g_026caed4 && Argument)
         g_026caed4->sub_00e52fa0(Argument);
+}
+
+extern "C" __declspec(dllimport) long __stdcall InterlockedExchangeAdd(long volatile* Addend, long Value);
+struct C_00e5db00
+{
+    char pad_00[0x8];
+    long Counter;
+
+    void sub_00e5db00();
+};
+
+// @baa 0x00e5db00
+void C_00e5db00::sub_00e5db00()
+{
+    InterlockedExchangeAdd(&Counter, 1);
 }

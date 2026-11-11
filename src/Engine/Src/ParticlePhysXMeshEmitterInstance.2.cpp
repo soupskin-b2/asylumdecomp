@@ -1,4 +1,4 @@
-// ParticlePhysXMeshEmitterInstance.cpp (part 2 of 3): 1 function
+// ParticlePhysXMeshEmitterInstance.cpp (part 2 of 3): 2 functions
 // Placed here by: callers 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -58,4 +58,20 @@ iVar2=sub_0053df70(*param_1,iVar2*0xc,8);
 sub_0053df30((void*)(*param_1+(param_2+param_3)*0xc),(void*)(*param_1+param_2*0xc),
 (iVar1-param_2)*0xc);
 return;
+}
+
+struct C_00df1a30
+{
+    char pad_00[0x18];
+    INT Value;
+
+    INT sub_00df1a30(INT Unused);
+};
+
+// @baa 0x00df1a30
+INT C_00df1a30::sub_00df1a30(INT)
+{
+    INT Old = Value;
+    Value = 0;
+    return Old;
 }

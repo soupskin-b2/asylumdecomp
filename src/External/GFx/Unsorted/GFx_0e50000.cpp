@@ -1,4 +1,4 @@
-// GFx_0e50000.cpp: 2 functions
+// GFx_0e50000.cpp: 3 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -30,4 +30,19 @@ undefined4 * C::sub_00e52110(void)
   g_027b897c = 0;
   *param_1 = (undefined4)(&g_02106ea4);
   return param_1;
+}
+
+extern "C" __declspec(dllimport) long __stdcall InterlockedExchangeAdd(long volatile* Addend, long Value);
+struct C_00e521a0
+{
+    char pad_00[0x4];
+    long Counter;
+
+    void sub_00e521a0();
+};
+
+// @baa 0x00e521a0
+void C_00e521a0::sub_00e521a0()
+{
+    InterlockedExchangeAdd(&Counter, 1);
 }

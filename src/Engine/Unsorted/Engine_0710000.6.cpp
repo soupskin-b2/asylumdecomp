@@ -1,4 +1,4 @@
-// Engine_0710000.cpp (part 6 of 7): 3 functions
+// Engine_0710000.cpp (part 6 of 7): 4 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -31,4 +31,22 @@ struct C
 INT C::sub_007183b0()
 {
     return Value == 0 ? -1 : 0;
+}
+
+struct C_00718c40
+{
+    char pad_00[0x4];
+    WORD First;
+    char pad_6[0x2];
+    WORD Second;
+
+    C_00718c40* sub_00718c40();
+};
+
+// @baa 0x00718c40
+C_00718c40* C_00718c40::sub_00718c40()
+{
+    First = 0;
+    Second = 0;
+    return this;
 }

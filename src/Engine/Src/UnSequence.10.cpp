@@ -1,4 +1,4 @@
-// UnSequence.cpp (part 10 of 10): 9 functions
+// UnSequence.cpp (part 10 of 10): 10 functions
 // Placed here by: neighbours 6.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -58,4 +58,19 @@ FString sub_005a9fc0(const TCHAR* Format, FLOAT Value);
 FString USeqVar_Float::vf_194()
 {
 	return sub_005a9fc0(TEXT("%2.3f"), FloatValue);
+}
+
+struct C
+{
+    char pad_00[0xd4];
+    float Target;
+    float Source;
+
+    void sub_008e6260();
+};
+
+// @baa 0x008e6260
+void C::sub_008e6260()
+{
+    Target = Source;
 }

@@ -1,4 +1,4 @@
-// UnrealEd_1ac0000.cpp (part 3 of 4): 13 functions
+// UnrealEd_1ac0000.cpp (part 3 of 4): 14 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -134,4 +134,19 @@ short __cdecl sub_01acf960(void)
     if (g_027ca53c == 0)
         g_027ca53c = sub_01ace4c0();
     return g_027ca53c->sub_01ab5e50();
+}
+
+struct C_01acb880
+{
+    INT pad_00;
+    INT Counter;
+
+    BYTE sub_01acb880(INT A, INT Delta);
+};
+
+// @baa 0x01acb880
+BYTE C_01acb880::sub_01acb880(INT, INT Delta)
+{
+    Counter += Delta;
+    return 1;
 }

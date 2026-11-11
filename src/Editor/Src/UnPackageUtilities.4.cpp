@@ -1,4 +1,4 @@
-// UnPackageUtilities.cpp (part 4 of 4): 6 functions
+// UnPackageUtilities.cpp (part 4 of 4): 7 functions
 // Placed here by: neighbours 4, callers 1, class 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -129,4 +129,11 @@ undefined4 UAnalyzeFallbackMaterialsCommandlet::sub_010f8240(byte param_2)
     sub_0053dfa0(param_1);
   }
   return param_1;
+}
+
+void __stdcall sub_010fad00(INT Value);
+// @baa 0x010faef0
+void __stdcall sub_010faef0(INT A, INT B, INT C)
+{
+    sub_010fad00(A);
 }

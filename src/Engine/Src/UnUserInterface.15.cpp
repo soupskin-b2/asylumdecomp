@@ -1,4 +1,4 @@
-// UnUserInterface.cpp (part 15 of 15): 16 functions
+// UnUserInterface.cpp (part 15 of 15): 17 functions
 // Placed here by: class 3.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -129,3 +129,23 @@ PURE_VIRTUAL(UUISceneClient::RequestPrimitiveReinitialization,)
 // @baa 0x00de1490
 void UUISceneClient::InitializePrimitives( INT Canvas )
 PURE_VIRTUAL(UUISceneClient::InitializePrimitives,)
+
+struct Inner
+{
+    char pad_00[0xdc];
+    DWORD Flags;
+};
+
+struct C_00dde510
+{
+    char pad_00[0x1c];
+    Inner* Object;
+
+    void sub_00dde510(INT Unused);
+};
+
+// @baa 0x00dde510
+void C_00dde510::sub_00dde510(INT)
+{
+    Object->Flags &= ~0x10;
+}

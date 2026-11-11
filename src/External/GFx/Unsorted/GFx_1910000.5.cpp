@@ -1,4 +1,4 @@
-// GFx_1910000.cpp (part 5 of 5): 3 functions
+// GFx_1910000.cpp (part 5 of 5): 9 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -74,4 +74,102 @@ INT* C_01914540::sub_01914540(INT* Out)
 {
     *Out = Value;
     return Out;
+}
+
+// GFx_1910000.cpp
+struct Node01912570_;
+struct Node01912570_
+{
+    int sub_019729b0(Node01912570_* Other, int Flags);
+};
+
+struct Outer01912570_
+{
+    unsigned char _pad[0x3c];
+    Node01912570_ Node;
+
+    Node01912570_* sub_01912570(Node01912570_* Other);
+};
+
+// @baa 0x01912570
+Node01912570_* Outer01912570_::sub_01912570(Node01912570_* Other)
+{
+    Other->sub_019729b0(&this->Node, 0);
+    return Other;
+}
+
+struct C_019143b0
+{
+    float First;
+    float Second;
+
+    void sub_019143b0(float Value);
+};
+
+// @baa 0x019143b0
+void C_019143b0::sub_019143b0(float Value)
+{
+    Second = Value;
+    First = Value;
+}
+
+struct C_0191f890
+{
+    UINT pad_00;
+    UINT Left;
+    UINT Right;
+
+    INT sub_0191f890();
+};
+
+// @baa 0x0191f890
+INT C_0191f890::sub_0191f890()
+{
+    return Left >= Right;
+}
+
+struct C_0191edf0
+{
+    char pad_00[0x20];
+    INT Value;
+
+    BYTE sub_0191edf0(INT Unused);
+};
+
+// @baa 0x0191edf0
+BYTE C_0191edf0::sub_0191edf0(INT)
+{
+    Value = 0x1003;
+    return 0;
+}
+
+// GFx_1910000.cpp (part 2 of 5)
+struct FxChar_01914590 {
+    void operator=(const FxChar_01914590& src);
+};
+
+struct Glyph_019154d0 {
+    char pad[0x9c];
+    Glyph_019154d0* field_09c;      // +0x9c: pointer to a glyph record
+    void sub_019154d0(const FxChar_01914590& src);
+};
+
+struct GlyphRecord {
+    char pad[0x120];
+    FxChar_01914590 ch;             // +0x120
+};
+
+// @baa 0x019154d0
+void Glyph_019154d0::sub_019154d0(const FxChar_01914590& src)
+{
+    if (field_09c)
+        ((GlyphRecord*)field_09c)->ch = src;
+}
+
+// Deprecated tag handler (tag 1004, DefineGradientMapLoader), table at 0x2600084.
+int sub_0191a7f0(int ObjectOffset, const char* Message);
+// @baa 0x0191b7a0
+void __stdcall sub_0191b7a0(int ObjectOffset, int tag)
+{
+    sub_0191a7f0(ObjectOffset + 0x1c, "Deprecated tag 1004 - DefineGradientMapLoader encountered, ignored\n");
 }

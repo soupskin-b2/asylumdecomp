@@ -1,4 +1,4 @@
-// Core_05e0000.cpp (part 5 of 5): 2 functions
+// Core_05e0000.cpp (part 5 of 5): 5 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -40,4 +40,47 @@ extern "C" __declspec(dllimport) void __stdcall OutputDebugStringW(const wchar_t
 void sub_005ec6f0(const wchar_t* Text)
 {
     OutputDebugStringW(Text);
+}
+
+typedef void* HANDLE;
+
+extern "C" __declspec(dllimport) unsigned long __stdcall WaitForSingleObject(HANDLE Handle, unsigned long Milliseconds);
+struct C_005ec380
+{
+    INT pad_00;
+    HANDLE Handle;
+
+    void sub_005ec380();
+};
+
+// @baa 0x005ec380
+void C_005ec380::sub_005ec380()
+{
+    WaitForSingleObject(Handle, 0xFFFFFFFF);
+}
+
+struct C_005ef9b0
+{
+    void sub_005ef1c0(INT* Arg);
+
+    void sub_005ef9b0(INT Value);
+};
+
+// @baa 0x005ef9b0
+void C_005ef9b0::sub_005ef9b0(INT Value)
+{
+    sub_005ef1c0(&Value);
+}
+
+struct C_005ef9c0
+{
+    void sub_005ef1c0(INT* Arg);
+
+    void sub_005ef9c0(INT Value);
+};
+
+// @baa 0x005ef9c0
+void C_005ef9c0::sub_005ef9c0(INT Value)
+{
+    sub_005ef1c0(&Value);
 }

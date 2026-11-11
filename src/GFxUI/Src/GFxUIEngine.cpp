@@ -1,4 +1,4 @@
-// GFxUIEngine.cpp (part 1 of 3): 82 functions
+// GFxUIEngine.cpp (part 1 of 3): 83 functions
 // Placed here by: neighbours 76, callers 5, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -742,3 +742,18 @@ void sub_0190f0a0(void) { sub_0190e290(); }
 void sub_0190e330();
 // @baa 0x0190f0e0
 void sub_0190f0e0(void) { sub_0190e330(); }
+
+extern "C" __declspec(dllimport) long __stdcall InterlockedExchangeAdd(long volatile* Addend, long Value);
+struct C_00e493d0
+{
+    char pad_00[0x8];
+    long Counter;
+
+    void sub_00e493d0();
+};
+
+// @baa 0x00e493d0
+void C_00e493d0::sub_00e493d0()
+{
+    InterlockedExchangeAdd(&Counter, 1);
+}

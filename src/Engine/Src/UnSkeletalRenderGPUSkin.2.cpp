@@ -1,4 +1,4 @@
-// UnSkeletalRenderGPUSkin.cpp (part 2 of 2): 6 functions
+// UnSkeletalRenderGPUSkin.cpp (part 2 of 2): 7 functions
 // Placed here by: neighbours 6.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -66,4 +66,15 @@ undefined4 C_00968a30::sub_00968a30(byte param_2)
     sub_0053dfa0(param_1);
   }
   return param_1;
+}
+
+struct C_009679b0
+{
+    C_009679b0* sub_009679b0();
+};
+
+// @baa 0x009679b0
+C_009679b0* C_009679b0::sub_009679b0()
+{
+    return (C_009679b0*)((char*)this - 0x240) == 0 ? 0 : this;
 }

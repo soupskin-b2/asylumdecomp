@@ -1,4 +1,4 @@
-// UnScrPrecom.cpp: 2 functions
+// UnScrPrecom.cpp: 3 functions
 // Placed here by: callers 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -33,4 +33,23 @@ int UTexture2D::sub_00fff1c0(int param_2)
     return iVar1 + 8;
   }
   return 0;
+}
+
+struct Sub
+{
+    INT* sub_00de0ab0(INT Value);
+};
+
+struct C
+{
+    char pad_00[0x34];
+    Sub Marker;
+
+    INT sub_00ff3250();
+};
+
+// @baa 0x00ff3250
+INT C::sub_00ff3250()
+{
+    return *Marker.sub_00de0ab0(0);
 }

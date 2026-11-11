@@ -1,4 +1,4 @@
-// UnrealEd_0510000.cpp (part 3 of 3): 4 functions
+// UnrealEd_0510000.cpp (part 3 of 3): 6 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -59,4 +59,36 @@ struct C_00511920
 void C_00511920::sub_00511920(INT)
 {
     (*(Fn*)(*(char**)this + 0x1c8))(this);
+}
+
+struct C_005121e0
+{
+    char pad_00[0x170];
+    float Source;
+    char pad_174[8];
+    float Target;
+
+    void sub_005121e0();
+};
+
+// @baa 0x005121e0
+void C_005121e0::sub_005121e0()
+{
+    Target = Source;
+}
+
+struct C_0051bbd0
+{
+    INT pad_00[3];
+    INT Source;
+    INT pad_10[4];
+    BYTE Result;
+
+    void sub_0051bbd0(INT Unused);
+};
+
+// @baa 0x0051bbd0
+void C_0051bbd0::sub_0051bbd0(INT)
+{
+    Result = Source != 0;
 }

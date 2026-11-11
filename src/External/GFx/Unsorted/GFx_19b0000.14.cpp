@@ -1,4 +1,4 @@
-// GFx_19b0000.cpp (part 14 of 14): 2 functions
+// GFx_19b0000.cpp (part 14 of 14): 3 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -42,4 +42,10 @@ struct GFxItemRef
 void GFxItemRef::sub_019bc910(const char* Name)
 {
     pData->Item.sub_018e45b0(Name);
+}
+
+// @baa 0x019b6db0
+INT __stdcall sub_019b6db0(INT* Object)
+{
+    return *(INT*)(*Object + 8);
 }

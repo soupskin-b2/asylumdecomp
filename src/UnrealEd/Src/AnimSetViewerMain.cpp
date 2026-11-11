@@ -1,4 +1,4 @@
-// AnimSetViewerMain.cpp: 32 functions
+// AnimSetViewerMain.cpp: 33 functions
 // Placed here by: neighbours 28, callers 3, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -350,4 +350,23 @@ int UUnrealEdEngine::sub_013283d0(void)
   *(undefined4 *)(param_1 + 0x34) = 0;
   *(undefined4 *)(param_1 + 0x38) = 0;
   return param_1;
+}
+
+struct Sub
+{
+    void sub_0134a590(void* Arg);
+};
+
+struct C_0130ec40
+{
+    char pad_00[0x2fc];
+    Sub* Object;
+
+    void sub_0130ec40();
+};
+
+// @baa 0x0130ec40
+void C_0130ec40::sub_0130ec40()
+{
+    Object->sub_0134a590(this);
 }

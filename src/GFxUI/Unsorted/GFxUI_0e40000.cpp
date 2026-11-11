@@ -1,4 +1,4 @@
-// GFxUI_0e40000.cpp: 278 functions
+// GFxUI_0e40000.cpp: 279 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -2772,4 +2772,18 @@ void C_00e4fef0::sub_00e4fef0(undefined4 param_2, undefined4 param_3)
 
   sub_00654a90(param_2,param_1 + 0x10,param_3,0);
   return;
+}
+
+struct C_00e48c00
+{
+    INT Value;
+
+    C_00e48c00* sub_00e48c00(INT* Source);
+};
+
+// @baa 0x00e48c00
+C_00e48c00* C_00e48c00::sub_00e48c00(INT* Source)
+{
+    *(INT*)this = *Source;
+    return this;
 }

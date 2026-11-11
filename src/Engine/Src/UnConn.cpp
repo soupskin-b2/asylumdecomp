@@ -1,4 +1,4 @@
-// UnConn.cpp: 33 functions
+// UnConn.cpp: 34 functions
 // Placed here by: class 12, neighbours 11, callers 6, file 3.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -208,4 +208,26 @@ int sub_00630f20(...);
 // @baa 0x00c1a250
 void UNetConnection::LowLevelSend(INT ChannelIndex, INT BunchSize) {
   sub_00630f20(g_026667a8, L"Pure virtual not implemented (%s)", L"UNetConnection::LowLevelSend");
+}
+
+struct Inner
+{
+    char pad_00[0x68];
+    INT Value;
+};
+
+struct C_00e14c30
+{
+    char pad_00[0x68];
+    INT Value;
+    char pad_6c[0x4f4c];
+    Inner* Source;
+
+    void sub_00e14c30();
+};
+
+// @baa 0x00e14c30
+void C_00e14c30::sub_00e14c30()
+{
+    Value = Source->Value;
 }

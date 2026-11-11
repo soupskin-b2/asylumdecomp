@@ -1,4 +1,4 @@
-// GFx_18d0000.cpp (part 3 of 3): 5 functions
+// GFx_18d0000.cpp (part 3 of 3): 7 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -83,4 +83,39 @@ GFxSettings& GFxSettings::sub_018ddcc0(int NewValue)
 {
     Value = NewValue;
     return *this;
+}
+
+struct S_018d9610
+{
+	void sub_018d9610(unsigned char A, unsigned char B, unsigned char C);
+};
+
+// @baa 0x018d9610
+void S_018d9610::sub_018d9610(unsigned char A, unsigned char B, unsigned char C)
+{
+	*(char*)((char*)this - 2) = (char)((B << 7) | A);
+	*(char*)((char*)this - 1) = (char)C;
+}
+
+struct GFxObject_ {
+    virtual void sub_018d9000();
+    virtual void sub_018d9100();
+    virtual void sub_018d9200();
+    virtual void sub_018d9300();
+    virtual void sub_018d9400();
+    virtual void sub_018d9500();
+    virtual int sub_018d9700(int arg);
+};
+
+struct GFxHost_ {
+    char pad_0x504[0x504];
+    GFxObject_* Object;
+
+    void sub_018d9840(int arg);
+};
+
+// @baa 0x018d9840
+void GFxHost_::sub_018d9840(int arg)
+{
+    Object->sub_018d9700(arg - 4);
 }

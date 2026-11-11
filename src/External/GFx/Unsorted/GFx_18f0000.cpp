@@ -1,4 +1,4 @@
-// GFx_18f0000.cpp (part 1 of 3): 121 functions
+// GFx_18f0000.cpp (part 1 of 3): 124 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Core.h"
@@ -1442,4 +1442,58 @@ struct GFxIdKey
 unsigned int GFxIdKey::sub_018f69e0() const
 {
     return pNode->GetHash();
+}
+
+struct sub_018f71d0_t {
+    float x;
+    float y;
+    float z;
+    float w;
+    void sub_018f71d0(float p1, float p2);
+};
+
+// @baa 0x018f71d0
+void sub_018f71d0_t::sub_018f71d0(float p1, float p2)
+{
+    x = 0.f;
+    y = 0.f;
+    z = p1;
+    w = p2;
+}
+
+struct sub_018e4150_obj
+{
+	int sub_018e4150();
+};
+
+// @baa 0x018f84a0
+int sub_018f84a0(void* Object)
+{
+	if (Object)
+	{
+		((sub_018e4150_obj*)Object)->sub_018e4150();
+		return (int)Object;
+	}
+	return 0;
+}
+
+#pragma pack(push, 1)
+struct LARGE_INTEGER_ {
+	union {
+		struct {
+			unsigned long LowPart;
+			long          HighPart;
+		} Parts;
+		long long QuadPart;
+	} u;
+};
+
+#pragma pack(pop)
+extern "C" int __declspec(dllimport) __stdcall QueryPerformanceCounter(LARGE_INTEGER_* lpPerformanceCount);
+// @baa 0x018f1200
+LARGE_INTEGER_ sub_018f1200()
+{
+	LARGE_INTEGER_ Counter;
+	QueryPerformanceCounter(&Counter);
+	return Counter;
 }

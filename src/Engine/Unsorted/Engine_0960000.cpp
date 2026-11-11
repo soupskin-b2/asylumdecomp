@@ -1,4 +1,4 @@
-// Engine_0960000.cpp (part 1 of 2): 185 functions
+// Engine_0960000.cpp (part 1 of 2): 186 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -1987,4 +1987,15 @@ undefined4 UTexture2DComposite::sub_0096e670(byte param_2)
     sub_0053dfa0(param_1);
   }
   return param_1;
+}
+
+struct C_00967b40
+{
+    C_00967b40* sub_00967b40();
+};
+
+// @baa 0x00967b40
+C_00967b40* C_00967b40::sub_00967b40()
+{
+    return (C_00967b40*)((char*)this - 0x2d0) ? this : 0;
 }

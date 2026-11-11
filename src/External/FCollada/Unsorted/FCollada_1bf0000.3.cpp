@@ -1,4 +1,4 @@
-// FCollada_1bf0000.cpp (part 3 of 3): 5 functions
+// FCollada_1bf0000.cpp (part 3 of 3): 10 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -119,4 +119,39 @@ void __fastcall sub_01bf37b0(unsigned short c, uint32* crc)
     value = (value >> 8) ^ crc32Table[(value ^ c) & 0xFF];
     value = (value >> 8) ^ crc32Table[(value ^ (c >> 8)) & 0xFF];
     *crc = value;
+}
+
+extern "C" __declspec(dllimport) void __stdcall InitializeCriticalSection(void* Section);
+extern char g_027d4e60[];
+// @baa 0x01bf51a0
+void sub_01bf51a0()
+{
+    InitializeCriticalSection(g_027d4e60);
+}
+
+extern "C" __declspec(dllimport) void __stdcall DeleteCriticalSection(void* Section);
+// @baa 0x01bf51b0
+void sub_01bf51b0()
+{
+    DeleteCriticalSection(g_027d4e60);
+}
+
+extern "C" __declspec(dllimport) void __stdcall EnterCriticalSection(void* Section);
+// @baa 0x01bf51c0
+void sub_01bf51c0()
+{
+    EnterCriticalSection(g_027d4e60);
+}
+
+extern "C" __declspec(dllimport) void __stdcall LeaveCriticalSection(void* Section);
+// @baa 0x01bf51d0
+void sub_01bf51d0()
+{
+    LeaveCriticalSection(g_027d4e60);
+}
+
+// @baa 0x01bf4ed0
+INT __cdecl sub_01bf4ed0(INT Value)
+{
+    return Value ? 7 : 0;
 }

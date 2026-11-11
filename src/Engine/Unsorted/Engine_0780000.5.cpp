@@ -1,4 +1,4 @@
-// Engine_0780000.cpp (part 5 of 5): 2 functions
+// Engine_0780000.cpp (part 5 of 5): 3 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -45,4 +45,10 @@ void C_0078fd30::sub_0078fd30(int param_2)
     }
   }
   return;
+}
+
+// @baa 0x00785620
+INT __stdcall sub_00785620(INT Value)
+{
+    return (Value + 1) & ~1;
 }

@@ -1,4 +1,4 @@
-// UnrealEd_1110000.cpp: 2 functions
+// UnrealEd_1110000.cpp: 3 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Core.h"
@@ -256,4 +256,16 @@ struct U {
 void U::sub_01117930(int A)
 {
     g_026d4df8->Method(1);
+}
+
+class wxNotifyEvent
+{
+public:
+    __declspec(dllimport) void Veto();
+};
+
+// @baa 0x011171d0
+void __stdcall sub_011171d0(wxNotifyEvent* Event)
+{
+    Event->wxNotifyEvent::Veto();
 }

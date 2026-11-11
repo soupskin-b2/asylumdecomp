@@ -2,33 +2,33 @@
  "updated": "2026-11-11",
  "functions": {
   "total": 174153,
-  "matched": 97581
+  "matched": 97703
  },
  "bytes": {
   "total": 24308134,
-  "matched": 3666443
+  "matched": 3669388
  },
  "areas": [
   {
    "name": "Engine",
    "functions": 69863,
    "bytes": 9201956,
-   "matched": 41071,
-   "matched_bytes": 1692001
+   "matched": 41112,
+   "matched_bytes": 1693541
   },
   {
    "name": "Editor",
    "functions": 42961,
    "bytes": 8040643,
-   "matched": 23601,
-   "matched_bytes": 790238
+   "matched": 23626,
+   "matched_bytes": 790577
   },
   {
    "name": "External",
    "functions": 29398,
    "bytes": 3194226,
-   "matched": 11477,
-   "matched_bytes": 182872
+   "matched": 11526,
+   "matched_bytes": 183714
   },
   {
    "name": "Game",
@@ -41,8 +41,8 @@
    "name": "Core",
    "functions": 12072,
    "bytes": 1275961,
-   "matched": 7803,
-   "matched_bytes": 236474
+   "matched": 7809,
+   "matched_bytes": 236685
   },
   {
    "name": "CommonGame",
@@ -62,8 +62,8 @@
    "name": "FMod",
    "functions": 1472,
    "bytes": 150189,
-   "matched": 908,
-   "matched_bytes": 27174
+   "matched": 909,
+   "matched_bytes": 27187
   },
   {
    "name": "CommonEditor",
@@ -97,18 +97,18 @@
  "contributors": [
   {
    "login": "soupskin-b2",
-   "functions": 97581,
-   "bytes": 3666443,
+   "functions": 97703,
+   "bytes": 3669388,
    "models": {
     "tooling": 94456,
-    "deepseek-v4.1-flash": 1120,
-    "qwen3.8-27b": 1092,
+    "deepseek-v4.1-flash": 1216,
+    "qwen3.8-27b": 1112,
     "not specified": 338,
     "Claude Opus 5.5": 206,
-    "claude-opus-5.5": 172,
+    "claude-opus-5.5": 175,
     "gpt-6.1-sol": 86,
     "claude-sonnet-5.5": 37,
-    "qwen": 28,
+    "qwen": 30,
     "deepseek-v4.1": 26,
     "gpt-6.1-terra": 10,
     "Qwen": 3,
@@ -116,7 +116,8 @@
     "Qwen3": 2,
     "claude-haiku-5.5": 1,
     "qwen3.8-27b qwen3.8-27b": 1,
-    "claude": 1
+    "claude": 1,
+    "qwen3": 1
    }
   }
  ],
@@ -127,11 +128,11 @@
   },
   {
    "model": "deepseek-v4.1-flash",
-   "functions": 1120
+   "functions": 1216
   },
   {
    "model": "qwen3.8-27b",
-   "functions": 1092
+   "functions": 1112
   },
   {
    "model": "not specified",
@@ -143,7 +144,7 @@
   },
   {
    "model": "claude-opus-5.5",
-   "functions": 172
+   "functions": 175
   },
   {
    "model": "gpt-6.1-sol",
@@ -155,7 +156,7 @@
   },
   {
    "model": "qwen",
-   "functions": 28
+   "functions": 30
   },
   {
    "model": "deepseek-v4.1",
@@ -187,6 +188,10 @@
   },
   {
    "model": "claude",
+   "functions": 1
+  },
+  {
+   "model": "qwen3",
    "functions": 1
   }
  ]

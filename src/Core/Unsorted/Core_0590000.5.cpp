@@ -1,4 +1,4 @@
-// Core_0590000.cpp: 6 functions
+// Core_0590000.cpp: 7 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -53,4 +53,14 @@ void UObject::execAtan(FFrame& Stack, RESULT_DECL)
     P_GET_FLOAT(A);
     P_FINISH;
     *(FLOAT*)Result = appAtan(A);
+}
+
+// @baa 0x00592cb0
+// Rand(int Max): a random integer in [0, Max)
+void UObject::execRand(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(A);
+	P_FINISH;
+	INT Max = A;
+	*(INT*)Result = Max > 0 ? appTrunc(appRand() * (FLOAT)Max / 32768.f) : 0;
 }

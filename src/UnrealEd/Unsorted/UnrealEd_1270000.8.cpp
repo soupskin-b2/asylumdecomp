@@ -1,4 +1,4 @@
-// UnrealEd_1270000.cpp (part 8 of 8): 1 function
+// UnrealEd_1270000.cpp (part 8 of 8): 6 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -33,4 +33,89 @@ if((undefined4*)0x0!=puVar1){
 *puVar1=*param_2;
 }
 return iVar2;
+}
+
+struct C_01278180
+{
+    char pad_00[0x644];
+    float Source;
+    float Target;
+
+    void sub_01278180();
+};
+
+// @baa 0x01278180
+void C_01278180::sub_01278180()
+{
+    Target = Source;
+}
+
+struct C_01278190
+{
+    char pad_00[0x644];
+    float Target;
+    float Source;
+
+    void sub_01278190();
+};
+
+// @baa 0x01278190
+void C_01278190::sub_01278190()
+{
+    Target = Source;
+}
+
+struct Sub
+{
+    void sub_012ffa60();
+};
+
+struct C_01277850
+{
+    char pad_00[0x40];
+    Sub* Object;
+
+    void sub_01277850();
+};
+
+// @baa 0x01277850
+void C_01277850::sub_01277850()
+{
+    if (Object)
+        Object->sub_012ffa60();
+}
+
+struct Sub_01277860
+{
+    void sub_01308c80();
+};
+
+struct C_01277860
+{
+    char pad_00[0x40];
+    Sub_01277860* Object;
+
+    void sub_01277860();
+};
+
+// @baa 0x01277860
+void C_01277860::sub_01277860()
+{
+    if (Object)
+        Object->sub_01308c80();
+}
+
+struct C_01277870
+{
+    char pad_00[0x40];
+    Sub* Object;
+
+    void sub_01277870();
+};
+
+// @baa 0x01277870
+void C_01277870::sub_01277870()
+{
+    if (Object)
+        Object->sub_012ffa60();
 }

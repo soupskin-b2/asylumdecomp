@@ -1,4 +1,4 @@
-// GenericBrowserTypes.cpp (part 4 of 4): 10 functions
+// GenericBrowserTypes.cpp (part 4 of 4): 12 functions
 // Placed here by: neighbours 3, class 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -154,4 +154,40 @@ void C_0130d540::sub_0130d540()
 {
     *(void**)this = g_02248fe0;
     ((wxDialog*)this)->wxDialog::~wxDialog();
+}
+
+struct Sub
+{
+    void sub_011725d0(void* Arg);
+};
+
+struct C_01173690
+{
+    char pad_00[0x40];
+    INT Arg;
+    char pad_44[0x10];
+    Sub Target;
+
+    void sub_01173690();
+};
+
+// @baa 0x01173690
+void C_01173690::sub_01173690()
+{
+    Target.sub_011725d0(&Arg);
+}
+
+extern INT wxEmptyString_exref;
+struct C_0045c9f0
+{
+    INT Value;
+
+    C_0045c9f0* sub_0045c9f0();
+};
+
+// @baa 0x0045c9f0
+C_0045c9f0* C_0045c9f0::sub_0045c9f0()
+{
+    Value = *(INT*)wxEmptyString_exref;
+    return this;
 }

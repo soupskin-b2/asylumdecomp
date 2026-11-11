@@ -1,4 +1,4 @@
-// GFx_0880000.cpp (part 1 of 2): 37 functions
+// GFx_0880000.cpp (part 1 of 2): 38 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -306,3 +306,10 @@ struct C_0088dd70 { int sub_0088dd70(void); };
 
 // @baa 0x0088dd70
 int C_0088dd70::sub_0088dd70(void) { return *(int*)((char*)this + 0); }
+
+void __stdcall sub_018d6b40(INT A, INT B);
+// @baa 0x00889250
+void sub_00889250()
+{
+    sub_018d6b40(0x20000, -1);
+}

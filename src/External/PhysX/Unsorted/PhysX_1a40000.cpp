@@ -1,4 +1,4 @@
-// PhysX_1a40000.cpp (part 1 of 2): 57 functions
+// PhysX_1a40000.cpp (part 1 of 2): 58 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -3520,4 +3520,23 @@ void NxdJointShared::purgeLimitPlanes()
     sub_01a43380("purgeLimitPlanes");
     if (joint)
         joint->purgeLimitPlanes();
+}
+
+struct Sub
+{
+    void sub_01a3b430(void* Arg);
+};
+
+struct C_01a4d4e0
+{
+    char pad_00[0xc];
+    Sub* Object;
+
+    void sub_01a4d4e0(INT Unused);
+};
+
+// @baa 0x01a4d4e0
+void C_01a4d4e0::sub_01a4d4e0(INT)
+{
+    Object->sub_01a3b430(this);
 }

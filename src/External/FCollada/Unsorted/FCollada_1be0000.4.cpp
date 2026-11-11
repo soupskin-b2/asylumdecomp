@@ -1,4 +1,4 @@
-// FCollada_1be0000.cpp (part 4 of 4): 1 function
+// FCollada_1be0000.cpp (part 4 of 4): 3 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -25,4 +25,19 @@ undefined4 * sub_01bee450(int param_1, int param_2)
   *puVar1 = uVar2;
   sub_01be6420(uVar2);
   return puVar1;
+}
+
+extern "C" __declspec(dllimport) void* __cdecl malloc(unsigned int Size);
+// @baa 0x01be1af0
+void* sub_01be1af0()
+{
+    return malloc(16);
+}
+
+extern "C" __declspec(dllimport) void __stdcall InitializeCriticalSection(void* Section);
+extern char g_027d4e80[];
+// @baa 0x01be1b00
+void sub_01be1b00()
+{
+    InitializeCriticalSection(g_027d4e80);
 }

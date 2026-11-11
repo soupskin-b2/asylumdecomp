@@ -1,4 +1,4 @@
-// Engine_06d0000.cpp (part 1 of 4): 335 functions
+// Engine_06d0000.cpp (part 1 of 4): 336 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -2520,4 +2520,18 @@ struct UPointLightComponent_ : public UPointLightComponent
 void UPointLightComponent_::sub_006da930(const FMatrix* In)
 {
     CachedParentToWorld = *In;
+}
+
+// The real material-usage helper lives at 006d72b0 (this in ecx, two stack args).
+struct UMaterial_ : public UMaterial
+{
+    INT sub_006d72b0(INT* bInUse, INT Usage); /* 0x006d72b0 */
+};
+
+// @baa 0x006d74b0
+INT UMaterial::CheckMaterialUsage(INT Usage)
+{
+    UMaterial_* self = static_cast<UMaterial_*>(this);
+    INT bInUse = 0;
+    return self->sub_006d72b0(&bInUse, Usage);
 }

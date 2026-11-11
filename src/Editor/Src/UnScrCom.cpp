@@ -1,4 +1,4 @@
-// UnScrCom.cpp (part 1 of 4): 536 functions
+// UnScrCom.cpp (part 1 of 4): 537 functions
 // Placed here by: neighbours 476, callers 59, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -5333,3 +5333,16 @@ struct D_01e25bc0 { void sub_00fbe7d0(); };
 extern D_01e25bc0 g_026cdce0;
 // @baa 0x01e25bc0
 void sub_01e25bc0() { g_026cdce0.sub_00fbe7d0(); }
+
+struct Sub
+{
+    virtual INT vf_0();
+};
+
+extern INT sub_00fd85d0();
+// @baa 0x00fd86e0
+INT sub_00fd86e0()
+{
+    Sub* Object = (Sub*)sub_00fd85d0();
+    return Object->vf_0();
+}

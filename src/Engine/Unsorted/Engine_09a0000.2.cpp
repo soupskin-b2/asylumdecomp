@@ -1,4 +1,4 @@
-// Engine_09a0000.cpp (part 2 of 2): 52 functions
+// Engine_09a0000.cpp (part 2 of 2): 54 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -627,4 +627,24 @@ undefined4 sub_009aff20(void)
 undefined4 sub_009aff30(void)
 {
   return 0xffffffff;
+}
+
+struct C_009afe00
+{
+    char pad_00[0x68];
+    INT Offset;
+
+    BYTE sub_009afe00(char* Object);
+};
+
+// @baa 0x009afe00
+BYTE C_009afe00::sub_009afe00(char* Object)
+{
+    return Object[Offset];
+}
+
+// @baa 0x009afe60
+INT __stdcall sub_009afe60(INT Value)
+{
+    return Value == 1;
 }

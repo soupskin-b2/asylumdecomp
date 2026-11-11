@@ -1,4 +1,4 @@
-// FCollada_18b0000.cpp (part 2 of 2): 12 functions
+// FCollada_18b0000.cpp (part 2 of 2): 15 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -129,4 +129,55 @@ struct C_018bfdb0 {
 int *C_018bfdb0::sub_018bfdb0(int *a) {
     *a = v;
     return a;
+}
+
+struct C_018b1b80
+{
+    char pad_00[0x18];
+    volatile DWORD Flags;
+    char pad_1c[0xc];
+    INT State;
+
+    void sub_018b1b80();
+};
+
+// @baa 0x018b1b80
+void C_018b1b80::sub_018b1b80()
+{
+    State = 1;
+    Flags |= 1;
+}
+
+struct C_018b1b90
+{
+    char pad_00[0x18];
+    volatile DWORD Flags;
+    char pad_1c[0xc];
+    INT State;
+
+    void sub_018b1b90();
+};
+
+// @baa 0x018b1b90
+void C_018b1b90::sub_018b1b90()
+{
+    State = 2;
+    Flags |= 1;
+}
+
+struct C_018b1ba0
+{
+    char pad_00[0x18];
+    volatile DWORD Flags;
+    char pad_1c[0xc];
+    INT State;
+
+    void sub_018b1ba0();
+};
+
+// @baa 0x018b1ba0
+void C_018b1ba0::sub_018b1ba0()
+{
+    State = 3;
+    Flags |= 1;
 }

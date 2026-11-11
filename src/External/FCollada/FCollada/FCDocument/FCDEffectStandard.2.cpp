@@ -1,4 +1,4 @@
-// FCDEffectStandard.cpp (part 2 of 2): 1 function
+// FCDEffectStandard.cpp (part 2 of 2): 2 functions
 // Placed here by: neighbours 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -31,4 +31,21 @@ bool FCDObjectVector::sub_01870890(void* value)
         return true;
     }
     return false;
+}
+
+struct C
+{
+    char pad_00[0x18];
+    volatile DWORD Flags;
+    char pad_1c[0xc];
+    INT State;
+
+    void sub_018705f0();
+};
+
+// @baa 0x018705f0
+void C::sub_018705f0()
+{
+    State = 4;
+    Flags |= 1;
 }

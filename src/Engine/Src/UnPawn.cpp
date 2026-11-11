@@ -1,4 +1,4 @@
-// UnPawn.cpp (part 1 of 2): 87 functions
+// UnPawn.cpp (part 1 of 2): 88 functions
 // Placed here by: neighbours 49, class 32, callers 3, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1209,4 +1209,18 @@ struct AScout_ : public AScout
 void AScout_::vf_4a4(Sub* Object)
 {
     Object->sub_0084e020();
+}
+
+struct C_00867a50
+{
+    char pad_00[0x1c8];
+    DWORD Flags;
+
+    void sub_00867a50(INT Unused);
+};
+
+// @baa 0x00867a50
+void C_00867a50::sub_00867a50(INT)
+{
+    Flags |= 0x2000000;
 }

@@ -1,4 +1,4 @@
-// FArchiveXML.cpp (part 4 of 4): 6 functions
+// FArchiveXML.cpp (part 4 of 4): 8 functions
 // Placed here by: callers 5, neighbours 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -72,3 +72,16 @@ void sub_01c2d770(void)
 
 // @baa 0x01c2dfe0
 void sub_01c2dfe0(void) {  }
+
+extern "C" __declspec(dllimport) void* __cdecl malloc(unsigned int Size);
+// @baa 0x01c2def0
+void* sub_01c2def0()
+{
+    return malloc(4);
+}
+
+// @baa 0x01c2df40
+void* sub_01c2df40()
+{
+    return malloc(4);
+}

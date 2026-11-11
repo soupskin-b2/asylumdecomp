@@ -1,4 +1,4 @@
-// UnPhysActorForceField.cpp: 19 functions
+// UnPhysActorForceField.cpp: 20 functions
 // Placed here by: file 10, callers 9.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -124,4 +124,20 @@ void C::sub_00d8c280()
     ((void**)Kernel)[1] = W;
     LinearKernel = W;
     sub_00d8b440();
+}
+
+struct Sub
+{
+    void sub_00a51eb0(void* Arg);
+};
+
+struct C_00a53370
+{
+    void sub_00a53370(Sub* Object);
+};
+
+// @baa 0x00a53370
+void C_00a53370::sub_00a53370(Sub* Object)
+{
+    Object->sub_00a51eb0(this);
 }

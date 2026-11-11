@@ -1,4 +1,4 @@
-// UnScrCom.cpp (part 2 of 4): 3 functions
+// UnScrCom.cpp (part 2 of 4): 4 functions
 // Placed here by: neighbours 2, callers 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -85,4 +85,12 @@ if((undefined4*)0x0!=puVar1){
 *puVar1=*param_2;
 }
 return iVar2;
+}
+
+void sub_00fd85d0();
+// @baa 0x00fd86d0
+INT __stdcall sub_00fd86d0(INT A, INT B)
+{
+    sub_00fd85d0();
+    return 1;
 }
