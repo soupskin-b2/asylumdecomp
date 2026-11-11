@@ -1,4 +1,4 @@
-// UnUIObjects.cpp (part 15 of 17): 3 functions
+// UnUIObjects.cpp (part 15 of 17): 5 functions
 // Placed here by: class 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -19,4 +19,27 @@ UINT UUIObject::GetNumResolvedFaces()
         }
     }
     return Result;
+}
+
+// GetTag returns the widget's tag by value (the header's INT GetTag(INT) is the wrong shape).
+struct UUIObject_ : public UUIObject
+{
+    virtual FName GetTag();
+};
+
+// @baa 0x00d99300
+FName UUIObject_::GetTag()
+{
+    return WidgetTag;
+}
+
+struct UUIObject__00d99330 : public UUIObject
+{
+    virtual INT HasPositionBeenResolved(BYTE FaceIndex);
+};
+
+// @baa 0x00d99330
+INT UUIObject__00d99330::HasPositionBeenResolved(BYTE FaceIndex)
+{
+    return DockTargets.bResolved[FaceIndex] != 0;
 }

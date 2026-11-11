@@ -1,4 +1,4 @@
-// Core_0600000.cpp: 2 functions
+// Core_0600000.cpp: 4 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -16,3 +16,15 @@ void UProperty_::SerializeItem( FArchive& Ar, void* Value, void* Defaults, class
 
 // @baa 0x006005f0
 UINT UProperty::SetPropertyValue( UINT* Value, INT* ArrayIndex ) PURE_VIRTUAL(UProperty::SetPropertyValue, return 0;);
+
+// @baa 0x006005d0
+INT UProperty::GetPropertyValue(INT, INT)
+{
+    PURE_VIRTUAL(UProperty::GetPropertyValue, return 0;);
+}
+
+// @baa 0x00600610
+INT UProperty::HasValue(INT, INT)
+{
+    PURE_VIRTUAL(UProperty::HasValue, return 0;);
+}

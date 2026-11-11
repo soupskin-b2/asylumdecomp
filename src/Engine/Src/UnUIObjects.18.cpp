@@ -1,4 +1,4 @@
-// UnUIObjects.cpp: 23 functions
+// UnUIObjects.cpp: 25 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -268,4 +268,16 @@ void UUIScene__00dc9730::execForceImmediateSceneUpdate( FFrame& Stack, RESULT_DE
 {
 	P_FINISH;
 	ForceImmediateSceneUpdate();
+}
+
+// @baa 0x00d98fc0
+INT UUIScreenObject::GetScene()
+{
+    PURE_VIRTUAL(UUIScreenObject::GetScene, return 0;);
+}
+
+// @baa 0x00d990f0
+BYTE UUIScreenObject::GetInputMask(UINT, UINT)
+{
+    PURE_VIRTUAL(UUIScreenObject::GetInputMask, return 0xff;);
 }

@@ -2,8 +2,8 @@
  "note": "Maintained by CI (tools/ci); every file is checked by python tools/asylum unit-check.",
  "totals": {
   "units": 1429,
-  "files": 3777,
-  "functions": 95992,
+  "files": 3779,
+  "functions": 96005,
   "failed": 0
  },
  "units": [
@@ -63462,6 +63462,18 @@
   },
   {
    "unit": "Core/Unsorted/Core_0540000.cpp",
+   "source": "Core/Unsorted/Core_0540000.3.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "00544680",
+     "size": 29,
+     "symbol": "?Exec@FExec_@@UAEHPB_WAAUFOutputDevice@@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "Core/Unsorted/Core_0540000.cpp",
    "source": "Core/Unsorted/Core_0540000.cpp",
    "profile": "ue3",
    "functions": [
@@ -71992,6 +72004,16 @@
      "va": "006005f0",
      "size": 29,
      "symbol": "?SetPropertyValue@UProperty@@UAEIPAIPAH@Z"
+    },
+    {
+     "va": "006005d0",
+     "size": 29,
+     "symbol": "?GetPropertyValue@UProperty@@UAEHHH@Z"
+    },
+    {
+     "va": "00600610",
+     "size": 29,
+     "symbol": "?HasValue@UProperty@@UAEHHH@Z"
     }
    ]
   },
@@ -213533,6 +213555,16 @@
      "va": "00daa7e0",
      "size": 50,
      "symbol": "?GetNumResolvedFaces@UUIObject@@UAEIXZ"
+    },
+    {
+     "va": "00d99300",
+     "size": 24,
+     "symbol": "?GetTag@UUIObject_@@UAE?AUFName@@XZ"
+    },
+    {
+     "va": "00d99330",
+     "size": 22,
+     "symbol": "?HasPositionBeenResolved@UUIObject__00d99330@@UAEHE@Z"
     }
    ]
   },
@@ -213719,6 +213751,16 @@
      "va": "00dc9730",
      "size": 48,
      "symbol": "?execForceImmediateSceneUpdate@UUIScene__00dc9730@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "00d98fc0",
+     "size": 27,
+     "symbol": "?GetScene@UUIScreenObject@@UAEHXZ"
+    },
+    {
+     "va": "00d990f0",
+     "size": 29,
+     "symbol": "?GetInputMask@UUIScreenObject@@UAEEII@Z"
     }
    ]
   },
@@ -232842,6 +232884,11 @@
      "va": "006634f0",
      "size": 104,
      "symbol": "??1UMaterialInterface@@UAE@XZ"
+    },
+    {
+     "va": "006635a0",
+     "size": 14,
+     "symbol": "?GetSurfaceHeight@UMaterialInterface_@@UAENXZ"
     }
    ]
   },
@@ -232893,6 +232940,28 @@
      "va": "00667f10",
      "size": 213,
      "symbol": "?Remove@?$TArray@UT_00667f10@@@@QAEXHH@Z"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Unsorted/Engine_0660000.cpp",
+   "source": "Engine/Unsorted/Engine_0660000.18.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "00663610",
+     "size": 27,
+     "symbol": "?GetTextures@UMaterialInterface@@UAEXHH@Z"
+    },
+    {
+     "va": "006635d0",
+     "size": 29,
+     "symbol": "?GetRenderProxy@UMaterialInterface@@UAEIH@Z"
+    },
+    {
+     "va": "00663690",
+     "size": 29,
+     "symbol": "?GetStaticSwitchParameterValue@UMaterialInterface@@UAEHHHHH@Z"
     }
    ]
   },
@@ -324542,6 +324611,16 @@
      "va": "00dc2e20",
      "size": 33,
      "symbol": "?GetWidgetPathName@UUIScene@@UAE?AVFString@@XZ"
+    },
+    {
+     "va": "00dc2d00",
+     "size": 18,
+     "symbol": "?GetNumResolvedFaces@UUIScene@@UAEIXZ"
+    },
+    {
+     "va": "00dc2ce0",
+     "size": 24,
+     "symbol": "?GetTag@UUIScene_@@UAE?AUFName@@XZ"
     }
    ]
   },
