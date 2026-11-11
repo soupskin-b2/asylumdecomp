@@ -56,8 +56,11 @@ def verify(obj: Coff, want: list[str], va: int, fp: dict, symbols: dict[str, int
     """("match" | "mismatch" | "extract_error", problems, {external name: address it was bound to})."""
     sym = obj.find_function(want)
     if sym is None:
-        return "extract_error", ["no function named %s in the object (defined: %s)" % (
-            want[0] if want else "?", ", ".join(s.name for s in obj.written_functions()[:8]) or "none")], {}
+        probs = ["no function named %s in the object (defined: %s)" % (
+            want[0] if want else "?", ", ".join(s.name for s in obj.written_functions()[:8]) or "none")]
+        if not obj.written_functions():
+            probs.append("a `static` function nobody in the file calls is dropped: let another function call it")
+        return "extract_error", probs, {}
     sec, start, end = obj.function_body(sym)
     code = bytearray(sec.data[start:end])
     if len(code) != fp["size"]:

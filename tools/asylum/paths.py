@@ -10,6 +10,7 @@ from __future__ import annotations
 import json
 import os
 import shutil
+import time
 import zipfile
 from pathlib import Path
 
@@ -57,10 +58,11 @@ def _root() -> Path:
         shutil.rmtree(root, ignore_errors=True)
         os.replace(tmp / "kit", root)
         shutil.rmtree(tmp, ignore_errors=True)
-        (root / ".complete").touch()
-        for old in kits.iterdir():  # earlier versions
-            if old != root:
+        for old in kits.iterdir():  # earlier versions no agent has used for a day
+            done = old / ".complete"
+            if old != root and (not done.exists() or time.time() - done.stat().st_mtime > 86400):
                 shutil.rmtree(old, ignore_errors=True)
+    (root / ".complete").touch()  # in use (other folders may run other versions)
     return root
 
 

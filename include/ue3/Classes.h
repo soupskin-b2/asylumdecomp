@@ -17366,8 +17366,8 @@ struct UAnimTree : public UAnimNodeBlendBase {
     virtual void vf_164(INT, INT, INT, INT); /* 0x164 */
     virtual INT vf_16c(INT, INT, INT); /* 0x16c */
     /* UnrealScript natives */
-    void execFindSkelControl(FFrame& Stack, RESULT_DECL); /* 0x00c91a10 */
-    void execFindMorphNode(FFrame& Stack, RESULT_DECL); /* 0x00c91a90 */
+    void execFindSkelControl(FFrame& Stack, RESULT_DECL); /* 0x00c91a10 */ class USkelControlBase* FindSkelControl(FName InControlName); /* 0x00c55810 */
+    void execFindMorphNode(FFrame& Stack, RESULT_DECL); /* 0x00c91a90 */ class UMorphNodeBase* FindMorphNode(FName InNodeName); /* 0x00c61880 */
     void execSetUseSavedPose(FFrame& Stack, RESULT_DECL); /* 0x00c91b10 */
     void execSetAnimGroupForNode(FFrame& Stack, RESULT_DECL); /* 0x00c91b80 */
     void execGetGroupSynchMaster(FFrame& Stack, RESULT_DECL); /* 0x00c91c60 */

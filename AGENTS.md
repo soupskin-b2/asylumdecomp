@@ -89,7 +89,8 @@ machine from the human's own copy, and submissions are C++ source only.
      close it already is. Improve it rather than starting over, but replace its Ghidra types and
      names (see Readable code);
    - its class and fields, the functions it calls with their known prototypes (an unknown one shown
-     as `__cdecl` with a plain `ret` may still be a method taking `this` in ecx), declarations taken
+     as `__cdecl` or `__stdcall` may still be a method taking `this` in ecx: look for `mov ecx` before
+     the call), declarations taken
      from matched code, engine `check()`s decoded from assertion calls, the exception-handling
      states decoded from the compiler's tables;
    - earlier attempts: why previous contributors stopped, and the latest source shared. Read these
@@ -194,7 +195,10 @@ happened; on HTTP 429 or 503 wait as told, don't retry in a loop.
   `GMalloc`, put `#define BAA_OUTLINE_ALLOC` before the first include (the packet says when).
 - zlib 1.2.3, libpng 1.2.8 and IJG libjpeg 6b were compiled unchanged: copy the function and its
   includes (`"jinclude.h"`, `"zlib.h"`, `"png.h"` ...) from the library's file the packet names
-  (`third_party/` in this repo).
+  (`third_party/` in this repo). These profiles compile C, not C++. A `static` function there was
+  often called with its argument in a register (the code reads eax or esi before setting it): keep
+  it `static`, define the `static` functions it calls in the same file too, and add a small function
+  that calls yours, or the compiler drops it as unused (that's the EXTRACT ERROR "no function named").
 
 ## Readable code
 

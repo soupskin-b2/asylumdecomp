@@ -8,8 +8,8 @@ void sub_01a24190(void)
 }
 
 /* jcmainct.c (IJG libjpeg 6b): main buffer controller for compression, start_pass_main.
- * The library headers (third_party/jpeg-6b) can't be included, so the parts of jpeglib.h,
- * jpegint.h and jerror.h this function uses are repeated here as the library declares them. */
+ * The parts of jpeglib.h, jpegint.h and jerror.h this function uses are repeated here as the
+ * library declares them (the headers themselves, "jpeglib.h" ..., may be included too). */
 typedef unsigned char boolean;
 
   /* this build's boolean is a byte (raw_data_in is tested with cmp byte) */
