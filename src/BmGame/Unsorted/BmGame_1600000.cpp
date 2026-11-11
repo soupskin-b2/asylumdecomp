@@ -688,7 +688,7 @@ bool ARBMRouter_DynamicObject::vf_004()
 int ARBMRouter_DynamicObject::vf_358(int a0, int a1) { return 0; }
 
 // @baa 0x0160f270
-int ARBMRouter_DynamicObject::vf_35c(int a0) { return 1; }
+int ARBMRouter_DynamicObject::vf_35c(FLOAT) { return 1; }
 
 // @baa 0x0160f280
 int ARBMRouter_NoPawn::vf_000(void) { return 1; }

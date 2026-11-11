@@ -373,13 +373,13 @@ int UMultiFont::vf_000(void) { return 1; }
 int UFont::vf_0dc(void) { return 1; }
 
 // @baa 0x00ce8d80
-int UFont::vf_10c(int a0) { return 0; }
+int UFont::vf_10c(FLOAT) { return 0; }
 
 // @baa 0x00ce8d90
-float UFont::vf_110(int a0) { return 1.0f; }
+float UFont::vf_110(FLOAT) { return 1.0f; }
 
 // @baa 0x00ce8da0
-FLOAT UFont::vf_114(INT param1) {
+FLOAT UFont::vf_114(FLOAT) {
     return 768.0f;
 }
 

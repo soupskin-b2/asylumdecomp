@@ -34703,7 +34703,7 @@
     {
      "va": "0160f270",
      "size": 8,
-     "symbol": "?vf_35c@ARBMRouter_DynamicObject@@UAEHH@Z"
+     "symbol": "?vf_35c@ARBMRouter_DynamicObject@@UAEHM@Z"
     },
     {
      "va": "0160f280",
@@ -182053,17 +182053,17 @@
     {
      "va": "00ce8d80",
      "size": 5,
-     "symbol": "?vf_10c@UFont@@UAEHH@Z"
+     "symbol": "?vf_10c@UFont@@UAEHM@Z"
     },
     {
      "va": "00ce8d90",
      "size": 5,
-     "symbol": "?vf_110@UFont@@UAEMH@Z"
+     "symbol": "?vf_110@UFont@@UAEMM@Z"
     },
     {
      "va": "00ce8da0",
      "size": 9,
-     "symbol": "?vf_114@UFont@@UAEMH@Z"
+     "symbol": "?vf_114@UFont@@UAEMM@Z"
     },
     {
      "va": "00ce8f10",

@@ -16834,7 +16834,7 @@ struct UAnimNodeSequence : public UAnimNode {
     BYTE RootRotationOption[3]; /* 0xfb */
     /* virtual functions this class introduces (vtable 0x0205a380) */
     virtual FLOAT vf_188(); /* 0x188 */
-    virtual FLOAT vf_18c(INT); /* 0x18c */
+    virtual FLOAT vf_18c(FLOAT); /* 0x18c */
     virtual FLOAT vf_190(); /* 0x190 */
     virtual FLOAT vf_194(); /* 0x194 */
     virtual FLOAT vf_198(); /* 0x198 */
@@ -18255,9 +18255,9 @@ struct UFont : public UObject {
     INT NumCharacters; /* 0x114 */
     TArrayNoInit<INT> MaxCharHeight; /* 0x118 */
     /* virtual functions this class introduces (vtable 0x0209c780) */
-    virtual INT vf_10c(INT); /* 0x10c */
-    virtual FLOAT vf_110(INT); /* 0x110 */
-    virtual FLOAT vf_114(INT); /* 0x114 */
+    virtual INT vf_10c(FLOAT); /* 0x10c */
+    virtual FLOAT vf_110(FLOAT); /* 0x110 */
+    virtual FLOAT vf_114(FLOAT); /* 0x114 */
     virtual FLOAT vf_118(); /* 0x118 */
     virtual FLOAT vf_11c(INT); /* 0x11c */
     virtual void vf_120(); /* 0x120 */
@@ -20189,7 +20189,7 @@ struct UMaterialInterface : public USurface {
     virtual INT vf_120(INT, INT, INT); /* 0x120 */
     virtual INT vf_124(INT, INT, INT); /* 0x124 */
     virtual INT vf_128(INT, INT, INT); /* 0x128 */
-    virtual void vf_12c(INT); /* 0x12c */
+    virtual void vf_12c(FLOAT); /* 0x12c */
     virtual INT vf_130(INT); /* 0x130 */
     virtual INT vf_134(INT); /* 0x134 */
     virtual UINT GetRenderProxy(INT); /* 0x138 */
@@ -21167,7 +21167,7 @@ struct UParticleSystemComponent : public UPrimitiveComponent {
     virtual INT vf_288(INT, INT, INT, INT, INT); /* 0x288 */
     virtual INT vf_28c(INT, INT, INT); /* 0x28c */
     virtual FLOAT vf_290(); /* 0x290 */
-    virtual void vf_294(INT); /* 0x294 */
+    virtual void vf_294(FLOAT); /* 0x294 */
     virtual INT vf_298(INT, INT, INT); /* 0x298 */
     virtual INT vf_29c(INT, INT, INT); /* 0x29c */
     virtual INT vf_2a0(INT, INT, INT); /* 0x2a0 */
@@ -27292,7 +27292,7 @@ struct UMorphNodeWeight : public UMorphNodeWeightBase {
     DECLARE_CLASS(UMorphNodeWeight, UMorphNodeWeightBase, 0x0, 0x0, Engine)
     FLOAT NodeWeight; /* 0x6c */
     /* virtual functions this class introduces (vtable 0x01f45168) */
-    virtual void vf_144(INT); /* 0x144 */
+    virtual void vf_144(FLOAT); /* 0x144 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -27449,15 +27449,15 @@ struct UMultiFont : public UFont {
     DECLARE_CLASS(UMultiFont, UFont, 0x0, 0x0, Engine)
     TArrayNoInit<FLOAT> ResolutionTestTable; /* 0x124 */
     /* virtual functions this class introduces (vtable 0x0209cb68) */
-    virtual INT vf_124(INT); /* 0x124 */
+    virtual INT vf_124(FLOAT); /* 0x124 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
-    virtual INT vf_10c(INT); /* 0x10c */
-    virtual FLOAT vf_110(INT); /* 0x110 */
-    virtual FLOAT vf_114(INT); /* 0x114 */
+    virtual INT vf_10c(FLOAT); /* 0x10c */
+    virtual FLOAT vf_110(FLOAT); /* 0x110 */
+    virtual FLOAT vf_114(FLOAT); /* 0x114 */
     virtual void vf_120(); /* 0x120 */
     /* UnrealScript natives */
     void execGetResolutionTestTableIndex(FFrame& Stack, RESULT_DECL); /* 0x00c8cbc0 */
@@ -30724,8 +30724,8 @@ struct UPhysicalMaterial : public UObject {
     class UPhysicalMaterialPropertyBase* PhysicalMaterialProperty; /* 0xd0 */
     /* virtual functions this class introduces (vtable 0x01fb3510) */
     virtual INT vf_10c(INT, INT); /* 0x10c */
-    virtual FLOAT vf_110(INT); /* 0x110 */
-    virtual FLOAT vf_114(INT); /* 0x114 */
+    virtual FLOAT vf_110(FLOAT); /* 0x110 */
+    virtual FLOAT vf_114(FLOAT); /* 0x114 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -32991,7 +32991,7 @@ struct USeqAct_CrowdSpawner : public USeqAct_Latent {
     /* virtual functions this class introduces (vtable 0x02088a08) */
     virtual void vf_1a0(); /* 0x1a0 */
     virtual INT vf_1a4(); /* 0x1a4 */
-    virtual INT vf_1a8(INT); /* 0x1a8 */
+    virtual INT vf_1a8(FLOAT); /* 0x1a8 */
     virtual INT vf_1ac(INT, INT, INT, INT, INT); /* 0x1ac */
     virtual INT vf_1b0(INT, INT, INT); /* 0x1b0 */
     /* overrides */
@@ -39174,7 +39174,7 @@ struct ARDebugMenu : public ARDynamicMenu {
     virtual INT vf_380(INT); /* 0x380 */
     virtual INT vf_384(INT); /* 0x384 */
     virtual INT vf_388(INT, INT); /* 0x388 */
-    virtual INT vf_38c(INT); /* 0x38c */
+    virtual INT vf_38c(FLOAT); /* 0x38c */
     virtual void vf_390(INT, INT); /* 0x390 */
     virtual INT vf_394(); /* 0x394 */
     virtual void vf_398(INT); /* 0x398 */
@@ -42276,18 +42276,18 @@ struct ARPawnCharacter : public ARPawn {
     virtual INT vf_5d8(INT); /* 0x5d8 */
     virtual INT vf_5dc(INT, INT, INT); /* 0x5dc */
     virtual INT vf_5e0(INT, INT, INT); /* 0x5e0 */
-    virtual INT vf_5e4(INT); /* 0x5e4 */
-    virtual INT vf_5e8(INT); /* 0x5e8 */
+    virtual INT vf_5e4(FLOAT); /* 0x5e4 */
+    virtual INT vf_5e8(FLOAT); /* 0x5e8 */
     virtual INT vf_5ec(INT, INT, INT); /* 0x5ec */
-    virtual INT vf_5f0(INT); /* 0x5f0 */
+    virtual INT vf_5f0(FLOAT); /* 0x5f0 */
     virtual INT vf_5f4(); /* 0x5f4 */
     virtual INT vf_5f8(); /* 0x5f8 */
-    virtual INT vf_5fc(INT); /* 0x5fc */
+    virtual INT vf_5fc(FLOAT); /* 0x5fc */
     virtual void vf_600(INT, INT, INT, INT, INT, INT, INT); /* 0x600 */
     virtual bool vf_604(); /* 0x604 */
     virtual DOUBLE vf_608(); /* 0x608 */
     virtual INT vf_60c(); /* 0x60c */
-    virtual void vf_610(INT); /* 0x610 */
+    virtual void vf_610(FLOAT); /* 0x610 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -42817,7 +42817,7 @@ struct ARBatarangProjectile : public ARProjectile {
     class UDynamicLightEnvironmentComponent* LightEnvironment; /* 0x2c0 */
     class UDestructibleDamageParameters* DamageParams; /* 0x2c4 */
     /* virtual functions this class introduces (vtable 0x0235dba8) */
-    virtual INT vf_354(INT); /* 0x354 */
+    virtual INT vf_354(FLOAT); /* 0x354 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -42850,7 +42850,7 @@ struct ARBatarangProjectile_Controllable : public ARBatarangProjectile {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_354(INT); /* 0x354 */
+    virtual INT vf_354(FLOAT); /* 0x354 */
     /* UnrealScript natives */
     void execUpdateFlightPath(FFrame& Stack, RESULT_DECL); /* 0x01708190 */
     void execExtraHitCheck(FFrame& Stack, RESULT_DECL); /* 0x01708200 */
@@ -42879,7 +42879,7 @@ struct ARBatarangTarget : public AActor {
     class APawn* AttachOwner; /* 0x1b8 */
     TArrayNoInit<class ARBatarangProjectile*> ApproachingBatarangs; /* 0x1bc */
     /* virtual functions this class introduces (vtable 0x02395948) */
-    virtual INT vf_354(INT); /* 0x354 */
+    virtual INT vf_354(FLOAT); /* 0x354 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -43036,7 +43036,7 @@ struct ARBMAIController : public AAIController {
     virtual INT vf_440(INT); /* 0x440 */
     virtual void vf_444(); /* 0x444 */
     virtual UINT vf_448(); /* 0x448 */
-    virtual INT vf_44c(INT); /* 0x44c */
+    virtual INT vf_44c(FLOAT); /* 0x44c */
     virtual INT vf_450(INT); /* 0x450 */
     virtual void vf_454(); /* 0x454 */
     virtual INT vf_458(); /* 0x458 */
@@ -43193,7 +43193,7 @@ struct ARBMAIManager : public AActor {
     /* virtual functions this class introduces (vtable 0x023354f0) */
     virtual INT vf_354(INT); /* 0x354 */
     virtual INT vf_358(); /* 0x358 */
-    virtual INT vf_35c(INT); /* 0x35c */
+    virtual INT vf_35c(FLOAT); /* 0x35c */
     virtual void vf_360(); /* 0x360 */
     virtual void vf_364(); /* 0x364 */
     virtual INT vf_368(); /* 0x368 */
@@ -43303,7 +43303,7 @@ struct URBMBehaviour : public USeqAct_Latent {
     /* virtual functions this class introduces (vtable 0x0233a2b8) */
     virtual UINT vf_1a0(); /* 0x1a0 */
     virtual UINT vf_1a4(); /* 0x1a4 */
-    virtual INT vf_1a8(INT); /* 0x1a8 */
+    virtual INT vf_1a8(FLOAT); /* 0x1a8 */
     virtual void vf_1ac(UINT); /* 0x1ac */
     virtual INT vf_1b0(); /* 0x1b0 */
     virtual INT vf_1b4(); /* 0x1b4 */
@@ -43511,7 +43511,7 @@ struct URBMBehaviour_CombatAI : public URBMBehaviour_Combat {
     FVector NMRPrevDir; /* 0x278 */
     FName PostStasisState; /* 0x284 */
     /* virtual functions this class introduces (vtable 0x0233a9e8) */
-    virtual void vf_1ec(INT); /* 0x1ec */
+    virtual void vf_1ec(FLOAT); /* 0x1ec */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -44396,7 +44396,7 @@ struct URBMBehaviour_MoveToJokerInChair : public URBMBehaviour_MoveToGroup {
     FLOAT PullersHandLeftRightVal; /* 0x26c */
     FLOAT PullersHandFrontBackVal; /* 0x270 */
     /* virtual functions this class introduces (vtable 0x0233bfd8) */
-    virtual INT vf_1bc(INT); /* 0x1bc */
+    virtual INT vf_1bc(FLOAT); /* 0x1bc */
     virtual INT vf_1c0(INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x1c0 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
@@ -45896,7 +45896,7 @@ struct ARBMPawnAIAnim : public ARPawnCombat {
     class ULevelStreaming* MyLevelForXray; /* 0x64c */
     /* virtual functions this class introduces (vtable 0x02331ac0) */
     virtual INT vf_640(); /* 0x640 */
-    virtual INT vf_644(INT); /* 0x644 */
+    virtual INT vf_644(FLOAT); /* 0x644 */
     virtual INT vf_648(); /* 0x648 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
@@ -46162,7 +46162,7 @@ struct ARBMRouter_DynamicObject : public AActor {
     /* virtual functions this class introduces (vtable 0x02346e38) */
     virtual INT vf_354(INT); /* 0x354 */
     virtual INT vf_358(INT, INT); /* 0x358 */
-    virtual INT vf_35c(INT); /* 0x35c */
+    virtual INT vf_35c(FLOAT); /* 0x35c */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -46230,7 +46230,7 @@ struct ARBMRouter : public ARBMRouter_DynamicObject {
     virtual bool vf_004(); /* 0x004 */
     virtual INT vf_354(INT); /* 0x354 */
     virtual INT vf_358(INT, INT); /* 0x358 */
-    virtual INT vf_35c(INT); /* 0x35c */
+    virtual INT vf_35c(FLOAT); /* 0x35c */
     /* UnrealScript natives */
     void execGetMovementDir(FFrame& Stack, RESULT_DECL); /* 0x016fd4a0 */
     void execGetDivergeVector(FFrame& Stack, RESULT_DECL); /* 0x016fd500 */
@@ -46753,7 +46753,7 @@ struct ARBMWeapon : public AInventory {
     FName OverworldName; /* 0x290 */
     class ULevelStreaming* MyLevelForXray; /* 0x298 */
     /* virtual functions this class introduces (vtable 0x02301448) */
-    virtual INT vf_354(INT); /* 0x354 */
+    virtual INT vf_354(FLOAT); /* 0x354 */
     virtual INT vf_358(); /* 0x358 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
@@ -47532,10 +47532,10 @@ struct ARChatteringTeeth : public APawn {
     /* virtual functions this class introduces (vtable 0x02334660) */
     virtual INT vf_46c(); /* 0x46c */
     virtual INT vf_470(); /* 0x470 */
-    virtual INT vf_474(INT); /* 0x474 */
+    virtual INT vf_474(FLOAT); /* 0x474 */
     virtual void vf_478(); /* 0x478 */
     virtual INT vf_47c(); /* 0x47c */
-    virtual INT vf_480(INT); /* 0x480 */
+    virtual INT vf_480(FLOAT); /* 0x480 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -48551,8 +48551,8 @@ struct ARControllableChatteringTeethCamera : public ARCameraActor {
     FCameraSmoother TeethCameraSmoother; /* 0x29c */
     FVector TeethCameraVelocity; /* 0x2b8 */
     /* virtual functions this class introduces (vtable 0x02392e18) */
-    virtual INT vf_354(INT); /* 0x354 */
-    virtual INT vf_358(INT); /* 0x358 */
+    virtual INT vf_354(FLOAT); /* 0x354 */
+    virtual INT vf_358(FLOAT); /* 0x358 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -48688,8 +48688,8 @@ struct ARCreeperVineBase : public AActor {
     class UAnimNodeSequence* Anim; /* 0x1e8 */
     BYTE State; /* 0x1ec */
     /* virtual functions this class introduces (vtable 0x02301e68) */
-    virtual INT vf_354(INT); /* 0x354 */
-    virtual void vf_358(INT); /* 0x358 */
+    virtual INT vf_354(FLOAT); /* 0x354 */
+    virtual void vf_358(FLOAT); /* 0x358 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -50020,7 +50020,7 @@ struct ARFadeManager : public AActor {
     FLOAT AudioFadeTime; /* 0x1bc */
     FLOAT AudioTimeElapsed; /* 0x1c0 */
     /* virtual functions this class introduces (vtable 0x023021c8) */
-    virtual INT vf_354(INT); /* 0x354 */
+    virtual INT vf_354(FLOAT); /* 0x354 */
     virtual FLOAT vf_358(); /* 0x358 */
     virtual bool vf_35c(); /* 0x35c */
     /* overrides */
@@ -50461,7 +50461,7 @@ struct ARGameInfo : public ARGameInfoBase {
     virtual INT vf_3c0(INT, INT); /* 0x3c0 */
     virtual void vf_3c4(); /* 0x3c4 */
     virtual void vf_3c8(INT); /* 0x3c8 */
-    virtual INT vf_3cc(INT); /* 0x3cc */
+    virtual INT vf_3cc(FLOAT); /* 0x3cc */
     virtual INT vf_3d0(INT, INT, INT, INT, INT, INT, INT); /* 0x3d0 */
     virtual FString vf_3d4(INT); /* 0x3d4 */
     /* overrides */
@@ -50670,7 +50670,7 @@ struct ARGameRI : public ARGameReplicationInfoBase {
     virtual void vf_3ac(INT); /* 0x3ac */
     virtual void vf_3b0(); /* 0x3b0 */
     virtual FLOAT vf_3b4(); /* 0x3b4 */
-    virtual void vf_3b8(INT); /* 0x3b8 */
+    virtual void vf_3b8(FLOAT); /* 0x3b8 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -52682,7 +52682,7 @@ struct ARMedicalPlasticFlapsBase : public ASkeletalMeshActor {
     FLOAT oldMaxV; /* 0x1f4 */
     FLOAT oldTime; /* 0x1f8 */
     /* virtual functions this class introduces (vtable 0x023a4b20) */
-    virtual void vf_354(INT); /* 0x354 */
+    virtual void vf_354(FLOAT); /* 0x354 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -54719,17 +54719,17 @@ struct ARPlayerController : public ARPlayerControllerBase {
     virtual INT vf_6a0(INT); /* 0x6a0 */
     virtual INT vf_6a4(INT); /* 0x6a4 */
     virtual FLOAT vf_6a8(); /* 0x6a8 */
-    virtual INT vf_6ac(INT); /* 0x6ac */
+    virtual INT vf_6ac(FLOAT); /* 0x6ac */
     virtual FLOAT vf_6b0(); /* 0x6b0 */
     virtual INT vf_6b4(); /* 0x6b4 */
-    virtual void vf_6b8(INT); /* 0x6b8 */
+    virtual void vf_6b8(FLOAT); /* 0x6b8 */
     virtual FLOAT vf_6bc(); /* 0x6bc */
     virtual FLOAT vf_6c0(); /* 0x6c0 */
-    virtual void vf_6c4(INT); /* 0x6c4 */
+    virtual void vf_6c4(FLOAT); /* 0x6c4 */
     virtual FLOAT vf_6c8(); /* 0x6c8 */
-    virtual void vf_6cc(INT); /* 0x6cc */
+    virtual void vf_6cc(FLOAT); /* 0x6cc */
     virtual FLOAT vf_6d0(); /* 0x6d0 */
-    virtual void vf_6d4(INT); /* 0x6d4 */
+    virtual void vf_6d4(FLOAT); /* 0x6d4 */
     virtual INT vf_6d8(); /* 0x6d8 */
     virtual INT vf_6dc(INT); /* 0x6dc */
     virtual INT vf_6e0(); /* 0x6e0 */
@@ -55233,7 +55233,7 @@ struct ARPontoonBase : public AActor {
     virtual void vf_35c(); /* 0x35c */
     virtual INT vf_360(INT); /* 0x360 */
     virtual INT vf_364(); /* 0x364 */
-    virtual void vf_368(INT); /* 0x368 */
+    virtual void vf_368(FLOAT); /* 0x368 */
     virtual INT vf_36c(); /* 0x36c */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
@@ -55461,7 +55461,7 @@ struct ARRagdollWakeupVolume : public AVolume {
     BITFIELD bEnabled : 1; /* 0x1d0 */
     BITFIELD bAutoDisable : 1; /* 0x1d0 */
     /* virtual functions this class introduces (vtable 0x02396d60) */
-    virtual INT vf_360(INT); /* 0x360 */
+    virtual INT vf_360(FLOAT); /* 0x360 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -55854,7 +55854,7 @@ struct URSeqAct_ActivateElectrifiedFloorPanels : public USeqAct_Latent {
     /* virtual functions this class introduces (vtable 0x0230bf88) */
     virtual void vf_1a0(); /* 0x1a0 */
     virtual void vf_1a4(); /* 0x1a4 */
-    virtual INT vf_1a8(INT); /* 0x1a8 */
+    virtual INT vf_1a8(FLOAT); /* 0x1a8 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -57539,7 +57539,7 @@ struct URSeqAct_SetScarecrowCamera : public USeqAct_Latent {
     class AActor* FinalViewDirection; /* 0x124 */
     FVector BatmanLookAheadPos; /* 0x128 */
     /* virtual functions this class introduces (vtable 0x02397408) */
-    virtual INT vf_1a0(INT); /* 0x1a0 */
+    virtual INT vf_1a0(FLOAT); /* 0x1a0 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
