@@ -12261,7 +12261,7 @@ struct AActor : public UObject {
     virtual void vf_114(INT, INT, INT); /* 0x114 */
     virtual INT vf_118(INT); /* 0x118 */
     virtual FLOAT vf_11c(); /* 0x11c */
-    virtual INT vf_120(INT); /* 0x120 */
+    virtual FVector GetZoneVelocity(); /* 0x120 */
     virtual void vf_124(); /* 0x124 */
     virtual INT vf_128(); /* 0x128 */
     virtual INT vf_12c(INT); /* 0x12c */
@@ -12272,7 +12272,7 @@ struct AActor : public UObject {
     virtual DWORD vf_140(); /* 0x140 */
     virtual BYTE vf_144(); /* 0x144 */
     virtual INT vf_148(INT, INT, INT); /* 0x148 */
-    virtual INT vf_14c(INT); /* 0x14c */
+    virtual FVector GetFOVCheckLocation(); /* 0x14c */
     virtual void SetHUDLocation(FVector NewHUDLocation); /* 0x150 */
     virtual INT vf_154(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x154 */
     virtual INT vf_158(INT, INT); /* 0x158 */
@@ -12737,7 +12737,7 @@ struct UPrimitiveComponent : public UActorComponent {
     virtual void vf_190(INT, INT, INT, INT); /* 0x190 */
     virtual INT vf_194(INT, INT, INT, INT); /* 0x194 */
     virtual void vf_198(INT, INT); /* 0x198 */
-    virtual INT vf_19c(INT); /* 0x19c */
+    virtual FVector GetRBLinearVelocity(); /* 0x19c */
     virtual void vf_1a0(INT, INT); /* 0x1a0 */
     virtual void vf_1a4(INT, INT); /* 0x1a4 */
     virtual INT vf_1a8(INT, INT, INT); /* 0x1a8 */
@@ -42775,7 +42775,7 @@ struct ARPawnCharacter : public ARPawn {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual INT vf_148(INT, INT, INT); /* 0x148 */
-    virtual INT vf_14c(INT); /* 0x14c */
+    virtual FVector GetFOVCheckLocation(); /* 0x14c */
     virtual UINT vf_164(INT); /* 0x164 */
     virtual void vf_238(); /* 0x238 */
     virtual void vf_23c(INT); /* 0x23c */
@@ -50457,7 +50457,7 @@ struct ARExplodableWallBase : public AActor {
     virtual void vf_01c(); /* 0x01c */
     virtual void vf_04c(UINT); /* 0x04c */
     virtual INT vf_148(INT, INT, INT); /* 0x148 */
-    virtual INT vf_14c(INT); /* 0x14c */
+    virtual FVector GetFOVCheckLocation(); /* 0x14c */
     virtual void vf_170(FLOAT*, INT, INT, INT, INT, INT); /* 0x170 */
     virtual INT vf_174(INT, INT); /* 0x174 */
     virtual INT vf_1a0(INT, INT, INT); /* 0x1a0 */
