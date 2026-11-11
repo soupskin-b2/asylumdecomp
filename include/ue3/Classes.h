@@ -16544,7 +16544,7 @@ struct UAnimNodeAimOffset : public UAnimNodeBlendBase {
     TArrayNoInit<FAimOffsetProfile> Profiles; /* 0x100 */
     INT CurrentProfileIndex; /* 0x10c */
     /* virtual functions this class introduces (vtable 0x0205be38) */
-    virtual void vf_19c(INT, INT); /* 0x19c */
+    virtual void vf_19c(FName); /* 0x19c */
     virtual INT vf_1a0(INT); /* 0x1a0 */
     virtual INT vf_1a4(INT); /* 0x1a4 */
     virtual void vf_1a8(INT); /* 0x1a8 */
@@ -16677,7 +16677,7 @@ struct UAnimNodeBlendMultiBone : public UAnimNodeBlendBase {
     TArrayNoInit<FChildBoneBlendInfo> BlendTargetList; /* 0xc8 */
     TArrayNoInit<BYTE> SourceRequiredBones; /* 0xd4 */
     /* virtual functions this class introduces (vtable 0x0205bfe8) */
-    virtual void vf_19c(INT, INT, INT, INT); /* 0x19c */
+    virtual void vf_19c(INT, FName, FLOAT); /* 0x19c */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
