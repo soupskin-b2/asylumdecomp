@@ -1063,11 +1063,11 @@ struct C_view {
 };
 
 // @baa 0x01548850
-undefined4 URFlagManager::vf_118(undefined4 param_2, undefined4 param_3)
+UBOOL URFlagManager::GetGlobalFlag(FName FlagName)
 {
     int param_1 = (int)this;
   undefined4 *puVar1;
-  puVar1 = (undefined4 *)((C_view *)(this))->sub_01547ab0(param_1 + 0x6c, param_2, param_3);
+  puVar1 = (undefined4 *)((C_view *)(this))->sub_01547ab0(param_1 + 0x6c, *(INT*)&FlagName, *((INT*)&FlagName + 1));
   return *puVar1;
 }
 

@@ -793,13 +793,9 @@ int ARPawnCharacter::vf_000(void) { return 1; }
 void ARPawnCharacter::vf_4ac(void) {  }
 
 // @baa 0x0166dd50
-void ARPawnCharacter::vf_4d0(undefined4 param_2, undefined4 param_3)
+void ARPawnCharacter::ChangeIdleStanceWithoutTransition(FName Stance)
 {
-    int param_1 = (int)this;
-
-  *(undefined4 *)(param_1 + 0x464) = param_2;
-  *(undefined4 *)(param_1 + 0x468) = param_3;
-  return;
+    *(FName*)((BYTE*)this + 0x464) = Stance;
 }
 
 struct ARPawnCharacter_ : public ARPawnCharacter {

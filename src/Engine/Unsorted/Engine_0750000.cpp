@@ -2399,7 +2399,7 @@ undefined4 APlayerReplicationInfo::sub_00758b80(int param_2)
 }
 
 // @baa 0x00758d90
-void AActor::vf_150(int a0, int a1, int a2) {  }
+void AActor::SetHUDLocation(FVector NewHUDLocation) {  }
 
 int sub_0075bb70(void);
 // @baa 0x0075bd80

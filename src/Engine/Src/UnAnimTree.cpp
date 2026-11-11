@@ -910,7 +910,7 @@ void UAnimNode::vf_140(int a0) {  }
 void* UAnimNode::vf_158() { return 0; }
 
 // @baa 0x00c646c0
-void UAnimNode::vf_15c(int a0, int a1) {  }
+void UAnimNode::SetAnim(FName Sequence) {  }
 
 // @baa 0x00c646d0
 void UAnimNode::vf_160(FLOAT a0, UBOOL a1) {}

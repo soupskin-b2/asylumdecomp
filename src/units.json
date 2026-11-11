@@ -40821,7 +40821,7 @@
     {
      "va": "0166dd50",
      "size": 23,
-     "symbol": "?vf_4d0@ARPawnCharacter@@UAEXII@Z"
+     "symbol": "?ChangeIdleStanceWithoutTransition@ARPawnCharacter@@UAEXUFName@@@Z"
     },
     {
      "va": "0166f640",
@@ -58162,7 +58162,7 @@
     {
      "va": "01548850",
      "size": 24,
-     "symbol": "?vf_118@URFlagManager@@UAEIII@Z"
+     "symbol": "?GetGlobalFlag@URFlagManager@@UAEHUFName@@@Z"
     },
     {
      "va": "01548870",
@@ -173979,7 +173979,7 @@
     {
      "va": "00c646c0",
      "size": 3,
-     "symbol": "?vf_15c@UAnimNode@@UAEXHH@Z"
+     "symbol": "?SetAnim@UAnimNode@@UAEXUFName@@@Z"
     },
     {
      "va": "00c646d0",
@@ -256591,7 +256591,7 @@
     {
      "va": "00758d90",
      "size": 3,
-     "symbol": "?vf_150@AActor@@UAEXHHH@Z"
+     "symbol": "?SetHUDLocation@AActor@@UAEXUFVector@@@Z"
     },
     {
      "va": "0075bd80",
