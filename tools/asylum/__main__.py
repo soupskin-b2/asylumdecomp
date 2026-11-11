@@ -271,11 +271,22 @@ def cmd_update(a):
     update.update()
 
 
+def _matched_key(va, src, function):
+    """A source that matched with this kit: submit needn't compile it again."""
+    import hashlib
+    import paths
+    h = hashlib.sha256(("%s %08x %s\n" % (paths.version(), va, function or "")).encode() + src.encode("utf-8")).hexdigest()
+    return paths.HOME / "cache" / "matched" / h
+
+
 def _check(va, file, function=None, quiet=False):
     import check
     src = Path(file).read_text(encoding="utf-8")
     r = check.check(va, src, function)
     if r.status == "match":
+        k = _matched_key(va, src, function)
+        k.parent.mkdir(parents=True, exist_ok=True)
+        k.write_text(r.symbol, encoding="utf-8")
         print("MATCH: %s compiles to the original's bytes" % r.symbol)
         if r.new:
             print("new bindings (names the project didn't know; check each is the one you meant):")
@@ -337,11 +348,18 @@ def cmd_submit(a):
         if not f.is_file():
             print("  not submitted: no file %s" % f)
             continue
-        r, src = _check(va, f, a.function, quiet=True)
-        if r.status != "match":
-            print("  not submitted: it doesn't match")
-            continue
-        body = {"va": "%08x" % va, "source": src, "function": r.symbol, "model": _model(a), "request_id": api.request_id()}
+        src = f.read_text(encoding="utf-8")
+        k = _matched_key(va, src, a.function)
+        if k.is_file():  # checked already, unchanged since
+            symbol = k.read_text(encoding="utf-8")
+            print("MATCH (checked already): %s" % symbol)
+        else:
+            r, src = _check(va, f, a.function, quiet=True)
+            if r.status != "match":
+                print("  not submitted: it doesn't match")
+                continue
+            symbol = r.symbol
+        body = {"va": "%08x" % va, "source": src, "function": symbol, "model": _model(a), "request_id": api.request_id()}
         rev = _revision(va)
         if rev:
             import check
