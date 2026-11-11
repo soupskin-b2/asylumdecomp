@@ -42,16 +42,22 @@ def diff(obj: Coff, sym_name: str, img: Image, va: int, size: int, names: dict[i
     sec, start, end = obj.function_body(sym)
     code, target = sec.data[start:end], img.read(va, size)
     ci, ti = disasm(code), disasm(target)
-    c_rel = {}
+    c_rel, yours = {}, {}  # yours: the addresses your source names, as you name them
     for rl in sec.relocs:
         if start <= rl.offset < end:
             n = obj.symbols[rl.symbol].name
             d = bound.get(n)
-            c_rel[rl.offset - start] = (names.get(d) or _name(img, d, names)) if d is not None else short(n)
+            label = short(n) if d is None else names.get(d) or short(n)
+            add = struct.unpack_from("<i", code, rl.offset - start)[0] if rl.offset - start + 4 <= len(code) else 0
+            if add and 0 < add < 0x10000:
+                label += "+0x%x" % add
+            c_rel[rl.offset - start] = label
+            if d is not None:
+                yours[(d + add) & 0xFFFFFFFF] = label
     t_rel = {}
     for a in img.relocs_in(va, size):
         d = struct.unpack_from("<I", target, a - va)[0]
-        t_rel[a - va] = _name(img, d, names)
+        t_rel[a - va] = yours.get(d) or _name(img, d, names)
     for i in ti:
         if i.mnemonic == "call" and i.branch is not None:
             t_rel[i.off + 1] = fname((va + i.branch) & 0xFFFFFFFF, names)

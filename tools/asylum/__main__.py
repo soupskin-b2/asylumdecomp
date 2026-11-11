@@ -230,7 +230,7 @@ def _check(va, file, function=None, quiet=False):
         try:
             import compare
             f = data.functions()[va]
-            n, m, extra, d = compare.diff(r.obj, r.symbol, image(), va, f["size"], names(), r.bound)
+            n, m, extra, d = compare.diff(r.obj, r.symbol, image(), va, f["size"], names(), {**data.symbols(), **r.bound})
             print("%d of %d original instructions line up, %d of yours don't. original | yours:\n%s" % (m, n, extra, d))
         except SystemExit as e:
             print("(no diff: %s)" % e)
