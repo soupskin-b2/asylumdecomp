@@ -49,7 +49,7 @@ def check(va: int, src: str, function: str | None = None) -> Result:
     f = data.functions().get(va)
     if f is None:
         return Result("extract_error", ["%08x is not the start of a function in data/functions.json.gz" % va])
-    fp = data.fingerprints().get("%08x" % va)
+    fp = data.fingerprint(va)
     if fp is None:
         return Result("extract_error", ["no fingerprint for %08x" % va])
     c = cl.compile(src, cl.profile(f["profile"]))

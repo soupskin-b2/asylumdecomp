@@ -1,7 +1,7 @@
 """Every file of src/ (and the libraries' own files) compiled and verified, sharded for CI: a change
 to the shared headers or the checker mustn't cost a match.
 
-    python tools/ci/units.py [--shard K/N] [--only PATTERN]
+    python tools/ci/units.py [--shard K/N] [--only PATTERN ...]
 """
 from __future__ import annotations
 
@@ -20,11 +20,11 @@ import check  # noqa: E402
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("--shard", default="1/1")
-    p.add_argument("--only")
+    p.add_argument("--only", action="append", help="a glob of sources; repeat for several")
     a = p.parse_args()
     k, n = map(int, a.shard.split("/"))
     units = json.loads((ROOT / "src" / "units.json").read_text(encoding="utf-8"))["units"]
-    units = [u for i, u in enumerate(units) if i % n == k - 1 and (not a.only or fnmatch.fnmatch(u["source"], a.only))]
+    units = [u for i, u in enumerate(units) if i % n == k - 1 and (not a.only or any(fnmatch.fnmatch(u["source"], o) for o in a.only))]
     bad, t0 = [], time.time()
     for i, u in enumerate(units, 1):
         lib = u.get("kind") == "library"

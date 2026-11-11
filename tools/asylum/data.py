@@ -6,7 +6,10 @@ import gzip
 import json
 import re
 
-from paths import ROOT
+import os
+import shutil
+
+from paths import HOME, ROOT
 
 # placeholder names that carry their address: sub_007e72a0, g_026b62b8, flt_...
 ADDR_NAME = re.compile(r"(?<![A-Za-z0-9])(sub|g|flt|dbl|loc|off|vtbl|str)_([0-9a-fA-F]{8})(?![0-9A-Za-z])")
@@ -47,13 +50,54 @@ def fingerprints() -> dict[str, dict]:
     return _load("fingerprints.json.gz")
 
 
+@functools.cache
+def _fingerprint_shard(page: int) -> dict[str, dict]:
+    """The fingerprints of one 64 KB page of addresses. The full table takes seconds to parse, so it's
+    split once into small files in the cache (it never changes for a given kit)."""
+    src = ROOT / "data" / "fingerprints.json.gz"
+    st = src.stat()
+    d = HOME / "cache" / ("fingerprints-%x-%x" % (st.st_size, int(st.st_mtime)))
+    if not d.exists():
+        tmp = d.with_name(d.name + ".%d.tmp" % os.getpid())
+        tmp.mkdir(parents=True, exist_ok=True)
+        pages: dict[int, dict] = {}
+        for va, fp in fingerprints().items():
+            pages.setdefault(int(va, 16) >> 16, {})[va] = fp
+        for n, fps in pages.items():
+            (tmp / ("%04x.json" % n)).write_text(json.dumps(fps), encoding="utf-8")
+        try:
+            os.replace(tmp, d)
+        except OSError:  # another process finished first
+            shutil.rmtree(tmp, ignore_errors=True)
+    f = d / ("%04x.json" % page)
+    return json.loads(f.read_text(encoding="utf-8")) if f.exists() else {}
+
+
+def fingerprint(va: int) -> dict | None:
+    return _fingerprint_shard(va >> 16).get("%08x" % va)
+
+
 def header_addresses() -> dict[str, int]:
     """`Class::Name` -> address for declarations the headers pin with an address comment
-    (`void Foo(INT); /* 0x005d7d10 */`); names given two addresses are left out."""
+    (`void Foo(INT); /* 0x005d7d10 */`); names given two addresses are left out. Cached per header state."""
+    files = sorted((ROOT / "include" / "ue3").glob("*.h"))
+    tag = "%x" % (hash(tuple((f.name, f.stat().st_size, f.stat().st_mtime_ns) for f in files)) & 0xFFFFFFFFFFFF)
+    c = HOME / "cache" / ("header-addresses-%s.json" % tag)
+    if c.exists():
+        return json.loads(c.read_text(encoding="utf-8"))
+    out = _header_addresses(files)
+    c.parent.mkdir(parents=True, exist_ok=True)
+    tmp = c.with_name(c.name + ".%d.tmp" % os.getpid())
+    tmp.write_text(json.dumps(out), encoding="utf-8")
+    os.replace(tmp, c)
+    return out
+
+
+def _header_addresses(files) -> dict[str, int]:
     head = re.compile(r"^(?:struct|class) (\w+)(?: : public \w+)? \{")
     decl = re.compile(r"(~?\w+)\s*\([^;]*\)[^;/]*;\s*/\*\s*0x([0-9a-f]{8})\s*\*/")
     out: dict[str, int | None] = {}
-    for f in sorted((ROOT / "include" / "ue3").glob("*.h")):
+    for f in files:
         cls = None
         for line in f.read_text(encoding="utf-8", errors="replace").splitlines():
             m = head.match(line)

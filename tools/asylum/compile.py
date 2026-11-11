@@ -161,12 +161,15 @@ def _transient(text: str) -> bool:
     return "C1083" in text and ".pch" in text.lower() and ("Permission denied" in text or "Access is denied" in text)
 
 
+# an explicit instantiation of a template the headers already instantiate emits nothing under /Yu
+# (its code went into the PCH's own object), so such sources are compiled whole
+_INSTANTIATION = re.compile(r"^\s*template\s+(?!<)", re.M)
 PCH_MEMORY = "/Zm200"  # the engine headers outgrew VC8's default PCH memory (C3859); no effect on the code
 
 
 def _pch(src: str, p: Profile) -> tuple[str, Path] | None:
     """The engine header the source starts by including, precompiled once per profile and header."""
-    if p.c:
+    if p.c or _INSTANTIATION.search(src):
         return None
     first = next((l.strip() for l in src.split("\n") if l.strip() and not l.strip().startswith("//")), "")
     m = re.fullmatch(r'#\s*include\s*"(ue3/\w+\.h)"', first)
