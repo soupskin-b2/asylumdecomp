@@ -1,4 +1,4 @@
-// UnPhysConstraint.cpp (part 2 of 2): 9 functions
+// UnPhysConstraint.cpp (part 2 of 2): 10 functions
 // Placed here by: class 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -118,4 +118,19 @@ void URB_ConstraintInstance::execSetAngularVelocityTarget(FFrame& Stack, RESULT_
 	P_GET_STRUCT(FVector, InVelTarget);
 	P_FINISH;
 	((URB_ConstraintInstance__00c95df0*)this)->sub_00a32bd0(InVelTarget);
+}
+
+struct URB_ConstraintInstance__00c95a60 : public URB_ConstraintInstance
+{
+	void SetAngularPositionDrive(UBOOL bEnableSwingDrive, UBOOL bEnableTwistDrive);
+	void execSetAngularPositionDrive(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00c95a60
+void URB_ConstraintInstance__00c95a60::execSetAngularPositionDrive(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bEnableSwingDrive);
+	P_GET_UBOOL(bEnableTwistDrive);
+	P_FINISH;
+	SetAngularPositionDrive(bEnableSwingDrive, bEnableTwistDrive);
 }

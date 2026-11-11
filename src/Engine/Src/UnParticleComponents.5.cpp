@@ -1,4 +1,4 @@
-// UnParticleComponents.cpp: 19 functions
+// UnParticleComponents.cpp: 25 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -217,4 +217,98 @@ void UParticleSystem::execSetCurrentLODMethod(FFrame& Stack, RESULT_DECL)
 	P_GET_BYTE(InMethod);
 	P_FINISH;
 	vf_118(InMethod);
+}
+
+// @baa 0x00c9def0
+void UParticleSystemComponent::execSetSpawnScale(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(Value);
+	P_FINISH;
+	vf_294(Value);
+}
+
+struct UParticleSystemComponent__00c9dd70 : public UParticleSystemComponent
+{
+	void SetActorParameter(FName ParameterName, AActor* Param);
+	void execSetActorParameter(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00c9dd70
+void UParticleSystemComponent__00c9dd70::execSetActorParameter(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_NAME(ParameterName);
+	P_GET_OBJECT(AActor, Param);
+	P_FINISH;
+	SetActorParameter(ParameterName, Param);
+}
+
+struct UParticleSystemComponent__00c9de10 : public UParticleSystemComponent
+{
+	void SetMaterialParameter(FName ParameterName, UMaterialInterface* Param);
+	void execSetMaterialParameter(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00c9de10
+void UParticleSystemComponent__00c9de10::execSetMaterialParameter(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_NAME(ParameterName);
+	P_GET_OBJECT(UMaterialInterface, Param);
+	P_FINISH;
+	SetMaterialParameter(ParameterName, Param);
+}
+
+enum EParticleSysParamType
+{
+	PSPT_None,
+	PSPT_Scalar,
+	PSPT_Vector,
+	PSPT_Color,
+	PSPT_Actor,
+	PSPT_Material,
+	PSPT_MAX,
+};
+
+struct UParticleSystemComponent__00c9e300 : public UParticleSystemComponent
+{
+	void ClearParameter(FName ParameterName, BYTE ParameterType);
+	void execClearParameter(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00c9e300
+void UParticleSystemComponent__00c9e300::execClearParameter(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_NAME(ParameterName);
+	P_GET_BYTE_OPTX(ParameterType, PSPT_None);
+	P_FINISH;
+	ClearParameter(ParameterName, ParameterType);
+}
+
+struct UParticleSystemComponent__00c9dc20 : public UParticleSystemComponent
+{
+	void SetVectorParameter(FName ParameterName, FVector Param);
+	void execSetVectorParameter(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00c9dc20
+void UParticleSystemComponent__00c9dc20::execSetVectorParameter(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_NAME(ParameterName);
+	P_GET_STRUCT(FVector, Param);
+	P_FINISH;
+	SetVectorParameter(ParameterName, Param);
+}
+
+struct UParticleSystemComponent__00c9cde0 : public UParticleSystemComponent
+{
+	void ActivateSystem(UBOOL bFlagAsJustAttached, UBOOL DontUpdateTransform);
+	void execActivateSystem(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00c9cde0
+void UParticleSystemComponent__00c9cde0::execActivateSystem(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL_OPTX(bFlagAsJustAttached, FALSE);
+	P_GET_UBOOL_OPTX(DontUpdateTransform, FALSE);
+	P_FINISH;
+	ActivateSystem(bFlagAsJustAttached, DontUpdateTransform);
 }

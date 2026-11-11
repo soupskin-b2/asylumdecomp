@@ -1,4 +1,4 @@
-// UnSkeletalComponent.cpp: 17 functions
+// UnSkeletalComponent.cpp: 18 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -213,4 +213,19 @@ void USkeletalMeshComponent::execSetDepthBias(FFrame& Stack, RESULT_DECL)
     Stack.Step(Stack.Object, &NewDepthBiasData);
     P_FINISH;
     static_cast<SkeletalMeshNative_0091f940*>(this)->sub_00914150(NewDepthBias, NewDepthBiasData);
+}
+
+struct USkeletalMeshComponent__0092da90 : public USkeletalMeshComponent
+{
+	FLOAT GetTimeOfScriptNotify(FName NotifyName, INT InstanceNum);
+	void execGetTimeOfScriptNotify(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x0092da90
+void USkeletalMeshComponent__0092da90::execGetTimeOfScriptNotify(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_NAME(NotifyName);
+	P_GET_INT_OPTX(InstanceNum, 1);
+	P_FINISH;
+	*(FLOAT*)Result = GetTimeOfScriptNotify(NotifyName, InstanceNum);
 }

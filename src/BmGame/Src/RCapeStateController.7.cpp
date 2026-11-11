@@ -1,4 +1,4 @@
-// RCapeStateController.cpp: 9 functions
+// RCapeStateController.cpp: 10 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -119,4 +119,17 @@ void URCapeStateController::execInitialise(FFrame& Stack, RESULT_DECL)
 	P_GET_NAME(InitialCapeStateName);
 	P_FINISH;
 	((URCapeStateController__01701680*)this)->sub_016e7ba0(InitialCapeStateName);
+}
+
+struct URCapeStateController__01701de0 : public URCapeStateController
+{
+	void sub_016e69c0(UBOOL);
+};
+
+// @baa 0x01701de0
+void URCapeStateController::execSetCapeToCurrentAnimPose(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL_OPTX(IsEvaluateAnim, 0);
+	P_FINISH;
+	((URCapeStateController__01701de0*)this)->sub_016e69c0(IsEvaluateAnim);
 }

@@ -1,4 +1,4 @@
-// BmGame_0c80000.cpp: 22 functions
+// BmGame_0c80000.cpp: 23 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -218,4 +218,12 @@ void APlayerController::execServerNotifyLoadedWorld(FFrame& Stack, RESULT_DECL)
 	P_GET_NAME(WorldPackageName);
 	P_FINISH;
 	((APlayerController__00c87280*)this)->sub_007afac0(WorldPackageName);
+}
+
+// @baa 0x00c83d90
+void AAnimatedCamera::execStopAllCameraAnims(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL_OPTX(bImmediate, 0);
+	P_FINISH;
+	vf_36c(bImmediate);
 }

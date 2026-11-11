@@ -1,4 +1,4 @@
-// R3rdPersonCamera.cpp: 6 functions
+// R3rdPersonCamera.cpp: 8 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -80,4 +80,30 @@ void AR3rdPersonCamera::execDisableCameraDrag(FFrame& Stack, RESULT_DECL)
 	P_GET_FLOAT_OPTX(Time, 1.0f);
 	P_FINISH;
 	((AR3rdPersonCamera__01709710*)this)->sub_0168a650(Time);
+}
+
+struct AR3rdPersonCamera__017098f0 : public AR3rdPersonCamera
+{
+	void sub_016a4b10(FTPOV&);
+};
+
+// @baa 0x017098f0
+void AR3rdPersonCamera::execHideClippingObjects(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT_REF(FTPOV, NewPOV);
+	P_FINISH;
+	((AR3rdPersonCamera__017098f0*)this)->sub_016a4b10(NewPOV);
+}
+
+struct AR3rdPersonCamera__01709970 : public AR3rdPersonCamera
+{
+	void sub_01689e60(FVector&);
+};
+
+// @baa 0x01709970
+void AR3rdPersonCamera::execGetTunnelCameraDirection(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT_REF(FVector, InDirection);
+	P_FINISH;
+	((AR3rdPersonCamera__01709970*)this)->sub_01689e60(InDirection);
 }

@@ -1,4 +1,4 @@
-// BmGame_1700000.cpp: 16 functions
+// BmGame_1700000.cpp: 33 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -161,4 +161,140 @@ void ARLevelTransition::execPlayerUpdateTransform(FFrame& Stack, RESULT_DECL)
 	P_GET_OBJECT(ARPawnCharacter, Mesh);
 	P_FINISH;
 	((ARLevelTransition_*)this)->sub_0155a090(Mesh);
+}
+
+// @baa 0x017086a0
+void ARTapePlayer::execSetPause(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bPause);
+	P_FINISH;
+	vf_364(bPause);
+}
+
+// @baa 0x017031a0
+void ARBMAIController::execGetBehaviour(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT_OPTX(Index, 0);
+	P_FINISH;
+	*(URBMBehaviour**)Result = (URBMBehaviour*)vf_408(Index);
+}
+
+// @baa 0x01703be0
+void ARBMAIController::execFindAlertForPlayer(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT_OPTX(AActor, Player, NULL);
+	P_FINISH;
+	*(UAlertInstance**)Result = (UAlertInstance*)vf_460((INT)Player);
+}
+
+// @baa 0x017013e0
+void ARRagdollWakeupVolume::execTick(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(DeltaTime);
+	P_FINISH;
+	vf_360(DeltaTime);
+}
+
+// @baa 0x01701570
+void ARMedicalPlasticFlapsBase::execUpdateFlapMovementSpeed(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(DeltaTime);
+	P_FINISH;
+	vf_354(DeltaTime);
+}
+
+// @baa 0x01703a40
+void ARBMAIController::execTickBehaviourState(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(DeltaTime);
+	P_FINISH;
+	vf_44c(DeltaTime);
+}
+
+// @baa 0x01703e00
+void ARChatteringTeeth::execRandomMoveTick(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(DeltaTime);
+	P_FINISH;
+	vf_474(DeltaTime);
+}
+
+// @baa 0x01703ef0
+void ARChatteringTeeth::execRouterMoveRouterMove(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(DeltaTime);
+	P_FINISH;
+	*(UBOOL*)Result = vf_480(DeltaTime);
+}
+
+// @baa 0x017040f0
+void ARBMAIManager::execUpdateBehaviourDeltas(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(DeltaTime);
+	P_FINISH;
+	vf_35c(DeltaTime);
+}
+
+// @baa 0x01704cb0
+void URBMBehaviour::execSleep(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(SleepTime);
+	P_FINISH;
+	vf_1a8(SleepTime);
+}
+
+// @baa 0x017056f0
+void URBMBehaviour_CombatAI::execSetRotationAndVelocity(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(DeltaTime);
+	P_FINISH;
+	vf_1ec(DeltaTime);
+}
+
+// @baa 0x01705a10
+void URBMBehaviour_MoveToJokerInChair::execUpdateJokerStruggling(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(DeltaTime);
+	P_FINISH;
+	vf_1bc(DeltaTime);
+}
+
+// @baa 0x01708190
+void ARBatarangProjectile_Controllable::execUpdateFlightPath(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(DeltaTime);
+	P_FINISH;
+	vf_354(DeltaTime);
+}
+
+// @baa 0x01709c80
+void ARControllableChatteringTeethCamera::execUpdateCurrentFollowPose(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(DeltaTime);
+	P_FINISH;
+	vf_354(DeltaTime);
+}
+
+// @baa 0x01709cf0
+void ARControllableChatteringTeethCamera::execUpdateCurrentExplodePose(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(DeltaTime);
+	P_FINISH;
+	vf_358(DeltaTime);
+}
+
+// @baa 0x0170af90
+void ARBatarangTarget::execTick(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(TickTime);
+	P_FINISH;
+	vf_354(TickTime);
+}
+
+// @baa 0x01708ad0
+void ARLevelTransition::execGetLevelVolumeInFront(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(InFront);
+	P_FINISH;
+	*(void**)Result = (void*)vf_36c(InFront);
 }

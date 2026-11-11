@@ -1,4 +1,4 @@
-// UnUIDataStores.cpp: 7 functions
+// UnUIDataStores.cpp: 14 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -93,4 +93,117 @@ void USessionSettingsProvider::execBindProviderClient(FFrame& Stack, RESULT_DECL
 	P_GET_OBJECT(UClass, DataSourceClass);
 	P_FINISH;
 	*(UBOOL*)Result = ((USessionSettingsProvider__00ca2de0*)this)->sub_00da32c0(DataSourceClass);
+}
+
+struct UDataStoreClient__00ca0840 : public UDataStoreClient
+{
+	UBOOL RegisterDataStore(UUIDataStore* DataStore, ULocalPlayer* PlayerOwner);
+	void execRegisterDataStore(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00ca0840
+void UDataStoreClient__00ca0840::execRegisterDataStore(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(UUIDataStore, DataStore);
+	P_GET_OBJECT_OPTX(ULocalPlayer, PlayerOwner, NULL);
+	P_FINISH;
+	*(UBOOL*)Result = RegisterDataStore(DataStore, PlayerOwner);
+}
+
+struct UUIDataStore_InputAlias_ : public UUIDataStore_InputAlias
+{
+	UBOOL HasAliasMappingForPlatform(FName DesiredAlias, BYTE DesiredPlatform);
+	void execHasAliasMappingForPlatform(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00ca2850
+void UUIDataStore_InputAlias_::execHasAliasMappingForPlatform(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_NAME(DesiredAlias);
+	P_GET_BYTE(DesiredPlatform);
+	P_FINISH;
+	*(UBOOL*)Result = HasAliasMappingForPlatform(DesiredAlias, DesiredPlatform);
+}
+
+struct UUISkin_ : public UUISkin
+{
+	UBOOL AddUISoundCue(FName SoundCueName, USoundCue* SoundToPlay);
+	void execAddUISoundCue(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00ca29d0
+void UUISkin_::execAddUISoundCue(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_NAME(SoundCueName);
+	P_GET_OBJECT(USoundCue, SoundToPlay);
+	P_FINISH;
+	*(UBOOL*)Result = AddUISoundCue(SoundCueName, SoundToPlay);
+}
+
+enum EInputPlatformType
+{
+	IPT_PC,
+	IPT_360,
+	IPT_PS3,
+	IPT_MAX,
+};
+
+struct UUIDataStore_InputAlias__00ca2560 : public UUIDataStore_InputAlias
+{
+	FName GetAliasInputKeyNameByIndex(INT AliasIndex, BYTE OverridePlatform);
+	void execGetAliasInputKeyNameByIndex(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00ca2560
+void UUIDataStore_InputAlias__00ca2560::execGetAliasInputKeyNameByIndex(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(AliasIndex);
+	P_GET_BYTE_OPTX(OverridePlatform, IPT_MAX);
+	P_FINISH;
+	*(FName*)Result = GetAliasInputKeyNameByIndex(AliasIndex, OverridePlatform);
+}
+
+struct UDataStoreClient__00ca0720 : public UDataStoreClient
+{
+	UUIDataStore* FindDataStore(FName DataStoreTag, ULocalPlayer* PlayerOwner);
+	void execFindDataStore(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00ca0720
+void UDataStoreClient__00ca0720::execFindDataStore(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_NAME(DataStoreTag);
+	P_GET_OBJECT_OPTX(ULocalPlayer, PlayerOwner, NULL);
+	P_FINISH;
+	*(UUIDataStore**)Result = FindDataStore(DataStoreTag, PlayerOwner);
+}
+
+struct UUISkin__00ca2b00 : public UUISkin
+{
+	UBOOL GetUISoundCue(FName SoundCueName, USoundCue*& out_UISoundCue);
+	void execGetUISoundCue(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00ca2b00
+void UUISkin__00ca2b00::execGetUISoundCue(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_NAME(SoundCueName);
+	P_GET_OBJECT_REF(USoundCue, out_UISoundCue);
+	P_FINISH;
+	*(UBOOL*)Result = GetUISoundCue(SoundCueName, out_UISoundCue);
+}
+
+struct UUIDataStore_InputAlias__00ca24a0 : public UUIDataStore_InputAlias
+{
+	FName GetAliasInputKeyName(FName DesiredAlias, BYTE OverridePlatform);
+	void execGetAliasInputKeyName(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00ca24a0
+void UUIDataStore_InputAlias__00ca24a0::execGetAliasInputKeyName(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_NAME(DesiredAlias);
+	P_GET_BYTE_OPTX(OverridePlatform, IPT_MAX);
+	P_FINISH;
+	*(FName*)Result = GetAliasInputKeyName(DesiredAlias, OverridePlatform);
 }

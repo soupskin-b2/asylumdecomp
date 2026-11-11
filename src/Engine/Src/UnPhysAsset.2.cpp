@@ -1,4 +1,4 @@
-// UnPhysAsset.cpp: 13 functions
+// UnPhysAsset.cpp: 17 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -171,4 +171,64 @@ void URB_BodyInstance::execEnableCollisionResponse(FFrame& Stack, RESULT_DECL)
 	P_GET_UBOOL(bEnableResponse);
 	P_FINISH;
 	((URB_BodyInstance__00c954a0*)this)->sub_009f9b50(bEnableResponse);
+}
+
+struct UPhysicsAssetInstance__00c94ae0 : public UPhysicsAssetInstance
+{
+	void SetFullAnimWeightBlockRigidBody(UBOOL bNewBlockRigidBody, USkeletalMeshComponent* SkelMesh);
+	void execSetFullAnimWeightBlockRigidBody(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00c94ae0
+void UPhysicsAssetInstance__00c94ae0::execSetFullAnimWeightBlockRigidBody(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bNewBlockRigidBody);
+	P_GET_OBJECT(USkeletalMeshComponent, SkelMesh);
+	P_FINISH;
+	SetFullAnimWeightBlockRigidBody(bNewBlockRigidBody, SkelMesh);
+}
+
+struct UPhysicsAssetInstance__00c94b80 : public UPhysicsAssetInstance
+{
+	void SetFullAnimWeightBonesFixed(UBOOL bNewFixed, USkeletalMeshComponent* SkelMesh);
+	void execSetFullAnimWeightBonesFixed(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00c94b80
+void UPhysicsAssetInstance__00c94b80::execSetFullAnimWeightBonesFixed(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bNewFixed);
+	P_GET_OBJECT(USkeletalMeshComponent, SkelMesh);
+	P_FINISH;
+	SetFullAnimWeightBonesFixed(bNewFixed, SkelMesh);
+}
+
+struct UPhysicsAssetInstance__00c94c20 : public UPhysicsAssetInstance
+{
+	URB_BodyInstance* FindBodyInstance(FName BodyName, UPhysicsAsset* InAsset);
+	void execFindBodyInstance(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00c94c20
+void UPhysicsAssetInstance__00c94c20::execFindBodyInstance(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_NAME(BodyName);
+	P_GET_OBJECT(UPhysicsAsset, InAsset);
+	P_FINISH;
+	*(URB_BodyInstance**)Result = FindBodyInstance(BodyName, InAsset);
+}
+
+struct UPhysicsAssetInstance__00c94cd0 : public UPhysicsAssetInstance
+{
+	URB_ConstraintInstance* FindConstraintInstance(FName ConName, UPhysicsAsset* InAsset);
+	void execFindConstraintInstance(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00c94cd0
+void UPhysicsAssetInstance__00c94cd0::execFindConstraintInstance(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_NAME(ConName);
+	P_GET_OBJECT(UPhysicsAsset, InAsset);
+	P_FINISH;
+	*(URB_ConstraintInstance**)Result = FindConstraintInstance(ConName, InAsset);
 }

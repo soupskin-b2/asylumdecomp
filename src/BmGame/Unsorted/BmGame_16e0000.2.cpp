@@ -1,4 +1,4 @@
-// BmGame_16e0000.cpp: 42 functions
+// BmGame_16e0000.cpp: 50 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -318,4 +318,68 @@ void ARPawn::execSetLocationIgnoringCollision(FFrame& Stack, RESULT_DECL)
 	P_GET_STRUCT(FVector, NewLocation);
 	P_FINISH;
 	((ARPawn_*)this)->sub_0166d490(NewLocation);
+}
+
+// @baa 0x016e8790
+void ARGameInfo::execUpdateGlobalWind(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(DeltaTime);
+	P_FINISH;
+	vf_3cc(DeltaTime);
+}
+
+// @baa 0x016e9260
+void ARGameRI::execSetSkeletalMeshLODScale(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(Value);
+	P_FINISH;
+	vf_3b8(Value);
+}
+
+// @baa 0x016e9330
+void ARBMWeapon::execUpdateXrayVisibility(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(DeltaTime);
+	P_FINISH;
+	vf_354(DeltaTime);
+}
+
+// @baa 0x016e95a0
+void ARCreeperVineBase::execStartAttack(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(DelayDuration);
+	P_FINISH;
+	vf_354(DelayDuration);
+}
+
+// @baa 0x016e9610
+void ARCreeperVineBase::execTick(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(DeltaSeconds);
+	P_FINISH;
+	vf_358(DeltaSeconds);
+}
+
+// @baa 0x016e9900
+void ARFadeManager::execSetVolume(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(Vol);
+	P_FINISH;
+	vf_354(Vol);
+}
+
+// @baa 0x016e9df0
+void ARPontoonBase::execTick(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(DeltaTime);
+	P_FINISH;
+	vf_368(DeltaTime);
+}
+
+// @baa 0x016eb300
+void URSeqAct_ActivateElectrifiedFloorPanels::execNativeUpdate(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(DeltaTime);
+	P_FINISH;
+	*(UBOOL*)Result = vf_1a8(DeltaTime);
 }

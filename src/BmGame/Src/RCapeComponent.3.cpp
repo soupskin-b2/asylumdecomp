@@ -1,4 +1,4 @@
-// RCapeComponent.cpp: 15 functions
+// RCapeComponent.cpp: 18 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -182,4 +182,43 @@ void URCapeComponent::execSetMaterialSpeedVariableOverride(FFrame& Stack, RESULT
 	P_GET_FLOAT_OPTX(Speed, -1.0f);
 	P_FINISH;
 	((URCapeComponent__01702a10*)this)->sub_016b1f80(Speed);
+}
+
+struct URCapeComponent__01702cf0 : public URCapeComponent
+{
+	void sub_016be930(FCapeWindAudioProperties&);
+};
+
+// @baa 0x01702cf0
+void URCapeComponent::execCalculateWindProperties(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT_REF(FCapeWindAudioProperties, OutWindProperties);
+	P_FINISH;
+	((URCapeComponent__01702cf0*)this)->sub_016be930(OutWindProperties);
+}
+
+struct URCapeComponent__01702790 : public URCapeComponent
+{
+	void* sub_016ae800(FName);
+};
+
+// @baa 0x01702790
+void URCapeComponent::execGetAnimStateTreeNode(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_NAME(CapeStateName);
+	P_FINISH;
+	*(void**)Result = ((URCapeComponent__01702790*)this)->sub_016ae800(CapeStateName);
+}
+
+struct URCapeComponent__01702810 : public URCapeComponent
+{
+	FLOAT sub_016ae830(FName);
+};
+
+// @baa 0x01702810
+void URCapeComponent::execGetAnimTreeNodeBlendValue(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_NAME(getNodeName);
+	P_FINISH;
+	*(FLOAT*)Result = ((URCapeComponent__01702810*)this)->sub_016ae830(getNodeName);
 }

@@ -1,4 +1,4 @@
-// Core_0590000.cpp (part 2 of 4): 25 functions
+// Core_0590000.cpp (part 2 of 4): 28 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -241,4 +241,31 @@ void UObject::execVSizeSq2D(FFrame& Stack, RESULT_DECL)
 	P_GET_STRUCT(FVector, A);
 	P_FINISH;
 	*(FLOAT*)Result = A.Y * A.Y + A.X * A.X;
+}
+
+// @baa 0x00591bd0
+void UObject::execSubtractSubtract_PreByte(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_BYTE_REF(A);
+	P_FINISH;
+	*(BYTE*)Result = --A;
+}
+
+// @baa 0x00592ab0
+void UObject::execAddAdd_PreInt(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT_REF(A);
+	P_FINISH;
+	*(INT*)Result = ++A;
+}
+
+// @baa 0x005980c0
+void UObject::execNormalizeRotAxis(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(Angle);
+	P_FINISH;
+	INT A = Angle & 0xffff;
+	if (A > 0x7fff)
+		A -= 0x10000;
+	*(INT*)Result = A;
 }

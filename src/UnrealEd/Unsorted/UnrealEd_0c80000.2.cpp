@@ -1,4 +1,4 @@
-// UnrealEd_0c80000.cpp (part 2 of 2): 11 functions
+// UnrealEd_0c80000.cpp (part 2 of 2): 16 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -127,4 +127,69 @@ void AActor::execSetDrawScale3D(FFrame& Stack, RESULT_DECL)
 	P_GET_STRUCT(FVector, NewScale3D);
 	P_FINISH;
 	((AActor__00c80f70*)this)->sub_00777420(NewScale3D);
+}
+
+struct AActor__00c81060 : public AActor
+{
+	UBOOL sub_008a7bb0(FVector);
+};
+
+// @baa 0x00c81060
+void AActor::execSetLocation(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT(FVector, NewLocation);
+	P_FINISH;
+	*(UBOOL*)Result = ((AActor__00c81060*)this)->sub_008a7bb0(NewLocation);
+}
+
+struct AActor__00c810e0 : public AActor
+{
+	UBOOL sub_008a7f10(FRotator);
+};
+
+// @baa 0x00c810e0
+void AActor::execSetRotation(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT(FRotator, NewRotation);
+	P_FINISH;
+	*(UBOOL*)Result = ((AActor__00c810e0*)this)->sub_008a7f10(NewRotation);
+}
+
+struct AActor__00c812a0 : public AActor
+{
+	UBOOL sub_008a7fc0(FRotator);
+};
+
+// @baa 0x00c812a0
+void AActor::execSetRelativeRotation(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT(FRotator, NewRotation);
+	P_FINISH;
+	*(UBOOL*)Result = ((AActor__00c812a0*)this)->sub_008a7fc0(NewRotation);
+}
+
+struct AActor__00c81320 : public AActor
+{
+	UBOOL sub_008a7bf0(FVector);
+};
+
+// @baa 0x00c81320
+void AActor::execSetRelativeLocation(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT(FVector, NewLocation);
+	P_FINISH;
+	*(UBOOL*)Result = ((AActor__00c81320*)this)->sub_008a7bf0(NewLocation);
+}
+
+struct AActor__00c80fe0 : public AActor
+{
+	UBOOL sub_008a7b10(FVector);
+};
+
+// @baa 0x00c80fe0
+void AActor::execMove(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT(FVector, Delta);
+	P_FINISH;
+	*(UBOOL*)Result = ((AActor__00c80fe0*)this)->sub_008a7b10(Delta);
 }

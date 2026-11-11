@@ -1,4 +1,4 @@
-// BmGame_16f0000.cpp: 91 functions
+// BmGame_16f0000.cpp: 99 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -735,4 +735,68 @@ void ARPawnCombat::execFacePos(FFrame& Stack, RESULT_DECL)
 	P_GET_STRUCT(FVector, NewFacePos);
 	P_FINISH;
 	((ARPawnCombat__016f5f90*)this)->sub_01676b70(NewFacePos);
+}
+
+// @baa 0x016f5440
+void ARPawnCharacter::execAddYawVelocity(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(YawVelocity);
+	P_FINISH;
+	vf_5e4(YawVelocity);
+}
+
+// @baa 0x016f54b0
+void ARPawnCharacter::execAddYaw(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(Yaw);
+	P_FINISH;
+	vf_5e8(Yaw);
+}
+
+// @baa 0x016f55a0
+void ARPawnCharacter::execOverrideYawVelocity(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(YawVelocity);
+	P_FINISH;
+	vf_5f0(YawVelocity);
+}
+
+// @baa 0x016f5690
+void ARPawnCharacter::execSetIdleTimeScale(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(NewValue);
+	P_FINISH;
+	vf_5fc(NewValue);
+}
+
+// @baa 0x016f5a20
+void ARPawnCharacter::execSetYawRadians(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(R);
+	P_FINISH;
+	vf_610(R);
+}
+
+// @baa 0x016f6140
+void ARBMPawnAIAnim::execUpdateXrayVisibility(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(DeltaTime);
+	P_FINISH;
+	vf_644(DeltaTime);
+}
+
+// @baa 0x016fc930
+void ARAudioPointController::execSortDistances(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bForceUpdate);
+	P_FINISH;
+	vf_624(bForceUpdate);
+}
+
+// @baa 0x016fd430
+void ARBMRouter_DynamicObject::execUpdateRouterObject_Routing(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(DeltaTime);
+	P_FINISH;
+	*(UBOOL*)Result = vf_35c(DeltaTime);
 }

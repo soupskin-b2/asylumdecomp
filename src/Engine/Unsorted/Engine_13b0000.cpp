@@ -1,4 +1,4 @@
-// Engine_13b0000.cpp: 37 functions
+// Engine_13b0000.cpp: 38 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -532,4 +532,17 @@ undefined4 C_013bd5d0::sub_013bd5d0(byte param_2)
     sub_0053dfa0(param_1);
   }
   return param_1;
+}
+
+struct UMaterial_ {
+    void sub_013bc230(int arg);
+    void sub_013b2930();                 // no args, thiscall
+    void sub_013abcb0(int arg);          // 1 arg, thiscall
+};
+
+// @baa 0x013bc230
+void UMaterial_::sub_013bc230(int arg)
+{
+    sub_013b2930();
+    sub_013abcb0(arg);
 }

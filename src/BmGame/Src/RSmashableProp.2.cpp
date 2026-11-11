@@ -1,4 +1,4 @@
-// RSmashableProp.cpp: 6 functions
+// RSmashableProp.cpp: 7 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -70,4 +70,17 @@ void ARSmashableProp::execSetIsStatic(FFrame& Stack, RESULT_DECL)
 	P_GET_UBOOL(isStatic);
 	P_FINISH;
 	((ARSmashableProp__016ff4f0*)this)->sub_0166b2e0(isStatic);
+}
+
+struct ARSmashableProp__016ff980 : public ARSmashableProp
+{
+	void* sub_016751c0(FName);
+};
+
+// @baa 0x016ff980
+void ARSmashableProp::execGetDecalMaterialInstance(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_NAME(DecalTypeName);
+	P_FINISH;
+	*(void**)Result = ((ARSmashableProp__016ff980*)this)->sub_016751c0(DecalTypeName);
 }

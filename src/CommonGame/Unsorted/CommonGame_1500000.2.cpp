@@ -1,4 +1,4 @@
-// CommonGame_1500000.cpp (part 2 of 3): 30 functions
+// CommonGame_1500000.cpp (part 2 of 3): 31 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -222,4 +222,12 @@ void ARRainVolumeBase::execSetSplashPoints(FFrame& Stack, RESULT_DECL)
 	P_GET_INT(Index);
 	P_FINISH;
 	vf_370(Index);
+}
+
+// @baa 0x0150c030
+void ARDebugMenu::execGetDecibelValue(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(Value);
+	P_FINISH;
+	*(INT*)Result = vf_38c(Value);
 }

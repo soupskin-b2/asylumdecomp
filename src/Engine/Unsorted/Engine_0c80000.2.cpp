@@ -1,4 +1,4 @@
-// Engine_0c80000.cpp: 46 functions
+// Engine_0c80000.cpp: 53 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -537,4 +537,95 @@ void UPointLightComponent::execSetTranslation(FFrame& Stack, RESULT_DECL)
 	P_GET_STRUCT(FVector, NewTranslation);
 	P_FINISH;
 	((UPointLightComponent_*)this)->sub_006e9f10(NewTranslation);
+}
+
+struct AActor__00c825f0 : public AActor
+{
+	void sub_00763700(FBox&);
+};
+
+// @baa 0x00c825f0
+void AActor::execGetComponentsBoundingBox(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT_REF(FBox, ActorBox);
+	P_FINISH;
+	((AActor__00c825f0*)this)->sub_00763700(ActorBox);
+}
+
+struct UCameraAnimInst__00c8c2b0 : public UCameraAnimInst
+{
+	void sub_007880c0(UBOOL);
+};
+
+// @baa 0x00c8c2b0
+void UCameraAnimInst::execStop(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL_OPTX(bImmediate, 0);
+	P_FINISH;
+	((UCameraAnimInst__00c8c2b0*)this)->sub_007880c0(bImmediate);
+}
+
+struct AActor__00c82570 : public AActor
+{
+	UBOOL sub_008bb150(FVector);
+};
+
+// @baa 0x00c82570
+void AActor::execContainsPoint(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT(FVector, Spot);
+	P_FINISH;
+	*(UBOOL*)Result = ((AActor__00c82570*)this)->sub_008bb150(Spot);
+}
+
+struct AController__00c84fb0 : public AController
+{
+	UBOOL sub_007a0c00(FVector);
+};
+
+// @baa 0x00c84fb0
+void AController::execPointReachable(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT(FVector, aPoint);
+	P_FINISH;
+	*(UBOOL*)Result = ((AController__00c84fb0*)this)->sub_007a0c00(aPoint);
+}
+
+struct AController__00c850a0 : public AController
+{
+	UBOOL sub_007a08d0(FVector);
+};
+
+// @baa 0x00c850a0
+void AController::execPickWallAdjust(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT(FVector, HitNormal);
+	P_FINISH;
+	*(UBOOL*)Result = ((AController__00c850a0*)this)->sub_007a08d0(HitNormal);
+}
+
+struct AActor__00c820e0 : public AActor
+{
+	void sub_008aa030(FLOAT&);
+};
+
+// @baa 0x00c820e0
+void AActor::execClock(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT_REF(Time);
+	P_FINISH;
+	((AActor__00c820e0*)this)->sub_008aa030(Time);
+}
+
+struct AActor__00c82160 : public AActor
+{
+	void sub_008aa040(FLOAT&);
+};
+
+// @baa 0x00c82160
+void AActor::execUnClock(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT_REF(Time);
+	P_FINISH;
+	((AActor__00c82160*)this)->sub_008aa040(Time);
 }

@@ -1,4 +1,4 @@
-// RPlayerController.cpp (part 6 of 6): 138 functions
+// RPlayerController.cpp (part 6 of 6): 145 functions
 // Placed here by: class 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -1209,4 +1209,65 @@ void ARPlayerController::execLive_SetDifficulty(FFrame& Stack, RESULT_DECL)
 	P_GET_INT(Difficulty);
 	P_FINISH;
 	vf_584(Difficulty);
+}
+
+// @baa 0x016faf10
+void ARPlayerController::execFE_SetGamma(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(Value);
+	P_FINISH;
+	vf_6ac(Value);
+}
+
+// @baa 0x016fb000
+void ARPlayerController::execFE_SetRender3D(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(Value);
+	P_FINISH;
+	vf_6b8(Value);
+}
+
+// @baa 0x016fb0f0
+void ARPlayerController::execFE_SetVolumeSFX(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(Value);
+	P_FINISH;
+	vf_6c4(Value);
+}
+
+// @baa 0x016fb300
+void ARPlayerController::execFE_SetBenchmarkingActive(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(is_active);
+	P_FINISH;
+	vf_6dc(is_active);
+}
+
+// @baa 0x016fb1a0
+void ARPlayerController::execFE_SetVolumeDialogue(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(Value);
+	P_FINISH;
+	vf_6cc(Value);
+}
+
+// @baa 0x016fb250
+void ARPlayerController::execFE_SetVolumeMusic(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(Value);
+	P_FINISH;
+	vf_6d4(Value);
+}
+
+struct ARPlayerController__016f9470 : public ARPlayerController
+{
+	UBOOL sub_01618d10(FVector);
+};
+
+// @baa 0x016f9470
+void ARPlayerController::execShouldIKickOffWall(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT(FVector, HitNormal);
+	P_FINISH;
+	*(UBOOL*)Result = ((ARPlayerController__016f9470*)this)->sub_01618d10(HitNormal);
 }

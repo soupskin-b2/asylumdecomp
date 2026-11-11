@@ -1,4 +1,4 @@
-// UnUIObjects.cpp: 48 functions
+// UnUIObjects.cpp: 56 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -532,4 +532,153 @@ void UUIScreenObject::execGetAspectRatioAutoScaleFactor(FFrame& Stack, RESULT_DE
 	P_GET_INT_OPTX(PlayerIndex, 0);
 	P_FINISH;
 	*(FLOAT*)Result = ((UUIScreenObject__00ca4f60*)this)->sub_00db0090(PlayerIndex);
+}
+
+struct UUIScreenObject__00ca3fa0 : public UUIScreenObject
+{
+	INT sub_00db02b0();
+};
+
+// @baa 0x00ca3fa0
+void UUIScreenObject::execCanAcceptFocus(FFrame& Stack, RESULT_DECL)
+{
+	INT DefaultPlayerIndex = ((UUIScreenObject__00ca3fa0*)this)->sub_00db02b0();
+	P_GET_INT_OPTX(PlayerIndex, DefaultPlayerIndex);
+	P_FINISH;
+	*(UBOOL*)Result = vf_134(PlayerIndex);
+}
+
+enum EInputPlatformType
+{
+	IPT_PC,
+	IPT_360,
+	IPT_PS3,
+	IPT_MAX,
+};
+
+struct UUIRoot_ : public UUIRoot
+{
+	static EInputPlatformType GetInputPlatformType( ULocalPlayer* OwningPlayer )
+	{
+		EInputPlatformType Result = IPT_PC;
+		if ( OwningPlayer != NULL && OwningPlayer->Actor != NULL && OwningPlayer->Actor->PlayerInput != NULL )
+		{
+			if ( OwningPlayer->Actor->PlayerInput->bUsingGamepad )
+			{
+				Result = IPT_360;
+			}
+		}
+		return Result;
+	}
+	void execGetInputPlatformType(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00da8a50
+void UUIRoot_::execGetInputPlatformType(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT_OPTX(ULocalPlayer, OwningPlayer, NULL);
+	P_FINISH;
+	*(BYTE*)Result = GetInputPlatformType(OwningPlayer);
+}
+
+enum EPositionEvalType
+{
+	EVALPOS_None,
+	EVALPOS_PixelViewport,
+	EVALPOS_PixelScene,
+	EVALPOS_PixelOwner,
+	EVALPOS_PercentageViewport,
+	EVALPOS_PercentageOwner,
+	EVALPOS_PercentageScene,
+	EVALPOS_MAX,
+};
+
+struct UUIObject__00ca5180 : public UUIObject
+{
+	void SetAnchorPosition(FVector NewAnchorPosition, BYTE InputType);
+	void execSetAnchorPosition(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00ca5180
+void UUIObject__00ca5180::execSetAnchorPosition(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT(FVector, NewAnchorPosition);
+	P_GET_BYTE_OPTX(InputType, EVALPOS_PixelViewport);
+	P_FINISH;
+	SetAnchorPosition(NewAnchorPosition, InputType);
+}
+
+struct UUIScreenObject__00ca2fc0 : public UUIScreenObject
+{
+	void SetZDepth(FLOAT NewZDepth, UBOOL bPropagateToChildren);
+	void execSetZDepth(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00ca2fc0
+void UUIScreenObject__00ca2fc0::execSetZDepth(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(NewZDepth);
+	P_GET_UBOOL_OPTX(bPropagateToChildren, FALSE);
+	P_FINISH;
+	SetZDepth(NewZDepth, bPropagateToChildren);
+}
+
+struct UUIScreenObject__00ca3850 : public UUIScreenObject
+{
+	UBOOL ContainsChild(UUIObject* Child, UBOOL bRecurse);
+	void execContainsChild(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00ca3850
+void UUIScreenObject__00ca3850::execContainsChild(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(UUIObject, Child);
+	P_GET_UBOOL_OPTX(bRecurse, TRUE);
+	P_FINISH;
+	*(UBOOL*)Result = ContainsChild(Child, bRecurse);
+}
+
+struct UUIScreenObject__00ca3900 : public UUIScreenObject
+{
+	UBOOL ContainsChildOfClass(UClass* SearchClass, UBOOL bRecurse);
+	void execContainsChildOfClass(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00ca3900
+void UUIScreenObject__00ca3900::execContainsChildOfClass(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(UClass, SearchClass);
+	P_GET_UBOOL_OPTX(bRecurse, TRUE);
+	P_FINISH;
+	*(UBOOL*)Result = ContainsChildOfClass(SearchClass, bRecurse);
+}
+
+struct UUIScene__00ca6630 : public UUIScene
+{
+	UUIDataStore* ResolveDataStore(FName DataStoreTag, ULocalPlayer* InPlayerOwner);
+	void execResolveDataStore(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00ca6630
+void UUIScene__00ca6630::execResolveDataStore(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_NAME(DataStoreTag);
+	P_GET_OBJECT_OPTX(ULocalPlayer, InPlayerOwner, NULL);
+	P_FINISH;
+	*(UUIDataStore**)Result = ResolveDataStore(DataStoreTag, InPlayerOwner);
+}
+
+struct UUIObject__00ca5220 : public UUIObject
+{
+	void RotateWidget(FRotator NewRotationAmount, UBOOL bAccumulateRotation);
+	void execRotateWidget(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00ca5220
+void UUIObject__00ca5220::execRotateWidget(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT(FRotator, NewRotationAmount);
+	P_GET_UBOOL_OPTX(bAccumulateRotation, FALSE);
+	P_FINISH;
+	RotateWidget(NewRotationAmount, bAccumulateRotation);
 }

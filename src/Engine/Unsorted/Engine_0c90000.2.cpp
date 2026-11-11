@@ -1,4 +1,4 @@
-// Engine_0c90000.cpp: 23 functions
+// Engine_0c90000.cpp: 34 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -207,4 +207,142 @@ void UMorphNodePose::execSetMorphTarget(FFrame& Stack, RESULT_DECL)
 	P_GET_NAME(MorphTargetName);
 	P_FINISH;
 	((UMorphNodePose_*)this)->sub_00834900(MorphTargetName);
+}
+
+// @baa 0x00c988d0
+void USeqAct_CrowdSpawner::execUpdateSpawning(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(DeltaSeconds);
+	P_FINISH;
+	vf_1a8(DeltaSeconds);
+}
+
+struct UAnimNodeSynch_ : public UAnimNodeSynch
+{
+	void* sub_00c56530(FName);
+};
+
+// @baa 0x00c917d0
+void UAnimNodeSynch::execGetMasterNodeOfGroup(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_NAME(GroupName);
+	P_FINISH;
+	*(void**)Result = ((UAnimNodeSynch_*)this)->sub_00c56530(GroupName);
+}
+
+struct UAnimNodeSynch__00c918f0 : public UAnimNodeSynch
+{
+	FLOAT sub_00c56440(FName);
+};
+
+// @baa 0x00c918f0
+void UAnimNodeSynch::execGetRelativePosition(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_NAME(GroupName);
+	P_FINISH;
+	*(FLOAT*)Result = ((UAnimNodeSynch__00c918f0*)this)->sub_00c56440(GroupName);
+}
+
+struct UAnimTree__00c91a10 : public UAnimTree
+{
+	void* sub_00c55810(FName);
+};
+
+// @baa 0x00c91a10
+void UAnimTree::execFindSkelControl(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_NAME(InControlName);
+	P_FINISH;
+	*(void**)Result = ((UAnimTree__00c91a10*)this)->sub_00c55810(InControlName);
+}
+
+struct UAnimTree__00c91a90 : public UAnimTree
+{
+	void* sub_00c61880(FName);
+};
+
+// @baa 0x00c91a90
+void UAnimTree::execFindMorphNode(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_NAME(InNodeName);
+	P_FINISH;
+	*(void**)Result = ((UAnimTree__00c91a90*)this)->sub_00c61880(InNodeName);
+}
+
+struct UAnimTree__00c91c60 : public UAnimTree
+{
+	void* sub_00c61420(FName);
+};
+
+// @baa 0x00c91c60
+void UAnimTree::execGetGroupSynchMaster(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_NAME(GroupName);
+	P_FINISH;
+	*(void**)Result = ((UAnimTree__00c91c60*)this)->sub_00c61420(GroupName);
+}
+
+struct UAnimTree__00c91ce0 : public UAnimTree
+{
+	void* sub_00c61490(FName);
+};
+
+// @baa 0x00c91ce0
+void UAnimTree::execGetGroupNotifyMaster(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_NAME(GroupName);
+	P_FINISH;
+	*(void**)Result = ((UAnimTree__00c91ce0*)this)->sub_00c61490(GroupName);
+}
+
+struct UAnimTree__00c91e00 : public UAnimTree
+{
+	FLOAT sub_00c613b0(FName);
+};
+
+// @baa 0x00c91e00
+void UAnimTree::execGetGroupRelativePosition(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_NAME(GroupName);
+	P_FINISH;
+	*(FLOAT*)Result = ((UAnimTree__00c91e00*)this)->sub_00c613b0(GroupName);
+}
+
+struct UAnimTree__00c91f20 : public UAnimTree
+{
+	FLOAT sub_00c61570(FName);
+};
+
+// @baa 0x00c91f20
+void UAnimTree::execGetGroupRateScale(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_NAME(GroupName);
+	P_FINISH;
+	*(FLOAT*)Result = ((UAnimTree__00c91f20*)this)->sub_00c61570(GroupName);
+}
+
+struct UAnimTree__00c91fa0 : public UAnimTree
+{
+	INT sub_00c556d0(FName);
+};
+
+// @baa 0x00c91fa0
+void UAnimTree::execGetGroupIndex(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_NAME(GroupName);
+	P_FINISH;
+	*(INT*)Result = ((UAnimTree__00c91fa0*)this)->sub_00c556d0(GroupName);
+}
+
+struct UPhysicsAsset_ : public UPhysicsAsset
+{
+	INT sub_00a231b0(FName);
+};
+
+// @baa 0x00c94320
+void UPhysicsAsset::execFindBodyIndex(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_NAME(BodyName);
+	P_FINISH;
+	*(INT*)Result = ((UPhysicsAsset_*)this)->sub_00a231b0(BodyName);
 }

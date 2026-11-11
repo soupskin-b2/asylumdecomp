@@ -1,4 +1,4 @@
-// UnSkeletalAnim.cpp: 3 functions
+// UnSkeletalAnim.cpp: 4 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -42,4 +42,22 @@ void USkeletalMeshComponent::execDetachComponent(FFrame& Stack, RESULT_DECL)
 	P_FINISH;
 	if (Component)
 		((USkeletalMeshComponent__00940090*)this)->sub_0093fde0(Component);
+}
+
+struct USkeletalMeshComponent__00940100 : public USkeletalMeshComponent
+{
+	void AttachComponentToSocket(UActorComponent* Component, FName SocketName);
+	void execAttachComponentToSocket(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00940100
+void USkeletalMeshComponent__00940100::execAttachComponentToSocket(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(UActorComponent, Component);
+	P_GET_NAME(SocketName);
+	P_FINISH;
+	if ( Component != NULL )
+	{
+		AttachComponentToSocket(Component, SocketName);
+	}
 }

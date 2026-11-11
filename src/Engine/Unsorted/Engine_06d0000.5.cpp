@@ -1,4 +1,4 @@
-// Engine_06d0000.cpp: 14 functions
+// Engine_06d0000.cpp: 15 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -117,4 +117,21 @@ void UPrimitiveComponent::execSetOwnerNoSee(FFrame& Stack, RESULT_DECL)
 	P_GET_UBOOL(bOwnerNoSee);
 	P_FINISH;
 	vf_214(bOwnerNoSee);
+}
+
+struct UPrimitiveComponent_ : public UPrimitiveComponent
+{
+	void sub_007596c0();
+};
+
+// @baa 0x006dc300
+void UPrimitiveComponent::execSetScale(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(NewScale);
+	P_FINISH;
+	if (NewScale != Scale)
+	{
+		Scale = NewScale;
+		((UPrimitiveComponent_*)this)->sub_007596c0();
+	}
 }
