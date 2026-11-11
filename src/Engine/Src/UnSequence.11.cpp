@@ -1,4 +1,4 @@
-// UnSequence.cpp: 9 functions
+// UnSequence.cpp: 10 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -87,4 +87,17 @@ void UPrefabSequence::execSetOwnerPrefab(FFrame& Stack, RESULT_DECL)
 	P_GET_OBJECT(APrefabInstance, InOwner);
 	P_FINISH;
 	((UPrefabSequence__00c98350*)this)->sub_00d1ff30(InOwner);
+}
+
+struct USequenceOp__00c98190 : public USequenceOp
+{
+	UBOOL sub_008bd720(INT);
+};
+
+// @baa 0x00c98190
+void USequenceOp::execActivateOutputLink(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(OutputIdx);
+	P_FINISH;
+	*(UBOOL*)Result = ((USequenceOp__00c98190*)this)->sub_008bd720(OutputIdx);
 }

@@ -1,4 +1,4 @@
-// Engine_0af0000.cpp (part 1 of 3): 253 functions
+// Engine_0af0000.cpp (part 1 of 3): 254 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -2074,4 +2074,25 @@ int C_00afe8e0::sub_00afe8e0(void)
     int param_1 = (int)this;
 
   return *(int *)(param_1 + 0x10) + *(int *)(param_1 + 4);
+}
+
+struct FSlot
+{
+    int a;
+    int b;
+    int c;                       // 12 bytes
+};
+
+class sub_00af9c90_holder
+{
+    int Pad[23];                 // 0x5c bytes
+    FSlot Arr[40];               // starts at offset 0x5c
+public:
+    FSlot* sub_00af9c90(int Mode);
+};
+
+// @baa 0x00af9c90
+FSlot* sub_00af9c90_holder::sub_00af9c90(int Mode)
+{
+    return &Arr[Mode == 4 ? 0x19 : 0x1b];
 }

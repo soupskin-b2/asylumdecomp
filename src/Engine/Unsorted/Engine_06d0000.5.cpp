@@ -1,4 +1,4 @@
-// Engine_06d0000.cpp: 9 functions
+// Engine_06d0000.cpp: 10 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -77,4 +77,12 @@ void UPrimitiveComponent::execSetLightEnvironment(FFrame& Stack, RESULT_DECL)
 	P_GET_OBJECT(ULightEnvironmentComponent, NewLightEnvironment);
 	P_FINISH;
 	vf_238((INT)NewLightEnvironment);
+}
+
+// @baa 0x006dc0a0
+void UPrimitiveComponent::execSetLightingChannels(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT(FLightingChannelContainer, NewLightingChannels);
+	P_FINISH;
+	vf_240(*(UINT*)&NewLightingChannels);
 }

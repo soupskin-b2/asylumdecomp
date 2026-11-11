@@ -1,4 +1,4 @@
-// OnlineSubsystemSteamworks_0c80000.cpp: 9 functions
+// OnlineSubsystemSteamworks_0c80000.cpp: 11 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -106,4 +106,25 @@ void APlayerReplicationInfo::execUpdatePing(FFrame& Stack, RESULT_DECL)
 	P_GET_FLOAT(TimeStamp);
 	P_FINISH;
 	((APlayerReplicationInfo_*)this)->sub_007af980(TimeStamp);
+}
+
+// @baa 0x00c892a0
+void AGameInfo::execEndSentinelRun(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_BYTE(RunResult);
+	P_FINISH;
+	vf_360(*(INT*)&RunResult);
+}
+
+struct APlayerReplicationInfo__00c89650 : public APlayerReplicationInfo
+{
+	UBOOL sub_00758b80(APlayerReplicationInfo*);
+};
+
+// @baa 0x00c89650
+void APlayerReplicationInfo::execAreUniqueNetIdsEqual(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(APlayerReplicationInfo, OtherPRI);
+	P_FINISH;
+	*(UBOOL*)Result = ((APlayerReplicationInfo__00c89650*)this)->sub_00758b80(OtherPRI);
 }

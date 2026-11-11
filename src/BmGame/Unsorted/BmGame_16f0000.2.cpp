@@ -1,4 +1,4 @@
-// BmGame_16f0000.cpp: 76 functions
+// BmGame_16f0000.cpp: 84 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -605,4 +605,68 @@ void ARPawnCombat::execSetDestRot(FFrame& Stack, RESULT_DECL)
 	P_GET_FLOAT(NewRot);
 	P_FINISH;
 	((ARPawnCombat__016f5eb0*)this)->sub_0166d720(NewRot);
+}
+
+// @baa 0x016f5a90
+void ARPawnCombat::execGetAnimLength(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT(FFatAnim, AnimToTest);
+	P_FINISH;
+	*(FLOAT*)Result = vf_614(*(INT*)&AnimToTest);
+}
+
+// @baa 0x016fc9e0
+void ARAudioPoint::execBuildNodes(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(UAudioComponent, AC);
+	P_FINISH;
+	vf_354((INT)AC);
+}
+
+// @baa 0x016fcb80
+void URSeqAct_PlayTVSequenceSingleLine::execStopMovieTexture(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(UTextureMovie, NewTexture);
+	P_FINISH;
+	vf_1a0((INT)NewTexture);
+}
+
+// @baa 0x016fce90
+void URSeqAct_PlayTVSequenceBase::execStopMovieTexture(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(UTextureMovie, NewTexture);
+	P_FINISH;
+	vf_1a8((INT)NewTexture);
+}
+
+// @baa 0x016fe2d0
+void ARBMRouteRequest_NervousSearch::execCreateSearchCandidates(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(TargetIndex);
+	P_FINISH;
+	vf_37c(TargetIndex);
+}
+
+// @baa 0x016fe3d0
+void ARBMRouteRequest_TerrifiedSearch::execCreateSearchCandidates(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(TargetIndex);
+	P_FINISH;
+	vf_378(TargetIndex);
+}
+
+// @baa 0x016fec60
+void URBMRouterPath::execClearNodesFromIndex(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(StartIndex);
+	P_FINISH;
+	vf_128(StartIndex);
+}
+
+// @baa 0x016feef0
+void URBMRouterPath::execAddNode_Actor(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(AActor, NewPathNode);
+	P_FINISH;
+	vf_138((INT)NewPathNode);
 }

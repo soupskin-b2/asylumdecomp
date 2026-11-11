@@ -1,4 +1,4 @@
-// UnParticleComponents.cpp (part 4 of 4): 15 functions
+// UnParticleComponents.cpp (part 4 of 4): 19 functions
 // Placed here by: neighbours 13, class 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -295,4 +295,101 @@ INT UParticleEmitter_::sub_00b519a0(INT)
 {
 	sub_00630f20(g_026667a8, L"UParticleEmitter::CreateInstance is pure virtual");
 	return 0;
+}
+
+extern int g_01ff9340;
+struct FParticleObj
+{
+    volatile INT Object;
+    INT F4;
+    INT F8;
+    INT FC;
+    volatile INT F10;
+    INT F14;
+
+    INT sub_00b585e0();
+};
+
+// @baa 0x00b585e0
+INT FParticleObj::sub_00b585e0()
+{
+    int T = (int)this;
+    F8 = 0;
+    FC = 0;
+    F10 &= 0xfffffffe;
+    Object = (INT)&g_01ff9340;
+    F14 = 0;
+    return T;
+}
+
+extern int g_01ff9364;
+struct S_00b58620 {
+    int* Object;
+    int F4;
+    int F8;
+    int FC;
+    volatile int F10;
+    int F14;
+    int sub_00b58620();
+};
+
+// @baa 0x00b58620
+int S_00b58620::sub_00b58620()
+{
+    int T = (int)this;
+    F8 = 0;
+    FC = 0;
+    F10 &= 0xfffffffe;
+    F14 = 0;
+    Object = (int*)&g_01ff9364;
+    return T;
+}
+
+extern int g_01ff943c;
+struct S_00b58660 {
+    int* Object;
+    int F4;
+    int F8;
+    int FC;
+    volatile int F10;
+    int F14;
+    int sub_00b58660();
+};
+
+// @baa 0x00b58660
+int S_00b58660::sub_00b58660()
+{
+    int T = (int)this;
+    F8 = 0;
+    FC = 0;
+    F10 &= 0xfffffffe;
+    Object = (int*)&g_01ff943c;
+    F14 = 0;
+    return T;
+}
+
+extern int g_01ff9460;
+struct FObjectRef_ {
+    int Object;
+    int F4;
+    int F8;
+    int FC;
+    volatile int F10;
+    int F14;
+};
+
+struct C_00b586a0 : public FObjectRef_ {
+    int sub_00b586a0();
+};
+
+// @baa 0x00b586a0
+int C_00b586a0::sub_00b586a0()
+{
+    int T = (int)this;
+    F8 = 0;
+    FC = 0;
+    F10 &= 0xfffffffe;
+    F14 = 0;
+    Object = (int)&g_01ff9460;
+    return T;
 }

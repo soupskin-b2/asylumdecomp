@@ -2,26 +2,26 @@
  "updated": "2026-11-11",
  "functions": {
   "total": 174153,
-  "matched": 96584
+  "matched": 96659
  },
  "bytes": {
   "total": 24308134,
-  "matched": 3571553
+  "matched": 3578535
  },
  "areas": [
   {
    "name": "Engine",
    "functions": 69863,
    "bytes": 9201956,
-   "matched": 40606,
-   "matched_bytes": 1629410
+   "matched": 40651,
+   "matched_bytes": 1632859
   },
   {
    "name": "Editor",
    "functions": 42961,
    "bytes": 8040643,
-   "matched": 23461,
-   "matched_bytes": 786468
+   "matched": 23463,
+   "matched_bytes": 786669
   },
   {
    "name": "External",
@@ -34,15 +34,15 @@
    "name": "Game",
    "functions": 13563,
    "bytes": 1853804,
-   "matched": 9073,
-   "matched_bytes": 509328
+   "matched": 9097,
+   "matched_bytes": 512264
   },
   {
    "name": "Core",
    "functions": 12072,
    "bytes": 1275961,
-   "matched": 7772,
-   "matched_bytes": 233943
+   "matched": 7776,
+   "matched_bytes": 234339
   },
   {
    "name": "CommonGame",
@@ -97,18 +97,18 @@
  "contributors": [
   {
    "login": "soupskin-b2",
-   "functions": 96584,
-   "bytes": 3571553,
+   "functions": 96659,
+   "bytes": 3578535,
    "models": {
     "tooling": 94456,
-    "qwen3.8-27b": 998,
-    "deepseek-v4.1-flash": 505,
+    "qwen3.8-27b": 1011,
+    "deepseek-v4.1-flash": 561,
     "not specified": 338,
     "claude-opus-5.5": 122,
-    "gpt-6.1-sol": 73,
+    "gpt-6.1-sol": 78,
     "claude-sonnet-5.5": 37,
     "deepseek-v4.1": 26,
-    "qwen": 13,
+    "qwen": 14,
     "gpt-6.1-terra": 10,
     "e2e-test": 2,
     "Qwen": 2,
@@ -124,11 +124,11 @@
   },
   {
    "model": "qwen3.8-27b",
-   "functions": 998
+   "functions": 1011
   },
   {
    "model": "deepseek-v4.1-flash",
-   "functions": 505
+   "functions": 561
   },
   {
    "model": "not specified",
@@ -140,7 +140,7 @@
   },
   {
    "model": "gpt-6.1-sol",
-   "functions": 73
+   "functions": 78
   },
   {
    "model": "claude-sonnet-5.5",
@@ -152,7 +152,7 @@
   },
   {
    "model": "qwen",
-   "functions": 13
+   "functions": 14
   },
   {
    "model": "gpt-6.1-terra",

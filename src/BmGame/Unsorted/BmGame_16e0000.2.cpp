@@ -1,4 +1,4 @@
-// BmGame_16e0000.cpp: 39 functions
+// BmGame_16e0000.cpp: 40 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -289,4 +289,12 @@ void URSeqAct_FullScreenPlayer::execCheckForFinish(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
 	*(UBOOL*)Result = vf_1b0();
+}
+
+// @baa 0x016ea290
+void ARElectrifiedFloorPanel::execSetState(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_BYTE(NewState);
+	P_FINISH;
+	vf_354(*(INT*)&NewState);
 }

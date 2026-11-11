@@ -1,4 +1,4 @@
-// Editor_0ec0000.cpp: 4 functions
+// Editor_0ec0000.cpp: 5 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -39,4 +39,12 @@ void UBrushBuilder::execGetPolyCount(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
 	*(INT*)Result = ((FGetPolyCount)(*(void***)this)[0x11c / 4])(this);
+}
+
+// @baa 0x00ec3640
+void UBrushBuilder::execPolyi(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(Index);
+	P_FINISH;
+	vf_138(Index);
 }

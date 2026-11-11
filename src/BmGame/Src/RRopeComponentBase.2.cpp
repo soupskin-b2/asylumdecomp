@@ -1,4 +1,4 @@
-// RRopeComponentBase.cpp: 22 functions
+// RRopeComponentBase.cpp: 23 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -279,4 +279,13 @@ void URRopeComponentBase::execCalculateDistanceBetweenRopeEnds(FFrame& Stack, RE
 {
 	P_FINISH;
 	*(FLOAT*)Result = vf_264();
+}
+
+// @baa 0x01700c00
+void URRopeComponentBase::execSetCollidesWithChannel(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_BYTE(CollisionChannel);
+    P_GET_UBOOL(Value);
+    P_FINISH;
+    vf_260(CollisionChannel, Value);
 }

@@ -1,4 +1,4 @@
-// RPlayerController.cpp (part 6 of 6): 121 functions
+// RPlayerController.cpp (part 6 of 6): 126 functions
 // Placed here by: class 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -1044,4 +1044,48 @@ void ARPlayerController::execUpdateSilentPredLookAt(FFrame& Stack, RESULT_DECL)
 	P_GET_FLOAT(DeltaTime);
 	P_FINISH;
 	((ARPlayerController__016f97e0*)this)->sub_01618c20(DeltaTime);
+}
+
+// @baa 0x016fa5a0
+void ARPlayerController::execFE_SetActiveDLCPack(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(Id);
+	P_FINISH;
+	vf_60c(Id);
+}
+
+// @baa 0x0171d250
+void ARPlayerController::execSetActiveSaveDevice(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_INT(InDeviceID);
+    P_GET_STR(InDeviceName);
+    P_FINISH;
+    vf_5a8(InDeviceID, InDeviceName);
+}
+
+// @baa 0x0171d800
+void ARPlayerController::execLive_SetSaveSlotDate(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_INT(Id);
+    P_GET_STR(Date);
+    P_FINISH;
+    vf_5e8(Id, Date);
+}
+
+// @baa 0x0171cf60
+void ARPlayerController::execAutoJezSetFlagsForPMap(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STR(MapName);
+    P_GET_UBOOL(bSet);
+    P_FINISH;
+    vf_554(MapName, bSet);
+}
+
+// @baa 0x0171e760
+void URGFxMovieInvestigate::execGetNPCCountString(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_INT(Armed);
+    P_GET_INT(UnArmed);
+    P_FINISH;
+    *(FString*)Result = vf_17c(Armed, UnArmed);
 }

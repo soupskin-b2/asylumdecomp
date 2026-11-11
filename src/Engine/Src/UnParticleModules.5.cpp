@@ -1,4 +1,4 @@
-// UnParticleModules.cpp (part 5 of 5): 16 functions
+// UnParticleModules.cpp (part 5 of 5): 17 functions
 // Placed here by: neighbours 11, class 5.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -50,3 +50,21 @@ IMPLEMENT_CLASS_AT(UParticleModuleLocationVertex, "e:\\Projects\\Amadeus\\AA\\Ga
 
 // @baa 0x00b97870
 IMPLEMENT_CLASS_AT(UParticleModuleOrientationBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnParticleModules.cpp", 21);
+
+extern int g_01fede18;
+struct S {
+    int Object; volatile int F4; int F8; int FC; int F10;
+    int sub_00b310b0();
+};
+
+// @baa 0x00b310b0
+int S::sub_00b310b0()
+{
+    int T = (int)this;
+    F4 &= 0xfffffffe;
+    F8 = 0;
+    Object = (int)&g_01fede18;
+    FC = 0;
+    F10 = 0;
+    return T;
+}

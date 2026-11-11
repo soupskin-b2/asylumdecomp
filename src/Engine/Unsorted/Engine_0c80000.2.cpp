@@ -1,4 +1,4 @@
-// Engine_0c80000.cpp: 36 functions
+// Engine_0c80000.cpp: 42 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -407,4 +407,82 @@ void UTexture2D::execSetForceMipLevelsToBeResident(FFrame& Stack, RESULT_DECL)
 	P_GET_FLOAT(Seconds);
 	P_FINISH;
 	((UTexture2D_*)this)->sub_00717d50(Seconds);
+}
+
+struct AController__00c84800 : public AController
+{
+	UBOOL sub_007a0710(APawn*);
+};
+
+// @baa 0x00c84800
+void AController::execCanSee(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(APawn, Other);
+	P_FINISH;
+	*(UBOOL*)Result = ((AController__00c84800*)this)->sub_007a0710(Other);
+}
+
+struct AController__00c85030 : public AController
+{
+	UBOOL sub_007a0b40(AActor*);
+};
+
+// @baa 0x00c85030
+void AController::execActorReachable(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(AActor, anActor);
+	P_FINISH;
+	*(UBOOL*)Result = ((AController__00c85030*)this)->sub_007a0b40(anActor);
+}
+
+struct AController__00c85160 : public AController
+{
+	UBOOL sub_007a0da0(INT);
+};
+
+// @baa 0x00c85160
+void AController::execInLatentExecution(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(LatentActionNumber);
+	P_FINISH;
+	*(UBOOL*)Result = ((AController__00c85160*)this)->sub_007a0da0(LatentActionNumber);
+}
+
+struct AEmitterPool__00c87b40 : public AEmitterPool
+{
+	UParticleSystemComponent* sub_008c7290(UParticleSystem*);
+};
+
+// @baa 0x00c87b40
+void AEmitterPool::execGetPooledComponent(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(UParticleSystem, EmitterTemplate);
+	P_FINISH;
+	*(UParticleSystemComponent**)Result = ((AEmitterPool__00c87b40*)this)->sub_008c7290(EmitterTemplate);
+}
+
+struct ANavigationPoint_ : public ANavigationPoint
+{
+	UBOOL sub_00835b60(ANavigationPoint*);
+};
+
+// @baa 0x00c880a0
+void ANavigationPoint::execIsOnDifferentNetwork(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(ANavigationPoint, Nav);
+	P_FINISH;
+	*(UBOOL*)Result = ((ANavigationPoint_*)this)->sub_00835b60(Nav);
+}
+
+struct APortalTeleporter__00c8b900 : public APortalTeleporter
+{
+	UBOOL sub_008dd9d0(AActor*);
+};
+
+// @baa 0x00c8b900
+void APortalTeleporter::execTransformActor(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(AActor, A);
+	P_FINISH;
+	*(UBOOL*)Result = ((APortalTeleporter__00c8b900*)this)->sub_008dd9d0(A);
 }

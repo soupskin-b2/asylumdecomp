@@ -1,4 +1,4 @@
-// Core_0590000.cpp (part 2 of 4): 19 functions
+// Core_0590000.cpp (part 2 of 4): 21 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -183,4 +183,21 @@ void UObject::execIsUTracing(FFrame& Stack, RESULT_DECL)
 	P_FINISH;
 	sub_00630ea0(Stack, 0x301, L"UTracing is disabled in this build");
 	*(UBOOL*)Result = 0;
+}
+
+// @baa 0x00594050
+void UObject::execSquare(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(A);
+	P_FINISH;
+	*(FLOAT*)Result = A * A;
+}
+
+extern FLOAT g_01e3f360;
+// @baa 0x00592f70
+void UObject::execSubtract_PreFloat(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(A);
+	P_FINISH;
+	*(FLOAT*)Result = g_01e3f360 - A;
 }

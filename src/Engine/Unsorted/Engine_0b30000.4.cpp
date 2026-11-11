@@ -1,4 +1,4 @@
-// Engine_0b30000.cpp (part 4 of 4): 3 functions
+// Engine_0b30000.cpp (part 4 of 4): 4 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -61,4 +61,27 @@ undefined4 C_00b3de60::sub_00b3de60(byte param_2)
     sub_0053dfa0(param_1);
   }
   return param_1;
+}
+
+struct S {
+    int Object;
+    int F4;
+    int F8;
+    int FC;
+    volatile int F10;
+    int F14;
+    int sub_00b39a40();
+};
+
+extern int g_01fedeac;
+// @baa 0x00b39a40
+int S::sub_00b39a40()
+{
+    int T = (int)this;
+    F8 = 0;
+    FC = 0;
+    F10 &= 0xfffffffe;
+    Object = (int)&g_01fedeac;
+    F14 = 0;
+    return T;
 }

@@ -1,4 +1,4 @@
-// UnPhysComponent.cpp: 3 functions
+// UnPhysComponent.cpp: 5 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -35,4 +35,23 @@ void UPrimitiveComponent::execGetRootBodyInstance(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
 	*(URB_BodyInstance**)Result = (URB_BodyInstance*)vf_1d8();
+}
+
+// @baa 0x009fe230
+void UPrimitiveComponent::execSetRBDominanceGroup(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_BYTE(InDomGroup);
+	P_FINISH;
+	vf_1d0(*(INT*)&InDomGroup);
+}
+
+// @baa 0x009fe160
+void UPrimitiveComponent::execInitRBPhys(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	if (bAttached && Owner != NULL)
+	{
+		if (Owner->Physics != 10 || Owner->CollisionComponent == this)
+			vf_134(Owner->Physics != 10);
+	}
 }

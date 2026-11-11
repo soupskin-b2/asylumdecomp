@@ -1,4 +1,4 @@
-// UnUIObjects.cpp: 37 functions
+// UnUIObjects.cpp: 42 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -409,4 +409,64 @@ void UUIObject::execClearDefaultDataBinding(FFrame& Stack, RESULT_DECL)
 	P_GET_INT(BindingIndex);
 	P_FINISH;
 	((UUIObject__00ca50a0*)this)->sub_00daa860(BindingIndex);
+}
+
+// @baa 0x00da89e0
+void UUIRoot::execGetFaceOrientation(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_BYTE(Face);
+	P_FINISH;
+	*(BYTE*)Result = Face % 2;
+}
+
+struct UUIScreenObject__00ca4180 : public UUIScreenObject
+{
+	UBOOL sub_00da99e0(INT);
+};
+
+// @baa 0x00ca4180
+void UUIScreenObject::execAcceptsPlayerInput(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(PlayerIndex);
+	P_FINISH;
+	*(UBOOL*)Result = ((UUIScreenObject__00ca4180*)this)->sub_00da99e0(PlayerIndex);
+}
+
+struct UUIObject__00ca5030 : public UUIObject
+{
+	UBOOL sub_00db1130(INT);
+};
+
+// @baa 0x00ca5030
+void UUIObject::execResolveDefaultDataBinding(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(BindingIndex);
+	P_FINISH;
+	*(UBOOL*)Result = ((UUIObject__00ca5030*)this)->sub_00db1130(BindingIndex);
+}
+
+struct UUIObject__00ca5590 : public UUIObject
+{
+	UBOOL sub_00daa820(UUIObject*);
+};
+
+// @baa 0x00ca5590
+void UUIObject::execIsContainedBy(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(UUIObject, TestWidget);
+	P_FINISH;
+	*(UBOOL*)Result = ((UUIObject__00ca5590*)this)->sub_00daa820(TestWidget);
+}
+
+struct UUIObject__00ca5c80 : public UUIObject
+{
+	UBOOL sub_00daabb0(INT);
+};
+
+// @baa 0x00ca5c80
+void UUIObject::execIsPrivateBehaviorSet(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(Behavior);
+	P_FINISH;
+	*(UBOOL*)Result = ((UUIObject__00ca5c80*)this)->sub_00daabb0(Behavior);
 }

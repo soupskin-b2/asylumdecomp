@@ -1,4 +1,4 @@
-// Editor_0c80000.cpp: 11 functions
+// Editor_0c80000.cpp: 12 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -143,4 +143,17 @@ void AWorldInfo::execResetActorChannel(FFrame& Stack, RESULT_DECL)
 	P_GET_OBJECT(AActor, ChannelOwner);
 	P_FINISH;
 	((AWorldInfo__00c89fd0*)this)->sub_009b0b70(ChannelOwner);
+}
+
+struct AWorldInfo__00c8a210 : public AWorldInfo
+{
+	UBOOL sub_009c3c40(INT);
+};
+
+// @baa 0x00c8a210
+void AWorldInfo::execOnScreenDebugMessageExists(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(Key);
+	P_FINISH;
+	*(UBOOL*)Result = ((AWorldInfo__00c8a210*)this)->sub_009c3c40(Key);
 }
