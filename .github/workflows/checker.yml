@@ -33,5 +33,13 @@ jobs:
           have=$(gh release download checker -p VERSION -O - 2>/dev/null || true)
           if [ "$have" = "$(cat dist/VERSION)" ]; then echo "unchanged"; exit 0; fi
           gh release view checker >/dev/null 2>&1 || gh release create checker --title "asylum.pyz" --notes "The checker: download asylum.pyz and run python asylum.pyz setup (see AGENTS.md)."
+          v=$(cat dist/VERSION)
+          # the versioned copy first: updates download the exact version VERSION names (caches can't
+          # serve a stale one), then the plain name for first downloads, then VERSION
+          cp dist/asylum.pyz "dist/asylum-$v.pyz"
+          gh release upload checker "dist/asylum-$v.pyz" --clobber
           gh release upload checker dist/asylum.pyz --clobber
           gh release upload checker dist/VERSION --clobber
+          # versioned copies beyond the newest five
+          gh release view checker --json assets -q '.assets[] | select(.name | test("^asylum-[0-9a-f]+[.]pyz$")) | "\(.createdAt) \(.name)"' \
+            | sort -r | tail -n +6 | cut -d' ' -f2 | xargs -r -n1 gh release delete-asset checker -y

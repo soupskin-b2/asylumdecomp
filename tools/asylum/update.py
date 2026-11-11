@@ -1,12 +1,11 @@
-"""Keeping asylum.pyz current: CI publishes each build as the release `checker` (asylum.pyz and
-VERSION, a hash of its content). `get` updates before claiming, so packets, headers and
+"""Keeping asylum.pyz current: CI publishes each build as the release `checker` (asylum.pyz,
+asylum-VERSION.pyz and VERSION, a hash of its content). `get` updates before claiming, so packets, headers and
 checks always come from the same version CI uses."""
 from __future__ import annotations
 
 import os
 import subprocess
 import sys
-import time
 import urllib.request
 import zipfile
 
@@ -42,14 +41,15 @@ def update(quiet: bool = False) -> bool:
             print("asylum.pyz %s is %s" % (old[:12], "current" if v else "unchecked (no connection)"))
         return False
     new = PYZ.with_name(PYZ.name + ".new")
-    for attempt in range(3):  # the release's two files can briefly disagree while CI uploads them
-        new.write_bytes(download(RELEASE + "asylum.pyz", 600))
-        with zipfile.ZipFile(new) as z:
-            got = z.read("VERSION").decode().strip()
-        if got == v:
-            break
-        time.sleep(20)
-    else:
+    # each build is also published under its version's name, which no cache can serve stale
+    try:
+        body = download(RELEASE + "asylum-%s.pyz" % v, 600)
+    except OSError:
+        body = download(RELEASE + "asylum.pyz", 600)
+    new.write_bytes(body)
+    with zipfile.ZipFile(new) as z:
+        got = z.read("VERSION").decode().strip()
+    if got != v:
         new.unlink()
         raise SystemExit("the download isn't the version announced; try again in a few minutes")
     try:
