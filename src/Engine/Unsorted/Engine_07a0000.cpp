@@ -1,4 +1,4 @@
-// Engine_07a0000.cpp (part 1 of 4): 235 functions
+// Engine_07a0000.cpp (part 1 of 4): 236 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1634,3 +1634,96 @@ UINT UDistributionFloatParameterBase::vf_120() { return 0; }
 IMPLEMENT_CLASS_AT(UDistributionFloatUniform, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnDistributions.cpp", 10);
 
 // @baa 0x007ab840
+
+// The spec object: virtual method at vtable offset 0x118 (slot 70),
+// taking the controller that owns it as its single argument.
+struct FMoveSpec_
+{
+    virtual void vf_000();
+    virtual void vf_004();
+    virtual void vf_008();
+    virtual void vf_00c();
+    virtual void vf_010();
+    virtual void vf_014();
+    virtual void vf_018();
+    virtual void vf_01c();
+    virtual void vf_020();
+    virtual void vf_024();
+    virtual void vf_028();
+    virtual void vf_02c();
+    virtual void vf_030();
+    virtual void vf_034();
+    virtual void vf_038();
+    virtual void vf_03c();
+    virtual void vf_040();
+    virtual void vf_044();
+    virtual void vf_048();
+    virtual void vf_04c();
+    virtual void vf_050();
+    virtual void vf_054();
+    virtual void vf_058();
+    virtual void vf_05c();
+    virtual void vf_060();
+    virtual void vf_064();
+    virtual void vf_068();
+    virtual void vf_06c();
+    virtual void vf_070();
+    virtual void vf_074();
+    virtual void vf_078();
+    virtual void vf_07c();
+    virtual void vf_080();
+    virtual void vf_084();
+    virtual void vf_088();
+    virtual void vf_08c();
+    virtual void vf_090();
+    virtual void vf_094();
+    virtual void vf_098();
+    virtual void vf_09c();
+    virtual void vf_0a0();
+    virtual void vf_0a4();
+    virtual void vf_0a8();
+    virtual void vf_0ac();
+    virtual void vf_0b0();
+    virtual void vf_0b4();
+    virtual void vf_0b8();
+    virtual void vf_0bc();
+    virtual void vf_0c0();
+    virtual void vf_0c4();
+    virtual void vf_0c8();
+    virtual void vf_0cc();
+    virtual void vf_0d0();
+    virtual void vf_0d4();
+    virtual void vf_0d8();
+    virtual void vf_0dc();
+    virtual void vf_0e0();
+    virtual void vf_0e4();
+    virtual void vf_0e8();
+    virtual void vf_0ec();
+    virtual void vf_0f0();
+    virtual void vf_0f4();
+    virtual void vf_0f8();
+    virtual void vf_0fc();
+    virtual void vf_100();
+    virtual void vf_104();
+    virtual void vf_108();
+    virtual void vf_10c();
+    virtual void vf_110();
+    virtual void vf_114();
+    virtual void vf_118(AController *Controller);
+};
+
+struct AController_ : public AController
+{
+    // slot 0x394: let the spec prepare itself for the move on this controller, and hand it back.
+    INT sub_007a0de0(INT Arg1, FMoveSpec_ *Spec)
+    {
+        Spec->vf_118(this);
+        return (INT)Spec;
+    }
+};
+
+// @baa 0x007a0de0
+void use_it(AController_ *C, INT A, FMoveSpec_ *S)
+{
+    C->sub_007a0de0(A, S);
+}

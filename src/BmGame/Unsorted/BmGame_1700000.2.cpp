@@ -1,4 +1,4 @@
-// BmGame_1700000.cpp: 45 functions
+// BmGame_1700000.cpp: 76 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -389,4 +389,223 @@ void ARChatteringTeeth::execCheckTeethSound(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
 	vf_478();
+}
+
+// @baa 0x01703780
+void ARBMAIController::execGetMaxSightRange(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(FLOAT*)Result = vf_42c();
+}
+
+// @baa 0x01703a00
+void ARBMAIController::execGetAIManager(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(ARBMAIManager**)Result = (ARBMAIManager*)vf_448();
+}
+
+// @baa 0x01703b60
+void ARBMAIController::execShouldUpdatePathNodeSeenTimes(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_458();
+}
+
+// @baa 0x01703ba0
+void ARBMAIController::execPawnInStasis(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_45c();
+}
+
+// @baa 0x01703eb0
+void ARChatteringTeeth::execMakeRoute(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_47c();
+}
+
+// @baa 0x017042a0
+void ARBMAIManager::execShouldLockDoors(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(BYTE*)Result = vf_374();
+}
+
+// @baa 0x017042e0
+void ARBMAIManager::execGetFiringCount(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(INT*)Result = vf_378();
+}
+
+// @baa 0x01704350
+void ARBMCombatManager::execGetPlayerController(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(ARPlayerControllerCombat**)Result = (ARPlayerControllerCombat*)vf_354();
+}
+
+// @baa 0x01704390
+void ARBMCombatManager::execGetBatmanPawn(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(ARPawnPlayerCombat**)Result = (ARPawnPlayerCombat*)vf_358();
+}
+
+// @baa 0x017045c0
+void ARBMCombatManager::execShouldLockDoors(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(BYTE*)Result = vf_36c();
+}
+
+// @baa 0x01704600
+void ARBMCombatManager::execShouldForceCombatCamera(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_370();
+}
+
+// @baa 0x01704680
+void ARBMCombatManager::execGetNumCombatants(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(INT*)Result = vf_378();
+}
+
+// @baa 0x017046c0
+void ARBMCombatManager::execCanUseCombatPoint(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_37c();
+}
+
+typedef UBOOL (__thiscall* FSlot)(void*);
+
+// @baa 0x01704700
+void ARBMCombatManager::execUpdateAttackers(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = ((FSlot)(*(void***)this)[0x380 / 4])(this);
+}
+
+// @baa 0x01704740
+void ARBMCombatManager::execIsDeepInCombat(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_384();
+}
+
+// @baa 0x01704c30
+void URBMBehaviour::execShouldShowBehaviourDebug(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_1a0();
+}
+
+// @baa 0x01704c70
+void URBMBehaviour::execHasState(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_1a4();
+}
+
+// @baa 0x01704fc0
+void URBMBehaviour_Combat::execIsInDanger(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_1c0();
+}
+
+// @baa 0x01705000
+void URBMBehaviour_Combat::execBatmanIsInDanger(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_1c4();
+}
+
+// @baa 0x01705240
+void URBMBehaviour_Combat::execIsBatmanInCombatArea(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_1d4();
+}
+
+// @baa 0x01705c80
+void URBMExitCondition::execShouldShowExitConditionDebug(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_1a0();
+}
+
+// @baa 0x01706b20
+void ARForensicsDevice::execIsUsingFilterView(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_354();
+}
+
+// @baa 0x017075e0
+void ARGrappleGun::execFindGrapplePointNoAim(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(ARGrapplePoint**)Result = (ARGrapplePoint*)vf_358();
+}
+
+// @baa 0x01708620
+void ARTapePlayer::execInitConversation(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = ((FSlot)(*(void***)this)[0x354 / 4])(this);
+}
+
+// @baa 0x01708820
+void ARLevelVolume::execIsOnPersistentMap(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_360();
+}
+
+// @baa 0x01708860
+void ARPlayerStartInLevel::execGetGRI(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(ARGameRI**)Result = (ARGameRI*)vf_3b0();
+}
+
+// @baa 0x017088a0
+void ARPlayerStartInLevel::execGetMyLevelVolume(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(ARLevelVolume**)Result = (ARLevelVolume*)vf_3b4();
+}
+
+// @baa 0x01708910
+void ARLevelTransition::execGetGRI(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(ARGameRI**)Result = vf_354();
+}
+
+// @baa 0x017089d0
+void ARLevelTransition::execIsConnectedToCurrentLevels(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_35c();
+}
+
+// @baa 0x01708a90
+void ARLevelTransitionP::execDoesLevelStreaming(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_368();
+}
+
+// @baa 0x01708c00
+void ARLevelTransitionDoorBunkerNativeBase::execDoorIsAnimating(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_388();
 }

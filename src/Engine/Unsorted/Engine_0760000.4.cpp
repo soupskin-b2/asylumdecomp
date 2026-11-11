@@ -1,4 +1,4 @@
-// Engine_0760000.cpp (part 4 of 5): 4 functions
+// Engine_0760000.cpp (part 4 of 5): 5 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -47,4 +47,22 @@ if(0!=iVar1){
 (*(int(__stdcall**)(int))(*g_026b0d94+0x228))((int)(iVar1));
 }
 return;
+}
+
+struct UTextureCube_ : public UTextureCube
+{
+	void sub_0075b630();
+	int sub_00720bc0(int);
+
+	void sub_00761800(int InArg)
+	{
+		sub_0075b630();
+		sub_00720bc0(InArg);
+	}
+};
+
+// @baa 0x00761800
+void use_it(UTextureCube_ *T, int A)
+{
+	T->sub_00761800(A);
 }

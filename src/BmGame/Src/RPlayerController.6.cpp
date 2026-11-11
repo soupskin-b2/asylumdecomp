@@ -1,4 +1,4 @@
-// RPlayerController.cpp (part 6 of 6): 83 functions
+// RPlayerController.cpp (part 6 of 6): 88 functions
 // Placed here by: class 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -697,4 +697,39 @@ void ARPlayerController::execFE_GetVolumeDialogue(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
 	*(FLOAT*)Result = vf_6c8();
+}
+
+// @baa 0x016fb210
+void ARPlayerController::execFE_GetVolumeMusic(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(FLOAT*)Result = vf_6d0();
+}
+
+// @baa 0x016fb380
+void ARPlayerController::execFE_IsBenchmarking(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_6e0();
+}
+
+// @baa 0x016fb3c0
+void ARPlayerController::execFE_GetBenchmarkMin(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(INT*)Result = vf_6e4();
+}
+
+// @baa 0x016fb400
+void ARPlayerController::execFE_GetBenchmarkMax(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(INT*)Result = vf_6e8();
+}
+
+// @baa 0x016fb440
+void ARPlayerController::execFE_GetBenchmarkAverage(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(INT*)Result = vf_6ec();
 }

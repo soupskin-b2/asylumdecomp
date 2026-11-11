@@ -1,4 +1,4 @@
-// RRopeComponentBase.cpp: 20 functions
+// RRopeComponentBase.cpp: 22 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -265,4 +265,18 @@ void URRopeComponentBase::execGetNearestPointOnRopeToRay(FFrame& Stack, RESULT_D
     P_GET_FLOAT_OPTX(BufferLength, 0.0f);
     P_FINISH;
     *(FVector*)Result = static_cast<RopeComponentNative_016fffe0*>(this)->sub_01644ac0(RayStartPos, RayDirection, MeasurementRopeEnd, RopePos, RayPos, BufferLength);
+}
+
+// @baa 0x01700b00
+void URRopeComponentBase::execGetMinRopeLength(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(FLOAT*)Result = vf_254();
+}
+
+// @baa 0x01700ca0
+void URRopeComponentBase::execCalculateDistanceBetweenRopeEnds(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(FLOAT*)Result = vf_264();
 }

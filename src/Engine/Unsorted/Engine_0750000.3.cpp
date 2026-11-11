@@ -1,4 +1,4 @@
-// Engine_0750000.cpp (part 3 of 4): 6 functions
+// Engine_0750000.cpp (part 3 of 4): 7 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -84,6 +84,18 @@ struct AActor_ : public AActor {
 
 // @baa 0x00758b20
 FVector AActor_::GetTargetLocation(AActor* RequestedBy, bool bRequestAlternateLocation)
+{
+    return Location;
+}
+
+// AActor slot 0x14c (00758b40): return the actor's Location by value.
+struct AActor__00758b40 : public AActor
+{
+    FVector sub_00758b40();
+};
+
+// @baa 0x00758b40
+FVector AActor__00758b40::sub_00758b40()
 {
     return Location;
 }

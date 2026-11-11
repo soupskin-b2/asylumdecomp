@@ -1,4 +1,4 @@
-// Core_0590000.cpp (part 2 of 4): 16 functions
+// Core_0590000.cpp (part 2 of 4): 18 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -150,4 +150,28 @@ void UObject::execQuatToRotator(FFrame& Stack, RESULT_DECL)
     P_FINISH;
     FVector Origin = {0.0f, 0.0f, 0.0f};
     *(FRotator*)Result = FQuatRotationTranslationMatrix(A, Origin).sub_005c3fc0();
+}
+
+struct UObject__00599970 : public UObject
+{
+	void sub_005de600(INT, INT, INT);
+};
+
+// @baa 0x00599970
+void UObject::execStoreConfig(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	((UObject__00599970*)this)->sub_005de600(0x4000, 0, 0);
+}
+
+struct UObject__005999b0 : public UObject
+{
+	void sub_005df020(INT, INT, INT);
+};
+
+// @baa 0x005999b0
+void UObject::execSaveConfig(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	((UObject__005999b0*)this)->sub_005df020(0x4000, 0, 0);
 }

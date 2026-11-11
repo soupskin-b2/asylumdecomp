@@ -1,4 +1,4 @@
-// UnUIObjects.cpp: 30 functions
+// UnUIObjects.cpp: 32 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -331,4 +331,23 @@ void UUIScene::execGetScenePostProcessGroup(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
 	*(BYTE*)Result = vf_1f8();
+}
+
+// @baa 0x00da8d90
+void UUIScreenObject::execIsInitialized(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = bInitialized;
+}
+
+struct UUIScene__00ca6980 : public UUIScene
+{
+	BYTE sub_00da9eb0(INT);
+};
+
+// @baa 0x00ca6980
+void UUIScene::execGetSceneRenderMode(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(BYTE*)Result = ((UUIScene__00ca6980*)this)->sub_00da9eb0(0);
 }

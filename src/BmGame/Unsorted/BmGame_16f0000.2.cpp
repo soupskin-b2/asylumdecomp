@@ -1,4 +1,4 @@
-// BmGame_16f0000.cpp: 40 functions
+// BmGame_16f0000.cpp: 61 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -338,4 +338,151 @@ void ARCombatMove_BatmanStrike::execSetStrikeInfo(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
 	*(UBOOL*)Result = ((FSlot)(*(void***)this)[0x358 / 4])(this);
+}
+
+// @baa 0x016fb5a0
+void ARPlayerControllerCombat::execGetLookAtEnemy(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(ARPawnCombat**)Result = (ARPawnCombat*)vf_6f4();
+}
+
+// @baa 0x016fc7f0
+void ARAudioPointController::execLoadChapter7Package(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = ((FSlot)(*(void***)this)[0x614 / 4])(this);
+}
+
+// @baa 0x016fc830
+void ARAudioPointController::execInitLoadedPackage(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = ((FSlot)(*(void***)this)[0x618 / 4])(this);
+}
+
+// @baa 0x016fd680
+void ARBMRouter::execFindStartAnchor(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = ((FSlot)(*(void***)this)[0x36c / 4])(this);
+}
+
+// @baa 0x016fdab0
+void ARBMRouter::execAtGoal(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_388();
+}
+
+// @baa 0x016fdaf0
+void ARBMRouter::execPathNotFound(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_38c();
+}
+
+// @baa 0x016fdb30
+void ARBMRouter::execSearching(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_390();
+}
+
+// @baa 0x016fdb70
+void ARBMRouter::execRouting(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_394();
+}
+
+// @baa 0x016fdbb0
+void ARBMRouter::execHasPath(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_398();
+}
+
+// @baa 0x016fdbf0
+void ARBMRouter::execIsInSpecialMove(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = ((FSlot)(*(void***)this)[0x39c / 4])(this);
+}
+
+// @baa 0x016fdc30
+void ARBMRouter::execIsAvoiding(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_3a0();
+}
+
+// @baa 0x016fdd70
+void ARBMRouter::execFindFirstActorOnPath(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(AActor**)Result = (AActor*)vf_3ac();
+}
+
+// @baa 0x016fddb0
+void ARBMRouteRequest::execAtGoal(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = ((FSlot)(*(void***)this)[0x354 / 4])(this);
+}
+
+// @baa 0x016fddf0
+void ARBMRouteRequest::execNearGoal(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_358();
+}
+
+// @baa 0x016fde30
+void ARBMRouteRequest::execPathNotFound(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = ((FSlot)(*(void***)this)[0x35c / 4])(this);
+}
+
+// @baa 0x016fde70
+void ARBMRouteRequest::execSearching(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_360();
+}
+
+// @baa 0x016fdeb0
+void ARBMRouteRequest::execRouting(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_364();
+}
+
+// @baa 0x016fdef0
+void ARBMRouteRequest::execHasPath(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_368();
+}
+
+// @baa 0x016fea90
+void URBMRouterPath::execGetNodeNum(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(INT*)Result = vf_114();
+}
+
+// @baa 0x016fead0
+void URBMRouterPath::execGetSpecialMoveNode(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(ARBMPathNode_SpecialMove**)Result = (ARBMPathNode_SpecialMove*)vf_118();
+}
+
+// @baa 0x016ff240
+void URBMRouterPath::execFindFirstActorOnPath(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(AActor**)Result = (AActor*)vf_150();
 }

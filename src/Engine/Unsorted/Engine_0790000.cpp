@@ -1,4 +1,4 @@
-// Engine_0790000.cpp (part 1 of 3): 103 functions
+// Engine_0790000.cpp (part 1 of 3): 104 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -878,3 +878,18 @@ int sub_0079feb0(void)
 // @baa 0x0079fee0
 // @baa 0x0079fff0
 int UCheatManager::vf_000(void) { return 1; }
+
+int sub_007654e0(void);
+struct UAudioComponent_ : public UAudioComponent
+{
+    void sub_00793c40(void);
+    void sub_00791770(void);
+};
+
+// @baa 0x00793c40
+void UAudioComponent_::sub_00793c40(void)
+{
+    sub_007654e0();
+    if (bAutoPlay)
+        sub_00791770();
+}

@@ -2,8 +2,8 @@
  "note": "Maintained by CI (tools/ci); every file is checked by python tools/asylum unit-check.",
  "totals": {
   "units": 1429,
-  "files": 3797,
-  "functions": 96329,
+  "files": 3801,
+  "functions": 96405,
   "failed": 0
  },
  "units": [
@@ -4646,6 +4646,11 @@
      "va": "0170a670",
      "size": 53,
      "symbol": "?execJoinSaveBuffers@URSaveGameManager@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "0170a630",
+     "size": 59,
+     "symbol": "?execStoreOptionsToMemory@URSaveGameManager@@QAEXAAUFFrame@@QAX@Z"
     }
    ]
   },
@@ -15374,6 +15379,31 @@
      "va": "016fb160",
      "size": 59,
      "symbol": "?execFE_GetVolumeDialogue@ARPlayerController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016fb210",
+     "size": 59,
+     "symbol": "?execFE_GetVolumeMusic@ARPlayerController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016fb380",
+     "size": 59,
+     "symbol": "?execFE_IsBenchmarking@ARPlayerController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016fb3c0",
+     "size": 59,
+     "symbol": "?execFE_GetBenchmarkMin@ARPlayerController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016fb400",
+     "size": 59,
+     "symbol": "?execFE_GetBenchmarkMax@ARPlayerController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016fb440",
+     "size": 59,
+     "symbol": "?execFE_GetBenchmarkAverage@ARPlayerController@@QAEXAAUFFrame@@QAX@Z"
     }
    ]
   },
@@ -15823,6 +15853,16 @@
      "va": "016fffe0",
      "size": 423,
      "symbol": "?execGetNearestPointOnRopeToRay@URRopeComponentBase@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "01700b00",
+     "size": 59,
+     "symbol": "?execGetMinRopeLength@URRopeComponentBase@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "01700ca0",
+     "size": 59,
+     "symbol": "?execCalculateDistanceBetweenRopeEnds@URRopeComponentBase@@QAEXAAUFFrame@@QAX@Z"
     }
    ]
   },
@@ -47109,6 +47149,111 @@
      "va": "016f7840",
      "size": 59,
      "symbol": "?execSetStrikeInfo@ARCombatMove_BatmanStrike@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016fb5a0",
+     "size": 59,
+     "symbol": "?execGetLookAtEnemy@ARPlayerControllerCombat@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016fc7f0",
+     "size": 59,
+     "symbol": "?execLoadChapter7Package@ARAudioPointController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016fc830",
+     "size": 59,
+     "symbol": "?execInitLoadedPackage@ARAudioPointController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016fd680",
+     "size": 59,
+     "symbol": "?execFindStartAnchor@ARBMRouter@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016fdab0",
+     "size": 59,
+     "symbol": "?execAtGoal@ARBMRouter@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016fdaf0",
+     "size": 59,
+     "symbol": "?execPathNotFound@ARBMRouter@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016fdb30",
+     "size": 59,
+     "symbol": "?execSearching@ARBMRouter@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016fdb70",
+     "size": 59,
+     "symbol": "?execRouting@ARBMRouter@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016fdbb0",
+     "size": 59,
+     "symbol": "?execHasPath@ARBMRouter@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016fdbf0",
+     "size": 59,
+     "symbol": "?execIsInSpecialMove@ARBMRouter@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016fdc30",
+     "size": 59,
+     "symbol": "?execIsAvoiding@ARBMRouter@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016fdd70",
+     "size": 59,
+     "symbol": "?execFindFirstActorOnPath@ARBMRouter@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016fddb0",
+     "size": 59,
+     "symbol": "?execAtGoal@ARBMRouteRequest@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016fddf0",
+     "size": 59,
+     "symbol": "?execNearGoal@ARBMRouteRequest@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016fde30",
+     "size": 59,
+     "symbol": "?execPathNotFound@ARBMRouteRequest@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016fde70",
+     "size": 59,
+     "symbol": "?execSearching@ARBMRouteRequest@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016fdeb0",
+     "size": 59,
+     "symbol": "?execRouting@ARBMRouteRequest@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016fdef0",
+     "size": 59,
+     "symbol": "?execHasPath@ARBMRouteRequest@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016fea90",
+     "size": 59,
+     "symbol": "?execGetNodeNum@URBMRouterPath@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016fead0",
+     "size": 59,
+     "symbol": "?execGetSpecialMoveNode@URBMRouterPath@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016ff240",
+     "size": 59,
+     "symbol": "?execFindFirstActorOnPath@URBMRouterPath@@QAEXAAUFFrame@@QAX@Z"
     }
    ]
   },
@@ -47688,6 +47833,173 @@
      "va": "01703e70",
      "size": 53,
      "symbol": "?execCheckTeethSound@ARChatteringTeeth@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "01703780",
+     "size": 59,
+     "symbol": "?execGetMaxSightRange@ARBMAIController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "01703a00",
+     "size": 59,
+     "symbol": "?execGetAIManager@ARBMAIController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "01703b60",
+     "size": 59,
+     "symbol": "?execShouldUpdatePathNodeSeenTimes@ARBMAIController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "01703ba0",
+     "size": 59,
+     "symbol": "?execPawnInStasis@ARBMAIController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "01703eb0",
+     "size": 59,
+     "symbol": "?execMakeRoute@ARChatteringTeeth@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "017042a0",
+     "size": 59,
+     "symbol": "?execShouldLockDoors@ARBMAIManager@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "017042e0",
+     "size": 59,
+     "symbol": "?execGetFiringCount@ARBMAIManager@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "01704350",
+     "size": 59,
+     "symbol": "?execGetPlayerController@ARBMCombatManager@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "01704390",
+     "size": 59,
+     "symbol": "?execGetBatmanPawn@ARBMCombatManager@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "017045c0",
+     "size": 59,
+     "symbol": "?execShouldLockDoors@ARBMCombatManager@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "01704600",
+     "size": 59,
+     "symbol": "?execShouldForceCombatCamera@ARBMCombatManager@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "01704680",
+     "size": 59,
+     "symbol": "?execGetNumCombatants@ARBMCombatManager@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "017046c0",
+     "size": 59,
+     "symbol": "?execCanUseCombatPoint@ARBMCombatManager@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "01704700",
+     "size": 59,
+     "symbol": "?execUpdateAttackers@ARBMCombatManager@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "01704740",
+     "size": 59,
+     "symbol": "?execIsDeepInCombat@ARBMCombatManager@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "01704c30",
+     "size": 59,
+     "symbol": "?execShouldShowBehaviourDebug@URBMBehaviour@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "01704c70",
+     "size": 59,
+     "symbol": "?execHasState@URBMBehaviour@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "01704fc0",
+     "size": 59,
+     "symbol": "?execIsInDanger@URBMBehaviour_Combat@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "01705000",
+     "size": 59,
+     "symbol": "?execBatmanIsInDanger@URBMBehaviour_Combat@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "01705240",
+     "size": 59,
+     "symbol": "?execIsBatmanInCombatArea@URBMBehaviour_Combat@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "01705c80",
+     "size": 59,
+     "symbol": "?execShouldShowExitConditionDebug@URBMExitCondition@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "01706b20",
+     "size": 59,
+     "symbol": "?execIsUsingFilterView@ARForensicsDevice@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "017075e0",
+     "size": 59,
+     "symbol": "?execFindGrapplePointNoAim@ARGrappleGun@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "01708620",
+     "size": 59,
+     "symbol": "?execInitConversation@ARTapePlayer@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "01708820",
+     "size": 59,
+     "symbol": "?execIsOnPersistentMap@ARLevelVolume@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "01708860",
+     "size": 59,
+     "symbol": "?execGetGRI@ARPlayerStartInLevel@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "017088a0",
+     "size": 59,
+     "symbol": "?execGetMyLevelVolume@ARPlayerStartInLevel@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "01708910",
+     "size": 59,
+     "symbol": "?execGetGRI@ARLevelTransition@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "017089d0",
+     "size": 59,
+     "symbol": "?execIsConnectedToCurrentLevels@ARLevelTransition@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "01708a90",
+     "size": 59,
+     "symbol": "?execDoesLevelStreaming@ARLevelTransitionP@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "01708c00",
+     "size": 59,
+     "symbol": "?execDoorIsAnimating@ARLevelTransitionDoorBunkerNativeBase@@QAEXAAUFFrame@@QAX@Z"
+    }
+   ]
+  },
+  {
+   "unit": "BmGame/Unsorted/BmGame_1700000.cpp",
+   "source": "BmGame/Unsorted/BmGame_1700000.3.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "017083b0",
+     "size": 59,
+     "symbol": "?execConditionalSetupPosition@ARExplosiveGooMine@@QAEXAAUFFrame@@QAX@Z"
     }
    ]
   },
@@ -67343,6 +67655,16 @@
      "va": "0059ed90",
      "size": 151,
      "symbol": "?execQuatToRotator@UObject@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "00599970",
+     "size": 57,
+     "symbol": "?execStoreConfig@UObject@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "005999b0",
+     "size": 57,
+     "symbol": "?execSaveConfig@UObject@@QAEXAAUFFrame@@QAX@Z"
     }
    ]
   },
@@ -173352,6 +173674,18 @@
   },
   {
    "unit": "Engine/Src/UnAudio.cpp",
+   "source": "Engine/Src/UnAudio.14.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "0079ca30",
+     "size": 24,
+     "symbol": "?sub_0079ca30@UAudioDevice_@@UAEPAXPAXH@Z"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Src/UnAudio.cpp",
    "source": "Engine/Src/UnAudio.2.cpp",
    "profile": "ue3",
    "functions": [
@@ -215100,6 +215434,16 @@
      "va": "00da9a70",
      "size": 59,
      "symbol": "?execGetScenePostProcessGroup@UUIScene@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "00da8d90",
+     "size": 55,
+     "symbol": "?execIsInitialized@UUIScreenObject@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "00ca6980",
+     "size": 56,
+     "symbol": "?execGetSceneRenderMode@UUIScene@@QAEXAAUFFrame@@QAX@Z"
     }
    ]
   },
@@ -252290,6 +252634,11 @@
      "va": "00758b20",
      "size": 24,
      "symbol": "?GetTargetLocation@AActor_@@QAE?AUFVector@@PAUAActor@@_N@Z"
+    },
+    {
+     "va": "00758b40",
+     "size": 24,
+     "symbol": "?sub_00758b40@AActor__00758b40@@QAE?AUFVector@@XZ"
     }
    ]
   },
@@ -254725,6 +255074,11 @@
      "va": "00761790",
      "size": 98,
      "symbol": "?sub_00761790@UTextureCube@@QAEXXZ"
+    },
+    {
+     "va": "00761800",
+     "size": 24,
+     "symbol": "?sub_00761800@UTextureCube_@@QAEXH@Z"
     }
    ]
   },
@@ -260459,6 +260813,11 @@
      "va": "0079fff0",
      "size": 6,
      "symbol": "?vf_000@UCheatManager@@UAEHXZ"
+    },
+    {
+     "va": "00793c40",
+     "size": 24,
+     "symbol": "?sub_00793c40@UAudioComponent_@@QAEXXZ"
     }
    ]
   },
@@ -261797,6 +262156,11 @@
      "va": "007ab840",
      "size": 32,
      "symbol": "??_GUDistributionFloatUniform@@UAEPAXI@Z"
+    },
+    {
+     "va": "007a0de0",
+     "size": 24,
+     "symbol": "?sub_007a0de0@AController_@@QAEHHPAUFMoveSpec_@@@Z"
     }
    ]
   },
@@ -262470,6 +262834,18 @@
      "va": "007cb2d0",
      "size": 38,
      "symbol": "?sub_007cb2d0@@YAHXZ"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Unsorted/Engine_07d0000.cpp",
+   "source": "Engine/Unsorted/Engine_07d0000.10.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "007dcac0",
+     "size": 24,
+     "symbol": "?sub_007dcac0@sub_007dcac0_holder@@QAEPAHH@Z"
     }
    ]
   },
@@ -265641,6 +266017,23 @@
      "va": "00808fc0",
      "size": 87,
      "symbol": "?sub_00808fc0@C@@QAEHPAI@Z"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Unsorted/Engine_0800000.cpp",
+   "source": "Engine/Unsorted/Engine_0800000.7.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "008026b0",
+     "size": 24,
+     "symbol": "?sub_008026b0@F008026b0@@QAEXHM@Z"
+    },
+    {
+     "va": "0080b0b0",
+     "size": 24,
+     "symbol": "?sub_0080b0b0@F0080b0b0@@QAEXHH@Z"
     }
    ]
   },
@@ -415273,6 +415666,21 @@
      "va": "0170b5d0",
      "size": 54,
      "symbol": "?execGetPlayMovieAction@URGFxFSCmdHandler_PlayMovie@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "0170b610",
+     "size": 59,
+     "symbol": "?execGetPicture@URGFxMovie@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "0170b680",
+     "size": 59,
+     "symbol": "?execSendSaveInfoToFlash@URGFxMovieFrontend@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "0170b6c0",
+     "size": 59,
+     "symbol": "?execGetVersionNumber@URGFxMovieFrontend@@QAEXAAUFFrame@@QAX@Z"
     }
    ]
   },
