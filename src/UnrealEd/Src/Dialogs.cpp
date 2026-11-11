@@ -1,4 +1,4 @@
-// Dialogs.cpp: 7 functions
+// Dialogs.cpp: 8 functions
 // Placed here by: neighbours 7.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -59,4 +59,23 @@ struct S_0142fd40 {
 void S_0142fd40::sub_0142fd40()
 {
     f_1a0->sub_0142eb30();
+}
+
+class wxDialog
+{
+public:
+    __declspec(dllimport) virtual ~wxDialog();
+};
+
+extern void* g_0228d0a8[];
+struct C_01427090 : public wxDialog
+{
+    void sub_01427090();
+};
+
+// @baa 0x01427090
+void C_01427090::sub_01427090()
+{
+    *(void**)this = g_0228d0a8;
+    ((wxDialog*)this)->wxDialog::~wxDialog();
 }

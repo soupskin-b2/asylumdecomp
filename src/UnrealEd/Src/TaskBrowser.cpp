@@ -1,4 +1,4 @@
-// TaskBrowser.cpp: 12 functions
+// TaskBrowser.cpp: 14 functions
 // Placed here by: neighbours 8, callers 4.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -103,4 +103,36 @@ void C_01476d10::sub_01476d10(void)
     *(undefined4 *)(param_1 + 100) = 6;
   }
   return;
+}
+
+class wxDialog
+{
+public:
+    __declspec(dllimport) virtual ~wxDialog();
+};
+
+extern void* g_0229c698[];
+struct C_0144ee20 : public wxDialog
+{
+    void sub_0144ee20();
+};
+
+// @baa 0x0144ee20
+void C_0144ee20::sub_0144ee20()
+{
+    *(void**)this = g_0229c698;
+    ((wxDialog*)this)->wxDialog::~wxDialog();
+}
+
+extern void* g_0229c9b0[];
+struct C_0144ef30 : public wxDialog
+{
+    void sub_0144ef30();
+};
+
+// @baa 0x0144ef30
+void C_0144ef30::sub_0144ef30()
+{
+    *(void**)this = g_0229c9b0;
+    ((wxDialog*)this)->wxDialog::~wxDialog();
 }

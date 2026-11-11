@@ -1,4 +1,4 @@
-// CommonGame_1510000.cpp (part 1 of 3): 212 functions
+// CommonGame_1510000.cpp (part 1 of 3): 213 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -2183,4 +2183,27 @@ int C_0151be30::sub_0151be30(void)
     int param_1 = (int)this;
 
   return (*(int *)(param_1 + 0x14) < *(int *)(*(int *)(param_1 + 0xc) + 0x14)) - 1;
+}
+
+// The engine function at 005678d0, called on a subobject at 0xc8 within the
+// owning object; returns an INT (see its many call sites in Texture2D and
+// LightMap code). Only its signature is needed here, so declare it, not define.
+struct S_005678d0_ {
+    INT sub_005678d0();
+};
+
+// Owns a subobject at offset 0xc8; the caller passes a pointer to this.
+struct S_01510da0_ {
+    char _pad[0xc8];
+    S_005678d0_ _sub;
+};
+
+// @baa 0x01510da0
+// Returns the subobject's value, or 0 when the object is NULL.
+INT __stdcall sub_01510da0(S_01510da0_ *obj)
+{
+    INT result = 0;
+    if (obj)
+        result = obj->_sub.sub_005678d0();
+    return result;
 }

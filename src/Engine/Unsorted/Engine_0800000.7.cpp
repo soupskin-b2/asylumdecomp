@@ -1,7 +1,7 @@
-// Engine_0800000.cpp: 2 functions
+// Engine_0800000.cpp: 3 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
-#include "ue3/Core.h"
+#include "ue3/Classes.h"
 
 // 0x18/0x1c subobject updated from an int and a float, callee pops 8 bytes (ret 8).
 struct F008026b0
@@ -42,4 +42,15 @@ struct F0080b0b0
 void F0080b0b0::sub_0080b0b0(int Offset, int Scale)
 {
     S.sub_008088e0(S.Value * Scale + Offset);
+}
+
+struct APlayerController_ : public APlayerController
+{
+    INT sub_00803a80(void* Other, INT B, INT C);
+};
+
+// @baa 0x00803a80
+INT APlayerController_::sub_00803a80(void* Other, INT, INT)
+{
+    return this == Other;
 }

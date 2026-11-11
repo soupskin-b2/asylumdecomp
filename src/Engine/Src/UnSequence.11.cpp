@@ -1,4 +1,4 @@
-// UnSequence.cpp: 13 functions
+// UnSequence.cpp: 15 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -143,3 +143,53 @@ void USequenceObject__00cbc5a0::execScriptLog(FFrame& Stack, RESULT_DECL)
 	P_FINISH;
 	ScriptLog(LogText, bWarning);
 }
+
+struct USequence__00906850 : public USequence
+{
+	void FindSeqObjectsByName(const FString& SeqObjName, UBOOL bCheckComment, TArray<USequenceObject*>& OutputObjects, UBOOL bRecursive);
+	void execFindSeqObjectsByName(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00906850
+void USequence__00906850::execFindSeqObjectsByName(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STR(SeqObjName);
+	P_GET_UBOOL(bCheckComment);
+	P_GET_TARRAY_REF(USequenceObject*, OutputObjects);
+	P_GET_UBOOL(bRecursive);
+	P_FINISH;
+	FindSeqObjectsByName(SeqObjName, bCheckComment, OutputObjects, bRecursive);
+}
+
+/* UStruct::IsChildOf isn't declared in Classes.h; this is UE3's inline body. */
+struct UClass_ : public UClass
+{
+	UBOOL IsChildOf( const UField* SomeBase ) const
+	{
+		for ( const UField* Struct = this; Struct; Struct = Struct->SuperField )
+			if ( Struct == SomeBase )
+				return 1;
+		return 0;
+	}
+};
+
+struct USequence__009066d0 : public USequence
+{
+	void FindSeqObjectsByClass( UClass* DesiredClass, TArray<USequenceObject*>& OutputObjects, UBOOL bRecursive ) const;
+	void execFindSeqObjectsByClass( FFrame& Stack, RESULT_DECL );
+};
+
+// @baa 0x009066d0
+void USequence__009066d0::execFindSeqObjectsByClass( FFrame& Stack, RESULT_DECL )
+{
+	P_GET_OBJECT(UClass_, DesiredClass);
+	P_GET_UBOOL(bRecursive);
+	P_GET_TARRAY_REF(USequenceObject*, OutputObjects);
+	P_FINISH;
+
+#line 4288 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSequence.cpp"
+	check(DesiredClass->IsChildOf(USequenceObject::StaticClass()));
+	FindSeqObjectsByClass(DesiredClass, OutputObjects, bRecursive);
+}
+
+#line 196 "candidate.cpp"

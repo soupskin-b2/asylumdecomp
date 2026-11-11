@@ -1,4 +1,4 @@
-// UnUIStyles.cpp (part 2 of 4): 2 functions
+// UnUIStyles.cpp (part 2 of 4): 3 functions
 // Placed here by: callers 1, neighbours 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -45,4 +45,23 @@ void C_00dcca00::sub_00dcca00(int param_2)
     }
   }
   return;
+}
+
+struct C_00dcd140
+{
+    INT field_00;
+    INT field_04;
+    INT field_08;
+    INT field_0c;
+    INT field_10;
+    INT Value;
+
+    INT* sub_00dcd140(INT* Out);
+};
+
+// @baa 0x00dcd140
+INT* C_00dcd140::sub_00dcd140(INT* Out)
+{
+    *Out = Value;
+    return Out;
 }

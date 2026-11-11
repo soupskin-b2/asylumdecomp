@@ -1,4 +1,4 @@
-// UnFracturedStaticMesh.cpp (part 5 of 6): 1 function
+// UnFracturedStaticMesh.cpp (part 5 of 6): 2 functions
 // Placed here by: neighbours 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -53,4 +53,19 @@ AInfo* AInfo::sub_007c8d30(void)
     DetachFence = 0;
     *(INT*)this = (INT)g_01f2ade8;
     return this;
+}
+
+struct C_007a70f0
+{
+    INT pad_00;
+    INT field_04;
+    INT Divisor;
+
+    INT sub_007a70f0(WORD Value);
+};
+
+// @baa 0x007a70f0
+INT C_007a70f0::sub_007a70f0(WORD Value)
+{
+    return Value / Divisor;
 }

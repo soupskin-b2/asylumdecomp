@@ -1,4 +1,4 @@
-// GenericBrowserTypes.cpp (part 4 of 4): 9 functions
+// GenericBrowserTypes.cpp (part 4 of 4): 10 functions
 // Placed here by: neighbours 3, class 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -135,4 +135,23 @@ void UGenericBrowserType_RenderTexture::vf_120(INT FunctionIndex, INT Argument)
     {
         sub_0116f960(Argument);
     }
+}
+
+class wxDialog
+{
+public:
+    __declspec(dllimport) virtual ~wxDialog();
+};
+
+extern void* g_02248fe0[];
+struct C_0130d540 : public wxDialog
+{
+    void sub_0130d540();
+};
+
+// @baa 0x0130d540
+void C_0130d540::sub_0130d540()
+{
+    *(void**)this = g_02248fe0;
+    ((wxDialog*)this)->wxDialog::~wxDialog();
 }

@@ -1,4 +1,4 @@
-// InterpEditorKeyReduction.cpp (part 1 of 2): 2 functions
+// InterpEditorKeyReduction.cpp (part 1 of 2): 3 functions
 // Placed here by: callers 1, neighbours 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -40,3 +40,22 @@ struct C_012f1f80 { C_012f1f80* sub_012f1f80(void); };
 
 // @baa 0x012f1f80
 C_012f1f80* C_012f1f80::sub_012f1f80(void) { return this; }
+
+class wxDialog
+{
+public:
+    __declspec(dllimport) virtual ~wxDialog();
+};
+
+extern void* g_0229ba48[];
+struct C_0144d970 : public wxDialog
+{
+    void sub_0144d970();
+};
+
+// @baa 0x0144d970
+void C_0144d970::sub_0144d970()
+{
+    *(void**)this = g_0229ba48;
+    ((wxDialog*)this)->wxDialog::~wxDialog();
+}

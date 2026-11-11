@@ -1,4 +1,4 @@
-// Engine_0d20000.cpp (part 1 of 3): 62 functions
+// Engine_0d20000.cpp (part 1 of 3): 63 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -756,4 +756,23 @@ undefined4 C_00d29f10::sub_00d29f10(byte param_2)
     sub_0053dfa0(param_1);
   }
   return param_1;
+}
+
+struct C_00d291d0
+{
+    INT field_00;
+    INT field_04;
+    INT field_08;
+    INT field_0c;
+    INT field_10;
+    INT Value;
+
+    INT* sub_00d291d0(INT* Out);
+};
+
+// @baa 0x00d291d0
+INT* C_00d291d0::sub_00d291d0(INT* Out)
+{
+    *Out = Value;
+    return Out;
 }

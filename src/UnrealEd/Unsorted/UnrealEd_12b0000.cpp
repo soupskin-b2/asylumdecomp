@@ -1,4 +1,4 @@
-// UnrealEd_12b0000.cpp: 31 functions
+// UnrealEd_12b0000.cpp: 34 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -267,4 +267,55 @@ wchar_t * sub_012bfff0(undefined4 param_1)
   default:
     return L"UNKNOWN ENUM";
   }
+}
+
+class wxMenuBar
+{
+public:
+    __declspec(dllimport) virtual ~wxMenuBar();
+};
+
+extern void* g_022306d0[];
+struct C_012bff90 : public wxMenuBar
+{
+    void sub_012bff90();
+};
+
+// @baa 0x012bff90
+void C_012bff90::sub_012bff90()
+{
+    *(void**)this = g_022306d0;
+    ((wxMenuBar*)this)->wxMenuBar::~wxMenuBar();
+}
+
+class wxMenu
+{
+public:
+    __declspec(dllimport) virtual ~wxMenu();
+};
+
+extern void* g_022309b0[];
+struct C_012bffa0 : public wxMenu
+{
+    void sub_012bffa0();
+};
+
+// @baa 0x012bffa0
+void C_012bffa0::sub_012bffa0()
+{
+    *(void**)this = g_022309b0;
+    ((wxMenu*)this)->wxMenu::~wxMenu();
+}
+
+extern void* g_02230a18[];
+struct C_012bffc0 : public wxMenu
+{
+    void sub_012bffc0();
+};
+
+// @baa 0x012bffc0
+void C_012bffc0::sub_012bffc0()
+{
+    *(void**)this = g_02230a18;
+    ((wxMenu*)this)->wxMenu::~wxMenu();
 }

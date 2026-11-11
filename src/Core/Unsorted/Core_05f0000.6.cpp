@@ -1,4 +1,4 @@
-// Core_05f0000.cpp (part 6 of 6): 3 functions
+// Core_05f0000.cpp (part 6 of 6): 4 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -55,4 +55,16 @@ void UPackageMap_::sub_005fb0c0(WORD W)
     WORD V = W;
     g_026a4b20 = 1;
     g_025d6ac8 = V;
+}
+
+struct UPackageMap__005ff380 : public UPackageMap
+{
+    FPointer* sub_005ff380(FPointer* Out);
+};
+
+// @baa 0x005ff380
+FPointer* UPackageMap__005ff380::sub_005ff380(FPointer* Out)
+{
+    *Out = HashOuterNext;
+    return Out;
 }

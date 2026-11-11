@@ -1,4 +1,4 @@
-// UnAnimTree.cpp: 10 functions
+// UnAnimTree.cpp: 11 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -126,4 +126,23 @@ void UAnimNodeSlot::execAddToSynchGroup(FFrame& Stack, RESULT_DECL)
 	P_GET_NAME(GroupName);
 	P_FINISH;
 	((UAnimNodeSlot__00c91620*)this)->sub_00c803f0(GroupName);
+}
+
+struct UAnimNodeSlot__00c911e0 : public UAnimNodeSlot
+{
+	void PlayCustomAnimByDuration(FName AnimName, FLOAT Duration, FLOAT BlendInTime, FLOAT BlendOutTime, UBOOL bLooping, UBOOL bOverride);
+	void execPlayCustomAnimByDuration(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00c911e0
+void UAnimNodeSlot__00c911e0::execPlayCustomAnimByDuration(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_NAME(AnimName);
+	P_GET_FLOAT(Duration);
+	P_GET_FLOAT_OPTX(BlendInTime, 0.f);
+	P_GET_FLOAT_OPTX(BlendOutTime, 0.f);
+	P_GET_UBOOL_OPTX(bLooping, FALSE);
+	P_GET_UBOOL_OPTX(bOverride, TRUE);
+	P_FINISH;
+	PlayCustomAnimByDuration(AnimName, Duration, BlendInTime, BlendOutTime, bLooping, bOverride);
 }

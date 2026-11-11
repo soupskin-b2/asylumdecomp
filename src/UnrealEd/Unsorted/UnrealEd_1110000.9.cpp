@@ -1,4 +1,4 @@
-// UnrealEd_1110000.cpp: 1 function
+// UnrealEd_1110000.cpp: 6 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Core.h"
@@ -50,4 +50,86 @@ T_01115070* g_026d4df8 = 0;
 void T_01115070::sub_01115070(INT a)
 {
     g_026d4df8->sub_01115070(1);
+}
+
+class wxBitmapButton
+{
+public:
+    __declspec(dllimport) virtual ~wxBitmapButton();
+};
+
+extern void* g_021bb970[];
+struct C : public wxBitmapButton
+{
+    void sub_01115380();
+};
+
+// @baa 0x01115380
+void C::sub_01115380()
+{
+    *(void**)this = g_021bb970;
+    ((wxBitmapButton*)this)->wxBitmapButton::~wxBitmapButton();
+}
+
+struct C_011154c0 : public wxBitmapButton
+{
+    void sub_011154c0();
+};
+
+// @baa 0x011154c0
+void C_011154c0::sub_011154c0()
+{
+    *(void**)this = g_021bb970;
+    ((wxBitmapButton*)this)->wxBitmapButton::~wxBitmapButton();
+}
+
+class wxMenu
+{
+public:
+    __declspec(dllimport) virtual ~wxMenu();
+};
+
+extern void* g_021bc9d8[];
+struct C_01116600 : public wxMenu
+{
+    void sub_01116600();
+};
+
+// @baa 0x01116600
+void C_01116600::sub_01116600()
+{
+    *(void**)this = g_021bc9d8;
+    ((wxMenu*)this)->wxMenu::~wxMenu();
+}
+
+extern void* g_021bca40[];
+struct C_01116610 : public wxMenu
+{
+    void sub_01116610();
+};
+
+// @baa 0x01116610
+void C_01116610::sub_01116610()
+{
+    *(void**)this = g_021bca40;
+    ((wxMenu*)this)->wxMenu::~wxMenu();
+}
+
+class wxAuiManager
+{
+public:
+    __declspec(dllimport) virtual ~wxAuiManager();
+};
+
+extern void* g_021bd658[];
+struct C_01119270 : public wxAuiManager
+{
+    void sub_01119270();
+};
+
+// @baa 0x01119270
+void C_01119270::sub_01119270()
+{
+    *(void**)this = g_021bd658;
+    ((wxAuiManager*)this)->wxAuiManager::~wxAuiManager();
 }

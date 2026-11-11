@@ -1,4 +1,4 @@
-// Kismet.cpp (part 4 of 4): 3 functions
+// Kismet.cpp (part 4 of 4): 7 functions
 // Placed here by: callers 2, neighbours 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -76,4 +76,68 @@ void C_011a3000::sub_011a3000(void)
     }
   }
   return;
+}
+
+class wxStatusBar
+{
+public:
+    __declspec(dllimport) virtual ~wxStatusBar();
+};
+
+extern void* g_021dce98[];
+struct C_01190290 : public wxStatusBar
+{
+    void sub_01190290();
+};
+
+// @baa 0x01190290
+void C_01190290::sub_01190290()
+{
+    *(void**)this = g_021dce98;
+    ((wxStatusBar*)this)->wxStatusBar::~wxStatusBar();
+}
+
+class wxMenu
+{
+public:
+    __declspec(dllimport) virtual ~wxMenu();
+};
+
+extern void* g_021dd168[];
+struct C_011902a0 : public wxMenu
+{
+    void sub_011902a0();
+};
+
+// @baa 0x011902a0
+void C_011902a0::sub_011902a0()
+{
+    *(void**)this = g_021dd168;
+    ((wxMenu*)this)->wxMenu::~wxMenu();
+}
+
+extern void* g_021dd1d0[];
+struct C_011902b0 : public wxMenu
+{
+    void sub_011902b0();
+};
+
+// @baa 0x011902b0
+void C_011902b0::sub_011902b0()
+{
+    *(void**)this = g_021dd1d0;
+    ((wxMenu*)this)->wxMenu::~wxMenu();
+}
+
+extern void* g_021dd238[];
+struct C_011902c0 : public wxMenu
+{
+    void sub_011902c0();
+};
+
+// @baa 0x011902c0
+void C_011902c0::sub_011902c0()
+{
+    *(void**)this = g_021dd238;
+    ((wxMenu*)this)->wxMenu::~wxMenu();
 }

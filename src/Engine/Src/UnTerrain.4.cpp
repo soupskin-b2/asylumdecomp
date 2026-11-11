@@ -1,4 +1,4 @@
-// UnTerrain.cpp (part 4 of 4): 1 function
+// UnTerrain.cpp (part 4 of 4): 2 functions
 // Placed here by: neighbours 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -15,4 +15,15 @@ undefined4 UObject::sub_009927e0(byte param_2)
     sub_0053dfa0(param_1);
   }
   return param_1;
+}
+
+struct ATerrain_ : public ATerrain
+{
+    UINT sub_00982810(UINT A, UINT B, UINT Flags);
+};
+
+// @baa 0x00982810
+UINT ATerrain_::sub_00982810(UINT, UINT, UINT Flags)
+{
+    return Flags & 0x2000;
 }

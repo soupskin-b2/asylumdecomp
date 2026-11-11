@@ -1,4 +1,4 @@
-// UnrealEd_12c0000.cpp: 68 functions
+// UnrealEd_12c0000.cpp: 69 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -730,3 +730,22 @@ void __stdcall sub_012c5e50(int a0, int a1) {  }
 
 // @baa 0x012c6360
 void __stdcall sub_012c6360(int a0, int a1) {  }
+
+class wxWindow
+{
+public:
+    __declspec(dllimport) virtual ~wxWindow();
+};
+
+extern void* g_02230a80[];
+struct C_012c0390 : public wxWindow
+{
+    void sub_012c0390();
+};
+
+// @baa 0x012c0390
+void C_012c0390::sub_012c0390()
+{
+    *(void**)this = g_02230a80;
+    ((wxWindow*)this)->wxWindow::~wxWindow();
+}

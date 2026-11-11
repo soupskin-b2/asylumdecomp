@@ -1,4 +1,4 @@
-// UnSkeletalComponent.cpp: 18 functions
+// UnSkeletalComponent.cpp: 19 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -228,4 +228,23 @@ void USkeletalMeshComponent__0092da90::execGetTimeOfScriptNotify(FFrame& Stack, 
 	P_GET_INT_OPTX(InstanceNum, 1);
 	P_FINISH;
 	*(FLOAT*)Result = GetTimeOfScriptNotify(NotifyName, InstanceNum);
+}
+
+struct USkeletalMeshComponent__0091f7b0 : public USkeletalMeshComponent
+{
+	void SetFaceFXRegisterEx(const FString& RegName, BYTE RegOp, FLOAT FirstValue, FLOAT FirstInterpDuration, FLOAT NextValue, FLOAT NextInterpDuration);
+	void execSetFaceFXRegisterEx(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x0091f7b0
+void USkeletalMeshComponent__0091f7b0::execSetFaceFXRegisterEx(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STR(RegName);
+	P_GET_BYTE(RegOp);
+	P_GET_FLOAT(FirstValue);
+	P_GET_FLOAT(FirstInterpDuration);
+	P_GET_FLOAT(NextValue);
+	P_GET_FLOAT(NextInterpDuration);
+	P_FINISH;
+	SetFaceFXRegisterEx(RegName, RegOp, FirstValue, FirstInterpDuration, NextValue, NextInterpDuration);
 }

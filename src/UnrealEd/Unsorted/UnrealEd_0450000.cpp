@@ -1,4 +1,4 @@
-// UnrealEd_0450000.cpp: 122 functions
+// UnrealEd_0450000.cpp: 123 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -932,3 +932,22 @@ struct C_0045ef60 { int a, b; C_0045ef60(int, int); };
 
 // @baa 0x0045ef60
 C_0045ef60::C_0045ef60(int x, int y) : a(x), b(y) {}
+
+class wxWindow
+{
+public:
+    __declspec(dllimport) virtual ~wxWindow();
+};
+
+extern void* g_01e529d8[];
+struct C_0045c520 : public wxWindow
+{
+    void sub_0045c520();
+};
+
+// @baa 0x0045c520
+void C_0045c520::sub_0045c520()
+{
+    *(void**)this = g_01e529d8;
+    ((wxWindow*)this)->wxWindow::~wxWindow();
+}

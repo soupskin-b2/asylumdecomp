@@ -1,4 +1,4 @@
-// UnrealEd_1200000.cpp: 75 functions
+// UnrealEd_1200000.cpp: 76 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1291,4 +1291,23 @@ undefined4 * C_0120ff00::sub_0120ff00(byte param_2)
     sub_0053dfa0(param_1);
   }
   return param_1;
+}
+
+class wxPanel
+{
+public:
+    __declspec(dllimport) virtual ~wxPanel();
+};
+
+extern void* g_021f5218[];
+struct C_0120c9c0 : public wxPanel
+{
+    void sub_0120c9c0();
+};
+
+// @baa 0x0120c9c0
+void C_0120c9c0::sub_0120c9c0()
+{
+    *(void**)this = g_021f5218;
+    ((wxPanel*)this)->wxPanel::~wxPanel();
 }

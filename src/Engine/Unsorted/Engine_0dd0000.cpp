@@ -1,4 +1,4 @@
-// Engine_0dd0000.cpp (part 1 of 2): 20 functions
+// Engine_0dd0000.cpp (part 1 of 2): 21 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -294,3 +294,17 @@ void UObjectThunk::sub_00ddd040()
 
 // @baa 0x00ddd070
 int sub_00ddd070(int a0, int a1) { return a1; }
+
+struct C_00ddcef0
+{
+    BYTE pad_00[0x10];
+    BYTE Values[1];
+
+    INT sub_00ddcef0(INT Index);
+};
+
+// @baa 0x00ddcef0
+INT C_00ddcef0::sub_00ddcef0(INT Index)
+{
+    return Values[Index];
+}

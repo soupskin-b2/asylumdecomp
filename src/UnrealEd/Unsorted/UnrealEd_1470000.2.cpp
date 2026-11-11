@@ -1,4 +1,4 @@
-// UnrealEd_1470000.cpp (part 2 of 4): 3 functions
+// UnrealEd_1470000.cpp (part 2 of 4): 4 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -70,4 +70,23 @@ void C_0147e150::sub_0147e150(int param_2)
     }
   }
   return;
+}
+
+class wxTreeItemData
+{
+public:
+    __declspec(dllimport) virtual ~wxTreeItemData();
+};
+
+extern void* g_022a6edc[];
+struct C_01477010 : public wxTreeItemData
+{
+    void sub_01477010();
+};
+
+// @baa 0x01477010
+void C_01477010::sub_01477010()
+{
+    *(void**)this = g_022a6edc;
+    ((wxTreeItemData*)this)->wxTreeItemData::~wxTreeItemData();
 }

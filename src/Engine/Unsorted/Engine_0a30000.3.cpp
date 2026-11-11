@@ -1,4 +1,4 @@
-// Engine_0a30000.cpp (part 3 of 3): 1 function
+// Engine_0a30000.cpp (part 3 of 3): 2 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -35,4 +35,17 @@ puVar1[1]=param_2[1];
 puVar1[2]=param_2[2];
 }
 return iVar2;
+}
+
+struct C_00a35390
+{
+    INT Value;
+
+    INT sub_00a35390();
+};
+
+// @baa 0x00a35390
+INT C_00a35390::sub_00a35390()
+{
+    return Value == 0 ? -1 : 0;
 }

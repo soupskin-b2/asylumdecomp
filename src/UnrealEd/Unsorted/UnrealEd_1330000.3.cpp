@@ -1,4 +1,4 @@
-// UnrealEd_1330000.cpp (part 3 of 3): 1 function
+// UnrealEd_1330000.cpp (part 3 of 3): 2 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -21,4 +21,23 @@ void C::sub_0133b550(int param_2)
     }
   }
   return;
+}
+
+class wxMenu
+{
+public:
+    __declspec(dllimport) virtual ~wxMenu();
+};
+
+extern void* g_022570a8[];
+struct C_01336f10 : public wxMenu
+{
+    void sub_01336f10();
+};
+
+// @baa 0x01336f10
+void C_01336f10::sub_01336f10()
+{
+    *(void**)this = g_022570a8;
+    ((wxMenu*)this)->wxMenu::~wxMenu();
 }

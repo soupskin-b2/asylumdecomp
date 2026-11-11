@@ -1,4 +1,4 @@
-// BmGame_1590000.cpp (part 1 of 2): 324 functions
+// BmGame_1590000.cpp (part 1 of 2): 327 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1769,4 +1769,53 @@ undefined4 sub_0159f000(undefined4 param_1)
     return *(undefined4 *)(iVar1 + 0x1ac);
   }
   return 0;
+}
+
+struct FSubStruct_015946e0
+{
+    INT Field0;
+    INT Field4;
+    INT Field8;
+    INT FieldC;
+    INT Field10;
+    INT Field14;
+
+    FSubStruct_015946e0* sub_015946e0(INT Unused)
+    {
+        Field0 = 0;
+        Field4 = 0;
+        Field8 = 0;
+        FieldC = 0;
+        Field10 = 0;
+        Field14 = 0;
+        return this;
+    }
+};
+
+static FSubStruct_015946e0 g_Sub_015946e0;
+// @baa 0x015946e0
+FSubStruct_015946e0* CallSub_015946e0(INT Unused)
+{
+    return g_Sub_015946e0.sub_015946e0(Unused);
+}
+
+struct C_0159aca0
+{
+    char pad[0x70];
+    float m_070;
+
+    int sub_0159aca0(float Amount, float Unused);
+};
+
+// @baa 0x0159aca0
+int C_0159aca0::sub_0159aca0(float Amount, float Unused)
+{
+    m_070 += Amount;
+    return 1;
+}
+
+// @baa 0x015925f0
+void sub_015925f0(float* Value)
+{
+    *Value = 0.0f;
 }

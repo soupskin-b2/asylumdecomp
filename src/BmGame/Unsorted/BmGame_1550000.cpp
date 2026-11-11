@@ -1,4 +1,4 @@
-// BmGame_1550000.cpp (part 1 of 3): 451 functions
+// BmGame_1550000.cpp (part 1 of 3): 453 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -3136,4 +3136,36 @@ uint ARLevelTransitionDoorBunkerNativeBase::vf_388(void)
   
   iVar1 = sub_009109d0(*(undefined4 *)(*(int *)(param_1 + 0x210) + 0x1bc));
   return *(uint *)(iVar1 + 0xc0) & 1;
+}
+
+// The movie-player object stored in g_026dfcbc; its virtual slot 7 (offset 0x1c)
+// stops the current movie.
+struct FMovie_
+{
+    virtual ~FMovie_() {}
+    virtual void sub_0() {}
+    virtual void sub_4() {}
+    virtual void sub_8() {}
+    virtual void sub_c() {}
+    virtual void sub_10() {}
+    virtual void sub_14() {}
+    virtual void Stop(FLOAT Rate, INT A, INT B) {}   // vtable slot 7 (offset 0x1c)
+};
+
+extern FMovie_ *g_026dfcbc;
+// @baa 0x01556930
+void sub_01556930()
+{
+    g_026dfcbc->Stop(0.0f, 1, 0);
+}
+
+struct ARCameraBlockingVolume_ : public ARCameraBlockingVolume
+{
+    UINT sub_01557320(UINT A, UINT B, UINT Flags);
+};
+
+// @baa 0x01557320
+UINT ARCameraBlockingVolume_::sub_01557320(UINT, UINT, UINT Flags)
+{
+    return Flags & 0x400000;
 }

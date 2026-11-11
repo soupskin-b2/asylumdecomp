@@ -1,7 +1,7 @@
-// RAnimNode_Pose.cpp (part 4 of 4): 6 functions
+// RAnimNode_Pose.cpp (part 4 of 4): 10 functions
 // Placed here by: neighbours 3, class 2, callers 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
-#include "ue3/Classes.h"
+#include "ue3/Implement.h"
 
 struct C {
     void sub_015a23b0(int);
@@ -128,4 +128,72 @@ void C_015d43d0::sub_015d43d0(void)
     }
   }
   return;
+}
+
+// The weighted proportional-motion sample held at the end of RAnimUtil_AnimAccumulator
+// (the accumulator is 0xe00 bytes; this field sits at 0xddc, the last 36 bytes of it).
+struct FPoseProportionalMotion
+{
+	float PositionProportion[3];
+	float TargetPosition[3];
+	float RotationProportion[3];
+};
+
+struct RAnimUtil_AnimAccumulator_
+{
+	char Pad_0000[0xddc];
+	FPoseProportionalMotion ProportionalMotion;
+
+	void sub_01599c10(const FPoseProportionalMotion& InMotion);
+};
+
+// @baa 0x01599c10
+// Copy the newest change's proportional motion into the accumulator.
+void RAnimUtil_AnimAccumulator_::sub_01599c10(const FPoseProportionalMotion& InMotion)
+{
+	ProportionalMotion = InMotion;
+}
+
+// @baa 0x0159a3b0
+// BmGame/Src/RAnimNode_Pose.cpp
+// Small out-of-line predicate: true when a float is at least 0.999.
+int sub_0159a3b0(int a, int b, float Value)
+{
+    return Value >= 0.999f;
+}
+
+// Slot vf_258 passes its argument in xmm0 (movss), so it is a FLOAT even though
+// the header types it as INT.
+struct URAnimNode_Pose_ : public URAnimNode_Pose {
+    void sub_01595c40(FLOAT YawVelocity);
+};
+
+// @baa 0x01595c40
+void URAnimNode_Pose_::sub_01595c40(FLOAT YawVelocity)
+{
+    MovementOutput.ProceduralMovement.OverrideYawVelocityEnabled = 1;
+    MovementOutput.ProceduralMovement.OverrideYawVelocity = YawVelocity;
+}
+
+struct T_015be1f0 {
+    void sub_015be1f0();
+};
+
+struct C_015c2be0 {
+    int a;
+    int b;
+    char pad[0x5bc - 4];
+    T_015be1f0 m;
+    void sub_015c2be0();
+};
+
+// @baa 0x015c2be0
+void C_015c2be0::sub_015c2be0()
+{
+    if (a == 0)
+        return;
+    int * p = &b;
+    if (p == 0)
+        return;
+    ((T_015be1f0 *)((int)p + 0x5bc))->sub_015be1f0();
 }

@@ -1,4 +1,4 @@
-// Engine_1aa0000.cpp (part 3 of 3): 2 functions
+// Engine_1aa0000.cpp (part 3 of 3): 3 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -50,4 +50,18 @@ FRange_01aafef0 *FRange_01aafef0::sub_01aafef0(UINT Index, FArrayLike *Array)
 	Range = Array;
 	Count = Index;
 	return this;
+}
+
+struct C
+{
+    INT pad_00[2];
+    INT Shift;
+
+    DWORD sub_01aaf6f0();
+};
+
+// @baa 0x01aaf6f0
+DWORD C::sub_01aaf6f0()
+{
+    return 1 << Shift;
 }

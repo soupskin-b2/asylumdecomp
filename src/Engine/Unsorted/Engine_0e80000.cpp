@@ -1,4 +1,4 @@
-// Engine_0e80000.cpp: 5 functions
+// Engine_0e80000.cpp: 6 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -55,4 +55,23 @@ int C_00e8f880::sub_00e8f880(int param_2)
     int * param_1 = (int *)this;
 
   return *param_1 + param_2 * 0x14;
+}
+
+struct C_00e8f800
+{
+    INT field_00;
+    INT field_04;
+    INT field_08;
+    INT field_0c;
+    INT field_10;
+    INT Value;
+
+    INT* sub_00e8f800(INT* Out);
+};
+
+// @baa 0x00e8f800
+INT* C_00e8f800::sub_00e8f800(INT* Out)
+{
+    *Out = Value;
+    return Out;
 }

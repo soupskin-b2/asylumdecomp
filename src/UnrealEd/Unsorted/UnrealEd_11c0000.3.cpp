@@ -1,4 +1,4 @@
-// UnrealEd_11c0000.cpp (part 3 of 3): 1 function
+// UnrealEd_11c0000.cpp (part 3 of 3): 4 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -34,4 +34,47 @@ if(puVar1!=(undefined4*)0x0){
 puVar1[1]=param_2[1];
 }
 return iVar2;
+}
+
+class wxPanel
+{
+public:
+    __declspec(dllimport) virtual ~wxPanel();
+};
+
+extern void* g_021e92a0[];
+struct C_011c1130 : public wxPanel
+{
+    void sub_011c1130();
+};
+
+// @baa 0x011c1130
+void C_011c1130::sub_011c1130()
+{
+    *(void**)this = g_021e92a0;
+    ((wxPanel*)this)->wxPanel::~wxPanel();
+}
+
+struct C_011c1170 : public wxPanel
+{
+    void sub_011c1170();
+};
+
+// @baa 0x011c1170
+void C_011c1170::sub_011c1170()
+{
+    *(void**)this = g_021e92a0;
+    ((wxPanel*)this)->wxPanel::~wxPanel();
+}
+
+struct C_011c1220 : public wxPanel
+{
+    void sub_011c1220();
+};
+
+// @baa 0x011c1220
+void C_011c1220::sub_011c1220()
+{
+    *(void**)this = g_021e92a0;
+    ((wxPanel*)this)->wxPanel::~wxPanel();
 }

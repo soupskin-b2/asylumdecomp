@@ -1,4 +1,4 @@
-// D3D9Drv_0e90000.cpp (part 1 of 2): 178 functions
+// D3D9Drv_0e90000.cpp (part 1 of 2): 179 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -1484,4 +1484,17 @@ undefined4 * C_00e9ff80::sub_00e9ff80(byte param_2)
     sub_0053dfa0(param_1);
   }
   return param_1;
+}
+
+struct C_00e9d110
+{
+    INT Value;
+
+    INT sub_00e9d110();
+};
+
+// @baa 0x00e9d110
+INT C_00e9d110::sub_00e9d110()
+{
+    return Value == 0 ? -1 : 0;
 }

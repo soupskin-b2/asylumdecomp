@@ -1,4 +1,4 @@
-// Editor_0540000.cpp: 41 functions
+// Editor_0540000.cpp: 42 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Array.h"
@@ -360,4 +360,40 @@ struct S {
 const E* S::sub_00545880(INT Index) const
 {
     return &Items(Index);
+}
+
+struct C_00540490
+{
+    INT field_00;
+    INT field_04;
+    INT field_08;
+    INT field_0c;
+    INT field_10;
+    INT field_14;
+    INT field_18;
+    INT field_1c;
+    INT field_20;
+    INT field_24;
+    INT field_28;
+    INT field_2c;
+    INT field_30;
+    INT field_34;
+    INT field_38;
+    INT field_3c;
+    INT field_40;
+    INT field_44;
+    INT field_48;
+    INT field_4c;
+    INT field_50;
+    INT field_54;
+    INT Value;
+
+    INT* sub_00540490(INT* Out);
+};
+
+// @baa 0x00540490
+INT* C_00540490::sub_00540490(INT* Out)
+{
+    *Out = Value;
+    return Out;
 }

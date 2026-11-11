@@ -1,4 +1,4 @@
-// Unknown_1b90000.cpp (part 2 of 2): 14 functions
+// Unknown_1b90000.cpp (part 2 of 2): 15 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -289,4 +289,12 @@ void C::sub_01b9e650(void)
   param_1[2] = 0;
   param_1[1] = 0;
   return;
+}
+
+extern INT g_0260fdb0;
+// @baa 0x01b9e140
+INT sub_01b9e140(void)
+{
+    g_0260fdb0 = 13;
+    return 13;
 }

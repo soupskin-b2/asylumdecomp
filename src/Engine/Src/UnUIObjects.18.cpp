@@ -1,4 +1,4 @@
-// UnUIObjects.cpp: 74 functions
+// UnUIObjects.cpp: 83 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -990,4 +990,144 @@ void UUIObject::RequestSceneInputMaskUpdate()
 	UUIScene* Scene = (UUIScene*)GetScene();
 	if (Scene)
 		Scene->RequestSceneInputMaskUpdate();
+}
+
+struct UUIObject__00ca5e90 : public UUIObject
+{
+	void GetPositionExtents(FLOAT& MinX, FLOAT& MaxX, FLOAT& MinY, FLOAT& MaxY, UBOOL bIncludeRotation, UBOOL bIncludeOrigin);
+	void execGetPositionExtents(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00ca5e90
+void UUIObject__00ca5e90::execGetPositionExtents(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT_REF(MinX);
+	P_GET_FLOAT_REF(MaxX);
+	P_GET_FLOAT_REF(MinY);
+	P_GET_FLOAT_REF(MaxY);
+	P_GET_UBOOL_OPTX(bIncludeRotation, FALSE);
+	P_GET_UBOOL_OPTX(bIncludeOrigin, FALSE);
+	P_FINISH;
+	GetPositionExtents(MinX, MaxX, MinY, MaxY, bIncludeRotation, bIncludeOrigin);
+}
+
+struct UUIObject__00ca57d0 : public UUIObject
+{
+	UBOOL SetDockParameters(BYTE SourceFace, UUIScreenObject* Target, BYTE TargetFace, FLOAT PaddingValue, BYTE PaddingInputType, UBOOL bModifyPaddingScaleType);
+	void execSetDockParameters(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00ca57d0
+void UUIObject__00ca57d0::execSetDockParameters(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_BYTE(SourceFace);
+	P_GET_OBJECT(UUIScreenObject, Target);
+	P_GET_BYTE(TargetFace);
+	P_GET_FLOAT(PaddingValue);
+	P_GET_BYTE_OPTX(PaddingInputType, 0);
+	P_GET_UBOOL_OPTX(bModifyPaddingScaleType, FALSE);
+	P_FINISH;
+	*(UBOOL*)Result = SetDockParameters(SourceFace, Target, TargetFace, PaddingValue, PaddingInputType, bModifyPaddingScaleType);
+}
+
+// @baa 0x00da8f30
+void UUIScreenObject::execRequestPrimitiveReview(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bReinitializePrimitives);
+	P_GET_UBOOL(bReviewPrimitiveUsage);
+	P_FINISH;
+
+	RequestPrimitiveReview(bReinitializePrimitives, bReviewPrimitiveUsage);
+}
+
+// @baa 0x00ca41f0
+void UUIScreenObject::execGetInputMask(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL_OPTX(bInheritedMaskOnly, FALSE);
+	P_GET_UBOOL_OPTX(bOverrideMaskOnly, FALSE);
+	P_FINISH;
+
+	*(BYTE*)Result = GetInputMask(bInheritedMaskOnly, bOverrideMaskOnly);
+}
+
+struct UUIRoot__00dc62d0 : public UUIRoot
+{
+	static FMatrix GetPrimitiveTransform(UUIObject* Widget, UBOOL bIncludeAnchorPosition, UBOOL bIncudeRotation, UBOOL bIncludeScale);
+	void execGetPrimitiveTransform(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00dc62d0
+void UUIRoot__00dc62d0::execGetPrimitiveTransform(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(UUIObject, Widget);
+	P_GET_UBOOL_OPTX(bIncludeAnchorPosition, FALSE);
+	P_GET_UBOOL_OPTX(bIncudeRotation, TRUE);
+	P_GET_UBOOL_OPTX(bIncludeScale, TRUE);
+	P_FINISH;
+	*(FMatrix*)Result = GetPrimitiveTransform(Widget, bIncludeAnchorPosition, bIncudeRotation, bIncludeScale);
+}
+
+struct UUIScreenObject__00ca45c0 : public UUIScreenObject
+{
+	void SetPosition(FLOAT NewValue, BYTE Face, BYTE InputType, UBOOL bIncludesViewportOrigin, UBOOL bResolveChange);
+	void execSetPosition(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00ca45c0
+void UUIScreenObject__00ca45c0::execSetPosition(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(NewValue);
+	P_GET_BYTE(Face);
+	P_GET_BYTE_OPTX(InputType, EVALPOS_PixelOwner);
+	P_GET_UBOOL_OPTX(bIncludesViewportOrigin, FALSE);
+	P_GET_UBOOL_OPTX(bResolveChange, TRUE);
+	P_FINISH;
+	SetPosition(NewValue, Face, InputType, bIncludesViewportOrigin, bResolveChange);
+}
+
+struct UUIScreenObject__00ca4020 : public UUIScreenObject
+{
+	INT GetBestPlayerIndex() const;
+	UUIObject* GetFocusedControl(UBOOL bRecurse, INT PlayerIndex) const;
+	void execGetFocusedControl(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00ca4020
+void UUIScreenObject__00ca4020::execGetFocusedControl(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL_OPTX(bRecurse, FALSE);
+	P_GET_INT_OPTX(PlayerIndex, GetBestPlayerIndex());
+	P_FINISH;
+	*(UUIObject**)Result = GetFocusedControl(bRecurse, PlayerIndex);
+}
+
+struct UUIScreenObject__00ca40d0 : public UUIScreenObject
+{
+	INT GetBestPlayerIndex() const;
+	UUIObject* GetLastFocusedControl(UBOOL bRecurse, INT PlayerIndex) const;
+	void execGetLastFocusedControl(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00ca40d0
+void UUIScreenObject__00ca40d0::execGetLastFocusedControl(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL_OPTX(bRecurse, FALSE);
+	P_GET_INT_OPTX(PlayerIndex, GetBestPlayerIndex());
+	P_FINISH;
+	*(UUIObject**)Result = GetLastFocusedControl(bRecurse, PlayerIndex);
+}
+
+struct UUIScene__00cb3e90 : public UUIScene
+{
+	UBOOL RegisterTickableObject(const TScriptInterface<IUITickableObject>& ObjectToRegister, INT InsertIndex);
+	void execRegisterTickableObject(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00cb3e90
+void UUIScene__00cb3e90::execRegisterTickableObject(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_TINTERFACE(IUITickableObject, ObjectToRegister);
+	P_GET_INT_OPTX(InsertIndex, INDEX_NONE);
+	P_FINISH;
+	*(UBOOL*)Result = RegisterTickableObject(ObjectToRegister, InsertIndex);
 }

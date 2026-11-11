@@ -1,4 +1,4 @@
-// UnUIObjects.cpp (part 15 of 17): 6 functions
+// UnUIObjects.cpp (part 15 of 17): 7 functions
 // Placed here by: class 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -50,4 +50,18 @@ void UUIObject::RequestFormattingUpdate()
     UUIScene* Scene = reinterpret_cast<UUIScene*>(GetScene());
     if (Scene != NULL)
         Scene->RequestFormattingUpdate();
+}
+
+struct C
+{
+    BYTE pad_00[0x10];
+    BYTE Values[1];
+
+    INT sub_00da6660(INT Index);
+};
+
+// @baa 0x00da6660
+INT C::sub_00da6660(INT Index)
+{
+    return Values[Index];
 }

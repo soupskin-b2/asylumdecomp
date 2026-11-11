@@ -1,4 +1,4 @@
-// FMOD_1780000.cpp (part 2 of 2): 16 functions
+// FMOD_1780000.cpp (part 2 of 2): 19 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -296,4 +296,80 @@ void C_0178f97d::sub_0178f97d(undefined4 param_2, uint param_3, int * param_4)
     sub_0177edb2(*(undefined4 *)(param_1 + 0xfc), param_2, 1, param_3, (int)(param_4));
   }
   return;
+}
+
+typedef void * HANDLE;
+
+extern "C" __declspec(dllimport) int __stdcall CloseHandle(HANDLE hObject);
+// @baa 0x01782849
+int sub_01782849(HANDLE hObject)
+{
+	if (hObject == (HANDLE)-1)
+		return 0x13;
+	CloseHandle(hObject);
+	return 0;
+}
+
+typedef unsigned long ULONG_PTR;
+
+typedef long LONG;
+
+#pragma pack(push, 1)
+struct _RTL_CRITICAL_SECTION
+{
+	void * DebugInfo;
+	LONG LockCount;
+	LONG RecursionCount;
+	HANDLE OwningThread;
+	HANDLE LockSemaphore;
+	ULONG_PTR SpinCount;
+};
+
+#pragma pack(pop)
+typedef _RTL_CRITICAL_SECTION * LPCRITICAL_SECTION;
+
+extern "C" __declspec(dllimport) void __stdcall EnterCriticalSection(LPCRITICAL_SECTION Section);
+// @baa 0x01782a6b
+// 37 = ERROR_LOCK_VIOLATION
+int sub_01782a6b(LPCRITICAL_SECTION Section)
+{
+	if (Section == (LPCRITICAL_SECTION)0x0)
+		return 0x25;
+	EnterCriticalSection(Section);
+	return 0;
+}
+
+#pragma pack(push, 1)
+struct _LIST_ENTRY { _LIST_ENTRY *Flink; _LIST_ENTRY *Blink; };
+
+#pragma pack(pop)
+typedef _LIST_ENTRY LIST_ENTRY;
+
+typedef void *HANDLE_01782a83;
+
+typedef unsigned long long ULONG_PTR_01782a83;
+
+#pragma pack(push, 1)
+struct _RTL_CRITICAL_SECTION_01782a83 {
+    void *DebugInfo;
+    LONG LockCount;
+    LONG RecursionCount;
+    HANDLE_01782a83 OwningThread;
+    HANDLE_01782a83 LockSemaphore;
+    ULONG_PTR_01782a83 SpinCount;
+};
+
+#pragma pack(pop)
+typedef _RTL_CRITICAL_SECTION_01782a83 *PRTL_CRITICAL_SECTION;
+
+typedef PRTL_CRITICAL_SECTION LPCRITICAL_SECTION_01782a83;
+
+extern "C" __declspec(dllimport) void __stdcall LeaveCriticalSection(LPCRITICAL_SECTION_01782a83 lpCriticalSection);
+// @baa 0x01782a83
+INT sub_01782a83(LPCRITICAL_SECTION_01782a83 cs)
+{
+    if (cs == NULL)
+        return 0x25; // ERROR_LOCK_VIOLATION
+    LeaveCriticalSection(cs);
+    return 0;
 }

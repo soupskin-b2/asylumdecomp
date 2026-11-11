@@ -1,4 +1,4 @@
-// PropertyUtils.cpp (part 2 of 3): 7 functions
+// PropertyUtils.cpp (part 2 of 3): 8 functions
 // Placed here by: neighbours 7.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -136,4 +136,23 @@ undefined4 UObject::sub_01202580(byte param_2)
     sub_0053dfa0(param_1);
   }
   return param_1;
+}
+
+struct C_011fa040
+{
+    INT field_00;
+    INT field_04;
+    INT field_08;
+    INT field_0c;
+    INT field_10;
+    INT Value;
+
+    INT* sub_011fa040(INT* Out);
+};
+
+// @baa 0x011fa040
+INT* C_011fa040::sub_011fa040(INT* Out)
+{
+    *Out = Value;
+    return Out;
 }

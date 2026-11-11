@@ -1,4 +1,4 @@
-// BmGame_0580000.cpp (part 2 of 2): 41 functions
+// BmGame_0580000.cpp (part 2 of 2): 42 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Core.h"
@@ -352,4 +352,10 @@ float10 C_0058e3e0::sub_0058e3e0(void)
 
   return (float10)*param_1 * (float10)*param_1 + (float10)param_1[1] * (float10)param_1[1] +
          (float10)param_1[2] * (float10)param_1[2] + (float10)param_1[3] * (float10)param_1[3];
+}
+
+// @baa 0x0058cb30
+INT __stdcall sub_0058cb30(void* A)
+{
+    return A == 0;
 }

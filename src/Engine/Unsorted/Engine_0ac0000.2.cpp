@@ -1,4 +1,4 @@
-// Engine_0ac0000.cpp (part 2 of 2): 1 function
+// Engine_0ac0000.cpp (part 2 of 2): 2 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -44,4 +44,23 @@ void C::sub_00ac4b40()
  int b2 = buf;
  if(!g_026b0d94) sub_006311e0("GDynamicRHI","e:\\projects\\amadeus\\aa\\game\\unrealengine3\\development\\src\\engine\\inc\\RHIMethods.h",0x85,&g_01e3f3dc);
  g_026b0d94->Unlock(b2);
+}
+
+struct C_00ac1080
+{
+    INT field_00;
+    INT field_04;
+    INT field_08;
+    INT field_0c;
+    INT field_10;
+    INT Value;
+
+    INT* sub_00ac1080(INT* Out);
+};
+
+// @baa 0x00ac1080
+INT* C_00ac1080::sub_00ac1080(INT* Out)
+{
+    *Out = Value;
+    return Out;
 }

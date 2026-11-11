@@ -1,4 +1,4 @@
-// UnPhysConstraint.cpp (part 2 of 2): 16 functions
+// UnPhysConstraint.cpp (part 2 of 2): 18 functions
 // Placed here by: class 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -238,4 +238,44 @@ void URB_ConstraintInstance__00c961b0::execSetAngularLimited(FFrame& Stack, RESU
 	P_GET_FLOAT(TwistLimitDamping);
 	P_FINISH;
 	SetAngularLimited(SwingLimited, Swing1LimitAngle, Swing2LimitAngle, SwingLimitSoft, SwingLimitStiffness, SwingLimitDamping, TwistLimited, TwistLimitAngle, TwistLimitSoft, TwistLimitStiffness, TwistLimitDamping);
+}
+
+struct URB_ConstraintInstance__00c96030 : public URB_ConstraintInstance
+{
+	void SetLimits(FVector FirstNormal, FVector FirstAxis, FVector SecondNormal, FVector SecondAxis, FLOAT Swing1Limit, FLOAT Swing2Limit);
+	void execSetLimits(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00c96030
+void URB_ConstraintInstance__00c96030::execSetLimits(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT(FVector, FirstNormal);
+	P_GET_STRUCT(FVector, FirstAxis);
+	P_GET_STRUCT(FVector, SecondNormal);
+	P_GET_STRUCT(FVector, SecondAxis);
+	P_GET_FLOAT(Swing1Limit);
+	P_GET_FLOAT(Swing2Limit);
+	P_FINISH;
+	SetLimits(FirstNormal, FirstAxis, SecondNormal, SecondAxis, Swing1Limit, Swing2Limit);
+}
+
+struct URB_ConstraintInstance__00c95680 : public URB_ConstraintInstance
+{
+	void InitConstraint(UPrimitiveComponent* PrimComp1, UPrimitiveComponent* PrimComp2, URB_ConstraintSetup* Setup, FLOAT Scale, AActor* InOwner, UPrimitiveComponent* InPrimComp, UBOOL bMakeKinForBody1, UPhysicsAssetInstance* PhysicsAssetInstance);
+	void execInitConstraint(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00c95680
+void URB_ConstraintInstance__00c95680::execInitConstraint(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(UPrimitiveComponent, PrimComp1);
+	P_GET_OBJECT(UPrimitiveComponent, PrimComp2);
+	P_GET_OBJECT(URB_ConstraintSetup, Setup);
+	P_GET_FLOAT(Scale);
+	P_GET_OBJECT(AActor, InOwner);
+	P_GET_OBJECT(UPrimitiveComponent, InPrimComp);
+	P_GET_UBOOL(bMakeKinForBody1);
+	P_GET_OBJECT(UPhysicsAssetInstance, PhysicsAssetInstance);
+	P_FINISH;
+	InitConstraint(PrimComp1, PrimComp2, Setup, Scale, InOwner, InPrimComp, bMakeKinForBody1, PhysicsAssetInstance);
 }

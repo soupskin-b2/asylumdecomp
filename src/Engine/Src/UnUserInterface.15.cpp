@@ -1,4 +1,4 @@
-// UnUserInterface.cpp (part 15 of 15): 4 functions
+// UnUserInterface.cpp (part 15 of 15): 6 functions
 // Placed here by: class 3.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -25,4 +25,32 @@ int sub_00630f20(int Log, const wchar_t* Message, const wchar_t* Func);
 void UUISceneClient::RenderScenes(INT)
 {
     sub_00630f20(g_026667a8, L"Pure virtual not implemented (%s)", L"UUISceneClient::RenderScenes");
+}
+
+struct C
+{
+    BYTE pad_00[0x2c];
+    BYTE Values[1];
+
+    INT sub_00ddec90(INT Index);
+};
+
+// @baa 0x00ddec90
+INT C::sub_00ddec90(INT Index)
+{
+    return Values[Index];
+}
+
+struct C_00ddeca0
+{
+    BYTE pad_00[0x24];
+    BYTE Values[1];
+
+    INT sub_00ddeca0(INT Index);
+};
+
+// @baa 0x00ddeca0
+INT C_00ddeca0::sub_00ddeca0(INT Index)
+{
+    return Values[Index];
 }

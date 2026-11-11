@@ -1,4 +1,4 @@
-// BmGame_1660000.cpp (part 2 of 3): 155 functions
+// BmGame_1660000.cpp (part 2 of 3): 156 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -851,3 +851,22 @@ struct C_0166ffe0 { int a, b, c; C_0166ffe0(); };
 
 // @baa 0x0166ffe0
 C_0166ffe0::C_0166ffe0() : a(0), b(0), c(0) {}
+
+// A 4-byte wrapper holding a pointer to an animation object.
+struct RAnim {
+    void* Anim;
+    float sub_01598280();
+};
+
+struct ARPawnCombat_ : public ARPawnCombat {
+    // Returns the animation value, or 1.0f when there is no anim.
+    float sub_0166d590(RAnim R);
+};
+
+// @baa 0x0166d590
+float ARPawnCombat_::sub_0166d590(RAnim R)
+{
+    if (R.Anim)
+        return R.sub_01598280();
+    return 1.f;
+}

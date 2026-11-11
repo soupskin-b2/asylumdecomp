@@ -1,4 +1,4 @@
-// UnrealEd_04e0000.cpp: 1 function
+// UnrealEd_04e0000.cpp: 3 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Core.h"
@@ -57,4 +57,36 @@ struct Outer_004e8d90 {
 void Outer_004e8d90::sub_004e8d90(int bArg)
 {
     sub_0x1a8->sub_virt(1);
+}
+
+class wxWindow
+{
+public:
+    __declspec(dllimport) virtual ~wxWindow();
+};
+
+extern void* g_01e65700[];
+struct C : public wxWindow
+{
+    void sub_004e8f70();
+};
+
+// @baa 0x004e8f70
+void C::sub_004e8f70()
+{
+    *(void**)this = g_01e65700;
+    ((wxWindow*)this)->wxWindow::~wxWindow();
+}
+
+extern void* g_01e65dc0[];
+struct C_004eb030 : public wxWindow
+{
+    void sub_004eb030();
+};
+
+// @baa 0x004eb030
+void C_004eb030::sub_004eb030()
+{
+    *(void**)this = g_01e65dc0;
+    ((wxWindow*)this)->wxWindow::~wxWindow();
 }

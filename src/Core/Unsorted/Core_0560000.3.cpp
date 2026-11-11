@@ -1,4 +1,4 @@
-// Core_0560000.cpp (part 3 of 3): 2 functions
+// Core_0560000.cpp (part 3 of 3): 3 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -37,4 +37,17 @@ if((undefined4*)0x0!=puVar1){
 *puVar1=*param_2;
 }
 return iVar2;
+}
+
+struct C_00568780
+{
+    INT Value;
+
+    INT sub_00568780();
+};
+
+// @baa 0x00568780
+INT C_00568780::sub_00568780()
+{
+    return Value == 0 ? -1 : 0;
 }

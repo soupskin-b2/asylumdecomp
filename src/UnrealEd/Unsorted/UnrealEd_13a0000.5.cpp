@@ -1,4 +1,4 @@
-// UnrealEd_13a0000.cpp (part 5 of 5): 5 functions
+// UnrealEd_13a0000.cpp (part 5 of 5): 6 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -117,4 +117,23 @@ void C_013ae970::sub_013ae970(int param_2)
     }
   }
   return;
+}
+
+struct C_013a7fa0
+{
+    INT field_00;
+    INT field_04;
+    INT field_08;
+    INT field_0c;
+    INT field_10;
+    INT Value;
+
+    INT* sub_013a7fa0(INT* Out);
+};
+
+// @baa 0x013a7fa0
+INT* C_013a7fa0::sub_013a7fa0(INT* Out)
+{
+    *Out = Value;
+    return Out;
 }
