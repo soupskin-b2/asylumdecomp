@@ -5,12 +5,9 @@
 #include "ue3/Cast.h"
 
 // Classes.h declares AActor::ShouldTrace (slot 0x198) as vf_198(UINT, UINT, BYTE).
-struct ABlockingVolume_ : public ABlockingVolume {
-    UBOOL ShouldTrace(UPrimitiveComponent* Primitive, AActor* SourceActor, DWORD TraceFlags);
-};
 
-struct ARGrappleSmoothingVolume_ : public ABlockingVolume_ {
-    typedef ABlockingVolume_ Super;
+struct ARGrappleSmoothingVolume_ : public ABlockingVolume {
+    typedef ABlockingVolume Super;
     UBOOL ShouldTrace(UPrimitiveComponent* Primitive, AActor* SourceActor, DWORD TraceFlags);
 };
 

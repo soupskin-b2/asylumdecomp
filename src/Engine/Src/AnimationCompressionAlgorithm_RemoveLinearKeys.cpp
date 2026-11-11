@@ -26,10 +26,6 @@ void SeparateRawDataIntoTracks( const TArray<FRawAnimSequenceTrack>& RawAnimData
 void AnimationFormat_SetInterfaceLinks( UAnimSequence& Seq );
 UObject* StaticDuplicateObject( UObject* SourceObject, UObject* RootObject, UObject* DestOuter, const TCHAR* DestName, QWORD FlagMask = ~0, UClass* DestClass = NULL, void* InstanceGraph = NULL );
 /* Core's UObject::MarkPackageDirty (0x005d9570), not declared on UObject in Classes.h. */
-struct UAnimSequence_ : public UAnimSequence
-{
-	void MarkPackageDirty( UBOOL InDirty = TRUE ) const;
-};
 
 enum AnimationKeyFormat
 {
@@ -82,7 +78,7 @@ void UAnimationCompressionAlgorithm_RemoveLinearKeys_::DoReduction( UAnimSequenc
 	AnimSeq->KeyEncodingFormat = AKF_VariableKeyLerp;
 	AnimationFormat_SetInterfaceLinks(*AnimSeq);
 	AnimSeq->CompressionScheme = static_cast<UAnimationCompressionAlgorithm*>( StaticDuplicateObject( this, this, AnimSeq, TEXT("None"), ~(QWORD)0x4000 ) );
-	((UAnimSequence_*)AnimSeq)->MarkPackageDirty();
+	((UAnimSequence*)AnimSeq)->MarkPackageDirty();
 
 	// remove the keys we can interpolate
 	ProcessAnimationTracks(

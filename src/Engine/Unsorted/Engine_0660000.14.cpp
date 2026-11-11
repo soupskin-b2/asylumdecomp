@@ -8,14 +8,9 @@ IMPLEMENT_CLASS_AT(UMaterialInterface, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealE
 
 // A UMaterialInterface member the header doesn't declare: returns the material's default
 // surface height (an INT).
-struct UMaterialInterface_ : public UMaterialInterface
-{
-    INT sub_006d9240();
-    virtual DOUBLE GetSurfaceHeight();
-};
 
 // @baa 0x006635a0
-DOUBLE UMaterialInterface_::GetSurfaceHeight()
+DOUBLE UMaterialInterface::GetSurfaceHeight()
 {
     return sub_006d9240();
 }

@@ -39,30 +39,20 @@ void UOnlineProfileSettings::execGetVersionNumber(FFrame& Stack, RESULT_DECL)
 	*(INT*)Result = vf_160();
 }
 
-struct UOnlineProfileSettings_ : public UOnlineProfileSettings
-{
-	INT sub_00d72590(INT);
-};
-
 // @baa 0x00c8db10
 void UOnlineProfileSettings::execFindProfileSettingIndex(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(ProfileSettingId);
 	P_FINISH;
-	*(INT*)Result = ((UOnlineProfileSettings_*)this)->sub_00d72590(ProfileSettingId);
+	*(INT*)Result = sub_00d72590(ProfileSettingId);
 }
-
-struct UOnlineProfileSettings__00c8db80 : public UOnlineProfileSettings
-{
-	INT sub_00d72610(INT);
-};
 
 // @baa 0x00c8db80
 void UOnlineProfileSettings::execFindProfileMappingIndex(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(ProfileSettingId);
 	P_FINISH;
-	*(INT*)Result = ((UOnlineProfileSettings__00c8db80*)this)->sub_00d72610(ProfileSettingId);
+	*(INT*)Result = sub_00d72610(ProfileSettingId);
 }
 
 // @baa 0x00c8da90
@@ -91,14 +81,8 @@ void UOnlineProfileSettings::execIsProfileSettingIdMapped(FFrame& Stack, RESULT_
 	*(UBOOL*)Result = vf_118(ProfileSettingId);
 }
 
-struct UOnlineProfileSettings__00c8dbf0 : public UOnlineProfileSettings
-{
-	INT FindProfileMappingIndexByName(FName ProfileSettingName);
-	void execFindProfileMappingIndexByName(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c8dbf0
-void UOnlineProfileSettings__00c8dbf0::execFindProfileMappingIndexByName(FFrame& Stack, RESULT_DECL)
+void UOnlineProfileSettings::execFindProfileMappingIndexByName(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_NAME(ProfileSettingName);
 	P_FINISH;

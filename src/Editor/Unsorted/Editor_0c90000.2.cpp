@@ -4,14 +4,8 @@
 #include "ue3/Classes.h"
 #include "ue3/Script.h"
 
-struct ADecalManager_ : public ADecalManager
-{
-	UBOOL AreDynamicDecalsEnabled();
-	void execAreDynamicDecalsEnabled(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c9eca0
-void ADecalManager_::execAreDynamicDecalsEnabled( FFrame& Stack, RESULT_DECL )
+void ADecalManager::execAreDynamicDecalsEnabled( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	*(UBOOL*)Result = AreDynamicDecalsEnabled();

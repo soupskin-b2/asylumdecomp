@@ -13,43 +13,28 @@ void ARExplosiveGooMine::execConditionalSetupPosition(FFrame& Stack, RESULT_DECL
 	*(AActor**)Result = ((FSlot)(*(void***)this)[0x354 / 4])(this);
 }
 
-struct ARBatarangCamera_ : public ARBatarangCamera
-{
-	void sub_016a9f20(FLOAT);
-};
-
 // @baa 0x01709b40
 void ARBatarangCamera::execUpdateTrackingPosition(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(DeltaTime);
 	P_FINISH;
-	((ARBatarangCamera_*)this)->sub_016a9f20(DeltaTime);
+	sub_016a9f20(DeltaTime);
 }
-
-struct ARLineLauncherDirectorCamera_ : public ARLineLauncherDirectorCamera
-{
-	void sub_016b0e10(FLOAT);
-};
 
 // @baa 0x0170a180
 void ARLineLauncherDirectorCamera::execSetupPosition(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(DeltaTime);
 	P_FINISH;
-	((ARLineLauncherDirectorCamera_*)this)->sub_016b0e10(DeltaTime);
+	sub_016b0e10(DeltaTime);
 }
-
-struct ARMultiTargetCamera_ : public ARMultiTargetCamera
-{
-	void sub_016b70c0(FLOAT);
-};
 
 // @baa 0x0170a2d0
 void ARMultiTargetCamera::execUpdatePosition(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(DeltaTime);
 	P_FINISH;
-	((ARMultiTargetCamera_*)this)->sub_016b70c0(DeltaTime);
+	sub_016b70c0(DeltaTime);
 }
 
 // @baa 0x01703ab0
@@ -108,17 +93,12 @@ void ARDisruptableObjectDoor::execUpdateSound(FFrame& Stack, RESULT_DECL)
 	vf_358((INT)Batman);
 }
 
-struct ARCameraActor_ : public ARCameraActor
-{
-	FLOAT sub_01690910(AR3rdPersonCamera*);
-};
-
 // @baa 0x01709ad0
 void ARCameraActor::execCorrectedAspectRatioFOV(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(AR3rdPersonCamera, OwnerCam);
 	P_FINISH;
-	*(FLOAT*)Result = ((ARCameraActor_*)this)->sub_01690910(OwnerCam);
+	*(FLOAT*)Result = sub_01690910(OwnerCam);
 }
 
 // @baa 0x01701480
@@ -137,30 +117,20 @@ void URBMBehaviour::execSleepFrame(FFrame& Stack, RESULT_DECL)
 	vf_1ac(Frames);
 }
 
-struct ARBatarang_ : public ARBatarang
-{
-	void sub_01640960(ARBatarangProjectile*);
-};
-
 // @baa 0x01706ff0
 void ARBatarang::execUpdateAliveProjectiles(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(ARBatarangProjectile, NewProjectile);
 	P_FINISH;
-	((ARBatarang_*)this)->sub_01640960(NewProjectile);
+	sub_01640960(NewProjectile);
 }
-
-struct ARLevelTransition_ : public ARLevelTransition
-{
-	void sub_0155a090(ARPawnCharacter*);
-};
 
 // @baa 0x01708ba0
 void ARLevelTransition::execPlayerUpdateTransform(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(ARPawnCharacter, Mesh);
 	P_FINISH;
-	((ARLevelTransition_*)this)->sub_0155a090(Mesh);
+	sub_0155a090(Mesh);
 }
 
 // @baa 0x017086a0

@@ -5,13 +5,9 @@
 #include "ue3/Script.h"
 
 // FExec's virtual interface (Classes.h only knows its slot 0).
-struct FExec_ : public FExec
-{
-    UBOOL Exec(const TCHAR* Cmd, FOutputDevice& Ar);
-};
 
 // @baa 0x00544680
-UBOOL FExec_::Exec(const TCHAR* Cmd, FOutputDevice& Ar)
+UBOOL FExec::Exec(const TCHAR* Cmd, FOutputDevice& Ar)
 {
     PURE_VIRTUAL(FExec::Exec, return 0;);
 }

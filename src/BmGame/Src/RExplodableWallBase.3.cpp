@@ -4,15 +4,10 @@
 #include "ue3/Classes.h"
 #include "ue3/Script.h"
 
-struct ARExplodableWallBase_ : public ARExplodableWallBase
-{
-	BYTE sub_01716aa0(FVector);
-};
-
 // @baa 0x0171a180
 void ARExplodableWallBase::execGetWallSide(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT(FVector, TestLocation);
 	P_FINISH;
-	*(BYTE*)Result = ((ARExplodableWallBase_*)this)->sub_01716aa0(TestLocation);
+	*(BYTE*)Result = sub_01716aa0(TestLocation);
 }

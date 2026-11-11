@@ -81,27 +81,15 @@ void ARCinematicActor::execInternalFinishAnimControl( FFrame& Stack, RESULT_DECL
 	vf_360();
 }
 
-struct ARCinematicBatmanBase_ : public ARCinematicBatmanBase
-{
-	void DamageLevelUpdated();
-	void execDamageLevelUpdated(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x016ea200
-void ARCinematicBatmanBase_::execDamageLevelUpdated( FFrame& Stack, RESULT_DECL )
+void ARCinematicBatmanBase::execDamageLevelUpdated( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	DamageLevelUpdated();
 }
 
-struct ARCinematicBatmanBase__016ea230 : public ARCinematicBatmanBase
-{
-    void sub_0156bbd0();
-    void execLoadDamageMeshes(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x016ea230
-void ARCinematicBatmanBase__016ea230::execLoadDamageMeshes(FFrame& Stack, RESULT_DECL)
+void ARCinematicBatmanBase::execLoadDamageMeshes(FFrame& Stack, RESULT_DECL)
 {
     P_FINISH;
     sub_0156bbd0();
@@ -307,17 +295,12 @@ void URAnimNode_AnimCapture::execCapture(FFrame& Stack, RESULT_DECL)
 	vf_19c(Mesh);
 }
 
-struct ARPawn_ : public ARPawn
-{
-	void sub_0166d490(FVector);
-};
-
 // @baa 0x016efd20
 void ARPawn::execSetLocationIgnoringCollision(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT(FVector, NewLocation);
 	P_FINISH;
-	((ARPawn_*)this)->sub_0166d490(NewLocation);
+	sub_0166d490(NewLocation);
 }
 
 // @baa 0x016e8790

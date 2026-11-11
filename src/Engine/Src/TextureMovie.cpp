@@ -232,14 +232,10 @@ undefined4 UTextureMovie::sub_00761170(byte param_2)
 
 /* The header's bulk data mirror declares no methods; the engine's FUntypedBulkData::Serialize is
  * at 0x00585e80. */
-struct FUntypedBulkData_Mirror_ : public FUntypedBulkData_Mirror
-{
-	void Serialize(FArchive& Ar, void* Owner, INT Idx);
-};
 
 // @baa 0x00755990
 void UTextureMovie::Serialize( FArchive& Ar )
 {
 	Super::Serialize( Ar );
-	((FUntypedBulkData_Mirror_&)Data).Serialize( Ar, this, INDEX_NONE );
+	((FUntypedBulkData_Mirror&)Data).Serialize( Ar, this, INDEX_NONE );
 }

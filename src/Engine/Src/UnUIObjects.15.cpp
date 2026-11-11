@@ -22,24 +22,15 @@ UINT UUIObject::GetNumResolvedFaces()
 }
 
 // GetTag returns the widget's tag by value (the header's INT GetTag(INT) is the wrong shape).
-struct UUIObject_ : public UUIObject
-{
-    virtual FName GetTag();
-};
 
 // @baa 0x00d99300
-FName UUIObject_::GetTag()
+FName UUIObject::GetTag()
 {
     return WidgetTag;
 }
 
-struct UUIObject__00d99330 : public UUIObject
-{
-    virtual INT HasPositionBeenResolved(BYTE FaceIndex);
-};
-
 // @baa 0x00d99330
-INT UUIObject__00d99330::HasPositionBeenResolved(BYTE FaceIndex)
+INT UUIObject::HasPositionBeenResolved(BYTE FaceIndex)
 {
     return DockTargets.bResolved[FaceIndex] != 0;
 }
@@ -74,13 +65,8 @@ int sub_00ca5000()
     return GetOutermost() == sub_005c1d70();
 }
 
-struct UUIObject__00daabb0 : public UUIObject
-{
-    int sub_00daabb0(INT Flags);
-};
-
 // @baa 0x00daabb0
-int UUIObject__00daabb0::sub_00daabb0(INT Flags)
+int UUIObject::sub_00daabb0(INT Flags)
 {
     return (PrivateFlags & Flags) == Flags;
 }

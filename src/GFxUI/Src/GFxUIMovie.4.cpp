@@ -40,30 +40,20 @@ void UGFxMovie::execSetTopMost(FFrame& Stack, RESULT_DECL)
 		((GFxViewport_*)g_026caed4)->sub_00e63ae0((void*)pMovie.Dummy);
 }
 
-struct UGFxMovie_ : public UGFxMovie
-{
-	void sub_00e67ad0(FName);
-};
-
 // @baa 0x00e67ea0
 void UGFxMovie::execAddCaptureKey(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_NAME(Key);
 	P_FINISH;
-	((UGFxMovie_*)this)->sub_00e67ad0(Key);
+	sub_00e67ad0(Key);
 }
-
-struct UGFxMovie__00e64ef0 : public UGFxMovie
-{
-	void sub_00e64310(UBOOL);
-};
 
 // @baa 0x00e64ef0
 void UGFxMovie::execClose(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL_OPTX(Unload, 1);
 	P_FINISH;
-	((UGFxMovie__00e64ef0*)this)->sub_00e64310(Unload);
+	sub_00e64310(Unload);
 }
 
 // @baa 0x00e41ec0

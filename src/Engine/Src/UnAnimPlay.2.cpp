@@ -4,13 +4,8 @@
 #include "ue3/Classes.h"
 #include "ue3/Script.h"
 
-struct UAnimNodeSequence_ : public UAnimNodeSequence
-{
-    void execSetPosition(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c907c0
-void UAnimNodeSequence_::execSetPosition(FFrame& Stack, RESULT_DECL)
+void UAnimNodeSequence::execSetPosition(FFrame& Stack, RESULT_DECL)
 {
     P_GET_FLOAT(NewTime);
     P_GET_UBOOL(bFireNotifies);

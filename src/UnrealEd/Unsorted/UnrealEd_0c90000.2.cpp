@@ -19,17 +19,12 @@ void UMaterialInstanceTimeVarying::execSetParent(FFrame& Stack, RESULT_DECL)
 	vf_160((INT)NewParent);
 }
 
-struct UMorphTargetSet_ : public UMorphTargetSet
-{
-	void* sub_0083d900(FName);
-};
-
 // @baa 0x00c926d0
 void UMorphTargetSet::execFindMorphTarget(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_NAME(MorphTargetName);
 	P_FINISH;
-	*(void**)Result = ((UMorphTargetSet_*)this)->sub_0083d900(MorphTargetName);
+	*(void**)Result = sub_0083d900(MorphTargetName);
 }
 
 // @baa 0x00c92650

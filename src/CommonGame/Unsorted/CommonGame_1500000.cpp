@@ -1453,13 +1453,9 @@ struct C_0150ffd0 { C_0150ffd0* sub_0150ffd0(int a0); };
 C_0150ffd0* C_0150ffd0::sub_0150ffd0(int a0) { return this; }
 
 extern INT g_026e0b78;
-struct ARDebugMenu_ : public ARDebugMenu
-{
-    INT vf_384(INT Value);
-};
 
 // @baa 0x0150f470
-INT ARDebugMenu_::vf_384(INT Value)
+INT ARDebugMenu::vf_384(INT Value)
 {
     g_026e0b78 = Value;
     return Value;

@@ -6,25 +6,16 @@
 
 #define CPF_Config 0x0000000000004000
 // Not declared in Classes.h: UClass::GetDefaultObject (00572b30) and UObject::SaveConfig (005df020).
-struct UClass_ : public UClass
-{
-    UObject* GetDefaultObject(UBOOL bForce = FALSE);
-};
-
-struct UObject_ : public UObject
-{
-    void SaveConfig(QWORD Flags = CPF_Config, const TCHAR* Filename = NULL);
-};
 
 // @baa 0x005999f0
 void UObject::execStaticSaveConfig(FFrame& Stack, RESULT_DECL)
 {
     P_FINISH;
 
-    UObject* DefaultObject = ((UClass_*)GetClass())->GetDefaultObject();
+    UObject* DefaultObject = ((UClass*)GetClass())->GetDefaultObject();
 #line 5307 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Core\\Src\\UnCorSc.cpp"
     check(DefaultObject);
-    ((UObject_*)DefaultObject)->SaveConfig();
+    ((UObject*)DefaultObject)->SaveConfig();
 }
 
 #line 31 "candidate.cpp"

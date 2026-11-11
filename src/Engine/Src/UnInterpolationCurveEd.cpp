@@ -1081,16 +1081,12 @@ C_00d23780::C_00d23780() {}
 // @baa 0x00d23780
 void C_00d23780::sub_00d29f10() {}
 
-struct FInterpCurveFloat_ : public FInterpCurveFloat {
-    void sub_007b96a0(FLOAT Tension);
-};
-
 // @baa 0x00cfb5d0
 void UInterpTrackFloatBase::vf_04c(UINT PropertyThatChanged)
 {
     if (Randomiser.bUseRandomise) {
         vf_160();
     }
-    ((FInterpCurveFloat_&)FloatTrack).sub_007b96a0(CurveTension);
+    ((FInterpCurveFloat&)FloatTrack).sub_007b96a0(CurveTension);
     UInterpTrack::vf_04c(PropertyThatChanged);
 }

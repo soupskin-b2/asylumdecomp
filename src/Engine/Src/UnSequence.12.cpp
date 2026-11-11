@@ -4,14 +4,8 @@
 #include "ue3/Classes.h"
 #include "ue3/Script.h"
 
-struct USequenceOp_ : public USequenceOp
-{
-	void GetLinkedObjects(TArray<USequenceObject*>& out_Objects, UClass* ObjectType, UBOOL bRecurse);
-	void execGetLinkedObjects(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00cc3b10
-void USequenceOp_::execGetLinkedObjects(FFrame& Stack, RESULT_DECL)
+void USequenceOp::execGetLinkedObjects(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_TARRAY_REF(USequenceObject*, out_Objects);
 	P_GET_OBJECT_OPTX(UClass, ObjectType, NULL);
@@ -20,14 +14,8 @@ void USequenceOp_::execGetLinkedObjects(FFrame& Stack, RESULT_DECL)
 	GetLinkedObjects(out_Objects, ObjectType, bRecurse);
 }
 
-struct USequenceOp__00c98110 : public USequenceOp
-{
-	UBOOL HasLinkedOps(UBOOL bConsiderInputLinks);
-	void execHasLinkedOps(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c98110
-void USequenceOp__00c98110::execHasLinkedOps(FFrame& Stack, RESULT_DECL)
+void USequenceOp::execHasLinkedOps(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL_OPTX(bConsiderInputLinks, FALSE);
 	P_FINISH;

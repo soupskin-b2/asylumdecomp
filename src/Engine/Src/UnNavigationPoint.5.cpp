@@ -4,53 +4,31 @@
 #include "ue3/Classes.h"
 #include "ue3/Script.h"
 
-struct ACoverLink_ : public ACoverLink
-{
-	UBOOL IsEnabled();
-	void execIsEnabled(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c88ac0
-void ACoverLink_::execIsEnabled( FFrame& Stack, RESULT_DECL )
+void ACoverLink::execIsEnabled( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	*(UBOOL*)Result = IsEnabled();
 }
-
-struct ACoverLink__00c88370 : public ACoverLink
-{
-	ACoverSlotMarker* sub_00841860(INT);
-};
 
 // @baa 0x00c88370
 void ACoverLink::execGetSlotMarker(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(SlotIdx);
 	P_FINISH;
-	*(ACoverSlotMarker**)Result = ((ACoverLink__00c88370*)this)->sub_00841860(SlotIdx);
+	*(ACoverSlotMarker**)Result = sub_00841860(SlotIdx);
 }
-
-struct ACoverLink__00c88c20 : public ACoverLink
-{
-	BYTE sub_00842180(INT);
-};
 
 // @baa 0x00c88c20
 void ACoverLink::execGetLocationDescription(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(SlotIdx);
 	P_FINISH;
-	*(BYTE*)Result = ((ACoverLink__00c88c20*)this)->sub_00842180(SlotIdx);
+	*(BYTE*)Result = sub_00842180(SlotIdx);
 }
 
-struct ACoverLink__00c888e0 : public ACoverLink
-{
-	INT GetSlotIdxToLeft(INT SlotIdx, INT Cnt);
-	void execGetSlotIdxToLeft(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c888e0
-void ACoverLink__00c888e0::execGetSlotIdxToLeft(FFrame& Stack, RESULT_DECL)
+void ACoverLink::execGetSlotIdxToLeft(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(SlotIdx);
 	P_GET_INT_OPTX(Cnt, 1);
@@ -58,14 +36,8 @@ void ACoverLink__00c888e0::execGetSlotIdxToLeft(FFrame& Stack, RESULT_DECL)
 	*(INT*)Result = GetSlotIdxToLeft(SlotIdx, Cnt);
 }
 
-struct ACoverLink__00c88980 : public ACoverLink
-{
-	INT GetSlotIdxToRight(INT SlotIdx, INT Cnt);
-	void execGetSlotIdxToRight(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c88980
-void ACoverLink__00c88980::execGetSlotIdxToRight(FFrame& Stack, RESULT_DECL)
+void ACoverLink::execGetSlotIdxToRight(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(SlotIdx);
 	P_GET_INT_OPTX(Cnt, 1);
@@ -73,14 +45,8 @@ void ACoverLink__00c88980::execGetSlotIdxToRight(FFrame& Stack, RESULT_DECL)
 	*(INT*)Result = GetSlotIdxToRight(SlotIdx, Cnt);
 }
 
-struct ACoverLink__00c887a0 : public ACoverLink
-{
-	UBOOL IsLeftEdgeSlot(INT SlotIdx, UBOOL bIgnoreLeans);
-	void execIsLeftEdgeSlot(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c887a0
-void ACoverLink__00c887a0::execIsLeftEdgeSlot(FFrame& Stack, RESULT_DECL)
+void ACoverLink::execIsLeftEdgeSlot(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(SlotIdx);
 	P_GET_UBOOL(bIgnoreLeans);
@@ -88,14 +54,8 @@ void ACoverLink__00c887a0::execIsLeftEdgeSlot(FFrame& Stack, RESULT_DECL)
 	*(UBOOL*)Result = IsLeftEdgeSlot(SlotIdx, bIgnoreLeans);
 }
 
-struct ACoverLink__00c88840 : public ACoverLink
-{
-	UBOOL IsRightEdgeSlot(INT SlotIdx, UBOOL bIgnoreLeans);
-	void execIsRightEdgeSlot(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c88840
-void ACoverLink__00c88840::execIsRightEdgeSlot(FFrame& Stack, RESULT_DECL)
+void ACoverLink::execIsRightEdgeSlot(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(SlotIdx);
 	P_GET_UBOOL(bIgnoreLeans);
@@ -103,14 +63,8 @@ void ACoverLink__00c88840::execIsRightEdgeSlot(FFrame& Stack, RESULT_DECL)
 	*(UBOOL*)Result = IsRightEdgeSlot(SlotIdx, bIgnoreLeans);
 }
 
-struct ACoverLink__00c88a20 : public ACoverLink
-{
-	UBOOL AutoAdjustSlot(INT SlotIdx, UBOOL bOnlyCheckLeans);
-	void execAutoAdjustSlot(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c88a20
-void ACoverLink__00c88a20::execAutoAdjustSlot(FFrame& Stack, RESULT_DECL)
+void ACoverLink::execAutoAdjustSlot(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(SlotIdx);
 	P_GET_UBOOL(bOnlyCheckLeans);
@@ -118,14 +72,8 @@ void ACoverLink__00c88a20::execAutoAdjustSlot(FFrame& Stack, RESULT_DECL)
 	*(UBOOL*)Result = AutoAdjustSlot(SlotIdx, bOnlyCheckLeans);
 }
 
-struct ACoverLink__00c886f0 : public ACoverLink
-{
-	UBOOL IsEdgeSlot(INT SlotIdx, UBOOL bIgnoreLeans);
-	void execIsEdgeSlot(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c886f0
-void ACoverLink__00c886f0::execIsEdgeSlot(FFrame& Stack, RESULT_DECL)
+void ACoverLink::execIsEdgeSlot(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(SlotIdx);
 	P_GET_UBOOL_OPTX(bIgnoreLeans, FALSE);
@@ -133,14 +81,8 @@ void ACoverLink__00c886f0::execIsEdgeSlot(FFrame& Stack, RESULT_DECL)
 	*(UBOOL*)Result = IsEdgeSlot(SlotIdx, bIgnoreLeans);
 }
 
-struct ACoverLink__00c88110 : public ACoverLink
-{
-	FVector GetSlotLocation(INT SlotIdx, UBOOL bForceUseOffset);
-	void execGetSlotLocation(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c88110
-void ACoverLink__00c88110::execGetSlotLocation(FFrame& Stack, RESULT_DECL)
+void ACoverLink::execGetSlotLocation(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(SlotIdx);
 	P_GET_UBOOL_OPTX(bForceUseOffset, FALSE);
@@ -148,14 +90,8 @@ void ACoverLink__00c88110::execGetSlotLocation(FFrame& Stack, RESULT_DECL)
 	*(FVector*)Result = GetSlotLocation(SlotIdx, bForceUseOffset);
 }
 
-struct ACoverLink__00c881d0 : public ACoverLink
-{
-	FRotator GetSlotRotation(INT SlotIdx, UBOOL bForceUseOffset);
-	void execGetSlotRotation(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c881d0
-void ACoverLink__00c881d0::execGetSlotRotation(FFrame& Stack, RESULT_DECL)
+void ACoverLink::execGetSlotRotation(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(SlotIdx);
 	P_GET_UBOOL_OPTX(bForceUseOffset, FALSE);
@@ -163,14 +99,8 @@ void ACoverLink__00c881d0::execGetSlotRotation(FFrame& Stack, RESULT_DECL)
 	*(FRotator*)Result = GetSlotRotation(SlotIdx, bForceUseOffset);
 }
 
-struct ACoverLink__00c883e0 : public ACoverLink
-{
-	UBOOL IsExposedTo(INT SlotIdx, FCoverInfo ChkSlot, FLOAT& out_ExposedScale);
-	void execIsExposedTo(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c883e0
-void ACoverLink__00c883e0::execIsExposedTo(FFrame& Stack, RESULT_DECL)
+void ACoverLink::execIsExposedTo(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(SlotIdx);
 	P_GET_STRUCT(FCoverInfo, ChkSlot);
@@ -204,14 +134,8 @@ enum ECoverAction
 	CA_MAX,
 };
 
-struct ACoverLink__00c88290 : public ACoverLink
-{
-	FVector GetSlotViewPoint(INT SlotIdx, BYTE Type, BYTE Action);
-	void execGetSlotViewPoint(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c88290
-void ACoverLink__00c88290::execGetSlotViewPoint(FFrame& Stack, RESULT_DECL)
+void ACoverLink::execGetSlotViewPoint(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(SlotIdx);
 	P_GET_BYTE_OPTX(Type, CT_None);
@@ -220,14 +144,8 @@ void ACoverLink__00c88290::execGetSlotViewPoint(FFrame& Stack, RESULT_DECL)
 	*(FVector*)Result = GetSlotViewPoint(SlotIdx, Type, Action);
 }
 
-struct ACoverLink__00c884c0 : public ACoverLink
-{
-	UBOOL IsValidClaim(APawn* ChkClaim, INT SlotIdx, UBOOL bSkipTeamCheck, UBOOL bSkipOverlapCheck);
-	void execIsValidClaim(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c884c0
-void ACoverLink__00c884c0::execIsValidClaim(FFrame& Stack, RESULT_DECL)
+void ACoverLink::execIsValidClaim(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(APawn, ChkClaim);
 	P_GET_INT(SlotIdx);
@@ -237,14 +155,8 @@ void ACoverLink__00c884c0::execIsValidClaim(FFrame& Stack, RESULT_DECL)
 	*(UBOOL*)Result = IsValidClaim(ChkClaim, SlotIdx, bSkipTeamCheck, bSkipOverlapCheck);
 }
 
-struct ACoverLink__00c88b00 : public ACoverLink
-{
-	INT AddCoverSlot(FVector SlotLocation, FRotator SlotRotation, INT SlotIdx, UBOOL bForceSlotUpdate);
-	void execAddCoverSlot(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c88b00
-void ACoverLink__00c88b00::execAddCoverSlot(FFrame& Stack, RESULT_DECL)
+void ACoverLink::execAddCoverSlot(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT(FVector, SlotLocation);
 	P_GET_STRUCT(FRotator, SlotRotation);
@@ -254,14 +166,8 @@ void ACoverLink__00c88b00::execAddCoverSlot(FFrame& Stack, RESULT_DECL)
 	*(INT*)Result = AddCoverSlot(SlotLocation, SlotRotation, SlotIdx, bForceSlotUpdate);
 }
 
-struct ACoverLink__00c885d0 : public ACoverLink
-{
-	UBOOL FindSlots(FVector CheckLocation, FLOAT MaxDistance, INT& LeftSlotIdx, INT& RightSlotIdx);
-	void execFindSlots(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c885d0
-void ACoverLink__00c885d0::execFindSlots(FFrame& Stack, RESULT_DECL)
+void ACoverLink::execFindSlots(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT(FVector, CheckLocation);
 	P_GET_FLOAT(MaxDistance);
@@ -271,14 +177,8 @@ void ACoverLink__00c885d0::execFindSlots(FFrame& Stack, RESULT_DECL)
 	*(UBOOL*)Result = FindSlots(CheckLocation, MaxDistance, LeftSlotIdx, RightSlotIdx);
 }
 
-struct ACoverLink__00cbff70 : public ACoverLink
-{
-	void GetSlotActions(INT SlotIdx, TArray<BYTE>& Actions);
-	void execGetSlotActions(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00cbff70
-void ACoverLink__00cbff70::execGetSlotActions(FFrame& Stack, RESULT_DECL)
+void ACoverLink::execGetSlotActions(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(SlotIdx);
 	P_GET_TARRAY_REF(BYTE, Actions);

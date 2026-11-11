@@ -76,16 +76,11 @@ void UAnimNodeSlot::execPlayCustomAnim(FFrame& Stack, RESULT_DECL)
     *(FLOAT*)Result = static_cast<AnimNodeSlotNative_00c91050*>(this)->sub_00c7ef60(AnimName, Rate, BlendInTime, BlendOutTime, bLooping, bOverride);
 }
 
-struct UAnimNodeSlot_ : public UAnimNodeSlot
-{
-	UAnimNodeSequence* sub_00c7ccb0();
-};
-
 // @baa 0x00c91510
 void UAnimNodeSlot::execGetCustomAnimNodeSeq(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UAnimNodeSequence**)Result = ((UAnimNodeSlot_*)this)->sub_00c7ccb0();
+	*(UAnimNodeSequence**)Result = sub_00c7ccb0();
 }
 
 // @baa 0x00c90490
@@ -115,27 +110,16 @@ void UAnimNodeAimOffset::execSetActiveProfileByIndex(FFrame& Stack, RESULT_DECL)
 	vf_1a0(ProfileIndex);
 }
 
-struct UAnimNodeSlot__00c91620 : public UAnimNodeSlot
-{
-	void sub_00c803f0(FName);
-};
-
 // @baa 0x00c91620
 void UAnimNodeSlot::execAddToSynchGroup(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_NAME(GroupName);
 	P_FINISH;
-	((UAnimNodeSlot__00c91620*)this)->sub_00c803f0(GroupName);
+	sub_00c803f0(GroupName);
 }
 
-struct UAnimNodeSlot__00c911e0 : public UAnimNodeSlot
-{
-	void PlayCustomAnimByDuration(FName AnimName, FLOAT Duration, FLOAT BlendInTime, FLOAT BlendOutTime, UBOOL bLooping, UBOOL bOverride);
-	void execPlayCustomAnimByDuration(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c911e0
-void UAnimNodeSlot__00c911e0::execPlayCustomAnimByDuration(FFrame& Stack, RESULT_DECL)
+void UAnimNodeSlot::execPlayCustomAnimByDuration(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_NAME(AnimName);
 	P_GET_FLOAT(Duration);
@@ -147,27 +131,15 @@ void UAnimNodeSlot__00c911e0::execPlayCustomAnimByDuration(FFrame& Stack, RESULT
 	PlayCustomAnimByDuration(AnimName, Duration, BlendInTime, BlendOutTime, bLooping, bOverride);
 }
 
-struct UAnimNodeSlot__00c91370 : public UAnimNodeSlot
-{
-	FName GetPlayedAnimation();
-	void execGetPlayedAnimation(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c91370
-void UAnimNodeSlot__00c91370::execGetPlayedAnimation(FFrame& Stack, RESULT_DECL)
+void UAnimNodeSlot::execGetPlayedAnimation(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
 	*(FName*)Result = GetPlayedAnimation();
 }
 
-struct UAnimNode_ : public UAnimNode
-{
-	UAnimNode* FindAnimNode(FName InNodeName);
-	void execFindAnimNode(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c902e0
-void UAnimNode_::execFindAnimNode(FFrame& Stack, RESULT_DECL)
+void UAnimNode::execFindAnimNode(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_NAME(InNodeName);
 	P_FINISH;

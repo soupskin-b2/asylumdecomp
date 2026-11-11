@@ -4,14 +4,8 @@
 #include "ue3/Classes.h"
 #include "ue3/Script.h"
 
-struct USkeletalMeshComponent_ : public USkeletalMeshComponent
-{
-	void RestoreSavedAnimSets();
-	void execRestoreSavedAnimSets(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00a227f0
-void USkeletalMeshComponent_::execRestoreSavedAnimSets( FFrame& Stack, RESULT_DECL )
+void USkeletalMeshComponent::execRestoreSavedAnimSets( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	RestoreSavedAnimSets();

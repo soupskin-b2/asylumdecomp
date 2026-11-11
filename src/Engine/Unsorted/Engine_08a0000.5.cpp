@@ -5,14 +5,9 @@
 #include "ue3/Native.h"
 #include "ue3/Script.h"
 
-struct UWorld_ : public UWorld
-{
-	UBOOL sub_007e72a0(AActor*, UBOOL, UBOOL);
-};
-
 // @baa 0x008a90b0
 void AActor::execDestroy(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = ((UWorld_*)GWorld)->sub_007e72a0(this, 0, 1);
+	*(UBOOL*)Result = ((UWorld*)GWorld)->sub_007e72a0(this, 0, 1);
 }

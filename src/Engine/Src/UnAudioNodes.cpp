@@ -1219,9 +1219,6 @@ bool UGameEngine::vf_004()
 
 // @baa 0x00cdc040
 // @baa 0x00cdc050
-struct FString_ : public FString {
-    FString_& sub_00544ab0(const TCHAR* Other); /* operator= */
-};
 
 // @baa 0x00f208e0
 void USoundCueFactoryNew::InitializeIntrinsicPropertyValues()

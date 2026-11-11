@@ -56,13 +56,9 @@ INT C_00ddeca0::sub_00ddeca0(INT Index)
 }
 
 extern INT g_026c5e68;
-struct UGameUISceneClient_ : public UGameUISceneClient
-{
-    INT vf_1b0(INT A, INT B, INT C);
-};
 
 // @baa 0x00dde460
-INT UGameUISceneClient_::vf_1b0(INT, INT, INT)
+INT UGameUISceneClient::vf_1b0(INT, INT, INT)
 {
     ++g_026c5e68;
     return 0;

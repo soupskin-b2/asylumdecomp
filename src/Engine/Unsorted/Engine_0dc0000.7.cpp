@@ -16,13 +16,9 @@ UINT UUIScene::GetNumResolvedFaces()
 }
 
 // GetTag returns the scene's tag by value (the header's INT GetTag(INT) is the wrong shape).
-struct UUIScene_ : public UUIScene
-{
-    virtual FName GetTag();
-};
 
 // @baa 0x00dc2ce0
-FName UUIScene_::GetTag()
+FName UUIScene::GetTag()
 {
     return SceneTag;
 }

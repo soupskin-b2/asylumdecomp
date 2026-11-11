@@ -11,14 +11,8 @@ void UInteraction::execInit( FFrame& Stack, RESULT_DECL )
 	vf_10c();
 }
 
-struct UUIInputConfiguration_ : public UUIInputConfiguration
-{
-	void LoadInputAliasClasses();
-	void execLoadInputAliasClasses(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00ca0ec0
-void UUIInputConfiguration_::execLoadInputAliasClasses( FFrame& Stack, RESULT_DECL )
+void UUIInputConfiguration::execLoadInputAliasClasses( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	LoadInputAliasClasses();
@@ -31,14 +25,8 @@ void UUIInputConfiguration::execNotifyGameSessionEnded( FFrame& Stack, RESULT_DE
 	vf_10c();
 }
 
-struct UUIDataProvider_PlayerAchievements_ : public UUIDataProvider_PlayerAchievements
-{
-	INT GetTotalGamerScore();
-	void execGetTotalGamerScore(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00ca2130
-void UUIDataProvider_PlayerAchievements_::execGetTotalGamerScore( FFrame& Stack, RESULT_DECL )
+void UUIDataProvider_PlayerAchievements::execGetTotalGamerScore( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	*(INT*)Result = GetTotalGamerScore();
