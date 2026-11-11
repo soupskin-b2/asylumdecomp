@@ -485,12 +485,18 @@ class Repo:
         self.units["units"].append({"unit": unit, "source": src_path, "profile": key[0], "functions": fs})
         return len(added) == len(group)
 
-    def mark_matched(self, va: int, symbol: str | None):
+    def mark_matched(self, va: int, symbol: str | None, file: str | None = None):
         r = self.funcs[va]
         r[self.cols["status"]] = "matched"
+        if file and "file" in self.cols:
+            r[self.cols["file"]] = file
         symbol = clean_symbol(symbol)
         if symbol and not r[self.cols["symbol"]]:
             r[self.cols["symbol"]] = symbol
+
+    def units_text(self) -> str:
+        self.units["note"] = "Maintained by CI (tools/ci); every file is checked by python tools/asylum unit-check."
+        return json.dumps(self.units, indent=1)
 
     def save(self):
         seen: dict = {}
@@ -503,8 +509,7 @@ class Repo:
         self.units["units"] = us
         self.units["totals"] = {"units": len({u["unit"] for u in us}), "files": len(us),
                                 "functions": sum(len(u["functions"]) for u in us), "failed": len(self.units.get("failed", {}))}
-        self.units["note"] = "Maintained by CI (tools/ci); every file is checked by python tools/asylum unit-check."
         tmp = self.root / "src" / "units.json.tmp"
-        tmp.write_text(json.dumps(self.units, indent=1), encoding="utf-8", newline="\n")
+        tmp.write_text(self.units_text(), encoding="utf-8", newline="\n")
         tmp.replace(self.root / "src" / "units.json")
         write_gz(self.root / "data" / "functions.json.gz", self.ftable)

@@ -2,7 +2,10 @@
 
   fetch  (CI_TOKEN)             the service's queue of submissions -> batch.json
   check  (no secrets, Windows)  each submission compiled and verified by fingerprint; matches placed
-                                into src/ (place.py: every changed part re-checked whole)
+                                into src/ (place.py: every changed part re-checked whole); revisions
+                                (a matched function's part file, edited) merged onto the current file,
+                                every function in it re-checked, its readability warnings no more
+                                than before
                                 -> result.json: per submission its verdict, and the changed files
   apply  (contents: write,      validates the result (paths, functions), writes the files, marks the
           CI_TOKEN, no compiler) functions matched, credits the contributors, commits as them,
@@ -36,7 +39,7 @@ import stats  # noqa: E402
 
 SERVICE = os.environ.get("ASYLUM_URL", "https://api.asylumdecomp.workers.dev").rstrip("/")
 SRC_PATH = re.compile(r"^src/(?:[A-Za-z0-9_][A-Za-z0-9_.+-]*/)*[A-Za-z0-9_][A-Za-z0-9_.+-]*\.(?:cpp|c)$")
-MAX_SOURCE = 200_000
+MAX_SOURCE = 500_000  # a revision is a whole part file
 BOT = ("asylumdecomp-bot", "41898282+github-actions[bot]@users.noreply.github.com")
 TOUCHED = ["src", "data", "site", "progress.json"]
 
@@ -82,13 +85,96 @@ def fetch(out: Path, limit: int) -> None:
 
 # ------------------------------------------------------------------ check
 
-def check(inp: Path, out: Path) -> None:
+def blob(text: str) -> str:
+    """git's hash of a file's text (what a revision names as its base)."""
+    import hashlib
+    b = text.encode("utf-8")
+    return hashlib.sha1(b"blob %d\0" % len(b) + b).hexdigest()
+
+
+def blocks(text: str) -> dict[str, str]:
+    """Each function's text in a part file, by address (from its // @baa line to the next)."""
+    p = re.split(r"^// @baa 0x([0-9a-f]{8})\n", text, flags=re.M)
+    return {p[k]: p[k + 1] for k in range(1, len(p), 2)}
+
+
+def merge(current: str, base: str, new: str) -> str | None:
+    """The contributor's edit (base -> new) applied to the file as it is now; None on a conflict."""
+    import tempfile
+    with tempfile.TemporaryDirectory() as d:
+        fs = []
+        for name, text in (("current", current), ("base", base), ("new", new)):
+            f = Path(d) / name
+            f.write_text(text, encoding="utf-8", newline="\n")
+            fs.append(str(f))
+        r = subprocess.run(["git", "merge-file", "-p", "--quiet", *fs], capture_output=True, text=True, encoding="utf-8")
+    return r.stdout if r.returncode == 0 else None
+
+
+def revise(repo, s: dict) -> dict:
+    """A revision: the part file replaced by the contributor's version, if every function in it still
+    matches and it has no more readability warnings than before."""
     import check as checker
+    va, rel = s["va"], s["revise"]["file"]
+    entry = next((u for u in repo.units["units"] if u["source"] == rel and u.get("kind") != "library"), None)
+    if entry is None or not any(f["va"] == va for f in entry["functions"]):
+        return {"status": "failed", "reason": "%s isn't in src/%s" % (va, rel)}
+    path = ROOT / "src" / rel
+    current = path.read_text(encoding="utf-8")
+    new = s["source"].replace("\r\n", "\n")
+    if blob(current) != s["revise"]["base"]:
+        base = git("cat-file", "blob", s["revise"]["base"], check=False)
+        new = merge(current, base, new) if base else None
+        if new is None:
+            return {"status": "failed", "reason": "src/%s changed since you got it, and your edit conflicts with that: "
+                    "get it again and redo the edit" % rel}
+    if new == current:
+        return {"status": "failed", "reason": "nothing changed"}
+    was, now = len(checker.smells(current)), len(checker.smells(new))
+    if now > was:
+        return {"status": "failed", "reason": "more readability warnings than before (%d, was %d)" % (now, was)}
+    funcs = [(int(f["va"], 16), ([s["function"]] if f["va"] == va and s.get("function") else [])
+              + [n for n in (f.get("symbol"), "sub_" + f["va"]) if n]) for f in entry["functions"]]
+    res = checker.unit_check(new, entry["profile"], funcs)
+    bad = repo.problems(res, [v for v, _ in funcs])
+    if bad:
+        v, why = next(iter(bad.items()))
+        return {"status": "failed", "reason": "%08x no longer matches in the file: %s" % (v, why[:300])}
+    path.write_text(new, encoding="utf-8", newline="\n")
+    symbols = {}
+    for f in entry["functions"]:
+        sym = res["functions"][f["va"]].get("symbol")
+        if sym and sym != f.get("symbol"):
+            symbols[f["va"]] = [f.get("symbol"), sym]
+            f["symbol"] = sym
+    old, cur = blocks(current), blocks(new)
+    changed = sum(old[k] != cur.get(k) for k in old) or 1
+    return {"status": "revised", "file": rel, "changed": changed, "symbols": symbols}
+
+
+def check(inp: Path, out: Path) -> None:
     subs = json.loads(inp.read_text(encoding="utf-8"))["submissions"]
     base = git("rev-parse", "HEAD").strip()
     repo = place.Repo(ROOT, log)
     results, members = [], {}
+    # revisions first, so a revised file takes this run's new matches on top
+    revised = {}
     for s in subs:
+        if s.get("revise"):
+            r = {"id": s["id"], "va": s["va"]}
+            r.update(revise(repo, s) if len(s["source"]) <= MAX_SOURCE else {"status": "failed", "reason": "too large"})
+            revised[s["id"]] = r
+            log(s["va"], "revision", r["status"], r.get("reason", ""))
+    revision_files = {}
+    if any(r["status"] == "revised" for r in revised.values()):
+        revision_files = {"src/" + r["file"]: (ROOT / "src" / r["file"]).read_text(encoding="utf-8")
+                          for r in revised.values() if r["status"] == "revised"}
+        revision_files["src/units.json"] = repo.units_text()
+    for s in subs:
+        if s["id"] in revised:
+            results.append(revised[s["id"]])
+            continue
+        import check as checker
         va = int(s["va"], 16)
         r = {"id": s["id"], "va": s["va"]}
         f = repo.funcs.get(va)
@@ -117,7 +203,7 @@ def check(inp: Path, out: Path) -> None:
         placed, failed = repo.place_unit(unit, ms)
         log("%s: %d placed%s" % (unit, len(placed), ", %d not" % len(failed) if failed else ""))
         for va, (src, sym) in placed.items():
-            repo.mark_matched(va, sym)
+            repo.mark_matched(va, sym, src)
             done[va] = {"status": "matched", "file": src, "symbol": sym}
         for va, why in failed.items():
             done[va] = {"status": "failed", "reason": why}
@@ -125,22 +211,38 @@ def check(inp: Path, out: Path) -> None:
         if r["status"] == "pending":
             r.update(done.get(int(r["va"], 16), {"status": "failed", "reason": "not placed"}))
     files = {}
-    if any(r["status"] == "matched" for r in results):
+    if any(r["status"] in ("matched", "revised") for r in results):
         repo.save()
         changed = git("status", "--porcelain", "--untracked-files=all", "--", "src").splitlines()
         for line in changed:
             p = line[3:].strip().strip('"')
             files[p] = (ROOT / p).read_text(encoding="utf-8")
-    write_json(out, {"base": base, "results": results, "files": files})
+    write_json(out, {"base": base, "results": results, "files": files, "revision_files": revision_files})
 
 
 # ------------------------------------------------------------------ apply
 
 def validate(res: dict, units_before: dict, subs: dict) -> None:
     files = res["files"]
-    for p, body in files.items():
+    for p, body in list(files.items()) + list(res.get("revision_files", {}).items()):
         if (p != "src/units.json" and not SRC_PATH.match(p)) or ".." in p.split("/") or len(body) > 20_000_000:
             raise ValueError("unexpected path %r" % p)
+    revised = [r for r in res["results"] if r["status"] == "revised"]
+    for r in revised:
+        if not subs[r["id"]].get("revise") or r["file"] != subs[r["id"]]["revise"]["file"]:
+            raise ValueError("%s: a revision of another file than submitted" % r["va"])
+        if "src/" + r["file"] not in res.get("revision_files", {}):
+            raise ValueError("%s: its revised file isn't in the result" % r["va"])
+    if revised:
+        units = json.loads(res["revision_files"].get("src/units.json") or json.dumps(units_before))
+        where = {f["va"]: u["source"] for u in units["units"] for f in u["functions"]}
+        if where != {f["va"]: u["source"] for u in units_before["units"] for f in u["functions"]}:
+            raise ValueError("a revision moves functions between files")
+        if any(where.get(r["va"]) != r["file"] for r in revised):
+            raise ValueError("a revised function isn't in its file")
+    for r in res["results"]:
+        if r["status"] == "matched" and subs[r["id"]].get("revise"):
+            raise ValueError("%s: a revision counted as a match" % r["va"])
     ids = [r["id"] for r in res["results"]]
     if len(ids) != len(set(ids)) or set(ids) - set(subs):
         raise ValueError("results for submissions that weren't in the batch")
@@ -175,6 +277,29 @@ def apply(inp: Path, batch: Path, push: bool) -> None:
         log("src/ changed since the check: the next run checks them again")
         return
     validate(res, json.loads((ROOT / "src" / "units.json").read_text(encoding="utf-8")), subs)
+    revised = [r for r in res["results"] if r["status"] == "revised"]
+    if revised:
+        # their own commit, before the matches: "modification", no credit
+        for p, body in res["revision_files"].items():
+            (ROOT / p).write_text(body, encoding="utf-8", newline="\n")
+        ft = place.read_gz(ROOT / "data" / "functions.json.gz")
+        col = {c: k for k, c in enumerate(ft["columns"])}
+        rows = {r[col["va"]]: r for r in ft["rows"]}
+        syms = place.read_gz(ROOT / "data" / "symbols.json.gz")
+        for r in revised:
+            for v, (old, new_sym) in (r.get("symbols") or {}).items():
+                row = rows[int(v, 16)]
+                new_sym = place.clean_symbol(new_sym)
+                if new_sym:
+                    row[col["symbol"]] = new_sym
+                    if syms.get(old) == str(int(v, 16)):
+                        del syms[old]
+                    if not new_sym.startswith("?sub_"):
+                        syms[new_sym] = str(int(v, 16))
+        place.write_gz(ROOT / "data" / "functions.json.gz", ft)
+        place.write_gz(ROOT / "data" / "symbols.json.gz", syms)
+        git("add", "-A", "--", *TOUCHED)
+        commit("modification", sum(r.get("changed", 1) for r in revised), [subs[r["id"]] for r in revised])
     new = [r for r in res["results"] if r["status"] == "matched"]
     if new:
         for p, body in res["files"].items():
@@ -185,12 +310,12 @@ def apply(inp: Path, batch: Path, push: bool) -> None:
         rows = {r[col["va"]]: r for r in ft["rows"]}
         syms = place.read_gz(ROOT / "data" / "symbols.json.gz")
         day = time.strftime("%Y-%m-%d", time.gmtime())
-        by_login: dict[str, list] = {}
         with open(ROOT / "data" / "contributions.jsonl", "a", encoding="utf-8", newline="\n") as fh:
             for r in new:
                 s = subs[r["id"]]
                 row = rows[int(r["va"], 16)]
                 row[col["status"]] = "matched"
+                row[col["file"]] = r["file"]
                 sym = place.clean_symbol(r.get("symbol"))
                 if sym and not row[col["symbol"]]:
                     row[col["symbol"]] = sym
@@ -198,21 +323,12 @@ def apply(inp: Path, batch: Path, push: bool) -> None:
                     syms[sym] = str(int(r["va"], 16))
                 fh.write(json.dumps({"va": r["va"], "login": s["login"], "model": s.get("model"), "bytes": row[col["size"]],
                                      "date": day, "id": r["id"]}) + "\n")
-                if s.get("login"):  # None: the account's contribution identity is off
-                    by_login.setdefault(s["login"], []).append(s)
         place.write_gz(ROOT / "data" / "functions.json.gz", ft)
         place.write_gz(ROOT / "data" / "symbols.json.gz", syms)
         stats.write(ROOT)
         git("add", "-A", "--", *TOUCHED)
-        # author: the first credited contributor (by login), the others as co-authors; the bot when
-        # everyone in this run has their contribution identity off
-        logins = sorted(by_login)
-        anon = sum(not subs[r["id"]].get("login") for r in new)
-        who = ["@" + l for l in logins] + (["anonymous"] if anon else [])
-        trailers = "".join("\nCo-authored-by: %s <%s>" % (l, noreply(by_login[l][0])) for l in logins[1:])
-        author = "%s <%s>" % (logins[0], noreply(by_login[logins[0]][0])) if logins else "%s <%s>" % BOT
-        git("-c", "user.name=" + BOT[0], "-c", "user.email=" + BOT[1], "commit", "-q", "--author", author,
-            "-m", "match: %d function%s by %s%s" % (len(new), "" if len(new) == 1 else "s", ", ".join(who), trailers))
+        commit("match", len(new), [subs[r["id"]] for r in new])
+    if new or revised:
         if push:
             for k in range(5):
                 try:
@@ -224,12 +340,28 @@ def apply(inp: Path, batch: Path, push: bool) -> None:
                     log("push retry (%s)" % str(e)[:120])
                     git("-c", "user.name=" + BOT[0], "-c", "user.email=" + BOT[1], "pull", "-q", "--rebase", "origin", "main")
                     time.sleep(5 * (k + 1))
-    log("%d matched, %d failed, %d duplicates" % (len(new), sum(r["status"] == "failed" for r in res["results"]),
-                                                   sum(r["status"] == "duplicate" for r in res["results"])))
+    log("%d matched, %d revised, %d failed, %d duplicates" % (len(new), len(revised), sum(r["status"] == "failed" for r in res["results"]),
+                                                              sum(r["status"] == "duplicate" for r in res["results"])))
     if push:
         sha = git("rev-parse", "HEAD").strip() if new else None
-        log("service:", service("POST", "/ci/result", {"commit": sha, "results": [
+        rev_sha = git("rev-parse", "HEAD~1" if new else "HEAD").strip() if revised else None  # after any rebase
+        log("service:", service("POST", "/ci/result", {"commit": sha, "revision_commit": rev_sha, "results": [
             {k: r.get(k) for k in ("id", "va", "status", "reason", "file", "symbol")} for r in res["results"]]}))
+
+
+def commit(kind: str, n: int, ss: list[dict]) -> None:
+    """Commits what's staged as "KIND: N functions by @a, @b", authored by the first contributor (by
+    login), the others as co-authors; by the bot when everyone's contribution identity is off."""
+    by_login: dict[str, dict] = {}
+    for s in ss:
+        if s.get("login"):  # None: the account's contribution identity is off
+            by_login.setdefault(s["login"], s)
+    logins = sorted(by_login)
+    who = ["@" + l for l in logins] + (["anonymous"] if any(not s.get("login") for s in ss) else [])
+    trailers = "".join("\nCo-authored-by: %s <%s>" % (l, noreply(by_login[l])) for l in logins[1:])
+    author = "%s <%s>" % (logins[0], noreply(by_login[logins[0]])) if logins else "%s <%s>" % BOT
+    git("-c", "user.name=" + BOT[0], "-c", "user.email=" + BOT[1], "commit", "-q", "--author", author,
+        "-m", "%s: %d function%s by %s%s" % (kind, n, "" if n == 1 else "s", ", ".join(who), trailers))
 
 
 def noreply(s: dict) -> str:

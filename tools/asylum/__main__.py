@@ -7,7 +7,9 @@
     python asylum.pyz model-credit [on|off]  record the model's name with your matches and give-ups
     python asylum.pyz key NAME [--delete]    a key for an agent outside a folder (ASYLUM_KEY=...)
     python asylum.pyz list [filters]         open functions (--max-size --min-size --unit --class --name --limit)
+    python asylum.pyz list --matched [filters]   matched functions (to improve one's source)
     python asylum.pyz get [VA] [filters]     claim a function (VA, or the next one that fits) and write its packet
+    python asylum.pyz get VA --revise        claim a matched function to improve its source (its file in work/VA.cpp)
     python asylum.pyz check VA FILE [--function NAME]       compile and compare (the verdict CI gives)
     python asylum.pyz submit [VA [FILE] ...] [--model M]       check again, send the matches (no VA: every
                                              claim of this folder with a work/VA.cpp; FILE defaults to work/VA.cpp)
@@ -172,6 +174,8 @@ def _filters(a) -> dict:
 
 
 def cmd_list(a):
+    if a.matched:
+        return _list_matched(a)
     r = api.call("GET", "/list", query={**_filters(a), "limit": a.limit})
     print("%d open functions (fewest give-ups first, then smallest)" % len(r["functions"]))
     for f in r["functions"]:
@@ -179,8 +183,60 @@ def cmd_list(a):
         print("%s %5d  %s%s" % (f["va"], f["size"], "  ".join(x for x in (f.get("unit"), f.get("class"), f.get("name")) if x), tries))
 
 
+def _list_matched(a):
+    def like(v, want):
+        return not want or want.lower() in (v or "").lower()
+    fs = [f for f in data.functions().values() if f["status"] == "matched" and f.get("file")
+          and (not a.max_size or f["size"] <= a.max_size) and (not a.min_size or f["size"] >= a.min_size)
+          and like(f.get("unit"), a.unit) and like(f.get("class"), a.cls) and like(f.get("name"), a.name)
+          and (not a.named or f.get("name"))]
+    fs.sort(key=lambda f: (f["size"], f["va"]))
+    print("%d matched functions fit (smallest first); `%s get VA --revise` improves one's source" % (len(fs), PROG))
+    for f in fs[:a.limit]:
+        print("%08x %5d  %s" % (f["va"], f["size"], "  ".join(x for x in (f["file"], f.get("class"), f.get("name")) if x)))
+
+
+def _blob(text: str) -> str:
+    """git's hash of the file's text: the version a revision starts from."""
+    import hashlib
+    b = text.encode("utf-8")
+    return hashlib.sha1(b"blob %d\0" % len(b) + b).hexdigest()
+
+
+def _revision(va: int) -> dict | None:
+    p = WORK / ("%08x.revise.json" % va)
+    return json.loads(p.read_text(encoding="utf-8")) if p.is_file() else None
+
+
+def _get_revise(a):
+    if a.va is None:
+        sys.exit("--revise needs the function's address (`%s list --matched` finds them)" % PROG)
+    f = data.functions().get(a.va)
+    if not f or f["status"] != "matched" or not f.get("file"):
+        sys.exit("%08x isn't a matched function in this kit (`%s update`, or `%s list --matched`)" % (a.va, PROG, PROG))
+    rel = "src/" + f["file"]
+    local = ROOT / rel
+    text = local.read_text(encoding="utf-8") if local.is_file() else update.download(update.RAW + rel, 120).decode("utf-8")
+    text = text.replace("\r\n", "\n")
+    if "// @baa 0x%08x" % a.va not in text:
+        sys.exit("%08x isn't in %s yet (the kit is newer than the repository): try again in a few minutes" % (a.va, rel))
+    r = api.call("POST", "/retrieve", {"va": "%08x" % a.va, "revise": True, "request_id": api.request_id()})
+    WORK.mkdir(exist_ok=True)
+    (WORK / ("%08x.cpp" % a.va)).write_text(text, encoding="utf-8", newline="\n")
+    (WORK / ("%08x.orig.cpp" % a.va)).write_text(text, encoding="utf-8", newline="\n")
+    (WORK / ("%08x.revise.json" % a.va)).write_text(json.dumps({"file": f["file"], "base": _blob(text)}), encoding="utf-8")
+    import check
+    print("claimed %08x for a revision until %s\n"
+          "work/%08x.cpp is its whole file (%s, %d readability warnings). Improve the function (others in the file\n"
+          "too, if you like); every function in the file must still match and the warnings may not grow.\n"
+          "then: %s check %08x work/%08x.cpp, and %s submit %08x (or %s release %08x)"
+          % (a.va, r["until"], a.va, rel, len(check.smells(text)), PROG, a.va, a.va, PROG, a.va, PROG, a.va))
+
+
 def cmd_get(a):
     update.rerun_if_updated()
+    if a.revise:
+        return _get_revise(a)
     body = {"va": "%08x" % a.va} if a.va is not None else _filters(a)
     r = api.call("POST", "/retrieve", {**body, "request_id": api.request_id()})
     import listing
@@ -220,8 +276,15 @@ def _check(va, file, function=None, quiet=False):
             print("new bindings (names the project didn't know; check each is the one you meant):")
             for n, v in sorted(r.new.items(), key=lambda x: x[1]):
                 print("  %08x  %s" % (v, n))
-        for s in check.smells(src):
+        smells = check.smells(src)
+        for s in smells[:10]:
             print("  readability: " + s)
+        if len(smells) > 10:
+            print("  readability: ... %d more" % (len(smells) - 10))
+        rev = _revision(va)
+        if rev and (WORK / ("%08x.orig.cpp" % va)).is_file():
+            was = len(check.smells((WORK / ("%08x.orig.cpp" % va)).read_text(encoding="utf-8")))
+            print("revision: %d readability warnings, %d before%s" % (len(smells), was, " (too many: CI refuses it)" if len(smells) > was else ""))
         return r, src
     print(r.status.upper().replace("_", " "))
     for p in r.problems[:20]:
@@ -273,9 +336,17 @@ def cmd_submit(a):
         if r.status != "match":
             print("  not submitted: it doesn't match")
             continue
+        body = {"va": "%08x" % va, "source": src, "function": r.symbol, "model": _model(a), "request_id": api.request_id()}
+        rev = _revision(va)
+        if rev:
+            import check
+            orig = WORK / ("%08x.orig.cpp" % va)
+            if orig.is_file() and len(check.smells(src)) > len(check.smells(orig.read_text(encoding="utf-8"))):
+                print("  not submitted: more readability warnings than before")
+                continue
+            body["revise"] = rev
         try:
-            s = api.call("POST", "/submit", {"va": "%08x" % va, "source": src, "function": r.symbol, "model": _model(a),
-                                             "request_id": api.request_id()})
+            s = api.call("POST", "/submit", body)
         except api.ApiError as e:
             print("  not submitted: %s" % e)
             continue
@@ -401,9 +472,11 @@ def main(argv=None):
     s = sub.add_parser("list")
     filters(s)
     s.add_argument("--limit", type=int, default=30)
+    s.add_argument("--matched", action="store_true", help="matched functions instead (to improve with get VA --revise)")
     s = sub.add_parser("get")
     s.add_argument("va", type=va_arg, nargs="?")
     filters(s)
+    s.add_argument("--revise", action="store_true", help="a matched function: its file, to improve the source")
     s = sub.add_parser("check")
     s.add_argument("va", type=va_arg)
     s.add_argument("file")
