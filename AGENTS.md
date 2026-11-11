@@ -162,9 +162,17 @@ happened; on HTTP 429 or 503 wait as told, don't retry in a loop.
 
 - One function per file. Include what you use: `#include "ue3/Classes.h"` for engine classes (fields by
   name, real virtual methods), `"ue3/Core.h"` for the basic types, `"ue3/AppMath.h"` for UE3's math
-  wrappers (`appPow`, `appSqrt` ...), `"ue3/Native.h"` for `FNameText(TEXT("Name"))`, `GWorld`,
-  `GObjObjects` and object iterators. `<windows.h>` isn't allowed: declare the Win32 functions and
-  constants you use.
+  (`appPow`, `appSqrt`, `appTrunc` (its inline assembly is the `cvttss2si` from memory), `appRound`,
+  `appRand`, `appFrand`, `appSRand`, `Abs`, `Min`, `Max`, `Clamp`, `Square`, `Lerp`: don't redefine them),
+  `"ue3/Script.h"` for natives (`P_GET_*`, `GError`, `PURE_VIRTUAL(Class::Func, return 0;)` for the
+  "Pure virtual not implemented" bodies), `"ue3/Native.h"` for `FNameText(TEXT("Name"))`, `GWorld`,
+  `GObjObjects` and object iterators, `"ue3/Win32.h"` for the Windows API (critical sections,
+  `Interlocked*`, `Tls*`, `MessageBoxA` ...; `<windows.h>` isn't allowed, and add a missing function to
+  Win32.h the SDK's way rather than declaring Windows types in your file).
+- Write the code the original programmer wrote: named fields and named virtuals from the headers. No
+  padding arrays (`char pad[0x160]`), `field_XX` runs, placeholder virtuals (`f00` ... `f37`) or
+  hand-read vtables (`(*(Fn*)(*(char**)this + 0x98))(this)`), and no writes through `(DWORD*)this`:
+  when the headers lack a field or virtual, add it to the header (or `flag` the VA and give up).
 - A `jmp` to `__CIpow`, `__CIatan2` and the like is `pow`, `atan2` ... from `<math.h>`.
 - When the packet names the class of `this`, define the function as a member of that class with the
   declared name and signature. A class marked "probably" is inferred: use it if its fields fit.

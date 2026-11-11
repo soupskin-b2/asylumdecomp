@@ -3,6 +3,7 @@
 #pragma once
 #include "Core.h"
 #include <math.h>
+#include <stdlib.h>
 
 inline DOUBLE appExp( DOUBLE Value )             { return exp(Value); }
 inline DOUBLE appLoge( DOUBLE Value )            { return log(Value); }
@@ -20,3 +21,28 @@ inline FLOAT  appInvSqrt( FLOAT F )              { return 1.0f / sqrtf(F); }
 inline FLOAT  appFloor( FLOAT F )                { return floorf(F); }
 inline FLOAT  appCeil( FLOAT F )                 { return ceilf(F); }
 inline FLOAT  appAbs( FLOAT F )                  { return fabsf(F); }
+
+// UnVcWin32.h: on x86 appTrunc is inline assembly, so the float goes through memory
+// (`movss [esp+N], xmm0; cvttss2si eax, [esp+N]`), unlike a plain (INT) cast.
+#pragma warning(push)
+#pragma warning(disable: 4035)  /* no return value: it's in eax */
+inline INT appTrunc( FLOAT F )
+{
+	__asm cvttss2si eax, [F]
+}
+#pragma warning(pop)
+inline INT    appFloor2Int( FLOAT F )            { return appTrunc(floorf(F)); }
+inline INT    appRound( FLOAT F )                { return appFloor2Int(F + 0.5f); }
+
+// random numbers (UnVcWin32.h)
+inline INT    appRand()                          { return rand(); }
+inline FLOAT  appFrand()                         { return rand() / (FLOAT)RAND_MAX; }
+inline FLOAT  appSRand()                         { return rand() / (FLOAT)(RAND_MAX + 1); }
+
+// UnTemplate.h
+template< class T > inline T Abs( const T A )                          { return (A >= (T)0) ? A : -A; }
+template< class T > inline T Max( const T A, const T B )               { return (A >= B) ? A : B; }
+template< class T > inline T Min( const T A, const T B )               { return (A <= B) ? A : B; }
+template< class T > inline T Square( const T A )                       { return A * A; }
+template< class T > inline T Clamp( const T X, const T Min, const T Max ) { return X < Min ? Min : X < Max ? X : Max; }
+template< class T, class U > inline T Lerp( const T& A, const T& B, const U& Alpha ) { return (T)(A + Alpha * (B - A)); }

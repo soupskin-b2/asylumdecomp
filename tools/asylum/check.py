@@ -95,9 +95,21 @@ def unit_check(src: str, profile: str, funcs: list[tuple[int, list[str]]], libra
 # warnings on a match (the guide's rules), not part of the verdict.
 SMELLS = [
     (re.compile(r"\*\s*\(\s*\w+\s*\*+\s*\)\s*\(\s*\(\s*char\s*\*\s*\)\s*this\s*\+"), "raw offset into this: declare the member in the class"),
-    (re.compile(r"\(\s*\*\s*\(\s*\w+\s*\*\*+\s*\)\s*\w+\s*\)\s*\[|\bvftable\b|\bVfTable\b|\b__vfptr\b"),
+    (re.compile(r"\(\s*(?:const\s+)?(?:char|BYTE|WORD|DWORD|INT|UINT|int|short|long|unsigned(?:\s+\w+)?|void|FLOAT|float)\s*\*+\s*\)\s*this\b"),
+     "this cast to a plain pointer (writes through (DWORD*)this ...): use the class's named fields"),
+    (re.compile(r"\(\s*\*\s*\(\s*\w+\s*\*\*+\s*\)\s*\w+\s*\)\s*\[|\*\s*\(\s*(?:char|void|BYTE|DWORD|INT|int)\s*\*\*+\s*\)|\bvftable\b|\bVfTable\b|\b__vfptr\b"),
      "a vtable read by hand: call the virtual function by name (fix its declaration if it's wrong)"),
-    (re.compile(r"\b(?:Pad|pad|Unk|unk)_?[0-9a-fA-F]+\b\s*\["), "a filler array: declare the fields at their offsets by name"),
+    (re.compile(r"\b(?:Pad|pad|Unk|unk)_?[0-9a-fA-F]+\b\s*\[|\b(?:char|BYTE|unsigned\s+char|DWORD|INT|int)\s+_*(?:pad|Pad|PAD|unk|Unk|unknown|Unknown|gap|filler|dummy)\w*\s*\["),
+     "a filler array: declare the fields at their offsets by name"),
+    (re.compile(r"\bfield_[0-9a-fA-F]+\b"), "field_XX names: name the members for what they hold (or leave out the ones the function doesn't use)"),
+    (re.compile(r"\bvirtual\b[^;{]*\b(?:f|vf|v|slot|dummy|pad|unk|Unk)_?[0-9a-fA-F]+\s*\(\s*(?:void)?\s*\)\s*(?:const\s*)?(?:\{\s*(?:return\s+[^;{}]*;\s*)?\}|=\s*0\s*;|;)"),
+     "placeholder virtuals declared to reach a slot: use the class from the headers (add the virtual there if it's missing)"),
+    (re.compile(r"^\s*(?!extern\b|return\b|static\b|delete\b|throw\b|case\b|goto\b)(?:const\s+)?[A-Za-z_]\w*(?:\s*\*+\s*|\s+)g_[0-9a-fA-F]{8}\s*(?:\[[^\]]*\]\s*)?;"),
+     "a global defined here: declare it extern (the game has it)"),
+    (re.compile(r"\btypedef\b[^;]*\b(?:ULONG_PTR|HANDLE|LPCRITICAL_SECTION|CRITICAL_SECTION|LARGE_INTEGER|HWND|LPVOID)\s*;|\bstruct\s+_RTL_CRITICAL_SECTION\s*\{|(?:dllimport|__stdcall|WINAPI)[^;]*\b(?:EnterCriticalSection|LeaveCriticalSection|InitializeCriticalSection|DeleteCriticalSection|Interlocked\w+|Tls(?:Alloc|Free|GetValue|SetValue)|WaitForSingleObject|SetEvent|ResetEvent|CloseHandle|Sleep|GetCurrentThreadId|QueryPerformance\w+|GetTickCount|LocalFree|GetLastError|OutputDebugString[AW]|MessageBox[AW]?|GetActiveWindow)\s*\("),
+     "Windows declarations by hand: include \"ue3/Win32.h\" (add what's missing there)"),
+    (re.compile(r"^\s*(?:template\s*<[^>]*>\s*)?(?:(?:inline|static|__forceinline)\s+)*(?:const\s+)?\w+[\s\*&]+(?:appTrunc|appRound|appFloor2Int|appRand|appFrand|appSRand|Clamp|Abs|Min|Max|Square|Lerp)\s*\([^;]*\)\s*(?:\{|$)"),
+     "a helper that \"ue3/AppMath.h\" has (appTrunc, appFrand, Clamp, Max ...): include it instead"),
     (re.compile(r"\bgoto\b"), "goto (fine only when the original's control flow needs it)"),
     (re.compile(r"\b(?:undefined\d?|uint|byte|dword|code)\b\s*[\*\w]"), "Ghidra type names (undefined4, uint ...): use the engine's types"),
     (re.compile(r"\b(?:iVar|uVar|pvVar|local_|param_|in_ECX|extraout_|unaff_)\w*"), "Ghidra variable names: name them for what they hold"),
@@ -110,9 +122,13 @@ _PROSE = re.compile(r'//[^\n]*|/\*.*?\*/|"(?:\\.|[^"\\\n])*"', re.S)
 def smells(src: str) -> list[str]:
     # comments and strings are prose: blank them, keeping the line numbers
     code = _PROSE.sub(lambda m: re.sub(r"[^\n]", " ", m.group(0)), src)
-    out = []
+    hits: dict[str, list[int]] = {}
     for n, line in enumerate(code.splitlines(), 1):
         for rx, why in SMELLS:
             if rx.search(line):
-                out.append("line %d: %s" % (n, why))
+                hits.setdefault(why, []).append(n)
+    out = []
+    for why, ns in hits.items():  # one warning per kind, however many lines
+        where = ("line %d" % ns[0]) if len(ns) == 1 else ("lines %s%s (%d)" % (", ".join(map(str, ns[:4])), " ..." if len(ns) > 4 else "", len(ns)))
+        out.append("%s: %s" % (where, why))
     return out
