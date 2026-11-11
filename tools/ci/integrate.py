@@ -222,7 +222,7 @@ def apply(inp: Path, batch: Path, push: bool) -> None:
                     if k == 4:
                         raise
                     log("push retry (%s)" % str(e)[:120])
-                    git("pull", "-q", "--rebase", "origin", "main")
+                    git("-c", "user.name=" + BOT[0], "-c", "user.email=" + BOT[1], "pull", "-q", "--rebase", "origin", "main")
                     time.sleep(5 * (k + 1))
     log("%d matched, %d failed, %d duplicates" % (len(new), sum(r["status"] == "failed" for r in res["results"]),
                                                    sum(r["status"] == "duplicate" for r in res["results"])))
