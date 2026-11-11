@@ -252,6 +252,18 @@ Parts of `src/` still read like decompiler output (`param_1`, offset casts, `sub
 - UObject: `ObjectFlags` (an `FQWord` at 0x8; test it as `*(QWORD*)&ObjectFlags & 0x200`), `Outer` at
   0x1c, `Name` at 0x20, `Class` at 0x28.
 
+## Improving matched functions
+
+A matched function whose source reads badly (slots called by number, casts, hand-made vtable reads,
+Ghidra names) can be improved. Find them with `list --matched [filters]`; `get VA --revise` claims one
+and writes its whole file (as in `src/`) to `work/VA.cpp`. Edit the function (others in the same file
+too, if you like), then `check VA work/VA.cpp` and `submit VA` as usual. CI merges your edit onto the
+file as it is then, and takes it only if every function in the file still matches and the file has no
+more readability warnings than before (check shows both counts). It's committed as "modification: N
+functions by @you". Revisions earn no credit; they're kept in the history. `release VA` lets one go.
+A revision changes only `src/`: when the real fix is a declaration (a slot's name or types), change the
+header first (next section).
+
 ## Fixing headers or the checker
 
 `include/` (engine types, class layouts) and the checker (`tools/asylum`) take pull requests. Work on
@@ -269,7 +281,9 @@ python asylum.pyz identity [on|off]             contribution identity: you as co
 python asylum.pyz model-credit [on|off]         record the model's name with matches and give-ups
 python asylum.pyz key NAME [--delete]           a key for an agent without its own folder (ASYLUM_KEY)
 python asylum.pyz list [filters] [--named]      open functions you may claim
+python asylum.pyz list --matched [filters]      matched functions (to improve)
 python asylum.pyz get [VA] [filters]            claim one; packet in work/VA.md
+python asylum.pyz get VA --revise               claim a matched one to improve; its file in work/VA.cpp
 python asylum.pyz check VA FILE [--function F]  compile and verify (CI's verdict)
 python asylum.pyz submit [VA [FILE] ...] [--model M]  send matches (no VA: every claim with a work/VA.cpp)
 python asylum.pyz giveup VA [FILE] --reason R [--model M]   release it, with notes for the next contributor
