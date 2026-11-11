@@ -328,7 +328,7 @@ int ARPlayerController::vf_4e4(void) { return 0; }
 void ARPlayerController::vf_4e8(int a0) {  }
 
 // @baa 0x01614ae0
-void ARPlayerController::vf_4f0(int a0, int a1, int a2) {  }
+void ARPlayerController::vf_4f0(const FString&, const FString&, const FString&) {}
 
 // @baa 0x01614af0
 int ARPlayerController::vf_4f4(void) { return 0; }
@@ -352,7 +352,7 @@ void sub_01614b30(void)
 }
 
 // @baa 0x01614b50
-void ARPlayerController::vf_508(int a0, int a1, int a2, int a3) {  }
+void ARPlayerController::vf_508(const FString&, INT, const FString&, const FString&) {}
 
 // @baa 0x01614b60
 void sub_01614b60(void) {  }

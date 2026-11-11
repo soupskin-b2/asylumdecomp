@@ -5168,7 +5168,7 @@ struct FBonePair {
 
 struct FExtraDepthBiasData {
     /* Engine.ExtraDepthBiasData */
-    BYTE DepthBiasApplicationType; /* 0x0 */
+    INT DepthBiasApplicationType; /* 0x0 (an enum, stored as a dword: 0091f940) */
     FVector DepthBiasCustomTestPoint; /* 0x4 */
     FLOAT DepthBiasMinDistanceFromCameraPlaneOverride; /* 0x10 */
     FLOAT MinDepthBiasMultiplier; /* 0x14 */
@@ -12708,7 +12708,7 @@ struct UPrimitiveComponent : public UActorComponent {
     virtual void vf_1c8(INT); /* 0x1c8 */
     virtual void vf_1cc(INT); /* 0x1cc */
     virtual void vf_1d0(INT); /* 0x1d0 */
-    virtual INT vf_1d4(INT); /* 0x1d4 */
+    virtual INT vf_1d4(class UPhysicalMaterial*); /* 0x1d4 */
     virtual INT vf_1d8(); /* 0x1d8 */
     virtual INT vf_1dc(); /* 0x1dc */
     virtual void vf_1e0(); /* 0x1e0 */
@@ -15230,7 +15230,7 @@ struct AController : public AActor {
     /* virtual functions this class introduces (vtable 0x01f02cd8) */
     virtual INT vf_354(); /* 0x354 */
     virtual void vf_358(); /* 0x358 */
-    virtual INT vf_35c(INT); /* 0x35c */
+    virtual INT vf_35c(class ANavigationPoint*); /* 0x35c */
     virtual void vf_360(INT, INT); /* 0x360 */
     virtual INT vf_364(INT); /* 0x364 */
     virtual INT vf_368(INT, INT); /* 0x368 */
@@ -19299,7 +19299,7 @@ struct USkeletalMeshComponent : public UMeshComponent {
     virtual INT vf_1c4(INT); /* 0x1c4 */
     virtual void vf_1c8(INT); /* 0x1c8 */
     virtual void vf_1d0(INT); /* 0x1d0 */
-    virtual INT vf_1d4(INT); /* 0x1d4 */
+    virtual INT vf_1d4(class UPhysicalMaterial*); /* 0x1d4 */
     virtual INT vf_1d8(); /* 0x1d8 */
     virtual INT vf_1dc(); /* 0x1dc */
     virtual void vf_1e0(); /* 0x1e0 */
@@ -31915,7 +31915,7 @@ struct URB_Handle : public UActorComponent {
     virtual INT vf_158(INT, INT, INT, INT); /* 0x158 */
     virtual INT vf_15c(INT); /* 0x15c */
     virtual INT vf_160(INT, INT, INT, INT); /* 0x160 */
-    virtual INT vf_164(INT); /* 0x164 */
+    virtual FQuat vf_164(); /* 0x164 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -35169,7 +35169,7 @@ struct USkelControlWheel : public USkelControlSingleBone {
 };
 
 struct FNativeElem_00979d40 { INT Value; FNativeElem_00979d40() {} FNativeElem_00979d40(const INT& V) : Value(V) {} operator INT&() { return Value; } operator const INT&() const { return Value; } };  /* the native element type of the arrays ~TArray at 0x00979d40 destroys */
-struct FNativeElem_00957ab0 { INT Value; FNativeElem_00957ab0() {} FNativeElem_00957ab0(const INT& V) : Value(V) {} operator INT&() { return Value; } operator const INT&() const { return Value; } };  /* the native element type of the arrays ~TArray at 0x00957ab0 destroys */
+struct FMeshBone { FName Name; DWORD Flags; FQuat Orientation; FVector Position; INT NumChildren; INT ParentIndex; INT Unknown30, Unknown34, Unknown38, Unknown3C, Unknown40, Unknown44; };  /* 72 bytes; Name and Position: 0091d470, 0091d730 */
 struct FIndirectArray_Mirror_0097e680 : FIndirectArray_Mirror { ~FIndirectArray_Mirror_0097e680(); /* 0x0097e680 */ };  /* the native type behind this script mirror */
 struct FMap_Mirror_0097d2c0 : FMap_Mirror { ~FMap_Mirror_0097d2c0(); /* 0x0097d2c0 */ };  /* the native type behind this script mirror */
 struct FNativeElem_007b9350 { UBOOL Value; FNativeElem_007b9350() {} FNativeElem_007b9350(const UBOOL& V) : Value(V) {} operator UBOOL&() { return Value; } operator const UBOOL&() const { return Value; } };  /* the native element type of the arrays ~TArray at 0x007b9350 destroys */
@@ -35183,7 +35183,7 @@ struct USkeletalMesh : public UObject {
     TArrayNoInit<class UMaterialInterface*> Materials; /* 0x5c */
     FVector Origin; /* 0x68 */
     FRotator RotOrigin; /* 0x74 */
-    TArrayNoInit<FNativeElem_00957ab0> RefSkeleton; /* 0x80 */
+    TArrayNoInit<FMeshBone> RefSkeleton; /* 0x80 */
     INT SkeletalDepth; /* 0x8c */
     FMap_Mirror NameIndexMap; /* 0x90 */
     FIndirectArray_Mirror_0097e680 LODModels; /* 0xcc */
@@ -50832,7 +50832,7 @@ struct URGFxMovie : public UGFxMovie {
     FStringNoInit CurrentStreamedName; /* 0x8c */
     class UTexture2D* CurrentStreamedPicture; /* 0x98 */
     /* virtual functions this class introduces (vtable 0x023a5270) */
-    virtual void vf_174(INT, INT); /* 0x174 */
+    virtual void vf_174(const FString&, const FString&); /* 0x174 */
     virtual void vf_178(); /* 0x178 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
@@ -50950,7 +50950,7 @@ struct URGFxMovieInvestigate : public URGFxMovie {
     INT NPC_Armed; /* 0xac */
     INT NPC_UnArmed; /* 0xb0 */
     /* virtual functions this class introduces (vtable 0x023a5878) */
-    virtual INT vf_17c(INT, INT, INT); /* 0x17c */
+    virtual FString vf_17c(INT, INT); /* 0x17c */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -51171,7 +51171,7 @@ struct URRopeComponentBase : public UPrimitiveComponent {
     virtual DOUBLE vf_254(); /* 0x254 */
     virtual INT vf_258(); /* 0x258 */
     virtual INT vf_25c(); /* 0x25c */
-    virtual INT vf_260(); /* 0x260 */
+    virtual void vf_260(BYTE, UBOOL); /* 0x260 */
     virtual FLOAT vf_264(); /* 0x264 */
     virtual INT vf_268(); /* 0x268 */
     /* overrides */
@@ -54597,8 +54597,8 @@ struct ARPlayerController : public ARPlayerControllerBase {
     virtual INT vf_4b8(); /* 0x4b8 */
     virtual INT vf_4bc(); /* 0x4bc */
     virtual INT vf_4c0(); /* 0x4c0 */
-    virtual void vf_4c4(INT, INT); /* 0x4c4 */
-    virtual INT vf_4c8(INT, INT); /* 0x4c8 */
+    virtual UBOOL vf_4c4(const FString&, const FString&); /* 0x4c4 */
+    virtual INT vf_4c8(const FString&, UBOOL); /* 0x4c8 */
     virtual INT vf_4cc(); /* 0x4cc */
     virtual INT vf_4d0(); /* 0x4d0 */
     virtual void vf_4d4(); /* 0x4d4 */
@@ -54607,14 +54607,14 @@ struct ARPlayerController : public ARPlayerControllerBase {
     virtual void vf_4e0(INT); /* 0x4e0 */
     virtual INT vf_4e4(); /* 0x4e4 */
     virtual void vf_4e8(INT); /* 0x4e8 */
-    virtual void vf_4ec(INT, INT, INT, INT); /* 0x4ec */
-    virtual void vf_4f0(INT, INT, INT); /* 0x4f0 */
+    virtual FString vf_4ec(const FString&, const FString&, UBOOL); /* 0x4ec */
+    virtual void vf_4f0(const FString&, const FString&, const FString&); /* 0x4f0 */
     virtual INT vf_4f4(); /* 0x4f4 */
     virtual void vf_4f8(INT, INT, INT); /* 0x4f8 */
     virtual void vf_4fc(INT, INT, INT); /* 0x4fc */
     virtual void vf_500(INT, INT, INT); /* 0x500 */
     virtual INT vf_504(); /* 0x504 */
-    virtual void vf_508(INT, INT, INT, INT); /* 0x508 */
+    virtual void vf_508(const FString&, INT, const FString&, const FString&); /* 0x508 */
     virtual DOUBLE vf_50c(); /* 0x50c */
     virtual DOUBLE vf_510(); /* 0x510 */
     virtual INT vf_514(class USoundCue* Cue); /* 0x514 */
@@ -54622,7 +54622,7 @@ struct ARPlayerController : public ARPlayerControllerBase {
     virtual INT vf_51c(INT); /* 0x51c */
     virtual INT vf_520(INT); /* 0x520 */
     virtual INT vf_524(INT); /* 0x524 */
-    virtual INT vf_528(INT, INT, INT, INT, INT); /* 0x528 */
+    virtual void vf_528(FLOAT, FRotator&, FRotator); /* 0x528 */
     virtual INT vf_52c(); /* 0x52c */
     virtual void vf_530(FLOAT); /* 0x530 */
     virtual void vf_534(); /* 0x534 */
@@ -54633,7 +54633,7 @@ struct ARPlayerController : public ARPlayerControllerBase {
     virtual void vf_548(); /* 0x548 */
     virtual void vf_54c(); /* 0x54c */
     virtual INT vf_550(const FString&); /* 0x550 */
-    virtual INT vf_554(INT, INT); /* 0x554 */
+    virtual INT vf_554(const FString&, UBOOL); /* 0x554 */
     virtual INT vf_558(); /* 0x558 */
     virtual void vf_55c(); /* 0x55c */
     virtual INT vf_560(); /* 0x560 */
@@ -54654,7 +54654,7 @@ struct ARPlayerController : public ARPlayerControllerBase {
     virtual INT vf_59c(); /* 0x59c */
     virtual void vf_5a0(); /* 0x5a0 */
     virtual INT vf_5a4(INT, INT); /* 0x5a4 */
-    virtual INT vf_5a8(INT, INT); /* 0x5a8 */
+    virtual INT vf_5a8(INT, const FString&); /* 0x5a8 */
     virtual INT vf_5ac(); /* 0x5ac */
     virtual INT vf_5b0(INT); /* 0x5b0 */
     virtual INT vf_5b4(INT); /* 0x5b4 */
@@ -54670,7 +54670,7 @@ struct ARPlayerController : public ARPlayerControllerBase {
     virtual INT vf_5dc(); /* 0x5dc */
     virtual INT vf_5e0(INT, INT); /* 0x5e0 */
     virtual INT vf_5e4(INT, INT); /* 0x5e4 */
-    virtual INT vf_5e8(INT, INT); /* 0x5e8 */
+    virtual INT vf_5e8(INT, const FString&); /* 0x5e8 */
     virtual void vf_5ec(); /* 0x5ec */
     virtual INT vf_5f0(INT); /* 0x5f0 */
     virtual INT vf_5f4(INT); /* 0x5f4 */

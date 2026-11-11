@@ -13732,7 +13732,7 @@
     {
      "va": "01614ae0",
      "size": 3,
-     "symbol": "?vf_4f0@ARPlayerController@@UAEXHHH@Z"
+     "symbol": "?vf_4f0@ARPlayerController@@UAEXABVFString@@00@Z"
     },
     {
      "va": "01614af0",
@@ -13762,7 +13762,7 @@
     {
      "va": "01614b50",
      "size": 3,
-     "symbol": "?vf_508@ARPlayerController@@UAEXHHHH@Z"
+     "symbol": "?vf_508@ARPlayerController@@UAEXABVFString@@H00@Z"
     },
     {
      "va": "01614b60",
