@@ -1,4 +1,4 @@
-// UnUIObjects.cpp: 27 functions
+// UnUIObjects.cpp: 28 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -305,4 +305,16 @@ struct UUIScreenObject__00d990d0 : public UUIScreenObject
 void UUIScreenObject__00d990d0::sub_00d990d0(INT bReinitialize, INT bReviewNow)
 {
 	PURE_VIRTUAL(UUIScreenObject::RequestPrimitiveReview,);
+}
+
+struct UUIScene__00ca69c0 : public UUIScene
+{
+	AWorldInfo* sub_00da9a10();
+};
+
+// @baa 0x00ca69c0
+void UUIScene::execGetWorldInfo(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(AWorldInfo**)Result = ((UUIScene__00ca69c0*)this)->sub_00da9a10();
 }

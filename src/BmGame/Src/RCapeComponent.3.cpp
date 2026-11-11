@@ -1,4 +1,4 @@
-// RCapeComponent.cpp: 9 functions
+// RCapeComponent.cpp: 12 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -117,4 +117,30 @@ void URCapeComponent__01702e40::execGetIsCinematicMode( FFrame& Stack, RESULT_DE
 {
 	P_FINISH;
 	*(UBOOL*)Result = GetIsCinematicMode();
+}
+
+// @baa 0x01702ae0
+void URCapeComponent::execOnTeleport(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	vf_14c();
+}
+
+// @baa 0x01702b20
+void URCapeComponent::execDoubleFrameTeleport(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	vf_150();
+}
+
+struct URCapeComponent__01702750 : public URCapeComponent
+{
+	UAnimNode* sub_016ae7f0();
+};
+
+// @baa 0x01702750
+void URCapeComponent::execGetCurrentCapeStateAnimTreeNode(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UAnimNode**)Result = ((URCapeComponent__01702750*)this)->sub_016ae7f0();
 }

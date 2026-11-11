@@ -1,4 +1,4 @@
-// RSmashableProp.cpp: 3 functions
+// RSmashableProp.cpp: 4 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -42,4 +42,11 @@ void ARSmashableProp__016ff670::execGetHasSubParts( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	*(UBOOL*)Result = GetHasSubParts();
+}
+
+// @baa 0x016ff830
+void ARSmashableProp::execBreakProp(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	vf_35c();
 }

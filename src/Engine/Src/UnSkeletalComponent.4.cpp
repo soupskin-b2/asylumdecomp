@@ -1,4 +1,4 @@
-// UnSkeletalComponent.cpp: 4 functions
+// UnSkeletalComponent.cpp: 12 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -50,4 +50,116 @@ void USkeletalMeshComponent__00935bf0::execSetParentAnimComponent(FFrame& Stack,
 
 	ParentAnimComponent = NewParentAnimComp;
 	sub_0092db40();
+}
+
+struct SkeletalMeshNative : USkeletalMeshComponent
+{
+    UAnimSequence* sub_0091d860(FName AnimSeqName);
+};
+
+// @baa 0x0091db60
+void USkeletalMeshComponent::execFindAnimSequence(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(AnimSeqName);
+    P_FINISH;
+    *(UAnimSequence**)Result = static_cast<SkeletalMeshNative*>(this)->sub_0091d860(AnimSeqName);
+}
+
+struct SkeletalMeshNative_0091fb90 : USkeletalMeshComponent
+{
+    INT sub_0091fad0(FBonePair& Bones);
+};
+
+// @baa 0x0091fb90
+void USkeletalMeshComponent::execFindInstanceVertexweightBonePair(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT_REF(FBonePair, Bones);
+    P_FINISH;
+    *(INT*)Result = static_cast<SkeletalMeshNative_0091fb90*>(this)->sub_0091fad0(Bones);
+}
+
+struct SkeletalMeshNative_0091d6a0 : USkeletalMeshComponent
+{
+    FName sub_0091d550(FName BoneName);
+};
+
+// @baa 0x0091d6a0
+void USkeletalMeshComponent::execGetParentBone(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(BoneName);
+    P_FINISH;
+    *(FName*)Result = static_cast<SkeletalMeshNative_0091d6a0*>(this)->sub_0091d550(BoneName);
+}
+
+void __cdecl sub_00bf75f0(const FString& RegName);
+// @baa 0x0091f4e0
+void USkeletalMeshComponent::execDeclareFaceFXRegister(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STR(RegName);
+    P_FINISH;
+    sub_00bf75f0(RegName);
+}
+
+struct SkeletalMeshNative_0092d9b0 : USkeletalMeshComponent
+{
+    FLOAT sub_0092d740(UAnimSequence* Sequence, FName NotifyName, INT InstanceNum);
+};
+
+// @baa 0x0092d9b0
+void USkeletalMeshComponent::execGetTimeOfScriptNotifyInAnimSequence(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(UAnimSequence, Sequence);
+    P_GET_NAME(NotifyName);
+    P_GET_INT_OPTX(InstanceNum, 1);
+    P_FINISH;
+    *(FLOAT*)Result = static_cast<SkeletalMeshNative_0092d9b0*>(this)->sub_0092d740(Sequence, NotifyName, InstanceNum);
+}
+
+struct SkeletalMeshNative_0091dc60 : USkeletalMeshComponent
+{
+    UBOOL sub_0091da00(FName InSocketName, FVector& OutLocation, FRotator* OutRotation);
+};
+
+// @baa 0x0091dc60
+void USkeletalMeshComponent::execGetSocketWorldLocationAndRotation(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(InSocketName);
+    P_GET_STRUCT_REF(FVector, OutLocation);
+    FRotator Rotation;
+    GPropAddr = 0;
+    Stack.Step(Stack.Object, &Rotation);
+    FRotator* OutRotation = reinterpret_cast<FRotator*>(GPropAddr);
+    P_FINISH;
+    *(UBOOL*)Result = static_cast<SkeletalMeshNative_0091dc60*>(this)->sub_0091da00(InSocketName, OutLocation, OutRotation);
+}
+
+struct SkeletalMeshNative_00935b00 : USkeletalMeshComponent
+{
+    void sub_00934fc0(USkeletalMesh* NewMesh, UBOOL bKeepSpaceBases, UBOOL bAlwaysUseInstanceWeights);
+};
+
+// @baa 0x00935b00
+void USkeletalMeshComponent::execSetSkeletalMesh(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(USkeletalMesh, NewMesh);
+    P_GET_UBOOL_OPTX(bKeepSpaceBases, FALSE);
+    P_GET_UBOOL_OPTX(bAlwaysUseInstanceWeights, FALSE);
+    P_FINISH;
+    static_cast<SkeletalMeshNative_00935b00*>(this)->sub_00934fc0(NewMesh, bKeepSpaceBases, bAlwaysUseInstanceWeights);
+}
+
+struct SkeletalMeshNative_0091f670 : USkeletalMeshComponent
+{
+    void sub_0090e6e0(const FString& RegName, FLOAT RegVal, BYTE RegOp, FLOAT InterpDuration);
+};
+
+// @baa 0x0091f670
+void USkeletalMeshComponent::execSetFaceFXRegister(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STR(RegName);
+    P_GET_FLOAT(RegVal);
+    P_GET_BYTE(RegOp);
+    P_GET_FLOAT_OPTX(InterpDuration, 0.0f);
+    P_FINISH;
+    static_cast<SkeletalMeshNative_0091f670*>(this)->sub_0090e6e0(RegName, RegVal, RegOp, InterpDuration);
 }

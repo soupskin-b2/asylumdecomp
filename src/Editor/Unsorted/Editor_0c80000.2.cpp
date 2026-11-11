@@ -1,4 +1,4 @@
-// Editor_0c80000.cpp: 7 functions
+// Editor_0c80000.cpp: 9 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -93,4 +93,28 @@ void AWorldInfo__00c8a1e0::execDoMemoryTracking( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	DoMemoryTracking();
+}
+
+struct AWorldInfo__00c89f30 : public AWorldInfo
+{
+	UMapInfo* sub_009c9950();
+};
+
+// @baa 0x00c89f30
+void AWorldInfo::execGetMapInfo(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UMapInfo**)Result = ((AWorldInfo__00c89f30*)this)->sub_009c9950();
+}
+
+struct AWorldInfo__00c8a030 : public AWorldInfo
+{
+	BYTE sub_009b0b00();
+};
+
+// @baa 0x00c8a030
+void AWorldInfo::execGetDetailMode(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(BYTE*)Result = ((AWorldInfo__00c8a030*)this)->sub_009b0b00();
 }

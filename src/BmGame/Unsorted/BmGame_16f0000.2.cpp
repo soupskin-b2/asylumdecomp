@@ -1,4 +1,4 @@
-// BmGame_16f0000.cpp: 24 functions
+// BmGame_16f0000.cpp: 25 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -224,4 +224,11 @@ void ARGargoyleBombBase_::execActivateBomb( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	ActivateBomb();
+}
+
+// @baa 0x016fee30
+void URBMRouterPath::execClearPath(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	vf_130();
 }

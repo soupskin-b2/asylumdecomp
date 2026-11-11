@@ -1,4 +1,4 @@
-// UnPhysActor.cpp: 2 functions
+// UnPhysActor.cpp: 3 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -28,4 +28,16 @@ void ARB_LineImpulseActor_::execFireLineImpulse( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	FireLineImpulse();
+}
+
+struct AKActor__00c936f0 : public AKActor
+{
+	UPhysicalMaterial* sub_009d9a90();
+};
+
+// @baa 0x00c936f0
+void AKActor::execGetKActorPhysMaterial(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UPhysicalMaterial**)Result = ((AKActor__00c936f0*)this)->sub_009d9a90();
 }

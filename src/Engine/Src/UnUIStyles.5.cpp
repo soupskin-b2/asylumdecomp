@@ -1,0 +1,29 @@
+// UnUIStyles.cpp: 2 functions
+// Placed here by: contributions.
+// Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
+#include "ue3/Classes.h"
+#include "ue3/Script.h"
+
+struct UUIStyle_Combo_ : public UUIStyle_Combo
+{
+	UUIStyle_Text* sub_00ddbb50();
+};
+
+// @baa 0x00ca7660
+void UUIStyle_Combo::execGetComboTextStyle(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UUIStyle_Text**)Result = ((UUIStyle_Combo_*)this)->sub_00ddbb50();
+}
+
+struct UUIStyle_Combo__00ca76a0 : public UUIStyle_Combo
+{
+	UUIStyle_Image* sub_00ddbb70();
+};
+
+// @baa 0x00ca76a0
+void UUIStyle_Combo::execGetComboImageStyle(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UUIStyle_Image**)Result = ((UUIStyle_Combo__00ca76a0*)this)->sub_00ddbb70();
+}

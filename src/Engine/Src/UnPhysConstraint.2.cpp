@@ -1,4 +1,4 @@
-// UnPhysConstraint.cpp (part 2 of 2): 3 functions
+// UnPhysConstraint.cpp (part 2 of 2): 4 functions
 // Placed here by: class 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -41,4 +41,16 @@ void ARB_ConstraintActor_::execTermConstraint( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	TermConstraint();
+}
+
+struct URB_ConstraintInstance__00c95810 : public URB_ConstraintInstance
+{
+	UPhysicsAssetInstance* sub_00a385d0();
+};
+
+// @baa 0x00c95810
+void URB_ConstraintInstance::execGetPhysicsAssetInstance(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UPhysicsAssetInstance**)Result = ((URB_ConstraintInstance__00c95810*)this)->sub_00a385d0();
 }

@@ -1,4 +1,4 @@
-// Engine_0c80000.cpp: 18 functions
+// Engine_0c80000.cpp: 20 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -193,4 +193,28 @@ void ASkeletalMeshActorMAT::execMAT_FinishAnimControl( FFrame& Stack, RESULT_DEC
 {
 	P_FINISH;
 	vf_360();
+}
+
+struct AController__00c84e30 : public AController
+{
+	ANavigationPoint* sub_007ad390();
+};
+
+// @baa 0x00c84e30
+void AController::execFindRandomDest(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(ANavigationPoint**)Result = ((AController__00c84e30*)this)->sub_007ad390();
+}
+
+struct APortalTeleporter_ : public APortalTeleporter
+{
+	UTextureRenderTarget2D* sub_008c5cb0();
+};
+
+// @baa 0x00c8ba90
+void APortalTeleporter::execCreatePortalTexture(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UTextureRenderTarget2D**)Result = ((APortalTeleporter_*)this)->sub_008c5cb0();
 }

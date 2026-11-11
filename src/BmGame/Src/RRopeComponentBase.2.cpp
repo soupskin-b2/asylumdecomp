@@ -1,4 +1,4 @@
-// RRopeComponentBase.cpp: 5 functions
+// RRopeComponentBase.cpp: 9 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -67,4 +67,33 @@ void URRopeComponentBase__01700b40::execGetIsRopeInitialised( FFrame& Stack, RES
 {
 	P_FINISH;
 	*(UBOOL*)Result = GetIsRopeInitialised();
+}
+
+// @baa 0x016ffe30
+void URSimpleRopeComponent::execUpdateRope(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	vf_250();
+}
+
+// @baa 0x01700b80
+void URSimpleRopeComponent::execInitialiseRope(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	vf_258();
+}
+
+// @baa 0x01700bc0
+void URSimpleRopeComponent::execFinaliseRope(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	vf_25c();
+}
+
+// @baa 0x01700950
+void URRopeComponentBase::execSetAutoLength(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_BYTE(LengthChangeType);
+    P_FINISH;
+    sub_0163f480(LengthChangeType);
 }

@@ -1,4 +1,4 @@
-// RPlayerController.cpp (part 6 of 6): 23 functions
+// RPlayerController.cpp (part 6 of 6): 31 functions
 // Placed here by: class 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -231,4 +231,76 @@ void ARPlayerController::execInitGamePadSettings(FFrame& Stack, RESULT_DECL)
 	P_FINISH;
 
 	vf_4d4();
+}
+
+// @baa 0x016f8830
+void ARPlayerController::execResetAmbientSound(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(USoundCue, Cue);
+    P_FINISH;
+    vf_514(Cue);
+}
+
+// @baa 0x016f9e40
+void ARPlayerController::execLive_IsNewGame(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_INT_REF(Difficulty);
+    P_FINISH;
+    *(UBOOL*)Result = vf_588(Difficulty);
+}
+
+// @baa 0x0171d050
+void ARPlayerController::execSetInfocastMsg(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STR(msg);
+    P_FINISH;
+    vf_57c(msg);
+}
+
+// @baa 0x0171cea0
+void ARPlayerController::execAutoJezLevelShouldBeLoaded(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STR(LevelName);
+    P_FINISH;
+    *(UBOOL*)Result = vf_550(LevelName);
+}
+
+// @baa 0x016f8ec0
+void ARPlayerController::execPreProcessInput(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_FLOAT(DeltaTime);
+    P_FINISH;
+    vf_530(DeltaTime);
+}
+
+// @baa 0x016f9bf0
+void ARPlayerController::execLive_SetLoginStatusError(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_BYTE(State);
+    P_FINISH;
+    vf_568(State);
+}
+
+struct ARPlayerController__016f9330 : public ARPlayerController
+{
+	AActor* sub_016175a0();
+};
+
+// @baa 0x016f9330
+void ARPlayerController::execGetAerialKickTarget(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(AActor**)Result = ((ARPlayerController__016f9330*)this)->sub_016175a0();
+}
+
+struct ARPlayerController__016f9570 : public ARPlayerController
+{
+	ARPawnVillain* sub_01623fd0();
+};
+
+// @baa 0x016f9570
+void ARPlayerController::execGetFallingAttackTarget(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(ARPawnVillain**)Result = ((ARPlayerController__016f9570*)this)->sub_01623fd0();
 }

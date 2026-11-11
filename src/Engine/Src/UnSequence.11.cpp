@@ -1,4 +1,4 @@
-// UnSequence.cpp: 5 functions
+// UnSequence.cpp: 7 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -37,4 +37,28 @@ void USeqAct_Latent::execAbortFor(FFrame& Stack, RESULT_DECL)
 	P_FINISH;
 
 	vf_19c((INT)latentActor);
+}
+
+struct USequenceObject_ : public USequenceObject
+{
+	AWorldInfo* sub_008aba50();
+};
+
+// @baa 0x00c980a0
+void USequenceObject::execGetWorldInfo(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(AWorldInfo**)Result = ((USequenceObject_*)this)->sub_008aba50();
+}
+
+struct UPrefabSequence_ : public UPrefabSequence
+{
+	APrefabInstance* sub_00d1ff40();
+};
+
+// @baa 0x00c983b0
+void UPrefabSequence::execGetOwnerPrefab(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(APrefabInstance**)Result = ((UPrefabSequence_*)this)->sub_00d1ff40();
 }

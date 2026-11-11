@@ -1,4 +1,4 @@
-// Engine_0c90000.cpp: 10 functions
+// Engine_0c90000.cpp: 11 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -72,4 +72,16 @@ void AFracturedStaticMeshActor::execResetHealth( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	vf_36c();
+}
+
+struct UAnimNodeCrossfader_ : public UAnimNodeCrossfader
+{
+	UAnimNodeSequence* sub_00c7a590();
+};
+
+// @baa 0x00c906d0
+void UAnimNodeCrossfader::execGetActiveChild(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UAnimNodeSequence**)Result = ((UAnimNodeCrossfader_*)this)->sub_00c7a590();
 }

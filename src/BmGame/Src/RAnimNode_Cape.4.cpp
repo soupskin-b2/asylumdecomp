@@ -1,4 +1,4 @@
-// RAnimNode_Cape.cpp: 4 functions
+// RAnimNode_Cape.cpp: 5 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -42,4 +42,16 @@ void URAnimNode_Cape__016ec110::execGetNumBonesInCape( FFrame& Stack, RESULT_DEC
 {
 	P_FINISH;
 	*(INT*)Result = GetNumBonesInCape();
+}
+
+struct URAnimNode_Cape__016ec150 : public URAnimNode_Cape
+{
+	UAnimNode* sub_01579fb0();
+};
+
+// @baa 0x016ec150
+void URAnimNode_Cape::execGetCurrentCapeAnimNode(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UAnimNode**)Result = ((URAnimNode_Cape__016ec150*)this)->sub_01579fb0();
 }

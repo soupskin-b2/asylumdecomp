@@ -1,4 +1,4 @@
-// OnlineSubsystemSteamworks_0c80000.cpp: 7 functions
+// OnlineSubsystemSteamworks_0c80000.cpp: 8 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -81,4 +81,16 @@ void AWorldInfo__00c89da0::execIsPreparingMapChange( FFrame& Stack, RESULT_DECL 
 {
 	P_FINISH;
 	*(UBOOL*)Result = IsPreparingMapChange();
+}
+
+struct AWorldInfo__00c89a10 : public AWorldInfo
+{
+	USequence* sub_008a7800();
+};
+
+// @baa 0x00c89a10
+void AWorldInfo::execGetGameSequence(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(USequence**)Result = ((AWorldInfo__00c89a10*)this)->sub_008a7800();
 }
