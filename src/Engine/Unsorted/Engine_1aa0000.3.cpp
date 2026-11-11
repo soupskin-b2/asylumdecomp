@@ -1,0 +1,53 @@
+// Engine_1aa0000.cpp (part 3 of 3): 2 functions
+// Functions whose original source file is not known yet, grouped by address.
+// Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
+
+struct FArrayLike
+{
+	void *Data;
+	UINT ArrayNum;
+	UINT ArrayMax;
+};
+
+struct FRange
+{
+	void *Range;
+	UINT Count;
+
+	FRange *sub_01aafd60(UINT Index, FArrayLike *Array);
+};
+
+extern "C" __declspec(dllimport) void _invalid_parameter_noinfo(void);
+// @baa 0x01aafd60
+FRange *FRange::sub_01aafd60(UINT Index, FArrayLike *Array)
+{
+	Range = 0;
+	if (!Array || Array->ArrayNum > Index || Index > Array->ArrayMax)
+	{
+		_invalid_parameter_noinfo();
+	}
+	Range = Array;
+	Count = Index;
+	return this;
+}
+
+struct FRange_01aafef0
+{
+	void *Range;
+	UINT Count;
+
+	FRange_01aafef0 *sub_01aafef0(UINT Index, FArrayLike *Array);
+};
+
+// @baa 0x01aafef0
+FRange_01aafef0 *FRange_01aafef0::sub_01aafef0(UINT Index, FArrayLike *Array)
+{
+	Range = 0;
+	if (!Array || Array->ArrayNum > Index || Index > Array->ArrayMax)
+	{
+		_invalid_parameter_noinfo();
+	}
+	Range = Array;
+	Count = Index;
+	return this;
+}

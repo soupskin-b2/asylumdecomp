@@ -1,0 +1,36 @@
+name: units
+
+# Every matched file compiled and verified again when what they depend on changes: a header or
+# checker change (yours, in a pull request, welcome) mustn't cost a match.
+
+on:
+  push:
+    branches: [main]
+    paths: ["include/**", "third_party/**", "tools/asylum/**", "data/fingerprints.json.gz", "data/symbols.json.gz", ".github/**"]
+  pull_request:
+    paths: ["include/**", "third_party/**", "tools/asylum/**", "src/**", "data/**", "tools/ci/**", ".github/**"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: units-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  units:
+    runs-on: windows-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    env:
+      ASYLUM_HOME: C:\asylum
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: ./.github/actions/compilers
+      - shell: bash
+        run: python tools/ci/units.py --shard ${{ matrix.shard }}/12

@@ -1,0 +1,84 @@
+name: integrate
+
+# Submissions from the service into src/. Three jobs, so untrusted sources are only compiled where
+# there are no secrets and nothing can be pushed:
+#   fetch  takes the queue (CI_TOKEN)
+#   check  compiles and verifies each one, places the matches (read-only token, no secrets)
+#   apply  validates check's result, commits it as the contributors, pushes, reports (no compiler)
+
+on:
+  schedule:
+    - cron: "7,37 * * * *"  # off the hour: GitHub delays or drops runs at :00 and :30
+  workflow_dispatch:
+
+concurrency:
+  group: integrate
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    outputs:
+      count: ${{ steps.fetch.outputs.count }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - id: fetch
+        env:
+          CI_TOKEN: ${{ secrets.CI_TOKEN }}
+        run: |
+          python tools/ci/integrate.py fetch --out batch.json
+          echo "count=$(python -c "import json;print(len(json.load(open('batch.json'))['submissions']))")" >> "$GITHUB_OUTPUT"
+      - if: steps.fetch.outputs.count != '0'
+        uses: actions/upload-artifact@v4
+        with:
+          name: batch
+          path: batch.json
+          retention-days: 7
+
+  check:
+    needs: fetch
+    if: needs.fetch.outputs.count != '0'
+    runs-on: windows-latest
+    env:
+      ASYLUM_HOME: C:\asylum
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: ./.github/actions/compilers
+      - uses: actions/download-artifact@v4
+        with:
+          name: batch
+      - shell: bash
+        run: python tools/ci/integrate.py check --in batch.json --out result.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: result
+          path: result.json
+          retention-days: 7
+
+  apply:
+    needs: check
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/download-artifact@v4
+        with:
+          name: batch
+      - uses: actions/download-artifact@v4
+        with:
+          name: result
+      - env:
+          CI_TOKEN: ${{ secrets.CI_TOKEN }}
+        run: python tools/ci/integrate.py apply --in result.json --batch batch.json --push

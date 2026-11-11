@@ -1,0 +1,144 @@
+// UnMorph.cpp: 37 functions
+// Placed here by: class 13, neighbours 10, file 8, callers 6.
+// Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
+#include "ue3/Implement.h"
+
+// @baa 0x00834810
+int UMorphNodeWeightBase::vf_000(void) { return 1; }
+
+// @baa 0x00834820
+int UMorphNodeWeight::vf_000(void) { return 1; }
+
+// @baa 0x00834830
+int UMorphNodePose::vf_000(void) { return 1; }
+
+// @baa 0x00834840
+int UMorphNodeWeightByBoneAngle::vf_000(void) { return 1; }
+
+// @baa 0x00834850
+void UMorphNodeBase::vf_124(int a0) { *(int*)((char*)this + 80) = a0; }
+
+// @baa 0x008348c0
+void UMorphNodeBase::vf_11c(void) {  }
+
+// @baa 0x008348e0
+float UMorphNodeWeight::vf_134(void) { return *(float*)((char*)this + 108); }
+
+// @baa 0x00839fb0
+IMPLEMENT_CLASS_AT(UMorphWeightSequence, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnMorph.cpp", 13);
+
+// @baa 0x00839fd0
+struct C{
+int sub_0083c770(undefined4*);
+};
+
+int sub_0053d240(...);
+undefined4 sub_0053df70(...);
+// @baa 0x0083c770
+int C::sub_0083c770(uint*param_2)
+{
+int*param_1=(int*)this;
+
+undefined4*puVar1;
+int iVar2;
+int iVar3;
+
+iVar2=param_1[1];
+iVar3=iVar2+1;
+param_1[1]=iVar3;
+if(iVar3>param_1[2]){
+iVar3=sub_0053d240(iVar3,param_1[2],8);
+param_1[2]=iVar3;
+if((*param_1!=0)||(iVar3!=0)){
+iVar3=sub_0053df70(*param_1,8*iVar3,8);
+*param_1=iVar3;
+}
+}
+puVar1=(undefined4*)(*param_1+iVar2*8);
+if(puVar1!=(undefined4*)0x0){
+*puVar1=*param_2;
+puVar1[1]=param_2[1];
+}
+return iVar2;
+}
+
+// @baa 0x0084ad30
+IMPLEMENT_CLASS_AT(UMorphNodeBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnMorph.cpp", 15);
+
+// @baa 0x0084ad50
+IMPLEMENT_CLASS_AT(UMorphNodePose, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnMorph.cpp", 18);
+
+void sub_00849c10();
+// @baa 0x0084ad70
+void sub_0084ad70(void) { sub_00849c10(); }
+
+void sub_00849c70();
+// @baa 0x0084ad80
+void sub_0084ad80(void) { sub_00849c70(); }
+
+// @baa 0x0084ad90
+// @baa 0x0084ae50
+// @baa 0x00852a00
+IMPLEMENT_CLASS_AT(UMorphNodeWeightBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnMorph.cpp", 16);
+
+// @baa 0x00852b10
+bool UMorphNodeWeightBase::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x00854960
+IMPLEMENT_CLASS_AT(UMorphTargetSet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnMorph.cpp", 12);
+
+// @baa 0x008549d0
+// @baa 0x008578d0
+IMPLEMENT_CLASS_AT(UMorphTarget, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnMorph.cpp", 11);
+
+void sub_00856e60();
+// @baa 0x00857900
+void sub_00857900(void) { sub_00856e60(); }
+
+// @baa 0x00857910
+// @baa 0x00859060
+// @baa 0x008590d0
+int sub_005c7a20(void);
+extern undefined * g_01f45020;
+// @baa 0x008590f0
+undefined4 * UObject::sub_008590f0(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_01f45020);
+  return param_1;
+}
+
+extern undefined * g_01f45168;
+// @baa 0x00859110
+undefined4 * UObject::sub_00859110(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_01f45168);
+  return param_1;
+}
+
+// @baa 0x00859130
+IMPLEMENT_CLASS_AT(UMorphNodeWeight, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnMorph.cpp", 17);
+
+// @baa 0x00859190
+// @baa 0x008596e0
+// @baa 0x00859700
+// @baa 0x00859720
+IMPLEMENT_CLASS_AT(UMorphNodeWeightByBoneAngle, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnMorph.cpp", 19);
+
+// @baa 0x00859740
+// @baa 0x00859800
+// @baa 0x008598c0
+// @baa 0x0085a130
+// @baa 0x0085a240
+bool UMorphNodeWeight::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}

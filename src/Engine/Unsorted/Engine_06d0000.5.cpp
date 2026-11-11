@@ -1,0 +1,48 @@
+// Engine_06d0000.cpp: 5 functions
+// Placed here by: contributions.
+// Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
+#include "ue3/Classes.h"
+#include "ue3/Script.h"
+
+struct UMaterialInstanceTimeVarying_ : public UMaterialInstanceTimeVarying
+{
+	/* UMaterialInstance's (0x006c47c0): a parameter update that takes the name of the caller it
+	 * was reached through. */
+	void sub_006c47c0(const TCHAR* Caller);
+};
+
+// @baa 0x006d8f20
+void UMaterialInstanceTimeVarying::SetDuration(FLOAT Value)
+{
+	((UMaterialInstanceTimeVarying_*)this)->sub_006c47c0(TEXT("MITV::SetDuration"));
+	Duration = Value;
+	vf_180();
+}
+
+// @baa 0x006dc680
+void UPrimitiveComponent::execGetHasFallenOutOfWorld( FFrame& Stack, RESULT_DECL )
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_1e8();
+}
+
+// @baa 0x006dc7c0
+void UMeshComponent::execGetUseSimpleBoxCollision( FFrame& Stack, RESULT_DECL )
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_250();
+}
+
+// @baa 0x006dc810
+void UMeshComponent::execGetUseSimpleLineCollision( FFrame& Stack, RESULT_DECL )
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_254();
+}
+
+// @baa 0x006dc930
+void UMeshComponent::execGetNumElements( FFrame& Stack, RESULT_DECL )
+{
+	P_FINISH;
+	*(INT*)Result = vf_258();
+}

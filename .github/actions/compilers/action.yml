@@ -1,0 +1,16 @@
+name: compilers
+description: Python, and the original compilers (rebuilt from Microsoft's downloads, cached)
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-python@v5
+      with:
+        python-version: "3.12"
+    - uses: actions/cache@v4
+      with:
+        path: C:\asylum\toolchain
+        key: toolchain-${{ hashFiles('tools/asylum/toolchain-files.json') }}
+    - shell: bash
+      run: |
+        python -m pip install --quiet -r tools/asylum/requirements.txt
+        python tools/asylum setup --toolchain-only

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="76" viewBox="0 0 860 76" font-family="ui-monospace, SFMono-Regular, &#x27;Cascadia Mono&#x27;, Consolas, &#x27;DejaVu Sans Mono&#x27;, monospace">
+<text x="0" y="18" font-size="13" fill="#59636e" text-anchor="start" font-weight="normal">#</text>
+<text x="30" y="18" font-size="13" fill="#59636e" text-anchor="start" font-weight="normal">who</text>
+<text x="420" y="18" font-size="13" fill="#59636e" text-anchor="end" font-weight="normal">functions</text>
+<text x="510" y="18" font-size="13" fill="#59636e" text-anchor="end" font-weight="normal">code</text>
+<text x="530" y="18" font-size="13" fill="#59636e" text-anchor="start" font-weight="normal">models</text>
+<line x1="0" y1="28" x2="860" y2="28" stroke="#d1d9e0" stroke-width="1"/>
+<text x="0" y="52" font-size="14" fill="#1f2328" text-anchor="start" font-weight="normal">1</text>
+<text x="30" y="52" font-size="14" fill="#1f2328" text-anchor="start" font-weight="bold">soupskin-b2</text>
+<text x="420" y="52" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">95,992</text>
+<text x="510" y="52" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">3.4 MB</text>
+<text x="530" y="52" font-size="12" fill="#59636e" text-anchor="start" font-weight="normal">tooling 94,456, qwen3.8-27b 931, not specifi…</text>
+<line x1="0" y1="62" x2="860" y2="62" stroke="#d1d9e0" stroke-width="1"/>
+</svg>

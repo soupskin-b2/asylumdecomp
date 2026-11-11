@@ -1,0 +1,53 @@
+// GFx_1900000.cpp (part 4 of 6): 2 functions
+// Functions whose original source file is not known yet, grouped by address.
+// Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
+
+struct GFxCharacter {
+    virtual BYTE v00();
+    virtual BYTE v01();
+    virtual BYTE v02();
+    virtual BYTE v03();
+    virtual BYTE v04();
+    virtual BYTE v05();
+    virtual BYTE v06();
+    virtual BYTE v07();
+    virtual BYTE v08();
+    virtual BYTE v09();
+    virtual BYTE v10();
+    virtual BYTE v11();
+    virtual BYTE v12();
+    virtual BYTE v13();
+    virtual BYTE v14();
+    virtual BYTE v15();
+    virtual BYTE v16();
+    virtual BYTE v17();
+    virtual BYTE v18();
+    virtual BYTE v19();
+    virtual BYTE v20();
+    virtual BYTE v21();
+    virtual BYTE v22();
+    virtual BYTE v23();
+    virtual BYTE v24();
+    virtual BYTE v25();
+    virtual BYTE v26();
+    virtual BYTE sub_01904670(DWORD arg);
+    virtual BYTE v28();
+    virtual BYTE v29();
+    virtual BYTE v30();
+    virtual BYTE v31();
+    virtual BYTE v32();
+    virtual BYTE sub_019046f0(DWORD arg);
+};
+
+// @baa 0x019046f0
+BYTE GFxCharacter::sub_019046f0(DWORD arg)
+{
+    return this->sub_01904670(arg);
+}
+
+struct GFxASCharacter {
+  BYTE sub_01904980(int a, int b);
+};
+
+// @baa 0x01904980
+BYTE GFxASCharacter::sub_01904980(int a, int b) { return 0; }

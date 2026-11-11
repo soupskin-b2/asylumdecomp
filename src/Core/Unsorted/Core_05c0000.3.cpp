@@ -1,0 +1,18 @@
+// Core_05c0000.cpp (part 3 of 3): 2 functions
+// Functions whose original source file is not known yet, grouped by address.
+// Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
+
+extern "C" __declspec(dllimport) int wcscpy_s(...);
+// @baa 0x005c2960
+wchar_t * sub_005c2960(wchar_t * param_1, wchar_t * param_2)
+{
+  wcscpy_s(param_1,0x100,param_2);
+  return param_1;
+}
+
+// @baa 0x005c2dc0
+wchar_t * sub_005c2dc0(wchar_t * param_1, wchar_t * param_2)
+{
+  wcscpy_s(param_1,0x40,param_2);
+  return param_1;
+}

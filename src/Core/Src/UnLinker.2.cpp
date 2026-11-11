@@ -1,0 +1,117 @@
+// UnLinker.cpp (part 2 of 3): 6 functions
+// Placed here by: neighbours 5.
+// Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
+#include "ue3/Classes.h"
+
+int sub_0053df70(...);
+// @baa 0x005a8f10
+void UObject::sub_005a8f10(int param_2)
+{
+    int * param_1 = (int *)this;
+
+  int iVar1;
+  
+  param_1[1] = 0;
+  if (param_1[2] != param_2) {
+    param_1[2] = param_2;
+    if ((*param_1 != 0) || (param_2 != 0)) {
+      iVar1 = sub_0053df70(*param_1,param_2 * 0xc,8);
+      *param_1 = iVar1;
+    }
+  }
+  return;
+}
+
+// @baa 0x005a90b0
+void UObject::sub_005a90b0(int param_2)
+{
+    int * param_1 = (int *)this;
+
+  int iVar1;
+  
+  param_1[1] = 0;
+  if (param_1[2] != param_2) {
+    param_1[2] = param_2;
+    if ((*param_1 != 0) || (param_2 != 0)) {
+      iVar1 = sub_0053df70(*param_1,param_2 * 4,8);
+      *param_1 = iVar1;
+    }
+  }
+  return;
+}
+
+struct C {
+    void sub_006488f0(int);
+};
+
+// @baa 0x006488f0
+void C::sub_006488f0(int param_2)
+{
+    int * param_1 = (int *)this;
+  int iVar1;
+  param_1[1] = 0;
+  if (param_1[2] != param_2) {
+    param_1[2] = param_2;
+    if ((*param_1 != 0) || (param_2 != 0)) {
+      iVar1 = sub_0053df70(*param_1,param_2 * 4,8);
+      *param_1 = iVar1;
+    }
+  }
+  return;
+}
+
+struct C_00648990 {
+    void sub_00648990(int);
+};
+
+// @baa 0x00648990
+void C_00648990::sub_00648990(int param_2)
+{
+    int * param_1 = (int *)this;
+  int iVar1;
+  param_1[1] = 0;
+  if (param_1[2] != param_2) {
+    param_1[2] = param_2;
+    if ((*param_1 != 0) || (param_2 != 0)) {
+      iVar1 = sub_0053df70(*param_1,param_2 * 4,8);
+      *param_1 = iVar1;
+    }
+  }
+  return;
+}
+
+struct C_00648a30 {
+    void sub_00648a30(int);
+};
+
+// @baa 0x00648a30
+void C_00648a30::sub_00648a30(int param_2)
+{
+    int * param_1 = (int *)this;
+  int iVar1;
+  param_1[1] = 0;
+  if (param_1[2] != param_2) {
+    param_1[2] = param_2;
+    if ((*param_1 != 0) || (param_2 != 0)) {
+      iVar1 = sub_0053df70(*param_1,param_2 * 4,8);
+      *param_1 = iVar1;
+    }
+  }
+  return;
+}
+
+struct UClass_ : public UClass {
+    void sub_005f2bf0(DWORD Offset);                       // EmitObjectReference
+    DWORD sub_005f2cf0(DWORD Offset, DWORD ElementSize);   // EmitStructArrayBegin
+    void sub_005f2d90(DWORD SkipIndexIndex);               // EmitStructArrayEnd
+};
+
+// @baa 0x0059a3e0
+void ULinker::StaticConstructor()
+{
+    UClass_* TheClass = (UClass_*)GetClass();
+    TheClass->sub_005f2bf0(0x30);
+    const DWORD SkipIndexIndex = TheClass->sub_005f2cf0(0xb0, 0x28);
+    TheClass->sub_005f2bf0(0x20);
+    TheClass->sub_005f2d90(SkipIndexIndex);
+}

@@ -1,0 +1,163 @@
+{
+ "updated": "2026-11-11",
+ "functions": {
+  "total": 174153,
+  "matched": 95992
+ },
+ "bytes": {
+  "total": 24308134,
+  "matched": 3531626
+ },
+ "areas": [
+  {
+   "name": "Engine",
+   "functions": 69863,
+   "bytes": 9201956,
+   "matched": 40377,
+   "matched_bytes": 1615084
+  },
+  {
+   "name": "Editor",
+   "functions": 42961,
+   "bytes": 8040643,
+   "matched": 23427,
+   "matched_bytes": 784634
+  },
+  {
+   "name": "External",
+   "functions": 29398,
+   "bytes": 3194226,
+   "matched": 11415,
+   "matched_bytes": 181913
+  },
+  {
+   "name": "Game",
+   "functions": 13563,
+   "bytes": 1853804,
+   "matched": 8791,
+   "matched_bytes": 488618
+  },
+  {
+   "name": "Core",
+   "functions": 12072,
+   "bytes": 1275961,
+   "matched": 7733,
+   "matched_bytes": 231379
+  },
+  {
+   "name": "CommonGame",
+   "functions": 1422,
+   "bytes": 173518,
+   "matched": 975,
+   "matched_bytes": 41234
+  },
+  {
+   "name": "Unsorted",
+   "functions": 2316,
+   "bytes": 163463,
+   "matched": 1578,
+   "matched_bytes": 20767
+  },
+  {
+   "name": "FMod",
+   "functions": 1472,
+   "bytes": 150189,
+   "matched": 906,
+   "matched_bytes": 27150
+  },
+  {
+   "name": "CommonEditor",
+   "functions": 554,
+   "bytes": 94053,
+   "matched": 334,
+   "matched_bytes": 13361
+  },
+  {
+   "name": "Libjpeg",
+   "functions": 304,
+   "bytes": 80285,
+   "matched": 275,
+   "matched_bytes": 73130
+  },
+  {
+   "name": "GFxUIEditor",
+   "functions": 124,
+   "bytes": 29780,
+   "matched": 78,
+   "matched_bytes": 4660
+  },
+  {
+   "name": "Zlib",
+   "functions": 71,
+   "bytes": 27481,
+   "matched": 70,
+   "matched_bytes": 26921
+  }
+ ],
+ "contributors": [
+  {
+   "login": "soupskin-b2",
+   "functions": 95992,
+   "bytes": 3531626,
+   "models": {
+    "tooling": 94456,
+    "qwen3.8-27b": 931,
+    "not specified": 338,
+    "claude-opus-5.5": 102,
+    "deepseek-v4.1-flash": 85,
+    "claude-sonnet-5.5": 37,
+    "deepseek-v4.1": 26,
+    "gpt-6.1-terra": 10,
+    "gpt-6.1-sol": 4,
+    "e2e-test": 2,
+    "claude-haiku-5.5": 1
+   }
+  }
+ ],
+ "models": [
+  {
+   "model": "tooling",
+   "functions": 94456
+  },
+  {
+   "model": "qwen3.8-27b",
+   "functions": 931
+  },
+  {
+   "model": "not specified",
+   "functions": 338
+  },
+  {
+   "model": "claude-opus-5.5",
+   "functions": 102
+  },
+  {
+   "model": "deepseek-v4.1-flash",
+   "functions": 85
+  },
+  {
+   "model": "claude-sonnet-5.5",
+   "functions": 37
+  },
+  {
+   "model": "deepseek-v4.1",
+   "functions": 26
+  },
+  {
+   "model": "gpt-6.1-terra",
+   "functions": 10
+  },
+  {
+   "model": "gpt-6.1-sol",
+   "functions": 4
+  },
+  {
+   "model": "e2e-test",
+   "functions": 2
+  },
+  {
+   "model": "claude-haiku-5.5",
+   "functions": 1
+  }
+ ]
+}

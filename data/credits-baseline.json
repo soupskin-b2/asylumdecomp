@@ -1,0 +1,15 @@
+{
+ "note": "Matches made before the repository opened (the maintainer's own pipeline), credited to the maintainer. Contributions after it are in contributions.jsonl.",
+ "login": "soupskin-b2",
+ "functions": 84028,
+ "bytes": 3078393,
+ "models": {
+  "tooling": 83059,
+  "qwen3.8-27b": 877,
+  "deepseek-v4.1-flash": 46,
+  "claude-sonnet-5.5": 37,
+  "gpt-6.1-terra": 6,
+  "deepseek-v4.1": 2,
+  "claude-haiku-5.5": 1
+ }
+}

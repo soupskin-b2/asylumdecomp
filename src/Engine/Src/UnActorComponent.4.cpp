@@ -1,0 +1,26 @@
+// UnActorComponent.cpp: 2 functions
+// Placed here by: contributions.
+// Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
+#include "ue3/Classes.h"
+#include "ue3/Script.h"
+
+// @baa 0x00c80980
+void UActorComponent::execSetTickGroup(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_BYTE(NewTickGroup);
+	P_FINISH;
+	SetTickGroup(NewTickGroup);
+}
+
+struct UActorComponent_ : public UActorComponent
+{
+	void DetachFromAny();
+	void execDetachFromAny(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00c809e0
+void UActorComponent_::execDetachFromAny( FFrame& Stack, RESULT_DECL )
+{
+	P_FINISH;
+	DetachFromAny();
+}

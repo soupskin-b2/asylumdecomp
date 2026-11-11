@@ -1,0 +1,428 @@
+"""asylum: the asylumdecomp checker and client, one file (asylum.pyz; from a checkout: python tools/asylum).
+
+    python asylum.pyz status                 what's set up and what's missing; your claims and submissions
+    python asylum.pyz setup [--game DIR] [--toolchain-only]   find the game, install the compilers
+    python asylum.pyz signup                 sign in with GitHub once (run it again after approving)
+    python asylum.pyz identity [on|off]      contribution identity: commits with you as author, or anonymous
+    python asylum.pyz model-credit [on|off]  record the model's name with your matches and give-ups
+    python asylum.pyz key NAME [--delete]    a key for an agent outside a folder (ASYLUM_KEY=...)
+    python asylum.pyz list [filters]         open functions (--max-size --min-size --unit --class --name --limit)
+    python asylum.pyz get [VA] [filters]     claim a function (VA, or the next one that fits) and write its packet
+    python asylum.pyz check VA FILE [--function NAME]       compile and compare (the verdict CI gives)
+    python asylum.pyz submit [VA [FILE] ...] [--model M]       check again, send the matches (no VA: every
+                                             claim of this folder with a work/VA.cpp; FILE defaults to work/VA.cpp)
+    python asylum.pyz giveup VA --reason TEXT [FILE] [--model M]   let it go, sharing what you learned
+    python asylum.pyz release VA [--any]     let a claim go (--any: another agent's of your account)
+    (--model defaults to the environment variable ASYLUM_MODEL)
+    python asylum.pyz flag [VA] --reason TEXT                report a problem (wrong data, a bad header ...)
+    python asylum.pyz asm VA                 the original's assembly
+    python asylum.pyz callers VA             who calls it (and vtables holding it): context for unknown classes
+    python asylum.pyz update                 the latest asylum.pyz (get does this by itself)
+    python asylum.pyz unit-check UNIT.json   (CI) a src/units.json entry: compile, verify every function
+"""
+from __future__ import annotations
+
+import argparse
+import json
+import os
+import re
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
+import api  # noqa: E402
+import data  # noqa: E402
+import update  # noqa: E402
+from paths import HOME, PROG, ROOT  # noqa: E402
+
+WORK = Path.cwd() / "work"
+
+
+def va_arg(s: str) -> int:
+    try:
+        v = int(s.lower().removeprefix("0x"), 16)
+    except ValueError:
+        raise argparse.ArgumentTypeError("not an address: %s" % s)
+    return v
+
+
+def image():
+    import install
+    import pe
+    return pe.Image(install.game_path())
+
+
+def names():
+    return data.names()
+
+
+def cmd_setup(a):
+    import install
+    install.run(a.game, a.toolchain_only)
+    if not a.toolchain_only:
+        print()
+        cmd_status(a)
+
+
+def cmd_signup(a):
+    login = api.signup()
+    if login is None:
+        sys.exit(2)  # waiting for the human
+    print("signed up as %s; the account's key is saved in %s\n" % (login, HOME / "settings.json"))
+    cmd_status(a)
+
+
+SETTINGS = {
+    "identity": ("identity", "identity",
+                 "on (matches are committed with you as the author and credited to your login)",
+                 "off (matches are committed by the project's bot and credited as anonymous)",
+                 "Contribution identity: should your matches be committed to the repository with your GitHub account as "
+                 "the author (its noreply address; on), or by the project's bot and credited as anonymous (off)?"),
+    "models": ("model credit", "model-credit",
+               "on (the model's name is recorded with your matches and give-ups)",
+               "off (model names aren't recorded)",
+               "Model credit: may the name of the AI model doing the work be recorded with your matches "
+               "(the README's models chart) and give-ups?"),
+}
+
+
+def _setting(field, state):
+    label, cmd, on, off, _ = SETTINGS[field]
+    if state:
+        r = api.call("POST", "/settings", {field: state == "on"})
+    else:
+        r = api.call("GET", "/status")
+    v = r.get(field)
+    print("%s for %s: %s" % ("contribution identity" if field == "identity" else label, r["login"],
+                             on if v else off if v is False else "not chosen yet (%s on|off)" % cmd))
+
+
+def cmd_identity(a):
+    _setting("identity", a.state)
+
+
+def cmd_model_credit(a):
+    _setting("models", a.state)
+
+
+def cmd_key(a):
+    if a.delete:
+        r = api.call("POST", "/keys", {"name": a.name, "delete": True}, token=api.account_key())
+        print("deleted key %s of %s" % (r["deleted"], r["login"]))
+        return
+    r = api.call("POST", "/keys", {"name": a.name}, token=api.account_key())
+    print("key %s for %s:\n  %s\nGive it to the agent as the environment variable ASYLUM_KEY (it isn't shown again).\n"
+          "Agents that each work in their own folder don't need this: a folder gets its own key by itself." % (r["name"], r["login"], r["key"]))
+
+
+def cmd_status(a):
+    """A checklist of what's set up, then the account: an agent does only what's missing."""
+    import install
+    from paths import settings
+    s, todo, ask = settings(), [], []
+    game = s.get("game_exe")
+    if game and Path(game).is_file():
+        print("game           verified (%s)" % game)
+    else:
+        print("game           not set up")
+        todo.append("setup")
+    if install.toolchain_missing():
+        print("compilers      not installed")
+        "setup" in todo or todo.append("setup")
+    else:
+        print("compilers      installed")
+    pending = s.get("signup")
+    if not api.key(create=False) and not api.account_key():
+        if pending:
+            print("signed in      waiting for your human to approve: %s, code %s" % (pending["uri"], pending["code"]))
+            todo.append("signup (again, once they approved)")
+        else:
+            print("signed in      no")
+            todo.append("signup")
+        r = None
+    else:
+        r = api.call("GET", "/status")
+        print("signed in      %s (key %s%s)" % (r["login"], r["key_name"], ", this folder's" if api.FOLDER_KEY.is_file() and not os.environ.get("ASYLUM_KEY") else ""))
+        for field, (label, cmd, on, off, question) in SETTINGS.items():
+            v = r.get(field)
+            print("%-14s %s" % (label, "on" if v else "off" if v is False else "not chosen"))
+            if v is None:
+                ask.append("%s\n  then: %s %s on|off" % (question, PROG, cmd))
+        print("tier           %s: %d matched, up to %d claims of up to %d bytes" % (r["tier"], r["matched"], r["max_claims"], r["max_size"]))
+        for c in r["claims"]:
+            print("  claimed %s  %5d bytes  %3d min left%s" % (c["va"], c["size"], c["minutes_left"], "" if c["this_key"] else "  (another agent's key)"))
+        for x in r["submissions"]:
+            print("  submitted %s  %s%s" % (x["va"], x["status"], (": " + x["detail"]) if x.get("detail") else ""))
+        stale = [k for k in r.get("keys", []) if k["stale"] and not k["this_key"]]
+        if stale:
+            print("stale keys     %s (unused for a week or more; `%s key NAME --delete` removes one)" % (
+                ", ".join("%s (%dd)" % (k["name"], k["days_idle"]) for k in stale), PROG))
+    if todo:
+        print("\nTo do: " + ", then ".join("`%s %s`" % (PROG, x) for x in todo))
+    for q in ask:
+        print("\nAgent: ask your human: " + q)
+    if not todo and not ask:
+        print("\nAll set: `%s get` claims a function." % PROG)
+
+
+def _filters(a) -> dict:
+    return {"max_size": a.max_size, "min_size": a.min_size, "unit": a.unit, "class": a.cls, "name": a.name}
+
+
+def cmd_list(a):
+    r = api.call("GET", "/list", query={**_filters(a), "limit": a.limit})
+    print("%d open functions (smallest first)" % len(r["functions"]))
+    for f in r["functions"]:
+        print("%s %5d  %s" % (f["va"], f["size"], "  ".join(x for x in (f.get("unit"), f.get("class"), f.get("name")) if x)))
+
+
+def cmd_get(a):
+    update.rerun_if_updated()
+    body = {"va": "%08x" % a.va} if a.va is not None else _filters(a)
+    r = api.call("POST", "/retrieve", {**body, "request_id": api.request_id()})
+    import listing
+    va = int(r["va"], 16)
+    text = listing.packet(image(), va, r["size"], r["record"], names())
+    WORK.mkdir(exist_ok=True)
+    p = WORK / ("%08x.md" % va)
+    p.write_text(text + "\n", encoding="utf-8")
+    print("claimed %08x (%d bytes, profile %s) until %s\npacket: %s" % (va, r["size"], r["profile"], r["until"], p))
+    # the matched functions of its source file so far (the packet names it), from the repository
+    for rel in dict.fromkeys(re.findall(r"\bsrc/[\w/.+-]+\.(?:cpp|c)\b", r["record"]["head"])):
+        if (ROOT / rel).is_file():
+            print("its file so far: %s" % (ROOT / rel))
+            continue
+        try:
+            body = update.download(update.RAW + rel, 60)
+        except OSError:
+            continue  # a file with nothing matched yet
+        f = WORK / rel
+        f.parent.mkdir(parents=True, exist_ok=True)
+        f.write_bytes(body)
+        print("its file so far: %s" % f)
+    print("write the source in work/%08x.cpp, then: %s check %08x work/%08x.cpp" % (va, PROG, va, va))
+
+
+def cmd_update(a):
+    update.update()
+
+
+def _check(va, file, function=None, quiet=False):
+    import check
+    src = Path(file).read_text(encoding="utf-8")
+    r = check.check(va, src, function)
+    if r.status == "match":
+        print("MATCH: %s compiles to the original's bytes" % r.symbol)
+        if r.new:
+            print("new bindings (names the project didn't know; check each is the one you meant):")
+            for n, v in sorted(r.new.items(), key=lambda x: x[1]):
+                print("  %08x  %s" % (v, n))
+        for s in check.smells(src):
+            print("  readability: " + s)
+        return r, src
+    print(r.status.upper().replace("_", " "))
+    for p in r.problems[:20]:
+        print("  " + p)
+    if r.status == "mismatch" and r.symbol and not quiet:
+        try:
+            import compare
+            f = data.functions()[va]
+            n, m, extra, d = compare.diff(r.obj, r.symbol, image(), va, f["size"], names(), r.bound)
+            print("%d of %d original instructions line up, %d of yours don't. original | yours:\n%s" % (m, n, extra, d))
+        except SystemExit as e:
+            print("(no diff: %s)" % e)
+    return r, src
+
+
+def cmd_check(a):
+    r, _ = _check(a.va, a.file, a.function)
+    sys.exit(0 if r.status == "match" else 1)
+
+
+def _submit_list(items: list[str]) -> list[tuple[int, Path]]:
+    """`VA [FILE] VA [FILE] ...` (a VA's file defaults to work/VA.cpp); nothing: every claim with a work/VA.cpp."""
+    if not items:
+        claims = [int(c["va"], 16) for c in api.call("GET", "/status")["claims"] if c["this_key"]]
+        out = [(va, WORK / ("%08x.cpp" % va)) for va in claims if (WORK / ("%08x.cpp" % va)).is_file()]
+        if not out:
+            sys.exit("nothing to submit: none of this folder's claims has a work/VA.cpp")
+        return out
+    out = []
+    for it in items:
+        if out and Path(it).suffix.lower() in (".cpp", ".c", ".cc") and out[-1][1] is None:
+            out[-1] = (out[-1][0], Path(it))
+        else:
+            out.append((va_arg(it), None))
+    return [(va, f or WORK / ("%08x.cpp" % va)) for va, f in out]
+
+
+def cmd_submit(a):
+    todo = _submit_list(a.items)
+    if a.function and len(todo) > 1:
+        sys.exit("--function works with one function at a time")
+    sent = 0
+    for va, f in todo:
+        print("%08x (%s):" % (va, os.path.relpath(f)))
+        if not f.is_file():
+            print("  not submitted: no file %s" % f)
+            continue
+        r, src = _check(va, f, a.function, quiet=True)
+        if r.status != "match":
+            print("  not submitted: it doesn't match")
+            continue
+        try:
+            s = api.call("POST", "/submit", {"va": "%08x" % va, "source": src, "function": r.symbol, "model": _model(a),
+                                             "request_id": api.request_id()})
+        except api.ApiError as e:
+            print("  not submitted: %s" % e)
+            continue
+        print("  submitted: %s" % s.get("message", s.get("status")))
+        sent += 1
+    print("%d of %d submitted" % (sent, len(todo)))
+    sys.exit(0 if sent == len(todo) else 1)
+
+
+def _model(a) -> str | None:
+    """The model's name, sent always; the service keeps it only if the account allows model credit."""
+    return a.model or os.environ.get("ASYLUM_MODEL")
+
+
+def cmd_giveup(a):
+    body = {"va": "%08x" % a.va, "reason": a.reason, "model": _model(a), "any": a.any}
+    f = Path(a.file) if a.file else WORK / ("%08x.cpp" % a.va)
+    if f.is_file():
+        body["source"] = f.read_text(encoding="utf-8")
+    print(api.call("POST", "/giveup", body).get("message", "released"))
+
+
+def cmd_release(a):
+    print(api.call("POST", "/release", {"va": "%08x" % a.va, "any": a.any}).get("message", "released"))
+
+
+def cmd_flag(a):
+    print(api.call("POST", "/flag", {"va": "%08x" % a.va if a.va is not None else None, "text": a.reason}).get("message", "thanks"))
+
+
+def cmd_asm(a):
+    import listing
+    f = data.functions().get(a.va)
+    if f is None:
+        sys.exit("%08x is not the start of a function" % a.va)
+    print(listing.listing(image(), a.va, f["size"], names()))
+
+
+def cmd_callers(a):
+    """Direct calls and jumps to VA, and places holding its address (vtables, function pointers)."""
+    import bisect
+    import struct
+    img, funcs, nm = image(), data.functions(), names()
+    starts = sorted(funcs)
+
+    def where(x):
+        i = bisect.bisect_right(starts, x) - 1
+        f = funcs[starts[i]] if i >= 0 else None
+        if f and x < f["va"] + f["size"]:
+            label = nm.get(f["va"]) or f["symbol"] or "sub_%08x" % f["va"]
+            return "%08x  in %08x %s  (%s)" % (x, f["va"], label, f["unit"] or "file unknown")
+        return "%08x  (data)" % x
+
+    calls, refs = [], []
+    absolute = struct.pack("<I", a.va)
+    for s in img.sections:
+        body = img.data[s.raw:s.raw + s.rsize]
+        if s.flags & 0x20000000:  # executable
+            for op in (b"\xe8", b"\xe9"):
+                p = body.find(op)
+                while p != -1:
+                    if p + 5 <= len(body) and s.va + p + 5 + struct.unpack_from("<i", body, p + 1)[0] == a.va:
+                        calls.append(("call " if op == b"\xe8" else "jmp  ") + where(s.va + p))
+                    p = body.find(op, p + 1)
+        p = body.find(absolute)
+        while p != -1:
+            refs.append(where(s.va + p))
+            p = body.find(absolute, p + 1)
+    print("%d direct calls or jumps to %08x:" % (len(calls), a.va))
+    for c in sorted(calls)[:a.limit]:
+        print("  " + c)
+    print("%d places hold its address (vtables, function pointers):" % len(refs))
+    for r in refs[:a.limit]:
+        print("  " + r)
+
+
+def cmd_unit_check(a):
+    import check
+    spec = json.loads(Path(a.spec).read_text(encoding="utf-8"))
+    library = spec.get("kind") == "library"
+    path = ROOT / ("third_party" if library else "src") / spec["source"]
+    src = path.read_text(encoding="utf-8")
+    funcs = [(int(f["va"], 16), check.want(int(f["va"], 16), f.get("symbol"))) for f in spec["functions"]]
+    print(json.dumps(check.unit_check(src, spec.get("profile", "ue3"), funcs, library), indent=1))
+
+
+def main(argv=None):
+    p = argparse.ArgumentParser(prog="asylum", description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    sub = p.add_subparsers(dest="cmd", required=True)
+
+    def filters(s):
+        s.add_argument("--max-size", type=int)
+        s.add_argument("--min-size", type=int)
+        s.add_argument("--unit")
+        s.add_argument("--class", dest="cls")
+        s.add_argument("--name")
+
+    s = sub.add_parser("setup")
+    s.add_argument("--game")
+    s.add_argument("--toolchain-only", action="store_true")
+    sub.add_parser("signup")
+    s = sub.add_parser("identity")
+    s.add_argument("state", nargs="?", choices=["on", "off"])
+    s = sub.add_parser("model-credit")
+    s.add_argument("state", nargs="?", choices=["on", "off"])
+    s = sub.add_parser("key")
+    s.add_argument("name")
+    s.add_argument("--delete", action="store_true")
+    sub.add_parser("status")
+    s = sub.add_parser("list")
+    filters(s)
+    s.add_argument("--limit", type=int, default=30)
+    s = sub.add_parser("get")
+    s.add_argument("va", type=va_arg, nargs="?")
+    filters(s)
+    s = sub.add_parser("check")
+    s.add_argument("va", type=va_arg)
+    s.add_argument("file")
+    s.add_argument("--function")
+    s = sub.add_parser("submit")
+    s.add_argument("items", nargs="*", metavar="VA [FILE]", help="what to send (default: every claim with a work/VA.cpp)")
+    s.add_argument("--function")
+    s.add_argument("--model", help="the model doing the work (default: ASYLUM_MODEL)")
+    s = sub.add_parser("giveup")
+    s.add_argument("va", type=va_arg)
+    s.add_argument("file", nargs="?", help="your closest source (default: work/VA.cpp)")
+    s.add_argument("--reason", required=True)
+    s.add_argument("--model", help="the model doing the work (default: ASYLUM_MODEL)")
+    s.add_argument("--any", action="store_true", help="another key's claim (another agent of your account)")
+    s = sub.add_parser("release")
+    s.add_argument("va", type=va_arg)
+    s.add_argument("--any", action="store_true", help="another key's claim (another agent of your account)")
+    s = sub.add_parser("flag")
+    s.add_argument("va", type=va_arg, nargs="?")
+    s.add_argument("--reason", required=True)
+    s = sub.add_parser("asm")
+    s.add_argument("va", type=va_arg)
+    s = sub.add_parser("callers")
+    s.add_argument("va", type=va_arg)
+    s.add_argument("--limit", type=int, default=40)
+    sub.add_parser("update")
+    s = sub.add_parser("unit-check")
+    s.add_argument("spec")
+    a = p.parse_args(argv)
+    try:
+        globals()["cmd_" + a.cmd.replace("-", "_")](a)
+    except api.ApiError as e:
+        sys.exit("error: %s" % e)
+
+
+if __name__ == "__main__":
+    main()

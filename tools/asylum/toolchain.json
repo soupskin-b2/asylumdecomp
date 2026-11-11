@@ -1,0 +1,189 @@
+{
+  "note": "Toolchains are Microsoft's and are not in the repository: tools/get_toolchain.md says how to unpack them into toolchain/. Profiles are the flag sets functions compile with; flag discovery (python -m baa flags) picks each library's.",
+  "compilers": {
+    "vc8sp1": {
+      "root": "toolchain/vc8sp1",
+      "version": "14.00.50727.762",
+      "includes": [
+        "toolchain/psdk/include"
+      ]
+    },
+    "vc8rtm": {
+      "root": "toolchain/vc8rtm",
+      "version": "14.00.50727.42",
+      "includes": [
+        "toolchain/psdk/include"
+      ]
+    },
+    "vc71": {
+      "root": "toolchain/vc71",
+      "version": "13.10.3052 (Visual C++ Toolkit 2003; the exe's C objects are 13.10.3077)",
+      "includes": [
+        "toolchain/psdk/include"
+      ]
+    }
+  },
+  "includes": [
+    "include"
+  ],
+  "default_profile": "ue3",
+  "profiles": {
+    "ue3": {
+      "compiler": "vc8sp1",
+      "language": "c++",
+      "prelude": [
+        "baa_prelude.h",
+        "ghidra_compat.h"
+      ],
+      "note": "/GS: EH frames push __security_cookie^esp (22k functions). /arch:SSE: game code does float math in SSE (75% of its float functions use xmm)",
+      "flags": [
+        "/O2",
+        "/Ob2",
+        "/Oi",
+        "/Ot",
+        "/Oy",
+        "/GF",
+        "/Gy",
+        "/GS",
+        "/GR-",
+        "/EHsc",
+        "/MD",
+        "/arch:SSE",
+        "/fp:fast",
+        "/Zc:wchar_t",
+        "/Zc:forScope",
+        "/W0"
+      ]
+    },
+    "ue3_o1": {
+      "compiler": "vc8sp1",
+      "language": "c++",
+      "prelude": [
+        "baa_prelude.h",
+        "ghidra_compat.h"
+      ],
+      "flags": [
+        "/O1",
+        "/Oy",
+        "/GF",
+        "/Gy",
+        "/GS-",
+        "/GR-",
+        "/EHsc",
+        "/MD",
+        "/fp:fast",
+        "/W0"
+      ]
+    },
+    "lib_c": {
+      "compiler": "vc8sp1",
+      "language": "c",
+      "prelude": [],
+      "flags": [
+        "/O2",
+        "/Oy",
+        "/GF",
+        "/Gy",
+        "/GS-",
+        "/MD",
+        "/W0"
+      ]
+    },
+    "libjpeg": {
+      "compiler": "vc8sp1",
+      "language": "c",
+      "prelude": [],
+      "note": "jpeg-6b: 304/327 by scan",
+      "flags": [
+        "/O2",
+        "/Ob1",
+        "/Gy",
+        "/GS",
+        "/MD",
+        "/W0"
+      ]
+    },
+    "lib_cpp_rtti": {
+      "compiler": "vc8sp1",
+      "language": "c++",
+      "prelude": [],
+      "flags": [
+        "/O2",
+        "/Oy",
+        "/GF",
+        "/Gy",
+        "/GS-",
+        "/GR",
+        "/EHsc",
+        "/MD",
+        "/W0"
+      ]
+    },
+    "ue3_x87": {
+      "compiler": "vc8sp1",
+      "language": "c++",
+      "prelude": [
+        "baa_prelude.h",
+        "ghidra_compat.h"
+      ],
+      "note": "ue3 flags without /arch:SSE: the third-party code at 01760000-01b54000 and 01b8d000-01c00000 uses x87 only | /fp:precise (2026-11-07): this code calls _CIsin/_CIcos/_CIlog/_CIsqrt/_CIexp, which VC8 inlines under /fp:fast; 250/250 sampled matches still match",
+      "flags": [
+        "/O2",
+        "/Ob2",
+        "/Oi",
+        "/Ot",
+        "/Oy",
+        "/GF",
+        "/Gy",
+        "/GS",
+        "/GR-",
+        "/EHsc",
+        "/MD",
+        "/fp:precise",
+        "/Zc:wchar_t",
+        "/Zc:forScope",
+        "/W0"
+      ]
+    },
+    "lib_c71": {
+      "compiler": "vc71",
+      "language": "c",
+      "prelude": [],
+      "note": "third-party C built with VS.NET 2003 (Rich header: 24 C objects 13.10.3077)",
+      "flags": [
+        "/O2",
+        "/Oy",
+        "/GF",
+        "/Gy",
+        "/MD",
+        "/W0"
+      ]
+    },
+    "ue3_x87_gsoff": {
+      "compiler": "vc8sp1",
+      "language": "c++",
+      "prelude": [
+        "baa_prelude.h",
+        "ghidra_compat.h"
+      ],
+      "note": "ue3_x87 with /GS-: third-party code at 017f8000-0188f000 (FCollada and neighbours), 01a27000-01a38000 and 01bf9000-01bfe000 has EH frames without the security cookie VC8 /GS always adds to them (found 2026-11-07) | /fp:precise (2026-11-07): this code calls _CIsin/_CIcos/_CIlog/_CIsqrt/_CIexp, which VC8 inlines under /fp:fast; 250/250 sampled matches still match",
+      "flags": [
+        "/O2",
+        "/Ob2",
+        "/Oi",
+        "/Ot",
+        "/Oy",
+        "/GF",
+        "/Gy",
+        "/GS-",
+        "/GR-",
+        "/EHsc",
+        "/MD",
+        "/fp:precise",
+        "/Zc:wchar_t",
+        "/Zc:forScope",
+        "/W0"
+      ]
+    }
+  }
+}
