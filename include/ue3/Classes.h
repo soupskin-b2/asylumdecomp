@@ -15940,8 +15940,8 @@ struct UAudioComponent : public UActorComponent {
     BITFIELD bNoReverb : 1; /* 0x60 */
     BITFIELD bFMODGenerated : 1; /* 0x60 */
     BITFIELD bIsPaused : 1; /* 0x60 */
-    BITFIELD bForcePauseUpdate : 1; /* 0x60 */
     BITFIELD bPlaying : 1; /* 0x60 */
+    BITFIELD bForcePauseUpdate : 1; /* 0x60 */
     FLOAT SubPriDistance; /* 0x64 */
     TArrayNoInit<FNativeElem_0076a4b0> WaveInstances; /* 0x68 */
     TArrayNoInit<BYTE> SoundNodeData; /* 0x74 */
@@ -18567,7 +18567,7 @@ struct UUIScreenObject : public UUIRoot {
     virtual INT vf_164(INT, INT, INT, INT); /* 0x164 */
     virtual void RequestFormattingUpdate(); /* 0x168 */
     virtual void RequestSceneInputMaskUpdate(); /* 0x16c */
-    virtual INT RequestPrimitiveReview(INT, INT); /* 0x170 */
+    virtual void RequestPrimitiveReview(UBOOL bReinitializePrimitives, UBOOL bReviewPrimitiveUsage); /* 0x170 */
     virtual void vf_174(INT); /* 0x174 */
     virtual INT vf_178(INT, INT); /* 0x178 */
     virtual void vf_17c(INT, INT, INT); /* 0x17c */
@@ -18776,7 +18776,7 @@ struct UUIObject : public UUIScreenObject {
     virtual INT vf_164(INT, INT, INT, INT); /* 0x164 */
     virtual void RequestFormattingUpdate(); /* 0x168 */
     virtual void RequestSceneInputMaskUpdate(); /* 0x16c */
-    virtual INT RequestPrimitiveReview(INT, INT); /* 0x170 */
+    virtual void RequestPrimitiveReview(UBOOL bReinitializePrimitives, UBOOL bReviewPrimitiveUsage); /* 0x170 */
     virtual void vf_174(INT); /* 0x174 */
     virtual INT vf_178(INT, INT); /* 0x178 */
     virtual void vf_17c(INT, INT, INT); /* 0x17c */
@@ -23015,7 +23015,7 @@ struct UUISceneClient : public UUIRoot, public FExec {
     virtual void RenderScenes(INT); /* 0x164 */
     virtual INT vf_168(INT, INT, INT); /* 0x168 */
     virtual void vf_16c(INT, INT, INT); /* 0x16c */
-    virtual void RequestPrimitiveReinitialization(INT); /* 0x170 */
+    virtual void RequestPrimitiveReinitialization(class UUIScene* Scene); /* 0x170 */
     virtual void InitializePrimitives(INT); /* 0x174 */
     virtual void UpdateActivePrimitives(INT); /* 0x178 */
     virtual INT vf_17c(INT, INT); /* 0x17c */
@@ -23107,7 +23107,7 @@ struct UGameUISceneClient : public UUISceneClient {
     virtual INT vf_15c(INT, INT, INT); /* 0x15c */
     virtual INT vf_160(INT, INT, INT); /* 0x160 */
     virtual void RenderScenes(INT); /* 0x164 */
-    virtual void RequestPrimitiveReinitialization(INT); /* 0x170 */
+    virtual void RequestPrimitiveReinitialization(class UUIScene* Scene); /* 0x170 */
     virtual void InitializePrimitives(INT); /* 0x174 */
     virtual void UpdateActivePrimitives(INT); /* 0x178 */
     virtual INT IsUIActive(INT); /* 0x180 */
@@ -37427,7 +37427,7 @@ struct UUIScene : public UUIScreenObject {
     virtual INT vf_164(INT, INT, INT, INT); /* 0x164 */
     virtual void RequestFormattingUpdate(); /* 0x168 */
     virtual void RequestSceneInputMaskUpdate(); /* 0x16c */
-    virtual INT RequestPrimitiveReview(INT, INT); /* 0x170 */
+    virtual void RequestPrimitiveReview(UBOOL bReinitializePrimitives, UBOOL bReviewPrimitiveUsage); /* 0x170 */
     virtual void vf_17c(INT, INT, INT); /* 0x17c */
     virtual INT vf_184(INT); /* 0x184 */
     virtual BYTE GetInputMask(UINT, UINT); /* 0x190 */
@@ -62628,7 +62628,7 @@ struct UEditorUISceneClient : public UUISceneClient, public FInterface_UEditorEn
     virtual INT vf_14c(INT, INT, INT, INT); /* 0x14c */
     virtual INT vf_15c(INT, INT, INT); /* 0x15c */
     virtual void RenderScenes(INT); /* 0x164 */
-    virtual void RequestPrimitiveReinitialization(INT); /* 0x170 */
+    virtual void RequestPrimitiveReinitialization(class UUIScene* Scene); /* 0x170 */
     virtual void InitializePrimitives(INT); /* 0x174 */
     virtual void UpdateActivePrimitives(INT); /* 0x178 */
     virtual INT IsUIActive(INT); /* 0x180 */

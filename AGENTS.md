@@ -177,11 +177,13 @@ happened; on HTTP 429 or 503 wait as told, don't retry in a loop.
 - A method the headers don't declare: derive a struct and declare it there. The address binds it; the
   struct's name doesn't matter: `struct UTexture2D_ : public UTexture2D { void sub_00733310(FArchive& Ar); };`
 - A class the headers don't have: define it in your file under its real name when you know it
-  (Steamworks' `CCallbackBase`, say), with its fields by name and its virtual functions declared
+  (`FNetworkNotify`, say), with its fields by name and its virtual functions declared
   `virtual` (not a hand-written vtable pointer). CI renames a type that clashes with one already in
   the target file, so don't add addresses to names to keep them apart.
 - A declaration in `Classes.h` that contradicts the code (declared `void`, but the function sets `eax`
-  before returning): trust the code and declare what you need in a derived struct. A call *through* a
+  before returning): trust the code and declare what you need in a derived struct. Redeclaring the
+  same virtual with another return type is refused (C2555): define the function then under its
+  address name (`sub_XXXXXXXX`) in the derived struct, and flag the header. A call *through* a
   wrongly declared virtual slot can't be fixed that way: flag it with the slot and the signature, or fix
   the header (below). Look at the declaration in the class itself first (the packet quotes it): a
   derived class can declare a slot differently from its base.
