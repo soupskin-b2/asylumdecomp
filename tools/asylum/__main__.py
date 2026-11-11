@@ -167,14 +167,16 @@ def cmd_status(a):
 
 
 def _filters(a) -> dict:
-    return {"max_size": a.max_size, "min_size": a.min_size, "unit": a.unit, "class": a.cls, "name": a.name}
+    return {"max_size": a.max_size, "min_size": a.min_size, "unit": a.unit, "class": a.cls, "name": a.name,
+            "named": 1 if a.named else None}
 
 
 def cmd_list(a):
     r = api.call("GET", "/list", query={**_filters(a), "limit": a.limit})
-    print("%d open functions (smallest first)" % len(r["functions"]))
+    print("%d open functions (fewest give-ups first, then smallest)" % len(r["functions"]))
     for f in r["functions"]:
-        print("%s %5d  %s" % (f["va"], f["size"], "  ".join(x for x in (f.get("unit"), f.get("class"), f.get("name")) if x)))
+        tries = " (given up %dx)" % f["tries"] if f.get("tries") else ""
+        print("%s %5d  %s%s" % (f["va"], f["size"], "  ".join(x for x in (f.get("unit"), f.get("class"), f.get("name")) if x), tries))
 
 
 def cmd_get(a):
@@ -327,6 +329,18 @@ def cmd_callers(a):
             return "%08x  in %08x %s  (%s)" % (x, f["va"], label, f["unit"] or "file unknown")
         return "%08x  (data)" % x
 
+    import x86
+    starts_of = {}  # function va -> its instruction starts
+
+    def real(x):
+        i = bisect.bisect_right(starts, x) - 1
+        f = funcs[starts[i]] if i >= 0 else None
+        if not f or x >= f["va"] + f["size"]:
+            return False
+        if f["va"] not in starts_of:
+            starts_of[f["va"]] = {f["va"] + n.off for n in x86.disasm(img.read(f["va"], f["size"]))}
+        return x in starts_of[f["va"]]
+
     calls, refs = [], []
     absolute = struct.pack("<I", a.va)
     for s in img.sections:
@@ -335,8 +349,8 @@ def cmd_callers(a):
             for op in (b"\xe8", b"\xe9"):
                 p = body.find(op)
                 while p != -1:
-                    if p + 5 <= len(body) and s.va + p + 5 + struct.unpack_from("<i", body, p + 1)[0] == a.va:
-                        calls.append(("call " if op == b"\xe8" else "jmp  ") + where(s.va + p))
+                    if p + 5 <= len(body) and s.va + p + 5 + struct.unpack_from("<i", body, p + 1)[0] == a.va and real(s.va + p):
+                        calls.append(("call at " if op == b"\xe8" else "jmp at  ") + where(s.va + p))
                     p = body.find(op, p + 1)
         p = body.find(absolute)
         while p != -1:
@@ -370,6 +384,7 @@ def main(argv=None):
         s.add_argument("--unit")
         s.add_argument("--class", dest="cls")
         s.add_argument("--name")
+        s.add_argument("--named", action="store_true", help="only functions whose name is known")
 
     s = sub.add_parser("setup")
     s.add_argument("--game")
@@ -420,8 +435,11 @@ def main(argv=None):
     a = p.parse_args(argv)
     try:
         globals()["cmd_" + a.cmd.replace("-", "_")](a)
+        sys.stdout.flush()
     except api.ApiError as e:
         sys.exit("error: %s" % e)
+    except BrokenPipeError:  # `... | head` closed the pipe: not an error
+        os.dup2(os.open(os.devnull, os.O_WRONLY), sys.stdout.fileno())
 
 
 if __name__ == "__main__":

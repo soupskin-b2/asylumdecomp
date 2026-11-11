@@ -222,7 +222,7 @@ def toolchain() -> None:
     if not missing:
         print("compilers: installed (%d files in %s)" % (len(files), tdir))
         return
-    print("compilers: %d of %d files to fetch from Microsoft's downloads (about 90 MB)" % (len(missing), len(files)))
+    print("compilers: %d files to fetch from Microsoft's downloads (about 90 MB)" % len(missing))
     dl = HOME / "cache" / "dl"
     pool = dl / "x"
     dl.mkdir(parents=True, exist_ok=True)

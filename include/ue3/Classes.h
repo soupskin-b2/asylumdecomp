@@ -3021,7 +3021,7 @@ class UXnaForceFeedbackManager;
 
 struct FCallbackEventDevice { virtual void FCallbackEventDevice_vf000(); virtual ~FCallbackEventDevice() {} };  /* an interface base: its virtuals aren't known */
 struct FCurveEdInterface { virtual void FCurveEdInterface_vf000(); };  /* an interface base: its virtuals aren't known */
-struct FExec { virtual void FExec_vf000(); };  /* an interface base: its virtuals aren't known */
+struct FExec { virtual UBOOL Exec(const TCHAR* Cmd, struct FOutputDevice& Ar); };
 struct FGlobalDataStoreClientManager { virtual void FGlobalDataStoreClientManager_vf000(); virtual ~FGlobalDataStoreClientManager() {} };  /* an interface base: its virtuals aren't known */
 struct FInterface_UControlChannel_5c { virtual void FInterface_UControlChannel_5c_vf000(); virtual ~FInterface_UControlChannel_5c() {} };  /* an interface base: its virtuals aren't known */
 struct FInterface_UEditorEngine_42c { virtual void FInterface_UEditorEngine_42c_vf000(); virtual ~FInterface_UEditorEngine_42c() {} };  /* an interface base: its virtuals aren't known */
@@ -18558,7 +18558,7 @@ struct UUIScreenObject : public UUIRoot {
     virtual INT GetOwner(); /* 0x140 */
     virtual INT vf_144(); /* 0x144 */
     virtual INT GetScene(); /* 0x148 */
-    virtual INT GetTag(INT); /* 0x14c */
+    virtual FName GetTag(); /* 0x14c */
     virtual FString GetWidgetPathName(); /* 0x150 */
     virtual void vf_154(); /* 0x154 */
     virtual INT AnimGetCurrentPPSettings(INT); /* 0x158 */
@@ -18579,7 +18579,7 @@ struct UUIScreenObject : public UUIRoot {
     virtual void vf_194(INT, INT, INT); /* 0x194 */
     virtual INT vf_198(); /* 0x198 */
     virtual UINT GetNumResolvedFaces(); /* 0x19c */
-    virtual INT HasPositionBeenResolved(INT); /* 0x1a0 */
+    virtual INT HasPositionBeenResolved(BYTE Face); /* 0x1a0 */
     virtual void vf_1a4(); /* 0x1a4 */
     virtual void vf_1a8(); /* 0x1a8 */
     virtual void vf_1ac(); /* 0x1ac */
@@ -18771,7 +18771,7 @@ struct UUIObject : public UUIScreenObject {
     virtual INT GetOwner(); /* 0x140 */
     virtual INT vf_144(); /* 0x144 */
     virtual INT GetScene(); /* 0x148 */
-    virtual INT GetTag(INT); /* 0x14c */
+    virtual FName GetTag(); /* 0x14c */
     virtual FString GetWidgetPathName(); /* 0x150 */
     virtual INT vf_164(INT, INT, INT, INT); /* 0x164 */
     virtual void RequestFormattingUpdate(); /* 0x168 */
@@ -18786,7 +18786,7 @@ struct UUIObject : public UUIScreenObject {
     virtual BYTE GetInputMask(UINT, UINT); /* 0x190 */
     virtual void vf_194(INT, INT, INT); /* 0x194 */
     virtual UINT GetNumResolvedFaces(); /* 0x19c */
-    virtual INT HasPositionBeenResolved(INT); /* 0x1a0 */
+    virtual INT HasPositionBeenResolved(BYTE Face); /* 0x1a0 */
     virtual void vf_1b8(INT, INT); /* 0x1b8 */
     virtual INT vf_1bc(INT); /* 0x1bc */
     virtual void InvalidatePositionDependencies(INT); /* 0x1c0 */
@@ -37420,7 +37420,7 @@ struct UUIScene : public UUIScreenObject {
     virtual INT GetOwner(); /* 0x140 */
     virtual INT vf_144(); /* 0x144 */
     virtual INT GetScene(); /* 0x148 */
-    virtual INT GetTag(INT); /* 0x14c */
+    virtual FName GetTag(); /* 0x14c */
     virtual FString GetWidgetPathName(); /* 0x150 */
     virtual INT AnimGetCurrentPPSettings(INT); /* 0x158 */
     virtual INT vf_160(INT, INT, INT); /* 0x160 */
@@ -37433,7 +37433,7 @@ struct UUIScene : public UUIScreenObject {
     virtual BYTE GetInputMask(UINT, UINT); /* 0x190 */
     virtual void vf_194(INT, INT, INT); /* 0x194 */
     virtual UINT GetNumResolvedFaces(); /* 0x19c */
-    virtual INT HasPositionBeenResolved(INT); /* 0x1a0 */
+    virtual INT HasPositionBeenResolved(BYTE Face); /* 0x1a0 */
     virtual void vf_1b4(INT); /* 0x1b4 */
     virtual void vf_1b8(INT, INT); /* 0x1b8 */
     virtual void InvalidatePositionDependencies(INT); /* 0x1c0 */

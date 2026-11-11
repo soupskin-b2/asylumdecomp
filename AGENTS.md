@@ -70,9 +70,10 @@ machine from the human's own copy, and submissions are C++ source only.
 
 ## Work loop
 
-1. **Pick.** `python asylum.pyz list` shows open, unclaimed functions you may take, smallest first.
-   Filters: `--max-size N`, `--min-size N`, `--unit PART` (the original source file, e.g. `UnSkeletal`),
-   `--class PART`, `--name PART` (part of a known name, e.g. `exec` or `Tick`), `--limit N`.
+1. **Pick.** `python asylum.pyz list` shows open, unclaimed functions you may take: those nobody has
+   given up on first, smallest first. Filters: `--max-size N`, `--min-size N`, `--unit PART` (the
+   original source file, e.g. `UnSkeletal`), `--class PART`, `--name PART` (part of a known name, e.g.
+   `exec` or `Tick`), `--named` (only functions whose name is known), `--limit N`.
 2. **Claim.** `python asylum.pyz get [VA]` claims that function (or, without a VA, the smallest one
    that fits the same filters) for 2 hours and writes its packet to `work/VA.md`. `get` again on a
    function you hold renews the 2 hours. A refused claim says why. Before claiming, `get` updates
@@ -80,25 +81,28 @@ machine from the human's own copy, and submissions are C++ source only.
    match CI's; it says so when it does.
 3. **Read the packet.** What it has depends on what's known about the function; the parts are:
    - size, name (or `sub_XXXXXXXX` to define), calling convention, the original source file, and
-     the exact compiler and flags;
+     the exact compiler and flags. A virtual function's name can come from a derived class's vtable
+     (`UUIPrefabScene::GetTag` for code that's `UUIScene`'s): when the class section names another
+     class, define it there, under the class that the code's fields belong to;
    - the original assembly, with names for calls, globals, strings and jump tables;
    - a starting point: Ghidra's pseudo-C, cleaned automatically into C++ that compiles, with how
      close it already is. Improve it rather than starting over, but replace its Ghidra types and
      names (see Readable code);
-   - its class and fields, the functions it calls with their known prototypes, declarations taken
+   - its class and fields, the functions it calls with their known prototypes (an unknown one shown
+     as `__cdecl` with a plain `ret` may still be a method taking `this` in ecx), declarations taken
      from matched code, engine `check()`s decoded from assertion calls, the exception-handling
      states decoded from the compiler's tables;
    - earlier attempts: why previous contributors stopped, and the latest source shared. Read these
      first and don't repeat what failed.
 
-   `get` also saves the functions of the same original source file matched so far, as
+   When functions of the same original source file are matched already, `get` saves them as
    `work/src/...`. Read them for the file's types, helpers and style. When the packet doesn't name
    the class, `python asylum.pyz callers VA` lists who calls the function and which vtables hold it,
    with their names and source files.
 4. **Write and check.** Write the source in `work/VA.cpp`, then
    `python asylum.pyz check VA work/VA.cpp`. It compiles with the original compiler and flags and
-   verifies the function against the original: the same verdict CI gives. Each check takes a few
-   seconds. Results:
+   verifies the function against the original: the same verdict CI gives. A check takes 5 to 20
+   seconds (the engine headers are big; a source checked before is cached). Results:
    - `MATCH`, with any readability warnings and new bindings (below);
    - `MISMATCH`, with what differs and a diff, original | yours, unchanged runs folded;
    - `COMPILE ERROR` with the compiler's errors, or `REJECTED` (a rule below, with the line);
@@ -133,6 +137,8 @@ machine from the human's own copy, and submissions are C++ source only.
 |---|---|---|---|---|
 | New | on sign-up | 4 | up to 1023 bytes | 40 |
 | Regular | 5 matches verified by CI | 50 | any | 400 |
+
+(`status` may also say "unlimited": the project's own accounts.)
 
 Moving up is automatic. Keys of one account share its limits. Errors from the service say what
 happened; on HTTP 429 or 503 wait as told, don't retry in a loop.
@@ -223,6 +229,10 @@ Parts of `src/` still read like decompiler output (`param_1`, offset casts, `sub
 - `ret N` pops N bytes of stack arguments (`ret 0x10`: 16 bytes, e.g. a pointer, a bool and a QWORD);
   a plain `ret` in a method means none, or `__cdecl`. A stub ending in `jmp` leaves the popping to its
   target, so its own count comes from the target or from the stub's siblings.
+- A struct returned by value (`FName`, `FVector`, `FString`): the caller passes a hidden pointer to
+  the result as the first stack argument, and the function returns it in eax. A method that writes 8
+  bytes through `[esp+4]`, returns that pointer and ends in `ret 4` is `FName Get()` with no
+  arguments, not `INT Get(INT)`.
 - `__m128` parameters: the first three come in xmm0-xmm2, the rest on the stack.
 - An import called with no `add esp, N` after it is `__stdcall` (the Windows API); C runtime imports
   (MSVCR80) are `__cdecl`. For `call dword ptr [__imp_...]`, declare the function `__declspec(dllimport)`.
@@ -251,7 +261,7 @@ python asylum.pyz signup                        sign in with GitHub (run again a
 python asylum.pyz identity [on|off]             contribution identity: you as commit author, or anonymous
 python asylum.pyz model-credit [on|off]         record the model's name with matches and give-ups
 python asylum.pyz key NAME [--delete]           a key for an agent without its own folder (ASYLUM_KEY)
-python asylum.pyz list [filters]                open functions you may claim
+python asylum.pyz list [filters] [--named]      open functions you may claim
 python asylum.pyz get [VA] [filters]            claim one; packet in work/VA.md
 python asylum.pyz check VA FILE [--function F]  compile and verify (CI's verdict)
 python asylum.pyz submit [VA [FILE] ...] [--model M]  send matches (no VA: every claim with a work/VA.cpp)
