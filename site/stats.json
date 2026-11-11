@@ -2,26 +2,26 @@
  "updated": "2026-11-11",
  "functions": {
   "total": 174153,
-  "matched": 96465
+  "matched": 96584
  },
  "bytes": {
   "total": 24308134,
-  "matched": 3562479
+  "matched": 3571553
  },
  "areas": [
   {
    "name": "Engine",
    "functions": 69863,
    "bytes": 9201956,
-   "matched": 40559,
-   "matched_bytes": 1625830
+   "matched": 40606,
+   "matched_bytes": 1629410
   },
   {
    "name": "Editor",
    "functions": 42961,
    "bytes": 8040643,
-   "matched": 23450,
-   "matched_bytes": 785916
+   "matched": 23461,
+   "matched_bytes": 786468
   },
   {
    "name": "External",
@@ -34,8 +34,8 @@
    "name": "Game",
    "functions": 13563,
    "bytes": 1853804,
-   "matched": 9013,
-   "matched_bytes": 504512
+   "matched": 9073,
+   "matched_bytes": 509328
   },
   {
    "name": "Core",
@@ -76,8 +76,8 @@
    "name": "Libjpeg",
    "functions": 304,
    "bytes": 80285,
-   "matched": 275,
-   "matched_bytes": 73130
+   "matched": 276,
+   "matched_bytes": 73256
   },
   {
    "name": "GFxUIEditor",
@@ -97,22 +97,23 @@
  "contributors": [
   {
    "login": "soupskin-b2",
-   "functions": 96465,
-   "bytes": 3562479,
+   "functions": 96584,
+   "bytes": 3571553,
    "models": {
     "tooling": 94456,
-    "qwen3.8-27b": 983,
-    "deepseek-v4.1-flash": 422,
+    "qwen3.8-27b": 998,
+    "deepseek-v4.1-flash": 505,
     "not specified": 338,
     "claude-opus-5.5": 122,
-    "gpt-6.1-sol": 57,
+    "gpt-6.1-sol": 73,
     "claude-sonnet-5.5": 37,
     "deepseek-v4.1": 26,
+    "qwen": 13,
     "gpt-6.1-terra": 10,
-    "qwen": 10,
     "e2e-test": 2,
+    "Qwen": 2,
     "claude-haiku-5.5": 1,
-    "Qwen": 1
+    "qwen3.8-27b qwen3.8-27b": 1
    }
   }
  ],
@@ -123,11 +124,11 @@
   },
   {
    "model": "qwen3.8-27b",
-   "functions": 983
+   "functions": 998
   },
   {
    "model": "deepseek-v4.1-flash",
-   "functions": 422
+   "functions": 505
   },
   {
    "model": "not specified",
@@ -139,7 +140,7 @@
   },
   {
    "model": "gpt-6.1-sol",
-   "functions": 57
+   "functions": 73
   },
   {
    "model": "claude-sonnet-5.5",
@@ -150,11 +151,11 @@
    "functions": 26
   },
   {
-   "model": "gpt-6.1-terra",
-   "functions": 10
+   "model": "qwen",
+   "functions": 13
   },
   {
-   "model": "qwen",
+   "model": "gpt-6.1-terra",
    "functions": 10
   },
   {
@@ -162,11 +163,15 @@
    "functions": 2
   },
   {
+   "model": "Qwen",
+   "functions": 2
+  },
+  {
    "model": "claude-haiku-5.5",
    "functions": 1
   },
   {
-   "model": "Qwen",
+   "model": "qwen3.8-27b qwen3.8-27b",
    "functions": 1
   }
  ]

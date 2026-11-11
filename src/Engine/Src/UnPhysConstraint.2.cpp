@@ -1,4 +1,4 @@
-// UnPhysConstraint.cpp (part 2 of 2): 4 functions
+// UnPhysConstraint.cpp (part 2 of 2): 5 functions
 // Placed here by: class 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -53,4 +53,17 @@ void URB_ConstraintInstance::execGetPhysicsAssetInstance(FFrame& Stack, RESULT_D
 {
 	P_FINISH;
 	*(UPhysicsAssetInstance**)Result = ((URB_ConstraintInstance__00c95810*)this)->sub_00a385d0();
+}
+
+struct URB_ConstraintInstance__00c96410 : public URB_ConstraintInstance
+{
+	void sub_00a3a480(FLOAT);
+};
+
+// @baa 0x00c96410
+void URB_ConstraintInstance::execSetLinearLimitSize(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(NewLimitSize);
+	P_FINISH;
+	((URB_ConstraintInstance__00c96410*)this)->sub_00a3a480(NewLimitSize);
 }

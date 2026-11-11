@@ -1,4 +1,4 @@
-// UnInterpolation.cpp: 1 function
+// UnInterpolation.cpp: 2 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -15,4 +15,17 @@ void USeqAct_Interp_::execStop( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	Stop();
+}
+
+struct USeqAct_Interp__00c98b10 : public USeqAct_Interp
+{
+	void sub_00d14240(APlayerController*);
+};
+
+// @baa 0x00c98b10
+void USeqAct_Interp::execAddPlayerToDirectorTracks(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(APlayerController, PC);
+	P_FINISH;
+	((USeqAct_Interp__00c98b10*)this)->sub_00d14240(PC);
 }

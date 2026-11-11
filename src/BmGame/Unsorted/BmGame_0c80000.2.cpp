@@ -1,4 +1,4 @@
-// BmGame_0c80000.cpp: 16 functions
+// BmGame_0c80000.cpp: 18 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -150,4 +150,25 @@ void APlayerController::execSetNetSpeed(FFrame& Stack, RESULT_DECL)
 	P_GET_INT(NewSpeed);
 	P_FINISH;
 	((APlayerController__00c86c40*)this)->sub_007ac560(NewSpeed);
+}
+
+struct AActor__00c82fd0 : public AActor
+{
+	void sub_00758b70(FLOAT);
+};
+
+// @baa 0x00c82fd0
+void AActor::execSetNetUpdateTime(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(NewUpdateTime);
+	P_FINISH;
+	((AActor__00c82fd0*)this)->sub_00758b70(NewUpdateTime);
+}
+
+// @baa 0x00c84130
+void AController::execRouteCache_RemoveItem(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(ANavigationPoint, Nav);
+	P_FINISH;
+	vf_364((INT)Nav);
 }

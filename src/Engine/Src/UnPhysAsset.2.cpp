@@ -1,4 +1,4 @@
-// UnPhysAsset.cpp: 6 functions
+// UnPhysAsset.cpp: 9 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -80,4 +80,43 @@ void URB_BodyInstance::execUpdateMassProperties(FFrame& Stack, RESULT_DECL)
 	P_GET_OBJECT(URB_BodySetup, Setup);
 	P_FINISH;
 	((URB_BodyInstance__00c95580*)this)->sub_00a0a9c0(Setup);
+}
+
+struct UPhysicsAssetInstance_ : public UPhysicsAssetInstance
+{
+	void sub_00a0bc60(FLOAT);
+};
+
+// @baa 0x00c94d80
+void UPhysicsAssetInstance::execSetDampingRampupProportion(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(NewDampingRampupProportion);
+	P_FINISH;
+	((UPhysicsAssetInstance_*)this)->sub_00a0bc60(NewDampingRampupProportion);
+}
+
+struct URB_BodyInstance__00c95510 : public URB_BodyInstance
+{
+	void sub_009f9ba0(FLOAT);
+};
+
+// @baa 0x00c95510
+void URB_BodyInstance::execSetContactReportForceThreshold(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(Threshold);
+	P_FINISH;
+	((URB_BodyInstance__00c95510*)this)->sub_009f9ba0(Threshold);
+}
+
+struct URB_BodyInstance__00c95610 : public URB_BodyInstance
+{
+	void sub_00a0acb0(FLOAT);
+};
+
+// @baa 0x00c95610
+void URB_BodyInstance::execSetDampingRampupProportion(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(NewDampingRampupProportion);
+	P_FINISH;
+	((URB_BodyInstance__00c95610*)this)->sub_00a0acb0(NewDampingRampupProportion);
 }

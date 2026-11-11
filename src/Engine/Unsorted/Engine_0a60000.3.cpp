@@ -1,4 +1,4 @@
-// Engine_0a60000.cpp (part 3 of 3): 38 functions
+// Engine_0a60000.cpp (part 3 of 3): 39 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -619,5 +619,30 @@ sub_00a69870_struct* sub_00a69870_struct::sub_00a69870()
     f16 &= 0xfffffffe;
     f0 = (int)&g_01fcff1c;
     f20 = 0;
+    return this;
+}
+
+extern void* g_01fcfe64;
+struct Obj00a69830 {
+    void* F0;
+    void* F1;
+    void* F2;
+    void* F3;
+    volatile INT F4;
+    void* F5;
+
+    Obj00a69830* sub_00a69830();
+};
+
+// @baa 0x00a69830
+// Clear the low bit of F4 and reset the other slots, leaving F0 pointing at
+// the global. Returns this.
+Obj00a69830* Obj00a69830::sub_00a69830()
+{
+    F2 = 0;
+    F3 = 0;
+    F4 &= 0xfffffffe;
+    F0 = &g_01fcfe64;
+    F5 = 0;
     return this;
 }

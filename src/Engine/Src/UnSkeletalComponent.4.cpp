@@ -1,4 +1,4 @@
-// UnSkeletalComponent.cpp: 13 functions
+// UnSkeletalComponent.cpp: 16 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -169,4 +169,33 @@ void USkeletalMeshComponent::execGetUseSimpleLineCollision(FFrame& Stack, RESULT
 {
 	P_FINISH;
 	*(UBOOL*)Result = vf_254();
+}
+
+// @baa 0x0090f500
+void USkeletalMeshComponent::execResetRagdollCalmingMeasures(FFrame& Stack, RESULT_DECL)
+{
+    P_FINISH;
+    bHasBeenPermanentlyFixed = FALSE;
+    FramesPhysicsAsleep = 0;
+    CurrDampingRampupTime = 0.0f;
+}
+
+// @baa 0x0090f3f0
+void USkeletalMeshComponent::execGetAreRagdollCalmingMeasuresDisabled(FFrame& Stack, RESULT_DECL)
+{
+    P_FINISH;
+    *(UBOOL*)Result = bDisableRagdollCalmingMeasures || bDebugDisableRagdollCalmingMeasures;
+}
+
+struct SkeletalMeshNative_0091fa30 : USkeletalMeshComponent
+{
+    void sub_009143d0(UBOOL bNewDisableColourWrites);
+};
+
+// @baa 0x0091fa30
+void USkeletalMeshComponent::execSetDisableColourWrites(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_UBOOL(bNewDisableColourWrites);
+    P_FINISH;
+    static_cast<SkeletalMeshNative_0091fa30*>(this)->sub_009143d0(bNewDisableColourWrites);
 }

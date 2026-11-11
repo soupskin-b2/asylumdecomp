@@ -1,4 +1,4 @@
-// UnParticleComponents.cpp (part 4 of 4): 14 functions
+// UnParticleComponents.cpp (part 4 of 4): 15 functions
 // Placed here by: neighbours 13, class 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -282,4 +282,17 @@ undefined4 C_00b6dde0::sub_00b6dde0(byte param_2)
     sub_0053dfa0(param_1);
   }
   return param_1;
+}
+
+extern int g_026667a8;
+extern int sub_00630f20(int, const wchar_t*);
+struct UParticleEmitter_ : public UParticleEmitter {
+	INT sub_00b519a0(INT);
+};
+
+// @baa 0x00b519a0
+INT UParticleEmitter_::sub_00b519a0(INT)
+{
+	sub_00630f20(g_026667a8, L"UParticleEmitter::CreateInstance is pure virtual");
+	return 0;
 }

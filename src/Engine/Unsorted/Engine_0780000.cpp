@@ -1,4 +1,4 @@
-// Engine_0780000.cpp (part 1 of 5): 285 functions
+// Engine_0780000.cpp (part 1 of 5): 286 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -2177,3 +2177,26 @@ struct C_0078fd70 { void sub_0078fd70(void); };
 
 // @baa 0x0078fd70
 void C_0078fd70::sub_0078fd70(void) { *(int*)((char*)this + 4) = 0; }
+
+/* USoundCue's FString-returning lookup (005d59a0 has no name in the headers: it ignores `this`
+ * and takes one INT). */
+struct USoundCue_ : public USoundCue {
+	FString sub_005d59a0(INT Value);
+};
+
+// @baa 0x0078d960
+/* UAudioComponent's FString-returning virtual at vtable slot 0x94 (the headers have only the
+ * slot name). */
+FString UAudioComponent::vf_094()
+{
+	FString Result;
+	if (SoundCue)
+	{
+		Result = ((USoundCue_*)SoundCue)->sub_005d59a0(0);
+	}
+	else
+	{
+		Result = TEXT("No_SoundCue");
+	}
+	return Result;
+}

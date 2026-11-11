@@ -1,4 +1,4 @@
-// RPlayerController.cpp (part 6 of 6): 88 functions
+// RPlayerController.cpp (part 6 of 6): 121 functions
 // Placed here by: class 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -732,4 +732,316 @@ void ARPlayerController::execFE_GetBenchmarkAverage(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
 	*(INT*)Result = vf_6ec();
+}
+
+// @baa 0x016f8770
+void ARPlayerController::execResetEidosMetricsAchievements(FFrame& Stack, RESULT_DECL)
+{
+    P_FINISH;
+    vf_504();
+}
+
+// @baa 0x016f8e80
+void ARPlayerController::execResetCapeGlideWeights(FFrame& Stack, RESULT_DECL)
+{
+    P_FINISH;
+    vf_52c();
+}
+
+// @baa 0x016f9140
+void ARPlayerController::execUpdateGrateCollision(FFrame& Stack, RESULT_DECL)
+{
+    P_FINISH;
+    vf_534();
+}
+
+struct RPlayerControllerNative_016f9370 : ARPlayerController
+{
+    FRotator sub_01614610();
+};
+
+// @baa 0x016f9370
+void ARPlayerController::execFindCapeKickCameraRotation(FFrame& Stack, RESULT_DECL)
+{
+    P_FINISH;
+    *(FRotator*)Result = static_cast<RPlayerControllerNative_016f9370*>(this)->sub_01614610();
+}
+
+// @baa 0x016f9970
+void ARPlayerController::execAutoJezStop(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	vf_53c();
+}
+
+// @baa 0x016f99b0
+void ARPlayerController::execAutoJezNextRoom(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	vf_540();
+}
+
+struct RPlayerControllerNative_016f9050 : ARPlayerController
+{
+    void sub_016153e0(ARSpecialMoveInstance* NewMove);
+};
+
+// @baa 0x016f9050
+void ARPlayerController::execSetCurrentSpecialMove(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(ARSpecialMoveInstance, NewMove);
+    P_FINISH;
+    static_cast<RPlayerControllerNative_016f9050*>(this)->sub_016153e0(NewMove);
+}
+
+struct RPlayerControllerNative_016f92c0 : ARPlayerController
+{
+    void sub_0161ef90(FLOAT DeltaTime);
+};
+
+// @baa 0x016f92c0
+void ARPlayerController::execWalkingPlayerMovement(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_FLOAT(DeltaTime);
+    P_FINISH;
+    static_cast<RPlayerControllerNative_016f92c0*>(this)->sub_0161ef90(DeltaTime);
+}
+
+// @baa 0x016f9a30
+void ARPlayerController::execAutoJezBuildRoomList(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	vf_548();
+}
+
+// @baa 0x016f9a70
+void ARPlayerController::execAutoJezBeginRoomLoad(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	vf_54c();
+}
+
+// @baa 0x016f9af0
+void ARPlayerController::execAutoJezLogic(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	vf_55c();
+}
+
+// @baa 0x016f9ed0
+void ARPlayerController::execLive_DisableSaving(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	vf_58c();
+}
+
+// @baa 0x016f9f10
+void ARPlayerController::execLive_EnableSaving(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	vf_590();
+}
+
+// @baa 0x016fa050
+void ARPlayerController::execLive_InvalidateMemorySave(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	vf_5a0();
+}
+
+struct RPlayerControllerNative_016f9770 : ARPlayerController
+{
+    void sub_01623570(AActor* MyTarget);
+};
+
+// @baa 0x016f9770
+void ARPlayerController::execCheckForGlideAttackTarget(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT_OPTX(AActor, MyTarget, NULL);
+    P_FINISH;
+    static_cast<RPlayerControllerNative_016f9770*>(this)->sub_01623570(MyTarget);
+}
+
+struct RPlayerControllerNative_016f8280 : ARPlayerController
+{
+    AActor* sub_016201b0(FVector& IILocation);
+};
+
+// @baa 0x016f8280
+void ARPlayerController::execFindInteractableItem(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT_REF(FVector, IILocation);
+    P_FINISH;
+    *(AActor**)Result = static_cast<RPlayerControllerNative_016f8280*>(this)->sub_016201b0(IILocation);
+}
+
+struct RPlayerControllerNative_016fb480 : ARPlayerController
+{
+    FVector sub_01614e10(FVector DesiredLocation);
+};
+
+// @baa 0x016fb480
+void ARPlayerController::execGetDeathCameraLocation(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, DesiredLocation);
+    P_FINISH;
+    *(FVector*)Result = static_cast<RPlayerControllerNative_016fb480*>(this)->sub_01614e10(DesiredLocation);
+}
+
+// @baa 0x016fa3b0
+void ARPlayerController::execLive_DecompressToPersistentData(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	vf_5d0();
+}
+
+// @baa 0x016fa4a0
+void ARPlayerController::execLive_SetInitialAchievementsDisabled(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	vf_5ec();
+}
+
+// @baa 0x016fa4e0
+void ARPlayerController::execTestQueryAll(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	vf_5fc();
+}
+
+// @baa 0x016fa520
+void ARPlayerController::execPauseAllGameMovieTextures(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	vf_604();
+}
+
+// @baa 0x016fa560
+void ARPlayerController::execRestartAllGameMovieTextures(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	vf_608();
+}
+
+// @baa 0x016fab90
+void ARPlayerController::execGarbageCollect(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	vf_66c();
+}
+
+struct RPlayerControllerNative_016f8db0 : ARPlayerController
+{
+    void sub_016356a0(AActor* AttackTarget, FLOAT DeltaTime);
+};
+
+// @baa 0x016f8db0
+void ARPlayerController::execCapeGlideMovement(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(AActor, AttackTarget);
+    P_GET_FLOAT(DeltaTime);
+    P_FINISH;
+    static_cast<RPlayerControllerNative_016f8db0*>(this)->sub_016356a0(AttackTarget, DeltaTime);
+}
+
+// @baa 0x016fac90
+void ARPlayerController::execFE_ShowDLCError(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	vf_678();
+}
+
+// @baa 0x016fad50
+void ARPlayerController::execResetWritingStatsCount(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	vf_684();
+}
+
+// @baa 0x016fb2c0
+void ARPlayerController::execFE_UpdateMouseLock(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	vf_6d8();
+}
+
+struct RPlayerControllerNative_016f95f0 : ARPlayerController
+{
+    void sub_01619120(FLOAT DeltaTime, FLOAT FallScale);
+};
+
+// @baa 0x016f95f0
+void ARPlayerController::execUpdateFallAnim(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_FLOAT(DeltaTime);
+    P_GET_FLOAT_OPTX(FallScale, 1.0f);
+    P_FINISH;
+    static_cast<RPlayerControllerNative_016f95f0*>(this)->sub_01619120(DeltaTime, FallScale);
+}
+
+struct RPlayerControllerNative_016f8ad0 : ARPlayerController
+{
+    void sub_01619830(FLOAT DeltaTime, FVector& MoveDirection);
+};
+
+// @baa 0x016f8ad0
+void ARPlayerController::execUpdateControllerRotationFast(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_FLOAT(DeltaTime);
+    P_GET_STRUCT_REF(FVector, MoveDirection);
+    P_FINISH;
+    static_cast<RPlayerControllerNative_016f8ad0*>(this)->sub_01619830(DeltaTime, MoveDirection);
+}
+
+struct RPlayerControllerNative_016f98c0 : ARPlayerController
+{
+    FLOAT sub_01618660(FVector& MoveDirection, FLOAT DeltaTime);
+};
+
+// @baa 0x016f98c0
+void ARPlayerController::execStealthModeModifyPlayerMovement(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT_REF(FVector, MoveDirection);
+    P_GET_FLOAT(DeltaTime);
+    P_FINISH;
+    *(FLOAT*)Result = static_cast<RPlayerControllerNative_016f98c0*>(this)->sub_01618660(MoveDirection, DeltaTime);
+}
+
+struct ARPlayerController__016f90b0 : public ARPlayerController
+{
+	void sub_01615440(ARSpecialMoveInstance*);
+};
+
+// @baa 0x016f90b0
+void ARPlayerController::execSpecialMoveFinished(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(ARSpecialMoveInstance, FinishedMove);
+	P_FINISH;
+	((ARPlayerController__016f90b0*)this)->sub_01615440(FinishedMove);
+}
+
+struct ARPlayerController__016f9690 : public ARPlayerController
+{
+	void sub_01636e40(FLOAT);
+};
+
+// @baa 0x016f9690
+void ARPlayerController::execDoGrappleMovement(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(DeltaTime);
+	P_FINISH;
+	((ARPlayerController__016f9690*)this)->sub_01636e40(DeltaTime);
+}
+
+struct ARPlayerController__016f97e0 : public ARPlayerController
+{
+	void sub_01618c20(FLOAT);
+};
+
+// @baa 0x016f97e0
+void ARPlayerController::execUpdateSilentPredLookAt(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(DeltaTime);
+	P_FINISH;
+	((ARPlayerController__016f97e0*)this)->sub_01618c20(DeltaTime);
 }

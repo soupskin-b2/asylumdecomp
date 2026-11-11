@@ -1,4 +1,4 @@
-// Engine_0400000.cpp (part 3 of 3): 2 functions
+// Engine_0400000.cpp (part 3 of 3): 3 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -26,4 +26,10 @@ struct C_0040ce70 {
 double C_0040ce70::sub_0040ce70()
 {
     return value * 6.25e-05;
+}
+
+// @baa 0x0040dd40
+double sub_0040dd40(double * A, double * B)
+{
+	return (*A <= *B) ? *A : *B;
 }

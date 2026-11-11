@@ -1,4 +1,4 @@
-// UnAnimTree.cpp: 8 functions
+// UnAnimTree.cpp: 9 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -104,4 +104,13 @@ void UAnimNodeBlendMultiBone::execSetTargetStartBone(FFrame& Stack, RESULT_DECL)
     P_GET_FLOAT_OPTX(PerBoneIncrease, 1.0f);
     P_FINISH;
     vf_19c(TargetIdx, StartBoneName, PerBoneIncrease);
+}
+
+// @baa 0x00c90510
+void UAnimNodeAimOffset::execSetActiveProfileByIndex(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(ProfileIndex);
+	P_FINISH;
+
+	vf_1a0(ProfileIndex);
 }

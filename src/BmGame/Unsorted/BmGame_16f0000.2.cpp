@@ -1,4 +1,4 @@
-// BmGame_16f0000.cpp: 64 functions
+// BmGame_16f0000.cpp: 76 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -509,4 +509,100 @@ void ARPawnCharacter::execCancelSlave(FFrame& Stack, RESULT_DECL)
 	P_FINISH;
 	FTransitionId Transition;
 	*(FTransitionId*)Result = *(FTransitionId*)(INT)vf_504((INT)&Transition);
+}
+
+// @baa 0x016fc870
+void ARAudioPointController::execCancelPackageLoading(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	vf_61c();
+}
+
+// @baa 0x016fcc20
+void URSeqAct_ConversationDialogue::execActivateNextDialogueEarly(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	vf_1a0();
+}
+
+// @baa 0x016fcde0
+void URSeqAct_ConversationDialogue::execReBuildScriptNames(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	vf_1b4();
+}
+
+// @baa 0x016fce50
+void URSeqAct_PlaySpeechConversation::execReBuildScriptNames(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	vf_1a0();
+}
+
+// @baa 0x016fcf30
+void URSeqAct_SpeechEventManagerBase::execCueFinished(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	vf_1a0();
+}
+
+// @baa 0x016fcf70
+void URSeqAct_SpeechEventManagerBase::execCueAborted(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	vf_1a4();
+}
+
+// @baa 0x016fdf30
+void ARBMRouteRequest::execReRoute(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	vf_36c();
+}
+
+// @baa 0x016fdf70
+void ARBMRouteRequest::execFlush(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	vf_370();
+}
+
+// @baa 0x016fe910
+void URPathGateComponent::execCloseGate(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	vf_14c();
+}
+
+// @baa 0x016fe950
+void URPathGateComponent::execOpenGate(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	vf_150();
+}
+
+struct ARPawnCombat__016f6000 : public ARPawnCombat
+{
+	void sub_0167bba0(ARPawnCombat*);
+};
+
+// @baa 0x016f6000
+void ARPawnCombat::execFacePawn(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(ARPawnCombat, FaceTarget);
+	P_FINISH;
+	((ARPawnCombat__016f6000*)this)->sub_0167bba0(FaceTarget);
+}
+
+struct ARPawnCombat__016f5eb0 : public ARPawnCombat
+{
+	void sub_0166d720(FLOAT);
+};
+
+// @baa 0x016f5eb0
+void ARPawnCombat::execSetDestRot(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(NewRot);
+	P_FINISH;
+	((ARPawnCombat__016f5eb0*)this)->sub_0166d720(NewRot);
 }

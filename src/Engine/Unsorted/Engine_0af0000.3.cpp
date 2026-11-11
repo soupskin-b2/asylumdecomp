@@ -1,4 +1,4 @@
-// Engine_0af0000.cpp (part 3 of 3): 4 functions
+// Engine_0af0000.cpp (part 3 of 3): 5 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -67,3 +67,20 @@ undefined4 C_00afe960::sub_00afe960(byte param_2)
   }
   return param_1;
 }
+
+struct sub_00af9cd0_struct
+{
+    char pad[0x5c];
+    int m_arr[128]; // 0x5c
+
+    int* sub_00af9cd0(int Index)
+    {
+        int x = (Index != 4) ? 0x1c : 0x1a;
+        return &m_arr[x * 3];
+    }
+};
+
+typedef int* (sub_00af9cd0_struct::*MemFn)(int);
+
+// @baa 0x00af9cd0
+MemFn g_00af9cd0_ptr = &sub_00af9cd0_struct::sub_00af9cd0;

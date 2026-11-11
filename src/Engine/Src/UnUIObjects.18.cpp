@@ -1,4 +1,4 @@
-// UnUIObjects.cpp: 36 functions
+// UnUIObjects.cpp: 37 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -396,4 +396,17 @@ void UUIScene::execSetSceneInputMode(FFrame& Stack, RESULT_DECL)
 	P_GET_BYTE(NewInputMode);
 	P_FINISH;
 	((UUIScene__00ca68a0*)this)->sub_00da9df0(NewInputMode);
+}
+
+struct UUIObject__00ca50a0 : public UUIObject
+{
+	void sub_00daa860(INT);
+};
+
+// @baa 0x00ca50a0
+void UUIObject::execClearDefaultDataBinding(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(BindingIndex);
+	P_FINISH;
+	((UUIObject__00ca50a0*)this)->sub_00daa860(BindingIndex);
 }

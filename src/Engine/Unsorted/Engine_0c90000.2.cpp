@@ -1,4 +1,4 @@
-// Engine_0c90000.cpp: 15 functions
+// Engine_0c90000.cpp: 19 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -114,4 +114,51 @@ void AFracturedStaticMeshActor::execSpawnDeferredParts(FFrame& Stack, RESULT_DEC
 {
 	P_FINISH;
 	*(UBOOL*)Result = ((FSlot)(*(void***)this)[0x378 / 4])(this);
+}
+
+struct UAnimNodePlayCustomAnim_ : public UAnimNodePlayCustomAnim
+{
+	void sub_00c4bba0(FLOAT);
+};
+
+// @baa 0x00c90d60
+void UAnimNodePlayCustomAnim::execStopCustomAnim(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(BlendOutTime);
+	P_FINISH;
+	((UAnimNodePlayCustomAnim_*)this)->sub_00c4bba0(BlendOutTime);
+}
+
+struct USkelControlLookAt_ : public USkelControlLookAt
+{
+	void sub_0090d0a0(FLOAT);
+};
+
+// @baa 0x00c92340
+void USkelControlLookAt::execInterpolateTargetLocation(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(DeltaTime);
+	P_FINISH;
+	((USkelControlLookAt_*)this)->sub_0090d0a0(DeltaTime);
+}
+
+// @baa 0x00c9bb90
+void UPath_AvoidInEscapableNodes::execCachePawnReacFlags(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(APawn, P);
+	P_FINISH;
+	vf_110((INT)P);
+}
+
+struct AFracturedStaticMeshActor_ : public AFracturedStaticMeshActor
+{
+	void vf_37c(INT);
+};
+
+// @baa 0x00c9fb70
+void AFracturedStaticMeshActor::execRemoveDecals(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(IndexToRemoveDecalsFrom);
+	P_FINISH;
+	((AFracturedStaticMeshActor_*)this)->vf_37c(IndexToRemoveDecalsFrom);
 }

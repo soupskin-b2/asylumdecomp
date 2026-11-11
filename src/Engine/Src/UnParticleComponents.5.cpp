@@ -1,4 +1,4 @@
-// UnParticleComponents.cpp: 12 functions
+// UnParticleComponents.cpp: 16 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -135,4 +135,52 @@ void UParticleSystemComponent::execGetSpawnScale(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
 	*(FLOAT*)Result = vf_290();
+}
+
+// @baa 0x00c9d120
+void UParticleSystemComponent::execRewindEmitterInstance(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(EmitterIndex);
+	P_FINISH;
+
+	vf_258(EmitterIndex);
+}
+
+struct UParticleSystemComponent__00c9cd80 : public UParticleSystemComponent
+{
+	void sub_00b64730(UParticleSystem*);
+};
+
+// @baa 0x00c9cd80
+void UParticleSystemComponent::execSetTemplate(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(UParticleSystem, NewTemplate);
+	P_FINISH;
+	((UParticleSystemComponent__00c9cd80*)this)->sub_00b64730(NewTemplate);
+}
+
+struct UParticleSystemComponent__00c9da40 : public UParticleSystemComponent
+{
+	void sub_00b5d900(INT);
+};
+
+// @baa 0x00c9da40
+void UParticleSystemComponent::execSetLODLevel(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(InLODLevel);
+	P_FINISH;
+	((UParticleSystemComponent__00c9da40*)this)->sub_00b5d900(InLODLevel);
+}
+
+struct UParticleSystemComponent__00c9daa0 : public UParticleSystemComponent
+{
+	void sub_00b51ba0(INT);
+};
+
+// @baa 0x00c9daa0
+void UParticleSystemComponent::execSetEditorLODLevel(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(InLODLevel);
+	P_FINISH;
+	((UParticleSystemComponent__00c9daa0*)this)->sub_00b51ba0(InLODLevel);
 }

@@ -1,4 +1,4 @@
-// Engine_0c80000.cpp: 34 functions
+// Engine_0c80000.cpp: 36 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -381,4 +381,30 @@ void ULensFlareComponent::execSetTemplate(FFrame& Stack, RESULT_DECL)
 	P_GET_OBJECT(ULensFlare, NewTemplate);
 	P_FINISH;
 	((ULensFlareComponent_*)this)->sub_00bacd70(NewTemplate);
+}
+
+struct USceneCaptureComponent_ : public USceneCaptureComponent
+{
+	void sub_008a72f0(FLOAT);
+};
+
+// @baa 0x00c8b750
+void USceneCaptureComponent::execSetFrameRate(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(NewFrameRate);
+	P_FINISH;
+	((USceneCaptureComponent_*)this)->sub_008a72f0(NewFrameRate);
+}
+
+struct UTexture2D_ : public UTexture2D
+{
+	void sub_00717d50(FLOAT);
+};
+
+// @baa 0x00c8f360
+void UTexture2D::execSetForceMipLevelsToBeResident(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(Seconds);
+	P_FINISH;
+	((UTexture2D_*)this)->sub_00717d50(Seconds);
 }

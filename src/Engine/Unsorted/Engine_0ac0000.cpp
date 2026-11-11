@@ -1,4 +1,4 @@
-// Engine_0ac0000.cpp (part 1 of 2): 434 functions
+// Engine_0ac0000.cpp (part 1 of 2): 439 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -5349,4 +5349,117 @@ TConstSetBitIterator_00acfa60& TConstSetBitIterator_00acfa60::operator++()
 {
     It.Advance();
     return *this;
+}
+
+extern void* g_01fdc65c;
+struct C_00ac0240 {
+    void* F0;
+    INT F0b;
+    INT F1;
+    INT F2;
+    volatile INT F3;
+    INT F4;
+    void* sub_00ac0240();
+};
+
+// @baa 0x00ac0240
+void* C_00ac0240::sub_00ac0240()
+{
+    F1 = 0;
+    F2 = 0;
+    F3 &= 0xfffffffe;
+    F4 = 0;
+    F0 = &g_01fdc65c;
+    return this;
+}
+
+extern void* g_01fdc67c;
+struct C_00ac0270 {
+    void* F0;
+    INT F0b;
+    INT F1;
+    INT F2;
+    volatile INT F3;
+    INT F4;
+    void* sub_00ac0270();
+};
+
+// @baa 0x00ac0270
+void* C_00ac0270::sub_00ac0270()
+{
+    F1 = 0;
+    F2 = 0;
+    F3 &= 0xfffffffe;
+    F4 = 0;
+    F0 = &g_01fdc67c;
+    return this;
+}
+
+extern int g_01fdc594;
+struct FShapeInstance
+{
+    void *F0;          // 0x00
+    int F0b;           // 0x04 (untouched padding)
+    int F1;            // 0x08
+    int F2;            // 0x0C
+    volatile int F3;   // 0x10
+    int F4;            // 0x14
+
+    FShapeInstance *sub_00ac02c0();
+};
+
+// @baa 0x00ac02c0
+FShapeInstance *FShapeInstance::sub_00ac02c0()
+{
+    F1 = 0;
+    F2 = 0;
+    F3 &= 0xfffffffe;
+    F0 = &g_01fdc594;
+    F4 = 0;
+    return this;
+}
+
+extern void* g_01fdc5c0;
+struct S00ac0300 {
+    void* F0;
+    int F0b;
+    int F1;
+    int F2;
+    volatile int F3;
+    int F4;
+    S00ac0300* sub_00ac0300();
+};
+
+// @baa 0x00ac0300
+S00ac0300* S00ac0300::sub_00ac0300()
+{
+    this->F1 = 0;
+    this->F2 = 0;
+    this->F3 &= 0xfffffffe;
+    this->F0 = &g_01fdc5c0;
+    this->F4 = 0;
+    return this;
+}
+
+/* A subobject reachable inside the object that TScene::LensBase points to,
+ * living at offset 0x33e0 from that object's start. It exposes the method the
+ * original this-calls. */
+struct TLensFlareSub {
+    INT sub_00abd280(UINT* Arg);
+};
+
+struct TScene {
+    class UObject* Object; /* 0x0 */
+    class UObject* LensBase; /* 0x4 */
+    UINT LensArgs; /* 0x8 */
+
+    INT sub_00ac52c0();
+};
+
+// @baa 0x00ac52c0
+INT TScene::sub_00ac52c0()
+{
+    TLensFlareSub* Lens = (TLensFlareSub*)((char*)LensBase + 0x33e0);
+    Lens->sub_00abd280(&LensArgs);
+    return 12;
 }

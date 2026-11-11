@@ -1,4 +1,4 @@
-// UnSequence.cpp (part 10 of 10): 8 functions
+// UnSequence.cpp (part 10 of 10): 9 functions
 // Placed here by: neighbours 6.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -50,4 +50,12 @@ FString USeqCond_SwitchClass::GetCaseValueString( INT ValueIndex ) const
 		Result = ClassArray(ValueIndex).ClassName.ToString();
 	}
 	return Result;
+}
+
+/* The float formatter of UnSequence.cpp (005a9fc0): writes Value into Result as the format says. */
+FString sub_005a9fc0(const TCHAR* Format, FLOAT Value);
+// @baa 0x008c81a0
+FString USeqVar_Float::vf_194()
+{
+	return sub_005a9fc0(TEXT("%2.3f"), FloatValue);
 }

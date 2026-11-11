@@ -1,4 +1,4 @@
-// Engine_0540000.cpp: 30 functions
+// Engine_0540000.cpp: 31 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -173,4 +173,15 @@ undefined4 * UTexture2D::sub_00546c80(void)
   *param_1 = (undefined4)(&g_01e734e8);
   param_1[5] = 1;
   return param_1;
+}
+
+struct UDistributionVector_ : public UDistributionVector
+{
+    void sub_005423f0(FVector& OutVector, FLOAT A, FLOAT B, FLOAT C);
+};
+
+// @baa 0x005423f0
+void UDistributionVector_::sub_005423f0(FVector& OutVector, FLOAT A, FLOAT B, FLOAT C)
+{
+    OutVector.Z = OutVector.Y = OutVector.X = 0.f;
 }
