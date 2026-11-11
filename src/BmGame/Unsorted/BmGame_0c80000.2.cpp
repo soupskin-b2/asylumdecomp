@@ -1,4 +1,4 @@
-// BmGame_0c80000.cpp: 23 functions
+// BmGame_0c80000.cpp: 25 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -226,4 +226,26 @@ void AAnimatedCamera::execStopAllCameraAnims(FFrame& Stack, RESULT_DECL)
 	P_GET_UBOOL_OPTX(bImmediate, 0);
 	P_FINISH;
 	vf_36c(bImmediate);
+}
+
+struct APlayerController__00c87660 : public APlayerController
+{
+	UBOOL sub_007b5600(FUniqueNetId&);
+};
+
+// @baa 0x00c87660
+void APlayerController::execIsPlayerMuted(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT_REF(FUniqueNetId, Sender);
+	P_FINISH;
+	*(UBOOL*)Result = ((APlayerController__00c87660*)this)->sub_007b5600(Sender);
+}
+
+// @baa 0x00c83290
+// @baa 0x00c83290
+void AActor::execSetHUDLocation(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, NewHUDLocation);
+    P_FINISH;
+    SetHUDLocation(NewHUDLocation);
 }

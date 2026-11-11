@@ -1,4 +1,4 @@
-// UnrealEd_14d0000.cpp (part 1 of 2): 112 functions
+// UnrealEd_14d0000.cpp (part 1 of 2): 113 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -922,4 +922,20 @@ void C_014df090::sub_014df090(int param_2)
     }
   }
   return;
+}
+
+struct UTexture2D_ : public UTexture2D {
+    void* sub_014d79d0(void);
+};
+
+// @baa 0x014d79d0
+void* UTexture2D_::sub_014d79d0(void)
+{
+    DWORD z = 0;
+    *(DWORD*)((char*)this + 0x4)  = z;
+    *(DWORD*)((char*)this + 0x8)  = z;
+    *(DWORD*)((char*)this + 0xc)  = z;
+    *(DWORD*)((char*)this + 0x10) = z;
+    *(DWORD*)((char*)this + 0x14) = -1;
+    return this;
 }

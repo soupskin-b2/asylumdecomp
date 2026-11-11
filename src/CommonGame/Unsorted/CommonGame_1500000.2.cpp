@@ -1,4 +1,4 @@
-// CommonGame_1500000.cpp (part 2 of 3): 31 functions
+// CommonGame_1500000.cpp (part 2 of 3): 33 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -230,4 +230,22 @@ void ARDebugMenu::execGetDecibelValue(FFrame& Stack, RESULT_DECL)
 	P_GET_FLOAT(Value);
 	P_FINISH;
 	*(INT*)Result = vf_38c(Value);
+}
+
+// @baa 0x0150bb00
+// @baa 0x0150bb00
+void ARGameInfoBase::execActivateRemoteEvent(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(EventName);
+    P_FINISH;
+    ActivateRemoteEvent(EventName);
+}
+
+// @baa 0x0150ca50
+// @baa 0x0150ca50
+void URFlagManager::execGetGlobalFlag(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(FlagName);
+    P_FINISH;
+    *(INT*)Result = GetGlobalFlag(FlagName);
 }

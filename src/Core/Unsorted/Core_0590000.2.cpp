@@ -1,4 +1,4 @@
-// Core_0590000.cpp (part 2 of 4): 28 functions
+// Core_0590000.cpp (part 2 of 4): 33 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -268,4 +268,44 @@ void UObject::execNormalizeRotAxis(FFrame& Stack, RESULT_DECL)
 	if (A > 0x7fff)
 		A -= 0x10000;
 	*(INT*)Result = A;
+}
+
+// @baa 0x00591c50
+void UObject::execAddAdd_Byte(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_BYTE_REF(A);
+	P_FINISH;
+	*(BYTE*)Result = A++;
+}
+
+// @baa 0x00591cd0
+void UObject::execSubtractSubtract_Byte(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_BYTE_REF(A);
+	P_FINISH;
+	*(BYTE*)Result = A--;
+}
+
+// @baa 0x00592bb0
+void UObject::execAddAdd_Int(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT_REF(A);
+	P_FINISH;
+	*(INT*)Result = A++;
+}
+
+// @baa 0x00592c30
+void UObject::execSubtractSubtract_Int(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT_REF(A);
+	P_FINISH;
+	*(INT*)Result = A--;
+}
+
+// @baa 0x00592b30
+void UObject::execSubtractSubtract_PreInt(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT_REF(A);
+	P_FINISH;
+	*(INT*)Result = --A;
 }

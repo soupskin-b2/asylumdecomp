@@ -1,4 +1,4 @@
-// UnUIDataStores.cpp: 14 functions
+// UnUIDataStores.cpp: 18 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -206,4 +206,66 @@ void UUIDataStore_InputAlias__00ca24a0::execGetAliasInputKeyName(FFrame& Stack, 
 	P_GET_BYTE_OPTX(OverridePlatform, IPT_MAX);
 	P_FINISH;
 	*(FName*)Result = GetAliasInputKeyName(DesiredAlias, OverridePlatform);
+}
+
+struct UUIDataStore_InputAlias__00ca26f0 : public UUIDataStore_InputAlias
+{
+	UBOOL GetAliasInputKeyDataByIndex(FRawInputKeyEventData& out_InputKeyData, INT AliasIndex, BYTE OverridePlatform);
+	void execGetAliasInputKeyDataByIndex(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00ca26f0
+void UUIDataStore_InputAlias__00ca26f0::execGetAliasInputKeyDataByIndex(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT_REF(FRawInputKeyEventData, out_InputKeyData);
+	P_GET_INT(AliasIndex);
+	P_GET_BYTE_OPTX(OverridePlatform, IPT_MAX);
+	P_FINISH;
+	*(UBOOL*)Result = GetAliasInputKeyDataByIndex(out_InputKeyData, AliasIndex, OverridePlatform);
+}
+
+struct UUIDataStore_InputAlias__00ca2610 : public UUIDataStore_InputAlias
+{
+	UBOOL GetAliasInputKeyData(FRawInputKeyEventData& out_InputKeyData, FName DesiredAlias, BYTE OverridePlatform);
+	void execGetAliasInputKeyData(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00ca2610
+void UUIDataStore_InputAlias__00ca2610::execGetAliasInputKeyData(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT_REF(FRawInputKeyEventData, out_InputKeyData);
+	P_GET_NAME(DesiredAlias);
+	P_GET_BYTE_OPTX(OverridePlatform, IPT_MAX);
+	P_FINISH;
+	*(UBOOL*)Result = GetAliasInputKeyData(out_InputKeyData, DesiredAlias, OverridePlatform);
+}
+
+struct UUIDataStore_InputAlias__00cbd4d0 : public UUIDataStore_InputAlias
+{
+	FString GetAliasFontMarkupByIndex(INT AliasIndex, BYTE OverridePlatform);
+	void execGetAliasFontMarkupByIndex(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00cbd4d0
+void UUIDataStore_InputAlias__00cbd4d0::execGetAliasFontMarkupByIndex(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(AliasIndex);
+	P_GET_BYTE_OPTX(OverridePlatform, IPT_MAX);
+	P_FINISH;
+	*(FString*)Result = GetAliasFontMarkupByIndex(AliasIndex, OverridePlatform);
+}
+
+struct UUIDataStore_InputAlias__00cbd3d0 : public UUIDataStore_InputAlias
+{
+	FString GetAliasFontMarkup(FName DesiredAlias, BYTE OverridePlatform);
+	void execGetAliasFontMarkup(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00cbd3d0
+void UUIDataStore_InputAlias__00cbd3d0::execGetAliasFontMarkup(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_NAME(DesiredAlias);
+	P_GET_BYTE_OPTX(OverridePlatform, IPT_MAX);
+	P_FINISH;
+	*(FString*)Result = GetAliasFontMarkup(DesiredAlias, OverridePlatform);
 }

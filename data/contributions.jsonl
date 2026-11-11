@@ -12892,3 +12892,152 @@
 {"va": "00c82160", "login": "soupskin-b2", "model": "deepseek-v4.1-flash", "bytes": 119, "date": "2026-11-11", "id": 1119}
 {"va": "00c83d90", "login": "soupskin-b2", "model": "deepseek-v4.1-flash", "bytes": 120, "date": "2026-11-11", "id": 1120}
 {"va": "01708ad0", "login": "soupskin-b2", "model": "deepseek-v4.1-flash", "bytes": 119, "date": "2026-11-11", "id": 1121}
+{"va": "00c95310", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 179, "date": "2026-11-11", "id": 1123}
+{"va": "00ca3650", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 181, "date": "2026-11-11", "id": 1124}
+{"va": "00cbdb60", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 183, "date": "2026-11-11", "id": 1125}
+{"va": "00c87660", "login": "soupskin-b2", "model": "deepseek-v4.1-flash", "bytes": 120, "date": "2026-11-11", "id": 1126}
+{"va": "00e41ec0", "login": "soupskin-b2", "model": "deepseek-v4.1-flash", "bytes": 120, "date": "2026-11-11", "id": 1127}
+{"va": "00c879e0", "login": "soupskin-b2", "model": "deepseek-v4.1-flash", "bytes": 121, "date": "2026-11-11", "id": 1128}
+{"va": "00c87ac0", "login": "soupskin-b2", "model": "deepseek-v4.1-flash", "bytes": 121, "date": "2026-11-11", "id": 1129}
+{"va": "01702fe0", "login": "soupskin-b2", "model": "deepseek-v4.1-flash", "bytes": 121, "date": "2026-11-11", "id": 1130}
+{"va": "00591c50", "login": "soupskin-b2", "model": "deepseek-v4.1-flash", "bytes": 114, "date": "2026-11-11", "id": 1131}
+{"va": "00591cd0", "login": "soupskin-b2", "model": "deepseek-v4.1-flash", "bytes": 114, "date": "2026-11-11", "id": 1132}
+{"va": "00c8ed10", "login": "soupskin-b2", "model": "deepseek-v4.1-flash", "bytes": 118, "date": "2026-11-11", "id": 1133}
+{"va": "00592bb0", "login": "soupskin-b2", "model": "deepseek-v4.1-flash", "bytes": 117, "date": "2026-11-11", "id": 1134}
+{"va": "00592c30", "login": "soupskin-b2", "model": "deepseek-v4.1-flash", "bytes": 117, "date": "2026-11-11", "id": 1135}
+{"va": "00ca66e0", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 184, "date": "2026-11-11", "id": 1136}
+{"va": "00ca67a0", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 184, "date": "2026-11-11", "id": 1137}
+{"va": "00c88110", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 187, "date": "2026-11-11", "id": 1138}
+{"va": "00c881d0", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 187, "date": "2026-11-11", "id": 1139}
+{"va": "00ca3710", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 187, "date": "2026-11-11", "id": 1140}
+{"va": "00592b30", "login": "soupskin-b2", "model": "deepseek-v4.1-flash", "bytes": 117, "date": "2026-11-11", "id": 1141}
+{"va": "00c94540", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 191, "date": "2026-11-11", "id": 1142}
+{"va": "00c943a0", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 199, "date": "2026-11-11", "id": 1143}
+{"va": "00c94470", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 199, "date": "2026-11-11", "id": 1144}
+{"va": "00c95ca0", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 199, "date": "2026-11-11", "id": 1145}
+{"va": "00c95e60", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 199, "date": "2026-11-11", "id": 1146}
+{"va": "00ca5a50", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 199, "date": "2026-11-11", "id": 1147}
+{"va": "00ca5300", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 207, "date": "2026-11-11", "id": 1148}
+{"va": "00ca5bb0", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 208, "date": "2026-11-11", "id": 1149}
+{"va": "00ca26f0", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 210, "date": "2026-11-11", "id": 1150}
+{"va": "00ca4980", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 210, "date": "2026-11-11", "id": 1151}
+{"va": "00cbda80", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 210, "date": "2026-11-11", "id": 1152}
+{"va": "00c883e0", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 212, "date": "2026-11-11", "id": 1153}
+{"va": "00ca4810", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 212, "date": "2026-11-11", "id": 1154}
+{"va": "00c88290", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 218, "date": "2026-11-11", "id": 1155}
+{"va": "00ca5cf0", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 218, "date": "2026-11-11", "id": 1156}
+{"va": "00da96c0", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 218, "date": "2026-11-11", "id": 1157}
+{"va": "00a589e0", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 216, "date": "2026-11-11", "id": 1158}
+{"va": "00a587f0", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 222, "date": "2026-11-11", "id": 1159}
+{"va": "00ca2610", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 223, "date": "2026-11-11", "id": 1160}
+{"va": "00c958a0", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 224, "date": "2026-11-11", "id": 1161}
+{"va": "00c95980", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 224, "date": "2026-11-11", "id": 1162}
+{"va": "00a65400", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 225, "date": "2026-11-11", "id": 1163}
+{"va": "01a1b040", "login": "soupskin-b2", "model": "deepseek-v4.1-flash", "bytes": 33, "date": "2026-11-11", "id": 1164}
+{"va": "01a1af60", "login": "soupskin-b2", "model": "deepseek-v4.1-flash", "bytes": 36, "date": "2026-11-11", "id": 1165}
+{"va": "00ca6050", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 228, "date": "2026-11-11", "id": 1166}
+{"va": "00cbd4d0", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 230, "date": "2026-11-11", "id": 1167}
+{"va": "00cbc5a0", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 234, "date": "2026-11-11", "id": 1168}
+{"va": "00c95120", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 235, "date": "2026-11-11", "id": 1169}
+{"va": "00c95f30", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 242, "date": "2026-11-11", "id": 1170}
+{"va": "01a1af90", "login": "soupskin-b2", "model": "deepseek-v4.1-flash", "bytes": 175, "date": "2026-11-11", "id": 1171}
+{"va": "01a1f3f0", "login": "soupskin-b2", "model": "deepseek-v4.1-flash", "bytes": 128, "date": "2026-11-11", "id": 1172}
+{"va": "01a24110", "login": "soupskin-b2", "model": "deepseek-v4.1-flash", "bytes": 128, "date": "2026-11-11", "id": 1173}
+{"va": "01a21480", "login": "soupskin-b2", "model": "deepseek-v4.1-flash", "bytes": 162, "date": "2026-11-11", "id": 1174}
+{"va": "01a21c90", "login": "soupskin-b2", "model": "deepseek-v4.1-flash", "bytes": 172, "date": "2026-11-11", "id": 1175}
+{"va": "01a1e870", "login": "soupskin-b2", "model": "deepseek-v4.1-flash", "bytes": 196, "date": "2026-11-11", "id": 1176}
+{"va": "01a1f080", "login": "soupskin-b2", "model": "deepseek-v4.1-flash", "bytes": 336, "date": "2026-11-11", "id": 1177}
+{"va": "01a20cc0", "login": "soupskin-b2", "model": "deepseek-v4.1-flash", "bytes": 80, "date": "2026-11-11", "id": 1178}
+{"va": "01a1b210", "login": "soupskin-b2", "model": "deepseek-v4.1-flash", "bytes": 125, "date": "2026-11-11", "id": 1179}
+{"va": "00cbd3d0", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 243, "date": "2026-11-11", "id": 1180}
+{"va": "00c95210", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 246, "date": "2026-11-11", "id": 1181}
+{"va": "00c94670", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 257, "date": "2026-11-11", "id": 1182}
+{"va": "00c884c0", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 261, "date": "2026-11-11", "id": 1183}
+{"va": "00c94890", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 261, "date": "2026-11-11", "id": 1184}
+{"va": "00c94780", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 268, "date": "2026-11-11", "id": 1185}
+{"va": "00ca7a70", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 268, "date": "2026-11-11", "id": 1186}
+{"va": "00ca4700", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 268, "date": "2026-11-11", "id": 1187}
+{"va": "00c88b00", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 285, "date": "2026-11-11", "id": 1188}
+{"va": "00c885d0", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 287, "date": "2026-11-11", "id": 1189}
+{"va": "00ca5920", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 289, "date": "2026-11-11", "id": 1190}
+{"va": "00c949a0", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 312, "date": "2026-11-11", "id": 1191}
+{"va": "00a654f0", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 278, "date": "2026-11-11", "id": 1192}
+{"va": "00aa97a0", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 484, "date": "2026-11-11", "id": 1193}
+{"va": "00aa9990", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 498, "date": "2026-11-11", "id": 1194}
+{"va": "00a9eea0", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 504, "date": "2026-11-11", "id": 1195}
+{"va": "00aaa040", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 781, "date": "2026-11-11", "id": 1196}
+{"va": "00aa9c00", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 552, "date": "2026-11-11", "id": 1197}
+{"va": "00a742b0", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 413, "date": "2026-11-11", "id": 1198}
+{"va": "00a9f0a0", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 784, "date": "2026-11-11", "id": 1199}
+{"va": "00ab0640", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 554, "date": "2026-11-11", "id": 1200}
+{"va": "014c5ef0", "login": "soupskin-b2", "model": "qwen3.8-27b", "bytes": 24, "date": "2026-11-11", "id": 1201}
+{"va": "00aaa970", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 583, "date": "2026-11-11", "id": 1202}
+{"va": "00aaabc0", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 388, "date": "2026-11-11", "id": 1203}
+{"va": "00d99150", "login": "soupskin-b2", "model": "deepseek-v4.1-flash", "bytes": 27, "date": "2026-11-11", "id": 1204}
+{"va": "00cb5b00", "login": "soupskin-b2", "model": "deepseek-v4.1-flash", "bytes": 27, "date": "2026-11-11", "id": 1205}
+{"va": "00daa3f0", "login": "soupskin-b2", "model": "deepseek-v4.1-flash", "bytes": 27, "date": "2026-11-11", "id": 1206}
+{"va": "014d3670", "login": "soupskin-b2", "model": "qwen3.8-27b", "bytes": 24, "date": "2026-11-11", "id": 1207}
+{"va": "00ab0870", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 528, "date": "2026-11-11", "id": 1208}
+{"va": "00ab03b0", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 644, "date": "2026-11-11", "id": 1209}
+{"va": "014d36b0", "login": "soupskin-b2", "model": "qwen3.8-27b", "bytes": 24, "date": "2026-11-11", "id": 1210}
+{"va": "00ab0a80", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 613, "date": "2026-11-11", "id": 1211}
+{"va": "014c5f10", "login": "soupskin-b2", "model": "qwen3.8-27b", "bytes": 24, "date": "2026-11-11", "id": 1212}
+{"va": "014d3690", "login": "soupskin-b2", "model": "qwen3.8-27b", "bytes": 24, "date": "2026-11-11", "id": 1213}
+{"va": "016ff870", "login": "soupskin-b2", "model": "claude-opus-5.5", "bytes": 100, "date": "2026-11-11", "id": 1214}
+{"va": "016e8f00", "login": "soupskin-b2", "model": "claude-opus-5.5", "bytes": 113, "date": "2026-11-11", "id": 1215}
+{"va": "00c90740", "login": "soupskin-b2", "model": "claude-opus-5.5", "bytes": 117, "date": "2026-11-11", "id": 1216}
+{"va": "0150bb00", "login": "soupskin-b2", "model": "claude-opus-5.5", "bytes": 117, "date": "2026-11-11", "id": 1217}
+{"va": "016e8d80", "login": "soupskin-b2", "model": "claude-opus-5.5", "bytes": 117, "date": "2026-11-11", "id": 1218}
+{"va": "016e8e00", "login": "soupskin-b2", "model": "claude-opus-5.5", "bytes": 117, "date": "2026-11-11", "id": 1219}
+{"va": "016e8e80", "login": "soupskin-b2", "model": "claude-opus-5.5", "bytes": 117, "date": "2026-11-11", "id": 1220}
+{"va": "016f0870", "login": "soupskin-b2", "model": "claude-opus-5.5", "bytes": 117, "date": "2026-11-11", "id": 1221}
+{"va": "016f4790", "login": "soupskin-b2", "model": "claude-opus-5.5", "bytes": 116, "date": "2026-11-11", "id": 1222}
+{"va": "016f4810", "login": "soupskin-b2", "model": "claude-opus-5.5", "bytes": 116, "date": "2026-11-11", "id": 1223}
+{"va": "016f4ea0", "login": "soupskin-b2", "model": "claude-opus-5.5", "bytes": 116, "date": "2026-11-11", "id": 1224}
+{"va": "016f4f20", "login": "soupskin-b2", "model": "claude-opus-5.5", "bytes": 116, "date": "2026-11-11", "id": 1225}
+{"va": "016f5090", "login": "soupskin-b2", "model": "claude-opus-5.5", "bytes": 116, "date": "2026-11-11", "id": 1226}
+{"va": "016f5110", "login": "soupskin-b2", "model": "claude-opus-5.5", "bytes": 116, "date": "2026-11-11", "id": 1227}
+{"va": "016f5340", "login": "soupskin-b2", "model": "claude-opus-5.5", "bytes": 116, "date": "2026-11-11", "id": 1228}
+{"va": "00c961b0", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 602, "date": "2026-11-11", "id": 1229}
+{"va": "016f53c0", "login": "soupskin-b2", "model": "claude-opus-5.5", "bytes": 116, "date": "2026-11-11", "id": 1230}
+{"va": "016f5520", "login": "soupskin-b2", "model": "claude-opus-5.5", "bytes": 116, "date": "2026-11-11", "id": 1231}
+{"va": "016f76d0", "login": "soupskin-b2", "model": "claude-opus-5.5", "bytes": 116, "date": "2026-11-11", "id": 1232}
+{"va": "016fc8b0", "login": "soupskin-b2", "model": "claude-opus-5.5", "bytes": 116, "date": "2026-11-11", "id": 1233}
+{"va": "016fe170", "login": "soupskin-b2", "model": "claude-opus-5.5", "bytes": 116, "date": "2026-11-11", "id": 1234}
+{"va": "00c83290", "login": "soupskin-b2", "model": "claude-opus-5.5", "bytes": 116, "date": "2026-11-11", "id": 1235}
+{"va": "00c93ac0", "login": "soupskin-b2", "model": "claude-opus-5.5", "bytes": 116, "date": "2026-11-11", "id": 1236}
+{"va": "00c93cc0", "login": "soupskin-b2", "model": "claude-opus-5.5", "bytes": 116, "date": "2026-11-11", "id": 1237}
+{"va": "016fe250", "login": "soupskin-b2", "model": "claude-opus-5.5", "bytes": 116, "date": "2026-11-11", "id": 1238}
+{"va": "016fee70", "login": "soupskin-b2", "model": "claude-opus-5.5", "bytes": 116, "date": "2026-11-11", "id": 1239}
+{"va": "01703f90", "login": "soupskin-b2", "model": "claude-opus-5.5", "bytes": 116, "date": "2026-11-11", "id": 1240}
+{"va": "0170b0f0", "login": "soupskin-b2", "model": "claude-opus-5.5", "bytes": 116, "date": "2026-11-11", "id": 1241}
+{"va": "016fe780", "login": "soupskin-b2", "model": "claude-opus-5.5", "bytes": 122, "date": "2026-11-11", "id": 1242}
+{"va": "016fe800", "login": "soupskin-b2", "model": "claude-opus-5.5", "bytes": 122, "date": "2026-11-11", "id": 1243}
+{"va": "016ff090", "login": "soupskin-b2", "model": "claude-opus-5.5", "bytes": 122, "date": "2026-11-11", "id": 1244}
+{"va": "016ff110", "login": "soupskin-b2", "model": "claude-opus-5.5", "bytes": 122, "date": "2026-11-11", "id": 1245}
+{"va": "017034c0", "login": "soupskin-b2", "model": "claude-opus-5.5", "bytes": 122, "date": "2026-11-11", "id": 1246}
+{"va": "01704490", "login": "soupskin-b2", "model": "claude-opus-5.5", "bytes": 122, "date": "2026-11-11", "id": 1247}
+{"va": "017051c0", "login": "soupskin-b2", "model": "claude-opus-5.5", "bytes": 122, "date": "2026-11-11", "id": 1248}
+{"va": "016fdc70", "login": "soupskin-b2", "model": "claude-opus-5.5", "bytes": 122, "date": "2026-11-11", "id": 1249}
+{"va": "016fdcf0", "login": "soupskin-b2", "model": "claude-opus-5.5", "bytes": 122, "date": "2026-11-11", "id": 1250}
+{"va": "00c85e10", "login": "soupskin-b2", "model": "claude-opus-5.5", "bytes": 123, "date": "2026-11-11", "id": 1251}
+{"va": "00c860f0", "login": "soupskin-b2", "model": "claude-opus-5.5", "bytes": 123, "date": "2026-11-11", "id": 1252}
+{"va": "00c8cf20", "login": "soupskin-b2", "model": "claude-opus-5.5", "bytes": 123, "date": "2026-11-11", "id": 1253}
+{"va": "00c8d4a0", "login": "soupskin-b2", "model": "claude-opus-5.5", "bytes": 123, "date": "2026-11-11", "id": 1254}
+{"va": "00c8da90", "login": "soupskin-b2", "model": "claude-opus-5.5", "bytes": 123, "date": "2026-11-11", "id": 1255}
+{"va": "00c8dce0", "login": "soupskin-b2", "model": "claude-opus-5.5", "bytes": 123, "date": "2026-11-11", "id": 1256}
+{"va": "00c8fb60", "login": "soupskin-b2", "model": "claude-opus-5.5", "bytes": 123, "date": "2026-11-11", "id": 1257}
+{"va": "00c93e70", "login": "soupskin-b2", "model": "claude-opus-5.5", "bytes": 123, "date": "2026-11-11", "id": 1258}
+{"va": "00e29bc0", "login": "soupskin-b2", "model": "claude-opus-5.5", "bytes": 123, "date": "2026-11-11", "id": 1259}
+{"va": "00e29e70", "login": "soupskin-b2", "model": "claude-opus-5.5", "bytes": 123, "date": "2026-11-11", "id": 1260}
+{"va": "00e29ef0", "login": "soupskin-b2", "model": "claude-opus-5.5", "bytes": 123, "date": "2026-11-11", "id": 1261}
+{"va": "00e41e40", "login": "soupskin-b2", "model": "claude-opus-5.5", "bytes": 123, "date": "2026-11-11", "id": 1262}
+{"va": "0150ca50", "login": "soupskin-b2", "model": "claude-opus-5.5", "bytes": 123, "date": "2026-11-11", "id": 1263}
+{"va": "00c92650", "login": "soupskin-b2", "model": "claude-opus-5.5", "bytes": 123, "date": "2026-11-11", "id": 1264}
+{"va": "00c16ee0", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 344, "date": "2026-11-11", "id": 1265}
+{"va": "014d79d0", "login": "soupskin-b2", "model": "qwen", "bytes": 24, "date": "2026-11-11", "id": 1266}
+{"va": "01503930", "login": "soupskin-b2", "model": "qwen3.8-27b", "bytes": 24, "date": "2026-11-11", "id": 1267}
+{"va": "00410dc0", "login": "soupskin-b2", "model": "deepseek-v4.1-flash", "bytes": 16, "date": "2026-11-11", "id": 1268}
+{"va": "00410210", "login": "soupskin-b2", "model": "deepseek-v4.1-flash", "bytes": 16, "date": "2026-11-11", "id": 1269}
+{"va": "0155cff0", "login": "soupskin-b2", "model": "qwen3.8-27b", "bytes": 24, "date": "2026-11-11", "id": 1270}
+{"va": "01584a70", "login": "soupskin-b2", "model": "qwen3.8-27b", "bytes": 24, "date": "2026-11-11", "id": 1271}

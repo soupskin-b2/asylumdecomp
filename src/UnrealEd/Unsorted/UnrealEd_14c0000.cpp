@@ -1,4 +1,4 @@
-// UnrealEd_14c0000.cpp (part 1 of 2): 95 functions
+// UnrealEd_14c0000.cpp (part 1 of 2): 96 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -591,4 +591,21 @@ S16* S16::sub_014ce830()
     f08 = 0;
     f0c = 0;
     return this;
+}
+
+struct sub_014c5ef0_sub {
+    virtual void sub_00000000();
+    virtual void sub_00000001();
+};
+
+struct sub_014c5ef0_owner {
+    char _pad[0x1a4];
+    sub_014c5ef0_sub _sub;
+    void sub_014c5ef0(sub_014c5ef0_owner* arg);
+};
+
+// @baa 0x014c5ef0
+void sub_014c5ef0_owner::sub_014c5ef0(sub_014c5ef0_owner* arg)
+{
+    arg->_sub.sub_00000001();
 }

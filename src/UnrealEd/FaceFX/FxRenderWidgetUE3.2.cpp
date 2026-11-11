@@ -1,4 +1,4 @@
-// FxRenderWidgetUE3.cpp (part 2 of 2): 1 function
+// FxRenderWidgetUE3.cpp (part 2 of 2): 3 functions
 // Placed here by: neighbours 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -19,4 +19,22 @@ void C::sub_00410220(int param_2)
   param_1[2] = param_1[2] + -1;
   *(undefined4 *)(*param_1 + param_1[2] * 4) = 0;
   return;
+}
+
+struct FWidgetItem
+{
+	UINT Unknown;
+	UINT Count;
+};
+
+// @baa 0x00410dc0
+UINT sub_00410dc0(FWidgetItem* Item)
+{
+	return (Item->Count * 16) / 8;
+}
+
+// @baa 0x00410210
+UINT sub_00410210(FWidgetItem* Item)
+{
+	return (Item->Count * 16) / 8;
 }

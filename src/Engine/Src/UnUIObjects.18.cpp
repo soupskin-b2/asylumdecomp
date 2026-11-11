@@ -1,4 +1,4 @@
-// UnUIObjects.cpp: 56 functions
+// UnUIObjects.cpp: 74 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -681,4 +681,313 @@ void UUIObject__00ca5220::execRotateWidget(FFrame& Stack, RESULT_DECL)
 	P_GET_UBOOL_OPTX(bAccumulateRotation, FALSE);
 	P_FINISH;
 	RotateWidget(NewRotationAmount, bAccumulateRotation);
+}
+
+struct UUIScreenObject__00ca3650 : public UUIScreenObject
+{
+	UUIObject* FindChild(FName WidgetName, UBOOL bRecurse) const;
+	void execFindChild(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00ca3650
+void UUIScreenObject__00ca3650::execFindChild(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_NAME(WidgetName);
+	P_GET_UBOOL_OPTX(bRecurse, FALSE);
+	P_FINISH;
+	*(UUIObject**)Result = FindChild(WidgetName, bRecurse);
+}
+
+struct UUIObject__00cbdb60 : public UUIObject
+{
+	FString GetDefaultDataBinding(INT BindingIndex) const;
+	void execGetDefaultDataBinding(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00cbdb60
+void UUIObject__00cbdb60::execGetDefaultDataBinding(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(BindingIndex);
+	P_FINISH;
+	*(FString*)Result = GetDefaultDataBinding(BindingIndex);
+}
+
+struct UUIScene__00ca66e0 : public UUIScene
+{
+	UUIScene* GetNextScene(UBOOL bRequireMatchingPlayerOwner, UBOOL bIgnoreUnfocusedScenes);
+	void execGetNextScene(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00ca66e0
+void UUIScene__00ca66e0::execGetNextScene(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL_OPTX(bRequireMatchingPlayerOwner, TRUE);
+	P_GET_UBOOL_OPTX(bIgnoreUnfocusedScenes, FALSE);
+	P_FINISH;
+	*(UUIScene**)Result = GetNextScene(bRequireMatchingPlayerOwner, bIgnoreUnfocusedScenes);
+}
+
+struct UUIScene__00ca67a0 : public UUIScene
+{
+	UUIScene* GetPreviousScene(UBOOL bRequireMatchingPlayerOwner, UBOOL bIgnoreUnfocusedScenes);
+	void execGetPreviousScene(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00ca67a0
+void UUIScene__00ca67a0::execGetPreviousScene(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL_OPTX(bRequireMatchingPlayerOwner, TRUE);
+	P_GET_UBOOL_OPTX(bIgnoreUnfocusedScenes, FALSE);
+	P_FINISH;
+	*(UUIScene**)Result = GetPreviousScene(bRequireMatchingPlayerOwner, bIgnoreUnfocusedScenes);
+}
+
+struct UUIScreenObject__00ca3710 : public UUIScreenObject
+{
+	UUIObject* FindChildUsingID(FWIDGET_ID WidgetID, UBOOL bRecurse) const;
+	void execFindChildUsingID(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00ca3710
+void UUIScreenObject__00ca3710::execFindChildUsingID(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT(FWIDGET_ID, WidgetID);
+	P_GET_UBOOL_OPTX(bRecurse, FALSE);
+	P_FINISH;
+	*(UUIObject**)Result = FindChildUsingID(WidgetID, bRecurse);
+}
+
+enum EUIWidgetFace
+{
+	UIFACE_Left,
+	UIFACE_Top,
+	UIFACE_Right,
+	UIFACE_Bottom,
+	UIFACE_MAX,
+};
+
+struct UUIObject__00ca5a50 : public UUIObject
+{
+	UBOOL IsDockedTo(const UUIScreenObject* TargetWidget, BYTE SourceFace, BYTE TargetFace) const;
+	void execIsDockedTo(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00ca5a50
+void UUIObject__00ca5a50::execIsDockedTo(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(UUIScreenObject, TargetWidget);
+	P_GET_BYTE_OPTX(SourceFace, UIFACE_MAX);
+	P_GET_BYTE_OPTX(TargetFace, UIFACE_MAX);
+	P_FINISH;
+	*(UBOOL*)Result = IsDockedTo(TargetWidget, SourceFace, TargetFace);
+}
+
+struct UUIObject__00ca5300 : public UUIObject
+{
+	FVector GetAnchorPosition(UBOOL bRelativeToWidget, UBOOL bPixelSpace);
+	void execGetAnchorPosition(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00ca5300
+void UUIObject__00ca5300::execGetAnchorPosition(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL_OPTX(bRelativeToWidget, TRUE);
+	P_GET_UBOOL_OPTX(bPixelSpace, FALSE);
+	P_FINISH;
+	*(FVector*)Result = GetAnchorPosition(bRelativeToWidget, bPixelSpace);
+}
+
+struct UUIObject__00ca5bb0 : public UUIObject
+{
+	UBOOL SetForcedNavigationTarget(BYTE Face, UUIObject* NavTarget, UBOOL bIsNullOverride);
+	void execSetForcedNavigationTarget(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00ca5bb0
+void UUIObject__00ca5bb0::execSetForcedNavigationTarget(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_BYTE(Face);
+	P_GET_OBJECT(UUIObject, NavTarget);
+	P_GET_UBOOL_OPTX(bIsNullOverride, FALSE);
+	P_FINISH;
+	*(UBOOL*)Result = SetForcedNavigationTarget(Face, NavTarget, bIsNullOverride);
+}
+
+enum EUIExtentEvalType
+{
+	UIEXTENTEVAL_Pixels,
+	UIEXTENTEVAL_PercentSelf,
+	UIEXTENTEVAL_PercentOwner,
+	UIEXTENTEVAL_PercentScene,
+	UIEXTENTEVAL_PercentViewport,
+	UIEXTENTEVAL_MAX,
+};
+
+struct UUIScreenObject__00ca4980 : public UUIScreenObject
+{
+	FLOAT ResolveUIExtent(const FUIScreenValue_Extent& ExtentToResolve, UUIScreenObject* OwnerWidget, BYTE OutputType);
+	void execResolveUIExtent(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00ca4980
+void UUIScreenObject__00ca4980::execResolveUIExtent(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT_REF(FUIScreenValue_Extent, ExtentToResolve);
+	P_GET_OBJECT(UUIScreenObject, OwnerWidget);
+	P_GET_BYTE_OPTX(OutputType, UIEXTENTEVAL_Pixels);
+	P_FINISH;
+	*(FLOAT*)Result = ResolveUIExtent(ExtentToResolve, OwnerWidget, OutputType);
+}
+
+struct UUIObject__00cbda80 : public UUIObject
+{
+	void SetDefaultDataBinding(const FString& MarkupText, INT BindingIndex);
+	void execSetDefaultDataBinding(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00cbda80
+void UUIObject__00cbda80::execSetDefaultDataBinding(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STR(MarkupText);
+	P_GET_INT(BindingIndex);
+	P_FINISH;
+	SetDefaultDataBinding(MarkupText, BindingIndex);
+}
+
+struct UUIScreenObject__00ca4810 : public UUIScreenObject
+{
+	FLOAT GetBounds(BYTE Dimension, BYTE OutputType, UBOOL bIgnoreDockPadding);
+	void execGetBounds(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00ca4810
+void UUIScreenObject__00ca4810::execGetBounds(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_BYTE(Dimension);
+	P_GET_BYTE_OPTX(OutputType, UIEXTENTEVAL_Pixels);
+	P_GET_UBOOL_OPTX(bIgnoreDockPadding, FALSE);
+	P_FINISH;
+	*(FLOAT*)Result = GetBounds(Dimension, OutputType, bIgnoreDockPadding);
+}
+
+struct UUIObject__00ca5cf0 : public UUIObject
+{
+	void SetPrivateBehavior(INT Behavior, UBOOL Value, UBOOL bRecurse);
+	void execSetPrivateBehavior(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00ca5cf0
+void UUIObject__00ca5cf0::execSetPrivateBehavior(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(Behavior);
+	P_GET_UBOOL(Value);
+	P_GET_UBOOL_OPTX(bRecurse, FALSE);
+	P_FINISH;
+	SetPrivateBehavior(Behavior, Value, bRecurse);
+}
+
+extern UEngine* GEngine;
+struct UUIInteraction_ : public UUIInteraction
+{
+	UBOOL PlayUISound( FName SoundCueName, INT PlayerIndex );
+};
+
+struct UUIScreenObject__00da96c0 : public UUIScreenObject
+{
+	static UUIInteraction* GetCurrentUIController()
+	{
+		UUIInteraction* Result = NULL;
+		if ( GEngine != NULL && GEngine->GameViewport != NULL )
+		{
+			Result = GEngine->GameViewport->UIController;
+		}
+		return Result;
+	}
+	static UBOOL PlayUISound( FName SoundCueName, INT PlayerIndex )
+	{
+		UBOOL bResult = FALSE;
+		UUIInteraction* UIController = GetCurrentUIController();
+		if ( UIController != NULL )
+		{
+			bResult = ((UUIInteraction_*)UIController)->PlayUISound(SoundCueName, PlayerIndex);
+		}
+		return bResult;
+	}
+	void execPlayUISound(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00da96c0
+void UUIScreenObject__00da96c0::execPlayUISound(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_NAME(SoundCueName);
+	P_GET_INT_OPTX(PlayerIndex, 0);
+	P_FINISH;
+	*(UBOOL*)Result = PlayUISound(SoundCueName, PlayerIndex);
+}
+
+struct UUIObject__00ca6050 : public UUIObject
+{
+	FLOAT GetPositionExtent(BYTE Face, UBOOL bIncludeRotation, UBOOL bIncludeOrigin);
+	void execGetPositionExtent(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00ca6050
+void UUIObject__00ca6050::execGetPositionExtent(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_BYTE(Face);
+	P_GET_UBOOL_OPTX(bIncludeRotation, FALSE);
+	P_GET_UBOOL_OPTX(bIncludeOrigin, FALSE);
+	P_FINISH;
+	*(FLOAT*)Result = GetPositionExtent(Face, bIncludeRotation, bIncludeOrigin);
+}
+
+struct UUIScreenObject__00ca4700 : public UUIScreenObject
+{
+	FLOAT GetPosition(BYTE Face, BYTE OutputType, UBOOL bIncludeOrigin, UBOOL bIgnoreDockPadding) const;
+	void execGetPosition(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00ca4700
+void UUIScreenObject__00ca4700::execGetPosition(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_BYTE(Face);
+	P_GET_BYTE_OPTX(OutputType, EVALPOS_None);
+	P_GET_UBOOL_OPTX(bIncludeOrigin, FALSE);
+	P_GET_UBOOL_OPTX(bIgnoreDockPadding, FALSE);
+	P_FINISH;
+	*(FLOAT*)Result = GetPosition(Face, OutputType, bIncludeOrigin, bIgnoreDockPadding);
+}
+
+struct UUIObject__00ca5920 : public UUIObject
+{
+	UBOOL GetDockParameters(BYTE SourceFace, UUIScreenObject*& TargetWidget, BYTE& TargetFace, FLOAT& TargetPadding);
+	void execGetDockParameters(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00ca5920
+void UUIObject__00ca5920::execGetDockParameters(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_BYTE(SourceFace);
+	P_GET_OBJECT_REF(UUIScreenObject, TargetWidget);
+	P_GET_BYTE_REF(TargetFace);
+	P_GET_FLOAT_REF(TargetPadding);
+	P_FINISH;
+	*(UBOOL*)Result = GetDockParameters(SourceFace, TargetWidget, TargetFace, TargetPadding);
+}
+
+extern void* g_026667a8;
+extern TCHAR g_01e3f3dc[];
+int sub_00630f20(void*, const TCHAR*, ...);
+// @baa 0x00d99150
+void UUIScreenObject::InvalidatePositionDependencies(INT)
+{
+	sub_00630f20(g_026667a8, L"Pure virtual not implemented (%s)", L"UUIScreenObject::InvalidatePositionDependencies");
+}
+
+// @baa 0x00daa3f0
+void UUIObject::RequestSceneInputMaskUpdate()
+{
+	UUIScene* Scene = (UUIScene*)GetScene();
+	if (Scene)
+		Scene->RequestSceneInputMaskUpdate();
 }

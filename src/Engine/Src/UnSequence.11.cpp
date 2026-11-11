@@ -1,4 +1,4 @@
-// UnSequence.cpp: 12 functions
+// UnSequence.cpp: 13 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -127,4 +127,19 @@ void USequenceOp__00cbc690::execActivateNamedOutputLink(FFrame& Stack, RESULT_DE
 	P_GET_STR(LinkDesc);
 	P_FINISH;
 	*(UBOOL*)Result = ActivateNamedOutputLink(LinkDesc);
+}
+
+struct USequenceObject__00cbc5a0 : public USequenceObject
+{
+	void ScriptLog(const FString& OutText, UBOOL bWarning);
+	void execScriptLog(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00cbc5a0
+void USequenceObject__00cbc5a0::execScriptLog(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STR(LogText);
+	P_GET_UBOOL_OPTX(bWarning, TRUE);
+	P_FINISH;
+	ScriptLog(LogText, bWarning);
 }

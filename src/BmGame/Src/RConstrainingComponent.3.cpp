@@ -1,4 +1,4 @@
-// RConstrainingComponent.cpp: 3 functions
+// RConstrainingComponent.cpp: 4 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -41,4 +41,17 @@ void URConstrainingComponent::execAddRBConstraint(FFrame& Stack, RESULT_DECL)
 	P_GET_OBJECT(URB_ConstraintSetup, ConstraintSetup);
 	P_FINISH;
 	((URConstrainingComponent__01702f50*)this)->sub_016d6ef0(ConstraintSetup);
+}
+
+struct URConstrainingComponent__01702fe0 : public URConstrainingComponent
+{
+	UBOOL sub_016d9eb0(UBOOL);
+};
+
+// @baa 0x01702fe0
+void URConstrainingComponent::execUpdateRBConstraints(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL_OPTX(bNoPhys, 0);
+	P_FINISH;
+	*(UBOOL*)Result = ((URConstrainingComponent__01702fe0*)this)->sub_016d9eb0(bNoPhys);
 }

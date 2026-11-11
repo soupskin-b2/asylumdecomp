@@ -1,4 +1,4 @@
-// BmGame_16e0000.cpp: 50 functions
+// BmGame_16e0000.cpp: 54 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -382,4 +382,40 @@ void URSeqAct_ActivateElectrifiedFloorPanels::execNativeUpdate(FFrame& Stack, RE
 	P_GET_FLOAT(DeltaTime);
 	P_FINISH;
 	*(UBOOL*)Result = vf_1a8(DeltaTime);
+}
+
+// @baa 0x016e8f00
+// @baa 0x016e8f00
+void ARGameRI::execShowLoadingIcon(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_UBOOL(bShow);
+    P_FINISH;
+    ShowLoadingIcon(bShow);
+}
+
+// @baa 0x016e8d80
+// @baa 0x016e8d80
+void ARGameRI::execHideLevel(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(Level);
+    P_FINISH;
+    HideLevel(Level);
+}
+
+// @baa 0x016e8e00
+// @baa 0x016e8e00
+void ARGameRI::execStartLevel(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(Level);
+    P_FINISH;
+    StartLevel(Level);
+}
+
+// @baa 0x016e8e80
+// @baa 0x016e8e80
+void ARGameRI::execStartChapterSpecificLevels(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(Level);
+    P_FINISH;
+    StartChapterSpecificLevels(Level);
 }

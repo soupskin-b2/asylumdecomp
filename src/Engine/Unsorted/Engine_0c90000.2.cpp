@@ -1,4 +1,4 @@
-// Engine_0c90000.cpp: 34 functions
+// Engine_0c90000.cpp: 37 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -345,4 +345,31 @@ void UPhysicsAsset::execFindBodyIndex(FFrame& Stack, RESULT_DECL)
 	P_GET_NAME(BodyName);
 	P_FINISH;
 	*(INT*)Result = ((UPhysicsAsset_*)this)->sub_00a231b0(BodyName);
+}
+
+// @baa 0x00c93ac0
+// @baa 0x00c93ac0
+void URB_RadialImpulseComponent::execFireImpulse(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, Origin);
+    P_FINISH;
+    FireImpulse(Origin);
+}
+
+// @baa 0x00c93cc0
+// @baa 0x00c93cc0
+void URB_Handle::execSetLocation(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, NewLocation);
+    P_FINISH;
+    SetLocation(NewLocation);
+}
+
+// @baa 0x00c93e70
+// @baa 0x00c93e70
+void URB_Handle::execSetOrientation(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FQuat, NewOrientation);
+    P_FINISH;
+    SetOrientation(NewOrientation);
 }

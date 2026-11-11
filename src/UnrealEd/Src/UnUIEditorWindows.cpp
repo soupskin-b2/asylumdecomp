@@ -1,4 +1,4 @@
-// UnUIEditorWindows.cpp (part 1 of 4): 90 functions
+// UnUIEditorWindows.cpp (part 1 of 4): 92 functions
 // Placed here by: neighbours 78, callers 8, file 4.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1197,3 +1197,29 @@ int UTexture2D::sub_014db230(void)
 void sub_014db1c0();
 // @baa 0x014db250
 void sub_014db250(void) { sub_014db1c0(); }
+
+struct C_014d36b0 {
+    void sub_014c9290(int);
+    void sub_014d2ae0();
+    void sub_014d36b0(int);
+};
+
+// @baa 0x014d36b0
+void C_014d36b0::sub_014d36b0(int a)
+{
+    sub_014c9290(a);
+    sub_014d2ae0();
+}
+
+struct U {
+    void sub_014c9290(int arg);
+    void sub_014d28b0();
+    void sub_014d3690(int arg);
+};
+
+// @baa 0x014d3690
+void U::sub_014d3690(int arg)
+{
+    sub_014c9290(arg);
+    sub_014d28b0();
+}

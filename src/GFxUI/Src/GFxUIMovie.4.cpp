@@ -1,4 +1,4 @@
-// GFxUIMovie.cpp: 6 functions
+// GFxUIMovie.cpp: 8 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -64,4 +64,21 @@ void UGFxMovie::execClose(FFrame& Stack, RESULT_DECL)
 	P_GET_UBOOL_OPTX(Unload, 1);
 	P_FINISH;
 	((UGFxMovie__00e64ef0*)this)->sub_00e64310(Unload);
+}
+
+// @baa 0x00e41ec0
+void UGFxMovie::execPause(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL_OPTX(pauseplay, 1);
+	P_FINISH;
+	vf_118(pauseplay);
+}
+
+// @baa 0x00e41e40
+// @baa 0x00e41e40
+void UGFxMovie::execGetStickMagAng(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_INT(Stick);
+    P_FINISH;
+    *(FName*)Result = GetStickMagAng(Stick);
 }

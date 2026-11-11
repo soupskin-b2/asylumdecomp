@@ -1,4 +1,4 @@
-// Launch_1500000.cpp (part 1 of 4): 116 functions
+// Launch_1500000.cpp (part 1 of 4): 117 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -854,3 +854,19 @@ bool URBarkSet::vf_004()
 
 // @baa 0x0150eeb0
 IMPLEMENT_CLASS_AT(URObjectPool, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonGame\\Src\\CommonGameClasses.cpp", 38);
+
+extern int g_022d3674;
+struct S_01503930 {
+    int* Pointer_0000;
+    int Field_0004;
+    float Field_0008;
+    S_01503930* sub_01503930();
+};
+
+// @baa 0x01503930
+S_01503930* S_01503930::sub_01503930() {
+    Pointer_0000 = (int*)&g_022d3674;
+    Field_0004 = 0;
+    Field_0008 = 0.0f;
+    return this;
+}

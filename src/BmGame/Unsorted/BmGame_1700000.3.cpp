@@ -1,4 +1,4 @@
-// BmGame_1700000.cpp: 33 functions
+// BmGame_1700000.cpp: 38 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -297,4 +297,49 @@ void ARLevelTransition::execGetLevelVolumeInFront(FFrame& Stack, RESULT_DECL)
 	P_GET_UBOOL(InFront);
 	P_FINISH;
 	*(void**)Result = (void*)vf_36c(InFront);
+}
+
+// @baa 0x01703f90
+// @baa 0x01703f90
+void ARAlertEventCoordinator_Batman::execGetAttackPoints(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, AttackCentre);
+    P_FINISH;
+    GetAttackPoints(AttackCentre);
+}
+
+// @baa 0x0170b0f0
+// @baa 0x0170b0f0
+void ARSoftBodyProjectile::execApplySoftBodyExternalAcceleration(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, Force);
+    P_FINISH;
+    ApplySoftBodyExternalAcceleration(Force);
+}
+
+// @baa 0x017034c0
+// @baa 0x017034c0
+void ARBMAIController::execCanSeePos(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, TestPos);
+    P_FINISH;
+    *(UBOOL*)Result = CanSeePos(TestPos);
+}
+
+// @baa 0x01704490
+// @baa 0x01704490
+void ARBMCombatManager::execIsLocationInCombatArea(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, TestLocation);
+    P_FINISH;
+    *(UBOOL*)Result = IsLocationInCombatArea(TestLocation);
+}
+
+// @baa 0x017051c0
+// @baa 0x017051c0
+void URBMBehaviour_Combat::execIsLocationInCombatArea(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, TestLocation);
+    P_FINISH;
+    *(UBOOL*)Result = IsLocationInCombatArea(TestLocation);
 }

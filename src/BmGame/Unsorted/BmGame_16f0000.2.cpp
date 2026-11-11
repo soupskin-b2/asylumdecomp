@@ -1,4 +1,4 @@
-// BmGame_16f0000.cpp: 99 functions
+// BmGame_16f0000.cpp: 120 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -799,4 +799,193 @@ void ARBMRouter_DynamicObject::execUpdateRouterObject_Routing(FFrame& Stack, RES
 	P_GET_FLOAT(DeltaTime);
 	P_FINISH;
 	*(UBOOL*)Result = vf_35c(DeltaTime);
+}
+
+// @baa 0x016f0870
+// @baa 0x016f0870
+void ARPawnCharacter::execChangeIdleStanceWithoutTransition(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(Stance);
+    P_FINISH;
+    ChangeIdleStanceWithoutTransition(Stance);
+}
+
+// @baa 0x016f4790
+// @baa 0x016f4790
+void ARPawnCharacter::execMoveTo(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, Position);
+    P_FINISH;
+    MoveTo(Position);
+}
+
+// @baa 0x016f4810
+// @baa 0x016f4810
+void ARPawnCharacter::execMoveInDirection(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, Direction);
+    P_FINISH;
+    MoveInDirection(Direction);
+}
+
+// @baa 0x016f4ea0
+// @baa 0x016f4ea0
+void ARPawnCharacter::execLookAt(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, Position);
+    P_FINISH;
+    LookAt(Position);
+}
+
+// @baa 0x016f4f20
+// @baa 0x016f4f20
+void ARPawnCharacter::execLookInDirection(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, Direction);
+    P_FINISH;
+    LookInDirection(Direction);
+}
+
+// @baa 0x016f5090
+// @baa 0x016f5090
+void ARPawnCharacter::execFaceAt(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, Position);
+    P_FINISH;
+    FaceAt(Position);
+}
+
+// @baa 0x016f5110
+// @baa 0x016f5110
+void ARPawnCharacter::execFaceInDirection(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, Direction);
+    P_FINISH;
+    FaceInDirection(Direction);
+}
+
+// @baa 0x016f5340
+// @baa 0x016f5340
+void ARPawnCharacter::execAddTranslationVelocity(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, TranslationVelocity);
+    P_FINISH;
+    AddTranslationVelocity(TranslationVelocity);
+}
+
+// @baa 0x016f53c0
+// @baa 0x016f53c0
+void ARPawnCharacter::execAddTranslation(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, Translation);
+    P_FINISH;
+    AddTranslation(Translation);
+}
+
+// @baa 0x016f5520
+// @baa 0x016f5520
+void ARPawnCharacter::execOverrideTranslationVelocity(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, TranslationVelocity);
+    P_FINISH;
+    OverrideTranslationVelocity(TranslationVelocity);
+}
+
+// @baa 0x016f76d0
+// @baa 0x016f76d0
+void ARBMCombatCollisionProxy::execUpdateLocation(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, NewLocation);
+    P_FINISH;
+    UpdateLocation(NewLocation);
+}
+
+// @baa 0x016fc8b0
+// @baa 0x016fc8b0
+void ARAudioPointController::execGetLocation(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, Loc);
+    P_FINISH;
+    GetLocation(Loc);
+}
+
+// @baa 0x016fe170
+// @baa 0x016fe170
+void ARBMRouteRequest_FindSinglePath::execSetGoalForStaticAvoidance(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, TargetPos);
+    P_FINISH;
+    SetGoalForStaticAvoidance(TargetPos);
+}
+
+// @baa 0x016fe250
+// @baa 0x016fe250
+void ARBMRouteRequest_NervousSearch::execDoPathBlocking(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, CentrePoint);
+    P_FINISH;
+    DoPathBlocking(CentrePoint);
+}
+
+// @baa 0x016fee70
+// @baa 0x016fee70
+void URBMRouterPath::execAddNode_Pos(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, NewPathNode);
+    P_FINISH;
+    AddNode_Pos(NewPathNode);
+}
+
+// @baa 0x016fe780
+// @baa 0x016fe780
+void ARPontoonBridgeManager::execFindClosestPontoon(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, pos);
+    P_FINISH;
+    *(INT*)Result = FindClosestPontoon(pos);
+}
+
+// @baa 0x016fe800
+// @baa 0x016fe800
+void ARPontoonBridgeManager::execFindPontoonByPosition(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, pos);
+    P_FINISH;
+    *(INT*)Result = FindPontoonByPosition(pos);
+}
+
+// @baa 0x016ff090
+// @baa 0x016ff090
+void URBMRouterPath::execGetPathLength(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, CurrentPos);
+    P_FINISH;
+    *(FLOAT*)Result = GetPathLength(CurrentPos);
+}
+
+// @baa 0x016ff110
+// @baa 0x016ff110
+void URBMRouterPath::execGetEstimatePostSmoothPathLength(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, CurrentPos);
+    P_FINISH;
+    *(FLOAT*)Result = GetEstimatePostSmoothPathLength(CurrentPos);
+}
+
+// @baa 0x016fdc70
+// @baa 0x016fdc70
+void ARBMRouter::execPointDistSqFromGoal(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, TestPoint);
+    P_FINISH;
+    *(FLOAT*)Result = PointDistSqFromGoal(TestPoint);
+}
+
+// @baa 0x016fdcf0
+// @baa 0x016fdcf0
+void ARBMRouter::execGetDistanceSquaredFromPath(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, TestLocation);
+    P_FINISH;
+    *(FLOAT*)Result = GetDistanceSquaredFromPath(TestLocation);
 }

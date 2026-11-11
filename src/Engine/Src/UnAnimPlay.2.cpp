@@ -1,4 +1,4 @@
-// UnAnimPlay.cpp (part 2 of 2): 7 functions
+// UnAnimPlay.cpp (part 2 of 2): 8 functions
 // Placed here by: class 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -59,4 +59,13 @@ void UAnimNodeSequence::execGetTimeLeft(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
 	*(FLOAT*)Result = vf_198();
+}
+
+// @baa 0x00c90740
+// @baa 0x00c90740
+void UAnimNodeSequence::execSetAnim(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(Sequence);
+    P_FINISH;
+    SetAnim(Sequence);
 }

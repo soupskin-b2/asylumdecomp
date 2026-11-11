@@ -1,4 +1,4 @@
-// UnUIEditorWindows.cpp (part 2 of 4): 1 function
+// UnUIEditorWindows.cpp (part 2 of 4): 2 functions
 // Placed here by: neighbours 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -32,4 +32,19 @@ void C::sub_014c6e00(wxEvent * param_2)
     ((wxUpdateUIEvent *)((wxUpdateUIEvent *)param_2))->wxUpdateUIEvent::Enable(*(int *)(*(int *)(param_1 + 0x30c) + 0x3c) != 0);
   }
   return;
+}
+
+// 014d3670: a member that calls two sibling methods on `this`.
+struct USubWindow_
+{
+    void sub_014c9290(int Arg);
+    void sub_014d2570();
+    void sub_014d3670(int Arg);
+};
+
+// @baa 0x014d3670
+void USubWindow_::sub_014d3670(int Arg)
+{
+    sub_014c9290(Arg);
+    sub_014d2570();
 }

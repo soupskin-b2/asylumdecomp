@@ -1,4 +1,4 @@
-// BmGame_1580000.cpp: 220 functions
+// BmGame_1580000.cpp: 221 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1751,4 +1751,18 @@ struct UObject_ : public UObject {
 void UObject_::sub_01582ef0()
 {
     ProcessEvent(FindFunctionChecked(g_026e2624), NULL);
+}
+
+struct URSeqAct_Music_ : public URSeqAct_Music
+{
+    void sub_0157c210();
+    INT sub_00d201d0(INT Value);
+    void sub_01584a70(UINT Value);
+};
+
+// @baa 0x01584a70
+void URSeqAct_Music_::sub_01584a70(UINT Value)
+{
+    sub_0157c210();
+    sub_00d201d0(Value);
 }

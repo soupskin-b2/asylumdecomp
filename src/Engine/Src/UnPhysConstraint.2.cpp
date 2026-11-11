@@ -1,4 +1,4 @@
-// UnPhysConstraint.cpp (part 2 of 2): 10 functions
+// UnPhysConstraint.cpp (part 2 of 2): 16 functions
 // Placed here by: class 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -133,4 +133,109 @@ void URB_ConstraintInstance__00c95a60::execSetAngularPositionDrive(FFrame& Stack
 	P_GET_UBOOL(bEnableTwistDrive);
 	P_FINISH;
 	SetAngularPositionDrive(bEnableSwingDrive, bEnableTwistDrive);
+}
+
+struct URB_ConstraintInstance__00c95ca0 : public URB_ConstraintInstance
+{
+	void SetLinearDriveParams(FLOAT InSpring, FLOAT InDamping, FLOAT InForceLimit);
+	void execSetLinearDriveParams(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00c95ca0
+void URB_ConstraintInstance__00c95ca0::execSetLinearDriveParams(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(InSpring);
+	P_GET_FLOAT(InDamping);
+	P_GET_FLOAT(InForceLimit);
+	P_FINISH;
+	SetLinearDriveParams(InSpring, InDamping, InForceLimit);
+}
+
+struct URB_ConstraintInstance__00c95e60 : public URB_ConstraintInstance
+{
+	void SetAngularDriveParams(FLOAT InSpring, FLOAT InDamping, FLOAT InForceLimit);
+	void execSetAngularDriveParams(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00c95e60
+void URB_ConstraintInstance__00c95e60::execSetAngularDriveParams(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(InSpring);
+	P_GET_FLOAT(InDamping);
+	P_GET_FLOAT(InForceLimit);
+	P_FINISH;
+	SetAngularDriveParams(InSpring, InDamping, InForceLimit);
+}
+
+struct URB_ConstraintInstance__00c958a0 : public URB_ConstraintInstance
+{
+	void SetLinearPositionDrive(UBOOL bEnableXDrive, UBOOL bEnableYDrive, UBOOL bEnableZDrive);
+	void execSetLinearPositionDrive(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00c958a0
+void URB_ConstraintInstance__00c958a0::execSetLinearPositionDrive(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bEnableXDrive);
+	P_GET_UBOOL(bEnableYDrive);
+	P_GET_UBOOL(bEnableZDrive);
+	P_FINISH;
+	SetLinearPositionDrive(bEnableXDrive, bEnableYDrive, bEnableZDrive);
+}
+
+struct URB_ConstraintInstance__00c95980 : public URB_ConstraintInstance
+{
+	void SetLinearVelocityDrive(UBOOL bEnableXDrive, UBOOL bEnableYDrive, UBOOL bEnableZDrive);
+	void execSetLinearVelocityDrive(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00c95980
+void URB_ConstraintInstance__00c95980::execSetLinearVelocityDrive(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bEnableXDrive);
+	P_GET_UBOOL(bEnableYDrive);
+	P_GET_UBOOL(bEnableZDrive);
+	P_FINISH;
+	SetLinearVelocityDrive(bEnableXDrive, bEnableYDrive, bEnableZDrive);
+}
+
+struct URB_ConstraintInstance__00c95f30 : public URB_ConstraintInstance
+{
+	void SetAngularDOFLimitScale(FLOAT InSwing1LimitScale, FLOAT InSwing2LimitScale, FLOAT InTwistLimitScale, URB_ConstraintSetup* InSetup);
+	void execSetAngularDOFLimitScale(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00c95f30
+void URB_ConstraintInstance__00c95f30::execSetAngularDOFLimitScale(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(InSwing1LimitScale);
+	P_GET_FLOAT(InSwing2LimitScale);
+	P_GET_FLOAT(InTwistLimitScale);
+	P_GET_OBJECT(URB_ConstraintSetup, InSetup);
+	P_FINISH;
+	SetAngularDOFLimitScale(InSwing1LimitScale, InSwing2LimitScale, InTwistLimitScale, InSetup);
+}
+
+struct URB_ConstraintInstance__00c961b0 : public URB_ConstraintInstance
+{
+	void SetAngularLimited(UBOOL SwingLimited, FLOAT Swing1LimitAngle, FLOAT Swing2LimitAngle, UBOOL SwingLimitSoft, FLOAT SwingLimitStiffness, FLOAT SwingLimitDamping, UBOOL TwistLimited, FLOAT TwistLimitAngle, UBOOL TwistLimitSoft, FLOAT TwistLimitStiffness, FLOAT TwistLimitDamping);
+	void execSetAngularLimited(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00c961b0
+void URB_ConstraintInstance__00c961b0::execSetAngularLimited(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(SwingLimited);
+	P_GET_FLOAT(Swing1LimitAngle);
+	P_GET_FLOAT(Swing2LimitAngle);
+	P_GET_UBOOL(SwingLimitSoft);
+	P_GET_FLOAT(SwingLimitStiffness);
+	P_GET_FLOAT(SwingLimitDamping);
+	P_GET_UBOOL(TwistLimited);
+	P_GET_FLOAT(TwistLimitAngle);
+	P_GET_UBOOL(TwistLimitSoft);
+	P_GET_FLOAT(TwistLimitStiffness);
+	P_GET_FLOAT(TwistLimitDamping);
+	P_FINISH;
+	SetAngularLimited(SwingLimited, Swing1LimitAngle, Swing2LimitAngle, SwingLimitSoft, SwingLimitStiffness, SwingLimitDamping, TwistLimited, TwistLimitAngle, TwistLimitSoft, TwistLimitStiffness, TwistLimitDamping);
 }

@@ -1,4 +1,4 @@
-// UnrealEd_0c90000.cpp: 3 functions
+// UnrealEd_0c90000.cpp: 4 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -30,4 +30,13 @@ void UMorphTargetSet::execFindMorphTarget(FFrame& Stack, RESULT_DECL)
 	P_GET_NAME(MorphTargetName);
 	P_FINISH;
 	*(void**)Result = ((UMorphTargetSet_*)this)->sub_0083d900(MorphTargetName);
+}
+
+// @baa 0x00c92650
+// @baa 0x00c92650
+void UAnimSet::execFindAnimSequence(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(SequenceName);
+    P_FINISH;
+    *(UAnimSequence**)Result = FindAnimSequence(SequenceName);
 }

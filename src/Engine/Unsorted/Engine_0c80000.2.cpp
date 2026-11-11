@@ -1,4 +1,4 @@
-// Engine_0c80000.cpp: 53 functions
+// Engine_0c80000.cpp: 59 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -628,4 +628,70 @@ void AActor::execUnClock(FFrame& Stack, RESULT_DECL)
 	P_GET_FLOAT_REF(Time);
 	P_FINISH;
 	((AActor__00c82160*)this)->sub_008aa040(Time);
+}
+
+struct AEmitterPool__00c879e0 : public AEmitterPool
+{
+	UParticleSystemComponent* sub_008cfa50(UBOOL);
+};
+
+// @baa 0x00c879e0
+void AEmitterPool::execGetFreeStaticMeshComponent(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL_OPTX(bCreateNewObject, 1);
+	P_FINISH;
+	*(UParticleSystemComponent**)Result = ((AEmitterPool__00c879e0*)this)->sub_008cfa50(bCreateNewObject);
+}
+
+struct AEmitterPool__00c87ac0 : public AEmitterPool
+{
+	UMaterialInstanceConstant* sub_008cfb40(UBOOL);
+};
+
+// @baa 0x00c87ac0
+void AEmitterPool::execGetFreeMatInstConsts(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL_OPTX(bCreateNewObject, 1);
+	P_FINISH;
+	*(UMaterialInstanceConstant**)Result = ((AEmitterPool__00c87ac0*)this)->sub_008cfb40(bCreateNewObject);
+}
+
+struct UPostProcessChain_ : public UPostProcessChain
+{
+	void* sub_00892bb0(FName);
+};
+
+// @baa 0x00c8ed10
+void UPostProcessChain::execFindPostProcessEffect(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_NAME(EffectName);
+	P_FINISH;
+	*(void**)Result = ((UPostProcessChain_*)this)->sub_00892bb0(EffectName);
+}
+
+// @baa 0x00c8cf20
+// @baa 0x00c8cf20
+void UOnlineStats::execGetViewName(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_INT(ViewId);
+    P_FINISH;
+    *(FName*)Result = GetViewName(ViewId);
+}
+
+// @baa 0x00c8d4a0
+// @baa 0x00c8d4a0
+void UOnlineStatsWrite::execGetStatName(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_INT(StatId);
+    P_FINISH;
+    *(FName*)Result = GetStatName(StatId);
+}
+
+// @baa 0x00c8fb60
+// @baa 0x00c8fb60
+void ULensFlareComponent::execSetSourceColor(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FLinearColor, InSourceColor);
+    P_FINISH;
+    SetSourceColor(InSourceColor);
 }

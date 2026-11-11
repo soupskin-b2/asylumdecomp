@@ -1,4 +1,4 @@
-// RAnimNode_Cape.cpp (part 1 of 3): 95 functions
+// RAnimNode_Cape.cpp (part 1 of 3): 96 functions
 // Placed here by: neighbours 84, class 8, file 2, callers 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -469,3 +469,13 @@ void sub_0158c5b0();
 void sub_01590b70(void) { sub_0158c5b0(); }
 
 // @baa 0x01590eb0
+
+struct URAnimNode_Cape_0155cff0 : public URAnimNode_Cape {
+    FName GetNewCapeAnimName();
+};
+
+// @baa 0x0155cff0
+FName URAnimNode_Cape_0155cff0::GetNewCapeAnimName()
+{
+    return NewCapeAnimName;
+}
