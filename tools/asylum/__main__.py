@@ -177,7 +177,12 @@ def cmd_list(a):
     if a.matched:
         return _list_matched(a)
     r = api.call("GET", "/list", query={**_filters(a), "limit": a.limit})
-    print("%d open functions (fewest give-ups first, then smallest)" % len(r["functions"]))
+    fs = r["functions"]
+    if not fs:
+        print("no open functions fit these filters")
+    else:
+        print("the first %d open functions that fit (fewest give-ups first, then smallest)%s"
+              % (len(fs), "; --limit shows more" if len(fs) >= a.limit else ", all there are"))
     for f in r["functions"]:
         tries = " (given up %dx)" % f["tries"] if f.get("tries") else ""
         print("%s %5d  %s%s" % (f["va"], f["size"], "  ".join(x for x in (f.get("unit"), f.get("class"), f.get("name")) if x), tries))
