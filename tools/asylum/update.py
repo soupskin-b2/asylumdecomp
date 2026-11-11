@@ -6,6 +6,7 @@ from __future__ import annotations
 import os
 import subprocess
 import sys
+import time
 import urllib.request
 import zipfile
 
@@ -41,11 +42,16 @@ def update(quiet: bool = False) -> bool:
             print("asylum.pyz %s is %s" % (old[:12], "current" if v else "unchecked (no connection)"))
         return False
     new = PYZ.with_name(PYZ.name + ".new")
-    new.write_bytes(download(RELEASE + "asylum.pyz", 600))
-    with zipfile.ZipFile(new) as z:
-        if z.read("VERSION").decode().strip() != v:
-            new.unlink()
-            raise SystemExit("the download isn't the version announced; try again later")
+    for attempt in range(3):  # the release's two files can briefly disagree while CI uploads them
+        new.write_bytes(download(RELEASE + "asylum.pyz", 600))
+        with zipfile.ZipFile(new) as z:
+            got = z.read("VERSION").decode().strip()
+        if got == v:
+            break
+        time.sleep(20)
+    else:
+        new.unlink()
+        raise SystemExit("the download isn't the version announced; try again in a few minutes")
     try:
         os.replace(new, PYZ)
     except OSError:
