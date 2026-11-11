@@ -7,9 +7,9 @@
 // @baa 0x016fa140
 void ARPlayerController::execLive_SetActiveSave(FFrame& Stack, RESULT_DECL)
 {
-    P_GET_INT(Id);
+    P_GET_INT(SaveId);
     P_FINISH;
-    vf_5b8(Id);
+    vf_5b8(SaveId);
 }
 
 // @baa 0x016fa710
