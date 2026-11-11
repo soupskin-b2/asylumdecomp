@@ -1,4 +1,4 @@
-// Engine_0920000.cpp: 3 functions
+// Engine_0920000.cpp: 4 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -41,4 +41,17 @@ void USkeletalMeshComponent__0092e110::execInitSkelControls( FFrame& Stack, RESU
 {
 	P_FINISH;
 	InitSkelControls();
+}
+
+struct USkeletalMeshComponent__0092e8c0 : public USkeletalMeshComponent
+{
+	void sub_0092e850(FName);
+};
+
+// @baa 0x0092e8c0
+void USkeletalMeshComponent::execRemoveInstanceVertexWeightBoneParented(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_NAME(BoneName);
+	P_FINISH;
+	((USkeletalMeshComponent__0092e8c0*)this)->sub_0092e850(BoneName);
 }

@@ -1,4 +1,4 @@
-// GFxUI_0e50000.cpp (part 2 of 2): 21 functions
+// GFxUI_0e50000.cpp (part 2 of 2): 22 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -338,4 +338,19 @@ undefined4 C_00e50800::sub_00e50800(byte param_2)
     sub_0053dfa0(param_1);
   }
   return param_1;
+}
+
+// GFx: atomic increment of the reference count at the start of the object.
+extern "C" __declspec(dllimport) long __stdcall InterlockedExchangeAdd(volatile long* Addend, long Value);
+struct GAtomicRefCount
+{
+    volatile long RefCount;
+
+    long sub_00e5c750(int Unused);
+};
+
+// @baa 0x00e5c750
+long GAtomicRefCount::sub_00e5c750(int Unused)
+{
+    return InterlockedExchangeAdd(&RefCount, 1);
 }

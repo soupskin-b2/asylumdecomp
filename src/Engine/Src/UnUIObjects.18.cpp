@@ -1,4 +1,4 @@
-// UnUIObjects.cpp: 42 functions
+// UnUIObjects.cpp: 48 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -469,4 +469,67 @@ void UUIObject::execIsPrivateBehaviorSet(FFrame& Stack, RESULT_DECL)
 	P_GET_INT(Behavior);
 	P_FINISH;
 	*(UBOOL*)Result = ((UUIObject__00ca5c80*)this)->sub_00daabb0(Behavior);
+}
+
+// @baa 0x00ca3e10
+void UUIScreenObject::execIsHoldingCtrl(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(ControllerId);
+	P_FINISH;
+	*(UBOOL*)Result = vf_128(ControllerId);
+}
+
+// @baa 0x00ca3e80
+void UUIScreenObject::execIsHoldingAlt(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(ControllerId);
+	P_FINISH;
+	*(UBOOL*)Result = vf_12c(ControllerId);
+}
+
+// @baa 0x00ca3ef0
+void UUIScreenObject::execIsHoldingShift(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(ControllerId);
+	P_FINISH;
+	*(UBOOL*)Result = vf_130(ControllerId);
+}
+
+struct UUIScreenObject__00ca31d0 : public UUIScreenObject
+{
+	INT sub_00daee30(INT);
+};
+
+// @baa 0x00ca31d0
+void UUIScreenObject::execGetPlayerOwner(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT_OPTX(PlayerIndex, -1);
+	P_FINISH;
+	*(UObject**)Result = (UObject*)((UUIScreenObject__00ca31d0*)this)->sub_00daee30(PlayerIndex);
+}
+
+struct UUIScreenObject__00ca3da0 : public UUIScreenObject
+{
+	INT sub_00da95c0(INT);
+};
+
+// @baa 0x00ca3da0
+void UUIScreenObject::execGetCurrentState(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT_OPTX(PlayerIndex, -1);
+	P_FINISH;
+	*(UObject**)Result = (UObject*)((UUIScreenObject__00ca3da0*)this)->sub_00da95c0(PlayerIndex);
+}
+
+struct UUIScreenObject__00ca4f60 : public UUIScreenObject
+{
+	FLOAT sub_00db0090(INT);
+};
+
+// @baa 0x00ca4f60
+void UUIScreenObject::execGetAspectRatioAutoScaleFactor(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT_OPTX(PlayerIndex, 0);
+	P_FINISH;
+	*(FLOAT*)Result = ((UUIScreenObject__00ca4f60*)this)->sub_00db0090(PlayerIndex);
 }

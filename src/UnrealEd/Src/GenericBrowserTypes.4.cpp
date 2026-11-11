@@ -1,4 +1,4 @@
-// GenericBrowserTypes.cpp (part 4 of 4): 6 functions
+// GenericBrowserTypes.cpp (part 4 of 4): 9 functions
 // Placed here by: neighbours 3, class 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -104,4 +104,35 @@ struct C_00438b30 {
 void C_00438b30::sub_00438b30(int a1, int a2)
 {
     Member.v7(a1, a2);
+}
+
+extern char g_026d4e00[];
+// @baa 0x0115a490
+void sub_0115a490(void)
+{
+    char* Base = *(char**)g_026d4e00;
+    char* Object = *(char**)(Base + 0x124);
+    void** VTable = *(void***)(Object);
+    typedef void (__stdcall *Fn)(int);
+    ((Fn)VTable[0x26])(1);
+}
+
+// @baa 0x0115a4c0
+void sub_0115a4c0(void)
+{
+    char* Base = *(char**)g_026d4e00;
+    char* Object = *(char**)(Base + 0x124);
+    void** VTable = *(void***)(Object);
+    typedef void (__stdcall *Fn)(int);
+    ((Fn)VTable[0x26])(0);
+}
+
+extern void sub_0116f960(INT Arg);
+// @baa 0x0116ffb0
+void UGenericBrowserType_RenderTexture::vf_120(INT FunctionIndex, INT Argument)
+{
+    if (FunctionIndex == 0x4157)
+    {
+        sub_0116f960(Argument);
+    }
 }

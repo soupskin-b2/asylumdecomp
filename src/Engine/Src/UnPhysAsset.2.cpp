@@ -1,4 +1,4 @@
-// UnPhysAsset.cpp: 9 functions
+// UnPhysAsset.cpp: 13 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -119,4 +119,56 @@ void URB_BodyInstance::execSetDampingRampupProportion(FFrame& Stack, RESULT_DECL
 	P_GET_FLOAT(NewDampingRampupProportion);
 	P_FINISH;
 	((URB_BodyInstance__00c95610*)this)->sub_00a0acb0(NewDampingRampupProportion);
+}
+
+struct UPhysicsAssetInstance__00c94600 : public UPhysicsAssetInstance
+{
+	void sub_00a0b380(UBOOL);
+};
+
+// @baa 0x00c94600
+void UPhysicsAssetInstance::execSetAllBodiesFixed(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bNewFixed);
+	P_FINISH;
+	((UPhysicsAssetInstance__00c94600*)this)->sub_00a0b380(bNewFixed);
+}
+
+struct URB_BodyInstance__00c94e20 : public URB_BodyInstance
+{
+	void sub_00a09ca0(UBOOL);
+};
+
+// @baa 0x00c94e20
+void URB_BodyInstance::execSetFixed(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bNewFixed);
+	P_FINISH;
+	((URB_BodyInstance__00c94e20*)this)->sub_00a09ca0(bNewFixed);
+}
+
+struct URB_BodyInstance__00c953d0 : public URB_BodyInstance
+{
+	void sub_009f9a10(UBOOL);
+};
+
+// @baa 0x00c953d0
+void URB_BodyInstance::execSetBlockRigidBody(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bNewBlockRigidBody);
+	P_FINISH;
+	((URB_BodyInstance__00c953d0*)this)->sub_009f9a10(bNewBlockRigidBody);
+}
+
+struct URB_BodyInstance__00c954a0 : public URB_BodyInstance
+{
+	void sub_009f9b50(UBOOL);
+};
+
+// @baa 0x00c954a0
+void URB_BodyInstance::execEnableCollisionResponse(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bEnableResponse);
+	P_FINISH;
+	((URB_BodyInstance__00c954a0*)this)->sub_009f9b50(bEnableResponse);
 }

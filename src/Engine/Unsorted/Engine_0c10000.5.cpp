@@ -1,4 +1,4 @@
-// Engine_0c10000.cpp (part 5 of 5): 2 functions
+// Engine_0c10000.cpp (part 5 of 5): 3 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -29,4 +29,13 @@ undefined4 * UPendingLevel::sub_00c14a30(void)
   *param_1 = (undefined4)(&g_02031838);
   param_1[0x21] = (undefined4)(&g_02031818);
   return param_1;
+}
+
+int sub_00630f20(...);
+extern INT g_026667a8;
+// @baa 0x00c14910
+// @baa 0x00c14910
+void UPendingLevel::vf_10c(INT DeltaTime)
+{
+	sub_00630f20(g_026667a8, L"Pure virtual not implemented (%s)", L"UPendingLevel::Tick");
 }

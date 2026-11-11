@@ -1,4 +1,4 @@
-// Editor_10b0000.cpp: 76 functions
+// Editor_10b0000.cpp: 77 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -492,3 +492,19 @@ int sub_010bfa50(int a0, int a1) { return a1; }
 
 // @baa 0x010bfa80
 int sub_010bfa80(int a0, int a1) { return a1; }
+
+struct Sub_010bf010_01 {
+    void* pad0;
+    void* pad4;
+    void* pad8;
+    void* padC;
+    void* pad10;
+    void* pad14;
+    int   Value;   // 0x18
+};
+
+// @baa 0x010bf010
+int sub_010bf010(Sub_010bf010_01* A, Sub_010bf010_01* B)
+{
+    return A->Value < B->Value ? 1 : -1;
+}

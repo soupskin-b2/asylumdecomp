@@ -1,4 +1,4 @@
-// GFx_18d0000.cpp (part 3 of 3): 2 functions
+// GFx_18d0000.cpp (part 3 of 3): 5 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -35,4 +35,52 @@ bool GMutex::sub_018d6b30()
 {
 	((I*)((char*)this - 0x14))->sub_018d6af0();
 	return true;
+}
+
+// GFx: non-atomic reference count release; the block frees itself.
+void __stdcall sub_018d7170(void* Block);
+struct GRefCountedBlock
+{
+    int RefCount;
+
+    void sub_018d3cf0();
+};
+
+// @baa 0x018d3cf0
+void GRefCountedBlock::sub_018d3cf0()
+{
+    if (--RefCount == 0)
+        sub_018d7170(this);
+}
+
+// GFx: atomic increment of the reference count at the start of the object.
+extern "C" __declspec(dllimport) long __stdcall InterlockedExchangeAdd(volatile long* Addend, long Value);
+struct GAtomicRefCount
+{
+    volatile long RefCount;
+
+    long sub_018d48f0(int Unused);
+};
+
+// @baa 0x018d48f0
+long GAtomicRefCount::sub_018d48f0(int Unused)
+{
+    return InterlockedExchangeAdd(&RefCount, 1);
+}
+
+// GFx: setter that returns the object, for chaining.
+struct GFxSettings
+{
+    int Mode;
+    int Flags;
+    int Value;
+
+    GFxSettings& sub_018ddcc0(int NewValue);
+};
+
+// @baa 0x018ddcc0
+GFxSettings& GFxSettings::sub_018ddcc0(int NewValue)
+{
+    Value = NewValue;
+    return *this;
 }

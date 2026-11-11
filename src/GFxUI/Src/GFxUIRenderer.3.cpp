@@ -1,4 +1,4 @@
-// GFxUIRenderer.cpp (part 3 of 3): 2 functions
+// GFxUIRenderer.cpp (part 3 of 3): 3 functions
 // Placed here by: neighbours 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -45,4 +45,21 @@ void C_00e568a0::sub_00e568a0(int param_2)
     }
   }
   return;
+}
+
+// GFxUIRenderer.cpp: releases the texture only when one is held (the release itself checks NULL != pTexture).
+struct FGFxRenderTexture
+{
+    char  Header[0xc];
+    void* pTexture;
+
+    void sub_00e56530();
+    void sub_00e565a0();
+};
+
+// @baa 0x00e565a0
+void FGFxRenderTexture::sub_00e565a0()
+{
+    if (pTexture)
+        sub_00e56530();
 }

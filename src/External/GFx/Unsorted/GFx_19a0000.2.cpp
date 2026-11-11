@@ -1,4 +1,4 @@
-// GFx_19a0000.cpp (part 2 of 2): 28 functions
+// GFx_19a0000.cpp (part 2 of 2): 29 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -346,3 +346,18 @@ C_019afdc0::C_019afdc0() {}
 
 // @baa 0x019afdc0
 void C_019afdc0::sub_019aff80() {}
+
+// GFx: tests bit 7 of a 16-bit flags field.
+struct GFxFlagsOwner
+{
+    char           Header[0x2a];
+    unsigned short Flags;
+
+    bool sub_019aa4d0() const;
+};
+
+// @baa 0x019aa4d0
+bool GFxFlagsOwner::sub_019aa4d0() const
+{
+    return (Flags & 0x80) != 0;
+}

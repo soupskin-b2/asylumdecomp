@@ -1,4 +1,4 @@
-// UnAnimTree.cpp: 9 functions
+// UnAnimTree.cpp: 10 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -113,4 +113,17 @@ void UAnimNodeAimOffset::execSetActiveProfileByIndex(FFrame& Stack, RESULT_DECL)
 	P_FINISH;
 
 	vf_1a0(ProfileIndex);
+}
+
+struct UAnimNodeSlot__00c91620 : public UAnimNodeSlot
+{
+	void sub_00c803f0(FName);
+};
+
+// @baa 0x00c91620
+void UAnimNodeSlot::execAddToSynchGroup(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_NAME(GroupName);
+	P_FINISH;
+	((UAnimNodeSlot__00c91620*)this)->sub_00c803f0(GroupName);
 }

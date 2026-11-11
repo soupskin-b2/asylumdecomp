@@ -2,54 +2,54 @@
  "updated": "2026-11-11",
  "functions": {
   "total": 174153,
-  "matched": 96681
+  "matched": 96799
  },
  "bytes": {
   "total": 24308134,
-  "matched": 3581575
+  "matched": 3590676
  },
  "areas": [
   {
    "name": "Engine",
    "functions": 69863,
    "bytes": 9201956,
-   "matched": 40664,
-   "matched_bytes": 1634480
+   "matched": 40717,
+   "matched_bytes": 1639105
   },
   {
    "name": "Editor",
    "functions": 42961,
    "bytes": 8040643,
-   "matched": 23463,
-   "matched_bytes": 786669
+   "matched": 23477,
+   "matched_bytes": 787260
   },
   {
    "name": "External",
    "functions": 29398,
    "bytes": 3194226,
-   "matched": 11417,
-   "matched_bytes": 181946
+   "matched": 11432,
+   "matched_bytes": 182116
   },
   {
    "name": "Game",
    "functions": 13563,
    "bytes": 1853804,
-   "matched": 9105,
-   "matched_bytes": 513579
+   "matched": 9132,
+   "matched_bytes": 516427
   },
   {
    "name": "Core",
    "functions": 12072,
    "bytes": 1275961,
-   "matched": 7777,
-   "matched_bytes": 234443
+   "matched": 7782,
+   "matched_bytes": 234998
   },
   {
    "name": "CommonGame",
    "functions": 1422,
    "bytes": 173518,
-   "matched": 980,
-   "matched_bytes": 41568
+   "matched": 983,
+   "matched_bytes": 41868
   },
   {
    "name": "Unsorted",
@@ -83,8 +83,8 @@
    "name": "GFxUIEditor",
    "functions": 124,
    "bytes": 29780,
-   "matched": 78,
-   "matched_bytes": 4660
+   "matched": 79,
+   "matched_bytes": 4672
   },
   {
    "name": "Zlib",
@@ -97,18 +97,19 @@
  "contributors": [
   {
    "login": "soupskin-b2",
-   "functions": 96681,
-   "bytes": 3581575,
+   "functions": 96799,
+   "bytes": 3590676,
    "models": {
     "tooling": 94456,
-    "qwen3.8-27b": 1011,
-    "deepseek-v4.1-flash": 575,
+    "qwen3.8-27b": 1025,
+    "deepseek-v4.1-flash": 653,
     "not specified": 338,
     "claude-opus-5.5": 122,
     "gpt-6.1-sol": 86,
     "claude-sonnet-5.5": 37,
     "deepseek-v4.1": 26,
-    "qwen": 14,
+    "Claude Opus 5.5": 21,
+    "qwen": 19,
     "gpt-6.1-terra": 10,
     "e2e-test": 2,
     "Qwen": 2,
@@ -124,11 +125,11 @@
   },
   {
    "model": "qwen3.8-27b",
-   "functions": 1011
+   "functions": 1025
   },
   {
    "model": "deepseek-v4.1-flash",
-   "functions": 575
+   "functions": 653
   },
   {
    "model": "not specified",
@@ -151,8 +152,12 @@
    "functions": 26
   },
   {
+   "model": "Claude Opus 5.5",
+   "functions": 21
+  },
+  {
    "model": "qwen",
-   "functions": 14
+   "functions": 19
   },
   {
    "model": "gpt-6.1-terra",

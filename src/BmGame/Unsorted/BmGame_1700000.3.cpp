@@ -1,4 +1,4 @@
-// BmGame_1700000.cpp: 13 functions
+// BmGame_1700000.cpp: 16 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -127,4 +127,38 @@ void ARWindVolume::execTick(FFrame& Stack, RESULT_DECL)
 	P_GET_FLOAT(DeltaTime);
 	P_FINISH;
 	vf_360(DeltaTime);
+}
+
+// @baa 0x01704d20
+void URBMBehaviour::execSleepFrame(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT_OPTX(Frames, 1);
+	P_FINISH;
+	vf_1ac(Frames);
+}
+
+struct ARBatarang_ : public ARBatarang
+{
+	void sub_01640960(ARBatarangProjectile*);
+};
+
+// @baa 0x01706ff0
+void ARBatarang::execUpdateAliveProjectiles(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(ARBatarangProjectile, NewProjectile);
+	P_FINISH;
+	((ARBatarang_*)this)->sub_01640960(NewProjectile);
+}
+
+struct ARLevelTransition_ : public ARLevelTransition
+{
+	void sub_0155a090(ARPawnCharacter*);
+};
+
+// @baa 0x01708ba0
+void ARLevelTransition::execPlayerUpdateTransform(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(ARPawnCharacter, Mesh);
+	P_FINISH;
+	((ARLevelTransition_*)this)->sub_0155a090(Mesh);
 }

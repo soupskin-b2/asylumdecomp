@@ -1,4 +1,4 @@
-// Core_0590000.cpp: 4 functions
+// Core_0590000.cpp: 5 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include <math.h>
@@ -38,4 +38,12 @@ void UObject::execVSize(FFrame& Stack, RESULT_DECL)
 	FLOAT Size = A.X * A.X + A.Y * A.Y;
 	Size += A.Z * A.Z;
 	*(FLOAT*)Result = sqrtf(Size);
+}
+
+// @baa 0x00593ec0
+void UObject::execExp(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(A);
+	P_FINISH;
+	*(FLOAT*)Result = expf(A);
 }

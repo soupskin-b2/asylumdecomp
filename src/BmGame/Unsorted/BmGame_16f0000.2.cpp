@@ -1,4 +1,4 @@
-// BmGame_16f0000.cpp: 84 functions
+// BmGame_16f0000.cpp: 91 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -669,4 +669,70 @@ void URBMRouterPath::execAddNode_Actor(FFrame& Stack, RESULT_DECL)
 	P_GET_OBJECT(AActor, NewPathNode);
 	P_FINISH;
 	vf_138((INT)NewPathNode);
+}
+
+// @baa 0x016febf0
+void URBMRouterPath::execAdvanceNodes(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT_OPTX(AdvanceAmount, 1);
+	P_FINISH;
+	vf_124(AdvanceAmount);
+}
+
+// @baa 0x016f4640
+void ARPawnCharacter::execIsPlayingOverlay(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT(FOverlayId, Id);
+	P_FINISH;
+	*(UBOOL*)Result = vf_56c(Id.PlayerID, Id.AnimId);
+}
+
+// @baa 0x016f3bb0
+void ARPawnCharacter::execIsInAnyTransition(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_BYTE_OPTX(TestForTransitions, 0);
+	P_FINISH;
+	*(UBOOL*)Result = vf_534(*(INT*)&TestForTransitions);
+}
+
+// @baa 0x016f3d00
+void ARPawnCharacter::execIsInAnyNonAutomaticTransition(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_BYTE_OPTX(TestForTransitions, 0);
+	P_FINISH;
+	*(UBOOL*)Result = vf_53c(*(INT*)&TestForTransitions);
+}
+
+// @baa 0x016f7eb0
+void ARBMDebugCameraController::execUpdateBatmansCapeInternal(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(URCapeComponent, CapeComponent);
+	P_FINISH;
+	vf_46c((INT)CapeComponent);
+}
+
+struct ARPawnCombat__016f5f20 : public ARPawnCombat
+{
+	void sub_01673b20(FVector);
+};
+
+// @baa 0x016f5f20
+void ARPawnCombat::execSetDestHeading(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT(FVector, NewHeading);
+	P_FINISH;
+	((ARPawnCombat__016f5f20*)this)->sub_01673b20(NewHeading);
+}
+
+struct ARPawnCombat__016f5f90 : public ARPawnCombat
+{
+	void sub_01676b70(FVector);
+};
+
+// @baa 0x016f5f90
+void ARPawnCombat::execFacePos(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT(FVector, NewFacePos);
+	P_FINISH;
+	((ARPawnCombat__016f5f90*)this)->sub_01676b70(NewFacePos);
 }

@@ -1,4 +1,4 @@
-// Engine_0bf0000.cpp (part 1 of 4): 108 functions
+// Engine_0bf0000.cpp (part 1 of 4): 109 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -953,3 +953,11 @@ struct C_00bfbff0 { void sub_00bfaa00(int); C_00bfbff0 *sub_00bfbff0(int); };
 
 // @baa 0x00bfbff0
 C_00bfbff0 *C_00bfbff0::sub_00bfbff0(int a) { sub_00bfaa00(a); return this; }
+
+extern INT g_026667a8;
+void sub_00630f20(INT, const wchar_t*, const wchar_t*);
+// @baa 0x00bfbc50
+void UAnimationCompressionAlgorithm::DoReduction(INT, INT, INT)
+{
+    sub_00630f20(g_026667a8, L"Pure virtual not implemented (%s)", L"UAnimationCompressionAlgorithm::DoReduction");
+}

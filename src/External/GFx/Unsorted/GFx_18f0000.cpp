@@ -1,4 +1,4 @@
-// GFx_18f0000.cpp (part 1 of 3): 119 functions
+// GFx_18f0000.cpp (part 1 of 3): 121 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Core.h"
@@ -1383,4 +1383,63 @@ struct C_018fdc80 {
 bool C_018fdc80::sub_018fdc80(uint arg1)
 {
     return p->sub_018fcef0(arg1);
+}
+
+// GFx: forwards a call to a virtual of an embedded interface object.
+struct GFxInterface
+{
+    virtual void Func00();
+    virtual void Func04();
+    virtual void Func08();
+    virtual void Func0C();
+    virtual void Func10();
+    virtual void Func14();
+    virtual void Func18();
+    virtual void Func1C();
+    virtual void Func20();
+    virtual void Func24();
+    virtual void Func28();
+    virtual void Func2C();
+    virtual void Func30();
+    virtual void Func34();
+    virtual void Func38();
+    virtual void Func3C();
+    virtual void Func40();
+    virtual void Func44();
+    virtual void Func48(void* Param);
+};
+
+struct GFxInterfaceOwner
+{
+    char         Header[0x10];
+    GFxInterface Interface;
+
+    void sub_018f8f00(void* Param);
+};
+
+// @baa 0x018f8f00
+void GFxInterfaceOwner::sub_018f8f00(void* Param)
+{
+    Interface.Func48(Param);
+}
+
+// GFx: a key's hash, taken from the node it points to (the node's value folded with itself shifted right by 8).
+struct GFxIdNode
+{
+    unsigned int Id;
+
+    unsigned int GetHash() const { return (Id >> 8) ^ Id; }
+};
+
+struct GFxIdKey
+{
+    GFxIdNode* pNode;
+
+    unsigned int sub_018f69e0() const;
+};
+
+// @baa 0x018f69e0
+unsigned int GFxIdKey::sub_018f69e0() const
+{
+    return pNode->GetHash();
 }

@@ -1,4 +1,4 @@
-// RCapeComponent.cpp: 14 functions
+// RCapeComponent.cpp: 15 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -169,4 +169,17 @@ void URCapeComponent::execAddCinematicAnimSet(FFrame& Stack, RESULT_DECL)
 	P_GET_OBJECT(UAnimSet, NewAnimSet);
 	P_FINISH;
 	((URCapeComponent__01702bf0*)this)->sub_016ae940(NewAnimSet);
+}
+
+struct URCapeComponent__01702a10 : public URCapeComponent
+{
+	void sub_016b1f80(FLOAT);
+};
+
+// @baa 0x01702a10
+void URCapeComponent::execSetMaterialSpeedVariableOverride(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT_OPTX(Speed, -1.0f);
+	P_FINISH;
+	((URCapeComponent__01702a10*)this)->sub_016b1f80(Speed);
 }

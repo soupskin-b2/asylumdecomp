@@ -1,4 +1,4 @@
-// Editor_0c80000.cpp: 12 functions
+// Editor_0c80000.cpp: 13 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -156,4 +156,17 @@ void AWorldInfo::execOnScreenDebugMessageExists(FFrame& Stack, RESULT_DECL)
 	P_GET_INT(Key);
 	P_FINISH;
 	*(UBOOL*)Result = ((AWorldInfo__00c8a210*)this)->sub_009c3c40(Key);
+}
+
+struct AWorldInfo__00c89ec0 : public AWorldInfo
+{
+	void sub_009cec40(UBOOL);
+};
+
+// @baa 0x00c89ec0
+void AWorldInfo::execSetSeamlessTravelMidpointPause(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bNowPaused);
+	P_FINISH;
+	((AWorldInfo__00c89ec0*)this)->sub_009cec40(bNowPaused);
 }

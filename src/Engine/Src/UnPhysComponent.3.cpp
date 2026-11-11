@@ -1,4 +1,4 @@
-// UnPhysComponent.cpp: 6 functions
+// UnPhysComponent.cpp: 8 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -62,4 +62,30 @@ void UPrimitiveComponent::execSetPhysMaterialOverride(FFrame& Stack, RESULT_DECL
     P_GET_OBJECT(UPhysicalMaterial, NewPhysMaterial);
     P_FINISH;
     vf_1d4(NewPhysMaterial);
+}
+
+struct USkeletalMeshComponent__00a01bd0 : public USkeletalMeshComponent
+{
+	void sub_00a01b60(UBOOL);
+};
+
+// @baa 0x00a01bd0
+void USkeletalMeshComponent::execSetClothFrozen(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bNewFrozen);
+	P_FINISH;
+	((USkeletalMeshComponent__00a01bd0*)this)->sub_00a01b60(bNewFrozen);
+}
+
+struct USkeletalMeshComponent__00a14800 : public USkeletalMeshComponent
+{
+	void sub_00a13fc0(UBOOL);
+};
+
+// @baa 0x00a14800
+void USkeletalMeshComponent::execSetAttachClothVertsToBaseBody(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bAttachVerts);
+	P_FINISH;
+	((USkeletalMeshComponent__00a14800*)this)->sub_00a13fc0(bAttachVerts);
 }

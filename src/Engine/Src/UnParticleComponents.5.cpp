@@ -1,4 +1,4 @@
-// UnParticleComponents.cpp: 16 functions
+// UnParticleComponents.cpp: 19 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -183,4 +183,38 @@ void UParticleSystemComponent::execSetEditorLODLevel(FFrame& Stack, RESULT_DECL)
 	P_GET_INT(InLODLevel);
 	P_FINISH;
 	((UParticleSystemComponent__00c9daa0*)this)->sub_00b51ba0(InLODLevel);
+}
+
+struct UParticleSystemComponent__00c9cf30 : public UParticleSystemComponent
+{
+	void sub_00b51be0(UBOOL);
+};
+
+// @baa 0x00c9cf30
+void UParticleSystemComponent::execSetSkipUpdateDynamicDataDuringTick(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bInSkipUpdateDynamicDataDuringTick);
+	P_FINISH;
+	((UParticleSystemComponent__00c9cf30*)this)->sub_00b51be0(bInSkipUpdateDynamicDataDuringTick);
+}
+
+struct UParticleSystemComponent__00c9e480 : public UParticleSystemComponent
+{
+	void sub_00b5d0c0(UBOOL);
+};
+
+// @baa 0x00c9e480
+void UParticleSystemComponent::execSetActive(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bNowActive);
+	P_FINISH;
+	((UParticleSystemComponent__00c9e480*)this)->sub_00b5d0c0(bNowActive);
+}
+
+// @baa 0x00c9cc70
+void UParticleSystem::execSetCurrentLODMethod(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_BYTE(InMethod);
+	P_FINISH;
+	vf_118(InMethod);
 }

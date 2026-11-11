@@ -1,4 +1,4 @@
-// GameSkelControls.cpp: 12 functions
+// GameSkelControls.cpp: 13 functions
 // Placed here by: class 7, neighbours 4, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -62,3 +62,19 @@ void sub_00e275f0(void) { sub_00e27520(); }
 
 // @baa 0x00e27600
 // @baa 0x00e27620
+
+struct RecoilRange { INT Min; INT Max; };
+
+struct UGameSkelCtrl_Recoil_ : public UGameSkelCtrl_Recoil
+{
+    virtual RecoilRange vf_150(INT a);
+};
+
+// @baa 0x00e25eb0
+RecoilRange UGameSkelCtrl_Recoil_::vf_150(INT a)
+{
+    RecoilRange R;
+    R.Min = *(INT*)&_native[0x74];
+    R.Max = *(INT*)&_native[0x78];
+    return R;
+}

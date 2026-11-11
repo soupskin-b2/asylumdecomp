@@ -1,4 +1,4 @@
-// OnlineSubsystemSteamworks_0c80000.cpp: 12 functions
+// OnlineSubsystemSteamworks_0c80000.cpp: 13 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -140,4 +140,17 @@ void AWorldInfo::execIsConsoleBuild(FFrame& Stack, RESULT_DECL)
 	P_GET_BYTE_OPTX(ConsoleType, 0);
 	P_FINISH;
 	*(UBOOL*)Result = ((AWorldInfo__00c89b00*)this)->sub_008a77d0(ConsoleType);
+}
+
+struct AWorldInfo__00c89a50 : public AWorldInfo
+{
+	void sub_00a3b3e0(FVector);
+};
+
+// @baa 0x00c89a50
+void AWorldInfo::execSetLevelRBGravity(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT(FVector, NewGrav);
+	P_FINISH;
+	((AWorldInfo__00c89a50*)this)->sub_00a3b3e0(NewGrav);
 }

@@ -1,4 +1,4 @@
-// Engine_06d0000.cpp: 13 functions
+// Engine_06d0000.cpp: 14 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -109,4 +109,12 @@ void USkeletalMeshComponent::execGetPhysicalMaterial(FFrame& Stack, RESULT_DECL)
 	P_GET_INT(BodyIndex);
 	P_FINISH;
 	*(UPhysicalMaterial**)Result = (UPhysicalMaterial*)vf_1ec(BodyIndex);
+}
+
+// @baa 0x006db8f0
+void UPrimitiveComponent::execSetOwnerNoSee(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bOwnerNoSee);
+	P_FINISH;
+	vf_214(bOwnerNoSee);
 }

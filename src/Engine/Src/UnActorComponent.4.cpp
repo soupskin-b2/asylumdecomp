@@ -1,4 +1,4 @@
-// UnActorComponent.cpp: 2 functions
+// UnActorComponent.cpp: 3 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -23,4 +23,17 @@ void UActorComponent_::execDetachFromAny( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	DetachFromAny();
+}
+
+struct UFogVolumeDensityComponent_ : public UFogVolumeDensityComponent
+{
+	void sub_006ab520(UBOOL);
+};
+
+// @baa 0x00c9ef60
+void UFogVolumeDensityComponent::execSetEnabled(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bSetEnabled);
+	P_FINISH;
+	((UFogVolumeDensityComponent_*)this)->sub_006ab520(bSetEnabled);
 }

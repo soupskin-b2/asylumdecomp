@@ -1,4 +1,4 @@
-// GFxUIMovie.cpp: 4 functions
+// GFxUIMovie.cpp: 5 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -38,4 +38,17 @@ void UGFxMovie::execSetTopMost(FFrame& Stack, RESULT_DECL)
 	P_FINISH;
 	if (g_026caed4 && pMovie.Dummy)
 		((GFxViewport_*)g_026caed4)->sub_00e63ae0((void*)pMovie.Dummy);
+}
+
+struct UGFxMovie_ : public UGFxMovie
+{
+	void sub_00e67ad0(FName);
+};
+
+// @baa 0x00e67ea0
+void UGFxMovie::execAddCaptureKey(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_NAME(Key);
+	P_FINISH;
+	((UGFxMovie_*)this)->sub_00e67ad0(Key);
 }

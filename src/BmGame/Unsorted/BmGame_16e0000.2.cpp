@@ -1,4 +1,4 @@
-// BmGame_16e0000.cpp: 40 functions
+// BmGame_16e0000.cpp: 42 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -297,4 +297,25 @@ void ARElectrifiedFloorPanel::execSetState(FFrame& Stack, RESULT_DECL)
 	P_GET_BYTE(NewState);
 	P_FINISH;
 	vf_354(*(INT*)&NewState);
+}
+
+// @baa 0x016ebd70
+void URAnimNode_AnimCapture::execCapture(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(USkeletalMeshComponent, Mesh);
+	P_FINISH;
+	vf_19c((INT)Mesh);
+}
+
+struct ARPawn_ : public ARPawn
+{
+	void sub_0166d490(FVector);
+};
+
+// @baa 0x016efd20
+void ARPawn::execSetLocationIgnoringCollision(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT(FVector, NewLocation);
+	P_FINISH;
+	((ARPawn_*)this)->sub_0166d490(NewLocation);
 }

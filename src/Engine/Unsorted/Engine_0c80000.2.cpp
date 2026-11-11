@@ -1,4 +1,4 @@
-// Engine_0c80000.cpp: 42 functions
+// Engine_0c80000.cpp: 46 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -485,4 +485,56 @@ void APortalTeleporter::execTransformActor(FFrame& Stack, RESULT_DECL)
 	P_GET_OBJECT(AActor, A);
 	P_FINISH;
 	*(UBOOL*)Result = ((APortalTeleporter__00c8b900*)this)->sub_008dd9d0(A);
+}
+
+struct AActor__00c82070 : public AActor
+{
+	void sub_00777440(UBOOL);
+};
+
+// @baa 0x00c82070
+void AActor::execSetOnlyOwnerSee(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bNewOnlyOwnerSee);
+	P_FINISH;
+	((AActor__00c82070*)this)->sub_00777440(bNewOnlyOwnerSee);
+}
+
+struct UHeightFogComponent_ : public UHeightFogComponent
+{
+	void sub_006acc00(UBOOL);
+};
+
+// @baa 0x00c8b550
+void UHeightFogComponent::execSetEnabled(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bSetEnabled);
+	P_FINISH;
+	((UHeightFogComponent_*)this)->sub_006acc00(bSetEnabled);
+}
+
+struct ULightEnvironmentComponent__00c8b660 : public ULightEnvironmentComponent
+{
+	void sub_006ad720(UBOOL);
+};
+
+// @baa 0x00c8b660
+void ULightEnvironmentComponent::execSetEnabled(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bNewEnabled);
+	P_FINISH;
+	((ULightEnvironmentComponent__00c8b660*)this)->sub_006ad720(bNewEnabled);
+}
+
+struct UPointLightComponent_ : public UPointLightComponent
+{
+	void sub_006e9f10(FVector);
+};
+
+// @baa 0x00c8b5f0
+void UPointLightComponent::execSetTranslation(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT(FVector, NewTranslation);
+	P_FINISH;
+	((UPointLightComponent_*)this)->sub_006e9f10(NewTranslation);
 }

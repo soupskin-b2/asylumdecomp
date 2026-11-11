@@ -1,4 +1,4 @@
-// Engine_0c90000.cpp: 20 functions
+// Engine_0c90000.cpp: 23 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -168,4 +168,43 @@ void URB_Handle::execGetOrientation(FFrame& Stack, RESULT_DECL)
 {
     P_FINISH;
     *(FQuat*)Result = vf_164();
+}
+
+struct UAnimTree_ : public UAnimTree
+{
+	void sub_00c7b660(UBOOL);
+};
+
+// @baa 0x00c91b10
+void UAnimTree::execSetUseSavedPose(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bUseSaved);
+	P_FINISH;
+	((UAnimTree_*)this)->sub_00c7b660(bUseSaved);
+}
+
+struct USkelControlLookAt__00c922d0 : public USkelControlLookAt
+{
+	void sub_0090d0f0(FVector);
+};
+
+// @baa 0x00c922d0
+void USkelControlLookAt::execSetTargetLocation(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT(FVector, NewTargetLocation);
+	P_FINISH;
+	((USkelControlLookAt__00c922d0*)this)->sub_0090d0f0(NewTargetLocation);
+}
+
+struct UMorphNodePose_ : public UMorphNodePose
+{
+	void sub_00834900(FName);
+};
+
+// @baa 0x00c92020
+void UMorphNodePose::execSetMorphTarget(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_NAME(MorphTargetName);
+	P_FINISH;
+	((UMorphNodePose_*)this)->sub_00834900(MorphTargetName);
 }

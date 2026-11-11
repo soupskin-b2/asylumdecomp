@@ -1,4 +1,4 @@
-// RPlayerController.cpp (part 6 of 6): 130 functions
+// RPlayerController.cpp (part 6 of 6): 138 functions
 // Placed here by: class 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -1130,4 +1130,83 @@ void ARPlayerController::execAmIInSoftCover(FFrame& Stack, RESULT_DECL)
 	P_GET_FLOAT(DeltaTime);
 	P_FINISH;
 	*(UBOOL*)Result = ((ARPlayerController__016f9850*)this)->sub_016184f0(DeltaTime);
+}
+
+struct ARPlayerController__016f8540 : public ARPlayerController
+{
+	void sub_01615460(UBOOL);
+};
+
+// @baa 0x016f8540
+void ARPlayerController::execSetUsingGamepad(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(UsingGamepad);
+	P_FINISH;
+	((ARPlayerController__016f8540*)this)->sub_01615460(UsingGamepad);
+}
+
+struct ARPlayerController__016f8a60 : public ARPlayerController
+{
+	void sub_01613570(UBOOL);
+};
+
+// @baa 0x016f8a60
+void ARPlayerController::execSetOcclusion(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bOcclusionOn);
+	P_FINISH;
+	((ARPlayerController__016f8a60*)this)->sub_01613570(bOcclusionOn);
+}
+
+struct ARTunnelGrateBase_ : public ARTunnelGrateBase
+{
+	void sub_0171a890(UBOOL);
+};
+
+// @baa 0x0171e1a0
+void ARTunnelGrateBase::execSetDisableCapeCollision(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bDisabled);
+	P_FINISH;
+	((ARTunnelGrateBase_*)this)->sub_0171a890(bDisabled);
+}
+
+// @baa 0x016f88a0
+void ARPlayerController::execStartNewAmbientSound(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(USoundCue, Cue);
+	P_FINISH;
+	vf_518((INT)Cue);
+}
+
+// @baa 0x016f8910
+void ARPlayerController::execAmbientSaveToPersistent(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(USoundCue, Cue);
+	P_FINISH;
+	vf_51c((INT)Cue);
+}
+
+// @baa 0x016f8980
+void ARPlayerController::execMixbinSaveToPersistent(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(UMixBin, Mix);
+	P_FINISH;
+	vf_520((INT)Mix);
+}
+
+// @baa 0x016f89f0
+void ARPlayerController::execLevelSetRoomMixBin(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(UMixBin, Mix);
+	P_FINISH;
+	vf_524((INT)Mix);
+}
+
+// @baa 0x016f9dd0
+void ARPlayerController::execLive_SetDifficulty(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(Difficulty);
+	P_FINISH;
+	vf_584(Difficulty);
 }

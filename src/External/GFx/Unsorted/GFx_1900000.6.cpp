@@ -1,4 +1,4 @@
-// GFx_1900000.cpp (part 6 of 6): 2 functions
+// GFx_1900000.cpp (part 6 of 6): 4 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -52,4 +52,42 @@ struct GFxASCharacter {
 // @baa 0x019049d0
 unsigned char GFxASCharacter::sub_019049d0(int param1) {
     return 0;
+}
+
+// GFx: tests bit 7 of a 16-bit flags field.
+struct GFxFlagsOwner
+{
+    char           Header[0x50];
+    unsigned short Flags;
+
+    bool sub_019043d0() const;
+};
+
+// @baa 0x019043d0
+bool GFxFlagsOwner::sub_019043d0() const
+{
+    return (Flags & 0x80) != 0;
+}
+
+// GFx: hash functor that returns the hash value stored in the key's node.
+struct GFxKeyNode
+{
+    char         Header[0x10];
+    unsigned int HashValue;
+};
+
+struct GFxKey
+{
+    GFxKeyNode* pNode;
+};
+
+struct GFxKeyHashFunctor
+{
+    unsigned int sub_01903740(const GFxKey& Key) const;
+};
+
+// @baa 0x01903740
+unsigned int GFxKeyHashFunctor::sub_01903740(const GFxKey& Key) const
+{
+    return Key.pNode->HashValue;
 }

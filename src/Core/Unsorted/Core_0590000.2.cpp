@@ -1,4 +1,4 @@
-// Core_0590000.cpp (part 2 of 4): 21 functions
+// Core_0590000.cpp (part 2 of 4): 25 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -200,4 +200,45 @@ void UObject::execSubtract_PreFloat(FFrame& Stack, RESULT_DECL)
 	P_GET_FLOAT(A);
 	P_FINISH;
 	*(FLOAT*)Result = g_01e3f360 - A;
+}
+
+struct FVector_ : public FVector
+{
+	FVector* sub_0058df30(FVector*);
+};
+
+// @baa 0x00597c60
+void UObject::execNormalize(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT(FVector, A);
+	P_FINISH;
+	FVector Out;
+	*(FVector*)Result = *((FVector_*)&A)->sub_0058df30(&Out);
+}
+
+// @baa 0x0059ee30
+void UObject::execChr(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(Ch);
+	P_FINISH;
+	TCHAR Str[2];
+	Str[0] = (TCHAR)Ch;
+	Str[1] = 0;
+	*(FString*)Result = Str;
+}
+
+// @baa 0x00599cc0
+void UObject::execSetUTracing(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bShouldUTrace);
+	P_FINISH;
+	sub_00630ea0(Stack, 0x301, L"UTracing is disabled in this build");
+}
+
+// @baa 0x005963a0
+void UObject::execVSizeSq2D(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT(FVector, A);
+	P_FINISH;
+	*(FLOAT*)Result = A.Y * A.Y + A.X * A.X;
 }

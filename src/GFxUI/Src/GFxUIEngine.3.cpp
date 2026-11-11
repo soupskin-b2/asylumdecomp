@@ -1,4 +1,4 @@
-// GFxUIEngine.cpp (part 3 of 3): 35 functions
+// GFxUIEngine.cpp (part 3 of 3): 36 functions
 // Placed here by: neighbours 34.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Core.h"
@@ -415,4 +415,27 @@ void GASValueArray::PushBack(const GASValue& val)
     unsigned newSize = Size + 1;
     Resize(newSize);
     Data[newSize - 1] = val;
+}
+
+// GFx: hash functor that returns the hash value stored in the key's node.
+struct GFxKeyNode
+{
+    char         Header[0x10];
+    unsigned int HashValue;
+};
+
+struct GFxKey
+{
+    GFxKeyNode* pNode;
+};
+
+struct GFxKeyHashFunctor
+{
+    unsigned int sub_018deea0(const GFxKey& Key) const;
+};
+
+// @baa 0x018deea0
+unsigned int GFxKeyHashFunctor::sub_018deea0(const GFxKey& Key) const
+{
+    return Key.pNode->HashValue;
 }

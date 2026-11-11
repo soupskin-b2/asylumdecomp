@@ -1,4 +1,4 @@
-// LightComponent.cpp: 2 functions
+// LightComponent.cpp: 3 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -23,4 +23,15 @@ void ULightComponent::execGetDirection(FFrame& Stack, RESULT_DECL)
 	Direction.Y = WorldToLight.YPlane.Z;
 	Direction.Z = WorldToLight.ZPlane.Z;
 	*(FVector*)Result = Direction;
+}
+
+// @baa 0x006ad360
+void ULightComponent::execGetOrigin(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	FVector Origin;
+	Origin.X = LightToWorld.WPlane.X;
+	Origin.Y = LightToWorld.WPlane.Y;
+	Origin.Z = LightToWorld.WPlane.Z;
+	*(FVector*)Result = Origin;
 }

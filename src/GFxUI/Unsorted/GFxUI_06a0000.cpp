@@ -1,4 +1,4 @@
-// GFxUI_06a0000.cpp (part 1 of 2): 82 functions
+// GFxUI_06a0000.cpp (part 1 of 2): 84 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -602,4 +602,32 @@ void C_006afbc0::sub_006afbc0(void)
     *param_1 = 0;
   }
   return;
+}
+
+// GFxUI: 0 when the handle is set, -1 when it is empty.
+struct FGFxHandle
+{
+    void* Handle;
+
+    int sub_006af350() const;
+};
+
+// @baa 0x006af350
+int FGFxHandle::sub_006af350() const
+{
+    return Handle ? 0 : -1;
+}
+
+// GFxUI: 0 when the handle is set, -1 when it is empty.
+struct FGFxHandle_006af390
+{
+    void* Handle;
+
+    int sub_006af390() const;
+};
+
+// @baa 0x006af390
+int FGFxHandle_006af390::sub_006af390() const
+{
+    return Handle ? 0 : -1;
 }
