@@ -1,4 +1,4 @@
-// UnUIDataStores.cpp: 18 functions
+// UnUIDataStores.cpp: 19 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -268,4 +268,19 @@ void UUIDataStore_InputAlias__00cbd3d0::execGetAliasFontMarkup(FFrame& Stack, RE
 	P_GET_BYTE_OPTX(OverridePlatform, IPT_MAX);
 	P_FINISH;
 	*(FString*)Result = GetAliasFontMarkup(DesiredAlias, OverridePlatform);
+}
+
+struct UDataStoreClient__00cc7390 : public UDataStoreClient
+{
+	void GetAvailableDataStores(UUIScene* CurrentScene, TArray<UUIDataStore*>& out_DataStores);
+	void execGetAvailableDataStores(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00cc7390
+void UDataStoreClient__00cc7390::execGetAvailableDataStores(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(UUIScene, CurrentScene);
+	P_GET_TARRAY_REF(UUIDataStore*, out_DataStores);
+	P_FINISH;
+	GetAvailableDataStores(CurrentScene, out_DataStores);
 }

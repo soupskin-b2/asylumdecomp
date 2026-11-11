@@ -1,4 +1,4 @@
-// UnGeomModifiers.cpp: 83 functions
+// UnGeomModifiers.cpp: 85 functions
 // Placed here by: neighbours 49, callers 12, file 12, class 10.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -309,4 +309,16 @@ void UGeomModifier_Lathe::vf_118(void)
   sub_00fc1ff0(*(undefined4 *)(param_1 + 0x40),*(undefined4 *)(param_1 + 0x44),
                *(undefined1 *)(param_1 + 0x48));
   return;
+}
+
+// @baa 0x00f9db80
+INT __stdcall sub_00f9db80(INT Value)
+{
+    return Value == 3;
+}
+
+// @baa 0x00f9dc10
+INT __stdcall sub_00f9dc10(INT Value)
+{
+    return Value == 3;
 }

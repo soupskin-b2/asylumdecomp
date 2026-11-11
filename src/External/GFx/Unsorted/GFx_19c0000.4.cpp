@@ -1,4 +1,4 @@
-// GFx_19c0000.cpp (part 4 of 4): 32 functions
+// GFx_19c0000.cpp (part 4 of 4): 33 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -306,4 +306,15 @@ void S018d4a70_019cfa90::sub_019cfa90()
     sub_019cf1c0(0);
     if (Self->Data)
         sub_018d7170(Self->Data);
+}
+
+struct Sub
+{
+    void sub_019c76c0();
+};
+
+// @baa 0x019c83e0
+void __stdcall sub_019c83e0(Sub* Object)
+{
+    Object->sub_019c76c0();
 }

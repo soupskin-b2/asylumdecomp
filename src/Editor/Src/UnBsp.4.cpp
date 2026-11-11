@@ -1,4 +1,4 @@
-// UnBsp.cpp (part 4 of 5): 1 function
+// UnBsp.cpp (part 4 of 5): 2 functions
 // Placed here by: neighbours 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -18,4 +18,21 @@ INT FMArray::sub_00ec7c30(UINT Index)
     if (!(Index < Count))
         sub_018260a0("e:\\projects\\amadeus\\aa\\game\\unrealengine3\\development\\external\\fcollada-3.05b\\fcollada\\FMath/FMArray.h", 506);
     return Data[Index];
+}
+
+struct C
+{
+    INT pad_00[6];
+    volatile DWORD Flags_18;
+    INT pad_1c[21];
+    INT field_70;
+
+    void sub_00ec6d10();
+};
+
+// @baa 0x00ec6d10
+void C::sub_00ec6d10()
+{
+    field_70 = 0;
+    Flags_18 |= 1;
 }

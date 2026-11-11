@@ -1,4 +1,4 @@
-// Core_05e0000.cpp (part 5 of 5): 1 function
+// Core_05e0000.cpp (part 5 of 5): 2 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -33,4 +33,11 @@ if((undefined4*)0x0!=puVar1){
 *puVar1=*param_2;
 }
 return iVar2;
+}
+
+extern "C" __declspec(dllimport) void __stdcall OutputDebugStringW(const wchar_t* Text);
+// @baa 0x005ec6f0
+void sub_005ec6f0(const wchar_t* Text)
+{
+    OutputDebugStringW(Text);
 }

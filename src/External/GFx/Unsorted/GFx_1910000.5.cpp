@@ -1,4 +1,4 @@
-// GFx_1910000.cpp (part 5 of 5): 2 functions
+// GFx_1910000.cpp (part 5 of 5): 3 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -52,4 +52,26 @@ struct GFxInterfaceOwner
 void GFxInterfaceOwner::sub_0191ac00(void* Param)
 {
     Interface.Func48(Param);
+}
+
+struct C_01914540
+{
+    INT pad_00;
+    INT pad_04;
+    INT pad_08;
+    INT pad_0c;
+    INT pad_10;
+    INT pad_14;
+    INT pad_18;
+    INT pad_1c;
+    INT Value;
+
+    INT* sub_01914540(INT* Out);
+};
+
+// @baa 0x01914540
+INT* C_01914540::sub_01914540(INT* Out)
+{
+    *Out = Value;
+    return Out;
 }

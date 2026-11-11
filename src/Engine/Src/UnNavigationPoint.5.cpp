@@ -1,4 +1,4 @@
-// UnNavigationPoint.cpp: 16 functions
+// UnNavigationPoint.cpp: 17 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -269,4 +269,19 @@ void ACoverLink__00c885d0::execFindSlots(FFrame& Stack, RESULT_DECL)
 	P_GET_INT_REF(RightSlotIdx);
 	P_FINISH;
 	*(UBOOL*)Result = FindSlots(CheckLocation, MaxDistance, LeftSlotIdx, RightSlotIdx);
+}
+
+struct ACoverLink__00cbff70 : public ACoverLink
+{
+	void GetSlotActions(INT SlotIdx, TArray<BYTE>& Actions);
+	void execGetSlotActions(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00cbff70
+void ACoverLink__00cbff70::execGetSlotActions(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(SlotIdx);
+	P_GET_TARRAY_REF(BYTE, Actions);
+	P_FINISH;
+	GetSlotActions(SlotIdx, Actions);
 }

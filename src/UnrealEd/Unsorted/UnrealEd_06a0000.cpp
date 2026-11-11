@@ -1,4 +1,4 @@
-// UnrealEd_06a0000.cpp (part 1 of 2): 73 functions
+// UnrealEd_06a0000.cpp (part 1 of 2): 74 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -578,4 +578,15 @@ undefined2 sub_006affe0(undefined2 * param_1)
 bool sub_006afff0(short param_1, short param_2)
 {
   return param_1 == param_2;
+}
+
+struct Sub
+{
+    void sub_00ccae50();
+};
+
+// @baa 0x006a9310
+void __stdcall sub_006a9310(Sub* Object)
+{
+    Object->sub_00ccae50();
 }

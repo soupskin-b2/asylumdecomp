@@ -1,4 +1,4 @@
-// GFx_1940000.cpp (part 3 of 3): 3 functions
+// GFx_1940000.cpp (part 3 of 3): 7 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -40,4 +40,28 @@ int GFxStateHolder::sub_0194a3a0() volatile
 {
     GFxState* State = pState;
     return State->Value;
+}
+
+// @baa 0x0194c4e0
+INT __stdcall sub_0194c4e0(INT* Object)
+{
+    return *(INT*)(*Object + 0x10);
+}
+
+// @baa 0x0194c500
+INT __stdcall sub_0194c500(INT* Object)
+{
+    return *(INT*)(*Object + 0x10);
+}
+
+// @baa 0x0194c5e0
+INT __stdcall sub_0194c5e0(INT* Object)
+{
+    return *(INT*)(*Object + 0x10);
+}
+
+// @baa 0x0194c5f0
+INT __stdcall sub_0194c5f0(INT* Object)
+{
+    return *(INT*)(*Object + 0x10);
 }

@@ -1,4 +1,4 @@
-// UnrealEd_12a0000.cpp (part 6 of 6): 4 functions
+// UnrealEd_12a0000.cpp (part 6 of 6): 5 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -85,4 +85,17 @@ void C_012a9e50::sub_012a9e50(int param_2)
     }
   }
   return;
+}
+
+struct Obj
+{
+    INT Dummy;
+
+    void sub_00549240();
+};
+
+// @baa 0x012aa060
+void __stdcall sub_012aa060(Obj A, INT B, INT C)
+{
+    A.sub_00549240();
 }

@@ -1,4 +1,4 @@
-// UnrealEd_04c0000.cpp (part 2 of 2): 92 functions
+// UnrealEd_04c0000.cpp (part 2 of 2): 93 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -1033,4 +1033,17 @@ undefined4 * C_004cfe80::sub_004cfe80(byte param_2)
     sub_00402660(param_1);
   }
   return param_1;
+}
+
+typedef void (__thiscall* Fn)(void*);
+
+struct C_004c0c40
+{
+    void sub_004c0c40(INT Unused);
+};
+
+// @baa 0x004c0c40
+void C_004c0c40::sub_004c0c40(INT)
+{
+    (*(Fn*)(*(char**)this + 0x1c8))(this);
 }

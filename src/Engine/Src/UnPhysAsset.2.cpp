@@ -1,4 +1,4 @@
-// UnPhysAsset.cpp: 27 functions
+// UnPhysAsset.cpp: 32 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -396,4 +396,92 @@ void UPhysicsAssetInstance__00c949a0::execSetAllMotorsAngularDriveParams(FFrame&
 	P_GET_UBOOL_OPTX(bSkipFullAnimWeightBodies, FALSE);
 	P_FINISH;
 	SetAllMotorsAngularDriveParams(InSpring, InDamping, InForceLimit, SkelMesh, bSkipFullAnimWeightBodies);
+}
+
+struct UPhysicsAssetInstance__00cc1b50 : public UPhysicsAssetInstance
+{
+	void SetNamedBodiesBlockRigidBody(UBOOL bNewBlockRigidBody, const TArray<FName>& BoneNames, USkeletalMeshComponent* SkelMesh);
+	void execSetNamedBodiesBlockRigidBody(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00cc1b50
+void UPhysicsAssetInstance__00cc1b50::execSetNamedBodiesBlockRigidBody(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bNewBlockRigidBody);
+	P_GET_TARRAY(FName, BoneNames);
+	P_GET_OBJECT(USkeletalMeshComponent, SkelMesh);
+	P_FINISH;
+	SetNamedBodiesBlockRigidBody(bNewBlockRigidBody, BoneNames, SkelMesh);
+}
+
+struct UPhysicsAssetInstance__00cc19e0 : public UPhysicsAssetInstance
+{
+	void SetNamedRBBoneSprings(UBOOL bEnable, const TArray<FName>& BoneNames, FLOAT InBoneLinearSpring, FLOAT InBoneAngularSpring, USkeletalMeshComponent* SkelMeshComp);
+	void execSetNamedRBBoneSprings(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00cc19e0
+void UPhysicsAssetInstance__00cc19e0::execSetNamedRBBoneSprings(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bEnable);
+	P_GET_TARRAY(FName, BoneNames);
+	P_GET_FLOAT(InBoneLinearSpring);
+	P_GET_FLOAT(InBoneAngularSpring);
+	P_GET_OBJECT(USkeletalMeshComponent, SkelMeshComp);
+	P_FINISH;
+	SetNamedRBBoneSprings(bEnable, BoneNames, InBoneLinearSpring, InBoneAngularSpring, SkelMeshComp);
+}
+
+struct UPhysicsAssetInstance__00cc16e0 : public UPhysicsAssetInstance
+{
+	void SetNamedMotorsAngularPositionDrive(UBOOL bEnableSwingDrive, UBOOL bEnableTwistDrive, const TArray<FName>& BoneNames, USkeletalMeshComponent* SkelMeshComp, UBOOL bSetOtherBodiesToComplement);
+	void execSetNamedMotorsAngularPositionDrive(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00cc16e0
+void UPhysicsAssetInstance__00cc16e0::execSetNamedMotorsAngularPositionDrive(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bEnableSwingDrive);
+	P_GET_UBOOL(bEnableTwistDrive);
+	P_GET_TARRAY(FName, BoneNames);
+	P_GET_OBJECT(USkeletalMeshComponent, SkelMeshComp);
+	P_GET_UBOOL_OPTX(bSetOtherBodiesToComplement, FALSE);
+	P_FINISH;
+	SetNamedMotorsAngularPositionDrive(bEnableSwingDrive, bEnableTwistDrive, BoneNames, SkelMeshComp, bSetOtherBodiesToComplement);
+}
+
+struct UPhysicsAssetInstance__00cc1860 : public UPhysicsAssetInstance
+{
+	void SetNamedMotorsAngularVelocityDrive(UBOOL bEnableSwingDrive, UBOOL bEnableTwistDrive, const TArray<FName>& BoneNames, USkeletalMeshComponent* SkelMeshComp, UBOOL bSetOtherBodiesToComplement);
+	void execSetNamedMotorsAngularVelocityDrive(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00cc1860
+void UPhysicsAssetInstance__00cc1860::execSetNamedMotorsAngularVelocityDrive(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bEnableSwingDrive);
+	P_GET_UBOOL(bEnableTwistDrive);
+	P_GET_TARRAY(FName, BoneNames);
+	P_GET_OBJECT(USkeletalMeshComponent, SkelMeshComp);
+	P_GET_UBOOL_OPTX(bSetOtherBodiesToComplement, FALSE);
+	P_FINISH;
+	SetNamedMotorsAngularVelocityDrive(bEnableSwingDrive, bEnableTwistDrive, BoneNames, SkelMeshComp, bSetOtherBodiesToComplement);
+}
+
+struct UPhysicsAssetInstance__00cc1560 : public UPhysicsAssetInstance
+{
+	void SetNamedBodiesFixed(UBOOL bNewFixed, const TArray<FName>& BoneNames, USkeletalMeshComponent* SkelMesh, UBOOL bSetOtherBodiesToComplement, UBOOL bSkipFullAnimWeightBodies);
+	void execSetNamedBodiesFixed(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00cc1560
+void UPhysicsAssetInstance__00cc1560::execSetNamedBodiesFixed(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(bNewFixed);
+	P_GET_TARRAY(FName, BoneNames);
+	P_GET_OBJECT(USkeletalMeshComponent, SkelMesh);
+	P_GET_UBOOL_OPTX(bSetOtherBodiesToComplement, FALSE);
+	P_GET_UBOOL_OPTX(bSkipFullAnimWeightBodies, FALSE);
+	P_FINISH;
+	SetNamedBodiesFixed(bNewFixed, BoneNames, SkelMesh, bSetOtherBodiesToComplement, bSkipFullAnimWeightBodies);
 }

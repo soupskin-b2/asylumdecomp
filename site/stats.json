@@ -2,47 +2,47 @@
  "updated": "2026-11-11",
  "functions": {
   "total": 174153,
-  "matched": 97271
+  "matched": 97381
  },
  "bytes": {
   "total": 24308134,
-  "matched": 3641975
+  "matched": 3647881
  },
  "areas": [
   {
    "name": "Engine",
    "functions": 69863,
    "bytes": 9201956,
-   "matched": 40906,
-   "matched_bytes": 1674550
+   "matched": 40938,
+   "matched_bytes": 1679321
   },
   {
    "name": "Editor",
    "functions": 42961,
    "bytes": 8040643,
-   "matched": 23558,
-   "matched_bytes": 789281
+   "matched": 23583,
+   "matched_bytes": 789592
   },
   {
    "name": "External",
    "functions": 29398,
    "bytes": 3194226,
-   "matched": 11438,
-   "matched_bytes": 182223
+   "matched": 11477,
+   "matched_bytes": 182872
   },
   {
    "name": "Game",
    "functions": 13563,
    "bytes": 1853804,
-   "matched": 9254,
-   "matched_bytes": 526613
+   "matched": 9260,
+   "matched_bytes": 526687
   },
   {
    "name": "Core",
    "functions": 12072,
    "bytes": 1275961,
-   "matched": 7793,
-   "matched_bytes": 236063
+   "matched": 7799,
+   "matched_bytes": 236140
   },
   {
    "name": "CommonGame",
@@ -62,8 +62,8 @@
    "name": "FMod",
    "functions": 1472,
    "bytes": 150189,
-   "matched": 906,
-   "matched_bytes": 27150
+   "matched": 908,
+   "matched_bytes": 27174
   },
   {
    "name": "CommonEditor",
@@ -97,25 +97,26 @@
  "contributors": [
   {
    "login": "soupskin-b2",
-   "functions": 97271,
-   "bytes": 3641975,
+   "functions": 97381,
+   "bytes": 3647881,
    "models": {
     "tooling": 94456,
-    "qwen3.8-27b": 1050,
-    "deepseek-v4.1-flash": 928,
+    "qwen3.8-27b": 1062,
+    "deepseek-v4.1-flash": 1010,
     "not specified": 338,
     "claude-opus-5.5": 172,
-    "Claude Opus 5.5": 136,
+    "Claude Opus 5.5": 149,
     "gpt-6.1-sol": 86,
     "claude-sonnet-5.5": 37,
     "deepseek-v4.1": 26,
-    "qwen": 24,
+    "qwen": 26,
     "gpt-6.1-terra": 10,
     "e2e-test": 2,
     "Qwen": 2,
     "Qwen3": 2,
     "claude-haiku-5.5": 1,
-    "qwen3.8-27b qwen3.8-27b": 1
+    "qwen3.8-27b qwen3.8-27b": 1,
+    "claude": 1
    }
   }
  ],
@@ -126,11 +127,11 @@
   },
   {
    "model": "qwen3.8-27b",
-   "functions": 1050
+   "functions": 1062
   },
   {
    "model": "deepseek-v4.1-flash",
-   "functions": 928
+   "functions": 1010
   },
   {
    "model": "not specified",
@@ -142,7 +143,7 @@
   },
   {
    "model": "Claude Opus 5.5",
-   "functions": 136
+   "functions": 149
   },
   {
    "model": "gpt-6.1-sol",
@@ -158,7 +159,7 @@
   },
   {
    "model": "qwen",
-   "functions": 24
+   "functions": 26
   },
   {
    "model": "gpt-6.1-terra",
@@ -182,6 +183,10 @@
   },
   {
    "model": "qwen3.8-27b qwen3.8-27b",
+   "functions": 1
+  },
+  {
+   "model": "claude",
    "functions": 1
   }
  ]

@@ -1,4 +1,4 @@
-// UnPawn.cpp (part 1 of 2): 86 functions
+// UnPawn.cpp (part 1 of 2): 87 functions
 // Placed here by: neighbours 49, class 32, callers 3, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1193,4 +1193,20 @@ FVector APawn_::sub_008655c0(AActor* InGoal, FVector InDest)
     Result.Y = 0.0f;
     Result.Z = 0.0f;
     return Result;
+}
+
+struct Sub
+{
+    void sub_0084e020();
+};
+
+struct AScout_ : public AScout
+{
+    void vf_4a4(Sub* Object);
+};
+
+// @baa 0x00864e00
+void AScout_::vf_4a4(Sub* Object)
+{
+    Object->sub_0084e020();
 }

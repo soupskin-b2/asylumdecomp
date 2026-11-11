@@ -1,4 +1,4 @@
-// Engine_0650000.cpp (part 7 of 9): 3 functions
+// Engine_0650000.cpp (part 7 of 9): 4 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -56,4 +56,19 @@ struct C_006568c0
 void g_006568c0_call(C_006568c0* Object)
 {
     Object->sub_006568c0();
+}
+
+struct C
+{
+    WORD pad_00;
+    WORD pad_02;
+    WORD field_04;
+
+    INT sub_0065b170();
+};
+
+// @baa 0x0065b170
+INT C::sub_0065b170()
+{
+    return field_04 > 0;
 }

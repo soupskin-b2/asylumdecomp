@@ -1,4 +1,4 @@
-// fmod_systemi.cpp (part 2 of 7): 62 functions
+// fmod_systemi.cpp (part 2 of 7): 63 functions
 // Placed here by: callers 33, neighbours 29.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -1424,4 +1424,21 @@ void C_017c8e5e::sub_017c8e5e(undefined4 param_2, undefined4 param_3)
   *(undefined4 *)(param_1 + 4) = param_2;
   *(undefined4 *)(param_1 + 8) = param_3;
   return;
+}
+
+struct C_017c8dff
+{
+    INT pad_00;
+    float Value;
+    INT pad_08[4];
+    DWORD Flags;
+
+    C_017c8dff();
+};
+
+// @baa 0x017c8dff
+C_017c8dff::C_017c8dff()
+{
+    Value = 0.0f;
+    Flags &= 0;
 }

@@ -1,4 +1,4 @@
-// Engine_0640000.cpp (part 2 of 2): 2 functions
+// Engine_0640000.cpp (part 2 of 2): 3 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -36,4 +36,18 @@ void ref_call()
 {
     S_0064b6c0 s;
     S_0064b6c0::S_0064b6f0 r = s.sub_0064b6c0();
+}
+
+struct C
+{
+    WORD pad_00;
+    WORD field_02;
+
+    INT sub_0064aae0();
+};
+
+// @baa 0x0064aae0
+INT C::sub_0064aae0()
+{
+    return field_02 > 0;
 }

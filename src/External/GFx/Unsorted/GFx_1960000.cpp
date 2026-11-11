@@ -1,4 +1,4 @@
-// GFx_1960000.cpp (part 1 of 2): 82 functions
+// GFx_1960000.cpp (part 1 of 2): 84 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -864,4 +864,16 @@ undefined4 * C_0196edd0::sub_0196edd0(undefined4 param_2)
   param_1[2] = 0;
   ((C_0196edd0 *)(this))->sub_0190cb60(param_2);
   return param_1;
+}
+
+// @baa 0x0196c660
+INT __stdcall sub_0196c660(INT* Object)
+{
+    return *(INT*)(*Object + 0x10);
+}
+
+// @baa 0x0196c820
+INT __stdcall sub_0196c820(INT* Object)
+{
+    return *(INT*)(*Object + 0x10);
 }

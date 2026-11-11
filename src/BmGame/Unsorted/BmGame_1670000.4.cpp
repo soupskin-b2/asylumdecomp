@@ -1,4 +1,4 @@
-// BmGame_1670000.cpp (part 4 of 4): 2 functions
+// BmGame_1670000.cpp (part 4 of 4): 3 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -37,4 +37,20 @@ struct C_01674090
 C_01674090* C_01674090::sub_01674090()
 {
     return Value ? 0 : this;
+}
+
+struct C_0167f8e0
+{
+    INT pad_00[2];
+    INT field_08;
+
+    void sub_0167aa60();
+    void sub_0167f8e0();
+};
+
+// @baa 0x0167f8e0
+void C_0167f8e0::sub_0167f8e0()
+{
+    if (field_08)
+        sub_0167aa60();
 }

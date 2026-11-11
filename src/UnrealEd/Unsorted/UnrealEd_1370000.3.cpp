@@ -1,4 +1,4 @@
-// UnrealEd_1370000.cpp (part 3 of 3): 4 functions
+// UnrealEd_1370000.cpp (part 3 of 3): 5 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -45,3 +45,16 @@ undefined4 UObject::sub_0137d310(byte param_2)
 void sub_01374930();
 // @baa 0x0137d330
 void sub_0137d330(void) { sub_01374930(); }
+
+struct Obj
+{
+    INT Dummy;
+
+    void sub_005ac890();
+};
+
+// @baa 0x0137b800
+void __stdcall sub_0137b800(Obj A, INT B, INT C)
+{
+    A.sub_005ac890();
+}

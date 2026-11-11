@@ -1,4 +1,4 @@
-// fmod_output_openal.cpp (part 1 of 2): 2 functions
+// fmod_output_openal.cpp (part 1 of 2): 3 functions
 // Placed here by: callers 1, neighbours 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -47,4 +47,22 @@ int C_017abb51::sub_017abb51(undefined4 * param_2)
     iVar1 = 0;
   }
   return iVar1;
+}
+
+struct HINSTANCE__ { long unused; };
+
+typedef HINSTANCE__* HINSTANCE;
+
+typedef HINSTANCE HMODULE;
+
+extern HMODULE g_027b7cc4;
+extern "C" __declspec(dllimport) int __stdcall FreeLibrary(HMODULE);
+// @baa 0x017c6e7e
+void sub_017c6e7e(void)
+{
+	if (g_027b7cc4 != NULL)
+	{
+		FreeLibrary(g_027b7cc4);
+		g_027b7cc4 = NULL;
+	}
 }

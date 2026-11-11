@@ -1,4 +1,4 @@
-// UnAnimTree.cpp (part 3 of 4): 6 functions
+// UnAnimTree.cpp (part 3 of 4): 7 functions
 // Placed here by: neighbours 6.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -113,4 +113,34 @@ undefined4 C_00c6aa30::sub_00c6aa30(byte param_2)
     sub_0053dfa0(param_1);
   }
   return param_1;
+}
+
+/* UE3 UnTemplate.h (not in the kit). */
+template< class T > inline T Clamp( const T X, const T Min, const T Max )
+{
+	return X<Min ? Min : X<Max ? X : Max;
+}
+
+/* UAnimNodeSlot::UpdateWeightsForAdditiveAnimations isn't declared in Classes.h. */
+struct UAnimNodeSlot_ : public UAnimNodeSlot
+{
+	void UpdateWeightsForAdditiveAnimations();
+};
+
+// @baa 0x00c56870
+void UAnimNodeSlot_::UpdateWeightsForAdditiveAnimations()
+{
+	// Make sure non additive channels weight sum up to 1.
+	FLOAT AccumulatedWeight = 0.f;
+	for(INT i=1; i<Children.Num(); i++)
+	{
+		// Don't count additive animations
+		if( !Children(i).bIsAdditive )
+		{
+			AccumulatedWeight += Children(i).Weight;
+		}
+	}
+
+	// Set source weight to 1 - total weight of other children
+	Children(0).Weight = 1.f - Clamp<FLOAT>(AccumulatedWeight, 0.f, 1.f);
 }

@@ -1,4 +1,4 @@
-// Engine_0a30000.cpp (part 3 of 3): 2 functions
+// Engine_0a30000.cpp (part 3 of 3): 6 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -48,4 +48,60 @@ struct C_00a35390
 INT C_00a35390::sub_00a35390()
 {
     return Value == 0 ? -1 : 0;
+}
+
+struct C_00a3c700
+{
+    INT pad_00[0x1];
+    float Value;
+
+    void sub_00a3c700(float* In);
+};
+
+// @baa 0x00a3c700
+void C_00a3c700::sub_00a3c700(float* In)
+{
+    Value = *In;
+}
+
+struct C_00a3c710
+{
+    INT pad_00[0x2];
+    float Value;
+
+    void sub_00a3c710(float* In);
+};
+
+// @baa 0x00a3c710
+void C_00a3c710::sub_00a3c710(float* In)
+{
+    Value = *In;
+}
+
+struct C_00a3cb50
+{
+    INT pad_00[0x1];
+    float Value;
+
+    void sub_00a3cb50(float* Out);
+};
+
+// @baa 0x00a3cb50
+void C_00a3cb50::sub_00a3cb50(float* Out)
+{
+    *Out = Value;
+}
+
+struct C_00a3cb60
+{
+    INT pad_00[0x2];
+    float Value;
+
+    void sub_00a3cb60(float* Out);
+};
+
+// @baa 0x00a3cb60
+void C_00a3cb60::sub_00a3cb60(float* Out)
+{
+    *Out = Value;
 }

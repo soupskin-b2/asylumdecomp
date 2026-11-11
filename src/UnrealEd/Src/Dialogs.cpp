@@ -1,4 +1,4 @@
-// Dialogs.cpp: 8 functions
+// Dialogs.cpp: 16 functions
 // Placed here by: neighbours 7.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -78,4 +78,53 @@ void C_01427090::sub_01427090()
 {
     *(void**)this = g_0228d0a8;
     ((wxDialog*)this)->wxDialog::~wxDialog();
+}
+
+void __stdcall sub_0142ea40(INT A, INT B);
+// @baa 0x0142efa0
+void __stdcall sub_0142efa0(INT Unused)
+{
+    sub_0142ea40(1, 0);
+}
+
+// @baa 0x0142efb0
+void __stdcall sub_0142efb0(INT Unused)
+{
+    sub_0142ea40(4, 0);
+}
+
+// @baa 0x0142efc0
+void __stdcall sub_0142efc0(INT Unused)
+{
+    sub_0142ea40(16, 0);
+}
+
+// @baa 0x0142efd0
+void __stdcall sub_0142efd0(INT Unused)
+{
+    sub_0142ea40(64, 0);
+}
+
+// @baa 0x0142f200
+void __stdcall sub_0142f200(INT Unused)
+{
+    sub_0142ea40(0, 1);
+}
+
+// @baa 0x0142f210
+void __stdcall sub_0142f210(INT Unused)
+{
+    sub_0142ea40(0, 4);
+}
+
+// @baa 0x0142f220
+void __stdcall sub_0142f220(INT Unused)
+{
+    sub_0142ea40(0, 16);
+}
+
+// @baa 0x0142f230
+void __stdcall sub_0142f230(INT Unused)
+{
+    sub_0142ea40(0, 64);
 }

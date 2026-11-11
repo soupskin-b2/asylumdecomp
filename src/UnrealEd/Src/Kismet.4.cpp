@@ -1,4 +1,4 @@
-// Kismet.cpp (part 4 of 4): 7 functions
+// Kismet.cpp (part 4 of 4): 8 functions
 // Placed here by: callers 2, neighbours 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -140,4 +140,11 @@ void C_011902c0::sub_011902c0()
 {
     *(void**)this = g_021dd238;
     ((wxMenu*)this)->wxMenu::~wxMenu();
+}
+
+void __stdcall sub_011abc80(INT A, INT B);
+// @baa 0x011ac600
+void __stdcall sub_011ac600(INT Unused)
+{
+    sub_011abc80(0, 1);
 }

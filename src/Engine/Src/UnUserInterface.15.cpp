@@ -1,4 +1,4 @@
-// UnUserInterface.cpp (part 15 of 15): 6 functions
+// UnUserInterface.cpp (part 15 of 15): 7 functions
 // Placed here by: class 3.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -53,4 +53,17 @@ struct C_00ddeca0
 INT C_00ddeca0::sub_00ddeca0(INT Index)
 {
     return Values[Index];
+}
+
+extern INT g_026c5e68;
+struct UGameUISceneClient_ : public UGameUISceneClient
+{
+    INT vf_1b0(INT A, INT B, INT C);
+};
+
+// @baa 0x00dde460
+INT UGameUISceneClient_::vf_1b0(INT, INT, INT)
+{
+    ++g_026c5e68;
+    return 0;
 }

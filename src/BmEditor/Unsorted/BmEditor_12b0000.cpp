@@ -1,4 +1,4 @@
-// BmEditor_12b0000.cpp: 5 functions
+// BmEditor_12b0000.cpp: 6 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -37,4 +37,11 @@ void UCascadeOptions::sub_012bd940(void)
     iVar1 = ((C_view *)(this))->sub_012ba0d0(param_1 + 0x10);
   } while (iVar1 != 0);
   return;
+}
+
+void __stdcall sub_012b7380(INT A, INT B);
+// @baa 0x012bd400
+void __stdcall sub_012bd400(INT Unused)
+{
+    sub_012b7380(0, 0);
 }

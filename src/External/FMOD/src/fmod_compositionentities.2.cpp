@@ -1,4 +1,4 @@
-// fmod_compositionentities.cpp (part 2 of 3): 16 functions
+// fmod_compositionentities.cpp (part 2 of 3): 19 functions
 // Placed here by: neighbours 16.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -211,3 +211,57 @@ struct C_017ec0b0 {
 
 // @baa 0x017ec0b0
 int C_017ec0b0::sub_017ec0b0() { return d->sub_017ea900(); }
+
+// FMOD composition-entity constructor: a CoreLink that also holds a Condition
+// subobject, so it carries two vtable pointers.
+extern const void* g_023e0094[];
+ // FMOD::CoreLink::vftable
+extern const void* g_023e0078[];
+ // FMOD::Condition::vftable
+struct C_017e9130 {
+  void* sub_017e9130(void);
+};
+
+// @baa 0x017e9130
+void* C_017e9130::sub_017e9130(void) {
+  DWORD* p = (DWORD*)this;
+  DWORD z = 0;
+  p[1] = z; // +0x4
+  p[0] = (DWORD)g_023e0094;
+  p[3] = (DWORD)g_023e0078; // +0xc
+  p[5] = z; // +0x14
+  return this;
+}
+
+extern const void* g_023e0134[];
+struct C_017e9440 {
+    void* sub_017e9440();
+};
+
+// @baa 0x017e9440
+void* C_017e9440::sub_017e9440()
+{
+    DWORD* P = (DWORD*)this;
+    DWORD z = 0;
+    P[1] = 1;
+    P[0] = (DWORD)g_023e0134;
+    P[3] = z;
+    P[4] = z;
+    return this;
+}
+
+struct sub_0179bceb_host {
+    void sub_0179bceb(int tag, int value);
+};
+
+struct BucketHash_ {
+    int sub_017e9980(sub_0179bceb_host* Target);
+};
+
+// @baa 0x017e9980
+// @baa 0x017e9980
+int BucketHash_::sub_017e9980(sub_0179bceb_host* Target)
+{
+    Target->sub_0179bceb(0x16, (*(int*)((char*)this + 0xc)) * 4);
+    return 0;
+}

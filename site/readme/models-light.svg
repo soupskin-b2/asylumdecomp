@@ -5,12 +5,12 @@
 <text x="860" y="20" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">94,456</text>
 <text x="0" y="50" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">qwen3.8-27b</text>
 <rect x="242" y="40" width="528" height="10" fill="#eaeef2" stroke="#d1d9e0"/>
-<rect x="242" y="40" width="5.8694" height="10" fill="#1f2328"/>
-<text x="860" y="50" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">1,050</text>
+<rect x="242" y="40" width="5.93648" height="10" fill="#1f2328"/>
+<text x="860" y="50" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">1,062</text>
 <text x="0" y="80" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">deepseek-v4.1-flash</text>
 <rect x="242" y="70" width="528" height="10" fill="#eaeef2" stroke="#d1d9e0"/>
-<rect x="242" y="70" width="5.18743" height="10" fill="#1f2328"/>
-<text x="860" y="80" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">928</text>
+<rect x="242" y="70" width="5.6458" height="10" fill="#1f2328"/>
+<text x="860" y="80" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">1,010</text>
 <text x="0" y="110" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">not specified</text>
 <rect x="242" y="100" width="528" height="10" fill="#eaeef2" stroke="#d1d9e0"/>
 <rect x="242" y="100" width="1.88939" height="10" fill="#1f2328"/>
@@ -21,14 +21,14 @@
 <text x="860" y="140" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">172</text>
 <text x="0" y="170" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">Claude Opus 5.5</text>
 <rect x="242" y="160" width="528" height="10" fill="#eaeef2" stroke="#d1d9e0"/>
-<rect x="242" y="160" width="0.760227" height="10" fill="#1f2328"/>
-<text x="860" y="170" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">136</text>
+<rect x="242" y="160" width="0.832896" height="10" fill="#1f2328"/>
+<text x="860" y="170" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">149</text>
 <text x="0" y="200" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">gpt-6.1-sol</text>
 <rect x="242" y="190" width="528" height="10" fill="#eaeef2" stroke="#d1d9e0"/>
 <rect x="242" y="190" width="0.480732" height="10" fill="#1f2328"/>
 <text x="860" y="200" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">86</text>
 <text x="0" y="230" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">other</text>
 <rect x="242" y="220" width="528" height="10" fill="#eaeef2" stroke="#d1d9e0"/>
-<rect x="242" y="220" width="0.58694" height="10" fill="#1f2328"/>
-<text x="860" y="230" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">105</text>
+<rect x="242" y="220" width="0.60371" height="10" fill="#1f2328"/>
+<text x="860" y="230" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">108</text>
 </svg>

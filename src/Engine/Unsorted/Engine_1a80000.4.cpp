@@ -1,4 +1,4 @@
-// Engine_1a80000.cpp (part 4 of 5): 16 functions
+// Engine_1a80000.cpp (part 4 of 5): 17 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -297,4 +297,15 @@ FRange_01a88290 *FRange_01a88290::sub_01a88290(UINT Index, FArrayLike *Array)
 	Range = Array;
 	Count = Index;
 	return this;
+}
+
+struct Sub
+{
+    void sub_01a826e0();
+};
+
+// @baa 0x01a887e0
+void __stdcall sub_01a887e0(Sub* Object)
+{
+    Object->sub_01a826e0();
 }

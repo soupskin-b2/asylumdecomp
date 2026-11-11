@@ -1,4 +1,4 @@
-// GFx_1900000.cpp (part 6 of 6): 4 functions
+// GFx_1900000.cpp (part 6 of 6): 6 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -90,4 +90,29 @@ struct GFxKeyHashFunctor
 unsigned int GFxKeyHashFunctor::sub_01903740(const GFxKey& Key) const
 {
     return Key.pNode->HashValue;
+}
+
+// @baa 0x0190a570
+INT __stdcall sub_0190a570(INT* Object)
+{
+    return *(INT*)(*Object + 0x10);
+}
+
+struct C
+{
+    INT pad_00;
+    INT pad_04;
+    INT pad_08;
+    INT pad_0c;
+    INT pad_10;
+    INT Value;
+
+    INT* sub_01903b00(INT* Out);
+};
+
+// @baa 0x01903b00
+INT* C::sub_01903b00(INT* Out)
+{
+    *Out = Value;
+    return Out;
 }

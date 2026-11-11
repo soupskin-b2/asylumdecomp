@@ -1,4 +1,4 @@
-// Core_0590000.cpp (part 4 of 4): 3 functions
+// Core_0590000.cpp (part 4 of 4): 8 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -75,4 +75,34 @@ void __stdcall sub_00590dd0(struct sub_00590dd0_S* Queue, int* Out)
     int Value = *Item;
     Queue->Front = Item + 1;
     *Out = Value;
+}
+
+// @baa 0x00590e60
+void __stdcall sub_00590e60(INT A, INT* Out)
+{
+    *Out = 0;
+}
+
+// @baa 0x00590e70
+void __stdcall sub_00590e70(INT A, INT* Out)
+{
+    *Out = 1;
+}
+
+// @baa 0x00590e80
+void __stdcall sub_00590e80(INT A, INT* Out)
+{
+    *Out = 1;
+}
+
+// @baa 0x00590e90
+void __stdcall sub_00590e90(INT A, INT* Out)
+{
+    *Out = 0;
+}
+
+// @baa 0x00590ea0
+void __stdcall sub_00590ea0(INT A, INT* Out)
+{
+    *Out = 0;
 }
