@@ -1,4 +1,4 @@
-// BmGame_16e0000.cpp: 24 functions
+// BmGame_16e0000.cpp: 33 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -182,4 +182,67 @@ void URWeaponConfig::execShrink( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	vf_10c();
+}
+
+// @baa 0x016e85b0
+void ARGameInfo::execGetPC(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(ARPlayerController**)Result = (ARPlayerController*)vf_3b0();
+}
+
+// @baa 0x016e85f0
+void ARGameInfo::execSecuROMProtectionCheck1(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_3b4();
+}
+
+// @baa 0x016e8630
+void ARGameInfo::execSecuROMProtectionCheck2(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_3b8();
+}
+
+// @baa 0x016e8670
+void ARGameInfo::execSecuROMProtectionCheck3(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(INT*)Result = vf_3bc();
+}
+
+// @baa 0x016e90e0
+void ARGameRI::execIsGlobalLockActive(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_3a4();
+}
+
+// @baa 0x016e9120
+void ARGameRI::execIsBatmanInCombat(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_3a8();
+}
+
+// @baa 0x016e9220
+void ARGameRI::execGetSkeletalMeshLODScale(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(FLOAT*)Result = vf_3b4();
+}
+
+// @baa 0x016e93a0
+void ARBMWeapon::execCanBeSeenByBatsForXray(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_358();
+}
+
+// @baa 0x016e9970
+void ARFadeManager::execGetVolume(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(FLOAT*)Result = vf_358();
 }

@@ -1,4 +1,4 @@
-// Core_0590000.cpp (part 2 of 4): 8 functions
+// Core_0590000.cpp (part 2 of 4): 16 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -64,4 +64,90 @@ void UObject::execSubtract_PreInt(FFrame& Stack, RESULT_DECL)
     P_GET_INT(A);
     P_FINISH;
     *(INT*)Result = -A;
+}
+
+// @baa 0x005975d0
+void UObject::execSubtract_RotatorRotator(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FRotator, A);
+    P_GET_STRUCT(FRotator, B);
+    P_FINISH;
+    FRotator Difference = {A.Pitch - B.Pitch, A.Yaw - B.Yaw, A.Roll - B.Roll};
+    *(FRotator*)Result = Difference;
+}
+
+struct FRotationTranslationMatrix : FMatrix
+{
+    FRotationTranslationMatrix(const FRotator& Rotation, const FVector& Origin);
+};
+
+// @baa 0x0059eb20
+void UObject::execMakeRotationTranslationMatrix(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, Translation);
+    P_GET_STRUCT(FRotator, Rotation);
+    P_FINISH;
+    *(FMatrix*)Result = FRotationTranslationMatrix(Rotation, Translation);
+}
+
+// @baa 0x00592d50
+void UObject::execMin(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_INT(A);
+    P_GET_INT(B);
+    P_FINISH;
+    *(INT*)Result = A <= B ? A : B;
+}
+
+// @baa 0x00592df0
+void UObject::execMax(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_INT(A);
+    P_GET_INT(B);
+    P_FINISH;
+    *(INT*)Result = A >= B ? A : B;
+}
+
+// @baa 0x00597530
+void UObject::execAdd_RotatorRotator(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FRotator, A);
+    P_GET_STRUCT(FRotator, B);
+    P_FINISH;
+    FRotator Sum = {A.Pitch + B.Pitch, B.Yaw + A.Yaw, B.Roll + A.Roll};
+    *(FRotator*)Result = Sum;
+}
+
+FVector __cdecl sub_005c3600(const FVector& MinRange, const FVector& MaxRange);
+// @baa 0x00596800
+void UObject::execVRandRange(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, MinRange);
+    P_GET_STRUCT(FVector, MaxRange);
+    P_FINISH;
+    *(FVector*)Result = sub_005c3600(MinRange, MaxRange);
+}
+
+// @baa 0x005952e0
+void UObject::execSubtract_PreVector(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, A);
+    P_FINISH;
+    FVector Negated = {-A.X, -A.Y, -A.Z};
+    *(FVector*)Result = Negated;
+}
+
+struct FQuatRotationTranslationMatrix : FMatrix
+{
+    FQuatRotationTranslationMatrix(const FQuat& Rotation, const FVector& Origin);
+    FRotator sub_005c3fc0() const;
+};
+
+// @baa 0x0059ed90
+void UObject::execQuatToRotator(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FQuat, A);
+    P_FINISH;
+    FVector Origin = {0.0f, 0.0f, 0.0f};
+    *(FRotator*)Result = FQuatRotationTranslationMatrix(A, Origin).sub_005c3fc0();
 }

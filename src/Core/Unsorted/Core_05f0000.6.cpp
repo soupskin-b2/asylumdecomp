@@ -1,4 +1,4 @@
-// Core_05f0000.cpp (part 6 of 6): 2 functions
+// Core_05f0000.cpp (part 6 of 6): 3 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -40,4 +40,19 @@ void UFactory::Serialize( FArchive& Ar )
 	{
 		Ar << SupportedClass << ContextClass;
 	}
+}
+
+extern INT g_026a4b20;
+extern WORD g_025d6ac8;
+struct UPackageMap_ : public UPackageMap
+{
+    virtual void sub_005fb0c0(WORD W);
+};
+
+// @baa 0x005fb0c0
+void UPackageMap_::sub_005fb0c0(WORD W)
+{
+    WORD V = W;
+    g_026a4b20 = 1;
+    g_025d6ac8 = V;
 }

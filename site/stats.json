@@ -2,26 +2,26 @@
  "updated": "2026-11-11",
  "functions": {
   "total": 174153,
-  "matched": 96146
+  "matched": 96247
  },
  "bytes": {
   "total": 24308134,
-  "matched": 3541417
+  "matched": 3550008
  },
  "areas": [
   {
    "name": "Engine",
    "functions": 69863,
    "bytes": 9201956,
-   "matched": 40454,
-   "matched_bytes": 1620296
+   "matched": 40488,
+   "matched_bytes": 1622235
   },
   {
    "name": "Editor",
    "functions": 42961,
    "bytes": 8040643,
-   "matched": 23432,
-   "matched_bytes": 784814
+   "matched": 23444,
+   "matched_bytes": 785417
   },
   {
    "name": "External",
@@ -34,22 +34,22 @@
    "name": "Game",
    "functions": 13563,
    "bytes": 1853804,
-   "matched": 8846,
-   "matched_bytes": 492046
+   "matched": 8877,
+   "matched_bytes": 496437
   },
   {
    "name": "Core",
    "functions": 12072,
    "bytes": 1275961,
-   "matched": 7747,
-   "matched_bytes": 232217
+   "matched": 7768,
+   "matched_bytes": 233698
   },
   {
    "name": "CommonGame",
    "functions": 1422,
    "bytes": 173518,
-   "matched": 976,
-   "matched_bytes": 41334
+   "matched": 979,
+   "matched_bytes": 41511
   },
   {
    "name": "Unsorted",
@@ -97,18 +97,19 @@
  "contributors": [
   {
    "login": "soupskin-b2",
-   "functions": 96146,
-   "bytes": 3541417,
+   "functions": 96247,
+   "bytes": 3550008,
    "models": {
     "tooling": 94456,
-    "qwen3.8-27b": 937,
+    "qwen3.8-27b": 952,
     "not specified": 338,
-    "deepseek-v4.1-flash": 181,
+    "deepseek-v4.1-flash": 243,
     "claude-opus-5.5": 122,
+    "gpt-6.1-sol": 57,
     "claude-sonnet-5.5": 37,
-    "gpt-6.1-sol": 36,
     "deepseek-v4.1": 26,
     "gpt-6.1-terra": 10,
+    "qwen": 3,
     "e2e-test": 2,
     "claude-haiku-5.5": 1
    }
@@ -121,7 +122,7 @@
   },
   {
    "model": "qwen3.8-27b",
-   "functions": 937
+   "functions": 952
   },
   {
    "model": "not specified",
@@ -129,19 +130,19 @@
   },
   {
    "model": "deepseek-v4.1-flash",
-   "functions": 181
+   "functions": 243
   },
   {
    "model": "claude-opus-5.5",
    "functions": 122
   },
   {
-   "model": "claude-sonnet-5.5",
-   "functions": 37
+   "model": "gpt-6.1-sol",
+   "functions": 57
   },
   {
-   "model": "gpt-6.1-sol",
-   "functions": 36
+   "model": "claude-sonnet-5.5",
+   "functions": 37
   },
   {
    "model": "deepseek-v4.1",
@@ -150,6 +151,10 @@
   {
    "model": "gpt-6.1-terra",
    "functions": 10
+  },
+  {
+   "model": "qwen",
+   "functions": 3
   },
   {
    "model": "e2e-test",

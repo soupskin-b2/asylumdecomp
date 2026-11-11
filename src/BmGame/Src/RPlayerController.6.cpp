@@ -1,4 +1,4 @@
-// RPlayerController.cpp (part 6 of 6): 31 functions
+// RPlayerController.cpp (part 6 of 6): 34 functions
 // Placed here by: class 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -303,4 +303,53 @@ void ARPlayerController::execGetFallingAttackTarget(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
 	*(ARPawnVillain**)Result = ((ARPlayerController__016f9570*)this)->sub_01623fd0();
+}
+
+// @baa 0x00c86e40
+void ARPlayerController::execIsControllerTiltActive(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_41c();
+}
+
+struct RPlayerControllerNative : ARPlayerController
+{
+    UBOOL sub_01618460(FEnvironmentSpecialMoveTypesContainer FeatureType, FLOAT Distance, FVector* FeatureNormal);
+};
+
+// @baa 0x016f9180
+void ARPlayerController::execAmIStandingNextToFeature(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FEnvironmentSpecialMoveTypesContainer, FeatureType);
+    P_GET_FLOAT(Distance);
+    GRuntimeUCFlags &= ~RUC_SkippedOptionalParm;
+    FVector FeatureNormalT;
+    GPropAddr = 0;
+    Stack.Step(Stack.Object, &FeatureNormalT);
+    BYTE* FeatureNormalAddr = GPropAddr;
+    FVector& FeatureNormal = GPropAddr ? *(FVector*)GPropAddr : FeatureNormalT;
+    if (GRuntimeUCFlags & RUC_SkippedOptionalParm)
+    {
+        FVector Zero = {0.0f, 0.0f, 0.0f};
+        FeatureNormal = Zero;
+    }
+    P_FINISH;
+    *(UBOOL*)Result = static_cast<RPlayerControllerNative*>(this)->sub_01618460(FeatureType, Distance, FeatureNormalAddr ? &FeatureNormal : NULL);
+}
+
+struct RPlayerControllerNative_016f8c60 : ARPlayerController
+{
+    ARPawnVillain* sub_0161ecb0(FVector& AttackSearchPos, FLOAT AttackSearchRadius, FVector& AttackCheckPos, UBOOL NeedsReachCheck, UBOOL bAllowedToAttackFlooredEnemies);
+};
+
+// @baa 0x016f8c60
+void ARPlayerController::execFindStealthAttackTargetNative(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT_REF(FVector, AttackSearchPos);
+    P_GET_FLOAT(AttackSearchRadius);
+    P_GET_STRUCT_REF(FVector, AttackCheckPos);
+    P_GET_UBOOL(NeedsReachCheck);
+    P_GET_UBOOL(bAllowedToAttackFlooredEnemies);
+    P_FINISH;
+    *(ARPawnVillain**)Result = static_cast<RPlayerControllerNative_016f8c60*>(this)->sub_0161ecb0(AttackSearchPos, AttackSearchRadius, AttackCheckPos, NeedsReachCheck, bAllowedToAttackFlooredEnemies);
 }

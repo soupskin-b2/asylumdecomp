@@ -1,4 +1,4 @@
-// Engine_0560000.cpp (part 1 of 2): 190 functions
+// Engine_0560000.cpp (part 1 of 2): 191 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1596,4 +1596,14 @@ int C_0056f600::sub_0056f600(int param_2)
     int * param_1 = (int *)this;
 
   return param_2 * 0x10 + *param_1;
+}
+
+struct Sub005663c0 {
+    unsigned int sub_005663c0(unsigned int Mask);
+};
+
+// @baa 0x005663c0
+unsigned int Sub005663c0::sub_005663c0(unsigned int Mask)
+{
+    return (*(unsigned int*)((char*)this + 0xdc) & Mask) == Mask;
 }

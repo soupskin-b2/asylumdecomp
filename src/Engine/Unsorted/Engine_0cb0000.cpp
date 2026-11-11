@@ -1,4 +1,4 @@
-// Engine_0cb0000.cpp (part 1 of 4): 220 functions
+// Engine_0cb0000.cpp (part 1 of 4): 221 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1763,4 +1763,12 @@ uint C_00cbf880::sub_00cbf880(void)
     uint param_1 = (uint)this;
 
   return *(uint *)(param_1 + 0x40) | -(uint)(*(uint *)(param_1 + 0x40) == 0) & param_1;
+}
+
+extern void sub_00630f20(void* p, const wchar_t* fmt, const wchar_t* name);
+extern void* g_026667a8;
+// @baa 0x00cb5aa0
+void UClient::AllowMessageProcessing(INT)
+{
+	sub_00630f20(g_026667a8, L"Pure virtual not implemented (%s)", L"UClient::AllowMessageProcessing");
 }

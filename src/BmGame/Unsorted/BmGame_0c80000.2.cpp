@@ -1,4 +1,4 @@
-// BmGame_0c80000.cpp: 7 functions
+// BmGame_0c80000.cpp: 15 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -81,4 +81,60 @@ void APlayerController__00c87630::execClientFlushLevelStreaming( FFrame& Stack, 
 {
 	P_FINISH;
 	ClientFlushLevelStreaming();
+}
+
+// @baa 0x00c830e0
+void AActor::execIsPlayerOwned(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_140();
+}
+
+// @baa 0x00c83fa0
+void APlayerController::execIsLocalPlayerController(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_354();
+}
+
+// @baa 0x00c87080
+void APlayerController::execIsKeyboardAvailable(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_430();
+}
+
+// @baa 0x00c82f90
+void AWorldInfo::execGetGravityZ(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(FLOAT*)Result = vf_138();
+}
+
+// @baa 0x00c83120
+void ATeamInfo::execGetTeamNum(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(BYTE*)Result = vf_144();
+}
+
+// @baa 0x00c870c0
+void APlayerController::execIsMouseAvailable(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_434();
+}
+
+// @baa 0x00c87430
+void APlayerController::execGetViewTarget(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(AActor**)Result = (AActor*)vf_3b8();
+}
+
+// @baa 0x00c877d0
+void APlayerController::execIsShowingSubtitles(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_448();
 }

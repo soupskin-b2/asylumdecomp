@@ -1,4 +1,4 @@
-// Engine_0c80000.cpp: 20 functions
+// Engine_0c80000.cpp: 23 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -217,4 +217,25 @@ void APortalTeleporter::execCreatePortalTexture(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
 	*(UTextureRenderTarget2D**)Result = ((APortalTeleporter_*)this)->sub_008c5cb0();
+}
+
+// @baa 0x00c87e50
+void UReachSpec::execIsOneWay(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_110();
+}
+
+// @baa 0x00c8c4b0
+void UCameraModifier::execIsDisabled(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_110();
+}
+
+// @baa 0x00c8cb50
+void UFont::execGetMaxCharHeight(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(FLOAT*)Result = vf_118();
 }

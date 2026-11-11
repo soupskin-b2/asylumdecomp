@@ -1,4 +1,4 @@
-// UnPhysComponent.cpp: 2 functions
+// UnPhysComponent.cpp: 3 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -28,4 +28,11 @@ void USkeletalMeshComponent__00a21f20::execUpdateMeshForBrokenConstraints( FFram
 {
 	P_FINISH;
 	UpdateMeshForBrokenConstraints();
+}
+
+// @baa 0x009fe2a0
+void UPrimitiveComponent::execGetRootBodyInstance(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(URB_BodyInstance**)Result = (URB_BodyInstance*)vf_1d8();
 }

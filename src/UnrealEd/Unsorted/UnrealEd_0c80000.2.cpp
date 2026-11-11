@@ -1,4 +1,4 @@
-// UnrealEd_0c80000.cpp (part 2 of 2): 2 functions
+// UnrealEd_0c80000.cpp (part 2 of 2): 4 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -22,4 +22,18 @@ void AActor_::execFlushPersistentDebugLines( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	FlushPersistentDebugLines();
+}
+
+// @baa 0x00c814d0
+void AActor::execGetTerminalVelocity(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(FLOAT*)Result = vf_11c();
+}
+
+// @baa 0x00c81610
+void AActor::execGetBaseMost(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(AActor**)Result = (AActor*)vf_128();
 }

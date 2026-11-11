@@ -1,4 +1,4 @@
-// Engine_06d0000.cpp: 6 functions
+// Engine_06d0000.cpp: 7 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -54,4 +54,11 @@ void UPrimitiveComponent::execSetShadowParent(FFrame& Stack, RESULT_DECL)
 	P_FINISH;
 
 	vf_234((UINT)NewShadowParent);
+}
+
+// @baa 0x006d92d0
+void UMaterialInterface::execGetPhysicalMaterial(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UPhysicalMaterial**)Result = (UPhysicalMaterial*)GetPhysicalMaterial();
 }

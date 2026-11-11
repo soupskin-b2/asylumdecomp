@@ -1,4 +1,4 @@
-// UOnlineProfileSettings.cpp: 4 functions
+// UOnlineProfileSettings.cpp: 5 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -30,4 +30,11 @@ void UOnlineProfileSettings::execSetDefaultVersionNumber( FFrame& Stack, RESULT_
 {
 	P_FINISH;
 	vf_164();
+}
+
+// @baa 0x00c8e4b0
+void UOnlineProfileSettings::execGetVersionNumber(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(INT*)Result = vf_160();
 }

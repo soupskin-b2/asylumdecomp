@@ -1,4 +1,4 @@
-// Core_05c0000.cpp (part 3 of 3): 2 functions
+// Core_05c0000.cpp (part 3 of 3): 3 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -15,4 +15,18 @@ wchar_t * sub_005c2dc0(wchar_t * param_1, wchar_t * param_2)
 {
   wcscpy_s(param_1,0x40,param_2);
   return param_1;
+}
+
+struct S
+{
+    char Pad[0xd8];
+    unsigned Flags;
+
+    int sub_005c3310(unsigned Mask);
+};
+
+// @baa 0x005c3310
+int S::sub_005c3310(unsigned Mask)
+{
+    return (Flags & Mask) == Mask;
 }

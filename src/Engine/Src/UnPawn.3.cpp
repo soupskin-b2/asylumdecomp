@@ -1,4 +1,4 @@
-// UnPawn.cpp: 10 functions
+// UnPawn.cpp: 16 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -110,4 +110,46 @@ void APawn::execAddPathConstraint(FFrame& Stack, RESULT_DECL)
 	P_FINISH;
 
 	vf_3a4((INT)Constraint);
+}
+
+// @baa 0x00c8aba0
+void APawn::execIsInvisible(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_368();
+}
+
+// @baa 0x00c8afe0
+void APawn::execReachedDesiredRotation(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_388();
+}
+
+// @baa 0x00c8b020
+void APawn::execInitRagdoll(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_38c();
+}
+
+// @baa 0x00c8b060
+void APawn::execTermRagdoll(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_390();
+}
+
+// @baa 0x00c8b120
+void APawn::execIsPlayerPawn(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_160();
+}
+
+// @baa 0x00c8b220
+void APawn::execGetVehicleBase(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(AVehicle**)Result = (AVehicle*)vf_39c();
 }

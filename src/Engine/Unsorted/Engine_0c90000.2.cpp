@@ -1,4 +1,4 @@
-// Engine_0c90000.cpp: 11 functions
+// Engine_0c90000.cpp: 15 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -84,4 +84,34 @@ void UAnimNodeCrossfader::execGetActiveChild(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
 	*(UAnimNodeSequence**)Result = ((UAnimNodeCrossfader_*)this)->sub_00c7a590();
+}
+
+// @baa 0x00c9b9a0
+void UMaterialInstanceTimeVarying::execGetMaxDurationFromAllParameters(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(FLOAT*)Result = vf_198();
+}
+
+// @baa 0x00c9f410
+void UFracturedStaticMeshComponent::execGetCoreFragmentIndex(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(INT*)Result = vf_2b0();
+}
+
+// @baa 0x00c9f9b0
+void AFracturedStaticMeshActor::execGetFracturedMeshPhysMaterial(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UPhysicalMaterial**)Result = (UPhysicalMaterial*)vf_360();
+}
+
+typedef UBOOL (__thiscall* FSlot)(void*);
+
+// @baa 0x00c9fb30
+void AFracturedStaticMeshActor::execSpawnDeferredParts(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = ((FSlot)(*(void***)this)[0x378 / 4])(this);
 }

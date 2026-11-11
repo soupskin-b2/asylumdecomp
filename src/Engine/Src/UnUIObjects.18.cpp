@@ -1,4 +1,4 @@
-// UnUIObjects.cpp: 28 functions
+// UnUIObjects.cpp: 30 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -317,4 +317,18 @@ void UUIScene::execGetWorldInfo(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
 	*(AWorldInfo**)Result = ((UUIScene__00ca69c0*)this)->sub_00da9a10();
+}
+
+// @baa 0x00ca3a30
+void UUIScreenObject::execRebuildNavigationLinks(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_120();
+}
+
+// @baa 0x00da9a70
+void UUIScene::execGetScenePostProcessGroup(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(BYTE*)Result = vf_1f8();
 }

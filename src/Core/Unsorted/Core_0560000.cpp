@@ -1,4 +1,4 @@
-// Core_0560000.cpp (part 1 of 3): 182 functions
+// Core_0560000.cpp (part 1 of 3): 183 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1652,4 +1652,17 @@ void UField::Serialize( FArchive& Ar )
 {
 	Super::Serialize( Ar );
 	Ar << SuperField << Next;
+}
+
+struct UClass_ : public UClass
+{
+    void sub_005f2bf0(UField* UField::* Field);
+};
+
+// @baa 0x00567f30
+void UField::StaticConstructor()
+{
+    UClass* C = Class;
+    ((UClass_*)C)->sub_005f2bf0(&UField::SuperField);
+    ((UClass_*)C)->sub_005f2bf0(&UField::Next);
 }

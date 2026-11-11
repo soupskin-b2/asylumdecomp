@@ -1,4 +1,4 @@
-// UnParticleComponents.cpp: 9 functions
+// UnParticleComponents.cpp: 12 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -114,4 +114,25 @@ void UParticleSystemComponent__00c9e4f0::execResetToDefaults( FFrame& Stack, RES
 {
 	P_FINISH;
 	ResetToDefaults();
+}
+
+// @baa 0x00c9cb80
+void UParticleSystem::execGetCurrentLODMethod(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(BYTE*)Result = vf_10c();
+}
+
+// @baa 0x00c9cbc0
+void UParticleSystem::execGetLODLevelCount(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(INT*)Result = vf_110();
+}
+
+// @baa 0x00c9deb0
+void UParticleSystemComponent::execGetSpawnScale(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(FLOAT*)Result = vf_290();
 }

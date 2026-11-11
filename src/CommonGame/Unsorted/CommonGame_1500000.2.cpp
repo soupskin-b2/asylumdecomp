@@ -1,4 +1,4 @@
-// CommonGame_1500000.cpp (part 2 of 3): 24 functions
+// CommonGame_1500000.cpp (part 2 of 3): 27 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -177,4 +177,25 @@ void URReachSpec::execAddBlocker(FFrame& Stack, RESULT_DECL)
 	P_FINISH;
 
 	vf_13c((INT)NewBlocker);
+}
+
+// @baa 0x0150bac0
+void ARGameInfoBase::execGetEngine(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UEngine**)Result = (UEngine*)vf_37c();
+}
+
+// @baa 0x0150bc00
+void ARGIChallenge::execGetChapterNumber(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(INT*)Result = vf_388();
+}
+
+// @baa 0x0150bc80
+void ARGameInfoBase::execDebugSoundEmitters(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_3a8();
 }
