@@ -54638,7 +54638,7 @@ struct ARPlayerController : public ARPlayerControllerBase {
     virtual void vf_55c(); /* 0x55c */
     virtual INT vf_560(); /* 0x560 */
     virtual INT vf_564(INT); /* 0x564 */
-    virtual INT vf_568(INT); /* 0x568 */
+    virtual INT vf_568(BYTE); /* 0x568 */
     virtual bool vf_56c(); /* 0x56c */
     virtual INT vf_570(INT); /* 0x570 */
     virtual INT vf_574(); /* 0x574 */
