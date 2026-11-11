@@ -1,4 +1,4 @@
-// Engine_0750000.cpp (part 3 of 4): 5 functions
+// Engine_0750000.cpp (part 3 of 4): 6 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -76,4 +76,14 @@ UBOOL APhysicsVolume::ShouldTrace( UPrimitiveComponent* Primitive, AActor* Sourc
 		return FALSE;
 	}
 	return TRUE;
+}
+
+struct AActor_ : public AActor {
+    FVector GetTargetLocation(AActor* RequestedBy, bool bRequestAlternateLocation);
+};
+
+// @baa 0x00758b20
+FVector AActor_::GetTargetLocation(AActor* RequestedBy, bool bRequestAlternateLocation)
+{
+    return Location;
 }

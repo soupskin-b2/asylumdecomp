@@ -1,4 +1,4 @@
-// TextureFlipbook.cpp: 15 functions
+// TextureFlipbook.cpp: 16 functions
 // Placed here by: class 12, callers 1, neighbours 1, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -214,3 +214,17 @@ undefined4 UTextureFlipBook::sub_0076eb40(byte param_2)
 
 // @baa 0x007713c0
 // @baa 0x007713d0
+
+struct UTextureFlipBook_ : public UTextureFlipBook
+{
+	void sub_0076ea70(FLOAT *Out);
+};
+
+// @baa 0x0076ea70
+void UTextureFlipBook_::sub_0076ea70(FLOAT *Out)
+{
+	FLOAT X = HorizontalScale;
+	*Out = X;
+	FLOAT Y = VerticalScale;
+	Out[1] = Y;
+}

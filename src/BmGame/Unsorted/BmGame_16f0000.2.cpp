@@ -1,4 +1,4 @@
-// BmGame_16f0000.cpp: 25 functions
+// BmGame_16f0000.cpp: 40 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -231,4 +231,111 @@ void URBMRouterPath::execClearPath(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
 	vf_130();
+}
+
+typedef UBOOL (__thiscall* FSlot)(void*);
+
+// @baa 0x016f00c0
+void ARPawn::execIsSafe(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = ((FSlot)(*(void***)this)[0x478 / 4])(this);
+}
+
+// @baa 0x016f0100
+void ARPawn::execGetSafePoint(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(AActor**)Result = (AActor*)vf_47c();
+}
+
+// @baa 0x016f0330
+void ARPawn::execIsIncapacitated(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_48c();
+}
+
+// @baa 0x016f3b30
+void ARPawnCharacter::execIsPoseMirrored(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_52c();
+}
+
+// @baa 0x016f3b70
+void ARPawnCharacter::execIsInWeaponTransition(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_530();
+}
+
+// @baa 0x016f46b0
+void ARPawnCharacter::execIsPlayingAnyOverlay(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_570();
+}
+
+// @baa 0x016f5610
+void ARPawnCharacter::execIsFalling(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_5f4();
+}
+
+// @baa 0x016f5650
+void ARPawnCharacter::execIsFallingOrLanding(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_5f8();
+}
+
+// @baa 0x016f5700
+void ARPawnCharacter::execGetMoveToPhase(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(BYTE*)Result = vf_604();
+}
+
+// @baa 0x016f5740
+void ARPawnCharacter::execGetMoveToPhaseTime(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(FLOAT*)Result = vf_608();
+}
+
+// @baa 0x016f5af0
+void ARPawnCombat::execGetNormalisedTimeThroughCurrentTransition(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(FLOAT*)Result = vf_618();
+}
+
+// @baa 0x016f5d90
+void ARPawnCombat::execIsUsingCombatPoint(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_624();
+}
+
+// @baa 0x016f5dd0
+void ARPawnCombat::execIsLunatic(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_628();
+}
+
+// @baa 0x016f61b0
+void ARBMPawnAIAnim::execCanBeSeenByBatsForXray(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_648();
+}
+
+// @baa 0x016f7840
+void ARCombatMove_BatmanStrike::execSetStrikeInfo(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = ((FSlot)(*(void***)this)[0x358 / 4])(this);
 }

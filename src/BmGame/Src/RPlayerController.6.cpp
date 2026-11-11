@@ -1,4 +1,4 @@
-// RPlayerController.cpp (part 6 of 6): 34 functions
+// RPlayerController.cpp (part 6 of 6): 83 functions
 // Placed here by: class 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -352,4 +352,349 @@ void ARPlayerController::execFindStealthAttackTargetNative(FFrame& Stack, RESULT
     P_GET_UBOOL(bAllowedToAttackFlooredEnemies);
     P_FINISH;
     *(ARPawnVillain**)Result = static_cast<RPlayerControllerNative_016f8c60*>(this)->sub_0161ecb0(AttackSearchPos, AttackSearchRadius, AttackCheckPos, NeedsReachCheck, bAllowedToAttackFlooredEnemies);
+}
+
+// @baa 0x016f7f50
+void ARPlayerController::execOwnerIsInEndStateCall(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_480();
+}
+
+// @baa 0x016f7f90
+void ARPlayerController::execIsAutoJezActive(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_484();
+}
+
+// @baa 0x016f8010
+void ARPlayerController::execLoadDebugSphere(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UStaticMesh**)Result = (UStaticMesh*)vf_48c();
+}
+
+// @baa 0x016f8090
+void ARPlayerController::execIsMovieCapturingInput(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_494();
+}
+
+// @baa 0x016f8190
+void ARPlayerController::execIsJokerDLCPresent(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_4a4();
+}
+
+// @baa 0x016f81d0
+void ARPlayerController::execIsArmouredBatmanDLCPresent(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_4a8();
+}
+
+// @baa 0x016f8240
+void ARPlayerController::execGetSelectedMovementState(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(BYTE*)Result = vf_4b0();
+}
+
+// @baa 0x016f83c0
+void ARPlayerController::execGetSaveGameManager(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(URSaveGameManager**)Result = (URSaveGameManager*)vf_4c0();
+}
+
+// @baa 0x016f8400
+void ARPlayerController::execSaveGameOptionsToMemory(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_4cc();
+}
+
+// @baa 0x016f85b0
+void ARPlayerController::execIsMetricsEnabled(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_4dc();
+}
+
+// @baa 0x016f8670
+void ARPlayerController::execIsMetricsPopupEnabled(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_4e4();
+}
+
+// @baa 0x016f8730
+void ARPlayerController::execIsEidosMetricsEnabled(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_4f4();
+}
+
+// @baa 0x016f87b0
+void ARPlayerController::execAmbientGetStartTime(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(FLOAT*)Result = vf_50c();
+}
+
+// @baa 0x016f87f0
+void ARPlayerController::execAmbientGetEndTime(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(FLOAT*)Result = vf_510();
+}
+
+typedef UBOOL (__thiscall* FSlot)(void*);
+
+// @baa 0x016f99f0
+void ARPlayerController::execAutoJezStartupCheck(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = ((FSlot)(*(void***)this)[0x544 / 4])(this);
+}
+
+// @baa 0x016f9ab0
+void ARPlayerController::execAutoJezIsRoomLoaded(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_558();
+}
+
+// @baa 0x016f9b30
+void ARPlayerController::execLive_IsRequestOnline(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_560();
+}
+
+// @baa 0x016f9c60
+void ARPlayerController::execLive_IsLoginStatusError(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(BYTE*)Result = vf_56c();
+}
+
+// @baa 0x016f9d20
+void ARPlayerController::execLive_IsStorageSelectPending(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_574();
+}
+
+// @baa 0x016f9fd0
+void ARPlayerController::execLive_SlotWasSelected(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = ((FSlot)(*(void***)this)[0x598 / 4])(this);
+}
+
+// @baa 0x016fa010
+void ARPlayerController::execLive_IsSavingEnabled(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_59c();
+}
+
+// @baa 0x016fa090
+void ARPlayerController::execGetActiveSaveDevice(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(INT*)Result = vf_5ac();
+}
+
+// @baa 0x016fa1b0
+void ARPlayerController::execLive_GetActiveSaveID(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(INT*)Result = vf_5bc();
+}
+
+// @baa 0x016fa460
+void ARPlayerController::execLive_IsPS3AndUsingFastLoad(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_5dc();
+}
+
+// @baa 0x016fa610
+void ARPlayerController::execFE_GetActiveDLCPack(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(INT*)Result = vf_610();
+}
+
+// @baa 0x016fa6d0
+void ARPlayerController::execFE_IsBufferDLCRemovalSet(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_618();
+}
+
+// @baa 0x016fa750
+void ARPlayerController::execFE_AreNotifiesBlocked(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_620();
+}
+
+// @baa 0x016fa810
+void ARPlayerController::execFE_IsDLCScanningActive(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_628();
+}
+
+// @baa 0x016fa8d0
+void ARPlayerController::execFE_IsDLCScanning(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_630();
+}
+
+// @baa 0x016fa990
+void ARPlayerController::execFE_IsDLCRescanPending(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_638();
+}
+
+// @baa 0x016faa50
+void ARPlayerController::execFE_IsFrontendSaveSet(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_640();
+}
+
+// @baa 0x016faa90
+void ARPlayerController::execIsXbox(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_644();
+}
+
+// @baa 0x016faad0
+void ARPlayerController::execIsDebugFrontendAvailable(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_648();
+}
+
+// @baa 0x016fab10
+void ARPlayerController::execIsPlayingFullScreenMovie(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_64c();
+}
+
+// @baa 0x016fab50
+void ARPlayerController::execIsLevelLoadSpecified(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_650();
+}
+
+// @baa 0x016fabd0
+void ARPlayerController::execIsGamepadConnected(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_670();
+}
+
+// @baa 0x016facd0
+void ARPlayerController::execIsCurrentlyLoadingLevels(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_67c();
+}
+
+// @baa 0x016fad10
+void ARPlayerController::execIsAmerican(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_680();
+}
+
+// @baa 0x016fad90
+void ARPlayerController::execIsWritingStats(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = ((FSlot)(*(void***)this)[0x688 / 4])(this);
+}
+
+// @baa 0x016fadd0
+void ARPlayerController::execIsCircleToAccept(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_68c();
+}
+
+// @baa 0x016fae10
+void ARPlayerController::execIsPS3_4x3(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_690();
+}
+
+// @baa 0x016fae50
+void ARPlayerController::execIsPS3_480i(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_694();
+}
+
+// @baa 0x016fae90
+void ARPlayerController::execGetSaveGameState(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(INT*)Result = vf_698();
+}
+
+// @baa 0x016faed0
+void ARPlayerController::execFE_GetGamma(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(FLOAT*)Result = vf_6a8();
+}
+
+// @baa 0x016faf80
+void ARPlayerController::execFE_GetRender3D(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(FLOAT*)Result = vf_6b0();
+}
+
+// @baa 0x016fafc0
+void ARPlayerController::execFE_GetRender3DFromEngine(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_6b4();
+}
+
+// @baa 0x016fb070
+void ARPlayerController::execFE_GetEngineGamma(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(FLOAT*)Result = vf_6bc();
+}
+
+// @baa 0x016fb0b0
+void ARPlayerController::execFE_GetVolumeSFX(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(FLOAT*)Result = vf_6c0();
+}
+
+// @baa 0x016fb160
+void ARPlayerController::execFE_GetVolumeDialogue(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(FLOAT*)Result = vf_6c8();
 }

@@ -3,7 +3,7 @@
  "totals": {
   "units": 1429,
   "files": 3797,
-  "functions": 96247,
+  "functions": 96329,
   "failed": 0
  },
  "units": [
@@ -15129,6 +15129,251 @@
      "va": "016f8c60",
      "size": 328,
      "symbol": "?execFindStealthAttackTargetNative@ARPlayerController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016f7f50",
+     "size": 59,
+     "symbol": "?execOwnerIsInEndStateCall@ARPlayerController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016f7f90",
+     "size": 59,
+     "symbol": "?execIsAutoJezActive@ARPlayerController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016f8010",
+     "size": 59,
+     "symbol": "?execLoadDebugSphere@ARPlayerController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016f8090",
+     "size": 59,
+     "symbol": "?execIsMovieCapturingInput@ARPlayerController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016f8190",
+     "size": 59,
+     "symbol": "?execIsJokerDLCPresent@ARPlayerController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016f81d0",
+     "size": 59,
+     "symbol": "?execIsArmouredBatmanDLCPresent@ARPlayerController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016f8240",
+     "size": 59,
+     "symbol": "?execGetSelectedMovementState@ARPlayerController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016f83c0",
+     "size": 59,
+     "symbol": "?execGetSaveGameManager@ARPlayerController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016f8400",
+     "size": 59,
+     "symbol": "?execSaveGameOptionsToMemory@ARPlayerController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016f85b0",
+     "size": 59,
+     "symbol": "?execIsMetricsEnabled@ARPlayerController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016f8670",
+     "size": 59,
+     "symbol": "?execIsMetricsPopupEnabled@ARPlayerController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016f8730",
+     "size": 59,
+     "symbol": "?execIsEidosMetricsEnabled@ARPlayerController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016f87b0",
+     "size": 59,
+     "symbol": "?execAmbientGetStartTime@ARPlayerController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016f87f0",
+     "size": 59,
+     "symbol": "?execAmbientGetEndTime@ARPlayerController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016f99f0",
+     "size": 59,
+     "symbol": "?execAutoJezStartupCheck@ARPlayerController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016f9ab0",
+     "size": 59,
+     "symbol": "?execAutoJezIsRoomLoaded@ARPlayerController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016f9b30",
+     "size": 59,
+     "symbol": "?execLive_IsRequestOnline@ARPlayerController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016f9c60",
+     "size": 59,
+     "symbol": "?execLive_IsLoginStatusError@ARPlayerController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016f9d20",
+     "size": 59,
+     "symbol": "?execLive_IsStorageSelectPending@ARPlayerController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016f9fd0",
+     "size": 59,
+     "symbol": "?execLive_SlotWasSelected@ARPlayerController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016fa010",
+     "size": 59,
+     "symbol": "?execLive_IsSavingEnabled@ARPlayerController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016fa090",
+     "size": 59,
+     "symbol": "?execGetActiveSaveDevice@ARPlayerController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016fa1b0",
+     "size": 59,
+     "symbol": "?execLive_GetActiveSaveID@ARPlayerController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016fa460",
+     "size": 59,
+     "symbol": "?execLive_IsPS3AndUsingFastLoad@ARPlayerController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016fa610",
+     "size": 59,
+     "symbol": "?execFE_GetActiveDLCPack@ARPlayerController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016fa6d0",
+     "size": 59,
+     "symbol": "?execFE_IsBufferDLCRemovalSet@ARPlayerController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016fa750",
+     "size": 59,
+     "symbol": "?execFE_AreNotifiesBlocked@ARPlayerController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016fa810",
+     "size": 59,
+     "symbol": "?execFE_IsDLCScanningActive@ARPlayerController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016fa8d0",
+     "size": 59,
+     "symbol": "?execFE_IsDLCScanning@ARPlayerController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016fa990",
+     "size": 59,
+     "symbol": "?execFE_IsDLCRescanPending@ARPlayerController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016faa50",
+     "size": 59,
+     "symbol": "?execFE_IsFrontendSaveSet@ARPlayerController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016faa90",
+     "size": 59,
+     "symbol": "?execIsXbox@ARPlayerController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016faad0",
+     "size": 59,
+     "symbol": "?execIsDebugFrontendAvailable@ARPlayerController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016fab10",
+     "size": 59,
+     "symbol": "?execIsPlayingFullScreenMovie@ARPlayerController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016fab50",
+     "size": 59,
+     "symbol": "?execIsLevelLoadSpecified@ARPlayerController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016fabd0",
+     "size": 59,
+     "symbol": "?execIsGamepadConnected@ARPlayerController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016facd0",
+     "size": 59,
+     "symbol": "?execIsCurrentlyLoadingLevels@ARPlayerController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016fad10",
+     "size": 59,
+     "symbol": "?execIsAmerican@ARPlayerController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016fad90",
+     "size": 59,
+     "symbol": "?execIsWritingStats@ARPlayerController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016fadd0",
+     "size": 59,
+     "symbol": "?execIsCircleToAccept@ARPlayerController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016fae10",
+     "size": 59,
+     "symbol": "?execIsPS3_4x3@ARPlayerController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016fae50",
+     "size": 59,
+     "symbol": "?execIsPS3_480i@ARPlayerController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016fae90",
+     "size": 59,
+     "symbol": "?execGetSaveGameState@ARPlayerController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016faed0",
+     "size": 59,
+     "symbol": "?execFE_GetGamma@ARPlayerController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016faf80",
+     "size": 59,
+     "symbol": "?execFE_GetRender3D@ARPlayerController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016fafc0",
+     "size": 59,
+     "symbol": "?execFE_GetRender3DFromEngine@ARPlayerController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016fb070",
+     "size": 59,
+     "symbol": "?execFE_GetEngineGamma@ARPlayerController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016fb0b0",
+     "size": 59,
+     "symbol": "?execFE_GetVolumeSFX@ARPlayerController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016fb160",
+     "size": 59,
+     "symbol": "?execFE_GetVolumeDialogue@ARPlayerController@@QAEXAAUFFrame@@QAX@Z"
     }
    ]
   },
@@ -45700,6 +45945,36 @@
      "va": "016e9970",
      "size": 59,
      "symbol": "?execGetVolume@ARFadeManager@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016e99b0",
+     "size": 59,
+     "symbol": "?execIsCapturingMovie@ARFadeManager@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016e9a20",
+     "size": 59,
+     "symbol": "?execInitBarkSet@ARJokerTannoy@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016e9db0",
+     "size": 59,
+     "symbol": "?execAnimationPlaying@ARPontoonBase@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016eb4e0",
+     "size": 59,
+     "symbol": "?execWasSkipped@URSeqAct_FullScreenPlayer@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016eb520",
+     "size": 59,
+     "symbol": "?execIsPaused@URSeqAct_FullScreenPlayer@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016eb560",
+     "size": 59,
+     "symbol": "?execCheckForFinish@URSeqAct_FullScreenPlayer@@QAEXAAUFFrame@@QAX@Z"
     }
    ]
   },
@@ -46759,6 +47034,81 @@
      "va": "016fee30",
      "size": 53,
      "symbol": "?execClearPath@URBMRouterPath@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016f00c0",
+     "size": 59,
+     "symbol": "?execIsSafe@ARPawn@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016f0100",
+     "size": 59,
+     "symbol": "?execGetSafePoint@ARPawn@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016f0330",
+     "size": 59,
+     "symbol": "?execIsIncapacitated@ARPawn@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016f3b30",
+     "size": 59,
+     "symbol": "?execIsPoseMirrored@ARPawnCharacter@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016f3b70",
+     "size": 59,
+     "symbol": "?execIsInWeaponTransition@ARPawnCharacter@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016f46b0",
+     "size": 59,
+     "symbol": "?execIsPlayingAnyOverlay@ARPawnCharacter@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016f5610",
+     "size": 59,
+     "symbol": "?execIsFalling@ARPawnCharacter@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016f5650",
+     "size": 59,
+     "symbol": "?execIsFallingOrLanding@ARPawnCharacter@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016f5700",
+     "size": 59,
+     "symbol": "?execGetMoveToPhase@ARPawnCharacter@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016f5740",
+     "size": 59,
+     "symbol": "?execGetMoveToPhaseTime@ARPawnCharacter@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016f5af0",
+     "size": 59,
+     "symbol": "?execGetNormalisedTimeThroughCurrentTransition@ARPawnCombat@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016f5d90",
+     "size": 59,
+     "symbol": "?execIsUsingCombatPoint@ARPawnCombat@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016f5dd0",
+     "size": 59,
+     "symbol": "?execIsLunatic@ARPawnCombat@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016f61b0",
+     "size": 59,
+     "symbol": "?execCanBeSeenByBatsForXray@ARBMPawnAIAnim@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016f7840",
+     "size": 59,
+     "symbol": "?execSetStrikeInfo@ARCombatMove_BatmanStrike@@QAEXAAUFFrame@@QAX@Z"
     }
    ]
   },
@@ -47333,6 +47683,11 @@
      "va": "0170ab50",
      "size": 53,
      "symbol": "?execUpdateLineLaunchVolume@ARPawnBossCrocBase@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "01703e70",
+     "size": 53,
+     "symbol": "?execCheckTeethSound@ARChatteringTeeth@@QAEXAAUFFrame@@QAX@Z"
     }
    ]
   },
@@ -166809,6 +167164,11 @@
      "va": "007713d0",
      "size": 185,
      "symbol": "?GetPrivateStaticClassUTextureFlipBook@UTextureFlipBook@@SAPAUUClass@@PB_W@Z"
+    },
+    {
+     "va": "0076ea70",
+     "size": 24,
+     "symbol": "?sub_0076ea70@UTextureFlipBook_@@QAEXPAM@Z"
     }
    ]
   },
@@ -195568,6 +195928,11 @@
      "va": "008886a0",
      "size": 62,
      "symbol": "?sub_008886a0@UObject_@@QAEMXZ"
+    },
+    {
+     "va": "00889a60",
+     "size": 24,
+     "symbol": "?sub_00889a60@URCapeStateBoneConfig_@@QAEXH@Z"
     }
    ]
   },
@@ -206181,6 +206546,11 @@
      "va": "0091f670",
      "size": 311,
      "symbol": "?execSetFaceFXRegister@USkeletalMeshComponent@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "0090f390",
+     "size": 59,
+     "symbol": "?execGetUseSimpleLineCollision@USkeletalMeshComponent@@QAEXAAUFFrame@@QAX@Z"
     }
    ]
   },
@@ -228607,6 +228977,11 @@
      "va": "0064e9e0",
      "size": 18,
      "symbol": "?vf_000@ADecalManager@@UAEHXZ"
+    },
+    {
+     "va": "0064b6c0",
+     "size": 24,
+     "symbol": "?sub_0064b6c0@S_0064b6c0@@QAE?AUS_0064b6f0@1@XZ"
     }
    ]
   },
@@ -229896,6 +230271,16 @@
      "va": "00650100",
      "size": 6,
      "symbol": "?GetLightType@UDirectionalLightComponent@@QAEHXZ"
+    },
+    {
+     "va": "00651400",
+     "size": 24,
+     "symbol": "?sub_00651400@Node@@QAEPAU1@PAU1@0@Z"
+    },
+    {
+     "va": "006568c0",
+     "size": 24,
+     "symbol": "?sub_006568c0@C_006568c0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -236924,6 +237309,16 @@
      "va": "006977a0",
      "size": 52,
      "symbol": "?vf_004@AFileLog@@UAE_NXZ"
+    },
+    {
+     "va": "0069bb90",
+     "size": 24,
+     "symbol": "?sub_0069bb90@UDecalComponent_@@QAEXI@Z"
+    },
+    {
+     "va": "0069be30",
+     "size": 24,
+     "symbol": "?sub_0069be30@C_0069be30@@QAE?AUF3_0069be30@@XZ"
     }
    ]
   },
@@ -242345,6 +242740,16 @@
      "va": "006db600",
      "size": 47,
      "symbol": "?Serialize@UPrimitiveComponent@@UAEXAAVFArchive@@@Z"
+    },
+    {
+     "va": "006db520",
+     "size": 24,
+     "symbol": "?sub_006db520@UPrimitiveComponent_@@UAEXPBUFMatrix@@@Z"
+    },
+    {
+     "va": "006da930",
+     "size": 24,
+     "symbol": "?sub_006da930@UPointLightComponent_@@QAEXPBUFMatrix@@@Z"
     }
    ]
   },
@@ -251880,6 +252285,11 @@
      "va": "00758890",
      "size": 42,
      "symbol": "?ShouldTrace@APhysicsVolume@@UAEHPAUUPrimitiveComponent@@PAUAActor@@K@Z"
+    },
+    {
+     "va": "00758b20",
+     "size": 24,
+     "symbol": "?GetTargetLocation@AActor_@@QAE?AUFVector@@PAUAActor@@_N@Z"
     }
    ]
   },

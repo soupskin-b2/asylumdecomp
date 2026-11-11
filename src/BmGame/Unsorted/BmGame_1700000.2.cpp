@@ -1,4 +1,4 @@
-// BmGame_1700000.cpp: 44 functions
+// BmGame_1700000.cpp: 45 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -382,4 +382,11 @@ void ARPawnBossCrocBase::execUpdateLineLaunchVolume(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
 	vf_660();
+}
+
+// @baa 0x01703e70
+void ARChatteringTeeth::execCheckTeethSound(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	vf_478();
 }

@@ -1,4 +1,4 @@
-// UnPlayer.cpp (part 1 of 3): 102 functions
+// UnPlayer.cpp (part 1 of 3): 103 functions
 // Placed here by: neighbours 67, class 23, callers 7, file 4.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -964,4 +964,22 @@ FLOAT UObject_::sub_008886a0()
     Parms.ReturnValue = 0;
     ProcessEvent(FindFunctionChecked(g_026c3e5c), &Parms);
     return Parms.ReturnValue;
+}
+
+struct C_00e6fba0_T
+{
+    void sub_00e5f880();
+};
+
+C_00e6fba0_T* sub_00e6fba0();
+struct URCapeStateBoneConfig_ : public URCapeStateBoneConfig
+{
+    void sub_00889a60(int Param);
+};
+
+// @baa 0x00889a60
+void URCapeStateBoneConfig_::sub_00889a60(int Param)
+{
+    if (sub_00e6fba0() != 0)
+        sub_00e6fba0()->sub_00e5f880();
 }

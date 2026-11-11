@@ -1,4 +1,4 @@
-// Engine_06d0000.cpp (part 1 of 4): 333 functions
+// Engine_06d0000.cpp (part 1 of 4): 335 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -2502,4 +2502,25 @@ void UPrimitiveComponent::Serialize( FArchive& Ar )
 	{
 		Ar << BodyInstance;
 	}
+}
+
+struct UPrimitiveComponent_ : public UPrimitiveComponent {
+    virtual void sub_006db520(const FMatrix* ParentToWorld);
+};
+
+// @baa 0x006db520
+void UPrimitiveComponent_::sub_006db520(const FMatrix* ParentToWorld)
+{
+    CachedParentToWorld = *ParentToWorld;
+}
+
+struct UPointLightComponent_ : public UPointLightComponent
+{
+    void sub_006da930(const FMatrix* In);
+};
+
+// @baa 0x006da930
+void UPointLightComponent_::sub_006da930(const FMatrix* In)
+{
+    CachedParentToWorld = *In;
 }

@@ -2,19 +2,19 @@
  "updated": "2026-11-11",
  "functions": {
   "total": 174153,
-  "matched": 96247
+  "matched": 96329
  },
  "bytes": {
   "total": 24308134,
-  "matched": 3550008
+  "matched": 3554490
  },
  "areas": [
   {
    "name": "Engine",
    "functions": 69863,
    "bytes": 9201956,
-   "matched": 40488,
-   "matched_bytes": 1622235
+   "matched": 40499,
+   "matched_bytes": 1622534
   },
   {
    "name": "Editor",
@@ -34,8 +34,8 @@
    "name": "Game",
    "functions": 13563,
    "bytes": 1853804,
-   "matched": 8877,
-   "matched_bytes": 496437
+   "matched": 8948,
+   "matched_bytes": 500620
   },
   {
    "name": "Core",
@@ -97,21 +97,22 @@
  "contributors": [
   {
    "login": "soupskin-b2",
-   "functions": 96247,
-   "bytes": 3550008,
+   "functions": 96329,
+   "bytes": 3554490,
    "models": {
     "tooling": 94456,
-    "qwen3.8-27b": 952,
+    "qwen3.8-27b": 958,
     "not specified": 338,
-    "deepseek-v4.1-flash": 243,
+    "deepseek-v4.1-flash": 315,
     "claude-opus-5.5": 122,
     "gpt-6.1-sol": 57,
     "claude-sonnet-5.5": 37,
     "deepseek-v4.1": 26,
     "gpt-6.1-terra": 10,
-    "qwen": 3,
+    "qwen": 6,
     "e2e-test": 2,
-    "claude-haiku-5.5": 1
+    "claude-haiku-5.5": 1,
+    "Qwen": 1
    }
   }
  ],
@@ -122,7 +123,7 @@
   },
   {
    "model": "qwen3.8-27b",
-   "functions": 952
+   "functions": 958
   },
   {
    "model": "not specified",
@@ -130,7 +131,7 @@
   },
   {
    "model": "deepseek-v4.1-flash",
-   "functions": 243
+   "functions": 315
   },
   {
    "model": "claude-opus-5.5",
@@ -154,7 +155,7 @@
   },
   {
    "model": "qwen",
-   "functions": 3
+   "functions": 6
   },
   {
    "model": "e2e-test",
@@ -162,6 +163,10 @@
   },
   {
    "model": "claude-haiku-5.5",
+   "functions": 1
+  },
+  {
+   "model": "Qwen",
    "functions": 1
   }
  ]

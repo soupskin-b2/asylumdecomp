@@ -1,4 +1,4 @@
-// Engine_0690000.cpp (part 6 of 8): 3 functions
+// Engine_0690000.cpp (part 6 of 8): 5 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -28,4 +28,49 @@ IMPLEMENT_CLASS_AT(AFileLog, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\De
 bool AFileLog::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+struct UDecalComponent_ : public UDecalComponent
+{
+    void sub_0069ba80();
+    void sub_006f3bf0(UINT Param);
+    void sub_0069bb90(UINT Param)
+    {
+        sub_0069ba80();
+        sub_006f3bf0(Param);
+    }
+};
+
+typedef void (UDecalComponent_::*Method)(UINT);
+
+// @baa 0x0069bb90
+static Method g_0069bb90 = &UDecalComponent_::sub_0069bb90;
+
+struct F3_0069be30 { float X; float Y; float Z; };
+
+struct C_0069be30
+{
+    char Pad_00[0x28];
+    float Field_28;
+    char Pad_2C[12];
+    float Field_38;
+    char Pad_3C[12];
+    float Field_48;
+
+    F3_0069be30 sub_0069be30();
+};
+
+// @baa 0x0069be30
+F3_0069be30 C_0069be30::sub_0069be30()
+{
+    F3_0069be30 R;
+    R.X = Field_28;
+    R.Y = Field_38;
+    R.Z = Field_48;
+    return R;
+}
+
+void Use_0069be30(C_0069be30* This)
+{
+    This->sub_0069be30();
 }

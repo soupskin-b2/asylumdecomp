@@ -1,4 +1,4 @@
-// UnSkeletalComponent.cpp: 12 functions
+// UnSkeletalComponent.cpp: 13 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -162,4 +162,11 @@ void USkeletalMeshComponent::execSetFaceFXRegister(FFrame& Stack, RESULT_DECL)
     P_GET_FLOAT_OPTX(InterpDuration, 0.0f);
     P_FINISH;
     static_cast<SkeletalMeshNative_0091f670*>(this)->sub_0090e6e0(RegName, RegVal, RegOp, InterpDuration);
+}
+
+// @baa 0x0090f390
+void USkeletalMeshComponent::execGetUseSimpleLineCollision(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_254();
 }

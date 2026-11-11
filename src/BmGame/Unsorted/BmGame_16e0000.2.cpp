@@ -1,4 +1,4 @@
-// BmGame_16e0000.cpp: 33 functions
+// BmGame_16e0000.cpp: 39 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -245,4 +245,48 @@ void ARFadeManager::execGetVolume(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
 	*(FLOAT*)Result = vf_358();
+}
+
+typedef UBOOL (__thiscall* FSlot)(void*);
+
+// @baa 0x016e99b0
+void ARFadeManager::execIsCapturingMovie(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = ((FSlot)(*(void***)this)[0x35c / 4])(this);
+}
+
+// @baa 0x016e9a20
+void ARJokerTannoy::execInitBarkSet(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = ((FSlot)(*(void***)this)[0x358 / 4])(this);
+}
+
+// @baa 0x016e9db0
+void ARPontoonBase::execAnimationPlaying(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_364();
+}
+
+// @baa 0x016eb4e0
+void URSeqAct_FullScreenPlayer::execWasSkipped(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_1a8();
+}
+
+// @baa 0x016eb520
+void URSeqAct_FullScreenPlayer::execIsPaused(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_1ac();
+}
+
+// @baa 0x016eb560
+void URSeqAct_FullScreenPlayer::execCheckForFinish(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = vf_1b0();
 }
