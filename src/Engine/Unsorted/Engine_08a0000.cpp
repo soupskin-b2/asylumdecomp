@@ -1,4 +1,4 @@
-// Engine_08a0000.cpp (part 1 of 4): 190 functions
+// Engine_08a0000.cpp (part 1 of 4): 192 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1467,4 +1467,22 @@ void CNode::sub_008aef40()
 {
     Unk04 = *(void**)((char*)Unk04 + 0x34);
     sub_008a4ba0();
+}
+
+// @baa 0x008a6d00
+INT UPathGoalEvaluator::vf_10c(INT A, INT B)
+{
+    if (NextEvaluator != NULL)
+        return NextEvaluator->vf_10c(A, B);
+    return 0;
+}
+
+// @baa 0x008a6d20
+// Default implementation of vf_110 for UPathGoalEvaluator: forwards the call to
+// the next evaluator in the chain, or returns 0 when the chain ends.
+INT UPathGoalEvaluator::vf_110(INT A, INT B)
+{
+	if (NextEvaluator != NULL)
+		return NextEvaluator->vf_110(A, B);
+	return 0;
 }

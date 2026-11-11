@@ -1,4 +1,4 @@
-// UnUIObjects.cpp (part 15 of 17): 5 functions
+// UnUIObjects.cpp (part 15 of 17): 6 functions
 // Placed here by: class 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -42,4 +42,12 @@ struct UUIObject__00d99330 : public UUIObject
 INT UUIObject__00d99330::HasPositionBeenResolved(BYTE FaceIndex)
 {
     return DockTargets.bResolved[FaceIndex] != 0;
+}
+
+// @baa 0x00daa3d0
+void UUIObject::RequestFormattingUpdate()
+{
+    UUIScene* Scene = reinterpret_cast<UUIScene*>(GetScene());
+    if (Scene != NULL)
+        Scene->RequestFormattingUpdate();
 }

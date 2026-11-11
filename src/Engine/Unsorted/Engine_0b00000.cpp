@@ -1,4 +1,4 @@
-// Engine_0b00000.cpp: 69 functions
+// Engine_0b00000.cpp: 70 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -2130,3 +2130,25 @@ C_00b0ffe0::C_00b0ffe0() {}
 
 // @baa 0x00b0ffe0
 void C_00b0ffe0::sub_00b12460() {}
+
+// Holds the two 32-bit values passed on to sub_00b0fda0 (a virtual function
+// of this class). The vtable entry sits at 0x01fe2614.
+struct FS00b0fe70 {
+    int Field0; // 0x4
+    int Field1; // 0x8
+    virtual INT sub_00b0fe70();
+};
+
+// A global whose sub_00b0fda0 takes two values and does the real work
+// (clamp both arguments to a range and issue two RHI draw calls).
+struct FSequenceGlobal {
+    void sub_00b0fda0(INT A, INT B);
+};
+
+extern FSequenceGlobal g_026be2a8;
+// @baa 0x00b0fe70
+INT FS00b0fe70::sub_00b0fe70()
+{
+    g_026be2a8.sub_00b0fda0(Field0, Field1);
+    return 0xc;
+}

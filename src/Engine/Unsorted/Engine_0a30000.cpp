@@ -1,4 +1,4 @@
-// Engine_0a30000.cpp (part 1 of 3): 223 functions
+// Engine_0a30000.cpp (part 1 of 3): 225 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1773,4 +1773,20 @@ IMPLEMENT_CLASS_AT(URB_DistanceJointSetup, "e:\\Projects\\Amadeus\\AA\\Game\\Unr
 bool URB_DistanceJointSetup::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x00a34500
+void ANxForceFieldGeneric::vf_354()
+{
+	LinearKernel.Dummy = 0;
+	ForceField.Dummy = 0;
+	vf_238();
+}
+
+// @baa 0x00a34750
+void ANxForceFieldRadial::vf_354()
+{
+	Kernel.Dummy = 0;
+	ForceField.Dummy = 0;
+	vf_238();
 }

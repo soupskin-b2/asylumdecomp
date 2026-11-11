@@ -1,4 +1,4 @@
-// UnPhysConstraint.cpp (part 1 of 2): 137 functions
+// UnPhysConstraint.cpp (part 1 of 2): 138 functions
 // Placed here by: neighbours 110, class 15, file 11, callers 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -965,3 +965,21 @@ void ARB_ConstraintActor::vf_230(int a0) {  }
 // @baa 0x00a4e380
 // @baa 0x00a4fbf0
 // @baa 0x00a4fc20
+
+// ARB_ConstraintActor's vtable slot 0x17c (slot 95): a virtual INT method.
+// The body first invokes a no-argument helper on this, then a one-int helper
+// on this and returns its result.  Both helpers take this in ecx, so the
+// compiler keeps `this` in esi across the two calls (calls clobber ecx).
+struct ARB_ConstraintActor_ : public ARB_ConstraintActor
+{
+    void sub_00a37880();
+    INT  sub_007771e0(INT);
+    INT  sub_00a37f70(INT);
+};
+
+// @baa 0x00a37f70
+INT ARB_ConstraintActor_::sub_00a37f70(INT param)
+{
+    sub_00a37880();
+    return sub_007771e0(param);
+}

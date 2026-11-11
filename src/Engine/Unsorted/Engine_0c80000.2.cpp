@@ -1,4 +1,4 @@
-// Engine_0c80000.cpp: 23 functions
+// Engine_0c80000.cpp: 34 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -238,4 +238,147 @@ void UFont::execGetMaxCharHeight(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
 	*(FLOAT*)Result = vf_118();
+}
+
+struct AActor_ : public AActor
+{
+	void sub_008bba30(UActorComponent*);
+};
+
+// @baa 0x00c821e0
+void AActor::execAttachComponent(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(UActorComponent, NewComponent);
+	P_FINISH;
+	((AActor_*)this)->sub_008bba30(NewComponent);
+}
+
+struct AActor__00c82240 : public AActor
+{
+	void sub_008c7f00(UActorComponent*);
+};
+
+// @baa 0x00c82240
+void AActor::execDetachComponent(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(UActorComponent, ExComponent);
+	P_FINISH;
+	((AActor__00c82240*)this)->sub_008c7f00(ExComponent);
+}
+
+struct AActor__00c822a0 : public AActor
+{
+	void sub_008c7f30(UActorComponent*);
+};
+
+// @baa 0x00c822a0
+void AActor::execReattachComponent(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(UActorComponent, ComponentToReattach);
+	P_FINISH;
+	((AActor__00c822a0*)this)->sub_008c7f30(ComponentToReattach);
+}
+
+struct AActor__00c82300 : public AActor
+{
+	void sub_007580f0(BYTE);
+};
+
+// @baa 0x00c82300
+void AActor::execSetTickGroup(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_BYTE(NewTickGroup);
+	P_FINISH;
+	((AActor__00c82300*)this)->sub_007580f0(NewTickGroup);
+}
+
+struct AEmitterPool_ : public AEmitterPool
+{
+	void sub_008d2e50(UParticleSystemComponent*);
+};
+
+// @baa 0x00c87920
+void AEmitterPool::execReturnToPool(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(UParticleSystemComponent, PSC);
+	P_FINISH;
+	((AEmitterPool_*)this)->sub_008d2e50(PSC);
+}
+
+struct AEmitterPool__00c87980 : public AEmitterPool
+{
+	void sub_008cf8f0(UParticleSystemComponent*);
+};
+
+// @baa 0x00c87980
+void AEmitterPool::execFreeStaticMeshComponents(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(UParticleSystemComponent, PSC);
+	P_FINISH;
+	((AEmitterPool__00c87980*)this)->sub_008cf8f0(PSC);
+}
+
+struct AEmitterPool__00c87a60 : public AEmitterPool
+{
+	void sub_008c7120(UStaticMeshComponent*);
+};
+
+// @baa 0x00c87a60
+void AEmitterPool::execFreeMaterialInstanceConstants(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(UStaticMeshComponent, SMC);
+	P_FINISH;
+	((AEmitterPool__00c87a60*)this)->sub_008c7120(SMC);
+}
+
+struct AGameInfo__00c89100 : public AGameInfo
+{
+	void sub_008c7500(AActor*);
+};
+
+// @baa 0x00c89100
+void AGameInfo::execForceClearUnpauseDelegates(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(AActor, PauseActor);
+	P_FINISH;
+	((AGameInfo__00c89100*)this)->sub_008c7500(PauseActor);
+}
+
+struct UTexture2DComposite__00c8f560 : public UTexture2DComposite
+{
+	void sub_00733600(INT);
+};
+
+// @baa 0x00c8f560
+void UTexture2DComposite::execUpdateCompositeTexture(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(NumMipsToGenerate);
+	P_FINISH;
+	((UTexture2DComposite__00c8f560*)this)->sub_00733600(NumMipsToGenerate);
+}
+
+struct ALensFlareSource_ : public ALensFlareSource
+{
+	void sub_00bbbd50(ULensFlare*);
+};
+
+// @baa 0x00c8faa0
+void ALensFlareSource::execSetTemplate(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(ULensFlare, NewTemplate);
+	P_FINISH;
+	((ALensFlareSource_*)this)->sub_00bbbd50(NewTemplate);
+}
+
+struct ULensFlareComponent_ : public ULensFlareComponent
+{
+	void sub_00bacd70(ULensFlare*);
+};
+
+// @baa 0x00c8fb00
+void ULensFlareComponent::execSetTemplate(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(ULensFlare, NewTemplate);
+	P_FINISH;
+	((ULensFlareComponent_*)this)->sub_00bacd70(NewTemplate);
 }

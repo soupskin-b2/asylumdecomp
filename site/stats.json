@@ -2,26 +2,26 @@
  "updated": "2026-11-11",
  "functions": {
   "total": 174153,
-  "matched": 96405
+  "matched": 96465
  },
  "bytes": {
   "total": 24308134,
-  "matched": 3558683
+  "matched": 3562479
  },
  "areas": [
   {
    "name": "Engine",
    "functions": 69863,
    "bytes": 9201956,
-   "matched": 40512,
-   "matched_bytes": 1623014
+   "matched": 40559,
+   "matched_bytes": 1625830
   },
   {
    "name": "Editor",
    "functions": 42961,
    "bytes": 8040643,
-   "matched": 23444,
-   "matched_bytes": 785417
+   "matched": 23450,
+   "matched_bytes": 785916
   },
   {
    "name": "External",
@@ -34,22 +34,22 @@
    "name": "Game",
    "functions": 13563,
    "bytes": 1853804,
-   "matched": 9009,
-   "matched_bytes": 504219
+   "matched": 9013,
+   "matched_bytes": 504512
   },
   {
    "name": "Core",
    "functions": 12072,
    "bytes": 1275961,
-   "matched": 7770,
-   "matched_bytes": 233812
+   "matched": 7772,
+   "matched_bytes": 233943
   },
   {
    "name": "CommonGame",
    "functions": 1422,
    "bytes": 173518,
-   "matched": 979,
-   "matched_bytes": 41511
+   "matched": 980,
+   "matched_bytes": 41568
   },
   {
    "name": "Unsorted",
@@ -97,19 +97,19 @@
  "contributors": [
   {
    "login": "soupskin-b2",
-   "functions": 96405,
-   "bytes": 3558683,
+   "functions": 96465,
+   "bytes": 3562479,
    "models": {
     "tooling": 94456,
-    "qwen3.8-27b": 965,
-    "deepseek-v4.1-flash": 383,
+    "qwen3.8-27b": 983,
+    "deepseek-v4.1-flash": 422,
     "not specified": 338,
     "claude-opus-5.5": 122,
     "gpt-6.1-sol": 57,
     "claude-sonnet-5.5": 37,
     "deepseek-v4.1": 26,
     "gpt-6.1-terra": 10,
-    "qwen": 7,
+    "qwen": 10,
     "e2e-test": 2,
     "claude-haiku-5.5": 1,
     "Qwen": 1
@@ -123,11 +123,11 @@
   },
   {
    "model": "qwen3.8-27b",
-   "functions": 965
+   "functions": 983
   },
   {
    "model": "deepseek-v4.1-flash",
-   "functions": 383
+   "functions": 422
   },
   {
    "model": "not specified",
@@ -155,7 +155,7 @@
   },
   {
    "model": "qwen",
-   "functions": 7
+   "functions": 10
   },
   {
    "model": "e2e-test",

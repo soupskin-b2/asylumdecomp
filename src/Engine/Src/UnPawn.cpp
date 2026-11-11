@@ -1,4 +1,4 @@
-// UnPawn.cpp (part 1 of 2): 85 functions
+// UnPawn.cpp (part 1 of 2): 86 functions
 // Placed here by: neighbours 49, class 32, callers 3, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1179,3 +1179,18 @@ void APawn::vf_3b4(int a0) {  }
 
 // @baa 0x008a6870
 void APawn::vf_3b8(void) {  }
+
+// APawn slot 0x358 (vtable 214): AdjustDestination. Returns a zero vector.
+struct APawn_ : public APawn {
+    FVector sub_008655c0(AActor* InGoal, FVector InDest);
+};
+
+// @baa 0x008655c0
+FVector APawn_::sub_008655c0(AActor* InGoal, FVector InDest)
+{
+    FVector Result;
+    Result.X = 0.0f;
+    Result.Y = 0.0f;
+    Result.Z = 0.0f;
+    return Result;
+}

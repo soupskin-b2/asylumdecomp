@@ -1,4 +1,4 @@
-// Engine_08e0000.cpp (part 1 of 2): 20 functions
+// Engine_08e0000.cpp (part 1 of 2): 21 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -121,4 +121,18 @@ IMPLEMENT_CLASS_AT(ASceneCaptureReflectActor, "e:\\Projects\\Amadeus\\AA\\Game\\
 bool ASceneCaptureReflectActor::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+struct USeqAct_PlaySound_ : public USeqAct_PlaySound
+{
+    void sub_008df850();
+    INT sub_00d201d0(INT Value);
+    void sub_008ec1a0(UINT Value);
+};
+
+// @baa 0x008ec1a0
+void USeqAct_PlaySound_::sub_008ec1a0(UINT Value)
+{
+    sub_008df850();
+    sub_00d201d0(Value);
 }

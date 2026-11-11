@@ -1,4 +1,4 @@
-// UnUIObjects.cpp: 32 functions
+// UnUIObjects.cpp: 36 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -350,4 +350,50 @@ void UUIScene::execGetSceneRenderMode(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
 	*(BYTE*)Result = ((UUIScene__00ca6980*)this)->sub_00da9eb0(0);
+}
+
+// @baa 0x00cb3c90
+void UUIScreenObject::execGetZDepth(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(FLOAT*)Result = ZDepth;
+}
+
+struct UUIScreenObject__00cb3cd0 : public UUIScreenObject
+{
+	UObject* sub_005d7350();
+};
+
+UObject* sub_005c1d70();
+// @baa 0x00cb3cd0
+void UUIScreenObject::execIsRuntimeInstance(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = ((UUIScreenObject__00cb3cd0*)this)->sub_005d7350() == sub_005c1d70();
+}
+
+struct UUIScreenObject__00ca44e0 : public UUIScreenObject
+{
+	void sub_00da94c0(BYTE);
+};
+
+// @baa 0x00ca44e0
+void UUIScreenObject::execInvalidatePosition(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_BYTE(Face);
+	P_FINISH;
+	((UUIScreenObject__00ca44e0*)this)->sub_00da94c0(Face);
+}
+
+struct UUIScene__00ca68a0 : public UUIScene
+{
+	void sub_00da9df0(BYTE);
+};
+
+// @baa 0x00ca68a0
+void UUIScene::execSetSceneInputMode(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_BYTE(NewInputMode);
+	P_FINISH;
+	((UUIScene__00ca68a0*)this)->sub_00da9df0(NewInputMode);
 }

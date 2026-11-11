@@ -1,4 +1,4 @@
-// Core_0590000.cpp (part 2 of 4): 18 functions
+// Core_0590000.cpp (part 2 of 4): 19 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -174,4 +174,13 @@ void UObject::execSaveConfig(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
 	((UObject__005999b0*)this)->sub_005df020(0x4000, 0, 0);
+}
+
+int sub_00630ea0(FFrame&, INT, const TCHAR*);
+// @baa 0x00599d30
+void UObject::execIsUTracing(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	sub_00630ea0(Stack, 0x301, L"UTracing is disabled in this build");
+	*(UBOOL*)Result = 0;
 }

@@ -1,4 +1,4 @@
-// UnSkeletalAnim.cpp: 1 function
+// UnSkeletalAnim.cpp: 2 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -15,4 +15,17 @@ void USkeletalMeshComponent_::execUpdatePermanentFixing( FFrame& Stack, RESULT_D
 {
 	P_FINISH;
 	UpdatePermanentFixing();
+}
+
+struct USkeletalMeshComponent__00937ec0 : public USkeletalMeshComponent
+{
+	void sub_00937e40(UAnimTree*);
+};
+
+// @baa 0x00937ec0
+void USkeletalMeshComponent::execSetAnimTreeTemplate(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(UAnimTree, NewTemplate);
+	P_FINISH;
+	((USkeletalMeshComponent__00937ec0*)this)->sub_00937e40(NewTemplate);
 }

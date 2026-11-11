@@ -1,4 +1,4 @@
-// UnSkeletalComponent.cpp (part 1 of 3): 67 functions
+// UnSkeletalComponent.cpp (part 1 of 3): 68 functions
 // Placed here by: neighbours 58, callers 8, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -513,4 +513,22 @@ void C_01ac6ba0::sub_01ac6ba0(int param_2, undefined4 param_3)
 
   *(undefined4 *)(param_2 * 0x58 + 0x40 + *(int *)(param_1 + 4)) = param_3;
   return;
+}
+
+// A USkeletalComponent whose first three float fields after a 0x30-byte
+// header (RelativeScale3D) sit at offsets 0x30/0x34/0x38.
+struct USkeletalComponent_0090a320 {
+    char Header[0x30];
+    float RelativeScale3D[3];
+    void sub_0090a320(const float * NewScale);
+};
+
+// @baa 0x0090a320
+// @baa 0090a320
+// Sets the component's relative scale from a supplied 3-float vector.
+void USkeletalComponent_0090a320::sub_0090a320(const float * NewScale)
+{
+    RelativeScale3D[0] = NewScale[0];
+    RelativeScale3D[1] = NewScale[1];
+    RelativeScale3D[2] = NewScale[2];
 }

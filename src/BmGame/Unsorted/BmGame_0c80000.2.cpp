@@ -1,4 +1,4 @@
-// BmGame_0c80000.cpp: 15 functions
+// BmGame_0c80000.cpp: 16 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -137,4 +137,17 @@ void APlayerController::execIsShowingSubtitles(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
 	*(UBOOL*)Result = vf_448();
+}
+
+struct APlayerController__00c86c40 : public APlayerController
+{
+	void sub_007ac560(INT);
+};
+
+// @baa 0x00c86c40
+void APlayerController::execSetNetSpeed(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(NewSpeed);
+	P_FINISH;
+	((APlayerController__00c86c40*)this)->sub_007ac560(NewSpeed);
 }

@@ -1,4 +1,4 @@
-// UnPhysLevel.cpp (part 3 of 4): 13 functions
+// UnPhysLevel.cpp (part 3 of 4): 14 functions
 // Placed here by: neighbours 13.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -287,4 +287,18 @@ void C_00a44f30::sub_00a44f30(int param_2)
     }
   }
   return;
+}
+
+extern int g_026667a8;
+int __cdecl sub_00630f20(int Value, const wchar_t* Message);
+struct C_00a3b860
+{
+    int sub_00a3b860(int A, int B, int C);
+};
+
+// @baa 0x00a3b860
+int C_00a3b860::sub_00a3b860(int A, int B, int C)
+{
+    sub_00630f20(g_026667a8, L"onRaycastQuery - NOT SUPPORTED");
+    return 0;
 }

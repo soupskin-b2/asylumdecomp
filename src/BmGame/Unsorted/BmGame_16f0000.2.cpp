@@ -1,4 +1,4 @@
-// BmGame_16f0000.cpp: 61 functions
+// BmGame_16f0000.cpp: 64 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -485,4 +485,28 @@ void URBMRouterPath::execFindFirstActorOnPath(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
 	*(AActor**)Result = (AActor*)vf_150();
+}
+
+// @baa 0x016f04c0
+void ARPawnCharacter::execEndChangePose(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	FTransitionId Transition;
+	*(FTransitionId*)Result = *(FTransitionId*)(INT)vf_4b4((INT)&Transition);
+}
+
+// @baa 0x016f0510
+void ARPawnCharacter::execIssueChangePose(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	FTransitionId Transition;
+	*(FTransitionId*)Result = *(FTransitionId*)(INT)vf_4b8((INT)&Transition);
+}
+
+// @baa 0x016f2a80
+void ARPawnCharacter::execCancelSlave(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	FTransitionId Transition;
+	*(FTransitionId*)Result = *(FTransitionId*)(INT)vf_504((INT)&Transition);
 }

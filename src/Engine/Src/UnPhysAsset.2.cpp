@@ -1,4 +1,4 @@
-// UnPhysAsset.cpp: 5 functions
+// UnPhysAsset.cpp: 6 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -67,4 +67,17 @@ void URB_BodyInstance::execGetPhysicsAssetInstance(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
 	*(UPhysicsAssetInstance**)Result = ((URB_BodyInstance__00c94f10*)this)->sub_00a051a0();
+}
+
+struct URB_BodyInstance__00c95580 : public URB_BodyInstance
+{
+	void sub_00a0a9c0(URB_BodySetup*);
+};
+
+// @baa 0x00c95580
+void URB_BodyInstance::execUpdateMassProperties(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(URB_BodySetup, Setup);
+	P_FINISH;
+	((URB_BodyInstance__00c95580*)this)->sub_00a0a9c0(Setup);
 }

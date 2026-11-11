@@ -1,4 +1,4 @@
-// UnPawn.cpp: 16 functions
+// UnPawn.cpp: 17 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -152,4 +152,17 @@ void APawn::execGetVehicleBase(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
 	*(AVehicle**)Result = (AVehicle*)vf_39c();
+}
+
+struct APawn__00c8abe0 : public APawn
+{
+	void sub_00865220(INT);
+};
+
+// @baa 0x00c8abe0
+void APawn::execSetRemoteViewPitch(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(NewRemoteViewPitch);
+	P_FINISH;
+	((APawn__00c8abe0*)this)->sub_00865220(NewRemoteViewPitch);
 }

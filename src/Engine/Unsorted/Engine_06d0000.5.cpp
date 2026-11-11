@@ -1,4 +1,4 @@
-// Engine_06d0000.cpp: 7 functions
+// Engine_06d0000.cpp: 8 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -61,4 +61,12 @@ void UMaterialInterface::execGetPhysicalMaterial(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
 	*(UPhysicalMaterial**)Result = (UPhysicalMaterial*)GetPhysicalMaterial();
+}
+
+extern void* g_026b2234;
+// @baa 0x006d9280
+void UMaterialInterface::execGetMaterial(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UMaterial**)Result = (UMaterial*)vf_130((INT)g_026b2234);
 }
