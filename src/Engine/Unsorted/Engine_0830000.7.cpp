@@ -1,4 +1,4 @@
-// Engine_0830000.cpp (part 7 of 7): 5 functions
+// Engine_0830000.cpp (part 7 of 7): 6 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -114,4 +114,20 @@ struct C_008359d0
 INT C_008359d0::sub_008359d0()
 {
     return (Flags & 0x800) ? (INT)this : 0;
+}
+
+struct FFloatPair
+{
+    float x;
+    float y;
+
+    FFloatPair* sub_008336b0(int A, int B);
+};
+
+// @baa 0x008336b0
+FFloatPair* FFloatPair::sub_008336b0(int A, int B)
+{
+    x = (float)A;
+    y = (float)B;
+    return this;
 }

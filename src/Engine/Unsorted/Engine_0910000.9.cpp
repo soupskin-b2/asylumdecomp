@@ -1,4 +1,4 @@
-// Engine_0910000.cpp: 2 functions
+// Engine_0910000.cpp: 3 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -36,4 +36,33 @@ FString USkeletalMeshComponent::GetDetailedInfoInternal()
         Result = TEXT("No_SkeletalMesh");
     }
     return Result;
+}
+
+struct FInt2_ {
+    int X;
+    int Y;
+};
+
+struct FInt3_ {
+    int X;
+    int Y;
+    int Z;
+
+    FInt3_ *sub_00910410(const FInt2_ *Source);
+};
+
+// @baa 0x00910410
+FInt3_ *FInt3_::sub_00910410(const FInt2_ *Source)
+{
+    X = Source->X;
+    Y = Source->Y;
+    Z = -1;
+    return this;
+}
+
+static void sub_00000000()
+{
+    FInt3_ P;
+    FInt2_ Q;
+    P.sub_00910410(&Q);
 }

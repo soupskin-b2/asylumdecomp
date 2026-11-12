@@ -1,4 +1,4 @@
-// BmGame_0900000.cpp: 5 functions
+// BmGame_0900000.cpp: 7 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -68,4 +68,50 @@ void USkeletalMeshComponent::sub_0090eaa0(undefined4 param_2)
   *(undefined4 *)(param_1 + 0x2f0) = param_2;
   sub_00765d00();
   return;
+}
+
+/* Unnamed in the kit: UE3's USkeletalMeshComponent::FindAnimNode(FName InNodeName): search the anim tree. */
+struct USkeletalMeshComponent__0090eb80 : public USkeletalMeshComponent
+{
+    UAnimNode* sub_0090eb80(FName InNodeName);
+};
+
+// @baa 0x0090eb80
+UAnimNode* USkeletalMeshComponent__0090eb80::sub_0090eb80(FName InNodeName)
+{
+    if (Animations)
+    {
+        return Animations->FindAnimNode(InNodeName);
+    }
+    return NULL;
+}
+
+/* Kit gap: USkeletalMesh::MatchRefBone (UnSkeletalMesh.cpp) isn't declared. */
+struct USkeletalMesh_ : public USkeletalMesh
+{
+	INT sub_00976be0(FName BoneName);	/* MatchRefBone */
+};
+
+/* Kit gap: FName has no comparison operators (UnName.h, inline). */
+static FORCEINLINE UBOOL operator!=(const FName& A, const FName& B)
+{
+	return A.Index != B.Index || A.Number != B.Number;
+}
+
+/* Unnamed in the kit: UE3's USkeletalMeshComponent::MatchRefBone(FName BoneName): the mesh's bone index, or
+ * INDEX_NONE without a name or a mesh. */
+struct USkeletalMeshComponent__0090e8e0 : public USkeletalMeshComponent
+{
+    INT sub_0090e8e0(FName BoneName);
+};
+
+// @baa 0x0090e8e0
+INT USkeletalMeshComponent__0090e8e0::sub_0090e8e0(FName BoneName)
+{
+    INT BoneIndex = INDEX_NONE;
+    if (BoneName != FName(NAME_None) && SkeletalMesh)
+    {
+        BoneIndex = ((USkeletalMesh_*)SkeletalMesh)->sub_00976be0(BoneName);
+    }
+    return BoneIndex;
 }

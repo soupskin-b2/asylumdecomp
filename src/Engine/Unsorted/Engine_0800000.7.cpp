@@ -1,4 +1,4 @@
-// Engine_0800000.cpp: 6 functions
+// Engine_0800000.cpp: 15 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -261,4 +261,162 @@ S008065e0& S008065e0::sub_008065e0(const S008065e0& Src)
 	Value1 = Src.Value1;
 	Value2 = -1;
 	return *this;
+}
+
+struct ADirectionalLightToggleable_ : public ADirectionalLightToggleable {
+    void sub_00803d90(); /* 0x00803d90 */
+    void sub_00803ee0(); /* 0x00803ee0 */
+};
+
+// @baa 0x00803ee0
+void ADirectionalLightToggleable_::sub_00803ee0()
+{
+    sub_00803d90();
+    LightComponent->UseDirectLightMap = 0;
+}
+
+struct TwoInts {
+    INT A;
+    INT B;
+};
+
+struct Sub_00806790_Owner {
+    INT X;
+    INT Y;
+    INT Z;
+    Sub_00806790_Owner& Init(const TwoInts& Src);
+};
+
+// @baa 0x00806790
+Sub_00806790_Owner& Sub_00806790_Owner::Init(const TwoInts& Src)
+{
+    X = Src.A;
+    Y = Src.B;
+    Z = -1;
+    return *this;
+}
+
+struct S00806700
+{
+	INT Value0;
+	INT Value1;
+	INT Value2;
+
+	S00806700& sub_00806700(const S00806700& Src);
+};
+
+// @baa 0x00806700
+S00806700& S00806700::sub_00806700(const S00806700& Src)
+{
+	Value0 = Src.Value0;
+	Value1 = Src.Value1;
+	Value2 = -1;
+	return *this;
+}
+
+struct ASpotLightToggleable_ : public ASpotLightToggleable {
+    void sub_00803f20(); /* 0x00803f20 */
+    void sub_00803d90(); /* 0x00803d90 */
+};
+
+// @baa 0x00803f20
+// 0x00803f20  ASpotLightToggleable vtable slot 215
+// Calls the sibling that (re)configures the light component, then clears the
+// cast-shadows flag on the component.
+void ASpotLightToggleable_::sub_00803f20()
+{
+    sub_00803d90();
+    LightComponent->UseDirectLightMap = 0;
+}
+
+struct Sub_00806810_Owner {
+    INT X;
+    INT Y;
+    INT Z;
+    Sub_00806810_Owner& Init(const TwoInts& Src);
+};
+
+// @baa 0x00806810
+Sub_00806810_Owner& Sub_00806810_Owner::Init(const TwoInts& Src)
+{
+    X = Src.A;
+    Y = Src.B;
+    Z = -1;
+    return *this;
+}
+
+struct S00806940 {
+    INT x;
+    INT y;
+    INT z;
+
+    S00806940& sub_00806940(const S00806940& other);
+};
+
+// @baa 0x00806940
+S00806940& S00806940::sub_00806940(const S00806940& other)
+{
+    x = other.x;
+    y = other.y;
+    z = -1;
+    return *this;
+}
+
+struct sub_00809400_Tri
+{
+    int First;
+    int Second;
+    int Third;
+};
+
+// 0x00809370
+struct sub_00809370_Owner
+{
+    sub_00809400_Tri Tri;
+
+    sub_00809370_Owner* SetTri(const sub_00809400_Tri& In);
+};
+
+// @baa 0x00809370
+sub_00809370_Owner* sub_00809370_Owner::SetTri(const sub_00809400_Tri& In)
+{
+    Tri.First = In.First;
+    Tri.Second = In.Second;
+    Tri.Third = -1;
+    return this;
+}
+
+// 0080b090: thin wrapper around a method of a subobject at offset 4.
+// Returns 1 when the call's result (a dword index) is not -1.
+struct sub_00808720_
+{
+    // 0x00808720
+    int Method(int);
+};
+
+struct sub_0080b090_
+{
+    INT Header;                 // 0x00
+    sub_00808720_ Sub;          // 0x04
+    int sub_0080b090(int);      // 0x0080b090
+};
+
+// @baa 0x0080b090
+int sub_0080b090_::sub_0080b090(int Param)
+{
+    int Result = Sub.Method(Param);
+    return Result != -1;
+}
+
+// sub_00803d90: a thiscall base method of the same object (0 stack args), called directly.
+struct APointLightToggleable_ : public APointLightToggleable {
+    INT ToggleCore(); /* 00803d90 */
+    void sub_00803f00(); /* 00803f00 */
+};
+
+// @baa 0x00803f00
+void APointLightToggleable_::sub_00803f00()
+{
+    ToggleCore();
+    LightComponent->UseDirectLightMap = 0;
 }

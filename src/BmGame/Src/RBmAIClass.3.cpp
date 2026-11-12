@@ -1,4 +1,4 @@
-// RBmAIClass.cpp: 2 functions
+// RBmAIClass.cpp: 3 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -62,4 +62,16 @@ FName ARBMAIController::GetSilentPredatorGlanceStanceName()
 		}
 	}
 	return GetSilentPredatorStanceName();
+}
+
+// @baa 0x01600040
+/* ARBMPawnAI slot 0x494 (kit vf_494): tell the AI controller first (its slot 0x46c), then the base pawn. */
+void ARBMPawnAI::vf_494(INT A)
+{
+    ARBMAIController* AIController = Cast<ARBMAIController>(Controller);
+    if (AIController)
+    {
+        AIController->vf_46c(A);
+    }
+    Super::vf_494(A);
 }

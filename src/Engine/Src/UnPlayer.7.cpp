@@ -1,4 +1,4 @@
-// UnPlayer.cpp: 3 functions
+// UnPlayer.cpp: 4 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -64,4 +64,18 @@ void UConsole_::eventOutputText(const FString& Text)
 	} Parms;
 	Parms.Text = Text;
 	ProcessEvent(FindFunctionChecked(g_026c42fc), &Parms);
+}
+
+/* Kit gaps: the native's exec and IsFullScreenViewport (008898e0) aren't declared (name from the exe's native table). */
+struct UGameViewportClient__00c8cd10 : public UGameViewportClient
+{
+	UBOOL IsFullScreenViewport();
+	void execIsFullScreenViewport(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00c8cd10
+void UGameViewportClient__00c8cd10::execIsFullScreenViewport(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(UBOOL*)Result = IsFullScreenViewport();
 }

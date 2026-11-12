@@ -1,4 +1,4 @@
-// BmGame_1660000.cpp (part 2 of 3): 127 functions
+// BmGame_1660000.cpp (part 2 of 3): 128 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1939,4 +1939,15 @@ INT ARPawnCharacter::vf_534(INT A)
         return 0;
     }
     return Anim->vf_284(A);
+}
+
+// @baa 0x0166eea0
+/* ARPawnCharacter slot 0x53c (kit vf_53c): forwards to the pose node (URAnimNode_Pose slot 0x28c); FALSE without one. */
+INT ARPawnCharacter::vf_53c(INT A)
+{
+    if (!Anim)
+    {
+        return 0;
+    }
+    return Anim->vf_28c(A);
 }

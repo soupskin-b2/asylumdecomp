@@ -1,4 +1,4 @@
-// UnSkeletalComponent.cpp: 2 functions
+// UnSkeletalComponent.cpp: 3 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -37,4 +37,27 @@ UMorphNodeBase* USkeletalMeshComponent__00913fe0::FindMorphNode(FName InNodeName
         return Tree->FindMorphNode(InNodeName);
     }
     return NULL;
+}
+
+/* Unnamed in the kit: UE3's USkeletalMeshComponent::SetAttachmentOwnerVisibility(UActorComponent* Component):
+ * attached primitives take this component's owner-visibility settings. The third flag is UE3's
+ * bIgnoreOwnerHidden; this build reads bit 7 of 0x194, which the kit names DontDrawThisFrame. */
+struct USkeletalMeshComponent__00913f30 : public USkeletalMeshComponent
+{
+    void sub_00913f30(UActorComponent* Component);
+};
+
+// @baa 0x00913f30
+void USkeletalMeshComponent__00913f30::sub_00913f30(UActorComponent* Component)
+{
+    if (bOverrideAttachmentOwnerVisibility)
+    {
+        UPrimitiveComponent* PrimComp = Cast<UPrimitiveComponent>(Component);
+        if (PrimComp)
+        {
+            PrimComp->SetOwnerNoSee(bOwnerNoSee);
+            PrimComp->SetOnlyOwnerSee(bOnlyOwnerSee);
+            PrimComp->SetIgnoreOwnerHidden(DontDrawThisFrame);
+        }
+    }
 }

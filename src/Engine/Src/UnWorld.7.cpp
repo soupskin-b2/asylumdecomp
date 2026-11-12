@@ -1,4 +1,4 @@
-// UnWorld.cpp: 8 functions
+// UnWorld.cpp: 9 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -133,4 +133,28 @@ FWorldFractureSettings AWorldInfo_::sub_009c6dd0() const
     Settings.FractureExplosionVelScale = Info->FractureExplosionVelScale;
     Settings.MaxNumFacturedChunksToSpawnInAFrame = Info->MaxNumFacturedChunksToSpawnInAFrame;
     return Settings;
+}
+
+// @baa 0x009b1500
+struct C_009b1500 {
+    INT X;    // 0x00
+    INT Y;    // 0x04
+    INT Z;    // 0x08
+
+    C_009b1500* sub_009b1500(const INT *Source);
+};
+
+// @baa 0x009b1500
+C_009b1500* C_009b1500::sub_009b1500(const INT *Source)
+{
+    X = Source[0];
+    Y = Source[1];
+    Z = -1;
+    return this;
+}
+
+void C_009b1500Caller()
+{
+    C_009b1500 Obj;
+    Obj.sub_009b1500(&(Obj.X));
 }

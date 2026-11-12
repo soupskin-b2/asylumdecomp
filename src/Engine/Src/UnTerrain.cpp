@@ -1,4 +1,4 @@
-// UnTerrain.cpp (part 1 of 4): 393 functions
+// UnTerrain.cpp (part 1 of 4): 395 functions
 // Placed here by: neighbours 359, class 16, callers 10, file 6.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -3683,4 +3683,49 @@ struct FRenderCommandFence_ : public FRenderCommandFence
 UBOOL AActor::IsReadyForFinishDestroy()
 {
     return ((const FRenderCommandFence_&)DetachFence).GetNumPendingFences() == 0;
+}
+
+struct C_00984e90
+{
+	INT A;
+	INT B;
+	INT C;
+
+	// 0x00984e90
+	C_00984e90* sub_00984e90(const INT* InPair)
+	{
+		A = *InPair;
+		B = InPair[1];
+		C = -1;
+		return this;
+	}
+};
+
+C_00984e90 g_Keep_00984e90;
+// @baa 0x00984e90
+void Use_00984e90(const INT* InPair)
+{
+	g_Keep_00984e90.sub_00984e90(InPair);
+}
+
+struct C_00984660_Target {
+    virtual void vf_000(void);
+    virtual void vf_004(void);
+    virtual void vf_008(void);
+    virtual void vf_00c(void);
+    virtual void vf_010(void);
+    virtual void vf_014(int a, int b);
+};
+
+struct C_00984660 {
+    int _f00;
+    int _f04;
+    int _f08;
+    void sub_00984660(C_00984660_Target* Other);
+};
+
+// @baa 0x00984660
+void C_00984660::sub_00984660(C_00984660_Target* Other)
+{
+    Other->vf_014(_f04, _f08);
 }

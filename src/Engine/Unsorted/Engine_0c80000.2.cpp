@@ -1,4 +1,4 @@
-// Engine_0c80000.cpp: 104 functions
+// Engine_0c80000.cpp: 105 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -1286,4 +1286,18 @@ void UOnlineStatsWrite::execDecrementIntStat(FFrame& Stack, RESULT_DECL)
     P_GET_INT_OPTX(DecBy, 1);
     P_FINISH;
     DecrementIntStat(StatId, DecBy);
+}
+
+/* Kit gaps: the native's exec and GetBuildUniqueId (00d67980) aren't declared (name from the exe's native table). */
+struct UOnlineSubsystem_ : public UOnlineSubsystem
+{
+	INT GetBuildUniqueId();
+	void execGetBuildUniqueId(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00c86b60
+void UOnlineSubsystem_::execGetBuildUniqueId(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(INT*)Result = GetBuildUniqueId();
 }

@@ -1,4 +1,4 @@
-// UnActorComponent.cpp: 1 function
+// UnActorComponent.cpp: 2 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -30,5 +30,20 @@ void AActor::vf_31c(INT bOnlyFiltered)
         {
             ((UObject_*)Component)->MarkPendingKill();
         }
+    }
+}
+
+/* Unnamed in the kit: re-runs the transform update (slot 0x118, UE3 UpdateTransform) when attached. */
+struct UActorComponent_ : public UActorComponent
+{
+    void sub_00759620();
+};
+
+// @baa 0x00759620
+void UActorComponent_::sub_00759620()
+{
+    if (bAttached)
+    {
+        vf_118();
     }
 }

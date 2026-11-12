@@ -1,4 +1,4 @@
-// RBmAIClass.cpp: 7 functions
+// RBmAIClass.cpp: 9 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -261,4 +261,25 @@ BYTE ARBMAIController::IsInFOV(class AActor* TestActor, UBOOL bFixUpAnimAimDir)
 		return 0;
 	}
 	return IsPointInFOV(TestActor->GetFOVCheckLocation(), bFixUpAnimAimDir);
+}
+
+// @baa 0x015ec0b0
+UBOOL ARBMAIController::IsRunningBehaviour(URBMBehaviour* TestBehaviour)
+{
+    URBMBehaviour** const End = BehaviourList.GetTypedData() + BehaviourList.Num();
+    for (URBMBehaviour** It = BehaviourList.GetTypedData(); It < End; It++)
+    {
+        if (*It == TestBehaviour)
+        {
+            return TRUE;
+        }
+    }
+    return FALSE;
+}
+
+// @baa 0x015dc010
+/* ARBMAIController slot 0x45c (kit vf_45c): the pawn is in stasis and its slot 0x178 holds. */
+INT ARBMAIController::vf_45c()
+{
+    return Pawn && Pawn->bStasis && Pawn->vf_178();
 }

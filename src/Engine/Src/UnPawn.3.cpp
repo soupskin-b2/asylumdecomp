@@ -1,4 +1,4 @@
-// UnPawn.cpp: 42 functions
+// UnPawn.cpp: 43 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -594,4 +594,13 @@ void APawn::vf_3a0()
         ((UPathGoalEvaluator_*)PathGoalList)->eventRecycle();
         PathGoalList = NextEvaluator;
     }
+}
+
+// @baa 0x00c8b380
+void APawn::execIncrementPathStep(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_INT(Delta);
+    P_GET_OBJECT(AController, C);
+    P_FINISH;
+    IncrementPathStep(Delta, C);
 }

@@ -1,4 +1,4 @@
-// D3D9Drv_0690000.cpp (part 1 of 2): 52 functions
+// D3D9Drv_0690000.cpp (part 1 of 2): 53 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -554,3 +554,32 @@ struct C_0069cdd0 { int sub_0069cdd0(void); };
 
 // @baa 0x0069cdd0
 int C_0069cdd0::sub_0069cdd0(void) { return *(int*)((char*)this + 4); }
+
+struct Node_
+{
+    void *Next;
+    INT   RefCount;
+};
+
+struct NodeList_
+{
+    Node_ *Head;
+
+    // Replaces the list's head with NewHead, keeping the new node's reference count in step.
+    NodeList_ *sub_0069cb00(Node_ *NewHead, Node_ *OldHead)
+    {
+        Head = NewHead;
+        if (NewHead != 0 && OldHead != 0)
+            NewHead->RefCount++;
+        return this;
+    }
+};
+
+static NodeList_ g_List_0069cb00;
+static Node_ g_Node_0069cb00;
+// @baa 0x0069cb00
+int g_probe(void)
+{
+    g_List_0069cb00.sub_0069cb00(&g_Node_0069cb00, 0);
+    return g_Node_0069cb00.RefCount;
+}

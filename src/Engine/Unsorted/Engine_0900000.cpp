@@ -1,4 +1,4 @@
-// Engine_0900000.cpp (part 1 of 2): 108 functions
+// Engine_0900000.cpp (part 1 of 2): 110 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -521,4 +521,62 @@ C_0090c480* C_0090c480::sub_0090c480()
     a = 0;
     b = 0;
     return this;
+}
+
+// 0090fc30: thin __stdcall forwarder for sub_0053d240 (a __cdecl that returns int).
+// The body ends with `add esp, 0xc; ret 0xc`: the callee cleans up the callee's
+// args, then pops its own, and hands the int result back to the caller.
+extern "C" int sub_0053d240(int A, int B, int C);
+// @baa 0x0090fc30
+int __stdcall sub_0090fc30(int A, int B, int C)
+{
+    return sub_0053d240(A, B, C);
+}
+
+/* Kit gap: USkeletalMesh::FindSocket and MatchRefBone (UnSkeletalMesh.cpp) aren't declared. */
+struct USkeletalMesh_ : public USkeletalMesh
+{
+    USkeletalMeshSocket* sub_00951be0(FName InSocketName);	/* FindSocket */
+    INT sub_00976be0(FName BoneName);	/* MatchRefBone */
+};
+
+/* Kit gap: FName has no comparison operators (UnName.h, inline). */
+static FORCEINLINE UBOOL operator!=(const FName& A, const FName& B)
+{
+    return A.Index != B.Index || A.Number != B.Number;
+}
+
+/* Unnamed in the kit: UE3's USkeletalMeshComponent::GetSocketBoneName(FName InSocketName): the bone a socket is
+ * on, the name itself when it's a bone, otherwise NAME_None. */
+struct USkeletalMeshComponent_ : public USkeletalMeshComponent
+{
+    FORCEINLINE INT MatchRefBone(FName BoneName) const
+    {
+        INT BoneIndex = INDEX_NONE;
+        if (BoneName != FName(NAME_None) && SkeletalMesh)
+        {
+            BoneIndex = ((USkeletalMesh_*)SkeletalMesh)->sub_00976be0(BoneName);
+        }
+        return BoneIndex;
+    }
+    FName sub_0090ec40(FName InSocketName);
+};
+
+// @baa 0x0090ec40
+FName USkeletalMeshComponent_::sub_0090ec40(FName InSocketName)
+{
+    if (!SkeletalMesh)
+    {
+        return NAME_None;
+    }
+    USkeletalMeshSocket* TmpSocket = ((USkeletalMesh_*)SkeletalMesh)->sub_00951be0(InSocketName);
+    if (TmpSocket)
+    {
+        return TmpSocket->BoneName;
+    }
+    if (MatchRefBone(InSocketName) != INDEX_NONE)
+    {
+        return InSocketName;
+    }
+    return NAME_None;
 }

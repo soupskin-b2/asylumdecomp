@@ -1,7 +1,7 @@
-// Engine_0a00000.cpp (part 1 of 2): 72 functions
+// Engine_0a00000.cpp (part 1 of 2): 73 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
-#include "ue3/Array.h"
+#include "ue3/Classes.h"
 
 // @baa 0x00a01a60
 void sub_00a01a60(void) {  }
@@ -777,4 +777,24 @@ int sub_00a07bd0(void)
     sub_009f9240();
   }
   return g_026b6614;
+}
+
+// @baa 0x00a01980
+/* UE3's USkeletalMeshComponent::SetHasPhysicsAssetInstance(UBOOL bHasInstance): create or destroy the physics
+ * asset instance (slot 0x260 InitArticulated(UBOOL bFixed), slot 0x264 TermArticulated(FRBPhysScene* Scene)). */
+void USkeletalMeshComponent::sub_00a01980(UBOOL bHasInstance)
+{
+    if (bHasInstance)
+    {
+        if (!bHasPhysicsAssetInstance)
+        {
+            vf_260(bSkelCompFixed);
+        }
+    }
+    else if (bHasPhysicsAssetInstance)
+    {
+        vf_264(0);
+        bHasBeenPermanentlyFixed = FALSE;
+    }
+    bHasPhysicsAssetInstance = bHasInstance;
 }

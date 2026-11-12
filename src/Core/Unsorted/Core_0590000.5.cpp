@@ -1,4 +1,4 @@
-// Core_0590000.cpp: 16 functions
+// Core_0590000.cpp: 19 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -169,4 +169,55 @@ void UObject::execDivide_RotatorFloat(FFrame& Stack, RESULT_DECL)
 
 	const FLOAT Scale = 1.0f / B;
 	*(FRotator*)Result = FRotator((INT)appTrunc((FLOAT)A.Pitch * Scale), (INT)appTrunc((FLOAT)A.Yaw * Scale), (INT)appTrunc((FLOAT)A.Roll * Scale));
+}
+
+// @baa 0x00595f90
+void UObject::execDivideEqual_VectorFloat(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT_REF(FVector, A);
+	P_GET_FLOAT(B);
+	P_FINISH;
+
+	if (B == 0.0f)
+		sub_00630ea0(Stack, 0x301, L"Divide by zero");
+
+	const FLOAT Scale = 1.0f / B;
+	A.X = A.X * Scale;
+	A.Y = A.Y * Scale;
+	A.Z = A.Z * Scale;
+
+	*(FVector*)Result = A;
+}
+
+// @baa 0x00597320
+void UObject::execMultiplyEqual_RotatorFloat(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT_REF(FRotator, A);
+	P_GET_FLOAT(Scale);
+	P_FINISH;
+
+	const FLOAT S = Scale;
+	A.Pitch = (INT)appTrunc((FLOAT)A.Pitch * S);
+	A.Yaw = (INT)appTrunc((FLOAT)A.Yaw * S);
+	A.Roll = (INT)appTrunc((FLOAT)A.Roll * S);
+
+	*(FRotator*)Result = A;
+}
+
+// @baa 0x00597410
+void UObject::execDivideEqual_RotatorFloat(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT_REF(FRotator, A);
+	P_GET_FLOAT(B);
+	P_FINISH;
+
+	if (B == 0.0f)
+		sub_00630ea0(Stack, 0x301, L"Divide by zero");
+
+	const FLOAT Scale = 1.0f / B;
+	A.Pitch = (INT)appTrunc((FLOAT)A.Pitch * Scale);
+	A.Yaw = (INT)appTrunc((FLOAT)A.Yaw * Scale);
+	A.Roll = (INT)appTrunc((FLOAT)A.Roll * Scale);
+
+	*(FRotator*)Result = A;
 }

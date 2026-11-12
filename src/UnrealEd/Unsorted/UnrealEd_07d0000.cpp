@@ -1,4 +1,4 @@
-// UnrealEd_07d0000.cpp (part 1 of 2): 104 functions
+// UnrealEd_07d0000.cpp (part 1 of 2): 105 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -721,3 +721,25 @@ F007D8C10* sub_007d8c10_wrapper()
 	W.V->sub_007d8c10(W.V);
 	return W.V;
 }
+
+// 12-byte value held by a small of the game's 13 vtables: two key words plus an
+// index that is set to -1 (invalid) here. The exact class is unrecovered.
+struct FThing_12
+{
+    DWORD Key0;
+    DWORD Key1;
+    int Index;
+
+    FThing_12* sub_007d8900(FThing_12* Src)
+    {
+        Key0 = Src->Key0;
+        Key1 = Src->Key1;
+        Index = -1;
+        return this;
+    }
+};
+
+static FThing_12 g_thing;
+static FThing_12 g_src;
+// @baa 0x007d8900
+void KeepIt() { g_thing.sub_007d8900(&g_src); }

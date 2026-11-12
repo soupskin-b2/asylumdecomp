@@ -2,8 +2,8 @@
  "note": "Maintained by CI (tools/ci); every file is checked by python tools/asylum unit-check.",
  "totals": {
   "units": 1438,
-  "files": 5179,
-  "functions": 100419,
+  "files": 5186,
+  "functions": 100502,
   "failed": 0
  },
  "units": [
@@ -6410,6 +6410,18 @@
   },
   {
    "unit": "BmGame/Src/RAnimNode_Cape.cpp",
+   "source": "BmGame/Src/RAnimNode_Cape.6.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "015691f0",
+     "size": 273,
+     "symbol": "?sub_015691f0@URAnimNode_Cape_@@QAEHHH@Z"
+    }
+   ]
+  },
+  {
+   "unit": "BmGame/Src/RAnimNode_Cape.cpp",
    "source": "BmGame/Src/RAnimNode_Cape.cpp",
    "profile": "ue3",
    "functions": [
@@ -10429,6 +10441,16 @@
      "va": "015dc100",
      "size": 86,
      "symbol": "?IsInFOV@ARBMAIController@@UAEEPAUAActor@@H@Z"
+    },
+    {
+     "va": "015ec0b0",
+     "size": 47,
+     "symbol": "?IsRunningBehaviour@ARBMAIController@@UAEHPAUURBMBehaviour@@@Z"
+    },
+    {
+     "va": "015dc010",
+     "size": 44,
+     "symbol": "?vf_45c@ARBMAIController@@UAEHXZ"
     }
    ]
   },
@@ -10446,6 +10468,11 @@
      "va": "01604840",
      "size": 187,
      "symbol": "?GetSilentPredatorGlanceStanceName@ARBMAIController@@UAE?AUFName@@XZ"
+    },
+    {
+     "va": "01600040",
+     "size": 53,
+     "symbol": "?vf_494@ARBMPawnAI@@UAEXH@Z"
     }
    ]
   },
@@ -10458,6 +10485,18 @@
      "va": "015ea550",
      "size": 162,
      "symbol": "?CanUpdateCombatCollision@ARBMAIManager@@UAEHPAUARPawn@@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "BmGame/Src/RBmAIClass.cpp",
+   "source": "BmGame/Src/RBmAIClass.5.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "015e6170",
+     "size": 58,
+     "symbol": "?vf_42c@ARBMAIController@@UAEMXZ"
     }
    ]
   },
@@ -15398,6 +15437,11 @@
      "va": "016e1070",
      "size": 64,
      "symbol": "?eventAreGunThugsAround@ARFractureWallBase__016e1070@@QAEHXZ"
+    },
+    {
+     "va": "01706ac0",
+     "size": 48,
+     "symbol": "?execUpdateWallState@ARFractureWallBase__01706ac0@@QAEXAAUFFrame@@QAX@Z"
     }
    ]
   },
@@ -22283,6 +22327,16 @@
      "va": "0090eaa0",
      "size": 18,
      "symbol": "?sub_0090eaa0@USkeletalMeshComponent@@QAEXI@Z"
+    },
+    {
+     "va": "0090eb80",
+     "size": 33,
+     "symbol": "?sub_0090eb80@USkeletalMeshComponent__0090eb80@@QAEPAUUAnimNode@@UFName@@@Z"
+    },
+    {
+     "va": "0090e8e0",
+     "size": 41,
+     "symbol": "?sub_0090e8e0@USkeletalMeshComponent__0090e8e0@@QAEHUFName@@@Z"
     }
    ]
   },
@@ -44055,6 +44109,11 @@
      "va": "0166ee60",
      "size": 30,
      "symbol": "?vf_534@ARPawnCharacter@@UAEHH@Z"
+    },
+    {
+     "va": "0166eea0",
+     "size": 30,
+     "symbol": "?vf_53c@ARPawnCharacter@@UAEHH@Z"
     }
    ]
   },
@@ -73554,6 +73613,81 @@
      "va": "005965c0",
      "size": 264,
      "symbol": "?execVLerp@UObject@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "00599670",
+     "size": 42,
+     "symbol": "?sub_00599670@UObject__00599670@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "005996d0",
+     "size": 42,
+     "symbol": "?sub_005996d0@UObject__005996d0@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "00599700",
+     "size": 42,
+     "symbol": "?sub_00599700@UObject__00599700@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "00599730",
+     "size": 42,
+     "symbol": "?sub_00599730@UObject__00599730@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "00599760",
+     "size": 42,
+     "symbol": "?sub_00599760@UObject__00599760@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "00599790",
+     "size": 42,
+     "symbol": "?sub_00599790@UObject__00599790@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "005997c0",
+     "size": 42,
+     "symbol": "?sub_005997c0@UObject__005997c0@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "005997f0",
+     "size": 42,
+     "symbol": "?sub_005997f0@UObject__005997f0@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "00599820",
+     "size": 42,
+     "symbol": "?sub_00599820@UObject__00599820@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "00599850",
+     "size": 42,
+     "symbol": "?sub_00599850@UObject__00599850@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "00599880",
+     "size": 42,
+     "symbol": "?sub_00599880@UObject__00599880@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "005998b0",
+     "size": 42,
+     "symbol": "?sub_005998b0@UObject__005998b0@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "005998e0",
+     "size": 42,
+     "symbol": "?sub_005998e0@UObject__005998e0@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "00599910",
+     "size": 42,
+     "symbol": "?sub_00599910@UObject__00599910@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "00599940",
+     "size": 42,
+     "symbol": "?sub_00599940@UObject__00599940@@QAEXAAUFFrame@@QAX@Z"
     }
    ]
   },
@@ -73735,6 +73869,21 @@
      "va": "00597220",
      "size": 248,
      "symbol": "?execDivide_RotatorFloat@UObject@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "00595f90",
+     "size": 252,
+     "symbol": "?execDivideEqual_VectorFloat@UObject@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "00597320",
+     "size": 236,
+     "symbol": "?execMultiplyEqual_RotatorFloat@UObject@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "00597410",
+     "size": 282,
+     "symbol": "?execDivideEqual_RotatorFloat@UObject@@QAEXAAUFFrame@@QAX@Z"
     }
    ]
   },
@@ -106123,6 +106272,11 @@
      "va": "0069cdd0",
      "size": 4,
      "symbol": "?sub_0069cdd0@C_0069cdd0@@QAEHXZ"
+    },
+    {
+     "va": "0069cb00",
+     "size": 26,
+     "symbol": "?sub_0069cb00@NodeList_@@QAEPAU1@PAUNode_@@0@Z"
     }
    ]
   },
@@ -159433,6 +159587,11 @@
      "va": "009d5a00",
      "size": 25,
      "symbol": "?sub_009d5a00@S009d5a00@@QAEPAU1@H@Z"
+    },
+    {
+     "va": "009d5d40",
+     "size": 26,
+     "symbol": "?sub_009d5d40@FApexRenderInit_@@QAEPAU1@XZ"
     }
    ]
   },
@@ -185698,6 +185857,11 @@
      "va": "007650e0",
      "size": 233,
      "symbol": "?vf_31c@AActor@@UAEXH@Z"
+    },
+    {
+     "va": "00759620",
+     "size": 17,
+     "symbol": "?sub_00759620@UActorComponent_@@QAEXXZ"
     }
    ]
   },
@@ -199468,6 +199632,18 @@
   },
   {
    "unit": "Engine/Src/UnInteraction.cpp",
+   "source": "Engine/Src/UnInteraction.6.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "00ca0c70",
+     "size": 168,
+     "symbol": "?execPlayUISound@UUIInteraction_@@QAEXAAUFFrame@@QAX@Z"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Src/UnInteraction.cpp",
    "source": "Engine/Src/UnInteraction.cpp",
    "profile": "ue3",
    "functions": [
@@ -210106,6 +210282,11 @@
      "va": "008a66e0",
      "size": 150,
      "symbol": "?vf_3a0@APawn@@UAEXXZ"
+    },
+    {
+     "va": "00c8b380",
+     "size": 143,
+     "symbol": "?execIncrementPathStep@APawn@@QAEXAAUFFrame@@QAX@Z"
     }
    ]
   },
@@ -211480,6 +211661,18 @@
   },
   {
    "unit": "Engine/Src/UnPhysAsset.cpp",
+   "source": "Engine/Src/UnPhysAsset.10.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "009f9a40",
+     "size": 249,
+     "symbol": "?sub_009f9a40@URB_BodyInstance_@@QAEXPBUURB_BodyInstance@@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Src/UnPhysAsset.cpp",
    "source": "Engine/Src/UnPhysAsset.2.cpp",
    "profile": "ue3",
    "functions": [
@@ -212140,6 +212333,23 @@
      "va": "00a1ca60",
      "size": 659,
      "symbol": "?UpdateMeshForBrokenConstraints@USkeletalMeshComponent@@QAEXXZ"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Src/UnPhysComponent.cpp",
+   "source": "Engine/Src/UnPhysComponent.3.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "00a14920",
+     "size": 106,
+     "symbol": "?sub_00a14920@USkeletalMeshComponent@@QAEHH@Z"
+    },
+    {
+     "va": "00a14870",
+     "size": 170,
+     "symbol": "?sub_00a14870@USkeletalMeshComponent@@QAEXH@Z"
     }
    ]
   },
@@ -213573,6 +213783,11 @@
      "va": "00895f30",
      "size": 150,
      "symbol": "?eventOutputText@UConsole_@@QAEXABVFString@@@Z"
+    },
+    {
+     "va": "00c8cd10",
+     "size": 54,
+     "symbol": "?execIsFullScreenViewport@UGameViewportClient__00c8cd10@@QAEXAAUFFrame@@QAX@Z"
     }
    ]
   },
@@ -226323,6 +226538,11 @@
      "va": "00913fe0",
      "size": 44,
      "symbol": "?FindMorphNode@USkeletalMeshComponent__00913fe0@@QAEPAUUMorphNodeBase@@UFName@@@Z"
+    },
+    {
+     "va": "00913f30",
+     "size": 115,
+     "symbol": "?sub_00913f30@USkeletalMeshComponent__00913f30@@QAEXPAUUActorComponent@@@Z"
     }
    ]
   },
@@ -226364,6 +226584,11 @@
      "va": "00935c60",
      "size": 128,
      "symbol": "?UpdateAnimations@USkeletalMeshComponent@@QAEXXZ"
+    },
+    {
+     "va": "0090f4e0",
+     "size": 29,
+     "symbol": "?sub_0090f4e0@USkeletalMeshComponent__0090f4e0@@QAEXXZ"
     }
    ]
   },
@@ -228743,6 +228968,11 @@
      "va": "00956fb0",
      "size": 161,
      "symbol": "?GetDetailedInfoInternal@AStaticMeshActor@@UAE?AVFString@@XZ"
+    },
+    {
+     "va": "0096b4b0",
+     "size": 26,
+     "symbol": "?sub_0096b4b0@S@@QAEPAU1@XZ"
     }
    ]
   },
@@ -231113,6 +231343,16 @@
      "va": "00757d90",
      "size": 19,
      "symbol": "?IsReadyForFinishDestroy@AActor@@UAEHXZ"
+    },
+    {
+     "va": "00984e90",
+     "size": 26,
+     "symbol": "?sub_00984e90@C_00984e90@@QAEPAU1@PBH@Z"
+    },
+    {
+     "va": "00984660",
+     "size": 26,
+     "symbol": "?sub_00984660@C_00984660@@QAEXPAUC_00984660_Target@@@Z"
     }
    ]
   },
@@ -237035,6 +237275,21 @@
      "va": "00da9010",
      "size": 73,
      "symbol": "?eventAddedChild@UUIScreenObject__00da9010@@QAEXPAUUUIScreenObject@@PAUUUIObject@@@Z"
+    },
+    {
+     "va": "00da8ef0",
+     "size": 53,
+     "symbol": "?execRequestFormattingUpdate@UUIScreenObject@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "00ca39f0",
+     "size": 53,
+     "symbol": "?execRequestSceneInputMaskUpdate@UUIScreenObject@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "00ca0df0",
+     "size": 205,
+     "symbol": "?execCreateScene@UUIInteraction_@@QAEXAAUFFrame@@QAX@Z"
     }
    ]
   },
@@ -242328,6 +242583,86 @@
      "va": "00ddd500",
      "size": 78,
      "symbol": "?eventPauseGame@UGameUISceneClient_@@QAEXHH@Z"
+    },
+    {
+     "va": "00ca7490",
+     "size": 48,
+     "symbol": "?execRequestInputProcessingUpdate@UGameUISceneClient__00ca7490@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "00ca74c0",
+     "size": 48,
+     "symbol": "?execRequestCursorRenderUpdate@UGameUISceneClient__00ca74c0@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "00ca74f0",
+     "size": 54,
+     "symbol": "?execCanUnpauseInternalUI@UGameUISceneClient__00ca74f0@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "00ca6d50",
+     "size": 101,
+     "symbol": "?execFindSceneIndex@UGameUISceneClient__00ca6d50@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "00ca6dc0",
+     "size": 101,
+     "symbol": "?execGetSceneAtIndex@UGameUISceneClient__00ca6dc0@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "00ca1a70",
+     "size": 128,
+     "symbol": "?execGetCanvasToScreen@UUISceneClient_@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "00ca1af0",
+     "size": 128,
+     "symbol": "?execGetInverseCanvasToScreen@UUISceneClient__00ca1af0@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "00ca6ca0",
+     "size": 168,
+     "symbol": "?execFindSceneByTag@UGameUISceneClient__00ca6ca0@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "00ca6e30",
+     "size": 168,
+     "symbol": "?execFindSceneIndexByTag@UGameUISceneClient__00ca6e30@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "00ca6ee0",
+     "size": 171,
+     "symbol": "?execGetActiveSceneCount@UGameUISceneClient__00ca6ee0@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "00ca6f90",
+     "size": 171,
+     "symbol": "?execGetActiveScene@UGameUISceneClient__00ca6f90@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "00ca7130",
+     "size": 218,
+     "symbol": "?execGetPreviousSceneFromIndex@UGameUISceneClient__00ca7130@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "00ca73b0",
+     "size": 218,
+     "symbol": "?execGetNextSceneFromIndex@UGameUISceneClient__00ca73b0@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "00ca7040",
+     "size": 231,
+     "symbol": "?execGetPreviousScene@UGameUISceneClient__00ca7040@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "00ca72c0",
+     "size": 231,
+     "symbol": "?execGetNextScene@UGameUISceneClient__00ca72c0@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "00ca7210",
+     "size": 164,
+     "symbol": "?execGetPreviousInputProcessingScene@UGameUISceneClient__00ca7210@@QAEXAAUFFrame@@QAX@Z"
     }
    ]
   },
@@ -247245,6 +247580,11 @@
      "va": "009c6dd0",
      "size": 334,
      "symbol": "?sub_009c6dd0@AWorldInfo_@@QBE?AUFWorldFractureSettings@@XZ"
+    },
+    {
+     "va": "009b1500",
+     "size": 26,
+     "symbol": "?sub_009b1500@C_009b1500@@QAEPAU1@PBH@Z"
     }
    ]
   },
@@ -286380,6 +286720,51 @@
      "va": "008065e0",
      "size": 26,
      "symbol": "?sub_008065e0@S008065e0@@QAEAAU1@ABU1@@Z"
+    },
+    {
+     "va": "00803ee0",
+     "size": 26,
+     "symbol": "?sub_00803ee0@ADirectionalLightToggleable_@@QAEXXZ"
+    },
+    {
+     "va": "00806790",
+     "size": 26,
+     "symbol": "?Init@Sub_00806790_Owner@@QAEAAU1@ABUTwoInts@@@Z"
+    },
+    {
+     "va": "00806700",
+     "size": 26,
+     "symbol": "?sub_00806700@S00806700@@QAEAAU1@ABU1@@Z"
+    },
+    {
+     "va": "00803f20",
+     "size": 26,
+     "symbol": "?sub_00803f20@ASpotLightToggleable_@@QAEXXZ"
+    },
+    {
+     "va": "00806810",
+     "size": 26,
+     "symbol": "?Init@Sub_00806810_Owner@@QAEAAU1@ABUTwoInts@@@Z"
+    },
+    {
+     "va": "00806940",
+     "size": 26,
+     "symbol": "?sub_00806940@S00806940@@QAEAAU1@ABU1@@Z"
+    },
+    {
+     "va": "00809370",
+     "size": 26,
+     "symbol": "?SetTri@sub_00809370_Owner@@QAEPAU1@ABUsub_00809400_Tri@@@Z"
+    },
+    {
+     "va": "0080b090",
+     "size": 26,
+     "symbol": "?sub_0080b090@sub_0080b090_@@QAEHH@Z"
+    },
+    {
+     "va": "00803f00",
+     "size": 26,
+     "symbol": "?sub_00803f00@APointLightToggleable_@@QAEXXZ"
     }
    ]
   },
@@ -289563,6 +289948,11 @@
      "va": "008359d0",
      "size": 15,
      "symbol": "?sub_008359d0@C_008359d0@@QAEHXZ"
+    },
+    {
+     "va": "008336b0",
+     "size": 26,
+     "symbol": "?sub_008336b0@FFloatPair@@QAEPAU1@HH@Z"
     }
    ]
   },
@@ -291791,6 +292181,16 @@
      "va": "00888510",
      "size": 15,
      "symbol": "?sub_00888510@C@@QAEPAU1@XZ"
+    },
+    {
+     "va": "0088de40",
+     "size": 26,
+     "symbol": "?sub_0088de40@FPoint_@@QAEPAU1@PBU1@@Z"
+    },
+    {
+     "va": "0088dec0",
+     "size": 26,
+     "symbol": "?Init@Foo@@QAEPAU1@PBU1@@Z"
     }
    ]
   },
@@ -291837,6 +292237,11 @@
      "va": "00880dc0",
      "size": 37,
      "symbol": "??1FNavigationOctreeObject@@QAE@XZ"
+    },
+    {
+     "va": "0088d8b0",
+     "size": 26,
+     "symbol": "?sub_0088d8b0@@YAXXZ"
     }
    ]
   },
@@ -295354,6 +295759,16 @@
      "va": "0090c480",
      "size": 25,
      "symbol": "?sub_0090c480@C_0090c480@@QAEPAU1@XZ"
+    },
+    {
+     "va": "0090fc30",
+     "size": 26,
+     "symbol": "?sub_0090fc30@@YGHHHH@Z"
+    },
+    {
+     "va": "0090ec40",
+     "size": 138,
+     "symbol": "?sub_0090ec40@USkeletalMeshComponent_@@QAE?AUFName@@U2@@Z"
     }
    ]
   },
@@ -295485,6 +295900,11 @@
      "va": "0091aa40",
      "size": 161,
      "symbol": "?GetDetailedInfoInternal@USkeletalMeshComponent@@UAE?AVFString@@XZ"
+    },
+    {
+     "va": "00910410",
+     "size": 26,
+     "symbol": "?sub_00910410@FInt3_@@QAEPAU1@PBUFInt2_@@@Z"
     }
    ]
   },
@@ -296408,6 +296828,18 @@
   },
   {
    "unit": "Engine/Unsorted/Engine_0920000.cpp",
+   "source": "Engine/Unsorted/Engine_0920000.5.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "0092e930",
+     "size": 100,
+     "symbol": "?sub_0092e930@USkeletalMeshComponent@@QAEXH@Z"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Unsorted/Engine_0920000.cpp",
    "source": "Engine/Unsorted/Engine_0920000.cpp",
    "profile": "ue3",
    "functions": [
@@ -296437,6 +296869,18 @@
      "va": "0093c7c0",
      "size": 158,
      "symbol": "?execSetPhysicsAsset@USkeletalMeshComponent@@QAEXAAUFFrame@@QAX@Z"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Unsorted/Engine_0930000.cpp",
+   "source": "Engine/Unsorted/Engine_0930000.3.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "0093c860",
+     "size": 97,
+     "symbol": "?ForceSkelUpdate@USkeletalMeshComponent@@QAEXXZ"
     }
    ]
   },
@@ -296581,6 +297025,11 @@
      "va": "00949d60",
      "size": 146,
      "symbol": "??6@YAAAVFArchive@@AAV0@AAUFkDOP@@@Z"
+    },
+    {
+     "va": "0094c800",
+     "size": 26,
+     "symbol": "?sub_0094c800@S0094c800@@QAEXHH@Z"
     }
    ]
   },
@@ -304770,6 +305219,11 @@
      "va": "00a07bd0",
      "size": 38,
      "symbol": "?sub_00a07bd0@@YAHXZ"
+    },
+    {
+     "va": "00a01980",
+     "size": 101,
+     "symbol": "?sub_00a01980@USkeletalMeshComponent@@QAEXH@Z"
     }
    ]
   },
@@ -335466,6 +335920,11 @@
      "va": "00c8d830",
      "size": 150,
      "symbol": "?execDecrementIntStat@UOnlineStatsWrite@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "00c86b60",
+     "size": 54,
+     "symbol": "?execGetBuildUniqueId@UOnlineSubsystem_@@QAEXAAUFFrame@@QAX@Z"
     }
    ]
   },
@@ -494298,6 +494757,11 @@
      "va": "007d8c10",
      "size": 26,
      "symbol": "?sub_007d8c10@F007D8C10@@QAEPAU1@PBU1@@Z"
+    },
+    {
+     "va": "007d8900",
+     "size": 26,
+     "symbol": "?sub_007d8900@FThing_12@@QAEPAU1@PAU1@@Z"
     }
    ]
   },

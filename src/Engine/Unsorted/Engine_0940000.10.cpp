@@ -1,4 +1,4 @@
-// Engine_0940000.cpp: 1 function
+// Engine_0940000.cpp: 2 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -55,4 +55,23 @@ FArchive& operator<<(FArchive& Ar, FkDOP& kDOP)
         Ar << kDOP.Max[nPlane];
     }
     return Ar;
+}
+
+struct SSub_008076c0 {
+    void sub_008076c0(int A, int B, int C); // 0x008076c0, ret 0x1c
+};
+
+struct S0094c800 {
+    char _Pad[0x260];
+    SSub_008076c0 _Sub;
+
+    void sub_0094c800(int A, int B) {
+        _Sub.sub_008076c0(A, B, 0x1c);
+    }
+};
+
+// @baa 0x0094c800
+extern "C" void g_KeepAlive_0094c800() {
+    S0094c800* Self = 0;
+    Self->sub_0094c800(0, 1);
 }

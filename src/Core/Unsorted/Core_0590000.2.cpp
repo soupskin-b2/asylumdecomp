@@ -1,4 +1,4 @@
-// Core_0590000.cpp (part 2 of 4): 121 functions
+// Core_0590000.cpp (part 2 of 4): 136 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -1345,4 +1345,214 @@ void UObject::execVLerp(FFrame& Stack, RESULT_DECL)
 	P_FINISH;
 
 	*(FVector*)Result = A + (B - A) * Alpha;
+}
+
+/* An unnamed script bytecode handler (registered in the GNatives table, entry at 0x025d6xxx) that just
+ * evaluates the next expression into Result. */
+struct UObject__00599670 : public UObject
+{
+	void sub_00599670(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00599670
+void UObject__00599670::sub_00599670(FFrame& Stack, RESULT_DECL)
+{
+	BYTE B = *Stack.Code++;
+	(this->*GNatives[B])(Stack, Result);
+}
+
+/* Extended native call, page 2 (bytecode EX_ExtendedNative+2): this build splits UE3's execExtendedNative
+ * into one handler per page; the native index is page*256 plus the next code byte. */
+struct UObject__005996d0 : public UObject
+{
+	void sub_005996d0(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x005996d0
+void UObject__005996d0::sub_005996d0(FFrame& Stack, RESULT_DECL)
+{
+	BYTE B = *Stack.Code++;
+	(this->*GNatives[0x200 + B])(Stack, Result);
+}
+
+/* Extended native call, page 3 (bytecode EX_ExtendedNative+3): this build splits UE3's execExtendedNative
+ * into one handler per page; the native index is page*256 plus the next code byte. */
+struct UObject__00599700 : public UObject
+{
+	void sub_00599700(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00599700
+void UObject__00599700::sub_00599700(FFrame& Stack, RESULT_DECL)
+{
+	BYTE B = *Stack.Code++;
+	(this->*GNatives[0x300 + B])(Stack, Result);
+}
+
+/* Extended native call, page 4 (bytecode EX_ExtendedNative+4): this build splits UE3's execExtendedNative
+ * into one handler per page; the native index is page*256 plus the next code byte. */
+struct UObject__00599730 : public UObject
+{
+	void sub_00599730(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00599730
+void UObject__00599730::sub_00599730(FFrame& Stack, RESULT_DECL)
+{
+	BYTE B = *Stack.Code++;
+	(this->*GNatives[0x400 + B])(Stack, Result);
+}
+
+/* Extended native call, page 5 (bytecode EX_ExtendedNative+5): this build splits UE3's execExtendedNative
+ * into one handler per page; the native index is page*256 plus the next code byte. */
+struct UObject__00599760 : public UObject
+{
+	void sub_00599760(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00599760
+void UObject__00599760::sub_00599760(FFrame& Stack, RESULT_DECL)
+{
+	BYTE B = *Stack.Code++;
+	(this->*GNatives[0x500 + B])(Stack, Result);
+}
+
+/* Extended native call, page 6 (bytecode EX_ExtendedNative+6): this build splits UE3's execExtendedNative
+ * into one handler per page; the native index is page*256 plus the next code byte. */
+struct UObject__00599790 : public UObject
+{
+	void sub_00599790(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00599790
+void UObject__00599790::sub_00599790(FFrame& Stack, RESULT_DECL)
+{
+	BYTE B = *Stack.Code++;
+	(this->*GNatives[0x600 + B])(Stack, Result);
+}
+
+/* Extended native call, page 7 (bytecode EX_ExtendedNative+7): this build splits UE3's execExtendedNative
+ * into one handler per page; the native index is page*256 plus the next code byte. */
+struct UObject__005997c0 : public UObject
+{
+	void sub_005997c0(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x005997c0
+void UObject__005997c0::sub_005997c0(FFrame& Stack, RESULT_DECL)
+{
+	BYTE B = *Stack.Code++;
+	(this->*GNatives[0x700 + B])(Stack, Result);
+}
+
+/* Extended native call, page 8 (bytecode EX_ExtendedNative+8): this build splits UE3's execExtendedNative
+ * into one handler per page; the native index is page*256 plus the next code byte. */
+struct UObject__005997f0 : public UObject
+{
+	void sub_005997f0(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x005997f0
+void UObject__005997f0::sub_005997f0(FFrame& Stack, RESULT_DECL)
+{
+	BYTE B = *Stack.Code++;
+	(this->*GNatives[0x800 + B])(Stack, Result);
+}
+
+/* Extended native call, page 9 (bytecode EX_ExtendedNative+9): this build splits UE3's execExtendedNative
+ * into one handler per page; the native index is page*256 plus the next code byte. */
+struct UObject__00599820 : public UObject
+{
+	void sub_00599820(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00599820
+void UObject__00599820::sub_00599820(FFrame& Stack, RESULT_DECL)
+{
+	BYTE B = *Stack.Code++;
+	(this->*GNatives[0x900 + B])(Stack, Result);
+}
+
+/* Extended native call, page 10 (bytecode EX_ExtendedNative+10): this build splits UE3's execExtendedNative
+ * into one handler per page; the native index is page*256 plus the next code byte. */
+struct UObject__00599850 : public UObject
+{
+	void sub_00599850(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00599850
+void UObject__00599850::sub_00599850(FFrame& Stack, RESULT_DECL)
+{
+	BYTE B = *Stack.Code++;
+	(this->*GNatives[0xa00 + B])(Stack, Result);
+}
+
+/* Extended native call, page 11 (bytecode EX_ExtendedNative+11): this build splits UE3's execExtendedNative
+ * into one handler per page; the native index is page*256 plus the next code byte. */
+struct UObject__00599880 : public UObject
+{
+	void sub_00599880(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00599880
+void UObject__00599880::sub_00599880(FFrame& Stack, RESULT_DECL)
+{
+	BYTE B = *Stack.Code++;
+	(this->*GNatives[0xb00 + B])(Stack, Result);
+}
+
+/* Extended native call, page 12 (bytecode EX_ExtendedNative+12): this build splits UE3's execExtendedNative
+ * into one handler per page; the native index is page*256 plus the next code byte. */
+struct UObject__005998b0 : public UObject
+{
+	void sub_005998b0(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x005998b0
+void UObject__005998b0::sub_005998b0(FFrame& Stack, RESULT_DECL)
+{
+	BYTE B = *Stack.Code++;
+	(this->*GNatives[0xc00 + B])(Stack, Result);
+}
+
+/* Extended native call, page 13 (bytecode EX_ExtendedNative+13): this build splits UE3's execExtendedNative
+ * into one handler per page; the native index is page*256 plus the next code byte. */
+struct UObject__005998e0 : public UObject
+{
+	void sub_005998e0(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x005998e0
+void UObject__005998e0::sub_005998e0(FFrame& Stack, RESULT_DECL)
+{
+	BYTE B = *Stack.Code++;
+	(this->*GNatives[0xd00 + B])(Stack, Result);
+}
+
+/* Extended native call, page 14 (bytecode EX_ExtendedNative+14): this build splits UE3's execExtendedNative
+ * into one handler per page; the native index is page*256 plus the next code byte. */
+struct UObject__00599910 : public UObject
+{
+	void sub_00599910(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00599910
+void UObject__00599910::sub_00599910(FFrame& Stack, RESULT_DECL)
+{
+	BYTE B = *Stack.Code++;
+	(this->*GNatives[0xe00 + B])(Stack, Result);
+}
+
+/* Extended native call, page 15 (bytecode EX_ExtendedNative+15): this build splits UE3's execExtendedNative
+ * into one handler per page; the native index is page*256 plus the next code byte. */
+struct UObject__00599940 : public UObject
+{
+	void sub_00599940(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00599940
+void UObject__00599940::sub_00599940(FFrame& Stack, RESULT_DECL)
+{
+	BYTE B = *Stack.Code++;
+	(this->*GNatives[0xf00 + B])(Stack, Result);
 }

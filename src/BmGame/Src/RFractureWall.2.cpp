@@ -1,4 +1,4 @@
-// RFractureWall.cpp: 6 functions
+// RFractureWall.cpp: 7 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -126,4 +126,18 @@ UBOOL ARFractureWallBase__016e1070::eventAreGunThugsAround()
 	Parms.ReturnValue = FALSE;
 	ProcessEvent(FindFunctionChecked(g_026e2c5c), &Parms);
 	return Parms.ReturnValue;
+}
+
+/* Kit gaps: the native's exec and UpdateWallState (016d8e90) aren't declared (name from the exe's native table). */
+struct ARFractureWallBase__01706ac0 : public ARFractureWallBase
+{
+	void UpdateWallState();
+	void execUpdateWallState(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x01706ac0
+void ARFractureWallBase__01706ac0::execUpdateWallState(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	UpdateWallState();
 }

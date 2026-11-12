@@ -1,4 +1,4 @@
-// UnUIObjects.cpp: 10 functions
+// UnUIObjects.cpp: 13 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -175,4 +175,35 @@ void UUIScreenObject__00da9010::eventAddedChild(class UUIScreenObject* WidgetOwn
 	Parms.WidgetOwner = WidgetOwner;
 	Parms.NewChild = NewChild;
 	ProcessEvent(FindFunctionChecked(g_026c5534), &Parms);
+}
+
+// @baa 0x00da8ef0
+void UUIScreenObject::execRequestFormattingUpdate(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	RequestFormattingUpdate();
+}
+
+// @baa 0x00ca39f0
+void UUIScreenObject::execRequestSceneInputMaskUpdate(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	RequestSceneInputMaskUpdate();
+}
+
+/* Kit gaps: the native's exec and CreateScene (00d707e0) aren't declared (names from the exe's native table). */
+struct UUIInteraction_ : public UUIInteraction
+{
+	class UUIScene* CreateScene(class UClass* SceneClass, FName SceneTag, class UUIScene* SceneTemplate);	/* 0x00d707e0 */
+	void execCreateScene(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x00ca0df0
+void UUIInteraction_::execCreateScene(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(UClass, SceneClass);
+	P_GET_NAME_OPTX(SceneTag, NAME_None);
+	P_GET_OBJECT_OPTX(UUIScene, SceneTemplate, NULL);
+	P_FINISH;
+	*(class UUIScene**)Result = CreateScene(SceneClass, SceneTag, SceneTemplate);
 }

@@ -1,4 +1,4 @@
-// UnSkeletalComponent.cpp: 1 function
+// UnSkeletalComponent.cpp: 2 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -25,4 +25,18 @@ void USkeletalMeshComponent::UpdateAnimations()
             AnimTickArray(i)->vf_12c();
         }
     }
+}
+
+/* Unnamed in the kit: resets the ragdoll's sleep tracking (permanent fixing, damping ramp-up). */
+struct USkeletalMeshComponent__0090f4e0 : public USkeletalMeshComponent
+{
+    void sub_0090f4e0();
+};
+
+// @baa 0x0090f4e0
+void USkeletalMeshComponent__0090f4e0::sub_0090f4e0()
+{
+    bHasBeenPermanentlyFixed = FALSE;
+    FramesPhysicsAsleep = 0;
+    CurrDampingRampupTime = 0.f;
 }
