@@ -4,7 +4,6 @@
 #include "ue3/Classes.h"
 
 // FName's string constructor (UnName.cpp), missing from the kit's FName.
-enum EFindName { FNAME_Find, FNAME_Add };
 
 struct FNameString : public FName
 {

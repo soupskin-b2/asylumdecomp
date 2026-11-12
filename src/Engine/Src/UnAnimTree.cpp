@@ -1887,8 +1887,6 @@ struct FName_ : public FName
 	FName_(const TCHAR* Name, INT FindType = 1, UBOOL bSplitName = 1);	/* 005d5620 */
 };
 
-inline UBOOL operator==(const FName& A, const FName& B) { return A.Index == B.Index && A.Number == B.Number; }
-
 /* UObject::GetFName, inlined at every call here; the cast lets both arms of the ?: be the same type, as they are
  * with UE3's FName(const TCHAR*) constructor. */
 static __forceinline FName GetFName(const UObject* Object)

@@ -49,8 +49,6 @@ void UAnimNode_::GetNodesByClass(TArray<UAnimNode*>& Nodes, UClass* BaseClass)
 	}
 }
 
-inline UBOOL operator==(const FName& A, const FName& B) { return A.Index == B.Index && A.Number == B.Number; }
-
 inline UBOOL operator==(const FName& A, EName N) { return A.Index == N && A.Number == 0; }
 
 /* UAnimNode::GetAnimSeqNodes isn't declared in Classes.h. */

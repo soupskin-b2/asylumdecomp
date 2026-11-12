@@ -90,8 +90,6 @@ AActor* USeqAct_Interp__00d14410::sub_00d14410()
 }
 
 /* Kit gap: FName has no comparison operator (UnName.h compares Index and Number). */
-inline UBOOL operator==(const FName& A, const FName& B) { return A.Index == B.Index && A.Number == B.Number; }
-
 /* Unnamed in the kit: UE3's UInterpData::FindGroupByName(FName GroupName): the index of the group named GroupName,
  * INDEX_NONE if none (or for NAME_None). */
 struct UInterpData__00cf3030 : public UInterpData

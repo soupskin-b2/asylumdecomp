@@ -218,8 +218,6 @@ void UPhysicsAssetInstance::SetFullAnimWeightBonesFixed(UBOOL bNewFixed, USkelet
 }
 
 /* FName::operator== (UnName.h); the kit's FName has no operators. */
-inline UBOOL operator==(const FName& A, const FName& B) { return A.Index == B.Index && A.Number == B.Number; }
-
 // @baa 0x00a0b500
 void UPhysicsAssetInstance::SetGroupBodiesFixed(UBOOL bNewFixed, FName GroupName, USkeletalMeshComponent* SkelMesh, UBOOL bSetOtherBodiesToComplement)
 {

@@ -6,8 +6,6 @@
 #include "ue3/Cast.h"
 
 /* FName::operator== (UnName.h); the kit's FName has no operators. */
-inline UBOOL operator==(const FName& A, const FName& B) { return A.Index == B.Index && A.Number == B.Number; }
-
 /* Native behind execGetTimeOfScriptNotifyInAnimSequence (0x0092d9b0); not in Classes.h. */
 struct USkeletalMeshComponent_ : public USkeletalMeshComponent
 {

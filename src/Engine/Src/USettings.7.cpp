@@ -47,8 +47,6 @@ void FSettingsData_::SetData(FLOAT InData)
 }
 
 /* Kit gap: FName has no operator== (UE3's compares Index and Number). */
-inline UBOOL operator==(const FName& A, const FName& B) { return A.Index == B.Index && A.Number == B.Number; }
-
 // @baa 0x00d88830
 /* Drop the named session from the subsystem's list. */
 void UOnlineSubsystem::RemoveNamedSession(FName SessionName)

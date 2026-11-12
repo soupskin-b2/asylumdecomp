@@ -66,8 +66,6 @@ void UAnimNodeBlendBase::vf_134(FLOAT DeltaSeconds, FLOAT TotalWeight)
 }
 
 /* FName's comparison (UnName.h); the kit's FName has none. */
-inline UBOOL operator==(const FName& A, const FName& B) { return A.Index == B.Index && A.Number == B.Number; }
-
 // @baa 0x00c7df80
 /* Plays DefaultAnimSeqName when the active child has no animation yet. */
 void UAnimNodeCrossfader::InitAnim(USkeletalMeshComponent* MeshComp, UAnimNodeBlendBase* Parent)

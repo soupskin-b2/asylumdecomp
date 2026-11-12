@@ -7,8 +7,6 @@
 /* Kit gaps, with UE3's definitions (UnName.h): FName has no comparison operators and no EName. */
 enum EName_ { NAME_None_ = 0 };
 
-inline UBOOL operator==(const FName& A, const FName& B) { return A.Index == B.Index && A.Number == B.Number; }
-
 inline UBOOL operator!=(const FName& A, EName_ N) { return A.Index != N || A.Number != 0; }
 
 /* Out-of-line code Classes.h doesn't declare. */

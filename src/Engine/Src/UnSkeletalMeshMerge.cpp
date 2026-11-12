@@ -170,8 +170,6 @@ FSkeletalMeshMerge::FSkeletalMeshMerge(USkeletalMesh* InMergeMesh, const TArray<
 
 #line 172 "candidate.cpp"
 
-inline UBOOL operator==(const FName& A, const FName& B) { return A.Index == B.Index && A.Number == B.Number; }
-
 // @baa 0x00d49b40
 /* UnSkeletalMeshMerge.cpp: the index of the bone with the given name in a reference skeleton, INDEX_NONE if absent */
 INT FindBoneIndex(const TArray<FMeshBone_>& RefSkeleton, FName BoneName)

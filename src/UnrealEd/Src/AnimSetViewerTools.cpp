@@ -600,8 +600,6 @@ INT sub_013577a0(INT bShow)
 }
 
 /* FName::operator!= (UnName.h); the kit's FName has no comparison operators. */
-inline UBOOL operator!=(const FName& A, const FName& B) { return A.Index != B.Index || A.Number != B.Number; }
-
 // @baa 0x00834900
 /* UE3's UMorphNodePose::SetMorphTarget (named sub_00834900 in the kit): remembers the name and looks the target up
  * on the skeletal mesh component, when there is one. */

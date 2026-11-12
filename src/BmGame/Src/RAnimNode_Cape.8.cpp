@@ -22,8 +22,6 @@ void URPoseConfigFactoryNew::InitializeIntrinsicPropertyValues()
 }
 
 /* Kit gap: FName has no operator== (UnName.h). */
-inline UBOOL operator==(const FName& A, const FName& B) { return A.Index == B.Index && A.Number == B.Number; }
-
 // @baa 0x0155cfa0
 void URAnimNode_Cape::OnChildAnimEnd(UAnimNodeSequence* Child, FLOAT PlayedTime, FLOAT ExcessTime)
 {

@@ -47,8 +47,6 @@ void URSeqAct_PrepareMapChangeFromURL::DeActivated()
 }
 
 /* Kit gap: FName has no operator== (UnName.h compares Index and Number). */
-inline UBOOL operator==(const FName& A, const FName& B) { return A.Index == B.Index && A.Number == B.Number; }
-
 // @baa 0x0155a3a0
 /* A transition connects the levels on either side of it. */
 UBOOL ARLevelTransition::IsConnectedToLevel(FName Level)

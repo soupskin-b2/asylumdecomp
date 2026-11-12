@@ -318,7 +318,6 @@ int USkeletalMeshComponent::sub_00da6140(void)
 // @baa 0x00da6160
 void sub_00da6160(void) { sub_00da6010(); }
 
-#define ARRAY_COUNT(array) (sizeof(array) / sizeof((array)[0]))
 // @baa 0x00d935d0
 /* UE3 declares this const (InputAliases is read through the const operator()); the kit's declaration isn't. */
 FString UUIDataStore_InputAlias::GetAliasFontMarkupByIndex(INT AliasIndex, BYTE OverridePlatform)

@@ -121,8 +121,6 @@ void USkeletalMeshComponent::execGetClosestCollidingBoneLocation(FFrame& Stack, 
 
 inline UBOOL operator==(const FName& A, EName B) { return A.Index == B && A.Number == 0; }
 
-inline UBOOL operator==(const FName& A, const FName& B) { return A.Index == B.Index && A.Number == B.Number; }
-
 // @baa 0x0091dd40
 void USkeletalMeshComponent::execFindComponentAttachedToBone(FFrame& Stack, RESULT_DECL)
 {

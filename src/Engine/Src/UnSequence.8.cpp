@@ -253,8 +253,6 @@ void USeqAct_Latent_::DeActivated()
 /* FName comparisons (UnName.h); the kit's FName has no operators. */
 inline UBOOL operator!=(const FName& A, EName B) { return A.Index != B || A.Number != 0; }
 
-inline UBOOL operator!=(const FName& A, const FName& B) { return A.Index != B.Index || A.Number != B.Number; }
-
 /* UnSequence.cpp's static level lookup (0x008cc3b0): finds the streaming level for LevelName. */
 UBOOL FindLevel(ULevelStreaming*& Level, FName LevelName);
 /* slot 0x1a0 (vf_1a0) */

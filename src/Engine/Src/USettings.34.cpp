@@ -6,8 +6,6 @@
 /* Kit gaps: FName's comparison (UnName.h), FScriptDelegate::IsCallable, the delegateNotifyPropertyValueUpdated
  * glue, and the structcpptext of FSettingsData (operator=, 0x00d74260) / FSettingsProperty (operator=) aren't
  * declared; TArray::AddZeroed isn't in the kit's TArray. */
-inline UBOOL operator!=(const FName& A, const FName& B) { return A.Index != B.Index || A.Number != B.Number; }
-
 extern FName g_026c47e8;
  /* NotifyPropertyValueUpdated */
 struct FScriptDelegate_ : public FScriptDelegate

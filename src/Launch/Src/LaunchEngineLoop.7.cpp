@@ -5,7 +5,6 @@
 #include "ue3/Script.h"
 
 // UE3's ARRAY_COUNT (Core.h), missing from the kit.
-#define ARRAY_COUNT( array ) ( sizeof(array) / sizeof((array)[0]) )
 typedef Native (*NativeLookup)(const TCHAR*);
 
 extern NativeLookup GNativeLookupFuncs[500];

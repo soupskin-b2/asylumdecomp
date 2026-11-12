@@ -85,11 +85,6 @@ void UUIScreenObject_::sub_00db2e70(TArray<FName>& out_KeyNames)
 
 /* Kit gaps: FName::operator== (UnName.h), UUIInteraction::GetDataStoreClient (static, 00d8dee0) and
  * UUIScene::CreateSceneDataStore (00db0a10) aren't declared. */
-FORCEINLINE UBOOL operator==(const FName& A, const FName& B)
-{
-	return A.Index == B.Index && A.Number == B.Number;
-}
-
 struct UUIInteraction_ : public UUIInteraction
 {
 	static UDataStoreClient* GetDataStoreClient();

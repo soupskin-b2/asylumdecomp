@@ -12,8 +12,6 @@ struct FName_ : public FName
 	FName_(INT N) { Index = N; Number = 0; }
 };
 
-inline UBOOL operator!=(const FName& A, const FName& B) { return A.Index != B.Index || A.Number != B.Number; }
-
 #define NAME_None	FName_(0)
 struct FIntArray : public TArray<INT>
 {

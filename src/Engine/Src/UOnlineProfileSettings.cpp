@@ -458,11 +458,6 @@ INT UOnlineProfileSettings::GetVersionNumber()
 }
 
 /* Kit gap: FName has no operator== (UnName.h). */
-static FORCEINLINE UBOOL operator==(const FName& A, const FName& B)
-{
-	return A.Index == B.Index && A.Number == B.Number;
-}
-
 // @baa 0x00d723d0
 /* The id of the profile setting with this name; FALSE when there's none. */
 INT UOnlineProfileSettings::GetProfileSettingId(FName ProfileSettingName, INT& ProfileSettingId)

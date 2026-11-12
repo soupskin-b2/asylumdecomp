@@ -59,8 +59,6 @@ void USkeletalMeshComponent::execBoneIsChildOf(FFrame& Stack, RESULT_DECL)
 }
 
 /* Kit gap: FName has no comparison operator (UnName.h compares Index and Number). */
-inline UBOOL operator!=(const FName& A, const FName& B) { return A.Index != B.Index || A.Number != B.Number; }
-
 /* Kit gap: USkeletalMesh::MatchRefBone (00976be0) isn't declared. */
 struct USkeletalMesh__0090e910 : public USkeletalMesh
 {

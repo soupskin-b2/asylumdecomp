@@ -93,11 +93,6 @@ struct USkeletalMesh_ : public USkeletalMesh
 };
 
 /* Kit gap: FName has no comparison operators (UnName.h, inline). */
-static FORCEINLINE UBOOL operator!=(const FName& A, const FName& B)
-{
-	return A.Index != B.Index || A.Number != B.Number;
-}
-
 /* Unnamed in the kit: UE3's USkeletalMeshComponent::MatchRefBone(FName BoneName): the mesh's bone index, or
  * INDEX_NONE without a name or a mesh. */
 struct USkeletalMeshComponent__0090e8e0 : public USkeletalMeshComponent

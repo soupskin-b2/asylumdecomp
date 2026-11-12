@@ -534,8 +534,6 @@ void USkeletalComponent_0090a320::sub_0090a320(const float * NewScale)
 }
 
 /* FName::operator== (UnName.h); the kit's FName has no operators. */
-inline UBOOL operator==(const FName& A, const FName& B) { return A.Index == B.Index && A.Number == B.Number; }
-
 /* Classes.h has this as void* sub_0091f3f0(FName). */
 struct USkeletalMeshComponent_ : public USkeletalMeshComponent
 {

@@ -394,8 +394,6 @@ int C_00b586a0::sub_00b586a0()
     return T;
 }
 
-static inline UBOOL operator==(const FName& A, const FName& B) { return A.Index == B.Index && A.Number == B.Number; }
-
 /* The exe calls TArray<FParticleSysParam>::Remove out of line (00b5f410). */
 struct FParticleSysParamArray : public TArray<FParticleSysParam>
 {

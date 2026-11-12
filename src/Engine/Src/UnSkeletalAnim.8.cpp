@@ -9,8 +9,6 @@
  * indices (twist and helper bones; their EName identifiers aren't known). TArray has no AddItem or
  * Shrink (Array.h). The game inlines AddItem here; VC8 only does so in this big function when it's
  * FORCEINLINE (flagged for the header). */
-inline UBOOL operator!=(const FName& A, const FName& B) { return A.Index != B.Index || A.Number != B.Number; }
-
 template<class T> struct TArrayHelpers : public TArray<T>
 {
 	FORCEINLINE INT AddItem(const T& Item)

@@ -840,8 +840,6 @@ void ARHarpoonDragTrack::vf_180()
 }
 
 /* Kit gap: FName has no comparison operator (UnName.h compares Index and Number). */
-inline UBOOL operator==(const FName& A, const FName& B) { return A.Index == B.Index && A.Number == B.Number; }
-
 // @baa 0x0171f3d0
 /* Hitting one of the instant-kill bones knocks the helmet off. */
 INT ARJokerGunGadgetBase::GetShouldKnockHelmetOff(FName BoneName)

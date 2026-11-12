@@ -5,11 +5,6 @@
 #include "ue3/Cast.h"
 
 /* FName has no comparison operator in Classes.h; this is UE3's FName::operator== body. */
-inline UBOOL operator==( const FName& A, const FName& B )
-{
-	return A.Index == B.Index && A.Number == B.Number;
-}
-
 /* Classes.h declares this as 'virtual INT GetStaticComponentMaskParameterValue(INT, INT, INT, INT, INT, INT, INT)'
  * (placeholder types); this helper carries the real signature. */
 struct UDecalMaterial_ : public UDecalMaterial

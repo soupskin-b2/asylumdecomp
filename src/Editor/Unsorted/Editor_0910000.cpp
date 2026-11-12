@@ -31,8 +31,6 @@ bool UAnimNotify_Scripted::vf_004()
 }
 
 /* Kit gap: FName has no comparison operators (UnName.h compares Index and Number). */
-inline UBOOL operator==(const FName& A, const FName& B) { return A.Index == B.Index && A.Number == B.Number; }
-
 inline UBOOL operator!=(const FName& A, EName B) { return A.Index != B || A.Number != 0; }
 
 // @baa 0x00918870

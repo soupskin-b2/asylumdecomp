@@ -12,8 +12,6 @@
 inline void __cdecl operator delete[](void* Ptr) { sub_0053dfa0(Ptr); }
 
 /* FName's comparison (UnName.h); the kit's FName has none. */
-inline UBOOL operator!=(const FName& A, const FName& B) { return A.Index != B.Index || A.Number != B.Number; }
-
 extern FName g_026c438c;
 	/* NotifySettingValueUpdated */
 struct FScriptDelegate_ : public FScriptDelegate
@@ -291,8 +289,6 @@ INT UOnlineProfileSettings::SetProfileSettingValueFloat(INT ProfileSettingId, FL
 }
 
 /* FName's comparison (UnName.h); the kit's FName has none. */
-inline UBOOL operator==(const FName& A, const FName& B) { return A.Index == B.Index && A.Number == B.Number; }
-
 /* FString's operator* (UnString.h); the kit's FString has none. */
 struct FStringM_ : public FString
 {

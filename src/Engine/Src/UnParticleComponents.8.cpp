@@ -4,8 +4,6 @@
 #include "ue3/Classes.h"
 #include <string.h>
 
-static inline UBOOL operator==(const FName& A, const FName& B) { return A.Index == B.Index && A.Number == B.Number; }
-
 /* The exe calls TArray<FParticleSysParam>::Add out of line (00b520f0); AddZeroed is inline around it. */
 struct FParticleSysParamArray : public TArray<FParticleSysParam>
 {

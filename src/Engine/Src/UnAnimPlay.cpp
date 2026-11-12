@@ -333,10 +333,6 @@ UBOOL UAnimNode_::GetCachedResults(FBoneAtomArray& OutAtoms, FBoneAtom& OutRootM
 
 /* Kit gaps: FName comparisons, USkeletalMeshComponent::FindAnimSequence (0091d860) and
  * UAnimNodeSequence::ShouldKeepCachedResult (00c4ad70) aren't declared. */
-inline UBOOL operator==(const FName& A, const FName& B) { return A.Index == B.Index && A.Number == B.Number; }
-
-inline UBOOL operator!=(const FName& A, const FName& B) { return A.Index != B.Index || A.Number != B.Number; }
-
 /* Kit gap (Array.h): this build's TArray::Reset() is just 'DestructItems(0, ArrayNum); ArrayNum = 0;' (see
  * 00c5e220); the kit's Reset(NewSize) adds an Empty branch that VC8 can't fold. */
 template<class T> struct TArrayReset : public TArray<T>

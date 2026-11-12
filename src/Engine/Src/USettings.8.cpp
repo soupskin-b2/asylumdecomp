@@ -191,11 +191,6 @@ UBOOL USettings::GetIntProperty(INT PropertyId, INT& Value)
 }
 
 /* Kit gap: FName has no operator== (UnName.h). */
-static FORCEINLINE UBOOL operator==(const FName& A, const FName& B)
-{
-	return A.Index == B.Index && A.Number == B.Number;
-}
-
 // @baa 0x00d75490
 /* The id of the property with this name; FALSE when there's none. */
 UBOOL USettings::GetPropertyId(FName PropertyName, INT& PropertyId)

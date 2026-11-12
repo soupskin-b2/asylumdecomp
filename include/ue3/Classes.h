@@ -59,7 +59,8 @@ enum EThumbnailPrimType
     TPT_Cylinder = 4,
 };
 
-struct FName { INT Index; INT Number; FName() {} FName(EName N) : Index(N), Number(0) {} void sub_005d5620(const TCHAR* Name, INT FindType, UBOOL bSplitName); FString ToString() const; /* 0x005d5690 */ };
+enum EFindName { FNAME_Find, FNAME_Add };
+struct FName { INT Index; INT Number; FName() {} FName(EName N) : Index(N), Number(0) {} explicit FName(const TCHAR* Name, EFindName FindType = FNAME_Add, UBOOL bSplitName = TRUE); /* 0x005d5620 */ UBOOL operator==(const FName& Other) const { return Index == Other.Index && Number == Other.Number; } UBOOL operator!=(const FName& Other) const { return Index != Other.Index || Number != Other.Number; } void sub_005d5620(const TCHAR* Name, INT FindType, UBOOL bSplitName); FString ToString() const; /* 0x005d5690 */ };
 template<> TArray<TCHAR>::TArray(INT InNum); /* 0x00417dc0, out of line */
 class FString : public TArray<TCHAR> { public: FString() {} FString(ENoInit) : TArray<TCHAR>(E_NoInit) {} FORCEINLINE FString(const FString& Other) : TArray<TCHAR>(Other.Num()) { if (ArrayNum) appMemcpy(GetTypedData(), Other.GetTypedData(), ArrayNum * sizeof(TCHAR)); } FORCEINLINE const TCHAR* operator*() const { return Num() ? &(*this)(0) : TEXT(""); } INT Len() const { return Num() ? Num() - 1 : 0; } FString(const TCHAR* In); /* 0x00417ef0 */ FString& sub_00544ab0(const TCHAR* In); FString& operator=(const TCHAR* In) { return sub_00544ab0(In); } ~FString(); /* 0x0040fcc0 */ FString& operator=(const FString& Other); /* 0x00547da0 */ };
 class FStringNoInit : public FString { public: FStringNoInit() : FString(E_NoInit) {} FStringNoInit& operator=(const FString& Other); /* 0x004899f0 */ };

@@ -232,11 +232,6 @@ void URBMBehaviourAutoStringUp::PostEditChange(class UProperty* PropertyThatChan
 
 /* Kit gaps: FName has no operator== (UnName.h), and BmGame's hardcoded names (0x514, 0x515: the silent-predator
  * meta poses) have no EName identifiers. */
-static FORCEINLINE UBOOL operator==(const FName& A, const FName& B)
-{
-	return A.Index == B.Index && A.Number == B.Number;
-}
-
 // @baa 0x015dc2d0
 /* Resolves the silent-predator meta poses to this AI's current stance; any other pose is itself. */
 FName ARBMAIController::ResolveMovementMetaPose(FName InPose)

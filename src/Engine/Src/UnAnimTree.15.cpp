@@ -74,8 +74,6 @@ template<class T> struct TArrayHelpers : public TArray<T>
 	}
 };
 
-inline UBOOL operator==(const FName& A, const FName& B) { return A.Index == B.Index && A.Number == B.Number; }
-
 /* Callees Classes.h doesn't declare. */
 struct FIntArray : public TArray<INT>
 {

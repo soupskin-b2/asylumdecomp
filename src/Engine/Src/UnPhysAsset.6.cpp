@@ -8,8 +8,6 @@ struct UPhysicsAsset_ : public UPhysicsAsset {
 };
 
 /* FName::operator== (UnName.h) */
-inline UBOOL operator==(const FName& A, const FName& B) { return A.Index == B.Index && A.Number == B.Number; }
-
 // @baa 0x00a09910
 INT UPhysicsAsset_::FindConstraintIndex(FName ConstraintName)
 {

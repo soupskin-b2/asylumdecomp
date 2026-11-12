@@ -4,6 +4,7 @@ Newest first, one line each. `update` (and `get`, which updates by itself) print
 to you; `python asylum.pyz changes` prints them all. Add a line here with any change an agent should
 know about: a renamed or retyped declaration, a new header or macro, a new rule.
 
+- 2026-11-12: FName has UE3's operator==/!= and its string constructor FName(const TCHAR*, EFindName = FNAME_Add, UBOOL bSplitName = TRUE) (005d5620; returns this, so e.g. UUISkin::GetDataStoreID 00dd7720 matches as `return FName(TEXT("Styles"));`). Core.h: ARRAY_COUNT. The 72 local copies of these were removed from src/.
 - 2026-11-12: Classes.h: StaticLoadClass (005eb8e0), LoadClass<T> and LOAD_None; UUIScreenObject::GetChildren (00db7140).
 - 2026-11-12: FString has UE3's copy constructor (TArray<TCHAR>(INT) 00417dc0 out of line, then appMemcpy; e.g. APlayerReplicationInfo::GetPlayerAlias 007b5540 now matches as plain source), operator* and Len(); drop local FString_ helpers for these. Script.h: P_GET_TARRAY_OPTX.
 - 2026-11-12: ue3/Array.h: TArray has UE3's copy constructor, Copy() and operator= (void in this build), so by-value TArray copies and returns compile as the game's (out-of-line instances such as TArray<BYTE> 00725c60/00723aa0 and TArray<FBoneAtom> 00c64040/00922020 match as plain explicit instantiations). Core.h: TTypeInfo<T>::NeedsConstructor and appMemcpy.

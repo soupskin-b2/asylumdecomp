@@ -288,11 +288,6 @@ C_00da67b0* C_00da67b0::sub_00da67b0(int Value)
 }
 
 /* Kit gap: FName::operator== (UnName.h). */
-FORCEINLINE UBOOL operator==(const FName& A, const FName& B)
-{
-	return A.Index == B.Index && A.Number == B.Number;
-}
-
 /* Kit gap: FindChildIndex is const in this build (the const operator() is used); Classes.h declares it non-const. */
 struct UUIScreenObject_ : public UUIScreenObject
 {

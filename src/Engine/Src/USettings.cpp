@@ -699,11 +699,6 @@ FName USettings::GetStringSettingName(INT StringSettingId)
 }
 
 /* Kit gap: FName has no operator== (UnName.h). */
-static FORCEINLINE UBOOL operator==(const FName& A, const FName& B)
-{
-	return A.Index == B.Index && A.Number == B.Number;
-}
-
 // @baa 0x00d748e0
 /* The id of the string setting with this name; FALSE when there's none. */
 UBOOL USettings::GetStringSettingId(FName StringSettingName, INT& StringSettingId)

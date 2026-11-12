@@ -60,8 +60,6 @@ void UAnimNodeSlot_::InitAnim(USkeletalMeshComponent* MeshComp, UAnimNodeBlendBa
 }
 
 /* The kit's FName has no comparison operators (UnName.h). */
-inline UBOOL operator==(const FName& A, const FName& B) { return A.Index == B.Index && A.Number == B.Number; }
-
 /* UAnimNode's node lookups aren't declared in Classes.h. */
 struct UAnimNode_ : public UAnimNode
 {

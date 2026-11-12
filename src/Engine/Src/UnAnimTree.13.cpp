@@ -6,8 +6,6 @@
 /* Kit gaps, with UE3's definitions (UnName.h): FName has no EName and no comparison operators. */
 enum EName_ { NAME_None_ = 0 };
 
-inline UBOOL operator==(const FName& A, const FName& B) { return A.Index == B.Index && A.Number == B.Number; }
-
 inline UBOOL operator==(const FName& A, EName_ N) { return A.Index == N && A.Number == 0; }
 
 /* UAnimTree::FindSkelControl isn't declared in Classes.h. */

@@ -4,8 +4,6 @@
 #include "ue3/Classes.h"
 
 /* Kit gap: FName has no comparison operator (UnName.h compares Index and Number). */
-inline UBOOL operator==(const FName& A, const FName& B) { return A.Index == B.Index && A.Number == B.Number; }
-
 // @baa 0x00b5ead0
 /* UE3's UParticleSystemComponent::GetColorParameter(FName InName, FColor& OutColor): the color of the instance
  * parameter of that name. */

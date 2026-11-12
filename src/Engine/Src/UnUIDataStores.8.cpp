@@ -65,7 +65,6 @@ C_00d9a500* C_00d9a500::sub_00d9a500()
     return this;
 }
 
-#define ARRAY_COUNT(array) (sizeof(array) / sizeof((array)[0]))
 // @baa 0x00d936b0
 /* UE3 declares this const (InputAliases is read through the const operator()); the kit's declaration isn't. */
 FName UUIDataStore_InputAlias::GetAliasInputKeyNameByIndex(INT AliasIndex, BYTE OverridePlatform)

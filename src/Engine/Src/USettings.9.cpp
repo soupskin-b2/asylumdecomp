@@ -29,8 +29,6 @@ void FSettingsData_::GetData(TArray<BYTE>& OutData) const
 
 /* Kit gaps: FName's comparison, FScriptDelegate::IsCallable and the delegateNotifySettingValueUpdated glue
  * (inlined here) aren't declared. */
-inline UBOOL operator!=(const FName& A, const FName& B) { return A.Index != B.Index || A.Number != B.Number; }
-
 extern FName g_026c438c;
 	/* NotifySettingValueUpdated */
 struct FScriptDelegate_ : public FScriptDelegate

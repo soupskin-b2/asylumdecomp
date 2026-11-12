@@ -142,8 +142,6 @@ void UAnimNodeSlot_::UpdateWeightsForAdditiveAnimations()
 }
 
 /* The kit's FName has no comparison operators (UnName.h). */
-inline UBOOL operator==(const FName& A, const FName& B) { return A.Index == B.Index && A.Number == B.Number; }
-
 /* UnAnimTree.cpp's static helper: a node's relative position on its time line, 0 without a positive length. */
 static inline FLOAT GetNodeRelativePosition(UAnimNodeSequence* SeqNode)
 {

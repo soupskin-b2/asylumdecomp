@@ -33,8 +33,6 @@ void UAudioComponent__00786210::sub_00786210(const FMatrix& ParentToWorld)
 }
 
 /* Kit gap: FName has no comparison operator (UnName.h compares Index and Number). */
-inline UBOOL operator==(const FName& A, const FName& B) { return A.Index == B.Index && A.Number == B.Number; }
-
 /* Unnamed in the kit: UE3's UAudioComponent::GetFloatParameter(FName InName, FLOAT& OutValue): the FloatParam of the instance
  * parameter named InName. */
 struct UAudioComponent__0078e280 : public UAudioComponent

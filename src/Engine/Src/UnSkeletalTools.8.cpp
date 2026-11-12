@@ -266,8 +266,6 @@ UBOOL USkeletalMesh__00d49ed0::BoneIsChildOf(INT ChildBoneIndex, INT ParentBoneI
 
 inline UBOOL operator==(const FName& A, EName B) { return A.Index == B && A.Number == 0; }
 
-inline UBOOL operator==(const FName& A, const FName& B) { return A.Index == B.Index && A.Number == B.Number; }
-
 /* USkeletalMesh::FindSocket isn't declared in Classes.h */
 struct USkeletalMesh__00951be0 : public USkeletalMesh
 {

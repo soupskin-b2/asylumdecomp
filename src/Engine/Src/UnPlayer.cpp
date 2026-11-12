@@ -1005,8 +1005,6 @@ void UPlayer::vf_10c(int param_2)
   return;
 }
 
-static inline UBOOL operator==(const FName& A, const FName& B) { return A.Index == B.Index && A.Number == B.Number; }
-
 // @baa 0x00892bb0
 /* FindPostProcessEffect: the first effect in the chain with the given name (UE3 returns UPostProcessEffect*). */
 void* UPostProcessChain::sub_00892bb0(FName EffectName)
