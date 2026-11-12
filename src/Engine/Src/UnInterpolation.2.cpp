@@ -1262,19 +1262,19 @@ void UInterpTrackMove::vf_15c(void)
 void __stdcall sub_00ceb8b0(int a0) {  }
 
 // @baa 0x00ceb8c0
-void UInterpTrackFade::vf_11c(int a0, int a1) {  }
+void UInterpTrackFade::UpdateKeyframe(INT a0, UInterpTrackInst* a1) {  }
 
 // @baa 0x00ceb8d0
 void UInterpTrackFade::vf_138(int a0, int a1) {  }
 
 // @baa 0x00ceb8e0
-void UInterpTrackSoundFade::vf_11c(int a0, int a1) {  }
+void UInterpTrackSoundFade::UpdateKeyframe(INT a0, UInterpTrackInst* a1) {  }
 
 // @baa 0x00ceb8f0
 void UInterpTrackSoundFade::vf_138(int a0, int a1) {  }
 
 // @baa 0x00ceb900
-void UInterpTrackSlomo::vf_11c(int a0, int a1) {  }
+void UInterpTrackSlomo::UpdateKeyframe(INT a0, UInterpTrackInst* a1) {  }
 
 // @baa 0x00ceb910
 void UInterpTrackSlomo::vf_138(int a0, int a1) {  }
@@ -1299,13 +1299,13 @@ void UInterpTrackInstSlomo_::sub_00ceb940(UInterpTrack* Track)
 void __stdcall sub_00ceba00(int a0) {  }
 
 // @baa 0x00ceba10
-void UInterpTrackColorScale::vf_11c(int a0, int a1) {  }
+void UInterpTrackColorScale::UpdateKeyframe(INT a0, UInterpTrackInst* a1) {  }
 
 // @baa 0x00ceba20
 void UInterpTrackColorScale::vf_138(int a0, int a1) {  }
 
 // @baa 0x00ceba30
-void UInterpTrackAudioMaster::vf_11c(int a0, int a1) {  }
+void UInterpTrackAudioMaster::UpdateKeyframe(INT a0, UInterpTrackInst* a1) {  }
 
 // @baa 0x00ceba40
 void UInterpTrackAudioMaster::vf_138(int a0, int a1) {  }
@@ -2116,7 +2116,7 @@ const E* S::sub_00ced470(INT Index) const
 // @baa 0x00ceeb50
 extern undefined4 g_0209049c;
 // @baa 0x00ceedf0
-int UInterpTrackMove::vf_10c(void)
+INT UInterpTrackMove::GetNumKeyframes()
 {
     int param_1 = (int)this;
 
@@ -2134,7 +2134,7 @@ int UInterpTrackMove::vf_10c(void)
 }
 
 // @baa 0x00cef350
-int UInterpTrackToggle::vf_10c(void) { return *(int*)((char*)this + 84); }
+INT UInterpTrackToggle::GetNumKeyframes() { return *(int*)((char*)this + 84); }
 
 struct S_00cef520 {
     TArray<DWORD> Items; // 0x00

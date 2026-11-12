@@ -9,5 +9,5 @@ void USkeletalMeshComponent::execSetEnableClothSimulation(FFrame& Stack, RESULT_
 {
 	P_GET_UBOOL(bInEnable);
 	P_FINISH;
-	sub_0090eac0(bInEnable);
+	SetEnableClothSimulation(bInEnable);
 }

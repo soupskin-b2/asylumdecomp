@@ -162297,12 +162297,12 @@
     {
      "va": "006aefb0",
      "size": 3,
-     "symbol": "?vf_168@UMaterialInstance@@UAEXHHH@Z"
+     "symbol": "?SetScalarParameterValue@UMaterialInstance@@UAEXUFName@@M@Z"
     },
     {
      "va": "006aefc0",
      "size": 3,
-     "symbol": "?vf_170@UMaterialInstance@@UAEXHHH@Z"
+     "symbol": "?SetTextureParameterValue@UMaterialInstance@@UAEXUFName@@PAUUTexture@@@Z"
     },
     {
      "va": "006aefd0",
@@ -173286,7 +173286,7 @@
     {
      "va": "00759590",
      "size": 35,
-     "symbol": "?vf_120@UActorComponent@@UAEXXZ"
+     "symbol": "?UpdateTransform@UActorComponent@@UAEXXZ"
     },
     {
      "va": "007596b0",
@@ -186255,7 +186255,7 @@
     {
      "va": "00ceb8c0",
      "size": 3,
-     "symbol": "?vf_11c@UInterpTrackFade@@UAEXHH@Z"
+     "symbol": "?UpdateKeyframe@UInterpTrackFade@@UAEXHPAUUInterpTrackInst@@@Z"
     },
     {
      "va": "00ceb8d0",
@@ -186265,7 +186265,7 @@
     {
      "va": "00ceb8e0",
      "size": 3,
-     "symbol": "?vf_11c@UInterpTrackSoundFade@@UAEXHH@Z"
+     "symbol": "?UpdateKeyframe@UInterpTrackSoundFade@@UAEXHPAUUInterpTrackInst@@@Z"
     },
     {
      "va": "00ceb8f0",
@@ -186275,7 +186275,7 @@
     {
      "va": "00ceb900",
      "size": 3,
-     "symbol": "?vf_11c@UInterpTrackSlomo@@UAEXHH@Z"
+     "symbol": "?UpdateKeyframe@UInterpTrackSlomo@@UAEXHPAUUInterpTrackInst@@@Z"
     },
     {
      "va": "00ceb910",
@@ -186295,7 +186295,7 @@
     {
      "va": "00ceba10",
      "size": 3,
-     "symbol": "?vf_11c@UInterpTrackColorScale@@UAEXHH@Z"
+     "symbol": "?UpdateKeyframe@UInterpTrackColorScale@@UAEXHPAUUInterpTrackInst@@@Z"
     },
     {
      "va": "00ceba20",
@@ -186305,7 +186305,7 @@
     {
      "va": "00ceba30",
      "size": 3,
-     "symbol": "?vf_11c@UInterpTrackAudioMaster@@UAEXHH@Z"
+     "symbol": "?UpdateKeyframe@UInterpTrackAudioMaster@@UAEXHPAUUInterpTrackInst@@@Z"
     },
     {
      "va": "00ceba40",
@@ -187095,12 +187095,12 @@
     {
      "va": "00ceedf0",
      "size": 49,
-     "symbol": "?vf_10c@UInterpTrackMove@@UAEHXZ"
+     "symbol": "?GetNumKeyframes@UInterpTrackMove@@UAEHXZ"
     },
     {
      "va": "00cef350",
      "size": 4,
-     "symbol": "?vf_10c@UInterpTrackToggle@@UAEHXZ"
+     "symbol": "?GetNumKeyframes@UInterpTrackToggle@@UAEHXZ"
     },
     {
      "va": "00cef520",
@@ -189059,42 +189059,42 @@
     {
      "va": "00cef340",
      "size": 4,
-     "symbol": "?vf_10c@UInterpTrackFloatBase@@UAEHXZ"
+     "symbol": "?GetNumKeyframes@UInterpTrackFloatBase@@UAEHXZ"
     },
     {
      "va": "00cef360",
      "size": 4,
-     "symbol": "?vf_10c@UInterpTrackVectorBase@@UAEHXZ"
+     "symbol": "?GetNumKeyframes@UInterpTrackVectorBase@@UAEHXZ"
     },
     {
      "va": "00cef370",
      "size": 4,
-     "symbol": "?vf_10c@UInterpTrackEvent@@UAEHXZ"
+     "symbol": "?GetNumKeyframes@UInterpTrackEvent@@UAEHXZ"
     },
     {
      "va": "00cef380",
      "size": 4,
-     "symbol": "?vf_10c@UInterpTrackDirector@@UAEHXZ"
+     "symbol": "?GetNumKeyframes@UInterpTrackDirector@@UAEHXZ"
     },
     {
      "va": "00cef390",
      "size": 7,
-     "symbol": "?vf_10c@UInterpTrackAnimControl@@UAEHXZ"
+     "symbol": "?GetNumKeyframes@UInterpTrackAnimControl@@UAEHXZ"
     },
     {
      "va": "00cef3a0",
      "size": 7,
-     "symbol": "?vf_10c@UInterpTrackSound@@UAEHXZ"
+     "symbol": "?GetNumKeyframes@UInterpTrackSound@@UAEHXZ"
     },
     {
      "va": "00cef3d0",
      "size": 4,
-     "symbol": "?vf_10c@UInterpTrackFaceFX@@UAEHXZ"
+     "symbol": "?GetNumKeyframes@UInterpTrackFaceFX@@UAEHXZ"
     },
     {
      "va": "00cef3e0",
      "size": 4,
-     "symbol": "?vf_10c@UInterpTrackVisibility@@UAEHXZ"
+     "symbol": "?GetNumKeyframes@UInterpTrackVisibility@@UAEHXZ"
     },
     {
      "va": "00cf4f90",
@@ -244346,7 +244346,7 @@
     {
      "va": "0068f090",
      "size": 3,
-     "symbol": "?vf_2e0@AActor@@UAEPAXXZ"
+     "symbol": "?GetAPlayerController@AActor@@UAEPAUAPlayerController@@XZ"
     },
     {
      "va": "0068f0a0",
@@ -249059,12 +249059,12 @@
     {
      "va": "006d9310",
      "size": 5,
-     "symbol": "?vf_124@UMaterialInterface@@UAEHHHH@Z"
+     "symbol": "?GetVectorParameterValue@UMaterialInterface@@UAEHUFName@@AAUFLinearColor@@@Z"
     },
     {
      "va": "006d9320",
      "size": 5,
-     "symbol": "?vf_118@UMaterialInterface@@UAEHHHH@Z"
+     "symbol": "?GetScalarParameterValue@UMaterialInterface@@UAEHUFName@@AAM@Z"
     },
     {
      "va": "006d9330",
@@ -249079,7 +249079,7 @@
     {
      "va": "006d9350",
      "size": 5,
-     "symbol": "?vf_120@UMaterialInterface@@UAEHHHH@Z"
+     "symbol": "?GetTextureParameterValue@UMaterialInterface@@UAEHUFName@@AAPAUUTexture@@@Z"
     },
     {
      "va": "006d9360",
@@ -253729,12 +253729,12 @@
     {
      "va": "007027b0",
      "size": 105,
-     "symbol": "?SetTextureParameterValue@UMaterialInstanceConstant@@QAEXUFName@@PAUUTexture@@@Z"
+     "symbol": "?SetTextureParameterValue@UMaterialInstanceConstant@@UAEXUFName@@PAUUTexture@@@Z"
     },
     {
      "va": "00702740",
      "size": 106,
-     "symbol": "?SetScalarParameterValue@UMaterialInstanceConstant@@QAEXUFName@@M@Z"
+     "symbol": "?SetScalarParameterValue@UMaterialInstanceConstant@@UAEXUFName@@M@Z"
     },
     {
      "va": "00702820",
@@ -265502,7 +265502,7 @@
     {
      "va": "0077cc70",
      "size": 3,
-     "symbol": "?vf_2e0@APlayerController@@UAEPAXXZ"
+     "symbol": "?GetAPlayerController@APlayerController@@UAEPAU1@XZ"
     },
     {
      "va": "0077cc80",
@@ -270693,7 +270693,7 @@
     {
      "va": "007d7130",
      "size": 3,
-     "symbol": "?vf_1c8@AWorldInfo@@UAEXHH@Z"
+     "symbol": "?SetZone@AWorldInfo@@UAEXHH@Z"
     },
     {
      "va": "007d7140",
@@ -328025,7 +328025,7 @@
     {
      "va": "00cef3f0",
      "size": 4,
-     "symbol": "?vf_10c@UInterpTrackParticleReplay@@UAEHXZ"
+     "symbol": "?GetNumKeyframes@UInterpTrackParticleReplay@@UAEHXZ"
     },
     {
      "va": "00cef400",
@@ -328117,42 +328117,42 @@
     {
      "va": "00cf0430",
      "size": 3,
-     "symbol": "?vf_10c@UInterpTrack@@UAEHXZ"
+     "symbol": "?GetNumKeyframes@UInterpTrack@@UAEHXZ"
     },
     {
      "va": "00cf0460",
      "size": 5,
-     "symbol": "?vf_114@UInterpTrack@@UAEMH@Z"
+     "symbol": "?GetKeyframeTime@UInterpTrack@@UAEMH@Z"
     },
     {
      "va": "00cf0470",
      "size": 6,
-     "symbol": "?vf_118@UInterpTrack@@UAEHHHH@Z"
+     "symbol": "?AddKeyframe@UInterpTrack@@UAEHMPAUUInterpTrackInst@@E@Z"
     },
     {
      "va": "00cf0480",
      "size": 3,
-     "symbol": "?vf_11c@UInterpTrack@@UAEXHH@Z"
+     "symbol": "?UpdateKeyframe@UInterpTrack@@UAEXHPAUUInterpTrackInst@@@Z"
     },
     {
      "va": "00cf0490",
      "size": 6,
-     "symbol": "?vf_120@UInterpTrack@@UAEKHHH@Z"
+     "symbol": "?SetKeyframeTime@UInterpTrack@@UAEHHMH@Z"
     },
     {
      "va": "00cf04a0",
      "size": 3,
-     "symbol": "?vf_124@UInterpTrack@@UAEXH@Z"
+     "symbol": "?RemoveKeyframe@UInterpTrack@@UAEXH@Z"
     },
     {
      "va": "00cf04b0",
      "size": 6,
-     "symbol": "?vf_128@UInterpTrack@@UAEHHH@Z"
+     "symbol": "?DuplicateKeyframe@UInterpTrack@@UAEHHM@Z"
     },
     {
      "va": "00cf04c0",
      "size": 5,
-     "symbol": "?vf_12c@UInterpTrack@@UAEHHHH@Z"
+     "symbol": "?GetClosestSnapPosition@UInterpTrack@@UAEHMAAV?$TArray@H@@AAM@Z"
     },
     {
      "va": "00cf04d0",

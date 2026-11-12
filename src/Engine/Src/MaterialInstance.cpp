@@ -70,10 +70,10 @@ void UMaterialInstance::SetParent(class UMaterialInterface* NewParent) { Parent 
 void UMaterialInstance::vf_164(int a0, int a1, int a2, int a3, int a4, int a5) {  }
 
 // @baa 0x006aefb0
-void UMaterialInstance::vf_168(int a0, int a1, int a2) {  }
+void UMaterialInstance::SetScalarParameterValue(FName ParameterName, FLOAT Value) {  }
 
 // @baa 0x006aefc0
-void UMaterialInstance::vf_170(int a0, int a1, int a2) {  }
+void UMaterialInstance::SetTextureParameterValue(FName ParameterName, UTexture* Value) {  }
 
 // @baa 0x006aefd0
 void UMaterialInstance::vf_174(int a0, int a1, int a2, int a3) {  }

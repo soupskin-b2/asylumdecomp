@@ -737,10 +737,10 @@ int sub_006d9230(void) { return 272; }
 int sub_006d9240(void) { return 290; }
 
 // @baa 0x006d9310
-int UMaterialInterface::vf_124(int a0, int a1, int a2) { return 0; }
+UBOOL UMaterialInterface::GetVectorParameterValue(FName ParameterName, FLinearColor& OutValue) { return 0; }
 
 // @baa 0x006d9320
-int UMaterialInterface::vf_118(int a0, int a1, int a2) { return 0; }
+UBOOL UMaterialInterface::GetScalarParameterValue(FName ParameterName, FLOAT& OutValue) { return 0; }
 
 // @baa 0x006d9330
 int UMaterialInterface::vf_11c(int a0, int a1, int a2) { return 0; }
@@ -749,7 +749,7 @@ int UMaterialInterface::vf_11c(int a0, int a1, int a2) { return 0; }
 int UMaterialInterface::vf_128(int a0, int a1, int a2) { return 0; }
 
 // @baa 0x006d9350
-int UMaterialInterface::vf_120(int a0, int a1, int a2) { return 0; }
+UBOOL UMaterialInterface::GetTextureParameterValue(FName ParameterName, UTexture*& OutValue) { return 0; }
 
 // @baa 0x006d9360
 UINT UMaterialInterface::vf_114(UINT a0, UINT a1, INT * a2, UINT * a3) { return 0; }

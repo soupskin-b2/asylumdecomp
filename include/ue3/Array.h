@@ -118,7 +118,7 @@ public:
         }
         return OldNum;
     }
-    INT Insert(INT Index, INT Count = 1) {
+    void Insert(INT Index, INT Count = 1) { /* void in this build (no result in its out-of-line copies) */
 #line 794 BAA_ARRAY_FILE
         check(Count>=0);
         check(ArrayNum>=0);
@@ -133,7 +133,6 @@ public:
         appMemmove((BYTE*)AllocatorInstance.GetAllocation() + (Index + Count) * sizeof(T),
                    (BYTE*)AllocatorInstance.GetAllocation() + (Index) * sizeof(T),
                    (OldNum - Index) * sizeof(T));
-        return Index;
     }
     void Remove(INT Index, INT Count = 1) {
 #line 829 BAA_ARRAY_FILE
@@ -152,6 +151,20 @@ public:
         if (NewArrayMax != ArrayMax) {
             ArrayMax = NewArrayMax;
             AllocatorInstance.ResizeAllocation(ArrayNum, ArrayMax, sizeof(T));
+        }
+    }
+    void Shrink() {
+        if (ArrayMax != ArrayNum) {
+            ArrayMax = ArrayNum;
+            AllocatorInstance.ResizeAllocation(ArrayNum, ArrayMax, sizeof(T));
+        }
+    }
+    void Reset(INT NewSize = 0) {
+        if (NewSize <= ArrayMax) {
+            DestructItems(0, ArrayNum);
+            ArrayNum = 0;
+        } else {
+            Empty(NewSize);
         }
     }
     void Empty(INT Slack = 0) {

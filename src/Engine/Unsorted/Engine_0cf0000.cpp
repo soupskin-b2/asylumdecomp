@@ -89,34 +89,34 @@ void sub_00cf0390(undefined4 * param_1, undefined4 * param_2)
 IMPLEMENT_CLASS_AT(UInterpTrack, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnInterpolation.cpp", 33);
 
 // @baa 0x00cf0430
-int UInterpTrack::vf_10c(void) { return 0; }
+INT UInterpTrack::GetNumKeyframes() { return 0; }
 
 // @baa 0x00cf0460
-float UInterpTrack::vf_114(int) { return 0.0f; }
+FLOAT UInterpTrack::GetKeyframeTime(INT KeyIndex) { return 0.0f; }
 
 // @baa 0x00cf0470
-INT UInterpTrack::vf_118(INT a1, INT a2, INT a3) {
+INT UInterpTrack::AddKeyframe(FLOAT a1, UInterpTrackInst* a2, BYTE a3) {
     return 0xFFFFFFFF;
 }
 
 // @baa 0x00cf0480
-void UInterpTrack::vf_11c(int a0, int a1) {  }
+void UInterpTrack::UpdateKeyframe(INT a0, UInterpTrackInst* a1) {  }
 
 // @baa 0x00cf0490
-DWORD UInterpTrack::vf_120(int a, int b, int c) {
+INT UInterpTrack::SetKeyframeTime(INT a, FLOAT b, UBOOL c) {
     return -1;
 }
 
 // @baa 0x00cf04a0
-void UInterpTrack::vf_124(int a0) {  }
+void UInterpTrack::RemoveKeyframe(INT a0) {  }
 
 // @baa 0x00cf04b0
-int UInterpTrack::vf_128(int a, int b) {
+INT UInterpTrack::DuplicateKeyframe(INT a, FLOAT b) {
     return 0xffffffff;
 }
 
 // @baa 0x00cf04c0
-int UInterpTrack::vf_12c(int a0, int a1, int a2) { return 0; }
+UBOOL UInterpTrack::GetClosestSnapPosition(FLOAT a0, TArray<INT>& a1, FLOAT& a2) { return 0; }
 
 // @baa 0x00cf04d0
 void UInterpTrack::vf_138(int a0, int a1) {  }

@@ -112,7 +112,7 @@ template<class T> struct TScriptInterface {  /* FScriptInterface's layout (Class
 #define P_GET_OBJECT_OPTX(c, v, d) c* v = d; GRuntimeUCFlags &= ~RUC_SkippedOptionalParm; Stack.Step(Stack.Object, &v);
 // FName stays an aggregate (a constructor would change how functions return it), so a name default is
 // its {Index, 0} (EName is in Core.h): P_GET_NAME_OPTX(BoneName, NAME_None). The game stores both zeros as immediates.
-#define P_GET_NAME_OPTX(v, d)   FName v = { d, 0 }; GRuntimeUCFlags &= ~RUC_SkippedOptionalParm; Stack.Step(Stack.Object, &v);
+#define P_GET_NAME_OPTX(v, d)   FName v(d); GRuntimeUCFlags &= ~RUC_SkippedOptionalParm; Stack.Step(Stack.Object, &v);
 #define P_GET_STR_OPTX(v, d)    FString v(d); GRuntimeUCFlags &= ~RUC_SkippedOptionalParm; Stack.Step(Stack.Object, &v);
 // optional out parameters: the default lands in a local, the reference is the caller's variable when it passed one
 // (pVar is that variable's address, or NULL when the caller left the parameter out)

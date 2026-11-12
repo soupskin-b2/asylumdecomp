@@ -24,7 +24,7 @@ void UMorphTargetSet::execFindMorphTarget(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_NAME(MorphTargetName);
 	P_FINISH;
-	*(void**)Result = sub_0083d900(MorphTargetName);
+	*(void**)Result = FindMorphTarget(MorphTargetName);
 }
 
 // @baa 0x00c92650

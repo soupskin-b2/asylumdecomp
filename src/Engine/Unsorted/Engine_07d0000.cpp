@@ -902,7 +902,7 @@ void sub_007d7070(void) {  }
 void AActor::vf_1a4(int a0, int a1) {  }
 
 // @baa 0x007d7130
-void AWorldInfo::vf_1c8(int a0, int a1) {  }
+void AWorldInfo::SetZone(UBOOL a0, UBOOL a1) {  }
 
 // @baa 0x007d7140
 void __stdcall sub_007d7140(int a0) {  }

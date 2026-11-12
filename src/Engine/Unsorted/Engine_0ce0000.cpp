@@ -49,7 +49,7 @@ int UInterpTrackParticleReplay::vf_000(void) { return 1; }
 int UInterpTrackInstParticleReplay::vf_000(void) { return 1; }
 
 // @baa 0x00cef3f0
-int UInterpTrackParticleReplay::vf_10c(void) { return *(int*)((char*)this + 84); }
+INT UInterpTrackParticleReplay::GetNumKeyframes() { return *(int*)((char*)this + 84); }
 
 struct C_00cef400{
 int sub_00cef400(undefined4*);

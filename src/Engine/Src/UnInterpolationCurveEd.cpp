@@ -258,28 +258,28 @@ return;
 }
 
 // @baa 0x00cef340
-int UInterpTrackFloatBase::vf_10c(void) { return *(int*)((char*)this + 84); }
+INT UInterpTrackFloatBase::GetNumKeyframes() { return *(int*)((char*)this + 84); }
 
 // @baa 0x00cef360
-int UInterpTrackVectorBase::vf_10c(void) { return *(int*)((char*)this + 84); }
+INT UInterpTrackVectorBase::GetNumKeyframes() { return *(int*)((char*)this + 84); }
 
 // @baa 0x00cef370
-int UInterpTrackEvent::vf_10c(void) { return *(int*)((char*)this + 84); }
+INT UInterpTrackEvent::GetNumKeyframes() { return *(int*)((char*)this + 84); }
 
 // @baa 0x00cef380
-int UInterpTrackDirector::vf_10c(void) { return *(int*)((char*)this + 92); }
+INT UInterpTrackDirector::GetNumKeyframes() { return *(int*)((char*)this + 92); }
 
 // @baa 0x00cef390
-int UInterpTrackAnimControl::vf_10c(void) { return *(int*)((char*)this + 176); }
+INT UInterpTrackAnimControl::GetNumKeyframes() { return *(int*)((char*)this + 176); }
 
 // @baa 0x00cef3a0
-int UInterpTrackSound::vf_10c(void) { return *(int*)((char*)this + 204); }
+INT UInterpTrackSound::GetNumKeyframes() { return *(int*)((char*)this + 204); }
 
 // @baa 0x00cef3d0
-int UInterpTrackFaceFX::vf_10c(void) { return *(int*)((char*)this + 96); }
+INT UInterpTrackFaceFX::GetNumKeyframes() { return *(int*)((char*)this + 96); }
 
 // @baa 0x00cef3e0
-int UInterpTrackVisibility::vf_10c(void) { return *(int*)((char*)this + 84); }
+INT UInterpTrackVisibility::GetNumKeyframes() { return *(int*)((char*)this + 84); }
 
 // @baa 0x00cf4f90
 FString UInterpTrackFloatProp::vf_144()

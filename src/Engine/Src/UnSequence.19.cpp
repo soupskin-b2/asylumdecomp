@@ -9,7 +9,7 @@
 /* the out-of-line Cast<USequence> instantiation */
 template USequence* Cast<USequence>(UObject* Src);
 
-/* USkeletalMeshComponent::SetEnableClothSimulation (0x0090eac0; declared as sub_0090eac0 in Classes.h) */
+/* USkeletalMeshComponent::SetEnableClothSimulation (0x0090eac0) */
 /* slot 0x174 (vf_174) is USequenceOp::Activated */
 struct USeqAct_SetClothParam_ : public USeqAct_SetClothParam
 {
@@ -35,7 +35,7 @@ void USeqAct_SetClothParam_::Activated()
             check(Component);
             continue;
         }
-        Component->sub_0090eac0(bEnableClothSimulation); // SetEnableClothSimulation
+        Component->SetEnableClothSimulation(bEnableClothSimulation); // SetEnableClothSimulation
     }
 }
 

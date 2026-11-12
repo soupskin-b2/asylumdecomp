@@ -266,7 +266,7 @@ void UActorComponent::vf_118(void)
 
 extern undefined4 g_01efb990;
 // @baa 0x00759590
-void UActorComponent::vf_120(void)
+void UActorComponent::UpdateTransform()
 {
     int param_1 = (int)this;
 

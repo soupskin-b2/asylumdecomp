@@ -2689,7 +2689,7 @@ int AActor::vf_2d8(void) { return 0; }
 int AActor::vf_2dc(void) { return 0; }
 
 // @baa 0x0068f090
-void* AActor::vf_2e0() { return 0; }
+APlayerController* AActor::GetAPlayerController() { return 0; }
 
 // @baa 0x0068f0a0
 void* AActor::vf_2e4() { return 0; }
