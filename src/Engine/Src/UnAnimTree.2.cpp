@@ -1,4 +1,4 @@
-// UnAnimTree.cpp (part 2 of 4): 4 functions
+// UnAnimTree.cpp (part 2 of 4): 5 functions
 // Placed here by: callers 3, neighbours 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #define BAA_OUTLINE_ALLOC
@@ -23,3 +23,7 @@ struct T_00c57400 { BYTE b[28]; };
 
 // @baa 0x00c57400
 template void TArray<T_00c57400>::Remove(INT, INT);
+
+// @baa 0x00c503d0
+/* TArray<BYTE>::ContainsItem (bone index lists). */
+template UBOOL TArray<BYTE>::ContainsItem(const BYTE&) const;

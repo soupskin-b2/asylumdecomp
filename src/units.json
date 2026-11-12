@@ -2,8 +2,8 @@
  "note": "Maintained by CI (tools/ci); every file is checked by python tools/asylum unit-check.",
  "totals": {
   "units": 1433,
-  "files": 3952,
-  "functions": 98206,
+  "files": 3956,
+  "functions": 98232,
   "failed": 0
  },
  "units": [
@@ -174846,6 +174846,21 @@
      "va": "00c7f120",
      "size": 139,
      "symbol": "?PlayCustomAnimByDuration@UAnimNodeSlot_@@QAEXUFName@@MMMHH@Z"
+    },
+    {
+     "va": "00c49770",
+     "size": 63,
+     "symbol": "?UnwindHeading@@YAMM@Z"
+    },
+    {
+     "va": "00c52d40",
+     "size": 312,
+     "symbol": "?FillWithRefPose@UAnimNode_@@SAXAAV?$TArray@UFBoneAtom@@@@ABV?$TArray@E@@ABV?$TArray@UFMeshBone@@@@@Z"
+    },
+    {
+     "va": "00c5eb80",
+     "size": 312,
+     "symbol": "?FillWithRefPose@@YAXAAV?$TArray@UFBoneAtom@@@@ABV?$TArray@E@@ABV?$TArray@UFMeshBone@@@@@Z"
     }
    ]
   },
@@ -174863,6 +174878,18 @@
      "va": "00c50b30",
      "size": 163,
      "symbol": "?AddUniqueItem@FSkelControlArray@@QAEHABQAUUSkelControlBase@@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Src/UnAnimTree.cpp",
+   "source": "Engine/Src/UnAnimTree.16.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "00c50670",
+     "size": 74,
+     "symbol": "??R?$TArray@UFRandomAnimInfo@@@@QAEAAUFRandomAnimInfo@@H@Z"
     }
    ]
   },
@@ -174890,6 +174917,11 @@
      "va": "00c57400",
      "size": 247,
      "symbol": "?Remove@?$TArray@UT_00c57400@@@@QAEXHH@Z"
+    },
+    {
+     "va": "00c503d0",
+     "size": 63,
+     "symbol": "?ContainsItem@?$TArray@E@@QBEHABE@Z"
     }
    ]
   },
@@ -188506,6 +188538,18 @@
   },
   {
    "unit": "Engine/Src/UnLevAct.cpp",
+   "source": "Engine/Src/UnLevAct.3.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "007dc200",
+     "size": 157,
+     "symbol": "??$ConstructObject@UAActor@@@@YAPAUAActor@@PAUUClass_@@PAUUObject@@UFName@@_K11PAUFObjectInstancingGraph@@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Src/UnLevAct.cpp",
    "source": "Engine/Src/UnLevAct.cpp",
    "profile": "ue3",
    "functions": [
@@ -196446,6 +196490,18 @@
   },
   {
    "unit": "Engine/Src/UnPawn.cpp",
+   "source": "Engine/Src/UnPawn.4.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "009c0b70",
+     "size": 164,
+     "symbol": "??0?$TObjectIterator@UAPawn@@@@QAE@H@Z"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Src/UnPawn.cpp",
    "source": "Engine/Src/UnPawn.cpp",
    "profile": "ue3",
    "functions": [
@@ -201000,6 +201056,21 @@
      "va": "008be500",
      "size": 339,
      "symbol": "?MarkSequencePendingKill@USequence_@@QAEXXZ"
+    },
+    {
+     "va": "00909a50",
+     "size": 99,
+     "symbol": "?PostLoad@USeqEvent_Console_@@QAEXXZ"
+    },
+    {
+     "va": "008bce40",
+     "size": 33,
+     "symbol": "?GetValueStr@USeqVar_Name_@@QAE?AVFString@@XZ"
+    },
+    {
+     "va": "008c8a60",
+     "size": 33,
+     "symbol": "?GetValueStr@USeqVar_Vector_@@QAE?AVFString@@XZ"
     }
    ]
   },
@@ -201164,6 +201235,23 @@
      "va": "008fe500",
      "size": 368,
      "symbol": "?FindLinksToSeqOp@USequence_@@QAEXPAUUSequenceOp@@AAV?$TArray@PAUFSeqOpOutputLink@@@@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Src/UnSequence.cpp",
+   "source": "Engine/Src/UnSequence.18.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "008c0660",
+     "size": 64,
+     "symbol": "?DeActivated@USeqAct_PrepareMapChange_@@QAEXXZ"
+    },
+    {
+     "va": "008abfe0",
+     "size": 42,
+     "symbol": "?Activated@USeqAct_Delay_@@QAEXXZ"
     }
    ]
   },
@@ -215619,6 +215707,26 @@
      "va": "00d9a500",
      "size": 14,
      "symbol": "?sub_00d9a500@C_00d9a500@@QAEPAU1@XZ"
+    },
+    {
+     "va": "00d936b0",
+     "size": 157,
+     "symbol": "?GetAliasInputKeyNameByIndex@UUIDataStore_InputAlias@@QAE?AUFName@@HE@Z"
+    },
+    {
+     "va": "00d9fb00",
+     "size": 172,
+     "symbol": "?GetAliasInputKeyName@UUIDataStore_InputAlias@@QAE?AUFName@@U2@E@Z"
+    },
+    {
+     "va": "00d93750",
+     "size": 164,
+     "symbol": "?GetAliasInputKeyDataByIndex@UUIDataStore_InputAlias@@QAEHAAUFRawInputKeyEventData@@HE@Z"
+    },
+    {
+     "va": "00d9fbb0",
+     "size": 187,
+     "symbol": "?GetAliasInputKeyData@UUIDataStore_InputAlias@@QAEHAAUFRawInputKeyEventData@@UFName@@E@Z"
     }
    ]
   },
@@ -340680,6 +340788,11 @@
      "va": "01a9c190",
      "size": 48,
      "symbol": "?sub_01a9c190@@YAPAXPAXHH@Z"
+    },
+    {
+     "va": "01a9e6f0",
+     "size": 14,
+     "symbol": "?sub_01a9e6f0@C@@QAEPAU1@XZ"
     }
    ]
   },
@@ -341398,6 +341511,16 @@
      "va": "01aa5590",
      "size": 12,
      "symbol": "?sub_01aa5590@@YGXPAUSub@@@Z"
+    },
+    {
+     "va": "01aa9020",
+     "size": 14,
+     "symbol": "?sub_01aa9020@C_01aa9020@@QAEPAU1@XZ"
+    },
+    {
+     "va": "01aab080",
+     "size": 14,
+     "symbol": "?sub_01aab080@C_01aab080@@QAEPAU1@XZ"
     }
    ]
   },

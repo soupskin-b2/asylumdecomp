@@ -2,19 +2,19 @@
  "updated": "2026-11-12",
  "functions": {
   "total": 174166,
-  "matched": 98206
+  "matched": 98232
  },
  "bytes": {
-  "total": 24308132,
-  "matched": 3694105
+  "total": 24308119,
+  "matched": 3697184
  },
  "areas": [
   {
    "name": "Engine",
    "functions": 69863,
    "bytes": 9201956,
-   "matched": 41246,
-   "matched_bytes": 1709679
+   "matched": 41265,
+   "matched_bytes": 1711817
   },
   {
    "name": "Editor",
@@ -75,9 +75,9 @@
   {
    "name": "Libjpeg",
    "functions": 305,
-   "bytes": 80284,
-   "matched": 290,
-   "matched_bytes": 75045
+   "bytes": 80271,
+   "matched": 297,
+   "matched_bytes": 75986
   },
   {
    "name": "GFxUIEditor",
@@ -97,14 +97,14 @@
  "contributors": [
   {
    "login": "soupskin-b2",
-   "functions": 98203,
-   "bytes": 3693466,
+   "functions": 98222,
+   "bytes": 3695604,
    "models": {
     "tooling": 94456,
-    "deepseek-v4.1-flash": 1571,
+    "deepseek-v4.1-flash": 1574,
     "qwen3.8-27b": 1156,
     "not specified": 338,
-    "claude-opus-5.5": 257,
+    "claude-opus-5.5": 273,
     "Claude Opus 5.5": 206,
     "gpt-6.1-sol": 86,
     "qwen": 49,
@@ -128,7 +128,7 @@
   },
   {
    "model": "deepseek-v4.1-flash",
-   "functions": 1571
+   "functions": 1574
   },
   {
    "model": "qwen3.8-27b",
@@ -140,7 +140,7 @@
   },
   {
    "model": "claude-opus-5.5",
-   "functions": 257
+   "functions": 273
   },
   {
    "model": "Claude Opus 5.5",

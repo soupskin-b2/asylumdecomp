@@ -1,4 +1,4 @@
-// UnSequence.cpp (part 10 of 10): 15 functions
+// UnSequence.cpp (part 10 of 10): 18 functions
 // Placed here by: neighbours 6.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -236,4 +236,62 @@ void USequence_::MarkSequencePendingKill()
             ((USequence_*)NestedSequences(Idx))->MarkSequencePendingKill();
         }
     }
+}
+
+/* FString::operator* and the operator=(const TCHAR*) copy this unit links against (0x006b1140);
+ * the kit's FString has neither. */
+struct FString_ : public FString
+{
+    const TCHAR* operator*() const { return Num() ? &(*this)(0) : TEXT(""); }
+    FString_& operator=(const TCHAR* Other);
+};
+
+/* slot 0x01c (vf_01c) is UObject::PostLoad; USequenceObject's is 0x009086f0 */
+struct USequenceObject_ : public USequenceObject
+{
+    void PostLoad();
+};
+
+struct USeqEvent_Console_ : public USeqEvent_Console
+{
+    void PostLoad();
+};
+
+// @baa 0x00909a50
+void USeqEvent_Console_::PostLoad()
+{
+    // always use the class's default name
+    USeqEvent_Console* DefaultObj = (USeqEvent_Console*)GetClass()->GetDefaultObject();
+    (FString_&)ObjName = *(FString_&)DefaultObj->ObjName;
+    ((USequenceObject_*)this)->USequenceObject_::PostLoad(); // Super::PostLoad()
+}
+
+/* slot 0x194 (vf_194) is USequenceVariable::GetValueStr */
+struct USeqVar_Name_ : public USeqVar_Name
+{
+    FString GetValueStr();
+};
+
+// @baa 0x008bce40
+FString USeqVar_Name_::GetValueStr()
+{
+    return NameValue.ToString();
+}
+
+/* FVector::ToString (UnMath.h, 0x008c3650); the kit's FVector has no methods. */
+struct FVector_ : public FVector
+{
+    FString ToString() const;
+};
+
+/* slot 0x194 (vf_194) is USequenceVariable::GetValueStr */
+struct USeqVar_Vector_ : public USeqVar_Vector
+{
+    FString GetValueStr();
+};
+
+// @baa 0x008c8a60
+FString USeqVar_Vector_::GetValueStr()
+{
+    return ((const FVector_&)VectValue).ToString();
 }
