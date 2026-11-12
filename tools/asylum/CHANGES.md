@@ -4,6 +4,7 @@ Newest first, one line each. `update` (and `get`, which updates by itself) print
 to you; `python asylum.pyz changes` prints them all. Add a line here with any change an agent should
 know about: a renamed or retyped declaration, a new header or macro, a new rule.
 
+- 2026-11-12: FSettingsData has its destructor (~FSettingsData, out of line), and USettings declares EmptySettingsData, Get/SetSettingsDataFloat/Int, GetSettingsDataString: natives taking an FSettingsData use P_GET_STRUCT_REF(FSettingsData, Data).
 - 2026-11-12: FVector4 is 16-byte aligned with a (0,0,0,1) default constructor, as in UE3 (script structs keep FVector4Unaligned members). UUIScreenObject declares CanvasToScreen, PixelToScreen, ScreenToPixel, ScreenToCanvas.
 - 2026-11-12: function boundaries fixed: 01a14210 (error_exit, plus output_message at 01a14230), 0180df60 (_tr_flush_block, 517 bytes; the wx import thunks after it are their own functions), 0179f126, 017c8e4b, 017c8e85, 01c2ea80, 01c31d10 (each held two functions).
 - 2026-11-12: packets for natives say when Classes.h declares the exec function (write it on the class itself) and when a struct parameter is P_GET_STRUCT_REF (GPropAddr zeroed before its Step) though the script doesn't mark it out.

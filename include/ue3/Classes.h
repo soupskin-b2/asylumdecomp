@@ -3875,6 +3875,7 @@ struct FSettingsData {
     BYTE Type; /* 0x0 */
     INT Value1; /* 0x4 */
     FPointer Value2; /* 0x8 */
+    ~FSettingsData(); /* 0x00d67c50: frees Value2's string or blob */
 };
 
 struct FSettingsProperty {
@@ -28331,6 +28332,12 @@ struct USettings : public UObject {
     void execSetSettingsDataDateTime(FFrame& Stack, RESULT_DECL); /* 0x00c85400 */
     void execSetSettingsData(FFrame& Stack, RESULT_DECL); /* 0x00c85500 */
     void execEmptySettingsData(FFrame& Stack, RESULT_DECL); /* 0x00c85600 */
+    void EmptySettingsData(FSettingsData& Data); /* 0x00d67f60 */
+    FLOAT GetSettingsDataFloat(FSettingsData& Data); /* 0x00d67f90 */
+    INT GetSettingsDataInt(FSettingsData& Data); /* 0x00d67fc0 */
+    FString GetSettingsDataString(FSettingsData& Data); /* 0x00d74320 */
+    void SetSettingsDataFloat(FSettingsData& Data, FLOAT InFloat); /* 0x00d6e670 */
+    void SetSettingsDataInt(FSettingsData& Data, INT InInt); /* 0x00d6e6c0 */
     void execGetSettingsDataFloat(FFrame& Stack, RESULT_DECL); /* 0x00c856c0 */
     void execGetSettingsDataInt(FFrame& Stack, RESULT_DECL); /* 0x00c85780 */
     void execGetSettingsDataDateTime(FFrame& Stack, RESULT_DECL); /* 0x00c85840 */
