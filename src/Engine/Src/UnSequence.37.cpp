@@ -25,11 +25,11 @@ void USceneCapturePortalComponent::execSetCaptureParameters(FFrame& Stack, RESUL
 	ScaleFOV = NewScaleFOV;
 	ViewDestination = NewViewDest;
 
-	/* keep the owning portal actor's other components in step */
-	ASceneCapturePortalActor* PortalOwner = Cast<ASceneCapturePortalActor>(((UActorComponent_*)this)->GetOwner());
-	if (PortalOwner)
+	/* keep the owning capture actor's other components in step */
+	ASceneCaptureActor* CaptureOwner = Cast<ASceneCaptureActor>(((UActorComponent_*)this)->GetOwner());
+	if (CaptureOwner)
 	{
-		PortalOwner->SyncComponents();
+		CaptureOwner->SyncComponents();
 	}
 
 	bNeedsSceneUpdate = TRUE;
