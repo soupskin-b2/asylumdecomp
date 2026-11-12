@@ -1,4 +1,4 @@
-// UnConn.cpp: 34 functions
+// UnConn.cpp: 38 functions
 // Placed here by: class 12, neighbours 11, callers 6, file 3.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -230,4 +230,21 @@ struct C_00e14c30
 void C_00e14c30::sub_00e14c30()
 {
     Value = Source->Value;
+}
+
+// @baa 0x00df3930
+
+// @baa 0x00df3a40
+int UGuidCache::vf_000(void) { return 1; }
+
+// @baa 0x00df3a50
+bool UGuidCache::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x00e16fe0
+bool UChildConnection::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
 }

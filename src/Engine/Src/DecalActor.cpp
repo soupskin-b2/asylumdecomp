@@ -1,4 +1,4 @@
-// DecalActor.cpp: 6 functions
+// DecalActor.cpp: 7 functions
 // Placed here by: callers 3, file 3.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -15,3 +15,5 @@ IMPLEMENT_CLASS_AT(ADecalActorMovable, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealE
 // @baa 0x00695110
 // @baa 0x006951d0
 // @baa 0x00695290
+
+// @baa 0x0064dc20

@@ -1,4 +1,4 @@
-// UnrealEd_1490000.cpp: 110 functions
+// UnrealEd_1490000.cpp: 109 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -713,12 +713,6 @@ IMPLEMENT_CLASS_AT(UUIPreviewString, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEng
 // @baa 0x0149cb70
 // @baa 0x0149cd30
 IMPLEMENT_CLASS_AT(UUISceneManager, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\UnUIEditor.cpp", 27);
-
-// @baa 0x0149ce60
-bool UUISceneManager::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
 
 class wxMenuBar
 {

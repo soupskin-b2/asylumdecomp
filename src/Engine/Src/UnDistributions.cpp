@@ -1,4 +1,4 @@
-// UnDistributions.cpp (part 1 of 3): 151 functions
+// UnDistributions.cpp (part 1 of 3): 159 functions
 // Placed here by: neighbours 89, class 41, file 12, callers 9.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1100,3 +1100,38 @@ int UDistributionVectorUniformCurve::vf_118(void) { return 1; }
 // @baa 0x007c7df0
 // @baa 0x007c7eb0
 // @baa 0x007c7f70
+
+// @baa 0x0079f880
+int sub_0079f880(int a0, int a1) { return a1; }
+
+// @baa 0x0079f890
+int sub_0079f890(int a0, int a1) { return a1; }
+
+// @baa 0x0079f8a0
+int sub_0079f8a0(int a0, int a1) { return a1; }
+
+// @baa 0x0079f8b0
+int sub_0079f8b0(int a0, int a1) { return a1; }
+
+// @baa 0x007a20c0
+
+// @baa 0x007a25f0
+int UDistributionFloatUniformCurve::vf_000(void) { return 1; }
+
+// @baa 0x007a2600
+bool UDistributionFloatUniformCurve::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+struct C_007b0ac0 {
+    bool sub_007b0ac0();
+};
+
+// @baa 0x007b0ac0
+bool C_007b0ac0::sub_007b0ac0(void)
+{
+    int param_1 = (int)this;
+
+  return *(char *)(param_1 + 0x14) != '\0';
+}

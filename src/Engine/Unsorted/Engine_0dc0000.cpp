@@ -1,24 +1,7 @@
-// Engine_0dc0000.cpp (part 1 of 6): 81 functions
+// Engine_0dc0000.cpp (part 1 of 6): 79 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
-
-struct C { C* sub_00dc2cd0(void); };
-
-// @baa 0x00dc2cd0
-C* C::sub_00dc2cd0(void) { return this; }
-
-struct S {
-    char pad[0x29c];
-    BYTE PlayerInputMask;
-    BYTE GetInputMask(UINT, UINT);
-};
-
-// @baa 0x00dc2d30
-BYTE UUIScene::GetInputMask(UINT a, UINT b)
-{
-    return PlayerInputMask;
-}
 
 // @baa 0x00dc9760
 void sub_00dc9760(void)

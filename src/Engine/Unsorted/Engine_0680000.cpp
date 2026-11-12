@@ -1,4 +1,4 @@
-// Engine_0680000.cpp (part 1 of 7): 294 functions
+// Engine_0680000.cpp (part 1 of 7): 289 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -2601,9 +2601,6 @@ void AActor::vf_224(int a0) {  }
 // @baa 0x0068eeb0
 void AActor::vf_228(int a0, int a1) {  }
 
-// @baa 0x0068eec0
-void sub_0068eec0(void) {  }
-
 // @baa 0x0068eed0
 void AActor::vf_24c(void) {  }
 
@@ -2739,32 +2736,8 @@ int AActor::vf_348(int a0, int a1) { return 0; }
 // @baa 0x0068f190
 char* AActor::vf_34c(void) { return (char*)this + 412; }
 
-// @baa 0x0068f1c0
-void sub_0068f1c0(void) {  }
-
-// @baa 0x0068f1d0
-void sub_0068f1d0(void) {  }
-
 // @baa 0x0068f200
 int AActor::sub_0068f200(void) { return *(int*)((char*)this + 4); }
-
-// @baa 0x0068f520
-struct C_0068f550 {
-    undefined4 * sub_0068f550();
-};
-
-int sub_005c7a20(void);
-extern undefined * g_01ebe858;
-// @baa 0x0068f550
-undefined4 * C_0068f550::sub_0068f550(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_01ebe858);
-  param_1[0x22] = 0;
-  return param_1;
-}
 
 // @baa 0x0068f570
 IMPLEMENT_CLASS_AT(AInfo, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 74);
@@ -2772,9 +2745,6 @@ IMPLEMENT_CLASS_AT(AInfo, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Devel
 // @baa 0x0068f600
 // @baa 0x0068f6a0
 IMPLEMENT_CLASS_AT(AFileWriter, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\AFileLog.cpp", 12);
-
-// @baa 0x0068f790
-IMPLEMENT_CLASS_AT(AFileLog, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\AFileLog.cpp", 13);
 
 // @baa 0x0068f7c0
 UStaticMeshComponent::UStaticMeshComponent()

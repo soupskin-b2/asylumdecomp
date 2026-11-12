@@ -1,4 +1,4 @@
-// Engine_0bc0000.cpp: 73 functions
+// Engine_0bc0000.cpp: 70 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -502,43 +502,8 @@ int C_00bc8e70::sub_00bc8e70(int param_2)
 // @baa 0x00bc8e90
 void __stdcall sub_00bc8e90(int a0, int a1) {  }
 
-int sub_005c7a20(void);
-extern undefined * g_0201a860;
-// @baa 0x00bc8f30
-undefined4 * UObject::sub_00bc8f30(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_0201a860);
-  return param_1;
-}
-
-extern undefined * g_0201a9c8;
-// @baa 0x00bc8f50
-undefined4 * UObject::sub_00bc8f50(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_0201a9c8);
-  return param_1;
-}
-
 // @baa 0x00bc8f70
 IMPLEMENT_CLASS_AT(UParticleModuleTrailSpawn, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnParticleTrailModules.cpp", 366);
-
-// @baa 0x00bc8fd0
-extern undefined * g_0201ab38;
-// @baa 0x00bc8ff0
-undefined4 * UObject::sub_00bc8ff0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_0201ab38);
-  return param_1;
-}
 
 // @baa 0x00bc9010
 IMPLEMENT_CLASS_AT(UParticleModuleTypeDataTrail2, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnParticleTrailModules.cpp", 477);
@@ -843,4 +808,3 @@ void C_00bcebc0::sub_00bcebc0(undefined4 param_2)
 // @baa 0x00bcfce0
 IMPLEMENT_CLASS_AT(USpeedTreeComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\SpeedTreeComponent.cpp", 15);
 
-// @baa 0x00bcfdc0

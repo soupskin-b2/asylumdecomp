@@ -1,4 +1,4 @@
-// Engine_0760000.cpp (part 1 of 5): 277 functions
+// Engine_0760000.cpp (part 1 of 5): 254 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -536,43 +536,8 @@ IMPLEMENT_CLASS_AT(UClipPadEntry, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine
 // @baa 0x00760c50
 IMPLEMENT_CLASS_AT(UDamageType, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 88);
 
-extern undefined * g_01efeaa0;
-// @baa 0x00760ce0
-undefined4 * UObject::sub_00760ce0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_01efeaa0);
-  return param_1;
-}
-
-// @baa 0x00760d00
-extern undefined * g_01efebb0;
-// @baa 0x00760d30
-undefined4 * UObject::sub_00760d30(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_01efebb0);
-  return param_1;
-}
-
 // @baa 0x00760d50
 IMPLEMENT_CLASS_AT(UKillZDamageType, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 89);
-
-// @baa 0x00760db0
-extern undefined * g_01efecc0;
-// @baa 0x00760de0
-undefined4 * UObject::sub_00760de0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_01efecc0);
-  return param_1;
-}
 
 // @baa 0x00760e00
 IMPLEMENT_CLASS_AT(UEdCoordSystem, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 102);
@@ -591,43 +556,8 @@ int sub_00760ea0(void)
   return g_026b3cd4;
 }
 
-// @baa 0x00760fb0
-DOUBLE UTextureCube::vf_10c() {
-    int param_1 = (int)this;
-
-  return (float10)*(int *)(param_1 + 0xb0);
-}
-
-// @baa 0x00761040
-IMPLEMENT_CLASS_AT(UTextureCube, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\TextureCube.cpp", 12);
-
 // @baa 0x007611a0
 IMPLEMENT_CLASS_AT(UTextureRenderTarget, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\TextureRenderTarget.cpp", 12);
-
-// @baa 0x00761260
-struct S_00761820 {
-    void sub_0075b630();
-    void sub_00720ef0();
-    void sub_00761820();
-};
-
-// @baa 0x00761820
-void S_00761820::sub_00761820() {
-    sub_0075b630();
-    sub_00720ef0();
-}
-
-// @baa 0x00764b50
-IMPLEMENT_CLASS_AT(UAudioComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActorComponent.cpp", 47);
-
-// @baa 0x00764c60
-bool UAudioComponent::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00764ca0
-IMPLEMENT_CLASS_AT(UWindDirectionalSourceComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActorComponent.cpp", 49);
 
 // @baa 0x00764df0
 IMPLEMENT_CLASS_AT(UMeshComponentFactory, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActorComponent.cpp", 52);
@@ -2037,44 +1967,8 @@ int UReachSpec::vf_120(void) { return 0; }
 // @baa 0x0076bb20
 UINT UReachSpec::vf_138(INT a0) { return 1; }
 
-// @baa 0x0076bb30
-struct C_0076bb80 {
-    undefined4 * sub_0076bb80();
-};
-
-extern undefined * g_01eff830;
-// @baa 0x0076bb80
-undefined4 * C_0076bb80::sub_0076bb80(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  param_1[0x13] = 0;
-  param_1[0x12] = 0;
-  *param_1 = (undefined4)(&g_01eff830);
-  return param_1;
-}
-
 // @baa 0x0076bbd0
 IMPLEMENT_CLASS_AT(UAdvancedReachSpec, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 51);
-
-// @baa 0x0076bc30
-struct C_0076bc60 {
-    undefined4 * sub_0076bc60();
-};
-
-extern undefined * g_01eff970;
-// @baa 0x0076bc60
-undefined4 * C_0076bc60::sub_0076bc60(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  param_1[0x13] = 0;
-  param_1[0x12] = 0;
-  *param_1 = (undefined4)(&g_01eff970);
-  return param_1;
-}
 
 // @baa 0x0076bc80
 IMPLEMENT_CLASS_AT(UCeilingReachSpec, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 60);
@@ -2086,211 +1980,32 @@ IMPLEMENT_CLASS_AT(UForcedReachSpec, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEng
 // @baa 0x0076bda0
 int UForcedReachSpec::vf_11c(void) { return 1; }
 
-// @baa 0x0076bdb0
-struct C_0076bde0 {
-    undefined4 * sub_0076bde0();
-};
-
-extern undefined * g_01effab0;
-// @baa 0x0076bde0
-undefined4 * C_0076bde0::sub_0076bde0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  param_1[0x13] = 0;
-  param_1[0x12] = 0;
-  *param_1 = (undefined4)(&g_01effab0);
-  return param_1;
-}
-
-struct C_0076be00 {
-    undefined4 * sub_0076be00();
-};
-
-extern undefined * g_01effbf0;
-// @baa 0x0076be00
-undefined4 * C_0076be00::sub_0076be00(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  param_1[0x13] = 0;
-  param_1[0x12] = 0;
-  *param_1 = (undefined4)(&g_01effbf0);
-  return param_1;
-}
-
 // @baa 0x0076be20
 IMPLEMENT_CLASS_AT(UCoverSlipReachSpec, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 57);
-
-// @baa 0x0076be80
-struct C_0076beb0 {
-    undefined4 * sub_0076beb0();
-};
-
-extern undefined * g_01effd30;
-// @baa 0x0076beb0
-undefined4 * C_0076beb0::sub_0076beb0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  param_1[0x13] = 0;
-  param_1[0x12] = 0;
-  *param_1 = (undefined4)(&g_01effd30);
-  return param_1;
-}
 
 // @baa 0x0076bed0
 IMPLEMENT_CLASS_AT(UFloorToCeilingReachSpec, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 59);
 
-// @baa 0x0076bf30
-struct C_0076bf60 {
-    undefined4 * sub_0076bf60();
-};
-
-extern undefined * g_01effe70;
-// @baa 0x0076bf60
-undefined4 * C_0076bf60::sub_0076bf60(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  param_1[0x13] = 0;
-  param_1[0x12] = 0;
-  *param_1 = (undefined4)(&g_01effe70);
-  return param_1;
-}
-
 // @baa 0x0076bf80
 IMPLEMENT_CLASS_AT(UMantleReachSpec, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 55);
-
-// @baa 0x0076bfe0
-struct C_0076c010 {
-    undefined4 * sub_0076c010();
-};
-
-extern undefined * g_01efffb0;
-// @baa 0x0076c010
-undefined4 * C_0076c010::sub_0076c010(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  param_1[0x13] = 0;
-  param_1[0x12] = 0;
-  *param_1 = (undefined4)(&g_01efffb0);
-  return param_1;
-}
 
 // @baa 0x0076c030
 IMPLEMENT_CLASS_AT(USlotToSlotReachSpec, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 54);
 
-// @baa 0x0076c090
-struct C_0076c0c0 {
-    undefined4 * sub_0076c0c0();
-};
-
-extern undefined * g_01f000f0;
-// @baa 0x0076c0c0
-undefined4 * C_0076c0c0::sub_0076c0c0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  param_1[0x13] = 0;
-  param_1[0x12] = 0;
-  *param_1 = (undefined4)(&g_01f000f0);
-  return param_1;
-}
-
 // @baa 0x0076c0e0
 IMPLEMENT_CLASS_AT(USwatTurnReachSpec, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 56);
-
-// @baa 0x0076c140
-struct C_0076c170 {
-    undefined4 * sub_0076c170();
-};
-
-extern undefined * g_01f00230;
-// @baa 0x0076c170
-undefined4 * C_0076c170::sub_0076c170(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  param_1[0x13] = 0;
-  param_1[0x12] = 0;
-  *param_1 = (undefined4)(&g_01f00230);
-  return param_1;
-}
 
 // @baa 0x0076c190
 IMPLEMENT_CLASS_AT(UWallTransReachSpec, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 58);
 
-// @baa 0x0076c1f0
-struct C_0076c220 {
-    undefined4 * sub_0076c220();
-};
-
-extern undefined * g_01f00370;
-// @baa 0x0076c220
-undefined4 * C_0076c220::sub_0076c220(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  param_1[0x13] = 0;
-  param_1[0x12] = 0;
-  *param_1 = (undefined4)(&g_01f00370);
-  return param_1;
-}
-
 // @baa 0x0076c270
 IMPLEMENT_CLASS_AT(ULadderReachSpec, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 52);
-
-// @baa 0x0076c2d0
-struct C_0076c300 {
-    undefined4 * sub_0076c300();
-};
-
-extern undefined * g_01f004b0;
-// @baa 0x0076c300
-undefined4 * C_0076c300::sub_0076c300(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  param_1[0x13] = 0;
-  param_1[0x12] = 0;
-  *param_1 = (undefined4)(&g_01f004b0);
-  return param_1;
-}
 
 // @baa 0x0076c350
 int UProscribedReachSpec::vf_120(void) { return 1; }
 
 // @baa 0x0076c360
 IMPLEMENT_CLASS_AT(UProscribedReachSpec, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 53);
-
-// @baa 0x0076c3c0
-struct C_0076c3f0 {
-    undefined4 * sub_0076c3f0();
-};
-
-extern undefined * g_01f005f0;
-// @baa 0x0076c3f0
-undefined4 * C_0076c3f0::sub_0076c3f0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  param_1[0x13] = 0;
-  param_1[0x12] = 0;
-  *param_1 = (undefined4)(&g_01f005f0);
-  return param_1;
-}
 
 // @baa 0x0076c410
 IMPLEMENT_CLASS_AT(UTeleportReachSpec, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 112);
@@ -2616,11 +2331,3 @@ int sub_0076eb70(void)
   return g_026b3b44;
 }
 
-// @baa 0x0076ee00
-IMPLEMENT_CLASS_AT(UScriptedTexture, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\TextureRenderTarget2D.cpp", 382);
-
-// @baa 0x0076ef10
-bool UScriptedTexture::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}

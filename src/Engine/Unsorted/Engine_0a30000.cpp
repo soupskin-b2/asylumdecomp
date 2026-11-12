@@ -1,4 +1,4 @@
-// Engine_0a30000.cpp (part 1 of 3): 239 functions
+// Engine_0a30000.cpp (part 1 of 3): 214 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -425,15 +425,6 @@ undefined4 C_00a334f0::sub_00a334f0(byte param_2)
   return param_1;
 }
 
-// @baa 0x00a344b0
-int ANxForceFieldGeneric::vf_000(void) { return 1; }
-
-// @baa 0x00a344c0
-bool ANxForceFieldGeneric::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
 struct C_00a34540 { C_00a34540* sub_00a34540(void); };
 
 // @baa 0x00a34540
@@ -460,25 +451,10 @@ struct C_00a345c0 { C_00a345c0* sub_00a345c0(void); };
 // @baa 0x00a345c0
 C_00a345c0* C_00a345c0::sub_00a345c0(void) { return this; }
 
-// @baa 0x00a345d0
-IMPLEMENT_CLASS_AT(ANxForceFieldRadial, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\NxForceFieldRadial.cpp", 15);
-
-// @baa 0x00a346e0
-int ANxForceFieldRadial::vf_000(void) { return 1; }
-
-// @baa 0x00a346f0
-bool ANxForceFieldRadial::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
 struct C_00a347e0 { C_00a347e0* sub_00a347e0(void); };
 
 // @baa 0x00a347e0
 C_00a347e0* C_00a347e0::sub_00a347e0(void) { return this; }
-
-// @baa 0x00a347f0
-IMPLEMENT_CLASS_AT(ANxForceFieldTornado, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\NxForceFieldTornado.cpp", 14);
 
 // @baa 0x00a34900
 int ANxForceFieldTornado::vf_000(void) { return 1; }
@@ -489,9 +465,6 @@ bool ANxForceFieldTornado::vf_004()
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
-// @baa 0x00a34bd0
-IMPLEMENT_CLASS_AT(ANxRadialCustomForceField, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\NxRadialCustomForceField.cpp", 15);
-
 // @baa 0x00a34ce0
 int ANxRadialCustomForceField::vf_000(void) { return 1; }
 
@@ -500,9 +473,6 @@ bool ANxRadialCustomForceField::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
-
-// @baa 0x00a34d60
-IMPLEMENT_CLASS_AT(ANxTornadoAngularForceField, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\NxTornadoAngularForceField.cpp", 14);
 
 // @baa 0x00a34e70
 int ANxTornadoAngularForceField::vf_000(void) { return 1; }
@@ -520,9 +490,6 @@ struct C_00a34f50 { C_00a34f50* sub_00a34f50(void); };
 
 // @baa 0x00a34f50
 C_00a34f50* C_00a34f50::sub_00a34f50(void) { return this; }
-
-// @baa 0x00a34f60
-IMPLEMENT_CLASS_AT(ANxTornadoForceField, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\NxTornadoForceField.cpp", 14);
 
 // @baa 0x00a35070
 int ANxTornadoForceField::vf_000(void) { return 1; }
@@ -1710,85 +1677,6 @@ void sub_00a3ef80(undefined4 * param_1, undefined4 * param_2)
     param_1[1] = param_2[1];
   }
   return;
-}
-
-// @baa 0x00a3f300
-IMPLEMENT_CLASS_AT(URB_BSJointSetup, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPhysConstraint.cpp", 16);
-
-// @baa 0x00a3f410
-bool URB_BSJointSetup::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00a3f450
-IMPLEMENT_CLASS_AT(URB_HingeSetup, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPhysConstraint.cpp", 17);
-
-// @baa 0x00a3f560
-bool URB_HingeSetup::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00a3f5a0
-IMPLEMENT_CLASS_AT(URB_PrismaticSetup, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPhysConstraint.cpp", 18);
-
-// @baa 0x00a3f6b0
-bool URB_PrismaticSetup::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00a3f6f0
-IMPLEMENT_CLASS_AT(URB_SkelJointSetup, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPhysConstraint.cpp", 19);
-
-// @baa 0x00a3f800
-bool URB_SkelJointSetup::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00a3f840
-IMPLEMENT_CLASS_AT(URB_PulleyJointSetup, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPhysConstraint.cpp", 20);
-
-// @baa 0x00a3f950
-bool URB_PulleyJointSetup::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00a3f990
-IMPLEMENT_CLASS_AT(URB_StayUprightSetup, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPhysConstraint.cpp", 21);
-
-// @baa 0x00a3faa0
-bool URB_StayUprightSetup::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00a3fae0
-IMPLEMENT_CLASS_AT(URB_DistanceJointSetup, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPhysConstraint.cpp", 22);
-
-// @baa 0x00a3fbf0
-bool URB_DistanceJointSetup::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00a34500
-void ANxForceFieldGeneric::vf_354()
-{
-	LinearKernel.Dummy = 0;
-	ForceField.Dummy = 0;
-	vf_238();
-}
-
-// @baa 0x00a34750
-void ANxForceFieldRadial::vf_354()
-{
-	Kernel.Dummy = 0;
-	ForceField.Dummy = 0;
-	vf_238();
 }
 
 struct F00A355D0

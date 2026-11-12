@@ -1,7 +1,7 @@
-// UnWorld.cpp: 2 functions
+// UnWorld.cpp: 7 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
-#include "ue3/Core.h"
+#include "ue3/Implement.h"
 
 struct sub_009b45b0_struct {
     INT field_0x00;
@@ -44,4 +44,56 @@ FTriWord& FTriWord::sub_009b1a50(const FTriWord& Other)
 FTriWord& fwords_assign_helper(FTriWord& A, const FTriWord& B)
 {
 	return A.sub_009b1a50(B);
+}
+
+extern undefined4 g_026b6300;
+// @baa 0x009b2c80
+undefined4 sub_009b2c80(void)
+{
+  return g_026b6300;
+}
+
+int sub_005c7a20(void);
+extern undefined * g_01f9a4f8;
+// @baa 0x009c1aa0
+undefined4 * UObject::sub_009c1aa0(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_01f9a4f8);
+  return param_1;
+}
+
+extern undefined * g_01f9a610;
+// @baa 0x009c1ac0
+undefined4 * UObject::sub_009c1ac0(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_01f9a610);
+  return param_1;
+}
+
+extern undefined * g_01f9a728;
+// @baa 0x009c1b70
+undefined4 * UObject::sub_009c1b70(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_01f9a728);
+  return param_1;
+}
+
+extern undefined * g_01f9a840;
+// @baa 0x009c1c20
+undefined4 * UObject::sub_009c1c20(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_01f9a840);
+  return param_1;
 }

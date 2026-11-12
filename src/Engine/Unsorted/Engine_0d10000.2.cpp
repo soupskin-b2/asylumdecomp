@@ -1,4 +1,4 @@
-// Engine_0d10000.cpp (part 2 of 2): 73 functions
+// Engine_0d10000.cpp (part 2 of 2): 57 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -85,9 +85,6 @@ void UMultiFont::Serialize(FArchive& Ar) {
   }
   return;
 }
-
-// @baa 0x00d19800
-IMPLEMENT_CLASS_AT(UMultiFont, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnFont.cpp", 11);
 
 // @baa 0x00d19910
 bool UMultiFont::vf_004()
@@ -426,38 +423,6 @@ void sub_00d1f270(void)
   return;
 }
 
-// @baa 0x00d1f2f0
-IMPLEMENT_CLASS_AT(ULightMapTexture2D, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnLightMap.cpp", 17);
-
-// @baa 0x00d1f400
-int ULightMapTexture2D::vf_000(void) { return 1; }
-
-// @baa 0x00d1f410
-bool ULightMapTexture2D::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00d1f450
-void ULightMapTexture2D::sub_00d1f450(float * param_2, float param_3)
-{
-    int param_1 = (int)this;
-  float *pfVar1;
-  int iVar2;
-  pfVar1 = (float *)(param_1 + 4);
-  param_1 = (int)param_2 - param_1;
-  iVar2 = 4;
-  do {
-    pfVar1[-1] = *param_2 * param_3 + pfVar1[-1];
-    *pfVar1 = *(float *)(param_1 + (int)pfVar1) * param_3 + *pfVar1;
-    pfVar1[1] = param_2[2] * param_3 + pfVar1[1];
-    param_2 = param_2 + 3;
-    pfVar1 = pfVar1 + 3;
-    iVar2 = iVar2 + -1;
-  } while (iVar2 != 0);
-  return;
-}
-
 // @baa 0x00d1f880
 int UOnlineStats::vf_000(void) { return 1; }
 
@@ -479,45 +444,6 @@ int sub_00d1f900(int a0, int a1) { return a1; }
 // @baa 0x00d1f910
 int sub_00d1f910(int a0, int a1) { return a1; }
 
-// @baa 0x00d1f920
-IMPLEMENT_CLASS_AT(UPrefab, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPrefab.cpp", 10);
-
-// @baa 0x00d1fa30
-int UPrefab::vf_000(void) { return 1; }
-
-// @baa 0x00d1fa40
-bool UPrefab::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00d1fa80
-IMPLEMENT_CLASS_AT(APrefabInstance, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPrefab.cpp", 11);
-
-// @baa 0x00d1fb90
-int APrefabInstance::vf_000(void) { return 1; }
-
-// @baa 0x00d1fba0
-bool APrefabInstance::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00d1fc70
-IMPLEMENT_CLASS_AT(UPrefabSequenceContainer, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPrefab.cpp", 1180);
-
-// @baa 0x00d1fd80
-int UPrefabSequenceContainer::vf_000(void) { return 1; }
-
-// @baa 0x00d1fd90
-bool UPrefabSequenceContainer::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00d1fdd0
-IMPLEMENT_CLASS_AT(UPrefabSequence, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPrefab.cpp", 1220);
-
 // @baa 0x00d1fee0
 int UPrefabSequence::vf_000(void) { return 1; }
 
@@ -533,5 +459,3 @@ void UPrefabSequence::sub_00d1ff30(int a0) { *(int*)((char*)this + 268) = a0; }
 // @baa 0x00d1ff40
 int UPrefabSequence::sub_00d1ff40(void) { return *(int*)((char*)this + 268); }
 
-// @baa 0x00d1ff50
-IMPLEMENT_CLASS_AT(USelection, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSelection.cpp", 8);

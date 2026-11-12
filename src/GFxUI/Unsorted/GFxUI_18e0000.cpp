@@ -1,4 +1,4 @@
-// GFxUI_18e0000.cpp (part 1 of 2): 12 functions
+// GFxUI_18e0000.cpp (part 1 of 2): 7 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -99,45 +99,3 @@ struct C_018e52d0 { int a; C_018e52d0(int); };
 // @baa 0x018e52d0
 C_018e52d0::C_018e52d0(int x) : a(x) {}
 
-struct C_018e53a0 { int a, b; C_018e53a0(int, int); };
-
-// @baa 0x018e53a0
-C_018e53a0::C_018e53a0(int x, int y) : a(x), b(y) {}
-
-struct C_018e53c0 {
-    int sub_018e53c0(int);
-};
-
-// @baa 0x018e53c0
-int C_018e53c0::sub_018e53c0(int param_2)
-{
-    int * param_1 = (int *)this;
-  return *param_1 + 8 + param_2 * 0x14;
-}
-
-struct C_018e53d0 {
-    bool sub_018e53d0();
-};
-
-// @baa 0x018e53d0
-bool C_018e53d0::sub_018e53d0(void)
-{
-    int * param_1 = (int *)this;
-  return *param_1 == -2;
-}
-
-struct C_018e5410 {
-    int sub_018e5410(int);
-};
-
-// @baa 0x018e5410
-int C_018e5410::sub_018e5410(int param_2)
-{
-    int * param_1 = (int *)this;
-  return *param_1 + 8 + param_2 * 0x14;
-}
-
-struct C_018e5fb0 { C_018e5fb0* sub_018e5fb0(void); };
-
-// @baa 0x018e5fb0
-C_018e5fb0* C_018e5fb0::sub_018e5fb0(void) { *(int*)((char*)this + 0) = 0; return this; }

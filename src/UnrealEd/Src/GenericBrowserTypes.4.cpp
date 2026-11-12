@@ -1,4 +1,4 @@
-// GenericBrowserTypes.cpp (part 4 of 4): 17 functions
+// GenericBrowserTypes.cpp (part 4 of 4): 19 functions
 // Placed here by: neighbours 3, class 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -287,3 +287,9 @@ void T2_00530ae0::sub_00530ae0(int Item)
     Field_015c = Item;
     Item_0160.sub_0052e0e0(Item);
 }
+
+// @baa 0x0115b4c0
+void UGenericBrowserType_FracturedStaticMesh::vf_120(int a0, int a1) {  }
+
+// @baa 0x0115b4d0
+int UGenericBrowserType_MorphWeightSequence::vf_114(int a0) { return 1; }

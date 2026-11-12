@@ -1,4 +1,4 @@
-// Engine_0c10000.cpp (part 1 of 5): 202 functions
+// Engine_0c10000.cpp (part 1 of 5): 186 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -370,32 +370,6 @@ void C_00c17ad0::sub_00c17ad0(void)
     }
 }
 
-int sub_00c17b80(void);
-// @baa 0x00c19e50
-undefined4 UTexture2D::sub_00c19e50(byte param_2)
-{
-    undefined4 param_1 = (undefined4)this;
-
-  sub_00c17b80();
-  if ((param_2 & 1) != 0) {
-    sub_0053dfa0(param_1);
-  }
-  return param_1;
-}
-
-int sub_00c19120(void);
-// @baa 0x00c19e70
-undefined4 UTexture2D::sub_00c19e70(byte param_2)
-{
-    undefined4 param_1 = (undefined4)this;
-
-  sub_00c19120();
-  if ((param_2 & 1) != 0) {
-    sub_0053dfa0(param_1);
-  }
-  return param_1;
-}
-
 struct S {
     void sub_00c19590();
     void sub_00c19fe0();
@@ -430,9 +404,6 @@ int sub_00c1a600(void)
   return g_026c0874;
 }
 
-// @baa 0x00c1a6d0
-int UDemoRecDriver::vf_144(void) { return 1; }
-
 struct A_00c1a6e0 { virtual void sub_00c1a7a0(); char pad[48]; };
 
 struct B_00c1a6e0 { virtual void sub_00c1a7a0(); };
@@ -443,20 +414,6 @@ C_00c1a6e0::C_00c1a6e0() {}
 
 // @baa 0x00c1a6e0
 void C_00c1a6e0::sub_00c1a7a0() {}
-
-int sub_005c7a70(...);
-int sub_00c1a6f0(void);
-// @baa 0x00c1a7a0
-undefined4 UDemoRecDriver::sub_00c1a7a0(byte param_2)
-{
-    undefined4 param_1 = (undefined4)this;
-
-  sub_00c1a6f0();
-  if ((param_2 & 1) != 0) {
-    sub_005c7a70(param_1,0x214);
-  }
-  return param_1;
-}
 
 // @baa 0x00c1b0c0
 void sub_00c1b0c0(void) {  }
@@ -732,9 +689,6 @@ int __stdcall sub_00c1b580(int a0, int a1, int a2) { return 0; }
 
 // @baa 0x00c1b590
 int __stdcall sub_00c1b590(int a0, int a1) { return 0; }
-
-// @baa 0x00c1b5a0
-IMPLEMENT_CLASS_AT(USpeechRecognition, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\Fonix.cpp", 800);
 
 // @baa 0x00c1b6b0
 int USpeechRecognition::vf_000(void) { return 1; }
@@ -1183,154 +1137,6 @@ int sub_00c1c230(int a0, int a1) { return a1; }
 
 // @baa 0x00c1c240
 int sub_00c1c240(int a0, int a1) { return a1; }
-
-struct FOO {
-  int __thiscall sub_00cb02e0(void);
-};
-
-extern undefined4 g_026c3cdc;
-// @baa 0x00c1ee70
-void sub_00c1ee70(void)
-{
-  ((FOO *)g_026c3cdc)->sub_00cb02e0();
-}
-
-// @baa 0x00c1ee80
-void __stdcall sub_00c1ee80(int a0) {  }
-
-// @baa 0x00c1eea0
-void UMaterialExpressionFontSampleParameter::vf_05c(void) {  }
-
-// @baa 0x00c1eeb0
-void UMaterialExpressionFontSampleParameter::vf_09c(void) {  }
-
-// @baa 0x00c1eed0
-void UMaterialExpressionWorldPosition::vf_10c(INT a0, UINT a1) {  }
-
-// @baa 0x00c1ef00
-void UMaterialExpressionNormal::vf_10c(INT a0, UINT a1) {  }
-
-// @baa 0x00c1ef10
-int UMaterialExpressionAddNormalMap::vf_118(void) { return 112; }
-
-// @baa 0x00c1ef20
-void UMaterialExpressionAddNormalMap::vf_10c(int param_2, undefined4 param_3)
-{
-    int param_1 = (int)this;
-
-  if (*(int *)(param_1 + 0x7c) == param_2) {
-    *(undefined4 *)(param_1 + 0x7c) = param_3;
-  }
-  if (*(int *)(param_1 + 0x98) == param_2) {
-    *(undefined4 *)(param_1 + 0x98) = param_3;
-  }
-  return;
-}
-
-// @baa 0x00c1f320
-void UMaterialExpressionLightingDiffuseLambert::vf_10c(int param_2, undefined4 param_3)
-{
-    int param_1 = (int)this;
-
-  if (*(int *)(param_1 + 0x108) == param_2) {
-    *(undefined4 *)(param_1 + 0x108) = param_3;
-  }
-  if (*(int *)(param_1 + 0x60) == param_2) {
-    *(undefined4 *)(param_1 + 0x60) = param_3;
-  }
-  if (*(int *)(param_1 + 0x7c) == param_2) {
-    *(undefined4 *)(param_1 + 0x7c) = param_3;
-  }
-  if (*(int *)(param_1 + 0x98) == param_2) {
-    *(undefined4 *)(param_1 + 0x98) = param_3;
-  }
-  if (*(int *)(param_1 + 0xb4) == param_2) {
-    *(undefined4 *)(param_1 + 0xb4) = param_3;
-  }
-  if (*(int *)(param_1 + 0xd0) == param_2) {
-    *(undefined4 *)(param_1 + 0xd0) = param_3;
-  }
-  if (*(int *)(param_1 + 0xec) == param_2) {
-    *(undefined4 *)(param_1 + 0xec) = param_3;
-  }
-  return;
-}
-
-// @baa 0x00c1f420
-void UMaterialExpressionLightingSpecularPhong::vf_10c(int param_2, undefined4 param_3)
-{
-    int param_1 = (int)this;
-
-  if (*(int *)(param_1 + 0x15c) == param_2) {
-    *(undefined4 *)(param_1 + 0x15c) = param_3;
-  }
-  if (*(int *)(param_1 + 0x60) == param_2) {
-    *(undefined4 *)(param_1 + 0x60) = param_3;
-  }
-  if (*(int *)(param_1 + 0x7c) == param_2) {
-    *(undefined4 *)(param_1 + 0x7c) = param_3;
-  }
-  if (*(int *)(param_1 + 0x98) == param_2) {
-    *(undefined4 *)(param_1 + 0x98) = param_3;
-  }
-  if (*(int *)(param_1 + 0xb4) == param_2) {
-    *(undefined4 *)(param_1 + 0xb4) = param_3;
-  }
-  if (*(int *)(param_1 + 0xd0) == param_2) {
-    *(undefined4 *)(param_1 + 0xd0) = param_3;
-  }
-  if (*(int *)(param_1 + 0xec) == param_2) {
-    *(undefined4 *)(param_1 + 0xec) = param_3;
-  }
-  if (*(int *)(param_1 + 0x108) == param_2) {
-    *(undefined4 *)(param_1 + 0x108) = param_3;
-  }
-  if (*(int *)(param_1 + 0x124) == param_2) {
-    *(undefined4 *)(param_1 + 0x124) = param_3;
-  }
-  if (*(int *)(param_1 + 0x140) == param_2) {
-    *(undefined4 *)(param_1 + 0x140) = param_3;
-  }
-  return;
-}
-
-// @baa 0x00c1f580
-void UMaterialExpressionLightingSpecularBlinnPhong::vf_10c(int param_2, undefined4 param_3)
-{
-    int param_1 = (int)this;
-
-  if (*(int *)(param_1 + 0x15c) == param_2) {
-    *(undefined4 *)(param_1 + 0x15c) = param_3;
-  }
-  if (*(int *)(param_1 + 0x60) == param_2) {
-    *(undefined4 *)(param_1 + 0x60) = param_3;
-  }
-  if (*(int *)(param_1 + 0x7c) == param_2) {
-    *(undefined4 *)(param_1 + 0x7c) = param_3;
-  }
-  if (*(int *)(param_1 + 0x98) == param_2) {
-    *(undefined4 *)(param_1 + 0x98) = param_3;
-  }
-  if (*(int *)(param_1 + 0xb4) == param_2) {
-    *(undefined4 *)(param_1 + 0xb4) = param_3;
-  }
-  if (*(int *)(param_1 + 0xd0) == param_2) {
-    *(undefined4 *)(param_1 + 0xd0) = param_3;
-  }
-  if (*(int *)(param_1 + 0xec) == param_2) {
-    *(undefined4 *)(param_1 + 0xec) = param_3;
-  }
-  if (*(int *)(param_1 + 0x108) == param_2) {
-    *(undefined4 *)(param_1 + 0x108) = param_3;
-  }
-  if (*(int *)(param_1 + 0x124) == param_2) {
-    *(undefined4 *)(param_1 + 0x124) = param_3;
-  }
-  if (*(int *)(param_1 + 0x140) == param_2) {
-    *(undefined4 *)(param_1 + 0x140) = param_3;
-  }
-  return;
-}
 
 // @baa 0x00c1ffa0
 bool sub_00c1ffa0(int param_1)

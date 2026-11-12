@@ -1,4 +1,4 @@
-// GameFramework_0e20000.cpp (part 1 of 6): 43 functions
+// GameFramework_0e20000.cpp (part 1 of 6): 34 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -20,15 +20,6 @@ int AGamePawn::vf_000(void) { return 1; }
 
 // @baa 0x00e259f0
 bool AGamePawn::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00e25a30
-int UGamePlayerInput::vf_000(void) { return 1; }
-
-// @baa 0x00e25a40
-bool UGamePlayerInput::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -66,18 +57,6 @@ bool AGameWeapon::vf_004()
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
-// @baa 0x00e26040
-IMPLEMENT_CLASS_AT(UGameExplosion, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\GameFramework\\Src\\GameWeapon.cpp", 11);
-
-// @baa 0x00e26150
-int UGameExplosion::vf_000(void) { return 1; }
-
-// @baa 0x00e26160
-bool UGameExplosion::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
 // @baa 0x00e261a0
 IMPLEMENT_CLASS_AT(AGameExplosionActor, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\GameFramework\\Src\\GameWeapon.cpp", 12);
 
@@ -86,26 +65,6 @@ bool AGameExplosionActor::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
-
-struct C { int sub_00e26310(void); };
-
-// @baa 0x00e26310
-int C::sub_00e26310(void) { return *(int*)((char*)this + 4); }
-
-struct C_00e26320 { C_00e26320* sub_00e26320(int a0); };
-
-// @baa 0x00e26320
-C_00e26320* C_00e26320::sub_00e26320(int a0) { return this; }
-
-struct C_00e26330 { int sub_00e26330(void); };
-
-// @baa 0x00e26330
-int C_00e26330::sub_00e26330(void) { return *(int*)((char*)this + 0); }
-
-struct C_00e26340 { int sub_00e26340(void); };
-
-// @baa 0x00e26340
-int C_00e26340::sub_00e26340(void) { return *(int*)((char*)this + 0); }
 
 struct E { BYTE Bytes[24]; };
 
@@ -176,6 +135,3 @@ undefined4 * APlayerController::sub_00e27fc0(void)
 // @baa 0x00e27fe0
 IMPLEMENT_CLASS_AT(AGamePlayerController, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\GameFramework\\Src\\GameController.cpp", 9);
 
-// @baa 0x00e28040
-// @baa 0x00e28150
-// @baa 0x00e281c0

@@ -1,4 +1,4 @@
-// Texture2DComposite.cpp: 9 functions
+// Texture2DComposite.cpp: 11 functions
 // Placed here by: neighbours 5, callers 3, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -126,3 +126,10 @@ undefined4 C_0072b2d0::sub_0072b2d0(byte param_2)
 IMPLEMENT_CLASS_AT(UTexture2DComposite, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\Texture2DComposite.cpp", 8);
 
 // @baa 0x0072fc30
+
+// @baa 0x00718020
+int UTexture2DComposite::vf_000(void) { return 1; }
+
+extern char g_01eeb23c[];
+// @baa 0x00718030
+int sub_00718030(void) { return (int)g_01eeb23c; }

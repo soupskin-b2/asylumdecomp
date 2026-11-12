@@ -1,4 +1,4 @@
-// UnPlayer.cpp (part 1 of 3): 103 functions
+// UnPlayer.cpp (part 1 of 3): 106 functions
 // Placed here by: neighbours 67, class 23, callers 7, file 4.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -982,4 +982,25 @@ void URCapeStateBoneConfig_::sub_00889a60(int Param)
 {
     if (sub_00e6fba0() != 0)
         sub_00e6fba0()->sub_00e5f880();
+}
+
+// @baa 0x00889060
+
+// @baa 0x00889390
+bool UPlayer::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x00889be0
+void UPlayer::vf_10c(int param_2)
+{
+    int param_1 = (int)this;
+
+  if (*(int *)(param_1 + 0x34) != 0) {
+    *(undefined4 *)(*(int *)(param_1 + 0x34) + 0x330) = 0;
+  }
+  *(int *)(param_2 + 0x330) = param_1;
+  *(int *)(param_1 + 0x34) = param_2;
+  return;
 }

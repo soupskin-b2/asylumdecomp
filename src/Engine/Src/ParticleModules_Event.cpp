@@ -1,4 +1,4 @@
-// ParticleModules_Event.cpp: 21 functions
+// ParticleModules_Event.cpp: 25 functions
 // Placed here by: class 12, callers 4, file 4, neighbours 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -78,3 +78,25 @@ bool UParticleModuleEventGenerator::vf_004()
 IMPLEMENT_CLASS_AT(UParticleModuleEventReceiverSpawn, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\ParticleModules_Event.cpp", 306);
 
 // @baa 0x00b4b130
+
+// @baa 0x00b32e10
+
+// @baa 0x00b32f20
+int UParticleModuleEventBase::vf_000(void) { return 1; }
+
+// @baa 0x00b32f30
+bool UParticleModuleEventBase::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+extern undefined * g_01fef7a0;
+// @baa 0x00b43870
+undefined4 * UObject::sub_00b43870(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_01fef7a0);
+  return param_1;
+}

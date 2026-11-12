@@ -1,4 +1,4 @@
-// UnPhysActorForceField.cpp: 20 functions
+// UnPhysActorForceField.cpp: 45 functions
 // Placed here by: file 10, callers 9.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -140,4 +140,94 @@ struct C_00a53370
 void C_00a53370::sub_00a53370(Sub* Object)
 {
     Object->sub_00a51eb0(this);
+}
+
+// @baa 0x00d6b1c0
+
+// @baa 0x00d6b2d0
+int ANxForceField::vf_000(void) { return 1; }
+
+// @baa 0x00d6b2e0
+bool ANxForceField::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x00d6b320
+int ANxRadialForceField::vf_000(void) { return 1; }
+
+// @baa 0x00d6b330
+int ANxCylindricalForceField::vf_000(void) { return 1; }
+
+// @baa 0x00d6b340
+int ANxCylindricalForceFieldCapsule::vf_000(void) { return 1; }
+
+// @baa 0x00d6b350
+int ANxGenericForceField::vf_000(void) { return 1; }
+
+// @baa 0x00d6b360
+int ANxGenericForceFieldBox::vf_000(void) { return 1; }
+
+// @baa 0x00d6b370
+int ANxGenericForceFieldCapsule::vf_000(void) { return 1; }
+
+// @baa 0x00d6b380
+
+// @baa 0x00d6b490
+int ANxGenericForceFieldBrush::vf_000(void) { return 1; }
+
+// @baa 0x00d6b4a0
+bool ANxGenericForceFieldBrush::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x00d6b4e0
+
+// @baa 0x00d88cb0
+
+// @baa 0x00d88dc0
+bool ANxRadialForceField::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x00d88e00
+
+// @baa 0x00d88f10
+bool ANxCylindricalForceField::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x00d88f50
+
+// @baa 0x00d89060
+bool ANxGenericForceField::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x00d8b050
+
+// @baa 0x00d8b160
+bool ANxCylindricalForceFieldCapsule::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x00d8b1a0
+
+// @baa 0x00d8b2b0
+bool ANxGenericForceFieldBox::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x00d8b2f0
+
+// @baa 0x00d8b400
+bool ANxGenericForceFieldCapsule::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
 }

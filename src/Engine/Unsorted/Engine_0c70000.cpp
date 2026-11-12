@@ -1,4 +1,4 @@
-// Engine_0c70000.cpp (part 1 of 2): 42 functions
+// Engine_0c70000.cpp (part 1 of 2): 19 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -103,24 +103,6 @@ void sub_00c76e70();
 // @baa 0x00c77760
 void sub_00c77760(void) { sub_00c76e70(); }
 
-// @baa 0x00c77bf0
-IMPLEMENT_CLASS_AT(UAnimNodeBlendList, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTree.cpp", 16);
-
-// @baa 0x00c77d00
-bool UAnimNodeBlendList::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00c77d40
-IMPLEMENT_CLASS_AT(UAnimNodeBlendDirectional, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTree.cpp", 18);
-
-// @baa 0x00c77e50
-bool UAnimNodeBlendDirectional::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
 struct C_00c78db0 {
     int sub_00c78db0(undefined4, undefined4);
     int sub_00c77390(int, int);
@@ -220,93 +202,3 @@ undefined4 * UObject::sub_00c78fc0(void)
   return param_1;
 }
 
-// @baa 0x00c796b0
-IMPLEMENT_CLASS_AT(UAnimNodeCrossfader, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTree.cpp", 14);
-
-// @baa 0x00c797c0
-bool UAnimNodeCrossfader::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00c79800
-IMPLEMENT_CLASS_AT(UAnimNodeBlendPerBone, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTree.cpp", 15);
-
-// @baa 0x00c79910
-bool UAnimNodeBlendPerBone::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00c79950
-IMPLEMENT_CLASS_AT(UAnimNodeRandom, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTree.cpp", 17);
-
-// @baa 0x00c79a60
-bool UAnimNodeRandom::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00c79aa0
-IMPLEMENT_CLASS_AT(UAnimNodeBlendByPosture, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTree.cpp", 19);
-
-// @baa 0x00c79bb0
-bool UAnimNodeBlendByPosture::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00c79bf0
-IMPLEMENT_CLASS_AT(UAnimNodeBlendByPhysics, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTree.cpp", 20);
-
-// @baa 0x00c79d00
-bool UAnimNodeBlendByPhysics::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00c79d40
-IMPLEMENT_CLASS_AT(UAnimNodeBlendBySpeed, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTree.cpp", 21);
-
-// @baa 0x00c79e50
-bool UAnimNodeBlendBySpeed::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00c79e90
-IMPLEMENT_CLASS_AT(UAnimNodeBlendByBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTree.cpp", 22);
-
-// @baa 0x00c79fa0
-bool UAnimNodeBlendByBase::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00c79fe0
-IMPLEMENT_CLASS_AT(UAnimNodeScaleRateBySpeed, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTree.cpp", 28);
-
-// @baa 0x00c7a0f0
-bool UAnimNodeScaleRateBySpeed::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00c7a130
-IMPLEMENT_CLASS_AT(UAnimNodePlayCustomAnim, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTree.cpp", 29);
-
-// @baa 0x00c7a240
-bool UAnimNodePlayCustomAnim::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-struct UAnimNodeAimOffset_ : public UAnimNodeAimOffset {
-    FVector2D sub_00c78fe0();
-};
-
-// @baa 0x00c78fe0
-FVector2D UAnimNodeAimOffset_::sub_00c78fe0()
-{
-    return Aim;
-}

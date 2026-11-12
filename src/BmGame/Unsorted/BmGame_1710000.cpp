@@ -1,4 +1,4 @@
-// BmGame_1710000.cpp (part 1 of 2): 164 functions
+// BmGame_1710000.cpp (part 1 of 2): 120 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -7,9 +7,6 @@ struct C { int sub_01714a90(void); };
 
 // @baa 0x01714a90
 int C::sub_01714a90(void) { return *(int*)((char*)this + 4); }
-
-// @baa 0x01714bf0
-IMPLEMENT_CLASS_AT(ARChatteringTeethGadgetBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RChatteringTeethGadgetBase.cpp", 8);
 
 // @baa 0x01714d00
 int ARChatteringTeethGadgetBase::vf_000(void) { return 1; }
@@ -20,9 +17,6 @@ bool ARChatteringTeethGadgetBase::vf_004()
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
-// @baa 0x01715270
-IMPLEMENT_CLASS_AT(ARJokerGlassesGadgetBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RJokerGlassesGadgetBase.cpp", 5);
-
 // @baa 0x01715380
 int ARJokerGlassesGadgetBase::vf_000(void) { return 1; }
 
@@ -32,9 +26,6 @@ bool ARJokerGlassesGadgetBase::vf_004()
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
-// @baa 0x017153d0
-IMPLEMENT_CLASS_AT(ARJokerGunGadgetBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RJokerGunGadgetBase.cpp", 5);
-
 // @baa 0x017154e0
 int ARJokerGunGadgetBase::vf_000(void) { return 1; }
 
@@ -43,9 +34,6 @@ bool ARJokerGunGadgetBase::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
-
-// @baa 0x01715530
-IMPLEMENT_CLASS_AT(ARPhysicsGrabber, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RPhysicsGrabber.cpp", 14);
 
 // @baa 0x01715640
 int ARPhysicsGrabber::vf_000(void) { return 1; }
@@ -60,95 +48,6 @@ struct C_01715690 { C_01715690* sub_01715690(void); };
 
 // @baa 0x01715690
 C_01715690* C_01715690::sub_01715690(void) { return this; }
-
-// @baa 0x017156a0
-IMPLEMENT_CLASS_AT(URHidePointRenderingComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameEnvironmentClasses.cpp", 14);
-
-// @baa 0x017157b0
-int URHidePointRenderingComponent::vf_000(void) { return 1; }
-
-// @baa 0x017157c0
-bool URHidePointRenderingComponent::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x01715800
-IMPLEMENT_CLASS_AT(ARPatrolPoint, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameEnvironmentClasses.cpp", 16);
-
-// @baa 0x01715910
-int ARPatrolPoint::vf_000(void) { return 1; }
-
-// @baa 0x01715920
-bool ARPatrolPoint::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x01715960
-IMPLEMENT_CLASS_AT(URPatrolPointRenderingComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameEnvironmentClasses.cpp", 17);
-
-// @baa 0x01715a70
-int URPatrolPointRenderingComponent::vf_000(void) { return 1; }
-
-// @baa 0x01715a80
-bool URPatrolPointRenderingComponent::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x01715ac0
-IMPLEMENT_CLASS_AT(ARSpecialMoveEnvironmentObject, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameEnvironmentClasses.cpp", 19);
-
-// @baa 0x01715bd0
-int ARSpecialMoveEnvironmentObject::vf_000(void) { return 1; }
-
-// @baa 0x01715be0
-bool ARSpecialMoveEnvironmentObject::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x01715c20
-int ARTunnelGrateBase::vf_000(void) { return 1; }
-
-// @baa 0x01715c30
-IMPLEMENT_CLASS_AT(ARHarpoonDragBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameEnvironmentClasses.cpp", 22);
-
-// @baa 0x01715d40
-int ARHarpoonDragBase::vf_000(void) { return 1; }
-
-// @baa 0x01715d50
-bool ARHarpoonDragBase::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x01715d90
-IMPLEMENT_CLASS_AT(ARHarpoonDragPhysicsBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameEnvironmentClasses.cpp", 24);
-
-// @baa 0x01715ea0
-int ARHarpoonDragPhysicsBase::vf_000(void) { return 1; }
-
-// @baa 0x01715eb0
-bool ARHarpoonDragPhysicsBase::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x01715ef0
-int URHidePointRenderingComponent::vf_200(void) { return 1; }
-
-struct C_01715f00 { void sub_00772150(int); void sub_01715f00(); };
-
-// @baa 0x01715f00
-void C_01715f00::sub_01715f00() { sub_00772150(0); }
-
-// @baa 0x01716050
-int URPatrolPointRenderingComponent::vf_200(void) { return 1; }
-
-// @baa 0x01716060
-IMPLEMENT_CLASS_AT(ARSnapToPositionActor, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameEnvironmentClasses.cpp", 260);
 
 // @baa 0x01716170
 int ARSnapToPositionActor::vf_000(void) { return 1; }
@@ -165,21 +64,6 @@ void ARSnapToPositionActor::vf_358(int a0) {  }
 // @baa 0x017162b0
 void ARSnapToPositionActor::vf_35c(void) {  }
 
-// @baa 0x017165c0
-IMPLEMENT_CLASS_AT(ARDisruptableObjectBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RDisruptable.cpp", 10);
-
-// @baa 0x017166d0
-int ARDisruptableObjectBase::vf_000(void) { return 1; }
-
-// @baa 0x017166e0
-bool ARDisruptableObjectBase::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x01716720
-IMPLEMENT_CLASS_AT(ARDisruptableObjectDoor, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RDisruptable.cpp", 11);
-
 // @baa 0x01716830
 int ARDisruptableObjectDoor::vf_000(void) { return 1; }
 
@@ -191,9 +75,6 @@ bool ARDisruptableObjectDoor::vf_004()
 
 // @baa 0x01716c40
 int ARHarpoonDragFloatingPlatformBase::vf_000(void) { return 1; }
-
-// @baa 0x01716c50
-IMPLEMENT_CLASS_AT(ARWaterLevelMarker, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RHarpoonDragFloatingPlatformBase.cpp", 10);
 
 // @baa 0x01716d60
 int ARWaterLevelMarker::vf_000(void) { return 1; }
@@ -207,9 +88,6 @@ bool ARWaterLevelMarker::vf_004()
 // @baa 0x01717530
 void ARHarpoonDragFloatingPlatformBase::vf_1a8(int a0, int a1, int a2, int a3, int a4, int a5, int a6, int a7) {  }
 
-// @baa 0x01717540
-IMPLEMENT_CLASS_AT(ARHarpoonDragTrack, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RHarpoonDragTrack.cpp", 8);
-
 // @baa 0x01717650
 int ARHarpoonDragTrack::vf_000(void) { return 1; }
 
@@ -218,22 +96,6 @@ bool ARHarpoonDragTrack::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
-
-// @baa 0x01717b80
-int ARLadder::vf_000(void) { return 1; }
-
-// @baa 0x01717b90
-void ARLadder::vf_184(void)
-{
-    int param_1 = (int)this;
-
-  *(undefined4 *)(param_1 + 0x1cc) = 0;
-  *(undefined4 *)(param_1 + 0x1d0) = 0;
-  return;
-}
-
-// @baa 0x01718430
-IMPLEMENT_CLASS_AT(ARTunnelFunnel, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RTunnelFunnel.cpp", 13);
 
 // @baa 0x01718540
 int ARTunnelFunnel::vf_000(void) { return 1; }
@@ -244,9 +106,6 @@ bool ARTunnelFunnel::vf_004()
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
-// @baa 0x01718790
-IMPLEMENT_CLASS_AT(ARLevelSelectMenu, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGamePlatformSaveSupport.cpp", 16);
-
 // @baa 0x017188a0
 int ARLevelSelectMenu::vf_000(void) { return 1; }
 
@@ -255,30 +114,6 @@ bool ARLevelSelectMenu::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
-
-// @baa 0x01718b20
-IMPLEMENT_CLASS_AT(URPersistentData, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmSaveGameManager.cpp", 15);
-
-// @baa 0x01718c30
-int URPersistentData::vf_000(void) { return 1; }
-
-// @baa 0x01718c40
-bool URPersistentData::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x01718c80
-IMPLEMENT_CLASS_AT(URPersistentOptions, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmSaveGameManager.cpp", 16);
-
-// @baa 0x01718db0
-bool URPersistentOptions::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x01718df0
-IMPLEMENT_CLASS_AT(URSeqVar_DDAIntValue, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmSaveGameManager.cpp", 17);
 
 // @baa 0x01718f00
 int URSeqVar_DDAIntValue::vf_000(void) { return 1; }
@@ -312,9 +147,6 @@ void __stdcall sub_017195f0(int a0) {  }
 
 // @baa 0x01719600
 void __stdcall sub_01719600(int a0) {  }
-
-// @baa 0x017196f0
-IMPLEMENT_CLASS_AT(ARRandomDelay, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RRandomDelay.cpp", 8);
 
 // @baa 0x01719800
 int ARRandomDelay::vf_000(void) { return 1; }

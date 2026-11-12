@@ -1,4 +1,4 @@
-// Engine_07e0000.cpp: 2 functions
+// Engine_07e0000.cpp: 1 function
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -9,6 +9,3 @@
 /* TObjectIterator<UPackage> constructor, instantiated out of line. */
 template TObjectIterator<UPackage>::TObjectIterator(UBOOL bOnlyGCedObjects);
 
-// @baa 0x007ea820
-/* TObjectIterator<UWorld> constructor, instantiated out of line. */
-template TObjectIterator<UWorld>::TObjectIterator(UBOOL bOnlyGCedObjects);

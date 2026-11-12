@@ -1,4 +1,4 @@
-// AnimSetViewerMain.cpp: 33 functions
+// AnimSetViewerMain.cpp: 40 functions
 // Placed here by: neighbours 28, callers 3, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -369,4 +369,91 @@ struct C_0130ec40
 void C_0130ec40::sub_0130ec40()
 {
     Object->sub_0134a590(this);
+}
+
+// @baa 0x01310360
+
+// @baa 0x01310470
+int UASVSkelComponent::vf_000(void) { return 1; }
+
+// @baa 0x01310480
+bool UASVSkelComponent::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+extern undefined4 g_026af518;
+extern undefined4 g_026af51c;
+extern undefined4 g_026af520;
+extern undefined4 g_026d7ce8;
+extern undefined4 g_026d7cec;
+extern undefined4 g_026d7cf0;
+// @baa 0x013104c0
+undefined * sub_013104c0(void)
+{
+  if ((g_026d7cf0 & 1) == 0) {
+    g_026d7cf0 = g_026d7cf0 | 1;
+    if ((g_026af520 & 1) == 0) {
+      g_026af520 = g_026af520 | 1;
+      g_026af518 = 0;
+      g_026af51c = (undefined4)(L"HHitProxy");
+    }
+    g_026d7ce8 = (undefined4)(&g_026af518);
+    g_026d7cec = (undefined4)(L"HASVSocketProxy");
+  }
+  return (undefined *)(&g_026d7ce8);
+}
+
+extern undefined4 g_026d7cf4;
+extern undefined4 g_026d7cf8;
+extern undefined4 g_026d7cfc;
+// @baa 0x01310540
+undefined * sub_01310540(void)
+{
+  if ((g_026d7cfc & 1) == 0) {
+    g_026d7cfc = g_026d7cfc | 1;
+    if ((g_026af520 & 1) == 0) {
+      g_026af520 = g_026af520 | 1;
+      g_026af518 = 0;
+      g_026af51c = (undefined4)(L"HHitProxy");
+    }
+    g_026d7cf4 = (undefined4)(&g_026af518);
+    g_026d7cf8 = (undefined4)(L"HASVNotifyProxy");
+  }
+  return (undefined *)(&g_026d7cf4);
+}
+
+struct C_01310640 { int sub_01310640(void); };
+
+// @baa 0x01310640
+int C_01310640::sub_01310640(void) { return *(int*)((char*)this + 836); }
+
+class wxEvent;
+class wxEvent {
+    public:
+    public: __declspec(dllimport) int GetId() const;
+    friend struct C_013108d0;
+};
+
+struct C_013108d0 {
+    void sub_013108d0(wxEvent *);
+    int sub_0130ec50(int);
+};
+
+// @baa 0x013108d0
+void C_013108d0::sub_013108d0(wxEvent * param_2)
+{
+    int param_1 = (int)this;
+  int iVar1;
+  if (*(int *)(param_1 + 0x42c) != 0) {
+    iVar1 = ((wxEvent *)(param_2))->wxEvent::GetId();
+    if (iVar1 == 0x3ff9) {
+      ((C_013108d0 *)(this))->sub_0130ec50(1);
+      return;
+    }
+    if (iVar1 == 0x3ffa) {
+      sub_0130ec50(0);
+    }
+  }
+  return;
 }

@@ -1,4 +1,4 @@
-// Editor_0ee0000.cpp: 55 functions
+// Editor_0ee0000.cpp: 53 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -248,9 +248,6 @@ void sub_00ee0bc0();
 // @baa 0x00ee3750
 void sub_00ee3750(void) { sub_00ee0bc0(); }
 
-// @baa 0x00ee3f00
-IMPLEMENT_CLASS_AT(UCubeBuilder, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UBrushBuilder.cpp", 157);
-
 // @baa 0x00ee4010
 bool UCubeBuilder::vf_004()
 {
@@ -473,5 +470,3 @@ void UEditorEngine::vf_218(int a0) {  }
 // @baa 0x00eecc70
 void UEditorEngine::vf_21c(int a0) {  }
 
-// @baa 0x00eeccc0
-int USoundSurroundExporterWAV::vf_11c(void) { return 8; }

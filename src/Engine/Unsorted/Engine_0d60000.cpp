@@ -1,4 +1,4 @@
-// Engine_0d60000.cpp (part 1 of 3): 249 functions
+// Engine_0d60000.cpp (part 1 of 3): 235 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -44,9 +44,6 @@ int sub_00d67040(int a0, int a1) { return a1; }
 
 // @baa 0x00d67050
 int sub_00d67050(int a0, int a1) { return a1; }
-
-// @baa 0x00d67620
-IMPLEMENT_CLASS_AT(UOnlineSubsystem, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UOnlineSubsystem.cpp", 9);
 
 // @baa 0x00d680c0
 int __stdcall sub_00d680c0(int a0, int a1) { return 1; }
@@ -188,51 +185,6 @@ struct C_00d6b1b0 {
 
 // @baa 0x00d6b1b0
 void C_00d6b1b0::sub_00d6b1b0() { b->v5(); }
-
-// @baa 0x00d6b1c0
-IMPLEMENT_CLASS_AT(ANxForceField, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPhysActorForceField.cpp", 14);
-
-// @baa 0x00d6b2d0
-int ANxForceField::vf_000(void) { return 1; }
-
-// @baa 0x00d6b2e0
-bool ANxForceField::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00d6b320
-int ANxRadialForceField::vf_000(void) { return 1; }
-
-// @baa 0x00d6b330
-int ANxCylindricalForceField::vf_000(void) { return 1; }
-
-// @baa 0x00d6b340
-int ANxCylindricalForceFieldCapsule::vf_000(void) { return 1; }
-
-// @baa 0x00d6b350
-int ANxGenericForceField::vf_000(void) { return 1; }
-
-// @baa 0x00d6b360
-int ANxGenericForceFieldBox::vf_000(void) { return 1; }
-
-// @baa 0x00d6b370
-int ANxGenericForceFieldCapsule::vf_000(void) { return 1; }
-
-// @baa 0x00d6b380
-IMPLEMENT_CLASS_AT(ANxGenericForceFieldBrush, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPhysActorForceField.cpp", 21);
-
-// @baa 0x00d6b490
-int ANxGenericForceFieldBrush::vf_000(void) { return 1; }
-
-// @baa 0x00d6b4a0
-bool ANxGenericForceFieldBrush::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00d6b4e0
-IMPLEMENT_CLASS_AT(ARB_ForceFieldExcludeVolume, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPhysActorForceField.cpp", 25);
 
 // @baa 0x00d6b5f0
 int ARB_ForceFieldExcludeVolume::vf_000(void) { return 1; }

@@ -1,4 +1,4 @@
-// RBMCombatMove.cpp: 10 functions
+// RBMCombatMove.cpp: 13 functions
 // Placed here by: callers 5, file 5.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -23,3 +23,13 @@ IMPLEMENT_CLASS_AT(ARCombatMove_BatmanCounter, "e:\\Projects\\Amadeus\\AA\\Game\
 // @baa 0x0165a100
 // @baa 0x0165a1c0
 // @baa 0x0165a280
+
+// @baa 0x0163c460
+
+// @baa 0x01666470
+
+// @baa 0x01666580
+bool ARCombatMove_BatmanCounter::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}

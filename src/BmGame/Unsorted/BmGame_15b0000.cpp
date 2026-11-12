@@ -1,4 +1,4 @@
-// BmGame_15b0000.cpp: 150 functions
+// BmGame_15b0000.cpp: 128 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -161,17 +161,6 @@ undefined4 sub_015bcfc0(undefined4 param_1, undefined4 param_2)
   return param_2;
 }
 
-extern undefined * g_02326208;
-// @baa 0x015bcfd0
-undefined4 * UObject::sub_015bcfd0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_02326208);
-  return param_1;
-}
-
 // @baa 0x015bcff0
 IMPLEMENT_CLASS_AT(URAnimNotify_BeginBoneRescale, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimUtil_Notify.cpp", 17);
 
@@ -191,32 +180,6 @@ IMPLEMENT_CLASS_AT(URAnimNotify_BeginEnd, "e:\\Projects\\Amadeus\\AA\\Game\\Unre
 // @baa 0x015bd0f0
 void URAnimNotify_BeginEnd::vf_10c(UINT a0) {  }
 
-// @baa 0x015bd100
-extern undefined * g_02326320;
-// @baa 0x015bd120
-undefined4 * UObject::sub_015bd120(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_02326320);
-  return param_1;
-}
-
-// @baa 0x015bd140
-int sub_015bd140(int a0, int a1) { return a1; }
-
-extern undefined * g_02326438;
-// @baa 0x015bd150
-undefined4 * UObject::sub_015bd150(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_02326438);
-  return param_1;
-}
-
 // @baa 0x015bd170
 IMPLEMENT_CLASS_AT(URAnimNotify_Clip, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimUtil_Notify.cpp", 24);
 
@@ -225,17 +188,6 @@ IMPLEMENT_CLASS_AT(URAnimNotify_Clip, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEn
 undefined4 sub_015bd1f0(undefined4 param_1, undefined4 param_2)
 {
   return param_2;
-}
-
-extern undefined * g_02326550;
-// @baa 0x015bd200
-undefined4 * UObject::sub_015bd200(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_02326550);
-  return param_1;
 }
 
 // @baa 0x015bd220
@@ -248,17 +200,6 @@ undefined4 sub_015bd2a0(undefined4 param_1, undefined4 param_2)
   return param_2;
 }
 
-extern undefined * g_02326668;
-// @baa 0x015bd2b0
-undefined4 * UObject::sub_015bd2b0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_02326668);
-  return param_1;
-}
-
 // @baa 0x015bd2d0
 IMPLEMENT_CLASS_AT(URAnimNotify_CollisionOptions, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimUtil_Notify.cpp", 26);
 
@@ -267,17 +208,6 @@ IMPLEMENT_CLASS_AT(URAnimNotify_CollisionOptions, "e:\\Projects\\Amadeus\\AA\\Ga
 undefined4 sub_015bd350(undefined4 param_1, undefined4 param_2)
 {
   return param_2;
-}
-
-extern undefined * g_02326780;
-// @baa 0x015bd360
-undefined4 * UObject::sub_015bd360(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_02326780);
-  return param_1;
 }
 
 // @baa 0x015bd380
@@ -290,17 +220,6 @@ undefined4 sub_015bd400(undefined4 param_1, undefined4 param_2)
   return param_2;
 }
 
-extern undefined * g_02326898;
-// @baa 0x015bd410
-undefined4 * UObject::sub_015bd410(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_02326898);
-  return param_1;
-}
-
 // @baa 0x015bd430
 IMPLEMENT_CLASS_AT(URAnimNotify_ForwardYaw, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimUtil_Notify.cpp", 30);
 
@@ -309,17 +228,6 @@ IMPLEMENT_CLASS_AT(URAnimNotify_ForwardYaw, "e:\\Projects\\Amadeus\\AA\\Game\\Un
 undefined4 sub_015bd4b0(undefined4 param_1, undefined4 param_2)
 {
   return param_2;
-}
-
-extern undefined * g_023269b0;
-// @baa 0x015bd4c0
-undefined4 * UObject::sub_015bd4c0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_023269b0);
-  return param_1;
 }
 
 // @baa 0x015bd4e0
@@ -335,17 +243,6 @@ undefined4 sub_015bd570(undefined4 param_1, undefined4 param_2)
   return param_2;
 }
 
-extern undefined * g_02326ac8;
-// @baa 0x015bd580
-undefined4 * UObject::sub_015bd580(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_02326ac8);
-  return param_1;
-}
-
 // @baa 0x015bd5a0
 IMPLEMENT_CLASS_AT(URAnimNotify_BeginRagdoll, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimUtil_Notify.cpp", 20);
 
@@ -355,17 +252,6 @@ void URAnimNotify_BeginRagdoll::vf_10c(UINT a0) {  }
 // @baa 0x015bd610
 // @baa 0x015bd640
 int sub_015bd640(int a0, int a1) { return a1; }
-
-extern undefined * g_02326be0;
-// @baa 0x015bd650
-undefined4 * UObject::sub_015bd650(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_02326be0);
-  return param_1;
-}
 
 // @baa 0x015bd670
 IMPLEMENT_CLASS_AT(URAnimNotify_CanCancelAfterHere, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimUtil_Notify.cpp", 22);
@@ -378,17 +264,6 @@ void URAnimNotify_CanCancelAfterHere::vf_10c(UINT a0) {  }
 undefined4 sub_015bd700(undefined4 param_1, undefined4 param_2)
 {
   return param_2;
-}
-
-extern undefined * g_02326cf8;
-// @baa 0x015bd710
-undefined4 * UObject::sub_015bd710(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_02326cf8);
-  return param_1;
 }
 
 // @baa 0x015bd730
@@ -404,17 +279,6 @@ undefined4 sub_015bd7c0(undefined4 param_1, undefined4 param_2)
   return param_2;
 }
 
-extern undefined * g_02326e10;
-// @baa 0x015bd7d0
-undefined4 * UObject::sub_015bd7d0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_02326e10);
-  return param_1;
-}
-
 // @baa 0x015bd7f0
 IMPLEMENT_CLASS_AT(URAnimNotify_CanCorrectAfterHere, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimUtil_Notify.cpp", 23);
 
@@ -426,17 +290,6 @@ void URAnimNotify_CanCorrectAfterHere::vf_10c(UINT a0) {  }
 undefined4 sub_015bd880(undefined4 param_1, undefined4 param_2)
 {
   return param_2;
-}
-
-extern undefined * g_02326f28;
-// @baa 0x015bd890
-undefined4 * UObject::sub_015bd890(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_02326f28);
-  return param_1;
 }
 
 // @baa 0x015bd8b0
@@ -452,76 +305,11 @@ undefined4 sub_015bd940(undefined4 param_1, undefined4 param_2)
   return param_2;
 }
 
-extern undefined * g_02327040;
-// @baa 0x015bd950
-undefined4 * UObject::sub_015bd950(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_02327040);
-  return param_1;
-}
-
 // @baa 0x015bd970
 IMPLEMENT_CLASS_AT(URAnimNotify_EndRagdoll, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimUtil_Notify.cpp", 28);
 
 // @baa 0x015bd9d0
 void URAnimNotify_EndRagdoll::vf_10c(UINT a0) {  }
-
-// @baa 0x015bd9e0
-int sub_01596960(void);
-int sub_0159caa0(...);
-extern undefined4 g_026e1410;
-// @baa 0x015bda00
-int sub_015bda00(void)
-{
-  if (g_026e1410 == 0) {
-    g_026e1410 = sub_0159caa0(L"BmGame");
-    sub_01596960();
-  }
-  return g_026e1410;
-}
-
-int sub_01596ac0(void);
-int sub_0159cb60(...);
-extern undefined4 g_026e1414;
-// @baa 0x015bda30
-int sub_015bda30(void)
-{
-  if (g_026e1414 == 0) {
-    g_026e1414 = sub_0159cb60(L"BmGame");
-    sub_01596ac0();
-  }
-  return g_026e1414;
-}
-
-int sub_01596c20(void);
-int sub_0159cc20(...);
-extern undefined4 g_026e1418;
-// @baa 0x015bda60
-int sub_015bda60(void)
-{
-  if (g_026e1418 == 0) {
-    g_026e1418 = sub_0159cc20(L"BmGame");
-    sub_01596c20();
-  }
-  return g_026e1418;
-}
-
-// @baa 0x015bda90
-int sub_015bda90(int a0, int a1) { return a1; }
-
-extern undefined * g_02327158;
-// @baa 0x015bdaa0
-undefined4 * UObject::sub_015bdaa0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_02327158);
-  return param_1;
-}
 
 // @baa 0x015bdac0
 IMPLEMENT_CLASS_AT(URAnimNotify_MeetingPoint, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimUtil_Notify.cpp", 31);
@@ -534,20 +322,6 @@ void URAnimNotify_MeetingPoint::vf_10c(UINT a0) {  }
 undefined4 sub_015bdb50(undefined4 param_1, undefined4 param_2)
 {
   return param_2;
-}
-
-// @baa 0x015bdb60
-int sub_015bdb60(int a0, int a1) { return a1; }
-
-extern undefined * g_02327270;
-// @baa 0x015bdb70
-undefined4 * UObject::sub_015bdb70(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_02327270);
-  return param_1;
 }
 
 // @baa 0x015bdb90
@@ -801,4 +575,3 @@ bool URAnimNotify_BeginFixIK::vf_004()
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
-// @baa 0x015bff20

@@ -1,4 +1,4 @@
-// UnCoreNative.cpp: 81 functions
+// UnCoreNative.cpp: 91 functions
 // Placed here by: neighbours 36, class 23, callers 11, file 10.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -725,4 +725,78 @@ TVector3& TVector3::Set(FLOAT F)
     Y = F;
     Z = F;
     return *this;
+}
+
+// @baa 0x0058f3e0
+int sub_0058f3e0(void)
+{
+  if (g_0267611c == 0) {
+    g_0267611c = sub_00546d10(L"Core");
+    sub_005421f0();
+  }
+  return g_0267611c;
+}
+
+// @baa 0x0058f410
+int sub_0058f410(int a0, int a1) { return a1; }
+
+extern undefined * g_01e8b828;
+// @baa 0x0058f420
+undefined4 * UObject::sub_0058f420(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_01e8b828);
+  return param_1;
+}
+
+// @baa 0x0059c990
+
+// @baa 0x0059caa0
+int UPackage::vf_000(void) { return 1; }
+
+// @baa 0x0059cab0
+bool UPackage::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x0059d720
+int __stdcall sub_0059d720(int a0, int a1) { return 0; }
+
+struct USubsystem_ : public USubsystem {
+    BYTE Pad[0x80 - sizeof(USubsystem)];
+    INT Num;
+    INT Max;
+    UBOOL sub_0059d8a0();
+};
+
+// @baa 0x0059d8a0
+UBOOL USubsystem_::sub_0059d8a0()
+{
+    return Num >= Max;
+}
+
+// @baa 0x005adfa0
+int sub_005adfa0(void)
+{
+  if (g_0268d074 == 0) {
+    g_0268d074 = sub_005add00(L"Core");
+    sub_0059c340();
+  }
+  return g_0268d074;
+}
+
+int sub_005e1960(...);
+extern undefined4 g_026667a8;
+// @baa 0x005adfd0
+void sub_005adfd0(undefined4 param_1, undefined4 param_2, undefined4 param_3, undefined4 param_4, undefined4 param_5, undefined4 param_6)
+{
+  if (g_0268d074 == 0) {
+    g_0268d074 = sub_005add00(L"Core");
+    sub_0059c340();
+  }
+  sub_005e1960(g_0268d074,param_2,param_3,param_4,param_5,param_6,0,g_026667a8,0,0,0);
+  return;
 }

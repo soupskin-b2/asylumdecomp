@@ -1,4 +1,4 @@
-// UnRoute.cpp (part 1 of 2): 95 functions
+// UnRoute.cpp (part 1 of 2): 110 functions
 // Placed here by: neighbours 71, file 12, callers 6, class 6.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -407,3 +407,77 @@ bool UGoal_Null::vf_004()
 
 // @baa 0x008e0370
 // @baa 0x008e04d0
+
+// @baa 0x008a69f0
+int UPathConstraint::vf_10c(int a0, int a1, int a2, int a3) { return 1; }
+
+// @baa 0x008a6d00
+INT UPathGoalEvaluator::vf_10c(INT A, INT B)
+{
+    if (NextEvaluator != NULL)
+        return NextEvaluator->vf_10c(A, B);
+    return 0;
+}
+
+// @baa 0x008a6d20
+// Default implementation of vf_110 for UPathGoalEvaluator: forwards the call to
+// the next evaluator in the chain, or returns 0 when the chain ends.
+INT UPathGoalEvaluator::vf_110(INT A, INT B)
+{
+	if (NextEvaluator != NULL)
+		return NextEvaluator->vf_110(A, B);
+	return 0;
+}
+
+// @baa 0x008a6d60
+void UPathGoalEvaluator::vf_118(int a0) { *(int*)((char*)this + 52) = a0; }
+
+// @baa 0x008a6e10
+void UGoal_AtActor::vf_118(INT param_2) {
+    int param_1 = (int)this;
+
+  if ((*(byte *)(param_1 + 0x48) & 1) != 0) {
+    *(undefined4 *)(param_1 + 0x34) = param_2;
+  }
+  return;
+}
+
+// @baa 0x008b4640
+
+// @baa 0x008b4750
+bool UPath_TowardGoal::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x008b4790
+
+// @baa 0x008b48a0
+bool UPath_TowardPoint::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x008b48e0
+
+// @baa 0x008b49f0
+bool UPath_AlongLine::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x008b4a30
+
+// @baa 0x008b4b40
+bool UPath_WithinTraversalDist::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x008b4b80
+
+// @baa 0x008b4c90
+bool UPath_WithinDistanceEnvelope::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}

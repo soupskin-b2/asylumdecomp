@@ -1,4 +1,4 @@
-// Engine_09b0000.cpp: 46 functions
+// Engine_09b0000.cpp: 45 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -135,13 +135,6 @@ void sub_009b03d0(S* p, INT Value)
 void sub_009b03f0(S* p, INT Value)
 {
     p->vf_18(Value);
-}
-
-extern undefined4 g_026b6300;
-// @baa 0x009b2c80
-undefined4 sub_009b2c80(void)
-{
-  return g_026b6300;
 }
 
 int sub_00630f20(...);

@@ -1,4 +1,4 @@
-// Core_0620000.cpp (part 1 of 2): 59 functions
+// Core_0620000.cpp (part 1 of 2): 55 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -181,12 +181,6 @@ void sub_0062a710(undefined4 param_1, undefined4 param_2)
   return;
 }
 
-// @baa 0x0062a7b0
-void UProperty::vf_154(int a0) {  }
-
-// @baa 0x0062a800
-void __stdcall sub_0062a800(int a0, int a1) {  }
-
 // @baa 0x0062c000
 undefined4 sub_0062c000(undefined4 param_1, undefined4 param_2)
 {
@@ -290,15 +284,6 @@ struct C_0062c290 { int sub_0062c290(void); };
 
 // @baa 0x0062c290
 int C_0062c290::sub_0062c290(void) { return *(int*)((char*)this + 0); }
-
-// @baa 0x0062d990
-int USystem::vf_000(void) { return 1; }
-
-// @baa 0x0062d9a0
-bool USystem::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
 
 // @baa 0x0062daa0
 // @baa 0x0062dbb0

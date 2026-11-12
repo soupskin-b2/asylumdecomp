@@ -1,4 +1,4 @@
-// Editor_0f90000.cpp: 79 functions
+// Editor_0f90000.cpp: 78 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -563,9 +563,6 @@ undefined4 * C_00f9f340::sub_00f9f340(byte param_2)
   }
   return param_1;
 }
-
-// @baa 0x00f9f720
-IMPLEMENT_CLASS_AT(USkeletalMeshFactory, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnMeshEd.cpp", 1044);
 
 struct C_00f9fd40 {
     undefined4 sub_00f9fd40(byte);

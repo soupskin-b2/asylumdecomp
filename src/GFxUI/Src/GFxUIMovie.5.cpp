@@ -1,7 +1,7 @@
-// GFxUIMovie.cpp: 6 functions
+// GFxUIMovie.cpp: 9 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
-#include "ue3/Classes.h"
+#include "ue3/Implement.h"
 
 struct FGFxHandler { void sub_00e689a0(INT Command, INT Argument); };
 
@@ -98,4 +98,37 @@ UBOOL UGFxMovie_::eventStart(UBOOL StartPaused)
     Parms.ReturnValue = FALSE;
     ProcessEvent(FindFunctionChecked(g_026caf98), &Parms);
     return Parms.ReturnValue;
+}
+
+int sub_005c7a20(void);
+extern undefined * g_02105e28;
+// @baa 0x00e41d70
+undefined4 * UObject::sub_00e41d70(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_02105e28);
+  return param_1;
+}
+
+struct C_00e41db0 {
+    int sub_00e41db0(int);
+};
+
+// @baa 0x00e41db0
+int C_00e41db0::sub_00e41db0(int a)
+{
+    return (int)this;
+}
+
+extern undefined * g_02106fe0;
+// @baa 0x00e592c0
+undefined4 * UObject::sub_00e592c0(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_02106fe0);
+  return param_1;
 }

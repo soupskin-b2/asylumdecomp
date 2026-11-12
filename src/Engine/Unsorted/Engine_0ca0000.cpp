@@ -1,4 +1,4 @@
-// Engine_0ca0000.cpp: 79 functions
+// Engine_0ca0000.cpp: 73 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -923,29 +923,9 @@ int sub_00ca7de0(void)
   return g_026c5eac;
 }
 
-// @baa 0x00cafcb0
-IMPLEMENT_CLASS_AT(UEngine, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnEngine.cpp", 235);
-
 // @baa 0x00cafde0
 bool UEngine::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
-// @baa 0x00cafe20
-int UGameEngine::vf_000(void) { return 1; }
-
-// @baa 0x00cafe30
-IMPLEMENT_CLASS_AT(UDebugManager, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnEngine.cpp", 237);
-
-// @baa 0x00caff40
-int UDebugManager::vf_000(void) { return 1; }
-
-// @baa 0x00caff50
-bool UDebugManager::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00caff90
-IMPLEMENT_CLASS_AT(USaveGameSummary, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnEngine.cpp", 238);

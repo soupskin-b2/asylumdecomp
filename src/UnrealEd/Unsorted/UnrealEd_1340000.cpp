@@ -1,16 +1,7 @@
-// UnrealEd_1340000.cpp: 12 functions
+// UnrealEd_1340000.cpp: 10 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
-
-// @baa 0x01342f70
-IMPLEMENT_CLASS_AT(UAnimNodeEditInfo_AimOffset, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\AnimAimOffsetEditor.cpp", 15);
-
-// @baa 0x01343080
-bool UAnimNodeEditInfo_AimOffset::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
 
 struct C {
     void sub_01344c60();

@@ -1,4 +1,4 @@
-// UnAudioNodes.cpp (part 1 of 3): 222 functions
+// UnAudioNodes.cpp (part 1 of 3): 229 functions
 // Placed here by: neighbours 143, class 53, file 18, callers 7.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1262,4 +1262,31 @@ void USoundCue::Serialize(FArchive& Ar)
     {
         EditorDataMap.Empty();
     }
+}
+
+// @baa 0x00c93560
+
+// @baa 0x00c93670
+int UDistributionFloatSoundParameter::vf_000(void) { return 1; }
+
+// @baa 0x00c93680
+bool UDistributionFloatSoundParameter::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x00c936c0
+INT USoundNodeMature::vf_128() {
+  return 0xffffffff;
+}
+
+// @baa 0x00c936d0
+int USoundNodeMature::vf_000(void) { return 1; }
+
+// @baa 0x00cd06a0
+
+// @baa 0x00cd07b0
+bool USoundNodeAmbientNonLoop::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
 }

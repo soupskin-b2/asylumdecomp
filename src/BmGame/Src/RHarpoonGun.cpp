@@ -1,4 +1,4 @@
-// RHarpoonGun.cpp (part 1 of 2): 18 functions
+// RHarpoonGun.cpp (part 1 of 2): 29 functions
 // Placed here by: class 6, callers 6, file 6.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -52,6 +52,45 @@ IMPLEMENT_CLASS_AT(ARHarpoonProjectile, "e:\\Projects\\Amadeus\\AA\\Game\\Unreal
 // @baa 0x0165c110
 // @baa 0x0165c220
 bool ARSpecialMoveInstance_HarpoonYank::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x0163a600
+int ARHarpoonGun::vf_000(void) { return 1; }
+
+// @baa 0x0163a610
+
+// @baa 0x0163a720
+int ARSpecialMoveInstance_HarpoonBase::vf_000(void) { return 1; }
+
+// @baa 0x0163a730
+bool ARSpecialMoveInstance_HarpoonBase::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x0163a780
+
+// @baa 0x0163a890
+int ARProjectileWithRope::vf_000(void) { return 1; }
+
+// @baa 0x0163a8a0
+bool ARProjectileWithRope::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x0163a8e0
+int ARHarpoonProjectile::vf_000(void) { return 1; }
+
+// @baa 0x0163a8f0
+
+// @baa 0x0163aa00
+int ARBatclawBlockingVolume::vf_000(void) { return 1; }
+
+// @baa 0x0163aa10
+bool ARBatclawBlockingVolume::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

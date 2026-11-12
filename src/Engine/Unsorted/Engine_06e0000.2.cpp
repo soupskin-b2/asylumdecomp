@@ -1,4 +1,4 @@
-// Engine_06e0000.cpp (part 2 of 14): 343 functions
+// Engine_06e0000.cpp (part 2 of 14): 338 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -1247,66 +1247,6 @@ struct C_006e3c60 {
 void C_006e3c60::sub_006e3c60()
 {
     p->v6();
-}
-
-struct C_006e5060 {
-    int sub_006e5060();
-};
-
-// @baa 0x006e5060
-int C_006e5060::sub_006e5060(void)
-{
-    int param_1 = (int)this;
-
-  return *(int *)(param_1 + 0x84) * 4;
-}
-
-struct C_006e5d60 {
-    int sub_006e5d60();
-};
-
-// @baa 0x006e5d60
-int C_006e5d60::sub_006e5d60(void)
-{
-    int param_1 = (int)this;
-
-  return *(int *)(param_1 + 0x84) * 4;
-}
-
-struct C_006e5e10 {
-    int sub_006e5e10();
-};
-
-// @baa 0x006e5e10
-int C_006e5e10::sub_006e5e10(void)
-{
-    int param_1 = (int)this;
-
-  return *(int *)(param_1 + 0x84) * 4;
-}
-
-struct C_006e5f10 {
-    int sub_006e5f10();
-};
-
-// @baa 0x006e5f10
-int C_006e5f10::sub_006e5f10(void)
-{
-    int param_1 = (int)this;
-
-  return *(int *)(param_1 + 0x84) * 4;
-}
-
-struct C_006e5fd0 {
-    int sub_006e5fd0();
-};
-
-// @baa 0x006e5fd0
-int C_006e5fd0::sub_006e5fd0(void)
-{
-    int param_1 = (int)this;
-
-  return *(int *)(param_1 + 0x84) * 4;
 }
 
 struct C_006e6150 {

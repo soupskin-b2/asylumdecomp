@@ -1,25 +1,7 @@
-// UnrealEd_12f0000.cpp: 8 functions
+// UnrealEd_12f0000.cpp: 4 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
-
-// @baa 0x012f0540
-IMPLEMENT_CLASS_AT(UInterpTrackAnimControlHelper, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\InterpEditorTools.cpp", 2983);
-
-// @baa 0x012f0650
-bool UInterpTrackAnimControlHelper::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x012f0690
-IMPLEMENT_CLASS_AT(UInterpTrackDirectorHelper, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\InterpEditorTools.cpp", 3087);
-
-// @baa 0x012f07a0
-bool UInterpTrackDirectorHelper::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
 
 void sub_004025d0(void*);
 struct D { void* p; ~D(){ if(0) sub_004025d0(p);} };

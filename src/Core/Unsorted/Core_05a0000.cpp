@@ -1,4 +1,4 @@
-// Core_05a0000.cpp: 53 functions
+// Core_05a0000.cpp: 51 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -366,32 +366,6 @@ TConstSetBitIterator_005ab220& TConstSetBitIterator_005ab220::operator++()
 
 // @baa 0x005ac680
 int sub_005ac680(void) { return 1; }
-
-int sub_0059c340(void);
-int sub_005add00(...);
-extern undefined4 g_0268d074;
-// @baa 0x005adfa0
-int sub_005adfa0(void)
-{
-  if (g_0268d074 == 0) {
-    g_0268d074 = sub_005add00(L"Core");
-    sub_0059c340();
-  }
-  return g_0268d074;
-}
-
-int sub_005e1960(...);
-extern undefined4 g_026667a8;
-// @baa 0x005adfd0
-void sub_005adfd0(undefined4 param_1, undefined4 param_2, undefined4 param_3, undefined4 param_4, undefined4 param_5, undefined4 param_6)
-{
-  if (g_0268d074 == 0) {
-    g_0268d074 = sub_005add00(L"Core");
-    sub_0059c340();
-  }
-  sub_005e1960(g_0268d074,param_2,param_3,param_4,param_5,param_6,0,g_026667a8,0,0,0);
-  return;
-}
 
 // @baa 0x005ae030
 IMPLEMENT_CLASS_AT(UEnum, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Core\\Src\\UnCoreNative.cpp", 664);

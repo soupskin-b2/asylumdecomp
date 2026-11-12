@@ -1,4 +1,4 @@
-// Core_0630000.cpp (part 1 of 2): 33 functions
+// Core_0630000.cpp (part 1 of 2): 31 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -258,23 +258,6 @@ DWORD* S_00632c50::sub_00632c50(INT Index)
     return &Items(Index);
 }
 
-struct S005a15a0 {
-    int sub_005a15a0(int a1, int a2, int a3);
-};
-
-struct S00639730 {
-    char pad[0x70];
-    S005a15a0 *field_70;
-    __declspec(noinline) int sub_00639730(int a1, int a2, int a3) {
-        return field_70->sub_005a15a0(a1, a2, a3);
-    }
-};
-
-// @baa 0x00639730
-int sub_00639730_ref(S00639730 *p, int a, int b, int c) {
-    return p->sub_00639730(a, b, c);
-}
-
 extern TArray<int> g_026a1ca4;
 struct C_00639900 {
     int sub_00639900();
@@ -360,16 +343,6 @@ undefined4 C_0063b7e0::sub_0063b7e0(byte param_2)
     sub_0053dfa0(param_1);
   }
   return param_1;
-}
-
-int sub_0063ec80(...);
-// @baa 0x0063efa0
-void UStructProperty::ExportTextItem(undefined4 param_2, undefined4 param_3, undefined4 param_4, undefined4 param_5, undefined4 param_6)
-{
-    int param_1 = (int)this;
-
-  sub_0063ec80(*(undefined4 *)(param_1 + 0x70),param_2,param_3,param_4,param_5,param_6);
-  return;
 }
 
 struct C_0063f010 {

@@ -1,4 +1,4 @@
-// Engine_0a50000.cpp (part 1 of 2): 357 functions
+// Engine_0a50000.cpp (part 1 of 2): 353 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -104,24 +104,6 @@ int sub_00a51be0(void)
     sub_00a34f60();
   }
   return g_026b686c;
-}
-
-// @baa 0x00a51c10
-IMPLEMENT_CLASS_AT(ANxTornadoForceFieldCapsule, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\NxTornadoAngularForceFieldCapsule.cpp", 13);
-
-// @baa 0x00a51d20
-bool ANxTornadoForceFieldCapsule::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00a51d60
-IMPLEMENT_CLASS_AT(ANxTornadoAngularForceFieldCapsule, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\NxTornadoForceFieldCapsule.cpp", 13);
-
-// @baa 0x00a51e70
-bool ANxTornadoAngularForceFieldCapsule::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00a52060

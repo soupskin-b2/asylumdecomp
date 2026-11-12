@@ -1,4 +1,4 @@
-// CommonGameEffectClasses.cpp (part 1 of 2): 10 functions
+// CommonGameEffectClasses.cpp (part 1 of 2): 17 functions
 // Placed here by: callers 4, file 4, neighbours 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -21,3 +21,27 @@ IMPLEMENT_CLASS_AT(ARRotateActor, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine
 // @baa 0x01546380
 // @baa 0x01546930
 // @baa 0x01546960
+
+// @baa 0x0153adf0
+
+// @baa 0x0153af00
+int AREffectVolume::vf_000(void) { return 1; }
+
+// @baa 0x0153af10
+bool AREffectVolume::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x0153af50
+int ARRainVolumeBase::vf_000(void) { return 1; }
+
+// @baa 0x0153af60
+
+// @baa 0x01546a20
+
+// @baa 0x01546b30
+bool ARRainVolumeBase::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}

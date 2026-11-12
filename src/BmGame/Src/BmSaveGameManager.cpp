@@ -1,4 +1,4 @@
-// BmSaveGameManager.cpp: 16 functions
+// BmSaveGameManager.cpp: 25 functions
 // Placed here by: class 6, file 4, neighbours 3, callers 3.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -58,3 +58,50 @@ IMPLEMENT_CLASS_AT(URPersistentOptions, "e:\\Projects\\Amadeus\\AA\\Game\\Unreal
 
 // @baa 0x0172f850
 // @baa 0x0172f910
+
+// @baa 0x01718b20
+
+// @baa 0x01718c30
+int URPersistentData::vf_000(void) { return 1; }
+
+// @baa 0x01718c40
+bool URPersistentData::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x01718c80
+
+// @baa 0x01718db0
+bool URPersistentOptions::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x01718df0
+
+void sub_01729700();
+// @baa 0x0172b130
+void sub_0172b130(void) { sub_01729700(); }
+
+extern undefined * g_023ca320;
+// @baa 0x0172b150
+undefined4 * UObject::sub_0172b150(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_023ca320);
+  return param_1;
+}
+
+extern undefined * g_023ca430;
+// @baa 0x0172b3c0
+undefined4 * UObject::sub_0172b3c0(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_023ca430);
+  return param_1;
+}

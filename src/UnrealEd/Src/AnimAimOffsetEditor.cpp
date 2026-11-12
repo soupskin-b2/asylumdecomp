@@ -1,4 +1,4 @@
-// AnimAimOffsetEditor.cpp (part 1 of 2): 4 functions
+// AnimAimOffsetEditor.cpp (part 1 of 2): 8 functions
 // Placed here by: neighbours 2, callers 1, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -81,4 +81,20 @@ void C_0134c800::sub_0134c800(wxEvent * param_2)
        *(undefined1 *)(param_1 + 0x1ec);
   ((C_0134c800 *)(this))->sub_01343310();
   return;
+}
+
+extern char g_02251ba4[];
+// @baa 0x013370c0
+int sub_013370c0(void) { return (int)g_02251ba4; }
+
+extern char g_026d7d44[];
+// @baa 0x013370d0
+int sub_013370d0(void) { return (int)g_026d7d44; }
+
+// @baa 0x01342f70
+
+// @baa 0x01343080
+bool UAnimNodeEditInfo_AimOffset::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
 }

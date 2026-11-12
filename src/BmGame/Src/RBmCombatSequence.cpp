@@ -1,4 +1,4 @@
-// RBmCombatSequence.cpp: 16 functions
+// RBmCombatSequence.cpp: 32 functions
 // Placed here by: callers 6, file 6, neighbours 4.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -45,3 +45,60 @@ bool ARCombatMove_BatmanStrike::vf_004()
 }
 
 // @baa 0x01664b00
+
+// @baa 0x0163c960
+
+// @baa 0x0163ca70
+int ARBMCombatDangerZone::vf_000(void) { return 1; }
+
+// @baa 0x0163ca80
+bool ARBMCombatDangerZone::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x0163cac0
+
+// @baa 0x0163cbd0
+int ARBMCombatCollisionProxy::vf_000(void) { return 1; }
+
+// @baa 0x0163cbe0
+bool ARBMCombatCollisionProxy::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x0163cc20
+
+// @baa 0x0163cd30
+int ARBMCombatDamageProxy::vf_000(void) { return 1; }
+
+// @baa 0x0163cd40
+bool ARBMCombatDamageProxy::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x0163cd80
+
+// @baa 0x0163ce90
+int ARCombatArea::vf_000(void) { return 1; }
+
+// @baa 0x0163cea0
+bool ARCombatArea::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x0163cee0
+
+// @baa 0x0163cff0
+int ARBMCombatPoint::vf_000(void) { return 1; }
+
+// @baa 0x0163d000
+bool ARBMCombatPoint::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x0163d040

@@ -1,4 +1,4 @@
-// Engine_0d70000.cpp (part 1 of 2): 221 functions
+// Engine_0d70000.cpp (part 1 of 2): 218 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -1474,42 +1474,6 @@ struct C_00d78b60 { char pad[8]; M_00d78b60 m; void sub_00d78b60(); };
 
 // @baa 0x00d78b60
 void C_00d78b60::sub_00d78b60() { m.sub_0040fcc0(); }
-
-struct C_00d78f20 {
-    int sub_00d78f20(int);
-};
-
-// @baa 0x00d78f20
-int C_00d78f20::sub_00d78f20(int param_2)
-{
-    int * param_1 = (int *)this;
-
-  return param_2 * 0x10 + *param_1;
-}
-
-struct C_00d78f30 {
-    int sub_00d78f30();
-};
-
-// @baa 0x00d78f30
-int C_00d78f30::sub_00d78f30(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  return param_1[5] * 0x10 + *(int *)*param_1;
-}
-
-struct C_00d78f40 {
-    int sub_00d78f40();
-};
-
-// @baa 0x00d78f40
-int C_00d78f40::sub_00d78f40(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  return param_1[5] * 0x10 + *(int *)*param_1;
-}
 
 struct C_00d79030 {
     int sub_00d79030(int);

@@ -1,4 +1,4 @@
-// UnrealEd_1460000.cpp (part 1 of 2): 45 functions
+// UnrealEd_1460000.cpp (part 1 of 2): 42 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -390,22 +390,6 @@ undefined4 C_01468650::sub_01468650(byte param_2)
   return param_1;
 }
 
-void sub_01463a40();
-// @baa 0x01468f20
-void sub_01468f20(void) { sub_01463a40(); }
-
-int sub_006f7810(void);
-extern undefined * g_022a0f08;
-// @baa 0x01468f30
-undefined4 * UPrimitiveComponent::sub_01468f30(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_006f7810();
-  *param_1 = (undefined4)(&g_022a0f08);
-  return param_1;
-}
-
 // @baa 0x01468f50
 IMPLEMENT_CLASS_AT(ULensFlarePreviewComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\LensFlareEditor.cpp", 17);
 
@@ -431,18 +415,6 @@ struct C_0146a940 { void sub_0146a560(); void sub_0146a940(int); };
 
 // @baa 0x0146a940
 void C_0146a940::sub_0146a940(int) { sub_0146a560(); }
-
-int sub_005c7a20(void);
-extern undefined * g_022a11b8;
-// @baa 0x0146b040
-undefined4 * UObject::sub_0146b040(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_022a11b8);
-  return param_1;
-}
 
 // @baa 0x0146b060
 IMPLEMENT_CLASS_AT(ULensFlareEditorPropertyWrapper, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\LensFlareEditor.cpp", 18);

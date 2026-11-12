@@ -1,4 +1,4 @@
-// Engine_06f0000.cpp (part 1 of 18): 252 functions
+// Engine_06f0000.cpp (part 1 of 18): 232 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -36,48 +36,6 @@ int C_006f0600::sub_006f0600(void)
 
 // @baa 0x006f0610
 void sub_006f0610(void) { sub_006efb40(); }
-
-// @baa 0x006f0780
-void sub_006f0780(void) { sub_006efb40(); }
-
-// @baa 0x006f08a0
-void sub_006f08a0(void) { sub_006efb40(); }
-
-// @baa 0x006f09b0
-void sub_006f09b0(void) { sub_006efb40(); }
-
-// @baa 0x006f0ab0
-void sub_006f0ab0(void) { sub_006efb40(); }
-
-// @baa 0x006f0b70
-int sub_006f0b70(void) { return 1690; }
-
-struct C_006f0b80 {
-    int sub_006f0b80();
-};
-
-// @baa 0x006f0b80
-int C_006f0b80::sub_006f0b80(void)
-{
-    int param_1 = (int)this;
-
-  return *(int *)(param_1 + 0x84) * 4;
-}
-
-struct C_006f0c00 {
-    int sub_006f0c00();
-};
-
-// @baa 0x006f0c00
-int C_006f0c00::sub_006f0c00(void)
-{
-    int param_1 = (int)this;
-
-  return *(int *)(param_1 + 0x84) * 4 + 0xb0;
-}
-
-// @baa 0x006f10d0
-void sub_006f10d0(void) { sub_006efb40(); }
 
 // @baa 0x006f1210
 void sub_006f1210(void) { sub_006efb40(); }
@@ -2562,144 +2520,26 @@ undefined4 C_006f90d0::sub_006f90d0(byte param_2)
   return param_1;
 }
 
-int sub_006f7810(void);
-extern undefined * g_01ebe2f8;
-// @baa 0x006f92c0
-undefined4 * UPrimitiveComponent::sub_006f92c0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_006f7810();
-  *param_1 = (undefined4)(&g_01ebe2f8);
-  return param_1;
-}
-
-extern undefined * g_01eda3f8;
-// @baa 0x006f92e0
-undefined4 * UPrimitiveComponent::sub_006f92e0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_006f7810();
-  *param_1 = (undefined4)(&g_01eda3f8);
-  return param_1;
-}
-
 // @baa 0x006f9300
 IMPLEMENT_CLASS_AT(UCylinderComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\PrimitiveComponent.cpp", 17);
-
-// @baa 0x006f9360
-extern undefined * g_01eda648;
-// @baa 0x006f9390
-undefined4 * UPrimitiveComponent::sub_006f9390(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_006f7810();
-  *param_1 = (undefined4)(&g_01eda648);
-  return param_1;
-}
 
 // @baa 0x006f93b0
 IMPLEMENT_CLASS_AT(UArrowComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\PrimitiveComponent.cpp", 18);
 
-// @baa 0x006f9410
-extern undefined * g_01eda898;
-// @baa 0x006f9440
-undefined4 * UPrimitiveComponent::sub_006f9440(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_006f7810();
-  *param_1 = (undefined4)(&g_01eda898);
-  return param_1;
-}
-
 // @baa 0x006f9460
 IMPLEMENT_CLASS_AT(UDrawCylinderComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\PrimitiveComponent.cpp", 24);
-
-// @baa 0x006f94c0
-extern undefined * g_01edaae8;
-// @baa 0x006f94f0
-undefined4 * UPrimitiveComponent::sub_006f94f0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_006f7810();
-  *param_1 = (undefined4)(&g_01edaae8);
-  return param_1;
-}
 
 // @baa 0x006f9510
 IMPLEMENT_CLASS_AT(UDrawBoxComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\PrimitiveComponent.cpp", 25);
 
-// @baa 0x006f9570
-extern undefined * g_01edad38;
-// @baa 0x006f95a0
-undefined4 * UPrimitiveComponent::sub_006f95a0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_006f7810();
-  *param_1 = (undefined4)(&g_01edad38);
-  return param_1;
-}
-
 // @baa 0x006f95c0
 IMPLEMENT_CLASS_AT(UDrawCapsuleComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\PrimitiveComponent.cpp", 26);
-
-// @baa 0x006f9620
-extern undefined * g_01edaf88;
-// @baa 0x006f9650
-undefined4 * UPrimitiveComponent::sub_006f9650(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_006f7810();
-  *param_1 = (undefined4)(&g_01edaf88);
-  return param_1;
-}
 
 // @baa 0x006f9670
 IMPLEMENT_CLASS_AT(UCameraConeComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\PrimitiveComponent.cpp", 22);
 
-// @baa 0x006f96d0
-extern undefined * g_01edb1d8;
-// @baa 0x006f9700
-undefined4 * UPrimitiveComponent::sub_006f9700(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_006f7810();
-  *param_1 = (undefined4)(&g_01edb1d8);
-  return param_1;
-}
-
 // @baa 0x006f9720
 IMPLEMENT_CLASS_AT(UDrawQuadComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\PrimitiveComponent.cpp", 23);
-
-// @baa 0x006f9780
-extern undefined * g_01eda1a8;
-// @baa 0x006f97b0
-undefined4 * UPrimitiveComponent::sub_006f97b0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_006f7810();
-  *param_1 = (undefined4)(&g_01eda1a8);
-  return param_1;
-}
-
-extern undefined * g_01edb430;
-// @baa 0x006f97d0
-undefined4 * UPrimitiveComponent::sub_006f97d0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_006f7810();
-  *param_1 = (undefined4)(&g_01edb430);
-  return param_1;
-}
 
 // @baa 0x006f97f0
 IMPLEMENT_CLASS_AT(UDrawLightConeComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\PrimitiveComponent.cpp", 21);
@@ -3027,15 +2867,6 @@ void sub_006fed00(void) { sub_006fdb10(); }
 void sub_006fdcd0();
 // @baa 0x006fee90
 void sub_006fee90(void) { sub_006fdcd0(); }
-
-// @baa 0x006fef60
-IMPLEMENT_CLASS_AT(UStaticMeshComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\PrimitiveComponent.cpp", 16);
-
-// @baa 0x006ff070
-bool UStaticMeshComponent::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
 
 // @baa 0x006ff0b0
 // @baa 0x006ff1c0

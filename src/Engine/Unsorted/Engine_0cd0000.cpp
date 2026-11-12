@@ -1,4 +1,4 @@
-// Engine_0cd0000.cpp (part 1 of 5): 37 functions
+// Engine_0cd0000.cpp (part 1 of 5): 35 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -172,15 +172,6 @@ int sub_00cd0590(void)
     sub_00ccea10();
   }
   return g_026c3c8c;
-}
-
-// @baa 0x00cd06a0
-IMPLEMENT_CLASS_AT(USoundNodeAmbientNonLoop, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAudioNodes.cpp", 1932);
-
-// @baa 0x00cd07b0
-bool USoundNodeAmbientNonLoop::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 struct M_00cd1100 { void sub_00ccc0c0(); };

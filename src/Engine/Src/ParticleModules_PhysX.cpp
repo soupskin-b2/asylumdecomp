@@ -1,4 +1,4 @@
-// ParticleModules_PhysX.cpp: 15 functions
+// ParticleModules_PhysX.cpp: 16 functions
 // Placed here by: class 8, neighbours 3, callers 2, file 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -75,3 +75,15 @@ template INT TArray<T_00b3c470*>::RemoveItem(T_00b3c470* const&);
 // @baa 0x00b41000
 // @baa 0x00b41cf0
 // @baa 0x00b41db0
+
+int sub_005c7a20(void);
+extern undefined * g_01feef58;
+// @baa 0x00b3ddc0
+undefined4 * UObject::sub_00b3ddc0(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_01feef58);
+  return param_1;
+}

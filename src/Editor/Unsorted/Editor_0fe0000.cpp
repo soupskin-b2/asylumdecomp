@@ -1,4 +1,4 @@
-// Editor_0fe0000.cpp: 49 functions
+// Editor_0fe0000.cpp: 46 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -280,22 +280,6 @@ struct C_00feece0 { C_00feece0* sub_00feece0(void); };
 
 // @baa 0x00feece0
 C_00feece0* C_00feece0::sub_00feece0(void) { return this; }
-
-// @baa 0x00feef60
-UStaticMeshFactory::UStaticMeshFactory()
-{
-    *(DWORD*)((BYTE*)this + 0x50) |= 0x4;
-}
-
-IMPLEMENT_CLASS_AT(UStaticMeshFactory, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnStaticMeshEdit.cpp", 2399);
-// @baa 0x00fef070
-int UStaticMeshFactory::vf_000(void) { return 1; }
-
-// @baa 0x00fef080
-bool UStaticMeshFactory::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
 
 struct C_00fed760
 {

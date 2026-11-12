@@ -1,7 +1,7 @@
-// ShaderCache.cpp (part 3 of 3): 7 functions
+// ShaderCache.cpp (part 3 of 3): 8 functions
 // Placed here by: neighbours 7.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
-#include "ue3/Classes.h"
+#include "ue3/Implement.h"
 
 int sub_0053dfa0(...);
 int sub_007249d0(void);
@@ -93,3 +93,6 @@ undefined4 C::sub_00751a90(byte param_2)
   }
   return param_1;
 }
+
+// @baa 0x00715ed0
+IMPLEMENT_CLASS_AT(UShaderCache, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\ShaderCache.cpp", 9);

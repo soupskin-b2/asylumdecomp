@@ -1,4 +1,4 @@
-// UnEdTran.cpp: 72 functions
+// UnEdTran.cpp: 76 functions
 // Placed here by: neighbours 58, class 9, callers 2, file 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -820,4 +820,24 @@ C_00f79c20* C_00f79c20::sub_00f79c20()
     Value_20 = 0;
     Value_24 = 0;
     return this;
+}
+
+extern int g_026667a8;
+extern "C" int sub_00630f20(int IsCritical, const wchar_t* Msg, const wchar_t* FuncName);
+// @baa 0x00f73100
+void UTransactor::Cancel(INT)
+{
+	// Pure virtual not implemented: concrete transactors override this.
+	sub_00630f20(g_026667a8, L"Pure virtual not implemented (%s)", L"UTransactor::Cancel");
+}
+
+// @baa 0x00f73600
+
+// @baa 0x00f73710
+int UTransactor::vf_000(void) { return 1; }
+
+// @baa 0x00f73720
+bool UTransactor::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
 }

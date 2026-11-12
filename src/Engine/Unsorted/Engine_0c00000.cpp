@@ -1,13 +1,7 @@
-// Engine_0c00000.cpp: 35 functions
+// Engine_0c00000.cpp: 22 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
-
-// @baa 0x00c002c0
-FString UDemoRecDriver::LowLevelGetNetworkNumber()
-{
-    return TEXT("");
-}
 
 void sub_004025d0(void*);
 struct D { void* p; ~D(){ if(0) sub_004025d0(p);} };
@@ -136,41 +130,6 @@ void sub_00c04f20(void)
   }
   return;
 }
-
-// @baa 0x00c05780
-int sub_00c05780(void) { return 1690; }
-
-struct C_00c05790 {
-    int sub_00c05790();
-};
-
-// @baa 0x00c05790
-int C_00c05790::sub_00c05790(void)
-{
-    int param_1 = (int)this;
-
-  return ((*(int *)(param_1 + 0xcc) + *(int *)(param_1 + 0xa8)) * 7 + *(int *)(param_1 + 0xc0) * 8 +
-          *(int *)(param_1 + 0xb4) * 5 + *(int *)(param_1 + 0x9c) * 6 + *(int *)(param_1 + 0x84)) *
-         4;
-}
-
-struct C_00c057d0 {
-    int sub_00c057d0();
-};
-
-// @baa 0x00c057d0
-int C_00c057d0::sub_00c057d0(void)
-{
-    int param_1 = (int)this;
-
-  return ((*(int *)(param_1 + 0xcc) + *(int *)(param_1 + 0xa8)) * 7 + *(int *)(param_1 + 0xc0) * 8 +
-          *(int *)(param_1 + 0xb4) * 5 + *(int *)(param_1 + 0x9c) * 6 + *(int *)(param_1 + 0x84)) *
-         4 + 0xd0;
-}
-
-void sub_006837e0();
-// @baa 0x00c05820
-void sub_00c05820(void) { sub_006837e0(); }
 
 struct C_00c06710 { void* Data; int Num; int Max; void sub_00c06710(); };
 
@@ -388,38 +347,3 @@ int sub_00c0acd0(void)
   return g_026c0808;
 }
 
-// @baa 0x00c0d100
-IMPLEMENT_CLASS_AT(UAnimationCompressionAlgorithm_BitwiseCompressOnly, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\AnimationCompressionAlgorithm_BitwiseCompressOnly.cpp", 10);
-
-// @baa 0x00c0d210
-bool UAnimationCompressionAlgorithm_BitwiseCompressOnly::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00c0d250
-IMPLEMENT_CLASS_AT(UAnimationCompressionAlgorithm_RemoveEverySecondKey, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\AnimationCompressionAlgorithm_RemoveEverySecondKey.cpp", 10);
-
-// @baa 0x00c0d360
-bool UAnimationCompressionAlgorithm_RemoveEverySecondKey::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00c0f020
-IMPLEMENT_CLASS_AT(UAnimationCompressionAlgorithm_RemoveTrivialKeys, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\AnimationCompressionAlgorithm_RemoveTrivialKeys.cpp", 10);
-
-// @baa 0x00c0f130
-bool UAnimationCompressionAlgorithm_RemoveTrivialKeys::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00c0f170
-IMPLEMENT_CLASS_AT(UAnimationCompressionAlgorithm_RevertToRaw, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\AnimationCompressionAlgorithm_RevertToRaw.cpp", 10);
-
-// @baa 0x00c0f280
-bool UAnimationCompressionAlgorithm_RevertToRaw::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}

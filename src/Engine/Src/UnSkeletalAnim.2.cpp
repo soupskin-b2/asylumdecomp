@@ -1,4 +1,4 @@
-// UnSkeletalAnim.cpp (part 2 of 4): 4 functions
+// UnSkeletalAnim.cpp (part 2 of 4): 5 functions
 // Placed here by: neighbours 3, callers 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #define BAA_OUTLINE_ALLOC
@@ -23,3 +23,8 @@ struct T_00921320 { BYTE b[16]; };
 
 // @baa 0x00921320
 template void TArray<T_00921320>::Remove(INT, INT);
+
+struct T_00916080 { BYTE b[1]; };
+
+// @baa 0x00916080
+template void TArray<T_00916080>::Remove(INT, INT);

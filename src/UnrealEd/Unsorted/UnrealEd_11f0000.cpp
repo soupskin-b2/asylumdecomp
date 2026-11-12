@@ -1,4 +1,4 @@
-// UnrealEd_11f0000.cpp (part 1 of 5): 141 functions
+// UnrealEd_11f0000.cpp (part 1 of 5): 139 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -48,12 +48,8 @@ extern char g_026d2b50[];
 int sub_011f2130(void) { return (int)g_026d2b50; }
 
 extern char g_025e871c[];
-// @baa 0x011f2520
-int sub_011f2520(void) { return (int)g_025e871c; }
 
 extern char g_026d2bcc[];
-// @baa 0x011f2530
-int sub_011f2530(void) { return (int)g_026d2bcc; }
 
 extern char g_021f517c[];
 struct C_011f2670 { void sub_011f2670(void); };

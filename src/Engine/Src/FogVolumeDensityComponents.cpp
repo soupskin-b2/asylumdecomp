@@ -1,4 +1,4 @@
-// FogVolumeDensityComponents.cpp (part 1 of 2): 19 functions
+// FogVolumeDensityComponents.cpp (part 1 of 2): 33 functions
 // Placed here by: file 10, callers 9.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -42,3 +42,43 @@ IMPLEMENT_CLASS_AT(AFogVolumeSphericalDensityInfo, "e:\\Projects\\Amadeus\\AA\\G
 // @baa 0x006d1ab0
 // @baa 0x006d1b70
 // @baa 0x006d1c30
+
+// @baa 0x006cf330
+
+// @baa 0x006cf0f0
+
+// @baa 0x006cf1b0
+
+// @baa 0x006cf270
+
+// @baa 0x006ca1a0
+
+// @baa 0x006ca2b0
+bool UFogVolumeConstantDensityComponent::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x006ca2f0
+
+// @baa 0x006ca400
+bool UFogVolumeLinearHalfspaceDensityComponent::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x006ca440
+
+// @baa 0x006ca550
+bool UFogVolumeSphericalDensityComponent::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x006ca590
+
+// @baa 0x006cf210
+
+// @baa 0x006cf2d0
+
+// @baa 0x006cf390

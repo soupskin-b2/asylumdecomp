@@ -1,4 +1,4 @@
-// BmGame_1680000.cpp (part 1 of 7): 132 functions
+// BmGame_1680000.cpp (part 1 of 7): 123 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -19,23 +19,6 @@ int sub_01680150(void)
   }
   return g_026e1d54;
 }
-
-// @baa 0x01680180
-IMPLEMENT_CLASS_AT(URActorFactoryForensicsDnaNonScan, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameForensicClasses.cpp", 18);
-
-// @baa 0x01680290
-bool URActorFactoryForensicsDnaNonScan::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-struct C { C* sub_01680310(void); };
-
-// @baa 0x01680310
-C* C::sub_01680310(void) { return this; }
-
-// @baa 0x016807b0
-IMPLEMENT_CLASS_AT(URSmashablePropConfigFactoryNew, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RSmashableProp.cpp", 19);
 
 int sub_006f7810(void);
 extern undefined * g_02376f90;
@@ -138,18 +121,6 @@ IMPLEMENT_CLASS_AT(ARForensicsDevice, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEn
 // @baa 0x01683320
 IMPLEMENT_CLASS_AT(ARForensicDnaSplatStatic, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameForensicClasses.cpp", 14);
 
-struct C_016833d0 {
-    int sub_016833d0();
-};
-
-// @baa 0x016833d0
-int C_016833d0::sub_016833d0(void)
-{
-    int param_1 = (int)this;
-
-  return param_1 + -0x1a8;
-}
-
 // @baa 0x016833e0
 uint ARForensicDnaSplatStatic::vf_178(void)
 {
@@ -223,9 +194,6 @@ bool ARForensicDnaSplatStaticNonScan::vf_004()
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
-// @baa 0x016852c0
-IMPLEMENT_CLASS_AT(ARPawnCharacter, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RPawnCharacter.cpp", 8);
-
 // @baa 0x016853d0
 bool ARPawnCharacter::vf_004()
 {
@@ -243,15 +211,6 @@ int sub_016859d0(void)
     sub_01685170();
   }
   return g_026e1d4c;
-}
-
-// @baa 0x01685a00
-IMPLEMENT_CLASS_AT(ARPawnCombat, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RPawn.cpp", 14);
-
-// @baa 0x01685b10
-bool ARPawnCombat::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x016860b0
@@ -804,14 +763,3 @@ void ARPawnPlayer::sub_0168d8b0(void)
   return;
 }
 
-struct S_0168de00 {
-    void sub_007d7170();
-    void sub_01689170();
-    void sub_0168de00();
-};
-
-// @baa 0x0168de00
-void S_0168de00::sub_0168de00() {
-    sub_007d7170();
-    sub_01689170();
-}

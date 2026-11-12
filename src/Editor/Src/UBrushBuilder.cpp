@@ -1,4 +1,4 @@
-// UBrushBuilder.cpp: 11 functions
+// UBrushBuilder.cpp: 13 functions
 // Placed here by: neighbours 7, callers 2, file 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -51,3 +51,7 @@ void sub_00ee1390(void) { sub_00ee0bc0(); }
 
 // @baa 0x00ee13a0
 // @baa 0x00ee1460
+
+// @baa 0x00ec6990
+
+// @baa 0x00ee3f00

@@ -1,4 +1,4 @@
-// UOnlineSubsystem.cpp: 12 functions
+// UOnlineSubsystem.cpp: 14 functions
 // Placed here by: callers 4, neighbours 4, file 4.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -35,3 +35,17 @@ IMPLEMENT_CLASS_AT(UOnlineGameSettings, "e:\\Projects\\Amadeus\\AA\\Game\\Unreal
 // @baa 0x00d8ad50
 // @baa 0x00d8ae10
 // @baa 0x00d8aed0
+
+// @baa 0x00d67620
+
+int sub_005c7a20(void);
+extern undefined * g_020b72a0;
+// @baa 0x00d88ac0
+undefined4 * UObject::sub_00d88ac0(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_020b72a0);
+  return param_1;
+}

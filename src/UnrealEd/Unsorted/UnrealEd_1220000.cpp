@@ -1,4 +1,4 @@
-// UnrealEd_1220000.cpp (part 1 of 5): 127 functions
+// UnrealEd_1220000.cpp (part 1 of 5): 117 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -273,43 +273,6 @@ IMPLEMENT_CLASS_AT(USoundNodeHelper, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEng
 // @baa 0x01221720
 void USoundNodeHelper::vf_10c(int a0, int a1) {  }
 
-// @baa 0x01221730
-struct C_01221750 { C_01221750* sub_01221750(void); };
-
-// @baa 0x01221750
-C_01221750* C_01221750::sub_01221750(void) { *(int*)((char*)this + 0) = 0; return this; }
-
-extern undefined4 g_026af518;
-extern undefined4 g_026af51c;
-extern undefined4 g_026af520;
-extern undefined4 g_026d40a4;
-extern undefined4 g_026d40a8;
-extern undefined4 g_026d40ac;
-// @baa 0x01221760
-undefined * sub_01221760(void)
-{
-  if ((g_026d40ac & 1) == 0) {
-    g_026d40ac = g_026d40ac | 1;
-    if ((g_026af520 & 1) == 0) {
-      g_026af520 = g_026af520 | 1;
-      g_026af518 = 0;
-      g_026af51c = (undefined4)(L"HHitProxy");
-    }
-    g_026d40a4 = (undefined4)(&g_026af518);
-    g_026d40a8 = (undefined4)(L"HWidgetUtilProxy");
-  }
-  return (undefined *)(&g_026d40a4);
-}
-
-// @baa 0x012217b0
-void __stdcall sub_012217b0(int a0, int a1, int a2) {  }
-
-// @baa 0x012217c0
-void sub_012217c0(void) {  }
-
-// @baa 0x012217d0
-void sub_012217d0(void) {  }
-
 // @baa 0x01221920
 // @baa 0x01221a30
 int USoundNodeHelper::vf_000(void) { return 1; }
@@ -320,47 +283,11 @@ bool USoundNodeHelper::vf_004()
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
-struct C_01221a80 { int sub_01221a80(void); };
-
-// @baa 0x01221a80
-int C_01221a80::sub_01221a80(void) { return *(int*)((char*)this + 392); }
-
 extern char g_01eee2b0[];
 struct C_01221d50 { void sub_01221d50(void); };
 
 // @baa 0x01221d50
 void C_01221d50::sub_01221d50(void) { *(int*)((char*)this + 0) = (int)g_01eee2b0; }
-
-// @baa 0x01221d60
-IMPLEMENT_CLASS_AT(UStaticMeshEditorComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\StaticMeshEditor.cpp", 22);
-
-// @baa 0x01221e70
-int UStaticMeshEditorComponent::vf_000(void) { return 1; }
-
-// @baa 0x01221e80
-bool UStaticMeshEditorComponent::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-extern undefined4 g_026d40b0;
-extern undefined4 g_026d40b4;
-extern undefined4 g_026d40b8;
-// @baa 0x01221ec0
-undefined * sub_01221ec0(void)
-{
-  if ((g_026d40b8 & 1) == 0) {
-    g_026d40b8 = g_026d40b8 | 1;
-    if ((g_026af520 & 1) == 0) {
-      g_026af520 = g_026af520 | 1;
-      g_026af518 = 0;
-      g_026af51c = (undefined4)(L"HHitProxy");
-    }
-    g_026d40b0 = (undefined4)(&g_026af518);
-    g_026d40b4 = (undefined4)(L"HSMEChunkProxy");
-  }
-  return (undefined *)(&g_026d40b0);
-}
 
 struct C_01222ab0 { int sub_01222ab0(void); };
 

@@ -1,4 +1,4 @@
-// UnUIEditor.cpp (part 1 of 5): 223 functions
+// UnUIEditor.cpp (part 1 of 5): 234 functions
 // Placed here by: neighbours 186, class 14, callers 12, file 11.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -2047,3 +2047,98 @@ void C_014dc1a0::sub_014dc1a0(void)
   *(uint *)(param_1 + 0x50) = *(uint *)(param_1 + 0x50) | 3;
   return;
 }
+
+// @baa 0x0149ce60
+bool UUISceneManager::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+int sub_005c7a20(void);
+extern undefined * g_022b2718;
+// @baa 0x014adab0
+undefined4 * UObject::sub_014adab0(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_022b2718);
+  return param_1;
+}
+
+extern undefined * g_022b2828;
+// @baa 0x014adad0
+undefined4 * UObject::sub_014adad0(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_022b2828);
+  return param_1;
+}
+
+struct C_014adb70 {
+    undefined4 * sub_014adb70(undefined4);
+    int sub_014a9a40(int);
+};
+
+extern undefined * g_022b2938;
+// @baa 0x014adb70
+undefined4 * C_014adb70::sub_014adb70(undefined4 param_2)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+  ((C_014adb70 *)(this))->sub_014a9a40(param_2);
+  param_1[0x28] = 0;
+  *param_1 = (undefined4)(&g_022b2938);
+  return param_1;
+}
+
+struct C_014adbc0 {
+    undefined4 * sub_014adbc0(undefined4);
+    int sub_014a9a40(int);
+};
+
+extern undefined * g_022b29e0;
+// @baa 0x014adbc0
+undefined4 * C_014adbc0::sub_014adbc0(undefined4 param_2)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+  ((C_014adbc0 *)(this))->sub_014a9a40(param_2);
+  param_1[0x28] = 0;
+  *param_1 = (undefined4)(&g_022b29e0);
+  return param_1;
+}
+
+struct C_014adc20 {
+    undefined4 * sub_014adc20(undefined4);
+    int sub_014a9a40(int);
+};
+
+extern undefined * g_022b2a88;
+// @baa 0x014adc20
+undefined4 * C_014adc20::sub_014adc20(undefined4 param_2)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+  ((C_014adc20 *)(this))->sub_014a9a40(param_2);
+  param_1[0x28] = 0;
+  *param_1 = (undefined4)(&g_022b2a88);
+  return param_1;
+}
+
+// @baa 0x014ba650
+
+// @baa 0x014ba760
+bool UUILayerRoot::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x014bb110
+
+// @baa 0x014bb220
+bool UUISceneFactoryNew::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x014bb260

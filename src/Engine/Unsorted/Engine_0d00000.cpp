@@ -1,4 +1,4 @@
-// Engine_0d00000.cpp (part 1 of 4): 78 functions
+// Engine_0d00000.cpp (part 1 of 4): 77 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -150,12 +150,6 @@ bool UInterpTrackAnimControl::vf_004()
 
 // @baa 0x00d0b630
 IMPLEMENT_CLASS_AT(UInterpTrackSound, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnInterpolation.cpp", 71);
-
-// @baa 0x00d0b740
-bool UInterpTrackSound::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
 
 // @baa 0x00d0b780
 // @baa 0x00d0b890

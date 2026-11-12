@@ -1,4 +1,4 @@
-// UnActorFactory.cpp (part 1 of 2): 191 functions
+// UnActorFactory.cpp (part 1 of 2): 227 functions
 // Placed here by: neighbours 141, file 30, class 18, callers 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -640,4 +640,328 @@ INT __cdecl sub_00c4ac10(INT Value)
     if (Value)
         Result = 1;
     return Result;
+}
+
+// @baa 0x00c4a700
+
+// @baa 0x00c4a830
+bool UActorFactory::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x00c4a870
+int UActorFactoryStaticMesh::vf_000(void) { return 1; }
+
+// @baa 0x00c4a880
+int UActorFactoryFracturedStaticMesh::vf_000(void) { return 1; }
+
+extern undefined * g_02057c20;
+// @baa 0x00c51340
+undefined4 * UObject::sub_00c51340(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_02057c20);
+  return param_1;
+}
+
+extern undefined * g_02057d48;
+// @baa 0x00c513e0
+undefined4 * UObject::sub_00c513e0(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_02057d48);
+  return param_1;
+}
+
+extern undefined * g_02057e70;
+// @baa 0x00c51480
+undefined4 * UObject::sub_00c51480(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_02057e70);
+  return param_1;
+}
+
+extern undefined * g_02057f98;
+// @baa 0x00c51520
+undefined4 * UObject::sub_00c51520(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_02057f98);
+  return param_1;
+}
+
+extern undefined * g_020580c0;
+// @baa 0x00c51640
+undefined4 * UObject::sub_00c51640(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_020580c0);
+  return param_1;
+}
+
+extern undefined * g_020581e8;
+// @baa 0x00c51660
+undefined4 * UObject::sub_00c51660(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_020581e8);
+  return param_1;
+}
+
+extern undefined * g_02058310;
+// @baa 0x00c51700
+undefined4 * UObject::sub_00c51700(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_02058310);
+  return param_1;
+}
+
+extern undefined * g_02058438;
+// @baa 0x00c517b0
+undefined4 * UObject::sub_00c517b0(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_02058438);
+  return param_1;
+}
+
+extern undefined * g_02058560;
+// @baa 0x00c51850
+undefined4 * UObject::sub_00c51850(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_02058560);
+  return param_1;
+}
+
+extern undefined * g_02058688;
+// @baa 0x00c518f0
+undefined4 * UObject::sub_00c518f0(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_02058688);
+  return param_1;
+}
+
+extern undefined * g_020587b0;
+// @baa 0x00c51990
+undefined4 * UObject::sub_00c51990(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_020587b0);
+  return param_1;
+}
+
+extern undefined * g_020588d8;
+// @baa 0x00c51a30
+undefined4 * UObject::sub_00c51a30(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_020588d8);
+  return param_1;
+}
+
+extern undefined * g_02058a00;
+// @baa 0x00c51ad0
+undefined4 * UObject::sub_00c51ad0(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_02058a00);
+  return param_1;
+}
+
+extern undefined * g_02058b28;
+// @baa 0x00c51b70
+undefined4 * UObject::sub_00c51b70(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_02058b28);
+  return param_1;
+}
+
+extern undefined * g_02058c50;
+// @baa 0x00c51c90
+undefined4 * UObject::sub_00c51c90(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_02058c50);
+  return param_1;
+}
+
+extern undefined * g_02058d78;
+// @baa 0x00c51cb0
+undefined4 * UObject::sub_00c51cb0(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_02058d78);
+  return param_1;
+}
+
+extern undefined * g_02058ea0;
+// @baa 0x00c51d50
+undefined4 * UObject::sub_00c51d50(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_02058ea0);
+  return param_1;
+}
+
+extern undefined * g_02058fc8;
+// @baa 0x00c51df0
+undefined4 * UObject::sub_00c51df0(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_02058fc8);
+  return param_1;
+}
+
+extern undefined * g_020590f0;
+// @baa 0x00c51e90
+undefined4 * UObject::sub_00c51e90(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_020590f0);
+  return param_1;
+}
+
+struct C_view_00c5e110 {
+    int sub_00c4aa30(int, int, int);
+};
+
+int sub_00c5def0(...);
+// @baa 0x00c5e110
+int UActorFactoryFogVolumeConstantDensityInfo::vf_10c(undefined4 param_2, undefined4 param_3, undefined4 param_4)
+{
+    int param_1 = (int)this;
+  int iVar1;
+  iVar1 = ((C_view_00c5e110 *)(this))->sub_00c4aa30(param_2, param_3, param_4);
+  if (iVar1 == 0) {
+    return 0;
+  }
+  sub_00c5def0(iVar1,*(undefined4 *)(param_1 + 0x58));
+  return iVar1;
+}
+
+struct C_view_00c5e150 {
+    int sub_00c4aa30(int, int, int);
+};
+
+// @baa 0x00c5e150
+int UActorFactoryFogVolumeLinearHalfspaceDensityInfo::vf_10c(undefined4 param_2, undefined4 param_3, undefined4 param_4)
+{
+    int param_1 = (int)this;
+  int iVar1;
+  iVar1 = ((C_view_00c5e150 *)(this))->sub_00c4aa30(param_2, param_3, param_4);
+  if (iVar1 == 0) {
+    return 0;
+  }
+  sub_00c5def0(iVar1,*(undefined4 *)(param_1 + 0x58));
+  return iVar1;
+}
+
+struct C_view_00c5e190 {
+    int sub_00c4aa30(int, int, int);
+};
+
+int sub_006d4090(...);
+int sub_00c58c60(...);
+// @baa 0x00c5e190
+int UActorFactoryFogVolumeSphericalDensityInfo::vf_10c(undefined4 param_2, undefined4 param_3, undefined4 param_4)
+{
+    int param_1 = (int)this;
+  int iVar1;
+  int iVar2;
+  iVar1 = ((C_view_00c5e190 *)(this))->sub_00c4aa30(param_2, param_3, param_4);
+  if (iVar1 == 0) {
+    return 0;
+  }
+  sub_00c5def0(iVar1,*(undefined4 *)(param_1 + 0x58));
+  iVar2 = sub_006d4090(iVar1);
+  if ((*(int *)(iVar2 + 0x1ac) != 0) && (*(int *)(*(int *)(iVar2 + 0x1ac) + 0x1b4) != 0)) {
+    sub_00c58c60(*(undefined4 *)(iVar2 + 0x1a8));
+    *(float *)(*(int *)(iVar2 + 0x1ac) + 0x170) =
+         605.0 / *(float *)(*(int *)(*(int *)(iVar2 + 0x1ac) + 0x1b4) + 0x9c);
+  }
+  return iVar1;
+}
+
+// @baa 0x00c656d0
+
+// @baa 0x00c657e0
+bool UActorFactoryStaticMesh::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x00c65820
+
+// @baa 0x00c65930
+bool UActorFactoryFracturedStaticMesh::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x00c6b2b0
+
+// @baa 0x00c6b3c0
+bool UActorFactoryRigidBody::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x00c6b400
+
+// @baa 0x00c6b510
+bool UActorFactoryMover::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x00c6b550
+
+// @baa 0x00c6b660
+bool UActorFactoryCloth::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
 }

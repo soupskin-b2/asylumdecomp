@@ -1,4 +1,4 @@
-// UnMisc.cpp (part 2 of 2): 2 functions
+// UnMisc.cpp (part 2 of 2): 4 functions
 // Placed here by: neighbours 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -26,4 +26,13 @@ undefined4 UObject::sub_00642fe0(byte param_2)
     sub_0053dfa0(param_1);
   }
   return param_1;
+}
+
+// @baa 0x0062d990
+int USystem::vf_000(void) { return 1; }
+
+// @baa 0x0062d9a0
+bool USystem::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
 }

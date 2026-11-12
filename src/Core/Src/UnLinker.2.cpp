@@ -1,7 +1,7 @@
-// UnLinker.cpp (part 2 of 3): 7 functions
+// UnLinker.cpp (part 2 of 3): 8 functions
 // Placed here by: neighbours 5.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
-#include "ue3/Classes.h"
+#include "ue3/Implement.h"
 
 int sub_0053df70(...);
 // @baa 0x005a8f10
@@ -134,3 +134,6 @@ C_005a9ee0* C_005a9ee0::sub_005a9ee0()
     Value_10 = 0;
     return this;
 }
+
+// @baa 0x0059a7e0
+int ULinkerSave::vf_000(void) { return 1; }

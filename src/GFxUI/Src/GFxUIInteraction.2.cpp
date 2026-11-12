@@ -1,4 +1,4 @@
-// GFxUIInteraction.cpp (part 2 of 3): 22 functions
+// GFxUIInteraction.cpp (part 2 of 3): 52 functions
 // Placed here by: callers 10, file 10, neighbours 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -71,3 +71,120 @@ undefined4 UGFxFSCmdHandler_Kismet::sub_00e6beb0(byte param_2)
 }
 
 // @baa 0x00e6bed0
+
+// @baa 0x00e43e00
+
+// @baa 0x00e43f10
+int UGFxAction_CloseMovie::vf_000(void) { return 1; }
+
+// @baa 0x00e43f20
+bool UGFxAction_CloseMovie::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x00e43f60
+
+// @baa 0x00e44070
+int UGFxAction_GetVariable::vf_000(void) { return 1; }
+
+// @baa 0x00e44080
+bool UGFxAction_GetVariable::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x00e440c0
+
+// @baa 0x00e441d0
+int UGFxAction_Invoke::vf_000(void) { return 1; }
+
+// @baa 0x00e441e0
+bool UGFxAction_Invoke::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x00e44220
+
+// @baa 0x00e44330
+int UGFxAction_OpenMovie::vf_000(void) { return 1; }
+
+// @baa 0x00e44340
+bool UGFxAction_OpenMovie::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x00e44380
+
+// @baa 0x00e44490
+int UGFxAction_SetCaptureKeys::vf_000(void) { return 1; }
+
+// @baa 0x00e444a0
+bool UGFxAction_SetCaptureKeys::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x00e444e0
+
+// @baa 0x00e445f0
+int UGFxAction_SetFocus::vf_000(void) { return 1; }
+
+// @baa 0x00e44600
+bool UGFxAction_SetFocus::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x00e44640
+
+// @baa 0x00e44750
+int UGFxAction_SetVariable::vf_000(void) { return 1; }
+
+// @baa 0x00e44760
+bool UGFxAction_SetVariable::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x00e447a0
+int UGFxFSCmdHandler_Kismet::vf_000(void) { return 1; }
+
+// @baa 0x00e447b0
+
+// @baa 0x00e448c0
+int UGFxInteraction::vf_000(void) { return 1; }
+
+// @baa 0x00e448d0
+bool UGFxInteraction::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x00e44910
+
+// @baa 0x00e53710
+
+// @baa 0x00e53820
+bool UGFxFSCmdHandler_Kismet::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+struct FGFxHandler { void sub_00e52fa0(INT Argument); };
+
+extern FGFxHandler* g_026caed4;
+struct UGFxInteraction_ : UGFxInteraction { void sub_00e53860(INT Argument); };
+
+// @baa 0x00e53860
+void UGFxInteraction_::sub_00e53860(INT Argument)
+{
+    if (g_026caed4 && Argument)
+        g_026caed4->sub_00e52fa0(Argument);
+}
+
+void sub_00e66c90();
+// @baa 0x00e6a600
+void sub_00e6a600(void) { sub_00e66c90(); }

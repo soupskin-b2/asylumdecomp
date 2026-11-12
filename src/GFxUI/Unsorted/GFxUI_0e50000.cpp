@@ -1,4 +1,4 @@
-// GFxUI_0e50000.cpp (part 1 of 2): 76 functions
+// GFxUI_0e50000.cpp (part 1 of 2): 71 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -424,30 +424,9 @@ undefined4 sub_00e52570(int param_1)
   return uVar1;
 }
 
-// @baa 0x00e53710
-IMPLEMENT_CLASS_AT(UGFxFSCmdHandler_Kismet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\GFxUI\\Src\\GFxUIInteraction.cpp", 35);
-
-// @baa 0x00e53820
-bool UGFxFSCmdHandler_Kismet::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
 void sub_00e56630();
 // @baa 0x00e58ae0
 void sub_00e58ae0(void) { sub_00e56630(); }
-
-int sub_005c7a20(void);
-extern undefined * g_02106fe0;
-// @baa 0x00e592c0
-undefined4 * UObject::sub_00e592c0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_02106fe0);
-  return param_1;
-}
 
 // @baa 0x00e592e0
 IMPLEMENT_CLASS_AT(UGFxMovieInfo, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\GFxUI\\Src\\GFxUIMovie.cpp", 42);
@@ -801,20 +780,6 @@ TConstSetBitIterator_00e5cf00& TConstSetBitIterator_00e5cf00::operator++()
     return *this;
 }
 
-int sub_005c7a70(...);
-int sub_00e5d260(void);
-// @baa 0x00e5d2d0
-undefined4 UGFxEngine::sub_00e5d2d0(byte param_2)
-{
-    undefined4 param_1 = (undefined4)this;
-
-  sub_00e5d260();
-  if ((param_2 & 1) != 0) {
-    sub_005c7a70(param_1,0x40);
-  }
-  return param_1;
-}
-
 struct C_00e5db10 {
     undefined4 * sub_00e5db10(undefined4 *);
     int sub_00e5c8a0(int);
@@ -961,18 +926,6 @@ TConstSetBitIterator_00e5ef80& TConstSetBitIterator_00e5ef80::operator++()
 {
     It.Advance();
     return *this;
-}
-
-struct FGFxHandler { void sub_00e52fa0(INT Argument); };
-
-extern FGFxHandler* g_026caed4;
-struct UGFxInteraction_ : UGFxInteraction { void sub_00e53860(INT Argument); };
-
-// @baa 0x00e53860
-void UGFxInteraction_::sub_00e53860(INT Argument)
-{
-    if (g_026caed4 && Argument)
-        g_026caed4->sub_00e52fa0(Argument);
 }
 
 extern "C" __declspec(dllimport) long __stdcall InterlockedExchangeAdd(long volatile* Addend, long Value);

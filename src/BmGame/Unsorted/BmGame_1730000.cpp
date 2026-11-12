@@ -1,4 +1,4 @@
-// BmGame_1730000.cpp (part 1 of 22): 80 functions
+// BmGame_1730000.cpp (part 1 of 22): 73 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -25,33 +25,6 @@ IMPLEMENT_CLASS_AT(ARHarpoonDragPhysicsBase, "e:\\Projects\\Amadeus\\AA\\Game\\U
 // @baa 0x017310c0
 // @baa 0x01731470
 IMPLEMENT_CLASS_AT(ARPatrolPoint, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameEnvironmentClasses.cpp", 16);
-
-// @baa 0x017314e0
-int sub_017156a0(void);
-int sub_0172ee90(...);
-extern undefined4 g_026e24bc;
-// @baa 0x01731510
-int sub_01731510(void)
-{
-  if (g_026e24bc == 0) {
-    g_026e24bc = sub_0172ee90(L"BmGame");
-    sub_017156a0();
-  }
-  return g_026e24bc;
-}
-
-int sub_01715960(void);
-int sub_0172ef50(...);
-extern undefined4 g_026e24c4;
-// @baa 0x01731540
-int sub_01731540(void)
-{
-  if (g_026e24c4 == 0) {
-    g_026e24c4 = sub_0172ef50(L"BmGame");
-    sub_01715960();
-  }
-  return g_026e24c4;
-}
 
 // @baa 0x01731570
 IMPLEMENT_CLASS_AT(ARSpecialMoveEnvironmentObject, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameEnvironmentClasses.cpp", 19);
@@ -164,18 +137,6 @@ uint ARDisruptableObjectDoor::vf_178(void)
     int param_1 = (int)this;
 
   return *(uint *)(*(int *)(param_1 + 0x1b0) + 0x194) >> 9 & 1;
-}
-
-struct S {
-    void sub_007839c0();
-    void sub_01732370();
-    void sub_01732670();
-};
-
-// @baa 0x01732670
-void S::sub_01732670() {
-    sub_007839c0();
-    sub_01732370();
 }
 
 // @baa 0x01732680
@@ -476,25 +437,3 @@ int sub_01735040(void)
   return g_026e2540;
 }
 
-// @baa 0x01735290
-int sub_01735290(void) { return 1690; }
-
-// @baa 0x017352a0
-int ULensFlare::sub_017352a0(void)
-{
-    int param_1 = (int)this;
-
-  return *(int *)(param_1 + 0x84) * 4;
-}
-
-// @baa 0x017352b0
-int ULensFlare::sub_017352b0(void)
-{
-    int param_1 = (int)this;
-
-  return *(int *)(param_1 + 0x84) * 4 + 0xe0;
-}
-
-void sub_006837e0();
-// @baa 0x017352c0
-void sub_017352c0(void) { sub_006837e0(); }

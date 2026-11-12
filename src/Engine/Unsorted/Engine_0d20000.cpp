@@ -1,4 +1,4 @@
-// Engine_0d20000.cpp (part 1 of 3): 64 functions
+// Engine_0d20000.cpp (part 1 of 3): 63 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -260,20 +260,6 @@ struct V_00d20130 {
 
 // @baa 0x00d20130
 void V_00d20130::sub_00d20130() { g(); }
-
-struct C {
-    void sub_00d20240(int *);
-};
-
-// @baa 0x00d20240
-void C::sub_00d20240(int * param_2)
-{
-    int param_1 = (int)this;
-
-  *param_2 = *(int *)(param_1 + 0x70) + *(int *)(param_1 + 0x38);
-  param_2[1] = *(int *)(param_1 + 0x74) + *(int *)(param_1 + 0x3c);
-  return;
-}
 
 struct C_00d20840 { int sub_00d20840(void); };
 

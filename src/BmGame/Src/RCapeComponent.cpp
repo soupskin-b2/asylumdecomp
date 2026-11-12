@@ -1,4 +1,4 @@
-// RCapeComponent.cpp (part 1 of 2): 64 functions
+// RCapeComponent.cpp (part 1 of 2): 76 functions
 // Placed here by: neighbours 22, file 19, class 12, callers 8.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -623,3 +623,50 @@ INT C_016ae7f0::sub_016ae7f0()
         return Object->sub_01579fb0();
     return 0;
 }
+
+// @baa 0x016ae030
+
+// @baa 0x016ae140
+int URCapeStateConfig::vf_000(void) { return 1; }
+
+// @baa 0x016ae150
+bool URCapeStateConfig::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x016ae190
+
+// @baa 0x016ae2a0
+int URCapeConfigFactoryNew::vf_000(void) { return 1; }
+
+// @baa 0x016ae2b0
+bool URCapeConfigFactoryNew::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x016ae330
+
+// @baa 0x016ae440
+int URCapeStateConfigFactoryNew::vf_000(void) { return 1; }
+
+// @baa 0x016ae450
+bool URCapeStateConfigFactoryNew::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x016cd890
+void URCapeComponent::vf_134(INT)
+{
+    sub_016cd7b0(1, 1);
+}
+
+// @baa 0x016cd8a0
+void URCapeComponent::vf_13c(INT)
+{
+    sub_016cd7b0(1, 0);
+}
+
+// @baa 0x016c6d40

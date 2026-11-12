@@ -1,4 +1,4 @@
-// RConstrainingComponent.cpp (part 1 of 2): 11 functions
+// RConstrainingComponent.cpp (part 1 of 2): 14 functions
 // Placed here by: class 8, file 2, callers 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -58,3 +58,14 @@ void URConstrainingComponent::sub_016d9e80(void)
 // @baa 0x016db580
 // @baa 0x016dc1c0
 // @baa 0x016dc4f0
+
+// @baa 0x016d0d90
+
+// @baa 0x016d0ea0
+int URB_ActualDistanceConstraintSetup::vf_000(void) { return 1; }
+
+// @baa 0x016d0eb0
+bool URB_ActualDistanceConstraintSetup::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}

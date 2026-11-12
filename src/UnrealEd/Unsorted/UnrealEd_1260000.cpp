@@ -1,34 +1,7 @@
-// UnrealEd_1260000.cpp (part 1 of 2): 23 functions
+// UnrealEd_1260000.cpp (part 1 of 2): 17 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
-
-// @baa 0x012603a0
-IMPLEMENT_CLASS_AT(UArchetypeThumbnailRenderer, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\ThumbnailManager.cpp", 45);
-
-// @baa 0x012604b0
-bool UArchetypeThumbnailRenderer::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x012604f0
-IMPLEMENT_CLASS_AT(UPrefabThumbnailRenderer, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\ThumbnailManager.cpp", 46);
-
-// @baa 0x01260600
-bool UPrefabThumbnailRenderer::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x01260640
-IMPLEMENT_CLASS_AT(UUISceneThumbnailRenderer, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\ThumbnailManager.cpp", 48);
-
-// @baa 0x01260750
-bool UUISceneThumbnailRenderer::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
 
 struct C { void sub_0098f3b0(int); C *sub_01262200(int); };
 

@@ -1,4 +1,4 @@
-// UnEdExpTerrain.cpp (part 1 of 2): 34 functions
+// UnEdExpTerrain.cpp (part 1 of 2): 41 functions
 // Placed here by: neighbours 19, class 10, file 4, callers 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -154,3 +154,26 @@ IMPLEMENT_CLASS_AT(UTerrainExporterT3D, "e:\\Projects\\Amadeus\\AA\\Game\\Unreal
 // @baa 0x00f35340
 // @baa 0x00f35400
 // @baa 0x00f354c0
+
+// @baa 0x00f18f60
+int UTerrainHeightMapExporterTextT3D::vf_128(int a0, int a1, int a2, int a3) { return 0; }
+
+// @baa 0x00f18f70
+int UTerrainHeightMapExporterTextT3D::vf_12c(int a0, int a1, int a2, int a3, int a4) { return 0; }
+
+// @baa 0x00f1af50
+
+// @baa 0x00f1b060
+int UTerrainExporterT3D::vf_000(void) { return 1; }
+
+// @baa 0x00f1b070
+bool UTerrainExporterT3D::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x00f1b210
+int UTerrainHeightMapExporterTextT3D::vf_000(void) { return 1; }
+
+// @baa 0x00f1b220
+int UTerrainHeightMapExporterG16BMPT3D::vf_000(void) { return 1; }

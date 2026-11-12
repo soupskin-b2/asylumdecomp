@@ -1,4 +1,4 @@
-// BmGameForensicClasses.cpp: 18 functions
+// BmGameForensicClasses.cpp: 49 functions
 // Placed here by: callers 9, file 9.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -39,3 +39,165 @@ IMPLEMENT_CLASS_AT(ARForensicDnaSplatStaticNonScan, "e:\\Projects\\Amadeus\\AA\\
 // @baa 0x01684620
 // @baa 0x016846e0
 // @baa 0x016847a0
+
+// @baa 0x0166bba0
+
+// @baa 0x0166bcb0
+int ARForensicDnaSplatStatic::vf_000(void) { return 1; }
+
+// @baa 0x0166bcc0
+bool ARForensicDnaSplatStatic::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x0166bd00
+int ARForensicDnaSplatStaticNonScan::vf_000(void) { return 1; }
+
+// @baa 0x0166bd10
+
+// @baa 0x0166be20
+int ARForensicDnaSplat::vf_000(void) { return 1; }
+
+// @baa 0x0166be30
+bool ARForensicDnaSplat::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x0166be70
+
+// @baa 0x0166bf80
+int URActorFactoryForensicsDna::vf_000(void) { return 1; }
+
+// @baa 0x0166bf90
+bool URActorFactoryForensicsDna::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x0166bfd0
+int URActorFactoryForensicsDnaNonScan::vf_000(void) { return 1; }
+
+// @baa 0x0166bfe0
+
+// @baa 0x0166c0f0
+int URActorFactoryXrayMesh::vf_000(void) { return 1; }
+
+// @baa 0x0166c100
+bool URActorFactoryXrayMesh::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x0166c140
+
+// @baa 0x0166c250
+int URActorFactoryXrayWire::vf_000(void) { return 1; }
+
+// @baa 0x0166c260
+bool URActorFactoryXrayWire::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x0166c2a0
+
+// @baa 0x0166c3b0
+int URActorFactoryXrayInterItem::vf_000(void) { return 1; }
+
+// @baa 0x0166c3c0
+bool URActorFactoryXrayInterItem::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x0166c400
+
+// @baa 0x0166c510
+int ARForensicsDevice::vf_000(void) { return 1; }
+
+// @baa 0x0166c520
+bool ARForensicsDevice::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x0166c620
+undefined4 ARForensicsDevice::vf_354(void)
+{
+    int param_1 = (int)this;
+
+  char cVar1;
+  
+  cVar1 = *(char *)(param_1 + 0x229);
+  if (((cVar1 != '\x01') && (cVar1 != '\a')) && (cVar1 != '\x06')) {
+    return 1;
+  }
+  return 0;
+}
+
+int sub_005c7a20(void);
+extern undefined * g_023763e0;
+// @baa 0x016752e0
+undefined4 * UObject::sub_016752e0(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_023763e0);
+  return param_1;
+}
+
+extern undefined * g_02376508;
+// @baa 0x01675380
+undefined4 * UObject::sub_01675380(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_02376508);
+  return param_1;
+}
+
+extern undefined * g_02376630;
+// @baa 0x016754b0
+undefined4 * UObject::sub_016754b0(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_02376630);
+  return param_1;
+}
+
+extern undefined * g_02376758;
+// @baa 0x016754d0
+undefined4 * UObject::sub_016754d0(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_02376758);
+  return param_1;
+}
+
+// @baa 0x01680180
+
+// @baa 0x01680290
+bool URActorFactoryForensicsDnaNonScan::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+struct C_016833d0 {
+    int sub_016833d0();
+};
+
+// @baa 0x016833d0
+int C_016833d0::sub_016833d0(void)
+{
+    int param_1 = (int)this;
+
+  return param_1 + -0x1a8;
+}

@@ -1,4 +1,4 @@
-// UnrealEd_1290000.cpp (part 1 of 8): 101 functions
+// UnrealEd_1290000.cpp (part 1 of 8): 97 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -326,9 +326,6 @@ int sub_0129cdd0(int a0, int a1) { return a1; }
 
 // @baa 0x0129cde0
 int sub_0129cde0(int a0, int a1) { return a1; }
-
-// @baa 0x0129ce30
-void UTexAligner::vf_110(int a0, int a1, int a2, int a3, int a4) {  }
 
 extern char g_022232f0[];
 struct C_0129d0f0 { void sub_0129d0f0(void); };
@@ -903,18 +900,6 @@ struct C_0129edb0 { int sub_0129edb0(void); };
 
 // @baa 0x0129edb0
 int C_0129edb0::sub_0129edb0(void) { return *(int*)((char*)this + 0); }
-
-// @baa 0x0129ee00
-IMPLEMENT_CLASS_AT(UTexAligner, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\UnTexAlignTools.cpp", 48);
-
-// @baa 0x0129ef10
-int UTexAligner::vf_000(void) { return 1; }
-
-// @baa 0x0129ef20
-bool UTexAligner::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
 
 // @baa 0x0129f070
 int UTexAlignerPlanar::vf_000(void) { return 1; }

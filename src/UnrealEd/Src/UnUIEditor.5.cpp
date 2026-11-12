@@ -1,4 +1,4 @@
-// UnUIEditor.cpp (part 5 of 5): 3 functions
+// UnUIEditor.cpp (part 5 of 5): 5 functions
 // Placed here by: neighbours 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -64,3 +64,13 @@ INT C_014a1730::sub_014a1730()
 {
     return sub_0149f540(Value);
 }
+
+// UnrealEd_14a0000.cpp (part 3 of 6): 1 function
+// Functions whose original source file is not known yet, grouped by address.
+// Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
+void sub_013e9bc0();
+// @baa 0x014adbf0
+void sub_014adbf0(void) { sub_013e9bc0(); }
+
+// @baa 0x014adc50
+void sub_014adc50(void) { sub_013e9bc0(); }

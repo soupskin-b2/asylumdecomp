@@ -1,4 +1,4 @@
-// RBMBehaviour_Combat.cpp: 14 functions
+// RBMBehaviour_Combat.cpp: 33 functions
 // Placed here by: callers 7, file 7.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -31,3 +31,120 @@ IMPLEMENT_CLASS_AT(URBMBehaviour_Venom, "e:\\Projects\\Amadeus\\AA\\Game\\Unreal
 // @baa 0x01600ad0
 // @baa 0x01600b90
 // @baa 0x01600c50
+
+// @baa 0x015dd090
+
+int sub_005c7a20(void);
+extern undefined * g_0233a7f8;
+// @baa 0x015fab20
+undefined4 * UObject::sub_015fab20(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_0233a7f8);
+  return param_1;
+}
+
+extern undefined * g_0233a9e8;
+// @baa 0x015fabf0
+undefined4 * UObject::sub_015fabf0(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_0233a9e8);
+  return param_1;
+}
+
+extern undefined * g_0233abd8;
+// @baa 0x015fac40
+undefined4 * UObject::sub_015fac40(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_0233abd8);
+  return param_1;
+}
+
+extern undefined * g_0233adc8;
+// @baa 0x015facf0
+undefined4 * UObject::sub_015facf0(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_0233adc8);
+  return param_1;
+}
+
+extern undefined * g_0233afb8;
+// @baa 0x015fada0
+undefined4 * UObject::sub_015fada0(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_0233afb8);
+  return param_1;
+}
+
+extern undefined * g_0233b1a8;
+// @baa 0x015fae50
+undefined4 * UObject::sub_015fae50(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_0233b1a8);
+  return param_1;
+}
+
+// @baa 0x01607bb0
+
+// @baa 0x01607cc0
+bool URBMBehaviour_Combat::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x0160ce80
+
+// @baa 0x0160cf90
+bool URBMBehaviour_CombatAI::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x0160cfd0
+
+// @baa 0x0160d0e0
+bool URBMBehaviour_Venom::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x0160d6a0
+
+// @baa 0x0160d7b0
+bool URBMBehaviour_CombatHeavyObject::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x0160d7f0
+
+// @baa 0x0160d900
+bool URBMBehaviour_CombatRifle::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x0160d940
+
+// @baa 0x0160da50
+bool URBMBehaviour_CombatStunStick::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}

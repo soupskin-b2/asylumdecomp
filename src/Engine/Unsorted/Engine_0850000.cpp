@@ -1,4 +1,4 @@
-// Engine_0850000.cpp (part 1 of 3): 78 functions
+// Engine_0850000.cpp (part 1 of 3): 67 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -42,12 +42,6 @@ struct C_008522e0 { C_008522e0* sub_008522e0(void); };
 
 // @baa 0x008522e0
 C_008522e0* C_008522e0::sub_008522e0(void) { return this; }
-
-// @baa 0x008529e0
-IMPLEMENT_CLASS_AT(UMorphTargetSet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnMorph.cpp", 12);
-
-// @baa 0x00852b50
-IMPLEMENT_CLASS_AT(UMorphNodePose, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnMorph.cpp", 18);
 
 struct C_00853250 {
     undefined4 * sub_00853250();
@@ -770,10 +764,6 @@ void C_008571b0::sub_008571b0(void)
   return;
 }
 
-void sub_00856ab0();
-// @baa 0x00857640
-void sub_00857640(void) { sub_00856ab0(); }
-
 // @baa 0x00857690
 UINT ACoverSlotMarker::vf_378() { return 0; }
 
@@ -801,108 +791,6 @@ void UMorphTarget::Serialize(FArchive& Ar)
   ((C_view_008579d0 *)(this))->sub_005dfd20(param_2);
   sub_00856d50(param_2,param_1 + 0x30);
   return;
-}
-
-struct C_00858b40 { C_00858b40* sub_00858b40(void); };
-
-// @baa 0x00858b40
-C_00858b40* C_00858b40::sub_00858b40(void) { return this; }
-
-struct C_00858c30 {
-    void sub_00858c30();
-    int sub_008571d0(int, int);
-};
-
-// @baa 0x00858c30
-void C_00858c30::sub_00858c30(void)
-{
-    int param_1 = (int)this;
-  ((C_00858c30 *)(this))->sub_008571d0(*(int *)(param_1 + 4) - *(int *)(param_1 + 0x2c), 1);
-  return;
-}
-
-struct C_00858d80 {
-    void sub_00858d80();
-    int sub_00857290(int, int);
-};
-
-// @baa 0x00858d80
-void C_00858d80::sub_00858d80(void)
-{
-    int param_1 = (int)this;
-  ((C_00858d80 *)(this))->sub_00857290(*(int *)(param_1 + 4) - *(int *)(param_1 + 0x2c), 1);
-  return;
-}
-
-struct C_00858ed0 {
-    undefined4 sub_00858ed0(undefined4, undefined4);
-    int sub_00857350(int, int);
-};
-
-// @baa 0x00858ed0
-undefined4 C_00858ed0::sub_00858ed0(undefined4 param_2, undefined4 param_3)
-{
-    undefined4 param_1 = (undefined4)this;
-  ((C_00858ed0 *)(this))->sub_00857350(param_2, param_3);
-  return param_1;
-}
-
-struct C_00858ef0 {
-    undefined4 sub_00858ef0(undefined4, undefined4);
-    int sub_008573b0(int, int);
-};
-
-// @baa 0x00858ef0
-undefined4 C_00858ef0::sub_00858ef0(undefined4 param_2, undefined4 param_3)
-{
-    undefined4 param_1 = (undefined4)this;
-  ((C_00858ef0 *)(this))->sub_008573b0(param_2, param_3);
-  return param_1;
-}
-
-struct C_00858f10 {
-    int sub_00858f10(undefined4, undefined4);
-    int sub_00857410(int, int);
-};
-
-// @baa 0x00858f10
-int C_00858f10::sub_00858f10(undefined4 param_2, undefined4 param_3)
-{
-    int param_1 = (int)this;
-  ((C_00858f10 *)(this))->sub_00857410(param_2, param_3);
-  *(undefined4 *)(param_1 + 0x10) = param_2;
-  return param_1;
-}
-
-struct C_00858f30 {
-    int sub_00858f30(undefined4, undefined4);
-    int sub_00857490(int, int);
-};
-
-// @baa 0x00858f30
-int C_00858f30::sub_00858f30(undefined4 param_2, undefined4 param_3)
-{
-    int param_1 = (int)this;
-  ((C_00858f30 *)(this))->sub_00857490(param_2, param_3);
-  *(undefined4 *)(param_1 + 0x10) = param_2;
-  return param_1;
-}
-
-struct C_00858f50 {
-    undefined4 sub_00858f50(byte);
-};
-
-int sub_00857fa0(void);
-// @baa 0x00858f50
-undefined4 C_00858f50::sub_00858f50(byte param_2)
-{
-    undefined4 param_1 = (undefined4)this;
-
-  sub_00857fa0();
-  if ((param_2 & 1) != 0) {
-    sub_0053dfa0(param_1);
-  }
-  return param_1;
 }
 
 // @baa 0x008591d0

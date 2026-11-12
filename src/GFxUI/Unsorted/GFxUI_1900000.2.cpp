@@ -1,4 +1,4 @@
-// GFxUI_1900000.cpp (part 2 of 2): 38 functions
+// GFxUI_1900000.cpp (part 2 of 2): 34 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -287,19 +287,3 @@ void sub_01906130(void) {  }
 // @baa 0x01906310
 void __stdcall sub_01906310(int a0) {  }
 
-void sub_0190cb00();
-// @baa 0x0190fa40
-void sub_0190fa40(void) { sub_0190cb00(); }
-
-struct C_0190faa0 { C_0190faa0* sub_0190faa0(void); };
-
-// @baa 0x0190faa0
-C_0190faa0* C_0190faa0::sub_0190faa0(void) { *(int*)((char*)this + 0) = 0; return this; }
-
-void sub_0190e290();
-// @baa 0x0190fab0
-void sub_0190fab0(void) { sub_0190e290(); }
-
-void sub_0190e330();
-// @baa 0x0190fb00
-void sub_0190fb00(void) { sub_0190e330(); }

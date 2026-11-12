@@ -1,4 +1,4 @@
-// ParticleModules_Collision.cpp: 20 functions
+// ParticleModules_Collision.cpp: 24 functions
 // Placed here by: class 10, neighbours 6, callers 2, file 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -74,3 +74,17 @@ bool UParticleModuleCollision::vf_004()
 
 // @baa 0x00b4a830
 // @baa 0x00b4b070
+
+// @baa 0x00b32b90
+
+// @baa 0x00b32ca0
+int UParticleModuleCollisionBase::vf_000(void) { return 1; }
+
+// @baa 0x00b32cb0
+bool UParticleModuleCollisionBase::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x00b32fe0
+int UParticleModuleEventReceiverSpawn::vf_000(void) { return 1; }

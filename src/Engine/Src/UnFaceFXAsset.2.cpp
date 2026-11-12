@@ -1,7 +1,7 @@
-// UnFaceFXAsset.cpp (part 2 of 3): 3 functions
+// UnFaceFXAsset.cpp (part 2 of 3): 4 functions
 // Placed here by: neighbours 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
-#include "ue3/Classes.h"
+#include "ue3/Implement.h"
 
 int sub_0053dfa0(...);
 int sub_00bef7d0(void);
@@ -40,3 +40,7 @@ void sub_00bf7470()
 {
     g_026c061c.sub_00bf61a0(0);
 }
+
+void sub_00bef630();
+// @baa 0x00befda0
+void sub_00befda0(void) { sub_00bef630(); }

@@ -1,139 +1,7 @@
-// BmGame_15c0000.cpp (part 1 of 3): 82 functions
+// BmGame_15c0000.cpp (part 1 of 3): 35 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
-
-// @baa 0x015c0030
-int URAnimNotify_BeginRagdoll::vf_000(void) { return 1; }
-
-// @baa 0x015c0040
-bool URAnimNotify_BeginRagdoll::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x015c0080
-IMPLEMENT_CLASS_AT(URAnimNotify_CanCancelBeforeHere, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimUtil_Notify.cpp", 21);
-
-// @baa 0x015c0190
-int URAnimNotify_CanCancelBeforeHere::vf_000(void) { return 1; }
-
-// @baa 0x015c01a0
-bool URAnimNotify_CanCancelBeforeHere::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x015c01e0
-IMPLEMENT_CLASS_AT(URAnimNotify_CanCancelAfterHere, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimUtil_Notify.cpp", 22);
-
-// @baa 0x015c02f0
-int URAnimNotify_CanCancelAfterHere::vf_000(void) { return 1; }
-
-// @baa 0x015c0300
-bool URAnimNotify_CanCancelAfterHere::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x015c0340
-IMPLEMENT_CLASS_AT(URAnimNotify_CanCorrectAfterHere, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimUtil_Notify.cpp", 23);
-
-// @baa 0x015c0450
-int URAnimNotify_CanCorrectAfterHere::vf_000(void) { return 1; }
-
-// @baa 0x015c0460
-bool URAnimNotify_CanCorrectAfterHere::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x015c04a0
-int URAnimNotify_Clip::vf_000(void) { return 1; }
-
-// @baa 0x015c04b0
-int URAnimNotify_ClipRootMotion::vf_000(void) { return 1; }
-
-// @baa 0x015c04c0
-int URAnimNotify_CollisionOptions::vf_000(void) { return 1; }
-
-// @baa 0x015c04d0
-IMPLEMENT_CLASS_AT(URAnimNotify_EndFixIK, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimUtil_Notify.cpp", 27);
-
-// @baa 0x015c05e0
-int URAnimNotify_EndFixIK::vf_000(void) { return 1; }
-
-// @baa 0x015c05f0
-bool URAnimNotify_EndFixIK::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x015c0630
-IMPLEMENT_CLASS_AT(URAnimNotify_EndRagdoll, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimUtil_Notify.cpp", 28);
-
-// @baa 0x015c0740
-int URAnimNotify_EndRagdoll::vf_000(void) { return 1; }
-
-// @baa 0x015c0750
-bool URAnimNotify_EndRagdoll::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x015c0790
-int URAnimNotify_FloorHeight::vf_000(void) { return 1; }
-
-// @baa 0x015c07a0
-int URAnimNotify_ForwardYaw::vf_000(void) { return 1; }
-
-// @baa 0x015c07b0
-IMPLEMENT_CLASS_AT(URAnimNotify_MeetingPoint, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimUtil_Notify.cpp", 31);
-
-// @baa 0x015c08c0
-int URAnimNotify_MeetingPoint::vf_000(void) { return 1; }
-
-// @baa 0x015c08d0
-bool URAnimNotify_MeetingPoint::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x015c0910
-IMPLEMENT_CLASS_AT(URAnimNotify_SetFaceFXRegister, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimUtil_Notify.cpp", 32);
-
-// @baa 0x015c0a20
-int URAnimNotify_SetFaceFXRegister::vf_000(void) { return 1; }
-
-// @baa 0x015c0a30
-bool URAnimNotify_SetFaceFXRegister::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x015c0a70
-IMPLEMENT_CLASS_AT(URAnimNotify_WeaponSwitch, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimUtil_Notify.cpp", 33);
-
-// @baa 0x015c0b80
-int URAnimNotify_WeaponSwitch::vf_000(void) { return 1; }
-
-// @baa 0x015c0b90
-bool URAnimNotify_WeaponSwitch::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x015c1670
-IMPLEMENT_CLASS_AT(URAnimUtil_PhysicsOutput, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimUtil_PhysicsOutput.cpp", 16);
-
-// @baa 0x015c1780
-int URAnimUtil_PhysicsOutput::vf_000(void) { return 1; }
-
-// @baa 0x015c1790
-bool URAnimUtil_PhysicsOutput::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
 
 struct C {
     undefined4 sub_015c1e00();
@@ -163,18 +31,6 @@ undefined4 C_015c1e30::sub_015c1e30(void)
     return 1;
   }
   return 0;
-}
-
-// @baa 0x015c3070
-IMPLEMENT_CLASS_AT(URAnimUtil_RagdollPlayer, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimUtil_RagdollPlayer.cpp", 14);
-
-// @baa 0x015c3180
-int URAnimUtil_RagdollPlayer::vf_000(void) { return 1; }
-
-// @baa 0x015c3190
-bool URAnimUtil_RagdollPlayer::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x015c3500
@@ -495,51 +351,6 @@ int sub_015ca5e0(void)
     sub_015c0a70();
   }
   return g_026e1600;
-}
-
-// @baa 0x015cb6b0
-IMPLEMENT_CLASS_AT(URAnimNotify_Clip, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimUtil_Notify.cpp", 24);
-
-// @baa 0x015cb7c0
-bool URAnimNotify_Clip::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x015cb800
-IMPLEMENT_CLASS_AT(URAnimNotify_ClipRootMotion, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimUtil_Notify.cpp", 25);
-
-// @baa 0x015cb910
-bool URAnimNotify_ClipRootMotion::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x015cb950
-IMPLEMENT_CLASS_AT(URAnimNotify_CollisionOptions, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimUtil_Notify.cpp", 26);
-
-// @baa 0x015cba60
-bool URAnimNotify_CollisionOptions::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x015cbaa0
-IMPLEMENT_CLASS_AT(URAnimNotify_FloorHeight, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimUtil_Notify.cpp", 29);
-
-// @baa 0x015cbbb0
-bool URAnimNotify_FloorHeight::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x015cbbf0
-IMPLEMENT_CLASS_AT(URAnimNotify_ForwardYaw, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimUtil_Notify.cpp", 30);
-
-// @baa 0x015cbd00
-bool URAnimNotify_ForwardYaw::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 void sub_004025d0(void*);

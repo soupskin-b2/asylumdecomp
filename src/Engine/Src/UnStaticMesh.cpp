@@ -1,4 +1,4 @@
-// UnStaticMesh.cpp (part 1 of 2): 58 functions
+// UnStaticMesh.cpp (part 1 of 2): 64 functions
 // Placed here by: neighbours 45, callers 7, file 6.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -425,3 +425,22 @@ IMPLEMENT_CLASS_AT(AStaticMeshActorBasedOnExtremeContent, "e:\\Projects\\Amadeus
 // @baa 0x0097e520
 // @baa 0x0097fae0
 IMPLEMENT_CLASS_AT(UStaticMesh, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnStaticMesh.cpp", 14);
+
+// @baa 0x00946060
+
+// @baa 0x00946170
+int AStaticMeshActorBase::vf_000(void) { return 1; }
+
+// @baa 0x00946180
+bool AStaticMeshActorBase::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x009461c0
+int AStaticMeshActor::vf_000(void) { return 1; }
+
+// @baa 0x009461f0
+
+// @baa 0x00946300
+int ADynamicSMActor::vf_000(void) { return 1; }

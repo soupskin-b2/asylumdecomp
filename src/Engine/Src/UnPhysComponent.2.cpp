@@ -1,4 +1,4 @@
-// UnPhysComponent.cpp (part 2 of 2): 71 functions
+// UnPhysComponent.cpp (part 2 of 2): 80 functions
 // Placed here by: neighbours 50, callers 13, file 8.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -680,3 +680,36 @@ int C_00a2b4b0::sub_00a2b4b0(void)
 void sub_00a2b2e0();
 // @baa 0x00a2b560
 void sub_00a2b560(void) { sub_00a2b2e0(); }
+
+// @baa 0x009fd610
+
+// @baa 0x009fd720
+int URB_RadialImpulseComponent::vf_000(void) { return 1; }
+
+// @baa 0x009fd730
+bool URB_RadialImpulseComponent::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x009fd8d0
+
+// @baa 0x009fd9e0
+int URB_Spring::vf_000(void) { return 1; }
+
+// @baa 0x009fd9f0
+bool URB_Spring::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x009fda30
+
+// @baa 0x009fdb40
+int URB_ForceComponent::vf_000(void) { return 1; }
+
+// @baa 0x009fdb50
+bool URB_ForceComponent::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}

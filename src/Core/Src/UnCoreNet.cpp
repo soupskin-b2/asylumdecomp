@@ -1,4 +1,4 @@
-// UnCoreNet.cpp: 4 functions
+// UnCoreNet.cpp: 5 functions
 // Placed here by: neighbours 2, callers 1, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -26,3 +26,6 @@ C *C::sub_0061d840(int a) { sub_00617d10(a); return this; }
 IMPLEMENT_CLASS_AT(UPackageMap, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Core\\Src\\UnCoreNet.cpp", 525);
 
 // @baa 0x0061e230
+
+// @baa 0x005fc170
+int UPackageMap::vf_134(int a) { return a | -1; }

@@ -1,4 +1,4 @@
-// Engine_0660000.cpp: 5 functions
+// Engine_0660000.cpp: 4 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Core.h"
@@ -28,13 +28,6 @@ struct C
 void C::sub_00665c50(INT Value, INT)
 {
     sub_00659c70(&Value);
-}
-
-extern INT sub_006d9230();
-// @baa 0x00663590
-float sub_00663590()
-{
-    return (float)sub_006d9230();
 }
 
 struct C_00665db0

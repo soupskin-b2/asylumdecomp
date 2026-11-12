@@ -1,4 +1,4 @@
-// UnStaticMeshEdit.cpp (part 1 of 3): 47 functions
+// UnStaticMeshEdit.cpp (part 1 of 3): 48 functions
 // Placed here by: neighbours 42, callers 4, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -538,3 +538,5 @@ UStaticMeshFactory::UStaticMeshFactory()
 
 IMPLEMENT_CLASS_AT(UStaticMeshFactory, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnStaticMeshEdit.cpp", 2399);
 // @baa 0x010015c0
+
+// @baa 0x00feef60

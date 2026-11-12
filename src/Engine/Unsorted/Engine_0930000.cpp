@@ -1,4 +1,4 @@
-// Engine_0930000.cpp: 34 functions
+// Engine_0930000.cpp: 25 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -184,24 +184,7 @@ struct C_009367a0 { char pad[8]; M_009367a0 m; void sub_009367a0(); };
 // @baa 0x009367a0
 void C_009367a0::sub_009367a0() { m.sub_00553720(); }
 
-// @baa 0x00936800
-UShadowMapTexture2D::UShadowMapTexture2D()
-{
-}
-
 int sub_005c7a70(...);
-int sub_00936800(void);
-// @baa 0x00936860
-undefined4 UShadowMapTexture2D::sub_00936860(byte param_2)
-{
-    undefined4 param_1 = (undefined4)this;
-
-  sub_00936800();
-  if ((param_2 & 1) != 0) {
-    sub_005c7a70(param_1,0x100);
-  }
-  return param_1;
-}
 
 struct A_009368e0 { virtual void sub_00936980(); char pad[44]; };
 
@@ -213,11 +196,6 @@ C_009368e0::C_009368e0() {}
 
 // @baa 0x009368e0
 void C_009368e0::sub_00936980() {}
-
-// @baa 0x009368f0
-UShadowMap1D::UShadowMap1D()
-{
-}
 
 int sub_009368f0(void);
 // @baa 0x00936980
@@ -276,15 +254,6 @@ int sub_00936f30(void)
     sub_0090c4f0();
   }
   return g_026b5d88;
-}
-
-// @baa 0x00937cf0
-IMPLEMENT_CLASS_AT(USkelControl_CCD_IK, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSkelControl.cpp", 17);
-
-// @baa 0x00937e00
-bool USkelControl_CCD_IK::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 struct TConstSetBitIterator_00938a40 {
@@ -368,20 +337,3 @@ int sub_00938da0(void)
   return g_026b5d8c;
 }
 
-// @baa 0x00938dd0
-IMPLEMENT_CLASS_AT(USkelControlFootPlacement, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSkelControl.cpp", 14);
-
-// @baa 0x00938ee0
-bool USkelControlFootPlacement::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00938f20
-IMPLEMENT_CLASS_AT(USkelControlWheel, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSkelControl.cpp", 15);
-
-// @baa 0x00939030
-bool USkelControlWheel::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}

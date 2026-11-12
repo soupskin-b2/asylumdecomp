@@ -1,4 +1,4 @@
-// BmGame_1580000.cpp: 221 functions
+// BmGame_1580000.cpp: 208 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1446,18 +1446,6 @@ undefined4 * UObject::sub_01584a90(void)
 // @baa 0x01584ab0
 IMPLEMENT_CLASS_AT(URSeqAct_DuckDialogue, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameDialogueClasses.cpp", 18);
 
-// @baa 0x01584b10
-extern undefined * g_0230ee80;
-// @baa 0x01584b40
-undefined4 * UObject::sub_01584b40(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_0230ee80);
-  return param_1;
-}
-
 // @baa 0x01584b70
 IMPLEMENT_CLASS_AT(URSeqAct_PlayerDialogueOptions, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameDialogueClasses.cpp", 11);
 
@@ -1476,48 +1464,8 @@ void URSeqAct_PlaySpeechBase::vf_174(void)
   return;
 }
 
-// @baa 0x01584cf0
-extern undefined * g_0230f028;
-// @baa 0x01584d20
-undefined4 * UObject::sub_01584d20(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_0230f028);
-  return param_1;
-}
-
 // @baa 0x01584d40
 IMPLEMENT_CLASS_AT(URBMSeqAct_PlaySpeech, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameDialogueClasses.cpp", 12);
-
-struct C_01584da0 { C_01584da0* sub_01584da0(int a0); };
-
-// @baa 0x01584da0
-C_01584da0* C_01584da0::sub_01584da0(int a0) { return this; }
-
-// @baa 0x01584e70
-extern undefined * g_0230f1c8;
-// @baa 0x01584ea0
-undefined4 * UObject::sub_01584ea0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_0230f1c8);
-  return param_1;
-}
-
-extern undefined * g_0230f368;
-// @baa 0x01584ec0
-undefined4 * UObject::sub_01584ec0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_0230f368);
-  return param_1;
-}
 
 // @baa 0x01584ee0
 IMPLEMENT_CLASS_AT(URSeqAct_PlayTVSequenceSingleLine, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameDialogueClasses.cpp", 20);
@@ -1526,48 +1474,8 @@ IMPLEMENT_CLASS_AT(URSeqAct_PlayTVSequenceSingleLine, "e:\\Projects\\Amadeus\\AA
 // @baa 0x01584f80
 IMPLEMENT_CLASS_AT(URSeqAct_ConversationDialogue, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameDialogueClasses.cpp", 8);
 
-struct C_01585010 { C_01585010* sub_01585010(int a0); };
-
-// @baa 0x01585010
-C_01585010* C_01585010::sub_01585010(int a0) { return this; }
-
-// @baa 0x01585230
-extern undefined * g_0230f510;
-// @baa 0x01585260
-undefined4 * UObject::sub_01585260(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_0230f510);
-  return param_1;
-}
-
-extern undefined * g_0230f6d0;
-// @baa 0x01585280
-undefined4 * UObject::sub_01585280(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_0230f6d0);
-  return param_1;
-}
-
 // @baa 0x01585340
 IMPLEMENT_CLASS_AT(URSeqAct_PlayerDialogueLine, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameDialogueClasses.cpp", 10);
-
-// @baa 0x015853a0
-extern undefined * g_0230f8a8;
-// @baa 0x015853d0
-undefined4 * UObject::sub_015853d0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_0230f8a8);
-  return param_1;
-}
 
 // @baa 0x015853f0
 IMPLEMENT_CLASS_AT(URSeqAct_RadioDialogueLine, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameDialogueClasses.cpp", 14);
@@ -1576,58 +1484,11 @@ IMPLEMENT_CLASS_AT(URSeqAct_RadioDialogueLine, "e:\\Projects\\Amadeus\\AA\\Game\
 // @baa 0x01585480
 IMPLEMENT_CLASS_AT(URSeqAct_PlaySpeechConversation, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameDialogueClasses.cpp", 13);
 
-// @baa 0x01585670
-extern undefined * g_0230fa68;
-// @baa 0x015856a0
-undefined4 * UObject::sub_015856a0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_0230fa68);
-  return param_1;
-}
-
-extern undefined * g_0230fc10;
-// @baa 0x015856c0
-undefined4 * UObject::sub_015856c0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_0230fc10);
-  return param_1;
-}
-
 // @baa 0x01585770
 IMPLEMENT_CLASS_AT(URSeqAct_PlayTVSequenceBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameDialogueClasses.cpp", 17);
 
-// @baa 0x015857e0
-extern undefined * g_0230fdc0;
-// @baa 0x01585810
-undefined4 * UObject::sub_01585810(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_0230fdc0);
-  return param_1;
-}
-
 // @baa 0x015858d0
 IMPLEMENT_CLASS_AT(URSeqAct_VoiceOfArkham, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameDialogueClasses.cpp", 15);
-
-// @baa 0x01585930
-extern undefined * g_0230ff60;
-// @baa 0x01585960
-undefined4 * UObject::sub_01585960(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_0230ff60);
-  return param_1;
-}
 
 // @baa 0x01585980
 IMPLEMENT_CLASS_AT(URSeqAct_UnduckDialogue, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameDialogueClasses.cpp", 19);

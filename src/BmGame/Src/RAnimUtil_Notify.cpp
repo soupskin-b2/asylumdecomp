@@ -1,4 +1,4 @@
-// RAnimUtil_Notify.cpp (part 1 of 2): 37 functions
+// RAnimUtil_Notify.cpp (part 1 of 2): 100 functions
 // Placed here by: callers 19, file 18.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -95,3 +95,380 @@ IMPLEMENT_CLASS_AT(URAnimNotify_WeaponSwitch, "e:\\Projects\\Amadeus\\AA\\Game\\
 IMPLEMENT_CLASS_AT(URAnimNotify_SetFaceFXRegister, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimUtil_Notify.cpp", 32);
 
 // @baa 0x015d6a30
+
+int sub_005c7a20(void);
+extern undefined * g_02326208;
+// @baa 0x015bcfd0
+undefined4 * UObject::sub_015bcfd0(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_02326208);
+  return param_1;
+}
+
+extern undefined * g_02326320;
+// @baa 0x015bd120
+undefined4 * UObject::sub_015bd120(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_02326320);
+  return param_1;
+}
+
+// @baa 0x015bd140
+int sub_015bd140(int a0, int a1) { return a1; }
+
+extern undefined * g_02326438;
+// @baa 0x015bd150
+undefined4 * UObject::sub_015bd150(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_02326438);
+  return param_1;
+}
+
+extern undefined * g_02326550;
+// @baa 0x015bd200
+undefined4 * UObject::sub_015bd200(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_02326550);
+  return param_1;
+}
+
+extern undefined * g_02326668;
+// @baa 0x015bd2b0
+undefined4 * UObject::sub_015bd2b0(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_02326668);
+  return param_1;
+}
+
+extern undefined * g_02326780;
+// @baa 0x015bd360
+undefined4 * UObject::sub_015bd360(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_02326780);
+  return param_1;
+}
+
+extern undefined * g_02326898;
+// @baa 0x015bd410
+undefined4 * UObject::sub_015bd410(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_02326898);
+  return param_1;
+}
+
+extern undefined * g_023269b0;
+// @baa 0x015bd4c0
+undefined4 * UObject::sub_015bd4c0(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_023269b0);
+  return param_1;
+}
+
+extern undefined * g_02326ac8;
+// @baa 0x015bd580
+undefined4 * UObject::sub_015bd580(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_02326ac8);
+  return param_1;
+}
+
+extern undefined * g_02326be0;
+// @baa 0x015bd650
+undefined4 * UObject::sub_015bd650(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_02326be0);
+  return param_1;
+}
+
+extern undefined * g_02326cf8;
+// @baa 0x015bd710
+undefined4 * UObject::sub_015bd710(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_02326cf8);
+  return param_1;
+}
+
+extern undefined * g_02326e10;
+// @baa 0x015bd7d0
+undefined4 * UObject::sub_015bd7d0(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_02326e10);
+  return param_1;
+}
+
+extern undefined * g_02326f28;
+// @baa 0x015bd890
+undefined4 * UObject::sub_015bd890(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_02326f28);
+  return param_1;
+}
+
+extern undefined * g_02327040;
+// @baa 0x015bd950
+undefined4 * UObject::sub_015bd950(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_02327040);
+  return param_1;
+}
+
+int sub_01596960(void);
+int sub_0159caa0(...);
+extern undefined4 g_026e1410;
+// @baa 0x015bda00
+int sub_015bda00(void)
+{
+  if (g_026e1410 == 0) {
+    g_026e1410 = sub_0159caa0(L"BmGame");
+    sub_01596960();
+  }
+  return g_026e1410;
+}
+
+int sub_01596ac0(void);
+int sub_0159cb60(...);
+extern undefined4 g_026e1414;
+// @baa 0x015bda30
+int sub_015bda30(void)
+{
+  if (g_026e1414 == 0) {
+    g_026e1414 = sub_0159cb60(L"BmGame");
+    sub_01596ac0();
+  }
+  return g_026e1414;
+}
+
+int sub_01596c20(void);
+int sub_0159cc20(...);
+extern undefined4 g_026e1418;
+// @baa 0x015bda60
+int sub_015bda60(void)
+{
+  if (g_026e1418 == 0) {
+    g_026e1418 = sub_0159cc20(L"BmGame");
+    sub_01596c20();
+  }
+  return g_026e1418;
+}
+
+// @baa 0x015bda90
+int sub_015bda90(int a0, int a1) { return a1; }
+
+extern undefined * g_02327158;
+// @baa 0x015bdaa0
+undefined4 * UObject::sub_015bdaa0(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_02327158);
+  return param_1;
+}
+
+// @baa 0x015bdb60
+int sub_015bdb60(int a0, int a1) { return a1; }
+
+extern undefined * g_02327270;
+// @baa 0x015bdb70
+undefined4 * UObject::sub_015bdb70(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_02327270);
+  return param_1;
+}
+
+// @baa 0x015c0030
+int URAnimNotify_BeginRagdoll::vf_000(void) { return 1; }
+
+// @baa 0x015c0040
+bool URAnimNotify_BeginRagdoll::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x015c0080
+
+// @baa 0x015c0190
+int URAnimNotify_CanCancelBeforeHere::vf_000(void) { return 1; }
+
+// @baa 0x015c01a0
+bool URAnimNotify_CanCancelBeforeHere::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x015c01e0
+
+// @baa 0x015c02f0
+int URAnimNotify_CanCancelAfterHere::vf_000(void) { return 1; }
+
+// @baa 0x015c0300
+bool URAnimNotify_CanCancelAfterHere::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x015c0340
+
+// @baa 0x015c0450
+int URAnimNotify_CanCorrectAfterHere::vf_000(void) { return 1; }
+
+// @baa 0x015c0460
+bool URAnimNotify_CanCorrectAfterHere::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x015c04a0
+int URAnimNotify_Clip::vf_000(void) { return 1; }
+
+// @baa 0x015c04b0
+int URAnimNotify_ClipRootMotion::vf_000(void) { return 1; }
+
+// @baa 0x015c04c0
+int URAnimNotify_CollisionOptions::vf_000(void) { return 1; }
+
+// @baa 0x015c04d0
+
+// @baa 0x015c05e0
+int URAnimNotify_EndFixIK::vf_000(void) { return 1; }
+
+// @baa 0x015c05f0
+bool URAnimNotify_EndFixIK::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x015c0630
+
+// @baa 0x015c0740
+int URAnimNotify_EndRagdoll::vf_000(void) { return 1; }
+
+// @baa 0x015c0750
+bool URAnimNotify_EndRagdoll::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x015c0790
+int URAnimNotify_FloorHeight::vf_000(void) { return 1; }
+
+// @baa 0x015c07a0
+int URAnimNotify_ForwardYaw::vf_000(void) { return 1; }
+
+// @baa 0x015c07b0
+
+// @baa 0x015c08c0
+int URAnimNotify_MeetingPoint::vf_000(void) { return 1; }
+
+// @baa 0x015c08d0
+bool URAnimNotify_MeetingPoint::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x015c0910
+
+// @baa 0x015c0a20
+int URAnimNotify_SetFaceFXRegister::vf_000(void) { return 1; }
+
+// @baa 0x015c0a30
+bool URAnimNotify_SetFaceFXRegister::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x015c0a70
+
+// @baa 0x015c0b80
+int URAnimNotify_WeaponSwitch::vf_000(void) { return 1; }
+
+// @baa 0x015c0b90
+bool URAnimNotify_WeaponSwitch::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x015cb6b0
+
+// @baa 0x015cb7c0
+bool URAnimNotify_Clip::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x015cb800
+
+// @baa 0x015cb910
+bool URAnimNotify_ClipRootMotion::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x015cb950
+
+// @baa 0x015cba60
+bool URAnimNotify_CollisionOptions::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x015cbaa0
+
+// @baa 0x015cbbb0
+bool URAnimNotify_FloorHeight::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x015cbbf0
+
+// @baa 0x015cbd00
+bool URAnimNotify_ForwardYaw::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}

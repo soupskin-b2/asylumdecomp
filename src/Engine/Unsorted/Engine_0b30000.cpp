@@ -1,4 +1,4 @@
-// Engine_0b30000.cpp (part 1 of 4): 222 functions
+// Engine_0b30000.cpp (part 1 of 4): 202 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -249,74 +249,17 @@ void C_00b32aa0::sub_00b32aa0(void)
   return;
 }
 
-// @baa 0x00b32b90
-IMPLEMENT_CLASS_AT(UParticleModuleCollisionBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\ParticleModules_Collision.cpp", 19);
-
-// @baa 0x00b32ca0
-int UParticleModuleCollisionBase::vf_000(void) { return 1; }
-
-// @baa 0x00b32cb0
-bool UParticleModuleCollisionBase::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00b32e10
-IMPLEMENT_CLASS_AT(UParticleModuleEventBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\ParticleModules_Event.cpp", 11);
-
-// @baa 0x00b32f20
-int UParticleModuleEventBase::vf_000(void) { return 1; }
-
-// @baa 0x00b32f30
-bool UParticleModuleEventBase::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
 // @baa 0x00b32fd0
 int UParticleModuleEventReceiverBase::vf_000(void) { return 1; }
 
-// @baa 0x00b32fe0
-int UParticleModuleEventReceiverSpawn::vf_000(void) { return 1; }
-
-// @baa 0x00b33270
-IMPLEMENT_CLASS_AT(UParticleModuleMaterialBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\ParticleModules_Material.cpp", 12);
-
-// @baa 0x00b33380
-int UParticleModuleMaterialBase::vf_000(void) { return 1; }
-
-// @baa 0x00b33390
-bool UParticleModuleMaterialBase::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00b333d0
-int UParticleModuleMeshMaterial::vf_000(void) { return 1; }
-
 // @baa 0x00b333f0
 int UParticleModuleMaterialByParameter::vf_000(void) { return 1; }
-
-// @baa 0x00b33400
-IMPLEMENT_CLASS_AT(UParticleModuleOrbitBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\ParticleModules_Orbit.cpp", 11);
 
 // @baa 0x00b33510
 int UParticleModuleOrbitBase::vf_000(void) { return 1; }
 
 // @baa 0x00b33520
 bool UParticleModuleOrbitBase::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00b339e0
-IMPLEMENT_CLASS_AT(UParticleModuleParameterBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\ParticleModules_Parameter.cpp", 15);
-
-// @baa 0x00b33af0
-int UParticleModuleParameterBase::vf_000(void) { return 1; }
-
-// @baa 0x00b33b00
-bool UParticleModuleParameterBase::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -369,12 +312,6 @@ bool UParticleModuleSpawnBase::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
-
-// @baa 0x00b34260
-int UParticleModuleSpawn::vf_000(void) { return 1; }
-
-// @baa 0x00b342e0
-int UParticleModuleSpawnPerUnit::vf_118(int a0) { return 4; }
 
 struct C_00b34950 {
     uint sub_00b34950();
@@ -1641,16 +1578,6 @@ int UParticleModuleSpawnBase::vf_130(void) { return 4; }
 
 // @baa 0x00b3db40
 int sub_005c7a20(void);
-extern undefined * g_01fee968;
-// @baa 0x00b3db60
-undefined4 * UObject::sub_00b3db60(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_01fee968);
-  return param_1;
-}
 
 // @baa 0x00b3db80
 IMPLEMENT_CLASS_AT(UParticleModuleTypeDataBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnParticleModules.cpp", 26);
@@ -1669,18 +1596,6 @@ int UParticleModuleTypeDataBase::vf_130(void) { return 1; }
 
 // @baa 0x00b3dc20
 int UParticleModuleTypeDataBase::vf_17c(void) { return 0; }
-
-// @baa 0x00b3dc30
-extern undefined * g_01feead8;
-// @baa 0x00b3dc50
-undefined4 * UObject::sub_00b3dc50(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_01feead8);
-  return param_1;
-}
 
 // @baa 0x00b3dc70
 IMPLEMENT_CLASS_AT(UParticleModuleTypeDataMesh, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnParticleModules.cpp", 2815);
@@ -1713,18 +1628,6 @@ undefined4 * UObject::sub_00b3dd20(void)
 
 // @baa 0x00b3dd40
 IMPLEMENT_CLASS_AT(UParticleModuleTypeDataPhysX, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\ParticleModules_PhysX.cpp", 127);
-
-// @baa 0x00b3dda0
-extern undefined * g_01feef58;
-// @baa 0x00b3ddc0
-undefined4 * UObject::sub_00b3ddc0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_01feef58);
-  return param_1;
-}
 
 struct C_00b3f7e0 { C_00b3f7e0* sub_00b3f7e0(void); };
 

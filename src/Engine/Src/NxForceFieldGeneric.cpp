@@ -1,4 +1,4 @@
-// NxForceFieldGeneric.cpp: 3 functions
+// NxForceFieldGeneric.cpp: 6 functions
 // Placed here by: file 2, callers 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -84,3 +84,20 @@ void C::sub_00a3c180()
 IMPLEMENT_CLASS_AT(ANxForceFieldGeneric, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\NxForceFieldGeneric.cpp", 14);
 
 // @baa 0x00a505e0
+
+// @baa 0x00a344b0
+int ANxForceFieldGeneric::vf_000(void) { return 1; }
+
+// @baa 0x00a344c0
+bool ANxForceFieldGeneric::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x00a34500
+void ANxForceFieldGeneric::vf_354()
+{
+	LinearKernel.Dummy = 0;
+	ForceField.Dummy = 0;
+	vf_238();
+}

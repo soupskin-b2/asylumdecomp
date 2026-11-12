@@ -1,4 +1,4 @@
-// Engine_0790000.cpp (part 1 of 3): 104 functions
+// Engine_0790000.cpp (part 1 of 3): 95 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -437,24 +437,6 @@ int sub_007997a0(void)
   return g_026b4390;
 }
 
-// @baa 0x0079b0e0
-IMPLEMENT_CLASS_AT(ADynamicCameraActor, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnCamera.cpp", 13);
-
-// @baa 0x0079b1f0
-bool ADynamicCameraActor::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x0079b230
-IMPLEMENT_CLASS_AT(AAnimatedCamera, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnCamera.cpp", 14);
-
-// @baa 0x0079b340
-bool AAnimatedCamera::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
 // @baa 0x0079bdd0
 int UBrushComponent::sub_0079bdd0(void)
 {
@@ -714,18 +696,6 @@ undefined4 sub_0079f870(undefined4 param_1, undefined4 param_2)
   return param_2;
 }
 
-// @baa 0x0079f880
-int sub_0079f880(int a0, int a1) { return a1; }
-
-// @baa 0x0079f890
-int sub_0079f890(int a0, int a1) { return a1; }
-
-// @baa 0x0079f8a0
-int sub_0079f8a0(int a0, int a1) { return a1; }
-
-// @baa 0x0079f8b0
-int sub_0079f8b0(int a0, int a1) { return a1; }
-
 // @baa 0x0079fb80
 undefined4 sub_0079fb80(undefined4 param_1, undefined4 param_2)
 {
@@ -879,17 +849,3 @@ int sub_0079feb0(void)
 // @baa 0x0079fff0
 int UCheatManager::vf_000(void) { return 1; }
 
-int sub_007654e0(void);
-struct UAudioComponent_ : public UAudioComponent
-{
-    void sub_00793c40(void);
-    void sub_00791770(void);
-};
-
-// @baa 0x00793c40
-void UAudioComponent_::sub_00793c40(void)
-{
-    sub_007654e0();
-    if (bAutoPlay)
-        sub_00791770();
-}

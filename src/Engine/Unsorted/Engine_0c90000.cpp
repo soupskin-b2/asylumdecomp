@@ -1,4 +1,4 @@
-// Engine_0c90000.cpp: 182 functions
+// Engine_0c90000.cpp: 173 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -477,26 +477,6 @@ int sub_00c92ea0(int a0, int a1) { return a1; }
 // @baa 0x00c92eb0
 int sub_00c92eb0(int a0, int a1) { return a1; }
 
-// @baa 0x00c93560
-IMPLEMENT_CLASS_AT(UDistributionFloatSoundParameter, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAudioNodes.cpp", 2604);
-
-// @baa 0x00c93670
-int UDistributionFloatSoundParameter::vf_000(void) { return 1; }
-
-// @baa 0x00c93680
-bool UDistributionFloatSoundParameter::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00c936c0
-INT USoundNodeMature::vf_128() {
-  return 0xffffffff;
-}
-
-// @baa 0x00c936d0
-int USoundNodeMature::vf_000(void) { return 1; }
-
 // @baa 0x00c936e0
 undefined4 sub_00c936e0(int param_1)
 {
@@ -752,21 +732,6 @@ int sub_00c96760(void)
   }
   return g_026c059c;
 }
-
-// @baa 0x00c96790
-IMPLEMENT_CLASS_AT(UClient, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnClient.cpp", 10);
-
-// @baa 0x00c968a0
-int UClient::vf_000(void) { return 1; }
-
-// @baa 0x00c968b0
-bool UClient::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00c97b60
-IMPLEMENT_CLASS_AT(UCodecMovieBink, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnCodecs.cpp", 11);
 
 // @baa 0x00c97bb0
 void UCodecMovieBink::sub_00c97bb0(void)

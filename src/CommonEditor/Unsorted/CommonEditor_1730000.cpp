@@ -1,4 +1,4 @@
-// CommonEditor_1730000.cpp (part 1 of 5): 142 functions
+// CommonEditor_1730000.cpp (part 1 of 5): 134 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -34,24 +34,6 @@ int sub_0173a4f0(int a0, int a1) { return a1; }
 
 // @baa 0x0173a500
 int sub_0173a500(int a0, int a1) { return a1; }
-
-// @baa 0x0173a510
-IMPLEMENT_CLASS_AT(UCacheDestructibleScalesCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonEditor\\Src\\CacheDestructibleScalesCommandlet.cpp", 8);
-
-// @baa 0x0173aa00
-IMPLEMENT_CLASS_AT(URGenericBrowserType, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonEditor\\Src\\CommonEditorClasses.cpp", 6);
-
-// @baa 0x0173ab10
-int URGenericBrowserType::vf_000(void) { return 1; }
-
-// @baa 0x0173ab20
-bool URGenericBrowserType::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x0173acc0
-IMPLEMENT_CLASS_AT(UFindUnusedCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonEditor\\Src\\FindUnusedCommandlet.cpp", 15);
 
 // @baa 0x0173add0
 int UFindUnusedCommandlet::vf_000(void) { return 1; }
@@ -161,18 +143,6 @@ int sub_0173b5d0(void) { return (int)g_023d0ab8; }
 extern char g_026e5cc0[];
 // @baa 0x0173b5e0
 int sub_0173b5e0(void) { return (int)g_026e5cc0; }
-
-// @baa 0x0173d9c0
-IMPLEMENT_CLASS_AT(UMarkUnusedScriptNoExportCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonEditor\\Src\\MarkUnusedScriptNoExportCommandlet.cpp", 6);
-
-// @baa 0x0173dad0
-int UMarkUnusedScriptNoExportCommandlet::vf_000(void) { return 1; }
-
-// @baa 0x0173dae0
-bool UMarkUnusedScriptNoExportCommandlet::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
 
 extern char g_026e5ca8[];
 // @baa 0x0173dc80
@@ -1054,4 +1024,3 @@ undefined4 * UObject::sub_0173f650(void)
 // @baa 0x0173f670
 IMPLEMENT_CLASS_AT(URActorFactoryStaticMeshNoCL, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonEditor\\Src\\CommonEditorClasses.cpp", 5);
 
-// @baa 0x0173f6d0

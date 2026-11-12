@@ -1,4 +1,4 @@
-// DirectionalLightComponent.cpp: 5 functions
+// DirectionalLightComponent.cpp: 6 functions
 // Placed here by: neighbours 3, callers 1, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -19,3 +19,5 @@ void sub_00699540();
 void sub_00699660(void) { sub_00699540(); }
 
 // @baa 0x00699b70
+
+// @baa 0x0064fec0

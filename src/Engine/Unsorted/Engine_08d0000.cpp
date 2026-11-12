@@ -1,33 +1,7 @@
-// Engine_08d0000.cpp (part 1 of 8): 43 functions
+// Engine_08d0000.cpp (part 1 of 8): 38 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
-
-int sub_008d1890(void);
-// @baa 0x008d1d20
-void USeqAct_SetDOFParams::vf_174(void)
-{
-    int param_1 = (int)this;
-
-  *(uint *)(param_1 + 0xe0) = *(uint *)(param_1 + 0xe0) & 0xfffffffe;
-  sub_008d1890();
-  if (*(int *)(param_1 + 0xd8) == 0) {
-    *(uint *)(param_1 + 0xe0) = *(uint *)(param_1 + 0xe0) | 1;
-  }
-  return;
-}
-
-// @baa 0x008d1d50
-void USeqAct_ParticleEventGenerator::vf_174(void)
-{
-    int param_1 = (int)this;
-
-  if ((*(byte *)(param_1 + 0xd4) & 1) != 0) {
-    sub_008d1890();
-    return;
-  }
-  return;
-}
 
 struct C { void sub_008c3280(int); C *sub_008d2040(int); };
 
@@ -233,20 +207,6 @@ int sub_008d2530(void)
   }
   return g_026b5a94;
 }
-
-// @baa 0x008d2d00
-IMPLEMENT_CLASS_AT(USceneCapturePortalComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSceneCapture.cpp", 14);
-
-// @baa 0x008d2e10
-bool USceneCapturePortalComponent::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-struct C_008dcbc0 { void sub_008d5060(int); C_008dcbc0 *sub_008dcbc0(int); };
-
-// @baa 0x008dcbc0
-C_008dcbc0 *C_008dcbc0::sub_008dcbc0(int a) { sub_008d5060(a); return this; }
 
 // @baa 0x008dd1d0
 IMPLEMENT_CLASS_AT(ADynamicAnchor, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnRoute.cpp", 10);

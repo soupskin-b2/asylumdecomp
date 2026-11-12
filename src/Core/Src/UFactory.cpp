@@ -1,4 +1,4 @@
-// UFactory.cpp: 198 functions
+// UFactory.cpp: 199 functions
 // Placed here by: neighbours 113, class 83, file 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1080,4 +1080,14 @@ undefined4 * UFactory::sub_01729c30(void)
   sub_0060b3d0();
   *param_1 = (undefined4)(&g_023c9d58);
   return param_1;
+}
+
+// @baa 0x005fbd90
+void UFactory::Serialize( FArchive& Ar )
+{
+	Super::Serialize( Ar );
+	if( !Ar.IsLoading() && !Ar.IsSaving() )
+	{
+		Ar << SupportedClass << ContextClass;
+	}
 }

@@ -1,4 +1,4 @@
-// GFxUIEditor_14f0000.cpp: 24 functions
+// GFxUIEditor_14f0000.cpp: 16 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -13,16 +13,6 @@ bool UGFxEditor::vf_004()
 }
 
 int sub_005c7a20(void);
-extern undefined * g_022cc240;
-// @baa 0x014f9dc0
-undefined4 * UObject::sub_014f9dc0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_022cc240);
-  return param_1;
-}
 
 // @baa 0x014f9de0
 IMPLEMENT_CLASS_AT(UGFxEditor, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\GFxUIEditor\\Src\\GFxUIEditor.cpp", 73);
@@ -55,48 +45,6 @@ int sub_014fa000(void) { return (int)g_025e98a8; }
 extern char g_026deff4[];
 // @baa 0x014fa010
 int sub_014fa010(void) { return (int)g_026deff4; }
-
-// @baa 0x014fa020
-IMPLEMENT_CLASS_AT(UGenericBrowserType_GFxMovieInfo, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\GFxUIEditor\\Src\\GFxUIGenericBrowserTypes.cpp", 150);
-
-// @baa 0x014fa130
-int UGenericBrowserType_GFxMovieInfo::vf_000(void) { return 1; }
-
-// @baa 0x014fa140
-bool UGenericBrowserType_GFxMovieInfo::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-class wxMenuBase;
-class wxMenuBase {
-    public:
-    public: __declspec(dllimport) void Enable(int,bool);
-    friend struct C_014fa180;
-};
-
-struct C_014fa180 {
-    void sub_014fa180(int);
-    int sub_0115ae90(int);
-};
-
-// @baa 0x014fa180
-void C_014fa180::sub_014fa180(int param_2)
-{
-    wxMenuBase * param_1 = (wxMenuBase *)this;
-  ((C_014fa180 *)(this))->sub_0115ae90(param_2);
-  ((wxMenuBase *)(param_1))->wxMenuBase::Enable(*(int *)(*(int *)(param_1 + 0x8c) + 8), param_2 == 0);
-  return;
-}
-
-// @baa 0x014fa1b0
-int UGenericBrowserType_GFxMovieInfo::vf_110(void) { return 0; }
-
-// @baa 0x014fa1c0
-int sub_014fa1c0(void) { return 0; }
-
-// @baa 0x014fa1d0
-void UGenericBrowserType_GFxMovieInfo::vf_12c(void) {  }
 
 struct C_014fa3c0 {
     void sub_014fa3c0();

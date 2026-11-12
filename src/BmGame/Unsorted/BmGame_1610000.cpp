@@ -1,4 +1,4 @@
-// BmGame_1610000.cpp (part 1 of 4): 187 functions
+// BmGame_1610000.cpp (part 1 of 4): 122 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -48,185 +48,11 @@ bool ARBMRouter::vf_39c(void)
   return 0 < *(int *)(param_1 + 500);
 }
 
-// @baa 0x016104a0
-IMPLEMENT_CLASS_AT(URBMRouterPath, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmRouterClass.cpp", 967);
-
-// @baa 0x016105b0
-int URBMRouterPath::vf_000(void) { return 1; }
-
-// @baa 0x016105c0
-bool URBMRouterPath::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x01610600
-int URBMRouterPath::vf_120(int a0) { return 0; }
-
-// @baa 0x01610e70
-IMPLEMENT_CLASS_AT(ARBMRouteRequest, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmRouterClass.cpp", 1654);
-
-// @baa 0x01610f80
-int ARBMRouteRequest::vf_000(void) { return 1; }
-
-// @baa 0x01610f90
-bool ARBMRouteRequest::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x01610fd0
-int ARBMRouteRequest::vf_374(int a0) { return 0; }
-
-// @baa 0x01610fe0
-void sub_01610fe0(void) {  }
-
-// @baa 0x01611030
-int ARBMRouteRequest_FindSinglePath::vf_000(void) { return 1; }
-
-// @baa 0x016111f0
-int ARBMRouteRequest_FindShortestPath::vf_000(void) { return 1; }
-
-// @baa 0x01611200
-int ARBMRouteRequest_FindShortestPathAvoidingLadder::vf_000(void) { return 1; }
-
-// @baa 0x01611210
-IMPLEMENT_CLASS_AT(UComparisonListSharedDataCache, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmRouterClass.cpp", 2102);
-
-// @baa 0x01611320
-int UComparisonListSharedDataCache::vf_000(void) { return 1; }
-
-// @baa 0x01611330
-bool UComparisonListSharedDataCache::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x01611370
-int ARBMRouteRequest_BuildComparisonList::vf_000(void) { return 1; }
-
-// @baa 0x01611380
-int ARBMRouteRequest_HideOnCorner::vf_000(void) { return 1; }
-
-// @baa 0x01611390
-int ARBMRouteRequest_NervousSearch::vf_000(void) { return 1; }
-
-// @baa 0x016114f0
-int ARBMRouteRequest_TerrifiedSearch::vf_000(void) { return 1; }
-
-// @baa 0x01611500
-int ARBMRouteRequest_RunAway::vf_000(void) { return 1; }
-
-// @baa 0x01611510
-int ARBMRouteRequest_PerimeterBuilderWrapper::vf_000(void) { return 1; }
-
-// @baa 0x01611580
-void sub_01611580(void) {  }
-
-// @baa 0x01611590
-int ARBMRouteRequest_PerimeterBuilderWrapper::vf_368(void) { return 0; }
-
-// @baa 0x016115f0
-IMPLEMENT_CLASS_AT(ARPathNode_Pontoon, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmRouterClass.cpp", 3151);
-
 // @baa 0x01611700
 int ARPathNode_Pontoon::vf_000(void) { return 1; }
 
 // @baa 0x01611710
 bool ARPathNode_Pontoon::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x01611750
-IMPLEMENT_CLASS_AT(URIdleConfig, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RIdleConfig.cpp", 8);
-
-// @baa 0x01611860
-int URIdleConfig::vf_000(void) { return 1; }
-
-// @baa 0x01611870
-bool URIdleConfig::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x016118b0
-int URSimpleIdleConfig::vf_000(void) { return 1; }
-
-// @baa 0x016118c0
-int URIdleTransitionConfig::vf_000(void) { return 1; }
-
-// @baa 0x016118d0
-int URPairedIdleConfig::vf_000(void) { return 1; }
-
-// @baa 0x016118e0
-int URIdleWithDeathConfig::vf_000(void) { return 1; }
-
-// @baa 0x016118f0
-IMPLEMENT_CLASS_AT(URSimpleIdleConfigFactoryNew, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RIdleConfig.cpp", 14);
-
-// @baa 0x01611a00
-int URSimpleIdleConfigFactoryNew::vf_000(void) { return 1; }
-
-// @baa 0x01611a10
-bool URSimpleIdleConfigFactoryNew::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x01611a90
-IMPLEMENT_CLASS_AT(URIdleTransitionConfigFactoryNew, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RIdleConfig.cpp", 15);
-
-// @baa 0x01611ba0
-int URIdleTransitionConfigFactoryNew::vf_000(void) { return 1; }
-
-// @baa 0x01611bb0
-bool URIdleTransitionConfigFactoryNew::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x01611c30
-IMPLEMENT_CLASS_AT(URIdleWithDeathConfigFactoryNew, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RIdleConfig.cpp", 16);
-
-// @baa 0x01611d40
-int URIdleWithDeathConfigFactoryNew::vf_000(void) { return 1; }
-
-// @baa 0x01611d50
-bool URIdleWithDeathConfigFactoryNew::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x01611dd0
-IMPLEMENT_CLASS_AT(URPairedIdleConfigFactoryNew, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RIdleConfig.cpp", 17);
-
-// @baa 0x01611ee0
-int URPairedIdleConfigFactoryNew::vf_000(void) { return 1; }
-
-// @baa 0x01611ef0
-bool URPairedIdleConfigFactoryNew::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x01611f70
-void URIdleConfig::vf_110(int a0) {  }
-
-// @baa 0x01611f80
-void URIdleConfig::vf_114(int a0) {  }
-
-// @baa 0x01611f90
-void URIdleConfig::FireOutputLink(class URBMBehaviour_IdleWithPlannarProp* a0) {  }
-
-// @baa 0x01611fa0
-IMPLEMENT_CLASS_AT(ARJokerTannoy, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RJokerTannoy.cpp", 4);
-
-// @baa 0x016120b0
-int ARJokerTannoy::vf_000(void) { return 1; }
-
-// @baa 0x016120c0
-bool ARJokerTannoy::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -308,34 +134,11 @@ int sub_016129e0(int a0, int a1) { return a1; }
 // @baa 0x016129f0
 IMPLEMENT_CLASS_AT(UREnvironmentSpecialMoveWrapper, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmSpecialMoveClasses.cpp", 10);
 
-int sub_005c7a20(void);
-extern undefined * g_02344738;
-// @baa 0x01612a50
-undefined4 * UObject::sub_01612a50(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_02344738);
-  return param_1;
-}
-
 // @baa 0x01612a70
 // @baa 0x01612a90
 undefined4 sub_01612a90(undefined4 param_1, undefined4 param_2)
 {
   return param_2;
-}
-
-extern undefined * g_02344848;
-// @baa 0x01612aa0
-undefined4 * UObject::sub_01612aa0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_02344848);
-  return param_1;
 }
 
 // @baa 0x01612ac0
@@ -354,9 +157,6 @@ DWORD C_01612b40::sub_01612b40(DWORD)
 
 // @baa 0x01612bb0
 int sub_01612bb0(int a0, int a1) { return a1; }
-
-// @baa 0x01612bc0
-IMPLEMENT_CLASS_AT(URSeqAct_SpeechEventManagerBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RSeqAct_SpeechEventManagerBase.cpp", 12);
 
 // @baa 0x01612cd0
 int URSeqAct_SpeechEventManagerBase::vf_000(void) { return 1; }
@@ -534,33 +334,6 @@ bool URSpecialMoveConfig::vf_004()
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
-// @baa 0x016130f0
-int URSpecialMoveConfig_RelativeAnimMove::vf_000(void) { return 1; }
-
-// @baa 0x01613100
-int URSimpleSpecialMoveConfig::vf_000(void) { return 1; }
-
-// @baa 0x01613110
-IMPLEMENT_CLASS_AT(ARSpecialMoveInstance, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmSpecialMoveClasses.cpp", 16);
-
-// @baa 0x01613220
-int ARSpecialMoveInstance::vf_000(void) { return 1; }
-
-// @baa 0x01613230
-bool ARSpecialMoveInstance::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x01613270
-int ARSpecialMoveInstance_ResonateObject::vf_000(void) { return 1; }
-
-// @baa 0x01613280
-int ARSpecialMoveInstance_SwingToVantagePoint::vf_000(void) { return 1; }
-
-// @baa 0x01613710
-void sub_01613710(void) {  }
-
 int sub_0163aad0(void);
 int sub_01659590(...);
 extern undefined4 g_026e1bac;
@@ -574,21 +347,9 @@ int sub_016139e0(void)
   return g_026e1bac;
 }
 
-// @baa 0x01613a10
-int URPlayerInput::vf_000(void) { return 1; }
-
-// @baa 0x01613a20
-bool URPlayerInput::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
 void sub_00572b30();
 // @baa 0x016163b0
 void sub_016163b0(void) { sub_00572b30(); }
-
-// @baa 0x016166a0
-int URBMRouterPath::vf_114(void) { return *(int*)((char*)this + 52); }
 
 // @baa 0x016168a0
 void URSeqAct_SpeechEventManager::vf_178(void) {  }
@@ -1340,32 +1101,6 @@ struct S_0161af30 {
 QWORD* S_0161af30::sub_0161af30(INT Index)
 {
     return &Items(Index);
-}
-
-// @baa 0x0161d9f0
-extern undefined * g_02344988;
-// @baa 0x0161da60
-undefined4 * UObject::sub_0161da60(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_02344988);
-  return param_1;
-}
-
-// @baa 0x0161da80
-int sub_01612e20(void);
-int sub_016168f0(...);
-extern undefined4 g_026e1a18;
-// @baa 0x0161dab0
-int sub_0161dab0(void)
-{
-  if (g_026e1a18 == 0) {
-    g_026e1a18 = sub_016168f0(L"BmGame");
-    sub_01612e20();
-  }
-  return g_026e1a18;
 }
 
 // @baa 0x0161dcd0

@@ -1,4 +1,4 @@
-// RBmAIClass.cpp: 71 functions
+// RBmAIClass.cpp: 151 functions
 // Placed here by: callers 35, file 35, neighbours 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -156,3 +156,309 @@ IMPLEMENT_CLASS_AT(URBMBehaviourAutoStringUp, "e:\\Projects\\Amadeus\\AA\\Game\\
 // @baa 0x015ffe00
 // @baa 0x015ffec0
 // @baa 0x015fff80
+
+// @baa 0x015d8ea0
+undefined4 sub_015d8ea0(undefined4 param_1, undefined4 param_2)
+{
+  return param_2;
+}
+
+// @baa 0x015d8eb0
+int sub_015d8eb0(int a0, int a1) { return a1; }
+
+struct C_015d8ec0 { C_015d8ec0* sub_015d8ec0(int a0); };
+
+// @baa 0x015d8ec0
+C_015d8ec0* C_015d8ec0::sub_015d8ec0(int a0) { return this; }
+
+struct C_015d8ed0 { C_015d8ed0* sub_015d8ed0(int a0); };
+
+// @baa 0x015d8ed0
+C_015d8ed0* C_015d8ed0::sub_015d8ed0(int a0) { return this; }
+
+// @baa 0x015d8f70
+int sub_015d8f70(int a0, int a1) { return a1; }
+
+// @baa 0x015d8f80
+int sub_015d8f80(int a0, int a1) { return a1; }
+
+// @baa 0x015d8f90
+int sub_015d8f90(int a0, int a1) { return a1; }
+
+struct C_015d8fa0 { C_015d8fa0* sub_015d8fa0(int a0); };
+
+// @baa 0x015d8fa0
+C_015d8fa0* C_015d8fa0::sub_015d8fa0(int a0) { return this; }
+
+// @baa 0x015d9020
+undefined4 sub_015d9020(undefined4 param_1, undefined4 param_2)
+{
+  return param_2;
+}
+
+extern char g_01ebc268[];
+// @baa 0x015d9030
+int sub_015d9030(void) { return (int)g_01ebc268; }
+
+struct C_015d9040 { C_015d9040* sub_015d9040(int a0); };
+
+// @baa 0x015d9040
+C_015d9040* C_015d9040::sub_015d9040(int a0) { return this; }
+
+struct C_015d9050 { C_015d9050* sub_015d9050(int a0); };
+
+// @baa 0x015d9050
+C_015d9050* C_015d9050::sub_015d9050(int a0) { return this; }
+
+struct C_015d9060 { C_015d9060* sub_015d9060(int a0); };
+
+// @baa 0x015d9060
+C_015d9060* C_015d9060::sub_015d9060(int a0) { return this; }
+
+// @baa 0x015d9170
+undefined4 sub_015d9170(undefined4 param_1, undefined4 param_2)
+{
+  return param_2;
+}
+
+// @baa 0x015d9180
+int sub_015d9180(void) { return (int)g_01ebc268; }
+
+// @baa 0x015d9190
+int sub_015d9190(int a0, int a1) { return a1; }
+
+// @baa 0x015d91a0
+int sub_015d91a0(int a0, int a1) { return a1; }
+
+// @baa 0x015d91b0
+int sub_015d91b0(int a0, int a1) { return a1; }
+
+struct C_015d91c0 { C_015d91c0* sub_015d91c0(int a0); };
+
+// @baa 0x015d91c0
+C_015d91c0* C_015d91c0::sub_015d91c0(int a0) { return this; }
+
+struct C_015d91d0 { C_015d91d0* sub_015d91d0(int a0); };
+
+// @baa 0x015d91d0
+C_015d91d0* C_015d91d0::sub_015d91d0(int a0) { return this; }
+
+// @baa 0x015d9270
+undefined4 sub_015d9270(undefined4 param_1, undefined4 param_2)
+{
+  return param_2;
+}
+
+struct C_015d9280 { C_015d9280* sub_015d9280(void); };
+
+// @baa 0x015d9280
+C_015d9280* C_015d9280::sub_015d9280(void) { return this; }
+
+// @baa 0x015d9290
+int sub_015d9290(int a0, int a1) { return a1; }
+
+struct C_015d92a0 { C_015d92a0* sub_015d92a0(int a0); };
+
+// @baa 0x015d92a0
+C_015d92a0* C_015d92a0::sub_015d92a0(int a0) { return this; }
+
+struct C_015d92b0 { C_015d92b0* sub_015d92b0(int a0); };
+
+// @baa 0x015d92b0
+C_015d92b0* C_015d92b0::sub_015d92b0(int a0) { return this; }
+
+// @baa 0x015d9370
+int sub_015d9370(int a0, int a1) { return a1; }
+
+int sub_005c7a20(void);
+extern undefined * g_02330420;
+// @baa 0x015d9380
+undefined4 * UObject::sub_015d9380(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_02330420);
+  return param_1;
+}
+
+// @baa 0x015da980
+
+// @baa 0x015daa90
+int ARBMAIController::vf_000(void) { return 1; }
+
+// @baa 0x015daaa0
+bool ARBMAIController::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x015daae0
+
+// @baa 0x015dac10
+bool ARBMAIManager::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x015dac50
+int ARBMPawnAI::vf_000(void) { return 1; }
+
+// @baa 0x015dac60
+
+// @baa 0x015dad70
+int ARBMPawnAIAnim::vf_000(void) { return 1; }
+
+// @baa 0x015dad80
+bool ARBMPawnAIAnim::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x015dadc0
+int ARPawnFriendly::vf_000(void) { return 1; }
+
+// @baa 0x015dadd0
+
+// @baa 0x015daee0
+int ARChatteringTeeth::vf_000(void) { return 1; }
+
+// @baa 0x015daef0
+bool ARChatteringTeeth::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x015daf30
+int ARPawnVillain::vf_000(void) { return 1; }
+
+// @baa 0x015daf40
+int ARPawnBossVenomBase::vf_000(void) { return 1; }
+
+// @baa 0x015daf50
+int ARPawnBossVenomJokerBase::vf_000(void) { return 1; }
+
+// @baa 0x015daf60
+
+// @baa 0x015db070
+int ARShockNoise_AlertProxy::vf_000(void) { return 1; }
+
+// @baa 0x015db080
+bool ARShockNoise_AlertProxy::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x015db0c0
+
+// @baa 0x015db1d0
+int ARAlertEventCoordinator::vf_000(void) { return 1; }
+
+// @baa 0x015db1e0
+bool ARAlertEventCoordinator::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x015db220
+int ARAlertEventCoordinator_General::vf_000(void) { return 1; }
+
+// @baa 0x015db230
+int ARAlertEventCoordinator_Batman::vf_000(void) { return 1; }
+
+// @baa 0x015db240
+
+// @baa 0x015db350
+int URSpotableInterface::vf_000(void) { return 1; }
+
+// @baa 0x015db360
+bool URSpotableInterface::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x015db500
+
+// @baa 0x015db610
+int ARBMDialogueCoordinator::vf_000(void) { return 1; }
+
+// @baa 0x015db620
+bool ARBMDialogueCoordinator::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x015db660
+int URBMBehaviour_AttachToEvents::vf_000(void) { return 1; }
+
+// @baa 0x015db670
+int URBMBehaviourAutoStringUp::vf_000(void) { return 1; }
+
+// @baa 0x015db680
+int URBMBehaviour_IdleWithPlannarProp::vf_000(void) { return 1; }
+
+// @baa 0x015db690
+int URBMBehaviour_MiniCutscene::vf_000(void) { return 1; }
+
+// @baa 0x015db6a0
+int URBMBehaviour_MoveTo::vf_000(void) { return 1; }
+
+// @baa 0x015db6b0
+int URBMBehaviour_MoveToGroup::vf_000(void) { return 1; }
+
+// @baa 0x015db6c0
+int URBMBehaviour_MoveToBatmanInChair::vf_000(void) { return 1; }
+
+// @baa 0x015db6d0
+int URBMBehaviour_MoveToJokerInChair::vf_000(void) { return 1; }
+
+// @baa 0x015db6e0
+int URBMBehaviour_Controlled::vf_000(void) { return 1; }
+
+// @baa 0x015db6f0
+int URBMBehaviour_Conversation::vf_000(void) { return 1; }
+
+// @baa 0x015db700
+int URBMBehaviour_StartConversation::vf_000(void) { return 1; }
+
+// @baa 0x015db710
+int URBMBehaviour_Sniper::vf_000(void) { return 1; }
+
+// @baa 0x015db720
+
+// @baa 0x015db830
+int URBMRadioManager::vf_000(void) { return 1; }
+
+// @baa 0x015db840
+bool URBMRadioManager::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x015db880
+int URBMSeqEvent_BMSpotted::vf_000(void) { return 1; }
+
+// @baa 0x015db890
+
+// @baa 0x015db9a0
+int URBMSeqEvent_BehaviourRoot::vf_000(void) { return 1; }
+
+// @baa 0x015db9b0
+bool URBMSeqEvent_BehaviourRoot::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x015db9f0
+int URBMSeqEvent_ControllerActivated::vf_000(void) { return 1; }
+
+// @baa 0x015dba00
+
+// @baa 0x015dbb10
+int URBMSpeechManager::vf_000(void) { return 1; }
+
+// @baa 0x015dbb20
+bool URBMSpeechManager::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}

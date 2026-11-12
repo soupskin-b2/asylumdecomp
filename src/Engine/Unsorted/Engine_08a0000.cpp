@@ -1,4 +1,4 @@
-// Engine_08a0000.cpp (part 1 of 4): 192 functions
+// Engine_08a0000.cpp (part 1 of 4): 161 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -616,107 +616,6 @@ void UObjectThunk_008a5630::sub_008a5630()
 // @baa 0x008a5660
 int sub_008a5660(int a0, int a1) { return a1; }
 
-extern undefined4 g_026b5a90;
-// @baa 0x008a66d0
-void sub_008a66d0(void)
-{
-  g_026b5a90 = 0;
-  return;
-}
-
-// @baa 0x008a6880
-void* ANavigationPoint::vf_330(INT a0) { return this; }
-
-// @baa 0x008a6890
-undefined4 AActor::vf_334(void)
-{
-    int param_1 = (int)this;
-
-  if ((*(char *)(param_1 + 0x90) != '\x02') && (*(char *)(param_1 + 0x90) != '\x06')) {
-    return 0;
-  }
-  return 1;
-}
-
-// @baa 0x008a69f0
-int UPathConstraint::vf_10c(int a0, int a1, int a2, int a3) { return 1; }
-
-// @baa 0x008a6d60
-void UPathGoalEvaluator::vf_118(int a0) { *(int*)((char*)this + 52) = a0; }
-
-// @baa 0x008a6e10
-void UGoal_AtActor::vf_118(INT param_2) {
-    int param_1 = (int)this;
-
-  if ((*(byte *)(param_1 + 0x48) & 1) != 0) {
-    *(undefined4 *)(param_1 + 0x34) = param_2;
-  }
-  return;
-}
-
-// @baa 0x008a6f70
-int USceneCaptureComponent::vf_000(void) { return 1; }
-
-// @baa 0x008a6f80
-bool USceneCaptureComponent::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x008a6fc0
-int USceneCapture2DComponent::vf_000(void) { return 1; }
-
-// @baa 0x008a6fd0
-int USceneCaptureCubeMapComponent::vf_000(void) { return 1; }
-
-// @baa 0x008a6fe0
-int USceneCaptureReflectComponent::vf_000(void) { return 1; }
-
-// @baa 0x008a6ff0
-int USceneCapturePortalComponent::vf_000(void) { return 1; }
-
-// @baa 0x008a7000
-IMPLEMENT_CLASS_AT(ASceneCaptureActor, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSceneCapture.cpp", 15);
-
-// @baa 0x008a7110
-int ASceneCaptureActor::vf_000(void) { return 1; }
-
-// @baa 0x008a7120
-bool ASceneCaptureActor::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x008a7160
-int ASceneCapture2DActor::vf_000(void) { return 1; }
-
-// @baa 0x008a7170
-int ASceneCaptureCubeMapActor::vf_000(void) { return 1; }
-
-// @baa 0x008a7180
-int ASceneCaptureReflectActor::vf_000(void) { return 1; }
-
-// @baa 0x008a7190
-int ASceneCapturePortalActor::vf_000(void) { return 1; }
-
-// @baa 0x008a71a0
-int APortalTeleporter::vf_000(void) { return 1; }
-
-int sub_007654e0(void);
-// @baa 0x008a71b0
-void USceneCaptureComponent::vf_114(void)
-{
-    int param_1 = (int)this;
-
-  sub_007654e0();
-  *(uint *)(param_1 + 0x4c) = *(uint *)(param_1 + 0x4c) | 0x20;
-  return;
-}
-
-void sub_005db340();
-// @baa 0x008a72e0
-void USceneCaptureComponent::vf_02c(void) { sub_005db340(); }
-
 // @baa 0x008a72f0
 void USceneCaptureComponent::sub_008a72f0(float param_2)
 {
@@ -728,80 +627,7 @@ void USceneCaptureComponent::sub_008a72f0(float param_2)
   return;
 }
 
-struct C_008a7480 {
-    undefined4 sub_008a7480(byte);
-};
-
 int sub_0053dfa0(...);
-int sub_00af9490(void);
-// @baa 0x008a7480
-undefined4 C_008a7480::sub_008a7480(byte param_2)
-{
-    undefined4 param_1 = (undefined4)this;
-
-  sub_00af9490();
-  if ((param_2 & 1) != 0) {
-    sub_0053dfa0(param_1);
-  }
-  return param_1;
-}
-
-// @baa 0x008a7510
-void sub_008a7510(void) {  }
-
-// @baa 0x008a7520
-void USceneCaptureReflectComponent::vf_114(void)
-{
-    int param_1 = (int)this;
-
-  sub_007654e0();
-  *(uint *)(param_1 + 0x4c) = *(uint *)(param_1 + 0x4c) | 0x20;
-  return;
-}
-
-// @baa 0x008a7530
-void sub_008a7530(void) {  }
-
-// @baa 0x008a7540
-void sub_008a7540(void) {  }
-
-// @baa 0x008a7550
-void USceneCapturePortalComponent::vf_114(void)
-{
-    int param_1 = (int)this;
-
-  sub_007654e0();
-  *(uint *)(param_1 + 0x4c) = *(uint *)(param_1 + 0x4c) | 0x20;
-  return;
-}
-
-struct FVec_ {
-    FLOAT X, Y, Z;
-    FVec_() {}
-    FVec_(FLOAT InX, FLOAT InY, FLOAT InZ) : X(InX), Y(InY), Z(InZ) {}
-};
-
-struct FLocOwner_ {
-    INT Pad0;
-    AActor* Base;        /* 0x4 */
-    BYTE Pad1[0x98];
-    AActor* Target;      /* 0xa0 */
-    FVec_ sub_008a7560();
-};
-
-// @baa 0x008a7560
-FVec_ FLocOwner_::sub_008a7560()
-{
-    if (Target)
-    {
-        return *(FVec_*)&Target->Location;
-    }
-    if (Base)
-    {
-        return *(FVec_*)&Base->Location;
-    }
-    return FVec_(0.f, 0.f, 0.f);
-}
 
 struct C_008a76c0 { int a, b; C_008a76c0(int, int); };
 
@@ -1469,20 +1295,3 @@ void CNode::sub_008aef40()
     sub_008a4ba0();
 }
 
-// @baa 0x008a6d00
-INT UPathGoalEvaluator::vf_10c(INT A, INT B)
-{
-    if (NextEvaluator != NULL)
-        return NextEvaluator->vf_10c(A, B);
-    return 0;
-}
-
-// @baa 0x008a6d20
-// Default implementation of vf_110 for UPathGoalEvaluator: forwards the call to
-// the next evaluator in the chain, or returns 0 when the chain ends.
-INT UPathGoalEvaluator::vf_110(INT A, INT B)
-{
-	if (NextEvaluator != NULL)
-		return NextEvaluator->vf_110(A, B);
-	return 0;
-}

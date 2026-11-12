@@ -1,4 +1,4 @@
-// Engine_0650000.cpp (part 1 of 9): 743 functions
+// Engine_0650000.cpp (part 1 of 9): 740 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -27,18 +27,6 @@ bool sub_006502f0(int param_1)
 void sub_007249d0();
 // @baa 0x00650300
 void sub_00650300(void) { sub_007249d0(); }
-
-// @baa 0x00650310
-IMPLEMENT_CLASS_AT(UDOFAndBloomEffect, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\DOFAndBloomEffect.cpp", 11);
-
-// @baa 0x00650420
-int UDOFAndBloomEffect::vf_000(void) { return 1; }
-
-// @baa 0x00650430
-bool UDOFAndBloomEffect::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
 
 int sub_00716170(...);
 // @baa 0x006504b0

@@ -1,4 +1,4 @@
-// Engine_0c80000.cpp: 131 functions
+// Engine_0c80000.cpp: 127 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -796,9 +796,6 @@ void UCodecMovie::vf_130(int a0) {  }
 // @baa 0x00c8c680
 float UCodecMovie::vf_134(void) { return *(float*)((char*)this + 48); }
 
-// @baa 0x00c8c690
-void __stdcall sub_00c8c690(int a0, int a1) {  }
-
 // @baa 0x00c8c6a0
 void UCodecMovie::vf_13c(int a0) {  }
 
@@ -811,29 +808,8 @@ void UCodecMovie::vf_144(void) {  }
 // @baa 0x00c8c6d0
 int sub_005c7a20(void);
 extern undefined * g_02085a70;
-// @baa 0x00c8c6f0
-undefined4 * UObject::sub_00c8c6f0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_02085a70);
-  return param_1;
-}
-
-// @baa 0x00c8c710
-int sub_00c8c710(int a0, int a1) { return a1; }
 
 extern undefined * g_02085bb8;
-// @baa 0x00c8c720
-undefined4 * UObject::sub_00c8c720(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_02085bb8);
-  return param_1;
-}
 
 // @baa 0x00c8c740
 IMPLEMENT_CLASS_AT(UCodecMovieFallback, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnCodecs.cpp", 10);

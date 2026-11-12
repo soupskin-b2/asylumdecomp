@@ -1,4 +1,4 @@
-// Engine_0b50000.cpp (part 1 of 4): 106 functions
+// Engine_0b50000.cpp (part 1 of 4): 97 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -38,21 +38,6 @@ void C_00b50470::sub_00b50470(int param_2)
   return;
 }
 
-// @baa 0x00b50f00
-int UParticleModuleBeamSource::vf_000(void) { return 1; }
-
-// @baa 0x00b50f10
-void UParticleModuleBeamSource::vf_168(void) {  }
-
-// @baa 0x00b50fd0
-int UParticleModuleBeamTarget::vf_000(void) { return 1; }
-
-// @baa 0x00b50fe0
-int UParticleModuleBeamTarget::vf_114(int a0) { return 0; }
-
-// @baa 0x00b50ff0
-void UParticleModuleBeamTarget::vf_168(void) {  }
-
 int sub_008f1600(...);
 int sub_008f9c60(void);
 extern undefined4 g_026b5b88;
@@ -65,21 +50,6 @@ int sub_00b51000(void)
   }
   return g_026b5b88;
 }
-
-// @baa 0x00b51030
-IMPLEMENT_CLASS_AT(AEmitter, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnParticleComponents.cpp", 17);
-
-// @baa 0x00b51140
-int AEmitter::vf_000(void) { return 1; }
-
-// @baa 0x00b51150
-bool AEmitter::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00b51190
-int AEmitterCameraLensEffectBase::vf_000(void) { return 1; }
 
 // @baa 0x00b51c10
 void __stdcall sub_00b51c10(int a0, int a1) {  }

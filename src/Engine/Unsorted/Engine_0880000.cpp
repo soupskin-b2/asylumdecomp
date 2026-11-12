@@ -1,4 +1,4 @@
-// Engine_0880000.cpp (part 1 of 6): 86 functions
+// Engine_0880000.cpp (part 1 of 6): 79 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -223,20 +223,6 @@ int sub_00888e80(void)
   return g_026c59b0;
 }
 
-struct C_00888f10 { C_00888f10* sub_00888f10(int a0); };
-
-// @baa 0x00888f10
-C_00888f10* C_00888f10::sub_00888f10(int a0) { return this; }
-
-// @baa 0x00888fe0
-int UInteraction::vf_114(int a0, int a1, int a2, int a3, int a4, int a5) { return 0; }
-
-// @baa 0x00888ff0
-int UInteraction::vf_118(int a0, int a1, int a2, int a3, int a4, int a5) { return 0; }
-
-// @baa 0x00889000
-int UInteraction::vf_11c(int a0, int a1) { return 0; }
-
 int sub_00888eb0(void);
 int sub_005c7a70(...);
 // @baa 0x00889010
@@ -267,28 +253,6 @@ undefined4 * UInteraction::sub_00889040(void)
   sub_00d6bfd0();
   *param_1 = (undefined4)(&g_01f4d490);
   return param_1;
-}
-
-// @baa 0x00889060
-IMPLEMENT_CLASS_AT(UPlayerManagerInteraction, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPlayer.cpp", 98);
-
-// @baa 0x00889390
-bool UPlayer::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00889be0
-void UPlayer::vf_10c(int param_2)
-{
-    int param_1 = (int)this;
-
-  if (*(int *)(param_1 + 0x34) != 0) {
-    *(undefined4 *)(*(int *)(param_1 + 0x34) + 0x330) = 0;
-  }
-  *(int *)(param_2 + 0x330) = param_1;
-  *(int *)(param_1 + 0x34) = param_2;
-  return;
 }
 
 struct M_00889c10 { void sub_00ab3130(); };

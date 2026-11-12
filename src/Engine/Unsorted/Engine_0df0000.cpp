@@ -1,4 +1,4 @@
-// Engine_0df0000.cpp (part 1 of 5): 201 functions
+// Engine_0df0000.cpp (part 1 of 5): 191 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -271,21 +271,6 @@ int sub_00df2150(int a0, int a1) { return a1; }
 // @baa 0x00df2160
 int sub_00df2160(int a0, int a1) { return a1; }
 
-// @baa 0x00df2170
-IMPLEMENT_CLASS_AT(AFluidInfluenceActor, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\FluidInfluenceActor.cpp", 9);
-
-// @baa 0x00df2280
-int AFluidInfluenceActor::vf_000(void) { return 1; }
-
-// @baa 0x00df2290
-bool AFluidInfluenceActor::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00df22d0
-IMPLEMENT_CLASS_AT(UFluidInfluenceComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\FluidInfluenceActor.cpp", 10);
-
 // @baa 0x00df23e0
 int UFluidInfluenceComponent::vf_000(void) { return 1; }
 
@@ -356,21 +341,6 @@ void sub_00df2f70(S* p, INT Value)
 // @baa 0x00df2f90
 int sub_00df2f90(int a0, int a1) { return a1; }
 
-// @baa 0x00df38b0
-int UVoiceChannel::vf_000(void) { return 1; }
-
-// @baa 0x00df3930
-IMPLEMENT_CLASS_AT(UGuidCache, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnConn.cpp", 148);
-
-// @baa 0x00df3a40
-int UGuidCache::vf_000(void) { return 1; }
-
-// @baa 0x00df3a50
-bool UGuidCache::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
 struct C_00df4150 {
     int sub_00df4150();
 };
@@ -422,9 +392,6 @@ undefined4 UDownload::vf_10c(void)
 }
 
 struct C_00df41e0 { C_00df41e0* sub_00df41e0(void); };
-
-// @baa 0x00df41e0
-C_00df41e0* C_00df41e0::sub_00df41e0(void) { *(int*)((char*)this + 0) = (int)g_020e2fdc; return this; }
 
 // @baa 0x00df42a0
 IMPLEMENT_CLASS_AT(UDownload, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnDownload.cpp", 315);
@@ -1522,12 +1489,6 @@ void UDownload::vf_118(void) {  }
 // @baa 0x00dfce80
 // @baa 0x00dfd530
 IMPLEMENT_CLASS_AT(UVoiceChannel, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnChan.cpp", 1867);
-
-// @baa 0x00dfd640
-bool UVoiceChannel::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
 
 void sub_004025d0(void*);
 struct D { void* p; ~D(){ if(0) sub_004025d0(p);} };

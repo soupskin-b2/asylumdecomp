@@ -1,4 +1,4 @@
-// Editor_1010000.cpp (part 1 of 5): 517 functions
+// Editor_1010000.cpp (part 1 of 5): 511 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -46,18 +46,6 @@ extern undefined4 g_026c0b60;
 int sub_01013a90(int param_1)
 {
   return ((uint)(g_026c0b60 != 0) * 8 + 4) * param_1;
-}
-
-// @baa 0x01015df0
-IMPLEMENT_CLASS_AT(UExportLocCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\LocalizationCommandlets.cpp", 104);
-
-// @baa 0x01015f00
-int UExportLocCommandlet::vf_000(void) { return 1; }
-
-// @baa 0x01015f10
-bool UExportLocCommandlet::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01016060
@@ -109,18 +97,6 @@ undefined4 C_010160d0::sub_010160d0(void)
     return 1;
   }
   return 0;
-}
-
-// @baa 0x010160f0
-IMPLEMENT_CLASS_AT(UAnalyzeScriptCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UAnalyzeScriptCommandlet.cpp", 169);
-
-// @baa 0x01016200
-int UAnalyzeScriptCommandlet::vf_000(void) { return 1; }
-
-// @baa 0x01016210
-bool UAnalyzeScriptCommandlet::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 struct E { BYTE Bytes[76]; };

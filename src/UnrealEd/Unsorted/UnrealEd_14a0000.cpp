@@ -1,4 +1,4 @@
-// UnrealEd_14a0000.cpp (part 1 of 6): 59 functions
+// UnrealEd_14a0000.cpp (part 1 of 6): 53 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -641,94 +641,6 @@ TConstSetBitIterator_014ad960& TConstSetBitIterator_014ad960::operator++()
 // @baa 0x014ada10
 IMPLEMENT_CLASS_AT(UUILayer, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\UnUIEditor.cpp", 37);
 
-// @baa 0x014ada90
-int sub_005c7a20(void);
-extern undefined * g_022b2718;
-// @baa 0x014adab0
-undefined4 * UObject::sub_014adab0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_022b2718);
-  return param_1;
-}
-
-extern undefined * g_022b2828;
-// @baa 0x014adad0
-undefined4 * UObject::sub_014adad0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_022b2828);
-  return param_1;
-}
-
 // @baa 0x014adaf0
 IMPLEMENT_CLASS_AT(UUILayerRoot, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\UnUIEditor.cpp", 38);
 
-// @baa 0x014adb50
-struct C_014adb70 {
-    undefined4 * sub_014adb70(undefined4);
-    int sub_014a9a40(int);
-};
-
-extern undefined * g_022b2938;
-// @baa 0x014adb70
-undefined4 * C_014adb70::sub_014adb70(undefined4 param_2)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-  ((C_014adb70 *)(this))->sub_014a9a40(param_2);
-  param_1[0x28] = 0;
-  *param_1 = (undefined4)(&g_022b2938);
-  return param_1;
-}
-
-struct C_014adba0 {
-    undefined4 sub_014adba0(byte);
-};
-
-// @baa 0x014adba0
-undefined4 C_014adba0::sub_014adba0(byte param_2)
-{
-    undefined4 param_1 = (undefined4)this;
-
-  sub_013e9bc0();
-  if ((param_2 & 1) != 0) {
-    sub_0053dfa0(param_1);
-  }
-  return param_1;
-}
-
-struct C_014adbc0 {
-    undefined4 * sub_014adbc0(undefined4);
-    int sub_014a9a40(int);
-};
-
-extern undefined * g_022b29e0;
-// @baa 0x014adbc0
-undefined4 * C_014adbc0::sub_014adbc0(undefined4 param_2)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-  ((C_014adbc0 *)(this))->sub_014a9a40(param_2);
-  param_1[0x28] = 0;
-  *param_1 = (undefined4)(&g_022b29e0);
-  return param_1;
-}
-
-struct C_014adc20 {
-    undefined4 * sub_014adc20(undefined4);
-    int sub_014a9a40(int);
-};
-
-extern undefined * g_022b2a88;
-// @baa 0x014adc20
-undefined4 * C_014adc20::sub_014adc20(undefined4 param_2)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-  ((C_014adc20 *)(this))->sub_014a9a40(param_2);
-  param_1[0x28] = 0;
-  *param_1 = (undefined4)(&g_022b2a88);
-  return param_1;
-}

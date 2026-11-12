@@ -1,4 +1,4 @@
-// Engine_0cb0000.cpp (part 1 of 4): 221 functions
+// Engine_0cb0000.cpp (part 1 of 4): 208 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -8,18 +8,6 @@ int USaveGameSummary::vf_000(void) { return 1; }
 
 // @baa 0x00cb00b0
 bool USaveGameSummary::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00cb00f0
-IMPLEMENT_CLASS_AT(UObjectReferencer, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnEngine.cpp", 239);
-
-// @baa 0x00cb0200
-int UObjectReferencer::vf_000(void) { return 1; }
-
-// @baa 0x00cb0210
-bool UObjectReferencer::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1051,79 +1039,10 @@ undefined4 UObject::sub_00cb2540(byte param_2)
 // @baa 0x00cb25f0
 IMPLEMENT_CLASS_AT(UDistributionFloatSoundParameter, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAudioNodes.cpp", 2604);
 
-// @baa 0x00cb2660
-struct C_00cb3030 {
-    undefined4 sub_00cb3030(byte);
-};
-
-int sub_007249d0(void);
-// @baa 0x00cb3030
-undefined4 C_00cb3030::sub_00cb3030(byte param_2)
-{
-    undefined4 param_1 = (undefined4)this;
-
-  sub_007249d0();
-  if ((param_2 & 1) != 0) {
-    sub_0053dfa0(param_1);
-  }
-  return param_1;
-}
-
-struct C_00cb30c0 {
-    undefined4 sub_00cb30c0(byte);
-};
-
-// @baa 0x00cb30c0
-undefined4 C_00cb30c0::sub_00cb30c0(byte param_2)
-{
-    undefined4 param_1 = (undefined4)this;
-
-  sub_007249d0();
-  if ((param_2 & 1) != 0) {
-    sub_0053dfa0(param_1);
-  }
-  return param_1;
-}
-
-struct C_00cb3150 {
-    undefined4 sub_00cb3150(byte);
-};
-
-// @baa 0x00cb3150
-undefined4 C_00cb3150::sub_00cb3150(byte param_2)
-{
-    undefined4 param_1 = (undefined4)this;
-
-  sub_007249d0();
-  if ((param_2 & 1) != 0) {
-    sub_0053dfa0(param_1);
-  }
-  return param_1;
-}
-
-int sub_00cb3170(void);
-// @baa 0x00cb31e0
-undefined4 ULensFlare::sub_00cb31e0(byte param_2)
-{
-    undefined4 param_1 = (undefined4)this;
-
-  sub_00cb3170();
-  if ((param_2 & 1) != 0) {
-    sub_0053dfa0(param_1);
-  }
-  return param_1;
-}
-
 struct C_00cb3700 { int sub_00cb3700(void); };
 
 // @baa 0x00cb3700
 int C_00cb3700::sub_00cb3700(void) { return *(int*)((char*)this + 4); }
-
-// @baa 0x00cb42b0
-bool sub_00cb42b0(void)
-{
-  return 1 < *(int *)(g_026c3cdc + 0x328);
-}
 
 struct C_00cb4370{
 int*sub_00cb4370(int*);
@@ -1423,24 +1342,6 @@ if(iVar1!=0){
 (*(int(__stdcall**)(int))(*g_026b0d94+0x230))((int)(iVar1));
 }
 return;
-}
-
-// @baa 0x00cbbec0
-IMPLEMENT_CLASS_AT(UCodecMovieFallback, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnCodecs.cpp", 10);
-
-// @baa 0x00cbbfd0
-bool UCodecMovieFallback::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00cbc010
-IMPLEMENT_CLASS_AT(UCodecMovieBink, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnCodecs.cpp", 11);
-
-// @baa 0x00cbc120
-bool UCodecMovieBink::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 struct C_00cbc270{
@@ -1765,10 +1666,3 @@ uint C_00cbf880::sub_00cbf880(void)
   return *(uint *)(param_1 + 0x40) | -(uint)(*(uint *)(param_1 + 0x40) == 0) & param_1;
 }
 
-extern void sub_00630f20(void* p, const wchar_t* fmt, const wchar_t* name);
-extern void* g_026667a8;
-// @baa 0x00cb5aa0
-void UClient::AllowMessageProcessing(INT)
-{
-	sub_00630f20(g_026667a8, L"Pure virtual not implemented (%s)", L"UClient::AllowMessageProcessing");
-}

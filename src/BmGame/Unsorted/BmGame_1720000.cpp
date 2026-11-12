@@ -1,4 +1,4 @@
-// BmGame_1720000.cpp (part 1 of 3): 38 functions
+// BmGame_1720000.cpp (part 1 of 3): 30 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -243,37 +243,6 @@ int sub_01727e00(void)
   return g_026e2518;
 }
 
-// @baa 0x01728110
-int sub_01728110(void) { return 1690; }
-
-struct C_01728120 {
-    int sub_01728120();
-};
-
-// @baa 0x01728120
-int C_01728120::sub_01728120(void)
-{
-    int param_1 = (int)this;
-
-  return *(int *)(param_1 + 0x84) * 4;
-}
-
-struct C_01728130 {
-    int sub_01728130();
-};
-
-// @baa 0x01728130
-int C_01728130::sub_01728130(void)
-{
-    int param_1 = (int)this;
-
-  return *(int *)(param_1 + 0x84) * 4 + 0xe0;
-}
-
-void sub_006837e0();
-// @baa 0x01728140
-void sub_01728140(void) { sub_006837e0(); }
-
 struct C_01729520 { C_01729520* sub_01729520(void); };
 
 // @baa 0x01729520
@@ -309,54 +278,12 @@ undefined4 * UPrimitiveComponent::sub_0172ac30(void)
 // @baa 0x0172ac50
 IMPLEMENT_CLASS_AT(URHidePointRenderingComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameEnvironmentClasses.cpp", 14);
 
-// @baa 0x0172acb0
-extern undefined * g_023ca0d0;
-// @baa 0x0172ace0
-undefined4 * UPrimitiveComponent::sub_0172ace0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_006f7810();
-  *param_1 = (undefined4)(&g_023ca0d0);
-  return param_1;
-}
-
 // @baa 0x0172ad00
 IMPLEMENT_CLASS_AT(URPatrolPointRenderingComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameEnvironmentClasses.cpp", 17);
-
-// @baa 0x0172ad60
-void sub_01729700();
-// @baa 0x0172b130
-void sub_0172b130(void) { sub_01729700(); }
-
-int sub_005c7a20(void);
-extern undefined * g_023ca320;
-// @baa 0x0172b150
-undefined4 * UObject::sub_0172b150(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_023ca320);
-  return param_1;
-}
 
 // @baa 0x0172b170
 IMPLEMENT_CLASS_AT(URPersistentData, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmSaveGameManager.cpp", 15);
 
-// @baa 0x0172b390
-extern undefined * g_023ca430;
-// @baa 0x0172b3c0
-undefined4 * UObject::sub_0172b3c0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_023ca430);
-  return param_1;
-}
-
 // @baa 0x0172b3e0
 IMPLEMENT_CLASS_AT(URPersistentOptions, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmSaveGameManager.cpp", 16);
 
-// @baa 0x0172b540

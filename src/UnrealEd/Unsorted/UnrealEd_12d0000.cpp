@@ -1,4 +1,4 @@
-// UnrealEd_12d0000.cpp (part 1 of 3): 45 functions
+// UnrealEd_12d0000.cpp (part 1 of 3): 44 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -420,5 +420,3 @@ void sub_012df480(undefined4 param_1, undefined4 param_2)
   return;
 }
 
-// @baa 0x012df4a0
-int UInterpTrackParticleReplayHelper::vf_118(int a0, int a1) { return 1; }

@@ -1,4 +1,4 @@
-// Core_0600000.cpp (part 1 of 6): 289 functions
+// Core_0600000.cpp (part 1 of 6): 287 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -99,25 +99,6 @@ struct C_00600460 { int a, b, c; C_00600460(); };
 
 // @baa 0x00600460
 C_00600460::C_00600460() : a(0), b(0), c(0) {}
-
-struct M_00600650 { void sub_0040fcc0(); };
-
-struct C_00600650 { char pad[44]; M_00600650 m; void sub_00600650(); };
-
-// @baa 0x00600650
-void C_00600650::sub_00600650() { m.sub_0040fcc0(); }
-
-struct C_00600660 {
-    int sub_00600660();
-};
-
-// @baa 0x00600660
-int C_00600660::sub_00600660(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  return param_1[5] * 0x10 + *(int *)*param_1;
-}
 
 void sub_004025d0(void*);
 struct D { void* p; ~D(){ if(0) sub_004025d0(p);} };
@@ -2388,7 +2369,6 @@ UExporter::UExporter()
     *(DWORD*)((BYTE*)this + 0x54) &= 0xfffffffd;
 }
 
-IMPLEMENT_CLASS_AT(UExporter, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Core\\Src\\UExporter.cpp", 36);
 // @baa 0x0060b340
 int UExporter::vf_10c(int a0, int a1, int a2, int a3, int a4, int a5) { return 0; }
 

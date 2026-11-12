@@ -1,4 +1,4 @@
-// Engine_06c0000.cpp (part 1 of 10): 92 functions
+// Engine_06c0000.cpp (part 1 of 10): 82 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -717,36 +717,6 @@ int sub_006ca170(void)
   return g_026b0da0;
 }
 
-// @baa 0x006ca1a0
-IMPLEMENT_CLASS_AT(UFogVolumeConstantDensityComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\FogVolumeDensityComponents.cpp", 304);
-
-// @baa 0x006ca2b0
-bool UFogVolumeConstantDensityComponent::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x006ca2f0
-IMPLEMENT_CLASS_AT(UFogVolumeLinearHalfspaceDensityComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\FogVolumeDensityComponents.cpp", 324);
-
-// @baa 0x006ca400
-bool UFogVolumeLinearHalfspaceDensityComponent::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x006ca440
-IMPLEMENT_CLASS_AT(UFogVolumeSphericalDensityComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\FogVolumeDensityComponents.cpp", 357);
-
-// @baa 0x006ca550
-bool UFogVolumeSphericalDensityComponent::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x006ca590
-IMPLEMENT_CLASS_AT(UFogVolumeConeDensityComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\FogVolumeDensityComponents.cpp", 419);
-
 // @baa 0x006ca6a0
 bool UFogVolumeConeDensityComponent::vf_004()
 {
@@ -1045,15 +1015,6 @@ IMPLEMENT_CLASS_AT(AFogVolumeDensityInfo, "e:\\Projects\\Amadeus\\AA\\Game\\Unre
 // @baa 0x006cf060
 // @baa 0x006cf150
 IMPLEMENT_CLASS_AT(AFogVolumeConeDensityInfo, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\FogVolumeDensityComponents.cpp", 394);
-
-// @baa 0x006cf210
-IMPLEMENT_CLASS_AT(AFogVolumeConstantDensityInfo, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\FogVolumeDensityComponents.cpp", 303);
-
-// @baa 0x006cf2d0
-IMPLEMENT_CLASS_AT(AFogVolumeLinearHalfspaceDensityInfo, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\FogVolumeDensityComponents.cpp", 323);
-
-// @baa 0x006cf390
-IMPLEMENT_CLASS_AT(AFogVolumeSphericalDensityInfo, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\FogVolumeDensityComponents.cpp", 356);
 
 struct C_006cfb60 {
     undefined4 sub_006cfb60();

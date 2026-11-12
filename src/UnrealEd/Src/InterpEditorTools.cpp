@@ -1,4 +1,4 @@
-// InterpEditorTools.cpp (part 1 of 5): 152 functions
+// InterpEditorTools.cpp (part 1 of 5): 157 functions
 // Placed here by: neighbours 112, class 23, file 12, callers 5.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -848,6 +848,25 @@ void C_013006d0::sub_013006d0()
 // @baa 0x01300ce0
 // @baa 0x01300df0
 bool UInterpTrackColorPropHelper::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x012df4a0
+int UInterpTrackParticleReplayHelper::vf_118(int a0, int a1) { return 1; }
+
+// @baa 0x012f0540
+
+// @baa 0x012f0650
+bool UInterpTrackAnimControlHelper::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x012f0690
+
+// @baa 0x012f07a0
+bool UInterpTrackDirectorHelper::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

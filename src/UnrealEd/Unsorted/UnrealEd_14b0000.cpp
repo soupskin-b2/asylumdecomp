@@ -1,4 +1,4 @@
-// UnrealEd_14b0000.cpp: 49 functions
+// UnrealEd_14b0000.cpp: 44 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -248,15 +248,6 @@ void sub_014b3b20();
 // @baa 0x014ba170
 void sub_014ba170(void) { sub_014b3b20(); }
 
-// @baa 0x014ba650
-IMPLEMENT_CLASS_AT(UUILayerRoot, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\UnUIEditor.cpp", 38);
-
-// @baa 0x014ba760
-bool UUILayerRoot::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
 struct M_014ba7d0 { void sub_014b9470(); };
 
 struct C_014ba7d0 { char pad[12]; M_014ba7d0 m; void sub_014ba7d0(); };
@@ -311,18 +302,6 @@ int UTexture2D::sub_014bb0f0(void)
   *(undefined4 *)(param_1 + 0x38) = 0;
   return param_1;
 }
-
-// @baa 0x014bb110
-IMPLEMENT_CLASS_AT(UUISceneFactoryNew, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\UnUIEditor.cpp", 33);
-
-// @baa 0x014bb220
-bool UUISceneFactoryNew::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x014bb260
-IMPLEMENT_CLASS_AT(UUISceneFactoryText, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\UnUIEditor.cpp", 34);
 
 // @baa 0x014bb370
 bool UUISceneFactoryText::vf_004()

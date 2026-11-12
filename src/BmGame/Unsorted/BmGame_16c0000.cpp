@@ -1,4 +1,4 @@
-// BmGame_16c0000.cpp (part 1 of 21): 150 functions
+// BmGame_16c0000.cpp (part 1 of 21): 146 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -310,9 +310,6 @@ void sub_007b9350();
 // @baa 0x016c6980
 void sub_016c6980(void) { sub_007b9350(); }
 
-// @baa 0x016c6d40
-IMPLEMENT_CLASS_AT(URCapeConfigFactoryNew, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RCapeComponent.cpp", 22);
-
 extern undefined * g_02392658;
 // @baa 0x016c6e40
 undefined4 * UObject::sub_016c6e40(void)
@@ -568,18 +565,6 @@ undefined4 * UObject::sub_016cc0c0(void)
 // @baa 0x016cc210
 IMPLEMENT_CLASS_AT(URSeqAct_CrocRelativeAnimCamera, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BMBossCrocClass.cpp", 20);
 
-// @baa 0x016cc270
-extern undefined * g_02397268;
-// @baa 0x016cc2a0
-undefined4 * UObject::sub_016cc2a0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_02397268);
-  return param_1;
-}
-
 // @baa 0x016cc2c0
 IMPLEMENT_CLASS_AT(URSeqAct_CrocTeleportFinalAttackRefPoints, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BMBossCrocClass.cpp", 18);
 
@@ -597,18 +582,6 @@ undefined4 * UObject::sub_016cc350(void)
 
 // @baa 0x016cc370
 IMPLEMENT_CLASS_AT(URSeqAct_SetScarecrowCamera, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmBossScarecrowClass.cpp", 22);
-
-// @baa 0x016cc3f0
-extern undefined * g_023975b0;
-// @baa 0x016cc420
-undefined4 * UObject::sub_016cc420(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_023975b0);
-  return param_1;
-}
 
 // @baa 0x016cc440
 IMPLEMENT_CLASS_AT(URSeqAct_SetScarecrowPositionOnPath, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmBossScarecrowClass.cpp", 23);
@@ -812,9 +785,6 @@ bool URCapeRenderingComponent::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
-
-// @baa 0x016cdfc0
-IMPLEMENT_CLASS_AT(URCapeSkeletalMeshComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RCapeSkeletalMeshComponent.cpp", 12);
 
 // @baa 0x016ce0d0
 int URCapeSkeletalMeshComponent::vf_000(void) { return 1; }

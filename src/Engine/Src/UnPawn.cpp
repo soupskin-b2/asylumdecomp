@@ -1,4 +1,4 @@
-// UnPawn.cpp (part 1 of 2): 92 functions
+// UnPawn.cpp (part 1 of 2): 96 functions
 // Placed here by: neighbours 49, class 32, callers 3, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1302,4 +1302,28 @@ UBOOL C_0087d810::sub_0087d810(T_0087d370* Item) {
 
 void sub_0087d820(C_0087d810* Self, T_0087d370* Item) {
     (void)Self->sub_0087d810(Item);
+}
+
+// @baa 0x0086b4f0
+void AActor::vf_204(int a0, int a1) {  }
+
+// @baa 0x008a66d0
+void sub_008a66d0(void)
+{
+  g_026b5a90 = 0;
+  return;
+}
+
+// @baa 0x008a6880
+void* ANavigationPoint::vf_330(INT a0) { return this; }
+
+// @baa 0x008a6890
+undefined4 AActor::vf_334(void)
+{
+    int param_1 = (int)this;
+
+  if ((*(char *)(param_1 + 0x90) != '\x02') && (*(char *)(param_1 + 0x90) != '\x06')) {
+    return 0;
+  }
+  return 1;
 }

@@ -1,4 +1,4 @@
-// Engine_06a0000.cpp (part 1 of 2): 263 functions
+// Engine_06a0000.cpp (part 1 of 2): 247 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -902,9 +902,6 @@ void sub_006efb40();
 // @baa 0x006aa300
 void sub_006aa300(void) { sub_006efb40(); }
 
-// @baa 0x006aa460
-IMPLEMENT_CLASS_AT(UDrawLightRadiusComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\DrawLightRadiusComponent.cpp", 9);
-
 // @baa 0x006aa570
 int UDrawLightRadiusComponent::vf_000(void) { return 1; }
 
@@ -1685,31 +1682,6 @@ struct C_006ac900 { void sub_006ac900(void); };
 // @baa 0x006ac900
 void C_006ac900::sub_006ac900(void) { *(int*)((char*)this + 0) = (int)g_01ecdfc8; }
 
-// @baa 0x006aca20
-IMPLEMENT_CLASS_AT(UHeightFogComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\HeightFogComponent.cpp", 8);
-
-// @baa 0x006acb30
-int UHeightFogComponent::vf_000(void) { return 1; }
-
-// @baa 0x006acb40
-bool UHeightFogComponent::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-struct C_view_006acbe0{
-int sub_0076d150(int);
-};
-
-// @baa 0x006acbe0
-void UHeightFogComponent::vf_11c(undefined4 param_2)
-{
-int param_1=(DWORD)this;
-((C_view_006acbe0*)(this))->sub_0076d150(param_2);
-(*(int(__stdcall**)(int))(**(int**)(0x3c+param_1)+0x38))((int)(param_1));
-return;
-}
-
 int sub_00765d00(void);
 // @baa 0x006acc00
 void UHeightFogComponent::sub_006acc00(uint param_2)
@@ -1737,9 +1709,6 @@ uint sub_006accb0(int param_1)
 {
   return *(uint *)(param_1 + 0x54) >> 4 & 1;
 }
-
-// @baa 0x006ad5c0
-IMPLEMENT_CLASS_AT(ULightEnvironmentComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\LightEnvironmentComponent.cpp", 8);
 
 // @baa 0x006ad6d0
 int ULightEnvironmentComponent::vf_000(void) { return 1; }
@@ -1859,53 +1828,6 @@ void C_006adbc0::sub_006adbc0(undefined4 param_2)
 // @baa 0x006adbf0
 void __stdcall sub_006adbf0(int a0, int a1, int a2) {  }
 
-// @baa 0x006adc00
-IMPLEMENT_CLASS_AT(UMaterial, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\Material.cpp", 10);
-
-// @baa 0x006add10
-int UMaterial::vf_000(void) { return 1; }
-
-// @baa 0x006add20
-bool UMaterial::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x006ae080
-void UMaterial::sub_006ae080(void) { *(int*)((char*)this + 0) = (int)g_01ecdfdc; }
-
-struct C_006ae090 { C_006ae090* sub_006ae090(void); };
-
-// @baa 0x006ae090
-C_006ae090* C_006ae090::sub_006ae090(void) { return this; }
-
-struct C_006ae0a0 { C_006ae0a0* sub_006ae0a0(void); };
-
-// @baa 0x006ae0a0
-C_006ae0a0* C_006ae0a0::sub_006ae0a0(void) { return this; }
-
-struct C_006ae0b0 { C_006ae0b0* sub_006ae0b0(void); };
-
-// @baa 0x006ae0b0
-C_006ae0b0* C_006ae0b0::sub_006ae0b0(void) { return this; }
-
-int sub_006d9710(...);
-// @baa 0x006ae0c0
-undefined4 UMaterial::sub_006ae0c0(void)
-{
-    int param_1 = (int)this;
-
-  int iVar1;
-  
-  if (((*(uint *)(param_1 + 0x20c) & 8) == 0) && ((*(uint *)(param_1 + 0x20c) & 0x4000000) != 0)) {
-    iVar1 = sub_006d9710(*(undefined1 *)(param_1 + 0x19c));
-    if (iVar1 != 0) {
-      return 1;
-    }
-  }
-  return 0;
-}
-
 // @baa 0x006ae910
 void __stdcall sub_006ae910(int a0) {  }
 
@@ -1993,27 +1915,6 @@ void C_006ac330::sub_006ac330()
     Second = 0.0f;
 }
 
-struct Inner
-{
-    char pad_00[0x38];
-    float Value;
-};
-
-struct C_006acb80
-{
-    char pad_00[0x50];
-    float Value;
-
-    void sub_006acb80(Inner* Source);
-};
-
-// @baa 0x006acb80
-void C_006acb80::sub_006acb80(Inner* Source)
-{
-    Value = Source->Value;
-}
-
-extern int g_01ece4ec;
 struct Sub_006ae060
 {
 	int Field_0;
@@ -2022,16 +1923,6 @@ struct Sub_006ae060
 
 	Sub_006ae060* sub_006ae060(int A, int B);
 };
-
-// @baa 0x006ae060
-Sub_006ae060* Sub_006ae060::sub_006ae060(int A, int B)
-{
-	Sub_006ae060* v0 = this;
-	v0->Field_0 = (int)&g_01ece4ec;
-	v0->Field_4 = A;
-	v0->Field_8 = B;
-	return v0;
-}
 
 int sub_006ae07c(Sub_006ae060* S)
 {

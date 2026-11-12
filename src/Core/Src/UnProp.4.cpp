@@ -1,7 +1,7 @@
-// UnProp.cpp: 11 functions
+// UnProp.cpp: 30 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
-#include "ue3/Classes.h"
+#include "ue3/Implement.h"
 
 // @baa 0x0062ada0
 INT UObjectProperty::Identical(INT A, INT B, INT PortFlags)
@@ -124,4 +124,118 @@ void UMapProperty::StaticConstructor()
     UClass* C = Class;
     ((UClass_*)C)->sub_005f2bf0(0x70);
     ((UClass_*)C)->sub_005f2bf0(0x74);
+}
+
+// @baa 0x005ebc90
+int UProperty::vf_16c(void) { return 0; }
+
+// @baa 0x005ebd50
+int UMapProperty::vf_16c(void) { return 0; }
+
+// @baa 0x005ebd70
+void UProperty::vf_178(int a0, int a1) {  }
+
+// @baa 0x005ebd80
+void UMapProperty::vf_178(int a0, int a1) {  }
+
+// @baa 0x005fa780
+int UProperty::vf_160(void) { return 0; }
+
+struct C_005faab0 { int a, b, c; C_005faab0(); };
+
+// @baa 0x005faab0
+C_005faab0::C_005faab0() : a(0), b(0), c(0) {}
+
+// @baa 0x005faac0
+int UArrayProperty::sub_005faac0(void) { return *(int*)((char*)this + 0); }
+
+// @baa 0x005faad0
+int UArrayProperty::sub_005faad0(void) { return *(int*)((char*)this + 0); }
+
+// @baa 0x005faae0
+int UArrayProperty::sub_005faae0(void) { return *(int*)((char*)this + 0); }
+
+// @baa 0x005faaf0
+int UArrayProperty::sub_005faaf0(void) { return *(int*)((char*)this + 20); }
+
+// @baa 0x005fab00
+int UArrayProperty::sub_005fab00(int param_2)
+{
+    int * param_1 = (int *)this;
+
+  return param_2 * 0x10 + *param_1;
+}
+
+/* GError->Logf: a variadic member, so cdecl with `this` pushed first. */
+struct FOutputDeviceError_ {
+    void sub_00630f20(const TCHAR* Fmt, ...);
+};
+
+extern FOutputDeviceError_* g_026667a8;
+// @baa 0x006005b0
+INT UProperty::ImportText(INT, INT, INT, INT, INT)
+{
+    g_026667a8->sub_00630f20(TEXT("Pure virtual not implemented (%s)"), TEXT("UProperty::ImportText"));
+    return 0;
+}
+
+struct M_00600650 { void sub_0040fcc0(); };
+
+struct C_00600650 { char pad[44]; M_00600650 m; void sub_00600650(); };
+
+// @baa 0x00600650
+void C_00600650::sub_00600650() { m.sub_0040fcc0(); }
+
+int sub_0040fcc0(void);
+
+struct C_00600660 {
+    int sub_00600660();
+};
+
+// @baa 0x00600660
+int C_00600660::sub_00600660(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  return param_1[5] * 0x10 + *(int *)*param_1;
+}
+
+extern "C" void* sub_01a375f0(void* Dst, const void* Src, DWORD Size);
+// @baa 0x0062a740
+void UProperty::vf_144(INT* InValue, INT* OutValue, INT C, INT D, INT E)
+{
+	sub_01a375f0(InValue, OutValue, ElementSize);
+}
+
+// @baa 0x0062a7b0
+void UProperty::vf_154(int a0) {  }
+
+// @baa 0x0062a800
+void __stdcall sub_0062a800(int a0, int a1) {  }
+
+struct S005a15a0 {
+    int sub_005a15a0(int a1, int a2, int a3);
+};
+
+struct S00639730 {
+    char pad[0x70];
+    S005a15a0 *field_70;
+    __declspec(noinline) int sub_00639730(int a1, int a2, int a3) {
+        return field_70->sub_005a15a0(a1, a2, a3);
+    }
+};
+
+// @baa 0x00639730
+int sub_00639730_ref(S00639730 *p, int a, int b, int c) {
+    return p->sub_00639730(a, b, c);
+}
+
+int sub_0063ec80(...);
+// @baa 0x0063efa0
+void UStructProperty::ExportTextItem(undefined4 param_2, undefined4 param_3, undefined4 param_4, undefined4 param_5, undefined4 param_6)
+{
+    int param_1 = (int)this;
+
+  sub_0063ec80(*(undefined4 *)(param_1 + 0x70),param_2,param_3,param_4,param_5,param_6);
+  return;
 }

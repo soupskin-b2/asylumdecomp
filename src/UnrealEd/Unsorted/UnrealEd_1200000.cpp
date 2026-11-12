@@ -1,4 +1,4 @@
-// UnrealEd_1200000.cpp: 77 functions
+// UnrealEd_1200000.cpp: 72 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -13,23 +13,7 @@ struct C_01200ba0 { void sub_00ff6db0(int); C_01200ba0 *sub_01200ba0(int); };
 // @baa 0x01200ba0
 C_01200ba0 *C_01200ba0::sub_01200ba0(int a) { sub_00ff6db0(a); return this; }
 
-struct C_012053a0 {
-    undefined4 sub_012053a0(byte);
-};
-
 int sub_0053dfa0(...);
-int sub_011fb5a0(void);
-// @baa 0x012053a0
-undefined4 C_012053a0::sub_012053a0(byte param_2)
-{
-    undefined4 param_1 = (undefined4)this;
-
-  sub_011fb5a0();
-  if ((param_2 & 1) != 0) {
-    sub_0053dfa0(param_1);
-  }
-  return param_1;
-}
 
 int sub_005c7a70(...);
 int sub_01206570(void);
@@ -1178,24 +1162,6 @@ TConstSetBitIterator_0120e300& TConstSetBitIterator_0120e300::operator++()
 {
     It.Advance();
     return *this;
-}
-
-// @baa 0x0120fab0
-IMPLEMENT_CLASS_AT(UPropertyInputArray, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\PropertyUtils.cpp", 3448);
-
-// @baa 0x0120fbc0
-bool UPropertyInputArray::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x0120fc00
-IMPLEMENT_CLASS_AT(UPropertyInputArrayItemBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\PropertyUtils.cpp", 3449);
-
-// @baa 0x0120fd10
-bool UPropertyInputArrayItemBase::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 struct C_0120fde0 {

@@ -1,4 +1,4 @@
-// UnController.cpp (part 1 of 2): 8 functions
+// UnController.cpp (part 1 of 2): 9 functions
 // Placed here by: neighbours 5, callers 1, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -123,4 +123,10 @@ UBOOL AController::ShouldCheckVisibilityOf(AController* C)
         }
     }
     return FALSE;
+}
+
+// @baa 0x007a0000
+bool UCheatManager::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
 }

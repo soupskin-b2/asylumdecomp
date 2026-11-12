@@ -1,4 +1,4 @@
-// RAnimNotify_Foley.cpp: 2 functions
+// RAnimNotify_Foley.cpp: 3 functions
 // Placed here by: callers 1, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -7,3 +7,5 @@
 IMPLEMENT_CLASS_AT(URAnimNotify_Foley, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimNotify_Foley.cpp", 14);
 
 // @baa 0x0159c8e0
+
+// @baa 0x015966a0

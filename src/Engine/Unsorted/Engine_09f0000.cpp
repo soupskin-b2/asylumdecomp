@@ -1,4 +1,4 @@
-// Engine_09f0000.cpp (part 1 of 8): 104 functions
+// Engine_09f0000.cpp (part 1 of 8): 90 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -60,21 +60,6 @@ IMPLEMENT_CLASS_AT(APhysXEmitterSpawnable, "e:\\Projects\\Amadeus\\AA\\Game\\Unr
 // @baa 0x009f06c0
 // @baa 0x009f07b0
 IMPLEMENT_CLASS_AT(UApexStaticComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\ApexSupport.cpp", 1350);
-
-// @baa 0x009f08c0
-bool UApexStaticComponent::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x009f0900
-IMPLEMENT_CLASS_AT(UApexDynamicComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\ApexSupport.cpp", 1367);
-
-// @baa 0x009f0a10
-bool UApexDynamicComponent::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
 
 // @baa 0x009f0ba0
 IMPLEMENT_CLASS_AT(ARB_CylindricalForceActor, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPhysActor.cpp", 39);
@@ -294,15 +279,6 @@ void sub_009f4a30(void) { sub_009f1610(); }
 // @baa 0x009f4a40
 void sub_009f4a40(void) { sub_009f1680(); }
 
-// @baa 0x009f4b70
-IMPLEMENT_CLASS_AT(AKActorSpawnable, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPhysActor.cpp", 32);
-
-// @baa 0x009f4c80
-bool AKActorSpawnable::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
 struct C_009f4d80 {
     int sub_009f4d80();
 };
@@ -425,18 +401,6 @@ int sub_009f7360(int a0, int a1) { return a1; }
 // @baa 0x009f74d0
 IMPLEMENT_CLASS_AT(UPhysicalMaterialPropertyBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPhysAsset.cpp", 22);
 
-// @baa 0x009f74f0
-undefined4 sub_009f74f0(undefined4 param_1, undefined4 param_2)
-{
-  return param_2;
-}
-
-// @baa 0x009f7500
-int sub_009f7500(int a0, int a1) { return a1; }
-
-// @baa 0x009f7510
-int sub_009f7510(int a0, int a1) { return a1; }
-
 int sub_00a31ec0(void);
 int sub_00a376f0(...);
 extern undefined4 g_026b682c;
@@ -511,30 +475,6 @@ int sub_009f8e00(int a0, int a1) { return a1; }
 
 // @baa 0x009f8e10
 int sub_009f8e10(int a0, int a1) { return a1; }
-
-// @baa 0x009f8e20
-IMPLEMENT_CLASS_AT(UPhysicsAsset, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPhysAsset.cpp", 15);
-
-// @baa 0x009f8f30
-int UPhysicsAsset::vf_000(void) { return 1; }
-
-// @baa 0x009f8f40
-bool UPhysicsAsset::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x009f8f80
-IMPLEMENT_CLASS_AT(URB_BodySetup, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPhysAsset.cpp", 16);
-
-// @baa 0x009f9090
-int URB_BodySetup::vf_000(void) { return 1; }
-
-// @baa 0x009f90a0
-bool URB_BodySetup::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
 
 // @baa 0x009f9500
 // @baa 0x009f9610

@@ -1,4 +1,4 @@
-// TcpNetDriver.cpp: 12 functions
+// TcpNetDriver.cpp: 21 functions
 // Placed here by: neighbours 8, callers 2, file 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -50,3 +50,65 @@ IMPLEMENT_CLASS_AT(UTcpNetDriver, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine
 // @baa 0x00e41180
 // @baa 0x00e41250
 // @baa 0x00e415b0
+
+// @baa 0x00e2b9d0
+
+// @baa 0x00e2bae0
+int UTcpNetDriver::vf_000(void) { return 1; }
+
+// @baa 0x00e2baf0
+bool UTcpNetDriver::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+struct C_00e2bc90 { int sub_00e2bc90(void); };
+
+// @baa 0x00e2bc90
+int C_00e2bc90::sub_00e2bc90(void) { return *(int*)((char*)this + 284); }
+
+struct C_00e2bca0 { int sub_00e2bca0(void); };
+
+// @baa 0x00e2bca0
+int C_00e2bca0::sub_00e2bca0(void) { return *(int*)((char*)this + 280); }
+
+extern int __stdcall sub_018d354a(int First, int Second);
+struct UTcpipConnection_ : public UTcpipConnection {
+    bool sub_00e2be70(int Second);
+};
+
+// @baa 0x00e2be70
+bool UTcpipConnection_::sub_00e2be70(int Second)
+{
+    int First = *(int*)((char*)this + 8);
+    return sub_018d354a(First, Second) == 0;
+}
+
+// @baa 0x00e2c240
+int __stdcall sub_00e2c240(int a0) { return 1; }
+
+int sub_00e2b5a0(void);
+int sub_00e40a80(...);
+extern undefined4 g_026cacf8;
+// @baa 0x00e40c90
+int sub_00e40c90(void)
+{
+  if (g_026cacf8 == 0) {
+    g_026cacf8 = sub_00e40a80(L"IpDrv");
+    sub_00e2b5a0();
+  }
+  return g_026cacf8;
+}
+
+struct C_00e40d10 {
+    void sub_00e40d10();
+};
+
+int __stdcall sub_018d3520(int);
+// @baa 0x00e40d10
+void C_00e40d10::sub_00e40d10(void)
+{
+    int param_1 = (int)this;
+  sub_018d3520(*(undefined4 *)(param_1 + 0x4fbc));
+  return;
+}

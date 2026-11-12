@@ -1,4 +1,4 @@
-// RRope.cpp: 9 functions
+// RRope.cpp: 10 functions
 // Placed here by: class 7, callers 1, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -55,3 +55,6 @@ return iVar2;
 // @baa 0x01657410
 // @baa 0x016589c0
 // @baa 0x0165ac40
+
+// @baa 0x0163e530
+int sub_0163e530(void) { return 0; }

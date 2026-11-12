@@ -1,4 +1,4 @@
-// UnrealEd_12c0000.cpp: 70 functions
+// UnrealEd_12c0000.cpp: 68 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -541,15 +541,6 @@ undefined * sub_012c26a0(void)
     g_026d6b04 = (undefined4)(L"HInterpEdTab");
   }
   return (undefined *)(&g_026d6b00);
-}
-
-// @baa 0x012c26f0
-IMPLEMENT_CLASS_AT(UInterpEdOptions, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\InterpEditor.cpp", 16);
-
-// @baa 0x012c2820
-bool UInterpEdOptions::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 struct C_012c42b0 {

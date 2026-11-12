@@ -1,4 +1,4 @@
-// BmGame_1570000.cpp (part 1 of 35): 203 functions
+// BmGame_1570000.cpp (part 1 of 35): 202 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -548,22 +548,6 @@ void sub_0157a170(int param_1, int param_2, undefined4 param_3)
 void sub_0157a0a0();
 // @baa 0x0157c890
 void sub_0157c890(void) { sub_0157a0a0(); }
-
-struct C_view_0157cf90 {
-    int sub_00547da0(int);
-    int sub_00d201d0(int);
-    int sub_008dc680(int, int);
-};
-
-// @baa 0x0157cf90
-void URSeqAct_RadioDialogueLine::vf_04c(undefined4 param_2)
-{
-    int param_1 = (int)this;
-  ((C_view_0157cf90 *)(((char *)this + 0x60)))->sub_00547da0(param_1 + 0x110);
-  ((C_view_0157cf90 *)(this))->sub_00d201d0(param_2);
-  ((C_view_0157cf90 *)(((char *)this + 0x94)))->sub_008dc680(0, *(undefined4 *)(param_1 + 0x98));
-  return;
-}
 
 struct C_0157e400 { C_0157e400* sub_0157e400(void); };
 

@@ -1,4 +1,4 @@
-// UnParticleModules.cpp (part 5 of 5): 17 functions
+// UnParticleModules.cpp (part 5 of 5): 19 functions
 // Placed here by: neighbours 11, class 5.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -67,4 +67,27 @@ int S::sub_00b310b0()
     FC = 0;
     F10 = 0;
     return T;
+}
+
+int sub_005c7a20(void);
+extern undefined * g_01fee968;
+// @baa 0x00b3db60
+undefined4 * UObject::sub_00b3db60(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_01fee968);
+  return param_1;
+}
+
+extern undefined * g_01feead8;
+// @baa 0x00b3dc50
+undefined4 * UObject::sub_00b3dc50(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_01feead8);
+  return param_1;
 }

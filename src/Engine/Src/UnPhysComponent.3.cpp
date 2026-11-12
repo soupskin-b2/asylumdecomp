@@ -1,4 +1,4 @@
-// UnPhysComponent.cpp: 17 functions
+// UnPhysComponent.cpp: 18 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -141,4 +141,11 @@ void UPrimitiveComponent::execWakeRigidBody(FFrame& Stack, RESULT_DECL)
     P_GET_NAME_OPTX(BoneName, NAME_None);
     P_FINISH;
     WakeRigidBody(BoneName);
+}
+
+// @baa 0x00a06690
+void USkeletalMeshComponent::execUpdateClothParams( FFrame& Stack, RESULT_DECL )
+{
+	P_FINISH;
+	UpdateClothParams();
 }

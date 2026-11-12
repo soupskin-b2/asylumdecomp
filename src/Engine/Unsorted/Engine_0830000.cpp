@@ -1,4 +1,4 @@
-// Engine_0830000.cpp (part 1 of 7): 271 functions
+// Engine_0830000.cpp (part 1 of 7): 262 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -408,27 +408,6 @@ IMPLEMENT_CLASS_AT(UMorphWeightSequence, "e:\\Projects\\Amadeus\\AA\\Game\\Unrea
 // @baa 0x00834290
 IMPLEMENT_CLASS_AT(UMorphTarget, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnMorph.cpp", 11);
 
-// @baa 0x008343a0
-int UMorphTarget::vf_000(void) { return 1; }
-
-// @baa 0x008343b0
-bool UMorphTarget::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x008343f0
-IMPLEMENT_CLASS_AT(UMorphTargetSet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnMorph.cpp", 12);
-
-// @baa 0x00834500
-int UMorphTargetSet::vf_000(void) { return 1; }
-
-// @baa 0x00834510
-bool UMorphTargetSet::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
 // @baa 0x00834550
 // @baa 0x00834660
 int UMorphWeightSequence::vf_000(void) { return 1; }
@@ -450,9 +429,6 @@ bool UMorphNodeBase::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
-
-// @baa 0x00835460
-int UDOFBloomMotionBlurEffect::vf_10c(int a0) { return 0; }
 
 // @baa 0x008354a0
 void ANavigationPoint::vf_3a4(int a0, int a1) { *(int*)((char*)this + 612) = a0; }
@@ -1594,27 +1570,6 @@ UBOOL ATeleporter::CanTeleport(class AActor* A)
     return TRUE;
 }
 
-struct C_0083a9a0 {
-    void sub_0083a9a0(int, undefined4, undefined4);
-    int sub_0083a5a0(int, int, int);
-};
-
-// @baa 0x0083a9a0
-void C_0083a9a0::sub_0083a9a0(int param_2, undefined4 param_3, undefined4 param_4)
-{
-    int param_1 = (int)this;
-  uint uVar1;
-  uVar1 = *(uint *)(param_1 + 0x1a8);
-  if ((uVar1 & 0x800000) != 0) {
-    *(uint *)(param_1 + 0x1a8) = (*(int *)(param_2 + 0x1cc) << 0x13 ^ uVar1) & 0x800000 ^ uVar1;
-    ((C_0083a9a0 *)(this))->sub_0083a5a0(param_2, param_3, param_4);
-    *(uint *)(param_1 + 0x1a8) = *(uint *)(param_1 + 0x1a8) | 0x800000;
-    return;
-  }
-  sub_0083a5a0(param_2,param_3,param_4);
-  return;
-}
-
 struct ObjB {
     int sub_0083b3e0();
 };
@@ -2118,29 +2073,6 @@ void UMorphNodeBase::vf_13c(int a0, int a1) {  }
 
 // @baa 0x0083d7a0
 void UMorphNodeBase::vf_140(int a0, int a1, int a2) {  }
-
-// @baa 0x0083d7b0
-extern undefined * g_01f43ff8;
-// @baa 0x0083d7d0
-undefined4 * UObject::sub_0083d7d0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_01f43ff8);
-  return param_1;
-}
-
-extern undefined * g_01f44140;
-// @baa 0x0083d7f0
-undefined4 * UObject::sub_0083d7f0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_01f44140);
-  return param_1;
-}
 
 // @baa 0x0083d810
 IMPLEMENT_CLASS_AT(UMorphNodePose, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnMorph.cpp", 18);

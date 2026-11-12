@@ -1,4 +1,4 @@
-// Engine_08e0000.cpp (part 1 of 2): 21 functions
+// Engine_08e0000.cpp (part 1 of 2): 13 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -43,19 +43,6 @@ struct C_008e0290 { void sub_008dd0a0(int); C_008e0290 *sub_008e0290(int); };
 // @baa 0x008e0290
 C_008e0290 *C_008e0290::sub_008e0290(int a) { sub_008dd0a0(a); return this; }
 
-int sub_008eb9b0(void);
-// @baa 0x008ec1c0
-void USeqAct_PlaySound::vf_154(void)
-{
-    int param_1 = (int)this;
-
-  if ((*(byte *)(param_1 + 0x78) & 1) != 0) {
-    sub_008eb9b0();
-    return;
-  }
-  return;
-}
-
 struct C_view {
     int sub_008dcec0(int);
 };
@@ -96,43 +83,3 @@ int sub_008eedb0(void)
   return g_026b5aa8;
 }
 
-// @baa 0x008eede0
-IMPLEMENT_CLASS_AT(ASceneCapture2DActor, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSceneCapture.cpp", 16);
-
-// @baa 0x008eeef0
-bool ASceneCapture2DActor::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x008eef30
-IMPLEMENT_CLASS_AT(ASceneCaptureCubeMapActor, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSceneCapture.cpp", 17);
-
-// @baa 0x008ef040
-bool ASceneCaptureCubeMapActor::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x008ef080
-IMPLEMENT_CLASS_AT(ASceneCaptureReflectActor, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSceneCapture.cpp", 18);
-
-// @baa 0x008ef190
-bool ASceneCaptureReflectActor::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-struct USeqAct_PlaySound_ : public USeqAct_PlaySound
-{
-    void sub_008df850();
-    INT sub_00d201d0(INT Value);
-    void sub_008ec1a0(UINT Value);
-};
-
-// @baa 0x008ec1a0
-void USeqAct_PlaySound_::sub_008ec1a0(UINT Value)
-{
-    sub_008df850();
-    sub_00d201d0(Value);
-}

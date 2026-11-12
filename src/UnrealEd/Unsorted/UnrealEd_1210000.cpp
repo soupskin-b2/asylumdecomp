@@ -1,4 +1,4 @@
-// UnrealEd_1210000.cpp: 82 functions
+// UnrealEd_1210000.cpp: 66 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -250,51 +250,6 @@ int sub_01211b00(void)
   return g_026d2a74;
 }
 
-// @baa 0x01211b30
-IMPLEMENT_CLASS_AT(UPropertyInputColor, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\PropertyUtils.cpp", 3450);
-
-// @baa 0x01211c40
-bool UPropertyInputColor::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x01211c80
-IMPLEMENT_CLASS_AT(UPropertyInputBool, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\PropertyUtils.cpp", 3451);
-
-// @baa 0x01211d90
-bool UPropertyInputBool::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x01211dd0
-IMPLEMENT_CLASS_AT(UPropertyInputArrayItem, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\PropertyUtils.cpp", 3452);
-
-// @baa 0x01211ee0
-bool UPropertyInputArrayItem::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x01211f20
-IMPLEMENT_CLASS_AT(UPropertyInputText, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\PropertyUtils.cpp", 3454);
-
-// @baa 0x01212030
-bool UPropertyInputText::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x01212070
-IMPLEMENT_CLASS_AT(UPropertyInputEditInline, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\PropertyUtils.cpp", 3457);
-
-// @baa 0x01212180
-bool UPropertyInputEditInline::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
 void sub_01210f90();
 // @baa 0x01212510
 void sub_01212510(void) { sub_01210f90(); }
@@ -391,15 +346,6 @@ int C_01213010::sub_01213010(void)
   *(undefined4 *)(param_1 + 0x34) = 0;
   *(undefined4 *)(param_1 + 0x38) = 0;
   return param_1;
-}
-
-// @baa 0x01213090
-IMPLEMENT_CLASS_AT(UPropertyInputNumeric, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\PropertyUtils.cpp", 3453);
-
-// @baa 0x012131a0
-bool UPropertyInputNumeric::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 struct C_01213d90 {
@@ -611,24 +557,6 @@ int C_012142b0::sub_012142b0(void)
   *(undefined4 *)(param_1 + 0x34) = 0;
   *(undefined4 *)(param_1 + 0x38) = 0;
   return param_1;
-}
-
-// @baa 0x01214360
-IMPLEMENT_CLASS_AT(UPropertyInputRotation, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\PropertyUtils.cpp", 3455);
-
-// @baa 0x01214470
-bool UPropertyInputRotation::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x012144b0
-IMPLEMENT_CLASS_AT(UPropertyInputInteger, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\PropertyUtils.cpp", 3456);
-
-// @baa 0x012145c0
-bool UPropertyInputInteger::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 void sub_012137e0();

@@ -1,4 +1,4 @@
-// UnMorph.cpp: 40 functions
+// UnMorph.cpp: 50 functions
 // Placed here by: class 13, neighbours 10, file 8, callers 6.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -183,3 +183,60 @@ FString UMorphTargetSet::vf_0b8()
 {
 	return FString_::Printf(TEXT("%d MorphTargets"), Targets.Num());
 }
+
+// @baa 0x008343a0
+int UMorphTarget::vf_000(void) { return 1; }
+
+// @baa 0x008343b0
+bool UMorphTarget::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x008343f0
+
+// @baa 0x00834500
+int UMorphTargetSet::vf_000(void) { return 1; }
+
+// @baa 0x00834510
+bool UMorphTargetSet::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+extern undefined * g_01f43ff8;
+// @baa 0x0083d7d0
+undefined4 * UObject::sub_0083d7d0(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_01f43ff8);
+  return param_1;
+}
+
+extern undefined * g_01f44140;
+// @baa 0x0083d7f0
+undefined4 * UObject::sub_0083d7f0(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_01f44140);
+  return param_1;
+}
+
+extern undefined * g_01f452b0;
+// @baa 0x008591b0
+undefined4 * UObject::sub_008591b0(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_01f452b0);
+  return param_1;
+}
+
+// @baa 0x008529e0
+
+// @baa 0x00852b50

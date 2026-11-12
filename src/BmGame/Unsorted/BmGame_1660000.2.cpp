@@ -1,4 +1,4 @@
-// BmGame_1660000.cpp (part 2 of 3): 156 functions
+// BmGame_1660000.cpp (part 2 of 3): 112 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -60,15 +60,6 @@ int sub_01664ce0(void)
   return g_026e1c0c;
 }
 
-// @baa 0x01664d10
-IMPLEMENT_CLASS_AT(ARStealthTakeDownStage_RailingAttack, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RStealthTakeDownStage.cpp", 12);
-
-// @baa 0x01664e20
-bool ARStealthTakeDownStage_RailingAttack::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
 struct S {
     void sub_0165d940();
     void sub_0165db70();
@@ -104,15 +95,6 @@ int sub_01666440(void)
     sub_01664860();
   }
   return g_026e1be0;
-}
-
-// @baa 0x01666470
-IMPLEMENT_CLASS_AT(ARCombatMove_BatmanCounter, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBMCombatMove.cpp", 13);
-
-// @baa 0x01666580
-bool ARCombatMove_BatmanCounter::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x016687a0
@@ -404,9 +386,6 @@ void C_01669d60::sub_01669d60(void) { *(int*)((char*)this + 0) = (int)g_02359c2c
 // @baa 0x01669e10
 void sub_01669e10(void) {  }
 
-// @baa 0x0166a1a0
-IMPLEMENT_CLASS_AT(ARShimmyEdgeMarker, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RShimmyEdgeMarker.cpp", 7);
-
 // @baa 0x0166a2b0
 int ARShimmyEdgeMarker::vf_000(void) { return 1; }
 
@@ -469,9 +448,6 @@ struct C_0166a820 { int sub_0166a820(void); };
 
 // @baa 0x0166a820
 int C_0166a820::sub_0166a820(void) { return *(int*)((char*)this + 8); }
-
-// @baa 0x0166a830
-IMPLEMENT_CLASS_AT(URSimpleRopeComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RSimpleRopeComponent.cpp", 20);
 
 // @baa 0x0166a940
 int URSimpleRopeComponent::vf_000(void) { return 1; }
@@ -547,158 +523,6 @@ int sub_0166bb80(int a0, int a1) { return a1; }
 // @baa 0x0166bb90
 int sub_0166bb90(int a0, int a1) { return a1; }
 
-// @baa 0x0166bba0
-IMPLEMENT_CLASS_AT(ARForensicDnaSplatStatic, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameForensicClasses.cpp", 14);
-
-// @baa 0x0166bcb0
-int ARForensicDnaSplatStatic::vf_000(void) { return 1; }
-
-// @baa 0x0166bcc0
-bool ARForensicDnaSplatStatic::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x0166bd00
-int ARForensicDnaSplatStaticNonScan::vf_000(void) { return 1; }
-
-// @baa 0x0166bd10
-IMPLEMENT_CLASS_AT(ARForensicDnaSplat, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameForensicClasses.cpp", 16);
-
-// @baa 0x0166be20
-int ARForensicDnaSplat::vf_000(void) { return 1; }
-
-// @baa 0x0166be30
-bool ARForensicDnaSplat::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x0166be70
-IMPLEMENT_CLASS_AT(URActorFactoryForensicsDna, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameForensicClasses.cpp", 17);
-
-// @baa 0x0166bf80
-int URActorFactoryForensicsDna::vf_000(void) { return 1; }
-
-// @baa 0x0166bf90
-bool URActorFactoryForensicsDna::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x0166bfd0
-int URActorFactoryForensicsDnaNonScan::vf_000(void) { return 1; }
-
-// @baa 0x0166bfe0
-IMPLEMENT_CLASS_AT(URActorFactoryXrayMesh, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameForensicClasses.cpp", 19);
-
-// @baa 0x0166c0f0
-int URActorFactoryXrayMesh::vf_000(void) { return 1; }
-
-// @baa 0x0166c100
-bool URActorFactoryXrayMesh::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x0166c140
-IMPLEMENT_CLASS_AT(URActorFactoryXrayWire, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameForensicClasses.cpp", 20);
-
-// @baa 0x0166c250
-int URActorFactoryXrayWire::vf_000(void) { return 1; }
-
-// @baa 0x0166c260
-bool URActorFactoryXrayWire::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x0166c2a0
-IMPLEMENT_CLASS_AT(URActorFactoryXrayInterItem, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameForensicClasses.cpp", 21);
-
-// @baa 0x0166c3b0
-int URActorFactoryXrayInterItem::vf_000(void) { return 1; }
-
-// @baa 0x0166c3c0
-bool URActorFactoryXrayInterItem::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x0166c400
-IMPLEMENT_CLASS_AT(ARForensicsDevice, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameForensicClasses.cpp", 23);
-
-// @baa 0x0166c510
-int ARForensicsDevice::vf_000(void) { return 1; }
-
-// @baa 0x0166c520
-bool ARForensicsDevice::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x0166c620
-undefined4 ARForensicsDevice::vf_354(void)
-{
-    int param_1 = (int)this;
-
-  char cVar1;
-  
-  cVar1 = *(char *)(param_1 + 0x229);
-  if (((cVar1 != '\x01') && (cVar1 != '\a')) && (cVar1 != '\x06')) {
-    return 1;
-  }
-  return 0;
-}
-
-// @baa 0x0166c960
-IMPLEMENT_CLASS_AT(UREvidence, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\REvidence.cpp", 7);
-
-// @baa 0x0166ca70
-int UREvidence::vf_000(void) { return 1; }
-
-// @baa 0x0166ca80
-bool UREvidence::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x0166cac0
-IMPLEMENT_CLASS_AT(UREvidenceFactoryNew, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\REvidence.cpp", 8);
-
-// @baa 0x0166cbd0
-int UREvidenceFactoryNew::vf_000(void) { return 1; }
-
-// @baa 0x0166cbe0
-bool UREvidenceFactoryNew::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x0166cc40
-IMPLEMENT_CLASS_AT(URDummyEvidenceConfig, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\REvidence.cpp", 40);
-
-// @baa 0x0166cd50
-int URDummyEvidenceConfig::vf_000(void) { return 1; }
-
-// @baa 0x0166cd60
-bool URDummyEvidenceConfig::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x0166cda0
-IMPLEMENT_CLASS_AT(URDummyEvidenceConfigFactoryNew, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\REvidence.cpp", 41);
-
-// @baa 0x0166ceb0
-int URDummyEvidenceConfigFactoryNew::vf_000(void) { return 1; }
-
-// @baa 0x0166cec0
-bool URDummyEvidenceConfigFactoryNew::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
 // @baa 0x0166cf40
 // @baa 0x0166d050
 int URCrimeSceneAsset::vf_000(void) { return 1; }
@@ -708,9 +532,6 @@ bool URCrimeSceneAsset::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
-
-// @baa 0x0166d0a0
-IMPLEMENT_CLASS_AT(URCrimeSceneAssetFactoryNew, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\REvidence.cpp", 44);
 
 // @baa 0x0166d1b0
 int URCrimeSceneAssetFactoryNew::vf_000(void) { return 1; }
@@ -725,9 +546,6 @@ struct C_0166d240 { C_0166d240* sub_0166d240(int a0); };
 
 // @baa 0x0166d240
 C_0166d240* C_0166d240::sub_0166d240(int a0) { return this; }
-
-// @baa 0x0166d320
-IMPLEMENT_CLASS_AT(ARPawn, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RPawn.cpp", 13);
 
 // @baa 0x0166d430
 int ARPawn::vf_000(void) { return 1; }

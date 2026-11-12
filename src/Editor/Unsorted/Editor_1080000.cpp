@@ -1,4 +1,4 @@
-// Editor_1080000.cpp (part 1 of 2): 14 functions
+// Editor_1080000.cpp (part 1 of 2): 4 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -52,77 +52,3 @@ struct C_01083b10 { void sub_01077040(int); C_01083b10 *sub_01083b10(int); };
 // @baa 0x01083b10
 C_01083b10 *C_01083b10::sub_01083b10(int a) { sub_01077040(a); return this; }
 
-// @baa 0x01083f60
-IMPLEMENT_CLASS_AT(UChangePrefabSequenceClassCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UContentCommandlets.cpp", 952);
-
-// @baa 0x01084070
-bool UChangePrefabSequenceClassCommandlet::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-int sub_01069710(void);
-// @baa 0x0108a190
-int UContentTagIndex::sub_0108a190(void)
-{
-    int param_1 = (int)this;
-
-  sub_01069710();
-  *(undefined4 *)(param_1 + 0x34) = 0;
-  *(undefined4 *)(param_1 + 0x38) = 0;
-  return param_1;
-}
-
-// @baa 0x0108a220
-int UContentTagIndex::sub_0108a220(void)
-{
-    int param_1 = (int)this;
-
-  sub_01069710();
-  *(undefined4 *)(param_1 + 0x34) = 0;
-  *(undefined4 *)(param_1 + 0x38) = 0;
-  return param_1;
-}
-
-void sub_0108a1b0();
-// @baa 0x0108a240
-void sub_0108a240(void) { sub_0108a1b0(); }
-
-// @baa 0x0108a250
-int UContentTagIndex::sub_0108a250(void)
-{
-    int param_1 = (int)this;
-
-  sub_01069710();
-  *(undefined4 *)(param_1 + 0x34) = 0;
-  *(undefined4 *)(param_1 + 0x38) = 0;
-  return param_1;
-}
-
-// @baa 0x0108a270
-void sub_0108a270(void) { sub_0108a1b0(); }
-
-// @baa 0x0108a280
-int UContentTagIndex::sub_0108a280(void)
-{
-    int param_1 = (int)this;
-
-  sub_01069710();
-  *(undefined4 *)(param_1 + 0x34) = 0;
-  *(undefined4 *)(param_1 + 0x38) = 0;
-  return param_1;
-}
-
-// @baa 0x0108a2a0
-void sub_0108a2a0(void) { sub_0108a1b0(); }
-
-// @baa 0x0108a2b0
-int UContentTagIndex::sub_0108a2b0(void)
-{
-    int param_1 = (int)this;
-
-  sub_01069710();
-  *(undefined4 *)(param_1 + 0x34) = 0;
-  *(undefined4 *)(param_1 + 0x38) = 0;
-  return param_1;
-}

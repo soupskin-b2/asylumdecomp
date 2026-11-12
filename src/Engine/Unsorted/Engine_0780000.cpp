@@ -1,133 +1,7 @@
-// Engine_0780000.cpp (part 1 of 5): 286 functions
+// Engine_0780000.cpp (part 1 of 5): 232 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
-
-// @baa 0x00782760
-IMPLEMENT_CLASS_AT(AWorldInfo, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 46);
-
-// @baa 0x00782870
-bool AWorldInfo::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x007828b0
-IMPLEMENT_CLASS_AT(APlayerReplicationInfo, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 76);
-
-// @baa 0x007829c0
-bool APlayerReplicationInfo::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00782a00
-IMPLEMENT_CLASS_AT(AGameReplicationInfo, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 78);
-
-// @baa 0x00782b10
-bool AGameReplicationInfo::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00782b50
-IMPLEMENT_CLASS_AT(ADebugCameraController, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 84);
-
-// @baa 0x00782c60
-bool ADebugCameraController::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00782ca0
-IMPLEMENT_CLASS_AT(APhysicsVolume, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 92);
-
-// @baa 0x00782db0
-bool APhysicsVolume::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00782df0
-IMPLEMENT_CLASS_AT(ABlockingVolume, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 98);
-
-// @baa 0x00782f00
-bool ABlockingVolume::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00782f40
-IMPLEMENT_CLASS_AT(AAutoLadder, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 99);
-
-// @baa 0x00783050
-bool AAutoLadder::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00783090
-IMPLEMENT_CLASS_AT(ATeamInfo, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 100);
-
-// @baa 0x007831a0
-bool ATeamInfo::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x007831e0
-IMPLEMENT_CLASS_AT(ATriggerVolume, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 107);
-
-// @baa 0x007832f0
-bool ATriggerVolume::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00783330
-IMPLEMENT_CLASS_AT(AVolumePathNode, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 108);
-
-// @baa 0x00783440
-bool AVolumePathNode::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00783480
-IMPLEMENT_CLASS_AT(ALevelStreamingVolume, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 113);
-
-// @baa 0x00783590
-bool ALevelStreamingVolume::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x007835d0
-IMPLEMENT_CLASS_AT(ACullDistanceVolume, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 115);
-
-// @baa 0x007836e0
-bool ACullDistanceVolume::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00783720
-IMPLEMENT_CLASS_AT(ASkyLightToggleable, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 118);
-
-// @baa 0x00783830
-bool ASkyLightToggleable::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00783870
-IMPLEMENT_CLASS_AT(AAirNode, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 125);
-
-// @baa 0x00783980
-bool AAirNode::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
 
 int sub_0077b3b0(...);
 int sub_00782df0(void);
@@ -153,51 +27,6 @@ int sub_007847e0(void)
     sub_00782ca0();
   }
   return g_026b3c44;
-}
-
-// @baa 0x00784810
-IMPLEMENT_CLASS_AT(AWaterVolume, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 93);
-
-// @baa 0x00784920
-bool AWaterVolume::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00784960
-IMPLEMENT_CLASS_AT(AGravityVolume, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 94);
-
-// @baa 0x00784a70
-bool AGravityVolume::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00784ab0
-IMPLEMENT_CLASS_AT(ADefaultPhysicsVolume, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 95);
-
-// @baa 0x00784bc0
-bool ADefaultPhysicsVolume::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00784c00
-IMPLEMENT_CLASS_AT(ALadderVolume, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 96);
-
-// @baa 0x00784d10
-bool ALadderVolume::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00784d50
-IMPLEMENT_CLASS_AT(ADynamicBlockingVolume, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 110);
-
-// @baa 0x00784e60
-bool ADynamicBlockingVolume::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00784f50
@@ -526,9 +355,6 @@ struct C_00787100 { void sub_00787100(int a0); };
 // @baa 0x00787100
 void C_00787100::sub_00787100(int a0) { *(int*)((char*)this + 12) = a0; }
 
-// @baa 0x00787480
-IMPLEMENT_CLASS_AT(UBrushComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnBrushComponent.cpp", 11);
-
 // @baa 0x00787590
 int UBrushComponent::vf_000(void) { return 1; }
 
@@ -575,21 +401,6 @@ undefined4 UBrushComponent::vf_12c(void)
   return 0;
 }
 
-// @baa 0x007876e0
-IMPLEMENT_CLASS_AT(ACamera, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnCamera.cpp", 11);
-
-// @baa 0x007877f0
-int ACamera::vf_000(void) { return 1; }
-
-// @baa 0x00787800
-bool ACamera::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00787840
-IMPLEMENT_CLASS_AT(ACameraActor, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnCamera.cpp", 12);
-
 // @baa 0x00787950
 int ACameraActor::vf_000(void) { return 1; }
 
@@ -602,33 +413,6 @@ bool ACameraActor::vf_004()
 // @baa 0x007879a0
 int ADynamicCameraActor::vf_000(void) { return 1; }
 
-// @baa 0x007879b0
-int AAnimatedCamera::vf_000(void) { return 1; }
-
-// @baa 0x007879c0
-IMPLEMENT_CLASS_AT(UCameraAnim, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnCamera.cpp", 15);
-
-// @baa 0x00787ad0
-int UCameraAnim::vf_000(void) { return 1; }
-
-// @baa 0x00787ae0
-bool UCameraAnim::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00787b20
-IMPLEMENT_CLASS_AT(UCameraAnimInst, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnCamera.cpp", 16);
-
-// @baa 0x00787c30
-int UCameraAnimInst::vf_000(void) { return 1; }
-
-// @baa 0x00787c40
-bool UCameraAnimInst::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
 // @baa 0x00787c80
 // @baa 0x00787d90
 int UCameraModifier::vf_000(void) { return 1; }
@@ -637,14 +421,6 @@ int UCameraModifier::vf_000(void) { return 1; }
 bool UCameraModifier::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00787ed0
-bool ACamera::vf_1b8(void)
-{
-    int param_1 = (int)this;
-
-  return *(int *)(param_1 + 0x1a8) != 0;
 }
 
 // @baa 0x00787ee0
@@ -1218,18 +994,6 @@ struct C_00789870 { int a, b; C_00789870(const C_00789870 &); };
 
 // @baa 0x00789870
 C_00789870::C_00789870(const C_00789870 &o) : a(o.a), b(o.b) {}
-
-struct C_00789e10 {
-    int sub_00789e10();
-};
-
-// @baa 0x00789e10
-int C_00789e10::sub_00789e10(void)
-{
-    int param_1 = (int)this;
-
-  return *(int *)(param_1 + 0x84) * 4;
-}
 
 struct S_0078c0c0 {
     TArray<DWORD> Items; // 0x00
@@ -2064,67 +1828,6 @@ void C_0078cee0::sub_0078cee0(undefined4 param_2, undefined4 param_3, undefined4
   return;
 }
 
-struct FAdj
-{
-    BYTE  SoundClassName;
-    BYTE  pad[3];
-    FName SoundName;
-    DWORD Tail[2];
-};
-
-struct FEnumObject
-{
-    char pad[0x38];
-    TArray<FName> Names;
-};
-
-struct CVtObj
-{
-    virtual void v0();
-    virtual void v1();
-    virtual void v2();
-    virtual void v3();
-    virtual void v4();
-    virtual void v5();
-    virtual void v6();
-    virtual void v7();
-    virtual void v8(int);
-};
-
-struct CUSoundMode
-{
-    char pad0[0x58];
-    TArray<FAdj> Adjusters;
-
-    void sub_0078d860(int);
-};
-
-extern void* g_0268d07c;
-extern CVtObj* g_026667c4;
-int sub_005b3970(...);
-int sub_0059c600(void);
-int sub_005d88c0(...);
-// @baa 0x0078d860
-void CUSoundMode::sub_0078d860(int)
-{
-    if (g_0268d07c == 0)
-    {
-        g_0268d07c = (void*)sub_005b3970(L"Core");
-        sub_0059c600();
-    }
-    const FEnumObject* Enum = (const FEnumObject*)sub_005d88c0((int)g_0268d07c, 0, L"Engine.AudioDevice.ESoundClassName", 0);
-    if (Enum != 0)
-    {
-        for (INT i = 0; i < Adjusters.Num(); i++)
-        {
-            FAdj& Adj = Adjusters(i);
-            BYTE Index = Adj.SoundClassName;
-            Adj.SoundName = Enum->Names(Index);
-        }
-    }
-    g_026667c4->v8(0x11);
-}
-
 struct CObj
 {
     FString Get(int) const;
@@ -2178,17 +1881,3 @@ struct C_0078fd70 { void sub_0078fd70(void); };
 // @baa 0x0078fd70
 void C_0078fd70::sub_0078fd70(void) { *(int*)((char*)this + 4) = 0; }
 
-// @baa 0x0078d960
-FString UAudioComponent::GetDetailedInfoInternal()
-{
-	FString Result;
-	if (SoundCue)
-	{
-		Result = SoundCue->GetPathName();
-	}
-	else
-	{
-		Result = TEXT("No_SoundCue");
-	}
-	return Result;
-}

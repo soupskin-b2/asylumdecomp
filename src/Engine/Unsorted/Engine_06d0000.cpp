@@ -1,4 +1,4 @@
-// Engine_06d0000.cpp (part 1 of 4): 336 functions
+// Engine_06d0000.cpp (part 1 of 4): 295 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -505,49 +505,7 @@ C_006d8790* C_006d8790::sub_006d8790(void) { *(int*)((char*)this + 0) = 0; retur
 // @baa 0x006d87a0
 int sub_006d87a0(int a0, int a1) { return a1; }
 
-// @baa 0x006d8820
-IMPLEMENT_CLASS_AT(UMaterialInstanceConstant, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\MaterialInstanceConstant.cpp", 10);
-
-// @baa 0x006d8930
-int UMaterialInstanceConstant::vf_000(void) { return 1; }
-
-// @baa 0x006d8940
-bool UMaterialInstanceConstant::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x006d8980
-int sub_006d8980(int param_1)
-{
-  return param_1 + 0x7c;
-}
-
-extern char g_01ed14c0[];
-// @baa 0x006d89c0
-int sub_006d89c0(void) { return (int)g_01ed14c0; }
-
 extern char g_01ebb554[];
-// @baa 0x006d89d0
-void UMaterialInstanceConstant::sub_006d89d0(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
-
-// @baa 0x006d89e0
-undefined4 * UMaterialInstanceConstant::sub_006d89e0(byte param_2)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  *param_1 = (undefined4)(&g_01ebb554);
-  if ((param_2 & 1) != 0) {
-    sub_0053dfa0(param_1);
-  }
-  return param_1;
-}
-
-// @baa 0x006d8a00
-int sub_006d8a00(int param_1)
-{
-  return param_1 + 0x94;
-}
 
 extern char g_01ed14f4[];
 // @baa 0x006d8a50
@@ -617,9 +575,6 @@ undefined4 * UMaterialInstanceConstant::sub_006d8b70(byte param_2)
   }
   return param_1;
 }
-
-// @baa 0x006d8c20
-IMPLEMENT_CLASS_AT(UMaterialInstanceTimeVarying, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\MaterialInstanceTimeVarying.cpp", 10);
 
 // @baa 0x006d8d30
 int UMaterialInstanceTimeVarying::vf_000(void) { return 1; }
@@ -699,60 +654,6 @@ undefined4 * UMaterialInstanceTimeVarying::sub_006d8ea0(byte param_2)
   }
   return param_1;
 }
-
-// @baa 0x006d8f50
-void sub_006d8f50(S* p, INT Value)
-{
-    p->vf_18(Value);
-}
-
-// @baa 0x006d8f70
-IMPLEMENT_CLASS_AT(UMaterialInterface, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\MaterialShared.cpp", 10);
-
-// @baa 0x006d9080
-int UMaterialInterface::vf_000(void) { return 1; }
-
-// @baa 0x006d9090
-bool UMaterialInterface::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x006d90d0
-IMPLEMENT_CLASS_AT(AMaterialInstanceActor, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\MaterialShared.cpp", 11);
-
-// @baa 0x006d91e0
-int AMaterialInstanceActor::vf_000(void) { return 1; }
-
-// @baa 0x006d91f0
-bool AMaterialInstanceActor::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x006d9230
-int sub_006d9230(void) { return 272; }
-
-// @baa 0x006d9240
-int sub_006d9240(void) { return 290; }
-
-// @baa 0x006d9310
-UBOOL UMaterialInterface::GetVectorParameterValue(FName ParameterName, FLinearColor& OutValue) { return 0; }
-
-// @baa 0x006d9320
-UBOOL UMaterialInterface::GetScalarParameterValue(FName ParameterName, FLOAT& OutValue) { return 0; }
-
-// @baa 0x006d9330
-int UMaterialInterface::vf_11c(int a0, int a1, int a2) { return 0; }
-
-// @baa 0x006d9340
-int UMaterialInterface::vf_128(int a0, int a1, int a2) { return 0; }
-
-// @baa 0x006d9350
-UBOOL UMaterialInterface::GetTextureParameterValue(FName ParameterName, UTexture*& OutValue) { return 0; }
-
-// @baa 0x006d9360
-UINT UMaterialInterface::vf_114(UINT a0, UINT a1, INT * a2, UINT * a3) { return 0; }
 
 extern char g_026b133c[];
 // @baa 0x006d9370
@@ -1648,43 +1549,6 @@ struct C_006da680 { C_006da680* sub_006da680(void); };
 // @baa 0x006da680
 C_006da680* C_006da680::sub_006da680(void) { return this; }
 
-// @baa 0x006da6e0
-IMPLEMENT_CLASS_AT(UPointLightComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\PointLightComponent.cpp", 11);
-
-// @baa 0x006da7f0
-int UPointLightComponent::vf_000(void) { return 1; }
-
-// @baa 0x006da800
-bool UPointLightComponent::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x006da8b0
-int sub_006da8b0(void) { return 1; }
-
-extern char g_01ed493c[];
-// @baa 0x006da8f0
-int sub_006da8f0(void) { return (int)g_01ed493c; }
-
-// @baa 0x006da900
-void UPointLightComponent::sub_006da900(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
-
-// @baa 0x006da910
-undefined4 * UPointLightComponent::sub_006da910(byte param_2)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  *param_1 = (undefined4)(&g_01ebb554);
-  if ((param_2 & 1) != 0) {
-    sub_0053dfa0(param_1);
-  }
-  return param_1;
-}
-
-// @baa 0x006daaf0
-IMPLEMENT_CLASS_AT(APortalVolume, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\PortalVolume.cpp", 8);
-
 // @baa 0x006dac00
 int APortalVolume::vf_000(void) { return 1; }
 
@@ -1693,21 +1557,6 @@ bool APortalVolume::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
-
-// @baa 0x006dac50
-IMPLEMENT_CLASS_AT(UPrimitiveComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\PrimitiveComponent.cpp", 14);
-
-// @baa 0x006dad60
-int UPrimitiveComponent::vf_000(void) { return 1; }
-
-// @baa 0x006dad70
-bool UPrimitiveComponent::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x006dadb0
-int UMeshComponent::vf_000(void) { return 1; }
 
 extern char g_01ed5d1c[];
 // @baa 0x006db000
@@ -1967,15 +1816,6 @@ void UPrimitiveComponent::vf_244(undefined1 param_2)
 
 // @baa 0x006dc1b0
 void sub_006dc1b0(void) {  }
-
-// @baa 0x006dc7b0
-UINT UMeshComponent::vf_250() { return 0; }
-
-// @baa 0x006dc800
-UINT UMeshComponent::vf_254() { return 0; }
-
-// @baa 0x006dcb10
-int sub_006dcb10(void) { return 1690; }
 
 // @baa 0x006dd120
 int sub_006dd120(void) { return 1690; }
@@ -2465,14 +2305,6 @@ void UMaterialInstanceConstant::SetParent(class UMaterialInterface* NewParent)
 	vf_180();
 }
 
-// @baa 0x006d8ef0
-void UMaterialInstanceTimeVarying::SetParent(class UMaterialInterface* NewParent)
-{
-	sub_006c47c0(TEXT("MITV::SetParent"));
-	UMaterialInstance::SetParent(NewParent);
-	vf_180();
-}
-
 // @baa 0x006db600
 void UPrimitiveComponent::Serialize( FArchive& Ar )
 {
@@ -2491,17 +2323,6 @@ struct UPrimitiveComponent_ : public UPrimitiveComponent {
 void UPrimitiveComponent_::sub_006db520(const FMatrix* ParentToWorld)
 {
     CachedParentToWorld = *ParentToWorld;
-}
-
-struct UPointLightComponent_ : public UPointLightComponent
-{
-    void sub_006da930(const FMatrix* In);
-};
-
-// @baa 0x006da930
-void UPointLightComponent_::sub_006da930(const FMatrix* In)
-{
-    CachedParentToWorld = *In;
 }
 
 // The real material-usage helper lives at 006d72b0 (this in ecx, two stack args).

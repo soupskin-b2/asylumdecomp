@@ -1,4 +1,4 @@
-// Engine_0710000.cpp (part 1 of 7): 427 functions
+// Engine_0710000.cpp (part 1 of 7): 420 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -881,9 +881,6 @@ undefined4 * C_00715b60::sub_00715b60(byte param_2)
   return param_1;
 }
 
-// @baa 0x00715b80
-IMPLEMENT_CLASS_AT(AReverbVolume, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\ReverbVolume.cpp", 8);
-
 // @baa 0x00715c90
 int AReverbVolume::vf_000(void) { return 1; }
 
@@ -904,9 +901,6 @@ struct C_00715ec0 { C_00715ec0* sub_00715ec0(void); };
 // @baa 0x00715ec0
 C_00715ec0* C_00715ec0::sub_00715ec0(void) { return this; }
 
-// @baa 0x00715ed0
-IMPLEMENT_CLASS_AT(UShaderCache, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\ShaderCache.cpp", 9);
-
 // @baa 0x007165a0
 int USphericalHarmonicLightComponent::vf_000(void) { return 1; }
 
@@ -925,9 +919,6 @@ int sub_00716600(void) { return 0; }
 // @baa 0x00716640
 int USphericalHarmonicLightComponent::GetLightType(void) { return 1; }
 
-// @baa 0x00716650
-IMPLEMENT_CLASS_AT(USpotLightComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\SpotLightComponent.cpp", 11);
-
 // @baa 0x00716760
 int USpotLightComponent::vf_000(void) { return 1; }
 
@@ -939,9 +930,6 @@ bool USpotLightComponent::vf_004()
 
 // @baa 0x007167b0
 int sub_007167b0(void) { return 1; }
-
-// @baa 0x00716880
-IMPLEMENT_CLASS_AT(USpriteComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\SpriteComponent.cpp", 9);
 
 // @baa 0x00716990
 int USpriteComponent::vf_000(void) { return 1; }
@@ -992,18 +980,6 @@ undefined4 * C_00716a30::sub_00716a30(byte param_2)
     sub_0053dfa0(param_1);
   }
   return param_1;
-}
-
-// @baa 0x00716a50
-IMPLEMENT_CLASS_AT(USurface, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\Surface.cpp", 8);
-
-// @baa 0x00716b60
-int USurface::vf_000(void) { return 1; }
-
-// @baa 0x00716b70
-bool USurface::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 extern char g_01ee4bd4[];

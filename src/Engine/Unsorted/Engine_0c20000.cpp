@@ -1,4 +1,4 @@
-// Engine_0c20000.cpp (part 1 of 3): 264 functions
+// Engine_0c20000.cpp (part 1 of 3): 240 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -175,45 +175,6 @@ undefined4 C_00c21ba0::sub_00c21ba0(byte param_2)
     sub_0053dfa0(param_1);
   }
   return param_1;
-}
-
-int sub_005eae70(...);
-int sub_0072a530(void);
-int sub_00733250(...);
-extern undefined4 g_026b2250;
-// @baa 0x00c21da0
-void UMaterialExpressionTextureSampleParameter2D::vf_13c(void)
-{
-    int param_1 = (int)this;
-
-  undefined4 uVar1;
-  
-  if (g_026b2250 == 0) {
-    g_026b2250 = sub_00733250(L"Engine");
-    sub_0072a530();
-  }
-  uVar1 = sub_005eae70(g_026b2250,0,L"EngineResources.DefaultTexture",0,0,0,1);
-  *(undefined4 *)(param_1 + 0x60) = uVar1;
-  return;
-}
-
-int sub_00754f50(void);
-int sub_00767250(...);
-extern undefined4 g_026b3b34;
-// @baa 0x00c21df0
-void UMaterialExpressionTextureSampleParameterCube::vf_13c(void)
-{
-    int param_1 = (int)this;
-
-  undefined4 uVar1;
-  
-  if (g_026b3b34 == 0) {
-    g_026b3b34 = sub_00767250(L"Engine");
-    sub_00754f50();
-  }
-  uVar1 = sub_005eae70(g_026b3b34,0,L"EngineResources.DefaultTextureCube",0,0,0,1);
-  *(undefined4 *)(param_1 + 0x60) = uVar1;
-  return;
 }
 
 extern char g_02044750[];
@@ -1888,64 +1849,10 @@ if(iVar1!=0){
 return;
 }
 
-// @baa 0x00c288c0
-FString UMaterialExpressionWorldPosition::vf_128()
-{
-    return TEXT("World Position");
-}
-
-// @baa 0x00c288f0
-FString UMaterialExpressionNormal::vf_128()
-{
-    return TEXT("Normal Vector");
-}
-
 // @baa 0x00c28960
 FString UMaterialExpressionAddNormalMap::vf_128()
 {
     return TEXT("Add Normal Map");
-}
-
-// @baa 0x00c28990
-FString UMaterialExpressionLightingDiffuseLambert::vf_128()
-{
-    return TEXT("Lighting Diffuse Lambert");
-}
-
-// @baa 0x00c289c0
-FString UMaterialExpressionLightingSpecularPhong::vf_128()
-{
-    return TEXT("Lighting Specular Phong");
-}
-
-// @baa 0x00c289f0
-FString UMaterialExpressionLightingSpecularBlinnPhong::vf_128()
-{
-    return TEXT("Lighting Specular Blinn-Phong");
-}
-
-// @baa 0x00c28a20
-FString UMaterialExpressionLightingSpecularHeidrichSeidel::vf_128()
-{
-    return TEXT("Lighting Specular Heidrich-Seidel");
-}
-
-// @baa 0x00c28a50
-FString UMaterialExpressionFluidNormal::vf_128()
-{
-    return TEXT("Fluid Normal");
-}
-
-// @baa 0x00c28a80
-FString UMaterialExpressionDeriveNormalZ::vf_128()
-{
-    return TEXT("DeriveNormalZ");
-}
-
-// @baa 0x00c28ab0
-FString UMaterialExpressionConstantBiasScale::vf_128()
-{
-    return TEXT("ConstantBiasScale");
 }
 
 // @baa 0x00c290c0
@@ -2202,32 +2109,8 @@ undefined4 * UObject::sub_00c2baf0(void)
 // @baa 0x00c2bb10
 IMPLEMENT_CLASS_AT(UMaterialExpressionAbs, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\MaterialExpressions.cpp", 41);
 
-// @baa 0x00c2bb70
-extern undefined * g_02044df0;
-// @baa 0x00c2bb90
-undefined4 * UObject::sub_00c2bb90(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_02044df0);
-  return param_1;
-}
-
 // @baa 0x00c2bbb0
 IMPLEMENT_CLASS_AT(UMaterialExpressionAdd, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\MaterialExpressions.cpp", 16);
-
-// @baa 0x00c2bc10
-extern undefined * g_02044f28;
-// @baa 0x00c2bc40
-undefined4 * UObject::sub_00c2bc40(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_02044f28);
-  return param_1;
-}
 
 // @baa 0x00c2bc60
 int UMaterialExpressionAddNormalMap::vf_12c(void) { return 8; }
@@ -2235,164 +2118,33 @@ int UMaterialExpressionAddNormalMap::vf_12c(void) { return 8; }
 // @baa 0x00c2bc70
 IMPLEMENT_CLASS_AT(UMaterialExpressionAddNormalMap, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\MaterialExpressions.cpp", 91);
 
-// @baa 0x00c2bcd0
-extern undefined * g_02045060;
-// @baa 0x00c2bd00
-undefined4 * UObject::sub_00c2bd00(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_02045060);
-  return param_1;
-}
-
 // @baa 0x00c2bd20
 IMPLEMENT_CLASS_AT(UMaterialExpressionAppendVector, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\MaterialExpressions.cpp", 37);
-
-// @baa 0x00c2bd80
-extern undefined * g_02045198;
-// @baa 0x00c2bdb0
-undefined4 * UObject::sub_00c2bdb0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_02045198);
-  return param_1;
-}
 
 // @baa 0x00c2bdd0
 IMPLEMENT_CLASS_AT(UMaterialExpressionBumpOffset, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\MaterialExpressions.cpp", 36);
 
-// @baa 0x00c2be30
-extern undefined * g_020452d0;
-// @baa 0x00c2be60
-undefined4 * UObject::sub_00c2be60(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_020452d0);
-  return param_1;
-}
-
 // @baa 0x00c2be80
 IMPLEMENT_CLASS_AT(UMaterialExpressionCameraVector, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\MaterialExpressions.cpp", 29);
-
-// @baa 0x00c2bee0
-extern undefined * g_02045408;
-// @baa 0x00c2bf00
-undefined4 * UObject::sub_00c2bf00(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_02045408);
-  return param_1;
-}
 
 // @baa 0x00c2bf20
 IMPLEMENT_CLASS_AT(UMaterialExpressionCameraWorldPosition, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\MaterialExpressions.cpp", 30);
 
-// @baa 0x00c2bf80
-extern undefined * g_02045540;
-// @baa 0x00c2bfa0
-undefined4 * UObject::sub_00c2bfa0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_02045540);
-  return param_1;
-}
-
 // @baa 0x00c2bfc0
 IMPLEMENT_CLASS_AT(UMaterialExpressionCeil, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\MaterialExpressions.cpp", 39);
-
-// @baa 0x00c2c020
-extern undefined * g_02045678;
-// @baa 0x00c2c040
-undefined4 * UObject::sub_00c2c040(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_02045678);
-  return param_1;
-}
 
 // @baa 0x00c2c060
 IMPLEMENT_CLASS_AT(UMaterialExpressionClamp, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\MaterialExpressions.cpp", 23);
 
-// @baa 0x00c2c0c0
-extern undefined * g_020457b0;
-// @baa 0x00c2c0f0
-undefined4 * UObject::sub_00c2c0f0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_020457b0);
-  return param_1;
-}
-
 // @baa 0x00c2c110
 IMPLEMENT_CLASS_AT(UMaterialExpressionComment, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\MaterialExpressions.cpp", 78);
-
-// @baa 0x00c2c180
-extern undefined * g_020458e8;
-// @baa 0x00c2c1a0
-undefined4 * UObject::sub_00c2c1a0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_020458e8);
-  return param_1;
-}
 
 // @baa 0x00c2c1c0
 IMPLEMENT_CLASS_AT(UMaterialExpressionComponentMask, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\MaterialExpressions.cpp", 19);
 
-// @baa 0x00c2c220
-extern undefined * g_02045a20;
-// @baa 0x00c2c250
-undefined4 * UObject::sub_00c2c250(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_02045a20);
-  return param_1;
-}
-
 // @baa 0x00c2c270
 IMPLEMENT_CLASS_AT(UMaterialExpressionConstant, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\MaterialExpressions.cpp", 24);
-
-// @baa 0x00c2c2d0
-extern undefined * g_02045b58;
-// @baa 0x00c2c2f0
-undefined4 * UObject::sub_00c2c2f0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_02045b58);
-  return param_1;
-}
 
 // @baa 0x00c2c310
 IMPLEMENT_CLASS_AT(UMaterialExpressionConstant2Vector, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\MaterialExpressions.cpp", 25);
 
-// @baa 0x00c2c370
-extern undefined * g_02045c90;
-// @baa 0x00c2c390
-undefined4 * UObject::sub_00c2c390(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_02045c90);
-  return param_1;
-}

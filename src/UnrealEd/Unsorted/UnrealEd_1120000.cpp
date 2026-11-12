@@ -1,4 +1,4 @@
-// UnrealEd_1120000.cpp (part 1 of 2): 53 functions
+// UnrealEd_1120000.cpp (part 1 of 2): 44 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -174,48 +174,6 @@ struct C_01122cb0 { void sub_01122940(); void sub_01122cb0(int); };
 
 // @baa 0x01122cb0
 void C_01122cb0::sub_01122cb0(int) { sub_01122940(); }
-
-// @baa 0x01126470
-IMPLEMENT_CLASS_AT(UCurveEdPreset_CosWave, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\CurveEdPresets.cpp", 9);
-
-// @baa 0x01126580
-bool UCurveEdPreset_CosWave::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x011265c0
-IMPLEMENT_CLASS_AT(UCurveEdPreset_LinearDecay, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\CurveEdPresets.cpp", 10);
-
-// @baa 0x011266d0
-bool UCurveEdPreset_LinearDecay::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x01126820
-bool UCurveEdPreset_Nothing::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x01126860
-IMPLEMENT_CLASS_AT(UCurveEdPreset_SineWave, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\CurveEdPresets.cpp", 12);
-
-// @baa 0x01126970
-bool UCurveEdPreset_SineWave::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x011269b0
-IMPLEMENT_CLASS_AT(UCurveEdPreset_UserSet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\CurveEdPresets.cpp", 13);
-
-// @baa 0x01126ac0
-bool UCurveEdPreset_UserSet::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
 
 struct C_01129d70 {
     undefined4 sub_01129d70(byte);

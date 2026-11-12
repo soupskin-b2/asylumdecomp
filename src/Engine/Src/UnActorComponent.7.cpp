@@ -1,4 +1,4 @@
-// UnActorComponent.cpp: 2 functions
+// UnActorComponent.cpp: 7 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -60,4 +60,22 @@ Sub7& Sub7::sub_006d4390()
     F = 0;
     G = 0;
     return *this;
+}
+
+// @baa 0x007549a0
+int sub_007549a0(void) { return 1; }
+
+// @baa 0x00764b50
+IMPLEMENT_CLASS_AT(UAudioComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActorComponent.cpp", 47);
+
+// @baa 0x00764ca0
+IMPLEMENT_CLASS_AT(UWindDirectionalSourceComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActorComponent.cpp", 49);
+
+// @baa 0x007774c0
+IMPLEMENT_CLASS_AT(UStaticMeshComponentFactory, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActorComponent.cpp", 53);
+
+// @baa 0x007775d0
+bool UStaticMeshComponentFactory::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
 }

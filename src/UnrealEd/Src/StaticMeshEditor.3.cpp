@@ -1,7 +1,7 @@
-// StaticMeshEditor.cpp (part 3 of 3): 8 functions
+// StaticMeshEditor.cpp (part 3 of 3): 13 functions
 // Placed here by: neighbours 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
-#include "ue3/Classes.h"
+#include "ue3/Implement.h"
 
 int sub_0053dfa0(...);
 int sub_01284da0(void);
@@ -75,4 +75,51 @@ extern char g_025e8a70[];
 void __stdcall sub_01231170(INT Unused)
 {
     sub_0122a3d0(g_025e8a70, 0x1a);
+}
+
+int sub_00c38ac0(void);
+// @baa 0x01221f20
+undefined4 UObject::sub_01221f20(byte param_2)
+{
+    undefined4 param_1 = (undefined4)this;
+
+  sub_00c38ac0();
+  if ((param_2 & 1) != 0) {
+    sub_0053dfa0(param_1);
+  }
+  return param_1;
+}
+
+// @baa 0x01221d60
+IMPLEMENT_CLASS_AT(UStaticMeshEditorComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\StaticMeshEditor.cpp", 22);
+
+// @baa 0x01221e70
+int UStaticMeshEditorComponent::vf_000(void) { return 1; }
+
+// @baa 0x01221e80
+bool UStaticMeshEditorComponent::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+extern undefined4 g_026af518;
+extern undefined4 g_026af51c;
+extern undefined4 g_026af520;
+extern undefined4 g_026d40b0;
+extern undefined4 g_026d40b4;
+extern undefined4 g_026d40b8;
+// @baa 0x01221ec0
+undefined * sub_01221ec0(void)
+{
+  if ((g_026d40b8 & 1) == 0) {
+    g_026d40b8 = g_026d40b8 | 1;
+    if ((g_026af520 & 1) == 0) {
+      g_026af520 = g_026af520 | 1;
+      g_026af518 = 0;
+      g_026af51c = (undefined4)(L"HHitProxy");
+    }
+    g_026d40b0 = (undefined4)(&g_026af518);
+    g_026d40b4 = (undefined4)(L"HSMEChunkProxy");
+  }
+  return (undefined *)(&g_026d40b0);
 }

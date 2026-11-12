@@ -1,4 +1,4 @@
-// UnTexAlignTools.cpp: 11 functions
+// UnTexAlignTools.cpp: 15 functions
 // Placed here by: callers 6, file 5.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -56,3 +56,17 @@ IMPLEMENT_CLASS_AT(UTexAlignerFit, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngin
 // @baa 0x012afc80
 // @baa 0x012afd40
 // @baa 0x012afe00
+
+// @baa 0x0129ce30
+void UTexAligner::vf_110(int a0, int a1, int a2, int a3, int a4) {  }
+
+// @baa 0x0129ee00
+
+// @baa 0x0129ef10
+int UTexAligner::vf_000(void) { return 1; }
+
+// @baa 0x0129ef20
+bool UTexAligner::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}

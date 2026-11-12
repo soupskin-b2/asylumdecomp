@@ -1,4 +1,4 @@
-// UnFont.cpp: 8 functions
+// UnFont.cpp: 9 functions
 // Placed here by: neighbours 3, file 3, callers 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -28,3 +28,5 @@ IMPLEMENT_CLASS_AT(UFont, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Devel
 IMPLEMENT_CLASS_AT(UMultiFont, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnFont.cpp", 11);
 
 // @baa 0x00d19740
+
+// @baa 0x00d19800

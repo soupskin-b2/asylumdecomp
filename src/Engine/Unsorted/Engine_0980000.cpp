@@ -1,4 +1,4 @@
-// Engine_0980000.cpp (part 1 of 6): 85 functions
+// Engine_0980000.cpp (part 1 of 6): 83 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -869,41 +869,3 @@ int C_009893e0::sub_009893e0(void)
   return (*(int *)(param_1 + 0x14) < *(int *)(*(int *)(param_1 + 0xc) + 0x14)) - 1;
 }
 
-// @baa 0x00989b00
-void sub_00989b00(undefined4 * param_1, undefined4 * param_2)
-{
-  if (param_1 != (undefined4 *)0x0) {
-    *param_1 = *param_2;
-    param_1[1] = param_2[1];
-  }
-  return;
-}
-
-int sub_006311e0(...);
-extern undefined2 g_01e3f3dc;
-struct Item { char pad[24]; unsigned value, count, start; char pad2[24]; };
-
-struct Arr { Item* data; int num; };
-
-struct Obj { char pad[0xe0]; Arr a; };
-
-struct List { Obj** data; int num; };
-
-struct Holder { char pad[0x30]; List list; };
-
-struct C_00989d80 { char pad[0x48]; int index; Holder* holder; int sub_00989d80(unsigned); };
-
-// @baa 0x00989d80
-int C_00989d80::sub_00989d80(unsigned x) {
- List* list=&holder->list; int idx=index;
- if (idx<0 || idx>=list->num) sub_006311e0("i>=0 && i<this->ArrayNum", "e:\\projects\\amadeus\\aa\\game\\unrealengine3\\development\\src\\core\\inc\\Array.h",0x6af,&g_01e3f3dc);
- Obj* obj=list->data[idx]; int i=0;
- if (i<obj->a.num) do {
- int nitems;
- if(i<0 || (i>=(nitems=*(volatile int*)&obj->a.num) && (i!=0 || nitems!=0))) sub_006311e0("i>=0 && (i<ArrayNum||(i==0 && ArrayNum==0))", "e:\\projects\\amadeus\\aa\\game\\unrealengine3\\development\\src\\core\\inc\\Array.h",0x236,&g_01e3f3dc);
- Item* p=&obj->a.data[i]; unsigned n=p->count/3;
- if(x>=n && x<n+p->start) return p->value;
- ++i;
- } while (i<obj->a.num);
- return 1;
-}

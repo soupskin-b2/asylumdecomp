@@ -1,4 +1,4 @@
-// ScriptDatabaseBuilder.cpp: 4 functions
+// ScriptDatabaseBuilder.cpp: 7 functions
 // Placed here by: callers 3, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -60,3 +60,14 @@ return iVar2;
 IMPLEMENT_CLASS_AT(UScriptDataBaseCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\ScriptDatabaseBuilder.cpp", 3431);
 
 // @baa 0x0148c1f0
+
+// @baa 0x01478800
+
+// @baa 0x01478910
+int UScriptDataBaseCommandlet::vf_000(void) { return 1; }
+
+// @baa 0x01478920
+bool UScriptDataBaseCommandlet::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}

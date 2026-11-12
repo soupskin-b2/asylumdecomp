@@ -1,4 +1,4 @@
-// GenericDlgOptions.cpp: 27 functions
+// GenericDlgOptions.cpp: 29 functions
 // Placed here by: callers 17, file 10.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -102,3 +102,18 @@ IMPLEMENT_CLASS_AT(UOptionsNewClassFromSel, "e:\\Projects\\Amadeus\\AA\\Game\\Un
 // @baa 0x01179980
 // @baa 0x01179a40
 // @baa 0x01179b00
+
+int sub_005c7a20(void);
+extern undefined * g_021cfb30;
+// @baa 0x0115bef0
+undefined4 * UObject::sub_0115bef0(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_021cfb30);
+  return param_1;
+}
+
+// @baa 0x0115bf10
+int sub_0115bf10(int a0, int a1) { return a1; }

@@ -1,4 +1,4 @@
-// BmGame_15f0000.cpp (part 1 of 20): 366 functions
+// BmGame_15f0000.cpp (part 1 of 20): 347 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1219,54 +1219,8 @@ void sub_015f70b0();
 // @baa 0x015f9e50
 void sub_015f9e50(void) { sub_015f70b0(); }
 
-struct C_015fa380 { C_015fa380* sub_015fa380(void); };
-
-// @baa 0x015fa380
-C_015fa380* C_015fa380::sub_015fa380(void) { return this; }
-
-struct C_015fa390 { C_015fa390* sub_015fa390(void); };
-
-// @baa 0x015fa390
-C_015fa390* C_015fa390::sub_015fa390(void) { return this; }
-
-int sub_015df340(void);
-int sub_015f9a90(...);
-extern undefined4 g_026e1754;
-// @baa 0x015fa3a0
-int sub_015fa3a0(void)
-{
-  if (g_026e1754 == 0) {
-    g_026e1754 = sub_015f9a90(L"BmGame");
-    sub_015df340();
-  }
-  return g_026e1754;
-}
-
-extern undefined * g_02339930;
-// @baa 0x015fa3d0
-undefined4 * UObject::sub_015fa3d0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_02339930);
-  return param_1;
-}
-
 // @baa 0x015fa3f0
 IMPLEMENT_CLASS_AT(URSeqAct_GetNumPawnsInVolume, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmPawnSpawner.cpp", 19);
-
-// @baa 0x015fa460
-extern undefined * g_02339ad0;
-// @baa 0x015fa490
-undefined4 * UObject::sub_015fa490(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_02339ad0);
-  return param_1;
-}
 
 // @baa 0x015fa4b0
 IMPLEMENT_CLASS_AT(URBMIncapacitatedPawnCounter, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmPawnSpawner.cpp", 17);
@@ -1393,88 +1347,18 @@ undefined4 * UObject::sub_015faa70(void)
 // @baa 0x015faac0
 IMPLEMENT_CLASS_AT(URBMBehaviour_Combat, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBMBehaviour_Combat.cpp", 16);
 
-extern undefined * g_0233a7f8;
-// @baa 0x015fab20
-undefined4 * UObject::sub_015fab20(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_0233a7f8);
-  return param_1;
-}
-
 // @baa 0x015fab40
 // @baa 0x015fab70
 IMPLEMENT_CLASS_AT(URBMBehaviour_CombatAI, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBMBehaviour_Combat.cpp", 17);
 
-extern undefined * g_0233a9e8;
-// @baa 0x015fabf0
-undefined4 * UObject::sub_015fabf0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_0233a9e8);
-  return param_1;
-}
-
-// @baa 0x015fac10
-extern undefined * g_0233abd8;
-// @baa 0x015fac40
-undefined4 * UObject::sub_015fac40(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_0233abd8);
-  return param_1;
-}
-
 // @baa 0x015fac60
 IMPLEMENT_CLASS_AT(URBMBehaviour_CombatHeavyObject, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBMBehaviour_Combat.cpp", 18);
-
-// @baa 0x015facc0
-extern undefined * g_0233adc8;
-// @baa 0x015facf0
-undefined4 * UObject::sub_015facf0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_0233adc8);
-  return param_1;
-}
 
 // @baa 0x015fad10
 IMPLEMENT_CLASS_AT(URBMBehaviour_CombatRifle, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBMBehaviour_Combat.cpp", 19);
 
-// @baa 0x015fad70
-extern undefined * g_0233afb8;
-// @baa 0x015fada0
-undefined4 * UObject::sub_015fada0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_0233afb8);
-  return param_1;
-}
-
 // @baa 0x015fadc0
 IMPLEMENT_CLASS_AT(URBMBehaviour_CombatStunStick, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBMBehaviour_Combat.cpp", 20);
-
-// @baa 0x015fae20
-extern undefined * g_0233b1a8;
-// @baa 0x015fae50
-undefined4 * UObject::sub_015fae50(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_0233b1a8);
-  return param_1;
-}
 
 // @baa 0x015fae70
 IMPLEMENT_CLASS_AT(URBMBehaviour_Venom, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBMBehaviour_Combat.cpp", 21);
@@ -1673,29 +1557,6 @@ IMPLEMENT_CLASS_AT(URBMBehaviourAutoStringUp, "e:\\Projects\\Amadeus\\AA\\Game\\
 // @baa 0x015fbcb0
 IMPLEMENT_CLASS_AT(URBMExitCondition, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBMExitCondition.cpp", 8);
 
-// @baa 0x015fbd10
-extern undefined * g_0233c520;
-// @baa 0x015fbd40
-undefined4 * UObject::sub_015fbd40(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_0233c520);
-  return param_1;
-}
-
-extern undefined * g_0233c6c8;
-// @baa 0x015fbd60
-undefined4 * UObject::sub_015fbd60(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_0233c6c8);
-  return param_1;
-}
-
 // @baa 0x015fbd80
 IMPLEMENT_CLASS_AT(URBMExitConditionCombiner, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBMExitCondition.cpp", 9);
 
@@ -1714,32 +1575,8 @@ undefined4 * UObject::sub_015fbe20(void)
 // @baa 0x015fbe40
 IMPLEMENT_CLASS_AT(URBmPawnSpawner, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmPawnSpawner.cpp", 15);
 
-// @baa 0x015fbeb0
-extern undefined * g_0233ca18;
-// @baa 0x015fbee0
-undefined4 * UObject::sub_015fbee0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_0233ca18);
-  return param_1;
-}
-
 // @baa 0x015fbf00
 IMPLEMENT_CLASS_AT(URBMPawnSpawnerController, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmPawnSpawner.cpp", 18);
-
-// @baa 0x015fbf70
-extern undefined * g_0233cbd8;
-// @baa 0x015fbfa0
-undefined4 * UObject::sub_015fbfa0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_0233cbd8);
-  return param_1;
-}
 
 // @baa 0x015fbfc0
 IMPLEMENT_CLASS_AT(URBMWaveController, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmPawnSpawner.cpp", 16);
@@ -1748,43 +1585,8 @@ IMPLEMENT_CLASS_AT(URBMWaveController, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealE
 // @baa 0x015fc050
 IMPLEMENT_CLASS_AT(URSeqAct_ChallengeAction, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmPawnSpawner.cpp", 20);
 
-extern undefined * g_0233cd80;
-// @baa 0x015fc0b0
-undefined4 * UObject::sub_015fc0b0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_0233cd80);
-  return param_1;
-}
-
-// @baa 0x015fc0d0
-extern undefined * g_0233cf20;
-// @baa 0x015fc100
-undefined4 * UObject::sub_015fc100(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_0233cf20);
-  return param_1;
-}
-
 // @baa 0x015fc120
 IMPLEMENT_CLASS_AT(URSeqAct_CombatChallengeSpawner, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmPawnSpawner.cpp", 21);
-
-// @baa 0x015fc1c0
-extern undefined * g_0233d0c8;
-// @baa 0x015fc1f0
-undefined4 * UObject::sub_015fc1f0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_0233d0c8);
-  return param_1;
-}
 
 // @baa 0x015fc210
 IMPLEMENT_CLASS_AT(URSeqAct_InfiniteCombatSpawner, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmPawnSpawner.cpp", 22);
@@ -1896,20 +1698,6 @@ struct C_015fe7c0 { C_015fe7c0* sub_015fe7c0(void); };
 
 // @baa 0x015fe7c0
 C_015fe7c0* C_015fe7c0::sub_015fe7c0(void) { return this; }
-
-int sub_005c7a70(...);
-int sub_015fe8d0(void);
-// @baa 0x015fe9a0
-undefined4 ARPawnBossIvyBase::sub_015fe9a0(byte param_2)
-{
-    undefined4 param_1 = (undefined4)this;
-
-  sub_015fe8d0();
-  if ((param_2 & 1) != 0) {
-    sub_005c7a70(param_1,0xc50);
-  }
-  return param_1;
-}
 
 int sub_015f9490(...);
 int sub_015fcaa0(void);

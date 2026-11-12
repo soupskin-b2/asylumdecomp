@@ -1,4 +1,4 @@
-// UnrealEd_11c0000.cpp (part 1 of 3): 225 functions
+// UnrealEd_11c0000.cpp (part 1 of 3): 224 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1121,12 +1121,6 @@ struct C_011c4140 { int sub_011c4140(void); };
 
 // @baa 0x011c4140
 int C_011c4140::sub_011c4140(void) { return *(int*)((char*)this + 360); }
-
-// @baa 0x011c4880
-bool UCustomPropertyItemBindings::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
 
 struct C_011c4950 { int a, b, c; C_011c4950(); };
 

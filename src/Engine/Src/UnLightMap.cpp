@@ -1,4 +1,4 @@
-// UnLightMap.cpp: 25 functions
+// UnLightMap.cpp: 31 functions
 // Placed here by: neighbours 23, callers 1, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -252,3 +252,70 @@ int UPrefabSequenceContainer::vf_1bc(void) { return 1; }
 IMPLEMENT_CLASS_AT(UPrefabSequenceContainer, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPrefab.cpp", 1180);
 
 // @baa 0x00d3f7c0
+
+// @baa 0x00d1f2f0
+
+// @baa 0x00d1f400
+int ULightMapTexture2D::vf_000(void) { return 1; }
+
+// @baa 0x00d1f410
+bool ULightMapTexture2D::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x00d1f450
+void ULightMapTexture2D::sub_00d1f450(float * param_2, float param_3)
+{
+    int param_1 = (int)this;
+  float *pfVar1;
+  int iVar2;
+  pfVar1 = (float *)(param_1 + 4);
+  param_1 = (int)param_2 - param_1;
+  iVar2 = 4;
+  do {
+    pfVar1[-1] = *param_2 * param_3 + pfVar1[-1];
+    *pfVar1 = *(float *)(param_1 + (int)pfVar1) * param_3 + *pfVar1;
+    pfVar1[1] = param_2[2] * param_3 + pfVar1[1];
+    param_2 = param_2 + 3;
+    pfVar1 = pfVar1 + 3;
+    iVar2 = iVar2 + -1;
+  } while (iVar2 != 0);
+  return;
+}
+
+struct C_00d31460
+{
+    char pad_0[0x18];
+    INT Value_18;
+    INT Value_1c;
+    INT Value_20;
+
+    C_00d31460* sub_00d31460();
+};
+
+// @baa 0x00d31460
+C_00d31460* C_00d31460::sub_00d31460()
+{
+    Value_18 = 0;
+    Value_1c = 0;
+    Value_20 = 0;
+    return this;
+}
+
+struct C_00d31470 {
+    undefined4 sub_00d31470(byte);
+};
+
+int sub_00d23580(void);
+// @baa 0x00d31470
+undefined4 C_00d31470::sub_00d31470(byte param_2)
+{
+    undefined4 param_1 = (undefined4)this;
+
+  sub_00d23580();
+  if ((param_2 & 1) != 0) {
+    sub_0053dfa0(param_1);
+  }
+  return param_1;
+}

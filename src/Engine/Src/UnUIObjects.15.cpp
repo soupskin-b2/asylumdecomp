@@ -1,4 +1,4 @@
-// UnUIObjects.cpp (part 15 of 17): 16 functions
+// UnUIObjects.cpp (part 15 of 17): 18 functions
 // Placed here by: class 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -246,3 +246,14 @@ public:
 
 // @baa 0x00db2760
 template void Sort<UUIObject*, CompareUnUIObjectsUUIObjectPointer>(UUIObject** First, INT Num);
+
+struct C_00dc2cd0 { C_00dc2cd0* sub_00dc2cd0(void); };
+
+// @baa 0x00dc2cd0
+C_00dc2cd0* C_00dc2cd0::sub_00dc2cd0(void) { return this; }
+
+// @baa 0x00dc2d30
+BYTE UUIScene::GetInputMask(UINT a, UINT b)
+{
+    return PlayerInputMask;
+}

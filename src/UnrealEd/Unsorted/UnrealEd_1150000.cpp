@@ -1,4 +1,4 @@
-// UnrealEd_1150000.cpp: 152 functions
+// UnrealEd_1150000.cpp: 148 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -588,12 +588,6 @@ undefined4 sub_0115b460(void)
   return *(undefined4 *)(g_026d4e00 + 0x58);
 }
 
-// @baa 0x0115b4c0
-void UGenericBrowserType_FracturedStaticMesh::vf_120(int a0, int a1) {  }
-
-// @baa 0x0115b4d0
-int UGenericBrowserType_MorphWeightSequence::vf_114(int a0) { return 1; }
-
 // @baa 0x0115b4e0
 void UOptionsProxy::vf_10c(void) {  }
 
@@ -951,22 +945,6 @@ int sub_0115be60(int a0, int a1) { return a1; }
 
 // @baa 0x0115be70
 IMPLEMENT_CLASS_AT(UOptionsProxy, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\GenericDlgOptions.cpp", 15);
-
-// @baa 0x0115bed0
-int sub_005c7a20(void);
-extern undefined * g_021cfb30;
-// @baa 0x0115bef0
-undefined4 * UObject::sub_0115bef0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_021cfb30);
-  return param_1;
-}
-
-// @baa 0x0115bf10
-int sub_0115bf10(int a0, int a1) { return a1; }
 
 // @baa 0x0115bf20
 IMPLEMENT_CLASS_AT(UOptions2DShaper, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\GenericDlgOptions.cpp", 48);

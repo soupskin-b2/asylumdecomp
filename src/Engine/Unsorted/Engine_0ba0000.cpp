@@ -1,4 +1,4 @@
-// Engine_0ba0000.cpp (part 1 of 2): 279 functions
+// Engine_0ba0000.cpp (part 1 of 2): 248 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -191,18 +191,6 @@ undefined4 * USpeedTree::sub_00bab170(byte param_2)
   return param_1;
 }
 
-// @baa 0x00bab190
-IMPLEMENT_CLASS_AT(ASpeedTreeActor, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\SpeedTree.cpp", 39);
-
-// @baa 0x00bab2a0
-int ASpeedTreeActor::vf_000(void) { return 1; }
-
-// @baa 0x00bab2b0
-bool ASpeedTreeActor::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
 // @baa 0x00bab2f0
 // @baa 0x00bab400
 int USpeedTree::vf_000(void) { return 1; }
@@ -212,32 +200,6 @@ bool USpeedTree::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
-
-struct C_00bab450 { C_00bab450* sub_00bab450(void); };
-
-// @baa 0x00bab450
-C_00bab450* C_00bab450::sub_00bab450(void) { *(int*)((char*)this + 0) = (int)g_02019f1c; return this; }
-
-extern int g_02019f28;
-// A small two-dword value struct used by DecalComponent.cpp.
-struct FDecalValue
-{
-    FDecalValue* sub_00bab480(int* Src);
-    int Value;  // 0x0
-    int Unk04;  // 0x4
-};
-
-// @baa 0x00bab480
-FDecalValue* FDecalValue::sub_00bab480(int* Src)
-{
-    Value = (int)&g_02019f28;
-    Unk04 = *Src;
-    return this;
-}
-
-extern char g_02013324[];
-// @baa 0x00bab4c0
-int sub_00bab4c0(void) { return (int)g_02013324; }
 
 extern char g_01ebb554[];
 // @baa 0x00bab4d0
@@ -254,90 +216,6 @@ undefined4 * USpeedTree::sub_00bab4e0(byte param_2)
   }
   return param_1;
 }
-
-extern int g_02019f34;
-// A small two-dword value struct used by DecalComponent.cpp.
-struct FDecalValue_00bab500
-{
-    FDecalValue_00bab500* sub_00bab500(int* Src);
-    int Value;  // 0x0
-    int Unk04;  // 0x4
-};
-
-// @baa 0x00bab500
-FDecalValue_00bab500* FDecalValue_00bab500::sub_00bab500(int* Src)
-{
-    Value = (int)&g_02019f34;
-    Unk04 = *Src;
-    return this;
-}
-
-extern char g_02013cd8[];
-// @baa 0x00bab520
-int sub_00bab520(void) { return (int)g_02013cd8; }
-
-extern int g_02019f40;
-// A small two-dword value struct used by DecalComponent.cpp.
-struct FDecalValue_00bab530
-{
-    FDecalValue_00bab530* sub_00bab530(int* Src);
-    int Value;  // 0x0
-    int Unk04;  // 0x4
-};
-
-// @baa 0x00bab530
-FDecalValue_00bab530* FDecalValue_00bab530::sub_00bab530(int* Src)
-{
-    Value = (int)&g_02019f40;
-    Unk04 = *Src;
-    return this;
-}
-
-extern char g_02013d30[];
-// @baa 0x00bab550
-int sub_00bab550(void) { return (int)g_02013d30; }
-
-extern int g_02019f4c;
-// A small two-dword value struct used by DecalComponent.cpp.
-struct FDecalValue_00bab560
-{
-    FDecalValue_00bab560* sub_00bab560(int* Src);
-    int Value;  // 0x0
-    int Unk04;  // 0x4
-};
-
-// @baa 0x00bab560
-FDecalValue_00bab560* FDecalValue_00bab560::sub_00bab560(int* Src)
-{
-    Value = (int)&g_02019f4c;
-    Unk04 = *Src;
-    return this;
-}
-
-extern char g_02013d78[];
-// @baa 0x00bab580
-int sub_00bab580(void) { return (int)g_02013d78; }
-
-extern int g_02019f58;
-// A small two-dword value struct used by DecalComponent.cpp.
-struct FDecalValue_00bab590
-{
-    FDecalValue_00bab590* sub_00bab590(int* Src);
-    int Value;  // 0x0
-    int Unk04;  // 0x4
-};
-
-// @baa 0x00bab590
-FDecalValue_00bab590* FDecalValue_00bab590::sub_00bab590(int* Src)
-{
-    Value = (int)&g_02019f58;
-    Unk04 = *Src;
-    return this;
-}
-
-extern char g_02013dc0[];
-// @baa 0x00bab5b0
-int sub_00bab5b0(void) { return (int)g_02013dc0; }
 
 // @baa 0x00bab5c0
 void USpeedTree::sub_00bab5c0(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
@@ -399,11 +277,6 @@ undefined4 * USpeedTree::sub_00bab660(byte param_2)
   return param_1;
 }
 
-struct C_00bab680 { C_00bab680* sub_00bab680(void); };
-
-// @baa 0x00bab680
-C_00bab680* C_00bab680::sub_00bab680(void) { return this; }
-
 // @baa 0x00bab860
 undefined4 USpeedTree::sub_00bab860(void)
 {
@@ -415,9 +288,6 @@ undefined4 USpeedTree::sub_00bab860(void)
   return 0;
 }
 
-// @baa 0x00bab890
-IMPLEMENT_CLASS_AT(USpeedTreeActorFactory, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\SpeedTreeActorFactory.cpp", 9);
-
 // @baa 0x00bab9a0
 int USpeedTreeActorFactory::vf_000(void) { return 1; }
 
@@ -426,9 +296,6 @@ bool USpeedTreeActorFactory::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
-
-// @baa 0x00bab9f0
-IMPLEMENT_CLASS_AT(USpeedTreeComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\SpeedTreeComponent.cpp", 15);
 
 // @baa 0x00babb00
 int USpeedTreeComponent::vf_000(void) { return 1; }
@@ -516,9 +383,6 @@ int sub_00bac110(int a0, int a1) { return a1; }
 // @baa 0x00bac120
 int sub_00bac120(int a0, int a1) { return a1; }
 
-// @baa 0x00bac160
-IMPLEMENT_CLASS_AT(UFoliageComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\FoliageComponent.cpp", 9);
-
 // @baa 0x00bac270
 int UFoliageComponent::vf_000(void) { return 1; }
 
@@ -571,9 +435,6 @@ struct C_00bac3f0 { void sub_00bac3f0(void); };
 
 // @baa 0x00bac3f0
 void C_00bac3f0::sub_00bac3f0(void) { *(int*)((char*)this + 0) = (int)g_02019f6c; }
-
-// @baa 0x00bac400
-IMPLEMENT_CLASS_AT(AFoliageFactory, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\FoliageFactory.cpp", 10);
 
 // @baa 0x00bac510
 int AFoliageFactory::vf_000(void) { return 1; }
@@ -628,50 +489,6 @@ struct C_00bac6a0 { C_00bac6a0* sub_00bac6a0(void); };
 
 // @baa 0x00bac6a0
 C_00bac6a0* C_00bac6a0::sub_00bac6a0(void) { return this; }
-
-// @baa 0x00bac8d0
-IMPLEMENT_CLASS_AT(ULensFlare, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\LensFlare.cpp", 10);
-
-// @baa 0x00bac9e0
-int ULensFlare::vf_000(void) { return 1; }
-
-// @baa 0x00bac9f0
-bool ULensFlare::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00baca30
-IMPLEMENT_CLASS_AT(ULensFlareComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\LensFlare.cpp", 11);
-
-// @baa 0x00bacb40
-int ULensFlareComponent::vf_000(void) { return 1; }
-
-// @baa 0x00bacb50
-bool ULensFlareComponent::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00bacb90
-IMPLEMENT_CLASS_AT(ALensFlareSource, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\LensFlare.cpp", 12);
-
-// @baa 0x00bacca0
-int ALensFlareSource::vf_000(void) { return 1; }
-
-// @baa 0x00baccb0
-bool ALensFlareSource::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00baceb0
-void ULensFlareComponent::vf_044(UINT a0) {  }
-
-struct C_00bacec0 { void sub_00765d00(); void sub_00bacec0(int); };
-
-// @baa 0x00bacec0
-void C_00bacec0::sub_00bacec0(int) { sub_00765d00(); }
 
 // @baa 0x00bacfd0
 void sub_00bacfd0(void) {  }
@@ -1932,14 +1749,3 @@ struct C_00bafc40 { int sub_00bafc40(void); };
 // @baa 0x00bafc40
 int C_00bafc40::sub_00bafc40(void) { return *(int*)((char*)this + 16); }
 
-struct UParticleModuleTypeDataTrail2_BAA : public UParticleModuleTypeDataTrail2
-{
-	virtual void sub_00baaf50(INT A, INT B, INT* Source, INT* Dest, INT* Tail);
-};
-
-// @baa 0x00baaf50
-void UParticleModuleTypeDataTrail2_BAA::sub_00baaf50(INT A, INT B, INT* Source, INT* Dest, INT* Tail)
-{
-	*Dest = *Source;
-	*Tail = -1;
-}

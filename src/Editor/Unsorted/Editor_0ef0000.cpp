@@ -1,10 +1,7 @@
-// Editor_0ef0000.cpp (part 1 of 11): 72 functions
+// Editor_0ef0000.cpp (part 1 of 11): 70 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
-
-// @baa 0x00ef09c0
-int UTextureExporterT3D::vf_000(void) { return 1; }
 
 struct C_00ef0a00 { int a, b, c; C_00ef0a00(); };
 
@@ -583,22 +580,6 @@ int C_00ef57d0::sub_00ef57d0(int param_2)
 
 // @baa 0x00ef57e0
 void __stdcall sub_00ef57e0(int a0, int a1) {  }
-
-struct C_00ef8c20 {
-    undefined4 * sub_00ef8c20();
-};
-
-int sub_00ef3160(void);
-// @baa 0x00ef8c20
-undefined4 * C_00ef8c20::sub_00ef8c20(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  *param_1 = 0xffffffff;
-  param_1[1] = 0;
-  sub_00ef3160();
-  return param_1;
-}
 
 void sub_004025d0(void*);
 struct D { void* p; ~D(){ if(0) sub_004025d0(p);} };

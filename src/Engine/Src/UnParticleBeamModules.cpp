@@ -1,4 +1,4 @@
-// UnParticleBeamModules.cpp: 50 functions
+// UnParticleBeamModules.cpp: 59 functions
 // Placed here by: class 26, neighbours 15, file 6, callers 3.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -165,3 +165,31 @@ bool UParticleModuleBeamSource::vf_004()
 }
 
 // @baa 0x00b6a3f0
+
+// @baa 0x00b50f00
+int UParticleModuleBeamSource::vf_000(void) { return 1; }
+
+// @baa 0x00b50f10
+void UParticleModuleBeamSource::vf_168(void) {  }
+
+// @baa 0x00b50fd0
+int UParticleModuleBeamTarget::vf_000(void) { return 1; }
+
+// @baa 0x00b50fe0
+int UParticleModuleBeamTarget::vf_114(int a0) { return 0; }
+
+// @baa 0x00b50ff0
+void UParticleModuleBeamTarget::vf_168(void) {  }
+
+// @baa 0x00b656e0
+int UParticleModuleBeamBase::vf_130(void) { return 2; }
+
+// @baa 0x00b656f0
+
+// @baa 0x00b6a4b0
+
+// @baa 0x00b6a5c0
+bool UParticleModuleBeamTarget::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}

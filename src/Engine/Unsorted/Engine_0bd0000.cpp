@@ -1,4 +1,4 @@
-// Engine_0bd0000.cpp (part 1 of 5): 125 functions
+// Engine_0bd0000.cpp (part 1 of 5): 122 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -49,15 +49,6 @@ int sub_00bd14e0(void)
     sub_00baaa10();
   }
   return g_026bf880;
-}
-
-// @baa 0x00bd1970
-IMPLEMENT_CLASS_AT(UParticleModuleTrailTaper, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnParticleTrailModules.cpp", 441);
-
-// @baa 0x00bd1a80
-bool UParticleModuleTrailTaper::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 int sub_0053dfa0(...);
@@ -472,28 +463,6 @@ int C_00bd48f0::sub_00bd48f0(void)
 void sub_00bd42c0();
 // @baa 0x00bd4c70
 void sub_00bd4c70(void) { sub_00bd42c0(); }
-
-int __stdcall sub_0058c430(int);
-int sub_00bd4910(...);
-// @baa 0x00bd50a0
-int USpeedTreeComponent::vf_10c(undefined4 param_2)
-{
-    int param_1 = (int)this;
-  int iVar1;
-  int iVar2;
-  iVar1 = sub_0058c430(param_2);
-  iVar2 = sub_00bd4910(param_2);
-  if ((iVar1 != 0) &&
-     ((((((*(int *)(param_1 + 0x1d0) != 0 || (*(int *)(param_1 + 0x1d8) != 0)) ||
-         (*(int *)(param_1 + 0x1e0) != 0)) ||
-        ((*(int *)(param_1 + 0x1dc) != 0 || (*(int *)(param_1 + 0x1e4) != 0)))) ||
-       ((*(int *)(iVar2 + 0x1d0) != 0 ||
-        ((*(int *)(iVar2 + 0x1d8) != 0 || (*(int *)(iVar2 + 0x1e0) != 0)))))) ||
-      ((*(int *)(iVar2 + 0x1dc) != 0 || (*(int *)(iVar2 + 0x1e4) != 0)))))) {
-    return 0;
-  }
-  return iVar1;
-}
 
 void sub_00bd44b0();
 // @baa 0x00bd51b0

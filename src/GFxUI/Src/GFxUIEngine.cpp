@@ -1,4 +1,4 @@
-// GFxUIEngine.cpp (part 1 of 3): 85 functions
+// GFxUIEngine.cpp (part 1 of 3): 117 functions
 // Placed here by: neighbours 76, callers 5, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -791,3 +791,225 @@ void Destroy(GFxFSCmdHandler_eventFSCommand_Parms* Parms)
 {
     Parms->~GFxFSCmdHandler_eventFSCommand_Parms();
 }
+
+// @baa 0x00e43460
+
+// @baa 0x00e43570
+int UGFxEngine::vf_000(void) { return 1; }
+
+// @baa 0x00e43580
+bool UGFxEngine::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+struct C_00e48b60 {
+    undefined4 * sub_00e48b60();
+    int sub_00e48990(int);
+};
+
+extern undefined * g_021065f8;
+// @baa 0x00e48b60
+undefined4 * C_00e48b60::sub_00e48b60(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+  ((C_00e48b60 *)(this))->sub_00e48990(0x1d);
+  *param_1 = (undefined4)(&g_021065f8);
+  return param_1;
+}
+
+struct C_00e48b80 {
+    void sub_00e48b80();
+};
+
+// @baa 0x00e48b80
+void C_00e48b80::sub_00e48b80(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  *param_1 = (undefined4)(&g_023f4f44);
+  sub_018d3de0();
+  return;
+}
+
+struct C_00e48b90 {
+    void sub_00e48b90();
+};
+
+// @baa 0x00e48b90
+void C_00e48b90::sub_00e48b90(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  *param_1 = (undefined4)(&g_023f4f44);
+  sub_018d3de0();
+  return;
+}
+
+struct C_00e48ba0 {
+    void sub_00e48ba0();
+};
+
+// @baa 0x00e48ba0
+void C_00e48ba0::sub_00e48ba0(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  *param_1 = (undefined4)(&g_023f4f44);
+  sub_018d3de0();
+  return;
+}
+
+struct C_00e48bb0 {
+    undefined4 * sub_00e48bb0();
+    int sub_00e48990(int);
+};
+
+extern undefined * g_02106604;
+// @baa 0x00e48bb0
+undefined4 * C_00e48bb0::sub_00e48bb0(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+  ((C_00e48bb0 *)(this))->sub_00e48990(10);
+  *param_1 = (undefined4)(&g_02106604);
+  g_027b897c = 0;
+  return param_1;
+}
+
+struct C_00e48c00
+{
+    INT Value;
+
+    C_00e48c00* sub_00e48c00(INT* Source);
+};
+
+// @baa 0x00e48c00
+C_00e48c00* C_00e48c00::sub_00e48c00(INT* Source)
+{
+    *(INT*)this = *Source;
+    return this;
+}
+
+struct C_00e48c10 { int a; C_00e48c10(int); };
+
+// @baa 0x00e48c10
+C_00e48c10::C_00e48c10(int x) : a(x) {}
+
+struct C_00e48d80 {
+    void sub_00e48d80();
+};
+
+extern undefined * g_02106618;
+// @baa 0x00e48d80
+void C_00e48d80::sub_00e48d80(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  *param_1 = (undefined4)(&g_02106618);
+  sub_018d3de0();
+  return;
+}
+
+// @baa 0x00e48d90
+void sub_00e48d90(void) {  }
+
+// @baa 0x00e48da0
+void sub_00e48da0(void) {  }
+
+// @baa 0x00e48db0
+void __stdcall sub_00e48db0(int a0) {  }
+
+// @baa 0x00e48dc0
+void sub_00e48dc0(void) {  }
+
+BYTE __stdcall sub_00e48dd0(int param1);
+// @baa 0x00e48dd0
+BYTE __stdcall sub_00e48dd0(int param1)
+{
+  return 0;
+}
+
+// @baa 0x00e48de0
+void __stdcall sub_00e48de0(int a0) {  }
+
+struct S16 {
+    INT f00;
+    INT f04;
+    INT f08;
+    INT f0c;
+    S16* sub_00e48df0();
+};
+
+// @baa 0x00e48df0
+S16* S16::sub_00e48df0()
+{
+    f00 = 0;
+    f04 = 0;
+    f08 = 0;
+    f0c = 0;
+    return this;
+}
+
+int sub_005c7a70(...);
+int sub_00e5d260(void);
+// @baa 0x00e5d2d0
+undefined4 UGFxEngine::sub_00e5d2d0(byte param_2)
+{
+    undefined4 param_1 = (undefined4)this;
+
+  sub_00e5d260();
+  if ((param_2 & 1) != 0) {
+    sub_005c7a70(param_1,0x40);
+  }
+  return param_1;
+}
+
+struct C_018e5390 { C_018e5390* sub_018e5390(void); };
+
+// @baa 0x018e5390
+C_018e5390* C_018e5390::sub_018e5390(void) { *(int*)((char*)this + 0) = 0; return this; }
+
+// @baa 0x018e5440
+void __stdcall sub_018e5440(int a0) {  }
+
+struct C_018e5470 { int sub_018e5470(void); };
+
+// @baa 0x018e5470
+int C_018e5470::sub_018e5470(void) { return *(int*)((char*)this + 0); }
+
+void sub_018e5ab0();
+// @baa 0x018e5b90
+void sub_018e5b90(void) { sub_018e5ab0(); }
+
+struct C_018e5dc0 { C_018e5dc0* sub_018e5dc0(void); };
+
+// @baa 0x018e5dc0
+C_018e5dc0* C_018e5dc0::sub_018e5dc0(void) { *(int*)((char*)this + 0) = 0; return this; }
+
+// @baa 0x018e5dd0
+void sub_018e5dd0(void) { sub_018e5ab0(); }
+
+// @baa 0x018e5fc0
+void sub_018e5fc0(void) { sub_018e5ab0(); }
+
+// @baa 0x018e5fd0
+void sub_018e5fd0(void) { sub_018e5ab0(); }
+
+struct C_018e6220 { C_018e6220* sub_018e6220(void); };
+
+// @baa 0x018e6220
+C_018e6220* C_018e6220::sub_018e6220(void) { *(int*)((char*)this + 0) = 0; return this; }
+
+// @baa 0x0190fa40
+void sub_0190fa40(void) { sub_0190cb00(); }
+
+struct C_0190faa0 { C_0190faa0* sub_0190faa0(void); };
+
+// @baa 0x0190faa0
+C_0190faa0* C_0190faa0::sub_0190faa0(void) { *(int*)((char*)this + 0) = 0; return this; }
+
+// @baa 0x0190fab0
+void sub_0190fab0(void) { sub_0190e290(); }
+
+// @baa 0x0190fb00
+void sub_0190fb00(void) { sub_0190e330(); }

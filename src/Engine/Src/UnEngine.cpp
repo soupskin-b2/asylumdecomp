@@ -1,4 +1,4 @@
-// UnEngine.cpp: 20 functions
+// UnEngine.cpp: 29 functions
 // Placed here by: callers 9, file 7, neighbours 4.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -90,3 +90,36 @@ IMPLEMENT_CLASS_AT(USmokeTestCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\Unrea
 // @baa 0x00cd14d0
 // @baa 0x00cdb950
 IMPLEMENT_CLASS_AT(UEngine, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnEngine.cpp", 235);
+
+// @baa 0x00cafcb0
+
+// @baa 0x00cafe30
+
+// @baa 0x00caff40
+int UDebugManager::vf_000(void) { return 1; }
+
+// @baa 0x00caff50
+bool UDebugManager::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x00caff90
+
+// @baa 0x00cb00f0
+
+// @baa 0x00cb0200
+int UObjectReferencer::vf_000(void) { return 1; }
+
+// @baa 0x00cb0210
+bool UObjectReferencer::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+extern undefined4 g_026c3cdc;
+// @baa 0x00cb42b0
+bool sub_00cb42b0(void)
+{
+  return 1 < *(int *)(g_026c3cdc + 0x328);
+}

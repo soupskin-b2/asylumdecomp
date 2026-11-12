@@ -1,4 +1,4 @@
-// Engine_0e10000.cpp (part 1 of 3): 60 functions
+// Engine_0e10000.cpp (part 1 of 3): 55 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -179,43 +179,9 @@ int UGuidCache::sub_00e13c00(void)
 IMPLEMENT_CLASS_AT(UPackageMapLevel, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnNetDrv.cpp", 195);
 
 int sub_0061bbe0(void);
-extern undefined * g_020e4070;
-// @baa 0x00e14920
-undefined4 * UPackageMap::sub_00e14920(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_0061bbe0();
-  *param_1 = (undefined4)(&g_020e4070);
-  return param_1;
-}
-
-struct C_00e14940 {
-    undefined4 * sub_00e14940(undefined4);
-};
-
-// @baa 0x00e14940
-undefined4 * C_00e14940::sub_00e14940(undefined4 param_2)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_0061bbe0();
-  param_1[0x2d] = param_2;
-  *param_1 = (undefined4)(&g_020e4070);
-  return param_1;
-}
 
 // @baa 0x00e14960
 extern undefined * g_020e41b0;
-// @baa 0x00e14990
-undefined4 * UPackageMap::sub_00e14990(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_0061bbe0();
-  *param_1 = (undefined4)(&g_020e41b0);
-  return param_1;
-}
 
 // @baa 0x00e149b0
 void UPackageMapSeekFree::vf_120(void) {  }
@@ -256,12 +222,6 @@ bool UPackageMapSeekFree::vf_004()
 void sub_00e16290();
 // @baa 0x00e16b60
 void sub_00e16b60(void) { sub_00e16290(); }
-
-// @baa 0x00e16fe0
-bool UChildConnection::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
 
 int sub_005eb8e0(...);
 int sub_00df3e30(void);
@@ -384,9 +344,6 @@ int sub_00e17260(int a0, int a1) { return a1; }
 
 // @baa 0x00e17270
 int sub_00e17270(int a0, int a1) { return a1; }
-
-// @baa 0x00e17280
-IMPLEMENT_CLASS_AT(UPendingLevel, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPenLev.cpp", 22);
 
 // @baa 0x00e17390
 int UPendingLevel::vf_000(void) { return 1; }

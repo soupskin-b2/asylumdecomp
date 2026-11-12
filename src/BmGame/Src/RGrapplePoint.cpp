@@ -1,4 +1,4 @@
-// RGrapplePoint.cpp: 10 functions
+// RGrapplePoint.cpp: 13 functions
 // Placed here by: callers 5, file 5.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -23,3 +23,14 @@ IMPLEMENT_CLASS_AT(ARRescuePoint, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine
 // @baa 0x01658ed0
 // @baa 0x01658f90
 // @baa 0x01659050
+
+// @baa 0x01639d00
+
+// @baa 0x01639e10
+int ARGrapplePoint::vf_000(void) { return 1; }
+
+// @baa 0x01639e20
+bool ARGrapplePoint::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}

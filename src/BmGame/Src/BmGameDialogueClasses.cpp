@@ -1,4 +1,4 @@
-// BmGameDialogueClasses.cpp: 26 functions
+// BmGameDialogueClasses.cpp: 67 functions
 // Placed here by: callers 13, file 13.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -55,3 +55,247 @@ IMPLEMENT_CLASS_AT(URSeqAct_UnduckDialogue, "e:\\Projects\\Amadeus\\AA\\Game\\Un
 // @baa 0x0158bc30
 // @baa 0x0158bcf0
 // @baa 0x0158bdb0
+
+// @baa 0x01558640
+
+// @baa 0x01558750
+int URSeqAct_PlaySpeechBase::vf_000(void) { return 1; }
+
+// @baa 0x01558760
+bool URSeqAct_PlaySpeechBase::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x015587a0
+int URSeqAct_PlayerDialogueLine::vf_000(void) { return 1; }
+
+// @baa 0x015587b0
+
+// @baa 0x015588c0
+int URSeqAct_PlayerDialogueOptions::vf_000(void) { return 1; }
+
+// @baa 0x015588d0
+bool URSeqAct_PlayerDialogueOptions::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x01558910
+int URBMSeqAct_PlaySpeech::vf_000(void) { return 1; }
+
+// @baa 0x01558920
+int URSeqAct_PlaySpeechConversation::vf_000(void) { return 1; }
+
+// @baa 0x01558930
+int URSeqAct_RadioDialogueLine::vf_000(void) { return 1; }
+
+// @baa 0x01558940
+int URSeqAct_VoiceOfArkham::vf_000(void) { return 1; }
+
+// @baa 0x01558950
+
+// @baa 0x01558a60
+int ARAudioPoint::vf_000(void) { return 1; }
+
+// @baa 0x01558a70
+bool ARAudioPoint::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x01558ab0
+int URSeqAct_PlayTVSequenceBase::vf_000(void) { return 1; }
+
+// @baa 0x01558ac0
+
+// @baa 0x01558bd0
+int URSeqAct_DuckDialogue::vf_000(void) { return 1; }
+
+// @baa 0x01558be0
+bool URSeqAct_DuckDialogue::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x01558c20
+
+struct C_view_0157cf90 {
+    int sub_00547da0(int);
+    int sub_00d201d0(int);
+    int sub_008dc680(int, int);
+};
+
+// @baa 0x0157cf90
+void URSeqAct_RadioDialogueLine::vf_04c(undefined4 param_2)
+{
+    int param_1 = (int)this;
+  ((C_view_0157cf90 *)(((char *)this + 0x60)))->sub_00547da0(param_1 + 0x110);
+  ((C_view_0157cf90 *)(this))->sub_00d201d0(param_2);
+  ((C_view_0157cf90 *)(((char *)this + 0x94)))->sub_008dc680(0, *(undefined4 *)(param_1 + 0x98));
+  return;
+}
+
+int sub_005c7a20(void);
+extern undefined * g_0230ee80;
+// @baa 0x01584b40
+undefined4 * UObject::sub_01584b40(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_0230ee80);
+  return param_1;
+}
+
+extern undefined * g_0230f028;
+// @baa 0x01584d20
+undefined4 * UObject::sub_01584d20(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_0230f028);
+  return param_1;
+}
+
+struct C_01584da0 { C_01584da0* sub_01584da0(int a0); };
+
+// @baa 0x01584da0
+C_01584da0* C_01584da0::sub_01584da0(int a0) { return this; }
+
+extern undefined * g_0230f1c8;
+// @baa 0x01584ea0
+undefined4 * UObject::sub_01584ea0(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_0230f1c8);
+  return param_1;
+}
+
+extern undefined * g_0230f368;
+// @baa 0x01584ec0
+undefined4 * UObject::sub_01584ec0(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_0230f368);
+  return param_1;
+}
+
+struct C_01585010 { C_01585010* sub_01585010(int a0); };
+
+// @baa 0x01585010
+C_01585010* C_01585010::sub_01585010(int a0) { return this; }
+
+extern undefined * g_0230f510;
+// @baa 0x01585260
+undefined4 * UObject::sub_01585260(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_0230f510);
+  return param_1;
+}
+
+extern undefined * g_0230f6d0;
+// @baa 0x01585280
+undefined4 * UObject::sub_01585280(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_0230f6d0);
+  return param_1;
+}
+
+extern undefined * g_0230f8a8;
+// @baa 0x015853d0
+undefined4 * UObject::sub_015853d0(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_0230f8a8);
+  return param_1;
+}
+
+extern undefined * g_0230fa68;
+// @baa 0x015856a0
+undefined4 * UObject::sub_015856a0(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_0230fa68);
+  return param_1;
+}
+
+extern undefined * g_0230fc10;
+// @baa 0x015856c0
+undefined4 * UObject::sub_015856c0(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_0230fc10);
+  return param_1;
+}
+
+extern undefined * g_0230fdc0;
+// @baa 0x01585810
+undefined4 * UObject::sub_01585810(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_0230fdc0);
+  return param_1;
+}
+
+extern undefined * g_0230ff60;
+// @baa 0x01585960
+undefined4 * UObject::sub_01585960(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_0230ff60);
+  return param_1;
+}
+
+// @baa 0x01591610
+
+// @baa 0x01591720
+bool URSeqAct_PlayerDialogueLine::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x01591760
+
+// @baa 0x01591870
+bool URSeqAct_RadioDialogueLine::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x015918b0
+
+// @baa 0x015919c0
+bool URSeqAct_PlayTVSequenceBase::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x01591a00
+
+// @baa 0x01591b10
+bool URSeqAct_PlayTVSequenceSingleLine::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}

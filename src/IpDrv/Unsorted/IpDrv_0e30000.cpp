@@ -1,4 +1,4 @@
-// IpDrv_0e30000.cpp (part 1 of 2): 51 functions
+// IpDrv_0e30000.cpp (part 1 of 2): 43 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -17,9 +17,6 @@ void sub_00e32580(void) { sub_00e32400(); }
 // @baa 0x00e32590
 void sub_00e32590(void) { sub_00e32400(); }
 
-// @baa 0x00e34720
-int sub_00e34720(void) { return 1; }
-
 struct A_00e34750 { virtual void sub_00e34760(); char pad[44]; };
 
 struct B_00e34750 { virtual void sub_00e34760(); };
@@ -31,26 +28,9 @@ C_00e34750::C_00e34750() {}
 // @baa 0x00e34750
 void C_00e34750::sub_00e34760() {}
 
-int sub_005c7a70(...);
-int sub_00e34670(void);
-// @baa 0x00e34760
-undefined4 UMCPBase::sub_00e34760(byte param_2)
-{
-    undefined4 param_1 = (undefined4)this;
-
-  sub_00e34670();
-  if ((param_2 & 1) != 0) {
-    sub_005c7a70(param_1,0x34);
-  }
-  return param_1;
-}
-
 void sub_00e33450();
 // @baa 0x00e34800
 void sub_00e34800(void) { sub_00e33450(); }
-
-// @baa 0x00e348c0
-int sub_00e348c0(void) { return 1; }
 
 struct A_00e348d0 { virtual void sub_00e348e0(); char pad[44]; };
 
@@ -62,19 +42,6 @@ C_00e348d0::C_00e348d0() {}
 
 // @baa 0x00e348d0
 void C_00e348d0::sub_00e348e0() {}
-
-int sub_00e34810(void);
-// @baa 0x00e348e0
-undefined4 UPartyBeacon::sub_00e348e0(byte param_2)
-{
-    undefined4 param_1 = (undefined4)this;
-
-  sub_00e34810();
-  if ((param_2 & 1) != 0) {
-    sub_005c7a70(param_1,0x50);
-  }
-  return param_1;
-}
 
 struct M_00e34ac0 { void sub_00e33450(); };
 
@@ -95,20 +62,6 @@ struct C_00e38130 { C_00e38130* sub_00e38130(void); };
 
 // @baa 0x00e38130
 C_00e38130* C_00e38130::sub_00e38130(void) { return this; }
-
-int sub_00e34900(void);
-extern undefined * g_020f4c78;
-extern undefined * g_020f4c90;
-// @baa 0x00e38150
-undefined4 * UPartyBeacon::sub_00e38150(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_00e34900();
-  *param_1 = (undefined4)(&g_020f4c90);
-  param_1[0xc] = (undefined4)(&g_020f4c78);
-  return param_1;
-}
 
 // @baa 0x00e38170
 int UPartyBeaconClient::vf_11c(int a0) { return 1; }
@@ -247,17 +200,11 @@ void sub_00e39d80();
 // @baa 0x00e3a530
 void sub_00e3a530(void) { sub_00e39d80(); }
 
-// @baa 0x00e3a540
-IMPLEMENT_CLASS_AT(UOnlineNewsInterfaceMcp, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\IpDrv\\Src\\UOnlineNewsInterfaceMcp.cpp", 10);
-
 // @baa 0x00e3a650
 bool UOnlineNewsInterfaceMcp::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
-
-// @baa 0x00e3a690
-IMPLEMENT_CLASS_AT(UOnlineTitleFileDownloadMcp, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\IpDrv\\Src\\UOnlineTitleFileDownloadMcp.cpp", 9);
 
 // @baa 0x00e3a7a0
 bool UOnlineTitleFileDownloadMcp::vf_004()
@@ -319,8 +266,6 @@ void sub_00e3b010();
 void sub_00e3b8a0(void) { sub_00e3b010(); }
 
 void sub_00e3e280();
-// @baa 0x00e3f490
-void sub_00e3f490(void) { sub_00e3e280(); }
 
 struct C_00e3f4e0 {
     int sub_00e3f4e0(undefined4, undefined4, undefined4);

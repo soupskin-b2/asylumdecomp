@@ -1,4 +1,4 @@
-// UnrealEd_1300000.cpp (part 1 of 2): 74 functions
+// UnrealEd_1300000.cpp (part 1 of 2): 66 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -419,103 +419,6 @@ undefined4 * UObject::sub_0130f070(void)
 
 // @baa 0x0130f090
 IMPLEMENT_CLASS_AT(UPhATSimOptions, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\PhATMain.cpp", 15);
-
-// @baa 0x0130f0f0
-extern undefined4 g_026af518;
-extern undefined4 g_026af51c;
-extern undefined4 g_026af520;
-extern undefined4 g_026d7cb8;
-extern undefined4 g_026d7cbc;
-extern undefined4 g_026d7cc0;
-// @baa 0x0130f110
-undefined * sub_0130f110(void)
-{
-  if ((g_026d7cc0 & 1) == 0) {
-    g_026d7cc0 = g_026d7cc0 | 1;
-    if ((g_026af520 & 1) == 0) {
-      g_026af520 = g_026af520 | 1;
-      g_026af518 = 0;
-      g_026af51c = (undefined4)(L"HHitProxy");
-    }
-    g_026d7cb8 = (undefined4)(&g_026af518);
-    g_026d7cbc = (undefined4)(L"HPhATBoneProxy");
-  }
-  return (undefined *)(&g_026d7cb8);
-}
-
-extern undefined4 g_026d7cc4;
-extern undefined4 g_026d7cc8;
-extern undefined4 g_026d7ccc;
-// @baa 0x0130f190
-undefined * sub_0130f190(void)
-{
-  if ((g_026d7ccc & 1) == 0) {
-    g_026d7ccc = g_026d7ccc | 1;
-    if ((g_026af520 & 1) == 0) {
-      g_026af520 = g_026af520 | 1;
-      g_026af518 = 0;
-      g_026af51c = (undefined4)(L"HHitProxy");
-    }
-    g_026d7cc4 = (undefined4)(&g_026af518);
-    g_026d7cc8 = (undefined4)(L"HPhATConstraintProxy");
-  }
-  return (undefined *)(&g_026d7cc4);
-}
-
-extern undefined4 g_026d7cd0;
-extern undefined4 g_026d7cd4;
-extern undefined4 g_026d7cd8;
-// @baa 0x0130f210
-undefined * sub_0130f210(void)
-{
-  if ((g_026d7cd8 & 1) == 0) {
-    g_026d7cd8 = g_026d7cd8 | 1;
-    if ((g_026af520 & 1) == 0) {
-      g_026af520 = g_026af520 | 1;
-      g_026af518 = 0;
-      g_026af51c = (undefined4)(L"HHitProxy");
-    }
-    g_026d7cd0 = (undefined4)(&g_026af518);
-    g_026d7cd4 = (undefined4)(L"HPhATWidgetProxy");
-  }
-  return (undefined *)(&g_026d7cd0);
-}
-
-extern undefined4 g_026d7cdc;
-extern undefined4 g_026d7ce0;
-extern undefined4 g_026d7ce4;
-// @baa 0x0130f290
-undefined * sub_0130f290(void)
-{
-  if ((g_026d7ce4 & 1) == 0) {
-    g_026d7ce4 = g_026d7ce4 | 1;
-    if ((g_026af520 & 1) == 0) {
-      g_026af520 = g_026af520 | 1;
-      g_026af518 = 0;
-      g_026af51c = (undefined4)(L"HHitProxy");
-    }
-    g_026d7cdc = (undefined4)(&g_026af518);
-    g_026d7ce0 = (undefined4)(L"HPhATBoneNameProxy");
-  }
-  return (undefined *)(&g_026d7cdc);
-}
-
-struct C_0130f3a0 { C_0130f3a0* sub_0130f3a0(void); };
-
-// @baa 0x0130f3a0
-C_0130f3a0* C_0130f3a0::sub_0130f3a0(void) { return this; }
-
-// @baa 0x0130f3b0
-IMPLEMENT_CLASS_AT(UPhATSkeletalMeshComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\PhATMain.cpp", 14);
-
-// @baa 0x0130f4c0
-int UPhATSkeletalMeshComponent::vf_000(void) { return 1; }
-
-// @baa 0x0130f4d0
-bool UPhATSkeletalMeshComponent::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
 
 // @baa 0x0130f510
 // @baa 0x0130f640

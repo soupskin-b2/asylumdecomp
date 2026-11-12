@@ -1,4 +1,4 @@
-// Engine_0c30000.cpp (part 1 of 2): 57 functions
+// Engine_0c30000.cpp (part 1 of 2): 43 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -489,69 +489,6 @@ void __stdcall sub_00c38ba0(int a0) {  }
 
 // @baa 0x00c38bb0
 int sub_00c38bb0(void) { return 2; }
-
-// @baa 0x00c3e2e0
-IMPLEMENT_CLASS_AT(UMaterialExpressionAddNormalMap, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\MaterialExpressions.cpp", 91);
-
-// @baa 0x00c3e3f0
-bool UMaterialExpressionAddNormalMap::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00c3e430
-IMPLEMENT_CLASS_AT(UMaterialExpressionLightingDiffuseLambert, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\MaterialExpressions.cpp", 94);
-
-// @baa 0x00c3e540
-bool UMaterialExpressionLightingDiffuseLambert::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00c3e580
-IMPLEMENT_CLASS_AT(UMaterialExpressionLightingSpecularPhong, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\MaterialExpressions.cpp", 95);
-
-// @baa 0x00c3e690
-bool UMaterialExpressionLightingSpecularPhong::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00c3e6d0
-IMPLEMENT_CLASS_AT(UMaterialExpressionLightingSpecularBlinnPhong, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\MaterialExpressions.cpp", 96);
-
-// @baa 0x00c3e7e0
-bool UMaterialExpressionLightingSpecularBlinnPhong::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00c3e820
-IMPLEMENT_CLASS_AT(UMaterialExpressionLightingSpecularHeidrichSeidel, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\MaterialExpressions.cpp", 97);
-
-// @baa 0x00c3e930
-bool UMaterialExpressionLightingSpecularHeidrichSeidel::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00c3e970
-IMPLEMENT_CLASS_AT(UMaterialExpressionMax, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\MaterialExpressions.cpp", 99);
-
-// @baa 0x00c3ea80
-bool UMaterialExpressionMax::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00c3eac0
-IMPLEMENT_CLASS_AT(UMaterialExpressionMin, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\MaterialExpressions.cpp", 100);
-
-// @baa 0x00c3ebd0
-bool UMaterialExpressionMin::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
 
 int sub_006f7810(void);
 extern undefined * g_0204b720;

@@ -1,4 +1,4 @@
-// RPlayerController.cpp (part 2 of 6): 318 functions
+// RPlayerController.cpp (part 2 of 6): 324 functions
 // Placed here by: neighbours 227, class 67, callers 9, file 5.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1953,4 +1953,59 @@ INT ARPlayerController__01719090::vf_570(INT Value)
 {
     g_026e2538 = Value;
     return Value;
+}
+
+// @baa 0x01613a10
+int URPlayerInput::vf_000(void) { return 1; }
+
+// @baa 0x01613a20
+bool URPlayerInput::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+int sub_0077ccd0(void);
+extern undefined * g_0234b308;
+// @baa 0x016303f0
+undefined4 * APlayerController::sub_016303f0(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_0077ccd0();
+  *param_1 = (undefined4)(&g_0234b308);
+  return param_1;
+}
+
+struct C_016323c0 {
+    undefined4 * sub_016323c0();
+};
+
+extern undefined * g_0234c640;
+// @baa 0x016323c0
+undefined4 * C_016323c0::sub_016323c0(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_0077ccd0();
+  param_1[0x1cc] = 0;
+  param_1[0x1cd] = 0;
+  *(undefined1 *)(param_1 + 0x222) = 0;
+  *(undefined1 *)(param_1 + 0x22a) = 0;
+  param_1[0x22b] = 0;
+  *(undefined1 *)(param_1 + 0x22d) = 0;
+  *(undefined1 *)(param_1 + 0x235) = 0;
+  param_1[0x236] = 0;
+  *param_1 = (undefined4)(&g_0234c640);
+  return param_1;
+}
+
+// @baa 0x01632410
+ARPlayerControllerCombat::ARPlayerControllerCombat()
+{
+}
+
+// @baa 0x01634d90
+bool ARPlayerControllerCombat::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
 }

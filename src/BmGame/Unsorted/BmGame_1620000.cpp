@@ -1,4 +1,4 @@
-// BmGame_1620000.cpp (part 1 of 18): 145 functions
+// BmGame_1620000.cpp (part 1 of 18): 131 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -122,29 +122,6 @@ void sub_016217d0();
 // @baa 0x01621e40
 void sub_01621e40(void) { sub_016217d0(); }
 
-struct C_016226d0 {
-    void sub_016226d0();
-};
-
-int sub_0053df70(...);
-// @baa 0x016226d0
-void C_016226d0::sub_016226d0(void)
-{
-    int param_1 = (int)this;
-
-  undefined4 uVar1;
-  
-  *(undefined4 *)(param_1 + 0x50) = 0;
-  if (*(int *)(param_1 + 0x54) != 0) {
-    *(undefined4 *)(param_1 + 0x54) = 0;
-    if (*(int *)(param_1 + 0x4c) != 0) {
-      uVar1 = sub_0053df70(*(int *)(param_1 + 0x4c),0,8);
-      *(undefined4 *)(param_1 + 0x4c) = uVar1;
-    }
-  }
-  return;
-}
-
 void sub_01621830();
 // @baa 0x01622dc0
 void sub_01622dc0(void) { sub_01621830(); }
@@ -263,38 +240,8 @@ undefined4 * UObject::sub_01624700(void)
 // @baa 0x01624720
 IMPLEMENT_CLASS_AT(UComparisonListSharedDataCache, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmRouterClass.cpp", 2102);
 
-// @baa 0x01624790
-extern undefined * g_02345078;
-// @baa 0x016247b0
-undefined4 * UObject::sub_016247b0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_02345078);
-  return param_1;
-}
-
 // @baa 0x016247d0
 IMPLEMENT_CLASS_AT(URPathGateComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmRouterClass.cpp", 12);
-
-// @baa 0x01624840
-struct C_01624890 {
-    undefined4 * sub_01624890();
-};
-
-extern undefined * g_023451d8;
-// @baa 0x01624890
-undefined4 * C_01624890::sub_01624890(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  param_1[0x13] = 0;
-  param_1[0x12] = 0;
-  *param_1 = (undefined4)(&g_023451d8);
-  return param_1;
-}
 
 // @baa 0x016248b0
 IMPLEMENT_CLASS_AT(URBMReachSpec, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmRouterClass.cpp", 13);
@@ -303,67 +250,14 @@ IMPLEMENT_CLASS_AT(URBMReachSpec, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine
 // @baa 0x01624a10
 IMPLEMENT_CLASS_AT(URSimpleIdleConfig, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RIdleConfig.cpp", 9);
 
-// @baa 0x01624a90
-extern undefined * g_02345320;
-// @baa 0x01624ac0
-undefined4 * UObject::sub_01624ac0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_02345320);
-  return param_1;
-}
-
-extern undefined * g_02345440;
-// @baa 0x01624ae0
-undefined4 * UObject::sub_01624ae0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_02345440);
-  return param_1;
-}
-
 // @baa 0x01624b00
 IMPLEMENT_CLASS_AT(URIdleTransitionConfig, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RIdleConfig.cpp", 10);
-
-// @baa 0x01624b70
-extern undefined * g_02345560;
-// @baa 0x01624ba0
-undefined4 * UObject::sub_01624ba0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_02345560);
-  return param_1;
-}
 
 // @baa 0x01624bc0
 IMPLEMENT_CLASS_AT(URIdleWithDeathConfig, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RIdleConfig.cpp", 12);
 
-// @baa 0x01624c20
-extern undefined * g_02345688;
-// @baa 0x01624c50
-undefined4 * UObject::sub_01624c50(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_02345688);
-  return param_1;
-}
-
 // @baa 0x01624c70
 IMPLEMENT_CLASS_AT(URPairedIdleConfig, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RIdleConfig.cpp", 11);
-
-// @baa 0x01624cf0
-struct C_01624fc0 { void sub_015af750(int); C_01624fc0 *sub_01624fc0(int); };
-
-// @baa 0x01624fc0
-C_01624fc0 *C_01624fc0::sub_01624fc0(int a) { sub_015af750(a); return this; }
 
 struct C_016258f0 { C_016258f0* sub_016258f0(void); };
 
@@ -428,9 +322,6 @@ struct C_016262c0 { C_016262c0* sub_016262c0(void); };
 // @baa 0x016262c0
 C_016262c0* C_016262c0::sub_016262c0(void) { return this; }
 
-// @baa 0x01626940
-IMPLEMENT_CLASS_AT(URMatineeSpecialMoveFactoryNew, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmSpecialMoveClasses.cpp", 24);
-
 int sub_01611750(void);
 int sub_01624f00(...);
 extern undefined4 g_026e19e8;
@@ -459,15 +350,6 @@ int sub_016290b0(void)
     sub_01625cf0();
   }
   return g_026e1a24;
-}
-
-// @baa 0x016290e0
-IMPLEMENT_CLASS_AT(URSimpleSpecialMoveConfig, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmSpecialMoveClasses.cpp", 15);
-
-// @baa 0x016291f0
-bool URSimpleSpecialMoveConfig::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 int sub_0160e9f0(void);
@@ -690,46 +572,6 @@ IMPLEMENT_CLASS_AT(ARBMRouterManager, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEn
 // @baa 0x0162c6d0
 IMPLEMENT_CLASS_AT(ARPontoonBridgeManager, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmRouterClass.cpp", 17);
 
-// @baa 0x0162c760
-int sub_01627000(...);
-int sub_0162ac80(void);
-extern undefined4 g_026e19f0;
-// @baa 0x0162c790
-int sub_0162c790(void)
-{
-  if (g_026e19f0 == 0) {
-    g_026e19f0 = sub_01627000(L"BmGame");
-    sub_0162ac80();
-  }
-  return g_026e19f0;
-}
-
-int sub_01627180(...);
-int sub_0162af20(void);
-extern undefined4 g_026e19f8;
-// @baa 0x0162c7c0
-int sub_0162c7c0(void)
-{
-  if (g_026e19f8 == 0) {
-    g_026e19f8 = sub_01627180(L"BmGame");
-    sub_0162af20();
-  }
-  return g_026e19f8;
-}
-
-int sub_016270c0(...);
-int sub_0162add0(void);
-extern undefined4 g_026e19f4;
-// @baa 0x0162c7f0
-int sub_0162c7f0(void)
-{
-  if (g_026e19f4 == 0) {
-    g_026e19f4 = sub_016270c0(L"BmGame");
-    sub_0162add0();
-  }
-  return g_026e19f4;
-}
-
 // @baa 0x0162d070
 IMPLEMENT_CLASS_AT(ARSpecialMoveInstance, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmSpecialMoveClasses.cpp", 16);
 
@@ -745,4 +587,3 @@ IMPLEMENT_CLASS_AT(ARSpecialMoveInstance_ResonateObject, "e:\\Projects\\Amadeus\
 // @baa 0x0162d3f0
 IMPLEMENT_CLASS_AT(ARSpecialMoveInstance_SwingToVantagePoint, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmSpecialMoveClasses.cpp", 18);
 
-// @baa 0x0162d450

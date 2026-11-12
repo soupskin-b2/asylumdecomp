@@ -1,4 +1,4 @@
-// FoliageFactory.cpp: 2 functions
+// FoliageFactory.cpp: 4 functions
 // Placed here by: callers 1, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -7,3 +7,19 @@
 IMPLEMENT_CLASS_AT(AFoliageFactory, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\FoliageFactory.cpp", 10);
 
 // @baa 0x00bd51f0
+
+// @baa 0x00bac400
+
+struct AFoliageFactory_ : public AFoliageFactory
+{
+    void sub_00784510(UINT Param);
+    void sub_00bd52b0();
+    void sub_00bd59c0(UINT Param);
+};
+
+// @baa 0x00bd59c0
+void AFoliageFactory_::sub_00bd59c0(UINT Param)
+{
+    sub_00784510(Param);
+    sub_00bd52b0();
+}

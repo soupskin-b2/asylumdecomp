@@ -1,4 +1,4 @@
-// CommonGame_1530000.cpp (part 1 of 4): 148 functions
+// CommonGame_1530000.cpp (part 1 of 4): 113 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -37,9 +37,6 @@ int sub_01537e90(void)
   return g_026e0b54;
 }
 
-// @baa 0x01537f40
-IMPLEMENT_CLASS_AT(URPlayerInputBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonGame\\Src\\CommonGameClasses.cpp", 25);
-
 // @baa 0x0153ac60
 IMPLEMENT_CLASS_AT(URDistributionVectorParticleArrayParameter, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonGame\\Src\\CommonGameEffectClasses.cpp", 4);
 
@@ -52,24 +49,6 @@ bool URDistributionVectorParticleArrayParameter::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
-
-// @baa 0x0153adf0
-IMPLEMENT_CLASS_AT(AREffectVolume, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonGame\\Src\\CommonGameEffectClasses.cpp", 5);
-
-// @baa 0x0153af00
-int AREffectVolume::vf_000(void) { return 1; }
-
-// @baa 0x0153af10
-bool AREffectVolume::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x0153af50
-int ARRainVolumeBase::vf_000(void) { return 1; }
-
-// @baa 0x0153af60
-IMPLEMENT_CLASS_AT(ARRotateActor, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonGame\\Src\\CommonGameEffectClasses.cpp", 7);
 
 // @baa 0x0153b070
 int ARRotateActor::vf_000(void) { return 1; }
@@ -88,30 +67,6 @@ int sub_0153b310(int a0, int a1) { return a1; }
 
 // @baa 0x0153b320
 int sub_0153b320(int a0, int a1) { return a1; }
-
-// @baa 0x0153b330
-IMPLEMENT_CLASS_AT(URInteractionClass, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonGame\\Src\\CommonGameInteractionClasses.cpp", 5);
-
-// @baa 0x0153b440
-int URInteractionClass::vf_000(void) { return 1; }
-
-// @baa 0x0153b450
-bool URInteractionClass::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x0153b5f0
-IMPLEMENT_CLASS_AT(URInteractionComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonGame\\Src\\CommonGameInteractionClasses.cpp", 7);
-
-// @baa 0x0153b700
-int URInteractionComponent::vf_000(void) { return 1; }
-
-// @baa 0x0153b710
-bool URInteractionComponent::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
 
 // @baa 0x0153b750
 int sub_0153b750(int a0, int a1) { return a1; }
@@ -134,36 +89,6 @@ int sub_0153b870(int a0, int a1) { return a1; }
 
 // @baa 0x0153b880
 int sub_0153b880(int a0, int a1) { return a1; }
-
-// @baa 0x0153b890
-int URParticleModuleSpawnDecalOnDeath::vf_000(void) { return 1; }
-
-// @baa 0x0153b8a0
-IMPLEMENT_CLASS_AT(URParticleModuleOnDeathBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonGame\\Src\\CommonGameParticleClasses.cpp", 5);
-
-// @baa 0x0153b9b0
-int URParticleModuleOnDeathBase::vf_000(void) { return 1; }
-
-// @baa 0x0153b9c0
-bool URParticleModuleOnDeathBase::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x0153ba00
-int URParticleModuleSpawnOnDeath::vf_000(void) { return 1; }
-
-// @baa 0x0153ba10
-int URParticleModuleWaitForDeath::vf_000(void) { return 1; }
-
-// @baa 0x0153ba20
-void URParticleModuleSpawnDecalOnDeath::vf_168(int a0, int a1, int a2, int a3, int a4) {  }
-
-// @baa 0x0153ba30
-void URParticleModuleSpawnOnDeath::vf_168(int a0, int a1, int a2, int a3, int a4) {  }
-
-// @baa 0x0153bb80
-void URParticleModuleWaitForDeath::vf_168(int a0, int a1, int a2, int a3, int a4) {  }
 
 // @baa 0x0153bb90
 int sub_0153bb90(int a0, int a1) { return a1; }
@@ -191,65 +116,14 @@ int sub_0153bc20(int a0, int a1) { return a1; }
 // @baa 0x0153bc30
 int ARBreakablePropStatic::vf_000(void) { return 1; }
 
-// @baa 0x0153bc40
-IMPLEMENT_CLASS_AT(ARKActorSpawnable, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonGame\\Src\\CommonGamePropClasses.cpp", 5);
-
 // @baa 0x0153bd50
 int ARKActorSpawnable::vf_000(void) { return 1; }
-
-// @baa 0x0153d7a0
-int URSeqVar_GlobalFlag::vf_000(void) { return 1; }
-
-// @baa 0x0153d7b0
-bool URSeqVar_GlobalFlag::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x0153d7f0
-IMPLEMENT_CLASS_AT(URFlagManager, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonGame\\Src\\RFlagManager.cpp", 20);
-
-// @baa 0x0153d900
-int URFlagManager::vf_000(void) { return 1; }
-
-// @baa 0x0153d910
-bool URFlagManager::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x0153d950
-void URSeqVar_LocalFlag::vf_04c(UINT a0) {  }
 
 // @baa 0x0153dc40
 int sub_0153dc40(int a0, int a1) { return a1; }
 
 // @baa 0x0153dc50
 int sub_0153dc50(int a0, int a1) { return a1; }
-
-// @baa 0x0153dc60
-IMPLEMENT_CLASS_AT(ARFlockActor, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonGame\\Src\\RFlock.cpp", 4);
-
-// @baa 0x0153dd70
-int ARFlockActor::vf_000(void) { return 1; }
-
-// @baa 0x0153dd80
-bool ARFlockActor::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x0153ddc0
-IMPLEMENT_CLASS_AT(URFlockComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonGame\\Src\\RFlock.cpp", 5);
-
-// @baa 0x0153ded0
-int URFlockComponent::vf_000(void) { return 1; }
-
-// @baa 0x0153dee0
-bool URFlockComponent::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
 
 struct C_0153e1c0 { int sub_0153e1c0(void); };
 
@@ -856,18 +730,6 @@ undefined4 * UObject::sub_0153fbf0(void)
 // @baa 0x0153fc10
 IMPLEMENT_CLASS_AT(URActorFactoryMoverNoCL, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonGame\\Src\\CommonGamePropClasses.cpp", 8);
 
-// @baa 0x0153fc70
-extern undefined * g_022e5630;
-// @baa 0x0153fc90
-undefined4 * UObject::sub_0153fc90(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_022e5630);
-  return param_1;
-}
-
 // @baa 0x0153fcb0
 IMPLEMENT_CLASS_AT(URActorFactoryRigidBody, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonGame\\Src\\CommonGamePropClasses.cpp", 7);
 
@@ -889,4 +751,3 @@ int URSeqVar_AnalogControlFloat::vf_198(int a0) { return 0; }
 // @baa 0x0153ff70
 IMPLEMENT_CLASS_AT(URSeqVar_AnalogControlFloat, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonGame\\Src\\CommonGameSequenceClasses.cpp", 11);
 
-// @baa 0x0153ffd0

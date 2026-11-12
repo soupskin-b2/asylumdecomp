@@ -1,4 +1,4 @@
-// SoundCueEditor.cpp: 7 functions
+// SoundCueEditor.cpp: 13 functions
 // Placed here by: neighbours 4, callers 2, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -60,3 +60,44 @@ C_0122fd10::C_0122fd10() {}
 
 // @baa 0x0122fd10
 void C_0122fd10::sub_01233140() {}
+
+struct C_01221750 { C_01221750* sub_01221750(void); };
+
+// @baa 0x01221750
+C_01221750* C_01221750::sub_01221750(void) { *(int*)((char*)this + 0) = 0; return this; }
+
+extern undefined4 g_026af518;
+extern undefined4 g_026af51c;
+extern undefined4 g_026af520;
+extern undefined4 g_026d40a4;
+extern undefined4 g_026d40a8;
+extern undefined4 g_026d40ac;
+// @baa 0x01221760
+undefined * sub_01221760(void)
+{
+  if ((g_026d40ac & 1) == 0) {
+    g_026d40ac = g_026d40ac | 1;
+    if ((g_026af520 & 1) == 0) {
+      g_026af520 = g_026af520 | 1;
+      g_026af518 = 0;
+      g_026af51c = (undefined4)(L"HHitProxy");
+    }
+    g_026d40a4 = (undefined4)(&g_026af518);
+    g_026d40a8 = (undefined4)(L"HWidgetUtilProxy");
+  }
+  return (undefined *)(&g_026d40a4);
+}
+
+// @baa 0x012217b0
+void __stdcall sub_012217b0(int a0, int a1, int a2) {  }
+
+// @baa 0x012217c0
+void sub_012217c0(void) {  }
+
+// @baa 0x012217d0
+void sub_012217d0(void) {  }
+
+struct C_01221a80 { int sub_01221a80(void); };
+
+// @baa 0x01221a80
+int C_01221a80::sub_01221a80(void) { return *(int*)((char*)this + 392); }

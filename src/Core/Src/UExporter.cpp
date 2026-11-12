@@ -1,4 +1,4 @@
-// UExporter.cpp (part 1 of 2): 12 functions
+// UExporter.cpp (part 1 of 2): 13 functions
 // Placed here by: neighbours 9, callers 2, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -94,3 +94,5 @@ undefined4 UHelpCommandlet::sub_0061bd50(byte param_2)
   }
   return param_1;
 }
+
+// @baa 0x005fba80

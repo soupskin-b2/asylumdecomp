@@ -1,4 +1,4 @@
-// UnrealEd_1450000.cpp (part 1 of 2): 50 functions
+// UnrealEd_1450000.cpp (part 1 of 2): 43 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -8,30 +8,6 @@ IMPLEMENT_CLASS_AT(ULensFlareEditorOptions, "e:\\Projects\\Amadeus\\AA\\Game\\Un
 
 // @baa 0x01450370
 bool ULensFlareEditorOptions::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x014503b0
-IMPLEMENT_CLASS_AT(ULensFlarePreviewComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\LensFlareEditor.cpp", 17);
-
-// @baa 0x014504c0
-int ULensFlarePreviewComponent::vf_000(void) { return 1; }
-
-// @baa 0x014504d0
-bool ULensFlarePreviewComponent::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x01450510
-IMPLEMENT_CLASS_AT(ULensFlareEditorPropertyWrapper, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\LensFlareEditor.cpp", 18);
-
-// @baa 0x01450620
-int ULensFlareEditorPropertyWrapper::vf_000(void) { return 1; }
-
-// @baa 0x01450630
-bool ULensFlareEditorPropertyWrapper::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -317,18 +293,6 @@ int C_01452a00::sub_01452a00(int param_2)
     int * param_1 = (int *)this;
 
   return param_2 * 0x4c + *param_1;
-}
-
-int sub_005c7a20(void);
-extern undefined * g_0229d1c8;
-// @baa 0x01452cf0
-undefined4 * UObject::sub_01452cf0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_0229d1c8);
-  return param_1;
 }
 
 // @baa 0x01452d10

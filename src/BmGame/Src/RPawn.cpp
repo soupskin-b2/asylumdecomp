@@ -1,4 +1,4 @@
-// RPawn.cpp: 4 functions
+// RPawn.cpp: 7 functions
 // Placed here by: callers 2, file 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -11,3 +11,13 @@ IMPLEMENT_CLASS_AT(ARPawnCombat, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3
 
 // @baa 0x016848b0
 // @baa 0x01684970
+
+// @baa 0x0166d320
+
+// @baa 0x01685a00
+
+// @baa 0x01685b10
+bool ARPawnCombat::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}

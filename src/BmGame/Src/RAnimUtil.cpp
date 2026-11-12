@@ -1,4 +1,4 @@
-// RAnimUtil.cpp (part 1 of 2): 17 functions
+// RAnimUtil.cpp (part 1 of 2): 20 functions
 // Placed here by: neighbours 8, file 7, callers 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -211,3 +211,14 @@ float10 C_0159dc60::sub_0159dc60(void)
 IMPLEMENT_CLASS_AT(URSkelControlFootPlacement, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimUtil.cpp", 16);
 
 // @baa 0x015b72e0
+
+// @baa 0x01597f30
+
+// @baa 0x01598040
+int URSkelControlFootPlacement::vf_000(void) { return 1; }
+
+// @baa 0x01598050
+bool URSkelControlFootPlacement::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}

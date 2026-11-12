@@ -1,4 +1,4 @@
-// Editor_0f30000.cpp: 57 functions
+// Editor_0f30000.cpp: 51 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -225,76 +225,18 @@ TConstSetBitIterator_00f31510& TConstSetBitIterator_00f31510::operator++()
 }
 
 int sub_0060b320(void);
-extern undefined * g_0214c4f8;
-// @baa 0x00f31560
-undefined4 * UExporter::sub_00f31560(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_0060b320();
-  *param_1 = (undefined4)(&g_0214c4f8);
-  return param_1;
-}
 
 // @baa 0x00f31580
 IMPLEMENT_CLASS_AT(UTextureExporterPCX, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnEdFact.cpp", 6690);
 
-// @baa 0x00f315e0
-extern undefined * g_0214c620;
-// @baa 0x00f31600
-undefined4 * UExporter::sub_00f31600(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_0060b320();
-  *param_1 = (undefined4)(&g_0214c620);
-  return param_1;
-}
-
 // @baa 0x00f31620
 IMPLEMENT_CLASS_AT(UTextureExporterBMP, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnEdFact.cpp", 6870);
-
-// @baa 0x00f31680
-extern undefined * g_0214c748;
-// @baa 0x00f316a0
-undefined4 * UExporter::sub_00f316a0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_0060b320();
-  *param_1 = (undefined4)(&g_0214c748);
-  return param_1;
-}
 
 // @baa 0x00f316c0
 IMPLEMENT_CLASS_AT(UTextureExporterTGA, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnEdFact.cpp", 6919);
 
-// @baa 0x00f31720
-extern undefined * g_0214c870;
-// @baa 0x00f31740
-undefined4 * UExporter::sub_00f31740(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_0060b320();
-  *param_1 = (undefined4)(&g_0214c870);
-  return param_1;
-}
-
 // @baa 0x00f31760
 IMPLEMENT_CLASS_AT(URenderTargetExporterTGA, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnEdFact.cpp", 6987);
-
-// @baa 0x00f317c0
-extern undefined * g_0214c998;
-// @baa 0x00f317e0
-undefined4 * UExporter::sub_00f317e0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_0060b320();
-  *param_1 = (undefined4)(&g_0214c998);
-  return param_1;
-}
 
 // @baa 0x00f31800
 IMPLEMENT_CLASS_AT(URenderTargetCubeExporterTGA, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnEdFact.cpp", 7151);
@@ -317,24 +259,6 @@ IMPLEMENT_CLASS_AT(UTerrainExporterT3D, "e:\\Projects\\Amadeus\\AA\\Game\\Unreal
 // @baa 0x00f31900
 // @baa 0x00f331e0
 IMPLEMENT_CLASS_AT(UTextureRenderTargetCubeFactoryNew, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnEdFact.cpp", 4751);
-
-struct C {
-    undefined4 * sub_00f33200();
-};
-
-int sub_0060b3d0(void);
-extern undefined * g_021324a0;
-// @baa 0x00f33200
-undefined4 * C::sub_00f33200(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_0060b3d0();
-  param_1[0x14] = param_1[0x14] | 4;
-  *param_1 = (undefined4)(&g_021324a0);
-  param_1[0x26] = 0;
-  return param_1;
-}
 
 struct C_00f3d920 {
     int sub_00f3d920(undefined4, undefined4);

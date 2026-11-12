@@ -1,4 +1,4 @@
-// BmGame_1550000.cpp (part 1 of 3): 454 functions
+// BmGame_1550000.cpp (part 1 of 3): 431 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1635,75 +1635,6 @@ int sub_01558620(int a0, int a1) { return a1; }
 // @baa 0x01558630
 int URSeqAct_ConversationDialogue::vf_000(void) { return 1; }
 
-// @baa 0x01558640
-IMPLEMENT_CLASS_AT(URSeqAct_PlaySpeechBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameDialogueClasses.cpp", 9);
-
-// @baa 0x01558750
-int URSeqAct_PlaySpeechBase::vf_000(void) { return 1; }
-
-// @baa 0x01558760
-bool URSeqAct_PlaySpeechBase::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x015587a0
-int URSeqAct_PlayerDialogueLine::vf_000(void) { return 1; }
-
-// @baa 0x015587b0
-IMPLEMENT_CLASS_AT(URSeqAct_PlayerDialogueOptions, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameDialogueClasses.cpp", 11);
-
-// @baa 0x015588c0
-int URSeqAct_PlayerDialogueOptions::vf_000(void) { return 1; }
-
-// @baa 0x015588d0
-bool URSeqAct_PlayerDialogueOptions::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x01558910
-int URBMSeqAct_PlaySpeech::vf_000(void) { return 1; }
-
-// @baa 0x01558920
-int URSeqAct_PlaySpeechConversation::vf_000(void) { return 1; }
-
-// @baa 0x01558930
-int URSeqAct_RadioDialogueLine::vf_000(void) { return 1; }
-
-// @baa 0x01558940
-int URSeqAct_VoiceOfArkham::vf_000(void) { return 1; }
-
-// @baa 0x01558950
-IMPLEMENT_CLASS_AT(ARAudioPoint, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameDialogueClasses.cpp", 16);
-
-// @baa 0x01558a60
-int ARAudioPoint::vf_000(void) { return 1; }
-
-// @baa 0x01558a70
-bool ARAudioPoint::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x01558ab0
-int URSeqAct_PlayTVSequenceBase::vf_000(void) { return 1; }
-
-// @baa 0x01558ac0
-IMPLEMENT_CLASS_AT(URSeqAct_DuckDialogue, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameDialogueClasses.cpp", 18);
-
-// @baa 0x01558bd0
-int URSeqAct_DuckDialogue::vf_000(void) { return 1; }
-
-// @baa 0x01558be0
-bool URSeqAct_DuckDialogue::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x01558c20
-IMPLEMENT_CLASS_AT(URSeqAct_UnduckDialogue, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameDialogueClasses.cpp", 19);
-
 // @baa 0x01558d30
 int URSeqAct_UnduckDialogue::vf_000(void) { return 1; }
 
@@ -2425,9 +2356,6 @@ undefined4 sub_0155c200(int param_1)
   return uVar1;
 }
 
-// @baa 0x0155c7b0
-IMPLEMENT_CLASS_AT(URSeqAct_StreamInPackage, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RStreamInPackage.cpp", 3);
-
 // @baa 0x0155c8c0
 int URSeqAct_StreamInPackage::vf_000(void) { return 1; }
 
@@ -2436,9 +2364,6 @@ bool URSeqAct_StreamInPackage::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
-
-// @baa 0x0155c970
-IMPLEMENT_CLASS_AT(URAnimNode_AnimCapture, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimNode_AnimCapture.cpp", 8);
 
 // @baa 0x0155ca80
 int URAnimNode_AnimCapture::vf_000(void) { return 1; }
@@ -2449,9 +2374,6 @@ bool URAnimNode_AnimCapture::vf_004()
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
-// @baa 0x0155caf0
-IMPLEMENT_CLASS_AT(URAnimNode_AnimTransform, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimNode_AnimTransform.cpp", 8);
-
 // @baa 0x0155cc00
 int URAnimNode_AnimTransform::vf_000(void) { return 1; }
 
@@ -2460,9 +2382,6 @@ bool URAnimNode_AnimTransform::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
-
-// @baa 0x0155cc50
-IMPLEMENT_CLASS_AT(URAnimNode_Bat, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimNode_Bat.cpp", 7);
 
 // @baa 0x0155cd60
 int URAnimNode_Bat::vf_000(void) { return 1; }

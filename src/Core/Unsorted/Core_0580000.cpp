@@ -1,4 +1,4 @@
-// Core_0580000.cpp (part 1 of 3): 88 functions
+// Core_0580000.cpp (part 1 of 3): 84 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -211,9 +211,6 @@ void sub_00586840() {
     sub_00581840();
 }
 
-// @baa 0x0058aa40
-IMPLEMENT_CLASS_AT(UConst, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Core\\Src\\UnClass.cpp", 2357);
-
 // @baa 0x0058c400
 void __stdcall sub_0058c400(int a0) {  }
 
@@ -238,34 +235,6 @@ int sub_0058f370(void)
 
 // @baa 0x0058f3a0
 int sub_0058f3a0(int a0, int a1) { return a1; }
-
-int sub_005421f0(void);
-int sub_00546d10(...);
-extern undefined4 g_0267611c;
-// @baa 0x0058f3e0
-int sub_0058f3e0(void)
-{
-  if (g_0267611c == 0) {
-    g_0267611c = sub_00546d10(L"Core");
-    sub_005421f0();
-  }
-  return g_0267611c;
-}
-
-// @baa 0x0058f410
-int sub_0058f410(int a0, int a1) { return a1; }
-
-int sub_005c7a20(void);
-extern undefined * g_01e8b828;
-// @baa 0x0058f420
-undefined4 * UObject::sub_0058f420(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_01e8b828);
-  return param_1;
-}
 
 // @baa 0x0058f440
 IMPLEMENT_CLASS_AT(UInterface, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Core\\Src\\UnCoreNative.cpp", 1859);

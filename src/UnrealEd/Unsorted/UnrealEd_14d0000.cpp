@@ -1,4 +1,4 @@
-// UnrealEd_14d0000.cpp (part 1 of 2): 114 functions
+// UnrealEd_14d0000.cpp (part 1 of 2): 112 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -71,49 +71,8 @@ undefined4 * C_014d4b70::sub_014d4b70(void)
 // @baa 0x014d4b90
 IMPLEMENT_CLASS_AT(UUIState_CustomInputProxy, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\UnUIEditorProperties.cpp", 22);
 
-// @baa 0x014d4bf0
-struct C_014d4c10 {
-    undefined4 * sub_014d4c10();
-};
-
-extern undefined * g_022ba390;
-// @baa 0x014d4c10
-undefined4 * C_014d4c10::sub_014d4c10(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  param_1[0xc] = 0;
-  param_1[0xd] = 0;
-  param_1[0xe] = 0;
-  param_1[0xf] = 0;
-  *param_1 = (undefined4)(&g_022ba390);
-  return param_1;
-}
-
 // @baa 0x014d4c30
 IMPLEMENT_CLASS_AT(UUIStateClass_CustomInputProxy, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\UnUIEditorProperties.cpp", 23);
-
-// @baa 0x014d4c90
-struct C_014d4cb0 {
-    undefined4 * sub_014d4cb0();
-};
-
-extern undefined * g_022ba4d8;
-// @baa 0x014d4cb0
-undefined4 * C_014d4cb0::sub_014d4cb0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  param_1[0xc] = 0;
-  param_1[0xd] = 0;
-  param_1[0xe] = 0;
-  param_1[0xf] = 0;
-  param_1[0x10] = 0;
-  *param_1 = (undefined4)(&g_022ba4d8);
-  return param_1;
-}
 
 struct C_014d7170 { void sub_014d6d20(); void sub_014d7170(int); };
 

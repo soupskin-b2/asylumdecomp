@@ -1,4 +1,4 @@
-// BmGame_16b0000.cpp (part 4 of 4): 4 functions
+// BmGame_16b0000.cpp (part 4 of 4): 3 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -68,20 +68,3 @@ void C_016be240::sub_016be240(int param_2)
   return;
 }
 
-// @baa 0x016be3d0
-void ARCinematicCameraActor::vf_274(void)
-{
-    int param_1 = (int)this;
-
-  undefined4 uVar1;
-  
-  *(undefined4 *)(param_1 + 0x260) = 0;
-  if (*(int *)(param_1 + 0x264) != 0) {
-    *(undefined4 *)(param_1 + 0x264) = 0;
-    if (*(int *)(param_1 + 0x25c) != 0) {
-      uVar1 = sub_0053df70(*(int *)(param_1 + 0x25c),0,8);
-      *(undefined4 *)(param_1 + 0x25c) = uVar1;
-    }
-  }
-  return;
-}

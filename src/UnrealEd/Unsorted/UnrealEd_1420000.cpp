@@ -1,4 +1,4 @@
-// UnrealEd_1420000.cpp (part 1 of 9): 179 functions
+// UnrealEd_1420000.cpp (part 1 of 9): 173 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -751,27 +751,6 @@ bool C_014276e0::sub_014276e0(void)
   return *(int *)(param_1 + 0x19c) != -1;
 }
 
-// @baa 0x014276f0
-IMPLEMENT_CLASS_AT(UMaterialEditorOptions, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\NewMaterialEditor.cpp", 19);
-
-// @baa 0x01427820
-bool UMaterialEditorOptions::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x01427880
-IMPLEMENT_CLASS_AT(UPreviewMaterial, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\NewMaterialEditor.cpp", 341);
-
-// @baa 0x01427990
-int UPreviewMaterial::vf_000(void) { return 1; }
-
-// @baa 0x014279a0
-bool UPreviewMaterial::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
 struct C_01427e30 {
     int sub_01427e30();
 };
@@ -783,9 +762,6 @@ int C_01427e30::sub_01427e30(void)
 
   return *(int *)(param_1 + 0x170) + *(int *)(param_1 + 0x164) + *(int *)(param_1 + 0x158);
 }
-
-// @baa 0x01427ed0
-IMPLEMENT_CLASS_AT(UGenericBrowserType_SpeedTree, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\SpeedTreeBrowserType.cpp", 10);
 
 // @baa 0x01427fe0
 int UGenericBrowserType_SpeedTree::vf_000(void) { return 1; }

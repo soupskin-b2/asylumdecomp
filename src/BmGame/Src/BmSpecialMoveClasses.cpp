@@ -1,4 +1,4 @@
-// BmSpecialMoveClasses.cpp: 44 functions
+// BmSpecialMoveClasses.cpp: 65 functions
 // Placed here by: neighbours 18, file 12, callers 8, class 6.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -116,6 +116,112 @@ IMPLEMENT_CLASS_AT(ARSpecialMoveInstance_SwingToVantagePoint, "e:\\Projects\\Ama
 // @baa 0x016318c0
 // @baa 0x016319d0
 bool ARSpecialMoveInstance_RelativeAnimMove::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+extern undefined * g_02344738;
+// @baa 0x01612a50
+undefined4 * UObject::sub_01612a50(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_02344738);
+  return param_1;
+}
+
+extern undefined * g_02344848;
+// @baa 0x01612aa0
+undefined4 * UObject::sub_01612aa0(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_02344848);
+  return param_1;
+}
+
+// @baa 0x016130f0
+int URSpecialMoveConfig_RelativeAnimMove::vf_000(void) { return 1; }
+
+// @baa 0x01613100
+int URSimpleSpecialMoveConfig::vf_000(void) { return 1; }
+
+// @baa 0x01613110
+
+// @baa 0x01613220
+int ARSpecialMoveInstance::vf_000(void) { return 1; }
+
+// @baa 0x01613230
+bool ARSpecialMoveInstance::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x01613270
+int ARSpecialMoveInstance_ResonateObject::vf_000(void) { return 1; }
+
+// @baa 0x01613280
+int ARSpecialMoveInstance_SwingToVantagePoint::vf_000(void) { return 1; }
+
+// @baa 0x01613710
+void sub_01613710(void) {  }
+
+extern undefined * g_02344988;
+// @baa 0x0161da60
+undefined4 * UObject::sub_0161da60(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_02344988);
+  return param_1;
+}
+
+int sub_01612e20(void);
+int sub_016168f0(...);
+extern undefined4 g_026e1a18;
+// @baa 0x0161dab0
+int sub_0161dab0(void)
+{
+  if (g_026e1a18 == 0) {
+    g_026e1a18 = sub_016168f0(L"BmGame");
+    sub_01612e20();
+  }
+  return g_026e1a18;
+}
+
+// @baa 0x01626940
+
+// @baa 0x016290e0
+
+// @baa 0x016291f0
+bool URSimpleSpecialMoveConfig::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x01631620
+
+// @baa 0x01631730
+bool ARSpecialMoveInstance_ResonateObject::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x01631770
+
+// @baa 0x01631880
+bool ARSpecialMoveInstance_SwingToVantagePoint::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x016325c0
+
+// @baa 0x016326d0
+bool ARSpecialMoveInstance_CatchLedge::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

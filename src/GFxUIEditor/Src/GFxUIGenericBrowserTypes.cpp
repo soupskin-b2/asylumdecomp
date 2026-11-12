@@ -1,4 +1,4 @@
-// GFxUIGenericBrowserTypes.cpp: 23 functions
+// GFxUIGenericBrowserTypes.cpp: 30 functions
 // Placed here by: class 11, neighbours 9, file 2, callers 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -115,3 +115,44 @@ undefined4 UGenericBrowserType_GFxMovie::sub_014fd230(byte param_2)
 
 // @baa 0x014fd670
 // @baa 0x014fdf20
+
+// @baa 0x014fa020
+
+// @baa 0x014fa130
+int UGenericBrowserType_GFxMovieInfo::vf_000(void) { return 1; }
+
+// @baa 0x014fa140
+bool UGenericBrowserType_GFxMovieInfo::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+class wxMenuBase;
+class wxMenuBase {
+    public:
+    public: __declspec(dllimport) void Enable(int,bool);
+    friend struct C_014fa180;
+};
+
+struct C_014fa180 {
+    void sub_014fa180(int);
+    int sub_0115ae90(int);
+};
+
+// @baa 0x014fa180
+void C_014fa180::sub_014fa180(int param_2)
+{
+    wxMenuBase * param_1 = (wxMenuBase *)this;
+  ((C_014fa180 *)(this))->sub_0115ae90(param_2);
+  ((wxMenuBase *)(param_1))->wxMenuBase::Enable(*(int *)(*(int *)(param_1 + 0x8c) + 8), param_2 == 0);
+  return;
+}
+
+// @baa 0x014fa1b0
+int UGenericBrowserType_GFxMovieInfo::vf_110(void) { return 0; }
+
+// @baa 0x014fa1c0
+int sub_014fa1c0(void) { return 0; }
+
+// @baa 0x014fa1d0
+void UGenericBrowserType_GFxMovieInfo::vf_12c(void) {  }

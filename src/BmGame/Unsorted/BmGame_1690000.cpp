@@ -1,4 +1,4 @@
-// BmGame_1690000.cpp: 87 functions
+// BmGame_1690000.cpp: 78 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -328,44 +328,8 @@ DWORD* S_01690f50::sub_01690f50(INT Index)
 // @baa 0x01690fa0
 IMPLEMENT_CLASS_AT(URDamageType, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RPawnPlayer.cpp", 56);
 
-int sub_005c7a20(void);
-extern undefined * g_0237cfe0;
-// @baa 0x01691000
-undefined4 * UObject::sub_01691000(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_0237cfe0);
-  return param_1;
-}
-
-// @baa 0x01691020
-extern undefined * g_0237d0f0;
-// @baa 0x01691050
-undefined4 * UObject::sub_01691050(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_0237d0f0);
-  return param_1;
-}
-
 // @baa 0x01691070
 IMPLEMENT_CLASS_AT(URDmgType_CombatTakedown, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RPawnPlayer.cpp", 61);
-
-// @baa 0x016910d0
-extern undefined * g_0237d200;
-// @baa 0x01691100
-undefined4 * UObject::sub_01691100(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_0237d200);
-  return param_1;
-}
 
 // @baa 0x01691120
 IMPLEMENT_CLASS_AT(URDmgType_IntoThrow, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RPawnPlayer.cpp", 59);
@@ -374,58 +338,11 @@ IMPLEMENT_CLASS_AT(URDmgType_IntoThrow, "e:\\Projects\\Amadeus\\AA\\Game\\Unreal
 // @baa 0x016911b0
 IMPLEMENT_CLASS_AT(URDmgType_Strike, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RPawnPlayer.cpp", 57);
 
-extern undefined * g_0237d310;
-// @baa 0x01691210
-undefined4 * UObject::sub_01691210(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_0237d310);
-  return param_1;
-}
-
-// @baa 0x01691230
-extern undefined * g_0237d420;
-// @baa 0x01691260
-undefined4 * UObject::sub_01691260(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_0237d420);
-  return param_1;
-}
-
 // @baa 0x01691280
 IMPLEMENT_CLASS_AT(URDmgType_Counter, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RPawnPlayer.cpp", 60);
 
-// @baa 0x016912e0
-extern undefined * g_0237d530;
-// @baa 0x01691310
-undefined4 * UObject::sub_01691310(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_0237d530);
-  return param_1;
-}
-
 // @baa 0x01691330
 IMPLEMENT_CLASS_AT(URDmgType_Redirect, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RPawnPlayer.cpp", 64);
-
-// @baa 0x01691390
-extern undefined * g_0237d640;
-// @baa 0x016913c0
-undefined4 * UObject::sub_016913c0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_0237d640);
-  return param_1;
-}
 
 // @baa 0x016913e0
 IMPLEMENT_CLASS_AT(URDmgType_Throw, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RPawnPlayer.cpp", 58);
@@ -433,29 +350,6 @@ IMPLEMENT_CLASS_AT(URDmgType_Throw, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngi
 // @baa 0x01691440
 // @baa 0x01691470
 IMPLEMENT_CLASS_AT(URDmgType_Takedown, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RPawnPlayer.cpp", 62);
-
-extern undefined * g_0237d750;
-// @baa 0x016914d0
-undefined4 * UObject::sub_016914d0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_0237d750);
-  return param_1;
-}
-
-// @baa 0x016914f0
-extern undefined * g_0237d860;
-// @baa 0x01691520
-undefined4 * UObject::sub_01691520(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_0237d860);
-  return param_1;
-}
 
 // @baa 0x01691540
 IMPLEMENT_CLASS_AT(URDmgType_Takedown_Floor, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RPawnPlayer.cpp", 63);

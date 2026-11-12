@@ -1,4 +1,4 @@
-// Engine_0e00000.cpp: 59 functions
+// Engine_0e00000.cpp: 57 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -25,14 +25,6 @@ struct C_view {
 };
 
 extern undefined * g_020e34c0;
-// @baa 0x00e01db0
-undefined4 * UTexture2D::sub_00e01db0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-  ((C_view *)(this))->sub_00572050(0);
-  *param_1 = (undefined4)(&g_020e34c0);
-  return param_1;
-}
 
 struct C_00e04240 {
     undefined4 sub_00e04240(byte);
@@ -532,9 +524,6 @@ undefined4 C_00e07e70::sub_00e07e70(undefined4 param_2, undefined4 param_3)
   ((C_00e07e70 *)(this))->sub_00e07ac0(param_2, param_3, 0xffffffff, *(int *)(param_1 + 8) + -1, (int)(&sub_00df60b0));
   return 1;
 }
-
-// @baa 0x00e08960
-IMPLEMENT_CLASS_AT(UChannelDownload, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnDownload.cpp", 401);
 
 // @baa 0x00e08a70
 bool UChannelDownload::vf_004()

@@ -1,4 +1,4 @@
-// UnrealEd_1110000.cpp (part 1 of 8): 349 functions
+// UnrealEd_1110000.cpp (part 1 of 8): 343 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1632,15 +1632,6 @@ void sub_01119520(S* p, INT Value)
 IMPLEMENT_CLASS_AT(UCurveEdPresetBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\CurveEdPresets.cpp", 8);
 
 extern undefined * g_021bd7c8;
-// @baa 0x011195a0
-undefined4 * UObject::sub_011195a0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_021bd7c8);
-  return param_1;
-}
 
 // @baa 0x011195c0
 // @baa 0x011195e0
@@ -1650,15 +1641,6 @@ undefined4 sub_011195e0(undefined4 param_1, undefined4 param_2)
 }
 
 extern undefined * g_021bd8d8;
-// @baa 0x011195f0
-undefined4 * UObject::sub_011195f0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_021bd8d8);
-  return param_1;
-}
 
 // @baa 0x01119610
 IMPLEMENT_CLASS_AT(UCurveEdPreset_CosWave, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\CurveEdPresets.cpp", 9);
@@ -1671,15 +1653,6 @@ undefined4 sub_01119690(undefined4 param_1, undefined4 param_2)
 }
 
 extern undefined * g_021bd9e8;
-// @baa 0x011196a0
-undefined4 * UObject::sub_011196a0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_021bd9e8);
-  return param_1;
-}
 
 // @baa 0x011196c0
 IMPLEMENT_CLASS_AT(UCurveEdPreset_LinearDecay, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\CurveEdPresets.cpp", 10);
@@ -1692,15 +1665,6 @@ undefined4 sub_01119740(undefined4 param_1, undefined4 param_2)
 }
 
 extern undefined * g_021bdaf8;
-// @baa 0x01119750
-undefined4 * UObject::sub_01119750(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_021bdaf8);
-  return param_1;
-}
 
 // @baa 0x01119770
 IMPLEMENT_CLASS_AT(UCurveEdPreset_Nothing, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\CurveEdPresets.cpp", 11);
@@ -1713,15 +1677,6 @@ undefined4 sub_011197f0(undefined4 param_1, undefined4 param_2)
 }
 
 extern undefined * g_021bdc08;
-// @baa 0x01119800
-undefined4 * UObject::sub_01119800(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_021bdc08);
-  return param_1;
-}
 
 // @baa 0x01119820
 IMPLEMENT_CLASS_AT(UCurveEdPreset_SineWave, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\CurveEdPresets.cpp", 12);
@@ -1734,15 +1689,6 @@ undefined4 sub_011198a0(undefined4 param_1, undefined4 param_2)
 }
 
 extern undefined * g_021bdd18;
-// @baa 0x011198b0
-undefined4 * UObject::sub_011198b0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_021bdd18);
-  return param_1;
-}
 
 // @baa 0x011198d0
 IMPLEMENT_CLASS_AT(UCurveEdPreset_UserSet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\CurveEdPresets.cpp", 13);

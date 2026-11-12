@@ -1,4 +1,4 @@
-// MaterialExpressions.cpp: 782 functions
+// MaterialExpressions.cpp: 831 functions
 // Placed here by: neighbours 655, file 87, class 39, callers 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -3208,3 +3208,443 @@ bool UMaterialExpressionFontSampleParameter::vf_004()
 }
 
 // @baa 0x00c41c50
+
+struct FOO {
+  int __thiscall sub_00cb02e0(void);
+};
+
+extern undefined4 g_026c3cdc;
+// @baa 0x00c1ee70
+void sub_00c1ee70(void)
+{
+  ((FOO *)g_026c3cdc)->sub_00cb02e0();
+}
+
+// @baa 0x00c1ee80
+void __stdcall sub_00c1ee80(int a0) {  }
+
+// @baa 0x00c1eea0
+void UMaterialExpressionFontSampleParameter::vf_05c(void) {  }
+
+// @baa 0x00c1eeb0
+void UMaterialExpressionFontSampleParameter::vf_09c(void) {  }
+
+// @baa 0x00c1eed0
+void UMaterialExpressionWorldPosition::vf_10c(INT a0, UINT a1) {  }
+
+// @baa 0x00c1ef00
+void UMaterialExpressionNormal::vf_10c(INT a0, UINT a1) {  }
+
+// @baa 0x00c1ef10
+int UMaterialExpressionAddNormalMap::vf_118(void) { return 112; }
+
+// @baa 0x00c1ef20
+void UMaterialExpressionAddNormalMap::vf_10c(int param_2, undefined4 param_3)
+{
+    int param_1 = (int)this;
+
+  if (*(int *)(param_1 + 0x7c) == param_2) {
+    *(undefined4 *)(param_1 + 0x7c) = param_3;
+  }
+  if (*(int *)(param_1 + 0x98) == param_2) {
+    *(undefined4 *)(param_1 + 0x98) = param_3;
+  }
+  return;
+}
+
+// @baa 0x00c1f320
+void UMaterialExpressionLightingDiffuseLambert::vf_10c(int param_2, undefined4 param_3)
+{
+    int param_1 = (int)this;
+
+  if (*(int *)(param_1 + 0x108) == param_2) {
+    *(undefined4 *)(param_1 + 0x108) = param_3;
+  }
+  if (*(int *)(param_1 + 0x60) == param_2) {
+    *(undefined4 *)(param_1 + 0x60) = param_3;
+  }
+  if (*(int *)(param_1 + 0x7c) == param_2) {
+    *(undefined4 *)(param_1 + 0x7c) = param_3;
+  }
+  if (*(int *)(param_1 + 0x98) == param_2) {
+    *(undefined4 *)(param_1 + 0x98) = param_3;
+  }
+  if (*(int *)(param_1 + 0xb4) == param_2) {
+    *(undefined4 *)(param_1 + 0xb4) = param_3;
+  }
+  if (*(int *)(param_1 + 0xd0) == param_2) {
+    *(undefined4 *)(param_1 + 0xd0) = param_3;
+  }
+  if (*(int *)(param_1 + 0xec) == param_2) {
+    *(undefined4 *)(param_1 + 0xec) = param_3;
+  }
+  return;
+}
+
+// @baa 0x00c1f420
+void UMaterialExpressionLightingSpecularPhong::vf_10c(int param_2, undefined4 param_3)
+{
+    int param_1 = (int)this;
+
+  if (*(int *)(param_1 + 0x15c) == param_2) {
+    *(undefined4 *)(param_1 + 0x15c) = param_3;
+  }
+  if (*(int *)(param_1 + 0x60) == param_2) {
+    *(undefined4 *)(param_1 + 0x60) = param_3;
+  }
+  if (*(int *)(param_1 + 0x7c) == param_2) {
+    *(undefined4 *)(param_1 + 0x7c) = param_3;
+  }
+  if (*(int *)(param_1 + 0x98) == param_2) {
+    *(undefined4 *)(param_1 + 0x98) = param_3;
+  }
+  if (*(int *)(param_1 + 0xb4) == param_2) {
+    *(undefined4 *)(param_1 + 0xb4) = param_3;
+  }
+  if (*(int *)(param_1 + 0xd0) == param_2) {
+    *(undefined4 *)(param_1 + 0xd0) = param_3;
+  }
+  if (*(int *)(param_1 + 0xec) == param_2) {
+    *(undefined4 *)(param_1 + 0xec) = param_3;
+  }
+  if (*(int *)(param_1 + 0x108) == param_2) {
+    *(undefined4 *)(param_1 + 0x108) = param_3;
+  }
+  if (*(int *)(param_1 + 0x124) == param_2) {
+    *(undefined4 *)(param_1 + 0x124) = param_3;
+  }
+  if (*(int *)(param_1 + 0x140) == param_2) {
+    *(undefined4 *)(param_1 + 0x140) = param_3;
+  }
+  return;
+}
+
+// @baa 0x00c1f580
+void UMaterialExpressionLightingSpecularBlinnPhong::vf_10c(int param_2, undefined4 param_3)
+{
+    int param_1 = (int)this;
+
+  if (*(int *)(param_1 + 0x15c) == param_2) {
+    *(undefined4 *)(param_1 + 0x15c) = param_3;
+  }
+  if (*(int *)(param_1 + 0x60) == param_2) {
+    *(undefined4 *)(param_1 + 0x60) = param_3;
+  }
+  if (*(int *)(param_1 + 0x7c) == param_2) {
+    *(undefined4 *)(param_1 + 0x7c) = param_3;
+  }
+  if (*(int *)(param_1 + 0x98) == param_2) {
+    *(undefined4 *)(param_1 + 0x98) = param_3;
+  }
+  if (*(int *)(param_1 + 0xb4) == param_2) {
+    *(undefined4 *)(param_1 + 0xb4) = param_3;
+  }
+  if (*(int *)(param_1 + 0xd0) == param_2) {
+    *(undefined4 *)(param_1 + 0xd0) = param_3;
+  }
+  if (*(int *)(param_1 + 0xec) == param_2) {
+    *(undefined4 *)(param_1 + 0xec) = param_3;
+  }
+  if (*(int *)(param_1 + 0x108) == param_2) {
+    *(undefined4 *)(param_1 + 0x108) = param_3;
+  }
+  if (*(int *)(param_1 + 0x124) == param_2) {
+    *(undefined4 *)(param_1 + 0x124) = param_3;
+  }
+  if (*(int *)(param_1 + 0x140) == param_2) {
+    *(undefined4 *)(param_1 + 0x140) = param_3;
+  }
+  return;
+}
+
+int sub_005eae70(...);
+int sub_0072a530(void);
+int sub_00733250(...);
+extern undefined4 g_026b2250;
+// @baa 0x00c21da0
+void UMaterialExpressionTextureSampleParameter2D::vf_13c(void)
+{
+    int param_1 = (int)this;
+
+  undefined4 uVar1;
+  
+  if (g_026b2250 == 0) {
+    g_026b2250 = sub_00733250(L"Engine");
+    sub_0072a530();
+  }
+  uVar1 = sub_005eae70(g_026b2250,0,L"EngineResources.DefaultTexture",0,0,0,1);
+  *(undefined4 *)(param_1 + 0x60) = uVar1;
+  return;
+}
+
+int sub_00754f50(void);
+int sub_00767250(...);
+extern undefined4 g_026b3b34;
+// @baa 0x00c21df0
+void UMaterialExpressionTextureSampleParameterCube::vf_13c(void)
+{
+    int param_1 = (int)this;
+
+  undefined4 uVar1;
+  
+  if (g_026b3b34 == 0) {
+    g_026b3b34 = sub_00767250(L"Engine");
+    sub_00754f50();
+  }
+  uVar1 = sub_005eae70(g_026b3b34,0,L"EngineResources.DefaultTextureCube",0,0,0,1);
+  *(undefined4 *)(param_1 + 0x60) = uVar1;
+  return;
+}
+
+// @baa 0x00c288c0
+FString UMaterialExpressionWorldPosition::vf_128()
+{
+    return TEXT("World Position");
+}
+
+// @baa 0x00c288f0
+FString UMaterialExpressionNormal::vf_128()
+{
+    return TEXT("Normal Vector");
+}
+
+// @baa 0x00c28990
+FString UMaterialExpressionLightingDiffuseLambert::vf_128()
+{
+    return TEXT("Lighting Diffuse Lambert");
+}
+
+// @baa 0x00c289c0
+FString UMaterialExpressionLightingSpecularPhong::vf_128()
+{
+    return TEXT("Lighting Specular Phong");
+}
+
+// @baa 0x00c289f0
+FString UMaterialExpressionLightingSpecularBlinnPhong::vf_128()
+{
+    return TEXT("Lighting Specular Blinn-Phong");
+}
+
+// @baa 0x00c28a20
+FString UMaterialExpressionLightingSpecularHeidrichSeidel::vf_128()
+{
+    return TEXT("Lighting Specular Heidrich-Seidel");
+}
+
+// @baa 0x00c28a50
+FString UMaterialExpressionFluidNormal::vf_128()
+{
+    return TEXT("Fluid Normal");
+}
+
+// @baa 0x00c28a80
+FString UMaterialExpressionDeriveNormalZ::vf_128()
+{
+    return TEXT("DeriveNormalZ");
+}
+
+// @baa 0x00c28ab0
+FString UMaterialExpressionConstantBiasScale::vf_128()
+{
+    return TEXT("ConstantBiasScale");
+}
+
+extern undefined * g_02044df0;
+// @baa 0x00c2bb90
+undefined4 * UObject::sub_00c2bb90(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_02044df0);
+  return param_1;
+}
+
+extern undefined * g_02044f28;
+// @baa 0x00c2bc40
+undefined4 * UObject::sub_00c2bc40(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_02044f28);
+  return param_1;
+}
+
+extern undefined * g_02045060;
+// @baa 0x00c2bd00
+undefined4 * UObject::sub_00c2bd00(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_02045060);
+  return param_1;
+}
+
+extern undefined * g_02045198;
+// @baa 0x00c2bdb0
+undefined4 * UObject::sub_00c2bdb0(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_02045198);
+  return param_1;
+}
+
+extern undefined * g_020452d0;
+// @baa 0x00c2be60
+undefined4 * UObject::sub_00c2be60(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_020452d0);
+  return param_1;
+}
+
+extern undefined * g_02045408;
+// @baa 0x00c2bf00
+undefined4 * UObject::sub_00c2bf00(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_02045408);
+  return param_1;
+}
+
+extern undefined * g_02045540;
+// @baa 0x00c2bfa0
+undefined4 * UObject::sub_00c2bfa0(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_02045540);
+  return param_1;
+}
+
+extern undefined * g_02045678;
+// @baa 0x00c2c040
+undefined4 * UObject::sub_00c2c040(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_02045678);
+  return param_1;
+}
+
+extern undefined * g_020457b0;
+// @baa 0x00c2c0f0
+undefined4 * UObject::sub_00c2c0f0(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_020457b0);
+  return param_1;
+}
+
+extern undefined * g_020458e8;
+// @baa 0x00c2c1a0
+undefined4 * UObject::sub_00c2c1a0(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_020458e8);
+  return param_1;
+}
+
+extern undefined * g_02045a20;
+// @baa 0x00c2c250
+undefined4 * UObject::sub_00c2c250(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_02045a20);
+  return param_1;
+}
+
+extern undefined * g_02045b58;
+// @baa 0x00c2c2f0
+undefined4 * UObject::sub_00c2c2f0(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_02045b58);
+  return param_1;
+}
+
+extern undefined * g_02045c90;
+// @baa 0x00c2c390
+undefined4 * UObject::sub_00c2c390(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_02045c90);
+  return param_1;
+}
+
+// @baa 0x00c3e2e0
+
+// @baa 0x00c3e3f0
+bool UMaterialExpressionAddNormalMap::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x00c3e430
+
+// @baa 0x00c3e540
+bool UMaterialExpressionLightingDiffuseLambert::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x00c3e580
+
+// @baa 0x00c3e690
+bool UMaterialExpressionLightingSpecularPhong::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x00c3e6d0
+
+// @baa 0x00c3e7e0
+bool UMaterialExpressionLightingSpecularBlinnPhong::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x00c3e820
+
+// @baa 0x00c3e930
+bool UMaterialExpressionLightingSpecularHeidrichSeidel::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x00c3e970
+
+// @baa 0x00c3ea80
+bool UMaterialExpressionMax::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x00c3eac0
+
+// @baa 0x00c3ebd0
+bool UMaterialExpressionMin::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}

@@ -1,4 +1,4 @@
-// GFxUI_1900000.cpp (part 1 of 2): 17 functions
+// GFxUI_1900000.cpp (part 1 of 2): 12 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -114,80 +114,6 @@ int C_019062e0::sub_019062e0(int param_2)
 {
     int * param_1 = (int *)this;
   return *param_1 + 8 + param_2 * 0xc;
-}
-
-struct C_0190fa50 { int a, b, c; C_0190fa50(); };
-
-// @baa 0x0190fa50
-C_0190fa50::C_0190fa50() : a(0), b(0), c(0) {}
-
-struct S018d4a70 {
-    int Data;
-    int Count;
-    int SizeFlags;
-    void sub_0190bda0(int NewNum);
-    void sub_0190fa60();
-};
-
-void __stdcall sub_018d7170(int A);
-// @baa 0x0190fa60
-void S018d4a70::sub_0190fa60()
-{
-    S018d4a70* Self = this;
-    sub_0190bda0(0);
-    if (Self->Data)
-        sub_018d7170(Self->Data);
-}
-
-struct S018d4a70_0190fa80 {
-    int Data;
-    int Count;
-    int SizeFlags;
-    void sub_0190cc10(int NewNum);
-    void sub_0190fa80();
-};
-
-// @baa 0x0190fa80
-void S018d4a70_0190fa80::sub_0190fa80()
-{
-    S018d4a70_0190fa80* Self = this;
-    sub_0190cc10(0);
-    if (Self->Data)
-        sub_018d7170(Self->Data);
-}
-
-struct S018d4a70_0190fac0 {
-    int Data;
-    int Count;
-    int SizeFlags;
-    void sub_0190cd60(int NewNum);
-    void sub_0190fac0();
-};
-
-// @baa 0x0190fac0
-void S018d4a70_0190fac0::sub_0190fac0()
-{
-    S018d4a70_0190fac0* Self = this;
-    sub_0190cd60(0);
-    if (Self->Data)
-        sub_018d7170(Self->Data);
-}
-
-struct S018d4a70_0190fae0 {
-    int Data;
-    int Count;
-    int SizeFlags;
-    void sub_0190be70(int NewNum);
-    void sub_0190fae0();
-};
-
-// @baa 0x0190fae0
-void S018d4a70_0190fae0::sub_0190fae0()
-{
-    S018d4a70_0190fae0* Self = this;
-    sub_0190be70(0);
-    if (Self->Data)
-        sub_018d7170(Self->Data);
 }
 
 // @baa 0x01905f80

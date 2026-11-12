@@ -1,4 +1,4 @@
-// Engine_0be0000.cpp (part 1 of 4): 96 functions
+// Engine_0be0000.cpp (part 1 of 4): 94 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -507,9 +507,6 @@ bool UDwTriovizEffect::vf_004()
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
-// @baa 0x00becaf0
-IMPLEMENT_CLASS_AT(UFaceFXAnimSet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnFaceFXAnimSet.cpp", 14);
-
 // @baa 0x00becc00
 int UFaceFXAnimSet::vf_000(void) { return 1; }
 
@@ -884,6 +881,3 @@ int C_00bef8c0::sub_00bef8c0(int param_2)
   return param_2 * 0x10 + *param_1;
 }
 
-void sub_00bef630();
-// @baa 0x00befda0
-void sub_00befda0(void) { sub_00bef630(); }

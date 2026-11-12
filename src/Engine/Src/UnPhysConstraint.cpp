@@ -1,4 +1,4 @@
-// UnPhysConstraint.cpp (part 1 of 2): 139 functions
+// UnPhysConstraint.cpp (part 1 of 2): 153 functions
 // Placed here by: neighbours 110, class 15, file 11, callers 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -996,4 +996,60 @@ public:
 void C_00a306b0::sub_00a306b0(void* a, void* b, void* c, void* d, void* e)
 {
     this->sub_B(a, b, c);
+}
+
+// @baa 0x00a3f300
+
+// @baa 0x00a3f410
+bool URB_BSJointSetup::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x00a3f450
+
+// @baa 0x00a3f560
+bool URB_HingeSetup::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x00a3f5a0
+
+// @baa 0x00a3f6b0
+bool URB_PrismaticSetup::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x00a3f6f0
+
+// @baa 0x00a3f800
+bool URB_SkelJointSetup::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x00a3f840
+
+// @baa 0x00a3f950
+bool URB_PulleyJointSetup::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x00a3f990
+
+// @baa 0x00a3faa0
+bool URB_StayUprightSetup::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x00a3fae0
+
+// @baa 0x00a3fbf0
+bool URB_DistanceJointSetup::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
 }

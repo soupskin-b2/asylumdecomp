@@ -1,4 +1,4 @@
-// Core_0590000.cpp (part 1 of 4): 185 functions
+// Core_0590000.cpp (part 1 of 4): 179 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -151,9 +151,6 @@ struct C_0059a1d0 { C_0059a1d0* sub_0059a1d0(void); };
 
 // @baa 0x0059a1d0
 C_0059a1d0* C_0059a1d0::sub_0059a1d0(void) { return this; }
-
-// @baa 0x0059a7e0
-int ULinkerSave::vf_000(void) { return 1; }
 
 struct C_0059a7f0 { int sub_0059a7f0(void); };
 
@@ -1248,26 +1245,11 @@ struct C_0059c040 { int a, b; C_0059c040(const C_0059c040 &); };
 // @baa 0x0059c040
 C_0059c040::C_0059c040(const C_0059c040 &o) : a(o.a), b(o.b) {}
 
-// @baa 0x0059c990
-IMPLEMENT_CLASS_AT(UPackage, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Core\\Src\\UnCoreNative.cpp", 1064);
-
-// @baa 0x0059caa0
-int UPackage::vf_000(void) { return 1; }
-
-// @baa 0x0059cab0
-bool UPackage::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
 // @baa 0x0059d6a0
 IMPLEMENT_CLASS_AT(USubsystem, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Core\\Src\\UnCoreNative.cpp", 1858);
 
 // @baa 0x0059d710
 void USubsystem::Tick(int a0) {  }
-
-// @baa 0x0059d720
-int __stdcall sub_0059d720(int a0, int a1) { return 0; }
 
 // @baa 0x0059d730
 // @baa 0x0059d820
@@ -1545,15 +1527,3 @@ int C_0059dc60::sub_0059dc60(int param_2)
   return *param_1 + param_2 * 0x1c;
 }
 
-struct USubsystem_ : public USubsystem {
-    BYTE Pad[0x80 - sizeof(USubsystem)];
-    INT Num;
-    INT Max;
-    UBOOL sub_0059d8a0();
-};
-
-// @baa 0x0059d8a0
-UBOOL USubsystem_::sub_0059d8a0()
-{
-    return Num >= Max;
-}

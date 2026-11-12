@@ -1,4 +1,4 @@
-// Engine_0bf0000.cpp (part 1 of 4): 109 functions
+// Engine_0bf0000.cpp (part 1 of 4): 105 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -368,21 +368,6 @@ void UEngine::vf_15c(int a0, int a1, int a2) {  }
 
 // @baa 0x00bf8e20
 int sub_00bf8e20(int a0, int a1) { return a1; }
-
-// @baa 0x00bf8e30
-IMPLEMENT_CLASS_AT(UCoverGroupRenderingComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\CoverGroupRenderingComponent.cpp", 12);
-
-// @baa 0x00bf8f40
-int UCoverGroupRenderingComponent::vf_000(void) { return 1; }
-
-// @baa 0x00bf8f50
-bool UCoverGroupRenderingComponent::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00bf8f90
-int UCoverGroupRenderingComponent::vf_200(void) { return 1; }
 
 int sub_00e17280(void);
 int sub_00e1e5e0(...);

@@ -1,25 +1,9 @@
-// Engine_0d30000.cpp: 22 functions
+// Engine_0d30000.cpp: 19 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
 
-struct C {
-    undefined4 sub_00d31470(byte);
-};
-
 int sub_0053dfa0(...);
-int sub_00d23580(void);
-// @baa 0x00d31470
-undefined4 C::sub_00d31470(byte param_2)
-{
-    undefined4 param_1 = (undefined4)this;
-
-  sub_00d23580();
-  if ((param_2 & 1) != 0) {
-    sub_0053dfa0(param_1);
-  }
-  return param_1;
-}
 
 int sub_005c7a20(void);
 extern undefined * g_020a7d70;
@@ -35,33 +19,6 @@ undefined4 * UObject::sub_00d35190(void)
 
 // @baa 0x00d351b0
 IMPLEMENT_CLASS_AT(UPrefab, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPrefab.cpp", 10);
-
-// @baa 0x00d35230
-int sub_005eac10(...);
-int sub_00789620(...);
-int sub_00d29890(...);
-// @baa 0x00d35250
-void sub_00d35250(undefined4 param_1, undefined4 param_2)
-{
-  int iVar1;
-  int iVar2;
-  undefined4 uVar3;
-  
-  iVar1 = sub_00789620(param_1);
-  if (iVar1 != 0) {
-    iVar2 = sub_00d29890(param_2);
-    if (*(int *)(iVar2 + 0x1b8) != 0) {
-      uVar3 = sub_005eac10(*(undefined4 *)(iVar2 + 0x1b8),*(undefined4 *)(iVar2 + 0x1b8),iVar1,
-                           L"None",0xffffffff,0xffffffff,0,0);
-      *(undefined4 *)(iVar1 + 0x1b8) = uVar3;
-      *(undefined4 *)(*(int *)(iVar1 + 0x1bc) + 0x1a4) = uVar3;
-      return;
-    }
-    *(undefined4 *)(iVar1 + 0x1b8) = 0;
-    *(undefined4 *)(*(int *)(iVar1 + 0x1bc) + 0x1a4) = 0;
-  }
-  return;
-}
 
 struct S16 {
     INT f00;
@@ -243,25 +200,6 @@ TConstSetBitIterator_00d3c5d0& TConstSetBitIterator_00d3c5d0::operator++()
 void sub_00d3c1c0();
 // @baa 0x00d3c620
 void sub_00d3c620(void) { sub_00d3c1c0(); }
-
-struct C_00d31460
-{
-    char pad_0[0x18];
-    INT Value_18;
-    INT Value_1c;
-    INT Value_20;
-
-    C_00d31460* sub_00d31460();
-};
-
-// @baa 0x00d31460
-C_00d31460* C_00d31460::sub_00d31460()
-{
-    Value_18 = 0;
-    Value_1c = 0;
-    Value_20 = 0;
-    return this;
-}
 
 struct C_00d3afb0
 {

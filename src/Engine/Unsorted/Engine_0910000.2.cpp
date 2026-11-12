@@ -1,4 +1,4 @@
-// Engine_0910000.cpp (part 2 of 7): 6 functions
+// Engine_0910000.cpp (part 2 of 7): 5 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #define BAA_OUTLINE_ALLOC
@@ -29,7 +29,3 @@ struct T_00910b00 { BYTE b[12]; };
 // @baa 0x00910b00
 template INT TArray<T_00910b00>::Add(INT);
 
-struct T_00916080 { BYTE b[1]; };
-
-// @baa 0x00916080
-template void TArray<T_00916080>::Remove(INT, INT);

@@ -1,4 +1,4 @@
-// ForceFieldShapeSphere.cpp: 2 functions
+// ForceFieldShapeSphere.cpp: 4 functions
 // Placed here by: callers 1, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -7,3 +7,11 @@
 IMPLEMENT_CLASS_AT(UForceFieldShapeSphere, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\ForceFieldShapeSphere.cpp", 13);
 
 // @baa 0x00a3bff0
+
+// @baa 0x00a42080
+
+// @baa 0x00a42190
+bool UForceFieldShapeSphere::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}

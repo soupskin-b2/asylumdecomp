@@ -1,34 +1,7 @@
-// BmGame_16a0000.cpp (part 1 of 2): 196 functions
+// BmGame_16a0000.cpp (part 1 of 2): 133 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
-
-// @baa 0x016a09f0
-IMPLEMENT_CLASS_AT(ARPawnPlayerBm, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RPawnPlayer.cpp", 47);
-
-// @baa 0x016a0b00
-bool ARPawnPlayerBm::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x016a0b40
-IMPLEMENT_CLASS_AT(ARPawnPlayerJokerBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RPawnPlayer.cpp", 48);
-
-// @baa 0x016a0c50
-bool ARPawnPlayerJokerBase::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x016a0c90
-IMPLEMENT_CLASS_AT(ARPawnPlayerChallengeJokerBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RPawnPlayer.cpp", 49);
-
-// @baa 0x016a0da0
-bool ARPawnPlayerChallengeJokerBase::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
 
 // @baa 0x016a9990
 void sub_016a9990(void) {  }
@@ -138,9 +111,6 @@ int sub_016a9d80(void)
 // @baa 0x016a9db0
 int sub_016a9db0(int a0, int a1) { return a1; }
 
-// @baa 0x016a9dc0
-IMPLEMENT_CLASS_AT(ARBatarangCamera, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBatarangCamera.cpp", 11);
-
 // @baa 0x016a9ed0
 int ARBatarangCamera::vf_000(void) { return 1; }
 
@@ -149,9 +119,6 @@ bool ARBatarangCamera::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
-
-// @baa 0x016aa3a0
-IMPLEMENT_CLASS_AT(ARCinematicCameraActor, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RCinematicCameraActor.cpp", 6);
 
 // @baa 0x016aa4b0
 int ARCinematicCameraActor::vf_000(void) { return 1; }
@@ -172,9 +139,6 @@ void ARCinematicCameraActor::vf_26c(undefined4 param_2, undefined4 param_3)
   return;
 }
 
-// @baa 0x016aa550
-IMPLEMENT_CLASS_AT(ARControllableChatteringTeethCamera, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RControllableChatteringTeethCamera.cpp", 13);
-
 // @baa 0x016aa660
 int ARControllableChatteringTeethCamera::vf_000(void) { return 1; }
 
@@ -183,9 +147,6 @@ bool ARControllableChatteringTeethCamera::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
-
-// @baa 0x016aabd0
-IMPLEMENT_CLASS_AT(ARLineLauncherDirectorCamera, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RLineLauncherDirectorCamera.cpp", 6);
 
 // @baa 0x016aace0
 int ARLineLauncherDirectorCamera::vf_000(void) { return 1; }
@@ -196,9 +157,6 @@ bool ARLineLauncherDirectorCamera::vf_004()
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
-// @baa 0x016ab0d0
-IMPLEMENT_CLASS_AT(ARMultiTargetCamera, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RMultiTargetCamera.cpp", 10);
-
 // @baa 0x016ab1e0
 int ARMultiTargetCamera::vf_000(void) { return 1; }
 
@@ -207,9 +165,6 @@ bool ARMultiTargetCamera::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
-
-// @baa 0x016ab430
-IMPLEMENT_CLASS_AT(ARSilentPredatorCamera, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RSilentPredatorCamera.cpp", 6);
 
 // @baa 0x016ab540
 int ARSilentPredatorCamera::vf_000(void) { return 1; }
@@ -277,117 +232,6 @@ struct C_016ab7f0 { C_016ab7f0* sub_016ab7f0(int a0); };
 // @baa 0x016ab7f0
 C_016ab7f0* C_016ab7f0::sub_016ab7f0(int a0) { return this; }
 
-// @baa 0x016ab840
-IMPLEMENT_CLASS_AT(ARPawnBossCrocBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BMBossCrocClass.cpp", 15);
-
-// @baa 0x016ab950
-int ARPawnBossCrocBase::vf_000(void) { return 1; }
-
-// @baa 0x016ab960
-bool ARPawnBossCrocBase::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x016ab9a0
-IMPLEMENT_CLASS_AT(ARPontoonEdgeBlockerBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BMBossCrocClass.cpp", 16);
-
-// @baa 0x016abab0
-int ARPontoonEdgeBlockerBase::vf_000(void) { return 1; }
-
-// @baa 0x016abac0
-bool ARPontoonEdgeBlockerBase::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x016abb00
-IMPLEMENT_CLASS_AT(ARSpecialMoveInstance_HoleGrab, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BMBossCrocClass.cpp", 17);
-
-// @baa 0x016abc10
-int ARSpecialMoveInstance_HoleGrab::vf_000(void) { return 1; }
-
-// @baa 0x016abc20
-bool ARSpecialMoveInstance_HoleGrab::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x016abc60
-IMPLEMENT_CLASS_AT(URSeqAct_CrocTeleportFinalAttackRefPoints, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BMBossCrocClass.cpp", 18);
-
-// @baa 0x016abd70
-int URSeqAct_CrocTeleportFinalAttackRefPoints::vf_000(void) { return 1; }
-
-// @baa 0x016abd80
-bool URSeqAct_CrocTeleportFinalAttackRefPoints::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x016abdc0
-IMPLEMENT_CLASS_AT(URGuardRemovalController, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BMBossCrocClass.cpp", 19);
-
-// @baa 0x016abed0
-int URGuardRemovalController::vf_000(void) { return 1; }
-
-// @baa 0x016abee0
-bool URGuardRemovalController::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x016abf20
-IMPLEMENT_CLASS_AT(URSeqAct_CrocRelativeAnimCamera, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BMBossCrocClass.cpp", 20);
-
-// @baa 0x016ac030
-int URSeqAct_CrocRelativeAnimCamera::vf_000(void) { return 1; }
-
-// @baa 0x016ac040
-bool URSeqAct_CrocRelativeAnimCamera::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x016ac080
-IMPLEMENT_CLASS_AT(ARFracturablePontoonPropBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BMBossCrocClass.cpp", 21);
-
-// @baa 0x016ac190
-int ARFracturablePontoonPropBase::vf_000(void) { return 1; }
-
-// @baa 0x016ac1a0
-bool ARFracturablePontoonPropBase::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x016ac1e0
-IMPLEMENT_CLASS_AT(ARPontoonGateBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BMBossCrocClass.cpp", 22);
-
-// @baa 0x016ac2f0
-int ARPontoonGateBase::vf_000(void) { return 1; }
-
-// @baa 0x016ac300
-bool ARPontoonGateBase::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x016ac340
-IMPLEMENT_CLASS_AT(ARBatarangTarget, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BMBossCrocClass.cpp", 23);
-
-// @baa 0x016ac450
-int ARBatarangTarget::vf_000(void) { return 1; }
-
-// @baa 0x016ac460
-bool ARBatarangTarget::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x016ac4a0
-IMPLEMENT_CLASS_AT(ARCrocLineLauncherBlockingVolume, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BMBossCrocClass.cpp", 24);
-
 // @baa 0x016ac5b0
 int ARCrocLineLauncherBlockingVolume::vf_000(void) { return 1; }
 
@@ -450,21 +294,6 @@ struct V_016accf0 {
 // @baa 0x016accf0
 void V_016accf0::sub_016accf0() { g(6); }
 
-// @baa 0x016acd00
-IMPLEMENT_CLASS_AT(ARSoftBodyProjectile, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmBossIvyClass.cpp", 17);
-
-// @baa 0x016ace10
-int ARSoftBodyProjectile::vf_000(void) { return 1; }
-
-// @baa 0x016ace20
-bool ARSoftBodyProjectile::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x016ace60
-IMPLEMENT_CLASS_AT(ARPlantPod, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmBossIvyClass.cpp", 18);
-
 // @baa 0x016acf70
 int ARPlantPod::vf_000(void) { return 1; }
 
@@ -473,45 +302,6 @@ bool ARPlantPod::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
-
-// @baa 0x016ad150
-IMPLEMENT_CLASS_AT(ARBMBossManager, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmBossScarecrowClass.cpp", 19);
-
-// @baa 0x016ad260
-int ARBMBossManager::vf_000(void) { return 1; }
-
-// @baa 0x016ad270
-bool ARBMBossManager::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x016ad2b0
-IMPLEMENT_CLASS_AT(ARPawnBossScarecrowBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmBossScarecrowClass.cpp", 21);
-
-// @baa 0x016ad3c0
-int ARPawnBossScarecrowBase::vf_000(void) { return 1; }
-
-// @baa 0x016ad3d0
-bool ARPawnBossScarecrowBase::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x016ad410
-IMPLEMENT_CLASS_AT(URSeqAct_SetScarecrowCamera, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmBossScarecrowClass.cpp", 22);
-
-// @baa 0x016ad520
-int URSeqAct_SetScarecrowCamera::vf_000(void) { return 1; }
-
-// @baa 0x016ad530
-bool URSeqAct_SetScarecrowCamera::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x016ad570
-IMPLEMENT_CLASS_AT(URSeqAct_SetScarecrowPositionOnPath, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmBossScarecrowClass.cpp", 23);
 
 // @baa 0x016ad680
 int URSeqAct_SetScarecrowPositionOnPath::vf_000(void) { return 1; }
@@ -555,42 +345,6 @@ C_016ad860* C_016ad860::sub_016ad860(int a0) { return this; }
 undefined4 sub_016ad8b0(undefined4 param_1, undefined4 param_2)
 {
   return param_2;
-}
-
-// @baa 0x016ae030
-IMPLEMENT_CLASS_AT(URCapeStateConfig, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RCapeComponent.cpp", 21);
-
-// @baa 0x016ae140
-int URCapeStateConfig::vf_000(void) { return 1; }
-
-// @baa 0x016ae150
-bool URCapeStateConfig::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x016ae190
-IMPLEMENT_CLASS_AT(URCapeConfigFactoryNew, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RCapeComponent.cpp", 22);
-
-// @baa 0x016ae2a0
-int URCapeConfigFactoryNew::vf_000(void) { return 1; }
-
-// @baa 0x016ae2b0
-bool URCapeConfigFactoryNew::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x016ae330
-IMPLEMENT_CLASS_AT(URCapeStateConfigFactoryNew, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RCapeComponent.cpp", 23);
-
-// @baa 0x016ae440
-int URCapeStateConfigFactoryNew::vf_000(void) { return 1; }
-
-// @baa 0x016ae450
-bool URCapeStateConfigFactoryNew::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 struct C_016af060 { int sub_016af060(void); };

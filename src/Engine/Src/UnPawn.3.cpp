@@ -1,4 +1,4 @@
-// UnPawn.cpp: 24 functions
+// UnPawn.cpp: 25 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -222,4 +222,13 @@ void APawn::execGetBasedPosition(FFrame& Stack, RESULT_DECL)
     P_GET_STRUCT(FBasedPosition, BP);
     P_FINISH;
     *(FVector*)Result = GetBasedPosition(BP);
+}
+
+// @baa 0x00873b30
+void AActor::execMoveSmooth(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT(FVector, Delta);
+	P_FINISH;
+	bJustTeleported = 0;
+	*(UBOOL*)Result = sub_00868010(Delta);
 }

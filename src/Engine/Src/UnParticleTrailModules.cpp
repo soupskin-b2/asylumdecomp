@@ -1,4 +1,4 @@
-// UnParticleTrailModules.cpp: 48 functions
+// UnParticleTrailModules.cpp: 54 functions
 // Placed here by: neighbours 28, class 15, file 5.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -159,3 +159,56 @@ bool UParticleModuleTrailSpawn::vf_004()
 }
 
 // @baa 0x00bd18b0
+
+struct UParticleModuleTypeDataTrail2_BAA : public UParticleModuleTypeDataTrail2
+{
+	virtual void sub_00baaf50(INT A, INT B, INT* Source, INT* Dest, INT* Tail);
+};
+
+// @baa 0x00baaf50
+void UParticleModuleTypeDataTrail2_BAA::sub_00baaf50(INT A, INT B, INT* Source, INT* Dest, INT* Tail)
+{
+	*Dest = *Source;
+	*Tail = -1;
+}
+
+extern undefined * g_0201a860;
+// @baa 0x00bc8f30
+undefined4 * UObject::sub_00bc8f30(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_0201a860);
+  return param_1;
+}
+
+extern undefined * g_0201a9c8;
+// @baa 0x00bc8f50
+undefined4 * UObject::sub_00bc8f50(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_0201a9c8);
+  return param_1;
+}
+
+extern undefined * g_0201ab38;
+// @baa 0x00bc8ff0
+undefined4 * UObject::sub_00bc8ff0(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_0201ab38);
+  return param_1;
+}
+
+// @baa 0x00bd1970
+
+// @baa 0x00bd1a80
+bool UParticleModuleTrailTaper::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}

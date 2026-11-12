@@ -1,4 +1,4 @@
-// DecalRenderData.cpp (part 2 of 2): 3 functions
+// DecalRenderData.cpp (part 2 of 2): 6 functions
 // Placed here by: neighbours 1, callers 1, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -21,3 +21,14 @@ undefined4 ULensFlare::sub_006583d0(byte param_2)
 IMPLEMENT_CLASS_AT(UDecalMaterial, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\DecalRenderData.cpp", 11);
 
 // @baa 0x006a43a0
+
+// @baa 0x0064ea50
+
+// @baa 0x0064eb60
+int UDecalMaterial::vf_000(void) { return 1; }
+
+// @baa 0x0064eb70
+bool UDecalMaterial::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}

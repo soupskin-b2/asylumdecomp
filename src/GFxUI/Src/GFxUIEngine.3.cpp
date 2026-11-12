@@ -1,4 +1,4 @@
-// GFxUIEngine.cpp (part 3 of 3): 36 functions
+// GFxUIEngine.cpp (part 3 of 3): 46 functions
 // Placed here by: neighbours 34.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Core.h"
@@ -438,4 +438,120 @@ struct GFxKeyHashFunctor
 unsigned int GFxKeyHashFunctor::sub_018deea0(const GFxKey& Key) const
 {
     return Key.pNode->HashValue;
+}
+
+struct C_018e53a0 { int a, b; C_018e53a0(int, int); };
+
+// @baa 0x018e53a0
+C_018e53a0::C_018e53a0(int x, int y) : a(x), b(y) {}
+
+struct C_018e53c0 {
+    int sub_018e53c0(int);
+};
+
+// @baa 0x018e53c0
+int C_018e53c0::sub_018e53c0(int param_2)
+{
+    int * param_1 = (int *)this;
+  return *param_1 + 8 + param_2 * 0x14;
+}
+
+struct C_018e53d0 {
+    bool sub_018e53d0();
+};
+
+// @baa 0x018e53d0
+bool C_018e53d0::sub_018e53d0(void)
+{
+    int * param_1 = (int *)this;
+  return *param_1 == -2;
+}
+
+struct C_018e5410 {
+    int sub_018e5410(int);
+};
+
+// @baa 0x018e5410
+int C_018e5410::sub_018e5410(int param_2)
+{
+    int * param_1 = (int *)this;
+  return *param_1 + 8 + param_2 * 0x14;
+}
+
+struct C_018e5fb0 { C_018e5fb0* sub_018e5fb0(void); };
+
+// @baa 0x018e5fb0
+C_018e5fb0* C_018e5fb0::sub_018e5fb0(void) { *(int*)((char*)this + 0) = 0; return this; }
+
+struct C_0190fa50 { int a, b, c; C_0190fa50(); };
+
+// @baa 0x0190fa50
+C_0190fa50::C_0190fa50() : a(0), b(0), c(0) {}
+
+struct S018d4a70_0190fa60 {
+    int Data;
+    int Count;
+    int SizeFlags;
+    void sub_0190bda0(int NewNum);
+    void sub_0190fa60();
+};
+
+// @baa 0x0190fa60
+void S018d4a70_0190fa60::sub_0190fa60()
+{
+    S018d4a70_0190fa60* Self = this;
+    sub_0190bda0(0);
+    if (Self->Data)
+        sub_018d7170(Self->Data);
+}
+
+struct S018d4a70_0190fa80 {
+    int Data;
+    int Count;
+    int SizeFlags;
+    void sub_0190cc10(int NewNum);
+    void sub_0190fa80();
+};
+
+// @baa 0x0190fa80
+void S018d4a70_0190fa80::sub_0190fa80()
+{
+    S018d4a70_0190fa80* Self = this;
+    sub_0190cc10(0);
+    if (Self->Data)
+        sub_018d7170(Self->Data);
+}
+
+struct S018d4a70_0190fac0 {
+    int Data;
+    int Count;
+    int SizeFlags;
+    void sub_0190cd60(int NewNum);
+    void sub_0190fac0();
+};
+
+// @baa 0x0190fac0
+void S018d4a70_0190fac0::sub_0190fac0()
+{
+    S018d4a70_0190fac0* Self = this;
+    sub_0190cd60(0);
+    if (Self->Data)
+        sub_018d7170(Self->Data);
+}
+
+struct S018d4a70_0190fae0 {
+    int Data;
+    int Count;
+    int SizeFlags;
+    void sub_0190be70(int NewNum);
+    void sub_0190fae0();
+};
+
+// @baa 0x0190fae0
+void S018d4a70_0190fae0::sub_0190fae0()
+{
+    S018d4a70_0190fae0* Self = this;
+    sub_0190be70(0);
+    if (Self->Data)
+        sub_018d7170(Self->Data);
 }

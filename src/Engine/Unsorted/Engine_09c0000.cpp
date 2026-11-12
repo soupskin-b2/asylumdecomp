@@ -1,4 +1,4 @@
-// Engine_09c0000.cpp: 57 functions
+// Engine_09c0000.cpp: 53 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -404,59 +404,11 @@ TConstSetBitIterator_009c1850& TConstSetBitIterator_009c1850::operator++()
 // @baa 0x009c19f0
 IMPLEMENT_CLASS_AT(ULevelStreaming, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnWorld.cpp", 5468);
 
-// @baa 0x009c1a70
-int sub_005c7a20(void);
-extern undefined * g_01f9a4f8;
-// @baa 0x009c1aa0
-undefined4 * UObject::sub_009c1aa0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_01f9a4f8);
-  return param_1;
-}
-
-extern undefined * g_01f9a610;
-// @baa 0x009c1ac0
-undefined4 * UObject::sub_009c1ac0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_01f9a610);
-  return param_1;
-}
-
 // @baa 0x009c1ae0
 IMPLEMENT_CLASS_AT(ULevelStreamingDistance, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnWorld.cpp", 5470);
 
-// @baa 0x009c1b40
-extern undefined * g_01f9a728;
-// @baa 0x009c1b70
-undefined4 * UObject::sub_009c1b70(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_01f9a728);
-  return param_1;
-}
-
 // @baa 0x009c1b90
 IMPLEMENT_CLASS_AT(ULevelStreamingKismet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnWorld.cpp", 5469);
-
-// @baa 0x009c1bf0
-extern undefined * g_01f9a840;
-// @baa 0x009c1c20
-undefined4 * UObject::sub_009c1c20(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_01f9a840);
-  return param_1;
-}
 
 // @baa 0x009c1c40
 int ULevelStreamingPersistent::vf_10c(int a0) { return 1; }

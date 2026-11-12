@@ -1,4 +1,4 @@
-// RLineLaucher.cpp (part 1 of 2): 6 functions
+// RLineLaucher.cpp (part 1 of 2): 10 functions
 // Placed here by: callers 3, file 3.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -15,3 +15,16 @@ IMPLEMENT_CLASS_AT(ARLineLauncher, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngin
 // @baa 0x01659a10
 // @baa 0x01659ad0
 // @baa 0x01659b90
+
+// @baa 0x0163ba10
+
+// @baa 0x0163bb20
+int ARSpecialMoveInstance_LineLauncher::vf_000(void) { return 1; }
+
+// @baa 0x0163bb30
+bool ARSpecialMoveInstance_LineLauncher::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x0163bb70

@@ -1,4 +1,4 @@
-// MaterialShared.cpp (part 1 of 2): 60 functions
+// MaterialShared.cpp (part 1 of 2): 81 functions
 // Placed here by: neighbours 51, callers 6, file 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -749,4 +749,95 @@ C_00703130& C_00703130::sub_00703130(int x) {
     p = &g_01ed92e0;
     f8 = x;
     return *this;
+}
+
+extern INT sub_006d9230();
+// @baa 0x00663590
+float sub_00663590()
+{
+    return (float)sub_006d9230();
+}
+
+// @baa 0x00663560
+int UMaterialInterface::vf_134(int a0) { return 0; }
+
+// @baa 0x00663570
+int UMaterialInterface::vf_14c(int a0) { return 0; }
+
+// @baa 0x00663580
+UINT UMaterialInterface::vf_15c() { return 0; }
+
+// @baa 0x006636d0
+
+// @baa 0x006d8ef0
+void UMaterialInstanceTimeVarying::SetParent(class UMaterialInterface* NewParent)
+{
+	sub_006c47c0(TEXT("MITV::SetParent"));
+	UMaterialInstance::SetParent(NewParent);
+	vf_180();
+}
+
+struct S {
+    virtual void vf_00();
+    virtual void vf_04();
+    virtual void vf_08();
+    virtual void vf_0c();
+    virtual void vf_10();
+    virtual void vf_14();
+    virtual void vf_18(INT Value);
+};
+
+// @baa 0x006d8f50
+void sub_006d8f50(S* p, INT Value)
+{
+    p->vf_18(Value);
+}
+
+// @baa 0x006d8f70
+
+// @baa 0x006d9080
+int UMaterialInterface::vf_000(void) { return 1; }
+
+// @baa 0x006d9090
+bool UMaterialInterface::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x006d90d0
+
+// @baa 0x006d91e0
+int AMaterialInstanceActor::vf_000(void) { return 1; }
+
+// @baa 0x006d91f0
+bool AMaterialInstanceActor::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x006d9240
+int sub_006d9240(void) { return 290; }
+
+// @baa 0x006d9310
+UBOOL UMaterialInterface::GetVectorParameterValue(FName ParameterName, FLinearColor& OutValue) { return 0; }
+
+// @baa 0x006d9320
+UBOOL UMaterialInterface::GetScalarParameterValue(FName ParameterName, FLOAT& OutValue) { return 0; }
+
+// @baa 0x006d9330
+int UMaterialInterface::vf_11c(int a0, int a1, int a2) { return 0; }
+
+// @baa 0x006d9340
+int UMaterialInterface::vf_128(int a0, int a1, int a2) { return 0; }
+
+// @baa 0x006d9350
+UBOOL UMaterialInterface::GetTextureParameterValue(FName ParameterName, UTexture*& OutValue) { return 0; }
+
+// @baa 0x006d9360
+UINT UMaterialInterface::vf_114(UINT a0, UINT a1, INT * a2, UINT * a3) { return 0; }
+
+void sub_006fdcd0();
+// @baa 0x00702e50
+void sub_00702e50() {
+	sub_006fdcd0();
 }

@@ -1,4 +1,4 @@
-// Engine_0b60000.cpp (part 1 of 2): 48 functions
+// Engine_0b60000.cpp (part 1 of 2): 38 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -170,12 +170,6 @@ extern char g_025de0a0[];
 // @baa 0x00b61170
 int sub_00b61170(void) { return (int)g_025de0a0; }
 
-// @baa 0x00b656e0
-int UParticleModuleBeamBase::vf_130(void) { return 2; }
-
-// @baa 0x00b656f0
-IMPLEMENT_CLASS_AT(UParticleModuleBeamBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnParticleBeamModules.cpp", 15);
-
 int sub_005c7a20(void);
 extern undefined * g_01ff99f8;
 // @baa 0x00b65710
@@ -223,28 +217,6 @@ undefined4 C_00b65a90::sub_00b65a90(byte param_2)
   return param_1;
 }
 
-extern undefined * g_01ff98d0;
-// @baa 0x00b66620
-undefined4 * UObject::sub_00b66620(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_01ff98d0);
-  return param_1;
-}
-
-extern undefined * g_01ffa118;
-// @baa 0x00b66640
-undefined4 * UObject::sub_00b66640(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_01ffa118);
-  return param_1;
-}
-
 // @baa 0x00b66660
 IMPLEMENT_CLASS_AT(UParticleSpriteEmitter, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnParticleComponents.cpp", 22);
 
@@ -274,47 +246,6 @@ void S::sub_00b69cf0() {
     sub_00b68950();
 }
 
-// @baa 0x00b6a4b0
-IMPLEMENT_CLASS_AT(UParticleModuleBeamTarget, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnParticleBeamModules.cpp", 1932);
-
-// @baa 0x00b6a5c0
-bool UParticleModuleBeamTarget::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-struct C_00b6b1e0 {
-    int sub_00b6b1e0();
-};
-
-int sub_00b661b0(void);
-// @baa 0x00b6b1e0
-int C_00b6b1e0::sub_00b6b1e0(void)
-{
-    int param_1 = (int)this;
-
-  sub_00b661b0();
-  *(undefined4 *)(param_1 + 0x34) = 0;
-  *(undefined4 *)(param_1 + 0x38) = 0;
-  return param_1;
-}
-
-struct C_00b6b200 {
-    int sub_00b6b200();
-};
-
-int sub_00b66210(void);
-// @baa 0x00b6b200
-int C_00b6b200::sub_00b6b200(void)
-{
-    int param_1 = (int)this;
-
-  sub_00b66210();
-  *(undefined4 *)(param_1 + 0x34) = 0;
-  *(undefined4 *)(param_1 + 0x38) = 0;
-  return param_1;
-}
-
 // @baa 0x00b6b2f0
 IMPLEMENT_CLASS_AT(AEmitterCameraLensEffectBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnParticleComponents.cpp", 18);
 
@@ -330,11 +261,3 @@ bool UParticleSpriteEmitter::vf_004()
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
-// @baa 0x00b6b6e0
-IMPLEMENT_CLASS_AT(UPhysXParticleSystemComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnParticleComponents.cpp", 27);
-
-// @baa 0x00b6b7f0
-bool UPhysXParticleSystemComponent::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}

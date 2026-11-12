@@ -1,4 +1,4 @@
-// BmEditor_1750000.cpp (part 1 of 3): 46 functions
+// BmEditor_1750000.cpp (part 1 of 3): 44 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -11,9 +11,6 @@ bool UCheckMapsCommandlet::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
-
-// @baa 0x01758d90
-IMPLEMENT_CLASS_AT(UChangeDashesToUnderscoresCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmEditor\\Src\\ConvertDashesToUnderscoresCommandlet.cpp", 162);
 
 // @baa 0x01758ea0
 int UChangeDashesToUnderscoresCommandlet::vf_000(void) { return 1; }
@@ -29,9 +26,6 @@ int URLevelTransitionRenderingComponent::vf_200(void) { return 1; }
 
 // @baa 0x017591c0
 int URPlayerStartInLevelRenderingComponent::vf_200(void) { return 1; }
-
-// @baa 0x017591d0
-IMPLEMENT_CLASS_AT(URActorFactorySmashableProp, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmEditor\\Src\\RActorFactorySmashableProp.cpp", 9);
 
 // @baa 0x017592e0
 int URActorFactorySmashableProp::vf_000(void) { return 1; }
@@ -331,4 +325,3 @@ int sub_0175eb90(void)
 // @baa 0x0175efc0
 IMPLEMENT_CLASS_AT(UBmEdEngine, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmEditor\\Src\\BmEdEngine.cpp", 18);
 
-// @baa 0x0175f040

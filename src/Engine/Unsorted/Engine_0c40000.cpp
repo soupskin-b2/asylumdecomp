@@ -1,4 +1,4 @@
-// Engine_0c40000.cpp (part 1 of 3): 128 functions
+// Engine_0c40000.cpp (part 1 of 3): 112 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -470,21 +470,6 @@ int sub_00c4a6d0(void)
   return g_026b0db8;
 }
 
-// @baa 0x00c4a700
-IMPLEMENT_CLASS_AT(UActorFactory, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActorFactory.cpp", 28);
-
-// @baa 0x00c4a830
-bool UActorFactory::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00c4a870
-int UActorFactoryStaticMesh::vf_000(void) { return 1; }
-
-// @baa 0x00c4a880
-int UActorFactoryFracturedStaticMesh::vf_000(void) { return 1; }
-
 struct C_00c4ad10 { C_00c4ad10* sub_00c4ad10(void); };
 
 // @baa 0x00c4ad10
@@ -494,45 +479,6 @@ struct C_00c4ad20 { int a, b; C_00c4ad20(int, int); };
 
 // @baa 0x00c4ad20
 C_00c4ad20::C_00c4ad20(int x, int y) : a(x), b(y) {}
-
-// @baa 0x00c4b1c0
-IMPLEMENT_CLASS_AT(UAnimObject, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTree.cpp", 9);
-
-// @baa 0x00c4b2d0
-int UAnimObject::vf_000(void) { return 1; }
-
-// @baa 0x00c4b2e0
-bool UAnimObject::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00c4b350
-int UAnimNodeCrossfader::vf_000(void) { return 1; }
-
-// @baa 0x00c4b360
-int UAnimNodeBlendPerBone::vf_000(void) { return 1; }
-
-// @baa 0x00c4b370
-int UAnimNodeBlendList::vf_000(void) { return 1; }
-
-// @baa 0x00c4b380
-int UAnimNodeRandom::vf_000(void) { return 1; }
-
-// @baa 0x00c4b390
-int UAnimNodeBlendDirectional::vf_000(void) { return 1; }
-
-// @baa 0x00c4b3a0
-int UAnimNodeBlendByPosture::vf_000(void) { return 1; }
-
-// @baa 0x00c4b3b0
-int UAnimNodeBlendByPhysics::vf_000(void) { return 1; }
-
-// @baa 0x00c4b3c0
-int UAnimNodeBlendBySpeed::vf_000(void) { return 1; }
-
-// @baa 0x00c4b3d0
-int UAnimNodeBlendByBase::vf_000(void) { return 1; }
 
 struct C_00c4bbd0 {
     INT Unk00; // 0x00

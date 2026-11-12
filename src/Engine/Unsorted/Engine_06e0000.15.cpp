@@ -1,4 +1,4 @@
-// Engine_06e0000.cpp: 2 functions
+// Engine_06e0000.cpp: 1 function
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -19,21 +19,3 @@ void UMeshComponent::execSetMaterial(FFrame& Stack, RESULT_DECL)
     ((UMeshComponent_*)this)->sub_006ea640(ElementIndex, Material);
 }
 
-struct UActorComponent_ : public UActorComponent
-{
-    /* BeginDeferredReattach; Classes.h doesn't declare it. */
-    void sub_00765d00();
-};
-
-// @baa 0x006e4ba0
-void UPrimitiveComponent::execSetLevelHidden(FFrame& Stack, RESULT_DECL)
-{
-    P_GET_UBOOL(bNewLevelHidden);
-    P_FINISH;
-
-    if (bLevelHidden != bNewLevelHidden)
-    {
-        bLevelHidden = bNewLevelHidden;
-        ((UActorComponent_*)this)->sub_00765d00();
-    }
-}

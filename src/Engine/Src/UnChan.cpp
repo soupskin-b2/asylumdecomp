@@ -1,4 +1,4 @@
-// UnChan.cpp (part 1 of 2): 83 functions
+// UnChan.cpp (part 1 of 2): 86 functions
 // Placed here by: neighbours 42, class 27, callers 7, file 6.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -737,4 +737,27 @@ INT UChannel_::sub_00df3450(INT InChannelIndex)
     if (ChannelIndex >= 0x7f)
         return 0;
     return Connection->vf_134(InChannelIndex);
+}
+
+// @baa 0x00df38b0
+int UVoiceChannel::vf_000(void) { return 1; }
+
+// @baa 0x00dfd640
+bool UVoiceChannel::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+struct C_view_00e01db0 {
+    int sub_00572050(int);
+};
+
+extern undefined * g_020e34c0;
+// @baa 0x00e01db0
+undefined4 * UTexture2D::sub_00e01db0(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+  ((C_view_00e01db0 *)(this))->sub_00572050(0);
+  *param_1 = (undefined4)(&g_020e34c0);
+  return param_1;
 }

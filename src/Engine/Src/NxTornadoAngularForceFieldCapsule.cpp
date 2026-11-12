@@ -1,4 +1,4 @@
-// NxTornadoAngularForceFieldCapsule.cpp: 2 functions
+// NxTornadoAngularForceFieldCapsule.cpp: 4 functions
 // Placed here by: callers 1, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -7,3 +7,11 @@
 IMPLEMENT_CLASS_AT(ANxTornadoForceFieldCapsule, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\NxTornadoAngularForceFieldCapsule.cpp", 13);
 
 // @baa 0x00a509a0
+
+// @baa 0x00a51c10
+
+// @baa 0x00a51d20
+bool ANxTornadoForceFieldCapsule::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}

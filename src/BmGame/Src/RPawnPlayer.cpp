@@ -1,4 +1,4 @@
-// RPawnPlayer.cpp: 38 functions
+// RPawnPlayer.cpp: 53 functions
 // Placed here by: file 19, callers 13, neighbours 6.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -96,3 +96,132 @@ bool ARPawnPlayer::vf_004()
 }
 
 // @baa 0x016a02a0
+
+int sub_005c7a20(void);
+extern undefined * g_0237cea0;
+// @baa 0x016867e0
+undefined4 * UObject::sub_016867e0(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_0237cea0);
+  return param_1;
+}
+
+extern undefined * g_0237cfe0;
+// @baa 0x01691000
+undefined4 * UObject::sub_01691000(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_0237cfe0);
+  return param_1;
+}
+
+extern undefined * g_0237d0f0;
+// @baa 0x01691050
+undefined4 * UObject::sub_01691050(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_0237d0f0);
+  return param_1;
+}
+
+extern undefined * g_0237d200;
+// @baa 0x01691100
+undefined4 * UObject::sub_01691100(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_0237d200);
+  return param_1;
+}
+
+extern undefined * g_0237d310;
+// @baa 0x01691210
+undefined4 * UObject::sub_01691210(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_0237d310);
+  return param_1;
+}
+
+extern undefined * g_0237d420;
+// @baa 0x01691260
+undefined4 * UObject::sub_01691260(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_0237d420);
+  return param_1;
+}
+
+extern undefined * g_0237d530;
+// @baa 0x01691310
+undefined4 * UObject::sub_01691310(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_0237d530);
+  return param_1;
+}
+
+extern undefined * g_0237d640;
+// @baa 0x016913c0
+undefined4 * UObject::sub_016913c0(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_0237d640);
+  return param_1;
+}
+
+extern undefined * g_0237d750;
+// @baa 0x016914d0
+undefined4 * UObject::sub_016914d0(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_0237d750);
+  return param_1;
+}
+
+extern undefined * g_0237d860;
+// @baa 0x01691520
+undefined4 * UObject::sub_01691520(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_0237d860);
+  return param_1;
+}
+
+// @baa 0x016a09f0
+
+// @baa 0x016a0b00
+bool ARPawnPlayerBm::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x016a0b40
+
+// @baa 0x016a0c50
+bool ARPawnPlayerJokerBase::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x016a0c90

@@ -1,4 +1,4 @@
-// BmGame_1590000.cpp (part 1 of 2): 330 functions
+// BmGame_1590000.cpp (part 1 of 2): 282 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -40,42 +40,6 @@ int sub_015915e0(void)
     sub_01590720();
   }
   return g_026e1318;
-}
-
-// @baa 0x01591610
-IMPLEMENT_CLASS_AT(URSeqAct_PlayerDialogueLine, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameDialogueClasses.cpp", 10);
-
-// @baa 0x01591720
-bool URSeqAct_PlayerDialogueLine::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x01591760
-IMPLEMENT_CLASS_AT(URSeqAct_RadioDialogueLine, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameDialogueClasses.cpp", 14);
-
-// @baa 0x01591870
-bool URSeqAct_RadioDialogueLine::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x015918b0
-IMPLEMENT_CLASS_AT(URSeqAct_PlayTVSequenceBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameDialogueClasses.cpp", 17);
-
-// @baa 0x015919c0
-bool URSeqAct_PlayTVSequenceBase::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x01591a00
-IMPLEMENT_CLASS_AT(URSeqAct_PlayTVSequenceSingleLine, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameDialogueClasses.cpp", 20);
-
-// @baa 0x01591b10
-bool URSeqAct_PlayTVSequenceSingleLine::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 int sub_0158b6f0(...);
@@ -178,44 +142,8 @@ undefined4 sub_01592050(undefined4 param_1, undefined4 param_2)
   return param_2;
 }
 
-extern undefined * g_0231b5d8;
-// @baa 0x01592060
-undefined4 * UObject::sub_01592060(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_0231b5d8);
-  return param_1;
-}
-
 // @baa 0x01592080
 IMPLEMENT_CLASS_AT(URAnimNotify_Emote, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimNotify_Script.cpp", 25);
-
-// @baa 0x015920e0
-struct C_01592100 {
-    INT sub_01592100(INT arg1);
-};
-
-// @baa 0x01592100
-INT C_01592100::sub_01592100(INT arg1)
-{
-    return (INT)this;
-}
-
-// @baa 0x01592150
-int sub_01592150(int a0, int a1) { return a1; }
-
-extern undefined * g_0231b6f0;
-// @baa 0x01592160
-undefined4 * UObject::sub_01592160(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_0231b6f0);
-  return param_1;
-}
 
 // @baa 0x01592180
 IMPLEMENT_CLASS_AT(URAnimNotify_PlayGadgetAnim, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimNotify_Script.cpp", 22);
@@ -225,17 +153,6 @@ IMPLEMENT_CLASS_AT(URAnimNotify_PlayGadgetAnim, "e:\\Projects\\Amadeus\\AA\\Game
 undefined4 sub_01592200(undefined4 param_1, undefined4 param_2)
 {
   return param_2;
-}
-
-extern undefined * g_0231b808;
-// @baa 0x01592210
-undefined4 * UObject::sub_01592210(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_0231b808);
-  return param_1;
 }
 
 // @baa 0x01592230
@@ -249,37 +166,8 @@ struct C_015922b0 {
 // @baa 0x015922b0
 int C_015922b0::sub_015922b0(int param1) { return (int)this; }
 
-// @baa 0x01592340
-int sub_01592340(int a0, int a1) { return a1; }
-
 // @baa 0x01592350
 IMPLEMENT_CLASS_AT(URAnimNotify_SpawnParticleFX, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimNotify_SpawnParticleFX.cpp", 18);
-
-// @baa 0x015923b0
-extern undefined * g_0231b920;
-// @baa 0x015923d0
-undefined4 * UObject::sub_015923d0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_0231b920);
-  return param_1;
-}
-
-// @baa 0x015923f0
-int sub_015923f0(int a0, int a1) { return a1; }
-
-extern undefined * g_0231ba38;
-// @baa 0x01592400
-undefined4 * UObject::sub_01592400(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_0231ba38);
-  return param_1;
-}
 
 // @baa 0x01592420
 IMPLEMENT_CLASS_AT(URAnimNotify_SpawnParticleFX_PCOnly, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimNotify_SpawnParticleFX.cpp", 19);
@@ -602,17 +490,6 @@ undefined4 sub_01593840(undefined4 param_1, undefined4 param_2)
   return param_2;
 }
 
-extern undefined * g_0231bee0;
-// @baa 0x01593850
-undefined4 * UObject::sub_01593850(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_0231bee0);
-  return param_1;
-}
-
 // @baa 0x01593870
 IMPLEMENT_CLASS_AT(URAnimNotify_EndFixGroup, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimNotify_Script.cpp", 24);
 
@@ -647,17 +524,6 @@ undefined4 sub_015939b0(undefined4 param_1, undefined4 param_2)
   return param_2;
 }
 
-extern undefined * g_0231c110;
-// @baa 0x015939c0
-undefined4 * UObject::sub_015939c0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_0231c110);
-  return param_1;
-}
-
 // @baa 0x015939e0
 IMPLEMENT_CLASS_AT(URAnimNotify_FootSyncIn, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimNotify_Footstep.cpp", 16);
 
@@ -669,17 +535,6 @@ void URAnimNotify_FootSyncIn::vf_10c(UINT a0) {  }
 undefined4 sub_01593a70(undefined4 param_1, undefined4 param_2)
 {
   return param_2;
-}
-
-extern undefined * g_0231c228;
-// @baa 0x01593a80
-undefined4 * UObject::sub_01593a80(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_0231c228);
-  return param_1;
 }
 
 // @baa 0x01593aa0
@@ -1005,30 +860,6 @@ struct C_015943f0 { C_015943f0* sub_015943f0(void); };
 // @baa 0x015943f0
 C_015943f0* C_015943f0::sub_015943f0(void) { return this; }
 
-struct C_01594480 { C_01594480* sub_01594480(void); };
-
-// @baa 0x01594480
-C_01594480* C_01594480::sub_01594480(void) { return this; }
-
-struct C_01594490 { C_01594490* sub_01594490(void); };
-
-// @baa 0x01594490
-C_01594490* C_01594490::sub_01594490(void) { return this; }
-
-// @baa 0x015944c0
-int sub_015944c0(int a0, int a1) { return a1; }
-
-extern undefined * g_0231c4a0;
-// @baa 0x015944d0
-undefined4 * UObject::sub_015944d0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_0231c4a0);
-  return param_1;
-}
-
 // @baa 0x015944f0
 IMPLEMENT_CLASS_AT(URAnimUtil_AnimOutput, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimUtil_AnimOutput.cpp", 14);
 
@@ -1226,44 +1057,6 @@ undefined4 C_01594900::sub_01594900(void)
   return param_1;
 }
 
-struct C_015949b0 { C_015949b0* sub_015949b0(void); };
-
-// @baa 0x015949b0
-C_015949b0* C_015949b0::sub_015949b0(void) { return this; }
-
-struct C_015949c0 { C_015949c0* sub_015949c0(void); };
-
-// @baa 0x015949c0
-C_015949c0* C_015949c0::sub_015949c0(void) { return this; }
-
-struct C_015949f0 {
-    void sub_015949f0();
-};
-
-// @baa 0x015949f0
-void C_015949f0::sub_015949f0(void)
-{
-    int param_1 = (int)this;
-
-  *(undefined4 *)(param_1 + 0x540) = 0;
-  *(undefined4 *)(param_1 + 0xa84) = 0;
-  return;
-}
-
-// @baa 0x01594a00
-int sub_01594a00(int a0, int a1) { return a1; }
-
-extern undefined * g_0231c7d0;
-// @baa 0x01594a10
-undefined4 * UObject::sub_01594a10(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_0231c7d0);
-  return param_1;
-}
-
 // @baa 0x01594a30
 IMPLEMENT_CLASS_AT(URAnimUtil_AdditiveAnimOutput, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimUtil_AdditiveAnimOutput.cpp", 9);
 
@@ -1380,26 +1173,11 @@ struct C_01594e20 { C_01594e20* sub_01594e20(int a0); };
 // @baa 0x01594e20
 C_01594e20* C_01594e20::sub_01594e20(int a0) { return this; }
 
-// @baa 0x015966a0
-IMPLEMENT_CLASS_AT(URAnimNotify_Foley, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimNotify_Foley.cpp", 14);
-
 // @baa 0x015967b0
 int URAnimNotify_Foley::vf_000(void) { return 1; }
 
 // @baa 0x015967c0
 bool URAnimNotify_Foley::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x01596800
-IMPLEMENT_CLASS_AT(URAnimNotify_Footstep, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimNotify_Footstep.cpp", 14);
-
-// @baa 0x01596910
-int URAnimNotify_Footstep::vf_000(void) { return 1; }
-
-// @baa 0x01596920
-bool URAnimNotify_Footstep::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1434,48 +1212,12 @@ bool URAnimNotify_FootSyncOut::vf_004()
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
-// @baa 0x01596e30
-IMPLEMENT_CLASS_AT(URAnimNotify_Script, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimNotify_Script.cpp", 15);
-
-// @baa 0x01596f40
-int URAnimNotify_Script::vf_000(void) { return 1; }
-
-// @baa 0x01596f50
-bool URAnimNotify_Script::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
 // @baa 0x01596f90
 // @baa 0x015970a0
 int URAnimNotify_StrikeContact::vf_000(void) { return 1; }
 
 // @baa 0x015970b0
 bool URAnimNotify_StrikeContact::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x015970f0
-IMPLEMENT_CLASS_AT(URAnimNotify_CounterHit, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimNotify_Script.cpp", 17);
-
-// @baa 0x01597200
-int URAnimNotify_CounterHit::vf_000(void) { return 1; }
-
-// @baa 0x01597210
-bool URAnimNotify_CounterHit::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x01597250
-IMPLEMENT_CLASS_AT(URAnimNotify_Takedown, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimNotify_Script.cpp", 18);
-
-// @baa 0x01597360
-int URAnimNotify_Takedown::vf_000(void) { return 1; }
-
-// @baa 0x01597370
-bool URAnimNotify_Takedown::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1489,18 +1231,6 @@ int URAnimNotify_Rumble::vf_000(void) { return 1; }
 
 // @baa 0x015974e0
 bool URAnimNotify_Rumble::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x01597520
-IMPLEMENT_CLASS_AT(URAnimNotify_Camera, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimNotify_Script.cpp", 21);
-
-// @baa 0x01597630
-int URAnimNotify_Camera::vf_000(void) { return 1; }
-
-// @baa 0x01597640
-bool URAnimNotify_Camera::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1578,18 +1308,6 @@ int URAnimUtil::vf_000(void) { return 1; }
 
 // @baa 0x01597ef0
 bool URAnimUtil::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x01597f30
-IMPLEMENT_CLASS_AT(URSkelControlFootPlacement, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimUtil.cpp", 16);
-
-// @baa 0x01598040
-int URSkelControlFootPlacement::vf_000(void) { return 1; }
-
-// @baa 0x01598050
-bool URSkelControlFootPlacement::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

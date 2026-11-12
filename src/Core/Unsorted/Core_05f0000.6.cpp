@@ -1,4 +1,4 @@
-// Core_05f0000.cpp (part 6 of 6): 5 functions
+// Core_05f0000.cpp (part 6 of 6): 4 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -30,16 +30,6 @@ if((undefined4*)0x0!=puVar1){
 *puVar1=*param_2;
 }
 return iVar2;
-}
-
-// @baa 0x005fbd90
-void UFactory::Serialize( FArchive& Ar )
-{
-	Super::Serialize( Ar );
-	if( !Ar.IsLoading() && !Ar.IsSaving() )
-	{
-		Ar << SupportedClass << ContextClass;
-	}
 }
 
 extern INT g_026a4b20;

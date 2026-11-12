@@ -1,4 +1,4 @@
-// GFxUI_0e60000.cpp (part 1 of 2): 39 functions
+// GFxUI_0e60000.cpp (part 1 of 2): 37 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -387,9 +387,6 @@ int C_00e67cb0::sub_00e67cb0(void)
   return param_1;
 }
 
-// @baa 0x00e67e70
-IMPLEMENT_CLASS_AT(UGFxGameViewportClient, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\GFxUI\\Src\\GFxUIGameViewportClient.cpp", 14);
-
 struct C_00e6a2b0 {
     int sub_00e6a2b0();
 };
@@ -423,10 +420,6 @@ int C_00e6a310::sub_00e6a310(void)
   *(undefined4 *)(param_1 + 0x38) = 0;
   return param_1;
 }
-
-void sub_00e66c90();
-// @baa 0x00e6a600
-void sub_00e6a600(void) { sub_00e66c90(); }
 
 // @baa 0x00e6b540
 void sub_00e6b540(void) { sub_00e66d00(); }

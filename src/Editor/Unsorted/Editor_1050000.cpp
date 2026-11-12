@@ -1,4 +1,4 @@
-// Editor_1050000.cpp (part 1 of 3): 189 functions
+// Editor_1050000.cpp (part 1 of 3): 168 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -822,90 +822,6 @@ undefined4 UTexture2D::sub_01054f80(byte param_2)
   }
   return param_1;
 }
-
-// @baa 0x0105c2b0
-IMPLEMENT_CLASS_AT(UUT3MapStatsCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UContentCommandlets.cpp", 4861);
-
-// @baa 0x0105c3c0
-int UUT3MapStatsCommandlet::vf_000(void) { return 1; }
-
-// @baa 0x0105c3d0
-bool UUT3MapStatsCommandlet::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x0105c410
-IMPLEMENT_CLASS_AT(UListLoopingEmittersCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UContentCommandlets.cpp", 4902);
-
-// @baa 0x0105c520
-int UListLoopingEmittersCommandlet::vf_000(void) { return 1; }
-
-// @baa 0x0105c530
-bool UListLoopingEmittersCommandlet::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x0105c570
-IMPLEMENT_CLASS_AT(USoundGroupInfoCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UContentCommandlets.cpp", 5077);
-
-// @baa 0x0105c680
-int USoundGroupInfoCommandlet::vf_000(void) { return 1; }
-
-// @baa 0x0105c690
-bool USoundGroupInfoCommandlet::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x0105c6d0
-IMPLEMENT_CLASS_AT(UListDistanceCrossFadeNodesCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UContentCommandlets.cpp", 5136);
-
-// @baa 0x0105c7e0
-int UListDistanceCrossFadeNodesCommandlet::vf_000(void) { return 1; }
-
-// @baa 0x0105c7f0
-bool UListDistanceCrossFadeNodesCommandlet::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x0105c830
-IMPLEMENT_CLASS_AT(ULocSoundInfoCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UContentCommandlets.cpp", 5242);
-
-// @baa 0x0105c940
-int ULocSoundInfoCommandlet::vf_000(void) { return 1; }
-
-// @baa 0x0105c950
-bool ULocSoundInfoCommandlet::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x0105c990
-IMPLEMENT_CLASS_AT(UContentTagIndex, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UContentCommandlets.cpp", 5359);
-
-// @baa 0x0105cac0
-bool UContentTagIndex::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x0105cb00
-IMPLEMENT_CLASS_AT(UBuildContentTagIndexCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UContentCommandlets.cpp", 5360);
-
-// @baa 0x0105cc10
-int UBuildContentTagIndexCommandlet::vf_000(void) { return 1; }
-
-// @baa 0x0105cc20
-bool UBuildContentTagIndexCommandlet::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x0105cc60
-IMPLEMENT_CLASS_AT(UFixAmbiguousMaterialParametersCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UFixAmbiguousMaterialParameters.cpp", 460);
 
 // @baa 0x0105cd70
 int UFixAmbiguousMaterialParametersCommandlet::vf_000(void) { return 1; }

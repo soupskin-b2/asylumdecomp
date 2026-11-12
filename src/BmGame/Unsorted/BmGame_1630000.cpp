@@ -1,4 +1,4 @@
-// BmGame_1630000.cpp (part 1 of 3): 267 functions
+// BmGame_1630000.cpp (part 1 of 3): 182 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -7,16 +7,6 @@
 IMPLEMENT_CLASS_AT(ARDebugCameraController, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RPlayerController.cpp", 3880);
 
 int sub_0077ccd0(void);
-extern undefined * g_0234b308;
-// @baa 0x016303f0
-undefined4 * APlayerController::sub_016303f0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_0077ccd0();
-  *param_1 = (undefined4)(&g_0234b308);
-  return param_1;
-}
 
 // @baa 0x01630410
 int sub_016115f0(void);
@@ -56,96 +46,6 @@ int sub_016304a0(void)
     sub_01610e70();
   }
   return g_026e19b8;
-}
-
-// @baa 0x016304d0
-IMPLEMENT_CLASS_AT(ARBMRouter_NoPawn, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmRouterClass.cpp", 133);
-
-// @baa 0x016305e0
-bool ARBMRouter_NoPawn::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x01630620
-IMPLEMENT_CLASS_AT(ARBMRouter, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmRouterClass.cpp", 140);
-
-// @baa 0x01630730
-bool ARBMRouter::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x01630770
-IMPLEMENT_CLASS_AT(ARBMRouteRequest_FindSinglePath, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmRouterClass.cpp", 1678);
-
-// @baa 0x01630880
-bool ARBMRouteRequest_FindSinglePath::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x016308c0
-IMPLEMENT_CLASS_AT(ARBMRouteRequest_FindShortestPath, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmRouterClass.cpp", 1844);
-
-// @baa 0x016309d0
-bool ARBMRouteRequest_FindShortestPath::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x01630a10
-IMPLEMENT_CLASS_AT(ARBMRouteRequest_BuildComparisonList, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmRouterClass.cpp", 2103);
-
-// @baa 0x01630b20
-bool ARBMRouteRequest_BuildComparisonList::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x01630b60
-IMPLEMENT_CLASS_AT(ARBMRouteRequest_HideOnCorner, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmRouterClass.cpp", 2361);
-
-// @baa 0x01630c70
-bool ARBMRouteRequest_HideOnCorner::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x01630cb0
-IMPLEMENT_CLASS_AT(ARBMRouteRequest_NervousSearch, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmRouterClass.cpp", 2474);
-
-// @baa 0x01630dc0
-bool ARBMRouteRequest_NervousSearch::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x01630e00
-IMPLEMENT_CLASS_AT(ARBMRouteRequest_TerrifiedSearch, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmRouterClass.cpp", 2752);
-
-// @baa 0x01630f10
-bool ARBMRouteRequest_TerrifiedSearch::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x01630f50
-IMPLEMENT_CLASS_AT(ARBMRouteRequest_RunAway, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmRouterClass.cpp", 2995);
-
-// @baa 0x01631060
-bool ARBMRouteRequest_RunAway::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x016310a0
-IMPLEMENT_CLASS_AT(ARBMRouteRequest_PerimeterBuilderWrapper, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmRouterClass.cpp", 3126);
-
-// @baa 0x016311b0
-bool ARBMRouteRequest_PerimeterBuilderWrapper::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01631370
@@ -215,24 +115,6 @@ int sub_016315f0(void)
   return g_026e1a2c;
 }
 
-// @baa 0x01631620
-IMPLEMENT_CLASS_AT(ARSpecialMoveInstance_ResonateObject, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmSpecialMoveClasses.cpp", 17);
-
-// @baa 0x01631730
-bool ARSpecialMoveInstance_ResonateObject::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x01631770
-IMPLEMENT_CLASS_AT(ARSpecialMoveInstance_SwingToVantagePoint, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmSpecialMoveClasses.cpp", 18);
-
-// @baa 0x01631880
-bool ARSpecialMoveInstance_SwingToVantagePoint::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
 struct C { C* sub_01631a10(void); };
 
 // @baa 0x01631a10
@@ -282,43 +164,6 @@ int sub_01631b10(void)
   return g_026e19c0;
 }
 
-// @baa 0x01631b40
-IMPLEMENT_CLASS_AT(ARBMRouteRequest_FindShortestPathAvoidingLadder, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmRouterClass.cpp", 2068);
-
-// @baa 0x01631c50
-bool ARBMRouteRequest_FindShortestPathAvoidingLadder::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-struct C_016323c0 {
-    undefined4 * sub_016323c0();
-};
-
-extern undefined * g_0234c640;
-// @baa 0x016323c0
-undefined4 * C_016323c0::sub_016323c0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_0077ccd0();
-  param_1[0x1cc] = 0;
-  param_1[0x1cd] = 0;
-  *(undefined1 *)(param_1 + 0x222) = 0;
-  *(undefined1 *)(param_1 + 0x22a) = 0;
-  param_1[0x22b] = 0;
-  *(undefined1 *)(param_1 + 0x22d) = 0;
-  *(undefined1 *)(param_1 + 0x235) = 0;
-  param_1[0x236] = 0;
-  *param_1 = (undefined4)(&g_0234c640);
-  return param_1;
-}
-
-// @baa 0x01632410
-ARPlayerControllerCombat::ARPlayerControllerCombat()
-{
-}
-
 int sub_005c7a70(...);
 int sub_01632410(void);
 // @baa 0x016324a0
@@ -346,27 +191,12 @@ int sub_016324d0(void)
   return g_026e1a38;
 }
 
-// @baa 0x016325c0
-IMPLEMENT_CLASS_AT(ARSpecialMoveInstance_CatchLedge, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmSpecialMoveClasses.cpp", 20);
-
-// @baa 0x016326d0
-bool ARSpecialMoveInstance_CatchLedge::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
 // @baa 0x01634330
 IMPLEMENT_CLASS_AT(URPlayerInput, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RPlayerController.cpp", 33);
 
 // @baa 0x01634b70
 // @baa 0x01634c80
 IMPLEMENT_CLASS_AT(ARPlayerControllerCombat, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RPlayerController.cpp", 35);
-
-// @baa 0x01634d90
-bool ARPlayerControllerCombat::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
 
 int sub_01634ab0(...);
 int sub_01634b70(void);
@@ -645,48 +475,6 @@ int sub_0163a5d0(void)
   return g_026e22cc;
 }
 
-// @baa 0x0163a600
-int ARHarpoonGun::vf_000(void) { return 1; }
-
-// @baa 0x0163a610
-IMPLEMENT_CLASS_AT(ARSpecialMoveInstance_HarpoonBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RHarpoonGun.cpp", 18);
-
-// @baa 0x0163a720
-int ARSpecialMoveInstance_HarpoonBase::vf_000(void) { return 1; }
-
-// @baa 0x0163a730
-bool ARSpecialMoveInstance_HarpoonBase::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x0163a780
-IMPLEMENT_CLASS_AT(ARProjectileWithRope, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RHarpoonGun.cpp", 21);
-
-// @baa 0x0163a890
-int ARProjectileWithRope::vf_000(void) { return 1; }
-
-// @baa 0x0163a8a0
-bool ARProjectileWithRope::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x0163a8e0
-int ARHarpoonProjectile::vf_000(void) { return 1; }
-
-// @baa 0x0163a8f0
-IMPLEMENT_CLASS_AT(ARBatclawBlockingVolume, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RHarpoonGun.cpp", 25);
-
-// @baa 0x0163aa00
-int ARBatclawBlockingVolume::vf_000(void) { return 1; }
-
-// @baa 0x0163aa10
-bool ARBatclawBlockingVolume::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
 struct C_0163aa90 { C_0163aa90* sub_0163aa90(void); };
 
 // @baa 0x0163aa90
@@ -705,35 +493,8 @@ int sub_0163aaa0(void)
   return g_026e24e0;
 }
 
-// @baa 0x0163aad0
-IMPLEMENT_CLASS_AT(ARInventoryManager, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RInventoryGadget.cpp", 22);
-
-// @baa 0x0163abe0
-int ARInventoryManager::vf_000(void) { return 1; }
-
-// @baa 0x0163abf0
-bool ARInventoryManager::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
 // @baa 0x0163ba00
 int ARLineLauncher::vf_000(void) { return 1; }
-
-// @baa 0x0163ba10
-IMPLEMENT_CLASS_AT(ARSpecialMoveInstance_LineLauncher, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RLineLaucher.cpp", 19);
-
-// @baa 0x0163bb20
-int ARSpecialMoveInstance_LineLauncher::vf_000(void) { return 1; }
-
-// @baa 0x0163bb30
-bool ARSpecialMoveInstance_LineLauncher::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x0163bb70
-IMPLEMENT_CLASS_AT(ARLineLauncherBlockingVolume, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RLineLaucher.cpp", 20);
 
 // @baa 0x0163bc80
 int ARLineLauncherBlockingVolume::vf_000(void) { return 1; }
@@ -744,26 +505,11 @@ bool ARLineLauncherBlockingVolume::vf_004()
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
-// @baa 0x0163bd30
-IMPLEMENT_CLASS_AT(ARPhotoScanner, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RPhotoScanner.cpp", 10);
-
 // @baa 0x0163be40
 int ARPhotoScanner::vf_000(void) { return 1; }
 
 // @baa 0x0163be50
 bool ARPhotoScanner::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x0163c130
-IMPLEMENT_CLASS_AT(ARTapePlayer, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RTapePlayer.cpp", 9);
-
-// @baa 0x0163c240
-int ARTapePlayer::vf_000(void) { return 1; }
-
-// @baa 0x0163c250
-bool ARTapePlayer::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -798,9 +544,6 @@ int sub_0163c440(int a0, int a1) { return a1; }
 // @baa 0x0163c450
 int sub_0163c450(int a0, int a1) { return a1; }
 
-// @baa 0x0163c460
-IMPLEMENT_CLASS_AT(ARCombatMove, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBMCombatMove.cpp", 9);
-
 // @baa 0x0163c570
 int ARCombatMove::vf_000(void) { return 1; }
 
@@ -821,69 +564,6 @@ int ARCombatMove_BatmanStrike::vf_000(void) { return 1; }
 
 // @baa 0x0163c5f0
 int ARCombatMove_BatmanCounter::vf_000(void) { return 1; }
-
-// @baa 0x0163c960
-IMPLEMENT_CLASS_AT(ARBMCombatDangerZone, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmCombatSequence.cpp", 11);
-
-// @baa 0x0163ca70
-int ARBMCombatDangerZone::vf_000(void) { return 1; }
-
-// @baa 0x0163ca80
-bool ARBMCombatDangerZone::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x0163cac0
-IMPLEMENT_CLASS_AT(ARBMCombatCollisionProxy, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmCombatSequence.cpp", 12);
-
-// @baa 0x0163cbd0
-int ARBMCombatCollisionProxy::vf_000(void) { return 1; }
-
-// @baa 0x0163cbe0
-bool ARBMCombatCollisionProxy::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x0163cc20
-IMPLEMENT_CLASS_AT(ARBMCombatDamageProxy, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmCombatSequence.cpp", 13);
-
-// @baa 0x0163cd30
-int ARBMCombatDamageProxy::vf_000(void) { return 1; }
-
-// @baa 0x0163cd40
-bool ARBMCombatDamageProxy::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x0163cd80
-IMPLEMENT_CLASS_AT(ARCombatArea, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmCombatSequence.cpp", 14);
-
-// @baa 0x0163ce90
-int ARCombatArea::vf_000(void) { return 1; }
-
-// @baa 0x0163cea0
-bool ARCombatArea::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x0163cee0
-IMPLEMENT_CLASS_AT(ARBMCombatPoint, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmCombatSequence.cpp", 15);
-
-// @baa 0x0163cff0
-int ARBMCombatPoint::vf_000(void) { return 1; }
-
-// @baa 0x0163d000
-bool ARBMCombatPoint::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x0163d040
-IMPLEMENT_CLASS_AT(URSeqAct_CombatProgress, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmCombatSequence.cpp", 16);
 
 // @baa 0x0163d150
 int URSeqAct_CombatProgress::vf_000(void) { return 1; }
@@ -1018,54 +698,6 @@ int sub_0163d350(int a0, int a1) { return a1; }
 // @baa 0x0163d360
 int sub_0163d360(int a0, int a1) { return a1; }
 
-// @baa 0x0163d370
-IMPLEMENT_CLASS_AT(ARStealthTakeDownStage, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RStealthTakeDownStage.cpp", 9);
-
-// @baa 0x0163d480
-int ARStealthTakeDownStage::vf_000(void) { return 1; }
-
-// @baa 0x0163d490
-bool ARStealthTakeDownStage::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x0163d4d0
-int ARStealthTakeDownStage_GrabOnFloor::vf_000(void) { return 1; }
-
-// @baa 0x0163d4e0
-int ARStealthTakeDownStageFearBase::vf_000(void) { return 1; }
-
-// @baa 0x0163d4f0
-int ARStealthTakeDownStage_RailingAttack::vf_000(void) { return 1; }
-
-// @baa 0x0163dca0
-IMPLEMENT_CLASS_AT(ARHidePoint, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RHidePoint.cpp", 9);
-
-// @baa 0x0163ddb0
-int ARHidePoint::vf_000(void) { return 1; }
-
-// @baa 0x0163ddc0
-bool ARHidePoint::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x0163de00
-IMPLEMENT_CLASS_AT(ARGargoyleBombBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RHidePoint.cpp", 10);
-
-// @baa 0x0163df10
-int ARGargoyleBombBase::vf_000(void) { return 1; }
-
-// @baa 0x0163df20
-bool ARGargoyleBombBase::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x0163e040
-void ARHidePoint::vf_39c(void) {  }
-
 int sub_01554710(void);
 int sub_015893e0(...);
 extern undefined4 g_026e12a0;
@@ -1078,9 +710,6 @@ int sub_0163e0b0(void)
   }
   return g_026e12a0;
 }
-
-// @baa 0x0163e530
-int sub_0163e530(void) { return 0; }
 
 struct C_0163ea10 { float sub_0163ea10(void); };
 

@@ -1,4 +1,4 @@
-// AnimTreeEditor.cpp (part 2 of 3): 17 functions
+// AnimTreeEditor.cpp (part 2 of 3): 26 functions
 // Placed here by: neighbours 8, callers 7, file 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -164,3 +164,73 @@ void C_0134d9f0::sub_01353870() {}
 IMPLEMENT_CLASS_AT(UAnimTreeEdSkelComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\AnimTreeEditor.cpp", 14);
 
 // @baa 0x013573c0
+
+// @baa 0x013374d0
+void __stdcall sub_013374d0(int a0) {  }
+
+struct C_01337530 {
+    INT Unk00; // 0x0
+    INT Size;  // 0x4
+
+    UBOOL sub_01337530(INT Index);
+};
+
+// @baa 0x01337530
+UBOOL C_01337530::sub_01337530(INT Index)
+{
+    if (Index >= 0 && Index < Size)
+        return 1;
+    return 0;
+}
+
+struct C_01337550 { int sub_01337550(void); };
+
+// @baa 0x01337550
+int C_01337550::sub_01337550(void) { return *(int*)((char*)this + 4); }
+
+struct C_01337560 { int sub_01337560(void); };
+
+// @baa 0x01337560
+int C_01337560::sub_01337560(void) { return *(int*)((char*)this + 4); }
+
+// @baa 0x013375c0
+void sub_013375c0(undefined4 * param_1, undefined4 * param_2)
+{
+  undefined4 uVar1;
+  
+  uVar1 = *param_1;
+  *param_1 = *param_2;
+  *param_2 = uVar1;
+  return;
+}
+
+// @baa 0x013375e0
+void sub_013375e0(undefined4 * param_1, undefined4 * param_2)
+{
+  undefined4 uVar1;
+  
+  uVar1 = *param_1;
+  *param_1 = *param_2;
+  *param_2 = uVar1;
+  return;
+}
+
+// @baa 0x01337600
+void sub_01337600(undefined4 * param_1, undefined4 * param_2)
+{
+  undefined4 uVar1;
+  
+  uVar1 = *param_1;
+  *param_1 = *param_2;
+  *param_2 = uVar1;
+  return;
+}
+
+// @baa 0x01337630
+void sub_01337630(void) {  }
+
+// @baa 0x01337640
+float10 sub_01337640(double param_1)
+{
+  return (float10)param_1;
+}

@@ -1,4 +1,4 @@
-// DemoRecording.cpp (part 1 of 3): 92 functions
+// DemoRecording.cpp (part 1 of 3): 97 functions
 // Placed here by: neighbours 66, class 20, callers 3, file 3.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -586,4 +586,54 @@ void C_00df4110::sub_00df4110(void)
   *(undefined4 *)(param_1 + 0x4fa4) = *(undefined4 *)(iVar1 + 0x148);
   *(undefined4 *)(param_1 + 0x4fa8) = *(undefined4 *)(iVar1 + 0x14c);
   return;
+}
+
+// @baa 0x00c002c0
+FString UDemoRecDriver::LowLevelGetNetworkNumber()
+{
+    return TEXT("");
+}
+
+int sub_0053dfa0(...);
+int sub_00c17b80(void);
+// @baa 0x00c19e50
+undefined4 UTexture2D::sub_00c19e50(byte param_2)
+{
+    undefined4 param_1 = (undefined4)this;
+
+  sub_00c17b80();
+  if ((param_2 & 1) != 0) {
+    sub_0053dfa0(param_1);
+  }
+  return param_1;
+}
+
+int sub_00c19120(void);
+// @baa 0x00c19e70
+undefined4 UTexture2D::sub_00c19e70(byte param_2)
+{
+    undefined4 param_1 = (undefined4)this;
+
+  sub_00c19120();
+  if ((param_2 & 1) != 0) {
+    sub_0053dfa0(param_1);
+  }
+  return param_1;
+}
+
+// @baa 0x00c1a6d0
+int UDemoRecDriver::vf_144(void) { return 1; }
+
+int sub_005c7a70(...);
+int sub_00c1a6f0(void);
+// @baa 0x00c1a7a0
+undefined4 UDemoRecDriver::sub_00c1a7a0(byte param_2)
+{
+    undefined4 param_1 = (undefined4)this;
+
+  sub_00c1a6f0();
+  if ((param_2 & 1) != 0) {
+    sub_005c7a70(param_1,0x214);
+  }
+  return param_1;
 }

@@ -1,4 +1,4 @@
-// InterpEditor.cpp (part 1 of 3): 42 functions
+// InterpEditor.cpp (part 1 of 3): 44 functions
 // Placed here by: neighbours 27, class 9, callers 3, file 3.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -392,4 +392,12 @@ void sub_012db930(undefined4 param_1, undefined4 param_2, undefined4 param_3, un
   }
   sub_005e1960(g_026d5eb0,param_2,param_3,param_4,param_5,param_6,0,g_026667a8,0,0,0);
   return;
+}
+
+// @baa 0x012c26f0
+
+// @baa 0x012c2820
+bool UInterpEdOptions::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
 }

@@ -1,4 +1,4 @@
-// IpDrv_0e40000.cpp: 13 functions
+// IpDrv_0e40000.cpp: 11 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -31,32 +31,6 @@ int sub_00e40c00(void) { return 0; }
 
 // @baa 0x00e40c10
 int sub_00e40c10(void) { return 1; }
-
-int sub_00e2b5a0(void);
-int sub_00e40a80(...);
-extern undefined4 g_026cacf8;
-// @baa 0x00e40c90
-int sub_00e40c90(void)
-{
-  if (g_026cacf8 == 0) {
-    g_026cacf8 = sub_00e40a80(L"IpDrv");
-    sub_00e2b5a0();
-  }
-  return g_026cacf8;
-}
-
-struct C_00e40d10 {
-    void sub_00e40d10();
-};
-
-int __stdcall sub_018d3520(int);
-// @baa 0x00e40d10
-void C_00e40d10::sub_00e40d10(void)
-{
-    int param_1 = (int)this;
-  sub_018d3520(*(undefined4 *)(param_1 + 0x4fbc));
-  return;
-}
 
 struct A_00e40d40 { virtual void sub_00e40dc0(); char pad[80]; };
 

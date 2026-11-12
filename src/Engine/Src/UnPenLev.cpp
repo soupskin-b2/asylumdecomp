@@ -1,4 +1,4 @@
-// UnPenLev.cpp: 4 functions
+// UnPenLev.cpp: 5 functions
 // Placed here by: callers 2, file 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -39,3 +39,5 @@ IMPLEMENT_CLASS_AT(UPendingLevel, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine
 
 // @baa 0x00e1ea90
 IMPLEMENT_CLASS_AT(UNetPendingLevel, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPenLev.cpp", 459);
+
+// @baa 0x00e17280

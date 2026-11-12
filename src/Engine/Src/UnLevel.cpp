@@ -1,4 +1,4 @@
-// UnLevel.cpp: 12 functions
+// UnLevel.cpp: 14 functions
 // Placed here by: neighbours 5, callers 4, file 3.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -62,3 +62,11 @@ int URFMODSound::sub_007f0910(int param_2)
 IMPLEMENT_CLASS_AT(ULevel, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnLevel.cpp", 114);
 
 // @baa 0x007f9820
+
+// @baa 0x007f5440
+
+// @baa 0x007f5550
+bool ULevel::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}

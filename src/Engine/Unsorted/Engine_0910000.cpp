@@ -1,4 +1,4 @@
-// Engine_0910000.cpp (part 1 of 7): 115 functions
+// Engine_0910000.cpp (part 1 of 7): 103 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -849,70 +849,3 @@ int C_00915520::sub_00915520(int param_2)
   return iVar1;
 }
 
-// @baa 0x00916060
-void sub_00916060(undefined4 * param_1, undefined4 * param_2)
-{
-  if (param_1 != (undefined4 *)0x0) {
-    *param_1 = *param_2;
-    param_1[1] = param_2[1];
-  }
-  return;
-}
-
-int sub_0090d670(void);
-int sub_00912e90(...);
-extern undefined4 g_026b5db4;
-// @baa 0x00916350
-int sub_00916350(void)
-{
-  if (g_026b5db4 == 0) {
-    g_026b5db4 = sub_00912e90(L"Engine");
-    sub_0090d670();
-  }
-  return g_026b5db4;
-}
-
-// @baa 0x00918dd0
-IMPLEMENT_CLASS_AT(UAnimNotify_Footstep, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSkeletalAnim.cpp", 2346);
-
-// @baa 0x00918ee0
-bool UAnimNotify_Footstep::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00918f20
-IMPLEMENT_CLASS_AT(UAnimNotify_CameraEffect, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSkeletalAnim.cpp", 2372);
-
-// @baa 0x00919030
-bool UAnimNotify_CameraEffect::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00919070
-IMPLEMENT_CLASS_AT(UAnimNotify_PlayParticleEffect, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSkeletalAnim.cpp", 2408);
-
-// @baa 0x00919180
-bool UAnimNotify_PlayParticleEffect::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x009191c0
-IMPLEMENT_CLASS_AT(UAnimNotify_Rumble, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSkeletalAnim.cpp", 2434);
-
-// @baa 0x009192d0
-bool UAnimNotify_Rumble::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00919310
-IMPLEMENT_CLASS_AT(UAnimNotify_ForceField, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSkeletalAnim.cpp", 2438);
-
-// @baa 0x00919420
-bool UAnimNotify_ForceField::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}

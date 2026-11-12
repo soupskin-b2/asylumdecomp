@@ -1,4 +1,4 @@
-// Editor_0f50000.cpp (part 1 of 7): 135 functions
+// Editor_0f50000.cpp (part 1 of 7): 133 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1040,15 +1040,6 @@ void __stdcall sub_00f54680(int a0, int a1) {  }
 
 // @baa 0x00f54690
 void __stdcall sub_00f54690(int a0, int a1) {  }
-
-// @baa 0x00f55400
-IMPLEMENT_CLASS_AT(UTerrainHeightMapFactoryG16BMPT3D, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnEdFactTerrain.cpp", 1882);
-
-// @baa 0x00f55510
-bool UTerrainHeightMapFactoryG16BMPT3D::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
 
 // @baa 0x00f59700
 void __stdcall sub_00f59700(int a0, int a1) {  }

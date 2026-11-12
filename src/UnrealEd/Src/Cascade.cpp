@@ -1,4 +1,4 @@
-// Cascade.cpp (part 1 of 2): 45 functions
+// Cascade.cpp (part 1 of 2): 56 functions
 // Placed here by: neighbours 35, callers 6, file 3.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -316,4 +316,64 @@ void __stdcall sub_012b7380(INT A, INT B);
 void __stdcall sub_012b9700(INT Value)
 {
     sub_012b7380(Value, 0);
+}
+
+// @baa 0x012a09c0
+
+// @baa 0x012a0af0
+bool UCascadeOptions::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x012a0b30
+
+// @baa 0x012a0c40
+int UCascadePreviewComponent::vf_000(void) { return 1; }
+
+// @baa 0x012a0c50
+bool UCascadePreviewComponent::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x012a0c90
+
+// @baa 0x012a0da0
+int UCascadeParticleSystemComponent::vf_000(void) { return 1; }
+
+// @baa 0x012a0db0
+bool UCascadeParticleSystemComponent::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+extern char g_0222452c[];
+struct C_012a0ef0 { C_012a0ef0* sub_012a0ef0(void); };
+
+// @baa 0x012a0ef0
+C_012a0ef0* C_012a0ef0::sub_012a0ef0(void) { *(int*)((char*)this + 0) = (int)g_0222452c; return this; }
+
+// @baa 0x012a0f50
+void __stdcall sub_012a0f50(int a0) {  }
+
+class wxCommandEvent;
+class wxCommandEvent {
+    public:
+    public: __declspec(dllimport) bool IsChecked() const;
+    friend struct C_012a1040;
+};
+
+struct C_012a1040 {
+    void sub_012a1040(wxCommandEvent *);
+};
+
+// @baa 0x012a1040
+void C_012a1040::sub_012a1040(wxCommandEvent * param_2)
+{
+    int param_1 = (int)this;
+  bool bVar1;
+  bVar1 = ((wxCommandEvent *)(param_2))->wxCommandEvent::IsChecked();
+  *(uint *)(*(int *)(param_1 + 0x314) + 0x300) = (uint)bVar1;
+  return;
 }

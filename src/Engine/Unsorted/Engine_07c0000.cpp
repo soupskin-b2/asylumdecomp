@@ -1,4 +1,4 @@
-// Engine_07c0000.cpp: 21 functions
+// Engine_07c0000.cpp: 20 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -29,20 +29,6 @@ void sub_007c2770(void) { sub_007bd4c0(); }
 void sub_007bd520();
 // @baa 0x007c2800
 void sub_007c2800(void) { sub_007bd520(); }
-
-struct C {
-    undefined4 sub_007c3370();
-};
-
-int sub_007c2df0(...);
-// @baa 0x007c3370
-undefined4 C::sub_007c3370(void)
-{
-    int param_1 = (int)this;
-
-  sub_007c2df0(*(undefined4 *)(param_1 + 4),param_1 + 8);
-  return 0x14;
-}
 
 struct C_007c3700 { void sub_007beb80(int); C_007c3700 *sub_007c3700(int); };
 

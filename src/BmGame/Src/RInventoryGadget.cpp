@@ -1,4 +1,4 @@
-// RInventoryGadget.cpp (part 1 of 2): 35 functions
+// RInventoryGadget.cpp (part 1 of 2): 39 functions
 // Placed here by: neighbours 18, class 6, file 6, callers 5.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -108,3 +108,28 @@ IMPLEMENT_CLASS_AT(ARInventoryManager, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealE
 // @baa 0x016597d0
 // @baa 0x01659890
 // @baa 0x01659950
+
+// @baa 0x0163aad0
+
+// @baa 0x0163abe0
+int ARInventoryManager::vf_000(void) { return 1; }
+
+// @baa 0x0163abf0
+bool ARInventoryManager::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+int sub_005c7a70(...);
+int sub_01656540(void);
+// @baa 0x016565e0
+undefined4 ARInventoryManager::sub_016565e0(byte param_2)
+{
+    undefined4 param_1 = (undefined4)this;
+
+  sub_01656540();
+  if ((param_2 & 1) != 0) {
+    sub_005c7a70(param_1,0x29c);
+  }
+  return param_1;
+}

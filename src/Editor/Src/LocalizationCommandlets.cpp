@@ -1,4 +1,4 @@
-// LocalizationCommandlets.cpp: 5 functions
+// LocalizationCommandlets.cpp: 8 functions
 // Placed here by: callers 4, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -37,3 +37,14 @@ struct S_0103d910 { void sub_0103c5e0(); };
 
 // @baa 0x0103d910
 void sub_0103d910(S_0103d910 *p) { if (p) p->sub_0103c5e0(); }
+
+// @baa 0x01015df0
+
+// @baa 0x01015f00
+int UExportLocCommandlet::vf_000(void) { return 1; }
+
+// @baa 0x01015f10
+bool UExportLocCommandlet::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}

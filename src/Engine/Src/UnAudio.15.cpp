@@ -1,4 +1,4 @@
-// UnAudio.cpp: 4 functions
+// UnAudio.cpp: 11 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -88,4 +88,122 @@ void S_00785ef0::sub_00785ef0(void* A, void* B)
 {
     if (Node)
         Node->vf_24(A, B);
+}
+
+// @baa 0x00764c60
+bool UAudioComponent::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x007879b0
+int AAnimatedCamera::vf_000(void) { return 1; }
+
+struct C_00789e10 {
+    int sub_00789e10();
+};
+
+// @baa 0x00789e10
+int C_00789e10::sub_00789e10(void)
+{
+    int param_1 = (int)this;
+
+  return *(int *)(param_1 + 0x84) * 4;
+}
+
+struct FAdj
+{
+    BYTE  SoundClassName;
+    BYTE  pad[3];
+    FName SoundName;
+    DWORD Tail[2];
+};
+
+struct FEnumObject
+{
+    char pad[0x38];
+    TArray<FName> Names;
+};
+
+struct CVtObj
+{
+    virtual void v0();
+    virtual void v1();
+    virtual void v2();
+    virtual void v3();
+    virtual void v4();
+    virtual void v5();
+    virtual void v6();
+    virtual void v7();
+    virtual void v8(int);
+};
+
+struct CUSoundMode
+{
+    char pad0[0x58];
+    TArray<FAdj> Adjusters;
+
+    void sub_0078d860(int);
+};
+
+extern void* g_0268d07c;
+extern CVtObj* g_026667c4;
+int sub_005b3970(...);
+int sub_0059c600(void);
+int sub_005d88c0(...);
+// @baa 0x0078d860
+void CUSoundMode::sub_0078d860(int)
+{
+    if (g_0268d07c == 0)
+    {
+        g_0268d07c = (void*)sub_005b3970(L"Core");
+        sub_0059c600();
+    }
+    const FEnumObject* Enum = (const FEnumObject*)sub_005d88c0((int)g_0268d07c, 0, L"Engine.AudioDevice.ESoundClassName", 0);
+    if (Enum != 0)
+    {
+        for (INT i = 0; i < Adjusters.Num(); i++)
+        {
+            FAdj& Adj = Adjusters(i);
+            BYTE Index = Adj.SoundClassName;
+            Adj.SoundName = Enum->Names(Index);
+        }
+    }
+    g_026667c4->v8(0x11);
+}
+
+// @baa 0x0078d960
+FString UAudioComponent::GetDetailedInfoInternal()
+{
+	FString Result;
+	if (SoundCue)
+	{
+		Result = SoundCue->GetPathName();
+	}
+	else
+	{
+		Result = TEXT("No_SoundCue");
+	}
+	return Result;
+}
+
+int sub_007654e0(void);
+struct UAudioComponent__00793c40 : public UAudioComponent
+{
+    void sub_00793c40(void);
+    void sub_00791770(void);
+};
+
+// @baa 0x00793c40
+void UAudioComponent__00793c40::sub_00793c40(void)
+{
+    sub_007654e0();
+    if (bAutoPlay)
+        sub_00791770();
+}
+
+// @baa 0x0079b340
+bool AAnimatedCamera::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
 }

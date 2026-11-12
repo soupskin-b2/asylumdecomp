@@ -1,4 +1,4 @@
-// RHarpoonDragFloatingPlatformBase.cpp: 4 functions
+// RHarpoonDragFloatingPlatformBase.cpp: 5 functions
 // Placed here by: callers 2, file 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -11,3 +11,5 @@ IMPLEMENT_CLASS_AT(ARWaterLevelMarker, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealE
 
 // @baa 0x01734090
 // @baa 0x01734150
+
+// @baa 0x01716c50

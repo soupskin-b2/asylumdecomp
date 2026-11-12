@@ -1,4 +1,4 @@
-// Engine_0800000.cpp (part 1 of 6): 321 functions
+// Engine_0800000.cpp (part 1 of 6): 315 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -338,27 +338,6 @@ int C_00803c80::sub_00803c80(void) { return *(int*)((char*)this + 4); }
 // @baa 0x00803cf0
 void ALight::vf_354(void) {  }
 
-// @baa 0x00803f40
-IMPLEMENT_CLASS_AT(ALightVolume, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnLight.cpp", 475);
-
-// @baa 0x00804050
-int ALightVolume::vf_000(void) { return 1; }
-
-// @baa 0x00804060
-bool ALightVolume::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x008040a0
-IMPLEMENT_CLASS_AT(AStaticLightCollectionActor, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnLight.cpp", 576);
-
-// @baa 0x008041d0
-bool AStaticLightCollectionActor::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
 int sub_006d8820(void);
 int sub_007116e0(...);
 extern undefined4 g_026b1290;
@@ -429,9 +408,6 @@ void sub_00804b50(void) {  }
 
 // @baa 0x00804e60
 void sub_00804e60(void) {  }
-
-// @baa 0x00804e70
-IMPLEMENT_CLASS_AT(UModelComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnModelComponent.cpp", 8);
 
 // @baa 0x00804f80
 int UModelComponent::vf_000(void) { return 1; }

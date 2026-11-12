@@ -1,4 +1,4 @@
-// Engine_0770000.cpp (part 1 of 55): 306 functions
+// Engine_0770000.cpp (part 1 of 55): 243 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -102,60 +102,6 @@ int sub_00771330(void)
 void sub_007706c0();
 // @baa 0x00771370
 void sub_00771370(void) { sub_007706c0(); }
-
-// @baa 0x007716d0
-IMPLEMENT_CLASS_AT(UForcedReachSpec, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 50);
-
-// @baa 0x007717e0
-bool UForcedReachSpec::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00771820
-IMPLEMENT_CLASS_AT(UAdvancedReachSpec, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 51);
-
-// @baa 0x00771930
-bool UAdvancedReachSpec::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00771970
-IMPLEMENT_CLASS_AT(ULadderReachSpec, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 52);
-
-// @baa 0x00771a80
-bool ULadderReachSpec::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00771ac0
-IMPLEMENT_CLASS_AT(UProscribedReachSpec, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 53);
-
-// @baa 0x00771bd0
-bool UProscribedReachSpec::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00771c10
-IMPLEMENT_CLASS_AT(UCeilingReachSpec, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 60);
-
-// @baa 0x00771d20
-bool UCeilingReachSpec::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00771d60
-IMPLEMENT_CLASS_AT(UTeleportReachSpec, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 112);
-
-// @baa 0x00771e70
-bool UTeleportReachSpec::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
 
 struct C_00772590 { C_00772590* sub_00772590(void); };
 
@@ -395,66 +341,7 @@ DWORD C_007736f0::sub_007736f0()
     return d222();
 }
 
-// @baa 0x00773700
-uint AController::vf_374(void)
-{
-    int param_1 = (int)this;
-
-  return *(uint *)(param_1 + 0x1b8) & 1;
-}
-
-// @baa 0x00773710
-void* AController::vf_2e4() { return this; }
-
-// @baa 0x00773720
-int AController::vf_3a0(int a0, int a1, int a2, int a3, int a4) { return 0; }
-
-// @baa 0x00773730
-void AController::vf_3b0(void) {  }
-
-// @baa 0x00773740
-void AController::vf_3b4(void) {  }
-
-// @baa 0x00773750
-void AController::vf_3bc(int a0) {  }
-
-// @baa 0x00773760
-void AController::vf_3d8(int a0) {  }
-
-// @baa 0x00773770
-void AController::vf_3dc(int a0) {  }
-
-// @baa 0x00773780
-void AController::vf_3e0(int a0) {  }
-
-// @baa 0x00773790
-void AController::vf_3e4(int a0) {  }
-
-// @baa 0x007737a0
-void AController::vf_3e8(int a0) {  }
-
-// @baa 0x007737b0
-int AController::vf_3ec(int a0, int a1) { return 0; }
-
-// @baa 0x007737c0
-int AController::vf_3fc(void) { return 1; }
-
-// @baa 0x007737d0
-int AController::vf_400(void) { return 1; }
-
 int sub_005c7a70(...);
-int sub_00773670(void);
-// @baa 0x00773800
-undefined4 AController::sub_00773800(byte param_2)
-{
-    undefined4 param_1 = (undefined4)this;
-
-  sub_00773670();
-  if ((param_2 & 1) != 0) {
-    sub_005c7a70(param_1,0x330);
-  }
-  return param_1;
-}
 
 // @baa 0x00773930
 IMPLEMENT_CLASS_AT(ADroppedPickup, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 79);
@@ -462,33 +349,6 @@ IMPLEMENT_CLASS_AT(ADroppedPickup, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngin
 // @baa 0x00773990
 // @baa 0x007739f0
 IMPLEMENT_CLASS_AT(AEmitterPool, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 116);
-
-// @baa 0x00773aa0
-int sub_00773b50(void);
-// @baa 0x00773bf0
-undefined4 AHUD::sub_00773bf0(byte param_2)
-{
-    undefined4 param_1 = (undefined4)this;
-
-  sub_00773b50();
-  if ((param_2 & 1) != 0) {
-    sub_005c7a70(param_1,0x42c);
-  }
-  return param_1;
-}
-
-int sub_0076f600(...);
-int sub_007716d0(void);
-extern undefined4 g_026b3ba0;
-// @baa 0x00773c20
-int sub_00773c20(void)
-{
-  if (g_026b3ba0 == 0) {
-    g_026b3ba0 = sub_0076f600(L"Engine");
-    sub_007716d0();
-  }
-  return g_026b3ba0;
-}
 
 // @baa 0x00773c50
 IMPLEMENT_CLASS_AT(ANavigationPoint, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 62);
@@ -501,9 +361,6 @@ int ANavigationPoint::vf_360(int a0) { return 1; }
 
 // @baa 0x00773d30
 int ANavigationPoint::vf_368(int a0, int a1) { return a1; }
-
-// @baa 0x00773d40
-void sub_00773d40(void) {  }
 
 // @baa 0x00773d50
 int ANavigationPoint::vf_374(int a0) { return 1; }
@@ -582,26 +439,8 @@ IMPLEMENT_CLASS_AT(AGameInfo, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\D
 // @baa 0x00774b30
 IMPLEMENT_CLASS_AT(AInternetInfo, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 77);
 
-// @baa 0x00774bf0
-IMPLEMENT_CLASS_AT(AMacroReachSpecInfo, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 131);
-
-// @baa 0x00774cc0
-IMPLEMENT_CLASS_AT(AMutator, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 85);
-
-// @baa 0x00774d80
-IMPLEMENT_CLASS_AT(APotentialClimbWatcher, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 97);
-
 // @baa 0x00774e10
 IMPLEMENT_CLASS_AT(AReplicationInfo, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 75);
-
-// @baa 0x00774f80
-IMPLEMENT_CLASS_AT(AGameReplicationInfo, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 78);
-
-// @baa 0x007750b0
-IMPLEMENT_CLASS_AT(APlayerReplicationInfo, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 76);
-
-// @baa 0x00775180
-IMPLEMENT_CLASS_AT(ATeamInfo, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 100);
 
 // @baa 0x00775240
 IMPLEMENT_CLASS_AT(AZoneInfo, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 48);
@@ -729,98 +568,12 @@ IMPLEMENT_CLASS_AT(AProjectile, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\
 // @baa 0x00776890
 IMPLEMENT_CLASS_AT(ATrigger, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 71);
 
-// @baa 0x007768f0
-int sub_00764df0(void);
-int sub_00771fd0(...);
-extern undefined4 g_026b3cd8;
-// @baa 0x00776920
-int sub_00776920(void)
-{
-  if (g_026b3cd8 == 0) {
-    g_026b3cd8 = sub_00771fd0(L"Engine");
-    sub_00764df0();
-  }
-  return g_026b3cd8;
-}
-
-int sub_00773830(void);
-extern undefined * g_01f0e170;
-// @baa 0x00776950
-undefined4 * AController::sub_00776950(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_00773830();
-  *param_1 = (undefined4)(&g_01f0e170);
-  return param_1;
-}
-
 // @baa 0x00776970
 IMPLEMENT_CLASS_AT(AAIController, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 81);
 
 // @baa 0x007769d0
 // @baa 0x00776a00
 IMPLEMENT_CLASS_AT(USlotToSlotReachSpec, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 54);
-
-// @baa 0x00776b10
-bool USlotToSlotReachSpec::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00776b50
-IMPLEMENT_CLASS_AT(UMantleReachSpec, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 55);
-
-// @baa 0x00776c60
-bool UMantleReachSpec::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00776ca0
-IMPLEMENT_CLASS_AT(USwatTurnReachSpec, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 56);
-
-// @baa 0x00776db0
-bool USwatTurnReachSpec::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00776df0
-IMPLEMENT_CLASS_AT(UCoverSlipReachSpec, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 57);
-
-// @baa 0x00776f00
-bool UCoverSlipReachSpec::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00776f40
-IMPLEMENT_CLASS_AT(UWallTransReachSpec, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 58);
-
-// @baa 0x00777050
-bool UWallTransReachSpec::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00777090
-IMPLEMENT_CLASS_AT(UFloorToCeilingReachSpec, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 59);
-
-// @baa 0x007771a0
-bool UFloorToCeilingReachSpec::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x007774c0
-IMPLEMENT_CLASS_AT(UStaticMeshComponentFactory, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActorComponent.cpp", 53);
-
-// @baa 0x007775d0
-bool UStaticMeshComponentFactory::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
 
 struct C_00778110 {
     int sub_00778110();
@@ -1104,24 +857,6 @@ undefined4 * APlayerController::sub_0077cd70(void)
 // @baa 0x0077cd90
 IMPLEMENT_CLASS_AT(ADebugCameraController, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 84);
 
-// @baa 0x0077cdf0
-void sub_00777900();
-// @baa 0x0077ce20
-void sub_0077ce20(void) { sub_00777900(); }
-
-int sub_00756fc0(void);
-int sub_0077ac30(...);
-extern undefined4 g_026b3c2c;
-// @baa 0x0077ce30
-int sub_0077ce30(void)
-{
-  if (g_026b3c2c == 0) {
-    g_026b3c2c = sub_0077ac30(L"Engine");
-    sub_00756fc0();
-  }
-  return g_026b3c2c;
-}
-
 // @baa 0x0077ce60
 // @baa 0x0077cf70
 bool ALight::vf_004()
@@ -1178,42 +913,9 @@ bool ATrigger::vf_004()
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
-// @baa 0x0077d8e0
-IMPLEMENT_CLASS_AT(AHUD, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 72);
-
-// @baa 0x0077d9f0
-bool AHUD::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x0077db40
-bool AInfo::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
 // @baa 0x0077db80
 // @baa 0x0077dc90
 bool ADroppedPickup::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x0077dcd0
-IMPLEMENT_CLASS_AT(AController, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 80);
-
-// @baa 0x0077dde0
-bool AController::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x0077de20
-IMPLEMENT_CLASS_AT(ABrush, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 90);
-
-// @baa 0x0077df30
-bool ABrush::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1364,35 +1066,6 @@ int sub_0077e690(void)
     sub_0077dcd0();
   }
   return g_026b3c18;
-}
-
-// @baa 0x0077e6f0
-void sub_0077e6f0(void) { sub_00777900(); }
-
-int sub_0077a1b0(...);
-int sub_0077d4f0(void);
-extern undefined4 g_026b3be8;
-// @baa 0x0077e780
-int sub_0077e780(void)
-{
-  if (g_026b3be8 == 0) {
-    g_026b3be8 = sub_0077a1b0(L"Engine");
-    sub_0077d4f0();
-  }
-  return g_026b3be8;
-}
-
-int sub_0077a0f0(...);
-int sub_0077d3a0(void);
-extern undefined4 g_026b3be4;
-// @baa 0x0077e7b0
-int sub_0077e7b0(void)
-{
-  if (g_026b3be4 == 0) {
-    g_026b3be4 = sub_0077a0f0(L"Engine");
-    sub_0077d3a0();
-  }
-  return g_026b3be4;
 }
 
 // @baa 0x0077e7e0

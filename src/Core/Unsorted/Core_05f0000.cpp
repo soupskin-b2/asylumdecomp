@@ -1,4 +1,4 @@
-// Core_05f0000.cpp (part 1 of 6): 438 functions
+// Core_05f0000.cpp (part 1 of 6): 427 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -733,9 +733,6 @@ extern char g_0268d104[];
 // @baa 0x005fa710
 int sub_005fa710(void) { return (int)g_0268d104; }
 
-// @baa 0x005fa780
-int UProperty::vf_160(void) { return 0; }
-
 // @baa 0x005faa50
 undefined4 sub_005faa50(undefined4 param_1, undefined4 param_2)
 {
@@ -773,31 +770,6 @@ undefined2 sub_005faa90(void)
 
 // @baa 0x005faaa0
 int UArrayProperty::sub_005faaa0(void) { return *(int*)((char*)this + 4); }
-
-struct C_005faab0 { int a, b, c; C_005faab0(); };
-
-// @baa 0x005faab0
-C_005faab0::C_005faab0() : a(0), b(0), c(0) {}
-
-// @baa 0x005faac0
-int UArrayProperty::sub_005faac0(void) { return *(int*)((char*)this + 0); }
-
-// @baa 0x005faad0
-int UArrayProperty::sub_005faad0(void) { return *(int*)((char*)this + 0); }
-
-// @baa 0x005faae0
-int UArrayProperty::sub_005faae0(void) { return *(int*)((char*)this + 0); }
-
-// @baa 0x005faaf0
-int UArrayProperty::sub_005faaf0(void) { return *(int*)((char*)this + 20); }
-
-// @baa 0x005fab00
-int UArrayProperty::sub_005fab00(int param_2)
-{
-    int * param_1 = (int *)this;
-
-  return param_2 * 0x10 + *param_1;
-}
 
 struct C_005facf0 { C_005facf0* sub_005facf0(void); };
 
@@ -990,21 +962,7 @@ void C_005fb820::sub_005fb820(void)
   return;
 }
 
-// @baa 0x005fba80
-UExporter::UExporter()
-{
-    *(DWORD*)((BYTE*)this + 0x54) &= 0xfffffffd;
-}
-
 IMPLEMENT_CLASS_AT(UExporter, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Core\\Src\\UExporter.cpp", 36);
-// @baa 0x005fbb90
-int UExporter::vf_000(void) { return 1; }
-
-// @baa 0x005fbba0
-bool UExporter::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
 
 // @baa 0x005fbf80
 IMPLEMENT_CLASS_AT(UHelpCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Core\\Src\\UHelpCommandlet.cpp", 208);
@@ -1017,9 +975,6 @@ bool UHelpCommandlet::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
-
-// @baa 0x005fc170
-int UPackageMap::vf_134(int a) { return a | -1; }
 
 // @baa 0x005fc1a0
 IMPLEMENT_CLASS_AT(UPackageMap, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Core\\Src\\UnCoreNet.cpp", 525);

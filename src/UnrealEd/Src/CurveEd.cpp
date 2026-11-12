@@ -1,4 +1,4 @@
-// CurveEd.cpp: 11 functions
+// CurveEd.cpp: 20 functions
 // Placed here by: neighbours 6, callers 4, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -138,4 +138,95 @@ void C_01135350::sub_01135350(int) {
   }
   sub_01123af0();
   ((W*)x->w)->sub_00cc65f0();
+}
+
+int sub_0053df40(...);
+extern int g_021bd2e8[];
+extern int g_021bd328[];
+struct wxComboBox { __declspec(dllimport) wxComboBox(); char pad[0x15c]; };
+
+struct W_0111a320 : wxComboBox {
+    W_0111a320() { *(void**)this = g_021bd328; *(void**)((char*)this + 0x150) = g_021bd2e8; }
+    void* operator new(unsigned int s) { return (void*)sub_0053df40(s, 8); }
+    void operator delete(void* p) {}
+};
+
+// @baa 0x0111a320
+W_0111a320* sub_0111a320() { return new W_0111a320; }
+
+struct C_0111a020 { int sub_0111a020(void); };
+
+// @baa 0x0111a020
+int C_0111a020::sub_0111a020(void) { return *(int*)((char*)this + 4); }
+
+struct C_0111a030 { int sub_0111a030(void); };
+
+// @baa 0x0111a030
+int C_0111a030::sub_0111a030(void) { return *(int*)((char*)this + 4); }
+
+struct C_0111a040 { int sub_0111a040(void); };
+
+// @baa 0x0111a040
+int C_0111a040::sub_0111a040(void) { return *(int*)((char*)this + 0); }
+
+struct C_0111a050 { int sub_0111a050(void); };
+
+// @baa 0x0111a050
+int C_0111a050::sub_0111a050(void) { return *(int*)((char*)this + 0); }
+
+struct C_0111a0d0 {
+    void sub_0111a0d0(int *);
+};
+
+// @baa 0x0111a0d0
+void C_0111a0d0::sub_0111a0d0(int * param_2)
+{
+    int param_1 = (int)this;
+
+  *param_2 = param_1 + 0x1e8;
+  param_2[1] = 0;
+  return;
+}
+
+struct C_0111a0f0 {
+    void sub_0111a0f0(int *);
+};
+
+// @baa 0x0111a0f0
+void C_0111a0f0::sub_0111a0f0(int * param_2)
+{
+    int param_1 = (int)this;
+
+  *param_2 = *(int *)(param_1 + 0x1cc) + 0x1e8;
+  param_2[1] = 0;
+  return;
+}
+
+struct C_0111a110 {
+    void sub_0111a110(int *);
+};
+
+// @baa 0x0111a110
+void C_0111a110::sub_0111a110(int * param_2)
+{
+    int param_1 = (int)this;
+
+  *param_2 = *(int *)(*(int *)(param_1 + 0x1a4) + 0x1cc) + 0x1e8;
+  param_2[1] = 0;
+  return;
+}
+
+struct C_0111a250 {
+    int sub_0111a250();
+};
+
+// @baa 0x0111a250
+int C_0111a250::sub_0111a250(void)
+{
+    int param_1 = (int)this;
+
+  if ((*(int *)(param_1 + 0x148) != 0) && (*(int *)(param_1 + 0x150) != 0)) {
+    return ((*(int *)(param_1 + 0x148) + -1) / 2) * 0x24 + 0x3c;
+  }
+  return 0x18;
 }

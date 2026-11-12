@@ -1,4 +1,4 @@
-// FMODFact.cpp: 4 functions
+// FMODFact.cpp: 6 functions
 // Placed here by: callers 2, file 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -11,3 +11,11 @@ IMPLEMENT_CLASS_AT(URReimportFMODSoundFactory, "e:\\Projects\\Amadeus\\AA\\Game\
 
 // @baa 0x0110f890
 // @baa 0x0110f950
+
+// @baa 0x01110260
+
+// @baa 0x01110370
+bool URReimportFMODSoundFactory::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}

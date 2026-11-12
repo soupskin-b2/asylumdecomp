@@ -1,4 +1,4 @@
-// Editor_0ff0000.cpp (part 1 of 4): 131 functions
+// Editor_0ff0000.cpp (part 1 of 4): 130 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1115,13 +1115,6 @@ struct C_00ffbfb0 { void sub_00c009d0(int); C_00ffbfb0 *sub_00ffbfb0(int); };
 // @baa 0x00ffbfb0
 C_00ffbfb0 *C_00ffbfb0::sub_00ffbfb0(int a) { sub_00c009d0(a); return this; }
 
-// @baa 0x00ffd720
-UStaticMeshFactory::UStaticMeshFactory()
-{
-    *(DWORD*)((BYTE*)this + 0x50) |= 0x4;
-}
-
-IMPLEMENT_CLASS_AT(UStaticMeshFactory, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnStaticMeshEdit.cpp", 2399);
 struct TConstSetBitIterator_00fff500 {
     const TBitArray& Array;
     FBitIterator It;

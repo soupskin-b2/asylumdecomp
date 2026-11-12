@@ -1,4 +1,4 @@
-// UnClient.cpp: 42 functions
+// UnClient.cpp: 48 functions
 // Placed here by: neighbours 40, callers 1, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -365,4 +365,44 @@ undefined4 C_00cc22f0::sub_00cc22f0(byte param_2)
     sub_0053dfa0(param_1);
   }
   return param_1;
+}
+
+// @baa 0x00c96790
+
+// @baa 0x00c968a0
+int UClient::vf_000(void) { return 1; }
+
+// @baa 0x00c968b0
+bool UClient::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+extern int g_026667a8;
+int __cdecl sub_00630f20(int Value, const wchar_t* Format, const wchar_t* Name);
+struct UClient_ : public UClient
+{
+    INT sub_00cb5a80(INT A);
+};
+
+// @baa 0x00cb5a80
+INT UClient_::sub_00cb5a80(INT A)
+{
+    return sub_00630f20(g_026667a8, L"Pure virtual not implemented (%s)", L"UClient::Tick");
+}
+
+int sub_00630f20(...);
+
+// @baa 0x00cb5ac0
+INT UClient::CreateViewport(INT X, INT Y, INT Width, INT Height, INT Style)
+{
+    sub_00630f20(g_026667a8, L"Pure virtual not implemented (%s)", L"UClient::CreateViewport");
+    return 0;
+}
+
+extern void sub_00630f20(void* p, const wchar_t* fmt, const wchar_t* name);
+// @baa 0x00cb5aa0
+void UClient::AllowMessageProcessing(INT)
+{
+	sub_00630f20(g_026667a8, L"Pure virtual not implemented (%s)", L"UClient::AllowMessageProcessing");
 }

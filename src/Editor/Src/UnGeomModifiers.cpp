@@ -1,4 +1,4 @@
-// UnGeomModifiers.cpp: 85 functions
+// UnGeomModifiers.cpp: 107 functions
 // Placed here by: neighbours 49, callers 12, file 12, class 10.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -321,4 +321,92 @@ INT __stdcall sub_00f9db80(INT Value)
 INT __stdcall sub_00f9dc10(INT Value)
 {
     return Value == 3;
+}
+
+// @baa 0x00fb47a0
+
+// @baa 0x00fb48b0
+bool UGeomModifier_Edit::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x00fb7b70
+
+// @baa 0x00fb7c80
+bool UGeomModifier_Extrude::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x00fb7cc0
+
+// @baa 0x00fb7dd0
+bool UGeomModifier_Clip::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x00fb7e10
+
+// @baa 0x00fb7f20
+bool UGeomModifier_Lathe::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x00fb7f60
+
+// @baa 0x00fb8070
+bool UGeomModifier_Delete::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x00fb80b0
+
+// @baa 0x00fb81c0
+bool UGeomModifier_Create::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x00fb8200
+
+// @baa 0x00fb8310
+bool UGeomModifier_Flip::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x00fb8350
+
+// @baa 0x00fb8460
+bool UGeomModifier_Split::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x00fb84a0
+
+// @baa 0x00fb85b0
+bool UGeomModifier_Triangulate::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x00fb85f0
+
+// @baa 0x00fb8700
+bool UGeomModifier_Turn::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x00fb8740
+
+// @baa 0x00fb8850
+bool UGeomModifier_Weld::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
 }

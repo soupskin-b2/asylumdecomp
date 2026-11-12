@@ -1,4 +1,4 @@
-// UnrealEd_1470000.cpp (part 1 of 4): 251 functions
+// UnrealEd_1470000.cpp (part 1 of 4): 245 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1017,9 +1017,6 @@ bool UMixBinLabelRenderer::vf_004()
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
-// @baa 0x01478060
-IMPLEMENT_CLASS_AT(URGenericBrowserType_FMODReverb, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\RGenericBrowserType_FMODReverb.cpp", 12);
-
 // @baa 0x01478170
 int URGenericBrowserType_FMODReverb::vf_000(void) { return 1; }
 
@@ -1029,9 +1026,6 @@ bool URGenericBrowserType_FMODReverb::vf_004()
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
-// @baa 0x014781c0
-IMPLEMENT_CLASS_AT(URGenericBrowserType_FMODSound, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\RGenericBrowserType_FMODSound.cpp", 10);
-
 // @baa 0x014782d0
 int URGenericBrowserType_FMODSound::vf_000(void) { return 1; }
 
@@ -1040,9 +1034,6 @@ bool URGenericBrowserType_FMODSound::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
-
-// @baa 0x01478320
-IMPLEMENT_CLASS_AT(URGenericBrowserType_MixBin, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\RGenericBrowserType_MixBin.cpp", 11);
 
 // @baa 0x01478430
 int URGenericBrowserType_MixBin::vf_000(void) { return 1; }
@@ -1062,18 +1053,6 @@ struct C_014787f0 { C_014787f0* sub_014787f0(void); };
 
 // @baa 0x014787f0
 C_014787f0* C_014787f0::sub_014787f0(void) { return this; }
-
-// @baa 0x01478800
-IMPLEMENT_CLASS_AT(UScriptDataBaseCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\ScriptDatabaseBuilder.cpp", 3431);
-
-// @baa 0x01478910
-int UScriptDataBaseCommandlet::vf_000(void) { return 1; }
-
-// @baa 0x01478920
-bool UScriptDataBaseCommandlet::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
 
 struct C_01478960 { int a, b, c; C_01478960(); };
 

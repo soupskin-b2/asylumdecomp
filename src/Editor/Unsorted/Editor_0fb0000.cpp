@@ -1,4 +1,4 @@
-// Editor_0fb0000.cpp: 187 functions
+// Editor_0fb0000.cpp: 165 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1368,15 +1368,6 @@ TConstSetBitIterator_00fb45f0& TConstSetBitIterator_00fb45f0::operator++()
     return *this;
 }
 
-// @baa 0x00fb47a0
-IMPLEMENT_CLASS_AT(UGeomModifier_Edit, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnGeomModifiers.cpp", 10);
-
-// @baa 0x00fb48b0
-bool UGeomModifier_Edit::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
 struct C_00fb57a0 {
     int sub_00fb57a0();
 };
@@ -1821,96 +1812,6 @@ undefined4 UObject::sub_00fb78e0(byte param_2)
     sub_0053dfa0(param_1);
   }
   return param_1;
-}
-
-// @baa 0x00fb7b70
-IMPLEMENT_CLASS_AT(UGeomModifier_Extrude, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnGeomModifiers.cpp", 11);
-
-// @baa 0x00fb7c80
-bool UGeomModifier_Extrude::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00fb7cc0
-IMPLEMENT_CLASS_AT(UGeomModifier_Clip, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnGeomModifiers.cpp", 12);
-
-// @baa 0x00fb7dd0
-bool UGeomModifier_Clip::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00fb7e10
-IMPLEMENT_CLASS_AT(UGeomModifier_Lathe, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnGeomModifiers.cpp", 13);
-
-// @baa 0x00fb7f20
-bool UGeomModifier_Lathe::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00fb7f60
-IMPLEMENT_CLASS_AT(UGeomModifier_Delete, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnGeomModifiers.cpp", 14);
-
-// @baa 0x00fb8070
-bool UGeomModifier_Delete::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00fb80b0
-IMPLEMENT_CLASS_AT(UGeomModifier_Create, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnGeomModifiers.cpp", 15);
-
-// @baa 0x00fb81c0
-bool UGeomModifier_Create::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00fb8200
-IMPLEMENT_CLASS_AT(UGeomModifier_Flip, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnGeomModifiers.cpp", 16);
-
-// @baa 0x00fb8310
-bool UGeomModifier_Flip::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00fb8350
-IMPLEMENT_CLASS_AT(UGeomModifier_Split, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnGeomModifiers.cpp", 17);
-
-// @baa 0x00fb8460
-bool UGeomModifier_Split::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00fb84a0
-IMPLEMENT_CLASS_AT(UGeomModifier_Triangulate, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnGeomModifiers.cpp", 18);
-
-// @baa 0x00fb85b0
-bool UGeomModifier_Triangulate::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00fb85f0
-IMPLEMENT_CLASS_AT(UGeomModifier_Turn, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnGeomModifiers.cpp", 19);
-
-// @baa 0x00fb8700
-bool UGeomModifier_Turn::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00fb8740
-IMPLEMENT_CLASS_AT(UGeomModifier_Weld, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnGeomModifiers.cpp", 20);
-
-// @baa 0x00fb8850
-bool UGeomModifier_Weld::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 int sub_0060b3d0(void);

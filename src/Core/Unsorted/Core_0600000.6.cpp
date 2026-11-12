@@ -1,4 +1,4 @@
-// Core_0600000.cpp (part 6 of 6): 2 functions
+// Core_0600000.cpp (part 6 of 6): 1 function
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -17,15 +17,3 @@ undefined4 UObject::sub_0060d760(byte param_2)
   return param_1;
 }
 
-/* GError->Logf: a variadic member, so cdecl with `this` pushed first. */
-struct FOutputDeviceError_ {
-    void sub_00630f20(const TCHAR* Fmt, ...);
-};
-
-extern FOutputDeviceError_* g_026667a8;
-// @baa 0x006005b0
-INT UProperty::ImportText(INT, INT, INT, INT, INT)
-{
-    g_026667a8->sub_00630f20(TEXT("Pure virtual not implemented (%s)"), TEXT("UProperty::ImportText"));
-    return 0;
-}

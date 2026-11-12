@@ -1,4 +1,4 @@
-// AmbientOcclusionRendering.cpp (part 1 of 3): 29 functions
+// AmbientOcclusionRendering.cpp (part 1 of 3): 39 functions
 // Placed here by: neighbours 23, callers 4, file 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -251,3 +251,99 @@ struct D_01e24200 { void sub_00a5f5e0(); };
 extern D_01e24200 g_026b751c;
 // @baa 0x01e24200
 void sub_01e24200() { g_026b751c.sub_00a5f5e0(); }
+
+// @baa 0x00a59170
+undefined4 sub_00a59170(undefined4 param_1, int param_2)
+{
+  sub_007161b0(param_1,param_2 + 0x10);
+  sub_007161b0(param_1,param_2 + 0x16);
+  sub_00716170(param_1,param_2 + 0x1c);
+  sub_00716170(param_1,param_2 + 0x22);
+  return param_1;
+}
+
+// @baa 0x00a591b0
+bool sub_00a591b0(int param_1)
+{
+  return param_1 != 3;
+}
+
+struct C_view_00a59240 {
+    int sub_0073f030(int);
+};
+
+// @baa 0x00a59240
+undefined4 UMorphWeightSequence::sub_00a59240(undefined4 param_2)
+{
+    int param_1 = (int)this;
+  undefined4 uVar1;
+  uVar1 = ((C_view_00a59240 *)(this))->sub_0073f030(param_2);
+  sub_00716170(param_2,param_1 + 0x4c);
+  return uVar1;
+}
+
+// @baa 0x00a59280
+bool sub_00a59280(int param_1)
+{
+  return param_1 != 3;
+}
+
+struct C_view_00a59330 {
+    int sub_0073f030(int);
+};
+
+int sub_00afa590(...);
+// @baa 0x00a59330
+undefined4 UMorphWeightSequence::sub_00a59330(undefined4 param_2)
+{
+    int param_1 = (int)this;
+  undefined4 uVar1;
+  uVar1 = ((C_view_00a59330 *)(this))->sub_0073f030(param_2);
+  sub_00afa590(param_2,param_1 + 0x4c);
+  return uVar1;
+}
+
+// @baa 0x00a59370
+bool sub_00a59370(int param_1)
+{
+  return param_1 != 3;
+}
+
+struct C_view_00a59400 {
+    int sub_0073f030(int);
+};
+
+// @baa 0x00a59400
+undefined4 UMorphWeightSequence::sub_00a59400(undefined4 param_2)
+{
+    int param_1 = (int)this;
+  undefined4 uVar1;
+  uVar1 = ((C_view_00a59400 *)(this))->sub_0073f030(param_2);
+  sub_00716170(param_2,param_1 + 0x4c);
+  return uVar1;
+}
+
+// @baa 0x00a59440
+int sub_00a59440(void) { return 1; }
+
+// @baa 0x00a59450
+bool sub_00a59450(int param_1)
+{
+  return param_1 != 3;
+}
+
+struct C_view_00a59460 {
+    int sub_00739650(int);
+};
+
+extern undefined4 g_01fcefb4;
+extern undefined * g_01fcefbc;
+// @baa 0x00a59460
+undefined4 * UMorphWeightSequence::sub_00a59460(undefined4 param_2)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+  ((C_view_00a59460 *)(this))->sub_00739650(param_2);
+  *param_1 = (undefined4)(&g_01fcefbc);
+  param_1[5] = (undefined4)(&g_01fcefb4);
+  return param_1;
+}

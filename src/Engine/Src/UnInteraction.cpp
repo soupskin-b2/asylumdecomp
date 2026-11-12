@@ -1,4 +1,4 @@
-// UnInteraction.cpp: 62 functions
+// UnInteraction.cpp: 70 functions
 // Placed here by: neighbours 31, class 23, file 5, callers 3.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -515,4 +515,49 @@ undefined4 * UInput::sub_016342b0(void)
   sub_00d8abf0();
   *param_1 = (undefined4)(&g_0234cd40);
   return param_1;
+}
+
+struct C_00888f10 { C_00888f10* sub_00888f10(int a0); };
+
+// @baa 0x00888f10
+C_00888f10* C_00888f10::sub_00888f10(int a0) { return this; }
+
+// @baa 0x00888fe0
+int UInteraction::vf_114(int a0, int a1, int a2, int a3, int a4, int a5) { return 0; }
+
+// @baa 0x00888ff0
+int UInteraction::vf_118(int a0, int a1, int a2, int a3, int a4, int a5) { return 0; }
+
+// @baa 0x00889000
+int UInteraction::vf_11c(int a0, int a1) { return 0; }
+
+struct C_00d81140 {
+    undefined4 sub_00d81140(byte);
+    int sub_00553720();
+};
+
+// @baa 0x00d81140
+undefined4 C_00d81140::sub_00d81140(byte param_2)
+{
+    undefined4 param_1 = (undefined4)this;
+  ((C_00d81140 *)(((char *)this + 4)))->sub_00553720();
+  if ((param_2 & 1) != 0) {
+    sub_0053dfa0(param_1);
+  }
+  return param_1;
+}
+
+struct C_00d81300 { C_00d81300* sub_00d81300(void); };
+
+// @baa 0x00d81300
+C_00d81300* C_00d81300::sub_00d81300(void) { return this; }
+
+void sub_00d7f7f0();
+// @baa 0x00d81310
+void sub_00d81310(void) { sub_00d7f7f0(); }
+
+// @baa 0x00d8cfa0
+bool UPlayerInput::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
 }

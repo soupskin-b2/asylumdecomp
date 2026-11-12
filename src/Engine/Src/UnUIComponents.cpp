@@ -1,4 +1,4 @@
-// UnUIComponents.cpp: 15 functions
+// UnUIComponents.cpp: 20 functions
 // Placed here by: neighbours 12, file 2, callers 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -84,3 +84,32 @@ undefined4 * UObject::sub_00d8f040(void)
 // @baa 0x00d8f0d0
 // @baa 0x00d8f0f0
 // @baa 0x00d8f110
+
+extern undefined * g_020b9500;
+// @baa 0x00d8eb30
+undefined4 * UObject::sub_00d8eb30(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_020b9500);
+  return param_1;
+}
+
+// @baa 0x00d8ece0
+int UUIComp_Event::vf_000(void) { return 1; }
+
+struct C_00d8ecf0 { C_00d8ecf0* sub_00d8ecf0(int a0); };
+
+// @baa 0x00d8ecf0
+C_00d8ecf0* C_00d8ecf0::sub_00d8ecf0(int a0) { return this; }
+
+struct C_00d8ed00 { int sub_00d8ed00(void); };
+
+// @baa 0x00d8ed00
+int C_00d8ed00::sub_00d8ed00(void) { return *(int*)((char*)this + 0); }
+
+struct C_00d8ed10 { int sub_00d8ed10(void); };
+
+// @baa 0x00d8ed10
+int C_00d8ed10::sub_00d8ed10(void) { return *(int*)((char*)this + 0); }

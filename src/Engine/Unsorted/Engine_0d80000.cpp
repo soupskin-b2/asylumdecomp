@@ -1,4 +1,4 @@
-// Engine_0d80000.cpp (part 1 of 2): 114 functions
+// Engine_0d80000.cpp (part 1 of 2): 89 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -272,16 +272,6 @@ struct C {
 };
 
 int sub_0053dfa0(...);
-// @baa 0x00d81140
-undefined4 C::sub_00d81140(byte param_2)
-{
-    undefined4 param_1 = (undefined4)this;
-  ((C *)(((char *)this + 4)))->sub_00553720();
-  if ((param_2 & 1) != 0) {
-    sub_0053dfa0(param_1);
-  }
-  return param_1;
-}
 
 struct TConstSetBitIterator_00d81170 {
     const TBitArray& Array;
@@ -324,15 +314,6 @@ TConstSetBitIterator_00d812b0& TConstSetBitIterator_00d812b0::operator++()
     It.Advance();
     return *this;
 }
-
-struct C_00d81300 { C_00d81300* sub_00d81300(void); };
-
-// @baa 0x00d81300
-C_00d81300* C_00d81300::sub_00d81300(void) { return this; }
-
-void sub_00d7f7f0();
-// @baa 0x00d81310
-void sub_00d81310(void) { sub_00d7f7f0(); }
 
 int sub_005c7a70(...);
 int sub_00d81390(void);
@@ -664,18 +645,6 @@ undefined4 * UObject::sub_00d889c0(void)
 // @baa 0x00d889e0
 IMPLEMENT_CLASS_AT(UOnlineGameSearch, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UOnlineSubsystem.cpp", 11);
 
-// @baa 0x00d88a90
-extern undefined * g_020b72a0;
-// @baa 0x00d88ac0
-undefined4 * UObject::sub_00d88ac0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_020b72a0);
-  return param_1;
-}
-
 // @baa 0x00d88ae0
 IMPLEMENT_CLASS_AT(UOnlineGameSettings, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UOnlineSubsystem.cpp", 10);
 
@@ -707,69 +676,12 @@ void sub_00d86640();
 // @baa 0x00d88ca0
 void sub_00d88ca0(void) { sub_00d86640(); }
 
-// @baa 0x00d88cb0
-IMPLEMENT_CLASS_AT(ANxRadialForceField, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPhysActorForceField.cpp", 15);
-
-// @baa 0x00d88dc0
-bool ANxRadialForceField::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00d88e00
-IMPLEMENT_CLASS_AT(ANxCylindricalForceField, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPhysActorForceField.cpp", 16);
-
-// @baa 0x00d88f10
-bool ANxCylindricalForceField::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00d88f50
-IMPLEMENT_CLASS_AT(ANxGenericForceField, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPhysActorForceField.cpp", 18);
-
-// @baa 0x00d89060
-bool ANxGenericForceField::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
 // @baa 0x00d89d50
 void sub_00d89d50(void) { sub_00d866b0(); }
 
 void sub_00d88140();
 // @baa 0x00d8a7b0
 void sub_00d8a7b0(void) { sub_00d88140(); }
-
-struct C_00d8a830 {
-    int sub_00d8a830();
-};
-
-// @baa 0x00d8a830
-int C_00d8a830::sub_00d8a830(void)
-{
-    int param_1 = (int)this;
-
-  sub_00d80ce0();
-  *(undefined4 *)(param_1 + 0x34) = 0;
-  *(undefined4 *)(param_1 + 0x38) = 0;
-  return param_1;
-}
-
-struct C_00d8a850 {
-    int sub_00d8a850();
-};
-
-// @baa 0x00d8a850
-int C_00d8a850::sub_00d8a850(void)
-{
-    int param_1 = (int)this;
-
-  sub_00d80d40();
-  *(undefined4 *)(param_1 + 0x34) = 0;
-  *(undefined4 *)(param_1 + 0x38) = 0;
-  return param_1;
-}
 
 struct C_00d8a890 {
     int sub_00d8a890();
@@ -816,33 +728,6 @@ void sub_00d8ac70(void) { sub_00d865d0(); }
 
 // @baa 0x00d8ac80
 void sub_00d8ac80(void) { sub_00d86640(); }
-
-// @baa 0x00d8b050
-IMPLEMENT_CLASS_AT(ANxCylindricalForceFieldCapsule, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPhysActorForceField.cpp", 17);
-
-// @baa 0x00d8b160
-bool ANxCylindricalForceFieldCapsule::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00d8b1a0
-IMPLEMENT_CLASS_AT(ANxGenericForceFieldBox, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPhysActorForceField.cpp", 19);
-
-// @baa 0x00d8b2b0
-bool ANxGenericForceFieldBox::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00d8b2f0
-IMPLEMENT_CLASS_AT(ANxGenericForceFieldCapsule, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPhysActorForceField.cpp", 20);
-
-// @baa 0x00d8b400
-bool ANxGenericForceFieldCapsule::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
 
 // @baa 0x00d8ba80
 void sub_00d8ba80(void) { sub_00d866b0(); }
@@ -892,15 +777,6 @@ void C_00d8c670::sub_00d8c670() { m.sub_00d864f0(); }
 // @baa 0x00d8c680
 void sub_00d8c680(void) { sub_00d8a7c0(); }
 
-// @baa 0x00d8ce90
-IMPLEMENT_CLASS_AT(UPlayerInput, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnIn.cpp", 11);
-
-// @baa 0x00d8cfa0
-bool UPlayerInput::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
 // @baa 0x00d8eac0
 undefined4 sub_00d8eac0(undefined4 param_1, undefined4 param_2)
 {
@@ -909,17 +785,6 @@ undefined4 sub_00d8eac0(undefined4 param_1, undefined4 param_2)
 
 // @baa 0x00d8ead0
 IMPLEMENT_CLASS_AT(UUIComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnUIComponents.cpp", 19);
-
-extern undefined * g_020b9500;
-// @baa 0x00d8eb30
-undefined4 * UObject::sub_00d8eb30(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_020b9500);
-  return param_1;
-}
 
 // @baa 0x00d8eb50
 // @baa 0x00d8eb70
@@ -937,24 +802,6 @@ bool UUIComponent::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
-
-// @baa 0x00d8ece0
-int UUIComp_Event::vf_000(void) { return 1; }
-
-struct C_00d8ecf0 { C_00d8ecf0* sub_00d8ecf0(int a0); };
-
-// @baa 0x00d8ecf0
-C_00d8ecf0* C_00d8ecf0::sub_00d8ecf0(int a0) { return this; }
-
-struct C_00d8ed00 { int sub_00d8ed00(void); };
-
-// @baa 0x00d8ed00
-int C_00d8ed00::sub_00d8ed00(void) { return *(int*)((char*)this + 0); }
-
-struct C_00d8ed10 { int sub_00d8ed10(void); };
-
-// @baa 0x00d8ed10
-int C_00d8ed10::sub_00d8ed10(void) { return *(int*)((char*)this + 0); }
 
 // @baa 0x00d8f1d0
 void sub_00d8f1d0(void) {  }

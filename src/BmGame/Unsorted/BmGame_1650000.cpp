@@ -1,4 +1,4 @@
-// BmGame_1650000.cpp (part 1 of 36): 155 functions
+// BmGame_1650000.cpp (part 1 of 36): 154 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -347,20 +347,6 @@ IMPLEMENT_CLASS_AT(ARLineLauncher, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngin
 // @baa 0x016563a0
 // @baa 0x01656400
 IMPLEMENT_CLASS_AT(ARResonatorTuner, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RInventoryGadget.cpp", 27);
-
-// @baa 0x01656470
-int sub_01656540(void);
-// @baa 0x016565e0
-undefined4 ARInventoryManager::sub_016565e0(byte param_2)
-{
-    undefined4 param_1 = (undefined4)this;
-
-  sub_01656540();
-  if ((param_2 & 1) != 0) {
-    sub_005c7a70(param_1,0x29c);
-  }
-  return param_1;
-}
 
 // @baa 0x01656610
 IMPLEMENT_CLASS_AT(ARProjectile, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RInventoryGadget.cpp", 24);

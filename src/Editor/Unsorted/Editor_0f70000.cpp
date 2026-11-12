@@ -1,4 +1,4 @@
-// Editor_0f70000.cpp (part 1 of 5): 125 functions
+// Editor_0f70000.cpp (part 1 of 5): 120 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -99,18 +99,6 @@ struct C_00f72050 { C_00f72050* sub_00f72050(void); };
 
 // @baa 0x00f72050
 C_00f72050* C_00f72050::sub_00f72050(void) { *(int*)((char*)this + 0) = (int)g_02162178; return this; }
-
-struct C_00f72110 { void sub_00f72110(int a0); };
-
-// @baa 0x00f72110
-void C_00f72110::sub_00f72110(int a0) { *(int*)((char*)this + 668) = 2; }
-
-extern undefined4 g_026b62b8;
-// @baa 0x00f72220
-undefined4 sub_00f72220(void)
-{
-  return *(undefined4 *)(g_026b62b8 + 0x34);
-}
 
 struct C_00f722d0 { int sub_00f722d0(void); };
 
@@ -441,18 +429,6 @@ undefined4 * C_00f73050::sub_00f73050(undefined4 param_2, undefined4 param_3)
   param_1[5] = param_2;
   param_1[6] = param_3;
   return param_1;
-}
-
-// @baa 0x00f75a20
-IMPLEMENT_CLASS_AT(UEditorViewportInput, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnEdViewport.cpp", 4666);
-
-// @baa 0x00f75b30
-int UEditorViewportInput::vf_000(void) { return 1; }
-
-// @baa 0x00f75b40
-bool UEditorViewportInput::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 struct C_00f75b80 { int a, b, c; C_00f75b80(); };

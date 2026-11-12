@@ -1,4 +1,4 @@
-// IpDrv_0e20000.cpp: 63 functions
+// IpDrv_0e20000.cpp: 53 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -339,9 +339,6 @@ int sub_00e29a90(int a0, int a1) { return a1; }
 // @baa 0x00e29ae0
 int sub_00e29ae0(int a0, int a1) { return a1; }
 
-// @baa 0x00e2b5a0
-IMPLEMENT_CLASS_AT(UOnlineSubsystemCommonImpl, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\IpDrv\\Src\\OnlineSubsystemCommonImpl.cpp", 9);
-
 // @baa 0x00e2b6b0
 int UOnlineSubsystemCommonImpl::vf_000(void) { return 1; }
 
@@ -350,31 +347,6 @@ bool UOnlineSubsystemCommonImpl::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
-
-// @baa 0x00e2b9d0
-IMPLEMENT_CLASS_AT(UTcpNetDriver, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\IpDrv\\Src\\TcpNetDriver.cpp", 423);
-
-// @baa 0x00e2bae0
-int UTcpNetDriver::vf_000(void) { return 1; }
-
-// @baa 0x00e2baf0
-bool UTcpNetDriver::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-struct C_00e2bc90 { int sub_00e2bc90(void); };
-
-// @baa 0x00e2bc90
-int C_00e2bc90::sub_00e2bc90(void) { return *(int*)((char*)this + 284); }
-
-struct C_00e2bca0 { int sub_00e2bca0(void); };
-
-// @baa 0x00e2bca0
-int C_00e2bca0::sub_00e2bca0(void) { return *(int*)((char*)this + 280); }
-
-// @baa 0x00e2c240
-int __stdcall sub_00e2c240(int a0) { return 1; }
 
 struct C_00e2c810 { int sub_00e2c810(void); };
 
@@ -385,15 +357,6 @@ struct C_00e2c820 { void sub_00e2c820(int a0); };
 
 // @baa 0x00e2c820
 void C_00e2c820::sub_00e2c820(int a0) { *(int*)((char*)this + 12) = a0; }
-
-// @baa 0x00e2c830
-IMPLEMENT_CLASS_AT(UMCPBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\IpDrv\\Src\\UOnlineNewsInterfaceMcp.cpp", 9);
-
-// @baa 0x00e2c960
-bool UMCPBase::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
 
 // @baa 0x00e2c9a0
 int UOnlineNewsInterfaceMcp::vf_000(void) { return 1; }
@@ -468,18 +431,6 @@ void UObject::sub_00e2f030(void * param_2, size_t param_3)
     param_1[3] = param_1[3] + param_3;
   }
   return;
-}
-
-extern int __stdcall sub_018d354a(int First, int Second);
-struct UTcpipConnection_ : public UTcpipConnection {
-    bool sub_00e2be70(int Second);
-};
-
-// @baa 0x00e2be70
-bool UTcpipConnection_::sub_00e2be70(int Second)
-{
-    int First = *(int*)((char*)this + 8);
-    return sub_018d354a(First, Second) == 0;
 }
 
 extern INT __stdcall sub_018d3526(INT Value);

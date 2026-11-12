@@ -1,4 +1,4 @@
-// Engine_0640000.cpp (part 1 of 2): 199 functions
+// Engine_0640000.cpp (part 1 of 2): 191 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -816,9 +816,6 @@ undefined4 * USurface::sub_0064be40(byte param_2)
   return param_1;
 }
 
-// @baa 0x0064be60
-IMPLEMENT_CLASS_AT(AFileWriter, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\AFileLog.cpp", 12);
-
 // @baa 0x0064bf70
 int AFileWriter::vf_000(void) { return 1; }
 
@@ -1320,9 +1317,6 @@ void Outer::sub_0064d320()
 // @baa 0x0064d850
 int sub_0064d850(int a0, int a1) { return a1; }
 
-// @baa 0x0064d9a0
-IMPLEMENT_CLASS_AT(UCoverMeshComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\CoverMeshComponent.cpp", 10);
-
 // @baa 0x0064dab0
 int UCoverMeshComponent::vf_000(void) { return 1; }
 
@@ -1367,9 +1361,6 @@ int sub_0064dc00(int a0, int a1) { return a1; }
 // @baa 0x0064dc10
 int sub_0064dc10(int a0, int a1) { return a1; }
 
-// @baa 0x0064dc20
-IMPLEMENT_CLASS_AT(ADecalActorBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\DecalActor.cpp", 8);
-
 // @baa 0x0064dd30
 int ADecalActorBase::vf_000(void) { return 1; }
 
@@ -1406,9 +1397,6 @@ struct C_0064e8c0 { C_0064e8c0* sub_0064e8c0(void); };
 // @baa 0x0064e8c0
 C_0064e8c0* C_0064e8c0::sub_0064e8c0(void) { return this; }
 
-// @baa 0x0064e8d0
-IMPLEMENT_CLASS_AT(ADecalManager, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\DecalManager.cpp", 8);
-
 // @baa 0x0064ea00
 bool ADecalManager::vf_004()
 {
@@ -1420,18 +1408,6 @@ extern undefined4 g_026c0b4c;
 undefined4 sub_0064ea40(void)
 {
   return g_026c0b4c;
-}
-
-// @baa 0x0064ea50
-IMPLEMENT_CLASS_AT(UDecalMaterial, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\DecalRenderData.cpp", 11);
-
-// @baa 0x0064eb60
-int UDecalMaterial::vf_000(void) { return 1; }
-
-// @baa 0x0064eb70
-bool UDecalMaterial::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0064f0b0
@@ -1595,9 +1571,6 @@ int sub_0064fdd0(void) { return 1; }
 
 // @baa 0x0064fde0
 void sub_0064fde0(void) {  }
-
-// @baa 0x0064fec0
-IMPLEMENT_CLASS_AT(UDirectionalLightComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\DirectionalLightComponent.cpp", 10);
 
 // @baa 0x0064ffd0
 int UDirectionalLightComponent::vf_000(void) { return 1; }

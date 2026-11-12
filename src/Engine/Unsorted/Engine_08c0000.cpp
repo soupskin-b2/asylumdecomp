@@ -1,4 +1,4 @@
-// Engine_08c0000.cpp (part 1 of 3): 53 functions
+// Engine_08c0000.cpp (part 1 of 3): 50 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -333,62 +333,11 @@ C_008cdd20 *C_008cdd20::sub_008cdd20(int a) { sub_008c3590(a); return this; }
 // @baa 0x008ce230
 IMPLEMENT_CLASS_AT(USceneCapture2DComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSceneCapture.cpp", 11);
 
-// @baa 0x008ce290
-struct C_008ce2c0 {
-    undefined4 * sub_008ce2c0();
-};
-
-extern undefined * g_01f60cd0;
-// @baa 0x008ce2c0
-undefined4 * C_008ce2c0::sub_008ce2c0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  param_1[0x13] = param_1[0x13] | 0x20;
-  *param_1 = (undefined4)(&g_01f60cd0);
-  return param_1;
-}
-
 // @baa 0x008ce2e0
 IMPLEMENT_CLASS_AT(USceneCaptureCubeMapComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSceneCapture.cpp", 12);
 
-// @baa 0x008ce340
-struct C_008ce370 {
-    undefined4 * sub_008ce370();
-};
-
-extern undefined * g_01f60e28;
-// @baa 0x008ce370
-undefined4 * C_008ce370::sub_008ce370(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  param_1[0x13] = param_1[0x13] | 0x20;
-  *param_1 = (undefined4)(&g_01f60e28);
-  return param_1;
-}
-
 // @baa 0x008ce390
 IMPLEMENT_CLASS_AT(USceneCapturePortalComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSceneCapture.cpp", 14);
-
-// @baa 0x008ce3f0
-struct C_008ce420 {
-    undefined4 * sub_008ce420();
-};
-
-extern undefined * g_01f60f80;
-// @baa 0x008ce420
-undefined4 * C_008ce420::sub_008ce420(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  param_1[0x13] = param_1[0x13] | 0x20;
-  *param_1 = (undefined4)(&g_01f60f80);
-  return param_1;
-}
 
 // @baa 0x008ce440
 IMPLEMENT_CLASS_AT(USceneCaptureReflectComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSceneCapture.cpp", 13);

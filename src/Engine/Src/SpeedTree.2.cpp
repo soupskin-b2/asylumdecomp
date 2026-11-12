@@ -1,4 +1,4 @@
-// SpeedTree.cpp (part 2 of 8): 403 functions
+// SpeedTree.cpp (part 2 of 8): 418 functions
 // Placed here by: neighbours 382, callers 19, file 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -3253,3 +3253,129 @@ void sub_01e28410() { g_027be134.sub_01aace30(); }
 extern D g_027be13d;
 // @baa 0x01e28430
 void sub_01e28430() { g_027be13d.sub_01aace30(); }
+
+// @baa 0x00bab190
+
+// @baa 0x00bab2a0
+int ASpeedTreeActor::vf_000(void) { return 1; }
+
+// @baa 0x00bab2b0
+bool ASpeedTreeActor::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+struct C_00bab450 { C_00bab450* sub_00bab450(void); };
+
+// @baa 0x00bab450
+C_00bab450* C_00bab450::sub_00bab450(void) { *(int*)((char*)this + 0) = (int)g_02019f1c; return this; }
+
+extern int g_02019f28;
+// A small two-dword value struct used by DecalComponent.cpp.
+struct FDecalValue
+{
+    FDecalValue* sub_00bab480(int* Src);
+    int Value;  // 0x0
+    int Unk04;  // 0x4
+};
+
+// @baa 0x00bab480
+FDecalValue* FDecalValue::sub_00bab480(int* Src)
+{
+    Value = (int)&g_02019f28;
+    Unk04 = *Src;
+    return this;
+}
+
+extern char g_02013324[];
+// @baa 0x00bab4c0
+int sub_00bab4c0(void) { return (int)g_02013324; }
+
+extern int g_02019f34;
+// A small two-dword value struct used by DecalComponent.cpp.
+struct FDecalValue_00bab500
+{
+    FDecalValue_00bab500* sub_00bab500(int* Src);
+    int Value;  // 0x0
+    int Unk04;  // 0x4
+};
+
+// @baa 0x00bab500
+FDecalValue_00bab500* FDecalValue_00bab500::sub_00bab500(int* Src)
+{
+    Value = (int)&g_02019f34;
+    Unk04 = *Src;
+    return this;
+}
+
+extern char g_02013cd8[];
+// @baa 0x00bab520
+int sub_00bab520(void) { return (int)g_02013cd8; }
+
+extern int g_02019f40;
+// A small two-dword value struct used by DecalComponent.cpp.
+struct FDecalValue_00bab530
+{
+    FDecalValue_00bab530* sub_00bab530(int* Src);
+    int Value;  // 0x0
+    int Unk04;  // 0x4
+};
+
+// @baa 0x00bab530
+FDecalValue_00bab530* FDecalValue_00bab530::sub_00bab530(int* Src)
+{
+    Value = (int)&g_02019f40;
+    Unk04 = *Src;
+    return this;
+}
+
+extern char g_02013d30[];
+// @baa 0x00bab550
+int sub_00bab550(void) { return (int)g_02013d30; }
+
+extern int g_02019f4c;
+// A small two-dword value struct used by DecalComponent.cpp.
+struct FDecalValue_00bab560
+{
+    FDecalValue_00bab560* sub_00bab560(int* Src);
+    int Value;  // 0x0
+    int Unk04;  // 0x4
+};
+
+// @baa 0x00bab560
+FDecalValue_00bab560* FDecalValue_00bab560::sub_00bab560(int* Src)
+{
+    Value = (int)&g_02019f4c;
+    Unk04 = *Src;
+    return this;
+}
+
+extern char g_02013d78[];
+// @baa 0x00bab580
+int sub_00bab580(void) { return (int)g_02013d78; }
+
+extern int g_02019f58;
+// A small two-dword value struct used by DecalComponent.cpp.
+struct FDecalValue_00bab590
+{
+    FDecalValue_00bab590* sub_00bab590(int* Src);
+    int Value;  // 0x0
+    int Unk04;  // 0x4
+};
+
+// @baa 0x00bab590
+FDecalValue_00bab590* FDecalValue_00bab590::sub_00bab590(int* Src)
+{
+    Value = (int)&g_02019f58;
+    Unk04 = *Src;
+    return this;
+}
+
+extern char g_02013dc0[];
+// @baa 0x00bab5b0
+int sub_00bab5b0(void) { return (int)g_02013dc0; }
+
+struct C_00bab680 { C_00bab680* sub_00bab680(void); };
+
+// @baa 0x00bab680
+C_00bab680* C_00bab680::sub_00bab680(void) { return this; }

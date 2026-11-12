@@ -1,4 +1,4 @@
-// BmGame_16e0000.cpp: 184 functions
+// BmGame_16e0000.cpp: 172 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -85,31 +85,6 @@ undefined4 * UObject::sub_016e4890(void)
 // @baa 0x016e48b0
 IMPLEMENT_CLASS_AT(URCapeStateBoneConfig, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RCapeStateController.cpp", 18);
 
-// @baa 0x016e4920
-int sub_016d1dc0(void);
-int sub_016e4130(...);
-extern undefined4 g_026e22fc;
-// @baa 0x016e58e0
-int sub_016e58e0(void)
-{
-  if (g_026e22fc == 0) {
-    g_026e22fc = sub_016e4130(L"BmGame");
-    sub_016d1dc0();
-  }
-  return g_026e22fc;
-}
-
-extern undefined * g_023a6148;
-// @baa 0x016e5910
-undefined4 * UObject::sub_016e5910(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_023a6148);
-  return param_1;
-}
-
 // @baa 0x016e5930
 IMPLEMENT_CLASS_AT(URSeqAct_PlayGfxMovie, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameGFxSupportClasses.cpp", 567);
 
@@ -117,57 +92,12 @@ IMPLEMENT_CLASS_AT(URSeqAct_PlayGfxMovie, "e:\\Projects\\Amadeus\\AA\\Game\\Unre
 // @baa 0x016e59c0
 IMPLEMENT_CLASS_AT(URGFxMovieFrontend, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameGFxSupportClasses.cpp", 40);
 
-// @baa 0x016e5ad0
-bool URGFxMovieFrontend::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x016e5b10
-IMPLEMENT_CLASS_AT(URGFxMovieMap, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameGFxSupportClasses.cpp", 41);
-
-// @baa 0x016e5c20
-bool URGFxMovieMap::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x016e5c60
-IMPLEMENT_CLASS_AT(URGFxMovieInvestigate, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameGFxSupportClasses.cpp", 42);
-
-// @baa 0x016e5d70
-bool URGFxMovieInvestigate::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
 // @baa 0x016e5db0
 // @baa 0x016e5ec0
 bool URGFxMovieUpgrades::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
-
-// @baa 0x016e5f00
-IMPLEMENT_CLASS_AT(URGFxMovieRiddler, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameGFxSupportClasses.cpp", 44);
-
-// @baa 0x016e6010
-bool URGFxMovieRiddler::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x016e6050
-IMPLEMENT_CLASS_AT(URGFxMovieBio, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameGFxSupportClasses.cpp", 45);
-
-// @baa 0x016e6160
-bool URGFxMovieBio::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x016e61a0
-IMPLEMENT_CLASS_AT(URGFxMovieHUD, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameGFxSupportClasses.cpp", 73);
 
 // @baa 0x016e62b0
 bool URGFxMovieHUD::vf_004()

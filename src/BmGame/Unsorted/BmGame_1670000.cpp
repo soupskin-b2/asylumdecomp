@@ -1,4 +1,4 @@
-// BmGame_1670000.cpp (part 1 of 4): 94 functions
+// BmGame_1670000.cpp (part 1 of 4): 90 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -500,32 +500,8 @@ undefined4 * UObject::sub_01675240(void)
 // @baa 0x01675260
 IMPLEMENT_CLASS_AT(URActorFactoryXrayInterItem, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameForensicClasses.cpp", 21);
 
-// @baa 0x016752c0
-extern undefined * g_023763e0;
-// @baa 0x016752e0
-undefined4 * UObject::sub_016752e0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_023763e0);
-  return param_1;
-}
-
 // @baa 0x01675300
 IMPLEMENT_CLASS_AT(URActorFactoryXrayMesh, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameForensicClasses.cpp", 19);
-
-// @baa 0x01675360
-extern undefined * g_02376508;
-// @baa 0x01675380
-undefined4 * UObject::sub_01675380(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_02376508);
-  return param_1;
-}
 
 // @baa 0x016753a0
 IMPLEMENT_CLASS_AT(URActorFactoryXrayWire, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameForensicClasses.cpp", 20);
@@ -536,29 +512,6 @@ IMPLEMENT_CLASS_AT(URActorFactoryForensicsDna, "e:\\Projects\\Amadeus\\AA\\Game\
 
 // @baa 0x01675480
 int URActorFactoryForensicsDna::vf_120(void) { return 0; }
-
-// @baa 0x01675490
-extern undefined * g_02376630;
-// @baa 0x016754b0
-undefined4 * UObject::sub_016754b0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_02376630);
-  return param_1;
-}
-
-extern undefined * g_02376758;
-// @baa 0x016754d0
-undefined4 * UObject::sub_016754d0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_02376758);
-  return param_1;
-}
 
 // @baa 0x016754f0
 IMPLEMENT_CLASS_AT(URActorFactoryForensicsDnaNonScan, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameForensicClasses.cpp", 18);

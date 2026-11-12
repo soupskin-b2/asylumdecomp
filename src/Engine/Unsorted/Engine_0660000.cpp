@@ -1,4 +1,4 @@
-// Engine_0660000.cpp (part 1 of 17): 162 functions
+// Engine_0660000.cpp (part 1 of 17): 158 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -134,18 +134,6 @@ DOUBLE USurface::vf_10c() {
   sub_00630f20(g_026667a8,L"Pure virtual not implemented (%s)",L"USurface::GetSurfaceWidth");
   return (float10)0;
 }
-
-// @baa 0x00663560
-int UMaterialInterface::vf_134(int a0) { return 0; }
-
-// @baa 0x00663570
-int UMaterialInterface::vf_14c(int a0) { return 0; }
-
-// @baa 0x00663580
-UINT UMaterialInterface::vf_15c() { return 0; }
-
-// @baa 0x006636d0
-IMPLEMENT_CLASS_AT(UMaterialInterface, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\MaterialShared.cpp", 10);
 
 int sub_00627f70(...);
 int sub_00654ca0(...);

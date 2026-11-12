@@ -1,4 +1,4 @@
-// UnDownload.cpp (part 1 of 3): 24 functions
+// UnDownload.cpp (part 1 of 3): 26 functions
 // Placed here by: neighbours 18, callers 4, file 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -243,3 +243,10 @@ IMPLEMENT_CLASS_AT(UChannelDownload, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEng
 
 // @baa 0x00e04840
 // @baa 0x00e04900
+
+struct C_00df41e0 { C_00df41e0* sub_00df41e0(void); };
+
+// @baa 0x00df41e0
+C_00df41e0* C_00df41e0::sub_00df41e0(void) { *(int*)((char*)this + 0) = (int)g_020e2fdc; return this; }
+
+// @baa 0x00e08960

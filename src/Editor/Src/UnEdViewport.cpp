@@ -1,4 +1,4 @@
-// UnEdViewport.cpp: 52 functions
+// UnEdViewport.cpp: 57 functions
 // Placed here by: neighbours 41, callers 9, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -607,4 +607,27 @@ void C_00cc65e0::sub_00cc65e0()
 {
     Flags &= ~4;
     ((Sub*)((char*)this + 0x38))->sub_00cbe7d0(0);
+}
+
+struct C_00f72110 { void sub_00f72110(int a0); };
+
+// @baa 0x00f72110
+void C_00f72110::sub_00f72110(int a0) { *(int*)((char*)this + 668) = 2; }
+
+extern undefined4 g_026b62b8;
+// @baa 0x00f72220
+undefined4 sub_00f72220(void)
+{
+  return *(undefined4 *)(g_026b62b8 + 0x34);
+}
+
+// @baa 0x00f75a20
+
+// @baa 0x00f75b30
+int UEditorViewportInput::vf_000(void) { return 1; }
+
+// @baa 0x00f75b40
+bool UEditorViewportInput::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
 }

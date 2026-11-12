@@ -1,4 +1,4 @@
-// Editor_0ec0000.cpp (part 1 of 5): 114 functions
+// Editor_0ec0000.cpp (part 1 of 5): 112 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -788,9 +788,6 @@ undefined4 * C_00ec6410::sub_00ec6410(byte param_2)
   return param_1;
 }
 
-// @baa 0x00ec6430
-IMPLEMENT_CLASS_AT(UEditorPlayer, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\PlayLevel.cpp", 35);
-
 // @baa 0x00ec6540
 int UEditorPlayer::vf_000(void) { return 1; }
 
@@ -805,9 +802,6 @@ int UBrushBuilder::vf_114(void) { return *(int*)((char*)this + 76); }
 
 // @baa 0x00ec6980
 int UBrushBuilder::vf_11c(void) { return *(int*)((char*)this + 88); }
-
-// @baa 0x00ec6990
-IMPLEMENT_CLASS_AT(UBrushBuilder, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UBrushBuilder.cpp", 155);
 
 // @baa 0x00ec6aa0
 int UBrushBuilder::vf_000(void) { return 1; }

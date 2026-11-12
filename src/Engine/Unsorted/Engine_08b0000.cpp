@@ -1,4 +1,4 @@
-// Engine_08b0000.cpp (part 1 of 2): 39 functions
+// Engine_08b0000.cpp (part 1 of 2): 29 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -420,47 +420,3 @@ int sub_008b4610(void)
   return g_026b5a84;
 }
 
-// @baa 0x008b4640
-IMPLEMENT_CLASS_AT(UPath_TowardGoal, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnRoute.cpp", 12);
-
-// @baa 0x008b4750
-bool UPath_TowardGoal::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x008b4790
-IMPLEMENT_CLASS_AT(UPath_TowardPoint, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnRoute.cpp", 13);
-
-// @baa 0x008b48a0
-bool UPath_TowardPoint::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x008b48e0
-IMPLEMENT_CLASS_AT(UPath_AlongLine, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnRoute.cpp", 14);
-
-// @baa 0x008b49f0
-bool UPath_AlongLine::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x008b4a30
-IMPLEMENT_CLASS_AT(UPath_WithinTraversalDist, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnRoute.cpp", 15);
-
-// @baa 0x008b4b40
-bool UPath_WithinTraversalDist::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x008b4b80
-IMPLEMENT_CLASS_AT(UPath_WithinDistanceEnvelope, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnRoute.cpp", 16);
-
-// @baa 0x008b4c90
-bool UPath_WithinDistanceEnvelope::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}

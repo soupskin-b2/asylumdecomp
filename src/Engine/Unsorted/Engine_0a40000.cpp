@@ -1,4 +1,4 @@
-// Engine_0a40000.cpp (part 1 of 12): 116 functions
+// Engine_0a40000.cpp (part 1 of 12): 110 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -14,33 +14,6 @@ int sub_00a41db0(void)
     sub_00a34210();
   }
   return g_026b6844;
-}
-
-// @baa 0x00a41de0
-IMPLEMENT_CLASS_AT(UForceFieldShapeBox, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\ForceFieldShapeBox.cpp", 13);
-
-// @baa 0x00a41ef0
-bool UForceFieldShapeBox::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00a41f30
-IMPLEMENT_CLASS_AT(UForceFieldShapeCapsule, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\ForceFieldShapeCapsule.cpp", 13);
-
-// @baa 0x00a42040
-bool UForceFieldShapeCapsule::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00a42080
-IMPLEMENT_CLASS_AT(UForceFieldShapeSphere, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\ForceFieldShapeSphere.cpp", 13);
-
-// @baa 0x00a42190
-bool UForceFieldShapeSphere::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 struct Sub { void sub_0064b6e0(); };

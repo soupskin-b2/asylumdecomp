@@ -1,21 +1,12 @@
-// Engine_08b0000.cpp (part 2 of 2): 4 functions
+// Engine_08b0000.cpp (part 2 of 2): 1 function
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
 struct USeqCond_SwitchObject { int GetSupportedValueCount(void); };
 
-// @baa 0x008b1840
-int USeqCond_SwitchObject::GetSupportedValueCount(void) { return *(int*)((char*)this + 192); }
-
 struct USeqCond_SwitchName { int GetSupportedValueCount(void); };
 
-// @baa 0x008b1850
-int USeqCond_SwitchName::GetSupportedValueCount(void) { return *(int*)((char*)this + 192); }
-
 struct USeqCond_SwitchClass { int GetSupportedValueCount(void); };
-
-// @baa 0x008b1860
-int USeqCond_SwitchClass::GetSupportedValueCount(void) { return *(int*)((char*)this + 192); }
 
 struct C {
     void sub_008b4520(int);

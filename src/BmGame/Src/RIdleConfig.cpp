@@ -1,4 +1,4 @@
-// RIdleConfig.cpp: 21 functions
+// RIdleConfig.cpp: 48 functions
 // Placed here by: callers 10, file 9, neighbours 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -66,3 +66,129 @@ IMPLEMENT_CLASS_AT(URPairedIdleConfigFactoryNew, "e:\\Projects\\Amadeus\\AA\\Gam
 // @baa 0x0162e710
 // @baa 0x0162e7d0
 // @baa 0x0162e890
+
+// @baa 0x01611750
+
+// @baa 0x01611860
+int URIdleConfig::vf_000(void) { return 1; }
+
+// @baa 0x01611870
+bool URIdleConfig::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x016118b0
+int URSimpleIdleConfig::vf_000(void) { return 1; }
+
+// @baa 0x016118c0
+int URIdleTransitionConfig::vf_000(void) { return 1; }
+
+// @baa 0x016118d0
+int URPairedIdleConfig::vf_000(void) { return 1; }
+
+// @baa 0x016118e0
+int URIdleWithDeathConfig::vf_000(void) { return 1; }
+
+// @baa 0x016118f0
+
+// @baa 0x01611a00
+int URSimpleIdleConfigFactoryNew::vf_000(void) { return 1; }
+
+// @baa 0x01611a10
+bool URSimpleIdleConfigFactoryNew::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x01611a90
+
+// @baa 0x01611ba0
+int URIdleTransitionConfigFactoryNew::vf_000(void) { return 1; }
+
+// @baa 0x01611bb0
+bool URIdleTransitionConfigFactoryNew::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x01611c30
+
+// @baa 0x01611d40
+int URIdleWithDeathConfigFactoryNew::vf_000(void) { return 1; }
+
+// @baa 0x01611d50
+bool URIdleWithDeathConfigFactoryNew::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x01611dd0
+
+// @baa 0x01611ee0
+int URPairedIdleConfigFactoryNew::vf_000(void) { return 1; }
+
+// @baa 0x01611ef0
+bool URPairedIdleConfigFactoryNew::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x01611f70
+void URIdleConfig::vf_110(int a0) {  }
+
+// @baa 0x01611f80
+void URIdleConfig::vf_114(int a0) {  }
+
+// @baa 0x01611f90
+void URIdleConfig::FireOutputLink(class URBMBehaviour_IdleWithPlannarProp* a0) {  }
+
+int sub_005c7a20(void);
+extern undefined * g_02345320;
+// @baa 0x01624ac0
+undefined4 * UObject::sub_01624ac0(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_02345320);
+  return param_1;
+}
+
+extern undefined * g_02345440;
+// @baa 0x01624ae0
+undefined4 * UObject::sub_01624ae0(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_02345440);
+  return param_1;
+}
+
+extern undefined * g_02345560;
+// @baa 0x01624ba0
+undefined4 * UObject::sub_01624ba0(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_02345560);
+  return param_1;
+}
+
+extern undefined * g_02345688;
+// @baa 0x01624c50
+undefined4 * UObject::sub_01624c50(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_02345688);
+  return param_1;
+}
+
+struct C_01624fc0 { void sub_015af750(int); C_01624fc0 *sub_01624fc0(int); };
+
+// @baa 0x01624fc0
+C_01624fc0 *C_01624fc0::sub_01624fc0(int a) { sub_015af750(a); return this; }

@@ -1,4 +1,4 @@
-// UnLight.cpp: 10 functions
+// UnLight.cpp: 15 functions
 // Placed here by: neighbours 5, callers 3, file 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -33,3 +33,22 @@ void sub_00826b00(void) { sub_00825ba0(); }
 // @baa 0x00826bd0
 // @baa 0x01e23ae0
 void sub_01e23ae0(void) {  }
+
+// @baa 0x00803f40
+
+// @baa 0x00804050
+int ALightVolume::vf_000(void) { return 1; }
+
+// @baa 0x00804060
+bool ALightVolume::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x008040a0
+
+// @baa 0x008041d0
+bool AStaticLightCollectionActor::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}

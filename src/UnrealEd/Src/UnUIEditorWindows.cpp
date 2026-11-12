@@ -1,4 +1,4 @@
-// UnUIEditorWindows.cpp (part 1 of 4): 92 functions
+// UnUIEditorWindows.cpp (part 1 of 4): 112 functions
 // Placed here by: neighbours 78, callers 8, file 4.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1222,4 +1222,217 @@ void U::sub_014d3690(int arg)
 {
     sub_014c9290(arg);
     sub_014d28b0();
+}
+
+struct sub_014c5ef0_sub {
+    virtual void sub_00000000();
+    virtual void sub_00000001();
+};
+
+struct sub_014c5ef0_owner {
+    char _pad[0x1a4];
+    sub_014c5ef0_sub _sub;
+    void sub_014c5ef0(sub_014c5ef0_owner* arg);
+};
+
+// @baa 0x014c5ef0
+void sub_014c5ef0_owner::sub_014c5ef0(sub_014c5ef0_owner* arg)
+{
+    arg->_sub.sub_00000001();
+}
+
+extern char g_022b5294[];
+// @baa 0x014c5f30
+int sub_014c5f30(void) { return (int)g_022b5294; }
+
+extern char g_026ddecc[];
+// @baa 0x014c5f40
+int sub_014c5f40(void) { return (int)g_026ddecc; }
+
+struct C_014c6160 {
+    uint sub_014c6160();
+};
+
+// @baa 0x014c6160
+uint C_014c6160::sub_014c6160(void)
+{
+    int param_1 = (int)this;
+
+  uint uVar1;
+  
+  uVar1 = 1;
+  if (*(int *)(param_1 + 0x314) != 0) {
+    uVar1 = *(uint *)(*(int *)(param_1 + 0x314) + 0x50) & 1;
+  }
+  return uVar1;
+}
+
+struct C_014c6180 {
+    uint sub_014c6180();
+};
+
+// @baa 0x014c6180
+uint C_014c6180::sub_014c6180(void)
+{
+    int param_1 = (int)this;
+
+  uint uVar1;
+  
+  uVar1 = 1;
+  if (*(int *)(param_1 + 0x314) != 0) {
+    uVar1 = *(uint *)(*(int *)(param_1 + 0x314) + 0x50) >> 1 & 1;
+  }
+  return uVar1;
+}
+
+struct C_014c61a0 {
+    uint sub_014c61a0();
+};
+
+// @baa 0x014c61a0
+uint C_014c61a0::sub_014c61a0(void)
+{
+    int param_1 = (int)this;
+
+  uint uVar1;
+  
+  uVar1 = 1;
+  if (*(int *)(param_1 + 0x170) != 0) {
+    uVar1 = *(uint *)(*(int *)(param_1 + 0x170) + 0x50) >> 3 & 1;
+  }
+  return uVar1;
+}
+
+// @baa 0x014c61c0
+int sub_014c61c0(void) { return 1; }
+
+// @baa 0x014c61d0
+int __stdcall sub_014c61d0(int a0, int a1, int a2, int a3) { return 0; }
+
+struct C_014c61e0 {
+    undefined4 sub_014c61e0();
+};
+
+// @baa 0x014c61e0
+undefined4 C_014c61e0::sub_014c61e0(void)
+{
+    int param_1 = (int)this;
+
+  return *(undefined4 *)(*(int *)(param_1 + 0x314) + 0x58);
+}
+
+struct C_014c61f0 {
+    uint sub_014c61f0();
+};
+
+// @baa 0x014c61f0
+uint C_014c61f0::sub_014c61f0(void)
+{
+    int param_1 = (int)this;
+
+  return *(uint *)(*(int *)(param_1 + 0x314) + 0x50) >> 9 & 1;
+}
+
+struct OuterNameObj;
+struct GObj {
+    OuterNameObj * GetOutermost();
+};
+
+struct C_014c6200 {
+    char pad_0x16c[0x16c];
+    GObj * gobj;
+    OuterNameObj * sub_014c6200();
+};
+
+// @baa 0x014c6200
+OuterNameObj * C_014c6200::sub_014c6200()
+{
+    return gobj->GetOutermost();
+}
+
+// @baa 0x014c62b0
+void sub_014c62b0(void) {  }
+
+struct T_014c62d0 {
+    char pad[0x318];
+    void *sub;
+    void sub_014c62d0();
+};
+
+struct O {
+    void sub_014a8a30();
+};
+
+// @baa 0x014c62d0
+void T_014c62d0::sub_014c62d0() { ((O *)sub)->sub_014a8a30(); }
+
+struct FOO {
+  int __thiscall sub_00f71ad0(void);
+};
+
+extern undefined4 g_026cce28;
+// @baa 0x014c62e0
+void sub_014c62e0(void)
+{
+  ((FOO *)g_026cce28)->sub_00f71ad0();
+}
+
+struct FOO_014c62f0 {
+  int __thiscall sub_00f71ab0(void);
+};
+
+// @baa 0x014c62f0
+void sub_014c62f0(void)
+{
+  ((FOO_014c62f0 *)g_026cce28)->sub_00f71ab0();
+}
+
+// @baa 0x014c7270
+int sub_014c7270(int a0, int a1) { return a1; }
+
+int sub_005c7a20(void);
+extern undefined * g_022b9d90;
+// @baa 0x014c7280
+undefined4 * UObject::sub_014c7280(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_022b9d90);
+  return param_1;
+}
+
+extern undefined * g_022b9ea8;
+// @baa 0x014c7330
+undefined4 * UObject::sub_014c7330(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_022b9ea8);
+  return param_1;
+}
+
+extern undefined * g_022b9fc0;
+// @baa 0x014c73e0
+undefined4 * UObject::sub_014c73e0(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_022b9fc0);
+  return param_1;
+}
+
+int sub_014c5f50(void);
+// @baa 0x014c8a10
+undefined4 USoundNodeWave::sub_014c8a10(byte param_2)
+{
+    undefined4 param_1 = (undefined4)this;
+
+  sub_014c5f50();
+  if ((param_2 & 1) != 0) {
+    sub_0053dfa0(param_1);
+  }
+  return param_1;
 }

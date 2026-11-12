@@ -1,4 +1,4 @@
-// BmGame_15d0000.cpp: 269 functions
+// BmGame_15d0000.cpp: 224 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -874,9 +874,6 @@ undefined4 ARPawnVillain::vf_48c(void)
   return 1;
 }
 
-// @baa 0x015dd090
-IMPLEMENT_CLASS_AT(ARBMCombatManager, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBMBehaviour_Combat.cpp", 15);
-
 // @baa 0x015dd1c0
 bool ARBMCombatManager::vf_004()
 {
@@ -914,18 +911,6 @@ undefined4 ARBMCombatManager::vf_384(void)
   return 0;
 }
 
-// @baa 0x015de750
-IMPLEMENT_CLASS_AT(URBMBehaviour, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmBehaviourClass.cpp", 20);
-
-// @baa 0x015de860
-int URBMBehaviour::vf_000(void) { return 1; }
-
-// @baa 0x015de870
-bool URBMBehaviour::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
 // @baa 0x015de8b0
 // @baa 0x015de9c0
 int URBMBehaviourOverlay::vf_000(void) { return 1; }
@@ -935,79 +920,6 @@ bool URBMBehaviourOverlay::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
-
-// @baa 0x015dea10
-undefined4 URBMBehaviour::vf_1a0(void)
-{
-    int param_1 = (int)this;
-
-  if ((*(int *)(param_1 + 0xfc) != 0) &&
-     ((*(uint *)(*(int *)(param_1 + 0xfc) + 0x1b4) & 0x100000) != 0)) {
-    return 1;
-  }
-  return 0;
-}
-
-// @baa 0x015dea50
-void URBMBehaviour::vf_154(void)
-{
-    int param_1 = (int)this;
-
-  *(uint *)(param_1 + 0xe4) = *(uint *)(param_1 + 0xe4) | 0x20;
-  return;
-}
-
-// @baa 0x015dea60
-void URBMBehaviour::vf_158(void)
-{
-    int param_1 = (int)this;
-
-  *(uint *)(param_1 + 0xe4) = *(uint *)(param_1 + 0xe4) & 0xffffffdf;
-  return;
-}
-
-// @baa 0x015deba0
-undefined4 URBMBehaviour::vf_1a4(void)
-{
-    int param_1 = (int)this;
-
-  int iVar1;
-  
-  if (((*(int *)(param_1 + 0x18) != 0) &&
-      (iVar1 = *(int *)(*(int *)(param_1 + 0x18) + 0x28), iVar1 != 0)) &&
-     (iVar1 != *(int *)(param_1 + 0x28))) {
-    return 1;
-  }
-  return 0;
-}
-
-// @baa 0x015debe0
-void URBMBehaviour::sub_015debe0(undefined4 param_2, float * param_3)
-{
-    int param_1 = (int)this;
-  float fVar1;
-  float fVar2;
-  fVar1 = *param_3;
-  fVar2 = *(float *)(param_1 + 0xf0) - fVar1;
-  *(float *)(param_1 + 0xf0) = fVar2;
-  if (fVar2 < fVar1 * 0.5) {
-    *(undefined2 *)(*(int *)(param_1 + 0x18) + 0x34) = 0;
-  }
-  return;
-}
-
-// @baa 0x015dec20
-void URBMBehaviour::vf_1ac(undefined4 param_2)
-{
-    int param_1 = (int)this;
-
-  *(undefined2 *)(*(int *)(param_1 + 0x18) + 0x34) = 0xfa1;
-  *(undefined4 *)(param_1 + 0xf4) = param_2;
-  return;
-}
-
-// @baa 0x015dec60
-IMPLEMENT_CLASS_AT(URBMExitCondition, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBMExitCondition.cpp", 8);
 
 // @baa 0x015ded70
 int URBMExitCondition::vf_000(void) { return 1; }
@@ -1163,138 +1075,6 @@ struct V_015dee90 {
 
 // @baa 0x015dee90
 void V_015dee90::sub_015dee90() { g(); }
-
-// @baa 0x015deea0
-IMPLEMENT_CLASS_AT(ARBMPathNode_CrossLevel, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmPathNodeClass.cpp", 15);
-
-// @baa 0x015defb0
-int ARBMPathNode_CrossLevel::vf_000(void) { return 1; }
-
-// @baa 0x015defc0
-bool ARBMPathNode_CrossLevel::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x015df000
-IMPLEMENT_CLASS_AT(ARBMPathNode_SpecialMove, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmPathNodeClass.cpp", 17);
-
-// @baa 0x015df110
-int ARBMPathNode_SpecialMove::vf_000(void) { return 1; }
-
-// @baa 0x015df120
-bool ARBMPathNode_SpecialMove::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x015df160
-IMPLEMENT_CLASS_AT(URBMSpecialMove_ReachSpec, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmPathNodeClass.cpp", 18);
-
-// @baa 0x015df270
-int URBMSpecialMove_ReachSpec::vf_000(void) { return 1; }
-
-// @baa 0x015df280
-bool URBMSpecialMove_ReachSpec::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x015df2c0
-int ARBMPathNode_Ladder::vf_000(void) { return 1; }
-
-// @baa 0x015df2d0
-int ARBMPathNode_DisruptableDoor::vf_000(void) { return 1; }
-
-// @baa 0x015df2e0
-int ARBMPathNode_VariablePositionTraverse::vf_000(void) { return 1; }
-
-// @baa 0x015df2f0
-int ARBMPathNode_VariablePositionTraverseProxy::vf_000(void) { return 1; }
-
-// @baa 0x015df300
-int ARBMPathNode_FenceJump::vf_000(void) { return 1; }
-
-// @baa 0x015df310
-int ARBMPathNode_FenceJumpProxy::vf_000(void) { return 1; }
-
-// @baa 0x015df320
-int ARBMPathNode_GapJump::vf_000(void) { return 1; }
-
-// @baa 0x015df330
-int ARBMPathNode_GapJumpProxy::vf_000(void) { return 1; }
-
-// @baa 0x015df340
-IMPLEMENT_CLASS_AT(AREndPointMarker, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmPathNodeClass.cpp", 32);
-
-// @baa 0x015df450
-int AREndPointMarker::vf_000(void) { return 1; }
-
-// @baa 0x015df460
-bool AREndPointMarker::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x015df4a0
-IMPLEMENT_CLASS_AT(ARCornerPointBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmPathNodeClass.cpp", 34);
-
-// @baa 0x015df5b0
-int ARCornerPointBase::vf_000(void) { return 1; }
-
-// @baa 0x015df5c0
-bool ARCornerPointBase::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x015df600
-int ARCornerPoint::vf_000(void) { return 1; }
-
-// @baa 0x015df610
-IMPLEMENT_CLASS_AT(URPairedCornerRenderingComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmPathNodeClass.cpp", 36);
-
-// @baa 0x015df720
-int URPairedCornerRenderingComponent::vf_000(void) { return 1; }
-
-// @baa 0x015df730
-bool URPairedCornerRenderingComponent::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x015df770
-IMPLEMENT_CLASS_AT(ARCornerWallMarkerBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmPathNodeClass.cpp", 38);
-
-// @baa 0x015df880
-int ARCornerWallMarkerBase::vf_000(void) { return 1; }
-
-// @baa 0x015df890
-bool ARCornerWallMarkerBase::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x015df8d0
-int ARCornerWallMarker::vf_000(void) { return 1; }
-
-// @baa 0x015df920
-int ARBMPathNode_VariablePositionTraverse::vf_3bc(int a0) { return 0; }
-
-// @baa 0x015dfbc0
-int ARBMPathNode_FenceJump::vf_394(int a0, int a1) { return 0; }
-
-// @baa 0x015dfc40
-void ARBMPathNode_FenceJump::vf_184(void)
-{
-    int param_1 = (int)this;
-
-  *(undefined4 *)(param_1 + 0x2d4) = 0;
-  *(undefined4 *)(param_1 + 0x2d8) = 0;
-  *(undefined4 *)(param_1 + 0x2e0) = 0;
-  *(undefined4 *)(param_1 + 0x2e4) = 0;
-  return;
-}
 
 struct C_015d8840
 {

@@ -1,4 +1,4 @@
-// UnMotionBlurEffect.cpp: 4 functions
+// UnMotionBlurEffect.cpp: 5 functions
 // Placed here by: callers 2, file 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -11,3 +11,6 @@ IMPLEMENT_CLASS_AT(UMotionBlurEffect, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEn
 
 // @baa 0x0083a0f0
 // @baa 0x0083a1b0
+
+// @baa 0x00835460
+int UDOFBloomMotionBlurEffect::vf_10c(int a0) { return 0; }

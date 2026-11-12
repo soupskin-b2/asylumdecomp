@@ -1,4 +1,4 @@
-// UnMeshEd.cpp (part 2 of 2): 3 functions
+// UnMeshEd.cpp (part 2 of 2): 4 functions
 // Placed here by: callers 2, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -65,3 +65,5 @@ return;
 IMPLEMENT_CLASS_AT(USkeletalMeshFactory, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnMeshEd.cpp", 1044);
 
 // @baa 0x00fbb880
+
+// @baa 0x00f9f720

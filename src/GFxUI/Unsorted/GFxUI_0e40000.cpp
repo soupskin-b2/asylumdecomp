@@ -1,4 +1,4 @@
-// GFxUI_0e40000.cpp: 279 functions
+// GFxUI_0e40000.cpp: 232 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -34,29 +34,6 @@ int sub_00e41d00(int a0, int a1) { return a1; }
 
 // @baa 0x00e41d10
 IMPLEMENT_CLASS_AT(UGFxFSCmdHandler, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\GFxUI\\Src\\GFxUIMovie.cpp", 41);
-
-int sub_005c7a20(void);
-extern undefined * g_02105e28;
-// @baa 0x00e41d70
-undefined4 * UObject::sub_00e41d70(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_02105e28);
-  return param_1;
-}
-
-// @baa 0x00e41d90
-struct C_00e41db0 {
-    int sub_00e41db0(int);
-};
-
-// @baa 0x00e41db0
-int C_00e41db0::sub_00e41db0(int a)
-{
-    return (int)this;
-}
 
 extern char g_02106244[];
 struct C_00e432c0 { void sub_00e432c0(void); };
@@ -203,18 +180,6 @@ struct C_00e43450 { C_00e43450* sub_00e43450(void); };
 
 // @baa 0x00e43450
 C_00e43450* C_00e43450::sub_00e43450(void) { *(int*)((char*)this + 0) = (int)g_023f4d60; return this; }
-
-// @baa 0x00e43460
-IMPLEMENT_CLASS_AT(UGFxEngine, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\GFxUI\\Src\\GFxUIEngine.cpp", 79);
-
-// @baa 0x00e43570
-int UGFxEngine::vf_000(void) { return 1; }
-
-// @baa 0x00e43580
-bool UGFxEngine::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
 
 struct C_00e43650 { C_00e43650* sub_00e43650(void); };
 
@@ -461,9 +426,6 @@ undefined1 sub_00e43ac0(void)
   return 1;
 }
 
-// @baa 0x00e43ad0
-IMPLEMENT_CLASS_AT(UGFxGameViewportClient, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\GFxUI\\Src\\GFxUIGameViewportClient.cpp", 14);
-
 // @baa 0x00e43c00
 bool UGFxGameViewportClient::vf_004()
 {
@@ -475,108 +437,6 @@ int UGFxGameViewportClient::vf_144(void) { return 0; }
 
 // @baa 0x00e43df0
 void UGFxGameViewportClient::vf_148(int a0) {  }
-
-// @baa 0x00e43e00
-IMPLEMENT_CLASS_AT(UGFxAction_CloseMovie, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\GFxUI\\Src\\GFxUIInteraction.cpp", 28);
-
-// @baa 0x00e43f10
-int UGFxAction_CloseMovie::vf_000(void) { return 1; }
-
-// @baa 0x00e43f20
-bool UGFxAction_CloseMovie::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00e43f60
-IMPLEMENT_CLASS_AT(UGFxAction_GetVariable, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\GFxUI\\Src\\GFxUIInteraction.cpp", 29);
-
-// @baa 0x00e44070
-int UGFxAction_GetVariable::vf_000(void) { return 1; }
-
-// @baa 0x00e44080
-bool UGFxAction_GetVariable::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00e440c0
-IMPLEMENT_CLASS_AT(UGFxAction_Invoke, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\GFxUI\\Src\\GFxUIInteraction.cpp", 30);
-
-// @baa 0x00e441d0
-int UGFxAction_Invoke::vf_000(void) { return 1; }
-
-// @baa 0x00e441e0
-bool UGFxAction_Invoke::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00e44220
-IMPLEMENT_CLASS_AT(UGFxAction_OpenMovie, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\GFxUI\\Src\\GFxUIInteraction.cpp", 31);
-
-// @baa 0x00e44330
-int UGFxAction_OpenMovie::vf_000(void) { return 1; }
-
-// @baa 0x00e44340
-bool UGFxAction_OpenMovie::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00e44380
-IMPLEMENT_CLASS_AT(UGFxAction_SetCaptureKeys, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\GFxUI\\Src\\GFxUIInteraction.cpp", 32);
-
-// @baa 0x00e44490
-int UGFxAction_SetCaptureKeys::vf_000(void) { return 1; }
-
-// @baa 0x00e444a0
-bool UGFxAction_SetCaptureKeys::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00e444e0
-IMPLEMENT_CLASS_AT(UGFxAction_SetFocus, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\GFxUI\\Src\\GFxUIInteraction.cpp", 33);
-
-// @baa 0x00e445f0
-int UGFxAction_SetFocus::vf_000(void) { return 1; }
-
-// @baa 0x00e44600
-bool UGFxAction_SetFocus::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00e44640
-IMPLEMENT_CLASS_AT(UGFxAction_SetVariable, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\GFxUI\\Src\\GFxUIInteraction.cpp", 34);
-
-// @baa 0x00e44750
-int UGFxAction_SetVariable::vf_000(void) { return 1; }
-
-// @baa 0x00e44760
-bool UGFxAction_SetVariable::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00e447a0
-int UGFxFSCmdHandler_Kismet::vf_000(void) { return 1; }
-
-// @baa 0x00e447b0
-IMPLEMENT_CLASS_AT(UGFxInteraction, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\GFxUI\\Src\\GFxUIInteraction.cpp", 36);
-
-// @baa 0x00e448c0
-int UGFxInteraction::vf_000(void) { return 1; }
-
-// @baa 0x00e448d0
-bool UGFxInteraction::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00e44910
-IMPLEMENT_CLASS_AT(UGFxEvent_FsCommand, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\GFxUI\\Src\\GFxUIInteraction.cpp", 37);
 
 // @baa 0x00e44a20
 int UGFxEvent_FsCommand::vf_000(void) { return 1; }
@@ -760,140 +620,6 @@ void C_00e48b30::sub_00e48b30(void)
   *param_1 = (undefined4)(&g_023f4f44);
   sub_018d3de0();
   return;
-}
-
-struct C_00e48b60 {
-    undefined4 * sub_00e48b60();
-    int sub_00e48990(int);
-};
-
-extern undefined * g_021065f8;
-// @baa 0x00e48b60
-undefined4 * C_00e48b60::sub_00e48b60(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-  ((C_00e48b60 *)(this))->sub_00e48990(0x1d);
-  *param_1 = (undefined4)(&g_021065f8);
-  return param_1;
-}
-
-struct C_00e48b80 {
-    void sub_00e48b80();
-};
-
-// @baa 0x00e48b80
-void C_00e48b80::sub_00e48b80(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  *param_1 = (undefined4)(&g_023f4f44);
-  sub_018d3de0();
-  return;
-}
-
-struct C_00e48b90 {
-    void sub_00e48b90();
-};
-
-// @baa 0x00e48b90
-void C_00e48b90::sub_00e48b90(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  *param_1 = (undefined4)(&g_023f4f44);
-  sub_018d3de0();
-  return;
-}
-
-struct C_00e48ba0 {
-    void sub_00e48ba0();
-};
-
-// @baa 0x00e48ba0
-void C_00e48ba0::sub_00e48ba0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  *param_1 = (undefined4)(&g_023f4f44);
-  sub_018d3de0();
-  return;
-}
-
-struct C_00e48bb0 {
-    undefined4 * sub_00e48bb0();
-    int sub_00e48990(int);
-};
-
-extern undefined * g_02106604;
-extern undefined4 g_027b897c;
-// @baa 0x00e48bb0
-undefined4 * C_00e48bb0::sub_00e48bb0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-  ((C_00e48bb0 *)(this))->sub_00e48990(10);
-  *param_1 = (undefined4)(&g_02106604);
-  g_027b897c = 0;
-  return param_1;
-}
-
-struct C_00e48c10 { int a; C_00e48c10(int); };
-
-// @baa 0x00e48c10
-C_00e48c10::C_00e48c10(int x) : a(x) {}
-
-struct C_00e48d80 {
-    void sub_00e48d80();
-};
-
-extern undefined * g_02106618;
-// @baa 0x00e48d80
-void C_00e48d80::sub_00e48d80(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  *param_1 = (undefined4)(&g_02106618);
-  sub_018d3de0();
-  return;
-}
-
-// @baa 0x00e48d90
-void sub_00e48d90(void) {  }
-
-// @baa 0x00e48da0
-void sub_00e48da0(void) {  }
-
-// @baa 0x00e48db0
-void __stdcall sub_00e48db0(int a0) {  }
-
-// @baa 0x00e48dc0
-void sub_00e48dc0(void) {  }
-
-BYTE __stdcall sub_00e48dd0(int param1);
-// @baa 0x00e48dd0
-BYTE __stdcall sub_00e48dd0(int param1)
-{
-  return 0;
-}
-
-// @baa 0x00e48de0
-void __stdcall sub_00e48de0(int a0) {  }
-
-struct S16 {
-    INT f00;
-    INT f04;
-    INT f08;
-    INT f0c;
-    S16* sub_00e48df0();
-};
-
-// @baa 0x00e48df0
-S16* S16::sub_00e48df0()
-{
-    f00 = 0;
-    f04 = 0;
-    f08 = 0;
-    f0c = 0;
-    return this;
 }
 
 struct C_00e48eb0 {
@@ -2774,16 +2500,3 @@ void C_00e4fef0::sub_00e4fef0(undefined4 param_2, undefined4 param_3)
   return;
 }
 
-struct C_00e48c00
-{
-    INT Value;
-
-    C_00e48c00* sub_00e48c00(INT* Source);
-};
-
-// @baa 0x00e48c00
-C_00e48c00* C_00e48c00::sub_00e48c00(INT* Source)
-{
-    *(INT*)this = *Source;
-    return this;
-}

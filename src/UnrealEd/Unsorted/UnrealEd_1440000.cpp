@@ -1,4 +1,4 @@
-// UnrealEd_1440000.cpp (part 1 of 3): 129 functions
+// UnrealEd_1440000.cpp (part 1 of 3): 128 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -570,9 +570,6 @@ int sub_0144ebe0(void) { return (int)g_025e9378; }
 extern char g_026dc478[];
 // @baa 0x0144ebf0
 int sub_0144ebf0(void) { return (int)g_026dc478; }
-
-// @baa 0x0144ec60
-void ULensFlarePreviewComponent::vf_250(int a0, int a1) {  }
 
 struct C_0144ec70 { char* sub_0144ec70(void); };
 

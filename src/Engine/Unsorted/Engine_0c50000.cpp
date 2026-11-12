@@ -1,4 +1,4 @@
-// Engine_0c50000.cpp: 111 functions
+// Engine_0c50000.cpp: 89 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -451,62 +451,14 @@ undefined4 * UObject::sub_00c512a0(void)
 // @baa 0x00c512c0
 IMPLEMENT_CLASS_AT(UActorFactoryAmbientSound, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActorFactory.cpp", 47);
 
-// @baa 0x00c51320
-extern undefined * g_02057c20;
-// @baa 0x00c51340
-undefined4 * UObject::sub_00c51340(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_02057c20);
-  return param_1;
-}
-
 // @baa 0x00c51360
 IMPLEMENT_CLASS_AT(UActorFactoryAmbientSoundMovable, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActorFactory.cpp", 48);
-
-// @baa 0x00c513c0
-extern undefined * g_02057d48;
-// @baa 0x00c513e0
-undefined4 * UObject::sub_00c513e0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_02057d48);
-  return param_1;
-}
 
 // @baa 0x00c51400
 IMPLEMENT_CLASS_AT(UActorFactoryAmbientSoundSimple, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActorFactory.cpp", 49);
 
-// @baa 0x00c51460
-extern undefined * g_02057e70;
-// @baa 0x00c51480
-undefined4 * UObject::sub_00c51480(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_02057e70);
-  return param_1;
-}
-
 // @baa 0x00c514a0
 IMPLEMENT_CLASS_AT(UActorFactoryArchetype, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActorFactory.cpp", 52);
-
-// @baa 0x00c51500
-extern undefined * g_02057f98;
-// @baa 0x00c51520
-undefined4 * UObject::sub_00c51520(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_02057f98);
-  return param_1;
-}
 
 // @baa 0x00c51540
 IMPLEMENT_CLASS_AT(UActorFactoryCoverLink, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActorFactory.cpp", 51);
@@ -515,148 +467,29 @@ IMPLEMENT_CLASS_AT(UActorFactoryCoverLink, "e:\\Projects\\Amadeus\\AA\\Game\\Unr
 // @baa 0x00c515c0
 IMPLEMENT_CLASS_AT(UActorFactoryDynamicSM, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActorFactory.cpp", 46);
 
-// @baa 0x00c51620
-extern undefined * g_020580c0;
-// @baa 0x00c51640
-undefined4 * UObject::sub_00c51640(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_020580c0);
-  return param_1;
-}
-
-extern undefined * g_020581e8;
-// @baa 0x00c51660
-undefined4 * UObject::sub_00c51660(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_020581e8);
-  return param_1;
-}
-
 // @baa 0x00c51680
 IMPLEMENT_CLASS_AT(UActorFactoryMover, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActorFactory.cpp", 40);
-
-// @baa 0x00c516e0
-extern undefined * g_02058310;
-// @baa 0x00c51700
-undefined4 * UObject::sub_00c51700(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_02058310);
-  return param_1;
-}
 
 // @baa 0x00c51720
 IMPLEMENT_CLASS_AT(UActorFactoryRigidBody, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActorFactory.cpp", 39);
 
-// @baa 0x00c51780
-extern undefined * g_02058438;
-// @baa 0x00c517b0
-undefined4 * UObject::sub_00c517b0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_02058438);
-  return param_1;
-}
-
 // @baa 0x00c517d0
 IMPLEMENT_CLASS_AT(UActorFactoryEmitter, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActorFactory.cpp", 41);
-
-// @baa 0x00c51830
-extern undefined * g_02058560;
-// @baa 0x00c51850
-undefined4 * UObject::sub_00c51850(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_02058560);
-  return param_1;
-}
 
 // @baa 0x00c51870
 IMPLEMENT_CLASS_AT(UActorFactoryFracturedStaticMesh, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActorFactory.cpp", 30);
 
-// @baa 0x00c518d0
-extern undefined * g_02058688;
-// @baa 0x00c518f0
-undefined4 * UObject::sub_00c518f0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_02058688);
-  return param_1;
-}
-
 // @baa 0x00c51910
 IMPLEMENT_CLASS_AT(UActorFactoryLensFlare, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActorFactory.cpp", 53);
-
-// @baa 0x00c51970
-extern undefined * g_020587b0;
-// @baa 0x00c51990
-undefined4 * UObject::sub_00c51990(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_020587b0);
-  return param_1;
-}
 
 // @baa 0x00c519b0
 IMPLEMENT_CLASS_AT(UActorFactoryLight, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActorFactory.cpp", 34);
 
-// @baa 0x00c51a10
-extern undefined * g_020588d8;
-// @baa 0x00c51a30
-undefined4 * UObject::sub_00c51a30(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_020588d8);
-  return param_1;
-}
-
 // @baa 0x00c51a50
 IMPLEMENT_CLASS_AT(UActorFactoryPathNode, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActorFactory.cpp", 37);
 
-// @baa 0x00c51ab0
-extern undefined * g_02058a00;
-// @baa 0x00c51ad0
-undefined4 * UObject::sub_00c51ad0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_02058a00);
-  return param_1;
-}
-
 // @baa 0x00c51af0
 IMPLEMENT_CLASS_AT(UActorFactoryPhysicsAsset, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActorFactory.cpp", 38);
-
-// @baa 0x00c51b50
-extern undefined * g_02058b28;
-// @baa 0x00c51b70
-undefined4 * UObject::sub_00c51b70(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_02058b28);
-  return param_1;
-}
 
 // @baa 0x00c51b90
 IMPLEMENT_CLASS_AT(UActorFactoryPlayerStart, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActorFactory.cpp", 45);
@@ -665,73 +498,14 @@ IMPLEMENT_CLASS_AT(UActorFactoryPlayerStart, "e:\\Projects\\Amadeus\\AA\\Game\\U
 // @baa 0x00c51c10
 IMPLEMENT_CLASS_AT(UActorFactorySkeletalMesh, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActorFactory.cpp", 44);
 
-// @baa 0x00c51c70
-extern undefined * g_02058c50;
-// @baa 0x00c51c90
-undefined4 * UObject::sub_00c51c90(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_02058c50);
-  return param_1;
-}
-
-extern undefined * g_02058d78;
-// @baa 0x00c51cb0
-undefined4 * UObject::sub_00c51cb0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_02058d78);
-  return param_1;
-}
-
 // @baa 0x00c51cd0
 IMPLEMENT_CLASS_AT(UActorFactorySpotLight, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActorFactory.cpp", 35);
-
-// @baa 0x00c51d30
-extern undefined * g_02058ea0;
-// @baa 0x00c51d50
-undefined4 * UObject::sub_00c51d50(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_02058ea0);
-  return param_1;
-}
 
 // @baa 0x00c51d70
 IMPLEMENT_CLASS_AT(UActorFactoryStaticMesh, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActorFactory.cpp", 29);
 
-// @baa 0x00c51dd0
-extern undefined * g_02058fc8;
-// @baa 0x00c51df0
-undefined4 * UObject::sub_00c51df0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_02058fc8);
-  return param_1;
-}
-
 // @baa 0x00c51e10
 IMPLEMENT_CLASS_AT(UActorFactoryTrigger, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActorFactory.cpp", 36);
-
-// @baa 0x00c51e70
-extern undefined * g_020590f0;
-// @baa 0x00c51e90
-undefined4 * UObject::sub_00c51e90(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_020590f0);
-  return param_1;
-}
 
 struct C_00c57300 {
     void sub_00c57300(int);
@@ -819,55 +593,3 @@ int C_00c57a30::sub_00c57a30(void)
   return param_1[5] * 0x10 + *(int *)*param_1;
 }
 
-struct C_view {
-    int sub_00c4aa30(int, int, int);
-};
-
-int sub_00c5def0(...);
-// @baa 0x00c5e110
-int UActorFactoryFogVolumeConstantDensityInfo::vf_10c(undefined4 param_2, undefined4 param_3, undefined4 param_4)
-{
-    int param_1 = (int)this;
-  int iVar1;
-  iVar1 = ((C_view *)(this))->sub_00c4aa30(param_2, param_3, param_4);
-  if (iVar1 == 0) {
-    return 0;
-  }
-  sub_00c5def0(iVar1,*(undefined4 *)(param_1 + 0x58));
-  return iVar1;
-}
-
-// @baa 0x00c5e150
-int UActorFactoryFogVolumeLinearHalfspaceDensityInfo::vf_10c(undefined4 param_2, undefined4 param_3, undefined4 param_4)
-{
-    int param_1 = (int)this;
-  int iVar1;
-  iVar1 = ((C_view *)(this))->sub_00c4aa30(param_2, param_3, param_4);
-  if (iVar1 == 0) {
-    return 0;
-  }
-  sub_00c5def0(iVar1,*(undefined4 *)(param_1 + 0x58));
-  return iVar1;
-}
-
-int sub_006d4090(...);
-int sub_00c58c60(...);
-// @baa 0x00c5e190
-int UActorFactoryFogVolumeSphericalDensityInfo::vf_10c(undefined4 param_2, undefined4 param_3, undefined4 param_4)
-{
-    int param_1 = (int)this;
-  int iVar1;
-  int iVar2;
-  iVar1 = ((C_view *)(this))->sub_00c4aa30(param_2, param_3, param_4);
-  if (iVar1 == 0) {
-    return 0;
-  }
-  sub_00c5def0(iVar1,*(undefined4 *)(param_1 + 0x58));
-  iVar2 = sub_006d4090(iVar1);
-  if ((*(int *)(iVar2 + 0x1ac) != 0) && (*(int *)(*(int *)(iVar2 + 0x1ac) + 0x1b4) != 0)) {
-    sub_00c58c60(*(undefined4 *)(iVar2 + 0x1a8));
-    *(float *)(*(int *)(iVar2 + 0x1ac) + 0x170) =
-         605.0 / *(float *)(*(int *)(*(int *)(iVar2 + 0x1ac) + 0x1b4) + 0x9c);
-  }
-  return iVar1;
-}

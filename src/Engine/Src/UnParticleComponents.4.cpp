@@ -1,7 +1,7 @@
-// UnParticleComponents.cpp (part 4 of 4): 20 functions
+// UnParticleComponents.cpp (part 4 of 4): 30 functions
 // Placed here by: neighbours 13, class 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
-#include "ue3/Classes.h"
+#include "ue3/Implement.h"
 
 struct C {
     void sub_00b5f210(int);
@@ -415,4 +415,83 @@ void UParticleSystemComponent::ClearParameter(FName ParameterName, BYTE Paramete
             ((FParticleSysParamArray&)InstanceParameters).Remove(i--);
         }
     }
+}
+
+// @baa 0x00b51030
+IMPLEMENT_CLASS_AT(AEmitter, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnParticleComponents.cpp", 17);
+
+// @baa 0x00b51140
+int AEmitter::vf_000(void) { return 1; }
+
+// @baa 0x00b51150
+bool AEmitter::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x00b51190
+int AEmitterCameraLensEffectBase::vf_000(void) { return 1; }
+
+int sub_005c7a20(void);
+extern undefined * g_01ff98d0;
+// @baa 0x00b66620
+undefined4 * UObject::sub_00b66620(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_01ff98d0);
+  return param_1;
+}
+
+extern undefined * g_01ffa118;
+// @baa 0x00b66640
+undefined4 * UObject::sub_00b66640(void)
+{
+    undefined4 * param_1 = (undefined4 *)this;
+
+  sub_005c7a20();
+  *param_1 = (undefined4)(&g_01ffa118);
+  return param_1;
+}
+
+struct C_00b6b1e0 {
+    int sub_00b6b1e0();
+};
+
+int sub_00b661b0(void);
+// @baa 0x00b6b1e0
+int C_00b6b1e0::sub_00b6b1e0(void)
+{
+    int param_1 = (int)this;
+
+  sub_00b661b0();
+  *(undefined4 *)(param_1 + 0x34) = 0;
+  *(undefined4 *)(param_1 + 0x38) = 0;
+  return param_1;
+}
+
+struct C_00b6b200 {
+    int sub_00b6b200();
+};
+
+int sub_00b66210(void);
+// @baa 0x00b6b200
+int C_00b6b200::sub_00b6b200(void)
+{
+    int param_1 = (int)this;
+
+  sub_00b66210();
+  *(undefined4 *)(param_1 + 0x34) = 0;
+  *(undefined4 *)(param_1 + 0x38) = 0;
+  return param_1;
+}
+
+// @baa 0x00b6b6e0
+IMPLEMENT_CLASS_AT(UPhysXParticleSystemComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnParticleComponents.cpp", 27);
+
+// @baa 0x00b6b7f0
+bool UPhysXParticleSystemComponent::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
 }

@@ -1,4 +1,4 @@
-// UnEdFactTerrain.cpp: 31 functions
+// UnEdFactTerrain.cpp: 35 functions
 // Placed here by: neighbours 15, callers 11, file 5.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -143,3 +143,17 @@ void C::sub_00f5e0b0() {
 
 // @baa 0x00f657c0
 IMPLEMENT_CLASS_AT(UTerrainFactory, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnEdFactTerrain.cpp", 1466);
+
+// @baa 0x00f4ca80
+int sub_00f4ca80(int a0, int a1) { return a1; }
+
+// @baa 0x00f4eb70
+int UTerrainHeightMapFactoryG16BMPT3D::vf_000(void) { return 1; }
+
+// @baa 0x00f55400
+
+// @baa 0x00f55510
+bool UTerrainHeightMapFactoryG16BMPT3D::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}

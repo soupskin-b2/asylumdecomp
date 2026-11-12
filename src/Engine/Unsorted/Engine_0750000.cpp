@@ -1,4 +1,4 @@
-// Engine_0750000.cpp (part 1 of 4): 473 functions
+// Engine_0750000.cpp (part 1 of 4): 349 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1254,52 +1254,6 @@ undefined4 sub_00754640(undefined4 param_1, undefined4 param_2)
   return param_2;
 }
 
-int sub_00c97670(void);
-int sub_00cb2d80(...);
-extern undefined4 g_026c3cb8;
-// @baa 0x00754650
-int sub_00754650(void)
-{
-  if (g_026c3cb8 == 0) {
-    g_026c3cb8 = sub_00cb2d80(L"Engine");
-    sub_00c97670();
-  }
-  return g_026c3cb8;
-}
-
-int sub_00cb2e40(...);
-int sub_00cbbec0(void);
-extern undefined4 g_026c3cbc;
-// @baa 0x00754680
-int sub_00754680(void)
-{
-  if (g_026c3cbc == 0) {
-    g_026c3cbc = sub_00cb2e40(L"Engine");
-    sub_00cbbec0();
-  }
-  return g_026c3cbc;
-}
-
-// @baa 0x007546b0
-int sub_007546b0(int a0, int a1) { return a1; }
-
-// @baa 0x007546c0
-int sub_007546c0(int a0, int a1) { return a1; }
-
-// @baa 0x007546d0
-int sub_007546d0(int a0, int a1) { return a1; }
-
-extern undefined * g_01efdd30;
-// @baa 0x007546e0
-undefined4 * UObject::sub_007546e0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_01efdd30);
-  return param_1;
-}
-
 // @baa 0x00754700
 IMPLEMENT_CLASS_AT(UDestructibleDamageParameters, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 121);
 
@@ -1310,20 +1264,6 @@ undefined4 sub_00754780(undefined4 param_1, undefined4 param_2)
   return param_2;
 }
 
-// @baa 0x00754790
-int sub_00754790(int a0, int a1) { return a1; }
-
-extern undefined * g_01efde40;
-// @baa 0x007547a0
-undefined4 * UObject::sub_007547a0(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_01efde40);
-  return param_1;
-}
-
 // @baa 0x007547c0
 IMPLEMENT_CLASS_AT(UMacroReachSpec, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 128);
 
@@ -1332,17 +1272,6 @@ IMPLEMENT_CLASS_AT(UMacroReachSpec, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngi
 undefined4 sub_00754840(undefined4 param_1, undefined4 param_2)
 {
   return param_2;
-}
-
-extern undefined * g_01efdf50;
-// @baa 0x00754850
-undefined4 * UObject::sub_00754850(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_01efdf50);
-  return param_1;
 }
 
 // @baa 0x00754870
@@ -1370,9 +1299,6 @@ int sub_00754930(int a0, int a1) { return a1; }
 
 // @baa 0x00754940
 IMPLEMENT_CLASS_AT(UPrimitiveComponentFactory, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActorComponent.cpp", 51);
-
-// @baa 0x007549a0
-int sub_007549a0(void) { return 1; }
 
 // @baa 0x007549b0
 int UPrimitiveComponentFactory::vf_110(int a0) { return 0; }
@@ -1588,9 +1514,6 @@ bool C_00754ce0::sub_00754ce0(void)
   return *(int *)(param_1 + 8) == 0;
 }
 
-// @baa 0x00754d50
-IMPLEMENT_CLASS_AT(UTexture2DDynamic, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\Texture2DDynamic.cpp", 8);
-
 // @baa 0x00754e60
 int UTexture2DDynamic::vf_000(void) { return 1; }
 
@@ -1621,18 +1544,6 @@ DOUBLE UTexture2DDynamic::vf_10c() {
     int param_1 = (int)this;
 
   return (float10)*(int *)(param_1 + 0xb0);
-}
-
-// @baa 0x00754f50
-IMPLEMENT_CLASS_AT(UTextureCube, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\TextureCube.cpp", 12);
-
-// @baa 0x00755060
-int UTextureCube::vf_000(void) { return 1; }
-
-// @baa 0x00755070
-bool UTextureCube::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 struct C_00755100 {
@@ -1727,158 +1638,9 @@ undefined4 C_00755b90::sub_00755b90(void)
   return *(undefined4 *)(*(int *)(param_1 + 0x60) + 0xb4);
 }
 
-// @baa 0x00755ba0
-IMPLEMENT_CLASS_AT(UTextureRenderTarget, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\TextureRenderTarget.cpp", 12);
-
 extern char g_026b4090[];
 // @baa 0x00755d80
 int sub_00755d80(void) { return (int)g_026b4090; }
-
-struct C_00755ed0 {
-    undefined4 sub_00755ed0();
-};
-
-// @baa 0x00755ed0
-undefined4 C_00755ed0::sub_00755ed0(void)
-{
-    int param_1 = (int)this;
-
-  return *(undefined4 *)(*(int *)(param_1 + 0x60) + 0xb4);
-}
-
-struct C_00755ee0 {
-    undefined4 sub_00755ee0();
-};
-
-// @baa 0x00755ee0
-undefined4 C_00755ee0::sub_00755ee0(void)
-{
-    int param_1 = (int)this;
-
-  return *(undefined4 *)(*(int *)(param_1 + 0x60) + 0xb8);
-}
-
-// @baa 0x00755ef0
-int UScriptedTexture::vf_000(void) { return 1; }
-
-int sub_0073cbc0(void);
-// @baa 0x00755f00
-void UScriptedTexture::vf_114(void)
-{
-    int param_1 = (int)this;
-
-  sub_0073cbc0();
-  *(uint *)(param_1 + 0xd0) = *(uint *)(param_1 + 0xd0) | 1;
-  return;
-}
-
-extern int g_01efe320;
-// A small two-dword value struct used by DecalComponent.cpp.
-struct FDecalValue
-{
-    FDecalValue* sub_00755f20(int* Src);
-    int Value;  // 0x0
-    int Unk04;  // 0x4
-};
-
-// @baa 0x00755f20
-FDecalValue* FDecalValue::sub_00755f20(int* Src)
-{
-    Value = (int)&g_01efe320;
-    Unk04 = *Src;
-    return this;
-}
-
-extern char g_01ef2e0c[];
-// @baa 0x00755f40
-int sub_00755f40(void) { return (int)g_01ef2e0c; }
-
-extern int g_01efe32c;
-// A small two-dword value struct used by DecalComponent.cpp.
-struct FDecalValue_00755f50
-{
-    FDecalValue_00755f50* sub_00755f50(int* Src);
-    int Value;  // 0x0
-    int Unk04;  // 0x4
-};
-
-// @baa 0x00755f50
-FDecalValue_00755f50* FDecalValue_00755f50::sub_00755f50(int* Src)
-{
-    Value = (int)&g_01efe32c;
-    Unk04 = *Src;
-    return this;
-}
-
-extern char g_01ef2e40[];
-// @baa 0x00755f70
-int sub_00755f70(void) { return (int)g_01ef2e40; }
-
-extern int g_01efe338;
-// A small two-dword value struct used by DecalComponent.cpp.
-struct FDecalValue_00755f80
-{
-    FDecalValue_00755f80* sub_00755f80(int* Src);
-    int Value;  // 0x0
-    int Unk04;  // 0x4
-};
-
-// @baa 0x00755f80
-FDecalValue_00755f80* FDecalValue_00755f80::sub_00755f80(int* Src)
-{
-    Value = (int)&g_01efe338;
-    Unk04 = *Src;
-    return this;
-}
-
-extern char g_01ef2e6c[];
-// @baa 0x00755fa0
-int sub_00755fa0(void) { return (int)g_01ef2e6c; }
-
-// @baa 0x00755fb0
-void UScriptedTexture::sub_00755fb0(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
-
-// @baa 0x00755fc0
-void UScriptedTexture::sub_00755fc0(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
-
-// @baa 0x00755fd0
-void UScriptedTexture::sub_00755fd0(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
-
-// @baa 0x00755fe0
-undefined4 * UScriptedTexture::sub_00755fe0(byte param_2)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  *param_1 = (undefined4)(&g_01ebb554);
-  if ((param_2 & 1) != 0) {
-    sub_0053dfa0(param_1);
-  }
-  return param_1;
-}
-
-// @baa 0x00756000
-undefined4 * UScriptedTexture::sub_00756000(byte param_2)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  *param_1 = (undefined4)(&g_01ebb554);
-  if ((param_2 & 1) != 0) {
-    sub_0053dfa0(param_1);
-  }
-  return param_1;
-}
-
-// @baa 0x00756020
-undefined4 * UScriptedTexture::sub_00756020(byte param_2)
-{
-    undefined4 * param_1 = (undefined4 *)this;
-
-  *param_1 = (undefined4)(&g_01ebb554);
-  if ((param_2 & 1) != 0) {
-    sub_0053dfa0(param_1);
-  }
-  return param_1;
-}
 
 struct C_007561c0 {
     undefined4 sub_007561c0();
@@ -1988,144 +1750,6 @@ int sub_007566a0(void)
   return g_026b5ba4;
 }
 
-// @baa 0x007566d0
-IMPLEMENT_CLASS_AT(AActor, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 32);
-
-// @baa 0x007567e0
-int AActor::vf_000(void) { return 1; }
-
-// @baa 0x007567f0
-bool AActor::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00756830
-int ALight::vf_000(void) { return 1; }
-
-// @baa 0x00756840
-int ADirectionalLight::vf_000(void) { return 1; }
-
-// @baa 0x00756850
-int ADirectionalLightToggleable::vf_000(void) { return 1; }
-
-// @baa 0x00756860
-int APointLight::vf_000(void) { return 1; }
-
-// @baa 0x00756870
-int APointLightMovable::vf_000(void) { return 1; }
-
-// @baa 0x00756880
-int APointLightToggleable::vf_000(void) { return 1; }
-
-// @baa 0x00756890
-int ASpotLight::vf_000(void) { return 1; }
-
-// @baa 0x007568a0
-int ASpotLightMovable::vf_000(void) { return 1; }
-
-// @baa 0x007568b0
-int ASpotLightToggleable::vf_000(void) { return 1; }
-
-// @baa 0x007568c0
-int AClipMarker::vf_000(void) { return 1; }
-
-// @baa 0x007568d0
-int APolyMarker::vf_000(void) { return 1; }
-
-// @baa 0x00756900
-int ANote::vf_000(void) { return 1; }
-
-// @baa 0x00756950
-int AZoneInfo::vf_000(void) { return 1; }
-
-// @baa 0x00756960
-IMPLEMENT_CLASS_AT(UReachSpec, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 49);
-
-// @baa 0x00756a70
-int UReachSpec::vf_000(void) { return 1; }
-
-// @baa 0x00756a80
-bool UReachSpec::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00756ac0
-int UForcedReachSpec::vf_000(void) { return 1; }
-
-// @baa 0x00756ad0
-int UAdvancedReachSpec::vf_000(void) { return 1; }
-
-// @baa 0x00756ae0
-int ULadderReachSpec::vf_000(void) { return 1; }
-
-// @baa 0x00756af0
-int UProscribedReachSpec::vf_000(void) { return 1; }
-
-// @baa 0x00756b00
-int USlotToSlotReachSpec::vf_000(void) { return 1; }
-
-// @baa 0x00756b10
-int UMantleReachSpec::vf_000(void) { return 1; }
-
-// @baa 0x00756b20
-int USwatTurnReachSpec::vf_000(void) { return 1; }
-
-// @baa 0x00756b30
-int UCoverSlipReachSpec::vf_000(void) { return 1; }
-
-// @baa 0x00756b40
-int UWallTransReachSpec::vf_000(void) { return 1; }
-
-// @baa 0x00756b50
-int UFloorToCeilingReachSpec::vf_000(void) { return 1; }
-
-// @baa 0x00756b60
-int UCeilingReachSpec::vf_000(void) { return 1; }
-
-// @baa 0x00756b70
-int APathNode::vf_000(void) { return 1; }
-
-// @baa 0x00756b80
-int ANavigationPoint::vf_000(void) { return 1; }
-
-// @baa 0x00756b90
-IMPLEMENT_CLASS_AT(AScout, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 63);
-
-// @baa 0x00756ca0
-int AScout::vf_000(void) { return 1; }
-
-// @baa 0x00756cb0
-bool AScout::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00756cf0
-int AProjectile::vf_000(void) { return 1; }
-
-// @baa 0x00756d00
-int ATeleporter::vf_000(void) { return 1; }
-
-// @baa 0x00756d10
-int APlayerStart::vf_000(void) { return 1; }
-
-// @baa 0x00756d20
-int AKeypoint::vf_000(void) { return 1; }
-
-// @baa 0x00756d30
-int AInventory::vf_000(void) { return 1; }
-
-// @baa 0x00756d40
-int AInventoryManager::vf_000(void) { return 1; }
-
-// @baa 0x00756d50
-int APickupFactory::vf_000(void) { return 1; }
-
-// @baa 0x00756d60
-int ATrigger::vf_000(void) { return 1; }
-
 // @baa 0x00756d90
 // @baa 0x00756ea0
 int USavedMove::vf_000(void) { return 1; }
@@ -2135,117 +1759,6 @@ bool USavedMove::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
-
-// @baa 0x00756ef0
-int AInfo::vf_000(void) { return 1; }
-
-// @baa 0x00756f00
-int AReplicationInfo::vf_000(void) { return 1; }
-
-// @baa 0x00756f10
-int APlayerReplicationInfo::vf_000(void) { return 1; }
-
-// @baa 0x00756f20
-int AInternetInfo::vf_000(void) { return 1; }
-
-// @baa 0x00756f50
-int ADroppedPickup::vf_000(void) { return 1; }
-
-// @baa 0x00756f60
-int AController::vf_000(void) { return 1; }
-
-// @baa 0x00756f70
-int AAIController::vf_000(void) { return 1; }
-
-// @baa 0x00756fa0
-int ADebugCameraController::vf_000(void) { return 1; }
-
-// @baa 0x00756fb0
-int AMutator::vf_000(void) { return 1; }
-
-// @baa 0x00756fc0
-IMPLEMENT_CLASS_AT(AVehicle, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 86);
-
-// @baa 0x007570d0
-int AVehicle::vf_000(void) { return 1; }
-
-// @baa 0x007570e0
-bool AVehicle::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00757120
-int ALadder::vf_000(void) { return 1; }
-
-// @baa 0x00757130
-IMPLEMENT_CLASS_AT(UDamageType, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 88);
-
-// @baa 0x00757240
-int UDamageType::vf_000(void) { return 1; }
-
-// @baa 0x00757250
-bool UDamageType::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x00757290
-int UKillZDamageType::vf_000(void) { return 1; }
-
-// @baa 0x007572a0
-int ABrush::vf_000(void) { return 1; }
-
-// @baa 0x007572b0
-int AVolume::vf_000(void) { return 1; }
-
-// @baa 0x007572c0
-int APhysicsVolume::vf_000(void) { return 1; }
-
-// @baa 0x007572d0
-int AWaterVolume::vf_000(void) { return 1; }
-
-// @baa 0x007572e0
-int AGravityVolume::vf_000(void) { return 1; }
-
-// @baa 0x007572f0
-int ADefaultPhysicsVolume::vf_000(void) { return 1; }
-
-// @baa 0x00757300
-int ALadderVolume::vf_000(void) { return 1; }
-
-// @baa 0x00757310
-int APotentialClimbWatcher::vf_000(void) { return 1; }
-
-// @baa 0x00757320
-int ABlockingVolume::vf_000(void) { return 1; }
-
-// @baa 0x00757330
-int AAutoLadder::vf_000(void) { return 1; }
-
-// @baa 0x00757340
-int ATeamInfo::vf_000(void) { return 1; }
-
-// @baa 0x00757350
-int AObjective::vf_000(void) { return 1; }
-
-// @baa 0x00757360
-IMPLEMENT_CLASS_AT(UEdCoordSystem, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 102);
-
-// @baa 0x00757470
-int UEdCoordSystem::vf_000(void) { return 1; }
-
-// @baa 0x00757480
-bool UEdCoordSystem::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x007574c0
-int ALiftCenter::vf_000(void) { return 1; }
-
-// @baa 0x007574d0
-int ALiftExit::vf_000(void) { return 1; }
 
 // @baa 0x007574e0
 // @baa 0x007575f0
@@ -2257,39 +1770,6 @@ bool UBookMark::vf_004()
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
-// @baa 0x00757640
-IMPLEMENT_CLASS_AT(UClipPadEntry, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 106);
-
-// @baa 0x00757750
-int UClipPadEntry::vf_000(void) { return 1; }
-
-// @baa 0x00757760
-bool UClipPadEntry::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
-// @baa 0x007577a0
-int ATriggerVolume::vf_000(void) { return 1; }
-
-// @baa 0x007577b0
-int AVolumePathNode::vf_000(void) { return 1; }
-
-// @baa 0x007577c0
-int ADoorMarker::vf_000(void) { return 1; }
-
-// @baa 0x007577d0
-int ADynamicBlockingVolume::vf_000(void) { return 1; }
-
-// @baa 0x007577e0
-int APortalMarker::vf_000(void) { return 1; }
-
-// @baa 0x007577f0
-int UTeleportReachSpec::vf_000(void) { return 1; }
-
-// @baa 0x00757800
-int ALevelStreamingVolume::vf_000(void) { return 1; }
-
 // @baa 0x00757810
 // @baa 0x00757920
 int UMapInfo::vf_000(void) { return 1; }
@@ -2299,15 +1779,6 @@ bool UMapInfo::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
-
-// @baa 0x00757970
-int ACullDistanceVolume::vf_000(void) { return 1; }
-
-// @baa 0x007579a0
-int ASkyLight::vf_000(void) { return 1; }
-
-// @baa 0x007579b0
-int ASkyLightToggleable::vf_000(void) { return 1; }
 
 // @baa 0x007579c0
 // @baa 0x00757ad0
@@ -2319,9 +1790,6 @@ bool UDestructibleDamageParameters::vf_004()
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
-// @baa 0x00757b20
-int AAirNode::vf_000(void) { return 1; }
-
 // @baa 0x00757b30
 // @baa 0x00757c40
 int UMacroReachSpec::vf_000(void) { return 1; }
@@ -2331,9 +1799,6 @@ bool UMacroReachSpec::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
-
-// @baa 0x00757c90
-int AMacroReachSpecInfo::vf_000(void) { return 1; }
 
 // @baa 0x007580f0
 void AActor::sub_007580f0(undefined1 param_2)
@@ -2400,19 +1865,6 @@ undefined4 APlayerReplicationInfo::sub_00758b80(int param_2)
 
 // @baa 0x00758d90
 void AActor::SetHUDLocation(FVector NewHUDLocation) {  }
-
-int sub_0075bb70(void);
-// @baa 0x0075bd80
-undefined4 UTextureCube::sub_0075bd80(byte param_2)
-{
-    undefined4 param_1 = (undefined4)this;
-
-  sub_0075bb70();
-  if ((param_2 & 1) != 0) {
-    sub_0053dfa0(param_1);
-  }
-  return param_1;
-}
 
 struct T_0075ecb0;
 // @baa 0x0075ecb0

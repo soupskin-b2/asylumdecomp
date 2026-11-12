@@ -1,19 +1,7 @@
-// Engine_07b0000.cpp (part 1 of 3): 102 functions
+// Engine_07b0000.cpp (part 1 of 3): 101 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
-
-struct C {
-    bool sub_007b0ac0();
-};
-
-// @baa 0x007b0ac0
-bool C::sub_007b0ac0(void)
-{
-    int param_1 = (int)this;
-
-  return *(char *)(param_1 + 0x14) != '\0';
-}
 
 void sub_00656490();
 // @baa 0x007b1140

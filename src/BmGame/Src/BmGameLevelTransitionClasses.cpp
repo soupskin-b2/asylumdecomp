@@ -1,4 +1,4 @@
-// BmGameLevelTransitionClasses.cpp: 57 functions
+// BmGameLevelTransitionClasses.cpp: 92 functions
 // Placed here by: neighbours 25, file 13, callers 12, class 7.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -309,4 +309,425 @@ void This::sub_0158ca80(float dt)
         }
     }
     ((void (__fastcall *)(void *)) (*(void ***)this)[0x364/4])(this);
+}
+
+// @baa 0x0154cf50
+int ARGameRI::vf_000(void) { return 1; }
+
+// @baa 0x0154cf60
+bool ARGameRI::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+extern float g_025db4c4;
+// @baa 0x01557f50
+float ARGameRI::vf_3b4(void) {
+    return g_025db4c4;
+}
+
+// @baa 0x01558ec0
+int sub_01558ec0(int a0, int a1) { return a1; }
+
+struct C_01558ed0 { C_01558ed0* sub_01558ed0(int a0); };
+
+// @baa 0x01558ed0
+C_01558ed0* C_01558ed0::sub_01558ed0(int a0) { return this; }
+
+// @baa 0x01558f40
+int sub_01558f40(int a0, int a1) { return a1; }
+
+struct C_01558f50 { C_01558f50* sub_01558f50(int a0); };
+
+// @baa 0x01558f50
+C_01558f50* C_01558f50::sub_01558f50(int a0) { return this; }
+
+struct C_01558fb0 { C_01558fb0* sub_01558350(int a0); };
+
+extern "C" int g_026e32d0;
+extern "C" int g_026e32d4;
+struct UObjectThunk_01558fb0 {
+    virtual void V00();
+    virtual void V04();
+    virtual void V08();
+    virtual void V0c();
+    virtual void V10();
+    virtual void V14();
+    virtual void V18();
+    virtual void V1c();
+    virtual void V20();
+    virtual void V24();
+    virtual void V28();
+    virtual void V2c();
+    virtual void V30();
+    virtual void V34();
+    virtual void V38();
+    virtual void V3c();
+    virtual void V40();
+    virtual void V44();
+    virtual void V48();
+    virtual void V4c();
+    virtual void V50();
+    virtual void V54();
+    virtual void V58();
+    virtual void V5c();
+    virtual void V60();
+    virtual void V64();
+    virtual void V68();
+    virtual void V6c();
+    virtual void V70();
+    virtual void V74();
+    virtual void V78();
+    virtual void V7c();
+    virtual void V80();
+    virtual void V84();
+    virtual void V88();
+    virtual void V8c();
+    virtual void V90();
+    virtual void V94();
+    virtual void V98();
+    virtual void V9c();
+    virtual void VA0();
+    virtual void VA4();
+    virtual void VA8();
+    virtual void VAc();
+    virtual void VB0();
+    virtual void VB4();
+    virtual void VB8();
+    virtual void VBc();
+    virtual void VC0();
+    virtual void VC4();
+    virtual void VC8();
+    virtual void VCc();
+    virtual void VD0();
+    virtual void VD4();
+    virtual void VD8();
+    virtual void VDc();
+    virtual void VE0();
+    virtual void VE4();
+    virtual void VE8();
+    virtual void ProcessEvent(int, int, int);
+    int __thiscall sub_005d7d10(int, int, int);
+    void sub_01558fb0();
+};
+
+// @baa 0x01558fb0
+void UObjectThunk_01558fb0::sub_01558fb0()
+{
+    this->ProcessEvent(this->sub_005d7d10(g_026e32d0, g_026e32d4, 0), 0, 0);
+}
+
+struct C_01558fe0 { C_01558fe0* sub_01558350(int a0); };
+
+extern "C" int g_026e2ba4;
+extern "C" int g_026e2ba8;
+struct UObjectThunk_01558fe0 {
+    virtual void V00();
+    virtual void V04();
+    virtual void V08();
+    virtual void V0c();
+    virtual void V10();
+    virtual void V14();
+    virtual void V18();
+    virtual void V1c();
+    virtual void V20();
+    virtual void V24();
+    virtual void V28();
+    virtual void V2c();
+    virtual void V30();
+    virtual void V34();
+    virtual void V38();
+    virtual void V3c();
+    virtual void V40();
+    virtual void V44();
+    virtual void V48();
+    virtual void V4c();
+    virtual void V50();
+    virtual void V54();
+    virtual void V58();
+    virtual void V5c();
+    virtual void V60();
+    virtual void V64();
+    virtual void V68();
+    virtual void V6c();
+    virtual void V70();
+    virtual void V74();
+    virtual void V78();
+    virtual void V7c();
+    virtual void V80();
+    virtual void V84();
+    virtual void V88();
+    virtual void V8c();
+    virtual void V90();
+    virtual void V94();
+    virtual void V98();
+    virtual void V9c();
+    virtual void VA0();
+    virtual void VA4();
+    virtual void VA8();
+    virtual void VAc();
+    virtual void VB0();
+    virtual void VB4();
+    virtual void VB8();
+    virtual void VBc();
+    virtual void VC0();
+    virtual void VC4();
+    virtual void VC8();
+    virtual void VCc();
+    virtual void VD0();
+    virtual void VD4();
+    virtual void VD8();
+    virtual void VDc();
+    virtual void VE0();
+    virtual void VE4();
+    virtual void VE8();
+    virtual void ProcessEvent(int, int, int);
+    int __thiscall sub_005d7d10(int, int, int);
+    void sub_01558fe0();
+};
+
+// @baa 0x01558fe0
+void UObjectThunk_01558fe0::sub_01558fe0()
+{
+    this->ProcessEvent(this->sub_005d7d10(g_026e2ba4, g_026e2ba8, 0), 0, 0);
+}
+
+struct C_01559010 { C_01559010* sub_01558350(int a0); };
+
+extern "C" int g_026e2aa0;
+extern "C" int g_026e2aa4;
+struct UObjectThunk_01559010 {
+    virtual void V00();
+    virtual void V04();
+    virtual void V08();
+    virtual void V0c();
+    virtual void V10();
+    virtual void V14();
+    virtual void V18();
+    virtual void V1c();
+    virtual void V20();
+    virtual void V24();
+    virtual void V28();
+    virtual void V2c();
+    virtual void V30();
+    virtual void V34();
+    virtual void V38();
+    virtual void V3c();
+    virtual void V40();
+    virtual void V44();
+    virtual void V48();
+    virtual void V4c();
+    virtual void V50();
+    virtual void V54();
+    virtual void V58();
+    virtual void V5c();
+    virtual void V60();
+    virtual void V64();
+    virtual void V68();
+    virtual void V6c();
+    virtual void V70();
+    virtual void V74();
+    virtual void V78();
+    virtual void V7c();
+    virtual void V80();
+    virtual void V84();
+    virtual void V88();
+    virtual void V8c();
+    virtual void V90();
+    virtual void V94();
+    virtual void V98();
+    virtual void V9c();
+    virtual void VA0();
+    virtual void VA4();
+    virtual void VA8();
+    virtual void VAc();
+    virtual void VB0();
+    virtual void VB4();
+    virtual void VB8();
+    virtual void VBc();
+    virtual void VC0();
+    virtual void VC4();
+    virtual void VC8();
+    virtual void VCc();
+    virtual void VD0();
+    virtual void VD4();
+    virtual void VD8();
+    virtual void VDc();
+    virtual void VE0();
+    virtual void VE4();
+    virtual void VE8();
+    virtual void ProcessEvent(int, int, int);
+    int __thiscall sub_005d7d10(int, int, int);
+    void sub_01559010();
+};
+
+// @baa 0x01559010
+void UObjectThunk_01559010::sub_01559010()
+{
+    this->ProcessEvent(this->sub_005d7d10(g_026e2aa0, g_026e2aa4, 0), 0, 0);
+}
+
+// @baa 0x01559040
+int sub_01559040(int a0, int a1) { return a1; }
+
+struct C_01559050 { C_01559050* sub_01559050(int a0); };
+
+// @baa 0x01559050
+C_01559050* C_01559050::sub_01559050(int a0) { return this; }
+
+struct C_01559060 { C_01559060* sub_01559060(int a0); };
+
+// @baa 0x01559060
+C_01559060* C_01559060::sub_01559060(int a0) { return this; }
+
+struct C_01559070 { C_01559070* sub_01559070(int a0); };
+
+// @baa 0x01559070
+C_01559070* C_01559070::sub_01559070(int a0) { return this; }
+
+struct C_01559080 { C_01559080* sub_01559080(int a0); };
+
+// @baa 0x01559080
+C_01559080* C_01559080::sub_01559080(int a0) { return this; }
+
+struct C_01559120 { C_01559120* sub_01558350(int a0); };
+
+extern "C" int g_026e2f58;
+extern "C" int g_026e2f5c;
+struct UObjectThunk_01559120 {
+    virtual void V00();
+    virtual void V04();
+    virtual void V08();
+    virtual void V0c();
+    virtual void V10();
+    virtual void V14();
+    virtual void V18();
+    virtual void V1c();
+    virtual void V20();
+    virtual void V24();
+    virtual void V28();
+    virtual void V2c();
+    virtual void V30();
+    virtual void V34();
+    virtual void V38();
+    virtual void V3c();
+    virtual void V40();
+    virtual void V44();
+    virtual void V48();
+    virtual void V4c();
+    virtual void V50();
+    virtual void V54();
+    virtual void V58();
+    virtual void V5c();
+    virtual void V60();
+    virtual void V64();
+    virtual void V68();
+    virtual void V6c();
+    virtual void V70();
+    virtual void V74();
+    virtual void V78();
+    virtual void V7c();
+    virtual void V80();
+    virtual void V84();
+    virtual void V88();
+    virtual void V8c();
+    virtual void V90();
+    virtual void V94();
+    virtual void V98();
+    virtual void V9c();
+    virtual void VA0();
+    virtual void VA4();
+    virtual void VA8();
+    virtual void VAc();
+    virtual void VB0();
+    virtual void VB4();
+    virtual void VB8();
+    virtual void VBc();
+    virtual void VC0();
+    virtual void VC4();
+    virtual void VC8();
+    virtual void VCc();
+    virtual void VD0();
+    virtual void VD4();
+    virtual void VD8();
+    virtual void VDc();
+    virtual void VE0();
+    virtual void VE4();
+    virtual void VE8();
+    virtual void ProcessEvent(int, int, int);
+    int __thiscall sub_005d7d10(int, int, int);
+    void sub_01559120();
+};
+
+// @baa 0x01559120
+void UObjectThunk_01559120::sub_01559120()
+{
+    this->ProcessEvent(this->sub_005d7d10(g_026e2f58, g_026e2f5c, 0), 0, 0);
+}
+
+// @baa 0x015593f0
+
+// @baa 0x01559500
+int ARLevelVolume::vf_000(void) { return 1; }
+
+// @baa 0x01559510
+bool ARLevelVolume::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x01559550
+
+// @baa 0x01559660
+int ARLevelTransition::vf_000(void) { return 1; }
+
+// @baa 0x01559670
+bool ARLevelTransition::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x015596b0
+int ARLevelTransitionP::vf_000(void) { return 1; }
+
+// @baa 0x015596c0
+int ARLevelTransitionDoorBase::vf_000(void) { return 1; }
+
+// @baa 0x015596d0
+int ARLevelTransitionDoorBunkerNativeBase::vf_000(void) { return 1; }
+
+// @baa 0x015596e0
+int ARLevelTransitionPath::vf_000(void) { return 1; }
+
+// @baa 0x015596f0
+
+// @baa 0x01559800
+int URLevelTransitionRenderingComponent::vf_000(void) { return 1; }
+
+// @baa 0x01559810
+bool URLevelTransitionRenderingComponent::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x01559850
+
+// @baa 0x01559960
+int URPlayerStartInLevelRenderingComponent::vf_000(void) { return 1; }
+
+// @baa 0x01559970
+bool URPlayerStartInLevelRenderingComponent::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x015599b0
+
+// @baa 0x01559ac0
+int ARPlayerStartInLevel::vf_000(void) { return 1; }
+
+// @baa 0x01559ad0
+bool ARPlayerStartInLevel::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
 }

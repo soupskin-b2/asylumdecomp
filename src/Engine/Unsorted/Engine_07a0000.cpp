@@ -1,13 +1,7 @@
-// Engine_07a0000.cpp (part 1 of 4): 236 functions
+// Engine_07a0000.cpp (part 1 of 4): 224 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
-
-// @baa 0x007a0000
-bool UCheatManager::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
 
 int sub_007814b0(void);
 extern undefined4 g_026b62b8;
@@ -141,32 +135,8 @@ undefined1 ATeamInfo::vf_144(void)
 // @baa 0x007a2050
 void APlayerController::vf_38c(int a0, int a1, int a2, int a3) {  }
 
-// @baa 0x007a20c0
-IMPLEMENT_CLASS_AT(UDistributionFloatConstant, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnDistributions.cpp", 8);
-
-// @baa 0x007a25f0
-int UDistributionFloatUniformCurve::vf_000(void) { return 1; }
-
-// @baa 0x007a2600
-bool UDistributionFloatUniformCurve::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
-
 // @baa 0x007a2640
 int UDistributionFloatParameterBase::vf_000(void) { return 1; }
-
-// @baa 0x007a4b50
-IMPLEMENT_CLASS_AT(UForceFeedbackManager, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnForceFeedbackWaveform.cpp", 10);
-
-// @baa 0x007a4c60
-int UForceFeedbackManager::vf_000(void) { return 1; }
-
-// @baa 0x007a4c70
-bool UForceFeedbackManager::vf_004()
-{
-    return GetClass()->GetSuperClass() != Super::StaticClass();
-}
 
 // @baa 0x007a4cb0
 int sub_007a4cb0(int a0, int a1) { return a1; }
@@ -359,44 +329,6 @@ struct C_007a4df0 { C_007a4df0* sub_007a4df0(int a0); };
 
 // @baa 0x007a4df0
 C_007a4df0* C_007a4df0::sub_007a4df0(int a0) { return this; }
-
-int sub_008038f0(void);
-// @baa 0x007a7ac0
-undefined4 AFracturedStaticMeshPart::vf_178(void)
-{
-    int param_1 = (int)this;
-
-  int iVar1;
-  
-  if ((*(byte *)(param_1 + 0x238) & 1) == 0) {
-    iVar1 = sub_008038f0();
-    if (iVar1 == 0) {
-      return 0;
-    }
-  }
-  return 1;
-}
-
-extern float g_026c0dd4;
-// @baa 0x007a7b30
-float AFractureManager::vf_354(void) { return g_026c0dd4; }
-
-extern float g_026c0dd8;
-// @baa 0x007a7b40
-float AFractureManager::vf_358(void) { return g_026c0dd8; }
-
-extern float g_026c0ddc;
-// @baa 0x007a7b50
-float AFractureManager::vf_35c() {
-    return g_026c0ddc;
-}
-
-extern float g_026c0de0;
-// @baa 0x007a7b60
-float AFractureManager::vf_360(void)
-{
-    return g_026c0de0;
-}
 
 struct C_007a7b70 { int a, b, c; C_007a7b70(); };
 

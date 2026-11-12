@@ -1,4 +1,4 @@
-// UnrealEd_1330000.cpp (part 1 of 3): 60 functions
+// UnrealEd_1330000.cpp (part 1 of 3): 58 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -99,14 +99,6 @@ undefined4 UAnimNodeEditInfo_AimOffset::vf_118(void)
 
 // @baa 0x013370b0
 void UAnimNodeEditInfo_AimOffset::vf_124(int a0, int a1) {  }
-
-extern char g_02251ba4[];
-// @baa 0x013370c0
-int sub_013370c0(void) { return (int)g_02251ba4; }
-
-extern char g_026d7d44[];
-// @baa 0x013370d0
-int sub_013370d0(void) { return (int)g_026d7d44; }
 
 extern char g_025e8efc[];
 // @baa 0x013372d0

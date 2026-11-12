@@ -1,4 +1,4 @@
-// Core_05e0000.cpp (part 1 of 5): 59 functions
+// Core_05e0000.cpp (part 1 of 5): 55 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -16,18 +16,6 @@ undefined4 sub_005ebc70(void)
   }
   return 1;
 }
-
-// @baa 0x005ebc90
-int UProperty::vf_16c(void) { return 0; }
-
-// @baa 0x005ebd50
-int UMapProperty::vf_16c(void) { return 0; }
-
-// @baa 0x005ebd70
-void UProperty::vf_178(int a0, int a1) {  }
-
-// @baa 0x005ebd80
-void UMapProperty::vf_178(int a0, int a1) {  }
 
 struct C {
     bool sub_005ebff0();
