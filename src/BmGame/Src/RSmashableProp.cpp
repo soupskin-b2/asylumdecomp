@@ -1,4 +1,4 @@
-// RSmashableProp.cpp: 28 functions
+// RSmashableProp.cpp: 30 functions
 // Placed here by: class 9, neighbours 6, callers 3, file 3.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -201,3 +201,85 @@ UObject* URSmashablePropConfigFactoryNew::FactoryCreateNew(UClass* InClass, UObj
 {
 	return StaticConstructObject(InClass, InParent, InName, Flags);
 }
+
+extern FName g_026e3900;
+	/* BMGAME_SetupDecalMaterialInstances */
+extern FName g_026e37cc;
+	/* BMGAME_InitXRayMode */
+struct ARSmashableProp__01680090 : public ARSmashableProp
+{
+	/* script events (generated glue, BmGameClasses.h) */
+	void eventSetupDecalMaterialInstances()
+	{
+		ProcessEvent(FindFunctionChecked(g_026e3900), NULL);
+	}
+	void eventInitXRayMode()
+	{
+		ProcessEvent(FindFunctionChecked(g_026e37cc), NULL);
+	}
+	/* natives Classes.h doesn't declare */
+	UBOOL sub_01668ab0(); /* 0x01668ab0 */
+	void sub_0167aab0(); /* 0x0167aab0 */
+	void sub_01668bf0(AActor* Other); /* 0x01668bf0 */
+	void sub_0166b820(); /* 0x0166b820 */
+};
+
+// @baa 0x01680090
+/* Slot 0x1d8 (post-BeginPlay): set up decals and x-ray, then either settle a prop that starts
+ * static or apply its config. */
+void ARSmashableProp::vf_1d8()
+{
+	((ARSmashableProp__01680090*)this)->eventSetupDecalMaterialInstances();
+	((ARSmashableProp__01680090*)this)->eventInitXRayMode();
+	Super::vf_1d8();
+	if (!PropWasSpawned && PropData && PropData->PropRememberWhenSmashed && ((ARSmashableProp__01680090*)this)->sub_01668ab0())
+	{
+		((ARSmashableProp__01680090*)this)->sub_0167aab0();
+		((ARSmashableProp__01680090*)this)->sub_01668bf0(this);
+	}
+	else if (PropData)
+	{
+		((ARSmashableProp__01680090*)this)->sub_0166b820();
+	}
+}
+
+extern FName g_026c41a8;
+	/* ENGINE_SetPhysicalCollisionProperties */
+/* AActor's script event (generated glue, EngineClasses.h) */
+struct ARSmashableProp__0166b6a0 : public ARSmashableProp
+{
+	void eventSetPhysicalCollisionProperties()
+	{
+		ProcessEvent(FindFunctionChecked(g_026c41a8), NULL);
+	}
+	void sub_0166b6a0(); /* 0x0166b6a0, not in Classes.h */
+};
+
+// @baa 0x0166b6a0
+/* Applies the prop's config: mesh, collision, breakable type, forces and flags; clears any
+ * pending break. */
+void ARSmashableProp__0166b6a0::sub_0166b6a0()
+{
+	PropIsBroken = FALSE;
+#line 454 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RSmashableProp.cpp"
+	check(PropData != NULL);
+	StaticMeshComponent->SetStaticMesh(PropData->PropMesh, FALSE);
+	eventSetPhysicalCollisionProperties();
+	SetBreakableType(PropData->PropBreakableType);
+	PropBreakingForce = PropData->PropBreakingForce;
+	PropBreakTimer = PropData->PropBreakTimer;
+	PropExplosiveImpulse = PropData->PropExplosiveImpulse;
+	PropImpulse = PropData->PropStartImpulse;
+	if (PropData->PropIsXRayable)
+	{
+		PropIsXRayable = PropData->PropIsXRayable;
+	}
+	bDoDamage = PropData->PropDoDamage;
+	IgnorePawnCollisions = PropData->IgnorePawnCollisions;
+	sub_0166b2e0(PropData->PropIsStatic);
+	bWorldGeometry = PropData->bWorldGeometry;
+	PropBreakingImpulse = FVector(0.f, 0.f, 0.f);
+	BreakCollideActor = NULL;
+}
+
+#line 286 "candidate.cpp"

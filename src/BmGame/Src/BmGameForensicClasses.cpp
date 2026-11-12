@@ -1,4 +1,4 @@
-// BmGameForensicClasses.cpp: 49 functions
+// BmGameForensicClasses.cpp: 50 functions
 // Placed here by: callers 9, file 9.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -200,4 +200,24 @@ int C_016833d0::sub_016833d0(void)
     int param_1 = (int)this;
 
   return param_1 + -0x1a8;
+}
+
+extern FName g_026e30cc;
+	/* BMGAME_InitialiseDna */
+/* The splat's script event (generated glue, BmGameClasses.h) */
+struct ARForensicDnaSplatStatic_ : public ARForensicDnaSplatStatic
+{
+	void eventInitialiseDna()
+	{
+		ProcessEvent(FindFunctionChecked(g_026e30cc), NULL);
+	}
+};
+
+// @baa 0x01683400
+/* Slot 0x1d8 (the post-BeginPlay route): mark script initialized and let script set the splat up,
+ * instead of the usual PostBeginPlay / SetInitialState. */
+void ARForensicDnaSplatStatic::vf_1d8()
+{
+	bScriptInitialized = TRUE;
+	((ARForensicDnaSplatStatic_*)this)->eventInitialiseDna();
 }

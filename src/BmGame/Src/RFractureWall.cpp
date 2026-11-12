@@ -1,4 +1,4 @@
-// RFractureWall.cpp: 16 functions
+// RFractureWall.cpp: 17 functions
 // Placed here by: class 8, neighbours 2, file 2, callers 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -476,4 +476,36 @@ void ARFractureWallBase::PostEditChange(UProperty* PropertyThatChanged)
         bWorldGeometry = FALSE;
     }
     AActor::PostEditChange(PropertyThatChanged);  // skips AFracturedStaticMeshActor's
+}
+
+extern FName g_026e37d8;
+	/* BMGAME_SaveFragmentRemovedState */
+/* The wall's script event (generated glue, BmGameClasses.h) */
+struct ARFractureWallBase_ : public ARFractureWallBase
+{
+	void eventSaveFragmentRemovedState(INT FragmentIndex, UBOOL bRemoved)
+	{
+		struct RFractureWallBase_eventSaveFragmentRemovedState_Parms
+		{
+			INT FragmentIndex;
+			UBOOL bRemoved;
+		} Parms;
+		Parms.FragmentIndex = FragmentIndex;
+		Parms.bRemoved = bRemoved ? TRUE : FALSE;
+		ProcessEvent(FindFunctionChecked(g_026e37d8), &Parms);
+	}
+};
+
+// @baa 0x016cf530
+/* Records which fragments of the wall have been knocked out. */
+void ARFractureWallBase::vf_3c4()
+{
+	if (FracturedStaticMeshComponent)
+	{
+		const INT NumFragments = FracturedStaticMeshComponent->GetNumFragments();
+		for (INT Idx = 0; Idx < NumFragments; Idx++)
+		{
+			((ARFractureWallBase_*)this)->eventSaveFragmentRemovedState(Idx, !FracturedStaticMeshComponent->IsFragmentVisible(Idx));
+		}
+	}
 }

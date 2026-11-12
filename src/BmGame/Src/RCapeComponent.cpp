@@ -1,4 +1,4 @@
-// RCapeComponent.cpp (part 1 of 2): 79 functions
+// RCapeComponent.cpp (part 1 of 2): 80 functions
 // Placed here by: neighbours 22, file 19, class 12, callers 8.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -707,4 +707,20 @@ UObject* URCapeStateConfigFactoryNew::FactoryCreateNew(UClass* InClass, UObject*
 UObject* URCapeConfigFactoryNew::FactoryCreateNew(UClass* InClass, UObject* InParent, FName InName, QWORD Flags, UObject* Context, FFeedbackContext* Warn)
 {
 	return StaticConstructObject(InClass, InParent, InName, Flags);
+}
+
+struct URCapeComponent__016b20a0 : public URCapeComponent
+{
+    FLOAT sub_016b20a0();
+};
+
+int sub_0155df00(...);
+// @baa 0x016b20a0
+FLOAT URCapeComponent__016b20a0::sub_016b20a0()
+{
+    AActor* O = Owner;
+    int P = sub_0155df00(O);
+    if (P != 0 && *(int*)(P + 0x440) != 0)
+        return *(FLOAT*)(*(int*)(P + 0x440) + 0x2fd8);
+    return 0.0f;
 }

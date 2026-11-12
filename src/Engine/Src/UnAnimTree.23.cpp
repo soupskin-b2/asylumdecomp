@@ -1,4 +1,4 @@
-// UnAnimTree.cpp: 15 functions
+// UnAnimTree.cpp: 19 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -236,4 +236,109 @@ void UAnimNodeBlendMultiBone::InitAnim(USkeletalMeshComponent* MeshComp, UAnimNo
 			SetTargetStartBone(i, BlendTargetList(i).InitTargetStartBone, BlendTargetList(i).InitPerBoneIncrease);
 		}
 	}
+}
+
+// @baa 0x00c558b0
+/* The first child (the source pose) takes this node's whole weight; the others, their share of it. Each child's
+ * node accumulates the weight it gets. */
+void UAnimNodeBlendMultiBone::SetChildrenTotalWeightAccumulator(const INT Index)
+{
+	if (Index == 0)
+	{
+		Children(Index).TotalWeight = NodeTotalWeight;
+		Children(Index).Anim->TotalWeightAccumulator += NodeTotalWeight;
+	}
+	else
+	{
+		Children(Index).TotalWeight = Children(Index).Weight * NodeTotalWeight;
+		Children(Index).Anim->TotalWeightAccumulator += Children(Index).TotalWeight;
+	}
+}
+
+// @baa 0x00c54140
+/* The first child (the source pose) takes this node's whole weight; the others, their share of it. Each child's
+ * node accumulates the weight it gets. */
+void UAnimNodeBlendPerBone::SetChildrenTotalWeightAccumulator(const INT Index)
+{
+	if (Index == 0)
+	{
+		Children(Index).TotalWeight = NodeTotalWeight;
+		Children(Index).Anim->TotalWeightAccumulator += NodeTotalWeight;
+	}
+	else
+	{
+		Children(Index).TotalWeight = Children(Index).Weight * NodeTotalWeight;
+		Children(Index).Anim->TotalWeightAccumulator += Children(Index).TotalWeight;
+	}
+}
+
+// @baa 0x00c56fc0
+void UAnimNodeAdditiveBlending::SetChildrenTotalWeightAccumulator(const INT Index)
+{
+	if (Index == 0)
+	{
+		// the base animation always takes the node's whole weight
+		Children(Index).TotalWeight = NodeTotalWeight;
+		Children(Index).Anim->TotalWeightAccumulator += NodeTotalWeight;
+	}
+	else
+	{
+		// the additive ones are weighted as usual
+		Children(Index).TotalWeight = Children(Index).Weight * NodeTotalWeight;
+		Children(Index).Anim->TotalWeightAccumulator += Children(Index).TotalWeight;
+	}
+}
+
+/* Callees the kit doesn't declare (all out of line here). */
+struct UAnimNode__00c7ed80 : public UAnimNode
+{
+	UBOOL sub_00c53070(UAnimNode* Node);		/* IsChildOf */
+};
+
+struct FRandomAnimInfoArray : public TArray<FRandomAnimInfo>
+{
+	INT sub_00c50760(INT Count);			/* AddZeroed */
+	void sub_00c57400(INT Index, INT Count);	/* Remove */
+};
+
+/* UAnimNodeRandom's override of UAnimNode::InitAnim (vtable 0x128, declared only as vf_128). */
+struct UAnimNodeRandom_ : public UAnimNodeRandom
+{
+	void sub_00c60e40(USkeletalMeshComponent* MeshComp, UAnimNodeBlendBase* Parent);	/* UAnimNodeBlendList::InitAnim */
+	void sub_00c7c270(FLOAT BlendTime, FLOAT StartTime);					/* PlayPendingAnimation */
+	void InitAnim(USkeletalMeshComponent* MeshComp, UAnimNodeBlendBase* Parent);
+};
+
+// @baa 0x00c7ed80
+void UAnimNodeRandom_::InitAnim(USkeletalMeshComponent* MeshComp, UAnimNodeBlendBase* Parent)
+{
+	sub_00c60e40(MeshComp, Parent);
+
+	// keep RandomInfo in sync with the children
+	if (RandomInfo.Num() != Children.Num())
+	{
+		const INT Diff = Children.Num() - RandomInfo.Num();
+		if (Diff > 0)
+		{
+			((FRandomAnimInfoArray&)RandomInfo).sub_00c50760(Diff);
+		}
+		else
+		{
+			((FRandomAnimInfoArray&)RandomInfo).sub_00c57400(RandomInfo.Num() + Diff, -Diff);
+		}
+	}
+
+	// leave a valid child that is still playing (or holding a still frame) alone
+	if (ActiveChildIndex >= 0 && ActiveChildIndex < Children.Num() &&
+		Children(ActiveChildIndex).Anim &&
+		PlayingSeqNode &&
+		((UAnimNode__00c7ed80*)PlayingSeqNode)->sub_00c53070(Children(ActiveChildIndex).Anim))
+	{
+		const FRandomAnimInfo& Info = RandomInfo(ActiveChildIndex);
+		if (PlayingSeqNode->bPlaying || Info.bStillFrame)
+		{
+			return;
+		}
+	}
+	sub_00c7c270(0.f, 0.f);
 }

@@ -1,4 +1,4 @@
-// DecalComponent.cpp (part 1 of 3): 32 functions
+// DecalComponent.cpp (part 1 of 3): 33 functions
 // Placed here by: class 13, neighbours 11, callers 5, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -316,4 +316,33 @@ void UDecalComponent::BeginDestroy()
 	Super::BeginDestroy();
 	((UDecalComponent_*)this)->ReleaseResources(FALSE, NULL);
 	((UDecalComponent_*)this)->FreeStaticReceivers();
+}
+
+/* GSystemSettings.DetailMode (FSystemSettings isn't in the kit). */
+extern INT g_026c0b3c;
+#define GSystemSettings_DetailMode g_026c0b3c
+struct UDecalComponent__006a78b0 : public UDecalComponent
+{
+	void ComputeReceivers(); /* 0x006a7240 */
+	void AttachToStaticReceivers(); /* 0x006a6c80 */
+};
+
+// @baa 0x006a78b0
+/* DecalComponent.cpp: static decals attach once their transform is known (computing receivers the first time). */
+void UDecalComponent::UpdateTransform()
+{
+	Super::UpdateTransform();
+
+	if (bStaticDecal && DetailMode <= GSystemSettings_DetailMode)
+	{
+		if (StaticReceivers.Num() == 0)
+		{
+			((UDecalComponent__006a78b0*)this)->ComputeReceivers();
+		}
+		else
+		{
+			((UDecalComponent__006a78b0*)this)->AttachToStaticReceivers();
+		}
+		bHasBeenAttached = TRUE;
+	}
 }

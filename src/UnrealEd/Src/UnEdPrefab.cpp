@@ -1,4 +1,4 @@
-// UnEdPrefab.cpp: 1 function
+// UnEdPrefab.cpp: 2 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -37,3 +37,6 @@ template<class T> T* CastChecked(UObject* Src)
 
 // @baa 0x00d29890
 template ABrush* CastChecked<ABrush>(UObject* Src);
+
+// @baa 0x012846a0
+template USeqVar_Object* CastChecked<USeqVar_Object>(UObject* Src);

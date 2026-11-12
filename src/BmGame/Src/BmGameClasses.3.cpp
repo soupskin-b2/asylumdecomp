@@ -1,4 +1,4 @@
-// BmGameClasses.cpp: 8 functions
+// BmGameClasses.cpp: 10 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -80,4 +80,112 @@ void URWeaponConfigFactoryNew::StaticConstructor()
 void URAlternateAnimationAndWeaponConfigFactoryNew::StaticConstructor()
 {
 	new((FNameArray&)GetClass()->Native_f0) FNameText(TEXT("Object"));
+}
+
+extern FName g_026e3438;
+	/* BMGAME_ActivatePP */
+/* The action's script events (generated glue, BmGameClasses.h) */
+struct URSeqAct_ModifyPostProcess_ : public URSeqAct_ModifyPostProcess
+{
+	void eventActivatePP(class ULocalPlayer* LP)
+	{
+		struct RSeqAct_ModifyPostProcess_eventActivatePP_Parms
+		{
+			class ULocalPlayer* LP;
+		} Parms;
+		Parms.LP = LP;
+		ProcessEvent(FindFunctionChecked(g_026e3438), &Parms);
+	}
+	void eventUpdatePP(class ULocalPlayer* LP); /* 0x0154bc80 */
+};
+
+// @baa 0x01564cc0
+/* Input 0 applies the settings to the first local player, input 1 finishes; otherwise script updates them. */
+UBOOL URSeqAct_ModifyPostProcess::UpdateOp(FLOAT DeltaTime)
+{
+	if (InputLinks(0).bHasImpulse)
+	{
+		((URSeqAct_ModifyPostProcess_*)this)->eventActivatePP(GEngine->GamePlayers(0));
+		return FALSE;
+	}
+	if (InputLinks(1).bHasImpulse)
+	{
+		return TRUE;
+	}
+	((URSeqAct_ModifyPostProcess_*)this)->eventUpdatePP(GEngine->GamePlayers(0));
+	return FALSE;
+}
+
+extern FName g_026e2c00;
+	/* BMGAME_ShutdownHUD */
+/* The action's script event (generated glue, BmGameClasses.h) */
+struct URSeqAct_HUDTimer__01564e70 : public URSeqAct_HUDTimer
+{
+	void eventShutdownHUD()
+	{
+		ProcessEvent(FindFunctionChecked(g_026e2c00), NULL);
+	}
+};
+
+// @baa 0x01564e70
+/* Inputs: 0 start, 1 abort (output 1), 2 pause, 3 resume. Counts RemainingTime down; output 0 when
+ * it runs out, output N+2 as the whole-second count reaches TriggerEventsAtTimes(N). */
+UBOOL URSeqAct_HUDTimer::UpdateOp(FLOAT DeltaTime)
+{
+	if (InputLinks(0).bHasImpulse)
+	{
+		bTimerRunning = TRUE;
+	}
+	else if (InputLinks(1).bHasImpulse)
+	{
+		bTimerRunning = FALSE;
+		FSeqOpOutputLink& Link = OutputLinks(1);
+		if (!Link.bDisabled)
+		{
+			Link.bHasImpulse = TRUE;
+		}
+		((URSeqAct_HUDTimer__01564e70*)this)->eventShutdownHUD();
+		return TRUE;
+	}
+	else if (InputLinks(2).bHasImpulse)
+	{
+		bTimerRunning = FALSE;
+	}
+	else if (InputLinks(3).bHasImpulse)
+	{
+		bTimerRunning = TRUE;
+	}
+
+	if (bTimerRunning && GWorld->GetWorldInfo()->TimeSeconds != LastUpdateTime)
+	{
+		const FLOAT OldTime = RemainingTime;
+		RemainingTime -= DeltaTime;
+		IntRemainingTime = (INT)RemainingTime;
+		if (RemainingTime <= 0.f)
+		{
+			bTimerRunning = FALSE;
+			FSeqOpOutputLink& Link = OutputLinks(0);
+			if (!Link.bDisabled)
+			{
+				Link.bHasImpulse = TRUE;
+			}
+			((URSeqAct_HUDTimer__01564e70*)this)->eventShutdownHUD();
+			return TRUE;
+		}
+		if ((INT)OldTime != IntRemainingTime)
+		{
+			for (INT Idx = 0; Idx < TriggerEventsAtTimes.Num(); Idx++)
+			{
+				if (TriggerEventsAtTimes(Idx) == IntRemainingTime)
+				{
+					FSeqOpOutputLink& Link = OutputLinks(Idx + 2);
+					if (!Link.bDisabled)
+					{
+						Link.bHasImpulse = TRUE;
+					}
+				}
+			}
+		}
+	}
+	return FALSE;
 }

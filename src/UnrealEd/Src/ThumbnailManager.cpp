@@ -1,4 +1,4 @@
-// ThumbnailManager.cpp: 133 functions
+// ThumbnailManager.cpp: 134 functions
 // Placed here by: callers 29, file 29, neighbours 4.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -644,4 +644,27 @@ bool UPrefabThumbnailRenderer::vf_004()
 bool UUISceneThumbnailRenderer::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+class FTexture;
+/* Unnamed in the kit: UE3's free DrawTile(FCanvas* Canvas, FLOAT X, FLOAT Y, FLOAT SizeX, FLOAT SizeY, FLOAT U, FLOAT V,
+ * FLOAT SizeU, FLOAT SizeV, const FLinearColor& Color, const FTexture* Texture, UBOOL AlphaBlend) (UnCanvas.cpp). */
+void sub_00aa7a60(FCanvas* Canvas, FLOAT X, FLOAT Y, FLOAT SizeX, FLOAT SizeY, FLOAT U, FLOAT V, FLOAT SizeU, FLOAT SizeV,
+    const FLinearColor& Color, const FTexture* Texture, UBOOL AlphaBlend);
+/* FLinearColor::White */
+extern FLinearColor g_025d574c;
+/* Kit gap: UIconThumbnailRenderer's icon accessor isn't declared (it loads the icon named by
+ * the renderer's string the first time and caches it). */
+struct UIconThumbnailRenderer_ : public UIconThumbnailRenderer
+{
+	UTexture2D* sub_01250960(); /* 0x01250960 */
+};
+
+// @baa 0x012520e0
+/* Draws the icon texture over the whole thumbnail. UTexture::Resource (UE3 FTextureResource*) is an FPointer in the kit. */
+void UIconThumbnailRenderer::Draw(UObject* Object, EThumbnailPrimType PrimType, INT X, INT Y, DWORD Width, DWORD Height, FViewport* Viewport, FCanvas* Canvas,
+	EThumbnailBackgroundType BackgroundType, FColor PreviewBackgroundColor, FColor PreviewBackgroundColorDropped)
+{
+	sub_00aa7a60(Canvas, X, Y, Width, Height, 0.f, 0.f, 1.f, 1.f, g_025d574c,
+		(const FTexture*)((UIconThumbnailRenderer_*)this)->sub_01250960()->Resource.Dummy, FALSE);
 }

@@ -1,4 +1,4 @@
-// RAnimUtil.cpp (part 2 of 2): 2 functions
+// RAnimUtil.cpp (part 2 of 2): 3 functions
 // Placed here by: neighbours 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -23,4 +23,13 @@ void sub_015985e0(FVector* Out, FLOAT Yaw)
     Out->X = cosf(Yaw);
     Out->Y = sinf(Yaw);
     Out->Z = 0.0f;
+}
+
+// @baa 0x01598600
+void sub_01598600(FVector* Out, FLOAT B, FLOAT C)
+{
+    FLOAT CosC = cosf(C);
+    Out->X = cosf(B) * CosC;
+    Out->Y = sinf(B) * CosC;
+    Out->Z = sinf(C);
 }

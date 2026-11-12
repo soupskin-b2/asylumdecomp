@@ -1,4 +1,4 @@
-// BmGame_16a0000.cpp (part 1 of 2): 136 functions
+// BmGame_16a0000.cpp (part 1 of 2): 139 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -784,4 +784,36 @@ INT ARPontoonBase::vf_36c()
 	TargetRotation.Roll = 0;
 	TargetRotation.Pitch = 0;
 	return 0;
+}
+
+struct ARCinematicCameraActor_ : public ARCinematicCameraActor
+{
+    void sub_016aa500(DWORD A1, DWORD A2, DWORD A3, FName InAnimSeqName, FLOAT InPosition, UBOOL bLooping);
+};
+
+// @baa 0x016aa500
+void ARCinematicCameraActor_::sub_016aa500(DWORD A1, DWORD A2, DWORD A3, FName InAnimSeqName, FLOAT InPosition, UBOOL bLooping)
+{
+    InternalSetAnimPosition(InAnimSeqName, InPosition, bLooping);
+}
+
+struct FVector4_ : public FVector4
+{
+    FVector4_* sub_016accb0(const FVector* V, FLOAT WIn);
+};
+
+// @baa 0x016accb0
+FVector4_* FVector4_::sub_016accb0(const FVector* V, FLOAT WIn)
+{
+    X = V->X;
+    Y = V->Y;
+    Z = V->Z;
+    W = WIn;
+    return this;
+}
+
+// @baa 0x016acb40
+void __stdcall sub_016acb40(AActor* A1, FVector V)
+{
+    A1->sub_008a7bb0(V);
 }

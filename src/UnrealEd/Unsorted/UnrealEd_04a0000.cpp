@@ -1,4 +1,4 @@
-// UnrealEd_04a0000.cpp: 18 functions
+// UnrealEd_04a0000.cpp: 51 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -264,4 +264,450 @@ undefined4 C_004ae7b0::sub_004ae7b0(byte param_2)
     sub_01ab3290(param_1,0x3c);
   }
   return param_1;
+}
+
+/* FaceFX Studio, the command system (FxCommand.h, FxCommandSyntax.h; FxString.h of the FaceFX SDK).
+ * Each console command describes the arguments it takes with a static CreateSyntax(). */
+typedef char FxChar;
+
+typedef unsigned int FxSize;
+
+static const FxSize FxInvalidIndex = (FxSize)-1;
+void FxFree(void* ptr, FxSize n);
+class FxString
+{
+public:
+	FxString(const FxChar* str, FxSize numChars = FxInvalidIndex);
+	~FxString()
+	{
+		FxFree(_container, _allocatedCount);
+		_container = 0;
+		_usedCount = 0;
+		_allocatedCount = 0;
+	}
+
+private:
+	FxChar* _container;
+	FxSize _allocatedCount;
+	FxSize _usedCount;
+};
+
+/* The kind of value an argument takes. */
+enum FxCommandArgumentType
+{
+	CAT_Flag = 0,
+	CAT_Real,
+	CAT_DReal,
+	CAT_Size,
+	CAT_Int32,
+	CAT_String,
+	CAT_StringArray,
+	CAT_Bool
+};
+
+class FxCommandArgumentDesc
+{
+public:
+	FxCommandArgumentDesc(const FxString& argNameShort, const FxString& argNameLong, FxCommandArgumentType argType);
+	~FxCommandArgumentDesc();
+
+	FxString ArgNameShort;
+	FxString ArgNameLong;
+	FxCommandArgumentType ArgType;
+};
+
+class FxCommandSyntax
+{
+public:
+	FxCommandSyntax() : _container(0), _allocatedCount(0), _usedCount(0) {}
+	~FxCommandSyntax();
+
+	void AddArgDesc(const FxCommandArgumentDesc& argDesc);
+
+private:
+	/* FxArray<FxCommandArgumentDesc> */
+	FxCommandArgumentDesc* _container;
+	FxSize _allocatedCount;
+	FxSize _usedCount;
+};
+
+// @baa 0x004a9130
+FxCommandSyntax sub_004a9130()
+{
+	FxCommandSyntax newSyntax;
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-lo", "-layout", CAT_Flag));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-an", "-addnode", CAT_Flag));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-nt", "-nodetype", CAT_String));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-n", "-name", CAT_String));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-nx", "-nodex", CAT_Int32));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-ny", "-nodey", CAT_Int32));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-rn", "-removenode", CAT_Flag));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-en", "-editnode", CAT_Flag));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-min", "-minimum", CAT_Real));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-max", "-maximum", CAT_Real));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-io", "-inputop", CAT_String));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-l", "-link", CAT_Flag));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-u", "-unlink", CAT_Flag));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-el", "-editlink", CAT_Flag));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-f", "-from", CAT_String));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-t", "-to", CAT_String));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-lf", "-linkfn", CAT_String));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-lp", "-linkfnparams", CAT_StringArray));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-it", "-interp", CAT_String));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-up", "-userprops", CAT_StringArray));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-nr", "-norefresh", CAT_Flag));
+	return newSyntax;
+}
+
+// @baa 0x004a6fd0
+FxCommandSyntax sub_004a6fd0()
+{
+	FxCommandSyntax newSyntax;
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-an", "-anim", CAT_String));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-gr", "-group", CAT_String));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-a", "-add", CAT_Flag));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-r", "-remove", CAT_Flag));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-cp", "-copy", CAT_Flag));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-e", "-edit", CAT_Flag));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-n", "-name", CAT_String));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-o", "-owner", CAT_String));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-i", "-interpolation", CAT_String));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-san", "-sourceanim", CAT_String));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-sgr", "-sourcegroup", CAT_String));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-sn", "-sourcename", CAT_String));
+	return newSyntax;
+}
+
+// @baa 0x004a7710
+FxCommandSyntax sub_004a7710()
+{
+	FxCommandSyntax newSyntax;
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-dwm", "-debugwidgetmesssages", CAT_Flag));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-dnt", "-dumpnametable", CAT_Flag));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-dct", "-dumpclasstable", CAT_Flag));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-dcc", "-dumpconsolecommands", CAT_Flag));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-dcv", "-dumpconsolevariables", CAT_Flag));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-dms", "-dumpmemorystats", CAT_Flag));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-dma", "-dumpmemoryallocs", CAT_Flag));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-crash", "-crash", CAT_Flag));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-scs", "-spamcommandsystem", CAT_Size));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-dbp", "-dumpbonepose", CAT_String));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-drp", "-dumprefpose", CAT_Flag));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-tb", "-testbaking", CAT_String));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-dmas", "-dumpmountedanimationsets", CAT_Flag));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-da", "-dumpanims", CAT_Flag));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-saf", "-saveaudiofile", CAT_String));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-about", "-about", CAT_Flag));
+	return newSyntax;
+}
+
+// @baa 0x004aefe0
+FxCommandSyntax sub_004aefe0()
+{
+	FxCommandSyntax newSyntax;
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-e", "-export", CAT_Flag));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-s", "-sync", CAT_Flag));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-f", "-file", CAT_String));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-fg", "-facegraph", CAT_Flag));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-m", "-mapping", CAT_Flag));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-ng", "-nodegroups", CAT_Flag));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-c", "-cameras", CAT_Flag));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-w", "-workspaces", CAT_Flag));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-cm", "-colourmap", CAT_Flag));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-cm2", "-colormap", CAT_Flag));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-a", "-all", CAT_Flag));
+	return newSyntax;
+}
+
+// @baa 0x004adae0
+FxCommandSyntax sub_004adae0()
+{
+	FxCommandSyntax newSyntax;
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-t", "-type", CAT_String));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-c", "-clear", CAT_Flag));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-nz", "-nozoom", CAT_Flag));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-a", "-add", CAT_Flag));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-r", "-remove", CAT_Flag));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-n", "-names", CAT_StringArray));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-g", "-group", CAT_String));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-n1", "-node1", CAT_String));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-n2", "-node2", CAT_String));
+	return newSyntax;
+}
+
+// @baa 0x004a9f50
+FxCommandSyntax sub_004a9f50()
+{
+	FxCommandSyntax newSyntax;
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-l", "-link", CAT_Flag));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-g", "-group", CAT_String));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-a", "-anim", CAT_String));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-sc", "-soundcuepath", CAT_String));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-snw", "-soundnodewavename", CAT_String));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-p", "-package", CAT_String));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-usc", "-updatesoundcues", CAT_Flag));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-lfan", "-linkfromanimname", CAT_Flag));
+	return newSyntax;
+}
+
+// @baa 0x004a5520
+FxCommandSyntax sub_004a5520()
+{
+	FxCommandSyntax newSyntax;
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-an", "-addednodes", CAT_Flag));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-rn", "-removednodes", CAT_Flag));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-en", "-editednodes", CAT_Flag));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-ac", "-addedcurves", CAT_Flag));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-rc", "-removedcurves", CAT_Flag));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-cm", "-changedmapping", CAT_Flag));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-ec", "-editedcurves", CAT_Flag));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-ca", "-changedanimation", CAT_Flag));
+	return newSyntax;
+}
+
+// @baa 0x004ae7d0
+FxCommandSyntax sub_004ae7d0()
+{
+	FxCommandSyntax newSyntax;
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-fg", "-facegraphnode", CAT_Flag));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-ag", "-animgroup", CAT_Flag));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-a", "-anim", CAT_Flag));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-ac", "-animcurve", CAT_Flag));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-p", "-path", CAT_StringArray));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-o", "-old", CAT_String));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-n", "-new", CAT_String));
+	return newSyntax;
+}
+
+// @baa 0x004aba00
+FxCommandSyntax sub_004aba00()
+{
+	FxCommandSyntax newSyntax;
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-c", "-create", CAT_Flag));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-e", "-edit", CAT_Flag));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-r", "-remove", CAT_Flag));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-a", "-add", CAT_Flag));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-g", "-group", CAT_String));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-n", "-nodes", CAT_StringArray));
+	return newSyntax;
+}
+
+// @baa 0x004a86a0
+FxCommandSyntax sub_004a86a0()
+{
+	FxCommandSyntax newSyntax;
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-ag", "-animgroup", CAT_String));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-an", "-animname", CAT_String));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-a", "-all", CAT_Flag));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-d", "-dir", CAT_String));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-f", "-file", CAT_String));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-ex", "-extratracks", CAT_StringArray));
+	return newSyntax;
+}
+
+// @baa 0x004a5ac0
+FxCommandSyntax sub_004a5ac0()
+{
+	FxCommandSyntax newSyntax;
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-an", "-addednodes", CAT_Flag));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-rn", "-removednodes", CAT_Flag));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-en", "-editednodes", CAT_Flag));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-ac", "-addedcurves", CAT_Flag));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-rc", "-removedcurves", CAT_Flag));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-cm", "-changedmapping", CAT_Flag));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-ec", "-editedcurves", CAT_Flag));
+	return newSyntax;
+}
+
+// @baa 0x004a51e0
+FxCommandSyntax sub_004a51e0()
+{
+	FxCommandSyntax newSyntax;
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-m", "-mount", CAT_String));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-u", "-unmount", CAT_String));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-i", "-import", CAT_String));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-e", "-export", CAT_String));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-to", "-to", CAT_String));
+	return newSyntax;
+}
+
+// @baa 0x004a6c90
+FxCommandSyntax sub_004a6c90()
+{
+	FxCommandSyntax newSyntax;
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-n", "-new", CAT_Real));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-f", "-frame", CAT_Int32));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-p", "-prev", CAT_Real));
+	return newSyntax;
+}
+
+// @baa 0x004ac6c0
+FxCommandSyntax sub_004ac6c0()
+{
+	FxCommandSyntax newSyntax;
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-a", "-all", CAT_Flag));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-s", "-start", CAT_Real));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-e", "-end", CAT_Real));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-l", "-loop", CAT_Flag));
+	return newSyntax;
+}
+
+// @baa 0x004a4e90
+FxCommandSyntax sub_004a4e90()
+{
+	FxCommandSyntax newSyntax;
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-c", "-create", CAT_Flag));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-r", "-remove", CAT_Flag));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-g", "-group", CAT_String));
+	return newSyntax;
+}
+
+// @baa 0x004a65d0
+FxCommandSyntax sub_004a65d0()
+{
+	FxCommandSyntax newSyntax;
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-f", "-file", CAT_String));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-fn", "-forcenodes", CAT_StringArray));
+	return newSyntax;
+}
+
+// @baa 0x004a6a20
+FxCommandSyntax sub_004a6a20()
+{
+	FxCommandSyntax newSyntax;
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-p", "-platform", CAT_String));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-f", "-file", CAT_String));
+	return newSyntax;
+}
+
+// @baa 0x004ad1d0
+FxCommandSyntax sub_004ad1d0()
+{
+	FxCommandSyntax newSyntax;
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-n", "-name", CAT_String));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-t", "-to", CAT_String));
+	return newSyntax;
+}
+
+// @baa 0x004acc60
+FxCommandSyntax sub_004acc60()
+{
+	FxCommandSyntax newSyntax;
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-nu", "-noundo", CAT_Flag));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-d", "-debug", CAT_Flag));
+	return newSyntax;
+}
+
+// @baa 0x004ae5a0
+FxCommandSyntax sub_004ae5a0()
+{
+	FxCommandSyntax newSyntax;
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-n", "-name", CAT_String));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-v", "-value", CAT_String));
+	return newSyntax;
+}
+
+// @baa 0x004afbd0
+FxCommandSyntax sub_004afbd0()
+{
+	FxCommandSyntax newSyntax;
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-nr", "-noredo", CAT_Flag));
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-d", "-debug", CAT_Flag));
+	return newSyntax;
+}
+
+// @baa 0x004a8090
+FxCommandSyntax sub_004a8090()
+{
+	FxCommandSyntax newSyntax;
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-s", "-size", CAT_Size));
+	return newSyntax;
+}
+
+// @baa 0x004a6ba0
+FxCommandSyntax sub_004a6ba0()
+{
+	FxCommandSyntax newSyntax;
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-sp", "-sourcepackage", CAT_String));
+	return newSyntax;
+}
+
+// @baa 0x004a8180
+FxCommandSyntax sub_004a8180()
+{
+	FxCommandSyntax newSyntax;
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-f", "-file", CAT_String));
+	return newSyntax;
+}
+
+// @baa 0x004a8e80
+FxCommandSyntax sub_004a8e80()
+{
+	FxCommandSyntax newSyntax;
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-n", "-name", CAT_String));
+	return newSyntax;
+}
+
+// @baa 0x004ab860
+FxCommandSyntax sub_004ab860()
+{
+	FxCommandSyntax newSyntax;
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-n", "-name", CAT_String));
+	return newSyntax;
+}
+
+// @baa 0x004ab260
+FxCommandSyntax sub_004ab260()
+{
+	FxCommandSyntax newSyntax;
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-f", "-file", CAT_String));
+	return newSyntax;
+}
+
+// @baa 0x004ac990
+FxCommandSyntax sub_004ac990()
+{
+	FxCommandSyntax newSyntax;
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-m", "-message", CAT_String));
+	return newSyntax;
+}
+
+// @baa 0x004aca80
+FxCommandSyntax sub_004aca80()
+{
+	FxCommandSyntax newSyntax;
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-m", "-message", CAT_String));
+	return newSyntax;
+}
+
+// @baa 0x004acde0
+FxCommandSyntax sub_004acde0()
+{
+	FxCommandSyntax newSyntax;
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-n", "-name", CAT_String));
+	return newSyntax;
+}
+
+// @baa 0x004ad930
+FxCommandSyntax sub_004ad930()
+{
+	FxCommandSyntax newSyntax;
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-f", "-file", CAT_String));
+	return newSyntax;
+}
+
+// @baa 0x004acb70
+FxCommandSyntax sub_004acb70()
+{
+	FxCommandSyntax newSyntax;
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-m", "-message", CAT_String));
+	return newSyntax;
+}
+
+// @baa 0x004ac5d0
+FxCommandSyntax sub_004ac5d0()
+{
+	FxCommandSyntax newSyntax;
+	newSyntax.AddArgDesc(FxCommandArgumentDesc("-p", "-push", CAT_Flag));
+	return newSyntax;
 }

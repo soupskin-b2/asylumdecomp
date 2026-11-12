@@ -1,4 +1,4 @@
-// BmGame_15d0000.cpp: 6 functions
+// BmGame_15d0000.cpp: 7 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -187,4 +187,29 @@ UBOOL URBMBehaviour_Combat::IsInFrontOfPawn(ARPawnCombat* TestPawn, FLOAT Angle)
         return TRUE;
     }
     return FALSE;
+}
+
+extern FName g_026c4fcc;
+	/* ENGINE_GetObjClassVersion */
+/* USequenceObject's GetObjClassVersion script event (generated glue, EngineClasses.h) */
+struct URBMExitConditionCombiner_ : public URBMExitConditionCombiner
+{
+	INT eventGetObjClassVersion()
+	{
+		struct SequenceObject_eventGetObjClassVersion_Parms
+		{
+			INT ReturnValue;
+		} Parms;
+		Parms.ReturnValue = 0;
+		ProcessEvent(FindFunctionChecked(g_026c4fcc), &Parms);
+		return Parms.ReturnValue;
+	}
+};
+
+// @baa 0x015dee30
+/* Slot 0x120 (UpdateObject): refresh the links, then take the class's current version. */
+void URBMExitConditionCombiner::vf_120()
+{
+	vf_1a4();
+	ObjInstanceVersion = ((URBMExitConditionCombiner_*)this)->eventGetObjClassVersion();
 }

@@ -1,4 +1,4 @@
-// BmGameClasses.cpp: 50 functions
+// BmGameClasses.cpp: 59 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -1165,4 +1165,472 @@ UBOOL URSeqAct_MovePlayer::UpdateOp(FLOAT DeltaTime)
 	}
 	((URSeqAct_MovePlayer_*)this)->eventUpdateMoveSpeed();
 	return FALSE;
+}
+
+	/* BMGAME_SetT */
+extern FName g_026e3078;
+	/* BMGAME_SetS */
+extern FName g_026e2cd0;
+	/* BMGAME_TurnOff */
+extern FName g_026e3420;
+	/* BMGAME_TurnOn */
+extern FName g_026e35c0;
+	/* BMGAME_BatmanUse */
+extern FName g_026e3628;
+	/* BMGAME_TurnOnFaked */
+/* The action's script events (generated glue, BmGameClasses.h) */
+struct URSeqAct_SetTrackingSpotlightVars_ : public URSeqAct_SetTrackingSpotlightVars
+{
+	void eventSetT() { ProcessEvent(FindFunctionChecked(g_026e2730), NULL); }
+	void eventSetS() { ProcessEvent(FindFunctionChecked(g_026e3078), NULL); }
+	void eventTurnOff() { ProcessEvent(FindFunctionChecked(g_026e2cd0), NULL); }
+	void eventTurnOn() { ProcessEvent(FindFunctionChecked(g_026e3420), NULL); }
+	void eventBatmanUse() { ProcessEvent(FindFunctionChecked(g_026e35c0), NULL); }
+	void eventTurnOnFaked() { ProcessEvent(FindFunctionChecked(g_026e3628), NULL); }
+};
+
+// @baa 0x01581080
+/* Each input forwards to its script event; the last three inputs are optional. */
+UBOOL URSeqAct_SetTrackingSpotlightVars::UpdateOp(FLOAT DeltaTime)
+{
+	if (InputLinks(0).bHasImpulse)
+	{
+		((URSeqAct_SetTrackingSpotlightVars_*)this)->eventSetT();
+	}
+	if (InputLinks(1).bHasImpulse)
+	{
+		((URSeqAct_SetTrackingSpotlightVars_*)this)->eventSetS();
+	}
+	if (InputLinks(2).bHasImpulse)
+	{
+		((URSeqAct_SetTrackingSpotlightVars_*)this)->eventTurnOff();
+	}
+	if (InputLinks.Num() > 3 && InputLinks(3).bHasImpulse)
+	{
+		((URSeqAct_SetTrackingSpotlightVars_*)this)->eventTurnOn();
+	}
+	if (InputLinks.Num() > 4 && InputLinks(4).bHasImpulse)
+	{
+		((URSeqAct_SetTrackingSpotlightVars_*)this)->eventBatmanUse();
+	}
+	if (InputLinks.Num() > 5 && InputLinks(5).bHasImpulse)
+	{
+		((URSeqAct_SetTrackingSpotlightVars_*)this)->eventTurnOnFaked();
+	}
+	return TRUE;
+}
+
+extern FName g_026e2a2c;
+	/* BMGAME_StartSound */
+extern FName g_026e263c;
+	/* BMGAME_StopSound */
+extern FName g_026e31b4;
+	/* BMGAME_KeyOffSound */
+extern FName g_026e2924;
+	/* BMGAME_ProcessDistance */
+/* The action's script events (generated glue, BmGameClasses.h) */
+struct URSeqAct_PlayScaledDistanceSound_ : public URSeqAct_PlayScaledDistanceSound
+{
+	void eventStartSound() { ProcessEvent(FindFunctionChecked(g_026e2a2c), NULL); }
+	void eventStopSound() { ProcessEvent(FindFunctionChecked(g_026e263c), NULL); }
+	void eventKeyOffSound() { ProcessEvent(FindFunctionChecked(g_026e31b4), NULL); }
+	void eventProcessDistance() { ProcessEvent(FindFunctionChecked(g_026e2924), NULL); }
+};
+
+// @baa 0x01583ff0
+/* Inputs start / stop / key off the sound; every tick rescales it by distance. Stays active. */
+UBOOL URSeqAct_PlayScaledDistanceSound::UpdateOp(FLOAT DeltaTime)
+{
+	if (InputLinks(0).bHasImpulse)
+	{
+		((URSeqAct_PlayScaledDistanceSound_*)this)->eventStartSound();
+	}
+	if (InputLinks(1).bHasImpulse)
+	{
+		((URSeqAct_PlayScaledDistanceSound_*)this)->eventStopSound();
+	}
+	if (InputLinks(2).bHasImpulse)
+	{
+		((URSeqAct_PlayScaledDistanceSound_*)this)->eventKeyOffSound();
+	}
+	((URSeqAct_PlayScaledDistanceSound_*)this)->eventProcessDistance();
+	return FALSE;
+}
+
+extern FName g_026e2898;
+	/* BMGAME_Activate1stPersonCamera */
+extern FName g_026e35e8;
+	/* BMGAME_Stop1stPersonCamera */
+extern FName g_026e27b8;
+	/* BMGAME_ForceLookDirection */
+/* The action's script events (generated glue, BmGameClasses.h) */
+struct URSeqAct_SetStationary1stPersonCamera_ : public URSeqAct_SetStationary1stPersonCamera
+{
+	void eventActivate1stPersonCamera() { ProcessEvent(FindFunctionChecked(g_026e2898), NULL); }
+	void eventStop1stPersonCamera() { ProcessEvent(FindFunctionChecked(g_026e35e8), NULL); }
+	void eventForceLookDirection(UBOOL bForce)
+	{
+		struct RSeqAct_SetStationary1stPersonCamera_eventForceLookDirection_Parms
+		{
+			UBOOL bForce;
+		} Parms;
+		Parms.bForce = bForce ? TRUE : FALSE;
+		ProcessEvent(FindFunctionChecked(g_026e27b8), &Parms);
+	}
+};
+
+// @baa 0x01565690
+/* Inputs: 0 activate, 1 stop (each fires its output), 2 / 3 turn forced look direction on / off. */
+UBOOL URSeqAct_SetStationary1stPersonCamera::UpdateOp(FLOAT DeltaTime)
+{
+	if (InputLinks(0).bHasImpulse)
+	{
+		((URSeqAct_SetStationary1stPersonCamera_*)this)->eventActivate1stPersonCamera();
+		FSeqOpOutputLink& Link = OutputLinks(0);
+		if (!Link.bDisabled)
+		{
+			Link.bHasImpulse = TRUE;
+		}
+		return TRUE;
+	}
+	if (InputLinks(1).bHasImpulse)
+	{
+		((URSeqAct_SetStationary1stPersonCamera_*)this)->eventStop1stPersonCamera();
+		FSeqOpOutputLink& Link = OutputLinks(1);
+		if (!Link.bDisabled)
+		{
+			Link.bHasImpulse = TRUE;
+		}
+		return TRUE;
+	}
+	if (InputLinks.Num() > 2 && InputLinks(2).bHasImpulse)
+	{
+		((URSeqAct_SetStationary1stPersonCamera_*)this)->eventForceLookDirection(TRUE);
+		return TRUE;
+	}
+	if (InputLinks.Num() > 2 && InputLinks(3).bHasImpulse)
+	{
+		((URSeqAct_SetStationary1stPersonCamera_*)this)->eventForceLookDirection(FALSE);
+		return TRUE;
+	}
+	return FALSE;
+}
+
+extern FName g_026e39b0;
+	/* BMGAME_StartIntro */
+extern FName g_026e30dc;
+	/* BMGAME_StopAll */
+extern FName g_026e3a84;
+	/* BMGAME_DoFade */
+/* The action's script events (generated glue, BmGameClasses.h) */
+struct URSeqAct_CombatMusic_ : public URSeqAct_CombatMusic
+{
+	void eventStartIntro() { ProcessEvent(FindFunctionChecked(g_026e39b0), NULL); }
+	void eventStopAll() { ProcessEvent(FindFunctionChecked(g_026e30dc), NULL); }
+	void eventDoFade(FLOAT DeltaTime)
+	{
+		struct RSeqAct_CombatMusic_eventDoFade_Parms
+		{
+			FLOAT DeltaTime;
+		} Parms;
+		Parms.DeltaTime = DeltaTime;
+		ProcessEvent(FindFunctionChecked(g_026e3a84), &Parms);
+	}
+};
+
+// @baa 0x015837e0
+/* Inputs: 0 start the intro, 1 advance, 2-7 queue a theme (7 is the last one), 8 stop everything.
+ * dbgImpulse records the last input seen. While fading, script gets the tick. */
+UBOOL URSeqAct_CombatMusic::UpdateOp(FLOAT DeltaTime)
+{
+	if (InputLinks(0).bHasImpulse)
+	{
+		((URSeqAct_CombatMusic_*)this)->eventStartIntro();
+		dbgImpulse = 0;
+	}
+	if (InputLinks(1).bHasImpulse)
+	{
+		cueAdvance = TRUE;
+		dbgImpulse = 1;
+	}
+	if (InputLinks(2).bHasImpulse)
+	{
+		nextCue = Theme1;
+		dbgImpulse = 2;
+	}
+	if (InputLinks(3).bHasImpulse)
+	{
+		nextCue = Theme2;
+		dbgImpulse = 3;
+	}
+	if (InputLinks(4).bHasImpulse)
+	{
+		nextCue = Theme3;
+		dbgImpulse = 4;
+	}
+	if (InputLinks(5).bHasImpulse)
+	{
+		nextCue = Theme4;
+		dbgImpulse = 5;
+	}
+	if (InputLinks(6).bHasImpulse)
+	{
+		nextCue = Theme4;
+		dbgImpulse = 6;
+	}
+	if (InputLinks(7).bHasImpulse)
+	{
+		bLastTheme = TRUE;
+		nextCue = Theme5;
+		dbgImpulse = 7;
+	}
+	if (InputLinks(8).bHasImpulse)
+	{
+		((URSeqAct_CombatMusic_*)this)->eventStopAll();
+		dbgImpulse = 8;
+	}
+	if (bFading)
+	{
+		((URSeqAct_CombatMusic_*)this)->eventDoFade(DeltaTime);
+	}
+	return FALSE;
+}
+
+extern FName g_026e2ad0;
+	/* BMGAME_SetInitialValues */
+/* The action's script events (generated glue, BmGameClasses.h) */
+struct URSeqAct_SmoothCameraTransition_ : public URSeqAct_SmoothCameraTransition
+{
+	UBOOL eventSetInitialValues()
+	{
+		struct RSeqAct_SmoothCameraTransition_eventSetInitialValues_Parms
+		{
+			UBOOL ReturnValue;
+		} Parms;
+		Parms.ReturnValue = FALSE;
+		ProcessEvent(FindFunctionChecked(g_026e2ad0), &Parms);
+		return Parms.ReturnValue;
+	}
+	UBOOL eventTick(FLOAT DeltaTime); /* 0x01582b30 (out of line: Tick is a probe event) */
+};
+
+// @baa 0x01582be0
+/* Input 0 starts the move (output 1 if the camera can't), input 1 aborts it (output 1);
+ * script's Tick reports when the camera arrived (output 0). */
+UBOOL URSeqAct_SmoothCameraTransition::UpdateOp(FLOAT DeltaTime)
+{
+	if (InputLinks(0).bHasImpulse)
+	{
+		bSeqActive = TRUE;
+		if (!((URSeqAct_SmoothCameraTransition_*)this)->eventSetInitialValues())
+		{
+			FSeqOpOutputLink& Link = OutputLinks(1);
+			if (!Link.bDisabled)
+			{
+				Link.bHasImpulse = TRUE;
+			}
+		}
+	}
+	else if (InputLinks(1).bHasImpulse)
+	{
+		bSeqActive = FALSE;
+		FSeqOpOutputLink& Link = OutputLinks(1);
+		if (!Link.bDisabled)
+		{
+			Link.bHasImpulse = TRUE;
+		}
+		return TRUE;
+	}
+	else if (bSeqActive && ((URSeqAct_SmoothCameraTransition_*)this)->eventTick(DeltaTime))
+	{
+		bSeqActive = FALSE;
+		FSeqOpOutputLink& Link = OutputLinks(0);
+		if (!Link.bDisabled)
+		{
+			Link.bHasImpulse = TRUE;
+		}
+		return TRUE;
+	}
+	return FALSE;
+}
+
+/* The action's script events (generated glue, BmGameClasses.h) */
+struct URSeqAct_ShowLevelIntroText_ : public URSeqAct_ShowLevelIntroText
+{
+	UBOOL eventTickHUD(FLOAT DeltaTime); /* 0x0154be20 */
+};
+
+// @baa 0x01565140
+/* Input 0 shows the text, input 1 cancels it (output 1); script's TickHUD reports when it's done (output 0). */
+UBOOL URSeqAct_ShowLevelIntroText::UpdateOp(FLOAT DeltaTime)
+{
+	if (InputLinks(0).bHasImpulse)
+	{
+		bSeqActive = TRUE;
+	}
+	else if (InputLinks(1).bHasImpulse)
+	{
+		bSeqActive = FALSE;
+		FSeqOpOutputLink& Link = OutputLinks(1);
+		if (!Link.bDisabled)
+		{
+			Link.bHasImpulse = TRUE;
+		}
+		return TRUE;
+	}
+	else if (bSeqActive && ((URSeqAct_ShowLevelIntroText_*)this)->eventTickHUD(DeltaTime))
+	{
+		FSeqOpOutputLink& Link = OutputLinks(0);
+		if (!Link.bDisabled)
+		{
+			Link.bHasImpulse = TRUE;
+		}
+		return TRUE;
+	}
+	return FALSE;
+}
+
+extern FName g_026e315c;
+	/* BMGAME_SetFadeType */
+extern UBOOL g_0266e85c;
+	/* unnamed engine flag: set while capturing a movie */
+/* FSeqOpOutputLink::ActivateOutputLink, inline in UE3's header (not in the kit); its
+ * out-of-line copy is 008aa370. */
+struct FSeqOpOutputLink_ : public FSeqOpOutputLink
+{
+	UBOOL ActivateOutputLink()
+	{
+		if (!bDisabled)
+		{
+			bHasImpulse = TRUE;
+			return TRUE;
+		}
+		return FALSE;
+	}
+};
+
+/* The action's script events (generated glue, BmGameClasses.h) */
+struct URSeqAct_FadeScreen_ : public URSeqAct_FadeScreen
+{
+	void eventSetFadeType(UBOOL bIn)
+	{
+		struct RSeqAct_FadeScreen_eventSetFadeType_Parms
+		{
+			UBOOL bIn;
+		} Parms;
+		Parms.bIn = bIn ? TRUE : FALSE;
+		ProcessEvent(FindFunctionChecked(g_026e315c), &Parms);
+	}
+	UBOOL eventTickFade(FLOAT DeltaTime); /* 0x01581ae0 */
+};
+
+// @baa 0x01581b90
+/* Input 0 fades out, input 1 fades in; script's TickFade reports when the fade is over
+ * (output 0 after fading out, output 1 after fading in). While capturing a movie the fade is
+ * skipped unless the action asks to be included. */
+UBOOL URSeqAct_FadeScreen::UpdateOp(FLOAT DeltaTime)
+{
+	if (!IncludeInMovieCaptures && g_0266e85c)
+	{
+		bSeqActive = FALSE;
+		if (bFadeIn)
+		{
+			FSeqOpOutputLink& Link = OutputLinks(1);
+			if (!Link.bDisabled)
+			{
+				Link.bHasImpulse = TRUE;
+			}
+		}
+		else
+		{
+			FSeqOpOutputLink& Link = OutputLinks(0);
+			if (!Link.bDisabled)
+			{
+				Link.bHasImpulse = TRUE;
+			}
+		}
+		return TRUE;
+	}
+
+	if (InputLinks(1).bHasImpulse)
+	{
+		((URSeqAct_FadeScreen_*)this)->eventSetFadeType(TRUE);
+		bSeqActive = TRUE;
+	}
+	else if (InputLinks(0).bHasImpulse)
+	{
+		((URSeqAct_FadeScreen_*)this)->eventSetFadeType(FALSE);
+		bSeqActive = TRUE;
+	}
+	else if (bSeqActive && ((URSeqAct_FadeScreen_*)this)->eventTickFade(DeltaTime))
+	{
+		bSeqActive = FALSE;
+		if (bFadeIn)
+		{
+			((FSeqOpOutputLink_&)OutputLinks(1)).ActivateOutputLink();
+		}
+		else
+		{
+			((FSeqOpOutputLink_&)OutputLinks(0)).ActivateOutputLink();
+		}
+		return TRUE;
+	}
+	return FALSE;
+}
+
+/* The action's script events (generated glue, BmGameClasses.h) */
+struct URSeqAct_FadeSound_ : public URSeqAct_FadeSound
+{
+	void eventSetFadeType(UBOOL bIn)
+	{
+		struct RSeqAct_FadeSound_eventSetFadeType_Parms
+		{
+			UBOOL bIn;
+		} Parms;
+		Parms.bIn = bIn ? TRUE : FALSE;
+		ProcessEvent(FindFunctionChecked(g_026e315c), &Parms);
+	}
+	UBOOL eventTickFade(FLOAT DeltaTime); /* 0x01581e50 */
+};
+
+// @baa 0x01581f00
+/* Input 0 fades the sound out, input 1 fades it in; script's TickFade reports when the fade is
+ * over (output 0 after fading out, output 1 after fading in). */
+UBOOL URSeqAct_FadeSound::UpdateOp(FLOAT DeltaTime)
+{
+	if (InputLinks(1).bHasImpulse)
+	{
+		((URSeqAct_FadeSound_*)this)->eventSetFadeType(TRUE);
+		bSeqActive = TRUE;
+	}
+	else if (InputLinks(0).bHasImpulse)
+	{
+		((URSeqAct_FadeSound_*)this)->eventSetFadeType(FALSE);
+		bSeqActive = TRUE;
+	}
+	else if (bSeqActive && ((URSeqAct_FadeSound_*)this)->eventTickFade(DeltaTime))
+	{
+		bSeqActive = FALSE;
+		if (bFadeIn)
+		{
+			((FSeqOpOutputLink_&)OutputLinks(1)).ActivateOutputLink();
+		}
+		else
+		{
+			((FSeqOpOutputLink_&)OutputLinks(0)).ActivateOutputLink();
+		}
+		return TRUE;
+	}
+	return FALSE;
+}
+
+// @baa 0x01575d20
+// @baa 0x01575d20
+FVector ARGatherRootPointBase::vf_350()
+{
+    FVector V;
+    V.X = Location.X;
+    V.Y = Location.Y;
+    V.Z = Location.Z + 15.0f;
+    return V;
 }

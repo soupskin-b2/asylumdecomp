@@ -1,4 +1,4 @@
-// FluidSurfaceComponent.cpp: 145 functions
+// FluidSurfaceComponent.cpp: 174 functions
 // Placed here by: neighbours 89, class 51, callers 4, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1816,3 +1816,383 @@ undefined4 C_00be8110::sub_00be8110(byte param_2)
 // @baa 0x00be8680
 // @baa 0x00be8f10
 // @baa 0x00be8f40
+
+/* ShaderManager.h: TShaderMap::GetShader, the lookup of a shader by its type that a
+ * TShaderMapRef<ShaderType> does. The containers and the shader classes are not in the headers;
+ * they are declared here as far as the lookup uses them (UnSet.h, UnMap.h, RefCounting.h,
+ * Shader.h). */
+#define checkf(expr, ...) { if (!(expr)) appFailAssert(#expr, __FILE__, __LINE__, ##__VA_ARGS__); }
+/* The index of an element of a set, INDEX_NONE for none. */
+class FSetElementId
+{
+public:
+	FSetElementId() : Index(INDEX_NONE) {}
+	UBOOL IsValidId() const { return Index != INDEX_NONE; }
+	operator INT() const { return Index; }
+
+private:
+	INT Index;
+};
+
+/* A set: its elements, each with the links of its hash bucket, and the buckets. */
+template<typename ElementType, typename KeyInitType>
+class TSet
+{
+public:
+	FSetElementId FindId(KeyInitType Key) const;
+
+	ElementType* Find(KeyInitType Key)
+	{
+		FSetElementId ElementId = FindId(Key);
+		if (ElementId.IsValidId())
+		{
+			return &Elements[ElementId].Value;
+		}
+		else
+		{
+			return NULL;
+		}
+	}
+	const ElementType* Find(KeyInitType Key) const
+	{
+		FSetElementId ElementId = FindId(Key);
+		if (ElementId.IsValidId())
+		{
+			return &Elements[ElementId].Value;
+		}
+		else
+		{
+			return NULL;
+		}
+	}
+
+private:
+	class FElement
+	{
+	public:
+		ElementType Value;
+		mutable FSetElementId HashNextId;
+		mutable INT HashIndex;
+	};
+
+	/* TSparseArray<FElement>: the elements, then the allocation flags and the free list. */
+	FElement* Elements;
+};
+
+/* A map: a set of key and value pairs. */
+template<typename KeyType, typename ValueType>
+class TMap
+{
+public:
+	ValueType* Find(KeyType Key)
+	{
+		FPair* Pair = Pairs.Find(Key);
+		return Pair ? &Pair->Value : NULL;
+	}
+	const ValueType* Find(KeyType Key) const
+	{
+		const FPair* Pair = Pairs.Find(Key);
+		return Pair ? &Pair->Value : NULL;
+	}
+
+private:
+	class FPair
+	{
+	public:
+		KeyType Key;
+		ValueType Value;
+	};
+
+	TSet<FPair, KeyType> Pairs;
+};
+
+/* A counted reference to an object. */
+template<typename ReferencedType>
+class TRefCountPtr
+{
+public:
+	FORCEINLINE operator ReferencedType*() const { return Reference; }
+
+private:
+	ReferencedType* Reference;
+};
+
+class FShaderType
+{
+public:
+	virtual ~FShaderType();
+
+	const TCHAR* GetName() const { return Name; }
+
+private:
+	DWORD HashIndex;
+	const TCHAR* Name;
+};
+
+class FShader
+{
+};
+
+/* The type of a shader that does not depend on a material. */
+class FGlobalShaderType : public FShaderType
+{
+};
+
+class FGlobalShader : public FShader
+{
+};
+
+/* Gives a shader class its type: the description its shaders are compiled and looked up by. */
+#define DECLARE_SHADER_TYPE(ShaderClass, ShaderMetaTypeShortcut) \
+	public: \
+	typedef F##ShaderMetaTypeShortcut##ShaderType ShaderMetaType; \
+	static ShaderMetaType StaticType
+/* The shaders of one platform, by type. */
+template<typename ShaderMetaType>
+class TShaderMap
+{
+public:
+	/* Finds the shader of the given type; it is an error for the map not to have it. */
+	template<typename ShaderType>
+	ShaderType* GetShader() const
+	{
+#line 646 "e:\\projects\\amadeus\\aa\\game\\unrealengine3\\development\\src\\engine\\inc\\ShaderManager.h"
+		const TRefCountPtr<FShader>* ShaderRef = Shaders.Find(&ShaderType::StaticType);
+		checkf(ShaderRef != NULL && *ShaderRef != NULL, TEXT("Failed to find shader type %s"), ShaderType::StaticType.GetName());
+		return (ShaderType*)(FShader*)*ShaderRef;
+	}
+
+private:
+	TMap<FShaderType*, TRefCountPtr<FShader> > Shaders;
+};
+
+template<UINT NumSamples>
+class TFilterPixelShader : public FGlobalShader
+{
+	DECLARE_SHADER_TYPE(TFilterPixelShader, Global);
+};
+
+// @baa 0x00add020
+template TFilterPixelShader<1>* TShaderMap<FGlobalShaderType>::GetShader<TFilterPixelShader<1> >() const;
+
+#line 1979 "candidate.cpp"
+
+class LowQualityShaderName : public FGlobalShader
+{
+	DECLARE_SHADER_TYPE(LowQualityShaderName, Global);
+};
+
+// @baa 0x0068bc20
+template LowQualityShaderName* TShaderMap<FGlobalShaderType>::GetShader<LowQualityShaderName >() const;
+
+class HwPCFLowQualityShaderName : public FGlobalShader
+{
+	DECLARE_SHADER_TYPE(HwPCFLowQualityShaderName, Global);
+};
+
+// @baa 0x0068bb60
+template HwPCFLowQualityShaderName* TShaderMap<FGlobalShaderType>::GetShader<HwPCFLowQualityShaderName >() const;
+
+class HwPCFMediumQualityShaderName : public FGlobalShader
+{
+	DECLARE_SHADER_TYPE(HwPCFMediumQualityShaderName, Global);
+};
+
+// @baa 0x0068bc80
+template HwPCFMediumQualityShaderName* TShaderMap<FGlobalShaderType>::GetShader<HwPCFMediumQualityShaderName >() const;
+
+class Fetch4PCFMediumQualityShaderName : public FGlobalShader
+{
+	DECLARE_SHADER_TYPE(Fetch4PCFMediumQualityShaderName, Global);
+};
+
+// @baa 0x0068bce0
+template Fetch4PCFMediumQualityShaderName* TShaderMap<FGlobalShaderType>::GetShader<Fetch4PCFMediumQualityShaderName >() const;
+
+class Fetch4PCFLowQualityShaderName : public FGlobalShader
+{
+	DECLARE_SHADER_TYPE(Fetch4PCFLowQualityShaderName, Global);
+};
+
+// @baa 0x0068bbc0
+template Fetch4PCFLowQualityShaderName* TShaderMap<FGlobalShaderType>::GetShader<Fetch4PCFLowQualityShaderName >() const;
+
+class MediumQualityShaderName : public FGlobalShader
+{
+	DECLARE_SHADER_TYPE(MediumQualityShaderName, Global);
+};
+
+// @baa 0x0068bd40
+template MediumQualityShaderName* TShaderMap<FGlobalShaderType>::GetShader<MediumQualityShaderName >() const;
+
+class HwPCFHighQualityShaderName : public FGlobalShader
+{
+	DECLARE_SHADER_TYPE(HwPCFHighQualityShaderName, Global);
+};
+
+// @baa 0x0068bda0
+template HwPCFHighQualityShaderName* TShaderMap<FGlobalShaderType>::GetShader<HwPCFHighQualityShaderName >() const;
+
+class Fetch4PCFHighQualityShaderName : public FGlobalShader
+{
+	DECLARE_SHADER_TYPE(Fetch4PCFHighQualityShaderName, Global);
+};
+
+// @baa 0x0068be00
+template Fetch4PCFHighQualityShaderName* TShaderMap<FGlobalShaderType>::GetShader<Fetch4PCFHighQualityShaderName >() const;
+
+class HighQualityShaderName : public FGlobalShader
+{
+	DECLARE_SHADER_TYPE(HighQualityShaderName, Global);
+};
+
+// @baa 0x0068be60
+template HighQualityShaderName* TShaderMap<FGlobalShaderType>::GetShader<HighQualityShaderName >() const;
+
+class FDistortionApplyScreenPixelShader : public FGlobalShader
+{
+	DECLARE_SHADER_TYPE(FDistortionApplyScreenPixelShader, Global);
+};
+
+// @baa 0x0068bf80
+template FDistortionApplyScreenPixelShader* TShaderMap<FGlobalShaderType>::GetShader<FDistortionApplyScreenPixelShader >() const;
+
+class FScreenPixelShader : public FGlobalShader
+{
+	DECLARE_SHADER_TYPE(FScreenPixelShader, Global);
+};
+
+// @baa 0x0068bf20
+template FScreenPixelShader* TShaderMap<FGlobalShaderType>::GetShader<FScreenPixelShader >() const;
+
+class FDistortionApplyScreenVertexShader : public FGlobalShader
+{
+	DECLARE_SHADER_TYPE(FDistortionApplyScreenVertexShader, Global);
+};
+
+// @baa 0x0068bec0
+template FDistortionApplyScreenVertexShader* TShaderMap<FGlobalShaderType>::GetShader<FDistortionApplyScreenVertexShader >() const;
+
+/* The samples of the gather pass on floating-point targets. */
+const UINT NumFPFilterSamples = 4;
+template<UINT NumSamples>
+class TDOFAndBloomGatherVertexShader : public FGlobalShader
+{
+	DECLARE_SHADER_TYPE(TDOFAndBloomGatherVertexShader, Global);
+};
+
+// @baa 0x0068c0a0
+template TDOFAndBloomGatherVertexShader<NumFPFilterSamples>* TShaderMap<FGlobalShaderType>::GetShader<TDOFAndBloomGatherVertexShader<NumFPFilterSamples> >() const;
+
+/* The most samples a filter shader takes. */
+#define MAX_FILTER_SAMPLES 16
+// @baa 0x0068bfe0
+template TDOFAndBloomGatherVertexShader<MAX_FILTER_SAMPLES>* TShaderMap<FGlobalShaderType>::GetShader<TDOFAndBloomGatherVertexShader<MAX_FILTER_SAMPLES> >() const;
+
+template<UINT NumSamples>
+class TDOFAndBloomGatherPixelShader : public FGlobalShader
+{
+	DECLARE_SHADER_TYPE(TDOFAndBloomGatherPixelShader, Global);
+};
+
+// @baa 0x0068c040
+template TDOFAndBloomGatherPixelShader<MAX_FILTER_SAMPLES>* TShaderMap<FGlobalShaderType>::GetShader<TDOFAndBloomGatherPixelShader<MAX_FILTER_SAMPLES> >() const;
+
+// @baa 0x0068c160
+template TDOFAndBloomGatherPixelShader<NumFPFilterSamples>* TShaderMap<FGlobalShaderType>::GetShader<TDOFAndBloomGatherPixelShader<NumFPFilterSamples> >() const;
+
+class FDOFAndBloomBlendVertexShader : public FGlobalShader
+{
+	DECLARE_SHADER_TYPE(FDOFAndBloomBlendVertexShader, Global);
+};
+
+// @baa 0x0068c1c0
+template FDOFAndBloomBlendVertexShader* TShaderMap<FGlobalShaderType>::GetShader<FDOFAndBloomBlendVertexShader >() const;
+
+class FDOFAndBloomGatherFallbackPixelShader : public FGlobalShader
+{
+	DECLARE_SHADER_TYPE(FDOFAndBloomGatherFallbackPixelShader, Global);
+};
+
+// @baa 0x0068c100
+template FDOFAndBloomGatherFallbackPixelShader* TShaderMap<FGlobalShaderType>::GetShader<FDOFAndBloomGatherFallbackPixelShader >() const;
+
+class FDOFAndBloomBlendPixelShader : public FGlobalShader
+{
+	DECLARE_SHADER_TYPE(FDOFAndBloomBlendPixelShader, Global);
+};
+
+// @baa 0x0068c220
+template FDOFAndBloomBlendPixelShader* TShaderMap<FGlobalShaderType>::GetShader<FDOFAndBloomBlendPixelShader >() const;
+
+class TModShadowProjectionPixelShaderFDirectionalLightPolicyF4SampleHwPCF : public FGlobalShader
+{
+	DECLARE_SHADER_TYPE(TModShadowProjectionPixelShaderFDirectionalLightPolicyF4SampleHwPCF, Global);
+};
+
+// @baa 0x006a4a30
+template TModShadowProjectionPixelShaderFDirectionalLightPolicyF4SampleHwPCF* TShaderMap<FGlobalShaderType>::GetShader<TModShadowProjectionPixelShaderFDirectionalLightPolicyF4SampleHwPCF >() const;
+
+class TModShadowProjectionPixelShaderFDirectionalLightPolicyF16SampleHwPCF : public FGlobalShader
+{
+	DECLARE_SHADER_TYPE(TModShadowProjectionPixelShaderFDirectionalLightPolicyF16SampleHwPCF, Global);
+};
+
+// @baa 0x006a4af0
+template TModShadowProjectionPixelShaderFDirectionalLightPolicyF16SampleHwPCF* TShaderMap<FGlobalShaderType>::GetShader<TModShadowProjectionPixelShaderFDirectionalLightPolicyF16SampleHwPCF >() const;
+
+class TModShadowProjectionPixelShaderFDirectionalLightPolicyF16SampleFetch4PCF : public FGlobalShader
+{
+	DECLARE_SHADER_TYPE(TModShadowProjectionPixelShaderFDirectionalLightPolicyF16SampleFetch4PCF, Global);
+};
+
+// @baa 0x006a4b50
+template TModShadowProjectionPixelShaderFDirectionalLightPolicyF16SampleFetch4PCF* TShaderMap<FGlobalShaderType>::GetShader<TModShadowProjectionPixelShaderFDirectionalLightPolicyF16SampleFetch4PCF >() const;
+
+class FShaderComplexityAccumulatePixelShader : public FGlobalShader
+{
+	DECLARE_SHADER_TYPE(FShaderComplexityAccumulatePixelShader, Global);
+};
+
+// @baa 0x0068c280
+template FShaderComplexityAccumulatePixelShader* TShaderMap<FGlobalShaderType>::GetShader<FShaderComplexityAccumulatePixelShader >() const;
+
+class TModShadowProjectionPixelShaderFDirectionalLightPolicyF4SampleManualPCF : public FGlobalShader
+{
+	DECLARE_SHADER_TYPE(TModShadowProjectionPixelShaderFDirectionalLightPolicyF4SampleManualPCF, Global);
+};
+
+// @baa 0x006a4a90
+template TModShadowProjectionPixelShaderFDirectionalLightPolicyF4SampleManualPCF* TShaderMap<FGlobalShaderType>::GetShader<TModShadowProjectionPixelShaderFDirectionalLightPolicyF4SampleManualPCF >() const;
+
+class TBranchingPCFModProjectionPixelShaderFDirectionalLightPolicyFLowQualityHwPCF : public FGlobalShader
+{
+	DECLARE_SHADER_TYPE(TBranchingPCFModProjectionPixelShaderFDirectionalLightPolicyFLowQualityHwPCF, Global);
+};
+
+// @baa 0x006a4c10
+template TBranchingPCFModProjectionPixelShaderFDirectionalLightPolicyFLowQualityHwPCF* TShaderMap<FGlobalShaderType>::GetShader<TBranchingPCFModProjectionPixelShaderFDirectionalLightPolicyFLowQualityHwPCF >() const;
+
+class TModShadowProjectionPixelShaderFDirectionalLightPolicyF16SampleManualPCF : public FGlobalShader
+{
+	DECLARE_SHADER_TYPE(TModShadowProjectionPixelShaderFDirectionalLightPolicyF16SampleManualPCF, Global);
+};
+
+// @baa 0x006a4bb0
+template TModShadowProjectionPixelShaderFDirectionalLightPolicyF16SampleManualPCF* TShaderMap<FGlobalShaderType>::GetShader<TModShadowProjectionPixelShaderFDirectionalLightPolicyF16SampleManualPCF >() const;
+
+class TBranchingPCFModProjectionPixelShaderFDirectionalLightPolicyFLowQualityFetch4PCF : public FGlobalShader
+{
+	DECLARE_SHADER_TYPE(TBranchingPCFModProjectionPixelShaderFDirectionalLightPolicyFLowQualityFetch4PCF, Global);
+};
+
+// @baa 0x006a4c70
+template TBranchingPCFModProjectionPixelShaderFDirectionalLightPolicyFLowQualityFetch4PCF* TShaderMap<FGlobalShaderType>::GetShader<TBranchingPCFModProjectionPixelShaderFDirectionalLightPolicyFLowQualityFetch4PCF >() const;
+
+class TBranchingPCFModProjectionPixelShaderFDirectionalLightPolicyFMediumQualityHwPCF : public FGlobalShader
+{
+	DECLARE_SHADER_TYPE(TBranchingPCFModProjectionPixelShaderFDirectionalLightPolicyFMediumQualityHwPCF, Global);
+};
+
+// @baa 0x006a4d30
+template TBranchingPCFModProjectionPixelShaderFDirectionalLightPolicyFMediumQualityHwPCF* TShaderMap<FGlobalShaderType>::GetShader<TBranchingPCFModProjectionPixelShaderFDirectionalLightPolicyFMediumQualityHwPCF >() const;

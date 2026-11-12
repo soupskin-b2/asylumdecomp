@@ -1,4 +1,4 @@
-// BmGame_1530000.cpp: 71 functions
+// BmGame_1530000.cpp: 72 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -490,4 +490,29 @@ void C_0153d190::sub_0153d190(UINT A)
 {
     vf19c();
     sub_00d201d0((INT)A);
+}
+
+extern FName g_026c4fcc;
+	/* ENGINE_GetObjClassVersion */
+/* USequenceObject's GetObjClassVersion script event (generated glue, EngineClasses.h) */
+struct URSeqAct_BoolCounter_ : public URSeqAct_BoolCounter
+{
+	INT eventGetObjClassVersion()
+	{
+		struct SequenceObject_eventGetObjClassVersion_Parms
+		{
+			INT ReturnValue;
+		} Parms;
+		Parms.ReturnValue = 0;
+		ProcessEvent(FindFunctionChecked(g_026c4fcc), &Parms);
+		return Parms.ReturnValue;
+	}
+};
+
+// @baa 0x0153d1b0
+/* Slot 0x120 (UpdateObject): refresh the links, then take the class's current version. */
+void URSeqAct_BoolCounter::vf_120()
+{
+	vf_19c();
+	ObjInstanceVersion = ((URSeqAct_BoolCounter_*)this)->eventGetObjClassVersion();
 }

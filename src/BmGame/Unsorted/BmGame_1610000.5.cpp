@@ -1,4 +1,4 @@
-// BmGame_1610000.cpp: 7 functions
+// BmGame_1610000.cpp: 8 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -206,4 +206,29 @@ C_0161d9c0* C_0161d9c0::sub_0161d9c0(int Unused)
     Data[8] = 0;
     Data[9] = 0;
     return this;
+}
+
+extern FName g_026c4fcc;
+	/* ENGINE_GetObjClassVersion */
+/* USequenceObject's GetObjClassVersion script event (generated glue, EngineClasses.h) */
+struct URSeqAct_SpeechEventManagerBase__01612d90 : public URSeqAct_SpeechEventManagerBase
+{
+	INT eventGetObjClassVersion()
+	{
+		struct SequenceObject_eventGetObjClassVersion_Parms
+		{
+			INT ReturnValue;
+		} Parms;
+		Parms.ReturnValue = 0;
+		ProcessEvent(FindFunctionChecked(g_026c4fcc), &Parms);
+		return Parms.ReturnValue;
+	}
+};
+
+// @baa 0x01612d90
+/* Slot 0x120 (UpdateObject): refresh the links, then take the class's current version. */
+void URSeqAct_SpeechEventManagerBase::vf_120()
+{
+	vf_1ac();
+	ObjInstanceVersion = ((URSeqAct_SpeechEventManagerBase__01612d90*)this)->eventGetObjClassVersion();
 }

@@ -1,4 +1,4 @@
-// RPlayerController.cpp: 2 functions
+// RPlayerController.cpp: 3 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -30,4 +30,30 @@ FLOAT sub_016d2050()
 UObject* URCharacterBioCueFactoryNew::FactoryCreateNew(UClass* InClass, UObject* InParent, FName InName, QWORD Flags, UObject* Context, FFeedbackContext* Warn)
 {
 	return StaticConstructObject(InClass, InParent, InName, Flags);
+}
+
+extern FName g_026e37c0;
+	/* BMGAME_PictureLoaded */
+/* The movie's script event (generated glue, BmGameClasses.h) */
+struct URGFxMovie_ : public URGFxMovie
+{
+	void eventPictureLoaded()
+	{
+		ProcessEvent(FindFunctionChecked(g_026e37c0), NULL);
+	}
+};
+
+// @baa 0x016d2760
+/* Async package-load completion callback (UE3's FAsyncCompletionCallback: linker root, user data),
+ * registered for a streamed picture with the movie as user data: once the picture is there,
+ * remember it and tell script. */
+void sub_016d2760(UObject* LinkerRoot, void* CallbackUserData)
+{
+	URGFxMovie* Movie = (URGFxMovie*)CallbackUserData;
+	UTexture2D* Picture = Movie->GetPicture();
+	if (Picture)
+	{
+		Movie->CurrentStreamedPicture = Picture;
+		((URGFxMovie_*)Movie)->eventPictureLoaded();
+	}
 }

@@ -1,4 +1,4 @@
-// RAnimNode_Pose.cpp (part 1 of 4): 206 functions
+// RAnimNode_Pose.cpp (part 1 of 4): 212 functions
 // Placed here by: neighbours 138, class 47, callers 16, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -2019,4 +2019,72 @@ FWeightedAnimSample* sub_0159b7d0(FWeightedAnimSampleArray* Arr)
         return E;
     }
     return NULL;
+}
+
+struct C_Skel_aa1f0
+{
+    BYTE Pad[0x40];
+    BYTE* F40;
+};
+
+struct C_Sub_aa1f0
+{
+    INT sub_015a4a00(INT P1, void* S, void* Sub2);
+};
+
+struct C_015aa1f0
+{
+    BYTE Pad[0x50];
+    C_Skel_aa1f0* S50;
+    BYTE Pad2[0x27b8];
+    C_Sub_aa1f0 Sub;
+    INT sub_015aa1f0(INT P1);
+};
+
+// @baa 0x015aa1f0
+// @baa 0x015aa1f0
+INT C_015aa1f0::sub_015aa1f0(INT P1)
+{
+    C_015aa1f0* Self = this;
+    INT Arg = P1;
+    C_Skel_aa1f0* S = Self->S50;
+    C_Sub_aa1f0* PSub = &Self->Sub;
+    PSub->sub_015a4a00(Arg, S, S->F40 + 0x54);
+    return Arg;
+}
+
+float sub_015984e0(float A, float B);
+// @baa 0x015beee0
+float sub_015beee0(float A, float B, float C)
+{
+    float R = sub_015984e0(A, B);
+    return R * C + A;
+}
+
+void sub_015a77f0(int A1, float A2, int A3, int A4, int A5);
+// @baa 0x015afbe0
+void sub_015afbe0(int A1, float A2, int A3, int A4, int A5)
+{
+    sub_015a77f0(A1, A2, A3, A4, A5);
+}
+
+void sub_015a7ba0(int A1, float A2, int A3, int A4, int A5);
+// @baa 0x015afc10
+void sub_015afc10(int A1, float A2, int A3, int A4, int A5)
+{
+    sub_015a7ba0(A1, A2, A3, A4, A5);
+}
+
+void sub_015a7d70(int A1, float A2, int A3, int A4, int A5);
+// @baa 0x015afc40
+void sub_015afc40(int A1, float A2, int A3, int A4, int A5)
+{
+    sub_015a7d70(A1, A2, A3, A4, A5);
+}
+
+void sub_015a80f0(int A1, float A2, int A3, int A4, int A5);
+// @baa 0x015afc70
+void sub_015afc70(int A1, float A2, int A3, int A4, int A5)
+{
+    sub_015a80f0(A1, A2, A3, A4, A5);
 }

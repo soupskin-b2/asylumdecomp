@@ -1,4 +1,4 @@
-// BmGame_15e0000.cpp (part 1 of 5): 382 functions
+// BmGame_15e0000.cpp (part 1 of 5): 385 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -3496,4 +3496,77 @@ void C_015e2070::sub_015e2070(UINT A)
 {
     vf19c();
     sub_00d201d0((INT)A);
+}
+
+extern FName g_026c4fcc;
+	/* ENGINE_GetObjClassVersion */
+/* USequenceObject's GetObjClassVersion script event (generated glue, EngineClasses.h) */
+struct URBMWaveController_ : public URBMWaveController
+{
+	INT eventGetObjClassVersion()
+	{
+		struct SequenceObject_eventGetObjClassVersion_Parms
+		{
+			INT ReturnValue;
+		} Parms;
+		Parms.ReturnValue = 0;
+		ProcessEvent(FindFunctionChecked(g_026c4fcc), &Parms);
+		return Parms.ReturnValue;
+	}
+};
+
+// @baa 0x015e1e60
+/* Slot 0x120 (UpdateObject): refresh the links, then take the class's current version. */
+void URBMWaveController::vf_120()
+{
+	vf_1a4();
+	ObjInstanceVersion = ((URBMWaveController_*)this)->eventGetObjClassVersion();
+}
+
+	/* ENGINE_GetObjClassVersion */
+/* USequenceObject's GetObjClassVersion script event (generated glue, EngineClasses.h) */
+struct URBMPawnSpawnerController_ : public URBMPawnSpawnerController
+{
+	INT eventGetObjClassVersion()
+	{
+		struct SequenceObject_eventGetObjClassVersion_Parms
+		{
+			INT ReturnValue;
+		} Parms;
+		Parms.ReturnValue = 0;
+		ProcessEvent(FindFunctionChecked(g_026c4fcc), &Parms);
+		return Parms.ReturnValue;
+	}
+};
+
+// @baa 0x015e1ef0
+/* Slot 0x120 (UpdateObject): refresh the links, then take the class's current version. */
+void URBMPawnSpawnerController::vf_120()
+{
+	vf_1ac();
+	ObjInstanceVersion = ((URBMPawnSpawnerController_*)this)->eventGetObjClassVersion();
+}
+
+	/* ENGINE_GetObjClassVersion */
+/* USequenceObject's GetObjClassVersion script event (generated glue, EngineClasses.h) */
+struct URSeqAct_GetNumPawnsInVolume_ : public URSeqAct_GetNumPawnsInVolume
+{
+	INT eventGetObjClassVersion()
+	{
+		struct SequenceObject_eventGetObjClassVersion_Parms
+		{
+			INT ReturnValue;
+		} Parms;
+		Parms.ReturnValue = 0;
+		ProcessEvent(FindFunctionChecked(g_026c4fcc), &Parms);
+		return Parms.ReturnValue;
+	}
+};
+
+// @baa 0x015e2090
+/* Slot 0x120 (UpdateObject): refresh the links, then take the class's current version. */
+void URSeqAct_GetNumPawnsInVolume::vf_120()
+{
+	vf_19c();
+	ObjInstanceVersion = ((URSeqAct_GetNumPawnsInVolume_*)this)->eventGetObjClassVersion();
 }

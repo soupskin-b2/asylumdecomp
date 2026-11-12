@@ -2,26 +2,26 @@
  "updated": "2026-11-12",
  "functions": {
   "total": 174166,
-  "matched": 103515
+  "matched": 103714
  },
  "bytes": {
   "total": 24308119,
-  "matched": 4492957
+  "matched": 4590739
  },
  "areas": [
   {
    "name": "Engine",
    "functions": 69863,
    "bytes": 9201956,
-   "matched": 43825,
-   "matched_bytes": 2196343
+   "matched": 43868,
+   "matched_bytes": 2204657
   },
   {
    "name": "Editor",
    "functions": 42961,
    "bytes": 8040643,
-   "matched": 24285,
-   "matched_bytes": 840311
+   "matched": 24385,
+   "matched_bytes": 906827
   },
   {
    "name": "External",
@@ -34,22 +34,22 @@
    "name": "Game",
    "functions": 13563,
    "bytes": 1853804,
-   "matched": 10504,
-   "matched_bytes": 646275
+   "matched": 10556,
+   "matched_bytes": 658025
   },
   {
    "name": "Core",
    "functions": 12072,
    "bytes": 1275961,
-   "matched": 8338,
-   "matched_bytes": 352425
+   "matched": 8339,
+   "matched_bytes": 362166
   },
   {
    "name": "CommonGame",
    "functions": 1422,
    "bytes": 173518,
-   "matched": 1045,
-   "matched_bytes": 49070
+   "matched": 1048,
+   "matched_bytes": 50531
   },
   {
    "name": "Unsorted",
@@ -97,16 +97,16 @@
  "contributors": [
   {
    "login": "soupskin-b2",
-   "functions": 103506,
-   "bytes": 4492337,
+   "functions": 103705,
+   "bytes": 4590119,
    "models": {
     "Tooling": 94456,
-    "Claude Opus 5.5": 3850,
+    "Claude Opus 5.5": 3892,
     "DeepSeek V4.1 Flash": 2167,
     "Qwen3.8 27B": 1935,
-    "Claude Fable 5.2": 396,
+    "Claude Fable 5.2": 534,
     "GPT-6.1 Sol": 297,
-    "Muse Spark 1.3": 220,
+    "Muse Spark 1.3": 239,
     "DeepSeek V4.1 Flash (Freebuff)": 78,
     "MiniMax M3.1 Flash": 58,
     "Claude Sonnet 5.5": 37,
@@ -124,13 +124,13 @@
   },
   {
    "model": "Claude Opus 5.5",
-   "functions": 3850,
-   "bytes": 541842
+   "functions": 3892,
+   "bytes": 552522
   },
   {
    "model": "Claude Fable 5.2",
-   "functions": 396,
-   "bytes": 259120
+   "functions": 534,
+   "bytes": 345528
   },
   {
    "model": "DeepSeek V4.1 Flash",
@@ -159,8 +159,8 @@
   },
   {
    "model": "Muse Spark 1.3",
-   "functions": 220,
-   "bytes": 5714
+   "functions": 239,
+   "bytes": 6408
   },
   {
    "model": "GPT-6.1 Terra",

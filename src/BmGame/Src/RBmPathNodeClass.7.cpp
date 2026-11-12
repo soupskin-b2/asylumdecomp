@@ -1,4 +1,4 @@
-// RBmPathNodeClass.cpp: 12 functions
+// RBmPathNodeClass.cpp: 13 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -145,4 +145,13 @@ void ARCornerPointBase::vf_340(TArray<AActor*>& Actors)
 			((TArray__015edba0<AActor*>&)Actors).AddUniqueItem((AActor*)WallPoint[i]);
 		}
 	}
+}
+
+// @baa 0x015ef030
+void __stdcall sub_015ef030(FVector4* Out)
+{
+    Out->X = 0.0f;
+    Out->Y = 1.0f;
+    Out->Z = 0.0f;
+    Out->W = 0.0f;
 }

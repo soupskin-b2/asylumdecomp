@@ -1,4 +1,4 @@
-// UnPawn.cpp (part 1 of 2): 120 functions
+// UnPawn.cpp (part 1 of 2): 121 functions
 // Placed here by: neighbours 49, class 32, callers 3, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1733,4 +1733,16 @@ AActor* AActor::GetBaseMost()
 		Dest = Dest->Base;
 	}
 	return Dest;
+}
+
+// @baa 0x008659f0
+/* Whether this volume will hurt the pawn: it causes pain, with a positive rate, isn't ignored by AI, and the pawn
+ * can be hurt by its damage type. */
+UBOOL APhysicsVolume::WillHurt(APawn* P)
+{
+	if (!bPainCausing || (DamagePerSec <= 0.f) || bAIShouldIgnorePain)
+	{
+		return FALSE;
+	}
+	return P->HurtByDamageType(DamageType);
 }

@@ -1,4 +1,4 @@
-// BmGame_16b0000.cpp (part 4 of 4): 5 functions
+// BmGame_16b0000.cpp (part 4 of 4): 6 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -115,4 +115,21 @@ C_016b0500b* C_016b0500b::sub_016b0500(DWORD* P)
     Self->C = P[1];
     Self->D = P[2];
     return Self;
+}
+
+struct C_016be2b0
+{
+    DWORD* sub_016be2b0(INT Arg); /* 0x016be2b0 */
+};
+
+// @baa 0x016be2b0
+DWORD* C_016be2b0::sub_016be2b0(INT Arg)
+{
+    void* P = (void*)((BYTE*)this + 0x30);
+    void* V = *(void**)((BYTE*)P + 4);
+    INT M = -(INT)(V == NULL);
+    INT N = *(INT*)((BYTE*)this + 0x38);
+    INT Idx = Arg & (N - 1);
+    void* Base = (void*)((M & (INT)P) | (INT)V);
+    return (DWORD*)((BYTE*)Base + Idx * 4);
 }

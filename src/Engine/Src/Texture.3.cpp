@@ -1,4 +1,4 @@
-// Texture.cpp (part 3 of 3): 14 functions
+// Texture.cpp (part 3 of 3): 15 functions
 // Placed here by: class 9, neighbours 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -130,4 +130,21 @@ void UTexture::Serialize(FArchive& Ar)
 {
     Super::Serialize(Ar);
     SourceArt.Serialize(Ar, this, INDEX_NONE);
+}
+
+struct UTexture__0072a330 : public UTexture
+{
+	void ReleaseResource(); /* 0x0072a2d0 */
+};
+
+// @baa 0x0072a330
+/* Texture.cpp */
+void UTexture::PreEditChange(UProperty* PropertyAboutToChange)
+{
+	Super::PreEditChange(PropertyAboutToChange);
+	if (Resource.Dummy)
+	{
+		// Release the current texture resource.
+		((UTexture__0072a330*)this)->ReleaseResource();
+	}
 }
