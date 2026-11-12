@@ -681,7 +681,7 @@ struct S_016d6d50 { char pad[0x220]; Comp* c; };
 R* sub_015e32f0(AActor*);
 S_016d6d50* sub_016d3440(AActor*);
 // @baa 0x016d6d50
-void ARWindVolume::vf_360(float dt)
+void ARWindVolume::vf_360(FLOAT dt)
 {
     int n = Touching.Num();
     if (n > 0) {

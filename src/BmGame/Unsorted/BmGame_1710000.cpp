@@ -86,7 +86,7 @@ bool ARWaterLevelMarker::vf_004()
 }
 
 // @baa 0x01717530
-void ARHarpoonDragFloatingPlatformBase::vf_1a8(int a0, int a1, int a2, int a3, int a4, int a5, int a6, int a7) {  }
+void ARHarpoonDragFloatingPlatformBase::SetBase(AActor* NewBase, FVector NewFloor, INT bNotifyActor, USkeletalMeshComponent* SkelComp, FName AttachName) {  }
 
 // @baa 0x01717650
 int ARHarpoonDragTrack::vf_000(void) { return 1; }

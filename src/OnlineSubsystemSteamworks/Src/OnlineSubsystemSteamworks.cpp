@@ -188,7 +188,7 @@ int UOnlineSubsystemSteamworks::vf_1d0(int a0, int a1, int a2, int a3) { return 
 void UOnlineSubsystemSteamworks::vf_1d4(int a0, int a1, int a2, int a3) {  }
 
 // @baa 0x00e88b30
-int UOnlineSubsystemSteamworks::vf_1e0(int a0, int a1, int a2) { return 0; }
+INT UOnlineSubsystemSteamworks::vf_1e0(INT a0, INT a1, INT a2) { return 0; }
 
 // @baa 0x00e88b40
 int UOnlineSubsystemSteamworks::vf_1e8(int a0, int a1, int a2) { return 0; }
@@ -263,7 +263,7 @@ int UOnlineSubsystemSteamworks::vf_228(int a0) { return 0; }
 int UOnlineSubsystemSteamworks::vf_22c(int a0, int a1, int a2, int a3) { return 0; }
 
 // @baa 0x00e88e30
-int UOnlineSubsystemSteamworks::vf_234(int a0, int a1) { return 0; }
+INT UOnlineSubsystemSteamworks::vf_234(INT a0, INT a1) { return 0; }
 
 // @baa 0x00e89450
 IMPLEMENT_CLASS_AT(UOnlineSubsystemSteamworks, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\OnlineSubsystemSteamworks\\Src\\OnlineSubsystemSteamworksPackage.cpp", 72);
@@ -1886,7 +1886,7 @@ TConstSetBitIterator_00e93170& TConstSetBitIterator_00e93170::operator++()
 }
 
 // @baa 0x00e94400
-int UOnlineSubsystemSteamworks::vf_1ac(int a0, int a1, int a2, int a3, int a4) { return 1; }
+INT UOnlineSubsystemSteamworks::vf_1ac(INT a0, INT a1, INT a2, INT a3, INT a4) { return 1; }
 
 // @baa 0x00e94410
 int UOnlineSubsystemSteamworks::vf_1b4(int a0, int a1, int a2, int a3) { return 1; }
@@ -2313,7 +2313,7 @@ void sub_00e98fa0();
 void sub_00e99380(void) { sub_00e98fa0(); }
 
 // @baa 0x00e99490
-int UOnlineSubsystemSteamworks::vf_1b0(int a0, int a1) { return 1; }
+INT UOnlineSubsystemSteamworks::vf_1b0(INT a0, INT a1) { return 1; }
 
 void sub_00e99100();
 // @baa 0x00e994a0

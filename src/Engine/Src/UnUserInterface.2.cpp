@@ -7361,7 +7361,7 @@ void sub_00dde330(void) {  }
 int UGameUISceneClient::vf_18c(int a0) { return 0; }
 
 // @baa 0x00dde450
-void UGameUISceneClient::vf_1ac(int a0, int a1, int a2) {  }
+void UGameUISceneClient::vf_1ac(INT a0, INT a1, INT a2) {  }
 
 // @baa 0x00dde4f0
 void UGameUISceneClient::sub_00dde4f0(void)

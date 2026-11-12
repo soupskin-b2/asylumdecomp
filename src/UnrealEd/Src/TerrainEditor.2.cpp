@@ -39,7 +39,7 @@ void C::sub_0124b750()
 int sub_00630f20(...);
 extern INT g_026667a8;
 // @baa 0x012508c0
-void UThumbnailRenderer::Draw(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT) {
+void UThumbnailRenderer::Draw(UObject* Object, EThumbnailPrimType PrimType, INT X, INT Y, DWORD Width, DWORD Height, FViewport* Viewport, FCanvas* Canvas, EThumbnailBackgroundType BackgroundType, FColor PreviewBackgroundColor, FColor PreviewBackgroundColorDropped) {
   sub_00630f20(g_026667a8, L"Pure virtual not implemented (%s)", L"UThumbnailRenderer::Draw");
 }
 

@@ -236,18 +236,18 @@ struct C_view_00759550 {
     virtual int vf_014();
     virtual int vf_018();
     virtual int vf_01c();
-    virtual int vf_020();
-    virtual int vf_024();
+    virtual int BeginDestroy();
+    virtual int IsReadyForFinishDestroy();
     virtual int vf_028();
     virtual int vf_02c();
     virtual int vf_030();
     virtual int vf_034();
-    virtual int vf_038();
+    virtual int IsPendingKill();
 };
 
 // @baa 0x00759550
 UINT UActorComponent::vf_12c() {
-    return vf_038() == 0;
+    return IsPendingKill() == 0;
 }
 
 extern undefined4 g_01efb7d0;

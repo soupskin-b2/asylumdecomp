@@ -291,7 +291,7 @@ int UUIObject::vf_13c(void)
 }
 
 // @baa 0x00d992f0
-int UUIObject::vf_144(void) { return *(int*)((char*)this + 316); }
+ULocalPlayer* UUIObject::GetPlayerOwner() { return *(ULocalPlayer**)((char*)this + 316); }
 
 // @baa 0x00d99320
 void UUIObject::vf_22c(int a0) {  }
@@ -1437,7 +1437,7 @@ struct V_00da9de0 {
 void V_00da9de0::sub_00da9de0(int a0) { g(a0); }
 
 // @baa 0x00da9f90
-int UUIScene::vf_1e0(int a0) { return 0; }
+INT UUIScene::vf_1e0(INT a0) { return 0; }
 
 // @baa 0x00daa110
 void sub_00daa110(void) {  }
@@ -1446,7 +1446,7 @@ void sub_00daa110(void) {  }
 void __stdcall sub_00daa350(int a0) {  }
 
 // @baa 0x00daa3a0
-int UUIObject::vf_1e0(int a0) { return 0; }
+INT UUIObject::vf_1e0(INT a0) { return 0; }
 
 struct M_00daa7d0 { void sub_00de34d0(); };
 

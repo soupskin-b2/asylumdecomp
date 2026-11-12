@@ -2557,7 +2557,7 @@ void sub_0068e670(void) { sub_0068d660(); }
 IMPLEMENT_CLASS_AT(AActor, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 32);
 
 // @baa 0x0068ea70
-int AActor::vf_15c(void) { return 0; }
+APawn* AActor::GetPlayerPawn() { return 0; }
 
 // @baa 0x0068ea80
 UINT AActor::vf_160() { return 0; }
@@ -2620,7 +2620,7 @@ void AActor::vf_260(int a0) {  }
 void AActor::vf_264(int a0) {  }
 
 // @baa 0x0068ef30
-void AActor::vf_268(int a0, int a1, int a2, int a3, int a4, int a5, int a6) {  }
+void AActor::vf_268(INT a0, INT a1, INT a2, INT a3, INT a4, FLOAT a5, INT a6) {  }
 
 // @baa 0x0068ef40
 void AActor::vf_26c(UINT a0, UINT a1) {  }

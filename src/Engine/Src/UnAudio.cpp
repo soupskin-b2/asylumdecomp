@@ -1365,7 +1365,7 @@ void sub_00797de0(void) { sub_00797750(); }
 IMPLEMENT_CLASS_AT(ACamera, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnCamera.cpp", 11);
 
 // @baa 0x00797ee0
-void ACamera::vf_360(int a0) {  }
+void ACamera::vf_360(FPostProcessSettings& a0) {  }
 
 // @baa 0x00797ef0
 // @baa 0x00797f80
@@ -1646,10 +1646,10 @@ int UAudioDevice::vf_1a4(int a0) { return 0; }
 int UAudioDevice::vf_1a8(int a0) { return 0; }
 
 // @baa 0x0079ca80
-int UAudioDevice::vf_1ac(int a0, int a1) { return 0; }
+INT UAudioDevice::vf_1ac(INT a0, INT a1) { return 0; }
 
 // @baa 0x0079ca90
-void UAudioDevice::vf_1b0(int a0) {  }
+void UAudioDevice::vf_1b0(INT a0) {  }
 
 // @baa 0x0079caa0
 void UAudioDevice::vf_1b4(int a0) {  }

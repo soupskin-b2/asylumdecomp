@@ -35,7 +35,7 @@ void AActor::execGetTerminalVelocity(FFrame& Stack, RESULT_DECL)
 void AActor::execGetBaseMost(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(AActor**)Result = (AActor*)vf_128();
+	*(AActor**)Result = (AActor*)GetBaseMost();
 }
 
 struct AActor__00c81570 : public AActor

@@ -15,7 +15,7 @@ INT UTransactor::Begin(INT)
 }
 
 // @baa 0x00f73160
-INT UTransactor::CanUndo(INT)
+UBOOL UTransactor::CanUndo(FString* Str)
 {
 	PURE_VIRTUAL(UTransactor::CanUndo, return 0;)
 }

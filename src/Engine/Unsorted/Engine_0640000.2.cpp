@@ -61,7 +61,7 @@ struct USurface_ : public USurface
 void USurface_::sub_0064bbf0()
 {
     if (--*(INT*)((char*)this + 0x14) == 0)
-        vf_020();
+        BeginDestroy();
 }
 
 struct C_0064d1e0

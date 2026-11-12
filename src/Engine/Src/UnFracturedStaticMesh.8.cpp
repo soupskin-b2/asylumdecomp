@@ -59,7 +59,7 @@ float AFractureManager::vf_35c() {
 
 extern float g_026c0de0;
 // @baa 0x007a7b60
-float AFractureManager::vf_360(void)
+FLOAT AFractureManager::vf_360()
 {
     return g_026c0de0;
 }

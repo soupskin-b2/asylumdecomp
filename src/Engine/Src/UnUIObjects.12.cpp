@@ -31,7 +31,7 @@ void UUIScreenObject::vf_09c(void) {  }
 int UUIScreenObject::vf_1dc(int a0) { return 0; }
 
 // @baa 0x00da97b0
-int UUIScreenObject::vf_1e0(int a0) { return 0; }
+INT UUIScreenObject::vf_1e0(INT a0) { return 0; }
 
 // @baa 0x00da97c0
 int UUIScreenObject::vf_1e4(int a0) { return 0; }

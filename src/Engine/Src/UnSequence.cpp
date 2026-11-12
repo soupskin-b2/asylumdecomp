@@ -1424,7 +1424,7 @@ UBOOL USequenceOp::UpdateOp(FLOAT DeltaTime) { return TRUE; }
 void USequenceOp::Activated(void) {  }
 
 // @baa 0x008abaf0
-void USequence::vf_1ac(void) {  }
+void USequence::vf_1ac() {  }
 
 // @baa 0x008abb60
 void USequence::sub_008abb60(uint param_2)

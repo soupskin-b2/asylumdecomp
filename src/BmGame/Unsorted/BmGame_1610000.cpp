@@ -20,7 +20,7 @@ bool ARBMRouteRequest::vf_35c(void)
 }
 
 // @baa 0x01610260
-undefined4 ARBMRouteRequest::vf_360(void)
+UINT ARBMRouteRequest::vf_360()
 {
     int param_1 = (int)this;
 
@@ -192,7 +192,7 @@ void URSeqAct_SpeechEventManagerBase::vf_1a4(void)
 }
 
 // @baa 0x01612d60
-void URSeqAct_SpeechEventManagerBase::vf_1ac(void) {  }
+void URSeqAct_SpeechEventManagerBase::vf_1ac() {  }
 
 struct V_01612df0 {
     virtual void v0();

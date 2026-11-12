@@ -169,7 +169,7 @@ void UParticleSystem::vf_118(undefined1 param_2)
 void sub_00b51a40(void) {  }
 
 // @baa 0x00b51a80
-int UParticleSystemComponent::vf_024(void) { return 1; }
+UBOOL UParticleSystemComponent::IsReadyForFinishDestroy() { return 1; }
 
 // @baa 0x00b51ba0
 void UParticleSystemComponent::sub_00b51ba0(int param_2)

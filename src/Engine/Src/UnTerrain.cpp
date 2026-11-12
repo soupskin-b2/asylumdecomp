@@ -3665,10 +3665,10 @@ undefined4 C_015b0d90::sub_015b0d90(int param_2)
 // @baa 0x00757d70
 /* AActor slot 0x20 (kit vf_020): UE3's AActor::BeginDestroy(): detach the components (slot 0x310, UE3
  * ClearComponents) before the object-level BeginDestroy. */
-void AActor::vf_020()
+void AActor::BeginDestroy()
 {
     vf_310(FALSE);
-    Super::vf_020();
+    Super::BeginDestroy();
 }
 
 /* Kit gap: FRenderCommandFence::GetNumPendingFences (0x0071f7e0) isn't declared. */
@@ -3680,7 +3680,7 @@ struct FRenderCommandFence_ : public FRenderCommandFence
 // @baa 0x00757d90
 /* AActor slot 0x24 (kit vf_024): UE3's AActor::IsReadyForFinishDestroy(): the render thread is done with the
  * components detached in BeginDestroy. */
-INT AActor::vf_024()
+UBOOL AActor::IsReadyForFinishDestroy()
 {
     return ((const FRenderCommandFence_&)DetachFence).GetNumPendingFences() == 0;
 }

@@ -54,7 +54,7 @@ INT C_00ddeca0::sub_00ddeca0(INT Index)
 extern INT g_026c5e68;
 
 // @baa 0x00dde460
-INT UGameUISceneClient::vf_1b0(INT, INT, INT)
+INT UGameUISceneClient::vf_1b0(INT a0, INT a1, INT a2)
 {
     ++g_026c5e68;
     return 0;

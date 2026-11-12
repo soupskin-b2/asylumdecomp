@@ -1302,7 +1302,7 @@
     {
      "va": "00f73180",
      "size": 29,
-     "symbol": "?CanRedo@UTransactor@@UAEHH@Z"
+     "symbol": "?CanRedo@UTransactor@@UAEHPAVFString@@@Z"
     }
    ]
   },
@@ -53666,7 +53666,7 @@
     {
      "va": "01717530",
      "size": 3,
-     "symbol": "?vf_1a8@ARHarpoonDragFloatingPlatformBase@@UAEXHHHHHHHH@Z"
+     "symbol": "?SetBase@ARHarpoonDragFloatingPlatformBase@@UAEXPAUAActor@@UFVector@@HPAUUSkeletalMeshComponent@@UFName@@@Z"
     },
     {
      "va": "01717650",
@@ -69701,7 +69701,7 @@
     {
      "va": "00417ce0",
      "size": 6,
-     "symbol": "?vf_024@UObject@@UAEHXZ"
+     "symbol": "?IsReadyForFinishDestroy@UObject@@UAEHXZ"
     },
     {
      "va": "00417cf0",
@@ -145905,7 +145905,7 @@
     {
      "va": "00f73160",
      "size": 29,
-     "symbol": "?CanUndo@UTransactor@@UAEHH@Z"
+     "symbol": "?CanUndo@UTransactor@@UAEHPAVFString@@@Z"
     },
     {
      "va": "00f76940",
@@ -183485,7 +183485,7 @@
     {
      "va": "0068ee40",
      "size": 28,
-     "symbol": "?vf_038@AActor@@UAEHXZ"
+     "symbol": "?IsPendingKill@AActor@@UAEHXZ"
     }
    ]
   },
@@ -185670,7 +185670,7 @@
     {
      "va": "0075e840",
      "size": 43,
-     "symbol": "?vf_020@UActorComponent@@UAEXXZ"
+     "symbol": "?BeginDestroy@UActorComponent@@UAEXXZ"
     },
     {
      "va": "0075e870",
@@ -192116,7 +192116,7 @@
     {
      "va": "00797ee0",
      "size": 3,
-     "symbol": "?vf_360@ACamera@@UAEXH@Z"
+     "symbol": "?vf_360@ACamera@@UAEXAAUFPostProcessSettings@@@Z"
     },
     {
      "va": "00797ef0",
@@ -204970,7 +204970,7 @@
     {
      "va": "00b51a80",
      "size": 6,
-     "symbol": "?vf_024@UParticleSystemComponent@@UAEHXZ"
+     "symbol": "?IsReadyForFinishDestroy@UParticleSystemComponent@@UAEHXZ"
     },
     {
      "va": "00b51ba0",
@@ -210264,7 +210264,7 @@
     {
      "va": "007a0780",
      "size": 80,
-     "symbol": "?vf_364@APawn@@UAEIHI@Z"
+     "symbol": "?IsValidEnemyTargetFor@APawn@@UAEHPBUAPlayerReplicationInfo@@H@Z"
     },
     {
      "va": "00802a10",
@@ -225287,7 +225287,7 @@
     {
      "va": "0090d7d0",
      "size": 24,
-     "symbol": "?vf_020@UAnimSequence@@UAEXXZ"
+     "symbol": "?BeginDestroy@UAnimSequence@@UAEXXZ"
     },
     {
      "va": "009125a0",
@@ -231107,12 +231107,12 @@
     {
      "va": "00757d70",
      "size": 23,
-     "symbol": "?vf_020@AActor@@UAEXXZ"
+     "symbol": "?BeginDestroy@AActor@@UAEXXZ"
     },
     {
      "va": "00757d90",
      "size": 19,
-     "symbol": "?vf_024@AActor@@UAEHXZ"
+     "symbol": "?IsReadyForFinishDestroy@AActor@@UAEHXZ"
     }
    ]
   },
@@ -237272,7 +237272,7 @@
     {
      "va": "00d98fe0",
      "size": 27,
-     "symbol": "?vf_144@UUIScreenObject@@UAEHXZ"
+     "symbol": "?GetPlayerOwner@UUIScreenObject@@UAEPAUULocalPlayer@@XZ"
     }
    ]
   },
@@ -237451,7 +237451,7 @@
     {
      "va": "00d992f0",
      "size": 7,
-     "symbol": "?vf_144@UUIObject@@UAEHXZ"
+     "symbol": "?GetPlayerOwner@UUIObject@@UAEPAUULocalPlayer@@XZ"
     },
     {
      "va": "00d99320",
@@ -259826,7 +259826,7 @@
     {
      "va": "0068ea70",
      "size": 3,
-     "symbol": "?vf_15c@AActor@@UAEHXZ"
+     "symbol": "?GetPlayerPawn@AActor@@UAEPAUAPawn@@XZ"
     },
     {
      "va": "0068ea80",
@@ -259911,7 +259911,7 @@
     {
      "va": "0068ef30",
      "size": 3,
-     "symbol": "?vf_268@AActor@@UAEXHHHHHHH@Z"
+     "symbol": "?vf_268@AActor@@UAEXHHHHHMH@Z"
     },
     {
      "va": "0068ef40",
@@ -289928,7 +289928,7 @@
     {
      "va": "00836aa0",
      "size": 90,
-     "symbol": "?vf_2b0@ANavigationPoint@@UAEIHPAM@Z"
+     "symbol": "?TouchReachSucceeded@ANavigationPoint@@UAEHPAUAPawn@@ABUFVector@@@Z"
     },
     {
      "va": "00837630",
@@ -475231,7 +475231,7 @@
     {
      "va": "012508c0",
      "size": 27,
-     "symbol": "?Draw@UThumbnailRenderer@@UAEXHHHHHHHHHHH@Z"
+     "symbol": "?Draw@UThumbnailRenderer@@UAEXPAUUObject@@W4EThumbnailPrimType@@HHKKPAUFViewport@@PAVFCanvas@@W4EThumbnailBackgroundType@@UFColor@@5@Z"
     },
     {
      "va": "0124c040",

@@ -70,9 +70,11 @@ int APawn::vf_458(int a0, int a1) { return 0; }
 
 // @baa 0x00776270
 // @baa 0x007a0780
-undefined4 APawn::vf_364(int param_2, undefined4 param_3)
+UBOOL APawn::IsValidEnemyTargetFor(const APlayerReplicationInfo* PRI, UBOOL bNoPRIisEnemy)
 {
     int param_1 = (int)this;
+    int param_2 = (int)PRI;
+    UBOOL param_3 = bNoPRIisEnemy;
 
   int iVar1;
   

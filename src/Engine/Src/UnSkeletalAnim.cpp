@@ -145,7 +145,7 @@ bool UAnimNotify::vf_004()
 
 int sub_005d7270(void);
 // @baa 0x0090d7d0
-void UAnimSequence::vf_020(void)
+void UAnimSequence::BeginDestroy()
 {
     int param_1 = (int)this;
 

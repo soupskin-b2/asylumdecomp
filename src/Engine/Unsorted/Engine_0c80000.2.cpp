@@ -725,7 +725,7 @@ void AActor::execSetHidden(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bNewHidden);
 	P_FINISH;
-	vf_12c(bNewHidden);
+	SetHidden(bNewHidden);
 }
 
 // @baa 0x00c88d50

@@ -36,6 +36,14 @@ enum EGotoState
     GOTOSTATE_NotFound  = 1,
     GOTOSTATE_Preempted = 2,
 };
+struct FViewport;
+/* what a thumbnail is drawn over (UnThumbnail.h) */
+enum EThumbnailBackgroundType
+{
+    TBT_None              = 0,
+    TBT_DefaultBackground = 1,
+    TBT_SolidBackground   = 2,
+};
 /* the primitive a thumbnail is drawn on (UnThumbnail.h) */
 enum EThumbnailPrimType
 {
@@ -9681,13 +9689,13 @@ struct UObject {
     virtual void vf_014(); /* 0x014 */
     virtual INT vf_018(INT); /* 0x018 */
     virtual void vf_01c(); /* 0x01c */
-    virtual void vf_020(); /* 0x020 */
-    virtual INT vf_024(); /* 0x024 */
+    virtual void BeginDestroy(); /* 0x020 */
+    virtual UBOOL IsReadyForFinishDestroy(); /* 0x024 */
     virtual INT vf_028(INT, INT); /* 0x028 */
     virtual void vf_02c(); /* 0x02c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual INT vf_034(INT, INT, INT); /* 0x034 */
-    virtual INT vf_038(); /* 0x038 */
+    virtual UBOOL IsPendingKill(); /* 0x038 */
     virtual void vf_03c(); /* 0x03c */
     virtual void vf_040(INT); /* 0x040 */
     virtual void PreEditChange(class UProperty* PropertyAboutToChange); /* 0x044 */
@@ -12066,7 +12074,7 @@ struct UComponent : public UObject {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_038(); /* 0x038 */
+    virtual UBOOL IsPendingKill(); /* 0x038 */
     virtual INT vf_0c0(INT, INT); /* 0x0c0 */
     /* other member functions */
     UINT* sub_005400a0(); /* 0x005400a0 */
@@ -12349,9 +12357,9 @@ struct AActor : public UObject {
     virtual FLOAT vf_11c(); /* 0x11c */
     virtual FVector GetZoneVelocity(); /* 0x120 */
     virtual void vf_124(); /* 0x124 */
-    virtual INT vf_128(); /* 0x128 */
-    virtual INT vf_12c(INT); /* 0x12c */
-    virtual FLOAT vf_130(INT, INT); /* 0x130 */
+    virtual class AActor* GetBaseMost(); /* 0x128 */
+    virtual void SetHidden(UBOOL bNewHidden); /* 0x12c */
+    virtual void GetBoundingCylinder(FLOAT& CollisionRadius, FLOAT& CollisionHeight); /* 0x130 */
     virtual FVector GetDestination(class AController* C); /* 0x134 */
     virtual FLOAT GetGravityZ(); /* 0x138 */
     virtual void PrestreamTextures(FLOAT Seconds, UBOOL bEnableStreaming); /* 0x13c */
@@ -12361,11 +12369,11 @@ struct AActor : public UObject {
     virtual FVector GetFOVCheckLocation(); /* 0x14c */
     virtual void SetHUDLocation(FVector NewHUDLocation); /* 0x150 */
     virtual INT vf_154(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x154 */
-    virtual INT vf_158(INT, INT); /* 0x158 */
-    virtual INT vf_15c(); /* 0x15c */
+    virtual UBOOL SupportsKismetModification(class USequenceOp* AskingOp, FString& Reason); /* 0x158 */
+    virtual class APawn* GetPlayerPawn(); /* 0x15c */
     virtual UINT vf_160(); /* 0x160 */
     virtual UBOOL IgnoreBlockingBy(const class AActor* Other) const; /* 0x164 */
-    virtual INT vf_168(INT, INT, INT, INT); /* 0x168 */
+    virtual void EditorApplyTranslation(const FVector& DeltaTranslation, UBOOL bAltDown, UBOOL bShiftDown, UBOOL bCtrlDown); /* 0x168 */
     virtual INT vf_16c(INT, INT, INT, INT); /* 0x16c */
     virtual void vf_170(FLOAT*, INT, INT, INT, INT, INT); /* 0x170 */
     virtual INT vf_174(INT, INT); /* 0x174 */
@@ -12379,11 +12387,11 @@ struct AActor : public UObject {
     virtual void vf_194(); /* 0x194 */
     virtual UBOOL ShouldTrace(UPrimitiveComponent* Primitive, AActor* SourceActor, DWORD TraceFlags); /* 0x198 */
     virtual void vf_19c(INT); /* 0x19c */
-    virtual INT vf_1a0(INT, INT, INT); /* 0x1a0 */
+    virtual void NotifyBump(class AActor* Other, class UPrimitiveComponent* OtherComp, const FVector& HitNormal); /* 0x1a0 */
     virtual void vf_1a4(INT, INT); /* 0x1a4 */
-    virtual void vf_1a8(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x1a8 */
-    virtual INT vf_1ac(INT); /* 0x1ac */
-    virtual INT vf_1b0(INT); /* 0x1b0 */
+    virtual void SetBase(class AActor* NewBase, FVector NewFloor, INT bNotifyActor, class USkeletalMeshComponent* SkelComp, FName AttachName); /* 0x1a8 */
+    virtual INT vf_1ac(FLOAT); /* 0x1ac */
+    virtual INT vf_1b0(FLOAT); /* 0x1b0 */
     virtual void vf_1b4(FLOAT); /* 0x1b4 */
     virtual bool vf_1b8(); /* 0x1b8 */
     virtual INT vf_1bc(INT, INT, INT); /* 0x1bc */
@@ -12395,7 +12403,7 @@ struct AActor : public UObject {
     virtual INT vf_1d4(); /* 0x1d4 */
     virtual void vf_1d8(); /* 0x1d8 */
     virtual INT vf_1dc(INT, INT, INT, INT, INT, INT); /* 0x1dc */
-    virtual INT vf_1e0(INT); /* 0x1e0 */
+    virtual INT vf_1e0(FLOAT); /* 0x1e0 */
     virtual void vf_1e4(INT, INT); /* 0x1e4 */
     virtual void vf_1e8(); /* 0x1e8 */
     virtual void vf_1ec(INT, INT); /* 0x1ec */
@@ -12416,7 +12424,7 @@ struct AActor : public UObject {
     virtual void vf_228(INT, INT); /* 0x228 */
     virtual INT vf_22c(); /* 0x22c */
     virtual void vf_230(INT); /* 0x230 */
-    virtual INT vf_234(INT); /* 0x234 */
+    virtual void vf_234(INT); /* 0x234 */
     virtual void vf_238(); /* 0x238 */
     virtual void vf_23c(INT); /* 0x23c */
     virtual void vf_240(INT, INT, INT, INT, INT); /* 0x240 */
@@ -12429,7 +12437,7 @@ struct AActor : public UObject {
     virtual void vf_25c(); /* 0x25c */
     virtual void vf_260(INT); /* 0x260 */
     virtual void vf_264(INT); /* 0x264 */
-    virtual void vf_268(INT, INT, INT, INT, INT, INT, INT); /* 0x268 */
+    virtual void vf_268(INT, INT, INT, INT, INT, FLOAT, INT); /* 0x268 */
     virtual void vf_26c(UINT, UINT); /* 0x26c */
     virtual void vf_270(INT); /* 0x270 */
     virtual void vf_274(); /* 0x274 */
@@ -12447,7 +12455,7 @@ struct AActor : public UObject {
     virtual INT vf_2a4(); /* 0x2a4 */
     virtual UINT vf_2a8(INT); /* 0x2a8 */
     virtual void vf_2ac(INT, UINT, UINT); /* 0x2ac */
-    virtual UINT vf_2b0(INT, FLOAT*); /* 0x2b0 */
+    virtual UBOOL TouchReachSucceeded(class APawn* P, const FVector& TestPosition); /* 0x2b0 */
     virtual INT vf_2b4(); /* 0x2b4 */
     virtual void vf_2b8(); /* 0x2b8 */
     virtual void vf_2bc(); /* 0x2bc */
@@ -12471,9 +12479,9 @@ struct AActor : public UObject {
     virtual void* vf_304(); /* 0x304 */
     virtual INT vf_308(); /* 0x308 */
     virtual bool vf_30c(); /* 0x30c */
-    virtual INT vf_310(INT); /* 0x310 */
+    virtual void vf_310(UBOOL bWillReattach); /* 0x310 */
     virtual void vf_314(INT); /* 0x314 */
-    virtual INT vf_318(INT, INT); /* 0x318 */
+    virtual void vf_318(INT, INT); /* 0x318 */
     virtual void vf_31c(INT); /* 0x31c */
     virtual INT vf_320(INT, INT, INT, INT, INT); /* 0x320 */
     virtual void vf_324(); /* 0x324 */
@@ -12493,9 +12501,9 @@ struct AActor : public UObject {
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_014(); /* 0x014 */
     virtual void vf_01c(); /* 0x01c */
-    virtual void vf_020(); /* 0x020 */
-    virtual INT vf_024(); /* 0x024 */
-    virtual INT vf_038(); /* 0x038 */
+    virtual void BeginDestroy(); /* 0x020 */
+    virtual UBOOL IsReadyForFinishDestroy(); /* 0x024 */
+    virtual UBOOL IsPendingKill(); /* 0x038 */
     virtual void PreEditChange(class UProperty* PropertyAboutToChange); /* 0x044 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_058(); /* 0x058 */
@@ -12676,7 +12684,7 @@ struct UActorComponent : public UComponent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_020(); /* 0x020 */
+    virtual void BeginDestroy(); /* 0x020 */
     virtual void PreEditChange(class UProperty* PropertyAboutToChange); /* 0x044 */
     virtual void vf_048(INT); /* 0x048 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
@@ -12875,7 +12883,7 @@ struct UPrimitiveComponent : public UActorComponent {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
-    virtual INT vf_024(); /* 0x024 */
+    virtual UBOOL IsReadyForFinishDestroy(); /* 0x024 */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual INT vf_088(); /* 0x088 */
@@ -13066,8 +13074,8 @@ struct UTexture : public USurface {
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_014(); /* 0x014 */
     virtual void vf_01c(); /* 0x01c */
-    virtual void vf_020(); /* 0x020 */
-    virtual INT vf_024(); /* 0x024 */
+    virtual void BeginDestroy(); /* 0x020 */
+    virtual UBOOL IsReadyForFinishDestroy(); /* 0x024 */
     virtual void vf_02c(); /* 0x02c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual void PreEditChange(class UProperty* PropertyAboutToChange); /* 0x044 */
@@ -13121,7 +13129,7 @@ struct UTexture2D : public UTexture {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
-    virtual void vf_020(); /* 0x020 */
+    virtual void BeginDestroy(); /* 0x020 */
     virtual INT vf_028(INT, INT); /* 0x028 */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual void vf_05c(); /* 0x05c */
@@ -15921,7 +15929,7 @@ struct ANavigationPoint : public AActor {
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual void vf_0d0(); /* 0x0d0 */
     virtual void vf_124(); /* 0x124 */
-    virtual FLOAT vf_130(INT, INT); /* 0x130 */
+    virtual void GetBoundingCylinder(FLOAT& CollisionRadius, FLOAT& CollisionHeight); /* 0x130 */
     virtual FVector GetDestination(class AController* C); /* 0x134 */
     virtual INT vf_17c(INT); /* 0x17c */
     virtual void vf_180(); /* 0x180 */
@@ -15930,7 +15938,7 @@ struct ANavigationPoint : public AActor {
     virtual INT vf_1d0(); /* 0x1d0 */
     virtual INT vf_29c(INT); /* 0x29c */
     virtual void vf_2ac(INT, UINT, UINT); /* 0x2ac */
-    virtual UINT vf_2b0(INT, FLOAT*); /* 0x2b0 */
+    virtual UBOOL TouchReachSucceeded(class APawn* P, const FVector& TestPosition); /* 0x2b0 */
     virtual void vf_2b8(); /* 0x2b8 */
     virtual void vf_314(INT); /* 0x314 */
     virtual void vf_31c(INT); /* 0x31c */
@@ -16126,7 +16134,7 @@ struct UAudioComponent : public UActorComponent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_020(); /* 0x020 */
+    virtual void BeginDestroy(); /* 0x020 */
     virtual void vf_02c(); /* 0x02c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
@@ -16407,7 +16415,7 @@ struct ACamera : public AActor {
     virtual void ApplyCameraModifiers(FLOAT DeltaTime, FTPOV& OutPOV); /* 0x354 */
     virtual void CheckViewTarget(FTViewTarget& VT); /* 0x358 */
     virtual void vf_35c(INT, INT, INT, INT, INT); /* 0x35c */
-    virtual void vf_360(INT); /* 0x360 */
+    virtual void vf_360(FPostProcessSettings& PPSettings); /* 0x360 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -16435,7 +16443,7 @@ struct AAnimatedCamera : public ACamera {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void ApplyCameraModifiers(FLOAT DeltaTime, FTPOV& OutPOV); /* 0x354 */
-    virtual void vf_360(INT); /* 0x360 */
+    virtual void vf_360(FPostProcessSettings& PPSettings); /* 0x360 */
     /* UnrealScript natives */
     void execApplyCameraModifiersNative(FFrame& Stack, RESULT_DECL); /* 0x00c83aa0 */
     void execPlayCameraAnim(FFrame& Stack, RESULT_DECL); /* 0x00c83b50 */
@@ -17012,7 +17020,7 @@ struct UAnimNodeSequence : public UAnimNode {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_020(); /* 0x020 */
+    virtual void BeginDestroy(); /* 0x020 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void PlayAnim(UBOOL bLoop, FLOAT Rate, FLOAT StartTime); /* 0x120 */
     virtual void StopAnim(); /* 0x124 */
@@ -17473,7 +17481,7 @@ struct UAnimSequence : public UObject {
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_014(); /* 0x014 */
     virtual void vf_01c(); /* 0x01c */
-    virtual void vf_020(); /* 0x020 */
+    virtual void BeginDestroy(); /* 0x020 */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void StripData(UE3::EPlatformType TargetPlatform); /* 0x0b4 */
@@ -17628,7 +17636,7 @@ struct UApexComponentBase : public UMeshComponent {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
-    virtual INT vf_024(); /* 0x024 */
+    virtual UBOOL IsReadyForFinishDestroy(); /* 0x024 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_114(); /* 0x114 */
     virtual void vf_118(); /* 0x118 */
@@ -17806,7 +17814,7 @@ struct UApexDestructibleAsset : public UApexAsset {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
-    virtual void vf_020(); /* 0x020 */
+    virtual void BeginDestroy(); /* 0x020 */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_10c(void*); /* 0x10c */
@@ -17835,7 +17843,7 @@ struct UApexMeshParticleFactoryAsset : public UApexAsset {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_020(); /* 0x020 */
+    virtual void BeginDestroy(); /* 0x020 */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_10c(void*); /* 0x10c */
@@ -17851,7 +17859,7 @@ struct UApexParticleSystemAsset : public UApexAsset {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_020(); /* 0x020 */
+    virtual void BeginDestroy(); /* 0x020 */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_10c(void*); /* 0x10c */
@@ -17867,7 +17875,7 @@ struct UApexRenderMeshAsset : public UApexAsset {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_020(); /* 0x020 */
+    virtual void BeginDestroy(); /* 0x020 */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_10c(void*); /* 0x10c */
@@ -18754,7 +18762,7 @@ struct UUIScreenObject : public UUIRoot {
     virtual void vf_10c(INT, INT); /* 0x10c */
     virtual void vf_110(INT, INT); /* 0x110 */
     virtual INT vf_114(); /* 0x114 */
-    virtual void vf_118(INT, INT); /* 0x118 */
+    virtual void Initialize(class UUIScene* inOwnerScene, class UUIObject* inOwner); /* 0x118 */
     virtual void vf_11c(INT, INT, INT); /* 0x11c */
     virtual INT vf_120(); /* 0x120 */
     virtual INT vf_124(INT, INT); /* 0x124 */
@@ -18765,7 +18773,7 @@ struct UUIScreenObject : public UUIRoot {
     virtual INT vf_138(INT, INT, INT, INT, INT, INT, INT); /* 0x138 */
     virtual INT vf_13c(); /* 0x13c */
     virtual INT GetOwner(); /* 0x140 */
-    virtual INT vf_144(); /* 0x144 */
+    virtual class ULocalPlayer* GetPlayerOwner(); /* 0x144 */
     virtual INT GetScene(); /* 0x148 */
     virtual FName GetTag(); /* 0x14c */
     virtual FString GetWidgetPathName(); /* 0x150 */
@@ -18988,7 +18996,7 @@ struct UUIObject : public UUIScreenObject {
     FScriptDelegate __OnDoubleClick__Delegate; /* 0x360 */
     /* virtual functions this class introduces (vtable 0x020c2728) */
     virtual INT vf_1ec(INT, INT); /* 0x1ec */
-    virtual INT vf_1f0(INT, INT); /* 0x1f0 */
+    virtual void NotifyValueChanged(INT PlayerIndex, INT NotifyFlags); /* 0x1f0 */
     virtual INT vf_1f4(INT, INT, INT); /* 0x1f4 */
     virtual INT vf_1f8(INT, INT, INT, INT); /* 0x1f8 */
     virtual INT vf_1fc(INT, INT, INT, INT); /* 0x1fc */
@@ -19018,11 +19026,11 @@ struct UUIObject : public UUIScreenObject {
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_058(); /* 0x058 */
     virtual void vf_09c(); /* 0x09c */
-    virtual void vf_118(INT, INT); /* 0x118 */
+    virtual void Initialize(class UUIScene* inOwnerScene, class UUIObject* inOwner); /* 0x118 */
     virtual INT CanAcceptFocus(INT PlayerIndex); /* 0x134 */
     virtual INT vf_13c(); /* 0x13c */
     virtual INT GetOwner(); /* 0x140 */
-    virtual INT vf_144(); /* 0x144 */
+    virtual class ULocalPlayer* GetPlayerOwner(); /* 0x144 */
     virtual INT GetScene(); /* 0x148 */
     virtual FName GetTag(); /* 0x14c */
     virtual FString GetWidgetPathName(); /* 0x150 */
@@ -19944,7 +19952,7 @@ struct ACrowdAgent : public AActor {
     virtual void vf_194(); /* 0x194 */
     virtual UBOOL ShouldTrace(UPrimitiveComponent* Primitive, AActor* SourceActor, DWORD TraceFlags); /* 0x198 */
     virtual INT vf_1d4(); /* 0x1d4 */
-    virtual INT vf_1e0(INT); /* 0x1e0 */
+    virtual INT vf_1e0(FLOAT); /* 0x1e0 */
     virtual void GetActorReferences(TArray<FActorReference*>& ActorRefs, UBOOL bIsRemovingLevel); /* 0x328 */
     /* UnrealScript natives */
     void execPlayDeath(FFrame& Stack, RESULT_DECL); /* 0x00c8fcd0 */
@@ -19974,7 +19982,7 @@ struct ACrowdAttractor : public AActor {
     virtual void vf_014(); /* 0x014 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_170(FLOAT*, INT, INT, INT, INT, INT); /* 0x170 */
-    virtual INT vf_310(INT); /* 0x310 */
+    virtual void vf_310(UBOOL bWillReattach); /* 0x310 */
     virtual void vf_314(INT); /* 0x314 */
     /* registered size 0x1d4 */
 };
@@ -20469,8 +20477,8 @@ struct UDecalComponent : public UPrimitiveComponent {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_014(); /* 0x014 */
-    virtual void vf_020(); /* 0x020 */
-    virtual INT vf_024(); /* 0x024 */
+    virtual void BeginDestroy(); /* 0x020 */
+    virtual UBOOL IsReadyForFinishDestroy(); /* 0x024 */
     virtual void vf_02c(); /* 0x02c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual INT vf_0d4(); /* 0x0d4 */
@@ -20579,8 +20587,8 @@ struct UMaterialInterface : public USurface {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_020(); /* 0x020 */
-    virtual INT vf_024(); /* 0x024 */
+    virtual void BeginDestroy(); /* 0x020 */
+    virtual UBOOL IsReadyForFinishDestroy(); /* 0x024 */
     virtual DOUBLE vf_10c(); /* 0x10c */
     virtual DOUBLE GetSurfaceHeight(); /* 0x110 */
     /* UnrealScript natives */
@@ -20683,8 +20691,8 @@ struct UMaterial : public UMaterialInterface {
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_014(); /* 0x014 */
     virtual void vf_01c(); /* 0x01c */
-    virtual void vf_020(); /* 0x020 */
-    virtual INT vf_024(); /* 0x024 */
+    virtual void BeginDestroy(); /* 0x020 */
+    virtual UBOOL IsReadyForFinishDestroy(); /* 0x024 */
     virtual void vf_02c(); /* 0x02c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual void PreEditChange(class UProperty* PropertyAboutToChange); /* 0x044 */
@@ -21530,14 +21538,14 @@ struct UParticleSystemComponent : public UPrimitiveComponent {
     FPointer ReleaseResourcesFence; /* 0x2b4 */
     FScriptDelegate __OnSystemFinished__Delegate; /* 0x2b8 */
     /* virtual functions this class introduces (vtable 0x01ff9b60) */
-    virtual INT vf_250(INT, INT); /* 0x250 */
-    virtual INT vf_254(INT, INT); /* 0x254 */
+    virtual void SetKillOnDeactivate(INT EmitterIndex, UBOOL bKill); /* 0x250 */
+    virtual void SetKillOnCompleted(INT EmitterIndex, UBOOL bKill); /* 0x254 */
     virtual INT vf_258(INT); /* 0x258 */
     virtual INT vf_25c(); /* 0x25c */
     virtual INT vf_260(INT, INT); /* 0x260 */
-    virtual INT vf_264(INT, INT); /* 0x264 */
+    virtual void SetBeamTessellationFactor(INT EmitterIndex, FLOAT NewFactor); /* 0x264 */
     virtual INT vf_268(INT, INT, INT, INT); /* 0x268 */
-    virtual INT vf_26c(INT, INT); /* 0x26c */
+    virtual void SetBeamDistance(INT EmitterIndex, FLOAT Distance); /* 0x26c */
     virtual INT vf_270(INT, INT, INT, INT, INT); /* 0x270 */
     virtual INT vf_274(INT, INT); /* 0x274 */
     virtual INT vf_278(INT, INT, INT, INT, INT); /* 0x278 */
@@ -21565,8 +21573,8 @@ struct UParticleSystemComponent : public UPrimitiveComponent {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
-    virtual void vf_020(); /* 0x020 */
-    virtual INT vf_024(); /* 0x024 */
+    virtual void BeginDestroy(); /* 0x020 */
+    virtual UBOOL IsReadyForFinishDestroy(); /* 0x024 */
     virtual void vf_02c(); /* 0x02c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual void PreEditChange(class UProperty* PropertyAboutToChange); /* 0x044 */
@@ -22066,7 +22074,7 @@ struct AFileWriter : public AInfo {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_020(); /* 0x020 */
+    virtual void BeginDestroy(); /* 0x020 */
     /* UnrealScript natives */
     void execCloseFile(FFrame& Stack, RESULT_DECL); /* 0x00c89070 */
     void execOpenFile(FFrame& Stack, RESULT_DECL); /* 0x00cb7a10 */
@@ -22207,8 +22215,8 @@ struct UFluidSurfaceComponent : public UPrimitiveComponent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_020(); /* 0x020 */
-    virtual INT vf_024(); /* 0x024 */
+    virtual void BeginDestroy(); /* 0x020 */
+    virtual UBOOL IsReadyForFinishDestroy(); /* 0x024 */
     virtual void vf_02c(); /* 0x02c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual void PreEditChange(class UProperty* PropertyAboutToChange); /* 0x044 */
@@ -22651,8 +22659,8 @@ struct UFracturedBaseComponent : public UStaticMeshComponent {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
-    virtual void vf_020(); /* 0x020 */
-    virtual INT vf_024(); /* 0x024 */
+    virtual void BeginDestroy(); /* 0x020 */
+    virtual UBOOL IsReadyForFinishDestroy(); /* 0x024 */
     virtual void PreEditChange(class UProperty* PropertyAboutToChange); /* 0x044 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_114(); /* 0x114 */
@@ -23143,7 +23151,7 @@ struct UMixBin : public UObject {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_020(); /* 0x020 */
+    virtual void BeginDestroy(); /* 0x020 */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     /* registered size 0x54 */
 };
@@ -23999,7 +24007,7 @@ struct USequenceObject : public UObject {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
-    virtual INT vf_038(); /* 0x038 */
+    virtual UBOOL IsPendingKill(); /* 0x038 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual INT vf_074(INT); /* 0x074 */
     virtual void vf_078(INT); /* 0x078 */
@@ -25691,8 +25699,8 @@ struct ULensFlareComponent : public UPrimitiveComponent {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
-    virtual void vf_020(); /* 0x020 */
-    virtual INT vf_024(); /* 0x024 */
+    virtual void BeginDestroy(); /* 0x020 */
+    virtual UBOOL IsReadyForFinishDestroy(); /* 0x024 */
     virtual void vf_02c(); /* 0x02c */
     virtual void PreEditChange(class UProperty* PropertyAboutToChange); /* 0x044 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
@@ -27420,8 +27428,8 @@ struct UMaterialInstance : public UMaterialInterface {
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_014(); /* 0x014 */
     virtual void vf_01c(); /* 0x01c */
-    virtual void vf_020(); /* 0x020 */
-    virtual INT vf_024(); /* 0x024 */
+    virtual void BeginDestroy(); /* 0x020 */
+    virtual UBOOL IsReadyForFinishDestroy(); /* 0x024 */
     virtual void vf_02c(); /* 0x02c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
@@ -30642,7 +30650,7 @@ struct UParticleSystem : public UObject {
     virtual INT vf_110(); /* 0x110 */
     virtual FLOAT vf_114(INT); /* 0x114 */
     virtual void vf_118(BYTE); /* 0x118 */
-    virtual INT vf_11c(INT, INT); /* 0x11c */
+    virtual void SetLODDistance(INT LODLevel, FLOAT InDistance); /* 0x11c */
     virtual INT vf_120(); /* 0x120 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
@@ -30971,9 +30979,9 @@ struct APawn : public AActor {
     virtual INT vf_358(INT, INT, INT, INT, INT); /* 0x358 */
     virtual INT vf_35c(INT, INT, INT, INT, INT, INT, INT); /* 0x35c */
     virtual UBOOL IsValidTargetFor(class AController* C); /* 0x360 */
-    virtual UINT vf_364(INT, UINT); /* 0x364 */
+    virtual UBOOL IsValidEnemyTargetFor(const class APlayerReplicationInfo* PRI, UBOOL bNoPRIisEnemy); /* 0x364 */
     virtual INT vf_368(); /* 0x368 */
-    virtual INT vf_36c(INT); /* 0x36c */
+    virtual void SetAnchor(class ANavigationPoint* NewAnchor); /* 0x36c */
     virtual INT vf_370(INT, INT, INT, INT, INT, INT, INT); /* 0x370 */
     /* overloads: MSVC gives the later declaration the lower slot */
     virtual UBOOL ReachedDestination(class AActor* Goal); /* 0x378 */
@@ -30988,7 +30996,7 @@ struct APawn : public AActor {
     virtual FVector vf_398(); /* 0x398 */
     virtual INT vf_39c(); /* 0x39c */
     virtual void vf_3a0(); /* 0x3a0 */
-    virtual INT vf_3a4(UPathConstraint*); /* 0x3a4 */
+    virtual void AddPathConstraint(class UPathConstraint* Constraint); /* 0x3a4 */
     virtual void AddGoalEvaluator(class UPathGoalEvaluator* Evaluator); /* 0x3a8 */
     virtual void IncrementPathStep(INT Delta, class AController* C); /* 0x3ac */
     virtual void IncrementPathChild(INT Delta, class AController* C); /* 0x3b0 */
@@ -31014,7 +31022,7 @@ struct APawn : public AActor {
     virtual void vf_400(INT); /* 0x400 */
     virtual INT vf_404(INT, INT, INT); /* 0x404 */
     virtual INT calcMoveFlags(); /* 0x408 */
-    virtual INT vf_40c(INT, INT, INT); /* 0x40c */
+    virtual void MarkEndPoints(class ANavigationPoint* EndAnchor, class AActor* Goal, const FVector& GoalLocation); /* 0x40c */
     virtual FLOAT vf_410(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x410 */
     virtual INT vf_414(INT, INT); /* 0x414 */
     virtual void vf_418(INT, INT); /* 0x418 */
@@ -31034,31 +31042,31 @@ struct APawn : public AActor {
     virtual void vf_450(INT, INT); /* 0x450 */
     virtual INT vf_454(INT); /* 0x454 */
     virtual INT vf_458(INT, INT); /* 0x458 */
-    virtual FLOAT vf_45c(INT); /* 0x45c */
+    virtual FVector vf_45c(); /* 0x45c */
     virtual void vf_460(INT, INT); /* 0x460 */
     virtual INT vf_464(INT, INT); /* 0x464 */
     virtual void vf_468(INT, INT, INT, INT, INT, INT, INT); /* 0x468 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual FLOAT vf_130(INT, INT); /* 0x130 */
+    virtual void GetBoundingCylinder(FLOAT& CollisionRadius, FLOAT& CollisionHeight); /* 0x130 */
     virtual BYTE GetTeamNum(); /* 0x144 */
-    virtual INT vf_15c(); /* 0x15c */
+    virtual class APawn* GetPlayerPawn(); /* 0x15c */
     virtual UINT vf_160(); /* 0x160 */
     virtual UBOOL IgnoreBlockingBy(const class AActor* Other) const; /* 0x164 */
     virtual INT vf_16c(INT, INT, INT, INT); /* 0x16c */
     virtual void vf_194(); /* 0x194 */
     virtual UBOOL ShouldTrace(UPrimitiveComponent* Primitive, AActor* SourceActor, DWORD TraceFlags); /* 0x198 */
     virtual void vf_19c(INT); /* 0x19c */
-    virtual INT vf_1a0(INT, INT, INT); /* 0x1a0 */
-    virtual void vf_1a8(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x1a8 */
-    virtual INT vf_1b0(INT); /* 0x1b0 */
+    virtual void NotifyBump(class AActor* Other, class UPrimitiveComponent* OtherComp, const FVector& HitNormal); /* 0x1a0 */
+    virtual void SetBase(class AActor* NewBase, FVector NewFloor, INT bNotifyActor, class USkeletalMeshComponent* SkelComp, FName AttachName); /* 0x1a8 */
+    virtual INT vf_1b0(FLOAT); /* 0x1b0 */
     virtual void vf_1b4(FLOAT); /* 0x1b4 */
     virtual bool vf_1b8(); /* 0x1b8 */
     virtual INT vf_1bc(INT, INT, INT); /* 0x1bc */
     virtual void SetZone(UBOOL bTest, UBOOL bForceRefresh); /* 0x1c8 */
     virtual void vf_1d8(); /* 0x1d8 */
-    virtual INT vf_1e0(INT); /* 0x1e0 */
+    virtual INT vf_1e0(FLOAT); /* 0x1e0 */
     virtual void vf_1ec(INT, INT); /* 0x1ec */
     virtual void vf_1f0(INT, INT, INT, INT); /* 0x1f0 */
     virtual void vf_1f4(INT, INT); /* 0x1f4 */
@@ -31742,7 +31750,7 @@ struct APortalVolume : public AVolume {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_310(INT); /* 0x310 */
+    virtual void vf_310(UBOOL bWillReattach); /* 0x310 */
     virtual void vf_314(INT); /* 0x314 */
     /* registered size 0x1dc */
 };
@@ -31773,7 +31781,7 @@ struct APostProcessVolume : public AVolume {
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
-    virtual INT vf_310(INT); /* 0x310 */
+    virtual void vf_310(UBOOL bWillReattach); /* 0x310 */
     virtual void vf_314(INT); /* 0x314 */
     /* registered size 0x27c */
 };
@@ -32155,7 +32163,7 @@ struct URB_BodySetup : public UKMeshProps {
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_014(); /* 0x014 */
     virtual void vf_01c(); /* 0x01c */
-    virtual void vf_020(); /* 0x020 */
+    virtual void BeginDestroy(); /* 0x020 */
     virtual void vf_02c(); /* 0x02c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
@@ -32652,7 +32660,7 @@ struct AReverbVolume : public AVolume {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
-    virtual INT vf_310(INT); /* 0x310 */
+    virtual void vf_310(UBOOL bWillReattach); /* 0x310 */
     virtual void vf_314(INT); /* 0x314 */
     /* registered size 0x1e8 */
 };
@@ -32698,7 +32706,7 @@ struct URFMODSound : public UObject {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
-    virtual void vf_020(); /* 0x020 */
+    virtual void BeginDestroy(); /* 0x020 */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual void Register(); /* 0x080 */
     virtual void StripData(UE3::EPlatformType TargetPlatform); /* 0x0b4 */
@@ -33101,7 +33109,7 @@ struct UScriptedTexture : public UTextureRenderTarget2D {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_020(); /* 0x020 */
+    virtual void BeginDestroy(); /* 0x020 */
     virtual void vf_114(); /* 0x114 */
     /* other member functions */
     void sub_00755fb0(); /* 0x00755fb0 */
@@ -35823,8 +35831,8 @@ struct USkeletalMesh : public UObject {
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_014(); /* 0x014 */
     virtual void vf_01c(); /* 0x01c */
-    virtual void vf_020(); /* 0x020 */
-    virtual INT vf_024(); /* 0x024 */
+    virtual void BeginDestroy(); /* 0x020 */
+    virtual UBOOL IsReadyForFinishDestroy(); /* 0x024 */
     virtual void vf_02c(); /* 0x02c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual void PreEditChange(class UProperty* PropertyAboutToChange); /* 0x044 */
@@ -35868,7 +35876,7 @@ struct ASkeletalMeshActor : public AActor {
     virtual void vf_1b4(FLOAT); /* 0x1b4 */
     virtual void vf_244(INT, INT, INT); /* 0x244 */
     virtual void vf_264(INT); /* 0x264 */
-    virtual void vf_268(INT, INT, INT, INT, INT, INT, INT); /* 0x268 */
+    virtual void vf_268(INT, INT, INT, INT, INT, FLOAT, INT); /* 0x268 */
     virtual void vf_270(INT); /* 0x270 */
     virtual void vf_274(); /* 0x274 */
     virtual void vf_278(INT, INT, INT, INT); /* 0x278 */
@@ -35908,7 +35916,7 @@ struct ASkeletalMeshActorMAT : public ASkeletalMeshActor {
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_260(INT); /* 0x260 */
     virtual void vf_264(INT); /* 0x264 */
-    virtual void vf_268(INT, INT, INT, INT, INT, INT, INT); /* 0x268 */
+    virtual void vf_268(INT, INT, INT, INT, INT, FLOAT, INT); /* 0x268 */
     virtual void vf_270(INT); /* 0x270 */
     virtual void vf_274(); /* 0x274 */
     virtual void vf_294(INT, INT, INT); /* 0x294 */
@@ -36262,7 +36270,7 @@ struct USoundNodeWave : public USoundNode {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
-    virtual INT vf_024(); /* 0x024 */
+    virtual UBOOL IsReadyForFinishDestroy(); /* 0x024 */
     virtual void vf_02c(); /* 0x02c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
@@ -36390,8 +36398,8 @@ struct USpeedTree : public UObject {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
-    virtual void vf_020(); /* 0x020 */
-    virtual INT vf_024(); /* 0x024 */
+    virtual void BeginDestroy(); /* 0x020 */
+    virtual UBOOL IsReadyForFinishDestroy(); /* 0x024 */
     virtual void vf_02c(); /* 0x02c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual void PreEditChange(class UProperty* PropertyAboutToChange); /* 0x044 */
@@ -36810,8 +36818,8 @@ struct ATerrain : public AInfo {
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_014(); /* 0x014 */
     virtual void vf_01c(); /* 0x01c */
-    virtual void vf_020(); /* 0x020 */
-    virtual INT vf_024(); /* 0x024 */
+    virtual void BeginDestroy(); /* 0x020 */
+    virtual UBOOL IsReadyForFinishDestroy(); /* 0x024 */
     virtual void vf_02c(); /* 0x02c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual void PreEditChange(class UProperty* PropertyAboutToChange); /* 0x044 */
@@ -36823,7 +36831,7 @@ struct ATerrain : public AInfo {
     virtual void vf_238(); /* 0x238 */
     virtual void vf_23c(INT); /* 0x23c */
     virtual void vf_2b8(); /* 0x2b8 */
-    virtual INT vf_310(INT); /* 0x310 */
+    virtual void vf_310(UBOOL bWillReattach); /* 0x310 */
     virtual void vf_314(INT); /* 0x314 */
     virtual INT vf_320(INT, INT, INT, INT, INT); /* 0x320 */
     /* UnrealScript natives */
@@ -37068,8 +37076,8 @@ struct UTextureFlipBook : public UTexture2D, public FTickableObject {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
-    virtual void vf_020(); /* 0x020 */
-    virtual INT vf_024(); /* 0x024 */
+    virtual void BeginDestroy(); /* 0x020 */
+    virtual UBOOL IsReadyForFinishDestroy(); /* 0x024 */
     virtual void vf_02c(); /* 0x02c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
@@ -37108,8 +37116,8 @@ struct UTextureMovie : public UTexture {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
-    virtual void vf_020(); /* 0x020 */
-    virtual INT vf_024(); /* 0x024 */
+    virtual void BeginDestroy(); /* 0x020 */
+    virtual UBOOL IsReadyForFinishDestroy(); /* 0x024 */
     virtual void vf_02c(); /* 0x02c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual void PreEditChange(class UProperty* PropertyAboutToChange); /* 0x044 */
@@ -37968,10 +37976,10 @@ struct UUIScene : public UUIScreenObject {
     virtual void vf_10c(INT, INT); /* 0x10c */
     virtual void vf_110(INT, INT); /* 0x110 */
     virtual INT vf_114(); /* 0x114 */
-    virtual void vf_118(INT, INT); /* 0x118 */
+    virtual void Initialize(class UUIScene* inOwnerScene, class UUIObject* inOwner); /* 0x118 */
     virtual INT vf_120(); /* 0x120 */
     virtual INT GetOwner(); /* 0x140 */
-    virtual INT vf_144(); /* 0x144 */
+    virtual class ULocalPlayer* GetPlayerOwner(); /* 0x144 */
     virtual INT GetScene(); /* 0x148 */
     virtual FName GetTag(); /* 0x14c */
     virtual FString GetWidgetPathName(); /* 0x150 */
@@ -39181,7 +39189,7 @@ struct UGFxMovie : public UObject {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_020(); /* 0x020 */
+    virtual void BeginDestroy(); /* 0x020 */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     /* UnrealScript natives */
     void execStart(FFrame& Stack, RESULT_DECL); /* 0x00e41dc0 */
@@ -41321,7 +41329,7 @@ struct AR3rdPersonCamera : public ACamera {
     virtual void vf_1d8(); /* 0x1d8 */
     virtual void ApplyCameraModifiers(FLOAT DeltaTime, FTPOV& OutPOV); /* 0x354 */
     virtual void vf_35c(INT, INT, INT, INT, INT); /* 0x35c */
-    virtual void vf_360(INT); /* 0x360 */
+    virtual void vf_360(FPostProcessSettings& PPSettings); /* 0x360 */
     /* UnrealScript natives */
     void execApplyCameraModifiers(FFrame& Stack, RESULT_DECL); /* 0x00c83870 */
     void execSetViewTarget(FFrame& Stack, RESULT_DECL); /* 0x00c839a0 */
@@ -41703,7 +41711,7 @@ struct ARAmbientSoundVolume : public AVolume {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_020(); /* 0x020 */
+    virtual void BeginDestroy(); /* 0x020 */
     /* registered size 0x1e0 */
 };
 
@@ -42769,7 +42777,7 @@ struct URConstrainingComponent : public UActorComponent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_020(); /* 0x020 */
+    virtual void BeginDestroy(); /* 0x020 */
     /* UnrealScript natives */
     void execGetIsSyncronised(FFrame& Stack, RESULT_DECL); /* 0x01702f10 */
     void execAddRBConstraint(FFrame& Stack, RESULT_DECL); /* 0x01702f50 */
@@ -48253,7 +48261,7 @@ struct ARCinematicActor : public ASkeletalMeshActor {
     virtual void vf_23c(INT); /* 0x23c */
     virtual void vf_260(INT); /* 0x260 */
     virtual void vf_264(INT); /* 0x264 */
-    virtual void vf_268(INT, INT, INT, INT, INT, INT, INT); /* 0x268 */
+    virtual void vf_268(INT, INT, INT, INT, INT, FLOAT, INT); /* 0x268 */
     virtual void vf_270(INT); /* 0x270 */
     virtual void vf_274(); /* 0x274 */
     virtual void vf_28c(INT, INT, INT); /* 0x28c */
@@ -48306,7 +48314,7 @@ struct ARCinematicCameraActor : public ACameraActor {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_264(INT); /* 0x264 */
-    virtual void vf_268(INT, INT, INT, INT, INT, INT, INT); /* 0x268 */
+    virtual void vf_268(INT, INT, INT, INT, INT, FLOAT, INT); /* 0x268 */
     virtual void vf_26c(UINT, UINT); /* 0x26c */
     virtual void vf_274(); /* 0x274 */
     /* UnrealScript natives */
@@ -50595,7 +50603,7 @@ struct ARExplodableWallBase : public AActor {
     virtual FVector GetFOVCheckLocation(); /* 0x14c */
     virtual void vf_170(FLOAT*, INT, INT, INT, INT, INT); /* 0x170 */
     virtual INT vf_174(INT, INT); /* 0x174 */
-    virtual INT vf_1a0(INT, INT, INT); /* 0x1a0 */
+    virtual void NotifyBump(class AActor* Other, class UPrimitiveComponent* OtherComp, const FVector& HitNormal); /* 0x1a0 */
     virtual void vf_1d8(); /* 0x1d8 */
     virtual void vf_244(INT, INT, INT); /* 0x244 */
     virtual void vf_314(INT); /* 0x314 */
@@ -51025,7 +51033,7 @@ struct ARFractureWallBase : public AFracturedStaticMeshActor, public IRSpotableI
     virtual FVector GetTargetLocation(class AActor* RequestedBy, UBOOL bRequestAlternateLoc); /* 0x148 */
     virtual INT vf_174(INT, INT); /* 0x174 */
     virtual UBOOL ShouldTrace(UPrimitiveComponent* Primitive, AActor* SourceActor, DWORD TraceFlags); /* 0x198 */
-    virtual INT vf_1a0(INT, INT, INT); /* 0x1a0 */
+    virtual void NotifyBump(class AActor* Other, class UPrimitiveComponent* OtherComp, const FVector& HitNormal); /* 0x1a0 */
     virtual void vf_1b4(FLOAT); /* 0x1b4 */
     virtual void vf_1d8(); /* 0x1d8 */
     virtual void vf_244(INT, INT, INT); /* 0x244 */
@@ -52159,7 +52167,7 @@ struct ARHidePoint : public AFracturedStaticMeshActor {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_020(); /* 0x020 */
+    virtual void BeginDestroy(); /* 0x020 */
     virtual void vf_02c(); /* 0x02c */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual INT vf_17c(INT); /* 0x17c */
@@ -52209,7 +52217,7 @@ struct ARHarpoonDragFloatingPlatformBase : public ARHarpoonDragBase {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual INT vf_174(INT, INT); /* 0x174 */
-    virtual void vf_1a8(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x1a8 */
+    virtual void SetBase(class AActor* NewBase, FVector NewFloor, INT bNotifyActor, class USkeletalMeshComponent* SkelComp, FName AttachName); /* 0x1a8 */
     /* UnrealScript natives */
     void execMoveObject(FFrame& Stack, RESULT_DECL); /* 0x016ff2c0 */
     /* registered size 0x210 */
@@ -54339,7 +54347,7 @@ struct ARPawnPlayer : public ARPawnPlayerCombat, public IRSpotableInterface {
     virtual bool vf_004(); /* 0x004 */
     virtual UBOOL IgnoreBlockingBy(const class AActor* Other) const; /* 0x164 */
     virtual UINT vf_178(); /* 0x178 */
-    virtual INT vf_1e0(INT); /* 0x1e0 */
+    virtual INT vf_1e0(FLOAT); /* 0x1e0 */
     virtual void vf_23c(INT); /* 0x23c */
     virtual INT vf_424(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x424 */
     virtual void vf_440(INT); /* 0x440 */
@@ -58634,7 +58642,7 @@ struct URSeqAct_StreamInPackage : public USeqAct_Latent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_020(); /* 0x020 */
+    virtual void BeginDestroy(); /* 0x020 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void Activated(); /* 0x174 */
@@ -60579,7 +60587,7 @@ struct UChannel : public UObject {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_020(); /* 0x020 */
+    virtual void BeginDestroy(); /* 0x020 */
     /* registered size 0x5c */
 };
 
@@ -61081,7 +61089,7 @@ struct UThumbnailRenderer : public UObject {
     /* virtual functions this class introduces (vtable 0x02210a90) */
     virtual UBOOL SupportsThumbnailRendering(UObject* Object, UBOOL bCheckObjectState); /* 0x10c */
     virtual void GetThumbnailSize(class UObject* Object, EThumbnailPrimType PrimType, FLOAT Zoom, DWORD& OutWidth, DWORD& OutHeight); /* 0x110 */
-    virtual void Draw(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x114 */
+    virtual void Draw(class UObject* Object, EThumbnailPrimType PrimType, INT X, INT Y, DWORD Width, DWORD Height, FViewport* Viewport, FCanvas* Canvas, EThumbnailBackgroundType BackgroundType, FColor PreviewBackgroundColor, FColor PreviewBackgroundColorDropped); /* 0x114 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -61097,7 +61105,7 @@ struct UIconThumbnailRenderer : public UThumbnailRenderer {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void GetThumbnailSize(class UObject* Object, EThumbnailPrimType PrimType, FLOAT Zoom, DWORD& OutWidth, DWORD& OutHeight); /* 0x110 */
-    virtual void Draw(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x114 */
+    virtual void Draw(class UObject* Object, EThumbnailPrimType PrimType, INT X, INT Y, DWORD Width, DWORD Height, FViewport* Viewport, FCanvas* Canvas, EThumbnailBackgroundType BackgroundType, FColor PreviewBackgroundColor, FColor PreviewBackgroundColorDropped); /* 0x114 */
     /* registered size 0x40 */
 };
 
@@ -61824,7 +61832,7 @@ struct UBrushBuilder : public UObject {
     virtual INT vf_10c(INT, INT, INT); /* 0x10c */
     virtual void vf_110(); /* 0x110 */
     virtual INT vf_114(); /* 0x114 */
-    virtual INT vf_118(INT, INT); /* 0x118 */
+    virtual FVector GetVertex(INT i); /* 0x118 */
     virtual INT vf_11c(); /* 0x11c */
     virtual INT vf_120(INT); /* 0x120 */
     virtual INT Vertexv(FVector V); /* 0x124 */
@@ -62544,8 +62552,8 @@ struct UCodecMovieBink : public UCodecMovie {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_020(); /* 0x020 */
-    virtual INT vf_024(); /* 0x024 */
+    virtual void BeginDestroy(); /* 0x020 */
+    virtual UBOOL IsReadyForFinishDestroy(); /* 0x024 */
     virtual void vf_02c(); /* 0x02c */
     virtual INT vf_10c(); /* 0x10c */
     virtual UINT vf_110(); /* 0x110 */
@@ -63922,7 +63930,7 @@ struct UTextureThumbnailRenderer : public UThumbnailRenderer {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void GetThumbnailSize(class UObject* Object, EThumbnailPrimType PrimType, FLOAT Zoom, DWORD& OutWidth, DWORD& OutHeight); /* 0x110 */
-    virtual void Draw(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x114 */
+    virtual void Draw(class UObject* Object, EThumbnailPrimType PrimType, INT X, INT Y, DWORD Width, DWORD Height, FViewport* Viewport, FCanvas* Canvas, EThumbnailBackgroundType BackgroundType, FColor PreviewBackgroundColor, FColor PreviewBackgroundColorDropped); /* 0x114 */
     /* registered size 0x30 */
 };
 
@@ -63933,7 +63941,7 @@ struct UFontThumbnailRenderer : public UTextureThumbnailRenderer {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void GetThumbnailSize(class UObject* Object, EThumbnailPrimType PrimType, FLOAT Zoom, DWORD& OutWidth, DWORD& OutHeight); /* 0x110 */
-    virtual void Draw(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x114 */
+    virtual void Draw(class UObject* Object, EThumbnailPrimType PrimType, INT X, INT Y, DWORD Width, DWORD Height, FViewport* Viewport, FCanvas* Canvas, EThumbnailBackgroundType BackgroundType, FColor PreviewBackgroundColor, FColor PreviewBackgroundColorDropped); /* 0x114 */
     /* registered size 0x30 */
 };
 
@@ -63970,8 +63978,8 @@ struct UStaticMesh : public UObject {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
-    virtual void vf_020(); /* 0x020 */
-    virtual INT vf_024(); /* 0x024 */
+    virtual void BeginDestroy(); /* 0x020 */
+    virtual UBOOL IsReadyForFinishDestroy(); /* 0x024 */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual void PreEditChange(class UProperty* PropertyAboutToChange); /* 0x044 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
@@ -65079,8 +65087,8 @@ struct UTransactor : public UObject {
     virtual void Cancel(INT); /* 0x114 */
     virtual void Reset(INT); /* 0x118 */
     virtual bool IsActive(); /* 0x11c */
-    virtual INT CanUndo(INT); /* 0x120 */
-    virtual INT CanRedo(INT); /* 0x124 */
+    virtual UBOOL CanUndo(FString* Str); /* 0x120 */
+    virtual UBOOL CanRedo(FString* Str); /* 0x124 */
     virtual FString GetUndoDesc(UBOOL bCheckWhetherUndoPossible = TRUE); /* 0x128 */
     virtual INT GetRedoDesc(INT); /* 0x12c */
     virtual UINT Undo(); /* 0x130 */
@@ -65111,8 +65119,8 @@ struct UTransBuffer : public UTransactor {
     virtual void Cancel(INT); /* 0x114 */
     virtual void Reset(INT); /* 0x118 */
     virtual bool IsActive(); /* 0x11c */
-    virtual INT CanUndo(INT); /* 0x120 */
-    virtual INT CanRedo(INT); /* 0x124 */
+    virtual UBOOL CanUndo(FString* Str); /* 0x120 */
+    virtual UBOOL CanRedo(FString* Str); /* 0x124 */
     virtual FString GetUndoDesc(UBOOL bCheckWhetherUndoPossible = TRUE); /* 0x128 */
     virtual INT GetRedoDesc(INT); /* 0x12c */
     virtual UINT Undo(); /* 0x130 */
@@ -65363,7 +65371,7 @@ struct ULensFlareThumbnailRenderer : public UTextureThumbnailRenderer {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void GetThumbnailSize(class UObject* Object, EThumbnailPrimType PrimType, FLOAT Zoom, DWORD& OutWidth, DWORD& OutHeight); /* 0x110 */
-    virtual void Draw(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x114 */
+    virtual void Draw(class UObject* Object, EThumbnailPrimType PrimType, INT X, INT Y, DWORD Width, DWORD Height, FViewport* Viewport, FCanvas* Canvas, EThumbnailBackgroundType BackgroundType, FColor PreviewBackgroundColor, FColor PreviewBackgroundColorDropped); /* 0x114 */
     /* registered size 0x38 */
 };
 
@@ -65533,7 +65541,7 @@ struct ULinkerLoad : public ULinker {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_020(); /* 0x020 */
+    virtual void BeginDestroy(); /* 0x020 */
     /* other member functions */
     void sub_0059a560(); /* 0x0059a560 */
     INT sub_005a06a0(INT); /* 0x005a06a0 */
@@ -65582,7 +65590,7 @@ struct ULinkerSave : public ULinker {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_020(); /* 0x020 */
+    virtual void BeginDestroy(); /* 0x020 */
     /* registered size 0x180 */
 };
 
@@ -65946,7 +65954,7 @@ struct UMaterialInstanceThumbnailRenderer : public UDefaultSizedThumbnailRendere
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void Draw(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x114 */
+    virtual void Draw(class UObject* Object, EThumbnailPrimType PrimType, INT X, INT Y, DWORD Width, DWORD Height, FViewport* Viewport, FCanvas* Canvas, EThumbnailBackgroundType BackgroundType, FColor PreviewBackgroundColor, FColor PreviewBackgroundColorDropped); /* 0x114 */
     /* registered size 0x38 */
 };
 
@@ -66066,8 +66074,8 @@ struct UModel : public UObject {
     virtual void vf_014(); /* 0x014 */
     virtual INT vf_018(INT); /* 0x018 */
     virtual void vf_01c(); /* 0x01c */
-    virtual void vf_020(); /* 0x020 */
-    virtual INT vf_024(); /* 0x024 */
+    virtual void BeginDestroy(); /* 0x020 */
+    virtual UBOOL IsReadyForFinishDestroy(); /* 0x024 */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual void vf_050(); /* 0x050 */
     virtual void vf_054(); /* 0x054 */
@@ -67045,7 +67053,7 @@ struct UParticleSystemThumbnailRenderer : public UTextureThumbnailRenderer {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void GetThumbnailSize(class UObject* Object, EThumbnailPrimType PrimType, FLOAT Zoom, DWORD& OutWidth, DWORD& OutHeight); /* 0x110 */
-    virtual void Draw(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x114 */
+    virtual void Draw(class UObject* Object, EThumbnailPrimType PrimType, INT X, INT Y, DWORD Width, DWORD Height, FViewport* Viewport, FCanvas* Canvas, EThumbnailBackgroundType BackgroundType, FColor PreviewBackgroundColor, FColor PreviewBackgroundColorDropped); /* 0x114 */
     /* registered size 0x38 */
 };
 
@@ -67324,7 +67332,7 @@ struct UPrefabThumbnailRenderer : public UIconThumbnailRenderer {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void Draw(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x114 */
+    virtual void Draw(class UObject* Object, EThumbnailPrimType PrimType, INT X, INT Y, DWORD Width, DWORD Height, FViewport* Viewport, FCanvas* Canvas, EThumbnailBackgroundType BackgroundType, FColor PreviewBackgroundColor, FColor PreviewBackgroundColorDropped); /* 0x114 */
     /* registered size 0x40 */
 };
 
@@ -68384,8 +68392,8 @@ struct UShadowMap1D : public UObject, public FShadowMapVertexBufferBase {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
-    virtual void vf_020(); /* 0x020 */
-    virtual INT vf_024(); /* 0x024 */
+    virtual void BeginDestroy(); /* 0x020 */
+    virtual UBOOL IsReadyForFinishDestroy(); /* 0x024 */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     /* other member functions */
     UINT sub_00936980(BYTE); /* 0x00936980 */
@@ -68453,7 +68461,7 @@ struct USkeletalMeshThumbnailRenderer : public UDefaultSizedThumbnailRenderer {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void Draw(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x114 */
+    virtual void Draw(class UObject* Object, EThumbnailPrimType PrimType, INT X, INT Y, DWORD Width, DWORD Height, FViewport* Viewport, FCanvas* Canvas, EThumbnailBackgroundType BackgroundType, FColor PreviewBackgroundColor, FColor PreviewBackgroundColorDropped); /* 0x114 */
     /* registered size 0x38 */
 };
 
@@ -68637,7 +68645,7 @@ struct UStaticMeshThumbnailRenderer : public UDefaultSizedThumbnailRenderer {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void Draw(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x114 */
+    virtual void Draw(class UObject* Object, EThumbnailPrimType PrimType, INT X, INT Y, DWORD Width, DWORD Height, FViewport* Viewport, FCanvas* Canvas, EThumbnailBackgroundType BackgroundType, FColor PreviewBackgroundColor, FColor PreviewBackgroundColorDropped); /* 0x114 */
     /* registered size 0x38 */
 };
 
@@ -69145,7 +69153,7 @@ struct UTextureCubeThumbnailRenderer : public UTextureThumbnailRenderer {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void GetThumbnailSize(class UObject* Object, EThumbnailPrimType PrimType, FLOAT Zoom, DWORD& OutWidth, DWORD& OutHeight); /* 0x110 */
-    virtual void Draw(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x114 */
+    virtual void Draw(class UObject* Object, EThumbnailPrimType PrimType, INT X, INT Y, DWORD Width, DWORD Height, FViewport* Viewport, FCanvas* Canvas, EThumbnailBackgroundType BackgroundType, FColor PreviewBackgroundColor, FColor PreviewBackgroundColorDropped); /* 0x114 */
     /* registered size 0x30 */
 };
 
@@ -69454,7 +69462,7 @@ struct UUISceneThumbnailRenderer : public UIconThumbnailRenderer {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void Draw(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x114 */
+    virtual void Draw(class UObject* Object, EThumbnailPrimType PrimType, INT X, INT Y, DWORD Width, DWORD Height, FViewport* Viewport, FCanvas* Canvas, EThumbnailBackgroundType BackgroundType, FColor PreviewBackgroundColor, FColor PreviewBackgroundColorDropped); /* 0x114 */
     /* registered size 0x40 */
 };
 

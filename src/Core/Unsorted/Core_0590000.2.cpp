@@ -20,7 +20,7 @@ void UObject_::sub_005996a0(FFrame& Stack, RESULT_DECL)
 void UObject::execIsPendingKill(FFrame& Stack, RESULT_DECL)
 {
     P_FINISH;
-    *(UBOOL*)Result = this->vf_038();
+    *(UBOOL*)Result = this->IsPendingKill();
 }
 
 // Returns a random unit vector (UnMath.cpp).

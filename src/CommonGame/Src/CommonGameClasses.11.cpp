@@ -83,7 +83,7 @@ INT ARGameInfoBase::vf_3a8() {
 }
 
 // @baa 0x0150f400
-void ARDebugMenu::vf_360(void) {  }
+void ARDebugMenu::vf_360() {  }
 
 extern INT g_026e0b78;
 // @baa 0x0150f470

@@ -2008,7 +2008,7 @@ INT ULineBatchComponent::vf_264(INT a, INT b, INT c, INT d) {
 }
 
 // @baa 0x007ec800
-void ULineBatchComponent::vf_268(int a0, int a1, int a2, int a3, int a4) {  }
+void ULineBatchComponent::vf_268(INT a0, INT a1, INT a2, INT a3, INT a4) {  }
 
 // @baa 0x007ec870
 ULineBatchComponent::ULineBatchComponent()

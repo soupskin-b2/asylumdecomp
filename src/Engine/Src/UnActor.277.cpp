@@ -49,7 +49,7 @@ struct UObject_ : public UObject
 
 // @baa 0x0068ee40
 /* AActor slot 0x38 (kit vf_038): UE3's AActor::IsPendingKill(): destroyed or marked for killing. */
-INT AActor::vf_038()
+UBOOL AActor::IsPendingKill()
 {
     return bDeleteMe || ((UObject_*)this)->HasAnyFlags(RF_PendingKill);
 }

@@ -553,9 +553,11 @@ struct C_view {
 };
 
 // @baa 0x00836aa0
-undefined4 ANavigationPoint::vf_2b0(int param_2, float * param_3)
+UBOOL ANavigationPoint::TouchReachSucceeded(APawn* P, const FVector& TestPosition)
 {
     int param_1 = (int)this;
+    int param_2 = (int)P;
+    const float* param_3 = &TestPosition.X;
   undefined4 uVar1;
   if (((((*(byte *)(param_1 + 0x1ab) & 1) != 0) && (*param_3 == *(float *)(param_2 + 0x54))) &&
       (param_3[1] == *(float *)(param_2 + 0x58))) &&

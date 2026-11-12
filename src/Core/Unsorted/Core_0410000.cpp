@@ -339,7 +339,7 @@ void UObject::vf_010(int a0) {  }
 void sub_00417cd0(void) {  }
 
 // @baa 0x00417ce0
-int UObject::vf_024(void) { return 1; }
+UBOOL UObject::IsReadyForFinishDestroy() { return 1; }
 
 // @baa 0x00417cf0
 void UObject::vf_058(void) {  }

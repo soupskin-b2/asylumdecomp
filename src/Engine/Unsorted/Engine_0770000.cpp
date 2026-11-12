@@ -357,7 +357,7 @@ IMPLEMENT_CLASS_AT(ANavigationPoint, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEng
 int ANavigationPoint::vf_35c(int a0, int a1) { return 0; }
 
 // @baa 0x00773d20
-int ANavigationPoint::vf_360(int a0) { return 1; }
+INT ANavigationPoint::vf_360(INT a0) { return 1; }
 
 // @baa 0x00773d30
 UClass* ANavigationPoint::GetReachSpecClass(ANavigationPoint* a0, UClass* a1) { return a1; }

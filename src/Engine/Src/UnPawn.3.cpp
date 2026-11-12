@@ -45,7 +45,7 @@ void APawn::execSetAnchor(FFrame& Stack, RESULT_DECL)
 {
     P_GET_OBJECT(ANavigationPoint, NewAnchor);
     P_FINISH;
-    vf_36c((INT)NewAnchor);   // SetAnchor(NewAnchor)
+    SetAnchor(NewAnchor);
 }
 
 // @baa 0x00c8af20
@@ -109,7 +109,7 @@ void APawn::execAddPathConstraint(FFrame& Stack, RESULT_DECL)
 	P_GET_OBJECT(UPathConstraint, Constraint);
 	P_FINISH;
 
-	vf_3a4(Constraint);
+	AddPathConstraint(Constraint);
 }
 
 // @baa 0x00c8aba0

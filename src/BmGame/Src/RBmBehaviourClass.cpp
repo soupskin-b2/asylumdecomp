@@ -84,7 +84,7 @@ void URBMBehaviour::sub_015debe0(undefined4 param_2, float * param_3)
 }
 
 // @baa 0x015dec20
-void URBMBehaviour::vf_1ac(undefined4 param_2)
+void URBMBehaviour::vf_1ac(UINT param_2)
 {
     int param_1 = (int)this;
 

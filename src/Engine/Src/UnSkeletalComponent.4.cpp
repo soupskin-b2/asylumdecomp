@@ -467,7 +467,7 @@ inline INT ReadWord(FFrame& Stack)
 /* UObject::IsPendingKill (the kit's vf_038) and IsA (UnObjBas.h) */
 struct UObject_ : public UObject
 {
-    UBOOL IsPendingKill() { return vf_038(); }
+    UBOOL IsPendingKill() { return IsPendingKill(); }
 
     UBOOL IsA(const UClass* SomeBase) const
     {

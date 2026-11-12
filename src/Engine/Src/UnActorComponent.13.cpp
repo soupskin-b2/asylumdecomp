@@ -6,7 +6,7 @@
 // @baa 0x0075e840
 /* UActorComponent slot 0x20 (kit vf_020): UE3's UActorComponent::BeginDestroy(): detach if still attached and
  * forget the scene and owner before the object-level BeginDestroy. */
-void UActorComponent::vf_020()
+void UActorComponent::BeginDestroy()
 {
     if (bAttached)
     {
@@ -14,7 +14,7 @@ void UActorComponent::vf_020()
     }
     Scene.Dummy = 0;
     Owner = NULL;
-    Super::vf_020();
+    Super::BeginDestroy();
 }
 
 /* Kit gap: UObject::GetOuter and HasAnyFlags (UnObjBas.h); ObjectFlags is an FQWord here. GetOuter() is a macro

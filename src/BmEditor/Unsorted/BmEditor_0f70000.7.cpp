@@ -5,7 +5,7 @@
 #include "ue3/Script.h"
 
 // @baa 0x00f73180
-INT UTransactor::CanRedo(INT bIsDirty)
+UBOOL UTransactor::CanRedo(FString* bIsDirty)
 {
     PURE_VIRTUAL(UTransactor::CanRedo, return 0;)
 }
