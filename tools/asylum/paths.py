@@ -58,9 +58,11 @@ def _root() -> Path:
         shutil.rmtree(root, ignore_errors=True)
         os.replace(tmp / "kit", root)
         shutil.rmtree(tmp, ignore_errors=True)
-        for old in kits.iterdir():  # earlier versions no agent has used for a day
+        # earlier versions no agent has used for an hour (releases come often; a client still on one
+        # just extracts it again)
+        for old in kits.iterdir():
             done = old / ".complete"
-            if old != root and (not done.exists() or time.time() - done.stat().st_mtime > 86400):
+            if old != root and (not done.exists() or time.time() - done.stat().st_mtime > 3600):
                 shutil.rmtree(old, ignore_errors=True)
     (root / ".complete").touch()  # in use (other folders may run other versions)
     return root
