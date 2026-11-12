@@ -1,4 +1,4 @@
-// Engine_07a0000.cpp (part 1 of 4): 236 functions
+// Engine_07a0000.cpp (part 1 of 4): 239 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1867,4 +1867,100 @@ FVector AController__007ad610::GetBasedPosition(FBasedPosition BP)
 		return BP.CachedTransPosition;
 	}
 	return BP.Position;
+}
+
+struct FBasedPosition__007ad7e0 : public FBasedPosition
+{
+	/* FBasedPosition::operator* (out of line at 0x007ab350), inlined here. */
+	FORCEINLINE FVector operator*()
+	{
+		AActor* const BaseActor = Base;
+		if (BaseActor != NULL)
+		{
+			if (VectorsDiffer(CachedBaseLocation, BaseActor->Location) || RotatorsDiffer(CachedBaseRotation, BaseActor->Rotation))
+			{
+				CachedBaseLocation = BaseActor->Location;
+				CachedBaseRotation = BaseActor->Rotation;
+				CachedTransPosition = AddVectors(BaseActor->Location, ((const FMatrix_&)FRotationMatrix(BaseActor->Rotation)).TransformFVector(Position));
+			}
+			return CachedTransPosition;
+		}
+		return Position;
+	}
+};
+
+struct AController__007ad7e0 : public AController
+{
+	FVector GetFocalPoint(); /* 0x007ad7e0 */
+};
+
+// @baa 0x007ad7e0
+/* UnController.cpp: the world location the controller is looking at. */
+FVector AController__007ad7e0::GetFocalPoint()
+{
+	return *(FBasedPosition__007ad7e0&)FocalPosition;
+}
+
+struct FBasedPosition__007ada10 : public FBasedPosition
+{
+	/* FBasedPosition::operator* (out of line at 0x007ab350), inlined here. */
+	FORCEINLINE FVector operator*()
+	{
+		AActor* const BaseActor = Base;
+		if (BaseActor != NULL)
+		{
+			if (VectorsDiffer(CachedBaseLocation, BaseActor->Location) || RotatorsDiffer(CachedBaseRotation, BaseActor->Rotation))
+			{
+				CachedBaseLocation = BaseActor->Location;
+				CachedBaseRotation = BaseActor->Rotation;
+				CachedTransPosition = AddVectors(BaseActor->Location, ((const FMatrix_&)FRotationMatrix(BaseActor->Rotation)).TransformFVector(Position));
+			}
+			return CachedTransPosition;
+		}
+		return Position;
+	}
+};
+
+struct AController__007ada10 : public AController
+{
+	FVector GetDestinationPosition(); /* 0x007ada10 */
+};
+
+// @baa 0x007ada10
+/* UnController.cpp: the world location the controller is moving to. */
+FVector AController__007ada10::GetDestinationPosition()
+{
+	return *(FBasedPosition__007ada10&)DestinationPosition;
+}
+
+struct FBasedPosition__007adc50 : public FBasedPosition
+{
+	/* FBasedPosition::operator* (out of line at 0x007ab350), inlined here. */
+	FORCEINLINE FVector operator*()
+	{
+		AActor* const BaseActor = Base;
+		if (BaseActor != NULL)
+		{
+			if (VectorsDiffer(CachedBaseLocation, BaseActor->Location) || RotatorsDiffer(CachedBaseRotation, BaseActor->Rotation))
+			{
+				CachedBaseLocation = BaseActor->Location;
+				CachedBaseRotation = BaseActor->Rotation;
+				CachedTransPosition = AddVectors(BaseActor->Location, ((const FMatrix_&)FRotationMatrix(BaseActor->Rotation)).TransformFVector(Position));
+			}
+			return CachedTransPosition;
+		}
+		return Position;
+	}
+};
+
+struct AController__007adc50 : public AController
+{
+	FVector GetAdjustLocation(); /* 0x007adc50 */
+};
+
+// @baa 0x007adc50
+/* UnController.cpp: the adjusted world location the controller is moving to. */
+FVector AController__007adc50::GetAdjustLocation()
+{
+	return *(FBasedPosition__007adc50&)AdjustPosition;
 }

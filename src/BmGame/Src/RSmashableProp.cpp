@@ -1,4 +1,4 @@
-// RSmashableProp.cpp: 27 functions
+// RSmashableProp.cpp: 28 functions
 // Placed here by: class 9, neighbours 6, callers 3, file 3.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -193,4 +193,11 @@ void ARSmashableProp::vf_180()
 	{
 		((ARSmashableProp_*)this)->sub_0166b6a0();
 	}
+}
+
+// @baa 0x0166b1f0
+/* A new, empty object of the class the editor asked for. */
+UObject* URSmashablePropConfigFactoryNew::FactoryCreateNew(UClass* InClass, UObject* InParent, FName InName, QWORD Flags, UObject* Context, FFeedbackContext* Warn)
+{
+	return StaticConstructObject(InClass, InParent, InName, Flags);
 }

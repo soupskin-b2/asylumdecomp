@@ -1,4 +1,4 @@
-// Engine_0750000.cpp (part 3 of 4): 11 functions
+// Engine_0750000.cpp (part 3 of 4): 12 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -170,4 +170,40 @@ struct FVector_ : public FVector
 void AActor::EditorApplyTranslation(const FVector& DeltaTranslation, UBOOL bAltDown, UBOOL bShiftDown, UBOOL bCtrlDown)
 {
 	(FVector_&)Location += DeltaTranslation;
+}
+
+/* Kit gaps: FRotationMatrix (constructor out of line, 004029a0), FMatrix::operator* (0058e560), FMatrix::Transpose
+ * (0058e9a0), FMatrix::Rotator (005c3fc0) and FName::operator!= (UnName.h) aren't declared. */
+struct FRotationMatrix : public FMatrix
+{
+	FRotationMatrix(const FRotator& Rot);
+};
+
+struct FMatrix_ : public FMatrix
+{
+	FMatrix operator*(const FMatrix& Other) const; /* 0x0058e560 */
+	FMatrix Transpose() const; /* 0x0058e9a0 */
+	FRotator Rotator() const; /* 0x005c3fc0 */
+};
+
+struct FName_ : public FName
+{
+	FORCEINLINE UBOOL operator!=(const FName& Other) const { return Index != Other.Index || Number != Other.Number; }
+};
+
+struct AActor__00758050 : public AActor
+{
+	void UpdateRelativeRotation(); /* 0x00758050 */
+};
+
+// @baa 0x00758050
+/* UnActor.cpp: RelativeRotation is the rotation relative to the base's rotation. */
+void AActor__00758050::UpdateRelativeRotation()
+{
+	if (!Base || Base->bWorldGeometry || ((const FName_&)BaseBoneName) != NAME_None)
+	{
+		return;
+	}
+
+	RelativeRotation = ((const FMatrix_&)(((const FMatrix_&)FRotationMatrix(Rotation)) * ((const FMatrix_&)FRotationMatrix(Base->Rotation)).Transpose())).Rotator();
 }

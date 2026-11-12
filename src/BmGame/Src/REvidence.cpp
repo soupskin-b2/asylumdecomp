@@ -1,4 +1,4 @@
-// REvidence.cpp: 27 functions
+// REvidence.cpp: 28 functions
 // Placed here by: callers 7, file 6.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -98,3 +98,10 @@ struct C { C* sub_01680310(void); };
 
 // @baa 0x01680310
 C* C::sub_01680310(void) { return this; }
+
+// @baa 0x0166cf00
+/* A new, empty object of the class the editor asked for. */
+UObject* URDummyEvidenceConfigFactoryNew::FactoryCreateNew(UClass* InClass, UObject* InParent, FName InName, QWORD Flags, UObject* Context, FFeedbackContext* Warn)
+{
+	return StaticConstructObject(InClass, InParent, InName, Flags);
+}

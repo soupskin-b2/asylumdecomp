@@ -1,4 +1,4 @@
-// BmGameClasses.cpp: 47 functions
+// BmGameClasses.cpp: 50 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -1056,4 +1056,113 @@ void URBMScreenShakeModifier::UpdateFast(FLOAT DeltaTime, FVector& Loc, FRotator
 			((TArray_<FBMScreenShakeStruct>&)Shakes).Remove(i, 1);
 		}
 	}
+}
+
+struct C_Body_7760
+{
+    INT sub_016d9eb0(INT A);
+};
+
+struct ARCinematicActor_ : public ARCinematicActor
+{
+    INT sub_009e5850(INT A);
+};
+
+// @baa 0x01557760
+void ARCinematicActor::vf_23c(INT A)
+{
+    ARCinematicActor_* Self = (ARCinematicActor_*)this;
+    if (BodyConstrainingComponent != NULL)
+        ((C_Body_7760*)BodyConstrainingComponent)->sub_016d9eb0(0);
+    Self->sub_009e5850(A);
+}
+
+extern FName g_026e27d0;
+	/* BMGAME_Play */
+extern FName g_026e2fb8;
+	/* BMGAME_Pause */
+/* The action's script events (generated glue, BmGameClasses.h) */
+struct URSeqAct_ChangeMovieStatus_ : public URSeqAct_ChangeMovieStatus
+{
+	void eventPlay()
+	{
+		ProcessEvent(FindFunctionChecked(g_026e27d0), NULL);
+	}
+	void eventPause()
+	{
+		ProcessEvent(FindFunctionChecked(g_026e2fb8), NULL);
+	}
+};
+
+// @baa 0x0157e7a0
+/* Inputs: 0 play, 1 pause (both handled in script), 2 stop and rewind the movie. */
+UBOOL URSeqAct_ChangeMovieStatus::UpdateOp(FLOAT DeltaTime)
+{
+	if (InputLinks(0).bHasImpulse)
+	{
+		((URSeqAct_ChangeMovieStatus_*)this)->eventPlay();
+	}
+	if (InputLinks(1).bHasImpulse)
+	{
+		((URSeqAct_ChangeMovieStatus_*)this)->eventPause();
+	}
+	if (InputLinks(2).bHasImpulse)
+	{
+		Movie->Stop();
+		Movie->Decoder->ResetStream();
+	}
+	return TRUE;
+}
+
+extern FName g_026e2bf8;
+	/* BMGAME_Move */
+extern FName g_026e3590;
+	/* BMGAME_Stop */
+extern FName g_026e26f4;
+	/* BMGAME_UpdateMoveSpeed */
+/* The action's script events (generated glue, BmGameClasses.h) */
+struct URSeqAct_MovePlayer_ : public URSeqAct_MovePlayer
+{
+	void eventMove()
+	{
+		ProcessEvent(FindFunctionChecked(g_026e2bf8), NULL);
+	}
+	void eventStop()
+	{
+		ProcessEvent(FindFunctionChecked(g_026e3590), NULL);
+	}
+	void eventUpdateMoveSpeed()
+	{
+		ProcessEvent(FindFunctionChecked(g_026e26f4), NULL);
+	}
+};
+
+// @baa 0x015826c0
+/* Input 0 starts the move (kept queued until it takes), input 1 stops it; output 0 fires on arrival. */
+UBOOL URSeqAct_MovePlayer::UpdateOp(FLOAT DeltaTime)
+{
+	if (InputLinks(0).bHasImpulse || bQueuedMove)
+	{
+		if (!bIsAtLocation)
+		{
+			bQueuedMove = TRUE;
+			((URSeqAct_MovePlayer_*)this)->eventMove();
+		}
+	}
+	if (InputLinks(1).bHasImpulse)
+	{
+		((URSeqAct_MovePlayer_*)this)->eventStop();
+		return TRUE;
+	}
+	if (bIsAtLocation)
+	{
+		bIsAtLocation = FALSE;
+		FSeqOpOutputLink& Link = OutputLinks(0);
+		if (!Link.bDisabled)
+		{
+			Link.bHasImpulse = TRUE;
+		}
+	}
+	((URSeqAct_MovePlayer_*)this)->eventUpdateMoveSpeed();
+	return FALSE;
 }

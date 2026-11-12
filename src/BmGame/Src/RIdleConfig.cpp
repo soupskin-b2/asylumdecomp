@@ -1,4 +1,4 @@
-// RIdleConfig.cpp: 48 functions
+// RIdleConfig.cpp: 52 functions
 // Placed here by: callers 10, file 9, neighbours 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -192,3 +192,31 @@ struct C_01624fc0 { void sub_015af750(int); C_01624fc0 *sub_01624fc0(int); };
 
 // @baa 0x01624fc0
 C_01624fc0 *C_01624fc0::sub_01624fc0(int a) { sub_015af750(a); return this; }
+
+// @baa 0x01611a50
+/* A new, empty object of the class the editor asked for. */
+UObject* URSimpleIdleConfigFactoryNew::FactoryCreateNew(UClass* InClass, UObject* InParent, FName InName, QWORD Flags, UObject* Context, FFeedbackContext* Warn)
+{
+	return StaticConstructObject(InClass, InParent, InName, Flags);
+}
+
+// @baa 0x01611bf0
+/* A new, empty object of the class the editor asked for. */
+UObject* URIdleTransitionConfigFactoryNew::FactoryCreateNew(UClass* InClass, UObject* InParent, FName InName, QWORD Flags, UObject* Context, FFeedbackContext* Warn)
+{
+	return StaticConstructObject(InClass, InParent, InName, Flags);
+}
+
+// @baa 0x01611d90
+/* A new, empty object of the class the editor asked for. */
+UObject* URIdleWithDeathConfigFactoryNew::FactoryCreateNew(UClass* InClass, UObject* InParent, FName InName, QWORD Flags, UObject* Context, FFeedbackContext* Warn)
+{
+	return StaticConstructObject(InClass, InParent, InName, Flags);
+}
+
+// @baa 0x01611f30
+/* A new, empty object of the class the editor asked for. */
+UObject* URPairedIdleConfigFactoryNew::FactoryCreateNew(UClass* InClass, UObject* InParent, FName InName, QWORD Flags, UObject* Context, FFeedbackContext* Warn)
+{
+	return StaticConstructObject(InClass, InParent, InName, Flags);
+}

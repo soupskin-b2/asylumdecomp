@@ -1,4 +1,4 @@
-// UnGame.cpp (part 1 of 3): 80 functions
+// UnGame.cpp (part 1 of 3): 81 functions
 // Placed here by: neighbours 27, callers 21.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1170,4 +1170,30 @@ void UGameEngine::vf_188()
 {
 	if (GameViewport)
 		((UGameViewportClient_WindowViewport*)GameViewport)->WindowViewport->Render();
+}
+
+/* Undeclared in the kit: this TU's out-of-line copy of FString::operator=(const TCHAR*) and FURL's option helpers. */
+struct FString_ : public FString
+{
+	FString_& operator=(const TCHAR* Other); /* 0x006b1140 */
+};
+
+struct FURL_ : public FURL
+{
+	UBOOL HasOption(const TCHAR* Test) const; /* 0x00d51be0 */
+	void RemoveOption(const TCHAR* Key, const TCHAR* Section, const TCHAR* Filename); /* 0x00d5b1a0 */
+};
+
+// @baa 0x007d9bc0
+/* UnGame.cpp */
+void UGameEngine::SetClientTravel(const TCHAR* NextURL, ETravelType InTravelType)
+{
+	(FString_&)TravelURL = NextURL;
+	TravelType = InTravelType;
+
+	// Prevent crashing the game by attempting to connect to own listen server
+	if (((FURL_&)LastURL).HasOption(TEXT("Listen")))
+	{
+		((FURL_&)LastURL).RemoveOption(TEXT("Listen"), NULL, NULL);
+	}
 }

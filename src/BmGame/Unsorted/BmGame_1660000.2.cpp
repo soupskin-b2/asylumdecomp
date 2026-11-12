@@ -1,4 +1,4 @@
-// BmGame_1660000.cpp (part 2 of 3): 142 functions
+// BmGame_1660000.cpp (part 2 of 3): 146 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -2159,4 +2159,93 @@ BYTE ARPawnCharacter::vf_604()
 		return Anim->MovementPlayer.CurrentCycleTime.Phase.Phase;
 	}
 	return 0;
+}
+
+/* FVector's arithmetic (UnMath.h); the kit has none */
+struct FVector_ : public FVector
+{
+	FVector_() {}
+	FVector_(FLOAT InX, FLOAT InY, FLOAT InZ) : FVector(InX, InY, InZ) {}
+	FVector_ operator+(const FVector& V) const { return FVector_(X + V.X, Y + V.Y, Z + V.Z); }
+	FVector_ operator-(const FVector& V) const { return FVector_(X - V.X, Y - V.Y, Z - V.Z); }
+	FVector_ operator*(FLOAT Scale) const { return FVector_(X * Scale, Y * Scale, Z * Scale); }
+};
+
+// @baa 0x0166a300
+void ARShimmyEdgeMarker::SetupEndPoints()
+{
+	// the edge runs perpendicular to the marker's facing, in the horizontal plane
+	const FLOAT HalfLength = Length * 0.5f;
+	FVector EdgeDir = FRotator(Rotation.Pitch, Rotation.Yaw + 16384, Rotation.Roll).Vector();
+	EdgeDir.Z = 0.f;
+	EdgeDir.Normalize();
+
+	const FVector_ HalfEdge = ((const FVector_&)EdgeDir) * HalfLength;
+	PointA = ((const FVector_&)Location) - HalfEdge;
+	PointB = HalfEdge + Location;
+}
+
+// @baa 0x0166d200
+/* A new, empty object of the class the editor asked for. */
+UObject* URCrimeSceneAssetFactoryNew::FactoryCreateNew(UClass* InClass, UObject* InParent, FName InName, QWORD Flags, UObject* Context, FFeedbackContext* Warn)
+{
+	return StaticConstructObject(InClass, InParent, InName, Flags);
+}
+
+struct C_01669a20
+{
+    void sub_01669a20(DWORD Arg);
+    BYTE _pad0[8];
+    C_01669a20* Next;      // +8
+    BYTE _pad1[8];
+    C_01669a20* Prev;      // +0x14
+    DWORD _pad2;
+    DWORD Val;             // +0x1C
+};
+
+// @baa 0x01669a20
+void C_01669a20::sub_01669a20(DWORD Arg)
+{
+    C_01669a20* N = Next;
+    Val = Arg;
+    if (N == NULL)
+        return;
+    C_01669a20* Expect = this;
+    do
+    {
+        if (N->Prev != Expect)
+            break;
+        Expect = N;
+        N->Val = Arg;
+        N = N->Next;
+    } while (N != NULL);
+}
+
+struct C_01669a50
+{
+    void sub_01669a50(DWORD Arg);
+    BYTE _pad0[8];
+    C_01669a50* Next;      // +8
+    BYTE _pad1[12];
+    C_01669a50* Prev;      // +0x18
+    DWORD _pad2;
+    DWORD Val;             // +0x20
+};
+
+// @baa 0x01669a50
+void C_01669a50::sub_01669a50(DWORD Arg)
+{
+    C_01669a50* N = Next;
+    Val = Arg;
+    if (N == NULL)
+        return;
+    C_01669a50* Expect = this;
+    do
+    {
+        if (N->Prev != Expect)
+            break;
+        Expect = N;
+        N->Val = Arg;
+        N = N->Next;
+    } while (N != NULL);
 }

@@ -1,4 +1,4 @@
-// DecalComponent.cpp (part 1 of 3): 31 functions
+// DecalComponent.cpp (part 1 of 3): 32 functions
 // Placed here by: class 13, neighbours 11, callers 5, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -301,4 +301,19 @@ UBOOL UDecalComponent::IsReadyForFinishDestroy()
 		return GetReleaseResourcesFence(this)->GetNumPendingFences() == 0 && Super::IsReadyForFinishDestroy();
 	}
 	return Super::IsReadyForFinishDestroy();
+}
+
+struct UDecalComponent_ : public UDecalComponent
+{
+	void ReleaseResources(UBOOL bBlockOnRelease, UPrimitiveComponent* Receiver); /* 0x0069a270 */
+	void FreeStaticReceivers(); /* 0x00689fa0 */
+};
+
+// @baa 0x0069a3d0
+/* DecalComponent.cpp */
+void UDecalComponent::BeginDestroy()
+{
+	Super::BeginDestroy();
+	((UDecalComponent_*)this)->ReleaseResources(FALSE, NULL);
+	((UDecalComponent_*)this)->FreeStaticReceivers();
 }

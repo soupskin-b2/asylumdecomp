@@ -1,4 +1,4 @@
-// BmGame_1590000.cpp (part 1 of 2): 304 functions
+// BmGame_1590000.cpp (part 1 of 2): 307 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1903,5 +1903,68 @@ C_01592c20* C_01592c20::sub_01592c20(FLOAT F1, FLOAT F2, DWORD A3)
     F0 = F1;
     F4 = F2;
     D8 = A3;
+    return this;
+}
+
+struct C_P_930f0
+{
+    DWORD A, B, C;
+};
+
+struct C_015930f0
+{
+    DWORD F0, F4, F8;
+    FLOAT Fc;
+    C_015930f0* sub_015930f0(C_P_930f0* P, FLOAT F);
+};
+
+// @baa 0x015930f0
+C_015930f0* C_015930f0::sub_015930f0(C_P_930f0* P, FLOAT F)
+{
+    F0 = P->A;
+    F4 = P->B;
+    F8 = P->C;
+    Fc = F;
+    return this;
+}
+
+struct C_P_2f_33f0
+{
+    FLOAT A, B;
+};
+
+struct C_015933f0
+{
+    FLOAT F0, F4;
+    C_015933f0* sub_015933f0(C_P_2f_33f0* P);
+};
+
+// @baa 0x015933f0
+C_015933f0* C_015933f0::sub_015933f0(C_P_2f_33f0* P)
+{
+    F0 += P->A;
+    F4 += P->B;
+    return this;
+}
+
+struct C_01593570
+{
+    DWORD A, B, C, D, E, F, G, H, I, J;
+    C_01593570* sub_01593570(UINT P);
+};
+
+// @baa 0x01593570
+C_01593570* C_01593570::sub_01593570(UINT P)
+{
+    A = 0;
+    B = 0;
+    C = 0;
+    D = 0;
+    E = 0;
+    F = 0;
+    G = 0;
+    H = 0;
+    I = 0;
+    J = 0;
     return this;
 }

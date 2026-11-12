@@ -1,4 +1,4 @@
-// BmGame_1610000.cpp: 6 functions
+// BmGame_1610000.cpp: 7 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -184,4 +184,26 @@ FLOAT ARBMRouter::GetDistanceSquaredFromPath(FVector TestLocation)
         return CurrentRequest->CurrentPath->GetDistanceSquaredFromPath(HostPawn, TestLocation);
     }
     return -1.f;
+}
+
+struct C_0161d9c0
+{
+    C_0161d9c0* sub_0161d9c0(int Unused);
+    DWORD Data[10];
+};
+
+// @baa 0x0161d9c0
+C_0161d9c0* C_0161d9c0::sub_0161d9c0(int Unused)
+{
+    Data[0] = 0;
+    Data[1] = 0;
+    Data[2] = 0;
+    Data[3] = 0;
+    Data[4] = 0;
+    Data[5] = 0;
+    Data[6] = 0;
+    Data[7] = 0;
+    Data[8] = 0;
+    Data[9] = 0;
+    return this;
 }

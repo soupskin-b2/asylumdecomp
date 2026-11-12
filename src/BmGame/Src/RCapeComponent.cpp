@@ -1,4 +1,4 @@
-// RCapeComponent.cpp (part 1 of 2): 77 functions
+// RCapeComponent.cpp (part 1 of 2): 79 functions
 // Placed here by: neighbours 22, file 19, class 12, callers 8.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -693,4 +693,18 @@ UBOOL URCapeSkeletalMeshComponent_::sub_016d59d0() const
 		}
 	}
 	return FALSE;
+}
+
+// @baa 0x016ae490
+/* A new, empty object of the class the editor asked for. */
+UObject* URCapeStateConfigFactoryNew::FactoryCreateNew(UClass* InClass, UObject* InParent, FName InName, QWORD Flags, UObject* Context, FFeedbackContext* Warn)
+{
+	return StaticConstructObject(InClass, InParent, InName, Flags);
+}
+
+// @baa 0x016ae2f0
+/* A new, empty object of the class the editor asked for. */
+UObject* URCapeConfigFactoryNew::FactoryCreateNew(UClass* InClass, UObject* InParent, FName InName, QWORD Flags, UObject* Context, FFeedbackContext* Warn)
+{
+	return StaticConstructObject(InClass, InParent, InName, Flags);
 }

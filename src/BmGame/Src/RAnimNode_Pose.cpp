@@ -1,4 +1,4 @@
-// RAnimNode_Pose.cpp (part 1 of 4): 205 functions
+// RAnimNode_Pose.cpp (part 1 of 4): 206 functions
 // Placed here by: neighbours 138, class 47, callers 16, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -2007,4 +2007,16 @@ INT C_01595eb0::sub_01595eb0()
     if (P != NULL && P->sub_015c1f80() != 0)
         return 1;
     return 0;
+}
+
+// @baa 0x0159b7d0
+FWeightedAnimSample* sub_0159b7d0(FWeightedAnimSampleArray* Arr)
+{
+    if ((UINT)Arr->Num < 24)
+    {
+        FWeightedAnimSample* E = Arr->Data + Arr->Num;
+        Arr->Num++;
+        return E;
+    }
+    return NULL;
 }

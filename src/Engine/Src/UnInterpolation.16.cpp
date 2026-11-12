@@ -1,55 +1,75 @@
-// UnInterpolation.cpp: 4 functions
+// UnInterpolation.cpp: 13 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
-#define BAA_OUTLINE_ALLOC
 #include "ue3/Classes.h"
 #include "ue3/Array.h"
+#include "ue3/Script.h"
+#include "ue3/Cast.h"
 
-/* TArray::Insert / InsertZeroed as this build's Array.h has them: both return void
- * (the kit's Insert returns the index, which changes register allocation). */
-template<typename T>
-class TArrayInsert : public TArray<T> {
-public:
-    using TArray<T>::ArrayNum;
-    using TArray<T>::ArrayMax;
-    using TArray<T>::AllocatorInstance;
-    void Insert(INT Index, INT Count = 1);
+/* FString::operator* (UnString.h) and UObject::GetFullName/GetName (UnObjBas.h), which the headers lack. */
+struct FString_ : public FString
+{
+	const TCHAR* operator*() const { return Num() ? &(*this)(0) : TEXT(""); }
 };
 
-template<typename T>
-void TArrayInsert<T>::Insert(INT Index, INT Count)
+struct UObject_ : public UObject
 {
-#line 794 BAA_ARRAY_FILE
-    check(Count>=0);
-    check(ArrayNum>=0);
-    check(ArrayMax>=ArrayNum);
-    check(Index>=0);
-    check(Index<=ArrayNum);
-    const INT OldNum = ArrayNum;
-    if ((ArrayNum += Count) > ArrayMax)
-    {
-        ArrayMax = AllocatorInstance.CalculateSlack(ArrayNum, ArrayMax, sizeof(T));
-        AllocatorInstance.ResizeAllocation(OldNum, ArrayMax, sizeof(T));
-    }
-    appMemmove((BYTE*)AllocatorInstance.GetAllocation() + (Index + Count) * sizeof(T),
-               (BYTE*)AllocatorInstance.GetAllocation() + (Index) * sizeof(T),
-               (OldNum - Index) * sizeof(T));
+	FString_ GetFullName(const UObject* StopOuter = NULL) const;
+	FString_ GetName() const;
+};
+
+/* Core.h: appErrorf hands the message to an attached debugger first. This build has no debugger
+ * support (appIsDebuggerPresent is constant), so only the temporaries' destructor flags are left
+ * of that branch in the code. */
+inline UBOOL appIsDebuggerPresent() { return FALSE; }
+
+void __cdecl appFailAssertFuncDebug(const ANSICHAR* Expr, const ANSICHAR* File, INT Line, const TCHAR* Format = TEXT(""), ...);
+#define appErrorf(...) ( (appIsDebuggerPresent() ? (appFailAssertFuncDebug("appErrorf", __FILE__, __LINE__, ##__VA_ARGS__), 1) : 1), GError->Logf(__VA_ARGS__) )
+/* UnObjBas.h: the cast that must succeed (out of line per class in this build). */
+template<class T> T* CastChecked(UObject* Src)
+{
+	if (!Src || !ObjectIsA(Src, T::StaticClass()))
+	{
+		appErrorf(TEXT("Cast of %s to %s failed"), Src ? *((UObject_*)Src)->GetFullName() : TEXT("NULL"), *((UObject_*)T::StaticClass())->GetName());
+	}
+	return (T*)Src;
 }
 
-// @baa 0x00cebb60
-/* 0x18-byte elements: FDirectorTrackCut */
-template class TArrayInsert<FDirectorTrackCut>;
+// @baa 0x00cfda00
+template UInterpTrackInstToggle* CastChecked<UInterpTrackInstToggle>(UObject* Src);
 
-#line 44 "candidate.cpp"
+// @baa 0x00cfdbd0
+template UInterpTrackInstEvent* CastChecked<UInterpTrackInstEvent>(UObject* Src);
 
-// @baa 0x00cec2e0
-/* 0x10-byte elements: FSoundTrackKey (type inferred from the element size) */
-template class TArrayInsert<FSoundTrackKey>;
+// @baa 0x00cfdda0
+template UInterpTrackInstDirector* CastChecked<UInterpTrackInstDirector>(UObject* Src);
 
-// @baa 0x00cebe90
-/* 0x1c-byte elements: FAnimControlTrackKey (type inferred from the element size) */
-template class TArrayInsert<FAnimControlTrackKey>;
+// @baa 0x00cfdf70
+template UInterpTrackInstSlomo* CastChecked<UInterpTrackInstSlomo>(UObject* Src);
 
-// @baa 0x00cec970
-/* 0x1c-byte elements: FFaceFXTrackKey (type inferred from the element size) */
-template class TArrayInsert<FFaceFXTrackKey>;
+// @baa 0x00cfe140
+template UInterpTrackInstAnimControl* CastChecked<UInterpTrackInstAnimControl>(UObject* Src);
+
+// @baa 0x00d05de0
+template UInterpTrackInstFloatProp* CastChecked<UInterpTrackInstFloatProp>(UObject* Src);
+
+// @baa 0x00d06180
+template UInterpTrackInstColorProp* CastChecked<UInterpTrackInstColorProp>(UObject* Src);
+
+// @baa 0x00d05fb0
+template UInterpTrackInstVectorProp* CastChecked<UInterpTrackInstVectorProp>(UObject* Src);
+
+// @baa 0x00d0cd40
+template UInterpTrackEvent* CastChecked<UInterpTrackEvent>(UObject* Src);
+
+// @baa 0x00d0d010
+template UInterpGroupInst* CastChecked<UInterpGroupInst>(UObject* Src);
+
+// @baa 0x00d0d1e0
+template UInterpGroup* CastChecked<UInterpGroup>(UObject* Src);
+
+// @baa 0x00d16d60
+template UInterpTrackFaceFX* CastChecked<UInterpTrackFaceFX>(UObject* Src);
+
+// @baa 0x00d19a70
+template USeqAct_Interp* CastChecked<USeqAct_Interp>(UObject* Src);

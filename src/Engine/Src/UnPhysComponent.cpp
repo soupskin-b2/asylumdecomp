@@ -1,4 +1,4 @@
-// UnPhysComponent.cpp: 8 functions
+// UnPhysComponent.cpp: 10 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -105,4 +105,24 @@ void UPrimitiveComponent::execAddForce(FFrame& Stack, RESULT_DECL)
 	P_GET_NAME_OPTX(BoneName, NAME_None);
 	P_FINISH;
 	((UPrimitiveComponent__009ff200*)this)->AddForce(Force, Position, BoneName);
+}
+
+// @baa 0x009fe790
+// @baa 0x009fe790
+void UPrimitiveComponent::execSetRBPosition(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT(FVector, NewPos);
+	P_GET_NAME_OPTX(BoneName, NAME_None);
+	P_FINISH;
+	SetRBPosition(NewPos, BoneName);
+}
+
+// @baa 0x009fe830
+// @baa 0x009fe830
+void UPrimitiveComponent::execSetRBRotation(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_ROTATOR(NewRot);
+	P_GET_NAME_OPTX(BoneName, NAME_None);
+	P_FINISH;
+	SetRBRotation(NewRot, BoneName);
 }
