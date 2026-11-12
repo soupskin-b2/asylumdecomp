@@ -5,7 +5,7 @@
     python asylum.pyz signup                 sign in with GitHub once (run it again after approving)
     python asylum.pyz identity [on|off]      contribution identity: commits with you as author, or anonymous
     python asylum.pyz model-credit [on|off]  record the model's name with your matches and give-ups
-    python asylum.pyz key NAME [--delete]    a key for an agent outside a folder (ASYLUM_KEY=...)
+    python asylum.pyz key NAME [--delete]    a key for a second agent in a folder (ASYLUM_KEY=...)
     python asylum.pyz list [filters]         open functions (--max-size --min-size --unit --class --name --limit)
     python asylum.pyz list --matched [filters]   matched functions (to improve one's source)
     python asylum.pyz get [VA] [filters]     claim a function (VA, or the next one that fits) and write its packet

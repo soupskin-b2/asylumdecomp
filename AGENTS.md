@@ -17,8 +17,8 @@ GitHub once and answer two questions, and only if that hasn't been done yet (Set
 
 ## Setup
 
-Several agents may share a machine, an account and even a folder, so first find out what's
-already done:
+Several agents may share a machine and an account (best with a folder each), so first find out
+what's already done:
 
 ```
 curl -LO https://github.com/soupskin-b2/asylumdecomp/releases/download/checker/asylum.pyz
@@ -60,13 +60,18 @@ family alone (`qwen`, `claude`): progress is shown per model.
 `asylum.pyz` is the whole checker in one file: a zip of the Python source in this repo's
 `tools/asylum`, with the shared headers and project data it reads. It needs no clone.
 
-**Keys.** The sign-up saves the account's key for this machine. Each folder then gets its own key
-by itself, on its first command (saved in `.asylum/key`; keep it private: it acts as your human).
-`submit`, `giveup` and `release` only touch that key's claims, and `status` marks the claims of
-other keys. Agents sharing a folder share its key: that works, as long as each names the functions
-it works on (`submit VA`, `giveup VA`) and leaves the others' alone. A separate key without a
-separate folder: `python asylum.pyz key NAME`, given as the environment variable `ASYLUM_KEY`. An
-account has up to 15 keys; `status` lists the stale ones.
+**Keys and folders.** The sign-up is once per machine; it saves the account's key there. Each folder
+then makes its own key on its first command (saved in `.asylum/key`; keep it private: it acts as
+your human), so **one folder per agent** keeps agents apart with nothing to set up: each has its own
+claims, `work/` files and checked-match cache, and `status` marks the claims of the account's other
+keys. `giveup` and `release` only touch this key's claims (`--any` for another agent's, e.g. one
+that stopped); every agent of the account shares its limits.
+
+Two agents in one folder share its key and its `work/`: they can't tell their claims apart, and
+`submit` alone would send the other's matches too. If they must share a folder, give each its own
+key (`python asylum.pyz key NAME` prints one; set it as the environment variable `ASYLUM_KEY`), and
+always name your VAs (`submit VA`). An account has up to 30 keys; at the limit a new one replaces
+the one unused longest, if that was a week ago. `status` lists keys idle for a week.
 
 Nothing of the game is ever downloaded or uploaded. The packet's assembly listing is made on this
 machine from the human's own copy, and submissions are C++ source only.
@@ -116,7 +121,8 @@ machine from the human's own copy, and submissions are C++ source only.
    original assembly alone.
 5. **Submit.** `python asylum.pyz submit VA [VA ...] [--model NAME]` checks those functions again and
    sends the matches (a VA can be followed by its file, if it isn't `work/VA.cpp`). `submit` alone
-   does every claim of this folder that has a `work/VA.cpp`; name your VAs if other agents share it. Only matches are sent; the others are listed. CI runs every
+   does every claim of this folder that has a `work/VA.cpp` (in a shared folder, name your VAs). Only
+   matches are sent; the others are listed. CI runs every
    30 minutes: it checks the source once more, places it into its file in `src/` and commits it with
    your human as the author (or anonymously, with identity off). Until then the claim stays yours and
    `status` shows the submission `queued`; then `checking`, `matched`, `failed` (with the reason; it becomes an earlier
@@ -293,7 +299,7 @@ python asylum.pyz setup [--game DIR]            find the game, install the compi
 python asylum.pyz signup                        sign in with GitHub (run again after approving)
 python asylum.pyz identity [on|off]             contribution identity: you as commit author, or anonymous
 python asylum.pyz model-credit [on|off]         record the model's name with matches and give-ups
-python asylum.pyz key NAME [--delete]           a key for an agent without its own folder (ASYLUM_KEY)
+python asylum.pyz key NAME [--delete]           a key for a second agent in a folder (ASYLUM_KEY)
 python asylum.pyz list [filters] [--named]      open functions you may claim
 python asylum.pyz list --matched [filters]      matched functions (to improve)
 python asylum.pyz get [VA] [filters]            claim one; packet in work/VA.md
