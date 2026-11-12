@@ -1,4 +1,4 @@
-// Core_05a0000.cpp: 14 functions
+// Core_05a0000.cpp: 15 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -186,4 +186,26 @@ void UObject::execGetEnum(FFrame& Stack, RESULT_DECL)
 	{
 		*(FName*)Result = ((UEnum_*)CastFlags<UEnum>(E))->GetEnum(i);
 	}
+}
+
+extern FName g_0268d0bc;
+	/* CORE_Main */
+struct UCommandlet_ : public UCommandlet
+{
+	INT eventMain(const FString& Params);
+};
+
+// @baa 0x005aa890
+/* The script event's generated glue (CoreClasses.h), out of line here. */
+INT UCommandlet_::eventMain(const FString& Params)
+{
+	struct Commandlet_eventMain_Parms
+	{
+		FString Params;
+		INT ReturnValue;
+	} Parms;
+	Parms.ReturnValue = 0;
+	Parms.Params = Params;
+	ProcessEvent(FindFunctionChecked(g_0268d0bc), &Parms);
+	return Parms.ReturnValue;
 }

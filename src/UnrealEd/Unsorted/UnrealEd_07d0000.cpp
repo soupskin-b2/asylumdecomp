@@ -1,4 +1,4 @@
-// UnrealEd_07d0000.cpp (part 1 of 2): 103 functions
+// UnrealEd_07d0000.cpp (part 1 of 2): 104 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -690,4 +690,34 @@ void sub_007d8af0_holder::sub_007d8af0()
     if (Object)
         Object->sub_007d8af0_vt0(1);
     Object = 0;
+}
+
+struct F007D8C10
+{
+	INT X;
+	INT Y;
+	INT Z;
+	F007D8C10* sub_007d8c10(const F007D8C10* Src);
+};
+
+// @baa 0x007d8c10
+F007D8C10* F007D8C10::sub_007d8c10(const F007D8C10* Src)
+{
+	X = Src->X;
+	Y = Src->Y;
+	Z = -1;
+	return this;
+}
+
+struct W007D8C10
+{
+	F007D8C10* V;
+};
+
+F007D8C10* sub_007d8c10_wrapper()
+{
+	W007D8C10 W;
+	W.V = new F007D8C10;
+	W.V->sub_007d8c10(W.V);
+	return W.V;
 }

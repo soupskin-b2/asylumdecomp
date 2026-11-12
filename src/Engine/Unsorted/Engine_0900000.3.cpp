@@ -1,4 +1,4 @@
-// Engine_0900000.cpp: 10 functions
+// Engine_0900000.cpp: 11 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -146,4 +146,23 @@ class UAudioComponent* AActor_::eventGetFaceFXAudioComponent()
 	Parms.ReturnValue = NULL;
 	ProcessEvent(FindFunctionChecked(g_026c4a10), &Parms);
 	return Parms.ReturnValue;
+}
+
+extern FName g_026c3ea8;
+	/* ENGINE_PlayParticleEffect */
+struct USkeletalMeshComponent__0090b470 : public USkeletalMeshComponent
+{
+	void eventPlayParticleEffect(class UAnimNotify_PlayParticleEffect* AnimNotifyData);
+};
+
+// @baa 0x0090b470
+/* The script event's generated glue (EngineClasses.h), out of line here. */
+void USkeletalMeshComponent__0090b470::eventPlayParticleEffect(class UAnimNotify_PlayParticleEffect* AnimNotifyData)
+{
+	struct SkeletalMeshComponent_eventPlayParticleEffect_Parms
+	{
+		class UAnimNotify_PlayParticleEffect* AnimNotifyData;
+	} Parms;
+	Parms.AnimNotifyData = AnimNotifyData;
+	ProcessEvent(FindFunctionChecked(g_026c3ea8), &Parms);
 }

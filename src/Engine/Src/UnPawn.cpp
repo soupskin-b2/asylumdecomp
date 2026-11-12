@@ -1,4 +1,4 @@
-// UnPawn.cpp (part 1 of 2): 108 functions
+// UnPawn.cpp (part 1 of 2): 110 functions
 // Placed here by: neighbours 49, class 32, callers 3, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1551,4 +1551,52 @@ struct APawn__008038b0 : public APawn
 bool APawn::vf_1b8()
 {
     return ((APawn__008038b0*)this)->sub_008650a0() && Controller && Controller->GetAPlayerController();
+}
+
+// @baa 0x00867b30
+/* APawn slot 0x334 (kit vf_334): a falling pawn, or a player's pawn still standing where its last path search
+ * failed (APlayerController::FailedPathStart). */
+UINT APawn::vf_334()
+{
+    if (Physics == PHYS_Falling)
+    {
+        return TRUE;
+    }
+    if (Controller)
+    {
+        APlayerController* PC = Controller->GetAPlayerController();
+        if (PC && Location.X == PC->FailedPathStart.X && Location.Y == PC->FailedPathStart.Y
+            && Location.Z == PC->FailedPathStart.Z)
+        {
+            return TRUE;
+        }
+    }
+    return FALSE;
+}
+
+/* Unnamed in the kit: UE3's APawn::IsHumanControlled() (0x00865070), inline here. */
+struct APawn__00869310 : public APawn
+{
+    FORCEINLINE UBOOL IsHumanControlled() { return Controller && Controller->GetAPlayerController(); }
+};
+
+// @baa 0x00869310
+/* APawn slot 0x444 (kit vf_444): UE3's APawn::MaxSpeedModifier(): AI pawns move at DesiredSpeed, crouching and
+ * walking scale it down. */
+FLOAT APawn::vf_444()
+{
+    FLOAT Result = 1.f;
+    if (!((APawn__00869310*)this)->IsHumanControlled())
+    {
+        Result *= DesiredSpeed;
+    }
+    if (bIsCrouched)
+    {
+        Result *= CrouchedPct;
+    }
+    else if (bIsWalking)
+    {
+        Result *= WalkingPct;
+    }
+    return Result;
 }

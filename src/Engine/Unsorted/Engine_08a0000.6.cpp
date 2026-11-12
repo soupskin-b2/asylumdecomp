@@ -1,4 +1,4 @@
-// Engine_08a0000.cpp: 22 functions
+// Engine_08a0000.cpp: 24 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -429,4 +429,52 @@ INT USequenceObject_::eventGetObjClassVersion()
 	Parms.ReturnValue = 0;
 	ProcessEvent(FindFunctionChecked(g_026c4fcc), &Parms);
 	return Parms.ReturnValue;
+}
+
+/* Kit gap: AActor::IsBasedOn (UnActor.h, inline) isn't declared. */
+struct AActor__008aa060 : public AActor
+{
+    FORCEINLINE UBOOL IsBasedOn(const AActor* Other) const
+    {
+        for (const AActor* Test = this; Test != NULL; Test = Test->Base)
+        {
+            if (Test == Other)
+            {
+                return TRUE;
+            }
+        }
+        return FALSE;
+    }
+};
+
+// @baa 0x008aa060
+void AActor::execIsBasedOn(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(AActor, Other);
+    P_FINISH;
+    *(UBOOL*)Result = ((AActor__008aa060*)this)->IsBasedOn(Other);
+}
+
+/* Kit gap: AActor::IsOwnedBy (UnActor.h, inline) isn't declared. */
+struct AActor__008aa0f0 : public AActor
+{
+    FORCEINLINE UBOOL IsOwnedBy(const AActor* Other) const
+    {
+        for (const AActor* Test = this; Test != NULL; Test = Test->Owner)
+        {
+            if (Test == Other)
+            {
+                return TRUE;
+            }
+        }
+        return FALSE;
+    }
+};
+
+// @baa 0x008aa0f0
+void AActor::execIsOwnedBy(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(AActor, Other);
+    P_FINISH;
+    *(UBOOL*)Result = ((AActor__008aa0f0*)this)->IsOwnedBy(Other);
 }

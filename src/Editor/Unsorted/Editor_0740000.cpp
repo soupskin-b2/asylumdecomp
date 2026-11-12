@@ -1,4 +1,4 @@
-// Editor_0740000.cpp (part 1 of 2): 109 functions
+// Editor_0740000.cpp (part 1 of 2): 110 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -1335,4 +1335,25 @@ C_* C_::sub_00747b70(SCounted_ *NewRef, INT bSomething)
 		++NewRef->Count;
 
 	return this;
+}
+
+struct S_00747b50
+{
+    int Data;
+    int Count;
+};
+
+struct C_00747b50
+{
+    C_00747b50* sub_00747b50(S_00747b50* P, int b);
+    int _first;
+};
+
+// @baa 0x00747b50
+C_00747b50* C_00747b50::sub_00747b50(S_00747b50* P, int b)
+{
+    _first = (int)P;
+    if (P && b)
+        ++P->Count;
+    return this;
 }

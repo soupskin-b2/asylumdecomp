@@ -1,4 +1,4 @@
-// BmGame_1630000.cpp: 8 functions
+// BmGame_1630000.cpp: 9 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -158,4 +158,24 @@ void ARPawnCombat__016384a0::eventCollisionWith(class ARPawnCombat* OtherPawn)
 	} Parms;
 	Parms.OtherPawn = OtherPawn;
 	ProcessEvent(FindFunctionChecked(g_026e399c), &Parms);
+}
+
+extern FName g_026e2f7c;
+	/* BMGAME_GetCounterLimb */
+struct ARPawnCombat__016383e0 : public ARPawnCombat
+{
+	BYTE eventGetCounterLimb();
+};
+
+// @baa 0x016383e0
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+BYTE ARPawnCombat__016383e0::eventGetCounterLimb()
+{
+	struct RPawnCombat_eventGetCounterLimb_Parms
+	{
+		BYTE ReturnValue;
+	} Parms;
+	Parms.ReturnValue = 0;
+	ProcessEvent(FindFunctionChecked(g_026e2f7c), &Parms);
+	return Parms.ReturnValue;
 }

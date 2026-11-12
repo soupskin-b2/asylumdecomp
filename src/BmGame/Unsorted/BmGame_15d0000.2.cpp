@@ -1,4 +1,4 @@
-// BmGame_15d0000.cpp: 29 functions
+// BmGame_15d0000.cpp: 30 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -533,4 +533,24 @@ void URBMBehaviour_CombatAI__015d9930::eventPlayStepInDirection(FVector MoveDir,
 	Parms.FrontDir = FrontDir;
 	Parms.MoveSize = MoveSize;
 	ProcessEvent(FindFunctionChecked(g_026e3598), &Parms);
+}
+
+extern FName g_026e3400;
+	/* BMGAME_GetOverlayAnim */
+struct ARPawnVillain__015d86c0 : public ARPawnVillain
+{
+	FName eventGetOverlayAnim();
+};
+
+// @baa 0x015d86c0
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+FName ARPawnVillain__015d86c0::eventGetOverlayAnim()
+{
+	struct RPawnVillain_eventGetOverlayAnim_Parms
+	{
+		FName ReturnValue;
+	} Parms;
+	Parms.ReturnValue = FName(NAME_None);
+	ProcessEvent(FindFunctionChecked(g_026e3400), &Parms);
+	return Parms.ReturnValue;
 }

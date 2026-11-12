@@ -1,4 +1,4 @@
-// UnrealEd_0c80000.cpp (part 2 of 2): 24 functions
+// UnrealEd_0c80000.cpp (part 2 of 2): 25 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -300,4 +300,12 @@ void AActor::execDrawDebugBox(FFrame& Stack, RESULT_DECL)
     P_GET_UBOOL_OPTX(bPersistentLines, FALSE);
     P_FINISH;
     ((AActor__00c81880*)this)->DrawDebugBox(Center, Extent, R, G, B, bPersistentLines);
+}
+
+// @baa 0x00c81160
+void AActor::execMovingWhichWay(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT_REF(Delta);
+	P_FINISH;
+	*(BYTE*)Result = MovingWhichWay(Delta);
 }

@@ -1,4 +1,4 @@
-// Engine_0800000.cpp: 5 functions
+// Engine_0800000.cpp: 6 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -241,4 +241,24 @@ void F_00809550::sub_00809550()
     {
         g_026b0d94->vf_0238(Actor);
     }
+}
+
+// 008065e0
+// Copies two INT fields from a source into *this and stamps the third with -1.
+struct S008065e0
+{
+	INT Value0;
+	INT Value1;
+	INT Value2;
+
+	S008065e0& sub_008065e0(const S008065e0& Src);
+};
+
+// @baa 0x008065e0
+S008065e0& S008065e0::sub_008065e0(const S008065e0& Src)
+{
+	Value0 = Src.Value0;
+	Value1 = Src.Value1;
+	Value2 = -1;
+	return *this;
 }

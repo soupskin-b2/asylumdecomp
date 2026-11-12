@@ -1,4 +1,4 @@
-// Engine_07d0000.cpp: 2 functions
+// Engine_07d0000.cpp: 3 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -45,4 +45,41 @@ void APlayerController_::eventSetProgressMessage(BYTE MessageType, const FString
 	Parms.Message = Message;
 	Parms.Title = Title;
 	ProcessEvent(FindFunctionChecked(g_026c55e4), &Parms);
+}
+
+extern FName g_026c4570;
+	/* ENGINE_PostBeginPlay */
+extern FName g_026c3ff8;
+	/* ENGINE_SetInitialState */
+/* EName entry Core.h doesn't list yet (UnNames.h): the PostBeginPlay probe. */
+#define NAME_PostBeginPlay 0x165
+/* Kit gap: the script-event glue (EngineClasses.h, inline) isn't declared. PostBeginPlay is a probe function: the
+ * glue only calls into script when the current state probes for it. */
+struct AActor_ : public AActor
+{
+    FORCEINLINE void eventPostBeginPlay()
+    {
+        if (!StateFrame || (StateFrame->ProbeMask & ((QWORD)1 << (NAME_PostBeginPlay - NAME_PROBEMIN))))
+        {
+            ProcessEvent(FindFunctionChecked(g_026c4570), NULL);
+        }
+    }
+    FORCEINLINE void eventSetInitialState() { ProcessEvent(FindFunctionChecked(g_026c3ff8), NULL); }
+};
+
+// @baa 0x007d7170
+/* AActor slot 0x1d8 (kit vf_1d8): UE3's AActor::PostBeginPlay(): script PostBeginPlay, then the initial state and
+ * a base for actors that should start on one (slot 0x124, UE3 FindBase). */
+void AActor::vf_1d8()
+{
+    ((AActor_*)this)->eventPostBeginPlay();
+    bDonePostBeginPlay = TRUE;
+    if (!bDeleteMe)
+    {
+        ((AActor_*)this)->eventSetInitialState();
+        if (!Base && bCollideWorld && bShouldBaseAtStartup && (Physics == PHYS_None || Physics == PHYS_Rotating))
+        {
+            vf_124();
+        }
+    }
 }

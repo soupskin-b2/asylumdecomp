@@ -1,4 +1,4 @@
-// RPlayerController.cpp: 19 functions
+// RPlayerController.cpp: 27 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -295,4 +295,165 @@ void URSpecialMoveConfig_::eventTriggerSpecialMove(class ARPlayerController* Con
 	Parms.Controller = Controller;
 	Parms.MoveLocation = MoveLocation;
 	ProcessEvent(FindFunctionChecked(g_026e2c14), &Parms);
+}
+
+extern FName g_026e364c;
+	/* BMGAME_AddTransientCosts */
+struct ARBMRouteRequest_BuildComparisonList_ : public ARBMRouteRequest_BuildComparisonList
+{
+	void eventAddTransientCosts();
+};
+
+// @baa 0x0160dde0
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+void ARBMRouteRequest_BuildComparisonList_::eventAddTransientCosts()
+{
+	ProcessEvent(FindFunctionChecked(g_026e364c), NULL);
+}
+
+extern FName g_026e25fc;
+	/* BMGAME_ScorePath */
+struct ARBMRouteRequest_NervousSearch_ : public ARBMRouteRequest_NervousSearch
+{
+	FLOAT eventScorePath(class URBMRouterPath* TestPath, FLOAT LastSeenTime);
+};
+
+// @baa 0x0160df80
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+FLOAT ARBMRouteRequest_NervousSearch_::eventScorePath(class URBMRouterPath* TestPath, FLOAT LastSeenTime)
+{
+	struct RBMRouteRequest_NervousSearch_eventScorePath_Parms
+	{
+		class URBMRouterPath* TestPath;
+		FLOAT LastSeenTime;
+		FLOAT ReturnValue;
+	} Parms;
+	Parms.TestPath = TestPath;
+	Parms.LastSeenTime = LastSeenTime;
+	Parms.ReturnValue = 0;
+	ProcessEvent(FindFunctionChecked(g_026e25fc), &Parms);
+	return Parms.ReturnValue;
+}
+
+extern FName g_026e36b8;
+	/* BMGAME_GetLastSeenTime */
+struct ARBMRouteRequest_NervousSearch__0160dfe0 : public ARBMRouteRequest_NervousSearch
+{
+	FLOAT eventGetLastSeenTime(class ARPathNode* TestNode);
+};
+
+// @baa 0x0160dfe0
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+FLOAT ARBMRouteRequest_NervousSearch__0160dfe0::eventGetLastSeenTime(class ARPathNode* TestNode)
+{
+	struct RBMRouteRequest_NervousSearch_eventGetLastSeenTime_Parms
+	{
+		class ARPathNode* TestNode;
+		FLOAT ReturnValue;
+	} Parms;
+	Parms.TestNode = TestNode;
+	Parms.ReturnValue = 0;
+	ProcessEvent(FindFunctionChecked(g_026e36b8), &Parms);
+	return Parms.ReturnValue;
+}
+
+	/* BMGAME_ScorePath */
+struct ARBMRouteRequest_RunAway_ : public ARBMRouteRequest_RunAway
+{
+	FLOAT eventScorePath(class URBMRouterPath* TestPath, FLOAT LastSeenTime);
+};
+
+// @baa 0x0160e150
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+FLOAT ARBMRouteRequest_RunAway_::eventScorePath(class URBMRouterPath* TestPath, FLOAT LastSeenTime)
+{
+	struct RBMRouteRequest_RunAway_eventScorePath_Parms
+	{
+		class URBMRouterPath* TestPath;
+		FLOAT LastSeenTime;
+		FLOAT ReturnValue;
+	} Parms;
+	Parms.TestPath = TestPath;
+	Parms.LastSeenTime = LastSeenTime;
+	Parms.ReturnValue = 0;
+	ProcessEvent(FindFunctionChecked(g_026e25fc), &Parms);
+	return Parms.ReturnValue;
+}
+
+	/* BMGAME_GetLastSeenTime */
+struct ARBMRouteRequest_RunAway__0160e1b0 : public ARBMRouteRequest_RunAway
+{
+	FLOAT eventGetLastSeenTime(class ARPathNode* TestNode);
+};
+
+// @baa 0x0160e1b0
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+FLOAT ARBMRouteRequest_RunAway__0160e1b0::eventGetLastSeenTime(class ARPathNode* TestNode)
+{
+	struct RBMRouteRequest_RunAway_eventGetLastSeenTime_Parms
+	{
+		class ARPathNode* TestNode;
+		FLOAT ReturnValue;
+	} Parms;
+	Parms.TestNode = TestNode;
+	Parms.ReturnValue = 0;
+	ProcessEvent(FindFunctionChecked(g_026e36b8), &Parms);
+	return Parms.ReturnValue;
+}
+
+	/* BMGAME_ScorePath */
+struct ARBMRouteRequest_TerrifiedSearch_ : public ARBMRouteRequest_TerrifiedSearch
+{
+	FLOAT eventScorePath(class URBMRouterPath* TestPath, FLOAT LastSeenTime);
+};
+
+// @baa 0x0160e260
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+FLOAT ARBMRouteRequest_TerrifiedSearch_::eventScorePath(class URBMRouterPath* TestPath, FLOAT LastSeenTime)
+{
+	struct RBMRouteRequest_TerrifiedSearch_eventScorePath_Parms
+	{
+		class URBMRouterPath* TestPath;
+		FLOAT LastSeenTime;
+		FLOAT ReturnValue;
+	} Parms;
+	Parms.TestPath = TestPath;
+	Parms.LastSeenTime = LastSeenTime;
+	Parms.ReturnValue = 0;
+	ProcessEvent(FindFunctionChecked(g_026e25fc), &Parms);
+	return Parms.ReturnValue;
+}
+
+	/* BMGAME_GetLastSeenTime */
+struct ARBMRouteRequest_TerrifiedSearch__0160e2c0 : public ARBMRouteRequest_TerrifiedSearch
+{
+	FLOAT eventGetLastSeenTime(class ARPathNode* TestNode);
+};
+
+// @baa 0x0160e2c0
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+FLOAT ARBMRouteRequest_TerrifiedSearch__0160e2c0::eventGetLastSeenTime(class ARPathNode* TestNode)
+{
+	struct RBMRouteRequest_TerrifiedSearch_eventGetLastSeenTime_Parms
+	{
+		class ARPathNode* TestNode;
+		FLOAT ReturnValue;
+	} Parms;
+	Parms.TestNode = TestNode;
+	Parms.ReturnValue = 0;
+	ProcessEvent(FindFunctionChecked(g_026e36b8), &Parms);
+	return Parms.ReturnValue;
+}
+
+	/* BMGAME_AddTransientCosts */
+struct ARBMRouteRequest_TerrifiedSearch__0160e340 : public ARBMRouteRequest_TerrifiedSearch
+{
+	void eventAddTransientCosts();
+};
+
+// @baa 0x0160e340
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+void ARBMRouteRequest_TerrifiedSearch__0160e340::eventAddTransientCosts()
+{
+	ProcessEvent(FindFunctionChecked(g_026e364c), NULL);
 }

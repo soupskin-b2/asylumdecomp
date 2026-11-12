@@ -1,4 +1,4 @@
-// UnSkeletalAnim.cpp: 5 functions
+// UnSkeletalAnim.cpp: 7 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -57,4 +57,44 @@ void APlayerController_::eventPlayRumble(class UAnimNotify_Rumble* TheAnimNotify
 	} Parms;
 	Parms.TheAnimNotify = TheAnimNotify;
 	ProcessEvent(FindFunctionChecked(g_026c430c), &Parms);
+}
+
+extern FName g_026c4260;
+	/* ENGINE_PlayFootStepSound */
+struct APawn_ : public APawn
+{
+	void eventPlayFootStepSound(INT FootDown);
+};
+
+// @baa 0x0090b0a0
+/* The script event's generated glue (EngineClasses.h), out of line here. */
+void APawn_::eventPlayFootStepSound(INT FootDown)
+{
+	struct Pawn_eventPlayFootStepSound_Parms
+	{
+		INT FootDown;
+	} Parms;
+	Parms.FootDown = FootDown;
+	ProcessEvent(FindFunctionChecked(g_026c4260), &Parms);
+}
+
+extern FName g_026c53a8;
+	/* ENGINE_Notify */
+struct UAnimNotify_Scripted_ : public UAnimNotify_Scripted
+{
+	void eventNotify(class AActor* Owner, class USkeletalMeshComponent* AnimSeqInstigator);
+};
+
+// @baa 0x0090c1c0
+/* The script event's generated glue (EngineClasses.h), out of line here. */
+void UAnimNotify_Scripted_::eventNotify(class AActor* Owner, class USkeletalMeshComponent* AnimSeqInstigator)
+{
+	struct AnimNotify_Scripted_eventNotify_Parms
+	{
+		class AActor* Owner;
+		class USkeletalMeshComponent* AnimSeqInstigator;
+	} Parms;
+	Parms.Owner = Owner;
+	Parms.AnimSeqInstigator = AnimSeqInstigator;
+	ProcessEvent(FindFunctionChecked(g_026c53a8), &Parms);
 }

@@ -1,4 +1,4 @@
-// Engine_07b0000.cpp (part 2 of 3): 5 functions
+// Engine_07b0000.cpp (part 2 of 3): 6 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -105,4 +105,22 @@ void C_007bf220::sub_007bf220(int param_2)
     }
   }
   return;
+}
+
+/* 0x007b1d40 */
+struct TArrayNoInit_ANavPoint_ : public TArrayNoInit<class ANavigationPoint*> {
+    INT Add(const class ANavigationPoint* const& Item); /* 0x007b1d40 */
+};
+
+/* 0x007b53f0 */
+struct AController_ : public AController {
+    void RouteCache_AddItem(class ANavigationPoint* NavPoint); /* 0x007b53f0 */
+};
+
+// @baa 0x007b53f0
+void AController_::RouteCache_AddItem(class ANavigationPoint* NavPoint)
+{
+    if (NavPoint != NULL) {
+        ((TArrayNoInit_ANavPoint_*)&RouteCache)->Add(NavPoint);
+    }
 }

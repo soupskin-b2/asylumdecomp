@@ -1,4 +1,4 @@
-// UnPawn.cpp: 41 functions
+// UnPawn.cpp: 42 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -562,4 +562,36 @@ void APawn::execSetBasedPosition(FFrame& Stack, RESULT_DECL)
     P_GET_OBJECT_OPTX(AActor, ForcedBase, NULL);
     P_FINISH;
     ((APawn__00c8a640*)this)->SetBasedPosition(BP, pos, ForcedBase);
+}
+
+extern FName g_026c49f0;
+	/* ENGINE_Recycle */
+/* Kit gap: the Recycle script-event glue (EngineClasses.h, inline) isn't declared on the constraint classes. */
+struct UPathConstraint_ : public UPathConstraint
+{
+    FORCEINLINE void eventRecycle() { ProcessEvent(FindFunctionChecked(g_026c49f0), NULL); }
+};
+
+struct UPathGoalEvaluator_ : public UPathGoalEvaluator
+{
+    FORCEINLINE void eventRecycle() { ProcessEvent(FindFunctionChecked(g_026c49f0), NULL); }
+};
+
+// @baa 0x008a66e0
+/* APawn slot 0x3a0 (kit vf_3a0): UE3's APawn::ClearConstraints(): hand every path constraint and goal evaluator
+ * back to script for recycling. */
+void APawn::vf_3a0()
+{
+    while (PathConstraintList != NULL)
+    {
+        UPathConstraint* NextConstraint = PathConstraintList->NextConstraint;
+        ((UPathConstraint_*)PathConstraintList)->eventRecycle();
+        PathConstraintList = NextConstraint;
+    }
+    while (PathGoalList != NULL)
+    {
+        UPathGoalEvaluator* NextEvaluator = PathGoalList->NextEvaluator;
+        ((UPathGoalEvaluator_*)PathGoalList)->eventRecycle();
+        PathGoalList = NextEvaluator;
+    }
 }

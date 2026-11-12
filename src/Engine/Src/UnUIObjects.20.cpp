@@ -1,4 +1,4 @@
-// UnUIObjects.cpp: 6 functions
+// UnUIObjects.cpp: 10 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -96,4 +96,83 @@ void UUIScreenObject::execScreenToCanvas(FFrame& Stack, RESULT_DECL)
     P_GET_STRUCT_REF(FVector4, ScreenPosition);
     P_FINISH;
     *(FVector*)Result = ScreenToCanvas(ScreenPosition);
+}
+
+extern FName g_026c4040;
+	/* ENGINE_RemovedFromParent */
+struct UUIScreenObject__00da6e00 : public UUIScreenObject
+{
+	void eventRemovedFromParent(class UUIScreenObject* WidgetOwner);
+};
+
+// @baa 0x00da6e00
+/* The script event's generated glue (EngineClasses.h), out of line here. */
+void UUIScreenObject__00da6e00::eventRemovedFromParent(class UUIScreenObject* WidgetOwner)
+{
+	struct UIScreenObject_eventRemovedFromParent_Parms
+	{
+		class UUIScreenObject* WidgetOwner;
+	} Parms;
+	Parms.WidgetOwner = WidgetOwner;
+	ProcessEvent(FindFunctionChecked(g_026c4040), &Parms);
+}
+
+extern FName g_026c5534;
+	/* ENGINE_AddedChild */
+struct UUIScreenObject__00da6e40 : public UUIScreenObject
+{
+	void eventAddedChild(class UUIScreenObject* WidgetOwner, class UUIObject* NewChild);
+};
+
+// @baa 0x00da6e40
+/* The script event's generated glue (EngineClasses.h), out of line here. */
+void UUIScreenObject__00da6e40::eventAddedChild(class UUIScreenObject* WidgetOwner, class UUIObject* NewChild)
+{
+	struct UIScreenObject_eventAddedChild_Parms
+	{
+		class UUIScreenObject* WidgetOwner;
+		class UUIObject* NewChild;
+	} Parms;
+	Parms.WidgetOwner = WidgetOwner;
+	Parms.NewChild = NewChild;
+	ProcessEvent(FindFunctionChecked(g_026c5534), &Parms);
+}
+
+extern FName g_026c4e18;
+	/* ENGINE_SceneActivated */
+struct UUIScene_ : public UUIScene
+{
+	void eventSceneActivated(UBOOL bInitialActivation);
+};
+
+// @baa 0x00da73e0
+/* The script event's generated glue (EngineClasses.h), out of line here. */
+void UUIScene_::eventSceneActivated(UBOOL bInitialActivation)
+{
+	struct UIScene_eventSceneActivated_Parms
+	{
+		UBOOL bInitialActivation;
+	} Parms;
+	Parms.bInitialActivation = bInitialActivation ? TRUE : FALSE;
+	ProcessEvent(FindFunctionChecked(g_026c4e18), &Parms);
+}
+
+	/* ENGINE_AddedChild */
+struct UUIScreenObject__00da9010 : public UUIScreenObject
+{
+	void eventAddedChild(class UUIScreenObject* WidgetOwner, class UUIObject* NewChild);
+};
+
+// @baa 0x00da9010
+/* The script event's generated glue (EngineClasses.h), out of line here. */
+void UUIScreenObject__00da9010::eventAddedChild(class UUIScreenObject* WidgetOwner, class UUIObject* NewChild)
+{
+	struct UIScreenObject_eventAddedChild_Parms
+	{
+		class UUIScreenObject* WidgetOwner;
+		class UUIObject* NewChild;
+	} Parms;
+	Parms.WidgetOwner = WidgetOwner;
+	Parms.NewChild = NewChild;
+	ProcessEvent(FindFunctionChecked(g_026c5534), &Parms);
 }

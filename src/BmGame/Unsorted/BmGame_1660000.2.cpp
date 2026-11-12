@@ -1,4 +1,4 @@
-// BmGame_1660000.cpp (part 2 of 3): 124 functions
+// BmGame_1660000.cpp (part 2 of 3): 127 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1903,4 +1903,40 @@ INT ARPawnCharacter::vf_530()
     if (Anim == NULL)
         return 0;
     return reinterpret_cast<C_Anim1e4*>(Anim)->vf1e4(0);
+}
+
+// @baa 0x0166fea0
+/* ARPawnCharacter slot 0x23c (kit vf_23c, UE3 TermRBPhys(FRBPhysScene* Scene)): refresh the body constraint
+ * component (URConstrainingComponent::sub_016d9eb0) before the pawn's physics teardown. */
+void ARPawnCharacter::vf_23c(INT Scene)
+{
+    if (BodyConstrainingComponent)
+    {
+        BodyConstrainingComponent->sub_016d9eb0(FALSE);
+    }
+    Super::vf_23c(Scene);
+}
+
+// @baa 0x0166fe70
+/* ARPawnCharacter slot 0x238 (kit vf_238, UE3 InitRBPhys()): after the pawn's physics setup, constrain the mesh
+ * through the body constraint component. */
+void ARPawnCharacter::vf_238()
+{
+    Super::vf_238();
+    if (BodyConstrainingComponent)
+    {
+        BodyConstrainingComponent->ConstrainedComponent = Mesh;
+        BodyConstrainingComponent->sub_016d9eb0(FALSE);
+    }
+}
+
+// @baa 0x0166ee60
+/* ARPawnCharacter slot 0x534 (kit vf_534): forwards to the pose node (URAnimNode_Pose slot 0x284); FALSE without one. */
+INT ARPawnCharacter::vf_534(INT A)
+{
+    if (!Anim)
+    {
+        return 0;
+    }
+    return Anim->vf_284(A);
 }

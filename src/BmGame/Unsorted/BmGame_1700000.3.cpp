@@ -1,4 +1,4 @@
-// BmGame_1700000.cpp: 109 functions
+// BmGame_1700000.cpp: 110 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -1132,4 +1132,18 @@ void ARBMAIController::execGetSilentPredatorStanceName(FFrame& Stack, RESULT_DEC
 {
     P_FINISH;
     *(FName*)Result = GetSilentPredatorStanceName();
+}
+
+extern FName g_026e2f38;
+	/* BMGAME_DestroyTeeth */
+struct ARControllableChatteringTeethBase__01707df0 : public ARControllableChatteringTeethBase
+{
+	void eventDestroyTeeth();
+};
+
+// @baa 0x01707df0
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+void ARControllableChatteringTeethBase__01707df0::eventDestroyTeeth()
+{
+	ProcessEvent(FindFunctionChecked(g_026e2f38), NULL);
 }

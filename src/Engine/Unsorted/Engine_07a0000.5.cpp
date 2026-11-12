@@ -1,4 +1,4 @@
-// Engine_07a0000.cpp: 2 functions
+// Engine_07a0000.cpp: 3 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -44,4 +44,21 @@ void AController::execWaitForLanding(FFrame& Stack, RESULT_DECL)
 	{
 		((FStateFrame_*)StateFrame)->LatentAction = AI_PollWaitForLanding;
 	}
+}
+
+// The field FStateFrame exposes at 0x34 in this build (a 16-bit store; UE3's CodeSize is INT32).
+struct FStateFrame_007a0dc0 : public FStateFrame {
+    SWORD CodeSize16; /* 0x34 */
+};
+
+// AController declares no method at this address.
+struct AController_007a0dc0 : public AController {
+    void sub_007a0dc0(); /* 0x007a0dc0 */
+};
+
+// @baa 0x007a0dc0
+void AController_007a0dc0::sub_007a0dc0()
+{
+    static_cast<FStateFrame_007a0dc0*>(StateFrame)->CodeSize16 = 0;
+    LatentFloat = -1.f;
 }

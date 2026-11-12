@@ -1,4 +1,4 @@
-// UnSkeletalComponent.cpp: 4 functions
+// UnSkeletalComponent.cpp: 5 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -78,4 +78,23 @@ void AActor__0090af00::eventFaceFXAudioStartedCallback(class UAudioComponent* AC
 	} Parms;
 	Parms.AC = AC;
 	ProcessEvent(FindFunctionChecked(g_026c4ac0), &Parms);
+}
+
+extern FName g_026c3ea8;
+	/* ENGINE_PlayParticleEffect */
+struct AActor__0090ad00 : public AActor
+{
+	void eventPlayParticleEffect(class UAnimNotify_PlayParticleEffect* AnimNotifyData);
+};
+
+// @baa 0x0090ad00
+/* The script event's generated glue (EngineClasses.h), out of line here. */
+void AActor__0090ad00::eventPlayParticleEffect(class UAnimNotify_PlayParticleEffect* AnimNotifyData)
+{
+	struct Actor_eventPlayParticleEffect_Parms
+	{
+		class UAnimNotify_PlayParticleEffect* AnimNotifyData;
+	} Parms;
+	Parms.AnimNotifyData = AnimNotifyData;
+	ProcessEvent(FindFunctionChecked(g_026c3ea8), &Parms);
 }

@@ -1,4 +1,4 @@
-// UnDistributions.cpp (part 1 of 3): 160 functions
+// UnDistributions.cpp (part 1 of 3): 161 functions
 // Placed here by: neighbours 89, class 41, file 12, callers 9.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1144,4 +1144,11 @@ void AController::RouteCache_RemoveIndex(INT InIndex, INT Count)
     {
         RouteCache.Remove(InIndex, Count);
     }
+}
+
+// @baa 0x007a2f40
+// 0x007a2f40
+INT UDistributionFloatUniform::vf_110()
+{
+    return (Min == Max) ? 1 : 2;
 }

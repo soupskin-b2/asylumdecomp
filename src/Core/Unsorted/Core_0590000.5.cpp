@@ -1,4 +1,4 @@
-// Core_0590000.cpp: 12 functions
+// Core_0590000.cpp: 16 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -120,4 +120,53 @@ void UObject::execMultiply_FloatRotator(FFrame& Stack, RESULT_DECL)
 	P_GET_STRUCT(FRotator, B);
 	P_FINISH;
 	*(FRotator*)Result = ((const FRotator_&)B) * A;
+}
+
+// @baa 0x005918a0
+void UObject::execMultiplyEqual_ByteFloat(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_BYTE_REF(A);
+	P_GET_FLOAT(Scale);
+	P_FINISH;
+
+	A = (BYTE)appTrunc(A * Scale);
+	*(BYTE*)Result = A;
+}
+
+// @baa 0x005927e0
+void UObject::execMultiplyEqual_IntFloat(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT_REF(A);
+	P_GET_FLOAT(Scale);
+	P_FINISH;
+
+	A = (INT)appTrunc(A * Scale);
+	*(INT*)Result = A;
+}
+
+// @baa 0x005928a0
+void UObject::execDivideEqual_IntFloat(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT_REF(A);
+	P_GET_FLOAT(B);
+	P_FINISH;
+
+	const FLOAT Div = (B != 0.0f) ? (FLOAT)A / B : 0.0f;
+	A = (INT)appTrunc(Div);
+	*(INT*)Result = A;
+}
+
+int sub_00630ea0(FFrame&, INT, const TCHAR*);
+// @baa 0x00597220
+void UObject::execDivide_RotatorFloat(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT(FRotator, A);
+	P_GET_FLOAT(B);
+	P_FINISH;
+
+	if (B == 0.0f)
+		sub_00630ea0(Stack, 0x301, L"Divide by zero");
+
+	const FLOAT Scale = 1.0f / B;
+	*(FRotator*)Result = FRotator((INT)appTrunc((FLOAT)A.Pitch * Scale), (INT)appTrunc((FLOAT)A.Yaw * Scale), (INT)appTrunc((FLOAT)A.Roll * Scale));
 }

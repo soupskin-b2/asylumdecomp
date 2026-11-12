@@ -1,0 +1,34 @@
+// UnActorComponent.cpp: 1 function
+// Placed here by: contributions.
+// Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
+#include "ue3/Classes.h"
+
+/* Kit gap: UObject::MarkPendingKill/SetFlags (UnObjBas.h); ObjectFlags is an FQWord here. */
+#define RF_PendingKill ((QWORD)0x2000000000000000)
+struct UObject_ : public UObject
+{
+    FORCEINLINE void MarkPendingKill() { *(QWORD*)&ObjectFlags |= RF_PendingKill; }
+};
+
+// @baa 0x007650e0
+/* AActor slot 0x31c (kit vf_31c): marks the actor's components pending kill, all of them or (bOnlyFiltered) only
+ * those whose slot 0x144 says so. */
+void AActor::vf_31c(INT bOnlyFiltered)
+{
+    for (INT ComponentIndex = 0; ComponentIndex < Components.Num(); ComponentIndex++)
+    {
+        UActorComponent* Component = Components(ComponentIndex);
+        if (Component && (!bOnlyFiltered || Component->vf_144()))
+        {
+            ((UObject_*)Component)->MarkPendingKill();
+        }
+    }
+    for (INT ComponentIndex = 0; ComponentIndex < AllComponents.Num(); ComponentIndex++)
+    {
+        UActorComponent* Component = AllComponents(ComponentIndex);
+        if (Component && (!bOnlyFiltered || Component->vf_144()))
+        {
+            ((UObject_*)Component)->MarkPendingKill();
+        }
+    }
+}

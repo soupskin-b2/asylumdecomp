@@ -1,4 +1,4 @@
-// UnGame.cpp (part 1 of 3): 79 functions
+// UnGame.cpp (part 1 of 3): 80 functions
 // Placed here by: neighbours 27, callers 21.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1145,3 +1145,29 @@ void sub_007f7370(void) { sub_007f5930(); }
 
 // @baa 0x00cafe20
 int UGameEngine::vf_000(void) { return 1; }
+
+// The Win driver viewport client (WinDrv). UGameViewportClient stores the
+// pointer to it right after its script header (0x38, the script field
+// "Viewport"); the header's FPointer can't carry the C++ type, so a small
+// view struct with the same bases reaches it.
+struct FWinViewportClient_
+{
+	virtual void d00();
+	virtual void d04();
+	virtual void d08();
+	virtual void d0c();
+	virtual void d10();
+	virtual void Render(); /* 0x14 */
+};
+
+struct UGameViewportClient_WindowViewport : public UObject, public FViewportClient, public FExec
+{
+	FWinViewportClient_* WindowViewport; /* 0x38 */
+};
+
+// @baa 0x007d6ff0
+void UGameEngine::vf_188()
+{
+	if (GameViewport)
+		((UGameViewportClient_WindowViewport*)GameViewport)->WindowViewport->Render();
+}

@@ -1,4 +1,4 @@
-// BmGame_1590000.cpp: 4 functions
+// BmGame_1590000.cpp: 5 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -72,4 +72,27 @@ void ARPawn__01594db0::eventOnFootstepNotify(BYTE Foot, BYTE Contact, FVector Fo
 	Parms.Contact = Contact;
 	Parms.FootLocation = FootLocation;
 	ProcessEvent(FindFunctionChecked(g_026e2fe4), &Parms);
+}
+
+extern FName g_026e0f2c;
+	/* COMMONGAME_ChangeGameSpeedOverTime */
+struct ARGameInfoBase_ : public ARGameInfoBase
+{
+	void eventChangeGameSpeedOverTime(FLOAT NewDesiredGameSpeed, FLOAT TransitionDuration, FLOAT Duration);
+};
+
+// @baa 0x01591e20
+/* The script event's generated glue (CommonGameClasses.h), out of line here. */
+void ARGameInfoBase_::eventChangeGameSpeedOverTime(FLOAT NewDesiredGameSpeed, FLOAT TransitionDuration, FLOAT Duration)
+{
+	struct RGameInfoBase_eventChangeGameSpeedOverTime_Parms
+	{
+		FLOAT NewDesiredGameSpeed;
+		FLOAT TransitionDuration;
+		FLOAT Duration;
+	} Parms;
+	Parms.NewDesiredGameSpeed = NewDesiredGameSpeed;
+	Parms.TransitionDuration = TransitionDuration;
+	Parms.Duration = Duration;
+	ProcessEvent(FindFunctionChecked(g_026e0f2c), &Parms);
 }

@@ -1,4 +1,4 @@
-// BmGameClasses.cpp: 44 functions
+// BmGameClasses.cpp: 48 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -786,4 +786,97 @@ struct URSeqAct_MovePlayer__01582630 : public URSeqAct_MovePlayer
 void URSeqAct_MovePlayer__01582630::eventStop()
 {
 	ProcessEvent(FindFunctionChecked(g_026e3590), NULL);
+}
+
+extern FName g_026e3560;
+	/* BMGAME_Handle */
+struct URSeqEvent_EvidenceFlagSet_ : public URSeqEvent_EvidenceFlagSet
+{
+	UBOOL eventHandle(class AActor* InOriginator, INT typeNo);
+};
+
+// @baa 0x01583070
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+UBOOL URSeqEvent_EvidenceFlagSet_::eventHandle(class AActor* InOriginator, INT typeNo)
+{
+	struct RSeqEvent_EvidenceFlagSet_eventHandle_Parms
+	{
+		class AActor* InOriginator;
+		INT typeNo;
+		UBOOL ReturnValue;
+	} Parms;
+	Parms.InOriginator = InOriginator;
+	Parms.typeNo = typeNo;
+	Parms.ReturnValue = FALSE;
+	ProcessEvent(FindFunctionChecked(g_026e3560), &Parms);
+	return Parms.ReturnValue;
+}
+
+	/* BMGAME_Handle */
+struct URSeqEvent_EvidenceFound_ : public URSeqEvent_EvidenceFound
+{
+	UBOOL eventHandle(class AActor* InOriginator, INT typeNo);
+};
+
+// @baa 0x015831e0
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+UBOOL URSeqEvent_EvidenceFound_::eventHandle(class AActor* InOriginator, INT typeNo)
+{
+	struct RSeqEvent_EvidenceFound_eventHandle_Parms
+	{
+		class AActor* InOriginator;
+		INT typeNo;
+		UBOOL ReturnValue;
+	} Parms;
+	Parms.InOriginator = InOriginator;
+	Parms.typeNo = typeNo;
+	Parms.ReturnValue = FALSE;
+	ProcessEvent(FindFunctionChecked(g_026e3560), &Parms);
+	return Parms.ReturnValue;
+}
+
+	/* BMGAME_Handle */
+struct URSeqEvent_ItemInvestigated_ : public URSeqEvent_ItemInvestigated
+{
+	UBOOL eventHandle(class AActor* InOriginator, INT typeNo);
+};
+
+// @baa 0x01583450
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+UBOOL URSeqEvent_ItemInvestigated_::eventHandle(class AActor* InOriginator, INT typeNo)
+{
+	struct RSeqEvent_ItemInvestigated_eventHandle_Parms
+	{
+		class AActor* InOriginator;
+		INT typeNo;
+		UBOOL ReturnValue;
+	} Parms;
+	Parms.InOriginator = InOriginator;
+	Parms.typeNo = typeNo;
+	Parms.ReturnValue = FALSE;
+	ProcessEvent(FindFunctionChecked(g_026e3560), &Parms);
+	return Parms.ReturnValue;
+}
+
+	/* BMGAME_Handle */
+struct URSeqEvent_RopeCut_ : public URSeqEvent_RopeCut
+{
+	UBOOL eventHandle(class AActor* InOriginator, INT typeNo);
+};
+
+// @baa 0x015841f0
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+UBOOL URSeqEvent_RopeCut_::eventHandle(class AActor* InOriginator, INT typeNo)
+{
+	struct RSeqEvent_RopeCut_eventHandle_Parms
+	{
+		class AActor* InOriginator;
+		INT typeNo;
+		UBOOL ReturnValue;
+	} Parms;
+	Parms.InOriginator = InOriginator;
+	Parms.typeNo = typeNo;
+	Parms.ReturnValue = FALSE;
+	ProcessEvent(FindFunctionChecked(g_026e3560), &Parms);
+	return Parms.ReturnValue;
 }
