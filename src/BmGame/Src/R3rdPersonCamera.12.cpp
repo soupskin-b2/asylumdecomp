@@ -1,4 +1,4 @@
-// R3rdPersonCamera.cpp (part 12 of 12): 7 functions
+// R3rdPersonCamera.cpp (part 12 of 12): 8 functions
 // Placed here by: neighbours 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -69,4 +69,21 @@ const TCHAR* sub_0053f6c0();
 INT AR3rdPersonCamera::vf_000()
 {
     return sub_01686d70 == sub_0053f6c0;
+}
+
+struct AR3rdPersonCamera_ : AR3rdPersonCamera
+{
+    void sub_0168a730();
+};
+
+// @baa 0x0168a730
+void AR3rdPersonCamera_::sub_0168a730()
+{
+    Smoother.LastSmoothDistance = 1.0f;
+    Smoother.DirectionDistance[0] = 10000.0f;
+    Smoother.DirectionDistance[1] = 10000.0f;
+    Smoother.DirectionDistance[2] = 10000.0f;
+    Smoother.DirectionDistance[3] = 10000.0f;
+    Smoother.CurrentSmootherIndex = 0;
+    Smoother.MinSmootherIndex = 0;
 }

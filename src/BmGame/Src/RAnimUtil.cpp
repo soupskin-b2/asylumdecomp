@@ -1,4 +1,4 @@
-// RAnimUtil.cpp (part 1 of 2): 22 functions
+// RAnimUtil.cpp (part 1 of 2): 32 functions
 // Placed here by: neighbours 8, file 7, callers 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -256,3 +256,143 @@ FCycleTime sub_01598f00(const FCycleTime& CycleTime)
     Result.Time = CycleTime.Time;
     return Result;
 }
+
+void sub_015afa50(UClass** CharacterClasses, INT Count);
+struct URAnimUtil_ : URAnimUtil
+{
+    void sub_015b1620(TArray<UClass*>& CharacterClasses);
+};
+
+// @baa 0x015b1620
+void URAnimUtil_::sub_015b1620(TArray<UClass*>& CharacterClasses)
+{
+    const INT Count = CharacterClasses.Num();
+    sub_015afa50(&CharacterClasses(0), Count);
+}
+
+// @baa 0x01598e50
+FLOAT sub_01598e50(const UPrimitiveComponent* Component)
+{
+    FLOAT Scale = 1.0f;
+    if (Component)
+    {
+        Scale = Component->Scale;
+        if (Component->Owner)
+            Scale *= Component->Owner->DrawScale;
+    }
+    return Scale;
+}
+
+// @baa 0x01598f50
+FLOAT sub_01598f50(const FAnimCycles& Cycles, const FCyclePhase& Phase)
+{
+#line 2538 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimUtil.cpp"
+    check(Cycles.Num > 0);
+    return Cycles.Data[Phase.LoopIndex % Cycles.Num].Phases[Phase.Phase];
+}
+
+#line 295 "candidate.cpp"
+
+struct FAnimTarget_ : FAnimTarget
+{
+    FYawPitch sub_015a4b40(const UPrimitiveComponent* Component, const FVector& Reference);
+    FYawPitch sub_015a4c80(const UPrimitiveComponent* Component);
+};
+
+// @baa 0x015a4c80
+FYawPitch FAnimTarget_::sub_015a4c80(const UPrimitiveComponent* Component)
+{
+    if (Component->Owner)
+        return sub_015a4b40(Component, Component->Owner->Location);
+    return sub_015a4b40(Component, FVector(0.0f));
+}
+
+struct FAnimTarget__0159df00 : FAnimTarget
+{
+    FVector sub_0159dce0(const UPrimitiveComponent* Component, const FVector& Reference);
+    FVector sub_0159df00(const UPrimitiveComponent* Component);
+};
+
+// @baa 0x0159df00
+FVector FAnimTarget__0159df00::sub_0159df00(const UPrimitiveComponent* Component)
+{
+    if (Component->Owner)
+        return sub_0159dce0(Component, Component->Owner->Location);
+    return sub_0159dce0(Component, FVector(0.0f));
+}
+
+// @baa 0x01598e30
+INT sub_01598e30(INT A)
+{
+    return (A + 2) % 4;
+}
+
+// @baa 0x01598830
+FAnimCollisionOptions sub_01598830(const FFatAnim& Anim, FLOAT Time)
+{
+    if (Time >= Anim.Sequence->CollisionOptionsOutPoint)
+        return Anim.Sequence->CollisionOptions.End;
+    return Anim.Sequence->CollisionOptions.Middle;
+}
+
+// @baa 0x01598f90
+FLOAT sub_01598f90(const FAnimCycles& Cycles, const FCyclePhase& Phase)
+{
+    INT NextPhase = Phase.Phase + 1;
+    INT LoopIndex = Phase.LoopIndex;
+    if (NextPhase == 4)
+    {
+        NextPhase = 0;
+        ++LoopIndex;
+    }
+#line 2538 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimUtil.cpp"
+    check(Cycles.Num > 0);
+    return Cycles.Data[LoopIndex % Cycles.Num].Phases[(BYTE)NextPhase];
+}
+
+#line 354 "candidate.cpp"
+
+struct FFatAnim_ : FFatAnim
+{
+    UBOOL IsOk() const { return Sequence != NULL; }
+    UAnimSequence* GetSequence() const
+    {
+#line 126 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimUtil.cpp"
+        check(IsOk());
+        return Sequence;
+    }
+    FLOAT sub_0159dc00() const;
+};
+
+// @baa 0x0159dc00
+FLOAT FFatAnim_::sub_0159dc00() const
+{
+#line 110 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimUtil.cpp"
+    check(IsOk());
+    return GetSequence()->BlendInPoint;
+}
+
+#line 376 "candidate.cpp"
+
+FLOAT sub_0159da20(FLOAT Time, FLOAT Start, FLOAT End);
+struct FFatAnim__0159db90 : FFatAnim
+{
+    UBOOL IsOk() const { return Sequence != NULL; }
+    FLOAT GetBlendOutPoint() const
+    {
+#line 134 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimUtil.cpp"
+        check(IsOk());
+        return Sequence->BlendOutPoint;
+    }
+    FLOAT sub_0159db90(FLOAT Time) const;
+};
+
+// @baa 0x0159db90
+FLOAT FFatAnim__0159db90::sub_0159db90(FLOAT Time) const
+{
+#line 102 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimUtil.cpp"
+    check(IsOk());
+    return sub_0159da20(Time, 0.0f, GetBlendOutPoint());
+}
+
+#line 399 "candidate.cpp"

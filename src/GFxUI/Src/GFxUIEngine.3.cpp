@@ -1,4 +1,4 @@
-// GFxUIEngine.cpp (part 3 of 3): 46 functions
+// GFxUIEngine.cpp (part 3 of 3): 47 functions
 // Placed here by: neighbours 34.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Core.h"
@@ -554,4 +554,13 @@ void S018d4a70_0190fae0::sub_0190fae0()
     sub_0190be70(0);
     if (Self->Data)
         sub_018d7170(Self->Data);
+}
+
+// 018e5ba0
+extern int __stdcall sub_018e5b40(int A);
+// @baa 0x018e5ba0
+int __stdcall sub_018e5ba0(int A)
+{
+    int R = sub_018e5b40(A);
+    return R ? R + 4 : 0;
 }

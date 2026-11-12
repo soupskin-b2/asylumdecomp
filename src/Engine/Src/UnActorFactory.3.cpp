@@ -1,4 +1,4 @@
-// UnActorFactory.cpp: 5 functions
+// UnActorFactory.cpp: 6 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -106,4 +106,23 @@ void AAIController_::eventSetTeam(INT inTeamIdx)
 	} Parms;
 	Parms.inTeamIdx = inTeamIdx;
 	ProcessEvent(FindFunctionChecked(g_026c3fd4), &Parms);
+}
+
+extern FName g_026c4f88;
+	/* SetPlayerName */
+struct APlayerReplicationInfo_ : public APlayerReplicationInfo
+{
+	void eventSetPlayerName(const FString& S);
+};
+
+// @baa 0x00c5a0b0
+/* PlayerReplicationInfo.SetPlayerName script event: the generated glue, out of line here. */
+void APlayerReplicationInfo_::eventSetPlayerName(const FString& S)
+{
+	struct PlayerReplicationInfo_eventSetPlayerName_Parms
+	{
+		FString S;
+	} Parms;
+	Parms.S = S;
+	ProcessEvent(FindFunctionChecked(g_026c4f88), &Parms);
 }

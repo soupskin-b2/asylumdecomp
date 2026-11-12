@@ -1,4 +1,4 @@
-// Engine_0880000.cpp: 4 functions
+// Engine_0880000.cpp: 6 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -77,4 +77,39 @@ void UGameViewportClient__00888920::eventGetSubtitleRegion(FVector2D& MinPos, FV
 	ProcessEvent(FindFunctionChecked(g_026c40e8), &Parms);
 	MinPos = Parms.MinPos;
 	MaxPos = Parms.MaxPos;
+}
+
+extern FName g_026c42b8;
+	/* HandlePathObstruction */
+struct AController_ : public AController
+{
+	UBOOL eventHandlePathObstruction(class AActor* BlockedBy);
+};
+
+// @baa 0x008885b0
+/* Controller.HandlePathObstruction script event: the generated glue, out of line here. */
+UBOOL AController_::eventHandlePathObstruction(class AActor* BlockedBy)
+{
+	struct Controller_eventHandlePathObstruction_Parms
+	{
+		class AActor* BlockedBy;
+		UBOOL ReturnValue;
+	} Parms;
+	Parms.ReturnValue = FALSE;
+	Parms.BlockedBy = BlockedBy;
+	ProcessEvent(FindFunctionChecked(g_026c42b8), &Parms);
+	return Parms.ReturnValue;
+}
+
+/* UReachSpec::GetDirection (0x88a550) isn't declared in the kit. */
+struct UReachSpec_ : public UReachSpec
+{
+    FVector GetDirection();
+};
+
+// @baa 0x0088a6f0
+void UReachSpec::execGetDirection(FFrame& Stack, RESULT_DECL)
+{
+    P_FINISH;
+    *(FVector*)Result = ((UReachSpec_*)this)->GetDirection();
 }

@@ -1,4 +1,4 @@
-// UnActor.cpp: 6 functions
+// UnActor.cpp: 7 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -144,4 +144,24 @@ void AActor__00753ad0::eventGainedChild(AActor* Other)
 		Parms.Other = Other;
 		ProcessEvent(FindFunctionChecked(g_026c43fc), &Parms);
 	}
+}
+
+extern FName g_026c4b84;
+	/* GetMuzzleLoc */
+struct AWeapon_ : public AWeapon
+{
+	FVector eventGetMuzzleLoc();
+};
+
+// @baa 0x007542b0
+/* Weapon.GetMuzzleLoc script event: the generated glue, out of line here. */
+FVector AWeapon_::eventGetMuzzleLoc()
+{
+	struct Weapon_eventGetMuzzleLoc_Parms
+	{
+		FVector ReturnValue;
+	} Parms;
+	appMemzero(&Parms.ReturnValue, sizeof(Parms.ReturnValue));
+	ProcessEvent(FindFunctionChecked(g_026c4b84), &Parms);
+	return Parms.ReturnValue;
 }

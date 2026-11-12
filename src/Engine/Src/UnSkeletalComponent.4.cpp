@@ -1,4 +1,4 @@
-// UnSkeletalComponent.cpp: 23 functions
+// UnSkeletalComponent.cpp: 26 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -294,3 +294,231 @@ void USkeletalMeshComponent::execFindClosestBone(FFrame& Stack, RESULT_DECL)
     P_FINISH;
     *(FName*)Result = FindClosestBone(TestLocation, pBoneLocation, IgnoreScale);
 }
+
+/* FMatrix methods (UnMath.h); the kit's FMatrix has none. operator* (0x0058e560) and Rotator (0x005c3fc0)
+ * are out of line. */
+struct FMatrix_ : public FMatrix
+{
+    FMatrix operator*(const FMatrix& Other) const;
+    FRotator Rotator() const;
+    FVector GetOrigin() const
+    {
+        FVector Result;
+        Result.X = WPlane.X;
+        Result.Y = WPlane.Y;
+        Result.Z = WPlane.Z;
+        return Result;
+    }
+};
+
+/* FRotationTranslationMatrix (UnMath.h); constructor out of line at 0x0058f1b0. */
+class FRotationTranslationMatrix : public FMatrix_
+{
+public:
+    FRotationTranslationMatrix(const FRotator& Rot, const FVector& Origin);
+};
+
+/* USkeletalMesh::MatchRefBone (0x00976be0) isn't declared in Classes.h. */
+struct USkeletalMesh_ : public USkeletalMesh
+{
+    INT MatchRefBone(FName BoneName) const;
+};
+
+inline UBOOL operator!=(const FName& A, EName B) { return A.Index != B || A.Number != 0; }
+
+struct USkeletalMeshComponent__0091e8d0 : public USkeletalMeshComponent
+{
+    INT MatchRefBone(FName BoneName) const
+    {
+        INT BoneIndex = INDEX_NONE;
+        if (BoneName != NAME_None && SkeletalMesh)
+        {
+            BoneIndex = ((USkeletalMesh_*)SkeletalMesh)->MatchRefBone(BoneName);
+        }
+        return BoneIndex;
+    }
+};
+
+// @baa 0x0091e8d0
+/* transform a location and rotation from a bone's space to world space */
+void USkeletalMeshComponent::execTransformFromBoneSpace(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(BoneName);
+    P_GET_VECTOR(InPosition);
+    P_GET_ROTATOR(InRotation);
+    P_GET_STRUCT_REF(FVector, OutPosition);
+    P_GET_STRUCT_REF(FRotator, OutRotation);
+    P_FINISH;
+
+    const INT BoneIndex = ((USkeletalMeshComponent__0091e8d0*)this)->MatchRefBone(BoneName);
+    if (BoneIndex != INDEX_NONE)
+    {
+        FMatrix BoneToWorldTM = GetBoneMatrix(BoneIndex);
+        FMatrix BoneSpaceTM = FRotationTranslationMatrix(InRotation, InPosition);
+        FMatrix WorldTM = (const FMatrix_&)BoneSpaceTM * BoneToWorldTM;
+
+        OutPosition = ((const FMatrix_&)WorldTM).GetOrigin();
+        OutRotation = ((const FMatrix_&)WorldTM).Rotator();
+    }
+}
+
+/* FMatrix methods (UnMath.h); the kit's FMatrix has none. operator* (0x0058e560), Rotator (0x005c3fc0) and Inverse
+ * are out of line. */
+struct FMatrix__0091e6d0 : public FMatrix
+{
+    FMatrix operator*(const FMatrix& Other) const;
+    FRotator Rotator() const;
+    FMatrix Inverse() const; /* 0x006e1510 */
+    FVector GetOrigin() const
+    {
+        FVector Result;
+        Result.X = WPlane.X;
+        Result.Y = WPlane.Y;
+        Result.Z = WPlane.Z;
+        return Result;
+    }
+};
+
+/* FRotationTranslationMatrix_0091e6d0 (UnMath.h); constructor out of line at 0x0058f1b0. */
+class FRotationTranslationMatrix_0091e6d0 : public FMatrix__0091e6d0
+{
+public:
+    FRotationTranslationMatrix_0091e6d0(const FRotator& Rot, const FVector& Origin);
+};
+
+struct USkeletalMeshComponent__0091e6d0 : public USkeletalMeshComponent
+{
+    INT MatchRefBone(FName BoneName) const
+    {
+        INT BoneIndex = INDEX_NONE;
+        if (BoneName != NAME_None && SkeletalMesh)
+        {
+            BoneIndex = ((USkeletalMesh_*)SkeletalMesh)->MatchRefBone(BoneName);
+        }
+        return BoneIndex;
+    }
+};
+
+// @baa 0x0091e6d0
+/* transform a world location and rotation into a bone's space */
+void USkeletalMeshComponent::execTransformToBoneSpace(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(BoneName);
+    P_GET_VECTOR(InPosition);
+    P_GET_ROTATOR(InRotation);
+    P_GET_STRUCT_REF(FVector, OutPosition);
+    P_GET_STRUCT_REF(FRotator, OutRotation);
+    P_FINISH;
+
+    const INT BoneIndex = ((USkeletalMeshComponent__0091e6d0*)this)->MatchRefBone(BoneName);
+    if (BoneIndex != INDEX_NONE)
+    {
+        FMatrix BoneToWorldTM = GetBoneMatrix(BoneIndex);
+        FMatrix WorldTM = FRotationTranslationMatrix_0091e6d0(InRotation, InPosition);
+        FMatrix LocalTM = (const FMatrix__0091e6d0&)WorldTM * ((const FMatrix__0091e6d0&)BoneToWorldTM).Inverse();
+
+        OutPosition = ((const FMatrix__0091e6d0&)LocalTM).GetOrigin();
+        OutRotation = ((const FMatrix__0091e6d0&)LocalTM).Rotator();
+    }
+}
+
+/* Kit gap (Array.h, issue #39): this build inlines TArray::operator() where the kit's plain-inline one is
+ * called out of line; same body, forced inline. */
+template<class T> struct TArrayAt_ : public TArray<T>
+{
+    __forceinline T& At(INT i)
+    {
+#line 560 BAA_ARRAY_FILE
+        check(i>=0 && (i<this->ArrayNum||(i==0 && this->ArrayNum==0)));
+        return this->GetTypedData()[i];
+    }
+    __forceinline const T& At(INT i) const
+    {
+#line 566 BAA_ARRAY_FILE
+        check(i>=0 && (i<this->ArrayNum||(i==0 && this->ArrayNum==0)));
+        return this->GetTypedData()[i];
+    }
+};
+
+/* UnScript.h / UnStack.h iterator support, not in the kit */
+enum { EX_IteratorPop = 0x30, EX_IteratorNext = 0x31 };
+enum { MAX_SIMPLE_RETURN_VALUE_SIZE = 64 };
+/* FFrame::ReadWord (UnStack.h) */
+inline INT ReadWord(FFrame& Stack)
+{
+    INT Result = *(WORD*)Stack.Code;
+    Stack.Code += sizeof(WORD);
+    return Result;
+}
+
+/* UStruct::Script, the bytecode, is the kit's Native_48 */
+#define Script Native_48
+#define PRE_ITERATOR \
+    INT wEndOffset = ReadWord(Stack); \
+    BYTE B = 0, Buffer[MAX_SIMPLE_RETURN_VALUE_SIZE]; \
+    BYTE* StartCode = Stack.Code; \
+    do {
+#define POST_ITERATOR \
+        while ((B = *Stack.Code) != EX_IteratorPop && B != EX_IteratorNext) \
+            Stack.Step(Stack.Object, Buffer); \
+        if (*Stack.Code++ == EX_IteratorNext) \
+            Stack.Code = StartCode; \
+    } while (B != EX_IteratorPop);
+/* UObject::IsPendingKill (the kit's vf_038) and IsA (UnObjBas.h) */
+struct UObject_ : public UObject
+{
+    UBOOL IsPendingKill() { return vf_038(); }
+
+    UBOOL IsA(const UClass* SomeBase) const
+    {
+        if (SomeBase == NULL)
+        {
+            return TRUE;
+        }
+        for (const UField* TempClass = (const UField*)GetClass(); TempClass; TempClass = TempClass->SuperField)
+        {
+            if (TempClass == (const UField*)SomeBase)
+            {
+                return TRUE;
+            }
+        }
+        return FALSE;
+    }
+};
+
+// @baa 0x0091e010
+/* script iterator over the attached components of a class */
+void USkeletalMeshComponent::execAttachedComponents(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(UClass, BaseClass);
+    P_GET_OBJECT_REF(UActorComponent, OutComponent);
+    P_FINISH;
+
+    if (!BaseClass)
+    {
+        INT wEndOffset = ReadWord(Stack);
+        Stack.Code = &((TArrayAt_<BYTE>&)Stack.Node->Script).At(wEndOffset + 1);
+        return;
+    }
+
+    INT AttachmentIndex = 0;
+    PRE_ITERATOR;
+        // fetch the next component of the class
+        OutComponent = NULL;
+        while (AttachmentIndex < Attachments.Num() && !OutComponent)
+        {
+            UActorComponent* TestComponent = Attachments(AttachmentIndex++).Component;
+            if (TestComponent && !((UObject_*)TestComponent)->IsPendingKill() && ((UObject_*)TestComponent)->IsA(BaseClass))
+            {
+                OutComponent = TestComponent;
+            }
+        }
+        if (OutComponent == NULL)
+        {
+            Stack.Code = &((TArrayAt_<BYTE>&)Stack.Node->Script).At(wEndOffset + 1);
+            break;
+        }
+    POST_ITERATOR;
+}
+
+#line 525 "candidate.cpp"

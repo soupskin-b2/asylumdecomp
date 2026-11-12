@@ -1,4 +1,4 @@
-// FCollada_1870000.cpp (part 24 of 24): 20 functions
+// FCollada_1870000.cpp (part 24 of 24): 22 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -355,3 +355,67 @@ C_01877ca0* C_01877ca0::sub_01877ca0(Object_01877ca0* Source)
     Value_04 = Source->Value_04;
     return this;
 }
+
+// sub_018789d0: FUObjectContainer-based constructor for FUPlugin.
+struct FUObjectContainerList
+{
+    FUObjectContainerList();
+    FUObjectContainerList *First;
+    FUObjectContainerList *Last;
+    long Count;
+    long *CountPtr;
+};
+
+FUObjectContainerList::FUObjectContainerList()
+{
+    First = 0;
+    Last = 0;
+    Count = 0;
+    CountPtr = &Count;
+}
+
+struct FUPlugin : public FUObjectContainerList
+{
+    FUPlugin();
+    virtual ~FUPlugin();
+};
+
+FUPlugin::FUPlugin()
+{
+}
+
+// @baa 0x018789d0
+FUPlugin::~FUPlugin()
+{
+}
+
+class FCDMaterialInstanceBind;
+struct FUObjectIterator
+{
+	FCDMaterialInstanceBind* Object;
+	FUObjectIterator* Next;
+};
+
+class FUObjectIteratorContainer
+{
+public:
+	FUObjectIterator First;
+	FUObjectIterator Last;
+	FUObjectIteratorContainer()
+	{
+		First.Object = NULL;
+		First.Next = NULL;
+		Last.Object = NULL;
+		Last.Next = &Last;
+	}
+};
+
+class FUObjectContainer : public FUObjectIteratorContainer
+{
+public:
+	FUObjectContainer();
+	virtual ~FUObjectContainer() {}
+};
+
+// @baa 0x01871800
+FUObjectContainer::FUObjectContainer() {}

@@ -1,4 +1,4 @@
-// GFx_18d0000.cpp: 7 functions
+// GFx_18d0000.cpp: 8 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -138,4 +138,21 @@ struct C_018d95a0
 INT C_018d95a0::sub_018d95a0()
 {
     return (Sign & 0x80) ? Value : 0;
+}
+
+struct FHashBucket
+{
+	void* Table;
+
+	// 0x018d6390
+	void sub_018d6390(void* Object, INT Hash);
+
+	// 0x018d6690
+	void sub_018d6690(void* Object);
+};
+
+// @baa 0x018d6690
+void FHashBucket::sub_018d6690(void* Object)
+{
+	sub_018d6390(Object, *(UINT*)Object >> 6 ^ *(UINT*)Object);
 }

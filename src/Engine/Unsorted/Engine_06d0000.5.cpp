@@ -1,4 +1,4 @@
-// Engine_06d0000.cpp: 21 functions
+// Engine_06d0000.cpp: 22 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -227,4 +227,17 @@ void UPrimitiveComponent::execSetActorCollision(FFrame& Stack, RESULT_DECL)
         }
     }
     BlockActors = NewBlockActors;
+}
+
+/* FMatrix::Rotator (005c3fc0, UnMath.cpp) isn't declared in the kit. */
+struct FMatrix_ : public FMatrix
+{
+    FRotator Rotator() const;
+};
+
+// @baa 0x006dc5a0
+void UPrimitiveComponent::execGetRotation(FFrame& Stack, RESULT_DECL)
+{
+    P_FINISH;
+    *(FRotator*)Result = ((const FMatrix_&)LocalToWorld).Rotator();
 }

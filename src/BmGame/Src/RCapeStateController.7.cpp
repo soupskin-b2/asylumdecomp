@@ -1,4 +1,4 @@
-// RCapeStateController.cpp: 10 functions
+// RCapeStateController.cpp: 12 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -132,4 +132,46 @@ void URCapeStateController::execSetCapeToCurrentAnimPose(FFrame& Stack, RESULT_D
 	P_GET_UBOOL_OPTX(IsEvaluateAnim, 0);
 	P_FINISH;
 	((URCapeStateController__01701de0*)this)->sub_016e69c0(IsEvaluateAnim);
+}
+
+/* URCapeStateController::SetCapeStateAndTime (0x16e7670) isn't declared in the kit. */
+struct URCapeStateController__01701960 : public URCapeStateController
+{
+    void SetCapeStateAndTime(FName NewCapeStateName, FLOAT NewCapeStateTime, FLOAT AnimPlayRate, UBOOL bMirrored, FName AnimName, FName SyncAnimNameOverride, FLOAT SyncAnimOffsetOverride);
+};
+
+// @baa 0x01701960
+void URCapeStateController::execSetCapeStateAndTime(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(NewCapeStateName);
+    P_GET_FLOAT(NewCapeStateTime);
+    P_GET_FLOAT_OPTX(AnimPlayRate, 1.f);
+    P_GET_UBOOL_OPTX(bMirrored, FALSE);
+    P_GET_NAME_OPTX(AnimName, NAME_None);
+    P_GET_NAME_OPTX(SyncAnimNameOverride, NAME_None);
+    P_GET_FLOAT_OPTX(SyncAnimOffsetOverride, 0.f);
+    P_FINISH;
+    ((URCapeStateController__01701960*)this)->SetCapeStateAndTime(NewCapeStateName, NewCapeStateTime, AnimPlayRate, bMirrored, AnimName, SyncAnimNameOverride, SyncAnimOffsetOverride);
+}
+
+/* URCapeStateController::BeginCinematicState (0x16e7910) isn't declared in the kit. */
+struct URCapeStateController__01701b20 : public URCapeStateController
+{
+    void BeginCinematicState(FName AnimName, class URCapeStateConfig* TemplateStateConfig, FLOAT AnimStartTime, FLOAT AnimPlayRate, FName SyncAnimName, FLOAT SyncAnimOffset, UBOOL bMirrored, UBOOL bClearVelocityOnExit, UBOOL bTeleportToInitialPose);
+};
+
+// @baa 0x01701b20
+void URCapeStateController::execBeginCinematicState(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(AnimName);
+    P_GET_OBJECT(URCapeStateConfig, TemplateStateConfig);
+    P_GET_FLOAT(AnimStartTime);
+    P_GET_FLOAT_OPTX(AnimPlayRate, 1.f);
+    P_GET_NAME_OPTX(SyncAnimName, NAME_None);
+    P_GET_FLOAT_OPTX(SyncAnimOffset, 0.f);
+    P_GET_UBOOL_OPTX(bMirrored, FALSE);
+    P_GET_UBOOL_OPTX(bClearVelocityOnExit, FALSE);
+    P_GET_UBOOL_OPTX(bTeleportToInitialPose, FALSE);
+    P_FINISH;
+    ((URCapeStateController__01701b20*)this)->BeginCinematicState(AnimName, TemplateStateConfig, AnimStartTime, AnimPlayRate, SyncAnimName, SyncAnimOffset, bMirrored, bClearVelocityOnExit, bTeleportToInitialPose);
 }

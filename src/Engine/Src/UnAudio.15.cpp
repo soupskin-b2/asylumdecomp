@@ -1,4 +1,4 @@
-// UnAudio.cpp: 11 functions
+// UnAudio.cpp: 13 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -207,3 +207,229 @@ bool AAnimatedCamera::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
+
+/* Kit gap: the RIFF wave structures and FWaveModInfo (UnAudio.h) aren't declared. */
+struct FRiffWaveHeader
+{
+	DWORD rID;			// 'RIFF'
+	DWORD ChunkLen;
+	DWORD wID;			// 'WAVE'
+};
+
+struct FRiffChunkOld
+{
+	DWORD ChunkID;
+	DWORD ChunkLen;
+};
+
+struct FFormatChunk
+{
+	WORD wFormatTag;
+	WORD nChannels;
+	DWORD nSamplesPerSec;
+	DWORD nAvgBytesPerSec;
+	WORD nBlockAlign;
+	WORD wBitsPerSample;
+	WORD cbSize;
+};
+
+struct FSampleChunk
+{
+	DWORD dwManufacturer;
+	DWORD dwProduct;
+	DWORD dwSamplePeriod;
+	DWORD dwMIDIUnityNote;
+	DWORD dwMIDIPitchFraction;
+	DWORD dwSMPTEFormat;
+	DWORD dwSMPTEOffset;
+	DWORD cSampleLoops;
+	DWORD cbSamplerData;
+};
+
+struct FSampleLoop
+{
+	DWORD dwIdentifier;
+	DWORD dwType;
+	DWORD dwStart;
+	DWORD dwEnd;
+	DWORD dwFraction;
+	DWORD dwPlayCount;
+};
+
+#define UE_mmioFOURCC(ch0, ch1, ch2, ch3) \
+	((DWORD)(BYTE)(ch0) | ((DWORD)(BYTE)(ch1) << 8) | ((DWORD)(BYTE)(ch2) << 16) | ((DWORD)(BYTE)(ch3) << 24))
+/* Chunk lengths are padded to an even size. */
+inline DWORD Pad16Bit(DWORD InDW)
+{
+	return (InDW + 1) & ~1;
+}
+
+struct FWaveModInfo
+{
+	DWORD* pSamplesPerSec;
+	DWORD* pAvgBytesPerSec;
+	WORD* pBlockAlign;
+	WORD* pBitsPerSample;
+	WORD* pChannels;
+
+	DWORD OldBitsPerSample;
+
+	DWORD* pWaveDataSize;
+	DWORD* pMasterSize;
+	BYTE* SampleDataStart;
+	BYTE* SampleDataEnd;
+	DWORD SampleDataSize;
+	BYTE* WaveDataEnd;
+
+	INT SampleLoopsNum;
+	FSampleLoop* pSampleLoop;
+
+	DWORD NewDataSize;
+
+	UBOOL ReadWaveInfo(BYTE* WaveData, INT WaveDataSize);
+};
+
+// @baa 0x00786680
+/* Parses a RIFF wave file in memory: finds the 'fmt ' and 'data' chunks (and the optional 'smpl' chunk) and points
+ * the members at their fields. Only uncompressed PCM is accepted. */
+UBOOL FWaveModInfo::ReadWaveInfo(BYTE* WaveData, INT WaveDataSize)
+{
+	FFormatChunk* FmtChunk;
+	FRiffWaveHeader* RiffHdr = (FRiffWaveHeader*)WaveData;
+	WaveDataEnd = WaveData + WaveDataSize;
+
+	if (WaveDataSize == 0)
+	{
+		return FALSE;
+	}
+
+	// Verify we've got a real 'WAVE' header.
+	if (RiffHdr->wID != UE_mmioFOURCC('W','A','V','E'))
+	{
+		return FALSE;
+	}
+
+	FRiffChunkOld* RiffChunk = (FRiffChunkOld*)&WaveData[3 * 4];
+	pMasterSize = &RiffHdr->ChunkLen;
+	// Look for the 'fmt ' chunk.
+	while ((((BYTE*)RiffChunk + 8) < WaveDataEnd) && (RiffChunk->ChunkID != UE_mmioFOURCC('f','m','t',' ')))
+	{
+		RiffChunk = (FRiffChunkOld*)((BYTE*)RiffChunk + Pad16Bit(RiffChunk->ChunkLen) + 8);
+	}
+
+	if (RiffChunk->ChunkID != UE_mmioFOURCC('f','m','t',' '))
+	{
+		return FALSE;
+	}
+
+	FmtChunk = (FFormatChunk*)((BYTE*)RiffChunk + 8);
+	pBitsPerSample = &FmtChunk->wBitsPerSample;
+	pSamplesPerSec = &FmtChunk->nSamplesPerSec;
+	pAvgBytesPerSec = &FmtChunk->nAvgBytesPerSec;
+	pBlockAlign = &FmtChunk->nBlockAlign;
+	pChannels = &FmtChunk->nChannels;
+
+	// Re-initialize the RiffChunk pointer and look for the 'data' chunk.
+	RiffChunk = (FRiffChunkOld*)&WaveData[3 * 4];
+	while ((((BYTE*)RiffChunk + 8) < WaveDataEnd) && (RiffChunk->ChunkID != UE_mmioFOURCC('d','a','t','a')))
+	{
+		RiffChunk = (FRiffChunkOld*)((BYTE*)RiffChunk + Pad16Bit(RiffChunk->ChunkLen) + 8);
+	}
+
+	if (RiffChunk->ChunkID != UE_mmioFOURCC('d','a','t','a'))
+	{
+		return FALSE;
+	}
+
+	SampleDataStart = (BYTE*)RiffChunk + 8;
+	pWaveDataSize = &RiffChunk->ChunkLen;
+	SampleDataSize = RiffChunk->ChunkLen;
+	OldBitsPerSample = FmtChunk->wBitsPerSample;
+	SampleDataEnd = SampleDataStart + SampleDataSize;
+
+	if ((BYTE*)SampleDataEnd > (BYTE*)WaveDataEnd)
+	{
+		// Fix it up by clamping the data chunk.
+		SampleDataEnd = (BYTE*)WaveDataEnd;
+		SampleDataSize = SampleDataEnd - SampleDataStart;
+		RiffChunk->ChunkLen = SampleDataSize;
+	}
+
+	NewDataSize = SampleDataSize;
+
+	if (FmtChunk->wFormatTag != 1)
+	{
+		return FALSE;
+	}
+
+	// Look for the (optional) 'smpl' chunk.
+	RiffChunk = (FRiffChunkOld*)&WaveData[3 * 4];
+	while ((((BYTE*)RiffChunk + 8) < WaveDataEnd) && (RiffChunk->ChunkID != UE_mmioFOURCC('s','m','p','l')))
+	{
+		RiffChunk = (FRiffChunkOld*)((BYTE*)RiffChunk + Pad16Bit(RiffChunk->ChunkLen) + 8);
+	}
+
+	// Find the first sample-loop structure and the total number of them.
+	if (((INT)RiffChunk + 4 < (INT)WaveDataEnd) && (RiffChunk->ChunkID == UE_mmioFOURCC('s','m','p','l')))
+	{
+		FSampleChunk* pSampleChunk = (FSampleChunk*)((BYTE*)RiffChunk + 8);
+		pSampleLoop = (FSampleLoop*)(((BYTE*)RiffChunk) + sizeof(FRiffChunkOld) + sizeof(FSampleChunk));
+
+		if (((BYTE*)pSampleChunk + sizeof(FSampleChunk)) > (BYTE*)WaveDataEnd)
+		{
+			pSampleChunk = NULL;
+		}
+
+		if (((BYTE*)pSampleLoop + sizeof(FSampleLoop)) > (BYTE*)WaveDataEnd)
+		{
+			pSampleLoop = NULL;
+		}
+
+#line 3912 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAudio.cpp"
+		check(pSampleChunk);
+		SampleLoopsNum = pSampleChunk->cSampleLoops;
+	}
+
+	return TRUE;
+}
+
+#line 397 "candidate.cpp"
+
+/* Kit gaps: UObject::ClearFlags and RF_Transactional aren't declared, and ObjectFlags is declared as the script
+ * struct FQWord where the native member is a QWORD (EObjectFlags); AAmbientSoundSimple::SyncUpInstantiatedObjects
+ * isn't declared. */
+#define RF_Transactional	((QWORD)0x0000000400000000)
+struct UObject_ : public UObject
+{
+	FORCEINLINE void ClearFlags(QWORD FlagsToClear)
+	{
+		*(QWORD*)&ObjectFlags &= ~FlagsToClear;
+	}
+};
+
+struct AAmbientSoundSimple_ : public AAmbientSoundSimple
+{
+	void SyncUpInstantiatedObjects();
+};
+
+// @baa 0x00786580
+/* Propagates the instanced sound cue and node to the audio component, and hides them from the generic browser. */
+void AAmbientSoundSimple_::SyncUpInstantiatedObjects()
+{
+	if (AudioComponent)
+	{
+		// Propagate instanced objects.
+		SoundCueInstance->FirstNode = SoundNodeInstance;
+		AudioComponent->SoundCue = SoundCueInstance;
+		AmbientProperties = SoundNodeInstance;
+
+		// Make sure neither sound cue nor node are shown in the generic browser.
+#line 3491 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAudio.cpp"
+		check(SoundNodeInstance);
+		check(SoundCueInstance);
+		((UObject_*)SoundNodeInstance)->ClearFlags(RF_Transactional);
+		((UObject_*)SoundCueInstance)->ClearFlags(RF_Transactional);
+	}
+}
+
+#line 436 "candidate.cpp"

@@ -1,4 +1,4 @@
-// RAnimNode_Pose.cpp (part 4 of 4): 15 functions
+// RAnimNode_Pose.cpp (part 4 of 4): 16 functions
 // Placed here by: neighbours 3, class 2, callers 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -255,5 +255,22 @@ C_015b7d30* C_015b7d30::sub_015b7d30(INT P)
     B = 0;
     C = 0;
     D = 0;
+    return this;
+}
+
+struct C_015bcc20
+{
+    INT A, B, C, D, E;
+    C_015bcc20* sub_015bcc20(INT P);
+};
+
+// @baa 0x015bcc20
+C_015bcc20* C_015bcc20::sub_015bcc20(INT P)
+{
+    A = 0;
+    B = 0;
+    C = 0;
+    D = 0;
+    E = 0;
     return this;
 }

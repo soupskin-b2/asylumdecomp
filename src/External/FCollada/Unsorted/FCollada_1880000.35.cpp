@@ -1,4 +1,4 @@
-// FCollada_1880000.cpp (part 35 of 35): 21 functions
+// FCollada_1880000.cpp (part 35 of 35): 24 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -344,4 +344,79 @@ C_0188d730* C_0188d730::sub_0188d730(Object_0188d730* Source)
 {
     Value_04 = Source->Value_04;
     return this;
+}
+
+// FCDEffectPass.cpp
+// Constructor of the object container used to track FCDEffectPass objects:
+// a tracked list of contained objects (First/Last/Count) with a pointer to
+// the count for lock-free readers.
+// Base part shared by all containers: initialize the tracked list.
+class FUObjectContainerList
+{
+public:
+	void* First;
+	void* Last;
+	unsigned Count;
+	unsigned* CountPtr;
+
+	FUObjectContainerList();
+};
+
+FUObjectContainerList::FUObjectContainerList()
+{
+	First = NULL;
+	Last = NULL;
+	Count = 0;
+	CountPtr = &Count;
+}
+
+// Container tracking the FCollada objects of a given type.
+class FCDEffectPass : public FUObjectContainerList
+{
+public:
+	FCDEffectPass();
+	virtual ~FCDEffectPass();
+};
+
+FCDEffectPass::FCDEffectPass()
+{
+}
+
+// @baa 0x018843a0
+FCDEffectPass::~FCDEffectPass()
+{
+}
+
+// Container tracking the FCDPhysicsShape objects.
+class FCDPhysicsShape : public FUObjectContainerList
+{
+public:
+	FCDPhysicsShape();
+	virtual ~FCDPhysicsShape();
+};
+
+FCDPhysicsShape::FCDPhysicsShape()
+{
+}
+
+// @baa 0x01887600
+FCDPhysicsShape::~FCDPhysicsShape()
+{
+}
+
+// Container tracking the FCollada objects of a given type.
+class FCDEffectPassState : public FUObjectContainerList
+{
+public:
+	FCDEffectPassState();
+	virtual ~FCDEffectPassState();
+};
+
+FCDEffectPassState::FCDEffectPassState()
+{
+}
+
+// @baa 0x018891b0
+FCDEffectPassState::~FCDEffectPassState()
+{
 }

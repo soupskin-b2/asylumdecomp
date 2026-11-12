@@ -1,36 +1,21 @@
-// RGrapplePoint.cpp: 13 functions
-// Placed here by: callers 5, file 5.
+// RGrapplePoint.cpp: 1 function
+// Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
-#include "ue3/Implement.h"
+#include "ue3/Classes.h"
 
-// @baa 0x01658580
-IMPLEMENT_CLASS_AT(ARGrappleBlockingVolume, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RGrapplePoint.cpp", 24);
-
-// @baa 0x01658650
-IMPLEMENT_CLASS_AT(ARGrappleGun, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RGrapplePoint.cpp", 20);
-
-// @baa 0x01658830
-IMPLEMENT_CLASS_AT(ARGrapplePointCatchmentArea, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RGrapplePoint.cpp", 23);
-
-// @baa 0x016589f0
-IMPLEMENT_CLASS_AT(ARGrapplePoint, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RGrapplePoint.cpp", 21);
-
-// @baa 0x01658a20
-IMPLEMENT_CLASS_AT(ARRescuePoint, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RGrapplePoint.cpp", 22);
-
-// @baa 0x01658d50
-// @baa 0x01658e10
-// @baa 0x01658ed0
-// @baa 0x01658f90
-// @baa 0x01659050
-
-// @baa 0x01639d00
-
-// @baa 0x01639e10
-int ARGrapplePoint::vf_000(void) { return 1; }
-
-// @baa 0x01639e20
-bool ARGrapplePoint::vf_004()
+struct ARGrapplePointArray : public TArray<ARGrapplePoint*>
 {
-    return GetClass()->GetSuperClass() != Super::StaticClass();
+    INT AddUniqueItem(ARGrapplePoint* const& Item); /* 0x0164a6f0 */
+};
+
+extern ARGrapplePointArray g_026e1c54;
+struct ARGrapplePoint_ : public ARGrapplePoint
+{
+    INT sub_0164ae40();
+};
+
+// @baa 0x0164ae40
+INT ARGrapplePoint_::sub_0164ae40()
+{
+    return g_026e1c54.AddUniqueItem(this);
 }

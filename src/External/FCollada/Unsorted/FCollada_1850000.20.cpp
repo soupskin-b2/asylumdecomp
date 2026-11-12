@@ -1,4 +1,4 @@
-// FCollada_1850000.cpp: 2 functions
+// FCollada_1850000.cpp: 3 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -62,5 +62,33 @@ FUObjectContainer_FCDPhysicsModelInstance::FUObjectContainer_FCDPhysicsModelInst
 
 // @baa 0x018538a0
 FUObjectContainer_FCDPhysicsModelInstance::~FUObjectContainer_FCDPhysicsModelInstance()
+{
+}
+
+class sub_0185bcf0_Base
+{
+    INT Count;
+    INT Size;
+    sub_0185bcf0_Base* Next;
+    sub_0185bcf0_Base** Last;
+public:
+    sub_0185bcf0_Base()
+    {
+        Count = 0;
+        Size = 0;
+        Next = NULL;
+        Last = &Next;
+    }
+};
+
+class FUObjectContainer : public sub_0185bcf0_Base
+{
+public:
+    FUObjectContainer();
+    virtual ~FUObjectContainer() {}
+};
+
+// @baa 0x0185bcf0
+FUObjectContainer::FUObjectContainer()
 {
 }

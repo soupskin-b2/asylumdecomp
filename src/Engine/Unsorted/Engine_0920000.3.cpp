@@ -1,4 +1,4 @@
-// Engine_0920000.cpp: 9 functions
+// Engine_0920000.cpp: 10 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -83,4 +83,19 @@ void USkeletalMeshComponent::execGetBoneAxis(FFrame& Stack, RESULT_DECL)
     P_GET_BYTE(Axis);
     P_FINISH;
     *(FVector*)Result = ((USkeletalMeshComponent__0092e020*)this)->GetBoneAxis(BoneName, Axis);
+}
+
+/* USkeletalMeshComponent::GetBoneQuaternion (0x91e2a0) isn't declared in the kit. */
+struct USkeletalMeshComponent__0092de90 : public USkeletalMeshComponent
+{
+    FQuat GetBoneQuaternion(FName BoneName, INT Space);
+};
+
+// @baa 0x0092de90
+void USkeletalMeshComponent::execGetBoneQuaternion(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(BoneName);
+    P_GET_INT_OPTX(Space, 0);
+    P_FINISH;
+    *(FQuat*)Result = ((USkeletalMeshComponent__0092de90*)this)->GetBoneQuaternion(BoneName, Space);
 }

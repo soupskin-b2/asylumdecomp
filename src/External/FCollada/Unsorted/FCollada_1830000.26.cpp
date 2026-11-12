@@ -1,4 +1,4 @@
-// FCollada_1830000.cpp: 9 functions
+// FCollada_1830000.cpp: 10 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -214,4 +214,35 @@ void X::sub_0183ea50(BYTE Value)
 {
     DWORD Shifted = (DWORD)Value * 256;
     Flags = (Flags & 0xfffffeff) | Shifted;
+}
+
+// Base of the FUObjectContainer classes: the entry fields, set up by a
+// non-trivial base constructor.
+struct FUObjectContainerBase_01838160 {
+    FUObjectContainerBase_01838160();
+    int EntryCount;      // +0x4
+    int EntryFlags;      // +0x8
+    int FirstIndex;      // +0xc
+    int* FirstIndexPtr;  // +0x10
+};
+
+FUObjectContainerBase_01838160::FUObjectContainerBase_01838160()
+{
+    EntryCount = 0;
+    EntryFlags = 0;
+    FirstIndex = 0;
+    FirstIndexPtr = &FirstIndex;
+}
+
+// Container holding one owned entry. The base sub-object is built first, so
+// its fields land before this class's own vtable.
+class FUObjectContainer_FCDLight_ : public FUObjectContainerBase_01838160 {
+public:
+    FUObjectContainer_FCDLight_();
+    virtual ~FUObjectContainer_FCDLight_() {}
+};
+
+// @baa 0x01838160
+FUObjectContainer_FCDLight_::FUObjectContainer_FCDLight_()
+{
 }

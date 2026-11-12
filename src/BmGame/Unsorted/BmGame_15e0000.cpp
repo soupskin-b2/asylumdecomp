@@ -1,4 +1,4 @@
-// BmGame_15e0000.cpp (part 1 of 5): 378 functions
+// BmGame_15e0000.cpp (part 1 of 5): 379 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -3132,4 +3132,11 @@ void URBMPawnSpawnerController::vf_110(INT, INT)
 void URSeqAct_GetNumPawnsInVolume::vf_110(INT, INT)
 {
     vf_19c();
+}
+
+// @baa 0x015e1e20
+void URBMWaveController::Activated()
+{
+    bExitWaveController = FALSE;
+    vf_1a0(1);
 }

@@ -1,4 +1,4 @@
-// BmGame_0c80000.cpp: 36 functions
+// BmGame_0c80000.cpp: 40 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -389,4 +389,65 @@ void APlayerController::execServerUpdateLevelVisibility(FFrame& Stack, RESULT_DE
     P_GET_UBOOL(bIsVisible);
     P_FINISH;
     ((APlayerController__00c87580*)this)->ServerUpdateLevelVisibility(PackageName, bIsVisible);
+}
+
+/* AController::SetBasedPosition (0x7ad5d0) isn't declared in the kit. */
+struct AController__00c84240 : public AController
+{
+    void SetBasedPosition(FBasedPosition& BP, FVector pos, class AActor* ForcedBase);
+};
+
+// @baa 0x00c84240
+void AController::execSetBasedPosition(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT_REF(FBasedPosition, BP);
+    P_GET_STRUCT(FVector, pos);
+    P_GET_OBJECT_OPTX(AActor, ForcedBase, NULL);
+    P_FINISH;
+    ((AController__00c84240*)this)->SetBasedPosition(BP, pos, ForcedBase);
+}
+
+/* AController::SetFocalPoint (0x7ad790) isn't declared in the kit. */
+struct AController__00c84410 : public AController
+{
+    void SetFocalPoint(FVector FP, UBOOL bOffsetFromBase);
+};
+
+// @baa 0x00c84410
+void AController::execSetFocalPoint(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, FP);
+    P_GET_UBOOL_OPTX(bOffsetFromBase, FALSE);
+    P_FINISH;
+    ((AController__00c84410*)this)->SetFocalPoint(FP, bOffsetFromBase);
+}
+
+/* AController::SetDestinationPosition (0x7ad9c0) isn't declared in the kit. */
+struct AController__00c84510 : public AController
+{
+    void SetDestinationPosition(FVector Dest, UBOOL bOffsetFromBase);
+};
+
+// @baa 0x00c84510
+void AController::execSetDestinationPosition(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, Dest);
+    P_GET_UBOOL_OPTX(bOffsetFromBase, FALSE);
+    P_FINISH;
+    ((AController__00c84510*)this)->SetDestinationPosition(Dest, bOffsetFromBase);
+}
+
+/* AActor::MakeNoise (0x8652a0) isn't declared in the kit. */
+struct AActor__00c82e10 : public AActor
+{
+    void MakeNoise(FLOAT Loudness, FName NoiseType);
+};
+
+// @baa 0x00c82e10
+void AActor::execMakeNoise(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_FLOAT(Loudness);
+    P_GET_NAME_OPTX(NoiseType, NAME_None);
+    P_FINISH;
+    ((AActor__00c82e10*)this)->MakeNoise(Loudness, NoiseType);
 }

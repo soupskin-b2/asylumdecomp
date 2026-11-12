@@ -1,4 +1,4 @@
-// Engine_0c80000.cpp: 80 functions
+// Engine_0c80000.cpp: 96 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -940,4 +940,278 @@ void UMaterialInterface::execGetTextureParameterValue(FFrame& Stack, RESULT_DECL
     P_GET_OBJECT_REF(UTexture, OutValue);
     P_FINISH;
     *(UBOOL*)Result = GetTextureParameterValue(ParameterName, OutValue);
+}
+
+/* AActor::DrawDebugCoordinateSystem (0x8a9e40) isn't declared in the kit. */
+struct AActor__00c819e0 : public AActor
+{
+    void DrawDebugCoordinateSystem(FVector AxisLoc, FRotator AxisRot, FLOAT Scale, UBOOL bPersistentLines);
+};
+
+// @baa 0x00c819e0
+void AActor::execDrawDebugCoordinateSystem(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, AxisLoc);
+    P_GET_STRUCT(FRotator, AxisRot);
+    P_GET_FLOAT(Scale);
+    P_GET_UBOOL_OPTX(bPersistentLines, FALSE);
+    P_FINISH;
+    ((AActor__00c819e0*)this)->DrawDebugCoordinateSystem(AxisLoc, AxisRot, Scale, bPersistentLines);
+}
+
+/* AActor::DrawDebugSphere (0x8b0cf0) isn't declared in the kit. */
+struct AActor__00c81b00 : public AActor
+{
+    void DrawDebugSphere(FVector Center, FLOAT Radius, INT Segments, BYTE R, BYTE G, BYTE B, UBOOL bPersistentLines);
+};
+
+// @baa 0x00c81b00
+void AActor::execDrawDebugSphere(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, Center);
+    P_GET_FLOAT(Radius);
+    P_GET_INT(Segments);
+    P_GET_BYTE(R);
+    P_GET_BYTE(G);
+    P_GET_BYTE(B);
+    P_GET_UBOOL_OPTX(bPersistentLines, FALSE);
+    P_FINISH;
+    ((AActor__00c81b00*)this)->DrawDebugSphere(Center, Radius, Segments, R, G, B, bPersistentLines);
+}
+
+/* AActor::DrawDebugCylinder (0x8b1060) isn't declared in the kit. */
+struct AActor__00c81c80 : public AActor
+{
+    void DrawDebugCylinder(FVector Start, FVector End, FLOAT Radius, INT Segments, BYTE R, BYTE G, BYTE B, UBOOL bPersistentLines);
+};
+
+// @baa 0x00c81c80
+void AActor::execDrawDebugCylinder(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, Start);
+    P_GET_STRUCT(FVector, End);
+    P_GET_FLOAT(Radius);
+    P_GET_INT(Segments);
+    P_GET_BYTE(R);
+    P_GET_BYTE(G);
+    P_GET_BYTE(B);
+    P_GET_UBOOL_OPTX(bPersistentLines, FALSE);
+    P_FINISH;
+    ((AActor__00c81c80*)this)->DrawDebugCylinder(Start, End, Radius, Segments, R, G, B, bPersistentLines);
+}
+
+/* AActor::DrawDebugCone (0x8c76a0) isn't declared in the kit. */
+struct AActor__00c81e30 : public AActor
+{
+    void DrawDebugCone(FVector Origin, FVector Direction, FLOAT Length, FLOAT AngleWidth, FLOAT AngleHeight, INT NumSides, FColor DrawColor, UBOOL bPersistentLines);
+};
+
+// @baa 0x00c81e30
+void AActor::execDrawDebugCone(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, Origin);
+    P_GET_STRUCT(FVector, Direction);
+    P_GET_FLOAT(Length);
+    P_GET_FLOAT(AngleWidth);
+    P_GET_FLOAT(AngleHeight);
+    P_GET_INT(NumSides);
+    P_GET_STRUCT(FColor, DrawColor);
+    P_GET_UBOOL_OPTX(bPersistentLines, FALSE);
+    P_FINISH;
+    ((AActor__00c81e30*)this)->DrawDebugCone(Origin, Direction, Length, AngleWidth, AngleHeight, NumSides, DrawColor, bPersistentLines);
+}
+
+/* AActor::ClampRotation (0x8b14b0) isn't declared in the kit. */
+struct AActor__00c82360 : public AActor
+{
+    UBOOL ClampRotation(FRotator& out_Rot, FRotator rBase, FRotator rUpperLimits, FRotator rLowerLimits);
+};
+
+// @baa 0x00c82360
+void AActor::execClampRotation(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT_REF(FRotator, out_Rot);
+    P_GET_STRUCT(FRotator, rBase);
+    P_GET_STRUCT(FRotator, rUpperLimits);
+    P_GET_STRUCT(FRotator, rLowerLimits);
+    P_FINISH;
+    *(UBOOL*)Result = ((AActor__00c82360*)this)->ClampRotation(out_Rot, rBase, rUpperLimits, rLowerLimits);
+}
+
+/* AActor::FindSpot (0x758bc0) isn't declared in the kit. */
+struct AActor__00c82480 : public AActor
+{
+    UBOOL FindSpot(FVector BoxExtent, FVector& SpotLocation, UBOOL DontEaryOut);
+};
+
+// @baa 0x00c82480
+void AActor::execFindSpot(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, BoxExtent);
+    P_GET_STRUCT_REF(FVector, SpotLocation);
+    P_GET_UBOOL_OPTX(DontEaryOut, FALSE);
+    P_FINISH;
+    *(UBOOL*)Result = ((AActor__00c82480*)this)->FindSpot(BoxExtent, SpotLocation, DontEaryOut);
+}
+
+/* AController::GetAdjustLocation (0x7adc50) isn't declared in the kit. */
+struct AController__00c84700 : public AController
+{
+    FVector GetAdjustLocation();
+};
+
+// @baa 0x00c84700
+void AController::execGetAdjustLocation(FFrame& Stack, RESULT_DECL)
+{
+    P_FINISH;
+    *(FVector*)Result = ((AController__00c84700*)this)->GetAdjustLocation();
+}
+
+/* AController::BeyondFogDistance (0x7a0f00) isn't declared in the kit. */
+struct AController__00c84750 : public AController
+{
+    UBOOL BeyondFogDistance(FVector ViewPoint, FVector OtherPoint);
+};
+
+// @baa 0x00c84750
+void AController::execBeyondFogDistance(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, ViewPoint);
+    P_GET_STRUCT(FVector, OtherPoint);
+    P_FINISH;
+    *(UBOOL*)Result = ((AController__00c84750*)this)->BeyondFogDistance(ViewPoint, OtherPoint);
+}
+
+/* AController::CanSeeByPoints (0x7ac5c0) isn't declared in the kit. */
+struct AController__00c84870 : public AController
+{
+    UBOOL CanSeeByPoints(FVector ViewLocation, FVector TestLocation, FRotator ViewRotation);
+};
+
+// @baa 0x00c84870
+void AController::execCanSeeByPoints(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, ViewLocation);
+    P_GET_STRUCT(FVector, TestLocation);
+    P_GET_STRUCT(FRotator, ViewRotation);
+    P_FINISH;
+    *(UBOOL*)Result = ((AController__00c84870*)this)->CanSeeByPoints(ViewLocation, TestLocation, ViewRotation);
+}
+
+/* AController::FindPathTo (0x7bfca0) isn't declared in the kit. */
+struct AController__00c84b20 : public AController
+{
+    AActor* FindPathTo(FVector aPoint, INT MaxPathLength, UBOOL bReturnPartial);
+};
+
+// @baa 0x00c84b20
+void AController::execFindPathTo(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, aPoint);
+    P_GET_INT_OPTX(MaxPathLength, 0);
+    P_GET_UBOOL_OPTX(bReturnPartial, FALSE);
+    P_FINISH;
+    *(AActor**)Result = ((AController__00c84b20*)this)->FindPathTo(aPoint, MaxPathLength, bReturnPartial);
+}
+
+/* AController::FindPathToward (0x7bfcc0) isn't declared in the kit. */
+struct AController__00c84c10 : public AController
+{
+    AActor* FindPathToward(class AActor* anActor, UBOOL bWeightDetours, INT MaxPathLength, UBOOL bReturnPartial);
+};
+
+// @baa 0x00c84c10
+void AController::execFindPathToward(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(AActor, anActor);
+    P_GET_UBOOL_OPTX(bWeightDetours, FALSE);
+    P_GET_INT_OPTX(MaxPathLength, 0);
+    P_GET_UBOOL_OPTX(bReturnPartial, FALSE);
+    P_FINISH;
+    *(AActor**)Result = ((AController__00c84c10*)this)->FindPathToward(anActor, bWeightDetours, MaxPathLength, bReturnPartial);
+}
+
+/* AController::FindPathTowardNearest (0x7c0030) isn't declared in the kit. */
+struct AController__00c84d20 : public AController
+{
+    AActor* FindPathTowardNearest(class UClass* GoalClass, UBOOL bWeightDetours, INT MaxPathLength, UBOOL bReturnPartial);
+};
+
+// @baa 0x00c84d20
+void AController::execFindPathTowardNearest(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(UClass, GoalClass);
+    P_GET_UBOOL_OPTX(bWeightDetours, FALSE);
+    P_GET_INT_OPTX(MaxPathLength, 0);
+    P_GET_UBOOL_OPTX(bReturnPartial, FALSE);
+    P_FINISH;
+    *(AActor**)Result = ((AController__00c84d20*)this)->FindPathTowardNearest(GoalClass, bWeightDetours, MaxPathLength, bReturnPartial);
+}
+
+/* AController::FindPathToIntercept (0x7bfd10) isn't declared in the kit. */
+struct AController__00c84e70 : public AController
+{
+    AActor* FindPathToIntercept(class APawn* P, class AActor* InRouteGoal, UBOOL bWeightDetours, INT MaxPathLength, UBOOL bReturnPartial);
+};
+
+// @baa 0x00c84e70
+void AController::execFindPathToIntercept(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(APawn, P);
+    P_GET_OBJECT(AActor, InRouteGoal);
+    P_GET_UBOOL_OPTX(bWeightDetours, FALSE);
+    P_GET_INT_OPTX(MaxPathLength, 0);
+    P_GET_UBOOL_OPTX(bReturnPartial, FALSE);
+    P_FINISH;
+    *(AActor**)Result = ((AController__00c84e70*)this)->FindPathToIntercept(P, InRouteGoal, bWeightDetours, MaxPathLength, bReturnPartial);
+}
+
+/* ANavigationPoint::GetReachSpecTo (0x83ef60) isn't declared in the kit. */
+struct ANavigationPoint__00c87f20 : public ANavigationPoint
+{
+    UReachSpec* GetReachSpecTo(class ANavigationPoint* Nav, class UClass* SpecClass);
+};
+
+// @baa 0x00c87f20
+void ANavigationPoint::execGetReachSpecTo(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(ANavigationPoint, Nav);
+    P_GET_OBJECT_OPTX(UClass, SpecClass, NULL);
+    P_FINISH;
+    *(UReachSpec**)Result = ((ANavigationPoint__00c87f20*)this)->GetReachSpecTo(Nav, SpecClass);
+}
+
+/* ACoverSlotMarker::IsValidClaim (0x8603f0) isn't declared in the kit. */
+struct ACoverSlotMarker_ : public ACoverSlotMarker
+{
+    UBOOL IsValidClaim(class APawn* ChkClaim, UBOOL bSkipTeamCheck, UBOOL bSkipOverlapCheck);
+};
+
+// @baa 0x00c88dd0
+void ACoverSlotMarker::execIsValidClaim(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(APawn, ChkClaim);
+    P_GET_UBOOL_OPTX(bSkipTeamCheck, FALSE);
+    P_GET_UBOOL_OPTX(bSkipOverlapCheck, FALSE);
+    P_FINISH;
+    *(UBOOL*)Result = ((ACoverSlotMarker_*)this)->IsValidClaim(ChkClaim, bSkipTeamCheck, bSkipOverlapCheck);
+}
+
+extern FName g_026c4d54;
+	/* OverlappedActorEvent */
+struct ACrowdAgent_ : public ACrowdAgent
+{
+	void eventOverlappedActorEvent(class AActor* A);
+};
+
+// @baa 0x00c8fd10
+/* CrowdAgent.OverlappedActorEvent script event: the generated glue, out of line here. */
+void ACrowdAgent_::eventOverlappedActorEvent(class AActor* A)
+{
+	struct CrowdAgent_eventOverlappedActorEvent_Parms
+	{
+		class AActor* A;
+	} Parms;
+	Parms.A = A;
+	ProcessEvent(FindFunctionChecked(g_026c4d54), &Parms);
 }

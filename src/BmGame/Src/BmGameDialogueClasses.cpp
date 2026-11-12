@@ -1,4 +1,4 @@
-// BmGameDialogueClasses.cpp: 68 functions
+// BmGameDialogueClasses.cpp: 70 functions
 // Placed here by: callers 13, file 13.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -322,4 +322,28 @@ UBOOL URSeqAct_VoiceOfArkham::UpdateOp(FLOAT DeltaTime)
         ((URSeqAct_VoiceOfArkham_*)this)->eventVoAStartSound();
     }
     return FALSE;
+}
+
+struct URSeqAct_ConversationDialogue_ : public URSeqAct_ConversationDialogue
+{
+    void sub_01578e70();
+};
+
+// @baa 0x01578f20
+void URSeqAct_ConversationDialogue::vf_188()
+{
+    ((URSeqAct_ConversationDialogue_*)this)->sub_01578e70();
+    vf_1b8();
+}
+
+struct URSeqAct_PlaySpeechConversation_ : public URSeqAct_PlaySpeechConversation
+{
+    void sub_01578f40();
+};
+
+// @baa 0x0157cfd0
+void URSeqAct_PlaySpeechConversation::vf_188()
+{
+    ((URSeqAct_PlaySpeechConversation_*)this)->sub_01578f40();
+    vf_1a4();
 }

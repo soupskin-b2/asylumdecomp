@@ -1,4 +1,4 @@
-// Engine_0c90000.cpp: 45 functions
+// Engine_0c90000.cpp: 57 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -438,4 +438,192 @@ void UFracturedStaticMeshComponent::execGetFragmentBox(FFrame& Stack, RESULT_DEC
     P_GET_INT(FragmentIndex);
     P_FINISH;
     *(FBox*)Result = GetFragmentBox(FragmentIndex);
+}
+
+// @baa 0x00c90e30
+void UAnimNodeBlendList::execSetActiveChild(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_INT(ChildIndex);
+    P_GET_FLOAT(BlendTime);
+    P_FINISH;
+    SetActiveChild(ChildIndex, BlendTime);
+}
+
+/* UAnimNodeCrossfader::GetAnimName (0xc7e080) isn't declared in the kit. */
+struct UAnimNodeCrossfader__00c90680 : public UAnimNodeCrossfader
+{
+    FName GetAnimName();
+};
+
+// @baa 0x00c90680
+void UAnimNodeCrossfader::execGetAnimName(FFrame& Stack, RESULT_DECL)
+{
+    P_FINISH;
+    *(FName*)Result = ((UAnimNodeCrossfader__00c90680*)this)->GetAnimName();
+}
+
+/* UAnimNodePlayCustomAnim::PlayCustomAnim (0xc7c940) isn't declared in the kit. */
+struct UAnimNodePlayCustomAnim__00c90a40 : public UAnimNodePlayCustomAnim
+{
+    FLOAT PlayCustomAnim(FName AnimName, FLOAT Rate, FLOAT BlendInTime, FLOAT BlendOutTime, UBOOL bLooping, UBOOL bOverride);
+};
+
+// @baa 0x00c90a40
+void UAnimNodePlayCustomAnim::execPlayCustomAnim(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(AnimName);
+    P_GET_FLOAT(Rate);
+    P_GET_FLOAT_OPTX(BlendInTime, 0.f);
+    P_GET_FLOAT_OPTX(BlendOutTime, 0.f);
+    P_GET_UBOOL_OPTX(bLooping, FALSE);
+    P_GET_UBOOL_OPTX(bOverride, FALSE);
+    P_FINISH;
+    *(FLOAT*)Result = ((UAnimNodePlayCustomAnim__00c90a40*)this)->PlayCustomAnim(AnimName, Rate, BlendInTime, BlendOutTime, bLooping, bOverride);
+}
+
+/* UAnimNodePlayCustomAnim::PlayCustomAnimByDuration (0xc7ca70) isn't declared in the kit. */
+struct UAnimNodePlayCustomAnim__00c90bd0 : public UAnimNodePlayCustomAnim
+{
+    void PlayCustomAnimByDuration(FName AnimName, FLOAT Duration, FLOAT BlendInTime, FLOAT BlendOutTime, UBOOL bLooping, UBOOL bOverride);
+};
+
+// @baa 0x00c90bd0
+void UAnimNodePlayCustomAnim::execPlayCustomAnimByDuration(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(AnimName);
+    P_GET_FLOAT(Duration);
+    P_GET_FLOAT_OPTX(BlendInTime, 0.f);
+    P_GET_FLOAT_OPTX(BlendOutTime, 0.f);
+    P_GET_UBOOL_OPTX(bLooping, FALSE);
+    P_GET_UBOOL_OPTX(bOverride, FALSE);
+    P_FINISH;
+    ((UAnimNodePlayCustomAnim__00c90bd0*)this)->PlayCustomAnimByDuration(AnimName, Duration, BlendInTime, BlendOutTime, bLooping, bOverride);
+}
+
+/* UAnimNodeSynch::AddNodeToGroup (0xc56250) isn't declared in the kit. */
+struct UAnimNodeSynch__00c91690 : public UAnimNodeSynch
+{
+    void AddNodeToGroup(class UAnimNodeSequence* SeqNode, FName GroupName);
+};
+
+// @baa 0x00c91690
+void UAnimNodeSynch::execAddNodeToGroup(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(UAnimNodeSequence, SeqNode);
+    P_GET_NAME(GroupName);
+    P_FINISH;
+    ((UAnimNodeSynch__00c91690*)this)->AddNodeToGroup(SeqNode, GroupName);
+}
+
+/* UAnimNodeSynch::RemoveNodeFromGroup (0xc62830) isn't declared in the kit. */
+struct UAnimNodeSynch__00c91730 : public UAnimNodeSynch
+{
+    void RemoveNodeFromGroup(class UAnimNodeSequence* SeqNode, FName GroupName);
+};
+
+// @baa 0x00c91730
+void UAnimNodeSynch::execRemoveNodeFromGroup(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(UAnimNodeSequence, SeqNode);
+    P_GET_NAME(GroupName);
+    P_FINISH;
+    ((UAnimNodeSynch__00c91730*)this)->RemoveNodeFromGroup(SeqNode, GroupName);
+}
+
+/* UAnimNodeSynch::ForceRelativePosition (0xc56300) isn't declared in the kit. */
+struct UAnimNodeSynch__00c91850 : public UAnimNodeSynch
+{
+    void ForceRelativePosition(FName GroupName, FLOAT RelativePosition);
+};
+
+// @baa 0x00c91850
+void UAnimNodeSynch::execForceRelativePosition(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(GroupName);
+    P_GET_FLOAT(RelativePosition);
+    P_FINISH;
+    ((UAnimNodeSynch__00c91850*)this)->ForceRelativePosition(GroupName, RelativePosition);
+}
+
+/* UAnimNodeSynch::SetGroupRateScale (0xc565f0) isn't declared in the kit. */
+struct UAnimNodeSynch__00c91970 : public UAnimNodeSynch
+{
+    void SetGroupRateScale(FName GroupName, FLOAT NewRateScale);
+};
+
+// @baa 0x00c91970
+void UAnimNodeSynch::execSetGroupRateScale(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(GroupName);
+    P_GET_FLOAT(NewRateScale);
+    P_FINISH;
+    ((UAnimNodeSynch__00c91970*)this)->SetGroupRateScale(GroupName, NewRateScale);
+}
+
+/* UAnimTree::SetAnimGroupForNode (0xc61170) isn't declared in the kit. */
+struct UAnimTree__00c91b80 : public UAnimTree
+{
+    UBOOL SetAnimGroupForNode(class UAnimNodeSequence* SeqNode, FName GroupName, UBOOL bCreateIfNotFound);
+};
+
+// @baa 0x00c91b80
+void UAnimTree::execSetAnimGroupForNode(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(UAnimNodeSequence, SeqNode);
+    P_GET_NAME(GroupName);
+    P_GET_UBOOL_OPTX(bCreateIfNotFound, FALSE);
+    P_FINISH;
+    *(UBOOL*)Result = ((UAnimTree__00c91b80*)this)->SetAnimGroupForNode(SeqNode, GroupName, bCreateIfNotFound);
+}
+
+/* UAnimTree::ForceGroupRelativePosition (0xc55580) isn't declared in the kit. */
+struct UAnimTree__00c91d60 : public UAnimTree
+{
+    void ForceGroupRelativePosition(FName GroupName, FLOAT RelativePosition);
+};
+
+// @baa 0x00c91d60
+void UAnimTree::execForceGroupRelativePosition(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(GroupName);
+    P_GET_FLOAT(RelativePosition);
+    P_FINISH;
+    ((UAnimTree__00c91d60*)this)->ForceGroupRelativePosition(GroupName, RelativePosition);
+}
+
+/* UAnimTree::SetGroupRateScale (0xc61500) isn't declared in the kit. */
+struct UAnimTree__00c91e80 : public UAnimTree
+{
+    void SetGroupRateScale(FName GroupName, FLOAT NewRateScale);
+};
+
+// @baa 0x00c91e80
+void UAnimTree::execSetGroupRateScale(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(GroupName);
+    P_GET_FLOAT(NewRateScale);
+    P_FINISH;
+    ((UAnimTree__00c91e80*)this)->SetGroupRateScale(GroupName, NewRateScale);
+}
+
+extern FName g_026c5128;
+	/* SpawnAgent */
+struct USeqAct_CrowdSpawner_ : public USeqAct_CrowdSpawner
+{
+	class ACrowdAgent* eventSpawnAgent(class AActor* SpawnLoc);
+};
+
+// @baa 0x00c98940
+/* SeqAct_CrowdSpawner.SpawnAgent script event: the generated glue, out of line here. */
+class ACrowdAgent* USeqAct_CrowdSpawner_::eventSpawnAgent(class AActor* SpawnLoc)
+{
+	struct SeqAct_CrowdSpawner_eventSpawnAgent_Parms
+	{
+		class AActor* SpawnLoc;
+		class ACrowdAgent* ReturnValue;
+	} Parms;
+	Parms.ReturnValue = NULL;
+	Parms.SpawnLoc = SpawnLoc;
+	ProcessEvent(FindFunctionChecked(g_026c5128), &Parms);
+	return Parms.ReturnValue;
 }

@@ -1,4 +1,4 @@
-// RSmashableProp.cpp: 15 functions
+// RSmashableProp.cpp: 16 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -228,4 +228,21 @@ void ARSmashableProp::execGetDecalData(FFrame& Stack, RESULT_DECL)
     P_GET_NAME(DecalTypeName);
     P_FINISH;
     *(FRSmashablePropDecalData*)Result = ((ARSmashableProp__016ff8e0*)this)->GetDecalData(DecalTypeName);
+}
+
+/* ARSmashableProp::TriggerBreakProp (0x166b4d0) isn't declared in the kit. */
+struct ARSmashableProp__016ff560 : public ARSmashableProp
+{
+    void TriggerBreakProp(FVector BreakNormalForce, FLOAT breakTimerVal, class AActor* CollideActor0, class AActor* CollideActor1);
+};
+
+// @baa 0x016ff560
+void ARSmashableProp::execTriggerBreakProp(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, BreakNormalForce);
+    P_GET_FLOAT_OPTX(breakTimerVal, 0.f);
+    P_GET_OBJECT_OPTX(AActor, CollideActor0, NULL);
+    P_GET_OBJECT_OPTX(AActor, CollideActor1, NULL);
+    P_FINISH;
+    ((ARSmashableProp__016ff560*)this)->TriggerBreakProp(BreakNormalForce, breakTimerVal, CollideActor0, CollideActor1);
 }

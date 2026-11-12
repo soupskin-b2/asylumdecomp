@@ -1,4 +1,4 @@
-// UnNavigationPoint.cpp: 18 functions
+// UnNavigationPoint.cpp: 19 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -182,4 +182,14 @@ void ACoverLink_::eventSetSlotEnabled(INT SlotIdx, UBOOL bEnable)
 	Parms.SlotIdx = SlotIdx;
 	Parms.bEnable = bEnable ? TRUE : FALSE;
 	ProcessEvent(FindFunctionChecked(g_026c4c18), &Parms);
+}
+
+// @baa 0x008365d0
+void ACoverLink::execHasFireLinkTo(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_INT(SlotIdx);
+    P_GET_STRUCT(FCoverInfo, ChkCover);
+    P_GET_UBOOL_OPTX(bAllowFallbackLinks, FALSE);
+    P_FINISH;
+    *(UBOOL*)Result = HasFireLinkTo(SlotIdx, ChkCover, bAllowFallbackLinks);
 }

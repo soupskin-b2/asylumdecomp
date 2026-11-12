@@ -1,4 +1,4 @@
-// RAnimUtil_Notify.cpp (part 1 of 2): 100 functions
+// RAnimUtil_Notify.cpp (part 1 of 2): 101 functions
 // Placed here by: callers 19, file 18.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -471,4 +471,15 @@ bool URAnimNotify_FloorHeight::vf_004()
 bool URAnimNotify_ForwardYaw::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+struct C_015982d0
+{
+    double sub_015982d0(FLOAT F);
+};
+
+// @baa 0x015c0bd0
+double sub_015c0bd0(FLOAT* P, C_015982d0* X)
+{
+    return X->sub_015982d0(*P);
 }

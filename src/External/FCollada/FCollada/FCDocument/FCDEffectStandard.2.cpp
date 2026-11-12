@@ -1,4 +1,4 @@
-// FCDEffectStandard.cpp (part 2 of 2): 9 functions
+// FCDEffectStandard.cpp (part 2 of 2): 10 functions
 // Placed here by: neighbours 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -170,4 +170,38 @@ FThreeInts* FThreeInts::sub_01857db0(int NewX, int NewY, int NewZ)
     Y = NewY;
     Z = NewZ;
     return this;
+}
+
+// sub_018707a0: FUObjectContainer-based constructor for FCDTexture.
+// Original source: External/FCollada/FCollada/FCDocument/FCDEffectStandard.cpp
+struct FUObjectContainerList
+{
+    FUObjectContainerList();
+    FUObjectContainerList *First;
+    FUObjectContainerList *Last;
+    long Count;
+    long *CountPtr;
+};
+
+FUObjectContainerList::FUObjectContainerList()
+{
+    First = 0;
+    Last = 0;
+    Count = 0;
+    CountPtr = &Count;
+}
+
+struct FCDTexture : public FUObjectContainerList
+{
+    FCDTexture();
+    virtual ~FCDTexture();
+};
+
+FCDTexture::FCDTexture()
+{
+}
+
+// @baa 0x018707a0
+FCDTexture::~FCDTexture()
+{
 }

@@ -1,4 +1,4 @@
-// BmGame_1590000.cpp (part 1 of 2): 286 functions
+// BmGame_1590000.cpp (part 1 of 2): 292 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1611,5 +1611,89 @@ C_01594120* C_01594120::sub_01594120(BYTE A, INT B)
 {
     B0 = A;
     D4 = B;
+    return this;
+}
+
+struct C_015928e0
+{
+    INT A, B;
+    C_015928e0* sub_015928e0(INT X, INT* Y);
+};
+
+// @baa 0x015928e0
+C_015928e0* C_015928e0::sub_015928e0(INT X, INT* Y)
+{
+    A = X;
+    B = *Y;
+    return this;
+}
+
+struct C_01593380
+{
+    FLOAT A, B;
+    C_01593380* sub_01593380(FLOAT F);
+};
+
+// @baa 0x01593380
+C_01593380* C_01593380::sub_01593380(FLOAT F)
+{
+    A = F;
+    B = F;
+    return this;
+}
+
+struct C_015926a0
+{
+    FLOAT A;
+    C_015926a0* sub_015926a0(const FLOAT* B);
+};
+
+// @baa 0x015926a0
+C_015926a0* C_015926a0::sub_015926a0(const FLOAT* B)
+{
+    A += *B;
+    return this;
+}
+
+struct C_015926c0
+{
+    FLOAT A;
+    C_015926c0* sub_015926c0(const FLOAT* B);
+};
+
+// @baa 0x015926c0
+C_015926c0* C_015926c0::sub_015926c0(const FLOAT* B)
+{
+    A -= *B;
+    return this;
+}
+
+struct C_015926e0
+{
+    FLOAT A;
+    C_015926e0* sub_015926e0(const FLOAT* B);
+};
+
+// @baa 0x015926e0
+C_015926e0* C_015926e0::sub_015926e0(const FLOAT* B)
+{
+    A *= *B;
+    return this;
+}
+
+struct C_01592fd0
+{
+    INT A, B, C, D, E;
+    C_01592fd0* sub_01592fd0(INT P);
+};
+
+// @baa 0x01592fd0
+C_01592fd0* C_01592fd0::sub_01592fd0(INT P)
+{
+    A = 0;
+    B = 0;
+    C = 0;
+    D = 0;
+    E = 0;
     return this;
 }

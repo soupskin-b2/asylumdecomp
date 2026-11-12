@@ -1,4 +1,4 @@
-// BmGame_1700000.cpp: 77 functions
+// BmGame_1700000.cpp: 79 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -814,4 +814,52 @@ struct URPersistentOptions_ : public URPersistentOptions
 void URPersistentOptions_::eventDump()
 {
 	ProcessEvent(FindFunctionChecked(g_026e2f18), NULL);
+}
+
+/* ARGrappleGun::FindClosestValidGrapplePosition (0x1647df0) isn't declared in the kit. */
+struct ARGrappleGun__017071c0 : public ARGrappleGun
+{
+    FLOAT FindClosestValidGrapplePosition(class ARGrapplePoint* PointToCheck, FVector& CheckLocation, FVector& AimDirection, FVector& AimRight, FVector& AimUp, FLOAT MaxRadiusSqr, FLOAT MaxAngle, FVector& OutPosition, FVector PlayerLocation, INT& CheckIndex, FLOAT TanAngle, FVector& IntersectDirection, FLOAT BonusAngle, UBOOL bZoomed);
+};
+
+// @baa 0x017071c0
+void ARGrappleGun::execFindClosestValidGrapplePosition(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(ARGrapplePoint, PointToCheck);
+    P_GET_STRUCT_REF(FVector, CheckLocation);
+    P_GET_STRUCT_REF(FVector, AimDirection);
+    P_GET_STRUCT_REF(FVector, AimRight);
+    P_GET_STRUCT_REF(FVector, AimUp);
+    P_GET_FLOAT(MaxRadiusSqr);
+    P_GET_FLOAT(MaxAngle);
+    P_GET_STRUCT_REF(FVector, OutPosition);
+    P_GET_STRUCT(FVector, PlayerLocation);
+    P_GET_INT_REF(CheckIndex);
+    P_GET_FLOAT(TanAngle);
+    P_GET_STRUCT_REF(FVector, IntersectDirection);
+    P_GET_FLOAT_OPTX(BonusAngle, 0.f);
+    P_GET_UBOOL_OPTX(bZoomed, FALSE);
+    P_FINISH;
+    *(FLOAT*)Result = ((ARGrappleGun__017071c0*)this)->FindClosestValidGrapplePosition(PointToCheck, CheckLocation, AimDirection, AimRight, AimUp, MaxRadiusSqr, MaxAngle, OutPosition, PlayerLocation, CheckIndex, TanAngle, IntersectDirection, BonusAngle, bZoomed);
+}
+
+/* URBmPawnSpawner::StaticCreatePawn (0x1606a00) isn't declared in the kit. */
+struct URBmPawnSpawner_ : public URBmPawnSpawner
+{
+    ARBMPawnAI* StaticCreatePawn(FVector Location, FRotator Rotation, class AActor* UseSpawnPoint, class UClass* SpawnPawnClass, class UClass* SpawnCharactersType, UBOOL SnapToGround, FName InitialMovementStance, FName InitialWeaponStance);
+};
+
+// @baa 0x01705cf0
+void URBmPawnSpawner::execStaticCreatePawn(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, Location);
+    P_GET_STRUCT(FRotator, Rotation);
+    P_GET_OBJECT(AActor, UseSpawnPoint);
+    P_GET_OBJECT(UClass, SpawnPawnClass);
+    P_GET_OBJECT(UClass, SpawnCharactersType);
+    P_GET_UBOOL(SnapToGround);
+    P_GET_NAME_OPTX(InitialMovementStance, NAME_None);
+    P_GET_NAME_OPTX(InitialWeaponStance, NAME_None);
+    P_FINISH;
+    *(ARBMPawnAI**)Result = ((URBmPawnSpawner_*)this)->StaticCreatePawn(Location, Rotation, UseSpawnPoint, SpawnPawnClass, SpawnCharactersType, SnapToGround, InitialMovementStance, InitialWeaponStance);
 }

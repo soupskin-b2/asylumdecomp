@@ -1,4 +1,4 @@
-// GFx_18e0000.cpp (part 8 of 8): 9 functions
+// GFx_18e0000.cpp (part 8 of 8): 11 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -109,4 +109,34 @@ void sub_018e89e0(Object* Value)
 INT __stdcall sub_018e8a80(UINT Value)
 {
     return (Value >> 6) ^ Value;
+}
+
+struct Sub018e8440
+{
+	long First;
+	long Second;
+	unsigned char Flag;
+
+	float sub_018e8440();
+};
+
+// @baa 0x018e8440
+float Sub018e8440::sub_018e8440()
+{
+	float Result = (float)Flag * 0.0625f;
+	return Result;
+}
+
+extern double g_023f57a8;
+struct S_018e8460 {
+    char Data09[9];
+    unsigned char m_Flag;
+    float sub_018e8460();
+};
+
+// @baa 0x018e8460
+float S_018e8460::sub_018e8460()
+{
+    float F = (float)m_Flag * g_023f57a8;
+    return F;
 }

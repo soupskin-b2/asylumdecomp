@@ -1,4 +1,4 @@
-// RCapeComponent.cpp: 22 functions
+// RCapeComponent.cpp: 25 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -279,4 +279,65 @@ void URCapeComponent::execApplyWind(FFrame& Stack, RESULT_DECL)
     P_GET_STRUCT_REF(FRWindState, WindState);
     P_FINISH;
     ((URCapeComponent__01702c50*)this)->ApplyWind(WindConfig, WindState);
+}
+
+/* URCapeComponent::SetAutoCapeAnimBlendWeights (0x16ae870) isn't declared in the kit. */
+struct URCapeComponent__01702930 : public URCapeComponent
+{
+    void SetAutoCapeAnimBlendWeights(UBOOL IsBlendWeightSettingEnabled, FLOAT rootWeight, FLOAT childWeights);
+};
+
+// @baa 0x01702930
+void URCapeComponent::execSetAutoCapeAnimBlendWeights(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_UBOOL(IsBlendWeightSettingEnabled);
+    P_GET_FLOAT_OPTX(rootWeight, 0.f);
+    P_GET_FLOAT_OPTX(childWeights, 0.f);
+    P_FINISH;
+    ((URCapeComponent__01702930*)this)->SetAutoCapeAnimBlendWeights(IsBlendWeightSettingEnabled, rootWeight, childWeights);
+}
+
+/* URCapeComponent::ChangeCapeStateGeneral (0x16b1ee0) isn't declared in the kit. */
+struct URCapeComponent__01702110 : public URCapeComponent
+{
+    void ChangeCapeStateGeneral(FName CapeStateName, class URCapeStateConfig* CinematicStateTemplate, FName CinematicAnimName, class UAnimSet* CinematicStateExtraAnimSet, FLOAT AnimStartTime, FLOAT AnimPlayRate, FName SyncAnimName, FLOAT SyncAnimOffset, BYTE MirroredType);
+};
+
+// @baa 0x01702110
+void URCapeComponent::execChangeCapeStateGeneral(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(CapeStateName);
+    P_GET_OBJECT(URCapeStateConfig, CinematicStateTemplate);
+    P_GET_NAME(CinematicAnimName);
+    P_GET_OBJECT(UAnimSet, CinematicStateExtraAnimSet);
+    P_GET_FLOAT_OPTX(AnimStartTime, 0.f);
+    P_GET_FLOAT_OPTX(AnimPlayRate, 1.f);
+    P_GET_NAME_OPTX(SyncAnimName, NAME_None);
+    P_GET_FLOAT_OPTX(SyncAnimOffset, 0.f);
+    P_GET_BYTE_OPTX(MirroredType, 0);
+    P_FINISH;
+    ((URCapeComponent__01702110*)this)->ChangeCapeStateGeneral(CapeStateName, CinematicStateTemplate, CinematicAnimName, CinematicStateExtraAnimSet, AnimStartTime, AnimPlayRate, SyncAnimName, SyncAnimOffset, MirroredType);
+}
+
+/* URCapeComponent::BeginCinematicState (0x16ae6d0) isn't declared in the kit. */
+struct URCapeComponent__017024a0 : public URCapeComponent
+{
+    void BeginCinematicState(FName AnimName, class UAnimSet* TemporaryAnimSet, FLOAT AnimStartTime, FLOAT AnimPlayRate, FName SyncAnimName, FLOAT SyncAnimOffset, BYTE MirroredType, class URCapeStateConfig* TemplateStateConfig, UBOOL ClearVelocityOnExit, UBOOL bTeleportToInitialPose);
+};
+
+// @baa 0x017024a0
+void URCapeComponent::execBeginCinematicState(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(AnimName);
+    P_GET_OBJECT_OPTX(UAnimSet, TemporaryAnimSet, NULL);
+    P_GET_FLOAT_OPTX(AnimStartTime, 0.f);
+    P_GET_FLOAT_OPTX(AnimPlayRate, 1.f);
+    P_GET_NAME_OPTX(SyncAnimName, NAME_None);
+    P_GET_FLOAT_OPTX(SyncAnimOffset, 0.f);
+    P_GET_BYTE_OPTX(MirroredType, 0);
+    P_GET_OBJECT_OPTX(URCapeStateConfig, TemplateStateConfig, NULL);
+    P_GET_UBOOL_OPTX(ClearVelocityOnExit, FALSE);
+    P_GET_UBOOL_OPTX(bTeleportToInitialPose, FALSE);
+    P_FINISH;
+    ((URCapeComponent__017024a0*)this)->BeginCinematicState(AnimName, TemporaryAnimSet, AnimStartTime, AnimPlayRate, SyncAnimName, SyncAnimOffset, MirroredType, TemplateStateConfig, ClearVelocityOnExit, bTeleportToInitialPose);
 }

@@ -1,4 +1,4 @@
-// BmGame_16f0000.cpp: 160 functions
+// BmGame_16f0000.cpp: 162 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -1471,4 +1471,38 @@ struct ARExplodableWallBase__016ffc90 : public ARExplodableWallBase
 void ARExplodableWallBase__016ffc90::eventPlayExplosionSound()
 {
 	ProcessEvent(FindFunctionChecked(g_026e25bc), NULL);
+}
+
+/* ARPawnCharacter::CombineWeaponConfigs (0x167bbf0) isn't declared in the kit. */
+struct ARPawnCharacter_ : public ARPawnCharacter
+{
+    URWeaponConfig* CombineWeaponConfigs(class URWeaponConfig* Config1, class URWeaponConfig* Config2, class URWeaponConfig* Config3, class URWeaponConfig* Config4, class URWeaponConfig* Config5, class URWeaponConfig* Config6, class URWeaponConfig* Config7, class URWeaponConfig* Config8, class URWeaponConfig* Config9, class URWeaponConfig* Config10, class URWeaponConfig* Config11, class URWeaponConfig* Config12);
+};
+
+// @baa 0x016f57c0
+void ARPawnCharacter::execCombineWeaponConfigs(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(URWeaponConfig, Config1);
+    P_GET_OBJECT(URWeaponConfig, Config2);
+    P_GET_OBJECT_OPTX(URWeaponConfig, Config3, NULL);
+    P_GET_OBJECT_OPTX(URWeaponConfig, Config4, NULL);
+    P_GET_OBJECT_OPTX(URWeaponConfig, Config5, NULL);
+    P_GET_OBJECT_OPTX(URWeaponConfig, Config6, NULL);
+    P_GET_OBJECT_OPTX(URWeaponConfig, Config7, NULL);
+    P_GET_OBJECT_OPTX(URWeaponConfig, Config8, NULL);
+    P_GET_OBJECT_OPTX(URWeaponConfig, Config9, NULL);
+    P_GET_OBJECT_OPTX(URWeaponConfig, Config10, NULL);
+    P_GET_OBJECT_OPTX(URWeaponConfig, Config11, NULL);
+    P_GET_OBJECT_OPTX(URWeaponConfig, Config12, NULL);
+    P_FINISH;
+    *(URWeaponConfig**)Result = ((ARPawnCharacter_*)this)->CombineWeaponConfigs(Config1, Config2, Config3, Config4, Config5, Config6, Config7, Config8, Config9, Config10, Config11, Config12);
+}
+
+// @baa 0x016f4190
+void ARPawnCharacter::execPlayCustomWeaponOverlay(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FCustomAnimConfig, OverrideAnim);
+    P_GET_FLOAT_OPTX(StartTime, 0.0f);
+    P_FINISH;
+    *(FOverlayId*)Result = PlayCustomWeaponOverlay(OverrideAnim, StartTime);
 }

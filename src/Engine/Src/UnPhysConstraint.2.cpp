@@ -1,4 +1,4 @@
-// UnPhysConstraint.cpp (part 2 of 2): 21 functions
+// UnPhysConstraint.cpp (part 2 of 2): 23 functions
 // Placed here by: class 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -319,4 +319,45 @@ void URB_ConstraintInstance__00c96480::execMoveKinActorTransform(FFrame& Stack, 
 	P_GET_STRUCT_REF(FMatrix, NewTM);
 	P_FINISH;
 	MoveKinActorTransform(NewTM);
+}
+
+extern FName g_026c4100;
+	/* ConstraintBrokenNotify */
+struct AActor_ : public AActor
+{
+	void eventConstraintBrokenNotify(class AActor* ConOwner, class URB_ConstraintSetup* ConSetup, class URB_ConstraintInstance* ConInstance);
+};
+
+// @baa 0x00a2ff20
+/* Actor.ConstraintBrokenNotify script event: the generated glue, out of line here. */
+void AActor_::eventConstraintBrokenNotify(class AActor* ConOwner, class URB_ConstraintSetup* ConSetup, class URB_ConstraintInstance* ConInstance)
+{
+	struct Actor_eventConstraintBrokenNotify_Parms
+	{
+		class AActor* ConOwner;
+		class URB_ConstraintSetup* ConSetup;
+		class URB_ConstraintInstance* ConInstance;
+	} Parms;
+	Parms.ConOwner = ConOwner;
+	Parms.ConSetup = ConSetup;
+	Parms.ConInstance = ConInstance;
+	ProcessEvent(FindFunctionChecked(g_026c4100), &Parms);
+}
+
+/* ARB_ConstraintActor::InitConstraint (0xa3fdc0) isn't declared in the kit. */
+struct ARB_ConstraintActor__00c93840 : public ARB_ConstraintActor
+{
+    void InitConstraint(class AActor* Actor1, class AActor* Actor2, FName Actor1Bone, FName Actor2Bone, FLOAT BreakThreshold);
+};
+
+// @baa 0x00c93840
+void ARB_ConstraintActor::execInitConstraint(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(AActor, Actor1);
+    P_GET_OBJECT(AActor, Actor2);
+    P_GET_NAME_OPTX(Actor1Bone, NAME_None);
+    P_GET_NAME_OPTX(Actor2Bone, NAME_None);
+    P_GET_FLOAT_OPTX(BreakThreshold, 0.f);
+    P_FINISH;
+    ((ARB_ConstraintActor__00c93840*)this)->InitConstraint(Actor1, Actor2, Actor1Bone, Actor2Bone, BreakThreshold);
 }

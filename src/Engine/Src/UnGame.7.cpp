@@ -1,4 +1,4 @@
-// UnGame.cpp: 9 functions
+// UnGame.cpp: 11 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -191,4 +191,44 @@ void AGameInfo__007e1430::eventServerTravel(const FString& URL, UBOOL bAbsolute,
 	Parms.bAbsolute = bAbsolute ? TRUE : FALSE;
 	Parms.bShouldSkipGameNotify = bShouldSkipGameNotify ? TRUE : FALSE;
 	ProcessEvent(FindFunctionChecked(g_026c4990), &Parms);
+}
+
+extern FName g_026c4f38;
+	/* NotifyLoadedWorld */
+struct APlayerController__009aeca0 : public APlayerController
+{
+	void eventNotifyLoadedWorld(FName WorldPackageName, UBOOL bFinalDest);
+};
+
+// @baa 0x009aeca0
+/* PlayerController.NotifyLoadedWorld script event: the generated glue, out of line here. */
+void APlayerController__009aeca0::eventNotifyLoadedWorld(FName WorldPackageName, UBOOL bFinalDest)
+{
+	struct PlayerController_eventNotifyLoadedWorld_Parms
+	{
+		FName WorldPackageName;
+		UBOOL bFinalDest;
+	} Parms;
+	Parms.WorldPackageName = WorldPackageName;
+	Parms.bFinalDest = bFinalDest ? TRUE : FALSE;
+	ProcessEvent(FindFunctionChecked(g_026c4f38), &Parms);
+}
+
+extern FName g_026c4038;
+	/* ServerNotifyLoadedWorld */
+struct APlayerController__009aed00 : public APlayerController
+{
+	void eventServerNotifyLoadedWorld(FName WorldPackageName);
+};
+
+// @baa 0x009aed00
+/* PlayerController.ServerNotifyLoadedWorld script event: the generated glue, out of line here. */
+void APlayerController__009aed00::eventServerNotifyLoadedWorld(FName WorldPackageName)
+{
+	struct PlayerController_eventServerNotifyLoadedWorld_Parms
+	{
+		FName WorldPackageName;
+	} Parms;
+	Parms.WorldPackageName = WorldPackageName;
+	ProcessEvent(FindFunctionChecked(g_026c4038), &Parms);
 }

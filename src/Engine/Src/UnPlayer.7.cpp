@@ -1,4 +1,4 @@
-// UnPlayer.cpp: 1 function
+// UnPlayer.cpp: 3 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -21,4 +21,47 @@ void UGameViewportClient_::eventPreRender(class UCanvas* Canvas)
 	} Parms;
 	Parms.Canvas = Canvas;
 	ProcessEvent(FindFunctionChecked(g_026c3ec8), &Parms);
+}
+
+extern FName g_026c553c;
+	/* SpecialCost */
+struct ANavigationPoint_ : public ANavigationPoint
+{
+	INT eventSpecialCost(class APawn* Seeker, class UReachSpec* Path);
+};
+
+// @baa 0x00888760
+/* NavigationPoint.SpecialCost script event: the generated glue, out of line here. */
+INT ANavigationPoint_::eventSpecialCost(class APawn* Seeker, class UReachSpec* Path)
+{
+	struct NavigationPoint_eventSpecialCost_Parms
+	{
+		class APawn* Seeker;
+		class UReachSpec* Path;
+		INT ReturnValue;
+	} Parms;
+	Parms.ReturnValue = 0;
+	Parms.Seeker = Seeker;
+	Parms.Path = Path;
+	ProcessEvent(FindFunctionChecked(g_026c553c), &Parms);
+	return Parms.ReturnValue;
+}
+
+extern FName g_026c42fc;
+	/* OutputText */
+struct UConsole_ : public UConsole
+{
+	void eventOutputText(const FString& Text);
+};
+
+// @baa 0x00895f30
+/* Console.OutputText script event: the generated glue, out of line here. */
+void UConsole_::eventOutputText(const FString& Text)
+{
+	struct Console_eventOutputText_Parms
+	{
+		FString Text;
+	} Parms;
+	Parms.Text = Text;
+	ProcessEvent(FindFunctionChecked(g_026c42fc), &Parms);
 }

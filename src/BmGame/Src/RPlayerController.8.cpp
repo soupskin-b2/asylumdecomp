@@ -1,4 +1,4 @@
-// RPlayerController.cpp: 6 functions
+// RPlayerController.cpp: 8 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -97,4 +97,20 @@ void ARPlayerController::execShouldIReallyLand(FFrame& Stack, RESULT_DECL)
     P_GET_STRUCT_REF(FVector, HitNormal);
     P_FINISH;
     *(UBOOL*)Result = ((ARPlayerController__016f93c0*)this)->ShouldIReallyLand(HitFloor, HitNormal);
+}
+
+// @baa 0x0171daf0
+void ARPlayerController::execCheckContentExists(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STR(Path);
+    P_FINISH;
+    *(UBOOL*)Result = CheckContentExists(Path);
+}
+
+// @baa 0x0171dbb0
+void ARPlayerController::execIsMoviePresent(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STR(Path);
+    P_FINISH;
+    *(UBOOL*)Result = IsMoviePresent(Path);
 }
