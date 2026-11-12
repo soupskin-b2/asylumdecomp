@@ -16,7 +16,6 @@ struct FRotationMatrix : public FMatrix
 struct FVector_ : public FVector
 {
 	FORCEINLINE FVector_(FLOAT InX, FLOAT InY, FLOAT InZ) : FVector(InX, InY, InZ) {}
-	FORCEINLINE FLOAT operator|(const FVector& V) const { return X * V.X + Y * V.Y + Z * V.Z; }
 };
 
 struct FMatrix_ : public FMatrix
@@ -51,15 +50,11 @@ FRotator FMatrix_::Rotator() const
 /* Kit gap: FVector::Rotation (UnMath.cpp) isn't declared. */
 #define MAXWORD		0xffffU
 #define INV_TWO_PI	(0.15915494309189533577)	/* 1 / (2 * PI) */
-struct FVector__005c3540 : public FVector
-{
-	FRotator Rotation() const; /* 0x005c3540 */
-};
 
 // @baa 0x005c3540
 /* UnMath.cpp: the rotator pointing along this vector (no roll). The game's appAtan2 returns FLOAT (the kit's
  * returns DOUBLE), hence the casts. */
-FRotator FVector__005c3540::Rotation() const
+FRotator FVector::Rotation() const
 {
 	FRotator R;
 

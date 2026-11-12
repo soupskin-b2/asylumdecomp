@@ -8,8 +8,6 @@
 struct FRenderCommandFence_ : public FRenderCommandFence
 {
 	FRenderCommandFence_() { NumPendingFences = 0; }
-	void BeginFence();
-	UINT GetNumPendingFences() const;
 };
 
 /* Named accessor for the FPointer field (ISSUES.md 19). */
@@ -119,7 +117,6 @@ struct FTerrainInfoData_
 
 struct ATerrain__0098be90 : public ATerrain
 {
-    BYTE* GetInfoData(INT X, INT Y); /* 0x0098ba70 */
     UBOOL IsTerrainComponentVisible(INT InBaseX, INT InBaseY, INT InSizeX, INT InSizeY); /* 0x0098be90 */
 };
 
@@ -144,7 +141,6 @@ UBOOL ATerrain__0098be90::IsTerrainComponentVisible(INT InBaseX, INT InBaseY, IN
 #define TERRAIN_ZSCALE (1.0f / 128.0f)
 struct ATerrain__0098bfb0 : public ATerrain
 {
-    const WORD& Height(INT X, INT Y) const; /* 0x0098b970 */
     FVector GetLocalVertex(INT X, INT Y) const; /* 0x0098bfb0 */
 };
 
@@ -157,7 +153,6 @@ FVector ATerrain__0098bfb0::GetLocalVertex(INT X, INT Y) const
 
 struct ATerrain__0098bf00 : public ATerrain
 {
-    BYTE* GetInfoData(INT X, INT Y); /* 0x0098ba70 */
     UBOOL IsTerrainComponentVisible(UTerrainComponent* InComponent); /* 0x0098bf00 */
 };
 
@@ -224,7 +219,6 @@ INT ATerrain__0098caf0::FindSelectedVertexInList(INT X, INT Y, FSelectedTerrainV
 
 struct ATerrain__0098bb70 : public ATerrain
 {
-    const BYTE* GetInfoData(INT X, INT Y) const; /* 0x0098baf0 */
     UBOOL IsTerrainQuadVisible(INT X, INT Y) const; /* 0x0098bb70 */
 };
 

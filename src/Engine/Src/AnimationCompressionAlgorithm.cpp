@@ -28,10 +28,6 @@ FQuatIntervalFixed32NoW::FQuatIntervalFixed32NoW(const FQuat& Quat, const FLOAT*
 }
 
 /* FQuat::Normalize (UnMath.h; out of line here), not in the kit. */
-struct FQuat_ : public FQuat
-{
-	void sub_0062bb60();				/* Normalize */
-};
 
 /* AnimationCompression.h's quantisation constants. */
 #define Quant10BitDiv		(511.f)
@@ -61,7 +57,7 @@ void FQuatIntervalFixed32NoW_00bf7f40::FromQuat(const FQuat& Quat, const FLOAT* 
 		Temp.Z = -Temp.Z;
 		Temp.W = -Temp.W;
 	}
-	((FQuat_&)Temp).sub_0062bb60();
+	Temp.Normalize();
 
 	Temp.X -= Mins[0];
 	Temp.Y -= Mins[1];

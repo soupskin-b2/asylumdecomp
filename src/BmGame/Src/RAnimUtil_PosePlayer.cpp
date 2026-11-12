@@ -384,14 +384,10 @@ struct FAnimTime_ : public FAnimTime
     }
 };
 
-struct FPosePlayer_ : public FPosePlayer
-{
-    void OverrideTransitionTime(FLOAT Time, UBOOL bDisableTimeAdvance); /* 0x015c2910 */
-};
 
 // @baa 0x015c2910
 /* Jump the current (head) stance change to Time, optionally holding its time for a frame. */
-void FPosePlayer_::OverrideTransitionTime(FLOAT Time, UBOOL bDisableTimeAdvance)
+void FPosePlayer::OverrideTransitionTime(FLOAT Time, UBOOL bDisableTimeAdvance)
 {
     FStanceChange* Head = Changes.Num ? &Changes.Data[0] : NULL;
     if (Head != NULL)
@@ -411,14 +407,10 @@ struct FPoseLookup_
 };
 
 FPoseLookup_ sub_015e9fd0(USkeletalMeshComponent* SkelComp, URWeaponConfig* WeaponConfig, FName MovementStance, FName WeaponStance, FName IdleStance);
-struct FPosePlayer__015c28b0 : public FPosePlayer
-{
-    INT HasPose(USkeletalMeshComponent* SkelComp, FName MovementStance, FName WeaponStance, FName IdleStance); /* 0x015c28b0 */
-};
 
 // @baa 0x015c28b0
 /* Whether the current (head) stance change's weapon config has a pose for the given stances. */
-INT FPosePlayer__015c28b0::HasPose(USkeletalMeshComponent* SkelComp, FName MovementStance, FName WeaponStance, FName IdleStance)
+INT FPosePlayer::HasPose(USkeletalMeshComponent* SkelComp, FName MovementStance, FName WeaponStance, FName IdleStance)
 {
     FStanceChange* Head = Changes.Num ? &Changes.Data[0] : NULL;
     if (Head == NULL)

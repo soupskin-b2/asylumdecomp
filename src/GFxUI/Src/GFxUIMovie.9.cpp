@@ -7,11 +7,6 @@
 
 /* UWorld::GetTimeSeconds (009c8f80) / GetRealTimeSeconds (009c8fc0) are out of line; the kit
  * doesn't declare them. */
-struct UWorld_ : public UWorld
-{
-    FLOAT GetTimeSeconds();     /* 0x009c8f80 */
-    FLOAT GetRealTimeSeconds(); /* 0x009c8fc0 */
-};
 
 /* FGFxMovie past pView (GFx.h stops there): the movie's clock and its timing mode. */
 struct FGFxMovie_ : public FGFxMovie
@@ -36,6 +31,6 @@ void UGFxMovie_::SetTimingMode(BYTE Mode)
     if (GetMovie())
     {
         GetMovie()->TimingMode = Mode;
-        GetMovie()->LastTime = (Mode == TM_Real) ? ((UWorld_*)GWorld)->GetRealTimeSeconds() : ((UWorld_*)GWorld)->GetTimeSeconds();
+        GetMovie()->LastTime = (Mode == TM_Real) ? ((UWorld*)GWorld)->GetRealTimeSeconds() : ((UWorld*)GWorld)->GetTimeSeconds();
     }
 }

@@ -16,12 +16,9 @@ struct FIntArray : public TArray<INT> {
     }
 };
 
-struct UPhysicsAsset_ : public UPhysicsAsset {
-    void UpdateBoundsBodiesArray(); // 00a17a10
-};
 
 // @baa 0x00a17a10
-void UPhysicsAsset_::UpdateBoundsBodiesArray()
+void UPhysicsAsset::UpdateBoundsBodiesArray()
 {
     BoundsBodies.Empty();
 

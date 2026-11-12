@@ -24,7 +24,6 @@ template<class T> struct TArrayAt_ : public TArray<T>
 /* FInterpCurve<FLOAT> (UnMath.h): AddPoint out of line in the exe (007b95b0), AutoSetTangents is the kit's sub_007b96a0 */
 struct FInterpCurveFloat_ : public FInterpCurveFloat
 {
-    INT AddPoint(const FLOAT InVal, const FLOAT& OutVal);
     void AutoSetTangents(FLOAT Tension) { sub_007b96a0(Tension); }
 };
 
@@ -66,7 +65,6 @@ INT UInterpTrackSkelControlScale::AddKeyframe(FLOAT Time, UInterpTrackInst* TrIn
 /* FInterpCurve<FLOAT> (UnMath.h): MovePoint out of line in the exe (007c3a80), AutoSetTangents is the kit's sub_007b96a0 */
 struct FInterpCurveFloat__00d04510 : public FInterpCurveFloat
 {
-    INT MovePoint(INT PointIndex, FLOAT NewInVal);
     void AutoSetTangents(FLOAT Tension) { sub_007b96a0(Tension); }
 };
 
@@ -94,11 +92,6 @@ INT UInterpTrackFloatBase::SetKeyframeTime(INT KeyIndex, FLOAT NewKeyTime, UBOOL
 }
 
 /* FInterpCurve<FVector> (UnMath.h): MovePoint and AutoSetTangents out of line in the exe (007c3d10, 007bb200) */
-struct FInterpCurveVector_ : public FInterpCurveVector
-{
-    INT MovePoint(INT PointIndex, FLOAT NewInVal);
-    void AutoSetTangents(FLOAT Tension);
-};
 
 // @baa 0x00d04810
 INT UInterpTrackVectorBase::SetKeyframeTime(INT KeyIndex, FLOAT NewKeyTime, UBOOL bUpdateOrder)
@@ -111,14 +104,14 @@ INT UInterpTrackVectorBase::SetKeyframeTime(INT KeyIndex, FLOAT NewKeyTime, UBOO
     INT NewKeyIndex = KeyIndex;
     if (bUpdateOrder)
     {
-        NewKeyIndex = ((FInterpCurveVector_&)VectorTrack).MovePoint(KeyIndex, NewKeyTime);
+        NewKeyIndex = ((FInterpCurveVector&)VectorTrack).MovePoint(KeyIndex, NewKeyTime);
     }
     else
     {
         ((TArrayAt_<FInterpCurvePointVector>&)VectorTrack.Points).At(KeyIndex).InVal = NewKeyTime;
     }
 
-    ((FInterpCurveVector_&)VectorTrack).AutoSetTangents(CurveTension);
+    ((FInterpCurveVector&)VectorTrack).AutoSetTangents(CurveTension);
 
     return NewKeyIndex;
 }

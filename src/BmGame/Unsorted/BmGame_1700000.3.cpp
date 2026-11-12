@@ -526,42 +526,30 @@ class UAnimNodeCrossfader* ARControllableChatteringTeethBase__01707e80::eventGet
 }
 
 /* ARControllableChatteringTeethCamera::CalculateCurrentDragPos (016aa6b0) isn't declared in the kit. */
-struct ARControllableChatteringTeethCamera_ : public ARControllableChatteringTeethCamera
-{
-    FVector CalculateCurrentDragPos();
-};
 
 // @baa 0x01709d60
 void ARControllableChatteringTeethCamera::execCalculateCurrentDragPos(FFrame& Stack, RESULT_DECL)
 {
     P_FINISH;
-    *(FVector*)Result = ((ARControllableChatteringTeethCamera_*)this)->CalculateCurrentDragPos();
+    *(FVector*)Result = this->CalculateCurrentDragPos();
 }
 
 /* ARControllableChatteringTeethCamera::CalculateCurrentTargetPos (016aa760) isn't declared in the kit. */
-struct ARControllableChatteringTeethCamera__01709db0 : public ARControllableChatteringTeethCamera
-{
-    FVector CalculateCurrentTargetPos();
-};
 
 // @baa 0x01709db0
 void ARControllableChatteringTeethCamera::execCalculateCurrentTargetPos(FFrame& Stack, RESULT_DECL)
 {
     P_FINISH;
-    *(FVector*)Result = ((ARControllableChatteringTeethCamera__01709db0*)this)->CalculateCurrentTargetPos();
+    *(FVector*)Result = this->CalculateCurrentTargetPos();
 }
 
 /* ARControllableChatteringTeethCamera::CalculateCurrentFallbackPos (016aa810) isn't declared in the kit. */
-struct ARControllableChatteringTeethCamera__01709e00 : public ARControllableChatteringTeethCamera
-{
-    FVector CalculateCurrentFallbackPos();
-};
 
 // @baa 0x01709e00
 void ARControllableChatteringTeethCamera::execCalculateCurrentFallbackPos(FFrame& Stack, RESULT_DECL)
 {
     P_FINISH;
-    *(FVector*)Result = ((ARControllableChatteringTeethCamera__01709e00*)this)->CalculateCurrentFallbackPos();
+    *(FVector*)Result = this->CalculateCurrentFallbackPos();
 }
 
 extern FName g_026e38b0;
@@ -593,10 +581,6 @@ void ARRemoveableGrate__01701380::eventUpdateImpactEffects()
 }
 
 /* ARBatarang::FindInterceptDirection (0x16390a0) isn't declared in the kit. */
-struct ARBatarang_ : public ARBatarang
-{
-    FVector FindInterceptDirection(FVector BatarangStartPos, FLOAT BatarangSpeed, FVector BatarangTargetPosition, FVector BatarangTargetVelocity);
-};
 
 // @baa 0x01707050
 void ARBatarang::execFindInterceptDirection(FFrame& Stack, RESULT_DECL)
@@ -606,14 +590,10 @@ void ARBatarang::execFindInterceptDirection(FFrame& Stack, RESULT_DECL)
     P_GET_STRUCT(FVector, BatarangTargetPosition);
     P_GET_STRUCT(FVector, BatarangTargetVelocity);
     P_FINISH;
-    *(FVector*)Result = ((ARBatarang_*)this)->FindInterceptDirection(BatarangStartPos, BatarangSpeed, BatarangTargetPosition, BatarangTargetVelocity);
+    *(FVector*)Result = this->FindInterceptDirection(BatarangStartPos, BatarangSpeed, BatarangTargetPosition, BatarangTargetVelocity);
 }
 
 /* ARGrappleGun::CheckGrapplePoint (0x1641970) isn't declared in the kit. */
-struct ARGrappleGun_ : public ARGrappleGun
-{
-    UBOOL CheckGrapplePoint(class ARGrapplePoint* PointToCheck, FVector& GrapplePos, INT CheckIndex);
-};
 
 // @baa 0x01707510
 void ARGrappleGun::execCheckGrapplePoint(FFrame& Stack, RESULT_DECL)
@@ -622,14 +602,10 @@ void ARGrappleGun::execCheckGrapplePoint(FFrame& Stack, RESULT_DECL)
     P_GET_STRUCT_REF(FVector, GrapplePos);
     P_GET_INT(CheckIndex);
     P_FINISH;
-    *(UBOOL*)Result = ((ARGrappleGun_*)this)->CheckGrapplePoint(PointToCheck, GrapplePos, CheckIndex);
+    *(UBOOL*)Result = this->CheckGrapplePoint(PointToCheck, GrapplePos, CheckIndex);
 }
 
 /* ARLineLauncher::GetLineLaucherTetherPoints (0x1663980) isn't declared in the kit. */
-struct ARLineLauncher_ : public ARLineLauncher
-{
-    UBOOL GetLineLaucherTetherPoints(FVector& RearPoint, FVector& FrontPoint, FVector& ActorStartPoint, FVector& ActorEndPoint);
-};
 
 // @baa 0x01707940
 void ARLineLauncher::execGetLineLaucherTetherPoints(FFrame& Stack, RESULT_DECL)
@@ -639,7 +615,7 @@ void ARLineLauncher::execGetLineLaucherTetherPoints(FFrame& Stack, RESULT_DECL)
     P_GET_STRUCT_REF(FVector, ActorStartPoint);
     P_GET_STRUCT_REF(FVector, ActorEndPoint);
     P_FINISH;
-    *(UBOOL*)Result = ((ARLineLauncher_*)this)->GetLineLaucherTetherPoints(RearPoint, FrontPoint, ActorStartPoint, ActorEndPoint);
+    *(UBOOL*)Result = this->GetLineLaucherTetherPoints(RearPoint, FrontPoint, ActorStartPoint, ActorEndPoint);
 }
 
 extern FName g_026e3954;
@@ -741,10 +717,6 @@ void ARControllableChatteringTeethBase__01707d90::eventApplyExplosionCameraShake
 }
 
 /* ARExplosiveGooMine::ComplexTrace (0x163b2d0) isn't declared in the kit. */
-struct ARExplosiveGooMine_ : public ARExplosiveGooMine
-{
-    AActor* ComplexTrace(class AActor* MyOwner, FVector& HitLocation, FVector End, FVector Start);
-};
 
 // @baa 0x01708290
 void ARExplosiveGooMine::execComplexTrace(FFrame& Stack, RESULT_DECL)
@@ -754,14 +726,10 @@ void ARExplosiveGooMine::execComplexTrace(FFrame& Stack, RESULT_DECL)
     P_GET_STRUCT(FVector, End);
     P_GET_STRUCT(FVector, Start);
     P_FINISH;
-    *(AActor**)Result = ((ARExplosiveGooMine_*)this)->ComplexTrace(MyOwner, HitLocation, End, Start);
+    *(AActor**)Result = this->ComplexTrace(MyOwner, HitLocation, End, Start);
 }
 
 /* ARBatarangCamera::TrackPostImpact (0x16aa290) isn't declared in the kit. */
-struct ARBatarangCamera_ : public ARBatarangCamera
-{
-    void TrackPostImpact(FVector ActorLocation, FLOAT DeltaTime);
-};
 
 // @baa 0x01709bb0
 void ARBatarangCamera::execTrackPostImpact(FFrame& Stack, RESULT_DECL)
@@ -769,14 +737,10 @@ void ARBatarangCamera::execTrackPostImpact(FFrame& Stack, RESULT_DECL)
     P_GET_STRUCT(FVector, ActorLocation);
     P_GET_FLOAT(DeltaTime);
     P_FINISH;
-    ((ARBatarangCamera_*)this)->TrackPostImpact(ActorLocation, DeltaTime);
+    this->TrackPostImpact(ActorLocation, DeltaTime);
 }
 
 /* ARLineLauncherDirectorCamera::FindBestCentrePoint (0x16aad30) isn't declared in the kit. */
-struct ARLineLauncherDirectorCamera_ : public ARLineLauncherDirectorCamera
-{
-    void FindBestCentrePoint(FVector& StartPoint, FVector& EndPoint);
-};
 
 // @baa 0x0170a1f0
 void ARLineLauncherDirectorCamera::execFindBestCentrePoint(FFrame& Stack, RESULT_DECL)
@@ -784,14 +748,10 @@ void ARLineLauncherDirectorCamera::execFindBestCentrePoint(FFrame& Stack, RESULT
     P_GET_STRUCT_REF(FVector, StartPoint);
     P_GET_STRUCT_REF(FVector, EndPoint);
     P_FINISH;
-    ((ARLineLauncherDirectorCamera_*)this)->FindBestCentrePoint(StartPoint, EndPoint);
+    this->FindBestCentrePoint(StartPoint, EndPoint);
 }
 
 /* ARSilentPredatorCamera::LookAround (0x16ab590) isn't declared in the kit. */
-struct ARSilentPredatorCamera_ : public ARSilentPredatorCamera
-{
-    void LookAround(FLOAT DeltaTime, FRotator LookInput);
-};
 
 // @baa 0x0170a3e0
 void ARSilentPredatorCamera::execLookAround(FFrame& Stack, RESULT_DECL)
@@ -799,7 +759,7 @@ void ARSilentPredatorCamera::execLookAround(FFrame& Stack, RESULT_DECL)
     P_GET_FLOAT(DeltaTime);
     P_GET_STRUCT(FRotator, LookInput);
     P_FINISH;
-    ((ARSilentPredatorCamera_*)this)->LookAround(DeltaTime, LookInput);
+    this->LookAround(DeltaTime, LookInput);
 }
 
 extern FName g_026e2f18;
@@ -817,10 +777,6 @@ void URPersistentOptions_::eventDump()
 }
 
 /* ARGrappleGun::FindClosestValidGrapplePosition (0x1647df0) isn't declared in the kit. */
-struct ARGrappleGun__017071c0 : public ARGrappleGun
-{
-    FLOAT FindClosestValidGrapplePosition(class ARGrapplePoint* PointToCheck, FVector& CheckLocation, FVector& AimDirection, FVector& AimRight, FVector& AimUp, FLOAT MaxRadiusSqr, FLOAT MaxAngle, FVector& OutPosition, FVector PlayerLocation, INT& CheckIndex, FLOAT TanAngle, FVector& IntersectDirection, FLOAT BonusAngle, UBOOL bZoomed);
-};
 
 // @baa 0x017071c0
 void ARGrappleGun::execFindClosestValidGrapplePosition(FFrame& Stack, RESULT_DECL)
@@ -840,14 +796,10 @@ void ARGrappleGun::execFindClosestValidGrapplePosition(FFrame& Stack, RESULT_DEC
     P_GET_FLOAT_OPTX(BonusAngle, 0.f);
     P_GET_UBOOL_OPTX(bZoomed, FALSE);
     P_FINISH;
-    *(FLOAT*)Result = ((ARGrappleGun__017071c0*)this)->FindClosestValidGrapplePosition(PointToCheck, CheckLocation, AimDirection, AimRight, AimUp, MaxRadiusSqr, MaxAngle, OutPosition, PlayerLocation, CheckIndex, TanAngle, IntersectDirection, BonusAngle, bZoomed);
+    *(FLOAT*)Result = this->FindClosestValidGrapplePosition(PointToCheck, CheckLocation, AimDirection, AimRight, AimUp, MaxRadiusSqr, MaxAngle, OutPosition, PlayerLocation, CheckIndex, TanAngle, IntersectDirection, BonusAngle, bZoomed);
 }
 
 /* URBmPawnSpawner::StaticCreatePawn (0x1606a00) isn't declared in the kit. */
-struct URBmPawnSpawner_ : public URBmPawnSpawner
-{
-    ARBMPawnAI* StaticCreatePawn(FVector Location, FRotator Rotation, class AActor* UseSpawnPoint, class UClass* SpawnPawnClass, class UClass* SpawnCharactersType, UBOOL SnapToGround, FName InitialMovementStance, FName InitialWeaponStance);
-};
 
 // @baa 0x01705cf0
 void URBmPawnSpawner::execStaticCreatePawn(FFrame& Stack, RESULT_DECL)
@@ -861,7 +813,7 @@ void URBmPawnSpawner::execStaticCreatePawn(FFrame& Stack, RESULT_DECL)
     P_GET_NAME_OPTX(InitialMovementStance, NAME_None);
     P_GET_NAME_OPTX(InitialWeaponStance, NAME_None);
     P_FINISH;
-    *(ARBMPawnAI**)Result = ((URBmPawnSpawner_*)this)->StaticCreatePawn(Location, Rotation, UseSpawnPoint, SpawnPawnClass, SpawnCharactersType, SnapToGround, InitialMovementStance, InitialWeaponStance);
+    *(ARBMPawnAI**)Result = this->StaticCreatePawn(Location, Rotation, UseSpawnPoint, SpawnPawnClass, SpawnCharactersType, SnapToGround, InitialMovementStance, InitialWeaponStance);
 }
 
 // @baa 0x01703340
@@ -1157,12 +1109,6 @@ void ARBMAIController::execIsPointInFOVWithLookDir(FFrame& Stack, RESULT_DECL)
 	*(BYTE*)Result = IsPointInFOVWithLookDir(TestPos, LookDir);
 }
 
-/* Kit gaps: CalculateFlightPath (01640b10) isn't declared (names from the exe's native table). */
-struct ARBatarangProjectile__01707ed0 : public ARBatarangProjectile
-{
-	void CalculateFlightPath(FVector DesiredLaunchPosition, FVector TargetPosition, class AActor* TargetActor, FLOAT CheckSizeMod);	/* 0x01640b10 */
-};
-
 // @baa 0x01707ed0
 void ARBatarangProjectile::execCalculateFlightPath(FFrame& Stack, RESULT_DECL)
 {
@@ -1171,5 +1117,5 @@ void ARBatarangProjectile::execCalculateFlightPath(FFrame& Stack, RESULT_DECL)
 	P_GET_OBJECT(AActor, TargetActor);
 	P_GET_FLOAT_OPTX(CheckSizeMod, 1.0f);
 	P_FINISH;
-	((ARBatarangProjectile__01707ed0*)this)->CalculateFlightPath(DesiredLaunchPosition, TargetPosition, TargetActor, CheckSizeMod);
+	this->CalculateFlightPath(DesiredLaunchPosition, TargetPosition, TargetActor, CheckSizeMod);
 }

@@ -7,16 +7,9 @@
 
 /* the object flag ActorIsPendingKill tests in this build */
 #define RF_PendingKill ((QWORD)0x2000000000000000)
-struct UObject_ : public UObject {
-    UBOOL HasAnyFlags(QWORD Flags) { return (*(QWORD*)&ObjectFlags & Flags) != 0; }
-};
 
 struct AActor_ : public AActor {
-    UBOOL ActorIsPendingKill() { return bDeleteMe || ((UObject_*)this)->HasAnyFlags(RF_PendingKill); }
-};
-
-struct UPrimitiveComponent_ : public UPrimitiveComponent {
-    void BeginDeferredReattach(); // 00765d00
+    UBOOL ActorIsPendingKill() { return bDeleteMe || this->HasAnyFlags(RF_PendingKill); }
 };
 
 // @baa 0x007693c0
@@ -28,7 +21,7 @@ void MarkOwnerRelevantComponentsDirty(AActor* TheActor)
         UPrimitiveComponent* Primitive = Cast<UPrimitiveComponent>(TheActor->AllComponents(i));
         if (Primitive != NULL && (TheActor->bOnlyOwnerSee || Primitive->bOnlyOwnerSee || Primitive->bOwnerNoSee))
         {
-            ((UPrimitiveComponent_*)Primitive)->BeginDeferredReattach();
+            ((UPrimitiveComponent*)Primitive)->BeginDeferredReattach();
         }
     }
 

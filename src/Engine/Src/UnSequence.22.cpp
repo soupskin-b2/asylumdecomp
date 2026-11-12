@@ -9,32 +9,20 @@
 extern template TArray<UObject**>::~TArray();
 extern template APawn* Cast<APawn>(UObject* Src);
 /* USequenceOp::GetObjectVars (0x008e9100) isn't declared in Classes.h. */
-struct USequenceOp_ : public USequenceOp
-{
-    void GetObjectVars(TArray<UObject**>& outObjVars, const TCHAR* inDesc = NULL);
-};
 
 /* slot 0x174 (vf_174) is USequenceOp::Activated; USequenceAction's is 0x008d1890 */
-struct USequenceAction_ : public USequenceAction
-{
-    void Activated();
-};
 
-struct USeqAct_Possess_ : public USeqAct_Possess
-{
-    void Activated();
-};
 
 // @baa 0x008ea4d0
-void USeqAct_Possess_::Activated()
+void USeqAct_Possess::Activated()
 {
     // pick up the pawn to possess
     PawnToPossess = NULL;
     TArray<UObject**> ObjVars;
-    ((USequenceOp_*)this)->GetObjectVars(ObjVars, TEXT("Pawn Target"));
+    ((USequenceOp*)this)->GetObjectVars(ObjVars, TEXT("Pawn Target"));
     if (ObjVars.Num() > 0)
     {
         PawnToPossess = Cast<APawn>(*(ObjVars(0)));
     }
-    ((USequenceAction_*)this)->USequenceAction_::Activated(); // Super::Activated()
+    ((USequenceAction*)this)->USequenceAction::Activated(); // Super::Activated()
 }

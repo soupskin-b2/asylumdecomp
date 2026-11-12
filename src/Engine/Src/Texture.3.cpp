@@ -132,11 +132,6 @@ void UTexture::Serialize(FArchive& Ar)
     SourceArt.Serialize(Ar, this, INDEX_NONE);
 }
 
-struct UTexture__0072a330 : public UTexture
-{
-	void ReleaseResource(); /* 0x0072a2d0 */
-};
-
 // @baa 0x0072a330
 /* Texture.cpp */
 void UTexture::PreEditChange(UProperty* PropertyAboutToChange)
@@ -145,6 +140,6 @@ void UTexture::PreEditChange(UProperty* PropertyAboutToChange)
 	if (Resource.Dummy)
 	{
 		// Release the current texture resource.
-		((UTexture__0072a330*)this)->ReleaseResource();
+		this->ReleaseResource();
 	}
 }

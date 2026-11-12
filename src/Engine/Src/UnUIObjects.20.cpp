@@ -12,12 +12,6 @@ struct FUIObjectArray : public TArray<UUIObject*>
     FUIObjectArray& operator=(const FUIObjectArray& Other);
 };
 
-struct UUIScreenObject_ : public UUIScreenObject
-{
-    /* INT GetDockClients(TArray<UUIObject*>* out_DockClients, UBOOL bDirectDockClientsOnly, BYTE TargetFace, BYTE SourceFace) */
-    INT sub_00db3360(FUIObjectArray* out_DockClients, UBOOL bDirectDockClientsOnly, BYTE TargetFace, BYTE SourceFace);
-};
-
 // @baa 0x00db7330
 void UUIScreenObject::execGetDockClients(FFrame& Stack, RESULT_DECL)
 {
@@ -38,7 +32,7 @@ void UUIScreenObject::execGetDockClients(FFrame& Stack, RESULT_DECL)
     P_GET_BYTE_OPTX(SourceFace, UIFACE_MAX);
     P_FINISH;
 
-    *(INT*)Result = ((UUIScreenObject_*)this)->sub_00db3360(pDockClients, bDirectDockClientsOnly, TargetFace, SourceFace);
+    *(INT*)Result = this->sub_00db3360(pDockClients, bDirectDockClientsOnly, TargetFace, SourceFace);
 }
 
 /* TArray<UUIDataStore*> with the out-of-line destructor (00cc4a60) the original calls. */
@@ -46,12 +40,6 @@ struct FUIDataStoreArray : public TArray<UUIDataStore*>
 {
     FUIDataStoreArray() {}
     ~FUIDataStoreArray();
-};
-
-struct UUIObject_ : public UUIObject
-{
-    /* GetDefaultDataStores(TArray<UUIDataStore*>& out_BoundDataStores); Classes.h doesn't declare it. */
-    void sub_00db5ac0(FUIDataStoreArray& out_BoundDataStores);
 };
 
 // @baa 0x00cc7770
@@ -63,7 +51,7 @@ void UUIObject::execGetDefaultDataStores(FFrame& Stack, RESULT_DECL)
     Stack.Step(Stack.Object, &out_BoundDataStoresT);
     FUIDataStoreArray& out_BoundDataStores = GPropAddr ? *(FUIDataStoreArray*)GPropAddr : out_BoundDataStoresT;
     P_FINISH;
-    ((UUIObject_*)this)->sub_00db5ac0(out_BoundDataStores);
+    this->sub_00db5ac0(out_BoundDataStores);
 }
 
 // @baa 0x00ca4b80
@@ -194,7 +182,6 @@ void UUIScreenObject::execRequestSceneInputMaskUpdate(FFrame& Stack, RESULT_DECL
 /* Kit gaps: the native's exec and CreateScene (00d707e0) aren't declared (names from the exe's native table). */
 struct UUIInteraction_ : public UUIInteraction
 {
-	class UUIScene* CreateScene(class UClass* SceneClass, FName SceneTag, class UUIScene* SceneTemplate);	/* 0x00d707e0 */
 	void execCreateScene(FFrame& Stack, RESULT_DECL);
 };
 

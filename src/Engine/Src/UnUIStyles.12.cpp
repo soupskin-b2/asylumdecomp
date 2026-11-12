@@ -5,24 +5,18 @@
 #include "ue3/Cast.h"
 #include "ue3/Array.h"
 
-/* Kit gaps: UObject::GetOuter, UUIStyle_Data::GetOwnerStyle and FStyleDataReference's methods aren't declared. */
-struct UObject_ : public UObject
-{
-	FORCEINLINE UObject* GetOuter() const { return Outer; }
-};
-
 struct UUIStyle_Data_ : public UUIStyle_Data
 {
 	/* GetOwnerStyle (00ddb0a0), inline here. */
 	FORCEINLINE UUIStyle* GetOwnerStyle() const
 	{
 		UUIStyle* Result = NULL;
-		if (((UObject_*)this)->GetOuter() != NULL)
+		if (this->GetOuter() != NULL)
 		{
-			Result = Cast<UUIStyle>(((UObject_*)this)->GetOuter());
+			Result = Cast<UUIStyle>(this->GetOuter());
 			if (Result == NULL)
 			{
-				Result = Cast<UUIStyle>(((UObject_*)((UObject_*)this)->GetOuter())->GetOuter());
+				Result = Cast<UUIStyle>(((UObject*)this->GetOuter())->GetOuter());
 			}
 		}
 		return Result;
@@ -35,15 +29,8 @@ FORCEINLINE UBOOL operator==(const FSTYLE_ID& X, const FSTYLE_ID& Y)
 	return ((X.A ^ Y.A) | (X.B ^ Y.B) | (X.C ^ Y.C) | (X.D ^ Y.D)) == 0;
 }
 
-struct UUIStyle_ : public UUIStyle
-{
-	UUIStyle_Data* sub_00dc9980();			/* eventGetDefaultStyle */
-	UBOOL sub_00ddaf10(UUIState* State);		/* IsDirty(State) */
-};
-
 struct FStyleDataReference_ : public FStyleDataReference
 {
-	UUIStyle_Data* GetStyleData() const;		/* 00ddb270 */
 	UBOOL operator==(const FStyleDataReference& Other) const;
 };
 
@@ -66,15 +53,6 @@ UBOOL FStyleDataReference_::operator==(const FStyleDataReference& Other) const
 	return bResult;
 }
 
-/* Kit gap: UObject::IsA is only the free ObjectIsA in Cast.h; the member is kept out of line here (00402b40). */
-struct UObject_IsA : public UObject
-{
-	UBOOL IsA(UClass* SomeBase) const
-	{
-		return ObjectIsA(this, SomeBase);
-	}
-};
-
 // @baa 0x00ddb9c0
 /* UUIStyle_Combo's comparison: the base properties, then the text and image style references. */
 UBOOL UUIStyle_Combo::MatchesStyleData(UUIStyle_Data* StyleToCompare)
@@ -84,7 +62,7 @@ UBOOL UUIStyle_Combo::MatchesStyleData(UUIStyle_Data* StyleToCompare)
 	{
 		bResult = TRUE;
 	}
-	else if (StyleToCompare != NULL && bResult && ((UObject_IsA*)StyleToCompare)->IsA(UUIStyle_Combo::StaticClass()))
+	else if (StyleToCompare != NULL && bResult && StyleToCompare->IsA(UUIStyle_Combo::StaticClass()))
 	{
 		UUIStyle_Combo* OtherComboStyle = Cast<UUIStyle_Combo>(StyleToCompare);
 		bResult = ((const FStyleDataReference_&)TextStyle) == OtherComboStyle->TextStyle

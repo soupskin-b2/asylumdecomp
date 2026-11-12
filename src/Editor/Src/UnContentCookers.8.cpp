@@ -7,16 +7,6 @@
 #include "ue3/Cast.h"
 
 /* FString::operator* (UnString.h) and UObject::GetFullName/GetName (UnObjBas.h), which the headers lack. */
-struct FString_ : public FString
-{
-	const TCHAR* operator*() const { return Num() ? &(*this)(0) : TEXT(""); }
-};
-
-struct UObject_ : public UObject
-{
-	FString_ GetFullName(const UObject* StopOuter = NULL) const;
-	FString_ GetName() const;
-};
 
 /* Core.h: appErrorf hands the message to an attached debugger first. This build has no debugger
  * support (appIsDebuggerPresent is constant), so only the temporaries' destructor flags are left
@@ -30,7 +20,7 @@ template<class T> T* CastChecked(UObject* Src)
 {
 	if (!Src || !ObjectIsA(Src, T::StaticClass()))
 	{
-		appErrorf(TEXT("Cast of %s to %s failed"), Src ? *((UObject_*)Src)->GetFullName() : TEXT("NULL"), *((UObject_*)T::StaticClass())->GetName());
+		appErrorf(TEXT("Cast of %s to %s failed"), Src ? *((UObject*)Src)->GetFullName() : TEXT("NULL"), *((UObject*)T::StaticClass())->GetName());
 	}
 	return (T*)Src;
 }

@@ -26,7 +26,6 @@ template<class T> inline INT AddItem(TArray<T>& Array, const T& Item)
 /* UAnimNode::GetNodes and GetNodesByClass aren't declared in Classes.h. */
 struct UAnimNode_ : public UAnimNode
 {
-	void sub_00c4b530(TArray<UAnimNode*>& Nodes);			/* GetNodes */
 	void GetNodesByClass(TArray<UAnimNode*>& Nodes, UClass* BaseClass);
 };
 
@@ -54,7 +53,6 @@ inline UBOOL operator==(const FName& A, EName N) { return A.Index == N && A.Numb
 /* UAnimNode::GetAnimSeqNodes isn't declared in Classes.h. */
 struct UAnimNode__00c7a3d0 : public UAnimNode
 {
-	void sub_00c4b530(TArray<UAnimNode*>& Nodes);			/* GetNodes */
 	void GetAnimSeqNodes(TArray<UAnimNodeSequence*>& Nodes, FName InSynchGroupName);
 };
 

@@ -40,10 +40,6 @@ FLOAT UAnimNodeBlendBase_::GetBlendWeight(FLOAT ChildWeight)
 static inline FLOAT VSize(const FVector& V) { return appSqrt(V.X * V.X + V.Y * V.Y + V.Z * V.Z); }
 
 /* UActorComponent::GetOwner (UnActorComponent.h), not in the kit. */
-struct UActorComponent_ : public UActorComponent
-{
-	AActor* GetOwner() const { return Owner; }
-};
 
 /* UAnimNodeBlendBySpeed::CalcSpeed (its vtable slot is declared only as a vf_). */
 struct UAnimNodeBlendBySpeed_ : public UAnimNodeBlendBySpeed
@@ -54,7 +50,7 @@ struct UAnimNodeBlendBySpeed_ : public UAnimNodeBlendBySpeed
 // @baa 0x00c4b660
 FLOAT UAnimNodeBlendBySpeed_::CalcSpeed()
 {
-	AActor* Owner = SkelComponent ? ((UActorComponent_*)SkelComponent)->GetOwner() : NULL;
+	AActor* Owner = SkelComponent ? SkelComponent->GetOwner() : NULL;
 	if (Owner)
 	{
 		if (bUseAcceleration)
@@ -83,7 +79,7 @@ struct UAnimNodeScaleRateBySpeed_ : public UAnimNodeScaleRateBySpeed
 // @baa 0x00c4bb40
 FLOAT UAnimNodeScaleRateBySpeed_::GetScaleValue()
 {
-	AActor* Owner = SkelComponent ? ((UActorComponent_*)SkelComponent)->GetOwner() : NULL;
+	AActor* Owner = SkelComponent ? SkelComponent->GetOwner() : NULL;
 	if (Owner && BaseSpeed > KINDA_SMALL_NUMBER)
 	{
 		// FVector::Size (not in the kit)

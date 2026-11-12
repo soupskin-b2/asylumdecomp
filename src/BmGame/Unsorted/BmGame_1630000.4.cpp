@@ -6,14 +6,10 @@
 
 extern FName g_026e3ab8;
 	/* IsGettingUpFromRagdoll */
-struct ARPawnCharacter_ : public ARPawnCharacter
-{
-	UBOOL eventIsGettingUpFromRagdoll();
-};
 
 // @baa 0x01638310
 /* RPawnCharacter.IsGettingUpFromRagdoll script event: the generated glue, out of line here. */
-UBOOL ARPawnCharacter_::eventIsGettingUpFromRagdoll()
+UBOOL ARPawnCharacter::eventIsGettingUpFromRagdoll()
 {
 	struct RPawnCharacter_eventIsGettingUpFromRagdoll_Parms
 	{
@@ -214,7 +210,7 @@ INT ARCombatMove_BatmanStrike::GetStrikeInfoScore(FStrikeInfo TestStrike, BYTE S
 	{
 		return -1;
 	}
-	if (Target && !TestStrike.bHitsLow && ((ARPawnCharacter_*)Target)->eventIsGettingUpFromRagdoll())
+	if (Target && !TestStrike.bHitsLow && Target->eventIsGettingUpFromRagdoll())
 	{
 		return -1;
 	}

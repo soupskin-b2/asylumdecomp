@@ -131,7 +131,6 @@ UBOOL ARFractureWallBase__016e1070::eventAreGunThugsAround()
 /* Kit gaps: the native's exec and UpdateWallState (016d8e90) aren't declared (name from the exe's native table). */
 struct ARFractureWallBase__01706ac0 : public ARFractureWallBase
 {
-	void UpdateWallState();
 	void execUpdateWallState(FFrame& Stack, RESULT_DECL);
 };
 

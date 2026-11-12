@@ -4,13 +4,9 @@
 #include "ue3/Classes.h"
 
 /* UAnimNodeBlend's editor slider handling (UAnimNode vtable slot, declared only as a vf_). */
-struct UAnimNodeBlend_ : public UAnimNodeBlend
-{
-	void HandleSliderMove(INT SliderIndex, INT ValueIndex, FLOAT NewSliderValue);
-};
 
 // @baa 0x00cb2560
-void UAnimNodeBlend_::HandleSliderMove(INT SliderIndex, INT ValueIndex, FLOAT NewSliderValue)
+void UAnimNodeBlend::HandleSliderMove(INT SliderIndex, INT ValueIndex, FLOAT NewSliderValue)
 {
 #line 370 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTreeDraw.cpp"
 	check(0 == SliderIndex && 0 == ValueIndex);
@@ -23,13 +19,9 @@ void UAnimNodeBlend_::HandleSliderMove(INT SliderIndex, INT ValueIndex, FLOAT Ne
 #line 24 "candidate.cpp"
 
 /* UAnimNodeBlendBySpeed's editor slider position (UAnimNode vtable slot, declared only as a vf_). */
-struct UAnimNodeBlendBySpeed_ : public UAnimNodeBlendBySpeed
-{
-	FLOAT GetSliderPosition(INT SliderIndex, INT ValueIndex);
-};
 
 // @baa 0x00cb9450
-FLOAT UAnimNodeBlendBySpeed_::GetSliderPosition(INT SliderIndex, INT ValueIndex)
+FLOAT UAnimNodeBlendBySpeed::GetSliderPosition(INT SliderIndex, INT ValueIndex)
 {
 #line 388 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTreeDraw.cpp"
 	check(0 == SliderIndex && 0 == ValueIndex);
@@ -41,13 +33,9 @@ FLOAT UAnimNodeBlendBySpeed_::GetSliderPosition(INT SliderIndex, INT ValueIndex)
 #line 42 "candidate.cpp"
 
 /* UAnimNodeBlendBySpeed's editor slider handling (UAnimNode vtable slot, declared only as a vf_). */
-struct UAnimNodeBlendBySpeed__00cb94e0 : public UAnimNodeBlendBySpeed
-{
-	void HandleSliderMove(INT SliderIndex, INT ValueIndex, FLOAT NewSliderValue);
-};
 
 // @baa 0x00cb94e0
-void UAnimNodeBlendBySpeed__00cb94e0::HandleSliderMove(INT SliderIndex, INT ValueIndex, FLOAT NewSliderValue)
+void UAnimNodeBlendBySpeed::HandleSliderMove(INT SliderIndex, INT ValueIndex, FLOAT NewSliderValue)
 {
 #line 395 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTreeDraw.cpp"
 	check(0 == SliderIndex && 0 == ValueIndex);
@@ -92,13 +80,9 @@ FIntPoint_ UAnimNode_::GetConnectionLocation(INT ConnType, INT ConnIndex)
 /* Kit gap, with UE3's definition (UnMath.h): PI isn't defined. */
 #define PI (3.1415926535897932)
 /* UAnimNodeBlendDirectional's editor slider handling (UAnimNode vtable slot, declared only as a vf_). */
-struct UAnimNodeBlendDirectional_ : public UAnimNodeBlendDirectional
-{
-	void HandleSliderMove(INT SliderIndex, INT ValueIndex, FLOAT NewSliderValue);
-};
 
 // @baa 0x00c92b80
-void UAnimNodeBlendDirectional_::HandleSliderMove(INT SliderIndex, INT ValueIndex, FLOAT NewSliderValue)
+void UAnimNodeBlendDirectional::HandleSliderMove(INT SliderIndex, INT ValueIndex, FLOAT NewSliderValue)
 {
 #line 419 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTreeDraw.cpp"
 	check(0 == SliderIndex && 0 == ValueIndex);
@@ -112,13 +96,9 @@ void UAnimNodeBlendDirectional_::HandleSliderMove(INT SliderIndex, INT ValueInde
 /* Kit gap, with UE3's definition (UnMath.h): PI and INV_PI aren't defined. */
 #define INV_PI (0.31830988618f)
 /* UAnimNodeBlendDirectional's editor slider position (UAnimNode vtable slot, declared only as a vf_). */
-struct UAnimNodeBlendDirectional__00c92b30 : public UAnimNodeBlendDirectional
-{
-	FLOAT GetSliderPosition(INT SliderIndex, INT ValueIndex);
-};
 
 // @baa 0x00c92b30
-FLOAT UAnimNodeBlendDirectional__00c92b30::GetSliderPosition(INT SliderIndex, INT ValueIndex)
+FLOAT UAnimNodeBlendDirectional::GetSliderPosition(INT SliderIndex, INT ValueIndex)
 {
 #line 412 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTreeDraw.cpp"
 	check(0 == SliderIndex && 0 == ValueIndex);

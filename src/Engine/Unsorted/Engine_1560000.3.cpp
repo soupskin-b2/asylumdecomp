@@ -18,10 +18,6 @@ struct URSeqAct_PlaySpeechBase_ : public URSeqAct_PlaySpeechBase
 };
 
 /* Kit gap: USeqAct_Latent's script event glue for Update (0x008aa600, out of line). */
-struct USeqAct_Latent_ : public USeqAct_Latent
-{
-	UBOOL eventUpdate(FLOAT DeltaTime);
-};
 
 // @baa 0x01568380
 /* The second input aborts the speech. Once the speech has started (or finished) it ends when finished or when
@@ -45,6 +41,6 @@ UBOOL URSeqAct_PlaySpeechBase::UpdateOp(FLOAT DeltaTime)
 			return TRUE;
 		}
 	}
-	((USeqAct_Latent_*)this)->eventUpdate(DeltaTime);
+	((USeqAct_Latent*)this)->eventUpdate(DeltaTime);
 	return FALSE;
 }

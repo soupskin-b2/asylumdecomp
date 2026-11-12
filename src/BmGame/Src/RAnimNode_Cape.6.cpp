@@ -24,13 +24,9 @@ template<class T> struct TArrayAt_ : public TArray<T>
 
 enum { kInvalidLookupTableBoneIndex = -1 };
 /* Unnamed in the kit: the skeleton bone index for a cape chain link. */
-struct URAnimNode_Cape_ : public URAnimNode_Cape
-{
-    INT sub_015691f0(INT ChainIndex, INT LinkIndex);
-};
 
 // @baa 0x015691f0
-INT URAnimNode_Cape_::sub_015691f0(INT ChainIndex, INT LinkIndex)
+INT URAnimNode_Cape::sub_015691f0(INT ChainIndex, INT LinkIndex)
 {
 #line 482 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimNode_Cape.cpp"
     check(BoneIndexLookupTable.Num() > 0);

@@ -28,13 +28,9 @@ void USkelControlBase::SetSkelControlStrength(FLOAT NewStrength, FLOAT InBlendTi
 #define KINDA_SMALL_NUMBER (1.e-4)
 /* slot 0x120 (vf_120) is USkelControlBase::TickSkelControl(FLOAT DeltaSeconds, USkeletalMeshComponent* SkelComp);
  * the base version is at 0x009225f0. */
-struct USkelControlLookAt_ : public USkelControlLookAt
-{
-    void TickSkelControl(FLOAT DeltaSeconds, USkeletalMeshComponent* SkelComp);
-};
 
 // @baa 0x00923c70
-void USkelControlLookAt_::TickSkelControl(FLOAT DeltaSeconds, USkeletalMeshComponent* SkelComp)
+void USkelControlLookAt::TickSkelControl(FLOAT DeltaSeconds, USkeletalMeshComponent* SkelComp)
 {
     USkelControlBase::TickSkelControl(DeltaSeconds, SkelComp);
 

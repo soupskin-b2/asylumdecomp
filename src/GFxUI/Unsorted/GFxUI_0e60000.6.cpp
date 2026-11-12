@@ -12,22 +12,14 @@ extern template UGFxFSCmdHandler_Kismet* Cast<UGFxFSCmdHandler_Kismet>(UObject* 
 template<class T>
 T* ConstructObject(UClass_* Class, UObject* Outer = INVALID_OBJECT, FName Name = NAME_None, QWORD SetFlags = 0, UObject* Template = NULL, UObject* SubobjectRoot = NULL, FObjectInstancingGraph* InstanceGraph = NULL);
 /* USequenceEvent::RegisterEvent (008be6c0); slot 0x1a0 (vf_1a0) is RegisterEvent. */
-struct USequenceEvent_ : public USequenceEvent
-{
-    UBOOL RegisterEvent();
-};
 
 /* UGFxFSCmdHandler_Kismet::RegisterFSCommand (00e68ac0): adds the event to Events under its
  * FSCommand name. */
-struct UGFxFSCmdHandler_Kismet_ : public UGFxFSCmdHandler_Kismet
-{
-    void RegisterFSCommand(UGFxEvent_FsCommand* Event);
-};
 
 // @baa 0x00e6ffb0
 INT UGFxEvent_FsCommand::RegisterEvent()
 {
-    UBOOL bResult = ((USequenceEvent_*)this)->USequenceEvent_::RegisterEvent();
+    UBOOL bResult = ((USequenceEvent*)this)->USequenceEvent::RegisterEvent();
     if (Movie && bResult)
     {
         UGFxFSCmdHandler_Kismet* Handler;
@@ -44,7 +36,7 @@ INT UGFxEvent_FsCommand::RegisterEvent()
             Handler = ConstructObject<UGFxFSCmdHandler_Kismet>((UClass_*)UGFxFSCmdHandler_Kismet::StaticClass());
             Movie->FSCmdHandler = Handler;
         }
-        ((UGFxFSCmdHandler_Kismet_*)Handler)->RegisterFSCommand(this);
+        ((UGFxFSCmdHandler_Kismet*)Handler)->RegisterFSCommand(this);
     }
     return bResult;
 }

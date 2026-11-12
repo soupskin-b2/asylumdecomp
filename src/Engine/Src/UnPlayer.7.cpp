@@ -69,7 +69,6 @@ void UConsole_::eventOutputText(const FString& Text)
 /* Kit gaps: the native's exec and IsFullScreenViewport (008898e0) aren't declared (name from the exe's native table). */
 struct UGameViewportClient__00c8cd10 : public UGameViewportClient
 {
-	UBOOL IsFullScreenViewport();
 	void execIsFullScreenViewport(FFrame& Stack, RESULT_DECL);
 };
 

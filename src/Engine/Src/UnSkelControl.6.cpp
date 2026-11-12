@@ -61,14 +61,10 @@ struct FIntArray : public TArray<INT>
 };
 
 /* slot 0x124 (vf_124) is USkelControlBase::GetAffectedBones */
-struct USkelControl_CCD_IK_ : public USkelControl_CCD_IK
-{
-    void GetAffectedBones(INT BoneIndex, USkeletalMeshComponent* SkelComp, TArray<INT>& OutBoneIndices);
-};
 
 // @baa 0x0092a250
 /* the controlled bone and its NumBones-1 parents, root-most first */
-void USkelControl_CCD_IK_::GetAffectedBones(INT BoneIndex, USkeletalMeshComponent* SkelComp, TArray<INT>& OutBoneIndices)
+void USkelControl_CCD_IK::GetAffectedBones(INT BoneIndex, USkeletalMeshComponent* SkelComp, TArray<INT>& OutBoneIndices)
 {
 #line 1826 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSkelControl.cpp"
     check(OutBoneIndices.Num() == 0);

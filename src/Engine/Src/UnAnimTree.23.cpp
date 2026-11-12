@@ -80,29 +80,16 @@ void UAnimNodeCrossfader::InitAnim(USkeletalMeshComponent* MeshComp, UAnimNodeBl
 }
 
 /* Kit gap: UAnimNodeBlendPerBone::BuildWeightList isn't declared in Classes.h. */
-struct UAnimNodeBlendPerBone_ : public UAnimNodeBlendPerBone
-{
-	void BuildWeightList();
-};
 
 // @baa 0x00c60e20
 void UAnimNodeBlendPerBone::InitAnim(USkeletalMeshComponent* MeshComp, UAnimNodeBlendBase* Parent)
 {
 	Super::InitAnim(MeshComp, Parent);
-	((UAnimNodeBlendPerBone_*)this)->BuildWeightList();
+	((UAnimNodeBlendPerBone*)this)->BuildWeightList();
 }
 
 /* Kit gaps: USkeletalMeshComponent::BuildComposePriorityList and UAnimTree::InitTreeSynchGroups aren't declared
  * in Classes.h. */
-struct USkeletalMeshComponent_ : public USkeletalMeshComponent
-{
-	void sub_0092c310(TArray<BYTE>& PriorityList);	/* BuildComposePriorityList */
-};
-
-struct UAnimTree_ : public UAnimTree
-{
-	void InitTreeSynchGroups();
-};
 
 // @baa 0x00c7e0c0
 void UAnimTree::InitAnim(USkeletalMeshComponent* MeshComp, UAnimNodeBlendBase* Parent)
@@ -110,21 +97,17 @@ void UAnimTree::InitAnim(USkeletalMeshComponent* MeshComp, UAnimNodeBlendBase* P
 	Super::InitAnim(MeshComp, Parent);
 	if (MeshComp)
 	{
-		((USkeletalMeshComponent_*)MeshComp)->sub_0092c310(PriorityList);
+		((USkeletalMeshComponent*)MeshComp)->sub_0092c310(PriorityList);
 	}
-	((UAnimTree_*)this)->InitTreeSynchGroups();
+	((UAnimTree*)this)->InitTreeSynchGroups();
 }
 
 /* Kit gap: UAnimNodeSynch::UpdateAnimSeqNodes isn't declared in Classes.h. */
-struct UAnimNodeSynch_ : public UAnimNodeSynch
-{
-	void UpdateAnimSeqNodes();
-};
 
 // @baa 0x00c7ed60
 void UAnimNodeSynch::InitAnim(USkeletalMeshComponent* MeshComp, UAnimNodeBlendBase* Parent)
 {
-	((UAnimNodeSynch_*)this)->UpdateAnimSeqNodes();
+	((UAnimNodeSynch*)this)->UpdateAnimSeqNodes();
 	Super::InitAnim(MeshComp, Parent);
 }
 
@@ -147,16 +130,12 @@ void UAnimNode::InitAnim(USkeletalMeshComponent* MeshComp, UAnimNodeBlendBase* P
 }
 
 /* Kit gap: UAnimNodeAimOffset::UpdateListOfRequiredBones isn't declared in Classes.h. */
-struct UAnimNodeAimOffset_ : public UAnimNodeAimOffset
-{
-	void UpdateListOfRequiredBones();
-};
 
 // @baa 0x00c69940
 void UAnimNodeAimOffset::InitAnim(USkeletalMeshComponent* MeshComp, UAnimNodeBlendBase* Parent)
 {
 	Super::InitAnim(MeshComp, Parent);
-	((UAnimNodeAimOffset_*)this)->UpdateListOfRequiredBones();
+	((UAnimNodeAimOffset*)this)->UpdateListOfRequiredBones();
 }
 
 extern FName g_026c4610;
@@ -211,15 +190,6 @@ FName UAnimNodeSlot::GetPlayedAnimation()
 	}
 	return NAME_None;
 }
-
-/* Kit gap: FName's comparison operators (UnName.h) */
-struct FName_ : public FName
-{
-	FORCEINLINE UBOOL operator!=(const FName& Other) const
-	{
-		return Index != Other.Index || Number != Other.Number;
-	}
-};
 
 // @baa 0x00c55a30
 void UAnimNodeBlendMultiBone::InitAnim(USkeletalMeshComponent* MeshComp, UAnimNodeBlendBase* Parent)
@@ -288,10 +258,6 @@ void UAnimNodeAdditiveBlending::SetChildrenTotalWeightAccumulator(const INT Inde
 }
 
 /* Callees the kit doesn't declare (all out of line here). */
-struct UAnimNode__00c7ed80 : public UAnimNode
-{
-	UBOOL sub_00c53070(UAnimNode* Node);		/* IsChildOf */
-};
 
 struct FRandomAnimInfoArray : public TArray<FRandomAnimInfo>
 {
@@ -300,15 +266,9 @@ struct FRandomAnimInfoArray : public TArray<FRandomAnimInfo>
 };
 
 /* UAnimNodeRandom's override of UAnimNode::InitAnim (vtable 0x128, declared only as vf_128). */
-struct UAnimNodeRandom_ : public UAnimNodeRandom
-{
-	void sub_00c60e40(USkeletalMeshComponent* MeshComp, UAnimNodeBlendBase* Parent);	/* UAnimNodeBlendList::InitAnim */
-	void sub_00c7c270(FLOAT BlendTime, FLOAT StartTime);					/* PlayPendingAnimation */
-	void InitAnim(USkeletalMeshComponent* MeshComp, UAnimNodeBlendBase* Parent);
-};
 
 // @baa 0x00c7ed80
-void UAnimNodeRandom_::InitAnim(USkeletalMeshComponent* MeshComp, UAnimNodeBlendBase* Parent)
+void UAnimNodeRandom::InitAnim(USkeletalMeshComponent* MeshComp, UAnimNodeBlendBase* Parent)
 {
 	sub_00c60e40(MeshComp, Parent);
 
@@ -330,7 +290,7 @@ void UAnimNodeRandom_::InitAnim(USkeletalMeshComponent* MeshComp, UAnimNodeBlend
 	if (ActiveChildIndex >= 0 && ActiveChildIndex < Children.Num() &&
 		Children(ActiveChildIndex).Anim &&
 		PlayingSeqNode &&
-		((UAnimNode__00c7ed80*)PlayingSeqNode)->sub_00c53070(Children(ActiveChildIndex).Anim))
+		((UAnimNode*)PlayingSeqNode)->sub_00c53070(Children(ActiveChildIndex).Anim))
 	{
 		const FRandomAnimInfo& Info = RandomInfo(ActiveChildIndex);
 		if (PlayingSeqNode->bPlaying || Info.bStillFrame)

@@ -5,13 +5,6 @@
 #include "ue3/AppMath.h"
 
 #define THRESH_QUAT_NORMALIZED 0.02f
-/* Kit gaps: FQuat's inline members (UnMath.h) and FQuatRotationTranslationMatrix aren't declared; this build has
- * the matrix constructor out of line. */
-struct FQuat_ : public FQuat
-{
-	FORCEINLINE FLOAT SizeSquared() const { return X * X + Y * Y + Z * Z + W * W; }
-	FORCEINLINE UBOOL IsNormalized() const { return appAbs(1.f - SizeSquared()) <= THRESH_QUAT_NORMALIZED; }
-};
 
 struct FQuatRotationTranslationMatrix : public FMatrix
 {
@@ -22,7 +15,7 @@ struct FQuatRotationTranslationMatrix : public FMatrix
 /* UnMath.h: a rotation (from a unit quaternion) followed by a translation. */
 FQuatRotationTranslationMatrix::FQuatRotationTranslationMatrix(const FQuat& InQ, const FVector& Origin)
 {
-	const FQuat_& Q = (const FQuat_&)InQ;
+	const FQuat& Q = (const FQuat&)InQ;
 #line 3589 "e:\\projects\\amadeus\\aa\\game\\unrealengine3\\development\\src\\core\\inc\\UnMath.h"
 	check(Q.IsNormalized());
 

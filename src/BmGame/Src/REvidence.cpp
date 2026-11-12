@@ -9,7 +9,6 @@ IMPLEMENT_CLASS_AT(URCrimeSceneAsset, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEn
 // @baa 0x016730b0
 struct FName_ : public FName {
     FName_(const TCHAR* Name, INT FindType = 1, UBOOL bSplitName = 1) { sub_005d5620(Name, FindType, bSplitName); }
-    void sub_005d5620(const TCHAR* Name, INT FindType, UBOOL bSplitName);
 };
 
 struct FNameArray : public TArray<FName> {};

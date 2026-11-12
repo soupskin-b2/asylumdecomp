@@ -4,14 +4,8 @@
 #include "ue3/Classes.h"
 #include "ue3/Native.h"
 
-/* Kit gap: UWorld::GetNetMode (0x009c84b0) isn't declared. */
-struct UWorld_ : public UWorld
-{
-    INT GetNetMode();
-};
-
 #undef GWorld
-#define GWorld ((UWorld_*)g_026b62b8)
+#define GWorld ((UWorld*)g_026b62b8)
 /* Unnamed in the kit: UE3's APawn::IsLocallyControlled(). */
 struct APawn_ : public APawn
 {

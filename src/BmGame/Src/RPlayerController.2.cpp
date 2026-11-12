@@ -211,7 +211,6 @@ C_0160e5d0* C_0160e5d0::sub_0160e5d0(int a0) { return this; }
 
 extern FName g_026e39e4;
 struct UObject_ : public UObject {
-    UFunction* sub_005d7d10(FName InName, INT Global); /* FindFunctionChecked */
     void sub_01612630(BYTE A, INT B, INT C);
 };
 
@@ -1834,122 +1833,73 @@ FString URSeqVar_DDAIntValue::vf_194()
 // @baa 0x01e27860
 void sub_01e27860(void) {  }
 
-struct ARPlayerController_ : public ARPlayerController
-{
-    INT vf_564(INT Value);
-};
-
 // @baa 0x016d27d0
-INT ARPlayerController_::vf_564(INT Value)
+INT ARPlayerController::vf_564(INT Value)
 {
     g_026e232c = Value;
     return Value;
 }
 
 extern INT g_026e2330;
-struct ARPlayerController__016d2830 : public ARPlayerController
-{
-    INT vf_674(INT Value);
-};
 
 // @baa 0x016d2830
-INT ARPlayerController__016d2830::vf_674(INT Value)
+INT ARPlayerController::vf_674(INT Value)
 {
     g_026e2330 = Value;
     return Value;
 }
 
-struct ARPlayerController__016d2840 : public ARPlayerController
-{
-    INT vf_60c(INT Value);
-};
-
 // @baa 0x016d2840
-INT ARPlayerController__016d2840::vf_60c(INT Value)
+INT ARPlayerController::vf_60c(INT Value)
 {
     g_026e2334 = Value;
     return Value;
 }
 
-struct ARPlayerController__016d2860 : public ARPlayerController
-{
-    INT vf_624(INT Value);
-};
-
 // @baa 0x016d2860
-INT ARPlayerController__016d2860::vf_624(INT Value)
+INT ARPlayerController::vf_624(INT Value)
 {
     g_026e2338 = Value;
     return Value;
 }
 
-struct ARPlayerController__016d2880 : public ARPlayerController
-{
-    INT vf_614(INT Value);
-};
-
 // @baa 0x016d2880
-INT ARPlayerController__016d2880::vf_614(INT Value)
+INT ARPlayerController::vf_614(INT Value)
 {
     g_026e233c = Value;
     return Value;
 }
 
-struct ARPlayerController__016d28a0 : public ARPlayerController
-{
-    INT vf_62c(INT Value);
-};
-
 // @baa 0x016d28a0
-INT ARPlayerController__016d28a0::vf_62c(INT Value)
+INT ARPlayerController::vf_62c(INT Value)
 {
     g_026e2340 = Value;
     return Value;
 }
 
-struct ARPlayerController__016d28c0 : public ARPlayerController
-{
-    INT vf_634(INT Value);
-};
-
 // @baa 0x016d28c0
-INT ARPlayerController__016d28c0::vf_634(INT Value)
+INT ARPlayerController::vf_634(INT Value)
 {
     g_026e2344 = Value;
     return Value;
 }
 
-struct ARPlayerController__016d2900 : public ARPlayerController
-{
-    INT vf_63c(INT Value);
-};
-
 // @baa 0x016d2900
-INT ARPlayerController__016d2900::vf_63c(INT Value)
+INT ARPlayerController::vf_63c(INT Value)
 {
     g_026e2348 = Value;
     return Value;
 }
 
-struct ARPlayerController__01719020 : public ARPlayerController
-{
-    INT vf_594(INT Value);
-};
-
 // @baa 0x01719020
-INT ARPlayerController__01719020::vf_594(INT Value)
+INT ARPlayerController::vf_594(INT Value)
 {
     g_025ef800 = Value;
     return Value;
 }
 
-struct ARPlayerController__01719090 : public ARPlayerController
-{
-    INT vf_570(INT Value);
-};
-
 // @baa 0x01719090
-INT ARPlayerController__01719090::vf_570(INT Value)
+INT ARPlayerController::vf_570(INT Value)
 {
     g_026e2538 = Value;
     return Value;

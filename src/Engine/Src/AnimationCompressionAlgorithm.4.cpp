@@ -32,7 +32,6 @@ struct FFloatArray : public TArrayHelpers<FLOAT>
 struct FVector_ : public FVector
 {
 	FVector_(FLOAT InX, FLOAT InY, FLOAT InZ) { X = InX; Y = InY; Z = InZ; }
-	FLOAT Size() const { return appSqrt(X * X + Y * Y + Z * Z); }
 };
 
 /* UAnimationCompressionAlgorithm::FilterTrivialPositionKeys (static) isn't declared in Classes.h. */

@@ -843,10 +843,6 @@ void sub_00c38ac0();
 // @baa 0x0144f4a0
 void sub_0144f4a0(void) { sub_00c38ac0(); }
 
-struct FLinearColor_ : public FLinearColor
-{
-    void sub_0053d1d0(const FColor* In);
-};
 
 struct Sub_0144eae0_Owner
 {
@@ -859,6 +855,6 @@ struct Sub_0144eae0_Owner
 // @baa 0x0144eae0
 FLinearColor* Sub_0144eae0_Owner::sub_0144eae0(FLinearColor* Out)
 {
-    ((FLinearColor_*)Out)->sub_0053d1d0(&Color);
+    ((FLinearColor*)Out)->sub_0053d1d0(&Color);
     return Out;
 }

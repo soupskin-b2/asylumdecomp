@@ -126,14 +126,10 @@ void URSeqAct_ModifyPostProcess_::eventDeactivatePP(class ULocalPlayer* Player)
 
 extern FName g_026e3768;
 	/* UpdatePP */
-struct URSeqAct_ModifyPostProcess__0154bc80 : public URSeqAct_ModifyPostProcess
-{
-	void eventUpdatePP(class ULocalPlayer* Player);
-};
 
 // @baa 0x0154bc80
 /* RSeqAct_ModifyPostProcess.UpdatePP script event: the generated glue, out of line here. */
-void URSeqAct_ModifyPostProcess__0154bc80::eventUpdatePP(class ULocalPlayer* Player)
+void URSeqAct_ModifyPostProcess::eventUpdatePP(class ULocalPlayer* Player)
 {
 	struct RSeqAct_ModifyPostProcess_eventUpdatePP_Parms
 	{
@@ -183,14 +179,10 @@ void URSeqAct_SetStationary1stPersonCamera_::eventForceLookDirection(UBOOL Force
 
 extern FName g_026e2664;
 	/* TickHUD */
-struct URSeqAct_ShowLevelIntroText_ : public URSeqAct_ShowLevelIntroText
-{
-	UBOOL eventTickHUD(FLOAT DeltaTime);
-};
 
 // @baa 0x0154be20
 /* RSeqAct_ShowLevelIntroText.TickHUD script event: the generated glue, out of line here. */
-UBOOL URSeqAct_ShowLevelIntroText_::eventTickHUD(FLOAT DeltaTime)
+UBOOL URSeqAct_ShowLevelIntroText::eventTickHUD(FLOAT DeltaTime)
 {
 	struct RSeqAct_ShowLevelIntroText_eventTickHUD_Parms
 	{
@@ -938,14 +930,10 @@ void URSeqAct_UnlockXrayMode_::eventUnlock()
 
 extern FName g_026e2c00;
 	/* BMGAME_ShutdownHUD */
-struct URSeqAct_Credits_ : public URSeqAct_Credits
-{
-	void eventShutdownHUD();
-};
 
 // @baa 0x01581870
 /* The script event's generated glue (BmGameClasses.h), out of line here. */
-void URSeqAct_Credits_::eventShutdownHUD()
+void URSeqAct_Credits::eventShutdownHUD()
 {
 	ProcessEvent(FindFunctionChecked(g_026e2c00), NULL);
 }
@@ -966,14 +954,10 @@ void URSeqAct_Credits__015818a0::eventInitHUD()
 
 extern FName g_026e375c;
 	/* BMGAME_TickFade */
-struct URSeqAct_FadeScreen_ : public URSeqAct_FadeScreen
-{
-	UBOOL eventTickFade(FLOAT DeltaTime);
-};
 
 // @baa 0x01581ae0
 /* The script event's generated glue (BmGameClasses.h), out of line here. */
-UBOOL URSeqAct_FadeScreen_::eventTickFade(FLOAT DeltaTime)
+UBOOL URSeqAct_FadeScreen::eventTickFade(FLOAT DeltaTime)
 {
 	struct RSeqAct_FadeScreen_eventTickFade_Parms
 	{
@@ -1006,14 +990,10 @@ void URSeqAct_FadeScreen__01581b40::eventSetFadeType(UBOOL FadeIn)
 }
 
 	/* BMGAME_TickFade */
-struct URSeqAct_FadeSound_ : public URSeqAct_FadeSound
-{
-	UBOOL eventTickFade(FLOAT DeltaTime);
-};
 
 // @baa 0x01581e50
 /* The script event's generated glue (BmGameClasses.h), out of line here. */
-UBOOL URSeqAct_FadeSound_::eventTickFade(FLOAT DeltaTime)
+UBOOL URSeqAct_FadeSound::eventTickFade(FLOAT DeltaTime)
 {
 	struct RSeqAct_FadeSound_eventTickFade_Parms
 	{
@@ -1095,12 +1075,6 @@ struct URSeqAct_Credits__015818f0 : public URSeqAct_Credits
 	{
 		ProcessEvent(FindFunctionChecked(g_026e2644), NULL);
 	}
-	void eventShutdownHUD();
-};
-
-struct USeqAct_Latent_ : public USeqAct_Latent
-{
-	UBOOL eventUpdate(FLOAT DeltaTime);
 };
 
 // @baa 0x015818f0
@@ -1127,7 +1101,7 @@ UBOOL URSeqAct_Credits::UpdateOp(FLOAT DeltaTime)
 	}
 	else if (bCreditsActive)
 	{
-		return !((USeqAct_Latent_*)this)->eventUpdate(DeltaTime);
+		return !this->eventUpdate(DeltaTime);
 	}
 	return FALSE;
 }

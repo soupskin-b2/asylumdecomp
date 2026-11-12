@@ -1147,7 +1147,6 @@ UBOOL UInteraction__00888e10::delegateOnReceivedNativeInputKey(INT ControllerId,
  * ULocalPlayer::RebuildPlayerPostProcessChain() (0x0089dea0). */
 struct ULocalPlayer_ : public ULocalPlayer
 {
-    void sub_0089dea0();
     UBOOL sub_0089e590(INT InIndex);
 };
 

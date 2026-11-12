@@ -60,17 +60,12 @@ C_00e42eb0* C_00e42eb0::sub_00e42eb0(INT Value)
 
 /* UObject::GetOutermost (005d7350) and the static UObject::GetTransientPackage (005c1d70);
  * Classes.h declares neither on UObject. */
-struct UObject_ : public UObject
-{
-    UObject* GetOutermost();            /* 0x005d7350 */
-    static UObject* GetTransientPackage(); /* 0x005c1d70 */
-};
 
 // @baa 0x00e44f80
 void UGFxMovie::Serialize(FArchive& Ar)
 {
     /* don't save a command handler that lives in the transient package */
-    if (Ar.IsSaving() && FSCmdHandler && ((UObject_*)FSCmdHandler)->GetOutermost() == UObject_::GetTransientPackage())
+    if (Ar.IsSaving() && FSCmdHandler && ((UObject*)FSCmdHandler)->GetOutermost() == UObject::GetTransientPackage())
     {
         FSCmdHandler = NULL;
     }
@@ -79,14 +74,10 @@ void UGFxMovie::Serialize(FArchive& Ar)
 
 extern FName g_026caf98;
  /* GFXUI_Start (registered from L"Start" in 00e427c0) */
-struct UGFxMovie_ : public UGFxMovie
-{
-    UBOOL eventStart(UBOOL StartPaused);
-};
 
 // @baa 0x00e42060
 /* The Start script event's generated glue (GFxUIClasses.h). */
-UBOOL UGFxMovie_::eventStart(UBOOL StartPaused)
+UBOOL UGFxMovie::eventStart(UBOOL StartPaused)
 {
     struct GFxMovie_eventStart_Parms
     {

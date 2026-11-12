@@ -3672,17 +3672,13 @@ void AActor::BeginDestroy()
 }
 
 /* Kit gap: FRenderCommandFence::GetNumPendingFences (0x0071f7e0) isn't declared. */
-struct FRenderCommandFence_ : public FRenderCommandFence
-{
-    UINT GetNumPendingFences() const;
-};
 
 // @baa 0x00757d90
 /* AActor slot 0x24 (kit vf_024): UE3's AActor::IsReadyForFinishDestroy(): the render thread is done with the
  * components detached in BeginDestroy. */
 UBOOL AActor::IsReadyForFinishDestroy()
 {
-    return ((const FRenderCommandFence_&)DetachFence).GetNumPendingFences() == 0;
+    return ((const FRenderCommandFence&)DetachFence).GetNumPendingFences() == 0;
 }
 
 struct C_00984e90
@@ -3731,10 +3727,6 @@ void C_00984660::sub_00984660(C_00984660_Target* Other)
 }
 
 /* Kit gap: UObject::ConditionalPostLoad isn't declared in Classes.h. */
-struct UObject_ : public UObject
-{
-	void ConditionalPostLoad();
-};
 
 // @baa 0x009918f0
 void UTerrainLayerSetup::PostLoad()
@@ -3752,10 +3744,10 @@ void UTerrainLayerSetup::PostLoad()
 		UTerrainMaterial* TerrainMaterial = Materials(MaterialIndex).Material;
 		if (TerrainMaterial)
 		{
-			((UObject_*)TerrainMaterial)->ConditionalPostLoad();
+			((UObject*)TerrainMaterial)->ConditionalPostLoad();
 			if (TerrainMaterial->Material)
 			{
-				((UObject_*)TerrainMaterial->Material)->ConditionalPostLoad();
+				((UObject*)TerrainMaterial->Material)->ConditionalPostLoad();
 			}
 		}
 	}

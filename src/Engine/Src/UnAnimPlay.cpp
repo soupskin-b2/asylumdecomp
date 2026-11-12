@@ -165,14 +165,10 @@ IMPLEMENT_CLASS_AT(UAnimNodeSequenceBlendByAim, "e:\\Projects\\Amadeus\\AA\\Game
 
 // @baa 0x00c64dd0
 struct UCameraAnimInst_ : public UCameraAnimInst {
-    void sub_007880c0(UBOOL bImmediate);   /* Stop */
     void sub_00788120(FLOAT NewWeight);    /* ApplyWeight */
 };
 
 struct UAnimNodeSequence_ : public UAnimNodeSequence {
-    void sub_00c5e2f0(FLOAT MoveDelta, FLOAT DeltaSeconds, UBOOL bFireNotifies); /* AdvanceBy */
-    UBOOL sub_00c4fe50();
-    void sub_00c4fee0();                   /* StartCameraAnim */
     void StopCameraAnim()
     {
         if (ActiveCameraAnimInstance)
@@ -253,10 +249,6 @@ FVector2D UAnimNodeSequenceBlendByAim2::sub_00c4b080()
 }
 
 /* SetAnimInfo (00c52b90) isn't declared on UAnimNodeSequenceBlendBase. */
-struct UAnimNodeSequenceBlendBase_ : public UAnimNodeSequenceBlendBase
-{
-	void SetAnimInfo(FName InSequenceName, FAnimInfo& InAnimInfo);
-};
 
 // @baa 0x00c5e6a0
 /* vf_1a0 is CheckAnimsUpToDate (flagged): refreshes every blended animation's info, and plays the first
@@ -267,7 +259,7 @@ void UAnimNodeSequenceBlendBase::CheckAnimsUpToDate()
 	bool bUpdatedSeqNode = false;
 	for (INT i = 0; i < NumAnims; i++)
 	{
-		((UAnimNodeSequenceBlendBase_*)this)->SetAnimInfo(Anims(i).AnimName, Anims(i).AnimInfo);
+		this->SetAnimInfo(Anims(i).AnimName, Anims(i).AnimInfo);
 
 		if (!bUpdatedSeqNode && Anims(i).AnimInfo.AnimSeq)
 		{

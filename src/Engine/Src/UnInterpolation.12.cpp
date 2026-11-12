@@ -67,14 +67,9 @@ void USeqAct_Interp_::NotifyActorsOfChange()
     }
 }
 
-struct UInterpGroup_ : public UInterpGroup
-{
-    UBOOL HasAnimControlTrack() const; /* 0x00cf3d60 */
-};
-
 // @baa 0x00cf3d60
 /* UE3's UInterpGroup::HasAnimControlTrack(): whether any of the group's tracks is an anim control track. */
-UBOOL UInterpGroup_::HasAnimControlTrack() const
+UBOOL UInterpGroup::HasAnimControlTrack() const
 {
     UBOOL bHasAnimTrack = FALSE;
     for (INT i = 0; i < InterpTracks.Num(); i++)

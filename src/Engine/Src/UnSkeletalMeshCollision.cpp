@@ -18,9 +18,6 @@ static FORCEINLINE FLOAT GetMax(const FVector& V)
 struct FVector_ : public FVector
 {
     FVector_(FLOAT InX, FLOAT InY, FLOAT InZ) : FVector(InX, InY, InZ) {}
-
-    FVector_ operator+(const FVector& V) const { return FVector_(X + V.X, Y + V.Y, Z + V.Z); }
-    FVector_ operator*(FLOAT Scale) const { return FVector_(X * Scale, Y * Scale, Z * Scale); }
 };
 
 /* TkDOPLineCollisionCheck<FSkelMeshCollisionDataProvider,WORD> (UnkDOP.h): a line check against a bone's

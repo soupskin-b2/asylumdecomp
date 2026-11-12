@@ -369,10 +369,6 @@ INT __stdcall sub_00803510(void* Object)
 }
 
 /* Kit gap: APawn::eventBreathTimer (the script-event glue, 0x00802db0) isn't declared. */
-struct APawn_ : public APawn
-{
-    void eventBreathTimer();
-};
 
 // @baa 0x00803820
 /* APawn slot 0x1b4 (kit vf_1b4): UE3's APawn::TickSpecial(FLOAT DeltaSeconds): the authority counts down
@@ -385,7 +381,7 @@ void APawn::vf_1b4(FLOAT DeltaSeconds)
         if (BreathTime < 0.001f)
         {
             BreathTime = 0.f;
-            ((APawn_*)this)->eventBreathTimer();
+            ((APawn*)this)->eventBreathTimer();
         }
     }
     if (Physics == PHYS_None && Controller)

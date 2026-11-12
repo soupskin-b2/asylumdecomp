@@ -22,10 +22,6 @@ template<class T> struct TArrayAt_ : public TArray<T>
 };
 
 /* FMatrix::operator* (UnMath.h, out of line at 0x0058e560); the kit's FMatrix has no methods. */
-struct FMatrix_ : public FMatrix
-{
-    FMatrix operator*(const FMatrix& Other) const;
-};
 
 // @baa 0x00d776d0
 /* UnSkeletalMesh.cpp helper: world-space matrix of a bone, or identity for a bad index */
@@ -33,7 +29,7 @@ FMatrix GetBoneMatrix(INT BoneIndex, const TArray<FMatrix>& SpaceBases, const FM
 {
     if (BoneIndex != INDEX_NONE && BoneIndex < SpaceBases.Num())
     {
-        return (const FMatrix_&)((const TArrayAt_<FMatrix>&)SpaceBases).At(BoneIndex) * LocalToWorld;
+        return (const FMatrix&)((const TArrayAt_<FMatrix>&)SpaceBases).At(BoneIndex) * LocalToWorld;
     }
     return FMatrix::Identity;
 }

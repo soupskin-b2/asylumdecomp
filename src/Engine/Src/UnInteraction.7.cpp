@@ -5,10 +5,6 @@
 
 // FName's string constructor (UnName.cpp), missing from the kit's FName.
 
-struct FNameString : public FName
-{
-	FNameString(const TCHAR* Name, EFindName FindType = FNAME_Add, UBOOL bSplitName = TRUE); /* 0x005d5620 */
-};
 
 // The UI input alias names (UIKEY_Consume, UIKEY_NextControl, ...), registered once at startup.
 #define DECLARE_UI_KEY(name) extern FName UIKEY_##name;
@@ -57,7 +53,7 @@ DECLARE_UI_KEY(ScrollRight)
 DECLARE_UI_KEY(ScrollTop)
 DECLARE_UI_KEY(ScrollBottom)
 #undef DECLARE_UI_KEY
-#define DECLARE_UI_KEY(name) UIKEY_##name = FNameString(TEXT(#name));
+#define DECLARE_UI_KEY(name) UIKEY_##name = FName(TEXT(#name));
 // @baa 0x00d6c1a0
 void sub_00d6c1a0()
 {

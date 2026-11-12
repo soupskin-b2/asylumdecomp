@@ -2326,24 +2326,14 @@ void UPrimitiveComponent_::sub_006db520(const FMatrix* ParentToWorld)
 }
 
 // The real material-usage helper lives at 006d72b0 (this in ecx, two stack args).
-struct UMaterial_ : public UMaterial
-{
-    INT sub_006d72b0(INT* bInUse, INT Usage); /* 0x006d72b0 */
-};
 
 // @baa 0x006d74b0
 INT UMaterial::CheckMaterialUsage(INT Usage)
 {
-    UMaterial_* self = static_cast<UMaterial_*>(this);
+    UMaterial* self = static_cast<UMaterial*>(this);
     INT bInUse = 0;
     return self->sub_006d72b0(&bInUse, Usage);
 }
-
-/* Kit gap: UActorComponent::BeginDeferredReattach (0x00765d00) isn't declared. */
-struct UActorComponent_ : public UActorComponent
-{
-    void BeginDeferredReattach(); /* 0x00765d00 */
-};
 
 // @baa 0x006db970
 /* Changing owner visibility needs the render state rebuilt. */
@@ -2352,7 +2342,7 @@ void UPrimitiveComponent::SetOwnerNoSee(UBOOL bNewOwnerNoSee)
     if (bOwnerNoSee != bNewOwnerNoSee)
     {
         bOwnerNoSee = bNewOwnerNoSee;
-        ((UActorComponent_*)this)->BeginDeferredReattach();
+        this->BeginDeferredReattach();
     }
 }
 
@@ -2403,18 +2393,11 @@ INT UPrimitiveComponent::vf_1e8()
     return Position.Z < -100000.f;
 }
 
-/* Kit gap: FRenderCommandFence::GetNumPendingFences (0x0071f7e0) isn't declared, and UPrimitiveComponent::DetachFence
- * is typed INT. */
-struct FRenderCommandFence_ : public FRenderCommandFence
-{
-	UINT GetNumPendingFences() const;
-};
-
 // @baa 0x006db650
 /* Ready once the rendering thread has processed the detach. */
 UBOOL UPrimitiveComponent::IsReadyForFinishDestroy()
 {
-	return ((const FRenderCommandFence_&)DetachFence).GetNumPendingFences() == 0;
+	return ((const FRenderCommandFence&)DetachFence).GetNumPendingFences() == 0;
 }
 
 // @baa 0x006dba30
@@ -2444,11 +2427,6 @@ void UPrimitiveComponent::SetHiddenEditor(UBOOL NewHidden)
 	}
 }
 
-struct UMaterialInstance_ : public UMaterialInstance
-{
-	void UpdateStaticPermutation(); /* 0x006bbfd0 */
-};
-
 // @baa 0x006d8ec0
 /* MaterialInstanceTimeVarying.cpp */
 void UMaterialInstanceTimeVarying::PostEditChange(UProperty* PropertyThatChanged)
@@ -2457,5 +2435,5 @@ void UMaterialInstanceTimeVarying::PostEditChange(UProperty* PropertyThatChanged
 
 	InitResources();
 
-	((UMaterialInstance_*)this)->UpdateStaticPermutation();
+	this->UpdateStaticPermutation();
 }

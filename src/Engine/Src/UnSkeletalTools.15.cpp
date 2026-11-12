@@ -109,14 +109,10 @@ UBOOL USkeletalMesh_::IsOnlyClothMesh() const
 /* the most bones a chunk can have for GPU skinning (UnSkeletalRender.h) */
 #define MAX_GPUSKIN_BONES 75
 /* USkeletalMesh::IsCPUSkinned isn't declared in Classes.h */
-struct USkeletalMesh__00951af0 : public USkeletalMesh
-{
-    UBOOL IsCPUSkinned() const;
-};
 
 // @baa 0x00951af0
 /* whether the mesh must be skinned on the CPU: forced, or a chunk has too many bones for the GPU path */
-UBOOL USkeletalMesh__00951af0::IsCPUSkinned() const
+UBOOL USkeletalMesh::IsCPUSkinned() const
 {
     UBOOL bCPUSkinned = bForceCPUSkinning;
     if (!bCPUSkinned && ((const TIndirectArray<FStaticLODModel>&)LODModels).Num() != 0)

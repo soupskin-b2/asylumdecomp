@@ -122,8 +122,6 @@ void UPointLightComponent::vf_184()
 struct FVector_ : public FVector
 {
 	FORCEINLINE FVector_(FLOAT InX, FLOAT InY, FLOAT InZ) : FVector(InX, InY, InZ) {}
-	FORCEINLINE FVector operator+(const FVector& V) const { return FVector(X + V.X, Y + V.Y, Z + V.Z); }
-	FORCEINLINE FVector operator-(const FVector& V) const { return FVector(X - V.X, Y - V.Y, Z - V.Z); }
 };
 
 struct FMatrix__006daa30 : public FMatrix

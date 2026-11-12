@@ -415,11 +415,6 @@ struct FDynamicLightEnvironmentState_ {
     void sub_006ce960(FLOAT DeltaTime);     // FDynamicLightEnvironmentState::Tick
 };
 
-struct UActorComponent_ : public UActorComponent {
-    void sub_007595c0(FLOAT DeltaTime);     // UActorComponent::Tick
-    void sub_007596b0(BYTE NewTickGroup);   // SetTickGroup
-};
-
 /* vf_124 is declared `INT vf_124(FLOAT)`, but this override returns nothing (void Tick(FLOAT)). */
 struct UDynamicLightEnvironmentComponent_ : public UDynamicLightEnvironmentComponent {
     void sub_006cee60(FLOAT DeltaTime);
@@ -428,10 +423,10 @@ struct UDynamicLightEnvironmentComponent_ : public UDynamicLightEnvironmentCompo
 // @baa 0x006cee60
 void UDynamicLightEnvironmentComponent_::sub_006cee60(FLOAT DeltaTime)
 {
-    ((UActorComponent_*)this)->sub_007595c0(DeltaTime);
+    this->sub_007595c0(DeltaTime);
     if (bEnabled) {
         if (bRequiresNonLatentUpdates && TickGroup != 4) {
-            ((UActorComponent_*)this)->sub_007596b0(4);
+            this->sub_007596b0(4);
         }
 #line 1025 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\DynamicLightEnvironmentComponent.cpp"
         if (!*(void**)&State) appFailAssert("State", __FILE__, __LINE__, TEXT(""));

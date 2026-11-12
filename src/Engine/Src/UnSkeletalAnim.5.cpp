@@ -111,12 +111,6 @@ struct FVector_ : public FVector
 	FVector_(FLOAT InX, FLOAT InY, FLOAT InZ) { X = InX; Y = InY; Z = InZ; }
 };
 
-/* Kit gaps: AttachComponent (0093fba0) isn't declared (names from the exe's native table). */
-struct USkeletalMeshComponent_ : public USkeletalMeshComponent
-{
-	void AttachComponent(class UActorComponent* Component, FName BoneName, FVector RelativeLocation, FRotator RelativeRotation, FVector RelativeScale);	/* 0x0093fba0 */
-};
-
 // @baa 0x0093fea0
 void USkeletalMeshComponent::execAttachComponent(FFrame& Stack, RESULT_DECL)
 {
@@ -128,6 +122,6 @@ void USkeletalMeshComponent::execAttachComponent(FFrame& Stack, RESULT_DECL)
 	P_FINISH;
 	if (Component)
 	{
-		((USkeletalMeshComponent_*)this)->AttachComponent(Component, BoneName, RelativeLocation, RelativeRotation, RelativeScale);
+		this->AttachComponent(Component, BoneName, RelativeLocation, RelativeRotation, RelativeScale);
 	}
 }

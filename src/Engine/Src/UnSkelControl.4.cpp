@@ -4,13 +4,9 @@
 #include "ue3/Classes.h"
 
 /* slot 0x140 (vf_140) is USkelControlBase::HandleWidgetDrag(INT WidgetIndex, const FVector& DragVec) */
-struct USkelControlSingleBone_ : public USkelControlSingleBone
-{
-    void HandleWidgetDrag(INT WidgetIndex, const FVector& DragVec);
-};
 
 // @baa 0x0090cfe0
-void USkelControlSingleBone_::HandleWidgetDrag(INT WidgetIndex, const FVector& DragVec)
+void USkelControlSingleBone::HandleWidgetDrag(INT WidgetIndex, const FVector& DragVec)
 {
 #line 466 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSkelControl.cpp"
     check(WidgetIndex == 0);
@@ -22,13 +18,9 @@ void USkelControlSingleBone_::HandleWidgetDrag(INT WidgetIndex, const FVector& D
 #line 23 "candidate.cpp"
 
 /* slot 0x140 (vf_140) is USkelControlBase::HandleWidgetDrag(INT WidgetIndex, const FVector& DragVec) */
-struct USkelControlLookAt_ : public USkelControlLookAt
-{
-    void HandleWidgetDrag(INT WidgetIndex, const FVector& DragVec);
-};
 
 // @baa 0x0090d140
-void USkelControlLookAt_::HandleWidgetDrag(INT WidgetIndex, const FVector& DragVec)
+void USkelControlLookAt::HandleWidgetDrag(INT WidgetIndex, const FVector& DragVec)
 {
 #line 911 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSkelControl.cpp"
     check(WidgetIndex == 0);
@@ -40,13 +32,9 @@ void USkelControlLookAt_::HandleWidgetDrag(INT WidgetIndex, const FVector& DragV
 #line 41 "candidate.cpp"
 
 /* slot 0x140 (vf_140) is USkelControlBase::HandleWidgetDrag(INT WidgetIndex, const FVector& DragVec) */
-struct USkelControl_CCD_IK_ : public USkelControl_CCD_IK
-{
-    void HandleWidgetDrag(INT WidgetIndex, const FVector& DragVec);
-};
 
 // @baa 0x0090d2f0
-void USkelControl_CCD_IK_::HandleWidgetDrag(INT WidgetIndex, const FVector& DragVec)
+void USkelControl_CCD_IK::HandleWidgetDrag(INT WidgetIndex, const FVector& DragVec)
 {
 #line 2094 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSkelControl.cpp"
     check(WidgetIndex == 0);
@@ -58,14 +46,10 @@ void USkelControl_CCD_IK_::HandleWidgetDrag(INT WidgetIndex, const FVector& Drag
 #line 59 "candidate.cpp"
 
 /* slot 0x140 (vf_140) is USkelControlBase::HandleWidgetDrag(INT WidgetIndex, const FVector& DragVec) */
-struct USkelControlLimb_ : public USkelControlLimb
-{
-    void HandleWidgetDrag(INT WidgetIndex, const FVector& DragVec);
-};
 
 // @baa 0x0090d1f0
 /* widget 0 moves the effector, widget 1 the joint target */
-void USkelControlLimb_::HandleWidgetDrag(INT WidgetIndex, const FVector& DragVec)
+void USkelControlLimb::HandleWidgetDrag(INT WidgetIndex, const FVector& DragVec)
 {
 #line 1423 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSkelControl.cpp"
     check(WidgetIndex < 2);

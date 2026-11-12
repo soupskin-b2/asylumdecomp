@@ -28,15 +28,6 @@ template<typename T> struct TArrayAddUnique_ : public TArray<T>
 	}
 };
 
-struct FStringM : public FString
-{
-	FORCEINLINE const TCHAR* operator*() const
-	{
-		return Num() ? &(*this)(0) : TEXT("");
-	}
-};
-
-
 class FObjectInstancingGraph;
 struct UClass_;
 template<class T>
@@ -47,7 +38,7 @@ void UUIDataStore_SessionSettings::InitializeDataStore()
 {
 	for (INT ClassIndex = 0; ClassIndex < SessionSettingsProviderClassNames.Num(); ClassIndex++)
 	{
-		const FStringM& ClassName = (const FStringM&)SessionSettingsProviderClassNames(ClassIndex);
+		const FString& ClassName = (const FString&)SessionSettingsProviderClassNames(ClassIndex);
 		UClass* ProviderClass = LoadClass<USessionSettingsProvider>(NULL, *ClassName, NULL, LOAD_None, NULL);
 		if (ProviderClass != NULL)
 		{

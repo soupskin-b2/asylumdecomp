@@ -12,8 +12,6 @@ IMPLEMENT_CLASS_AT(AFoliageFactory, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngi
 
 struct AFoliageFactory_ : public AFoliageFactory
 {
-    void sub_00784510(UINT Param);
-    void sub_00bd52b0();
     void sub_00bd59c0(UINT Param);
 };
 

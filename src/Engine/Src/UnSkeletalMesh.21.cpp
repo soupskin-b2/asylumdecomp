@@ -185,16 +185,12 @@ public:
 /* starts initialising a resource on the rendering thread (RenderResource.cpp, 0x0073be30) */
 void BeginInitResource(FRenderResource* Resource);
 /* USkeletalMesh::IsCPUSkinned (0x00951af0) isn't declared in Classes.h */
-struct USkeletalMesh_ : public USkeletalMesh
-{
-    UBOOL IsCPUSkinned() const;
-};
 
 /* FStaticLODModel (UnSkeletalMesh.h): one LOD of a skeletal mesh. Not in the kit. */
 class FStaticLODModel
 {
 public:
-    void InitResources(class USkeletalMesh_* Parent);
+    void InitResources(class USkeletalMesh* Parent);
 
 private:
     FSkelMeshSectionArray Sections;
@@ -214,7 +210,7 @@ private:
 
 // @baa 0x0095bbf0
 /* start initialising the LOD's index buffer, and its vertex buffer when it's skinned on the GPU */
-void FStaticLODModel::InitResources(USkeletalMesh_* Parent)
+void FStaticLODModel::InitResources(USkeletalMesh* Parent)
 {
 #line 543 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSkeletalMesh.cpp"
     check(Parent);

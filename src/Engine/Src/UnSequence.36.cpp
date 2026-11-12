@@ -11,10 +11,6 @@
 #define SMALL_NUMBER (1.e-8f)
 /* Unnamed in the kit (0x008c09f0): force (or stop forcing) the materials' mips resident for Duration, here and on
  * every remote player. */
-struct USeqAct_ForceMaterialMipsResident_ : public USeqAct_ForceMaterialMipsResident
-{
-    void sub_008c09f0(UBOOL bEnable, FLOAT Duration);
-};
 
 extern FName g_026c4580;
  /* ENGINE_ClientSetForceMipLevelsToBeResident */
@@ -35,7 +31,7 @@ struct APlayerController_ : public APlayerController
 };
 
 // @baa 0x008c09f0
-void USeqAct_ForceMaterialMipsResident_::sub_008c09f0(UBOOL bEnable, FLOAT Duration)
+void USeqAct_ForceMaterialMipsResident::sub_008c09f0(UBOOL bEnable, FLOAT Duration)
 {
     if (!bEnable)
     {
@@ -67,7 +63,7 @@ void USeqAct_ForceMaterialMipsResident_::sub_008c09f0(UBOOL bEnable, FLOAT Durat
 /* UE3's USeqAct_ForceMaterialMipsResident::Activated(): start forcing; a (near) zero duration means an hour. */
 void USeqAct_ForceMaterialMipsResident::Activated()
 {
-    ((USeqAct_ForceMaterialMipsResident_*)this)->sub_008c09f0(TRUE, ForceDuration);
+    ((USeqAct_ForceMaterialMipsResident*)this)->sub_008c09f0(TRUE, ForceDuration);
     FLOAT Duration = ForceDuration;
     if (appAbs(Duration) < SMALL_NUMBER)
     {

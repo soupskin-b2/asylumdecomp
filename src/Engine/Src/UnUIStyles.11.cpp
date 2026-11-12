@@ -4,18 +4,12 @@
 #include "ue3/Classes.h"
 #include "ue3/AppMath.h"
 
-/* Kit gaps: FScriptDelegate::IsCallable (00784f80), UUIStyle_Data::delegateMatchesStyleData (00dc9a40, script
- * delegate glue), FLinearColor::operator== and DELTA aren't declared. */
-#define DELTA (0.00001f)
+/* Kit gaps: FScriptDelegate::IsCallable (00784f80) and UUIStyle_Data::delegateMatchesStyleData (00dc9a40, script
+ * delegate glue) aren't declared. */
 struct FScriptDelegate_ : public FScriptDelegate
 {
 	UBOOL IsCallable(const UObject* OwnerObject) const;
 };
-
-FORCEINLINE UBOOL operator==(const FLinearColor& A, const FLinearColor& B)
-{
-	return A.R == B.R && A.G == B.G && A.B == B.B && A.A == B.A;
-}
 
 struct UUIStyle_Data_ : public UUIStyle_Data
 {

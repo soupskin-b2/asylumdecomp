@@ -87,10 +87,6 @@ void URRopeComponentBase_::eventCallQueueReattach()
 }
 
 /* URGadgetSelect::UpdateSelectedGadget (0x16416c0) isn't declared in the kit. */
-struct URGadgetSelect__01708750 : public URGadgetSelect
-{
-    void UpdateSelectedGadget(FLOAT DeltaTime, UBOOL bCanCycleGadgets);
-};
 
 // @baa 0x01708750
 void URGadgetSelect::execUpdateSelectedGadget(FFrame& Stack, RESULT_DECL)
@@ -98,5 +94,5 @@ void URGadgetSelect::execUpdateSelectedGadget(FFrame& Stack, RESULT_DECL)
     P_GET_FLOAT(DeltaTime);
     P_GET_UBOOL(bCanCycleGadgets);
     P_FINISH;
-    ((URGadgetSelect__01708750*)this)->UpdateSelectedGadget(DeltaTime, bCanCycleGadgets);
+    this->UpdateSelectedGadget(DeltaTime, bCanCycleGadgets);
 }

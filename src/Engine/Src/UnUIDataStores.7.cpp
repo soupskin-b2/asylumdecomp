@@ -85,7 +85,6 @@ void UUISkin::execAddUISoundCue(FFrame& Stack, RESULT_DECL)
 	*(UBOOL*)Result = AddUISoundCue(SoundCueName, SoundToPlay);
 }
 
-
 // @baa 0x00ca2560
 void UUIDataStore_InputAlias::execGetAliasInputKeyNameByIndex(FFrame& Stack, RESULT_DECL)
 {
@@ -196,70 +195,54 @@ void UUISkin::execRemoveUISoundCue(FFrame& Stack, RESULT_DECL)
 #define INVALID_OBJECT ((UObject*)-1)
 class FObjectInstancingGraph;
 /* UStruct::IsChildOf isn't declared in Classes.h; this is UE3's inline body. */
-struct UClass_ : public UClass
-{
-    UBOOL IsChildOf(const UField* SomeBase) const
-    {
-        for (const UField* Struct = this; Struct; Struct = Struct->SuperField)
-            if (Struct == SomeBase)
-                return 1;
-        return 0;
-    }
-};
-
-struct UObject_ : public UObject
-{
-    static UObject* GetTransientPackage();                                    // 005c1d70
-    static UObject* StaticConstructObject(UClass* Class, UObject* InOuter, FName Name, QWORD SetFlags, UObject* Template, FOutputDevice* Error, UObject* SubobjectRoot, FObjectInstancingGraph* InstanceGraph); // 005e44e0
-};
 
 /* UnObjBas.h ConstructObject<T> */
 template<class T>
-T* ConstructObject(UClass_* Class, UObject* Outer, FName Name, QWORD SetFlags, UObject* Template, UObject* SubobjectRoot, FObjectInstancingGraph* InstanceGraph)
+T* ConstructObject(UClass* Class, UObject* Outer, FName Name, QWORD SetFlags, UObject* Template, UObject* SubobjectRoot, FObjectInstancingGraph* InstanceGraph)
 {
 #line 1317 "e:\\projects\\amadeus\\aa\\game\\unrealengine3\\development\\src\\core\\inc\\UnClass.h"
     check(Class->IsChildOf(T::StaticClass()));
     if (Outer == INVALID_OBJECT)
     {
-        Outer = UObject_::GetTransientPackage();
+        Outer = UObject::GetTransientPackage();
     }
-    return (T*)UObject_::StaticConstructObject(Class, Outer, Name, SetFlags, Template, GError, SubobjectRoot, InstanceGraph);
+    return (T*)UObject::StaticConstructObject(Class, Outer, Name, SetFlags, Template, GError, SubobjectRoot, InstanceGraph);
 }
 
 // @baa 0x00d92a70
-template UOnlineProfileSettings* ConstructObject<UOnlineProfileSettings>(UClass_*, UObject*, FName, QWORD, UObject*, UObject*, FObjectInstancingGraph*);
+template UOnlineProfileSettings* ConstructObject<UOnlineProfileSettings>(UClass*, UObject*, FName, QWORD, UObject*, UObject*, FObjectInstancingGraph*);
 
 #line 233 "candidate.cpp"
 
 // @baa 0x00da0cd0
-template UUIDataStore* ConstructObject<UUIDataStore>(UClass_*, UObject*, FName, QWORD, UObject*, UObject*, FObjectInstancingGraph*);
+template UUIDataStore* ConstructObject<UUIDataStore>(UClass*, UObject*, FName, QWORD, UObject*, UObject*, FObjectInstancingGraph*);
 
 // @baa 0x00da0dd0
-template UUIDataProvider_OnlineProfileSettingsArray* ConstructObject<UUIDataProvider_OnlineProfileSettingsArray>(UClass_*, UObject*, FName, QWORD, UObject*, UObject*, FObjectInstancingGraph*);
+template UUIDataProvider_OnlineProfileSettingsArray* ConstructObject<UUIDataProvider_OnlineProfileSettingsArray>(UClass*, UObject*, FName, QWORD, UObject*, UObject*, FObjectInstancingGraph*);
 
 // @baa 0x00da22d0
-template UUIConfigFileProvider* ConstructObject<UUIConfigFileProvider>(UClass_*, UObject*, FName, QWORD, UObject*, UObject*, FObjectInstancingGraph*);
+template UUIConfigFileProvider* ConstructObject<UUIConfigFileProvider>(UClass*, UObject*, FName, QWORD, UObject*, UObject*, FObjectInstancingGraph*);
 
 // @baa 0x00da24b0
-template UUIDataProvider_OnlineFriends* ConstructObject<UUIDataProvider_OnlineFriends>(UClass_*, UObject*, FName, QWORD, UObject*, UObject*, FObjectInstancingGraph*);
+template UUIDataProvider_OnlineFriends* ConstructObject<UUIDataProvider_OnlineFriends>(UClass*, UObject*, FName, QWORD, UObject*, UObject*, FObjectInstancingGraph*);
 
 // @baa 0x00da2550
-template UUIDataProvider_OnlinePlayers* ConstructObject<UUIDataProvider_OnlinePlayers>(UClass_*, UObject*, FName, QWORD, UObject*, UObject*, FObjectInstancingGraph*);
+template UUIDataProvider_OnlinePlayers* ConstructObject<UUIDataProvider_OnlinePlayers>(UClass*, UObject*, FName, QWORD, UObject*, UObject*, FObjectInstancingGraph*);
 
 // @baa 0x00da25f0
-template UUIDataProvider_OnlineClanMates* ConstructObject<UUIDataProvider_OnlineClanMates>(UClass_*, UObject*, FName, QWORD, UObject*, UObject*, FObjectInstancingGraph*);
+template UUIDataProvider_OnlineClanMates* ConstructObject<UUIDataProvider_OnlineClanMates>(UClass*, UObject*, FName, QWORD, UObject*, UObject*, FObjectInstancingGraph*);
 
 // @baa 0x00da2690
-template UUIDataProvider_OnlineProfileSettings* ConstructObject<UUIDataProvider_OnlineProfileSettings>(UClass_*, UObject*, FName, QWORD, UObject*, UObject*, FObjectInstancingGraph*);
+template UUIDataProvider_OnlineProfileSettings* ConstructObject<UUIDataProvider_OnlineProfileSettings>(UClass*, UObject*, FName, QWORD, UObject*, UObject*, FObjectInstancingGraph*);
 
 // @baa 0x00da2730
-template UUIDataProvider_OnlineFriendMessages* ConstructObject<UUIDataProvider_OnlineFriendMessages>(UClass_*, UObject*, FName, QWORD, UObject*, UObject*, FObjectInstancingGraph*);
+template UUIDataProvider_OnlineFriendMessages* ConstructObject<UUIDataProvider_OnlineFriendMessages>(UClass*, UObject*, FName, QWORD, UObject*, UObject*, FObjectInstancingGraph*);
 
 // @baa 0x00da3460
-template UUIConfigSectionProvider* ConstructObject<UUIConfigSectionProvider>(UClass_*, UObject*, FName, QWORD, UObject*, UObject*, FObjectInstancingGraph*);
+template UUIConfigSectionProvider* ConstructObject<UUIConfigSectionProvider>(UClass*, UObject*, FName, QWORD, UObject*, UObject*, FObjectInstancingGraph*);
 
 // @baa 0x00da3550
-template UUIDataProvider_PlayerAchievements* ConstructObject<UUIDataProvider_PlayerAchievements>(UClass_*, UObject*, FName, QWORD, UObject*, UObject*, FObjectInstancingGraph*);
+template UUIDataProvider_PlayerAchievements* ConstructObject<UUIDataProvider_PlayerAchievements>(UClass*, UObject*, FName, QWORD, UObject*, UObject*, FObjectInstancingGraph*);
 
 // @baa 0x00da4530
-template USessionSettingsProvider* ConstructObject<USessionSettingsProvider>(UClass_*, UObject*, FName, QWORD, UObject*, UObject*, FObjectInstancingGraph*);
+template USessionSettingsProvider* ConstructObject<USessionSettingsProvider>(UClass*, UObject*, FName, QWORD, UObject*, UObject*, FObjectInstancingGraph*);

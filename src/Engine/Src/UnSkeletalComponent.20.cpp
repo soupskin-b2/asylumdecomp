@@ -19,11 +19,6 @@ template<class T> struct TArrayAt_ : public TArray<T>
 };
 
 /* Kit gap: FName has no comparison operators (UnName.h, inline). */
-/* Kit gap: FName has no comparison operators (UnName.h, inline member). */
-struct FName_ : public FName
-{
-    FORCEINLINE UBOOL operator==(const FName& Other) const { return Index == Other.Index && Number == Other.Number; }
-};
 
 // @baa 0x0091de90
 void USkeletalMeshComponent::execIsComponentAttached(FFrame& Stack, RESULT_DECL)

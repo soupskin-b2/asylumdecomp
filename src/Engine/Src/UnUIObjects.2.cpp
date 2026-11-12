@@ -65,12 +65,6 @@ void UUIRoot::execGetCursorPosition(FFrame& Stack, RESULT_DECL)
     *(UBOOL*)Result = UUIRoot_::sub_00da8790(CursorX, CursorY, Scene);
 }
 
-struct UUIScreenObject_ : public UUIScreenObject
-{
-    /* UUIObject* CreateWidget(UUIScreenObject* Owner, UClass* WidgetClass, UObject* WidgetArchetype=NULL, FName WidgetName=NAME_None); Classes.h doesn't declare it. */
-    UUIObject* sub_00dc8c40(UUIScreenObject* Owner, UClass* WidgetClass, UObject* WidgetArchetype, FName WidgetName);
-};
-
 // @baa 0x00ca3240
 void UUIScreenObject::execCreateWidget(FFrame& Stack, RESULT_DECL)
 {
@@ -79,7 +73,7 @@ void UUIScreenObject::execCreateWidget(FFrame& Stack, RESULT_DECL)
     P_GET_OBJECT_OPTX(UObject, WidgetArchetype, NULL);
     P_GET_NAME_OPTX(WidgetName, NAME_None);
     P_FINISH;
-    *(UUIObject**)Result = ((UUIScreenObject_*)this)->sub_00dc8c40(Owner, WidgetClass, WidgetArchetype, WidgetName);
+    *(UUIObject**)Result = this->sub_00dc8c40(Owner, WidgetClass, WidgetArchetype, WidgetName);
 }
 
 /* FVector2D(0,0): the kit's FVector2D has no constructors. */
@@ -90,12 +84,6 @@ static __forceinline FVector2D MakeVector2D(FLOAT InX, FLOAT InY)
     V.Y = InY;
     return V;
 }
-
-struct UUIScreenObject__00ca3340 : public UUIScreenObject
-{
-    /* UUIPrefabInstance* InstanceUIPrefab(UUIPrefab*, FName, const FVector2D* PlacementLocation, INT InsertIndex, UBOOL bRenameExisting); Classes.h doesn't declare it. */
-    UUIPrefabInstance* sub_00da90a0(UUIPrefab* SourcePrefab, FName PrefabInstanceName, const FVector2D* PlacementLocation, INT InsertIndex, UBOOL bRenameExisting);
-};
 
 // @baa 0x00ca3340
 void UUIScreenObject::execInstanceUIPrefab(FFrame& Stack, RESULT_DECL)
@@ -118,7 +106,7 @@ void UUIScreenObject::execInstanceUIPrefab(FFrame& Stack, RESULT_DECL)
     P_GET_INT_OPTX(InsertIndex, INDEX_NONE);
     P_GET_UBOOL_OPTX(bRenameExisting, TRUE);
     P_FINISH;
-    *(UUIPrefabInstance**)Result = ((UUIScreenObject__00ca3340*)this)->sub_00da90a0(SourcePrefab, PrefabInstanceName, pPlacementLocation ? &PlacementLocation : NULL, InsertIndex, bRenameExisting);
+    *(UUIPrefabInstance**)Result = this->sub_00da90a0(SourcePrefab, PrefabInstanceName, pPlacementLocation ? &PlacementLocation : NULL, InsertIndex, bRenameExisting);
 }
 
 /* TArray<UUIObject*> with the out-of-line copy assignment (00db2910) and destructor (00cc4b80) the original calls. */

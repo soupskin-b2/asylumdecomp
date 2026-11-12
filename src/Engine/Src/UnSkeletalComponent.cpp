@@ -562,14 +562,9 @@ URB_BodyInstance* USkeletalMeshComponent_::FindBodyInstanceNamed(FName BoneName)
 
 /* Natives behind execGetTimeOfScriptNotify (0x0092da90) and
  * execGetTimeOfScriptNotifyInAnimSequence (0x0092d9b0); not in Classes.h. */
-struct USkeletalMeshComponent__0092d890 : public USkeletalMeshComponent
-{
-    FLOAT GetTimeOfScriptNotifyInAnimSequence(UAnimSequence* AnimSeq, FName NotifyName, INT NthOccurrence);
-    FLOAT GetTimeOfScriptNotify(FName NotifyName, INT NthOccurrence);
-};
 
 // @baa 0x0092d890
-FLOAT USkeletalMeshComponent__0092d890::GetTimeOfScriptNotify(FName NotifyName, INT NthOccurrence)
+FLOAT USkeletalMeshComponent::GetTimeOfScriptNotify(FName NotifyName, INT NthOccurrence)
 {
     // search every sequence of every anim set for the notify
     for (INT SetIdx = 0; SetIdx < AnimSets.Num(); SetIdx++)
@@ -752,16 +747,8 @@ public:
 };
 
 /* UActorComponent::UpdateComponent (0x0076a330) isn't declared in Classes.h. */
-struct UActorComponent_ : public UActorComponent
-{
-    void UpdateComponent(FSceneInterface* InScene, AActor* InOwner, const FMatrix& InLocalToWorld, UBOOL bCollisionUpdate = FALSE);
-};
 
 /* USkeletalMesh::MatchRefBone (0x00976be0) isn't declared in Classes.h. */
-struct USkeletalMesh_ : public USkeletalMesh
-{
-    INT MatchRefBone(FName BoneName) const;
-};
 
 /* FVector(X,Y,Z) and IsZero (UnMath.h) */
 struct FVector_ : public FVector
@@ -776,7 +763,6 @@ inline UBOOL operator!=(const FName& A, EName B) { return A.Index != B || A.Numb
 /* slot 0x128 (vf_128) is UActorComponent::UpdateChildComponents */
 struct USkeletalMeshComponent__0091c910 : public USkeletalMeshComponent
 {
-    void SetAttachmentOwnerVisibility(UActorComponent* Component); /* 0x00913f30 */
     void UpdateChildComponents();
 };
 
@@ -794,7 +780,7 @@ void USkeletalMeshComponent__0091c910::UpdateChildComponents()
         const FName BoneName = Attachment.BoneName;
         if (BoneName != NAME_None && SkeletalMesh)
         {
-            BoneIndex = ((USkeletalMesh_*)SkeletalMesh)->MatchRefBone(Attachment.BoneName);
+            BoneIndex = SkeletalMesh->MatchRefBone(Attachment.BoneName);
         }
 
         if (Attachment.Component && BoneIndex != INDEX_NONE && BoneIndex < SpaceBases.Num())
@@ -805,7 +791,7 @@ void USkeletalMeshComponent__0091c910::UpdateChildComponents()
             const FMatrix ParentToWorld = (const FMatrix_&)(FScaleRotationTranslationMatrix(RelativeScale, Attachment.RelativeRotation, Attachment.RelativeLocation) * SpaceBases(BoneIndex)) * LocalToWorld;
 
             SetAttachmentOwnerVisibility(Attachment.Component);
-            ((UActorComponent_*)Attachment.Component)->UpdateComponent((FSceneInterface*)Scene.Dummy, /* Scene is an FSceneInterface* (script FPointer) */ Owner, ParentToWorld);
+            Attachment.Component->UpdateComponent((FSceneInterface*)Scene.Dummy, /* Scene is an FSceneInterface* (script FPointer) */ Owner, ParentToWorld);
         }
     }
 }

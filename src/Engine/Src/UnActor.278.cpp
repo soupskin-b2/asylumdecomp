@@ -9,10 +9,6 @@ extern FName g_026c4aac;
 	/* ENGINE_CollisionChanged */
 /* Cast<T> is out of line for this T in the exe (0075acd0) */
 extern template UCylinderComponent* Cast<UCylinderComponent>(UObject* Src);
-struct UCylinderComponent_ : public UCylinderComponent
-{
-	void SetCylinderSize(FLOAT NewRadius, FLOAT NewHeight); // 006dcdd0
-};
 
 struct AActor_ : public AActor
 {
@@ -32,7 +28,7 @@ void AActor_::SetCollisionSize(FLOAT NewRadius, FLOAT NewHeight)
 	UCylinderComponent* CylComp = Cast<UCylinderComponent>(CollisionComponent);
 	if (CylComp)
 	{
-		((UCylinderComponent_*)CylComp)->SetCylinderSize(NewRadius, NewHeight);
+		((UCylinderComponent*)CylComp)->SetCylinderSize(NewRadius, NewHeight);
 	}
 	FindTouchingActors();
 	eventCollisionChanged();

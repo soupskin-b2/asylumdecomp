@@ -12,13 +12,9 @@ public:
 
 /* Slot 0x110 is UInteraction::Tick(FLOAT DeltaTime); the kit declares it `INT vf_110(INT)`, so
  * the override is written on a helper. */
-struct UGFxInteraction_ : public UGFxInteraction
-{
-    void Tick(FLOAT DeltaTime);
-};
 
 // @baa 0x00e53890
-void UGFxInteraction_::Tick(FLOAT DeltaTime)
+void UGFxInteraction::Tick(FLOAT DeltaTime)
 {
     if (GGFxEngine)
     {

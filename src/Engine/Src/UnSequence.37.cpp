@@ -5,12 +5,6 @@
 #include "ue3/Script.h"
 #include "ue3/Cast.h"
 
-/* Kit gap: UActorComponent::GetOwner (inline in EngineBaseTypes.h). */
-struct UActorComponent_ : public UActorComponent
-{
-	AActor* GetOwner() const { return Owner; }
-};
-
 // @baa 0x008f7780
 /* SetCaptureParameters(optional TextureRenderTarget2D NewTextureTarget, optional float NewScaleFOV,
  * optional Actor NewViewDest): any parameter left out keeps its current value. */
@@ -26,7 +20,7 @@ void USceneCapturePortalComponent::execSetCaptureParameters(FFrame& Stack, RESUL
 	ViewDestination = NewViewDest;
 
 	/* keep the owning capture actor's other components in step */
-	ASceneCaptureActor* CaptureOwner = Cast<ASceneCaptureActor>(((UActorComponent_*)this)->GetOwner());
+	ASceneCaptureActor* CaptureOwner = Cast<ASceneCaptureActor>(this->GetOwner());
 	if (CaptureOwner)
 	{
 		CaptureOwner->SyncComponents();

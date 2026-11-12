@@ -45,10 +45,6 @@ inline AActor* GetGroupActorOf(UInterpGroupInst* GrInst)
 }
 
 /* Unnamed in the kit: UE3's AActor::eventGetActorFXAsset() (script event glue). */
-struct AActor_ : public AActor
-{
-    UFaceFXAsset* sub_00ce8550();
-};
 
 // @baa 0x00d1c8c0
 /* UE3's UInterpTrackInstFaceFX::InitTrackInst(UInterpTrack* Track): mount the track's anim sets on the actor's FaceFX
@@ -61,7 +57,7 @@ void UInterpTrackInstFaceFX::InitTrackInst(UInterpTrack* Track)
     AActor* Actor = GetGroupActorOf(CastChecked<UInterpGroupInst>(GetOuterOf(this)));
     if (Actor != NULL)
     {
-        UFaceFXAsset* Asset = ((AActor_*)Actor)->sub_00ce8550();
+        UFaceFXAsset* Asset = Actor->sub_00ce8550();
         if (Asset != NULL)
         {
             for (INT i = 0; i < FaceFXTrack->FaceFXAnimSets.Num(); i++)

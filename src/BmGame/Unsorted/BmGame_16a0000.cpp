@@ -759,8 +759,6 @@ INT ARPontoonBase::vf_364()
 struct FRotator_ : public FRotator
 {
 	FRotator_(const FRotator& R) : FRotator(R) {}
-	UBOOL operator!=(const FRotator& R) const { return Pitch != R.Pitch || Yaw != R.Yaw || Roll != R.Roll; }
-	UBOOL operator==(const FRotator& R) const { return Pitch == R.Pitch && Yaw == R.Yaw && Roll == R.Roll; }
 };
 
 // @baa 0x016aca90

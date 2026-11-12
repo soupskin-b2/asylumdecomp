@@ -78,7 +78,6 @@ struct FCameraState_ {
 };
 
 struct AR3rdPersonCamera_ : public AR3rdPersonCamera {
-    UFunction* sub_005d7d10(FName InName, INT Global); /* FindFunctionChecked */
     void sub_01686c60(FCameraState_& OutState, FLOAT DeltaTime);
 };
 

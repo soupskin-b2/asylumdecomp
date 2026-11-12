@@ -21,7 +21,6 @@ void GFxWordBuffer::sub_01978380()
 }
 
 struct UGFxDataStoreSubscriber_ : public UGFxDataStoreSubscriber {
-    bool sub_01978400();
     UINT sub_01978450();
 };
 
@@ -210,7 +209,6 @@ void sub_01975990_owner::sub_01975990(const char* ClassName, void* A, void* B)
 }
 
 struct UGFxDataStoreSubscriber__0197ed10 : public UGFxDataStoreSubscriber {
-    void sub_0197ecd0(UINT Count, UINT Count2); /* 0x0197ecd0 */
     void sub_0197ed10(UINT Count); /* 0x0197ed10 */
 };
 

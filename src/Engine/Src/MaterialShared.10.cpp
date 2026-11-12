@@ -41,10 +41,6 @@ struct MITVScalarParameterMapping
 	static void GameThread_UpdateParameter(UMaterialInstanceTimeVarying* Instance, const FScalarParameterValueOverTime& Parameter);
 };
 
-struct UWorld_ : public UWorld
-{
-	FLOAT GetTimeSeconds();
-};
 
 // @baa 0x007136d0
 /* Starts the named scalar parameter's curve Value seconds from now. If the parameter isn't overridden yet it's added,
@@ -90,7 +86,7 @@ void UMaterialInstanceTimeVarying::SetScalarStartTime(FName ParameterName, FLOAT
 		ParameterValue->ExpressionGUID.Invalidate();
 	}
 
-	ParameterValue->StartTime = ((UWorld_*)GWorld)->GetTimeSeconds() + Value;
+	ParameterValue->StartTime = ((UWorld*)GWorld)->GetTimeSeconds() + Value;
 
 	// Update the material instance data in the rendering thread.
 	MITVScalarParameterMapping::GameThread_UpdateParameter(this, *ParameterValue);

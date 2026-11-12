@@ -22,12 +22,6 @@ template<class T> struct TArrayAt_ : public TArray<T>
     }
 };
 
-/* Kit gap: FName has no operator== here (UnName.h compares Index and Number). */
-struct FName_ : public FName
-{
-    FORCEINLINE UBOOL operator==(const FName& Other) const { return Index == Other.Index && Number == Other.Number; }
-};
-
 /* Unnamed in the kit: whether one of the children is an anim node with this name. */
 struct URAnimNode_Cape_ : public URAnimNode_Cape
 {
@@ -187,7 +181,6 @@ UBOOL URAnimNode_Cape__015697a0::sub_015697a0(INT BoneIndex, INT ParentBoneIndex
  * (otherwise computed by sub_0156a030). */
 struct URAnimNode_Cape__0156e6a0 : public URAnimNode_Cape
 {
-    void sub_0156a030(INT boneIndex, FMatrix& OutSpaceBase);
     void sub_0156e6a0(INT boneIndex, FMatrix& OutSpaceBase);
 };
 
@@ -209,20 +202,14 @@ void URAnimNode_Cape__0156e6a0::sub_0156e6a0(INT boneIndex, FMatrix& OutSpaceBas
 #line 210 "candidate.cpp"
 
 /* Unnamed in the kit: the cape node's per-tick update steps. */
-struct URAnimNode_Cape__01591bd0 : public URAnimNode_Cape
-{
-    void sub_01590f70();
-    void sub_01579d30();
-    void sub_01590020();
-};
 
 // @baa 0x01591bd0
 /* URAnimNode_Cape slot 0x134 (kit vf_134, UE3 TickAnim(FLOAT DeltaSeconds, FLOAT TotalWeight)): the cape's own
  * updates, then the blend node's tick. */
 void URAnimNode_Cape::vf_134(FLOAT DeltaSeconds, FLOAT TotalWeight)
 {
-    ((URAnimNode_Cape__01591bd0*)this)->sub_01590f70();
-    ((URAnimNode_Cape__01591bd0*)this)->sub_01579d30();
-    ((URAnimNode_Cape__01591bd0*)this)->sub_01590020();
+    this->sub_01590f70();
+    this->sub_01579d30();
+    this->sub_01590020();
     Super::vf_134(DeltaSeconds, TotalWeight);
 }

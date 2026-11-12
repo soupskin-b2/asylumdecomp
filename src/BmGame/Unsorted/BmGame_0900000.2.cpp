@@ -32,7 +32,6 @@ void USkeletalMeshComponent::execGetSocketByName(FFrame& Stack, RESULT_DECL)
 struct USkeletalMesh__0090e9c0 : public USkeletalMesh
 {
 	INT sub_00976be0(FName BoneName);	/* MatchRefBone */
-	UBOOL BoneIsChildOf(INT ChildBoneIndex, INT ParentBoneIndex) const;	/* 0x00d49ed0 */
 };
 
 // @baa 0x0090e9c0
@@ -59,11 +58,6 @@ void USkeletalMeshComponent::execBoneIsChildOf(FFrame& Stack, RESULT_DECL)
 }
 
 /* Kit gap: FName has no comparison operator (UnName.h compares Index and Number). */
-/* Kit gap: USkeletalMesh::MatchRefBone (00976be0) isn't declared. */
-struct USkeletalMesh__0090e910 : public USkeletalMesh
-{
-	INT MatchRefBone(FName BoneName);
-};
 
 // @baa 0x0090e910
 void USkeletalMeshComponent::execMatchRefBone(FFrame& Stack, RESULT_DECL)
@@ -74,7 +68,7 @@ void USkeletalMeshComponent::execMatchRefBone(FFrame& Stack, RESULT_DECL)
 	INT BoneIndex = INDEX_NONE;
 	if (BoneName != FName(NAME_None) && SkeletalMesh)
 	{
-		BoneIndex = ((USkeletalMesh__0090e910*)SkeletalMesh)->MatchRefBone(BoneName);
+		BoneIndex = SkeletalMesh->MatchRefBone(BoneName);
 	}
 	*(INT*)Result = BoneIndex;
 }

@@ -104,22 +104,13 @@ void UObject::execFClamp(FFrame& Stack, RESULT_DECL)
 	*(FLOAT*)Result = Clamp(V, A, B);
 }
 
-/* Kit gap: FRotator::operator*(FLOAT) (UnMath.h) isn't declared. */
-struct FRotator_ : public FRotator
-{
-	FORCEINLINE FRotator operator*(FLOAT Scale) const
-	{
-		return FRotator(appTrunc(Pitch * Scale), appTrunc(Yaw * Scale), appTrunc(Roll * Scale));
-	}
-};
-
 // @baa 0x00597150
 void UObject::execMultiply_FloatRotator(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(A);
 	P_GET_STRUCT(FRotator, B);
 	P_FINISH;
-	*(FRotator*)Result = ((const FRotator_&)B) * A;
+	*(FRotator*)Result = ((const FRotator&)B) * A;
 }
 
 // @baa 0x005918a0

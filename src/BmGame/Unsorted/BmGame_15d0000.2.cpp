@@ -79,14 +79,10 @@ FVector ARBMAIController__015d8b60::eventGetBehaviourCustomEyeLocation()
 
 extern FName g_026e2c70;
 	/* GetRandomType */
-struct URCharacterRandom_ : public URCharacterRandom
-{
-	class UClass* eventGetRandomType(INT randomVal);
-};
 
 // @baa 0x015d94e0
 /* RCharacterRandom.GetRandomType script event: the generated glue, out of line here. */
-class UClass* URCharacterRandom_::eventGetRandomType(INT randomVal)
+class UClass* URCharacterRandom::eventGetRandomType(INT randomVal)
 {
 	struct RCharacterRandom_eventGetRandomType_Parms
 	{

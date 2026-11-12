@@ -10,7 +10,6 @@ int sub_006d9230(void) { return 272; }
 // 0x00703760: returns that chunk's data, or a fixed value for Index == -1
 struct UMaterialInterface_ : public UMaterialInterface {
   void* sub_00703760(int Index); /* 0x00703760 */
-  void* sub_006e3e30(int Index); /* 0x006e3e30 */
 };
 
 // @baa 0x00703760

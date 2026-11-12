@@ -86,15 +86,10 @@ struct FName_ : public FName
 	UBOOL operator!=(const FName& Other) const;
 };
 
-struct UAnimNodeSequence__00c5e2f0 : public UAnimNodeSequence
-{
-	UBOOL CanUseCachedBoneAtoms();
-	void IssueNotifies(FLOAT DeltaTime);
-};
 
 /* Whether the cached bone atoms can be kept: only for an unrendered mesh, a node that skips ticking at zero
  * weight, and no root motion extraction. */
-UBOOL UAnimNodeSequence__00c5e2f0::CanUseCachedBoneAtoms()
+UBOOL UAnimNodeSequence::CanUseCachedBoneAtoms()
 {
 	if (!SkelComponent->bRecentlyRendered && bSkipTickWhenZeroWeight)
 	{
@@ -118,7 +113,7 @@ void UAnimNodeSequence::sub_00c5e2f0(FLOAT MoveDelta, FLOAT DeltaSeconds, UBOOL 
 		return;
 	}
 
-	if (AnimSeq->NumFrames > 1 && CachedBoneAtoms.Num() > 0 && !((UAnimNodeSequence__00c5e2f0*)this)->CanUseCachedBoneAtoms())
+	if (AnimSeq->NumFrames > 1 && CachedBoneAtoms.Num() > 0 && !((UAnimNodeSequence*)this)->CanUseCachedBoneAtoms())
 	{
 		CachedBoneAtoms.Reset();
 	}
@@ -130,7 +125,7 @@ void UAnimNodeSequence::sub_00c5e2f0(FLOAT MoveDelta, FLOAT DeltaSeconds, UBOOL 
 		const UBOOL bShouldIssueNotifies = !bNoNotifies && (bIsSynchronized || bAboveWeightThreshold);
 		if (bShouldIssueNotifies)
 		{
-			((UAnimNodeSequence__00c5e2f0*)this)->IssueNotifies(MoveDelta);
+			((UAnimNodeSequence*)this)->IssueNotifies(MoveDelta);
 
 			// A notify may have changed the animation.
 			if (AnimSeq == NULL)

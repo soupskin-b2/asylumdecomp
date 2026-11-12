@@ -16,12 +16,6 @@ struct URB_BodyInstance_ : public URB_BodyInstance
 	UBOOL sub_00a09b60(FRBPhysScene* Scene);	/* TermBody */
 };
 
-struct UWorld_ : public UWorld
-{
-	void sub_00a47a90(URB_ConstraintInstance* Constraint);	/* returns a constraint instance to the world's pool */
-	void sub_00a47a10(URB_BodyInstance* Body);		/* returns a body instance to the world's pool */
-};
-
 /* UPhysicsAssetInstance::TermInstance isn't declared in Classes.h. */
 struct UPhysicsAssetInstance_ : public UPhysicsAssetInstance
 {
@@ -39,7 +33,7 @@ UBOOL UPhysicsAssetInstance_::TermInstance(FRBPhysScene* Scene)
 		check(Constraints(i));
 		if (((URB_ConstraintInstance_*)Constraints(i))->sub_00a3fe50(Scene, FALSE))
 		{
-			((UWorld_*)GWorld)->sub_00a47a90(Constraints(i));
+			GWorld->sub_00a47a90(Constraints(i));
 			Constraints(i) = NULL;
 			bTerminated = TRUE;
 		}
@@ -57,7 +51,7 @@ UBOOL UPhysicsAssetInstance_::TermInstance(FRBPhysScene* Scene)
 		check(Bodies(i));
 		if (((URB_BodyInstance_*)Bodies(i))->sub_00a09b60(Scene))
 		{
-			((UWorld_*)GWorld)->sub_00a47a10(Bodies(i));
+			GWorld->sub_00a47a10(Bodies(i));
 			Bodies(i) = NULL;
 			bTerminated = TRUE;
 		}

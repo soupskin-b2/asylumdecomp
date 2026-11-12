@@ -5,10 +5,6 @@
 
 // FName's string constructor (UnName.cpp), missing from the kit's FName.
 
-struct FNameString : public FName
-{
-	FNameString(const TCHAR* Name, EFindName FindType = FNAME_Add, UBOOL bSplitName = TRUE); /* 0x005d5620 */
-};
 
 #define AUTOGENERATE_NAME(name) extern FName BMGAME_##name;
 AUTOGENERATE_NAME(Activate1stPersonCamera)
@@ -520,7 +516,7 @@ AUTOGENERATE_NAME(SetMainPrompt)
 AUTOGENERATE_NAME(SetPrompt)
 AUTOGENERATE_NAME(SetSubtitle)
 #undef AUTOGENERATE_NAME
-#define AUTOGENERATE_NAME(name) BMGAME_##name = FNameString(TEXT(#name));
+#define AUTOGENERATE_NAME(name) BMGAME_##name = FName(TEXT(#name));
 // @baa 0x01710240
 void AutoGenerateNamesBmGame()
 {

@@ -11,11 +11,6 @@ struct FTerrainFilteredMaterialArray : public TArray<FTerrainFilteredMaterial>
     ~FTerrainFilteredMaterialArray();
 };
 
-struct UTerrainLayerSetup_ : public UTerrainLayerSetup
-{
-    /* SetMaterials(const TArray<FTerrainFilteredMaterial>&); Classes.h doesn't declare it. */
-    void sub_009a9810(const FTerrainFilteredMaterialArray& NewMaterials);
-};
 
 // @baa 0x00cc6a40
 void UTerrainLayerSetup::execSetMaterials(FFrame& Stack, RESULT_DECL)
@@ -23,7 +18,7 @@ void UTerrainLayerSetup::execSetMaterials(FFrame& Stack, RESULT_DECL)
     FTerrainFilteredMaterialArray NewMaterials;
     Stack.Step(Stack.Object, &NewMaterials);
     P_FINISH;
-    ((UTerrainLayerSetup_*)this)->sub_009a9810(NewMaterials);
+    ((UTerrainLayerSetup*)this)->sub_009a9810(NewMaterials);
 }
 
 /* TArray<FUISoundCue> with the out-of-line destructor (00cc4b20) the original calls. */
@@ -33,11 +28,6 @@ struct FUISoundCueArray : public TArray<FUISoundCue>
     ~FUISoundCueArray();
 };
 
-struct UUISkin_ : public UUISkin
-{
-    /* GetSkinSoundCues(TArray<FUISoundCue>& out_SoundCues); Classes.h doesn't declare it. */
-    void sub_00dced80(FUISoundCueArray& out_SoundCues);
-};
 
 // @baa 0x00cc7590
 void UUISkin::execGetSkinSoundCues(FFrame& Stack, RESULT_DECL)
@@ -48,21 +38,16 @@ void UUISkin::execGetSkinSoundCues(FFrame& Stack, RESULT_DECL)
     Stack.Step(Stack.Object, &out_SoundCuesT);
     FUISoundCueArray& out_SoundCues = GPropAddr ? *(FUISoundCueArray*)GPropAddr : out_SoundCuesT;
     P_FINISH;
-    ((UUISkin_*)this)->sub_00dced80(out_SoundCues);
+    ((UUISkin*)this)->sub_00dced80(out_SoundCues);
 }
 
-struct AWorldInfo_ : public AWorldInfo
-{
-    /* UBOOL GetDemoRewindPoints(TArray<INT>& OutRewindPoints); Classes.h doesn't declare it. */
-    UBOOL sub_00c06210(TArray<INT>& OutRewindPoints);
-};
 
 // @baa 0x00cc0180
 void AWorldInfo::execGetDemoRewindPoints(FFrame& Stack, RESULT_DECL)
 {
     P_GET_TARRAY_REF(INT, OutRewindPoints);
     P_FINISH;
-    *(UBOOL*)Result = ((AWorldInfo_*)this)->sub_00c06210(OutRewindPoints);
+    *(UBOOL*)Result = ((AWorldInfo*)this)->sub_00c06210(OutRewindPoints);
 }
 
 /* TArray<UUIStyle*> with the out-of-line destructor (00cc4ac0) the original calls. */
@@ -72,11 +57,6 @@ struct FUIStyleArray : public TArray<UUIStyle*>
     ~FUIStyleArray();
 };
 
-struct UUISkin__00cc7480 : public UUISkin
-{
-    /* GetAvailableStyles(TArray<UUIStyle*>& out_Styles, UBOOL bIncludeInheritedStyles); Classes.h doesn't declare it. */
-    void sub_00dd6880(FUIStyleArray& out_Styles, UBOOL bIncludeInheritedStyles);
-};
 
 // @baa 0x00cc7480
 void UUISkin::execGetAvailableStyles(FFrame& Stack, RESULT_DECL)
@@ -88,14 +68,9 @@ void UUISkin::execGetAvailableStyles(FFrame& Stack, RESULT_DECL)
     FUIStyleArray& out_Styles = GPropAddr ? *(FUIStyleArray*)GPropAddr : out_StylesT;
     P_GET_UBOOL_OPTX(bIncludeInheritedStyles, TRUE);
     P_FINISH;
-    ((UUISkin__00cc7480*)this)->sub_00dd6880(out_Styles, bIncludeInheritedStyles);
+    ((UUISkin*)this)->sub_00dd6880(out_Styles, bIncludeInheritedStyles);
 }
 
-struct UUISkin__00ccbd00 : public UUISkin
-{
-    /* GetStyleGroups(TArray<FString>& StyleGroupArray, UBOOL bIncludeInheritedGroups); Classes.h doesn't declare it. */
-    void sub_00dd3900(TArray<FString>& StyleGroupArray, UBOOL bIncludeInheritedGroups);
-};
 
 // @baa 0x00ccbd00
 void UUISkin::execGetStyleGroups(FFrame& Stack, RESULT_DECL)
@@ -103,7 +78,7 @@ void UUISkin::execGetStyleGroups(FFrame& Stack, RESULT_DECL)
     P_GET_TARRAY_REF(FString, StyleGroupArray);
     P_GET_UBOOL_OPTX(bIncludeInheritedGroups, TRUE);
     P_FINISH;
-    ((UUISkin__00ccbd00*)this)->sub_00dd3900(StyleGroupArray, bIncludeInheritedGroups);
+    ((UUISkin*)this)->sub_00dd3900(StyleGroupArray, bIncludeInheritedGroups);
 }
 
 // @baa 0x00cc86b0
@@ -121,10 +96,6 @@ void UMaterialInterface::execGetScalarCurveParameterValue(FFrame& Stack, RESULT_
 }
 
 /* Kit gaps: SetDataStoreFieldValue (00d9ca20) isn't declared (names from the exe's native table). */
-struct UUIRoot_ : public UUIRoot
-{
-	UBOOL SetDataStoreFieldValue(const FString& InDataStoreMarkup, FUIProviderFieldValue& InFieldValue, class UUIScene* OwnerScene, class ULocalPlayer* OwnerPlayer);	/* 0x00d9ca20 */
-};
 
 // @baa 0x00cc7090
 void UUIRoot::execSetDataStoreFieldValue(FFrame& Stack, RESULT_DECL)
@@ -139,14 +110,10 @@ void UUIRoot::execSetDataStoreFieldValue(FFrame& Stack, RESULT_DECL)
 	P_GET_OBJECT_OPTX(UUIScene, OwnerScene, NULL);
 	P_GET_OBJECT_OPTX(ULocalPlayer, OwnerPlayer, NULL);
 	P_FINISH;
-	*(UBOOL*)Result = ((UUIRoot_*)this)->SetDataStoreFieldValue(InDataStoreMarkup, InFieldValue, OwnerScene, OwnerPlayer);
+	*(UBOOL*)Result = ((UUIRoot*)this)->SetDataStoreFieldValue(InDataStoreMarkup, InFieldValue, OwnerScene, OwnerPlayer);
 }
 
 /* Kit gaps: GetDataStoreFieldValue (00d9cb70) isn't declared (names from the exe's native table). */
-struct UUIRoot__00cc7210 : public UUIRoot
-{
-	UBOOL GetDataStoreFieldValue(const FString& InDataStoreMarkup, FUIProviderFieldValue& OutFieldValue, class UUIScene* OwnerScene, class ULocalPlayer* OwnerPlayer);	/* 0x00d9cb70 */
-};
 
 // @baa 0x00cc7210
 void UUIRoot::execGetDataStoreFieldValue(FFrame& Stack, RESULT_DECL)
@@ -161,7 +128,7 @@ void UUIRoot::execGetDataStoreFieldValue(FFrame& Stack, RESULT_DECL)
 	P_GET_OBJECT_OPTX(UUIScene, OwnerScene, NULL);
 	P_GET_OBJECT_OPTX(ULocalPlayer, OwnerPlayer, NULL);
 	P_FINISH;
-	*(UBOOL*)Result = ((UUIRoot__00cc7210*)this)->GetDataStoreFieldValue(InDataStoreMarkup, OutFieldValue, OwnerScene, OwnerPlayer);
+	*(UBOOL*)Result = ((UUIRoot*)this)->GetDataStoreFieldValue(InDataStoreMarkup, OutFieldValue, OwnerScene, OwnerPlayer);
 }
 
 // @baa 0x00cc4360
@@ -174,10 +141,6 @@ void UFracturedStaticMeshComponent::execSetVisibleFragments(FFrame& Stack, RESUL
 }
 
 /* Kit gap: FInterpCurveVector's destructor (out of line, 0x006f17f0) isn't declared. */
-struct FInterpCurveVector_ : public FInterpCurveVector
-{
-	~FInterpCurveVector_();
-};
 
 // @baa 0x00cc87b0
 /* GetVectorCurveParameterValue(name ParameterName, out InterpCurveVector OutValue) */
@@ -185,7 +148,7 @@ void UMaterialInterface::execGetVectorCurveParameterValue(FFrame& Stack, RESULT_
 {
 	P_GET_NAME(ParameterName);
 	/* This build's P_GET_STRUCT_REF zeroes the temporary after clearing GPropAddr (the kit's macro doesn't). */
-	FInterpCurveVector_ OutValueT;
+	FInterpCurveVector OutValueT;
 	GPropAddr = 0;
 	appMemzero(&OutValueT, sizeof(FInterpCurveVector));
 	Stack.Step(Stack.Object, &OutValueT);

@@ -124,15 +124,11 @@ extern FName g_026c5544;
 	/* ENGINE_ActorLeavingVolume */
 /* EName entries Core.h doesn't list yet (UnNames.h) */
 #define NAME_ActorLeavingVolume 0x169
-struct APhysicsVolume_ : public APhysicsVolume
-{
-	void eventActorLeavingVolume(class AActor* Other);
-};
 
 // @baa 0x007d5fd0
 /* The script event's generated glue (EngineClasses.h), out of line here. ActorLeavingVolume is a probe
  * function: the glue only calls into script when the current state probes for it. */
-void APhysicsVolume_::eventActorLeavingVolume(class AActor* Other)
+void APhysicsVolume::eventActorLeavingVolume(class AActor* Other)
 {
 	if (!StateFrame || (StateFrame->ProbeMask & ((QWORD)1 << (NAME_ActorLeavingVolume - NAME_PROBEMIN))))
 	{

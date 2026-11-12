@@ -24,10 +24,6 @@ template<class T> struct TArrayAt_ : public TArray<T>
 };
 
 /* USkeletalMesh::MatchRefBone (0x00976be0) isn't declared in Classes.h. */
-struct USkeletalMesh_ : public USkeletalMesh
-{
-    INT MatchRefBone(FName BoneName) const;
-};
 
 /* FMatrix::GetOrigin (UnMath.h) */
 struct FMatrix_ : public FMatrix
@@ -37,21 +33,7 @@ struct FMatrix_ : public FMatrix
 
 inline UBOOL operator!=(const FName& A, EName B) { return A.Index != B || A.Number != 0; }
 
-struct USkeletalMeshComponent_ : public USkeletalMeshComponent
-{
-    INT MatchRefBone(FName BoneName) const
-    {
-        INT BoneIndex = INDEX_NONE;
-        if (BoneName != NAME_None && SkeletalMesh)
-        {
-            BoneIndex = ((USkeletalMesh_*)SkeletalMesh)->MatchRefBone(BoneName);
-        }
-        return BoneIndex;
-    }
-    FVector GetBoneLocation(FName BoneName, INT Space = 0); /* 0x0091e3a0, inlined here */
-};
-
-FORCEINLINE FVector USkeletalMeshComponent_::GetBoneLocation(FName BoneName, INT Space)
+FORCEINLINE FVector USkeletalMeshComponent::GetBoneLocation(FName BoneName, INT Space)
 {
     const INT BoneIndex = MatchRefBone(BoneName);
     if (BoneIndex == INDEX_NONE)
@@ -102,7 +84,7 @@ void USkeletalMeshComponent::execGetClosestCollidingBoneLocation(FFrame& Stack, 
             if ((bCheckZeroExtent && ((TArrayAt_<URB_BodySetup*>&)PhysicsAsset->BodySetup).At(i)->bBlockZeroExtent) ||
                 (bCheckNonZeroExtent && ((TArrayAt_<URB_BodySetup*>&)PhysicsAsset->BodySetup).At(i)->bBlockNonZeroExtent))
             {
-                const FVector BoneLoc = ((USkeletalMeshComponent_*)this)->GetBoneLocation(((TArrayAt_<URB_BodySetup*>&)PhysicsAsset->BodySetup).At(i)->BoneName);
+                const FVector BoneLoc = this->GetBoneLocation(((TArrayAt_<URB_BodySetup*>&)PhysicsAsset->BodySetup).At(i)->BoneName);
                 const FLOAT Dist = SizeSquared(BoneLoc - TestLocation);
                 if (Dist < CurrentClosestDist)
                 {

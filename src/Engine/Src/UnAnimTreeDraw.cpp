@@ -88,10 +88,6 @@ FString UAnimNodeBlendDirectional::GetSliderDrawValue(INT SliderIndex)
 inline UBOOL operator!=(const FName& A, EName N) { return A.Index != N || A.Number != 0; }
 
 /* UClass::GetDescription isn't declared in Classes.h. */
-struct UClass_ : public UClass
-{
-	FString sub_00572f10();				/* GetDescription */
-};
 
 /* UAnimNode::GetNodeTitle (editor drawing; its vtable slot is declared only as a vf_). */
 struct UAnimNode_ : public UAnimNode
@@ -103,7 +99,7 @@ struct UAnimNode_ : public UAnimNode
 FString UAnimNode_::GetNodeTitle()
 {
 	FString NodeTitle;
-	FString NodeDesc = ((UClass_*)GetClass())->sub_00572f10();
+	FString NodeDesc = ((UClass*)GetClass())->sub_00572f10();
 
 	// the node's name, or else its class's description
 	if (NodeName != NAME_None)

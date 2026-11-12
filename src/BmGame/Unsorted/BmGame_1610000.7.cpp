@@ -4,17 +4,11 @@
 #include "ue3/Classes.h"
 #include "ue3/AppMath.h"
 
-/* Kit gap: FVector::Size (UnMath.h). */
-struct FVector_ : public FVector
-{
-	FORCEINLINE FLOAT Size() const { return appSqrt(X * X + Y * Y + Z * Z); }
-};
-
 // @baa 0x01610340
 /* Slot 0x3a0 (unnamed in the kit): whether any of the router's steering vectors is non-trivial. */
 INT ARBMRouter::vf_3a0()
 {
-	return ((const FVector_&)AvoidPawnVec).Size() > 0.1
-		|| ((const FVector_&)QueuePawnVec).Size() > 0.1
-		|| ((const FVector_&)DivergeVec).Size() > 0.1;
+	return ((const FVector&)AvoidPawnVec).Size() > 0.1
+		|| ((const FVector&)QueuePawnVec).Size() > 0.1
+		|| ((const FVector&)DivergeVec).Size() > 0.1;
 }

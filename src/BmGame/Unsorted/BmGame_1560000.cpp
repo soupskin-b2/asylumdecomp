@@ -1368,7 +1368,6 @@ struct FString_ {
 };
 
 struct ARGameInfo_ : public ARGameInfo {
-    UFunction* sub_005d7d10(FName InName, INT Global); /* FindFunctionChecked */
     FString sub_0156cff0();
 };
 

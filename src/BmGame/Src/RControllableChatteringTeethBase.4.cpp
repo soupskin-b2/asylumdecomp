@@ -12,15 +12,7 @@ extern FName g_026e3124;
 extern FName g_026e2f38;
 	/* DestroyTeeth */
 /* Kit gap: FVector::Rotation (UnMath.cpp) isn't declared. */
-struct FVector_ : public FVector
-{
-	FRotator Rotation() const; /* 0x005c3540 */
-};
 
-struct ARPawnPlayerChallengeJokerBase_ : public ARPawnPlayerChallengeJokerBase
-{
-	void sub_016a0360(FRotator NewRotation);
-};
 
 struct ARControllableChatteringTeethBase_ : public ARControllableChatteringTeethBase
 {
@@ -44,12 +36,12 @@ void ARControllableChatteringTeethBase_::sub_0171a4b0(FLOAT DeltaTime)
 		ARPawnPlayerChallengeJokerBase* Joker = Cast<ARPawnPlayerChallengeJokerBase>(SpawnGadget->Owner);
 		if (Joker)
 		{
-			FVector_ ToTeeth;
+			FVector ToTeeth;
 			ToTeeth.X = Location.X - Joker->Location.X;
 			ToTeeth.Y = Location.Y - Joker->Location.Y;
 			ToTeeth.Z = Location.Z - Joker->Location.Z;
 			const FRotator FaceTeeth = ToTeeth.Rotation();
-			((ARPawnPlayerChallengeJokerBase_*)Joker)->sub_016a0360(FaceTeeth);
+			((ARPawnPlayerChallengeJokerBase*)Joker)->sub_016a0360(FaceTeeth);
 			eventFinishStandSpecialMove();
 		}
 	}

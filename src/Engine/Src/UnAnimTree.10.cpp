@@ -11,7 +11,6 @@ extern template UAnimNodeSequence* Cast<UAnimNodeSequence>(UObject* Src);
 struct UAnimNodeBlend_ : public UAnimNodeBlend
 {
 	void sub_00c54040(FLOAT BlendTarget, FLOAT BlendTime);	/* SetBlendTarget */
-	void sub_00c53f20(FLOAT DeltaSeconds, FLOAT TotalWeight);	/* TickAnim */
 };
 
 /* UAnimNodePlayCustomAnim's TickAnim override. */

@@ -7,15 +7,11 @@
 extern FName g_026c4e54;
 	/* ENGINE_SeePlayer */
 /* EName entries Core.h doesn't list yet (UnNames.h) */
-struct AController_ : public AController
-{
-	void eventSeePlayer(APawn* Seen);
-};
 
 // @baa 0x0079f4c0
 /* The script event's generated glue (EngineClasses.h), out of line here. SeePlayer is a probe
  * function: the glue only calls into script when the current state probes for it. */
-void AController_::eventSeePlayer(APawn* Seen)
+void AController::eventSeePlayer(APawn* Seen)
 {
 	if (!StateFrame || (StateFrame->ProbeMask & ((QWORD)1 << (NAME_SeePlayer - NAME_PROBEMIN))))
 	{
@@ -29,15 +25,11 @@ void AController_::eventSeePlayer(APawn* Seen)
 }
 
 extern FName g_026c4b14;
-struct AController__0079f460 : public AController
-{
-	void eventSeeMonster(APawn* Seen);
-};
 
 // @baa 0x0079f460
 /* The script event's generated glue (EngineClasses.h), out of line here. SeeMonster is a probe
  * function: the glue only calls into script when the current state probes for it. */
-void AController__0079f460::eventSeeMonster(APawn* Seen)
+void AController::eventSeeMonster(APawn* Seen)
 {
 	if (!StateFrame || (StateFrame->ProbeMask & ((QWORD)1 << (NAME_SeeMonster - NAME_PROBEMIN))))
 	{

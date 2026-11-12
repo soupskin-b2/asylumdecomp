@@ -17,10 +17,6 @@ template<typename T> struct TArrayAddItem_ : public TArray<T>
 };
 
 /* Kit gap: AActor::SetDefaultCollisionType (0x00780cd0; derives CollisionType from the collision flags) isn't declared. */
-struct AActor_ : public AActor
-{
-    void SetDefaultCollisionType();
-};
 
 // @baa 0x007839c0
 /* Drops stale attachments, re-registers with the owner, points the components back at this actor and
@@ -51,5 +47,5 @@ void AActor::PostLoad()
         }
     }
 
-    ((AActor_*)this)->SetDefaultCollisionType();
+    ((AActor*)this)->SetDefaultCollisionType();
 }

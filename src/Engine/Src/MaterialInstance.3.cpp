@@ -31,10 +31,6 @@ undefined4 UMaterialInstance::sub_0072dd00(byte param_2)
 
 /* Kit gaps: UObject::GetName() (0x0043bbb0) isn't declared, and FString's comparison with a string (UnString.h,
  * out of line here at 0x00544cf0) is missing. */
-struct UObject_ : public UObject
-{
-    FString GetName() const; /* 0x0043bbb0 */
-};
 
 struct FString_ : public FString
 {
@@ -48,7 +44,7 @@ void UMaterialInstance::PostEditChange(UProperty* PropertyThatChanged)
     Super::PostEditChange(PropertyThatChanged);
     if (PropertyThatChanged)
     {
-        if ((FString_&)((UObject_*)PropertyThatChanged)->GetName() == TEXT("Parent"))
+        if ((FString_&)((UObject*)PropertyThatChanged)->GetName() == TEXT("Parent"))
         {
             if (Parent == NULL)
             {

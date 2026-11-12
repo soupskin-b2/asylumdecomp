@@ -5,10 +5,6 @@
 #include "ue3/Cast.h"
 
 /* USequenceEvent::CheckActivate (vtable 0x198, declared only as vf_198), called here non-virtually as Super::. */
-struct USequenceEvent_ : public USequenceEvent
-{
-	UBOOL sub_008abba0(AActor* InOriginator, AActor* InInstigator, UBOOL bTest, TArray<INT>* ActivateIndices, UBOOL bPushTop);
-};
 
 /* USeqEvent_Touch's override of that slot. */
 struct USeqEvent_Touch_ : public USeqEvent_Touch
@@ -52,7 +48,7 @@ UBOOL USeqEvent_Touch_::CheckActivate(AActor* InOriginator, AActor* InInstigator
 			// only test here: the touch itself activates the event
 			if (bPassed)
 			{
-				bPassed = ((USequenceEvent_*)this)->sub_008abba0(InOriginator, InInstigator, TRUE, ActivateIndices, bPushTop);
+				bPassed = this->sub_008abba0(InOriginator, InInstigator, TRUE, ActivateIndices, bPushTop);
 			}
 		}
 	}

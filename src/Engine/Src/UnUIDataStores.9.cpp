@@ -3,21 +3,8 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
 
-/* Kit gaps: FString::Len and operator* (UnString.h) aren't declared; same code as UE3's, on a stand-in. */
-struct FStringM : public FString
-{
-	FORCEINLINE INT Len() const
-	{
-		return Num() ? Num() - 1 : 0;
-	}
-	FORCEINLINE const TCHAR* operator*() const
-	{
-		return Num() ? &(*this)(0) : TEXT("");
-	}
-};
-
-#define STR(S) (*(const FStringM&)(S))
-#define STRLEN(S) (((const FStringM&)(S)).Len())
+#define STR(S) (*(const FString&)(S))
+#define STRLEN(S) (((const FString&)(S)).Len())
 
 // @baa 0x00da3e40
 /* vf_144 is LoadDependentClasses: loads the classes named in the ini, falling back to the defaults. */

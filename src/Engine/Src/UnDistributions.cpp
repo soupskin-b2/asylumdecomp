@@ -379,7 +379,6 @@ struct FLinkerMap {
 
 extern FLinkerMap g_026a1d64;
 struct UDistributionVectorUniform_ : public UDistributionVectorUniform {
-    UBOOL HasAnyFlags(QWORD Flags) { return (*(QWORD*)&ObjectFlags & Flags) != 0; }
     FLinkerVer* GetLinker()
     {
         if (!(*(QWORD*)&ObjectFlags & 0x4000000))
@@ -387,7 +386,6 @@ struct UDistributionVectorUniform_ : public UDistributionVectorUniform {
         return g_026a1d64.sub_005d7190(this);
     }
     void sub_005d9570(UBOOL bDirty);
-    void sub_005e59b0();
 };
 
 // @baa 0x007b04a0

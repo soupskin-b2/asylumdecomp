@@ -69,14 +69,10 @@ class ARPawnCharacter* URSeqAct_ConversationDialogue__015584d0::eventGetSpeaking
 
 extern FName g_026e2e08;
 	/* SetSource */
-struct URSeqAct_PlayerDialogueLine_ : public URSeqAct_PlayerDialogueLine
-{
-	void eventSetSource(class URSeqAct_PlayerDialogueOptions* D);
-};
 
 // @baa 0x01558540
 /* RSeqAct_PlayerDialogueLine.SetSource script event: the generated glue, out of line here. */
-void URSeqAct_PlayerDialogueLine_::eventSetSource(class URSeqAct_PlayerDialogueOptions* D)
+void URSeqAct_PlayerDialogueLine::eventSetSource(class URSeqAct_PlayerDialogueOptions* D)
 {
 	struct RSeqAct_PlayerDialogueLine_eventSetSource_Parms
 	{

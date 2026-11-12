@@ -80,7 +80,6 @@ void UGameUISceneClient__00ca74c0::execRequestCursorRenderUpdate(FFrame& Stack, 
 /* Kit gaps: the native's exec and CanUnpauseInternalUI (00dde4d0) aren't declared (name from the exe's native table). */
 struct UGameUISceneClient__00ca74f0 : public UGameUISceneClient
 {
-	UBOOL CanUnpauseInternalUI();
 	void execCanUnpauseInternalUI(FFrame& Stack, RESULT_DECL);
 };
 
@@ -94,7 +93,6 @@ void UGameUISceneClient__00ca74f0::execCanUnpauseInternalUI(FFrame& Stack, RESUL
 /* Kit gaps: the native's exec and FindSceneIndex (00de2590) aren't declared (name from the exe's native table). */
 struct UGameUISceneClient__00ca6d50 : public UGameUISceneClient
 {
-	INT FindSceneIndex(const class UUIScene* SceneToFind);
 	void execFindSceneIndex(FFrame& Stack, RESULT_DECL);
 };
 
@@ -109,7 +107,6 @@ void UGameUISceneClient__00ca6d50::execFindSceneIndex(FFrame& Stack, RESULT_DECL
 /* Kit gaps: the native's exec and GetSceneAtIndex (00de2670) aren't declared (name from the exe's native table). */
 struct UGameUISceneClient__00ca6dc0 : public UGameUISceneClient
 {
-	class UUIScene* GetSceneAtIndex(INT SceneIndex) const;
 	void execGetSceneAtIndex(FFrame& Stack, RESULT_DECL);
 };
 
@@ -124,7 +121,6 @@ void UGameUISceneClient__00ca6dc0::execGetSceneAtIndex(FFrame& Stack, RESULT_DEC
 /* Kit gaps: the native's exec and GetCanvasToScreen (00dddda0) aren't declared (names from the exe's native table). */
 struct UUISceneClient_ : public UUISceneClient
 {
-	FMatrix GetCanvasToScreen(class UUIObject* Widget);	/* 0x00dddda0 */
 	void execGetCanvasToScreen(FFrame& Stack, RESULT_DECL);
 };
 
@@ -139,7 +135,6 @@ void UUISceneClient_::execGetCanvasToScreen(FFrame& Stack, RESULT_DECL)
 /* Kit gaps: the native's exec and GetInverseCanvasToScreen (00ddddf0) aren't declared (names from the exe's native table). */
 struct UUISceneClient__00ca1af0 : public UUISceneClient
 {
-	FMatrix GetInverseCanvasToScreen(class UUIObject* Widget);	/* 0x00ddddf0 */
 	void execGetInverseCanvasToScreen(FFrame& Stack, RESULT_DECL);
 };
 
@@ -154,7 +149,6 @@ void UUISceneClient__00ca1af0::execGetInverseCanvasToScreen(FFrame& Stack, RESUL
 /* Kit gaps: the native's exec and FindSceneByTag (00de54e0) aren't declared (names from the exe's native table). */
 struct UGameUISceneClient__00ca6ca0 : public UGameUISceneClient
 {
-	class UUIScene* FindSceneByTag(FName SceneTag, class ULocalPlayer* SceneOwner);	/* 0x00de54e0 */
 	void execFindSceneByTag(FFrame& Stack, RESULT_DECL);
 };
 
@@ -170,7 +164,6 @@ void UGameUISceneClient__00ca6ca0::execFindSceneByTag(FFrame& Stack, RESULT_DECL
 /* Kit gaps: the native's exec and FindSceneIndexByTag (00de25d0) aren't declared (names from the exe's native table). */
 struct UGameUISceneClient__00ca6e30 : public UGameUISceneClient
 {
-	INT FindSceneIndexByTag(FName SceneTag, class ULocalPlayer* SceneOwner);	/* 0x00de25d0 */
 	void execFindSceneIndexByTag(FFrame& Stack, RESULT_DECL);
 };
 
@@ -186,7 +179,6 @@ void UGameUISceneClient__00ca6e30::execFindSceneIndexByTag(FFrame& Stack, RESULT
 /* Kit gaps: the native's exec and GetActiveSceneCount (00de26d0) aren't declared (names from the exe's native table). */
 struct UGameUISceneClient__00ca6ee0 : public UGameUISceneClient
 {
-	INT GetActiveSceneCount(class ULocalPlayer* MatchingPlayerOwner, UBOOL bIgnoreUnfocusedScenes);	/* 0x00de26d0 */
 	void execGetActiveSceneCount(FFrame& Stack, RESULT_DECL);
 };
 
@@ -202,7 +194,6 @@ void UGameUISceneClient__00ca6ee0::execGetActiveSceneCount(FFrame& Stack, RESULT
 /* Kit gaps: the native's exec and GetActiveScene (00de2770) aren't declared (names from the exe's native table). */
 struct UGameUISceneClient__00ca6f90 : public UGameUISceneClient
 {
-	class UUIScene* GetActiveScene(class ULocalPlayer* MatchingPlayerOwner, UBOOL bIgnoreUnfocusedScenes);	/* 0x00de2770 */
 	void execGetActiveScene(FFrame& Stack, RESULT_DECL);
 };
 
@@ -218,7 +209,6 @@ void UGameUISceneClient__00ca6f90::execGetActiveScene(FFrame& Stack, RESULT_DECL
 /* Kit gaps: the native's exec and GetPreviousSceneFromIndex (00de2800) aren't declared (names from the exe's native table). */
 struct UGameUISceneClient__00ca7130 : public UGameUISceneClient
 {
-	class UUIScene* GetPreviousSceneFromIndex(INT StartingSceneIndex, class ULocalPlayer* MatchingPlayerOwner, UBOOL bIgnoreUnfocusedScenes);	/* 0x00de2800 */
 	void execGetPreviousSceneFromIndex(FFrame& Stack, RESULT_DECL);
 };
 
@@ -235,7 +225,6 @@ void UGameUISceneClient__00ca7130::execGetPreviousSceneFromIndex(FFrame& Stack, 
 /* Kit gaps: the native's exec and GetNextSceneFromIndex (00de2980) aren't declared (names from the exe's native table). */
 struct UGameUISceneClient__00ca73b0 : public UGameUISceneClient
 {
-	class UUIScene* GetNextSceneFromIndex(INT StartingSceneIndex, class ULocalPlayer* MatchingPlayerOwner, UBOOL bIgnoreUnfocusedScenes);	/* 0x00de2980 */
 	void execGetNextSceneFromIndex(FFrame& Stack, RESULT_DECL);
 };
 
@@ -252,7 +241,6 @@ void UGameUISceneClient__00ca73b0::execGetNextSceneFromIndex(FFrame& Stack, RESU
 /* Kit gaps: the native's exec and GetPreviousScene (00de5550) aren't declared (names from the exe's native table). */
 struct UGameUISceneClient__00ca7040 : public UGameUISceneClient
 {
-	class UUIScene* GetPreviousScene(class UUIScene* SourceScene, UBOOL bRequireMatchingPlayerOwner, UBOOL bIgnoreUnfocusedScenes);	/* 0x00de5550 */
 	void execGetPreviousScene(FFrame& Stack, RESULT_DECL);
 };
 
@@ -269,7 +257,6 @@ void UGameUISceneClient__00ca7040::execGetPreviousScene(FFrame& Stack, RESULT_DE
 /* Kit gaps: the native's exec and GetNextScene (00de5640) aren't declared (names from the exe's native table). */
 struct UGameUISceneClient__00ca72c0 : public UGameUISceneClient
 {
-	class UUIScene* GetNextScene(class UUIScene* SourceScene, UBOOL bRequireMatchingPlayerOwner, UBOOL bIgnoreUnfocusedScenes);	/* 0x00de5640 */
 	void execGetNextScene(FFrame& Stack, RESULT_DECL);
 };
 
@@ -286,7 +273,6 @@ void UGameUISceneClient__00ca72c0::execGetNextScene(FFrame& Stack, RESULT_DECL)
 /* Kit gaps: the native's exec and GetPreviousInputProcessingScene (00de2890) aren't declared (names from the exe's native table). */
 struct UGameUISceneClient__00ca7210 : public UGameUISceneClient
 {
-	class UUIScene* GetPreviousInputProcessingScene(class UUIScene* SourceScene, UBOOL bIgnoreUnfocusedScenes);	/* 0x00de2890 */
 	void execGetPreviousInputProcessingScene(FFrame& Stack, RESULT_DECL);
 };
 

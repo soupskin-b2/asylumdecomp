@@ -1292,17 +1292,13 @@ bool USoundNodeAmbientNonLoop::vf_004()
 }
 
 /* Kit gap: UObject::MarkPackageDirty (0x005d9570) is only declared on UAnimSequence. */
-struct UObject_ : public UObject
-{
-    void MarkPackageDirty(UBOOL InDirty = TRUE) const; /* 0x005d9570 */
-};
 
 // @baa 0x00c92f30
 /* Editing a property marks the package dirty. */
 void USoundCue::PostEditChange(UProperty* PropertyThatChanged)
 {
     Super::PostEditChange(PropertyThatChanged);
-    ((UObject_*)this)->MarkPackageDirty();
+    ((UObject*)this)->MarkPackageDirty();
 }
 
 // @baa 0x00c92f50
@@ -1310,7 +1306,7 @@ void USoundCue::PostEditChange(UProperty* PropertyThatChanged)
 void USoundNode::PostEditChange(UProperty* PropertyThatChanged)
 {
     Super::PostEditChange(PropertyThatChanged);
-    ((UObject_*)this)->MarkPackageDirty();
+    ((UObject*)this)->MarkPackageDirty();
 }
 
 /* Kit gap: FUntypedBulkData::Serialize (0x00585e80) and RemoveBulkData (0x0056bfe0) aren't declared. */

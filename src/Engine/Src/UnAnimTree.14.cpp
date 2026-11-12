@@ -15,14 +15,9 @@ struct USkeletalMeshComponent_ : public USkeletalMeshComponent
 };
 
 /* UAnimNodeSlot::PlayCustomAnimByDuration isn't declared in Classes.h. */
-struct UAnimNodeSlot_ : public UAnimNodeSlot
-{
-	FLOAT sub_00c7ef60(FName AnimName, FLOAT Rate, FLOAT BlendInTime, FLOAT BlendOutTime, UBOOL bLooping, UBOOL bOverride);	/* PlayCustomAnim */
-	void PlayCustomAnimByDuration(FName AnimName, FLOAT Duration, FLOAT BlendInTime, FLOAT BlendOutTime, UBOOL bLooping, UBOOL bOverride);
-};
 
 // @baa 0x00c7f120
-void UAnimNodeSlot_::PlayCustomAnimByDuration(FName AnimName, FLOAT Duration, FLOAT BlendInTime, FLOAT BlendOutTime, UBOOL bLooping, UBOOL bOverride)
+void UAnimNodeSlot::PlayCustomAnimByDuration(FName AnimName, FLOAT Duration, FLOAT BlendInTime, FLOAT BlendOutTime, UBOOL bLooping, UBOOL bOverride)
 {
 	if (AnimName == NAME_None_ || Duration <= 0.f)
 	{

@@ -4,10 +4,6 @@
 #include "ue3/Classes.h"
 
 /* Kit gap: the DOF manager's post-process update (0x01686a40) isn't declared. */
-struct URDOFManager_ : public URDOFManager
-{
-	void sub_01686a40(FPostProcessSettings& PPSettings);
-};
 
 // @baa 0x01689860
 /* Slot 0x360 (unnamed in the kit): the camera's post-process overrides (DOF, motion blur, bloom). */
@@ -15,7 +11,7 @@ void AR3rdPersonCamera::vf_360(FPostProcessSettings& PPSettings)
 {
 	if (bCamOverrideDof)
 	{
-		((URDOFManager_*)DOFManager)->sub_01686a40(PPSettings);
+		((URDOFManager*)DOFManager)->sub_01686a40(PPSettings);
 	}
 	if (MotionBlurEffect)
 	{

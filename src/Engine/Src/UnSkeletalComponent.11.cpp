@@ -25,19 +25,11 @@ template<class T> struct TArrayAt_ : public TArray<T>
 
 extern template INT TArray<INT>::Add(INT Count);
 /* USkeletalMesh::MatchRefBone (0x00976be0) isn't declared in Classes.h. */
-struct USkeletalMesh_ : public USkeletalMesh
-{
-    INT MatchRefBone(FName BoneName) const;
-};
 
-struct USkeletalMeshComponent_ : public USkeletalMeshComponent
-{
-    void UpdateParentBoneMap();
-};
 
 // @baa 0x0092db40
 /* map each of our bones to the matching bone of ParentAnimComponent's mesh */
-void USkeletalMeshComponent_::UpdateParentBoneMap()
+void USkeletalMeshComponent::UpdateParentBoneMap()
 {
     ParentBoneMap.Empty();
 
@@ -60,7 +52,7 @@ void USkeletalMeshComponent_::UpdateParentBoneMap()
                 for (INT i = 0; i < ParentBoneMap.Num(); i++)
                 {
                     FName BoneName = ((TArrayAt_<FMeshBone>&)SkeletalMesh->RefSkeleton).At(i).Name;
-                    ((TArrayAt_<INT>&)ParentBoneMap).At(i) = ((USkeletalMesh_*)ParentMesh)->MatchRefBone(BoneName);
+                    ((TArrayAt_<INT>&)ParentBoneMap).At(i) = ((USkeletalMesh*)ParentMesh)->MatchRefBone(BoneName);
                 }
             }
         }

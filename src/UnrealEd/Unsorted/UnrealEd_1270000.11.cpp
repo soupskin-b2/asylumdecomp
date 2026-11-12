@@ -14,10 +14,6 @@ struct FUILayerNode
 	class UUILayer* ParentLayer;
 };
 
-struct UUILayer_ : public UUILayer
-{
-	UBOOL InsertNode(const FUILayerNode& NodeToInsert, INT InsertIndex);
-};
 
 // @baa 0x0127c0e0
 /* bool InsertNode(const out UILayerNode NodeToInsert, optional int InsertIndex = INDEX_NONE) */
@@ -26,5 +22,5 @@ void UUILayer::execInsertNode(FFrame& Stack, RESULT_DECL)
 	P_GET_STRUCT_REF(FUILayerNode, NodeToInsert);
 	P_GET_INT_OPTX(InsertIndex, INDEX_NONE);
 	P_FINISH;
-	*(UBOOL*)Result = ((UUILayer_*)this)->InsertNode(NodeToInsert, InsertIndex);
+	*(UBOOL*)Result = ((UUILayer*)this)->InsertNode(NodeToInsert, InsertIndex);
 }

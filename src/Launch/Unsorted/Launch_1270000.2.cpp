@@ -23,15 +23,11 @@ struct FUILayerNode
 };
 
 /* UUILayer::RemoveNode (014a7e10, UILayerBrowser.cpp) isn't declared in the kit. */
-struct UUILayer_ : public UUILayer
-{
-    UBOOL RemoveNode(const FUILayerNode& NodeToRemove);
-};
 
 // @baa 0x0127c190
 void UUILayer::execRemoveNode(FFrame& Stack, RESULT_DECL)
 {
     P_GET_STRUCT_REF(FUILayerNode, NodeToRemove);
     P_FINISH;
-    *(UBOOL*)Result = ((UUILayer_*)this)->RemoveNode(NodeToRemove);
+    *(UBOOL*)Result = ((UUILayer*)this)->RemoveNode(NodeToRemove);
 }

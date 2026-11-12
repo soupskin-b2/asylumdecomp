@@ -24,10 +24,6 @@ void ARTunnelGrateBase::execUpdateCapeCollision(FFrame& Stack, RESULT_DECL)
 }
 
 /* ARTunnelGrateBase::GetFinalGrateRotAndTrans (0x1716310) isn't declared in the kit. */
-struct ARTunnelGrateBase_ : public ARTunnelGrateBase
-{
-    void GetFinalGrateRotAndTrans(FRotator& GrateRot, FVector& GrateTrans);
-};
 
 // @baa 0x0171a2b0
 void ARTunnelGrateBase::execGetFinalGrateRotAndTrans(FFrame& Stack, RESULT_DECL)
@@ -35,7 +31,7 @@ void ARTunnelGrateBase::execGetFinalGrateRotAndTrans(FFrame& Stack, RESULT_DECL)
     P_GET_STRUCT_REF(FRotator, GrateRot);
     P_GET_STRUCT_REF(FVector, GrateTrans);
     P_FINISH;
-    ((ARTunnelGrateBase_*)this)->GetFinalGrateRotAndTrans(GrateRot, GrateTrans);
+    ((ARTunnelGrateBase*)this)->GetFinalGrateRotAndTrans(GrateRot, GrateTrans);
 }
 
 // @baa 0x0171ba20

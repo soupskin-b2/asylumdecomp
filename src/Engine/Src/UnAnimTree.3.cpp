@@ -116,15 +116,10 @@ undefined4 C_00c6aa30::sub_00c6aa30(byte param_2)
   return param_1;
 }
 
-
 /* UAnimNodeSlot::UpdateWeightsForAdditiveAnimations isn't declared in Classes.h. */
-struct UAnimNodeSlot_ : public UAnimNodeSlot
-{
-	void UpdateWeightsForAdditiveAnimations();
-};
 
 // @baa 0x00c56870
-void UAnimNodeSlot_::UpdateWeightsForAdditiveAnimations()
+void UAnimNodeSlot::UpdateWeightsForAdditiveAnimations()
 {
 	// Make sure non additive channels weight sum up to 1.
 	FLOAT AccumulatedWeight = 0.f;

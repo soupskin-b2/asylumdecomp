@@ -5,10 +5,6 @@
 
 // FName's string constructor (UnName.cpp), missing from the kit's FName.
 
-struct FNameString : public FName
-{
-	FNameString(const TCHAR* Name, EFindName FindType = FNAME_Add, UBOOL bSplitName = TRUE); /* 0x005d5620 */
-};
 
 #define AUTOGENERATE_NAME(name) extern FName UNREALED_##name;
 AUTOGENERATE_NAME(CheckAreSettingsValid)
@@ -16,7 +12,7 @@ AUTOGENERATE_NAME(FetchDisplayName)
 AUTOGENERATE_NAME(FetchRequiredKeyInTimes)
 AUTOGENERATE_NAME(GenerateCurveData)
 #undef AUTOGENERATE_NAME
-#define AUTOGENERATE_NAME(name) UNREALED_##name = FNameString(TEXT(#name));
+#define AUTOGENERATE_NAME(name) UNREALED_##name = FName(TEXT(#name));
 // @baa 0x01277f90
 void AutoGenerateNamesUnrealEd()
 {

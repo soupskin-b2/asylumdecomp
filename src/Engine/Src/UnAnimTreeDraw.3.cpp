@@ -5,13 +5,9 @@
 #include "ue3/AppMath.h"
 
 /* UAnimNodeBlend::SetBlendTarget (not virtual in this build) isn't declared in Classes.h. */
-struct UAnimNodeBlend_ : public UAnimNodeBlend
-{
-	void SetBlendTarget(FLOAT BlendTarget, FLOAT BlendTime);
-};
 
 // @baa 0x00c54040
-void UAnimNodeBlend_::SetBlendTarget(FLOAT BlendTarget, FLOAT BlendTime)
+void UAnimNodeBlend::SetBlendTarget(FLOAT BlendTarget, FLOAT BlendTime)
 {
 	Child2WeightTarget = Clamp<FLOAT>(BlendTarget, 0.f, 1.f);
 

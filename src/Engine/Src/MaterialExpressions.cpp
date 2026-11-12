@@ -3668,24 +3668,11 @@ template<class T> struct TArrayAt_ : public TArray<T>
 	}
 };
 
-/* Kit gap: FString::Len and operator* (UnString.h) aren't declared. */
-struct FString_ : public FString
-{
-	INT Len() const
-	{
-		return Num() ? Num() - 1 : 0;
-	}
-	const TCHAR* operator*() const
-	{
-		return Num() ? &((const TArrayAt_<TCHAR>*)this)->ConstAt(0) : TEXT("");
-	}
-};
-
 // @baa 0x00c28720
 /* Slot 0x128 (unnamed in the kit; UE3's GetCaption): the user caption, or a generic name. */
 FString UMaterialExpressionCompound::vf_128()
 {
-	return ((const FString_&)Caption).Len() > 0 ? *(const FString_&)Caption : TEXT("Compound Expression");
+	return ((const FString&)Caption).Len() > 0 ? *(const FString&)Caption : TEXT("Compound Expression");
 }
 
 #line 3692 "candidate.cpp"

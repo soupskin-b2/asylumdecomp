@@ -3,13 +3,9 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
 
-struct UPhysicsAsset_ : public UPhysicsAsset {
-    INT FindConstraintIndex(FName ConstraintName); // 00a09910
-};
-
 /* FName::operator== (UnName.h) */
 // @baa 0x00a09910
-INT UPhysicsAsset_::FindConstraintIndex(FName ConstraintName)
+INT UPhysicsAsset::FindConstraintIndex(FName ConstraintName)
 {
 #line 402 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPhysAsset.cpp"
     check(ConstraintSetup.Num() == DefaultInstance->Constraints.Num());
@@ -28,7 +24,6 @@ INT UPhysicsAsset_::FindConstraintIndex(FName ConstraintName)
 #line 31 "candidate.cpp"
 
 struct UPhysicsAsset__00a20750 : public UPhysicsAsset {
-    void UpdateBoundsBodiesArray(); // 00a17a10
     void UpdateBodyIndices();       // 00a20750
 };
 

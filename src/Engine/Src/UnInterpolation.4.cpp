@@ -45,24 +45,9 @@ void USeqAct_Interp_::sub_00ceb4f0()
  * FLOAT& CutTransitionTime) (this build has a trailing flag), and USeqAct_Interp::FindFirstGroupInstByName(FName)
  * (as the project binds it, 0x00cf3830); UInterpData::FindDirectorGroup and UInterpGroupDirector::GetDirectorTrack
  * are project stand-ins too (0x00d132d0, 0x00d0eb90). */
-struct UInterpData_ : public UInterpData
-{
-    UInterpGroupDirector* FindDirectorGroup();
-};
-
-struct UInterpGroupDirector_ : public UInterpGroupDirector
-{
-    UInterpTrackDirector* GetDirectorTrack();
-};
-
-struct UInterpTrackDirector_ : public UInterpTrackDirector
-{
-    FName sub_00d0f950(FLOAT CurrentTime, FLOAT& CutTime, FLOAT& CutTransitionTime, UBOOL bFlag);
-};
 
 struct USeqAct_Interp__00d14410 : public USeqAct_Interp
 {
-    UInterpGroupInst* sub_00cf3830(FName InGroupName);
     AActor* sub_00d14410();
 };
 
@@ -71,14 +56,14 @@ struct USeqAct_Interp__00d14410 : public USeqAct_Interp
  * if it isn't being destroyed. */
 AActor* USeqAct_Interp__00d14410::sub_00d14410()
 {
-    UInterpGroupDirector* DirGroup = ((UInterpData_*)InterpData)->FindDirectorGroup();
+    UInterpGroupDirector* DirGroup = InterpData->FindDirectorGroup();
     if (DirGroup != NULL)
     {
-        UInterpTrackDirector* DirTrack = ((UInterpGroupDirector_*)DirGroup)->GetDirectorTrack();
+        UInterpTrackDirector* DirTrack = DirGroup->GetDirectorTrack();
         if (DirTrack != NULL)
         {
             FLOAT CutTime, CutTransitionTime;
-            FName ViewGroupName = ((UInterpTrackDirector_*)DirTrack)->sub_00d0f950(Position, CutTime, CutTransitionTime, FALSE);
+            FName ViewGroupName = DirTrack->sub_00d0f950(Position, CutTime, CutTransitionTime, FALSE);
             UInterpGroupInst* ViewGroupInst = sub_00cf3830(ViewGroupName);
             if (ViewGroupInst != NULL && ViewGroupInst->GroupActor != NULL && !ViewGroupInst->GroupActor->bDeleteMe)
             {
@@ -249,15 +234,11 @@ INT UInterpTrackToggle::AddKeyframe(FLOAT Time, UInterpTrackInst* TrInst, BYTE I
 
 /* Unnamed in the kit: the USeqAct_Interp member at 0x00d19950 taking one flag (UE3's UpdateInterp/ConditionalPersistent
  * refresh after an edit). */
-struct USeqAct_Interp__00d19a50 : public USeqAct_Interp
-{
-    void sub_00d19950(UBOOL bFlag);
-};
 
 // @baa 0x00d19a50
 /* UE3's USeqAct_Interp::PostEditChange(UProperty* PropertyThatChanged). */
 void USeqAct_Interp::PostEditChange(UProperty* PropertyThatChanged)
 {
     Super::PostEditChange(PropertyThatChanged);
-    ((USeqAct_Interp__00d19a50*)this)->sub_00d19950(TRUE);
+    this->sub_00d19950(TRUE);
 }

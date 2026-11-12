@@ -5,10 +5,6 @@
 
 // FName's string constructor (UnName.cpp), missing from the kit's FName.
 
-struct FNameString : public FName
-{
-	FNameString(const TCHAR* Name, EFindName FindType = FNAME_Add, UBOOL bSplitName = TRUE); /* 0x005d5620 */
-};
 
 #define AUTOGENERATE_NAME(name) extern FName COMMONGAME_##name;
 AUTOGENERATE_NAME(ChangeGameSpeedOverTime)
@@ -49,7 +45,7 @@ AUTOGENERATE_NAME(SpawnDecal)
 AUTOGENERATE_NAME(SpawnParticles)
 AUTOGENERATE_NAME(CalculateSplashPoints)
 #undef AUTOGENERATE_NAME
-#define AUTOGENERATE_NAME(name) COMMONGAME_##name = FNameString(TEXT(#name));
+#define AUTOGENERATE_NAME(name) COMMONGAME_##name = FName(TEXT(#name));
 // @baa 0x0150d5a0
 void AutoGenerateNamesCommonGame()
 {

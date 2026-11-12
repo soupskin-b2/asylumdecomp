@@ -993,8 +993,6 @@ void caller(TThreeWord* t, unsigned int a, unsigned int b, unsigned int c) {
 }
 
 struct UGFxDataStoreSubscriber_ : public UGFxDataStoreSubscriber {
-    INT sub_0196e740(); // 0x0196e740
-    INT sub_0196b020(); // 0x0196b020
     INT sub_0196ec00(); // 0x0196ec00
 };
 

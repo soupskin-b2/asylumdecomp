@@ -6,10 +6,6 @@
 #include "ue3/AppMath.h"
 
 /* Kit gap: UGameViewportClient::GetViewportSize (0x00889880, UnPlayer.cpp) isn't declared. */
-struct UGameViewportClient_ : public UGameViewportClient
-{
-	void GetViewportSize(FVector2D& out_ViewportSize);
-};
 
 // @baa 0x01690760
 /* Writes the live free-camera tuning back into ConfigToSave; with separate 4:3 settings, only when the aspect ratio
@@ -25,7 +21,7 @@ void AR3rdPersonCamera::SaveFreeCameraConfig(FFreeCameraConfig& ConfigToSave)
 			if (LocalPlayer)
 			{
 				FVector2D ViewportSize;
-				((UGameViewportClient_*)LocalPlayer->ViewportClient)->GetViewportSize(ViewportSize);
+				((UGameViewportClient*)LocalPlayer->ViewportClient)->GetViewportSize(ViewportSize);
 				AspectRatio = ViewportSize.X / ViewportSize.Y;
 			}
 		}

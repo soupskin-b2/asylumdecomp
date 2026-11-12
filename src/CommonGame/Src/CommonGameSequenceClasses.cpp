@@ -252,13 +252,9 @@ undefined4 * UObject::sub_01547870(void)
 
 /* Clears the activated state of every input (01547180, called from UpdateOp and Activated). The
  * kit doesn't declare it; the name is descriptive, the original's isn't known. */
-struct URSeqAct_WaitForAllInputs_ : public URSeqAct_WaitForAllInputs
-{
-    void ResetInputs();
-};
 
 // @baa 0x01547180
-void URSeqAct_WaitForAllInputs_::ResetInputs()
+void URSeqAct_WaitForAllInputs::ResetInputs()
 {
     for (INT Idx = 0; Idx < InputCount; Idx++)
     {
@@ -270,7 +266,7 @@ void URSeqAct_WaitForAllInputs_::ResetInputs()
 /* Once all inputs have fired the action resets and fires its output. */
 UBOOL URSeqAct_WaitForAllInputs::UpdateOp(FLOAT DeltaTime)
 {
-    ((URSeqAct_WaitForAllInputs_*)this)->ResetInputs();
+    this->ResetInputs();
     OutputLinks(0).bHasImpulse = TRUE;
     return TRUE;
 }
@@ -308,7 +304,7 @@ void URSeqAct_WaitForAllInputs::Activated()
 {
     if (InputLinks(0).bHasImpulse)
     {
-        ((URSeqAct_WaitForAllInputs_*)this)->ResetInputs();
+        this->ResetInputs();
         if (!bTriggerOutputIfSkipped)
         {
             bActive = FALSE;

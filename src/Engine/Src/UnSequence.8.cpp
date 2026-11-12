@@ -177,7 +177,6 @@ C_008dcbc0 *C_008dcbc0::sub_008dcbc0(int a) { sub_008d5060(a); return this; }
 
 struct USeqAct_PlaySound_ : public USeqAct_PlaySound
 {
-    void sub_008df850();
     INT sub_00d201d0(INT Value);
     void sub_008ec1a0(UINT Value);
 };
@@ -216,26 +215,17 @@ void C_00d20240::sub_00d20240(int * param_2)
   return;
 }
 
-struct USeqAct_CastToFloat_ : public USeqAct_CastToFloat
-{
-    void Activated();
-};
-
 // @baa 0x008e5a20
-void USeqAct_CastToFloat_::Activated()
+void USeqAct_CastToFloat::Activated()
 {
     OutputLinks(0).bHasImpulse = TRUE;
     FloatResult = (FLOAT)Value;
 }
 
 /* slot 0x178 (vf_178) is USequenceOp::DeActivated */
-struct USeqAct_Latent_ : public USeqAct_Latent
-{
-    void DeActivated();
-};
 
 // @baa 0x008bea90
-void USeqAct_Latent_::DeActivated()
+void USeqAct_Latent::DeActivated()
 {
     if (bAutoActivateOutputLinks)
     {
@@ -273,15 +263,8 @@ void USeqAct_LevelStreaming_::UpdateStatus()
     bStatusIsOk = FindLevel(TheLevel, LevelName) != FALSE;
 }
 
-struct USeqAct_ActorFactory_ : public USeqAct_ActorFactory
-{
-    /* 0x008bc070: inputs 1/2/3 enable, disable or toggle bEnabled (also used by another op at 0x008db360) */
-    void HandleEnableInputs();
-    void Activated();
-};
-
 // @baa 0x008befc0
-void USeqAct_ActorFactory_::Activated()
+void USeqAct_ActorFactory::Activated()
 {
     // "Spawn Actor" starts spawning, the other inputs enable/disable/toggle
     if (InputLinks(0).bHasImpulse && Factory != NULL)
@@ -296,14 +279,9 @@ void USeqAct_ActorFactory_::Activated()
     }
 }
 
-struct USeqAct_ActorFactory__008bc070 : public USeqAct_ActorFactory
-{
-    void HandleEnableInputs();
-};
-
 // @baa 0x008bc070
 /* inputs 1/2/3 ("Enable", "Disable", "Toggle") */
-void USeqAct_ActorFactory__008bc070::HandleEnableInputs()
+void USeqAct_ActorFactory::HandleEnableInputs()
 {
     if (InputLinks(1).bHasImpulse)
     {
@@ -320,13 +298,9 @@ void USeqAct_ActorFactory__008bc070::HandleEnableInputs()
 }
 
 /* slot 0x178 (vf_178) is USequenceOp::DeActivated */
-struct USeqAct_ModifyObjectList_ : public USeqAct_ModifyObjectList
-{
-    void DeActivated();
-};
 
 // @baa 0x008bed40
-void USeqAct_ModifyObjectList_::DeActivated()
+void USeqAct_ModifyObjectList::DeActivated()
 {
     // fire every enabled output
     for (INT LinkIdx = 0; LinkIdx < OutputLinks.Num(); LinkIdx++)
@@ -340,13 +314,9 @@ void USeqAct_ModifyObjectList_::DeActivated()
 }
 
 /* slot 0x178 (vf_178) is USequenceOp::DeActivated */
-struct USeqAct_PlaySound__008c0360 : public USeqAct_PlaySound
-{
-    void DeActivated();
-};
 
 // @baa 0x008c0360
-void USeqAct_PlaySound__008c0360::DeActivated()
+void USeqAct_PlaySound::DeActivated()
 {
     // "Finished" normally, "Stopped" if the sound was stopped
     INT LinkIdx = bStopped ? 2 : 1;
@@ -361,13 +331,9 @@ void USeqAct_PlaySound__008c0360::DeActivated()
 }
 
 /* slot 0x178 (vf_178) is USequenceOp::DeActivated */
-struct USeqAct_PlayCameraAnim_ : public USeqAct_PlayCameraAnim
-{
-    void DeActivated();
-};
 
 // @baa 0x008c0e00
-void USeqAct_PlayCameraAnim_::DeActivated()
+void USeqAct_PlayCameraAnim::DeActivated()
 {
     // "Finished" normally, "Stopped" if the anim was stopped
     INT LinkIdx = bStopped ? 2 : 1;
@@ -382,13 +348,9 @@ void USeqAct_PlayCameraAnim_::DeActivated()
 }
 
 /* slot 0x178 (vf_178) is USequenceOp::DeActivated */
-struct USeqAct_IsInObjectList_ : public USeqAct_IsInObjectList
-{
-    void DeActivated();
-};
 
 // @baa 0x008bedb0
-void USeqAct_IsInObjectList_::DeActivated()
+void USeqAct_IsInObjectList::DeActivated()
 {
     // output 0 is "In List", output 1 "Not In List"
     INT LinkIdx = bObjectFound ? 0 : 1;
@@ -399,13 +361,8 @@ void USeqAct_IsInObjectList_::DeActivated()
     }
 }
 
-struct USeqAct_CameraLookAt_ : public USeqAct_CameraLookAt
-{
-    UBOOL UpdateOp(FLOAT DeltaTime);
-};
-
 // @baa 0x008ac830
-UBOOL USeqAct_CameraLookAt_::UpdateOp(FLOAT DeltaTime)
+UBOOL USeqAct_CameraLookAt::UpdateOp(FLOAT DeltaTime)
 {
     // with a timer, stay active until it runs out
     if (bUsedTimer)

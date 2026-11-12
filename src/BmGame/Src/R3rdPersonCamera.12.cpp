@@ -15,13 +15,8 @@ undefined4 * UObject::sub_0169fa70(void)
   return param_1;
 }
 
-struct ARPawnPlayer_ : public ARPawnPlayer
-{
-    void sub_01688660();
-};
-
 // @baa 0x01688660
-void ARPawnPlayer_::sub_01688660()
+void ARPawnPlayer::sub_01688660()
 {
     if (bIsCrouched)
         vf_440(0);
@@ -52,15 +47,10 @@ bool sub_01688ba0(BYTE* P)
     return P[8] >= 5;
 }
 
-struct URCapeComponent_ : public URCapeComponent
-{
-    void sub_016cd7b0(INT A, INT B);
-};
-
 // @baa 0x01688730
 void ARPawnPlayerBm::vf_668(INT P)
 {
-    ((URCapeComponent_*)CapeComponent)->sub_016cd7b0(0, 0);
+    CapeComponent->sub_016cd7b0(0, 0);
 }
 
 const TCHAR* sub_01686d70();
@@ -88,18 +78,12 @@ void AR3rdPersonCamera_::sub_0168a730()
     Smoother.MinSmootherIndex = 0;
 }
 
-/* Kit gap: the ApplyModifiers script-event glue (out of line, 0x01686bf0) isn't declared on AR3rdPersonCamera. */
-struct AR3rdPersonCamera__016895b0 : public AR3rdPersonCamera
-{
-    void eventApplyModifiers(FLOAT DeltaTime, FTPOV& OutPOV); /* 0x01686bf0 */
-};
-
 // @baa 0x016895b0
 /* The base camera modifiers run first, then the script's ApplyModifiers event. */
 void AR3rdPersonCamera::ApplyCameraModifiers(FLOAT DeltaTime, FTPOV& OutPOV)
 {
     Super::ApplyCameraModifiers(DeltaTime, OutPOV);
-    ((AR3rdPersonCamera__016895b0*)this)->eventApplyModifiers(DeltaTime, OutPOV);
+    this->eventApplyModifiers(DeltaTime, OutPOV);
 }
 
 struct C_Vft19_4c

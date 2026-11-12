@@ -39,19 +39,11 @@ template<typename T> struct TArrayReset_ : public TArray<T>
 };
 
 /* USkeletalMesh::MatchRefBone (0x00976be0) isn't declared in Classes.h. */
-struct USkeletalMesh_ : public USkeletalMesh
-{
-    INT MatchRefBone(FName BoneName) const;
-};
 
-struct USkeletalMeshComponent_ : public USkeletalMeshComponent
-{
-    void InitSkelControls();
-};
 
 // @baa 0x0092dce0
 /* build the bone -> skel control list lookup from the anim tree */
-void USkeletalMeshComponent_::InitSkelControls()
+void USkeletalMeshComponent::InitSkelControls()
 {
     ((TArrayReset_<BYTE>&)SkelControlIndex).Reset();
 
@@ -68,7 +60,7 @@ void USkeletalMeshComponent_::InitSkelControls()
         check(NumControls < 255);
         for (INT i = 0; i < NumControls; i++)
         {
-            const INT BoneIndex = ((USkeletalMesh_*)SkeletalMesh)->MatchRefBone(((TArrayAt_<FSkelControlListHead>&)Tree->SkelControlLists).At(i).BoneName);
+            const INT BoneIndex = ((USkeletalMesh*)SkeletalMesh)->MatchRefBone(((TArrayAt_<FSkelControlListHead>&)Tree->SkelControlLists).At(i).BoneName);
             if (BoneIndex != INDEX_NONE && ((TArrayAt_<BYTE>&)SkelControlIndex).At(BoneIndex) == 255)
             {
                 ((TArrayAt_<BYTE>&)SkelControlIndex).At(BoneIndex) = i;

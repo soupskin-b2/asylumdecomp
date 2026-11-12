@@ -11,11 +11,6 @@ extern FName g_026c4b14;
 	/* ENGINE_SeeMonster */
 /* The script events' generated glue (EngineClasses.h), out of line here; SeePlayer/SeeMonster are
  * probe functions, so the glue first checks the state's probe mask. */
-struct AController_ : public AController
-{
-	void eventSeePlayer(APawn* Seen);	// 0079f4c0
-	void eventSeeMonster(APawn* Seen);	// 0079f460
-};
 
 // @baa 0x007a1570
 void AController::ShowSelf()
@@ -31,11 +26,11 @@ void AController::ShowSelf()
 		{
 			if (bIsPlayer)
 			{
-				((AController_*)C)->eventSeePlayer(Pawn);
+				((AController*)C)->eventSeePlayer(Pawn);
 			}
 			else
 			{
-				((AController_*)C)->eventSeeMonster(Pawn);
+				((AController*)C)->eventSeeMonster(Pawn);
 			}
 		}
 	}

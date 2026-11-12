@@ -28,13 +28,9 @@ void UGFxAction_SetFocus::Activated()
 
 /* UGFxMovie::SetFocus(UBOOL captureInput, UBOOL Focus), the native behind execSetFocus and
  * GFxAction_OpenMovie; the kit doesn't declare it. */
-struct UGFxMovie_ : public UGFxMovie
-{
-    void SetFocus(UBOOL captureInput, UBOOL Focus);
-};
 
 // @baa 0x00e68b40
-void UGFxMovie_::SetFocus(UBOOL captureInput, UBOOL Focus)
+void UGFxMovie::SetFocus(UBOOL captureInput, UBOOL Focus)
 {
     if (GGFxEngine && pMovie.Dummy)
     {

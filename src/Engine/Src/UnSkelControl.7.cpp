@@ -35,14 +35,10 @@ struct FIntArray : public TArray<INT>
 };
 
 /* slot 0x124 (vf_124) is USkelControlBase::GetAffectedBones */
-struct USkelControlSpline_ : public USkelControlSpline
-{
-    void GetAffectedBones(INT BoneIndex, USkeletalMeshComponent* SkelComp, TArray<INT>& OutBoneIndices);
-};
 
 // @baa 0x009255c0
 /* the controlled bone and its SplineLength-1 parents, root-most first */
-void USkelControlSpline_::GetAffectedBones(INT BoneIndex, USkeletalMeshComponent* SkelComp, TArray<INT>& OutBoneIndices)
+void USkelControlSpline::GetAffectedBones(INT BoneIndex, USkeletalMeshComponent* SkelComp, TArray<INT>& OutBoneIndices)
 {
 #line 953 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSkelControl.cpp"
     check(OutBoneIndices.Num() == 0);
@@ -75,14 +71,10 @@ void USkelControlSpline_::GetAffectedBones(INT BoneIndex, USkeletalMeshComponent
 #line 76 "candidate.cpp"
 
 /* slot 0x124 (vf_124) is USkelControlBase::GetAffectedBones */
-struct USkelControlTrail_ : public USkelControlTrail
-{
-    void GetAffectedBones(INT BoneIndex, USkeletalMeshComponent* SkelComp, TArray<INT>& OutBoneIndices);
-};
 
 // @baa 0x00928820
 /* the controlled bone and its ChainLength-1 parents, root-most first */
-void USkelControlTrail_::GetAffectedBones(INT BoneIndex, USkeletalMeshComponent* SkelComp, TArray<INT>& OutBoneIndices)
+void USkelControlTrail::GetAffectedBones(INT BoneIndex, USkeletalMeshComponent* SkelComp, TArray<INT>& OutBoneIndices)
 {
 #line 1632 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSkelControl.cpp"
     check(OutBoneIndices.Num() == 0);

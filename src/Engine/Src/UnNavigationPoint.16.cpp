@@ -27,26 +27,15 @@ template<class T> struct TArrayAt_ : public TArray<T>
 extern INT g_026b55f8;
  /* overlap-claim recursion depth (UnCover.cpp file static) */
 /* Unnamed in the kit (0x009c8f80): UWorld::GetTimeSeconds(). */
-struct UWorld_ : public UWorld
-{
-    FLOAT GetTimeSeconds();
-};
 
 /* Unnamed in the kit (0x00860250, UE3's IsOverlapSlotClaimed). */
-struct ACoverLink_ : public ACoverLink
-{
-    UBOOL sub_00860250(APawn* ChkClaim, INT SlotIdx, UBOOL bSkipTeamCheck);
-};
 
-struct ACoverSlotMarker_ : public ACoverSlotMarker {
-    UBOOL IsValidClaim(APawn* ChkClaim, UBOOL bSkipTeamCheck, UBOOL bSkipOverlapCheck); // 008603f0
-};
 
 // @baa 0x008603f0
 /* UE3's ACoverSlotMarker::IsValidClaim: whether ChkClaim may take this marker's slot (enabled, not owned by someone
  * alive, valid by now, no enemy-team claimer, no claimed overlapping slot). While an overlap check is recursing an
  * unusable slot counts as valid. */
-UBOOL ACoverSlotMarker_::IsValidClaim(APawn* ChkClaim, UBOOL bSkipTeamCheck, UBOOL bSkipOverlapCheck)
+UBOOL ACoverSlotMarker::IsValidClaim(APawn* ChkClaim, UBOOL bSkipTeamCheck, UBOOL bSkipOverlapCheck)
 {
     ACoverLink* Link = OwningSlot.Link;
     INT SlotIdx = OwningSlot.SlotIdx;
@@ -59,7 +48,7 @@ UBOOL ACoverSlotMarker_::IsValidClaim(APawn* ChkClaim, UBOOL bSkipTeamCheck, UBO
     APawn* SlotOwner = ((TArrayAt_<FCoverSlot>&)Link->Slots).At(SlotIdx).SlotOwner;
     if ((SlotOwner == ChkClaim || SlotOwner == NULL || SlotOwner->bDeleteMe) &&
         (ChkClaim->IsHumanControlled() || !bBlocked) &&
-        ((UWorld_*)GWorld)->GetTimeSeconds() >= ((TArrayAt_<FCoverSlot>&)Link->Slots).At(SlotIdx).SlotValidAfterTime)
+        ((UWorld*)GWorld)->GetTimeSeconds() >= ((TArrayAt_<FCoverSlot>&)Link->Slots).At(SlotIdx).SlotValidAfterTime)
     {
         bResult = TRUE;
         if (!bSkipTeamCheck)
@@ -79,7 +68,7 @@ UBOOL ACoverSlotMarker_::IsValidClaim(APawn* ChkClaim, UBOOL bSkipTeamCheck, UBO
                 }
             }
         }
-        if (bResult && !bSkipOverlapCheck && ((ACoverLink_*)Link)->sub_00860250(ChkClaim, SlotIdx, bSkipTeamCheck))
+        if (bResult && !bSkipOverlapCheck && ((ACoverLink*)Link)->sub_00860250(ChkClaim, SlotIdx, bSkipTeamCheck))
         {
             bResult = FALSE;
         }

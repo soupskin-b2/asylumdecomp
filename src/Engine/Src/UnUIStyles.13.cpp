@@ -25,15 +25,6 @@ struct FUIImageAdjustmentData_ : public FUIImageAdjustmentData
 	UBOOL operator==(const FUIImageAdjustmentData& Other) const;
 };
 
-/* Kit gap: UObject::IsA is only the free ObjectIsA in Cast.h; the member is kept out of line here (00402b40). */
-struct UObject_ : public UObject
-{
-	UBOOL IsA(UClass* SomeBase) const
-	{
-		return ObjectIsA(this, SomeBase);
-	}
-};
-
 // @baa 0x00dd3b40
 /* UUIStyle_Image's comparison: the base properties, then image, coordinates and adjustments. */
 UBOOL UUIStyle_Image::MatchesStyleData(UUIStyle_Data* StyleToCompare)
@@ -49,7 +40,7 @@ UBOOL UUIStyle_Image::MatchesStyleData(UUIStyle_Data* StyleToCompare)
 		{
 			bResult = TRUE;
 		}
-		else if (((UObject_*)StyleToCompare)->IsA(UUIStyle_Image::StaticClass()))
+		else if (StyleToCompare->IsA(UUIStyle_Image::StaticClass()))
 		{
 			UUIStyle_Image* OtherImageStyle = Cast<UUIStyle_Image>(StyleToCompare);
 			bResult = DefaultImage == OtherImageStyle->DefaultImage

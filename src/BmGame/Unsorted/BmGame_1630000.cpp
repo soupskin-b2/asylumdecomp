@@ -1404,16 +1404,10 @@ INT ARCombatMove_BatmanStrike::GetScoreForStrikeSpeed(FStrikeInfo TestStrike)
 	return 0;
 }
 
-/* Kit gap: FVector has no operator!= (UnMath.h). */
-struct FVector_ : public FVector
-{
-	FORCEINLINE UBOOL operator!=(const FVector& V) const { return X != V.X || Y != V.Y || Z != V.Z; }
-};
-
 // @baa 0x0163d210
 void ARBMCombatCollisionProxy::UpdateLocation(FVector NewLocation)
 {
-	if ((const FVector_&)Location != NewLocation)
+	if ((const FVector&)Location != NewLocation)
 	{
 		Location = NewLocation;
 		ForceUpdateComponents(TRUE, TRUE);

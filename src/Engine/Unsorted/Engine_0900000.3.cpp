@@ -4,30 +4,20 @@
 #include "ue3/Classes.h"
 #include "ue3/Script.h"
 
-struct USkeletalMeshComponent_ : public USkeletalMeshComponent
-{
-	void sub_00a14870(INT);
-};
-
 // @baa 0x0090f0a0
 void USkeletalMeshComponent::execUnHideBone(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(BoneIndex);
 	P_FINISH;
-	((USkeletalMeshComponent_*)this)->sub_00a14870(BoneIndex);
+	this->sub_00a14870(BoneIndex);
 }
-
-struct USkeletalMeshComponent__0090f100 : public USkeletalMeshComponent
-{
-	UBOOL sub_00a14920(INT);
-};
 
 // @baa 0x0090f100
 void USkeletalMeshComponent::execIsBoneHidden(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(BoneIndex);
 	P_FINISH;
-	*(UBOOL*)Result = ((USkeletalMeshComponent__0090f100*)this)->sub_00a14920(BoneIndex);
+	*(UBOOL*)Result = this->sub_00a14920(BoneIndex);
 }
 
 struct USkeletalMeshComponent__0090ed60 : public USkeletalMeshComponent
@@ -64,24 +54,16 @@ void URB_ForceComponent_::eventAttachCloneToActor(class AActor* NewOwner)
 }
 
 /* USkeletalMeshComponent::GetSocketBoneName (0x90ec40) isn't declared in the kit. */
-struct USkeletalMeshComponent__0090ecd0 : public USkeletalMeshComponent
-{
-    FName GetSocketBoneName(FName InSocketName);
-};
 
 // @baa 0x0090ecd0
 void USkeletalMeshComponent::execGetSocketBoneName(FFrame& Stack, RESULT_DECL)
 {
     P_GET_NAME(InSocketName);
     P_FINISH;
-    *(FName*)Result = ((USkeletalMeshComponent__0090ecd0*)this)->GetSocketBoneName(InSocketName);
+    *(FName*)Result = this->GetSocketBoneName(InSocketName);
 }
 
 /* USkeletalMeshComponent::HideBone (0xa1c8f0) isn't declared in the kit. */
-struct USkeletalMeshComponent__0090f000 : public USkeletalMeshComponent
-{
-    void HideBone(INT BoneIndex, UBOOL bTermBodiesBelow);
-};
 
 // @baa 0x0090f000
 void USkeletalMeshComponent::execHideBone(FFrame& Stack, RESULT_DECL)
@@ -89,7 +71,7 @@ void USkeletalMeshComponent::execHideBone(FFrame& Stack, RESULT_DECL)
     P_GET_INT(BoneIndex);
     P_GET_UBOOL(bTermBodiesBelow);
     P_FINISH;
-    ((USkeletalMeshComponent__0090f000*)this)->HideBone(BoneIndex, bTermBodiesBelow);
+    this->HideBone(BoneIndex, bTermBodiesBelow);
 }
 
 // @baa 0x0090ede0
@@ -100,32 +82,20 @@ void USkeletalMeshComponent::execFindAnimNode(FFrame& Stack, RESULT_DECL)
 	*(UAnimNode**)Result = Animations ? Animations->FindAnimNode(InNodeName) : NULL;
 }
 
-/* Kit gap: UPhysicsAsset::FindConstraintIndex (UnPhysAsset.cpp) isn't declared. */
-struct UPhysicsAsset_ : public UPhysicsAsset
-{
-	INT FindConstraintIndex(FName ConstraintName);	/* 0x00a09910 */
-};
-
 // @baa 0x0090ee70
 void USkeletalMeshComponent::execFindConstraintIndex(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_NAME(ConstraintName);
 	P_FINISH;
-	*(INT*)Result = PhysicsAsset ? ((UPhysicsAsset_*)PhysicsAsset)->FindConstraintIndex(ConstraintName) : INDEX_NONE;
+	*(INT*)Result = PhysicsAsset ? PhysicsAsset->FindConstraintIndex(ConstraintName) : INDEX_NONE;
 }
-
-/* Kit gap: UPhysicsAsset::FindConstraintBoneName (UnPhysAsset.cpp) isn't declared. */
-struct UPhysicsAsset__0090ef00 : public UPhysicsAsset
-{
-	FName FindConstraintBoneName(INT ConstraintIndex);	/* 0x00a099c0 */
-};
 
 // @baa 0x0090ef00
 void USkeletalMeshComponent::execFindConstraintBoneName(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(ConstraintIndex);
 	P_FINISH;
-	*(FName*)Result = PhysicsAsset ? ((UPhysicsAsset__0090ef00*)PhysicsAsset)->FindConstraintBoneName(ConstraintIndex) : FName(NAME_None);
+	*(FName*)Result = PhysicsAsset ? PhysicsAsset->FindConstraintBoneName(ConstraintIndex) : FName(NAME_None);
 }
 
 extern FName g_026c4a10;

@@ -16,11 +16,6 @@ struct FIntArray : public TArray<INT> {
     }
 };
 
-struct USkeletalMesh_ : public USkeletalMesh {
-    INT MatchRefBone(FName StartBoneName) const;                    // 00976be0
-    UBOOL BoneIsChildOf(INT ChildBoneIndex, INT ParentBoneIndex) const; // 00d49ed0
-};
-
 struct UPhysicsAsset_ : public UPhysicsAsset {
     void GetBodyIndicesBelow(TArray<INT>& OutBodyIndices, FName InBoneName, USkeletalMesh* SkelMesh); // 00a09a70
 };
@@ -28,7 +23,7 @@ struct UPhysicsAsset_ : public UPhysicsAsset {
 // @baa 0x00a09a70
 void UPhysicsAsset_::GetBodyIndicesBelow(TArray<INT>& OutBodyIndices, FName InBoneName, USkeletalMesh* SkelMesh)
 {
-    USkeletalMesh_* Mesh = (USkeletalMesh_*)SkelMesh;
+    USkeletalMesh* Mesh = (USkeletalMesh*)SkelMesh;
     INT BaseIndex = Mesh->MatchRefBone(InBoneName);
 
     // Iterate over all other bodies, looking for 'children' of this one

@@ -121,8 +121,6 @@ struct URCapeStateController_ : public URCapeStateController {
         if (!CapePhysicsRef.Dummy) appFailAssert("CapePhysicsRef != NULL", __FILE__, __LINE__, TEXT(""));
         return (FRCapePhysics*)CapePhysicsRef.Dummy;
     }
-    void sub_016e4940(UINT BoneIndex, FLOAT DeltaTime, const FMatrix& LocalToWorld, INT Param2, INT Param3);
-    void sub_016e0260(FLOAT DeltaTime, const FMatrix& LocalToWorld);
     void sub_016e68f0(FLOAT DeltaTime, INT Param2, INT Param3);
 };
 

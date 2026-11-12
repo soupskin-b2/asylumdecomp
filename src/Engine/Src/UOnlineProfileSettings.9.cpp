@@ -56,13 +56,6 @@ struct FSettingsData_ : public FSettingsData
 	{
 		return !(*this == Other);
 	}
-	UBOOL FromString(const FString& NewValue); /* 0x00d6e4a0 */
-	FORCEINLINE void SetData(INT InData)
-	{
-		CleanUp();
-		Type = SDT_Int32;
-		Value1 = InData;
-	}
 };
 
 /* TArray<FOnlineProfileSetting>::Add (0x00d6cf90) is out of line in this build; Array.h's body. */

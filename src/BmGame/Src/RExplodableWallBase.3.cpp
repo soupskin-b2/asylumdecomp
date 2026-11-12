@@ -20,10 +20,6 @@ void ARExplodableWallBase::execGetFOVCheckLocation(FFrame& Stack, RESULT_DECL)
 }
 
 /* ARExplodableWallBase::ExplodeExtentLine (0x172f010) isn't declared in the kit. */
-struct ARExplodableWallBase_ : public ARExplodableWallBase
-{
-    UBOOL ExplodeExtentLine(BYTE ExplosionType, BYTE ExplodeFromSide, FLOAT FuseTime, FVector StartCheckLocation, FVector EndCheckLocation, FVector CheckExtent);
-};
 
 // @baa 0x017310f0
 void ARExplodableWallBase::execExplodeExtentLine(FFrame& Stack, RESULT_DECL)
@@ -35,7 +31,7 @@ void ARExplodableWallBase::execExplodeExtentLine(FFrame& Stack, RESULT_DECL)
     P_GET_STRUCT(FVector, EndCheckLocation);
     P_GET_STRUCT(FVector, CheckExtent);
     P_FINISH;
-    *(UBOOL*)Result = ((ARExplodableWallBase_*)this)->ExplodeExtentLine(ExplosionType, ExplodeFromSide, FuseTime, StartCheckLocation, EndCheckLocation, CheckExtent);
+    *(UBOOL*)Result = ((ARExplodableWallBase*)this)->ExplodeExtentLine(ExplosionType, ExplodeFromSide, FuseTime, StartCheckLocation, EndCheckLocation, CheckExtent);
 }
 
 // @baa 0x00c83160

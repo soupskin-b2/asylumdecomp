@@ -3,12 +3,6 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
 
-/* Kit gap: FInterpCurve<FVector>::AutoSetTangents (0x007bb200) isn't declared. */
-struct FInterpCurveVector_ : public FInterpCurveVector
-{
-    void AutoSetTangents(FLOAT Tension); /* 0x007bb200 */
-};
-
 // @baa 0x00cfb7a0
 /* Removes a key and recomputes the curve's automatic tangents. */
 void UInterpTrackVectorBase::RemoveKeyframe(INT KeyIndex)
@@ -18,7 +12,7 @@ void UInterpTrackVectorBase::RemoveKeyframe(INT KeyIndex)
         return;
     }
     VectorTrack.Points.Remove(KeyIndex);
-    ((FInterpCurveVector_&)VectorTrack).AutoSetTangents(CurveTension);
+    ((FInterpCurveVector&)VectorTrack).AutoSetTangents(CurveTension);
 }
 
 // @baa 0x00cfbaf0
@@ -102,10 +96,6 @@ FVector UInterpTrackColorScale_::sub_00cfc680(FLOAT Time)
 }
 
 /* Unnamed in the kit: UE3's UFaceFXAsset::MountFaceFXAnimSet(UFaceFXAnimSet* AnimSet). */
-struct UFaceFXAsset_ : public UFaceFXAsset
-{
-    void sub_00bf70e0(UFaceFXAnimSet* AnimSet);
-};
 
 // @baa 0x00cf6dd0
 /* UE3's UInterpTrackFaceFX::PostEditChange(UProperty* PropertyThatChanged): mount every anim set on the cached asset. */
@@ -118,7 +108,7 @@ void UInterpTrackFaceFX::PostEditChange(UProperty* PropertyThatChanged)
             UFaceFXAnimSet* Set = FaceFXAnimSets(i);
             if (Set != NULL)
             {
-                ((UFaceFXAsset_*)CachedActorFXAsset)->sub_00bf70e0(Set);
+                CachedActorFXAsset->sub_00bf70e0(Set);
             }
         }
     }

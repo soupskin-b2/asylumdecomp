@@ -7,13 +7,9 @@
 #ifndef GIsEditor
 #define GIsEditor FALSE
 #endif
-struct USeqAct_Gate_ : public USeqAct_Gate
-{
-    void Activated();
-};
 
 // @baa 0x008e2de0
-void USeqAct_Gate_::Activated()
+void USeqAct_Gate::Activated()
 {
     // open, close or toggle the gate
     if (InputLinks(1).bHasImpulse)

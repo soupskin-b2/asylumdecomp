@@ -891,14 +891,6 @@ void URCapeStateBoneConfigFactoryNew::InitializeIntrinsicPropertyValues()
 	Description = TEXT("CapeStateBoneConfig");
 }
 
-/* Kit gap: the controller's pause/unpause helpers (RCapeStateController.cpp) aren't declared; their names aren't known.
- * The first asserts !IsCapePaused, the second IsCapePaused || IsSubUpdatePauseRequested. */
-struct URCapeStateController__016e7610 : public URCapeStateController
-{
-	void sub_016e72b0(UBOOL bStateChanged); /* 0x016e72b0 */
-	void sub_016e75b0(UBOOL bStateChanged); /* 0x016e75b0 */
-};
-
 // @baa 0x016e7610
 void URCapeStateController::UpdatePauseState()
 {
@@ -907,11 +899,11 @@ void URCapeStateController::UpdatePauseState()
 		const UBOOL bStateChanged = IsCapePauseRequested != IsCapePaused;
 		if ((IsCapePauseRequested && !IsCapePaused) || IsSubUpdatePauseRequested)
 		{
-			((URCapeStateController__016e7610*)this)->sub_016e72b0(bStateChanged);
+			this->sub_016e72b0(bStateChanged);
 		}
 		if ((!IsCapePauseRequested && IsCapePaused) || IsSubUpdatePauseRequested)
 		{
-			((URCapeStateController__016e7610*)this)->sub_016e75b0(bStateChanged);
+			this->sub_016e75b0(bStateChanged);
 			IsSubUpdatePauseRequested = FALSE;
 		}
 	}

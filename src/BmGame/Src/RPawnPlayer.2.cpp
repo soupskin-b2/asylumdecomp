@@ -28,10 +28,6 @@ template<class T> struct TArrayAt_ : public TArray<T>
  * and GLog (0x025d53e8). */
 struct FString_ : public FString
 {
-	const TCHAR* operator*() const
-	{
-		return Num() ? &((const TArrayAt_<TCHAR>*)this)->ConstAt(0) : TEXT("");
-	}
 	static FString Printf(const TCHAR* Fmt, ...);
 };
 

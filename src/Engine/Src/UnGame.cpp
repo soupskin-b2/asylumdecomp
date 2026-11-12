@@ -1178,11 +1178,6 @@ struct FString_ : public FString
 	FString_& operator=(const TCHAR* Other); /* 0x006b1140 */
 };
 
-struct FURL_ : public FURL
-{
-	UBOOL HasOption(const TCHAR* Test) const; /* 0x00d51be0 */
-	void RemoveOption(const TCHAR* Key, const TCHAR* Section, const TCHAR* Filename); /* 0x00d5b1a0 */
-};
 
 // @baa 0x007d9bc0
 /* UnGame.cpp */
@@ -1192,8 +1187,8 @@ void UGameEngine::SetClientTravel(const TCHAR* NextURL, ETravelType InTravelType
 	TravelType = InTravelType;
 
 	// Prevent crashing the game by attempting to connect to own listen server
-	if (((FURL_&)LastURL).HasOption(TEXT("Listen")))
+	if (((FURL&)LastURL).HasOption(TEXT("Listen")))
 	{
-		((FURL_&)LastURL).RemoveOption(TEXT("Listen"), NULL, NULL);
+		((FURL&)LastURL).RemoveOption(TEXT("Listen"), NULL, NULL);
 	}
 }

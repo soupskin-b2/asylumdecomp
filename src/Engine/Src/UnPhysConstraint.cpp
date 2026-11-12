@@ -972,7 +972,6 @@ void ARB_ConstraintActor::vf_230(int a0) {  }
 // compiler keeps `this` in esi across the two calls (calls clobber ecx).
 struct ARB_ConstraintActor_ : public ARB_ConstraintActor
 {
-    void sub_00a37880();
     INT  sub_007771e0(INT);
     INT  sub_00a37f70(INT);
 };

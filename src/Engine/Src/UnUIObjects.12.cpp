@@ -65,7 +65,6 @@ extern FName g_026c59dc;
 extern FName g_026c5af8;
 extern FName g_026c5ae0;
 struct UUIScreenObject_ : public UUIScreenObject {
-    void sub_00db2cc0(TArray<FName>& out_KeyNames);
     void sub_00db2e70(TArray<FName>& out_KeyNames);
 };
 
@@ -90,11 +89,6 @@ struct UUIInteraction_ : public UUIInteraction
 	static UDataStoreClient* GetDataStoreClient();
 };
 
-struct UUIScene_ : public UUIScene
-{
-	void CreateSceneDataStore();
-};
-
 // @baa 0x00db0c60
 /* Finds the data store tagged DataStoreTag: the scene's own for SceneData, else a global or player data store
  * (for InPlayerOwner, or the scene's owner). Callable on a NULL scene. */
@@ -108,7 +102,7 @@ UUIDataStore* UUIScene::ResolveDataStore(FName DataStoreTag, ULocalPlayer* InPla
 		{
 			if (SceneData == NULL)
 			{
-				((UUIScene_*)this)->CreateSceneDataStore();
+				this->CreateSceneDataStore();
 			}
 			Result = SceneData;
 		}
@@ -248,17 +242,13 @@ UBOOL UUIScreenObject::sub_00da99e0(INT PlayerIndex)
 
 /* Unnamed in the kit: a FUIScreenValue_Bounds helper that reports whether Face changed (UE3 IsPositionCurrent-style
  * check). */
-struct FUIScreenValue_Bounds_ : public FUIScreenValue_Bounds
-{
-    UBOOL sub_00de0600(INT Arg, INT Face);
-};
 
 // @baa 0x00da94c0
 /* Unnamed in the kit: UE3's UUIScreenObject::InvalidatePosition(BYTE Face): mark Face for re-resolve and invalidate
  * the faces that depend on it. */
 void UUIScreenObject::sub_00da94c0(BYTE Face)
 {
-    UBOOL bChanged = ((FUIScreenValue_Bounds_&)Position).sub_00de0600(0, Face);
+    UBOOL bChanged = ((FUIScreenValue_Bounds&)Position).sub_00de0600(0, Face);
     Position.bInvalidated[Face] = 1;
     if (bChanged)
     {
@@ -331,23 +321,14 @@ FVector UUIScreenObject::DeProject(const FVector& PixelPosition)
 
 /* Unnamed in the kit: UE3's FLOAT FUIScreenValue_Bounds::GetBoundsExtent(UUIScreenObject* OwnerWidget, BYTE Dimension,
  * BYTE OutputType, UBOOL bIgnoreDockPadding) and FVector2D::operator[](INT) (out of line here). */
-struct FUIScreenValue_Bounds__00dafc20 : public FUIScreenValue_Bounds
-{
-    FLOAT sub_00de0540(UUIScreenObject* OwnerWidget, INT Dimension, INT OutputType, UBOOL bIgnoreDockPadding);
-};
-
-struct FVector2D_ : public FVector2D
-{
-    FLOAT& sub_00da6480(INT i);
-};
 
 // @baa 0x00dafc20
 /* UE3's UUIScreenObject::GetBounds(BYTE Dimension, BYTE OutputType, UBOOL bIgnoreDockPadding): the widget's extent
  * along Dimension, less the viewport origin. */
 FLOAT UUIScreenObject::GetBounds(BYTE Dimension, BYTE OutputType, UBOOL bIgnoreDockPadding)
 {
-    FLOAT Result = ((FUIScreenValue_Bounds__00dafc20&)Position).sub_00de0540(this, Dimension, OutputType, bIgnoreDockPadding);
-    FVector2D_ ViewportOrigin;
+    FLOAT Result = ((FUIScreenValue_Bounds&)Position).sub_00de0540(this, Dimension, OutputType, bIgnoreDockPadding);
+    FVector2D ViewportOrigin;
     ViewportOrigin.X = 0.f;
     ViewportOrigin.Y = 0.f;
     GetViewportOrigin(ViewportOrigin);

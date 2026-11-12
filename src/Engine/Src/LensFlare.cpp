@@ -379,12 +379,6 @@ Done:
     return Result;
 }
 
-/* Kit gap: UActorComponent::BeginDeferredReattach (0x00765d00) isn't declared. */
-struct UActorComponent_ : public UActorComponent
-{
-    void BeginDeferredReattach(); /* 0x00765d00 */
-};
-
 // @baa 0x00baccf0
 /* A new source colour needs the flare's render state rebuilt. */
 void ULensFlareComponent::SetSourceColor(FLinearColor InSourceColor)
@@ -392,7 +386,7 @@ void ULensFlareComponent::SetSourceColor(FLinearColor InSourceColor)
     if (SourceColor.R != InSourceColor.R || SourceColor.G != InSourceColor.G || SourceColor.B != InSourceColor.B || SourceColor.A != InSourceColor.A)
     {
         SourceColor = InSourceColor;
-        ((UActorComponent_*)this)->BeginDeferredReattach();
+        this->BeginDeferredReattach();
     }
 }
 
@@ -401,8 +395,6 @@ void ULensFlareComponent::SetSourceColor(FLinearColor InSourceColor)
 struct FRenderCommandFence_ : public FRenderCommandFence
 {
 	FRenderCommandFence_() { NumPendingFences = 0; }
-	void BeginFence();
-	UINT GetNumPendingFences() const;
 };
 
 /* Named accessor for the FPointer field (ISSUES.md 19). */

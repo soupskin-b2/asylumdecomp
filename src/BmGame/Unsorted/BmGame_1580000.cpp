@@ -1616,7 +1616,6 @@ void UObject_::sub_01582ef0()
 
 struct URSeqAct_Music_ : public URSeqAct_Music
 {
-    void sub_0157c210();
     INT sub_00d201d0(INT Value);
     void sub_01584a70(UINT Value);
 };

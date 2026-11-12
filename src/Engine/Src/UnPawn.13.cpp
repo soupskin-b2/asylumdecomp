@@ -6,18 +6,12 @@
 #include "ue3/AppMath.h"
 #include "ue3/Cast.h"
 
-/* Kit gap: FVector has no operator== (UnMath.h). */
-struct FVector_ : public FVector
-{
-	FORCEINLINE UBOOL operator==(const FVector& V) const { return X == V.X && Y == V.Y && Z == V.Z; }
-};
-
 // @baa 0x0087b1d0
 UBOOL AActor::TouchReachSucceeded(APawn* P, const FVector& TestPosition)
 {
 	if (bCollideActors && P->bCollideActors)
 	{
-		if ((const FVector_&)TestPosition == P->Location)
+		if ((const FVector&)TestPosition == P->Location)
 		{
 			for (INT Idx = 0; Idx < Touching.Num(); Idx++)
 			{

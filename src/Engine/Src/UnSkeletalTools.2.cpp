@@ -212,14 +212,9 @@ struct FNameIndexMap
     }
 };
 
-struct USkeletalMesh_ : public USkeletalMesh
-{
-    INT MatchRefBone(FName StartBoneName) const;
-};
-
 // @baa 0x00976be0
 /* index of the named bone in RefSkeleton, or INDEX_NONE */
-INT USkeletalMesh_::MatchRefBone(FName StartBoneName) const
+INT USkeletalMesh::MatchRefBone(FName StartBoneName) const
 {
     INT BoneIndex = INDEX_NONE;
     if (StartBoneName != NAME_None)
@@ -413,14 +408,10 @@ struct FStaticLODModel
 };
 
 /* slot 0x0b8 (vf_0b8) is UObject::GetDesc */
-struct USkeletalMesh__00d4ff50 : public USkeletalMesh
-{
-    FString GetDesc();
-};
 
 // @baa 0x00d4ff50
 /* the mesh's line in the generic browser */
-FString USkeletalMesh__00d4ff50::GetDesc()
+FString USkeletalMesh::GetDesc()
 {
     // the kit mirrors LODModels as FIndirectArray_Mirror; the native type is TIndirectArray<FStaticLODModel>
     TIndirectArray<FStaticLODModel>& LODModels = (TIndirectArray<FStaticLODModel>&)this->LODModels;

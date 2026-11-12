@@ -398,14 +398,10 @@ return iVar2;
 
 /* Kit gaps: RF_PendingKill and UObject::HasAnyFlags (ObjectFlags is an FQWord here). */
 #define RF_PendingKill ((QWORD)0x2000000000000000)
-struct UObject_ : public UObject
-{
-	FORCEINLINE UBOOL HasAnyFlags(QWORD Flags) const { return (*(const QWORD*)&ObjectFlags & Flags) != 0; }
-};
 
 // @baa 0x008b1620
 /* A sequence object is pending kill along with the sequence that holds it. */
 UBOOL USequenceObject::IsPendingKill()
 {
-	return ((UObject_*)this)->HasAnyFlags(RF_PendingKill) || (ParentSequence != NULL && ParentSequence->IsPendingKill());
+	return this->HasAnyFlags(RF_PendingKill) || (ParentSequence != NULL && ParentSequence->IsPendingKill());
 }

@@ -8,13 +8,9 @@
 
 /* Unnamed in the kit: the USeqAct_Interp check whether a player controller should be driven by this matinee (UE3
  * leaves debug camera controllers alone and honours PreferredSplitScreenNum, 1-based into GEngine->GamePlayers). */
-struct USeqAct_Interp_ : public USeqAct_Interp
-{
-    UBOOL sub_00cf33e0(APlayerController* PC);
-};
 
 // @baa 0x00cf33e0
-UBOOL USeqAct_Interp_::sub_00cf33e0(APlayerController* PC)
+UBOOL USeqAct_Interp::sub_00cf33e0(APlayerController* PC)
 {
     if (PC != NULL && ObjectIsA(PC, ADebugCameraController::StaticClass()))
     {

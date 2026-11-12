@@ -68,16 +68,6 @@ void ARAnimatedCameraActor__01595330::eventSetGameSpeed(FLOAT DesiredValue, FLOA
 #define INVALID_OBJECT ((UObject*)-1)
 class FObjectInstancingGraph;
 /* UStruct::IsChildOf isn't declared in Classes.h; this is UE3's inline body. */
-struct UClass_ : public UClass
-{
-    UBOOL IsChildOf(const UField* SomeBase) const
-    {
-        for (const UField* Struct = this; Struct; Struct = Struct->SuperField)
-            if (Struct == SomeBase)
-                return 1;
-        return 0;
-    }
-};
 
 struct UObject_ : public UObject
 {
@@ -87,7 +77,7 @@ struct UObject_ : public UObject
 
 /* UnObjBas.h ConstructObject<T> */
 template<class T>
-T* ConstructObject(UClass_* Class, UObject* Outer, FName Name, QWORD SetFlags, UObject* Template, UObject* SubobjectRoot, FObjectInstancingGraph* InstanceGraph)
+T* ConstructObject(UClass* Class, UObject* Outer, FName Name, QWORD SetFlags, UObject* Template, UObject* SubobjectRoot, FObjectInstancingGraph* InstanceGraph)
 {
 #line 1317 "e:\\projects\\amadeus\\aa\\game\\unrealengine3\\development\\src\\core\\inc\\UnClass.h"
     check(Class->IsChildOf(T::StaticClass()));
@@ -99,9 +89,9 @@ T* ConstructObject(UClass_* Class, UObject* Outer, FName Name, QWORD SetFlags, U
 }
 
 // @baa 0x015a2270
-template URPoseConfig* ConstructObject<URPoseConfig>(UClass_*, UObject*, FName, QWORD, UObject*, UObject*, FObjectInstancingGraph*);
+template URPoseConfig* ConstructObject<URPoseConfig>(UClass*, UObject*, FName, QWORD, UObject*, UObject*, FObjectInstancingGraph*);
 
 #line 105 "candidate.cpp"
 
 // @baa 0x015a2310
-template URWeaponConfig* ConstructObject<URWeaponConfig>(UClass_*, UObject*, FName, QWORD, UObject*, UObject*, FObjectInstancingGraph*);
+template URWeaponConfig* ConstructObject<URWeaponConfig>(UClass*, UObject*, FName, QWORD, UObject*, UObject*, FObjectInstancingGraph*);

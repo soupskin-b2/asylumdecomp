@@ -296,8 +296,6 @@ bool C_01640930::sub_01640930(void)
 
 extern FName g_026e35f8;
 struct ARGrapplePointCatchmentArea_ : public ARGrapplePointCatchmentArea {
-    UFunction* sub_005d7d10(FName InName, UBOOL Global);               /* FindFunctionChecked */
-    void sub_00757e00(UFunction* Function, void* Parms, void* Result); /* ProcessEvent */
     void sub_01641ef0(INT Unused);
 };
 

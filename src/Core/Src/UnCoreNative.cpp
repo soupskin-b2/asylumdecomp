@@ -802,11 +802,6 @@ void sub_005adfd0(undefined4 param_1, undefined4 param_2, undefined4 param_3, un
 }
 
 #define RF_PendingKill ((QWORD)0x2000000000000000)
-/* Kit gap: UObject::HasAnyFlags (UnObjBas.h); ObjectFlags is an FQWord here. */
-struct UObject_ : public UObject
-{
-	FORCEINLINE UBOOL HasAnyFlags(QWORD Flags) const { return (*(const QWORD*)&ObjectFlags & Flags) != 0; }
-};
 
 /* Kit gap: UObject::GetOuter() (inline, returns Outer) isn't declared; the check text needs the call spelled out. */
 #define GetOuter() Outer
@@ -816,7 +811,7 @@ UBOOL UComponent::IsPendingKill()
 {
 #line 1326 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Core\\Src\\UnCoreNative.cpp"
 	check(GetOuter());
-	return ((UObject_*)this)->HasAnyFlags(RF_PendingKill) || GetOuter()->IsPendingKill();
+	return this->HasAnyFlags(RF_PendingKill) || GetOuter()->IsPendingKill();
 }
 
 #line 823 "candidate.cpp"

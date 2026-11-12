@@ -420,21 +420,11 @@ int sub_008b4610(void)
   return g_026b5a84;
 }
 
-/* Kit gap: FName has no operator== here (UnName.h compares Index and Number). */
-struct FName_ : public FName
-{
-    FORCEINLINE UBOOL operator==(const FName& Other) const { return Index == Other.Index && Number == Other.Number; }
-};
-
 /* Kit gap: AActor's timer functions (UnActor.cpp) aren't declared. */
-struct AActor_ : public AActor
-{
-    void ClearTimer(FName inTimerFunc, UObject* inObj);
-};
 
 // @baa 0x008b7da0
 /* Stops every matching timer (a zero rate is removed on the next tick). */
-void AActor_::ClearTimer(FName inTimerFunc, UObject* inObj)
+void AActor::ClearTimer(FName inTimerFunc, UObject* inObj)
 {
     if (inObj == NULL)
     {
@@ -456,14 +446,10 @@ static FORCEINLINE UBOOL NamesEqual(const FName& A, const FName& B)
 }
 
 /* Kit gap: AActor's timer functions (UnActor.cpp) aren't declared. */
-struct AActor__008b7ec0 : public AActor
-{
-    void PauseTimer(UBOOL bPause, FName inTimerFunc, UObject* inObj);
-};
 
 // @baa 0x008b7ec0
 /* Pauses or resumes every matching timer. */
-void AActor__008b7ec0::PauseTimer(UBOOL bPause, FName inTimerFunc, UObject* inObj)
+void AActor::PauseTimer(UBOOL bPause, FName inTimerFunc, UObject* inObj)
 {
     if (inObj == NULL)
     {
@@ -479,14 +465,10 @@ void AActor__008b7ec0::PauseTimer(UBOOL bPause, FName inTimerFunc, UObject* inOb
 }
 
 /* Kit gap: AActor's timer queries (UnActor.cpp) aren't declared. */
-struct AActor__008b7ff0 : public AActor
-{
-    UBOOL IsTimerActive(FName inTimerFunc, UObject* inObj);
-};
 
 // @baa 0x008b7ff0
 /* A timer is active while its rate is positive. */
-UBOOL AActor__008b7ff0::IsTimerActive(FName inTimerFunc, UObject* inObj)
+UBOOL AActor::IsTimerActive(FName inTimerFunc, UObject* inObj)
 {
     if (inObj == NULL)
     {
@@ -505,14 +487,10 @@ UBOOL AActor__008b7ff0::IsTimerActive(FName inTimerFunc, UObject* inObj)
 }
 
 /* Kit gap: AActor's timer functions (UnActor.cpp) aren't declared. */
-struct AActor__008b8130 : public AActor
-{
-    FLOAT GetTimerCount(FName inTimerFunc, UObject* inObj);
-};
 
 // @baa 0x008b8130
 /* How long the matching timer has been counting, or -1 when there is none. */
-FLOAT AActor__008b8130::GetTimerCount(FName inTimerFunc, UObject* inObj)
+FLOAT AActor::GetTimerCount(FName inTimerFunc, UObject* inObj)
 {
     if (inObj == NULL)
     {
@@ -531,14 +509,10 @@ FLOAT AActor__008b8130::GetTimerCount(FName inTimerFunc, UObject* inObj)
 }
 
 /* Kit gap: AActor's timer functions (UnActor.cpp) aren't declared. */
-struct AActor__008b8270 : public AActor
-{
-    FLOAT GetTimerRate(FName TimerFuncName, UObject* inObj);
-};
 
 // @baa 0x008b8270
 /* The matching timer's rate, or -1 when there is none. */
-FLOAT AActor__008b8270::GetTimerRate(FName TimerFuncName, UObject* inObj)
+FLOAT AActor::GetTimerRate(FName TimerFuncName, UObject* inObj)
 {
     if (inObj == NULL)
     {
@@ -565,13 +539,9 @@ FString APlayerController::PasteFromClipboard()
 
 /* Kit gaps: appClipboardCopy (UnVcWin32.cpp, 005ec7c0) and FString::operator* aren't declared. */
 void appClipboardCopy(const TCHAR* Str);
-struct FString_ : public FString
-{
-	FORCEINLINE const TCHAR* operator*() const { return Num() ? &(*this)(0) : TEXT(""); }
-};
 
 // @baa 0x008b0a30
 void APlayerController::CopyToClipboard(const FString& Text)
 {
-	appClipboardCopy(*(const FString_&)Text);
+	appClipboardCopy(*(const FString&)Text);
 }

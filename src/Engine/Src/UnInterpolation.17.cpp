@@ -5,10 +5,6 @@
 
 /* Kit gaps: RF_Public and UObject::SetFlags (ObjectFlags is an FQWord here). */
 #define RF_Public ((QWORD)0x0000000400000000)
-struct UObject_ : public UObject
-{
-	FORCEINLINE void SetFlags(QWORD NewFlags) { *(QWORD*)&ObjectFlags |= NewFlags; }
-};
 
 // @baa 0x00cf06d0
 /* After loading, make the font's page textures public and put them in the UI texture group. */
@@ -23,7 +19,7 @@ void UFont::PostLoad()
 		UTexture2D* Texture = Textures(TextureIndex);
 		if (Texture)
 		{
-			((UObject_*)Texture)->SetFlags(RF_Public);
+			Texture->SetFlags(RF_Public);
 			Texture->LODGroup = TEXTUREGROUP_UI;
 		}
 	}

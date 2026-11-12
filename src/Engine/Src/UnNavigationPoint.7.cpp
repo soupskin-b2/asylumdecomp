@@ -39,12 +39,9 @@ struct FByteArray : public TArray<BYTE> {
     INT AddItem(const BYTE& Item) { return sub_00568680(Item); }
 };
 
-struct ACoverLink_ : public ACoverLink {
-    void GetSlotActions(INT SlotIdx, TArray<BYTE>& Actions); // 008446e0
-};
 
 // @baa 0x008446e0
-void ACoverLink_::GetSlotActions(INT SlotIdx, TArray<BYTE>& Actions)
+void ACoverLink::GetSlotActions(INT SlotIdx, TArray<BYTE>& Actions)
 {
     if (SlotIdx >= 0 && SlotIdx < Slots.Num())
     {

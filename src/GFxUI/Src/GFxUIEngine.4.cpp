@@ -13,13 +13,9 @@ public:
 
 /* Slot 0x11c is UInteraction::InputChar(INT ControllerId, TCHAR Character); the kit declares
  * it `INT vf_11c(INT, INT)`, so the override is written on a helper. */
-struct UGFxInteraction_ : public UGFxInteraction
-{
-    UBOOL InputChar(INT ControllerId, TCHAR Character);
-};
 
 // @baa 0x00e5fce0
-UBOOL UGFxInteraction_::InputChar(INT ControllerId, TCHAR Character)
+UBOOL UGFxInteraction::InputChar(INT ControllerId, TCHAR Character)
 {
     if (GGFxEngine)
     {

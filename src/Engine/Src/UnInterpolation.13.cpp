@@ -7,10 +7,6 @@
 
 extern FName g_026c54a8;
  /* ENGINE_FinishAnimControl */
-struct UInterpGroup_ : public UInterpGroup
-{
-    UBOOL HasAnimControlTrack() const; /* 0x00cf3d60 */
-};
 
 /* EngineClasses.h's inline script-event glue (not in the kit). */
 struct AActor_ : public AActor
@@ -33,21 +29,18 @@ void UInterpGroupInst::TermGroupInst(UBOOL bDeleteData)
     }
     TrackInst.Empty();
 
-    UBOOL bHasAnimTrack = ((UInterpGroup_*)Group)->HasAnimControlTrack();
+    UBOOL bHasAnimTrack = ((UInterpGroup*)Group)->HasAnimControlTrack();
     if (GroupActor != NULL && !GroupActor->IsPendingKill() && bHasAnimTrack)
     {
         ((AActor_*)GroupActor)->eventFinishAnimControl();
     }
 }
 
-/* UnObjBas.h ConstructObject<T>, out of line in this build (UClass_ as the project's other callers spell it). */
+/* UnObjBas.h ConstructObject<T>, out of line in this build (UClass as the project's other callers spell it). */
 class FObjectInstancingGraph;
-struct UClass_ : public UClass
-{
-};
 
 template<class T>
-T* ConstructObject(UClass_* Class, UObject* Outer, FName Name, QWORD SetFlags, UObject* Template, UObject* SubobjectRoot, FObjectInstancingGraph* InstanceGraph);
+T* ConstructObject(UClass* Class, UObject* Outer, FName Name, QWORD SetFlags, UObject* Template, UObject* SubobjectRoot, FObjectInstancingGraph* InstanceGraph);
 /* UnObjBas.h RF_Transactional (64-bit object flags). */
 #define RF_Transactional ((QWORD)0x0000000100000000)
 /* TArray::AddItem (Array.h), which the kit's TArray lacks; inline here. */
@@ -62,10 +55,6 @@ template<typename T> struct TArrayAddItem_ : public TArray<T>
 };
 
 /* EngineClasses.h's script-event glue, out of line in this build. */
-struct AActor__00d03640 : public AActor
-{
-    void eventBeginAnimControl(const TArray<UAnimSet*>& InAnimSets); /* 0x00cfe9b0 */
-};
 
 // @baa 0x00d03640
 /* UE3's UInterpGroupInst::InitGroupInst(UInterpGroup* InGroup, AActor* InGroupActor): make a track instance for every
@@ -78,14 +67,14 @@ void UInterpGroupInst::InitGroupInst(UInterpGroup* InGroup, AActor* InGroupActor
     GroupActor = InGroupActor;
     for (INT i = 0; i < InGroup->InterpTracks.Num(); i++)
     {
-        UInterpTrackInst* TrInst = ConstructObject<UInterpTrackInst>((UClass_*)InGroup->InterpTracks(i)->TrackInstClass, this,
+        UInterpTrackInst* TrInst = ConstructObject<UInterpTrackInst>((UClass*)InGroup->InterpTracks(i)->TrackInstClass, this,
             NAME_None, RF_Transactional, NULL, NULL, NULL);
         ((TArrayAddItem_<UInterpTrackInst*>&)TrackInst).AddItem(TrInst);
         TrInst->InitTrackInst(InGroup->InterpTracks(i));
     }
-    if (((UInterpGroup_*)Group)->HasAnimControlTrack() && GroupActor != NULL)
+    if (((UInterpGroup*)Group)->HasAnimControlTrack() && GroupActor != NULL)
     {
-        ((AActor__00d03640*)GroupActor)->eventBeginAnimControl(Group->GroupAnimSets);
+        ((AActor*)GroupActor)->eventBeginAnimControl(Group->GroupAnimSets);
     }
 }
 

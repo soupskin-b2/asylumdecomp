@@ -1980,10 +1980,6 @@ INT __cdecl sub_00701000(INT A, INT B)
 }
 
 // Declared on UMaterialInstanceConstant but not in the header: declare it on a derived struct.
-struct UMaterialInstanceConstant_ : public UMaterialInstanceConstant
-{
-	void SetVectorParameterValue(FName ParameterName, FLinearColor Value);
-};
 
 // Binary-search the VectorParameterValues array for the entry with the given parameter name.
 FVectorParameterValue* sub_006e8a20(UMaterialInstanceConstant* MIC, INT NameIndex, INT NameNumber);
@@ -1992,7 +1988,7 @@ FVectorParameterValue* sub_006e7b70(INT Size, TArrayNoInit<FVectorParameterValue
 // Rebuild the material after a parameter changed.
 void sub_00702180(UMaterialInstanceConstant* MIC, FVectorParameterValue* Parameter);
 // @baa 0x007026c0
-void UMaterialInstanceConstant_::SetVectorParameterValue(FName ParameterName, FLinearColor Value)
+void UMaterialInstanceConstant::SetVectorParameterValue(FName ParameterName, FLinearColor Value)
 {
 	sub_006c47c0(L"MIC::SetVectorParameterValue");
 

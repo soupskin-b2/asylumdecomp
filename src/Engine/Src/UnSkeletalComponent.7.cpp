@@ -7,13 +7,9 @@
 
 /* FName::operator== (UnName.h); the kit's FName has no operators. */
 /* Native behind execGetTimeOfScriptNotifyInAnimSequence (0x0092d9b0); not in Classes.h. */
-struct USkeletalMeshComponent_ : public USkeletalMeshComponent
-{
-    FLOAT GetTimeOfScriptNotifyInAnimSequence(UAnimSequence* AnimSeq, FName NotifyName, INT NthOccurrence);
-};
 
 // @baa 0x0092d740
-FLOAT USkeletalMeshComponent_::GetTimeOfScriptNotifyInAnimSequence(UAnimSequence* AnimSeq, FName NotifyName, INT NthOccurrence)
+FLOAT USkeletalMeshComponent::GetTimeOfScriptNotifyInAnimSequence(UAnimSequence* AnimSeq, FName NotifyName, INT NthOccurrence)
 {
     const INT NumNotifies = AnimSeq->Notifies.Num();
     for (INT i = 0; i < NumNotifies; i++)

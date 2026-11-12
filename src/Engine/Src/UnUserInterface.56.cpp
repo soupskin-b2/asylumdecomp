@@ -151,12 +151,6 @@ template<class T> struct TArrayAt_ : public TArray<T>
 	}
 };
 
-/* Kit gap: the per-scene filter test (0x00de6e90) isn't declared. */
-struct UGameUISceneClient_ : public UGameUISceneClient
-{
-	UBOOL sub_00de6e90(DWORD Flags, UUIScene* Scene);
-};
-
 // @baa 0x00de6f80
 /* Whether any active scene passes the SCENEFILTER_ Flags. */
 INT UGameUISceneClient::IsUIActive(DWORD Flags)
@@ -164,7 +158,7 @@ INT UGameUISceneClient::IsUIActive(DWORD Flags)
 	UBOOL bResult = FALSE;
 	for (INT i = 0; i < ActiveScenes.Num(); i++)
 	{
-		if (((UGameUISceneClient_*)this)->sub_00de6e90(Flags, ((const TArrayAt_<UUIScene*>&)ActiveScenes).ConstAt(i)))
+		if (this->sub_00de6e90(Flags, ((const TArrayAt_<UUIScene*>&)ActiveScenes).ConstAt(i)))
 		{
 			bResult = TRUE;
 			break;

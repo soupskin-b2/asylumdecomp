@@ -283,8 +283,6 @@ undefined4 ULensFlare::sub_006a6c60(byte param_2)
 struct FRenderCommandFence_ : public FRenderCommandFence
 {
 	FRenderCommandFence_() { NumPendingFences = 0; }
-	void BeginFence();
-	UINT GetNumPendingFences() const;
 };
 
 /* Named accessor for the FPointer field (ISSUES.md 19). */
@@ -303,29 +301,18 @@ UBOOL UDecalComponent::IsReadyForFinishDestroy()
 	return Super::IsReadyForFinishDestroy();
 }
 
-struct UDecalComponent_ : public UDecalComponent
-{
-	void ReleaseResources(UBOOL bBlockOnRelease, UPrimitiveComponent* Receiver); /* 0x0069a270 */
-	void FreeStaticReceivers(); /* 0x00689fa0 */
-};
-
 // @baa 0x0069a3d0
 /* DecalComponent.cpp */
 void UDecalComponent::BeginDestroy()
 {
 	Super::BeginDestroy();
-	((UDecalComponent_*)this)->ReleaseResources(FALSE, NULL);
-	((UDecalComponent_*)this)->FreeStaticReceivers();
+	((UDecalComponent*)this)->ReleaseResources(FALSE, NULL);
+	((UDecalComponent*)this)->FreeStaticReceivers();
 }
 
 /* GSystemSettings.DetailMode (FSystemSettings isn't in the kit). */
 extern INT g_026c0b3c;
 #define GSystemSettings_DetailMode g_026c0b3c
-struct UDecalComponent__006a78b0 : public UDecalComponent
-{
-	void ComputeReceivers(); /* 0x006a7240 */
-	void AttachToStaticReceivers(); /* 0x006a6c80 */
-};
 
 // @baa 0x006a78b0
 /* DecalComponent.cpp: static decals attach once their transform is known (computing receivers the first time). */
@@ -337,11 +324,11 @@ void UDecalComponent::UpdateTransform()
 	{
 		if (StaticReceivers.Num() == 0)
 		{
-			((UDecalComponent__006a78b0*)this)->ComputeReceivers();
+			((UDecalComponent*)this)->ComputeReceivers();
 		}
 		else
 		{
-			((UDecalComponent__006a78b0*)this)->AttachToStaticReceivers();
+			((UDecalComponent*)this)->AttachToStaticReceivers();
 		}
 		bHasBeenAttached = TRUE;
 	}

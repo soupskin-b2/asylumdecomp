@@ -1865,13 +1865,9 @@ INT UAnimNodeSlot_::GetNextAvailableChild(FName AnimToPlay)
 }
 
 /* UAnimNodeBlendBase::SetChildrenTotalWeightAccumulator (vtable 0x188) isn't declared by name in Classes.h. */
-struct UAnimNodeBlendBase_ : public UAnimNodeBlendBase
-{
-	void SetChildrenTotalWeightAccumulator(const INT Index);
-};
 
 // @baa 0x00c533f0
-void UAnimNodeBlendBase_::SetChildrenTotalWeightAccumulator(const INT Index)
+void UAnimNodeBlendBase::SetChildrenTotalWeightAccumulator(const INT Index)
 {
 	// the child's weight in the whole tree
 	Children(Index).TotalWeight = Children(Index).Weight * NodeTotalWeight;
@@ -1883,7 +1879,6 @@ void UAnimNodeBlendBase_::SetChildrenTotalWeightAccumulator(const INT Index)
 /* Callees Classes.h doesn't declare. */
 struct USkeletalMeshComponent_ : public USkeletalMeshComponent
 {
-	void sub_0092c310(TArray<BYTE>& PriorityList);	/* BuildComposePriorityList */
 	void sub_009357b0(UBOOL bForce);		/* refresh the preview mesh / anim sets */
 };
 
@@ -1893,13 +1888,9 @@ struct UObject_ : public UObject
 };
 
 /* UAnimTree's PostEditChange (vtable 0x4c, declared only as vf_04c). */
-struct UAnimTree_ : public UAnimTree
-{
-	void PostEditChange(UProperty* PropertyThatChanged);
-};
 
 // @baa 0x00c4b6d0
-void UAnimTree_::PostEditChange(UProperty* PropertyThatChanged)
+void UAnimTree::PostEditChange(UProperty* PropertyThatChanged)
 {
 	if (PropertyThatChanged)
 	{
@@ -1970,13 +1961,9 @@ UAnimNodeSequence* UAnimNodeSynch_::GetMasterNodeOfSynchGroup(FName GroupName)
 }
 
 /* UAnimNodeSynch::SetGroupRateScale isn't declared in Classes.h. */
-struct UAnimNodeSynch__00c565f0 : public UAnimNodeSynch
-{
-	void SetGroupRateScale(FName GroupName, FLOAT NewRateScale);
-};
 
 // @baa 0x00c565f0
-void UAnimNodeSynch__00c565f0::SetGroupRateScale(FName GroupName, FLOAT NewRateScale)
+void UAnimNodeSynch::SetGroupRateScale(FName GroupName, FLOAT NewRateScale)
 {
 	for (INT GroupIdx = 0; GroupIdx < Groups.Num(); GroupIdx++)
 	{
@@ -1993,13 +1980,11 @@ void UAnimNodeSynch__00c565f0::SetGroupRateScale(FName GroupName, FLOAT NewRateS
 struct UAnimNodeBlend_ : public UAnimNodeBlend
 {
 	void sub_00c54040(FLOAT BlendTarget, FLOAT BlendTime);		/* SetBlendTarget */
-	void sub_00c53f20(FLOAT DeltaSeconds, FLOAT TotalWeight);	/* TickAnim */
 };
 
 /* UAnimNodeCrossfader's TickAnim override. */
 struct UAnimNodeCrossfader_ : public UAnimNodeCrossfader
 {
-	UAnimNodeSequence* sub_00c7a590();				/* GetActiveChild */
 	void TickAnim(FLOAT DeltaSeconds, FLOAT TotalWeight);
 };
 
@@ -2123,13 +2108,9 @@ struct FBoneAtom_ : public FBoneAtom
 void sub_00c5eb80(TArray<FBoneAtom>& OutAtoms, const TArray<BYTE>& DesiredBones, const TArray<FMeshBone>& RefSkel);
 	/* FillWithRefPose */
 /* UAnimNode::GetBoneAtoms (vtable slot declared only as vf_) isn't declared by name in Classes.h. */
-struct UAnimNode__00c5ecc0 : public UAnimNode
-{
-	void GetBoneAtoms(TArray<FBoneAtom>& Atoms, const TArray<BYTE>& DesiredBones, FBoneAtom& RootMotionDelta, INT& bHasRootMotion);
-};
 
 // @baa 0x00c5ecc0
-void UAnimNode__00c5ecc0::GetBoneAtoms(TArray<FBoneAtom>& Atoms, const TArray<BYTE>& DesiredBones, FBoneAtom& RootMotionDelta, INT& bHasRootMotion)
+void UAnimNode::GetBoneAtoms(TArray<FBoneAtom>& Atoms, const TArray<BYTE>& DesiredBones, FBoneAtom& RootMotionDelta, INT& bHasRootMotion)
 {
 	// FBoneAtom::operator= (copies the members; not in the kit)
 	RootMotionDelta.Rotation = FBoneAtom_::Identity.Rotation;

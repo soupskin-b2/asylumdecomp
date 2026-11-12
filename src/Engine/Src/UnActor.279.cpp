@@ -6,10 +6,6 @@
 
 /* Kit gaps: AActor::GetComponentsBoundingBox (00763530) isn't declared, and FBox/FVector have no methods or
  * constructors (UnMath.h: FVector's constructor and operators, FBox::GetExtent). */
-struct AActor_ : public AActor
-{
-	FBox GetComponentsBoundingBox(UBOOL bNonColliding = FALSE);
-};
 
 struct FVector_ : public FVector
 {
@@ -35,7 +31,7 @@ struct FBox_ : public FBox
 // @baa 0x00769120
 void AActor::GetBoundingCylinder(FLOAT& CollisionRadius, FLOAT& CollisionHeight)
 {
-	FBox Box = ((AActor_*)this)->GetComponentsBoundingBox();
+	FBox Box = ((AActor*)this)->GetComponentsBoundingBox();
 	FVector_ BoxExtent = ((FBox_&)Box).GetExtent();
 	CollisionHeight = BoxExtent.Z;
 	CollisionRadius = appSqrt((BoxExtent.X * BoxExtent.X) + (BoxExtent.Y * BoxExtent.Y));

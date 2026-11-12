@@ -6,15 +6,11 @@
 
 /* Kit gap: UIconThumbnailRenderer's icon accessor isn't declared (it loads the icon named by
  * the renderer's string the first time and caches it). */
-struct UIconThumbnailRenderer_ : public UIconThumbnailRenderer
-{
-	UTexture2D* sub_01250960(); /* 0x01250960 */
-};
 
 // @baa 0x01253480
 /* The thumbnail is the icon texture's size, scaled by the zoom. */
 void UIconThumbnailRenderer::GetThumbnailSize(UObject* Object, EThumbnailPrimType PrimType, FLOAT Zoom, DWORD& OutWidth, DWORD& OutHeight)
 {
-	OutWidth = appTrunc(Zoom * ((UIconThumbnailRenderer_*)this)->sub_01250960()->SizeX);
-	OutHeight = appTrunc(Zoom * ((UIconThumbnailRenderer_*)this)->sub_01250960()->SizeY);
+	OutWidth = appTrunc(Zoom * ((UIconThumbnailRenderer*)this)->sub_01250960()->SizeX);
+	OutHeight = appTrunc(Zoom * ((UIconThumbnailRenderer*)this)->sub_01250960()->SizeY);
 }

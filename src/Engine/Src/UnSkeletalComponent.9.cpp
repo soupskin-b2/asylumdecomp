@@ -8,10 +8,6 @@
 
 extern template UAnimTree* Cast<UAnimTree>(UObject* Src);
 /* UAnimTree::GetTreeActiveMorphs (0x00c55760) isn't declared in Classes.h. */
-struct UAnimTree_ : public UAnimTree
-{
-    void GetTreeActiveMorphs(TArray<FActiveMorph>& OutMorphs);
-};
 
 struct USkeletalMeshComponent_ : public USkeletalMeshComponent
 {
@@ -27,6 +23,6 @@ void USkeletalMeshComponent_::UpdateActiveMorphs()
     UAnimTree* Tree = Cast<UAnimTree>(Animations);
     if (Tree)
     {
-        ((UAnimTree_*)Tree)->GetTreeActiveMorphs(ActiveMorphs);
+        Tree->GetTreeActiveMorphs(ActiveMorphs);
     }
 }

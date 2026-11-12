@@ -1460,7 +1460,6 @@ INT UInterpTrackSound::DuplicateKeyframe(INT KeyIndex, FLOAT NewKeyTime)
 /* FInterpCurve<FLOAT> (UnMath.h): AddPoint out of line in the exe (007b95b0), AutoSetTangents is the kit's sub_007b96a0 */
 struct FInterpCurveFloat_ : public FInterpCurveFloat
 {
-    INT AddPoint(const FLOAT InVal, const FLOAT& OutVal);
     void AutoSetTangents(FLOAT Tension) { sub_007b96a0(Tension); }
 };
 
@@ -1486,11 +1485,6 @@ INT UInterpTrackFloatBase::DuplicateKeyframe(INT KeyIndex, FLOAT NewKeyTime)
 }
 
 /* FInterpCurve<FVector> (UnMath.h): AddPoint and AutoSetTangents out of line in the exe (007bb100, 007bb200) */
-struct FInterpCurveVector_ : public FInterpCurveVector
-{
-    INT AddPoint(const FLOAT InVal, const FVector& OutVal);
-    void AutoSetTangents(FLOAT Tension);
-};
 
 // @baa 0x00cfb7e0
 INT UInterpTrackVectorBase::DuplicateKeyframe(INT KeyIndex, FLOAT NewKeyTime)
@@ -1500,7 +1494,7 @@ INT UInterpTrackVectorBase::DuplicateKeyframe(INT KeyIndex, FLOAT NewKeyTime)
         return INDEX_NONE;
     }
 
-    FInterpCurveVector_& Curve = (FInterpCurveVector_&)VectorTrack;
+    FInterpCurveVector& Curve = (FInterpCurveVector&)VectorTrack;
     TArrayAt_<FInterpCurvePointVector>& Points = (TArrayAt_<FInterpCurvePointVector>&)VectorTrack.Points;
 
     FInterpCurvePointVector VectorPoint = Points.At(KeyIndex);

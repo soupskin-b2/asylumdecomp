@@ -5,14 +5,9 @@
 #include "ue3/Native.h"
 
 /* Kit gaps: UWorld::GetNetMode (0x009c84b0) and UWorld::GetTimeSeconds (0x009c8f80) aren't declared. */
-struct UWorld_ : public UWorld
-{
-    INT GetNetMode();
-    FLOAT GetTimeSeconds();
-};
 
 #undef GWorld
-#define GWorld ((UWorld_*)g_026b62b8)
+#define GWorld ((UWorld*)g_026b62b8)
 // @baa 0x00865230
 /* Rendered within the last second (never asked on a dedicated server). */
 UBOOL AActor::PlayerCanSeeMe()

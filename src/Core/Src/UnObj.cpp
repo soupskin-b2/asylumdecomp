@@ -1903,25 +1903,18 @@ void sub_01e22f30() { g_026a1e04.sub_005cbb00(); }
 #define RF_DebugPostLoad ((QWORD)0x0000000000000008)
 #define RF_PerObjectConfig ((QWORD)0x0000010000000000)
 #define CLASS_Config 0x00000400
-struct UObject__005e59b0 : public UObject
-{
-	FORCEINLINE void SetFlags(QWORD NewFlags) { *(QWORD*)&ObjectFlags |= NewFlags; }
-	FORCEINLINE UBOOL HasAnyFlags(QWORD Flags) const { return (*(const QWORD*)&ObjectFlags & Flags) != 0; }
-	void LoadConfig(UBOOL Propagate = FALSE, UClass* Class = NULL, const TCHAR* Filename = NULL, DWORD PropagationFlags = 0);
-	void LoadLocalized(UObject* LocBase = NULL, UBOOL bLoadHierachecally = FALSE);
-};
 
 // @baa 0x005e59b0
 void UObject::PostLoad()
 {
 	// Note that it has propagated.
-	((UObject__005e59b0*)this)->SetFlags(RF_DebugPostLoad);
+	this->SetFlags(RF_DebugPostLoad);
 
 	// Load configuration.
-	if ((GetClass()->ClassFlags & CLASS_Config) || ((UObject__005e59b0*)this)->HasAnyFlags(RF_PerObjectConfig))
+	if ((GetClass()->ClassFlags & CLASS_Config) || this->HasAnyFlags(RF_PerObjectConfig))
 	{
-		((UObject__005e59b0*)this)->LoadConfig();
-		((UObject__005e59b0*)this)->LoadLocalized();
+		this->LoadConfig();
+		this->LoadLocalized();
 	}
 }
 

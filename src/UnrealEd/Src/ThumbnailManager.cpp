@@ -655,10 +655,6 @@ void sub_00aa7a60(FCanvas* Canvas, FLOAT X, FLOAT Y, FLOAT SizeX, FLOAT SizeY, F
 extern FLinearColor g_025d574c;
 /* Kit gap: UIconThumbnailRenderer's icon accessor isn't declared (it loads the icon named by
  * the renderer's string the first time and caches it). */
-struct UIconThumbnailRenderer_ : public UIconThumbnailRenderer
-{
-	UTexture2D* sub_01250960(); /* 0x01250960 */
-};
 
 // @baa 0x012520e0
 /* Draws the icon texture over the whole thumbnail. UTexture::Resource (UE3 FTextureResource*) is an FPointer in the kit. */
@@ -666,5 +662,5 @@ void UIconThumbnailRenderer::Draw(UObject* Object, EThumbnailPrimType PrimType, 
 	EThumbnailBackgroundType BackgroundType, FColor PreviewBackgroundColor, FColor PreviewBackgroundColorDropped)
 {
 	sub_00aa7a60(Canvas, X, Y, Width, Height, 0.f, 0.f, 1.f, 1.f, g_025d574c,
-		(const FTexture*)((UIconThumbnailRenderer_*)this)->sub_01250960()->Resource.Dummy, FALSE);
+		(const FTexture*)((UIconThumbnailRenderer*)this)->sub_01250960()->Resource.Dummy, FALSE);
 }

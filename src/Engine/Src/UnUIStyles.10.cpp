@@ -29,11 +29,6 @@ struct UUIStyle_Data_ : public UUIStyle_Data
 	}
 };
 
-struct UUIStyle_ : public UUIStyle
-{
-	UUIStyle_Data* sub_00dc9980();			/* eventGetDefaultStyle */
-	UBOOL sub_00ddaf10(UUIState* State);		/* IsDirty(State) */
-};
 
 struct FStyleDataReference_ : public FStyleDataReference
 {
@@ -66,7 +61,7 @@ UUIStyle_Data* FStyleDataReference_::GetStyleData() const
 		Result = SourceStyle->sub_00ddaa80(SourceState);
 		if (Result == NULL)
 		{
-			Result = ((UUIStyle_*)SourceStyle)->sub_00dc9980();
+			Result = ((UUIStyle*)SourceStyle)->sub_00dc9980();
 		}
 	}
 	return Result;

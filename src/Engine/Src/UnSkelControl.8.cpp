@@ -4,14 +4,6 @@
 #include "ue3/Classes.h"
 
 /* FVector *= (UnMath.h); the kit's FVector has no operators */
-struct FVector_ : public FVector
-{
-    FVector_& operator*=(FLOAT Scale)
-    {
-        X *= Scale; Y *= Scale; Z *= Scale;
-        return *this;
-    }
-};
 
 // @baa 0x0090c710
 /* the unit vector along a SkelControl axis, negated if bInvert */
@@ -33,7 +25,7 @@ FVector GetAxisVector(BYTE InAxis, UBOOL bInvert)
 
     if (bInvert)
     {
-        (FVector_&)AxisVec *= -1.f;
+        (FVector&)AxisVec *= -1.f;
     }
     return AxisVec;
 }

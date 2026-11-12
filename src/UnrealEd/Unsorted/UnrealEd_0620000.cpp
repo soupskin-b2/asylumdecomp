@@ -168,7 +168,6 @@ void sub_00624ac0(INT A, INT B, const wchar_t* Str)
 
 struct UPackageMap_ : public UPackageMap
 {
-	void* sub_00622120(void* Obj, INT B); /* 00622120 */
 	void* sub_00623550(void* Obj);        /* 00623550 */
 };
 

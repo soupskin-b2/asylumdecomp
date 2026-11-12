@@ -28,7 +28,6 @@ template<class T> struct TArrayAt_ : public TArray<T>
 /* UAnimNodeSlot::SetActiveChild and UpdateWeightsForAdditiveAnimations aren't declared in Classes.h. */
 struct UAnimNodeSlot_ : public UAnimNodeSlot
 {
-	void UpdateWeightsForAdditiveAnimations();
 	void SetActiveChild(INT ChildIndex, FLOAT BlendTime);
 };
 

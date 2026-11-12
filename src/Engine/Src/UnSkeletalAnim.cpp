@@ -2025,20 +2025,14 @@ void USkeletalMeshComponent::AttachComponentToSocket(UActorComponent* Component,
 extern FName g_026c4f5c;
 	/* the Actor event told of the new tree (name unknown; called eventAnimTreeChanged here) */
 /* Callees Classes.h doesn't declare. */
-struct UAnimTree_ : public UAnimTree
-{
-	UAnimNode* sub_00c7fc80(USkeletalMeshComponent* SkelComp);	/* CopyAnimTree */
-};
 
 struct USkeletalMeshComponent__00937e40 : public USkeletalMeshComponent
 {
-	void sub_0092b860();				/* DeleteAnimTree */
 	UBOOL sub_009357b0(UBOOL bForceReinit);		/* InitAnimTree */
 };
 
 struct AActor_ : public AActor
 {
-	UFunction* sub_005d7d10(FName InName, INT Global);	/* FindFunctionChecked */
 
 	/* The script event's generated glue (EngineClasses.h). */
 	void eventAnimTreeChanged(USkeletalMeshComponent* SkelComp)
@@ -2055,7 +2049,7 @@ void USkeletalMeshComponent::sub_00937e40(UAnimTree* NewTemplate)
 {
 	((USkeletalMeshComponent__00937e40*)this)->sub_0092b860();
 
-	if (NewTemplate && (Animations = ((UAnimTree_*)NewTemplate)->sub_00c7fc80(this)) != NULL)
+	if (NewTemplate && (Animations = NewTemplate->sub_00c7fc80(this)) != NULL)
 	{
 		((USkeletalMeshComponent__00937e40*)this)->sub_009357b0(TRUE);
 		AnimTreeTemplate = NewTemplate;
@@ -2072,29 +2066,18 @@ void USkeletalMeshComponent::sub_00937e40(UAnimTree* NewTemplate)
 }
 
 /* Callees Classes.h doesn't declare. */
-struct UActorComponent_ : public UActorComponent
-{
-	void sub_00759590();		/* Super::UpdateTransform */
-	void sub_00759620();		/* if (bAttached) the vtable's 0x118 slot */
-	void sub_00759670();		/* ConditionalUpdateTransform: if (bAttached) UpdateTransform() */
-};
-
-struct USkeletalMeshComponent__0093dd00 : public USkeletalMeshComponent
-{
-	void sub_0093b170(FLOAT DeltaTime, UBOOL bTellChildren, UBOOL Unknown);	/* UpdateSkelPose */
-};
 
 // @baa 0x0093dd00
 /* UpdateTransform also builds the anim tree if it hasn't been yet, and moves the attachments. */
 void USkeletalMeshComponent::UpdateTransform()
 {
-	((UActorComponent_*)this)->sub_00759590();
+	this->sub_00759590();
 
 	if (!Animations && AnimTreeTemplate)
 	{
 		sub_00937e40(AnimTreeTemplate);
-		((USkeletalMeshComponent__0093dd00*)this)->sub_0093b170(0.f, TRUE, FALSE);
-		((UActorComponent_*)this)->sub_00759620();
+		this->sub_0093b170(0.f, TRUE, FALSE);
+		this->sub_00759620();
 	}
 
 	for (UINT AttachmentIndex = 0; AttachmentIndex < (UINT)Attachments.Num(); AttachmentIndex++)
@@ -2102,7 +2085,7 @@ void USkeletalMeshComponent::UpdateTransform()
 		FAttachment& Attachment = Attachments(AttachmentIndex);
 		if (Attachment.Component)
 		{
-			((UActorComponent_*)Attachment.Component)->sub_00759670();
+			Attachment.Component->sub_00759670();
 		}
 	}
 }

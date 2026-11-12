@@ -13,10 +13,6 @@ void UObject::execPopState(FFrame& Stack, RESULT_DECL)
 }
 
 /* UObject::PushState (0x5a61f0) isn't declared in the kit. */
-struct UObject_ : public UObject
-{
-    void PushState(FName NewState, FName NewLabel);
-};
 
 // @baa 0x005a6470
 void UObject::execPushState(FFrame& Stack, RESULT_DECL)
@@ -24,7 +20,7 @@ void UObject::execPushState(FFrame& Stack, RESULT_DECL)
     P_GET_NAME(NewState);
     P_GET_NAME_OPTX(NewLabel, NAME_None);
     P_FINISH;
-    ((UObject_*)this)->PushState(NewState, NewLabel);
+    this->PushState(NewState, NewLabel);
 }
 
 // @baa 0x005a4fb0
@@ -161,7 +157,6 @@ void UObject::execCapitalise(FFrame& Stack, RESULT_DECL)
  * classes with a cast flag; ue3/Cast.h only has the SuperField walk). */
 struct UEnum_ : public UEnum
 {
-	FName GetEnum(INT i) const;	/* 0x00549020 */
 	INT NumEnums() const { return Native_38.Num(); }
 };
 
@@ -210,19 +205,13 @@ INT UCommandlet_::eventMain(const FString& Params)
 	return Parms.ReturnValue;
 }
 
-/* Kit gap: FString::Len (inline in UnString.h). */
-struct FString__005a4cc0 : public FString
-{
-	INT Len() const { return Num() ? Num() - 1 : 0; }
-};
-
 // @baa 0x005a4cc0
 /* Len(string S): the number of characters, without the terminator. */
 void UObject::execLen(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STR(S);
 	P_FINISH;
-	*(INT*)Result = ((const FString__005a4cc0&)S).Len();
+	*(INT*)Result = ((const FString&)S).Len();
 }
 
 #define MAXINT 0x7fffffff
@@ -309,12 +298,6 @@ void UObject::execAtEqual_StrStr(FFrame& Stack, RESULT_DECL)
 	*(FString*)Result = ((FString__005a4bb0&)A) += B;
 }
 
-/* Kit gaps: FString::operator* (inline in UnString.h) and UObject::StaticFindObject (0x005d88c0). */
-struct FString__005a69f0 : public FString
-{
-	const TCHAR* operator*() const { return Num() ? &(*this)(0) : TEXT(""); }
-};
-
 struct UObject__005a69f0 : public UObject
 {
 	static UObject* StaticFindObject(UClass* Class, UObject* InOuter, const TCHAR* Name, UBOOL ExactClass = 0);
@@ -327,7 +310,7 @@ void UObject::execFindObject(FFrame& Stack, RESULT_DECL)
 	P_GET_STR(ObjectName);
 	P_GET_OBJECT(UClass, ObjectClass);
 	P_FINISH;
-	*(UObject**)Result = UObject__005a69f0::StaticFindObject(ObjectClass, NULL, *(const FString__005a69f0&)ObjectName, FALSE);
+	*(UObject**)Result = UObject__005a69f0::StaticFindObject(ObjectClass, NULL, *(const FString&)ObjectName, FALSE);
 }
 
 // @baa 0x005a6b00

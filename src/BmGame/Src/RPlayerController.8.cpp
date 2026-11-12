@@ -85,10 +85,6 @@ void ARPlayerController__016125c0::eventSearchNewAmbientSound()
 }
 
 /* ARPlayerController::ShouldIReallyLand (0x16181f0) isn't declared in the kit. */
-struct ARPlayerController__016f93c0 : public ARPlayerController
-{
-    UBOOL ShouldIReallyLand(class AActor* HitFloor, FVector& HitNormal);
-};
 
 // @baa 0x016f93c0
 void ARPlayerController::execShouldIReallyLand(FFrame& Stack, RESULT_DECL)
@@ -96,7 +92,7 @@ void ARPlayerController::execShouldIReallyLand(FFrame& Stack, RESULT_DECL)
     P_GET_OBJECT(AActor, HitFloor);
     P_GET_STRUCT_REF(FVector, HitNormal);
     P_FINISH;
-    *(UBOOL*)Result = ((ARPlayerController__016f93c0*)this)->ShouldIReallyLand(HitFloor, HitNormal);
+    *(UBOOL*)Result = this->ShouldIReallyLand(HitFloor, HitNormal);
 }
 
 // @baa 0x0171daf0
@@ -139,31 +135,21 @@ void ARPlayerController::execLive_DeleteSavedGame(FFrame& Stack, RESULT_DECL)
     *(UBOOL*)Result = Live_DeleteSavedGame(Id);
 }
 
-/* Kit gap: ARPlayerController::GetLeftRightAxis (out of line at 01614b70) isn't declared. */
-struct ARPlayerController__016f8f30 : public ARPlayerController
-{
-	FVector GetLeftRightAxis(FVector& ForwardAxis, INT Side);	/* 0x01614b70 */
-};
-
 // @baa 0x016f8f30
 void ARPlayerController::execGetLeftRightAxis(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT_REF(FVector, ForwardAxis);
 	P_GET_INT_OPTX(Side, 1);
 	P_FINISH;
-	*(FVector*)Result = ((ARPlayerController__016f8f30*)this)->GetLeftRightAxis(ForwardAxis, Side);
+	*(FVector*)Result = this->GetLeftRightAxis(ForwardAxis, Side);
 }
 
 extern FName g_026e2c28;
 	/* BMGAME_ForceNotDestroy */
-struct ARSpecialMoveInstance_ : public ARSpecialMoveInstance
-{
-	UBOOL eventForceNotDestroy();
-};
 
 // @baa 0x016128b0
 /* The script event's generated glue (BmGameClasses.h), out of line here. */
-UBOOL ARSpecialMoveInstance_::eventForceNotDestroy()
+UBOOL ARSpecialMoveInstance::eventForceNotDestroy()
 {
 	struct RSpecialMoveInstance_eventForceNotDestroy_Parms
 	{
@@ -176,28 +162,20 @@ UBOOL ARSpecialMoveInstance_::eventForceNotDestroy()
 
 extern FName g_026e3568;
 	/* BMGAME_CancelSpecialMove */
-struct ARSpecialMoveInstance__01612880 : public ARSpecialMoveInstance
-{
-	void eventCancelSpecialMove();
-};
 
 // @baa 0x01612880
 /* The script event's generated glue (BmGameClasses.h), out of line here. */
-void ARSpecialMoveInstance__01612880::eventCancelSpecialMove()
+void ARSpecialMoveInstance::eventCancelSpecialMove()
 {
 	ProcessEvent(FindFunctionChecked(g_026e3568), NULL);
 }
 
 extern FName g_026e31e4;
 	/* BMGAME_IsStunned */
-struct ARBMAIController_ : public ARBMAIController
-{
-	UBOOL eventIsStunned();
-};
 
 // @baa 0x015d8a70
 /* The script event's generated glue (BmGameClasses.h), out of line here. */
-UBOOL ARBMAIController_::eventIsStunned()
+UBOOL ARBMAIController::eventIsStunned()
 {
 	struct RBMAIController_eventIsStunned_Parms
 	{

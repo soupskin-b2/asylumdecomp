@@ -74,16 +74,11 @@ void AFracturedStaticMeshActor::execResetHealth( FFrame& Stack, RESULT_DECL )
 	vf_36c();
 }
 
-struct UAnimNodeCrossfader_ : public UAnimNodeCrossfader
-{
-	UAnimNodeSequence* sub_00c7a590();
-};
-
 // @baa 0x00c906d0
 void UAnimNodeCrossfader::execGetActiveChild(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UAnimNodeSequence**)Result = ((UAnimNodeCrossfader_*)this)->sub_00c7a590();
+	*(UAnimNodeSequence**)Result = this->sub_00c7a590();
 }
 
 // @baa 0x00c9b9a0
@@ -116,30 +111,20 @@ void AFracturedStaticMeshActor::execSpawnDeferredParts(FFrame& Stack, RESULT_DEC
 	*(UBOOL*)Result = ((FSlot)(*(void***)this)[0x378 / 4])(this);
 }
 
-struct UAnimNodePlayCustomAnim_ : public UAnimNodePlayCustomAnim
-{
-	void sub_00c4bba0(FLOAT);
-};
-
 // @baa 0x00c90d60
 void UAnimNodePlayCustomAnim::execStopCustomAnim(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(BlendOutTime);
 	P_FINISH;
-	((UAnimNodePlayCustomAnim_*)this)->sub_00c4bba0(BlendOutTime);
+	this->sub_00c4bba0(BlendOutTime);
 }
-
-struct USkelControlLookAt_ : public USkelControlLookAt
-{
-	void sub_0090d0a0(FLOAT);
-};
 
 // @baa 0x00c92340
 void USkelControlLookAt::execInterpolateTargetLocation(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(DeltaTime);
 	P_FINISH;
-	((USkelControlLookAt_*)this)->sub_0090d0a0(DeltaTime);
+	this->sub_0090d0a0(DeltaTime);
 }
 
 // @baa 0x00c9bb90
@@ -150,17 +135,12 @@ void UPath_AvoidInEscapableNodes::execCachePawnReacFlags(FFrame& Stack, RESULT_D
 	CachePawnReacFlags(P);
 }
 
-struct AFracturedStaticMeshActor_ : public AFracturedStaticMeshActor
-{
-	void vf_37c(INT);
-};
-
 // @baa 0x00c9fb70
 void AFracturedStaticMeshActor::execRemoveDecals(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(IndexToRemoveDecalsFrom);
 	P_FINISH;
-	((AFracturedStaticMeshActor_*)this)->vf_37c(IndexToRemoveDecalsFrom);
+	this->vf_37c(IndexToRemoveDecalsFrom);
 }
 
 // @baa 0x00c93ef0
@@ -170,43 +150,28 @@ void URB_Handle::execGetOrientation(FFrame& Stack, RESULT_DECL)
     *(FQuat*)Result = vf_164();
 }
 
-struct UAnimTree_ : public UAnimTree
-{
-	void sub_00c7b660(UBOOL);
-};
-
 // @baa 0x00c91b10
 void UAnimTree::execSetUseSavedPose(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bUseSaved);
 	P_FINISH;
-	((UAnimTree_*)this)->sub_00c7b660(bUseSaved);
+	this->sub_00c7b660(bUseSaved);
 }
-
-struct USkelControlLookAt__00c922d0 : public USkelControlLookAt
-{
-	void sub_0090d0f0(FVector);
-};
 
 // @baa 0x00c922d0
 void USkelControlLookAt::execSetTargetLocation(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT(FVector, NewTargetLocation);
 	P_FINISH;
-	((USkelControlLookAt__00c922d0*)this)->sub_0090d0f0(NewTargetLocation);
+	this->sub_0090d0f0(NewTargetLocation);
 }
-
-struct UMorphNodePose_ : public UMorphNodePose
-{
-	void sub_00834900(FName);
-};
 
 // @baa 0x00c92020
 void UMorphNodePose::execSetMorphTarget(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_NAME(MorphTargetName);
 	P_FINISH;
-	((UMorphNodePose_*)this)->sub_00834900(MorphTargetName);
+	this->sub_00834900(MorphTargetName);
 }
 
 // @baa 0x00c988d0
@@ -217,30 +182,20 @@ void USeqAct_CrowdSpawner::execUpdateSpawning(FFrame& Stack, RESULT_DECL)
 	vf_1a8(DeltaSeconds);
 }
 
-struct UAnimNodeSynch_ : public UAnimNodeSynch
-{
-	void* sub_00c56530(FName);
-};
-
 // @baa 0x00c917d0
 void UAnimNodeSynch::execGetMasterNodeOfGroup(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_NAME(GroupName);
 	P_FINISH;
-	*(void**)Result = ((UAnimNodeSynch_*)this)->sub_00c56530(GroupName);
+	*(void**)Result = this->sub_00c56530(GroupName);
 }
-
-struct UAnimNodeSynch__00c918f0 : public UAnimNodeSynch
-{
-	FLOAT sub_00c56440(FName);
-};
 
 // @baa 0x00c918f0
 void UAnimNodeSynch::execGetRelativePosition(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_NAME(GroupName);
 	P_FINISH;
-	*(FLOAT*)Result = ((UAnimNodeSynch__00c918f0*)this)->sub_00c56440(GroupName);
+	*(FLOAT*)Result = this->sub_00c56440(GroupName);
 }
 
 struct UAnimTree__00c91a10 : public UAnimTree
@@ -269,82 +224,52 @@ void UAnimTree::execFindMorphNode(FFrame& Stack, RESULT_DECL)
 	*(void**)Result = ((UAnimTree__00c91a90*)this)->sub_00c61880(InNodeName);
 }
 
-struct UAnimTree__00c91c60 : public UAnimTree
-{
-	void* sub_00c61420(FName);
-};
-
 // @baa 0x00c91c60
 void UAnimTree::execGetGroupSynchMaster(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_NAME(GroupName);
 	P_FINISH;
-	*(void**)Result = ((UAnimTree__00c91c60*)this)->sub_00c61420(GroupName);
+	*(void**)Result = this->sub_00c61420(GroupName);
 }
-
-struct UAnimTree__00c91ce0 : public UAnimTree
-{
-	void* sub_00c61490(FName);
-};
 
 // @baa 0x00c91ce0
 void UAnimTree::execGetGroupNotifyMaster(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_NAME(GroupName);
 	P_FINISH;
-	*(void**)Result = ((UAnimTree__00c91ce0*)this)->sub_00c61490(GroupName);
+	*(void**)Result = this->sub_00c61490(GroupName);
 }
-
-struct UAnimTree__00c91e00 : public UAnimTree
-{
-	FLOAT sub_00c613b0(FName);
-};
 
 // @baa 0x00c91e00
 void UAnimTree::execGetGroupRelativePosition(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_NAME(GroupName);
 	P_FINISH;
-	*(FLOAT*)Result = ((UAnimTree__00c91e00*)this)->sub_00c613b0(GroupName);
+	*(FLOAT*)Result = this->sub_00c613b0(GroupName);
 }
-
-struct UAnimTree__00c91f20 : public UAnimTree
-{
-	FLOAT sub_00c61570(FName);
-};
 
 // @baa 0x00c91f20
 void UAnimTree::execGetGroupRateScale(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_NAME(GroupName);
 	P_FINISH;
-	*(FLOAT*)Result = ((UAnimTree__00c91f20*)this)->sub_00c61570(GroupName);
+	*(FLOAT*)Result = this->sub_00c61570(GroupName);
 }
-
-struct UAnimTree__00c91fa0 : public UAnimTree
-{
-	INT sub_00c556d0(FName);
-};
 
 // @baa 0x00c91fa0
 void UAnimTree::execGetGroupIndex(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_NAME(GroupName);
 	P_FINISH;
-	*(INT*)Result = ((UAnimTree__00c91fa0*)this)->sub_00c556d0(GroupName);
+	*(INT*)Result = this->sub_00c556d0(GroupName);
 }
-
-struct UPhysicsAsset_ : public UPhysicsAsset
-{
-	INT sub_00a231b0(FName);
-};
 
 // @baa 0x00c94320
 void UPhysicsAsset::execFindBodyIndex(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_NAME(BodyName);
 	P_FINISH;
-	*(INT*)Result = ((UPhysicsAsset_*)this)->sub_00a231b0(BodyName);
+	*(INT*)Result = this->sub_00a231b0(BodyName);
 }
 
 // @baa 0x00c93ac0
@@ -450,23 +375,15 @@ void UAnimNodeBlendList::execSetActiveChild(FFrame& Stack, RESULT_DECL)
 }
 
 /* UAnimNodeCrossfader::GetAnimName (0xc7e080) isn't declared in the kit. */
-struct UAnimNodeCrossfader__00c90680 : public UAnimNodeCrossfader
-{
-    FName GetAnimName();
-};
 
 // @baa 0x00c90680
 void UAnimNodeCrossfader::execGetAnimName(FFrame& Stack, RESULT_DECL)
 {
     P_FINISH;
-    *(FName*)Result = ((UAnimNodeCrossfader__00c90680*)this)->GetAnimName();
+    *(FName*)Result = this->GetAnimName();
 }
 
 /* UAnimNodePlayCustomAnim::PlayCustomAnim (0xc7c940) isn't declared in the kit. */
-struct UAnimNodePlayCustomAnim__00c90a40 : public UAnimNodePlayCustomAnim
-{
-    FLOAT PlayCustomAnim(FName AnimName, FLOAT Rate, FLOAT BlendInTime, FLOAT BlendOutTime, UBOOL bLooping, UBOOL bOverride);
-};
 
 // @baa 0x00c90a40
 void UAnimNodePlayCustomAnim::execPlayCustomAnim(FFrame& Stack, RESULT_DECL)
@@ -478,14 +395,10 @@ void UAnimNodePlayCustomAnim::execPlayCustomAnim(FFrame& Stack, RESULT_DECL)
     P_GET_UBOOL_OPTX(bLooping, FALSE);
     P_GET_UBOOL_OPTX(bOverride, FALSE);
     P_FINISH;
-    *(FLOAT*)Result = ((UAnimNodePlayCustomAnim__00c90a40*)this)->PlayCustomAnim(AnimName, Rate, BlendInTime, BlendOutTime, bLooping, bOverride);
+    *(FLOAT*)Result = this->PlayCustomAnim(AnimName, Rate, BlendInTime, BlendOutTime, bLooping, bOverride);
 }
 
 /* UAnimNodePlayCustomAnim::PlayCustomAnimByDuration (0xc7ca70) isn't declared in the kit. */
-struct UAnimNodePlayCustomAnim__00c90bd0 : public UAnimNodePlayCustomAnim
-{
-    void PlayCustomAnimByDuration(FName AnimName, FLOAT Duration, FLOAT BlendInTime, FLOAT BlendOutTime, UBOOL bLooping, UBOOL bOverride);
-};
 
 // @baa 0x00c90bd0
 void UAnimNodePlayCustomAnim::execPlayCustomAnimByDuration(FFrame& Stack, RESULT_DECL)
@@ -497,14 +410,10 @@ void UAnimNodePlayCustomAnim::execPlayCustomAnimByDuration(FFrame& Stack, RESULT
     P_GET_UBOOL_OPTX(bLooping, FALSE);
     P_GET_UBOOL_OPTX(bOverride, FALSE);
     P_FINISH;
-    ((UAnimNodePlayCustomAnim__00c90bd0*)this)->PlayCustomAnimByDuration(AnimName, Duration, BlendInTime, BlendOutTime, bLooping, bOverride);
+    this->PlayCustomAnimByDuration(AnimName, Duration, BlendInTime, BlendOutTime, bLooping, bOverride);
 }
 
 /* UAnimNodeSynch::AddNodeToGroup (0xc56250) isn't declared in the kit. */
-struct UAnimNodeSynch__00c91690 : public UAnimNodeSynch
-{
-    void AddNodeToGroup(class UAnimNodeSequence* SeqNode, FName GroupName);
-};
 
 // @baa 0x00c91690
 void UAnimNodeSynch::execAddNodeToGroup(FFrame& Stack, RESULT_DECL)
@@ -512,14 +421,10 @@ void UAnimNodeSynch::execAddNodeToGroup(FFrame& Stack, RESULT_DECL)
     P_GET_OBJECT(UAnimNodeSequence, SeqNode);
     P_GET_NAME(GroupName);
     P_FINISH;
-    ((UAnimNodeSynch__00c91690*)this)->AddNodeToGroup(SeqNode, GroupName);
+    this->AddNodeToGroup(SeqNode, GroupName);
 }
 
 /* UAnimNodeSynch::RemoveNodeFromGroup (0xc62830) isn't declared in the kit. */
-struct UAnimNodeSynch__00c91730 : public UAnimNodeSynch
-{
-    void RemoveNodeFromGroup(class UAnimNodeSequence* SeqNode, FName GroupName);
-};
 
 // @baa 0x00c91730
 void UAnimNodeSynch::execRemoveNodeFromGroup(FFrame& Stack, RESULT_DECL)
@@ -527,14 +432,10 @@ void UAnimNodeSynch::execRemoveNodeFromGroup(FFrame& Stack, RESULT_DECL)
     P_GET_OBJECT(UAnimNodeSequence, SeqNode);
     P_GET_NAME(GroupName);
     P_FINISH;
-    ((UAnimNodeSynch__00c91730*)this)->RemoveNodeFromGroup(SeqNode, GroupName);
+    this->RemoveNodeFromGroup(SeqNode, GroupName);
 }
 
 /* UAnimNodeSynch::ForceRelativePosition (0xc56300) isn't declared in the kit. */
-struct UAnimNodeSynch__00c91850 : public UAnimNodeSynch
-{
-    void ForceRelativePosition(FName GroupName, FLOAT RelativePosition);
-};
 
 // @baa 0x00c91850
 void UAnimNodeSynch::execForceRelativePosition(FFrame& Stack, RESULT_DECL)
@@ -542,14 +443,10 @@ void UAnimNodeSynch::execForceRelativePosition(FFrame& Stack, RESULT_DECL)
     P_GET_NAME(GroupName);
     P_GET_FLOAT(RelativePosition);
     P_FINISH;
-    ((UAnimNodeSynch__00c91850*)this)->ForceRelativePosition(GroupName, RelativePosition);
+    this->ForceRelativePosition(GroupName, RelativePosition);
 }
 
 /* UAnimNodeSynch::SetGroupRateScale (0xc565f0) isn't declared in the kit. */
-struct UAnimNodeSynch__00c91970 : public UAnimNodeSynch
-{
-    void SetGroupRateScale(FName GroupName, FLOAT NewRateScale);
-};
 
 // @baa 0x00c91970
 void UAnimNodeSynch::execSetGroupRateScale(FFrame& Stack, RESULT_DECL)
@@ -557,14 +454,10 @@ void UAnimNodeSynch::execSetGroupRateScale(FFrame& Stack, RESULT_DECL)
     P_GET_NAME(GroupName);
     P_GET_FLOAT(NewRateScale);
     P_FINISH;
-    ((UAnimNodeSynch__00c91970*)this)->SetGroupRateScale(GroupName, NewRateScale);
+    this->SetGroupRateScale(GroupName, NewRateScale);
 }
 
 /* UAnimTree::SetAnimGroupForNode (0xc61170) isn't declared in the kit. */
-struct UAnimTree__00c91b80 : public UAnimTree
-{
-    UBOOL SetAnimGroupForNode(class UAnimNodeSequence* SeqNode, FName GroupName, UBOOL bCreateIfNotFound);
-};
 
 // @baa 0x00c91b80
 void UAnimTree::execSetAnimGroupForNode(FFrame& Stack, RESULT_DECL)
@@ -573,14 +466,10 @@ void UAnimTree::execSetAnimGroupForNode(FFrame& Stack, RESULT_DECL)
     P_GET_NAME(GroupName);
     P_GET_UBOOL_OPTX(bCreateIfNotFound, FALSE);
     P_FINISH;
-    *(UBOOL*)Result = ((UAnimTree__00c91b80*)this)->SetAnimGroupForNode(SeqNode, GroupName, bCreateIfNotFound);
+    *(UBOOL*)Result = this->SetAnimGroupForNode(SeqNode, GroupName, bCreateIfNotFound);
 }
 
 /* UAnimTree::ForceGroupRelativePosition (0xc55580) isn't declared in the kit. */
-struct UAnimTree__00c91d60 : public UAnimTree
-{
-    void ForceGroupRelativePosition(FName GroupName, FLOAT RelativePosition);
-};
 
 // @baa 0x00c91d60
 void UAnimTree::execForceGroupRelativePosition(FFrame& Stack, RESULT_DECL)
@@ -588,14 +477,10 @@ void UAnimTree::execForceGroupRelativePosition(FFrame& Stack, RESULT_DECL)
     P_GET_NAME(GroupName);
     P_GET_FLOAT(RelativePosition);
     P_FINISH;
-    ((UAnimTree__00c91d60*)this)->ForceGroupRelativePosition(GroupName, RelativePosition);
+    this->ForceGroupRelativePosition(GroupName, RelativePosition);
 }
 
 /* UAnimTree::SetGroupRateScale (0xc61500) isn't declared in the kit. */
-struct UAnimTree__00c91e80 : public UAnimTree
-{
-    void SetGroupRateScale(FName GroupName, FLOAT NewRateScale);
-};
 
 // @baa 0x00c91e80
 void UAnimTree::execSetGroupRateScale(FFrame& Stack, RESULT_DECL)
@@ -603,7 +488,7 @@ void UAnimTree::execSetGroupRateScale(FFrame& Stack, RESULT_DECL)
     P_GET_NAME(GroupName);
     P_GET_FLOAT(NewRateScale);
     P_FINISH;
-    ((UAnimTree__00c91e80*)this)->SetGroupRateScale(GroupName, NewRateScale);
+    this->SetGroupRateScale(GroupName, NewRateScale);
 }
 
 extern FName g_026c5128;
@@ -673,10 +558,6 @@ void UMaterialInstanceTimeVarying::execSetVectorStartTime(FFrame& Stack, RESULT_
 }
 
 /* USkelControlLookAt::CanLookAtPoint (0x922d70) isn't declared in the kit. */
-struct USkelControlLookAt__00c92450 : public USkelControlLookAt
-{
-    UBOOL CanLookAtPoint(FVector PointLoc, UBOOL bDrawDebugInfo, UBOOL bDebugUsePersistentLines, UBOOL bDebugFlushLinesFirst);
-};
 
 // @baa 0x00c92450
 void USkelControlLookAt::execCanLookAtPoint(FFrame& Stack, RESULT_DECL)
@@ -686,14 +567,10 @@ void USkelControlLookAt::execCanLookAtPoint(FFrame& Stack, RESULT_DECL)
     P_GET_UBOOL_OPTX(bDebugUsePersistentLines, FALSE);
     P_GET_UBOOL_OPTX(bDebugFlushLinesFirst, FALSE);
     P_FINISH;
-    *(UBOOL*)Result = ((USkelControlLookAt__00c92450*)this)->CanLookAtPoint(PointLoc, bDrawDebugInfo, bDebugUsePersistentLines, bDebugFlushLinesFirst);
+    *(UBOOL*)Result = this->CanLookAtPoint(PointLoc, bDrawDebugInfo, bDebugUsePersistentLines, bDebugFlushLinesFirst);
 }
 
 /* USkelControlLookAt::SetLookAtAlpha (0x90d060) isn't declared in the kit. */
-struct USkelControlLookAt__00c923b0 : public USkelControlLookAt
-{
-    void SetLookAtAlpha(FLOAT DesiredAlpha, FLOAT DesiredBlendTime);
-};
 
 // @baa 0x00c923b0
 void USkelControlLookAt::execSetLookAtAlpha(FFrame& Stack, RESULT_DECL)
@@ -701,5 +578,5 @@ void USkelControlLookAt::execSetLookAtAlpha(FFrame& Stack, RESULT_DECL)
     P_GET_FLOAT(DesiredAlpha);
     P_GET_FLOAT(DesiredBlendTime);
     P_FINISH;
-    ((USkelControlLookAt__00c923b0*)this)->SetLookAtAlpha(DesiredAlpha, DesiredBlendTime);
+    this->SetLookAtAlpha(DesiredAlpha, DesiredBlendTime);
 }

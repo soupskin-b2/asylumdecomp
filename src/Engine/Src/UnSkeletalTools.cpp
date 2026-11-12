@@ -1009,10 +1009,6 @@ struct FStaticLODModel
 };
 
 /* FRenderCommandFence::BeginFence (RenderingThread.cpp, 0x00719c60); the kit has USkeletalMesh::ReleaseResourcesFence as a bare INT */
-struct FRenderCommandFence_ : public FRenderCommandFence
-{
-    void BeginFence();
-};
 
 /* USkeletalMesh::ReleaseResources isn't declared in Classes.h */
 struct USkeletalMesh_ : public USkeletalMesh
@@ -1036,7 +1032,7 @@ void USkeletalMesh_::ReleaseResources()
         ((TIndirectArray<FStaticLODModel>&)LODModels)(LODIndex).ReleaseResources();
     }
 
-    ((FRenderCommandFence_&)ReleaseResourcesFence).BeginFence();
+    ((FRenderCommandFence&)ReleaseResourcesFence).BeginFence();
 }
 
 #line 1048 "candidate.cpp"

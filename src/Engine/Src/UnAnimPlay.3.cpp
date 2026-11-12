@@ -61,10 +61,6 @@ void UAnimNodeSequence__00c5e220::ClearCachedResult()
 }
 
 /* AActor::eventOnAnimPlay (out of line here, 00c49e40) isn't declared. */
-struct AActor_ : public AActor
-{
-	void sub_00c49e40(UAnimNodeSequence* SeqNode);		/* eventOnAnimPlay */
-};
 
 // @baa 0x00c52af0
 /* Starts the animation from StartTime. */
@@ -84,7 +80,7 @@ void UAnimNodeSequence::PlayAnim(UBOOL bLoop, FLOAT InRate, FLOAT StartTime)
 
 	if (bCauseActorAnimPlay && SkelComponent->Owner)
 	{
-		((AActor_*)SkelComponent->Owner)->sub_00c49e40(this);
+		SkelComponent->Owner->sub_00c49e40(this);
 	}
 
 	if (CameraAnim && !bLooping)

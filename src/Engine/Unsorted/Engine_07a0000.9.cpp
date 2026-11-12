@@ -42,11 +42,6 @@ struct FVector_ : public FVector
 {
 	FORCEINLINE FVector_() {}
 	FORCEINLINE FVector_(FLOAT InX, FLOAT InY, FLOAT InZ) : FVector(InX, InY, InZ) {}
-	FORCEINLINE FVector_ operator-(const FVector& V) const { return FVector_(X - V.X, Y - V.Y, Z - V.Z); }
-	FORCEINLINE UBOOL IsNearlyZero(FLOAT Tolerance = KINDA_SMALL_NUMBER) const
-	{
-		return appAbs(X) < Tolerance && appAbs(Y) < Tolerance && appAbs(Z) < Tolerance;	/* Abs<FLOAT> is fabsf in UE3 */
-	}
 };
 
 struct FMatrix_ : public FMatrix

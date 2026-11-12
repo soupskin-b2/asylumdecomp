@@ -22,17 +22,11 @@ INT UMaterialInterface::GetStaticSwitchParameterValue(INT, INT, INT, INT)
     PURE_VIRTUAL(UMaterialInterface::GetStaticSwitchParameterValue, return 0;);
 }
 
-struct UMaterialInstanceTimeVarying_ : public UMaterialInstanceTimeVarying
-{
-	/* UMaterialInstance's (0x006c47c0): a parameter update that takes the name of the caller it
-	 * was reached through. */
-	void sub_006c47c0(const TCHAR* Caller);
-};
 
 // @baa 0x006d8f20
 void UMaterialInstanceTimeVarying::SetDuration(FLOAT Value)
 {
-	((UMaterialInstanceTimeVarying_*)this)->sub_006c47c0(TEXT("MITV::SetDuration"));
+	((UMaterialInstanceTimeVarying*)this)->sub_006c47c0(TEXT("MITV::SetDuration"));
 	Duration = Value;
 	InitResources();
 }

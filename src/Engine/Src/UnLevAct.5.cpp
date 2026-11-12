@@ -4,16 +4,12 @@
 #include "ue3/Classes.h"
 #include "ue3/Cast.h"
 
-struct AActor_ : public AActor {
-    UBOOL IsValid(); // UObject::IsValid (005cb0a0)
-};
-
 struct UWorld_ : public UWorld {
-    UBOOL sub_007ed180(AActor_* ThisActor, UBOOL bShouldModifyLevel); // EditorDestroyActor
+    UBOOL sub_007ed180(AActor* ThisActor, UBOOL bShouldModifyLevel); // EditorDestroyActor
 };
 
 // @baa 0x007ed180
-UBOOL UWorld_::sub_007ed180(AActor_* ThisActor, UBOOL bShouldModifyLevel)
+UBOOL UWorld_::sub_007ed180(AActor* ThisActor, UBOOL bShouldModifyLevel)
 {
 #line 650 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnLevAct.cpp"
     check(ThisActor);

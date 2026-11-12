@@ -33,23 +33,14 @@ void USeqAct_SetMaterial::PostEditChange(UProperty* PropertyThatChanged)
 
 /* Unnamed in the kit: USeqAct_ParticleEventGenerator::HandleEnableInputs() (0x008bc130) and UE3's
  * UParticleSystemComponent::ReportEventKismet(...) (0x00b5ef40). */
-struct USeqAct_ParticleEventGenerator_ : public USeqAct_ParticleEventGenerator
-{
-    void HandleEnableInputs();
-};
 
-struct UParticleSystemComponent_ : public UParticleSystemComponent
-{
-    void sub_00b5ef40(FName& InEventName, FLOAT InEmitterTime, FVector& InLocation, FVector& InDirection, FVector& InVelocity,
-        UBOOL bUsePSysCompLocation, FVector& InNormal);
-};
 
 // @baa 0x008bee30
 /* UE3's USeqAct_ParticleEventGenerator::UpdateOp(FLOAT DeltaTime): while enabled, send every event name to the
  * particle system of each targeted emitter. */
 UBOOL USeqAct_ParticleEventGenerator::UpdateOp(FLOAT DeltaTime)
 {
-    ((USeqAct_ParticleEventGenerator_*)this)->HandleEnableInputs();
+    ((USeqAct_ParticleEventGenerator*)this)->HandleEnableInputs();
 
     if (bEnabled && Targets.Num() > 0 && EventNames.Num() > 0)
     {
@@ -61,7 +52,7 @@ UBOOL USeqAct_ParticleEventGenerator::UpdateOp(FLOAT DeltaTime)
                 for (INT NameIdx = 0; NameIdx < EventNames.Num(); NameIdx++)
                 {
                     FName EventName = EventNames(NameIdx);
-                    ((UParticleSystemComponent_*)EmitterActor->ParticleSystemComponent)->sub_00b5ef40(EventName, EventTime,
+                    ((UParticleSystemComponent*)EmitterActor->ParticleSystemComponent)->sub_00b5ef40(EventName, EventTime,
                         EventLocation, EventDirection, EventVelocity, bUseEmitterLocation, EventNormal);
                 }
             }

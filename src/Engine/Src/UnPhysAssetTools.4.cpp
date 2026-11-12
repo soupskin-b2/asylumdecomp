@@ -53,12 +53,9 @@ struct FNameIndexMap
     }
 };
 
-struct UPhysicsAsset_ : public UPhysicsAsset {
-    void UpdateBodySetupIndexMap(); // 00a2c950
-};
 
 // @baa 0x00a2c950
-void UPhysicsAsset_::UpdateBodySetupIndexMap()
+void UPhysicsAsset::UpdateBodySetupIndexMap()
 {
     TArrayFI<URB_BodySetup*>& BodySetup = (TArrayFI<URB_BodySetup*>&)this->BodySetup;
     FNameIndexMap& BodySetupIndexMap = (FNameIndexMap&)this->BodySetupIndexMap;

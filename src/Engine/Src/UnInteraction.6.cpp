@@ -7,7 +7,6 @@
 /* Kit gaps: the native's exec and PlayUISound (00d78470) aren't declared (names from the exe's native table). */
 struct UUIInteraction_ : public UUIInteraction
 {
-	UBOOL PlayUISound(FName SoundCueName, INT PlayerIndex);	/* 0x00d78470 */
 	void execPlayUISound(FFrame& Stack, RESULT_DECL);
 };
 

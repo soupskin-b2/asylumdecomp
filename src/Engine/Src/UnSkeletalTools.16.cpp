@@ -111,7 +111,6 @@ struct FStaticLODModel
 /* USkeletalMesh::IsCPUSkinned (0x00951af0) and InitResources aren't declared in Classes.h */
 struct USkeletalMesh_ : public USkeletalMesh
 {
-    UBOOL IsCPUSkinned() const;
     void InitResources();
 };
 

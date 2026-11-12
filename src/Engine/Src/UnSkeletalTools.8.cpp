@@ -169,14 +169,10 @@ struct FStaticLODModel
 };
 
 /* slot 0x0bc (vf_0bc) is UObject::GetDetailedDescription(INT InIndex), returning FString */
-struct USkeletalMesh_ : public USkeletalMesh
-{
-    FString GetDetailedDescription(INT InIndex);
-};
 
 // @baa 0x00d4ffe0
 /* the lines under the mesh's thumbnail in the browser */
-FString USkeletalMesh_::GetDetailedDescription(INT InIndex)
+FString USkeletalMesh::GetDetailedDescription(INT InIndex)
 {
     FString Description = TEXT("");
     switch (InIndex)
@@ -232,14 +228,9 @@ struct FMeshBone_
     FColor BoneColor;
 };
 
-struct USkeletalMesh__00d49ed0 : public USkeletalMesh
-{
-    UBOOL BoneIsChildOf(INT ChildBoneIndex, INT ParentBoneIndex) const;
-};
-
 // @baa 0x00d49ed0
 /* whether ParentBoneIndex is an ancestor of ChildBoneIndex */
-UBOOL USkeletalMesh__00d49ed0::BoneIsChildOf(INT ChildBoneIndex, INT ParentBoneIndex) const
+UBOOL USkeletalMesh::BoneIsChildOf(INT ChildBoneIndex, INT ParentBoneIndex) const
 {
     // parents always come before their children in the reference skeleton
     if (ChildBoneIndex <= ParentBoneIndex)
@@ -267,14 +258,10 @@ UBOOL USkeletalMesh__00d49ed0::BoneIsChildOf(INT ChildBoneIndex, INT ParentBoneI
 inline UBOOL operator==(const FName& A, EName B) { return A.Index == B && A.Number == 0; }
 
 /* USkeletalMesh::FindSocket isn't declared in Classes.h */
-struct USkeletalMesh__00951be0 : public USkeletalMesh
-{
-    USkeletalMeshSocket* FindSocket(FName InSocketName);
-};
 
 // @baa 0x00951be0
 /* the socket with the given name, NULL if there is none */
-USkeletalMeshSocket* USkeletalMesh__00951be0::FindSocket(FName InSocketName)
+USkeletalMeshSocket* USkeletalMesh::FindSocket(FName InSocketName)
 {
     if (InSocketName == NAME_None)
     {
@@ -329,14 +316,10 @@ struct FNameIndexMap
 };
 
 /* USkeletalMesh::InitNameIndexMap isn't declared in Classes.h */
-struct USkeletalMesh__0097eb90 : public USkeletalMesh
-{
-    void InitNameIndexMap();
-};
 
 // @baa 0x0097eb90
 /* rebuild the bone name to RefSkeleton index map */
-void USkeletalMesh__0097eb90::InitNameIndexMap()
+void USkeletalMesh::InitNameIndexMap()
 {
     FNameIndexMap& Map = (FNameIndexMap&)NameIndexMap;
     Map.Empty();

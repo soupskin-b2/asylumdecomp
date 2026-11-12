@@ -5,13 +5,9 @@
 #include "ue3/Array.h"
 #include "ue3/AppMath.h"
 
-struct USkelControlLookAt_ : public USkelControlLookAt
-{
-    void SetLookAtAlpha(FLOAT DesiredAlpha, FLOAT DesiredBlendTime);
-};
 
 // @baa 0x0090d060
-void USkelControlLookAt_::SetLookAtAlpha(FLOAT DesiredAlpha, FLOAT DesiredBlendTime)
+void USkelControlLookAt::SetLookAtAlpha(FLOAT DesiredAlpha, FLOAT DesiredBlendTime)
 {
     if (LookAtAlphaTarget != DesiredAlpha)
     {

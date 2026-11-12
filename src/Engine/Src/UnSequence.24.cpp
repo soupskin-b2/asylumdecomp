@@ -12,14 +12,10 @@ INT USeqCond_SwitchBase::GetOutputLinksToActivate(TArray<INT>& out_LinksToActiva
 
 extern FName g_026c4b60;
 	/* ENGINE_LevelStreamingStatusChanged */
-struct APlayerController_ : public APlayerController
-{
-	void eventLevelStreamingStatusChanged(class ULevelStreaming* LevelObject, UBOOL bNewShouldBeLoaded, UBOOL bNewShouldBeVisible, UBOOL bNewShouldBlockOnLoad);
-};
 
 // @baa 0x007d6380
 /* The script event's generated glue (EngineClasses.h), out of line here. */
-void APlayerController_::eventLevelStreamingStatusChanged(class ULevelStreaming* LevelObject, UBOOL bNewShouldBeLoaded, UBOOL bNewShouldBeVisible, UBOOL bNewShouldBlockOnLoad)
+void APlayerController::eventLevelStreamingStatusChanged(class ULevelStreaming* LevelObject, UBOOL bNewShouldBeLoaded, UBOOL bNewShouldBeVisible, UBOOL bNewShouldBlockOnLoad)
 {
 	struct PlayerController_eventLevelStreamingStatusChanged_Parms
 	{
@@ -78,14 +74,10 @@ UBOOL USeqCond_IsLoggedIn_::eventCheckLogins()
 
 extern FName g_026c45cc;
 	/* ENGINE_Update */
-struct USeqAct_Latent_ : public USeqAct_Latent
-{
-	UBOOL eventUpdate(FLOAT DeltaTime);
-};
 
 // @baa 0x008aa600
 /* The script event's generated glue (EngineClasses.h), out of line here. */
-UBOOL USeqAct_Latent_::eventUpdate(FLOAT DeltaTime)
+UBOOL USeqAct_Latent::eventUpdate(FLOAT DeltaTime)
 {
 	struct SeqAct_Latent_eventUpdate_Parms
 	{

@@ -326,10 +326,6 @@ UBOOL ARDebugMenu__01516c80::eventItemFdB(const FString& Text, FLOAT& Value, FLO
 }
 
 /* UObject::MarkPackageDirty (005d9570) isn't declared in the kit. */
-struct UObject_ : public UObject
-{
-    void MarkPackageDirty(UBOOL InDirty = TRUE);
-};
 
 // @baa 0x01533790
 /* UObject::PostEditChange(UProperty* PropertyThatChanged) (slot 0x4c, a placeholder vf_04c taking
@@ -337,7 +333,7 @@ struct UObject_ : public UObject
 void URBarkSet::PostEditChange(UProperty* PropertyThatChanged)
 {
     Super::PostEditChange(PropertyThatChanged);
-    ((UObject_*)this)->MarkPackageDirty();
+    this->MarkPackageDirty();
 }
 
 /* Engine helper at 00d457e0 (unnamed in the kit): the text height for a screen of the given height
@@ -413,12 +409,6 @@ template<class T> struct TArrayAt_ : public TArray<T>
 	}
 };
 
-/* Kit gap: FString::operator== (0x00544d40, case-insensitive in UnString.h) isn't declared. */
-struct FString_ : public FString
-{
-	UBOOL operator==(const FString& Other) const;
-};
-
 // @baa 0x01513860
 /* Whether every flag type in OtherBase is present here with all of OtherBase's values for it. */
 UBOOL URBarkFlagBase::HasTheseFlags(URBarkFlagBase* OtherBase)
@@ -428,7 +418,7 @@ UBOOL URBarkFlagBase::HasTheseFlags(URBarkFlagBase* OtherBase)
 		INT FlagIdx = -1;
 		for (INT MyIdx = 0; MyIdx < ((TArrayAt_<FBarkFlag>&)FlagList).Num(); MyIdx++)
 		{
-			if ((const FString_&)((TArrayAt_<FBarkFlag>&)FlagList).At(MyIdx).FlagType == ((TArrayAt_<FBarkFlag>&)OtherBase->FlagList).At(OtherIdx).FlagType)
+			if ((const FString&)((TArrayAt_<FBarkFlag>&)FlagList).At(MyIdx).FlagType == ((TArrayAt_<FBarkFlag>&)OtherBase->FlagList).At(OtherIdx).FlagType)
 			{
 				FlagIdx = MyIdx;
 			}
@@ -442,7 +432,7 @@ UBOOL URBarkFlagBase::HasTheseFlags(URBarkFlagBase* OtherBase)
 			INT FoundIdx = -1;
 			for (INT MyValueIdx = 0; MyValueIdx < ((TArrayAt_<FBarkFlag>&)FlagList).At(FlagIdx).FlagValue.Num(); MyValueIdx++)
 			{
-				if ((const FString_&)((TArrayAt_<FString>&)((TArrayAt_<FBarkFlag>&)FlagList).At(FlagIdx).FlagValue).At(MyValueIdx) == ((TArrayAt_<FString>&)((TArrayAt_<FBarkFlag>&)OtherBase->FlagList).At(OtherIdx).FlagValue).At(ValueIdx))
+				if ((const FString&)((TArrayAt_<FString>&)((TArrayAt_<FBarkFlag>&)FlagList).At(FlagIdx).FlagValue).At(MyValueIdx) == ((TArrayAt_<FString>&)((TArrayAt_<FBarkFlag>&)OtherBase->FlagList).At(OtherIdx).FlagValue).At(ValueIdx))
 				{
 					FoundIdx = ValueIdx;
 				}

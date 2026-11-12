@@ -77,11 +77,6 @@ void ARBMPawnAI::vf_494(INT A)
 }
 
 /* Script event glue, matched out of line (015d8a70, 015d8cd0). */
-struct ARBMAIController__01604a40 : public ARBMAIController
-{
-    UBOOL eventIsStunned();
-    UBOOL eventBehaviourCanRespondToAlerts();
-};
 
 // @baa 0x01604a40
 /* ARBMAIController slot 0x458 (kit vf_458): whether a silent-predator AI can respond to alerts right now
@@ -93,9 +88,9 @@ INT ARBMAIController::vf_458()
         return FALSE;
     }
     ARBMPawnAI* AIPawn = Cast<ARBMPawnAI>(Pawn);
-    if (AIPawn && AIPawn->bSilentPredatorAI && !((ARBMAIController__01604a40*)this)->eventIsStunned() && !AIPawn->vf_48c())
+    if (AIPawn && AIPawn->bSilentPredatorAI && !((ARBMAIController*)this)->eventIsStunned() && !AIPawn->vf_48c())
     {
-        return ((ARBMAIController__01604a40*)this)->eventBehaviourCanRespondToAlerts() ? TRUE : FALSE;
+        return ((ARBMAIController*)this)->eventBehaviourCanRespondToAlerts() ? TRUE : FALSE;
     }
     return FALSE;
 }

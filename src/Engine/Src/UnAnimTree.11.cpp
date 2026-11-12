@@ -15,11 +15,6 @@ struct FAnimNodeArray : public TArray<UAnimNode*>
 	~FAnimNodeArray();					/* 00920d10, TArray<UAnimNode*>::~TArray */
 };
 
-struct UAnimNode_ : public UAnimNode
-{
-	void sub_00c4b530(TArray<UAnimNode*>& Nodes);		/* GetNodes */
-};
-
 struct UAnimNodeSynch_ : public UAnimNodeSynch
 {
 	void sub_00c62830(UAnimNodeSequence* SeqNode, FName GroupName);	/* RemoveNodeFromGroup */
@@ -31,7 +26,6 @@ extern template UAnimNodeSynch* Cast<UAnimNodeSynch>(UObject* Src);
 /* UAnimNodeSlot::AddToSynchGroup isn't declared in Classes.h. */
 struct UAnimNodeSlot_ : public UAnimNodeSlot
 {
-	UAnimNodeSequence* sub_00c7ccb0();			/* GetCustomAnimNodeSeq */
 	void AddToSynchGroup(FName GroupName);
 };
 
@@ -50,7 +44,7 @@ void UAnimNodeSlot_::AddToSynchGroup(FName GroupName)
 	if (!SynchNode)
 	{
 		FAnimNodeArray Nodes;
-		((UAnimNode_*)SkelComponent->Animations)->sub_00c4b530(Nodes);
+		SkelComponent->Animations->sub_00c4b530(Nodes);
 		for (INT i = 0; i < Nodes.Num(); i++)
 		{
 			SynchNode = Cast<UAnimNodeSynch>(Nodes(i));

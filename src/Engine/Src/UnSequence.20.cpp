@@ -8,10 +8,6 @@
 
 extern template APlayerController* Cast<APlayerController>(UObject* Src);
 /* APlayerController::eventLevelStreamingStatusChanged (script event thunk, 0x007d6380) isn't declared in Classes.h. */
-struct APlayerController_ : public APlayerController
-{
-    void eventLevelStreamingStatusChanged(ULevelStreaming* LevelObject, UBOOL bNewShouldBeLoaded, UBOOL bNewShouldBeVisible, UBOOL bNewShouldBlockOnLoad);
-};
 
 struct USeqAct_LevelStreamingBase_ : public USeqAct_LevelStreamingBase
 {
@@ -43,7 +39,7 @@ void USeqAct_LevelStreamingBase_::ActivateLevel(ULevelStreaming* LevelStreamingO
             APlayerController* PC = Cast<APlayerController>(Controller);
             if (PC != NULL)
             {
-                ((APlayerController_*)PC)->eventLevelStreamingStatusChanged(LevelStreamingObject,
+                PC->eventLevelStreamingStatusChanged(LevelStreamingObject,
                     LevelStreamingObject->bShouldBeLoaded, LevelStreamingObject->bShouldBeVisible, LevelStreamingObject->bShouldBlockOnLoad);
             }
         }

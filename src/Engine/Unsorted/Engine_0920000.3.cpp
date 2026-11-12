@@ -57,10 +57,6 @@ void USkeletalMeshComponent::execToggleInstanceVertexWeights(FFrame& Stack, RESU
 	sub_0092e930(bEnable);
 }
 
-struct USkeletalMeshComponent_ : public USkeletalMeshComponent
-{
-    FVector GetBoneLocation(FName BoneName, INT Space = 0); /* 0x0091e3a0 */
-};
 
 // @baa 0x0092df60
 void USkeletalMeshComponent::execGetBoneLocation(FFrame& Stack, RESULT_DECL)
@@ -68,13 +64,9 @@ void USkeletalMeshComponent::execGetBoneLocation(FFrame& Stack, RESULT_DECL)
     P_GET_NAME(BoneName);
     P_GET_INT_OPTX(Space, 0);
     P_FINISH;
-    *(FVector*)Result = ((USkeletalMeshComponent_*)this)->GetBoneLocation(BoneName, Space);
+    *(FVector*)Result = ((USkeletalMeshComponent*)this)->GetBoneLocation(BoneName, Space);
 }
 
-struct USkeletalMeshComponent__0092e020 : public USkeletalMeshComponent
-{
-    FVector GetBoneAxis(FName BoneName, BYTE Axis); /* 0x0091e4f0 */
-};
 
 // @baa 0x0092e020
 void USkeletalMeshComponent::execGetBoneAxis(FFrame& Stack, RESULT_DECL)
@@ -82,14 +74,10 @@ void USkeletalMeshComponent::execGetBoneAxis(FFrame& Stack, RESULT_DECL)
     P_GET_NAME(BoneName);
     P_GET_BYTE(Axis);
     P_FINISH;
-    *(FVector*)Result = ((USkeletalMeshComponent__0092e020*)this)->GetBoneAxis(BoneName, Axis);
+    *(FVector*)Result = ((USkeletalMeshComponent*)this)->GetBoneAxis(BoneName, Axis);
 }
 
 /* USkeletalMeshComponent::GetBoneQuaternion (0x91e2a0) isn't declared in the kit. */
-struct USkeletalMeshComponent__0092de90 : public USkeletalMeshComponent
-{
-    FQuat GetBoneQuaternion(FName BoneName, INT Space);
-};
 
 // @baa 0x0092de90
 void USkeletalMeshComponent::execGetBoneQuaternion(FFrame& Stack, RESULT_DECL)
@@ -97,14 +85,10 @@ void USkeletalMeshComponent::execGetBoneQuaternion(FFrame& Stack, RESULT_DECL)
     P_GET_NAME(BoneName);
     P_GET_INT_OPTX(Space, 0);
     P_FINISH;
-    *(FQuat*)Result = ((USkeletalMeshComponent__0092de90*)this)->GetBoneQuaternion(BoneName, Space);
+    *(FQuat*)Result = ((USkeletalMeshComponent*)this)->GetBoneQuaternion(BoneName, Space);
 }
 
 /* Kit gap: USkeletalMeshComponent::AddInstanceVertexWeightBoneParented (UnSkeletalComponent.cpp) isn't declared. */
-struct USkeletalMeshComponent__0092e7a0 : public USkeletalMeshComponent
-{
-	void AddInstanceVertexWeightBoneParented(FName BoneName, UBOOL bPairWithParent);	/* 0x0092e720 */
-};
 
 // @baa 0x0092e7a0
 void USkeletalMeshComponent::execAddInstanceVertexWeightBoneParented(FFrame& Stack, RESULT_DECL)
@@ -112,5 +96,5 @@ void USkeletalMeshComponent::execAddInstanceVertexWeightBoneParented(FFrame& Sta
 	P_GET_NAME(BoneName);
 	P_GET_UBOOL_OPTX(bPairWithParent, TRUE);
 	P_FINISH;
-	((USkeletalMeshComponent__0092e7a0*)this)->AddInstanceVertexWeightBoneParented(BoneName, bPairWithParent);
+	((USkeletalMeshComponent*)this)->AddInstanceVertexWeightBoneParented(BoneName, bPairWithParent);
 }

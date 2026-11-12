@@ -38,8 +38,6 @@ void URB_BodyInstance_::sub_009f9a40(const URB_BodyInstance* FromInst)
  * BodySetupIndexMap is only an FMap_Mirror, so its Num() (element count minus free slots) is spelled out. */
 struct UPhysicsAsset_ : public UPhysicsAsset
 {
-	void UpdateBoundsBodiesArray(); // 00a17a10
-	void UpdateBodySetupIndexMap(); // 00a2c950
 
 	FORCEINLINE INT BodySetupIndexMapNum() const
 	{
@@ -82,10 +80,6 @@ void UPhysicsAssetInstance_::SetAllBodiesFixed(UBOOL bNewFixed)
 }
 
 /* Unnamed in the kit (0x00a2ca60): UE3's UKMeshProps::CopyMeshPropsFrom(UKMeshProps* FromProps). */
-struct UKMeshProps_ : public UKMeshProps
-{
-    void CopyMeshPropsFrom(UKMeshProps* FromProps);
-};
 
 struct URB_BodySetup_ : public URB_BodySetup
 {
@@ -96,7 +90,7 @@ struct URB_BodySetup_ : public URB_BodySetup
 /* UE3's URB_BodySetup::CopyBodyPropertiesFrom: take over another body's geometry and physical settings. */
 void URB_BodySetup_::CopyBodyPropertiesFrom(URB_BodySetup* FromSetup)
 {
-    ((UKMeshProps_*)this)->CopyMeshPropsFrom(FromSetup);
+    this->CopyMeshPropsFrom(FromSetup);
     PhysMaterial = FromSetup->PhysMaterial;
     COMNudge = FromSetup->COMNudge;
     GroupName = FromSetup->GroupName;
@@ -115,10 +109,6 @@ void URB_BodySetup_::CopyBodyPropertiesFrom(URB_BodySetup* FromSetup)
 }
 
 /* Unnamed in the kit (0x00a2c3b0): UE3's URB_BodySetup::ClearShapeCache(). */
-struct URB_BodySetup__00a2d130 : public URB_BodySetup
-{
-    void ClearShapeCache();
-};
 
 struct UPhysicsAsset__00a2d130 : public UPhysicsAsset
 {
@@ -131,7 +121,7 @@ void UPhysicsAsset__00a2d130::ClearShapeCaches()
 {
     for (INT i = 0; i < BodySetup.Num(); i++)
     {
-        ((URB_BodySetup__00a2d130*)BodySetup(i))->ClearShapeCache();
+        ((URB_BodySetup*)BodySetup(i))->ClearShapeCache();
     }
 }
 

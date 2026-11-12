@@ -11,14 +11,8 @@ INT URCapeComponent::vf_000()
     return sub_016ad8c0 == sub_0053f6c0;
 }
 
-struct URCapeComponent_ : public URCapeComponent
-{
-    void sub_016aee80();
-    void sub_016b1f80(FLOAT F);
-};
-
 // @baa 0x016b1f80
-void URCapeComponent_::sub_016b1f80(FLOAT F)
+void URCapeComponent::sub_016b1f80(FLOAT F)
 {
     MaterialSpeedVariableOverride = F;
     sub_016aee80();
@@ -126,12 +120,6 @@ FName URCapeComponent::GetCurrentCapeStateName()
 	return NAME_None;
 }
 
-/* Kit gap: FName has no operator== (UnName.h). */
-struct FName_ : public FName
-{
-	FORCEINLINE UBOOL operator==(const FName& Other) const { return Index == Other.Index && Number == Other.Number; }
-};
-
 // @baa 0x016ae690
 UBOOL URCapeComponent::GetIsInCinematicsState()
 {
@@ -219,10 +207,6 @@ INT URCapeComponent__016aea10::GetNumChainsInCape()
 #line 220 "candidate.cpp"
 
 /* Unnamed in the kit (0x015691f0): the skeleton bone index for a cape chain link. */
-struct URAnimNode_Cape_ : public URAnimNode_Cape
-{
-    INT sub_015691f0(INT ChainIndex, INT LinkIndex);
-};
 
 struct URCapeComponent__016ae900 : public URCapeComponent
 {
@@ -235,7 +219,7 @@ void URCapeComponent__016ae900::SetDebugRenderBone(INT ChainNumber, INT LinkNumb
 {
     if (ChainNumber != 0 && LinkNumber != 0)
     {
-        CapeStateController->sub_016ced50(((URAnimNode_Cape_*)CapeAnimNode)->sub_015691f0(ChainNumber - 1, LinkNumber));
+        CapeStateController->sub_016ced50(CapeAnimNode->sub_015691f0(ChainNumber - 1, LinkNumber));
     }
     else
     {
@@ -243,15 +227,10 @@ void URCapeComponent__016ae900::SetDebugRenderBone(INT ChainNumber, INT LinkNumb
     }
 }
 
-struct URCapeComponent__016ae800 : public URCapeComponent
-{
-    void* sub_016ae800(FName Name); /* 0x016ae800 */
-};
-
 // @baa 0x016ae800
 /* Unnamed in the kit: look the name up through the cape anim node (URAnimNode_Cape::sub_01575620), once both the
  * anim node and the state controller exist. */
-void* URCapeComponent__016ae800::sub_016ae800(FName Name)
+void* URCapeComponent::sub_016ae800(FName Name)
 {
     if (CapeAnimNode != NULL && CapeStateController != NULL)
     {

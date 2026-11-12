@@ -519,24 +519,20 @@ void UParticleSystemComponent::sub_00b51be0(UBOOL bInSkipUpdateDynamicDataDuring
 }
 
 /* Unnamed in the kit: UE3's UParticleSystemComponent::ResetParticles(UBOOL bEmptyInstances). */
-struct UParticleSystemComponent_ : public UParticleSystemComponent
-{
-    void sub_00b644b0(UBOOL bEmptyInstances);
-};
 
 // @baa 0x00b65d30
 /* UE3's UParticleSystemComponent::BeginDestroy(): free the emitter instances. */
 void UParticleSystemComponent::BeginDestroy()
 {
     Super::BeginDestroy();
-    ((UParticleSystemComponent_*)this)->sub_00b644b0(TRUE);
+    this->sub_00b644b0(TRUE);
 }
 
 // @baa 0x00b65e80
 /* UE3's UParticleSystemComponent::PreEditChange(UProperty* PropertyAboutToChange): drop the live particles first. */
 void UParticleSystemComponent::PreEditChange(UProperty* PropertyAboutToChange)
 {
-    ((UParticleSystemComponent_*)this)->sub_00b644b0(FALSE);
+    this->sub_00b644b0(FALSE);
     Super::PreEditChange(PropertyAboutToChange);
 }
 
@@ -581,28 +577,16 @@ UParticleSystemReplay* UParticleSystemComponent__00b5f140::sub_00b5f140(const IN
     return NULL;
 }
 
-/* Kit gaps: UObject::ConditionalPostLoad (0x005e5a00) and UParticleSystemComponent::InitializeSystem (0x00b5d240)
- * aren't declared. */
-struct UObject_ : public UObject
-{
-	void ConditionalPostLoad();
-};
-
-struct UParticleSystemComponent__00b63d30 : public UParticleSystemComponent
-{
-	void InitializeSystem();
-};
-
 // @baa 0x00b63d30
 void UParticleSystemComponent::PostLoad()
 {
 	Super::PostLoad();
 	if (Template)
 	{
-		((UObject_*)Template)->ConditionalPostLoad();
+		Template->ConditionalPostLoad();
 	}
 	bIsViewRelevanceDirty = TRUE;
-	((UParticleSystemComponent__00b63d30*)this)->InitializeSystem();
+	this->InitializeSystem();
 }
 
 // @baa 0x00b5c6a0

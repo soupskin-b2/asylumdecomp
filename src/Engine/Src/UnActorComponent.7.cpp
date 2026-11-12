@@ -82,9 +82,6 @@ bool UStaticMeshComponentFactory::vf_004()
 
 #define RF_PendingKill ((QWORD)0x0000000200000000)
 extern UBOOL g_025d6810;
-struct UObject_ : public UObject {
-    UBOOL HasAnyFlags(QWORD Flags) { return (*(QWORD*)&ObjectFlags & Flags) != 0; }
-};
 
 // @baa 0x007651d0
 bool AActor::vf_30c()
@@ -92,14 +89,14 @@ bool AActor::vf_30c()
     UBOOL bPendingKill = FALSE;
     if (g_025d6810)
     {
-        if (((UObject_*)this)->HasAnyFlags(RF_PendingKill))
+        if (this->HasAnyFlags(RF_PendingKill))
         {
             bPendingKill = TRUE;
         }
         for (INT i = 0; i < Components.Num(); i++)
         {
             UActorComponent* Comp = Components(i);
-            if (Comp && ((UObject_*)Comp)->HasAnyFlags(RF_PendingKill))
+            if (Comp && Comp->HasAnyFlags(RF_PendingKill))
             {
                 bPendingKill = TRUE;
             }
@@ -107,7 +104,7 @@ bool AActor::vf_30c()
         for (INT i = 0; i < AllComponents.Num(); i++)
         {
             UActorComponent* Comp = AllComponents(i);
-            if (Comp && ((UObject_*)Comp)->HasAnyFlags(RF_PendingKill))
+            if (Comp && Comp->HasAnyFlags(RF_PendingKill))
             {
                 bPendingKill = TRUE;
             }

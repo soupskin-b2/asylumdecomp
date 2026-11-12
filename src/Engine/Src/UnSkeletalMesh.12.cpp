@@ -50,16 +50,8 @@ struct FMatrix_ : public FMatrix
 };
 
 /* USkeletalMesh::MatchRefBone (0x00976be0) isn't declared in Classes.h */
-struct USkeletalMesh_ : public USkeletalMesh
-{
-    INT MatchRefBone(FName StartBoneName) const;
-};
 
 /* URB_ConstraintSetup::GetRefFrameMatrix (UnPhysConstraint.cpp, 0x00a322d0) isn't declared in Classes.h */
-struct URB_ConstraintSetup_ : public URB_ConstraintSetup
-{
-    FMatrix GetRefFrameMatrix(INT BodyIndex);
-};
 
 /* UnSkeletalMesh.cpp helper (0x00d776d0): world-space matrix of a bone */
 FMatrix GetBoneMatrix(INT BoneIndex, const TArray<FMatrix>& SpaceBases, const FMatrix& LocalToWorld);
@@ -75,10 +67,10 @@ void UPhysicsAsset_::DrawConstraints(FPrimitiveDrawInterface* PDI, USkeletalMesh
 {
     for (INT i = 0; i < ConstraintSetup.Num(); i++)
     {
-        URB_ConstraintSetup_* cs = (URB_ConstraintSetup_*)ConstraintSetup(i);
+        URB_ConstraintSetup* cs = (URB_ConstraintSetup*)ConstraintSetup(i);
 
         FMatrix Con1Frame;
-        const INT Bone1Index = ((USkeletalMesh_*)SkelMesh)->MatchRefBone(cs->ConstraintBone1);
+        const INT Bone1Index = SkelMesh->MatchRefBone(cs->ConstraintBone1);
         if (Bone1Index != INDEX_NONE)
         {
             FMatrix Body1TM = GetBoneMatrix(Bone1Index, SpaceBases, LocalToWorld);
@@ -87,7 +79,7 @@ void UPhysicsAsset_::DrawConstraints(FPrimitiveDrawInterface* PDI, USkeletalMesh
         }
 
         FMatrix Con2Frame;
-        const INT Bone2Index = ((USkeletalMesh_*)SkelMesh)->MatchRefBone(cs->ConstraintBone2);
+        const INT Bone2Index = SkelMesh->MatchRefBone(cs->ConstraintBone2);
         if (Bone2Index != INDEX_NONE)
         {
             FMatrix Body2TM = GetBoneMatrix(Bone2Index, SpaceBases, LocalToWorld);
@@ -294,7 +286,6 @@ private:
         delete VertexData;
         VertexData = NULL;
     }
-
 
     UBOOL bInfluencesByteSwapped;
     UBOOL bUseFullPrecisionUVs;   /* 0x1c */

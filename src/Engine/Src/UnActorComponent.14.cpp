@@ -5,10 +5,6 @@
 
 /* Kit gap: UObject::MarkPendingKill/SetFlags (UnObjBas.h); ObjectFlags is an FQWord here. */
 #define RF_PendingKill ((QWORD)0x2000000000000000)
-struct UObject_ : public UObject
-{
-    FORCEINLINE void MarkPendingKill() { *(QWORD*)&ObjectFlags |= RF_PendingKill; }
-};
 
 // @baa 0x007650e0
 /* AActor slot 0x31c (kit vf_31c): marks the actor's components pending kill, all of them or (bOnlyFiltered) only
@@ -20,7 +16,7 @@ void AActor::vf_31c(INT bOnlyFiltered)
         UActorComponent* Component = Components(ComponentIndex);
         if (Component && (!bOnlyFiltered || Component->vf_144()))
         {
-            ((UObject_*)Component)->MarkPendingKill();
+            Component->MarkPendingKill();
         }
     }
     for (INT ComponentIndex = 0; ComponentIndex < AllComponents.Num(); ComponentIndex++)
@@ -28,19 +24,15 @@ void AActor::vf_31c(INT bOnlyFiltered)
         UActorComponent* Component = AllComponents(ComponentIndex);
         if (Component && (!bOnlyFiltered || Component->vf_144()))
         {
-            ((UObject_*)Component)->MarkPendingKill();
+            Component->MarkPendingKill();
         }
     }
 }
 
 /* Unnamed in the kit: re-runs the transform update (slot 0x118, UE3 UpdateTransform) when attached. */
-struct UActorComponent_ : public UActorComponent
-{
-    void sub_00759620();
-};
 
 // @baa 0x00759620
-void UActorComponent_::sub_00759620()
+void UActorComponent::sub_00759620()
 {
     if (bAttached)
     {

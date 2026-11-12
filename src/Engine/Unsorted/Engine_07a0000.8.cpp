@@ -7,10 +7,6 @@
 
 class FSceneViewFamily;
 /* Unnamed in the kit: UE3's UWorld::FlushLevelStreaming(FSceneViewFamily* ViewFamily = NULL). */
-struct UWorld_ : public UWorld
-{
-    void sub_009d0be0(FSceneViewFamily* ViewFamily);
-};
 
 // @baa 0x007ac510
 /* UE3's APlayerController::ClientFlushLevelStreaming(): unless a map change is pending, finish all level
@@ -20,7 +16,7 @@ void APlayerController::ClientFlushLevelStreaming()
     UGameEngine* GameEngine = Cast<UGameEngine>(GEngine);
     if (GameEngine == NULL || !GameEngine->bShouldCommitPendingMapChange)
     {
-        ((UWorld_*)GWorld)->sub_009d0be0(NULL);
+        ((UWorld*)GWorld)->sub_009d0be0(NULL);
         WorldInfo->bRequestedBlockOnAsyncLoading = TRUE;
         WorldInfo->sub_00803c90(FALSE);
     }

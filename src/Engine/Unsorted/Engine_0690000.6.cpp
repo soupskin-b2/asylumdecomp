@@ -23,8 +23,6 @@ undefined4 * C::sub_006975d0(void)
 
 struct UDecalComponent_ : public UDecalComponent
 {
-    void sub_0069ba80();
-    void sub_006f3bf0(UINT Param);
     void sub_0069bb90(UINT Param)
     {
         sub_0069ba80();

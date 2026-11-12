@@ -74,11 +74,6 @@ struct FSocketArray : public TArray<USkeletalMeshSocket*>
 };
 
 /* USkeletalMesh members used here that Classes.h doesn't declare */
-struct USkeletalMesh_ : public USkeletalMesh
-{
-    void InitNameIndexMap();          /* 0x0097eb90 */
-    void CalculateInvRefMatrices();   /* 0x00d4d440 */
-};
 
 /* FSkeletalMeshMerge (UnSkeletalMeshMerge.h): merges several skeletal meshes into MergeMesh. Not in the kit. */
 class FSkeletalMeshMerge
@@ -92,7 +87,7 @@ private:
         TArray<INT> SrcToDestRefSkeletonMap;
     };
 
-    USkeletalMesh_* MergeMesh;
+    USkeletalMesh* MergeMesh;
     const TArray<USkeletalMesh*>& SrcMeshList;
     const TArray<FSkelMeshMergeSectionMapping>& ForceSectionMapping;
     TArray<FMergeMeshInfo> SrcMeshInfo;

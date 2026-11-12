@@ -2765,10 +2765,6 @@ undefined4 UStaticMeshComponent::sub_0068f860(byte param_2)
 }
 
 /* Kit gap: the mesh-side handler (0x00963100; its name isn't known) isn't declared. */
-struct UStaticMesh_ : public UStaticMesh
-{
-	void sub_00963100(INT); /* 0x00963100 */
-};
 
 // @baa 0x0068f840
 /* Slot 0x248 (unnamed in the kit): forwards to the static mesh. */
@@ -2776,6 +2772,6 @@ void UStaticMeshComponent::vf_248(INT Param)
 {
 	if (StaticMesh)
 	{
-		((UStaticMesh_*)StaticMesh)->sub_00963100(Param);
+		((UStaticMesh*)StaticMesh)->sub_00963100(Param);
 	}
 }

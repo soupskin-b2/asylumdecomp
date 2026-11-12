@@ -8,14 +8,9 @@
 inline UBOOL operator==(const FName& A, EName N) { return A.Index == N && A.Number == 0; }
 
 /* UAnimTree's morph node lookups aren't declared in Classes.h. */
-struct UAnimTree_ : public UAnimTree
-{
-	void sub_00c61690(TArray<UMorphNodeBase*>& OutNodes);	/* GetMorphNodes */
-	UMorphNodeBase* FindMorphNode(FName InNodeName);
-};
 
 // @baa 0x00c61880
-UMorphNodeBase* UAnimTree_::FindMorphNode(FName InNodeName)
+UMorphNodeBase* UAnimTree::FindMorphNode(FName InNodeName)
 {
 	if (InNodeName == NAME_None)
 	{

@@ -6,7 +6,6 @@
 /* Kit gap: FString::operator* and FString::Printf (0x005495f0, the copy this unit links against) aren't declared. */
 struct FString_ : public FString
 {
-	const TCHAR* operator*() const { return Num() ? &(*this)(0) : TEXT(""); }
 	static FString Printf(const TCHAR* Fmt, ...);
 };
 

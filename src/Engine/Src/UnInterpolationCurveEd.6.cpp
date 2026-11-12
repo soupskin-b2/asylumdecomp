@@ -28,19 +28,14 @@ template<class T> struct TArrayAt_ : public TArray<T>
 };
 
 /* FInterpCurve<FVector> (UnMath.h): AddPoint and AutoSetTangents out of line in the exe (007bb100, 007bb200) */
-struct FInterpCurveVector_ : public FInterpCurveVector
-{
-    INT AddPoint(const FLOAT InVal, const FVector& OutVal);
-    void AutoSetTangents(FLOAT Tension);
-};
 
 // @baa 0x00cfc5e0
 INT UInterpTrackColorScale::AddKeyframe(FLOAT Time, UInterpTrackInst* TrInst, BYTE InitInterpMode)
 {
-    INT NewKeyIndex = ((FInterpCurveVector_&)VectorTrack).AddPoint(Time, FVector(1.f, 1.f, 1.f));
+    INT NewKeyIndex = ((FInterpCurveVector&)VectorTrack).AddPoint(Time, FVector(1.f, 1.f, 1.f));
     ((TArrayAt_<FInterpCurvePointVector>&)VectorTrack.Points).At(NewKeyIndex).InterpMode = InitInterpMode;
 
-    ((FInterpCurveVector_&)VectorTrack).AutoSetTangents(CurveTension);
+    ((FInterpCurveVector&)VectorTrack).AutoSetTangents(CurveTension);
 
     return NewKeyIndex;
 }
@@ -50,10 +45,10 @@ INT UInterpTrackColorScale::AddKeyframe(FLOAT Time, UInterpTrackInst* TrInst, BY
 // @baa 0x00cfc990
 INT UInterpTrackAudioMaster::AddKeyframe(FLOAT Time, UInterpTrackInst* TrInst, BYTE InitInterpMode)
 {
-    INT NewKeyIndex = ((FInterpCurveVector_&)VectorTrack).AddPoint(Time, FVector(1.f, 1.f, 0.f));
+    INT NewKeyIndex = ((FInterpCurveVector&)VectorTrack).AddPoint(Time, FVector(1.f, 1.f, 0.f));
     ((TArrayAt_<FInterpCurvePointVector>&)VectorTrack.Points).At(NewKeyIndex).InterpMode = InitInterpMode;
 
-    ((FInterpCurveVector_&)VectorTrack).AutoSetTangents(CurveTension);
+    ((FInterpCurveVector&)VectorTrack).AutoSetTangents(CurveTension);
 
     return NewKeyIndex;
 }
@@ -61,10 +56,10 @@ INT UInterpTrackAudioMaster::AddKeyframe(FLOAT Time, UInterpTrackInst* TrInst, B
 // @baa 0x00cfc550
 INT UInterpTrackVectorMaterialParam::AddKeyframe(FLOAT Time, UInterpTrackInst* TrInst, BYTE InitInterpMode)
 {
-    INT NewKeyIndex = ((FInterpCurveVector_&)VectorTrack).AddPoint(Time, FVector(0.f));
+    INT NewKeyIndex = ((FInterpCurveVector&)VectorTrack).AddPoint(Time, FVector(0.f));
     ((TArrayAt_<FInterpCurvePointVector>&)VectorTrack.Points).At(NewKeyIndex).InterpMode = InitInterpMode;
 
-    ((FInterpCurveVector_&)VectorTrack).AutoSetTangents(CurveTension);
+    ((FInterpCurveVector&)VectorTrack).AutoSetTangents(CurveTension);
 
     return NewKeyIndex;
 }
@@ -72,7 +67,6 @@ INT UInterpTrackVectorMaterialParam::AddKeyframe(FLOAT Time, UInterpTrackInst* T
 /* FInterpCurve<FLOAT> (UnMath.h): AddPoint out of line in the exe (007b95b0), AutoSetTangents is the kit's sub_007b96a0 */
 struct FInterpCurveFloat_ : public FInterpCurveFloat
 {
-    INT AddPoint(const FLOAT InVal, const FLOAT& OutVal);
     void AutoSetTangents(FLOAT Tension) { sub_007b96a0(Tension); }
 };
 

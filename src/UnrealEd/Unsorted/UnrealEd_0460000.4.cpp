@@ -5,13 +5,9 @@
 #include "ue3/AppMath.h"
 
 // FVector2D::Size(): the length of the two components.
-struct FVector2D_ : public FVector2D
-{
-    FLOAT Size() const;
-};
 
 // @baa 0x004628c0
-FLOAT FVector2D_::Size() const
+FLOAT FVector2D::Size() const
 {
     return appSqrt(X * X + Y * Y);
 }

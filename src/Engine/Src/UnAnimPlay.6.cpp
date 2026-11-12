@@ -36,15 +36,7 @@ FLOAT UAnimNodeSequence::vf_194()
 /* Unnamed in the kit (as UnSkeletalAnim.cpp declares them): UE3's USkeletalMeshComponent::UpdateSkelPose(FLOAT DeltaTime,
  * UBOOL bTellChildren) (this build has a third flag), and UActorComponent's "if (bAttached) UpdateTransform()" through
  * slot 0x118. */
-struct USkeletalMeshComponent_ : public USkeletalMeshComponent
-{
-    void sub_0093b170(FLOAT DeltaTime, UBOOL bTellChildren, UBOOL Unknown);
-};
 
-struct UActorComponent_ : public UActorComponent
-{
-    void sub_00759620();
-};
 
 // @baa 0x00c4aeb0
 /* UE3's UAnimNodeSequence::PostEditChange(UProperty* PropertyThatChanged): pick up a changed AnimSeqName and refresh the
@@ -54,8 +46,8 @@ void UAnimNodeSequence::PostEditChange(UProperty* PropertyThatChanged)
     SetAnim(AnimSeqName);
     if (SkelComponent && SkelComponent->bAttached)
     {
-        ((USkeletalMeshComponent_*)SkelComponent)->sub_0093b170(0.f, TRUE, FALSE);
-        ((UActorComponent_*)SkelComponent)->sub_00759620();
+        ((USkeletalMeshComponent*)SkelComponent)->sub_0093b170(0.f, TRUE, FALSE);
+        ((UActorComponent*)SkelComponent)->sub_00759620();
     }
     Super::PostEditChange(PropertyThatChanged);
 }

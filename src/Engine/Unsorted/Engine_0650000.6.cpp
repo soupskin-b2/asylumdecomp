@@ -504,8 +504,6 @@ F00658ed0Obj::F00658ed0Obj(INT X, INT Y)
 struct FVector_ : public FVector
 {
 	FORCEINLINE FVector_(FLOAT InX, FLOAT InY, FLOAT InZ) { X = InX; Y = InY; Z = InZ; }
-	FORCEINLINE FVector_ operator-() const { return FVector_(-X, -Y, -Z); }
-	FORCEINLINE FVector_ operator*(FLOAT Scale) const { return FVector_(X * Scale, Y * Scale, Z * Scale); }
 };
 
 struct ULightComponent_ : public ULightComponent

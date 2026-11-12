@@ -26,16 +26,7 @@ struct FBoneAtom_
 };
 
 /* Callees Classes.h doesn't declare. */
-struct UAnimSequence_ : public UAnimSequence
-{
-	UAnimSet* sub_009411e0();			/* GetAnimSet */
-	void sub_00917b80(FBoneAtom& OutAtom, INT TrackIndex, FLOAT Time, UBOOL bLooping, UBOOL bUseRawData);	/* GetBoneAtom */
-};
 
-struct UAnimSet_ : public UAnimSet
-{
-	INT sub_0092b080(USkeletalMesh* SkelMesh);	/* GetMeshLinkupIndex */
-};
 
 /* FAnimationUtils (AnimationUtils.h) isn't in the kit. */
 class FAnimationUtils
@@ -49,8 +40,8 @@ public:
  * without a track keep the mesh's reference pose. */
 void FAnimationUtils::BuildPoseFromRawData(TArray<FBoneAtom>& OutAtoms, UAnimSequence* AnimSeq, const TArray<BYTE>& RequiredBones, USkeletalMesh* SkelMesh, FLOAT Time, UBOOL bLooping)
 {
-	UAnimSet* AnimSet = ((UAnimSequence_*)AnimSeq)->sub_009411e0();
-	const INT AnimLinkupIndex = ((UAnimSet_*)AnimSet)->sub_0092b080(SkelMesh);
+	UAnimSet* AnimSet = ((UAnimSequence*)AnimSeq)->sub_009411e0();
+	const INT AnimLinkupIndex = ((UAnimSet*)AnimSet)->sub_0092b080(SkelMesh);
 #line 192 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\AnimationUtils.cpp"
 	check(AnimLinkupIndex != INDEX_NONE);
 	check(AnimLinkupIndex < AnimSet->LinkupCache.Num());
@@ -72,7 +63,7 @@ void FAnimationUtils::BuildPoseFromRawData(TArray<FBoneAtom>& OutAtoms, UAnimSeq
 		}
 		else
 		{
-			((UAnimSequence_*)AnimSeq)->sub_00917b80(OutAtoms(BoneIndex), TrackIndex, Time, bLooping, TRUE);
+			((UAnimSequence*)AnimSeq)->sub_00917b80(OutAtoms(BoneIndex), TrackIndex, Time, bLooping, TRUE);
 		}
 
 		// the tracks store the conjugate of every rotation but the root's

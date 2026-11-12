@@ -7,9 +7,6 @@
 
 /* placement new as UE3 declares it (UnTemplate.h); the exe keeps the matching delete out of line (00401890) */
 /* FCoverSlot's (implicit) copy constructor, out of line in the exe (00859980) */
-struct FCoverSlot_ : public FCoverSlot {
-    FCoverSlot_(const FCoverSlot& Other);
-};
 
 struct FCoverSlotArray : public TArray<FCoverSlot> {
     INT sub_00859eb0(const FCoverSlot& Item); // AddItem
@@ -19,14 +16,11 @@ struct FCoverSlotArray : public TArray<FCoverSlot> {
 INT FCoverSlotArray::sub_00859eb0(const FCoverSlot& Item)
 {
     const INT Index = Add(1);
-    ::new(GetTypedData() + Index) FCoverSlot_(Item);
+    ::new(GetTypedData() + Index) FCoverSlot(Item);
     return Index;
 }
 
 /* FCoverSlot's (implicit) destructor, out of line in the exe (00857fa0) */
-struct FCoverSlot__00859e20 : public FCoverSlot {
-    ~FCoverSlot__00859e20();
-};
 
 /* Kit gap (Array.h, issue #39): this build inlines TArray::DestructItems / operator() where the kit's
  * plain-inline ones are called out of line; TArray::Empty with the same bodies, forced inline. */
@@ -59,14 +53,11 @@ template<class T> struct TArrayEmpty_ : public TArray<T>
 
 // @baa 0x00859e20
 /* TArray<FCoverSlot>::Empty */
-template void TArrayEmpty_<FCoverSlot__00859e20>::Empty(INT Slack);
+template void TArrayEmpty_<FCoverSlot>::Empty(INT Slack);
 
 #line 68 "candidate.cpp"
 
 /* FCoverSlot's (implicit) destructor, out of line in the exe (00857fa0) */
-struct FCoverSlot__00859ce0 : public FCoverSlot {
-    ~FCoverSlot__00859ce0();
-};
 
 /* Kit gap (Array.h, issue #39): this build inlines TArray::DestructItems / operator() into ~TArray where
  * the kit's plain-inline ones are called out of line. TArray's layout and destructor with the same
@@ -101,6 +92,6 @@ public:
 
 // @baa 0x00859ce0
 /* TArray<FCoverSlot>::~TArray */
-template TArrayDtor_<FCoverSlot__00859ce0>::~TArrayDtor_();
+template TArrayDtor_<FCoverSlot>::~TArrayDtor_();
 
 #line 110 "candidate.cpp"

@@ -8,15 +8,6 @@
 
 /* Kit gaps: UAnimNodeBlend::SetBlendTarget (00c54040), USkeletalMeshComponent::FindAnimSequence (0091d860) and
  * aren't declared. */
-struct UAnimNodeBlend_ : public UAnimNodeBlend
-{
-	void SetBlendTarget(FLOAT BlendTarget, FLOAT BlendTime);
-};
-
-struct USkeletalMeshComponent_ : public USkeletalMeshComponent
-{
-	UAnimSequence* FindAnimSequence(FName AnimSeqName);
-};
 
 // @baa 0x00c7a980
 void UAnimNodeCrossfader::execBlendToLoopingAnim(FFrame& Stack, RESULT_DECL)
@@ -26,7 +17,7 @@ void UAnimNodeCrossfader::execBlendToLoopingAnim(FFrame& Stack, RESULT_DECL)
 	P_GET_FLOAT_OPTX(Rate, 1.f);
 	P_FINISH;
 	if (Children.Num() != 2 || !Children(0).Anim || !Children(1).Anim || !SkelComponent ||
-		!((USkeletalMeshComponent_*)SkelComponent)->FindAnimSequence(AnimSeqName))
+		!((USkeletalMeshComponent*)SkelComponent)->FindAnimSequence(AnimSeqName))
 	{
 		return;
 	}
@@ -38,7 +29,7 @@ void UAnimNodeCrossfader::execBlendToLoopingAnim(FFrame& Stack, RESULT_DECL)
 		PendingBlendOutTimeOneShot = 0.f;
 		Child->SetAnim(AnimSeqName);
 		Child->PlayAnim(TRUE, Rate, 0.f);
-		((UAnimNodeBlend_*)this)->SetBlendTarget(BlendTarget, BlendInTime);
+		((UAnimNodeBlend*)this)->SetBlendTarget(BlendTarget, BlendInTime);
 	}
 }
 
@@ -52,7 +43,7 @@ void UAnimNodeCrossfader::execPlayOneShotAnim(FFrame& Stack, RESULT_DECL)
 	P_GET_FLOAT_OPTX(Rate, 1.f);
 	P_FINISH;
 	if (Children.Num() != 2 || !Children(0).Anim || !Children(1).Anim || !SkelComponent ||
-		!((USkeletalMeshComponent_*)SkelComponent)->FindAnimSequence(AnimSeqName))
+		!((USkeletalMeshComponent*)SkelComponent)->FindAnimSequence(AnimSeqName))
 	{
 		return;
 	}
@@ -64,21 +55,11 @@ void UAnimNodeCrossfader::execPlayOneShotAnim(FFrame& Stack, RESULT_DECL)
 		PendingBlendOutTimeOneShot = BlendOutTime;
 		Child->SetAnim(AnimSeqName);
 		Child->PlayAnim(FALSE, Rate, 0.f);
-		((UAnimNodeBlend_*)this)->SetBlendTarget(BlendTarget, BlendInTime);
+		((UAnimNodeBlend*)this)->SetBlendTarget(BlendTarget, BlendInTime);
 	}
 }
 
 /* FString::operator* (UnString.h) and UObject::GetFullName/GetName (UnObjBas.h), which the headers lack. */
-struct FString_ : public FString
-{
-	const TCHAR* operator*() const { return Num() ? &(*this)(0) : TEXT(""); }
-};
-
-struct UObject_ : public UObject
-{
-	FString_ GetFullName(const UObject* StopOuter = NULL) const;
-	FString_ GetName() const;
-};
 
 /* Core.h: appErrorf hands the message to an attached debugger first. This build has no debugger
  * support (appIsDebuggerPresent is constant), so only the temporaries' destructor flags are left
@@ -92,7 +73,7 @@ template<class T> T* CastChecked(UObject* Src)
 {
 	if (!Src || !ObjectIsA(Src, T::StaticClass()))
 	{
-		appErrorf(TEXT("Cast of %s to %s failed"), Src ? *((UObject_*)Src)->GetFullName() : TEXT("NULL"), *((UObject_*)T::StaticClass())->GetName());
+		appErrorf(TEXT("Cast of %s to %s failed"), Src ? *((UObject*)Src)->GetFullName() : TEXT("NULL"), *((UObject*)T::StaticClass())->GetName());
 	}
 	return (T*)Src;
 }

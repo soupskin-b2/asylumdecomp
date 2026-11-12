@@ -410,7 +410,6 @@ int sub_0080b090_::sub_0080b090(int Param)
 
 // sub_00803d90: a thiscall base method of the same object (0 stack args), called directly.
 struct APointLightToggleable_ : public APointLightToggleable {
-    INT ToggleCore(); /* 00803d90 */
     void sub_00803f00(); /* 00803f00 */
 };
 

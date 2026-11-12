@@ -26,10 +26,6 @@ FORCEINLINE FLOAT appInvSqrtSSE(FLOAT F)
 /* Kit gap: FVector's SizeSquared, SafeNormal and operator*= (UnMath.h). */
 struct FVector_ : public FVector
 {
-    FORCEINLINE FLOAT SizeSquared() const
-    {
-        return X*X + Y*Y + Z*Z;
-    }
     FORCEINLINE FVector SafeNormal(FLOAT Tolerance = SMALL_NUMBER) const
     {
         const FLOAT SquareSum = X*X + Y*Y + Z*Z;
@@ -43,11 +39,6 @@ struct FVector_ : public FVector
         }
         const FLOAT Scale = appInvSqrtSSE(SquareSum);
         return FVector(X*Scale, Y*Scale, Z*Scale);
-    }
-    FORCEINLINE FVector_& operator*=(FLOAT Scale)
-    {
-        X *= Scale; Y *= Scale; Z *= Scale;
-        return *this;
     }
 };
 

@@ -71,14 +71,9 @@ void UParticleSystemComponent__00b5ee80::sub_00b5ee80(FName& InEventName, FLOAT 
 
 /* Unnamed in the kit: UE3's UParticleSystemComponent::ReportEventKismet(FName& InEventName, FLOAT InEmitterTime,
  * FVector& InLocation, FVector& InDirection, FVector& InVelocity, UBOOL bUsePSysCompLocation, FVector& InNormal). */
-struct UParticleSystemComponent__00b5ef40 : public UParticleSystemComponent
-{
-    void sub_00b5ef40(FName& InEventName, FLOAT InEmitterTime, FVector& InLocation, FVector& InDirection, FVector& InVelocity,
-        UBOOL bUsePSysCompLocation, FVector& InNormal);
-};
 
 // @baa 0x00b5ef40
-void UParticleSystemComponent__00b5ef40::sub_00b5ef40(FName& InEventName, FLOAT InEmitterTime, FVector& InLocation, FVector& InDirection, FVector& InVelocity,
+void UParticleSystemComponent::sub_00b5ef40(FName& InEventName, FLOAT InEmitterTime, FVector& InLocation, FVector& InDirection, FVector& InVelocity,
     UBOOL bUsePSysCompLocation, FVector& InNormal)
 {
     FParticleEventKismetData* KismetData = new(KismetEvents) FParticleEventKismetData;

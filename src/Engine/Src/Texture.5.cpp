@@ -7,22 +7,6 @@
 /* Kit gap: UObject::GetOuter/HasAnyFlags/IsTemplate and the RF_ flags (UnObjBas.h); ObjectFlags is an FQWord here. */
 #define RF_ClassDefaultObject ((QWORD)0x0000000000000200)
 #define RF_ArchetypeObject ((QWORD)0x0000000000000400)
-struct UObject_ : public UObject
-{
-	FORCEINLINE UObject* GetOuter() const { return Outer; }
-	FORCEINLINE UBOOL HasAnyFlags(QWORD Flags) const { return (*(const QWORD*)&ObjectFlags & Flags) != 0; }
-	FORCEINLINE UBOOL IsTemplate(QWORD TemplateTypes = (RF_ArchetypeObject | RF_ClassDefaultObject)) const
-	{
-		for (const UObject* TestOuter = this; TestOuter; TestOuter = TestOuter->Outer)
-		{
-			if (((const UObject_*)TestOuter)->HasAnyFlags(TemplateTypes))
-			{
-				return TRUE;
-			}
-		}
-		return FALSE;
-	}
-};
 
 /* GSystemSettings.TextureLODSettings (FSystemSettings/FTextureLODSettings aren't in the kit). */
 class FTextureLODSettings
@@ -41,13 +25,13 @@ void UTexture::PostLoad()
 
 	RGBE = (CompressionSettings == TC_HighDynamicRange);
 
-	if (!((UObject_*)this)->IsTemplate())
+	if (!this->IsTemplate())
 	{
 		// Update cached LOD bias.
 		CachedCombinedLODBias = GSystemSettings_TextureLODSettings.CalculateLODBias(this);
 
 		// The texture will be cached by the cubemap it is contained within on consoles.
-		if (Cast<UTextureCube>(((UObject_*)this)->GetOuter()) == NULL)
+		if (Cast<UTextureCube>(this->GetOuter()) == NULL)
 		{
 			// Recreate the texture's resource.
 			UpdateResource();

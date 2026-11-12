@@ -245,8 +245,6 @@ void UTextureMovie::Serialize( FArchive& Ar )
 struct FRenderCommandFence_ : public FRenderCommandFence
 {
 	FRenderCommandFence_() { NumPendingFences = 0; }
-	void BeginFence();
-	UINT GetNumPendingFences() const;
 };
 
 /* Named accessor for the FPointer field (ISSUES.md 19). */

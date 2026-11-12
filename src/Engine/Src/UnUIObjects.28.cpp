@@ -4,19 +4,12 @@
 #include "ue3/Classes.h"
 #include "ue3/Native.h"
 
-/* Kit gap: the UUIScene helper that works out whether the scene (or any child) supports navigation (00db03a0)
- * isn't declared. */
-struct UUIScene_ : public UUIScene
-{
-	UBOOL sub_00db03a0();
-};
-
 // @baa 0x00db0b50
 /* Re-evaluates bSupportsNavigation and, when it changes, notifies the game's scene client. */
 INT UUIScene::vf_120()
 {
 	const UBOOL bOldSupportsNavigation = bSupportsNavigation;
-	bSupportsNavigation = ((UUIScene_*)this)->sub_00db03a0();
+	bSupportsNavigation = this->sub_00db03a0();
 	if (bOldSupportsNavigation != bSupportsNavigation
 	&&	GEngine != NULL && GEngine->GameViewport != NULL
 	&&	GEngine->GameViewport->UIController != NULL
@@ -81,19 +74,12 @@ UUIInteraction* UUIRoot_::GetDefaultUIController()
 
 #line 83 "candidate.cpp"
 
-/* Kit gaps: UGameUISceneClient::FindSceneIndex (00de2590) and GetActiveScene (00de2770) aren't declared. */
-struct UGameUISceneClient_ : public UGameUISceneClient
-{
-	INT FindSceneIndex(const UUIScene* Scene) const;
-	UUIScene* GetActiveScene(ULocalPlayer* SceneFilter, UBOOL bIgnoreUnfocusedScenes);
-};
-
 /* Kit gap: UUIRoot::GetSceneClient (the game's scene client, if there is one) isn't declared. */
-FORCEINLINE UGameUISceneClient_* GetGameSceneClient()
+FORCEINLINE UGameUISceneClient* GetGameSceneClient()
 {
 	if (GEngine != NULL && GEngine->GameViewport != NULL && GEngine->GameViewport->UIController != NULL)
 	{
-		return (UGameUISceneClient_*)GEngine->GameViewport->UIController->SceneClient;
+		return (UGameUISceneClient*)GEngine->GameViewport->UIController->SceneClient;
 	}
 	return NULL;
 }
@@ -102,7 +88,7 @@ FORCEINLINE UGameUISceneClient_* GetGameSceneClient()
 /* Whether this scene is open in the game's scene client, and (with bTopmostScene) the active one for its player. */
 UBOOL UUIScene::IsSceneActive(UBOOL bTopmostScene)
 {
-	UGameUISceneClient_* GameSceneClient = GetGameSceneClient();
+	UGameUISceneClient* GameSceneClient = GetGameSceneClient();
 	if (GameSceneClient != NULL)
 	{
 		UBOOL bResult = GameSceneClient->FindSceneIndex(this) != INDEX_NONE;

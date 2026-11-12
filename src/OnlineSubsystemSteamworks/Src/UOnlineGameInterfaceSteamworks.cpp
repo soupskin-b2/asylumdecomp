@@ -348,7 +348,6 @@ C_00e86020* C_00e86020::sub_00e86020()
 // vf_138 (vtable slot 78): forwards the value to sub_00e3a290 on the same object.
 struct UOnlineGameInterfaceSteamworks_ : public UOnlineGameInterfaceSteamworks
 {
-    INT sub_00e3a290(FLOAT Value);
     INT sub_00e89940(FLOAT Value);
 };
 

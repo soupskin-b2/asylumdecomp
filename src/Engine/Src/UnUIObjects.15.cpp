@@ -343,12 +343,6 @@ void UUIObject::SetPrivateBehavior(INT Behavior, UBOOL Value, UBOOL bRecurse)
 	}
 }
 
-/* Kit gap: FPlayerInteractionData::GetFocusedControl (00ddece0, out of line) isn't declared. */
-struct FPlayerInteractionData_ : public FPlayerInteractionData
-{
-	UUIObject* GetFocusedControl() const;
-};
-
 /* TArray's const operator() (Array.h:566), which the compiler inlines here but won't from the kit's plain
  * inline for this element type. */
 struct FFocusControlArray : public TArray<FPlayerInteractionData>
@@ -369,7 +363,7 @@ UUIObject* UUIScreenObject::GetFocusedControl(UBOOL bRecurse, INT PlayerIndex) c
 	if (PlayerIndex >= 0 && PlayerIndex < FocusControls.Num())
 	{
 		const FPlayerInteractionData& PlayerData = ((const FFocusControlArray&)FocusControls).At(PlayerIndex);
-		Result = ((const FPlayerInteractionData_&)PlayerData).GetFocusedControl();
+		Result = ((const FPlayerInteractionData&)PlayerData).GetFocusedControl();
 		if (Result != NULL && bRecurse)
 		{
 			UUIObject* FocusedChild = Result->GetFocusedControl(bRecurse, PlayerIndex);

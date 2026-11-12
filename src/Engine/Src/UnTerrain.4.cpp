@@ -145,13 +145,11 @@ void sub_00729290();
 #define FlushRenderingCommands sub_00729290
 struct UTerrainComponent_ : public UTerrainComponent
 {
-    void sub_009a65f0();
     void sub_00759640(UBOOL);
 };
 
 struct ATerrain__009a98d0 : public ATerrain
 {
-    void sub_00759430(UBOOL);
     void sub_009a98d0();
 };
 

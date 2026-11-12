@@ -629,16 +629,11 @@ INT URHUDPrompt::vf_000()
     return sub_0154b870 == sub_0053f6c0;
 }
 
-struct URConfig_ : public URConfig
-{
-    void MarkPackageDirty(UBOOL InDirty = TRUE); /* 0x005d9570 */
-};
-
 // @baa 0x0154b230
 void URConfig::PostEditChange(UProperty* P)
 {
     UObject::PostEditChange(P);
-    ((URConfig_*)this)->MarkPackageDirty(TRUE);
+    this->MarkPackageDirty(TRUE);
 }
 
 struct C_Movie_24
@@ -892,12 +887,6 @@ void C_015767e0::sub_015767e0(UINT A)
     vf35c();
 }
 
-/* Kit gap: AActor::IsBlockedBy (0x00758100) isn't declared. */
-struct AActor_ : public AActor
-{
-    UBOOL IsBlockedBy(const AActor* Other, const UPrimitiveComponent* Primitive) const; /* 0x00758100 */
-};
-
 // @baa 0x01558120
 /* Like AActor::ShouldTrace, but the panel answers every level-geometry trace (0x80) even though it isn't world
  * geometry. (0x10 TRACE_Others, 0x20 TRACE_OnlyProjActor, 0x40 TRACE_Blocking) */
@@ -907,7 +896,7 @@ UBOOL ARElectrifiedFloorPanel::ShouldTrace(UPrimitiveComponent* Primitive, AActo
         || (!bWorldGeometry && (TraceFlags & 0x10)
             && ((TraceFlags & 0x20)
                 ? (bProjTarget || (bBlockActors && Primitive->BlockActors))
-                : (!(TraceFlags & 0x40) || (SourceActor && ((AActor_*)SourceActor)->IsBlockedBy(this, Primitive)))));
+                : (!(TraceFlags & 0x40) || (SourceActor && SourceActor->IsBlockedBy(this, Primitive)))));
 }
 
 struct C_01574e00
@@ -1063,15 +1052,10 @@ struct C_Body_7760
     INT sub_016d9eb0(INT A);
 };
 
-struct ARCinematicActor_ : public ARCinematicActor
-{
-    INT sub_009e5850(INT A);
-};
-
 // @baa 0x01557760
 void ARCinematicActor::vf_23c(INT A)
 {
-    ARCinematicActor_* Self = (ARCinematicActor_*)this;
+    ARCinematicActor* Self = (ARCinematicActor*)this;
     if (BodyConstrainingComponent != NULL)
         ((C_Body_7760*)BodyConstrainingComponent)->sub_016d9eb0(0);
     Self->sub_009e5850(A);
@@ -1411,7 +1395,6 @@ struct URSeqAct_SmoothCameraTransition_ : public URSeqAct_SmoothCameraTransition
 		ProcessEvent(FindFunctionChecked(g_026e2ad0), &Parms);
 		return Parms.ReturnValue;
 	}
-	UBOOL eventTick(FLOAT DeltaTime); /* 0x01582b30 (out of line: Tick is a probe event) */
 };
 
 // @baa 0x01582be0
@@ -1455,10 +1438,6 @@ UBOOL URSeqAct_SmoothCameraTransition::UpdateOp(FLOAT DeltaTime)
 }
 
 /* The action's script events (generated glue, BmGameClasses.h) */
-struct URSeqAct_ShowLevelIntroText_ : public URSeqAct_ShowLevelIntroText
-{
-	UBOOL eventTickHUD(FLOAT DeltaTime); /* 0x0154be20 */
-};
 
 // @baa 0x01565140
 /* Input 0 shows the text, input 1 cancels it (output 1); script's TickHUD reports when it's done (output 0). */
@@ -1478,7 +1457,7 @@ UBOOL URSeqAct_ShowLevelIntroText::UpdateOp(FLOAT DeltaTime)
 		}
 		return TRUE;
 	}
-	else if (bSeqActive && ((URSeqAct_ShowLevelIntroText_*)this)->eventTickHUD(DeltaTime))
+	else if (bSeqActive && this->eventTickHUD(DeltaTime))
 	{
 		FSeqOpOutputLink& Link = OutputLinks(0);
 		if (!Link.bDisabled)
@@ -1521,7 +1500,6 @@ struct URSeqAct_FadeScreen_ : public URSeqAct_FadeScreen
 		Parms.bIn = bIn ? TRUE : FALSE;
 		ProcessEvent(FindFunctionChecked(g_026e315c), &Parms);
 	}
-	UBOOL eventTickFade(FLOAT DeltaTime); /* 0x01581ae0 */
 };
 
 // @baa 0x01581b90
@@ -1590,7 +1568,6 @@ struct URSeqAct_FadeSound_ : public URSeqAct_FadeSound
 		Parms.bIn = bIn ? TRUE : FALSE;
 		ProcessEvent(FindFunctionChecked(g_026e315c), &Parms);
 	}
-	UBOOL eventTickFade(FLOAT DeltaTime); /* 0x01581e50 */
 };
 
 // @baa 0x01581f00

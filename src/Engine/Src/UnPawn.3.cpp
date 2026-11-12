@@ -27,14 +27,8 @@ void APhysicsVolume_::eventPhysicsChangedFor(class AActor* ChangedActor)
     }
 }
 
-struct APawn_ : public APawn
-{
-	UBOOL ValidAnchor();
-	void execValidAnchor(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c8a950
-void APawn_::execValidAnchor( FFrame& Stack, RESULT_DECL )
+void APawn::execValidAnchor( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	*(UBOOL*)Result = ValidAnchor();
@@ -55,27 +49,15 @@ void APawn::execForceCrouch( FFrame& Stack, RESULT_DECL )
 	vf_380();
 }
 
-struct APawn__00c8b0a0 : public APawn
-{
-	UBOOL IsHumanControlled();
-	void execIsHumanControlled(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c8b0a0
-void APawn__00c8b0a0::execIsHumanControlled( FFrame& Stack, RESULT_DECL )
+void APawn::execIsHumanControlled( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	*(UBOOL*)Result = IsHumanControlled();
 }
 
-struct APawn__00c8b0e0 : public APawn
-{
-	UBOOL IsLocallyControlled();
-	void execIsLocallyControlled(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c8b0e0
-void APawn__00c8b0e0::execIsLocallyControlled( FFrame& Stack, RESULT_DECL )
+void APawn::execIsLocallyControlled( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	*(UBOOL*)Result = IsLocallyControlled();
@@ -154,17 +136,12 @@ void APawn::execGetVehicleBase(FFrame& Stack, RESULT_DECL)
 	*(AVehicle**)Result = (AVehicle*)vf_39c();
 }
 
-struct APawn__00c8abe0 : public APawn
-{
-	void sub_00865220(INT);
-};
-
 // @baa 0x00c8abe0
 void APawn::execSetRemoteViewPitch(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(NewRemoteViewPitch);
 	P_FINISH;
-	((APawn__00c8abe0*)this)->sub_00865220(NewRemoteViewPitch);
+	this->sub_00865220(NewRemoteViewPitch);
 }
 
 // @baa 0x00c8b4a0
@@ -447,15 +424,11 @@ void AActor__00863f70::eventFalling()
 
 extern FName g_026c4be0;
 #define NAME_HeadVolumeChange 0x14a
-struct APawn__007d6550 : public APawn
-{
-	void eventHeadVolumeChange(APhysicsVolume* newHeadVolume);
-};
 
 // @baa 0x007d6550
 /* The script event's generated glue (EngineClasses.h), out of line here. HeadVolumeChange is a probe
  * function: the glue only calls into script when the current state probes for it. */
-void APawn__007d6550::eventHeadVolumeChange(APhysicsVolume* newHeadVolume)
+void APawn::eventHeadVolumeChange(APhysicsVolume* newHeadVolume)
 {
 	struct Pawn_eventHeadVolumeChange_Parms
 	{
@@ -549,10 +522,6 @@ void AController__008645f0::eventMayFall()
 }
 
 /* APawn::SetBasedPosition (0x7ad430) isn't declared in the kit. */
-struct APawn__00c8a640 : public APawn
-{
-    void SetBasedPosition(FBasedPosition& BP, FVector pos, class AActor* ForcedBase);
-};
 
 // @baa 0x00c8a640
 void APawn::execSetBasedPosition(FFrame& Stack, RESULT_DECL)
@@ -561,7 +530,7 @@ void APawn::execSetBasedPosition(FFrame& Stack, RESULT_DECL)
     P_GET_STRUCT(FVector, pos);
     P_GET_OBJECT_OPTX(AActor, ForcedBase, NULL);
     P_FINISH;
-    ((APawn__00c8a640*)this)->SetBasedPosition(BP, pos, ForcedBase);
+    this->SetBasedPosition(BP, pos, ForcedBase);
 }
 
 extern FName g_026c49f0;

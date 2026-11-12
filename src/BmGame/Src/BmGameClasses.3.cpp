@@ -96,7 +96,6 @@ struct URSeqAct_ModifyPostProcess_ : public URSeqAct_ModifyPostProcess
 		Parms.LP = LP;
 		ProcessEvent(FindFunctionChecked(g_026e3438), &Parms);
 	}
-	void eventUpdatePP(class ULocalPlayer* LP); /* 0x0154bc80 */
 };
 
 // @baa 0x01564cc0

@@ -18,10 +18,6 @@ undefined4 UObject::sub_008cdab0(byte param_2)
 }
 
 /* Kit gap: UActorComponent::ConditionalDetach (UnActorComponent.cpp; 0x00759640) isn't declared. */
-struct UActorComponent_ : public UActorComponent
-{
-    void ConditionalDetach(UBOOL bWillReattach = FALSE);
-};
 
 // @baa 0x008c7f00
 /* UE3's AActor::DetachComponent: drop the component from Components and detach it if it was there. */
@@ -31,7 +27,7 @@ void AActor::sub_008c7f00(UActorComponent* ExComponent)
     {
         if (Components.RemoveItem(ExComponent) > 0)
         {
-            ((UActorComponent_*)ExComponent)->ConditionalDetach();
+            ((UActorComponent*)ExComponent)->ConditionalDetach();
         }
     }
 }
@@ -45,7 +41,7 @@ void AActor::sub_008c7f30(UActorComponent* ExComponent)
     {
         if (Components.RemoveItem(ExComponent) > 0)
         {
-            ((UActorComponent_*)ExComponent)->ConditionalDetach(TRUE);
+            ((UActorComponent*)ExComponent)->ConditionalDetach(TRUE);
         }
         sub_008bba30(ExComponent);
     }

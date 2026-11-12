@@ -13,16 +13,6 @@ struct FScriptDelegate_ : public FScriptDelegate
 	UBOOL IsCallable(const UObject* OwningObject) const; /* 0x00784f80 */
 };
 
-struct UAudioComponent_ : public UAudioComponent
-{
-	void Cleanup(); /* 0x00799ca0 */
-	void delegateOnAudioFinished(UAudioComponent* AC); /* 0x007850d0 */
-	void MarkPendingKill()
-	{
-		*(QWORD*)&ObjectFlags |= RF_PendingKill;
-	}
-};
-
 // @baa 0x00799e00
 /* Stops the sound: cleans up its wave instances, tells the OnAudioFinished delegate (once) if it was playing, and
  * marks an auto-destroying component for deletion after detaching it from its last owner. */
@@ -37,14 +27,14 @@ void UAudioComponent::Stop()
 	const UBOOL bOldWasPlaying = bWasPlaying;
 
 	// Clean up all the wave instances and sources.
-	((UAudioComponent_*)this)->Cleanup();
+	this->Cleanup();
 
 	// Notify the delegate that the sound has finished, then clear it.
 	if (bOldWasPlaying && GWorld && ((FScriptDelegate_&)__OnAudioFinished__Delegate).IsCallable(this))
 	{
 		if (__OnAudioFinished__Delegate.Object != NULL)
 		{
-			((UAudioComponent_*)this)->delegateOnAudioFinished(this);
+			this->delegateOnAudioFinished(this);
 		}
 		__OnAudioFinished__Delegate.Object = NULL;
 		__OnAudioFinished__Delegate.FunctionName = FName(NAME_None);
@@ -61,7 +51,7 @@ void UAudioComponent::Stop()
 		}
 
 		// Mark the object for deletion and reference removal.
-		((UAudioComponent_*)this)->MarkPendingKill();
+		this->MarkPendingKill();
 	}
 
 	bPlaying = FALSE;

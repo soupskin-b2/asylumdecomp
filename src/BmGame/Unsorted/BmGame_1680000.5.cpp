@@ -17,7 +17,6 @@ undefined4 * UObject::sub_01686730(void)
 
 struct URSimpleRopeComponent_ : public URSimpleRopeComponent
 {
-    void sub_0164fb40();
     INT sub_0163f500();
     void sub_01685860();
 };
@@ -34,8 +33,6 @@ void URSimpleRopeComponent::vf_250()
 struct URSimpleRopeComponent_2 : public URSimpleRopeComponent
 {
     INT sub_0163f500();
-    void sub_016857b0();
-    void sub_0163f550();
 };
 
 // @baa 0x01685d70
@@ -52,7 +49,6 @@ void URSimpleRopeComponent::vf_25c()
 struct URSimpleRopeComponent__01685d40 : public URSimpleRopeComponent
 {
     INT sub_0163f500();
-    void sub_01666110();
     INT sub_01685860();
 };
 

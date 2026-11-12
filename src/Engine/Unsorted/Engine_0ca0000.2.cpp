@@ -39,11 +39,6 @@ void UUIDataStore::execOnCommit( FFrame& Stack, RESULT_DECL )
 	vf_140();
 }
 
-struct UUIDataStore_OnlinePlayerData_ : public UUIDataStore_OnlinePlayerData
-{
-    /* OnSettingProviderChanged (UnUIDataStores.cpp); Classes.h doesn't declare it. */
-    void sub_00da1c80(UUIDataProvider* SourceProvider, FName SettingsName);
-};
 
 // @baa 0x00ca2330
 void UUIDataStore_OnlinePlayerData::execOnSettingProviderChanged(FFrame& Stack, RESULT_DECL)
@@ -51,5 +46,5 @@ void UUIDataStore_OnlinePlayerData::execOnSettingProviderChanged(FFrame& Stack, 
     P_GET_OBJECT(UUIDataProvider, SourceProvider);
     P_GET_NAME_OPTX(SettingsName, NAME_None);
     P_FINISH;
-    ((UUIDataStore_OnlinePlayerData_*)this)->sub_00da1c80(SourceProvider, SettingsName);
+    ((UUIDataStore_OnlinePlayerData*)this)->sub_00da1c80(SourceProvider, SettingsName);
 }

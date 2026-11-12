@@ -56,17 +56,13 @@ UBOOL ARBMRouter::CanMoveDirectlyToPos(FVector TestPos, UBOOL bKnowVisible)
 #define INVALID_OBJECT ((UObject*)-1)
 template<class T> T* ConstructObject(UClass* Class, UObject* Outer = INVALID_OBJECT, FName Name = NAME_None,
 	QWORD SetFlags = 0, UObject* Template = NULL, UObject* SubobjectRoot = NULL, struct FObjectInstancingGraph* InstanceGraph = NULL);
-struct ARBMRouter_ : public ARBMRouter
-{
-	void sub_0161b520(FVector Dest, class URBMRouterPath* Path, class ANavigationPoint* StartAnchor, class ANavigationPoint* EndAnchor);
-};
 
 // @baa 0x016298d0
 /* A new path to Dest between two anchors. */
 class URBMRouterPath* ARBMRouter::BuildPathTo(FVector Dest, class ANavigationPoint* StartAnchor, class ANavigationPoint* EndAnchor)
 {
 	URBMRouterPath* NewPath = ConstructObject<URBMRouterPath>(URBMRouterPath::StaticClass());
-	((ARBMRouter_*)this)->sub_0161b520(Dest, NewPath, StartAnchor, EndAnchor);
+	((ARBMRouter*)this)->sub_0161b520(Dest, NewPath, StartAnchor, EndAnchor);
 	return NewPath;
 }
 

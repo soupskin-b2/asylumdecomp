@@ -100,23 +100,15 @@ void AWorldInfo::execSetSeamlessTravelMidpointPause(FFrame& Stack, RESULT_DECL)
 }
 
 /* AWorldInfo::GetWorldFractureSettings (0x9c6dd0) isn't declared in the kit. */
-struct AWorldInfo_ : public AWorldInfo
-{
-    FWorldFractureSettings GetWorldFractureSettings();
-};
 
 // @baa 0x00c8a280
 void AWorldInfo::execGetWorldFractureSettings(FFrame& Stack, RESULT_DECL)
 {
     P_FINISH;
-    *(FWorldFractureSettings*)Result = ((AWorldInfo_*)this)->GetWorldFractureSettings();
+    *(FWorldFractureSettings*)Result = ((AWorldInfo*)this)->GetWorldFractureSettings();
 }
 
 /* Kit gaps: AWorldInfo::GetDemoFrameInfo (0x00bf99c0) and the optional out INT parameter macro. */
-struct AWorldInfo__00c8a0f0 : public AWorldInfo
-{
-	void GetDemoFrameInfo(INT* CurrentFrame, INT* TotalFrames);
-};
 
 #define P_GET_INT_OPTX_REF(v, d) INT v##T = d; GPropAddr = 0; GRuntimeUCFlags &= ~RUC_SkippedOptionalParm; Stack.Step(Stack.Object, &v##T); INT* p##v = (INT*)GPropAddr; INT& v = GPropAddr ? *(INT*)GPropAddr : v##T;
 // @baa 0x00c8a0f0
@@ -126,5 +118,5 @@ void AWorldInfo::execGetDemoFrameInfo(FFrame& Stack, RESULT_DECL)
 	P_GET_INT_OPTX_REF(CurrentFrame, 0);
 	P_GET_INT_OPTX_REF(TotalFrames, 0);
 	P_FINISH;
-	((AWorldInfo__00c8a0f0*)this)->GetDemoFrameInfo(pCurrentFrame ? &CurrentFrame : NULL, pTotalFrames ? &TotalFrames : NULL);
+	((AWorldInfo*)this)->GetDemoFrameInfo(pCurrentFrame ? &CurrentFrame : NULL, pTotalFrames ? &TotalFrames : NULL);
 }

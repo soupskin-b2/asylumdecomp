@@ -231,16 +231,6 @@ struct FVector_ : public FVector
 {
     FVector_(const FVector& V) : FVector(V) {}
     FVector_(FLOAT InX, FLOAT InY, FLOAT InZ) : FVector(InX, InY, InZ) {}
-
-    /* cross product */
-    FVector_ operator^(const FVector& V) const
-    {
-        return FVector_(Y * V.Z - Z * V.Y, Z * V.X - X * V.Z, X * V.Y - Y * V.X);
-    }
-    FVector operator*(FLOAT Scale) const
-    {
-        return FVector(X * Scale, Y * Scale, Z * Scale);
-    }
 };
 
 /* UnMath.h: the binormal of a tangent basis, rebuilt from TangentX, TangentZ and the basis sign
@@ -258,10 +248,6 @@ FVector FStaticMeshVertexBuffer::VertexTangentY(UINT VertexIndex) const
 }
 
 /* FMatrix::Inverse (UnMath.h); the kit's FMatrix has none (out of line, 0x006e1510) */
-struct FMatrix_ : public FMatrix
-{
-    FMatrix Inverse() const;
-};
 
 struct FPerPolyBoneCollisionData;
 /* FSkelMeshCollisionDataProvider (UnSkeletalMeshCollision.cpp): what the kDOP tree of one bone's
@@ -288,5 +274,5 @@ FSkelMeshCollisionDataProvider::FSkelMeshCollisionDataProvider(USkeletalMeshComp
     , BoneIndex(InBoneIndex)
 {
     BoneToWorld = SkelComp->GetBoneMatrix(BoneIndex);
-    WorldToBone = ((FMatrix_&)BoneToWorld).Inverse();
+    WorldToBone = ((FMatrix&)BoneToWorld).Inverse();
 }

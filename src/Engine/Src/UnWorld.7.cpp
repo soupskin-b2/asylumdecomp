@@ -100,10 +100,6 @@ undefined4 * UObject::sub_009c1c20(void)
 
 UClass* sub_007d5ec0();
                  /* ULevelStreamingPersistent::StaticClass, out of line */
-struct ULevel_ : public ULevel
-{
-    AWorldInfo* sub_007de2b0();         /* GetWorldInfo */
-};
 
 struct AWorldInfo_ : public AWorldInfo
 {
@@ -120,7 +116,7 @@ FWorldFractureSettings AWorldInfo_::sub_009c6dd0() const
         StreamingLevels(0)->LoadedLevel &&
         StreamingLevels(0)->sub_00402b40(sub_007d5ec0()))
     {
-        Info = ((ULevel_*)StreamingLevels(0)->LoadedLevel)->sub_007de2b0();
+        Info = ((ULevel*)StreamingLevels(0)->LoadedLevel)->sub_007de2b0();
     }
 
     FWorldFractureSettings Settings;

@@ -114,7 +114,6 @@ void __stdcall sub_00d1ede0(INT* Out, INT Unused)
  * and FindAnimSequence(FName InSequenceName) (0x00d0fec0). */
 struct UInterpTrackAnimControl_ : public UInterpTrackAnimControl
 {
-    UAnimSequence* sub_00d0fec0(FName InSequenceName);
     INT sub_00d10210(FLOAT InPosition, UBOOL bCutAreaBeforePosition);
 };
 

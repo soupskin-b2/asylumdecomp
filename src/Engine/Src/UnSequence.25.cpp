@@ -9,8 +9,6 @@
 struct FVector_ : public FVector
 {
     FVector_(FLOAT InX, FLOAT InY, FLOAT InZ) { X = InX; Y = InY; Z = InZ; }
-    FVector_ operator-(const FVector& V) const { return FVector_(X - V.X, Y - V.Y, Z - V.Z); }
-    FLOAT Size() const { return appSqrt(X * X + Y * Y + Z * Z); }
 };
 
 /* slot 0x198 (vf_198) is USequenceEvent::CheckActivate */

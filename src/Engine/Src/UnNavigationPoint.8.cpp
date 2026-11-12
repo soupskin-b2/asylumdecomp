@@ -172,15 +172,11 @@ UBOOL ACoverLink::IsEnabled()
 
 #line 174 "candidate.cpp"
 
-struct ACoverSlotMarker_ : public ACoverSlotMarker {
-    UBOOL IsValidClaim(APawn* ChkClaim, UBOOL bSkipTeamCheck, UBOOL bSkipOverlapCheck); // 008603f0
-};
-
 // @baa 0x008447a0
 UBOOL ACoverLink::IsValidClaim(APawn* ChkClaim, INT SlotIdx, UBOOL bSkipTeamCheck, UBOOL bSkipOverlapCheck)
 {
     ACoverSlotMarker* SlotMarker = ((TArrayAt_<FCoverSlot>&)Slots).At(SlotIdx).SlotMarker;
-    return SlotMarker && ((ACoverSlotMarker_*)SlotMarker)->IsValidClaim(ChkClaim, bSkipTeamCheck, bSkipOverlapCheck);
+    return SlotMarker && SlotMarker->IsValidClaim(ChkClaim, bSkipTeamCheck, bSkipOverlapCheck);
 }
 
 struct ACoverLink_ : public ACoverLink {

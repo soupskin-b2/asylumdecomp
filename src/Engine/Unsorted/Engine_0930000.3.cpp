@@ -6,16 +6,7 @@
 
 /* Unnamed in the kit: UE3's UpdateLODStatus(), UpdateSkelPose(FLOAT DeltaTime, UBOOL bTickFaceFX) (this build
  * has a third flag) and UActorComponent::ConditionalUpdateTransform(). */
-struct USkeletalMeshComponent_ : public USkeletalMeshComponent
-{
-    void sub_0092be40();
-    void sub_0093b170(FLOAT DeltaTime, UBOOL bTickFaceFX, UBOOL bUnknownFlag);
-};
 
-struct UActorComponent_ : public UActorComponent
-{
-    void sub_00759620();
-};
 
 // @baa 0x0093c860
 /* UE3's USkeletalMeshComponent::ForceSkelUpdate(): tick the pose once as if just rendered. */
@@ -25,9 +16,9 @@ void USkeletalMeshComponent::ForceSkelUpdate()
     {
         const FLOAT OldLastRenderTime = LastRenderTime;
         LastRenderTime = GWorld->GetWorldInfo()->TimeSeconds;
-        ((USkeletalMeshComponent_*)this)->sub_0092be40();
-        ((USkeletalMeshComponent_*)this)->sub_0093b170(0.f, TRUE, FALSE);
-        ((UActorComponent_*)this)->sub_00759620();
+        ((USkeletalMeshComponent*)this)->sub_0092be40();
+        ((USkeletalMeshComponent*)this)->sub_0093b170(0.f, TRUE, FALSE);
+        ((UActorComponent*)this)->sub_00759620();
         LastRenderTime = OldLastRenderTime;
     }
 }

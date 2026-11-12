@@ -40,15 +40,11 @@ template<class T> FORCEINLINE INT AddZeroed_(TArray<T>& Array, INT Count)
     return Index;
 }
 
-struct UFracturedSkinnedMeshComponent_ : public UFracturedSkinnedMeshComponent
-{
-    void sub_007c3280(INT FragmentIndex, const FMatrix& LocalToWorld); /* 0x007c3280 (UE3 SetFragmentTransform; this name matches the binding its caller 007c5a40 created) */
-};
 
 // @baa 0x007c3280
 /* UE3's UFracturedSkinnedMeshComponent::SetFragmentTransform: size the transform array to the fragment count,
  * store the fragment's transform and queue a transform update. */
-void UFracturedSkinnedMeshComponent_::sub_007c3280(INT FragmentIndex, const FMatrix& LocalToWorld)
+void UFracturedSkinnedMeshComponent::sub_007c3280(INT FragmentIndex, const FMatrix& LocalToWorld)
 {
     if (VisibleFragments.Num() != FragmentTransforms.Num())
     {

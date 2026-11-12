@@ -151,16 +151,11 @@ void UObject::execQuatToRotator(FFrame& Stack, RESULT_DECL)
     *(FRotator*)Result = FQuatRotationTranslationMatrix(A, Origin).sub_005c3fc0();
 }
 
-struct UObject__00599970 : public UObject
-{
-	void sub_005de600(INT, INT, INT);
-};
-
 // @baa 0x00599970
 void UObject::execStoreConfig(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	((UObject__00599970*)this)->sub_005de600(0x4000, 0, 0);
+	this->sub_005de600(0x4000, 0, 0);
 }
 
 struct UObject__005999b0 : public UObject
@@ -757,10 +752,6 @@ void UObject::execLessEqual_IntInt(FFrame& Stack, RESULT_DECL)
 }
 
 /* UObject::IsInState (0x59dc80) isn't declared in the kit. */
-struct UObject__0059ef90 : public UObject
-{
-    UBOOL IsInState(FName TestState, UBOOL bTestStateStack);
-};
 
 // @baa 0x0059ef90
 void UObject::execIsInState(FFrame& Stack, RESULT_DECL)
@@ -768,7 +759,7 @@ void UObject::execIsInState(FFrame& Stack, RESULT_DECL)
     P_GET_NAME(TestState);
     P_GET_UBOOL_OPTX(bTestStateStack, FALSE);
     P_FINISH;
-    *(UBOOL*)Result = ((UObject__0059ef90*)this)->IsInState(TestState, bTestStateStack);
+    *(UBOOL*)Result = this->IsInState(TestState, bTestStateStack);
 }
 
 // @baa 0x00592510
@@ -1268,22 +1259,16 @@ void UObject::execClassIsChildOf(FFrame& Stack, RESULT_DECL)
 	*(UBOOL*)Result = (ParentClass && TestClass) ? ((UField_*)TestClass)->IsChildOf(ParentClass) : FALSE;
 }
 
-/* Kit gaps: UObject::FindState and UField::IsChildOf (inline in this build) aren't declared. */
-struct UObject__00599a60 : public UObject
-{
-	class UState* FindState(FName StateName);	/* 0x005d7e40 */
-};
-
 // @baa 0x00599a60
 void UObject::execIsChildState(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_NAME(TestState);
 	P_GET_NAME(TestParentState);
 	P_FINISH;
-	UState* ParentState = ((UObject__00599a60*)this)->FindState(TestParentState);
+	UState* ParentState = this->FindState(TestParentState);
 	if (ParentState)
 	{
-		UState* State = ((UObject__00599a60*)this)->FindState(TestState);
+		UState* State = this->FindState(TestState);
 		if (State && ((UField_*)State)->IsChildOf((UField*)ParentState))
 		{
 			*(UBOOL*)Result = TRUE;
@@ -1515,10 +1500,6 @@ void UObject__00599940::sub_00599940(FFrame& Stack, RESULT_DECL)
 }
 
 /* FQuat::RotateVector (UnMath.h) isn't declared in the kit. */
-struct FQuat__005989d0 : public FQuat
-{
-	FVector RotateVector(FVector V) const;   /* 0x0058e400 */
-};
 
 // @baa 0x005989d0
 void UObject::execQuatRotateVector(FFrame& Stack, RESULT_DECL)
@@ -1526,7 +1507,7 @@ void UObject::execQuatRotateVector(FFrame& Stack, RESULT_DECL)
 	P_GET_STRUCT(FQuat, A);
 	P_GET_STRUCT(FVector, B);
 	P_FINISH;
-	*(FVector*)Result = ((FQuat__005989d0*)&A)->RotateVector(B);
+	*(FVector*)Result = ((FQuat*)&A)->RotateVector(B);
 }
 
 // @baa 0x00591960

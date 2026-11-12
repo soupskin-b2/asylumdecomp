@@ -4,14 +4,10 @@
 #include "ue3/Implement.h"
 
 /* UAudioComponent's play/stop side of the ambient sound (00791770 has no name in the headers). */
-struct UAudioComponent_ : public UAudioComponent {
-	void sub_00791770();
-};
 
 /* AActor's vtable slot 0x314 (the headers guess `virtual FLOAT vf_314(INT)`; this override
  * returns nothing, so it is declared here as void under its address). */
 struct AAmbientSound_ : public AAmbientSound {
-	void sub_0076cd90(INT Param);
 	void sub_00791ad0(INT Param);
 };
 
@@ -21,7 +17,7 @@ void AAmbientSound_::sub_00791ad0(INT Param)
 	sub_0076cd90(Param);
 	if (bAutoPlay && AudioComponent && !AudioComponent->bWasPlaying)
 	{
-		((UAudioComponent_*)AudioComponent)->sub_00791770();
+		((UAudioComponent*)AudioComponent)->sub_00791770();
 		bIsPlaying = TRUE;
 	}
 }
@@ -191,7 +187,6 @@ int sub_007654e0(void);
 struct UAudioComponent__00793c40 : public UAudioComponent
 {
     void sub_00793c40(void);
-    void sub_00791770(void);
 };
 
 // @baa 0x00793c40
@@ -399,13 +394,6 @@ UBOOL FWaveModInfo::ReadWaveInfo(BYTE* WaveData, INT WaveDataSize)
  * struct FQWord where the native member is a QWORD (EObjectFlags); AAmbientSoundSimple::SyncUpInstantiatedObjects
  * isn't declared. */
 #define RF_Transactional	((QWORD)0x0000000400000000)
-struct UObject_ : public UObject
-{
-	FORCEINLINE void ClearFlags(QWORD FlagsToClear)
-	{
-		*(QWORD*)&ObjectFlags &= ~FlagsToClear;
-	}
-};
 
 struct AAmbientSoundSimple_ : public AAmbientSoundSimple
 {
@@ -427,8 +415,8 @@ void AAmbientSoundSimple_::SyncUpInstantiatedObjects()
 #line 3491 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAudio.cpp"
 		check(SoundNodeInstance);
 		check(SoundCueInstance);
-		((UObject_*)SoundNodeInstance)->ClearFlags(RF_Transactional);
-		((UObject_*)SoundCueInstance)->ClearFlags(RF_Transactional);
+		((UObject*)SoundNodeInstance)->ClearFlags(RF_Transactional);
+		((UObject*)SoundCueInstance)->ClearFlags(RF_Transactional);
 	}
 }
 

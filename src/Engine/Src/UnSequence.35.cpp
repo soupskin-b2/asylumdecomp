@@ -10,10 +10,6 @@
 #define SMALL_NUMBER (1.e-8f)
 /* Unnamed in the kit (0x008c09f0): force (or stop forcing) the materials' mips resident for Duration, here and on
  * every remote player. */
-struct USeqAct_ForceMaterialMipsResident_ : public USeqAct_ForceMaterialMipsResident
-{
-    void sub_008c09f0(UBOOL bEnable, FLOAT Duration);
-};
 
 // @baa 0x008cd200
 /* UE3's USeqAct_ForceMaterialMipsResident::UpdateOp(FLOAT DeltaTime): done when the time runs out, or early (stopping
@@ -27,7 +23,7 @@ UBOOL USeqAct_ForceMaterialMipsResident::UpdateOp(FLOAT DeltaTime)
     }
     if (InputLinks.Num() > 1 && InputLinks(1).bHasImpulse)
     {
-        ((USeqAct_ForceMaterialMipsResident_*)this)->sub_008c09f0(FALSE, 0.f);
+        ((USeqAct_ForceMaterialMipsResident*)this)->sub_008c09f0(FALSE, 0.f);
         return TRUE;
     }
     return FALSE;

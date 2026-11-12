@@ -88,14 +88,10 @@ void ARBMAIController__015d8c80::eventUpdateNotVisibleAlert(FLOAT DeltaTime, cla
 
 extern FName g_026e2a08;
 	/* BehaviourCanRespondToAlerts */
-struct ARBMAIController__015d8cd0 : public ARBMAIController
-{
-	UBOOL eventBehaviourCanRespondToAlerts();
-};
 
 // @baa 0x015d8cd0
 /* RBMAIController.BehaviourCanRespondToAlerts script event: the generated glue, out of line here. */
-UBOOL ARBMAIController__015d8cd0::eventBehaviourCanRespondToAlerts()
+UBOOL ARBMAIController::eventBehaviourCanRespondToAlerts()
 {
 	struct RBMAIController_eventBehaviourCanRespondToAlerts_Parms
 	{

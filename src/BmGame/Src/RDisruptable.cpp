@@ -28,7 +28,6 @@ bool ARDisruptableObjectBase::vf_004()
 struct ARDisruptableObjectDoor_ : public ARDisruptableObjectDoor
 {
 	void sub_007771e0(int Param);
-	void sub_01732370();
 	void sub_01732630(int Param);
 };
 
@@ -42,8 +41,6 @@ void ARDisruptableObjectDoor_::sub_01732630(int Param)
 // Virtual slot 0x04c of ARDisruptableObjectDoor: forwards the parameter to
 // sub_00783b70, then runs sub_01732370.
 struct ARDisruptableObjectDoor__01732650 : public ARDisruptableObjectDoor {
-	int sub_00783b70(int Param);
-	void sub_01732370();
 	void sub_01732650(UINT Param);
 };
 

@@ -115,12 +115,6 @@ int UConst::vf_000(void) { return 1; }
 // @baa 0x0058aa40
 IMPLEMENT_CLASS_AT(UConst, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Core\\Src\\UnClass.cpp", 2357);
 
-/* Kit gap: UObject::ConditionalRegister (0x005c7a50) isn't declared. */
-struct UObject_ : public UObject
-{
-    void ConditionalRegister(); /* 0x005c7a50 */
-};
-
 // @baa 0x00567ff0
 /* Registering a field registers its super field first. */
 void UField::Register()
@@ -128,6 +122,6 @@ void UField::Register()
     Super::Register();
     if (SuperField)
     {
-        ((UObject_*)SuperField)->ConditionalRegister();
+        SuperField->ConditionalRegister();
     }
 }

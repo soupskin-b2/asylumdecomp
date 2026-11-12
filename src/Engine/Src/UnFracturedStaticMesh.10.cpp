@@ -135,10 +135,6 @@ struct C_007c5a40
 };
 
 /* Unnamed in the kit (0x007c3280): move one fragment of the skinned stand-in to the given transform. */
-struct UFracturedSkinnedMeshComponent_ : public UFracturedSkinnedMeshComponent
-{
-    void sub_007c3280(INT FragmentIndex, const FMatrix& LocalToWorld);
-};
 
 // @baa 0x007c5a40
 /* UFracturedStaticMeshComponent slot 0x118 (kit vf_118, the transform update): after the primitive update, push
@@ -152,7 +148,7 @@ void UFracturedStaticMeshComponent::vf_118()
         {
             if (((TArrayAt_<BYTE>&)VisibleFragments).At(i) != 0)
             {
-                ((UFracturedSkinnedMeshComponent_*)SkinnedComponent)->sub_007c3280(i, LocalToWorld);
+                SkinnedComponent->sub_007c3280(i, LocalToWorld);
             }
         }
     }

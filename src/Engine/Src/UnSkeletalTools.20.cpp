@@ -63,14 +63,9 @@ public:
 };
 
 /* USkeletalMesh members Classes.h doesn't declare */
-struct USkeletalMesh_ : public USkeletalMesh
-{
-    void Serialize(FArchive& Ar);
-    void CalcPerBoneBounds(); /* 0x0095bcd0 (name assumed) */
-};
 
 // @baa 0x00981280
-void USkeletalMesh_::Serialize(FArchive& Ar)
+void USkeletalMesh::Serialize(FArchive& Ar)
 {
     UObject::Serialize(Ar);
 
@@ -118,27 +113,8 @@ void USkeletalMesh_::Serialize(FArchive& Ar)
 /* Kit gaps: UObject::HasAnyFlags/IsTemplate and the RF_ flags (UnObjBas.h); ObjectFlags is an FQWord here. */
 #define RF_ClassDefaultObject ((QWORD)0x0000000000000200)
 #define RF_ArchetypeObject ((QWORD)0x0000000000000400)
-struct UObject_ : public UObject
-{
-	FORCEINLINE UBOOL HasAnyFlags(QWORD Flags) const { return (*(const QWORD*)&ObjectFlags & Flags) != 0; }
-	FORCEINLINE UBOOL IsTemplate(QWORD TemplateTypes = (RF_ArchetypeObject | RF_ClassDefaultObject)) const
-	{
-		for (const UObject* TestOuter = this; TestOuter; TestOuter = TestOuter->Outer)
-		{
-			if (((const UObject_*)TestOuter)->HasAnyFlags(TemplateTypes))
-			{
-				return TRUE;
-			}
-		}
-		return FALSE;
-	}
-};
 
 /* Kit gap: the mesh's resource setup (0x0097baf0, likely UE3's InitResources) isn't declared. */
-struct USkeletalMesh__0097dae0 : public USkeletalMesh
-{
-	void sub_0097baf0(); /* 0x0097baf0 */
-};
 
 /* A global flag (its name isn't known) that suppresses the setup, e.g. while running a commandlet. */
 extern INT g_02676094;
@@ -146,9 +122,9 @@ extern INT g_02676094;
 /* Slot 0x14 (unnamed in the kit). */
 void USkeletalMesh::vf_014()
 {
-	if (!((UObject_*)this)->IsTemplate() && !g_02676094)
+	if (!this->IsTemplate() && !g_02676094)
 	{
-		((USkeletalMesh__0097dae0*)this)->sub_0097baf0();
+		((USkeletalMesh*)this)->sub_0097baf0();
 	}
 }
 

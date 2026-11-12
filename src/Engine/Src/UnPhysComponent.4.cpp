@@ -30,17 +30,13 @@ void UPrimitiveComponent_::sub_009ff950(BYTE Channel)
 
 /* Unnamed in the kit: UE3's FRBCollisionChannelContainer::SetChannel(ERBCollisionChannel Channel, UBOOL bNewState)
  * (UnPhysPublic.h). */
-struct FRBCollisionChannelContainer_ : public FRBCollisionChannelContainer
-{
-    void sub_00a33b40(INT Channel, UBOOL bNewState);
-};
 
 // @baa 0x009ff970
 /* UE3's UPrimitiveComponent::SetRBCollidesWithChannel(ERBCollisionChannel Channel, UBOOL bNewCollides); slot 0x20c
  * is UE3's UpdatePhysicsToRBChannels(). */
 void UPrimitiveComponent::sub_009ff970(INT Channel, INT bNewCollides)
 {
-    ((FRBCollisionChannelContainer_&)RBCollideWithChannels).sub_00a33b40(Channel, bNewCollides);
+    ((FRBCollisionChannelContainer&)RBCollideWithChannels).sub_00a33b40(Channel, bNewCollides);
     vf_20c();
 }
 

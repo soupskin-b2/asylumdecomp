@@ -6,7 +6,6 @@
 extern FName g_026c3f6c;
  /* NAME_Attach */
 struct AActor_ : public AActor {
-    UFunction* sub_005d7d10(FName InName, INT Global); /* FindFunctionChecked */
     void sub_00753900(AActor* Other);
 };
 

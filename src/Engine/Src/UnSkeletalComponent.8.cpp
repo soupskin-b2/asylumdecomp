@@ -5,14 +5,9 @@
 
 inline UBOOL operator==(const FName& A, EName B) { return A.Index == B && A.Number == 0; }
 
-struct USkeletalMeshComponent_ : public USkeletalMeshComponent
-{
-    UMorphTarget* FindMorphTarget(FName MorphTargetName);
-};
-
 // @baa 0x0091d930
 /* search the morph target sets newest first */
-UMorphTarget* USkeletalMeshComponent_::FindMorphTarget(FName MorphTargetName)
+UMorphTarget* USkeletalMeshComponent::FindMorphTarget(FName MorphTargetName)
 {
     if (MorphTargetName == NAME_None)
     {
@@ -112,11 +107,6 @@ public:
 };
 
 /* USkeletalMesh::FindSocket (0x00951be0) and MatchRefBone (0x00976be0) aren't declared in Classes.h. */
-struct USkeletalMesh_ : public USkeletalMesh
-{
-    USkeletalMeshSocket* FindSocket(FName InSocketName);
-    INT MatchRefBone(FName BoneName) const;
-};
 
 /* FRotator(INT,INT,INT) (UnMath.h) */
 struct FRotator_ : public FRotator
@@ -128,15 +118,6 @@ inline UBOOL operator!=(const FName& A, EName B) { return A.Index != B || A.Numb
 
 struct USkeletalMeshComponent__0091da00 : public USkeletalMeshComponent
 {
-    INT MatchRefBone(FName BoneName) const
-    {
-        INT BoneIndex = INDEX_NONE;
-        if (BoneName != NAME_None && SkeletalMesh)
-        {
-            BoneIndex = ((USkeletalMesh_*)SkeletalMesh)->MatchRefBone(BoneName);
-        }
-        return BoneIndex;
-    }
     UBOOL GetSocketWorldLocationAndRotation(FName InSocketName, FVector& OutLocation, FRotator* OutRotation);
 };
 
@@ -145,7 +126,7 @@ UBOOL USkeletalMeshComponent__0091da00::GetSocketWorldLocationAndRotation(FName 
 {
     if (SkeletalMesh)
     {
-        USkeletalMeshSocket* Socket = ((USkeletalMesh_*)SkeletalMesh)->FindSocket(InSocketName);
+        USkeletalMeshSocket* Socket = SkeletalMesh->FindSocket(InSocketName);
         if (Socket)
         {
             const INT BoneIndex = MatchRefBone(Socket->BoneName);
@@ -228,10 +209,6 @@ FMatrix USkeletalMeshComponent::GetBoneMatrix(INT BoneIndex)
 #line 229 "candidate.cpp"
 
 /* USkeletalMesh::MatchRefBone (0x00976be0) isn't declared in Classes.h. */
-struct USkeletalMesh__0091e3a0 : public USkeletalMesh
-{
-    INT MatchRefBone(FName BoneName) const;
-};
 
 /* FMatrix::GetOrigin (UnMath.h) */
 struct FMatrix__0091e3a0 : public FMatrix
@@ -239,23 +216,9 @@ struct FMatrix__0091e3a0 : public FMatrix
     FVector GetOrigin() const { return FVector(WPlane.X, WPlane.Y, WPlane.Z); }
 };
 
-struct USkeletalMeshComponent__0091e3a0 : public USkeletalMeshComponent
-{
-    INT MatchRefBone(FName BoneName) const
-    {
-        INT BoneIndex = INDEX_NONE;
-        if (BoneName != NAME_None && SkeletalMesh)
-        {
-            BoneIndex = ((USkeletalMesh__0091e3a0*)SkeletalMesh)->MatchRefBone(BoneName);
-        }
-        return BoneIndex;
-    }
-    FVector GetBoneLocation(FName BoneName, INT Space);
-};
-
 // @baa 0x0091e3a0
 /* Space 0 = world, 1 = component (SpaceBases), 2 = component before physics (PrePhysicsSpaceBases) */
-FVector USkeletalMeshComponent__0091e3a0::GetBoneLocation(FName BoneName, INT Space)
+FVector USkeletalMeshComponent::GetBoneLocation(FName BoneName, INT Space)
 {
     const INT BoneIndex = MatchRefBone(BoneName);
     if (BoneIndex == INDEX_NONE)

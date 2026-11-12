@@ -7,10 +7,6 @@
 
 /* UnMath.h */
 #define SMALL_NUMBER	(1.e-8f)
-struct UMeshComponent_ : public UMeshComponent
-{
-	void PrestreamTextures(FLOAT Seconds, UBOOL bPrioritizeCharacterTextures); /* 0x006dc850 */
-};
 
 // @baa 0x00764a50
 /* UnActor.cpp: has every mesh component prestream its textures for Seconds (0 = indefinitely, i.e. 30 days). */
@@ -31,7 +27,7 @@ void AActor::PrestreamTextures(FLOAT Seconds, UBOOL bEnableStreaming)
 		UMeshComponent* MeshComponent = Cast<UMeshComponent>(Component);
 		if (MeshComponent)
 		{
-			((UMeshComponent_*)MeshComponent)->PrestreamTextures(Duration, FALSE);
+			((UMeshComponent*)MeshComponent)->PrestreamTextures(Duration, FALSE);
 		}
 	}
 }

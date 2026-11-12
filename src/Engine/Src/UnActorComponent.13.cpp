@@ -20,10 +20,6 @@ void UActorComponent::BeginDestroy()
 /* Kit gap: UObject::GetOuter and HasAnyFlags (UnObjBas.h); ObjectFlags is an FQWord here. GetOuter() is a macro
  * so the check text reads as in the original. */
 #define RF_NotForClient ((QWORD)0x0010000000000000)
-struct UObject_ : public UObject
-{
-    FORCEINLINE UBOOL HasAnyFlags(QWORD Flags) const { return (*(const QWORD*)&ObjectFlags & Flags) != 0; }
-};
 
 #define GetOuter() Outer
 // @baa 0x0075e870
@@ -33,7 +29,7 @@ INT UActorComponent::vf_088()
 {
 #line 501 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActorComponent.cpp"
     check(GetOuter());
-    return GetOuter()->vf_088() && !((const UObject_*)this)->HasAnyFlags(RF_NotForClient);
+    return GetOuter()->vf_088() && !((const UObject*)this)->HasAnyFlags(RF_NotForClient);
 }
 
 #line 40 "candidate.cpp"
@@ -48,7 +44,7 @@ INT UActorComponent::vf_08c()
 {
 #line 508 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActorComponent.cpp"
     check(GetOuter());
-    return GetOuter()->vf_08c() && !((const UObject_*)this)->HasAnyFlags(RF_NotForServer);
+    return GetOuter()->vf_08c() && !((const UObject*)this)->HasAnyFlags(RF_NotForServer);
 }
 
 #line 55 "candidate.cpp"
@@ -71,8 +67,8 @@ void UActorComponent_::sub_007596c0()
     bNeedsUpdateTransform = TRUE;
     if (Owner)
     {
-        if ((Owner->bStatic || Owner->bExtraStasis) && !(Owner->bDeleteMe || ((UObject_*)Owner)->HasAnyFlags(RF_PendingKill))
-            && !((UObject_*)Owner)->HasAnyFlags(RF_ClassDefaultObject | RF_ArchetypeObject))
+        if ((Owner->bStatic || Owner->bExtraStasis) && !(Owner->bDeleteMe || Owner->HasAnyFlags(RF_PendingKill))
+            && !Owner->HasAnyFlags(RF_ClassDefaultObject | RF_ArchetypeObject))
         {
             Owner->vf_314(FALSE);
         }

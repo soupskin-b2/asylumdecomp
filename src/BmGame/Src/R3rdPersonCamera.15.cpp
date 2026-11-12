@@ -10,9 +10,6 @@ struct FVector_ : public FVector
 {
     FORCEINLINE FVector_() {}
     FORCEINLINE FVector_(FLOAT InX, FLOAT InY, FLOAT InZ) { X = InX; Y = InY; Z = InZ; }
-    FORCEINLINE FVector_ operator+(const FVector& V) const { return FVector_(X + V.X, Y + V.Y, Z + V.Z); }
-    FORCEINLINE FVector_ operator-(const FVector& V) const { return FVector_(X - V.X, Y - V.Y, Z - V.Z); }
-    FORCEINLINE FVector_ operator*(FLOAT Scale) const { return FVector_(X * Scale, Y * Scale, Z * Scale); }
 };
 
 /* Unnamed in the kit: exponentially eases ChasePosition toward Target (snaps when smoothing is off). */

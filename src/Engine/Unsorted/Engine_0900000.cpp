@@ -545,15 +545,6 @@ struct USkeletalMesh_ : public USkeletalMesh
  * on, the name itself when it's a bone, otherwise NAME_None. */
 struct USkeletalMeshComponent_ : public USkeletalMeshComponent
 {
-    FORCEINLINE INT MatchRefBone(FName BoneName) const
-    {
-        INT BoneIndex = INDEX_NONE;
-        if (BoneName != FName(NAME_None) && SkeletalMesh)
-        {
-            BoneIndex = ((USkeletalMesh_*)SkeletalMesh)->sub_00976be0(BoneName);
-        }
-        return BoneIndex;
-    }
     FName sub_0090ec40(FName InSocketName);
 };
 

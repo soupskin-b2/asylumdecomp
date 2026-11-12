@@ -56,13 +56,9 @@ template<class T> struct TArrayAt_ : public TArray<T>
 };
 
 /* UAnimNodeAimOffset::GetCurrentProfile isn't declared in Classes.h. */
-struct UAnimNodeAimOffset_ : public UAnimNodeAimOffset
-{
-	FAimOffsetProfile* GetCurrentProfile();
-};
 
 // @baa 0x00c55cc0
-FAimOffsetProfile* UAnimNodeAimOffset_::GetCurrentProfile()
+FAimOffsetProfile* UAnimNodeAimOffset::GetCurrentProfile()
 {
 	FAimOffsetProfile* Profile = NULL;
 
@@ -100,17 +96,10 @@ struct FAimComponentArray : public TArray<FAimComponent>
 };
 
 /* Callees Classes.h doesn't declare. */
-struct USkeletalMesh_ : public USkeletalMesh
-{
-	INT MatchRefBone(FName BoneName) const;	/* 0x00976be0 */
-};
 
 /* UAnimNodeAimOffset::GetComponentIdxFromBoneIdx isn't declared in Classes.h. */
 struct UAnimNodeAimOffset__00c623d0 : public UAnimNodeAimOffset
 {
-	FAimOffsetProfile* GetCurrentProfile();	/* 0x00c55cc0 */
-	void SetBoneAimQuaternion(INT CompIndex, INT AimDir, FQuat InQuat);	/* 0x00c56030 */
-	void UpdateListOfRequiredBones();		/* 0x00c62170 */
 	INT GetComponentIdxFromBoneIdx(INT BoneIndex, UBOOL bCreateIfNotFound);
 };
 
@@ -146,7 +135,7 @@ INT UAnimNodeAimOffset__00c623d0::GetComponentIdxFromBoneIdx(INT BoneIndex, UBOO
 		INT InsertIndex = INDEX_NONE;
 		for (INT i = 0; i < P->AimComponents.Num() && InsertIndex == INDEX_NONE; i++)
 		{
-			const INT AimBoneIndex = ((USkeletalMesh_*)SkelComponent->SkeletalMesh)->MatchRefBone(((TArrayAt_<FAimComponent>&)P->AimComponents).At(i).BoneName);
+			const INT AimBoneIndex = SkelComponent->SkeletalMesh->MatchRefBone(((TArrayAt_<FAimComponent>&)P->AimComponents).At(i).BoneName);
 			if (AimBoneIndex != INDEX_NONE && AimBoneIndex > BoneIndex)
 			{
 				InsertIndex = i;

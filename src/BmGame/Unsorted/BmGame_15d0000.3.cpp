@@ -171,8 +171,6 @@ struct FVector_ : public FVector
 {
     FORCEINLINE FVector_() {}
     FORCEINLINE FVector_(FLOAT InX, FLOAT InY, FLOAT InZ) { X = InX; Y = InY; Z = InZ; }
-    FORCEINLINE FVector_ operator-(const FVector& V) const { return FVector_(X - V.X, Y - V.Y, Z - V.Z); }
-    FORCEINLINE FLOAT operator|(const FVector& V) const { return X * V.X + Y * V.Y + Z * V.Z; }
 };
 
 // @baa 0x015dda00

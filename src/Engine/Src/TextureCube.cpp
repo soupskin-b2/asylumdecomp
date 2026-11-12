@@ -90,8 +90,6 @@ return;
 
 struct UTextureCube_ : public UTextureCube
 {
-	void sub_0075b630();
-	int sub_00720bc0(int);
 
 	void sub_00761800(int InArg)
 	{

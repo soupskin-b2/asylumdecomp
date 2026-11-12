@@ -24,14 +24,10 @@ public:
     }
 };
 
-struct AActor_ : public AActor
-{
-    UBOOL sub_00764820();
-};
 
 // @baa 0x00764820
 /* TRUE if the actor has a collision component and it is the only component that collides with actors */
-UBOOL AActor_::sub_00764820()
+UBOOL AActor::sub_00764820()
 {
     if (!CollisionComponent)
     {

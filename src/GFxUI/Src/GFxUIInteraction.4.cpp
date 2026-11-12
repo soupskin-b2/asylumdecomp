@@ -8,10 +8,6 @@
 #include "ue3/Native.h"
 
 /* USequenceOp::GetObjectVars (0x008e9100) isn't declared in Classes.h. */
-struct USequenceOp_ : public USequenceOp
-{
-    void GetObjectVars(TArray<UObject**>& outObjVars, const TCHAR* inDesc = NULL);
-};
 
 /* FSeqOpOutputLink::ActivateOutputLink, inline in UE3's header (not in the kit); its
  * out-of-line copy is 008aa370. */
@@ -36,11 +32,6 @@ struct FObjectVarArray : public TArray<UObject**>
 };
 
 /* UGFxMovie's Start script event (00e42060) and SetFocus(captureInput, Focus) (00e68b40). */
-struct UGFxMovie_ : public UGFxMovie
-{
-    UBOOL eventStart(UBOOL StartPaused);
-    void SetFocus(UBOOL captureInput, UBOOL Focus);
-};
 
 // @baa 0x00e6b210
 /* vf_174 is USequenceOp::Activated (USequenceAction::Activated is 008d1890). */
@@ -52,13 +43,13 @@ void UGFxAction_OpenMovie::Activated()
         if (Movie)
         {
             FObjectVarArray ObjVars;
-            ((USequenceOp_*)this)->GetObjectVars(ObjVars, TEXT("External Interface"));
+            ((USequenceOp*)this)->GetObjectVars(ObjVars, TEXT("External Interface"));
             if (ObjVars.Num() > 0)
             {
                 Movie->ExternalInterface = *ObjVars(0);
             }
             ObjVars.Empty();
-            ((USequenceOp_*)this)->GetObjectVars(ObjVars, TEXT("Player Owner"));
+            ((USequenceOp*)this)->GetObjectVars(ObjVars, TEXT("Player Owner"));
             if (ObjVars.Num() > 0)
             {
                 Movie->PlayerOwner = Cast<APlayerController>(*ObjVars(0));
@@ -68,10 +59,10 @@ void UGFxAction_OpenMovie::Activated()
                 Movie->PlayerOwner = NULL;
             }
 
-            UBOOL bStarted = ((UGFxMovie_*)Movie)->eventStart(bStartPaused);
+            UBOOL bStarted = ((UGFxMovie*)Movie)->eventStart(bStartPaused);
             if (bTakeFocus)
             {
-                ((UGFxMovie_*)Movie)->SetFocus(bCaptureInput, bTakeFocus);
+                ((UGFxMovie*)Movie)->SetFocus(bCaptureInput, bTakeFocus);
             }
             if (OutputLinks.Num() > 0)
             {

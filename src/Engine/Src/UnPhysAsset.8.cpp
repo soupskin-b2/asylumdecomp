@@ -21,20 +21,12 @@ template<class T> struct TArrayAt_ : public TArray<T>
     }
 };
 
-struct UPhysicsAsset_ : public UPhysicsAsset {
-    INT FindConstraintIndex(FName ConstraintName); // 00a09910
-};
-
-struct UPhysicsAssetInstance_ : public UPhysicsAssetInstance {
-    URB_ConstraintInstance* FindConstraintInstance(FName ConName, UPhysicsAsset* InAsset); // 00a0bbf0
-};
-
 // @baa 0x00a0bbf0
-URB_ConstraintInstance* UPhysicsAssetInstance_::FindConstraintInstance(FName ConName, UPhysicsAsset* InAsset)
+URB_ConstraintInstance* UPhysicsAssetInstance::FindConstraintInstance(FName ConName, UPhysicsAsset* InAsset)
 {
     if (InAsset && InAsset->ConstraintSetup.Num() == Constraints.Num())
     {
-        INT ConIndex = ((UPhysicsAsset_*)InAsset)->FindConstraintIndex(ConName);
+        INT ConIndex = InAsset->FindConstraintIndex(ConName);
         if (ConIndex != INDEX_NONE)
         {
             return ((TArrayAt_<URB_ConstraintInstance*>&)Constraints).At(ConIndex);
@@ -50,12 +42,8 @@ struct UPhysicsAsset__00a23610 : public UPhysicsAsset {
     INT FindBodyIndex(FName BodyName); // 00a231b0
 };
 
-struct UPhysicsAssetInstance__00a23610 : public UPhysicsAssetInstance {
-    URB_BodyInstance* FindBodyInstance(FName BodyName, UPhysicsAsset* InAsset); // 00a23610
-};
-
 // @baa 0x00a23610
-URB_BodyInstance* UPhysicsAssetInstance__00a23610::FindBodyInstance(FName BodyName, UPhysicsAsset* InAsset)
+URB_BodyInstance* UPhysicsAssetInstance::FindBodyInstance(FName BodyName, UPhysicsAsset* InAsset)
 {
     if (InAsset && InAsset->BodySetup.Num() == Bodies.Num())
     {
@@ -69,12 +57,8 @@ URB_BodyInstance* UPhysicsAssetInstance__00a23610::FindBodyInstance(FName BodyNa
     return NULL;
 }
 
-struct UPhysicsAsset__00a099c0 : public UPhysicsAsset {
-    FName FindConstraintBoneName(INT ConstraintIndex); // 00a099c0
-};
-
 // @baa 0x00a099c0
-FName UPhysicsAsset__00a099c0::FindConstraintBoneName(INT ConstraintIndex)
+FName UPhysicsAsset::FindConstraintBoneName(INT ConstraintIndex)
 {
 #line 415 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPhysAsset.cpp"
     check(ConstraintSetup.Num() == DefaultInstance->Constraints.Num());
