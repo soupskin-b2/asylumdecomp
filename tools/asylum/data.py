@@ -65,10 +65,13 @@ def _content_key(path: Path) -> str:
     if stamp not in keys:
         keys = {k: v for k, v in keys.items() if not k.startswith(path.name + ":")}
         keys[stamp] = hashlib.sha1(path.read_bytes()).hexdigest()[:12]
-        memo.parent.mkdir(parents=True, exist_ok=True)
         tmp = memo.with_name(memo.name + ".%d.tmp" % os.getpid())
-        tmp.write_text(json.dumps(keys), encoding="utf-8")
-        os.replace(tmp, memo)
+        try:  # best effort: parallel workers race on it, and losing a write only costs a re-hash
+            memo.parent.mkdir(parents=True, exist_ok=True)
+            tmp.write_text(json.dumps(keys), encoding="utf-8")
+            os.replace(tmp, memo)
+        except OSError:
+            tmp.unlink(missing_ok=True)
     return keys[stamp]
 
 
