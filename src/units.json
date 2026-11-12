@@ -238509,7 +238509,7 @@
     {
      "va": "00db5b00",
      "size": 33,
-     "symbol": "?vf_01c@UUIObject@@UAEXXZ"
+     "symbol": "?PostLoad@UUIObject@@UAEXXZ"
     },
     {
      "va": "00dc8f60",

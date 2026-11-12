@@ -37,11 +37,11 @@ UUIObject* UUIScreenObject::FindChildUsingID(FWIDGET_ID WidgetID, UBOOL bRecurse
 }
 
 // @baa 0x00db5b00
-/* UUIObject slot 0x1c (kit vf_01c, UE3 PostLoad()): UUIScreenObject::PostLoad inlined (UObject's PostLoad, then drop
+/* UUIScreenObject::PostLoad inlined (UObject's PostLoad, then drop
  * any NULL entries from Children). */
-void UUIObject::vf_01c()
+void UUIObject::PostLoad()
 {
-    UObject::vf_01c();
+    UObject::PostLoad();
     Children.RemoveItem(NULL);
 }
 
