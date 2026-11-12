@@ -2,19 +2,19 @@
  "updated": "2026-11-12",
  "functions": {
   "total": 174166,
-  "matched": 102110
+  "matched": 102142
  },
  "bytes": {
   "total": 24308119,
-  "matched": 4116280
+  "matched": 4120489
  },
  "areas": [
   {
    "name": "Engine",
    "functions": 69863,
    "bytes": 9201956,
-   "matched": 43102,
-   "matched_bytes": 1967589
+   "matched": 43134,
+   "matched_bytes": 1971798
   },
   {
    "name": "Editor",
@@ -97,11 +97,11 @@
  "contributors": [
   {
    "login": "soupskin-b2",
-   "functions": 102101,
-   "bytes": 4115660,
+   "functions": 102133,
+   "bytes": 4119869,
    "models": {
     "Tooling": 94456,
-    "Claude Opus 5.5": 2879,
+    "Claude Opus 5.5": 2911,
     "DeepSeek V4.1 Flash": 2167,
     "Qwen3.8 27B": 1935,
     "GPT-6.1 Sol": 295,
@@ -122,7 +122,7 @@
   },
   {
    "model": "Claude Opus 5.5",
-   "functions": 2879
+   "functions": 2911
   },
   {
    "model": "DeepSeek V4.1 Flash",

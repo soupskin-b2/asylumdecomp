@@ -1,4 +1,4 @@
-// UnUIObjects.cpp: 12 functions
+// UnUIObjects.cpp: 17 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -249,4 +249,81 @@ INT UUIObject::vf_200(INT LeftTarget, INT TopTarget, INT RightTarget, INT Bottom
         bResult = TRUE;
     }
     return bResult;
+}
+
+// @baa 0x00da9df0
+/* UE3's UUIScene::SetSceneInputMode(BYTE NewInputMode): store the mode and, when it changed, request a scene input
+ * mask update. */
+void UUIScene::sub_00da9df0(BYTE NewInputMode)
+{
+    UBOOL bChanged = SceneInputMode != NewInputMode;
+    SceneInputMode = NewInputMode;
+    if (bChanged)
+    {
+        RequestSceneInputMaskUpdate();
+    }
+}
+
+// @baa 0x00db0850
+/* UUIScene slot 0x10c (kit vf_10c): UUIScreenObject's version, then request a scene input mask update and a position
+ * update (slot 0x164). */
+void UUIScene::vf_10c(INT Arg1, INT Arg2)
+{
+    UUIScreenObject::vf_10c(Arg1, Arg2);
+    RequestSceneInputMaskUpdate();
+    vf_164(FALSE, TRUE, TRUE, FALSE);
+}
+
+/* Unnamed in the kit: whether any of the scene's pending-update requests (the first seven bUpdate/bRefresh/bRecalculate
+ * flags) is set. */
+struct UUIScene_ : public UUIScene
+{
+    UBOOL sub_00da9d70();
+};
+
+// @baa 0x00da9d70
+UBOOL UUIScene_::sub_00da9d70()
+{
+    return bUpdateDockingStack || bUpdateScenePositions || bUpdateNavigationLinks || bUpdatePrimitiveUsage
+        || bRefreshWidgetStyles || bRefreshStringFormatting || bRecalculateInputMask;
+}
+
+// @baa 0x00dacf60
+/* UUIScene slot 0x1f8 (kit vf_1f8, UE3 GetPostProcessGroup()): with bEnableScenePostProcessing, the configured
+ * ScenePostProcessGroup, where the dynamic group (4) resolves to foreground (1) for the topmost active scene, background
+ * (2) for an active scene below it, else none. */
+INT UUIScene::vf_1f8()
+{
+    INT Result = 0;
+    if (bEnableScenePostProcessing)
+    {
+        Result = ScenePostProcessGroup;
+        if (Result == 4)
+        {
+            if (IsSceneActive(TRUE))
+            {
+                return 1;
+            }
+            Result = IsSceneActive(FALSE) ? 2 : 0;
+        }
+    }
+    return Result;
+}
+
+/* Unnamed in the kit: the lookup of an entry by name in the array at UUIScene+0x18c. */
+struct FNamedElemArray_ : public TArrayNoInit<FNativeElem_00db1b20>
+{
+    INT sub_00dad6e0(FName& Name);
+};
+
+// @baa 0x00db0a90
+/* UUIScene helper: the index of the entry named Name, INDEX_NONE when either part of Name is zero. */
+INT UUIScene::sub_00db0a90(FName& Name)
+{
+    INT Result = INDEX_NONE;
+    if (Name.Index != 0 && Name.Number != 0)
+    {
+        Result = ((FNamedElemArray_&)TickableObjects).sub_00dad6e0(Name);
+    }
+    return Result;
 }

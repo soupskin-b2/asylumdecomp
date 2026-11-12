@@ -2,8 +2,8 @@
  "note": "Maintained by CI (tools/ci); every file is checked by python tools/asylum unit-check.",
  "totals": {
   "units": 1439,
-  "files": 5215,
-  "functions": 100717,
+  "files": 5220,
+  "functions": 100749,
   "failed": 0
  },
  "units": [
@@ -190144,6 +190144,46 @@
      "va": "00c535b0",
      "size": 119,
      "symbol": "?vf_134@UAnimNodeBlendBase@@UAEXMM@Z"
+    },
+    {
+     "va": "00c7df80",
+     "size": 79,
+     "symbol": "?InitAnim@UAnimNodeCrossfader@@UAEXPAUUSkeletalMeshComponent@@PAUUAnimNodeBlendBase@@@Z"
+    },
+    {
+     "va": "00c60e20",
+     "size": 31,
+     "symbol": "?InitAnim@UAnimNodeBlendPerBone@@UAEXPAUUSkeletalMeshComponent@@PAUUAnimNodeBlendBase@@@Z"
+    },
+    {
+     "va": "00c7e0c0",
+     "size": 49,
+     "symbol": "?InitAnim@UAnimTree@@UAEXPAUUSkeletalMeshComponent@@PAUUAnimNodeBlendBase@@@Z"
+    },
+    {
+     "va": "00c7ed60",
+     "size": 29,
+     "symbol": "?InitAnim@UAnimNodeSynch@@UAEXPAUUSkeletalMeshComponent@@PAUUAnimNodeBlendBase@@@Z"
+    },
+    {
+     "va": "00c4b4f0",
+     "size": 56,
+     "symbol": "?InitAnim@UAnimNode@@UAEXPAUUSkeletalMeshComponent@@PAUUAnimNodeBlendBase@@@Z"
+    },
+    {
+     "va": "00c69940",
+     "size": 31,
+     "symbol": "?InitAnim@UAnimNodeAimOffset@@UAEXPAUUSkeletalMeshComponent@@PAUUAnimNodeBlendBase@@@Z"
+    },
+    {
+     "va": "00c4b620",
+     "size": 56,
+     "symbol": "?vf_150@UAnimNodeBlendBySpeed@@UAEXXZ"
+    },
+    {
+     "va": "00c53520",
+     "size": 143,
+     "symbol": "?vf_154@UAnimNodeBlendBase@@UAEXXZ"
     }
    ]
   },
@@ -190156,6 +190196,23 @@
      "va": "00c49e80",
      "size": 89,
      "symbol": "?eventOnAnimEnd@AActor_@@QAEXPAUUAnimNodeSequence@@MM@Z"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Src/UnAnimTree.cpp",
+   "source": "Engine/Src/UnAnimTree.25.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "00c7a980",
+     "size": 616,
+     "symbol": "?execBlendToLoopingAnim@UAnimNodeCrossfader@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "00c7a6a0",
+     "size": 734,
+     "symbol": "?execPlayOneShotAnim@UAnimNodeCrossfader@@QAEXAAUFFrame@@QAX@Z"
     }
    ]
   },
@@ -191998,6 +192055,38 @@
      "va": "00799e00",
      "size": 155,
      "symbol": "?Stop@UAudioComponent@@QAEXXZ"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Src/UnAudio.cpp",
+   "source": "Engine/Src/UnAudio.22.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "00786260",
+     "size": 21,
+     "symbol": "?sub_00786260@UAudioComponent_@@QAEXH@Z"
+    },
+    {
+     "va": "00786210",
+     "size": 74,
+     "symbol": "?sub_00786210@UAudioComponent__00786210@@QAEXABUFMatrix@@@Z"
+    },
+    {
+     "va": "0078e280",
+     "size": 142,
+     "symbol": "?sub_0078e280@UAudioComponent__0078e280@@QAEHUFName@@AAM@Z"
+    },
+    {
+     "va": "0078e310",
+     "size": 142,
+     "symbol": "?sub_0078e310@UAudioComponent__0078e310@@QAEHUFName@@AAM@Z"
+    },
+    {
+     "va": "0078e3a0",
+     "size": 142,
+     "symbol": "?sub_0078e3a0@UAudioComponent__0078e3a0@@QAEHUFName@@AAM@Z"
     }
    ]
   },
@@ -194865,6 +194954,28 @@
      "va": "00a74450",
      "size": 230,
      "symbol": "?execPushTranslationMatrix@UCanvas@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "00a588d0",
+     "size": 260,
+     "symbol": "?execProject@UCanvas@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "00a58ac0",
+     "size": 247,
+     "symbol": "?execWorldToPixel@UCanvas@@QAEXAAUFFrame@@QAX@Z"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Src/UnCanvas.cpp",
+   "source": "Engine/Src/UnCanvas.3.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "00aa9e30",
+     "size": 516,
+     "symbol": "?execDrawTextClipped@UCanvas@@QAEXAAUFFrame@@QAX@Z"
     }
    ]
   },
@@ -200679,6 +200790,36 @@
      "va": "00cf3ea0",
      "size": 198,
      "symbol": "?FilterData@UInterpFilter@@UAEXPAUUSeqAct_Interp@@@Z"
+    },
+    {
+     "va": "00ceb4f0",
+     "size": 28,
+     "symbol": "?sub_00ceb4f0@USeqAct_Interp_@@QAEXXZ"
+    },
+    {
+     "va": "00d14410",
+     "size": 107,
+     "symbol": "?sub_00d14410@USeqAct_Interp__00d14410@@QAEPAUAActor@@XZ"
+    },
+    {
+     "va": "00cf3030",
+     "size": 133,
+     "symbol": "?sub_00cf3030@UInterpData__00cf3030@@QAEHUFName@@@Z"
+    },
+    {
+     "va": "00d1c5e0",
+     "size": 37,
+     "symbol": "?InitTrackInst@UInterpTrackInstAnimControl@@UAEXPAUUInterpTrack@@@Z"
+    },
+    {
+     "va": "00d1c300",
+     "size": 37,
+     "symbol": "?InitTrackInst@UInterpTrackInstEvent@@UAEXPAUUInterpTrack@@@Z"
+    },
+    {
+     "va": "00d1c660",
+     "size": 37,
+     "symbol": "?InitTrackInst@UInterpTrackInstSound@@UAEXPAUUInterpTrack@@@Z"
     }
    ]
   },
@@ -200691,6 +200832,18 @@
      "va": "00cf4500",
      "size": 338,
      "symbol": "?GetClosestSnapPosition@UInterpTrackMove@@UAEHMAAV?$TArray@H@@AAM@Z"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Src/UnInterpolation.cpp",
+   "source": "Engine/Src/UnInterpolation.6.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "00d141c0",
+     "size": 127,
+     "symbol": "?sub_00d141c0@USeqAct_Interp_@@QAEPAUUInterpGroupDirector@@XZ"
     }
    ]
   },
@@ -238407,6 +238560,48 @@
      "va": "00daaaa0",
      "size": 202,
      "symbol": "?vf_200@UUIObject@@UAEHHHHH@Z"
+    },
+    {
+     "va": "00da9df0",
+     "size": 38,
+     "symbol": "?sub_00da9df0@UUIScene@@QAEXE@Z"
+    },
+    {
+     "va": "00db0850",
+     "size": 56,
+     "symbol": "?vf_10c@UUIScene@@UAEXHH@Z"
+    },
+    {
+     "va": "00da9d70",
+     "size": 18,
+     "symbol": "?sub_00da9d70@UUIScene_@@QAEHXZ"
+    },
+    {
+     "va": "00dacf60",
+     "size": 65,
+     "symbol": "?vf_1f8@UUIScene@@UAEHXZ"
+    },
+    {
+     "va": "00db0a90",
+     "size": 36,
+     "symbol": "?sub_00db0a90@UUIScene@@QAEHAAUFName@@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Src/UnUIObjects.cpp",
+   "source": "Engine/Src/UnUIObjects.32.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "00da9b60",
+     "size": 61,
+     "symbol": "?GetNextScene@UUIScene@@QAEPAU1@HH@Z"
+    },
+    {
+     "va": "00da9ba0",
+     "size": 61,
+     "symbol": "?GetPreviousScene@UUIScene@@QAEPAU1@HH@Z"
     }
    ]
   },

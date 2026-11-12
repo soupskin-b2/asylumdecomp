@@ -1,4 +1,4 @@
-// UnCanvas.cpp: 20 functions
+// UnCanvas.cpp: 22 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -560,4 +560,60 @@ void UCanvas::execPushTranslationMatrix(FFrame& Stack, RESULT_DECL)
     {
         Canvas->PushRelativeTransform(FTranslationMatrix(TranslationVector));
     }
+}
+
+/* Kit gap: FSceneView_00a588d0 (SceneManagement.h) isn't declared; only its Project is needed here. */
+class FSceneView_00a588d0
+{
+public:
+	FPlane Project(const FVector& WorldPoint) const;
+};
+
+// @baa 0x00a588d0
+void UCanvas::execProject(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT(FVector, Location);
+	P_FINISH;
+
+	FPlane V(0, 0, 0, 0);
+	if (SceneView.Dummy != NULL)
+	{
+		V = ((FSceneView_00a588d0*)SceneView.Dummy)->Project(Location);
+	}
+	FVector resultVec(V);
+	resultVec.X = (ClipX / 2.f) + (resultVec.X * (ClipX / 2.f));
+	resultVec.Y *= -1.f;
+	resultVec.Y = (ClipY / 2.f) + (resultVec.Y * (ClipY / 2.f));
+	*(FVector*)Result = resultVec;
+}
+
+/* Kit gaps: FSceneView_00a58ac0 (SceneManagement.h) isn't declared (only its WorldToPixel is needed here), and the
+ * kit's FVector2D has no (X, Y) constructor. */
+struct FVector2D__00a58ac0 : public FVector2D
+{
+	FORCEINLINE FVector2D__00a58ac0(FLOAT InX, FLOAT InY) { X = InX; Y = InY; }
+};
+
+class FSceneView_00a58ac0
+{
+public:
+	UBOOL WorldToPixel(const FVector& WorldPoint, FVector2D& OutPixelLocation) const;
+};
+
+// @baa 0x00a58ac0
+void UCanvas::execWorldToPixel(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT(FVector, Position);
+	P_GET_STRUCT_REF(FVector, PixelLocation);
+	P_FINISH;
+
+	FSceneView_00a58ac0* View = (FSceneView_00a58ac0*)SceneView.Dummy;
+	if (View == NULL)
+	{
+		*(UBOOL*)Result = FALSE;
+		return;
+	}
+	FVector2D__00a58ac0 Pixel(0.f, 0.f);
+	*(UBOOL*)Result = View->WorldToPixel(Position, Pixel);
+	PixelLocation = FVector(Pixel.X, Pixel.Y, 0.f);
 }

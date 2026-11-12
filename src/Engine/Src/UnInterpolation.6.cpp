@@ -1,39 +1,31 @@
-// UnInterpolation.cpp (part 6 of 8): 1 function
-// Placed here by: callers 1.
+// UnInterpolation.cpp: 1 function
+// Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
+#include "ue3/Array.h"
+#include "ue3/Classes.h"
+#include "ue3/Cast.h"
 
-struct C{
-int sub_00cef4b0(undefined4*);
+/* Unnamed in the kit: the director group of this action's InterpData (UInterpData::FindDirectorGroup inlined, first
+ * match). */
+struct USeqAct_Interp_ : public USeqAct_Interp
+{
+    UInterpGroupDirector* sub_00d141c0();
 };
 
-int sub_0053d240(...);
-int sub_0053df70(...);
-// @baa 0x00cef4b0
-int C::sub_00cef4b0(undefined4*param_2)
+// @baa 0x00d141c0
+UInterpGroupDirector* USeqAct_Interp_::sub_00d141c0()
 {
-int*param_1=(int*)this;
-
-int iVar1;
-int iVar2;
-undefined4*puVar3;
-
-iVar1=param_1[1];
-iVar2=iVar1+1;
-param_1[1]=iVar2;
-if(iVar2>param_1[2]){
-iVar2=sub_0053d240(iVar2,param_1[2],0x10);
-param_1[2]=iVar2;
-if((*param_1!=0)||(iVar2!=0)){
-iVar2=sub_0053df70(*param_1,iVar2<<4,8);
-*param_1=iVar2;
-}
-}
-puVar3=(undefined4*)(iVar1*0x10+*param_1);
-if(puVar3!=(undefined4*)0x0){
-*puVar3=*param_2;
-puVar3[1]=param_2[1];
-puVar3[2]=param_2[2];
-puVar3[3]=param_2[3];
-}
-return iVar1;
+    if (InterpData != NULL)
+    {
+        for (INT i = 0; i < InterpData->InterpGroups.Num(); i++)
+        {
+            UInterpGroup* Group = InterpData->InterpGroups(i);
+            UInterpGroupDirector* DirGroup = Cast<UInterpGroupDirector>(Group);
+            if (DirGroup != NULL)
+            {
+                return DirGroup;
+            }
+        }
+    }
+    return NULL;
 }

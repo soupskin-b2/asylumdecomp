@@ -1,4 +1,4 @@
-// UnAnimTree.cpp: 5 functions
+// UnAnimTree.cpp: 13 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -63,4 +63,141 @@ void UAnimNodeBlendBase::vf_134(FLOAT DeltaSeconds, FLOAT TotalWeight)
             }
         }
     }
+}
+
+/* FName's comparison (UnName.h); the kit's FName has none. */
+inline UBOOL operator==(const FName& A, const FName& B) { return A.Index == B.Index && A.Number == B.Number; }
+
+// @baa 0x00c7df80
+/* Plays DefaultAnimSeqName when the active child has no animation yet. */
+void UAnimNodeCrossfader::InitAnim(USkeletalMeshComponent* MeshComp, UAnimNodeBlendBase* Parent)
+{
+	Super::InitAnim(MeshComp, Parent);
+
+	UAnimNodeSequence* ActiveChild = sub_00c7a590();	/* GetActiveChild */
+	if (ActiveChild && ActiveChild->AnimSeqName == FName(NAME_None))
+	{
+		SetAnim(DefaultAnimSeqName);
+	}
+}
+
+/* Kit gap: UAnimNodeBlendPerBone::BuildWeightList isn't declared in Classes.h. */
+struct UAnimNodeBlendPerBone_ : public UAnimNodeBlendPerBone
+{
+	void BuildWeightList();
+};
+
+// @baa 0x00c60e20
+void UAnimNodeBlendPerBone::InitAnim(USkeletalMeshComponent* MeshComp, UAnimNodeBlendBase* Parent)
+{
+	Super::InitAnim(MeshComp, Parent);
+	((UAnimNodeBlendPerBone_*)this)->BuildWeightList();
+}
+
+/* Kit gaps: USkeletalMeshComponent::BuildComposePriorityList and UAnimTree::InitTreeSynchGroups aren't declared
+ * in Classes.h. */
+struct USkeletalMeshComponent_ : public USkeletalMeshComponent
+{
+	void sub_0092c310(TArray<BYTE>& PriorityList);	/* BuildComposePriorityList */
+};
+
+struct UAnimTree_ : public UAnimTree
+{
+	void InitTreeSynchGroups();
+};
+
+// @baa 0x00c7e0c0
+void UAnimTree::InitAnim(USkeletalMeshComponent* MeshComp, UAnimNodeBlendBase* Parent)
+{
+	Super::InitAnim(MeshComp, Parent);
+	if (MeshComp)
+	{
+		((USkeletalMeshComponent_*)MeshComp)->sub_0092c310(PriorityList);
+	}
+	((UAnimTree_*)this)->InitTreeSynchGroups();
+}
+
+/* Kit gap: UAnimNodeSynch::UpdateAnimSeqNodes isn't declared in Classes.h. */
+struct UAnimNodeSynch_ : public UAnimNodeSynch
+{
+	void UpdateAnimSeqNodes();
+};
+
+// @baa 0x00c7ed60
+void UAnimNodeSynch::InitAnim(USkeletalMeshComponent* MeshComp, UAnimNodeBlendBase* Parent)
+{
+	((UAnimNodeSynch_*)this)->UpdateAnimSeqNodes();
+	Super::InitAnim(MeshComp, Parent);
+}
+
+extern FName g_026c4f90;
+	/* ENGINE_OnInit */
+/* Kit gap: the OnInit event's generated glue (EngineClasses.h) isn't declared; inlined here. */
+struct UAnimNode_ : public UAnimNode
+{
+	FORCEINLINE void eventOnInit()
+	{
+		ProcessEvent(FindFunctionChecked(g_026c4f90), NULL);
+	}
+};
+
+// @baa 0x00c4b4f0
+void UAnimNode::InitAnim(USkeletalMeshComponent* MeshComp, UAnimNodeBlendBase* Parent)
+{
+	SkelComponent = MeshComp;
+	((UAnimNode_*)this)->eventOnInit();
+}
+
+/* Kit gap: UAnimNodeAimOffset::UpdateListOfRequiredBones isn't declared in Classes.h. */
+struct UAnimNodeAimOffset_ : public UAnimNodeAimOffset
+{
+	void UpdateListOfRequiredBones();
+};
+
+// @baa 0x00c69940
+void UAnimNodeAimOffset::InitAnim(USkeletalMeshComponent* MeshComp, UAnimNodeBlendBase* Parent)
+{
+	Super::InitAnim(MeshComp, Parent);
+	((UAnimNodeAimOffset_*)this)->UpdateListOfRequiredBones();
+}
+
+extern FName g_026c4610;
+	/* ENGINE_OnBecomeRelevant */
+/* Kit gap: the OnBecomeRelevant event's generated glue (EngineClasses.h) isn't declared; inlined here. */
+struct UAnimNode__00c4b620 : public UAnimNode
+{
+	FORCEINLINE void eventOnBecomeRelevant()
+	{
+		ProcessEvent(FindFunctionChecked(g_026c4610), NULL);
+	}
+};
+
+// @baa 0x00c4b620
+/* OnBecomeRelevant (vtable 0x150): tells script, then forgets the last channel so the next tick picks one. */
+void UAnimNodeBlendBySpeed::vf_150()
+{
+	((UAnimNode__00c4b620*)this)->eventOnBecomeRelevant();
+	LastChannel = INDEX_NONE;
+}
+
+extern FName g_026c42a8;
+	/* ENGINE_OnCeaseRelevant */
+/* Kit gap: the OnCeaseRelevant event's generated glue (EngineClasses.h) isn't declared; inlined here. */
+struct UAnimNode__00c53520 : public UAnimNode
+{
+	FORCEINLINE void eventOnCeaseRelevant()
+	{
+		ProcessEvent(FindFunctionChecked(g_026c42a8), NULL);
+	}
+};
+
+// @baa 0x00c53520
+/* OnCeaseRelevant (vtable 0x154): clears the children's total weights, then tells script. */
+void UAnimNodeBlendBase::vf_154()
+{
+	for (INT i = 0; i < Children.Num(); i++)
+	{
+		Children(i).TotalWeight = 0.f;
+	}
+	((UAnimNode__00c53520*)this)->eventOnCeaseRelevant();
 }
