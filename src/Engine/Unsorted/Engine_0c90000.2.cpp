@@ -43,7 +43,7 @@ void USeqAct_CrowdSpawner::execKillAgents( FFrame& Stack, RESULT_DECL )
 void UMaterialInstanceTimeVarying::execClearParameterValues( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_178();
+	ClearParameterValues();
 }
 
 // @baa 0x00c9cb40

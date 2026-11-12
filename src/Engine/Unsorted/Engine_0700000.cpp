@@ -687,7 +687,7 @@ int sub_007084a0(...);
 int sub_00708520(...);
 int sub_007085a0(...);
 // @baa 0x00708a30
-void UMaterialInstanceConstant::vf_180(void)
+void UMaterialInstanceConstant::InitResources()
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -763,7 +763,7 @@ int sub_00708750(...);
 int sub_00709600(...);
 int sub_00709740(...);
 // @baa 0x00709a30
-void UMaterialInstanceTimeVarying::vf_180(void)
+void UMaterialInstanceTimeVarying::InitResources()
 {
     undefined4 param_1 = (undefined4)this;
 

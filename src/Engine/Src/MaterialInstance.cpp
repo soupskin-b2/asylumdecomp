@@ -79,7 +79,7 @@ void UMaterialInstance::SetTextureParameterValue(FName ParameterName, UTexture* 
 void UMaterialInstance::vf_174(int a0, int a1, int a2, int a3) {  }
 
 // @baa 0x006aefe0
-void UMaterialInstance::vf_178(void) {  }
+void UMaterialInstance::ClearParameterValues() {  }
 
 int sub_006be6a0(void);
 // @baa 0x006c47a0

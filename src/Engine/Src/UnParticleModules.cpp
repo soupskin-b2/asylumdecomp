@@ -299,7 +299,7 @@ void UParticleModuleLocationDirect::vf_168(void) {  }
 int UParticleModuleLocationEmitter::vf_000(void) { return 1; }
 
 // @baa 0x00b72f30
-int UParticleModuleLocationEmitter::vf_118(int a0) { return 4; }
+INT UParticleModuleLocationEmitter::vf_118(INT a0) { return 4; }
 
 // @baa 0x00b72f40
 int UParticleModuleLocationEmitterDirect::vf_000(void) { return 1; }

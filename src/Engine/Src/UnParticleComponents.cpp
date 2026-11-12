@@ -122,7 +122,7 @@ bool UParticleSystemReplay::vf_004()
 int UPhysXParticleSystemComponent::vf_000(void) { return 1; }
 
 // @baa 0x00b51920
-uint AEmitter::vf_178(void)
+UINT AEmitter::vf_178()
 {
     int param_1 = (int)this;
 
@@ -143,7 +143,7 @@ void UParticleEmitter::sub_00b519d0(undefined4 param_2, undefined4 param_3)
 char* UParticleEmitter::sub_00b519f0(void) { return (char*)this + 48; }
 
 // @baa 0x00b51a00
-void UParticleEmitter::vf_118(int a0) {  }
+void UParticleEmitter::vf_118(INT a0) {  }
 
 // @baa 0x00b51a10
 void __stdcall sub_00b51a10(int a0) {  }

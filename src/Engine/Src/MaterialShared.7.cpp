@@ -34,7 +34,7 @@ void UMaterialInstanceTimeVarying::SetDuration(FLOAT Value)
 {
 	((UMaterialInstanceTimeVarying_*)this)->sub_006c47c0(TEXT("MITV::SetDuration"));
 	Duration = Value;
-	vf_180();
+	InitResources();
 }
 
 extern void* g_026b2234;

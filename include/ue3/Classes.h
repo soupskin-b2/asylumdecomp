@@ -30,6 +30,7 @@ namespace UE3
 }
 struct FRBPhysScene;
 struct FFeedbackContext;
+class FTextureResource;
 struct FOutputDevice;
 extern FOutputDevice* GError;  /* Script.h */
 struct FBoneData;  /* AnimationCompressionAlgorithm.h: per-bone data for DoReduction */
@@ -12850,8 +12851,8 @@ struct UPrimitiveComponent : public UActorComponent {
     virtual FVector GetRBLinearVelocity(); /* 0x19c */
     virtual void vf_1a0(INT, INT); /* 0x1a0 */
     virtual void vf_1a4(INT, INT); /* 0x1a4 */
-    virtual INT SetRBPosition(INT, INT, INT); /* 0x1a8 */
-    virtual INT SetRBRotation(INT, INT, INT); /* 0x1ac */
+    virtual void SetRBPosition(const FVector& NewPos, FName BoneName); /* 0x1a8 */
+    virtual void SetRBRotation(const FRotator& NewRot, FName BoneName); /* 0x1ac */
     virtual void WakeRigidBody(FName BoneName); /* 0x1b0 */
     virtual void PutRigidBodyToSleep(FName BoneName); /* 0x1b4 */
     virtual INT vf_1b8(INT, INT); /* 0x1b8 */
@@ -13076,7 +13077,7 @@ struct UTexture : public USurface {
     FPointer Resource; /* 0xac */
     /* virtual functions this class introduces (vtable 0x01eee570) */
     virtual void UpdateResource(); /* 0x114 */
-    virtual INT vf_118(); /* 0x118 */
+    virtual class FTextureResource* CreateResource(); /* 0x118 */
     virtual INT vf_11c(); /* 0x11c */
     virtual INT GetMaterialType(); /* 0x120 */
     virtual INT vf_124(); /* 0x124 */
@@ -13153,7 +13154,7 @@ struct UTexture2D : public UTexture {
     virtual DOUBLE vf_10c(); /* 0x10c */
     virtual DOUBLE GetSurfaceHeight(); /* 0x110 */
     virtual void UpdateResource(); /* 0x114 */
-    virtual INT vf_118(); /* 0x118 */
+    virtual class FTextureResource* CreateResource(); /* 0x118 */
     virtual INT vf_11c(); /* 0x11c */
     virtual INT GetMaterialType(); /* 0x120 */
     virtual INT vf_124(); /* 0x124 */
@@ -15722,7 +15723,7 @@ struct APlayerController : public AController {
     UBOOL sub_007a0040(FLOAT); /* 0x007a0040 */
     UBOOL AllowConsole(); /* 0x007a06e0 */
     void ClientFlushLevelStreaming(); /* 0x007ac510 */
-    void sub_007ac560(INT); /* 0x007ac560 */
+    void SetNetSpeed(INT NewSpeed); /* 0x007ac560 */
     INT sub_007acd30(FLOAT); /* 0x007acd30 */
     void sub_007afac0(FName); /* 0x007afac0 */
     UBOOL HasClientLoadedCurrentWorld(); /* 0x007afb80 */
@@ -19605,8 +19606,8 @@ struct USkeletalMeshComponent : public UMeshComponent {
     virtual void vf_198(INT, INT); /* 0x198 */
     virtual void vf_1a0(INT, INT); /* 0x1a0 */
     virtual void vf_1a4(INT, INT); /* 0x1a4 */
-    virtual INT SetRBPosition(INT, INT, INT); /* 0x1a8 */
-    virtual INT SetRBRotation(INT, INT, INT); /* 0x1ac */
+    virtual void SetRBPosition(const FVector& NewPos, FName BoneName); /* 0x1a8 */
+    virtual void SetRBRotation(const FRotator& NewRot, FName BoneName); /* 0x1ac */
     virtual void WakeRigidBody(FName BoneName); /* 0x1b0 */
     virtual void PutRigidBodyToSleep(FName BoneName); /* 0x1b4 */
     virtual INT vf_1b8(INT, INT); /* 0x1b8 */
@@ -20588,7 +20589,7 @@ struct UMaterialInterface : public USurface {
     virtual INT vf_130(INT); /* 0x130 */
     virtual INT vf_134(INT); /* 0x134 */
     virtual UINT GetRenderProxy(INT); /* 0x138 */
-    virtual UINT GetPhysicalMaterial(); /* 0x13c */
+    virtual class UPhysicalMaterial* GetPhysicalMaterial(); /* 0x13c */
     virtual void GetTextures(INT, INT); /* 0x140 */
     virtual INT CheckMaterialUsage(INT); /* 0x144 */
     virtual UINT AllocateResource(); /* 0x148 */
@@ -20722,7 +20723,7 @@ struct UMaterial : public UMaterialInterface {
     virtual UBOOL GetVectorParameterValue(FName ParameterName, FLinearColor& OutValue); /* 0x124 */
     virtual INT vf_130(INT); /* 0x130 */
     virtual UINT GetRenderProxy(INT); /* 0x138 */
-    virtual UINT GetPhysicalMaterial(); /* 0x13c */
+    virtual class UPhysicalMaterial* GetPhysicalMaterial(); /* 0x13c */
     virtual void GetTextures(INT, INT); /* 0x140 */
     virtual INT CheckMaterialUsage(INT); /* 0x144 */
     virtual UINT AllocateResource(); /* 0x148 */
@@ -27267,7 +27268,7 @@ struct UTextureCube : public UTexture {
     virtual FString GetDetailedDescription(INT InIndex); /* 0x0bc */
     virtual DOUBLE vf_10c(); /* 0x10c */
     virtual DOUBLE GetSurfaceHeight(); /* 0x110 */
-    virtual INT vf_118(); /* 0x118 */
+    virtual class FTextureResource* CreateResource(); /* 0x118 */
     virtual INT GetMaterialType(); /* 0x120 */
     /* other member functions */
     int sub_00720bc0(int); /* 0x00720bc0 */
@@ -27433,9 +27434,9 @@ struct UMaterialInstance : public UMaterialInterface {
     virtual void vf_16c(INT, INT, INT, INT, INT, INT); /* 0x16c */
     virtual void SetTextureParameterValue(FName ParameterName, class UTexture* Value); /* 0x170 */
     virtual void vf_174(INT, INT, INT, INT); /* 0x174 */
-    virtual void vf_178(); /* 0x178 */
+    virtual void ClearParameterValues(); /* 0x178 */
     virtual INT vf_17c(); /* 0x17c */
-    virtual void vf_180(); /* 0x180 */
+    virtual void InitResources(); /* 0x180 */
     virtual void vf_184(); /* 0x184 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
@@ -27452,7 +27453,7 @@ struct UMaterialInstance : public UMaterialInterface {
     virtual INT vf_130(INT); /* 0x130 */
     virtual INT vf_134(INT); /* 0x134 */
     virtual UINT GetRenderProxy(INT); /* 0x138 */
-    virtual UINT GetPhysicalMaterial(); /* 0x13c */
+    virtual class UPhysicalMaterial* GetPhysicalMaterial(); /* 0x13c */
     virtual void GetTextures(INT, INT); /* 0x140 */
     virtual INT CheckMaterialUsage(INT); /* 0x144 */
     virtual UINT AllocateResource(); /* 0x148 */
@@ -27509,8 +27510,8 @@ struct UMaterialInstanceConstant : public UMaterialInstance {
     virtual void SetScalarParameterValue(FName ParameterName, FLOAT Value); /* 0x168 */ /* 0x00702740 */
     virtual void SetTextureParameterValue(FName ParameterName, class UTexture* Value); /* 0x170 */ /* 0x007027b0 */
     virtual void vf_174(INT, INT, INT, INT); /* 0x174 */
-    virtual void vf_178(); /* 0x178 */
-    virtual void vf_180(); /* 0x180 */
+    virtual void ClearParameterValues(); /* 0x178 */
+    virtual void InitResources(); /* 0x180 */
     virtual void vf_184(); /* 0x184 */
     /* other member functions */
     void SetFontParameterValue(FName ParameterName, UFont* FontValue, INT FontPage); /* 0x00702820 */
@@ -27565,8 +27566,8 @@ struct UMaterialInstanceTimeVarying : public UMaterialInstance {
     virtual void vf_16c(INT, INT, INT, INT, INT, INT); /* 0x16c */
     virtual void SetTextureParameterValue(FName ParameterName, class UTexture* Value); /* 0x170 */
     virtual void vf_174(INT, INT, INT, INT); /* 0x174 */
-    virtual void vf_178(); /* 0x178 */
-    virtual void vf_180(); /* 0x180 */
+    virtual void ClearParameterValues(); /* 0x178 */
+    virtual void InitResources(); /* 0x180 */
     virtual void vf_184(); /* 0x184 */
     /* UnrealScript natives */
     void execSetParent(FFrame& Stack, RESULT_DECL); /* 0x00c9b410 */
@@ -31032,7 +31033,7 @@ struct APawn : public AActor {
     virtual INT vf_3f0(); /* 0x3f0 */
     virtual INT vf_3f4(INT, INT, INT, INT); /* 0x3f4 */
     virtual INT vf_3f8(INT, INT, INT, INT); /* 0x3f8 */
-    virtual INT vf_3fc(INT); /* 0x3fc */
+    virtual UBOOL HurtByDamageType(class UClass* DamageType); /* 0x3fc */
     virtual void vf_400(FLOAT); /* 0x400 */
     virtual INT vf_404(INT, INT, INT); /* 0x404 */
     virtual INT calcMoveFlags(); /* 0x408 */
@@ -33076,7 +33077,7 @@ struct UTextureRenderTarget : public UTexture {
     virtual bool vf_004(); /* 0x004 */
     virtual DOUBLE vf_10c(); /* 0x10c */
     virtual DOUBLE GetSurfaceHeight(); /* 0x110 */
-    virtual INT vf_118(); /* 0x118 */
+    virtual class FTextureResource* CreateResource(); /* 0x118 */
     virtual INT vf_11c(); /* 0x11c */
     virtual INT GetMaterialType(); /* 0x120 */
     /* other member functions */
@@ -33104,7 +33105,7 @@ struct UTextureRenderTarget2D : public UTextureRenderTarget {
     virtual INT vf_0d4(); /* 0x0d4 */
     virtual DOUBLE vf_10c(); /* 0x10c */
     virtual DOUBLE GetSurfaceHeight(); /* 0x110 */
-    virtual INT vf_118(); /* 0x118 */
+    virtual class FTextureResource* CreateResource(); /* 0x118 */
     virtual INT GetMaterialType(); /* 0x120 */
     /* UnrealScript natives */
     void execCreate(FFrame& Stack, RESULT_DECL); /* 0x00771490 */
@@ -36992,7 +36993,7 @@ struct UTexture2DComposite : public UTexture {
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual DOUBLE vf_10c(); /* 0x10c */
     virtual DOUBLE GetSurfaceHeight(); /* 0x110 */
-    virtual INT vf_118(); /* 0x118 */
+    virtual class FTextureResource* CreateResource(); /* 0x118 */
     virtual INT GetMaterialType(); /* 0x120 */
     /* UnrealScript natives */
     void execSourceTexturesFullyStreamedIn(FFrame& Stack, RESULT_DECL); /* 0x00c8f520 */
@@ -37044,7 +37045,7 @@ struct UTexture2DDynamic : public UTexture {
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual DOUBLE vf_10c(); /* 0x10c */
     virtual DOUBLE GetSurfaceHeight(); /* 0x110 */
-    virtual INT vf_118(); /* 0x118 */
+    virtual class FTextureResource* CreateResource(); /* 0x118 */
     virtual INT GetMaterialType(); /* 0x120 */
     /* UnrealScript natives */
     void execCreate(FFrame& Stack, RESULT_DECL); /* 0x0076eba0 */
@@ -37141,7 +37142,7 @@ struct UTextureMovie : public UTexture {
     virtual INT vf_0d4(); /* 0x0d4 */
     virtual DOUBLE vf_10c(); /* 0x10c */
     virtual DOUBLE GetSurfaceHeight(); /* 0x110 */
-    virtual INT vf_118(); /* 0x118 */
+    virtual class FTextureResource* CreateResource(); /* 0x118 */
     virtual INT GetMaterialType(); /* 0x120 */
     /* UnrealScript natives */
     void execPlay(FFrame& Stack, RESULT_DECL); /* 0x00c8f720 */
@@ -37179,7 +37180,7 @@ struct UTextureRenderTargetCube : public UTextureRenderTarget {
     virtual INT vf_0d4(); /* 0x0d4 */
     virtual DOUBLE vf_10c(); /* 0x10c */
     virtual DOUBLE GetSurfaceHeight(); /* 0x110 */
-    virtual INT vf_118(); /* 0x118 */
+    virtual class FTextureResource* CreateResource(); /* 0x118 */
     virtual INT GetMaterialType(); /* 0x120 */
     /* registered size 0xbc */
 };
@@ -39792,7 +39793,7 @@ struct ARDebugMenu : public ARDynamicMenu {
     virtual void vf_374(); /* 0x374 */
     virtual void vf_378(); /* 0x378 */
     virtual FString GetVersionInfo(); /* 0x37c */
-    virtual INT LoadLevel(INT); /* 0x380 */
+    virtual void LoadLevel(const FString& LevelName); /* 0x380 */
     virtual INT vf_384(INT); /* 0x384 */
     virtual INT vf_388(INT, INT); /* 0x388 */
     virtual INT vf_38c(FLOAT); /* 0x38c */
@@ -51349,7 +51350,7 @@ struct ARGameRI : public ARGameReplicationInfoBase {
     virtual void vf_388(INT, INT); /* 0x388 */
     virtual void vf_38c(INT, INT, INT, INT); /* 0x38c */
     virtual void ShowLoadingIcon(UBOOL bShow); /* 0x390 */
-    virtual void SetLevelsInURL(INT); /* 0x394 */
+    virtual void SetLevelsInURL(const FString& Levels); /* 0x394 */
     virtual UBOOL IsCurrentLevel(FName Level); /* 0x398 */
     virtual UBOOL IsInCurrentLevel(class UObject* Obj); /* 0x39c */
     virtual INT vf_3a0(INT); /* 0x3a0 */
@@ -52536,7 +52537,7 @@ struct URHUDPrompt : public UObject {
     FStringNoInit InstructionsLast; /* 0x80 */
     class URSeqAct_HelpText* FromKismet; /* 0x8c */
     /* virtual functions this class introduces (vtable 0x022ff030) */
-    virtual INT HelpLinesMatch(INT, INT); /* 0x10c */
+    virtual UBOOL HelpLinesMatch(FHelpLine& A, FHelpLine& B); /* 0x10c */
     virtual void vf_110(INT, INT, INT, INT); /* 0x110 */
     virtual void vf_114(); /* 0x114 */
     virtual INT vf_118(); /* 0x118 */
@@ -52937,7 +52938,7 @@ struct ARJokerTannoy : public AActor {
     FStringNoInit BarkSetPackage; /* 0x1cc */
     INT RoomSpecificBias; /* 0x1d8 */
     /* virtual functions this class introduces (vtable 0x02345e98) */
-    virtual void LoadBarkSet(INT); /* 0x354 */
+    virtual UBOOL LoadBarkSet(const FString& BarkSet); /* 0x354 */
     virtual void vf_358(); /* 0x358 */
     virtual INT vf_35c(); /* 0x35c */
     /* overrides */
@@ -55426,7 +55427,7 @@ struct ARPlayerController : public ARPlayerControllerBase {
     virtual FString GetReturnPoint(); /* 0x658 */
     virtual INT SetReturnPoint(const FString& Str); /* 0x65c */
     virtual void StripGlobalNamePart(TArray<FString>& Names); /* 0x660 */
-    virtual void GetVisitedPMapsList(INT); /* 0x664 */
+    virtual void GetVisitedPMapsList(TArray<FString>& Out); /* 0x664 */
     virtual void GetCreditsStrings(INT, INT, INT, INT); /* 0x668 */
     virtual INT vf_66c(); /* 0x66c */
     virtual INT vf_670(); /* 0x670 */
@@ -62398,8 +62399,10 @@ struct UClass : public UState {
     virtual INT vf_130(); /* 0x130 */
     /* other member functions */
     UBOOL sub_005b9020(UClass* InterfaceClass); /* 0x005b9020 */
-    DWORD sub_005f2cf0(DWORD Offset, DWORD ElementSize); /* 0x005f2cf0 */
-    void sub_005f2d90(DWORD SkipIndexIndex); /* 0x005f2d90 */
+    void EmitObjectReference(DWORD Offset); /* 0x005f2bf0: GC token stream */
+    void EmitObjectArrayReference(DWORD Offset); /* 0x005f2c70 */
+    DWORD EmitStructArrayBegin(DWORD Offset, DWORD StructSize); /* 0x005f2cf0: returns the skip index index */
+    void EmitStructArrayEnd(DWORD SkipIndexIndex); /* 0x005f2d90 */
     UINT sub_00587ec0(BYTE); /* 0x00587ec0 */
     /* registered size 0x1dc */
 };

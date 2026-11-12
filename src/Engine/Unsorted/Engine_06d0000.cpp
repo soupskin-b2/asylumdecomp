@@ -2302,7 +2302,7 @@ void UMaterialInstanceConstant::SetParent(class UMaterialInterface* NewParent)
 {
 	sub_006c47c0(TEXT("MIC::SetParent"));
 	UMaterialInstance::SetParent(NewParent);
-	vf_180();
+	InitResources();
 }
 
 // @baa 0x006db600

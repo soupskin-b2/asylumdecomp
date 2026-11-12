@@ -23,5 +23,5 @@ void UMaterialInstanceConstant_::ClearParameterValues()
     FontParameterValues.Empty();
 
     // vf_180 in Classes.h (UMaterialInstance's virtual InitResources)
-    vf_180();
+    InitResources();
 }

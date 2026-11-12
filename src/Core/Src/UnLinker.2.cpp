@@ -100,20 +100,14 @@ void C_00648a30::sub_00648a30(int param_2)
   return;
 }
 
-struct UClass_ : public UClass {
-    void sub_005f2bf0(DWORD Offset);                       // EmitObjectReference
-    DWORD sub_005f2cf0(DWORD Offset, DWORD ElementSize);   // EmitStructArrayBegin
-    void sub_005f2d90(DWORD SkipIndexIndex);               // EmitStructArrayEnd
-};
-
 // @baa 0x0059a3e0
 void ULinker::StaticConstructor()
 {
-    UClass_* TheClass = (UClass_*)GetClass();
-    TheClass->sub_005f2bf0(0x30);
-    const DWORD SkipIndexIndex = TheClass->sub_005f2cf0(0xb0, 0x28);
-    TheClass->sub_005f2bf0(0x20);
-    TheClass->sub_005f2d90(SkipIndexIndex);
+    UClass* TheClass = GetClass();
+    TheClass->EmitObjectReference(0x30);
+    const DWORD SkipIndexIndex = TheClass->EmitStructArrayBegin(0xb0, 0x28);
+    TheClass->EmitObjectReference(0x20);
+    TheClass->EmitStructArrayEnd(SkipIndexIndex);
 }
 
 struct C_005a9ee0

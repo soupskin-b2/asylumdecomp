@@ -43,7 +43,7 @@ DOUBLE UTexture::GetSurfaceHeight() {
 int sub_00630f20(...);
 extern undefined4 g_026667a8;
 // @baa 0x0071ef80
-INT UTexture::vf_118() {
+FTextureResource* UTexture::CreateResource() {
   sub_00630f20(g_026667a8,L"Pure virtual not implemented (%s)",L"UTexture::CreateResource");
   return 0;
 }

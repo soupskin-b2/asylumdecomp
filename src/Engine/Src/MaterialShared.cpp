@@ -774,7 +774,7 @@ void UMaterialInstanceTimeVarying::SetParent(class UMaterialInterface* NewParent
 {
 	sub_006c47c0(TEXT("MITV::SetParent"));
 	UMaterialInstance::SetParent(NewParent);
-	vf_180();
+	InitResources();
 }
 
 struct S {

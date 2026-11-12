@@ -1003,7 +1003,7 @@ undefined4 APawn::vf_3cc(void)
 }
 
 // @baa 0x00865a30
-int APawn::vf_3fc(int a0) { return 1; }
+UBOOL APawn::HurtByDamageType(UClass* a0) { return 1; }
 
 // @baa 0x00867a20
 undefined4 APawn::vf_3d4(int param_2)

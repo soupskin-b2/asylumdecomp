@@ -32,7 +32,7 @@ int UTextureRenderTarget::sub_00755d00(void)
 void sub_00755d20(void) {  }
 
 // @baa 0x00755d30
-int UTextureRenderTarget::vf_118(void) { return 0; }
+FTextureResource* UTextureRenderTarget::CreateResource() { return 0; }
 
 // @baa 0x00755d40
 int UTextureRenderTarget::GetMaterialType(void) { return 48; }

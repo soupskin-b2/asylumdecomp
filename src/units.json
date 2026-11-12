@@ -140820,7 +140820,7 @@
     {
      "va": "00755d30",
      "size": 3,
-     "symbol": "?vf_118@UTextureRenderTarget@@UAEHXZ"
+     "symbol": "?CreateResource@UTextureRenderTarget@@UAEPAVFTextureResource@@XZ"
     },
     {
      "va": "00755d40",
@@ -171631,7 +171631,7 @@
     {
      "va": "006aefe0",
      "size": 1,
-     "symbol": "?vf_178@UMaterialInstance@@UAEXXZ"
+     "symbol": "?ClearParameterValues@UMaterialInstance@@UAEXXZ"
     },
     {
      "va": "006c47a0",
@@ -181168,7 +181168,7 @@
     {
      "va": "0071ef80",
      "size": 27,
-     "symbol": "?vf_118@UTexture@@UAEHXZ"
+     "symbol": "?CreateResource@UTexture@@UAEPAVFTextureResource@@XZ"
     },
     {
      "va": "007240f0",
@@ -214448,7 +214448,7 @@
     {
      "va": "00865a30",
      "size": 8,
-     "symbol": "?vf_3fc@APawn@@UAEHH@Z"
+     "symbol": "?HurtByDamageType@APawn@@UAEHPAUUClass@@@Z"
     },
     {
      "va": "00867a20",
@@ -274493,7 +274493,7 @@
     {
      "va": "00708a30",
      "size": 37,
-     "symbol": "?vf_180@UMaterialInstanceConstant@@UAEXXZ"
+     "symbol": "?InitResources@UMaterialInstanceConstant@@UAEXXZ"
     },
     {
      "va": "00708a60",
@@ -274538,7 +274538,7 @@
     {
      "va": "00709a30",
      "size": 37,
-     "symbol": "?vf_180@UMaterialInstanceTimeVarying@@UAEXXZ"
+     "symbol": "?InitResources@UMaterialInstanceTimeVarying@@UAEXXZ"
     },
     {
      "va": "00709ec0",

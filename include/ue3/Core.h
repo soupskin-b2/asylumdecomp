@@ -126,6 +126,8 @@ enum EName
 	NAME_PawnEnteredVolume          = 0x14c,
 	NAME_MayFall                    = 0x14d,
 	NAME_PawnLeavingVolume          = 0x14f,
+	NAME_Tick                       = 0x150,
+	NAME_PlayerTick                 = 0x151,
 	NAME_SeePlayer                  = 0x154,
 	NAME_SeeMonster                 = 0x158,
 	NAME_NotifyLanded               = 0x160,
