@@ -161,29 +161,52 @@ def _transient(text: str) -> bool:
     return "C1083" in text and ".pch" in text.lower() and ("Permission denied" in text or "Access is denied" in text)
 
 
-# an explicit instantiation of a template the headers already instantiate emits nothing under /Yu
-# (its code went into the PCH's own object), so such sources are compiled whole
+# An explicit instantiation of a template the headers already instantiate emits nothing under /Yu (its
+# code went into the PCH's own object). Rare, so such sources still use the PCH, and the checker compiles
+# one whole when it doesn't verify that way (see instantiates()).
 _INSTANTIATION = re.compile(r"^\s*template\s+(?!<)", re.M)
 PCH_MEMORY = "/Zm200"  # the engine headers outgrew VC8's default PCH memory (C3859); no effect on the code
 
 
-def _pch(src: str, p: Profile) -> tuple[str, Path] | None:
-    """The engine header the source starts by including, precompiled once per profile and header."""
-    if p.c or _INSTANTIATION.search(src):
+def instantiates(src: str) -> bool:
+    return bool(_INSTANTIATION.search(src))
+
+
+def _head(src: str) -> tuple[list[str], str, list[int]] | None:
+    """What a source starts with: #define and <system> #include lines, then the engine header it includes.
+    Returns (those lines without comments, the header, their line indexes), or None for any other start."""
+    lines, prefix, idx = src.split("\n"), [], []
+    for k, raw in enumerate(lines):
+        l = re.sub(r"/\*.*?\*/|//.*", "", raw).strip()
+        if not l:
+            if "/*" in raw:  # a block comment over several lines
+                return None
+            continue
+        m = re.fullmatch(r'#\s*include\s*"(ue3/\w+\.h)"', l)
+        if m:
+            return prefix, m.group(1), idx + [k]
+        if not re.match(r"#\s*(define\s|include\s*<)", l):
+            return None
+        prefix.append(re.sub(r"\s+", " ", l))
+        idx.append(k)
+    return None
+
+
+def _pch(src: str, p: Profile) -> tuple[str, Path, list[int]] | None:
+    """The engine header the source starts by including (after any #defines it sets for it), precompiled
+    once per profile, header and defines. Also returns the source lines the PCH stands for."""
+    head = None if p.c else _head(src)
+    if not head:
         return None
-    first = next((l.strip() for l in src.split("\n") if l.strip() and not l.strip().startswith("//")), "")
-    m = re.fullmatch(r'#\s*include\s*"(ue3/\w+\.h)"', first)
-    if not m:
-        return None
-    header = m.group(1)
-    tag = hashlib.sha256(json.dumps([header, p.compiler, p.flags, p.prelude, headers_hash()]).encode()).hexdigest()[:16]
+    prefix, header, idx = head
+    tag = hashlib.sha256(json.dumps([header, p.compiler, p.flags, p.prelude, prefix, headers_hash()]).encode()).hexdigest()[:16]
     d = HOME / "cache" / "pch"
     hdr, out = "asylum_pch_%s.h" % tag, d / ("%s.pch" % tag)
     if out.exists():
         _used(out)
-        return hdr, out
+        return hdr, out, idx
     d.mkdir(parents=True, exist_ok=True)
-    text = "".join('#include "%s"\n' % h for h in p.prelude + [header])
+    text = "".join("%s\n" % l for l in prefix) + "".join('#include "%s"\n' % h for h in p.prelude + [header])
     t = d / ("%s.%d.tmp" % (hdr, os.getpid()))
     if not (d / hdr).exists():
         t.write_text(text, encoding="utf-8")
@@ -205,10 +228,10 @@ def _pch(src: str, p: Profile) -> tuple[str, Path] | None:
                 pass
             time.sleep(0.2)
             if out.exists():
-                return hdr, out
+                return hdr, out, idx
     if out.exists():
         lock.unlink(missing_ok=True)
-        return hdr, out
+        return hdr, out, idx
     work = Path(tempfile.mkdtemp(prefix="pch_", dir=_tmp()))
     try:
         (work / "pch.cpp").write_text('#include "%s"\n' % hdr, encoding="utf-8")
@@ -219,7 +242,7 @@ def _pch(src: str, p: Profile) -> tuple[str, Path] | None:
                 os.replace(work / "out.pch", out)
             except OSError:
                 pass
-        return (hdr, out) if out.exists() else None
+        return (hdr, out, idx) if out.exists() else None
     finally:
         lock.unlink(missing_ok=True)
         shutil.rmtree(work, ignore_errors=True)
@@ -268,19 +291,20 @@ def _tmp() -> Path:
     return t
 
 
-def compile(src: str, p: Profile, check: bool = True) -> Compiled:
+def compile(src: str, p: Profile, check: bool = True, whole: bool = False) -> Compiled:
+    """The source's object file (cached). whole: without the precompiled header."""
     if check:
         why = check_source(src)
         if why:
             return Compiled(None, why, [why], rejected=True)
     ext = "c" if p.c else "cpp"
     flags = list(p.flags)
-    pch = _pch(src, p)
+    pch = None if whole else _pch(src, p)
     if pch:
-        # prelude and engine header from the .pch; the include line blanked so line numbers stay the source's
+        # defines, prelude and engine header from the .pch; their lines blanked so line numbers stay the source's
         lines = src.split("\n")
-        i = next(k for k, l in enumerate(lines) if l.strip() and not l.strip().startswith("//"))
-        lines[i] = ""
+        for i in pch[2]:
+            lines[i] = ""
         tu = '#include "%s"\n#line 1 "candidate.%s"\n%s\n' % (pch[0], ext, "\n".join(lines))
         flags += [PCH_MEMORY, "/Yu" + pch[0], "/Fp" + str(pch[1]), "/I" + str(pch[1].parent)]
     else:

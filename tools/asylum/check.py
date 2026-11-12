@@ -45,14 +45,14 @@ def known(obj: Coff) -> dict[str, int]:
     return fingerprint.known_symbols(obj, data.symbols(), _pinned)
 
 
-def check(va: int, src: str, function: str | None = None) -> Result:
+def check(va: int, src: str, function: str | None = None, whole: bool = False) -> Result:
     f = data.functions().get(va)
     if f is None:
         return Result("extract_error", ["%08x is not the start of a function in data/functions.json.gz" % va])
     fp = data.fingerprint(va)
     if fp is None:
         return Result("extract_error", ["no fingerprint for %08x" % va])
-    c = cl.compile(src, cl.profile(f["profile"]))
+    c = cl.compile(src, cl.profile(f["profile"]), whole=whole)
     if c.obj is None:
         return Result("rejected" if c.rejected else "compile_error", c.errors or [c.diagnostics])
     obj = Coff(c.obj)
@@ -65,16 +65,18 @@ def check(va: int, src: str, function: str | None = None) -> Result:
             return Result("extract_error", ["the source's function is %s, named for %s, not %08x"
                                             % (sym.name, other.group(1), va)])
     status, problems, bound = fingerprint.verify(obj, w, va, fp, k, data.imports())
+    if status != "match" and not whole and cl.instantiates(src):
+        return check(va, src, function, whole=True)  # the instantiation may be in the precompiled header's object
     if status == "extract_error":
         problems.append("name the function to compare with --function (its decorated name or a unique part of it)")
     return Result(status, problems, sym.name if sym else None, bound, obj, {n: a for n, a in bound.items() if n not in k})
 
 
-def unit_check(src: str, profile: str, funcs: list[tuple[int, list[str]]], library: bool = False) -> dict:
+def unit_check(src: str, profile: str, funcs: list[tuple[int, list[str]]], library: bool = False, whole: bool = False) -> dict:
     """A whole file of src/ (or a library's own file in third_party/, which skips the source
     rules): every listed function verified. Also reports a name that two functions of the file
     bind to different addresses."""
-    c = cl.compile(src, cl.profile(profile), check=not library)
+    c = cl.compile(src, cl.profile(profile), check=not library, whole=whole)
     if c.obj is None:
         return {"compile_errors": c.errors or [c.diagnostics], "functions": {}, "conflicts": []}
     obj = Coff(c.obj)
@@ -93,6 +95,8 @@ def unit_check(src: str, profile: str, funcs: list[tuple[int, list[str]]], libra
                 seen.setdefault(n, (va, a))
         s = obj.find_function(w)
         out["%08x" % va] = {"status": st, "problems": pr, "symbol": s.name if s else None, "bound": {n: "%08x" % a for n, a in bound.items()}}
+    if not whole and cl.instantiates(src) and any(f["status"] != "match" for f in out.values()):
+        return unit_check(src, profile, funcs, library, whole=True)  # an instantiation may be in the PCH's object
     return {"compile_errors": [], "functions": out, "conflicts": conflicts}
 
 
