@@ -1,4 +1,4 @@
-// UnrealEd_1110000.cpp: 3 functions
+// UnrealEd_1110000.cpp: 4 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Core.h"
@@ -268,4 +268,19 @@ public:
 void __stdcall sub_011171d0(wxNotifyEvent* Event)
 {
     Event->wxNotifyEvent::Veto();
+}
+
+INT sub_00bedf30(void* Object);
+struct C
+{
+    char pad_00[0xc];
+    void* Object;
+
+    INT sub_0111ff50();
+};
+
+// @baa 0x0111ff50
+INT C::sub_0111ff50()
+{
+    return sub_00bedf30(Object);
 }

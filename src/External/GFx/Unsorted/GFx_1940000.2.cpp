@@ -1,7 +1,7 @@
-// GFx_1940000.cpp (part 2 of 3): 81 functions
+// GFx_1940000.cpp (part 2 of 3): 84 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
-#include "ue3/Core.h"
+#include "ue3/Classes.h"
 
 struct S {
     void sub_0193f330(int arg1);
@@ -889,4 +889,98 @@ uint C_0194ff10::sub_0194ff10(uint param_2)
 {
     int param_1 = (int)this;
   return *(uint *)(*(int *)(param_1 + 4) + 0x10) & param_2;
+}
+
+// Rebuild of GFxMovieRoot around virtual slot 24 (0x60).
+// The class holds an integer-typed subobject at 0x38 that is
+// forwarded by address to a sibling virtual at slot 20 (0x50).
+struct GFxMovieRoot
+{
+    int *VirtualTable;
+    int  Filler[12];            // up to 0x38
+    int  State;                 // at 0x38, a subobject that the slot-20 virtual operates on
+    int  Filler2[18];           // up to 0x84
+    int  Field84;
+
+    virtual void f00() {}
+    virtual void f01() {}
+    virtual void f02() {}
+    virtual void f03() {}
+    virtual void f04() {}
+    virtual void f05() {}
+    virtual void f06() {}
+    virtual void f07() {}
+    virtual void f08() {}
+    virtual void f09() {}
+    virtual void f10() {}
+    virtual void f11() {}
+    virtual void f12() {}
+    virtual void f13() {}
+    virtual void f14() {}
+    virtual void f15() {}
+    virtual void f16() {}
+    virtual void f17() {}
+    virtual void f18() {}
+    virtual void f19() {}
+    virtual void sub_01949560(int *In);   // slot 20 (0x50)
+    virtual void f21() {}
+    virtual void f22() {}
+    virtual void f23() {}
+    virtual void sub_01947fa0(int In);    // slot 24 (0x60)
+};
+
+void GFxMovieRoot::sub_01949560(int *) {}
+
+// @baa 0x01947fa0
+void GFxMovieRoot::sub_01947fa0(int In)
+{
+    Field84 = In;
+    sub_01949560(&State);
+}
+
+#pragma pack(push, 4)
+// Holds a numeric value with a type tag; bType 3 marks a double.
+struct FNumericStringDouble
+{
+	BYTE bType;
+	double Value;
+};
+
+#pragma pack(pop)
+// @baa 0x0194a050
+FNumericStringDouble* sub_0194a050(FNumericStringDouble* Result, double* Value)
+{
+	if (Result != 0)
+	{
+		Result->Value = *Value;
+		Result->bType = 3;
+		return Result;
+	}
+	return 0;
+}
+
+struct SInitHeader
+{
+    int Value;
+    int Size;
+    int P0;
+    int P1;
+    int P2;
+    int P3;
+    unsigned short Flags;
+    unsigned char Pad2;
+    unsigned char Pad3;
+
+    SInitHeader* sub_0194a6b0();
+};
+
+// @baa 0x0194a6b0
+SInitHeader* SInitHeader::sub_0194a6b0()
+{
+    Value = 0;
+    Size = -1;
+    Flags = 0;
+    Pad2 = 0;
+    Pad3 = 0;
+    return this;
 }

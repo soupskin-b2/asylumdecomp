@@ -1,4 +1,4 @@
-// FCollada_1880000.cpp (part 35 of 35): 3 functions
+// FCollada_1880000.cpp (part 35 of 35): 4 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -48,4 +48,19 @@ void C_01889120::sub_01889120()
 {
     State = 1;
     Flags |= 1;
+}
+
+INT sub_0188e790(void* Object);
+struct C_0188c090
+{
+    char pad_00[0x64];
+    INT Object;
+
+    INT sub_0188c090();
+};
+
+// @baa 0x0188c090
+INT C_0188c090::sub_0188c090()
+{
+    return sub_0188e790(&Object);
 }

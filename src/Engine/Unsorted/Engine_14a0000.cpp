@@ -1,4 +1,4 @@
-// Engine_14a0000.cpp: 23 functions
+// Engine_14a0000.cpp: 24 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -494,4 +494,19 @@ TConstSetBitIterator_014ad640& TConstSetBitIterator_014ad640::operator++()
 {
     It.Advance();
     return *this;
+}
+
+INT sub_00dbcb50(void* Value);
+struct C_014ad660
+{
+    char pad_00[0xc];
+    void* Value;
+
+    INT sub_014ad660();
+};
+
+// @baa 0x014ad660
+INT C_014ad660::sub_014ad660()
+{
+    return sub_00dbcb50(Value);
 }

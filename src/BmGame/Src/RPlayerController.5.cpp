@@ -1,4 +1,4 @@
-// RPlayerController.cpp (part 5 of 6): 4 functions
+// RPlayerController.cpp (part 5 of 6): 5 functions
 // Placed here by: neighbours 4.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -83,4 +83,11 @@ void C_016243b0::sub_016243b0(int param_2)
     }
   }
   return;
+}
+
+extern INT g_026e2534;
+// @baa 0x01719070
+void __stdcall sub_01719070(BYTE Value)
+{
+    g_026e2534 = Value;
 }

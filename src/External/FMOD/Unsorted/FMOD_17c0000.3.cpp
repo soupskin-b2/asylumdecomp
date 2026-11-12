@@ -1,4 +1,4 @@
-// FMOD_17c0000.cpp (part 3 of 3): 47 functions
+// FMOD_17c0000.cpp (part 3 of 3): 59 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -579,3 +579,171 @@ struct O_017cecb0 { char pad[320]; V_017cecb0* p; void sub_017cecb0(int a0); };
 
 // @baa 0x017cecb0
 void O_017cecb0::sub_017cecb0(int a0) { p->g(a0); }
+
+struct C_017ce670
+{
+    char pad_00[0xf8];
+    float Value;
+
+    void sub_017ce670(float In);
+};
+
+// @baa 0x017ce670
+void C_017ce670::sub_017ce670(float In)
+{
+    Value = In;
+}
+
+struct C_017ce690
+{
+    char pad_00[0xfc];
+    float Value;
+
+    void sub_017ce690(float In);
+};
+
+// @baa 0x017ce690
+void C_017ce690::sub_017ce690(float In)
+{
+    Value = In;
+}
+
+struct C_017ce6b0
+{
+    char pad_00[0x100];
+    float Value;
+
+    void sub_017ce6b0(float In);
+};
+
+// @baa 0x017ce6b0
+void C_017ce6b0::sub_017ce6b0(float In)
+{
+    Value = In;
+}
+
+struct C_017ce6d0
+{
+    char pad_00[0x104];
+    float Value;
+
+    void sub_017ce6d0(float In);
+};
+
+// @baa 0x017ce6d0
+void C_017ce6d0::sub_017ce6d0(float In)
+{
+    Value = In;
+}
+
+struct C_017ce6f0
+{
+    char pad_00[0x108];
+    float Value;
+
+    void sub_017ce6f0(float In);
+};
+
+// @baa 0x017ce6f0
+void C_017ce6f0::sub_017ce6f0(float In)
+{
+    Value = In;
+}
+
+struct C_017ce710
+{
+    char pad_00[0x10c];
+    float Value;
+
+    void sub_017ce710(float In);
+};
+
+// @baa 0x017ce710
+void C_017ce710::sub_017ce710(float In)
+{
+    Value = In;
+}
+
+struct C_017ce7a0
+{
+    char pad_00[0x110];
+    float Value;
+
+    void sub_017ce7a0(float In);
+};
+
+// @baa 0x017ce7a0
+void C_017ce7a0::sub_017ce7a0(float In)
+{
+    Value = In;
+}
+
+struct C_017ce7c0
+{
+    char pad_00[0x114];
+    float Value;
+
+    void sub_017ce7c0(float In);
+};
+
+// @baa 0x017ce7c0
+void C_017ce7c0::sub_017ce7c0(float In)
+{
+    Value = In;
+}
+
+struct C_017ce8a0
+{
+    char pad_00[0x118];
+    float Value;
+
+    void sub_017ce8a0(float In);
+};
+
+// @baa 0x017ce8a0
+void C_017ce8a0::sub_017ce8a0(float In)
+{
+    Value = In;
+}
+
+struct C_017ce8c0
+{
+    char pad_00[0x11c];
+    float Value;
+
+    void sub_017ce8c0(float In);
+};
+
+// @baa 0x017ce8c0
+void C_017ce8c0::sub_017ce8c0(float In)
+{
+    Value = In;
+}
+
+struct C_017ce920
+{
+    char pad_00[0x80];
+    float Value;
+
+    void sub_017ce920(float In);
+};
+
+// @baa 0x017ce920
+void C_017ce920::sub_017ce920(float In)
+{
+    Value = In;
+}
+
+struct C_017ce940
+{
+    char pad_00[0x84];
+    float Value;
+
+    void sub_017ce940(float In);
+};
+
+// @baa 0x017ce940
+void C_017ce940::sub_017ce940(float In)
+{
+    Value = In;
+}

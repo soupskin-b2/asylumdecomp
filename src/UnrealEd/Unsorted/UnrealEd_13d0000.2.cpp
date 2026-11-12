@@ -1,4 +1,4 @@
-// UnrealEd_13d0000.cpp (part 2 of 4): 4 functions
+// UnrealEd_13d0000.cpp (part 2 of 4): 7 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -56,4 +56,48 @@ undefined4 UObject::sub_013df3c0(byte param_2)
     sub_0053dfa0(param_1);
   }
   return param_1;
+}
+
+INT sub_00dd9e40(void* Value);
+struct C_013de900
+{
+    char pad_00[0xc];
+    void* Value;
+
+    INT sub_013de900();
+};
+
+// @baa 0x013de900
+INT C_013de900::sub_013de900()
+{
+    return sub_00dd9e40(Value);
+}
+
+INT sub_00dbddd0(void* Value);
+struct C_013deb40
+{
+    char pad_00[0xc];
+    void* Value;
+
+    INT sub_013deb40();
+};
+
+// @baa 0x013deb40
+INT C_013deb40::sub_013deb40()
+{
+    return sub_00dbddd0(Value);
+}
+
+struct C_013debb0
+{
+    char pad_00[0xc];
+    void* Value;
+
+    INT sub_013debb0();
+};
+
+// @baa 0x013debb0
+INT C_013debb0::sub_013debb0()
+{
+    return sub_00dbddd0(Value);
 }

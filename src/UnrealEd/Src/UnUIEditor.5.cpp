@@ -1,4 +1,4 @@
-// UnUIEditor.cpp (part 5 of 5): 1 function
+// UnUIEditor.cpp (part 5 of 5): 3 functions
 // Placed here by: neighbours 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -33,4 +33,34 @@ if((undefined4*)0x0!=puVar1){
 *puVar1=*param_2;
 }
 return iVar2;
+}
+
+INT sub_01194160(void* Value);
+struct C_0149f530
+{
+    char pad_00[0xc];
+    void* Value;
+
+    INT sub_0149f530();
+};
+
+// @baa 0x0149f530
+INT C_0149f530::sub_0149f530()
+{
+    return sub_01194160(Value);
+}
+
+INT sub_0149f540(void* Value);
+struct C_014a1730
+{
+    char pad_00[0xc];
+    void* Value;
+
+    INT sub_014a1730();
+};
+
+// @baa 0x014a1730
+INT C_014a1730::sub_014a1730()
+{
+    return sub_0149f540(Value);
 }

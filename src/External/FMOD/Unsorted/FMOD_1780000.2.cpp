@@ -1,4 +1,4 @@
-// FMOD_1780000.cpp (part 2 of 2): 19 functions
+// FMOD_1780000.cpp (part 2 of 2): 20 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -371,5 +371,13 @@ INT sub_01782a83(LPCRITICAL_SECTION_01782a83 cs)
     if (cs == NULL)
         return 0x25; // ERROR_LOCK_VIOLATION
     LeaveCriticalSection(cs);
+    return 0;
+}
+
+extern "C" __declspec(dllimport) void __stdcall Sleep(unsigned long Milliseconds);
+// @baa 0x01782931
+INT sub_01782931(unsigned long Milliseconds)
+{
+    Sleep(Milliseconds);
     return 0;
 }

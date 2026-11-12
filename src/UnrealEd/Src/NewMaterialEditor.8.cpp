@@ -1,4 +1,4 @@
-// NewMaterialEditor.cpp (part 8 of 8): 5 functions
+// NewMaterialEditor.cpp (part 8 of 8): 17 functions
 // Placed here by: neighbours 5.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -145,4 +145,77 @@ void sub_01442260(int param_1, undefined4 param_2, int * param_3)
   sub_0143b550(*(undefined4 *)(param_1 + 0x1c4),param_2,param_3);
   sub_0143b550(*(undefined4 *)(param_1 + 0x1e8),param_2,param_3);
   return;
+}
+
+void __stdcall sub_0143aa90(INT Value);
+// @baa 0x0143b490
+void __stdcall sub_0143b490(INT Unused)
+{
+    sub_0143aa90(0);
+}
+
+// @baa 0x0143b4a0
+void __stdcall sub_0143b4a0(INT Unused)
+{
+    sub_0143aa90(1);
+}
+
+// @baa 0x0143b4b0
+void __stdcall sub_0143b4b0(INT Unused)
+{
+    sub_0143aa90(2);
+}
+
+// @baa 0x0143b4c0
+void __stdcall sub_0143b4c0(INT Unused)
+{
+    sub_0143aa90(3);
+}
+
+// @baa 0x0143b4d0
+void __stdcall sub_0143b4d0(INT Unused)
+{
+    sub_0143aa90(4);
+}
+
+// @baa 0x0143b4e0
+void __stdcall sub_0143b4e0(INT Unused)
+{
+    sub_0143aa90(5);
+}
+
+// @baa 0x0143b4f0
+void __stdcall sub_0143b4f0(INT Unused)
+{
+    sub_0143aa90(6);
+}
+
+// @baa 0x0143b500
+void __stdcall sub_0143b500(INT Unused)
+{
+    sub_0143aa90(7);
+}
+
+// @baa 0x0143b510
+void __stdcall sub_0143b510(INT Unused)
+{
+    sub_0143aa90(8);
+}
+
+// @baa 0x0143b520
+void __stdcall sub_0143b520(INT Unused)
+{
+    sub_0143aa90(9);
+}
+
+// @baa 0x0143b530
+void __stdcall sub_0143b530(INT Unused)
+{
+    sub_0143aa90(10);
+}
+
+// @baa 0x0143b540
+void __stdcall sub_0143b540(INT Unused)
+{
+    sub_0143aa90(11);
 }

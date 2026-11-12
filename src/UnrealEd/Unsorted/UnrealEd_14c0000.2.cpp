@@ -1,4 +1,4 @@
-// UnrealEd_14c0000.cpp (part 2 of 2): 1 function
+// UnrealEd_14c0000.cpp (part 2 of 2): 2 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -18,4 +18,19 @@ undefined4 C::sub_014c7550(byte param_2)
     sub_0053dfa0(param_1);
   }
   return param_1;
+}
+
+INT sub_014ca030(void* Value);
+struct C_014cb690
+{
+    char pad_00[0xc];
+    void* Value;
+
+    INT sub_014cb690();
+};
+
+// @baa 0x014cb690
+INT C_014cb690::sub_014cb690()
+{
+    return sub_014ca030(Value);
 }

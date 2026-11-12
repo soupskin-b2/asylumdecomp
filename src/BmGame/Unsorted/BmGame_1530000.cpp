@@ -1,4 +1,4 @@
-// BmGame_1530000.cpp: 69 functions
+// BmGame_1530000.cpp: 70 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -368,3 +368,9 @@ bool URSeqVar_LocalFlag::vf_004()
 
 // @baa 0x0153d690
 IMPLEMENT_CLASS_AT(URSeqVar_GlobalFlag, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonGame\\Src\\RFlagManager.cpp", 19);
+
+// @baa 0x0153d200
+void URSeqAct_BoolCounter::vf_110(INT, INT)
+{
+    vf_19c();
+}

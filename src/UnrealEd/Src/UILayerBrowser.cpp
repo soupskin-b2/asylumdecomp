@@ -1,4 +1,4 @@
-// UILayerBrowser.cpp (part 1 of 2): 114 functions
+// UILayerBrowser.cpp (part 1 of 2): 120 functions
 // Placed here by: neighbours 109, callers 5.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -1339,4 +1339,93 @@ bool C_014bb400::sub_014bb400(void)
   
   iVar1 = sub_013dede0(*(undefined4 *)(param_1 + 4));
   return iVar1 != 0;
+}
+
+INT sub_00dd9170(void* Value);
+struct C_013e0500
+{
+    char pad_00[0xc];
+    void* Value;
+
+    INT sub_013e0500();
+};
+
+// @baa 0x013e0500
+INT C_013e0500::sub_013e0500()
+{
+    return sub_00dd9170(Value);
+}
+
+INT sub_013dea30(void* Value);
+struct C_013e0510
+{
+    char pad_00[0xc];
+    void* Value;
+
+    INT sub_013e0510();
+};
+
+// @baa 0x013e0510
+INT C_013e0510::sub_013e0510()
+{
+    return sub_013dea30(Value);
+}
+
+INT sub_013deb50(void* Value);
+struct C_013e0520
+{
+    char pad_00[0xc];
+    void* Value;
+
+    INT sub_013e0520();
+};
+
+// @baa 0x013e0520
+INT C_013e0520::sub_013e0520()
+{
+    return sub_013deb50(Value);
+}
+
+INT sub_013dede0(void* Value);
+struct C_013e0530
+{
+    char pad_00[0xc];
+    void* Value;
+
+    INT sub_013e0530();
+};
+
+// @baa 0x013e0530
+INT C_013e0530::sub_013e0530()
+{
+    return sub_013dede0(Value);
+}
+
+INT sub_00dbddd0(void* Value);
+struct C_014a05d0
+{
+    INT pad_00;
+    void* Value;
+
+    INT sub_014a05d0();
+};
+
+// @baa 0x014a05d0
+INT C_014a05d0::sub_014a05d0()
+{
+    return sub_00dbddd0(Value);
+}
+
+struct C_014bb420
+{
+    INT pad_00;
+    void* Value;
+
+    INT sub_014bb420();
+};
+
+// @baa 0x014bb420
+INT C_014bb420::sub_014bb420()
+{
+    return sub_013dede0(Value);
 }

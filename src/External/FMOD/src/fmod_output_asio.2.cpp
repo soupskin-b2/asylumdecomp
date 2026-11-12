@@ -1,4 +1,4 @@
-// fmod_output_asio.cpp (part 2 of 2): 2 functions
+// fmod_output_asio.cpp (part 2 of 2): 3 functions
 // Placed here by: callers 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -31,4 +31,11 @@ void C_017c97e8::sub_017c97e8(void)
   }
   *(undefined4 *)(param_1 + 0xc) = 0xffffffff;
   return;
+}
+
+extern INT sub_017c8f32();
+// @baa 0x017b6d9c
+INT sub_017b6d9c()
+{
+    return sub_017c8f32() ? 0x3a : 0;
 }

@@ -1,4 +1,4 @@
-// UnPhysComponent.cpp: 14 functions
+// UnPhysComponent.cpp: 15 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -116,4 +116,11 @@ void UStaticMeshComponent::execDisableRBCollisionWithSMC(FFrame& Stack, RESULT_D
 	P_GET_UBOOL(bDisabled);
 	P_FINISH;
 	DisableRBCollisionWithSMC(OtherSMC, bDisabled);
+}
+
+// @baa 0x009fe480
+void UPrimitiveComponent::execGetRBLinearVelocity(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(FVector*)Result = GetRBLinearVelocity();
 }

@@ -1,4 +1,4 @@
-// GFx_1950000.cpp (part 2 of 3): 64 functions
+// GFx_1950000.cpp (part 2 of 3): 65 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Core.h"
@@ -698,4 +698,50 @@ undefined4 C_0195edc0::sub_0195edc0(undefined4 param_2)
     return 1;
   }
   return 0;
+}
+
+// GFxSprite's vtable: slot 19 (offset 0x4c) is this method. GFxSprite is not in the shared
+// headers, so the 19 preceding virtuals are declared here in its own order.
+struct GFxSprite_0195d300_T {
+    virtual int sub_0195d300_v00();
+    virtual int sub_0195d300_v04();
+    virtual int sub_0195d300_v08();
+    virtual int sub_0195d300_v0c();
+    virtual int sub_0195d300_v10();
+    virtual int sub_0195d300_v14();
+    virtual int sub_0195d300_v18();
+    virtual int sub_0195d300_v1c();
+    virtual int sub_0195d300_v20();
+    virtual int sub_0195d300_v24();
+    virtual int sub_0195d300_v28();
+    virtual int sub_0195d300_v2c();
+    virtual int sub_0195d300_v30();
+    virtual int sub_0195d300_v34();
+    virtual int sub_0195d300_v38();
+    virtual int sub_0195d300_v3c();
+    virtual int sub_0195d300_v40();
+    virtual int sub_0195d300_v44();
+    virtual int sub_0195d300_v48();
+    virtual int sub_0195d300_v4c();
+};
+
+struct GFxSprite_0195d300_Value {
+    char Reserved[0x1c];
+    int Value;
+};
+
+struct GFxSprite_0195d300 {
+    char Reserved1[0x24];
+    GFxSprite_0195d300_T *Sprite;
+    char Reserved2[0x1ac - 0x28];
+    GFxSprite_0195d300_Value *ValueSlot;
+    int sub_0195d300();
+};
+
+// @baa 0x0195d300
+int GFxSprite_0195d300::sub_0195d300()
+{
+    if (ValueSlot != 0)
+        return ValueSlot->Value;
+    return Sprite->sub_0195d300_v4c();
 }

@@ -1,4 +1,4 @@
-// BmGame_15d0000.cpp: 267 functions
+// BmGame_15d0000.cpp: 269 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1294,4 +1294,29 @@ void ARBMPathNode_FenceJump::vf_184(void)
   *(undefined4 *)(param_1 + 0x2e0) = 0;
   *(undefined4 *)(param_1 + 0x2e4) = 0;
   return;
+}
+
+struct C_015d8840
+{
+    BYTE Flag_00;
+    char pad_01[0x1f];
+    BYTE Flag_20;
+    INT Value_24;
+
+    C_015d8840* sub_015d8840();
+};
+
+// @baa 0x015d8840
+C_015d8840* C_015d8840::sub_015d8840()
+{
+    Flag_00 = 0;
+    Flag_20 = 0;
+    Value_24 = 0;
+    return this;
+}
+
+// @baa 0x015dee80
+void URBMExitConditionCombiner::vf_110(INT, INT)
+{
+    vf_1a4();
 }

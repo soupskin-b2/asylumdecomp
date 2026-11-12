@@ -1,4 +1,4 @@
-// UnrealEd_0c80000.cpp (part 2 of 2): 17 functions
+// UnrealEd_0c80000.cpp (part 2 of 2): 18 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -200,4 +200,11 @@ void AActor::execSetExtraStasis(FFrame& Stack, RESULT_DECL)
 	P_GET_UBOOL(NewValue);
 	P_FINISH;
 	vf_110(NewValue);
+}
+
+// @baa 0x00c81510
+void AActor::execGetZoneVelocity(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(FVector*)Result = GetZoneVelocity();
 }

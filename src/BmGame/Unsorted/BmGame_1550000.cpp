@@ -1,4 +1,4 @@
-// BmGame_1550000.cpp (part 1 of 3): 453 functions
+// BmGame_1550000.cpp (part 1 of 3): 454 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -3168,4 +3168,10 @@ struct ARCameraBlockingVolume_ : public ARCameraBlockingVolume
 UINT ARCameraBlockingVolume_::sub_01557320(UINT, UINT, UINT Flags)
 {
     return Flags & 0x400000;
+}
+
+// @baa 0x01558330
+INT __stdcall sub_01558330(INT A, INT B)
+{
+    return A + B;
 }

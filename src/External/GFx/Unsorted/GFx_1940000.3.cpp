@@ -1,4 +1,4 @@
-// GFx_1940000.cpp (part 3 of 3): 7 functions
+// GFx_1940000.cpp (part 3 of 3): 9 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -64,4 +64,64 @@ INT __stdcall sub_0194c5e0(INT* Object)
 INT __stdcall sub_0194c5f0(INT* Object)
 {
     return *(INT*)(*Object + 0x10);
+}
+
+extern "C" __declspec(dllimport) unsigned int _controlfp_s(unsigned int* pValueOut,
+                                                           unsigned int uintNewValue,
+                                                           unsigned int uintEffectiveMask);
+struct C
+{
+    unsigned int FPMode;
+
+    void sub_01947c50();
+};
+
+// @baa 0x01947c50
+void C::sub_01947c50()
+{
+    unsigned int Out;
+
+    _controlfp_s(&Out, FPMode, 0x30000);
+}
+
+// A method of GFxMovieRoot: it stores an argument into a member at offset
+// 0x80, then tail-calls the virtual at vtable offset 0x50 (slot 20) with the
+// address of the member at offset 0x38.
+struct GFxMovieRoot
+{
+    virtual void f00() {}
+    virtual void f01() {}
+    virtual void f02() {}
+    virtual void f03() {}
+    virtual void f04() {}
+    virtual void f05() {}
+    virtual void f06() {}
+    virtual void f07() {}
+    virtual void f08() {}
+    virtual void f09() {}
+    virtual void f10() {}
+    virtual void f11() {}
+    virtual void f12() {}
+    virtual void f13() {}
+    virtual void f14() {}
+    virtual void f15() {}
+    virtual void f16() {}
+    virtual void f17() {}
+    virtual void f18() {}
+    virtual void f19() {}
+    virtual void Call20(void* arg) {}
+
+    void sub_01947f80(void* arg);
+
+    char _04[0x34];
+    void* Sub;      // 0x38
+    char _3c[0x44];
+    void* Stored;   // 0x80
+};
+
+// @baa 0x01947f80
+void GFxMovieRoot::sub_01947f80(void* arg)
+{
+    Stored = arg;
+    Call20(&Sub);
 }

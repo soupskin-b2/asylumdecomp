@@ -1,4 +1,4 @@
-// BmGame_15e0000.cpp (part 1 of 5): 405 functions
+// BmGame_15e0000.cpp (part 1 of 5): 408 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -3240,3 +3240,21 @@ undefined4 * C_015ef010::sub_015ef010(void)
 IMPLEMENT_CLASS_AT(URBMSpecialMove_ReachSpec, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmPathNodeClass.cpp", 18);
 
 // @baa 0x015ef0c0
+
+// @baa 0x015e1eb0
+void URBMWaveController::vf_110(INT, INT)
+{
+    vf_1a4();
+}
+
+// @baa 0x015e1f40
+void URBMPawnSpawnerController::vf_110(INT, INT)
+{
+    vf_1ac();
+}
+
+// @baa 0x015e20e0
+void URSeqAct_GetNumPawnsInVolume::vf_110(INT, INT)
+{
+    vf_19c();
+}

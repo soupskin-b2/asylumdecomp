@@ -1,4 +1,4 @@
-// GFx_18d0000.cpp: 3 functions
+// GFx_18d0000.cpp: 7 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -68,4 +68,74 @@ int GFxSharedState_::sub_018dda60(int InParam)
 	if (Stage)
 		return Stage->sub_018ddab0(InParam);
 	return 0;
+}
+
+struct C_018d3cc0
+{
+    INT Value_00;
+    BYTE Flag_04;
+
+    C_018d3cc0* sub_018d3cc0();
+};
+
+// @baa 0x018d3cc0
+C_018d3cc0* C_018d3cc0::sub_018d3cc0()
+{
+    Value_00 = 1;
+    Flag_04 = 1;
+    return this;
+}
+
+struct Sub
+{
+    void sub_018d4370(INT A, INT B);
+};
+
+struct C_018d4520
+{
+    char pad_00[0x14];
+    Sub Marker;
+
+    void sub_018d4520();
+};
+
+// @baa 0x018d4520
+void C_018d4520::sub_018d4520()
+{
+    ((Sub*)((char*)this - 0x14))->sub_018d4370(1, 0);
+}
+
+struct Sub_018d4e50
+{
+    void sub_018d4d90();
+};
+
+struct C_018d4e50
+{
+    char pad_00[0x10];
+    Sub_018d4e50* Object;
+
+    void sub_018d4e50();
+};
+
+// @baa 0x018d4e50
+void C_018d4e50::sub_018d4e50()
+{
+    if (Object)
+        Object->sub_018d4d90();
+}
+
+struct C_018d95a0
+{
+    WORD Value;
+    BYTE pad_02;
+    BYTE Sign;
+
+    INT sub_018d95a0();
+};
+
+// @baa 0x018d95a0
+INT C_018d95a0::sub_018d95a0()
+{
+    return (Sign & 0x80) ? Value : 0;
 }

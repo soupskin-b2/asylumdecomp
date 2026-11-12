@@ -1,4 +1,4 @@
-// BmGame_1630000.cpp (part 1 of 3): 266 functions
+// BmGame_1630000.cpp (part 1 of 3): 267 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1544,3 +1544,9 @@ struct C_0163fff0 { C_0163fff0* sub_0163fff0(int a0); };
 
 // @baa 0x0163fff0
 C_0163fff0* C_0163fff0::sub_0163fff0(int a0) { return this; }
+
+// @baa 0x0163d310
+void URSeqAct_CombatProgress::vf_110(INT, INT)
+{
+    vf_1a0();
+}

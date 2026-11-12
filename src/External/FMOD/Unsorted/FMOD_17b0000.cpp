@@ -1,4 +1,4 @@
-// FMOD_17b0000.cpp (part 1 of 2): 6 functions
+// FMOD_17b0000.cpp (part 1 of 2): 7 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -88,5 +88,12 @@ int __stdcall sub_017bcca3(int a, int b, int c, int d)
 // @baa 0x017bcca9
 int __stdcall sub_017bcca9(int a, int b, int c)
 {
+    return 0x32;
+}
+
+// @baa 0x017bccaf
+INT __stdcall sub_017bccaf(INT* Value)
+{
+    *Value = 0;
     return 0x32;
 }

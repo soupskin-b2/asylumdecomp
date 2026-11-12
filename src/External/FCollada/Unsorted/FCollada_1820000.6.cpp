@@ -1,4 +1,4 @@
-// FCollada_1820000.cpp (part 6 of 6): 2 functions
+// FCollada_1820000.cpp (part 6 of 6): 3 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -31,4 +31,18 @@ unsigned char FUTracker::sub_01821810(FUTracker* Other)
     if (Other)
         return Other->sub_01854400(this);
     return 0;
+}
+
+struct C
+{
+    INT Value;
+
+    C* sub_01824fc0(INT* Source);
+};
+
+// @baa 0x01824fc0
+C* C::sub_01824fc0(INT* Source)
+{
+    Value = *Source;
+    return this;
 }

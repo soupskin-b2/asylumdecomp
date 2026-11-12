@@ -1,4 +1,4 @@
-// GFx_1930000.cpp: 2 functions
+// GFx_1930000.cpp: 3 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Core.h"
@@ -47,4 +47,28 @@ void sub_0193a900()
 {
     Vec10 V;
     V.sub_0193a8b0(0.0f, 1.0f, 2.0f);
+}
+
+// 0193ea60 is the destructor of a GRefCountBaseImpl-derived class.
+// It releases the object it references (the pointer at offset 0x2c) and then
+// destroys the GRefCountBaseImpl subobject, whose destructor lives at
+// 018d3de0.  The base destructor restores the vtable, decrements the shared
+// reference count and, when it reaches zero, frees the storage through the
+// virtual operator-delete slot (sub_018d7170).
+// static operator-delete slot body, called on the storage
+void __stdcall sub_018d7170(int Object);
+struct GRefCountBaseImpl_ {
+    int* VirtualTable;    // 0x00
+    int Reserved[10];     // 0x04..0x28: GRefCountBaseImpl refcount subobject
+    int Object;           // 0x2c: object we hold a reference to
+    void sub_018d3de0();  // base destructor, 018d3de0
+    void sub_0193ea60();  // this destructor, 0193ea60
+};
+
+// @baa 0x0193ea60
+void GRefCountBaseImpl_::sub_0193ea60()
+{
+    if (Object)
+        sub_018d7170(Object);
+    sub_018d3de0();
 }
