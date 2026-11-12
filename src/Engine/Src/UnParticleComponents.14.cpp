@@ -1,4 +1,4 @@
-// UnParticleComponents.cpp: 3 functions
+// UnParticleComponents.cpp: 4 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -35,4 +35,13 @@ void UParticleSystemComponent::execGetMaterialParameter(FFrame& Stack, RESULT_DE
     P_GET_OBJECT_REF(UMaterialInterface, OutMaterial);
     P_FINISH;
     *(UBOOL*)Result = GetMaterialParameter(InName, OutMaterial);
+}
+
+// @baa 0x00c9e0e0
+void UParticleSystemComponent::execGetColorParameter(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_NAME(InName);
+	P_GET_STRUCT_REF(FColor, OutColor);
+	P_FINISH;
+	*(UBOOL*)Result = GetColorParameter(InName, OutColor);
 }

@@ -1,4 +1,4 @@
-// Engine_06d0000.cpp (part 1 of 4): 296 functions
+// Engine_06d0000.cpp (part 1 of 4): 300 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -2354,4 +2354,51 @@ void UPrimitiveComponent::SetOwnerNoSee(UBOOL bNewOwnerNoSee)
         bOwnerNoSee = bNewOwnerNoSee;
         ((UActorComponent_*)this)->BeginDeferredReattach();
     }
+}
+
+// @baa 0x006db240
+/* UPrimitiveComponent slot 0x158 (kit vf_158, UE3 GetLightAndShadowMapMemoryUsage(INT& LightMapMemoryUsage,
+ * INT& ShadowMapMemoryUsage) const): a plain primitive has neither. */
+void UPrimitiveComponent::vf_158(UINT* LightMapMemoryUsage, UINT* ShadowMapMemoryUsage)
+{
+    *LightMapMemoryUsage = 0;
+    *ShadowMapMemoryUsage = 0;
+}
+
+// @baa 0x006db670
+/* UPrimitiveComponent slot 0x88 (kit vf_088, UE3 NeedsLoadForClient()): hidden primitives only load on clients
+ * when they collide or are marked AlwaysLoadOnClient. */
+INT UPrimitiveComponent::vf_088()
+{
+    if (!HiddenGame || (CollideActors && (!Owner || Owner->bCollideActors)) || AlwaysLoadOnClient)
+    {
+        return UActorComponent::vf_088();
+    }
+    return FALSE;
+}
+
+// @baa 0x006db6b0
+/* UPrimitiveComponent slot 0x8c (kit vf_08c, UE3 NeedsLoadForServer()): load on servers when colliding or marked
+ * AlwaysLoadOnServer. */
+INT UPrimitiveComponent::vf_08c()
+{
+    return ((CollideActors && (!Owner || Owner->bCollideActors)) || AlwaysLoadOnServer) ? UActorComponent::vf_08c() : FALSE;
+}
+
+// @baa 0x006dc5f0
+/* UPrimitiveComponent slot 0x1e8 (kit vf_1e8): the primitive's GetHasFallenOutOfWorld() (the same -100000 kill
+ * height as USkeletalMeshComponent::GetHasFallenOutOfWorld): the physics body's position if there is one, else
+ * the LocalToWorld origin. */
+INT UPrimitiveComponent::vf_1e8()
+{
+    FVector Position;
+    if (BodyInstance)
+    {
+        Position = BodyInstance->GetUnrealWorldPosition();
+    }
+    else
+    {
+        Position = FVector(LocalToWorld.WPlane.X, LocalToWorld.WPlane.Y, LocalToWorld.WPlane.Z);
+    }
+    return Position.Z < -100000.f;
 }

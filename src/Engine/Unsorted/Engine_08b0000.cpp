@@ -1,4 +1,4 @@
-// Engine_08b0000.cpp (part 1 of 2): 34 functions
+// Engine_08b0000.cpp (part 1 of 2): 35 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -552,4 +552,13 @@ FLOAT AActor__008b8270::GetTimerRate(FName TimerFuncName, UObject* inObj)
         }
     }
     return -1.f;
+}
+
+/* Kit gap: UnVcWin32.cpp's appClipboardPaste() isn't declared (005f0700: OpenClipboard, GetClipboardData). */
+FString appClipboardPaste();
+// @baa 0x008b6f60
+/* UE3's APlayerController::PasteFromClipboard(). */
+FString APlayerController::PasteFromClipboard()
+{
+    return appClipboardPaste();
 }

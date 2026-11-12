@@ -1,4 +1,4 @@
-// UnActorFactory.cpp (part 1 of 2): 227 functions
+// UnActorFactory.cpp (part 1 of 2): 228 functions
 // Placed here by: neighbours 141, file 30, class 18, callers 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -947,4 +947,18 @@ bool UActorFactoryMover::vf_004()
 bool UActorFactoryCloth::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+/* Unnamed in the kit: UE3's UPrimitiveComponent::SetRBCollisionChannels(FRBCollisionChannelContainer Channels)
+ * (execSetRBCollisionChannels' native); slot 0x20c is UE3's UpdatePhysicsToRBChannels(). */
+struct UPrimitiveComponent_ : public UPrimitiveComponent
+{
+    void sub_009ff9a0(FRBCollisionChannelContainer Channels);
+};
+
+// @baa 0x009ff9a0
+void UPrimitiveComponent_::sub_009ff9a0(FRBCollisionChannelContainer Channels)
+{
+    RBCollideWithChannels = Channels;
+    vf_20c();
 }

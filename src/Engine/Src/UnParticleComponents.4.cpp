@@ -1,4 +1,4 @@
-// UnParticleComponents.cpp (part 4 of 4): 31 functions
+// UnParticleComponents.cpp (part 4 of 4): 36 functions
 // Placed here by: neighbours 13, class 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -510,4 +510,75 @@ FString UParticleSystemComponent::GetDetailedInfoInternal()
         Result = TEXT("No_ParticleSystem");
     }
     return Result;
+}
+
+// @baa 0x00b51be0
+/* UE3's UParticleSystemComponent::SetSkipUpdateDynamicDataDuringTick(UBOOL bInSkipUpdateDynamicDataDuringTick)
+ * (execSetSkipUpdateDynamicDataDuringTick's native). */
+void UParticleSystemComponent::sub_00b51be0(UBOOL bInSkipUpdateDynamicDataDuringTick)
+{
+    bSkipUpdateDynamicDataDuringTick = bInSkipUpdateDynamicDataDuringTick;
+}
+
+/* Unnamed in the kit: UE3's UParticleSystemComponent::ResetParticles(UBOOL bEmptyInstances). */
+struct UParticleSystemComponent_ : public UParticleSystemComponent
+{
+    void sub_00b644b0(UBOOL bEmptyInstances);
+};
+
+// @baa 0x00b65d30
+/* UE3's UParticleSystemComponent::BeginDestroy(): free the emitter instances. */
+void UParticleSystemComponent::BeginDestroy()
+{
+    Super::BeginDestroy();
+    ((UParticleSystemComponent_*)this)->sub_00b644b0(TRUE);
+}
+
+// @baa 0x00b65e80
+/* UE3's UParticleSystemComponent::PreEditChange(UProperty* PropertyAboutToChange): drop the live particles first. */
+void UParticleSystemComponent::PreEditChange(UProperty* PropertyAboutToChange)
+{
+    ((UParticleSystemComponent_*)this)->sub_00b644b0(FALSE);
+    Super::PreEditChange(PropertyAboutToChange);
+}
+
+// @baa 0x00b5d0c0
+/* UE3's UParticleSystemComponent::SetActive(UBOOL bNowActive): (re)start the system unless it is already running,
+ * or stop a running one. */
+void UParticleSystemComponent::sub_00b5d0c0(UBOOL bNowActive)
+{
+    if (bNowActive)
+    {
+        if (!bIsActive || (bWasDeactivated || bWasCompleted))
+        {
+            ActivateSystem(FALSE, FALSE);
+        }
+    }
+    else
+    {
+        if (bIsActive && !(bWasDeactivated || bWasCompleted))
+        {
+            DeactivateSystem();
+        }
+    }
+}
+
+/* Unnamed in the kit: UE3's UParticleSystemComponent::FindReplayClipForIDNumber(const INT InClipIDNumber). */
+struct UParticleSystemComponent__00b5f140 : public UParticleSystemComponent
+{
+    UParticleSystemReplay* sub_00b5f140(const INT InClipIDNumber);
+};
+
+// @baa 0x00b5f140
+UParticleSystemReplay* UParticleSystemComponent__00b5f140::sub_00b5f140(const INT InClipIDNumber)
+{
+    for (INT CurClipIndex = 0; CurClipIndex < ReplayClips.Num(); ++CurClipIndex)
+    {
+        UParticleSystemReplay* CurReplayClip = ReplayClips(CurClipIndex);
+        if (CurReplayClip != NULL && CurReplayClip->ClipIDNumber == InClipIDNumber)
+        {
+            return CurReplayClip;
+        }
+    }
+    return NULL;
 }

@@ -1,4 +1,4 @@
-// Engine_09c0000.cpp: 53 functions
+// Engine_09c0000.cpp: 54 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -703,4 +703,21 @@ INT C_009c1d10::sub_009c1d10()
 {
     Object->sub_009bf3a0();
     return 8;
+}
+
+/* Unnamed in the kit: UE3's FWorldFractureSettings AWorldInfo::GetWorldFractureSettings() (the persistent level's
+ * settings when streaming). */
+struct AWorldInfo_ : public AWorldInfo
+{
+    FWorldFractureSettings sub_009c6dd0();
+    UBOOL sub_009c9b20();
+};
+
+// @baa 0x009c9b20
+/* UE3's AWorldInfo::CanSpawnMoreFracturedChunksThisFrame() (the fractured-mesh code spawns chunks while it holds);
+ * this build compares with <=, not UE3's <. */
+UBOOL AWorldInfo_::sub_009c9b20()
+{
+    FWorldFractureSettings Settings = sub_009c6dd0();
+    return (NumFacturedChunksSpawnedThisFrame <= Settings.MaxNumFacturedChunksToSpawnInAFrame);
 }

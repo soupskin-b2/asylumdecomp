@@ -1,4 +1,4 @@
-// RCapeComponent.cpp: 25 functions
+// RCapeComponent.cpp: 27 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -340,4 +340,38 @@ void URCapeComponent::execBeginCinematicState(FFrame& Stack, RESULT_DECL)
     P_GET_UBOOL_OPTX(bTeleportToInitialPose, FALSE);
     P_FINISH;
     ((URCapeComponent__017024a0*)this)->BeginCinematicState(AnimName, TemporaryAnimSet, AnimStartTime, AnimPlayRate, SyncAnimName, SyncAnimOffset, MirroredType, TemplateStateConfig, ClearVelocityOnExit, bTeleportToInitialPose);
+}
+
+/* Kit gaps: ChangeCapeState (016ae530) isn't declared (names from the exe's native table). */
+struct URCapeComponent__01701ff0 : public URCapeComponent
+{
+	void ChangeCapeState(FName NewCapeStateName, FLOAT AnimStartTime, FLOAT AnimPlayRate, BYTE MirroredType);	/* 0x016ae530 */
+};
+
+// @baa 0x01701ff0
+void URCapeComponent::execChangeCapeState(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_NAME(NewCapeStateName);
+	P_GET_FLOAT_OPTX(AnimStartTime, 0.f);
+	P_GET_FLOAT_OPTX(AnimPlayRate, 1.f);
+	P_GET_BYTE_OPTX(MirroredType, 0);
+	P_FINISH;
+	((URCapeComponent__01701ff0*)this)->ChangeCapeState(NewCapeStateName, AnimStartTime, AnimPlayRate, MirroredType);
+}
+
+/* Kit gaps: StartCapeInState (016ae600) isn't declared (names from the exe's native table). */
+struct URCapeComponent__01702310 : public URCapeComponent
+{
+	void StartCapeInState(FName NewCapeStateName, FLOAT AnimStartTime, FLOAT AnimPlayRate, BYTE MirroredType);	/* 0x016ae600 */
+};
+
+// @baa 0x01702310
+void URCapeComponent::execStartCapeInState(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_NAME(NewCapeStateName);
+	P_GET_FLOAT_OPTX(AnimStartTime, 0.f);
+	P_GET_FLOAT_OPTX(AnimPlayRate, 1.f);
+	P_GET_BYTE_OPTX(MirroredType, 0);
+	P_FINISH;
+	((URCapeComponent__01702310*)this)->StartCapeInState(NewCapeStateName, AnimStartTime, AnimPlayRate, MirroredType);
 }

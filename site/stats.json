@@ -2,19 +2,19 @@
  "updated": "2026-11-12",
  "functions": {
   "total": 174166,
-  "matched": 101895
+  "matched": 101943
  },
  "bytes": {
   "total": 24308119,
-  "matched": 4084277
+  "matched": 4090787
  },
  "areas": [
   {
    "name": "Engine",
    "functions": 69863,
    "bytes": 9201956,
-   "matched": 42949,
-   "matched_bytes": 1946477
+   "matched": 42989,
+   "matched_bytes": 1950843
   },
   {
    "name": "Editor",
@@ -34,15 +34,15 @@
    "name": "Game",
    "functions": 13563,
    "bytes": 1853804,
-   "matched": 10213,
-   "matched_bytes": 614226
+   "matched": 10220,
+   "matched_bytes": 616151
   },
   {
    "name": "Core",
    "functions": 12072,
    "bytes": 1275961,
-   "matched": 8061,
-   "matched_bytes": 261257
+   "matched": 8062,
+   "matched_bytes": 261476
   },
   {
    "name": "CommonGame",
@@ -97,17 +97,17 @@
  "contributors": [
   {
    "login": "soupskin-b2",
-   "functions": 101886,
-   "bytes": 4083657,
+   "functions": 101934,
+   "bytes": 4090167,
    "models": {
     "Tooling": 94456,
-    "Claude Opus 5.5": 2669,
+    "Claude Opus 5.5": 2715,
     "DeepSeek V4.1 Flash": 2167,
     "Qwen3.8 27B": 1935,
-    "GPT-6.1 Sol": 292,
+    "GPT-6.1 Sol": 293,
     "Muse Spark 1.3": 188,
     "deepseek-v4.1-flash-(freebuff)": 74,
-    "MiniMax M3.1 Flash": 56,
+    "MiniMax M3.1 Flash": 57,
     "Claude Sonnet 5.5": 37,
     "GPT-6.1 Terra": 10,
     "Claude Haiku 5.5": 1,
@@ -122,7 +122,7 @@
   },
   {
    "model": "Claude Opus 5.5",
-   "functions": 2669
+   "functions": 2715
   },
   {
    "model": "DeepSeek V4.1 Flash",
@@ -134,7 +134,7 @@
   },
   {
    "model": "GPT-6.1 Sol",
-   "functions": 292
+   "functions": 293
   },
   {
    "model": "Muse Spark 1.3",
@@ -146,7 +146,7 @@
   },
   {
    "model": "MiniMax M3.1 Flash",
-   "functions": 56
+   "functions": 57
   },
   {
    "model": "Claude Sonnet 5.5",

@@ -1,4 +1,4 @@
-// UnSequence.cpp: 1 function
+// UnSequence.cpp: 3 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -30,5 +30,32 @@ void USeqAct_MultiLevelStreaming_::UpdateStatus()
         }
         ULevelStreaming* TheLevel = Combo.Level;
         bStatusIsOk = bStatusIsOk && FindLevel(TheLevel, Combo.LevelName);
+    }
+}
+
+// @baa 0x00d201d0
+/* UE3's USequenceOp::PostEditChange(UProperty* PropertyThatChanged): fix up the links first (slot 0x188, UE3
+ * CleanupConnections()). */
+void USequenceOp::PostEditChange(UProperty* PropertyThatChanged)
+{
+    vf_188();
+    Super::PostEditChange(PropertyThatChanged);
+}
+
+// @baa 0x008bdf20
+/* USequenceOp slot 0x178 (kit vf_178, UE3 DeActivated()): fire every enabled output link when
+ * bAutoActivateOutputLinks is set. */
+void USequenceOp::vf_178()
+{
+    if (bAutoActivateOutputLinks)
+    {
+        for (INT Idx = 0; Idx < OutputLinks.Num(); Idx++)
+        {
+            FSeqOpOutputLink& Link = OutputLinks(Idx);
+            if (!Link.bDisabled)
+            {
+                Link.bHasImpulse = TRUE;
+            }
+        }
     }
 }

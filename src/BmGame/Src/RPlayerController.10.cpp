@@ -1,4 +1,4 @@
-// RPlayerController.cpp: 3 functions
+// RPlayerController.cpp: 4 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -69,6 +69,60 @@ UBOOL ARPlayerController__01618d10::sub_01618d10(FVector WallNormal)
 		{
 			return TRUE;
 		}
+	}
+	return FALSE;
+}
+
+/* FRotator::Vector() and FVector's arithmetic (UnMath.h); the kit has neither. */
+struct FVector_ : public FVector
+{
+	FVector_() {}
+	FVector_(FLOAT InX, FLOAT InY, FLOAT InZ) { X = InX; Y = InY; Z = InZ; }
+	FVector_ operator*(FLOAT Scale) const { return FVector_(X * Scale, Y * Scale, Z * Scale); }
+	FVector_ operator+=(const FVector& V) { X += V.X; Y += V.Y; Z += V.Z; return *this; }
+	FLOAT operator|(const FVector& V) const { return X * V.X + (Y * V.Y + Z * V.Z); }
+};
+
+struct FRotator_ : public FRotator
+{
+	FVector_ Vector() const;	/* 0x005c99e0 */
+};
+
+/* Kit gaps: ARPawnPlayer's move probe (01694830) and this helper behind execHaveRoomToCapeGlide aren't declared. */
+static FORCEINLINE FVector_ operator*(FLOAT Scale, const FVector_& V) { return FVector_(V.X * Scale, V.Y * Scale, V.Z * Scale); }
+
+struct ARPawnPlayer__01618fe0 : public ARPawnPlayer
+{
+	UBOOL sub_01694830(FLOAT Time, INT Flags);
+};
+
+struct ARPlayerController__01618fe0 : public ARPlayerController
+{
+	UBOOL sub_01618fe0();
+};
+
+// @baa 0x01618fe0
+/* Probes whether the player could glide: with the fall speed capped at 200 and at least 500 units/s of
+ * forward speed along the view direction, the probe must come back clear. Velocity is restored afterwards. */
+UBOOL ARPlayerController__01618fe0::sub_01618fe0()
+{
+	ARPawnPlayer* Player = Cast<ARPawnPlayer>(Pawn);
+	if (Player)
+	{
+		FVector SavedVelocity = Player->Velocity;
+		if (-200.f > Player->Velocity.Z)
+		{
+			Player->Velocity.Z = -200.f;
+		}
+		FVector_ Dir = ((const FRotator_&)Pawn->Rotation).Vector();
+		FLOAT Speed = (const FVector_&)Player->Velocity | Dir;
+		if (500.f > Speed)
+		{
+			(FVector_&)Player->Velocity += (500.f - Speed) * Dir;
+		}
+		UBOOL bHaveRoom = !((ARPawnPlayer__01618fe0*)Player)->sub_01694830(0.5f, 0);
+		Player->Velocity = SavedVelocity;
+		return bHaveRoom;
 	}
 	return FALSE;
 }

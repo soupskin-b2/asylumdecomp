@@ -1,4 +1,4 @@
-// Engine_0cb0000.cpp: 12 functions
+// Engine_0cb0000.cpp: 13 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -142,4 +142,20 @@ void AActor::execChartData(FFrame& Stack, RESULT_DECL)
 	P_GET_FLOAT(DataValue);
 	P_FINISH;
 	((AActor__00cb5ca0*)this)->ChartData(DataName, DataValue);
+}
+
+/* Kit gaps: UpdateURL (007bf4b0) isn't declared (names from the exe's native table). */
+struct APlayerController__00cb7020 : public APlayerController
+{
+	void UpdateURL(const FString& NewOption, const FString& NewValue, UBOOL bSave1Default);	/* 0x007bf4b0 */
+};
+
+// @baa 0x00cb7020
+void APlayerController::execUpdateURL(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STR(NewOption);
+	P_GET_STR(NewValue);
+	P_GET_UBOOL(bSave1Default);
+	P_FINISH;
+	((APlayerController__00cb7020*)this)->UpdateURL(NewOption, NewValue, bSave1Default);
 }

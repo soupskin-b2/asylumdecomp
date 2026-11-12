@@ -1,4 +1,4 @@
-// Core_0590000.cpp: 19 functions
+// Core_0590000.cpp: 20 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -220,4 +220,17 @@ void UObject::execDivideEqual_RotatorFloat(FFrame& Stack, RESULT_DECL)
 	A.Roll = (INT)appTrunc((FLOAT)A.Roll * Scale);
 
 	*(FRotator*)Result = A;
+}
+
+// @baa 0x005931c0
+void UObject::execPercent_FloatFloat(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(A);
+	P_GET_FLOAT(B);
+	P_FINISH;
+
+	if (B == 0.0f)
+		sub_00630ea0(Stack, 0x301, L"Modulo by zero");
+
+	*(FLOAT*)Result = (B != 0.0f) ? (FLOAT)appFmod(A, B) : 0.0f;
 }

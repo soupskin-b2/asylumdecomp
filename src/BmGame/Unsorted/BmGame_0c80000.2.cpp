@@ -1,4 +1,4 @@
-// BmGame_0c80000.cpp: 47 functions
+// BmGame_0c80000.cpp: 48 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -510,4 +510,24 @@ void AController::execRouteCache_RemoveIndex(FFrame& Stack, RESULT_DECL)
     P_GET_INT_OPTX(Count, 1);
     P_FINISH;
     RouteCache_RemoveIndex(InIndex, Count);
+}
+
+/* Kit gaps: GetPlayerControllerFromNetId (007a1eb0) isn't declared (names from the exe's native table). */
+/* FUniqueNetId's copy constructor (UnrealScript struct cpptext), which the kit's plain struct lacks. */
+struct FUniqueNetId_ : public FUniqueNetId
+{
+	FORCEINLINE FUniqueNetId_(const FUniqueNetId& Other) { Uid = Other.Uid; }
+};
+
+struct APlayerController__00c876e0 : public APlayerController
+{
+	class APlayerController* GetPlayerControllerFromNetId(FUniqueNetId_ PlayerNetId);	/* 0x007a1eb0 */
+};
+
+// @baa 0x00c876e0
+void APlayerController::execGetPlayerControllerFromNetId(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT(FUniqueNetId, PlayerNetId);
+	P_FINISH;
+	*(class APlayerController**)Result = ((APlayerController__00c876e0*)this)->GetPlayerControllerFromNetId(PlayerNetId);
 }

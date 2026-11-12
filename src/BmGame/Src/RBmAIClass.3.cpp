@@ -1,4 +1,4 @@
-// RBmAIClass.cpp: 3 functions
+// RBmAIClass.cpp: 4 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -74,4 +74,28 @@ void ARBMPawnAI::vf_494(INT A)
         AIController->vf_46c(A);
     }
     Super::vf_494(A);
+}
+
+/* Script event glue, matched out of line (015d8a70, 015d8cd0). */
+struct ARBMAIController__01604a40 : public ARBMAIController
+{
+    UBOOL eventIsStunned();
+    UBOOL eventBehaviourCanRespondToAlerts();
+};
+
+// @baa 0x01604a40
+/* ARBMAIController slot 0x458 (kit vf_458): whether a silent-predator AI can respond to alerts right now
+ * (not stunned, pawn slot 0x48c clear, and the behaviour allows it). */
+INT ARBMAIController::vf_458()
+{
+    if (bStunned)
+    {
+        return FALSE;
+    }
+    ARBMPawnAI* AIPawn = Cast<ARBMPawnAI>(Pawn);
+    if (AIPawn && AIPawn->bSilentPredatorAI && !((ARBMAIController__01604a40*)this)->eventIsStunned() && !AIPawn->vf_48c())
+    {
+        return ((ARBMAIController__01604a40*)this)->eventBehaviourCanRespondToAlerts() ? TRUE : FALSE;
+    }
+    return FALSE;
 }
