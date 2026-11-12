@@ -1,4 +1,4 @@
-// BmGame_16f0000.cpp: 142 functions
+// BmGame_16f0000.cpp: 145 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -1181,4 +1181,68 @@ void ARPawnCharacter::execGetTargetAimAtDirection(FFrame& Stack, RESULT_DECL)
 
     FVector AimAtDirection;
     *(FVector*)Result = *(FVector*)vf_5a4((INT)&AimAtDirection);
+}
+
+extern FName g_026e2e18;
+	/* DoWallExplodeAlert */
+struct ARExplodableWallBase_ : public ARExplodableWallBase
+{
+	void eventDoWallExplodeAlert(FVector ExplosionCentre, FVector WallNormal);
+};
+
+// @baa 0x016ffc20
+/* RExplodableWallBase.DoWallExplodeAlert script event: the generated glue, out of line here. */
+void ARExplodableWallBase_::eventDoWallExplodeAlert(FVector ExplosionCentre, FVector WallNormal)
+{
+	struct RExplodableWallBase_eventDoWallExplodeAlert_Parms
+	{
+		FVector ExplosionCentre;
+		FVector WallNormal;
+	} Parms;
+	Parms.ExplosionCentre = ExplosionCentre;
+	Parms.WallNormal = WallNormal;
+	ProcessEvent(FindFunctionChecked(g_026e2e18), &Parms);
+}
+
+extern FName g_026e35d4;
+	/* GetBrickSaveRemovedState */
+struct ARExplodableWallBase__016ffcc0 : public ARExplodableWallBase
+{
+	UBOOL eventGetBrickSaveRemovedState(class UStaticMeshComponent* brickComponent);
+};
+
+// @baa 0x016ffcc0
+/* RExplodableWallBase.GetBrickSaveRemovedState script event: the generated glue, out of line here. */
+UBOOL ARExplodableWallBase__016ffcc0::eventGetBrickSaveRemovedState(class UStaticMeshComponent* brickComponent)
+{
+	struct RExplodableWallBase_eventGetBrickSaveRemovedState_Parms
+	{
+		class UStaticMeshComponent* brickComponent;
+		UBOOL ReturnValue;
+	} Parms;
+	Parms.ReturnValue = FALSE;
+	Parms.brickComponent = brickComponent;
+	ProcessEvent(FindFunctionChecked(g_026e35d4), &Parms);
+	return Parms.ReturnValue;
+}
+
+extern FName g_026e3638;
+	/* SetBrickSaveRemovedState */
+struct ARExplodableWallBase__016ffd10 : public ARExplodableWallBase
+{
+	void eventSetBrickSaveRemovedState(class UStaticMeshComponent* brickComponent, UBOOL Removed);
+};
+
+// @baa 0x016ffd10
+/* RExplodableWallBase.SetBrickSaveRemovedState script event: the generated glue, out of line here. */
+void ARExplodableWallBase__016ffd10::eventSetBrickSaveRemovedState(class UStaticMeshComponent* brickComponent, UBOOL Removed)
+{
+	struct RExplodableWallBase_eventSetBrickSaveRemovedState_Parms
+	{
+		class UStaticMeshComponent* brickComponent;
+		UBOOL Removed;
+	} Parms;
+	Parms.brickComponent = brickComponent;
+	Parms.Removed = Removed ? TRUE : FALSE;
+	ProcessEvent(FindFunctionChecked(g_026e3638), &Parms);
 }

@@ -2,19 +2,19 @@
  "updated": "2026-11-12",
  "functions": {
   "total": 174166,
-  "matched": 99931
+  "matched": 100131
  },
  "bytes": {
   "total": 24308119,
-  "matched": 3869539
+  "matched": 3887434
  },
  "areas": [
   {
    "name": "Engine",
    "functions": 69863,
    "bytes": 9201956,
-   "matched": 42330,
-   "matched_bytes": 1856041
+   "matched": 42346,
+   "matched_bytes": 1858576
   },
   {
    "name": "Editor",
@@ -27,22 +27,22 @@
    "name": "External",
    "functions": 29410,
    "bytes": 3194268,
-   "matched": 11932,
-   "matched_bytes": 190562
+   "matched": 11934,
+   "matched_bytes": 190612
   },
   {
    "name": "Game",
    "functions": 13563,
    "bytes": 1853804,
-   "matched": 9400,
-   "matched_bytes": 536999
+   "matched": 9580,
+   "matched_bytes": 551929
   },
   {
    "name": "Core",
    "functions": 12072,
    "bytes": 1275961,
-   "matched": 7939,
-   "matched_bytes": 245767
+   "matched": 7941,
+   "matched_bytes": 246147
   },
   {
    "name": "CommonGame",
@@ -97,18 +97,18 @@
  "contributors": [
   {
    "login": "soupskin-b2",
-   "functions": 99921,
-   "bytes": 3867959,
+   "functions": 100121,
+   "bytes": 3885854,
    "models": {
     "Tooling": 94456,
     "DeepSeek V4.1 Flash": 2167,
-    "Qwen3.8 27B": 1654,
-    "Claude Opus 5.5": 1372,
+    "Qwen3.8 27B": 1656,
+    "Claude Opus 5.5": 1566,
     "GPT-6.1 Sol": 158,
     "Claude Sonnet 5.5": 37,
-    "minimax-m3.1-flash": 33,
+    "minimax-m3.1-flash": 35,
+    "muse-spark": 11,
     "GPT-6.1 Terra": 10,
-    "muse-spark": 9,
     "qwen": 8,
     "Claude Sonnet 4.5": 4,
     "not specified": 3,
@@ -133,11 +133,11 @@
   },
   {
    "model": "Qwen3.8 27B",
-   "functions": 1654
+   "functions": 1656
   },
   {
    "model": "Claude Opus 5.5",
-   "functions": 1372
+   "functions": 1566
   },
   {
    "model": "GPT-6.1 Sol",
@@ -149,15 +149,15 @@
   },
   {
    "model": "minimax-m3.1-flash",
-   "functions": 33
+   "functions": 35
+  },
+  {
+   "model": "muse-spark",
+   "functions": 11
   },
   {
    "model": "GPT-6.1 Terra",
    "functions": 10
-  },
-  {
-   "model": "muse-spark",
-   "functions": 9
   },
   {
    "model": "qwen",

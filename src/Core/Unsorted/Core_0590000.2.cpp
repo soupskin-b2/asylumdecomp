@@ -1,4 +1,4 @@
-// Core_0590000.cpp (part 2 of 4): 75 functions
+// Core_0590000.cpp (part 2 of 4): 76 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -732,4 +732,14 @@ void __stdcall sub_0059e690(FFrame& Stack, RESULT_DECL)
 	Stack.Step(Stack.Object, &A);
 	A = (A != 0);
 	((FString*)Result)->sub_00544ab0(A ? L"True" : L"False");
+}
+
+// @baa 0x00595100
+void __stdcall sub_00595100(FFrame& Stack, RESULT_DECL)
+{
+	FVector A(0.0f);
+	Stack.Step(Stack.Object, &A);
+
+	UBOOL bIsZero = A.X == 0.0f && A.Y == 0.0f && A.Z == 0.0f;
+	*(UBOOL*)Result = !bIsZero;
 }

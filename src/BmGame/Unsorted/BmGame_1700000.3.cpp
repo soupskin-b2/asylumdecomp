@@ -1,4 +1,4 @@
-// BmGame_1700000.cpp: 53 functions
+// BmGame_1700000.cpp: 57 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -461,4 +461,66 @@ void ARBatarangProjectile::execGetFlightPathDeltaTangent(FFrame& Stack, RESULT_D
     P_GET_FLOAT(Proportion);
     P_FINISH;
     *(FVector*)Result = ((ARBatarangProjectile__017080e0*)this)->GetFlightPathDeltaTangent(Proportion);
+}
+
+extern FName g_026e3124;
+	/* DestroyTeethCamera */
+struct ARControllableChatteringTeethBase_ : public ARControllableChatteringTeethBase
+{
+	void eventDestroyTeethCamera();
+};
+
+// @baa 0x01707dc0
+/* RControllableChatteringTeethBase.DestroyTeethCamera script event: the generated glue, out of line here. */
+void ARControllableChatteringTeethBase_::eventDestroyTeethCamera()
+{
+	ProcessEvent(FindFunctionChecked(g_026e3124), NULL);
+}
+
+extern FName g_026e2de8;
+	/* RemoveTeethPhysics */
+struct ARControllableChatteringTeethBase__01707e20 : public ARControllableChatteringTeethBase
+{
+	void eventRemoveTeethPhysics();
+};
+
+// @baa 0x01707e20
+/* RControllableChatteringTeethBase.RemoveTeethPhysics script event: the generated glue, out of line here. */
+void ARControllableChatteringTeethBase__01707e20::eventRemoveTeethPhysics()
+{
+	ProcessEvent(FindFunctionChecked(g_026e2de8), NULL);
+}
+
+extern FName g_026e2a34;
+	/* PlayPreExplodeAnim */
+struct ARControllableChatteringTeethBase__01707e50 : public ARControllableChatteringTeethBase
+{
+	void eventPlayPreExplodeAnim();
+};
+
+// @baa 0x01707e50
+/* RControllableChatteringTeethBase.PlayPreExplodeAnim script event: the generated glue, out of line here. */
+void ARControllableChatteringTeethBase__01707e50::eventPlayPreExplodeAnim()
+{
+	ProcessEvent(FindFunctionChecked(g_026e2a34), NULL);
+}
+
+extern FName g_026e3068;
+	/* GetJumpBlenderAnimNode */
+struct ARControllableChatteringTeethBase__01707e80 : public ARControllableChatteringTeethBase
+{
+	class UAnimNodeCrossfader* eventGetJumpBlenderAnimNode();
+};
+
+// @baa 0x01707e80
+/* RControllableChatteringTeethBase.GetJumpBlenderAnimNode script event: the generated glue, out of line here. */
+class UAnimNodeCrossfader* ARControllableChatteringTeethBase__01707e80::eventGetJumpBlenderAnimNode()
+{
+	struct RControllableChatteringTeethBase_eventGetJumpBlenderAnimNode_Parms
+	{
+		class UAnimNodeCrossfader* ReturnValue;
+	} Parms;
+	Parms.ReturnValue = NULL;
+	ProcessEvent(FindFunctionChecked(g_026e3068), &Parms);
+	return Parms.ReturnValue;
 }

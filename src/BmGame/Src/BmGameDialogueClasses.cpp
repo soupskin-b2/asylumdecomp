@@ -1,4 +1,4 @@
-// BmGameDialogueClasses.cpp: 67 functions
+// BmGameDialogueClasses.cpp: 68 functions
 // Placed here by: callers 13, file 13.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -298,4 +298,28 @@ bool URSeqAct_PlayTVSequenceBase::vf_004()
 bool URSeqAct_PlayTVSequenceSingleLine::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+extern FName g_026e328c;
+ /* VoAStartSound */
+struct URSeqAct_VoiceOfArkham_ : public URSeqAct_VoiceOfArkham
+{
+    void eventVoAStartSound();
+};
+
+/* RSeqAct_VoiceOfArkham.VoAStartSound script event: the generated glue (no parameters). */
+inline void URSeqAct_VoiceOfArkham_::eventVoAStartSound()
+{
+    ProcessEvent(FindFunctionChecked(g_026e328c), NULL);
+}
+
+// @baa 0x01585860
+/* The action hands the work to script once its input fires; it never finishes here. */
+UBOOL URSeqAct_VoiceOfArkham::UpdateOp(FLOAT DeltaTime)
+{
+    if (InputLinks(0).bHasImpulse)
+    {
+        ((URSeqAct_VoiceOfArkham_*)this)->eventVoAStartSound();
+    }
+    return FALSE;
 }

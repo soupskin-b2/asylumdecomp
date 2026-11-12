@@ -1,9 +1,9 @@
 {
  "note": "Maintained by CI (tools/ci); every file is checked by python tools/asylum unit-check.",
  "totals": {
-  "units": 1429,
-  "files": 4818,
-  "functions": 98538,
+  "units": 1431,
+  "files": 4846,
+  "functions": 98738,
   "failed": 0
  },
  "units": [
@@ -2628,6 +2628,121 @@
      "va": "0154b330",
      "size": 59,
      "symbol": "?eventCauseElectricDamageToPawn@ARElectrifiedFloorPanel_@@QAEXPAUARPawnCharacter@@@Z"
+    },
+    {
+     "va": "0154b370",
+     "size": 77,
+     "symbol": "?eventIsHitReactionBehav@ARElectrifiedFloorPanel__0154b370@@QAEHPAUURBMBehaviour@@@Z"
+    },
+    {
+     "va": "0154b6e0",
+     "size": 64,
+     "symbol": "?eventGetClassType@URCharacter_@@QAEPAUUClass@@XZ"
+    },
+    {
+     "va": "0154bb30",
+     "size": 59,
+     "symbol": "?eventUpdateRumble@URSeqAct_FullScreenPlayer_@@QAEXH@Z"
+    },
+    {
+     "va": "0154bc40",
+     "size": 59,
+     "symbol": "?eventDeactivatePP@URSeqAct_ModifyPostProcess_@@QAEXPAUULocalPlayer@@@Z"
+    },
+    {
+     "va": "0154bc80",
+     "size": 59,
+     "symbol": "?eventUpdatePP@URSeqAct_ModifyPostProcess__0154bc80@@QAEXPAUULocalPlayer@@@Z"
+    },
+    {
+     "va": "0154bcc0",
+     "size": 59,
+     "symbol": "?eventActivatePP@URSeqAct_ModifyPostProcess__0154bcc0@@QAEXPAUULocalPlayer@@@Z"
+    },
+    {
+     "va": "0154bd30",
+     "size": 64,
+     "symbol": "?eventForceLookDirection@URSeqAct_SetStationary1stPersonCamera_@@QAEXH@Z"
+    },
+    {
+     "va": "0154be20",
+     "size": 82,
+     "symbol": "?eventTickHUD@URSeqAct_ShowLevelIntroText_@@QAEHM@Z"
+    },
+    {
+     "va": "0154c010",
+     "size": 82,
+     "symbol": "?eventUpdateNPCCounts@URForensicsInvestigator_@@QAEXPAUARPlayerController@@HH@Z"
+    },
+    {
+     "va": "0154c070",
+     "size": 59,
+     "symbol": "?eventTriggerInvestigateEvent@URForensicsInvestigator__0154c070@@QAEXPAUARPlayerController@@@Z"
+    },
+    {
+     "va": "0154c0b0",
+     "size": 82,
+     "symbol": "?eventSetNPCInfoCursor@URForensicsInvestigator__0154c0b0@@QAEXPAUARPlayerController@@HH@Z"
+    },
+    {
+     "va": "0154c110",
+     "size": 59,
+     "symbol": "?eventSetBlankInfoCursor@URForensicsInvestigator__0154c110@@QAEXPAUARPlayerController@@@Z"
+    },
+    {
+     "va": "0154c150",
+     "size": 77,
+     "symbol": "?eventCheckSetBlankInfoCursor@URForensicsInvestigator__0154c150@@QAEHPAUARPlayerController@@@Z"
+    },
+    {
+     "va": "0154c1a0",
+     "size": 59,
+     "symbol": "?eventSortInfoEntryList@URForensicsInvestigator__0154c1a0@@QAEXPAUARPlayerController@@@Z"
+    },
+    {
+     "va": "0154c1e0",
+     "size": 59,
+     "symbol": "?eventSpecialCheckForGrates@URForensicsInvestigator__0154c1e0@@QAEXPAUARPlayerController@@@Z"
+    },
+    {
+     "va": "0156ad20",
+     "size": 170,
+     "symbol": "?eventSetInfoText@URGFxMovieHUD_@@QAEXABVFString@@ME@Z"
+    },
+    {
+     "va": "0156add0",
+     "size": 182,
+     "symbol": "?eventSetMainPrompt@URGFxMovieHUD__0156add0@@QAEXHABVFString@@MM@Z"
+    },
+    {
+     "va": "0156ae90",
+     "size": 182,
+     "symbol": "?eventSetPrompt@URGFxMovieHUD__0156ae90@@QAEXHABVFString@@MM@Z"
+    },
+    {
+     "va": "0156af50",
+     "size": 239,
+     "symbol": "?eventSetInfoCursor@URGFxMovieInvestigate_@@QAEXMMABVFString@@00H@Z"
+    },
+    {
+     "va": "0157f700",
+     "size": 64,
+     "symbol": "?eventDoCheck@URSeqAct_IsOnPontoon_@@QAEHXZ"
+    },
+    {
+     "va": "01582ba0",
+     "size": 64,
+     "symbol": "?eventSetInitialValues@URSeqAct_SmoothCameraTransition_@@QAEHXZ"
+    },
+    {
+     "va": "01583740",
+     "size": 64,
+     "symbol": "?eventDoFade@URSeqAct_CombatMusic_@@QAEXM@Z"
+    },
+    {
+     "va": "01580b60",
+     "size": 46,
+     "symbol": "?eventSearch@URSeqAct_SetScarecrowSearch_@@QAEXXZ"
     }
    ]
   },
@@ -2645,6 +2760,143 @@
      "va": "0157e560",
      "size": 103,
      "symbol": "?UpdateOp@URSeqAct_ActivateScarecrow@@UAEHM@Z"
+    },
+    {
+     "va": "0157e990",
+     "size": 103,
+     "symbol": "?UpdateOp@URSeqAct_CrocPerformChargeAttack@@UAEHM@Z"
+    },
+    {
+     "va": "0157eaf0",
+     "size": 103,
+     "symbol": "?UpdateOp@URSeqAct_CrocPerformCloseAttack@@UAEHM@Z"
+    },
+    {
+     "va": "0157ec50",
+     "size": 103,
+     "symbol": "?UpdateOp@URSeqAct_CrocPerformSmashAttack@@UAEHM@Z"
+    },
+    {
+     "va": "0157ef00",
+     "size": 103,
+     "symbol": "?UpdateOp@URSeqAct_DisableCrocAttacks@@UAEHM@Z"
+    },
+    {
+     "va": "0157f050",
+     "size": 103,
+     "symbol": "?UpdateOp@URSeqAct_DropPlayerFromForensicsModes@@UAEHM@Z"
+    },
+    {
+     "va": "0157f4b0",
+     "size": 103,
+     "symbol": "?UpdateOp@URSeqAct_GrappleToVantagePoint@@UAEHM@Z"
+    },
+    {
+     "va": "0157f870",
+     "size": 103,
+     "symbol": "?UpdateOp@URSeqAct_KillScarecrow@@UAEHM@Z"
+    },
+    {
+     "va": "0157fba0",
+     "size": 103,
+     "symbol": "?UpdateOp@URSeqAct_NewSilentPredWave@@UAEHM@Z"
+    },
+    {
+     "va": "0157fcf0",
+     "size": 103,
+     "symbol": "?UpdateOp@URSeqAct_PlayCameraEmitter@@UAEHM@Z"
+    },
+    {
+     "va": "01580010",
+     "size": 103,
+     "symbol": "?UpdateOp@URSeqAct_SetEvidenceScanned@@UAEHM@Z"
+    },
+    {
+     "va": "01580160",
+     "size": 103,
+     "symbol": "?UpdateOp@URSeqAct_SetMeshInvestigationInfo@@UAEHM@Z"
+    },
+    {
+     "va": "015803f0",
+     "size": 103,
+     "symbol": "?UpdateOp@URSeqAct_SetPawnsREvidence@@UAEHM@Z"
+    },
+    {
+     "va": "015808e0",
+     "size": 103,
+     "symbol": "?UpdateOp@URSeqAct_SetScarecrowInspect@@UAEHM@Z"
+    },
+    {
+     "va": "01580a30",
+     "size": 103,
+     "symbol": "?UpdateOp@URSeqAct_SetScarecrowParameters@@UAEHM@Z"
+    },
+    {
+     "va": "01580b90",
+     "size": 103,
+     "symbol": "?UpdateOp@URSeqAct_SetScarecrowSearch@@UAEHM@Z"
+    },
+    {
+     "va": "01580cf0",
+     "size": 103,
+     "symbol": "?UpdateOp@URSeqAct_SetScarecrowSearchAnims@@UAEHM@Z"
+    },
+    {
+     "va": "01580e40",
+     "size": 103,
+     "symbol": "?UpdateOp@URSeqAct_SetTrackingObjectVars@@UAEHM@Z"
+    },
+    {
+     "va": "01581330",
+     "size": 103,
+     "symbol": "?UpdateOp@URSeqAct_SetVenomParameters@@UAEHM@Z"
+    },
+    {
+     "va": "01581480",
+     "size": 103,
+     "symbol": "?UpdateOp@URSeqAct_TriggerRunTheGauntlet@@UAEHM@Z"
+    },
+    {
+     "va": "015815d0",
+     "size": 103,
+     "symbol": "?UpdateOp@URSeqAct_UnlockXrayMode@@UAEHM@Z"
+    },
+    {
+     "va": "015822d0",
+     "size": 103,
+     "symbol": "?UpdateOp@URSeqAct_InDialogue@@UAEHM@Z"
+    },
+    {
+     "va": "0157edb0",
+     "size": 109,
+     "symbol": "?UpdateOp@URSeqAct_CrocPerformSneakPeek@@UAEHM@Z"
+    },
+    {
+     "va": "0157f1a0",
+     "size": 100,
+     "symbol": "?UpdateOp@URSeqAct_ForceCrocToJumpOff@@UAEHM@Z"
+    },
+    {
+     "va": "015802c0",
+     "size": 53,
+     "symbol": "?UpdateOp@URSeqAct_SetNeedsRescue@@UAEHM@Z"
+    }
+   ]
+  },
+  {
+   "unit": "BmGame/Src/BmGameDialogueClasses.cpp",
+   "source": "BmGame/Src/BmGameDialogueClasses.2.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "01584db0",
+     "size": 64,
+     "symbol": "?eventCheckPlayOnce@URSeqAct_PlaySpeechBase_@@QAEHXZ"
+    },
+    {
+     "va": "01585050",
+     "size": 64,
+     "symbol": "?eventIsOptionNext@URSeqAct_ConversationDialogue_@@QAEHXZ"
     }
    ]
   },
@@ -2987,6 +3239,11 @@
      "va": "01591b10",
      "size": 52,
      "symbol": "?vf_004@URSeqAct_PlayTVSequenceSingleLine@@UAE_NXZ"
+    },
+    {
+     "va": "01585860",
+     "size": 100,
+     "symbol": "?UpdateOp@URSeqAct_VoiceOfArkham@@UAEHM@Z"
     }
    ]
   },
@@ -3525,6 +3782,18 @@
   },
   {
    "unit": "BmGame/Src/BmGameGFxSupportClasses.cpp",
+   "source": "BmGame/Src/BmGameGFxSupportClasses.2.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "016d1ba0",
+     "size": 64,
+     "symbol": "?eventPauseGame@URSeqAct_PlayGfxMovie_@@QAEXH@Z"
+    }
+   ]
+  },
+  {
+   "unit": "BmGame/Src/BmGameGFxSupportClasses.cpp",
    "source": "BmGame/Src/BmGameGFxSupportClasses.cpp",
    "profile": "ue3",
    "functions": [
@@ -3879,6 +4148,36 @@
      "va": "0154b040",
      "size": 73,
      "symbol": "?eventRecordRoomMetrics@ARGameRI_@@QAEXUFName@@@Z"
+    },
+    {
+     "va": "01558e60",
+     "size": 94,
+     "symbol": "?eventFacingSameDirection@ARPlayerStartInLevel_@@QAEHUFRotator@@@Z"
+    },
+    {
+     "va": "01558ee0",
+     "size": 94,
+     "symbol": "?eventIsLocationNear@ARBunkerDoorVillainBlocker_@@QAEHUFVector@@@Z"
+    },
+    {
+     "va": "01558f60",
+     "size": 77,
+     "symbol": "?eventIsInFront@ARLevelTransition_@@QAEHPAUAPlayerController@@@Z"
+    },
+    {
+     "va": "01559090",
+     "size": 77,
+     "symbol": "?eventAllowedToOpenIfNotAlreadyOpen@ARLevelTransitionDoorBunkerNativeBase_@@QAEHPAUARPlayerController@@@Z"
+    },
+    {
+     "va": "015590e0",
+     "size": 59,
+     "symbol": "?eventPassedThroughDoor@ARLevelTransitionDoorBunkerNativeBase__015590e0@@QAEXPAUARPlayerController@@@Z"
+    },
+    {
+     "va": "01559150",
+     "size": 82,
+     "symbol": "?eventAttemptToCloseDoor@ARLevelTransitionDoorBunkerNativeBase__01559150@@QAEHH@Z"
     }
    ]
   },
@@ -4067,6 +4366,18 @@
      "va": "0172b3c0",
      "size": 18,
      "symbol": "?sub_0172b3c0@UObject@@QAEPAIXZ"
+    }
+   ]
+  },
+  {
+   "unit": "BmGame/Src/BmSaveGameMisc.cpp",
+   "source": "BmGame/Src/BmSaveGameMisc.2.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "01722dc0",
+     "size": 150,
+     "symbol": "?eventFE_NewGame@ARPlayerController_@@QAEXABVFString@@@Z"
     }
    ]
   },
@@ -4539,6 +4850,26 @@
      "va": "017091c0",
      "size": 122,
      "symbol": "?execSaveFreeCameraConfig@AR3rdPersonCamera@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "01686400",
+     "size": 95,
+     "symbol": "?eventInputHeading@ARPawnPlayerCombat_@@QAE?AUFVector@@XZ"
+    },
+    {
+     "va": "01686a40",
+     "size": 97,
+     "symbol": "?eventSetDof@URDOFManager_@@QAEXAAUFPostProcessSettings@@@Z"
+    },
+    {
+     "va": "01686bf0",
+     "size": 104,
+     "symbol": "?eventApplyModifiers@AR3rdPersonCamera__01686bf0@@QAEXMAAUFTPOV@@@Z"
+    },
+    {
+     "va": "01686cd0",
+     "size": 130,
+     "symbol": "?eventUpdateCurrentCamera@AR3rdPersonCamera__01686cd0@@QAEXUFVector@@UFRotator@@MM@Z"
     }
    ]
   },
@@ -6247,6 +6578,28 @@
   },
   {
    "unit": "BmGame/Src/RAnimNode_Pose.cpp",
+   "source": "BmGame/Src/RAnimNode_Pose.5.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "01595270",
+     "size": 59,
+     "symbol": "?eventPlayForceFeedBack@ARPlayerController_@@QAEXPAUUForceFeedbackWaveform@@@Z"
+    },
+    {
+     "va": "015952d0",
+     "size": 82,
+     "symbol": "?eventSetFOV@ARAnimatedCameraActor_@@QAEXMM@Z"
+    },
+    {
+     "va": "01595330",
+     "size": 82,
+     "symbol": "?eventSetGameSpeed@ARAnimatedCameraActor__01595330@@QAEXMM@Z"
+    }
+   ]
+  },
+  {
+   "unit": "BmGame/Src/RAnimNode_Pose.cpp",
    "source": "BmGame/Src/RAnimNode_Pose.cpp",
    "profile": "ue3",
    "functions": [
@@ -7400,6 +7753,18 @@
   },
   {
    "unit": "BmGame/Src/RAnimNotify_Script.cpp",
+   "source": "BmGame/Src/RAnimNotify_Script.2.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "01592110",
+     "size": 59,
+     "symbol": "?eventTriggerGadgetAnim@URAnimNotify_PlayGadgetAnim_@@QAEXPAUARPawnPlayer@@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "BmGame/Src/RAnimNotify_Script.cpp",
    "source": "BmGame/Src/RAnimNotify_Script.cpp",
    "profile": "ue3",
    "functions": [
@@ -7617,6 +7982,18 @@
      "va": "015aa9c0",
      "size": 25,
      "symbol": "?vf_10c@URAnimNotify_IdleOverlay@@UAEXI@Z"
+    }
+   ]
+  },
+  {
+   "unit": "BmGame/Src/RAnimNotify_SpawnParticleFX.cpp",
+   "source": "BmGame/Src/RAnimNotify_SpawnParticleFX.2.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "015922c0",
+     "size": 121,
+     "symbol": "?eventSpawnParticleSystem@URAnimNotify_SpawnParticleFX_@@QAEXPAUAActor@@UFVector@@UFRotator@@PAUUSkeletalMeshComponent@@@Z"
     }
    ]
   },
@@ -9181,6 +9558,18 @@
    ]
   },
   {
+   "unit": "BmGame/Src/RBatarang.cpp",
+   "source": "BmGame/Src/RBatarang.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "01638a00",
+     "size": 123,
+     "symbol": "?eventCheckOverrideTarget@ARBatarang_@@QAEHPAUAActor@@AAUFVector@@@Z"
+    }
+   ]
+  },
+  {
    "unit": "BmGame/Src/RBatarangCamera.cpp",
    "source": "BmGame/Src/RBatarangCamera.cpp",
    "profile": "ue3",
@@ -9199,6 +9588,118 @@
      "va": "016a9dc0",
      "size": 269,
      "symbol": "?InitializePrivateStaticClassARBatarangCamera@ARBatarangCamera@@SAXXZ"
+    }
+   ]
+  },
+  {
+   "unit": "BmGame/Src/RBmAIClass.cpp",
+   "source": "BmGame/Src/RBmAIClass.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "015d8a30",
+     "size": 61,
+     "symbol": "?eventGetDialogueFearLevel@ARBMAIController_@@QAEEXZ"
+    },
+    {
+     "va": "015d8bc0",
+     "size": 120,
+     "symbol": "?eventAdjustAnimatedAimDir@ARBMAIController__015d8bc0@@QAE?AUFVector@@U2@@Z"
+    },
+    {
+     "va": "015d8c40",
+     "size": 64,
+     "symbol": "?eventDoPlayerLookAt@ARBMAIController__015d8c40@@QAEXM@Z"
+    },
+    {
+     "va": "015d8c80",
+     "size": 77,
+     "symbol": "?eventUpdateNotVisibleAlert@ARBMAIController__015d8c80@@QAEXMPAUUAlertInstance@@@Z"
+    },
+    {
+     "va": "015d8cd0",
+     "size": 64,
+     "symbol": "?eventBehaviourCanRespondToAlerts@ARBMAIController__015d8cd0@@QAEHXZ"
+    },
+    {
+     "va": "015d8d90",
+     "size": 73,
+     "symbol": "?eventBehaviourStateChanged@ARBMAIController__015d8d90@@QAEXUFName@@@Z"
+    },
+    {
+     "va": "015d8de0",
+     "size": 59,
+     "symbol": "?eventRemoveBehaviourFromList@ARBMAIController__015d8de0@@QAEXPAUURBMBehaviour@@@Z"
+    },
+    {
+     "va": "015d8e20",
+     "size": 62,
+     "symbol": "?eventGetCheckSightRange@ARBMAIController__015d8e20@@QAEMXZ"
+    },
+    {
+     "va": "015d8e60",
+     "size": 64,
+     "symbol": "?eventIsInBehaviourControlled@ARBMAIController__015d8e60@@QAEHXZ"
+    },
+    {
+     "va": "015d8fe0",
+     "size": 64,
+     "symbol": "?eventBatmanSeenEventUpdateVal@ARBMAIManager_@@QAEXH@Z"
+    },
+    {
+     "va": "015d9070",
+     "size": 64,
+     "symbol": "?eventIsAnyoneAttacking@ARBMCombatManager_@@QAEHXZ"
+    },
+    {
+     "va": "015d90e0",
+     "size": 77,
+     "symbol": "?eventCanDoMoveCheck@ARBMCombatManager__015d90e0@@QAEHPAUARPawnCombat@@@Z"
+    },
+    {
+     "va": "015d9130",
+     "size": 64,
+     "symbol": "?eventIsCombatPaused@ARBMCombatManager__015d9130@@QAEHXZ"
+    },
+    {
+     "va": "015d91e0",
+     "size": 77,
+     "symbol": "?eventGetNavSearchIndex@URBMRoomAIState_@@QAEHPAUARBMAIController@@@Z"
+    },
+    {
+     "va": "015d9230",
+     "size": 64,
+     "symbol": "?eventGetHostileCount@URBMRoomAIState__015d9230@@QAEHXZ"
+    },
+    {
+     "va": "015d9300",
+     "size": 101,
+     "symbol": "?eventUpdateAlert@UAlertInstance_@@QAEXUFVector@@EM@Z"
+    },
+    {
+     "va": "015d9b60",
+     "size": 59,
+     "symbol": "?eventStopMovementOverlay@URBMBehaviour_MoveToJokerInChair_@@QAEXPAUARPawnCharacter@@@Z"
+    },
+    {
+     "va": "015fb180",
+     "size": 59,
+     "symbol": "?eventPlayEvent@URBMBehaviour_IdleWithPlannarProp_@@QAEXH@Z"
+    },
+    {
+     "va": "015fb690",
+     "size": 59,
+     "symbol": "?eventPlayBatmanAnim@URBMBehaviour_MoveToBatmanInChair_@@QAEXH@Z"
+    },
+    {
+     "va": "015fb6d0",
+     "size": 59,
+     "symbol": "?eventPlayHarleyAnim@URBMBehaviour_MoveToBatmanInChair__015fb6d0@@QAEXH@Z"
+    },
+    {
+     "va": "015fb960",
+     "size": 59,
+     "symbol": "?eventPlayJokerAnim@URBMBehaviour_MoveToJokerInChair__015fb960@@QAEXH@Z"
     }
    ]
   },
@@ -13634,6 +14135,43 @@
   },
   {
    "unit": "BmGame/Src/RFractureWall.cpp",
+   "source": "BmGame/Src/RFractureWall.2.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "016cef60",
+     "size": 89,
+     "symbol": "?eventExplodeWallSFX@ARFractureWallBase_@@QAEXUFVector@@H@Z"
+    },
+    {
+     "va": "016cefc0",
+     "size": 106,
+     "symbol": "?eventDoFractureWallExplodeAlert@ARFractureWallBase__016cefc0@@QAEXUFVector@@0@Z"
+    },
+    {
+     "va": "016cf030",
+     "size": 77,
+     "symbol": "?eventLoadFragmentRemovedState@ARFractureWallBase__016cf030@@QAEHH@Z"
+    },
+    {
+     "va": "016cf080",
+     "size": 78,
+     "symbol": "?eventSaveFragmentRemovedState@ARFractureWallBase__016cf080@@QAEXHH@Z"
+    },
+    {
+     "va": "016cf0d0",
+     "size": 59,
+     "symbol": "?eventFallOverOnWall@ARFractureWallBase__016cf0d0@@QAEXPAUARPawnCharacter@@@Z"
+    },
+    {
+     "va": "016e1070",
+     "size": 64,
+     "symbol": "?eventAreGunThugsAround@ARFractureWallBase__016e1070@@QAEHXZ"
+    }
+   ]
+  },
+  {
+   "unit": "BmGame/Src/RFractureWall.cpp",
    "source": "BmGame/Src/RFractureWall.cpp",
    "profile": "ue3",
    "functions": [
@@ -13713,6 +14251,23 @@
      "va": "016405f0",
      "size": 83,
      "symbol": "??$Cast@UARPawnBossIvyBase@@@@YAPAUARPawnBossIvyBase@@PAUUObject@@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "BmGame/Src/RGadgetSelect.cpp",
+   "source": "BmGame/Src/RGadgetSelect.3.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "01638cf0",
+     "size": 67,
+     "symbol": "?eventGadgetSelected@URGadgetSelect_@@QAEXEE@Z"
+    },
+    {
+     "va": "01638f60",
+     "size": 82,
+     "symbol": "?eventSpawnCutRopeFX@ARRopeBase_@@QAEXUFVector@@@Z"
     }
    ]
   },
@@ -14019,6 +14574,38 @@
      "va": "01656e60",
      "size": 34,
      "symbol": "?sub_01656e60@AInfo@@QAEPAU1@XZ"
+    }
+   ]
+  },
+  {
+   "unit": "BmGame/Src/RHarpoonGun.cpp",
+   "source": "BmGame/Src/RHarpoonGun.5.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "016385a0",
+     "size": 92,
+     "symbol": "?eventReleaseTarget@ARSpecialMoveInstance_HarpoonYank_@@QAEXAAUFHarpoonTargetInfo@@@Z"
+    },
+    {
+     "va": "01638600",
+     "size": 92,
+     "symbol": "?eventTripTargetInvisibleCollision@ARSpecialMoveInstance_HarpoonYank__01638600@@QAEXAAUFHarpoonTargetInfo@@@Z"
+    },
+    {
+     "va": "01638660",
+     "size": 92,
+     "symbol": "?eventTripTarget@ARSpecialMoveInstance_HarpoonYank__01638660@@QAEXAAUFHarpoonTargetInfo@@@Z"
+    },
+    {
+     "va": "016386c0",
+     "size": 92,
+     "symbol": "?eventYankTarget@ARSpecialMoveInstance_HarpoonYank__016386c0@@QAEXAAUFHarpoonTargetInfo@@@Z"
+    },
+    {
+     "va": "01638c20",
+     "size": 106,
+     "symbol": "?eventBumpLevel@ARHarpoonProjectile_@@QAEXUFVector@@0@Z"
     }
    ]
   },
@@ -18050,6 +18637,101 @@
      "va": "016fac10",
      "size": 113,
      "symbol": "?execSetDLCLoadingFlag@ARPlayerController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "0160dc50",
+     "size": 64,
+     "symbol": "?eventUpdateWorldAvoidWeight@ARBMRouter_@@QAEXM@Z"
+    },
+    {
+     "va": "0160dc90",
+     "size": 121,
+     "symbol": "?eventGetWorldAvoidVector@ARBMRouter__0160dc90@@QAE?AUFVector@@AAM@Z"
+    },
+    {
+     "va": "0160dd10",
+     "size": 59,
+     "symbol": "?eventNewPathSet@ARBMRouter__0160dd10@@QAEXPAUARBMRouteRequest@@@Z"
+    },
+    {
+     "va": "0160dd90",
+     "size": 64,
+     "symbol": "?eventGetCurrentPath@ARBMRouteRequest_@@QAEPAUURBMRouterPath@@XZ"
+    },
+    {
+     "va": "0160e030",
+     "size": 82,
+     "symbol": "?eventAddTransientCosts@ARBMRouteRequest_NervousSearch_@@QAEXUFVector@@@Z"
+    },
+    {
+     "va": "0160e0e0",
+     "size": 64,
+     "symbol": "?eventProcessBuilderStep@ARBMRouteRequest_PerimeterBuilderWrapper_@@QAEHXZ"
+    },
+    {
+     "va": "0160e3f0",
+     "size": 83,
+     "symbol": "?eventSmoothEnd@URBMRouterPath_@@QAEXPAUARPawn@@AAH@Z"
+    },
+    {
+     "va": "0160e480",
+     "size": 62,
+     "symbol": "?eventGetApproximateMovementSpeed@ARBMPawnAIAnim_@@QAEMXZ"
+    },
+    {
+     "va": "0160e4d0",
+     "size": 85,
+     "symbol": "?eventIsAwareOfPlayer@ARBMPawnAI_@@QAEHPAUARPawnPlayer@@PAUUClass@@@Z"
+    },
+    {
+     "va": "0160e5e0",
+     "size": 121,
+     "symbol": "?eventFindClosestPawnForStrike@ARPawnPlayerCombat_@@QAEHPAUUClass@@AAMAAPAUARPawnCombat@@@Z"
+    },
+    {
+     "va": "016122f0",
+     "size": 103,
+     "symbol": "?eventGetGlideKickPosition@ARPlayerController__016122f0@@QAE?AUFVector@@PAUARPawnVillain@@@Z"
+    },
+    {
+     "va": "01612360",
+     "size": 78,
+     "symbol": "?eventInKickRange@ARPlayerController__01612360@@QAEXPAUAActor@@H@Z"
+    },
+    {
+     "va": "016123b0",
+     "size": 116,
+     "symbol": "?eventModifyPlayerMovement@ARPlayerController__016123b0@@QAEXAAUFVector@@M@Z"
+    },
+    {
+     "va": "01612430",
+     "size": 87,
+     "symbol": "?eventImAboutToFallOffAnEdge@ARPlayerController__01612430@@QAEHUFEnvironmentSpecialMoveLocator@@@Z"
+    },
+    {
+     "va": "01612490",
+     "size": 94,
+     "symbol": "?eventUpdateControllerRotation@ARPlayerController__01612490@@QAEXMUFVector@@@Z"
+    },
+    {
+     "va": "016124f0",
+     "size": 202,
+     "symbol": "?eventGetMovementAxes@ARPlayerController__016124f0@@QAEXAAUFVector@@00@Z"
+    },
+    {
+     "va": "016125f0",
+     "size": 59,
+     "symbol": "?eventLevelAmbientSound@ARPlayerController__016125f0@@QAEXPAUUSoundCue@@@Z"
+    },
+    {
+     "va": "016126e0",
+     "size": 212,
+     "symbol": "?eventCheckInteractableItem@ARPlayerController__016126e0@@QAEHPAUAActor@@AAUFVector@@AAM22@Z"
+    },
+    {
+     "va": "016127f0",
+     "size": 106,
+     "symbol": "?eventInputHeading@ARPlayerControllerCombat_@@QAE?AUFVector@@H@Z"
     }
    ]
   },
@@ -18062,6 +18744,18 @@
      "va": "01635640",
      "size": 83,
      "symbol": "??$Cast@UURPlayerInput@@@@YAPAUURPlayerInput@@PAUUObject@@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "BmGame/Src/RPlayerController.cpp",
+   "source": "BmGame/Src/RPlayerController.8.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "0160dec0",
+     "size": 118,
+     "symbol": "?eventGetPathToWithoutBeingSeenFrom@ARBMRouteRequest_HideOnCorner_@@QAEPAUURBMRouterPath@@UFVector@@0@Z"
     }
    ]
   },
@@ -19045,6 +19739,31 @@
      "va": "016ff870",
      "size": 100,
      "symbol": "?execSetLightEnvironment@ARSmashableProp@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "01668ab0",
+     "size": 64,
+     "symbol": "?eventGetSaveSmashedState@ARSmashableProp__01668ab0@@QAEHXZ"
+    },
+    {
+     "va": "01668af0",
+     "size": 64,
+     "symbol": "?eventSetSaveSmashedState@ARSmashableProp__01668af0@@QAEXH@Z"
+    },
+    {
+     "va": "01668ba0",
+     "size": 77,
+     "symbol": "?eventSpawnEmitter@ARSmashableProp__01668ba0@@QAEPAUAEmitter@@PAUUParticleSystem@@@Z"
+    },
+    {
+     "va": "01668bf0",
+     "size": 59,
+     "symbol": "?eventDestroyProp@ARSmashableProp__01668bf0@@QAEXPAUARSmashableProp@@@Z"
+    },
+    {
+     "va": "01668c30",
+     "size": 133,
+     "symbol": "?eventSpawnProp@ARSmashableProp__01668c30@@QAEPAUARSmashableProp@@PAUAActor@@UFVector@@UFRotator@@PAUURSmashablePropConfig@@@Z"
     }
    ]
   },
@@ -20443,6 +21162,41 @@
      "va": "0154ac70",
      "size": 133,
      "symbol": "?eventSpawnEmitter@AEmitterPool_@@QAEPAUUParticleSystemComponent@@PAUUParticleSystem@@UFVector@@UFRotator@@PAUAActor@@@Z"
+    },
+    {
+     "va": "0154b3c0",
+     "size": 59,
+     "symbol": "?eventCauseDamageToPawn@ARElectrifiedFloorPanel_@@QAEXPAUARPawnCharacter@@@Z"
+    },
+    {
+     "va": "0154b400",
+     "size": 64,
+     "symbol": "?eventTriggerBatmanOnEvent@ARElectrifiedFloorPanel__0154b400@@QAEXH@Z"
+    },
+    {
+     "va": "0154b470",
+     "size": 59,
+     "symbol": "?eventCreateMaterial@ARElectrifiedFloorPanel__0154b470@@QAEXH@Z"
+    },
+    {
+     "va": "0154c6d0",
+     "size": 64,
+     "symbol": "?eventGetHeartBeatType@ARPawnVillain_@@QAEHXZ"
+    },
+    {
+     "va": "0154c7f0",
+     "size": 59,
+     "symbol": "?eventMusicSetVariableLinkType@URSeqAct_Music_@@QAEXH@Z"
+    },
+    {
+     "va": "0154c930",
+     "size": 64,
+     "symbol": "?eventAmIUnderATunnelGrate@ARPlayerController_@@QAEHXZ"
+    },
+    {
+     "va": "0154c9a0",
+     "size": 64,
+     "symbol": "?eventDrawHUDLines@ARPlayerController__0154c9a0@@QAEHXZ"
     }
    ]
   },
@@ -22369,6 +23123,33 @@
      "va": "0155e2e0",
      "size": 83,
      "symbol": "??$Cast@UUAnimNodeBlend@@@@YAPAUUAnimNodeBlend@@PAUUObject@@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "BmGame/Unsorted/BmGame_1550000.cpp",
+   "source": "BmGame/Unsorted/BmGame_1550000.4.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "01558360",
+     "size": 64,
+     "symbol": "?eventGetOutputLinkForCurrentSelection@URSeqAct_PlayerDialogueOptions_@@QAEHXZ"
+    },
+    {
+     "va": "01558440",
+     "size": 73,
+     "symbol": "?eventTaggedLookAt@URSeqAct_ConversationDialogue_@@QAEXPAUARPawnCharacter@@0@Z"
+    },
+    {
+     "va": "015584d0",
+     "size": 77,
+     "symbol": "?eventGetSpeakingTo@URSeqAct_ConversationDialogue__015584d0@@QAEPAUARPawnCharacter@@H@Z"
+    },
+    {
+     "va": "01558540",
+     "size": 59,
+     "symbol": "?eventSetSource@URSeqAct_PlayerDialogueLine_@@QAEXPAUURSeqAct_PlayerDialogueOptions@@@Z"
     }
    ]
   },
@@ -29584,6 +30365,11 @@
      "va": "01592620",
      "size": 25,
      "symbol": "?sub_01592620@@YAPAMPAM00@Z"
+    },
+    {
+     "va": "01592600",
+     "size": 17,
+     "symbol": "?sub_01592600@@YAXPAM@Z"
     }
    ]
   },
@@ -30476,6 +31262,73 @@
      "va": "015cf930",
      "size": 15,
      "symbol": "?sub_015cf930@@YGXHPAH@Z"
+    }
+   ]
+  },
+  {
+   "unit": "BmGame/Unsorted/BmGame_15d0000.cpp",
+   "source": "BmGame/Unsorted/BmGame_15d0000.2.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "015d89f0",
+     "size": 61,
+     "symbol": "?eventGetAnimationFearLevel@ARBMAIController_@@QAEEXZ"
+    },
+    {
+     "va": "015d8af0",
+     "size": 64,
+     "symbol": "?eventTickBehaviour@ARBMAIController__015d8af0@@QAEXM@Z"
+    },
+    {
+     "va": "015d8b30",
+     "size": 46,
+     "symbol": "?eventProcessWeaponChange@ARBMAIController__015d8b30@@QAEXXZ"
+    },
+    {
+     "va": "015d8b60",
+     "size": 95,
+     "symbol": "?eventGetBehaviourCustomEyeLocation@ARBMAIController__015d8b60@@QAE?AUFVector@@XZ"
+    },
+    {
+     "va": "015d94e0",
+     "size": 77,
+     "symbol": "?eventGetRandomType@URCharacterRandom_@@QAEPAUUClass@@H@Z"
+    },
+    {
+     "va": "015d95f0",
+     "size": 64,
+     "symbol": "?eventCanExitConditionExit@URBMBehaviour_@@QAEHXZ"
+    },
+    {
+     "va": "015d9630",
+     "size": 64,
+     "symbol": "?eventIsExitConditionTriggered@URBMBehaviour__015d9630@@QAEHXZ"
+    },
+    {
+     "va": "015d9720",
+     "size": 64,
+     "symbol": "?eventUpdateTimers@URBMBehaviour__015d9720@@QAEXM@Z"
+    },
+    {
+     "va": "015d98d0",
+     "size": 94,
+     "symbol": "?eventPlayTurnStep@URBMBehaviour_CombatAI_@@QAEXUFVector@@H@Z"
+    },
+    {
+     "va": "015d9c70",
+     "size": 64,
+     "symbol": "?eventJokerIsTalking@URBMBehaviour_MoveToJokerInChair_@@QAEHXZ"
+    },
+    {
+     "va": "015d9cb0",
+     "size": 64,
+     "symbol": "?eventIsJokerPlayingOverlay@URBMBehaviour_MoveToJokerInChair__015d9cb0@@QAEHXZ"
+    },
+    {
+     "va": "015d9ee0",
+     "size": 64,
+     "symbol": "?eventIsBatarangPrimed@ARPlayerControllerCombat_@@QAEHXZ"
     }
    ]
   },
@@ -35554,6 +36407,18 @@
   },
   {
    "unit": "BmGame/Unsorted/BmGame_1600000.cpp",
+   "source": "BmGame/Unsorted/BmGame_1600000.4.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "0160e680",
+     "size": 77,
+     "symbol": "?eventCanDoPathShortenCheck@ARBMAIManager_@@QAEHPAUARBMAIController@@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "BmGame/Unsorted/BmGame_1600000.cpp",
    "source": "BmGame/Unsorted/BmGame_1600000.cpp",
    "profile": "ue3",
    "functions": [
@@ -35994,6 +36859,18 @@
      "va": "01612250",
      "size": 15,
      "symbol": "?sub_01612250@C@@QAEPAU1@H@Z"
+    }
+   ]
+  },
+  {
+   "unit": "BmGame/Unsorted/BmGame_1610000.cpp",
+   "source": "BmGame/Unsorted/BmGame_1610000.6.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "01612b50",
+     "size": 82,
+     "symbol": "?eventMouseInput@URPlayerInput_@@QAEXMM@Z"
     }
    ]
   },
@@ -37321,6 +38198,33 @@
      "va": "0163fd60",
      "size": 111,
      "symbol": "?Add@?$TArray@UT_0163fd60@@@@QAEHH@Z"
+    }
+   ]
+  },
+  {
+   "unit": "BmGame/Unsorted/BmGame_1630000.cpp",
+   "source": "BmGame/Unsorted/BmGame_1630000.4.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "01638310",
+     "size": 64,
+     "symbol": "?eventIsGettingUpFromRagdoll@ARPawnCharacter_@@QAEHXZ"
+    },
+    {
+     "va": "01638460",
+     "size": 59,
+     "symbol": "?eventCollisionWithActor@ARPawnCombat_@@QAEXPAUAActor@@@Z"
+    },
+    {
+     "va": "01638500",
+     "size": 64,
+     "symbol": "?eventBatarangCanTargetOffscreen@ARPlayerController_@@QAEHXZ"
+    },
+    {
+     "va": "01638b70",
+     "size": 127,
+     "symbol": "?eventTestPos@ARPhotoScanner_@@QAE?AUFVector@@U2@PAUUCanvas@@@Z"
     }
    ]
   },
@@ -39033,6 +39937,11 @@
      "va": "0164ffa0",
      "size": 96,
      "symbol": "?sub_0164ffa0@C_0164ffa0@@QAEXXZ"
+    },
+    {
+     "va": "0164ac50",
+     "size": 16,
+     "symbol": "?sub_0164ac50@C_0164ac50@@QAEPAU1@H@Z"
     }
    ]
   },
@@ -40622,6 +41531,18 @@
   },
   {
    "unit": "BmGame/Unsorted/BmGame_1660000.cpp",
+   "source": "BmGame/Unsorted/BmGame_1660000.4.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "0166d280",
+     "size": 97,
+     "symbol": "?eventCounterHit@ARCombatMove_@@QAEXEEEUFName@@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "BmGame/Unsorted/BmGame_1660000.cpp",
    "source": "BmGame/Unsorted/BmGame_1660000.cpp",
    "profile": "ue3",
    "functions": [
@@ -41289,6 +42210,33 @@
      "va": "0168ae60",
      "size": 83,
      "symbol": "??$Cast@UURAnimNotify_Takedown@@@@YAPAUURAnimNotify_Takedown@@PAUUObject@@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "BmGame/Unsorted/BmGame_1680000.cpp",
+   "source": "BmGame/Unsorted/BmGame_1680000.8.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "01686390",
+     "size": 64,
+     "symbol": "?eventJustAboveFloor@ARPawnVillain_@@QAEHXZ"
+    },
+    {
+     "va": "016864c0",
+     "size": 64,
+     "symbol": "?eventGetVenomHenchmanRidden@ARPawnPlayer_@@QAEPAUARPawnBossVenomBase@@XZ"
+    },
+    {
+     "va": "01686500",
+     "size": 64,
+     "symbol": "?eventIsRidingVenomHenchman@ARPawnPlayer__01686500@@QAEHXZ"
+    },
+    {
+     "va": "016868b0",
+     "size": 95,
+     "symbol": "?eventGetYawAnchorRotation@ARPlayerController_@@QAE?AUFRotator@@XZ"
     }
    ]
   },
@@ -42330,6 +43278,53 @@
      "va": "016aff90",
      "size": 108,
      "symbol": "?Add@?$TArray@UT_016aff90@@@@QAEHH@Z"
+    }
+   ]
+  },
+  {
+   "unit": "BmGame/Unsorted/BmGame_16a0000.cpp",
+   "source": "BmGame/Unsorted/BmGame_16a0000.3.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "016a99f0",
+     "size": 64,
+     "symbol": "?eventContainsRootToGather@ARGatherRootPointBase_@@QAEHXZ"
+    },
+    {
+     "va": "016a9a80",
+     "size": 118,
+     "symbol": "?eventPlayAnim@ARPontoonBase_@@QAEXUFName@@EMHM@Z"
+    },
+    {
+     "va": "016a9b00",
+     "size": 83,
+     "symbol": "?eventDoSetEdgeCollisionEnabled@ARPontoonBase__016a9b00@@QAEXHH@Z"
+    },
+    {
+     "va": "016a9c10",
+     "size": 64,
+     "symbol": "?eventGetGatherRootPoint@ARGatherRootPointSpawnerBase_@@QAEPAUARGatherRootPointBase@@XZ"
+    },
+    {
+     "va": "016a9c60",
+     "size": 150,
+     "symbol": "?eventGetTrackingPositionAndRotation@ARBatarangCamera_@@QAEXAAUFVector@@AAUFRotator@@@Z"
+    },
+    {
+     "va": "016ab800",
+     "size": 59,
+     "symbol": "?eventRegisterPontoon@ARPontoonBridgeManager_@@QAEXPAUARPontoonBase@@@Z"
+    },
+    {
+     "va": "016ad7e0",
+     "size": 59,
+     "symbol": "?eventUpdateDamageLevel@URCapeSkeletalMeshComponent_@@QAEXPAUUMaterialInstance@@@Z"
+    },
+    {
+     "va": "016ad870",
+     "size": 64,
+     "symbol": "?eventCapeSetHiddenGame@URCapeComponent_@@QAEXH@Z"
     }
    ]
   },
@@ -43736,6 +44731,18 @@
      "va": "016c94e0",
      "size": 34,
      "symbol": "?sub_016c94e0@AInfo@@QAEPAU1@XZ"
+    }
+   ]
+  },
+  {
+   "unit": "BmGame/Unsorted/BmGame_16c0000.cpp",
+   "source": "BmGame/Unsorted/BmGame_16c0000.13.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "016cd970",
+     "size": 59,
+     "symbol": "?eventAdvanceFlockStage@ARCrowdAgent_@@QAEXH@Z"
     }
    ]
   },
@@ -45797,6 +46804,11 @@
      "va": "016e9d30",
      "size": 126,
      "symbol": "?execGetAnimTransformNode@ARPontoonBase@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016e92d0",
+     "size": 94,
+     "symbol": "?eventSetCurrentLevel@ARGameRI_@@QAEXUFName@@PAUAActor@@H@Z"
     }
    ]
   },
@@ -47381,6 +48393,21 @@
      "va": "016f4d20",
      "size": 84,
      "symbol": "?execGetTargetAimAtDirection@ARPawnCharacter@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016ffc20",
+     "size": 106,
+     "symbol": "?eventDoWallExplodeAlert@ARExplodableWallBase_@@QAEXUFVector@@0@Z"
+    },
+    {
+     "va": "016ffcc0",
+     "size": 77,
+     "symbol": "?eventGetBrickSaveRemovedState@ARExplodableWallBase__016ffcc0@@QAEHPAUUStaticMeshComponent@@@Z"
+    },
+    {
+     "va": "016ffd10",
+     "size": 78,
+     "symbol": "?eventSetBrickSaveRemovedState@ARExplodableWallBase__016ffd10@@QAEXPAUUStaticMeshComponent@@H@Z"
     }
    ]
   },
@@ -48387,6 +49414,26 @@
      "va": "017080e0",
      "size": 128,
      "symbol": "?execGetFlightPathDeltaTangent@ARBatarangProjectile@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "01707dc0",
+     "size": 46,
+     "symbol": "?eventDestroyTeethCamera@ARControllableChatteringTeethBase_@@QAEXXZ"
+    },
+    {
+     "va": "01707e20",
+     "size": 46,
+     "symbol": "?eventRemoveTeethPhysics@ARControllableChatteringTeethBase__01707e20@@QAEXXZ"
+    },
+    {
+     "va": "01707e50",
+     "size": 46,
+     "symbol": "?eventPlayPreExplodeAnim@ARControllableChatteringTeethBase__01707e50@@QAEXXZ"
+    },
+    {
+     "va": "01707e80",
+     "size": 64,
+     "symbol": "?eventGetJumpBlenderAnimNode@ARControllableChatteringTeethBase__01707e80@@QAEPAUUAnimNodeCrossfader@@XZ"
     }
    ]
   },
@@ -68569,6 +69616,11 @@
      "va": "0059e690",
      "size": 80,
      "symbol": "?sub_0059e690@@YGXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "00595100",
+     "size": 148,
+     "symbol": "?sub_00595100@@YGXAAUFFrame@@QAX@Z"
     }
    ]
   },
@@ -68710,6 +69762,11 @@
      "va": "00594390",
      "size": 159,
      "symbol": "?execFMax@UObject@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "00594430",
+     "size": 232,
+     "symbol": "?execFClamp@UObject@@QAEXAAUFFrame@@QAX@Z"
     }
    ]
   },
@@ -164176,6 +165233,28 @@
   },
   {
    "unit": "Engine/Src/MaterialShared.cpp",
+   "source": "Engine/Src/MaterialShared.8.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "00702d20",
+     "size": 153,
+     "symbol": "?SetTextureParameterValue@UMaterialInstanceTimeVarying@@UAEXUFName@@PAUUTexture@@@Z"
+    },
+    {
+     "va": "00702dc0",
+     "size": 144,
+     "symbol": "?SetFontParameterValue@UMaterialInstanceTimeVarying_@@QAEXUFName@@PAUUFont@@H@Z"
+    },
+    {
+     "va": "00708ef0",
+     "size": 168,
+     "symbol": "?SetScalarParameterValue@UMaterialInstanceTimeVarying@@UAEXUFName@@M@Z"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Src/MaterialShared.cpp",
    "source": "Engine/Src/MaterialShared.cpp",
    "profile": "ue3",
    "functions": [
@@ -220031,6 +221110,45 @@
   },
   {
    "unit": "Engine/Src/UnSkeletalMeshMerge.cpp",
+   "source": "Engine/Src/UnSkeletalMeshMerge.2.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "00d53800",
+     "size": 139,
+     "symbol": "?Empty@FMergeMeshInfoArray@@QAEXH@Z"
+    },
+    {
+     "va": "00d48310",
+     "size": 163,
+     "symbol": "?AddUniqueItem@FSocketArray@@QAEHABQAUUSkeletalMeshSocket@@@Z"
+    },
+    {
+     "va": "00d586e0",
+     "size": 206,
+     "symbol": "??1?$TArray@UFNewSectionInfo@@@@QAE@XZ"
+    },
+    {
+     "va": "00d58810",
+     "size": 214,
+     "symbol": "?Empty@FNewSectionInfoArray@@QAEXH@Z"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Src/UnSkeletalMeshMerge.cpp",
+   "source": "Engine/Src/UnSkeletalMeshMerge.3.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "00d49360",
+     "size": 165,
+     "symbol": "??$?2UFMergeSectionInfo@@@@YAPAXIAAV?$TArray@UFMergeSectionInfo@@@@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Src/UnSkeletalMeshMerge.cpp",
    "source": "Engine/Src/UnSkeletalMeshMerge.cpp",
    "profile": "ue3",
    "functions": [
@@ -220038,6 +221156,21 @@
      "va": "00d4cff0",
      "size": 349,
      "symbol": "??$Sort@EVCompareUnSkeletalMeshMergeBYTEConstRef@@@@YAXPAEH@Z"
+    },
+    {
+     "va": "00d54270",
+     "size": 155,
+     "symbol": "??0FSkeletalMeshMerge@@QAE@PAUUSkeletalMesh@@ABV?$TArray@PAVUSkeletalMesh@@@@HABV?$TArray@UFSkelMeshMergeSectionMapping@@@@@Z"
+    },
+    {
+     "va": "00d49b40",
+     "size": 119,
+     "symbol": "?FindBoneIndex@@YAHABV?$TArray@UFMeshBone_@@@@UFName@@@Z"
+    },
+    {
+     "va": "00d49bc0",
+     "size": 172,
+     "symbol": "?MergeBoneMap@FSkeletalMeshMerge_00d49bc0@@QAEXAAV?$TArray@G@@0ABV2@@Z"
     }
    ]
   },
@@ -228122,6 +229255,11 @@
      "va": "00db0c60",
      "size": 111,
      "symbol": "?ResolveDataStore@UUIScene@@QAEPAUUUIDataStore@@UFName@@PAUULocalPlayer@@@Z"
+    },
+    {
+     "va": "00db4230",
+     "size": 112,
+     "symbol": "?RegisterTickableObject@UUIScene__00db4230@@QAEHABUFScriptInterface@@H@Z"
     }
    ]
   },
@@ -238856,6 +239994,11 @@
      "va": "00ddd070",
      "size": 5,
      "symbol": "?sub_00ddd070@@YAHHH@Z"
+    },
+    {
+     "va": "00dde670",
+     "size": 73,
+     "symbol": "?HasValue@FUIRangeData_@@QBEHXZ"
     }
    ]
   },
@@ -275012,6 +276155,18 @@
      "va": "007dca60",
      "size": 89,
      "symbol": "??1PlayerController_eventSetProgressMessage_Parms@?1??eventSetProgressMessage@APlayerController_@@QAEXEABVFString@@0@Z@QAE@XZ"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Unsorted/Engine_07d0000.cpp",
+   "source": "Engine/Unsorted/Engine_07d0000.13.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "007da4b0",
+     "size": 163,
+     "symbol": "?AddUniqueItem@FWordArray@@QAEHABG@Z"
     }
    ]
   },
@@ -333550,6 +334705,23 @@
   },
   {
    "unit": "Engine/Unsorted/Engine_0d50000.cpp",
+   "source": "Engine/Unsorted/Engine_0d50000.2.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "00d53730",
+     "size": 193,
+     "symbol": "??1?$TArray@UFMergeMeshInfo@@@@QAE@XZ"
+    },
+    {
+     "va": "00d54590",
+     "size": 196,
+     "symbol": "??1?$TArray@UFMergeSectionInfo@@@@QAE@XZ"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Unsorted/Engine_0d50000.cpp",
    "source": "Engine/Unsorted/Engine_0d50000.cpp",
    "profile": "ue3",
    "functions": [
@@ -357586,6 +358758,18 @@
   },
   {
    "unit": "External/FCollada/Unsorted/FCollada_1820000.cpp",
+   "source": "External/FCollada/Unsorted/FCollada_1820000.7.cpp",
+   "profile": "ue3_x87_gsoff",
+   "functions": [
+    {
+     "va": "01825140",
+     "size": 25,
+     "symbol": "??0sub_01825140@@QAE@XZ"
+    }
+   ]
+  },
+  {
+   "unit": "External/FCollada/Unsorted/FCollada_1820000.cpp",
    "source": "External/FCollada/Unsorted/FCollada_1820000.cpp",
    "profile": "ue3",
    "functions": [
@@ -358707,6 +359891,18 @@
      "va": "01837d70",
      "size": 25,
      "symbol": "?sub_01837d70@FUObjectContainerCamera@@QAEPAU1@XZ"
+    }
+   ]
+  },
+  {
+   "unit": "External/FCollada/Unsorted/FCollada_1830000.cpp",
+   "source": "External/FCollada/Unsorted/FCollada_1830000.26.cpp",
+   "profile": "ue3_x87_gsoff",
+   "functions": [
+    {
+     "va": "01837f20",
+     "size": 25,
+     "symbol": "??0FCDEmitter@@QAE@XZ"
     }
    ]
   },

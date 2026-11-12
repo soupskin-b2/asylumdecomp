@@ -1,4 +1,4 @@
-// BmGame_1540000.cpp: 2 functions
+// BmGame_1540000.cpp: 9 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -51,5 +51,141 @@ class UParticleSystemComponent* AEmitterPool_::eventSpawnEmitter(class UParticle
 	Parms.SpawnRotation = SpawnRotation;
 	Parms.AttachToActor = AttachToActor;
 	ProcessEvent(FindFunctionChecked(g_026e0f6c), &Parms);
+	return Parms.ReturnValue;
+}
+
+extern FName g_026e2e70;
+	/* CauseDamageToPawn */
+struct ARElectrifiedFloorPanel_ : public ARElectrifiedFloorPanel
+{
+	void eventCauseDamageToPawn(class ARPawnCharacter* CPawn);
+};
+
+// @baa 0x0154b3c0
+/* RElectrifiedFloorPanel.CauseDamageToPawn script event: the generated glue, out of line here. */
+void ARElectrifiedFloorPanel_::eventCauseDamageToPawn(class ARPawnCharacter* CPawn)
+{
+	struct RElectrifiedFloorPanel_eventCauseDamageToPawn_Parms
+	{
+		class ARPawnCharacter* CPawn;
+	} Parms;
+	Parms.CPawn = CPawn;
+	ProcessEvent(FindFunctionChecked(g_026e2e70), &Parms);
+}
+
+extern FName g_026e32bc;
+	/* TriggerBatmanOnEvent */
+struct ARElectrifiedFloorPanel__0154b400 : public ARElectrifiedFloorPanel
+{
+	void eventTriggerBatmanOnEvent(UBOOL IsOff);
+};
+
+// @baa 0x0154b400
+/* RElectrifiedFloorPanel.TriggerBatmanOnEvent script event: the generated glue, out of line here. */
+void ARElectrifiedFloorPanel__0154b400::eventTriggerBatmanOnEvent(UBOOL IsOff)
+{
+	struct RElectrifiedFloorPanel_eventTriggerBatmanOnEvent_Parms
+	{
+		UBOOL IsOff;
+	} Parms;
+	Parms.IsOff = IsOff ? TRUE : FALSE;
+	ProcessEvent(FindFunctionChecked(g_026e32bc), &Parms);
+}
+
+extern FName g_026e3018;
+	/* CreateMaterial */
+struct ARElectrifiedFloorPanel__0154b470 : public ARElectrifiedFloorPanel
+{
+	void eventCreateMaterial(INT Index);
+};
+
+// @baa 0x0154b470
+/* RElectrifiedFloorPanel.CreateMaterial script event: the generated glue, out of line here. */
+void ARElectrifiedFloorPanel__0154b470::eventCreateMaterial(INT Index)
+{
+	struct RElectrifiedFloorPanel_eventCreateMaterial_Parms
+	{
+		INT Index;
+	} Parms;
+	Parms.Index = Index;
+	ProcessEvent(FindFunctionChecked(g_026e3018), &Parms);
+}
+
+extern FName g_026e3394;
+	/* GetHeartBeatType */
+struct ARPawnVillain_ : public ARPawnVillain
+{
+	INT eventGetHeartBeatType();
+};
+
+// @baa 0x0154c6d0
+/* RPawnVillain.GetHeartBeatType script event: the generated glue, out of line here. */
+INT ARPawnVillain_::eventGetHeartBeatType()
+{
+	struct RPawnVillain_eventGetHeartBeatType_Parms
+	{
+		INT ReturnValue;
+	} Parms;
+	Parms.ReturnValue = 0;
+	ProcessEvent(FindFunctionChecked(g_026e3394), &Parms);
+	return Parms.ReturnValue;
+}
+
+extern FName g_026e3164;
+	/* MusicSetVariableLinkType */
+struct URSeqAct_Music_ : public URSeqAct_Music
+{
+	void eventMusicSetVariableLinkType(INT I);
+};
+
+// @baa 0x0154c7f0
+/* RSeqAct_Music.MusicSetVariableLinkType script event: the generated glue, out of line here. */
+void URSeqAct_Music_::eventMusicSetVariableLinkType(INT I)
+{
+	struct RSeqAct_Music_eventMusicSetVariableLinkType_Parms
+	{
+		INT I;
+	} Parms;
+	Parms.I = I;
+	ProcessEvent(FindFunctionChecked(g_026e3164), &Parms);
+}
+
+extern FName g_026e31f8;
+	/* AmIUnderATunnelGrate */
+struct ARPlayerController_ : public ARPlayerController
+{
+	UBOOL eventAmIUnderATunnelGrate();
+};
+
+// @baa 0x0154c930
+/* RPlayerController.AmIUnderATunnelGrate script event: the generated glue, out of line here. */
+UBOOL ARPlayerController_::eventAmIUnderATunnelGrate()
+{
+	struct RPlayerController_eventAmIUnderATunnelGrate_Parms
+	{
+		UBOOL ReturnValue;
+	} Parms;
+	Parms.ReturnValue = FALSE;
+	ProcessEvent(FindFunctionChecked(g_026e31f8), &Parms);
+	return Parms.ReturnValue;
+}
+
+extern FName g_026e2550;
+	/* DrawHUDLines */
+struct ARPlayerController__0154c9a0 : public ARPlayerController
+{
+	UBOOL eventDrawHUDLines();
+};
+
+// @baa 0x0154c9a0
+/* RPlayerController.DrawHUDLines script event: the generated glue, out of line here. */
+UBOOL ARPlayerController__0154c9a0::eventDrawHUDLines()
+{
+	struct RPlayerController_eventDrawHUDLines_Parms
+	{
+		UBOOL ReturnValue;
+	} Parms;
+	Parms.ReturnValue = FALSE;
+	ProcessEvent(FindFunctionChecked(g_026e2550), &Parms);
 	return Parms.ReturnValue;
 }

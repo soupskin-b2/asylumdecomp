@@ -1,4 +1,4 @@
-// UnUIObjects.cpp (part 12 of 17): 16 functions
+// UnUIObjects.cpp (part 12 of 17): 17 functions
 // Placed here by: class 11, neighbours 4.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -132,4 +132,44 @@ UUIDataStore* UUIScene::ResolveDataStore(FName DataStoreTag, ULocalPlayer* InPla
 	}
 
 	return Result;
+}
+
+/* Kit gaps: UUIScene::RegisterTickableObject isn't declared (only its exec, 00cb3e90), and neither are the
+ * TArray methods used on TickableObjects, which stay out of line for this element type (FindItemIndex 00dad6e0,
+ * AddItem 00db1cb0, InsertItem 00db1b80). */
+struct TArrayTickables_ : public TArray<FNativeElem_00db1b20>
+{
+	INT FindItemIndex(const FScriptInterface& Item) const;
+	INT AddItem(const FScriptInterface& Item);
+	INT InsertItem(const FScriptInterface& Item, INT Index);
+};
+
+struct UUIScene__00db4230 : public UUIScene
+{
+	UBOOL RegisterTickableObject(const FScriptInterface& Tickable, INT InsertIndex);
+};
+
+// @baa 0x00db4230
+/* Adds Tickable to the scene's tickable objects (at InsertIndex, or the end if it's negative) unless it's already
+ * there. Returns whether it was added. */
+UBOOL UUIScene__00db4230::RegisterTickableObject(const FScriptInterface& Tickable, INT InsertIndex)
+{
+	UBOOL bResult = FALSE;
+	if (Tickable.Object != NULL && Tickable.Interface != NULL)
+	{
+		if (((TArrayTickables_&)TickableObjects).FindItemIndex(Tickable) == INDEX_NONE)
+		{
+			if (InsertIndex < 0)
+			{
+				((TArrayTickables_&)TickableObjects).AddItem(Tickable);
+				bResult = TRUE;
+			}
+			else if (InsertIndex <= TickableObjects.Num())
+			{
+				((TArrayTickables_&)TickableObjects).InsertItem(Tickable, InsertIndex);
+				bResult = TRUE;
+			}
+		}
+	}
+	return bResult;
 }

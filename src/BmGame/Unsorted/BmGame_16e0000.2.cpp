@@ -1,4 +1,4 @@
-// BmGame_16e0000.cpp: 64 functions
+// BmGame_16e0000.cpp: 65 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -485,4 +485,27 @@ void ARPontoonBase::execGetAnimTransformNode(FFrame& Stack, RESULT_DECL)
     P_GET_UBOOL_OPTX(bOther, 0);
     P_FINISH;
     *(URAnimNode_AnimTransform**)Result = (URAnimNode_AnimTransform*)(UINT)vf_360(bOther);
+}
+
+extern FName g_026e2698;
+	/* SetCurrentLevel */
+struct ARGameRI_ : public ARGameRI
+{
+	void eventSetCurrentLevel(FName Level, class AActor* Originator, UBOOL BlockOnLoad);
+};
+
+// @baa 0x016e92d0
+/* RGameRI.SetCurrentLevel script event: the generated glue, out of line here. */
+void ARGameRI_::eventSetCurrentLevel(FName Level, class AActor* Originator, UBOOL BlockOnLoad)
+{
+	struct RGameRI_eventSetCurrentLevel_Parms
+	{
+		FName Level;
+		class AActor* Originator;
+		UBOOL BlockOnLoad;
+	} Parms;
+	Parms.Level = Level;
+	Parms.Originator = Originator;
+	Parms.BlockOnLoad = BlockOnLoad ? TRUE : FALSE;
+	ProcessEvent(FindFunctionChecked(g_026e2698), &Parms);
 }

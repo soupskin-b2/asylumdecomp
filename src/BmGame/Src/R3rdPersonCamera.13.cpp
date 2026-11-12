@@ -1,4 +1,4 @@
-// R3rdPersonCamera.cpp: 11 functions
+// R3rdPersonCamera.cpp: 15 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -133,4 +133,91 @@ void AR3rdPersonCamera::execSaveFreeCameraConfig(FFrame& Stack, RESULT_DECL)
     P_GET_STRUCT_REF(FFreeCameraConfig, ConfigToSave);
     P_FINISH;
     SaveFreeCameraConfig(ConfigToSave);
+}
+
+extern FName g_026e25c4;
+	/* InputHeading */
+struct ARPawnPlayerCombat_ : public ARPawnPlayerCombat
+{
+	FVector eventInputHeading();
+};
+
+// @baa 0x01686400
+/* RPawnPlayerCombat.InputHeading script event: the generated glue, out of line here. */
+FVector ARPawnPlayerCombat_::eventInputHeading()
+{
+	struct RPawnPlayerCombat_eventInputHeading_Parms
+	{
+		FVector ReturnValue;
+	} Parms;
+	appMemzero(&Parms.ReturnValue, sizeof(Parms.ReturnValue));
+	ProcessEvent(FindFunctionChecked(g_026e25c4), &Parms);
+	return Parms.ReturnValue;
+}
+
+extern FName g_026e3118;
+	/* SetDof */
+struct URDOFManager_ : public URDOFManager
+{
+	void eventSetDof(FPostProcessSettings& PP);
+};
+
+// @baa 0x01686a40
+/* RDOFManager.SetDof script event: the generated glue, out of line here. */
+void URDOFManager_::eventSetDof(FPostProcessSettings& PP)
+{
+	struct RDOFManager_eventSetDof_Parms
+	{
+		FPostProcessSettings PP;
+	} Parms;
+	Parms.PP = PP;
+	ProcessEvent(FindFunctionChecked(g_026e3118), &Parms);
+	PP = Parms.PP;
+}
+
+extern FName g_026e26e0;
+	/* ApplyModifiers */
+struct AR3rdPersonCamera__01686bf0 : public AR3rdPersonCamera
+{
+	void eventApplyModifiers(FLOAT DeltaTime, FTPOV& OutPOV);
+};
+
+// @baa 0x01686bf0
+/* R3rdPersonCamera.ApplyModifiers script event: the generated glue, out of line here. */
+void AR3rdPersonCamera__01686bf0::eventApplyModifiers(FLOAT DeltaTime, FTPOV& OutPOV)
+{
+	struct R3rdPersonCamera_eventApplyModifiers_Parms
+	{
+		FLOAT DeltaTime;
+		FTPOV OutPOV;
+	} Parms;
+	Parms.DeltaTime = DeltaTime;
+	Parms.OutPOV = OutPOV;
+	ProcessEvent(FindFunctionChecked(g_026e26e0), &Parms);
+	OutPOV = Parms.OutPOV;
+}
+
+extern FName g_026e3138;
+	/* UpdateCurrentCamera */
+struct AR3rdPersonCamera__01686cd0 : public AR3rdPersonCamera
+{
+	void eventUpdateCurrentCamera(FVector DesiredCameraPosition, FRotator DesiredCameraRotation, FLOAT DesiredCameraFOV, FLOAT DeltaTime);
+};
+
+// @baa 0x01686cd0
+/* R3rdPersonCamera.UpdateCurrentCamera script event: the generated glue, out of line here. */
+void AR3rdPersonCamera__01686cd0::eventUpdateCurrentCamera(FVector DesiredCameraPosition, FRotator DesiredCameraRotation, FLOAT DesiredCameraFOV, FLOAT DeltaTime)
+{
+	struct R3rdPersonCamera_eventUpdateCurrentCamera_Parms
+	{
+		FVector DesiredCameraPosition;
+		FRotator DesiredCameraRotation;
+		FLOAT DesiredCameraFOV;
+		FLOAT DeltaTime;
+	} Parms;
+	Parms.DesiredCameraPosition = DesiredCameraPosition;
+	Parms.DesiredCameraRotation = DesiredCameraRotation;
+	Parms.DesiredCameraFOV = DesiredCameraFOV;
+	Parms.DeltaTime = DeltaTime;
+	ProcessEvent(FindFunctionChecked(g_026e3138), &Parms);
 }
