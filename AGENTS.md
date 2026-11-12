@@ -179,6 +179,15 @@ happened; on HTTP 429 or 503 wait as told, don't retry in a loop.
   `GObjObjects` and object iterators, `"ue3/PhysX.h"` for PhysX (NxCloth, NxSoftBody), `"ue3/GFx.h"` for Scaleform (GFxMovieView, FGFxMovie, GGFxEngine), `"ue3/Wx.h"` for the editor's wxWidgets (the real 2.8.6 headers; include it instead of the other ue3 headers), `"ue3/Win32.h"` for the Windows API (critical sections,
   `Interlocked*`, `Tls*`, `MessageBoxA` ...; `<windows.h>` isn't allowed, and add a missing function to
   Win32.h the SDK's way rather than declaring Windows types in your file).
+- The headers carry UE3's inline layer, as the engine's own headers had it: `TArray` (`AddItem`,
+  `AddZeroed`, copies, placement `new`), `FString` (`operator*`, `Len`, copies), `FName`
+  (`FName(TEXT("X"))`, `==`, `NAME_None`), the math types (`FVector` operators, `|` dot and `^` cross,
+  `Size`, `IsNearlyZero`; `FRotator`, `FQuat`, `FMatrix` transforms, `FBox`, `FColor`,
+  `FLinearColor`) with `PI`, `SMALL_NUMBER`, `KINDA_SMALL_NUMBER` ..., the `RF_` object flags, and
+  `UObject`'s `GetFName`, `GetOuter`, `HasAnyFlags`, `IsA`, `IsTemplate`, `GetName`. `Classes.h`
+  includes `AppMath.h`. Use them; don't write local copies or helper structs that re-implement them.
+  If one is missing or its form doesn't match the code (a member called out of line, a different
+  body), `flag` it with what the code shows.
 - Write the code the original programmer wrote: named fields and named virtuals from the headers. No
   padding arrays (`char pad[0x160]`), `field_XX` runs, placeholder virtuals (`f00` ... `f37`) or
   hand-read vtables (`(*(Fn*)(*(char**)this + 0x98))(this)`), and no writes through `(DWORD*)this`:
