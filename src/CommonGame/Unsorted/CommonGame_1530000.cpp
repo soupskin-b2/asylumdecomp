@@ -776,8 +776,8 @@ void ARBreakablePropStatic_::eventInitCollideDamageScale(FLOAT Scale)
 // @baa 0x0153b0c0
 /* UObject slot 0x1c (a placeholder vf_01c in the kit; UE3's PostLoad there): a rotating actor
  * remembers the rotation it was placed with. */
-void ARRotateActor::vf_01c()
+void ARRotateActor::PostLoad()
 {
-    Super::vf_01c();
+    Super::PostLoad();
     BaseRotation = Rotation;
 }

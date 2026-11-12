@@ -291,13 +291,13 @@ struct FBoolArray : public TArray<FNativeElem_007b9350>
 // @baa 0x01547130
 /* UObject slot 0x1c (a placeholder vf_01c in the kit; UE3's PostLoad there): make sure there is
  * an InputsActivated entry for every input. */
-void URSeqAct_WaitForAllInputs::vf_01c()
+void URSeqAct_WaitForAllInputs::PostLoad()
 {
     if (InputsActivated.Num() < InputCount)
     {
         ((FBoolArray&)InputsActivated).AddZeroed(InputCount - InputsActivated.Num());
     }
-    Super::vf_01c();
+    Super::PostLoad();
 }
 
 // @baa 0x01547230

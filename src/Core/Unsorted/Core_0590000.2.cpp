@@ -201,18 +201,12 @@ void UObject::execSubtract_PreFloat(FFrame& Stack, RESULT_DECL)
 	*(FLOAT*)Result = g_01e3f360 - A;
 }
 
-struct FVector_ : public FVector
-{
-	FVector* sub_0058df30(FVector*);
-};
-
 // @baa 0x00597c60
 void UObject::execNormalize(FFrame& Stack, RESULT_DECL)
 {
-	P_GET_STRUCT(FVector, A);
+	P_GET_STRUCT(FRotator, A);
 	P_FINISH;
-	FVector Out;
-	*(FVector*)Result = *((FVector_*)&A)->sub_0058df30(&Out);
+	*(FRotator*)Result = A.GetNormalized();
 }
 
 // @baa 0x0059ee30

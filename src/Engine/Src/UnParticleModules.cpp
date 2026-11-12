@@ -339,7 +339,7 @@ int UParticleModuleRequired::vf_000(void) { return 1; }
 
 int sub_005e59b0(void);
 // @baa 0x00b73870
-void UParticleModuleRequired::vf_01c(void)
+void UParticleModuleRequired::PostLoad(void)
 {
     int param_1 = (int)this;
 

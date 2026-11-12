@@ -59,6 +59,7 @@ struct FFrame : public FOutputDevice {
 struct FStateFrame : public FFrame {
     class UState* StateNode;          /* 0x28 */
     QWORD ProbeMask;                  /* 0x2c */
+    WORD LatentAction;                /* 0x34: the latent native running (e.g. EPOLL_MoveToward), 0 if none */
 };
 #pragma pack(pop)
 

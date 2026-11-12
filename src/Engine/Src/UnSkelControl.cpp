@@ -44,7 +44,7 @@ float USkelControlBase::vf_148(void) { return *(float*)((char*)this + 92); }
 
 int sub_005e59b0(void);
 // @baa 0x0090cf50
-void USkelControlBase::vf_01c(void)
+void USkelControlBase::PostLoad(void)
 {
     int param_1 = (int)this;
 

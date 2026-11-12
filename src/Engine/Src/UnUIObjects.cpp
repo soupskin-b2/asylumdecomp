@@ -237,7 +237,7 @@ void C_00d96280::sub_00d96280() {
 IMPLEMENT_CLASS_AT(UUIScreenObject, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnUIObjects.cpp", 20);
 
 // @baa 0x00d98f50
-int UUIScreenObject::vf_13c(void) { return 0; }
+UUIScreenObject* UUIScreenObject::GetParent() { return 0; }
 
 // @baa 0x00d98f60
 int UUIScreenObject::vf_15c(void) { return 1; }
@@ -277,7 +277,7 @@ void UUIObject::vf_214(void) {  }
 int UUIObject::vf_21c(int a0) { return 1; }
 
 // @baa 0x00d992b0
-int UUIObject::vf_13c(void)
+UUIScreenObject* UUIObject::GetParent()
 {
     int param_1 = (int)this;
 
@@ -287,7 +287,7 @@ int UUIObject::vf_13c(void)
   if (iVar1 == 0) {
     iVar1 = *(int *)(param_1 + 0x13c);
   }
-  return iVar1;
+  return (UUIScreenObject*)iVar1;
 }
 
 // @baa 0x00d992f0

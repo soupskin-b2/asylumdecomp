@@ -22,7 +22,7 @@ void UOnlineProfileSettings::execAppendVersionToReadIds( FFrame& Stack, RESULT_D
 void UOnlineProfileSettings::execAppendVersionToSettings( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_15c();
+	AppendVersionToSettings();
 }
 
 // @baa 0x00c8e4f0

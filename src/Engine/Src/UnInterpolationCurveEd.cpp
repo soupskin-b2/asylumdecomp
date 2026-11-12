@@ -706,7 +706,7 @@ struct C_view {
 };
 
 // @baa 0x00d22040
-void APrefabInstance::vf_01c(void)
+void APrefabInstance::PostLoad(void)
 {
     int param_1 = (int)this;
   int iVar1;

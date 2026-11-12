@@ -12,9 +12,9 @@ struct FActorComponentArray : public TArray<UActorComponent*> {
 
 // @baa 0x006c0f40
 // AFogVolumeDensityInfo::PostLoad
-void AFogVolumeDensityInfo::vf_01c()
+void AFogVolumeDensityInfo::PostLoad()
 {
-    Super::vf_01c();
+    Super::PostLoad();
 
     // remove NULL entries from the components array
     for (INT i = Components.Num() - 1; i >= 0; i--)

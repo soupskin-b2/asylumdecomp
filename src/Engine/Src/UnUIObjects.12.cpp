@@ -186,9 +186,9 @@ INT UUIScreenObject::vf_000()
 
 // @baa 0x00db3580
 /* UUIScreenObject slot 0x1c (kit vf_01c, UE3 PostLoad()): drop any NULL entries from Children. */
-void UUIScreenObject::vf_01c()
+void UUIScreenObject::PostLoad()
 {
-    UObject::vf_01c();
+    UObject::PostLoad();
     Children.RemoveItem(NULL);
 }
 

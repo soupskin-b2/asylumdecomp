@@ -322,7 +322,7 @@ bool UWorld::vf_004()
 
 int sub_005e59b0(void);
 // @baa 0x009b06f0
-void UWorld::vf_01c(void)
+void UWorld::PostLoad(void)
 {
     int param_1 = (int)this;
 

@@ -391,7 +391,7 @@ struct UDistributionVectorUniform_ : public UDistributionVectorUniform {
 };
 
 // @baa 0x007b04a0
-void UDistributionVectorUniform::vf_01c()
+void UDistributionVectorUniform::PostLoad()
 {
     UDistributionVectorUniform_* This = (UDistributionVectorUniform_*)this;
     if (This->GetLinker() && This->GetLinker()->Ver < 0x217)

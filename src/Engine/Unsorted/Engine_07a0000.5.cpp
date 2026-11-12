@@ -26,11 +26,6 @@ void AFracturedStaticMeshActor_::eventSetInXrayMode(UBOOL bInXrayMode)
 
 /* Kit gap: FStateFrame stops at ProbeMask; UE3's next member is the latent action (WORD LatentAction at 0x34). */
 #pragma pack(push, 4)
-struct FStateFrame_ : public FStateFrame
-{
-	WORD LatentAction;	/* 0x34 */
-};
-
 #pragma pack(pop)
 enum { AI_PollWaitForLanding = 528 };
 // @baa 0x007a07d0
@@ -42,14 +37,9 @@ void AController::execWaitForLanding(FFrame& Stack, RESULT_DECL)
 	LatentFloat = waitDuration;
 	if (Pawn && Pawn->Physics == PHYS_Falling)
 	{
-		((FStateFrame_*)StateFrame)->LatentAction = AI_PollWaitForLanding;
+		StateFrame->LatentAction = AI_PollWaitForLanding;
 	}
 }
-
-// The field FStateFrame exposes at 0x34 in this build (a 16-bit store; UE3's CodeSize is INT32).
-struct FStateFrame_007a0dc0 : public FStateFrame {
-    SWORD CodeSize16; /* 0x34 */
-};
 
 // AController declares no method at this address.
 struct AController_007a0dc0 : public AController {
@@ -59,6 +49,6 @@ struct AController_007a0dc0 : public AController {
 // @baa 0x007a0dc0
 void AController_007a0dc0::sub_007a0dc0()
 {
-    static_cast<FStateFrame_007a0dc0*>(StateFrame)->CodeSize16 = 0;
+    StateFrame->LatentAction = 0;
     LatentFloat = -1.f;
 }

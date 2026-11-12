@@ -5206,7 +5206,7 @@
     {
      "va": "01688930",
      "size": 30,
-     "symbol": "?vf_01c@URSeqAct_UpdateBatmanDamageLevel@@UAEXXZ"
+     "symbol": "?PostLoad@URSeqAct_UpdateBatmanDamageLevel@@UAEXXZ"
     },
     {
      "va": "01689560",
@@ -15610,7 +15610,7 @@
     {
      "va": "016d03a0",
      "size": 82,
-     "symbol": "?vf_01c@ARFractureWallBase@@UAEXXZ"
+     "symbol": "?PostLoad@ARFractureWallBase@@UAEXXZ"
     },
     {
      "va": "016d84d0",
@@ -58806,7 +58806,7 @@
     {
      "va": "01547130",
      "size": 73,
-     "symbol": "?vf_01c@URSeqAct_WaitForAllInputs@@UAEXXZ"
+     "symbol": "?PostLoad@URSeqAct_WaitForAllInputs@@UAEXXZ"
     },
     {
      "va": "01547230",
@@ -62081,7 +62081,7 @@
     {
      "va": "0153b0c0",
      "size": 36,
-     "symbol": "?vf_01c@ARRotateActor@@UAEXXZ"
+     "symbol": "?PostLoad@ARRotateActor@@UAEXXZ"
     }
    ]
   },
@@ -179502,7 +179502,7 @@
     {
      "va": "0075be40",
      "size": 122,
-     "symbol": "?vf_01c@UTextureFlipBook@@UAEXXZ"
+     "symbol": "?PostLoad@UTextureFlipBook@@UAEXXZ"
     },
     {
      "va": "0075bec0",
@@ -179947,7 +179947,7 @@
     {
      "va": "00755ea0",
      "size": 48,
-     "symbol": "?vf_01c@UTextureRenderTarget2D@@UAEXXZ"
+     "symbol": "?PostLoad@UTextureRenderTarget2D@@UAEXXZ"
     },
     {
      "va": "007612b0",
@@ -186497,7 +186497,7 @@
     {
      "va": "006c0f40",
      "size": 158,
-     "symbol": "?vf_01c@AFogVolumeDensityInfo@@UAEXXZ"
+     "symbol": "?PostLoad@AFogVolumeDensityInfo@@UAEXXZ"
     },
     {
      "va": "006d4390",
@@ -197103,7 +197103,7 @@
     {
      "va": "007b04a0",
      "size": 166,
-     "symbol": "?vf_01c@UDistributionVectorUniform@@UAEXXZ"
+     "symbol": "?PostLoad@UDistributionVectorUniform@@UAEXXZ"
     },
     {
      "va": "007b09d0",
@@ -201732,7 +201732,7 @@
     {
      "va": "00d22040",
      "size": 49,
-     "symbol": "?vf_01c@APrefabInstance@@UAEXXZ"
+     "symbol": "?PostLoad@APrefabInstance@@UAEXXZ"
     },
     {
      "va": "00d227a0",
@@ -207650,7 +207650,7 @@
     {
      "va": "00b73870",
      "size": 43,
-     "symbol": "?vf_01c@UParticleModuleRequired@@UAEXXZ"
+     "symbol": "?PostLoad@UParticleModuleRequired@@UAEXXZ"
     },
     {
      "va": "00b738a0",
@@ -216568,7 +216568,7 @@
     {
      "va": "00909a50",
      "size": 99,
-     "symbol": "?PostLoad@USeqEvent_Console_@@QAEXXZ"
+     "symbol": "?PostLoad@USeqEvent_Console_@@UAEXXZ"
     },
     {
      "va": "008bce40",
@@ -225015,7 +225015,7 @@
     {
      "va": "00909be0",
      "size": 69,
-     "symbol": "?vf_01c@USeqAct_Delay@@UAEXXZ"
+     "symbol": "?PostLoad@USeqAct_Delay@@UAEXXZ"
     },
     {
      "va": "00c980e0",
@@ -225470,7 +225470,7 @@
     {
      "va": "0090cf50",
      "size": 22,
-     "symbol": "?vf_01c@USkelControlBase@@UAEXXZ"
+     "symbol": "?PostLoad@USkelControlBase@@UAEXXZ"
     },
     {
      "va": "0090cf70",
@@ -237272,7 +237272,7 @@
     {
      "va": "00db3580",
      "size": 33,
-     "symbol": "?vf_01c@UUIScreenObject@@UAEXXZ"
+     "symbol": "?PostLoad@UUIScreenObject@@UAEXXZ"
     },
     {
      "va": "00da9060",
@@ -238835,7 +238835,7 @@
     {
      "va": "00d98f50",
      "size": 3,
-     "symbol": "?vf_13c@UUIScreenObject@@UAEHXZ"
+     "symbol": "?GetParent@UUIScreenObject@@UAEPAU1@XZ"
     },
     {
      "va": "00d98f60",
@@ -238890,7 +238890,7 @@
     {
      "va": "00d992b0",
      "size": 17,
-     "symbol": "?vf_13c@UUIObject@@UAEHXZ"
+     "symbol": "?GetParent@UUIObject@@UAEPAUUUIScreenObject@@XZ"
     },
     {
      "va": "00d992f0",
@@ -241738,7 +241738,7 @@
     {
      "va": "00ddb0d0",
      "size": 175,
-     "symbol": "?vf_01c@UUIStyle_Combo@@UAEXXZ"
+     "symbol": "?PostLoad@UUIStyle_Combo@@UAEXXZ"
     },
     {
      "va": "00ddb0a0",
@@ -248904,7 +248904,7 @@
     {
      "va": "009b06f0",
      "size": 16,
-     "symbol": "?vf_01c@UWorld@@UAEXXZ"
+     "symbol": "?PostLoad@UWorld@@UAEXXZ"
     },
     {
      "va": "009b0720",
@@ -266467,7 +266467,7 @@
     {
      "va": "006dc190",
      "size": 18,
-     "symbol": "?SetDepthPriorityGroup@UPrimitiveComponent@@UAEXE@Z"
+     "symbol": "?SetDepthPriorityGroup@UPrimitiveComponent@@UAEXW4ESceneDepthPriorityGroup@@@Z"
     },
     {
      "va": "006dc1b0",

@@ -35,7 +35,7 @@ int sub_006311e0(...);
 int sub_007839c0(void);
 extern undefined4 g_0239dec0;
 // @baa 0x016d03a0
-void ARFractureWallBase::vf_01c(void)
+void ARFractureWallBase::PostLoad(void)
 {
     int param_1 = (int)this;
 

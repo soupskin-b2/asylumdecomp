@@ -132,7 +132,7 @@ struct URSeqAct_UpdateBatmanDamageLevel_ : public URSeqAct_UpdateBatmanDamageLev
 };
 
 // @baa 0x01688930
-void URSeqAct_UpdateBatmanDamageLevel::vf_01c()
+void URSeqAct_UpdateBatmanDamageLevel::PostLoad()
 {
     URSeqAct_UpdateBatmanDamageLevel_* Self = (URSeqAct_UpdateBatmanDamageLevel_*)this;
     Self->sub_009086f0();

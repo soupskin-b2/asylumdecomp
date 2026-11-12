@@ -20,9 +20,9 @@ struct FAnimSetArray : public TArray<UAnimSet*> {
 
 // @baa 0x00d14480
 // UInterpGroup::PostLoad
-void UInterpGroup::vf_01c()
+void UInterpGroup::PostLoad()
 {
-    Super::vf_01c();
+    Super::PostLoad();
 
     // Remove any NULL tracks
     for (INT i = 0; i < InterpTracks.Num(); )

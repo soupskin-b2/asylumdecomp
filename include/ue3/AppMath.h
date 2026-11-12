@@ -22,17 +22,33 @@ inline FLOAT  appFloor( FLOAT F )                { return floorf(F); }
 inline FLOAT  appCeil( FLOAT F )                 { return ceilf(F); }
 inline FLOAT  appAbs( FLOAT F )                  { return fabsf(F); }
 
-// UnVcWin32.h: on x86 appTrunc is inline assembly, so the float goes through memory
-// (`movss [esp+N], xmm0; cvttss2si eax, [esp+N]`), unlike a plain (INT) cast.
+// UnVcWin32.h: on x86 appTrunc and appRound are inline assembly, so the float goes through memory
+// (`movss [esp+N], xmm0; cvttss2si eax, [esp+N]`), unlike a plain (INT) cast or an SSE intrinsic.
 #pragma warning(push)
 #pragma warning(disable: 4035)  /* no return value: it's in eax */
 inline INT appTrunc( FLOAT F )
 {
 	__asm cvttss2si eax, [F]
 }
+inline INT appRound( FLOAT F )  /* round to nearest */
+{
+	__asm cvtss2si eax, [F]
+}
 #pragma warning(pop)
+// UnVcWin32.h: the bit scan reads the value from memory (`bsr eax, [Value]`)
+inline DWORD appCountLeadingZeros( DWORD Value )
+{
+	if (Value == 0)
+		return 32;
+	DWORD Result;
+	__asm
+	{
+		bsr eax, Value
+		mov Result, eax
+	}
+	return 31 - Result;
+}
 inline INT    appFloor2Int( FLOAT F )            { return appTrunc(floorf(F)); }
-inline INT    appRound( FLOAT F )                { return appFloor2Int(F + 0.5f); }
 
 // random numbers (UnVcWin32.h)
 inline INT    appRand()                          { return rand(); }

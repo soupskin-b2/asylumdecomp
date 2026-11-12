@@ -7073,7 +7073,7 @@ struct C_view_00909be0 {
 };
 
 // @baa 0x00909be0
-void USeqAct_Delay::vf_01c(void)
+void USeqAct_Delay::PostLoad(void)
 {
     int param_1 = (int)this;
   int iVar1;

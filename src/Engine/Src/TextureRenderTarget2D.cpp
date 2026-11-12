@@ -27,7 +27,7 @@ int UTextureRenderTarget2D::GetMaterialType(void) { return 16; }
 int sub_00720ef0(void);
 extern undefined4 g_026b21e0;
 // @baa 0x00755ea0
-void UTextureRenderTarget2D::vf_01c(void)
+void UTextureRenderTarget2D::PostLoad(void)
 {
     int param_1 = (int)this;
 

@@ -18,9 +18,9 @@ struct UObject_ : public UObject
 
 // @baa 0x00ddb0d0
 /* vf_01c is PostLoad: older packages saved the referenced styles without their IDs or owners; fill them in. */
-void UUIStyle_Combo::vf_01c()
+void UUIStyle_Combo::PostLoad()
 {
-	Super::vf_01c();
+	Super::PostLoad();
 
 	if (TextStyle.SourceStyle && !IsValidStyleID(TextStyle.SourceStyleID))
 	{

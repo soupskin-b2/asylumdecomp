@@ -134,7 +134,7 @@ struct C_view {
 };
 
 // @baa 0x0075be40
-void UTextureFlipBook::vf_01c(void)
+void UTextureFlipBook::PostLoad(void)
 {
     int param_1 = (int)this;
   float fVar1;
