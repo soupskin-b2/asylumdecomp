@@ -1,4 +1,4 @@
-// RPlayerController.cpp: 8 functions
+// RPlayerController.cpp: 11 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -113,4 +113,28 @@ void ARPlayerController::execIsMoviePresent(FFrame& Stack, RESULT_DECL)
     P_GET_STR(Path);
     P_FINISH;
     *(UBOOL*)Result = IsMoviePresent(Path);
+}
+
+// @baa 0x016fa1f0
+void ARPlayerController::execLive_LoadSavedGame(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_INT(Id);
+    P_FINISH;
+    *(UBOOL*)Result = Live_LoadSavedGame(Id);
+}
+
+// @baa 0x016fa260
+void ARPlayerController::execLive_LoadSavedGameFast(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_INT(Id);
+    P_FINISH;
+    *(INT*)Result = Live_LoadSavedGameFast(Id);
+}
+
+// @baa 0x016fa340
+void ARPlayerController::execLive_DeleteSavedGame(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_INT(Id);
+    P_FINISH;
+    *(UBOOL*)Result = Live_DeleteSavedGame(Id);
 }

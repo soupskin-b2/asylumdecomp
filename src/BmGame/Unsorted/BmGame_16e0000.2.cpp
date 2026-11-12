@@ -1,4 +1,4 @@
-// BmGame_16e0000.cpp: 73 functions
+// BmGame_16e0000.cpp: 82 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -581,4 +581,98 @@ void ARPawn::execTransientWeightByDist(FFrame& Stack, RESULT_DECL)
     P_GET_INT(CostToAdd);
     P_FINISH;
     TransientWeightByDist(StartNode, TestDist, CostToAdd);
+}
+
+// @baa 0x016e8420
+void ARBMCameraEmitter::execUpdateLocation(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT_REF(FVector, CamLoc);
+    P_GET_STRUCT_REF(FRotator, CamRot);
+    P_GET_FLOAT(CamFOVDeg);
+    P_FINISH;
+    UpdateLocation(CamLoc, CamRot, CamFOVDeg);
+}
+
+// @baa 0x016efd90
+void ARPawn::execGetRunAwayPoints(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, CentrePoint);
+    P_GET_OBJECT_OPTX(AActor, BlockingActor, NULL);
+    P_GET_UBOOL_OPTX(bClearNavs, TRUE);
+    P_FINISH;
+    GetRunAwayPoints(CentrePoint, BlockingActor, bClearNavs);
+}
+
+// @baa 0x016e8a40
+void ARGameRI::execAddNextLevelRequest(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(Level);
+    P_GET_OBJECT(AActor, Originator);
+    P_GET_UBOOL_OPTX(BlockOnLoad, FALSE);
+    P_GET_UBOOL_OPTX(MarkLevelsHidden, TRUE);
+    P_FINISH;
+    AddNextLevelRequest(Level, Originator, BlockOnLoad, MarkLevelsHidden);
+}
+
+// @baa 0x016ea5e0
+void URBMScreenShakeModifier::execApplyJitter(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_FLOAT_REF(Amplitude);
+    P_GET_FLOAT_REF(Offset);
+    P_GET_FLOAT(Frequency);
+    P_GET_FLOAT(DeltaTime);
+    P_FINISH;
+    ApplyJitter(Amplitude, Offset, Frequency, DeltaTime);
+}
+
+// @baa 0x016ea9e0
+void URBMScreenShakeModifier::execUpdateFast(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_FLOAT(DeltaTime);
+    P_GET_STRUCT_REF(FVector, Loc);
+    P_GET_STRUCT_REF(FRotator, Rot);
+    P_GET_FLOAT_REF(FOV);
+    P_FINISH;
+    UpdateFast(DeltaTime, Loc, Rot, FOV);
+}
+
+// @baa 0x016ea710
+void URBMScreenShakeModifier::execApplyShake(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_FLOAT(DeltaTime);
+    P_GET_STRUCT_REF(FBMScreenShakeStruct, Shake);
+    P_GET_STRUCT_REF(FVector, Loc);
+    P_GET_STRUCT_REF(FRotator, Rot);
+    P_GET_FLOAT(ShakePct);
+    P_FINISH;
+    ApplyShake(DeltaTime, Shake, Loc, Rot, ShakePct);
+}
+
+// @baa 0x016e8540
+void ARGameInfo::execGetLevelVolumeFor(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(UObject, Obj);
+    P_FINISH;
+    *(ARLevelVolume**)Result = GetLevelVolumeFor(Obj);
+}
+
+// @baa 0x016ea870
+void URBMScreenShakeModifier::execUpdateShake(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_FLOAT(DeltaTime);
+    P_GET_STRUCT_REF(FBMScreenShakeStruct, Shake);
+    P_GET_STRUCT_REF(FVector, Loc);
+    P_GET_STRUCT_REF(FRotator, Rot);
+    P_GET_FLOAT_REF(FOV);
+    P_FINISH;
+    *(UBOOL*)Result = UpdateShake(DeltaTime, Shake, Loc, Rot, FOV);
+}
+
+// @baa 0x016e86b0
+void ARGameInfo::execSecuROMProtectionCheck4(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_INT(A);
+    P_GET_INT(B);
+    P_FINISH;
+    *(INT*)Result = SecuROMProtectionCheck4(A, B);
 }

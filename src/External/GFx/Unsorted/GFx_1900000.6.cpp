@@ -1,4 +1,4 @@
-// GFx_1900000.cpp (part 6 of 6): 18 functions
+// GFx_1900000.cpp (part 6 of 6): 19 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -313,4 +313,31 @@ struct Object
 INT __stdcall sub_01904ed0(Object* Target, INT B)
 {
     return Target->Value - B;
+}
+
+// 019069a0: GFx helper. thiscall, two stack args, returns arg1.
+struct Sub019a0920
+{
+	void sub_019a0920(void* A, void* B);	// 0x019a0920
+};
+
+struct sub_019069a0_
+{
+	char pad[0x78];
+	Sub019a0920* m_078;
+
+	void* sub_019069a0(void* A, void* B);	// 0x019069a0
+};
+
+// @baa 0x019069a0
+void* sub_019069a0_::sub_019069a0(void* A, void* B)
+{
+	m_078->sub_019a0920(A, B);
+	return A;
+}
+
+static sub_019069a0_ Holder;
+void CallSub019069a0(sub_019069a0_* This, void* A, void* B)
+{
+	This->sub_019069a0(A, B);
 }

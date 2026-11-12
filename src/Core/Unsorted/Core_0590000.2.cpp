@@ -1,4 +1,4 @@
-// Core_0590000.cpp (part 2 of 4): 107 functions
+// Core_0590000.cpp (part 2 of 4): 109 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -1083,4 +1083,28 @@ void UObject::execPercent_IntInt(FFrame& Stack, RESULT_DECL)
 	}
 
 	*(INT*)Result = (B != 0) ? (A % B) : 0;
+}
+
+// @baa 0x00593100
+void UObject::execDivide_FloatFloat(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(A);
+	P_GET_FLOAT(B);
+	P_FINISH;
+
+	if (B == 0.0f)
+		sub_00630ea0(Stack, 0x301, L"Divide by zero");
+
+	*(FLOAT*)Result = A / B;
+}
+
+// @baa 0x00598870
+void UObject::execQuatDot(FFrame& Stack, RESULT_DECL)
+{
+	FQuat A, B;
+
+	Stack.Step(Stack.Object, &A);
+	Stack.Step(Stack.Object, &B);
+	P_FINISH;
+	*(FLOAT*)Result = B.W * A.W + A.X * B.X + B.Z * A.Z + B.Y * A.Y;
 }

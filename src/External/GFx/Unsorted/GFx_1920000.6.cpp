@@ -1,4 +1,4 @@
-// GFx_1920000.cpp: 6 functions
+// GFx_1920000.cpp: 9 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Core.h"
@@ -86,4 +86,54 @@ struct Object
 INT __stdcall sub_0192ea90(Object* Target, INT B)
 {
     return Target->Value - B;
+}
+
+// @baa 0x01921f40
+void sub_01921f40(float* a, float* b)
+{
+	const float t = *a;
+	*a = *b;
+	*b = t;
+}
+
+struct FSmallValue_
+{
+	int f0;
+	int f4;
+	short f8;
+	short fA;
+
+	__declspec(noinline) FSmallValue_* sub_019200e0(short InValue);
+};
+
+// @baa 0x019200e0
+__declspec(noinline) FSmallValue_* FSmallValue_::sub_019200e0(short InValue)
+{
+	f0 = 0;
+	f4 = 0;
+	f8 = 0;
+	fA = InValue;
+	return this;
+}
+
+FSmallValue_ g_019200e0_Value;
+int sub_0192_call(FSmallValue_* p, short InValue)
+{
+	return p->sub_019200e0(InValue) ? 1 : 0;
+}
+
+struct C_0192aa80
+{
+	float X;
+	float Y;
+	float Z;
+	C_0192aa80 * sub_0192aa80(float V);
+};
+
+// @baa 0x0192aa80
+C_0192aa80 * C_0192aa80::sub_0192aa80(float V)
+{
+	X += V;
+	Z += V;
+	return this;
 }

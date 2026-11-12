@@ -1,4 +1,4 @@
-// Engine_08a0000.cpp: 17 functions
+// Engine_08a0000.cpp: 18 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -340,4 +340,12 @@ void APlayerController__008a5320::eventClientHearSound(class USoundCue* ASound, 
 	Parms.bStopWhenOwnerDestroyed = bStopWhenOwnerDestroyed ? TRUE : FALSE;
 	Parms.bIsOccluded = bIsOccluded ? TRUE : FALSE;
 	ProcessEvent(FindFunctionChecked(g_026c4b30), &Parms);
+}
+
+// @baa 0x008aa180
+void AActor::execSetHardAttach(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL_OPTX(bNewHardAttach, bHardAttach);
+	P_FINISH;
+	vf_19c(bNewHardAttach);
 }

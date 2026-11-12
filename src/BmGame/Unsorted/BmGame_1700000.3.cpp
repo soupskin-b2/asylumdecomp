@@ -1,4 +1,4 @@
-// BmGame_1700000.cpp: 97 functions
+// BmGame_1700000.cpp: 109 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -1022,4 +1022,114 @@ void ARCinematicCameraActor::execInternalSetAnimPosition(FFrame& Stack, RESULT_D
     P_GET_UBOOL(bLooping);
     P_FINISH;
     InternalSetAnimPosition(InAnimSeqName, InPosition, bLooping);
+}
+
+// @baa 0x01706090
+void URSeqAct_CombatChallengeSpawner::execSpawnPawn(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(UClass, PawnClass);
+    P_GET_OBJECT(UClass, CharacterClass);
+    P_GET_OBJECT(UClass, WeaponClass);
+    P_GET_OBJECT(AActor, SpawnPoint);
+    P_FINISH;
+    *(ARPawn**)Result = SpawnPawn(PawnClass, CharacterClass, WeaponClass, SpawnPoint);
+}
+
+// @baa 0x017061b0
+void URSeqAct_InfiniteCombatSpawner::execSpawnPawn(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(UClass, NewPawnClass);
+    P_GET_OBJECT(UClass, NewCharacterClass);
+    P_GET_OBJECT(UClass, NewWeaponClass);
+    P_GET_OBJECT(AActor, NewSpawnPoint);
+    P_FINISH;
+    *(ARPawn**)Result = SpawnPawn(NewPawnClass, NewCharacterClass, NewWeaponClass, NewSpawnPoint);
+}
+
+// @baa 0x0170abc0
+void ARPawnBossIvyBase::execSpawnPawn(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(UClass, PawnClass);
+    P_GET_OBJECT(UClass, CharacterClass);
+    P_GET_OBJECT(UClass, WeaponClass);
+    P_GET_OBJECT(AActor, SpawnPoint);
+    P_FINISH;
+    *(ARPawn**)Result = SpawnPawn(PawnClass, CharacterClass, WeaponClass, SpawnPoint);
+}
+
+// @baa 0x0170acb0
+void ARPawnBossScarecrowBase::execCanSeeBatmanTest(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(ARPawnCharacter, Batman);
+    P_GET_STRUCT(FVector, ViewPoint);
+    P_GET_OBJECT(ARPawnBossScarecrowBase, Scarecrow);
+    P_GET_INT(NumBonesToCheck);
+    P_FINISH;
+    *(UBOOL*)Result = CanSeeBatmanTest(Batman, ViewPoint, Scarecrow, NumBonesToCheck);
+}
+
+// @baa 0x017035f0
+void ARBMAIController::execCanSeeActorFromPos(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(AActor, TestActor);
+    P_GET_STRUCT(FVector, TestPos);
+    P_GET_UBOOL_OPTX(bEarlyOut, FALSE);
+    P_FINISH;
+    *(FLOAT*)Result = CanSeeActorFromPos(TestActor, TestPos, bEarlyOut);
+}
+
+// @baa 0x01705520
+void URBMBehaviour_Combat::execIsInFrontOfPawn(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(ARPawnCombat, TestPawn);
+    P_GET_FLOAT(Angle);
+    P_FINISH;
+    *(UBOOL*)Result = IsInFrontOfPawn(TestPawn, Angle);
+}
+
+// @baa 0x017055c0
+void URBMBehaviour_Venom::execGetForceToGiveToPawn(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(ARPawnCombat, ForceReceiver);
+    P_GET_FLOAT(MaxForce);
+    P_GET_FLOAT_OPTX(MinRange, -1.0f);
+    P_GET_FLOAT_OPTX(MaxRange, -1.0f);
+    P_FINISH;
+    *(FVector*)Result = GetForceToGiveToPawn(ForceReceiver, MaxForce, MinRange, MaxRange);
+}
+
+// @baa 0x017036e0
+void ARBMAIController::execGetViewDir(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_UBOOL_OPTX(bFixUpAnimAimDir, TRUE);
+    P_FINISH;
+    *(FVector*)Result = GetViewDir(bFixUpAnimAimDir);
+}
+
+// @baa 0x01703970
+void ARBMAIController::execGetSilentPredatorGlanceStanceName(FFrame& Stack, RESULT_DECL)
+{
+    P_FINISH;
+    *(FName*)Result = GetSilentPredatorGlanceStanceName();
+}
+
+// @baa 0x01708b50
+void ARLevelTransition::execGetNonCurrentLevel(FFrame& Stack, RESULT_DECL)
+{
+    P_FINISH;
+    *(FName*)Result = GetNonCurrentLevel();
+}
+
+// @baa 0x0170b090
+void ARSoftBodyProjectile::execGetSoftBodyCenter(FFrame& Stack, RESULT_DECL)
+{
+    P_FINISH;
+    *(FVector*)Result = GetSoftBodyCenter();
+}
+
+// @baa 0x01703920
+void ARBMAIController::execGetSilentPredatorStanceName(FFrame& Stack, RESULT_DECL)
+{
+    P_FINISH;
+    *(FName*)Result = GetSilentPredatorStanceName();
 }

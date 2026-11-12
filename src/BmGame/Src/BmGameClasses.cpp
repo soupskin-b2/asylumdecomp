@@ -1,4 +1,4 @@
-// BmGameClasses.cpp: 27 functions
+// BmGameClasses.cpp: 28 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -627,4 +627,16 @@ const TCHAR* sub_0053f6c0();
 INT URHUDPrompt::vf_000()
 {
     return sub_0154b870 == sub_0053f6c0;
+}
+
+struct URConfig_ : public URConfig
+{
+    void MarkPackageDirty(UBOOL InDirty = TRUE); /* 0x005d9570 */
+};
+
+// @baa 0x0154b230
+void URConfig::PostEditChange(UProperty* P)
+{
+    UObject::PostEditChange(P);
+    ((URConfig_*)this)->MarkPackageDirty(TRUE);
 }

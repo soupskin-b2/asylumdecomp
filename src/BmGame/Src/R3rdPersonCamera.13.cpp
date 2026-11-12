@@ -1,4 +1,4 @@
-// R3rdPersonCamera.cpp: 21 functions
+// R3rdPersonCamera.cpp: 23 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -306,4 +306,24 @@ void AR3rdPersonCamera::execUpdateCameraPosition(FFrame& Stack, RESULT_DECL)
     P_GET_UBOOL_OPTX(ProperReset, FALSE);
     P_FINISH;
     UpdateCameraPosition(DeltaTime, ProperReset);
+}
+
+// @baa 0x01709280
+void AR3rdPersonCamera::execProcessViewRotation(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_FLOAT(DeltaTime);
+    P_GET_STRUCT_REF(FRotator, out_ViewRotation);
+    P_GET_STRUCT_REF(FRotator, out_DeltaRot);
+    P_FINISH;
+    ProcessViewRotation(DeltaTime, out_ViewRotation, out_DeltaRot);
+}
+
+// @baa 0x01709780
+void AR3rdPersonCamera::execBlendViewTargets(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT_REF(FTViewTarget, A);
+    P_GET_STRUCT_REF(FTViewTarget, B);
+    P_GET_FLOAT(Alpha);
+    P_FINISH;
+    *(FTPOV*)Result = BlendViewTargets(A, B, Alpha);
 }

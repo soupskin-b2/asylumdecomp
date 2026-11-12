@@ -1,4 +1,4 @@
-// GFx_1930000.cpp: 14 functions
+// GFx_1930000.cpp: 19 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Core.h"
@@ -239,4 +239,115 @@ void C_0193cb40::sub_0193cb40()
 {
     if (Object)
         sub_018d7170(Object);
+}
+
+extern const double g_023f57a8;
+struct sub_01931870_ {
+    char _00[0xa];
+    unsigned char b0a;
+    float sub_01931870();
+};
+
+// @baa 0x01931870
+float sub_01931870_::sub_01931870()
+{
+    float r = (float)b0a * g_023f57a8;
+    return r;
+}
+
+// 0x01933280
+// A free helper that cross-links a pair of nodes: each node's trailing
+// pointer is set to point at the other node.
+struct FLinkNode {
+    int  Field_0;    // 0x00
+    int  Field_4;    // 0x04
+    int  Field_8;    // 0x08
+    FLinkNode* Front;   // 0x0c
+    FLinkNode* Rear;    // 0x10
+};
+
+// @baa 0x01933280
+void __stdcall sub_01933280(FLinkNode* Pair)
+{
+    Pair->Front->Rear  = Pair->Rear;
+    Pair->Rear->Front  = Pair->Front;
+}
+
+// 0x01937f40
+// Copy assignment for a three-dword vector, defined out-of-line.
+struct FCopyVec
+{
+    int X;
+    int Y;
+    int Z;
+
+    FCopyVec& operator=(const FCopyVec& Other);
+};
+
+FCopyVec& FCopyVec::operator=(const FCopyVec& Other)
+{
+    X = Other.X;
+    Y = Other.Y;
+    Z = Other.Z;
+    return *this;
+}
+
+// @baa 0x01937f40
+void sub_01937f60(FCopyVec* Dst, const FCopyVec& Src)
+{
+    *Dst = Src;
+}
+
+// 0x0193daa0
+// Copies three fields (two dwords and a float) from Another into this.
+struct FCopyTri
+{
+    int X;
+    int Y;
+    float Z;
+
+    FCopyTri& operator=(const FCopyTri& Another);
+};
+
+FCopyTri& FCopyTri::operator=(const FCopyTri& Another)
+{
+    X = Another.X;
+    Y = Another.Y;
+    Z = Another.Z;
+    return *this;
+}
+
+// @baa 0x0193daa0
+void sub_0193dac0(FCopyTri* Dst, const FCopyTri& Src)
+{
+    *Dst = Src;
+}
+
+struct FGFxHashEntry_
+{
+    char Data[0x10];
+    void sub_01938d80(const void* Key);
+};
+
+struct FGfxHashDef
+{
+    char Data[0x10];
+    FGFxHashEntry_ Map;
+    void* Key;
+    void sub_01939200(void* Value);
+};
+
+// @baa 0x01939200
+void FGfxHashDef::sub_01939200(void* Value)
+{
+    if (Value != Key)
+    {
+        Map.sub_01938d80(&Value);
+    }
+}
+
+int FGfxHashCall(FGfxHashDef* Def, void* Value)
+{
+    Def->sub_01939200(Value);
+    return 0;
 }

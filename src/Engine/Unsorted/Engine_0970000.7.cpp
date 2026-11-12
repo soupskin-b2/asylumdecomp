@@ -1,4 +1,4 @@
-// Engine_0970000.cpp: 2 functions
+// Engine_0970000.cpp: 3 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #define BAA_OUTLINE_ALLOC
@@ -112,4 +112,33 @@ void FSkelMeshChunkArray::Empty(INT Slack)
         ArrayMax = Slack;
         AllocatorInstance.ResizeAllocation(0, ArrayMax, sizeof(FSkelMeshChunk));
     }
+}
+
+/* one index pair of a LOD's influence data (UnSkeletalMesh.h; names assumed). Not in the kit. */
+struct FInfluenceIndexPair
+{
+    INT First;
+    INT Second;
+};
+
+/* TArray<FInfluenceIndexPair>'s destructor is out of line in this build (0x00958330) */
+template<> TArray<FInfluenceIndexPair>::~TArray();
+/* TArray<TArray<FInfluenceIndexPair> >'s destructor (FStaticLODModel's influence pairs), out of line here */
+template<> __declspec(noinline) TArray<TArray<FInfluenceIndexPair> >::~TArray()
+{
+    // DestructItems(0, ArrayNum), as this build inlines it
+    const INT Count = ArrayNum;
+    for (INT i = 0; i < Count; i++)
+    {
+        (&(*this)(i))->~TArray<FInfluenceIndexPair>();
+    }
+    ArrayNum = ArrayMax = 0;
+}
+
+// @baa 0x00975280
+/* FStaticLODModel's destructor destroys its influence pairs; this stands in for it so the compiler
+ * emits the specialisation above. */
+void DestroyInfluenceIndexPairs(TArray<TArray<FInfluenceIndexPair> >& InfluenceIndexPairs)
+{
+    InfluenceIndexPairs.~TArray();
 }

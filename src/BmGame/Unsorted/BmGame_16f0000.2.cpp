@@ -1,4 +1,4 @@
-// BmGame_16f0000.cpp: 208 functions
+// BmGame_16f0000.cpp: 221 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -1918,4 +1918,138 @@ void ARPawnCharacter::execChangeWeapon(FFrame& Stack, RESULT_DECL)
     P_GET_UBOOL_OPTX(bForce, FALSE);
     P_FINISH;
     *(FTransitionId*)Result = ChangeWeapon(NewWeapon, NewTransitionWeapon, bForce);
+}
+
+// @baa 0x016fe690
+void ARCornerWallMarkerBase::execGetBatmanCornerPositionAndRotation(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_FLOAT(CollisionRadius);
+    P_GET_STRUCT_REF(FVector, BatmanPosition);
+    P_GET_STRUCT_REF(FRotator, BatmanCoverRotation);
+    P_FINISH;
+    GetBatmanCornerPositionAndRotation(CollisionRadius, BatmanPosition, BatmanCoverRotation);
+}
+
+// @baa 0x016f7d60
+void ARCombatMove_BatmanCounter::execGetCounterInfoScore(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FCounterInfo, TestCounter);
+    P_GET_BYTE(MoveDir);
+    P_GET_BYTE(Limb);
+    P_GET_BYTE(TestStrength);
+    P_FINISH;
+    *(FLOAT*)Result = GetCounterInfoScore(TestCounter, MoveDir, Limb, TestStrength);
+}
+
+// @baa 0x016f4970
+void ARPawnCharacter::execAimAt(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, Position);
+    P_GET_NAME_OPTX(Description, NAME_None);
+    P_GET_BYTE_OPTX(AllowTurningToAim, 0);
+    P_FINISH;
+    AimAt(Position, Description, AllowTurningToAim);
+}
+
+// @baa 0x016f4a60
+void ARPawnCharacter::execAimInDirection(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, Direction);
+    P_GET_NAME_OPTX(Description, NAME_None);
+    P_GET_BYTE_OPTX(AllowTurningToAim, 0);
+    P_FINISH;
+    AimInDirection(Direction, Description, AllowTurningToAim);
+}
+
+// @baa 0x016f4b50
+void ARPawnCharacter::execAimAtActor(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(AActor, Actor);
+    P_GET_NAME_OPTX(Description, NAME_None);
+    P_GET_NAME_OPTX(ActorBoneName, NAME_None);
+    P_GET_BYTE_OPTX(AllowTurningToAim, 0);
+    P_FINISH;
+    AimAtActor(Actor, Description, ActorBoneName, AllowTurningToAim);
+}
+
+// @baa 0x016f7880
+void ARCombatMove_BatmanStrike::execGetStrikeInfoScore(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FStrikeInfo, TestStrike);
+    P_GET_BYTE(StrikeDir);
+    P_GET_BYTE(StrikeStrength);
+    P_GET_BYTE(StrikeRange);
+    P_GET_UBOOL(bCanTravelBeyondTarget);
+    P_FINISH;
+    *(INT*)Result = GetStrikeInfoScore(TestStrike, StrikeDir, StrikeStrength, StrikeRange, bCanTravelBeyondTarget);
+}
+
+// @baa 0x016f7cf0
+void ARCombatMove_BatmanCounter::execSetCounterInfo(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_BYTE(CStrength);
+    P_FINISH;
+    *(UBOOL*)Result = SetCounterInfo(CStrength);
+}
+
+// @baa 0x016fd5e0
+void ARBMRouter::execGetPawnAvoidVector(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_FLOAT_REF(AvoidWeight);
+    P_FINISH;
+    *(FVector*)Result = GetPawnAvoidVector(AvoidWeight);
+}
+
+// @baa 0x016f3890
+void ARPawnCharacter::execChangePoseOverTime(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(MovementStance);
+    P_GET_NAME(WeaponStance);
+    P_GET_FLOAT(Time);
+    P_GET_UBOOL_OPTX(bMirrored, FALSE);
+    P_FINISH;
+    *(FTransitionId*)Result = ChangePoseOverTime(MovementStance, WeaponStance, Time, bMirrored);
+}
+
+// @baa 0x016f5b30
+void ARPawnCombat::execGetForceToGiveToPawn(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(ARPawnCombat, Receiver);
+    P_GET_FLOAT(MaxForce);
+    P_GET_FLOAT_OPTX(MinRange, -1.0f);
+    P_GET_FLOAT_OPTX(MaxRange, -1.0f);
+    P_FINISH;
+    *(FVector*)Result = GetForceToGiveToPawn(Receiver, MaxForce, MinRange, MaxRange);
+}
+
+// @baa 0x016f5c60
+void ARPawnCombat::execGetRadialForce(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(ARPawnCombat, Receiver);
+    P_GET_FLOAT(MaxForce);
+    P_GET_FLOAT_OPTX(MinRange, -1.0f);
+    P_GET_FLOAT_OPTX(MaxRange, -1.0f);
+    P_FINISH;
+    *(FVector*)Result = GetRadialForce(Receiver, MaxForce, MinRange, MaxRange);
+}
+
+// @baa 0x016fecd0
+void URBMRouterPath::execUpdatePath(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(ARPawn, User);
+    P_GET_INT_REF(bPathShortened);
+    P_GET_UBOOL_OPTX(bSkipAngleCheck, FALSE);
+    P_GET_UBOOL_OPTX(bForceShorten, FALSE);
+    P_GET_UBOOL_OPTX(bUpdateEstimateStartAnchor, FALSE);
+    P_FINISH;
+    UpdatePath(User, bPathShortened, bSkipAngleCheck, bForceShorten, bUpdateEstimateStartAnchor);
+}
+
+// @baa 0x016fcd30
+void URSeqAct_ConversationDialogue::execGetSpeaker(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(APlayerController, PC);
+    P_GET_NAME(ScriptName);
+    P_FINISH;
+    *(ARPawnCharacter**)Result = GetSpeaker(PC, ScriptName);
 }

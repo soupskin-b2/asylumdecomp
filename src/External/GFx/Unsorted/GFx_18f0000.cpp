@@ -1,4 +1,4 @@
-// GFx_18f0000.cpp (part 1 of 3): 135 functions
+// GFx_18f0000.cpp (part 1 of 3): 136 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -1652,3 +1652,46 @@ void FGFxHashMap_::sub_018f8990(const DWORD* pKey)
 	const DWORD Value = *pKey;
 	sub_018fbb90(pKey, Value ^ (Value >> 8));
 }
+
+// GFxMovieDataDef virtual, vtable slot 10 (0x023f5a1c)
+// thiscall virtual: this + 2 stack args; delegates to the subobject pointer
+// at offset 0x1c, returns the destination (Out).
+struct FPair_
+{
+    INT A0;
+    INT A4;
+};
+
+struct FGFxAnimData_
+{
+    // 0x018f73c0, thiscall member: this + 2 stack args
+    FPair_* GetPair(FPair_* Out, const FPair_* Src);
+};
+
+class GFxMovieDataBase_
+{
+public:
+    virtual void BaseSlot() {}
+    INT A4;
+    INT A8;
+    INT AC;
+    INT B0;
+    INT B4;
+    INT B8;
+};
+
+class GFxMovieDataDef_ : public GFxMovieDataBase_
+{
+public:
+    FGFxAnimData_* AnimData; /* 0x1c */
+
+    virtual FPair_* GetPair(FPair_* Out, const FPair_* Src)
+    {
+        AnimData->GetPair(Out, Src);
+        return Out;
+    }
+};
+
+static GFxMovieDataDef_ g_Def;
+// @baa 0x018f8cb0
+FGFxAnimData_* Probe() { return g_Def.AnimData; }

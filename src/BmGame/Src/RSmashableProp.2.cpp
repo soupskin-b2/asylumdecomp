@@ -1,4 +1,4 @@
-// RSmashableProp.cpp: 16 functions
+// RSmashableProp.cpp: 17 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -245,4 +245,15 @@ void ARSmashableProp::execTriggerBreakProp(FFrame& Stack, RESULT_DECL)
     P_GET_OBJECT_OPTX(AActor, CollideActor1, NULL);
     P_FINISH;
     ((ARSmashableProp__016ff560*)this)->TriggerBreakProp(BreakNormalForce, breakTimerVal, CollideActor0, CollideActor1);
+}
+
+// @baa 0x016ff720
+void ARSmashableProp::execHandleCollision(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, TotalNormalForceVector);
+    P_GET_OBJECT(AActor, CollideActor0);
+    P_GET_OBJECT(AActor, CollideActor1);
+    P_GET_UBOOL(IsAlwaysSmash);
+    P_FINISH;
+    *(UBOOL*)Result = HandleCollision(TotalNormalForceVector, CollideActor0, CollideActor1, IsAlwaysSmash);
 }

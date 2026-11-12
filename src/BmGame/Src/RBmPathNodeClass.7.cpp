@@ -1,4 +1,4 @@
-// RBmPathNodeClass.cpp: 5 functions
+// RBmPathNodeClass.cpp: 6 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -36,4 +36,16 @@ void ARBMPathNode_GapJump::vf_180()
     Proxy1 = NULL;
     Proxy2 = NULL;
     ((ARBMPathNode_GapJump_*)this)->sub_0083f0c0();
+}
+
+struct ARBMAIController_ : public ARBMAIController
+{
+    INT sub_015ef760(INT A, INT* B, INT C);
+    INT vf_424(INT A, INT B, INT C, INT D, INT E);
+};
+
+// @baa 0x015f1f50
+INT ARBMAIController_::vf_424(INT A, INT B, INT C, INT D, INT E)
+{
+    return sub_015ef760(A, &B, E);
 }

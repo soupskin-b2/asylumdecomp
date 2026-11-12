@@ -1,4 +1,4 @@
-// GFx_1910000.cpp (part 1 of 5): 81 functions
+// GFx_1910000.cpp (part 1 of 5): 82 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Core.h"
@@ -932,4 +932,33 @@ struct C_0191fc30 {
 void C_0191fc30::sub_0191fc30(float f)
 {
     *(float *)(this + 0x14) = f;
+}
+
+/* Scaleform GFx (External/GFx): a data buffer the GFx loader reads from. The
+ * buffer's fields live at 0x28/0x2c/0x30; it starts at offset 0x30 of the owning
+ * struct, or the pointer at 0x310 selects an external buffer. */
+struct FGFxData
+{
+	BYTE _pad_0[0x28];
+	INT ReadPos; /* 0x28 */
+	INT Size;    /* 0x2c */
+	INT End;     /* 0x30 */
+	BYTE* Data;  /* 0x34 */
+};
+
+struct FGFxDataPool
+{
+	BYTE _pad_0[0x30];
+	FGFxData Pool;     /* 0x30 */
+	BYTE _pad_1[0x2a8];
+	FGFxData* External; /* 0x310 */
+
+	INT sub_01919a90();
+};
+
+// @baa 0x01919a90
+INT FGFxDataPool::sub_01919a90()
+{
+	FGFxData* Base = (External == NULL) ? &Pool : External;
+	return Base->End - Base->Size + Base->ReadPos;
 }

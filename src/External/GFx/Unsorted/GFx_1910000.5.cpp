@@ -1,4 +1,4 @@
-// GFx_1910000.cpp (part 5 of 5): 19 functions
+// GFx_1910000.cpp (part 5 of 5): 21 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -314,4 +314,37 @@ C_01914fc0* C_01914fc0::sub_01914fc0(float In)
     Value_04 = In;
     Value_00 = In;
     return this;
+}
+
+// @baa 0x01915060
+DWORD sub_01915060(DWORD InValue, DWORD InMin, DWORD InMax)
+{
+	if (InValue >= InMax)
+	{
+		InValue = InMax;
+	}
+	if (InValue < InMin)
+	{
+		InValue = InMin;
+	}
+	return InValue;
+}
+
+struct F01971850
+{
+    void *field_00;
+    void *field_04;
+    void *field_08;
+    int field_0c;
+};
+
+F01971850 * __stdcall sub_01971850(F01971850 *);
+// @baa 0x01913790
+ /* 0x01971850 */
+F01971850 ** __stdcall sub_01913790(F01971850 **Out, F01971850 *Self)
+{
+    F01971850 *Object = sub_01971850(Self);
+    ++Object->field_0c;
+    *Out = Object;
+    return Out;
 }
