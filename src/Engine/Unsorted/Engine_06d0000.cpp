@@ -1734,7 +1734,7 @@ void UPrimitiveComponent::vf_22c(uint param_2)
 }
 
 // @baa 0x006dbe50
-void UPrimitiveComponent::SetIgnoreOwnerHidden(UBOOL param_2)
+void UPrimitiveComponent::SetDontDrawThisFrame(UBOOL param_2)
 {
     int param_1 = (int)this;
 

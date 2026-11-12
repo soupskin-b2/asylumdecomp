@@ -90,7 +90,7 @@ void UPrimitiveComponent::execSetIgnoreOwnerHidden(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bIgnoreOwnerHidden);
 	P_FINISH;
-	vf_21c(bIgnoreOwnerHidden);
+	SetIgnoreOwnerHidden(bIgnoreOwnerHidden);
 }
 
 // @baa 0x006dbb00
@@ -98,7 +98,7 @@ void UPrimitiveComponent::execSetHidden(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bHidden);
 	P_FINISH;
-	vf_220(bHidden);
+	SetHiddenGame(bHidden);
 }
 
 // @baa 0x006dbbb0
@@ -106,7 +106,7 @@ void UPrimitiveComponent::execSetHiddenEditor(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bHiddenEditor);
 	P_FINISH;
-	SetHiddenGame(bHiddenEditor);
+	SetHiddenEditor(bHiddenEditor);
 }
 
 // @baa 0x006dbc70
@@ -130,7 +130,7 @@ void UPrimitiveComponent::execSetDontDrawThisFrame(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bDontDrawThisFrame);
 	P_FINISH;
-	SetIgnoreOwnerHidden(bDontDrawThisFrame);
+	SetDontDrawThisFrame(bDontDrawThisFrame);
 }
 
 // @baa 0x006dc270

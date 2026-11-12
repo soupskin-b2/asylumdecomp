@@ -42537,7 +42537,7 @@
     {
      "va": "01643640",
      "size": 39,
-     "symbol": "?vf_364@ARBMCombatDangerZone@@UAEII@Z"
+     "symbol": "?WillHurt@ARBMCombatDangerZone@@UAEHPAUAPawn@@@Z"
     },
     {
      "va": "01646d90",
@@ -216746,7 +216746,7 @@
     {
      "va": "008a5e00",
      "size": 3,
-     "symbol": "?vf_118@UGoal_Null@@UAEXH@Z"
+     "symbol": "?NotifyExceededMaxPathVisits@UGoal_Null@@UAEXPAUANavigationPoint@@@Z"
     },
     {
      "va": "008a5e10",
@@ -217006,27 +217006,27 @@
     {
      "va": "008a69f0",
      "size": 8,
-     "symbol": "?vf_10c@UPathConstraint@@UAEHHHHH@Z"
+     "symbol": "?EvaluatePath@UPathConstraint@@UAEHPAUUReachSpec@@PAUAPawn@@AAH2@Z"
     },
     {
      "va": "008a6d00",
      "size": 24,
-     "symbol": "?vf_10c@UPathGoalEvaluator@@UAEHHH@Z"
+     "symbol": "?InitialAbortCheck@UPathGoalEvaluator@@UAEHPAUANavigationPoint@@PAUAPawn@@@Z"
     },
     {
      "va": "008a6d20",
      "size": 24,
-     "symbol": "?vf_110@UPathGoalEvaluator@@UAEHHH@Z"
+     "symbol": "?EvaluateGoal@UPathGoalEvaluator@@UAEHAAPAUANavigationPoint@@PAUAPawn@@@Z"
     },
     {
      "va": "008a6d60",
      "size": 10,
-     "symbol": "?vf_118@UPathGoalEvaluator@@UAEXH@Z"
+     "symbol": "?NotifyExceededMaxPathVisits@UPathGoalEvaluator@@UAEXPAUANavigationPoint@@@Z"
     },
     {
      "va": "008a6e10",
      "size": 16,
-     "symbol": "?vf_118@UGoal_AtActor@@UAEXH@Z"
+     "symbol": "?NotifyExceededMaxPathVisits@UGoal_AtActor@@UAEXPAUANavigationPoint@@@Z"
     },
     {
      "va": "008b4640",
@@ -267819,7 +267819,7 @@
     {
      "va": "006dbe50",
      "size": 50,
-     "symbol": "?SetIgnoreOwnerHidden@UPrimitiveComponent@@UAEXH@Z"
+     "symbol": "?SetDontDrawThisFrame@UPrimitiveComponent@@UAEXH@Z"
     },
     {
      "va": "006dbe90",

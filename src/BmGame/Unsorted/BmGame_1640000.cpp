@@ -309,7 +309,7 @@ void ARGrapplePointCatchmentArea_::sub_01641ef0(INT Unused)
 
 int sub_00839920(...);
 // @baa 0x01643640
-uint ARBMCombatDangerZone::vf_364(undefined4 param_2)
+UBOOL ARBMCombatDangerZone::WillHurt(APawn* param_2)
 {
     int param_1 = (int)this;
 

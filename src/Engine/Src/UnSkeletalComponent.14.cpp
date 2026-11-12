@@ -57,7 +57,7 @@ void USkeletalMeshComponent__00913f30::sub_00913f30(UActorComponent* Component)
         {
             PrimComp->SetOwnerNoSee(bOwnerNoSee);
             PrimComp->SetOnlyOwnerSee(bOnlyOwnerSee);
-            PrimComp->SetIgnoreOwnerHidden(DontDrawThisFrame);
+            PrimComp->SetDontDrawThisFrame(DontDrawThisFrame);
         }
     }
 }

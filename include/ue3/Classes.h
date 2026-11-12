@@ -3238,6 +3238,7 @@ struct FVector {
     FVector() {}
     explicit FORCEINLINE FVector(FLOAT InF) : X(InF), Y(InF), Z(InF) {}
     FORCEINLINE FVector(FLOAT InX, FLOAT InY, FLOAT InZ) : X(InX), Y(InY), Z(InZ) {}
+    UBOOL Normalize(FLOAT Tolerance = 1.e-8f); /* 0x005c27d0: SMALL_NUMBER; FALSE (unchanged) if too short */
 };
 
 struct __declspec(align(16)) FVector4 {  /* UE3: MS_ALIGN(16) */
@@ -3287,6 +3288,7 @@ struct FRotator {
     FRotator() {}
     FORCEINLINE FRotator(INT InPitch, INT InYaw, INT InRoll) : Pitch(InPitch), Yaw(InYaw), Roll(InRoll) {}
     FRotator GetNormalized() const; /* 0x0058df30: each axis wrapped to -32768..32767 */
+    FVector Vector() const; /* 0x005c99e0: the unit direction */
 };
 
 struct FQuat {
@@ -3346,6 +3348,9 @@ struct FBox {
     FVector Min; /* 0x0 */
     FVector Max; /* 0xc */
     BYTE IsValid; /* 0x18 */
+    FBox() {}
+    FBox(INT) : Min(0, 0, 0), Max(0, 0, 0), IsValid(0) {}
+    FBox(const FVector& InMin, const FVector& InMax) : Min(InMin), Max(InMax), IsValid(1) {}
 };
 
 struct FSimpleBox {
@@ -12868,12 +12873,12 @@ struct UPrimitiveComponent : public UActorComponent {
     virtual INT vf_210(); /* 0x210 */
     virtual void SetOwnerNoSee(UBOOL bNewOwnerNoSee); /* 0x214 */
     virtual void SetOnlyOwnerSee(UBOOL bNewOnlyOwnerSee); /* 0x218 */
-    virtual void vf_21c(INT); /* 0x21c */
-    virtual void vf_220(INT); /* 0x220 */
-    virtual void SetHiddenGame(UBOOL NewHidden); /* 0x224 */
+    virtual void SetIgnoreOwnerHidden(UBOOL bNewIgnoreOwnerHidden); /* 0x21c */
+    virtual void SetHiddenGame(UBOOL NewHidden); /* 0x220 */
+    virtual void SetHiddenEditor(UBOOL NewHidden); /* 0x224 */
     virtual void vf_228(UINT); /* 0x228 */
     virtual void vf_22c(UINT); /* 0x22c */
-    virtual void SetIgnoreOwnerHidden(UBOOL bNewIgnoreOwnerHidden); /* 0x230 */
+    virtual void SetDontDrawThisFrame(UBOOL bNewDontDrawThisFrame); /* 0x230 */
     virtual void vf_234(UPrimitiveComponent*); /* 0x234 */
     virtual void SetLightEnvironment(class ULightEnvironmentComponent* NewLightEnvironment); /* 0x238 */
     virtual void vf_23c(FLOAT); /* 0x23c */
@@ -19333,8 +19338,8 @@ struct ACoverSlotMarker : public ANavigationPoint {
     BITFIELD bLastChoice : 1; /* 0x288 */
     BITFIELD bIgnoreSizeLimits : 1; /* 0x288 */
     /* virtual functions this class introduces (vtable 0x01f44538) */
-    virtual INT GetSlotLocation(INT); /* 0x3b0 */
-    virtual INT GetSlotRotation(INT); /* 0x3b4 */
+    virtual FVector GetSlotLocation(INT SlotIdx); /* 0x3b0 */
+    virtual FRotator GetSlotRotation(INT SlotIdx); /* 0x3b4 */
     virtual INT vf_3b8(INT); /* 0x3b8 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
@@ -20782,7 +20787,7 @@ struct APhysicsVolume : public AVolume {
     FVector ZoneTorque; /* 0x210 */
     /* virtual functions this class introduces (vtable 0x01f01848) */
     virtual FVector GetZoneVelocityForActor(class AActor* TheActor); /* 0x360 */
-    virtual UINT vf_364(UINT); /* 0x364 */
+    virtual UBOOL WillHurt(class APawn* P); /* 0x364 */
     virtual FLOAT GetVolumeRBGravityZ(); /* 0x368 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
@@ -23810,10 +23815,10 @@ struct UPathGoalEvaluator : public UObject {
     INT MaxPathVisits; /* 0x38 */
     INT CacheIdx; /* 0x3c */
     /* virtual functions this class introduces (vtable 0x01f5e070) */
-    virtual INT vf_10c(INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT); /* 0x110 */
-    virtual bool vf_114(INT); /* 0x114 */
-    virtual void vf_118(INT); /* 0x118 */
+    virtual UBOOL InitialAbortCheck(class ANavigationPoint* Start, class APawn* Pawn); /* 0x10c */
+    virtual UBOOL EvaluateGoal(class ANavigationPoint*& PossibleGoal, class APawn* Pawn); /* 0x110 */
+    virtual bool DetermineFinalGoal(class ANavigationPoint*& out_GoalNav); /* 0x114 */
+    virtual void NotifyExceededMaxPathVisits(class ANavigationPoint* BestGuess); /* 0x118 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -23829,9 +23834,9 @@ struct UGoal_AtActor : public UPathGoalEvaluator {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT); /* 0x110 */
-    virtual void vf_118(INT); /* 0x118 */
+    virtual UBOOL InitialAbortCheck(class ANavigationPoint* Start, class APawn* Pawn); /* 0x10c */
+    virtual UBOOL EvaluateGoal(class ANavigationPoint*& PossibleGoal, class APawn* Pawn); /* 0x110 */
+    virtual void NotifyExceededMaxPathVisits(class ANavigationPoint* BestGuess); /* 0x118 */
     /* registered size 0x4c */
 };
 
@@ -23841,8 +23846,8 @@ struct UGoal_Null : public UPathGoalEvaluator {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_110(INT, INT); /* 0x110 */
-    virtual void vf_118(INT); /* 0x118 */
+    virtual UBOOL EvaluateGoal(class ANavigationPoint*& PossibleGoal, class APawn* Pawn); /* 0x110 */
+    virtual void NotifyExceededMaxPathVisits(class ANavigationPoint* BestGuess); /* 0x118 */
     /* other member functions */
     void sub_008a7710(); /* 0x008a7710 */
     UINT* sub_008a7720(BYTE); /* 0x008a7720 */
@@ -30687,7 +30692,7 @@ struct UPathConstraint : public UObject {
     INT CacheIdx; /* 0x30 */
     class UPathConstraint* NextConstraint; /* 0x34 */
     /* virtual functions this class introduces (vtable 0x01f5d7e8) */
-    virtual INT vf_10c(INT, INT, INT, INT); /* 0x10c */
+    virtual UBOOL EvaluatePath(class UReachSpec* Spec, class APawn* Pawn, INT& out_PathCost, INT& out_HeuristicCost); /* 0x10c */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -30701,7 +30706,7 @@ struct UPath_AlongLine : public UPathConstraint {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(INT, INT, INT, INT); /* 0x10c */
+    virtual UBOOL EvaluatePath(class UReachSpec* Spec, class APawn* Pawn, INT& out_PathCost, INT& out_HeuristicCost); /* 0x10c */
     /* registered size 0x44 */
 };
 
@@ -30717,7 +30722,7 @@ struct UPath_AvoidInEscapableNodes : public UPathConstraint {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(INT, INT, INT, INT); /* 0x10c */
+    virtual UBOOL EvaluatePath(class UReachSpec* Spec, class APawn* Pawn, INT& out_PathCost, INT& out_HeuristicCost); /* 0x10c */
     /* UnrealScript natives */
     void execCachePawnReacFlags(FFrame& Stack, RESULT_DECL); /* 0x00c9bb90 */
     /* registered size 0x48 */
@@ -30732,7 +30737,7 @@ struct UPath_MinDistBetweenSpecsOfType : public UPathConstraint {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(INT, INT, INT, INT); /* 0x10c */
+    virtual UBOOL EvaluatePath(class UReachSpec* Spec, class APawn* Pawn, INT& out_PathCost, INT& out_HeuristicCost); /* 0x10c */
     /* registered size 0x4c */
 };
 
@@ -30743,7 +30748,7 @@ struct UPath_TowardGoal : public UPathConstraint {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(INT, INT, INT, INT); /* 0x10c */
+    virtual UBOOL EvaluatePath(class UReachSpec* Spec, class APawn* Pawn, INT& out_PathCost, INT& out_HeuristicCost); /* 0x10c */
     /* registered size 0x3c */
 };
 
@@ -30754,7 +30759,7 @@ struct UPath_TowardPoint : public UPathConstraint {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(INT, INT, INT, INT); /* 0x10c */
+    virtual UBOOL EvaluatePath(class UReachSpec* Spec, class APawn* Pawn, INT& out_PathCost, INT& out_HeuristicCost); /* 0x10c */
     /* registered size 0x44 */
 };
 
@@ -30770,7 +30775,7 @@ struct UPath_WithinDistanceEnvelope : public UPathConstraint {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(INT, INT, INT, INT); /* 0x10c */
+    virtual UBOOL EvaluatePath(class UReachSpec* Spec, class APawn* Pawn, INT& out_PathCost, INT& out_HeuristicCost); /* 0x10c */
     /* registered size 0x54 */
 };
 
@@ -30783,7 +30788,7 @@ struct UPath_WithinTraversalDist : public UPathConstraint {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(INT, INT, INT, INT); /* 0x10c */
+    virtual UBOOL EvaluatePath(class UReachSpec* Spec, class APawn* Pawn, INT& out_PathCost, INT& out_HeuristicCost); /* 0x10c */
     /* registered size 0x44 */
 };
 
@@ -42007,7 +42012,7 @@ struct URAnimNode_Pose : public UAnimNodeBlendBase, public FTickableObject {
     virtual INT IsInAnyAutomaticTransition(BYTE Fuzziness, FTransitionId* Transition); /* 0x288 */
     virtual INT vf_28c(BYTE); /* 0x28c */
     virtual INT IsInTransition(FTransitionId Transition, BYTE Fuzziness); /* 0x290 */
-    virtual INT vf_294(INT, BYTE); /* 0x294 */
+    virtual FLOAT GetTimeThroughTransition(FTransitionId Transition, BYTE Fuzziness); /* 0x294 */
     virtual INT WillBeInTransition(FTransitionId Transition, FLOAT Time, BYTE Fuzziness); /* 0x298 */
     virtual void vf_29c(); /* 0x29c */
     virtual void vf_2a0(); /* 0x2a0 */
@@ -43186,7 +43191,7 @@ struct ARInventoryGadget : public AInventory {
     class UAudioComponent* GetOutSound; /* 0x2b0 */
     class URInteractionClass* OverrideTargets; /* 0x2b4 */
     /* virtual functions this class introduces (vtable 0x0235bd88) */
-    virtual INT vf_354(INT); /* 0x354 */
+    virtual FRotator GetAutoTargetRotation(); /* 0x354 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -43249,7 +43254,7 @@ struct ARBatarang : public ARInventoryGadget {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual UBOOL IgnoreBlockingBy(const class AActor* Other) const; /* 0x164 */
-    virtual INT vf_354(INT); /* 0x354 */
+    virtual FRotator GetAutoTargetRotation(); /* 0x354 */
     /* UnrealScript natives */
     void execUpdateAliveProjectiles(FFrame& Stack, RESULT_DECL); /* 0x01706ff0 */
     void execFindInterceptDirection(FFrame& Stack, RESULT_DECL); /* 0x01707050 */
@@ -45736,7 +45741,7 @@ struct ARBMCombatDangerZone : public APhysicsVolume {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual UINT vf_364(UINT); /* 0x364 */
+    virtual UBOOL WillHurt(class APawn* P); /* 0x364 */
     /* registered size 0x24c */
 };
 

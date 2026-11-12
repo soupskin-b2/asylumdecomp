@@ -53,7 +53,20 @@ inline INT    appFloor2Int( FLOAT F )            { return appTrunc(floorf(F)); }
 // random numbers (UnVcWin32.h)
 inline INT    appRand()                          { return rand(); }
 inline FLOAT  appFrand()                         { return rand() / (FLOAT)RAND_MAX; }
-inline FLOAT  appSRand()                         { return rand() / (FLOAT)(RAND_MAX + 1); }
+
+// UnMath.h: the seeded generator (GSRandSeed, appSRandInit), not rand()
+extern DWORD GSRandSeed;
+inline FLOAT appFractional( FLOAT Value )        { return Value - appTrunc(Value); }
+inline FLOAT appSRand()
+{
+	GSRandSeed = (GSRandSeed * 196314165) + 907633515;
+	union { FLOAT f; INT i; } Result;
+	union { FLOAT f; INT i; } Temp;
+	const FLOAT SRandTemp = 1.0f;
+	Temp.f = SRandTemp;
+	Result.i = (Temp.i & 0xff800000) | (GSRandSeed & 0x007fffff);
+	return appFractional(Result.f);
+}
 
 // UnTemplate.h
 template< class T > inline T Abs( const T A )                          { return (A >= (T)0) ? A : -A; }

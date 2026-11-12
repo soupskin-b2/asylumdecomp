@@ -293,7 +293,7 @@ undefined4 * UObject::sub_008a5d80(void)
 IMPLEMENT_CLASS_AT(UGoal_Null, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnRoute.cpp", 21);
 
 // @baa 0x008a5e00
-void UGoal_Null::vf_118(int a0) {  }
+void UGoal_Null::NotifyExceededMaxPathVisits(ANavigationPoint* a0) {  }
 
 // @baa 0x008a5e10
 // @baa 0x008a5e30
@@ -409,35 +409,35 @@ bool UGoal_Null::vf_004()
 // @baa 0x008e04d0
 
 // @baa 0x008a69f0
-int UPathConstraint::vf_10c(int a0, int a1, int a2, int a3) { return 1; }
+UBOOL UPathConstraint::EvaluatePath(UReachSpec* a0, APawn* a1, INT& a2, INT& a3) { return 1; }
 
 // @baa 0x008a6d00
-INT UPathGoalEvaluator::vf_10c(INT A, INT B)
+UBOOL UPathGoalEvaluator::InitialAbortCheck(ANavigationPoint* A, APawn* B)
 {
     if (NextEvaluator != NULL)
-        return NextEvaluator->vf_10c(A, B);
+        return NextEvaluator->InitialAbortCheck(A, B);
     return 0;
 }
 
 // @baa 0x008a6d20
 // Default implementation of vf_110 for UPathGoalEvaluator: forwards the call to
 // the next evaluator in the chain, or returns 0 when the chain ends.
-INT UPathGoalEvaluator::vf_110(INT A, INT B)
+UBOOL UPathGoalEvaluator::EvaluateGoal(ANavigationPoint*& A, APawn* B)
 {
 	if (NextEvaluator != NULL)
-		return NextEvaluator->vf_110(A, B);
+		return NextEvaluator->EvaluateGoal(A, B);
 	return 0;
 }
 
 // @baa 0x008a6d60
-void UPathGoalEvaluator::vf_118(int a0) { *(int*)((char*)this + 52) = a0; }
+void UPathGoalEvaluator::NotifyExceededMaxPathVisits(ANavigationPoint* a0) { *(ANavigationPoint**)((char*)this + 52) = a0; }
 
 // @baa 0x008a6e10
-void UGoal_AtActor::vf_118(INT param_2) {
+void UGoal_AtActor::NotifyExceededMaxPathVisits(ANavigationPoint* param_2) {
     int param_1 = (int)this;
 
   if ((*(byte *)(param_1 + 0x48) & 1) != 0) {
-    *(undefined4 *)(param_1 + 0x34) = param_2;
+    *(ANavigationPoint **)(param_1 + 0x34) = param_2;
   }
   return;
 }

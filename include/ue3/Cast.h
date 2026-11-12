@@ -25,4 +25,9 @@ template<class T> T* Cast(UObject* Src)
     return Src && ObjectIsA(Src, T::StaticClass()) ? (T*)Src : NULL;
 }
 
+template<class T> const T* ConstCast(const UObject* Src)
+{
+    return Src && ObjectIsA(Src, T::StaticClass()) ? (const T*)Src : NULL;
+}
+
 #endif

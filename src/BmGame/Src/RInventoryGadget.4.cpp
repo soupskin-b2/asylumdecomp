@@ -12,8 +12,7 @@ struct ARInventoryGadget_01706ed0 : public ARInventoryGadget {
 void ARInventoryGadget_01706ed0::execGetAutoTargetRotation(FFrame& Stack, RESULT_DECL)
 {
     P_FINISH;
-    FRotator R;
-    *(FRotator*)Result = *(FRotator*)vf_354((INT)&R);
+    *(FRotator*)Result = GetAutoTargetRotation();
 }
 
 /* ARInventoryGadget::GetCorrectedAutoTargetOrigin (0x163b170) isn't declared in the kit. */
