@@ -2,8 +2,8 @@
  "note": "Maintained by CI (tools/ci); every file is checked by python tools/asylum unit-check.",
  "totals": {
   "units": 1439,
-  "files": 5240,
-  "functions": 100872,
+  "files": 5255,
+  "functions": 100937,
   "failed": 0
  },
  "units": [
@@ -3004,6 +3004,11 @@
      "va": "01556b60",
      "size": 259,
      "symbol": "?ApplyJitter@URBMScreenShakeModifier@@UAEXAAM0MM@Z"
+    },
+    {
+     "va": "0155f900",
+     "size": 165,
+     "symbol": "?GetClosestPosition@ARAmbientSoundTrackingVolume@@UAE?AUFVector@@U2@@Z"
     }
    ]
   },
@@ -6613,6 +6618,11 @@
      "va": "01590410",
      "size": 62,
      "symbol": "?InitializeIntrinsicPropertyValues@URPoseConfigFactoryNew@@QAEXXZ"
+    },
+    {
+     "va": "0155cfa0",
+     "size": 80,
+     "symbol": "?OnChildAnimEnd@URAnimNode_Cape@@UAEXPAUUAnimNodeSequence@@MM@Z"
     }
    ]
   },
@@ -10674,6 +10684,11 @@
      "va": "01604a40",
      "size": 98,
      "symbol": "?vf_458@ARBMAIController@@UAEHXZ"
+    },
+    {
+     "va": "015e6220",
+     "size": 53,
+     "symbol": "?IgnoreBlockingBy@ARPawnBossVenomBase@@UBEHPBUAActor@@@Z"
     }
    ]
   },
@@ -42189,6 +42204,11 @@
      "va": "016407e0",
      "size": 83,
      "symbol": "??$Cast@UARGameRI@@@@YAPAUARGameRI@@PAUUObject@@@Z"
+    },
+    {
+     "va": "01641eb0",
+     "size": 62,
+     "symbol": "?IgnoreBlockingBy@ARGrappleGun@@UBEHPBUAActor@@@Z"
     }
    ]
   },
@@ -44538,6 +44558,41 @@
      "va": "01668960",
      "size": 64,
      "symbol": "?delegateIsActorSafe@ARPawn__01668960@@QAEHPAUAActor@@@Z"
+    },
+    {
+     "va": "0166dc30",
+     "size": 48,
+     "symbol": "?IsInMovementStance@ARPawnCharacter@@UAEHUFName@@E@Z"
+    },
+    {
+     "va": "0166dcc0",
+     "size": 48,
+     "symbol": "?IsInWeaponStance@ARPawnCharacter@@UAEHUFName@@E@Z"
+    },
+    {
+     "va": "0166ede0",
+     "size": 63,
+     "symbol": "?HasPose@ARPawnCharacter@@UAEHUFName@@00@Z"
+    },
+    {
+     "va": "0166ef00",
+     "size": 51,
+     "symbol": "?WillBeInTransition@ARPawnCharacter@@UAEHUFTransitionId@@ME@Z"
+    },
+    {
+     "va": "0166edb0",
+     "size": 41,
+     "symbol": "?OverrideTransitionTime@ARPawnCharacter@@UAEXMH@Z"
+    },
+    {
+     "va": "0166dd70",
+     "size": 74,
+     "symbol": "?IsInPose@ARPawnCharacter@@UAEHUFName@@0@Z"
+    },
+    {
+     "va": "0166f790",
+     "size": 69,
+     "symbol": "?GetActualAimAtDirection@ARPawnCharacter@@UAE?AUFVector@@XZ"
     }
    ]
   },
@@ -162185,6 +162240,11 @@
      "va": "006a6c60",
      "size": 30,
      "symbol": "?sub_006a6c60@ULensFlare@@QAEIE@Z"
+    },
+    {
+     "va": "0064e080",
+     "size": 52,
+     "symbol": "?IsReadyForFinishDestroy@UDecalComponent@@UAEHXZ"
     }
    ]
   },
@@ -164963,6 +165023,16 @@
      "va": "00baccf0",
      "size": 124,
      "symbol": "?SetSourceColor@ULensFlareComponent@@UAEXUFLinearColor@@@Z"
+    },
+    {
+     "va": "00bacde0",
+     "size": 84,
+     "symbol": "?BeginDestroy@ULensFlareComponent@@UAEXXZ"
+    },
+    {
+     "va": "00bace40",
+     "size": 57,
+     "symbol": "?IsReadyForFinishDestroy@ULensFlareComponent@@UAEHXZ"
     }
    ]
   },
@@ -170656,6 +170726,16 @@
      "va": "00703760",
      "size": 26,
      "symbol": "?sub_00703760@UMaterialInterface_@@QAEPAXH@Z"
+    },
+    {
+     "va": "006d9260",
+     "size": 19,
+     "symbol": "?BeginDestroy@UMaterialInterface@@UAEXXZ"
+    },
+    {
+     "va": "006d9250",
+     "size": 16,
+     "symbol": "?IsReadyForFinishDestroy@UMaterialInterface@@UAEHXZ"
     }
    ]
   },
@@ -173361,6 +173441,11 @@
      "va": "006da9e0",
      "size": 58,
      "symbol": "?GetPosition@UPointLightComponent@@UBE?AUFVector4@@XZ"
+    },
+    {
+     "va": "006da950",
+     "size": 56,
+     "symbol": "?UpdatePreviewLightRadius@UPointLightComponent__006da950@@QAEXXZ"
     }
    ]
   },
@@ -179802,6 +179887,18 @@
   },
   {
    "unit": "Engine/Src/TextureFlipbook.cpp",
+   "source": "Engine/Src/TextureFlipbook.3.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "00721030",
+     "size": 47,
+     "symbol": "?PostLoad@UTexture2D@@UAEXXZ"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Src/TextureFlipbook.cpp",
    "source": "Engine/Src/TextureFlipbook.cpp",
    "profile": "ue3",
    "functions": [
@@ -180109,6 +180206,16 @@
      "va": "00755990",
      "size": 34,
      "symbol": "?Serialize@UTextureMovie@@UAEXAAVFArchive@@@Z"
+    },
+    {
+     "va": "007557d0",
+     "size": 42,
+     "symbol": "?IsReadyForFinishDestroy@UTextureMovie@@UAEHXZ"
+    },
+    {
+     "va": "00755780",
+     "size": 73,
+     "symbol": "?BeginDestroy@UTextureMovie@@UAEXXZ"
     }
    ]
   },
@@ -184502,6 +184609,21 @@
      "va": "00777420",
      "size": 31,
      "symbol": "?SetDrawScale3D@AActor@@QAEXUFVector@@@Z"
+    },
+    {
+     "va": "0075de60",
+     "size": 75,
+     "symbol": "?SupportsKismetModification@AActor@@UAEHPAUUSequenceOp@@AAVFString@@@Z"
+    },
+    {
+     "va": "00777460",
+     "size": 56,
+     "symbol": "?SetHidden@AActor@@UAEXH@Z"
+    },
+    {
+     "va": "0068f470",
+     "size": 172,
+     "symbol": "?GetActorReferences@AActor@@UAEXAAV?$TArray@PAUFActorReference@@@@H@Z"
     }
    ]
   },
@@ -184514,6 +184636,18 @@
      "va": "00781ad0",
      "size": 107,
      "symbol": "?SetCollisionSize@AActor_@@QAEXMM@Z"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Src/UnActor.cpp",
+   "source": "Engine/Src/UnActor.279.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "00769120",
+     "size": 117,
+     "symbol": "?GetBoundingCylinder@AActor@@UAEXAAM0@Z"
     }
    ]
   },
@@ -196931,6 +197065,18 @@
   },
   {
    "unit": "Engine/Src/UnCrowd.cpp",
+   "source": "Engine/Src/UnCrowd.3.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "00cbccf0",
+     "size": 265,
+     "symbol": "?Activated@USeqAct_CrowdSpawner@@UAEXXZ"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Src/UnCrowd.cpp",
    "source": "Engine/Src/UnCrowd.cpp",
    "profile": "ue3",
    "functions": [
@@ -201067,6 +201213,47 @@
   },
   {
    "unit": "Engine/Src/UnInterpolation.cpp",
+   "source": "Engine/Src/UnInterpolation.10.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "00d14240",
+     "size": 463,
+     "symbol": "?sub_00d14240@USeqAct_Interp@@QAEXPAUAPlayerController@@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Src/UnInterpolation.cpp",
+   "source": "Engine/Src/UnInterpolation.11.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "00d02f70",
+     "size": 210,
+     "symbol": "?vf_154@USeqAct_Interp@@UAEXXZ"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Src/UnInterpolation.cpp",
+   "source": "Engine/Src/UnInterpolation.12.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "00ceb450",
+     "size": 96,
+     "symbol": "?vf_16c@USeqAct_Interp@@UAEXXZ"
+    },
+    {
+     "va": "00cf3240",
+     "size": 215,
+     "symbol": "?NotifyActorsOfChange@USeqAct_Interp_@@QAEXXZ"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Src/UnInterpolation.cpp",
    "source": "Engine/Src/UnInterpolation.2.cpp",
    "profile": "ue3",
    "functions": [
@@ -201316,6 +201503,18 @@
      "va": "00cf7400",
      "size": 305,
      "symbol": "?GetClosestSnapPosition@UInterpTrackParticleReplay@@UAEHMAAV?$TArray@H@@AAM@Z"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Src/UnInterpolation.cpp",
+   "source": "Engine/Src/UnInterpolation.9.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "00cf33e0",
+     "size": 168,
+     "symbol": "?sub_00cf33e0@USeqAct_Interp_@@QAEHPAUAPlayerController@@@Z"
     }
    ]
   },
@@ -211441,6 +211640,35 @@
   },
   {
    "unit": "Engine/Src/UnPawn.cpp",
+   "source": "Engine/Src/UnPawn.12.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "00865160",
+     "size": 137,
+     "symbol": "?SetAnchor@APawn@@UAEXPAUANavigationPoint@@@Z"
+    },
+    {
+     "va": "00867f90",
+     "size": 114,
+     "symbol": "?GetGravityZ@AActor@@UAEMXZ"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Src/UnPawn.cpp",
+   "source": "Engine/Src/UnPawn.13.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "0087b1d0",
+     "size": 345,
+     "symbol": "?TouchReachSucceeded@AActor@@UAEHPAUAPawn@@ABUFVector@@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Src/UnPawn.cpp",
    "source": "Engine/Src/UnPawn.2.cpp",
    "profile": "ue3",
    "functions": [
@@ -212314,6 +212542,36 @@
      "va": "00871a10",
      "size": 87,
      "symbol": "?GetBoundingCylinder@APawn@@UAEXAAM0@Z"
+    },
+    {
+     "va": "007a0750",
+     "size": 44,
+     "symbol": "?IsValidTargetFor@APawn@@UAEHPAUAController@@@Z"
+    },
+    {
+     "va": "00865020",
+     "size": 40,
+     "symbol": "?GetPlayerPawn@APawn@@UAEPAU1@XZ"
+    },
+    {
+     "va": "008a6780",
+     "size": 51,
+     "symbol": "?AddPathConstraint@APawn@@UAEXPAUUPathConstraint@@@Z"
+    },
+    {
+     "va": "00865d10",
+     "size": 72,
+     "symbol": "?ReachedDestination@APawn@@UAEHPAUAActor@@@Z"
+    },
+    {
+     "va": "007d70c0",
+     "size": 94,
+     "symbol": "?NotifyBump@APawn@@UAEXPAUAActor@@PAUUPrimitiveComponent@@ABUFVector@@@Z"
+    },
+    {
+     "va": "00769c30",
+     "size": 80,
+     "symbol": "?SetBase@APawn@@UAEXPAUAActor@@UFVector@@HPAUUSkeletalMeshComponent@@UFName@@@Z"
     }
    ]
   },
@@ -213066,6 +213324,11 @@
      "va": "009f9a40",
      "size": 249,
      "symbol": "?sub_009f9a40@URB_BodyInstance_@@QAEXPBUURB_BodyInstance@@@Z"
+    },
+    {
+     "va": "00a2ca30",
+     "size": 48,
+     "symbol": "?PostLoad@UPhysicsAsset@@UAEXXZ"
     }
    ]
   },
@@ -215795,6 +216058,23 @@
   },
   {
    "unit": "Engine/Src/UnPostProcess.cpp",
+   "source": "Engine/Src/UnPostProcess.2.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "0088f720",
+     "size": 50,
+     "symbol": "?PostLoad@APostProcessVolume@@UAEXXZ"
+    },
+    {
+     "va": "0088f6f0",
+     "size": 45,
+     "symbol": "?PostEditChange@APostProcessVolume@@UAEXPAUUProperty@@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Src/UnPostProcess.cpp",
    "source": "Engine/Src/UnPostProcess.cpp",
    "profile": "ue3",
    "functions": [
@@ -217751,6 +218031,36 @@
      "va": "008c0980",
      "size": 103,
      "symbol": "?vf_154@USequence@@UAEXXZ"
+    },
+    {
+     "va": "008c0d00",
+     "size": 241,
+     "symbol": "?UpdateOp@USeqAct_PlayCameraAnim@@UAEHM@Z"
+    },
+    {
+     "va": "008aa270",
+     "size": 67,
+     "symbol": "?vf_120@USequenceObject@@UAEXXZ"
+    },
+    {
+     "va": "008e2270",
+     "size": 80,
+     "symbol": "?vf_120@USequence@@UAEXXZ"
+    },
+    {
+     "va": "008ac570",
+     "size": 81,
+     "symbol": "?vf_120@USeqEvent_ParticleEvent@@UAEXXZ"
+    },
+    {
+     "va": "008e7d10",
+     "size": 169,
+     "symbol": "?Activated@USeqCond_IsLoggedIn@@UAEXXZ"
+    },
+    {
+     "va": "008be6c0",
+     "size": 115,
+     "symbol": "?RegisterEvent@USequenceEvent@@UAEHXZ"
     }
    ]
   },
@@ -217874,6 +218184,67 @@
      "va": "008b1870",
      "size": 38,
      "symbol": "?UpdateOp@USeqAct_PrepareMapChange@@UAEHM@Z"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Src/UnSequence.cpp",
+   "source": "Engine/Src/UnSequence.31.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "008c0880",
+     "size": 244,
+     "symbol": "?PostEditChange@USeqAct_SetMaterial@@UAEXPAUUProperty@@@Z"
+    },
+    {
+     "va": "008bee30",
+     "size": 376,
+     "symbol": "?UpdateOp@USeqAct_ParticleEventGenerator@@UAEHM@Z"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Src/UnSequence.cpp",
+   "source": "Engine/Src/UnSequence.32.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "008ac870",
+     "size": 107,
+     "symbol": "?Activated@USeqAct_ForceGarbageCollection@@UAEXXZ"
+    },
+    {
+     "va": "008ac050",
+     "size": 131,
+     "symbol": "?sub_008ac050@USequenceEvent_@@QAEHH@Z"
+    },
+    {
+     "va": "008ac490",
+     "size": 220,
+     "symbol": "?Activated@USeqAct_CommitMapChange@@UAEXXZ"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Src/UnSequence.cpp",
+   "source": "Engine/Src/UnSequence.33.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "008cb5d0",
+     "size": 125,
+     "symbol": "?vf_120@USeqVar_ObjectList@@UAEXXZ"
+    },
+    {
+     "va": "008caeb0",
+     "size": 324,
+     "symbol": "?UpdateOp@USeqAct_Latent@@UAEHM@Z"
+    },
+    {
+     "va": "008cc250",
+     "size": 350,
+     "symbol": "?Activated@USeqAct_InterpolateFloat@@UAEXXZ"
     }
    ]
   },
@@ -230730,6 +231101,18 @@
      "va": "00d54a20",
      "size": 54,
      "symbol": "?sub_00d54a20@C@@QAEHH@Z"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Src/UnTerrain.cpp",
+   "source": "Engine/Src/UnTerrain.10.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "009827d0",
+     "size": 61,
+     "symbol": "?IsReadyForFinishDestroy@ATerrain@@UAEHXZ"
     }
    ]
   },
@@ -255447,6 +255830,11 @@
      "va": "00658ed0",
      "size": 25,
      "symbol": "??0F00658ed0Obj@@QAE@HH@Z"
+    },
+    {
+     "va": "006500a0",
+     "size": 90,
+     "symbol": "?GetPosition@UDirectionalLightComponent@@UBE?AUFVector4@@XZ"
     }
    ]
   },
@@ -267634,6 +268022,11 @@
      "va": "006dc5f0",
      "size": 130,
      "symbol": "?vf_1e8@UPrimitiveComponent@@UAEHXZ"
+    },
+    {
+     "va": "006db650",
+     "size": 19,
+     "symbol": "?IsReadyForFinishDestroy@UPrimitiveComponent@@UAEHXZ"
     }
    ]
   },
@@ -277158,6 +277551,11 @@
      "va": "00754b50",
      "size": 47,
      "symbol": "?delegateRender@UScriptedTexture_@@QAEXPAUUCanvas@@@Z"
+    },
+    {
+     "va": "00757e40",
+     "size": 51,
+     "symbol": "?EditorApplyTranslation@AActor@@UAEXABUFVector@@HHH@Z"
     }
    ]
   },
@@ -283730,6 +284128,18 @@
   },
   {
    "unit": "Engine/Unsorted/Engine_07a0000.cpp",
+   "source": "Engine/Unsorted/Engine_07a0000.9.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "007afc20",
+     "size": 130,
+     "symbol": "?BlendRot@@YAHMHH@Z"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Unsorted/Engine_07a0000.cpp",
    "source": "Engine/Unsorted/Engine_07a0000.cpp",
    "profile": "ue3",
    "functions": [
@@ -284902,6 +285312,11 @@
      "va": "007ad5d0",
      "size": 62,
      "symbol": "?sub_007ad5d0@AController__007ad5d0@@QAEXAAUFBasedPosition@@UFVector@@PAUAActor@@@Z"
+    },
+    {
+     "va": "007afcb0",
+     "size": 158,
+     "symbol": "?SmoothTargetViewRotation@APlayerController@@UAEXPAUAPawn@@M@Z"
     }
    ]
   },
@@ -285621,6 +286036,11 @@
      "va": "007d7120",
      "size": 15,
      "symbol": "?sub_007d7120@C@@QAEXHH@Z"
+    },
+    {
+     "va": "007d7090",
+     "size": 45,
+     "symbol": "?NotifyBump@AActor@@UAEXPAU1@PAUUPrimitiveComponent@@ABUFVector@@@Z"
     }
    ]
   },
@@ -296591,6 +297011,11 @@
      "va": "008b6f60",
      "size": 30,
      "symbol": "?PasteFromClipboard@APlayerController@@UAE?AVFString@@XZ"
+    },
+    {
+     "va": "008b0a30",
+     "size": 75,
+     "symbol": "?CopyToClipboard@APlayerController@@UAEXABVFString@@@Z"
     }
    ]
   },
@@ -497558,6 +497983,11 @@
      "va": "008b3100",
      "size": 87,
      "symbol": "?sub_008b3100@C_008b3100@@QAEHPAI@Z"
+    },
+    {
+     "va": "008b1620",
+     "size": 43,
+     "symbol": "?IsPendingKill@USequenceObject@@UAEHXZ"
     }
    ]
   },

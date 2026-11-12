@@ -1,4 +1,4 @@
-// Engine_08b0000.cpp (part 1 of 2): 35 functions
+// Engine_08b0000.cpp (part 1 of 2): 36 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -561,4 +561,17 @@ FString appClipboardPaste();
 FString APlayerController::PasteFromClipboard()
 {
     return appClipboardPaste();
+}
+
+/* Kit gaps: appClipboardCopy (UnVcWin32.cpp, 005ec7c0) and FString::operator* aren't declared. */
+void appClipboardCopy(const TCHAR* Str);
+struct FString_ : public FString
+{
+	FORCEINLINE const TCHAR* operator*() const { return Num() ? &(*this)(0) : TEXT(""); }
+};
+
+// @baa 0x008b0a30
+void APlayerController::CopyToClipboard(const FString& Text)
+{
+	appClipboardCopy(*(const FString_&)Text);
 }

@@ -1,4 +1,4 @@
-// LensFlare.cpp: 21 functions
+// LensFlare.cpp: 23 functions
 // Placed here by: file 4, callers 3.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -394,4 +394,44 @@ void ULensFlareComponent::SetSourceColor(FLinearColor InSourceColor)
         SourceColor = InSourceColor;
         ((UActorComponent_*)this)->BeginDeferredReattach();
     }
+}
+
+/* Kit gap: FRenderCommandFence has no constructor, BeginFence (0x00719c60) or GetNumPendingFences (0x0071f7e0)
+ * (RenderingThread.h). */
+struct FRenderCommandFence_ : public FRenderCommandFence
+{
+	FRenderCommandFence_() { NumPendingFences = 0; }
+	void BeginFence();
+	UINT GetNumPendingFences() const;
+};
+
+/* Named accessor for the FPointer field (ISSUES.md 19). */
+static __forceinline FRenderCommandFence_*& GetReleaseResourcesFence(ULensFlareComponent* LensFlare)
+{
+	return (FRenderCommandFence_*&)LensFlare->ReleaseResourcesFence.Dummy;
+}
+
+// @baa 0x00bacde0
+void ULensFlareComponent::BeginDestroy()
+{
+	Super::BeginDestroy();
+	FRenderCommandFence_*& ReleaseResourcesFence = GetReleaseResourcesFence(this);
+	ReleaseResourcesFence = new FRenderCommandFence_();
+#line 623 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\LensFlare.cpp"
+	check(ReleaseResourcesFence);
+	ReleaseResourcesFence->BeginFence();
+}
+
+#line 426 "candidate.cpp"
+
+// @baa 0x00bace40
+UBOOL ULensFlareComponent::IsReadyForFinishDestroy()
+{
+	UBOOL bReady = Super::IsReadyForFinishDestroy();
+	UBOOL bFenceDone = TRUE;
+	if (GetReleaseResourcesFence(this))
+	{
+		bFenceDone = GetReleaseResourcesFence(this)->GetNumPendingFences() == 0;
+	}
+	return bReady && bFenceDone;
 }

@@ -1,4 +1,4 @@
-// UnPawn.cpp (part 1 of 2): 111 functions
+// UnPawn.cpp (part 1 of 2): 117 functions
 // Placed here by: neighbours 49, class 32, callers 3, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1635,4 +1635,74 @@ void APawn::GetBoundingCylinder(FLOAT& CollisionRadius, FLOAT& CollisionHeight)
 	{
 		Super::GetBoundingCylinder(CollisionRadius, CollisionHeight);
 	}
+}
+
+// @baa 0x007a0750
+UBOOL APawn::IsValidTargetFor(AController* C)
+{
+	return C && IsValidEnemyTargetFor(C->PlayerReplicationInfo, TRUE);
+}
+
+// @baa 0x00865020
+APawn* APawn::GetPlayerPawn()
+{
+	return (Controller && Controller->GetAPlayerController()) ? this : NULL;
+}
+
+// @baa 0x008a6780
+/* Appends the constraint to the end of the pawn's constraint list. */
+void APawn::AddPathConstraint(UPathConstraint* Constraint)
+{
+	if (PathConstraintList == NULL)
+	{
+		PathConstraintList = Constraint;
+	}
+	else
+	{
+		UPathConstraint* Cur = PathConstraintList;
+		while (Cur->NextConstraint != NULL)
+		{
+			Cur = Cur->NextConstraint;
+		}
+		Cur->NextConstraint = Constraint;
+	}
+}
+
+// @baa 0x00865d10
+UBOOL APawn::ReachedDestination(AActor* Goal)
+{
+	if (Goal)
+	{
+		return ReachedDestination(Location, Goal->GetDestination(Controller), Goal);
+	}
+	return FALSE;
+}
+
+/* Kit gaps: the script event glue AController::eventNotifyBump (007d60f0) and AActor::eventBump (007d5d50) aren't
+ * declared. */
+struct AController_ : public AController
+{
+	UBOOL eventNotifyBump(AActor* Other, FVector HitNormal);
+};
+
+struct AActor__007d70c0 : public AActor
+{
+	void eventBump(AActor* Other, UPrimitiveComponent* OtherComp, FVector HitNormal);
+};
+
+// @baa 0x007d70c0
+/* The controller gets the first chance to handle the bump. */
+void APawn::NotifyBump(AActor* Other, UPrimitiveComponent* OtherComp, const FVector& HitNormal)
+{
+	if (!Controller || !((AController_*)Controller)->eventNotifyBump(Other, HitNormal))
+	{
+		((AActor__007d70c0*)this)->eventBump(Other, OtherComp, HitNormal);
+	}
+}
+
+// @baa 0x00769c30
+void APawn::SetBase(AActor* NewBase, FVector NewFloor, INT bNotifyActor, USkeletalMeshComponent* SkelComp, FName AttachName)
+{
+	Floor = NewFloor;
+	Super::SetBase(NewBase, NewFloor, bNotifyActor, SkelComp, AttachName);
 }

@@ -1,4 +1,4 @@
-// PointLightComponent.cpp: 12 functions
+// PointLightComponent.cpp: 13 functions
 // Placed here by: callers 1, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -72,4 +72,21 @@ UINT UPointLightComponent::CreateSceneInfo()
 FVector4 UPointLightComponent::GetPosition() const
 {
     return FVector4(FVector(LightToWorld.WPlane.X, LightToWorld.WPlane.Y, LightToWorld.WPlane.Z), 1.f);
+}
+
+/* Kit gap: UPointLightComponent::UpdatePreviewLightRadius (PointLightComponent.cpp) isn't declared. */
+struct UPointLightComponent__006da950 : public UPointLightComponent
+{
+	void UpdatePreviewLightRadius();
+};
+
+// @baa 0x006da950
+/* Keeps the editor's light radius preview in step with the light. */
+void UPointLightComponent__006da950::UpdatePreviewLightRadius()
+{
+	if (PreviewLightRadius)
+	{
+		PreviewLightRadius->SphereRadius = Radius;
+		PreviewLightRadius->Translation = Translation;
+	}
 }

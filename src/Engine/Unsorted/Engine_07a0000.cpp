@@ -1,4 +1,4 @@
-// Engine_07a0000.cpp (part 1 of 4): 234 functions
+// Engine_07a0000.cpp (part 1 of 4): 235 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1791,4 +1791,18 @@ void AController__007ad5d0::sub_007ad5d0(FBasedPosition& BP, FVector Pos, AActor
         ForcedBase = Pawn ? Pawn->Base : NULL;
     }
     ((FBasedPosition_&)BP).sub_007ab4e0(ForcedBase, Pos);
+}
+
+/* UnPlayerController.cpp's file-local BlendRot (007afc20); not in Classes.h. */
+INT BlendRot(FLOAT DeltaTime, INT BlendC, INT NewC);
+// @baa 0x007afcb0
+void APlayerController::SmoothTargetViewRotation(APawn* TargetPawn, FLOAT DeltaSeconds)
+{
+	if (TargetPawn->bSimulateGravity)
+	{
+		TargetViewRotation.Roll = 0;
+	}
+	BlendedTargetViewRotation.Pitch = BlendRot(DeltaSeconds, BlendedTargetViewRotation.Pitch, TargetViewRotation.Pitch & 65535);
+	BlendedTargetViewRotation.Yaw = BlendRot(DeltaSeconds, BlendedTargetViewRotation.Yaw, TargetViewRotation.Yaw & 65535);
+	BlendedTargetViewRotation.Roll = BlendRot(DeltaSeconds, BlendedTargetViewRotation.Roll, TargetViewRotation.Roll & 65535);
 }

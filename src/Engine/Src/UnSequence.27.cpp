@@ -1,4 +1,4 @@
-// UnSequence.cpp: 7 functions
+// UnSequence.cpp: 13 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -100,4 +100,130 @@ void USequence::vf_154()
             SeqObj->vf_154();
         }
     }
+}
+
+// @baa 0x008c0d00
+/* UE3's USeqAct_PlayCameraAnim::UpdateOp(FLOAT DeltaTime): input 0 restarts the anim, input 1 stops it (handled by
+ * Activated(), then marked stopped); otherwise count down the remaining time. */
+UBOOL USeqAct_PlayCameraAnim::UpdateOp(FLOAT DeltaTime)
+{
+    if (InputLinks(0).bHasImpulse)
+    {
+        Activated();
+    }
+    else if (InputLinks(1).bHasImpulse)
+    {
+        Activated();
+        AnimTimeRemaining = 0.f;
+        InputLinks(1).bHasImpulse = FALSE;
+        bStopped = TRUE;
+    }
+    else
+    {
+        AnimTimeRemaining -= DeltaTime;
+    }
+
+    return (AnimTimeRemaining <= 0.f);
+}
+
+extern FName g_026c4fcc;
+ /* ENGINE_GetObjClassVersion */
+/* EngineSequenceClasses.h's inline script-event glue (not in the kit). */
+struct USequenceObject_ : public USequenceObject
+{
+    INT eventGetObjClassVersion()
+    {
+        struct SequenceObject_eventGetObjClassVersion_Parms
+        {
+            INT ReturnValue;
+        } Parms;
+        Parms.ReturnValue = 0;
+        ProcessEvent(FindFunctionChecked(g_026c4fcc), &Parms);
+        return Parms.ReturnValue;
+    }
+};
+
+// @baa 0x008aa270
+/* USequenceObject slot 0x120 (kit vf_120, UE3's OnCreated()): stamp the object with its class's current version. */
+void USequenceObject::vf_120()
+{
+    ObjInstanceVersion = ((USequenceObject_*)this)->eventGetObjClassVersion();
+}
+
+// @baa 0x008e2270
+/* USequence slot 0x120 (kit vf_120, UE3's OnCreated()): stamp the version, then slot 0x1a4. */
+void USequence::vf_120()
+{
+    ObjInstanceVersion = ((USequenceObject_*)this)->eventGetObjClassVersion();
+    vf_1a4();
+}
+
+// @baa 0x008ac570
+/* USeqEvent_ParticleEvent slot 0x120 (kit vf_120, UE3's OnCreated()): stamp the version, then slot 0x1a8 with 0. */
+void USeqEvent_ParticleEvent::vf_120()
+{
+    ObjInstanceVersion = ((USequenceObject_*)this)->eventGetObjClassVersion();
+    vf_1a8(0);
+}
+
+extern FName g_026c4db8;
+ /* ENGINE_CheckLogins */
+/* EngineSequenceClasses.h's inline script-event glue (not in the kit). */
+struct USeqCond_IsLoggedIn_ : public USeqCond_IsLoggedIn
+{
+    UBOOL eventCheckLogins()
+    {
+        struct SeqCond_IsLoggedIn_eventCheckLogins_Parms
+        {
+            UBOOL ReturnValue;
+        } Parms;
+        Parms.ReturnValue = FALSE;
+        ProcessEvent(FindFunctionChecked(g_026c4db8), &Parms);
+        return Parms.ReturnValue;
+    }
+};
+
+// @baa 0x008e7d10
+/* UE3's USeqCond_IsLoggedIn::Activated(): fire "True" when enough players are logged in, else "False". */
+void USeqCond_IsLoggedIn::Activated()
+{
+    if (((USeqCond_IsLoggedIn_*)this)->eventCheckLogins() == TRUE)
+    {
+        OutputLinks(0).bHasImpulse = TRUE;
+    }
+    else
+    {
+        OutputLinks(1).bHasImpulse = TRUE;
+    }
+}
+
+extern FName g_026c530c;
+ /* ENGINE_RegisterEvent */
+/* TArray::AddUniqueItem (Array.h), which the kit's TArray lacks; out of line in this build (0x008b1c90). */
+template<typename T> struct TArrayAddUnique_ : public TArray<T>
+{
+    INT AddUniqueItem(const T& Item);
+};
+
+/* EngineSequenceClasses.h's inline script-event glue (not in the kit). */
+struct USequenceEvent_ : public USequenceEvent
+{
+    void eventRegisterEvent()
+    {
+        ProcessEvent(FindFunctionChecked(g_026c530c), NULL);
+    }
+};
+
+// @baa 0x008be6c0
+/* UE3's USequenceEvent::RegisterEvent(): hook the event into its originator's GeneratedEvents, let script register,
+ * and mark it registered. */
+UBOOL USequenceEvent::RegisterEvent()
+{
+    if (Originator != NULL && !Originator->IsPendingKill())
+    {
+        ((TArrayAddUnique_<USequenceEvent*>&)Originator->GeneratedEvents).AddUniqueItem(this);
+    }
+    ((USequenceEvent_*)this)->eventRegisterEvent();
+    bRegistered = TRUE;
+    return bRegistered;
 }

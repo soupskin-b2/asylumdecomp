@@ -1,87 +1,35 @@
-// UnInterpolation.cpp: 5 functions
+// UnInterpolation.cpp: 1 function
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
+#include "ue3/Array.h"
+#include "ue3/Cast.h"
 #include "ue3/Classes.h"
-#include "ue3/Script.h"
+#include "ue3/Native.h"
 
+/* Unnamed in the kit: the USeqAct_Interp check whether a player controller should be driven by this matinee (UE3
+ * leaves debug camera controllers alone and honours PreferredSplitScreenNum, 1-based into GEngine->GamePlayers). */
 struct USeqAct_Interp_ : public USeqAct_Interp
 {
-	void Stop();
-	void execStop(FFrame& Stack, RESULT_DECL);
+    UBOOL sub_00cf33e0(APlayerController* PC);
 };
 
-// @baa 0x00c98ae0
-void USeqAct_Interp_::execStop( FFrame& Stack, RESULT_DECL )
+// @baa 0x00cf33e0
+UBOOL USeqAct_Interp_::sub_00cf33e0(APlayerController* PC)
 {
-	P_FINISH;
-	Stop();
-}
-
-struct USeqAct_Interp__00c98b10 : public USeqAct_Interp
-{
-	void sub_00d14240(APlayerController*);
-};
-
-// @baa 0x00c98b10
-void USeqAct_Interp::execAddPlayerToDirectorTracks(FFrame& Stack, RESULT_DECL)
-{
-	P_GET_OBJECT(APlayerController, PC);
-	P_FINISH;
-	((USeqAct_Interp__00c98b10*)this)->sub_00d14240(PC);
-}
-
-struct USeqAct_Interp__00c98a30 : public USeqAct_Interp
-{
-	void SetPosition(FLOAT NewPosition, UBOOL bJump);
-	void execSetPosition(FFrame& Stack, RESULT_DECL);
-};
-
-// @baa 0x00c98a30
-void USeqAct_Interp__00c98a30::execSetPosition(FFrame& Stack, RESULT_DECL)
-{
-	P_GET_FLOAT(NewPosition);
-	P_GET_UBOOL_OPTX(bJump, FALSE);
-	P_FINISH;
-	SetPosition(NewPosition, bJump);
-}
-
-#define INVALID_OBJECT ((UObject*)-1)
-class FObjectInstancingGraph;
-/* UStruct::IsChildOf isn't declared in Classes.h; this is UE3's inline body. */
-struct UClass_ : public UClass
-{
-    UBOOL IsChildOf(const UField* SomeBase) const
+    if (PC != NULL && ObjectIsA(PC, ADebugCameraController::StaticClass()))
     {
-        for (const UField* Struct = this; Struct; Struct = Struct->SuperField)
-            if (Struct == SomeBase)
-                return 1;
-        return 0;
+        return FALSE;
     }
-};
 
-struct UObject_ : public UObject
-{
-    static UObject* GetTransientPackage();                                    // 005c1d70
-    static UObject* StaticConstructObject(UClass* Class, UObject* InOuter, FName Name, QWORD SetFlags, UObject* Template, FOutputDevice* Error, UObject* SubobjectRoot, FObjectInstancingGraph* InstanceGraph); // 005e44e0
-};
-
-/* UnObjBas.h ConstructObject<T> */
-template<class T>
-T* ConstructObject(UClass_* Class, UObject* Outer, FName Name, QWORD SetFlags, UObject* Template, UObject* SubobjectRoot, FObjectInstancingGraph* InstanceGraph)
-{
-#line 1317 "e:\\projects\\amadeus\\aa\\game\\unrealengine3\\development\\src\\core\\inc\\UnClass.h"
-    check(Class->IsChildOf(T::StaticClass()));
-    if (Outer == INVALID_OBJECT)
+    UBOOL bResult = TRUE;
+    if (PreferredSplitScreenNum != 0)
     {
-        Outer = UObject_::GetTransientPackage();
+        bResult = FALSE;
+        ULocalPlayer* LP = Cast<ULocalPlayer>(PC->Player);
+        if (LP != NULL && GEngine->GamePlayers.FindItemIndex(LP) + 1 == PreferredSplitScreenNum)
+        {
+            bResult = TRUE;
+        }
     }
-    return (T*)UObject_::StaticConstructObject(Class, Outer, Name, SetFlags, Template, GError, SubobjectRoot, InstanceGraph);
+    return bResult;
 }
-
-// @baa 0x00cf8a00
-template UInterpTrackInst* ConstructObject<UInterpTrackInst>(UClass_*, UObject*, FName, QWORD, UObject*, UObject*, FObjectInstancingGraph*);
-
-#line 85 "candidate.cpp"
-
-// @baa 0x00d11690
-template UInterpData* ConstructObject<UInterpData>(UClass_*, UObject*, FName, QWORD, UObject*, UObject*, FObjectInstancingGraph*);

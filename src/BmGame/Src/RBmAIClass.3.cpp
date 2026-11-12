@@ -1,4 +1,4 @@
-// RBmAIClass.cpp: 4 functions
+// RBmAIClass.cpp: 5 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -98,4 +98,21 @@ INT ARBMAIController::vf_458()
         return ((ARBMAIController__01604a40*)this)->eventBehaviourCanRespondToAlerts() ? TRUE : FALSE;
     }
     return FALSE;
+}
+
+/* Kit gap: UE3's ConstCast<T> (UnObjBas.h) isn't in Cast.h; same shape as Cast<T>, for const objects. */
+template<class T> const T* ConstCast(const UObject* Src)
+{
+	return Src && ObjectIsA(Src, T::StaticClass()) ? (const T*)Src : NULL;
+}
+
+// @baa 0x015e6220
+/* While charging, Venom ploughs through other combat pawns. */
+UBOOL ARPawnBossVenomBase::IgnoreBlockingBy(const AActor* Other) const
+{
+	if (bCharging && ConstCast<ARPawnCombat>(Other))
+	{
+		return TRUE;
+	}
+	return Super::IgnoreBlockingBy(Other);
 }

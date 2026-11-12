@@ -1,4 +1,4 @@
-// BmGame_1660000.cpp (part 2 of 3): 132 functions
+// BmGame_1660000.cpp (part 2 of 3): 139 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -2056,4 +2056,77 @@ UBOOL ARPawn__01668960::delegateIsActorSafe(class AActor* A)
 	Parms.ReturnValue = FALSE;
 	ProcessDelegate(g_026e2b30, &__IsActorSafe__Delegate, &Parms, NULL);
 	return Parms.ReturnValue;
+}
+
+// @baa 0x0166dc30
+UBOOL ARPawnCharacter::IsInMovementStance(FName Stance, BYTE Fuzziness)
+{
+	if (!Anim)
+	{
+		return FALSE;
+	}
+	return Anim->IsInMovementStance(Stance, Fuzziness);
+}
+
+// @baa 0x0166dcc0
+UBOOL ARPawnCharacter::IsInWeaponStance(FName Stance, BYTE Fuzziness)
+{
+	if (!Anim)
+	{
+		return FALSE;
+	}
+	return Anim->IsInWeaponStance(Stance, Fuzziness);
+}
+
+// @baa 0x0166ede0
+UBOOL ARPawnCharacter::HasPose(FName MovementStance, FName WeaponStance, FName IdleStance)
+{
+	if (!Anim)
+	{
+		return FALSE;
+	}
+	return Anim->HasPose(MovementStance, WeaponStance, IdleStance);
+}
+
+// @baa 0x0166ef00
+UBOOL ARPawnCharacter::WillBeInTransition(FTransitionId Id, FLOAT DeltaSeconds, BYTE Fuzziness)
+{
+	if (!Anim)
+	{
+		return FALSE;
+	}
+	return Anim->WillBeInTransition(Id, DeltaSeconds, Fuzziness);
+}
+
+// @baa 0x0166edb0
+void ARPawnCharacter::OverrideTransitionTime(FLOAT Time, INT DisableTimeAdvanceForNumFrames)
+{
+	if (Anim)
+	{
+		Anim->OverrideTransitionTime(Time, DisableTimeAdvanceForNumFrames);
+	}
+}
+
+// @baa 0x0166dd70
+UBOOL ARPawnCharacter::IsInPose(FName MovementStance, FName WeaponStance)
+{
+	return IsInMovementStance(MovementStance, 0) && IsInWeaponStance(WeaponStance, 0);
+}
+
+/* Kit gap: FVector has no constructor (UnMath.h); MakeVector stands in for FVector(X, Y, Z). */
+static FORCEINLINE FVector MakeVector(FLOAT InX, FLOAT InY, FLOAT InZ)
+{
+	FVector V;
+	V.X = InX; V.Y = InY; V.Z = InZ;
+	return V;
+}
+
+// @baa 0x0166f790
+FVector ARPawnCharacter::GetActualAimAtDirection()
+{
+	if (!Anim)
+	{
+		return MakeVector(1.f, 0.f, 0.f);
+	}
+	return Anim->GetActualAimAtDirection();
 }

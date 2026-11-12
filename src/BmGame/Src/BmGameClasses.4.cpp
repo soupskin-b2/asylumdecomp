@@ -1,4 +1,4 @@
-// BmGameClasses.cpp: 1 function
+// BmGameClasses.cpp: 2 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -27,4 +27,14 @@ void URBMScreenShakeModifier::ApplyJitter(FLOAT& Amplitude, FLOAT& Offset, FLOAT
         Offset = Amplitude - (Offset - Amplitude);
         Amplitude = -Amplitude;
     }
+}
+
+// @baa 0x0155f900
+/* The closest point to V inside the volume's stored bounds. */
+FVector ARAmbientSoundTrackingVolume::GetClosestPosition(FVector V)
+{
+	V.X = Clamp(V.X, storedBounds.Min.X, storedBounds.Max.X);
+	V.Y = Clamp(V.Y, storedBounds.Min.Y, storedBounds.Max.Y);
+	V.Z = Clamp(V.Z, storedBounds.Min.Z, storedBounds.Max.Z);
+	return V;
 }

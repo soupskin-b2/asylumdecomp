@@ -1,4 +1,4 @@
-// DecalComponent.cpp (part 1 of 3): 30 functions
+// DecalComponent.cpp (part 1 of 3): 31 functions
 // Placed here by: class 13, neighbours 11, callers 5, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -276,4 +276,29 @@ undefined4 ULensFlare::sub_006a6c60(byte param_2)
     sub_0053dfa0(param_1);
   }
   return param_1;
+}
+
+/* Kit gap: FRenderCommandFence has no constructor, BeginFence (0x00719c60) or GetNumPendingFences (0x0071f7e0)
+ * (RenderingThread.h). */
+struct FRenderCommandFence_ : public FRenderCommandFence
+{
+	FRenderCommandFence_() { NumPendingFences = 0; }
+	void BeginFence();
+	UINT GetNumPendingFences() const;
+};
+
+/* Named accessor for the FPointer field (ISSUES.md 19). */
+static __forceinline FRenderCommandFence_*& GetReleaseResourcesFence(UDecalComponent* Decal)
+{
+	return (FRenderCommandFence_*&)Decal->ReleaseResourcesFence.Dummy;
+}
+
+// @baa 0x0064e080
+UBOOL UDecalComponent::IsReadyForFinishDestroy()
+{
+	if (GetReleaseResourcesFence(this))
+	{
+		return GetReleaseResourcesFence(this)->GetNumPendingFences() == 0 && Super::IsReadyForFinishDestroy();
+	}
+	return Super::IsReadyForFinishDestroy();
 }

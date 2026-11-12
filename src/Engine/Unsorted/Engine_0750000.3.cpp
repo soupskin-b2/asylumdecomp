@@ -1,4 +1,4 @@
-// Engine_0750000.cpp (part 3 of 4): 10 functions
+// Engine_0750000.cpp (part 3 of 4): 11 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -154,4 +154,20 @@ void UScriptedTexture_::delegateRender(class UCanvas* C)
 	} Parms;
 	Parms.C = C;
 	ProcessDelegate(g_026c40d4, &__Render__Delegate, &Parms, NULL);
+}
+
+/* Kit gap: FVector has no operator+= (UnMath.h). */
+struct FVector_ : public FVector
+{
+	FORCEINLINE FVector_& operator+=(const FVector& V)
+	{
+		X += V.X; Y += V.Y; Z += V.Z;
+		return *this;
+	}
+};
+
+// @baa 0x00757e40
+void AActor::EditorApplyTranslation(const FVector& DeltaTranslation, UBOOL bAltDown, UBOOL bShiftDown, UBOOL bCtrlDown)
+{
+	(FVector_&)Location += DeltaTranslation;
 }

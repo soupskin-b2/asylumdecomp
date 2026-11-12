@@ -1,4 +1,4 @@
-// TextureMovie.cpp: 30 functions
+// TextureMovie.cpp: 32 functions
 // Placed here by: class 19, neighbours 9, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -238,4 +238,39 @@ void UTextureMovie::Serialize( FArchive& Ar )
 {
 	Super::Serialize( Ar );
 	((FUntypedBulkData_Mirror&)Data).Serialize( Ar, this, INDEX_NONE );
+}
+
+/* Kit gap: FRenderCommandFence has no constructor, BeginFence (0x00719c60) or GetNumPendingFences (0x0071f7e0)
+ * (RenderingThread.h). */
+struct FRenderCommandFence_ : public FRenderCommandFence
+{
+	FRenderCommandFence_() { NumPendingFences = 0; }
+	void BeginFence();
+	UINT GetNumPendingFences() const;
+};
+
+/* Named accessor for the FPointer field (ISSUES.md 19). */
+static __forceinline FRenderCommandFence_*& GetReleaseCodecFence(UTextureMovie* Movie)
+{
+	return (FRenderCommandFence_*&)Movie->ReleaseCodecFence.Dummy;
+}
+
+// @baa 0x007557d0
+/* Ready to call FinishDestroy once the codec flushing fence has been hit. */
+UBOOL UTextureMovie::IsReadyForFinishDestroy()
+{
+	return Super::IsReadyForFinishDestroy() && GetReleaseCodecFence(this) && GetReleaseCodecFence(this)->GetNumPendingFences() == 0;
+}
+
+// @baa 0x00755780
+void UTextureMovie::BeginDestroy()
+{
+	Super::BeginDestroy();
+
+	// synchronize with the rendering thread by inserting a fence
+	if (!GetReleaseCodecFence(this))
+	{
+		GetReleaseCodecFence(this) = new FRenderCommandFence_();
+	}
+	GetReleaseCodecFence(this)->BeginFence();
 }

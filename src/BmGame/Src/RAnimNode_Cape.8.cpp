@@ -1,4 +1,4 @@
-// RAnimNode_Cape.cpp: 1 function
+// RAnimNode_Cape.cpp: 2 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -19,4 +19,19 @@ void URPoseConfigFactoryNew::InitializeIntrinsicPropertyValues()
 	SupportedClass = URPoseConfig::StaticClass();
 	((FFactoryFlags*)_native2)->bCreateNew = TRUE;
 	Description = TEXT("Animation Pose Config");
+}
+
+/* Kit gap: FName has no operator== (UnName.h). */
+inline UBOOL operator==(const FName& A, const FName& B) { return A.Index == B.Index && A.Number == B.Number; }
+
+// @baa 0x0155cfa0
+void URAnimNode_Cape::OnChildAnimEnd(UAnimNodeSequence* Child, FLOAT PlayedTime, FLOAT ExcessTime)
+{
+	Super::OnChildAnimEnd(Child, PlayedTime, ExcessTime);
+
+	// note when the cape animation we're playing finishes
+	if (Child && Child->AnimSeq && Child->AnimSeq->SequenceName == CurrCapeAnimName)
+	{
+		HasCurrentAnimEnded = TRUE;
+	}
 }

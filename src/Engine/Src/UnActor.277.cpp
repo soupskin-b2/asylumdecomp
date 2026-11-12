@@ -1,4 +1,4 @@
-// UnActor.cpp: 7 functions
+// UnActor.cpp: 10 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -77,4 +77,43 @@ void AActor::SetDrawScale3D(FVector NewScale3D)
 {
 	DrawScale3D = NewScale3D;
 	MarkComponentsAsDirty();
+}
+
+// @baa 0x0075de60
+UBOOL AActor::SupportsKismetModification(USequenceOp* AskingOp, FString& Reason)
+{
+	if (bStatic && RemoteRole == ROLE_None && !bForceAllowKismetModification)
+	{
+		Reason = TEXT("Actor is static");
+		return FALSE;
+	}
+	if (bTearOff)
+	{
+		Reason = TEXT("Actor is dead");
+		return FALSE;
+	}
+	return TRUE;
+}
+
+// @baa 0x00777460
+void AActor::SetHidden(UBOOL bNewHidden)
+{
+	if (bHidden != bNewHidden)
+	{
+		bHidden = bNewHidden;
+		bNetDirty = TRUE;
+		MarkComponentsAsDirty(FALSE);
+	}
+}
+
+// @baa 0x0068f470
+void AActor::GetActorReferences(TArray<FActorReference*>& ActorRefs, UBOOL bIsRemovingLevel)
+{
+	for (INT ComponentIndex = 0; ComponentIndex < Components.Num(); ComponentIndex++)
+	{
+		if (Components(ComponentIndex))
+		{
+			Components(ComponentIndex)->GetActorReferences(ActorRefs, bIsRemovingLevel);
+		}
+	}
 }

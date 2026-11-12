@@ -1,7 +1,7 @@
-// Engine_07d0000.cpp: 3 functions
+// Engine_07d0000.cpp: 4 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
-#include "ue3/Core.h"
+#include "ue3/Classes.h"
 
 struct sub_007dcac0_holder {
     INT a, b, c, d, e, f;
@@ -60,4 +60,16 @@ void C::sub_007d7120(INT, INT)
 {
     if (!(Flags & 0x40))
         Pointer = this;
+}
+
+/* Kit gap: the script event glue AActor::eventBump (007d5d50) isn't declared. */
+struct AActor_ : public AActor
+{
+	void eventBump(AActor* Other, UPrimitiveComponent* OtherComp, FVector HitNormal);
+};
+
+// @baa 0x007d7090
+void AActor::NotifyBump(AActor* Other, UPrimitiveComponent* OtherComp, const FVector& HitNormal)
+{
+	((AActor_*)this)->eventBump(Other, OtherComp, HitNormal);
 }

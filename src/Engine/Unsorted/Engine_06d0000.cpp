@@ -1,4 +1,4 @@
-// Engine_06d0000.cpp (part 1 of 4): 300 functions
+// Engine_06d0000.cpp (part 1 of 4): 301 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -2401,4 +2401,18 @@ INT UPrimitiveComponent::vf_1e8()
         Position = FVector(LocalToWorld.WPlane.X, LocalToWorld.WPlane.Y, LocalToWorld.WPlane.Z);
     }
     return Position.Z < -100000.f;
+}
+
+/* Kit gap: FRenderCommandFence::GetNumPendingFences (0x0071f7e0) isn't declared, and UPrimitiveComponent::DetachFence
+ * is typed INT. */
+struct FRenderCommandFence_ : public FRenderCommandFence
+{
+	UINT GetNumPendingFences() const;
+};
+
+// @baa 0x006db650
+/* Ready once the rendering thread has processed the detach. */
+UBOOL UPrimitiveComponent::IsReadyForFinishDestroy()
+{
+	return ((const FRenderCommandFence_&)DetachFence).GetNumPendingFences() == 0;
 }
