@@ -1,4 +1,4 @@
-// UnrealEd_0c90000.cpp: 4 functions
+// UnrealEd_0c90000.cpp: 5 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -34,4 +34,13 @@ void UAnimSet::execFindAnimSequence(FFrame& Stack, RESULT_DECL)
     P_GET_NAME(SequenceName);
     P_FINISH;
     *(UAnimSequence**)Result = FindAnimSequence(SequenceName);
+}
+
+// @baa 0x00c9b480
+void UMaterialInstanceTimeVarying::execSetVectorParameterValue(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_NAME(ParameterName);
+	P_GET_STRUCT(FLinearColor, Value);
+	P_FINISH;
+	SetVectorParameterValue(ParameterName, Value);
 }

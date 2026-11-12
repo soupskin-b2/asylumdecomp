@@ -1,4 +1,4 @@
-// BmGame_1700000.cpp: 110 functions
+// BmGame_1700000.cpp: 111 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -1146,4 +1146,13 @@ struct ARControllableChatteringTeethBase__01707df0 : public ARControllableChatte
 void ARControllableChatteringTeethBase__01707df0::eventDestroyTeeth()
 {
 	ProcessEvent(FindFunctionChecked(g_026e2f38), NULL);
+}
+
+// @baa 0x01703400
+void ARBMAIController::execIsPointInFOVWithLookDir(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_VECTOR(TestPos);
+	P_GET_VECTOR(LookDir);
+	P_FINISH;
+	*(BYTE*)Result = IsPointInFOVWithLookDir(TestPos, LookDir);
 }

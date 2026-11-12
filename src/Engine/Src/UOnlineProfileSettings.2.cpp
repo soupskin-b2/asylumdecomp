@@ -1,4 +1,4 @@
-// UOnlineProfileSettings.cpp: 26 functions
+// UOnlineProfileSettings.cpp: 27 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -225,4 +225,14 @@ void UOnlineProfileSettings::execSetRangedProfileSettingValue(FFrame& Stack, RES
     P_GET_FLOAT(NewValue);
     P_FINISH;
     *(UBOOL*)Result = SetRangedProfileSettingValue(ProfileId, NewValue);
+}
+
+// @baa 0x00cb86b0
+void UOnlineProfileSettings::execGetProfileSettingValue(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(ProfileSettingId);
+	P_GET_STR_REF(Value);
+	P_GET_INT_OPTX(ValueMapID, INDEX_NONE);
+	P_FINISH;
+	*(UBOOL*)Result = GetProfileSettingValue(ProfileSettingId, Value, ValueMapID);
 }

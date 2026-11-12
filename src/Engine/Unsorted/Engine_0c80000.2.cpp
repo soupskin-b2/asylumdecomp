@@ -1,4 +1,4 @@
-// Engine_0c80000.cpp: 105 functions
+// Engine_0c80000.cpp: 106 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -1300,4 +1300,14 @@ void UOnlineSubsystem_::execGetBuildUniqueId(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
 	*(INT*)Result = GetBuildUniqueId();
+}
+
+// @baa 0x00c8c3d0
+void UCameraModifier::execModifyCamera(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(ACamera, Camera);
+	P_GET_FLOAT(DeltaTime);
+	P_GET_STRUCT_REF(FTPOV, OutPOV);
+	P_FINISH;
+	*(UBOOL*)Result = ModifyCamera(Camera, DeltaTime, OutPOV);
 }

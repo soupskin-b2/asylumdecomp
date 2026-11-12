@@ -1,4 +1,4 @@
-// Engine_07a0000.cpp (part 1 of 4): 227 functions
+// Engine_07a0000.cpp (part 1 of 4): 234 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1700,4 +1700,95 @@ UBOOL AGameReplicationInfo::OnSameTeam(AActor* A, AActor* B)
         return FALSE;
     }
     return ATeamIndex == BTeamIndex;
+}
+
+// @baa 0x007a0650
+/* AController slot 0x3d4 (kit vf_3d4): fails the current move (UE3 does this inline as MoveTimer = -1.f, e.g. in
+ * StopAtLedge, which this build routes through the slot). */
+void AController::vf_3d4()
+{
+    MoveTimer = -1.f;
+}
+
+// @baa 0x007a0610
+/* AController slot 0x3ac (kit vf_3ac, UE3 StopAtLedge()): stop at a ledge unless the pawn can jump down it. */
+INT AController::vf_3ac()
+{
+    if (!Pawn || !Pawn->bCanJump || Pawn->bStopAtLedges)
+    {
+        vf_3d4();
+        return TRUE;
+    }
+    return FALSE;
+}
+
+// @baa 0x007a0710
+/* UE3's AController::CanSee(APawn* Other) (execCanSee's native): SeePawn without skipping checks. */
+UBOOL AController::sub_007a0710(APawn* Other)
+{
+    return SeePawn(Other, FALSE);
+}
+
+/* Unnamed in the kit: UE3's INT APawn::pointReachable(FVector aPoint, INT bKnowVisible = 0). */
+struct APawn_ : public APawn
+{
+    INT sub_00873000(FVector aPoint, INT bKnowVisible);
+};
+
+// @baa 0x007a08d0
+/* UE3's AController::PointReachable(FVector aPoint) (execPointReachable's native). */
+UBOOL AController::sub_007a08d0(FVector aPoint)
+{
+    if (!Pawn)
+    {
+        return FALSE;
+    }
+    return ((APawn_*)Pawn)->sub_00873000(aPoint, 0);
+}
+
+/* Unnamed in the kit: UE3's void FBasedPosition::Set(AActor* InBase, const FVector& InPosition). */
+struct FBasedPosition_ : public FBasedPosition
+{
+    void sub_007ab4e0(AActor* InBase, const FVector& InPosition);
+};
+
+/* Unnamed in the kit: UE3's AController::SetFocalPoint(FVector FP, UBOOL bOffsetFromBase). */
+struct AController__007ad790 : public AController
+{
+    void sub_007ad790(FVector FP, UBOOL bOffsetFromBase);
+};
+
+// @baa 0x007ad790
+void AController__007ad790::sub_007ad790(FVector FP, UBOOL bOffsetFromBase)
+{
+    ((FBasedPosition_&)FocalPosition).sub_007ab4e0((bOffsetFromBase && Pawn) ? Pawn->Base : NULL, FP);
+}
+
+/* Unnamed in the kit: UE3's AController::SetDestinationPosition(FVector Dest, UBOOL bOffsetFromBase). */
+struct AController__007ad9c0 : public AController
+{
+    void sub_007ad9c0(FVector Dest, UBOOL bOffsetFromBase);
+};
+
+// @baa 0x007ad9c0
+void AController__007ad9c0::sub_007ad9c0(FVector Dest, UBOOL bOffsetFromBase)
+{
+    ((FBasedPosition_&)DestinationPosition).sub_007ab4e0((bOffsetFromBase && Pawn) ? Pawn->Base : NULL, Dest);
+}
+
+/* Unnamed in the kit: UE3's AController::SetBasedPosition(FBasedPosition& BP, FVector Pos, AActor* ForcedBase):
+ * base the position on ForcedBase, else on the pawn's base. */
+struct AController__007ad5d0 : public AController
+{
+    void sub_007ad5d0(FBasedPosition& BP, FVector Pos, AActor* ForcedBase);
+};
+
+// @baa 0x007ad5d0
+void AController__007ad5d0::sub_007ad5d0(FBasedPosition& BP, FVector Pos, AActor* ForcedBase)
+{
+    if (!ForcedBase)
+    {
+        ForcedBase = Pawn ? Pawn->Base : NULL;
+    }
+    ((FBasedPosition_&)BP).sub_007ab4e0(ForcedBase, Pos);
 }

@@ -1,4 +1,4 @@
-// UnrealEd_0c80000.cpp (part 2 of 2): 25 functions
+// UnrealEd_0c80000.cpp (part 2 of 2): 26 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -308,4 +308,13 @@ void AActor::execMovingWhichWay(FFrame& Stack, RESULT_DECL)
 	P_GET_FLOAT_REF(Delta);
 	P_FINISH;
 	*(BYTE*)Result = MovingWhichWay(Delta);
+}
+
+// @baa 0x00c80bf0
+void AActor::execForceUpdateComponents(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL_OPTX(bCollisionUpdate, FALSE);
+	P_GET_UBOOL_OPTX(bTransformOnly, TRUE);
+	P_FINISH;
+	ForceUpdateComponents(bCollisionUpdate, bTransformOnly);
 }

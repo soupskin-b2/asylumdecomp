@@ -1,4 +1,4 @@
-// Engine_0cb0000.cpp: 13 functions
+// Engine_0cb0000.cpp: 15 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -158,4 +158,20 @@ void APlayerController::execUpdateURL(FFrame& Stack, RESULT_DECL)
 	P_GET_UBOOL(bSave1Default);
 	P_FINISH;
 	((APlayerController__00cb7020*)this)->UpdateURL(NewOption, NewValue, bSave1Default);
+}
+
+// @baa 0x00cb5e10
+void AActor::execSupportsKismetModification(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(USequenceOp, AskingOp);
+	P_GET_STR_REF(Reason);
+	P_FINISH;
+	*(UBOOL*)Result = SupportsKismetModification(AskingOp, Reason);
+}
+
+// @baa 0x00cb72c0
+void APlayerController::execPasteFromClipboard(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(FString*)Result = PasteFromClipboard();
 }

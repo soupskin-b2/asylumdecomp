@@ -1,4 +1,4 @@
-// UnPawn.cpp: 43 functions
+// UnPawn.cpp: 45 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -603,4 +603,22 @@ void APawn::execIncrementPathStep(FFrame& Stack, RESULT_DECL)
     P_GET_OBJECT(AController, C);
     P_FINISH;
     IncrementPathStep(Delta, C);
+}
+
+// @baa 0x00c82670
+void APawn::execGetBoundingCylinder(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT_REF(CollisionRadius);
+	P_GET_FLOAT_REF(CollisionHeight);
+	P_FINISH;
+	GetBoundingCylinder(CollisionRadius, CollisionHeight);
+}
+
+// @baa 0x00c8aaf0
+void APawn::execIsValidEnemyTargetFor(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(APlayerReplicationInfo, PRI);
+	P_GET_UBOOL(bNoPRIisEnemy);
+	P_FINISH;
+	*(UBOOL*)Result = IsValidEnemyTargetFor(PRI, bNoPRIisEnemy);
 }

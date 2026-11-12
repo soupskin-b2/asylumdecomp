@@ -1,4 +1,4 @@
-// USettings.cpp: 38 functions
+// USettings.cpp: 39 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -348,4 +348,14 @@ void USettings::execGetPropertyColumnHeader(FFrame& Stack, RESULT_DECL)
 	P_GET_INT(PropertyId);
 	P_FINISH;
 	*(FString*)Result = GetPropertyColumnHeader(PropertyId);
+}
+
+// @baa 0x00c85b00
+void USettings::execIncrementStringSettingValue(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(StringSettingId);
+	P_GET_INT(Direction);
+	P_GET_UBOOL(bShouldWrap);
+	P_FINISH;
+	*(UBOOL*)Result = IncrementStringSettingValue(StringSettingId, Direction, bShouldWrap);
 }

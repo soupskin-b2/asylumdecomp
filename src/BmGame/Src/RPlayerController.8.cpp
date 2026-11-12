@@ -1,4 +1,4 @@
-// RPlayerController.cpp: 27 functions
+// RPlayerController.cpp: 31 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -456,4 +456,35 @@ struct ARBMRouteRequest_TerrifiedSearch__0160e340 : public ARBMRouteRequest_Terr
 void ARBMRouteRequest_TerrifiedSearch__0160e340::eventAddTransientCosts()
 {
 	ProcessEvent(FindFunctionChecked(g_026e364c), NULL);
+}
+
+// @baa 0x0171d330
+void ARPlayerController::execGetActiveSaveDeviceName(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(FString*)Result = GetActiveSaveDeviceName();
+}
+
+// @baa 0x0171ddb0
+void ARPlayerController::execFE_PlaySoundFromString(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STR(Cmd);
+	P_FINISH;
+	*(UBOOL*)Result = FE_PlaySoundFromString(Cmd);
+}
+
+// @baa 0x0171de70
+void ARPlayerController::execFE_StartSoundFromString(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STR(Cmd);
+	P_FINISH;
+	*(UBOOL*)Result = FE_StartSoundFromString(Cmd);
+}
+
+// @baa 0x0171df30
+void ARPlayerController::execFE_StopSoundFromString(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STR(Cmd);
+	P_FINISH;
+	*(UBOOL*)Result = FE_StopSoundFromString(Cmd);
 }

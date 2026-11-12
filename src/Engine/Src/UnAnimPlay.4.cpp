@@ -1,4 +1,4 @@
-// UnAnimPlay.cpp: 4 functions
+// UnAnimPlay.cpp: 5 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -176,4 +176,19 @@ void UAnimNodeSequence::sub_00c5e2f0(FLOAT MoveDelta, FLOAT DeltaSeconds, UBOOL 
 			OnAnimEnd(DeltaSeconds + ExcessTime, ExcessTime);
 		}
 	}
+}
+
+// @baa 0x00c4ffe0
+/* UAnimNodeSequence slot 0x198 (kit vf_198, UE3 GetTimeLeft()): the play time left at the current global play rate. */
+FLOAT UAnimNodeSequence::vf_198()
+{
+    if (AnimSeq)
+    {
+        const FLOAT Rate = vf_190();
+        if (Rate > 0.f)
+        {
+            return Max(AnimSeq->SequenceLength - CurrentTime, 0.f) / Rate;
+        }
+    }
+    return 0.f;
 }

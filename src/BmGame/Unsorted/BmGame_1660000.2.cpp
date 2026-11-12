@@ -1,4 +1,4 @@
-// BmGame_1660000.cpp (part 2 of 3): 128 functions
+// BmGame_1660000.cpp (part 2 of 3): 129 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1950,4 +1950,41 @@ INT ARPawnCharacter::vf_53c(INT A)
         return 0;
     }
     return Anim->vf_28c(A);
+}
+
+/* UE3's PI (UnMath.h, a double). */
+#define PI_ (3.1415926535897932)
+// @baa 0x0166d630
+/* ARPawnCombat::AngleDiff(FLOAT Angle1, FLOAT Angle2): Angle2 - Angle1 in radians, both first wrapped into [0, 2PI]
+ * and the result into [-PI, PI]. */
+FLOAT ARPawnCombat::AngleDiff(FLOAT Angle1, FLOAT Angle2)
+{
+    while (Angle1 < 0.f)
+    {
+        Angle1 += 2.0 * PI_;
+    }
+    while (Angle2 < 0.f)
+    {
+        Angle2 += 2.0 * PI_;
+    }
+    while (Angle1 > 2.0 * PI_)
+    {
+        Angle1 -= 2.0 * PI_;
+    }
+    while (Angle2 > 2.0 * PI_)
+    {
+        Angle2 -= 2.0 * PI_;
+    }
+    FLOAT Diff = Angle2 - Angle1;
+    if (Diff > PI_)
+    {
+        Diff -= PI_;
+        Diff -= PI_;
+    }
+    if (Diff < -PI_)
+    {
+        Diff += PI_;
+        Diff += PI_;
+    }
+    return Diff;
 }

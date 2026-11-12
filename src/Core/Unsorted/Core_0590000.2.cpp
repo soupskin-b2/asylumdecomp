@@ -1,4 +1,4 @@
-// Core_0590000.cpp (part 2 of 4): 136 functions
+// Core_0590000.cpp (part 2 of 4): 137 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -1554,4 +1554,19 @@ void UObject__00599940::sub_00599940(FFrame& Stack, RESULT_DECL)
 {
 	BYTE B = *Stack.Code++;
 	(this->*GNatives[0xf00 + B])(Stack, Result);
+}
+
+/* FQuat::RotateVector (UnMath.h) isn't declared in the kit. */
+struct FQuat__005989d0 : public FQuat
+{
+	FVector RotateVector(FVector V) const;   /* 0x0058e400 */
+};
+
+// @baa 0x005989d0
+void UObject::execQuatRotateVector(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT(FQuat, A);
+	P_GET_STRUCT(FVector, B);
+	P_FINISH;
+	*(FVector*)Result = ((FQuat__005989d0*)&A)->RotateVector(B);
 }

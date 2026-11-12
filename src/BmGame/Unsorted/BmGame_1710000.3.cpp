@@ -1,4 +1,4 @@
-// BmGame_1710000.cpp: 3 functions
+// BmGame_1710000.cpp: 5 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -36,4 +36,19 @@ void ARTunnelGrateBase::execGetFinalGrateRotAndTrans(FFrame& Stack, RESULT_DECL)
     P_GET_STRUCT_REF(FVector, GrateTrans);
     P_FINISH;
     ((ARTunnelGrateBase_*)this)->GetFinalGrateRotAndTrans(GrateRot, GrateTrans);
+}
+
+// @baa 0x0171ba20
+void ARGameInfo::execSetTrioviz(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STR(Command);
+	P_FINISH;
+	SetTrioviz(Command);
+}
+
+// @baa 0x0171bad0
+void ARGameInfo::execGetGameTimePlayedString(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(FString*)Result = GetGameTimePlayedString();
 }

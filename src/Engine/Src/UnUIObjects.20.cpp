@@ -1,4 +1,4 @@
-// UnUIObjects.cpp: 13 functions
+// UnUIObjects.cpp: 15 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -206,4 +206,22 @@ void UUIInteraction_::execCreateScene(FFrame& Stack, RESULT_DECL)
 	P_GET_OBJECT_OPTX(UUIScene, SceneTemplate, NULL);
 	P_FINISH;
 	*(class UUIScene**)Result = CreateScene(SceneClass, SceneTag, SceneTemplate);
+}
+
+// @baa 0x00ca34d0
+void UUIScreenObject::execInitialize(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(UUIScene, inOwnerScene);
+	P_GET_OBJECT_OPTX(UUIObject, InOwner, NULL);
+	P_FINISH;
+	Initialize(inOwnerScene, InOwner);
+}
+
+// @baa 0x00ca54f0
+void UUIObject::execNotifyValueChanged(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT_OPTX(PlayerIndex, INDEX_NONE);
+	P_GET_INT_OPTX(NotifyFlags, 0);
+	P_FINISH;
+	NotifyValueChanged(PlayerIndex, NotifyFlags);
 }
