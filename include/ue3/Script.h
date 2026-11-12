@@ -115,6 +115,7 @@ template<class T> struct TScriptInterface {  /* FScriptInterface's layout (Class
 // its {Index, 0} (EName is in Core.h): P_GET_NAME_OPTX(BoneName, NAME_None). The game stores both zeros as immediates.
 #define P_GET_NAME_OPTX(v, d)   FName v(d); GRuntimeUCFlags &= ~RUC_SkippedOptionalParm; Stack.Step(Stack.Object, &v);
 #define P_GET_STR_OPTX(v, d)    FString v(d); GRuntimeUCFlags &= ~RUC_SkippedOptionalParm; Stack.Step(Stack.Object, &v);
+#define P_GET_TARRAY_OPTX(t, v, d) TArray<t> v; GRuntimeUCFlags &= ~RUC_SkippedOptionalParm; Stack.Step(Stack.Object, &v); if (GRuntimeUCFlags & RUC_SkippedOptionalParm) v = d;
 // optional out parameters: the default lands in a local, the reference is the caller's variable when it passed one
 // (pVar is that variable's address, or NULL when the caller left the parameter out)
 #define P_GET_INT_OPTX_REF(v, d)    INT v##T = d; GRuntimeUCFlags &= ~RUC_SkippedOptionalParm; GPropAddr = 0; Stack.Step(Stack.Object, &v##T); INT* p##v = (INT*)GPropAddr; INT& v = GPropAddr ? *(INT*)GPropAddr : v##T;
