@@ -9,6 +9,7 @@ TOOLING = "Tooling"  # matched by the maintainer's scripts, no model
 _FAMILIES = [
     (r"claude-(opus|sonnet|haiku)-(\d+)[.-](\d+)", lambda m: "Claude %s %s.%s" % (m[1].capitalize(), m[2], m[3])),
     (r"gpt-(\d+(?:\.\d+)?)(?:-(\w+))?", lambda m: "GPT-%s%s" % (m[1], " " + m[2].capitalize() if m[2] else "")),
+    (r"deepseek-v4\.1", lambda m: "DeepSeek V4.1 Flash"),  # early runs left out the variant
     (r"deepseek-v(\d+(?:\.\d+)?)(?:-(flash|pro|chat|coder))?", lambda m: "DeepSeek V%s%s" % (m[1], " " + m[2].capitalize() if m[2] else "")),
     (r"qwen(\d+(?:\.\d+)?)-(\d+)b", lambda m: "Qwen%s %sB" % (m[1], m[2])),
     (r"tooling", lambda m: TOOLING),

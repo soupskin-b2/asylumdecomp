@@ -101,12 +101,11 @@
    "bytes": 3757414,
    "models": {
     "Tooling": 94456,
-    "DeepSeek V4.1 Flash": 1953,
+    "DeepSeek V4.1 Flash": 1979,
     "Qwen3.8 27B": 1402,
     "Claude Opus 5.5": 768,
     "GPT-6.1 Sol": 145,
     "Claude Sonnet 5.5": 37,
-    "DeepSeek V4.1": 26,
     "GPT-6.1 Terra": 10,
     "not specified": 2,
     "Claude Haiku 5.5": 1
@@ -120,7 +119,7 @@
   },
   {
    "model": "DeepSeek V4.1 Flash",
-   "functions": 1953
+   "functions": 1979
   },
   {
    "model": "Qwen3.8 27B",
@@ -137,10 +136,6 @@
   {
    "model": "Claude Sonnet 5.5",
    "functions": 37
-  },
-  {
-   "model": "DeepSeek V4.1",
-   "functions": 26
   },
   {
    "model": "GPT-6.1 Terra",

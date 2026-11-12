@@ -5,8 +5,8 @@
 <text x="860" y="20" font-size="14" fill="#e6edf3" text-anchor="end" font-weight="normal">94,456</text>
 <text x="0" y="50" font-size="14" fill="#8d96a0" text-anchor="start" font-weight="normal">DeepSeek V4.1 Flash</text>
 <rect x="242" y="40" width="528" height="10" fill="#262c33" stroke="#3d444d"/>
-<rect x="242" y="40" width="10.9171" height="10" fill="#e6edf3"/>
-<text x="860" y="50" font-size="14" fill="#e6edf3" text-anchor="end" font-weight="normal">1,953</text>
+<rect x="242" y="40" width="11.0624" height="10" fill="#e6edf3"/>
+<text x="860" y="50" font-size="14" fill="#e6edf3" text-anchor="end" font-weight="normal">1,979</text>
 <text x="0" y="80" font-size="14" fill="#8d96a0" text-anchor="start" font-weight="normal">Qwen3.8 27B</text>
 <rect x="242" y="70" width="528" height="10" fill="#262c33" stroke="#3d444d"/>
 <rect x="242" y="70" width="7.83705" height="10" fill="#e6edf3"/>
@@ -23,12 +23,12 @@
 <rect x="242" y="160" width="528" height="10" fill="#262c33" stroke="#3d444d"/>
 <rect x="242" y="160" width="0.206826" height="10" fill="#e6edf3"/>
 <text x="860" y="170" font-size="14" fill="#e6edf3" text-anchor="end" font-weight="normal">37</text>
-<text x="0" y="200" font-size="14" fill="#8d96a0" text-anchor="start" font-weight="normal">DeepSeek V4.1</text>
+<text x="0" y="200" font-size="14" fill="#8d96a0" text-anchor="start" font-weight="normal">GPT-6.1 Terra</text>
 <rect x="242" y="190" width="528" height="10" fill="#262c33" stroke="#3d444d"/>
-<rect x="242" y="190" width="0.145338" height="10" fill="#e6edf3"/>
-<text x="860" y="200" font-size="14" fill="#e6edf3" text-anchor="end" font-weight="normal">26</text>
+<rect x="242" y="190" width="0.055899" height="10" fill="#e6edf3"/>
+<text x="860" y="200" font-size="14" fill="#e6edf3" text-anchor="end" font-weight="normal">10</text>
 <text x="0" y="230" font-size="14" fill="#8d96a0" text-anchor="start" font-weight="normal">other</text>
 <rect x="242" y="220" width="528" height="10" fill="#262c33" stroke="#3d444d"/>
-<rect x="242" y="220" width="0.0726688" height="10" fill="#e6edf3"/>
-<text x="860" y="230" font-size="14" fill="#e6edf3" text-anchor="end" font-weight="normal">13</text>
+<rect x="242" y="220" width="0.0167697" height="10" fill="#e6edf3"/>
+<text x="860" y="230" font-size="14" fill="#e6edf3" text-anchor="end" font-weight="normal">3</text>
 </svg>

@@ -5532,9 +5532,9 @@
 {"va": "005bfa50", "login": "soupskin-b2", "pr": 10, "model": "Tooling", "tool": "baa", "bytes": 20, "date": "2026-11-08"}
 {"va": "005bfa70", "login": "soupskin-b2", "pr": 10, "model": "Tooling", "tool": "baa", "bytes": 11, "date": "2026-11-08"}
 {"va": "005c01c0", "login": "soupskin-b2", "pr": 10, "model": "Tooling", "tool": "baa", "bytes": 20, "date": "2026-11-08"}
-{"va": "005c1b20", "login": "soupskin-b2", "pr": 13, "model": "DeepSeek V4.1", "tool": "oak", "bytes": 25, "date": "2026-11-08"}
-{"va": "005c1b40", "login": "soupskin-b2", "pr": 13, "model": "DeepSeek V4.1", "tool": "oak", "bytes": 32, "date": "2026-11-08"}
-{"va": "005c1b60", "login": "soupskin-b2", "pr": 13, "model": "DeepSeek V4.1", "tool": "oak", "bytes": 25, "date": "2026-11-08"}
+{"va": "005c1b20", "login": "soupskin-b2", "pr": 13, "model": "DeepSeek V4.1 Flash", "tool": "oak", "bytes": 25, "date": "2026-11-08"}
+{"va": "005c1b40", "login": "soupskin-b2", "pr": 13, "model": "DeepSeek V4.1 Flash", "tool": "oak", "bytes": 32, "date": "2026-11-08"}
+{"va": "005c1b60", "login": "soupskin-b2", "pr": 13, "model": "DeepSeek V4.1 Flash", "tool": "oak", "bytes": 25, "date": "2026-11-08"}
 {"va": "005c1d10", "login": "soupskin-b2", "pr": 10, "model": "Tooling", "tool": "baa", "bytes": 4, "date": "2026-11-08"}
 {"va": "005c1e60", "login": "soupskin-b2", "pr": 10, "model": "Tooling", "tool": "baa", "bytes": 4, "date": "2026-11-08"}
 {"va": "005c1e90", "login": "soupskin-b2", "pr": 10, "model": "Tooling", "tool": "baa", "bytes": 6, "date": "2026-11-08"}
@@ -5552,15 +5552,15 @@
 {"va": "005c21e0", "login": "soupskin-b2", "pr": 10, "model": "Tooling", "tool": "baa", "bytes": 3, "date": "2026-11-08"}
 {"va": "005c2260", "login": "soupskin-b2", "pr": 10, "model": "Tooling", "tool": "baa", "bytes": 3, "date": "2026-11-08"}
 {"va": "005c7de0", "login": "soupskin-b2", "pr": 10, "model": "Tooling", "tool": "baa", "bytes": 33, "date": "2026-11-08"}
-{"va": "005c7ea0", "login": "soupskin-b2", "pr": 13, "model": "DeepSeek V4.1", "tool": "oak", "bytes": 29, "date": "2026-11-08"}
-{"va": "005c7f30", "login": "soupskin-b2", "pr": 13, "model": "DeepSeek V4.1", "tool": "oak", "bytes": 14, "date": "2026-11-08"}
-{"va": "005c7f40", "login": "soupskin-b2", "pr": 13, "model": "DeepSeek V4.1", "tool": "oak", "bytes": 14, "date": "2026-11-08"}
+{"va": "005c7ea0", "login": "soupskin-b2", "pr": 13, "model": "DeepSeek V4.1 Flash", "tool": "oak", "bytes": 29, "date": "2026-11-08"}
+{"va": "005c7f30", "login": "soupskin-b2", "pr": 13, "model": "DeepSeek V4.1 Flash", "tool": "oak", "bytes": 14, "date": "2026-11-08"}
+{"va": "005c7f40", "login": "soupskin-b2", "pr": 13, "model": "DeepSeek V4.1 Flash", "tool": "oak", "bytes": 14, "date": "2026-11-08"}
 {"va": "005c81c0", "login": "soupskin-b2", "pr": 10, "model": "Tooling", "tool": "baa", "bytes": 87, "date": "2026-11-08"}
 {"va": "005c8270", "login": "soupskin-b2", "pr": 10, "model": "Tooling", "tool": "baa", "bytes": 117, "date": "2026-11-08"}
 {"va": "005c82f0", "login": "soupskin-b2", "pr": 10, "model": "Tooling", "tool": "baa", "bytes": 49, "date": "2026-11-08"}
 {"va": "005c8330", "login": "soupskin-b2", "pr": 10, "model": "Tooling", "tool": "baa", "bytes": 105, "date": "2026-11-08"}
 {"va": "005c8eb0", "login": "soupskin-b2", "pr": 10, "model": "Tooling", "tool": "baa", "bytes": 57, "date": "2026-11-08"}
-{"va": "005cb2d0", "login": "soupskin-b2", "pr": 13, "model": "DeepSeek V4.1", "tool": "oak", "bytes": 29, "date": "2026-11-08"}
+{"va": "005cb2d0", "login": "soupskin-b2", "pr": 13, "model": "DeepSeek V4.1 Flash", "tool": "oak", "bytes": 29, "date": "2026-11-08"}
 {"va": "005cb7f0", "login": "soupskin-b2", "pr": 10, "model": "Tooling", "tool": "baa", "bytes": 57, "date": "2026-11-08"}
 {"va": "005cb830", "login": "soupskin-b2", "pr": 10, "model": "Tooling", "tool": "baa", "bytes": 46, "date": "2026-11-08"}
 {"va": "005cb8e0", "login": "soupskin-b2", "pr": 10, "model": "Tooling", "tool": "baa", "bytes": 54, "date": "2026-11-08"}
@@ -5593,9 +5593,9 @@
 {"va": "005cc250", "login": "soupskin-b2", "pr": 10, "model": "Tooling", "tool": "baa", "bytes": 20, "date": "2026-11-08"}
 {"va": "005cc270", "login": "soupskin-b2", "pr": 10, "model": "Tooling", "tool": "baa", "bytes": 11, "date": "2026-11-08"}
 {"va": "005cc500", "login": "soupskin-b2", "pr": 10, "model": "Tooling", "tool": "baa", "bytes": 30, "date": "2026-11-08"}
-{"va": "005d1720", "login": "soupskin-b2", "pr": 13, "model": "DeepSeek V4.1", "tool": "oak", "bytes": 35, "date": "2026-11-08"}
+{"va": "005d1720", "login": "soupskin-b2", "pr": 13, "model": "DeepSeek V4.1 Flash", "tool": "oak", "bytes": 35, "date": "2026-11-08"}
 {"va": "005d1ac0", "login": "soupskin-b2", "pr": 10, "model": "Tooling", "tool": "baa", "bytes": 39, "date": "2026-11-08"}
-{"va": "005d1af0", "login": "soupskin-b2", "pr": 13, "model": "DeepSeek V4.1", "tool": "oak", "bytes": 28, "date": "2026-11-08"}
+{"va": "005d1af0", "login": "soupskin-b2", "pr": 13, "model": "DeepSeek V4.1 Flash", "tool": "oak", "bytes": 28, "date": "2026-11-08"}
 {"va": "005d1cc0", "login": "soupskin-b2", "pr": 10, "model": "Tooling", "tool": "baa", "bytes": 7, "date": "2026-11-08"}
 {"va": "005d1e00", "login": "soupskin-b2", "pr": 10, "model": "Tooling", "tool": "baa", "bytes": 21, "date": "2026-11-08"}
 {"va": "005d1e20", "login": "soupskin-b2", "pr": 10, "model": "Tooling", "tool": "baa", "bytes": 15, "date": "2026-11-08"}
@@ -5619,10 +5619,10 @@
 {"va": "005d5bd0", "login": "soupskin-b2", "pr": 10, "model": "Tooling", "tool": "baa", "bytes": 60, "date": "2026-11-08"}
 {"va": "005d5c10", "login": "soupskin-b2", "pr": 10, "model": "Tooling", "tool": "baa", "bytes": 54, "date": "2026-11-08"}
 {"va": "005d5c90", "login": "soupskin-b2", "pr": 10, "model": "Tooling", "tool": "baa", "bytes": 54, "date": "2026-11-08"}
-{"va": "005d7190", "login": "soupskin-b2", "pr": 13, "model": "DeepSeek V4.1", "tool": "oak", "bytes": 56, "date": "2026-11-08"}
-{"va": "005d7350", "login": "soupskin-b2", "pr": 13, "model": "DeepSeek V4.1", "tool": "oak", "bytes": 27, "date": "2026-11-08"}
-{"va": "005da0c0", "login": "soupskin-b2", "pr": 13, "model": "DeepSeek V4.1", "tool": "oak", "bytes": 25, "date": "2026-11-08"}
-{"va": "005db280", "login": "soupskin-b2", "pr": 13, "model": "DeepSeek V4.1", "tool": "oak", "bytes": 25, "date": "2026-11-08"}
+{"va": "005d7190", "login": "soupskin-b2", "pr": 13, "model": "DeepSeek V4.1 Flash", "tool": "oak", "bytes": 56, "date": "2026-11-08"}
+{"va": "005d7350", "login": "soupskin-b2", "pr": 13, "model": "DeepSeek V4.1 Flash", "tool": "oak", "bytes": 27, "date": "2026-11-08"}
+{"va": "005da0c0", "login": "soupskin-b2", "pr": 13, "model": "DeepSeek V4.1 Flash", "tool": "oak", "bytes": 25, "date": "2026-11-08"}
+{"va": "005db280", "login": "soupskin-b2", "pr": 13, "model": "DeepSeek V4.1 Flash", "tool": "oak", "bytes": 25, "date": "2026-11-08"}
 {"va": "005db320", "login": "soupskin-b2", "pr": 10, "model": "Tooling", "tool": "baa", "bytes": 20, "date": "2026-11-08"}
 {"va": "005dc140", "login": "soupskin-b2", "pr": 10, "model": "Tooling", "tool": "baa", "bytes": 15, "date": "2026-11-08"}
 {"va": "005dc150", "login": "soupskin-b2", "pr": 10, "model": "Tooling", "tool": "baa", "bytes": 26, "date": "2026-11-08"}
@@ -5637,15 +5637,15 @@
 {"va": "005dccf0", "login": "soupskin-b2", "pr": 10, "model": "Tooling", "tool": "baa", "bytes": 43, "date": "2026-11-08"}
 {"va": "005dcd40", "login": "soupskin-b2", "pr": 10, "model": "Tooling", "tool": "baa", "bytes": 43, "date": "2026-11-08"}
 {"va": "005dcdf0", "login": "soupskin-b2", "pr": 10, "model": "Tooling", "tool": "baa", "bytes": 26, "date": "2026-11-08"}
-{"va": "005dce30", "login": "soupskin-b2", "pr": 13, "model": "DeepSeek V4.1", "tool": "oak", "bytes": 38, "date": "2026-11-08"}
+{"va": "005dce30", "login": "soupskin-b2", "pr": 13, "model": "DeepSeek V4.1 Flash", "tool": "oak", "bytes": 38, "date": "2026-11-08"}
 {"va": "005dce70", "login": "soupskin-b2", "pr": 10, "model": "Tooling", "tool": "baa", "bytes": 20, "date": "2026-11-08"}
-{"va": "005dd3a0", "login": "soupskin-b2", "pr": 13, "model": "DeepSeek V4.1", "tool": "oak", "bytes": 16, "date": "2026-11-08"}
+{"va": "005dd3a0", "login": "soupskin-b2", "pr": 13, "model": "DeepSeek V4.1 Flash", "tool": "oak", "bytes": 16, "date": "2026-11-08"}
 {"va": "005df3b0", "login": "soupskin-b2", "pr": 10, "model": "Tooling", "tool": "baa", "bytes": 26, "date": "2026-11-08"}
 {"va": "005df4c0", "login": "soupskin-b2", "pr": 10, "model": "Tooling", "tool": "baa", "bytes": 20, "date": "2026-11-08"}
 {"va": "005df5b0", "login": "soupskin-b2", "pr": 10, "model": "Tooling", "tool": "baa", "bytes": 26, "date": "2026-11-08"}
-{"va": "005df7c0", "login": "soupskin-b2", "pr": 13, "model": "DeepSeek V4.1", "tool": "oak", "bytes": 37, "date": "2026-11-08"}
-{"va": "005df7f0", "login": "soupskin-b2", "pr": 13, "model": "DeepSeek V4.1", "tool": "oak", "bytes": 38, "date": "2026-11-08"}
-{"va": "005e36d0", "login": "soupskin-b2", "pr": 13, "model": "DeepSeek V4.1", "tool": "oak", "bytes": 14, "date": "2026-11-08"}
+{"va": "005df7c0", "login": "soupskin-b2", "pr": 13, "model": "DeepSeek V4.1 Flash", "tool": "oak", "bytes": 37, "date": "2026-11-08"}
+{"va": "005df7f0", "login": "soupskin-b2", "pr": 13, "model": "DeepSeek V4.1 Flash", "tool": "oak", "bytes": 38, "date": "2026-11-08"}
+{"va": "005e36d0", "login": "soupskin-b2", "pr": 13, "model": "DeepSeek V4.1 Flash", "tool": "oak", "bytes": 14, "date": "2026-11-08"}
 {"va": "005f0660", "login": "soupskin-b2", "pr": 10, "model": "Tooling", "tool": "baa", "bytes": 26, "date": "2026-11-08"}
 {"va": "005f19e0", "login": "soupskin-b2", "pr": 10, "model": "Tooling", "tool": "baa", "bytes": 59, "date": "2026-11-08"}
 {"va": "005f1a20", "login": "soupskin-b2", "pr": 10, "model": "Tooling", "tool": "baa", "bytes": 15, "date": "2026-11-08"}
@@ -11384,11 +11384,11 @@
 {"va": "0175e3e0", "login": "soupskin-b2", "pr": 10, "model": "Tooling", "tool": "baa", "bytes": 18, "date": "2026-11-08"}
 {"va": "0175e480", "login": "soupskin-b2", "pr": 10, "model": "Tooling", "tool": "baa", "bytes": 18, "date": "2026-11-08"}
 {"va": "0175ef80", "login": "soupskin-b2", "pr": 10, "model": "Tooling", "tool": "baa", "bytes": 45, "date": "2026-11-08"}
-{"va": "0176b4eb", "login": "soupskin-b2", "pr": 11, "model": "DeepSeek V4.1", "tool": "oak", "bytes": 6, "date": "2026-11-08"}
-{"va": "0177b17b", "login": "soupskin-b2", "pr": 11, "model": "DeepSeek V4.1", "tool": "oak", "bytes": 6, "date": "2026-11-08"}
-{"va": "017ab6bc", "login": "soupskin-b2", "pr": 11, "model": "DeepSeek V4.1", "tool": "oak", "bytes": 6, "date": "2026-11-08"}
-{"va": "017ab6c2", "login": "soupskin-b2", "pr": 11, "model": "DeepSeek V4.1", "tool": "oak", "bytes": 6, "date": "2026-11-08"}
-{"va": "017bcca9", "login": "soupskin-b2", "pr": 11, "model": "DeepSeek V4.1", "tool": "oak", "bytes": 6, "date": "2026-11-08"}
+{"va": "0176b4eb", "login": "soupskin-b2", "pr": 11, "model": "DeepSeek V4.1 Flash", "tool": "oak", "bytes": 6, "date": "2026-11-08"}
+{"va": "0177b17b", "login": "soupskin-b2", "pr": 11, "model": "DeepSeek V4.1 Flash", "tool": "oak", "bytes": 6, "date": "2026-11-08"}
+{"va": "017ab6bc", "login": "soupskin-b2", "pr": 11, "model": "DeepSeek V4.1 Flash", "tool": "oak", "bytes": 6, "date": "2026-11-08"}
+{"va": "017ab6c2", "login": "soupskin-b2", "pr": 11, "model": "DeepSeek V4.1 Flash", "tool": "oak", "bytes": 6, "date": "2026-11-08"}
+{"va": "017bcca9", "login": "soupskin-b2", "pr": 11, "model": "DeepSeek V4.1 Flash", "tool": "oak", "bytes": 6, "date": "2026-11-08"}
 {"va": "01903a10", "login": "soupskin-b2", "pr": 10, "model": "Tooling", "tool": "baa", "bytes": 6, "date": "2026-11-08"}
 {"va": "01903a40", "login": "soupskin-b2", "pr": 10, "model": "Tooling", "tool": "baa", "bytes": 12, "date": "2026-11-08"}
 {"va": "01903ae0", "login": "soupskin-b2", "pr": 10, "model": "Tooling", "tool": "baa", "bytes": 7, "date": "2026-11-08"}
@@ -11478,7 +11478,7 @@
 {"va": "019e60e0", "login": "soupskin-b2", "pr": 10, "model": "Tooling", "tool": "baa", "bytes": 7, "date": "2026-11-08"}
 {"va": "019e61d0", "login": "soupskin-b2", "pr": 10, "model": "Tooling", "tool": "baa", "bytes": 37, "date": "2026-11-08"}
 {"va": "019e6200", "login": "soupskin-b2", "pr": 10, "model": "Tooling", "tool": "baa", "bytes": 21, "date": "2026-11-08"}
-{"va": "01a26ec0", "login": "soupskin-b2", "pr": 12, "model": "DeepSeek V4.1", "tool": "oak", "bytes": 11, "date": "2026-11-08"}
+{"va": "01a26ec0", "login": "soupskin-b2", "pr": 12, "model": "DeepSeek V4.1 Flash", "tool": "oak", "bytes": 11, "date": "2026-11-08"}
 {"va": "005996a0", "login": "soupskin-b2", "pr": 14, "model": "Claude Opus 5.5", "tool": "oak", "bytes": 42, "date": "2026-11-08"}
 {"va": "0062b1a0", "login": "soupskin-b2", "pr": 14, "model": "Claude Opus 5.5", "tool": "oak", "bytes": 24, "date": "2026-11-08"}
 {"va": "0062ddd0", "login": "soupskin-b2", "pr": 14, "model": "Claude Opus 5.5", "tool": "oak", "bytes": 171, "date": "2026-11-08"}
