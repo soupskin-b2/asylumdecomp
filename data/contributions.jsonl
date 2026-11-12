@@ -11562,8 +11562,8 @@
 {"va": "01719570", "login": "soupskin-b2", "pr": 17, "model": "DeepSeek V4.1 Flash", "tool": "Oak MCP", "bytes": 40, "date": "2026-11-09"}
 {"va": "0175efc0", "login": "soupskin-b2", "pr": 17, "model": "Tooling", "tool": "baa", "bytes": 118, "date": "2026-11-09"}
 {"va": "0175f070", "login": "soupskin-b2", "pr": 17, "model": "Tooling", "tool": "baa", "bytes": 51, "date": "2026-11-09"}
-{"va": "009d5310", "login": "soupskin-b2", "pr": 18, "model": null, "bytes": 9, "date": "2026-11-09"}
-{"va": "01c28c80", "login": "soupskin-b2", "pr": 19, "model": null, "bytes": 11, "date": "2026-11-09"}
+{"va": "009d5310", "login": "soupskin-b2", "pr": 18, "model": "Claude Opus 5.5", "bytes": 9, "date": "2026-11-09"}
+{"va": "01c28c80", "login": "soupskin-b2", "pr": 19, "model": "Claude Opus 5.5", "bytes": 11, "date": "2026-11-09"}
 {"va": "0040ce70", "login": "soupskin-b2", "pr": 20, "model": "GPT-6.1 Sol", "bytes": 25, "date": "2026-11-09"}
 {"va": "00404890", "login": "soupskin-b2", "pr": 20, "model": "GPT-6.1 Sol", "bytes": 25, "date": "2026-11-09"}
 {"va": "00402900", "login": "soupskin-b2", "pr": 20, "model": "GPT-6.1 Sol", "bytes": 25, "date": "2026-11-09"}
