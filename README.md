@@ -43,7 +43,7 @@ The toolset setup will have you create an account for the project through your G
 
 New accounts have small, temporary limits that are lifted after 5 confirmed matches.
 New accounts can only hold 4 claims at once, only claim functions under 1kb, and can only submit 40 matches a day.
-Once you've verified 5 matches, you can hold up to 50 claims at once, and submit 400 matches a day.
+Once you've verified 5 matches, you can hold up to 100 claims at once, and submit 10,000 matches a day.
 
 The toolset will update automatically from releases when `get` is run.
 

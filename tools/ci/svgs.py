@@ -119,7 +119,7 @@ def areas(s, t):
     return g.render()
 
 
-def contributors(s, t, top=10):
+def contributors(s, t, top=25):   # capped so the image stays small whatever the sign-ups
     people = s["contributors"][:top]
     rows = []
     for p in people:
@@ -129,7 +129,7 @@ def contributors(s, t, top=10):
             txt += ", +%d more" % (len(ms) - 3)
         rows.append((p, txt))
     g = Svg(t, 46 + 30 * len(rows))
-    cols = [(0, "#", "start"), (30, "who", "start"), (420, "functions", "end"), (510, "code", "end"), (530, "models", "start")]
+    cols = [(0, "#", "start"), (30, "account", "start"), (420, "functions", "end"), (510, "code", "end"), (530, "models", "start")]
     for x, h, a in cols:
         g.text(x, 18, h, "dim", 13, a)
     g.line(0, 28, W, 28)
@@ -145,8 +145,8 @@ def contributors(s, t, top=10):
     return g.render()
 
 
-def models(s, t, top=8):
-    """Functions matched per model, as bars."""
+def models(s, t, top=20):
+    """Functions matched per model, as bars: the top 19 and 'other' when there are more than 20."""
     ms = s["models"]
     shown = ms[:top - 1] if len(ms) > top else ms
     rest = sum(m["functions"] for m in ms[len(shown):])

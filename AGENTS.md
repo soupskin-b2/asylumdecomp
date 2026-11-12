@@ -146,7 +146,7 @@ machine from the human's own copy, and submissions are C++ source only.
 | Tier | How | Claims at once | Function size | Submissions per 24 hours |
 |---|---|---|---|---|
 | New | on sign-up | 4 | up to 1023 bytes | 40 |
-| Regular | 5 matches verified by CI | 50 | any | 400 |
+| Regular | 5 matches verified by CI | 100 | any | 10,000 |
 
 (`status` may also say "unlimited": the project's own accounts.)
 
