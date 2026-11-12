@@ -1,4 +1,4 @@
-// USettings.cpp: 19 functions
+// USettings.cpp: 32 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -168,4 +168,121 @@ void USettings::execSetSettingsDataFloat(FFrame& Stack, RESULT_DECL)
     P_GET_FLOAT(InFloat);
     P_FINISH;
     SetSettingsDataFloat(Data, InFloat);
+}
+
+// @baa 0x00c85970
+void USettings::execSetStringSettingValue(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_INT(StringSettingId);
+    P_GET_INT(ValueIndex);
+    P_GET_UBOOL_OPTX(bShouldAutoAdd, FALSE);
+    P_FINISH;
+    SetStringSettingValue(StringSettingId, ValueIndex, bShouldAutoAdd);
+}
+
+// @baa 0x00c85cb0
+void USettings::execGetStringSettingValueByName(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(StringSettingName);
+    P_GET_INT_REF(ValueIndex);
+    P_FINISH;
+    *(UBOOL*)Result = GetStringSettingValueByName(StringSettingName, ValueIndex);
+}
+
+// @baa 0x00c85d60
+void USettings::execGetStringSettingId(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(StringSettingName);
+    P_GET_INT_REF(StringSettingId);
+    P_FINISH;
+    *(UBOOL*)Result = GetStringSettingId(StringSettingName, StringSettingId);
+}
+
+// @baa 0x00c85fb0
+void USettings::execGetStringSettingValueNameByName(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(StringSettingName);
+    P_FINISH;
+    *(FName*)Result = GetStringSettingValueNameByName(StringSettingName);
+}
+
+// @baa 0x00c86040
+void USettings::execGetPropertyId(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(PropertyName);
+    P_GET_INT_REF(PropertyId);
+    P_FINISH;
+    *(UBOOL*)Result = GetPropertyId(PropertyName, PropertyId);
+}
+
+// @baa 0x00c86170
+void USettings::execSetFloatProperty(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_INT(PropertyId);
+    P_GET_FLOAT(Value);
+    P_FINISH;
+    SetFloatProperty(PropertyId, Value);
+}
+
+// @baa 0x00c86210
+void USettings::execGetFloatProperty(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_INT(PropertyId);
+    P_GET_FLOAT_REF(Value);
+    P_FINISH;
+    *(UBOOL*)Result = GetFloatProperty(PropertyId, Value);
+}
+
+// @baa 0x00c862c0
+void USettings::execSetIntProperty(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_INT(PropertyId);
+    P_GET_INT(Value);
+    P_FINISH;
+    SetIntProperty(PropertyId, Value);
+}
+
+// @baa 0x00c86400
+void USettings::execSetPropertyValueId(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_INT(PropertyId);
+    P_GET_INT(ValueId);
+    P_FINISH;
+    *(UBOOL*)Result = SetPropertyValueId(PropertyId, ValueId);
+}
+
+// @baa 0x00c864a0
+void USettings::execGetPropertyValueId(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_INT(PropertyId);
+    P_GET_INT_REF(ValueId);
+    P_FINISH;
+    *(UBOOL*)Result = GetPropertyValueId(PropertyId, ValueId);
+}
+
+// @baa 0x00c866a0
+void USettings::execGetPropertyMappingType(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_INT(PropertyId);
+    P_GET_BYTE_REF(OutType);
+    P_FINISH;
+    *(UBOOL*)Result = GetPropertyMappingType(PropertyId, OutType);
+}
+
+// @baa 0x00c868d0
+void USettings::execSetRangedPropertyValue(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_INT(PropertyId);
+    P_GET_FLOAT(NewValue);
+    P_FINISH;
+    *(UBOOL*)Result = SetRangedPropertyValue(PropertyId, NewValue);
+}
+
+// @baa 0x00c86970
+void USettings::execGetRangedPropertyValue(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_INT(PropertyId);
+    P_GET_FLOAT_REF(OutValue);
+    P_FINISH;
+    *(UBOOL*)Result = GetRangedPropertyValue(PropertyId, OutValue);
 }

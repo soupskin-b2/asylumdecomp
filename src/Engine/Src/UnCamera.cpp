@@ -1,4 +1,4 @@
-// UnCamera.cpp: 24 functions
+// UnCamera.cpp: 25 functions
 // Placed here by: file 7, callers 3.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -79,3 +79,9 @@ bool ADynamicCameraActor::vf_004()
 }
 
 // @baa 0x0079b230
+
+// @baa 0x00788120
+void UCameraAnimInst::ApplyTransientScaling(FLOAT Scalar)
+{
+    TransientScaleModifier *= Scalar;
+}

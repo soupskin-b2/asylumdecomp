@@ -1,4 +1,4 @@
-// BmGame_16f0000.cpp: 162 functions
+// BmGame_16f0000.cpp: 208 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -1505,4 +1505,417 @@ void ARPawnCharacter::execPlayCustomWeaponOverlay(FFrame& Stack, RESULT_DECL)
     P_GET_FLOAT_OPTX(StartTime, 0.0f);
     P_FINISH;
     *(FOverlayId*)Result = PlayCustomWeaponOverlay(OverrideAnim, StartTime);
+}
+
+// @baa 0x016f4310
+void ARPawnCharacter::execPlayCustomMovementOverlay(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FCustomAnimConfig, OverrideAnim);
+    P_GET_FLOAT_OPTX(StartTime, 0.0f);
+    P_FINISH;
+    *(FOverlayId*)Result = PlayCustomMovementOverlay(OverrideAnim, StartTime);
+}
+
+// @baa 0x016f4490
+void ARPawnCharacter::execPlayCustomIdleOverlay(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FCustomAnimConfig, OverrideAnim);
+    P_GET_FLOAT_OPTX(StartTime, 0.0f);
+    P_FINISH;
+    *(FOverlayId*)Result = PlayCustomIdleOverlay(OverrideAnim, StartTime);
+}
+
+// @baa 0x016fe990
+void URBMRouterPath::execGetNodePos(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_INT(Index);
+    P_FINISH;
+    *(FVector*)Result = GetNodePos(Index);
+}
+
+// @baa 0x016f0560
+void ARPawnCharacter::execChangeMovementStance(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(Stance);
+    P_FINISH;
+    *(FTransitionId*)Result = ChangeMovementStance(Stance);
+}
+
+// @baa 0x016f06a0
+void ARPawnCharacter::execChangeWeaponStance(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(Stance);
+    P_FINISH;
+    *(FTransitionId*)Result = ChangeWeaponStance(Stance);
+}
+
+// @baa 0x016f07e0
+void ARPawnCharacter::execChangeIdleStance(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(Stance);
+    P_FINISH;
+    *(FTransitionId*)Result = ChangeIdleStance(Stance);
+}
+
+// @baa 0x016fc700
+void ARAmbientSoundTrackingVolume::execGetClosestPosition(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, V);
+    P_FINISH;
+    *(FVector*)Result = GetClosestPosition(V);
+}
+
+// @baa 0x016f7a30
+void ARCombatMove_BatmanStrike::execGetScoreForStrikeRange(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_BYTE(TestRange);
+    P_GET_BYTE(DesRange);
+    P_FINISH;
+    *(INT*)Result = GetScoreForStrikeRange(TestRange, DesRange);
+}
+
+// @baa 0x016f7ac0
+void ARCombatMove_BatmanStrike::execGetScoreForStrikeDir(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_BYTE(TestDir);
+    P_GET_BYTE(DesDir);
+    P_FINISH;
+    *(INT*)Result = GetScoreForStrikeDir(TestDir, DesDir);
+}
+
+// @baa 0x016ff000
+void URBMRouterPath::execInsertNode_Actor(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(AActor, NewPathNode);
+    P_GET_INT(Index);
+    P_FINISH;
+    InsertNode_Actor(NewPathNode, Index);
+}
+
+// @baa 0x016f3d70
+void ARPawnCharacter::execIsInTransition(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FTransitionId, Id);
+    P_GET_BYTE_OPTX(Fuzziness, FUZZ_Exact);
+    P_FINISH;
+    *(UBOOL*)Result = IsInTransition(Id, Fuzziness);
+}
+
+// @baa 0x016f3ee0
+void ARPawnCharacter::execGetTimeThroughTransition(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FTransitionId, Id);
+    P_GET_BYTE_OPTX(Fuzziness, FUZZ_Exact);
+    P_FINISH;
+    *(FLOAT*)Result = GetTimeThroughTransition(Id, Fuzziness);
+}
+
+// @baa 0x016f6420
+void ARBMPawnAI::execConstructFootstepSFX(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(URFMODSound, bank);
+    P_GET_OBJECT(USoundCue, InSoundCue);
+    P_FINISH;
+    *(USoundCue**)Result = ConstructFootstepSFX(bank, InSoundCue);
+}
+
+// @baa 0x016f6970
+void ARPawnPlayerCombat::execIsValidTargetForStrike_Cheap(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(ARPawnCombat, TestPawn);
+    P_GET_OBJECT(UClass, DamageType);
+    P_FINISH;
+    *(UBOOL*)Result = IsValidTargetForStrike_Cheap(TestPawn, DamageType);
+}
+
+// @baa 0x016f6a10
+void ARPawnPlayerCombat::execIsValidTargetForStrike_Expensive(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(ARPawnCombat, TestPawn);
+    P_GET_OBJECT(UClass, DamageType);
+    P_FINISH;
+    *(UBOOL*)Result = IsValidTargetForStrike_Expensive(TestPawn, DamageType);
+}
+
+// @baa 0x016fd740
+void ARBMRouter::execCanMoveBetweenAnchors(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(ANavigationPoint, StartPoint);
+    P_GET_OBJECT(ANavigationPoint, EndPoint);
+    P_FINISH;
+    *(UBOOL*)Result = CanMoveBetweenAnchors(StartPoint, EndPoint);
+}
+
+// @baa 0x016fb5e0
+void ARPlayerControllerCombat::execFindStrikeTarget(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT_OPTX(UClass, dmgType, URDamageType::StaticClass());
+    P_FINISH;
+    *(ARPawnCombat**)Result = FindStrikeTarget(dmgType);
+}
+
+// @baa 0x016fca50
+void ARAudioPoint::execResyncChapter7(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(ARGameInfo, RGI);
+    P_GET_UBOOL(bSet);
+    P_FINISH;
+    ResyncChapter7(RGI, bSet);
+}
+
+// @baa 0x016f5e10
+void ARPawnCombat::execAngleDiff(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_FLOAT(Angle1);
+    P_GET_FLOAT(Angle2);
+    P_FINISH;
+    *(FLOAT*)Result = AngleDiff(Angle1, Angle2);
+}
+
+// @baa 0x016fdfb0
+void ARBMRouteRequest_BuildComparisonList::execSetIndexedGoalList(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(UComparisonListSharedDataCache, NewSharedData);
+    P_GET_STRUCT(FVector, StartLoc);
+    P_FINISH;
+    SetIndexedGoalList(NewSharedData, StartLoc);
+}
+
+// @baa 0x016fef60
+void URBMRouterPath::execInsertNode_Pos(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, NewPathNode);
+    P_GET_INT(Index);
+    P_FINISH;
+    InsertNode_Pos(NewPathNode, Index);
+}
+
+// @baa 0x016ff190
+void URBMRouterPath::execGetDistanceSquaredFromPath(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(ARPawn, User);
+    P_GET_STRUCT(FVector, TestLocation);
+    P_FINISH;
+    *(FLOAT*)Result = GetDistanceSquaredFromPath(User, TestLocation);
+}
+
+// @baa 0x016f08f0
+void ARPawnCharacter::execIsInPose(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(MovementStance);
+    P_GET_NAME(WeaponStance);
+    P_FINISH;
+    *(UBOOL*)Result = IsInPose(MovementStance, WeaponStance);
+}
+
+// @baa 0x016f39b0
+void ARPawnCharacter::execOverrideTransitionTime(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_FLOAT(Time);
+    P_GET_INT_OPTX(DisableTimeAdvanceForNumFrames, 1);
+    P_FINISH;
+    OverrideTransitionTime(Time, DisableTimeAdvanceForNumFrames);
+}
+
+// @baa 0x016f46f0
+void ARPawnCharacter::execSetMovementSpeed(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_BYTE(NewSpeed);
+    P_GET_FLOAT_OPTX(NewSpeedScale, 1.0f);
+    P_FINISH;
+    SetMovementSpeed(NewSpeed, NewSpeedScale);
+}
+
+// @baa 0x016f4fa0
+void ARPawnCharacter::execLookAtActor(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(AActor, Actor);
+    P_GET_NAME_OPTX(ActorBoneName, NAME_None);
+    P_FINISH;
+    LookAtActor(Actor, ActorBoneName);
+}
+
+// @baa 0x016f5190
+void ARPawnCharacter::execFaceAtActor(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(AActor, Actor);
+    P_GET_NAME_OPTX(ActorBoneName, NAME_None);
+    P_FINISH;
+    FaceAtActor(Actor, ActorBoneName);
+}
+
+// @baa 0x016ff2c0
+void ARHarpoonDragFloatingPlatformBase::execMoveObject(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, Direction);
+    P_GET_FLOAT(DeltaTime);
+    P_FINISH;
+    *(BYTE*)Result = MoveObject(Direction, DeltaTime);
+}
+
+// @baa 0x016ff380
+void ARHarpoonDragTrack::execMoveObject(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, Direction);
+    P_GET_FLOAT(DeltaTime);
+    P_FINISH;
+    *(UBOOL*)Result = MoveObject(Direction, DeltaTime);
+}
+
+// @baa 0x016f05f0
+void ARPawnCharacter::execIsInMovementStance(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(Stance);
+    P_GET_BYTE_OPTX(Fuzziness, FUZZ_Exact);
+    P_FINISH;
+    *(UBOOL*)Result = IsInMovementStance(Stance, Fuzziness);
+}
+
+// @baa 0x016f0730
+void ARPawnCharacter::execIsInWeaponStance(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(Stance);
+    P_GET_BYTE_OPTX(Fuzziness, FUZZ_Exact);
+    P_FINISH;
+    *(UBOOL*)Result = IsInWeaponStance(Stance, Fuzziness);
+}
+
+// @baa 0x016f0140
+void ARPawn::execGetRoamPoint(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_INT(ApproxRoamJumps);
+    P_GET_OBJECT_REF(ANavigationPoint, StartAnchor);
+    P_FINISH;
+    *(AActor**)Result = GetRoamPoint(ApproxRoamJumps, StartAnchor);
+}
+
+// @baa 0x016fda00
+void ARBMRouter::execSmoothPathBothEnds(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(ARPawn, User);
+    P_GET_OBJECT_REF(URBMRouterPath, aPath);
+    P_FINISH;
+    *(INT*)Result = SmoothPathBothEnds(User, aPath);
+}
+
+// @baa 0x016fe4d0
+void ARCornerPoint::execGetCornerFor(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(ARCornerWallMarker, StartWall);
+    P_GET_OBJECT(ARCornerWallMarker, DestWall);
+    P_FINISH;
+    *(FVector*)Result = GetCornerFor(StartWall, DestWall);
+}
+
+// @baa 0x016fd380
+void ARBMRouter_DynamicObject::execUpdateRouterObject_Searching(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_FLOAT(DeltaTime);
+    P_GET_INT_REF(UpdatesLeft);
+    P_FINISH;
+    *(UBOOL*)Result = UpdateRouterObject_Searching(DeltaTime, UpdatesLeft);
+}
+
+// @baa 0x016fd7e0
+void ARBMRouter::execCanMoveDirectlyToPos(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, TestPos);
+    P_GET_UBOOL(bKnowVisible);
+    P_FINISH;
+    *(UBOOL*)Result = CanMoveDirectlyToPos(TestPos, bKnowVisible);
+}
+
+// @baa 0x016fe0b0
+void ARBMRouteRequest_FindSinglePath::execSetGoal(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, TargetPos);
+    P_GET_UBOOL_OPTX(bAutoFixPos, FALSE);
+    P_FINISH;
+    SetGoal(TargetPos, bAutoFixPos);
+}
+
+// @baa 0x016fcc60
+void URSeqAct_ConversationDialogue::execLookAtTagOnLine(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(ARPawnCharacter, Looker);
+    P_GET_NAME(CharName);
+    P_GET_OBJECT(USoundCue, SpeechToPlay);
+    P_FINISH;
+    *(UBOOL*)Result = LookAtTagOnLine(Looker, CharName, SpeechToPlay);
+}
+
+// @baa 0x016fd500
+void ARBMRouter::execGetDivergeVector(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_FLOAT_REF(DivergeWeight);
+    P_GET_UBOOL(bIgnoreCasualties);
+    P_FINISH;
+    *(FVector*)Result = GetDivergeVector(DivergeWeight, bIgnoreCasualties);
+}
+
+// @baa 0x016f3a50
+void ARPawnCharacter::execHasPose(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(MovementStance);
+    P_GET_NAME(WeaponStance);
+    P_GET_NAME(IdleStance);
+    P_FINISH;
+    *(UBOOL*)Result = HasPose(MovementStance, WeaponStance, IdleStance);
+}
+
+// @baa 0x016fd920
+void ARBMRouter::execBuildPathTo(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, Dest);
+    P_GET_OBJECT_OPTX(ANavigationPoint, StartAnchor, NULL);
+    P_GET_OBJECT_OPTX(ANavigationPoint, EndAnchor, NULL);
+    P_FINISH;
+    *(URBMRouterPath**)Result = BuildPathTo(Dest, StartAnchor, EndAnchor);
+}
+
+// @baa 0x016f40d0
+void ARPawnCharacter::execPlayWeaponOverlay(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(OverlayName);
+    P_GET_FLOAT_OPTX(StartTime, 0.0f);
+    P_FINISH;
+    *(FOverlayId*)Result = PlayWeaponOverlay(OverlayName, StartTime);
+}
+
+// @baa 0x016f4250
+void ARPawnCharacter::execPlayMovementOverlay(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(OverlayName);
+    P_GET_FLOAT_OPTX(StartTime, 0.0f);
+    P_FINISH;
+    *(FOverlayId*)Result = PlayMovementOverlay(OverlayName, StartTime);
+}
+
+// @baa 0x016f43d0
+void ARPawnCharacter::execPlayIdleOverlay(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(OverlayName);
+    P_GET_FLOAT_OPTX(StartTime, 0.0f);
+    P_FINISH;
+    *(FOverlayId*)Result = PlayIdleOverlay(OverlayName, StartTime);
+}
+
+// @baa 0x016f3e10
+void ARPawnCharacter::execWillBeInTransition(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FTransitionId, Id);
+    P_GET_FLOAT(DeltaSeconds);
+    P_GET_BYTE_OPTX(Fuzziness, FUZZ_Exact);
+    P_FINISH;
+    *(UBOOL*)Result = WillBeInTransition(Id, DeltaSeconds, Fuzziness);
+}
+
+// @baa 0x016f37b0
+void ARPawnCharacter::execChangeWeapon(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(AInventory, NewWeapon);
+    P_GET_OBJECT(AInventory, NewTransitionWeapon);
+    P_GET_UBOOL_OPTX(bForce, FALSE);
+    P_FINISH;
+    *(FTransitionId*)Result = ChangeWeapon(NewWeapon, NewTransitionWeapon, bForce);
 }

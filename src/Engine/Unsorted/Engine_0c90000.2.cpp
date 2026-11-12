@@ -1,4 +1,4 @@
-// Engine_0c90000.cpp: 57 functions
+// Engine_0c90000.cpp: 64 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -626,4 +626,80 @@ class ACrowdAgent* USeqAct_CrowdSpawner_::eventSpawnAgent(class AActor* SpawnLoc
 	Parms.SpawnLoc = SpawnLoc;
 	ProcessEvent(FindFunctionChecked(g_026c5128), &Parms);
 	return Parms.ReturnValue;
+}
+
+// @baa 0x00c9f380
+void UFracturedStaticMeshComponent::execGetFragmentAverageExteriorNormal(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_INT(FragmentIndex);
+    P_FINISH;
+    *(FVector*)Result = GetFragmentAverageExteriorNormal(FragmentIndex);
+}
+
+// @baa 0x00c9b540
+void UMaterialInstanceTimeVarying::execSetScalarParameterValue(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(ParameterName);
+    P_GET_FLOAT(Value);
+    P_FINISH;
+    SetScalarParameterValue(ParameterName, Value);
+}
+
+// @baa 0x00c9b5f0
+void UMaterialInstanceTimeVarying::execSetTextureParameterValue(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(ParameterName);
+    P_GET_OBJECT(UTexture, Value);
+    P_FINISH;
+    SetTextureParameterValue(ParameterName, Value);
+}
+
+// @baa 0x00c9b7d0
+void UMaterialInstanceTimeVarying::execSetScalarStartTime(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(ParameterName);
+    P_GET_FLOAT(Value);
+    P_FINISH;
+    SetScalarStartTime(ParameterName, Value);
+}
+
+// @baa 0x00c9b8f0
+void UMaterialInstanceTimeVarying::execSetVectorStartTime(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(ParameterName);
+    P_GET_FLOAT(Value);
+    P_FINISH;
+    SetVectorStartTime(ParameterName, Value);
+}
+
+/* USkelControlLookAt::CanLookAtPoint (0x922d70) isn't declared in the kit. */
+struct USkelControlLookAt__00c92450 : public USkelControlLookAt
+{
+    UBOOL CanLookAtPoint(FVector PointLoc, UBOOL bDrawDebugInfo, UBOOL bDebugUsePersistentLines, UBOOL bDebugFlushLinesFirst);
+};
+
+// @baa 0x00c92450
+void USkelControlLookAt::execCanLookAtPoint(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, PointLoc);
+    P_GET_UBOOL_OPTX(bDrawDebugInfo, FALSE);
+    P_GET_UBOOL_OPTX(bDebugUsePersistentLines, FALSE);
+    P_GET_UBOOL_OPTX(bDebugFlushLinesFirst, FALSE);
+    P_FINISH;
+    *(UBOOL*)Result = ((USkelControlLookAt__00c92450*)this)->CanLookAtPoint(PointLoc, bDrawDebugInfo, bDebugUsePersistentLines, bDebugFlushLinesFirst);
+}
+
+/* USkelControlLookAt::SetLookAtAlpha (0x90d060) isn't declared in the kit. */
+struct USkelControlLookAt__00c923b0 : public USkelControlLookAt
+{
+    void SetLookAtAlpha(FLOAT DesiredAlpha, FLOAT DesiredBlendTime);
+};
+
+// @baa 0x00c923b0
+void USkelControlLookAt::execSetLookAtAlpha(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_FLOAT(DesiredAlpha);
+    P_GET_FLOAT(DesiredBlendTime);
+    P_FINISH;
+    ((USkelControlLookAt__00c923b0*)this)->SetLookAtAlpha(DesiredAlpha, DesiredBlendTime);
 }

@@ -1,4 +1,4 @@
-// Editor_0c80000.cpp: 13 functions
+// Editor_0c80000.cpp: 14 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -97,4 +97,17 @@ void AWorldInfo::execSetSeamlessTravelMidpointPause(FFrame& Stack, RESULT_DECL)
 	P_GET_UBOOL(bNowPaused);
 	P_FINISH;
 	sub_009cec40(bNowPaused);
+}
+
+/* AWorldInfo::GetWorldFractureSettings (0x9c6dd0) isn't declared in the kit. */
+struct AWorldInfo_ : public AWorldInfo
+{
+    FWorldFractureSettings GetWorldFractureSettings();
+};
+
+// @baa 0x00c8a280
+void AWorldInfo::execGetWorldFractureSettings(FFrame& Stack, RESULT_DECL)
+{
+    P_FINISH;
+    *(FWorldFractureSettings*)Result = ((AWorldInfo_*)this)->GetWorldFractureSettings();
 }

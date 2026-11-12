@@ -1,4 +1,4 @@
-// GFx_18d0000.cpp: 8 functions
+// GFx_18d0000.cpp: 9 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -156,3 +156,28 @@ void FHashBucket::sub_018d6690(void* Object)
 {
 	sub_018d6390(Object, *(UINT*)Object >> 6 ^ *(UINT*)Object);
 }
+
+class sub_018d7330_If {
+public:
+    virtual void f0() {}
+    virtual void f1() {}
+    virtual void f2() {}
+    virtual void f3() {}
+    virtual void f4() {}
+    virtual void f5() {}
+    virtual void f6() {}
+    virtual void f7() {}
+    virtual void f8() {}
+    virtual void Do(BYTE* B, INT n) = 0;
+
+    void sub_018d7330(BYTE x)
+    {
+        BYTE b = x;
+        Do(&b, 1);
+    }
+};
+
+// @baa 0x018d7330
+// Reference the member through a member-pointer so the compiler emits it
+// standalone instead of inlining it into a caller.
+static void (sub_018d7330_If::*g_ref)(BYTE) = &sub_018d7330_If::sub_018d7330;

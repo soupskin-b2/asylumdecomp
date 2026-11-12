@@ -1,4 +1,4 @@
-// BmGame_1700000.cpp: 79 functions
+// BmGame_1700000.cpp: 97 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -862,4 +862,164 @@ void URBmPawnSpawner::execStaticCreatePawn(FFrame& Stack, RESULT_DECL)
     P_GET_NAME_OPTX(InitialWeaponStance, NAME_None);
     P_FINISH;
     *(ARBMPawnAI**)Result = ((URBmPawnSpawner_*)this)->StaticCreatePawn(Location, Rotation, UseSpawnPoint, SpawnPawnClass, SpawnCharactersType, SnapToGround, InitialMovementStance, InitialWeaponStance);
+}
+
+// @baa 0x01703340
+void ARBMAIController::execIsPointInFOV(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, TestPos);
+    P_GET_UBOOL_OPTX(bFixUpAnimAimDir, TRUE);
+    P_FINISH;
+    *(BYTE*)Result = IsPointInFOV(TestPos, bFixUpAnimAimDir);
+}
+
+// @baa 0x01704f30
+void URBMBehaviour_Combat::execGetStepDirection(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(UAnimSequence, Anim);
+    P_FINISH;
+    *(FVector*)Result = GetStepDirection(Anim);
+}
+
+// @baa 0x01703800
+void ARBMAIController::execResolveWeaponMetaPose(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(InPose);
+    P_FINISH;
+    *(FName*)Result = ResolveWeaponMetaPose(InPose);
+}
+
+// @baa 0x01703890
+void ARBMAIController::execResolveMovementMetaPose(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(InPose);
+    P_FINISH;
+    *(FName*)Result = ResolveMovementMetaPose(InPose);
+}
+
+// @baa 0x01707820
+void ARJokerGunGadgetBase::execGetWritheAnimName(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(BoneName);
+    P_FINISH;
+    *(FName*)Result = GetWritheAnimName(BoneName);
+}
+
+// @baa 0x01705ec0
+void URBMPawnSpawnerController::execActiveNumberAltered(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_INT(Index);
+    P_GET_INT(NewNumber);
+    P_FINISH;
+    ActiveNumberAltered(Index, NewNumber);
+}
+
+// @baa 0x01706c40
+void ARForensicsDevice::execEvidenceRegisterVap(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(ARVaporVolumeBase, vapor);
+    P_GET_FLOAT(Distance);
+    P_FINISH;
+    EvidenceRegisterVap(vapor, Distance);
+}
+
+// @baa 0x01704780
+void ARBMCombatManager::execLOSFromPawnToPawn(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(ARPawnCombat, Pawn1);
+    P_GET_OBJECT(ARPawnCombat, Pawn2);
+    P_FINISH;
+    *(ARPawnCombat**)Result = LOSFromPawnToPawn(Pawn1, Pawn2);
+}
+
+// @baa 0x01704820
+void ARBMCombatManager::execGetAngleFromPawnToPawn(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(ARPawnCombat, Pawn1);
+    P_GET_OBJECT(ARPawnCombat, Pawn2);
+    P_FINISH;
+    *(FLOAT*)Result = GetAngleFromPawnToPawn(Pawn1, Pawn2);
+}
+
+// @baa 0x01703290
+void ARBMAIController::execIsInFOV(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(AActor, TestActor);
+    P_GET_UBOOL_OPTX(bFixUpAnimAimDir, TRUE);
+    P_FINISH;
+    *(BYTE*)Result = IsInFOV(TestActor, bFixUpAnimAimDir);
+}
+
+// @baa 0x01703540
+void ARBMAIController::execCanSeeActor(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(AActor, TestActor);
+    P_GET_UBOOL_OPTX(bEarlyOut, FALSE);
+    P_FINISH;
+    *(FLOAT*)Result = CanSeeActor(TestActor, bEarlyOut);
+}
+
+// @baa 0x01704510
+void ARBMCombatManager::execIsCombatantNearLocation(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, TestLocation);
+    P_GET_FLOAT(TestRadius);
+    P_FINISH;
+    *(UBOOL*)Result = IsCombatantNearLocation(TestLocation, TestRadius);
+}
+
+// @baa 0x01705100
+void URBMBehaviour_Combat::execGatherForcesFromVillains(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_FLOAT(MaxForce);
+    P_GET_FLOAT(MinRange);
+    P_FINISH;
+    *(FVector*)Result = GatherForcesFromVillains(MaxForce, MinRange);
+}
+
+// @baa 0x01708f30
+void ARDisruptableObjectDoor::execCalcCharge(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, InLoc);
+    P_GET_FLOAT_REF(Dist);
+    P_FINISH;
+    *(FLOAT*)Result = CalcCharge(InLoc, Dist);
+}
+
+// @baa 0x01708d50
+void ARLevelTransitionPath::execIsInActivationRange(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, pos);
+    P_GET_FLOAT_OPTX(ExtraSize, 0.0f);
+    P_FINISH;
+    *(UBOOL*)Result = IsInActivationRange(pos, ExtraSize);
+}
+
+// @baa 0x01705040
+void URBMBehaviour_Combat::execHasClearPathToCombat(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_UBOOL_OPTX(bForceCheck, FALSE);
+    P_GET_UBOOL_OPTX(bDefaultValue, TRUE);
+    P_FINISH;
+    *(UBOOL*)Result = HasClearPathToCombat(bForceCheck, bDefaultValue);
+}
+
+// @baa 0x017048f0
+void ARBMDialogueCoordinator::execGetBark(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(ARPawnVillain, Barker);
+    P_GET_BYTE(BarkType);
+    P_GET_OBJECT(URBarkFlagBase, ContextFlags);
+    P_FINISH;
+    *(FBarkDefinition*)Result = GetBark(Barker, BarkType, ContextFlags);
+}
+
+// @baa 0x0170a4b0
+void ARCinematicCameraActor::execInternalSetAnimPosition(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(InAnimSeqName);
+    P_GET_FLOAT(InPosition);
+    P_GET_UBOOL(bLooping);
+    P_FINISH;
+    InternalSetAnimPosition(InAnimSeqName, InPosition, bLooping);
 }

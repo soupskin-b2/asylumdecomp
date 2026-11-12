@@ -1,4 +1,4 @@
-// UnFracturedStaticMesh.cpp: 9 functions
+// UnFracturedStaticMesh.cpp: 10 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -116,4 +116,13 @@ AFracturedStaticMeshPart* AFracturedStaticMeshActor__007a4e40::eventSpawnPartAct
 	Parms.ReturnValue = NULL;
 	ProcessEvent(FindFunctionChecked(g_026c5444), &Parms);
 	return Parms.ReturnValue;
+}
+
+// @baa 0x009470c0
+void UFracturedBaseComponent::execSetStaticMesh(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(UStaticMesh, NewMesh);
+    P_GET_UBOOL_OPTX(bForce, FALSE);
+    P_FINISH;
+    *(UBOOL*)Result = SetStaticMesh(NewMesh, bForce);
 }

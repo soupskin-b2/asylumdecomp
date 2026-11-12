@@ -16489,3 +16489,202 @@
 {"va": "018caa30", "login": "soupskin-b2", "model": "Qwen3.8 27B", "bytes": 25, "date": "2026-11-12", "id": 4527}
 {"va": "00c8fd10", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 59, "date": "2026-11-12", "id": 4528}
 {"va": "00c98940", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 77, "date": "2026-11-12", "id": 4529}
+{"va": "015d8340", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 46, "date": "2026-11-12", "id": 4530}
+{"va": "00c8f0c0", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 190, "date": "2026-11-12", "id": 4531}
+{"va": "00c8f230", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 181, "date": "2026-11-12", "id": 4532}
+{"va": "00c9e1a0", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 176, "date": "2026-11-12", "id": 4533}
+{"va": "00c9e250", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 176, "date": "2026-11-12", "id": 4534}
+{"va": "009470c0", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 169, "date": "2026-11-12", "id": 4535}
+{"va": "00c9f380", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 129, "date": "2026-11-12", "id": 4536}
+{"va": "00c9b540", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 164, "date": "2026-11-12", "id": 4537}
+{"va": "00c9b5f0", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 160, "date": "2026-11-12", "id": 4538}
+{"va": "00c9b7d0", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 164, "date": "2026-11-12", "id": 4539}
+{"va": "00c9b8f0", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 164, "date": "2026-11-12", "id": 4540}
+{"va": "00c85970", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 210, "date": "2026-11-12", "id": 4541}
+{"va": "00c85cb0", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 176, "date": "2026-11-12", "id": 4542}
+{"va": "00c85d60", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 176, "date": "2026-11-12", "id": 4543}
+{"va": "00c85fb0", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 136, "date": "2026-11-12", "id": 4544}
+{"va": "00c86040", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 176, "date": "2026-11-12", "id": 4545}
+{"va": "00c86170", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 147, "date": "2026-11-12", "id": 4546}
+{"va": "018e98e0", "login": "soupskin-b2", "model": "Qwen3.8 27B", "bytes": 25, "date": "2026-11-12", "id": 4547}
+{"va": "00c86210", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 173, "date": "2026-11-12", "id": 4548}
+{"va": "00c862c0", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 143, "date": "2026-11-12", "id": 4549}
+{"va": "00c86400", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 149, "date": "2026-11-12", "id": 4550}
+{"va": "00c864a0", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 172, "date": "2026-11-12", "id": 4551}
+{"va": "00c866a0", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 169, "date": "2026-11-12", "id": 4552}
+{"va": "018d7330", "login": "soupskin-b2", "model": "Qwen3.8 27B", "bytes": 25, "date": "2026-11-12", "id": 4553}
+{"va": "0058df10", "login": "soupskin-b2", "model": "Muse Spark 1.3", "bytes": 22, "date": "2026-11-12", "id": 4554}
+{"va": "0155e3c0", "login": "soupskin-b2", "model": "Muse Spark 1.3", "bytes": 22, "date": "2026-11-12", "id": 4555}
+{"va": "0158c460", "login": "soupskin-b2", "model": "Muse Spark 1.3", "bytes": 22, "date": "2026-11-12", "id": 4556}
+{"va": "0158d0d0", "login": "soupskin-b2", "model": "Muse Spark 1.3", "bytes": 22, "date": "2026-11-12", "id": 4557}
+{"va": "00c868d0", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 153, "date": "2026-11-12", "id": 4558}
+{"va": "00c86970", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 173, "date": "2026-11-12", "id": 4559}
+{"va": "00c8df10", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 173, "date": "2026-11-12", "id": 4560}
+{"va": "00c8dfc0", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 149, "date": "2026-11-12", "id": 4561}
+{"va": "0059ef90", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 181, "date": "2026-11-12", "id": 4562}
+{"va": "00c80e00", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 148, "date": "2026-11-12", "id": 4563}
+{"va": "00c811f0", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 173, "date": "2026-11-12", "id": 4564}
+{"va": "00c813a0", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 191, "date": "2026-11-12", "id": 4565}
+{"va": "00c81650", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 151, "date": "2026-11-12", "id": 4566}
+{"va": "0097b310", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 319, "date": "2026-11-12", "id": 4567}
+{"va": "00c81720", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 345, "date": "2026-11-12", "id": 4568}
+{"va": "00c81880", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 345, "date": "2026-11-12", "id": 4569}
+{"va": "00c8a280", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 74, "date": "2026-11-12", "id": 4570}
+{"va": "018dce00", "login": "soupskin-b2", "model": "Qwen3.8 27B", "bytes": 25, "date": "2026-11-12", "id": 4571}
+{"va": "01593b60", "login": "soupskin-b2", "model": "Muse Spark 1.3", "bytes": 22, "date": "2026-11-12", "id": 4572}
+{"va": "01594ba0", "login": "soupskin-b2", "model": "Muse Spark 1.3", "bytes": 22, "date": "2026-11-12", "id": 4573}
+{"va": "01599150", "login": "soupskin-b2", "model": "Muse Spark 1.3", "bytes": 22, "date": "2026-11-12", "id": 4574}
+{"va": "01599430", "login": "soupskin-b2", "model": "Muse Spark 1.3", "bytes": 22, "date": "2026-11-12", "id": 4575}
+{"va": "00788120", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 19, "date": "2026-11-12", "id": 4576}
+{"va": "007136d0", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 369, "date": "2026-11-12", "id": 4577}
+{"va": "016f4310", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 182, "date": "2026-11-12", "id": 4578}
+{"va": "016f4490", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 182, "date": "2026-11-12", "id": 4579}
+{"va": "01703340", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 185, "date": "2026-11-12", "id": 4580}
+{"va": "00713c80", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 240, "date": "2026-11-12", "id": 4581}
+{"va": "00592510", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 136, "date": "2026-11-12", "id": 4582}
+{"va": "015be0a0", "login": "soupskin-b2", "model": "Muse Spark 1.3", "bytes": 22, "date": "2026-11-12", "id": 4583}
+{"va": "015be470", "login": "soupskin-b2", "model": "Muse Spark 1.3", "bytes": 22, "date": "2026-11-12", "id": 4584}
+{"va": "015be6e0", "login": "soupskin-b2", "model": "Muse Spark 1.3", "bytes": 22, "date": "2026-11-12", "id": 4585}
+{"va": "00c92450", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 306, "date": "2026-11-12", "id": 4586}
+{"va": "01592f80", "login": "soupskin-b2", "model": "Muse Spark 1.3", "bytes": 22, "date": "2026-11-12", "id": 4587}
+{"va": "01593350", "login": "soupskin-b2", "model": "Muse Spark 1.3", "bytes": 22, "date": "2026-11-12", "id": 4588}
+{"va": "015be430", "login": "soupskin-b2", "model": "Muse Spark 1.3", "bytes": 22, "date": "2026-11-12", "id": 4589}
+{"va": "015c2540", "login": "soupskin-b2", "model": "Muse Spark 1.3", "bytes": 22, "date": "2026-11-12", "id": 4590}
+{"va": "00c8e060", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 149, "date": "2026-11-12", "id": 4591}
+{"va": "00c8e1a0", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 229, "date": "2026-11-12", "id": 4592}
+{"va": "00c8e290", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 172, "date": "2026-11-12", "id": 4593}
+{"va": "00c8e340", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 173, "date": "2026-11-12", "id": 4594}
+{"va": "00c8e530", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 169, "date": "2026-11-12", "id": 4595}
+{"va": "00c8e760", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 153, "date": "2026-11-12", "id": 4596}
+{"va": "00c8d520", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 147, "date": "2026-11-12", "id": 4597}
+{"va": "00c8d5c0", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 143, "date": "2026-11-12", "id": 4598}
+{"va": "00c8a640", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 272, "date": "2026-11-12", "id": 4599}
+{"va": "00c923b0", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 148, "date": "2026-11-12", "id": 4600}
+{"va": "00591470", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 173, "date": "2026-11-12", "id": 4601}
+{"va": "00591520", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 173, "date": "2026-11-12", "id": 4602}
+{"va": "00591db0", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 133, "date": "2026-11-12", "id": 4603}
+{"va": "00592480", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 136, "date": "2026-11-12", "id": 4604}
+{"va": "005993d0", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 136, "date": "2026-11-12", "id": 4605}
+{"va": "005925a0", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 136, "date": "2026-11-12", "id": 4606}
+{"va": "00599460", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 136, "date": "2026-11-12", "id": 4607}
+{"va": "00593070", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 139, "date": "2026-11-12", "id": 4608}
+{"va": "005932a0", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 139, "date": "2026-11-12", "id": 4609}
+{"va": "00593330", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 139, "date": "2026-11-12", "id": 4610}
+{"va": "00594520", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 196, "date": "2026-11-12", "id": 4611}
+{"va": "00595380", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 192, "date": "2026-11-12", "id": 4612}
+{"va": "00595440", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 192, "date": "2026-11-12", "id": 4613}
+{"va": "00595770", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 183, "date": "2026-11-12", "id": 4614}
+{"va": "00595ae0", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 181, "date": "2026-11-12", "id": 4615}
+{"va": "00595ba0", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 181, "date": "2026-11-12", "id": 4616}
+{"va": "00595ec0", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 197, "date": "2026-11-12", "id": 4617}
+{"va": "016fe990", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 129, "date": "2026-11-12", "id": 4618}
+{"va": "01704f30", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 129, "date": "2026-11-12", "id": 4619}
+{"va": "00596090", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 197, "date": "2026-11-12", "id": 4620}
+{"va": "016f0560", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 130, "date": "2026-11-12", "id": 4621}
+{"va": "016f06a0", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 130, "date": "2026-11-12", "id": 4622}
+{"va": "00596160", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 197, "date": "2026-11-12", "id": 4623}
+{"va": "016f07e0", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 130, "date": "2026-11-12", "id": 4624}
+{"va": "01703800", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 136, "date": "2026-11-12", "id": 4625}
+{"va": "00596f40", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 160, "date": "2026-11-12", "id": 4626}
+{"va": "01703890", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 136, "date": "2026-11-12", "id": 4627}
+{"va": "01707820", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 136, "date": "2026-11-12", "id": 4628}
+{"va": "00596fe0", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 160, "date": "2026-11-12", "id": 4629}
+{"va": "016fc700", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 141, "date": "2026-11-12", "id": 4630}
+{"va": "016ebb20", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 143, "date": "2026-11-12", "id": 4631}
+{"va": "00597660", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 171, "date": "2026-11-12", "id": 4632}
+{"va": "00597710", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 171, "date": "2026-11-12", "id": 4633}
+{"va": "00980d10", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 960, "date": "2026-11-12", "id": 4634}
+{"va": "018ebdb0", "login": "soupskin-b2", "model": "Claude Opus 4.6", "bytes": 25, "date": "2026-11-12", "id": 4635}
+{"va": "016f7a30", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 143, "date": "2026-11-12", "id": 4637}
+{"va": "016f7ac0", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 143, "date": "2026-11-12", "id": 4638}
+{"va": "016ff000", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 143, "date": "2026-11-12", "id": 4639}
+{"va": "01705ec0", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 143, "date": "2026-11-12", "id": 4640}
+{"va": "016f3d70", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 145, "date": "2026-11-12", "id": 4641}
+{"va": "016f3ee0", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 145, "date": "2026-11-12", "id": 4642}
+{"va": "01706c40", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 147, "date": "2026-11-12", "id": 4643}
+{"va": "016f6420", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 149, "date": "2026-11-12", "id": 4644}
+{"va": "016f6970", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 149, "date": "2026-11-12", "id": 4645}
+{"va": "016f6a10", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 149, "date": "2026-11-12", "id": 4646}
+{"va": "016fd740", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 149, "date": "2026-11-12", "id": 4647}
+{"va": "018f6860", "login": "soupskin-b2", "model": "Qwen3.8 27B", "bytes": 25, "date": "2026-11-12", "id": 4648}
+{"va": "0166d6f0", "login": "soupskin-b2", "model": "Muse Spark 1.3", "bytes": 22, "date": "2026-11-12", "id": 4649}
+{"va": "00963c40", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 290, "date": "2026-11-12", "id": 4650}
+{"va": "00979b20", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 242, "date": "2026-11-12", "id": 4651}
+{"va": "00975cb0", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 139, "date": "2026-11-12", "id": 4652}
+{"va": "007026c0", "login": "soupskin-b2", "model": "Qwen3.8 27B", "bytes": 126, "date": "2026-11-12", "id": 4653}
+{"va": "016fb5e0", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 146, "date": "2026-11-12", "id": 4654}
+{"va": "01704780", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 149, "date": "2026-11-12", "id": 4655}
+{"va": "01704820", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 149, "date": "2026-11-12", "id": 4656}
+{"va": "016fca50", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 156, "date": "2026-11-12", "id": 4657}
+{"va": "016f5e10", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 159, "date": "2026-11-12", "id": 4658}
+{"va": "016fdfb0", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 159, "date": "2026-11-12", "id": 4659}
+{"va": "016fef60", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 159, "date": "2026-11-12", "id": 4660}
+{"va": "016e8b60", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 160, "date": "2026-11-12", "id": 4661}
+{"va": "016ea150", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 164, "date": "2026-11-12", "id": 4662}
+{"va": "016ff190", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 165, "date": "2026-11-12", "id": 4663}
+{"va": "016f08f0", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 166, "date": "2026-11-12", "id": 4664}
+{"va": "016b1f80", "login": "soupskin-b2", "model": "Muse Spark 1.3", "bytes": 22, "date": "2026-11-12", "id": 4665}
+{"va": "005915d0", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 190, "date": "2026-11-12", "id": 4666}
+{"va": "00591740", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 184, "date": "2026-11-12", "id": 4667}
+{"va": "009500b0", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 159, "date": "2026-11-12", "id": 4668}
+{"va": "009502a0", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 163, "date": "2026-11-12", "id": 4669}
+{"va": "0171e460", "login": "soupskin-b2", "model": "Muse Spark 1.3", "bytes": 22, "date": "2026-11-12", "id": 4670}
+{"va": "01720e40", "login": "soupskin-b2", "model": "Muse Spark 1.3", "bytes": 22, "date": "2026-11-12", "id": 4671}
+{"va": "018f6b50", "login": "soupskin-b2", "model": "Qwen3.8 27B", "bytes": 25, "date": "2026-11-12", "id": 4672}
+{"va": "016f39b0", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 154, "date": "2026-11-12", "id": 4673}
+{"va": "016f46f0", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 156, "date": "2026-11-12", "id": 4674}
+{"va": "015956e0", "login": "soupskin-b2", "model": "Muse Spark 1.3", "bytes": 23, "date": "2026-11-12", "id": 4675}
+{"va": "01595710", "login": "soupskin-b2", "model": "Muse Spark 1.3", "bytes": 23, "date": "2026-11-12", "id": 4676}
+{"va": "009810d0", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 422, "date": "2026-11-12", "id": 4677}
+{"va": "009145b0", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 165, "date": "2026-11-12", "id": 4678}
+{"va": "018f8990", "login": "soupskin-b2", "model": "Qwen3.8 27B", "bytes": 25, "date": "2026-11-12", "id": 4679}
+{"va": "01709370", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 166, "date": "2026-11-12", "id": 4680}
+{"va": "016f4fa0", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 167, "date": "2026-11-12", "id": 4681}
+{"va": "016f5190", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 167, "date": "2026-11-12", "id": 4682}
+{"va": "017099f0", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 167, "date": "2026-11-12", "id": 4683}
+{"va": "016ff2c0", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 169, "date": "2026-11-12", "id": 4684}
+{"va": "016ff380", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 169, "date": "2026-11-12", "id": 4685}
+{"va": "01703290", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 169, "date": "2026-11-12", "id": 4686}
+{"va": "01703540", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 169, "date": "2026-11-12", "id": 4687}
+{"va": "01704510", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 169, "date": "2026-11-12", "id": 4688}
+{"va": "016f05f0", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 170, "date": "2026-11-12", "id": 4689}
+{"va": "016f0730", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 170, "date": "2026-11-12", "id": 4690}
+{"va": "016f0140", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 172, "date": "2026-11-12", "id": 4691}
+{"va": "00981280", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 429, "date": "2026-11-12", "id": 4692}
+{"va": "016fda00", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 172, "date": "2026-11-12", "id": 4693}
+{"va": "016fe4d0", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 172, "date": "2026-11-12", "id": 4694}
+{"va": "016e8910", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 173, "date": "2026-11-12", "id": 4695}
+{"va": "016e9750", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 176, "date": "2026-11-12", "id": 4696}
+{"va": "016fd380", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 176, "date": "2026-11-12", "id": 4697}
+{"va": "016e9b70", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 178, "date": "2026-11-12", "id": 4698}
+{"va": "016e9c30", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 178, "date": "2026-11-12", "id": 4699}
+{"va": "016fd7e0", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 178, "date": "2026-11-12", "id": 4700}
+{"va": "01705100", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 182, "date": "2026-11-12", "id": 4701}
+{"va": "01708f30", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 189, "date": "2026-11-12", "id": 4702}
+{"va": "015ca2d0", "login": "soupskin-b2", "model": "Muse Spark 1.3", "bytes": 23, "date": "2026-11-12", "id": 4703}
+{"va": "0097a3c0", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 105, "date": "2026-11-12", "id": 4704}
+{"va": "015b5f10", "login": "soupskin-b2", "model": "Muse Spark 1.3", "bytes": 23, "date": "2026-11-12", "id": 4705}
+{"va": "00975b40", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 214, "date": "2026-11-12", "id": 4706}
+{"va": "01708d50", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 176, "date": "2026-11-12", "id": 4707}
+{"va": "016fe0b0", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 179, "date": "2026-11-12", "id": 4708}
+{"va": "01705040", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 189, "date": "2026-11-12", "id": 4709}
+{"va": "015d4b40", "login": "soupskin-b2", "model": "Muse Spark 1.3", "bytes": 23, "date": "2026-11-12", "id": 4710}
+{"va": "015d4b60", "login": "soupskin-b2", "model": "Muse Spark 1.3", "bytes": 23, "date": "2026-11-12", "id": 4711}
+{"va": "016efe80", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 194, "date": "2026-11-12", "id": 4712}
+{"va": "016fcc60", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 196, "date": "2026-11-12", "id": 4713}
+{"va": "017048f0", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 205, "date": "2026-11-12", "id": 4714}
+{"va": "016fd500", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 209, "date": "2026-11-12", "id": 4715}
+{"va": "016f3a50", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 214, "date": "2026-11-12", "id": 4716}
+{"va": "0170a4b0", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 220, "date": "2026-11-12", "id": 4717}
+{"va": "016fd920", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 222, "date": "2026-11-12", "id": 4718}
+{"va": "018e8910", "login": "soupskin-b2", "model": "Qwen3.8 27B", "bytes": 25, "date": "2026-11-12", "id": 4719}
+{"va": "01905e50", "login": "soupskin-b2", "model": "Qwen3.8 27B", "bytes": 25, "date": "2026-11-12", "id": 4720}
+{"va": "00591f30", "login": "soupskin-b2", "model": "MiniMax M3.1 Flash", "bytes": 172, "date": "2026-11-12", "id": 4721}
+{"va": "00591fe0", "login": "soupskin-b2", "model": "MiniMax M3.1 Flash", "bytes": 172, "date": "2026-11-12", "id": 4722}
+{"va": "016f40d0", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 190, "date": "2026-11-12", "id": 4723}
+{"va": "016f4250", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 190, "date": "2026-11-12", "id": 4724}
+{"va": "016f43d0", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 190, "date": "2026-11-12", "id": 4725}
+{"va": "016f3e10", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 196, "date": "2026-11-12", "id": 4726}
+{"va": "016f37b0", "login": "soupskin-b2", "model": "GPT-6.1 Sol", "bytes": 223, "date": "2026-11-12", "id": 4727}
+{"va": "009763b0", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 318, "date": "2026-11-12", "id": 4728}
+{"va": "008418c0", "login": "soupskin-b2", "model": "Claude Opus 5.5", "bytes": 498, "date": "2026-11-12", "id": 4729}

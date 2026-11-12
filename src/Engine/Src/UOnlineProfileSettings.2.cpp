@@ -1,4 +1,4 @@
-// UOnlineProfileSettings.cpp: 18 functions
+// UOnlineProfileSettings.cpp: 26 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -152,4 +152,77 @@ void UOnlineProfileSettings::execGetProfileSettingValues(FFrame& Stack, RESULT_D
     P_GET_TARRAY_REF(FName, Values);
     P_FINISH;
     *(UBOOL*)Result = GetProfileSettingValues(ProfileSettingId, Values);
+}
+
+// @baa 0x00c8df10
+void UOnlineProfileSettings::execGetProfileSettingValueFloat(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_INT(ProfileSettingId);
+    P_GET_FLOAT_REF(Value);
+    P_FINISH;
+    *(UBOOL*)Result = GetProfileSettingValueFloat(ProfileSettingId, Value);
+}
+
+// @baa 0x00c8dfc0
+void UOnlineProfileSettings::execSetProfileSettingValueId(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_INT(ProfileSettingId);
+    P_GET_INT(Value);
+    P_FINISH;
+    *(UBOOL*)Result = SetProfileSettingValueId(ProfileSettingId, Value);
+}
+
+// @baa 0x00c8e060
+void UOnlineProfileSettings::execSetProfileSettingValueInt(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_INT(ProfileSettingId);
+    P_GET_INT(Value);
+    P_FINISH;
+    *(UBOOL*)Result = SetProfileSettingValueInt(ProfileSettingId, Value);
+}
+
+// @baa 0x00c8e1a0
+void UOnlineProfileSettings::execGetProfileSettingDefaultId(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_INT(ProfileSettingId);
+    P_GET_INT_REF(DefaultId);
+    P_GET_INT_REF(ListIndex);
+    P_FINISH;
+    *(UBOOL*)Result = GetProfileSettingDefaultId(ProfileSettingId, DefaultId, ListIndex);
+}
+
+// @baa 0x00c8e290
+void UOnlineProfileSettings::execGetProfileSettingDefaultInt(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_INT(ProfileSettingId);
+    P_GET_INT_REF(DefaultInt);
+    P_FINISH;
+    *(UBOOL*)Result = GetProfileSettingDefaultInt(ProfileSettingId, DefaultInt);
+}
+
+// @baa 0x00c8e340
+void UOnlineProfileSettings::execGetProfileSettingDefaultFloat(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_INT(ProfileSettingId);
+    P_GET_FLOAT_REF(DefaultFloat);
+    P_FINISH;
+    *(UBOOL*)Result = GetProfileSettingDefaultFloat(ProfileSettingId, DefaultFloat);
+}
+
+// @baa 0x00c8e530
+void UOnlineProfileSettings::execGetProfileSettingMappingType(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_INT(ProfileId);
+    P_GET_BYTE_REF(OutType);
+    P_FINISH;
+    *(UBOOL*)Result = GetProfileSettingMappingType(ProfileId, OutType);
+}
+
+// @baa 0x00c8e760
+void UOnlineProfileSettings::execSetRangedProfileSettingValue(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_INT(ProfileId);
+    P_GET_FLOAT(NewValue);
+    P_FINISH;
+    *(UBOOL*)Result = SetRangedProfileSettingValue(ProfileId, NewValue);
 }

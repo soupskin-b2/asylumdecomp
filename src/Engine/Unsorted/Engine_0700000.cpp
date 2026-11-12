@@ -1,4 +1,4 @@
-// Engine_0700000.cpp (part 1 of 2): 181 functions
+// Engine_0700000.cpp (part 1 of 2): 182 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1977,4 +1977,39 @@ void __stdcall sub_0070f200(int a1, int** a2, int a3, int* a4)
 INT __cdecl sub_00701000(INT A, INT B)
 {
     return A <= B ? A : B;
+}
+
+// Declared on UMaterialInstanceConstant but not in the header: declare it on a derived struct.
+struct UMaterialInstanceConstant_ : public UMaterialInstanceConstant
+{
+	void SetVectorParameterValue(FName ParameterName, FLinearColor Value);
+};
+
+// Binary-search the VectorParameterValues array for the entry with the given parameter name.
+FVectorParameterValue* sub_006e8a20(UMaterialInstanceConstant* MIC, INT NameIndex, INT NameNumber);
+// TArrayNoInit::AddItem-style growth for VectorParameterValues; returns a pointer to the new element.
+FVectorParameterValue* sub_006e7b70(INT Size, TArrayNoInit<FVectorParameterValue>* Values);
+// Rebuild the material after a parameter changed.
+void sub_00702180(UMaterialInstanceConstant* MIC, FVectorParameterValue* Parameter);
+// @baa 0x007026c0
+void UMaterialInstanceConstant_::SetVectorParameterValue(FName ParameterName, FLinearColor Value)
+{
+	sub_006c47c0(L"MIC::SetVectorParameterValue");
+
+	FVectorParameterValue* Entry = sub_006e8a20(this, ParameterName.Index, ParameterName.Number);
+	if (Entry == 0)
+	{
+		Entry = sub_006e7b70(sizeof(FVectorParameterValue), &VectorParameterValues);
+		if (Entry != 0)
+			Entry->ExpressionGUID.Invalidate();
+		else
+			Entry = 0;
+
+		Entry->ParameterName = ParameterName;
+		Entry->ExpressionGUID.Invalidate();
+	}
+
+	Entry->ParameterValue = Value;
+
+	sub_00702180(this, Entry);
 }

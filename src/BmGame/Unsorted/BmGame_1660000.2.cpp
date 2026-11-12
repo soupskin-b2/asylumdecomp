@@ -1,4 +1,4 @@
-// BmGame_1660000.cpp (part 2 of 3): 113 functions
+// BmGame_1660000.cpp (part 2 of 3): 114 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -693,4 +693,11 @@ float ARPawnCombat_::sub_0166d590(RAnim R)
 void ARPawnCombat::sub_0166d720(FLOAT F)
 {
     DestRot = F;
+}
+
+// @baa 0x0166d6f0
+INT ARPawnPlayerCombat::vf_630(INT A)
+{
+    vf_5d8(A);
+    return A;
 }

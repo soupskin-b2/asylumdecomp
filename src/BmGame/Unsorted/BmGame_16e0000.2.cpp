@@ -1,4 +1,4 @@
-// BmGame_16e0000.cpp: 65 functions
+// BmGame_16e0000.cpp: 73 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -508,4 +508,77 @@ void ARGameRI_::eventSetCurrentLevel(FName Level, class AActor* Originator, UBOO
 	Parms.Originator = Originator;
 	Parms.BlockOnLoad = BlockOnLoad ? TRUE : FALSE;
 	ProcessEvent(FindFunctionChecked(g_026e2698), &Parms);
+}
+
+// @baa 0x016ebb20
+void URForensicsInvestigator::execDrawHUDNative(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(AHUD, H);
+    P_GET_OBJECT(ARPlayerController, RPC);
+    P_FINISH;
+    DrawHUDNative(H, RPC);
+}
+
+// @baa 0x016e8b60
+void ARGameRI::execRemoveNextLevelRequest(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(Level);
+    P_GET_OBJECT(AActor, Originator);
+    P_FINISH;
+    RemoveNextLevelRequest(Level, Originator);
+}
+
+// @baa 0x016ea150
+void ARCinematicActor::execInternalSetMorphWeight(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(MorphNodeName);
+    P_GET_FLOAT(MorphWeight);
+    P_FINISH;
+    InternalSetMorphWeight(MorphNodeName, MorphWeight);
+}
+
+// @baa 0x016e8910
+void ARGameRI::execSetLevelHiddenOnNamedLevelsComponents(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(LevelName);
+    P_GET_UBOOL(Value);
+    P_FINISH;
+    SetLevelHiddenOnNamedLevelsComponents(LevelName, Value);
+}
+
+// @baa 0x016e9750
+void ARCrowdAttractor_Cylinder::execGetAttractionForce(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(ARCrowdAgent, Agent);
+    P_GET_FLOAT(DeltaTime);
+    P_FINISH;
+    *(FVector*)Result = GetAttractionForce(Agent, DeltaTime);
+}
+
+// @baa 0x016e9b70
+void ARPontoonBase::execBoundsCheck(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, V);
+    P_GET_UBOOL(bExtend);
+    P_FINISH;
+    *(UBOOL*)Result = BoundsCheck(V, bExtend);
+}
+
+// @baa 0x016e9c30
+void ARPontoonBase::execDrawBoundsCheck(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, V);
+    P_GET_UBOOL(bExtend);
+    P_FINISH;
+    *(UBOOL*)Result = DrawBoundsCheck(V, bExtend);
+}
+
+// @baa 0x016efe80
+void ARPawn::execTransientWeightByDist(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(ANavigationPoint, StartNode);
+    P_GET_FLOAT(TestDist);
+    P_GET_INT(CostToAdd);
+    P_FINISH;
+    TransientWeightByDist(StartNode, TestDist, CostToAdd);
 }

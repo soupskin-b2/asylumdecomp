@@ -1,4 +1,4 @@
-// RAnimNode_Pose.cpp (part 4 of 4): 16 functions
+// RAnimNode_Pose.cpp (part 4 of 4): 19 functions
 // Placed here by: neighbours 3, class 2, callers 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -272,5 +272,48 @@ C_015bcc20* C_015bcc20::sub_015bcc20(INT P)
     C = 0;
     D = 0;
     E = 0;
+    return this;
+}
+
+struct FPosePlayer__015956e0 : public FPosePlayer
+{
+    void sub_015c29f0(INT A);
+};
+
+// @baa 0x015956e0
+INT URAnimNode_Pose::vf_1b0(INT A)
+{
+    ((FPosePlayer__015956e0*)&PosePlayer)->sub_015c29f0(A);
+    return A;
+}
+
+struct FPosePlayer__01595710 : public FPosePlayer
+{
+    void sub_015c2a80(INT A);
+};
+
+// @baa 0x01595710
+INT URAnimNode_Pose::vf_1b8(INT A)
+{
+    ((FPosePlayer__01595710*)&PosePlayer)->sub_015c2a80(A);
+    return A;
+}
+
+struct C_015b5f10
+{
+    INT V0;
+    INT A, B, C, D, E, F, G;
+    C_015b5f10* sub_015b5f10();
+};
+
+// @baa 0x015b5f10
+C_015b5f10* C_015b5f10::sub_015b5f10()
+{
+    A = 0;
+    B = 0;
+    C = 0;
+    E = 0;
+    F = 0;
+    G = 0;
     return this;
 }

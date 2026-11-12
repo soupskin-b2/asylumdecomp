@@ -1,4 +1,4 @@
-// RAnimUtil_Notify.cpp (part 1 of 2): 101 functions
+// RAnimUtil_Notify.cpp (part 1 of 2): 103 functions
 // Placed here by: callers 19, file 18.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -482,4 +482,19 @@ struct C_015982d0
 double sub_015c0bd0(FLOAT* P, C_015982d0* X)
 {
     return X->sub_015982d0(*P);
+}
+
+INT sub_015cf940(INT A, INT B, INT C);
+// @baa 0x015d4b40
+INT sub_015d4b40(INT A, INT* B)
+{
+    INT V = *B;
+    return sub_015cf940(A, V, 0);
+}
+
+// @baa 0x015d4b60
+INT sub_015d4b60(INT A, INT* B)
+{
+    INT V = *B;
+    return sub_015cf940(A, V, 1);
 }

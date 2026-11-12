@@ -1,7 +1,7 @@
-// GFx_18f0000.cpp (part 1 of 3): 132 functions
+// GFx_18f0000.cpp (part 1 of 3): 135 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
-#include "ue3/Core.h"
+#include "ue3/Classes.h"
 
 struct C {
     void sub_018f0a40();
@@ -1592,4 +1592,63 @@ void C_018f5620::sub_018f5620()
 {
     if (Value <= 1)
         Flag = 1;
+}
+
+// 0x018f6860
+// thiscall member: sets m_Value from the value the Ref pointer points at,
+// and assigns m_Ref from Obj, tail-calling the shared refcount helper at
+// 0x018e4700.
+struct FRefCounted {
+    // thiscall, one int arg; at 0x018e4700
+    void sub_018e4700(int NewRef);
+};
+
+struct FRefPair {
+    int* Value; // offset 0
+    int Obj;    // offset 4
+};
+
+struct FTarget {
+    int m_Value;
+    FRefCounted m_Ref; // at offset 4
+
+    void sub_018f6860(FRefPair* Pair);
+};
+
+// @baa 0x018f6860
+void FTarget::sub_018f6860(FRefPair* Pair)
+{
+    m_Value = *Pair->Value;
+    m_Ref.sub_018e4700(Pair->Obj);
+}
+
+// sub_018e3f40: gfxc-style hash of a lowercased string, seeded by the running hash.
+int __stdcall sub_018e3f40(const char *Str, INT Length, INT Seed);
+// The object's first field points at a {INT Length; char Str[8]; char Data[...]} buffer.
+struct C_018f6b50 {
+    char *Buffer; /* 0 */
+    INT sub_018f6b50();
+};
+
+// @baa 0x018f6b50
+INT C_018f6b50::sub_018f6b50()
+{
+    INT Length = *(INT *)Buffer;
+    const char *Str = Buffer + 0xc;
+    return sub_018e3f40(Str, Length & 0x7fffffff, 0x1505);
+}
+
+struct FGFxHashMap_
+{
+	/* 0x018fbb90: the map's lookup/insert (the node's key/value pointer, then the hash) */
+	void sub_018fbb90(const DWORD* pKey, DWORD Hash);
+	/* 0x018f8990: derive the hash from the key's first DWORD */
+	void sub_018f8990(const DWORD* pKey);
+};
+
+// @baa 0x018f8990
+void FGFxHashMap_::sub_018f8990(const DWORD* pKey)
+{
+	const DWORD Value = *pKey;
+	sub_018fbb90(pKey, Value ^ (Value >> 8));
 }

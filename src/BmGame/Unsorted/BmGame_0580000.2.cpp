@@ -1,4 +1,4 @@
-// BmGame_0580000.cpp (part 2 of 2): 44 functions
+// BmGame_0580000.cpp (part 2 of 2): 45 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -376,4 +376,13 @@ SSomeClass * sub_0058c770(SSomeClass * Obj, int * Arg)
 {
     Obj->sub_0058c770(Arg, 1);
     return Obj;
+}
+
+// @baa 0x0058df10
+INT sub_0058df10(INT A)
+{
+    A &= 0xffff;
+    if (A > 0x7fff)
+        A -= 0x10000;
+    return A;
 }

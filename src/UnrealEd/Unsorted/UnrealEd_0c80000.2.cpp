@@ -1,4 +1,4 @@
-// UnrealEd_0c80000.cpp (part 2 of 2): 18 functions
+// UnrealEd_0c80000.cpp (part 2 of 2): 24 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -207,4 +207,97 @@ void AActor::execGetZoneVelocity(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
 	*(FVector*)Result = GetZoneVelocity();
+}
+
+// @baa 0x00c80e00
+void AActor::execSetCollisionSize(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_FLOAT(NewRadius);
+    P_GET_FLOAT(NewHeight);
+    P_FINISH;
+    SetCollisionSize(NewRadius, NewHeight);
+}
+
+/* AActor::SetLocationForTest (0x8a7bd0) isn't declared in the kit. */
+struct AActor__00c811f0 : public AActor
+{
+    UBOOL SetLocationForTest(FVector NewLocation, UBOOL bNoCheck);
+};
+
+// @baa 0x00c811f0
+void AActor::execSetLocationForTest(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, NewLocation);
+    P_GET_UBOOL(bNoCheck);
+    P_FINISH;
+    *(UBOOL*)Result = ((AActor__00c811f0*)this)->SetLocationForTest(NewLocation, bNoCheck);
+}
+
+/* AActor::fixedTurn (0x873ba0) isn't declared in the kit. */
+struct AActor__00c813a0 : public AActor
+{
+    INT fixedTurn(INT Current, INT Desired, INT DeltaRate);
+};
+
+// @baa 0x00c813a0
+void AActor::execfixedTurn(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_INT(Current);
+    P_GET_INT(Desired);
+    P_GET_INT(DeltaRate);
+    P_FINISH;
+    *(INT*)Result = ((AActor__00c813a0*)this)->fixedTurn(Current, Desired, DeltaRate);
+}
+
+/* AActor::SetForcedInitialReplicatedProperty (0x77e1a0) isn't declared in the kit. */
+struct AActor__00c81650 : public AActor
+{
+    void SetForcedInitialReplicatedProperty(class UProperty* PropToReplicate, UBOOL bAdd);
+};
+
+// @baa 0x00c81650
+void AActor::execSetForcedInitialReplicatedProperty(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(UProperty, PropToReplicate);
+    P_GET_UBOOL(bAdd);
+    P_FINISH;
+    ((AActor__00c81650*)this)->SetForcedInitialReplicatedProperty(PropToReplicate, bAdd);
+}
+
+/* AActor::DrawDebugLine (0x8a9620) isn't declared in the kit. */
+struct AActor__00c81720 : public AActor
+{
+    void DrawDebugLine(FVector LineStart, FVector LineEnd, BYTE R, BYTE G, BYTE B, UBOOL bPersistentLines);
+};
+
+// @baa 0x00c81720
+void AActor::execDrawDebugLine(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, LineStart);
+    P_GET_STRUCT(FVector, LineEnd);
+    P_GET_BYTE(R);
+    P_GET_BYTE(G);
+    P_GET_BYTE(B);
+    P_GET_UBOOL_OPTX(bPersistentLines, FALSE);
+    P_FINISH;
+    ((AActor__00c81720*)this)->DrawDebugLine(LineStart, LineEnd, R, G, B, bPersistentLines);
+}
+
+/* AActor::DrawDebugBox (0x8a96a0) isn't declared in the kit. */
+struct AActor__00c81880 : public AActor
+{
+    void DrawDebugBox(FVector Center, FVector Extent, BYTE R, BYTE G, BYTE B, UBOOL bPersistentLines);
+};
+
+// @baa 0x00c81880
+void AActor::execDrawDebugBox(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, Center);
+    P_GET_STRUCT(FVector, Extent);
+    P_GET_BYTE(R);
+    P_GET_BYTE(G);
+    P_GET_BYTE(B);
+    P_GET_UBOOL_OPTX(bPersistentLines, FALSE);
+    P_FINISH;
+    ((AActor__00c81880*)this)->DrawDebugBox(Center, Extent, R, G, B, bPersistentLines);
 }

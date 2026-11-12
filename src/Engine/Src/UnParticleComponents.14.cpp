@@ -1,4 +1,4 @@
-// UnParticleComponents.cpp: 1 function
+// UnParticleComponents.cpp: 3 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -17,4 +17,22 @@ void AEmitter::execSetTemplate(FFrame& Stack, RESULT_DECL)
     P_GET_UBOOL_OPTX(bDestroyOnFinish, FALSE);
     P_FINISH;
     ((AEmitter_*)this)->sub_00b65bf0(NewTemplate, bDestroyOnFinish);
+}
+
+// @baa 0x00c9e1a0
+void UParticleSystemComponent::execGetActorParameter(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(InName);
+    P_GET_OBJECT_REF(AActor, OutActor);
+    P_FINISH;
+    *(UBOOL*)Result = GetActorParameter(InName, OutActor);
+}
+
+// @baa 0x00c9e250
+void UParticleSystemComponent::execGetMaterialParameter(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(InName);
+    P_GET_OBJECT_REF(UMaterialInterface, OutMaterial);
+    P_FINISH;
+    *(UBOOL*)Result = GetMaterialParameter(InName, OutMaterial);
 }

@@ -1,4 +1,4 @@
-// Core_0590000.cpp (part 2 of 4): 78 functions
+// Core_0590000.cpp (part 2 of 4): 107 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -761,4 +761,326 @@ void UObject::execLessEqual_IntInt(FFrame& Stack, RESULT_DECL)
 	P_GET_INT(B);
 	P_FINISH;
 	*(INT*)Result = A <= B;
+}
+
+/* UObject::IsInState (0x59dc80) isn't declared in the kit. */
+struct UObject__0059ef90 : public UObject
+{
+    UBOOL IsInState(FName TestState, UBOOL bTestStateStack);
+};
+
+// @baa 0x0059ef90
+void UObject::execIsInState(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(TestState);
+    P_GET_UBOOL_OPTX(bTestStateStack, FALSE);
+    P_FINISH;
+    *(UBOOL*)Result = ((UObject__0059ef90*)this)->IsInState(TestState, bTestStateStack);
+}
+
+// @baa 0x00592510
+void UObject::execEqualEqual_IntInt(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_INT(A);
+    P_GET_INT(B);
+    P_FINISH;
+    *(DWORD*)Result = A == B;
+}
+
+// @baa 0x00591470
+void UObject::execEqualEqual_BoolBool(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_UBOOL(A);
+    P_GET_UBOOL(B);
+    P_FINISH;
+    *(UBOOL*)Result = ((!A) == (!B));
+}
+
+// @baa 0x00591520
+void UObject::execNotEqual_BoolBool(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_UBOOL(A);
+    P_GET_UBOOL(B);
+    P_FINISH;
+    *(UBOOL*)Result = ((!A) != (!B));
+}
+
+// @baa 0x00591db0
+void UObject::execGreaterGreaterGreater_IntInt(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_INT(A);
+    P_GET_INT(B);
+    P_FINISH;
+    *(INT*)Result = ((DWORD)A) >> B;
+}
+
+// @baa 0x00592480
+void UObject::execGreaterEqual_IntInt(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_INT(A);
+    P_GET_INT(B);
+    P_FINISH;
+    *(UBOOL*)Result = A >= B;
+}
+
+// @baa 0x005993d0
+void UObject::execEqualEqual_ObjectObject(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(UObject, A);
+    P_GET_OBJECT(UObject, B);
+    P_FINISH;
+    *(UBOOL*)Result = A == B;
+}
+
+// @baa 0x005925a0
+void UObject::execNotEqual_IntInt(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_INT(A);
+    P_GET_INT(B);
+    P_FINISH;
+    *(UBOOL*)Result = A != B;
+}
+
+// @baa 0x00599460
+void UObject::execNotEqual_ObjectObject(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(UObject, A);
+    P_GET_OBJECT(UObject, B);
+    P_FINISH;
+    *(UBOOL*)Result = A != B;
+}
+
+// @baa 0x00593070
+void UObject::execMultiply_FloatFloat(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_FLOAT(A);
+    P_GET_FLOAT(B);
+    P_FINISH;
+    *(FLOAT*)Result = A * B;
+}
+
+// @baa 0x005932a0
+void UObject::execAdd_FloatFloat(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_FLOAT(A);
+    P_GET_FLOAT(B);
+    P_FINISH;
+    *(FLOAT*)Result = A + B;
+}
+
+// @baa 0x00593330
+void UObject::execSubtract_FloatFloat(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_FLOAT(A);
+    P_GET_FLOAT(B);
+    P_FINISH;
+    *(FLOAT*)Result = A - B;
+}
+
+// @baa 0x00594520
+void UObject::execLerp(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_FLOAT(A);
+    P_GET_FLOAT(B);
+    P_GET_FLOAT(Alpha);
+    P_FINISH;
+    *(FLOAT*)Result = A + Alpha * (B - A);
+}
+
+// @baa 0x00595380
+void UObject::execMultiply_VectorFloat(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, A);
+    P_GET_FLOAT(B);
+    P_FINISH;
+    FVector Product(A.X * B, A.Y * B, A.Z * B);
+    *(FVector*)Result = Product;
+}
+
+// @baa 0x00595440
+void UObject::execMultiply_FloatVector(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_FLOAT(A);
+    P_GET_STRUCT(FVector, B);
+    P_FINISH;
+    FVector Product(B.X * A, B.Y * A, B.Z * A);
+    *(FVector*)Result = Product;
+}
+
+// @baa 0x00595770
+void UObject::execSubtract_VectorVector(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, A);
+    P_GET_STRUCT(FVector, B);
+    P_FINISH;
+    FVector Difference(A.X - B.X, A.Y - B.Y, A.Z - B.Z);
+    *(FVector*)Result = Difference;
+}
+
+// @baa 0x00595ae0
+void UObject::execEqualEqual_VectorVector(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, A);
+    P_GET_STRUCT(FVector, B);
+    P_FINISH;
+    *(UBOOL*)Result = A.X == B.X && A.Y == B.Y && A.Z == B.Z;
+}
+
+// @baa 0x00595ba0
+void UObject::execNotEqual_VectorVector(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, A);
+    P_GET_STRUCT(FVector, B);
+    P_FINISH;
+    *(UBOOL*)Result = A.X != B.X || A.Y != B.Y || A.Z != B.Z;
+}
+
+// @baa 0x00595ec0
+void UObject::execMultiplyEqual_VectorVector(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT_REF(FVector, A);
+    P_GET_STRUCT(FVector, B);
+    P_FINISH;
+    A.X *= B.X;
+    A.Y *= B.Y;
+    A.Z *= B.Z;
+    *(FVector*)Result = A;
+}
+
+// @baa 0x00596090
+void UObject::execAddEqual_VectorVector(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT_REF(FVector, A);
+    P_GET_STRUCT(FVector, B);
+    P_FINISH;
+    A.X += B.X;
+    A.Y += B.Y;
+    A.Z += B.Z;
+    *(FVector*)Result = A;
+}
+
+// @baa 0x00596160
+void UObject::execSubtractEqual_VectorVector(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT_REF(FVector, A);
+    P_GET_STRUCT(FVector, B);
+    P_FINISH;
+    A.X -= B.X;
+    A.Y -= B.Y;
+    A.Z -= B.Z;
+    *(FVector*)Result = A;
+}
+
+// @baa 0x00596f40
+void UObject::execEqualEqual_RotatorRotator(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FRotator, A);
+    P_GET_STRUCT(FRotator, B);
+    P_FINISH;
+    *(UBOOL*)Result = A.Pitch == B.Pitch && A.Yaw == B.Yaw && A.Roll == B.Roll;
+}
+
+// @baa 0x00596fe0
+void UObject::execNotEqual_RotatorRotator(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FRotator, A);
+    P_GET_STRUCT(FRotator, B);
+    P_FINISH;
+    *(UBOOL*)Result = A.Pitch != B.Pitch || A.Yaw != B.Yaw || A.Roll != B.Roll;
+}
+
+// @baa 0x00597660
+void UObject::execAddEqual_RotatorRotator(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT_REF(FRotator, A);
+    P_GET_STRUCT(FRotator, B);
+    P_FINISH;
+    A.Pitch += B.Pitch;
+    A.Yaw += B.Yaw;
+    A.Roll += B.Roll;
+    *(FRotator*)Result = A;
+}
+
+// @baa 0x00597710
+void UObject::execSubtractEqual_RotatorRotator(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT_REF(FRotator, A);
+    P_GET_STRUCT(FRotator, B);
+    P_FINISH;
+    A.Pitch -= B.Pitch;
+    A.Yaw -= B.Yaw;
+    A.Roll -= B.Roll;
+    *(FRotator*)Result = A;
+}
+
+// @baa 0x005915d0
+/* Short-circuit operator: the second operand is skipped with the EX_Skip offset when A decides it. */
+void UObject::execAndAnd_BoolBool(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_UBOOL(A);
+    Stack.Code++; /* EX_Skip */
+    WORD W = *(WORD*)Stack.Code;
+    Stack.Code += sizeof(WORD);
+    if (A)
+    {
+        P_GET_UBOOL(B);
+        *(UBOOL*)Result = A && B;
+        Stack.Code++;
+    }
+    else
+    {
+        *(UBOOL*)Result = 0;
+        Stack.Code += W;
+    }
+}
+
+// @baa 0x00591740
+/* Short-circuit operator: the second operand is skipped with the EX_Skip offset when A decides it. */
+void UObject::execOrOr_BoolBool(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_UBOOL(A);
+    Stack.Code++; /* EX_Skip */
+    WORD W = *(WORD*)Stack.Code;
+    Stack.Code += sizeof(WORD);
+    if (!A)
+    {
+        P_GET_UBOOL(B);
+        *(UBOOL*)Result = A || B;
+        Stack.Code++;
+    }
+    else
+    {
+        *(UBOOL*)Result = 1;
+        Stack.Code += W;
+    }
+}
+
+// @baa 0x00591f30
+void UObject::execDivide_IntInt(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(A);
+	P_GET_INT(B);
+	P_FINISH;
+
+	if (B == 0)
+	{
+		sub_00630ea0(Stack, 0x301, L"Divide by zero");
+	}
+
+	*(INT*)Result = (B != 0) ? (A / B) : 0;
+}
+
+// @baa 0x00591fe0
+void UObject::execPercent_IntInt(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(A);
+	P_GET_INT(B);
+	P_FINISH;
+
+	if (B == 0)
+	{
+		sub_00630ea0(Stack, 0x301, L"Modulo by zero");
+	}
+
+	*(INT*)Result = (B != 0) ? (A % B) : 0;
 }

@@ -1,4 +1,4 @@
-// Engine_0c80000.cpp: 96 functions
+// Engine_0c80000.cpp: 100 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -1214,4 +1214,40 @@ void ACrowdAgent_::eventOverlappedActorEvent(class AActor* A)
 	} Parms;
 	Parms.A = A;
 	ProcessEvent(FindFunctionChecked(g_026c4d54), &Parms);
+}
+
+// @baa 0x00c8f0c0
+void UMaterialInterface::execGetScalarParameterValue(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(ParameterName);
+    P_GET_FLOAT_REF(OutValue);
+    P_FINISH;
+    *(UBOOL*)Result = GetScalarParameterValue(ParameterName, OutValue);
+}
+
+// @baa 0x00c8f230
+void UMaterialInterface::execGetVectorParameterValue(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(ParameterName);
+    P_GET_STRUCT_REF(FLinearColor, OutValue);
+    P_FINISH;
+    *(UBOOL*)Result = GetVectorParameterValue(ParameterName, OutValue);
+}
+
+// @baa 0x00c8d520
+void UOnlineStatsWrite::execSetFloatStat(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_INT(StatId);
+    P_GET_FLOAT(Value);
+    P_FINISH;
+    SetFloatStat(StatId, Value);
+}
+
+// @baa 0x00c8d5c0
+void UOnlineStatsWrite::execSetIntStat(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_INT(StatId);
+    P_GET_INT(Value);
+    P_FINISH;
+    SetIntStat(StatId, Value);
 }

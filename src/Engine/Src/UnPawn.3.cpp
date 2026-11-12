@@ -1,4 +1,4 @@
-// UnPawn.cpp: 40 functions
+// UnPawn.cpp: 41 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -546,4 +546,20 @@ void AController__008645f0::eventMayFall()
 	{
 		ProcessEvent(FindFunctionChecked(g_026c4b68), NULL);
 	}
+}
+
+/* APawn::SetBasedPosition (0x7ad430) isn't declared in the kit. */
+struct APawn__00c8a640 : public APawn
+{
+    void SetBasedPosition(FBasedPosition& BP, FVector pos, class AActor* ForcedBase);
+};
+
+// @baa 0x00c8a640
+void APawn::execSetBasedPosition(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT_REF(FBasedPosition, BP);
+    P_GET_STRUCT(FVector, pos);
+    P_GET_OBJECT_OPTX(AActor, ForcedBase, NULL);
+    P_FINISH;
+    ((APawn__00c8a640*)this)->SetBasedPosition(BP, pos, ForcedBase);
 }
