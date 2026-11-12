@@ -1,4 +1,4 @@
-// UnrealEd_1440000.cpp (part 1 of 3): 128 functions
+// UnrealEd_1440000.cpp (part 1 of 3): 129 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -842,3 +842,23 @@ undefined4 * UUnrealEdEngine::sub_0144f460(undefined4 param_2, undefined4 param_
 void sub_00c38ac0();
 // @baa 0x0144f4a0
 void sub_0144f4a0(void) { sub_00c38ac0(); }
+
+struct FLinearColor_ : public FLinearColor
+{
+    void sub_0053d1d0(const FColor* In);
+};
+
+struct Sub_0144eae0_Owner
+{
+    unsigned char pad[0x3a0];
+    FColor Color;
+
+    FLinearColor* sub_0144eae0(FLinearColor* Out);
+};
+
+// @baa 0x0144eae0
+FLinearColor* Sub_0144eae0_Owner::sub_0144eae0(FLinearColor* Out)
+{
+    ((FLinearColor_*)Out)->sub_0053d1d0(&Color);
+    return Out;
+}

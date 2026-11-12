@@ -1,4 +1,4 @@
-// UnSkeletalTools.cpp (part 2 of 3): 6 functions
+// UnSkeletalTools.cpp (part 2 of 3): 7 functions
 // Placed here by: neighbours 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -403,3 +403,35 @@ INT& FNameIntMap::Set(FName InKey, INT InValue)
     const FSetElementId_00d587c0 PairId = Add(Pair);
     return ElementData[PairId].Value.Value;
 }
+
+/* FString::Printf, as the linker specialised it for these argument types (0x00723a70);
+ * the kit declares no FString::Printf. */
+struct FString_ : public FString
+{
+    static FString Printf(const TCHAR* Fmt, INT A, INT B);
+};
+
+/* FStaticLODModel (UnSkeletalMesh.h): only GetTotalFaces (0x00951780) is used here. */
+struct FStaticLODModel
+{
+    INT GetTotalFaces();
+};
+
+/* slot 0x0b8 (vf_0b8) is UObject::GetDesc */
+struct USkeletalMesh__00d4ff50 : public USkeletalMesh
+{
+    FString GetDesc();
+};
+
+// @baa 0x00d4ff50
+/* the mesh's line in the generic browser */
+FString USkeletalMesh__00d4ff50::GetDesc()
+{
+    // the kit mirrors LODModels as FIndirectArray_Mirror; the native type is TIndirectArray<FStaticLODModel>
+    TIndirectArray<FStaticLODModel>& LODModels = (TIndirectArray<FStaticLODModel>&)this->LODModels;
+#line 1689 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSkeletalTools.cpp"
+    check(LODModels.Num() > 0);
+    return FString_::Printf(TEXT("%d Triangles, %d Bones"), LODModels(0).GetTotalFaces(), RefSkeleton.Num());
+}
+
+#line 438 "candidate.cpp"

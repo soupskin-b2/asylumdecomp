@@ -1,4 +1,4 @@
-// R3rdPersonCamera.cpp (part 12 of 12): 4 functions
+// R3rdPersonCamera.cpp (part 12 of 12): 5 functions
 // Placed here by: neighbours 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -44,4 +44,10 @@ void S_0168de00::sub_0168de00() {
 bool ARPawnPlayerChallengeJokerBase::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x01688ba0
+bool sub_01688ba0(BYTE* P)
+{
+    return P[8] >= 5;
 }

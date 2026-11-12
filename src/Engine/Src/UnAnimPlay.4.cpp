@@ -1,4 +1,4 @@
-// UnAnimPlay.cpp: 3 functions
+// UnAnimPlay.cpp: 4 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -77,4 +77,103 @@ FLOAT UAnimNodeSequence::FindGroupPosition(FLOAT GroupRelativePosition)
 		Position += 1.f;
 	}
 	return Position;
+}
+
+/* Kit gaps: FName's operator!= (out of line here, 0053f4c0) and two UAnimNodeSequence methods
+ * (00c4ad70, which says whether the cached bone atoms are still wanted, and IssueNotifies 00c52860) aren't declared. */
+struct FName_ : public FName
+{
+	UBOOL operator!=(const FName& Other) const;
+};
+
+struct UAnimNodeSequence__00c5e2f0 : public UAnimNodeSequence
+{
+	UBOOL CanUseCachedBoneAtoms();
+	void IssueNotifies(FLOAT DeltaTime);
+};
+
+/* Whether the cached bone atoms can be kept: only for an unrendered mesh, a node that skips ticking at zero
+ * weight, and no root motion extraction. */
+UBOOL UAnimNodeSequence__00c5e2f0::CanUseCachedBoneAtoms()
+{
+	if (!SkelComponent->bRecentlyRendered && bSkipTickWhenZeroWeight)
+	{
+		const UBOOL bExtractsRootTranslation = RootBoneOption[0] || RootBoneOption[1] || RootBoneOption[2];
+		const UBOOL bExtractsRootRotation = RootRotationOption[0] || RootRotationOption[1] || RootRotationOption[2];
+		if (!bExtractsRootTranslation && !bExtractsRootRotation)
+		{
+			return TRUE;
+		}
+	}
+	return FALSE;
+}
+
+// @baa 0x00c5e2f0
+/* AdvanceBy: moves the play position by MoveDelta, firing notifies on the way, and handles reaching either end
+ * (wrap when looping, else stop and call OnAnimEnd with the time played and the excess). */
+void UAnimNodeSequence::sub_00c5e2f0(FLOAT MoveDelta, FLOAT DeltaSeconds, UBOOL bFireNotifies)
+{
+	if (AnimSeq == NULL || MoveDelta == 0.f || DeltaSeconds == 0.f)
+	{
+		return;
+	}
+
+	if (AnimSeq->NumFrames > 1 && CachedBoneAtoms.Num() > 0 && !((UAnimNodeSequence__00c5e2f0*)this)->CanUseCachedBoneAtoms())
+	{
+		CachedBoneAtoms.Reset();
+	}
+
+	if (bFireNotifies && MoveDelta > 0.f)
+	{
+		const UBOOL bIsSynchronized = ((const FName_&)SynchGroupName) != FName(NAME_None) && bRelevant;
+		const UBOOL bAboveWeightThreshold = NodeTotalWeight > NotifyWeightThreshold;
+		const UBOOL bShouldIssueNotifies = !bNoNotifies && (bIsSynchronized || bAboveWeightThreshold);
+		if (bShouldIssueNotifies)
+		{
+			((UAnimNodeSequence__00c5e2f0*)this)->IssueNotifies(MoveDelta);
+
+			// A notify may have changed the animation.
+			if (AnimSeq == NULL)
+			{
+				return;
+			}
+		}
+	}
+
+	CurrentTime += MoveDelta;
+	const FLOAT AnimLength = AnimSeq->SequenceLength;
+
+	if (CurrentTime > AnimLength)
+	{
+		if (bLooping)
+		{
+			CurrentTime = appFmod(CurrentTime, AnimLength);
+		}
+		else
+		{
+			const FLOAT PlayRate = MoveDelta / DeltaSeconds;
+			const FLOAT ExcessTime = (CurrentTime - AnimSeq->SequenceLength) / PlayRate;
+			CurrentTime = AnimSeq->SequenceLength;
+			StopAnim();
+			OnAnimEnd(DeltaSeconds - ExcessTime, ExcessTime);
+		}
+	}
+	else if (CurrentTime < 0.f)
+	{
+		if (bLooping)
+		{
+			CurrentTime = appFmod(CurrentTime, AnimLength);
+			if (CurrentTime < 0.f)
+			{
+				CurrentTime += AnimSeq->SequenceLength;
+			}
+		}
+		else
+		{
+			const FLOAT ExcessTime = CurrentTime / appAbs(MoveDelta / DeltaSeconds);
+			CurrentTime = 0.f;
+			StopAnim();
+			OnAnimEnd(DeltaSeconds + ExcessTime, ExcessTime);
+		}
+	}
 }

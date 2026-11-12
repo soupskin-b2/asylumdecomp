@@ -9,26 +9,26 @@
 <text x="860" y="50" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">2,167</text>
 <text x="0" y="80" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">Qwen3.8 27B</text>
 <rect x="242" y="70" width="528" height="10" fill="#eaeef2" stroke="#d1d9e0"/>
-<rect x="242" y="70" width="8.88795" height="10" fill="#1f2328"/>
-<text x="860" y="80" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">1,590</text>
+<rect x="242" y="70" width="9.2457" height="10" fill="#1f2328"/>
+<text x="860" y="80" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">1,654</text>
 <text x="0" y="110" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">Claude Opus 5.5</text>
 <rect x="242" y="100" width="528" height="10" fill="#eaeef2" stroke="#d1d9e0"/>
-<rect x="242" y="100" width="7.50165" height="10" fill="#1f2328"/>
-<text x="860" y="110" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">1,342</text>
+<rect x="242" y="100" width="7.66935" height="10" fill="#1f2328"/>
+<text x="860" y="110" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">1,372</text>
 <text x="0" y="140" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">GPT-6.1 Sol</text>
 <rect x="242" y="130" width="528" height="10" fill="#eaeef2" stroke="#d1d9e0"/>
-<rect x="242" y="130" width="0.877615" height="10" fill="#1f2328"/>
-<text x="860" y="140" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">157</text>
+<rect x="242" y="130" width="0.883205" height="10" fill="#1f2328"/>
+<text x="860" y="140" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">158</text>
 <text x="0" y="170" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">Claude Sonnet 5.5</text>
 <rect x="242" y="160" width="528" height="10" fill="#eaeef2" stroke="#d1d9e0"/>
 <rect x="242" y="160" width="0.206826" height="10" fill="#1f2328"/>
 <text x="860" y="170" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">37</text>
 <text x="0" y="200" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">minimax-m3.1-flash</text>
 <rect x="242" y="190" width="528" height="10" fill="#eaeef2" stroke="#d1d9e0"/>
-<rect x="242" y="190" width="0.0950284" height="10" fill="#1f2328"/>
-<text x="860" y="200" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">17</text>
+<rect x="242" y="190" width="0.184467" height="10" fill="#1f2328"/>
+<text x="860" y="200" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">33</text>
 <text x="0" y="230" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">other</text>
 <rect x="242" y="220" width="528" height="10" fill="#eaeef2" stroke="#d1d9e0"/>
-<rect x="242" y="220" width="0.167697" height="10" fill="#1f2328"/>
-<text x="860" y="230" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">30</text>
+<rect x="242" y="220" width="0.245956" height="10" fill="#1f2328"/>
+<text x="860" y="230" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">44</text>
 </svg>

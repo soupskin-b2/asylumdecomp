@@ -1,4 +1,4 @@
-// UnSkeletalTools.cpp: 3 functions
+// UnSkeletalTools.cpp: 6 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -194,4 +194,165 @@ FString USkeletalMesh_::GetDetailedDescription(INT InIndex)
         break;
     }
     return Description;
+}
+
+/* Kit gap (Array.h, issue #39): this build inlines TArray::operator() where the kit's plain-inline one is
+ * called out of line; same body, forced inline. */
+template<class T> struct TArrayAt_ : public TArray<T>
+{
+    __forceinline T& At(INT i)
+    {
+#line 560 BAA_ARRAY_FILE
+        check(i>=0 && (i<this->ArrayNum||(i==0 && this->ArrayNum==0)));
+        return this->GetTypedData()[i];
+    }
+    __forceinline const T& At(INT i) const
+    {
+#line 566 BAA_ARRAY_FILE
+        check(i>=0 && (i<this->ArrayNum||(i==0 && this->ArrayNum==0)));
+        return this->GetTypedData()[i];
+    }
+};
+
+/* VJointPos (UnSkeletalMesh.h): a bone's reference pose. */
+struct VJointPos
+{
+    FQuat Orientation;
+    FVector Position;
+    FLOAT Length;
+    FLOAT XSize;
+    FLOAT YSize;
+    FLOAT ZSize;
+};
+
+/* FMeshBone as this build has it (0x48 bytes); the kit's FMeshBone has ParentIndex at the wrong offset. */
+struct FMeshBone_
+{
+    FName Name;
+    DWORD Flags;
+    VJointPos BonePos;
+    INT ParentIndex;      /* 0x38 */
+    INT NumChildren;
+    INT Depth;
+    FColor BoneColor;
+};
+
+struct USkeletalMesh__00d49ed0 : public USkeletalMesh
+{
+    UBOOL BoneIsChildOf(INT ChildBoneIndex, INT ParentBoneIndex) const;
+};
+
+// @baa 0x00d49ed0
+/* whether ParentBoneIndex is an ancestor of ChildBoneIndex */
+UBOOL USkeletalMesh__00d49ed0::BoneIsChildOf(INT ChildBoneIndex, INT ParentBoneIndex) const
+{
+    // parents always come before their children in the reference skeleton
+    if (ChildBoneIndex <= ParentBoneIndex)
+    {
+        return FALSE;
+    }
+
+    INT BoneIndex = ((const TArrayAt_<FMeshBone_>&)RefSkeleton).At(ChildBoneIndex).ParentIndex;
+    while (TRUE)
+    {
+        if (BoneIndex == ParentBoneIndex)
+        {
+            return TRUE;
+        }
+        if (BoneIndex == 0)
+        {
+            return FALSE;
+        }
+        BoneIndex = ((const TArrayAt_<FMeshBone_>&)RefSkeleton).At(BoneIndex).ParentIndex;
+    }
+}
+
+#line 271 "candidate.cpp"
+
+inline UBOOL operator==(const FName& A, EName B) { return A.Index == B && A.Number == 0; }
+
+inline UBOOL operator==(const FName& A, const FName& B) { return A.Index == B.Index && A.Number == B.Number; }
+
+/* USkeletalMesh::FindSocket isn't declared in Classes.h */
+struct USkeletalMesh__00951be0 : public USkeletalMesh
+{
+    USkeletalMeshSocket* FindSocket(FName InSocketName);
+};
+
+// @baa 0x00951be0
+/* the socket with the given name, NULL if there is none */
+USkeletalMeshSocket* USkeletalMesh__00951be0::FindSocket(FName InSocketName)
+{
+    if (InSocketName == NAME_None)
+    {
+        return NULL;
+    }
+
+    for (INT i = 0; i < Sockets.Num(); i++)
+    {
+        USkeletalMeshSocket* Socket = Sockets(i);
+        if (Socket && Socket->SocketName == InSocketName)
+        {
+            return Socket;
+        }
+    }
+    return NULL;
+}
+
+inline UBOOL operator!=(const FName& A, EName B) { return A.Index != B || A.Number != 0; }
+
+/* FSetElementId_0097eb90 (UnSet.h): index of an element in a TSet, INDEX_NONE if none. */
+class FSetElementId_0097eb90
+{
+public:
+    FSetElementId_0097eb90() : Index(INDEX_NONE) {}
+    operator INT() const { return Index; }
+private:
+    INT Index;
+};
+
+/* TPairInitializer<const FName&, INT> (UnMap.h): the key by reference and the value, for TSet::Add */
+struct FNameIndexPairInitializer
+{
+    const FName& Key;
+    INT Value;
+
+    FNameIndexPairInitializer(const FName& InKey, INT InValue) : Key(InKey), Value(InValue) {}
+};
+
+/* TMap<FName,INT> (UnMap.h) as this build has it; the kit only has the script mirror (FMap_Mirror).
+ * Only the out-of-line members used here are declared. */
+struct FNameIndexMap
+{
+    /* TSet::Add (0x005b6e00) and TSet::Empty (0x00617000) */
+    FSetElementId_0097eb90 Add(const FNameIndexPairInitializer& InElement, UBOOL* bIsAlreadyInSetPtr = NULL);
+    void Empty(INT ExpectedNumElements = 0);
+
+    /* TMap::Set; the caller here ignores the stored value */
+    void Set(const FName& InKey, INT InValue)
+    {
+        Add(FNameIndexPairInitializer(InKey, InValue));
+    }
+};
+
+/* USkeletalMesh::InitNameIndexMap isn't declared in Classes.h */
+struct USkeletalMesh__0097eb90 : public USkeletalMesh
+{
+    void InitNameIndexMap();
+};
+
+// @baa 0x0097eb90
+/* rebuild the bone name to RefSkeleton index map */
+void USkeletalMesh__0097eb90::InitNameIndexMap()
+{
+    FNameIndexMap& Map = (FNameIndexMap&)NameIndexMap;
+    Map.Empty();
+    for (INT i = 0; i < RefSkeleton.Num(); i++)
+    {
+        const FName BoneName = ((TArray<FMeshBone_>&)RefSkeleton)(i).Name;
+        if (BoneName != NAME_None)
+        {
+            Map.Set(BoneName, i);
+        }
+    }
 }

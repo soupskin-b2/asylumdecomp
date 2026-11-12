@@ -1,4 +1,4 @@
-// UnPawn.cpp (part 1 of 2): 97 functions
+// UnPawn.cpp (part 1 of 2): 98 functions
 // Placed here by: neighbours 49, class 32, callers 3, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1361,4 +1361,12 @@ void AActor__00864d20::SetCollisionForPathBuilding(UBOOL bNowPathBuilding)
         bPathTemp = FALSE;
         SetCollision(TRUE, bBlockActors, bIgnoreEncroachers);
     }
+}
+
+// @baa 0x00865220
+/* APawn::SetRemoteViewPitch (UE3 UnPawn.cpp; the kit names it sub_00865220): replicates the
+ * view pitch compressed to its high byte. */
+void APawn::sub_00865220(INT NewRemoteViewPitch)
+{
+    RemoteViewPitch = (BYTE)(NewRemoteViewPitch >> 8);
 }

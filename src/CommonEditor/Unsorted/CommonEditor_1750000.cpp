@@ -1,4 +1,4 @@
-// CommonEditor_1750000.cpp: 24 functions
+// CommonEditor_1750000.cpp: 25 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -259,4 +259,20 @@ int UTexture2D::sub_01755870(void)
   *(undefined4 *)(param_1 + 0x34) = 0;
   *(undefined4 *)(param_1 + 0x38) = 0;
   return param_1;
+}
+
+struct Unknown_01752350
+{
+    char _pad[0x238];
+    int Field238;
+
+    void sub_01751670();
+    void sub_01752350(int Arg);
+};
+
+// @baa 0x01752350
+void Unknown_01752350::sub_01752350(int Arg)
+{
+    Field238 = (Field238 == 0);
+    sub_01751670();
 }

@@ -1,4 +1,4 @@
-// BmGame_15d0000.cpp: 224 functions
+// BmGame_15d0000.cpp: 225 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1099,4 +1099,28 @@ C_015d8840* C_015d8840::sub_015d8840()
 void URBMExitConditionCombiner::vf_110(INT, INT)
 {
     vf_1a4();
+}
+
+struct S015d9f60
+{
+	// +0x00
+	INT m_a;
+	// +0x04
+	INT m_b;
+	// +0x08
+	INT m_c;
+
+	S015d9f60* sub_015d9f60(INT X, INT Y, INT Z)
+	{
+		m_a = X;
+		m_b = Y;
+		m_c = Z;
+		return this;
+	}
+};
+
+// @baa 0x015d9f60
+S015d9f60* Call015d9f60(S015d9f60* Self, INT X, INT Y, INT Z)
+{
+	return Self->sub_015d9f60(X, Y, Z);
 }

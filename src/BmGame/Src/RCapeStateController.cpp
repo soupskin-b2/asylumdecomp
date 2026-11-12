@@ -1,4 +1,4 @@
-// RCapeStateController.cpp (part 1 of 6): 119 functions
+// RCapeStateController.cpp (part 1 of 6): 120 functions
 // Placed here by: neighbours 86, class 13, callers 10, file 10.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -833,3 +833,26 @@ undefined4 URCapeStateController::sub_016e6ed0(byte param_2)
 // @baa 0x016e7300
 // @baa 0x016e7310
 // @baa 0x016e73d0
+
+// The referenced cape physics object; sub_016bcf30 takes a float by value.
+struct FCapePhysics_
+{
+	void sub_016bcf30(float Value);
+};
+
+struct URCapeStateController_ : public URCapeStateController
+{
+	// If the controller is initialised, forward the value to the referenced
+	// cape physics object.
+	void sub_016cece0(float Value);
+};
+
+// @baa 0x016cece0
+void URCapeStateController_::sub_016cece0(float Value)
+{
+	if (IsInitialised)
+	{
+		FCapePhysics_* Physics = reinterpret_cast<FCapePhysics_*>(CapePhysicsRef.Dummy);
+		Physics->sub_016bcf30(Value);
+	}
+}

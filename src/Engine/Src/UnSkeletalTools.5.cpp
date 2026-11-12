@@ -1,4 +1,4 @@
-// UnSkeletalTools.cpp: 4 functions
+// UnSkeletalTools.cpp: 6 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #define BAA_OUTLINE_ALLOC
@@ -82,3 +82,106 @@ struct FRigidSkinVertex
 // @baa 0x00d480f0
 /* the out-of-line TArray<FRigidSkinVertex>::AddItem instantiation (FSkelMeshChunk::RigidVertices) */
 template INT TArrayAddItem_<FRigidSkinVertex>::AddItem(const FRigidSkinVertex& Item);
+
+/* TArray<FBoneMirrorInfo> with its out-of-line Add (0x00d46560) and the inline AddZeroed (Array.h) */
+struct FBoneMirrorInfoArray : public TArray<FBoneMirrorInfo>
+{
+    INT Add(INT Count);
+
+    INT AddZeroed(INT Count)
+    {
+        const INT Index = Add(Count);
+        appMemzero((BYTE*)GetData() + Index * sizeof(FBoneMirrorInfo), Count * sizeof(FBoneMirrorInfo));
+        return Index;
+    }
+};
+
+/* USkeletalMesh::InitBoneMirrorInfo isn't declared in Classes.h */
+struct USkeletalMesh_ : public USkeletalMesh
+{
+    void InitBoneMirrorInfo();
+};
+
+// @baa 0x00d4d750
+/* reset the mirror table: one entry per bone, each mirroring itself */
+void USkeletalMesh_::InitBoneMirrorInfo()
+{
+    FBoneMirrorInfoArray& MirrorTable = (FBoneMirrorInfoArray&)SkelMirrorTable;
+    MirrorTable.Empty(RefSkeleton.Num());
+    MirrorTable.AddZeroed(RefSkeleton.Num());
+
+    for (INT i = 0; i < SkelMirrorTable.Num(); i++)
+    {
+        SkelMirrorTable(i).SourceIndex = i;
+    }
+}
+
+/* FSkelMeshSection (UnSkeletalMesh.h). Not in the kit. */
+struct FSkelMeshSection
+{
+    WORD MaterialIndex;
+    WORD ChunkIndex;
+    DWORD BaseIndex;
+    WORD NumTriangles;
+};
+
+/* FSkelMeshChunk (UnSkeletalMesh.h): vertices of one LOD skinned with one bone map. Not in the kit. */
+struct FSkelMeshChunk
+{
+    DWORD BaseVertexIndex;
+    TArray<FRigidSkinVertex> RigidVertices;
+    TArray<FSoftSkinVertex> SoftVertices;
+    TArray<WORD> BoneMap;
+    INT NumRigidVertices;
+    INT NumSoftVertices;
+    INT MaxBoneInfluences;
+
+};
+
+/* FMeshEdge (UnMeshBuild.h): a triangle edge for shadow volume extrusion. Not in the kit. */
+struct FMeshEdge
+{
+    INT Vertices[2];
+    INT Faces[2];
+};
+
+/* FRawStaticIndexBuffer (RawIndexBuffer.h): its contents aren't used here; the kit has no render
+ * resources, so it is opaque. Its size (0x34) is taken from the LOD model's layout. */
+class FRawStaticIndexBuffer
+{
+    BYTE Opaque[0x34];
+};
+
+/* FStaticLODModel (UnSkeletalMesh.h), up to the shadow volume data. Not in the kit. */
+struct FStaticLODModel
+{
+    TArray<FSkelMeshSection> Sections;
+    TArray<FSkelMeshChunk> Chunks;
+    TArray<WORD> ActiveBoneIndices;
+    DWORD Size;
+    DWORD NumVertices;
+    DWORD NumTexCoords;
+    FRawStaticIndexBuffer IndexBuffer;     /* 0x30 */
+    TArray<WORD> ShadowIndices;            /* 0x64 */
+    TArray<FMeshEdge> Edges;               /* 0x70 */
+    TArray<BYTE> ShadowTriangleDoubleSided; /* 0x7c */
+};
+
+/* USkeletalMesh::ClearShadowVolumeData isn't declared in Classes.h */
+struct USkeletalMesh__0095cba0 : public USkeletalMesh
+{
+    void ClearShadowVolumeData();
+};
+
+// @baa 0x0095cba0
+/* free the shadow volume data of every LOD (called when shadow volumes aren't used) */
+void USkeletalMesh__0095cba0::ClearShadowVolumeData()
+{
+    for (INT LODIndex = 0; LODIndex < ((TIndirectArray<FStaticLODModel>&)LODModels).Num(); LODIndex++)
+    {
+        FStaticLODModel& LODModel = ((TIndirectArray<FStaticLODModel>&)LODModels)(LODIndex);
+        LODModel.ShadowIndices.Empty();
+        LODModel.Edges.Empty();
+        LODModel.ShadowTriangleDoubleSided.Empty();
+    }
+}

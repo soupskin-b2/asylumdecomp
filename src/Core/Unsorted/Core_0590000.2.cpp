@@ -1,4 +1,4 @@
-// Core_0590000.cpp (part 2 of 4): 56 functions
+// Core_0590000.cpp (part 2 of 4): 75 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -530,4 +530,206 @@ void UObject::execMultiply_IntInt(FFrame& Stack, RESULT_DECL)
     P_GET_INT(B);
     P_FINISH;
     *(INT*)Result = A * B;
+}
+
+// @baa 0x005922d0
+// @baa 0x005922d0
+void UObject::execLess_IntInt(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_INT(A);
+    P_GET_INT(B);
+    P_FINISH;
+    *(INT*)Result = A < B;
+}
+
+// @baa 0x00593500
+void UObject::execLessEqual_FloatFloat(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(A);
+	P_GET_FLOAT(B);
+	P_FINISH;
+	*(UBOOL*)Result = A <= B;
+}
+
+// @baa 0x005935a0
+void UObject::execGreaterEqual_FloatFloat(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(A);
+	P_GET_FLOAT(B);
+	P_FINISH;
+	*(UBOOL*)Result = A >= B;
+}
+
+// @baa 0x00596ea0
+void UObject::execIsZero(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT(FVector, A);
+	P_FINISH;
+	*(UBOOL*)Result = (A.X == 0.0f) && (A.Y == 0.0f) && (A.Z == 0.0f);
+}
+
+// @baa 0x005921b0
+void UObject::execLessLess_IntInt(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(A);
+	P_GET_INT(B);
+	P_FINISH;
+	*(INT*)Result = A << B;
+}
+
+FLOAT sub_005c5ce0(const FVector& Point, const FVector& Line, const FVector& Origin);
+// @baa 0x00594980
+void UObject::execPointDistAlongLine(FFrame& Stack, RESULT_DECL)
+{
+	FVector Origin, Line, Point;
+
+	Stack.Step(Stack.Object, &Point);
+	Stack.Step(Stack.Object, &Line);
+	Stack.Step(Stack.Object, &Origin);
+	P_FINISH;
+	*(FLOAT*)Result = sub_005c5ce0(Point, Line, Origin);
+}
+
+FLOAT sub_005c5d90(const FVector& Point, const FVector& Line, const FVector& Origin);
+// @baa 0x00594a30
+void UObject::execPointDistAlongLineSegment(FFrame& Stack, RESULT_DECL)
+{
+	FVector Origin, Line, Point;
+
+	Stack.Step(Stack.Object, &Point);
+	Stack.Step(Stack.Object, &Line);
+	Stack.Step(Stack.Object, &Origin);
+	P_FINISH;
+	*(FLOAT*)Result = sub_005c5d90(Point, Line, Origin);
+}
+
+FLOAT sub_005c5e70(const FVector& Point, const FVector& Line, const FVector& Origin);
+// @baa 0x00594ae0
+void UObject::execPointDistSquaredToLineSegment(FFrame& Stack, RESULT_DECL)
+{
+	FVector Origin, Line, Point;
+
+	Stack.Step(Stack.Object, &Point);
+	Stack.Step(Stack.Object, &Line);
+	Stack.Step(Stack.Object, &Origin);
+	P_FINISH;
+	*(FLOAT*)Result = sub_005c5e70(Point, Line, Origin);
+}
+
+void sub_005c6c40(FVector2D& OutAngDist, const FVector2D& DotDist);
+// @baa 0x00595060
+void UObject::execGetAngularFromDotDist(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT_REF(FVector2D, OutAngDist);
+	P_GET_STRUCT(FVector2D, DotDist);
+	P_FINISH;
+	sub_005c6c40(OutAngDist, DotDist);
+}
+
+// @baa 0x00593830
+void UObject::execMultiplyEqual_FloatFloat(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT_REF(A);
+	P_GET_FLOAT(B);
+	P_FINISH;
+	A = A * B;
+	*(FLOAT*)Result = A;
+}
+
+// @baa 0x005939b0
+void UObject::execAddEqual_FloatFloat(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT_REF(A);
+	P_GET_FLOAT(B);
+	P_FINISH;
+	A = A + B;
+	*(FLOAT*)Result = A;
+}
+
+// @baa 0x00593a60
+void UObject::execSubtractEqual_FloatFloat(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT_REF(A);
+	P_GET_FLOAT(B);
+	P_FINISH;
+	A = A - B;
+	*(FLOAT*)Result = A;
+}
+
+// @baa 0x00591690
+void UObject::execXorXor_BoolBool(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL(A);
+	P_GET_UBOOL(B);
+	P_FINISH;
+	*(UBOOL*)Result = (A == 0) ^ (B == 0);
+}
+
+// @baa 0x00599270
+void UObject::execEqualEqual_NameName(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_NAME(A);
+	P_GET_NAME(B);
+	P_FINISH;
+	*(UBOOL*)Result = (A.Index == B.Index) && (A.Number == B.Number);
+}
+
+// @baa 0x00599320
+void UObject::execNotEqual_NameName(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_NAME(A);
+	P_GET_NAME(B);
+	P_FINISH;
+	*(UBOOL*)Result = (A.Index != B.Index) || (A.Number != B.Number);
+}
+
+// @baa 0x00592360
+// @baa 0x00592360
+void UObject::execGreater_IntInt(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(A);
+	P_GET_INT(B);
+	P_FINISH;
+	*(UBOOL*)Result = A > B;
+}
+
+UBOOL sub_005cabf0(FVector2D& OutAngularDist, const FVector& Direction, const FVector& AxisX, const FVector& AxisY, const FVector& AxisZ);
+// @baa 0x00594f50
+void UObject::execGetAngularDistance(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT_REF(FVector2D, OutAngularDist);
+
+	// the axes and the direction, read in the script's order
+	FVector Vectors[4];
+
+	Stack.Step(Stack.Object, &Vectors[3]);
+	Stack.Step(Stack.Object, &Vectors[2]);
+	Stack.Step(Stack.Object, &Vectors[1]);
+	Stack.Step(Stack.Object, &Vectors[0]);
+	P_FINISH;
+	*(UBOOL*)Result = sub_005cabf0(OutAngularDist, Vectors[3], Vectors[2], Vectors[1], Vectors[0]);
+}
+
+// @baa 0x00598920
+void UObject::execQuatInvert(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT(FQuat, A);
+	P_FINISH;
+
+	FQuat Inverted;
+	Inverted.X = -A.X;
+	Inverted.Y = -A.Y;
+	Inverted.Z = -A.Z;
+	Inverted.W = A.W;
+
+	*(FQuat*)Result = Inverted;
+}
+
+// @baa 0x0059e690
+void __stdcall sub_0059e690(FFrame& Stack, RESULT_DECL)
+{
+	UBOOL A = 0;
+	Stack.Step(Stack.Object, &A);
+	A = (A != 0);
+	((FString*)Result)->sub_00544ab0(A ? L"True" : L"False");
 }

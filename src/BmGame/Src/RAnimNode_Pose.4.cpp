@@ -1,4 +1,4 @@
-// RAnimNode_Pose.cpp (part 4 of 4): 10 functions
+// RAnimNode_Pose.cpp (part 4 of 4): 15 functions
 // Placed here by: neighbours 3, class 2, callers 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -196,4 +196,64 @@ void C_015c2be0::sub_015c2be0()
     if (p == 0)
         return;
     ((T_015be1f0 *)((int)p + 0x5bc))->sub_015be1f0();
+}
+
+struct URAnimNode_Pose_Pose : public URAnimNode_Pose {
+    virtual void vf_24c(FLOAT Delta);
+};
+
+// @baa 0x01595bd0
+void URAnimNode_Pose_Pose::vf_24c(FLOAT Delta)
+{
+    MovementOutput.ProceduralMovement.AddYawVelocity += Delta;
+}
+
+// URAnimNode_Pose::AddYaw (vtable 0x250): the header declares the slot as
+// vf_250(INT), but the code adds a FLOAT to the procedural AddYaw output.
+struct URAnimNode_Pose__01595bf0 : public URAnimNode_Pose {
+    virtual void AddYaw(FLOAT Amount);
+};
+
+// @baa 0x01595bf0
+void URAnimNode_Pose__01595bf0::AddYaw(FLOAT Amount)
+{
+    MovementOutput.ProceduralMovement.AddYaw += Amount;
+}
+
+struct FPosePlayer_ : public FPosePlayer
+{
+    INT sub_015c8f40(USkeletalMeshComponent* Mesh);
+};
+
+// @baa 0x01595a80
+INT URAnimNode_Pose::vf_204()
+{
+    return ((FPosePlayer_*)&PosePlayer)->sub_015c8f40(SkelComponent);
+}
+
+struct FPosePlayer__01595a90 : public FPosePlayer
+{
+    INT sub_015c9010(USkeletalMeshComponent* Mesh);
+};
+
+// @baa 0x01595a90
+INT URAnimNode_Pose::vf_208()
+{
+    return ((FPosePlayer__01595a90*)&PosePlayer)->sub_015c9010(SkelComponent);
+}
+
+struct C_015b7d30
+{
+    INT A, B, C, D;
+    C_015b7d30* sub_015b7d30(INT P);
+};
+
+// @baa 0x015b7d30
+C_015b7d30* C_015b7d30::sub_015b7d30(INT P)
+{
+    A = 0;
+    B = 0;
+    C = 0;
+    D = 0;
+    return this;
 }

@@ -1,4 +1,4 @@
-// UnSkeletalComponent.cpp: 1 function
+// UnSkeletalComponent.cpp: 2 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -30,4 +30,33 @@ FLOAT USkeletalMeshComponent_::GetTimeOfScriptNotifyInAnimSequence(UAnimSequence
         }
     }
     return -1.f;
+}
+
+/* USkeletalMeshComponent::TickSkelControls isn't declared in Classes.h */
+struct USkeletalMeshComponent__0091cff0 : public USkeletalMeshComponent
+{
+    void TickSkelControls(FLOAT DeltaSeconds);
+};
+
+// @baa 0x0091cff0
+/* tick every SkelControl of the AnimTree once per component tick (TickTag guards controls shared between lists) */
+void USkeletalMeshComponent__0091cff0::TickSkelControls(FLOAT DeltaSeconds)
+{
+    UAnimTree* Tree = Cast<UAnimTree>(Animations);
+    if (Tree)
+    {
+        for (INT i = 0; i < Tree->SkelControlLists.Num(); i++)
+        {
+            USkelControlBase* Control = Tree->SkelControlLists(i).ControlHead;
+            while (Control)
+            {
+                if (Control->ControlTickTag != TickTag)
+                {
+                    Control->ControlTickTag = TickTag;
+                    Control->TickSkelControl(DeltaSeconds, this);
+                }
+                Control = Control->NextControl;
+            }
+        }
+    }
 }

@@ -1,4 +1,4 @@
-// fmod_eventimpl_complex.cpp (part 2 of 2): 2 functions
+// fmod_eventimpl_complex.cpp (part 2 of 2): 3 functions
 // Placed here by: callers 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -29,4 +29,14 @@ struct C_017e5c20
 bool C_017e5c20::sub_017e5c20()
 {
     return (Flags & 0x20) == 0x20;
+}
+
+// @baa 0x017f5020
+// sub_017f5020
+// FMOD complex event: read the source pointer at +0x18, its channel count at +0x30.
+int __stdcall sub_017f5020(int Event, char* HasVoice)
+{
+    int Source = *(int*)(Event + 0x18);
+    *HasVoice = (*(int*)(Source + 0x30) != 0);
+    return 0;
 }

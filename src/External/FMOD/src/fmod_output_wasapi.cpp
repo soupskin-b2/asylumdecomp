@@ -1,4 +1,4 @@
-// fmod_output_wasapi.cpp: 2 functions
+// fmod_output_wasapi.cpp: 3 functions
 // Placed here by: neighbours 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -46,4 +46,15 @@ undefined4 C_017b8100::sub_017b8100(undefined4 * param_2)
     uVar1 = 0;
   }
   return uVar1;
+}
+
+struct C_017b8370 {
+    int sub_017b7c51(unsigned int *);
+};
+
+// @baa 0x017b8370
+void __stdcall sub_017b8370(unsigned int * arg1, unsigned int * arg2)
+{
+    C_017b8370 * This = arg1 ? (C_017b8370 *)((char *)arg1 - 0x1c) : 0;
+    This->sub_017b7c51(arg2);
 }

@@ -1,4 +1,4 @@
-// FCollada_1810000.cpp (part 8 of 8): 2 functions
+// FCollada_1810000.cpp (part 8 of 8): 3 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -31,4 +31,29 @@ extern Object* sub_01811ed0();
 void sub_01811f90()
 {
     sub_01811ed0()->Marker.sub_01852f10();
+}
+
+struct S01831780
+{
+	unsigned char sub_01831780();
+};
+
+struct S01817860
+{
+	virtual void sub_01818000();
+
+	void* sub_01817860_a;
+	void* sub_01817860_b;
+	S01831780* sub_01817860_ptr;
+
+	int sub_01817860();
+};
+
+// @baa 0x01817860
+int S01817860::sub_01817860()
+{
+	S01831780* Other = sub_01817860_ptr;
+	if (Other && Other->sub_01831780())
+		return 1;
+	return 0;
 }

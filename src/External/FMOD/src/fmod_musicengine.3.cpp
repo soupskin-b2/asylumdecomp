@@ -1,4 +1,4 @@
-// fmod_musicengine.cpp: 1 function
+// fmod_musicengine.cpp: 2 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Core.h"
@@ -29,4 +29,17 @@ CueStateTable::CueStateTable()
     head->Prev  = head;
     head->Next  = head;
     head->State = 0;
+}
+
+// fmod_musicengine.cpp
+extern "C" int __stdcall sub_017f68a0(int Param);
+// @baa 0x017f7bf0
+int __stdcall sub_017f7bf0(int Param)
+{
+    int Result = sub_017f68a0(Param);
+    if (Result != 0)
+    {
+        return *(int*)(Result + 0x10);
+    }
+    return 0;
 }

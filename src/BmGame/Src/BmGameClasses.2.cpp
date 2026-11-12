@@ -1,56 +1,45 @@
-// BmGameClasses.cpp (part 2 of 9): 1 function
-// Placed here by: neighbours 1.
+// BmGameClasses.cpp: 2 functions
+// Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
+#include "ue3/Classes.h"
+#include "ue3/Script.h"
 
-extern char g_01ebe858[];
-extern char g_02304da8[];
-struct C { C* sub_005c7a20(void); };
-
-struct AInfo {
-    INT Unk00;  // 0x00 vtable ptr
-    INT Unk04;
-    INT Unk08;
-    INT Unk0C;
-    INT Unk10;
-    INT Unk14;
-    INT Unk18;
-    INT Unk1C;
-    INT Unk20;
-    INT Unk24;
-    INT Unk28;
-    INT Unk2C;
-    INT Unk30;
-    INT Unk34;
-    INT Unk38;
-    INT Unk3C;
-    INT Unk40;
-    INT Unk44;
-    INT Unk48;
-    INT Unk4C;
-    INT Unk50;
-    INT Unk54;
-    INT Unk58;
-    INT Unk5C;
-    INT Unk60;
-    INT Unk64;
-    INT Unk68;
-    INT Unk6C;
-    INT Unk70;
-    INT Unk74;
-    INT Unk78;
-    INT Unk7C;
-    INT Unk80;
-    INT Unk84;
-    INT DetachFence; // 0x88
-    AInfo* sub_01577750(void);
+extern FName g_026e2bb0;
+	/* HitPontoon */
+struct ARGatherRootPointBase_ : public ARGatherRootPointBase
+{
+	void eventHitPontoon(class AActor* P, FVector ContactPos);
 };
 
-// @baa 0x01577750
-AInfo* AInfo::sub_01577750(void)
+// @baa 0x0154aec0
+/* RGatherRootPointBase.HitPontoon script event: the generated glue, out of line here. */
+void ARGatherRootPointBase_::eventHitPontoon(class AActor* P, FVector ContactPos)
 {
-    ((C*)this)->sub_005c7a20();
-    *(volatile INT*)this = (INT)g_01ebe858;
-    DetachFence = 0;
-    *(INT*)this = (INT)g_02304da8;
-    return this;
+	struct RGatherRootPointBase_eventHitPontoon_Parms
+	{
+		class AActor* P;
+		FVector ContactPos;
+	} Parms;
+	Parms.P = P;
+	Parms.ContactPos = ContactPos;
+	ProcessEvent(FindFunctionChecked(g_026e2bb0), &Parms);
+}
+
+extern FName g_026e3368;
+	/* CauseElectricDamageToPawn */
+struct ARElectrifiedFloorPanel_ : public ARElectrifiedFloorPanel
+{
+	void eventCauseElectricDamageToPawn(class ARPawnCharacter* CPawn);
+};
+
+// @baa 0x0154b330
+/* RElectrifiedFloorPanel.CauseElectricDamageToPawn script event: the generated glue, out of line here. */
+void ARElectrifiedFloorPanel_::eventCauseElectricDamageToPawn(class ARPawnCharacter* CPawn)
+{
+	struct RElectrifiedFloorPanel_eventCauseElectricDamageToPawn_Parms
+	{
+		class ARPawnCharacter* CPawn;
+	} Parms;
+	Parms.CPawn = CPawn;
+	ProcessEvent(FindFunctionChecked(g_026e3368), &Parms);
 }

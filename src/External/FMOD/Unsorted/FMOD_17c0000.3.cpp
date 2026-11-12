@@ -1,4 +1,4 @@
-// FMOD_17c0000.cpp (part 3 of 3): 59 functions
+// FMOD_17c0000.cpp (part 3 of 3): 83 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -746,4 +746,223 @@ struct C_017ce940
 void C_017ce940::sub_017ce940(float In)
 {
     Value = In;
+}
+
+int __stdcall sub_017d3c30(int arg1, int arg2);
+// @baa 0x017cd6f0
+int __stdcall sub_017cd6f0(int arg1, int arg2)
+{
+	if (!arg1)
+		return 0x25;
+	return sub_017d3c30(arg1, arg2);
+}
+
+extern int __stdcall sub_017d3640(int, int, int, int);
+// @baa 0x017cd6d0
+int __stdcall sub_017cd6d0(int A, int B, int C, int D)
+{
+    if (!A)
+        return 0x25;
+    return sub_017d3640(A, B, C, D);
+}
+
+int __stdcall sub_017d3c90(int Arg1, int Arg2);
+// @baa 0x017cd730
+int __stdcall sub_017cd730(int Arg1, int Arg2)
+{
+    if (!Arg1)
+        return 0x25;
+    return sub_017d3c90(Arg1, Arg2);
+}
+
+// FMOD wrapper, same family as 017cd730: null-guarded tail jump.
+extern "C" int __stdcall sub_017d38e0(int Param1, int Param2, int Param3);
+// @baa 0x017cd750
+int __stdcall sub_017cd750(int Param1, int Param2, int Param3)
+{
+    if (Param1 == 0)
+        return 0x25;
+    return sub_017d38e0(Param1, Param2, Param3);
+}
+
+extern "C" int __stdcall sub_017d3760(int Arg1, int Arg2);
+// @baa 0x017cd7b0
+extern "C" int __stdcall sub_017cd7b0(int Arg1, int Arg2)
+{
+	if (!Arg1)
+		return 0x25;
+	return sub_017d3760(Arg1, Arg2);
+}
+
+// Null-guarded tail-jump wrapper (same family as 017cd750/017cd6d0/017cd7b0).
+extern "C" int __stdcall sub_017d3880(int Param1, int Param2);
+// @baa 0x017cd890
+extern "C" int __stdcall sub_017cd890(int Param1, int Param2)
+{
+	if (!Param1)
+		return 0x25;
+	return sub_017d3880(Param1, Param2);
+}
+
+extern "C" int __stdcall sub_017d3850(int a, int b, int c, int d);
+// @baa 0x017cd8b0
+int __stdcall sub_017cd8b0(int a, int b, int c, int d)
+{
+    if (!a)
+        return 0x25;
+    return sub_017d3850(a, b, c, d);
+}
+
+int __stdcall sub_017d3c60(int P, int Other);
+// @baa 0x017cd710
+int __stdcall sub_017cd710(int P, int Other)
+{
+	if (P == 0)
+		return 0x25;
+	return sub_017d3c60(P, Other);
+}
+
+// null-guarded tail-jump wrapper (family: 017cd6d0/017cd730/017cd750)
+extern "C" int __stdcall sub_017d3940(int arg1, int arg2);
+// @baa 0x017cd920
+extern "C" int __stdcall sub_017cd920(int handle, int arg2)
+{
+    if (!handle)
+        return 0x25;
+    return sub_017d3940(handle, arg2);
+}
+
+extern "C" int __stdcall sub_017d39b0(int arg1, int arg2, int arg3);
+// @baa 0x017cd970
+int __stdcall sub_017cd970(int arg1, int arg2, int arg3)
+{
+    if (arg1 == 0)
+        return 0x25;
+    return sub_017d39b0(arg1, arg2, arg3);
+}
+
+int __stdcall sub_017d38b0(int A, int B);
+// @baa 0x017cd8d0
+int __stdcall sub_017cd8d0(int A, int B)
+{
+    if (A == 0)
+        return 0x25;
+    return sub_017d38b0(A, B);
+}
+
+extern "C" int __stdcall sub_017d3b70(int arg1, int arg2);
+// @baa 0x017cdb00
+int __stdcall sub_017cdb00(int arg1, int arg2)
+{
+    if (!arg1)
+        return 0x25;
+    return sub_017d3b70(arg1, arg2);
+}
+
+INT __stdcall sub_017d36a0(void* A);
+// @baa 0x017cd680
+INT __stdcall sub_017cd680(void* A)
+{
+	if (!A)
+		return 0x25;
+	return sub_017d36a0(A);
+}
+
+int __stdcall sub_017d3730(void * Obj, int A, int B);
+// @baa 0x017cd790
+int __stdcall sub_017cd790(void * Obj, int A, int B)
+{
+    if (Obj == 0)
+        return 37;
+    return sub_017d3730(Obj, A, B);
+}
+
+int __stdcall sub_017d3aa0(int P, int A, int B, int C);
+// @baa 0x017cda70
+int __stdcall sub_017cda70(int P, int A, int B, int C)
+{
+	if (P == 0)
+		return 0x25;
+	return sub_017d3aa0(P, A, B, C);
+}
+
+extern int __stdcall sub_017d3cd0(int, int, int, int, int);
+// @baa 0x017cdb80
+int __stdcall sub_017cdb80(int P, int A, int B, int C, int D)
+{
+    if (P == 0)
+        return 0x25;
+    return sub_017d3cd0(P, A, B, C, D);
+}
+
+INT __stdcall sub_017d6de0(void* A, void* B);
+// @baa 0x017cdc10
+INT __stdcall sub_017cdc10(void* A, void* B)
+{
+    if (!A)
+        return 0x25;
+    return sub_017d6de0(A, B);
+}
+
+extern int __stdcall sub_017d6d80(int A, int B, int C);
+// @baa 0x017cdbc0
+int __stdcall sub_017cdbc0(int A, int B, int C)
+{
+	if (A == 0)
+		return 0x25;
+	return sub_017d6d80(A, B, C);
+}
+
+INT __stdcall sub_017d6e40(void* A, void* B);
+// @baa 0x017cdc60
+INT __stdcall sub_017cdc60(void* A, void* B)
+{
+	if (!A)
+		return 0x25;
+	return sub_017d6e40(A, B);
+}
+
+extern "C" int __stdcall sub_017d6ea0(int A, int B);
+// @baa 0x017cdcb0
+int __stdcall sub_017cdcb0(int A, int B)
+{
+	if (A == 0)
+		return 0x25;
+	return sub_017d6ea0(A, B);
+}
+
+extern "C" int __stdcall sub_017d6f60(int P, int A, int B, int C, int D);
+// @baa 0x017cdd30
+int __stdcall sub_017cdd30(int P, int A, int B, int C, int D)
+{
+    if (P == 0)
+        return 0x25;
+    return sub_017d6f60(P, A, B, C, D);
+}
+
+int __stdcall sub_017d6f00(int* X, int Y);
+// @baa 0x017cdcf0
+int __stdcall sub_017cdcf0(int* X, int Y)
+{
+    if (!X)
+        return 0x25;
+    return sub_017d6f00(X, Y);
+}
+
+int __stdcall sub_017d6ed0(int* pValue, int Arg2);
+// @baa 0x017cdcd0
+int __stdcall sub_017cdcd0(int* pValue, int Arg2)
+{
+	if (pValue == 0)
+		return 0x25;
+	return sub_017d6ed0(pValue, Arg2);
+}
+
+int __stdcall sub_017d3bd0(void * Obj, int A);
+// @baa 0x017cdb40
+int __stdcall sub_017cdb40(void * Obj, int A)
+{
+    if (Obj == 0)
+        return 37;
+    return sub_017d3bd0(Obj, A);
 }

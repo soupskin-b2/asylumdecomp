@@ -1,4 +1,4 @@
-// UnAnimPlay.cpp: 7 functions
+// UnAnimPlay.cpp: 11 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -165,4 +165,81 @@ UBOOL UAnimNode_::IsChildOf(UAnimNode* Node)
 void UAnimNodeSequence::vf_12c()
 {
 	SetAnim(AnimSeqName);
+}
+
+// @baa 0x00c4b0a0
+/* Maps the aim (-1..1 on each axis) onto the editor slider (0..1; Y inverted). */
+FLOAT UAnimNodeSequenceBlendByAim::GetSliderPosition(INT SliderIndex, INT ValueIndex)
+{
+#line 1993 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimPlay.cpp"
+	check(SliderIndex == 0);
+	check(ValueIndex == 0 || ValueIndex == 1);
+
+	if (ValueIndex == 0)
+	{
+		return (0.5f * Aim.X) + 0.5f;
+	}
+	else
+	{
+		return (-0.5f * Aim.Y) + 0.5f;
+	}
+}
+
+#line 189 "candidate.cpp"
+
+/* Kit gap: FString::Printf (VarArgs.h). VARARG_DECL makes typed overloads that forward to the variadic
+ * implementation (00637b60); the (FLOAT, FLOAT) instance is out of line here (0084a140). */
+struct FString_ : public FString
+{
+	static FString Printf(const TCHAR* Fmt, FLOAT V1, FLOAT V2);
+};
+
+// @baa 0x00c5ea60
+/* The editor slider label: the aim as "X,Y". */
+FString UAnimNodeSequenceBlendByAim::GetSliderDrawValue(INT SliderIndex)
+{
+#line 2023 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimPlay.cpp"
+	check(SliderIndex == 0);
+	return FString_::Printf(TEXT("%0.2f,%0.2f"), Aim.X, Aim.Y);
+}
+
+#line 207 "candidate.cpp"
+
+/* Kit gap: FString::Printf (VarArgs.h). VARARG_DECL makes typed overloads that forward to the variadic
+ * implementation (00637b60); the instances used here are out of line (0084a140 for (FLOAT, FLOAT), 00604700 for
+ * no arguments). */
+struct FString__00c5e240 : public FString
+{
+	static FString Printf(const TCHAR* Fmt);
+	static FString Printf(const TCHAR* Fmt, FLOAT V1, FLOAT V2);
+};
+
+// @baa 0x00c5e240
+/* The editor slider label: the playback position as a percentage and in seconds. */
+FString UAnimNodeSequence::GetSliderDrawValue(INT SliderIndex)
+{
+#line 102 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimPlay.cpp"
+	check(0 == SliderIndex);
+
+	if (AnimSeq != NULL && AnimSeq->SequenceLength != 0.f)
+	{
+		return FString__00c5e240::Printf(TEXT("Pos: %3.2f%%, Time: %3.2fs"), CurrentTime / AnimSeq->SequenceLength * 100.f, CurrentTime);
+	}
+	return FString__00c5e240::Printf(TEXT("N/A"));
+}
+
+#line 232 "candidate.cpp"
+
+// @baa 0x00c4fea0
+/* Stops playback, and stops and releases any camera anim this node started. */
+void UAnimNodeSequence::StopAnim()
+{
+	bPlaying = FALSE;
+
+	if (ActiveCameraAnimInstance != NULL)
+	{
+		ActiveCameraAnimInstance->sub_007880c0(TRUE);		/* Stop(bImmediate) */
+		ActiveCameraAnimInstance->bAutoReleaseWhenFinished = TRUE;
+		ActiveCameraAnimInstance = NULL;
+	}
 }
