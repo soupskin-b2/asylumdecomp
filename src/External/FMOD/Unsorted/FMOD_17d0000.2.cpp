@@ -1,4 +1,4 @@
-// FMOD_17d0000.cpp (part 2 of 2): 3 functions
+// FMOD_17d0000.cpp (part 2 of 2): 4 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -57,4 +57,17 @@ struct EventGroupI_
 void EventGroupI_::sub_017dac70(Sub017d93d0* Obj, int A, int B)
 {
 	Obj->sub_017d93d0(A, B, 0);
+}
+
+struct C
+{
+    UINT Value;
+
+    INT sub_017db410();
+};
+
+// @baa 0x017db410
+INT C::sub_017db410()
+{
+    return (UINT)(Value - 8) > 0;
 }

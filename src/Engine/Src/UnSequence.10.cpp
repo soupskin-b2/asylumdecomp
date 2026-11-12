@@ -1,4 +1,4 @@
-// UnSequence.cpp (part 10 of 10): 11 functions
+// UnSequence.cpp (part 10 of 10): 15 functions
 // Placed here by: neighbours 6.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -105,4 +105,135 @@ void USeqCond_CompareFloat_::Activated()
 	{
 		OutputLinks(4).bHasImpulse = TRUE;
 	}
+}
+
+struct USeqCond_CompareInt_ : public USeqCond_CompareInt
+{
+    void Activated();
+};
+
+// @baa 0x008e74a0
+void USeqCond_CompareInt_::Activated()
+{
+    // compare the values and set the appropriate output impulses
+    if (ValueA <= ValueB)
+    {
+        OutputLinks(0).bHasImpulse = TRUE;
+    }
+    if (ValueA > ValueB)
+    {
+        OutputLinks(1).bHasImpulse = TRUE;
+    }
+    if (ValueA == ValueB)
+    {
+        OutputLinks(2).bHasImpulse = TRUE;
+    }
+    if (ValueA < ValueB)
+    {
+        OutputLinks(3).bHasImpulse = TRUE;
+    }
+    if (ValueA >= ValueB)
+    {
+        OutputLinks(4).bHasImpulse = TRUE;
+    }
+}
+
+struct USeqCond_Increment_ : public USeqCond_Increment
+{
+    void Activated();
+};
+
+// @baa 0x008e77f0
+void USeqCond_Increment_::Activated()
+{
+    ValueA += IncrementAmount;
+
+    // compare the values and set the appropriate output impulses
+    if (ValueA <= ValueB)
+    {
+        OutputLinks(0).bHasImpulse = TRUE;
+    }
+    if (ValueA > ValueB)
+    {
+        OutputLinks(1).bHasImpulse = TRUE;
+    }
+    if (ValueA == ValueB)
+    {
+        OutputLinks(2).bHasImpulse = TRUE;
+    }
+    if (ValueA < ValueB)
+    {
+        OutputLinks(3).bHasImpulse = TRUE;
+    }
+    if (ValueA >= ValueB)
+    {
+        OutputLinks(4).bHasImpulse = TRUE;
+    }
+}
+
+struct USeqCond_IncrementFloat_ : public USeqCond_IncrementFloat
+{
+    void Activated();
+};
+
+// @baa 0x008e79f0
+void USeqCond_IncrementFloat_::Activated()
+{
+    ValueA += IncrementAmount;
+
+    // compare the values and set the appropriate output impulses
+    if (ValueA <= ValueB)
+    {
+        OutputLinks(0).bHasImpulse = TRUE;
+    }
+    if (ValueA > ValueB)
+    {
+        OutputLinks(1).bHasImpulse = TRUE;
+    }
+    if (ValueA == ValueB)
+    {
+        OutputLinks(2).bHasImpulse = TRUE;
+    }
+    if (ValueA < ValueB)
+    {
+        OutputLinks(3).bHasImpulse = TRUE;
+    }
+    if (ValueA >= ValueB)
+    {
+        OutputLinks(4).bHasImpulse = TRUE;
+    }
+}
+
+#define RF_PendingKill ((QWORD)0x2000000000000000ULL)
+/* UObject::MarkPendingKill (inline in UE3's UnObjBas.h; not in Classes.h). */
+static inline void MarkPendingKill(UObject* Object)
+{
+    *(QWORD*)&Object->ObjectFlags |= RF_PendingKill;
+}
+
+struct USequence_ : public USequence
+{
+    void MarkSequencePendingKill();
+};
+
+// @baa 0x008be500
+void USequence_::MarkSequencePendingKill()
+{
+    MarkPendingKill(this);
+
+    for (INT Idx = 0; Idx < SequenceObjects.Num(); Idx++)
+    {
+        if (SequenceObjects(Idx) != NULL)
+        {
+            MarkPendingKill(SequenceObjects(Idx));
+        }
+    }
+
+    for (INT Idx = 0; Idx < NestedSequences.Num(); Idx++)
+    {
+        if (NestedSequences(Idx) != NULL)
+        {
+            ((USequence_*)NestedSequences(Idx))->MarkSequencePendingKill();
+        }
+    }
 }

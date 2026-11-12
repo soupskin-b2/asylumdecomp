@@ -1,4 +1,4 @@
-// UnrealEd_1270000.cpp (part 8 of 8): 6 functions
+// UnrealEd_1270000.cpp (part 8 of 8): 7 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -118,4 +118,16 @@ void C_01277870::sub_01277870()
 {
     if (Object)
         Object->sub_012ffa60();
+}
+
+struct Sub_01278130
+{
+    void sub_00f76cd0(INT Value);
+};
+
+extern Sub_01278130* g_026d4dfc;
+// @baa 0x01278130
+void sub_01278130()
+{
+    g_026d4dfc->sub_00f76cd0(1);
 }

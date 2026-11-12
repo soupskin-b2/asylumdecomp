@@ -1,4 +1,4 @@
-// UnUIObjects.cpp (part 15 of 17): 14 functions
+// UnUIObjects.cpp (part 15 of 17): 15 functions
 // Placed here by: class 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -131,4 +131,15 @@ C_00da7360* C_00da7360::sub_00da7360(INT)
 {
     sub_00dde720();
     return this;
+}
+
+// @baa 0x00daa430
+void UUIObject::RequestPrimitiveReview(UBOOL bReinitializePrimitives, UBOOL bReviewPrimitiveUsage)
+{
+	UUIObject* Scene = (UUIObject*)GetScene();
+	if (Scene != 0)
+	{
+		Scene->RequestPrimitiveReview(bReinitializePrimitives, bReviewPrimitiveUsage);
+		return;
+	}
 }

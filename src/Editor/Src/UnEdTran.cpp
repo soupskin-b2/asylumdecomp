@@ -1,4 +1,4 @@
-// UnEdTran.cpp: 71 functions
+// UnEdTran.cpp: 72 functions
 // Placed here by: neighbours 58, class 9, callers 2, file 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -801,4 +801,23 @@ undefined4 * UTransBuffer::sub_012db720(undefined4 param_2)
   ((C_view *)(this))->sub_00f9d050(param_2);
   *param_1 = (undefined4)(&g_022322e8);
   return param_1;
+}
+
+struct C_00f79c20
+{
+    char pad_0[0x1c];
+    INT Value_1c;
+    INT Value_20;
+    INT Value_24;
+
+    C_00f79c20* sub_00f79c20();
+};
+
+// @baa 0x00f79c20
+C_00f79c20* C_00f79c20::sub_00f79c20()
+{
+    Value_1c = 0;
+    Value_20 = 0;
+    Value_24 = 0;
+    return this;
 }

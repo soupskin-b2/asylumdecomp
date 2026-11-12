@@ -1,9 +1,9 @@
 {
  "note": "Maintained by CI (tools/ci); every file is checked by python tools/asylum unit-check.",
  "totals": {
-  "units": 1432,
-  "files": 3930,
-  "functions": 98003,
+  "units": 1433,
+  "files": 3952,
+  "functions": 98206,
   "failed": 0
  },
  "units": [
@@ -10512,6 +10512,11 @@
      "va": "016ae990",
      "size": 87,
      "symbol": "?sub_016ae990@URCapeComponent_@@QAEXXZ"
+    },
+    {
+     "va": "016adba0",
+     "size": 14,
+     "symbol": "?sub_016adba0@C_016adba0@@QAEXM@Z"
     }
    ]
   },
@@ -15225,6 +15230,11 @@
      "va": "01719070",
      "size": 13,
      "symbol": "?sub_01719070@@YGXE@Z"
+    },
+    {
+     "va": "016d27b0",
+     "size": 14,
+     "symbol": "?sub_016d27b0@C_016d27b0@@QAEXXZ"
     }
    ]
   },
@@ -28973,6 +28983,11 @@
      "va": "015cfa00",
      "size": 21,
      "symbol": "?sub_015cfa00@@YAXII@Z"
+    },
+    {
+     "va": "015c3590",
+     "size": 14,
+     "symbol": "?sub_015c3590@C_015c3590@@QAEPAU1@H@Z"
     }
    ]
   },
@@ -45852,6 +45867,11 @@
      "va": "016d1640",
      "size": 24,
      "symbol": "?sub_016d1640@ARCrowdAttractor_@@QAEXPAMHH@Z"
+    },
+    {
+     "va": "016db4b0",
+     "size": 14,
+     "symbol": "?sub_016db4b0@C@@QAEPAU1@XZ"
     }
    ]
   },
@@ -57620,6 +57640,11 @@
      "va": "0153f270",
      "size": 87,
      "symbol": "?sub_0153f270@C_0153f270@@QAEHPAI@Z"
+    },
+    {
+     "va": "0153ee10",
+     "size": 14,
+     "symbol": "?sub_0153ee10@C_0153ee10@@QAE_NH@Z"
     }
    ]
   },
@@ -108466,6 +108491,36 @@
      "va": "00ec6d00",
      "size": 14,
      "symbol": "?sub_00ec6d00@C_00ec6d00@@QAEPAU1@PAH@Z"
+    },
+    {
+     "va": "00ec6d20",
+     "size": 14,
+     "symbol": "?sub_00ec6d20@C_00ec6d20@@QAEPAU1@PAH@Z"
+    },
+    {
+     "va": "00ec6d30",
+     "size": 14,
+     "symbol": "?sub_00ec6d30@C_00ec6d30@@QAEXH@Z"
+    },
+    {
+     "va": "00ec6d80",
+     "size": 14,
+     "symbol": "?sub_00ec6d80@C_00ec6d80@@QAEPAU1@PAH@Z"
+    },
+    {
+     "va": "00ec6dc0",
+     "size": 14,
+     "symbol": "?sub_00ec6dc0@C_00ec6dc0@@QAEXH@Z"
+    },
+    {
+     "va": "00ec6dd0",
+     "size": 14,
+     "symbol": "?sub_00ec6dd0@C_00ec6dd0@@QAEPAU1@PAH@Z"
+    },
+    {
+     "va": "00ec76c0",
+     "size": 14,
+     "symbol": "?sub_00ec76c0@C_00ec76c0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -113757,6 +113812,16 @@
      "va": "00eedac0",
      "size": 42,
      "symbol": "?sub_00eedac0@FMArray@@QAEAAHI@Z"
+    },
+    {
+     "va": "00eece30",
+     "size": 14,
+     "symbol": "?sub_00eece30@C@@QAEPAU1@PAH@Z"
+    },
+    {
+     "va": "00eee270",
+     "size": 14,
+     "symbol": "?sub_00eee270@C_00eee270@@QAEPAU1@PAH@Z"
     }
    ]
   },
@@ -119489,6 +119554,11 @@
      "va": "012db720",
      "size": 25,
      "symbol": "?sub_012db720@UTransBuffer@@QAEPAII@Z"
+    },
+    {
+     "va": "00f79c20",
+     "size": 14,
+     "symbol": "?sub_00f79c20@C_00f79c20@@QAEPAU1@XZ"
     }
    ]
   },
@@ -128172,6 +128242,11 @@
      "va": "010027f0",
      "size": 188,
      "symbol": "?GetPrivateStaticClassUTerrainLayerSetupFactoryNew@UTerrainLayerSetupFactoryNew@@SAPAUUClass@@PB_W@Z"
+    },
+    {
+     "va": "00ffe1c0",
+     "size": 14,
+     "symbol": "?sub_00ffe1c0@C_00ffe1c0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -133176,6 +133251,11 @@
      "va": "00ec6730",
      "size": 24,
      "symbol": "?sub_00ec6730@@YAPAUF16Floats@@PAU1@PBM@Z"
+    },
+    {
+     "va": "00ecc800",
+     "size": 14,
+     "symbol": "?sub_00ecc800@C@@QAEPAU1@XZ"
     }
    ]
   },
@@ -139986,6 +140066,11 @@
      "va": "00f9f1c0",
      "size": 24,
      "symbol": "?sub_00f9f1c0@@YGXPAX@Z"
+    },
+    {
+     "va": "00f9f240",
+     "size": 14,
+     "symbol": "?sub_00f9f240@C_00f9f240@@QAEXM@Z"
     }
    ]
   },
@@ -174742,6 +174827,47 @@
   },
   {
    "unit": "Engine/Src/UnAnimTree.cpp",
+   "source": "Engine/Src/UnAnimTree.13.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "00c55810",
+     "size": 152,
+     "symbol": "?FindSkelControl@UAnimTree_@@QAEPAUUSkelControlBase@@UFName@@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Src/UnAnimTree.cpp",
+   "source": "Engine/Src/UnAnimTree.14.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "00c7f120",
+     "size": 139,
+     "symbol": "?PlayCustomAnimByDuration@UAnimNodeSlot_@@QAEXUFName@@MMMHH@Z"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Src/UnAnimTree.cpp",
+   "source": "Engine/Src/UnAnimTree.15.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "00c50850",
+     "size": 163,
+     "symbol": "?AddUniqueItem@FAnimSeqArray@@QAEHABQAUUAnimNodeSequence@@@Z"
+    },
+    {
+     "va": "00c50b30",
+     "size": 163,
+     "symbol": "?AddUniqueItem@FSkelControlArray@@QAEHABQAUUSkelControlBase@@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Src/UnAnimTree.cpp",
    "source": "Engine/Src/UnAnimTree.2.cpp",
    "profile": "ue3",
    "functions": [
@@ -176155,6 +176281,56 @@
      "va": "00c533f0",
      "size": 292,
      "symbol": "?SetChildrenTotalWeightAccumulator@UAnimNodeBlendBase_@@QAEXH@Z"
+    },
+    {
+     "va": "00c4b6d0",
+     "size": 326,
+     "symbol": "?PostEditChange@UAnimTree_@@QAEXPAUUProperty@@@Z"
+    },
+    {
+     "va": "00c556d0",
+     "size": 136,
+     "symbol": "?GetGroupIndex@UAnimTree__00c556d0@@QAEHUFName@@@Z"
+    },
+    {
+     "va": "00c56530",
+     "size": 190,
+     "symbol": "?GetMasterNodeOfSynchGroup@UAnimNodeSynch_@@QAEPAUUAnimNodeSequence@@UFName@@@Z"
+    },
+    {
+     "va": "00c565f0",
+     "size": 194,
+     "symbol": "?SetGroupRateScale@UAnimNodeSynch__00c565f0@@QAEXUFName@@M@Z"
+    },
+    {
+     "va": "00c7dfd0",
+     "size": 161,
+     "symbol": "?TickAnim@UAnimNodeCrossfader_@@QAEXMM@Z"
+    },
+    {
+     "va": "00c53c40",
+     "size": 204,
+     "symbol": "?GetChildWeightTotal@UAnimNodeBlendBase__00c53c40@@QAEMXZ"
+    },
+    {
+     "va": "00c566c0",
+     "size": 160,
+     "symbol": "?UpdateMasterNodeForGroup@UAnimNodeSynch__00c566c0@@QAEXAAUFSynchGroup@@@Z"
+    },
+    {
+     "va": "00c6c770",
+     "size": 177,
+     "symbol": "?GetCachedResults@UAnimNode_@@QAEHAAV?$TArray@UFBoneAtom@@@@AAUFBoneAtom@@AAH@Z"
+    },
+    {
+     "va": "00c5ecc0",
+     "size": 180,
+     "symbol": "?GetBoneAtoms@UAnimNode__00c5ecc0@@QAEXAAV?$TArray@UFBoneAtom@@@@ABV?$TArray@E@@AAUFBoneAtom@@AAH@Z"
+    },
+    {
+     "va": "00c560b0",
+     "size": 131,
+     "symbol": "?ContainsBone@UAnimNodeAimOffset_@@QAEHABUFName@@@Z"
     }
    ]
   },
@@ -183737,6 +183913,23 @@
   },
   {
    "unit": "Engine/Src/UnInterpolation.cpp",
+   "source": "Engine/Src/UnInterpolation.10.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "00cf3830",
+     "size": 200,
+     "symbol": "?sub_00cf3830@USeqAct_Interp_@@QAEPAUUInterpGroupInst@@UFName@@@Z"
+    },
+    {
+     "va": "00cf36a0",
+     "size": 206,
+     "symbol": "?sub_00cf36a0@USeqAct_Interp__00cf36a0@@QAEPAUUInterpGroupInst@@PAUAActor@@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Src/UnInterpolation.cpp",
    "source": "Engine/Src/UnInterpolation.2.cpp",
    "profile": "ue3",
    "functions": [
@@ -190771,6 +190964,18 @@
   },
   {
    "unit": "Engine/Src/UnParticleComponents.cpp",
+   "source": "Engine/Src/UnParticleComponents.10.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "00b5e7a0",
+     "size": 474,
+     "symbol": "?SetMaterialParameter@UParticleSystemComponent@@QAEXUFName@@PAUUMaterialInterface@@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Src/UnParticleComponents.cpp",
    "source": "Engine/Src/UnParticleComponents.2.cpp",
    "profile": "ue3",
    "functions": [
@@ -190972,6 +191177,11 @@
      "va": "00b586a0",
      "size": 24,
      "symbol": "?sub_00b586a0@C_00b586a0@@QAEHXZ"
+    },
+    {
+     "va": "00b648d0",
+     "size": 207,
+     "symbol": "?ClearParameter@UParticleSystemComponent@@QAEXUFName@@E@Z"
     }
    ]
   },
@@ -191114,6 +191324,54 @@
      "va": "00c9dcd0",
      "size": 147,
      "symbol": "?execSetColorParameter@UParticleSystemComponent__00c9dcd0@@QAEXAAUFFrame@@QAX@Z"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Src/UnParticleComponents.cpp",
+   "source": "Engine/Src/UnParticleComponents.6.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "00b5de50",
+     "size": 366,
+     "symbol": "?SetFloatParameter@UParticleSystemComponent@@QAEXUFName@@M@Z"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Src/UnParticleComponents.cpp",
+   "source": "Engine/Src/UnParticleComponents.7.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "00b5dfc0",
+     "size": 388,
+     "symbol": "?SetVectorParameter@UParticleSystemComponent@@QAEXUFName@@UFVector@@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Src/UnParticleComponents.cpp",
+   "source": "Engine/Src/UnParticleComponents.8.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "00b5e4c0",
+     "size": 358,
+     "symbol": "?SetColorParameter@UParticleSystemComponent@@QAEXUFName@@UFColor@@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Src/UnParticleComponents.cpp",
+   "source": "Engine/Src/UnParticleComponents.9.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "00b5e630",
+     "size": 358,
+     "symbol": "?SetActorParameter@UParticleSystemComponent@@QAEXUFName@@PAUAActor@@@Z"
     }
    ]
   },
@@ -197491,6 +197749,41 @@
      "va": "00a04940",
      "size": 13,
      "symbol": "?sub_00a04940@C_00a04940@@QAEHXZ"
+    },
+    {
+     "va": "00a0bb00",
+     "size": 235,
+     "symbol": "?SetFullAnimWeightBonesFixed@UPhysicsAssetInstance@@QAEXHPAUUSkeletalMeshComponent@@@Z"
+    },
+    {
+     "va": "00a0b500",
+     "size": 264,
+     "symbol": "?SetGroupBodiesFixed@UPhysicsAssetInstance@@QAEXHUFName@@PAUUSkeletalMeshComponent@@H@Z"
+    },
+    {
+     "va": "00a23220",
+     "size": 301,
+     "symbol": "?SetAllMotorsAngularPositionDrive@UPhysicsAssetInstance@@QAEXHHPAUUSkeletalMeshComponent@@H@Z"
+    },
+    {
+     "va": "00a234a0",
+     "size": 353,
+     "symbol": "?SetAllMotorsAngularDriveParams@UPhysicsAssetInstance@@QAEXMMMPAUUSkeletalMeshComponent@@H@Z"
+    },
+    {
+     "va": "00a0b190",
+     "size": 233,
+     "symbol": "?SetLinearDriveScale@UPhysicsAssetInstance@@QAEXMMM@Z"
+    },
+    {
+     "va": "00a0b280",
+     "size": 242,
+     "symbol": "?SetAngularDriveScale@UPhysicsAssetInstance@@QAEXMMM@Z"
+    },
+    {
+     "va": "00a0b3e0",
+     "size": 279,
+     "symbol": "?SetNamedBodiesFixed@UPhysicsAssetInstance@@QAEXHABV?$TArray@UFName@@@@PAUUSkeletalMeshComponent@@HH@Z"
     }
    ]
   },
@@ -200687,6 +200980,26 @@
      "va": "008e7290",
      "size": 339,
      "symbol": "?Activated@USeqCond_CompareFloat_@@QAEXXZ"
+    },
+    {
+     "va": "008e74a0",
+     "size": 320,
+     "symbol": "?Activated@USeqCond_CompareInt_@@QAEXXZ"
+    },
+    {
+     "va": "008e77f0",
+     "size": 332,
+     "symbol": "?Activated@USeqCond_Increment_@@QAEXXZ"
+    },
+    {
+     "va": "008e79f0",
+     "size": 359,
+     "symbol": "?Activated@USeqCond_IncrementFloat_@@QAEXXZ"
+    },
+    {
+     "va": "008be500",
+     "size": 339,
+     "symbol": "?MarkSequencePendingKill@USequence_@@QAEXXZ"
     }
    ]
   },
@@ -200827,6 +201140,30 @@
      "va": "008be740",
      "size": 345,
      "symbol": "?CheckActivate@USeqEvent_Touch_@@QAEHPAUAActor@@0HPAV?$TArray@H@@H@Z"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Src/UnSequence.cpp",
+   "source": "Engine/Src/UnSequence.16.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "008e2de0",
+     "size": 418,
+     "symbol": "?Activated@USeqAct_Gate_@@QAEXXZ"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Src/UnSequence.cpp",
+   "source": "Engine/Src/UnSequence.17.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "008fe500",
+     "size": 368,
+     "symbol": "?FindLinksToSeqOp@USequence_@@QAEXPAUUSequenceOp@@AAV?$TArray@PAUFSeqOpOutputLink@@@@@Z"
     }
    ]
   },
@@ -210608,6 +210945,18 @@
   },
   {
    "unit": "Engine/Src/UnSkeletalComponent.cpp",
+   "source": "Engine/Src/UnSkeletalComponent.7.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "0092d740",
+     "size": 328,
+     "symbol": "?GetTimeOfScriptNotifyInAnimSequence@USkeletalMeshComponent_@@QAEMPAUUAnimSequence@@UFName@@H@Z"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Src/UnSkeletalComponent.cpp",
    "source": "Engine/Src/UnSkeletalComponent.cpp",
    "profile": "ue3",
    "functions": [
@@ -210950,6 +211299,21 @@
      "va": "0090a320",
      "size": 24,
      "symbol": "?sub_0090a320@USkeletalComponent_0090a320@@QAEXPBM@Z"
+    },
+    {
+     "va": "0091f3f0",
+     "size": 232,
+     "symbol": "?FindBodyInstanceNamed@USkeletalMeshComponent_@@QAEPAUURB_BodyInstance@@UFName@@@Z"
+    },
+    {
+     "va": "0092d890",
+     "size": 286,
+     "symbol": "?GetTimeOfScriptNotify@USkeletalMeshComponent__0092d890@@QAEMUFName@@H@Z"
+    },
+    {
+     "va": "00921dc0",
+     "size": 253,
+     "symbol": "?RemoveAdjacentDuplicates@@YAHV?$TArray@E@@@Z"
     }
    ]
   },
@@ -219113,6 +219477,11 @@
      "va": "00da7360",
      "size": 14,
      "symbol": "?sub_00da7360@C_00da7360@@QAEPAU1@H@Z"
+    },
+    {
+     "va": "00daa430",
+     "size": 29,
+     "symbol": "?RequestPrimitiveReview@UUIObject@@UAEXHH@Z"
     }
    ]
   },
@@ -229082,6 +229451,18 @@
      "va": "009b45b0",
      "size": 24,
      "symbol": "?sub_009b45b0@sub_009b45b0_struct@@QAEPAU1@H@Z"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Src/UnWorld.cpp",
+   "source": "Engine/Src/UnWorld.8.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "009b6cc0",
+     "size": 226,
+     "symbol": "?RemoveSwap@?$TArraySwap@PAUUObject@@@@QAEXHH@Z"
     }
    ]
   },
@@ -239297,6 +239678,11 @@
      "va": "00663630",
      "size": 29,
      "symbol": "?CheckMaterialUsage@UMaterialInterface@@UAEHH@Z"
+    },
+    {
+     "va": "006636b0",
+     "size": 29,
+     "symbol": "?GetStaticComponentMaskParameterValue@UMaterialInterface@@UAEHHHHHHHH@Z"
     }
    ]
   },
@@ -335941,6 +336327,11 @@
      "va": "01482580",
      "size": 36,
      "symbol": "?sub_01482580@C_01482580@@QAEPAIPAI@Z"
+    },
+    {
+     "va": "01481830",
+     "size": 14,
+     "symbol": "?sub_01481830@C_01481830@@QAEPAU1@XZ"
     }
    ]
   },
@@ -336815,6 +337206,18 @@
      "va": "01a29a00",
      "size": 9,
      "symbol": "?sub_01a29a00@C@@QAEXXZ"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Unsorted/Engine_1a20000.cpp",
+   "source": "Engine/Unsorted/Engine_1a20000.5.cpp",
+   "profile": "ue3_x87_gsoff",
+   "functions": [
+    {
+     "va": "01a296b0",
+     "size": 24,
+     "symbol": "?sub_01a296b0@@YGXPAUS01a296b0@@H@Z"
     }
    ]
   },
@@ -344220,6 +344623,36 @@
      "va": "018ce3c0",
      "size": 47,
      "symbol": "?sub_018ce3c0@@YAPAXPAX00@Z"
+    },
+    {
+     "va": "018c8790",
+     "size": 14,
+     "symbol": "?sub_018c8790@C@@QAEPAXXZ"
+    },
+    {
+     "va": "018c8c00",
+     "size": 14,
+     "symbol": "?sub_018c8c00@@YGXHH@Z"
+    },
+    {
+     "va": "018c8c80",
+     "size": 14,
+     "symbol": "?sub_018c8c80@@YGXHH@Z"
+    },
+    {
+     "va": "018c8ca0",
+     "size": 14,
+     "symbol": "?sub_018c8ca0@@YGXHH@Z"
+    },
+    {
+     "va": "018c8d80",
+     "size": 14,
+     "symbol": "?sub_018c8d80@@YGXHH@Z"
+    },
+    {
+     "va": "018c97e0",
+     "size": 14,
+     "symbol": "?sub_018c97e0@C_018c97e0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -344716,6 +345149,21 @@
      "va": "018bb080",
      "size": 8,
      "symbol": "?sub_018bb080@C_018bb080@@QAEXXZ"
+    },
+    {
+     "va": "018babb0",
+     "size": 14,
+     "symbol": "?sub_018babb0@C_018babb0@@QAEPAU1@PAM@Z"
+    },
+    {
+     "va": "018babc0",
+     "size": 14,
+     "symbol": "?sub_018babc0@C_018babc0@@QAEPAU1@PAM@Z"
+    },
+    {
+     "va": "018babd0",
+     "size": 14,
+     "symbol": "?sub_018babd0@C_018babd0@@QAEXM@Z"
     }
    ]
   },
@@ -344913,6 +345361,16 @@
      "va": "018abe00",
      "size": 11,
      "symbol": "?sub_018abe00@C_018abe00@@QAEPAHPAH@Z"
+    },
+    {
+     "va": "018abc90",
+     "size": 14,
+     "symbol": "?sub_018abc90@C_018abc90@@QAEPAU1@PAH@Z"
+    },
+    {
+     "va": "018abca0",
+     "size": 14,
+     "symbol": "?sub_018abca0@C_018abca0@@QAEXH@Z"
     }
    ]
   },
@@ -345976,6 +346434,11 @@
      "va": "0188f600",
      "size": 13,
      "symbol": "?sub_0188f600@C@@QAEPAU1@XZ"
+    },
+    {
+     "va": "018bfd50",
+     "size": 14,
+     "symbol": "?sub_018bfd50@C_018bfd50@@QAEPAU1@PAH@Z"
     }
    ]
   },
@@ -346564,6 +347027,16 @@
      "va": "018705f0",
      "size": 12,
      "symbol": "?sub_018705f0@C@@QAEXXZ"
+    },
+    {
+     "va": "018705e0",
+     "size": 14,
+     "symbol": "?sub_018705e0@C_018705e0@@QAEPAU1@PAH@Z"
+    },
+    {
+     "va": "018706f0",
+     "size": 14,
+     "symbol": "?sub_018706f0@C_018706f0@@QAEPAU1@PAH@Z"
     }
    ]
   },
@@ -346860,6 +347333,11 @@
      "va": "018481c0",
      "size": 16,
      "symbol": "?sub_018481c0@S@@QAEPAU1@XZ"
+    },
+    {
+     "va": "01848200",
+     "size": 14,
+     "symbol": "?sub_01848200@C@@QAEPAU1@PAH@Z"
     }
    ]
   },
@@ -347003,6 +347481,18 @@
      "va": "01846cf0",
      "size": 30,
      "symbol": "?sub_01846cf0@C@@QAEIXZ"
+    }
+   ]
+  },
+  {
+   "unit": "External/FCollada/FCollada/FCDocument/FCDObjectWithId.cpp",
+   "source": "External/FCollada/FCollada/FCDocument/FCDObjectWithId.2.cpp",
+   "profile": "ue3_x87_gsoff",
+   "functions": [
+    {
+     "va": "018358b0",
+     "size": 14,
+     "symbol": "?sub_018358b0@C@@QAEHXZ"
     }
    ]
   },
@@ -348564,6 +349054,18 @@
   },
   {
    "unit": "External/FCollada/FCollada/FUtils/FUUri.cpp",
+   "source": "External/FCollada/FCollada/FUtils/FUUri.3.cpp",
+   "profile": "ue3_x87_gsoff",
+   "functions": [
+    {
+     "va": "01856e80",
+     "size": 14,
+     "symbol": "?sub_01856e80@@YAHH@Z"
+    }
+   ]
+  },
+  {
+   "unit": "External/FCollada/FCollada/FUtils/FUUri.cpp",
    "source": "External/FCollada/FCollada/FUtils/FUUri.cpp",
    "profile": "ue3",
    "functions": [
@@ -349480,6 +349982,11 @@
      "va": "00ed03f0",
      "size": 54,
      "symbol": "?sub_00ed03f0@C_00ed03f0@@QAEXH@Z"
+    },
+    {
+     "va": "00ed0250",
+     "size": 14,
+     "symbol": "?sub_00ed0250@C_00ed0250@@QAEPAU1@XZ"
     }
    ]
   },
@@ -352101,6 +352608,26 @@
      "va": "01824fc0",
      "size": 13,
      "symbol": "?sub_01824fc0@C@@QAEPAU1@PAH@Z"
+    },
+    {
+     "va": "018250e0",
+     "size": 14,
+     "symbol": "?sub_018250e0@C_018250e0@@QAEPAU1@PAH@Z"
+    },
+    {
+     "va": "0182ad20",
+     "size": 14,
+     "symbol": "?sub_0182ad20@@YAHH@Z"
+    },
+    {
+     "va": "0182ad30",
+     "size": 14,
+     "symbol": "?sub_0182ad30@@YAHH@Z"
+    },
+    {
+     "va": "0182b400",
+     "size": 14,
+     "symbol": "?sub_0182b400@@YAHH@Z"
     }
    ]
   },
@@ -354587,6 +355114,21 @@
      "va": "0184e250",
      "size": 24,
      "symbol": "?sub_0184e250@FCDocument@@UAEXXZ"
+    },
+    {
+     "va": "01841c40",
+     "size": 14,
+     "symbol": "?sub_01841c40@C@@QAEPAU1@PAH@Z"
+    },
+    {
+     "va": "018430d0",
+     "size": 14,
+     "symbol": "?sub_018430d0@C_018430d0@@QAEHXZ"
+    },
+    {
+     "va": "0184a9e0",
+     "size": 14,
+     "symbol": "?sub_0184a9e0@C_0184a9e0@@QAE_NXZ"
     }
    ]
   },
@@ -355817,6 +356359,36 @@
      "va": "018588e0",
      "size": 13,
      "symbol": "?sub_018588e0@C_018588e0@@QAEPAU1@PAH@Z"
+    },
+    {
+     "va": "01851820",
+     "size": 14,
+     "symbol": "?sub_01851820@C_01851820@@QAEPAU1@XZ"
+    },
+    {
+     "va": "0185b040",
+     "size": 14,
+     "symbol": "?sub_0185b040@C_0185b040@@QAEXM@Z"
+    },
+    {
+     "va": "0185b050",
+     "size": 14,
+     "symbol": "?sub_0185b050@C_0185b050@@QAEXM@Z"
+    },
+    {
+     "va": "0185b060",
+     "size": 14,
+     "symbol": "?sub_0185b060@C_0185b060@@QAEXM@Z"
+    },
+    {
+     "va": "0185e600",
+     "size": 14,
+     "symbol": "??0FUTestSuiteFUBoundingTest@@QAE@XZ"
+    },
+    {
+     "va": "0185f940",
+     "size": 14,
+     "symbol": "??0FUTestSuiteFUFileManager@@QAE@XZ"
     }
    ]
   },
@@ -356992,6 +357564,46 @@
      "va": "0186ead0",
      "size": 24,
      "symbol": "?sub_0186ead0@FCDocument@@UAEXXZ"
+    },
+    {
+     "va": "01861d40",
+     "size": 14,
+     "symbol": "??0FUTestSuiteFUString@@QAE@XZ"
+    },
+    {
+     "va": "01863310",
+     "size": 14,
+     "symbol": "??0FUTestSuiteFUEvent@@QAE@XZ"
+    },
+    {
+     "va": "01865260",
+     "size": 14,
+     "symbol": "??0FUTestSuiteFUFunctor@@QAE@XZ"
+    },
+    {
+     "va": "01866230",
+     "size": 14,
+     "symbol": "??0FUTestSuiteFUCrc32@@QAE@XZ"
+    },
+    {
+     "va": "01866930",
+     "size": 14,
+     "symbol": "??0FUTestSuiteFUObject@@QAE@XZ"
+    },
+    {
+     "va": "01868cd0",
+     "size": 14,
+     "symbol": "??0FUTestSuiteFMQuaternion@@QAE@XZ"
+    },
+    {
+     "va": "01869ee0",
+     "size": 14,
+     "symbol": "??0FUTestSuiteFMTree@@QAE@XZ"
+    },
+    {
+     "va": "0186c7a0",
+     "size": 14,
+     "symbol": "??0FUTestSuiteFMArray@@QAE@XZ"
     }
    ]
   },
@@ -357647,6 +358259,56 @@
      "va": "0187a180",
      "size": 24,
      "symbol": "?sub_0187a180@FColladaStringLike_2@@QAEXPBD@Z"
+    },
+    {
+     "va": "01871770",
+     "size": 14,
+     "symbol": "?sub_01871770@C@@QAEPAU1@PAH@Z"
+    },
+    {
+     "va": "018717b0",
+     "size": 14,
+     "symbol": "?sub_018717b0@C_018717b0@@QAEPAU1@PAH@Z"
+    },
+    {
+     "va": "01873230",
+     "size": 14,
+     "symbol": "?sub_01873230@C_01873230@@QAEPAU1@PAH@Z"
+    },
+    {
+     "va": "01874f60",
+     "size": 14,
+     "symbol": "?sub_01874f60@C_01874f60@@QAEPAU1@XZ"
+    },
+    {
+     "va": "0187a110",
+     "size": 14,
+     "symbol": "??0FUTestSuiteFUUniqueStringMap@@QAE@XZ"
+    },
+    {
+     "va": "0187c280",
+     "size": 14,
+     "symbol": "??0FUTestSuiteFUStringConversion@@QAE@XZ"
+    },
+    {
+     "va": "0187c2b0",
+     "size": 14,
+     "symbol": "?sub_0187c2b0@@YAHH@Z"
+    },
+    {
+     "va": "0187cfa0",
+     "size": 14,
+     "symbol": "??0FUTestSuiteFUStringBuilder@@QAE@XZ"
+    },
+    {
+     "va": "0187cfe0",
+     "size": 14,
+     "symbol": "?sub_0187cfe0@C_0187cfe0@@QAEXXZ"
+    },
+    {
+     "va": "0187f360",
+     "size": 14,
+     "symbol": "?sub_0187f360@C_0187f360@@QAEPAU1@XZ"
     }
    ]
   },
@@ -359629,6 +360291,61 @@
      "va": "0188c090",
      "size": 13,
      "symbol": "?sub_0188c090@C_0188c090@@QAEHXZ"
+    },
+    {
+     "va": "018810c0",
+     "size": 14,
+     "symbol": "?sub_018810c0@C_018810c0@@QAEPAU1@PAE@Z"
+    },
+    {
+     "va": "01881150",
+     "size": 14,
+     "symbol": "?sub_01881150@C_01881150@@QAEPAU1@PAH@Z"
+    },
+    {
+     "va": "01881500",
+     "size": 14,
+     "symbol": "?sub_01881500@C_01881500@@QAEPAU1@PAH@Z"
+    },
+    {
+     "va": "01881520",
+     "size": 14,
+     "symbol": "?sub_01881520@C_01881520@@QAEPAU1@PAE@Z"
+    },
+    {
+     "va": "018861c0",
+     "size": 14,
+     "symbol": "?sub_018861c0@C_018861c0@@QAEPAU1@PAM@Z"
+    },
+    {
+     "va": "01886280",
+     "size": 14,
+     "symbol": "?sub_01886280@C_01886280@@QAEPAU1@PAM@Z"
+    },
+    {
+     "va": "01886290",
+     "size": 14,
+     "symbol": "?sub_01886290@C_01886290@@QAEPAU1@PAE@Z"
+    },
+    {
+     "va": "018862a0",
+     "size": 14,
+     "symbol": "?sub_018862a0@C_018862a0@@QAEPAU1@PAE@Z"
+    },
+    {
+     "va": "01889100",
+     "size": 14,
+     "symbol": "?sub_01889100@C_01889100@@QAEPAU1@PAE@Z"
+    },
+    {
+     "va": "0188e730",
+     "size": 14,
+     "symbol": "?sub_0188e730@C_0188e730@@QAEPAU1@PAH@Z"
+    },
+    {
+     "va": "0188ea10",
+     "size": 14,
+     "symbol": "?sub_0188ea10@C_0188ea10@@QAEPAU1@XZ"
     }
    ]
   },
@@ -362423,6 +363140,46 @@
      "va": "018a9d20",
      "size": 24,
      "symbol": "?sub_018a9d20@sub_01828fd0_018a9d20@@QAEPAU1@ABM@Z"
+    },
+    {
+     "va": "018ab210",
+     "size": 14,
+     "symbol": "?sub_018ab210@@YAHH@Z"
+    },
+    {
+     "va": "018ae670",
+     "size": 14,
+     "symbol": "?sub_018ae670@C@@QAEXM@Z"
+    },
+    {
+     "va": "018aec70",
+     "size": 14,
+     "symbol": "?sub_018aec70@C_018aec70@@QAEPAU1@PAM@Z"
+    },
+    {
+     "va": "018aec80",
+     "size": 14,
+     "symbol": "?sub_018aec80@C_018aec80@@QAEPAU1@PAM@Z"
+    },
+    {
+     "va": "018aec90",
+     "size": 14,
+     "symbol": "?sub_018aec90@C_018aec90@@QAEPAU1@PAM@Z"
+    },
+    {
+     "va": "018aeca0",
+     "size": 14,
+     "symbol": "?sub_018aeca0@C_018aeca0@@QAEPAU1@PAM@Z"
+    },
+    {
+     "va": "018aecb0",
+     "size": 14,
+     "symbol": "?sub_018aecb0@C_018aecb0@@QAEPAU1@PAM@Z"
+    },
+    {
+     "va": "018aecc0",
+     "size": 14,
+     "symbol": "?sub_018aecc0@C_018aecc0@@QAEPAU1@PAM@Z"
     }
    ]
   },
@@ -362892,6 +363649,101 @@
      "va": "018b1ba0",
      "size": 12,
      "symbol": "?sub_018b1ba0@C_018b1ba0@@QAEXXZ"
+    },
+    {
+     "va": "018b1bb0",
+     "size": 14,
+     "symbol": "?sub_018b1bb0@C_018b1bb0@@QAEPAU1@PAE@Z"
+    },
+    {
+     "va": "018b1bc0",
+     "size": 14,
+     "symbol": "?sub_018b1bc0@C_018b1bc0@@QAEPAU1@PAE@Z"
+    },
+    {
+     "va": "018b1bd0",
+     "size": 14,
+     "symbol": "?sub_018b1bd0@C_018b1bd0@@QAEPAU1@PAE@Z"
+    },
+    {
+     "va": "018b1c00",
+     "size": 14,
+     "symbol": "?sub_018b1c00@C_018b1c00@@QAEXE@Z"
+    },
+    {
+     "va": "018b1c30",
+     "size": 14,
+     "symbol": "?sub_018b1c30@C_018b1c30@@QAEPAU1@PAH@Z"
+    },
+    {
+     "va": "018b1c70",
+     "size": 14,
+     "symbol": "?sub_018b1c70@C_018b1c70@@QAEPAU1@PAH@Z"
+    },
+    {
+     "va": "018b1c80",
+     "size": 14,
+     "symbol": "?sub_018b1c80@C_018b1c80@@QAEPAU1@PAH@Z"
+    },
+    {
+     "va": "018b1c90",
+     "size": 14,
+     "symbol": "?sub_018b1c90@C_018b1c90@@QAEPAU1@PAH@Z"
+    },
+    {
+     "va": "018b1ca0",
+     "size": 14,
+     "symbol": "?sub_018b1ca0@C_018b1ca0@@QAEPAU1@PAH@Z"
+    },
+    {
+     "va": "018b1cb0",
+     "size": 14,
+     "symbol": "?sub_018b1cb0@C_018b1cb0@@QAEPAU1@PAH@Z"
+    },
+    {
+     "va": "018b1cc0",
+     "size": 14,
+     "symbol": "?sub_018b1cc0@C_018b1cc0@@QAEPAU1@PAH@Z"
+    },
+    {
+     "va": "018b1cd0",
+     "size": 14,
+     "symbol": "?sub_018b1cd0@C_018b1cd0@@QAEXH@Z"
+    },
+    {
+     "va": "018b1ce0",
+     "size": 14,
+     "symbol": "?sub_018b1ce0@C_018b1ce0@@QAEXH@Z"
+    },
+    {
+     "va": "018b1cf0",
+     "size": 14,
+     "symbol": "?sub_018b1cf0@C_018b1cf0@@QAEXH@Z"
+    },
+    {
+     "va": "018b1db0",
+     "size": 14,
+     "symbol": "?sub_018b1db0@C_018b1db0@@QAEPAU1@PAH@Z"
+    },
+    {
+     "va": "018b1dc0",
+     "size": 14,
+     "symbol": "?sub_018b1dc0@C_018b1dc0@@QAEPAU1@PAH@Z"
+    },
+    {
+     "va": "018b1dd0",
+     "size": 14,
+     "symbol": "?sub_018b1dd0@C_018b1dd0@@QAEPAU1@PAH@Z"
+    },
+    {
+     "va": "018b1de0",
+     "size": 14,
+     "symbol": "?sub_018b1de0@C_018b1de0@@QAEXH@Z"
+    },
+    {
+     "va": "018ba350",
+     "size": 14,
+     "symbol": "?sub_018ba350@C_018ba350@@QAEXH@Z"
     }
    ]
   },
@@ -363004,6 +363856,23 @@
      "va": "018be150",
      "size": 5,
      "symbol": "?sub_018be150@@YAXXZ"
+    }
+   ]
+  },
+  {
+   "unit": "External/FCollada/Unsorted/FCollada_18c0000.cpp",
+   "source": "External/FCollada/Unsorted/FCollada_18c0000.2.cpp",
+   "profile": "ue3_x87",
+   "functions": [
+    {
+     "va": "018c15d0",
+     "size": 14,
+     "symbol": "?sub_018c15d0@C@@QAEPAU1@PAM@Z"
+    },
+    {
+     "va": "018c15e0",
+     "size": 14,
+     "symbol": "?sub_018c15e0@C_018c15e0@@QAEPAU1@PAM@Z"
     }
    ]
   },
@@ -367050,6 +367919,11 @@
      "va": "017dac70",
      "size": 24,
      "symbol": "?sub_017dac70@EventGroupI_@@QAEXPAUSub017d93d0@@HH@Z"
+    },
+    {
+     "va": "017db410",
+     "size": 14,
+     "symbol": "?sub_017db410@C@@QAEHXZ"
     }
    ]
   },
@@ -369361,6 +370235,18 @@
   },
   {
    "unit": "External/FMOD/src/fmod_musicengine.cpp",
+   "source": "External/FMOD/src/fmod_musicengine.4.cpp",
+   "profile": "ue3_x87_gsoff",
+   "functions": [
+    {
+     "va": "017fad60",
+     "size": 14,
+     "symbol": "?sub_017fad60@C@@QAEHXZ"
+    }
+   ]
+  },
+  {
+   "unit": "External/FMOD/src/fmod_musicengine.cpp",
    "source": "External/FMOD/src/fmod_musicengine.cpp",
    "profile": "ue3",
    "functions": [
@@ -370001,6 +370887,18 @@
    ]
   },
   {
+   "unit": "External/FMOD/src/fmod_soundi.cpp",
+   "source": "External/FMOD/src/fmod_soundi.cpp",
+   "profile": "ue3_o1",
+   "functions": [
+    {
+     "va": "0177c3f9",
+     "size": 14,
+     "symbol": "?sub_0177c3f9@C@@QAEXH@Z"
+    }
+   ]
+  },
+  {
    "unit": "External/FMOD/src/fmod_systemi.cpp",
    "source": "External/FMOD/src/fmod_systemi.2.cpp",
    "profile": "ue3_o1",
@@ -370413,6 +371311,11 @@
      "va": "0176abc6",
      "size": 24,
      "symbol": "?sub_0176abc6@@YGHPAH@Z"
+    },
+    {
+     "va": "01782f90",
+     "size": 14,
+     "symbol": "?sub_01782f90@C@@QAEHXZ"
     }
    ]
   },
@@ -391056,6 +391959,18 @@
   },
   {
    "unit": "External/GFx/Unsorted/GFx_1980000.cpp",
+   "source": "External/GFx/Unsorted/GFx_1980000.3.cpp",
+   "profile": "ue3_x87",
+   "functions": [
+    {
+     "va": "0198f810",
+     "size": 24,
+     "symbol": "?sub_0198f810@GFxStage_@@QAEPAXXZ"
+    }
+   ]
+  },
+  {
+   "unit": "External/GFx/Unsorted/GFx_1980000.cpp",
    "source": "External/GFx/Unsorted/GFx_1980000.cpp",
    "profile": "ue3_x87",
    "functions": [
@@ -393179,6 +394094,11 @@
      "va": "0199f9e0",
      "size": 8,
      "symbol": "?sub_0199f9e0@C_0199f9e0@@QAEXXZ"
+    },
+    {
+     "va": "01995260",
+     "size": 24,
+     "symbol": "?sub_01995260@GASEnvironment@@QAEEXZ"
     }
    ]
   },
@@ -398169,6 +399089,21 @@
      "va": "019ef6d0",
      "size": 24,
      "symbol": "?sub_019ef6d0@sub_019ef6d0_@@QAEHPAUsub_019729b0_@@@Z"
+    },
+    {
+     "va": "019eab20",
+     "size": 24,
+     "symbol": "?sub_019eab20@@YAXH@Z"
+    },
+    {
+     "va": "019eb9f0",
+     "size": 24,
+     "symbol": "?sub_019eb9f0@GASNumberObject@@QAEXPAXPAUGASNumberValue@@@Z"
+    },
+    {
+     "va": "019ef010",
+     "size": 24,
+     "symbol": "?sub_019ef010@GASBooleanObject@@QAEXPAUFGASAttribute@@0@Z"
     }
    ]
   },
@@ -398887,6 +399822,46 @@
      "va": "019ffa60",
      "size": 69,
      "symbol": "?sub_019ffa60@C_019ffa60@@QAEIII@Z"
+    },
+    {
+     "va": "019f2e00",
+     "size": 24,
+     "symbol": "?sub_019f2e00@C_019f2e00@@QAEPAUC_019729b0@@PAU2@@Z"
+    },
+    {
+     "va": "019f7c90",
+     "size": 24,
+     "symbol": "?sub_019f7c90@Sub_019f7c90@@QAEPAUSub_019729b0@@PAU2@@Z"
+    },
+    {
+     "va": "019f5f70",
+     "size": 24,
+     "symbol": "?sub_019f5f70@C_019f5f70@@QAEPAU1@PAU1@@Z"
+    },
+    {
+     "va": "019f9490",
+     "size": 24,
+     "symbol": "?sub_019f9490@C_019f9490@@QAEHH@Z"
+    },
+    {
+     "va": "019fcce0",
+     "size": 24,
+     "symbol": "?sub_019fcce0@C_019fcce0@@QAEHH@Z"
+    },
+    {
+     "va": "019fdc60",
+     "size": 24,
+     "symbol": "?sub_019fdc60@C_019fdc60@@QAEPAU1@PAU1@@Z"
+    },
+    {
+     "va": "019fe520",
+     "size": 24,
+     "symbol": "?sub_019fe520@GFxVertexInterface_XY32f@@UAEXPBMPAM1@Z"
+    },
+    {
+     "va": "019f6c40",
+     "size": 24,
+     "symbol": "?sub_019f6c40@Vec2_@@QAEPAU1@PBU1@@Z"
     }
    ]
   },
@@ -398954,6 +399929,18 @@
      "va": "019f15f0",
      "size": 24,
      "symbol": "?sub_019f15f0@@YAHPAUSub01975740_@@PAH@Z"
+    }
+   ]
+  },
+  {
+   "unit": "External/GFx/Unsorted/GFx_19f0000.cpp",
+   "source": "External/GFx/Unsorted/GFx_19f0000.4.cpp",
+   "profile": "ue3_x87",
+   "functions": [
+    {
+     "va": "019ff490",
+     "size": 24,
+     "symbol": "?sub_019ff490@@YAXH@Z"
     }
    ]
   },
@@ -399718,6 +400705,11 @@
      "va": "01a0e720",
      "size": 18,
      "symbol": "?sub_01a0e720@@YAXH@Z"
+    },
+    {
+     "va": "01a0e410",
+     "size": 24,
+     "symbol": "?sub_01a0e410_probe@@YAHHH@Z"
     }
    ]
   },
@@ -410038,6 +411030,11 @@
      "va": "0177ab82",
      "size": 23,
      "symbol": "?sub_0177ab82@C_0177ab82@@QAEIPAI@Z"
+    },
+    {
+     "va": "0177369b",
+     "size": 14,
+     "symbol": "?sub_0177369b@C_0177369b@@QAEXH@Z"
     }
    ]
   },
@@ -441883,6 +442880,11 @@
      "va": "01117770",
      "size": 24,
      "symbol": "?sub_01117770@@YGXPAX@Z"
+    },
+    {
+     "va": "01117400",
+     "size": 14,
+     "symbol": "?sub_01117400@C@@QAEXH@Z"
     }
    ]
   },
@@ -447618,6 +448620,16 @@
      "va": "011943c0",
      "size": 13,
      "symbol": "?sub_011943c0@C_011943c0@@QAEHXZ"
+    },
+    {
+     "va": "011900b0",
+     "size": 14,
+     "symbol": "?sub_011900b0@C_011900b0@@QAEXXZ"
+    },
+    {
+     "va": "01277c80",
+     "size": 14,
+     "symbol": "?sub_01277c80@C_01277c80@@QAEXXZ"
     }
    ]
   },
@@ -450655,6 +451667,11 @@
      "va": "0143b540",
      "size": 13,
      "symbol": "?sub_0143b540@@YGXH@Z"
+    },
+    {
+     "va": "0143d880",
+     "size": 14,
+     "symbol": "?sub_0143d880@C_0143d880@@QAEXH@Z"
     }
    ]
   },
@@ -454830,6 +455847,11 @@
      "va": "0124a550",
      "size": 30,
      "symbol": "?sub_0124a550@UUnrealEdEngine@@QAEIE@Z"
+    },
+    {
+     "va": "01220ac0",
+     "size": 14,
+     "symbol": "?sub_01220ac0@C@@QAEXH@Z"
     }
    ]
   },
@@ -455907,6 +456929,23 @@
      "va": "012505e0",
      "size": 83,
      "symbol": "??$Cast@UUPrefab@@@@YAPAUUPrefab@@PAUUObject@@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "UnrealEd/Src/TerrainEditor.cpp",
+   "source": "UnrealEd/Src/TerrainEditor.5.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "012508a0",
+     "size": 27,
+     "symbol": "?GetThumbnailSize@UThumbnailRenderer@@UAEHHHHHH@Z"
+    },
+    {
+     "va": "012506c0",
+     "size": 27,
+     "symbol": "?BuildLabelList@UThumbnailLabelRenderer@@UAEXHHH@Z"
     }
    ]
   },
@@ -460244,6 +461283,11 @@
      "va": "014d3670",
      "size": 24,
      "symbol": "?sub_014d3670@USubWindow_@@QAEXH@Z"
+    },
+    {
+     "va": "014c6cf0",
+     "size": 14,
+     "symbol": "?sub_014c6cf0@C_014c6cf0@@QAEXH@Z"
     }
    ]
   },
@@ -477281,6 +478325,21 @@
      "va": "0111ff50",
      "size": 13,
      "symbol": "?sub_0111ff50@C@@QAEHXZ"
+    },
+    {
+     "va": "011161d0",
+     "size": 14,
+     "symbol": "?sub_011161d0@C_011161d0@@QAEXXZ"
+    },
+    {
+     "va": "01117800",
+     "size": 14,
+     "symbol": "?sub_01117800@@YGXH@Z"
+    },
+    {
+     "va": "01117840",
+     "size": 14,
+     "symbol": "?sub_01117840@@YGXH@Z"
     }
    ]
   },
@@ -477416,6 +478475,11 @@
      "va": "01114fb0",
      "size": 26,
      "symbol": "?sub_01114fb0@C@@QAEPAVwxBitmap@@PAV2@@Z"
+    },
+    {
+     "va": "01117870",
+     "size": 14,
+     "symbol": "?sub_01117870@@YGXH@Z"
     }
    ]
   },
@@ -477592,6 +478656,11 @@
      "va": "0111b010",
      "size": 24,
      "symbol": "?sub_0111b010@V@@QAEMXZ"
+    },
+    {
+     "va": "01117830",
+     "size": 14,
+     "symbol": "?sub_01117830@@YGXH@Z"
     }
    ]
   },
@@ -479623,6 +480692,11 @@
      "va": "0112fd70",
      "size": 14,
      "symbol": "?sub_0112fd70@C_0112fd70@@QAEHXZ"
+    },
+    {
+     "va": "0112bf80",
+     "size": 14,
+     "symbol": "?sub_0112bf80@C_0112bf80@@QAEPAU1@XZ"
     }
    ]
   },
@@ -484463,6 +485537,11 @@
      "va": "0120c9c0",
      "size": 12,
      "symbol": "?sub_0120c9c0@C_0120c9c0@@QAEXXZ"
+    },
+    {
+     "va": "0120b550",
+     "size": 14,
+     "symbol": "?sub_0120b550@@YGXPAUSub@@@Z"
     }
    ]
   },
@@ -486656,6 +487735,11 @@
      "va": "01277870",
      "size": 13,
      "symbol": "?sub_01277870@C_01277870@@QAEXXZ"
+    },
+    {
+     "va": "01278130",
+     "size": 14,
+     "symbol": "?sub_01278130@@YAXXZ"
     }
    ]
   },
@@ -490306,6 +491390,11 @@
      "va": "012f6830",
      "size": 5,
      "symbol": "?sub_012f6830@@YAXXZ"
+    },
+    {
+     "va": "012f6810",
+     "size": 14,
+     "symbol": "?sub_012f6810@C_012f6810@@QAEPAU1@XZ"
     }
    ]
   },
@@ -491036,6 +492125,16 @@
      "va": "0131e8e0",
      "size": 23,
      "symbol": "??ETConstSetBitIterator_0131e8e0@@QAEAAU0@XZ"
+    },
+    {
+     "va": "01310c80",
+     "size": 14,
+     "symbol": "?sub_01310c80@@YAHPAVwxTreeItemId@@@Z"
+    },
+    {
+     "va": "01310ca0",
+     "size": 14,
+     "symbol": "?sub_01310ca0@@YAHPAVwxTreeItemId@@@Z"
     }
    ]
   },
@@ -491267,6 +492366,11 @@
      "va": "01336f10",
      "size": 12,
      "symbol": "?sub_01336f10@C_01336f10@@QAEXXZ"
+    },
+    {
+     "va": "01337490",
+     "size": 14,
+     "symbol": "?sub_01337490@C_01337490@@QAEXXZ"
     }
    ]
   },
@@ -491720,6 +492824,11 @@
      "va": "0136a5a0",
      "size": 13,
      "symbol": "?sub_0136a5a0@C_0136a5a0@@QAEHXZ"
+    },
+    {
+     "va": "01367a70",
+     "size": 14,
+     "symbol": "?sub_01367a70@C_01367a70@@QAEXM@Z"
     }
    ]
   },
@@ -493422,6 +494531,16 @@
      "va": "013a7fa0",
      "size": 12,
      "symbol": "?sub_013a7fa0@C_013a7fa0@@QAEPAHPAH@Z"
+    },
+    {
+     "va": "013a3410",
+     "size": 14,
+     "symbol": "?sub_013a3410@@YGXH@Z"
+    },
+    {
+     "va": "013af460",
+     "size": 14,
+     "symbol": "?sub_013af460@C_013af460@@QAEPAU1@XZ"
     }
    ]
   },
@@ -498621,6 +499740,11 @@
      "va": "014251f0",
      "size": 30,
      "symbol": "?sub_014251f0@C@@QAEIE@Z"
+    },
+    {
+     "va": "01426530",
+     "size": 14,
+     "symbol": "?sub_01426530@C_01426530@@QAEXXZ"
     }
    ]
   },
@@ -499736,6 +500860,11 @@
      "va": "0144ec00",
      "size": 12,
      "symbol": "?sub_0144ec00@C_0144ec00@@QAEXXZ"
+    },
+    {
+     "va": "0144d980",
+     "size": 14,
+     "symbol": "?sub_0144d980@C_0144d980@@QAEXH@Z"
     }
    ]
   },
@@ -500938,6 +502067,21 @@
      "va": "01477010",
      "size": 12,
      "symbol": "?sub_01477010@C_01477010@@QAEXXZ"
+    },
+    {
+     "va": "01479380",
+     "size": 14,
+     "symbol": "?sub_01479380@@YAHPAVwxTreeItemId@@@Z"
+    },
+    {
+     "va": "0147ab40",
+     "size": 14,
+     "symbol": "?sub_0147ab40@C_0147ab40@@QAEPAU1@XZ"
+    },
+    {
+     "va": "0147abd0",
+     "size": 14,
+     "symbol": "?sub_0147abd0@C_0147abd0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -502296,6 +503440,11 @@
      "va": "0148b730",
      "size": 30,
      "symbol": "?sub_0148b730@UObject@@QAEIE@Z"
+    },
+    {
+     "va": "01489020",
+     "size": 14,
+     "symbol": "?sub_01489020@C@@QAEPAU1@XZ"
     }
    ]
   },
@@ -504019,6 +505168,11 @@
      "va": "014bfce0",
      "size": 33,
      "symbol": "?sub_014bfce0@C_014bfce0@@QAEIE@Z"
+    },
+    {
+     "va": "014b3e10",
+     "size": 14,
+     "symbol": "?sub_014b3e10@@YGXPAUSub@@H@Z"
     }
    ]
   },

@@ -1,4 +1,4 @@
-// UnrealEd_1110000.cpp: 14 functions
+// UnrealEd_1110000.cpp: 15 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -222,4 +222,16 @@ float V::sub_0111b010()
     if (g_01e5f588 <= x)
         return y / x;
     return y / (float)g_01e5f588;
+}
+
+struct Sub
+{
+    void sub_0128b9d0();
+};
+
+extern Sub* g_026d4dfc;
+// @baa 0x01117830
+void __stdcall sub_01117830(INT Unused)
+{
+    g_026d4dfc->sub_0128b9d0();
 }

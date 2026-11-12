@@ -1,4 +1,4 @@
-// UnTerrainEdit.cpp: 15 functions
+// UnTerrainEdit.cpp: 16 functions
 // Placed here by: neighbours 10, callers 3, file 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -187,3 +187,22 @@ IMPLEMENT_CLASS_AT(UTerrainLayerSetupFactoryNew, "e:\\Projects\\Amadeus\\AA\\Gam
 
 // @baa 0x01002730
 // @baa 0x010027f0
+
+struct C_00ffe1c0
+{
+    char pad_0[0x8];
+    INT Value_8;
+    INT Value_c;
+    INT Value_10;
+
+    C_00ffe1c0* sub_00ffe1c0();
+};
+
+// @baa 0x00ffe1c0
+C_00ffe1c0* C_00ffe1c0::sub_00ffe1c0()
+{
+    Value_8 = 0;
+    Value_c = 0;
+    Value_10 = 0;
+    return this;
+}

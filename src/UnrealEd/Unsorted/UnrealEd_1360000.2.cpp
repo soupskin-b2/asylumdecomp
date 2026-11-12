@@ -1,4 +1,4 @@
-// UnrealEd_1360000.cpp (part 2 of 3): 2 functions
+// UnrealEd_1360000.cpp (part 2 of 3): 3 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -35,4 +35,18 @@ struct C_0136a5a0
 INT C_0136a5a0::sub_0136a5a0()
 {
     return sub_005455d0(Object);
+}
+
+struct C_01367a70
+{
+    char pad_00[0x8];
+    float Value;
+
+    void sub_01367a70(float In);
+};
+
+// @baa 0x01367a70
+void C_01367a70::sub_01367a70(float In)
+{
+    Value = In;
 }

@@ -1,4 +1,4 @@
-// FCollada_0ed0000.cpp: 12 functions
+// FCollada_0ed0000.cpp: 13 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -196,4 +196,23 @@ void C_00ed03f0::sub_00ed03f0(int param_2)
     }
   }
   return;
+}
+
+struct C_00ed0250
+{
+    char pad_0[0x20];
+    INT Value_20;
+    INT Value_24;
+    INT Value_28;
+
+    C_00ed0250* sub_00ed0250();
+};
+
+// @baa 0x00ed0250
+C_00ed0250* C_00ed0250::sub_00ed0250()
+{
+    Value_20 = 0;
+    Value_24 = 0;
+    Value_28 = 0;
+    return this;
 }

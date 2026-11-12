@@ -1,4 +1,4 @@
-// UnAnimTree.cpp (part 1 of 4): 241 functions
+// UnAnimTree.cpp (part 1 of 4): 251 functions
 // Placed here by: neighbours 121, class 74, file 25, callers 19.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1878,4 +1878,313 @@ void UAnimNodeBlendBase_::SetChildrenTotalWeightAccumulator(const INT Index)
 
 	// and the child node's sum over all its parents
 	Children(Index).Anim->TotalWeightAccumulator += Children(Index).TotalWeight;
+}
+
+/* Kit gaps, with UE3's definitions (UnName.h, UnObjBas.h): FName has no constructor from a string and
+ * no comparison operators, and UObject has no GetFName(). */
+struct FName_ : public FName
+{
+	FName_(const TCHAR* Name, INT FindType = 1, UBOOL bSplitName = 1);	/* 005d5620 */
+};
+
+inline UBOOL operator==(const FName& A, const FName& B) { return A.Index == B.Index && A.Number == B.Number; }
+
+/* UObject::GetFName, inlined at every call here; the cast lets both arms of the ?: be the same type, as they are
+ * with UE3's FName(const TCHAR*) constructor. */
+static __forceinline FName GetFName(const UObject* Object)
+{
+	return Object->ObjectInternalInteger != INDEX_NONE ? (const FName_&)Object->Name : FName_(TEXT("<uninitialized>"));
+}
+
+/* Callees Classes.h doesn't declare. */
+struct USkeletalMeshComponent_ : public USkeletalMeshComponent
+{
+	void sub_0092c310(TArray<BYTE>& PriorityList);	/* BuildComposePriorityList */
+	void sub_009357b0(UBOOL bForce);		/* refresh the preview mesh / anim sets */
+};
+
+struct UObject_ : public UObject
+{
+	void sub_005c1a10(UProperty* PropertyThatChanged);	/* the Super:: PostEditChange */
+};
+
+/* UAnimTree's PostEditChange (vtable 0x4c, declared only as vf_04c). */
+struct UAnimTree_ : public UAnimTree
+{
+	void PostEditChange(UProperty* PropertyThatChanged);
+};
+
+// @baa 0x00c4b6d0
+void UAnimTree_::PostEditChange(UProperty* PropertyThatChanged)
+{
+	if (PropertyThatChanged)
+	{
+		// rebuild the priority list from the new branches
+		if (GetFName(PropertyThatChanged) == FName_(TEXT("PrioritizedSkelBranches")) && SkelComponent)
+		{
+			((USkeletalMeshComponent_*)SkelComponent)->sub_0092c310(PriorityList);
+		}
+
+		// a new preview mesh or anim set: refresh the preview
+		if ((GetFName(PropertyThatChanged) == FName_(TEXT("PreviewSkelMesh")) ||
+			GetFName(PropertyThatChanged) == FName_(TEXT("PreviewSkelMesh")) ||
+			GetFName(PropertyThatChanged) == FName_(TEXT("PreviewAnimSets"))) && SkelComponent)
+		{
+			((USkeletalMeshComponent_*)SkelComponent)->sub_009357b0(TRUE);
+		}
+	}
+
+	((UObject_*)this)->sub_005c1a10(PropertyThatChanged);
+}
+
+/* Kit gaps, with UE3's definitions (UnName.h): FName has no EName and no comparison operators. */
+enum EName_ { NAME_None_ = 0 };
+
+inline UBOOL operator!=(const FName& A, EName_ N) { return A.Index != N || A.Number != 0; }
+
+/* UAnimTree::GetGroupIndex isn't declared in Classes.h. */
+struct UAnimTree__00c556d0 : public UAnimTree
+{
+	INT GetGroupIndex(FName GroupName);
+};
+
+// @baa 0x00c556d0
+INT UAnimTree__00c556d0::GetGroupIndex(FName GroupName)
+{
+	if (GroupName != NAME_None_)
+	{
+		for (INT GroupIdx = 0; GroupIdx < AnimGroups.Num(); GroupIdx++)
+		{
+			if (AnimGroups(GroupIdx).GroupName == GroupName)
+			{
+				return GroupIdx;
+			}
+		}
+	}
+
+	return INDEX_NONE;
+}
+
+/* UAnimNodeSynch::GetMasterNodeOfSynchGroup isn't declared in Classes.h. */
+struct UAnimNodeSynch_ : public UAnimNodeSynch
+{
+	UAnimNodeSequence* GetMasterNodeOfSynchGroup(FName GroupName);
+};
+
+// @baa 0x00c56530
+UAnimNodeSequence* UAnimNodeSynch_::GetMasterNodeOfSynchGroup(FName GroupName)
+{
+	for (INT GroupIdx = 0; GroupIdx < Groups.Num(); GroupIdx++)
+	{
+		if (Groups(GroupIdx).GroupName == GroupName)
+		{
+			return Groups(GroupIdx).MasterNode;
+		}
+	}
+
+	return NULL;
+}
+
+/* UAnimNodeSynch::SetGroupRateScale isn't declared in Classes.h. */
+struct UAnimNodeSynch__00c565f0 : public UAnimNodeSynch
+{
+	void SetGroupRateScale(FName GroupName, FLOAT NewRateScale);
+};
+
+// @baa 0x00c565f0
+void UAnimNodeSynch__00c565f0::SetGroupRateScale(FName GroupName, FLOAT NewRateScale)
+{
+	for (INT GroupIdx = 0; GroupIdx < Groups.Num(); GroupIdx++)
+	{
+		if (Groups(GroupIdx).GroupName == GroupName)
+		{
+			FSynchGroup& SynchGroup = Groups(GroupIdx);
+			SynchGroup.RateScale = NewRateScale;
+		}
+	}
+}
+
+/* UAnimNodeBlend::SetBlendTarget (non-virtual in this build) and TickAnim (vtable 0x134, declared only as
+ * vf_134), and UAnimNodeCrossfader::GetActiveChild; none is declared by name in Classes.h. */
+struct UAnimNodeBlend_ : public UAnimNodeBlend
+{
+	void sub_00c54040(FLOAT BlendTarget, FLOAT BlendTime);		/* SetBlendTarget */
+	void sub_00c53f20(FLOAT DeltaSeconds, FLOAT TotalWeight);	/* TickAnim */
+};
+
+/* UAnimNodeCrossfader's TickAnim override. */
+struct UAnimNodeCrossfader_ : public UAnimNodeCrossfader
+{
+	UAnimNodeSequence* sub_00c7a590();				/* GetActiveChild */
+	void TickAnim(FLOAT DeltaSeconds, FLOAT TotalWeight);
+};
+
+// @baa 0x00c7dfd0
+void UAnimNodeCrossfader_::TickAnim(FLOAT DeltaSeconds, FLOAT TotalWeight)
+{
+	// a one-shot animation blends back out before it is over
+	if (!bDontBlendOutOneShot && PendingBlendOutTimeOneShot > 0.f)
+	{
+		UAnimNodeSequence* ActiveChild = sub_00c7a590();
+		if (ActiveChild && ActiveChild->AnimSeq)
+		{
+			FLOAT CountDown = ActiveChild->AnimSeq->SequenceLength - ActiveChild->CurrentTime;
+
+			// time to blend out
+			if (PendingBlendOutTimeOneShot >= CountDown)
+			{
+				((UAnimNodeBlend_*)this)->sub_00c54040(1.f - Child2WeightTarget, PendingBlendOutTimeOneShot);
+				PendingBlendOutTimeOneShot = 0.f;
+			}
+		}
+	}
+
+	((UAnimNodeBlend_*)this)->sub_00c53f20(DeltaSeconds, TotalWeight);
+}
+
+/* UAnimNodeBlendBase::GetChildWeightTotal isn't declared in Classes.h. */
+struct UAnimNodeBlendBase__00c53c40 : public UAnimNodeBlendBase
+{
+	FLOAT GetChildWeightTotal();
+};
+
+// @baa 0x00c53c40
+FLOAT UAnimNodeBlendBase__00c53c40::GetChildWeightTotal()
+{
+	// the weight of the children that aren't additive
+	FLOAT TotalWeight = 0.f;
+	for (INT i = 0; i < Children.Num(); i++)
+	{
+		if (!Children(i).bIsAdditive)
+		{
+			TotalWeight += Children(i).Weight;
+		}
+	}
+	return TotalWeight;
+}
+
+/* UAnimNodeSynch::UpdateMasterNodeForGroup isn't declared in Classes.h. */
+struct UAnimNodeSynch__00c566c0 : public UAnimNodeSynch
+{
+	void UpdateMasterNodeForGroup(FSynchGroup& SynchGroup);
+};
+
+// @baa 0x00c566c0
+void UAnimNodeSynch__00c566c0::UpdateMasterNodeForGroup(FSynchGroup& SynchGroup)
+{
+	UAnimNodeSequence* MasterNode = SynchGroup.MasterNode;
+	FLOAT HighestWeight = MasterNode ? MasterNode->NodeTotalWeight : 0.f;
+
+	// a master at full weight stays
+	if (MasterNode && !(MasterNode->NodeTotalWeight < (1.f - ZERO_ANIMWEIGHT_THRESH)))
+	{
+		return;
+	}
+
+	// otherwise the most relevant node that may be a master
+	for (INT i = 0; i < SynchGroup.SeqNodes.Num(); i++)
+	{
+		UAnimNodeSequence* SeqNode = SynchGroup.SeqNodes(i);
+		if (SeqNode && !SeqNode->bForceAlwaysSlave && SeqNode->NodeTotalWeight >= HighestWeight)
+		{
+			MasterNode = SeqNode;
+			HighestWeight = SeqNode->NodeTotalWeight;
+		}
+	}
+
+	SynchGroup.MasterNode = MasterNode;
+}
+
+/* TArray<FBoneAtom>::operator=, out of line here. */
+struct FBoneAtomArray : public TArray<FBoneAtom>
+{
+	FBoneAtomArray& sub_00c64160(const TArray<FBoneAtom>& Other);	/* operator= */
+};
+
+/* UAnimNode::GetCachedResults isn't declared in Classes.h. */
+struct UAnimNode_ : public UAnimNode
+{
+	UBOOL GetCachedResults(TArray<FBoneAtom>& OutAtoms, FBoneAtom& OutRootMotionDelta, INT& bOutHasRootMotion);
+};
+
+// @baa 0x00c6c770
+UBOOL UAnimNode_::GetCachedResults(TArray<FBoneAtom>& OutAtoms, FBoneAtom& OutRootMotionDelta, INT& bOutHasRootMotion)
+{
+#line 279 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTree.cpp"
+	check(SkelComponent);
+
+	// the cache is valid for this frame, and the right size
+	if (NodeCachedAtomsTag == SkelComponent->CachedAtomsTag && CachedBoneAtoms.Num() == OutAtoms.Num())
+	{
+		((FBoneAtomArray&)OutAtoms).sub_00c64160(CachedBoneAtoms);
+		// FBoneAtom::operator= (copies the members; not in the kit)
+		OutRootMotionDelta.Rotation = CachedRootMotionDelta.Rotation;
+		OutRootMotionDelta.Translation = CachedRootMotionDelta.Translation;
+		OutRootMotionDelta.Scale = CachedRootMotionDelta.Scale;
+		bOutHasRootMotion = bCachedHasRootMotion;
+		return TRUE;
+	}
+
+	return FALSE;
+}
+
+#line 2132 "candidate.cpp"
+
+/* Kit gaps: FBoneAtom::Identity (UnSkeletalMesh.h) and the static FillWithRefPose. */
+struct FBoneAtom_ : public FBoneAtom
+{
+	static const FBoneAtom Identity;	/* 025df358 */
+};
+
+void sub_00c5eb80(TArray<FBoneAtom>& OutAtoms, const TArray<BYTE>& DesiredBones, const TArray<FMeshBone>& RefSkel);
+	/* FillWithRefPose */
+/* UAnimNode::GetBoneAtoms (vtable slot declared only as vf_) isn't declared by name in Classes.h. */
+struct UAnimNode__00c5ecc0 : public UAnimNode
+{
+	void GetBoneAtoms(TArray<FBoneAtom>& Atoms, const TArray<BYTE>& DesiredBones, FBoneAtom& RootMotionDelta, INT& bHasRootMotion);
+};
+
+// @baa 0x00c5ecc0
+void UAnimNode__00c5ecc0::GetBoneAtoms(TArray<FBoneAtom>& Atoms, const TArray<BYTE>& DesiredBones, FBoneAtom& RootMotionDelta, INT& bHasRootMotion)
+{
+	// FBoneAtom::operator= (copies the members; not in the kit)
+	RootMotionDelta.Rotation = FBoneAtom_::Identity.Rotation;
+	RootMotionDelta.Translation = FBoneAtom_::Identity.Translation;
+	RootMotionDelta.Scale = FBoneAtom_::Identity.Scale;
+	bHasRootMotion = 0;
+
+	// the reference pose
+	const INT NumAtoms = SkelComponent->SkeletalMesh->RefSkeleton.Num();
+#line 269 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTree.cpp"
+	check(NumAtoms == Atoms.Num());
+	sub_00c5eb80(Atoms, DesiredBones, SkelComponent->SkeletalMesh->RefSkeleton);
+}
+
+#line 2164 "candidate.cpp"
+
+/* UAnimNodeAimOffset's bone lookup methods aren't declared in Classes.h. */
+struct UAnimNodeAimOffset_ : public UAnimNodeAimOffset
+{
+	FAimOffsetProfile* sub_00c55cc0();		/* GetCurrentProfile */
+	UBOOL ContainsBone(const FName& BoneName);
+};
+
+// @baa 0x00c560b0
+UBOOL UAnimNodeAimOffset_::ContainsBone(const FName& BoneName)
+{
+	FAimOffsetProfile* P = sub_00c55cc0();
+	if (!P)
+	{
+		return FALSE;
+	}
+
+	for (INT i = 0; i < P->AimComponents.Num(); i++)
+	{
+		if (P->AimComponents(i).BoneName == BoneName)
+		{
+			return TRUE;
+		}
+	}
+
+	return FALSE;
 }

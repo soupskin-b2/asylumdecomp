@@ -1,4 +1,4 @@
-// UnrealEd_1110000.cpp: 4 functions
+// UnrealEd_1110000.cpp: 7 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Core.h"
@@ -283,4 +283,53 @@ struct C
 INT C::sub_0111ff50()
 {
     return sub_00bedf30(Object);
+}
+
+struct Inner
+{
+    char pad_00[8];
+    void* Pointer;
+};
+
+struct Sub
+{
+    void sub_00cc65f0();
+};
+
+struct C_011161d0
+{
+    char pad_00[0x144];
+    Inner* Object;
+
+    void sub_011161d0();
+};
+
+// @baa 0x011161d0
+void C_011161d0::sub_011161d0()
+{
+    ((Sub*)Object->Pointer)->sub_00cc65f0();
+}
+
+struct Sub_01117800
+{
+    void sub_01283250();
+};
+
+extern Sub_01117800* g_026d4dfc;
+// @baa 0x01117800
+void __stdcall sub_01117800(INT Unused)
+{
+    g_026d4dfc->sub_01283250();
+}
+
+struct Sub_01117840
+{
+    void sub_00f973c0();
+};
+
+extern Sub_01117840* g_026cce28;
+// @baa 0x01117840
+void __stdcall sub_01117840(INT Unused)
+{
+    g_026cce28->sub_00f973c0();
 }

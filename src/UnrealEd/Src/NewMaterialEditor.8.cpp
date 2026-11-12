@@ -1,4 +1,4 @@
-// NewMaterialEditor.cpp (part 8 of 8): 17 functions
+// NewMaterialEditor.cpp (part 8 of 8): 18 functions
 // Placed here by: neighbours 5.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -218,4 +218,20 @@ void __stdcall sub_0143b530(INT Unused)
 void __stdcall sub_0143b540(INT Unused)
 {
     sub_0143aa90(11);
+}
+
+struct Sub
+{
+    void sub_0143d4d0();
+};
+
+struct C_0143d880
+{
+    void sub_0143d880(INT Unused);
+};
+
+// @baa 0x0143d880
+void C_0143d880::sub_0143d880(INT)
+{
+    ((Sub*)((char*)this - 0x1c8))->sub_0143d4d0();
 }

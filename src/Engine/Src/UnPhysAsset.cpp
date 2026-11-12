@@ -1,4 +1,4 @@
-// UnPhysAsset.cpp: 34 functions
+// UnPhysAsset.cpp: 41 functions
 // Placed here by: class 16, neighbours 9, file 6, callers 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -194,4 +194,159 @@ INT C_00a04940::sub_00a04940()
     if (Value)
         Result = 1;
     return Result;
+}
+
+// @baa 0x00a0bb00
+void UPhysicsAssetInstance::SetFullAnimWeightBonesFixed(UBOOL bNewFixed, USkeletalMeshComponent* SkelMesh)
+{
+    if (!SkelMesh || !SkelMesh->PhysicsAsset || !SkelMesh->PhysicsAssetInstance)
+    {
+        return;
+    }
+
+    for (INT i = 0; i < SkelMesh->PhysicsAsset->BodySetup.Num(); i++)
+    {
+        URB_BodyInstance* BodyInst = SkelMesh->PhysicsAssetInstance->Bodies(i);
+        URB_BodySetup* BodySetup = SkelMesh->PhysicsAsset->BodySetup(i);
+
+        // fix or unfix only the bodies that always follow the animation
+        if (BodySetup->bAlwaysFullAnimWeight)
+        {
+            BodyInst->sub_00a09ca0(bNewFixed); // SetFixed
+        }
+    }
+}
+
+/* FName::operator== (UnName.h); the kit's FName has no operators. */
+inline UBOOL operator==(const FName& A, const FName& B) { return A.Index == B.Index && A.Number == B.Number; }
+
+// @baa 0x00a0b500
+void UPhysicsAssetInstance::SetGroupBodiesFixed(UBOOL bNewFixed, FName GroupName, USkeletalMeshComponent* SkelMesh, UBOOL bSetOtherBodiesToComplement)
+{
+    if (!SkelMesh || !SkelMesh->PhysicsAsset || !SkelMesh->PhysicsAssetInstance)
+    {
+        return;
+    }
+
+    for (INT i = 0; i < SkelMesh->PhysicsAsset->BodySetup.Num(); i++)
+    {
+        URB_BodyInstance* BodyInst = SkelMesh->PhysicsAssetInstance->Bodies(i);
+        URB_BodySetup* BodySetup = SkelMesh->PhysicsAsset->BodySetup(i);
+
+        if (BodySetup->GroupName == GroupName)
+        {
+            BodyInst->sub_00a09ca0(bNewFixed); // SetFixed
+        }
+        else if (bSetOtherBodiesToComplement)
+        {
+            BodyInst->sub_00a09ca0(!bNewFixed); // SetFixed
+        }
+    }
+}
+
+// @baa 0x00a23220
+void UPhysicsAssetInstance::SetAllMotorsAngularPositionDrive(UBOOL bEnableSwingDrive, UBOOL bEnableTwistDrive, USkeletalMeshComponent* SkelMesh, UBOOL bSkipFullAnimWeightBodies)
+{
+    for (INT i = 0; i < Constraints.Num(); i++)
+    {
+        if (bSkipFullAnimWeightBodies && SkelMesh)
+        {
+            const INT BodyIndex = SkelMesh->PhysicsAsset->sub_00a231b0(SkelMesh->PhysicsAsset->ConstraintSetup(i)->JointName); // FindBodyIndex
+            if (SkelMesh->PhysicsAsset->BodySetup(BodyIndex)->bAlwaysFullAnimWeight)
+            {
+                continue;
+            }
+        }
+
+        Constraints(i)->SetAngularPositionDrive(bEnableSwingDrive, bEnableTwistDrive);
+    }
+}
+
+// @baa 0x00a234a0
+void UPhysicsAssetInstance::SetAllMotorsAngularDriveParams(FLOAT InSpring, FLOAT InDamping, FLOAT InForceLimit, USkeletalMeshComponent* SkelMesh, UBOOL bSkipFullAnimWeightBodies)
+{
+    for (INT i = 0; i < Constraints.Num(); i++)
+    {
+        if (bSkipFullAnimWeightBodies && SkelMesh)
+        {
+            const INT BodyIndex = SkelMesh->PhysicsAsset->sub_00a231b0(SkelMesh->PhysicsAsset->ConstraintSetup(i)->JointName); // FindBodyIndex
+            if (SkelMesh->PhysicsAsset->BodySetup(BodyIndex)->bAlwaysFullAnimWeight)
+            {
+                continue;
+            }
+        }
+
+        Constraints(i)->SetAngularDriveParams(InSpring * AngularSpringScale, InDamping * AngularDampingScale, InForceLimit * AngularForceLimitScale);
+    }
+}
+
+// @baa 0x00a0b190
+void UPhysicsAssetInstance::SetLinearDriveScale(FLOAT InLinearSpringScale, FLOAT InLinearDampingScale, FLOAT InLinearForceLimitScale)
+{
+    LinearSpringScale = InLinearSpringScale;
+    LinearDampingScale = InLinearDampingScale;
+    LinearForceLimitScale = InLinearForceLimitScale;
+
+    for (INT i = 0; i < Constraints.Num(); i++)
+    {
+        URB_ConstraintInstance* ConInst = Constraints(i);
+#line 2572 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPhysAsset.cpp"
+        check(ConInst);
+        ConInst->SetLinearDriveParams(ConInst->LinearDriveSpring * LinearSpringScale, ConInst->LinearDriveDamping * LinearDampingScale, ConInst->LinearDriveForceLimit * LinearForceLimitScale);
+    }
+}
+
+#line 300 "candidate.cpp"
+
+// @baa 0x00a0b280
+void UPhysicsAssetInstance::SetAngularDriveScale(FLOAT InAngularSpringScale, FLOAT InAngularDampingScale, FLOAT InAngularForceLimitScale)
+{
+    AngularSpringScale = InAngularSpringScale;
+    AngularDampingScale = InAngularDampingScale;
+    AngularForceLimitScale = InAngularForceLimitScale;
+
+    for (INT i = 0; i < Constraints.Num(); i++)
+    {
+        URB_ConstraintInstance* ConInst = Constraints(i);
+#line 2598 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPhysAsset.cpp"
+        check(ConInst);
+        ConInst->SetAngularDriveParams(ConInst->AngularDriveSpring * AngularSpringScale, ConInst->AngularDriveDamping * AngularDampingScale, ConInst->AngularDriveForceLimit * AngularForceLimitScale);
+    }
+}
+
+#line 318 "candidate.cpp"
+
+/* TArray<FName>::FindItemIndex, which the exe keeps out of line (00546020). */
+struct FNameFindArray : public TArray<FName> {
+    INT sub_00546020(const FName& Item) const;
+    INT FindItemIndex(const FName& Item) const { return sub_00546020(Item); }
+};
+
+// @baa 0x00a0b3e0
+void UPhysicsAssetInstance::SetNamedBodiesFixed(UBOOL bNewFixed, const TArray<FName>& BoneNames, USkeletalMeshComponent* SkelMesh, UBOOL bSetOtherBodiesToComplement, UBOOL bSkipFullAnimWeightBodies)
+{
+    if (!SkelMesh || !SkelMesh->PhysicsAsset || !SkelMesh->PhysicsAssetInstance)
+    {
+        return;
+    }
+
+    for (INT i = 0; i < SkelMesh->PhysicsAsset->BodySetup.Num(); i++)
+    {
+        URB_BodyInstance* BodyInst = SkelMesh->PhysicsAssetInstance->Bodies(i);
+        URB_BodySetup* BodySetup = SkelMesh->PhysicsAsset->BodySetup(i);
+
+        if (bSkipFullAnimWeightBodies && BodySetup->bAlwaysFullAnimWeight)
+        {
+            continue;
+        }
+
+        if (((const FNameFindArray&)BoneNames).FindItemIndex(BodySetup->BoneName) != INDEX_NONE)
+        {
+            BodyInst->sub_00a09ca0(bNewFixed); // SetFixed
+        }
+        else if (bSetOtherBodiesToComplement)
+        {
+            BodyInst->sub_00a09ca0(!bNewFixed); // SetFixed
+        }
+    }
 }

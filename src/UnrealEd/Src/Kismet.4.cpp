@@ -1,4 +1,4 @@
-// Kismet.cpp (part 4 of 4): 9 functions
+// Kismet.cpp (part 4 of 4): 11 functions
 // Placed here by: callers 2, neighbours 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -162,4 +162,48 @@ struct C_011943c0
 INT C_011943c0::sub_011943c0()
 {
     return sub_008febf0(Object);
+}
+
+struct Sub
+{
+    void sub_009083f0(INT Value);
+};
+
+struct C_011900b0
+{
+    char pad_00[0x334];
+    Sub* Object;
+
+    void sub_011900b0();
+};
+
+// @baa 0x011900b0
+void C_011900b0::sub_011900b0()
+{
+    Object->sub_009083f0(0);
+}
+
+struct Inner
+{
+    char pad_00[8];
+    void* Pointer;
+};
+
+struct Sub_01277c80
+{
+    void sub_00cc65f0();
+};
+
+struct C_01277c80
+{
+    char pad_00[0x300];
+    Inner* Object;
+
+    void sub_01277c80();
+};
+
+// @baa 0x01277c80
+void C_01277c80::sub_01277c80()
+{
+    ((Sub_01277c80*)Object->Pointer)->sub_00cc65f0();
 }

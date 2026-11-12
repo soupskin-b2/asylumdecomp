@@ -1,4 +1,4 @@
-// FArchiveXML.cpp: 2 functions
+// FArchiveXML.cpp: 3 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Core.h"
@@ -36,5 +36,20 @@ C* C::sub_0188f600()
 {
     Value_00 = 0;
     Flag_04 = 0;
+    return this;
+}
+
+struct C_018bfd50
+{
+    INT Value_00;
+    INT Value_04;
+
+    C_018bfd50* sub_018bfd50(INT* Source);
+};
+
+// @baa 0x018bfd50
+C_018bfd50* C_018bfd50::sub_018bfd50(INT* Source)
+{
+    Value_04 = *Source;
     return this;
 }

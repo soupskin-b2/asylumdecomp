@@ -1,4 +1,4 @@
-// UnrealEd_1310000.cpp (part 1 of 3): 54 functions
+// UnrealEd_1310000.cpp (part 1 of 3): 56 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -596,4 +596,22 @@ TConstSetBitIterator_0131e8e0& TConstSetBitIterator_0131e8e0::operator++()
 {
     It.Advance();
     return *this;
+}
+
+class wxTreeItemId
+{
+public:
+    __declspec(dllimport) operator bool() const;
+};
+
+// @baa 0x01310c80
+INT sub_01310c80(wxTreeItemId* Id)
+{
+    return *Id;
+}
+
+// @baa 0x01310ca0
+INT sub_01310ca0(wxTreeItemId* Id)
+{
+    return *Id;
 }

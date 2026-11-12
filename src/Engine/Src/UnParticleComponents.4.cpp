@@ -1,4 +1,4 @@
-// UnParticleComponents.cpp (part 4 of 4): 19 functions
+// UnParticleComponents.cpp (part 4 of 4): 20 functions
 // Placed here by: neighbours 13, class 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -392,4 +392,29 @@ int C_00b586a0::sub_00b586a0()
     F14 = 0;
     Object = (int)&g_01ff9460;
     return T;
+}
+
+/* EParticleSysParamType */
+enum { PSPT_None = 0 };
+static inline UBOOL operator==(const FName& A, const FName& B) { return A.Index == B.Index && A.Number == B.Number; }
+
+/* The exe calls TArray<FParticleSysParam>::Remove out of line (00b5f410). */
+struct FParticleSysParamArray : public TArray<FParticleSysParam>
+{
+    void sub_00b5f410(INT Index, INT Count);
+    void Remove(INT Index, INT Count = 1) { sub_00b5f410(Index, Count); }
+};
+
+// @baa 0x00b648d0
+void UParticleSystemComponent::ClearParameter(FName ParameterName, BYTE ParameterType)
+{
+
+    for (INT i = 0; i < InstanceParameters.Num(); i++)
+    {
+        FParticleSysParam& Param = InstanceParameters(i);
+        if (Param.Name == ParameterName && (ParameterType == PSPT_None || InstanceParameters(i).ParamType == ParameterType))
+        {
+            ((FParticleSysParamArray&)InstanceParameters).Remove(i--);
+        }
+    }
 }

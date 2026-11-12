@@ -1,4 +1,4 @@
-// UnrealEd_1120000.cpp (part 1 of 2): 52 functions
+// UnrealEd_1120000.cpp (part 1 of 2): 53 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -571,4 +571,23 @@ int C_0112fd70::sub_0112fd70(void)
     undefined4 * param_1 = (undefined4 *)this;
 
   return *(int *)*param_1 + param_1[5] * 0x18;
+}
+
+struct C_0112bf80
+{
+    char pad_0[0x4];
+    INT Value_4;
+    INT Value_8;
+    INT Value_c;
+
+    C_0112bf80* sub_0112bf80();
+};
+
+// @baa 0x0112bf80
+C_0112bf80* C_0112bf80::sub_0112bf80()
+{
+    Value_4 = 0;
+    Value_8 = 0;
+    Value_c = 0;
+    return this;
 }

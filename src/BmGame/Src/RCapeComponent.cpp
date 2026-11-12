@@ -1,4 +1,4 @@
-// RCapeComponent.cpp (part 1 of 2): 62 functions
+// RCapeComponent.cpp (part 1 of 2): 63 functions
 // Placed here by: neighbours 22, file 19, class 12, callers 8.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -587,4 +587,18 @@ void URCapeComponent_::sub_016ae990()
     ForwardToAnimPlayRate = 0.f;
     ForwardToAnimSyncAnimName = FName_(NAME_None);
     ForwardToAnimSyncAnimOffset = 0.f;
+}
+
+struct C_016adba0
+{
+    char pad_00[0x30];
+    float Value;
+
+    void sub_016adba0(float In);
+};
+
+// @baa 0x016adba0
+void C_016adba0::sub_016adba0(float In)
+{
+    Value = In;
 }

@@ -1,4 +1,4 @@
-// StaticMeshEditor.cpp (part 3 of 3): 1 function
+// StaticMeshEditor.cpp (part 3 of 3): 2 functions
 // Placed here by: neighbours 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -15,4 +15,21 @@ undefined4 UUnrealEdEngine::sub_0124a550(byte param_2)
     sub_0053dfa0(param_1);
   }
   return param_1;
+}
+
+class wxWindowBase
+{
+public:
+    __declspec(dllimport) bool Close(bool Force);
+};
+
+struct C : public wxWindowBase
+{
+    void sub_01220ac0(INT Unused);
+};
+
+// @baa 0x01220ac0
+void C::sub_01220ac0(INT)
+{
+    Close(false);
 }

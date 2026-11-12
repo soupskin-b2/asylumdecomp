@@ -1,4 +1,4 @@
-// FMod_1770000.cpp (part 1 of 2): 4 functions
+// FMod_1770000.cpp (part 1 of 2): 5 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -82,4 +82,16 @@ undefined4 C_0177ab82::sub_0177ab82(undefined4 * param_2)
     uVar1 = 0;
   }
   return uVar1;
+}
+
+void __stdcall sub_017735e5(INT A, INT B);
+struct C_0177369b
+{
+    void sub_0177369b(INT A);
+};
+
+// @baa 0x0177369b
+void C_0177369b::sub_0177369b(INT A)
+{
+    sub_017735e5(A, 1);
 }

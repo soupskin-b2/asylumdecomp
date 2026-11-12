@@ -1,4 +1,4 @@
-// UnrealEd_1200000.cpp: 76 functions
+// UnrealEd_1200000.cpp: 77 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1310,4 +1310,15 @@ void C_0120c9c0::sub_0120c9c0()
 {
     *(void**)this = g_021f5218;
     ((wxPanel*)this)->wxPanel::~wxPanel();
+}
+
+struct Sub
+{
+    void sub_00551710(INT Value);
+};
+
+// @baa 0x0120b550
+void __stdcall sub_0120b550(Sub* Object)
+{
+    Object->sub_00551710(0);
 }

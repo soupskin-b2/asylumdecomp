@@ -1,4 +1,4 @@
-// GFx_19f0000.cpp (part 2 of 3): 61 functions
+// GFx_19f0000.cpp (part 2 of 3): 69 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -709,4 +709,126 @@ undefined4 C_019ffa60::sub_019ffa60(uint param_2, uint param_3)
     return 1;
   }
   return 0;
+}
+
+struct C_019729b0
+{
+    int sub_019729b0(int* Value, int Flag);
+};
+
+struct C_019f2e00
+{
+    char Prefix[0x34];
+    int Member; // at 0x34
+
+    C_019729b0* sub_019f2e00(C_019729b0* Object);
+};
+
+// @baa 0x019f2e00
+C_019729b0* C_019f2e00::sub_019f2e00(C_019729b0* Object)
+{
+    Object->sub_019729b0(&Member, 0);
+    return Object;
+}
+
+struct Sub_019729b0
+{
+    int sub_019729b0(Sub_019729b0* State, int Flags);
+};
+
+struct Sub_019f7c90
+{
+    char Prefix[0x30];
+    Sub_019729b0 Member;
+
+    Sub_019729b0* sub_019f7c90(Sub_019729b0* Obj);
+};
+
+// @baa 0x019f7c90
+Sub_019729b0* Sub_019f7c90::sub_019f7c90(Sub_019729b0* Obj)
+{
+    Obj->sub_019729b0(&Member, 0);
+    return Obj;
+}
+
+// The original calls a method of its argument, passing (this + 0x60) and 0.
+struct C_019f5f70 {
+    int sub_019729b0(C_019f5f70* Sub, int bIn);
+    C_019f5f70* sub_019f5f70(C_019f5f70* In);
+};
+
+// @baa 0x019f5f70
+C_019f5f70* C_019f5f70::sub_019f5f70(C_019f5f70* In)
+{
+    In->sub_019729b0((C_019f5f70*)((char*)this + 0x60), 0);
+    return In;
+}
+
+struct C_019f9490 {
+    int sub_019729b0(int, int);
+    int sub_019f9490(int Arg);
+};
+
+// @baa 0x019f9490
+int C_019f9490::sub_019f9490(int Arg)
+{
+    ((C_019f9490*)Arg)->sub_019729b0((int)((char*)this + 0x50), 0);
+    return Arg;
+}
+
+struct C_019fcce0 {
+    int sub_019fcce0(int Arg);
+    int sub_019729b0(int Arg0, int Arg1);
+};
+
+// @baa 0x019fcce0
+int C_019fcce0::sub_019fcce0(int Arg)
+{
+    ((C_019fcce0*)Arg)->sub_019729b0((int)((char*)this + 0x30), 0);
+    return Arg;
+}
+
+// The original calls a method of its argument, passing (this + 0x30) and 0.
+struct C_019fdc60 {
+    int sub_019729b0(C_019fdc60* Sub, int bIn);
+    C_019fdc60* sub_019fdc60(C_019fdc60* In);
+};
+
+// @baa 0x019fdc60
+C_019fdc60* C_019fdc60::sub_019fdc60(C_019fdc60* In)
+{
+    In->sub_019729b0((C_019fdc60*)((char*)this + 0x30), 0);
+    return In;
+}
+
+class GFxVertexInterface_XY32f
+{
+public:
+	virtual ~GFxVertexInterface_XY32f() {}
+	virtual void sub_019fe520(const float* Verts, float* OutX, float* OutY);
+};
+
+// @baa 0x019fe520
+void GFxVertexInterface_XY32f::sub_019fe520(const float* Verts, float* OutX, float* OutY)
+{
+	*OutX = Verts[0];
+	*OutY = Verts[1];
+}
+
+struct Vec2_
+{
+	double X;
+	double Y;
+
+	Vec2_* sub_019f6c40(const Vec2_* Other);
+};
+
+// @baa 0x019f6c40
+Vec2_* Vec2_::sub_019f6c40(const Vec2_* Other)
+{
+	const double OtherY = Other->Y;
+	const double OtherX = Other->X;
+	X += OtherX;
+	Y += OtherY;
+	return this;
 }

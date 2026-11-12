@@ -1,4 +1,4 @@
-// CommonGame_1530000.cpp (part 4 of 4): 3 functions
+// CommonGame_1530000.cpp (part 4 of 4): 4 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -95,4 +95,18 @@ if((undefined4*)0x0!=puVar1){
 *puVar1=*param_2;
 }
 return iVar2;
+}
+
+struct C_0153ee10
+{
+    char pad_00[0x94];
+    INT Value;
+
+    bool sub_0153ee10(INT Unused);
+};
+
+// @baa 0x0153ee10
+bool C_0153ee10::sub_0153ee10(INT)
+{
+    return Value > 0;
 }

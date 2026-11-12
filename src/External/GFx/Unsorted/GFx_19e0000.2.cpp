@@ -1,4 +1,4 @@
-// GFx_19e0000.cpp (part 2 of 4): 88 functions
+// GFx_19e0000.cpp (part 2 of 4): 91 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -1022,4 +1022,65 @@ int sub_019ef6d0_::sub_019ef6d0(sub_019729b0_* param)
 {
     param->sub_019729b0((int)&member_0x34, 0);
     return (int)param;
+}
+
+void __stdcall sub_018d7150(int Param);
+// @baa 0x019eab20
+void sub_019eab20(int Param)
+{
+    sub_018d7150(Param * 28);
+}
+
+// A number object exposing a double-producing method (bound at 01976720).
+struct GASNumberValue
+{
+    double sub_01976720(void* Value);
+};
+
+// Layout reaches its stored value at offset 0x30.
+struct GASNumberObject
+{
+    double m_Data[6]; // offset 0x00 .. 0x30
+    double m_Value;   // offset 0x30
+
+    void sub_019eb9f0(void* Value, GASNumberValue* Other);
+};
+
+// @baa 0x019eb9f0
+void GASNumberObject::sub_019eb9f0(void* Value, GASNumberValue* Other)
+{
+    m_Value = Other->sub_01976720(Value);
+}
+
+struct GASAttributeClass;
+// A GAS attribute value, evaluated to a boolean.
+struct FGASAttribute
+{
+    INT   AttributeType;    // 0x00
+    FLOAT MinValue;         // 0x04
+    FLOAT MaxValue;         // 0x08
+    FLOAT CurrentValue;     // 0x0c
+    FLOAT DefaultValue;     // 0x10
+    FLOAT Rate;             // 0x14
+    FLOAT SecondaryRate;    // 0x18
+    INT   SomeCount;        // 0x1c
+    INT   OtherCount;       // 0x20
+    FLOAT SomeValue;        // 0x24
+    FLOAT OtherValue;       // 0x28
+    FLOAT ExtraValue;       // 0x2c
+    BYTE  bSet;             // 0x30
+
+    BYTE sub_01975b70(FGASAttribute* Other);
+};
+
+// A GAS boolean object: caches the evaluated result of an attribute comparison.
+struct GASBooleanObject : public FGASAttribute
+{
+    void sub_019ef010(FGASAttribute* Attribute, FGASAttribute* Other);
+};
+
+// @baa 0x019ef010
+void GASBooleanObject::sub_019ef010(FGASAttribute* Attribute, FGASAttribute* Other)
+{
+    bSet = Other->sub_01975b70(Attribute);
 }

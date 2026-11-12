@@ -1,4 +1,4 @@
-// UnrealEd_1470000.cpp (part 2 of 4): 4 functions
+// UnrealEd_1470000.cpp (part 2 of 4): 7 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -89,4 +89,54 @@ void C_01477010::sub_01477010()
 {
     *(void**)this = g_022a6edc;
     ((wxTreeItemData*)this)->wxTreeItemData::~wxTreeItemData();
+}
+
+class wxTreeItemId
+{
+public:
+    __declspec(dllimport) operator bool() const;
+};
+
+// @baa 0x01479380
+INT sub_01479380(wxTreeItemId* Id)
+{
+    return *Id;
+}
+
+struct C_0147ab40
+{
+    char pad_0[0x4];
+    INT Value_4;
+    INT Value_8;
+    INT Value_c;
+
+    C_0147ab40* sub_0147ab40();
+};
+
+// @baa 0x0147ab40
+C_0147ab40* C_0147ab40::sub_0147ab40()
+{
+    Value_4 = 0;
+    Value_8 = 0;
+    Value_c = 0;
+    return this;
+}
+
+struct C_0147abd0
+{
+    char pad_0[0xc];
+    INT Value_c;
+    INT Value_10;
+    INT Value_14;
+
+    C_0147abd0* sub_0147abd0();
+};
+
+// @baa 0x0147abd0
+C_0147abd0* C_0147abd0::sub_0147abd0()
+{
+    Value_c = 0;
+    Value_10 = 0;
+    Value_14 = 0;
+    return this;
 }

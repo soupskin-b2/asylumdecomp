@@ -1,4 +1,4 @@
-// FCollada_1870000.cpp (part 24 of 24): 3 functions
+// FCollada_1870000.cpp (part 24 of 24): 13 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -60,4 +60,151 @@ void FColladaStringLike_2::sub_0187a180(const char* Str)
 {
 	sub_01826370();
 	sub_01827850(Str);
+}
+
+struct C
+{
+    INT Value_00;
+    INT Value_04;
+
+    C* sub_01871770(INT* Source);
+};
+
+// @baa 0x01871770
+C* C::sub_01871770(INT* Source)
+{
+    Value_04 = *Source;
+    return this;
+}
+
+struct C_018717b0
+{
+    INT Value_00;
+    INT Value_04;
+
+    C_018717b0* sub_018717b0(INT* Source);
+};
+
+// @baa 0x018717b0
+C_018717b0* C_018717b0::sub_018717b0(INT* Source)
+{
+    Value_04 = *Source;
+    return this;
+}
+
+struct C_01873230
+{
+    INT Value_00;
+    INT Value_04;
+
+    C_01873230* sub_01873230(INT* Source);
+};
+
+// @baa 0x01873230
+C_01873230* C_01873230::sub_01873230(INT* Source)
+{
+    Value_04 = *Source;
+    return this;
+}
+
+extern "C" __declspec(dllimport) void __stdcall InitializeCriticalSection(void* Section);
+struct C_01874f60
+{
+    C_01874f60* sub_01874f60();
+};
+
+// @baa 0x01874f60
+C_01874f60* C_01874f60::sub_01874f60()
+{
+    InitializeCriticalSection(this);
+    return this;
+}
+
+class FUTestSuiteFUUniqueStringMap
+{
+public:
+    FUTestSuiteFUUniqueStringMap();
+
+    virtual void vf_0();
+};
+
+extern FUTestSuiteFUUniqueStringMap* g_027b81e8;
+// @baa 0x0187a110
+FUTestSuiteFUUniqueStringMap::FUTestSuiteFUUniqueStringMap()
+{
+    g_027b81e8 = this;
+}
+
+class FUTestSuiteFUStringConversion
+{
+public:
+    FUTestSuiteFUStringConversion();
+
+    virtual void vf_0();
+};
+
+extern FUTestSuiteFUStringConversion* g_027b81ec;
+// @baa 0x0187c280
+FUTestSuiteFUStringConversion::FUTestSuiteFUStringConversion()
+{
+    g_027b81ec = this;
+}
+
+INT sub_0182b410(INT* Value);
+// @baa 0x0187c2b0
+INT sub_0187c2b0(INT Value)
+{
+    return sub_0182b410(&Value);
+}
+
+class FUTestSuiteFUStringBuilder
+{
+public:
+    FUTestSuiteFUStringBuilder();
+
+    virtual void vf_0();
+};
+
+extern FUTestSuiteFUStringBuilder* g_027b81f0;
+// @baa 0x0187cfa0
+FUTestSuiteFUStringBuilder::FUTestSuiteFUStringBuilder()
+{
+    g_027b81f0 = this;
+}
+
+struct C_0187cfe0
+{
+    INT pad_00;
+    INT pad_04;
+    UINT Count;
+
+    void sub_0187cfe0();
+};
+
+// @baa 0x0187cfe0
+void C_0187cfe0::sub_0187cfe0()
+{
+    if (Count > 0)
+        Count--;
+}
+
+struct C_0187f360
+{
+    INT Value_00;
+    INT Value_04;
+    INT Value_08;
+    INT Value_0c;
+    INT Value_10;
+    INT Value_14;
+
+    C_0187f360* sub_0187f360();
+};
+
+// @baa 0x0187f360
+C_0187f360* C_0187f360::sub_0187f360()
+{
+    Value_0c = 0;
+    Value_10 = 0;
+    Value_14 = 0;
+    return this;
 }

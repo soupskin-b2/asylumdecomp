@@ -1,4 +1,4 @@
-// UnUIEditorWindows.cpp (part 2 of 4): 2 functions
+// UnUIEditorWindows.cpp (part 2 of 4): 3 functions
 // Placed here by: neighbours 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -47,4 +47,21 @@ void USubWindow_::sub_014d3670(int Arg)
 {
     sub_014c9290(Arg);
     sub_014d2570();
+}
+
+class wxWindowBase
+{
+public:
+    __declspec(dllimport) bool Close(bool Force);
+};
+
+struct C_014c6cf0 : public wxWindowBase
+{
+    void sub_014c6cf0(INT Unused);
+};
+
+// @baa 0x014c6cf0
+void C_014c6cf0::sub_014c6cf0(INT)
+{
+    Close(false);
 }

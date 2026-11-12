@@ -1,4 +1,4 @@
-// UnSkeletalComponent.cpp (part 1 of 3): 68 functions
+// UnSkeletalComponent.cpp (part 1 of 3): 71 functions
 // Placed here by: neighbours 58, callers 8, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -531,4 +531,84 @@ void USkeletalComponent_0090a320::sub_0090a320(const float * NewScale)
     RelativeScale3D[0] = NewScale[0];
     RelativeScale3D[1] = NewScale[1];
     RelativeScale3D[2] = NewScale[2];
+}
+
+/* FName::operator== (UnName.h); the kit's FName has no operators. */
+inline UBOOL operator==(const FName& A, const FName& B) { return A.Index == B.Index && A.Number == B.Number; }
+
+/* Classes.h has this as void* sub_0091f3f0(FName). */
+struct USkeletalMeshComponent_ : public USkeletalMeshComponent
+{
+    URB_BodyInstance* FindBodyInstanceNamed(FName BoneName);
+};
+
+// @baa 0x0091f3f0
+URB_BodyInstance* USkeletalMeshComponent_::FindBodyInstanceNamed(FName BoneName)
+{
+    if (!PhysicsAsset || !PhysicsAssetInstance)
+    {
+        return NULL;
+    }
+
+    for (INT i = 0; i < PhysicsAsset->BodySetup.Num(); i++)
+    {
+        URB_BodyInstance* BodyInst = PhysicsAssetInstance->Bodies(i);
+        URB_BodySetup* BodySetup = PhysicsAsset->BodySetup(i);
+        if (BodySetup->BoneName == BoneName)
+        {
+            return BodyInst;
+        }
+    }
+    return NULL;
+}
+
+/* Natives behind execGetTimeOfScriptNotify (0x0092da90) and
+ * execGetTimeOfScriptNotifyInAnimSequence (0x0092d9b0); not in Classes.h. */
+struct USkeletalMeshComponent__0092d890 : public USkeletalMeshComponent
+{
+    FLOAT GetTimeOfScriptNotifyInAnimSequence(UAnimSequence* AnimSeq, FName NotifyName, INT NthOccurrence);
+    FLOAT GetTimeOfScriptNotify(FName NotifyName, INT NthOccurrence);
+};
+
+// @baa 0x0092d890
+FLOAT USkeletalMeshComponent__0092d890::GetTimeOfScriptNotify(FName NotifyName, INT NthOccurrence)
+{
+    // search every sequence of every anim set for the notify
+    for (INT SetIdx = 0; SetIdx < AnimSets.Num(); SetIdx++)
+    {
+        if (AnimSets(SetIdx))
+        {
+            UAnimSet* AnimSet = AnimSets(SetIdx);
+            for (INT SeqIdx = 0; SeqIdx < AnimSet->Sequences.Num(); SeqIdx++)
+            {
+                const FLOAT Time = GetTimeOfScriptNotifyInAnimSequence(AnimSet->Sequences(SeqIdx), NotifyName, NthOccurrence);
+                if (Time != -1.f)
+                {
+                    return Time;
+                }
+            }
+        }
+    }
+    return -1.f;
+}
+
+// The game keeps these TArray<BYTE> members out of line.
+extern template void TArray<BYTE>::Remove(INT Index, INT Count);
+extern template TArray<BYTE>::~TArray();
+// @baa 0x00921dc0
+/* Strips adjacent duplicate entries from a sorted byte array (takes it by value, as the original does). */
+UBOOL RemoveAdjacentDuplicates(TArray<BYTE> Array)
+{
+    for (INT i = 1; i < Array.Num(); )
+    {
+        if (Array(i - 1) - Array(i) == 0)
+        {
+            Array.Remove(i, 1);
+        }
+        else
+        {
+            i++;
+        }
+    }
+    return TRUE;
 }

@@ -1,4 +1,4 @@
-// GFx_1a00000.cpp (part 2 of 2): 22 functions
+// GFx_1a00000.cpp (part 2 of 2): 23 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -152,4 +152,16 @@ void sub_01a0e700(int Value)
 void sub_01a0e720(int Value)
 {
     sub_018d7150(Value * 4);
+}
+
+extern int g_02402abc[4];
+// @baa 0x01a0e410
+static int sub_01a0e410(int Value, int Offset)
+{
+    return (Value & 0xfffffffc) | g_02402abc[Offset + (Value & 3)];
+}
+
+int sub_01a0e410_probe(int Value, int Offset)
+{
+    return sub_01a0e410(Value, Offset);
 }

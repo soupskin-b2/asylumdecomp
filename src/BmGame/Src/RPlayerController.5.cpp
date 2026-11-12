@@ -1,4 +1,4 @@
-// RPlayerController.cpp (part 5 of 6): 5 functions
+// RPlayerController.cpp (part 5 of 6): 6 functions
 // Placed here by: neighbours 4.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -90,4 +90,23 @@ extern INT g_026e2534;
 void __stdcall sub_01719070(BYTE Value)
 {
     g_026e2534 = Value;
+}
+
+struct Sub
+{
+    void sub_00803c90(INT Value);
+};
+
+struct C_016d27b0
+{
+    char pad_00[0xb0];
+    Sub* Object;
+
+    void sub_016d27b0();
+};
+
+// @baa 0x016d27b0
+void C_016d27b0::sub_016d27b0()
+{
+    Object->sub_00803c90(0);
 }

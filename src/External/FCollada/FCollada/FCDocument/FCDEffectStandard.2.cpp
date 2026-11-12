@@ -1,4 +1,4 @@
-// FCDEffectStandard.cpp (part 2 of 2): 2 functions
+// FCDEffectStandard.cpp (part 2 of 2): 4 functions
 // Placed here by: neighbours 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -48,4 +48,34 @@ void C::sub_018705f0()
 {
     State = 4;
     Flags |= 1;
+}
+
+struct C_018705e0
+{
+    INT Value_00;
+    INT Value_04;
+
+    C_018705e0* sub_018705e0(INT* Source);
+};
+
+// @baa 0x018705e0
+C_018705e0* C_018705e0::sub_018705e0(INT* Source)
+{
+    Value_04 = *Source;
+    return this;
+}
+
+struct C_018706f0
+{
+    INT Value_00;
+    INT Value_04;
+
+    C_018706f0* sub_018706f0(INT* Source);
+};
+
+// @baa 0x018706f0
+C_018706f0* C_018706f0::sub_018706f0(INT* Source)
+{
+    Value_04 = *Source;
+    return this;
 }

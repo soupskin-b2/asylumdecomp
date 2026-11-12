@@ -1,4 +1,4 @@
-// FCollada_18b0000.cpp (part 2 of 2): 15 functions
+// FCollada_18b0000.cpp (part 2 of 2): 34 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -179,5 +179,305 @@ struct C_018b1ba0
 void C_018b1ba0::sub_018b1ba0()
 {
     State = 3;
+    Flags |= 1;
+}
+
+struct C_018b1bb0
+{
+    BYTE Value_00;
+    char pad_01[3];
+    BYTE Value_04;
+
+    C_018b1bb0* sub_018b1bb0(BYTE* Source);
+};
+
+// @baa 0x018b1bb0
+C_018b1bb0* C_018b1bb0::sub_018b1bb0(BYTE* Source)
+{
+    Value_04 = *Source;
+    return this;
+}
+
+struct C_018b1bc0
+{
+    BYTE Value_00;
+    char pad_01[3];
+    BYTE Value_04;
+
+    C_018b1bc0* sub_018b1bc0(BYTE* Source);
+};
+
+// @baa 0x018b1bc0
+C_018b1bc0* C_018b1bc0::sub_018b1bc0(BYTE* Source)
+{
+    Value_04 = *Source;
+    return this;
+}
+
+struct C_018b1bd0
+{
+    BYTE Value_00;
+    char pad_01[3];
+    BYTE Value_04;
+
+    C_018b1bd0* sub_018b1bd0(BYTE* Source);
+};
+
+// @baa 0x018b1bd0
+C_018b1bd0* C_018b1bd0::sub_018b1bd0(BYTE* Source)
+{
+    Value_04 = *Source;
+    return this;
+}
+
+struct C_018b1c00
+{
+    char pad_00[0x18];
+    volatile INT Flags;
+    char pad_1c[0x58];
+    BYTE Value;
+
+    void sub_018b1c00(BYTE In);
+};
+
+// @baa 0x018b1c00
+void C_018b1c00::sub_018b1c00(BYTE In)
+{
+    Value = In;
+    Flags |= 1;
+}
+
+struct C_018b1c30
+{
+    INT Value_00;
+    INT Value_04;
+
+    C_018b1c30* sub_018b1c30(INT* Source);
+};
+
+// @baa 0x018b1c30
+C_018b1c30* C_018b1c30::sub_018b1c30(INT* Source)
+{
+    Value_04 = *Source;
+    return this;
+}
+
+struct C_018b1c70
+{
+    INT Value_00;
+    INT Value_04;
+
+    C_018b1c70* sub_018b1c70(INT* Source);
+};
+
+// @baa 0x018b1c70
+C_018b1c70* C_018b1c70::sub_018b1c70(INT* Source)
+{
+    Value_04 = *Source;
+    return this;
+}
+
+struct C_018b1c80
+{
+    INT Value_00;
+    INT Value_04;
+
+    C_018b1c80* sub_018b1c80(INT* Source);
+};
+
+// @baa 0x018b1c80
+C_018b1c80* C_018b1c80::sub_018b1c80(INT* Source)
+{
+    Value_04 = *Source;
+    return this;
+}
+
+struct C_018b1c90
+{
+    INT Value_00;
+    INT Value_04;
+
+    C_018b1c90* sub_018b1c90(INT* Source);
+};
+
+// @baa 0x018b1c90
+C_018b1c90* C_018b1c90::sub_018b1c90(INT* Source)
+{
+    Value_04 = *Source;
+    return this;
+}
+
+struct C_018b1ca0
+{
+    INT Value_00;
+    INT Value_04;
+
+    C_018b1ca0* sub_018b1ca0(INT* Source);
+};
+
+// @baa 0x018b1ca0
+C_018b1ca0* C_018b1ca0::sub_018b1ca0(INT* Source)
+{
+    Value_04 = *Source;
+    return this;
+}
+
+struct C_018b1cb0
+{
+    INT Value_00;
+    INT Value_04;
+
+    C_018b1cb0* sub_018b1cb0(INT* Source);
+};
+
+// @baa 0x018b1cb0
+C_018b1cb0* C_018b1cb0::sub_018b1cb0(INT* Source)
+{
+    Value_04 = *Source;
+    return this;
+}
+
+struct C_018b1cc0
+{
+    INT Value_00;
+    INT Value_04;
+
+    C_018b1cc0* sub_018b1cc0(INT* Source);
+};
+
+// @baa 0x018b1cc0
+C_018b1cc0* C_018b1cc0::sub_018b1cc0(INT* Source)
+{
+    Value_04 = *Source;
+    return this;
+}
+
+struct C_018b1cd0
+{
+    char pad_00[0x18];
+    volatile INT Flags;
+    char pad_1c[0x48];
+    INT Value;
+
+    void sub_018b1cd0(INT In);
+};
+
+// @baa 0x018b1cd0
+void C_018b1cd0::sub_018b1cd0(INT In)
+{
+    Value = In;
+    Flags |= 1;
+}
+
+struct C_018b1ce0
+{
+    char pad_00[0x18];
+    volatile INT Flags;
+    char pad_1c[0x58];
+    INT Value;
+
+    void sub_018b1ce0(INT In);
+};
+
+// @baa 0x018b1ce0
+void C_018b1ce0::sub_018b1ce0(INT In)
+{
+    Value = In;
+    Flags |= 1;
+}
+
+struct C_018b1cf0
+{
+    char pad_00[0x18];
+    volatile INT Flags;
+    char pad_1c[0x60];
+    INT Value;
+
+    void sub_018b1cf0(INT In);
+};
+
+// @baa 0x018b1cf0
+void C_018b1cf0::sub_018b1cf0(INT In)
+{
+    Value = In;
+    Flags |= 1;
+}
+
+struct C_018b1db0
+{
+    INT Value_00;
+    INT Value_04;
+
+    C_018b1db0* sub_018b1db0(INT* Source);
+};
+
+// @baa 0x018b1db0
+C_018b1db0* C_018b1db0::sub_018b1db0(INT* Source)
+{
+    Value_04 = *Source;
+    return this;
+}
+
+struct C_018b1dc0
+{
+    INT Value_00;
+    INT Value_04;
+
+    C_018b1dc0* sub_018b1dc0(INT* Source);
+};
+
+// @baa 0x018b1dc0
+C_018b1dc0* C_018b1dc0::sub_018b1dc0(INT* Source)
+{
+    Value_04 = *Source;
+    return this;
+}
+
+struct C_018b1dd0
+{
+    INT Value_00;
+    INT Value_04;
+
+    C_018b1dd0* sub_018b1dd0(INT* Source);
+};
+
+// @baa 0x018b1dd0
+C_018b1dd0* C_018b1dd0::sub_018b1dd0(INT* Source)
+{
+    Value_04 = *Source;
+    return this;
+}
+
+struct C_018b1de0
+{
+    char pad_00[0x18];
+    volatile INT Flags;
+    char pad_1c[0x5c];
+    INT Value;
+
+    void sub_018b1de0(INT In);
+};
+
+// @baa 0x018b1de0
+void C_018b1de0::sub_018b1de0(INT In)
+{
+    Value = In;
+    Flags |= 1;
+}
+
+struct C_018ba350
+{
+    char pad_00[0x18];
+    volatile INT Flags;
+    char pad_1c[0x54];
+    INT Value;
+
+    void sub_018ba350(INT In);
+};
+
+// @baa 0x018ba350
+void C_018ba350::sub_018ba350(INT In)
+{
+    Value = In;
     Flags |= 1;
 }

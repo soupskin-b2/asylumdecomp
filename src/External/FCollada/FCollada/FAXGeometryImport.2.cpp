@@ -1,4 +1,4 @@
-// FAXGeometryImport.cpp (part 2 of 2): 3 functions
+// FAXGeometryImport.cpp (part 2 of 2): 5 functions
 // Placed here by: neighbours 3.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -25,4 +25,36 @@ struct C_018abe00 {
 int *C_018abe00::sub_018abe00(int *a) {
     *a = v;
     return a;
+}
+
+struct C_018abc90
+{
+    INT Value_00;
+    INT Value_04;
+
+    C_018abc90* sub_018abc90(INT* Source);
+};
+
+// @baa 0x018abc90
+C_018abc90* C_018abc90::sub_018abc90(INT* Source)
+{
+    Value_04 = *Source;
+    return this;
+}
+
+struct C_018abca0
+{
+    char pad_00[0x18];
+    volatile INT Flags;
+    char pad_1c[0x3c];
+    INT Value;
+
+    void sub_018abca0(INT In);
+};
+
+// @baa 0x018abca0
+void C_018abca0::sub_018abca0(INT In)
+{
+    Value = In;
+    Flags |= 1;
 }

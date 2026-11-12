@@ -1,4 +1,4 @@
-// CRT_18c0000.cpp (part 3 of 3): 17 functions
+// CRT_18c0000.cpp (part 3 of 3): 23 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -192,4 +192,66 @@ void* sub_018ce3c0(void* First, void* Last, void* NewBase)
     if (Count != 0)
         memmove_s(NewBase, (unsigned int)Bytes, First, (unsigned int)Bytes);
     return NewEnd;
+}
+
+struct C
+{
+    char pad_00[0x10];
+    void* Pointer;
+    char pad_14[0x10];
+    UINT Count;
+
+    void* sub_018c8790();
+};
+
+// @baa 0x018c8790
+void* C::sub_018c8790()
+{
+    if (Count >= 0x10)
+        return Pointer;
+    return (void*)((char*)this + 0x10);
+}
+
+void sub_00402660(INT Value);
+// @baa 0x018c8c00
+void __stdcall sub_018c8c00(INT A, INT B)
+{
+    sub_00402660(A);
+}
+
+// @baa 0x018c8c80
+void __stdcall sub_018c8c80(INT A, INT B)
+{
+    sub_00402660(A);
+}
+
+// @baa 0x018c8ca0
+void __stdcall sub_018c8ca0(INT A, INT B)
+{
+    sub_00402660(A);
+}
+
+// @baa 0x018c8d80
+void __stdcall sub_018c8d80(INT A, INT B)
+{
+    sub_00402660(A);
+}
+
+struct C_018c97e0
+{
+    INT Value_00;
+    INT Value_04;
+    INT Value_08;
+    INT Value_0c;
+
+    C_018c97e0* sub_018c97e0();
+};
+
+// @baa 0x018c97e0
+C_018c97e0* C_018c97e0::sub_018c97e0()
+{
+    Value_04 = 0;
+    Value_08 = 0;
+    Value_0c = 0;
+    return this;
 }

@@ -1,4 +1,4 @@
-// GFx_1990000.cpp (part 1 of 3): 116 functions
+// GFx_1990000.cpp (part 1 of 3): 117 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -1297,3 +1297,45 @@ struct C_0199f9e0 { char pad[8]; M_0199f9e0 m; void sub_0199f9e0(); };
 
 // @baa 0x0199f9e0
 void C_0199f9e0::sub_0199f9e0() { m.sub_0199f270(); }
+
+struct FGASResult
+{
+    char pad_00_e8[0xe8];
+    BYTE bFlag;
+};
+
+struct FGASComp
+{
+    virtual ~FGASComp() {}
+    virtual void F1() {}
+    virtual void F2() {}
+    virtual void F3() {}
+    virtual void F4() {}
+    virtual void F5() {}
+    virtual void F6() {}
+    virtual void F7() {}
+    virtual void F8() {}
+    virtual void F9() {}
+    virtual void F10() {}
+    virtual void F11() {}
+    virtual void F12() {}
+    virtual void F13() {}
+    virtual void F14() {}
+    virtual void F15() {}
+    virtual FGASResult* GetResult();
+};
+
+class GASEnvironment
+{
+    char pad_00_74[0x74];
+    FGASComp* m_Compare;
+public:
+    BYTE sub_01995260();
+};
+
+// @baa 0x01995260
+BYTE GASEnvironment::sub_01995260()
+{    INT b = 0;
+    b = m_Compare->GetResult()->bFlag == b;
+    return b ? 1 : 0;
+}

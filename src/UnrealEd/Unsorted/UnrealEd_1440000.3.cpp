@@ -1,4 +1,4 @@
-// UnrealEd_1440000.cpp (part 3 of 3): 4 functions
+// UnrealEd_1440000.cpp (part 3 of 3): 5 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -80,4 +80,21 @@ void C_0144ec00::sub_0144ec00()
 {
     *(void**)this = g_0229c3e8;
     ((wxWindow*)this)->wxWindow::~wxWindow();
+}
+
+class wxDialogBase
+{
+protected:
+    __declspec(dllimport) void EndDialog(int Value);
+};
+
+struct C_0144d980 : public wxDialogBase
+{
+    void sub_0144d980(INT Unused);
+};
+
+// @baa 0x0144d980
+void C_0144d980::sub_0144d980(INT)
+{
+    EndDialog(0);
 }
