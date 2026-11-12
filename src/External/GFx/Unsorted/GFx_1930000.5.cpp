@@ -1,4 +1,4 @@
-// GFx_1930000.cpp: 5 functions
+// GFx_1930000.cpp: 6 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Core.h"
@@ -99,4 +99,23 @@ struct C_0193b6b0
 BYTE C_0193b6b0::sub_0193b6b0(char* Object)
 {
     return Object[Offset];
+}
+
+struct Inner
+{
+    char pad_00[8];
+    BYTE* Table;
+};
+
+struct C_0193d7b0
+{
+    Inner* Object;
+
+    BYTE sub_0193d7b0(INT Index);
+};
+
+// @baa 0x0193d7b0
+BYTE C_0193d7b0::sub_0193d7b0(INT Index)
+{
+    return Object->Table[Index];
 }

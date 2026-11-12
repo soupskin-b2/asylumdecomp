@@ -1,4 +1,4 @@
-// FCollada_1850000.cpp (part 19 of 19): 14 functions
+// FCollada_1850000.cpp (part 19 of 19): 20 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -213,4 +213,94 @@ extern FUTestSuiteFUFileManager* g_027b8028;
 FUTestSuiteFUFileManager::FUTestSuiteFUFileManager()
 {
     g_027b8028 = this;
+}
+
+struct C_0185a590
+{
+    float Value_00;
+    float Value_04;
+
+    C_0185a590* sub_0185a590(float* Source);
+};
+
+// @baa 0x0185a590
+C_0185a590* C_0185a590::sub_0185a590(float* Source)
+{
+    Value_04 = Source[1];
+    return this;
+}
+
+struct C_0185a640
+{
+    float Value_00;
+    float Value_04;
+
+    C_0185a640* sub_0185a640(float* Source);
+};
+
+// @baa 0x0185a640
+C_0185a640* C_0185a640::sub_0185a640(float* Source)
+{
+    Value_04 = Source[1];
+    return this;
+}
+
+struct C_0185a650
+{
+    float Value_00;
+    float Value_04;
+
+    C_0185a650* sub_0185a650(float* Source);
+};
+
+// @baa 0x0185a650
+C_0185a650* C_0185a650::sub_0185a650(float* Source)
+{
+    Value_04 = Source[1];
+    return this;
+}
+
+struct C_0185aed0
+{
+    INT Value_00;
+    INT Value_04;
+
+    C_0185aed0* sub_0185aed0(INT* Source);
+};
+
+// @baa 0x0185aed0
+C_0185aed0* C_0185aed0::sub_0185aed0(INT* Source)
+{
+    Value_04 = Source[1];
+    return this;
+}
+
+struct C_0185aee0
+{
+    INT Value_00;
+    INT Value_04;
+
+    C_0185aee0* sub_0185aee0(INT* Source);
+};
+
+// @baa 0x0185aee0
+C_0185aee0* C_0185aee0::sub_0185aee0(INT* Source)
+{
+    Value_04 = Source[1];
+    return this;
+}
+
+struct C_0185aef0
+{
+    INT Value_00;
+    INT Value_04;
+
+    C_0185aef0* sub_0185aef0(INT* Source);
+};
+
+// @baa 0x0185aef0
+C_0185aef0* C_0185aef0::sub_0185aef0(INT* Source)
+{
+    Value_04 = Source[1];
+    return this;
 }

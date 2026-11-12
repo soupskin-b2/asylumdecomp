@@ -1,4 +1,4 @@
-// fmod_eventimpl_simple.cpp: 2 functions
+// fmod_eventimpl_simple.cpp: 4 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -21,6 +21,20 @@ struct C_017f0680
 
 // @baa 0x017f0680
 INT C_017f0680::sub_017f0680(INT, BYTE* Out)
+{
+    *Out = 0;
+    return 0;
+}
+
+// @baa 0x017efd40
+INT __stdcall sub_017efd40(INT* Out)
+{
+    *Out = 0;
+    return 0;
+}
+
+// @baa 0x017efe90
+INT __stdcall sub_017efe90(INT* Out)
 {
     *Out = 0;
     return 0;

@@ -1,41 +1,41 @@
 {
- "updated": "2026-11-11",
+ "updated": "2026-11-12",
  "functions": {
   "total": 174166,
-  "matched": 98810
+  "matched": 99010
  },
  "bytes": {
   "total": 24308119,
-  "matched": 3758994
+  "matched": 3777887
  },
  "areas": [
   {
    "name": "Engine",
    "functions": 69863,
    "bytes": 9201956,
-   "matched": 41613,
-   "matched_bytes": 1768440
+   "matched": 41698,
+   "matched_bytes": 1780516
   },
   {
    "name": "Editor",
    "functions": 42961,
    "bytes": 8040643,
-   "matched": 23852,
-   "matched_bytes": 794262
+   "matched": 23871,
+   "matched_bytes": 794547
   },
   {
    "name": "External",
    "functions": 29410,
    "bytes": 3194268,
-   "matched": 11752,
-   "matched_bytes": 187397
+   "matched": 11823,
+   "matched_bytes": 188462
   },
   {
    "name": "Game",
    "functions": 13563,
    "bytes": 1853804,
-   "matched": 9343,
-   "matched_bytes": 534144
+   "matched": 9353,
+   "matched_bytes": 534363
   },
   {
    "name": "Core",
@@ -48,8 +48,8 @@
    "name": "CommonGame",
    "functions": 1422,
    "bytes": 173518,
-   "matched": 996,
-   "matched_bytes": 42938
+   "matched": 997,
+   "matched_bytes": 43064
   },
   {
    "name": "Unsorted",
@@ -62,29 +62,29 @@
    "name": "FMod",
    "functions": 1472,
    "bytes": 150189,
-   "matched": 916,
-   "matched_bytes": 27572
+   "matched": 917,
+   "matched_bytes": 27846
   },
   {
    "name": "CommonEditor",
    "functions": 554,
    "bytes": 94053,
-   "matched": 334,
-   "matched_bytes": 13361
+   "matched": 335,
+   "matched_bytes": 13444
   },
   {
    "name": "Libjpeg",
    "functions": 305,
    "bytes": 80271,
-   "matched": 297,
-   "matched_bytes": 75986
+   "matched": 305,
+   "matched_bytes": 80271
   },
   {
    "name": "GFxUIEditor",
    "functions": 124,
    "bytes": 29780,
-   "matched": 79,
-   "matched_bytes": 4672
+   "matched": 83,
+   "matched_bytes": 5152
   },
   {
    "name": "Zlib",
@@ -97,16 +97,17 @@
  "contributors": [
   {
    "login": "soupskin-b2",
-   "functions": 98800,
-   "bytes": 3757414,
+   "functions": 99000,
+   "bytes": 3776307,
    "models": {
     "Tooling": 94456,
-    "DeepSeek V4.1 Flash": 1979,
-    "Qwen3.8 27B": 1402,
-    "Claude Opus 5.5": 768,
+    "DeepSeek V4.1 Flash": 2080,
+    "Qwen3.8 27B": 1411,
+    "Claude Opus 5.5": 855,
     "GPT-6.1 Sol": 145,
     "Claude Sonnet 5.5": 37,
     "GPT-6.1 Terra": 10,
+    "qwen": 3,
     "not specified": 2,
     "Claude Haiku 5.5": 1
    }
@@ -119,15 +120,15 @@
   },
   {
    "model": "DeepSeek V4.1 Flash",
-   "functions": 1979
+   "functions": 2080
   },
   {
    "model": "Qwen3.8 27B",
-   "functions": 1402
+   "functions": 1411
   },
   {
    "model": "Claude Opus 5.5",
-   "functions": 768
+   "functions": 855
   },
   {
    "model": "GPT-6.1 Sol",
@@ -140,6 +141,10 @@
   {
    "model": "GPT-6.1 Terra",
    "functions": 10
+  },
+  {
+   "model": "qwen",
+   "functions": 3
   },
   {
    "model": "not specified",

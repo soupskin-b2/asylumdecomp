@@ -1,4 +1,4 @@
-// FCollada_1820000.cpp (part 6 of 6): 7 functions
+// FCollada_1820000.cpp (part 6 of 6): 10 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -81,4 +81,49 @@ INT sub_0182a660(INT* Value);
 INT sub_0182b400(INT Value)
 {
     return sub_0182a660(&Value);
+}
+
+struct C_0182a000
+{
+    INT Value_00;
+    INT Value_04;
+
+    C_0182a000* sub_0182a000(INT* Source);
+};
+
+// @baa 0x0182a000
+C_0182a000* C_0182a000::sub_0182a000(INT* Source)
+{
+    Value_04 = Source[1];
+    return this;
+}
+
+struct C_0182a0f0
+{
+    INT Value_00;
+    INT Value_04;
+
+    C_0182a0f0* sub_0182a0f0(INT* Source);
+};
+
+// @baa 0x0182a0f0
+C_0182a0f0* C_0182a0f0::sub_0182a0f0(INT* Source)
+{
+    Value_04 = Source[1];
+    return this;
+}
+
+struct C_0182a100
+{
+    INT Value_00;
+    INT Value_04;
+
+    C_0182a100* sub_0182a100(INT* Source);
+};
+
+// @baa 0x0182a100
+C_0182a100* C_0182a100::sub_0182a100(INT* Source)
+{
+    Value_04 = Source[1];
+    return this;
 }

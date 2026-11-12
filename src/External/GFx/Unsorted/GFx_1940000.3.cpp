@@ -1,4 +1,4 @@
-// GFx_1940000.cpp (part 3 of 3): 14 functions
+// GFx_1940000.cpp (part 3 of 3): 16 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -208,4 +208,37 @@ C_0194a670* C_0194a670::sub_0194a670()
     Value_08 = 0;
     Value_00 = 0;
     return this;
+}
+
+struct C_01947710
+{
+    BYTE Type;
+    char pad_01[3];
+    BYTE Flag;
+
+    C_01947710* sub_01947710(BYTE In);
+};
+
+// @baa 0x01947710
+C_01947710* C_01947710::sub_01947710(BYTE In)
+{
+    Type = 2;
+    Flag = In;
+    return this;
+}
+
+extern "C" __declspec(dllimport) int __stdcall FreeLibrary(void* Module);
+struct C_01947980
+{
+    char pad_00[0x1c];
+    void* Module;
+
+    void sub_01947980();
+};
+
+// @baa 0x01947980
+void C_01947980::sub_01947980()
+{
+    if (Module)
+        FreeLibrary(Module);
 }

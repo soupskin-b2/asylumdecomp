@@ -1,4 +1,4 @@
-// FCollada_1860000.cpp (part 15 of 15): 9 functions
+// FCollada_1860000.cpp (part 15 of 15): 10 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -134,4 +134,19 @@ extern FUTestSuiteFMArray* g_027b8084;
 FUTestSuiteFMArray::FUTestSuiteFMArray()
 {
     g_027b8084 = this;
+}
+
+struct C
+{
+    INT Value_00;
+    INT Value_04;
+
+    C* sub_0186e3c0(INT* Source);
+};
+
+// @baa 0x0186e3c0
+C* C::sub_0186e3c0(INT* Source)
+{
+    Value_04 = Source[1];
+    return this;
 }

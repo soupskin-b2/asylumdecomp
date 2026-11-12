@@ -1,4 +1,4 @@
-// GFx_18e0000.cpp (part 8 of 8): 3 functions
+// GFx_18e0000.cpp (part 8 of 8): 4 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -51,4 +51,20 @@ struct C_018e8b70
 void C_018e8b70::sub_018e8b70(float In)
 {
     Value = In;
+}
+
+struct C_018e8250
+{
+    INT Value_00;
+    BYTE Flag_04;
+
+    C_018e8250* sub_018e8250(INT Value);
+};
+
+// @baa 0x018e8250
+C_018e8250* C_018e8250::sub_018e8250(INT Value)
+{
+    Value_00 = Value;
+    Flag_04 = 0;
+    return this;
 }

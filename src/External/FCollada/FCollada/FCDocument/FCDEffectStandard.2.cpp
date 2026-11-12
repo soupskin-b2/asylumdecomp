@@ -1,4 +1,4 @@
-// FCDEffectStandard.cpp (part 2 of 2): 4 functions
+// FCDEffectStandard.cpp (part 2 of 2): 8 functions
 // Placed here by: neighbours 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -77,5 +77,79 @@ struct C_018706f0
 C_018706f0* C_018706f0::sub_018706f0(INT* Source)
 {
     Value_04 = *Source;
+    return this;
+}
+
+struct Object
+{
+    INT Value_00;
+    BYTE Value_04;
+};
+
+struct C_01870130
+{
+    BYTE Value_00;
+    char pad_01[3];
+    BYTE Value_04;
+
+    C_01870130* sub_01870130(Object* Source);
+};
+
+// @baa 0x01870130
+C_01870130* C_01870130::sub_01870130(Object* Source)
+{
+    Value_04 = Source->Value_04;
+    return this;
+}
+
+struct C_018707f0
+{
+    INT Value_00;
+    INT Value_04;
+
+    C_018707f0* sub_018707f0(INT* Source);
+};
+
+// @baa 0x018707f0
+C_018707f0* C_018707f0::sub_018707f0(INT* Source)
+{
+    Value_04 = Source[1];
+    return this;
+}
+
+struct Object_01870800
+{
+    INT Value_00;
+    INT Value_04;
+};
+
+struct C_01870800
+{
+    INT Value_00;
+    INT Value_04;
+
+    C_01870800* sub_01870800(Object_01870800* Source);
+};
+
+// @baa 0x01870800
+C_01870800* C_01870800::sub_01870800(Object_01870800* Source)
+{
+    Value_04 = Source->Value_04;
+    return this;
+}
+
+struct C_01870810
+{
+    BYTE Value_00;
+    char pad_01[3];
+    BYTE Value_04;
+
+    C_01870810* sub_01870810(Object* Source);
+};
+
+// @baa 0x01870810
+C_01870810* C_01870810::sub_01870810(Object* Source)
+{
+    Value_04 = Source->Value_04;
     return this;
 }

@@ -1,4 +1,4 @@
-// Cascade.cpp (part 1 of 2): 44 functions
+// Cascade.cpp (part 1 of 2): 45 functions
 // Placed here by: neighbours 35, callers 6, file 3.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -310,3 +310,10 @@ void C_012b8a30::sub_012b8a30(int) { sub_012b8440(); }
 IMPLEMENT_CLASS_AT(UCascadeOptions, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\Cascade.cpp", 13);
 
 // @baa 0x012be5e0
+
+void __stdcall sub_012b7380(INT A, INT B);
+// @baa 0x012b9700
+void __stdcall sub_012b9700(INT Value)
+{
+    sub_012b7380(Value, 0);
+}

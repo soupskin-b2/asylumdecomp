@@ -1,4 +1,4 @@
-// UnNovodexSupport.cpp: 27 functions
+// UnNovodexSupport.cpp: 28 functions
 // Placed here by: neighbours 16, class 10, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -211,4 +211,14 @@ undefined4 * UPhysicalMaterial::sub_00a046e0(byte param_2)
     sub_0053dfa0(param_1);
   }
   return param_1;
+}
+
+// @baa 0x009d7b70
+FVector sub_009d7b70(FLOAT* Src)
+{
+	FVector V;
+	V.X = Src[0];
+	V.Y = Src[1];
+	V.Z = Src[2];
+	return V;
 }

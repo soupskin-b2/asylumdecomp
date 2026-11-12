@@ -1,4 +1,4 @@
-// RCapeComponent.cpp (part 1 of 2): 63 functions
+// RCapeComponent.cpp (part 1 of 2): 64 functions
 // Placed here by: neighbours 22, file 19, class 12, callers 8.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -601,4 +601,25 @@ struct C_016adba0
 void C_016adba0::sub_016adba0(float In)
 {
     Value = In;
+}
+
+struct Sub
+{
+    INT sub_01579fb0();
+};
+
+struct C_016ae7f0
+{
+    char pad_00[0x60];
+    Sub* Object;
+
+    INT sub_016ae7f0();
+};
+
+// @baa 0x016ae7f0
+INT C_016ae7f0::sub_016ae7f0()
+{
+    if (Object)
+        return Object->sub_01579fb0();
+    return 0;
 }

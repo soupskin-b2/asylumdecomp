@@ -1,4 +1,4 @@
-// GFx_1900000.cpp (part 6 of 6): 7 functions
+// GFx_1900000.cpp (part 6 of 6): 15 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -133,5 +133,129 @@ C_01901680* C_01901680::sub_01901680()
     Value_00 = 0;
     Value_04 = 0;
     Value_0c = 0;
+    return this;
+}
+
+extern "C" __declspec(dllimport) long __stdcall InterlockedExchange(long volatile* Target, long Value);
+struct C_019020a0
+{
+    long Counter;
+
+    INT sub_019020a0(INT Value);
+};
+
+// @baa 0x019020a0
+INT C_019020a0::sub_019020a0(INT Value)
+{
+    return InterlockedExchange(&Counter, Value);
+}
+
+struct C_019020b0
+{
+    long Counter;
+
+    INT sub_019020b0(INT Value);
+};
+
+// @baa 0x019020b0
+INT C_019020b0::sub_019020b0(INT Value)
+{
+    return InterlockedExchange(&Counter, Value);
+}
+
+struct C_019020c0
+{
+    long Counter;
+
+    INT sub_019020c0(INT Value);
+};
+
+// @baa 0x019020c0
+INT C_019020c0::sub_019020c0(INT Value)
+{
+    return InterlockedExchange(&Counter, Value);
+}
+
+struct Sub
+{
+    INT pad_00[3];
+    INT Count;
+
+    INT Value;
+};
+
+struct C_019035e0
+{
+    Sub* Object;
+
+    C_019035e0* sub_019035e0(Sub* Value);
+};
+
+// @baa 0x019035e0
+C_019035e0* C_019035e0::sub_019035e0(Sub* Value)
+{
+    Object = Value;
+    Value->Count++;
+    return this;
+}
+
+struct First
+{
+    INT Value_00;
+    UINT Value_04;
+};
+
+struct C_01903ff0
+{
+    char pad_00[0x1c];
+    First* Object;
+    UINT Count;
+
+    INT sub_01903ff0();
+};
+
+// @baa 0x01903ff0
+INT C_01903ff0::sub_01903ff0()
+{
+    return Count >= Object->Value_04;
+}
+
+void __stdcall sub_01985b60(INT A, INT B);
+// @baa 0x019040f0
+void __stdcall sub_019040f0(INT Value)
+{
+    sub_01985b60(Value, 1);
+}
+
+struct C_01905750
+{
+    INT Value_00;
+    BYTE Flag_04;
+
+    C_01905750* sub_01905750(INT Value);
+};
+
+// @baa 0x01905750
+C_01905750* C_01905750::sub_01905750(INT Value)
+{
+    Value_00 = Value;
+    Flag_04 = 1;
+    return this;
+}
+
+struct C_01905830
+{
+    void* Pointer;
+    INT Count;
+    char pad_08[8];
+
+    C_01905830* sub_01905830();
+};
+
+// @baa 0x01905830
+C_01905830* C_01905830::sub_01905830()
+{
+    Pointer = (void*)((char*)this + 8);
+    Count = 0x200;
     return this;
 }

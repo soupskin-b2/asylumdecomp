@@ -5,16 +5,16 @@
 <text x="860" y="20" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">94,456</text>
 <text x="0" y="50" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">DeepSeek V4.1 Flash</text>
 <rect x="242" y="40" width="528" height="10" fill="#eaeef2" stroke="#d1d9e0"/>
-<rect x="242" y="40" width="11.0624" height="10" fill="#1f2328"/>
-<text x="860" y="50" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">1,979</text>
+<rect x="242" y="40" width="11.627" height="10" fill="#1f2328"/>
+<text x="860" y="50" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">2,080</text>
 <text x="0" y="80" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">Qwen3.8 27B</text>
 <rect x="242" y="70" width="528" height="10" fill="#eaeef2" stroke="#d1d9e0"/>
-<rect x="242" y="70" width="7.83705" height="10" fill="#1f2328"/>
-<text x="860" y="80" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">1,402</text>
+<rect x="242" y="70" width="7.88735" height="10" fill="#1f2328"/>
+<text x="860" y="80" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">1,411</text>
 <text x="0" y="110" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">Claude Opus 5.5</text>
 <rect x="242" y="100" width="528" height="10" fill="#eaeef2" stroke="#d1d9e0"/>
-<rect x="242" y="100" width="4.29305" height="10" fill="#1f2328"/>
-<text x="860" y="110" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">768</text>
+<rect x="242" y="100" width="4.77937" height="10" fill="#1f2328"/>
+<text x="860" y="110" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">855</text>
 <text x="0" y="140" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">GPT-6.1 Sol</text>
 <rect x="242" y="130" width="528" height="10" fill="#eaeef2" stroke="#d1d9e0"/>
 <rect x="242" y="130" width="0.810536" height="10" fill="#1f2328"/>
@@ -29,6 +29,6 @@
 <text x="860" y="200" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">10</text>
 <text x="0" y="230" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">other</text>
 <rect x="242" y="220" width="528" height="10" fill="#eaeef2" stroke="#d1d9e0"/>
-<rect x="242" y="220" width="0.0167697" height="10" fill="#1f2328"/>
-<text x="860" y="230" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">3</text>
+<rect x="242" y="220" width="0.0335394" height="10" fill="#1f2328"/>
+<text x="860" y="230" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">6</text>
 </svg>

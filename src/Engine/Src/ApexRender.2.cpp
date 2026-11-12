@@ -1,4 +1,4 @@
-// ApexRender.cpp (part 2 of 2): 3 functions
+// ApexRender.cpp (part 2 of 2): 4 functions
 // Placed here by: neighbours 3.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -39,4 +39,21 @@ undefined4 ULensFlare::sub_009e2560(byte param_2)
     sub_0053dfa0(param_1);
   }
   return param_1;
+}
+
+extern int g_01fa3f38;
+struct S009d5a00 {
+    int* target;
+    int index;
+    int flags;
+    S009d5a00* sub_009d5a00(int index);
+};
+
+// @baa 0x009d5a00
+S009d5a00* S009d5a00::sub_009d5a00(int index)
+{
+    target = &g_01fa3f38;
+    this->index = index;
+    flags = 0;
+    return this;
 }

@@ -1,4 +1,4 @@
-// Properties.cpp: 68 functions
+// Properties.cpp: 69 functions
 // Placed here by: neighbours 57, callers 9, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1855,4 +1855,16 @@ void Outer::sub_011f2440()
     {
         Field_0040->Method_0x37c(-1, -1);
     }
+}
+
+class wxEvent
+{
+public:
+    __declspec(dllimport) void Skip(bool Skip);
+};
+
+// @baa 0x011c2a70
+void __stdcall sub_011c2a70(wxEvent* Event)
+{
+    Event->Skip(true);
 }

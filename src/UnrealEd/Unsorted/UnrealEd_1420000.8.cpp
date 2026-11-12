@@ -1,4 +1,4 @@
-// UnrealEd_1420000.cpp (part 8 of 9): 2 functions
+// UnrealEd_1420000.cpp (part 8 of 9): 3 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -43,4 +43,16 @@ struct C_01426530
 void C_01426530::sub_01426530()
 {
     ((Sub*)Object->Pointer)->sub_00cc65f0();
+}
+
+class wxEvent
+{
+public:
+    __declspec(dllimport) void Skip(bool Skip);
+};
+
+// @baa 0x01426a80
+void __stdcall sub_01426a80(wxEvent* Event)
+{
+    Event->Skip(true);
 }

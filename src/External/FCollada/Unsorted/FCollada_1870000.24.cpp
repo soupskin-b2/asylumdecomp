@@ -1,4 +1,4 @@
-// FCollada_1870000.cpp (part 24 of 24): 13 functions
+// FCollada_1870000.cpp (part 24 of 24): 20 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -206,5 +206,152 @@ C_0187f360* C_0187f360::sub_0187f360()
     Value_0c = 0;
     Value_10 = 0;
     Value_14 = 0;
+    return this;
+}
+
+struct Object
+{
+    INT Value_00;
+    INT Value_04;
+};
+
+struct C_018732c0
+{
+    INT Value_00;
+    INT Value_04;
+
+    C_018732c0* sub_018732c0(Object* Source);
+};
+
+// @baa 0x018732c0
+C_018732c0* C_018732c0::sub_018732c0(Object* Source)
+{
+    Value_04 = Source->Value_04;
+    return this;
+}
+
+struct Object_01877c50
+{
+    INT Value_00;
+    float Value_04;
+};
+
+struct C_01877c50
+{
+    float Value_00;
+    float Value_04;
+
+    C_01877c50* sub_01877c50(Object_01877c50* Source);
+};
+
+// @baa 0x01877c50
+C_01877c50* C_01877c50::sub_01877c50(Object_01877c50* Source)
+{
+    Value_04 = Source->Value_04;
+    return this;
+}
+
+struct Object_01877c60
+{
+    INT Value_00;
+    float Value_04;
+};
+
+struct C_01877c60
+{
+    float Value_00;
+    float Value_04;
+
+    C_01877c60* sub_01877c60(Object_01877c60* Source);
+};
+
+// @baa 0x01877c60
+C_01877c60* C_01877c60::sub_01877c60(Object_01877c60* Source)
+{
+    Value_04 = Source->Value_04;
+    return this;
+}
+
+struct Object_01877c70
+{
+    INT Value_00;
+    float Value_04;
+};
+
+struct C_01877c70
+{
+    float Value_00;
+    float Value_04;
+
+    C_01877c70* sub_01877c70(Object_01877c70* Source);
+};
+
+// @baa 0x01877c70
+C_01877c70* C_01877c70::sub_01877c70(Object_01877c70* Source)
+{
+    Value_04 = Source->Value_04;
+    return this;
+}
+
+struct Object_01877c80
+{
+    INT Value_00;
+    float Value_04;
+};
+
+struct C_01877c80
+{
+    float Value_00;
+    float Value_04;
+
+    C_01877c80* sub_01877c80(Object_01877c80* Source);
+};
+
+// @baa 0x01877c80
+C_01877c80* C_01877c80::sub_01877c80(Object_01877c80* Source)
+{
+    Value_04 = Source->Value_04;
+    return this;
+}
+
+struct Object_01877c90
+{
+    INT Value_00;
+    float Value_04;
+};
+
+struct C_01877c90
+{
+    float Value_00;
+    float Value_04;
+
+    C_01877c90* sub_01877c90(Object_01877c90* Source);
+};
+
+// @baa 0x01877c90
+C_01877c90* C_01877c90::sub_01877c90(Object_01877c90* Source)
+{
+    Value_04 = Source->Value_04;
+    return this;
+}
+
+struct Object_01877ca0
+{
+    INT Value_00;
+    float Value_04;
+};
+
+struct C_01877ca0
+{
+    float Value_00;
+    float Value_04;
+
+    C_01877ca0* sub_01877ca0(Object_01877ca0* Source);
+};
+
+// @baa 0x01877ca0
+C_01877ca0* C_01877ca0::sub_01877ca0(Object_01877ca0* Source)
+{
+    Value_04 = Source->Value_04;
     return this;
 }

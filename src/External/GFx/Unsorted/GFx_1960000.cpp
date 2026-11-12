@@ -1,4 +1,4 @@
-// GFx_1960000.cpp (part 1 of 2): 88 functions
+// GFx_1960000.cpp (part 1 of 2): 89 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -937,4 +937,18 @@ unsigned __stdcall sub_0196c640(const sub_0196c640_Desc* Desc)
 	if (Desc->Flags & 0x20000)
 		Value ^= (DWORD)(short)Desc->Sign;
 	return Value;
+}
+
+extern BYTE sub_0196b8c0(INT Value);
+struct C_0196bae0
+{
+    INT Value;
+
+    INT sub_0196bae0();
+};
+
+// @baa 0x0196bae0
+INT C_0196bae0::sub_0196bae0()
+{
+    return sub_0196b8c0(Value);
 }

@@ -1,4 +1,4 @@
-// GFxUIEngine.cpp (part 1 of 3): 83 functions
+// GFxUIEngine.cpp (part 1 of 3): 85 functions
 // Placed here by: neighbours 76, callers 5, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -756,4 +756,38 @@ struct C_00e493d0
 void C_00e493d0::sub_00e493d0()
 {
     InterlockedExchangeAdd(&Counter, 1);
+}
+
+extern FName g_026caf44;
+ /* GFXUI_FSCommand (registered from L"FSCommand" in 00e427c0) */
+/* The FSCommand script event's generated glue (GFxUIClasses.h). */
+struct GFxFSCmdHandler_eventFSCommand_Parms
+{
+    class UGFxMovie* Movie;
+    FString cmd;
+    FString arg;
+    UBOOL ReturnValue;
+};
+
+struct UGFxFSCmdHandler_ : public UGFxFSCmdHandler
+{
+    UBOOL eventFSCommand(class UGFxMovie* Movie, const FString& cmd, const FString& arg);
+};
+
+// @baa 0x00e58af0
+UBOOL UGFxFSCmdHandler_::eventFSCommand(class UGFxMovie* Movie, const FString& cmd, const FString& arg)
+{
+    GFxFSCmdHandler_eventFSCommand_Parms Parms;
+    Parms.ReturnValue = FALSE;
+    Parms.Movie = Movie;
+    Parms.cmd = cmd;
+    Parms.arg = arg;
+    ProcessEvent(FindFunctionChecked(g_026caf44), &Parms);
+    return Parms.ReturnValue;
+}
+
+// @baa 0x00e51380
+void Destroy(GFxFSCmdHandler_eventFSCommand_Parms* Parms)
+{
+    Parms->~GFxFSCmdHandler_eventFSCommand_Parms();
 }

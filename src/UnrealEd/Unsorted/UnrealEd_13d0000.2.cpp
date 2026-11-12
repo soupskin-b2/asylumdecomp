@@ -1,4 +1,4 @@
-// UnrealEd_13d0000.cpp (part 2 of 4): 7 functions
+// UnrealEd_13d0000.cpp (part 2 of 4): 8 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -100,4 +100,16 @@ struct C_013debb0
 INT C_013debb0::sub_013debb0()
 {
     return sub_00dbddd0(Value);
+}
+
+class wxEvent
+{
+public:
+    __declspec(dllimport) void Skip(bool Skip);
+};
+
+// @baa 0x013dc5c0
+void __stdcall sub_013dc5c0(wxEvent* Event)
+{
+    Event->Skip(true);
 }

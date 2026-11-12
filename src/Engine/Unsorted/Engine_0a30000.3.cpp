@@ -1,4 +1,4 @@
-// Engine_0a30000.cpp (part 3 of 3): 11 functions
+// Engine_0a30000.cpp (part 3 of 3): 12 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -168,4 +168,18 @@ C_00a3c790* C_00a3c790::sub_00a3c790(INT* Source)
 {
     Value_04 = Source[1];
     return this;
+}
+
+struct Sub00a35540 {
+    DWORD N;
+    DWORD F;
+    void sub_00a35540(float F);
+};
+
+// @baa 0x00a35540
+void Sub00a35540::sub_00a35540(float F)
+{
+    N++;
+    float T = F;
+    this->F = *(DWORD*)&T;
 }

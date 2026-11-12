@@ -1,4 +1,4 @@
-// BmGame_1590000.cpp (part 1 of 2): 328 functions
+// BmGame_1590000.cpp (part 1 of 2): 330 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1832,4 +1832,16 @@ C_015925c0* C_015925c0::sub_015925c0(float* Source)
 {
     Value = *Source;
     return this;
+}
+
+// @baa 0x015925d0
+void sub_015925d0(float* Out, float Value)
+{
+    *Out = Value;
+}
+
+// @baa 0x015925e0
+void sub_015925e0(float* Out, float Value)
+{
+    *Out = Value;
 }

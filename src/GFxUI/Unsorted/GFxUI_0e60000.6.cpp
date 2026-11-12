@@ -1,0 +1,50 @@
+// GFxUI_0e60000.cpp: 1 function
+// Placed here by: contributions.
+// Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
+#include "ue3/Classes.h"
+#include "ue3/Cast.h"
+
+#define INVALID_OBJECT ((UObject*)-1)
+class FObjectInstancingGraph;
+struct UClass_;
+extern template UGFxFSCmdHandler_Kismet* Cast<UGFxFSCmdHandler_Kismet>(UObject* Src);
+/* UnObjBas.h ConstructObject<T>; the UGFxFSCmdHandler_Kismet instance is out of line (00e6fb00). */
+template<class T>
+T* ConstructObject(UClass_* Class, UObject* Outer = INVALID_OBJECT, FName Name = NAME_None, QWORD SetFlags = 0, UObject* Template = NULL, UObject* SubobjectRoot = NULL, FObjectInstancingGraph* InstanceGraph = NULL);
+/* USequenceEvent::RegisterEvent (008be6c0); slot 0x1a0 (vf_1a0) is RegisterEvent. */
+struct USequenceEvent_ : public USequenceEvent
+{
+    UBOOL RegisterEvent();
+};
+
+/* UGFxFSCmdHandler_Kismet::RegisterFSCommand (00e68ac0): adds the event to Events under its
+ * FSCommand name. */
+struct UGFxFSCmdHandler_Kismet_ : public UGFxFSCmdHandler_Kismet
+{
+    void RegisterFSCommand(UGFxEvent_FsCommand* Event);
+};
+
+// @baa 0x00e6ffb0
+INT UGFxEvent_FsCommand::vf_1a0()
+{
+    UBOOL bResult = ((USequenceEvent_*)this)->USequenceEvent_::RegisterEvent();
+    if (Movie && bResult)
+    {
+        UGFxFSCmdHandler_Kismet* Handler;
+        if (Movie->FSCmdHandler)
+        {
+            Handler = Cast<UGFxFSCmdHandler_Kismet>(Movie->FSCmdHandler);
+            if (!Handler)
+            {
+                return FALSE;
+            }
+        }
+        else
+        {
+            Handler = ConstructObject<UGFxFSCmdHandler_Kismet>((UClass_*)UGFxFSCmdHandler_Kismet::StaticClass());
+            Movie->FSCmdHandler = Handler;
+        }
+        ((UGFxFSCmdHandler_Kismet_*)Handler)->RegisterFSCommand(this);
+    }
+    return bResult;
+}

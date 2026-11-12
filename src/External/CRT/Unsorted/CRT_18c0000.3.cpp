@@ -1,4 +1,4 @@
-// CRT_18c0000.cpp (part 3 of 3): 23 functions
+// CRT_18c0000.cpp (part 3 of 3): 24 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -254,4 +254,11 @@ C_018c97e0* C_018c97e0::sub_018c97e0()
     Value_08 = 0;
     Value_0c = 0;
     return this;
+}
+
+void __stdcall sub_018c9d90(INT A, INT B);
+// @baa 0x018c9e50
+void __stdcall sub_018c9e50(INT Value)
+{
+    sub_018c9d90(Value, 0);
 }

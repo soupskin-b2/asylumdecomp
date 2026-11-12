@@ -1,4 +1,4 @@
-// UnrealEd_12c0000.cpp: 69 functions
+// UnrealEd_12c0000.cpp: 70 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -748,4 +748,16 @@ void C_012c0390::sub_012c0390()
 {
     *(void**)this = g_02230a80;
     ((wxWindow*)this)->wxWindow::~wxWindow();
+}
+
+class wxEvent
+{
+public:
+    __declspec(dllimport) void Skip(bool Skip);
+};
+
+// @baa 0x012c0700
+void __stdcall sub_012c0700(wxEvent* Event)
+{
+    Event->Skip(true);
 }

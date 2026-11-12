@@ -1,4 +1,4 @@
-// GFx_1950000.cpp (part 3 of 3): 5 functions
+// GFx_1950000.cpp (part 3 of 3): 7 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -71,4 +71,32 @@ struct C_0195b600
 INT C_0195b600::sub_0195b600()
 {
     return Value > 0;
+}
+
+struct Sub
+{
+    void sub_0194ef20();
+};
+
+struct C_01951930
+{
+    INT Value_00;
+    INT Value_04;
+    char pad_08[4];
+    Sub Marker;
+
+    void sub_01951930();
+};
+
+// @baa 0x01951930
+void C_01951930::sub_01951930()
+{
+    Value_04 = 4;
+    ((Sub*)((char*)this + 0xc))->sub_0194ef20();
+}
+
+// @baa 0x0195a5e0
+BYTE __cdecl sub_0195a5e0(BYTE A, BYTE B)
+{
+    return A < B ? A : B;
 }

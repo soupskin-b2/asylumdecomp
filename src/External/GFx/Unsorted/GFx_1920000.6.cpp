@@ -1,4 +1,4 @@
-// GFx_1920000.cpp: 2 functions
+// GFx_1920000.cpp: 3 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Core.h"
@@ -34,4 +34,21 @@ struct C
 void C::sub_019237a0()
 {
     InterlockedExchangeAdd(&Counter, 1);
+}
+
+struct C_019202d0
+{
+    BYTE* Table;
+    INT pad_04;
+    INT Position;
+
+    BYTE sub_019202d0();
+};
+
+// @baa 0x019202d0
+BYTE C_019202d0::sub_019202d0()
+{
+    BYTE Value = Table[Position];
+    Position++;
+    return Value;
 }

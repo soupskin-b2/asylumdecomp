@@ -1,4 +1,4 @@
-// UnInterpolation.cpp: 3 functions
+// UnInterpolation.cpp: 4 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -69,4 +69,27 @@ void __stdcall sub_00d1ba30(INT A, INT B);
 void __stdcall sub_00d1bbf0(INT Value)
 {
     sub_00d1ba30(Value, 0);
+}
+
+struct USeqAct_Interp__00cf3770 : public USeqAct_Interp {
+    UInterpGroupInst* FindFirstGroupInst(UInterpGroup* InGroup); // 00cf3770
+};
+
+// @baa 0x00cf3770
+UInterpGroupInst* USeqAct_Interp__00cf3770::FindFirstGroupInst(UInterpGroup* InGroup)
+{
+    if (!InGroup)
+    {
+        return NULL;
+    }
+
+    for (INT i = 0; i < GroupInst.Num(); i++)
+    {
+        if (GroupInst(i)->Group == InGroup)
+        {
+            return GroupInst(i);
+        }
+    }
+
+    return NULL;
 }

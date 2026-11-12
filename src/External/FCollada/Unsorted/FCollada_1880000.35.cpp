@@ -1,4 +1,4 @@
-// FCollada_1880000.cpp (part 35 of 35): 15 functions
+// FCollada_1880000.cpp (part 35 of 35): 21 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -233,5 +233,115 @@ C_0188ea10* C_0188ea10::sub_0188ea10()
 {
     Value_04 = 0.0f;
     Value_00 = 0;
+    return this;
+}
+
+struct Object
+{
+    INT Value_00;
+    INT Value_04;
+};
+
+struct C_018811d0
+{
+    INT Value_00;
+    INT Value_04;
+
+    C_018811d0* sub_018811d0(Object* Source);
+};
+
+// @baa 0x018811d0
+C_018811d0* C_018811d0::sub_018811d0(Object* Source)
+{
+    Value_04 = Source->Value_04;
+    return this;
+}
+
+struct C_01881a00
+{
+    INT Value_00;
+    INT Value_04;
+
+    C_01881a00* sub_01881a00(Object* Source);
+};
+
+// @baa 0x01881a00
+C_01881a00* C_01881a00::sub_01881a00(Object* Source)
+{
+    Value_04 = Source->Value_04;
+    return this;
+}
+
+struct C_01881a10
+{
+    INT Value_00;
+    INT Value_04;
+
+    C_01881a10* sub_01881a10(Object* Source);
+};
+
+// @baa 0x01881a10
+C_01881a10* C_01881a10::sub_01881a10(Object* Source)
+{
+    Value_04 = Source->Value_04;
+    return this;
+}
+
+struct Object_01881a80
+{
+    INT Value_00;
+    BYTE Value_04;
+};
+
+struct C_01881a80
+{
+    BYTE Value_00;
+    char pad_01[3];
+    BYTE Value_04;
+
+    C_01881a80* sub_01881a80(Object_01881a80* Source);
+};
+
+// @baa 0x01881a80
+C_01881a80* C_01881a80::sub_01881a80(Object_01881a80* Source)
+{
+    Value_04 = Source->Value_04;
+    return this;
+}
+
+struct C_01883a80
+{
+    INT Value_00;
+    INT Value_04;
+
+    C_01883a80* sub_01883a80(Object* Source);
+};
+
+// @baa 0x01883a80
+C_01883a80* C_01883a80::sub_01883a80(Object* Source)
+{
+    Value_04 = Source->Value_04;
+    return this;
+}
+
+struct Object_0188d730
+{
+    INT Value_00;
+    BYTE Value_04;
+};
+
+struct C_0188d730
+{
+    BYTE Value_00;
+    char pad_01[3];
+    BYTE Value_04;
+
+    C_0188d730* sub_0188d730(Object_0188d730* Source);
+};
+
+// @baa 0x0188d730
+C_0188d730* C_0188d730::sub_0188d730(Object_0188d730* Source)
+{
+    Value_04 = Source->Value_04;
     return this;
 }

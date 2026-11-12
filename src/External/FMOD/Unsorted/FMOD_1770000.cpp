@@ -1,4 +1,4 @@
-// FMOD_1770000.cpp (part 1 of 2): 32 functions
+// FMOD_1770000.cpp (part 1 of 2): 33 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -576,4 +576,12 @@ void C_0177e293::sub_0177e293(int param_2)
     piVar2 = piVar2 + 1;
   } while (iVar1 < 0x20);
   return;
+}
+
+extern void sub_0178293e(INT Value);
+// @baa 0x0177e550
+INT __stdcall sub_0177e550(INT Value)
+{
+    sub_0178293e(Value);
+    return 0;
 }

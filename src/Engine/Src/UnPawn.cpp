@@ -1,4 +1,4 @@
-// UnPawn.cpp (part 1 of 2): 90 functions
+// UnPawn.cpp (part 1 of 2): 92 functions
 // Placed here by: neighbours 49, class 32, callers 3, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1261,4 +1261,45 @@ void AActor_::eventTakeDamage(INT Damage, AController* EventInstigator, FVector 
 	Parms.HitInfo = HitInfo;
 	Parms.DamageCauser = DamageCauser;
 	ProcessEvent(FindFunctionChecked(g_026c54d0), &Parms);
+}
+
+struct C_00890c30 {
+    int sub_00890c30(float* f);
+};
+
+// 0x00864e60: AActor::sub_00864e60 - guard that delegates through a member pointer.
+// 0x2c: 4-byte pointer; 0x30: flags byte (bit 2 gates the call).
+struct C_00864e60 {
+    char pad_0[0x2c];
+    C_00890c30* member_2c;   // 0x2c
+    char flags_30;           // 0x30
+
+    int sub_00864e60(float* f);
+};
+
+// @baa 0x00864e60
+int C_00864e60::sub_00864e60(float* f)
+{
+    if ((this->member_2c != 0) && ((this->flags_30 & 2) != 0)) {
+        return this->member_2c->sub_00890c30(f);
+    }
+    return 0;
+}
+
+static void s_caller(C_00864e60& c, float* f) { c.sub_00864e60(f); }
+
+struct C_0087d810 {
+    void* Unknown;
+    TArray<T_0087d370*> Items;
+
+    UBOOL sub_0087d810(T_0087d370* Item);
+};
+
+// @baa 0x0087d810
+UBOOL C_0087d810::sub_0087d810(T_0087d370* Item) {
+    return Items.RemoveItem(Item) > 0;
+}
+
+void sub_0087d820(C_0087d810* Self, T_0087d370* Item) {
+    (void)Self->sub_0087d810(Item);
 }

@@ -1,4 +1,4 @@
-// UnMorph.cpp: 39 functions
+// UnMorph.cpp: 40 functions
 // Placed here by: class 13, neighbours 10, file 8, callers 6.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -169,4 +169,17 @@ struct C_008348f0
 void C_008348f0::sub_008348f0(float In)
 {
     Value = In;
+}
+
+/* FString::Printf (UnString.h, 005488a0) isn't declared in the kit. */
+struct FString_ : public FString
+{
+	static FString Printf(const TCHAR* Fmt, ...);
+};
+
+// @baa 0x0084af10
+/* vf_0b8 is GetDesc: shown in the editor's browser. */
+FString UMorphTargetSet::vf_0b8()
+{
+	return FString_::Printf(TEXT("%d MorphTargets"), Targets.Num());
 }

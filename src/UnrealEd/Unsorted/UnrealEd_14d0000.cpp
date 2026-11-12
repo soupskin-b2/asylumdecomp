@@ -1,4 +1,4 @@
-// UnrealEd_14d0000.cpp (part 1 of 2): 113 functions
+// UnrealEd_14d0000.cpp (part 1 of 2): 114 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -938,4 +938,16 @@ void* UTexture2D_::sub_014d79d0(void)
     *(DWORD*)((char*)this + 0x10) = z;
     *(DWORD*)((char*)this + 0x14) = -1;
     return this;
+}
+
+class wxEvent
+{
+public:
+    __declspec(dllimport) void Skip(bool Skip);
+};
+
+// @baa 0x014dc330
+void __stdcall sub_014dc330(wxEvent* Event)
+{
+    Event->Skip(true);
 }

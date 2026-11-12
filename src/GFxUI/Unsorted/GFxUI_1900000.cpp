@@ -1,4 +1,4 @@
-// GFxUI_1900000.cpp (part 1 of 2): 16 functions
+// GFxUI_1900000.cpp (part 1 of 2): 17 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -188,4 +188,10 @@ void S018d4a70_0190fae0::sub_0190fae0()
     sub_0190be70(0);
     if (Self->Data)
         sub_018d7170(Self->Data);
+}
+
+// @baa 0x01905f80
+UINT __cdecl sub_01905f80(UINT A, UINT B)
+{
+    return A < B ? A : B;
 }

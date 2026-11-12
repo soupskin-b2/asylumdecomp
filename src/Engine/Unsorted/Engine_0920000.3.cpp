@@ -1,4 +1,4 @@
-// Engine_0920000.cpp: 7 functions
+// Engine_0920000.cpp: 9 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -55,4 +55,32 @@ void USkeletalMeshComponent::execToggleInstanceVertexWeights(FFrame& Stack, RESU
 	P_GET_UBOOL(bEnable);
 	P_FINISH;
 	sub_0092e930(bEnable);
+}
+
+struct USkeletalMeshComponent_ : public USkeletalMeshComponent
+{
+    FVector GetBoneLocation(FName BoneName, INT Space = 0); /* 0x0091e3a0 */
+};
+
+// @baa 0x0092df60
+void USkeletalMeshComponent::execGetBoneLocation(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(BoneName);
+    P_GET_INT_OPTX(Space, 0);
+    P_FINISH;
+    *(FVector*)Result = ((USkeletalMeshComponent_*)this)->GetBoneLocation(BoneName, Space);
+}
+
+struct USkeletalMeshComponent__0092e020 : public USkeletalMeshComponent
+{
+    FVector GetBoneAxis(FName BoneName, BYTE Axis); /* 0x0091e4f0 */
+};
+
+// @baa 0x0092e020
+void USkeletalMeshComponent::execGetBoneAxis(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(BoneName);
+    P_GET_BYTE(Axis);
+    P_FINISH;
+    *(FVector*)Result = ((USkeletalMeshComponent__0092e020*)this)->GetBoneAxis(BoneName, Axis);
 }

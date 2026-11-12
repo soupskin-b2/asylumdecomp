@@ -1,4 +1,4 @@
-// BmGame_1570000.cpp (part 35 of 35): 1 function
+// BmGame_1570000.cpp (part 35 of 35): 2 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -53,4 +53,12 @@ AInfo* AInfo::sub_015799b0(void)
     DetachFence = 0;
     *(INT*)this = (INT)g_023084b8;
     return this;
+}
+
+extern void sub_0156cef0();
+// @baa 0x01570440
+void __stdcall sub_01570440(INT Value)
+{
+    if (Value)
+        sub_0156cef0();
 }
