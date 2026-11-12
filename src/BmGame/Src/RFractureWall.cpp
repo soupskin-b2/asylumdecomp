@@ -475,5 +475,5 @@ void ARFractureWallBase::PostEditChange(UProperty* PropertyThatChanged)
     {
         bWorldGeometry = FALSE;
     }
-    Super::PostEditChange(PropertyThatChanged);
+    AActor::PostEditChange(PropertyThatChanged);  // skips AFracturedStaticMeshActor's
 }

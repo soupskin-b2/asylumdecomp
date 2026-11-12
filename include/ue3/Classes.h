@@ -28667,7 +28667,7 @@ struct UOnlineProfileSettings : public UObject {
     virtual INT GetProfileSettingMappingType(INT ProfileSettingId, BYTE& OutType); /* 0x168 */
     virtual INT GetProfileSettingRange(INT ProfileSettingId, FLOAT& OutMinValue, FLOAT& OutMaxValue, FLOAT& RangeIncrement, BYTE& bFormatAsInt); /* 0x16c */
     virtual INT SetRangedProfileSettingValue(INT ProfileSettingId, FLOAT NewValue); /* 0x170 */
-    virtual UBOOL GetRangedProfileSettingValue(INT ProfileSettingId, FLOAT& OutValue); /* 0x174 */
+    virtual bool GetRangedProfileSettingValue(INT ProfileSettingId, FLOAT& OutValue); /* 0x174 */
     virtual void vf_178(); /* 0x178 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
