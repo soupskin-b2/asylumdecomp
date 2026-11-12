@@ -8,9 +8,9 @@
 // passed as the first argument (the device itself, not `this` in ecx).
 extern int __cdecl sub_00630f20(void* Device, const TCHAR* Fmt, const TCHAR* FuncName);
 // @baa 0x012508a0
-INT UThumbnailRenderer::GetThumbnailSize(INT, INT, INT, INT, INT)
+void UThumbnailRenderer::GetThumbnailSize(UObject* Object, EThumbnailPrimType PrimType, FLOAT Zoom, DWORD& OutWidth, DWORD& OutHeight)
 {
-    return sub_00630f20(GError, TEXT("Pure virtual not implemented (%s)"), TEXT("UThumbnailRenderer::GetThumbnailSize"));
+    sub_00630f20(GError, TEXT("Pure virtual not implemented (%s)"), TEXT("UThumbnailRenderer::GetThumbnailSize"));
 }
 
 // @baa 0x012506c0

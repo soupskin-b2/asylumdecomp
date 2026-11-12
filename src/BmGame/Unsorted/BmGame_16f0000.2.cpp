@@ -230,7 +230,7 @@ void ARGargoyleBombBase_::execActivateBomb( FFrame& Stack, RESULT_DECL )
 void URBMRouterPath::execClearPath(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	vf_130();
+	ClearPath();
 }
 
 typedef UBOOL (__thiscall* FSlot)(void*);

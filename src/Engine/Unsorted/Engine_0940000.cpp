@@ -226,7 +226,7 @@ struct C_view_00944a00 {
 };
 
 // @baa 0x00944a00
-void ASkeletalMeshActor::vf_10c(int param_2, undefined4 param_3)
+void ASkeletalMeshActor::ForceUpdateComponents(UBOOL param_2, UBOOL param_3)
 {
     int param_1 = (int)this;
   ((C_view_00944a00 *)(this))->sub_00772150(param_3);

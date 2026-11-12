@@ -22,7 +22,7 @@ void UTextureMovie::execPause( FFrame& Stack, RESULT_DECL )
 void UTextureMovie::execStop( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_138();
+	Stop();
 }
 
 #define INVALID_OBJECT ((UObject*)-1)

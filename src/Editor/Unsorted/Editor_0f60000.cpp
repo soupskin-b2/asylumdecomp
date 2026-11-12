@@ -444,7 +444,7 @@ void sub_00f66360();
 void sub_00f67e40(void) { sub_00f66360(); }
 
 // @baa 0x00f67ee0
-void UEditorEngine::SetClientTravel(int a0, int a1) {  }
+void UEditorEngine::SetClientTravel(const TCHAR* a0, ETravelType a1) {  }
 
 // @baa 0x00f67f10
 int UEditorEngine::vf_178(void) { return 0; }

@@ -15,7 +15,7 @@ void UOnlineProfileSettings::execSetToDefaults( FFrame& Stack, RESULT_DECL )
 void UOnlineProfileSettings::execAppendVersionToReadIds( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_158();
+	AppendVersionToReadIds();
 }
 
 // @baa 0x00c8e470

@@ -424,10 +424,10 @@ bool UCameraModifier::vf_004()
 }
 
 // @baa 0x00787ee0
-int UCameraModifier::vf_10c(int a0, int a1, int a2) { return 0; }
+UBOOL UCameraModifier::ModifyCamera(ACamera* a0, FLOAT a1, FTPOV& a2) { return 0; }
 
 // @baa 0x00787ef0
-uint UCameraModifier::vf_110(void)
+UBOOL UCameraModifier::IsDisabled()
 {
     int param_1 = (int)this;
 

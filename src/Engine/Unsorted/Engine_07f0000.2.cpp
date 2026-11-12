@@ -5,10 +5,10 @@
 #include "ue3/Script.h"
 
 // @baa 0x007f72f0
-void UEngine::SetClientTravel( INT URL, INT Flags ) PURE_VIRTUAL(UEngine::SetClientTravel,);
+void UEngine::SetClientTravel( const TCHAR* NextURL, ETravelType InTravelType ) PURE_VIRTUAL(UEngine::SetClientTravel,);
 
 // @baa 0x007f72d0
-void UEngine::Tick(INT DeltaSeconds)
+void UEngine::Tick(FLOAT DeltaSeconds)
 {
 	PURE_VIRTUAL(UEngine::Tick,);
 }

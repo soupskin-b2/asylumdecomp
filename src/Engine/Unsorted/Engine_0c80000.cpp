@@ -788,7 +788,7 @@ int UCodecMovie::vf_120(int a0, int a1) { return 0; }
 void UCodecMovie::vf_128(void) {  }
 
 // @baa 0x00c8c660
-void UCodecMovie::vf_12c(void) {  }
+void UCodecMovie::ResetStream() {  }
 
 // @baa 0x00c8c670
 void UCodecMovie::vf_130(int a0) {  }

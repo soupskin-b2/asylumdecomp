@@ -46,7 +46,7 @@ int UActorComponent::sub_0064b610(void) { return *(int*)((char*)this + 60); }
 int UActorComponent::sub_0064b620(void) { return *(int*)((char*)this + 64); }
 
 // @baa 0x0064b640
-void UActorComponent::vf_148(int a0, int a1) {  }
+void UActorComponent::GetActorReferences(TArray<FActorReference*>& a0, UBOOL a1) {  }
 
 // @baa 0x0064b650
 // @baa 0x006ab3c0
@@ -1666,7 +1666,7 @@ IMPLEMENT_CLASS_AT(UAudioComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngi
 // @baa 0x007846f0
 
 // @baa 0x007595c0
-void UActorComponent::Tick( FLOAT DeltaTime )
+void UActorComponent::Tick(FLOAT DeltaTime)
 {
 #line 634 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActorComponent.cpp"
 	check(bAttached);

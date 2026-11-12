@@ -283,7 +283,7 @@ void APlayerController::execSetShowSubtitles(FFrame& Stack, RESULT_DECL)
 }
 
 // vf_134 (vtable slot 0x134) is AActor::GetDestination. The header declares it
-// "virtual INT vf_134(INT, INT)"; the code shows the real shape: it fills a
+// "virtual INT GetDestination(INT, INT)"; the code shows the real shape: it fills a
 // caller-supplied buffer with an FVector (the first argument is the buffer's
 // address, the second the controller we are getting the destination of) and
 // returns that buffer's pointer.
@@ -292,9 +292,7 @@ struct AActor__00c82f00 : public AActor {
     {
         P_GET_OBJECT(AController, C);
         P_FINISH;
-        FVector Buffer;
-        INT Location = vf_134((INT)&Buffer, (INT)C);
-        *(FVector*)Result = *(FVector*)Location;
+        *(FVector*)Result = GetDestination(C);
     }
 };
 

@@ -98,7 +98,7 @@ void UAnimNodeBlendMultiBone::execSetTargetStartBone(FFrame& Stack, RESULT_DECL)
     P_GET_NAME(StartBoneName);
     P_GET_FLOAT_OPTX(PerBoneIncrease, 1.0f);
     P_FINISH;
-    vf_19c(TargetIdx, StartBoneName, PerBoneIncrease);
+    SetTargetStartBone(TargetIdx, StartBoneName, PerBoneIncrease);
 }
 
 // @baa 0x00c90510

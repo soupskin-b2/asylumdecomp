@@ -1249,7 +1249,7 @@ C_0059c040::C_0059c040(const C_0059c040 &o) : a(o.a), b(o.b) {}
 IMPLEMENT_CLASS_AT(USubsystem, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Core\\Src\\UnCoreNative.cpp", 1858);
 
 // @baa 0x0059d710
-void USubsystem::Tick(int a0) {  }
+void USubsystem::Tick(FLOAT a0) {  }
 
 // @baa 0x0059d730
 // @baa 0x0059d820

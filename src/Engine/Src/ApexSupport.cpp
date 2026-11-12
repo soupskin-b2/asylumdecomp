@@ -695,7 +695,7 @@ void C_009e9200::sub_009e9200() { m.sub_009e84f0(); }
 int UApexAsset::vf_110(void) { return 0; }
 
 // @baa 0x009e9290
-int UApexAsset::vf_114(int a0) { return 0; }
+UMaterialInterface* UApexAsset::GetMaterial(INT a0) { return 0; }
 
 // @baa 0x009e92a0
 void UApexAsset::vf_118(void) {  }

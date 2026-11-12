@@ -890,7 +890,7 @@ UINT UCodecMovieFallback::vf_114() { return 1; }
 int UCodecMovieFallback::vf_118(void) { return 2; }
 
 // @baa 0x00c98030
-void UCodecMovieFallback::vf_12c()
+void UCodecMovieFallback::ResetStream()
 {
     CurrentTime = 0.0f;
 }

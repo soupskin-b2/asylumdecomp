@@ -106,7 +106,7 @@ void UPrimitiveComponent::execSetHiddenEditor(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bHiddenEditor);
 	P_FINISH;
-	vf_224(bHiddenEditor);
+	SetHiddenGame(bHiddenEditor);
 }
 
 // @baa 0x006dbc70

@@ -230,7 +230,7 @@ void UReachSpec::execIsOneWay(FFrame& Stack, RESULT_DECL)
 void UCameraModifier::execIsDisabled(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_110();
+	*(UBOOL*)Result = IsDisabled();
 }
 
 // @baa 0x00c8cb50

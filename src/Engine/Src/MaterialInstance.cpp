@@ -67,7 +67,7 @@ void UMaterialInstance::vf_184(void) {  }
 void UMaterialInstance::SetParent(class UMaterialInterface* NewParent) { Parent = NewParent; }
 
 // @baa 0x006aefa0
-void UMaterialInstance::vf_164(int a0, int a1, int a2, int a3, int a4, int a5) {  }
+void UMaterialInstance::SetVectorParameterValue(FName ParameterName, FLinearColor Value) {  }
 
 // @baa 0x006aefb0
 void UMaterialInstance::SetScalarParameterValue(FName ParameterName, FLOAT Value) {  }

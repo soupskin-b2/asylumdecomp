@@ -98,7 +98,7 @@ struct C_view {
 };
 
 // @baa 0x005c1a00
-void UObject::vf_044(UINT a)
+void UObject::PreEditChange(UProperty* a)
 {
     vf_018(0);
 }

@@ -58,8 +58,13 @@ def check(va: int, src: str, function: str | None = None) -> Result:
     obj = Coff(c.obj)
     w = want(va, function)
     k = known(obj)
-    status, problems, bound = fingerprint.verify(obj, w, va, fp, k, data.imports())
     sym = obj.find_function(w)
+    if sym is not None and sym.name not in w and not function:
+        other = re.search(r"sub_([0-9a-f]{8})", sym.name)
+        if other and int(other.group(1), 16) != va:  # a source written for another function
+            return Result("extract_error", ["the source's function is %s, named for %s, not %08x"
+                                            % (sym.name, other.group(1), va)])
+    status, problems, bound = fingerprint.verify(obj, w, va, fp, k, data.imports())
     if status == "extract_error":
         problems.append("name the function to compare with --function (its decorated name or a unique part of it)")
     return Result(status, problems, sym.name if sym else None, bound, obj, {n: a for n, a in bound.items() if n not in k})

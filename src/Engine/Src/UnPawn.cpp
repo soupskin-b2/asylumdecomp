@@ -8,9 +8,10 @@ extern char g_01ebc268[];
 int sub_00754460(void) { return (int)g_01ebc268; }
 
 // @baa 0x007581c0
-undefined4 AActor::vf_164(int param_2)
+UBOOL AActor::IgnoreBlockingBy(const AActor* Other) const
 {
     int param_1 = (int)this;
+    int param_2 = (int)Other;
 
   if ((((*(uint *)(param_1 + 0x30) & 0x4000) != 0) &&
       ((*(uint *)(param_2 + 0x34) & 0x80000000) != 0)) &&
@@ -21,9 +22,10 @@ undefined4 AActor::vf_164(int param_2)
 }
 
 // @baa 0x00758220
-undefined4 APawn::vf_164(int param_2)
+UBOOL APawn::IgnoreBlockingBy(const AActor* Other) const
 {
     int param_1 = (int)this;
+    int param_2 = (int)Other;
 
   if (((*(char *)(param_1 + 0x90) != '\n') || ((*(uint *)(param_2 + 0x30) & 0x1000) == 0)) &&
      ((((*(uint *)(param_1 + 0x30) & 0x4000) == 0 || ((*(uint *)(param_2 + 0x34) & 0x80000000) == 0)
@@ -1145,7 +1147,7 @@ int sub_00887630(void)
 }
 
 // @baa 0x0088a320
-int APawn::vf_408(void)
+INT APawn::calcMoveFlags()
 {
     int param_1 = (int)this;
 
@@ -1169,10 +1171,10 @@ undefined4 APawn::sub_008a66c0(void)
 }
 
 // @baa 0x008a6840
-void APawn::vf_3ac(int a0, int a1) {  }
+void APawn::IncrementPathStep(INT a0, AController* a1) {  }
 
 // @baa 0x008a6850
-void APawn::vf_3b0(int a0, int a1) {  }
+void APawn::IncrementPathChild(INT a0, AController* a1) {  }
 
 // @baa 0x008a6860
 void APawn::DrawPathStep(class UCanvas* a0) {  }

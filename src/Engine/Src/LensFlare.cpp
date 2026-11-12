@@ -86,7 +86,7 @@ bool ALensFlareSource::vf_004()
 }
 
 // @baa 0x00baceb0
-void ULensFlareComponent::vf_044(UINT a0) {  }
+void ULensFlareComponent::PreEditChange(UProperty* a0) {  }
 
 struct C_00bacec0 { void sub_00765d00(); void sub_00bacec0(int); };
 
