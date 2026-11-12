@@ -1291,7 +1291,7 @@ void sub_00ebec20(void) { sub_00ebce60(); }
 void UWindowsClient::AllowMessageProcessing(int a0) { *(int*)((char*)this + 384) = a0; }
 
 // @baa 0x00ebf9f0
-UINT UWindowsClient::GetAudioDevice() { return *(int*)((char*)this + 400); }
+UAudioDevice* UWindowsClient::GetAudioDevice() { return *(UAudioDevice**)((char*)this + 400); }
 
 // @baa 0x00ec0200
 int sub_005c7a70(...);

@@ -9,9 +9,9 @@ int UTexture::vf_000(void) { return 1; }
 struct SubB { int __thiscall sub_0056bfe0(void); };
 
 // @baa 0x00717420
-int UTexture::vf_0b4(int arg)
+void UTexture::StripData(UE3::EPlatformType arg)
 {
-    return ((SubB*)((char*)this + 0x54))->sub_0056bfe0();
+    ((SubB*)((char*)this + 0x54))->sub_0056bfe0();
 }
 
 // @baa 0x0071ef30

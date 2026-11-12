@@ -90,7 +90,7 @@ void UAnimNodeCrossfader::execGetActiveChild(FFrame& Stack, RESULT_DECL)
 void UMaterialInstanceTimeVarying::execGetMaxDurationFromAllParameters(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(FLOAT*)Result = vf_198();
+	*(FLOAT*)Result = GetMaxDurationFromAllCurves();
 }
 
 // @baa 0x00c9f410

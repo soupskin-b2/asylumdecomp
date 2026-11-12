@@ -13,6 +13,23 @@
 
 class FString;
 class FArchive;
+namespace UE3
+{
+    /* the platforms a package is cooked for (UnObjBas.h) */
+    enum EPlatformType
+    {
+        PLATFORM_Unknown        = 0x00,
+        PLATFORM_Windows        = 0x01,
+        PLATFORM_WindowsServer  = 0x02,
+        PLATFORM_Xenon          = 0x04,
+        PLATFORM_PS3            = 0x08,
+        PLATFORM_Linux          = 0x10,
+        PLATFORM_MacOSX         = 0x20,
+        PLATFORM_Console        = PLATFORM_Xenon | PLATFORM_PS3,
+    };
+}
+struct FRBPhysScene;
+
 struct FName { INT Index; INT Number; FName() {} FName(EName N) : Index(N), Number(0) {} void sub_005d5620(const TCHAR* Name, INT FindType, UBOOL bSplitName); FString ToString() const; /* 0x005d5690 */ };
 class FString : public TArray<TCHAR> { public: FString() {} FString(ENoInit) : TArray<TCHAR>(E_NoInit) {} FString(const TCHAR* In); /* 0x00417ef0 */ FString& sub_00544ab0(const TCHAR* In); FString& operator=(const TCHAR* In) { return sub_00544ab0(In); } ~FString(); /* 0x0040fcc0 */ FString& operator=(const FString& Other); /* 0x00547da0 */ };
 class FStringNoInit : public FString { public: FStringNoInit() : FString(E_NoInit) {} FStringNoInit& operator=(const FString& Other); /* 0x004899f0 */ };
@@ -9683,7 +9700,7 @@ struct UObject {
     virtual void vf_0a8(INT, INT, INT); /* 0x0a8 */
     virtual INT vf_0ac(INT, INT, INT); /* 0x0ac */
     virtual void vf_0b0(INT); /* 0x0b0 */
-    virtual INT vf_0b4(INT); /* 0x0b4 */
+    virtual void StripData(UE3::EPlatformType TargetPlatform); /* 0x0b4 */
     virtual FString GetDesc(); /* 0x0b8 */
     virtual FString GetDetailedDescription(INT InIndex); /* 0x0bc */
     virtual INT vf_0c0(INT, INT); /* 0x0c0 */
@@ -9698,7 +9715,7 @@ struct UObject {
     virtual INT vf_0e4(INT, INT, INT); /* 0x0e4 */
     virtual void vf_0e8(INT); /* 0x0e8 */
     virtual void ProcessEvent(UFunction* Function, void* Parms, void* Result = NULL); /* 0x0ec */
-    virtual INT vf_0f0(INT, INT, INT, INT, INT); /* 0x0f0 */
+    virtual void ProcessDelegate(FName DelegateName, const FScriptDelegate* Delegate, void* Parms, void* Result); /* 0x0f0 */
     virtual void vf_0f4(INT); /* 0x0f4 */
     virtual INT vf_0f8(INT, INT, INT); /* 0x0f8 */
     virtual void InitExecution(); /* 0x0fc */
@@ -13037,7 +13054,7 @@ struct UTexture : public USurface {
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual void vf_044(UINT); /* 0x044 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
-    virtual INT vf_0b4(INT); /* 0x0b4 */
+    virtual void StripData(UE3::EPlatformType TargetPlatform); /* 0x0b4 */
     virtual FString GetDesc(); /* 0x0b8 */
     virtual DOUBLE vf_10c(); /* 0x10c */
     virtual DOUBLE GetSurfaceHeight(); /* 0x110 */
@@ -15357,7 +15374,7 @@ struct AController : public AActor {
     virtual INT vf_3b8(); /* 0x3b8 */
     virtual void vf_3bc(INT); /* 0x3bc */
     virtual INT vf_3c0(INT, INT, INT); /* 0x3c0 */
-    virtual INT vf_3c4(); /* 0x3c4 */
+    virtual void vf_3c4(); /* 0x3c4 */
     virtual INT vf_3c8(INT, INT); /* 0x3c8 */
     virtual FRotator SetRotationRate(FLOAT deltaTime); /* 0x3cc */
     virtual INT vf_3d0(INT); /* 0x3d0 */
@@ -16197,7 +16214,7 @@ struct USoundCue : public UObject {
     virtual bool vf_004(); /* 0x004 */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
-    virtual INT vf_0b4(INT); /* 0x0b4 */
+    virtual void StripData(UE3::EPlatformType TargetPlatform); /* 0x0b4 */
     virtual FString GetDesc(); /* 0x0b8 */
     virtual FString GetDetailedDescription(INT InIndex); /* 0x0bc */
     virtual INT vf_0d4(); /* 0x0d4 */
@@ -17441,7 +17458,7 @@ struct UAnimSequence : public UObject {
     virtual void vf_020(); /* 0x020 */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
-    virtual INT vf_0b4(INT); /* 0x0b4 */
+    virtual void StripData(UE3::EPlatformType TargetPlatform); /* 0x0b4 */
     virtual INT vf_0d4(); /* 0x0d4 */
     /* other member functions */
     void MarkPackageDirty( UBOOL InDirty = TRUE ) const; /* 0x005d9570 */
@@ -20655,7 +20672,7 @@ struct UMaterial : public UMaterialInterface {
     virtual void vf_044(UINT); /* 0x044 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_05c(); /* 0x05c */
-    virtual INT vf_0b4(INT); /* 0x0b4 */
+    virtual void StripData(UE3::EPlatformType TargetPlatform); /* 0x0b4 */
     virtual INT vf_0d4(); /* 0x0d4 */
     virtual void vf_0e8(INT); /* 0x0e8 */
     virtual DOUBLE vf_10c(); /* 0x10c */
@@ -20844,7 +20861,7 @@ struct ULightComponent : public UActorComponent {
     virtual UINT CreateSceneInfo(); /* 0x14c */
     virtual INT vf_150(INT); /* 0x150 */
     virtual INT vf_154(INT); /* 0x154 */
-    virtual INT vf_158(INT); /* 0x158 */
+    virtual FBox GetBoundingBox() const; /* 0x158 */
     virtual FVector4 GetPosition() const; /* 0x15c */
     virtual INT GetLightType(); /* 0x160 */
     virtual INT vf_164(INT, INT); /* 0x164 */
@@ -21941,7 +21958,7 @@ struct UFaceFXAnimSet : public UObject {
     virtual void vf_01c(); /* 0x01c */
     virtual void vf_02c(); /* 0x02c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
-    virtual INT vf_0b4(INT); /* 0x0b4 */
+    virtual void StripData(UE3::EPlatformType TargetPlatform); /* 0x0b4 */
     virtual FString GetDesc(); /* 0x0b8 */
     virtual INT vf_0d4(); /* 0x0d4 */
     /* registered size 0x60 */
@@ -21964,7 +21981,7 @@ struct UFaceFXAsset : public UObject {
     virtual void vf_01c(); /* 0x01c */
     virtual void vf_02c(); /* 0x02c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
-    virtual INT vf_0b4(INT); /* 0x0b4 */
+    virtual void StripData(UE3::EPlatformType TargetPlatform); /* 0x0b4 */
     virtual FString GetDesc(); /* 0x0b8 */
     virtual INT vf_0d4(); /* 0x0d4 */
     /* UnrealScript natives */
@@ -27488,9 +27505,9 @@ struct UMaterialInstanceTimeVarying : public UMaterialInstance {
     /* virtual functions this class introduces (vtable 0x01eddf70) */
     virtual void SetScalarStartTime(FName ParameterName, FLOAT Value); /* 0x188 */
     virtual void SetDuration(FLOAT Value); /* 0x18c */
-    virtual void vf_190(INT, INT, INT, INT, INT, INT); /* 0x190 */
+    virtual void SetVectorCurveParameterValue(FName ParameterName, FInterpCurveVector Value); /* 0x190 */
     virtual void SetVectorStartTime(FName ParameterName, FLOAT Value); /* 0x194 */
-    virtual FLOAT vf_198(); /* 0x198 */
+    virtual FLOAT GetMaxDurationFromAllCurves(); /* 0x198 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -29522,7 +29539,7 @@ struct UParticleModuleLocationPrimitiveBase : public UParticleModuleLocationBase
     FRawDistributionFloat VelocityScale; /* 0x4c */
     FRawDistributionVector StartLocation; /* 0x68 */
     /* virtual functions this class introduces (vtable 0x0200d428) */
-    virtual void vf_168(INT, INT); /* 0x168 */
+    virtual void DetermineUnitDirection(FParticleEmitterInstance* Owner, FVector& vUnitDir); /* 0x168 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -31488,7 +31505,7 @@ struct UPointLightComponent : public ULightComponent {
     virtual void vf_118(); /* 0x118 */
     virtual UINT CreateSceneInfo(); /* 0x14c */
     virtual INT vf_154(INT); /* 0x154 */
-    virtual INT vf_158(INT); /* 0x158 */
+    virtual FBox GetBoundingBox() const; /* 0x158 */
     virtual FVector4 GetPosition() const; /* 0x15c */
     virtual INT GetLightType(); /* 0x160 */
     virtual INT vf_164(INT, INT); /* 0x164 */
@@ -32210,7 +32227,7 @@ struct URB_ConstraintInstance : public UObject {
     void sub_00a3a480(FLOAT); /* 0x00a3a480 */
     void SetLimits(FVector FirstNormal, FVector FirstAxis, FVector SecondNormal, FVector SecondAxis, FLOAT Swing1Limit, FLOAT Swing2Limit); /* 0x00a3a850 */
     void SetAngularLimited(UBOOL SwingLimited, FLOAT Swing1LimitAngle, FLOAT Swing2LimitAngle, UBOOL SwingLimitSoft, FLOAT SwingLimitStiffness, FLOAT SwingLimitDamping, UBOOL TwistLimited, FLOAT TwistLimitAngle, UBOOL TwistLimitSoft, FLOAT TwistLimitStiffness, FLOAT TwistLimitDamping); /* 0x00a3ad40 */
-    INT TermConstraint(INT Arg0, INT Arg1); /* 0x00a3fe50 */
+    UBOOL TermConstraint(FRBPhysScene* Scene, UBOOL bFireBrokenEvent); /* 0x00a3fe50 */
     void InitConstraint(UPrimitiveComponent* PrimComp1, UPrimitiveComponent* PrimComp2, URB_ConstraintSetup* Setup, FLOAT Scale, AActor* InOwner, UPrimitiveComponent* InPrimComp, UBOOL bMakeKinForBody1, UPhysicsAssetInstance* PhysicsAssetInstance); /* 0x00a45820 */
     UINT sub_00a385d0(); /* 0x00a385d0 */
     /* registered size 0x98 */
@@ -32665,7 +32682,7 @@ struct URFMODSound : public UObject {
     virtual void vf_020(); /* 0x020 */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual void Register(); /* 0x080 */
-    virtual INT vf_0b4(INT); /* 0x0b4 */
+    virtual void StripData(UE3::EPlatformType TargetPlatform); /* 0x0b4 */
     virtual FString GetDesc(); /* 0x0b8 */
     virtual INT vf_0d4(); /* 0x0d4 */
     virtual INT vf_0dc(); /* 0x0dc */
@@ -35795,7 +35812,7 @@ struct USkeletalMesh : public UObject {
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_05c(); /* 0x05c */
     virtual FString GetDetailedInfoInternal(); /* 0x094 */
-    virtual INT vf_0b4(INT); /* 0x0b4 */
+    virtual void StripData(UE3::EPlatformType TargetPlatform); /* 0x0b4 */
     virtual FString GetDesc(); /* 0x0b8 */
     virtual FString GetDetailedDescription(INT InIndex); /* 0x0bc */
     virtual INT vf_0d4(); /* 0x0d4 */
@@ -36230,7 +36247,7 @@ struct USoundNodeWave : public USoundNode {
     virtual void vf_02c(); /* 0x02c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
-    virtual INT vf_0b4(INT); /* 0x0b4 */
+    virtual void StripData(UE3::EPlatformType TargetPlatform); /* 0x0b4 */
     virtual FString GetDesc(); /* 0x0b8 */
     virtual FString GetDetailedDescription(INT InIndex); /* 0x0bc */
     virtual INT vf_0d4(); /* 0x0d4 */
@@ -39116,7 +39133,7 @@ struct UGFxMovie : public UObject {
     TArrayNoInit<FGFxDataStoreBinding> DataStoreBindings; /* 0x6c */
     class UGFxDataStoreSubscriber* DataStoreSubscriber; /* 0x78 */
     /* virtual functions this class introduces (vtable 0x021073c8) */
-    virtual void vf_10c(INT); /* 0x10c */
+    virtual UBOOL Start(UBOOL StartPaused); /* 0x10c */
     virtual void vf_110(INT, INT); /* 0x110 */
     virtual FName GetStickMagAng(INT Stick); /* 0x114 */
     virtual void vf_118(INT); /* 0x118 */
@@ -41900,7 +41917,7 @@ struct URAnimNode_Pose : public UAnimNodeBlendBase, public FTickableObject {
     FAimingReferences WorldSpaceAimingReferences; /* 0x4ff0 */
     /* virtual functions this class introduces (vtable 0x0231d880) */
     virtual INT vf_19c(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x19c */
-    virtual INT vf_1a0(INT, INT); /* 0x1a0 */
+    virtual INT vf_1a0(FLOAT, INT); /* 0x1a0 */
     virtual INT vf_1a4(INT, INT, INT); /* 0x1a4 */
     virtual void vf_1a8(); /* 0x1a8 */
     virtual INT vf_1ac(INT, INT, INT); /* 0x1ac */
@@ -42815,7 +42832,7 @@ struct ARPawnCharacter : public ARPawn {
     virtual INT vf_52c(); /* 0x52c */
     virtual INT vf_530(); /* 0x530 */
     virtual INT vf_534(INT); /* 0x534 */
-    virtual UBOOL IsInAnyAutomaticTransition(BYTE Fuzziness, FTransitionId& Transition); /* 0x538 */
+    virtual UBOOL IsInAnyAutomaticTransition(BYTE Fuzziness, FTransitionId* Transition); /* 0x538 */
     virtual INT vf_53c(INT); /* 0x53c */
     virtual UBOOL IsInTransition(FTransitionId Id, BYTE Fuzziness); /* 0x540 */
     virtual UBOOL WillBeInTransition(FTransitionId Id, FLOAT DeltaSeconds, BYTE Fuzziness); /* 0x544 */
@@ -42868,7 +42885,7 @@ struct ARPawnCharacter : public ARPawn {
     virtual void vf_600(INT, INT, INT, INT, INT, INT, INT); /* 0x600 */
     virtual bool vf_604(); /* 0x604 */
     virtual DOUBLE vf_608(); /* 0x608 */
-    virtual INT vf_60c(); /* 0x60c */
+    virtual void vf_60c(); /* 0x60c */
     virtual void vf_610(FLOAT); /* 0x610 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
@@ -43639,7 +43656,7 @@ struct ARBMAIController : public AAIController {
     virtual bool vf_004(); /* 0x004 */
     virtual INT vf_174(INT, INT); /* 0x174 */
     virtual UINT vf_3a8(); /* 0x3a8 */
-    virtual INT vf_3c4(); /* 0x3c4 */
+    virtual void vf_3c4(); /* 0x3c4 */
     /* UnrealScript natives */
     void execGetBehaviour(FFrame& Stack, RESULT_DECL); /* 0x017031a0 */
     void execIsRunningBehaviour(FFrame& Stack, RESULT_DECL); /* 0x01703220 */
@@ -43892,7 +43909,7 @@ struct URBMBehaviour : public USeqAct_Latent {
     /* virtual functions this class introduces (vtable 0x0233a2b8) */
     virtual UINT vf_1a0(); /* 0x1a0 */
     virtual UINT vf_1a4(); /* 0x1a4 */
-    virtual INT vf_1a8(FLOAT); /* 0x1a8 */
+    virtual void vf_1a8(FLOAT); /* 0x1a8 */
     virtual void vf_1ac(UINT); /* 0x1ac */
     virtual void vf_1b0(); /* 0x1b0 */
     virtual INT vf_1b4(); /* 0x1b4 */
@@ -47099,7 +47116,7 @@ struct URBMRouterPath : public UObject {
     virtual INT vf_118(); /* 0x118 */
     virtual INT vf_11c(INT); /* 0x11c */
     virtual INT vf_120(INT); /* 0x120 */
-    virtual INT vf_124(INT); /* 0x124 */
+    virtual void vf_124(INT); /* 0x124 */
     virtual INT vf_128(INT); /* 0x128 */
     virtual void UpdatePath(class ARPawn* User, INT& bPathShortened, UBOOL bSkipAngleCheck, UBOOL bForceShorten, UBOOL bUpdateEstimateStartAnchor); /* 0x12c */
     virtual INT vf_130(); /* 0x130 */
@@ -55382,9 +55399,9 @@ struct ARPlayerController : public ARPlayerControllerBase {
     virtual INT vf_690(); /* 0x690 */
     virtual INT vf_694(); /* 0x694 */
     virtual INT vf_698(); /* 0x698 */
-    virtual INT vf_69c(INT); /* 0x69c */
-    virtual INT vf_6a0(INT); /* 0x6a0 */
-    virtual INT vf_6a4(INT); /* 0x6a4 */
+    virtual UBOOL FE_PlaySoundFromString(const FString& Cmd); /* 0x69c */
+    virtual UBOOL FE_StartSoundFromString(const FString& Cmd); /* 0x6a0 */
+    virtual UBOOL FE_StopSoundFromString(const FString& Cmd); /* 0x6a4 */
     virtual FLOAT vf_6a8(); /* 0x6a8 */
     virtual INT vf_6ac(FLOAT); /* 0x6ac */
     virtual FLOAT vf_6b0(); /* 0x6b0 */
@@ -56384,7 +56401,7 @@ struct URRopeComponent : public URRopeComponentBase {
     BYTE LoDUpdateMode; /* 0x294 */
     FLOAT LoDUpdateTimer; /* 0x298 */
     /* virtual functions this class introduces (vtable 0x0235a148) */
-    virtual UBOOL GetIsOverstretched(BYTE TestStartEnd, FLOAT& OutOverstretchPos, FLOAT OverstretchRatio); /* 0x26c */
+    virtual UBOOL GetIsOverstretched(BYTE TestStartEnd, FLOAT* OutOverstretchPos, FLOAT OverstretchRatio); /* 0x26c */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -62150,7 +62167,7 @@ struct UStruct : public UField {
     virtual void vf_01c(); /* 0x01c */
     virtual void vf_02c(); /* 0x02c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
-    virtual INT vf_0b4(INT); /* 0x0b4 */
+    virtual void StripData(UE3::EPlatformType TargetPlatform); /* 0x0b4 */
     virtual void AddCppProperty(INT); /* 0x10c */
     virtual INT vf_118(); /* 0x118 */
     /* registered size 0x84 */
@@ -62329,7 +62346,7 @@ struct UClass : public UState {
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual void Register(); /* 0x080 */
     virtual INT vf_0ac(INT, INT, INT); /* 0x0ac */
-    virtual INT vf_0b4(INT); /* 0x0b4 */
+    virtual void StripData(UE3::EPlatformType TargetPlatform); /* 0x0b4 */
     virtual FString GetDesc(); /* 0x0b8 */
     virtual void vf_0e8(INT); /* 0x0e8 */
     virtual INT vf_110(); /* 0x110 */
@@ -62488,7 +62505,7 @@ struct UClient : public UObject, public FExec {
     virtual INT CreateViewport(INT, INT, INT, INT, INT); /* 0x118 */
     virtual INT CreateWindowChildViewport(INT, INT, INT, INT, INT, INT); /* 0x11c */
     virtual INT CloseViewport(INT); /* 0x120 */
-    virtual UINT GetAudioDevice(); /* 0x124 */
+    virtual class UAudioDevice* GetAudioDevice(); /* 0x124 */
     virtual void ForceClearForceFeedback(); /* 0x128 */
     virtual INT GetVirtualKey(INT, INT); /* 0x12c */
     /* overrides */
@@ -63941,7 +63958,7 @@ struct UStaticMesh : public UObject {
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_05c(); /* 0x05c */
     virtual void vf_0a8(INT, INT, INT); /* 0x0a8 */
-    virtual INT vf_0b4(INT); /* 0x0b4 */
+    virtual void StripData(UE3::EPlatformType TargetPlatform); /* 0x0b4 */
     virtual FString GetDesc(); /* 0x0b8 */
     virtual FString GetDetailedDescription(INT InIndex); /* 0x0bc */
     virtual INT vf_0d4(); /* 0x0d4 */
@@ -66037,7 +66054,7 @@ struct UModel : public UObject {
     virtual void vf_054(); /* 0x054 */
     virtual void vf_05c(); /* 0x05c */
     virtual void vf_0a8(INT, INT, INT); /* 0x0a8 */
-    virtual INT vf_0b4(INT); /* 0x0b4 */
+    virtual void StripData(UE3::EPlatformType TargetPlatform); /* 0x0b4 */
     /* other member functions */
     void sub_00815c40(); /* 0x00815c40 */
     UINT sub_0082ae20(BYTE); /* 0x0082ae20 */
@@ -69590,7 +69607,7 @@ struct UWindowsClient : public UClient {
     virtual INT CreateViewport(INT, INT, INT, INT, INT); /* 0x118 */
     virtual INT CreateWindowChildViewport(INT, INT, INT, INT, INT, INT); /* 0x11c */
     virtual INT CloseViewport(INT); /* 0x120 */
-    virtual UINT GetAudioDevice(); /* 0x124 */
+    virtual class UAudioDevice* GetAudioDevice(); /* 0x124 */
     virtual void ForceClearForceFeedback(); /* 0x128 */
     virtual INT GetVirtualKey(INT, INT); /* 0x12c */
     /* other member functions */

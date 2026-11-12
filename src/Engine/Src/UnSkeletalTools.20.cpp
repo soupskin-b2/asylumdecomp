@@ -111,6 +111,6 @@ void USkeletalMesh_::Serialize(FArchive& Ar)
     }
     if (Ar.IsLoading() && g_0266e808)
     {
-        vf_0b4(0xc);
+        StripData(UE3::PLATFORM_Console);
     }
 }

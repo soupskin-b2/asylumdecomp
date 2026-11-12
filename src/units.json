@@ -175971,7 +175971,7 @@
     {
      "va": "00717420",
      "size": 11,
-     "symbol": "?vf_0b4@UTexture@@UAEHH@Z"
+     "symbol": "?StripData@UTexture@@UAEXW4EPlatformType@UE3@@@Z"
     },
     {
      "va": "0071ef30",
@@ -527307,7 +527307,7 @@
     {
      "va": "00ebf9f0",
      "size": 7,
-     "symbol": "?GetAudioDevice@UWindowsClient@@UAEIXZ"
+     "symbol": "?GetAudioDevice@UWindowsClient@@UAEPAUUAudioDevice@@XZ"
     },
     {
      "va": "00ec0200",
