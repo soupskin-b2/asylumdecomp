@@ -65,16 +65,6 @@ void UObject::execRand(FFrame& Stack, RESULT_DECL)
 	*(INT*)Result = Max > 0 ? appTrunc(appRand() * (FLOAT)Max / 32768.f) : 0;
 }
 
-struct FRotatorCtor : public FRotator
-{
-	FRotatorCtor(INT InPitch, INT InYaw, INT InRoll)
-	{
-		Pitch = InPitch;
-		Yaw   = InYaw;
-		Roll  = InRoll;
-	}
-};
-
 // @baa 0x00597080
 void UObject::execMultiply_RotatorFloat(FFrame& Stack, RESULT_DECL)
 {
@@ -83,7 +73,7 @@ void UObject::execMultiply_RotatorFloat(FFrame& Stack, RESULT_DECL)
 	P_FINISH;
 
 	const FLOAT Scale = B;
-	*(FRotator*)Result = FRotatorCtor(appTrunc(A.Pitch * Scale), appTrunc(A.Yaw * Scale), appTrunc(A.Roll * Scale));
+	*(FRotator*)Result = FRotator(appTrunc(A.Pitch * Scale), appTrunc(A.Yaw * Scale), appTrunc(A.Roll * Scale));
 }
 
 // @baa 0x005942f0
