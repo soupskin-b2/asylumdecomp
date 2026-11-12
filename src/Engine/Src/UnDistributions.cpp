@@ -1,4 +1,4 @@
-// UnDistributions.cpp (part 1 of 3): 162 functions
+// UnDistributions.cpp (part 1 of 3): 165 functions
 // Placed here by: neighbours 89, class 41, file 12, callers 9.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1160,4 +1160,73 @@ void AController::RouteCache_RemoveItem(ANavigationPoint* Nav)
 	{
 		RouteCache.RemoveItem(Nav);
 	}
+}
+
+/* Kit gap (Array.h, issue #39): this build inlines TArray::operator() where the kit's plain-inline one is
+ * called out of line; same body, forced inline. */
+template<class T> struct TArrayAt_ : public TArray<T>
+{
+	using TArray<T>::ArrayNum;
+	__forceinline T& At(INT i)
+	{
+#line 560 BAA_ARRAY_FILE
+		check(i>=0 && (i<ArrayNum||(i==0 && ArrayNum==0)));
+		return this->GetTypedData()[i];
+	}
+};
+
+// @baa 0x007b5e20
+/* Slot 0x110 (unnamed in the kit): one sub-curve when the curve is a single key whose min and max agree,
+ * otherwise two. */
+INT UDistributionFloatUniformCurve::vf_110()
+{
+	if (ConstantCurve.Points.Num() == 1)
+	{
+		FInterpCurvePointVector2D& Point = ((TArrayAt_<FInterpCurvePointVector2D>&)ConstantCurve.Points).At(0);
+		if (Point.OutVal.X == Point.OutVal.Y)
+		{
+			return 1;
+		}
+	}
+	return 2;
+}
+
+#line 1195 "candidate.cpp"
+
+// @baa 0x007b6bb0
+/* Slot 0x110 (unnamed in the kit): one sub-curve when the curve is a single key whose two vectors agree,
+ * otherwise two, or three with extremes. (The kit has no FVector operator==; it is spelled out.) */
+UINT UDistributionVectorUniformCurve::vf_110()
+{
+	if (ConstantCurve.Points.Num() == 1)
+	{
+		FInterpCurvePointTwoVectors& Point = ((TArrayAt_<FInterpCurvePointTwoVectors>&)ConstantCurve.Points).At(0);
+		if (Point.OutVal.v1.X == Point.OutVal.v2.X && Point.OutVal.v1.Y == Point.OutVal.v2.Y && Point.OutVal.v1.Z == Point.OutVal.v2.Z)
+		{
+			return 1;
+		}
+	}
+	return bUseExtremes ? 3 : 2;
+}
+
+// @baa 0x007c6ac0
+/* Slot 0x114 (unnamed in the kit): the lock flags of sub-curve SubIndex (0 = min, 1 = max), as the matching
+ * EDistributionVectorLockFlags value, or 0 (none) for any other index. */
+UINT UDistributionVectorUniformCurve::vf_114(INT SubIndex)
+{
+	if (SubIndex >= 0 && SubIndex <= 1)
+	{
+		switch (LockedAxes[SubIndex])
+		{
+		case EDVLF_XY:
+			return EDVLF_XY;
+		case EDVLF_XZ:
+			return EDVLF_XZ;
+		case EDVLF_YZ:
+			return EDVLF_YZ;
+		case EDVLF_XYZ:
+			return EDVLF_XYZ;
+		}
+	}
+	return EDVLF_None;
 }

@@ -1,4 +1,4 @@
-// RBmAIClass.cpp: 9 functions
+// RBmAIClass.cpp: 11 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -283,3 +283,41 @@ INT ARBMAIController::vf_45c()
 {
     return Pawn && Pawn->bStasis && Pawn->vf_178();
 }
+
+// @baa 0x015f47a0
+/* Slot 0x3c4 (unnamed in the kit): the controller faces the way its pawn does. The check is inline in the
+ * generated header. */
+void ARBMAIController::vf_3c4()
+{
+#line 1045 "BmGame/Inc\\BmGameAIClasses.h"
+	check(!Focus && "Controller has Focus set. This is not intended to be used, and will probably break animation based movement.");
+	Rotation = Pawn->Rotation;
+}
+
+#line 298 "candidate.cpp"
+
+/* Kit gap (Array.h, issue #39): this build inlines TArray::operator() where the kit's plain-inline one is
+ * called out of line; same body, forced inline. */
+template<class T> struct TArrayAt_ : public TArray<T>
+{
+	using TArray<T>::ArrayNum;
+	__forceinline T& At(INT i)
+	{
+#line 560 BAA_ARRAY_FILE
+		check(i>=0 && (i<ArrayNum||(i==0 && ArrayNum==0)));
+		return this->GetTypedData()[i];
+	}
+};
+
+// @baa 0x015ec050
+/* Slot 0x408 (unnamed in the kit): behaviour Index of the list, or NULL past its end. */
+URBMBehaviour* ARBMAIController::vf_408(INT Index)
+{
+	if (BehaviourList.Num() > Index)
+	{
+		return ((TArrayAt_<URBMBehaviour*>&)BehaviourList).At(Index);
+	}
+	return NULL;
+}
+
+#line 324 "candidate.cpp"

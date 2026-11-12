@@ -1,4 +1,4 @@
-// RAnimNode_Pose.cpp (part 4 of 4): 50 functions
+// RAnimNode_Pose.cpp (part 4 of 4): 54 functions
 // Placed here by: neighbours 3, class 2, callers 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -806,4 +806,126 @@ struct FPosePlayer__01595a00 : public FPosePlayer
 INT URAnimNode_Pose::HasPose(FName MovementStance, FName WeaponStance, FName IdleStance)
 {
 	return ((FPosePlayer__01595a00&)PosePlayer).HasPose(SkelComponent, MovementStance, WeaponStance, IdleStance);
+}
+
+/* The project's existing binding for FStanceChangeArray's find-by-transition-id (0x015c2830, bound as
+ * C_015c8f00::sub_015c2830 returning INT*): the stance change with that id, or NULL. */
+struct C_015c8f00
+{
+    INT* sub_015c2830(INT TransitionId);
+};
+
+/* Unnamed in the kit (0x015c6460): whether the stance change's transition is over by Time (within Fuzziness). */
+struct FStanceChange_ : public FStanceChange
+{
+    UBOOL sub_015c6460(FLOAT Time, INT Fuzziness);
+};
+
+struct FPosePlayer__015c8f00 : public FPosePlayer
+{
+    INT WillBeInTransition(FTransitionId Transition, FLOAT Time, INT Fuzziness); /* 0x015c8f00 */
+};
+
+// @baa 0x015c8f00
+/* Whether the given transition will still be running at Time. */
+INT FPosePlayer__015c8f00::WillBeInTransition(FTransitionId Transition, FLOAT Time, INT Fuzziness)
+{
+    FStanceChange_* Change = (FStanceChange_*)((C_015c8f00*)this)->sub_015c2830(Transition.Id);
+    if (Change != NULL && !Change->sub_015c6460(Time, Fuzziness))
+    {
+        return TRUE;
+    }
+    return FALSE;
+}
+
+/* The project's existing binding for FStanceChangeArray's find-by-transition-id (0x015c2830). */
+struct C_015c2e90
+{
+    INT* sub_015c2830(INT TransitionId);
+};
+
+struct FPosePlayer__015c2e90 : public FPosePlayer
+{
+    INT sub_015c2e90(FTransitionId Transition); /* 0x015c2e90 */
+};
+
+// @baa 0x015c2e90
+/* Unnamed in the kit: whether the transition has got past its translation meeting point (or is already gone). */
+INT FPosePlayer__015c2e90::sub_015c2e90(FTransitionId Transition)
+{
+    FStanceChange* Change = (FStanceChange*)((C_015c2e90*)this)->sub_015c2830(Transition.Id);
+    if (Change != NULL && !(Change->Time.Current >= Change->Transition.MeetingPointEndTranslation))
+    {
+        return FALSE;
+    }
+    return TRUE;
+}
+
+/* BmGameAnimNodeClasses.h's inline FDirectionalAnimState::BeginSetWeights (not in the kit's script struct). */
+struct FDirectionalAnimState_ : public FDirectionalAnimState
+{
+    void BeginSetWeights()
+    {
+#line 1610 "BmGame/Inc\\BmGameAnimNodeClasses.h"
+        check(!InsideSetWeights && "Missing EndSetWeights?");
+        InsideSetWeights = TRUE;
+    }
+};
+
+struct FPosePlayer__015c2b50 : public FPosePlayer
+{
+    void sub_015c2b50(); /* 0x015c2b50 */
+};
+
+// @baa 0x015c2b50
+/* Unnamed in the kit: start setting the current (head) stance change's directional weights. */
+void FPosePlayer__015c2b50::sub_015c2b50()
+{
+    FStanceChange* Head = Changes.Num ? &Changes.Data[0] : NULL;
+    if (Head != NULL)
+    {
+        ((FDirectionalAnimState_&)Head->DirectionalAnimState).BeginSetWeights();
+    }
+}
+
+#line 892 "candidate.cpp"
+
+/* BmGame's FWeight(FLOAT) constructor (inline; the kit's script struct has none). */
+struct FWeight_ : public FWeight
+{
+    FWeight_(FLOAT InValue)
+    {
+        Value = InValue;
+    }
+    FWeight_(const FWeight_& Other)
+    {
+        Value = Other.Value;
+    }
+};
+
+/* Unnamed in the kit (0x015be160): FDirectionalAnimState::SetWeight (checks it is inside BeginSetWeights). */
+struct FDirectionalAnimState__015c2b90 : public FDirectionalAnimState
+{
+    void sub_015be160(UINT Direction, FWeight_ Weight);
+};
+
+struct FPosePlayer__015c2b90 : public FPosePlayer
+{
+    void sub_015c2b90(INT Unused, UINT Direction, FLOAT Weight); /* 0x015c2b90 */
+};
+
+// @baa 0x015c2b90
+/* Unnamed in the kit: set one directional weight (0..1) on the current (head) stance change; out-of-range input
+ * is ignored. */
+void FPosePlayer__015c2b90::sub_015c2b90(INT Unused, UINT Direction, FLOAT Weight)
+{
+    if (Direction > 12 || 0.f > Weight || Weight > 1.f)
+    {
+        return;
+    }
+    FStanceChange* Head = Changes.Num ? &Changes.Data[0] : NULL;
+    if (Head != NULL)
+    {
+        ((FDirectionalAnimState__015c2b90&)Head->DirectionalAnimState).sub_015be160(Direction, FWeight_(Weight));
+    }
 }

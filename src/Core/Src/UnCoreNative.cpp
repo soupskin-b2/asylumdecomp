@@ -1,4 +1,4 @@
-// UnCoreNative.cpp: 91 functions
+// UnCoreNative.cpp: 92 functions
 // Placed here by: neighbours 36, class 23, callers 11, file 10.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -800,3 +800,23 @@ void sub_005adfd0(undefined4 param_1, undefined4 param_2, undefined4 param_3, un
   sub_005e1960(g_0268d074,param_2,param_3,param_4,param_5,param_6,0,g_026667a8,0,0,0);
   return;
 }
+
+#define RF_PendingKill ((QWORD)0x2000000000000000)
+/* Kit gap: UObject::HasAnyFlags (UnObjBas.h); ObjectFlags is an FQWord here. */
+struct UObject_ : public UObject
+{
+	FORCEINLINE UBOOL HasAnyFlags(QWORD Flags) const { return (*(const QWORD*)&ObjectFlags & Flags) != 0; }
+};
+
+/* Kit gap: UObject::GetOuter() (inline, returns Outer) isn't declared; the check text needs the call spelled out. */
+#define GetOuter() Outer
+// @baa 0x0059cb30
+/* A component is pending kill along with its owner. */
+UBOOL UComponent::IsPendingKill()
+{
+#line 1326 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Core\\Src\\UnCoreNative.cpp"
+	check(GetOuter());
+	return ((UObject_*)this)->HasAnyFlags(RF_PendingKill) || GetOuter()->IsPendingKill();
+}
+
+#line 823 "candidate.cpp"

@@ -1,4 +1,4 @@
-// RBmRouterClass.cpp: 6 functions
+// RBmRouterClass.cpp: 7 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -78,3 +78,29 @@ void URBMRouterPath::vf_124(INT Count)
 		PathNodes.Remove(0, Count);
 	}
 }
+
+/* Kit gap (Array.h, issue #39): this build inlines TArray::operator() where the kit's plain-inline one is
+ * called out of line; same body, forced inline. */
+template<class T> struct TArrayAt_ : public TArray<T>
+{
+	using TArray<T>::ArrayNum;
+	__forceinline T& At(INT i)
+	{
+#line 560 BAA_ARRAY_FILE
+		check(i>=0 && (i<ArrayNum||(i==0 && ArrayNum==0)));
+		return this->GetTypedData()[i];
+	}
+};
+
+// @baa 0x0161bb50
+/* Slot 0x11c (unnamed in the kit): whether path node Index is an RPathNode (FALSE for an index out of range). */
+INT URBMRouterPath::vf_11c(INT Index)
+{
+	if (Index >= 0 && Index < PathNodes.Num())
+	{
+		return ((TArrayAt_<FPathNodeInfo>&)PathNodes).At(Index).bIsRPathNode;
+	}
+	return 0;
+}
+
+#line 107 "candidate.cpp"

@@ -1,4 +1,4 @@
-// MaterialExpressions.cpp: 831 functions
+// MaterialExpressions.cpp: 832 functions
 // Placed here by: neighbours 655, file 87, class 39, callers 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -3648,3 +3648,44 @@ bool UMaterialExpressionMin::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
+
+/* Kit gap (Array.h, issue #39): this build inlines TArray::operator() where the kit's plain-inline one is
+ * called out of line; same body, forced inline. */
+template<class T> struct TArrayAt_ : public TArray<T>
+{
+	using TArray<T>::ArrayNum;
+	__forceinline T& At(INT i)
+	{
+#line 560 BAA_ARRAY_FILE
+		check(i>=0 && (i<ArrayNum||(i==0 && ArrayNum==0)));
+		return this->GetTypedData()[i];
+	}
+	__forceinline const T& ConstAt(INT i) const
+	{
+#line 566 BAA_ARRAY_FILE
+		check(i>=0 && (i<ArrayNum||(i==0 && ArrayNum==0)));
+		return this->GetTypedData()[i];
+	}
+};
+
+/* Kit gap: FString::Len and operator* (UnString.h) aren't declared. */
+struct FString_ : public FString
+{
+	INT Len() const
+	{
+		return Num() ? Num() - 1 : 0;
+	}
+	const TCHAR* operator*() const
+	{
+		return Num() ? &((const TArrayAt_<TCHAR>*)this)->ConstAt(0) : TEXT("");
+	}
+};
+
+// @baa 0x00c28720
+/* Slot 0x128 (unnamed in the kit; UE3's GetCaption): the user caption, or a generic name. */
+FString UMaterialExpressionCompound::vf_128()
+{
+	return ((const FString_&)Caption).Len() > 0 ? *(const FString_&)Caption : TEXT("Compound Expression");
+}
+
+#line 3692 "candidate.cpp"

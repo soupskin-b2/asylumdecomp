@@ -1,4 +1,4 @@
-// UnFracturedStaticMesh.cpp: 1 function
+// UnFracturedStaticMesh.cpp: 2 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #define BAA_OUTLINE_ALLOC
@@ -31,3 +31,35 @@ void FMatrixArray::Copy(const TArray<FMatrix>& Source)
         }
     }
 }
+
+/* TArray::AddZeroed (UE3 Array.h; not in the kit's TArray). */
+template<class T> FORCEINLINE INT AddZeroed_(TArray<T>& Array, INT Count)
+{
+    const INT Index = Array.Add(Count);
+    appMemzero((BYTE*)Array.GetData() + Index * sizeof(T), Count * sizeof(T));
+    return Index;
+}
+
+struct UFracturedSkinnedMeshComponent_ : public UFracturedSkinnedMeshComponent
+{
+    void sub_007c3280(INT FragmentIndex, const FMatrix& LocalToWorld); /* 0x007c3280 (UE3 SetFragmentTransform; this name matches the binding its caller 007c5a40 created) */
+};
+
+// @baa 0x007c3280
+/* UE3's UFracturedSkinnedMeshComponent::SetFragmentTransform: size the transform array to the fragment count,
+ * store the fragment's transform and queue a transform update. */
+void UFracturedSkinnedMeshComponent_::sub_007c3280(INT FragmentIndex, const FMatrix& LocalToWorld)
+{
+    if (VisibleFragments.Num() != FragmentTransforms.Num())
+    {
+        FragmentTransforms.Empty();
+        AddZeroed_(FragmentTransforms, VisibleFragments.Num());
+    }
+#line 1890 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnFracturedStaticMesh.cpp"
+    check(FragmentIndex >= 0 && FragmentIndex < VisibleFragments.Num());
+    FragmentTransforms(FragmentIndex) = LocalToWorld;
+    BeginDeferredUpdateTransform();
+    bFragmentTransformsChanged = TRUE;
+}
+
+#line 66 "candidate.cpp"

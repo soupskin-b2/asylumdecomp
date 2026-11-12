@@ -1,4 +1,4 @@
-// TextureFlipbook.cpp: 17 functions
+// TextureFlipbook.cpp: 18 functions
 // Placed here by: class 12, callers 1, neighbours 1, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -243,3 +243,24 @@ void UTextureFlipBook::vf_130()
 	UnpackMax[1] = 1.f;
 	UnpackMax[0] = 1.f;
 }
+
+/* Kit gaps: ReleaseResourcesFence is an FRenderCommandFence* (an FPointer in the kit), and
+ * FRenderCommandFence::GetNumPendingFences (0x0071f7e0) isn't declared. */
+struct FRenderCommandFence_ : public FRenderCommandFence_Mirror
+{
+	UINT GetNumPendingFences() const;
+};
+
+/* The member as its real type (the check names it). */
+#define ReleaseResourcesFence ((FRenderCommandFence_*)ReleaseResourcesFence.Dummy)
+// @baa 0x00755420
+UBOOL UTextureFlipBook::IsReadyForFinishDestroy()
+{
+#line 329 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\TextureFlipbook.cpp"
+	check(ReleaseResourcesFence);
+	UBOOL bReadyForFinishDestroy = ReleaseResourcesFence->GetNumPendingFences() == 0;
+	UBOOL bSuperReady = Super::IsReadyForFinishDestroy();
+	return bReadyForFinishDestroy && bSuperReady;
+}
+
+#line 267 "candidate.cpp"

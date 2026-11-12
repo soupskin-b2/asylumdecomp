@@ -1,4 +1,4 @@
-// USettings.cpp: 19 functions
+// USettings.cpp: 21 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -454,4 +454,31 @@ UBOOL USettings::IsWildcardStringSetting(INT StringSettingId)
 		}
 	}
 	return FALSE;
+}
+
+/* Kit gap: the PhysX force-field kernel behind Kernel (an FPointer in the kit) isn't declared; it is deleted through
+ * its virtual destructor. */
+class NxForceFieldKernel
+{
+public:
+	virtual ~NxForceFieldKernel();
+};
+
+// @baa 0x00d81c60
+/* Slot 0x23c (unnamed in the kit; UE3's TermRBPhys): frees the kernel along with the field. */
+void ANxCylindricalForceField::vf_23c(INT Scene)
+{
+	Super::vf_23c(Scene);
+	delete (NxForceFieldKernel*)Kernel.Dummy;
+	Kernel.Dummy = 0;
+}
+
+// @baa 0x00d81c90
+/* Slot 0x23c (unnamed in the kit; UE3's TermRBPhys): frees the kernel along with the field. Calls
+ * ANxForceField's directly, skipping the cylinder's own (which does the same). */
+void ANxCylindricalForceFieldCapsule::vf_23c(INT Scene)
+{
+	ANxForceField::vf_23c(Scene);
+	delete (NxForceFieldKernel*)Kernel.Dummy;
+	Kernel.Dummy = 0;
 }

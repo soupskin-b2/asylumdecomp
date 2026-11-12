@@ -1,4 +1,4 @@
-// UnShadowMap.cpp: 18 functions
+// UnShadowMap.cpp: 19 functions
 // Placed here by: callers 3, file 3.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -71,4 +71,32 @@ undefined4 UShadowMapTexture2D::sub_00936860(byte param_2)
 // @baa 0x009368f0
 UShadowMap1D::UShadowMap1D()
 {
+}
+
+/* Kit gaps: FPixelFormatInfo / GPixelFormats (0x025da760, UnRHI) and FString::Printf (as the linker specialised it
+ * for these argument types, 0x00766b80) aren't declared. */
+struct FPixelFormatInfo
+{
+	const TCHAR* Name;
+	INT BlockSizeX;
+	INT BlockSizeY;
+	INT BlockSizeZ;
+	INT BlockBytes;
+	INT NumComponents;
+	DWORD PlatformFormat;
+	DWORD Flags;
+	UBOOL Supported;
+};
+
+extern FPixelFormatInfo g_025da760[];
+#define GPixelFormats g_025da760
+struct FString_ : public FString
+{
+	static FString Printf(const TCHAR* Fmt, INT A, INT B, const TCHAR* C);
+};
+
+// @baa 0x009221b0
+FString UShadowMapTexture2D::GetDesc()
+{
+	return FString_::Printf(TEXT("Shadowmap: %dx%d [%s]"), SizeX, SizeY, GPixelFormats[Format].Name);
 }

@@ -1,4 +1,4 @@
-// UnLightMap.cpp: 31 functions
+// UnLightMap.cpp: 32 functions
 // Placed here by: neighbours 23, callers 1, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -318,4 +318,32 @@ undefined4 C_00d31470::sub_00d31470(byte param_2)
     sub_0053dfa0(param_1);
   }
   return param_1;
+}
+
+/* Kit gaps: FPixelFormatInfo / GPixelFormats (0x025da760, UnRHI) and FString::Printf (as the linker specialised it
+ * for these argument types, 0x00766b80) aren't declared. */
+struct FPixelFormatInfo
+{
+	const TCHAR* Name;
+	INT BlockSizeX;
+	INT BlockSizeY;
+	INT BlockSizeZ;
+	INT BlockBytes;
+	INT NumComponents;
+	DWORD PlatformFormat;
+	DWORD Flags;
+	UBOOL Supported;
+};
+
+extern FPixelFormatInfo g_025da760[];
+#define GPixelFormats g_025da760
+struct FString_ : public FString
+{
+	static FString Printf(const TCHAR* Fmt, INT A, INT B, const TCHAR* C);
+};
+
+// @baa 0x00d31340
+FString ULightMapTexture2D::GetDesc()
+{
+	return FString_::Printf(TEXT("Lightmap: %dx%d [%s]"), SizeX, SizeY, GPixelFormats[Format].Name);
 }

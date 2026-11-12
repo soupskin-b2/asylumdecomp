@@ -1,4 +1,4 @@
-// CommonGame_1530000.cpp (part 1 of 4): 116 functions
+// CommonGame_1530000.cpp (part 1 of 4): 117 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -803,3 +803,30 @@ void ARPathNode::UpdateLastSeenTime(INT Idx)
 	}
 	LastSeenTime(Idx) = WorldInfo->TimeSeconds;
 }
+
+/* Kit gap (Array.h, issue #39): this build inlines TArray::operator() where the kit's plain-inline one is
+ * called out of line; same body, forced inline. */
+template<class T> struct TArrayAt_ : public TArray<T>
+{
+	using TArray<T>::ArrayNum;
+	__forceinline T& At(INT i)
+	{
+#line 560 BAA_ARRAY_FILE
+		check(i>=0 && (i<ArrayNum||(i==0 && ArrayNum==0)));
+		return this->GetTypedData()[i];
+	}
+};
+
+// @baa 0x0153fea0
+/* Slot 0x3b8 (unnamed in the kit): seconds since path user Index last saw this node (a large time for an unknown
+ * user). */
+FLOAT ARPathNode::vf_3b8(INT Index)
+{
+	if (LastSeenTime.Num() > Index)
+	{
+		return WorldInfo->TimeSeconds - ((TArrayAt_<FLOAT>&)LastSeenTime).At(Index);
+	}
+	return 50000.f;
+}
+
+#line 833 "candidate.cpp"

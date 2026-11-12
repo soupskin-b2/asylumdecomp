@@ -1,4 +1,4 @@
-// Engine_0c20000.cpp (part 1 of 3): 240 functions
+// Engine_0c20000.cpp (part 1 of 3): 241 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -2148,3 +2148,36 @@ IMPLEMENT_CLASS_AT(UMaterialExpressionConstant, "e:\\Projects\\Amadeus\\AA\\Game
 // @baa 0x00c2c310
 IMPLEMENT_CLASS_AT(UMaterialExpressionConstant2Vector, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\MaterialExpressions.cpp", 25);
 
+/* Kit gap: FString::Printf (UnString.h) isn't declared. */
+class FString_ : public FString
+{
+public:
+	static FString Printf(const TCHAR* Fmt, ...);
+};
+
+/* Kit gap (Array.h, issue #39): this build inlines TArray::operator() where the kit's plain-inline one is
+ * called out of line; same body, forced inline. */
+template<class T> struct TArrayAt_ : public TArray<T>
+{
+	using TArray<T>::ArrayNum;
+	__forceinline T& At(INT i)
+	{
+#line 560 BAA_ARRAY_FILE
+		check(i>=0 && (i<ArrayNum||(i==0 && ArrayNum==0)));
+		return this->GetTypedData()[i];
+	}
+};
+
+// @baa 0x00c2a4e0
+FString USpeechRecognition::GetDesc()
+{
+	INT Count = 0;
+	for (INT i = 0; i < Vocabularies.Num(); i++)
+	{
+		FRecogVocabulary& Vocab = ((TArrayAt_<FRecogVocabulary>&)Vocabularies).At(i);
+		Count += Vocab.WhoDictionary.Num() + Vocab.WhatDictionary.Num() + Vocab.WhereDictionary.Num();
+	}
+	return FString_::Printf(TEXT("Items: %d"), Count);
+}
+
+#line 2184 "candidate.cpp"

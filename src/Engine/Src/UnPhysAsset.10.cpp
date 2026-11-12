@@ -1,4 +1,4 @@
-// UnPhysAsset.cpp: 5 functions
+// UnPhysAsset.cpp: 6 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -133,4 +133,17 @@ void UPhysicsAsset__00a2d130::ClearShapeCaches()
     {
         ((URB_BodySetup__00a2d130*)BodySetup(i))->ClearShapeCache();
     }
+}
+
+/* FString::Printf, as the linker specialised it for these argument types (0x00723a70);
+ * the kit declares no FString::Printf. */
+struct FString_ : public FString
+{
+	static FString Printf(const TCHAR* Fmt, INT A, INT B);
+};
+
+// @baa 0x00a17b50
+FString UPhysicsAsset::GetDesc()
+{
+	return FString_::Printf(TEXT("%d Bodies, %d Constraints"), BodySetup.Num(), ConstraintSetup.Num());
 }

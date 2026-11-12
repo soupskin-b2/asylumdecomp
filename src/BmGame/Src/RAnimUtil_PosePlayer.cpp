@@ -1,4 +1,4 @@
-// RAnimUtil_PosePlayer.cpp: 28 functions
+// RAnimUtil_PosePlayer.cpp: 30 functions
 // Placed here by: neighbours 18, file 2, callers 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -371,4 +371,64 @@ C_015bdef0* C_015bdef0::sub_015bdef0(FLOAT F)
     Flags |= 1;
     Value = F;
     return this;
+}
+
+/* BmGame's FAnimTime(FLOAT) constructor (inline; the kit's script struct has none). */
+struct FAnimTime_ : public FAnimTime
+{
+    FAnimTime_(FLOAT InTime)
+    {
+        Current = InTime;
+        Previous = InTime;
+        Wraps = 0;
+    }
+};
+
+struct FPosePlayer_ : public FPosePlayer
+{
+    void OverrideTransitionTime(FLOAT Time, UBOOL bDisableTimeAdvance); /* 0x015c2910 */
+};
+
+// @baa 0x015c2910
+/* Jump the current (head) stance change to Time, optionally holding its time for a frame. */
+void FPosePlayer_::OverrideTransitionTime(FLOAT Time, UBOOL bDisableTimeAdvance)
+{
+    FStanceChange* Head = Changes.Num ? &Changes.Data[0] : NULL;
+    if (Head != NULL)
+    {
+        Head->Time = FAnimTime_(Time);
+        Head->DisableTimeAdvanceForNumFrames = bDisableTimeAdvance;
+    }
+}
+
+/* Unnamed in the kit (0x015e9fd0): resolves the pose for a weapon config and stances; returned by value
+ * (12 bytes, first field non-NULL when found). Kit gap: the result type is unknown. */
+struct FPoseLookup_
+{
+    void* Pose;
+    INT Data[2];
+    FPoseLookup_() {}
+};
+
+FPoseLookup_ sub_015e9fd0(USkeletalMeshComponent* SkelComp, URWeaponConfig* WeaponConfig, FName MovementStance, FName WeaponStance, FName IdleStance);
+struct FPosePlayer__015c28b0 : public FPosePlayer
+{
+    INT HasPose(USkeletalMeshComponent* SkelComp, FName MovementStance, FName WeaponStance, FName IdleStance); /* 0x015c28b0 */
+};
+
+// @baa 0x015c28b0
+/* Whether the current (head) stance change's weapon config has a pose for the given stances. */
+INT FPosePlayer__015c28b0::HasPose(USkeletalMeshComponent* SkelComp, FName MovementStance, FName WeaponStance, FName IdleStance)
+{
+    FStanceChange* Head = Changes.Num ? &Changes.Data[0] : NULL;
+    if (Head == NULL)
+    {
+        return FALSE;
+    }
+    if (Head->Pose.WeaponConfig == NULL)
+    {
+        return FALSE;
+    }
+    FPoseLookup_ Result = sub_015e9fd0(SkelComp, Head->Pose.WeaponConfig, MovementStance, WeaponStance, IdleStance);
+    return Result.Pose != NULL;
 }
