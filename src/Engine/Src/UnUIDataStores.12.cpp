@@ -5,8 +5,8 @@
 #include "ue3/Classes.h"
 #include "ue3/Array.h"
 
-/* Kit gaps: TArray::AddItem / AddUniqueItem, FString::operator*, StaticLoadClass / LoadClass<T> / LOAD_None
- * (UnObjBas.h) and ConstructObject<T> (UnClass.h; out of line for this T at 00da4530) aren't declared. */
+/* Kit gaps: TArray::AddItem / AddUniqueItem, FString::operator* and
+ * ConstructObject<T> (UnClass.h; out of line for this T at 00da4530) aren't declared. */
 template<typename T> struct TArrayAddUnique_ : public TArray<T>
 {
 	FORCEINLINE INT AddItem(const T& Item)
@@ -36,12 +36,6 @@ struct FStringM : public FString
 	}
 };
 
-#define LOAD_None 0x00000000		/* UnObjBas.h ELoadFlags */
-UClass* StaticLoadClass(UClass* BaseClass, UObject* InOuter, const TCHAR* Name, const TCHAR* Filename, DWORD LoadFlags, UPackageMap* Sandbox);
-template<class T> inline UClass* LoadClass(UObject* Outer, const TCHAR* Name, const TCHAR* Filename, DWORD LoadFlags, UPackageMap* Sandbox)
-{
-	return StaticLoadClass(T::StaticClass(), Outer, Name, Filename, LoadFlags, Sandbox);
-}
 
 class FObjectInstancingGraph;
 struct UClass_;

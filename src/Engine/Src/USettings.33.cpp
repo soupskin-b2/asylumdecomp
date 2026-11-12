@@ -3,7 +3,7 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
 
-/* Kit gaps: FString's operator* (UnString.h), StaticLoadClass (UnObjBas.h, 0x005eb8e0) / LoadClass<T>, and
+/* Kit gaps: FString's operator* (UnString.h) and
  * ConstructObject<T> (UnClass.h; UObject's instantiation is 0x00d71ee0, declared as the matched work/00d71ee0.cpp
  * has it) aren't declared. */
 struct FStringM : public FString
@@ -15,18 +15,12 @@ struct FStringM : public FString
 };
 
 #define STR(S) (*(const FStringM&)(S))
-#define LOAD_None 0x00000000 /* UnObjBas.h ELoadFlags */
 #define INVALID_OBJECT ((UObject*)-1)
 class FObjectInstancingGraph;
 struct UClass_ : public UClass
 {
 };
 
-UClass* StaticLoadClass(UClass* BaseClass, UObject* InOuter, const TCHAR* Name, const TCHAR* Filename, DWORD LoadFlags, UPackageMap* Sandbox);
-template<class T> inline UClass* LoadClass(UObject* Outer, const TCHAR* Name, const TCHAR* Filename, DWORD LoadFlags, UPackageMap* Sandbox)
-{
-    return StaticLoadClass(T::StaticClass(), Outer, Name, Filename, LoadFlags, Sandbox);
-}
 
 template<class T>
 T* ConstructObject(UClass_* Class, UObject* Outer = INVALID_OBJECT, FName Name = NAME_None, QWORD SetFlags = 0, UObject* Template = NULL,

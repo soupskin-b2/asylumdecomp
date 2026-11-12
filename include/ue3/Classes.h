@@ -18919,6 +18919,7 @@ struct UUIScreenObject : public UUIRoot {
     void execIsActive(FFrame& Stack, RESULT_DECL); /* 0x00db3ad0 */
     void execIsPressed(FFrame& Stack, RESULT_DECL); /* 0x00db3b90 */
     void execGetChildren(FFrame& Stack, RESULT_DECL); /* 0x00db71b0 */
+    TArray<UUIObject*> GetChildren(UBOOL bRecurse = FALSE, TArray<UUIObject*>* ExclusionSet = NULL) const; /* 0x00db7140 */
     void execGetDockClients(FFrame& Stack, RESULT_DECL); /* 0x00db7330 */
     /* other member functions */
     UObject* sub_005d7350(); /* 0x005d7350 */
@@ -69763,6 +69764,14 @@ struct UXnaForceFeedbackManager : public UForceFeedbackManager {
     UINT* sub_00eb5510(BYTE); /* 0x00eb5510 */
     /* registered size 0x44 */
 };
+
+/* UnObjBas.h: loading a class by name */
+#define LOAD_None 0x00000000 /* ELoadFlags */
+UClass* StaticLoadClass(UClass* BaseClass, UObject* InOuter, const TCHAR* Name, const TCHAR* Filename, DWORD LoadFlags, UPackageMap* Sandbox); /* 0x005eb8e0 */
+template<class T> inline UClass* LoadClass(UObject* Outer, const TCHAR* Name, const TCHAR* Filename, DWORD LoadFlags, UPackageMap* Sandbox)
+{
+    return StaticLoadClass(T::StaticClass(), Outer, Name, Filename, LoadFlags, Sandbox);
+}
 
 #pragma pack(pop)
 #endif
