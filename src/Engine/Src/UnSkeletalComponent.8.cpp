@@ -3,7 +3,6 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
 
-/* UMorphTargetSet::FindMorphTarget (0x0083d900) is declared as sub_0083d900 in Classes.h. */
 inline UBOOL operator==(const FName& A, EName B) { return A.Index == B && A.Number == 0; }
 
 struct USkeletalMeshComponent_ : public USkeletalMeshComponent
@@ -23,7 +22,7 @@ UMorphTarget* USkeletalMeshComponent_::FindMorphTarget(FName MorphTargetName)
     {
         if (MorphSets(i))
         {
-            UMorphTarget* Target = (UMorphTarget*)MorphSets(i)->sub_0083d900(MorphTargetName); // FindMorphTarget
+            UMorphTarget* Target = MorphSets(i)->FindMorphTarget(MorphTargetName);
             if (Target)
             {
                 return Target;

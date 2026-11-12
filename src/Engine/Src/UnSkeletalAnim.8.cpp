@@ -38,7 +38,7 @@ struct USkeletalMesh_ : public USkeletalMesh
 inline INT MatchRefBone(USkeletalMeshComponent* SkelComp, FName BoneName)
 {
 	INT BoneIndex = INDEX_NONE;
-	const FName None = { NAME_None, 0 };
+	const FName None(NAME_None);
 	if (BoneName != None && SkelComp->SkeletalMesh)
 	{
 		BoneIndex = ((USkeletalMesh_*)SkelComp->SkeletalMesh)->sub_00976be0(BoneName);
@@ -90,8 +90,8 @@ void FTwistBoneFixers_::Init(USkeletalMeshComponent* SkelComp)
 		{
 			FName BoneNames[10] =
 			{
-				{ 0x624, 0 }, { 0x625, 0 }, { 0x628, 0 }, { 0x64b, 0 }, { 0x64e, 0 },
-				{ 0x638, 0 }, { 0x639, 0 }, { 0x63c, 0 }, { 0x653, 0 }, { 0x656, 0 }
+				FName((EName)0x624), FName((EName)0x625), FName((EName)0x628), FName((EName)0x64b), FName((EName)0x64e),
+				FName((EName)0x638), FName((EName)0x639), FName((EName)0x63c), FName((EName)0x653), FName((EName)0x656)
 			};
 
 			for (INT i = 0; i < 10; i++)

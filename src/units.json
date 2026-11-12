@@ -189685,12 +189685,12 @@
     {
      "va": "007e2d90",
      "size": 124,
-     "symbol": "?vf_1c8@AActor@@UAEXHH@Z"
+     "symbol": "?SetZone@AActor@@UAEXHH@Z"
     },
     {
      "va": "007e2e10",
      "size": 283,
-     "symbol": "?vf_1c8@APawn@@UAEXHH@Z"
+     "symbol": "?SetZone@APawn@@UAEXHH@Z"
     }
    ]
   },
@@ -212428,7 +212428,7 @@
     {
      "va": "0093dd00",
      "size": 159,
-     "symbol": "?vf_120@USkeletalMeshComponent@@UAEXXZ"
+     "symbol": "?UpdateTransform@USkeletalMeshComponent@@UAEXXZ"
     },
     {
      "va": "00913d80",

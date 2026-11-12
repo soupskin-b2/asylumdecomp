@@ -17,8 +17,7 @@ struct AActor_ : public AActor {
 };
 
 // @baa 0x007e2d90
-// AActor::SetZone (vtable slot 0x1c8)
-void AActor::vf_1c8(INT bTest, INT bForceRefresh)
+void AActor::SetZone(UBOOL bTest, UBOOL bForceRefresh)
 {
     if (bDeleteMe)
     {
@@ -65,7 +64,7 @@ struct APawn_ : public APawn {
 
 // @baa 0x007e2e10
 // APawn::SetZone (vtable slot 0x1c8)
-void APawn::vf_1c8(INT bTest, INT bForceRefresh)
+void APawn::SetZone(UBOOL bTest, UBOOL bForceRefresh)
 {
     if (bDeleteMe)
     {

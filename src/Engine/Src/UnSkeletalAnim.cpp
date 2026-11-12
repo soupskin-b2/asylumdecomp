@@ -2085,8 +2085,8 @@ struct USkeletalMeshComponent__0093dd00 : public USkeletalMeshComponent
 };
 
 // @baa 0x0093dd00
-/* vf_120 is UpdateTransform: also builds the anim tree if it hasn't been yet, and moves the attachments. */
-void USkeletalMeshComponent::vf_120()
+/* UpdateTransform also builds the anim tree if it hasn't been yet, and moves the attachments. */
+void USkeletalMeshComponent::UpdateTransform()
 {
 	((UActorComponent_*)this)->sub_00759590();
 
