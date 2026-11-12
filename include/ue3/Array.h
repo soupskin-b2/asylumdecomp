@@ -82,12 +82,12 @@ public:
     INT Num() const { return ArrayNum; }
     UBOOL IsValidIndex(INT i) const { return i >= 0 && i < ArrayNum; }
 
-    T& operator()(INT i) {
+    __forceinline T& operator()(INT i) {
 #line 560 BAA_ARRAY_FILE
         check(i>=0 && (i<ArrayNum||(i==0 && ArrayNum==0)));
         return GetTypedData()[i];
     }
-    const T& operator()(INT i) const {
+    __forceinline const T& operator()(INT i) const {
 #line 566 BAA_ARRAY_FILE
         check(i>=0 && (i<ArrayNum||(i==0 && ArrayNum==0)));
         return GetTypedData()[i];
@@ -111,7 +111,7 @@ public:
         return GetTypedData()[ArrayNum - c - 1];
     }
 
-    void DestructItems(INT Index, INT Count) {
+    __forceinline void DestructItems(INT Index, INT Count) {
         if (TTypeInfo<T>::NeedsDestructor) {
             for (INT i = Index; i < Index + Count; i++) {
                 (&(*this)(i))->~T();
