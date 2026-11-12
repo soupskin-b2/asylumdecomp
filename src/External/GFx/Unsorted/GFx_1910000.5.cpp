@@ -1,4 +1,4 @@
-// GFx_1910000.cpp (part 5 of 5): 15 functions
+// GFx_1910000.cpp (part 5 of 5): 19 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -246,4 +246,72 @@ INT __stdcall sub_0191fe00(INT* Out)
 {
     *Out = 0;
     return 0;
+}
+
+struct Sub_01910660
+{
+    void sub_0190f6f0();
+};
+
+struct C_01910660
+{
+    void sub_01910660(INT Unused);
+};
+
+// @baa 0x01910660
+void C_01910660::sub_01910660(INT)
+{
+    ((Sub_01910660*)((char*)this - 0xd4))->sub_0190f6f0();
+}
+
+struct Sub_01912420
+{
+    char pad_00[8];
+    INT Value;
+
+    void sub_01971e40();
+};
+
+struct C_01912420
+{
+    Sub_01912420* Object;
+
+    void sub_01912420();
+};
+
+// @baa 0x01912420
+void C_01912420::sub_01912420()
+{
+    if (Object->Value == 0)
+        Object->sub_01971e40();
+}
+
+struct C_01913710
+{
+    BYTE Flags;
+
+    C_01913710* sub_01913710(BYTE In);
+};
+
+// @baa 0x01913710
+C_01913710* C_01913710::sub_01913710(BYTE In)
+{
+    Flags = In | 0x80;
+    return this;
+}
+
+struct C_01914fc0
+{
+    float Value_00;
+    float Value_04;
+
+    C_01914fc0* sub_01914fc0(float In);
+};
+
+// @baa 0x01914fc0
+C_01914fc0* C_01914fc0::sub_01914fc0(float In)
+{
+    Value_04 = In;
+    Value_00 = In;
+    return this;
 }

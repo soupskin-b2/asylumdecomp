@@ -1,4 +1,4 @@
-// SpeedTree_1a60000.cpp (part 2 of 3): 2 functions
+// SpeedTree_1a60000.cpp (part 2 of 3): 3 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -35,4 +35,23 @@ void ST_Parent_::sub_01a6c450(unsigned char Value)
 {
 	unsigned char Byte = Value;
 	Bytes.sub_01a6bb60(&Byte);
+}
+
+struct C
+{
+    char pad_0[0x4];
+    INT Value_4;
+    INT Value_8;
+    INT Value_c;
+
+    C* sub_01a6cd40();
+};
+
+// @baa 0x01a6cd40
+C* C::sub_01a6cd40()
+{
+    Value_4 = 0;
+    Value_8 = 0;
+    Value_c = 0;
+    return this;
 }

@@ -1,4 +1,4 @@
-// GFx_1930000.cpp: 6 functions
+// GFx_1930000.cpp: 14 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Core.h"
@@ -118,4 +118,125 @@ struct C_0193d7b0
 BYTE C_0193d7b0::sub_0193d7b0(INT Index)
 {
     return Object->Table[Index];
+}
+
+extern void __stdcall sub_018d7170(INT Value);
+struct C_01933100
+{
+    char pad_00[8];
+    INT Object;
+
+    void sub_01933100();
+};
+
+// @baa 0x01933100
+void C_01933100::sub_01933100()
+{
+    if (Object)
+        sub_018d7170(Object);
+}
+
+struct C_01933150
+{
+    char pad_00[8];
+    INT Object;
+
+    void sub_01933150();
+};
+
+// @baa 0x01933150
+void C_01933150::sub_01933150()
+{
+    if (Object)
+        sub_018d7170(Object);
+}
+
+struct C_01933160
+{
+    char pad_00[8];
+    INT Object;
+
+    void sub_01933160();
+};
+
+// @baa 0x01933160
+void C_01933160::sub_01933160()
+{
+    if (Object)
+        sub_018d7170(Object);
+}
+
+struct C_019331f0
+{
+    char pad_00[8];
+    INT Object;
+
+    void sub_019331f0();
+};
+
+// @baa 0x019331f0
+void C_019331f0::sub_019331f0()
+{
+    if (Object)
+        sub_018d7170(Object);
+}
+
+struct C_01933460
+{
+    char pad_00[8];
+    INT Object;
+
+    void sub_01933460();
+};
+
+// @baa 0x01933460
+void C_01933460::sub_01933460()
+{
+    if (Object)
+        sub_018d7170(Object);
+}
+
+struct C_019334b0
+{
+    char pad_00[8];
+    INT Object;
+
+    void sub_019334b0();
+};
+
+// @baa 0x019334b0
+void C_019334b0::sub_019334b0()
+{
+    if (Object)
+        sub_018d7170(Object);
+}
+
+struct C_019334c0
+{
+    char pad_00[8];
+    INT Object;
+
+    void sub_019334c0();
+};
+
+// @baa 0x019334c0
+void C_019334c0::sub_019334c0()
+{
+    if (Object)
+        sub_018d7170(Object);
+}
+
+struct C_0193cb40
+{
+    char pad_00[8];
+    INT Object;
+
+    void sub_0193cb40();
+};
+
+// @baa 0x0193cb40
+void C_0193cb40::sub_0193cb40()
+{
+    if (Object)
+        sub_018d7170(Object);
 }

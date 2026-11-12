@@ -1,4 +1,4 @@
-// GFx_19d0000.cpp (part 2 of 2): 93 functions
+// GFx_19d0000.cpp (part 2 of 2): 96 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -986,4 +986,47 @@ void Holder_019d1860::sub_019d1860(char bFlag)
         p->flags[0x2c] |= 8;
     else
         p->flags[0x2c] &= 0xf7;
+}
+
+void __stdcall sub_018d7150(INT Value);
+// @baa 0x019d2060
+void sub_019d2060(INT Value)
+{
+    sub_018d7150(Value << 4);
+}
+
+typedef INT (__stdcall *FnType_019da9a0)(INT, INT);
+
+struct C_019da9a0
+{
+    char pad_00[0x4];
+    FnType_019da9a0 Fn;
+
+    INT sub_019da9a0(INT A, INT B);
+};
+
+// @baa 0x019da9a0
+INT C_019da9a0::sub_019da9a0(INT A, INT B)
+{
+    if (Fn)
+        return Fn(A, B);
+    return 0;
+}
+
+typedef INT (__stdcall *FnType_019da9b0)(INT, INT, INT, INT);
+
+struct C_019da9b0
+{
+    char pad_00[0xc];
+    FnType_019da9b0 Fn;
+
+    INT sub_019da9b0(INT A, INT B, INT C_019da9b0, INT D);
+};
+
+// @baa 0x019da9b0
+INT C_019da9b0::sub_019da9b0(INT A, INT B, INT C_019da9b0, INT D)
+{
+    if (Fn)
+        return Fn(A, B, C_019da9b0, D);
+    return 0;
 }

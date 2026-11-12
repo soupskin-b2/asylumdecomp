@@ -1,4 +1,4 @@
-// UnLevAct.cpp: 2 functions
+// UnLevAct.cpp: 3 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -101,5 +101,26 @@ void APawn::SetZone(UBOOL bTest, UBOOL bForceRefresh)
             ((APawn_*)this)->eventHeadVolumeChange(NewHeadVolume);
         }
         HeadVolume = NewHeadVolume;
+    }
+}
+
+struct AActor__0076cc90 : public AActor {
+    void sub_007691a0(AActor* Other, UBOOL bNoNotifyOther); // EndTouch
+    void sub_0076cc90();                                    // UnTouchActors
+};
+
+// @baa 0x0076cc90
+void AActor__0076cc90::sub_0076cc90()
+{
+    for (INT i = 0; i < Touching.Num(); )
+    {
+        if (Touching(i) && !sub_00763730(Touching(i), 0, 0, 0)) // IsOverlapping(Other, NULL, NULL, NULL)
+        {
+            sub_007691a0(Touching(i), 0); // EndTouch
+        }
+        else
+        {
+            i++;
+        }
     }
 }

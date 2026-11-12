@@ -1,4 +1,4 @@
-// Engine_0ac0000.cpp (part 2 of 2): 7 functions
+// Engine_0ac0000.cpp (part 2 of 2): 8 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -160,4 +160,21 @@ struct sub_00ac1b30_cls {
 int sub_00ac1b30_cls::sub_00ac1b30()
 {
     return ((b * 21) + (a / 32)) * 4;
+}
+
+struct FHash_
+{
+    char Pad_00[8];
+    int NumBuckets; // 0x8
+    char Pad_0c[24];
+    int Hash; // 0x24
+    int sub_00ac1b90();
+};
+
+// @baa 0x00ac1b90
+int FHash_::sub_00ac1b90()
+{
+    int D = Hash / 32;
+    int P = NumBuckets * 0x15;
+    return (D + P) * 4;
 }

@@ -1,4 +1,4 @@
-// Engine_0bc0000.cpp: 70 functions
+// Engine_0bc0000.cpp: 71 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -808,3 +808,10 @@ void C_00bcebc0::sub_00bcebc0(undefined4 param_2)
 // @baa 0x00bcfce0
 IMPLEMENT_CLASS_AT(USpeedTreeComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\SpeedTreeComponent.cpp", 15);
 
+// @baa 0x00bcabb0
+void __stdcall sub_00bcabb0(int Value, int* A, int* B, int* C)
+{
+    *A = Value;
+    *B = Value;
+    *C = Value;
+}

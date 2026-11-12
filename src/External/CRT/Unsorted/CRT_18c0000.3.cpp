@@ -1,4 +1,4 @@
-// CRT_18c0000.cpp (part 3 of 3): 24 functions
+// CRT_18c0000.cpp (part 3 of 3): 31 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -261,4 +261,111 @@ void __stdcall sub_018c9d90(INT A, INT B);
 void __stdcall sub_018c9e50(INT Value)
 {
     sub_018c9d90(Value, 0);
+}
+
+struct C_018c97f0
+{
+    INT Value_00;
+    INT Value_04;
+    INT Value_08;
+    INT Value_0c;
+
+    C_018c97f0* sub_018c97f0();
+};
+
+// @baa 0x018c97f0
+C_018c97f0* C_018c97f0::sub_018c97f0()
+{
+    Value_04 = 0;
+    Value_08 = 0;
+    Value_0c = 0;
+    return this;
+}
+
+struct C_018c9800
+{
+    INT Value_00;
+    INT Value_04;
+    INT Value_08;
+    INT Value_0c;
+
+    C_018c9800* sub_018c9800();
+};
+
+// @baa 0x018c9800
+C_018c9800* C_018c9800::sub_018c9800()
+{
+    Value_04 = 0;
+    Value_08 = 0;
+    Value_0c = 0;
+    return this;
+}
+
+struct C_018c9810
+{
+    INT Value_00;
+    INT Value_04;
+    INT Value_08;
+    INT Value_0c;
+
+    C_018c9810* sub_018c9810();
+};
+
+// @baa 0x018c9810
+C_018c9810* C_018c9810::sub_018c9810()
+{
+    Value_04 = 0;
+    Value_08 = 0;
+    Value_0c = 0;
+    return this;
+}
+
+// @baa 0x018cb130
+void __stdcall sub_018cb130(INT A, INT B)
+{
+    sub_00402660(A);
+}
+
+// @baa 0x018cb1a0
+void __stdcall sub_018cb1a0(INT A, INT B)
+{
+    sub_00402660(A);
+}
+
+struct C_018cd980
+{
+    INT Value_00;
+    INT Value_04;
+    INT Value_08;
+    INT Value_0c;
+
+    C_018cd980* sub_018cd980();
+};
+
+// @baa 0x018cd980
+C_018cd980* C_018cd980::sub_018cd980()
+{
+    Value_04 = 0;
+    Value_08 = 0;
+    Value_0c = 0;
+    return this;
+}
+
+struct C_018ce460
+{
+    INT Value_00;
+    INT Value_04;
+    INT Value_08;
+    INT Value_0c;
+
+    C_018ce460* sub_018ce460();
+};
+
+// @baa 0x018ce460
+C_018ce460* C_018ce460::sub_018ce460()
+{
+    Value_04 = 0;
+    Value_08 = 0;
+    Value_0c = 0;
+    return this;
 }

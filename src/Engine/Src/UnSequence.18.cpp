@@ -1,4 +1,4 @@
-// UnSequence.cpp: 6 functions
+// UnSequence.cpp: 7 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -157,4 +157,23 @@ UBOOL USeqAct_MultiLevelStreaming_::UpdateOp(FLOAT DeltaTime)
         }
     }
     return bAllComplete;
+}
+
+/* UWorld::GetTimeSeconds (0x009c8f80) isn't declared in Classes.h. */
+struct UWorld__008e6d80 : public UWorld
+{
+    FLOAT GetTimeSeconds();
+};
+
+struct USeqAct_Timer_ : public USeqAct_Timer
+{
+    void Activated();
+};
+
+// @baa 0x008e6d80
+void USeqAct_Timer_::Activated()
+{
+    // start timing from now
+    Time = 0.f;
+    ActivationTime = GWorld ? ((UWorld__008e6d80*)GWorld)->GetTimeSeconds() : 0.f;
 }

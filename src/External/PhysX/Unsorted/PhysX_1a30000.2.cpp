@@ -1,4 +1,4 @@
-// PhysX_1a30000.cpp (part 2 of 2): 89 functions
+// PhysX_1a30000.cpp (part 2 of 2): 90 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -2453,4 +2453,60 @@ struct Outer_01a3fba0 {
 void Outer_01a3fba0::sub_01a3fba0()
 {
     p->sub_01a531e0();
+}
+
+struct NxdActor_B {
+    virtual void f00() {}
+    virtual void f01() {}
+    virtual void f02() {}
+    virtual void f03() {}
+    virtual void f04() {}
+    virtual void f05() {}
+    virtual void f06() {}
+    virtual void f07() {}
+    virtual void f08() {}
+    virtual void f09() {}
+    virtual void f10() {}
+    virtual void f11() {}
+    virtual void f12() {}
+    virtual void f13() {}
+    virtual void f14() {}
+    virtual void f15() {}
+    virtual void f16() {}
+    virtual void f17() {}
+    virtual void f18() {}
+    virtual void f19() {}
+    virtual void f20() {}
+    virtual void f21() {}
+    virtual void f22() {}
+    virtual void f23() {}
+    virtual void f24() {}
+    virtual void f25() {}
+    virtual void f26() {}
+    virtual void f27() {}
+    virtual void f28() {}
+    virtual void sub_01a51bf0();
+};
+
+struct NxdActor_C {
+    void sub_01a51bf0();
+};
+
+struct NxdActor_ {
+    int field00;
+    int field04;
+    NxdActor_B* Obj;
+    int field0c;
+    NxdActor_C* Other;
+    void sub_01a3fbb0();
+};
+
+// @baa 0x01a3fbb0
+void NxdActor_::sub_01a3fbb0()
+{
+    if (Obj)
+    {
+        return Obj->sub_01a51bf0();
+    }
+    return Other->sub_01a51bf0();
 }

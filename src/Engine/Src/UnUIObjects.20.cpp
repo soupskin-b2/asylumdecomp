@@ -1,4 +1,4 @@
-// UnUIObjects.cpp: 2 functions
+// UnUIObjects.cpp: 6 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -64,4 +64,36 @@ void UUIObject::execGetDefaultDataStores(FFrame& Stack, RESULT_DECL)
     FUIDataStoreArray& out_BoundDataStores = GPropAddr ? *(FUIDataStoreArray*)GPropAddr : out_BoundDataStoresT;
     P_FINISH;
     ((UUIObject_*)this)->sub_00db5ac0(out_BoundDataStores);
+}
+
+// @baa 0x00ca4b80
+void UUIScreenObject::execCanvasToScreen(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT_REF(FVector, CanvasPosition);
+    P_FINISH;
+    *(FVector4*)Result = CanvasToScreen(CanvasPosition);
+}
+
+// @baa 0x00ca4cd0
+void UUIScreenObject::execPixelToScreen(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT_REF(FVector2D, PixelPosition);
+    P_FINISH;
+    *(FVector4*)Result = PixelToScreen(PixelPosition);
+}
+
+// @baa 0x00ca4c20
+void UUIScreenObject::execScreenToPixel(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT_REF(FVector4, ScreenPosition);
+    P_FINISH;
+    *(FVector2D*)Result = ScreenToPixel(ScreenPosition);
+}
+
+// @baa 0x00ca4d70
+void UUIScreenObject::execScreenToCanvas(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT_REF(FVector4, ScreenPosition);
+    P_FINISH;
+    *(FVector*)Result = ScreenToCanvas(ScreenPosition);
 }

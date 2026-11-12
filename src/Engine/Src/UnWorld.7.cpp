@@ -1,4 +1,4 @@
-// UnWorld.cpp: 7 functions
+// UnWorld.cpp: 8 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -96,4 +96,41 @@ undefined4 * UObject::sub_009c1c20(void)
   sub_005c7a20();
   *param_1 = (undefined4)(&g_01f9a840);
   return param_1;
+}
+
+UClass* sub_007d5ec0();
+                 /* ULevelStreamingPersistent::StaticClass, out of line */
+struct ULevel_ : public ULevel
+{
+    AWorldInfo* sub_007de2b0();         /* GetWorldInfo */
+};
+
+struct AWorldInfo_ : public AWorldInfo
+{
+    FWorldFractureSettings sub_009c6dd0() const;
+};
+
+// @baa 0x009c6dd0
+/* GetWorldFractureSettings: the settings come from the persistent level's WorldInfo when streaming. */
+FWorldFractureSettings AWorldInfo_::sub_009c6dd0() const
+{
+    const AWorldInfo* Info = this;
+    if (StreamingLevels.Num() > 0 &&
+        StreamingLevels(0) &&
+        StreamingLevels(0)->LoadedLevel &&
+        StreamingLevels(0)->sub_00402b40(sub_007d5ec0()))
+    {
+        Info = ((ULevel_*)StreamingLevels(0)->LoadedLevel)->sub_007de2b0();
+    }
+
+    FWorldFractureSettings Settings;
+    Settings.ChanceOfPhysicsChunkOverride = Info->ChanceOfPhysicsChunkOverride;
+    Settings.bEnableChanceOfPhysicsChunkOverride = Info->bEnableChanceOfPhysicsChunkOverride;
+    Settings.MaxExplosionChunkSize = Info->MaxExplosionChunkSize;
+    Settings.bLimitExplosionChunkSize = Info->bLimitExplosionChunkSize;
+    Settings.MaxDamageChunkSize = Info->MaxDamageChunkSize;
+    Settings.bLimitDamageChunkSize = Info->bLimitDamageChunkSize;
+    Settings.FractureExplosionVelScale = Info->FractureExplosionVelScale;
+    Settings.MaxNumFacturedChunksToSpawnInAFrame = Info->MaxNumFacturedChunksToSpawnInAFrame;
+    return Settings;
 }

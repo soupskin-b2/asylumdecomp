@@ -1,4 +1,4 @@
-// GFx_1900000.cpp (part 6 of 6): 15 functions
+// GFx_1900000.cpp (part 6 of 6): 18 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -258,4 +258,59 @@ C_01905830* C_01905830::sub_01905830()
     Pointer = (void*)((char*)this + 8);
     Count = 0x200;
     return this;
+}
+
+struct Sub_01902b40
+{
+    void sub_018ffc00(void* A, INT B);
+};
+
+struct C_01902b40
+{
+    char pad_00[0x24];
+    INT Value_24;
+    Sub_01902b40* Object_28;
+
+    void sub_01902b40();
+};
+
+// @baa 0x01902b40
+void C_01902b40::sub_01902b40()
+{
+    Object_28->sub_018ffc00(this, Value_24);
+}
+
+struct Sub_01903610
+{
+    char pad_00[0xc];
+    INT RefCount;
+
+    void sub_01971650();
+};
+
+struct C_01903610
+{
+    Sub_01903610* Object;
+
+    void sub_01903610();
+};
+
+// @baa 0x01903610
+void C_01903610::sub_01903610()
+{
+    Sub_01903610* Object = this->Object;
+    if (--Object->RefCount == 0)
+        Object->sub_01971650();
+}
+
+struct Object
+{
+    char pad_00[0x4];
+    INT Value;
+};
+
+// @baa 0x01904ed0
+INT __stdcall sub_01904ed0(Object* Target, INT B)
+{
+    return Target->Value - B;
 }

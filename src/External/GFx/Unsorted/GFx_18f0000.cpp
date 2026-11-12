@@ -1,4 +1,4 @@
-// GFx_18f0000.cpp (part 1 of 3): 131 functions
+// GFx_18f0000.cpp (part 1 of 3): 132 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Core.h"
@@ -1575,4 +1575,21 @@ struct C_018f9640
 INT C_018f9640::sub_018f9640(INT Value)
 {
     return InterlockedExchange(&Counter, Value);
+}
+
+struct C_018f5620
+{
+    char pad_00[0x70];
+    INT Value;
+    char pad_74[4];
+    BYTE Flag;
+
+    void sub_018f5620();
+};
+
+// @baa 0x018f5620
+void C_018f5620::sub_018f5620()
+{
+    if (Value <= 1)
+        Flag = 1;
 }

@@ -2,47 +2,47 @@
  "updated": "2026-11-12",
  "functions": {
   "total": 174166,
-  "matched": 99209
+  "matched": 99407
  },
  "bytes": {
   "total": 24308119,
-  "matched": 3807830
+  "matched": 3822495
  },
  "areas": [
   {
    "name": "Engine",
    "functions": 69863,
    "bytes": 9201956,
-   "matched": 41890,
-   "matched_bytes": 1809886
+   "matched": 42019,
+   "matched_bytes": 1823223
   },
   {
    "name": "Editor",
    "functions": 42961,
    "bytes": 8040643,
-   "matched": 23871,
-   "matched_bytes": 794547
+   "matched": 23872,
+   "matched_bytes": 794576
   },
   {
    "name": "External",
    "functions": 29410,
    "bytes": 3194268,
-   "matched": 11823,
-   "matched_bytes": 188462
+   "matched": 11888,
+   "matched_bytes": 189462
   },
   {
    "name": "Game",
    "functions": 13563,
    "bytes": 1853804,
-   "matched": 9355,
-   "matched_bytes": 534531
+   "matched": 9357,
+   "matched_bytes": 534699
   },
   {
    "name": "Core",
    "functions": 12072,
    "bytes": 1275961,
-   "matched": 7894,
-   "matched_bytes": 238731
+   "matched": 7895,
+   "matched_bytes": 238862
   },
   {
    "name": "CommonGame",
@@ -97,13 +97,13 @@
  "contributors": [
   {
    "login": "soupskin-b2",
-   "functions": 99199,
-   "bytes": 3806250,
+   "functions": 99397,
+   "bytes": 3820915,
    "models": {
     "Tooling": 94456,
-    "DeepSeek V4.1 Flash": 2080,
-    "Qwen3.8 27B": 1450,
-    "Claude Opus 5.5": 1006,
+    "DeepSeek V4.1 Flash": 2167,
+    "Qwen3.8 27B": 1477,
+    "Claude Opus 5.5": 1089,
     "GPT-6.1 Sol": 146,
     "Claude Sonnet 5.5": 37,
     "GPT-6.1 Terra": 10,
@@ -112,7 +112,8 @@
     "claude": 2,
     "Claude Sonnet 4.5": 2,
     "Claude Haiku 5.5": 1,
-    "Claude Opus 4.5": 1
+    "Claude Opus 4.5": 1,
+    "Claude Opus 4.1": 1
    }
   }
  ],
@@ -123,15 +124,15 @@
   },
   {
    "model": "DeepSeek V4.1 Flash",
-   "functions": 2080
+   "functions": 2167
   },
   {
    "model": "Qwen3.8 27B",
-   "functions": 1450
+   "functions": 1477
   },
   {
    "model": "Claude Opus 5.5",
-   "functions": 1006
+   "functions": 1089
   },
   {
    "model": "GPT-6.1 Sol",
@@ -167,6 +168,10 @@
   },
   {
    "model": "Claude Opus 4.5",
+   "functions": 1
+  },
+  {
+   "model": "Claude Opus 4.1",
    "functions": 1
   }
  ]

@@ -1,4 +1,4 @@
-// LightComponent.cpp (part 4 of 5): 8 functions
+// LightComponent.cpp (part 4 of 5): 9 functions
 // Placed here by: class 6.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -84,4 +84,42 @@ void ULightComponent::vf_05c()
 {
 	vf_16c();
 	bHasLightEverBeenBuiltIntoLightMap = 0;
+}
+
+/* UObject::GetOutermost (005d7350); Classes.h doesn't declare it on UObject. */
+struct UObject_ : public UObject
+{
+    UObject* sub_005d7350();
+};
+
+/* ConvertVolumesToConvexVolumes (LightComponent.cpp); the kit types the convex arrays with a stand-in element. */
+void sub_0079ae50(const TArray<ABrush*>& Volumes, TArray<FNativeElem_00693980>& ConvexVolumes);
+struct ULightComponent_ : public ULightComponent
+{
+    void sub_006bab80();
+};
+
+// @baa 0x006bab80
+/* UpdateVolumes: drop volume references from other levels, then rebuild the convex volumes. */
+void ULightComponent_::sub_006bab80()
+{
+    for (INT VolumeIndex = 0; VolumeIndex < ExclusionVolumes.Num(); VolumeIndex++)
+    {
+        ABrush*& Volume = ExclusionVolumes(VolumeIndex);
+        if (Volume && ((UObject_*)Volume)->sub_005d7350() != ((UObject_*)this)->sub_005d7350())
+        {
+            Volume = NULL;
+        }
+    }
+    for (INT VolumeIndex = 0; VolumeIndex < InclusionVolumes.Num(); VolumeIndex++)
+    {
+        ABrush*& Volume = InclusionVolumes(VolumeIndex);
+        if (Volume && ((UObject_*)Volume)->sub_005d7350() != ((UObject_*)this)->sub_005d7350())
+        {
+            Volume = NULL;
+        }
+    }
+
+    sub_0079ae50(ExclusionVolumes, ExclusionConvexVolumes);
+    sub_0079ae50(InclusionVolumes, InclusionConvexVolumes);
 }

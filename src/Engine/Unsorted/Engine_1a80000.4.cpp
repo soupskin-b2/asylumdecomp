@@ -1,4 +1,4 @@
-// Engine_1a80000.cpp (part 4 of 5): 17 functions
+// Engine_1a80000.cpp (part 4 of 5): 21 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -308,4 +308,80 @@ struct Sub
 void __stdcall sub_01a887e0(Sub* Object)
 {
     Object->sub_01a826e0();
+}
+
+struct C
+{
+    char pad_0[0x4];
+    INT Value_4;
+    INT Value_8;
+    INT Value_c;
+
+    C* sub_01a87d90();
+};
+
+// @baa 0x01a87d90
+C* C::sub_01a87d90()
+{
+    Value_4 = 0;
+    Value_8 = 0;
+    Value_c = 0;
+    return this;
+}
+
+struct C_01a87da0
+{
+    char pad_0[0x4];
+    INT Value_4;
+    INT Value_8;
+    INT Value_c;
+
+    C_01a87da0* sub_01a87da0();
+};
+
+// @baa 0x01a87da0
+C_01a87da0* C_01a87da0::sub_01a87da0()
+{
+    Value_4 = 0;
+    Value_8 = 0;
+    Value_c = 0;
+    return this;
+}
+
+struct C_01a889e0
+{
+    char pad_0[0x4];
+    INT Value_4;
+    INT Value_8;
+    INT Value_c;
+
+    C_01a889e0* sub_01a889e0();
+};
+
+// @baa 0x01a889e0
+C_01a889e0* C_01a889e0::sub_01a889e0()
+{
+    Value_4 = 0;
+    Value_8 = 0;
+    Value_c = 0;
+    return this;
+}
+
+struct C_01a88a00
+{
+    char pad_0[0x4];
+    INT Value_4;
+    INT Value_8;
+    INT Value_c;
+
+    C_01a88a00* sub_01a88a00();
+};
+
+// @baa 0x01a88a00
+C_01a88a00* C_01a88a00::sub_01a88a00()
+{
+    Value_4 = 0;
+    Value_8 = 0;
+    Value_c = 0;
+    return this;
 }

@@ -1,4 +1,4 @@
-// UnAnimTree.cpp: 48 functions
+// UnAnimTree.cpp: 59 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -353,4 +353,312 @@ IMPLEMENT_CLASS_AT(UAnimNodePlayCustomAnim, "e:\\Projects\\Amadeus\\AA\\Game\\Un
 bool UAnimNodePlayCustomAnim::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+/* Kit gaps, with UE3's definitions (UnMath.h, UnSkeletalMesh.h): FQuat has no constructor from a matrix
+ * (out of line here), FVector no constructor, FMatrix no GetOrigin, FBoneAtom no constructor from a matrix and no operator=. */
+struct FQuat_ : public FQuat
+{
+	FQuat_(const FMatrix& M);					/* 005c40e0 */
+};
+
+struct FVector_ : public FVector
+{
+	FVector_(FLOAT InX, FLOAT InY, FLOAT InZ) { X = InX; Y = InY; Z = InZ; }
+};
+
+static inline FVector_ GetOrigin(const FMatrix& M)
+{
+	return FVector_(M.WPlane.X, M.WPlane.Y, M.WPlane.Z);
+}
+
+/* FBoneAtom with UE3's constructor from a matrix (same layout; the kit's FBoneAtom has no constructors). */
+struct FBoneAtom_
+{
+	FQuat_ Rotation;
+	FVector_ Translation;
+	FLOAT Scale;
+
+	FBoneAtom_(const FMatrix& InMatrix)
+	:	Rotation(InMatrix)
+	,	Translation(GetOrigin(InMatrix))
+	,	Scale(1.f)
+	{}
+};
+
+static inline void AssignBoneAtom(FBoneAtom& Dest, const FBoneAtom_& Src)	/* FBoneAtom::operator= */
+{
+	Dest.Rotation = Src.Rotation;
+	Dest.Translation = Src.Translation;
+	Dest.Scale = Src.Scale;
+}
+
+/* Out-of-line code Classes.h doesn't declare. */
+struct FBoneAtomArray : public TArray<FBoneAtom>
+{
+	FBoneAtomArray& sub_00c64160(const TArray<FBoneAtom>& Other);	/* operator= */
+};
+
+struct UAnimNodeBlendBase__00c71100 : public UAnimNodeBlendBase
+{
+	void sub_00c6c9a0(TArray<FBoneAtom>& Atoms, const TArray<BYTE>& DesiredBones, FBoneAtom& RootMotionDelta, INT& bHasRootMotion);	/* GetBoneAtoms */
+};
+
+/* UAnimTree's GetBoneAtoms override (its vtable slot is declared only as a vf_). */
+struct UAnimTree__00c71100 : public UAnimTree
+{
+	void GetBoneAtoms(TArray<FBoneAtom>& Atoms, const TArray<BYTE>& DesiredBones, FBoneAtom& RootMotionDelta, INT& bHasRootMotion);
+};
+
+// @baa 0x00c71100
+void UAnimTree__00c71100::GetBoneAtoms(TArray<FBoneAtom>& Atoms, const TArray<BYTE>& DesiredBones, FBoneAtom& RootMotionDelta, INT& bHasRootMotion)
+{
+	// the saved pose, if we want it
+	if (bUseSavedPose)
+	{
+#line 3073 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTree.cpp"
+		check(SavedPose.Num() == Atoms.Num());
+		((FBoneAtomArray&)Atoms).sub_00c64160(SavedPose);
+		AssignBoneAtom(RootMotionDelta, FBoneAtom_(FMatrix::Identity));
+		bHasRootMotion = 0;
+		return;
+	}
+
+	((UAnimNodeBlendBase__00c71100*)this)->sub_00c6c9a0(Atoms, DesiredBones, RootMotionDelta, bHasRootMotion);
+}
+
+#line 431 "candidate.cpp"
+
+/* UAnimNode's node search statics (UnAnimTree.cpp) and TArray<UAnimNode*>::AddItem (out of line here)
+ * aren't declared in the kit. */
+struct FAnimNodeArray : public TArray<UAnimNode*>
+{
+	INT sub_00914af0(UAnimNode* const& Item);		/* AddItem */
+};
+
+/* UAnimNode's GetNodesInternal (UAnimNode vtable slot, declared only as a vf_). */
+struct UAnimNode_ : public UAnimNode
+{
+	static UBOOL bNodeSearching;		/* 026c2bcc */
+	static INT CurrentSearchTag;		/* 026c2bd0 */
+	void GetNodesInternal(TArray<UAnimNode*>& Nodes);
+};
+
+// @baa 0x00c52fa0
+void UAnimNode_::GetNodesInternal(TArray<UAnimNode*>& Nodes)
+{
+#line 346 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTree.cpp"
+	check(UAnimNode_::bNodeSearching);
+
+	// each node only once per search
+	if (SearchTag != UAnimNode_::CurrentSearchTag)
+	{
+		SearchTag = UAnimNode_::CurrentSearchTag;
+		((FAnimNodeArray&)Nodes).sub_00914af0(this);
+	}
+}
+
+#line 462 "candidate.cpp"
+
+/* UAnimTree's anim group accessors (UnAnimTree.cpp) aren't declared in Classes.h. */
+struct UAnimTree__00c613b0 : public UAnimTree
+{
+	INT sub_00c556d0(FName GroupName);		/* GetGroupIndex */
+	FLOAT GetGroupRelativePosition(FName GroupName);
+};
+
+// @baa 0x00c613b0
+FLOAT UAnimTree__00c613b0::GetGroupRelativePosition(FName GroupName)
+{
+	const INT GroupIndex = sub_00c556d0(GroupName);
+	if (GroupIndex != INDEX_NONE)
+	{
+		return AnimGroups(GroupIndex).SynchPctPosition;
+	}
+
+	return 0.f;
+}
+
+/* UAnimTree's anim group accessors (UnAnimTree.cpp) aren't declared in Classes.h. */
+struct UAnimTree__00c61420 : public UAnimTree
+{
+	INT sub_00c556d0(FName GroupName);		/* GetGroupIndex */
+	UAnimNodeSequence* GetGroupSynchMaster(FName GroupName);
+};
+
+// @baa 0x00c61420
+UAnimNodeSequence* UAnimTree__00c61420::GetGroupSynchMaster(FName GroupName)
+{
+	const INT GroupIndex = sub_00c556d0(GroupName);
+	if (GroupIndex != INDEX_NONE)
+	{
+		return AnimGroups(GroupIndex).SynchMaster;
+	}
+
+	return NULL;
+}
+
+/* UAnimTree's anim group accessors (UnAnimTree.cpp) aren't declared in Classes.h. */
+struct UAnimTree__00c61490 : public UAnimTree
+{
+	INT sub_00c556d0(FName GroupName);		/* GetGroupIndex */
+	UAnimNodeSequence* GetGroupNotifyMaster(FName GroupName);
+};
+
+// @baa 0x00c61490
+UAnimNodeSequence* UAnimTree__00c61490::GetGroupNotifyMaster(FName GroupName)
+{
+	const INT GroupIndex = sub_00c556d0(GroupName);
+	if (GroupIndex != INDEX_NONE)
+	{
+		return AnimGroups(GroupIndex).NotifyMaster;
+	}
+
+	return NULL;
+}
+
+/* UAnimTree's anim group accessors (UnAnimTree.cpp) aren't declared in Classes.h. */
+struct UAnimTree__00c61570 : public UAnimTree
+{
+	INT sub_00c556d0(FName GroupName);		/* GetGroupIndex */
+	FLOAT GetGroupRateScale(FName GroupName);
+};
+
+// @baa 0x00c61570
+FLOAT UAnimTree__00c61570::GetGroupRateScale(FName GroupName)
+{
+	const INT GroupIndex = sub_00c556d0(GroupName);
+	if (GroupIndex != INDEX_NONE)
+	{
+		return AnimGroups(GroupIndex).RateScale;
+	}
+
+	return 0.f;
+}
+
+/* UAnimTree's anim group accessors (UnAnimTree.cpp) aren't declared in Classes.h. */
+struct UAnimTree__00c61500 : public UAnimTree
+{
+	INT sub_00c556d0(FName GroupName);		/* GetGroupIndex */
+	void SetGroupRateScale(FName GroupName, FLOAT NewRateScale);
+};
+
+// @baa 0x00c61500
+void UAnimTree__00c61500::SetGroupRateScale(FName GroupName, FLOAT NewRateScale)
+{
+	const INT GroupIndex = sub_00c556d0(GroupName);
+	if (GroupIndex != INDEX_NONE)
+	{
+		AnimGroups(GroupIndex).RateScale = NewRateScale;
+	}
+}
+
+/* UAnimNode::CountNumParentsTicked isn't declared in Classes.h. */
+struct UAnimNode__00c53000 : public UAnimNode
+{
+	INT CountNumParentsTicked();
+};
+
+// @baa 0x00c53000
+INT UAnimNode__00c53000::CountNumParentsTicked()
+{
+	// the parents already ticked this frame
+	INT NumParentsTicked = 0;
+	for (INT i = 0; i < ParentNodes.Num(); i++)
+	{
+		if (ParentNodes(i)->NodeTickTag == SkelComponent->TickTag)
+		{
+			NumParentsTicked++;
+		}
+	}
+	return NumParentsTicked;
+}
+
+/* UAnimNodeAimOffset's editor slider position (UAnimNode vtable slot, declared only as a vf_). */
+struct UAnimNodeAimOffset__00c4ba00 : public UAnimNodeAimOffset
+{
+	FLOAT GetSliderPosition(INT SliderIndex, INT ValueIndex);
+};
+
+// @baa 0x00c4ba00
+FLOAT UAnimNodeAimOffset__00c4ba00::GetSliderPosition(INT SliderIndex, INT ValueIndex)
+{
+#line 4138 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTree.cpp"
+	check(SliderIndex == 0);
+	check(ValueIndex == 0 || ValueIndex == 1);
+
+	// the aim, from [-1, 1] to [0, 1] (Y upside down)
+	if (ValueIndex == 0)
+	{
+		return (Aim.X * 0.5f) + 0.5f;
+	}
+	else
+	{
+		return (Aim.Y * -0.5f) + 0.5f;
+	}
+}
+
+#line 602 "candidate.cpp"
+
+/* Kit gaps, with UE3's definitions (UnName.h, UnObjBas.h): FName has no constructor from a string and
+ * no comparison operators, and UObject has no GetFName(). */
+struct FName_ : public FName
+{
+	FName_(const TCHAR* Name, INT FindType = 1, UBOOL bSplitName = 1);	/* 005d5620 */
+};
+
+/* UObject::GetFName, inlined at every call here; the cast lets both arms of the ?: be the same type, as they are
+ * with UE3's FName(const TCHAR*) constructor. */
+static __forceinline FName GetFName(const UObject* Object)
+{
+	return Object->ObjectInternalInteger != INDEX_NONE ? (const FName_&)Object->Name : FName_(TEXT("<uninitialized>"));
+}
+
+/* The Super:: PostEditChange (UObject's; the classes between don't override it). */
+struct UObject_ : public UObject
+{
+	void sub_005c1a10(UProperty* PropertyThatChanged);
+};
+
+/* UAnimNodeBlendPerBone's PostEditChange (vtable 0x4c, declared only as vf_04c). */
+struct UAnimNodeBlendPerBone_ : public UAnimNodeBlendPerBone
+{
+	void sub_00c60a20();		/* BuildWeightList */
+	void PostEditChange(UProperty* PropertyThatChanged);
+};
+
+// @baa 0x00c698d0
+void UAnimNodeBlendPerBone_::PostEditChange(UProperty* PropertyThatChanged)
+{
+	if (PropertyThatChanged)
+	{
+		if (GetFName(PropertyThatChanged) == FName_(TEXT("BranchStartBoneName")))
+		{
+			sub_00c60a20();
+		}
+	}
+
+	((UObject_*)this)->sub_005c1a10(PropertyThatChanged);
+}
+
+/* UAnimNodeAimOffset's PostEditChange (vtable 0x4c, declared only as vf_04c). */
+struct UAnimNodeAimOffset__00c7ecf0 : public UAnimNodeAimOffset
+{
+	void sub_00c7bab0();		/* BakeOffsetsFromAnimations */
+	void PostEditChange(UProperty* PropertyThatChanged);
+};
+
+// @baa 0x00c7ecf0
+void UAnimNodeAimOffset__00c7ecf0::PostEditChange(UProperty* PropertyThatChanged)
+{
+	((UObject_*)this)->sub_005c1a10(PropertyThatChanged);
+
+	if (PropertyThatChanged)
+	{
+		if (GetFName(PropertyThatChanged) == FName_(TEXT("bBakeFromAnimations")))
+		{
+			bBakeFromAnimations = FALSE;
+			sub_00c7bab0();
+		}
+	}
 }

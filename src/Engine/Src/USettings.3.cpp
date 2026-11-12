@@ -1,4 +1,4 @@
-// USettings.cpp: 13 functions
+// USettings.cpp: 19 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -118,4 +118,54 @@ void USettings::execUpdateFromURL(FFrame& Stack, RESULT_DECL)
     P_GET_OBJECT(AGameInfo, Game);
     P_FINISH;
     UpdateFromURL(URL, Game);
+}
+
+// @baa 0x00c85600
+void USettings::execEmptySettingsData(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT_REF(FSettingsData, Data);
+    P_FINISH;
+    EmptySettingsData(Data);
+}
+
+// @baa 0x00c856c0
+void USettings::execGetSettingsDataFloat(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT_REF(FSettingsData, Data);
+    P_FINISH;
+    *(FLOAT*)Result = GetSettingsDataFloat(Data);
+}
+
+// @baa 0x00c85780
+void USettings::execGetSettingsDataInt(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT_REF(FSettingsData, Data);
+    P_FINISH;
+    *(INT*)Result = GetSettingsDataInt(Data);
+}
+
+// @baa 0x00cb6000
+void USettings::execGetSettingsDataString(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT_REF(FSettingsData, Data);
+    P_FINISH;
+    *(FString*)Result = GetSettingsDataString(Data);
+}
+
+// @baa 0x00c85310
+void USettings::execSetSettingsDataInt(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT_REF(FSettingsData, Data);
+    P_GET_INT(InInt);
+    P_FINISH;
+    SetSettingsDataInt(Data, InInt);
+}
+
+// @baa 0x00c85220
+void USettings::execSetSettingsDataFloat(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT_REF(FSettingsData, Data);
+    P_GET_FLOAT(InFloat);
+    P_FINISH;
+    SetSettingsDataFloat(Data, InFloat);
 }

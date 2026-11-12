@@ -1,4 +1,4 @@
-// Engine_0bb0000.cpp (part 1 of 3): 183 functions
+// Engine_0bb0000.cpp (part 1 of 3): 184 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -2046,4 +2046,13 @@ uint C_00bbede0::sub_00bbede0(void)
     uint param_1 = (uint)this;
 
   return *(uint *)(param_1 + 0x40) | -(uint)(*(uint *)(param_1 + 0x40) == 0) & param_1;
+}
+
+// @baa 0x00bbcaf0
+void __stdcall sub_00bbcaf0(int unused, BYTE* P)
+{
+    P[0] = 0x34;
+    P[1] = 0x40;
+    P[2] = 0x38;
+    *(int*)(P + 4) = 1;
 }

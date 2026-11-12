@@ -1,4 +1,4 @@
-// UnPlayer.cpp (part 1 of 3): 106 functions
+// UnPlayer.cpp (part 1 of 3): 107 functions
 // Placed here by: neighbours 67, class 23, callers 7, file 4.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1003,4 +1003,20 @@ void UPlayer::vf_10c(int param_2)
   *(int *)(param_2 + 0x330) = param_1;
   *(int *)(param_1 + 0x34) = param_2;
   return;
+}
+
+static inline UBOOL operator==(const FName& A, const FName& B) { return A.Index == B.Index && A.Number == B.Number; }
+
+// @baa 0x00892bb0
+/* FindPostProcessEffect: the first effect in the chain with the given name (UE3 returns UPostProcessEffect*). */
+void* UPostProcessChain::sub_00892bb0(FName EffectName)
+{
+    for (INT EffectIdx = 0; EffectIdx < Effects.Num(); EffectIdx++)
+    {
+        if (Effects(EffectIdx) && Effects(EffectIdx)->EffectName == EffectName)
+        {
+            return Effects(EffectIdx);
+        }
+    }
+    return NULL;
 }

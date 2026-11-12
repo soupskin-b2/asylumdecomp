@@ -1,4 +1,4 @@
-// UnUIDataStores.cpp: 28 functions
+// UnUIDataStores.cpp: 30 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -324,3 +324,62 @@ int USkeletalMeshComponent::sub_00da6140(void)
 
 // @baa 0x00da6160
 void sub_00da6160(void) { sub_00da6010(); }
+
+#define ARRAY_COUNT(array) (sizeof(array) / sizeof((array)[0]))
+// @baa 0x00d935d0
+/* UE3 declares this const (InputAliases is read through the const operator()); the kit's declaration isn't. */
+FString UUIDataStore_InputAlias::GetAliasFontMarkupByIndex(INT AliasIndex, BYTE OverridePlatform)
+{
+    const UUIDataStore_InputAlias* This = this;
+    FString Result;
+
+    if (This->InputAliases.IsValidIndex(AliasIndex))
+    {
+        const FUIDataStoreInputAlias& Alias = This->InputAliases(AliasIndex);
+
+        INT Platform = IPT_PC;
+        if (OverridePlatform < IPT_MAX)
+        {
+            Platform = OverridePlatform;
+        }
+#line 2629 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnUIDataStores.cpp"
+        check(Platform<ARRAY_COUNT(Alias.PlatformInputKeys));
+#line 17 "candidate.cpp"
+
+        Result = Alias.PlatformInputKeys[Platform].ButtonFontMarkupString;
+    }
+
+    return Result;
+}
+
+#line 356 "candidate.cpp"
+
+// @baa 0x00d9fa10
+/* UE3 declares this const (InputAliases is read through the const operator()); the kit's declaration isn't. */
+FString UUIDataStore_InputAlias::GetAliasFontMarkup(FName DesiredAlias, BYTE OverridePlatform)
+{
+    const UUIDataStore_InputAlias* This = this;
+    FString Result;
+
+    INT AliasIndex = FindInputAliasIndex(DesiredAlias);
+
+    if (This->InputAliases.IsValidIndex(AliasIndex))
+    {
+        const FUIDataStoreInputAlias& Alias = This->InputAliases(AliasIndex);
+
+        INT Platform = IPT_PC;
+        if (OverridePlatform < IPT_MAX)
+        {
+            Platform = OverridePlatform;
+        }
+#line 2599 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnUIDataStores.cpp"
+        check(Platform<ARRAY_COUNT(Alias.PlatformInputKeys));
+#line 21 "candidate.cpp"
+
+        Result = Alias.PlatformInputKeys[Platform].ButtonFontMarkupString;
+    }
+
+    return Result;
+}
+
+#line 386 "candidate.cpp"

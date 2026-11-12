@@ -1,4 +1,4 @@
-// CRT_1a50000.cpp (part 2 of 2): 4 functions
+// CRT_1a50000.cpp (part 2 of 2): 5 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -67,4 +67,22 @@ float10 sub_01a5f1d0(float * param_1)
     fStack_4 = param_1[2] * fStack_4;
   }
   return (float10)fStack_4;
+}
+
+struct C_01a5f380
+{
+    char pad_00[0x10];
+    void* Pointer;
+    char pad_14[0x10];
+    UINT Count;
+
+    void* sub_01a5f380();
+};
+
+// @baa 0x01a5f380
+void* C_01a5f380::sub_01a5f380()
+{
+    if (Count >= 0x10)
+        return Pointer;
+    return (void*)((char*)this + 0x10);
 }

@@ -1,4 +1,4 @@
-// SpeedTreeVertexFactory.cpp (part 2 of 2): 24 functions
+// SpeedTreeVertexFactory.cpp (part 2 of 2): 27 functions
 // Placed here by: neighbours 20, callers 3.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Core.h"
@@ -395,4 +395,61 @@ struct C_01a6ec70
 void C_01a6ec70::sub_01a6ec70(float In)
 {
     Value = In;
+}
+
+struct C_01a72380
+{
+    char pad_0[0x4];
+    INT Value_4;
+    INT Value_8;
+    INT Value_c;
+
+    C_01a72380* sub_01a72380();
+};
+
+// @baa 0x01a72380
+C_01a72380* C_01a72380::sub_01a72380()
+{
+    Value_4 = 0;
+    Value_8 = 0;
+    Value_c = 0;
+    return this;
+}
+
+struct C_01a723a0
+{
+    char pad_0[0x4];
+    INT Value_4;
+    INT Value_8;
+    INT Value_c;
+
+    C_01a723a0* sub_01a723a0();
+};
+
+// @baa 0x01a723a0
+C_01a723a0* C_01a723a0::sub_01a723a0()
+{
+    Value_4 = 0;
+    Value_8 = 0;
+    Value_c = 0;
+    return this;
+}
+
+struct C_01a723b0
+{
+    char pad_0[0x4];
+    INT Value_4;
+    INT Value_8;
+    INT Value_c;
+
+    C_01a723b0* sub_01a723b0();
+};
+
+// @baa 0x01a723b0
+C_01a723b0* C_01a723b0::sub_01a723b0()
+{
+    Value_4 = 0;
+    Value_8 = 0;
+    Value_c = 0;
+    return this;
 }

@@ -1,4 +1,4 @@
-// GFx_1940000.cpp (part 3 of 3): 16 functions
+// GFx_1940000.cpp (part 3 of 3): 17 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -241,4 +241,27 @@ void C_01947980::sub_01947980()
 {
     if (Module)
         FreeLibrary(Module);
+}
+
+struct Sub
+{
+    char pad_00[0xc];
+    INT RefCount;
+
+    void sub_01971650();
+};
+
+struct C_01949a30
+{
+    Sub* Object;
+
+    void sub_01949a30();
+};
+
+// @baa 0x01949a30
+void C_01949a30::sub_01949a30()
+{
+    Sub* Object = this->Object;
+    if (--Object->RefCount == 0)
+        Object->sub_01971650();
 }

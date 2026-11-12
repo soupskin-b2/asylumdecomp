@@ -1,4 +1,4 @@
-// UnAnimPlay.cpp: 6 functions
+// UnAnimPlay.cpp: 7 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -158,4 +158,11 @@ UBOOL UAnimNode_::IsChildOf(UAnimNode* Node)
 	}
 
 	return FALSE;
+}
+
+// @baa 0x00c4af10
+// @baa 0x00c4af10
+void UAnimNodeSequence::vf_12c()
+{
+	SetAnim(AnimSeqName);
 }

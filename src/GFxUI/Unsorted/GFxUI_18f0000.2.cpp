@@ -1,4 +1,4 @@
-// GFxUI_18f0000.cpp (part 2 of 3): 7 functions
+// GFxUI_18f0000.cpp (part 2 of 3): 8 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -55,4 +55,11 @@ void __cdecl sub_018f1b80(int Obj)
 {
     if (Obj)
         sub_018d7170(Obj);
+}
+
+void __stdcall sub_018d7150(INT Value);
+// @baa 0x018f1b00
+void sub_018f1b00(INT Value)
+{
+    sub_018d7150(Value * 2);
 }

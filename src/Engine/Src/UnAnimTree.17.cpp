@@ -1,4 +1,4 @@
-// UnAnimTree.cpp: 1 function
+// UnAnimTree.cpp: 3 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -34,4 +34,61 @@ FLOAT UAnimNodeBlendBase_::GetBlendWeight(FLOAT ChildWeight)
 	}
 
 	return ChildWeight;
+}
+
+/* FVector::Size (UnMath.h), not in the kit. */
+static inline FLOAT VSize(const FVector& V) { return appSqrt(V.X * V.X + V.Y * V.Y + V.Z * V.Z); }
+
+/* UActorComponent::GetOwner (UnActorComponent.h), not in the kit. */
+struct UActorComponent_ : public UActorComponent
+{
+	AActor* GetOwner() const { return Owner; }
+};
+
+/* UAnimNodeBlendBySpeed::CalcSpeed (its vtable slot is declared only as a vf_). */
+struct UAnimNodeBlendBySpeed_ : public UAnimNodeBlendBySpeed
+{
+	FLOAT CalcSpeed();
+};
+
+// @baa 0x00c4b660
+FLOAT UAnimNodeBlendBySpeed_::CalcSpeed()
+{
+	AActor* Owner = SkelComponent ? ((UActorComponent_*)SkelComponent)->GetOwner() : NULL;
+	if (Owner)
+	{
+		if (bUseAcceleration)
+		{
+			return VSize(Owner->Acceleration);
+		}
+		else
+		{
+			return VSize(Owner->Velocity);
+		}
+	}
+	else
+	{
+		return Speed;
+	}
+}
+
+#define KINDA_SMALL_NUMBER (1.e-4)
+/* UAnimNodeScaleRateBySpeed's GetScaleValue override (UAnimNodeScalePlayRate vtable 0x19c, declared
+ * only as vf_19c). */
+struct UAnimNodeScaleRateBySpeed_ : public UAnimNodeScaleRateBySpeed
+{
+	FLOAT GetScaleValue();
+};
+
+// @baa 0x00c4bb40
+FLOAT UAnimNodeScaleRateBySpeed_::GetScaleValue()
+{
+	AActor* Owner = SkelComponent ? ((UActorComponent_*)SkelComponent)->GetOwner() : NULL;
+	if (Owner && BaseSpeed > KINDA_SMALL_NUMBER)
+	{
+		// FVector::Size (not in the kit)
+		const FVector& V = Owner->Velocity;
+		return appSqrt(V.X * V.X + V.Y * V.Y + V.Z * V.Z) / BaseSpeed;
+	}
+	return ScaleByValue;
 }

@@ -1,4 +1,4 @@
-// SpeedTree.cpp: 8 functions
+// SpeedTree.cpp: 16 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Core.h"
@@ -104,4 +104,155 @@ S_01a75b40* S_01a75b40::sub_01a75b40()
 	f0C = 0.f;
 	f14 = 0.f;
 	return this;
+}
+
+struct C_01a5fec0
+{
+    char pad_00[0x28];
+    void* Pointer;
+    char pad_2c[0x10];
+    UINT Count;
+
+    void* sub_01a5fec0();
+};
+
+// @baa 0x01a5fec0
+void* C_01a5fec0::sub_01a5fec0()
+{
+    if (Count >= 0x10)
+        return Pointer;
+    return (void*)((char*)this + 0x28);
+}
+
+struct C_01a698c0
+{
+    char pad_0[0x4];
+    INT Value_4;
+    INT Value_8;
+    INT Value_c;
+
+    C_01a698c0* sub_01a698c0();
+};
+
+// @baa 0x01a698c0
+C_01a698c0* C_01a698c0::sub_01a698c0()
+{
+    Value_4 = 0;
+    Value_8 = 0;
+    Value_c = 0;
+    return this;
+}
+
+struct C_01a698d0
+{
+    char pad_0[0x4];
+    INT Value_4;
+    INT Value_8;
+    INT Value_c;
+
+    C_01a698d0* sub_01a698d0();
+};
+
+// @baa 0x01a698d0
+C_01a698d0* C_01a698d0::sub_01a698d0()
+{
+    Value_4 = 0;
+    Value_8 = 0;
+    Value_c = 0;
+    return this;
+}
+
+struct C_01a69990
+{
+    char pad_0[0x4];
+    INT Value_4;
+    INT Value_8;
+    INT Value_c;
+
+    C_01a69990* sub_01a69990();
+};
+
+// @baa 0x01a69990
+C_01a69990* C_01a69990::sub_01a69990()
+{
+    Value_4 = 0;
+    Value_8 = 0;
+    Value_c = 0;
+    return this;
+}
+
+struct C_01a69fe0
+{
+    char pad_0[0x4];
+    INT Value_4;
+    INT Value_8;
+    INT Value_c;
+
+    C_01a69fe0* sub_01a69fe0();
+};
+
+// @baa 0x01a69fe0
+C_01a69fe0* C_01a69fe0::sub_01a69fe0()
+{
+    Value_4 = 0;
+    Value_8 = 0;
+    Value_c = 0;
+    return this;
+}
+
+struct C_01a91b00
+{
+    char pad_0[0x4];
+    INT Value_4;
+    INT Value_8;
+    INT Value_c;
+
+    C_01a91b00* sub_01a91b00();
+};
+
+// @baa 0x01a91b00
+C_01a91b00* C_01a91b00::sub_01a91b00()
+{
+    Value_4 = 0;
+    Value_8 = 0;
+    Value_c = 0;
+    return this;
+}
+
+struct C_01a97250
+{
+    char pad_0[0x4];
+    INT Value_4;
+    INT Value_8;
+    INT Value_c;
+
+    C_01a97250* sub_01a97250();
+};
+
+// @baa 0x01a97250
+C_01a97250* C_01a97250::sub_01a97250()
+{
+    Value_4 = 0;
+    Value_8 = 0;
+    Value_c = 0;
+    return this;
+}
+
+struct C_01a97580
+{
+    char pad_0[0x4];
+    INT Value_4;
+    INT Value_8;
+    INT Value_c;
+
+    C_01a97580* sub_01a97580();
+};
+
+// @baa 0x01a97580
+C_01a97580* C_01a97580::sub_01a97580()
+{
+    Value_4 = 0;
+    Value_8 = 0;
+    Value_c = 0;
+    return this;
 }

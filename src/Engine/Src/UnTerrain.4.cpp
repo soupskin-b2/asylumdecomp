@@ -1,4 +1,4 @@
-// UnTerrain.cpp (part 4 of 4): 7 functions
+// UnTerrain.cpp (part 4 of 4): 8 functions
 // Placed here by: neighbours 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -136,3 +136,52 @@ int C_00989d80::sub_00989d80(unsigned x) {
  } while (i<obj->a.num);
  return 1;
 }
+
+UBOOL sub_00715880();
+                   /* IsInGameThread */
+void sub_00729290();
+                    /* FlushRenderingCommands */
+#define IsInGameThread sub_00715880
+#define FlushRenderingCommands sub_00729290
+struct UTerrainComponent_ : public UTerrainComponent
+{
+    void sub_009a65f0();
+    void sub_00759640(UBOOL);
+};
+
+struct ATerrain__009a98d0 : public ATerrain
+{
+    void sub_00759430(UBOOL);
+    void sub_009a98d0();
+};
+
+// @baa 0x009a98d0
+void ATerrain__009a98d0::sub_009a98d0()
+{
+#line 3280 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnTerrain.cpp"
+    check(IsInGameThread() == TRUE);
+
+    FlushRenderingCommands();
+
+    for (INT ComponentIndex = 0; ComponentIndex < TerrainComponents.Num(); ComponentIndex++)
+    {
+        UTerrainComponent_* Comp = (UTerrainComponent_*)TerrainComponents(ComponentIndex);
+        if (Comp)
+        {
+            Comp->sub_009a65f0();
+        }
+    }
+
+    for (INT ComponentIndex = 0; ComponentIndex < TerrainComponents.Num(); ComponentIndex++)
+    {
+        UTerrainComponent_* Comp = (UTerrainComponent_*)TerrainComponents(ComponentIndex);
+        if (Comp)
+        {
+            Comp->sub_00759640(FALSE);
+        }
+    }
+
+    sub_00759430(FALSE);
+}
+
+#line 188 "candidate.cpp"

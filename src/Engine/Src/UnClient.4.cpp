@@ -1,4 +1,4 @@
-// UnClient.cpp: 1 function
+// UnClient.cpp: 2 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -10,4 +10,10 @@ int sub_00630f20(void*, const TCHAR*, ...);
 INT UClient::CloseViewport(INT)
 {
 	return sub_00630f20(g_026667a8, L"Pure virtual not implemented (%s)", L"UClient::CloseViewport");
+}
+
+// @baa 0x00cb5ae0
+INT UClient::CreateWindowChildViewport(INT, INT, INT, INT, INT, INT)
+{
+	PURE_VIRTUAL(UClient::CreateWindowChildViewport, return 0;)
 }

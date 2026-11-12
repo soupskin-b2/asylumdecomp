@@ -1,4 +1,4 @@
-// GFx_1960000.cpp (part 1 of 2): 89 functions
+// GFx_1960000.cpp (part 1 of 2): 90 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -951,4 +951,27 @@ struct C_0196bae0
 INT C_0196bae0::sub_0196bae0()
 {
     return sub_0196b8c0(Value);
+}
+
+struct Sub
+{
+    char pad_00[0xc];
+    INT RefCount;
+
+    void sub_01971650();
+};
+
+struct C_0196b870
+{
+    Sub* Object;
+
+    void sub_0196b870();
+};
+
+// @baa 0x0196b870
+void C_0196b870::sub_0196b870()
+{
+    Sub* Object = this->Object;
+    if (--Object->RefCount == 0)
+        Object->sub_01971650();
 }

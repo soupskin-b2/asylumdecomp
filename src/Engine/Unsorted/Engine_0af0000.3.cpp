@@ -1,4 +1,4 @@
-// Engine_0af0000.cpp (part 3 of 3): 5 functions
+// Engine_0af0000.cpp (part 3 of 3): 6 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -84,3 +84,23 @@ typedef int* (sub_00af9cd0_struct::*MemFn)(int);
 
 // @baa 0x00af9cd0
 MemFn g_00af9cd0_ptr = &sub_00af9cd0_struct::sub_00af9cd0;
+
+struct C_00afb8a0 {
+    int x0;
+    int x4;
+    int x8;
+    C_00afb8a0* sub_00afb8a0(int A, int B, int C_00afb8a0)
+    {
+        x0 = A;
+        x4 = B;
+        x8 = C_00afb8a0;
+        return this;
+    }
+};
+
+// @baa 0x00afb8a0
+int call_it(C_00afb8a0* p, int A, int B, int C_00afb8a0)
+{
+    p->sub_00afb8a0(A, B, C_00afb8a0);
+    return A;
+}
