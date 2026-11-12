@@ -1,4 +1,4 @@
-// Editor_0660000.cpp: 12 functions
+// Editor_0660000.cpp: 17 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -158,4 +158,59 @@ S16* S16::sub_006632c0()
     f08 = 0;
     f0c = 0;
     return this;
+}
+
+struct Sub
+{
+    void sub_0064c3f0(INT Value);
+};
+
+// @baa 0x00662f50
+void sub_00662f50(INT A1, INT A2, Sub* Object)
+{
+    Object->sub_0064c3f0(A1);
+}
+
+struct Sub_00662f80
+{
+    void sub_0064c090(INT Value);
+};
+
+// @baa 0x00662f80
+void sub_00662f80(INT A1, INT A2, Sub_00662f80* Object)
+{
+    Object->sub_0064c090(A1);
+}
+
+struct Sub_00662fb0
+{
+    void sub_0064c340(INT Value);
+};
+
+// @baa 0x00662fb0
+void sub_00662fb0(INT A1, INT A2, Sub_00662fb0* Object)
+{
+    Object->sub_0064c340(A1);
+}
+
+struct Sub_00662fc0
+{
+    void sub_00656a60(INT Value);
+};
+
+// @baa 0x00662fc0
+void sub_00662fc0(INT A1, INT A2, Sub_00662fc0* Object)
+{
+    Object->sub_00656a60(A1);
+}
+
+struct Sub_00662fd0
+{
+    void sub_006569b0(INT Value);
+};
+
+// @baa 0x00662fd0
+void sub_00662fd0(INT A1, INT A2, Sub_00662fd0* Object)
+{
+    Object->sub_006569b0(A1);
 }

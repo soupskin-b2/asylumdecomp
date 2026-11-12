@@ -1,4 +1,4 @@
-// UnActor.cpp (part 1 of 2): 227 functions
+// UnActor.cpp (part 1 of 2): 228 functions
 // Placed here by: callers 91, file 90, neighbours 46.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -631,3 +631,23 @@ bool ASpotLightToggleable::vf_004()
 }
 
 // @baa 0x007826a0
+
+/* the kit's FVector/FRotator are aggregates; UE3's constructors */
+struct FVector_ : public FVector { FVector_(FLOAT InX, FLOAT InY, FLOAT InZ) { X = InX; Y = InY; Z = InZ; } };
+
+struct FRotator_ : public FRotator { FRotator_(INT InPitch, INT InYaw, INT InRoll) { Pitch = InPitch; Yaw = InYaw; Roll = InRoll; } };
+
+// @baa 0x00758370
+// ABrush::InitPosRotScale (vtable slot 0x358)
+void ABrush::vf_358()
+{
+#line 3104 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp"
+    check(BrushComponent);
+    check(Brush);
+
+    Location = FVector_(0, 0, 0);
+    Rotation = FRotator_(0, 0, 0);
+    PrePivot = FVector_(0, 0, 0);
+}
+
+#line 654 "candidate.cpp"

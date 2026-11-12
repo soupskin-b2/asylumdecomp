@@ -1,4 +1,4 @@
-// UnAnimTree.cpp: 1 function
+// UnAnimTree.cpp: 2 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #define BAA_OUTLINE_ALLOC	/* appFree/appRealloc out of line, so ~TArray, Reserve and AddItem inline */
@@ -45,6 +45,37 @@ void UAnimNode_::GetNodesByClass(TArray<UAnimNode*>& Nodes, UClass* BaseClass)
 		if (ObjectIsA(AllNodes(i), BaseClass))
 		{
 			AddItem(Nodes, AllNodes(i));
+		}
+	}
+}
+
+inline UBOOL operator==(const FName& A, const FName& B) { return A.Index == B.Index && A.Number == B.Number; }
+
+inline UBOOL operator==(const FName& A, EName N) { return A.Index == N && A.Number == 0; }
+
+/* UAnimNode::GetAnimSeqNodes isn't declared in Classes.h. */
+struct UAnimNode__00c7a3d0 : public UAnimNode
+{
+	void sub_00c4b530(TArray<UAnimNode*>& Nodes);			/* GetNodes */
+	void GetAnimSeqNodes(TArray<UAnimNodeSequence*>& Nodes, FName InSynchGroupName);
+};
+
+// @baa 0x00c7a3d0
+void UAnimNode__00c7a3d0::GetAnimSeqNodes(TArray<UAnimNodeSequence*>& Nodes, FName InSynchGroupName)
+{
+	// every node below this one
+	TArray<UAnimNode*> TmpNodes;
+	sub_00c4b530(TmpNodes);
+
+	Reserve(Nodes, TmpNodes.Num());
+
+	// keep the sequence nodes (of the synch group, if given)
+	for (INT i = 0; i < TmpNodes.Num(); i++)
+	{
+		UAnimNodeSequence* SeqNode = Cast<UAnimNodeSequence>(TmpNodes(i));
+		if (SeqNode && (InSynchGroupName == NAME_None || InSynchGroupName == SeqNode->SynchGroupName))
+		{
+			AddItem(Nodes, SeqNode);
 		}
 	}
 }

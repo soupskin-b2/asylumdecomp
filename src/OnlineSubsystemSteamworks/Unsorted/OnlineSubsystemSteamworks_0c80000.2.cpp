@@ -1,4 +1,4 @@
-// OnlineSubsystemSteamworks_0c80000.cpp: 14 functions
+// OnlineSubsystemSteamworks_0c80000.cpp: 15 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -166,4 +166,18 @@ void AWorldInfo::execForceGarbageCollection(FFrame& Stack, RESULT_DECL)
 	P_GET_UBOOL_OPTX(bFullPurge, 0);
 	P_FINISH;
 	((AWorldInfo__00c89bf0*)this)->sub_00803c90(bFullPurge);
+}
+
+struct AWorldInfo__00c89980 : public AWorldInfo
+{
+    /* UpdateMusicTrack (UnLevel.cpp); Classes.h doesn't declare it. */
+    void sub_009b0b80(FMusicTrackStruct NewMusicTrack);
+};
+
+// @baa 0x00c89980
+void AWorldInfo::execUpdateMusicTrack(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FMusicTrackStruct, NewMusicTrack);
+    P_FINISH;
+    ((AWorldInfo__00c89980*)this)->sub_009b0b80(NewMusicTrack);
 }

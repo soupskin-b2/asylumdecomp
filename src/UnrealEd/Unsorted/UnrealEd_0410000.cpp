@@ -1,4 +1,4 @@
-// UnrealEd_0410000.cpp: 49 functions
+// UnrealEd_0410000.cpp: 50 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -681,4 +681,15 @@ undefined4 C_0041e520::sub_0041e520(byte param_2)
     sub_01ab3290(param_1,0xb0);
   }
   return param_1;
+}
+
+struct Sub
+{
+    void sub_00417080(INT Value);
+};
+
+// @baa 0x0041d3a0
+void sub_0041d3a0(INT A1, Sub* Object)
+{
+    Object->sub_00417080(A1);
 }

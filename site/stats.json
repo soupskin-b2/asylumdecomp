@@ -2,33 +2,33 @@
  "updated": "2026-11-12",
  "functions": {
   "total": 174166,
-  "matched": 98232
+  "matched": 98386
  },
  "bytes": {
   "total": 24308119,
-  "matched": 3697184
+  "matched": 3706933
  },
  "areas": [
   {
    "name": "Engine",
    "functions": 69863,
    "bytes": 9201956,
-   "matched": 41265,
-   "matched_bytes": 1711817
+   "matched": 41318,
+   "matched_bytes": 1719839
   },
   {
    "name": "Editor",
    "functions": 42961,
    "bytes": 8040643,
-   "matched": 23720,
-   "matched_bytes": 792078
+   "matched": 23814,
+   "matched_bytes": 793416
   },
   {
    "name": "External",
    "functions": 29410,
    "bytes": 3194268,
-   "matched": 11746,
-   "matched_bytes": 187262
+   "matched": 11747,
+   "matched_bytes": 187277
   },
   {
    "name": "Game",
@@ -41,8 +41,8 @@
    "name": "Core",
    "functions": 12072,
    "bytes": 1275961,
-   "matched": 7817,
-   "matched_bytes": 236796
+   "matched": 7821,
+   "matched_bytes": 236856
   },
   {
    "name": "CommonGame",
@@ -62,8 +62,8 @@
    "name": "FMod",
    "functions": 1472,
    "bytes": 150189,
-   "matched": 913,
-   "matched_bytes": 27243
+   "matched": 915,
+   "matched_bytes": 27557
   },
   {
    "name": "CommonEditor",
@@ -97,14 +97,14 @@
  "contributors": [
   {
    "login": "soupskin-b2",
-   "functions": 98222,
-   "bytes": 3695604,
+   "functions": 98376,
+   "bytes": 3705353,
    "models": {
     "tooling": 94456,
-    "deepseek-v4.1-flash": 1574,
-    "qwen3.8-27b": 1156,
+    "deepseek-v4.1-flash": 1676,
+    "qwen3.8-27b": 1163,
     "not specified": 338,
-    "claude-opus-5.5": 273,
+    "claude-opus-5.5": 318,
     "Claude Opus 5.5": 206,
     "gpt-6.1-sol": 86,
     "qwen": 49,
@@ -128,11 +128,11 @@
   },
   {
    "model": "deepseek-v4.1-flash",
-   "functions": 1574
+   "functions": 1676
   },
   {
    "model": "qwen3.8-27b",
-   "functions": 1156
+   "functions": 1163
   },
   {
    "model": "not specified",
@@ -140,7 +140,7 @@
   },
   {
    "model": "claude-opus-5.5",
-   "functions": 273
+   "functions": 318
   },
   {
    "model": "Claude Opus 5.5",

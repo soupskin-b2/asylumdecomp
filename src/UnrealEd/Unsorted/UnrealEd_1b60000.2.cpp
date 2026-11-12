@@ -1,4 +1,4 @@
-// UnrealEd_1b60000.cpp (part 2 of 3): 35 functions
+// UnrealEd_1b60000.cpp (part 2 of 3): 43 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -650,4 +650,66 @@ FRange_01b6faa0 *FRange_01b6faa0::sub_01b6faa0(UINT Index, FArrayLike *Array)
 	Range = Array;
 	Count = Index;
 	return this;
+}
+
+void sub_00402660(INT Value);
+// @baa 0x01b6bc70
+void __stdcall sub_01b6bc70(INT A, INT B)
+{
+    sub_00402660(A);
+}
+
+// @baa 0x01b6bcf0
+void __stdcall sub_01b6bcf0(INT A, INT B)
+{
+    sub_00402660(A);
+}
+
+// @baa 0x01b6bd70
+void __stdcall sub_01b6bd70(INT A, INT B)
+{
+    sub_00402660(A);
+}
+
+// @baa 0x01b6bdf0
+void __stdcall sub_01b6bdf0(INT A, INT B)
+{
+    sub_00402660(A);
+}
+
+// @baa 0x01b6be70
+void __stdcall sub_01b6be70(INT A, INT B)
+{
+    sub_00402660(A);
+}
+
+// @baa 0x01b6bef0
+void __stdcall sub_01b6bef0(INT A, INT B)
+{
+    sub_00402660(A);
+}
+
+// @baa 0x01b6bf70
+void __stdcall sub_01b6bf70(INT A, INT B)
+{
+    sub_00402660(A);
+}
+
+struct C
+{
+    char pad_0[0x4];
+    INT Value_4;
+    INT Value_8;
+    INT Value_c;
+
+    C* sub_01b6fff0();
+};
+
+// @baa 0x01b6fff0
+C* C::sub_01b6fff0()
+{
+    Value_4 = 0;
+    Value_8 = 0;
+    Value_c = 0;
+    return this;
 }

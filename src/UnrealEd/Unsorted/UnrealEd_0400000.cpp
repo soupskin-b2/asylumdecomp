@@ -1,4 +1,4 @@
-// UnrealEd_0400000.cpp: 177 functions
+// UnrealEd_0400000.cpp: 178 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -1437,4 +1437,10 @@ void C_00402c00::sub_00402c00()
     table = g_01e3f370;
     if (g_026a4ba8)
         g_026a4ba8->sub_006379b0(this);
+}
+
+// @baa 0x004097d0
+void sub_004097d0(float Value)
+{
+    g_025d4008 = Value;
 }

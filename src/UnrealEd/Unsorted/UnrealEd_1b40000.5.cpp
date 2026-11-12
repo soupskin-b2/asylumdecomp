@@ -1,4 +1,4 @@
-// UnrealEd_1b40000.cpp (part 5 of 5): 3 functions
+// UnrealEd_1b40000.cpp (part 5 of 5): 7 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -40,4 +40,42 @@ C_01b45440* C_01b45440::sub_01b45440()
     Second = 0.0;
     Third = 0.0;
     return this;
+}
+
+void sub_00402660(INT Value);
+// @baa 0x01b433c0
+void __stdcall sub_01b433c0(INT A, INT B)
+{
+    sub_00402660(A);
+}
+
+// @baa 0x01b43460
+void __stdcall sub_01b43460(INT A, INT B)
+{
+    sub_00402660(A);
+}
+
+struct C_01b44250
+{
+    char pad_0[0x4];
+    INT Value_4;
+    INT Value_8;
+    INT Value_c;
+
+    C_01b44250* sub_01b44250();
+};
+
+// @baa 0x01b44250
+C_01b44250* C_01b44250::sub_01b44250()
+{
+    Value_4 = 0;
+    Value_8 = 0;
+    Value_c = 0;
+    return this;
+}
+
+// @baa 0x01b4ffb0
+void __stdcall sub_01b4ffb0(INT A, INT B)
+{
+    sub_00402660(A);
 }

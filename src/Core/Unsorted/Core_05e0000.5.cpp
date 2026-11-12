@@ -1,4 +1,4 @@
-// Core_05e0000.cpp (part 5 of 5): 8 functions
+// Core_05e0000.cpp (part 5 of 5): 9 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -127,4 +127,11 @@ void C_005ef790::sub_005ef790()
 {
     if (Count_04 > 1)
         Object->sub_005edfe0();
+}
+
+extern "C" __declspec(dllimport) int __cdecl wprintf(const wchar_t* Format, ...);
+// @baa 0x005ebdb0
+void __stdcall sub_005ebdb0(const wchar_t* Format)
+{
+    wprintf(Format);
 }

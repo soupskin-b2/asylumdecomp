@@ -1,4 +1,4 @@
-// UnAnimTreeDraw.cpp: 8 functions
+// UnAnimTreeDraw.cpp: 12 functions
 // Placed here by: class 7, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -33,4 +33,103 @@ DOUBLE UAnimNodeBlend::vf_178(INT param_2, INT param_3) {
                  ,0x16c,&g_0205ccbc);
   }
   return (float10)*(float *)(param_1 + 200);
+}
+
+/* FString::Printf, as the linker specialised it for one FLOAT argument (0x005a9fc0); the kit declares
+ * no FString::Printf. */
+struct FString_ : public FString
+{
+	static FString Printf(const TCHAR* Fmt, FLOAT Value);
+};
+
+/* UAnimNodeBlend's editor slider label (UAnimNode vtable slot, declared only as a vf_). */
+struct UAnimNodeBlend_ : public UAnimNodeBlend
+{
+	FString GetSliderDrawValue(INT SliderIndex);
+};
+
+// @baa 0x00cc0730
+FString UAnimNodeBlend_::GetSliderDrawValue(INT SliderIndex)
+{
+#line 379 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTreeDraw.cpp"
+	check(0 == SliderIndex);
+	return FString_::Printf(TEXT("%3.2f"), Child2Weight);
+}
+
+#line 60 "candidate.cpp"
+
+/* UAnimNodeBlendBySpeed's editor slider label (UAnimNode vtable slot, declared only as a vf_). */
+struct UAnimNodeBlendBySpeed_ : public UAnimNodeBlendBySpeed
+{
+	FString GetSliderDrawValue(INT SliderIndex);
+};
+
+// @baa 0x00cc0790
+FString UAnimNodeBlendBySpeed_::GetSliderDrawValue(INT SliderIndex)
+{
+#line 402 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTreeDraw.cpp"
+	check(0 == SliderIndex);
+	return FString_::Printf(TEXT("%3.2f"), Speed);
+}
+
+#line 76 "candidate.cpp"
+
+/* FString::Printf, as the linker specialised it for (FLOAT, TCHAR) arguments (0x00cbf650); the kit
+ * declares no FString::Printf. */
+struct FString__00cc07f0 : public FString
+{
+	static FString Printf(const TCHAR* Fmt, FLOAT Value, TCHAR Char);
+};
+
+#define PI (3.1415926535897932)	/* UnMath.h; not in the kit */
+/* UAnimNodeBlendDirectional's editor slider label (UAnimNode vtable slot, declared only as a vf_). */
+struct UAnimNodeBlendDirectional_ : public UAnimNodeBlendDirectional
+{
+	FString GetSliderDrawValue(INT SliderIndex);
+};
+
+// @baa 0x00cc07f0
+FString UAnimNodeBlendDirectional_::GetSliderDrawValue(INT SliderIndex)
+{
+#line 426 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTreeDraw.cpp"
+	check(0 == SliderIndex);
+
+	// the direction in degrees, with a degree sign
+	return FString__00cc07f0::Printf(TEXT("%3.2f%c"), DirAngle * (180.f / (FLOAT)PI), 176);
+}
+
+#line 102 "candidate.cpp"
+
+/* Kit gaps, with UE3's definitions (UnName.h): FName has no comparison operators. */
+inline UBOOL operator!=(const FName& A, EName N) { return A.Index != N || A.Number != 0; }
+
+/* UClass::GetDescription isn't declared in Classes.h. */
+struct UClass_ : public UClass
+{
+	FString sub_00572f10();				/* GetDescription */
+};
+
+/* UAnimNode::GetNodeTitle (editor drawing; its vtable slot is declared only as a vf_). */
+struct UAnimNode_ : public UAnimNode
+{
+	FString GetNodeTitle();
+};
+
+// @baa 0x00cb91a0
+FString UAnimNode_::GetNodeTitle()
+{
+	FString NodeTitle;
+	FString NodeDesc = ((UClass_*)GetClass())->sub_00572f10();
+
+	// the node's name, or else its class's description
+	if (NodeName != NAME_None)
+	{
+		NodeTitle = NodeName.ToString();
+	}
+	else
+	{
+		NodeTitle = NodeDesc;
+	}
+
+	return NodeTitle;
 }

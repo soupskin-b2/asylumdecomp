@@ -1,4 +1,4 @@
-// Core_0560000.cpp (part 3 of 3): 3 functions
+// Core_0560000.cpp (part 3 of 3): 4 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -50,4 +50,19 @@ struct C_00568780
 INT C_00568780::sub_00568780()
 {
     return Value == 0 ? -1 : 0;
+}
+
+extern INT g_026a1c50;
+struct C_0056a540
+{
+    char pad_00[0x4];
+    INT Value;
+
+    bool sub_0056a540();
+};
+
+// @baa 0x0056a540
+bool C_0056a540::sub_0056a540()
+{
+    return Value < g_026a1c50;
 }

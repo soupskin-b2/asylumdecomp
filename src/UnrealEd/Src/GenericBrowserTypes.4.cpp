@@ -1,4 +1,4 @@
-// GenericBrowserTypes.cpp (part 4 of 4): 13 functions
+// GenericBrowserTypes.cpp (part 4 of 4): 15 functions
 // Placed here by: neighbours 3, class 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -204,4 +204,40 @@ struct C_004c0d80
 void C_004c0d80::sub_004c0d80(float In)
 {
     Value = In;
+}
+
+struct C_0045cb40
+{
+    float First;
+    float Second;
+
+    C_0045cb40* sub_0045cb40();
+};
+
+// @baa 0x0045cb40
+C_0045cb40* C_0045cb40::sub_0045cb40()
+{
+    First = 0.0f;
+    Second = 0.0f;
+    return this;
+}
+
+struct Sub_004cbf50
+{
+    void sub_004cab50();
+};
+
+struct C_004cbf50
+{
+    char pad_00[0x28];
+    Sub_004cbf50* Object;
+
+    void sub_004cbf50(INT Unused);
+};
+
+// @baa 0x004cbf50
+void C_004cbf50::sub_004cbf50(INT)
+{
+    if (Object)
+        Object->sub_004cab50();
 }

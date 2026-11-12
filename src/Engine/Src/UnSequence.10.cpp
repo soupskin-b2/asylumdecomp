@@ -1,4 +1,4 @@
-// UnSequence.cpp (part 10 of 10): 18 functions
+// UnSequence.cpp (part 10 of 10): 24 functions
 // Placed here by: neighbours 6.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -294,4 +294,82 @@ struct USeqVar_Vector_ : public USeqVar_Vector
 FString USeqVar_Vector_::GetValueStr()
 {
     return ((const FVector_&)VectValue).ToString();
+}
+
+// The game keeps TArray<USequenceOp*>::Remove out of line (0x008b3a80).
+extern template void TArray<USequenceOp*>::Remove(INT Index, INT Count);
+// @baa 0x008c1df0
+/* the out-of-line TArray<USequenceOp*>::Pop instantiation (unreferenced in the exe) */
+template USequenceOp* TArray<USequenceOp*>::Pop();
+
+struct USeqAct_LevelStreaming_ : public USeqAct_LevelStreaming
+{
+    /* 0x008ac0e0: TRUE once the streaming level has finished its pending load/visibility change */
+    UBOOL IsLevelStreamingComplete(ULevelStreaming* LevelStreamingObject);
+    UBOOL UpdateOp(FLOAT DeltaTime);
+};
+
+// @baa 0x008ac210
+UBOOL USeqAct_LevelStreaming_::UpdateOp(FLOAT DeltaTime)
+{
+    return IsLevelStreamingComplete(Level);
+}
+
+/* slot 0x174 (vf_174) is USequenceOp::Activated */
+struct USeqAct_SetString_ : public USeqAct_SetString
+{
+    void Activated();
+};
+
+// @baa 0x008e6490
+void USeqAct_SetString_::Activated()
+{
+    Target = Value;
+}
+
+struct USequence__008abb30 : public USequence
+{
+    UBOOL IsEnabled() const;
+};
+
+// @baa 0x008abb30
+/* a sequence is only enabled if all of its parents are */
+UBOOL USequence__008abb30::IsEnabled() const
+{
+    return bEnabled && (ParentSequence == NULL || ((USequence__008abb30*)ParentSequence)->IsEnabled());
+}
+
+/* slot 0x180 (vf_180) */
+struct USequenceOp_ : public USequenceOp
+{
+    void CopyPlayerFrom(USequenceOp* Other, INT Unused);
+};
+
+// @baa 0x008aba80
+void USequenceOp_::CopyPlayerFrom(USequenceOp* Other, INT Unused)
+{
+    if (Other != NULL)
+    {
+        PlayerIndex = Other->PlayerIndex;
+        GamepadID = Other->GamepadID;
+    }
+}
+
+/* slot 0x04c (vf_04c) is UObject::PostEditChange(UProperty*); UObject's is 0x005c1a10 */
+struct UObject_ : public UObject
+{
+    void PostEditChange(UProperty* PropertyThatChanged);
+    void MarkPackageDirty(UBOOL InDirty = TRUE) const; /* 0x005d9570 (declared on UAnimSequence in the kit) */
+};
+
+struct USequenceObject__008abad0 : public USequenceObject
+{
+    void PostEditChange(UProperty* PropertyThatChanged);
+};
+
+// @baa 0x008abad0
+void USequenceObject__008abad0::PostEditChange(UProperty* PropertyThatChanged)
+{
+    ((UObject_*)this)->UObject_::PostEditChange(PropertyThatChanged); // Super::PostEditChange()
+    ((UObject_*)this)->MarkPackageDirty(TRUE);
 }

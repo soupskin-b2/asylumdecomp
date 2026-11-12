@@ -1,4 +1,4 @@
-// UnrealEd_0420000.cpp (part 2 of 2): 10 functions
+// UnrealEd_0420000.cpp (part 2 of 2): 12 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -156,4 +156,26 @@ struct C_0042fd90 : public wxDialogBase
 void C_0042fd90::sub_0042fd90(INT)
 {
     EndDialog(0x13ec);
+}
+
+struct Sub
+{
+    void sub_0041d410(INT Value);
+};
+
+// @baa 0x004225a0
+void sub_004225a0(INT A1, Sub* Object)
+{
+    Object->sub_0041d410(A1);
+}
+
+struct Sub_00428070
+{
+    void sub_004243c0(INT Value);
+};
+
+// @baa 0x00428070
+void sub_00428070(INT A1, Sub_00428070* Object)
+{
+    Object->sub_004243c0(A1);
 }

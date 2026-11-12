@@ -1,4 +1,4 @@
-// UnrealEd_1b70000.cpp (part 2 of 3): 11 functions
+// UnrealEd_1b70000.cpp (part 2 of 3): 25 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -217,4 +217,219 @@ void * sub_01b7f020(void * param_1, int param_2, int param_3)
     memmove_s(_Dst,iVar1 * 4,param_1,iVar1 * 4);
   }
   return _Dst;
+}
+
+struct C
+{
+    char pad_0[0x4];
+    INT Value_4;
+    INT Value_8;
+    INT Value_c;
+
+    C* sub_01b70000();
+};
+
+// @baa 0x01b70000
+C* C::sub_01b70000()
+{
+    Value_4 = 0;
+    Value_8 = 0;
+    Value_c = 0;
+    return this;
+}
+
+struct C_01b70010
+{
+    char pad_0[0x4];
+    INT Value_4;
+    INT Value_8;
+    INT Value_c;
+
+    C_01b70010* sub_01b70010();
+};
+
+// @baa 0x01b70010
+C_01b70010* C_01b70010::sub_01b70010()
+{
+    Value_4 = 0;
+    Value_8 = 0;
+    Value_c = 0;
+    return this;
+}
+
+struct C_01b70020
+{
+    char pad_0[0x4];
+    INT Value_4;
+    INT Value_8;
+    INT Value_c;
+
+    C_01b70020* sub_01b70020();
+};
+
+// @baa 0x01b70020
+C_01b70020* C_01b70020::sub_01b70020()
+{
+    Value_4 = 0;
+    Value_8 = 0;
+    Value_c = 0;
+    return this;
+}
+
+struct C_01b70030
+{
+    char pad_0[0x4];
+    INT Value_4;
+    INT Value_8;
+    INT Value_c;
+
+    C_01b70030* sub_01b70030();
+};
+
+// @baa 0x01b70030
+C_01b70030* C_01b70030::sub_01b70030()
+{
+    Value_4 = 0;
+    Value_8 = 0;
+    Value_c = 0;
+    return this;
+}
+
+struct C_01b70040
+{
+    char pad_0[0x4];
+    INT Value_4;
+    INT Value_8;
+    INT Value_c;
+
+    C_01b70040* sub_01b70040();
+};
+
+// @baa 0x01b70040
+C_01b70040* C_01b70040::sub_01b70040()
+{
+    Value_4 = 0;
+    Value_8 = 0;
+    Value_c = 0;
+    return this;
+}
+
+struct C_01b70050
+{
+    char pad_0[0x4];
+    INT Value_4;
+    INT Value_8;
+    INT Value_c;
+
+    C_01b70050* sub_01b70050();
+};
+
+// @baa 0x01b70050
+C_01b70050* C_01b70050::sub_01b70050()
+{
+    Value_4 = 0;
+    Value_8 = 0;
+    Value_c = 0;
+    return this;
+}
+
+struct C_01b726e0
+{
+    char pad_0[0x4];
+    INT Value_4;
+    INT Value_8;
+    INT Value_c;
+
+    C_01b726e0* sub_01b726e0();
+};
+
+// @baa 0x01b726e0
+C_01b726e0* C_01b726e0::sub_01b726e0()
+{
+    Value_4 = 0;
+    Value_8 = 0;
+    Value_c = 0;
+    return this;
+}
+
+void sub_00402660(INT Value);
+// @baa 0x01b7c870
+void __stdcall sub_01b7c870(INT A, INT B)
+{
+    sub_00402660(A);
+}
+
+// @baa 0x01b7c9a0
+void __stdcall sub_01b7c9a0(INT A, INT B)
+{
+    sub_00402660(A);
+}
+
+// @baa 0x01b7ca20
+void __stdcall sub_01b7ca20(INT A, INT B)
+{
+    sub_00402660(A);
+}
+
+// @baa 0x01b7caa0
+void __stdcall sub_01b7caa0(INT A, INT B)
+{
+    sub_00402660(A);
+}
+
+struct C_01b7f7b0
+{
+    char pad_0[0x4];
+    INT Value_4;
+    INT Value_8;
+    INT Value_c;
+
+    C_01b7f7b0* sub_01b7f7b0();
+};
+
+// @baa 0x01b7f7b0
+C_01b7f7b0* C_01b7f7b0::sub_01b7f7b0()
+{
+    Value_4 = 0;
+    Value_8 = 0;
+    Value_c = 0;
+    return this;
+}
+
+struct C_01b7f7f0
+{
+    char pad_0[0x4];
+    INT Value_4;
+    INT Value_8;
+    INT Value_c;
+
+    C_01b7f7f0* sub_01b7f7f0();
+};
+
+// @baa 0x01b7f7f0
+C_01b7f7f0* C_01b7f7f0::sub_01b7f7f0()
+{
+    Value_4 = 0;
+    Value_8 = 0;
+    Value_c = 0;
+    return this;
+}
+
+struct C_01b7f860
+{
+    char pad_0[0x4];
+    INT Value_4;
+    INT Value_8;
+    INT Value_c;
+
+    C_01b7f860* sub_01b7f860();
+};
+
+// @baa 0x01b7f860
+C_01b7f860* C_01b7f860::sub_01b7f860()
+{
+    Value_4 = 0;
+    Value_8 = 0;
+    Value_c = 0;
+    return this;
 }

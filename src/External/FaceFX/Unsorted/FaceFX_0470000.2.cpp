@@ -1,4 +1,4 @@
-// FaceFX_0470000.cpp (part 2 of 2): 5 functions
+// FaceFX_0470000.cpp (part 2 of 2): 6 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -70,4 +70,15 @@ void C_0047f890::sub_0047f890(void)
   param_1[2] = 0;
   param_1[1] = 0;
   return;
+}
+
+struct Sub
+{
+    void sub_0047dac0(INT Value);
+};
+
+// @baa 0x0047f3f0
+void sub_0047f3f0(INT A1, Sub* Object)
+{
+    Object->sub_0047dac0(A1);
 }

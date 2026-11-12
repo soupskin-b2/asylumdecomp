@@ -1,4 +1,4 @@
-// SpeedTree.cpp: 6 functions
+// SpeedTree.cpp: 8 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Core.h"
@@ -60,4 +60,48 @@ extern double g_023dda00;
 double sub_01ab2270()
 {
     return g_023dda00 * g_027be3d0;
+}
+
+struct C
+{
+    char pad_0[0x4];
+    INT Value_4;
+    INT Value_8;
+    INT Value_c;
+
+    C* sub_01aac8c0();
+};
+
+// @baa 0x01aac8c0
+C* C::sub_01aac8c0()
+{
+    Value_4 = 0;
+    Value_8 = 0;
+    Value_c = 0;
+    return this;
+}
+
+// 01a75b40: reset a 24-byte block to two (0, 0, 1) triples, and return this.
+struct S_01a75b40
+{
+	float f00;
+	float f04;
+	float f08;
+	float f0C;
+	float f10;
+	float f14;
+
+	S_01a75b40* sub_01a75b40();
+};
+
+// @baa 0x01a75b40
+S_01a75b40* S_01a75b40::sub_01a75b40()
+{
+	f00 = 0.f;
+	f04 = 0.f;
+	f08 = 1.f;
+	f10 = 1.f;
+	f0C = 0.f;
+	f14 = 0.f;
+	return this;
 }

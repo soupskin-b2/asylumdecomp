@@ -1,4 +1,4 @@
-// UnSequence.cpp: 2 functions
+// UnSequence.cpp: 3 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -42,4 +42,15 @@ void USeqAct_Delay_::Activated()
 {
     RemainingTime = Duration;
     LastUpdateTime = GWorld->GetWorldInfo()->TimeSeconds;
+}
+
+struct USequenceObject_ : public USequenceObject
+{
+    AWorldInfo* GetWorldInfo();
+};
+
+// @baa 0x008aba50
+AWorldInfo* USequenceObject_::GetWorldInfo()
+{
+    return GWorld ? GWorld->GetWorldInfo() : NULL;
 }
