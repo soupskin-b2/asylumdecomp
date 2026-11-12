@@ -87,10 +87,12 @@ inline void appFree(void* Original) {
 #endif
 
 /* memmove is called without dllimport (through the 0053df30 thunk), unlike <string.h>'s declaration.
-   <string.h> is included here with its memmove renamed, so a source may include it too (after this). */
+   <string.h> and <wchar.h> (which declares it again) are included here with memmove renamed, so a source may
+   include them too (after this). */
 #ifndef _INC_STRING
 #define memmove baa_string_h_memmove
 #include <string.h>
+#include <wchar.h>
 #undef memmove
 
 static __forceinline void appMemzero( void* Dest, INT Count ) { memset( Dest, 0, Count ); }

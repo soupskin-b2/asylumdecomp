@@ -33,7 +33,7 @@ struct FFrame;
  * add esp, 4; mov [PrivateStaticClass], eax; call InitializePrivateStaticClass..` in the exe is an
  * inlined TClass::StaticClass() (data/ue3_layout.json lists each class's addresses). */
 enum EInternal { EC_Internal };
-inline void* operator new(SIZE_T Size, EInternal* Mem) { return (void*)Mem; }
+inline void* operator new(size_t Size, EInternal* Mem) { return (void*)Mem; }
 enum EStaticConstructor { EC_StaticConstructor };
 #define DECLARE_BASE_CLASS(TClass, TSuperClass, TStaticFlags, TStaticCastFlags, TPackage) \
 public: \

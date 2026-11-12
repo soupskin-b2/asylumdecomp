@@ -17,8 +17,8 @@ struct FNameArray : public TArray<FName> {
     INT sub_00547260(const FName& Item);
     INT AddItem(const FName& Item) { return sub_00547260(Item); }
 };
-void* sub_0056fa40(SIZE_T Size, FNameArray& Array);
-inline void* operator new(SIZE_T Size, FNameArray& Array) { return sub_0056fa40(Size, Array); }
+void* sub_0056fa40(size_t Size, FNameArray& Array);
+inline void* operator new(size_t Size, FNameArray& Array) { return sub_0056fa40(Size, Array); }
 
 extern UWorld* g_026b62b8;
 #define GWorld g_026b62b8

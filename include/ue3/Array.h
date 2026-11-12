@@ -22,7 +22,7 @@
 
 #define BAA_ARRAY_FILE "e:\\projects\\amadeus\\aa\\game\\unrealengine3\\development\\src\\core\\inc\\Array.h"
 
-typedef unsigned int SIZE_T;
+typedef unsigned long SIZE_T; /* as <basetsd.h> has it (operator new takes size_t) */
 
 /* Constructors that leave memory as it is: UObjects are allocated zeroed, so their TArray and
  * FString members (TArrayNoInit, FStringNoInit) are not initialised by the class's constructor. */
@@ -232,7 +232,7 @@ public:
 #define BAA_NEW_INLINE inline
 #endif
 template<typename T>
-BAA_NEW_INLINE void* operator new(SIZE_T Size, TArray<T>& Array) {
+BAA_NEW_INLINE void* operator new(size_t Size, TArray<T>& Array) {
 #line 1275 BAA_ARRAY_FILE
     check(Size == sizeof(T));
     const INT Index = Array.Add(1);

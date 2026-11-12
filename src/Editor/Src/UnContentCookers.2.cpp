@@ -15,18 +15,13 @@ int UTexture2D::sub_00567980(void) { return *(int*)((char*)this + 28); }
 // @baa 0x00567990
 int UTexture2D::sub_00567990(void) { return *(int*)((char*)this + 32); }
 
-#pragma pack(push, 1)
-struct _iobuf { char * _ptr; int _cnt; char * _base; int _flag; int _file; int _charbuf; int _bufsiz; char * _tmpfname; };
-
-#pragma pack(pop)
-typedef _iobuf FILE;
+#include <stdio.h>
 
 struct C {
     void sub_005d10b0();
 };
 
 int sub_005d1050(void);
-extern "C" __declspec(dllimport) int fclose(...);
 // @baa 0x005d10b0
 void C::sub_005d10b0(void)
 {

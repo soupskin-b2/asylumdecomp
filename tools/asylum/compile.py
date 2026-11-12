@@ -25,7 +25,7 @@ STD_HEADERS = ["math", "float", "string", "memory", "stdlib", "stddef", "stdarg"
 LIB_HEADERS = ["cderror", "cdjpeg", "jchuff", "jconfig", "jdct", "jdhuff", "jerror", "jinclude", "jmemsys", "jmorecfg",
                "jpegint", "jpeglib", "jversion", "transupp", "png", "pngconf", "crc32", "deflate", "inffast", "inffixed",
                "inflate", "inftrees", "trees", "zconf", "zlib", "zutil"]
-LIB_DIRS = ["jpeg-6b", "zlib-1.2.3", "libpng-1.2.8"]
+LIB_DIRS = ["jpeg-6b", "zlib-1.2.3", "libpng-1.2.8", "wxWidgets-2.8.6/include"]
 PRAGMAS = {"pack", "intrinsic", "function", "once", "optimize", "warning", "inline_depth", "inline_recursion",
            "auto_inline", "push_macro", "pop_macro", "float_control", "fenv_access", "fp_contract", "check_stack",
            "runtime_checks", "strict_gs_check", "deprecated", "message", "vtordisp", "pointers_to_members", "conform"}
