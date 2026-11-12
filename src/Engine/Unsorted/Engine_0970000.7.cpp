@@ -144,10 +144,6 @@ void DestroyInfluenceIndexPairs(TArray<TArray<FInfluenceIndexPair> >& InfluenceI
 }
 
 /* the placement forms of new and delete (<new>) */
-inline void* operator new(size_t Size, void* Mem) { return Mem; }
-
-inline void operator delete(void* Ptr, void* Mem) {}
-
 class UMaterialInterface;
 /* FSkeletalMeshSceneProxy::FSectionElementInfo (UnSkeletalRender.h): the material a section is drawn
  * with. Not in the kit. */

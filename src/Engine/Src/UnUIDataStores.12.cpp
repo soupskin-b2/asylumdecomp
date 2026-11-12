@@ -5,11 +5,6 @@
 #include "ue3/Classes.h"
 #include "ue3/Array.h"
 
-/* placement new (UnTemplate.h) */
-inline void* operator new(size_t, void* Mem) { return Mem; }
-
-inline void operator delete(void*, void*) {}
-
 /* Kit gaps: TArray::AddItem / AddUniqueItem, FString::operator*, StaticLoadClass / LoadClass<T> / LOAD_None
  * (UnObjBas.h) and ConstructObject<T> (UnClass.h; out of line for this T at 00da4530) aren't declared. */
 template<typename T> struct TArrayAddUnique_ : public TArray<T>

@@ -5,11 +5,6 @@
 #include "ue3/Classes.h"
 #include "ue3/Array.h"
 
-/* placement new (UnTemplate.h) */
-inline void* operator new(size_t, void* Mem) { return Mem; }
-
-inline void operator delete(void*, void*) {}
-
 /* Kit gap (flagged): this build's FGuid is a pointer to its four INTs (FGuidImplementation, NULL = the zero GUID);
  * the kit's FGuid is { INT A }. Same-layout stand-in with UE3's inline IsValid. */
 struct FGuid_

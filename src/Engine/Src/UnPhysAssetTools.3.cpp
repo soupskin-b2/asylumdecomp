@@ -6,8 +6,6 @@
 #include "ue3/Array.h"
 
 /* placement new as UE3 declares it (UnTemplate.h) */
-inline void* operator new(size_t Size, void* Mem) { return Mem; }
-
 /* TArray::AddItem (Array.h): the kit's TArray lacks it */
 struct FIntArray : public TArray<INT> {
     INT AddItem(const INT& Item)

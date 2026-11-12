@@ -15,11 +15,6 @@ inline UBOOL operator==(const FVisiblePortalInfo& A, const FVisiblePortalInfo& B
 /* the out-of-line TArray<FVisiblePortalInfo>::RemoveItem instantiation (AController::VisiblePortals) */
 template INT TArray<FVisiblePortalInfo>::RemoveItem(const FVisiblePortalInfo& Item);
 
-/* placement new (UnTemplate.h) */
-inline void* operator new(size_t, void* Mem) { return Mem; }
-
-inline void operator delete(void*, void*) {}
-
 /* TArray::AddItem / AddUniqueItem (Array.h); not in the kit's TArray. */
 template<typename T> struct TArrayAddUnique_ : public TArray<T>
 {

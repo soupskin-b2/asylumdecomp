@@ -24,6 +24,14 @@
 
 typedef unsigned long SIZE_T; /* as <basetsd.h> has it (operator new takes size_t) */
 
+/* Placement new as <new> has it: throw() makes the compiler test the pointer before constructing,
+ * as the game's AddItem/InsertItem code does. */
+#ifndef __PLACEMENT_NEW_INLINE
+#define __PLACEMENT_NEW_INLINE
+inline void* __cdecl operator new(size_t, void* Where) throw() { return Where; }
+inline void __cdecl operator delete(void*, void*) throw() {}
+#endif
+
 /* Constructors that leave memory as it is: UObjects are allocated zeroed, so their TArray and
  * FString members (TArrayNoInit, FStringNoInit) are not initialised by the class's constructor. */
 enum ENoInit { E_NoInit };
@@ -59,6 +67,9 @@ public:
     INT ArrayMax;
 
     TArray() : ArrayNum(0), ArrayMax(0) {}
+    explicit TArray(INT InNum) : ArrayNum(InNum), ArrayMax(InNum) { /* out of line per T in places (TArray<TCHAR> 00417dc0) */
+        AllocatorInstance.ResizeAllocation(0, ArrayMax, sizeof(T));
+    }
     TArray(ENoInit) : AllocatorInstance(E_NoInit) {}
     ~TArray() {
         DestructItems(0, ArrayNum);
@@ -134,6 +145,39 @@ public:
                    (BYTE*)AllocatorInstance.GetAllocation() + (Index) * sizeof(T),
                    (OldNum - Index) * sizeof(T));
     }
+    INT AddZeroed(INT Count = 1) {
+        const INT Index = Add(Count);
+        appMemzero((BYTE*)AllocatorInstance.GetAllocation() + Index * sizeof(T), Count * sizeof(T));
+        return Index;
+    }
+    INT AddItem(const T& Item) {
+        const INT Index = Add(1);
+        new(GetTypedData() + Index) T(Item);
+        return Index;
+    }
+    INT AddUniqueItem(const T& Item) {
+        for (INT Index = 0; Index < ArrayNum; Index++) {
+            if ((*this)(Index) == Item) {
+                return Index;
+            }
+        }
+        return AddItem(Item);
+    }
+    void InsertZeroed(INT Index, INT Count = 1) {
+        Insert(Index, Count);
+        appMemzero((BYTE*)AllocatorInstance.GetAllocation() + Index * sizeof(T), Count * sizeof(T));
+    }
+    INT InsertItem(const T& Item, INT Index = 0) {
+        Insert(Index, 1);
+        new(GetTypedData() + Index) T(Item);
+        return Index;
+    }
+    void Reserve(INT Number) {
+        if (Number > ArrayMax) {
+            ArrayMax = Number;
+            AllocatorInstance.ResizeAllocation(ArrayNum, ArrayMax, sizeof(T));
+        }
+    }
     void Remove(INT Index, INT Count = 1) {
 #line 829 BAA_ARRAY_FILE
         check(Index>=0);
@@ -199,6 +243,28 @@ public:
         return INDEX_NONE;
     }
     UBOOL ContainsItem(const T& Item) const { return FindItemIndex(Item) != INDEX_NONE; }
+    UBOOL operator==(const TArray& Other) const {
+        if (Num() != Other.Num()) {
+            return FALSE;
+        }
+        for (INT Index = 0; Index < Num(); Index++) {
+            if (!((*this)(Index) == Other(Index))) {
+                return FALSE;
+            }
+        }
+        return TRUE;
+    }
+    UBOOL operator!=(const TArray& Other) const {
+        if (Num() != Other.Num()) {
+            return TRUE;
+        }
+        for (INT Index = 0; Index < Num(); Index++) {
+            if (!((*this)(Index) == Other(Index))) {
+                return TRUE;
+            }
+        }
+        return FALSE;
+    }
         void SwapItems(INT A, INT B) {
 #line 1055 BAA_ARRAY_FILE
         check((A >= 0) && (B >= 0));

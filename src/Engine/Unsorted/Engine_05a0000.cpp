@@ -14,8 +14,6 @@ C_005aa1e0::C_005aa1e0() {}
 // @baa 0x005aa1e0
 void C_005aa1e0::sub_005aa270() {}
 
-inline void* operator new(unsigned int, void* P) { return P; }
-
 // @baa 0x005aa270
 UTextBuffer::UTextBuffer(const TCHAR* InText)
 {

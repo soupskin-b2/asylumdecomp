@@ -216,7 +216,8 @@ struct FRealCommand : FRenderCommandBase {
 
 struct CtxRaw { void* a; void* b; void* c; };
 
-inline void* operator new(unsigned int, void* p) { return p; }
+/* placement into CtxRaw: no null check and no placement delete (no EH state), as the original */
+inline void* operator new(size_t, CtxRaw* p) { return p; }
 
 struct CFunc { void sub_00b91c10(void* arg1); };
 

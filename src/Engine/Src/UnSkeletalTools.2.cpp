@@ -380,11 +380,6 @@ struct FNameIntPairSet_00d587c0
     FSetElementId_00d587c0 Add(const FPair& InElement, UBOOL* bIsAlreadyInSetPtr = NULL); /* 0x00d580c0 */
 };
 
-/* placement new (UnTemplate.h) */
-inline void* operator new(size_t, void* Mem) { return Mem; }
-
-inline void operator delete(void*, void*) {}
-
 inline void* operator new(size_t Size, const FNameIntPairSet_00d587c0::FSparseArrayAllocationInfo& Allocation) { return Allocation.Pointer; }
 
 /* TMap<FName,INT> (UnMap.h): the pair set plus the map interface */

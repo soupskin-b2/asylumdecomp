@@ -51,10 +51,6 @@ undefined4 * C_015434d0::sub_015434d0(void)
   return param_1;
 }
 
-inline void* operator new(size_t, void* Mem) { return Mem; }
-
-inline void operator delete(void*, void*) {}
-
 /* TArray::AddItem / AddUniqueItem (Array.h); not in the kit's TArray. */
 template<typename T> struct TArrayAddUnique_ : public TArray<T>
 {

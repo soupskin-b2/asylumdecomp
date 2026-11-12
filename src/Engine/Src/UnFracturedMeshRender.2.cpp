@@ -56,8 +56,6 @@ struct Ctx {
     char *End;
 };
 
-inline void* operator new(size_t, void* p) { return p; }
-
 inline void* operator new(size_t, const Ctx& c) { return c.Start; }
 
 struct Res { int pad; void* p; int q; int x, y; Res(void*,void*); ~Res(); };

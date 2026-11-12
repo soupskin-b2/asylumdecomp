@@ -3,8 +3,6 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
 
-inline void* operator new(unsigned int, void* Where) throw() { return Where; }
-
 struct FTickableObject_ : public FTickableObject {
     FTickableObject_();
     virtual void Tick(FLOAT DeltaTime);

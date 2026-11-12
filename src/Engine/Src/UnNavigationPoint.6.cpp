@@ -6,9 +6,6 @@
 #include "ue3/Array.h"
 
 /* placement new as UE3 declares it (UnTemplate.h); the exe keeps the matching delete out of line (00401890) */
-inline void* operator new(size_t Size, void* Mem) { return Mem; }
-
-void operator delete(void* Ptr, void* Mem);
 /* FCoverSlot's (implicit) copy constructor, out of line in the exe (00859980) */
 struct FCoverSlot_ : public FCoverSlot {
     FCoverSlot_(const FCoverSlot& Other);

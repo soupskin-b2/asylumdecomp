@@ -34,8 +34,6 @@ struct Cmd : RC {
   void sub_00700390();
 };
 
-inline void *operator new(unsigned, void *p){return p;}
-
 // @baa 0x00702330
 void sub_00702330(int arg1, int *arg2)
 {

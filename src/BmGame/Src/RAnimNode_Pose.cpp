@@ -1046,10 +1046,6 @@ struct C_015a9650 { char pad[52]; M_015a9650 m; void sub_015a9650(); };
 // @baa 0x015a9650
 void C_015a9650::sub_015a9650() { m.sub_00920b40(); }
 
-void* __cdecl operator new(unsigned int, void* p) { return p; }
-
-void __cdecl operator delete(void*, void*) {}
-
 void* __cdecl sub_0053df70(void*,int,int);
 int __cdecl sub_006311e0(...);
 extern wchar_t g_01e3f3dc;

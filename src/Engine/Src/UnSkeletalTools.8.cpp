@@ -115,11 +115,6 @@ struct FNameIntPairSet
     FSetElementId Add(const FPair& InElement, UBOOL* bIsAlreadyInSetPtr = NULL);
 };
 
-/* placement new (UnTemplate.h) */
-inline void* operator new(size_t, void* Mem) { return Mem; }
-
-inline void operator delete(void*, void*) {}
-
 inline void* operator new(size_t Size, const FNameIntPairSet::FSparseArrayAllocationInfo& Allocation) { return Allocation.Pointer; }
 
 /* Move (UnTemplate.h): destruct A, then copy-construct it from B (B is ConstInitType, by value here) */

@@ -49,10 +49,6 @@ template<UINT NumTexCoords> struct TGPUSkinVertexFloat16Uvs : public FGPUSkinVer
 };
 
 /* the placement forms of new and delete (<new>) */
-inline void* operator new(size_t Size, void* Mem) { return Mem; }
-
-inline void operator delete(void* Ptr, void* Mem) {}
-
 /* TArray<TGPUSkinVertexFloat16Uvs<1> > with its out-of-line Copy */
 struct FGPUSkinVertexFloat16UvsArray : public TArray<TGPUSkinVertexFloat16Uvs<1> >
 {

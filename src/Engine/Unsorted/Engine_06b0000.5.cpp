@@ -5,11 +5,6 @@
 #include "ue3/Classes.h"
 #include "ue3/Array.h"
 
-/* placement new (UnTemplate.h) */
-inline void* operator new(size_t, void* Mem) { return Mem; }
-
-inline void operator delete(void*, void*) {}
-
 /* TArray::AddItem / AddUniqueItem (Array.h); not in the kit's TArray. */
 template<typename T> struct TArrayAddUnique_ : public TArray<T>
 {

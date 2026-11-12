@@ -5093,9 +5093,6 @@ int UContentTagIndex::sub_00fe5050(void)
 }
 
 extern unsigned int g_02604330;
-inline void* operator new(unsigned int, void* p) { return p; }
-
-void operator delete(void*, void*);
 struct Huge {
     char pad[0x13b0];
     ~Huge();
