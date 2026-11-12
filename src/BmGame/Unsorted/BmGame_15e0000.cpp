@@ -381,7 +381,7 @@ struct V_015e1f50 {
 void V_015e1f50::sub_015e1f50() { g(); }
 
 // @baa 0x015e2060
-int URBMPawnSpawnerController::vf_170(int a0) { return 0; }
+UBOOL URBMPawnSpawnerController::UpdateOp(FLOAT DeltaTime) { return FALSE; }
 
 struct V_015e20f0 {
     virtual void v0();

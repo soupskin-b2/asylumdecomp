@@ -16315,7 +16315,7 @@ struct ACamera : public AActor {
     FLOAT FadeTimeRemaining; /* 0x358 */
     /* virtual functions this class introduces (vtable 0x01f16638) */
     virtual void vf_354(FLOAT, FTPOV&); /* 0x354 */
-    virtual INT vf_358(INT); /* 0x358 */
+    virtual void CheckViewTarget(FTViewTarget& VT); /* 0x358 */
     virtual void vf_35c(INT, INT, INT, INT, INT); /* 0x35c */
     virtual void vf_360(INT); /* 0x360 */
     /* overrides */
@@ -22593,7 +22593,7 @@ struct UFracturedStaticMeshComponent : public UFracturedBaseComponent {
     virtual INT vf_29c(INT); /* 0x29c */
     virtual INT vf_2a0(INT); /* 0x2a0 */
     virtual INT vf_2a4(INT); /* 0x2a4 */
-    virtual INT vf_2a8(INT, INT); /* 0x2a8 */
+    virtual FBox GetFragmentBox(INT FragmentIndex); /* 0x2a8 */
     virtual INT vf_2ac(INT, INT); /* 0x2ac */
     virtual UINT vf_2b0(); /* 0x2b0 */
     virtual void vf_2b4(INT, INT, INT); /* 0x2b4 */
@@ -31728,7 +31728,7 @@ struct USequenceOp : public USequenceObject {
     /* virtual functions this class introduces (vtable 0x01f628b8) */
     virtual void vf_168(); /* 0x168 */
     virtual void vf_16c(); /* 0x16c */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void vf_174(); /* 0x174 */
     virtual void vf_178(); /* 0x178 */
     virtual void vf_17c(); /* 0x17c */
@@ -31808,7 +31808,7 @@ struct USequence : public USequenceOp {
     virtual void vf_140(); /* 0x140 */
     virtual INT vf_150(); /* 0x150 */
     virtual void vf_154(); /* 0x154 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void vf_174(); /* 0x174 */
     /* UnrealScript natives */
     void execFindSeqObjectsByClass(FFrame& Stack, RESULT_DECL); /* 0x009066d0 */
@@ -32296,7 +32296,7 @@ struct URB_Handle : public UActorComponent {
     virtual INT vf_150(); /* 0x150 */
     virtual void SetLocation(FVector NewLocation); /* 0x154 */
     virtual INT vf_158(INT, INT, INT, INT); /* 0x158 */
-    virtual INT vf_15c(INT); /* 0x15c */
+    virtual void UpdateSmoothLocation(FVector& NewLocation); /* 0x15c */
     virtual void SetOrientation(FQuat NewOrientation); /* 0x160 */
     virtual FQuat vf_164(); /* 0x164 */
     /* overrides */
@@ -33008,7 +33008,7 @@ struct USeqAct_Latent : public USequenceAction {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void vf_174(); /* 0x174 */
     virtual void vf_178(); /* 0x178 */
     virtual void vf_198(INT); /* 0x198 */
@@ -33040,7 +33040,7 @@ struct USeqAct_ActorFactory : public USeqAct_Latent {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_04c(UINT); /* 0x04c */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void vf_174(); /* 0x174 */
     virtual void vf_178(); /* 0x178 */
     /* registered size 0x134 */
@@ -33110,7 +33110,7 @@ struct USeqAct_AIMoveToActor : public USeqAct_Latent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void vf_174(); /* 0x174 */
     /* registered size 0xe8 */
 };
@@ -33169,7 +33169,7 @@ struct USeqAct_CameraFade : public USequenceAction {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void vf_174(); /* 0x174 */
     /* registered size 0xf8 */
 };
@@ -33199,7 +33199,7 @@ struct USeqAct_CameraLookAt : public USequenceAction {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_140(); /* 0x140 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void vf_174(); /* 0x174 */
     virtual void vf_178(); /* 0x178 */
     /* registered size 0x108 */
@@ -33384,7 +33384,7 @@ struct USeqAct_CrowdSpawner : public USeqAct_Latent {
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
     virtual void vf_154(); /* 0x154 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void vf_174(); /* 0x174 */
     /* UnrealScript natives */
     void execCacheSpawnerVars(FFrame& Stack, RESULT_DECL); /* 0x00c98850 */
@@ -33406,7 +33406,7 @@ struct USeqAct_Delay : public USeqAct_Latent {
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
     virtual INT vf_138(INT); /* 0x138 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void vf_174(); /* 0x174 */
     virtual void vf_178(); /* 0x178 */
     /* other member functions */
@@ -33425,7 +33425,7 @@ struct USeqAct_DelaySwitch : public USeqAct_Latent {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_04c(UINT); /* 0x04c */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void vf_174(); /* 0x174 */
     virtual void vf_178(); /* 0x178 */
     /* registered size 0xf4 */
@@ -33493,7 +33493,7 @@ struct USeqAct_ForceGarbageCollection : public USeqAct_Latent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void vf_174(); /* 0x174 */
     /* registered size 0xe4 */
 };
@@ -33507,7 +33507,7 @@ struct USeqAct_ForceMaterialMipsResident : public USeqAct_Latent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void vf_174(); /* 0x174 */
     /* registered size 0xf8 */
 };
@@ -33541,7 +33541,7 @@ struct USeqAct_GetMatInstVectorParam : public USequenceAction {
     class UMaterialInstanceConstant* MatInst; /* 0xd4 */
     FName ParamName; /* 0xd8 */
     /* virtual functions this class introduces (vtable 0x01f64138) */
-    virtual INT vf_19c(INT); /* 0x19c */
+    virtual void GetColour(FLinearColor& Colour); /* 0x19c */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -33640,7 +33640,7 @@ struct USeqAct_Interp : public USeqAct_Latent {
     virtual void vf_140(); /* 0x140 */
     virtual void vf_154(); /* 0x154 */
     virtual void vf_16c(); /* 0x16c */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void vf_174(); /* 0x174 */
     virtual void vf_178(); /* 0x178 */
     /* UnrealScript natives */
@@ -33669,7 +33669,7 @@ struct USeqAct_InterpolateColour : public USeqAct_Latent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void vf_174(); /* 0x174 */
     /* registered size 0x11c */
 };
@@ -33686,7 +33686,7 @@ struct USeqAct_InterpolateFloat : public USeqAct_Latent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void vf_174(); /* 0x174 */
     /* registered size 0x110 */
 };
@@ -33727,7 +33727,7 @@ struct USeqAct_LevelStreaming : public USeqAct_LevelStreamingBase {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_04c(UINT); /* 0x04c */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void vf_174(); /* 0x174 */
     virtual void vf_194(INT, INT); /* 0x194 */
     /* registered size 0xf8 */
@@ -33745,7 +33745,7 @@ struct USeqAct_LevelVisibility : public USeqAct_Latent {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_04c(UINT); /* 0x04c */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void vf_174(); /* 0x174 */
     virtual void vf_194(INT, INT); /* 0x194 */
     /* registered size 0xf4 */
@@ -33801,7 +33801,7 @@ struct USeqAct_MultiLevelStreaming : public USeqAct_LevelStreamingBase {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_04c(UINT); /* 0x04c */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void vf_174(); /* 0x174 */
     virtual void vf_194(INT, INT); /* 0x194 */
     /* registered size 0xf8 */
@@ -33851,7 +33851,7 @@ struct USeqAct_ParticleEventGenerator : public USequenceAction {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_04c(UINT); /* 0x04c */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void vf_174(); /* 0x174 */
     virtual void vf_178(); /* 0x178 */
     /* registered size 0x11c */
@@ -33882,7 +33882,7 @@ struct USeqAct_PlayCameraAnim : public USeqAct_Latent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void vf_174(); /* 0x174 */
     virtual void vf_178(); /* 0x178 */
     /* registered size 0x100 */
@@ -33934,7 +33934,7 @@ struct USeqAct_PlaySound : public USeqAct_Latent {
     virtual void vf_04c(UINT); /* 0x04c */
     virtual void vf_13c(INT, INT, INT, INT, INT); /* 0x13c */
     virtual void vf_154(); /* 0x154 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void vf_174(); /* 0x174 */
     virtual void vf_178(); /* 0x178 */
     /* other member functions */
@@ -33969,7 +33969,7 @@ struct USeqAct_PrepareMapChange : public USeqAct_Latent {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_04c(UINT); /* 0x04c */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void vf_174(); /* 0x174 */
     virtual void vf_178(); /* 0x178 */
     virtual void vf_194(INT, INT); /* 0x194 */
@@ -34094,7 +34094,7 @@ struct USeqAct_SetDOFParams : public USeqAct_Latent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void vf_174(); /* 0x174 */
     virtual void vf_178(); /* 0x178 */
     /* registered size 0x13c */
@@ -34185,7 +34185,7 @@ struct USeqAct_SetMotionBlurParams : public USeqAct_Latent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void vf_174(); /* 0x174 */
     virtual void vf_178(); /* 0x178 */
     /* registered size 0xf4 */
@@ -34278,7 +34278,7 @@ struct USeqAct_StreamInTextures : public USeqAct_Latent {
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
     virtual INT vf_138(INT); /* 0x138 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void vf_174(); /* 0x174 */
     virtual void vf_178(); /* 0x178 */
     /* registered size 0xf0 */
@@ -34333,7 +34333,7 @@ struct USeqAct_Timer : public USequenceAction {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void vf_174(); /* 0x174 */
     /* registered size 0xdc */
 };
@@ -34435,7 +34435,7 @@ struct USeqAct_WaitForLevelsVisible : public USeqAct_Latent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0xf4 */
 };
 
@@ -40230,7 +40230,7 @@ struct URSeqAct_ChangeRain_None : public USeqAct_Latent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0x108 */
 };
 
@@ -40276,7 +40276,7 @@ struct URSeqAct_EventSequence : public USeqAct_Latent {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_04c(UINT); /* 0x04c */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void vf_174(); /* 0x174 */
     virtual void vf_178(); /* 0x178 */
     /* registered size 0x104 */
@@ -40366,7 +40366,7 @@ struct URSeqAct_WaitForAllInputs : public USeqAct_Latent {
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
     virtual void vf_04c(UINT); /* 0x04c */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void vf_174(); /* 0x174 */
     virtual void vf_178(); /* 0x178 */
     /* registered size 0xf8 */
@@ -40379,7 +40379,7 @@ struct URSeqAct_WaitForBool : public USeqAct_Latent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void vf_174(); /* 0x174 */
     virtual void vf_178(); /* 0x178 */
     /* registered size 0xe8 */
@@ -41173,8 +41173,8 @@ struct AR3rdPersonCamera : public ACamera {
     FLOAT LastCollisionDistSqr; /* 0x1dec */
     FLOAT MaxCollisionDist; /* 0x1df0 */
     /* virtual functions this class introduces (vtable 0x023802d0) */
-    virtual INT vf_364(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x364 */
-    virtual FLOAT vf_368(INT); /* 0x368 */
+    virtual void SetFreeCameraConfig(FFreeCameraConfig NewConfig); /* 0x364 */
+    virtual void SaveFreeCameraConfig(FFreeCameraConfig& ConfigToSave); /* 0x368 */
     virtual INT vf_36c(INT, INT, INT); /* 0x36c */
     virtual INT vf_370(INT, INT); /* 0x370 */
     virtual INT vf_374(INT, INT, INT, INT); /* 0x374 */
@@ -43805,7 +43805,7 @@ struct URBMBehaviour : public USeqAct_Latent {
     virtual void vf_110(INT, INT); /* 0x110 */
     virtual void vf_154(); /* 0x154 */
     virtual void vf_158(); /* 0x158 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void vf_174(); /* 0x174 */
     virtual void vf_178(); /* 0x178 */
     /* UnrealScript natives */
@@ -44633,7 +44633,7 @@ struct URBMBehaviour_IdleWithPlannarProp : public URBMBehaviour {
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
     virtual void vf_04c(UINT); /* 0x04c */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void vf_188(); /* 0x188 */
     /* registered size 0x248 */
 };
@@ -44799,7 +44799,7 @@ struct URBMBehaviour_MoveToGroup : public URBMBehaviour_MoveTo {
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
     virtual void vf_04c(UINT); /* 0x04c */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0x1f8 */
 };
 
@@ -44833,7 +44833,7 @@ struct URBMBehaviour_MoveToBatmanInChair : public URBMBehaviour_MoveToGroup {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_04c(UINT); /* 0x04c */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* UnrealScript natives */
     void execChaseCallThrough(FFrame& Stack, RESULT_DECL); /* 0x017058b0 */
     /* registered size 0x248 */
@@ -44892,7 +44892,7 @@ struct URBMBehaviour_MoveToJokerInChair : public URBMBehaviour_MoveToGroup {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_04c(UINT); /* 0x04c */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* UnrealScript natives */
     void execUpdateJokerStruggling(FFrame& Stack, RESULT_DECL); /* 0x01705a10 */
     void execChaseCallThrough(FFrame& Stack, RESULT_DECL); /* 0x01705a80 */
@@ -46020,7 +46020,7 @@ struct URBMExitCondition : public USeqAct_Latent {
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_154(); /* 0x154 */
     virtual void vf_158(); /* 0x158 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void vf_174(); /* 0x174 */
     virtual void vf_178(); /* 0x178 */
     /* UnrealScript natives */
@@ -46070,7 +46070,7 @@ struct URBMExitConditionCombiner : public URBMExitCondition {
     virtual void vf_110(INT, INT); /* 0x110 */
     virtual void vf_120(); /* 0x120 */
     virtual void vf_128(); /* 0x128 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void vf_174(); /* 0x174 */
     virtual void vf_178(); /* 0x178 */
     /* registered size 0x114 */
@@ -46083,7 +46083,7 @@ struct URBMIncapacitatedPawnCounter : public USeqAct_Latent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0xe8 */
 };
 
@@ -46536,7 +46536,7 @@ struct URBmPawnSpawner : public USeqAct_Latent {
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
     virtual void vf_04c(UINT); /* 0x04c */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void vf_174(); /* 0x174 */
     virtual bool vf_180(INT, INT); /* 0x180 */
     /* UnrealScript natives */
@@ -46564,7 +46564,7 @@ struct URBMPawnSpawnerController : public USeqAct_Latent {
     virtual void vf_110(INT, INT); /* 0x110 */
     virtual void vf_120(); /* 0x120 */
     virtual void vf_128(); /* 0x128 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* UnrealScript natives */
     void execActiveNumberAltered(FFrame& Stack, RESULT_DECL); /* 0x01705ec0 */
     void execGetNumberActive(FFrame& Stack, RESULT_DECL); /* 0x01705f50 */
@@ -46703,10 +46703,10 @@ struct ARBMRouter : public ARBMRouter_DynamicObject {
     virtual INT vf_364(INT, INT, INT); /* 0x364 */
     virtual INT vf_368(INT, INT); /* 0x368 */
     virtual bool vf_36c(); /* 0x36c */
-    virtual INT vf_370(INT, INT, INT); /* 0x370 */
+    virtual INT FindEndAnchor(FVector DestPos); /* 0x370 */
     virtual INT vf_374(INT, INT); /* 0x374 */
     virtual INT vf_378(INT, INT, INT, INT); /* 0x378 */
-    virtual INT vf_37c(INT, INT, INT); /* 0x37c */
+    virtual UBOOL CanMovePartwayToPos(FVector TestPos); /* 0x37c */
     virtual INT vf_380(INT, INT, INT, INT, INT); /* 0x380 */
     virtual INT vf_384(INT, INT); /* 0x384 */
     virtual INT vf_388(); /* 0x388 */
@@ -47072,7 +47072,7 @@ struct URSeqAct_PlaySpeechBase : public USeqAct_Latent {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void vf_174(); /* 0x174 */
     /* registered size 0xf0 */
 };
@@ -47194,7 +47194,7 @@ struct URBMWaveController : public USeqAct_Latent {
     virtual void vf_120(); /* 0x120 */
     virtual void vf_128(); /* 0x128 */
     virtual void vf_140(); /* 0x140 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void vf_174(); /* 0x174 */
     virtual void vf_178(); /* 0x178 */
     /* registered size 0xec */
@@ -48204,7 +48204,7 @@ struct ARCombatArea : public AActor {
     TArrayNoInit<class ARCombatArea_GuardPoint*> GuardPoints; /* 0x1cc */
     TArrayNoInit<class USoundCue*> GuardBarks; /* 0x1d8 */
     /* virtual functions this class introduces (vtable 0x02361878) */
-    virtual INT vf_354(INT, INT, INT); /* 0x354 */
+    virtual UBOOL IsLocationInArea(FVector TestLocation); /* 0x354 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -48356,11 +48356,11 @@ struct ARCombatMove_BatmanStrike : public ARCombatMove_BatmanAttack {
     /* virtual functions this class introduces (vtable 0x02362280) */
     virtual void vf_358(); /* 0x358 */
     virtual INT vf_35c(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x35c */
-    virtual INT vf_360(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x360 */
+    virtual INT GetScoreForHandedness(FStrikeInfo TestStrike); /* 0x360 */
     virtual INT vf_364(INT, INT); /* 0x364 */
     virtual INT vf_368(INT, INT); /* 0x368 */
-    virtual INT vf_36c(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x36c */
-    virtual INT vf_370(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x370 */
+    virtual INT GetScoreForTimeSinceUse(FStrikeInfo TestStrike); /* 0x36c */
+    virtual INT GetScoreForStrikeSpeed(FStrikeInfo TestStrike); /* 0x370 */
     virtual INT vf_374(INT); /* 0x374 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
@@ -56457,7 +56457,7 @@ struct URSeqAct_ActivateScarecrow : public USequenceAction {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0xe0 */
 };
 
@@ -56538,7 +56538,7 @@ struct URSeqAct_BatmanState : public USeqAct_Latent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0xf4 */
 };
 
@@ -56675,7 +56675,7 @@ struct URSeqAct_ChangeMovieStatus : public USequenceAction {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0xd8 */
 };
 
@@ -56786,7 +56786,7 @@ struct URSeqAct_CombatMusic : public USeqAct_Latent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0x11c */
 };
 
@@ -56808,7 +56808,7 @@ struct URSeqAct_CombatProgress : public USeqAct_Latent {
     virtual void vf_110(INT, INT); /* 0x110 */
     virtual void vf_120(); /* 0x120 */
     virtual void vf_128(); /* 0x128 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0x100 */
 };
 
@@ -56870,7 +56870,7 @@ struct URSeqAct_ConversationDialogue : public URSeqAct_PlaySpeechBase {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_04c(UINT); /* 0x04c */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void vf_178(); /* 0x178 */
     virtual void vf_188(); /* 0x188 */
     /* UnrealScript natives */
@@ -56904,7 +56904,7 @@ struct URSeqAct_Credits : public USeqAct_Latent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void vf_174(); /* 0x174 */
     virtual void vf_178(); /* 0x178 */
     /* registered size 0x108 */
@@ -56928,7 +56928,7 @@ struct URSeqAct_CrocPerformChargeAttack : public USequenceAction {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0xe4 */
 };
 
@@ -56939,7 +56939,7 @@ struct URSeqAct_CrocPerformCloseAttack : public USequenceAction {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0xe0 */
 };
 
@@ -56956,7 +56956,7 @@ struct URSeqAct_CrocPerformSmashAttack : public USequenceAction {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0xe4 */
 };
 
@@ -56967,7 +56967,7 @@ struct URSeqAct_CrocPerformSneakPeek : public USequenceAction {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0xd8 */
 };
 
@@ -56993,7 +56993,7 @@ struct URSeqAct_CrocRelativeAnimCamera : public USequenceAction {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0xfc */
 };
 
@@ -57064,7 +57064,7 @@ struct URSeqAct_DisableCrocAttacks : public USequenceAction {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0xd8 */
 };
 
@@ -57075,7 +57075,7 @@ struct URSeqAct_DropPlayerFromForensicsModes : public USequenceAction {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0xd8 */
 };
 
@@ -57115,7 +57115,7 @@ struct URSeqAct_FadeScreen : public USeqAct_Latent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void vf_178(); /* 0x178 */
     /* registered size 0x100 */
 };
@@ -57130,7 +57130,7 @@ struct URSeqAct_FadeSound : public USeqAct_Latent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void vf_178(); /* 0x178 */
     /* registered size 0xf0 */
 };
@@ -57194,7 +57194,7 @@ struct URSeqAct_ForceCrocToJumpOff : public USequenceAction {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0xd8 */
 };
 
@@ -57242,7 +57242,7 @@ struct URSeqAct_FullScreenPlayer : public USeqAct_Latent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* UnrealScript natives */
     void execPlayMovie(FFrame& Stack, RESULT_DECL); /* 0x016eb460 */
     void execStopMovie(FFrame& Stack, RESULT_DECL); /* 0x016eb4a0 */
@@ -57287,7 +57287,7 @@ struct URSeqAct_GetThugStatus : public USequenceAction {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void vf_178(); /* 0x178 */
     /* registered size 0xdc */
 };
@@ -57342,7 +57342,7 @@ struct URSeqAct_GrappleToVantagePoint : public USequenceAction {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0xe0 */
 };
 
@@ -57370,7 +57370,7 @@ struct URSeqAct_HelpText : public USequenceAction {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0x154 */
 };
 
@@ -57393,7 +57393,7 @@ struct URSeqAct_HUDTimer : public USeqAct_Latent {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_04c(UINT); /* 0x04c */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void vf_174(); /* 0x174 */
     virtual void vf_178(); /* 0x178 */
     /* registered size 0x108 */
@@ -57405,7 +57405,7 @@ struct URSeqAct_InDialogue : public USeqAct_Latent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0xe4 */
 };
 
@@ -57453,7 +57453,7 @@ struct URSeqAct_IsOnPontoon : public USequenceAction {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0xdc */
 };
 
@@ -57478,7 +57478,7 @@ struct URSeqAct_KillScarecrow : public USequenceAction {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0xf4 */
 };
 
@@ -57531,7 +57531,7 @@ struct URSeqAct_MakeBatmanLookAtItems : public USequenceAction {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0xe4 */
 };
 
@@ -57543,7 +57543,7 @@ struct URSeqAct_Mixbin : public USeqAct_Latent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0xec */
 };
 
@@ -57554,7 +57554,7 @@ struct URSeqAct_ModifyPostProcess : public USeqAct_Latent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void vf_178(); /* 0x178 */
     /* registered size 0x184 */
 };
@@ -57576,7 +57576,7 @@ struct URSeqAct_MovePlayer : public USeqAct_Latent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0x100 */
 };
 
@@ -57604,7 +57604,7 @@ struct URSeqAct_Music : public USeqAct_Latent {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_04c(UINT); /* 0x04c */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* other member functions */
     void sub_0157c210(); /* 0x0157c210 */
     /* registered size 0x120 */
@@ -57637,7 +57637,7 @@ struct URSeqAct_NewSilentPredWave : public USequenceAction {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0xd8 */
 };
 
@@ -57712,7 +57712,7 @@ struct URSeqAct_PlayCameraEmitter : public USequenceAction {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0xe0 */
 };
 
@@ -57749,7 +57749,7 @@ struct URSeqAct_PlayerDialogueOptions : public USeqAct_Latent {
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_04c(UINT); /* 0x04c */
     virtual void vf_140(); /* 0x140 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void vf_178(); /* 0x178 */
     /* registered size 0x108 */
 };
@@ -57784,7 +57784,7 @@ struct URSeqAct_PlayScaledDistanceSound : public USeqAct_Latent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0xf8 */
 };
 
@@ -57813,7 +57813,7 @@ struct URSeqAct_PlaySpeechConversation : public URSeqAct_PlaySpeechBase {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_04c(UINT); /* 0x04c */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void vf_178(); /* 0x178 */
     virtual void vf_188(); /* 0x188 */
     /* UnrealScript natives */
@@ -57839,7 +57839,7 @@ struct URSeqAct_PlayTVSequenceBase : public URSeqAct_PlaySpeechConversation {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void vf_178(); /* 0x178 */
     virtual void vf_1a4(); /* 0x1a4 */
     /* UnrealScript natives */
@@ -57873,7 +57873,7 @@ struct URSeqAct_PrepareMapChangeFromURL : public USeqAct_Latent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void vf_174(); /* 0x174 */
     virtual void vf_178(); /* 0x178 */
     /* other member functions */
@@ -57951,7 +57951,7 @@ struct URSeqAct_ScarecrowEffect : public USequenceAction {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0xdc */
 };
 
@@ -58013,7 +58013,7 @@ struct URSeqAct_SetEvidenceScanned : public USequenceAction {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0xdc */
 };
 
@@ -58046,7 +58046,7 @@ struct URSeqAct_SetMeshInvestigationInfo : public USequenceAction {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0xe4 */
 };
 
@@ -58059,7 +58059,7 @@ struct URSeqAct_SetNeedsRescue : public USequenceAction {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0xe8 */
 };
 
@@ -58075,7 +58075,7 @@ struct URSeqAct_SetPawnsREvidence : public USequenceAction {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0xdc */
 };
 
@@ -58101,7 +58101,7 @@ struct URSeqAct_SetRoomUnlocked : public USequenceAction {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0xd8 */
 };
 
@@ -58125,7 +58125,7 @@ struct URSeqAct_SetScarecrowCamera : public USeqAct_Latent {
     class AActor* FinalViewDirection; /* 0x124 */
     FVector BatmanLookAheadPos; /* 0x128 */
     /* virtual functions this class introduces (vtable 0x02397408) */
-    virtual INT vf_1a0(FLOAT); /* 0x1a0 */
+    virtual FLOAT GetPercDistAlongPath(FLOAT TimeDelta); /* 0x1a0 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -58144,7 +58144,7 @@ struct URSeqAct_SetScarecrowFocus : public USequenceAction {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0xe0 */
 };
 
@@ -58168,7 +58168,7 @@ struct URSeqAct_SetScarecrowInspect : public USequenceAction {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0x118 */
 };
 
@@ -58187,7 +58187,7 @@ struct URSeqAct_SetScarecrowParameters : public USequenceAction {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0xfc */
 };
 
@@ -58215,7 +58215,7 @@ struct URSeqAct_SetScarecrowSearch : public USequenceAction {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0xec */
 };
 
@@ -58227,7 +58227,7 @@ struct URSeqAct_SetScarecrowSearchAnims : public USequenceAction {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0xdc */
 };
 
@@ -58250,7 +58250,7 @@ struct URSeqAct_SetStationary1stPersonCamera : public USeqAct_Latent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0xf8 */
 };
 
@@ -58269,7 +58269,7 @@ struct URSeqAct_SetTrackingObjectVars : public USequenceAction {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0xec */
 };
 
@@ -58282,7 +58282,7 @@ struct URSeqAct_SetTrackingSpotlightVars : public USequenceAction {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0xe8 */
 };
 
@@ -58295,7 +58295,7 @@ struct URSeqAct_SetVenomParameters : public USequenceAction {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0xe0 */
 };
 
@@ -58321,7 +58321,7 @@ struct URSeqAct_ShowLevelIntroText : public USeqAct_Latent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void vf_174(); /* 0x174 */
     virtual void vf_178(); /* 0x178 */
     /* registered size 0x104 */
@@ -58382,7 +58382,7 @@ struct URSeqAct_SmoothCameraTransition : public USeqAct_Latent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0x12c */
 };
 
@@ -58417,7 +58417,7 @@ struct URSeqAct_SpeechEventManagerBase : public URSeqAct_PlaySpeechBase {
     virtual void vf_120(); /* 0x120 */
     virtual void vf_128(); /* 0x128 */
     virtual void vf_140(); /* 0x140 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void vf_174(); /* 0x174 */
     virtual void vf_178(); /* 0x178 */
     /* UnrealScript natives */
@@ -58501,7 +58501,7 @@ struct URSeqAct_StreamInPackage : public USeqAct_Latent {
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_020(); /* 0x020 */
     virtual void vf_04c(UINT); /* 0x04c */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void vf_174(); /* 0x174 */
     /* registered size 0x100 */
 };
@@ -58549,7 +58549,7 @@ struct URSeqAct_TriggerRunTheGauntlet : public USequenceAction {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0x100 */
 };
 
@@ -58584,7 +58584,7 @@ struct URSeqAct_UnlockXrayMode : public USequenceAction {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0xd4 */
 };
 
@@ -58612,7 +58612,7 @@ struct URSeqAct_VoiceOfArkham : public URSeqAct_PlaySpeechBase {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_170(INT); /* 0x170 */
+    virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0xfc */
 };
 
@@ -61692,7 +61692,7 @@ struct UBrushBuilder : public UObject {
     virtual INT vf_118(INT, INT); /* 0x118 */
     virtual INT vf_11c(); /* 0x11c */
     virtual INT vf_120(INT); /* 0x120 */
-    virtual UINT vf_124(UINT, UINT, UINT); /* 0x124 */
+    virtual INT Vertexv(FVector V); /* 0x124 */
     virtual INT vf_128(INT, INT, INT); /* 0x128 */
     virtual INT vf_12c(INT, INT, INT, INT, INT, INT, INT); /* 0x12c */
     virtual INT vf_130(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x130 */

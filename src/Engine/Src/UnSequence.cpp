@@ -1418,7 +1418,7 @@ void __stdcall sub_008aba40(int a0, int a1) {  }
 void USequenceObject::vf_12c(void) {  }
 
 // @baa 0x008abab0
-int USequenceOp::vf_170(int a0) { return 1; }
+UBOOL USequenceOp::UpdateOp(FLOAT DeltaTime) { return TRUE; }
 
 // @baa 0x008abac0
 void USequenceOp::vf_174(void) {  }
@@ -1474,10 +1474,10 @@ char* USeqVar_Byte::vf_16c(void) { return (char*)this + 128; }
 void USeqVar_ObjectList::vf_12c(void) {  }
 
 // @baa 0x008abf90
-int USeqAct_SetDOFParams::vf_170(int a0) { return 0; }
+UBOOL USeqAct_SetDOFParams::UpdateOp(FLOAT DeltaTime) { return FALSE; }
 
 // @baa 0x008abfa0
-int USeqAct_SetMotionBlurParams::vf_170(int a0) { return 0; }
+UBOOL USeqAct_SetMotionBlurParams::UpdateOp(FLOAT DeltaTime) { return FALSE; }
 
 // @baa 0x008abfb0
 void USeqAct_SetMotionBlurParams::vf_174(void) {  }

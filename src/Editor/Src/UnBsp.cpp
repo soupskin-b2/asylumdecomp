@@ -891,21 +891,15 @@ int C_00ec99c0::sub_00ec99c0(int param_2)
 
 int sub_00662520(...);
 // @baa 0x00ec9d70
-undefined4 UBrushBuilder::vf_124(undefined4 param_2, undefined4 param_3, undefined4 param_4)
+INT UBrushBuilder::Vertexv(FVector V)
 {
-    int param_1 = (int)this;
-
-  undefined4 uVar1;
-  undefined4 *puVar2;
-  
-  uVar1 = *(undefined4 *)(param_1 + 0x4c);
-  puVar2 = (undefined4 *)sub_00662520(0xc,param_1 + 0x48);
-  if (puVar2 != (undefined4 *)0x0) {
-    *puVar2 = param_2;
-    puVar2[1] = param_3;
-    puVar2[2] = param_4;
-  }
-  return uVar1;
+    INT Result = Native_48.Num();  // Vertices
+    FVector* Vertex = (FVector*)sub_00662520(sizeof(FVector), &Native_48);  // new(Vertices) FVector(V)
+    if (Vertex != NULL)
+    {
+        *Vertex = V;
+    }
+    return Result;
 }
 
 struct C_00eca3d0 {

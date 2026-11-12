@@ -30584,7 +30584,7 @@
     {
      "va": "015e2060",
      "size": 5,
-     "symbol": "?vf_170@URBMPawnSpawnerController@@UAEHH@Z"
+     "symbol": "?UpdateOp@URBMPawnSpawnerController@@UAEHM@Z"
     },
     {
      "va": "015e20f0",
@@ -108859,7 +108859,7 @@
     {
      "va": "00ec9d70",
      "size": 48,
-     "symbol": "?vf_124@UBrushBuilder@@UAEIIII@Z"
+     "symbol": "?Vertexv@UBrushBuilder@@UAEHUFVector@@@Z"
     },
     {
      "va": "00eca3d0",
@@ -202270,7 +202270,7 @@
     {
      "va": "008abab0",
      "size": 8,
-     "symbol": "?vf_170@USequenceOp@@UAEHH@Z"
+     "symbol": "?UpdateOp@USequenceOp@@UAEHM@Z"
     },
     {
      "va": "008abac0",
@@ -202340,12 +202340,12 @@
     {
      "va": "008abf90",
      "size": 5,
-     "symbol": "?vf_170@USeqAct_SetDOFParams@@UAEHH@Z"
+     "symbol": "?UpdateOp@USeqAct_SetDOFParams@@UAEHM@Z"
     },
     {
      "va": "008abfa0",
      "size": 5,
-     "symbol": "?vf_170@USeqAct_SetMotionBlurParams@@UAEHH@Z"
+     "symbol": "?UpdateOp@USeqAct_SetMotionBlurParams@@UAEHM@Z"
     },
     {
      "va": "008abfb0",
