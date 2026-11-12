@@ -1805,7 +1805,7 @@ void UPrimitiveComponent::vf_240(undefined4 param_2)
 }
 
 // @baa 0x006dc190
-void UPrimitiveComponent::vf_244(undefined1 param_2)
+void UPrimitiveComponent::SetDepthPriorityGroup(BYTE param_2)
 {
     int param_1 = (int)this;
 

@@ -17884,7 +17884,7 @@
     {
      "va": "01614ae0",
      "size": 3,
-     "symbol": "?vf_4f0@ARPlayerController@@UAEXABVFString@@00@Z"
+     "symbol": "?RecordMetrics@ARPlayerController@@UAEXABVFString@@00@Z"
     },
     {
      "va": "01614af0",
@@ -17894,17 +17894,17 @@
     {
      "va": "01614b00",
      "size": 3,
-     "symbol": "?vf_4f8@ARPlayerController@@UAEXHHH@Z"
+     "symbol": "?RecordEidosMetricsFrontend@ARPlayerController@@UAEXHHH@Z"
     },
     {
      "va": "01614b10",
      "size": 3,
-     "symbol": "?vf_4fc@ARPlayerController@@UAEXHHH@Z"
+     "symbol": "?RecordEidosMetrics@ARPlayerController@@UAEXHHH@Z"
     },
     {
      "va": "01614b20",
      "size": 3,
-     "symbol": "?vf_500@ARPlayerController@@UAEXHHH@Z"
+     "symbol": "?RecordEidosMetricsLocation@ARPlayerController@@UAEXHHH@Z"
     },
     {
      "va": "01614b30",
@@ -57023,7 +57023,7 @@
     {
      "va": "0150f410",
      "size": 82,
-     "symbol": "?vf_360@ARHUDBase@@UAEHHH@Z"
+     "symbol": "?GetPromptYPosition@ARHUDBase@@UAEHHH@Z"
     },
     {
      "va": "0150f480",
@@ -170518,7 +170518,7 @@
     {
      "va": "006d9360",
      "size": 5,
-     "symbol": "?vf_114@UMaterialInterface@@UAEIIIPAHPAI@Z"
+     "symbol": "?GetFontParameterValue@UMaterialInterface@@UAEIIIPAHPAI@Z"
     },
     {
      "va": "00702e50",
@@ -265457,7 +265457,7 @@
     {
      "va": "006dc190",
      "size": 18,
-     "symbol": "?vf_244@UPrimitiveComponent@@UAEXE@Z"
+     "symbol": "?SetDepthPriorityGroup@UPrimitiveComponent@@UAEXE@Z"
     },
     {
      "va": "006dc1b0",
@@ -267375,12 +267375,12 @@
     {
      "va": "006e8ee0",
      "size": 64,
-     "symbol": "?vf_114@UMaterialInstanceConstant@@UAEIIIPAHPAI@Z"
+     "symbol": "?GetFontParameterValue@UMaterialInstanceConstant@@UAEIIIPAHPAI@Z"
     },
     {
      "va": "006e94e0",
      "size": 64,
-     "symbol": "?vf_114@UMaterialInstanceTimeVarying@@UAEIIIPAHPAI@Z"
+     "symbol": "?GetFontParameterValue@UMaterialInstanceTimeVarying@@UAEIIIPAHPAI@Z"
     },
     {
      "va": "006ea840",

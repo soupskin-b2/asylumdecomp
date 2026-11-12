@@ -16,7 +16,7 @@ void UGFxMovie::execRefreshDataStoreBindings( FFrame& Stack, RESULT_DECL )
 void UGFxMovie::execPublishDataStoreValues( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_128();
+	PublishDataStoreValues();
 }
 
 extern UEngine* g_026c3cdc;

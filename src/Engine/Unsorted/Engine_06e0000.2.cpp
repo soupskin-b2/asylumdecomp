@@ -2589,7 +2589,7 @@ int C_006e83a0::sub_006e83a0(void)
 
 int sub_006e8bb0(...);
 // @baa 0x006e8ee0
-undefined4 UMaterialInstanceConstant::vf_114(undefined4 param_2, undefined4 param_3, int * param_4, undefined4 * param_5)
+UINT UMaterialInstanceConstant::GetFontParameterValue(UINT param_2, UINT param_3, INT* param_4, UINT* param_5)
 {
     int param_1 = (int)this;
 
@@ -2608,7 +2608,7 @@ undefined4 UMaterialInstanceConstant::vf_114(undefined4 param_2, undefined4 para
 
 int sub_006e9270(...);
 // @baa 0x006e94e0
-undefined4 UMaterialInstanceTimeVarying::vf_114(undefined4 param_2, undefined4 param_3, int * param_4, undefined4 * param_5)
+UINT UMaterialInstanceTimeVarying::GetFontParameterValue(UINT param_2, UINT param_3, INT* param_4, UINT* param_5)
 {
     int param_1 = (int)this;
 

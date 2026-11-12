@@ -432,7 +432,7 @@ struct C_0090f960 { int sub_0090f960(void); };
 int C_0090f960::sub_0090f960(void) { return *(int*)((char*)this + 4); }
 
 // @baa 0x00913f10
-undefined4 USkeletalMeshComponent::vf_258(void)
+UINT USkeletalMeshComponent::vf_258()
 {
     int param_1 = (int)this;
 

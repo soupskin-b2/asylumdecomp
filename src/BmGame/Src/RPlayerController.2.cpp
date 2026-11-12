@@ -328,19 +328,19 @@ int ARPlayerController::vf_4e4(void) { return 0; }
 void ARPlayerController::vf_4e8(int a0) {  }
 
 // @baa 0x01614ae0
-void ARPlayerController::vf_4f0(const FString&, const FString&, const FString&) {}
+void ARPlayerController::RecordMetrics(const FString& a0, const FString& a1, const FString& a2) {}
 
 // @baa 0x01614af0
 int ARPlayerController::vf_4f4(void) { return 0; }
 
 // @baa 0x01614b00
-void ARPlayerController::vf_4f8(int a0, int a1, int a2) {  }
+void ARPlayerController::RecordEidosMetricsFrontend(INT a0, INT a1, INT a2) {  }
 
 // @baa 0x01614b10
-void ARPlayerController::vf_4fc(int a0, int a1, int a2) {  }
+void ARPlayerController::RecordEidosMetrics(INT a0, INT a1, INT a2) {  }
 
 // @baa 0x01614b20
-void ARPlayerController::vf_500(int a0, int a1, int a2) {  }
+void ARPlayerController::RecordEidosMetricsLocation(INT a0, INT a1, INT a2) {  }
 
 void * sub_01a37612(void *, int, size_t);
 extern undefined4 g_026e1800;

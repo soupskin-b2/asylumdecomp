@@ -12666,7 +12666,7 @@ struct UActorComponent : public UComponent {
     BITFIELD bEnableUpdateChildComponents : 1; /* 0x44 */
     BYTE TickGroup; /* 0x48 */
     /* virtual functions this class introduces (vtable 0x01ebb7f8) */
-    virtual FLOAT vf_110(INT); /* 0x110 */
+    virtual void SetParentToWorld(const FMatrix& ParentToWorld); /* 0x110 */
     virtual void vf_114(); /* 0x114 */
     virtual void vf_118(); /* 0x118 */
     virtual void Detach(UBOOL bWillReattach); /* 0x11c */
@@ -12837,8 +12837,8 @@ struct UPrimitiveComponent : public UActorComponent {
     virtual FVector GetRBLinearVelocity(); /* 0x19c */
     virtual void vf_1a0(INT, INT); /* 0x1a0 */
     virtual void vf_1a4(INT, INT); /* 0x1a4 */
-    virtual INT vf_1a8(INT, INT, INT); /* 0x1a8 */
-    virtual INT vf_1ac(INT, INT, INT); /* 0x1ac */
+    virtual INT SetRBPosition(INT, INT, INT); /* 0x1a8 */
+    virtual INT SetRBRotation(INT, INT, INT); /* 0x1ac */
     virtual void WakeRigidBody(FName BoneName); /* 0x1b0 */
     virtual void PutRigidBodyToSleep(FName BoneName); /* 0x1b4 */
     virtual INT vf_1b8(INT, INT); /* 0x1b8 */
@@ -12850,7 +12850,7 @@ struct UPrimitiveComponent : public UActorComponent {
     virtual void vf_1d0(INT); /* 0x1d0 */
     virtual INT vf_1d4(class UPhysicalMaterial*); /* 0x1d4 */
     virtual INT vf_1d8(); /* 0x1d8 */
-    virtual INT vf_1dc(); /* 0x1dc */
+    virtual void vf_1dc(); /* 0x1dc */
     virtual void vf_1e0(); /* 0x1e0 */
     virtual void vf_1e4(INT); /* 0x1e4 */
     virtual INT vf_1e8(); /* 0x1e8 */
@@ -12866,8 +12866,8 @@ struct UPrimitiveComponent : public UActorComponent {
     virtual INT vf_210(); /* 0x210 */
     virtual void SetOwnerNoSee(UBOOL bNewOwnerNoSee); /* 0x214 */
     virtual void SetOnlyOwnerSee(UBOOL bNewOnlyOwnerSee); /* 0x218 */
-    virtual INT vf_21c(INT); /* 0x21c */
-    virtual INT vf_220(INT); /* 0x220 */
+    virtual void vf_21c(INT); /* 0x21c */
+    virtual void vf_220(INT); /* 0x220 */
     virtual void SetHiddenGame(UBOOL NewHidden); /* 0x224 */
     virtual void vf_228(UINT); /* 0x228 */
     virtual void vf_22c(UINT); /* 0x22c */
@@ -12876,7 +12876,7 @@ struct UPrimitiveComponent : public UActorComponent {
     virtual void SetLightEnvironment(class ULightEnvironmentComponent* NewLightEnvironment); /* 0x238 */
     virtual void vf_23c(FLOAT); /* 0x23c */
     virtual void vf_240(UINT); /* 0x240 */
-    virtual void vf_244(BYTE); /* 0x244 */
+    virtual void SetDepthPriorityGroup(BYTE); /* 0x244 */
     virtual void vf_248(INT); /* 0x248 */
     virtual UINT vf_24c(); /* 0x24c */
     /* overrides */
@@ -12888,7 +12888,7 @@ struct UPrimitiveComponent : public UActorComponent {
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual INT vf_088(); /* 0x088 */
     virtual INT vf_08c(); /* 0x08c */
-    virtual FLOAT vf_110(INT); /* 0x110 */
+    virtual void SetParentToWorld(const FMatrix& ParentToWorld); /* 0x110 */
     virtual void vf_114(); /* 0x114 */
     virtual void vf_118(); /* 0x118 */
     virtual void Detach(UBOOL bWillReattach); /* 0x11c */
@@ -15626,9 +15626,9 @@ struct APlayerController : public AController {
     FScriptDelegate __CanUnpause__Delegate; /* 0x5a4 */
     /* virtual functions this class introduces (vtable 0x01f0e668) */
     virtual INT vf_408(INT, INT, INT, INT); /* 0x408 */
-    virtual INT vf_40c(INT); /* 0x40c */
+    virtual void CopyToClipboard(const FString& Text); /* 0x40c */
     virtual FString PasteFromClipboard(); /* 0x410 */
-    virtual INT vf_414(INT); /* 0x414 */
+    virtual void vf_414(INT); /* 0x414 */
     virtual INT vf_418(); /* 0x418 */
     virtual INT vf_41c(); /* 0x41c */
     virtual void vf_420(INT); /* 0x420 */
@@ -15640,14 +15640,14 @@ struct APlayerController : public AController {
     virtual INT vf_438(INT, INT, INT, INT, INT, INT, INT); /* 0x438 */
     virtual INT vf_43c(INT, INT); /* 0x43c */
     virtual INT vf_440(INT, INT, INT, INT, INT); /* 0x440 */
-    virtual INT vf_444(INT); /* 0x444 */
+    virtual void vf_444(INT); /* 0x444 */
     virtual INT vf_448(); /* 0x448 */
     virtual void vf_44c(INT, INT); /* 0x44c */
     virtual void vf_450(INT, INT); /* 0x450 */
-    virtual INT vf_454(INT, INT, INT); /* 0x454 */
-    virtual INT vf_458(INT, INT, INT); /* 0x458 */
-    virtual INT vf_45c(INT, INT); /* 0x45c */
-    virtual INT vf_460(INT); /* 0x460 */
+    virtual INT LogOutBugItGoToLogFile(INT, INT, INT); /* 0x454 */
+    virtual INT LogOutBugItAIGoToLogFile(INT, INT, INT); /* 0x458 */
+    virtual void SmoothTargetViewRotation(class APawn* TargetPawn, FLOAT DeltaSeconds); /* 0x45c */
+    virtual void vf_460(INT); /* 0x460 */
     virtual INT vf_464(INT, INT, INT, INT); /* 0x464 */
     virtual void vf_468(INT, INT, INT); /* 0x468 */
     /* overrides */
@@ -16139,7 +16139,7 @@ struct UAudioComponent : public UActorComponent {
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual FString GetDetailedInfoInternal(); /* 0x094 */
-    virtual FLOAT vf_110(INT); /* 0x110 */
+    virtual void SetParentToWorld(const FMatrix& ParentToWorld); /* 0x110 */
     virtual void vf_114(); /* 0x114 */
     virtual void Detach(UBOOL bWillReattach); /* 0x11c */
     virtual INT vf_144(); /* 0x144 */
@@ -18463,7 +18463,7 @@ struct UFont : public UObject {
     virtual FLOAT vf_110(FLOAT); /* 0x110 */
     virtual FLOAT vf_114(FLOAT); /* 0x114 */
     virtual FLOAT vf_118(); /* 0x118 */
-    virtual FLOAT vf_11c(INT); /* 0x11c */
+    virtual FLOAT StrWidth(INT); /* 0x11c */
     virtual void vf_120(); /* 0x120 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
@@ -18997,7 +18997,7 @@ struct UUIObject : public UUIScreenObject {
     /* virtual functions this class introduces (vtable 0x020c2728) */
     virtual INT vf_1ec(INT, INT); /* 0x1ec */
     virtual void NotifyValueChanged(INT PlayerIndex, INT NotifyFlags); /* 0x1f0 */
-    virtual INT vf_1f4(INT, INT, INT); /* 0x1f4 */
+    virtual INT SetDockTarget(INT, INT, INT); /* 0x1f4 */
     virtual INT vf_1f8(INT, INT, INT, INT); /* 0x1f8 */
     virtual INT vf_1fc(INT, INT, INT, INT); /* 0x1fc */
     virtual INT vf_200(INT, INT, INT, INT); /* 0x200 */
@@ -19224,7 +19224,7 @@ struct ACoverLink : public ANavigationPoint {
     class ACoverLink* NextCoverLink; /* 0x2f0 */
     BYTE LocationDescription; /* 0x2f4 */
     /* virtual functions this class introduces (vtable 0x01f453f8) */
-    virtual void vf_3b0(INT, INT, INT, INT, INT, INT); /* 0x3b0 */
+    virtual void GetFireLinkTo(INT, INT, INT, INT, INT, INT); /* 0x3b0 */
     virtual UBOOL HasFireLinkTo(INT SlotIdx, const FCoverInfo& ChkCover, UBOOL bAllowFallbackLinks); /* 0x3b4 */
     virtual INT vf_3b8(INT, INT); /* 0x3b8 */
     /* overrides */
@@ -19331,8 +19331,8 @@ struct ACoverSlotMarker : public ANavigationPoint {
     BITFIELD bLastChoice : 1; /* 0x288 */
     BITFIELD bIgnoreSizeLimits : 1; /* 0x288 */
     /* virtual functions this class introduces (vtable 0x01f44538) */
-    virtual INT vf_3b0(INT); /* 0x3b0 */
-    virtual INT vf_3b4(INT); /* 0x3b4 */
+    virtual INT GetSlotLocation(INT); /* 0x3b0 */
+    virtual INT GetSlotRotation(INT); /* 0x3b4 */
     virtual INT vf_3b8(INT); /* 0x3b8 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
@@ -19566,7 +19566,7 @@ struct USkeletalMeshComponent : public UMeshComponent {
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_02c(); /* 0x02c */
     virtual FString GetDetailedInfoInternal(); /* 0x094 */
-    virtual FLOAT vf_110(INT); /* 0x110 */
+    virtual void SetParentToWorld(const FMatrix& ParentToWorld); /* 0x110 */
     virtual void vf_114(); /* 0x114 */
     virtual void vf_118(); /* 0x118 */
     virtual void Detach(UBOOL bWillReattach); /* 0x11c */
@@ -19592,8 +19592,8 @@ struct USkeletalMeshComponent : public UMeshComponent {
     virtual void vf_198(INT, INT); /* 0x198 */
     virtual void vf_1a0(INT, INT); /* 0x1a0 */
     virtual void vf_1a4(INT, INT); /* 0x1a4 */
-    virtual INT vf_1a8(INT, INT, INT); /* 0x1a8 */
-    virtual INT vf_1ac(INT, INT, INT); /* 0x1ac */
+    virtual INT SetRBPosition(INT, INT, INT); /* 0x1a8 */
+    virtual INT SetRBRotation(INT, INT, INT); /* 0x1ac */
     virtual void WakeRigidBody(FName BoneName); /* 0x1b0 */
     virtual void PutRigidBodyToSleep(FName BoneName); /* 0x1b4 */
     virtual INT vf_1b8(INT, INT); /* 0x1b8 */
@@ -19604,7 +19604,7 @@ struct USkeletalMeshComponent : public UMeshComponent {
     virtual void vf_1d0(INT); /* 0x1d0 */
     virtual INT vf_1d4(class UPhysicalMaterial*); /* 0x1d4 */
     virtual INT vf_1d8(); /* 0x1d8 */
-    virtual INT vf_1dc(); /* 0x1dc */
+    virtual void vf_1dc(); /* 0x1dc */
     virtual void vf_1e0(); /* 0x1e0 */
     virtual INT vf_1ec(INT); /* 0x1ec */
     virtual INT vf_1f0(INT, INT); /* 0x1f0 */
@@ -20019,7 +20019,7 @@ struct UUIDataProvider : public UUIRoot {
     TArrayNoInit<FScriptDelegate> ProviderChangedNotifies; /* 0x34 */
     FScriptDelegate __OnDataProviderPropertyChange__Delegate; /* 0x40 */
     /* virtual functions this class introduces (vtable 0x020bfbe8) */
-    virtual void vf_10c(INT); /* 0x10c */
+    virtual void ParseArrayDelimiter(INT); /* 0x10c */
     virtual void vf_110(INT, INT); /* 0x110 */
     virtual INT vf_114(INT, INT); /* 0x114 */
     virtual INT vf_118(INT, INT, INT); /* 0x118 */
@@ -20298,7 +20298,7 @@ struct UInput : public UInteraction {
     TArrayNoInit<FNativeElem_008c2090> AxisArray; /* 0xc0 */
     /* virtual functions this class introduces (vtable 0x020b75d8) */
     virtual void vf_120(); /* 0x120 */
-    virtual INT vf_124(INT, INT, INT); /* 0x124 */
+    virtual INT GetBind(INT, INT, INT); /* 0x124 */
     virtual INT vf_128(INT, INT); /* 0x128 */
     virtual void vf_12c(); /* 0x12c */
     virtual INT vf_130(INT, INT); /* 0x130 */
@@ -20482,7 +20482,7 @@ struct UDecalComponent : public UPrimitiveComponent {
     virtual void vf_02c(); /* 0x02c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual INT vf_0d4(); /* 0x0d4 */
-    virtual FLOAT vf_110(INT); /* 0x110 */
+    virtual void SetParentToWorld(const FMatrix& ParentToWorld); /* 0x110 */
     virtual void vf_114(); /* 0x114 */
     virtual void vf_118(); /* 0x118 */
     virtual void Detach(UBOOL bWillReattach); /* 0x11c */
@@ -20565,7 +20565,7 @@ struct UMaterialInterface : public USurface {
     FRenderCommandFence_Mirror ParentRefFence; /* 0x30 */
     FStringNoInit PreviewMesh; /* 0x34 */
     /* virtual functions this class introduces (vtable 0x01ebd268) */
-    virtual UINT vf_114(UINT, UINT, INT*, UINT*); /* 0x114 */
+    virtual UINT GetFontParameterValue(UINT, UINT, INT*, UINT*); /* 0x114 */
     virtual UBOOL GetScalarParameterValue(FName ParameterName, FLOAT& OutValue); /* 0x118 */
     virtual UBOOL GetScalarCurveParameterValue(FName ParameterName, FInterpCurveFloat& OutValue); /* 0x11c */
     virtual UBOOL GetTextureParameterValue(FName ParameterName, class UTexture*& OutValue); /* 0x120 */
@@ -20703,7 +20703,7 @@ struct UMaterial : public UMaterialInterface {
     virtual void vf_0e8(INT); /* 0x0e8 */
     virtual DOUBLE vf_10c(); /* 0x10c */
     virtual DOUBLE GetSurfaceHeight(); /* 0x110 */
-    virtual UINT vf_114(UINT, UINT, INT*, UINT*); /* 0x114 */
+    virtual UINT GetFontParameterValue(UINT, UINT, INT*, UINT*); /* 0x114 */
     virtual UBOOL GetScalarParameterValue(FName ParameterName, FLOAT& OutValue); /* 0x118 */
     virtual UBOOL GetTextureParameterValue(FName ParameterName, class UTexture*& OutValue); /* 0x120 */
     virtual UBOOL GetVectorParameterValue(FName ParameterName, FLinearColor& OutValue); /* 0x124 */
@@ -20908,7 +20908,7 @@ struct ULightComponent : public UActorComponent {
     virtual void vf_054(); /* 0x054 */
     virtual void vf_05c(); /* 0x05c */
     virtual void vf_09c(); /* 0x09c */
-    virtual FLOAT vf_110(INT); /* 0x110 */
+    virtual void SetParentToWorld(const FMatrix& ParentToWorld); /* 0x110 */
     virtual void vf_114(); /* 0x114 */
     virtual void vf_118(); /* 0x118 */
     virtual void Detach(UBOOL bWillReattach); /* 0x11c */
@@ -21540,23 +21540,23 @@ struct UParticleSystemComponent : public UPrimitiveComponent {
     /* virtual functions this class introduces (vtable 0x01ff9b60) */
     virtual void SetKillOnDeactivate(INT EmitterIndex, UBOOL bKill); /* 0x250 */
     virtual void SetKillOnCompleted(INT EmitterIndex, UBOOL bKill); /* 0x254 */
-    virtual INT vf_258(INT); /* 0x258 */
+    virtual void vf_258(INT); /* 0x258 */
     virtual INT vf_25c(); /* 0x25c */
-    virtual INT vf_260(INT, INT); /* 0x260 */
+    virtual void SetBeamType(INT, INT); /* 0x260 */
     virtual void SetBeamTessellationFactor(INT EmitterIndex, FLOAT NewFactor); /* 0x264 */
-    virtual INT vf_268(INT, INT, INT, INT); /* 0x268 */
+    virtual void vf_268(INT, INT, INT, INT); /* 0x268 */
     virtual void SetBeamDistance(INT EmitterIndex, FLOAT Distance); /* 0x26c */
     virtual INT vf_270(INT, INT, INT, INT, INT); /* 0x270 */
-    virtual INT vf_274(INT, INT); /* 0x274 */
+    virtual void SetBeamSourceActor(INT, INT); /* 0x274 */
     virtual INT vf_278(INT, INT, INT, INT, INT); /* 0x278 */
-    virtual INT vf_27c(INT, INT, INT); /* 0x27c */
+    virtual void vf_27c(INT, INT, INT); /* 0x27c */
     virtual INT vf_280(INT, INT, INT, INT, INT); /* 0x280 */
-    virtual INT vf_284(INT, INT); /* 0x284 */
+    virtual void SetBeamTargetActor(INT, INT); /* 0x284 */
     virtual INT vf_288(INT, INT, INT, INT, INT); /* 0x288 */
-    virtual INT vf_28c(INT, INT, INT); /* 0x28c */
+    virtual void vf_28c(INT, INT, INT); /* 0x28c */
     virtual FLOAT vf_290(); /* 0x290 */
     virtual void vf_294(FLOAT); /* 0x294 */
-    virtual INT vf_298(INT, INT, INT); /* 0x298 */
+    virtual UBOOL GetFloatParameter(FName InName, FLOAT& OutFloat); /* 0x298 */
     virtual UBOOL GetVectorParameter(FName InName, FVector& OutVector); /* 0x29c */
     virtual UBOOL GetColorParameter(FName InName, FColor& OutColor); /* 0x2a0 */
     virtual UBOOL GetActorParameter(FName InName, class AActor*& OutActor); /* 0x2a4 */
@@ -22358,7 +22358,7 @@ struct UFogVolumeConeDensityComponent : public UFogVolumeDensityComponent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual FLOAT vf_110(INT); /* 0x110 */
+    virtual void SetParentToWorld(const FMatrix& ParentToWorld); /* 0x110 */
     virtual void vf_114(); /* 0x114 */
     virtual INT vf_14c(INT); /* 0x14c */
     /* other member functions */
@@ -22451,7 +22451,7 @@ struct UFogVolumeLinearHalfspaceDensityComponent : public UFogVolumeDensityCompo
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual FLOAT vf_110(INT); /* 0x110 */
+    virtual void SetParentToWorld(const FMatrix& ParentToWorld); /* 0x110 */
     virtual INT vf_14c(INT); /* 0x14c */
     /* registered size 0xa0 */
 };
@@ -22475,7 +22475,7 @@ struct UFogVolumeSphericalDensityComponent : public UFogVolumeDensityComponent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual FLOAT vf_110(INT); /* 0x110 */
+    virtual void SetParentToWorld(const FMatrix& ParentToWorld); /* 0x110 */
     virtual void vf_114(); /* 0x114 */
     virtual INT vf_14c(INT); /* 0x14c */
     /* registered size 0xa0 */
@@ -23281,12 +23281,12 @@ struct AGameInfo : public AInfo {
     FScriptDelegate __CanUnpause__Delegate; /* 0x38c */
     /* virtual functions this class introduces (vtable 0x01f06e90) */
     virtual FString GetNetworkNumber(); /* 0x354 */
-    virtual void vf_358(INT, INT, INT); /* 0x358 */
+    virtual void BeginSentinelRun(INT, INT, INT); /* 0x358 */
     virtual INT AddSentinelPerTimePeriodStats(FVector InLocation, FRotator InRotation); /* 0x35c */
     virtual INT vf_360(INT); /* 0x360 */
     virtual void vf_364(); /* 0x364 */
     virtual void vf_368(); /* 0x368 */
-    virtual void vf_36c(INT, INT, INT, INT); /* 0x36c */
+    virtual void GetTravelLocations(INT, INT, INT, INT); /* 0x36c */
     virtual INT DoSentinel_MemoryAtSpecificLocation(FVector InLocation, FRotator InRotation); /* 0x370 */
     virtual INT DoSentinel_PerfAtSpecificLocation(FVector InLocation, FRotator InRotation); /* 0x374 */
     virtual void vf_378(INT, INT); /* 0x378 */
@@ -23871,7 +23871,7 @@ struct UHeightFogComponent : public UActorComponent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual FLOAT vf_110(INT); /* 0x110 */
+    virtual void SetParentToWorld(const FMatrix& ParentToWorld); /* 0x110 */
     virtual void vf_114(); /* 0x114 */
     virtual void vf_118(); /* 0x118 */
     virtual void Detach(UBOOL bWillReattach); /* 0x11c */
@@ -27486,7 +27486,7 @@ struct UMaterialInstanceConstant : public UMaterialInstance {
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
-    virtual UINT vf_114(UINT, UINT, INT*, UINT*); /* 0x114 */
+    virtual UINT GetFontParameterValue(UINT, UINT, INT*, UINT*); /* 0x114 */
     virtual UBOOL GetScalarParameterValue(FName ParameterName, FLOAT& OutValue); /* 0x118 */
     virtual UBOOL GetTextureParameterValue(FName ParameterName, class UTexture*& OutValue); /* 0x120 */
     virtual UBOOL GetVectorParameterValue(FName ParameterName, FLinearColor& OutValue); /* 0x124 */
@@ -27539,7 +27539,7 @@ struct UMaterialInstanceTimeVarying : public UMaterialInstance {
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
-    virtual UINT vf_114(UINT, UINT, INT*, UINT*); /* 0x114 */
+    virtual UINT GetFontParameterValue(UINT, UINT, INT*, UINT*); /* 0x114 */
     virtual UBOOL GetScalarParameterValue(FName ParameterName, FLOAT& OutValue); /* 0x118 */
     virtual UBOOL GetScalarCurveParameterValue(FName ParameterName, FInterpCurveFloat& OutValue); /* 0x11c */
     virtual UBOOL GetTextureParameterValue(FName ParameterName, class UTexture*& OutValue); /* 0x120 */
@@ -28767,12 +28767,12 @@ struct UOnlineStatsRead : public UOnlineStats {
     FStringNoInit ViewName; /* 0x6c */
     INT TitleId; /* 0x78 */
     /* virtual functions this class introduces (vtable 0x020a86a0) */
-    virtual INT vf_114(INT, INT, INT, INT); /* 0x114 */
-    virtual INT vf_118(INT, INT, INT, INT); /* 0x118 */
-    virtual INT vf_11c(INT, INT, INT, INT); /* 0x11c */
-    virtual INT vf_120(INT, INT, INT, INT); /* 0x120 */
+    virtual INT GetIntStatValueForPlayer(INT, INT, INT, INT); /* 0x114 */
+    virtual INT SetIntStatValueForPlayer(INT, INT, INT, INT); /* 0x118 */
+    virtual INT GetFloatStatValueForPlayer(INT, INT, INT, INT); /* 0x11c */
+    virtual INT SetFloatStatValueForPlayer(INT, INT, INT, INT); /* 0x120 */
     virtual INT vf_124(INT, INT, INT); /* 0x124 */
-    virtual INT vf_128(INT, INT); /* 0x128 */
+    virtual INT GetRankForPlayer(INT, INT); /* 0x128 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -31527,7 +31527,7 @@ struct UPointLightComponent : public ULightComponent {
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
-    virtual FLOAT vf_110(INT); /* 0x110 */
+    virtual void SetParentToWorld(const FMatrix& ParentToWorld); /* 0x110 */
     virtual void vf_114(); /* 0x114 */
     virtual void vf_118(); /* 0x118 */
     virtual UINT CreateSceneInfo(); /* 0x14c */
@@ -31644,7 +31644,7 @@ struct USceneCaptureComponent : public UActorComponent {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_02c(); /* 0x02c */
-    virtual FLOAT vf_110(INT); /* 0x110 */
+    virtual void SetParentToWorld(const FMatrix& ParentToWorld); /* 0x110 */
     virtual void vf_114(); /* 0x114 */
     virtual void Detach(UBOOL bWillReattach); /* 0x11c */
     virtual void Tick(FLOAT DeltaTime); /* 0x124 */
@@ -32941,7 +32941,7 @@ struct USceneCapture2DComponent : public USceneCaptureComponent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual FLOAT vf_110(INT); /* 0x110 */
+    virtual void SetParentToWorld(const FMatrix& ParentToWorld); /* 0x110 */
     virtual void vf_114(); /* 0x114 */
     virtual INT vf_14c(); /* 0x14c */
     /* UnrealScript natives */
@@ -32971,7 +32971,7 @@ struct USceneCaptureCubeMapComponent : public USceneCaptureComponent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual FLOAT vf_110(INT); /* 0x110 */
+    virtual void SetParentToWorld(const FMatrix& ParentToWorld); /* 0x110 */
     virtual void vf_114(); /* 0x114 */
     virtual INT vf_14c(); /* 0x14c */
     /* registered size 0x98 */
@@ -35905,9 +35905,9 @@ struct ASkeletalMeshActorMAT : public ASkeletalMeshActor {
     DECLARE_CLASS(ASkeletalMeshActorMAT, ASkeletalMeshActor, 0x0, 0x0, Engine)
     TArrayNoInit<class UAnimNodeSlot*> SlotNodes; /* 0x1e8 */
     /* virtual functions this class introduces (vtable 0x01f88cf8) */
-    virtual void vf_354(INT); /* 0x354 */
+    virtual void MAT_BeginAnimControl(INT); /* 0x354 */
     virtual void vf_358(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x358 */
-    virtual INT vf_35c(INT); /* 0x35c */
+    virtual INT MAT_SetAnimWeights(INT); /* 0x35c */
     virtual INT vf_360(); /* 0x360 */
     virtual INT vf_364(INT, INT, INT); /* 0x364 */
     virtual INT vf_368(INT, INT, INT); /* 0x368 */
@@ -36456,7 +36456,7 @@ struct USpeedTreeComponent : public UPrimitiveComponent {
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_054(); /* 0x054 */
     virtual INT vf_10c(UINT); /* 0x10c */
-    virtual FLOAT vf_110(INT); /* 0x110 */
+    virtual void SetParentToWorld(const FMatrix& ParentToWorld); /* 0x110 */
     virtual UINT vf_12c(); /* 0x12c */
     virtual void vf_130(); /* 0x130 */
     virtual void vf_134(INT); /* 0x134 */
@@ -36884,7 +36884,7 @@ struct UTerrainComponent : public UPrimitiveComponent {
     virtual void vf_02c(); /* 0x02c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual void vf_0e8(INT); /* 0x0e8 */
-    virtual FLOAT vf_110(INT); /* 0x110 */
+    virtual void SetParentToWorld(const FMatrix& ParentToWorld); /* 0x110 */
     virtual void vf_114(); /* 0x114 */
     virtual void vf_118(); /* 0x118 */
     virtual void Detach(UBOOL bWillReattach); /* 0x11c */
@@ -39165,12 +39165,12 @@ struct UGFxMovie : public UObject {
     virtual FName GetStickMagAng(INT Stick); /* 0x114 */
     virtual void vf_118(INT); /* 0x118 */
     virtual void SetTimingMode(BYTE Mode); /* 0x11c */
-    virtual INT vf_120(INT, INT, INT); /* 0x120 */
+    virtual INT Invoke(INT, INT, INT); /* 0x120 */
     virtual void vf_124(); /* 0x124 */
-    virtual INT vf_128(); /* 0x128 */
+    virtual void PublishDataStoreValues(); /* 0x128 */
     virtual void vf_12c(INT, INT); /* 0x12c */
-    virtual void vf_130(INT); /* 0x130 */
-    virtual void vf_134(INT); /* 0x134 */
+    virtual void GetVariableBool(INT); /* 0x130 */
+    virtual void GetVariableNumber(INT); /* 0x134 */
     virtual void vf_138(INT, INT); /* 0x138 */
     virtual void vf_13c(INT, INT, INT, INT, INT, INT, INT); /* 0x13c */
     virtual void vf_140(INT, INT); /* 0x140 */
@@ -39180,10 +39180,10 @@ struct UGFxMovie : public UObject {
     virtual class UTexture2D* GetPicture(); /* 0x150 */
     virtual INT vf_154(INT, INT, INT); /* 0x154 */
     virtual INT vf_158(INT, INT, INT); /* 0x158 */
-    virtual INT vf_15c(INT, INT, INT); /* 0x15c */
-    virtual void vf_160(INT, INT, INT); /* 0x160 */
-    virtual void vf_164(INT, INT, INT); /* 0x164 */
-    virtual INT vf_168(INT, INT, INT); /* 0x168 */
+    virtual INT SetVariableArray(INT, INT, INT); /* 0x15c */
+    virtual void SetVariableIntArray(INT, INT, INT); /* 0x160 */
+    virtual void SetVariableFloatArray(INT, INT, INT); /* 0x164 */
+    virtual INT SetVariableStringArray(INT, INT, INT); /* 0x168 */
     virtual void vf_16c(); /* 0x16c */
     virtual INT vf_170(INT, INT); /* 0x170 */
     /* overrides */
@@ -39341,11 +39341,11 @@ struct UOnlineGameInterfaceImpl : public UObject {
     virtual INT FindOnlineGames(BYTE SearchingPlayerNum, class UOnlineGameSearch* SearchSettings); /* 0x114 */
     virtual INT vf_118(); /* 0x118 */
     virtual UBOOL FreeSearchResults(class UOnlineGameSearch* Search); /* 0x11c */
-    virtual INT vf_120(INT, INT, INT, INT); /* 0x120 */
+    virtual INT JoinOnlineGame(INT, INT, INT, INT); /* 0x120 */
     virtual INT vf_124(INT, INT, INT); /* 0x124 */
     virtual UBOOL StartOnlineGame(FName SessionName); /* 0x128 */
     virtual UBOOL EndOnlineGame(FName SessionName); /* 0x12c */
-    virtual void vf_130(INT, INT); /* 0x130 */
+    virtual void ReadPlatformSpecificSessionInfo(INT, INT); /* 0x130 */
     virtual UBOOL BindPlatformSpecificSessionToSearch(BYTE SearchingPlayerNum, class UOnlineGameSearch* SearchSettings, const BYTE* PlatformSpecificInfo); /* 0x134 */
     virtual INT vf_138(FLOAT); /* 0x138 */
     virtual INT vf_13c(); /* 0x13c */
@@ -39507,10 +39507,10 @@ struct UPartyBeaconHost : public UPartyBeacon {
     /* virtual functions this class introduces (vtable 0x020f5080) */
     virtual INT vf_110(INT, INT, INT, INT, INT); /* 0x110 */
     virtual void vf_114(INT, INT, INT, INT); /* 0x114 */
-    virtual void vf_118(); /* 0x118 */
-    virtual void vf_11c(); /* 0x11c */
+    virtual void TellClientsHostIsReady(); /* 0x118 */
+    virtual void TellClientsHostHasCancelled(); /* 0x11c */
     virtual void vf_120(INT); /* 0x120 */
-    virtual INT vf_124(); /* 0x124 */
+    virtual INT GetTeamAssignment(); /* 0x124 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -39621,7 +39621,7 @@ struct URBarkFlagBase : public UObject {
     DECLARE_CLASS(URBarkFlagBase, UObject, 0x0, 0x0, CommonGame)
     TArrayNoInit<FBarkFlag> FlagList; /* 0x30 */
     /* virtual functions this class introduces (vtable 0x022e0cc0) */
-    virtual INT vf_10c(INT, INT, INT); /* 0x10c */
+    virtual INT GetValueForType(INT, INT, INT); /* 0x10c */
     virtual UBOOL HasTheseFlags(class URBarkFlagBase* OtherBase); /* 0x110 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
@@ -39778,13 +39778,13 @@ struct ARDebugMenu : public ARDynamicMenu {
     virtual void vf_374(); /* 0x374 */
     virtual void vf_378(); /* 0x378 */
     virtual FString GetVersionInfo(); /* 0x37c */
-    virtual INT vf_380(INT); /* 0x380 */
+    virtual INT LoadLevel(INT); /* 0x380 */
     virtual INT vf_384(INT); /* 0x384 */
     virtual INT vf_388(INT, INT); /* 0x388 */
     virtual INT vf_38c(FLOAT); /* 0x38c */
     virtual void vf_390(INT, INT); /* 0x390 */
     virtual INT vf_394(); /* 0x394 */
-    virtual void vf_398(INT); /* 0x398 */
+    virtual void GetAllSoundCues(INT); /* 0x398 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -39913,7 +39913,7 @@ struct URFlagManager : public UObject {
     virtual INT vf_114(INT, INT, INT, INT); /* 0x114 */
     virtual UBOOL GetGlobalFlag(FName FlagName); /* 0x118 */
     virtual UBOOL SetGlobalFlag(FName FlagName, UBOOL bValue); /* 0x11c */
-    virtual void vf_120(INT); /* 0x120 */
+    virtual void SetGlobalFlags(INT); /* 0x120 */
     virtual FString GetPersistentMapName(); /* 0x124 */
     virtual void vf_128(INT, INT); /* 0x128 */
     /* overrides */
@@ -40081,7 +40081,7 @@ struct ARHUDBase : public AHUD {
     virtual INT vf_354(); /* 0x354 */
     virtual void vf_358(INT, INT, INT); /* 0x358 */
     virtual INT vf_35c(INT); /* 0x35c */
-    virtual INT vf_360(INT, INT); /* 0x360 */
+    virtual INT GetPromptYPosition(INT, INT); /* 0x360 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -40190,7 +40190,7 @@ struct ARPathNode : public APathNode {
     TArrayNoInit<class APhysicsVolume*> AllPhysVolumes; /* 0x29c */
     /* virtual functions this class introduces (vtable 0x022e77e0) */
     virtual UBOOL IsSafe(class APawn* TestPawn); /* 0x3b0 */
-    virtual FLOAT vf_3b4(INT); /* 0x3b4 */
+    virtual FLOAT UpdateLastSeenTime(INT); /* 0x3b4 */
     virtual FLOAT vf_3b8(INT); /* 0x3b8 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
@@ -40627,9 +40627,9 @@ struct UOnlineGameInterfaceSteamworks : public UOnlineGameInterfaceImpl {
     FScriptDelegate __OnUnregisterPlayerComplete__Delegate; /* 0x1c4 */
     /* virtual functions this class introduces (vtable 0x0211bfe0) */
     virtual INT vf_178(INT, INT, INT, INT); /* 0x178 */
-    virtual INT vf_17c(INT, INT, INT); /* 0x17c */
-    virtual INT vf_180(INT, INT, INT, INT, INT); /* 0x180 */
-    virtual INT vf_184(INT, INT, INT, INT); /* 0x184 */
+    virtual INT AcceptGameInvite(INT, INT, INT); /* 0x17c */
+    virtual INT RegisterPlayer(INT, INT, INT, INT, INT); /* 0x180 */
+    virtual INT UnregisterPlayer(INT, INT, INT, INT); /* 0x184 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -40638,7 +40638,7 @@ struct UOnlineGameInterfaceSteamworks : public UOnlineGameInterfaceImpl {
     virtual UBOOL DestroyOnlineGame(FName SessionName); /* 0x110 */
     virtual INT FindOnlineGames(BYTE SearchingPlayerNum, class UOnlineGameSearch* SearchSettings); /* 0x114 */
     virtual INT vf_118(); /* 0x118 */
-    virtual INT vf_120(INT, INT, INT, INT); /* 0x120 */
+    virtual INT JoinOnlineGame(INT, INT, INT, INT); /* 0x120 */
     virtual UBOOL StartOnlineGame(FName SessionName); /* 0x128 */
     virtual UBOOL EndOnlineGame(FName SessionName); /* 0x12c */
     virtual INT vf_138(FLOAT); /* 0x138 */
@@ -42823,7 +42823,7 @@ struct ARPawnCharacter : public ARPawn {
     virtual INT vf_49c(INT, INT, INT, INT, INT, INT); /* 0x49c */
     virtual INT vf_4a0(INT, INT, INT, INT, INT, INT); /* 0x4a0 */
     virtual INT vf_4a4(INT, INT, INT, INT, INT, INT); /* 0x4a4 */
-    virtual INT vf_4a8(INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x4a8 */
+    virtual INT GetAdditiveAnim(INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x4a8 */
     virtual void vf_4ac(); /* 0x4ac */
     virtual INT vf_4b0(); /* 0x4b0 */
     virtual INT vf_4b4(INT); /* 0x4b4 */
@@ -46741,7 +46741,7 @@ struct URBMRagdollBoneFollower : public UActorComponent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual FLOAT vf_110(INT); /* 0x110 */
+    virtual void SetParentToWorld(const FMatrix& ParentToWorld); /* 0x110 */
     /* registered size 0x58 */
 };
 
@@ -46972,8 +46972,8 @@ struct ARBMRouteRequest_FindShortestPath : public ARBMRouteRequest {
     INT NextPGPIndexToTest; /* 0x1e4 */
     class ANavigationPoint* CachedStartAnchor; /* 0x1e8 */
     /* virtual functions this class introduces (vtable 0x02347fa0) */
-    virtual void vf_378(INT); /* 0x378 */
-    virtual void vf_37c(INT); /* 0x37c */
+    virtual void SetGoalList(INT); /* 0x378 */
+    virtual void SetGoalNavPoints(INT); /* 0x37c */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -47710,7 +47710,7 @@ struct URCapeComponent : public UActorComponent {
     /* virtual functions this class introduces (vtable 0x023921a0) */
     virtual void vf_14c(); /* 0x14c */
     virtual void vf_150(); /* 0x150 */
-    virtual void vf_154(INT); /* 0x154 */
+    virtual void GetThoughts(INT); /* 0x154 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -48252,7 +48252,7 @@ struct ARCinematicActor : public ASkeletalMeshActor {
     virtual INT vf_360(); /* 0x360 */
     virtual void InternalSetMorphWeight(FName MorphNodeName, FLOAT MorphWeight); /* 0x364 */
     virtual INT vf_368(INT, INT, INT); /* 0x368 */
-    virtual void vf_36c(INT, INT); /* 0x36c */
+    virtual void GetThoughts(INT, INT); /* 0x36c */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -51335,7 +51335,7 @@ struct ARGameRI : public ARGameReplicationInfoBase {
     virtual void vf_388(INT, INT); /* 0x388 */
     virtual void vf_38c(INT, INT, INT, INT); /* 0x38c */
     virtual void ShowLoadingIcon(UBOOL bShow); /* 0x390 */
-    virtual void vf_394(INT); /* 0x394 */
+    virtual void SetLevelsInURL(INT); /* 0x394 */
     virtual UBOOL IsCurrentLevel(FName Level); /* 0x398 */
     virtual UBOOL IsInCurrentLevel(class UObject* Obj); /* 0x39c */
     virtual INT vf_3a0(INT); /* 0x3a0 */
@@ -51640,7 +51640,7 @@ struct URGFxMovieMap : public URGFxMovie {
     DECLARE_CLASS(URGFxMovieMap, URGFxMovie, 0x0, 0x0, BmGame)
     class USoundCue* MapSFX; /* 0x9c */
     /* virtual functions this class introduces (vtable 0x023a59f8) */
-    virtual void vf_17c(INT); /* 0x17c */
+    virtual void CutdownFlagNames(INT); /* 0x17c */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -52522,7 +52522,7 @@ struct URHUDPrompt : public UObject {
     FStringNoInit InstructionsLast; /* 0x80 */
     class URSeqAct_HelpText* FromKismet; /* 0x8c */
     /* virtual functions this class introduces (vtable 0x022ff030) */
-    virtual INT vf_10c(INT, INT); /* 0x10c */
+    virtual INT HelpLinesMatch(INT, INT); /* 0x10c */
     virtual void vf_110(INT, INT, INT, INT); /* 0x110 */
     virtual void vf_114(); /* 0x114 */
     virtual INT vf_118(); /* 0x118 */
@@ -52923,7 +52923,7 @@ struct ARJokerTannoy : public AActor {
     FStringNoInit BarkSetPackage; /* 0x1cc */
     INT RoomSpecificBias; /* 0x1d8 */
     /* virtual functions this class introduces (vtable 0x02345e98) */
-    virtual void vf_354(INT); /* 0x354 */
+    virtual void LoadBarkSet(INT); /* 0x354 */
     virtual void vf_358(); /* 0x358 */
     virtual INT vf_35c(); /* 0x35c */
     /* overrides */
@@ -53063,7 +53063,7 @@ struct ARLevelTransition : public AActor {
     virtual INT vf_368(); /* 0x368 */
     virtual INT vf_36c(INT); /* 0x36c */
     virtual FName GetNonCurrentLevel(); /* 0x370 */
-    virtual INT vf_374(INT); /* 0x374 */
+    virtual INT GetAllConnectedLevels(INT); /* 0x374 */
     virtual INT vf_378(INT, INT); /* 0x378 */
     virtual INT vf_37c(INT, INT); /* 0x37c */
     virtual INT vf_380(INT); /* 0x380 */
@@ -54207,7 +54207,7 @@ struct ARPawnPlayerCombat : public ARPawnPlayerAnim {
     virtual void vf_650(INT, INT, INT, INT, INT, INT, INT); /* 0x650 */
     virtual void vf_654(INT, INT, INT, INT, INT); /* 0x654 */
     virtual INT vf_658(INT, INT, INT, INT, INT); /* 0x658 */
-    virtual INT vf_65c(INT, INT); /* 0x65c */
+    virtual INT GetNumberOfCounterHits(INT, INT); /* 0x65c */
     virtual FLOAT GetStrikeContactTime(class UAnimSequence* StrikeAnimSequence); /* 0x660 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
@@ -55319,11 +55319,11 @@ struct ARPlayerController : public ARPlayerControllerBase {
     virtual INT vf_4e4(); /* 0x4e4 */
     virtual void vf_4e8(INT); /* 0x4e8 */
     virtual FString vf_4ec(const FString&, const FString&, UBOOL); /* 0x4ec */
-    virtual void vf_4f0(const FString&, const FString&, const FString&); /* 0x4f0 */
+    virtual void RecordMetrics(const FString&, const FString&, const FString&); /* 0x4f0 */
     virtual INT vf_4f4(); /* 0x4f4 */
-    virtual void vf_4f8(INT, INT, INT); /* 0x4f8 */
-    virtual void vf_4fc(INT, INT, INT); /* 0x4fc */
-    virtual void vf_500(INT, INT, INT); /* 0x500 */
+    virtual void RecordEidosMetricsFrontend(INT, INT, INT); /* 0x4f8 */
+    virtual void RecordEidosMetrics(INT, INT, INT); /* 0x4fc */
+    virtual void RecordEidosMetricsLocation(INT, INT, INT); /* 0x500 */
     virtual INT vf_504(); /* 0x504 */
     virtual void vf_508(const FString&, INT, const FString&, const FString&); /* 0x508 */
     virtual DOUBLE vf_50c(); /* 0x50c */
@@ -55337,7 +55337,7 @@ struct ARPlayerController : public ARPlayerControllerBase {
     virtual INT vf_52c(); /* 0x52c */
     virtual void vf_530(FLOAT); /* 0x530 */
     virtual void vf_534(); /* 0x534 */
-    virtual void vf_538(const FString&); /* 0x538 */
+    virtual void AutoJez(const FString&); /* 0x538 */
     virtual INT vf_53c(); /* 0x53c */
     virtual void vf_540(); /* 0x540 */
     virtual void vf_544(); /* 0x544 */
@@ -55355,7 +55355,7 @@ struct ARPlayerController : public ARPlayerControllerBase {
     virtual INT vf_574(); /* 0x574 */
     virtual INT vf_578(INT); /* 0x578 */
     virtual INT vf_57c(const FString&); /* 0x57c */
-    virtual INT vf_580(INT); /* 0x580 */
+    virtual INT GetInfocastMsg(INT); /* 0x580 */
     virtual void vf_584(UINT); /* 0x584 */
     virtual INT vf_588(INT&); /* 0x588 */
     virtual void vf_58c(); /* 0x58c */
@@ -55376,16 +55376,16 @@ struct ARPlayerController : public ARPlayerControllerBase {
     virtual INT vf_5c8(INT); /* 0x5c8 */
     virtual UBOOL Live_DeleteSavedGame(INT Id); /* 0x5cc */
     virtual INT vf_5d0(); /* 0x5d0 */
-    virtual INT vf_5d4(INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x5d4 */
+    virtual void Live_StoreSaveInfo(INT Id, const FString& Difficulty, const FString& Percentage, const FString& TimePlayed, const FString& RoomName, const FString& ChallengeStr, const FString& RiddlerStr, const FString& UpgradesStr, const FString& BioStr); /* 0x5d4 */
     virtual INT vf_5d8(INT); /* 0x5d8 */
     virtual INT vf_5dc(); /* 0x5dc */
     virtual INT vf_5e0(INT, INT); /* 0x5e0 */
     virtual INT vf_5e4(INT, INT); /* 0x5e4 */
     virtual INT vf_5e8(INT, const FString&); /* 0x5e8 */
     virtual void vf_5ec(); /* 0x5ec */
-    virtual INT vf_5f0(INT); /* 0x5f0 */
-    virtual INT vf_5f4(INT); /* 0x5f4 */
-    virtual void vf_5f8(INT); /* 0x5f8 */
+    virtual INT TestSave(INT); /* 0x5f0 */
+    virtual INT TestLoad(INT); /* 0x5f4 */
+    virtual void TestQuery(INT); /* 0x5f8 */
     virtual INT vf_5fc(); /* 0x5fc */
     virtual UBOOL CheckContentExists(const FString& Path); /* 0x600 */
     virtual INT vf_604(); /* 0x604 */
@@ -55409,11 +55409,11 @@ struct ARPlayerController : public ARPlayerControllerBase {
     virtual INT vf_64c(); /* 0x64c */
     virtual INT vf_650(); /* 0x650 */
     virtual UBOOL IsMoviePresent(const FString& Path); /* 0x654 */
-    virtual INT vf_658(INT); /* 0x658 */
-    virtual INT vf_65c(INT); /* 0x65c */
-    virtual INT vf_660(INT); /* 0x660 */
-    virtual void vf_664(INT); /* 0x664 */
-    virtual void vf_668(INT, INT, INT, INT); /* 0x668 */
+    virtual INT GetReturnPoint(INT); /* 0x658 */
+    virtual INT SetReturnPoint(INT); /* 0x65c */
+    virtual INT StripGlobalNamePart(INT); /* 0x660 */
+    virtual void GetVisitedPMapsList(INT); /* 0x664 */
+    virtual void GetCreditsStrings(INT, INT, INT, INT); /* 0x668 */
     virtual INT vf_66c(); /* 0x66c */
     virtual INT vf_670(); /* 0x670 */
     virtual INT vf_674(INT); /* 0x674 */
@@ -57003,7 +57003,7 @@ struct URSeqAct_ConversationDialogue : public URSeqAct_PlaySpeechBase {
     class ARCinematicCameraActor* BatsFirstCamera; /* 0x14c */
     /* virtual functions this class introduces (vtable 0x0230f510) */
     virtual INT vf_1a0(); /* 0x1a0 */
-    virtual INT vf_1a4(INT); /* 0x1a4 */
+    virtual INT CheckName(INT); /* 0x1a4 */
     virtual UBOOL LookAtTagOnLine(class ARPawnCharacter* Looker, FName CharName, class USoundCue* SpeechToPlay); /* 0x1a8 */
     virtual class ARPawnCharacter* GetSpeaker(class APlayerController* PC, FName ScriptName); /* 0x1ac */
     virtual void vf_1b0(INT, INT); /* 0x1b0 */
@@ -60207,9 +60207,9 @@ struct ARTapePlayer : public AActor {
     class UAudioComponent* TapeAudioComponent; /* 0x228 */
     /* virtual functions this class introduces (vtable 0x0235f680) */
     virtual void vf_354(); /* 0x354 */
-    virtual void vf_358(INT); /* 0x358 */
+    virtual void LoadConversation(INT); /* 0x358 */
     virtual INT vf_35c(); /* 0x35c */
-    virtual void vf_360(INT); /* 0x360 */
+    virtual void SetSubtitles(INT); /* 0x360 */
     virtual INT vf_364(INT); /* 0x364 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */

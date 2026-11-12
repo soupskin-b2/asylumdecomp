@@ -345,9 +345,9 @@ void URBarkSet::PostEditChange(UProperty* PropertyThatChanged)
 INT sub_00d457e0(INT Height);
 // @baa 0x0150f410
 /* ARHUDBase's GetPromptYPosition (slot 0x360, called by execGetPromptYPosition; a placeholder
- * vf_360(INT, INT) in the kit): the prompt sits one text line above 92.5% of the canvas height.
+ * GetPromptYPosition(INT, INT) in the kit): the prompt sits one text line above 92.5% of the canvas height.
  * The text height is picked for 85% of the first size. Parameter names are descriptive. */
-INT ARHUDBase::vf_360(INT SizeY, INT ClipY)
+INT ARHUDBase::GetPromptYPosition(INT SizeY, INT ClipY)
 {
     FLOAT Height = (FLOAT)ClipY;
     INT TextHeight = sub_00d457e0(SizeY * 85 / 100);
