@@ -23,7 +23,7 @@ void UMeshComponent::execGetMaterial(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(ElementIndex);
 	P_FINISH;
-	*(UMaterialInterface**)Result = (UMaterialInterface*)vf_25c(ElementIndex);
+	*(UMaterialInterface**)Result = (UMaterialInterface*)GetMaterial(ElementIndex);
 }
 
 // @baa 0x006dc930

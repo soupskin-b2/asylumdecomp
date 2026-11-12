@@ -26,7 +26,7 @@ uint URAnimNode_Cape::sub_0155cf50(void)
 int sub_006311e0(...);
 extern undefined4 g_022f6364;
 // @baa 0x0155cf60
-DOUBLE URAnimNode_Cape::vf_178(INT param_2, INT param_3) {
+FLOAT URAnimNode_Cape::GetSliderPosition(INT param_2, INT param_3) {
     int param_1 = (int)this;
 
   if ((param_2 != 0) || (param_3 != 0)) {

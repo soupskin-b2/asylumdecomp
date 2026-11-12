@@ -57,7 +57,7 @@ void UPrimitiveComponent::execSetOwnerNoSee(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bOwnerNoSee);
 	P_FINISH;
-	vf_214(bOwnerNoSee);
+	SetOwnerNoSee(bOwnerNoSee);
 }
 
 struct UPrimitiveComponent_ : public UPrimitiveComponent
@@ -82,7 +82,7 @@ void UPrimitiveComponent::execSetOnlyOwnerSee(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bOnlyOwnerSee);
 	P_FINISH;
-	vf_218(bOnlyOwnerSee);
+	SetOnlyOwnerSee(bOnlyOwnerSee);
 }
 
 // @baa 0x006dba50
@@ -130,7 +130,7 @@ void UPrimitiveComponent::execSetDontDrawThisFrame(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bDontDrawThisFrame);
 	P_FINISH;
-	vf_230(bDontDrawThisFrame);
+	SetIgnoreOwnerHidden(bDontDrawThisFrame);
 }
 
 // @baa 0x006dc270

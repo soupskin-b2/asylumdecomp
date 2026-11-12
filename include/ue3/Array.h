@@ -159,13 +159,9 @@ public:
             AllocatorInstance.ResizeAllocation(ArrayNum, ArrayMax, sizeof(T));
         }
     }
-    void Reset(INT NewSize = 0) {
-        if (NewSize <= ArrayMax) {
-            DestructItems(0, ArrayNum);
-            ArrayNum = 0;
-        } else {
-            Empty(NewSize);
-        }
+    void Reset() { /* this build's: no NewSize (no ArrayMax test) */
+        DestructItems(0, ArrayNum);
+        ArrayNum = 0;
     }
     void Empty(INT Slack = 0) {
         DestructItems(0, ArrayNum);

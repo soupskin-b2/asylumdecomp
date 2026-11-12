@@ -1648,10 +1648,10 @@ bool URSeqAct_UnduckDialogue::vf_004()
 int URSeqAct_PlayTVSequenceSingleLine::vf_000(void) { return 1; }
 
 // @baa 0x01558df0
-void URSeqAct_DuckDialogue::vf_174(void) {  }
+void URSeqAct_DuckDialogue::Activated(void) {  }
 
 // @baa 0x01558e00
-void URSeqAct_UnduckDialogue::vf_174(void) {  }
+void URSeqAct_UnduckDialogue::Activated(void) {  }
 
 // @baa 0x01558e10
 int sub_01558e10(int a0, int a1) { return a1; }

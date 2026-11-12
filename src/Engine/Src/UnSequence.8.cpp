@@ -146,7 +146,7 @@ void C_008c2700::sub_008c2700(int param_2)
 
 int sub_008d1890(void);
 // @baa 0x008d1d20
-void USeqAct_SetDOFParams::vf_174(void)
+void USeqAct_SetDOFParams::Activated(void)
 {
     int param_1 = (int)this;
 
@@ -159,7 +159,7 @@ void USeqAct_SetDOFParams::vf_174(void)
 }
 
 // @baa 0x008d1d50
-void USeqAct_ParticleEventGenerator::vf_174(void)
+void USeqAct_ParticleEventGenerator::Activated(void)
 {
     int param_1 = (int)this;
 

@@ -25,7 +25,7 @@ struct UGFxFSCmdHandler_Kismet_ : public UGFxFSCmdHandler_Kismet
 };
 
 // @baa 0x00e6ffb0
-INT UGFxEvent_FsCommand::vf_1a0()
+INT UGFxEvent_FsCommand::RegisterEvent()
 {
     UBOOL bResult = ((USequenceEvent_*)this)->USequenceEvent_::RegisterEvent();
     if (Movie && bResult)

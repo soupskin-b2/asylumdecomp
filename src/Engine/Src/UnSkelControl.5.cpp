@@ -28,11 +28,6 @@ void USkelControlBase::SetSkelControlStrength(FLOAT NewStrength, FLOAT InBlendTi
 #define KINDA_SMALL_NUMBER (1.e-4)
 /* slot 0x120 (vf_120) is USkelControlBase::TickSkelControl(FLOAT DeltaSeconds, USkeletalMeshComponent* SkelComp);
  * the base version is at 0x009225f0. */
-struct USkelControlBase_ : public USkelControlBase
-{
-    void TickSkelControl(FLOAT DeltaSeconds, USkeletalMeshComponent* SkelComp);
-};
-
 struct USkelControlLookAt_ : public USkelControlLookAt
 {
     void TickSkelControl(FLOAT DeltaSeconds, USkeletalMeshComponent* SkelComp);
@@ -41,7 +36,7 @@ struct USkelControlLookAt_ : public USkelControlLookAt
 // @baa 0x00923c70
 void USkelControlLookAt_::TickSkelControl(FLOAT DeltaSeconds, USkeletalMeshComponent* SkelComp)
 {
-    ((USkelControlBase_*)this)->TickSkelControl(DeltaSeconds, SkelComp);
+    USkelControlBase::TickSkelControl(DeltaSeconds, SkelComp);
 
     // blend LookAtAlpha towards its target, snapping when the time runs out or it's close enough
     const FLOAT BlendDelta = LookAtAlphaTarget - LookAtAlpha;

@@ -78,7 +78,7 @@ void USkelControlBase::Serialize(FArchive& Ar) {
 void USkelControlBase::vf_11c(void) {  }
 
 // @baa 0x0090cfd0
-byte USkelControlSingleBone::vf_138(void)
+INT USkelControlSingleBone::GetNumWidgets()
 {
     int param_1 = (int)this;
 
@@ -128,7 +128,7 @@ float USkelControlBase::vf_130(int a0, int a1) { return *(float*)((char*)this + 
 int sub_00922560(void) { return 0; }
 
 // @baa 0x00922590
-void USkelControlBase::vf_140(int a0, int a1) {  }
+void USkelControlBase::HandleWidgetDrag(INT a0, const FVector& a1) {  }
 
 // @baa 0x009225a0
 void USkelControlBase::vf_144(int a0, int a1, int a2, int a3) {  }
@@ -405,14 +405,8 @@ void USkelControlLookAt__0090d0a0::InterpolateTargetLocation(FLOAT DeltaTime)
     TargetLocation = VInterpTo(TargetLocation, DesiredTargetLocation, DeltaTime, TargetLocationInterpSpeed);
 }
 
-/* slot 0x13c (vf_13c) is USkelControlBase::GetWidgetTM */
-struct USkelControlBase__00922570 : public USkelControlBase
-{
-    FMatrix GetWidgetTM(INT WidgetIndex, USkeletalMeshComponent* SkelComp, INT BoneIndex);
-};
-
 // @baa 0x00922570
-FMatrix USkelControlBase__00922570::GetWidgetTM(INT WidgetIndex, USkeletalMeshComponent* SkelComp, INT BoneIndex)
+FMatrix USkelControlBase::GetWidgetTM(INT WidgetIndex, USkeletalMeshComponent* SkelComp, INT BoneIndex)
 {
     return FMatrix::Identity;
 }

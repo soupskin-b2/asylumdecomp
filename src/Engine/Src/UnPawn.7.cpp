@@ -27,7 +27,7 @@ template<class T> struct TArrayAt_ : public TArray<T>
 extern template APlayerController* Cast<APlayerController>(UObject* Src);
 // @baa 0x0087b650
 // APawn::GetViewRotation (vtable slot 0x394)
-FRotator APawn::vf_394()
+FRotator APawn::GetViewRotation()
 {
     if (Controller)
     {

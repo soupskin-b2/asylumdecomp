@@ -915,7 +915,7 @@ undefined4 * UObject::sub_01581850(void)
 }
 
 // @baa 0x015818d0
-void URSeqAct_Credits::vf_174(void) {  }
+void URSeqAct_Credits::Activated(void) {  }
 
 // @baa 0x015818e0
 void URSeqAct_Credits::vf_178(void) {  }
@@ -1455,7 +1455,7 @@ IMPLEMENT_CLASS_AT(URSeqAct_PlaySpeechBase, "e:\\Projects\\Amadeus\\AA\\Game\\Un
 
 int sub_008d1cf0(void);
 // @baa 0x01584ca0
-void URSeqAct_PlaySpeechBase::vf_174(void)
+void URSeqAct_PlaySpeechBase::Activated(void)
 {
     int param_1 = (int)this;
 

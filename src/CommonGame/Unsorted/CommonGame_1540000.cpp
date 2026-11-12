@@ -546,7 +546,7 @@ void URSeqAct_WaitForAllInputs::vf_178(void) {  }
 IMPLEMENT_CLASS_AT(URSeqAct_WaitForAllInputs, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonGame\\Src\\CommonGameSequenceClasses.cpp", 7);
 
 // @baa 0x015475d0
-void URSeqAct_WaitForBool::vf_174(void) {  }
+void URSeqAct_WaitForBool::Activated(void) {  }
 
 // @baa 0x015475e0
 void URSeqAct_WaitForBool::vf_178(void) {  }

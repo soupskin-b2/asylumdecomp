@@ -38,7 +38,7 @@ int UAnimNodeSequenceBlendByAim::vf_000(void) { return 1; }
 int sub_006311e0(...);
 extern undefined4 g_0204f6f0;
 // @baa 0x00c4ade0
-DOUBLE UAnimNodeSequence::vf_178(INT param_2, INT param_3) {
+FLOAT UAnimNodeSequence::GetSliderPosition(INT param_2, INT param_3) {
     int param_1 = (int)this;
   float fVar1;
   if ((param_2 != 0) || (param_3 != 0)) {
@@ -66,7 +66,7 @@ void AActor::sub_00c4afe0(undefined4 param_2)
 extern undefined4 g_02050c70;
 extern undefined4 g_02050d60;
 // @baa 0x00c4b120
-void UAnimNodeSequenceBlendByAim::vf_17c(int param_2, int param_3, float param_4)
+void UAnimNodeSequenceBlendByAim::HandleSliderMove(INT param_2, INT param_3, FLOAT param_4)
 {
     int param_1 = (int)this;
   if (param_2 != 0) {
@@ -261,7 +261,7 @@ struct UAnimNodeSequenceBlendBase_ : public UAnimNodeSequenceBlendBase
 // @baa 0x00c5e6a0
 /* vf_1a0 is CheckAnimsUpToDate (flagged): refreshes every blended animation's info, and plays the first
  * one that resolves on this node. */
-void UAnimNodeSequenceBlendBase::vf_1a0()
+void UAnimNodeSequenceBlendBase::CheckAnimsUpToDate()
 {
 	const INT NumAnims = Anims.Num();
 	bool bUpdatedSeqNode = false;

@@ -44,11 +44,11 @@ struct UGFxMovie_ : public UGFxMovie
 
 // @baa 0x00e6b210
 /* vf_174 is USequenceOp::Activated (USequenceAction::Activated is 008d1890). */
-void UGFxAction_OpenMovie::vf_174()
+void UGFxAction_OpenMovie::Activated()
 {
     if (GEngine && GEngine->GameViewport)
     {
-        Super::vf_174();
+        Super::Activated();
         if (Movie)
         {
             FObjectVarArray ObjVars;

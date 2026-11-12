@@ -6,7 +6,7 @@
 
 // @baa 0x00c4ff80
 /* vf_188 is GetNormalizedPosition (flagged): how far through the animation the node is, from 0 to 1. */
-FLOAT UAnimNodeSequence::vf_188()
+FLOAT UAnimNodeSequence::GetNormalizedPosition()
 {
 	if (AnimSeq && AnimSeq->SequenceLength > 0.f)
 	{
@@ -41,7 +41,7 @@ struct UAnimNodeSequence_ : public UAnimNodeSequence
 
 // @baa 0x00c5e5b0
 /* vf_160 is SetPosition (flagged): jumps to NewTime, firing the notifies passed over if bFireNotifies. */
-void UAnimNodeSequence::vf_160(FLOAT NewTime, UBOOL bFireNotifies)
+void UAnimNodeSequence::SetPosition(FLOAT NewTime, UBOOL bFireNotifies)
 {
 	const FLOAT AnimLength = AnimSeq ? AnimSeq->SequenceLength : 0.f;
 	NewTime = Clamp<FLOAT>(NewTime, 0.f, AnimLength + KINDA_SMALL_NUMBER);
@@ -69,7 +69,7 @@ void UAnimNodeSequence::vf_160(FLOAT NewTime, UBOOL bFireNotifies)
 // @baa 0x00c4af60
 /* vf_18c is FindGroupPosition (flagged): the node's position, from 0 to 1, for a relative position in its
  * synch group, shifted by SynchPosOffset and wrapped. */
-FLOAT UAnimNodeSequence::vf_18c(FLOAT GroupRelativePosition)
+FLOAT UAnimNodeSequence::FindGroupPosition(FLOAT GroupRelativePosition)
 {
 	FLOAT Position = appFmod(GroupRelativePosition + SynchPosOffset, 1.f);
 	if (Position < 0.f)

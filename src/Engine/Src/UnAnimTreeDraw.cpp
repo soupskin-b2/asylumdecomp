@@ -24,7 +24,7 @@ bool UAnimNodeBlend::vf_004()
 int sub_006311e0(...);
 extern undefined4 g_0205ccbc;
 // @baa 0x00c92af0
-DOUBLE UAnimNodeBlend::vf_178(INT param_2, INT param_3) {
+FLOAT UAnimNodeBlend::GetSliderPosition(INT param_2, INT param_3) {
     int param_1 = (int)this;
 
   if ((param_2 != 0) || (param_3 != 0)) {
@@ -42,14 +42,8 @@ struct FString_ : public FString
 	static FString Printf(const TCHAR* Fmt, FLOAT Value);
 };
 
-/* UAnimNodeBlend's editor slider label (UAnimNode vtable slot, declared only as a vf_). */
-struct UAnimNodeBlend_ : public UAnimNodeBlend
-{
-	FString GetSliderDrawValue(INT SliderIndex);
-};
-
 // @baa 0x00cc0730
-FString UAnimNodeBlend_::GetSliderDrawValue(INT SliderIndex)
+FString UAnimNodeBlend::GetSliderDrawValue(INT SliderIndex)
 {
 #line 379 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTreeDraw.cpp"
 	check(0 == SliderIndex);
@@ -59,13 +53,8 @@ FString UAnimNodeBlend_::GetSliderDrawValue(INT SliderIndex)
 #line 60 "candidate.cpp"
 
 /* UAnimNodeBlendBySpeed's editor slider label (UAnimNode vtable slot, declared only as a vf_). */
-struct UAnimNodeBlendBySpeed_ : public UAnimNodeBlendBySpeed
-{
-	FString GetSliderDrawValue(INT SliderIndex);
-};
-
 // @baa 0x00cc0790
-FString UAnimNodeBlendBySpeed_::GetSliderDrawValue(INT SliderIndex)
+FString UAnimNodeBlendBySpeed::GetSliderDrawValue(INT SliderIndex)
 {
 #line 402 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTreeDraw.cpp"
 	check(0 == SliderIndex);
@@ -83,13 +72,8 @@ struct FString__00cc07f0 : public FString
 
 #define PI (3.1415926535897932)	/* UnMath.h; not in the kit */
 /* UAnimNodeBlendDirectional's editor slider label (UAnimNode vtable slot, declared only as a vf_). */
-struct UAnimNodeBlendDirectional_ : public UAnimNodeBlendDirectional
-{
-	FString GetSliderDrawValue(INT SliderIndex);
-};
-
 // @baa 0x00cc07f0
-FString UAnimNodeBlendDirectional_::GetSliderDrawValue(INT SliderIndex)
+FString UAnimNodeBlendDirectional::GetSliderDrawValue(INT SliderIndex)
 {
 #line 426 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTreeDraw.cpp"
 	check(0 == SliderIndex);

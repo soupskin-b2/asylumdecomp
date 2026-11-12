@@ -1421,7 +1421,7 @@ void USequenceObject::vf_12c(void) {  }
 UBOOL USequenceOp::UpdateOp(FLOAT DeltaTime) { return TRUE; }
 
 // @baa 0x008abac0
-void USequenceOp::vf_174(void) {  }
+void USequenceOp::Activated(void) {  }
 
 // @baa 0x008abaf0
 void USequence::vf_1ac(void) {  }
@@ -1480,7 +1480,7 @@ UBOOL USeqAct_SetDOFParams::UpdateOp(FLOAT DeltaTime) { return FALSE; }
 UBOOL USeqAct_SetMotionBlurParams::UpdateOp(FLOAT DeltaTime) { return FALSE; }
 
 // @baa 0x008abfb0
-void USeqAct_SetMotionBlurParams::vf_174(void) {  }
+void USeqAct_SetMotionBlurParams::Activated(void) {  }
 
 // @baa 0x008abfd0
 void USeqAct_ActorFactory::vf_178(void)
@@ -1495,13 +1495,13 @@ void USeqAct_ActorFactory::vf_178(void)
 void USeqAct_Delay::vf_178(void) {  }
 
 // @baa 0x008ac020
-void USeqAct_StreamInTextures::vf_174(void) {  }
+void USeqAct_StreamInTextures::Activated(void) {  }
 
 // @baa 0x008ac030
 void USeqAct_StreamInTextures::vf_178(void) {  }
 
 // @baa 0x008ac040
-void USeqAct_AIMoveToActor::vf_174(void) {  }
+void USeqAct_AIMoveToActor::Activated(void) {  }
 
 struct V_008ac5e0 {
     virtual void v0();
@@ -3530,7 +3530,7 @@ struct C_view {
 
 int sub_008cc3b0(...);
 // @baa 0x008cc470
-void USeqAct_LevelStreaming::vf_174(void)
+void USeqAct_LevelStreaming::Activated(void)
 {
     int param_1 = (int)this;
   undefined4 uVar1;
@@ -3577,7 +3577,7 @@ bool USequenceVariable::vf_004()
 // @baa 0x008d0630
 int sub_008d1890(void);
 // @baa 0x008d1cf0
-void USeqAct_Latent::vf_174(void)
+void USeqAct_Latent::Activated(void)
 {
     int param_1 = (int)this;
 
@@ -4994,7 +4994,7 @@ undefined4 * UObject::sub_008e6300(void)
 }
 
 // @baa 0x008e6320
-void USeqAct_SetInt::vf_174(void)
+void USeqAct_SetInt::Activated(void)
 {
     int param_1 = (int)this;
 

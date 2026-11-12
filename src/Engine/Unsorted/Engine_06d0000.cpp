@@ -1689,7 +1689,7 @@ void UPrimitiveComponent::sub_006db630(void)
 
 int sub_00765d00(void);
 // @baa 0x006dbad0
-void UPrimitiveComponent::vf_218(uint param_2)
+void UPrimitiveComponent::SetOnlyOwnerSee(UBOOL param_2)
 {
     int param_1 = (int)this;
 
@@ -1734,7 +1734,7 @@ void UPrimitiveComponent::vf_22c(uint param_2)
 }
 
 // @baa 0x006dbe50
-void UPrimitiveComponent::vf_230(uint param_2)
+void UPrimitiveComponent::SetIgnoreOwnerHidden(UBOOL param_2)
 {
     int param_1 = (int)this;
 

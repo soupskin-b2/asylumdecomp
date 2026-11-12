@@ -216,7 +216,7 @@ void UAnimNode::vf_11c()
 int sub_006311e0(...);
 extern undefined4 g_02053398;
 // @baa 0x00c4b5e0
-DOUBLE UAnimNodeBlendList::vf_178(INT param_2, INT param_3) {
+FLOAT UAnimNodeBlendList::GetSliderPosition(INT param_2, INT param_3) {
     int param_1 = (int)this;
 
   if ((param_2 != 0) || (param_3 != 0)) {
@@ -230,7 +230,7 @@ DOUBLE UAnimNodeBlendList::vf_178(INT param_2, INT param_3) {
 extern undefined4 g_02054520;
 extern undefined4 g_02054610;
 // @baa 0x00c4ba80
-void UAnimNodeAimOffset::vf_17c(int param_2, int param_3, float param_4)
+void UAnimNodeAimOffset::HandleSliderMove(INT param_2, INT param_3, FLOAT param_4)
 {
     int param_1 = (int)this;
   if (param_2 != 0) {
@@ -913,7 +913,7 @@ void* UAnimNode::vf_158() { return 0; }
 void UAnimNode::SetAnim(FName Sequence) {  }
 
 // @baa 0x00c646d0
-void UAnimNode::vf_160(FLOAT a0, UBOOL a1) {}
+void UAnimNode::SetPosition(FLOAT a0, UBOOL a1) {}
 
 struct V_00c646e0 {
     virtual void v0();
@@ -1022,12 +1022,12 @@ UINT UAnimNode::vf_170() { return 0; }
 int UAnimNode::vf_174(int a0) { return 0; }
 
 // @baa 0x00c64720
-DOUBLE UAnimNode::vf_178(INT f, INT g) {
+FLOAT UAnimNode::GetSliderPosition(INT f, INT g) {
     return 0.0f;
 }
 
 // @baa 0x00c64730
-void UAnimNode::vf_17c(INT a0, INT a1, FLOAT a2) {  }
+void UAnimNode::HandleSliderMove(INT a0, INT a1, FLOAT a2) {  }
 
 // @baa 0x00c64740
 FString UAnimNode::vf_168()

@@ -11,28 +11,28 @@ void UAnimNodeSequence::execSetPosition(FFrame& Stack, RESULT_DECL)
     P_GET_UBOOL(bFireNotifies);
     P_FINISH;
 
-    vf_160(NewTime, bFireNotifies);
+    SetPosition(NewTime, bFireNotifies);
 }
 
 // @baa 0x00c90450
 void UAnimNodeSequence::execStopAnim( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_124();
+	StopAnim();
 }
 
 // @baa 0x00c909d0
 void UAnimNodeSequenceBlendByAim::execCheckAnimsUpToDate( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_1a0();
+	CheckAnimsUpToDate();
 }
 
 // @baa 0x00c90860
 void UAnimNodeSequence::execGetNormalizedPosition(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(FLOAT*)Result = vf_188();
+	*(FLOAT*)Result = GetNormalizedPosition();
 }
 
 // @baa 0x00c90910
@@ -70,5 +70,5 @@ void UAnimNodeSequence::execFindNormalizedPositionFromGroupRelativePosition(FFra
 {
 	P_GET_FLOAT(GroupRelativePosition);
 	P_FINISH;
-	*(FLOAT*)Result = vf_18c(GroupRelativePosition);
+	*(FLOAT*)Result = FindGroupPosition(GroupRelativePosition);
 }

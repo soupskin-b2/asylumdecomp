@@ -13,9 +13,9 @@ public:
 
 // @baa 0x00e68a80
 /* vf_174 is USequenceOp::Activated (USequenceAction::Activated is 008d1890). */
-void UGFxAction_SetFocus::vf_174()
+void UGFxAction_SetFocus::Activated()
 {
-    Super::vf_174();
+    Super::Activated();
     if (Movie)
     {
         GGFxEngine->SetFocus((FGFxMovie*)Movie->pMovie.Dummy, bCaptureInput);

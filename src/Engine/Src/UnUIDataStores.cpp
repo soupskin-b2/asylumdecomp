@@ -2669,7 +2669,7 @@ void sub_00d95010(void) { sub_00d94240(); }
 IMPLEMENT_CLASS_AT(UUIDataStore, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnUIDataStores.cpp", 20);
 
 // @baa 0x00d95090
-void UUIDataStore::vf_144(void) {  }
+void UUIDataStore::LoadDependentClasses(void) {  }
 
 // @baa 0x00d950c0
 // @baa 0x00d950e0

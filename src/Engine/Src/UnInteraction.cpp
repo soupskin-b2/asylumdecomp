@@ -529,7 +529,7 @@ int UInteraction::vf_114(int a0, int a1, int a2, int a3, int a4, int a5) { retur
 int UInteraction::vf_118(int a0, int a1, int a2, int a3, int a4, int a5) { return 0; }
 
 // @baa 0x00889000
-int UInteraction::vf_11c(int a0, int a1) { return 0; }
+UBOOL UInteraction::InputChar(INT a0, TCHAR a1) { return 0; }
 
 struct C_00d81140 {
     undefined4 sub_00d81140(byte);

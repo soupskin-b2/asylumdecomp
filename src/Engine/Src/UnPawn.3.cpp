@@ -213,7 +213,7 @@ void APawn::execGetViewRotation(FFrame& Stack, RESULT_DECL)
 {
     P_FINISH;
 
-    *reinterpret_cast<FRotator*>(Result) = vf_394();
+    *reinterpret_cast<FRotator*>(Result) = GetViewRotation();
 }
 
 // @baa 0x00c8a750
