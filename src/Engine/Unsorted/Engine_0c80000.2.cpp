@@ -87,21 +87,21 @@ void AInterpActor::execSetShadowParentOnAllAttachedComponents( FFrame& Stack, RE
 void ACoverGroup::execEnableGroup( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_354();
+	EnableGroup();
 }
 
 // @baa 0x00c88ff0
 void ACoverGroup::execDisableGroup( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_358();
+	DisableGroup();
 }
 
 // @baa 0x00c89030
 void ACoverGroup::execToggleGroup( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_35c();
+	ToggleGroup();
 }
 
 struct AFileWriter_ : public AFileWriter

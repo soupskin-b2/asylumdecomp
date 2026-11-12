@@ -627,7 +627,7 @@ struct C_view {
 };
 
 // @baa 0x00864dd0
-void APathBlockingVolume::vf_2c8(undefined4 param_2)
+void APathBlockingVolume::SetCollisionForPathBuilding(UBOOL param_2)
 {
     int param_1 = (int)this;
   ((C_view *)(this))->sub_00784170(param_2, *(uint *)(param_1 + 0x38) >> 2 & 1, *(uint *)(param_1 + 0x30) >> 0xe & 1);

@@ -4,7 +4,6 @@
 #include "ue3/Classes.h"
 #include "ue3/Script.h"
 
-enum { NAME_PROBEMIN = 300, NAME_Detach = NAME_PROBEMIN + 20 };
 extern FName ENGINE_Detach;
 struct Actor_eventDetach_Parms
 {

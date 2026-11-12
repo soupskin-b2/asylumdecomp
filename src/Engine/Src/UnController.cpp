@@ -94,8 +94,6 @@ IMPLEMENT_CLASS_AT(UCheatManager, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine
 // @baa 0x007ac450
 
 /* EName entries Core.h doesn't list yet (UnNames.h) */
-#define NAME_SeePlayer  0x154
-#define NAME_SeeMonster 0x158
 /* FName(EName) as UE3 has it (the kit's FName is an aggregate) */
 struct FName_ : public FName { FName_(INT N) { Index = N; Number = 0; } };
 

@@ -12416,7 +12416,7 @@ struct AActor : public UObject {
     virtual void vf_2bc(); /* 0x2bc */
     virtual void vf_2c0(); /* 0x2c0 */
     virtual void vf_2c4(); /* 0x2c4 */
-    virtual void vf_2c8(UINT); /* 0x2c8 */
+    virtual void SetCollisionForPathBuilding(UBOOL bNowPathBuilding); /* 0x2c8 */
     virtual INT vf_2cc(); /* 0x2cc */
     virtual INT vf_2d0(); /* 0x2d0 */
     virtual INT vf_2d4(); /* 0x2d4 */
@@ -12603,6 +12603,9 @@ struct AActor : public UObject {
     void sub_008a7830(UINT, FLOAT*); /* 0x008a7830 */
     void sub_00c4afe0(UINT); /* 0x00c4afe0 */
     /* registered size 0x1a8 */
+    void SetCollisionSize(FLOAT NewRadius, FLOAT NewHeight); /* 0x00781ad0 */
+    void FindTouchingActors(); /* 0x007814c0 */
+    void SetCollision(UBOOL bNewCollideActors, UBOOL bNewBlockActors, UBOOL bNewIgnoreEncroachers); /* 0x00784170 */
 };
 
 struct UActorComponent : public UComponent {
@@ -12621,7 +12624,7 @@ struct UActorComponent : public UComponent {
     virtual FLOAT vf_110(INT); /* 0x110 */
     virtual void vf_114(); /* 0x114 */
     virtual void vf_118(); /* 0x118 */
-    virtual void vf_11c(UINT); /* 0x11c */
+    virtual void Detach(UBOOL bWillReattach); /* 0x11c */
     virtual void UpdateTransform(); /* 0x120 */
     virtual void Tick(FLOAT DeltaTime); /* 0x124 */
     virtual void vf_128(); /* 0x128 */
@@ -12843,7 +12846,7 @@ struct UPrimitiveComponent : public UActorComponent {
     virtual FLOAT vf_110(INT); /* 0x110 */
     virtual void vf_114(); /* 0x114 */
     virtual void vf_118(); /* 0x118 */
-    virtual void vf_11c(UINT); /* 0x11c */
+    virtual void Detach(UBOOL bWillReattach); /* 0x11c */
     virtual void vf_134(INT); /* 0x134 */
     virtual void SetComponentRBFixed(UBOOL bFixed); /* 0x138 */
     virtual void vf_13c(INT); /* 0x13c */
@@ -15447,6 +15450,7 @@ struct UCylinderComponent : public UPrimitiveComponent {
     /* UnrealScript natives */
     void execSetCylinderSize(FFrame& Stack, RESULT_DECL); /* 0x006dce00 */
     /* registered size 0x1c0 */
+    void SetCylinderSize(FLOAT NewRadius, FLOAT NewHeight); /* 0x006dcdd0 */
 };
 
 struct APlayerController : public AController {
@@ -16092,7 +16096,7 @@ struct UAudioComponent : public UActorComponent {
     virtual FString GetDetailedInfoInternal(); /* 0x094 */
     virtual FLOAT vf_110(INT); /* 0x110 */
     virtual void vf_114(); /* 0x114 */
-    virtual void vf_11c(UINT); /* 0x11c */
+    virtual void Detach(UBOOL bWillReattach); /* 0x11c */
     virtual INT vf_144(); /* 0x144 */
     /* UnrealScript natives */
     void execIsPlaying(FFrame& Stack, RESULT_DECL); /* 0x00786320 */
@@ -17184,7 +17188,7 @@ struct URB_ForceComponent : public UPrimitiveComponent {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_114(); /* 0x114 */
-    virtual void vf_11c(UINT); /* 0x11c */
+    virtual void Detach(UBOOL bWillReattach); /* 0x11c */
     virtual void Tick(FLOAT DeltaTime); /* 0x124 */
     virtual INT vf_144(); /* 0x144 */
     /* registered size 0x1d0 */
@@ -17591,7 +17595,7 @@ struct UApexComponentBase : public UMeshComponent {
     virtual void vf_04c(UINT); /* 0x04c */
     virtual void vf_114(); /* 0x114 */
     virtual void vf_118(); /* 0x118 */
-    virtual void vf_11c(UINT); /* 0x11c */
+    virtual void Detach(UBOOL bWillReattach); /* 0x11c */
     virtual UINT vf_12c(); /* 0x12c */
     virtual void vf_134(INT); /* 0x134 */
     virtual void vf_13c(INT); /* 0x13c */
@@ -17671,7 +17675,7 @@ struct UDynamicLightEnvironmentComponent : public ULightEnvironmentComponent {
     virtual void vf_0e8(INT); /* 0x0e8 */
     virtual void vf_114(); /* 0x114 */
     virtual void vf_118(); /* 0x118 */
-    virtual void vf_11c(UINT); /* 0x11c */
+    virtual void Detach(UBOOL bWillReattach); /* 0x11c */
     virtual void Tick(FLOAT DeltaTime); /* 0x124 */
     virtual void vf_14c(INT); /* 0x14c */
     /* UnrealScript natives */
@@ -18754,7 +18758,7 @@ struct UUIScreenObject : public UUIRoot {
     virtual INT vf_1b0(); /* 0x1b0 */
     virtual void vf_1b4(INT); /* 0x1b4 */
     virtual void vf_1b8(INT, INT); /* 0x1b8 */
-    virtual INT vf_1bc(INT); /* 0x1bc */
+    virtual UBOOL ContainsPoint(const FVector2D& Coordinates); /* 0x1bc */
     virtual void InvalidatePositionDependencies(BYTE Face); /* 0x1c0 */
     virtual void vf_1c4(); /* 0x1c4 */
     virtual INT vf_1c8(); /* 0x1c8 */
@@ -19000,7 +19004,7 @@ struct UUIObject : public UUIScreenObject {
     virtual UINT GetNumResolvedFaces(); /* 0x19c */
     virtual INT HasPositionBeenResolved(BYTE Face); /* 0x1a0 */
     virtual void vf_1b8(INT, INT); /* 0x1b8 */
-    virtual INT vf_1bc(INT); /* 0x1bc */
+    virtual UBOOL ContainsPoint(const FVector2D& Coordinates); /* 0x1bc */
     virtual void InvalidatePositionDependencies(BYTE Face); /* 0x1c0 */
     virtual INT vf_1e0(INT); /* 0x1e0 */
     /* UnrealScript natives */
@@ -19107,9 +19111,9 @@ struct ACoverGroup : public AInfo {
     FLOAT AutoSelectRadius; /* 0x1b4 */
     FLOAT AutoSelectHeight; /* 0x1b8 */
     /* virtual functions this class introduces (vtable 0x01f44ca8) */
-    virtual void vf_354(); /* 0x354 */
-    virtual void vf_358(); /* 0x358 */
-    virtual void vf_35c(); /* 0x35c */
+    virtual void EnableGroup(); /* 0x354 */
+    virtual void DisableGroup(); /* 0x358 */
+    virtual void ToggleGroup(); /* 0x35c */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -19176,7 +19180,7 @@ struct ACoverLink : public ANavigationPoint {
     BYTE LocationDescription; /* 0x2f4 */
     /* virtual functions this class introduces (vtable 0x01f453f8) */
     virtual void vf_3b0(INT, INT, INT, INT, INT, INT); /* 0x3b0 */
-    virtual INT vf_3b4(INT, INT, INT); /* 0x3b4 */
+    virtual UBOOL HasFireLinkTo(INT SlotIdx, const FCoverInfo& ChkCover, UBOOL bAllowFallbackLinks); /* 0x3b4 */
     virtual INT vf_3b8(INT, INT); /* 0x3b8 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
@@ -19520,7 +19524,7 @@ struct USkeletalMeshComponent : public UMeshComponent {
     virtual FLOAT vf_110(INT); /* 0x110 */
     virtual void vf_114(); /* 0x114 */
     virtual void vf_118(); /* 0x118 */
-    virtual void vf_11c(UINT); /* 0x11c */
+    virtual void Detach(UBOOL bWillReattach); /* 0x11c */
     virtual void UpdateTransform(); /* 0x120 */
     virtual void Tick(FLOAT DeltaTime); /* 0x124 */
     virtual void vf_128(); /* 0x128 */
@@ -20004,7 +20008,7 @@ struct UUIDataStore : public UUIDataProvider {
     virtual void InitializeDataStore(); /* 0x148 */
     virtual INT vf_14c(INT); /* 0x14c */
     virtual INT vf_150(INT); /* 0x150 */
-    virtual INT vf_154(INT); /* 0x154 */
+    virtual FName GetDataStoreID(); /* 0x154 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -20436,7 +20440,7 @@ struct UDecalComponent : public UPrimitiveComponent {
     virtual FLOAT vf_110(INT); /* 0x110 */
     virtual void vf_114(); /* 0x114 */
     virtual void vf_118(); /* 0x118 */
-    virtual void vf_11c(UINT); /* 0x11c */
+    virtual void Detach(UBOOL bWillReattach); /* 0x11c */
     virtual void UpdateTransform(); /* 0x120 */
     virtual UINT vf_12c(); /* 0x12c */
     virtual void vf_140(); /* 0x140 */
@@ -20862,7 +20866,7 @@ struct ULightComponent : public UActorComponent {
     virtual FLOAT vf_110(INT); /* 0x110 */
     virtual void vf_114(); /* 0x114 */
     virtual void vf_118(); /* 0x118 */
-    virtual void vf_11c(UINT); /* 0x11c */
+    virtual void Detach(UBOOL bWillReattach); /* 0x11c */
     virtual void vf_130(); /* 0x130 */
     /* UnrealScript natives */
     void execSetLightProperties(FFrame& Stack, RESULT_DECL); /* 0x006ad220 */
@@ -21533,7 +21537,7 @@ struct UParticleSystemComponent : public UPrimitiveComponent {
     virtual FString GetDetailedInfoInternal(); /* 0x094 */
     virtual void vf_114(); /* 0x114 */
     virtual void vf_118(); /* 0x118 */
-    virtual void vf_11c(UINT); /* 0x11c */
+    virtual void Detach(UBOOL bWillReattach); /* 0x11c */
     virtual void Tick(FLOAT DeltaTime); /* 0x124 */
     virtual void vf_140(); /* 0x140 */
     virtual INT vf_14c(INT); /* 0x14c */
@@ -22174,7 +22178,7 @@ struct UFluidSurfaceComponent : public UPrimitiveComponent {
     virtual void vf_04c(UINT); /* 0x04c */
     virtual void vf_0e8(INT); /* 0x0e8 */
     virtual void vf_114(); /* 0x114 */
-    virtual void vf_11c(UINT); /* 0x11c */
+    virtual void Detach(UBOOL bWillReattach); /* 0x11c */
     virtual void Tick(FLOAT DeltaTime); /* 0x124 */
     virtual void vf_130(); /* 0x130 */
     virtual void vf_158(UINT*, UINT*); /* 0x158 */
@@ -22288,7 +22292,7 @@ struct UFogVolumeDensityComponent : public UActorComponent {
     virtual void vf_048(INT); /* 0x048 */
     virtual void vf_114(); /* 0x114 */
     virtual void vf_118(); /* 0x118 */
-    virtual void vf_11c(UINT); /* 0x11c */
+    virtual void Detach(UBOOL bWillReattach); /* 0x11c */
     virtual void vf_140(); /* 0x140 */
     /* UnrealScript natives */
     void execSetEnabled(FFrame& Stack, RESULT_DECL); /* 0x00c9ef60 */
@@ -22598,7 +22602,7 @@ struct UFracturedBaseComponent : public UStaticMeshComponent {
     BYTE BoxCollisionType; /* 0x20c */
     BYTE LineCollisionType; /* 0x20d */
     /* virtual functions this class introduces (vtable 0x01f29ec0) */
-    virtual INT vf_278(INT); /* 0x278 */
+    virtual TArray<BYTE> GetVisibleFragments(); /* 0x278 */
     virtual INT vf_27c(INT); /* 0x27c */
     virtual UINT vf_280(); /* 0x280 */
     virtual INT vf_284(); /* 0x284 */
@@ -22680,7 +22684,7 @@ struct UFracturedStaticMeshComponent : public UFracturedBaseComponent {
     virtual INT vf_2a0(INT); /* 0x2a0 */
     virtual INT vf_2a4(INT); /* 0x2a4 */
     virtual FBox GetFragmentBox(INT FragmentIndex); /* 0x2a8 */
-    virtual INT vf_2ac(INT, INT); /* 0x2ac */
+    virtual FVector GetFragmentAverageExteriorNormal(INT FragmentIndex); /* 0x2ac */
     virtual UINT vf_2b0(); /* 0x2b0 */
     virtual void vf_2b4(INT, INT, INT); /* 0x2b4 */
     virtual void vf_2b8(INT, INT); /* 0x2b8 */
@@ -22690,7 +22694,7 @@ struct UFracturedStaticMeshComponent : public UFracturedBaseComponent {
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual void vf_114(); /* 0x114 */
     virtual void vf_118(); /* 0x118 */
-    virtual void vf_11c(UINT); /* 0x11c */
+    virtual void Detach(UBOOL bWillReattach); /* 0x11c */
     virtual void vf_140(); /* 0x140 */
     virtual INT vf_150(INT); /* 0x150 */
     virtual void vf_160(); /* 0x160 */
@@ -23231,7 +23235,7 @@ struct AGameInfo : public AInfo {
     FLOAT Chapter7Sync; /* 0x388 */
     FScriptDelegate __CanUnpause__Delegate; /* 0x38c */
     /* virtual functions this class introduces (vtable 0x01f06e90) */
-    virtual void vf_354(INT); /* 0x354 */
+    virtual FString GetNetworkNumber(); /* 0x354 */
     virtual void vf_358(INT, INT, INT); /* 0x358 */
     virtual INT AddSentinelPerTimePeriodStats(FVector InLocation, FRotator InRotation); /* 0x35c */
     virtual INT vf_360(INT); /* 0x360 */
@@ -23825,7 +23829,7 @@ struct UHeightFogComponent : public UActorComponent {
     virtual FLOAT vf_110(INT); /* 0x110 */
     virtual void vf_114(); /* 0x114 */
     virtual void vf_118(); /* 0x118 */
-    virtual void vf_11c(UINT); /* 0x11c */
+    virtual void Detach(UBOOL bWillReattach); /* 0x11c */
     /* UnrealScript natives */
     void execSetEnabled(FFrame& Stack, RESULT_DECL); /* 0x00c8b550 */
     /* other member functions */
@@ -28751,12 +28755,12 @@ struct UOnlineStatsWrite : public UOnlineStats {
     /* virtual functions this class introduces (vtable 0x020a7e80) */
     virtual INT vf_114(INT, INT, INT); /* 0x114 */
     virtual FName GetStatName(INT StatId); /* 0x118 */
-    virtual void vf_11c(INT, INT); /* 0x11c */
-    virtual void vf_120(INT, INT); /* 0x120 */
-    virtual void vf_124(INT, INT); /* 0x124 */
-    virtual void vf_128(INT, INT); /* 0x128 */
-    virtual void vf_12c(INT, INT); /* 0x12c */
-    virtual void vf_130(INT, INT); /* 0x130 */
+    virtual void SetFloatStat(INT StatId, FLOAT Value); /* 0x11c */
+    virtual void SetIntStat(INT StatId, INT Value); /* 0x120 */
+    virtual void IncrementFloatStat(INT StatId, FLOAT IncBy); /* 0x124 */
+    virtual void IncrementIntStat(INT StatId, INT IncBy); /* 0x128 */
+    virtual void DecrementFloatStat(INT StatId, FLOAT DecBy); /* 0x12c */
+    virtual void DecrementIntStat(INT StatId, INT DecBy); /* 0x130 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -30742,7 +30746,7 @@ struct APathBlockingVolume : public AVolume {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_2c8(UINT); /* 0x2c8 */
+    virtual void SetCollisionForPathBuilding(UBOOL bNowPathBuilding); /* 0x2c8 */
     /* registered size 0x1d0 */
 };
 
@@ -31431,7 +31435,7 @@ struct APlayerReplicationInfo : public AReplicationInfo {
     FName SessionName; /* 0x240 */
     FAutomatedTestingDatum AutomatedTestingData; /* 0x248 */
     /* virtual functions this class introduces (vtable 0x01f08620) */
-    virtual INT vf_354(INT); /* 0x354 */
+    virtual FString GetPlayerAlias(); /* 0x354 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -31596,7 +31600,7 @@ struct USceneCaptureComponent : public UActorComponent {
     virtual void vf_02c(); /* 0x02c */
     virtual FLOAT vf_110(INT); /* 0x110 */
     virtual void vf_114(); /* 0x114 */
-    virtual void vf_11c(UINT); /* 0x11c */
+    virtual void Detach(UBOOL bWillReattach); /* 0x11c */
     virtual void Tick(FLOAT DeltaTime); /* 0x124 */
     /* UnrealScript natives */
     void execSetFrameRate(FFrame& Stack, RESULT_DECL); /* 0x00c8b750 */
@@ -32394,7 +32398,7 @@ struct URB_Handle : public UActorComponent {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_114(); /* 0x114 */
-    virtual void vf_11c(UINT); /* 0x11c */
+    virtual void Detach(UBOOL bWillReattach); /* 0x11c */
     virtual void Tick(FLOAT DeltaTime); /* 0x124 */
     virtual void vf_13c(INT); /* 0x13c */
     /* UnrealScript natives */
@@ -32735,7 +32739,7 @@ struct URParticleAttractorComponent : public UActorComponent {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_114(); /* 0x114 */
-    virtual void vf_11c(UINT); /* 0x11c */
+    virtual void Detach(UBOOL bWillReattach); /* 0x11c */
     /* registered size 0x8c */
 };
 
@@ -36837,7 +36841,7 @@ struct UTerrainComponent : public UPrimitiveComponent {
     virtual FLOAT vf_110(INT); /* 0x110 */
     virtual void vf_114(); /* 0x114 */
     virtual void vf_118(); /* 0x118 */
-    virtual void vf_11c(UINT); /* 0x11c */
+    virtual void Detach(UBOOL bWillReattach); /* 0x11c */
     virtual void vf_130(); /* 0x130 */
     virtual void vf_134(INT); /* 0x134 */
     virtual INT vf_150(INT); /* 0x150 */
@@ -37342,7 +37346,7 @@ struct UUISkin : public UUIDataStore {
     virtual INT vf_124(INT, INT); /* 0x124 */
     virtual INT vf_12c(INT, INT); /* 0x12c */
     virtual INT vf_138(INT, INT); /* 0x138 */
-    virtual INT vf_154(INT); /* 0x154 */
+    virtual FName GetDataStoreID(); /* 0x154 */
     /* UnrealScript natives */
     void execGetCursorResource(FFrame& Stack, RESULT_DECL); /* 0x00ca2950 */
     void execAddUISoundCue(FFrame& Stack, RESULT_DECL); /* 0x00ca29d0 */
@@ -38198,9 +38202,9 @@ struct UUIStyle_Data : public UUIRoot {
     FScriptDelegate __MatchesStyleData__Delegate; /* 0x58 */
     /* virtual functions this class introduces (vtable 0x020cfbe0) */
     virtual void vf_10c(INT); /* 0x10c */
-    virtual void vf_110(INT); /* 0x110 */
+    virtual void ResolveExternalReferences(class UUISkin* ActiveSkin); /* 0x110 */
     virtual void vf_114(); /* 0x114 */
-    virtual UINT vf_118(); /* 0x118 */
+    virtual UBOOL IsDirty(); /* 0x118 */
     virtual INT vf_11c(INT); /* 0x11c */
     virtual UBOOL MatchesStyleData(class UUIStyle_Data* StyleToCompare); /* 0x120 */
     virtual INT vf_124(INT); /* 0x124 */
@@ -38221,9 +38225,9 @@ struct UUIStyle_Combo : public UUIStyle_Data {
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
     virtual void vf_10c(INT); /* 0x10c */
-    virtual void vf_110(INT); /* 0x110 */
+    virtual void ResolveExternalReferences(class UUISkin* ActiveSkin); /* 0x110 */
     virtual void vf_114(); /* 0x114 */
-    virtual UINT vf_118(); /* 0x118 */
+    virtual UBOOL IsDirty(); /* 0x118 */
     virtual INT vf_11c(INT); /* 0x11c */
     virtual UBOOL MatchesStyleData(class UUIStyle_Data* StyleToCompare); /* 0x120 */
     virtual INT vf_124(INT); /* 0x124 */
@@ -38445,7 +38449,7 @@ struct UWindDirectionalSourceComponent : public UActorComponent {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_114(); /* 0x114 */
-    virtual void vf_11c(UINT); /* 0x11c */
+    virtual void Detach(UBOOL bWillReattach); /* 0x11c */
     /* registered size 0x60 */
 };
 
@@ -38589,8 +38593,8 @@ struct AWorldInfo : public AZoneInfo {
     FMap_Mirror_00777900 ScreenMessages; /* 0x53c */
     TArrayNoInit<FScreenMessageString> PriorityScreenMessages; /* 0x578 */
     /* virtual functions this class introduces (vtable 0x01f0f098) */
-    virtual INT vf_354(INT); /* 0x354 */
-    virtual INT vf_358(INT); /* 0x358 */
+    virtual FString GetLocalURL(); /* 0x354 */
+    virtual FString GetAddressURL(); /* 0x358 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -39399,7 +39403,7 @@ struct UPartyBeacon : public UObject, public FTickableObject {
     FLOAT ElapsedHeartbeatTime; /* 0x44 */
     FName BeaconName; /* 0x48 */
     /* virtual functions this class introduces (vtable 0x020f4b68) */
-    virtual INT vf_10c(); /* 0x10c */
+    virtual void DestroyBeacon(); /* 0x10c */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -39434,7 +39438,7 @@ struct UPartyBeaconClient : public UPartyBeacon {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(); /* 0x10c */
+    virtual void DestroyBeacon(); /* 0x10c */
     /* registered size 0xc4 */
 };
 
@@ -39464,7 +39468,7 @@ struct UPartyBeaconHost : public UPartyBeacon {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(); /* 0x10c */
+    virtual void DestroyBeacon(); /* 0x10c */
     /* other member functions */
     void sub_00e2fb60(INT); /* 0x00e2fb60 */
     void sub_00e2fba0(INT); /* 0x00e2fba0 */
@@ -40064,7 +40068,7 @@ struct URInteractionComponent : public UActorComponent {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_114(); /* 0x114 */
-    virtual void vf_11c(UINT); /* 0x11c */
+    virtual void Detach(UBOOL bWillReattach); /* 0x11c */
     /* registered size 0x5c */
 };
 
@@ -65813,7 +65817,7 @@ struct UMaterialEditorMeshComponent : public UStaticMeshComponent {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_114(); /* 0x114 */
-    virtual void vf_11c(UINT); /* 0x11c */
+    virtual void Detach(UBOOL bWillReattach); /* 0x11c */
     /* registered size 0x1f0 */
 };
 

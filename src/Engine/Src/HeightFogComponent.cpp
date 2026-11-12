@@ -44,7 +44,7 @@ int sub_0076d150(int);
 };
 
 // @baa 0x006acbe0
-void UHeightFogComponent::vf_11c(undefined4 param_2)
+void UHeightFogComponent::Detach(UBOOL param_2)
 {
 int param_1=(DWORD)this;
 ((C_view_006acbe0*)(this))->sub_0076d150(param_2);

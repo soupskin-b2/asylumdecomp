@@ -7,8 +7,6 @@
 extern FName g_026c4e54;
 	/* ENGINE_SeePlayer */
 /* EName entries Core.h doesn't list yet (UnNames.h) */
-#define NAME_PROBEMIN   0x12c
-#define NAME_SeePlayer 0x154
 struct AController_ : public AController
 {
 	void eventSeePlayer(APawn* Seen);
@@ -31,7 +29,6 @@ void AController_::eventSeePlayer(APawn* Seen)
 }
 
 extern FName g_026c4b14;
-#define NAME_SeeMonster 0x158
 struct AController__0079f460 : public AController
 {
 	void eventSeeMonster(APawn* Seen);

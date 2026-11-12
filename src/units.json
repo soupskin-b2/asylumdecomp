@@ -157636,7 +157636,7 @@
     {
      "va": "006acbe0",
      "size": 28,
-     "symbol": "?vf_11c@UHeightFogComponent@@UAEXI@Z"
+     "symbol": "?Detach@UHeightFogComponent@@UAEXH@Z"
     }
    ]
   },
@@ -201725,7 +201725,7 @@
     {
      "va": "00864dd0",
      "size": 33,
-     "symbol": "?vf_2c8@APathBlockingVolume@@UAEXI@Z"
+     "symbol": "?SetCollisionForPathBuilding@APathBlockingVolume@@UAEXH@Z"
     },
     {
      "va": "00864e10",
@@ -230233,7 +230233,7 @@
     {
      "va": "00dc9ac0",
      "size": 3,
-     "symbol": "?vf_110@UUIStyle_Data@@UAEXH@Z"
+     "symbol": "?ResolveExternalReferences@UUIStyle_Data@@UAEXPAUUUISkin@@@Z"
     },
     {
      "va": "00dc9ad0",
@@ -230408,7 +230408,7 @@
     {
      "va": "00dca6a0",
      "size": 9,
-     "symbol": "?vf_118@UUIStyle_Data@@UAEIXZ"
+     "symbol": "?IsDirty@UUIStyle_Data@@UAEHXZ"
     },
     {
      "va": "00dcba60",
@@ -231948,7 +231948,7 @@
     {
      "va": "00ddba40",
      "size": 45,
-     "symbol": "?vf_118@UUIStyle_Combo@@UAEIXZ"
+     "symbol": "?IsDirty@UUIStyle_Combo@@UAEHXZ"
     }
    ]
   },

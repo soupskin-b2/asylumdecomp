@@ -106,6 +106,30 @@ enum { INDEX_NONE = -1 };
 enum EName
 {
 	NAME_None           = 0,
+	/* probe events: ProbeMask bit (Name - NAME_PROBEMIN) */
+	NAME_PROBEMIN                   = 0x12c,
+	NAME_Destroyed                  = 0x12d,
+	NAME_GainedChild                = 0x12e,
+	NAME_LostChild                  = 0x12f,
+	NAME_HitWall                    = 0x135,
+	NAME_Falling                    = 0x136,
+	NAME_Landed                     = 0x137,
+	NAME_PhysicsVolumeChange        = 0x138,
+	NAME_Touch                      = 0x139,
+	NAME_UnTouch                    = 0x13a,
+	NAME_Bump                       = 0x13b,
+	NAME_BaseChange                 = 0x13e,
+	NAME_Detach                     = 0x140,
+	NAME_EncroachingOn              = 0x147,
+	NAME_EncroachedBy               = 0x148,
+	NAME_HeadVolumeChange           = 0x14a,
+	NAME_PawnEnteredVolume          = 0x14c,
+	NAME_MayFall                    = 0x14d,
+	NAME_PawnLeavingVolume          = 0x14f,
+	NAME_SeePlayer                  = 0x154,
+	NAME_SeeMonster                 = 0x158,
+	NAME_NotifyLanded               = 0x160,
+	NAME_NotifyHitWall              = 0x161,
 	NAME_ScriptWarning  = 0x2ff,
 };
 

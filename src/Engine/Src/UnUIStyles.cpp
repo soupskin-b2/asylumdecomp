@@ -132,7 +132,7 @@ void sub_00dc9a90(S* p, INT Value)
 void UUIStyle_Data::vf_10c(int a0) {  }
 
 // @baa 0x00dc9ac0
-void UUIStyle_Data::vf_110(int a0) {  }
+void UUIStyle_Data::ResolveExternalReferences(UUISkin* a0) {  }
 
 // @baa 0x00dc9ad0
 void UUIStyle_Data::vf_114(void) {  }
@@ -276,7 +276,7 @@ bool UUISkin::vf_004()
 int UUISkin::vf_12c(int a0, int a1) { return 0; }
 
 // @baa 0x00dca6a0
-uint UUIStyle_Data::vf_118(void)
+UBOOL UUIStyle_Data::IsDirty()
 {
     int param_1 = (int)this;
 
@@ -3778,7 +3778,7 @@ struct C_view_00ddba40 {
 };
 
 // @baa 0x00ddba40
-undefined4 UUIStyle_Combo::vf_118(void)
+UBOOL UUIStyle_Combo::IsDirty()
 {
     int param_1 = (int)this;
   int iVar1;
