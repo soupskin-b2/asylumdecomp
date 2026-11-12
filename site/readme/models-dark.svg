@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="860" height="406" viewBox="0 0 860 406" font-family="ui-monospace, SFMono-Regular, &#x27;Cascadia Mono&#x27;, Consolas, &#x27;DejaVu Sans Mono&#x27;, monospace">
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="346" viewBox="0 0 860 346" font-family="ui-monospace, SFMono-Regular, &#x27;Cascadia Mono&#x27;, Consolas, &#x27;DejaVu Sans Mono&#x27;, monospace">
 <text x="0" y="20" font-size="14" fill="#8d96a0" text-anchor="start" font-weight="normal">Tooling</text>
 <rect x="242" y="10" width="528" height="10" fill="#262c33" stroke="#3d444d"/>
 <rect x="242" y="10" width="528" height="10" fill="#e6edf3"/>
@@ -13,8 +13,8 @@
 <text x="860" y="80" font-size="14" fill="#e6edf3" text-anchor="end" font-weight="normal">1,717</text>
 <text x="0" y="110" font-size="14" fill="#8d96a0" text-anchor="start" font-weight="normal">Qwen3.8 27B</text>
 <rect x="242" y="100" width="528" height="10" fill="#262c33" stroke="#3d444d"/>
-<rect x="242" y="100" width="9.49725" height="10" fill="#e6edf3"/>
-<text x="860" y="110" font-size="14" fill="#e6edf3" text-anchor="end" font-weight="normal">1,699</text>
+<rect x="242" y="100" width="9.51961" height="10" fill="#e6edf3"/>
+<text x="860" y="110" font-size="14" fill="#e6edf3" text-anchor="end" font-weight="normal">1,703</text>
 <text x="0" y="140" font-size="14" fill="#8d96a0" text-anchor="start" font-weight="normal">GPT-6.1 Sol</text>
 <rect x="242" y="130" width="528" height="10" fill="#262c33" stroke="#3d444d"/>
 <rect x="242" y="130" width="0.888795" height="10" fill="#e6edf3"/>
@@ -39,16 +39,8 @@
 <rect x="242" y="280" width="528" height="10" fill="#262c33" stroke="#3d444d"/>
 <rect x="242" y="280" width="0.0111798" height="10" fill="#e6edf3"/>
 <text x="860" y="290" font-size="14" fill="#e6edf3" text-anchor="end" font-weight="normal">2</text>
-<text x="0" y="320" font-size="14" fill="#8d96a0" text-anchor="start" font-weight="normal">Claude Sonnet 4.5</text>
+<text x="0" y="320" font-size="14" fill="#8d96a0" text-anchor="start" font-weight="normal">Claude Haiku 5.5</text>
 <rect x="242" y="310" width="528" height="10" fill="#262c33" stroke="#3d444d"/>
-<rect x="242" y="310" width="0.0111798" height="10" fill="#e6edf3"/>
-<text x="860" y="320" font-size="14" fill="#e6edf3" text-anchor="end" font-weight="normal">2</text>
-<text x="0" y="350" font-size="14" fill="#8d96a0" text-anchor="start" font-weight="normal">Qwen</text>
-<rect x="242" y="340" width="528" height="10" fill="#262c33" stroke="#3d444d"/>
-<rect x="242" y="340" width="0.0111798" height="10" fill="#e6edf3"/>
-<text x="860" y="350" font-size="14" fill="#e6edf3" text-anchor="end" font-weight="normal">2</text>
-<text x="0" y="380" font-size="14" fill="#8d96a0" text-anchor="start" font-weight="normal">Claude Haiku 5.5</text>
-<rect x="242" y="370" width="528" height="10" fill="#262c33" stroke="#3d444d"/>
-<rect x="242" y="370" width="0.0055899" height="10" fill="#e6edf3"/>
-<text x="860" y="380" font-size="14" fill="#e6edf3" text-anchor="end" font-weight="normal">1</text>
+<rect x="242" y="310" width="0.0055899" height="10" fill="#e6edf3"/>
+<text x="860" y="320" font-size="14" fill="#e6edf3" text-anchor="end" font-weight="normal">1</text>
 </svg>
