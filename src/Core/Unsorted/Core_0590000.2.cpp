@@ -369,7 +369,7 @@ void UObject::execAdd_QuatQuat(FFrame& Stack, RESULT_DECL)
 	P_GET_STRUCT(FQuat, A);
 	P_GET_STRUCT(FQuat, B);
 	P_FINISH;
-	FQuat Sum = {A.X + B.X, B.Y + A.Y, B.Z + A.Z, B.W + A.W};
+	FQuat Sum(A.X + B.X, B.Y + A.Y, B.Z + A.Z, B.W + A.W);
 	*(FQuat*)Result = Sum;
 }
 
@@ -379,7 +379,7 @@ void UObject::execSubtract_QuatQuat(FFrame& Stack, RESULT_DECL)
 	P_GET_STRUCT(FQuat, A);
 	P_GET_STRUCT(FQuat, B);
 	P_FINISH;
-	FQuat Difference = {A.X - B.X, A.Y - B.Y, A.Z - B.Z, A.W - B.W};
+	FQuat Difference(A.X - B.X, A.Y - B.Y, A.Z - B.Z, A.W - B.W);
 	*(FQuat*)Result = Difference;
 }
 
@@ -1291,42 +1291,6 @@ void UObject::execIsChildState(FFrame& Stack, RESULT_DECL)
 		}
 	}
 	*(UBOOL*)Result = FALSE;
-}
-
-FORCEINLINE FVector operator+(const FVector& A, const FVector& B)
-{
-	FVector Sum;
-	Sum.X = A.X + B.X;
-	Sum.Y = A.Y + B.Y;
-	Sum.Z = A.Z + B.Z;
-	return Sum;
-}
-
-FORCEINLINE FVector operator-(const FVector& A, const FVector& B)
-{
-	FVector Difference;
-	Difference.X = A.X - B.X;
-	Difference.Y = A.Y - B.Y;
-	Difference.Z = A.Z - B.Z;
-	return Difference;
-}
-
-FORCEINLINE FVector operator*(const FVector& V, FLOAT Scale)
-{
-	FVector Product;
-	Product.X = V.X * Scale;
-	Product.Y = V.Y * Scale;
-	Product.Z = V.Z * Scale;
-	return Product;
-}
-
-FORCEINLINE FVector operator*(FLOAT Scale, const FVector& V)
-{
-	FVector Product;
-	Product.X = Scale * V.X;
-	Product.Y = Scale * V.Y;
-	Product.Z = Scale * V.Z;
-	return Product;
 }
 
 // @baa 0x005965c0

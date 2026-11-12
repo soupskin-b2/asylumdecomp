@@ -6,7 +6,46 @@
  */
 #pragma once
 #include "Array.h"
+#include "AppMath.h"
 #include "Enums.h"
+
+/* EObjectFlags (UnObjBas.h), the values this build uses (#ifndef: a source's own definition still wins) */
+#ifndef RF_DebugPostLoad
+#define RF_DebugPostLoad        ((QWORD)0x0000000000000008)
+#endif
+#ifndef RF_ClassDefaultObject
+#define RF_ClassDefaultObject   ((QWORD)0x0000000000000200)
+#endif
+#ifndef RF_ArchetypeObject
+#define RF_ArchetypeObject      ((QWORD)0x0000000000000400)
+#endif
+#ifndef RF_Transactional
+#define RF_Transactional        ((QWORD)0x0000000100000000)
+#endif
+#ifndef RF_Public
+#define RF_Public               ((QWORD)0x0000000400000000)
+#endif
+#ifndef RF_PerObjectConfig
+#define RF_PerObjectConfig      ((QWORD)0x0000010000000000)
+#endif
+#ifndef RF_Cooked
+#define RF_Cooked               ((QWORD)0x0000800000000000)
+#endif
+#ifndef RF_Standalone
+#define RF_Standalone           ((QWORD)0x0008000000000000)
+#endif
+#ifndef RF_NotForClient
+#define RF_NotForClient         ((QWORD)0x0010000000000000)
+#endif
+#ifndef RF_NotForServer
+#define RF_NotForServer         ((QWORD)0x0020000000000000)
+#endif
+#ifndef RF_HasStack
+#define RF_HasStack             ((QWORD)0x0200000000000000)
+#endif
+#ifndef RF_PendingKill
+#define RF_PendingKill          ((QWORD)0x2000000000000000)
+#endif
 
 #ifndef BAA_UE3_CLASSES
 #define BAA_UE3_CLASSES
@@ -110,7 +149,7 @@ public: \
     static void InternalConstructor(void* X) { new((EInternal*)X) TClass; }
 /* objects of this class live inside a TWithinClass (UClass::ClassWithin) */
 #define DECLARE_WITHIN(TWithinClass) \
-    typedef class TWithinClass WithinClass; TWithinClass* GetOuter##TWithinClass() const { return (TWithinClass*)Outer; }
+    typedef class TWithinClass WithinClass; TWithinClass* GetOuter##TWithinClass() const { return (TWithinClass*)GetOuter(); }
 
 /* UE3 compiles its classes packed to 4 on Win32 (and keeps MS_ALIGN types aligned) */
 #pragma pack(push, 4)
@@ -3244,7 +3283,40 @@ struct FVector {
     FVector() {}
     explicit FORCEINLINE FVector(FLOAT InF) : X(InF), Y(InF), Z(InF) {}
     FORCEINLINE FVector(FLOAT InX, FLOAT InY, FLOAT InZ) : X(InX), Y(InY), Z(InZ) {}
+    FORCEINLINE FVector(const struct FVector4& V);
+    /* UnMath.h */
+    FORCEINLINE FVector operator^(const FVector& V) const { return FVector(Y * V.Z - Z * V.Y, Z * V.X - X * V.Z, X * V.Y - Y * V.X); }
+    FORCEINLINE FLOAT operator|(const FVector& V) const { return X * V.X + Y * V.Y + Z * V.Z; }
+    friend FORCEINLINE FVector operator*(FLOAT Scale, const FVector& V) { return FVector(V.X * Scale, V.Y * Scale, V.Z * Scale); }
+    FORCEINLINE FVector operator+(const FVector& V) const { return FVector(X + V.X, Y + V.Y, Z + V.Z); }
+    FORCEINLINE FVector operator-(const FVector& V) const { return FVector(X - V.X, Y - V.Y, Z - V.Z); }
+    FORCEINLINE FVector operator*(FLOAT Scale) const { return FVector(X * Scale, Y * Scale, Z * Scale); }
+    FVector operator/(FLOAT Scale) const { const FLOAT RScale = 1.f / Scale; return FVector(X * RScale, Y * RScale, Z * RScale); }
+    FORCEINLINE FVector operator*(const FVector& V) const { return FVector(X * V.X, Y * V.Y, Z * V.Z); }
+    FORCEINLINE FVector operator/(const FVector& V) const { return FVector(X / V.X, Y / V.Y, Z / V.Z); }
+    UBOOL operator==(const FVector& V) const { return X == V.X && Y == V.Y && Z == V.Z; }
+    UBOOL operator!=(const FVector& V) const { return X != V.X || Y != V.Y || Z != V.Z; } /* out of line in unoptimized files: 006a7dd0 */
+    UBOOL Equals(const FVector& V, FLOAT Tolerance = KINDA_SMALL_NUMBER) const { return Abs(X - V.X) < Tolerance && Abs(Y - V.Y) < Tolerance && Abs(Z - V.Z) < Tolerance; }
+    FORCEINLINE FVector operator-() const { return FVector(-X, -Y, -Z); }
+    FORCEINLINE FVector operator+=(const FVector& V) { X += V.X; Y += V.Y; Z += V.Z; return *this; }
+    FORCEINLINE FVector operator-=(const FVector& V) { X -= V.X; Y -= V.Y; Z -= V.Z; return *this; }
+    FORCEINLINE FVector operator*=(FLOAT Scale) { X *= Scale; Y *= Scale; Z *= Scale; return *this; }
+    FVector operator/=(FLOAT V) { const FLOAT RV = 1.f / V; X *= RV; Y *= RV; Z *= RV; return *this; }
+    FVector operator*=(const FVector& V) { X *= V.X; Y *= V.Y; Z *= V.Z; return *this; }
+    FVector operator/=(const FVector& V) { X /= V.X; Y /= V.Y; Z /= V.Z; return *this; }
+    FLOAT& operator[](INT i) { return (&X)[i]; }
+    FLOAT operator[](INT i) const { return (&X)[i]; }
+    FLOAT GetMax() const { return Max(Max(X, Y), Z); }
+    FLOAT GetAbsMax() const { return Max(Max(Abs(X), Abs(Y)), Abs(Z)); }
+    FLOAT GetMin() const { return Min(Min(X, Y), Z); }
+    FLOAT Size() const { return appSqrt(X * X + Y * Y + Z * Z); }
+    FORCEINLINE FLOAT SizeSquared() const { return X * X + Y * Y + Z * Z; }
+    FLOAT Size2D() const { return appSqrt(X * X + Y * Y); }
+    FLOAT SizeSquared2D() const { return X * X + Y * Y; }
+    FORCEINLINE UBOOL IsNearlyZero(FLOAT Tolerance = KINDA_SMALL_NUMBER) const { return appAbs(X) < Tolerance && appAbs(Y) < Tolerance && appAbs(Z) < Tolerance; }
+    UBOOL IsZero() const { return X == 0.f && Y == 0.f && Z == 0.f; }
     UBOOL Normalize(FLOAT Tolerance = 1.e-8f); /* 0x005c27d0: SMALL_NUMBER; FALSE (unchanged) if too short */
+    struct FRotator Rotation() const; /* 0x005c3540 */
 };
 
 struct __declspec(align(16)) FVector4 {  /* UE3: MS_ALIGN(16) */
@@ -3257,6 +3329,7 @@ struct __declspec(align(16)) FVector4 {  /* UE3: MS_ALIGN(16) */
     FVector4(FLOAT InX, FLOAT InY, FLOAT InZ, FLOAT InW = 1.0f) : X(InX), Y(InY), Z(InZ), W(InW) {}
     FVector4(const FVector& InVector, FLOAT InW = 1.0f) : X(InVector.X), Y(InVector.Y), Z(InVector.Z), W(InW) {}
 };
+FORCEINLINE FVector::FVector(const FVector4& V) : X(V.X), Y(V.Y), Z(V.Z) {}
 
 /* Script structs lay Vector4 members out unaligned (FSTriovizParms_MinMax has one at 0x8): they hold this */
 struct FVector4Unaligned {
@@ -3270,6 +3343,15 @@ struct FVector2D {
     /* Core.Vector2D */
     FLOAT X; /* 0x0 */
     FLOAT Y; /* 0x4 */
+    FVector2D() {}
+    FORCEINLINE FVector2D(FLOAT InX, FLOAT InY) : X(InX), Y(InY) {}
+    FORCEINLINE FVector2D operator+(const FVector2D& V) const { return FVector2D(X + V.X, Y + V.Y); }
+    FORCEINLINE FVector2D operator-(const FVector2D& V) const { return FVector2D(X - V.X, Y - V.Y); }
+    FORCEINLINE FVector2D operator*(FLOAT Scale) const { return FVector2D(X * Scale, Y * Scale); }
+    UBOOL operator==(const FVector2D& V) const { return X == V.X && Y == V.Y; }
+    UBOOL operator!=(const FVector2D& V) const { return X != V.X || Y != V.Y; }
+    FLOAT Size() const; /* 0x004628c0 */
+    FLOAT SizeSquared() const { return X * X + Y * Y; }
 };
 
 struct FTwoVectors {
@@ -3293,6 +3375,18 @@ struct FRotator {
     INT Roll; /* 0x8 */
     FRotator() {}
     FORCEINLINE FRotator(INT InPitch, INT InYaw, INT InRoll) : Pitch(InPitch), Yaw(InYaw), Roll(InRoll) {}
+    explicit FRotator(const struct FQuat& Quat); /* 0x005c9980 */
+    /* UnMath.h */
+    FRotator operator+(const FRotator& R) const { return FRotator(Pitch + R.Pitch, Yaw + R.Yaw, Roll + R.Roll); }
+    FRotator operator-(const FRotator& R) const { return FRotator(Pitch - R.Pitch, Yaw - R.Yaw, Roll - R.Roll); }
+    FORCEINLINE FRotator operator*(FLOAT Scale) const { return FRotator(appTrunc(Pitch * Scale), appTrunc(Yaw * Scale), appTrunc(Roll * Scale)); }
+    friend FRotator operator*(FLOAT Scale, const FRotator& R) { return FRotator(appTrunc(R.Pitch * Scale), appTrunc(R.Yaw * Scale), appTrunc(R.Roll * Scale)); }
+    UBOOL operator==(const FRotator& R) const { return Pitch == R.Pitch && Yaw == R.Yaw && Roll == R.Roll; }
+    UBOOL operator!=(const FRotator& R) const { return Pitch != R.Pitch || Yaw != R.Yaw || Roll != R.Roll; }
+    FRotator operator+=(const FRotator& R) { Pitch += R.Pitch; Yaw += R.Yaw; Roll += R.Roll; return *this; }
+    FRotator operator-=(const FRotator& R) { Pitch -= R.Pitch; Yaw -= R.Yaw; Roll -= R.Roll; return *this; }
+    UBOOL IsZero() const { return ((Pitch & 65535) == 0) && ((Yaw & 65535) == 0) && ((Roll & 65535) == 0); }
+    struct FQuat Quaternion() const; /* 0x005c9a10 */
     FRotator GetNormalized() const; /* 0x0058df30: each axis wrapped to -32768..32767 */
     FVector Vector() const; /* 0x005c99e0: the unit direction */
 };
@@ -3303,6 +3397,19 @@ struct FQuat {
     FLOAT Y; /* 0x4 */
     FLOAT Z; /* 0x8 */
     FLOAT W; /* 0xc */
+    static const FQuat Identity; /* 0x025d6800: 0,0,0,1 */
+    FQuat() {}
+    FORCEINLINE FQuat(FLOAT InX, FLOAT InY, FLOAT InZ, FLOAT InW) : X(InX), Y(InY), Z(InZ), W(InW) {}
+    explicit FQuat(const struct FMatrix& M); /* 0x005c40e0 */
+    /* UnMath.h */
+    FORCEINLINE FQuat operator+(const FQuat& Q) const { return FQuat(X + Q.X, Y + Q.Y, Z + Q.Z, W + Q.W); }
+    FORCEINLINE FQuat operator-(const FQuat& Q) const { return FQuat(X - Q.X, Y - Q.Y, Z - Q.Z, W - Q.W); }
+    FORCEINLINE FQuat operator*(FLOAT Scale) const { return FQuat(X * Scale, Y * Scale, Z * Scale, W * Scale); }
+    FORCEINLINE FLOAT operator|(const FQuat& Q) const { return X * Q.X + Y * Q.Y + Z * Q.Z + W * Q.W; }
+    FORCEINLINE FLOAT SizeSquared() const { return X * X + Y * Y + Z * Z + W * W; }
+    FORCEINLINE UBOOL IsNormalized() const { return appAbs(1.f - SizeSquared()) <= THRESH_QUAT_NORMALIZED; }
+    void Normalize(); /* 0x0062bb60: UE3's Normalize(SMALL_NUMBER), out of line with the tolerance built in */
+    FVector RotateVector(FVector V) const; /* 0x0058e400 */
 };
 
 struct FIntPoint {
@@ -3387,6 +3494,40 @@ struct __declspec(align(16)) FMatrix {
         ZPlane.X = InZ.X; ZPlane.Y = InZ.Y; ZPlane.Z = InZ.Z; ZPlane.W = InZ.W;
         WPlane.X = InW.X; WPlane.Y = InW.Y; WPlane.Z = InW.Z; WPlane.W = InW.W;
     }
+    /* UnMath.h */
+    FMatrix operator*(const FMatrix& Other) const; /* 0x0058e560 */
+    FORCEINLINE FVector4 TransformFVector4(const FVector4& P) const {
+        FVector4 Result;
+        Result.X = P.X * XPlane.X + P.Y * YPlane.X + P.Z * ZPlane.X + P.W * WPlane.X;
+        Result.Y = P.X * XPlane.Y + P.Y * YPlane.Y + P.Z * ZPlane.Y + P.W * WPlane.Y;
+        Result.Z = P.X * XPlane.Z + P.Y * YPlane.Z + P.Z * ZPlane.Z + P.W * WPlane.Z;
+        Result.W = P.X * XPlane.W + P.Y * YPlane.W + P.Z * ZPlane.W + P.W * WPlane.W;
+        return Result;
+    }
+    FORCEINLINE FVector4 TransformFVector(const FVector& V) const { return TransformFVector4(FVector4(V.X, V.Y, V.Z, 1.0f)); }
+    FORCEINLINE FVector4 TransformNormal(const FVector& V) const { return TransformFVector4(FVector4(V.X, V.Y, V.Z, 0.0f)); }
+    FORCEINLINE FVector InverseTransformFVector(const FVector& V) const {
+        FVector t, Result;
+        t.X = V.X - WPlane.X; t.Y = V.Y - WPlane.Y; t.Z = V.Z - WPlane.Z;
+        Result.X = t.X * XPlane.X + t.Y * XPlane.Y + t.Z * XPlane.Z;
+        Result.Y = t.X * YPlane.X + t.Y * YPlane.Y + t.Z * YPlane.Z;
+        Result.Z = t.X * ZPlane.X + t.Y * ZPlane.Y + t.Z * ZPlane.Z;
+        return Result;
+    }
+    FORCEINLINE FVector InverseTransformNormal(const FVector& V) const {
+        return FVector(V.X * XPlane.X + V.Y * XPlane.Y + V.Z * XPlane.Z,
+                       V.X * YPlane.X + V.Y * YPlane.Y + V.Z * YPlane.Z,
+                       V.X * ZPlane.X + V.Y * ZPlane.Y + V.Z * ZPlane.Z);
+    }
+    FORCEINLINE FVector GetOrigin() const { return FVector(WPlane.X, WPlane.Y, WPlane.Z); }
+    FORCEINLINE FVector GetAxis(INT i) const { const FPlane& P = (&XPlane)[i]; return FVector(P.X, P.Y, P.Z); }
+    FORCEINLINE void SetAxis(INT i, const FVector& Axis) { FPlane& P = (&XPlane)[i]; P.X = Axis.X; P.Y = Axis.Y; P.Z = Axis.Z; }
+    FORCEINLINE void SetOrigin(const FVector& NewOrigin) { WPlane.X = NewOrigin.X; WPlane.Y = NewOrigin.Y; WPlane.Z = NewOrigin.Z; }
+    void GetAxes(FVector& X, FVector& Y, FVector& Z) const; /* 0x005c3260 */
+    FMatrix Transpose() const; /* 0x0058e9a0 */
+    FMatrix Inverse() const; /* 0x006e1510 */
+    void RemoveScaling(FLOAT Tolerance = SMALL_NUMBER); /* 0x006a7f30 */
+    FRotator Rotator() const; /* 0x005c3fc0 */
 };
 
 struct FTranslationMatrix : public FMatrix {
@@ -9684,6 +9825,13 @@ struct UObject {
     UClass* GetClass() const { return Class; }
     FORCEINLINE FName GetFName() const { return ObjectInternalInteger != INDEX_NONE ? Name : FName(TEXT("<uninitialized>")); }
     UObject* GetOuter() const { return Outer; }
+    FORCEINLINE UObject* GetArchetype() const { return ObjectArchetype; }
+    FORCEINLINE UBOOL HasAnyFlags(QWORD FlagsToCheck) const { return (*(const QWORD*)&ObjectFlags & FlagsToCheck) != 0; }
+    FORCEINLINE void SetFlags(QWORD NewFlags) { *(QWORD*)&ObjectFlags |= NewFlags; }
+    FORCEINLINE void ClearFlags(QWORD FlagsToClear) { *(QWORD*)&ObjectFlags &= ~FlagsToClear; }
+    FORCEINLINE void MarkPendingKill() { *(QWORD*)&ObjectFlags |= RF_PendingKill; }
+    class UPackage* GetOutermost() const; /* 0x005d7350 */
+    static class UPackage* GetTransientPackage(); /* 0x005c1d70 */
     static const TCHAR* StaticConfigName() { return TEXT("Engine"); }
     void StaticConstructor(); /* 0x005c19d0 */
     void InitializeIntrinsicPropertyValues(); /* 0x005c19e0 */
@@ -62196,6 +62344,7 @@ struct UStruct : public UField {
     /* Core.Struct (native only: no script package describes it) */
     DECLARE_CLASS(UStruct, UField, 0x10000000, 0x8, Core)
     UStruct() {  }
+    UBOOL IsChildOf(const UField* SomeBase) const { for (const UField* Struct = this; Struct; Struct = Struct->SuperField) if (Struct == SomeBase) return 1; return 0; }
     void StaticConstructor(); /* 0x00568170 */
     BYTE _native0[0x10];
     TArray<BYTE> Native_48; /* 0x48: C++ only (destroyed by its destructor) */

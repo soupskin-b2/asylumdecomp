@@ -205,12 +205,6 @@ void USeqCond_IncrementFloat_::Activated()
 }
 
 #define RF_PendingKill ((QWORD)0x2000000000000000ULL)
-/* UObject::MarkPendingKill (inline in UE3's UnObjBas.h; not in Classes.h). */
-static inline void MarkPendingKill(UObject* Object)
-{
-    *(QWORD*)&Object->ObjectFlags |= RF_PendingKill;
-}
-
 struct USequence_ : public USequence
 {
     void MarkSequencePendingKill();
@@ -219,13 +213,13 @@ struct USequence_ : public USequence
 // @baa 0x008be500
 void USequence_::MarkSequencePendingKill()
 {
-    MarkPendingKill(this);
+    MarkPendingKill();
 
     for (INT Idx = 0; Idx < SequenceObjects.Num(); Idx++)
     {
         if (SequenceObjects(Idx) != NULL)
         {
-            MarkPendingKill(SequenceObjects(Idx));
+            SequenceObjects(Idx)->MarkPendingKill();
         }
     }
 

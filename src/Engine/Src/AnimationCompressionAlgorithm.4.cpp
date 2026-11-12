@@ -35,8 +35,6 @@ struct FVector_ : public FVector
 	FLOAT Size() const { return appSqrt(X * X + Y * Y + Z * Z); }
 };
 
-inline FVector_ operator-(const FVector& A, const FVector& B) { return FVector_(A.X - B.X, A.Y - B.Y, A.Z - B.Z); }
-
 /* UAnimationCompressionAlgorithm::FilterTrivialPositionKeys (static) isn't declared in Classes.h. */
 struct UAnimationCompressionAlgorithm_ : public UAnimationCompressionAlgorithm
 {

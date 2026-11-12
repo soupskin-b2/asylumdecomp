@@ -70,7 +70,7 @@ bool C_0053d190::sub_0053d190(void)
   return *(int *)(param_1 + 4) != 0;
 }
 
-extern "C" float atan2(float y, float x);
+/* math.h's float overload of atan2, out of line */
 // @baa 0x0053d1c0
 float sub_0053d1c0(float y, float x)
 {

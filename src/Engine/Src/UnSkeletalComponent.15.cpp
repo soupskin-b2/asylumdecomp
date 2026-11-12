@@ -84,8 +84,6 @@ FORCEINLINE FVector USkeletalMeshComponent_::GetBoneLocation(FName BoneName, INT
 #define BIG_NUMBER (3.4e+38f)
 FORCEINLINE FLOAT SizeSquared(const FVector& V) { return V.X*V.X + V.Y*V.Y + V.Z*V.Z; }
 
-FORCEINLINE FVector operator-(const FVector& A, const FVector& B) { return FVector(A.X - B.X, A.Y - B.Y, A.Z - B.Z); }
-
 // @baa 0x0091ef60
 void USkeletalMeshComponent::execGetClosestCollidingBoneLocation(FFrame& Stack, RESULT_DECL)
 {

@@ -2942,7 +2942,6 @@ struct C_008bcc90 {
     int * sub_008bcc90();
 };
 
-extern "C" __declspec(dllimport) int rand(...);
 // @baa 0x008bcc90
 int * C_008bcc90::sub_008bcc90(void)
 {

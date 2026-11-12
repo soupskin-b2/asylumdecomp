@@ -45,9 +45,6 @@ void AActor::SetZone(UBOOL bTest, UBOOL bForceRefresh)
     }
 }
 
-/* FVector::operator+ (UnMath.h); the kit's FVector has only constructors */
-FORCEINLINE FVector operator+(const FVector& A, const FVector& B) { return FVector(A.X + B.X, A.Y + B.Y, A.Z + B.Z); }
-
 struct APhysicsVolume__007e2e10 : public APhysicsVolume {
     void eventPawnLeavingVolume(APawn* Other);   // 007d5f30
     void eventPawnEnteredVolume(APawn* Other);   // 007d5f80

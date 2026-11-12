@@ -3,7 +3,39 @@
 #pragma once
 #include "Core.h"
 #include <math.h>
-#include <stdlib.h>
+/* <stdlib.h>'s rand, declared as it does (not the whole header: some sources declare its functions themselves) */
+extern "C" _CRTIMP int __cdecl rand(void);
+#ifndef RAND_MAX
+#define RAND_MAX 0x7fff
+#endif
+
+// UnMath.h's constants (the doubles are doubles in this build: comparisons with them go through x87)
+#ifndef PI
+#define PI                  (3.1415926535897932)
+#endif
+#ifndef SMALL_NUMBER
+#define SMALL_NUMBER        (1.e-8f)
+#endif
+#ifndef KINDA_SMALL_NUMBER
+#define KINDA_SMALL_NUMBER  (1.e-4)
+#endif
+#ifndef BIG_NUMBER
+#define BIG_NUMBER          (3.4e+38f)
+#endif
+#ifndef INV_PI
+#define INV_PI              (0.31830988618f)
+#endif
+#ifndef HALF_PI
+#define HALF_PI             (1.57079632679)
+#endif
+#ifndef DELTA
+#define DELTA               (0.00001f)
+#endif
+#ifndef THRESH_POINTS_ARE_SAME
+#define THRESH_POINTS_ARE_SAME   (0.002f)
+#define THRESH_NORMALS_ARE_SAME  (0.00002f)
+#define THRESH_QUAT_NORMALIZED   (0.02f)
+#endif
 
 inline DOUBLE appExp( DOUBLE Value )             { return exp(Value); }
 inline DOUBLE appLoge( DOUBLE Value )            { return log(Value); }

@@ -30,23 +30,7 @@ FBoneAtom_ UpdateBoneAtom(INT BoneIndex, const FBoneAtom& Atom, const FQuat& Com
 	return FBoneAtom_(Rot, Atom.Translation, 1.0f);
 }
 
-/* Kit gaps, with UE3's definitions (UnMath.h): FQuat has no constructor, operators or Normalize (out of
- * line here); LerpQuat is missing. */
-struct FQuat_ : public FQuat
-{
-	FQuat_(FLOAT InX, FLOAT InY, FLOAT InZ, FLOAT InW) { X = InX; Y = InY; Z = InZ; W = InW; }
-	void sub_0062bb60();				/* Normalize */
-};
-
-inline FLOAT operator|(const FQuat& A, const FQuat& B) { return A.X * B.X + A.Y * B.Y + A.Z * B.Z + A.W * B.W; }
-
-inline FQuat_ operator*(const FQuat& Q, FLOAT Scale) { return FQuat_(Q.X * Scale, Q.Y * Scale, Q.Z * Scale, Q.W * Scale); }
-
-inline FQuat_ operator+(const FQuat& A, const FQuat& B) { return FQuat_(A.X + B.X, A.Y + B.Y, A.Z + B.Z, A.W + B.W); }
-
-inline FQuat_ operator-(const FQuat& A, const FQuat& B) { return FQuat_(A.X - B.X, A.Y - B.Y, A.Z - B.Z, A.W - B.W); }
-
-inline FQuat_ LerpQuat(const FQuat& A, const FQuat& B, const FLOAT Alpha)
+inline FQuat LerpQuat(const FQuat& A, const FQuat& B, const FLOAT Alpha)
 {
 	// To ensure the 'shortest route', we make sure the dot product between the both rotations is positive.
 	if ((A | B) < 0.f)
@@ -60,9 +44,9 @@ inline FQuat_ LerpQuat(const FQuat& A, const FQuat& B, const FLOAT Alpha)
 
 // @baa 0x00bf8330
 /* AnimationCompressionAlgorithm_RemoveLinearKeys.h: interpolation between two rotation keys. */
-FQuat_ Interpolate(const FQuat& A, const FQuat& B, FLOAT Alpha)
+FQuat Interpolate(const FQuat& A, const FQuat& B, FLOAT Alpha)
 {
-	FQuat_ result = LerpQuat(A, B, Alpha);
-	result.sub_0062bb60();
+	FQuat result = LerpQuat(A, B, Alpha);
+	result.Normalize();
 	return result;
 }

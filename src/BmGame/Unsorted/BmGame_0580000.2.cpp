@@ -10,7 +10,7 @@ double sub_0058c4d0(float param_1)
     return cos((double)param_1);
 }
 
-extern "C" float tan(float);
+/* math.h's float overload of tan, out of line */
 // @baa 0x0058c520
 float sub_0058c520(float arg1)
 {

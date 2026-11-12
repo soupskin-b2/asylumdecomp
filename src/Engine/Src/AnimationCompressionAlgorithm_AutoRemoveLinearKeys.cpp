@@ -42,23 +42,13 @@ FBoneAtom_ UpdateBoneAtom(INT BoneIndex, const FBoneAtom& Atom, const FVector& C
 	return FBoneAtom_(Atom.Rotation, Component, 1.0f);
 }
 
-/* Kit gaps, with UE3's definitions (UnMath.h): FQuat has no constructor, dot product or scaling. */
-struct FQuat_ : public FQuat
-{
-	FQuat_(FLOAT InX, FLOAT InY, FLOAT InZ, FLOAT InW) { X = InX; Y = InY; Z = InZ; W = InW; }
-};
-
-inline FLOAT operator|(const FQuat& A, const FQuat& B) { return A.X * B.X + A.Y * B.Y + A.Z * B.Z + A.W * B.W; }
-
-inline FQuat_ operator*(const FQuat& Q, FLOAT Scale) { return FQuat_(Q.X * Scale, Q.Y * Scale, Q.Z * Scale, Q.W * Scale); }
-
 inline FLOAT appFloatSelect(FLOAT Comparand, FLOAT ValueGEZero, FLOAT ValueLTZero) { return Comparand >= 0.f ? ValueGEZero : ValueLTZero; }
 
 FLOAT FQuatError(const FQuat& Q1, const FQuat& Q2);
 	/* 00bf7af0 */
 /* AnimationCompressionAlgorithm_RemoveLinearKeys.h: B, flipped if needed so that A to B is the
  * shortest rotation. */
-static inline FQuat_ EnforceShortestArc(const FQuat& A, const FQuat& B)
+static inline FQuat EnforceShortestArc(const FQuat& A, const FQuat& B)
 {
 	const FLOAT DotResult = (A | B);
 	const FLOAT Bias = appFloatSelect(DotResult, 1.0f, -1.0f);

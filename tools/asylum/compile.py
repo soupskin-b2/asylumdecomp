@@ -249,6 +249,7 @@ def _pch(src: str, p: Profile) -> tuple[str, Path, list[int]] | None:
 
 
 CACHE_DAYS = 3
+PCH_BUDGET = 3 << 30  # PCHs are ~100 MB each and every header change makes a new set
 
 
 def _used(f: Path) -> None:
@@ -261,11 +262,12 @@ def _used(f: Path) -> None:
 
 
 def prune() -> None:
-    """Once a day, delete compile-cache files unused for CACHE_DAYS. Every header change starts a new set
-    of .pch and .obj files (they're keyed by the headers), so without this the cache only grows."""
+    """Once an hour, delete compile-cache files unused for CACHE_DAYS, and the least recently used PCHs
+    beyond PCH_BUDGET. Every header change starts a new set of .pch and .obj files (they're keyed by the
+    headers), so without this the cache only grows."""
     mark = HOME / "cache" / "pruned"
     try:
-        if time.time() - mark.stat().st_mtime < 86400:
+        if time.time() - mark.stat().st_mtime < 3600:
             return
     except OSError:
         pass
@@ -274,12 +276,14 @@ def prune() -> None:
     old = time.time() - CACHE_DAYS * 86400
     for sub in ("pch", "obj"):
         try:
-            entries = list(os.scandir(HOME / "cache" / sub))
+            entries = [(e, e.stat()) for e in os.scandir(HOME / "cache" / sub) if e.is_file()]
         except OSError:
             continue
-        for e in entries:
+        total = 0
+        for e, st in sorted(entries, key=lambda x: -x[1].st_mtime):  # newest first
+            total += st.st_size
             try:
-                if e.is_file() and e.stat().st_mtime < old:
+                if st.st_mtime < old or (sub == "pch" and e.name.endswith(".pch") and total > PCH_BUDGET):
                     os.unlink(e.path)
             except OSError:  # in use by another process
                 pass

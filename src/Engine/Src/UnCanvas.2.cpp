@@ -112,12 +112,6 @@ struct FLinearColor_ : public FLinearColor
 	FLinearColor_(const FColor& C);
 };
 
-/* Core's Max template (not in the headers). */
-template< class T > inline T Max( const T A, const T B )
-{
-	return (A>=B) ? A : B;
-}
-
 struct UCanvas__00aa97a0 : public UCanvas
 {
 	void DrawTile( UTexture* Tex, FLOAT X, FLOAT Y, FLOAT XL, FLOAT YL, FLOAT U, FLOAT V, FLOAT UL, FLOAT VL, const FLinearColor_& Color );

@@ -21,13 +21,6 @@ template<class T> struct TArrayAt_ : public TArray<T>
     }
 };
 
-/* FVector arithmetic and FMatrix axis accessors (UnMath.h); the kit's math types have no operators. */
-FORCEINLINE FVector operator*(const FVector& V, FLOAT Scale) { return FVector(V.X * Scale, V.Y * Scale, V.Z * Scale); }
-
-FORCEINLINE FVector operator+(const FVector& A, const FVector& B) { return FVector(A.X + B.X, A.Y + B.Y, A.Z + B.Z); }
-
-FORCEINLINE FVector operator-(const FVector& A, const FVector& B) { return FVector(A.X - B.X, A.Y - B.Y, A.Z - B.Z); }
-
 struct FMatrix_ : public FMatrix
 {
     FORCEINLINE FVector GetAxis(INT i) const

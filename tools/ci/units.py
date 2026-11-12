@@ -76,6 +76,8 @@ def main():
     bad, t0 = [], time.time()
     jobs = a.jobs or default_jobs()
     print("%d jobs" % jobs, flush=True)
+    import compile as cc
+    cc.prune()  # once an hour: old compile-cache files and PCHs over the budget
     with concurrent.futures.ProcessPoolExecutor(jobs, initializer=_low_priority) as pool:
         for i, (path, problems) in enumerate(pool.map(one, units, chunksize=4), 1):
             if problems:

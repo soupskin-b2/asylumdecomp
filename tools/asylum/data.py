@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import functools
+import hashlib
 import gzip
 import json
 import re
@@ -51,13 +52,32 @@ def fingerprints() -> dict[str, dict]:
     return _load("fingerprints.json.gz")
 
 
+def _content_key(path: Path) -> str:
+    """A key that changes only with the file's content (checkouts and pulls rewrite mtimes), cached per
+    size and mtime so it's hashed once."""
+    st = path.stat()
+    memo = HOME / "cache" / "content-keys.json"
+    try:
+        keys = json.loads(memo.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        keys = {}
+    stamp = "%s:%x:%x" % (path.name, st.st_size, st.st_mtime_ns)
+    if stamp not in keys:
+        keys = {k: v for k, v in keys.items() if not k.startswith(path.name + ":")}
+        keys[stamp] = hashlib.sha1(path.read_bytes()).hexdigest()[:12]
+        memo.parent.mkdir(parents=True, exist_ok=True)
+        tmp = memo.with_name(memo.name + ".%d.tmp" % os.getpid())
+        tmp.write_text(json.dumps(keys), encoding="utf-8")
+        os.replace(tmp, memo)
+    return keys[stamp]
+
+
 @functools.cache
 def _fingerprint_shard(page: int) -> dict[str, dict]:
     """The fingerprints of one 64 KB page of addresses. The full table takes seconds to parse, so it's
     split once into small files in the cache (it never changes for a given kit)."""
     src = ROOT / "data" / "fingerprints.json.gz"
-    st = src.stat()
-    d = HOME / "cache" / ("fingerprints-%x-%x" % (st.st_size, int(st.st_mtime)))
+    d = HOME / "cache" / ("fingerprints-" + _content_key(src))
     if not d.exists():
         tmp = d.with_name(d.name + ".%d.tmp" % os.getpid())
         tmp.mkdir(parents=True, exist_ok=True)
@@ -70,9 +90,9 @@ def _fingerprint_shard(page: int) -> dict[str, dict]:
             os.replace(tmp, d)
         except OSError:  # another process finished first
             shutil.rmtree(tmp, ignore_errors=True)
-        for old in d.parent.glob("fingerprints-*"):  # other kits' (~140 MB each), unused for a day
+        for old in d.parent.glob("fingerprints-*"):  # other versions' (~140 MB each), unused for 2 hours
             try:
-                if old != d and time.time() - old.stat().st_mtime > 86400:
+                if old != d and time.time() - old.stat().st_mtime > 7200:
                     shutil.rmtree(old, ignore_errors=True)
             except OSError:
                 pass
@@ -90,7 +110,7 @@ def header_addresses() -> dict[str, int]:
     """`Class::Name` -> address for declarations the headers pin with an address comment
     (`void Foo(INT); /* 0x005d7d10 */`); names given two addresses are left out. Cached per header state."""
     files = sorted((ROOT / "include" / "ue3").glob("*.h"))
-    import hashlib  # (not hash(): it differs per process, so the cache would never hit)
+    # hashlib, not hash(): hash() differs per process, so the cache would never hit
     tag = hashlib.sha256(repr([(f.name, f.stat().st_size, f.stat().st_mtime_ns) for f in files]).encode()).hexdigest()[:12]
     c = HOME / "cache" / ("header-addresses-%s.json" % tag)
     if c.exists():
