@@ -1,0 +1,11 @@
+// UnrealEd_1b90000.cpp: 1 function
+// Placed here by: contributions.
+// Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
+#include <string.h>
+
+// @baa 0x01b92fa0
+void sub_01b92fa0(void* Dest, const void* Src)
+{
+    if (Dest)
+        memcpy(Dest, Src, 0x44);
+}

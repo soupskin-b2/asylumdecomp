@@ -1,4 +1,4 @@
-// Core_1df0000.cpp (part 44 of 44): 1 function
+// Core_1df0000.cpp (part 44 of 44): 2 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -24,4 +24,13 @@ void sub_01dffff0(void)
   ((wxEventHashTable *)((wxEventHashTable *)&g_026d2320))->wxEventHashTable::wxEventHashTable(*(const wxEventTable *)((wxEventTable *)&g_021e3594));
   sub_01a37872(&sub_01e260a0);
   return;
+}
+
+extern unsigned char sub_0059f5f0(int, int);
+extern int g_025dfa08;
+extern unsigned char g_026c5495;
+// @baa 0x01df02b0
+void sub_01df02b0()
+{
+    g_026c5495 = sub_0059f5f0(0x222, (int)&g_025dfa08);
 }

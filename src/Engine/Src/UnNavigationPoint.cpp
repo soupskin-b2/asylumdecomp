@@ -1,4 +1,4 @@
-// UnNavigationPoint.cpp (part 1 of 4): 50 functions
+// UnNavigationPoint.cpp (part 1 of 4): 51 functions
 // Placed here by: neighbours 21, class 18, callers 7, file 4.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -474,3 +474,18 @@ sub_0085d46f:
   }
   return 0;
 }
+
+/* CastChecked<T>, out of line per T in the exe (ACoverLink: 011d1ce0) */
+template<class T> T* CastChecked(UObject* Src);
+struct USelection_ : public USelection {
+    UObject* GetTop(UClass* InClass); // 0043bc00
+    /* UnSelection.h */
+    template<class T> T* GetTop()
+    {
+        UObject* Selected = GetTop(T::StaticClass());
+        return Selected ? CastChecked<T>(Selected) : NULL;
+    }
+};
+
+// @baa 0x011d4d00
+template ACoverLink* USelection_::GetTop<ACoverLink>();

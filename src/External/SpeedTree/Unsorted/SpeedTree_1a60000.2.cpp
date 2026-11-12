@@ -1,4 +1,4 @@
-// SpeedTree_1a60000.cpp (part 2 of 3): 1 function
+// SpeedTree_1a60000.cpp (part 2 of 3): 2 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -12,4 +12,27 @@ void* sub_01a63300(void* First, void* Last, void* NewBase)
     if (Count != 0)
         memmove_s(NewBase, (unsigned int)Bytes, First, (unsigned int)Bytes);
     return NewEnd;
+}
+
+struct ST_DynArray_
+{
+	INT Num;
+	INT Cursor;
+	INT Size;
+	unsigned char *Buffer;
+	void sub_01a6bb60(unsigned char *pValue);
+};
+
+struct ST_Parent_
+{
+	INT Header;
+	ST_DynArray_ Bytes;
+	void sub_01a6c450(unsigned char Value);
+};
+
+// @baa 0x01a6c450
+void ST_Parent_::sub_01a6c450(unsigned char Value)
+{
+	unsigned char Byte = Value;
+	Bytes.sub_01a6bb60(&Byte);
 }

@@ -1,4 +1,4 @@
-// BmGame_16f0000.cpp: 134 functions
+// BmGame_16f0000.cpp: 137 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -1108,4 +1108,29 @@ void ARBMRouter::execCanMovePartwayToPos(FFrame& Stack, RESULT_DECL)
     P_GET_STRUCT(FVector, TestPos);
     P_FINISH;
     *(UBOOL*)Result = CanMovePartwayToPos(TestPos);
+}
+
+// @baa 0x016f4910
+void ARPawnCharacter::execGetMoveToDirection(FFrame& Stack, RESULT_DECL)
+{
+    P_FINISH;
+    FVector Direction;
+    *(FVector*)Result = *(FVector*)vf_588((INT)&Direction);
+}
+
+// @baa 0x016f5280
+void ARPawnCharacter::execGetFaceAtDirection(FFrame& Stack, RESULT_DECL)
+{
+    P_FINISH;
+    FVector Direction;
+    *(FVector*)Result = *(FVector*)vf_5d4((INT)&Direction);
+}
+
+// @baa 0x016fd320
+void ARBMRouter_NoPawn::execGetPos(FFrame& Stack, RESULT_DECL)
+{
+    P_FINISH;
+
+    FVector Position;
+    *(FVector*)Result = *(FVector*)vf_354((INT)&Position);
 }

@@ -1,4 +1,4 @@
-// Core_1de0000.cpp: 690 functions
+// Core_1de0000.cpp: 732 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -5422,4 +5422,368 @@ extern Sub g_026b6050;
 void sub_01de6100()
 {
     g_026b6050.sub_009837f0(0x10);
+}
+
+extern unsigned char g_026c4e20;
+extern int g_025df458;
+unsigned char sub_0059f5f0(int Param0, int* Param1);
+// @baa 0x01ded530
+void sub_01ded530(void)
+{
+    g_026c4e20 = sub_0059f5f0(0x141, &g_025df458);
+}
+
+unsigned char sub_0059f5f0(int Arg, unsigned char* Param);
+extern unsigned char g_026c4982;
+extern unsigned char g_025df45c;
+// @baa 0x01ded550
+void sub_01ded550(void)
+{
+	g_026c4982 = sub_0059f5f0(0x138, &g_025df45c);
+}
+
+unsigned char sub_0059f5f0(int Index, int* State);
+extern int g_025d95d8;
+extern unsigned char g_026b533a;
+// @baa 0x01de4dd0
+void sub_01de4dd0(void)
+{
+	g_026b533a = sub_0059f5f0(0x1fd, &g_025d95d8);
+}
+
+extern int g_025d95cc;
+extern unsigned char g_026b533b;
+extern unsigned char __cdecl sub_0059f5f0(int Arg1, int *Arg2);
+// @baa 0x01de4d70
+void sub_01de4d70()
+{
+	g_026b533b = sub_0059f5f0(0x210, &g_025d95cc);
+}
+
+unsigned char sub_0059f5f0(INT Index, unsigned char* Value);
+extern INT g_025d95d4;
+extern BYTE g_026b5339;
+// @baa 0x01de4db0
+void sub_01de4db0()
+{
+	g_026b5339 = sub_0059f5f0(0x1f7, (unsigned char*)&g_025d95d4);
+}
+
+unsigned char sub_0059f5f0(int a, int* b);
+extern int g_025daf3c;
+unsigned char g_026b5cdc;
+// @baa 0x01de5760
+void sub_01de5760(void)
+{
+    g_026b5cdc = sub_0059f5f0(0x180, &g_025daf3c);
+}
+
+unsigned char sub_0059f5f0(int In, int* InValue);
+extern int g_025df464;
+extern unsigned char g_026c5259;
+// @baa 0x01ded590
+void sub_01ded590()
+{
+	g_026c5259 = sub_0059f5f0(0x135, &g_025df464);
+}
+
+unsigned char sub_0059f5f0(int Arg, int* Obj);
+extern int g_025df46c;
+extern unsigned char g_026c425d;
+// @baa 0x01ded5d0
+void sub_01ded5d0()
+{
+    g_026c425d = sub_0059f5f0(0x132, &g_025df46c);
+}
+
+extern BYTE g_026b708c;
+extern int g_025dcec4;
+extern unsigned char __cdecl sub_0059f5f0(int A, int* B);
+// @baa 0x01de6de0
+void sub_01de6de0(void)
+{
+    g_026b708c = sub_0059f5f0(0x1d4, &g_025dcec4);
+}
+
+extern unsigned char sub_0059f5f0(INT, unsigned char*);
+extern INT g_025df460;
+extern BYTE g_026c4802;
+// @baa 0x01ded570
+void sub_01ded570()
+{
+    g_026c4802 = sub_0059f5f0(0x137, (unsigned char*)&g_025df460);
+}
+
+extern unsigned char sub_0059f5f0(int, int*);
+extern int g_025df470;
+extern unsigned char g_026c4811;
+// @baa 0x01ded5f0
+void sub_01ded5f0(void)
+{
+    g_026c4811 = sub_0059f5f0(0x131, &g_025df470);
+}
+
+unsigned char __cdecl sub_0059f5f0(int InSize, int* OutValue);
+extern INT g_025df478;
+extern BYTE g_026c546a;
+// @baa 0x01ded630
+void sub_01ded630(void)
+{
+	g_026c546a = sub_0059f5f0(0x130, &g_025df478);
+}
+
+unsigned char sub_0059f5f0(INT InIndex, unsigned char* Value);
+extern unsigned char g_026c4bbb;
+extern INT g_025df47c;
+// @baa 0x01ded650
+void sub_01ded650()
+{
+	g_026c4bbb = sub_0059f5f0(0x223, (unsigned char*)&g_025df47c);
+}
+
+extern int g_025df48c;
+unsigned char g_026c4c84;
+unsigned char sub_0059f5f0(int, int*);
+// @baa 0x01ded6d0
+void sub_01ded6d0(void)
+{
+    g_026c4c84 = sub_0059f5f0(0x200, &g_025df48c);
+}
+
+unsigned char __cdecl sub_0059f5f0(int, int*);
+extern int g_025df4d0;
+extern BYTE g_026c4233;
+// @baa 0x01ded8f0
+void sub_01ded8f0()
+{
+	g_026c4233 = sub_0059f5f0(0x118, &g_025df4d0);
+}
+
+extern INT g_025df4d4;
+extern BYTE g_026c423c;
+// @baa 0x01ded910
+void sub_01ded910()
+{
+	g_026c423c = sub_0059f5f0(0x117, (unsigned char*)&g_025df4d4);
+}
+
+extern int g_025df500;
+unsigned char g_026c452d;
+// @baa 0x01deda70
+void sub_01deda70(void)
+{
+    g_026c452d = sub_0059f5f0(0x115, &g_025df500);
+}
+
+extern INT g_025df560;
+extern BYTE g_026c53cb;
+// @baa 0x01dedd70
+void sub_01dedd70()
+{
+    g_026c53cb = sub_0059f5f0(0x110, (unsigned char*)&g_025df560);
+}
+
+extern unsigned char g_026c5592;
+extern int g_025df564;
+// @baa 0x01dedd90
+void sub_01dedd90(void)
+{
+    g_026c5592 = sub_0059f5f0(0x12a, &g_025df564);
+}
+
+extern int g_025df574;
+extern unsigned char g_026c409b;
+// @baa 0x01dede10
+void sub_01dede10(void)
+{
+	g_026c409b = sub_0059f5f0(3969, &g_025df574);
+}
+
+extern unsigned char g_026c55ef;
+extern INT g_025df598;
+unsigned char sub_0059f5f0(INT, unsigned char*);
+// @baa 0x01dedf30
+void sub_01dedf30()
+{
+	g_026c55ef = sub_0059f5f0(0x10b, (unsigned char*)&g_025df598);
+}
+
+extern unsigned char __cdecl sub_0059f5f0(int Value, int* Entry);
+extern int g_025df594;
+extern unsigned char g_026c498e;
+// @baa 0x01dedf10
+void sub_01dedf10()
+{
+	g_026c498e = sub_0059f5f0(0x12b, &g_025df594);
+}
+
+extern int g_025df5ac;
+extern unsigned char g_026c529c;
+// @baa 0x01dedfd0
+void sub_01dedfd0(void)
+{
+    g_026c529c = sub_0059f5f0(0x11b, &g_025df5ac);
+}
+
+unsigned char sub_0059f5f0(int Size, INT* Value);
+extern INT g_025df59c;
+extern BYTE g_026c5364;
+// @baa 0x01dedf50
+void sub_01dedf50()
+{
+    g_026c5364 = sub_0059f5f0(0x10a, &g_025df59c);
+}
+
+// 01dedb70: a function-pointer target stored at 01e33630.
+// sub_0059f5f0(Id, Slot): set up the slot Id (a handle) to the value held
+// in *Slot and report whether the slot already held it.
+extern unsigned char sub_0059f5f0(int Id, int* Slot);
+extern int g_025df520;
+extern unsigned char g_026c5037;
+// @baa 0x01dedb70
+void sub_01dedb70(void)
+{
+	g_026c5037 = sub_0059f5f0(0xf82, &g_025df520);
+}
+
+extern unsigned char g_026c3e94;
+extern int g_025df5b4;
+unsigned char sub_0059f5f0(INT index, unsigned char* Value);
+// @baa 0x01dee010
+void sub_01dee010()
+{
+	g_026c3e94 = sub_0059f5f0(0x105, (unsigned char*)&g_025df5b4);
+}
+
+extern int g_025df5b0;
+extern unsigned char g_026c44d7;
+// @baa 0x01dedff0
+void sub_01dedff0(void)
+{
+    g_026c44d7 = sub_0059f5f0(0x106, &g_025df5b0);
+}
+
+extern int g_025df5b8;
+extern unsigned char g_026c55d1;
+unsigned char sub_0059f5f0(int Index, int* Out);
+// @baa 0x01dee030
+void sub_01dee030()
+{
+	g_026c55d1 = sub_0059f5f0(0x100, &g_025df5b8);
+}
+
+unsigned char __cdecl sub_0059f5f0(int id, int* state);
+extern int g_025df614;
+extern unsigned char g_026c4a1b;
+// @baa 0x01dee310
+void sub_01dee310()
+{
+	g_026c4a1b = sub_0059f5f0(0x20f, &g_025df614);
+}
+
+extern INT g_025df61c;
+extern unsigned char g_026c3f32;
+// @baa 0x01dee350
+void sub_01dee350()
+{
+    g_026c3f32 = sub_0059f5f0(0x208, (unsigned char*)&g_025df61c);
+}
+
+extern int g_025df620;
+extern unsigned char g_026c4db4;
+// @baa 0x01dee370
+void sub_01dee370(void)
+{
+    g_026c4db4 = sub_0059f5f0(0x209, &g_025df620);
+}
+
+extern int g_025df618;
+extern unsigned char g_026c4a60;
+// @baa 0x01dee330
+void sub_01dee330(void)
+{
+	g_026c4a60 = sub_0059f5f0(0x20e, &g_025df618);
+}
+
+unsigned char __cdecl sub_0059f5f0(int a, int* b);
+extern int g_025df630;
+extern unsigned char g_026c3fbf;
+// @baa 0x01dee3f0
+void __cdecl sub_01dee3f0(void)
+{
+	g_026c3fbf = sub_0059f5f0(0x205, &g_025df630);
+}
+
+extern unsigned char sub_0059f5f0(int, unsigned char*);
+extern int g_025df634;
+extern unsigned char g_026c51b6;
+// @baa 0x01dee410
+void sub_01dee410(void)
+{
+    g_026c51b6 = sub_0059f5f0(0x206, (unsigned char*)&g_025df634);
+}
+
+extern int g_025df63c;
+extern unsigned char g_026c4805;
+// @baa 0x01dee450
+void sub_01dee450(void)
+{
+	g_026c4805 = sub_0059f5f0(0x1f6, &g_025df63c);
+}
+
+extern int g_025df640;
+extern BYTE g_026c4564;
+// @baa 0x01dee470
+void sub_01dee470(void)
+{
+	g_026c4564 = sub_0059f5f0(0x1f4, &g_025df640);
+}
+
+extern int g_025df638;
+extern unsigned char g_026c4c58;
+// @baa 0x01dee430
+void sub_01dee430(void)
+{
+	g_026c4c58 = sub_0059f5f0(0x1fc, &g_025df638);
+}
+
+extern INT g_025df644;
+extern BYTE g_026c3df3;
+// @baa 0x01dee490
+void sub_01dee490(void)
+{
+	g_026c3df3 = sub_0059f5f0(0x213, (unsigned char*)&g_025df644);
+}
+
+extern int g_025df468;
+extern unsigned char g_026c4bc5;
+// @baa 0x01ded5b0
+void sub_01ded5b0()
+{
+    g_026c4bc5 = sub_0059f5f0(0x133, &g_025df468);
+}
+
+extern int g_025df648;
+extern unsigned char g_026c4c02;
+unsigned char sub_0059f5f0(int Id, int* Out);
+// @baa 0x01dee4b0
+void sub_01dee4b0()
+{
+    g_026c4c02 = sub_0059f5f0(0x219, &g_025df648);
+}
+
+extern int g_025df64c;
+extern unsigned char g_026c5061;
+// @baa 0x01dee4d0
+void sub_01dee4d0(void)
+{
+	g_026c5061 = sub_0059f5f0(0x215, &g_025df64c);
+}
+
+extern INT g_025df650;
+extern unsigned char g_026c4c59;
+// @baa 0x01dee4f0
+void sub_01dee4f0(void)
+{
+	g_026c4c59 = sub_0059f5f0(0x202, (unsigned char*)&g_025df650);
 }

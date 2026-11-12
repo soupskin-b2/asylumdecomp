@@ -1,4 +1,4 @@
-// UnPawn.cpp (part 1 of 2): 88 functions
+// UnPawn.cpp (part 1 of 2): 89 functions
 // Placed here by: neighbours 49, class 32, callers 3, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1223,4 +1223,11 @@ struct C_00867a50
 void C_00867a50::sub_00867a50(INT)
 {
     Flags |= 0x2000000;
+}
+
+// @baa 0x00867e90
+// AActor::GetTerminalVelocity (vtable slot 0x11c)
+FLOAT AActor::vf_11c()
+{
+    return PhysicsVolume ? PhysicsVolume->TerminalVelocity : ((APhysicsVolume*)APhysicsVolume::StaticClass()->GetDefaultObject())->TerminalVelocity;
 }

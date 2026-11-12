@@ -2,47 +2,47 @@
  "updated": "2026-11-12",
  "functions": {
   "total": 174166,
-  "matched": 98386
+  "matched": 98559
  },
  "bytes": {
   "total": 24308119,
-  "matched": 3706933
+  "matched": 3725616
  },
  "areas": [
   {
    "name": "Engine",
    "functions": 69863,
    "bytes": 9201956,
-   "matched": 41318,
-   "matched_bytes": 1719839
+   "matched": 41417,
+   "matched_bytes": 1736510
   },
   {
    "name": "Editor",
    "functions": 42961,
    "bytes": 8040643,
-   "matched": 23814,
-   "matched_bytes": 793416
+   "matched": 23824,
+   "matched_bytes": 793712
   },
   {
    "name": "External",
    "functions": 29410,
    "bytes": 3194268,
-   "matched": 11747,
-   "matched_bytes": 187277
+   "matched": 11752,
+   "matched_bytes": 187397
   },
   {
    "name": "Game",
    "functions": 13563,
    "bytes": 1853804,
-   "matched": 9334,
-   "matched_bytes": 533506
+   "matched": 9337,
+   "matched_bytes": 533758
   },
   {
    "name": "Core",
    "functions": 12072,
    "bytes": 1275961,
-   "matched": 7821,
-   "matched_bytes": 236856
+   "matched": 7874,
+   "matched_bytes": 238128
   },
   {
    "name": "CommonGame",
@@ -55,8 +55,8 @@
    "name": "Unsorted",
    "functions": 2316,
    "bytes": 163463,
-   "matched": 1627,
-   "matched_bytes": 21312
+   "matched": 1630,
+   "matched_bytes": 21384
   },
   {
    "name": "FMod",
@@ -97,17 +97,17 @@
  "contributors": [
   {
    "login": "soupskin-b2",
-   "functions": 98376,
-   "bytes": 3705353,
+   "functions": 98549,
+   "bytes": 3724036,
    "models": {
     "tooling": 94456,
     "deepseek-v4.1-flash": 1676,
-    "qwen3.8-27b": 1163,
+    "qwen3.8-27b": 1231,
+    "claude-opus-5.5": 417,
     "not specified": 338,
-    "claude-opus-5.5": 318,
     "Claude Opus 5.5": 206,
     "gpt-6.1-sol": 86,
-    "qwen": 49,
+    "qwen": 55,
     "claude-sonnet-5.5": 37,
     "deepseek-v4.1": 26,
     "gpt-6.1-terra": 10,
@@ -132,15 +132,15 @@
   },
   {
    "model": "qwen3.8-27b",
-   "functions": 1163
+   "functions": 1231
+  },
+  {
+   "model": "claude-opus-5.5",
+   "functions": 417
   },
   {
    "model": "not specified",
    "functions": 338
-  },
-  {
-   "model": "claude-opus-5.5",
-   "functions": 318
   },
   {
    "model": "Claude Opus 5.5",
@@ -152,7 +152,7 @@
   },
   {
    "model": "qwen",
-   "functions": 49
+   "functions": 55
   },
   {
    "model": "claude-sonnet-5.5",

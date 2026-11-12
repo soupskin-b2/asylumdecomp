@@ -1,4 +1,4 @@
-// UnrealEd_1b40000.cpp (part 5 of 5): 7 functions
+// UnrealEd_1b40000.cpp (part 5 of 5): 8 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -78,4 +78,25 @@ C_01b44250* C_01b44250::sub_01b44250()
 void __stdcall sub_01b4ffb0(INT A, INT B)
 {
     sub_00402660(A);
+}
+
+struct S01b4f620 {
+    int* VirtualTable;
+    char Reserved[0x14];
+    double Field18;
+    double Field20;
+    double Field28;
+
+    void sub_01b4f620(double X, double Y, double Z)
+    {
+        Field18 = X;
+        Field20 = Y;
+        Field28 = Z;
+    }
+};
+
+// @baa 0x01b4f620
+void sub_01b4f610(double* P)
+{
+    ((S01b4f620*)P)->sub_01b4f620(0.0, 0.0, 0.0);
 }

@@ -1,4 +1,4 @@
-// UnCanvas.cpp: 19 functions
+// UnCanvas.cpp: 20 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -549,4 +549,15 @@ void UCanvas__00a58750::execSetPos(FFrame& Stack, RESULT_DECL)
 	P_GET_FLOAT(PosY);
 	P_FINISH;
 	SetPos(PosX, PosY);
+}
+
+// @baa 0x00a74450
+void UCanvas::execPushTranslationMatrix(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, TranslationVector);
+    P_FINISH;
+    if (Canvas)
+    {
+        Canvas->PushRelativeTransform(FTranslationMatrix(TranslationVector));
+    }
 }

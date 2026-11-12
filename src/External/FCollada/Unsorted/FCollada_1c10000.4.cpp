@@ -1,4 +1,4 @@
-// FCollada_1c10000.cpp (part 4 of 4): 1 function
+// FCollada_1c10000.cpp (part 4 of 4): 2 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -34,4 +34,19 @@ undefined4 sub_01c18c10(int param_1, int param_2, int param_3)
     }
   }
   return 0xffffffff;
+}
+
+struct FMString_01c17390 {
+	char* _data;
+	int _len;
+	int _capacity;
+	int _type;
+};
+
+void sub_01c172e0(FMString_01c17390* This, const char* Text);
+// @baa 0x01c17390
+void sub_01c17390(FMString_01c17390* This, const char* Text)
+{
+	if (This != 0 && This->_type != 2)
+		sub_01c172e0(This, Text);
 }

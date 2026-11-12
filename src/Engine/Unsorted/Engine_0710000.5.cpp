@@ -1,7 +1,7 @@
-// Engine_0710000.cpp (part 5 of 7): 1 function
+// Engine_0710000.cpp (part 5 of 7): 2 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
-#include "ue3/Classes.h"
+#include "ue3/Implement.h"
 
 int sub_0053dfa0(...);
 int sub_00581450(void);
@@ -15,4 +15,17 @@ undefined4 UTexture2D::sub_0071d940(byte param_2)
     sub_0053dfa0(param_1);
   }
   return param_1;
+}
+
+struct FPointLightSceneProxy
+{
+	FPointLightSceneProxy(UPointLightComponent* Light);
+	INT Member[692];
+};
+
+// @baa 0x00713300
+UINT UPointLightComponent::CreateSceneInfo()
+{
+	FPointLightSceneProxy* Proxy = new FPointLightSceneProxy(this);
+	return (UINT)Proxy;
 }

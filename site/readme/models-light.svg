@@ -9,16 +9,16 @@
 <text x="860" y="50" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">1,676</text>
 <text x="0" y="80" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">qwen3.8-27b</text>
 <rect x="242" y="70" width="528" height="10" fill="#eaeef2" stroke="#d1d9e0"/>
-<rect x="242" y="70" width="6.50106" height="10" fill="#1f2328"/>
-<text x="860" y="80" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">1,163</text>
-<text x="0" y="110" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">not specified</text>
+<rect x="242" y="70" width="6.88117" height="10" fill="#1f2328"/>
+<text x="860" y="80" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">1,231</text>
+<text x="0" y="110" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">claude-opus-5.5</text>
 <rect x="242" y="100" width="528" height="10" fill="#eaeef2" stroke="#d1d9e0"/>
-<rect x="242" y="100" width="1.88939" height="10" fill="#1f2328"/>
-<text x="860" y="110" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">338</text>
-<text x="0" y="140" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">claude-opus-5.5</text>
+<rect x="242" y="100" width="2.33099" height="10" fill="#1f2328"/>
+<text x="860" y="110" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">417</text>
+<text x="0" y="140" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">not specified</text>
 <rect x="242" y="130" width="528" height="10" fill="#eaeef2" stroke="#d1d9e0"/>
-<rect x="242" y="130" width="1.77759" height="10" fill="#1f2328"/>
-<text x="860" y="140" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">318</text>
+<rect x="242" y="130" width="1.88939" height="10" fill="#1f2328"/>
+<text x="860" y="140" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">338</text>
 <text x="0" y="170" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">Claude Opus 5.5</text>
 <rect x="242" y="160" width="528" height="10" fill="#eaeef2" stroke="#d1d9e0"/>
 <rect x="242" y="160" width="1.15152" height="10" fill="#1f2328"/>
@@ -29,6 +29,6 @@
 <text x="860" y="200" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">86</text>
 <text x="0" y="230" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">other</text>
 <rect x="242" y="220" width="528" height="10" fill="#eaeef2" stroke="#d1d9e0"/>
-<rect x="242" y="220" width="0.743457" height="10" fill="#1f2328"/>
-<text x="860" y="230" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">133</text>
+<rect x="242" y="220" width="0.776997" height="10" fill="#1f2328"/>
+<text x="860" y="230" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">139</text>
 </svg>
