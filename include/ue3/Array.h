@@ -71,6 +71,24 @@ public:
         AllocatorInstance.ResizeAllocation(0, ArrayMax, sizeof(T));
     }
     TArray(ENoInit) : AllocatorInstance(E_NoInit) {}
+    TArray(const TArray& Other) : ArrayNum(0), ArrayMax(0) { Copy(Other); }
+    void operator=(const TArray& Other) { /* this build's returns nothing */
+        if (this != &Other) {
+            if (Other.Num() > 0) {
+                Empty(Other.Num());
+                if (TTypeInfo<T>::NeedsConstructor) {
+                    for (INT Index = 0; Index < Other.Num(); Index++) {
+                        new(GetTypedData() + Index) T(Other(Index));
+                    }
+                } else {
+                    appMemcpy(AllocatorInstance.GetAllocation(), &Other(0), sizeof(T) * Other.Num());
+                }
+                ArrayNum = Other.Num();
+            } else {
+                Empty();
+            }
+        }
+    }
     ~TArray() {
         DestructItems(0, ArrayNum);
         ArrayNum = ArrayMax = 0;
@@ -203,6 +221,23 @@ public:
             AllocatorInstance.ResizeAllocation(ArrayNum, ArrayMax, sizeof(T));
         }
     }
+    void Copy(const TArray& Source) {
+        if (this != &Source) {
+            if (Source.Num() > 0) {
+                Empty(Source.Num());
+                if (TTypeInfo<T>::NeedsConstructor) {
+                    for (INT Index = 0; Index < Source.Num(); Index++) {
+                        new(GetTypedData() + Index) T(Source(Index));
+                    }
+                } else {
+                    appMemcpy(AllocatorInstance.GetAllocation(), &Source(0), sizeof(T) * Source.Num());
+                }
+                ArrayNum = Source.Num();
+            } else {
+                Empty();
+            }
+        }
+    }
     void Reset() { /* this build's: no NewSize (no ArrayMax test) */
         DestructItems(0, ArrayNum);
         ArrayNum = 0;
@@ -265,7 +300,7 @@ public:
         }
         return FALSE;
     }
-        void SwapItems(INT A, INT B) {
+    void SwapItems(INT A, INT B) {
 #line 1055 BAA_ARRAY_FILE
         check((A >= 0) && (B >= 0));
         check((ArrayNum > A) && (ArrayNum > B));

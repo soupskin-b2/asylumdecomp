@@ -96,6 +96,7 @@ inline void appFree(void* Original) {
 #undef memmove
 
 static __forceinline void appMemzero( void* Dest, INT Count ) { memset( Dest, 0, Count ); }
+#define appMemcpy memcpy /* as UE3's UnFile.h */
 
 #ifndef FORCEINLINE
 #define FORCEINLINE __forceinline
@@ -156,8 +157,11 @@ void  sub_00627f00(void* A, void* B, INT Size);
 #define DefaultCalculateSlack sub_0053d240
 #define appMemswap            sub_00627f00
 
-/* Whether destroying a T does anything (TTypeInfo<T>::NeedsDestructor). */
-template<typename T> struct TTypeInfo { enum { NeedsDestructor = (__is_class(T) || __is_union(T)) && !__has_trivial_destructor(T) }; };
+/* Whether copying a T needs its copy constructor, and whether destroying one does anything. */
+template<typename T> struct TTypeInfo {
+    enum { NeedsConstructor = (__is_class(T) || __is_union(T)) && !__is_pod(T) };
+    enum { NeedsDestructor = (__is_class(T) || __is_union(T)) && !__has_trivial_destructor(T) };
+};
 
 #define check(expr)      { if (!(expr)) appFailAssert(#expr, __FILE__, __LINE__, TEXT("")); }
 #define checkSlow(expr)  {}

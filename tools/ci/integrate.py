@@ -44,6 +44,17 @@ BOT = ("asylumdecomp-bot", "41898282+github-actions[bot]@users.noreply.github.co
 TOUCHED = ["src", "data", "site", "progress.json"]
 
 
+
+def pin(syms: dict, rows: dict, col: dict, sym: str) -> None:
+    """Bind a symbol name to its address for every check, while exactly one matched function has it.
+    The game has identical copies of some functions (template instances in several modules), each
+    called from its own module: a name two copies share stays free, so each caller binds its own."""
+    vas = [va for va, r in rows.items() if r[col["symbol"]] == sym and r[col["status"]] == "matched"]
+    if len(vas) == 1:
+        syms[sym] = str(vas[0])
+    else:
+        syms.pop(sym, None)
+
 def log(*a):
     print(time.strftime("%H:%M:%S"), *a, flush=True)
 
@@ -295,7 +306,7 @@ def apply(inp: Path, batch: Path, push: bool) -> None:
                     if syms.get(old) == str(int(v, 16)):
                         del syms[old]
                     if not new_sym.startswith("?sub_"):
-                        syms[new_sym] = str(int(v, 16))
+                        pin(syms, rows, col, new_sym)
         place.write_gz(ROOT / "data" / "functions.json.gz", ft)
         place.write_gz(ROOT / "data" / "symbols.json.gz", syms)
         git("add", "-A", "--", *TOUCHED)
@@ -319,8 +330,8 @@ def apply(inp: Path, batch: Path, push: bool) -> None:
                 sym = place.clean_symbol(r.get("symbol"))
                 if sym and not row[col["symbol"]]:
                     row[col["symbol"]] = sym
-                if sym and sym not in syms and not sym.startswith("?sub_"):
-                    syms[sym] = str(int(r["va"], 16))
+                if sym and not sym.startswith("?sub_"):
+                    pin(syms, rows, col, sym)
                 fh.write(json.dumps({"va": r["va"], "login": s["login"], "model": stats.norm(s.get("model")) if s.get("model") else None, "bytes": row[col["size"]],
                                      "date": day, "id": r["id"]}) + "\n")
         place.write_gz(ROOT / "data" / "functions.json.gz", ft)
