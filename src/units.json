@@ -16743,7 +16743,7 @@
     {
      "va": "016d2800",
      "size": 5,
-     "symbol": "?vf_600@ARPlayerController@@UAEHH@Z"
+     "symbol": "?CheckContentExists@ARPlayerController@@UAEHABVFString@@@Z"
     },
     {
      "va": "016d2810",
@@ -64801,7 +64801,7 @@
     {
      "va": "00417f80",
      "size": 33,
-     "symbol": "?vf_0b8@UObject@@UAE?AVFString@@XZ"
+     "symbol": "?GetDesc@UObject@@UAE?AVFString@@XZ"
     }
    ]
   },
@@ -180542,12 +180542,12 @@
     {
      "va": "00c4ab30",
      "size": 99,
-     "symbol": "?vf_11c@UActorFactoryAI@@UAEXXZ"
+     "symbol": "?GetDefaultActor@UActorFactoryAI@@UAEPAUAActor@@XZ"
     },
     {
      "va": "00c4aba0",
      "size": 99,
-     "symbol": "?vf_11c@UActorFactoryVehicle@@UAEXXZ"
+     "symbol": "?GetDefaultActor@UActorFactoryVehicle@@UAEPAUAActor@@XZ"
     },
     {
      "va": "00c4ac20",
@@ -181332,17 +181332,17 @@
     {
      "va": "00c5e110",
      "size": 57,
-     "symbol": "?vf_10c@UActorFactoryFogVolumeConstantDensityInfo@@UAEHIII@Z"
+     "symbol": "?CreateActor@UActorFactoryFogVolumeConstantDensityInfo@@UAEPAUAActor@@QBUFVector@@QBUFRotator@@QBUUSeqAct_ActorFactory@@@Z"
     },
     {
      "va": "00c5e150",
      "size": 57,
-     "symbol": "?vf_10c@UActorFactoryFogVolumeLinearHalfspaceDensityInfo@@UAEHIII@Z"
+     "symbol": "?CreateActor@UActorFactoryFogVolumeLinearHalfspaceDensityInfo@@UAEPAUAActor@@QBUFVector@@QBUFRotator@@QBUUSeqAct_ActorFactory@@@Z"
     },
     {
      "va": "00c5e190",
      "size": 135,
-     "symbol": "?vf_10c@UActorFactoryFogVolumeSphericalDensityInfo@@UAEHIII@Z"
+     "symbol": "?CreateActor@UActorFactoryFogVolumeSphericalDensityInfo@@UAEPAUAActor@@QBUFVector@@QBUFRotator@@QBUUSeqAct_ActorFactory@@@Z"
     },
     {
      "va": "00c656d0",
@@ -191385,7 +191385,7 @@
     {
      "va": "007cc990",
      "size": 29,
-     "symbol": "?vf_280@UFracturedBaseComponent@@UAEIXZ"
+     "symbol": "?GetNumFragments@UFracturedBaseComponent@@UAEHXZ"
     },
     {
      "va": "007cc9b0",
@@ -194973,7 +194973,7 @@
     {
      "va": "0084af10",
      "size": 39,
-     "symbol": "?vf_0b8@UMorphTargetSet@@UAE?AVFString@@XZ"
+     "symbol": "?GetDesc@UMorphTargetSet@@UAE?AVFString@@XZ"
     },
     {
      "va": "008343a0",
@@ -216507,7 +216507,7 @@
     {
      "va": "0092a250",
      "size": 235,
-     "symbol": "?GetAffectedBones@USkelControl_CCD_IK_@@QAEXHPAUUSkeletalMeshComponent@@AAV?$TArray@H@@@Z"
+     "symbol": "?GetAffectedBones@USkelControl_CCD_IK_@@UAEXHPAUUSkeletalMeshComponent@@AAV?$TArray@H@@@Z"
     }
    ]
   },
@@ -216519,12 +216519,12 @@
     {
      "va": "009255c0",
      "size": 379,
-     "symbol": "?GetAffectedBones@USkelControlSpline_@@QAEXHPAUUSkeletalMeshComponent@@AAV?$TArray@H@@@Z"
+     "symbol": "?GetAffectedBones@USkelControlSpline_@@UAEXHPAUUSkeletalMeshComponent@@AAV?$TArray@H@@@Z"
     },
     {
      "va": "00928820",
      "size": 379,
-     "symbol": "?GetAffectedBones@USkelControlTrail_@@QAEXHPAUUSkeletalMeshComponent@@AAV?$TArray@H@@@Z"
+     "symbol": "?GetAffectedBones@USkelControlTrail_@@UAEXHPAUUSkeletalMeshComponent@@AAV?$TArray@H@@@Z"
     }
    ]
   },
@@ -216996,12 +216996,12 @@
     {
      "va": "00916440",
      "size": 55,
-     "symbol": "?GetAffectedBones@USkelControlSingleBone_@@QAEXHPAUUSkeletalMeshComponent@@AAV?$TArray@H@@@Z"
+     "symbol": "?GetAffectedBones@USkelControlSingleBone_@@UAEXHPAUUSkeletalMeshComponent@@AAV?$TArray@H@@@Z"
     },
     {
      "va": "00916480",
      "size": 67,
-     "symbol": "?GetAffectedBones@USkelControlLookAt__00916480@@QAEXHPAUUSkeletalMeshComponent@@AAV?$TArray@H@@@Z"
+     "symbol": "?GetAffectedBones@USkelControlLookAt__00916480@@UAEXHPAUUSkeletalMeshComponent@@AAV?$TArray@H@@@Z"
     }
    ]
   },
@@ -219919,7 +219919,7 @@
     {
      "va": "00d4ffe0",
      "size": 262,
-     "symbol": "?GetDetailedDescription@USkeletalMesh_@@QAE?AVFString@@H@Z"
+     "symbol": "?GetDetailedDescription@USkeletalMesh_@@UAE?AVFString@@H@Z"
     }
    ]
   },
@@ -269614,7 +269614,7 @@
     {
      "va": "00773390",
      "size": 7,
-     "symbol": "?vf_138@AGravityVolume@@UAEMXZ"
+     "symbol": "?GetGravityZ@AGravityVolume@@UAEMXZ"
     },
     {
      "va": "007733a0",
@@ -269704,7 +269704,7 @@
     {
      "va": "00773d30",
      "size": 7,
-     "symbol": "?vf_368@ANavigationPoint@@UAEHHH@Z"
+     "symbol": "?GetReachSpecClass@ANavigationPoint@@UAEPAUUClass@@PAU1@PAU2@@Z"
     },
     {
      "va": "00773d50",
@@ -272774,7 +272774,7 @@
     {
      "va": "007a2020",
      "size": 7,
-     "symbol": "?vf_144@ATeamInfo@@UAEEXZ"
+     "symbol": "?GetTeamNum@ATeamInfo@@UAEEXZ"
     },
     {
      "va": "007a2050",
@@ -282115,7 +282115,7 @@
     {
      "va": "0083daa0",
      "size": 33,
-     "symbol": "?vf_0b8@UMorphWeightSequence@@UAE?AVFString@@XZ"
+     "symbol": "?GetDesc@UMorphWeightSequence@@UAE?AVFString@@XZ"
     }
    ]
   },

@@ -72,7 +72,7 @@ void UObject::execSubtract_RotatorRotator(FFrame& Stack, RESULT_DECL)
     P_GET_STRUCT(FRotator, A);
     P_GET_STRUCT(FRotator, B);
     P_FINISH;
-    FRotator Difference = {A.Pitch - B.Pitch, A.Yaw - B.Yaw, A.Roll - B.Roll};
+    FRotator Difference(A.Pitch - B.Pitch, A.Yaw - B.Yaw, A.Roll - B.Roll);
     *(FRotator*)Result = Difference;
 }
 
@@ -114,7 +114,7 @@ void UObject::execAdd_RotatorRotator(FFrame& Stack, RESULT_DECL)
     P_GET_STRUCT(FRotator, A);
     P_GET_STRUCT(FRotator, B);
     P_FINISH;
-    FRotator Sum = {A.Pitch + B.Pitch, B.Yaw + A.Yaw, B.Roll + A.Roll};
+    FRotator Sum(A.Pitch + B.Pitch, B.Yaw + A.Yaw, B.Roll + A.Roll);
     *(FRotator*)Result = Sum;
 }
 

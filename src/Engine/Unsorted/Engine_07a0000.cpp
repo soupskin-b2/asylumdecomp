@@ -125,7 +125,7 @@ int APlayerController::vf_430(void) { return 1; }
 int APlayerController::vf_434(void) { return 1; }
 
 // @baa 0x007a2020
-undefined1 ATeamInfo::vf_144(void)
+undefined1 ATeamInfo::GetTeamNum(void)
 {
     int param_1 = (int)this;
 

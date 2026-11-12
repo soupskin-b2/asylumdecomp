@@ -4,21 +4,6 @@
 #include "ue3/Core.h"
 #include "ue3/Win32.h"
 
-/* winbase.h's MEMORYSTATUS and GlobalMemoryStatus; ue3/Win32.h doesn't declare them yet. */
-extern "C" {
-typedef ULONG_PTR SIZE_T;
-typedef struct _MEMORYSTATUS {
-    DWORD dwLength;
-    DWORD dwMemoryLoad;
-    SIZE_T dwTotalPhys;
-    SIZE_T dwAvailPhys;
-    SIZE_T dwTotalPageFile;
-    SIZE_T dwAvailPageFile;
-    SIZE_T dwTotalVirtual;
-    SIZE_T dwAvailVirtual;
-} MEMORYSTATUS, *LPMEMORYSTATUS;
-WINBASEAPI void WINAPI GlobalMemoryStatus(LPMEMORYSTATUS lpBuffer);
-}
 
 // @baa 0x00eb4c30
 /* Platform memory statistics. PC only reports the free and total physical memory; the other four

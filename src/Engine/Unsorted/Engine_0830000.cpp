@@ -2079,7 +2079,7 @@ IMPLEMENT_CLASS_AT(UMorphNodePose, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngin
 
 // @baa 0x0083d870
 // @baa 0x0083daa0
-FString UMorphWeightSequence::vf_0b8()
+FString UMorphWeightSequence::GetDesc()
 {
     return TEXT("");
 }

@@ -1096,7 +1096,7 @@ void C_007cab80::sub_007cab80() { m.sub_007c92c0(); }
 // @baa 0x007cae60
 int sub_007cb750(...);
 // @baa 0x007cc990
-undefined4 UFracturedBaseComponent::vf_280(void)
+INT UFracturedBaseComponent::GetNumFragments()
 {
     int param_1 = (int)this;
 

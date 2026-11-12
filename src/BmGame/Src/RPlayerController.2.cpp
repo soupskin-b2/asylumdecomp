@@ -1594,7 +1594,7 @@ INT ARPlayerController::vf_670() {
 int ARPlayerController::vf_578(int a0) { return 1; }
 
 // @baa 0x016d2800
-int ARPlayerController::vf_600(int a0) { return 0; }
+UBOOL ARPlayerController::CheckContentExists(const FString& a0) { return 0; }
 
 // @baa 0x016d2810
 void sub_016d2810(void) {  }

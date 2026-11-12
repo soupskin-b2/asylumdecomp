@@ -15,7 +15,7 @@ class FString;
 class FArchive;
 struct FName { INT Index; INT Number; FName() {} FName(EName N) : Index(N), Number(0) {} void sub_005d5620(const TCHAR* Name, INT FindType, UBOOL bSplitName); FString ToString() const; /* 0x005d5690 */ };
 class FString : public TArray<TCHAR> { public: FString() {} FString(ENoInit) : TArray<TCHAR>(E_NoInit) {} FString(const TCHAR* In); /* 0x00417ef0 */ FString& sub_00544ab0(const TCHAR* In); FString& operator=(const TCHAR* In) { return sub_00544ab0(In); } ~FString(); /* 0x0040fcc0 */ FString& operator=(const FString& Other); /* 0x00547da0 */ };
-class FStringNoInit : public FString { public: FStringNoInit() : FString(E_NoInit) {} };
+class FStringNoInit : public FString { public: FStringNoInit() : FString(E_NoInit) {} FStringNoInit& operator=(const FString& Other); /* 0x004899f0 */ };
 struct FScriptDelegate { class UObject* Object; FName FunctionName; };
 struct FScriptInterface { class UObject* Object; void* Interface; };
 #define BAA_C_ASSERT(e, n) typedef char baa_assert_##n[(e) ? 1 : -1]
@@ -3244,6 +3244,8 @@ struct FRotator {
     INT Pitch; /* 0x0 */
     INT Yaw; /* 0x4 */
     INT Roll; /* 0x8 */
+    FRotator() {}
+    FORCEINLINE FRotator(INT InPitch, INT InYaw, INT InRoll) : Pitch(InPitch), Yaw(InYaw), Roll(InRoll) {}
 };
 
 struct FQuat {
@@ -9682,8 +9684,8 @@ struct UObject {
     virtual INT vf_0ac(INT, INT, INT); /* 0x0ac */
     virtual void vf_0b0(INT); /* 0x0b0 */
     virtual INT vf_0b4(INT); /* 0x0b4 */
-    virtual FString vf_0b8(); /* 0x0b8 */
-    virtual void vf_0bc(INT, INT); /* 0x0bc */
+    virtual FString GetDesc(); /* 0x0b8 */
+    virtual FString GetDetailedDescription(INT InIndex); /* 0x0bc */
     virtual INT vf_0c0(INT, INT); /* 0x0c0 */
     virtual UINT vf_0c4(); /* 0x0c4 */
     virtual INT vf_0c8(INT, INT, INT, INT); /* 0x0c8 */
@@ -12316,10 +12318,10 @@ struct AActor : public UObject {
     virtual INT vf_12c(INT); /* 0x12c */
     virtual FLOAT vf_130(INT, INT); /* 0x130 */
     virtual INT vf_134(INT, INT); /* 0x134 */
-    virtual FLOAT vf_138(); /* 0x138 */
+    virtual FLOAT GetGravityZ(); /* 0x138 */
     virtual void vf_13c(INT, INT); /* 0x13c */
     virtual DWORD vf_140(); /* 0x140 */
-    virtual BYTE vf_144(); /* 0x144 */
+    virtual BYTE GetTeamNum(); /* 0x144 */
     virtual INT vf_148(INT, INT, INT); /* 0x148 */
     virtual FVector GetFOVCheckLocation(); /* 0x14c */
     virtual void SetHUDLocation(FVector NewHUDLocation); /* 0x150 */
@@ -12440,7 +12442,7 @@ struct AActor : public UObject {
     virtual void vf_31c(INT); /* 0x31c */
     virtual INT vf_320(INT, INT, INT, INT, INT); /* 0x320 */
     virtual void vf_324(); /* 0x324 */
-    virtual void vf_328(INT, INT); /* 0x328 */
+    virtual void GetActorReferences(TArray<FActorReference*>& ActorRefs, UBOOL bIsRemovingLevel); /* 0x328 */
     virtual ANSICHAR* vf_32c(); /* 0x32c */
     virtual void* vf_330(INT); /* 0x330 */
     virtual UINT vf_334(); /* 0x334 */
@@ -13036,7 +13038,7 @@ struct UTexture : public USurface {
     virtual void vf_044(UINT); /* 0x044 */
     virtual void vf_04c(UINT); /* 0x04c */
     virtual INT vf_0b4(INT); /* 0x0b4 */
-    virtual FString vf_0b8(); /* 0x0b8 */
+    virtual FString GetDesc(); /* 0x0b8 */
     virtual DOUBLE vf_10c(); /* 0x10c */
     virtual DOUBLE GetSurfaceHeight(); /* 0x110 */
     /* other member functions */
@@ -13088,8 +13090,8 @@ struct UTexture2D : public UTexture {
     virtual INT vf_028(INT, INT); /* 0x028 */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual void vf_05c(); /* 0x05c */
-    virtual FString vf_0b8(); /* 0x0b8 */
-    virtual void vf_0bc(INT, INT); /* 0x0bc */
+    virtual FString GetDesc(); /* 0x0b8 */
+    virtual FString GetDetailedDescription(INT InIndex); /* 0x0bc */
     virtual INT vf_0d4(); /* 0x0d4 */
     virtual INT vf_0dc(); /* 0x0dc */
     virtual DOUBLE vf_10c(); /* 0x10c */
@@ -14829,11 +14831,11 @@ struct UActorFactory : public UObject {
     BITFIELD UseActorSelection : 1; /* 0x48 */
     FStringNoInit SpecificGameName; /* 0x4c */
     /* virtual functions this class introduces (vtable 0x0201a310) */
-    virtual INT vf_10c(UINT, UINT, UINT); /* 0x10c */
+    virtual class AActor* CreateActor(const FVector* const Location, const FRotator* const Rotation, const class USeqAct_ActorFactory* const ActorFactoryData); /* 0x10c */
     virtual INT vf_110(INT); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
     virtual INT vf_118(INT); /* 0x118 */
-    virtual void vf_11c(); /* 0x11c */
+    virtual class AActor* GetDefaultActor(); /* 0x11c */
     virtual INT vf_120(); /* 0x120 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
@@ -14854,8 +14856,8 @@ struct UActorFactoryAI : public UActorFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(UINT, UINT, UINT); /* 0x10c */
-    virtual void vf_11c(); /* 0x11c */
+    virtual class AActor* CreateActor(const FVector* const Location, const FRotator* const Rotation, const class USeqAct_ActorFactory* const ActorFactoryData); /* 0x10c */
+    virtual class AActor* GetDefaultActor(); /* 0x11c */
     /* registered size 0x80 */
 };
 
@@ -14866,7 +14868,7 @@ struct UActorFactoryAmbientSound : public UActorFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(UINT, UINT, UINT); /* 0x10c */
+    virtual class AActor* CreateActor(const FVector* const Location, const FRotator* const Rotation, const class USeqAct_ActorFactory* const ActorFactoryData); /* 0x10c */
     virtual INT vf_110(INT); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
     virtual INT vf_118(INT); /* 0x118 */
@@ -14880,7 +14882,7 @@ struct UActorFactoryAmbientSoundMovable : public UActorFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(UINT, UINT, UINT); /* 0x10c */
+    virtual class AActor* CreateActor(const FVector* const Location, const FRotator* const Rotation, const class USeqAct_ActorFactory* const ActorFactoryData); /* 0x10c */
     virtual INT vf_110(INT); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
     virtual INT vf_118(INT); /* 0x118 */
@@ -14894,7 +14896,7 @@ struct UActorFactoryAmbientSoundSimple : public UActorFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(UINT, UINT, UINT); /* 0x10c */
+    virtual class AActor* CreateActor(const FVector* const Location, const FRotator* const Rotation, const class USeqAct_ActorFactory* const ActorFactoryData); /* 0x10c */
     virtual INT vf_110(INT); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
     virtual INT vf_118(INT); /* 0x118 */
@@ -14914,7 +14916,7 @@ struct UActorFactoryApexDestructible : public UActorFactory {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_04c(UINT); /* 0x04c */
-    virtual INT vf_10c(UINT, UINT, UINT); /* 0x10c */
+    virtual class AActor* CreateActor(const FVector* const Location, const FRotator* const Rotation, const class USeqAct_ActorFactory* const ActorFactoryData); /* 0x10c */
     virtual INT vf_110(INT); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
     virtual INT vf_118(INT); /* 0x118 */
@@ -14928,11 +14930,11 @@ struct UActorFactoryArchetype : public UActorFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(UINT, UINT, UINT); /* 0x10c */
+    virtual class AActor* CreateActor(const FVector* const Location, const FRotator* const Rotation, const class USeqAct_ActorFactory* const ActorFactoryData); /* 0x10c */
     virtual INT vf_110(INT); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
     virtual INT vf_118(INT); /* 0x118 */
-    virtual void vf_11c(); /* 0x11c */
+    virtual class AActor* GetDefaultActor(); /* 0x11c */
     /* registered size 0x5c */
 };
 
@@ -14946,7 +14948,7 @@ struct UActorFactorySkeletalMesh : public UActorFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(UINT, UINT, UINT); /* 0x10c */
+    virtual class AActor* CreateActor(const FVector* const Location, const FRotator* const Rotation, const class USeqAct_ActorFactory* const ActorFactoryData); /* 0x10c */
     virtual INT vf_110(INT); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
     virtual INT vf_118(INT); /* 0x118 */
@@ -14979,7 +14981,7 @@ struct UActorFactoryCloth : public UActorFactorySkeletalMesh {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(UINT, UINT, UINT); /* 0x10c */
+    virtual class AActor* CreateActor(const FVector* const Location, const FRotator* const Rotation, const class USeqAct_ActorFactory* const ActorFactoryData); /* 0x10c */
     /* registered size 0xac */
 };
 
@@ -14999,7 +15001,7 @@ struct UActorFactoryDecal : public UActorFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(UINT, UINT, UINT); /* 0x10c */
+    virtual class AActor* CreateActor(const FVector* const Location, const FRotator* const Rotation, const class USeqAct_ActorFactory* const ActorFactoryData); /* 0x10c */
     virtual INT vf_110(INT); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
     virtual INT vf_118(INT); /* 0x118 */
@@ -15020,7 +15022,7 @@ struct UActorFactoryDynamicSM : public UActorFactory {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
-    virtual INT vf_10c(UINT, UINT, UINT); /* 0x10c */
+    virtual class AActor* CreateActor(const FVector* const Location, const FRotator* const Rotation, const class USeqAct_ActorFactory* const ActorFactoryData); /* 0x10c */
     virtual INT vf_110(INT); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
     virtual INT vf_118(INT); /* 0x118 */
@@ -15035,7 +15037,7 @@ struct UActorFactoryEmitter : public UActorFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(UINT, UINT, UINT); /* 0x10c */
+    virtual class AActor* CreateActor(const FVector* const Location, const FRotator* const Rotation, const class USeqAct_ActorFactory* const ActorFactoryData); /* 0x10c */
     virtual INT vf_110(INT); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
     virtual INT vf_118(INT); /* 0x118 */
@@ -15049,7 +15051,7 @@ struct UActorFactoryFogVolumeConstantDensityInfo : public UActorFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(UINT, UINT, UINT); /* 0x10c */
+    virtual class AActor* CreateActor(const FVector* const Location, const FRotator* const Rotation, const class USeqAct_ActorFactory* const ActorFactoryData); /* 0x10c */
     virtual INT vf_114(INT); /* 0x114 */
     /* registered size 0x5c */
 };
@@ -15061,7 +15063,7 @@ struct UActorFactoryFogVolumeLinearHalfspaceDensityInfo : public UActorFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(UINT, UINT, UINT); /* 0x10c */
+    virtual class AActor* CreateActor(const FVector* const Location, const FRotator* const Rotation, const class USeqAct_ActorFactory* const ActorFactoryData); /* 0x10c */
     virtual INT vf_114(INT); /* 0x114 */
     /* registered size 0x5c */
 };
@@ -15073,7 +15075,7 @@ struct UActorFactoryFogVolumeSphericalDensityInfo : public UActorFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(UINT, UINT, UINT); /* 0x10c */
+    virtual class AActor* CreateActor(const FVector* const Location, const FRotator* const Rotation, const class USeqAct_ActorFactory* const ActorFactoryData); /* 0x10c */
     virtual INT vf_114(INT); /* 0x114 */
     /* registered size 0x5c */
 };
@@ -15086,7 +15088,7 @@ struct UActorFactoryFracturedStaticMesh : public UActorFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(UINT, UINT, UINT); /* 0x10c */
+    virtual class AActor* CreateActor(const FVector* const Location, const FRotator* const Rotation, const class USeqAct_ActorFactory* const ActorFactoryData); /* 0x10c */
     virtual INT vf_110(INT); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
     virtual INT vf_118(INT); /* 0x118 */
@@ -15100,7 +15102,7 @@ struct UActorFactoryLensFlare : public UActorFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(UINT, UINT, UINT); /* 0x10c */
+    virtual class AActor* CreateActor(const FVector* const Location, const FRotator* const Rotation, const class USeqAct_ActorFactory* const ActorFactoryData); /* 0x10c */
     virtual INT vf_110(INT); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
     virtual INT vf_118(INT); /* 0x118 */
@@ -15114,7 +15116,7 @@ struct UActorFactoryLight : public UActorFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(UINT, UINT, UINT); /* 0x10c */
+    virtual class AActor* CreateActor(const FVector* const Location, const FRotator* const Rotation, const class USeqAct_ActorFactory* const ActorFactoryData); /* 0x10c */
     virtual INT vf_114(INT); /* 0x114 */
     virtual INT vf_118(INT); /* 0x118 */
     /* registered size 0x5c */
@@ -15154,7 +15156,7 @@ struct UActorFactoryPhysicsAsset : public UActorFactory {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_014(); /* 0x014 */
-    virtual INT vf_10c(UINT, UINT, UINT); /* 0x10c */
+    virtual class AActor* CreateActor(const FVector* const Location, const FRotator* const Rotation, const class USeqAct_ActorFactory* const ActorFactoryData); /* 0x10c */
     virtual INT vf_110(INT); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
     virtual INT vf_118(INT); /* 0x118 */
@@ -15195,7 +15197,7 @@ struct UActorFactoryRigidBody : public UActorFactoryDynamicSM {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
-    virtual INT vf_10c(UINT, UINT, UINT); /* 0x10c */
+    virtual class AActor* CreateActor(const FVector* const Location, const FRotator* const Rotation, const class USeqAct_ActorFactory* const ActorFactoryData); /* 0x10c */
     virtual INT vf_110(INT); /* 0x110 */
     /* registered size 0x94 */
 };
@@ -15211,7 +15213,7 @@ struct UActorFactorySpotLight : public UActorFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(UINT, UINT, UINT); /* 0x10c */
+    virtual class AActor* CreateActor(const FVector* const Location, const FRotator* const Rotation, const class USeqAct_ActorFactory* const ActorFactoryData); /* 0x10c */
     virtual INT vf_114(INT); /* 0x114 */
     virtual INT vf_118(INT); /* 0x118 */
     /* registered size 0x5c */
@@ -15233,7 +15235,7 @@ struct UActorFactoryStaticMesh : public UActorFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(UINT, UINT, UINT); /* 0x10c */
+    virtual class AActor* CreateActor(const FVector* const Location, const FRotator* const Rotation, const class USeqAct_ActorFactory* const ActorFactoryData); /* 0x10c */
     virtual INT vf_110(INT); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
     virtual INT vf_118(INT); /* 0x118 */
@@ -15256,8 +15258,8 @@ struct UActorFactoryVehicle : public UActorFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(UINT, UINT, UINT); /* 0x10c */
-    virtual void vf_11c(); /* 0x11c */
+    virtual class AActor* CreateActor(const FVector* const Location, const FRotator* const Rotation, const class USeqAct_ActorFactory* const ActorFactoryData); /* 0x10c */
+    virtual class AActor* GetDefaultActor(); /* 0x11c */
     /* registered size 0x5c */
 };
 
@@ -15376,7 +15378,7 @@ struct AController : public AActor {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual DWORD vf_140(); /* 0x140 */
-    virtual BYTE vf_144(); /* 0x144 */
+    virtual BYTE GetTeamNum(); /* 0x144 */
     virtual INT vf_174(INT, INT); /* 0x174 */
     virtual void vf_180(); /* 0x180 */
     virtual void vf_194(); /* 0x194 */
@@ -15716,7 +15718,7 @@ struct UReachSpec : public UObject {
     virtual INT vf_11c(); /* 0x11c */
     virtual INT vf_120(); /* 0x120 */
     virtual INT vf_124(INT, INT, INT); /* 0x124 */
-    virtual INT vf_128(INT); /* 0x128 */
+    virtual FColor PathColor(); /* 0x128 */
     virtual INT vf_12c(INT); /* 0x12c */
     virtual INT vf_130(INT); /* 0x130 */
     virtual INT vf_134(INT, INT, INT, INT); /* 0x134 */
@@ -15740,7 +15742,7 @@ struct UAdvancedReachSpec : public UReachSpec {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual INT CostFor(class APawn* P); /* 0x10c */
-    virtual INT vf_128(INT); /* 0x128 */
+    virtual FColor PathColor(); /* 0x128 */
     /* registered size 0x90 */
 };
 
@@ -15860,7 +15862,7 @@ struct ANavigationPoint : public AActor {
     virtual INT vf_35c(INT, INT); /* 0x35c */
     virtual INT vf_360(INT); /* 0x360 */
     virtual void vf_364(INT, INT); /* 0x364 */
-    virtual INT vf_368(INT, INT); /* 0x368 */
+    virtual class UClass* GetReachSpecClass(class ANavigationPoint* Nav, class UClass* ReachSpecClass); /* 0x368 */
     virtual INT vf_36c(); /* 0x36c */
     virtual INT vf_370(); /* 0x370 */
     virtual INT vf_374(INT); /* 0x374 */
@@ -15898,7 +15900,7 @@ struct ANavigationPoint : public AActor {
     virtual void vf_314(INT); /* 0x314 */
     virtual void vf_31c(INT); /* 0x31c */
     virtual void vf_324(); /* 0x324 */
-    virtual void vf_328(INT, INT); /* 0x328 */
+    virtual void GetActorReferences(TArray<FActorReference*>& ActorRefs, UBOOL bIsRemovingLevel); /* 0x328 */
     virtual ANSICHAR* vf_32c(); /* 0x32c */
     virtual void* vf_330(INT); /* 0x330 */
     /* UnrealScript natives */
@@ -16196,8 +16198,8 @@ struct USoundCue : public UObject {
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual void vf_04c(UINT); /* 0x04c */
     virtual INT vf_0b4(INT); /* 0x0b4 */
-    virtual FString vf_0b8(); /* 0x0b8 */
-    virtual void vf_0bc(INT, INT); /* 0x0bc */
+    virtual FString GetDesc(); /* 0x0b8 */
+    virtual FString GetDetailedDescription(INT InIndex); /* 0x0bc */
     virtual INT vf_0d4(); /* 0x0d4 */
     /* UnrealScript natives */
     void execGetCueDuration(FFrame& Stack, RESULT_DECL); /* 0x00c8ee40 */
@@ -19120,7 +19122,7 @@ struct ACoverGroup : public AInfo {
     virtual void vf_01c(); /* 0x01c */
     virtual void vf_170(FLOAT*, INT, INT, INT, INT, INT); /* 0x170 */
     virtual void vf_2b8(); /* 0x2b8 */
-    virtual void vf_328(INT, INT); /* 0x328 */
+    virtual void GetActorReferences(TArray<FActorReference*>& ActorRefs, UBOOL bIsRemovingLevel); /* 0x328 */
     /* UnrealScript natives */
     void execEnableGroup(FFrame& Stack, RESULT_DECL); /* 0x00c88fb0 */
     void execDisableGroup(FFrame& Stack, RESULT_DECL); /* 0x00c88ff0 */
@@ -19189,7 +19191,7 @@ struct ACoverLink : public ANavigationPoint {
     virtual INT vf_1d4(); /* 0x1d4 */
     virtual INT vf_29c(INT); /* 0x29c */
     virtual void vf_2b8(); /* 0x2b8 */
-    virtual void vf_328(INT, INT); /* 0x328 */
+    virtual void GetActorReferences(TArray<FActorReference*>& ActorRefs, UBOOL bIsRemovingLevel); /* 0x328 */
     /* UnrealScript natives */
     void execHasFireLinkTo(FFrame& Stack, RESULT_DECL); /* 0x008365d0 */
     void execGetFireLinkTo(FFrame& Stack, RESULT_DECL); /* 0x0084f370 */
@@ -19263,7 +19265,7 @@ struct UForcedReachSpec : public UReachSpec {
     virtual INT CostFor(class APawn* P); /* 0x10c */
     virtual UINT vf_118(INT); /* 0x118 */
     virtual INT vf_11c(); /* 0x11c */
-    virtual INT vf_128(INT); /* 0x128 */
+    virtual FColor PathColor(); /* 0x128 */
     /* registered size 0x90 */
 };
 
@@ -19293,7 +19295,7 @@ struct ACoverSlotMarker : public ANavigationPoint {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_364(INT, INT); /* 0x364 */
-    virtual INT vf_368(INT, INT); /* 0x368 */
+    virtual class UClass* GetReachSpecClass(class ANavigationPoint* Nav, class UClass* ReachSpecClass); /* 0x368 */
     virtual INT vf_374(INT); /* 0x374 */
     virtual UINT vf_378(); /* 0x378 */
     virtual void vf_38c(INT); /* 0x38c */
@@ -19908,7 +19910,7 @@ struct ACrowdAgent : public AActor {
     virtual UBOOL ShouldTrace(UPrimitiveComponent* Primitive, AActor* SourceActor, DWORD TraceFlags); /* 0x198 */
     virtual INT vf_1d4(); /* 0x1d4 */
     virtual INT vf_1e0(INT); /* 0x1e0 */
-    virtual void vf_328(INT, INT); /* 0x328 */
+    virtual void GetActorReferences(TArray<FActorReference*>& ActorRefs, UBOOL bIsRemovingLevel); /* 0x328 */
     /* UnrealScript natives */
     void execPlayDeath(FFrame& Stack, RESULT_DECL); /* 0x00c8fcd0 */
     /* registered size 0x230 */
@@ -20740,7 +20742,7 @@ struct APhysicsVolume : public AVolume {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual FLOAT vf_138(); /* 0x138 */
+    virtual FLOAT GetGravityZ(); /* 0x138 */
     virtual UBOOL ShouldTrace(UPrimitiveComponent* Primitive, AActor* SourceActor, DWORD TraceFlags); /* 0x198 */
     virtual void SetZone(UBOOL bTest, UBOOL bForceRefresh); /* 0x1c8 */
     virtual void vf_2b8(); /* 0x2b8 */
@@ -21940,7 +21942,7 @@ struct UFaceFXAnimSet : public UObject {
     virtual void vf_02c(); /* 0x02c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual INT vf_0b4(INT); /* 0x0b4 */
-    virtual FString vf_0b8(); /* 0x0b8 */
+    virtual FString GetDesc(); /* 0x0b8 */
     virtual INT vf_0d4(); /* 0x0d4 */
     /* registered size 0x60 */
 };
@@ -21963,7 +21965,7 @@ struct UFaceFXAsset : public UObject {
     virtual void vf_02c(); /* 0x02c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual INT vf_0b4(INT); /* 0x0b4 */
-    virtual FString vf_0b8(); /* 0x0b8 */
+    virtual FString GetDesc(); /* 0x0b8 */
     virtual INT vf_0d4(); /* 0x0d4 */
     /* UnrealScript natives */
     void execMountFaceFXAnimSet(FFrame& Stack, RESULT_DECL); /* 0x00c8c910 */
@@ -22603,8 +22605,8 @@ struct UFracturedBaseComponent : public UStaticMeshComponent {
     BYTE LineCollisionType; /* 0x20d */
     /* virtual functions this class introduces (vtable 0x01f29ec0) */
     virtual TArray<BYTE> GetVisibleFragments(); /* 0x278 */
-    virtual INT vf_27c(INT); /* 0x27c */
-    virtual UINT vf_280(); /* 0x280 */
+    virtual UBOOL IsFragmentVisible(INT FragmentIndex); /* 0x27c */
+    virtual INT GetNumFragments(); /* 0x280 */
     virtual INT vf_284(); /* 0x284 */
     virtual INT vf_288(); /* 0x288 */
     virtual INT vf_28c(); /* 0x28c */
@@ -22973,7 +22975,7 @@ struct AFracturedStaticMeshPart : public AFracturedStaticMeshActor {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual FLOAT vf_138(); /* 0x138 */
+    virtual FLOAT GetGravityZ(); /* 0x138 */
     virtual UINT vf_178(); /* 0x178 */
     virtual void vf_1b4(FLOAT); /* 0x1b4 */
     virtual void vf_244(INT, INT, INT); /* 0x244 */
@@ -23809,7 +23811,7 @@ struct AGravityVolume : public APhysicsVolume {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual FLOAT vf_138(); /* 0x138 */
+    virtual FLOAT GetGravityZ(); /* 0x138 */
     /* registered size 0x220 */
 };
 
@@ -25137,7 +25139,7 @@ struct ULadderReachSpec : public UReachSpec {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual INT CostFor(class APawn* P); /* 0x10c */
-    virtual INT vf_128(INT); /* 0x128 */
+    virtual FColor PathColor(); /* 0x128 */
     /* registered size 0x90 */
 };
 
@@ -27204,8 +27206,8 @@ struct UTextureCube : public UTexture {
     virtual void vf_01c(); /* 0x01c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual void vf_04c(UINT); /* 0x04c */
-    virtual FString vf_0b8(); /* 0x0b8 */
-    virtual void vf_0bc(INT, INT); /* 0x0bc */
+    virtual FString GetDesc(); /* 0x0b8 */
+    virtual FString GetDetailedDescription(INT InIndex); /* 0x0bc */
     virtual DOUBLE vf_10c(); /* 0x10c */
     virtual DOUBLE GetSurfaceHeight(); /* 0x110 */
     virtual INT vf_118(); /* 0x118 */
@@ -27742,7 +27744,7 @@ struct UMorphTargetSet : public UObject {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual FString vf_0b8(); /* 0x0b8 */
+    virtual FString GetDesc(); /* 0x0b8 */
     virtual INT vf_0d4(); /* 0x0d4 */
     /* UnrealScript natives */
     void execFindMorphTarget(FFrame& Stack, RESULT_DECL); /* 0x00c926d0 */
@@ -27757,7 +27759,7 @@ struct UMorphWeightSequence : public UObject {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual FString vf_0b8(); /* 0x0b8 */
+    virtual FString GetDesc(); /* 0x0b8 */
     /* other member functions */
     UINT sub_0064ce90(UINT); /* 0x0064ce90 */
     UINT sub_006506e0(UINT); /* 0x006506e0 */
@@ -31004,7 +31006,7 @@ struct APawn : public AActor {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual FLOAT vf_130(INT, INT); /* 0x130 */
-    virtual BYTE vf_144(); /* 0x144 */
+    virtual BYTE GetTeamNum(); /* 0x144 */
     virtual INT vf_15c(); /* 0x15c */
     virtual UINT vf_160(); /* 0x160 */
     virtual UINT vf_164(INT); /* 0x164 */
@@ -31175,8 +31177,8 @@ struct UPhysicsAsset : public UObject {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
-    virtual FString vf_0b8(); /* 0x0b8 */
-    virtual void vf_0bc(INT, INT); /* 0x0bc */
+    virtual FString GetDesc(); /* 0x0b8 */
+    virtual FString GetDetailedDescription(INT InIndex); /* 0x0bc */
     /* UnrealScript natives */
     void execFindBodyIndex(FFrame& Stack, RESULT_DECL); /* 0x00c94320 */
     /* other member functions */
@@ -31439,7 +31441,7 @@ struct APlayerReplicationInfo : public AReplicationInfo {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual BYTE vf_144(); /* 0x144 */
+    virtual BYTE GetTeamNum(); /* 0x144 */
     /* UnrealScript natives */
     void execAreUniqueNetIdsEqual(FFrame& Stack, RESULT_DECL); /* 0x00c89650 */
     void execUpdatePing(FFrame& Stack, RESULT_DECL); /* 0x00c896c0 */
@@ -31765,7 +31767,7 @@ struct UPrefab : public UObject {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
-    virtual FString vf_0b8(); /* 0x0b8 */
+    virtual FString GetDesc(); /* 0x0b8 */
     /* registered size 0x54 */
 };
 
@@ -31976,7 +31978,7 @@ struct AProjectile : public AActor {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual BYTE vf_144(); /* 0x144 */
+    virtual BYTE GetTeamNum(); /* 0x144 */
     virtual UINT vf_164(INT); /* 0x164 */
     virtual INT vf_1bc(INT, INT, INT); /* 0x1bc */
     virtual void vf_1e4(INT, INT); /* 0x1e4 */
@@ -31997,7 +31999,7 @@ struct UProscribedReachSpec : public UReachSpec {
     virtual bool vf_004(); /* 0x004 */
     virtual INT CostFor(class APawn* P); /* 0x10c */
     virtual INT vf_120(); /* 0x120 */
-    virtual INT vf_128(INT); /* 0x128 */
+    virtual FColor PathColor(); /* 0x128 */
     /* registered size 0x90 */
 };
 
@@ -32664,7 +32666,7 @@ struct URFMODSound : public UObject {
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual void Register(); /* 0x080 */
     virtual INT vf_0b4(INT); /* 0x0b4 */
-    virtual FString vf_0b8(); /* 0x0b8 */
+    virtual FString GetDesc(); /* 0x0b8 */
     virtual INT vf_0d4(); /* 0x0d4 */
     virtual INT vf_0dc(); /* 0x0dc */
     /* other member functions */
@@ -32719,7 +32721,7 @@ struct ARoute : public AInfo {
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
     virtual void vf_2b8(); /* 0x2b8 */
-    virtual void vf_328(INT, INT); /* 0x328 */
+    virtual void GetActorReferences(TArray<FActorReference*>& ActorRefs, UBOOL bIsRemovingLevel); /* 0x328 */
     /* UnrealScript natives */
     void execResolveRouteIndex(FFrame& Stack, RESULT_DECL); /* 0x00c89760 */
     void execMoveOntoRoutePath(FFrame& Stack, RESULT_DECL); /* 0x00c89870 */
@@ -33039,8 +33041,8 @@ struct UTextureRenderTarget2D : public UTextureRenderTarget {
     virtual void vf_01c(); /* 0x01c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual void vf_04c(UINT); /* 0x04c */
-    virtual FString vf_0b8(); /* 0x0b8 */
-    virtual void vf_0bc(INT, INT); /* 0x0bc */
+    virtual FString GetDesc(); /* 0x0b8 */
+    virtual FString GetDetailedDescription(INT InIndex); /* 0x0bc */
     virtual INT vf_0d4(); /* 0x0d4 */
     virtual DOUBLE vf_10c(); /* 0x10c */
     virtual DOUBLE GetSurfaceHeight(); /* 0x110 */
@@ -35385,8 +35387,8 @@ struct UShadowMapTexture2D : public UTexture2D {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
-    virtual FString vf_0b8(); /* 0x0b8 */
-    virtual void vf_0bc(INT, INT); /* 0x0bc */
+    virtual FString GetDesc(); /* 0x0b8 */
+    virtual FString GetDetailedDescription(INT InIndex); /* 0x0bc */
     /* other member functions */
     UINT sub_00936860(BYTE); /* 0x00936860 */
     /* registered size 0x100 */
@@ -35417,7 +35419,7 @@ struct USkelControlBase : public UAnimObject {
     INT ControlPosY; /* 0xa4 */
     /* virtual functions this class introduces (vtable 0x01f786a8) */
     virtual void TickSkelControl(FLOAT DeltaSeconds, class USkeletalMeshComponent* SkelComp); /* 0x120 */
-    virtual INT vf_124(INT, INT, INT); /* 0x124 */
+    virtual void GetAffectedBones(INT BoneIndex, class USkeletalMeshComponent* SkelComp, TArray<INT>& OutBoneIndices); /* 0x124 */
     virtual void vf_128(INT, INT, INT); /* 0x128 */
     virtual void vf_12c(INT, INT, INT); /* 0x12c */
     virtual FLOAT vf_130(INT, INT); /* 0x130 */
@@ -35464,7 +35466,7 @@ struct USkelControl_CCD_IK : public USkelControlBase {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_124(INT, INT, INT); /* 0x124 */
+    virtual void GetAffectedBones(INT BoneIndex, class USkeletalMeshComponent* SkelComp, TArray<INT>& OutBoneIndices); /* 0x124 */
     virtual void vf_128(INT, INT, INT); /* 0x128 */
     virtual INT GetNumWidgets(); /* 0x138 */
     virtual FMatrix GetWidgetTM(INT WidgetIndex, class USkeletalMeshComponent* SkelComp, INT BoneIndex); /* 0x13c */
@@ -35493,7 +35495,7 @@ struct USkelControlLimb : public USkelControlBase {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_124(INT, INT, INT); /* 0x124 */
+    virtual void GetAffectedBones(INT BoneIndex, class USkeletalMeshComponent* SkelComp, TArray<INT>& OutBoneIndices); /* 0x124 */
     virtual void vf_128(INT, INT, INT); /* 0x128 */
     virtual INT GetNumWidgets(); /* 0x138 */
     virtual FMatrix GetWidgetTM(INT WidgetIndex, class USkeletalMeshComponent* SkelComp, INT BoneIndex); /* 0x13c */
@@ -35560,7 +35562,7 @@ struct USkelControlLookAt : public USkelControlBase {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void TickSkelControl(FLOAT DeltaSeconds, class USkeletalMeshComponent* SkelComp); /* 0x120 */
-    virtual INT vf_124(INT, INT, INT); /* 0x124 */
+    virtual void GetAffectedBones(INT BoneIndex, class USkeletalMeshComponent* SkelComp, TArray<INT>& OutBoneIndices); /* 0x124 */
     virtual void vf_128(INT, INT, INT); /* 0x128 */
     virtual INT GetNumWidgets(); /* 0x138 */
     virtual FMatrix GetWidgetTM(INT WidgetIndex, class USkeletalMeshComponent* SkelComp, INT BoneIndex); /* 0x13c */
@@ -35595,7 +35597,7 @@ struct USkelControlSingleBone : public USkelControlBase {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_124(INT, INT, INT); /* 0x124 */
+    virtual void GetAffectedBones(INT BoneIndex, class USkeletalMeshComponent* SkelComp, TArray<INT>& OutBoneIndices); /* 0x124 */
     virtual void vf_128(INT, INT, INT); /* 0x128 */
     virtual INT GetNumWidgets(); /* 0x138 */
     virtual FMatrix GetWidgetTM(INT WidgetIndex, class USkeletalMeshComponent* SkelComp, INT BoneIndex); /* 0x13c */
@@ -35615,7 +35617,7 @@ struct USkelControlSpline : public USkelControlBase {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_124(INT, INT, INT); /* 0x124 */
+    virtual void GetAffectedBones(INT BoneIndex, class USkeletalMeshComponent* SkelComp, TArray<INT>& OutBoneIndices); /* 0x124 */
     virtual void vf_128(INT, INT, INT); /* 0x128 */
     /* registered size 0xbc */
 };
@@ -35640,7 +35642,7 @@ struct USkelControlTrail : public USkelControlBase {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void TickSkelControl(FLOAT DeltaSeconds, class USkeletalMeshComponent* SkelComp); /* 0x120 */
-    virtual INT vf_124(INT, INT, INT); /* 0x124 */
+    virtual void GetAffectedBones(INT BoneIndex, class USkeletalMeshComponent* SkelComp, TArray<INT>& OutBoneIndices); /* 0x124 */
     virtual void vf_128(INT, INT, INT); /* 0x128 */
     /* registered size 0x120 */
 };
@@ -35794,8 +35796,8 @@ struct USkeletalMesh : public UObject {
     virtual void vf_05c(); /* 0x05c */
     virtual FString GetDetailedInfoInternal(); /* 0x094 */
     virtual INT vf_0b4(INT); /* 0x0b4 */
-    virtual FString vf_0b8(); /* 0x0b8 */
-    virtual void vf_0bc(INT, INT); /* 0x0bc */
+    virtual FString GetDesc(); /* 0x0b8 */
+    virtual FString GetDetailedDescription(INT InIndex); /* 0x0bc */
     virtual INT vf_0d4(); /* 0x0d4 */
     /* other member functions */
     UINT sub_0097fe40(BYTE); /* 0x0097fe40 */
@@ -35987,8 +35989,8 @@ struct USoundMode : public UObject {
     virtual bool vf_004(); /* 0x004 */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual void vf_04c(UINT); /* 0x04c */
-    virtual FString vf_0b8(); /* 0x0b8 */
-    virtual void vf_0bc(INT, INT); /* 0x0bc */
+    virtual FString GetDesc(); /* 0x0b8 */
+    virtual FString GetDetailedDescription(INT InIndex); /* 0x0bc */
     /* registered size 0x74 */
 };
 
@@ -36229,8 +36231,8 @@ struct USoundNodeWave : public USoundNode {
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual void vf_04c(UINT); /* 0x04c */
     virtual INT vf_0b4(INT); /* 0x0b4 */
-    virtual FString vf_0b8(); /* 0x0b8 */
-    virtual void vf_0bc(INT, INT); /* 0x0bc */
+    virtual FString GetDesc(); /* 0x0b8 */
+    virtual FString GetDetailedDescription(INT InIndex); /* 0x0bc */
     virtual INT vf_0d4(); /* 0x0d4 */
     virtual INT vf_0d8(INT); /* 0x0d8 */
     virtual INT vf_0dc(); /* 0x0dc */
@@ -36280,8 +36282,8 @@ struct USpeechRecognition : public UObject {
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_014(); /* 0x014 */
     virtual void vf_04c(UINT); /* 0x04c */
-    virtual FString vf_0b8(); /* 0x0b8 */
-    virtual void vf_0bc(INT, INT); /* 0x0bc */
+    virtual FString GetDesc(); /* 0x0b8 */
+    virtual FString GetDetailedDescription(INT InIndex); /* 0x0bc */
     virtual INT vf_0d4(); /* 0x0d4 */
     /* other member functions */
     INT sub_006d1580(); /* 0x006d1580 */
@@ -36358,8 +36360,8 @@ struct USpeedTree : public UObject {
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual void vf_044(UINT); /* 0x044 */
     virtual void vf_04c(UINT); /* 0x04c */
-    virtual FString vf_0b8(); /* 0x0b8 */
-    virtual void vf_0bc(INT, INT); /* 0x0bc */
+    virtual FString GetDesc(); /* 0x0b8 */
+    virtual FString GetDetailedDescription(INT InIndex); /* 0x0bc */
     virtual INT vf_0d4(); /* 0x0d4 */
     /* other member functions */
     void sub_00bab160(); /* 0x00bab160 */
@@ -36441,7 +36443,7 @@ struct USpeedTreeActorFactory : public UActorFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(UINT, UINT, UINT); /* 0x10c */
+    virtual class AActor* CreateActor(const FVector* const Location, const FRotator* const Rotation, const class USeqAct_ActorFactory* const ActorFactoryData); /* 0x10c */
     virtual INT vf_110(INT); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
     virtual INT vf_118(INT); /* 0x118 */
@@ -36671,7 +36673,7 @@ struct ATeamInfo : public AReplicationInfo {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual BYTE vf_144(); /* 0x144 */
+    virtual BYTE GetTeamNum(); /* 0x144 */
     /* UnrealScript natives */
     void execGetTeamNum(FFrame& Stack, RESULT_DECL); /* 0x00c83120 */
     /* registered size 0x1c4 */
@@ -36914,8 +36916,8 @@ struct UTerrainWeightMapTexture : public UTexture2D {
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
-    virtual FString vf_0b8(); /* 0x0b8 */
-    virtual void vf_0bc(INT, INT); /* 0x0bc */
+    virtual FString GetDesc(); /* 0x0b8 */
+    virtual FString GetDetailedDescription(INT InIndex); /* 0x0bc */
     /* other member functions */
     UINT sub_00997770(BYTE); /* 0x00997770 */
     /* registered size 0x110 */
@@ -37035,8 +37037,8 @@ struct UTextureFlipBook : public UTexture2D, public FTickableObject {
     virtual void vf_02c(); /* 0x02c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual void vf_04c(UINT); /* 0x04c */
-    virtual FString vf_0b8(); /* 0x0b8 */
-    virtual void vf_0bc(INT, INT); /* 0x0bc */
+    virtual FString GetDesc(); /* 0x0b8 */
+    virtual FString GetDetailedDescription(INT InIndex); /* 0x0bc */
     virtual FLOAT vf_12c(); /* 0x12c */
     virtual void vf_130(); /* 0x130 */
     /* other member functions */
@@ -37076,8 +37078,8 @@ struct UTextureMovie : public UTexture {
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual void vf_044(UINT); /* 0x044 */
     virtual void vf_04c(UINT); /* 0x04c */
-    virtual FString vf_0b8(); /* 0x0b8 */
-    virtual void vf_0bc(INT, INT); /* 0x0bc */
+    virtual FString GetDesc(); /* 0x0b8 */
+    virtual FString GetDetailedDescription(INT InIndex); /* 0x0bc */
     virtual INT vf_0d4(); /* 0x0d4 */
     virtual DOUBLE vf_10c(); /* 0x10c */
     virtual DOUBLE GetSurfaceHeight(); /* 0x110 */
@@ -37114,8 +37116,8 @@ struct UTextureRenderTargetCube : public UTextureRenderTarget {
     virtual void vf_01c(); /* 0x01c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual void vf_04c(UINT); /* 0x04c */
-    virtual FString vf_0b8(); /* 0x0b8 */
-    virtual void vf_0bc(INT, INT); /* 0x0bc */
+    virtual FString GetDesc(); /* 0x0b8 */
+    virtual FString GetDetailedDescription(INT InIndex); /* 0x0bc */
     virtual INT vf_0d4(); /* 0x0d4 */
     virtual DOUBLE vf_10c(); /* 0x10c */
     virtual DOUBLE GetSurfaceHeight(); /* 0x110 */
@@ -38600,7 +38602,7 @@ struct AWorldInfo : public AZoneInfo {
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
     virtual void vf_04c(UINT); /* 0x04c */
-    virtual FLOAT vf_138(); /* 0x138 */
+    virtual FLOAT GetGravityZ(); /* 0x138 */
     virtual void SetZone(UBOOL bTest, UBOOL bForceRefresh); /* 0x1c8 */
     virtual INT vf_1cc(INT); /* 0x1cc */
     virtual INT vf_1d0(); /* 0x1d0 */
@@ -39527,7 +39529,7 @@ struct URActorFactoryBreakablePropStatic : public UActorFactoryRigidBody {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(UINT, UINT, UINT); /* 0x10c */
+    virtual class AActor* CreateActor(const FVector* const Location, const FRotator* const Rotation, const class USeqAct_ActorFactory* const ActorFactoryData); /* 0x10c */
     /* registered size 0xc8 */
 };
 
@@ -39541,7 +39543,7 @@ struct URActorFactoryMoverNoCL : public UActorFactoryMover {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(UINT, UINT, UINT); /* 0x10c */
+    virtual class AActor* CreateActor(const FVector* const Location, const FRotator* const Rotation, const class USeqAct_ActorFactory* const ActorFactoryData); /* 0x10c */
     /* registered size 0x70 */
 };
 
@@ -39553,7 +39555,7 @@ struct URActorFactoryRigidBody : public UActorFactoryRigidBody {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(UINT, UINT, UINT); /* 0x10c */
+    virtual class AActor* CreateActor(const FVector* const Location, const FRotator* const Rotation, const class USeqAct_ActorFactory* const ActorFactoryData); /* 0x10c */
     /* registered size 0x98 */
 };
 
@@ -39930,8 +39932,8 @@ struct URReachSpec : public UReachSpec {
     DECLARE_CLASS(URReachSpec, UReachSpec, 0x0, 0x0, CommonGame)
     TArrayNoInit<class UObject*> PathBlockers; /* 0x90 */
     /* virtual functions this class introduces (vtable 0x022e6688) */
-    virtual INT vf_13c(UObject*); /* 0x13c */
-    virtual INT RemoveBlocker(class UObject* NewUnblocker); /* 0x140 */
+    virtual void AddBlocker(class UObject* NewBlocker); /* 0x13c */
+    virtual void RemoveBlocker(class UObject* NewUnblocker); /* 0x140 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -39948,7 +39950,7 @@ struct URForcedReachSpec : public URReachSpec {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual INT vf_11c(); /* 0x11c */
-    virtual INT vf_128(INT); /* 0x128 */
+    virtual FColor PathColor(); /* 0x128 */
     /* registered size 0x9c */
 };
 
@@ -41323,7 +41325,7 @@ struct URActorFactoryForensicsDna : public UActorFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(UINT, UINT, UINT); /* 0x10c */
+    virtual class AActor* CreateActor(const FVector* const Location, const FRotator* const Rotation, const class USeqAct_ActorFactory* const ActorFactoryData); /* 0x10c */
     virtual INT vf_110(INT); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
     virtual INT vf_118(INT); /* 0x118 */
@@ -42820,7 +42822,7 @@ struct ARPawnCharacter : public ARPawn {
     virtual FLOAT vf_548(INT, INT); /* 0x548 */
     virtual INT vf_54c(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x54c */
     virtual INT vf_550(INT, INT, INT, INT); /* 0x550 */
-    virtual INT vf_554(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x554 */
+    virtual FOverlayId PlayCustomWeaponOverlay(FCustomAnimConfig OverrideAnim, FLOAT StartTime); /* 0x554 */
     virtual INT vf_558(INT, INT, INT, INT); /* 0x558 */
     virtual INT vf_55c(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x55c */
     virtual INT vf_560(INT, INT, INT, INT); /* 0x560 */
@@ -47229,7 +47231,7 @@ struct URBMSpecialMove_ReachSpec : public URReachSpec {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_128(INT); /* 0x128 */
+    virtual FColor PathColor(); /* 0x128 */
     /* registered size 0x9c */
 };
 
@@ -55283,7 +55285,7 @@ struct ARPlayerController : public ARPlayerControllerBase {
     virtual DOUBLE vf_50c(); /* 0x50c */
     virtual DOUBLE vf_510(); /* 0x510 */
     virtual INT vf_514(class USoundCue* Cue); /* 0x514 */
-    virtual INT StartNewAmbientSound(class USoundCue* Cue); /* 0x518 */
+    virtual void StartNewAmbientSound(class USoundCue* Cue); /* 0x518 */
     virtual INT AmbientSaveToPersistent(class USoundCue* Cue); /* 0x51c */
     virtual INT MixbinSaveToPersistent(class UMixBin* Mix); /* 0x520 */
     virtual INT LevelSetRoomMixBin(class UMixBin* Mix); /* 0x524 */
@@ -55341,7 +55343,7 @@ struct ARPlayerController : public ARPlayerControllerBase {
     virtual INT vf_5f4(INT); /* 0x5f4 */
     virtual void vf_5f8(INT); /* 0x5f8 */
     virtual INT vf_5fc(); /* 0x5fc */
-    virtual INT vf_600(INT); /* 0x600 */
+    virtual UBOOL CheckContentExists(const FString& Path); /* 0x600 */
     virtual INT vf_604(); /* 0x604 */
     virtual INT vf_608(); /* 0x608 */
     virtual INT vf_60c(INT); /* 0x60c */
@@ -55362,7 +55364,7 @@ struct ARPlayerController : public ARPlayerControllerBase {
     virtual INT vf_648(); /* 0x648 */
     virtual INT vf_64c(); /* 0x64c */
     virtual INT vf_650(); /* 0x650 */
-    virtual void vf_654(INT); /* 0x654 */
+    virtual UBOOL IsMoviePresent(const FString& Path); /* 0x654 */
     virtual INT vf_658(INT); /* 0x658 */
     virtual INT vf_65c(INT); /* 0x65c */
     virtual INT vf_660(INT); /* 0x660 */
@@ -62328,7 +62330,7 @@ struct UClass : public UState {
     virtual void Register(); /* 0x080 */
     virtual INT vf_0ac(INT, INT, INT); /* 0x0ac */
     virtual INT vf_0b4(INT); /* 0x0b4 */
-    virtual FString vf_0b8(); /* 0x0b8 */
+    virtual FString GetDesc(); /* 0x0b8 */
     virtual void vf_0e8(INT); /* 0x0e8 */
     virtual INT vf_110(); /* 0x110 */
     virtual void vf_114(); /* 0x114 */
@@ -63940,8 +63942,8 @@ struct UStaticMesh : public UObject {
     virtual void vf_05c(); /* 0x05c */
     virtual void vf_0a8(INT, INT, INT); /* 0x0a8 */
     virtual INT vf_0b4(INT); /* 0x0b4 */
-    virtual FString vf_0b8(); /* 0x0b8 */
-    virtual void vf_0bc(INT, INT); /* 0x0bc */
+    virtual FString GetDesc(); /* 0x0b8 */
+    virtual FString GetDetailedDescription(INT InIndex); /* 0x0bc */
     virtual INT vf_0d4(); /* 0x0d4 */
     virtual void vf_0e8(INT); /* 0x0e8 */
     /* other member functions */
@@ -64140,7 +64142,7 @@ struct UGameSkelCtrl_Recoil : public USkelControlBase {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void TickSkelControl(FLOAT DeltaSeconds, class USkeletalMeshComponent* SkelComp); /* 0x120 */
-    virtual INT vf_124(INT, INT, INT); /* 0x124 */
+    virtual void GetAffectedBones(INT BoneIndex, class USkeletalMeshComponent* SkelComp, TArray<INT>& OutBoneIndices); /* 0x124 */
     virtual void vf_128(INT, INT, INT); /* 0x128 */
     /* registered size 0x124 */
 };
@@ -65425,8 +65427,8 @@ struct ULightMapTexture2D : public UTexture2D {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
-    virtual FString vf_0b8(); /* 0x0b8 */
-    virtual void vf_0bc(INT, INT); /* 0x0bc */
+    virtual FString GetDesc(); /* 0x0b8 */
+    virtual FString GetDetailedDescription(INT InIndex); /* 0x0bc */
     /* other member functions */
     void sub_00d1f450(FLOAT*, FLOAT); /* 0x00d1f450 */
     UINT sub_00d3ae00(BYTE); /* 0x00d3ae00 */
@@ -67526,7 +67528,7 @@ struct URActorFactorySmashableProp : public UActorFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(UINT, UINT, UINT); /* 0x10c */
+    virtual class AActor* CreateActor(const FVector* const Location, const FRotator* const Rotation, const class USeqAct_ActorFactory* const ActorFactoryData); /* 0x10c */
     virtual INT vf_110(INT); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
     virtual INT vf_118(INT); /* 0x118 */
@@ -67539,7 +67541,7 @@ struct URActorFactoryStaticMeshNoCL : public UActorFactoryStaticMesh {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(UINT, UINT, UINT); /* 0x10c */
+    virtual class AActor* CreateActor(const FVector* const Location, const FRotator* const Rotation, const class USeqAct_ActorFactory* const ActorFactoryData); /* 0x10c */
     /* registered size 0x68 */
 };
 

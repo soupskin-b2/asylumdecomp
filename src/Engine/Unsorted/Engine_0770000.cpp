@@ -294,7 +294,7 @@ IMPLEMENT_CLASS_AT(ADefaultPhysicsVolume, "e:\\Projects\\Amadeus\\AA\\Game\\Unre
 
 // @baa 0x00773330
 // @baa 0x00773390
-float AGravityVolume::vf_138(void) { return *(float*)((char*)this + 540); }
+float AGravityVolume::GetGravityZ(void) { return *(float*)((char*)this + 540); }
 
 // @baa 0x007733a0
 IMPLEMENT_CLASS_AT(AGravityVolume, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 94);
@@ -360,7 +360,7 @@ int ANavigationPoint::vf_35c(int a0, int a1) { return 0; }
 int ANavigationPoint::vf_360(int a0) { return 1; }
 
 // @baa 0x00773d30
-int ANavigationPoint::vf_368(int a0, int a1) { return a1; }
+UClass* ANavigationPoint::GetReachSpecClass(ANavigationPoint* a0, UClass* a1) { return a1; }
 
 // @baa 0x00773d50
 int ANavigationPoint::vf_374(int a0) { return 1; }

@@ -378,7 +378,7 @@ FString UObject::GetDetailedInfoInternal()
 }
 
 // @baa 0x00417f80
-FString UObject::vf_0b8()
+FString UObject::GetDesc()
 {
     return TEXT("");
 }

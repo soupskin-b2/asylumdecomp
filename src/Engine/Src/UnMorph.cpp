@@ -179,7 +179,7 @@ struct FString_ : public FString
 
 // @baa 0x0084af10
 /* vf_0b8 is GetDesc: shown in the editor's browser. */
-FString UMorphTargetSet::vf_0b8()
+FString UMorphTargetSet::GetDesc()
 {
 	return FString_::Printf(TEXT("%d MorphTargets"), Targets.Num());
 }

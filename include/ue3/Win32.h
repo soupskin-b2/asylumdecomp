@@ -45,6 +45,18 @@ WINBASEAPI void  WINAPI InitializeCriticalSection(LPCRITICAL_SECTION lpCriticalS
 WINBASEAPI void  WINAPI DeleteCriticalSection(LPCRITICAL_SECTION lpCriticalSection);
 WINBASEAPI void  WINAPI EnterCriticalSection(LPCRITICAL_SECTION lpCriticalSection);
 WINBASEAPI void  WINAPI LeaveCriticalSection(LPCRITICAL_SECTION lpCriticalSection);
+typedef ULONG_PTR SIZE_T;
+typedef struct _MEMORYSTATUS {
+    DWORD dwLength;
+    DWORD dwMemoryLoad;
+    SIZE_T dwTotalPhys;
+    SIZE_T dwAvailPhys;
+    SIZE_T dwTotalPageFile;
+    SIZE_T dwAvailPageFile;
+    SIZE_T dwTotalVirtual;
+    SIZE_T dwAvailVirtual;
+} MEMORYSTATUS, *LPMEMORYSTATUS;
+WINBASEAPI void  WINAPI GlobalMemoryStatus(LPMEMORYSTATUS lpBuffer);
 WINBASEAPI LONG  WINAPI InterlockedIncrement(LONG volatile* Addend);
 WINBASEAPI LONG  WINAPI InterlockedDecrement(LONG volatile* Addend);
 WINBASEAPI LONG  WINAPI InterlockedExchange(LONG volatile* Target, LONG Value);

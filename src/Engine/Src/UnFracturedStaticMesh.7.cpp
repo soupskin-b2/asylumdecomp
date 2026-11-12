@@ -22,7 +22,7 @@ void UFracturedBaseComponent::execGetUseSimpleLineCollision(FFrame& Stack, RESUL
 void UFracturedBaseComponent::execGetNumFragments(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(INT*)Result = vf_280();
+	*(INT*)Result = GetNumFragments();
 }
 
 // @baa 0x00c9f140
@@ -37,7 +37,7 @@ void UFracturedBaseComponent::execIsFragmentVisible(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(FragmentIndex);
 	P_FINISH;
-	*(UBOOL*)Result = vf_27c(FragmentIndex);
+	*(UBOOL*)Result = IsFragmentVisible(FragmentIndex);
 }
 
 // @baa 0x00947170

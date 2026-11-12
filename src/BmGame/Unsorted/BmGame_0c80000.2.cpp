@@ -108,14 +108,14 @@ void APlayerController::execIsKeyboardAvailable(FFrame& Stack, RESULT_DECL)
 void AWorldInfo::execGetGravityZ(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(FLOAT*)Result = vf_138();
+	*(FLOAT*)Result = GetGravityZ();
 }
 
 // @baa 0x00c83120
 void ATeamInfo::execGetTeamNum(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(BYTE*)Result = vf_144();
+	*(BYTE*)Result = GetTeamNum();
 }
 
 // @baa 0x00c870c0

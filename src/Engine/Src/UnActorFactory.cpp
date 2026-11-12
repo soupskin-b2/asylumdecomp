@@ -201,7 +201,7 @@ int sub_006311e0(...);
 extern undefined4 g_0204ea98;
 extern undefined4 g_0204eb98;
 // @baa 0x00c4ab30
-void UActorFactoryAI::vf_11c(void)
+AActor* UActorFactoryAI::GetDefaultActor()
 {
     int param_1 = (int)this;
   if (*(int *)(param_1 + 0x5c) != 0) {
@@ -217,14 +217,13 @@ void UActorFactoryAI::vf_11c(void)
                  "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActorFactory.cpp"
                  ,0x418,&g_0204eb98);
   }
-  ((C_view *)((*(char **)((char *)this + 0x44))))->sub_00572b30(0);
-  return;
+  return (AActor*)((C_view *)((*(char **)((char *)this + 0x44))))->sub_00572b30(0);
 }
 
 extern undefined4 g_0204ed70;
 extern undefined4 g_0204ee70;
 // @baa 0x00c4aba0
-void UActorFactoryVehicle::vf_11c(void)
+AActor* UActorFactoryVehicle::GetDefaultActor()
 {
     int param_1 = (int)this;
   if (*(int *)(param_1 + 0x58) != 0) {
@@ -240,8 +239,7 @@ void UActorFactoryVehicle::vf_11c(void)
                  "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActorFactory.cpp"
                  ,0x45d,&g_0204ee70);
   }
-  ((C_view *)((*(char **)((char *)this + 0x44))))->sub_00572b30(0);
-  return;
+  return (AActor*)((C_view *)((*(char **)((char *)this + 0x44))))->sub_00572b30(0);
 }
 
 // @baa 0x00c4ac20
@@ -865,65 +863,50 @@ undefined4 * UObject::sub_00c51e90(void)
   return param_1;
 }
 
-struct C_view_00c5e110 {
-    int sub_00c4aa30(int, int, int);
-};
-
 int sub_00c5def0(...);
 // @baa 0x00c5e110
-int UActorFactoryFogVolumeConstantDensityInfo::vf_10c(undefined4 param_2, undefined4 param_3, undefined4 param_4)
+AActor* UActorFactoryFogVolumeConstantDensityInfo::CreateActor(const FVector* const param_2, const FRotator* const param_3, const USeqAct_ActorFactory* const param_4)
 {
     int param_1 = (int)this;
-  int iVar1;
-  iVar1 = ((C_view_00c5e110 *)(this))->sub_00c4aa30(param_2, param_3, param_4);
-  if (iVar1 == 0) {
+  AActor* NewActor = UActorFactory::CreateActor(param_2, param_3, param_4);
+  if (NewActor == NULL) {
     return 0;
   }
-  sub_00c5def0(iVar1,*(undefined4 *)(param_1 + 0x58));
-  return iVar1;
+  sub_00c5def0(NewActor,*(undefined4 *)(param_1 + 0x58));
+  return NewActor;
 }
-
-struct C_view_00c5e150 {
-    int sub_00c4aa30(int, int, int);
-};
 
 // @baa 0x00c5e150
-int UActorFactoryFogVolumeLinearHalfspaceDensityInfo::vf_10c(undefined4 param_2, undefined4 param_3, undefined4 param_4)
+AActor* UActorFactoryFogVolumeLinearHalfspaceDensityInfo::CreateActor(const FVector* const param_2, const FRotator* const param_3, const USeqAct_ActorFactory* const param_4)
 {
     int param_1 = (int)this;
-  int iVar1;
-  iVar1 = ((C_view_00c5e150 *)(this))->sub_00c4aa30(param_2, param_3, param_4);
-  if (iVar1 == 0) {
+  AActor* NewActor = UActorFactory::CreateActor(param_2, param_3, param_4);
+  if (NewActor == NULL) {
     return 0;
   }
-  sub_00c5def0(iVar1,*(undefined4 *)(param_1 + 0x58));
-  return iVar1;
+  sub_00c5def0(NewActor,*(undefined4 *)(param_1 + 0x58));
+  return NewActor;
 }
-
-struct C_view_00c5e190 {
-    int sub_00c4aa30(int, int, int);
-};
 
 int sub_006d4090(...);
 int sub_00c58c60(...);
 // @baa 0x00c5e190
-int UActorFactoryFogVolumeSphericalDensityInfo::vf_10c(undefined4 param_2, undefined4 param_3, undefined4 param_4)
+AActor* UActorFactoryFogVolumeSphericalDensityInfo::CreateActor(const FVector* const param_2, const FRotator* const param_3, const USeqAct_ActorFactory* const param_4)
 {
     int param_1 = (int)this;
-  int iVar1;
   int iVar2;
-  iVar1 = ((C_view_00c5e190 *)(this))->sub_00c4aa30(param_2, param_3, param_4);
-  if (iVar1 == 0) {
+  AActor* NewActor = UActorFactory::CreateActor(param_2, param_3, param_4);
+  if (NewActor == NULL) {
     return 0;
   }
-  sub_00c5def0(iVar1,*(undefined4 *)(param_1 + 0x58));
-  iVar2 = sub_006d4090(iVar1);
+  sub_00c5def0(NewActor,*(undefined4 *)(param_1 + 0x58));
+  iVar2 = sub_006d4090(NewActor);
   if ((*(int *)(iVar2 + 0x1ac) != 0) && (*(int *)(*(int *)(iVar2 + 0x1ac) + 0x1b4) != 0)) {
     sub_00c58c60(*(undefined4 *)(iVar2 + 0x1a8));
     *(float *)(*(int *)(iVar2 + 0x1ac) + 0x170) =
          605.0 / *(float *)(*(int *)(*(int *)(iVar2 + 0x1ac) + 0x1b4) + 0x9c);
   }
-  return iVar1;
+  return NewActor;
 }
 
 // @baa 0x00c656d0
