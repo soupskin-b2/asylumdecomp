@@ -1,4 +1,4 @@
-// UnProp.cpp: 30 functions
+// UnProp.cpp: 31 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -238,4 +238,19 @@ void UStructProperty::ExportTextItem(undefined4 param_2, undefined4 param_3, und
 
   sub_0063ec80(*(undefined4 *)(param_1 + 0x70),param_2,param_3,param_4,param_5,param_6);
   return;
+}
+
+// @baa 0x0062a8d0
+// 0x0062a8d0
+// Copy a single byte out of a source buffer into a destination slot, if the source
+// is valid. Returns whether the source was present.
+int __stdcall sub_0062a8d0(const BYTE* Source, BYTE* Value)
+{
+    INT Result = 0;
+    if (Source)
+    {
+        *Value = *Source;
+        Result = 1;
+    }
+    return Result;
 }

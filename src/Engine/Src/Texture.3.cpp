@@ -1,4 +1,4 @@
-// Texture.cpp (part 3 of 3): 13 functions
+// Texture.cpp (part 3 of 3): 14 functions
 // Placed here by: class 9, neighbours 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -122,4 +122,12 @@ struct UTexture_ : public UTexture
 void UTexture_::sub_00d45fb0()
 {
     RGBE = (CompressionSettings == 5);
+}
+
+// @baa 0x007173e0
+/* Serializes the texture's source art bulk data after the object's properties. */
+void UTexture::Serialize(FArchive& Ar)
+{
+    Super::Serialize(Ar);
+    SourceArt.Serialize(Ar, this, INDEX_NONE);
 }

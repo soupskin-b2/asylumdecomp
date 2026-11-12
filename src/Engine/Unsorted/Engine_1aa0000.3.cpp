@@ -1,4 +1,4 @@
-// Engine_1aa0000.cpp (part 3 of 3): 6 functions
+// Engine_1aa0000.cpp (part 3 of 3): 7 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -113,4 +113,17 @@ C_01aab080* C_01aab080::sub_01aab080()
     Value_8 = 0;
     Value_c = 0;
     return this;
+}
+
+struct FTwoWord_
+{
+    INT a;
+    INT b;
+};
+
+// @baa 0x01aaff80
+void __stdcall sub_01aaff80(FTwoWord_* Dest, const FTwoWord_* Source)
+{
+    if (Dest != NULL)
+        *Dest = *Source;
 }

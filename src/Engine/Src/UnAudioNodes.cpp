@@ -1,4 +1,4 @@
-// UnAudioNodes.cpp (part 1 of 3): 229 functions
+// UnAudioNodes.cpp (part 1 of 3): 231 functions
 // Placed here by: neighbours 143, class 53, file 18, callers 7.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1289,4 +1289,26 @@ int USoundNodeMature::vf_000(void) { return 1; }
 bool USoundNodeAmbientNonLoop::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+/* Kit gap: UObject::MarkPackageDirty (0x005d9570) is only declared on UAnimSequence. */
+struct UObject_ : public UObject
+{
+    void MarkPackageDirty(UBOOL InDirty = TRUE) const; /* 0x005d9570 */
+};
+
+// @baa 0x00c92f30
+/* Editing a property marks the package dirty. */
+void USoundCue::PostEditChange(UProperty* PropertyThatChanged)
+{
+    Super::PostEditChange(PropertyThatChanged);
+    ((UObject_*)this)->MarkPackageDirty();
+}
+
+// @baa 0x00c92f50
+/* Editing a property marks the package dirty. */
+void USoundNode::PostEditChange(UProperty* PropertyThatChanged)
+{
+    Super::PostEditChange(PropertyThatChanged);
+    ((UObject_*)this)->MarkPackageDirty();
 }

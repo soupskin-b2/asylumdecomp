@@ -1,4 +1,4 @@
-// RAnimUtil_MovementPlayer.cpp: 4 functions
+// RAnimUtil_MovementPlayer.cpp: 5 functions
 // Placed here by: callers 2, file 1, neighbours 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -37,4 +37,24 @@ void __fastcall sub_015c46a0(int param_1, undefined4 * param_2)
     *(int *)(param_1 + 0x60) = *(int *)(param_1 + 0x60) + 1;
   }
   return;
+}
+
+struct C_Elem28_e0
+{
+    FLOAT F;
+    BYTE Pad[24];
+};
+
+struct C_015998e0
+{
+    BYTE Pad[0x10];
+    C_Elem28_e0 Arr[7];
+    void sub_015998e0(FLOAT* Out, INT Idx);
+};
+
+// @baa 0x015998e0
+void C_015998e0::sub_015998e0(FLOAT* Out, INT Idx)
+{
+    FLOAT V = Arr[Idx].F;
+    *Out = V;
 }

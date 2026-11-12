@@ -1,4 +1,4 @@
-// UnPawn.cpp (part 1 of 2): 99 functions
+// UnPawn.cpp (part 1 of 2): 102 functions
 // Placed here by: neighbours 49, class 32, callers 3, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1426,4 +1426,36 @@ FVector APawn::GetBasedPosition(FBasedPosition BP)
 		return BP.CachedTransPosition;
 	}
 	return BP.Position;
+}
+
+// @baa 0x00867f60
+/* Every actor in the volume is pushed by the same zone velocity. */
+FVector APhysicsVolume::GetZoneVelocityForActor(AActor* TheActor)
+{
+    return ZoneVelocity;
+}
+
+// @baa 0x00867ee0
+/* The velocity of the volume the actor is in (zero outside any volume). */
+FVector AActor::GetZoneVelocity()
+{
+    return PhysicsVolume ? PhysicsVolume->ZoneVelocity : FVector(0.f, 0.f, 0.f);
+}
+
+// @baa 0x00867e40
+/* The world's gravity, initialized on first use from the global override or the default. */
+FLOAT AWorldInfo::GetGravityZ()
+{
+    if (WorldGravityZ == 0.f)
+    {
+        if (GlobalGravityZ != 0.f)
+        {
+            WorldGravityZ = GlobalGravityZ;
+        }
+        else
+        {
+            WorldGravityZ = DefaultGravityZ;
+        }
+    }
+    return WorldGravityZ;
 }

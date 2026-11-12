@@ -1,4 +1,4 @@
-// UnFracturedStaticMesh.cpp: 7 functions
+// UnFracturedStaticMesh.cpp: 8 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -76,4 +76,11 @@ undefined4 C::sub_007c3370(void)
 
   sub_007c2df0(*(undefined4 *)(param_1 + 4),param_1 + 8);
   return 0x14;
+}
+
+// @baa 0x007a7ae0
+/* A fracture part's gravity is the zone's gravity scaled by FracPartGravScale. */
+FLOAT AFracturedStaticMeshPart::GetGravityZ()
+{
+    return Super::GetGravityZ() * FracPartGravScale;
 }

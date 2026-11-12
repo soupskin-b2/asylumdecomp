@@ -1,4 +1,4 @@
-// Engine_06d0000.cpp (part 1 of 4): 295 functions
+// Engine_06d0000.cpp (part 1 of 4): 296 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -2337,4 +2337,21 @@ INT UMaterial::CheckMaterialUsage(INT Usage)
     UMaterial_* self = static_cast<UMaterial_*>(this);
     INT bInUse = 0;
     return self->sub_006d72b0(&bInUse, Usage);
+}
+
+/* Kit gap: UActorComponent::BeginDeferredReattach (0x00765d00) isn't declared. */
+struct UActorComponent_ : public UActorComponent
+{
+    void BeginDeferredReattach(); /* 0x00765d00 */
+};
+
+// @baa 0x006db970
+/* Changing owner visibility needs the render state rebuilt. */
+void UPrimitiveComponent::SetOwnerNoSee(UBOOL bNewOwnerNoSee)
+{
+    if (bOwnerNoSee != bNewOwnerNoSee)
+    {
+        bOwnerNoSee = bNewOwnerNoSee;
+        ((UActorComponent_*)this)->BeginDeferredReattach();
+    }
 }

@@ -1,4 +1,4 @@
-// UnInteraction.cpp: 70 functions
+// UnInteraction.cpp: 71 functions
 // Placed here by: neighbours 31, class 23, file 5, callers 3.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -560,4 +560,16 @@ void sub_00d81310(void) { sub_00d7f7f0(); }
 bool UPlayerInput::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x00d6c180
+/* Typed characters go to the scene client while UI input is being processed. */
+UBOOL UUIInteraction::InputChar(INT ControllerId, TCHAR Character)
+{
+    UBOOL bResult = FALSE;
+    if (bProcessInput && SceneClient != NULL)
+    {
+        bResult = SceneClient->InputChar(ControllerId, Character);
+    }
+    return bResult;
 }

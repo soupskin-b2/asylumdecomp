@@ -1,4 +1,4 @@
-// SpeedTree.cpp: 16 functions
+// SpeedTree.cpp: 19 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Core.h"
@@ -255,4 +255,31 @@ C_01a97580* C_01a97580::sub_01a97580()
     Value_8 = 0;
     Value_c = 0;
     return this;
+}
+
+// @baa 0x01a5fcf0
+void sub_01a5fcf0(FLOAT* A, FLOAT* B)
+{
+    *A = *B;
+    A[1] = B[1];
+    A[2] = B[2];
+}
+
+extern float g_027bce6c;
+extern float g_027bce70;
+// @baa 0x01a60420
+void sub_01a60420(float* OutA, float* OutB)
+{
+	*OutA = g_027bce6c;
+	*OutB = g_027bce70;
+}
+
+// 0x01a610d0, SpeedTree.cpp
+extern float g_02604d48;
+extern float g_02604d4c;
+// @baa 0x01a610d0
+void sub_01a610d0(float* OutA, float* OutB)
+{
+    *OutA = g_02604d48;
+    *OutB = g_02604d4c;
 }

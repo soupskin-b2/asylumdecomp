@@ -1,4 +1,4 @@
-// UnDistributions.cpp (part 1 of 3): 159 functions
+// UnDistributions.cpp (part 1 of 3): 160 functions
 // Placed here by: neighbours 89, class 41, file 12, callers 9.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1134,4 +1134,14 @@ bool C_007b0ac0::sub_007b0ac0(void)
     int param_1 = (int)this;
 
   return *(char *)(param_1 + 0x14) != '\0';
+}
+
+// @baa 0x007c0db0
+/* Removes Count route-cache entries starting at a valid InIndex. */
+void AController::RouteCache_RemoveIndex(INT InIndex, INT Count)
+{
+    if (InIndex >= 0 && InIndex < RouteCache.Num())
+    {
+        RouteCache.Remove(InIndex, Count);
+    }
 }

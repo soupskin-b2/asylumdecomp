@@ -1,4 +1,4 @@
-// GenericBrowser.cpp (part 1 of 3): 115 functions
+// GenericBrowser.cpp (part 1 of 3): 117 functions
 // Placed here by: neighbours 112, callers 3.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -1043,3 +1043,17 @@ struct C_013979b0 { void sub_013978f0(); void sub_013979b0(int); };
 
 // @baa 0x013979b0
 void C_013979b0::sub_013979b0(int) { sub_013978f0(); }
+
+// The original takes one argument and discards it, forwarding a fixed value.
+INT sub_0139b470(INT bShow);
+// @baa 0x013a1e60
+INT sub_013a1e60(INT bShow)
+{
+    return sub_0139b470(FALSE);
+}
+
+// @baa 0x013a1e70
+INT sub_013a1e70(INT bShow)
+{
+    return sub_0139b470(TRUE);
+}

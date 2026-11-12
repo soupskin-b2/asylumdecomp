@@ -1,4 +1,4 @@
-// BmGame_1540000.cpp: 363 functions
+// BmGame_1540000.cpp: 364 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -3213,3 +3213,21 @@ bool URSeqAct_ActivateScarecrow::vf_004()
 
 // @baa 0x0154ff70
 IMPLEMENT_CLASS_AT(URSeqAct_BatmanState, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameClasses.cpp", 94);
+
+struct C_0154ab30
+{
+    BYTE Pad[0x38];
+    DWORD Flags38;
+    void sub_0154ab30(INT A1, INT A2);
+    void sub_0154aae0(INT B1, INT B2);
+};
+
+// @baa 0x0154ab30
+void C_0154ab30::sub_0154ab30(INT A1, INT A2)
+{
+    if (A2 != (INT)((Flags38 >> 30) & 1))
+    {
+        A2 = A2;
+        sub_0154aae0(A1, A2);
+    }
+}

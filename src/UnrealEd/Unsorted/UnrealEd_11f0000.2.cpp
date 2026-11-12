@@ -1,4 +1,4 @@
-// UnrealEd_11f0000.cpp (part 2 of 5): 3 functions
+// UnrealEd_11f0000.cpp (part 2 of 5): 5 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -57,4 +57,18 @@ undefined4 UObject::sub_011f7950(byte param_2)
     sub_0053dfa0(param_1);
   }
   return param_1;
+}
+
+void sub_011f2bb0(UBOOL bUpdate);
+// @baa 0x011f2c40
+void sub_011f2c40(UBOOL bUpdate)
+{
+    sub_011f2bb0(TRUE);
+}
+
+void sub_011f2bb0(INT Arg);
+// @baa 0x011f2c80
+void sub_011f2c80(INT Arg)
+{
+    sub_011f2bb0(FALSE);
 }

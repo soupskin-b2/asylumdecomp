@@ -1,4 +1,4 @@
-// UnrealEd_1250000.cpp: 43 functions
+// UnrealEd_1250000.cpp: 45 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -531,3 +531,17 @@ struct C_0125f910 { void sub_0125c2a0(); void sub_0125f910(int); };
 
 // @baa 0x0125f910
 void C_0125f910::sub_0125f910(int) { sub_0125c2a0(); }
+
+void sub_0125cc40(INT Index);
+// @baa 0x0125fac0
+void sub_0125fac0(INT Index)
+{
+    sub_0125cc40(-1);
+}
+
+void sub_0125cc40(INT Arg);
+// @baa 0x0125fad0
+void sub_0125fad0(INT Arg)
+{
+    sub_0125cc40(-1);
+}

@@ -1,4 +1,4 @@
-// AnimSetViewerTools.cpp (part 1 of 4): 54 functions
+// AnimSetViewerTools.cpp (part 1 of 4): 56 functions
 // Placed here by: neighbours 46, callers 8.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -584,3 +584,17 @@ struct C_0135dd60 { void sub_0135c9b0(); void sub_0135dd60(int); };
 
 // @baa 0x0135dd60
 void C_0135dd60::sub_0135dd60(int) { sub_0135c9b0(); }
+
+// The original takes one argument and discards it, forwarding a fixed value.
+INT sub_013566f0(INT bShow);
+// @baa 0x01357790
+INT sub_01357790(INT bShow)
+{
+    return sub_013566f0(FALSE);
+}
+
+// @baa 0x013577a0
+INT sub_013577a0(INT bShow)
+{
+    return sub_013566f0(TRUE);
+}

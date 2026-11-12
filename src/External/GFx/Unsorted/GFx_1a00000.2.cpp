@@ -1,4 +1,4 @@
-// GFx_1a00000.cpp (part 2 of 2): 23 functions
+// GFx_1a00000.cpp (part 2 of 2): 25 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -164,4 +164,56 @@ static int sub_01a0e410(int Value, int Offset)
 int sub_01a0e410_probe(int Value, int Offset)
 {
     return sub_01a0e410(Value, Offset);
+}
+
+// 01a07920 (25 bytes): thiscall thunk that dispatches through a
+// pointer member at offset 0x4, forwarding the value at offset 0x0
+// and the single argument.
+class FSlotSub
+{
+public:
+    virtual void S0(void) = 0;
+    virtual void S1(void* A, void* B) = 0;
+    virtual void S2(void* A, void* B) = 0;
+    virtual void S3(void* A, void* B) = 0;
+    virtual void Execute(void* A, void* B) = 0; /* slot at 0x10 */
+};
+
+class FSlotOuter
+{
+    void* Target;   // 0x0
+    FSlotSub* Sub;  // 0x4
+public:
+    void sub_01a07920(void* Arg);
+};
+
+// @baa 0x01a07920
+void FSlotOuter::sub_01a07920(void* Arg)
+{
+    Sub->Execute(Target, Arg);
+}
+
+struct FloatPair_
+{
+	float X;
+	float Y;
+	int Count;
+
+	FloatPair_ *SetPair(float InX, float InY); // 0x01a0e3a0
+};
+
+// @baa 0x01a0e3a0
+__declspec(noinline) FloatPair_ *FloatPair_::SetPair(float InX, float InY)
+{
+	X = InX;
+	Count = -1;
+	Y = InY;
+	return this;
+}
+
+static void s01a0(float A, float B)
+{
+	FloatPair_ P;
+	FloatPair_ *R = P.SetPair(A, B);
+	(void)R;
 }

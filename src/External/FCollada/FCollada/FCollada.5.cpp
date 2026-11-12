@@ -1,4 +1,4 @@
-// FCollada.cpp: 2 functions
+// FCollada.cpp: 3 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -76,4 +76,29 @@ static FColladaArchive* AllocateCollada(void)
 // @baa 0x0185df90
 FColladaArchive::FColladaArchive()
 {
+}
+
+// FUObjectContainer<FCPExtraTechnique> vftable constructor, 0x0185df00
+// Layout: vftable at 0x00, two header INTs at 0x04/0x08, the last element
+// count m_Capacity at 0x0c, and m_Data (head pointer) at 0x10.
+struct FUObjectContainer_FCPExtraTechnique {
+    INT* m_Vftable;   // 0x00
+    INT  m_HeadCount; // 0x04
+    INT  m_HeadIndex; // 0x08
+    INT  m_Capacity;  // 0x0c
+    INT* m_Data;      // 0x10
+
+    FUObjectContainer_FCPExtraTechnique* sub_0185df00();
+};
+
+extern INT g_023e8da8;
+// @baa 0x0185df00
+FUObjectContainer_FCPExtraTechnique* FUObjectContainer_FCPExtraTechnique::sub_0185df00()
+{
+    m_HeadCount = 0;
+    m_HeadIndex = 0;
+    m_Capacity  = 0;
+    m_Data      = &m_Capacity;
+    m_Vftable   = &g_023e8da8;
+    return this;
 }

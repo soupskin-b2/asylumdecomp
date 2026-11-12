@@ -1,4 +1,4 @@
-// BmGame_0c80000.cpp: 40 functions
+// BmGame_0c80000.cpp: 47 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -450,4 +450,66 @@ void AActor::execMakeNoise(FFrame& Stack, RESULT_DECL)
     P_GET_NAME_OPTX(NoiseType, NAME_None);
     P_FINISH;
     ((AActor__00c82e10*)this)->MakeNoise(Loudness, NoiseType);
+}
+
+// @baa 0x00c83040
+void AActor::execPrestreamTextures(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_FLOAT(Seconds);
+    P_GET_UBOOL(bEnableStreaming);
+    P_FINISH;
+    PrestreamTextures(Seconds, bEnableStreaming);
+}
+
+// @baa 0x00c84090
+void AController::execRouteCache_InsertItem(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(ANavigationPoint, Nav);
+    P_GET_INT_OPTX(Idx, 0);
+    P_FINISH;
+    RouteCache_InsertItem(Nav, Idx);
+}
+
+// @baa 0x00c83aa0
+void AAnimatedCamera::execApplyCameraModifiersNative(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_FLOAT(DeltaTime);
+    P_GET_STRUCT_REF(FTPOV, OutPOV);
+    P_FINISH;
+    ApplyCameraModifiersNative(DeltaTime, OutPOV);
+}
+
+// @baa 0x00c83e10
+void AAnimatedCamera::execStopAllCameraAnimsByType(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(UCameraAnim, Anim);
+    P_GET_UBOOL_OPTX(bImmediate, FALSE);
+    P_FINISH;
+    StopAllCameraAnimsByType(Anim, bImmediate);
+}
+
+// @baa 0x00c83ec0
+void AAnimatedCamera::execStopCameraAnim(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(UCameraAnimInst, AnimInst);
+    P_GET_UBOOL_OPTX(bImmediate, FALSE);
+    P_FINISH;
+    StopCameraAnim(AnimInst, bImmediate);
+}
+
+// @baa 0x00c83600
+void APhysicsVolume::execGetZoneVelocityForActor(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(AActor, TheActor);
+    P_FINISH;
+    *(FVector*)Result = GetZoneVelocityForActor(TheActor);
+}
+
+// @baa 0x00c841a0
+void AController::execRouteCache_RemoveIndex(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_INT(InIndex);
+    P_GET_INT_OPTX(Count, 1);
+    P_FINISH;
+    RouteCache_RemoveIndex(InIndex, Count);
 }

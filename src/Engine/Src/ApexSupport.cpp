@@ -1,4 +1,4 @@
-// ApexSupport.cpp (part 1 of 4): 168 functions
+// ApexSupport.cpp (part 1 of 4): 169 functions
 // Placed here by: neighbours 103, class 30, file 12, callers 10.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1352,4 +1352,15 @@ bool UApexStaticComponent::vf_004()
 bool UApexDynamicComponent::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x009d7820
+/* Traces flagged for APEX destructibles (0x10000000) always hit; otherwise the actor rules apply. */
+UBOOL AApexDestructibleActor::ShouldTrace(UPrimitiveComponent* Primitive, AActor* SourceActor, DWORD TraceFlags)
+{
+    if (TraceFlags & 0x10000000)
+    {
+        return TRUE;
+    }
+    return Super::ShouldTrace(Primitive, SourceActor, TraceFlags);
 }

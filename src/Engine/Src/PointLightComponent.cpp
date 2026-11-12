@@ -1,4 +1,4 @@
-// PointLightComponent.cpp: 11 functions
+// PointLightComponent.cpp: 12 functions
 // Placed here by: callers 1, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -65,4 +65,11 @@ UINT UPointLightComponent::CreateSceneInfo()
 {
 	FPointLightSceneProxy* Proxy = new FPointLightSceneProxy(this);
 	return (UINT)Proxy;
+}
+
+// @baa 0x006da9e0
+/* A point light's position is its world origin (LightToWorld.GetOrigin(), W = 1). */
+FVector4 UPointLightComponent::GetPosition() const
+{
+    return FVector4(FVector(LightToWorld.WPlane.X, LightToWorld.WPlane.Y, LightToWorld.WPlane.Z), 1.f);
 }

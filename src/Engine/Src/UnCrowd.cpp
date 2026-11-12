@@ -1,4 +1,4 @@
-// UnCrowd.cpp: 16 functions
+// UnCrowd.cpp: 17 functions
 // Placed here by: neighbours 7, callers 5, file 4.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -140,3 +140,14 @@ struct D { void sub_007bce90(); };
 extern D g_026c5624;
 // @baa 0x01e25510
 void sub_01e25510() { g_026c5624.sub_007bce90(); }
+
+// @baa 0x00cbc780
+/* A crowd agent drops its cached nearest path when its level is being removed. */
+void ACrowdAgent::GetActorReferences(TArray<FActorReference*>& ActorRefs, UBOOL bIsRemovingLevel)
+{
+    if (bIsRemovingLevel)
+    {
+        NearestPath = NULL;
+    }
+    Super::GetActorReferences(ActorRefs, bIsRemovingLevel);
+}

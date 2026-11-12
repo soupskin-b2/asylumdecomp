@@ -1,4 +1,4 @@
-// MaterialExpressions.cpp: 1 function
+// MaterialExpressions.cpp: 2 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #define BAA_OUTLINE_NEW
@@ -13,4 +13,11 @@ void UMaterialExpressionTextureSample::GetOutputs(TArray<FExpressionOutput>& Out
     new(Outputs) FExpressionOutput(1, 0, 1, 0, 0);
     new(Outputs) FExpressionOutput(1, 0, 0, 1, 0);
     new(Outputs) FExpressionOutput(1, 0, 0, 0, 1);
+}
+
+// @baa 0x00c26680
+/* An expression has a single output covering all channels. */
+void UMaterialExpression::GetOutputs(TArray<FExpressionOutput>& Outputs)
+{
+    new(Outputs) FExpressionOutput(FALSE);
 }

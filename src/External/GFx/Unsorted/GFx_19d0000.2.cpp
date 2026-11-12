@@ -1,4 +1,4 @@
-// GFx_19d0000.cpp (part 2 of 2): 96 functions
+// GFx_19d0000.cpp (part 2 of 2): 99 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -1029,4 +1029,84 @@ INT C_019da9b0::sub_019da9b0(INT A, INT B, INT C_019da9b0, INT D)
     if (Fn)
         return Fn(A, B, C_019da9b0, D);
     return 0;
+}
+
+struct F019D4290 {
+    INT Field0;
+    INT Field4;
+    INT Field8;
+
+    F019D4290* sub_019d4290(INT A, INT B, INT C);
+};
+
+// @baa 0x019d4290
+F019D4290* F019D4290::sub_019d4290(INT A, INT B, INT C)
+{
+    Field0 = A;
+    Field4 = B;
+    Field8 = C;
+    return this;
+}
+
+struct F019D4290Caller {
+    F019D4290* Vector;
+
+    void CallInit()
+    {
+        Vector->sub_019d4290(1, 2, 3);
+    }
+};
+
+// Visitor built by GASLoadVarsProto::ToString(GASFnCall const&) to walk the
+// call's members; the local class lives inside that function.
+class GASFnCall;
+class MemberVisitor
+{
+public:
+    MemberVisitor(GASFnCall const* Call, void* Data);
+
+    virtual void Visit();
+
+private:
+    GASFnCall const* Call;
+    void* Data;
+};
+
+// @baa 0x019dce80
+MemberVisitor::MemberVisitor(GASFnCall const* InCall, void* InData)
+    : Call(InCall), Data(InData)
+{
+}
+
+// GFx_19d0000.cpp: adds an integer millisecond counter, converted to seconds,
+// to a float time stored at +0xec of another object, writing the sum back here.
+//
+//   fild  dword ptr [ecx + 0x2c]  Counter as a double
+//   fmul  qword ptr [g_01e52d80]  * ms-to-seconds factor (0.001)
+//   fadd  dword ptr [eax + 0xec]  + *(float*)(Other + 0xec)
+//   fstp  dword ptr [ecx + 0x30]  Time
+//
+// The factor is a double global holding the exact value of the float literal
+// 0.001f (double(0.001f) == 0x3F13126F42000000 in the original).
+double g_01e52d80 = 0.001f;
+struct S_019d9080
+{
+	char Data[0x2c];
+	int Milliseconds;
+	float Time;
+
+	void sub_019d9080(void* Other);
+};
+
+// @baa 0x019d9080
+void S_019d9080::sub_019d9080(void* Other)
+{
+	Time = (float)Milliseconds * g_01e52d80 + *(float*)((char*)Other + 0xec);
+}
+
+int s019d(void* P, int Arg1)
+{
+	S_019d9080 S;
+	S.sub_019d9080(P);
+	return Arg1;
 }

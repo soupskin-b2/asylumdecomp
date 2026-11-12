@@ -1,4 +1,4 @@
-// BmGame_1670000.cpp (part 1 of 4): 90 functions
+// BmGame_1670000.cpp (part 1 of 4): 94 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -722,4 +722,72 @@ int C_0167f8f0::sub_0167f8f0(byte param_2)
     sub_0053dfa0(param_1);
   }
   return param_1;
+}
+
+struct C_01672fd0
+{
+    DWORD A;
+    DWORD B;
+    C_01672fd0* sub_01672fd0(UINT P);
+};
+
+// @baa 0x01672fd0
+C_01672fd0* C_01672fd0::sub_01672fd0(UINT P)
+{
+    A = 0;
+    B = 0;
+    return this;
+}
+
+struct C_01672ff0
+{
+    DWORD A;
+    DWORD B;
+    C_01672ff0* sub_01672ff0(UINT P);
+};
+
+// @baa 0x01672ff0
+C_01672ff0* C_01672ff0::sub_01672ff0(UINT P)
+{
+    A = 0;
+    B = 0;
+    return this;
+}
+
+struct C_P8_a00
+{
+    BYTE Pad[8];
+    DWORD V8;
+    C_P8_a00* sub_0163f860();
+};
+
+struct C_01674a00
+{
+    DWORD sub_01674a00();
+};
+
+// @baa 0x01674a00
+DWORD C_01674a00::sub_01674a00()
+{
+    C_P8_a00* P = ((C_P8_a00*)this)->sub_0163f860();
+    return P->V8 == 1 ? (DWORD)P : 0;
+}
+
+struct C_P8_a20
+{
+    BYTE Pad[8];
+    DWORD V8;
+    C_P8_a20* sub_0163f890();
+};
+
+struct C_01674a20
+{
+    DWORD sub_01674a20();
+};
+
+// @baa 0x01674a20
+DWORD C_01674a20::sub_01674a20()
+{
+    C_P8_a20* P = ((C_P8_a20*)this)->sub_0163f890();
+    return P->V8 == 1 ? (DWORD)P : 0;
 }

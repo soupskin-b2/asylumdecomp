@@ -1,4 +1,4 @@
-// UnrealEd_1300000.cpp (part 2 of 2): 4 functions
+// UnrealEd_1300000.cpp (part 2 of 2): 6 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -68,4 +68,18 @@ S0130ef30* S0130ef30::sub_0130ef30(const S0130ef30& Other)
     y = Other.y;
     z = Other.z;
     return this;
+}
+
+// The original takes one argument and discards it, forwarding a fixed value.
+INT sub_0130bd40(INT bShow);
+// @baa 0x0130cd90
+INT sub_0130cd90(INT bShow)
+{
+    return sub_0130bd40(TRUE);
+}
+
+// @baa 0x0130cda0
+INT sub_0130cda0(INT bShow)
+{
+    return sub_0130bd40(FALSE);
 }

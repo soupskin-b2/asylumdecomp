@@ -1,4 +1,4 @@
-// RAnimNode_Pose.cpp (part 4 of 4): 22 functions
+// RAnimNode_Pose.cpp (part 4 of 4): 27 functions
 // Placed here by: neighbours 3, class 2, callers 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -358,4 +358,98 @@ INT C_015bcb00::sub_015bcb00()
     if (C > 0 || (C == 0 && A >= B))
         return 1;
     return 0;
+}
+
+struct C_Elem28
+{
+    FLOAT F;
+    BYTE Pad[24];
+};
+
+struct C_015998c0
+{
+    BYTE Pad[0x18];
+    C_Elem28 Arr[7];
+    void sub_015998c0(FLOAT* Out, INT Idx);
+};
+
+// @baa 0x015998c0
+void C_015998c0::sub_015998c0(FLOAT* Out, INT Idx)
+{
+    FLOAT V = Arr[Idx].F;
+    *Out = V;
+}
+
+struct C_015c1d60
+{
+    BYTE Pad[0x598];
+    FLOAT F598;
+    BYTE Pad2[0x14];
+    FLOAT F5b0;
+    INT sub_015c1d60();
+};
+
+// @baa 0x015c1d60
+INT C_015c1d60::sub_015c1d60()
+{
+    if (F598 > F5b0)
+        return 1;
+    return 0;
+}
+
+struct C_P_0c
+{
+    BYTE Pad[0xc];
+    FLOAT F;
+};
+
+struct C_015b9a30
+{
+    BYTE Pad[0xc];
+    FLOAT F;
+    C_015b9a30* sub_015b9a30(C_P_0c* P);
+    void sub_015b7c30(C_P_0c* P);
+};
+
+// @baa 0x015b9a30
+C_015b9a30* C_015b9a30::sub_015b9a30(C_P_0c* P)
+{
+    sub_015b7c30(P);
+    F = P->F;
+    return this;
+}
+
+struct C_Sub4_bbd0
+{
+    void sub_015b5bd0(FLOAT* P);
+};
+
+struct C_015b5d20
+{
+    FLOAT F0;
+    C_Sub4_bbd0 Sub4;
+    C_015b5d20* sub_015b5d20(FLOAT* P);
+};
+
+// @baa 0x015b5d20
+C_015b5d20* C_015b5d20::sub_015b5d20(FLOAT* P)
+{
+    FLOAT V = *P;
+    F0 = V;
+    Sub4.sub_015b5bd0(P + 1);
+    return this;
+}
+
+struct C_015bc010
+{
+    INT sub_005c1a10(INT P);
+    void sub_015bbb90(INT P, INT Z);
+    void sub_015bc010(UINT P);
+};
+
+// @baa 0x015bc010
+void C_015bc010::sub_015bc010(UINT P)
+{
+    sub_005c1a10((INT)P);
+    sub_015bbb90((INT)P, 0);
 }

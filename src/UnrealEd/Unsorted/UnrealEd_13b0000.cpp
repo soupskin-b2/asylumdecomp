@@ -1,4 +1,4 @@
-// UnrealEd_13b0000.cpp: 67 functions
+// UnrealEd_13b0000.cpp: 73 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -1166,4 +1166,46 @@ struct SOuter {
 int SOuter::sub_013bf2f0(int arg1)
 {
     return ((SInner *)inner)->sub_013bb440();
+}
+
+// The original takes one argument and discards it, forwarding a fixed value.
+INT sub_013b9d90(INT bShow);
+// @baa 0x013ba480
+INT sub_013ba480(INT bShow)
+{
+    return sub_013b9d90(TRUE);
+}
+
+// @baa 0x013ba490
+INT sub_013ba490(INT bShow)
+{
+    return sub_013b9d90(FALSE);
+}
+
+// The original takes one argument and discards it, forwarding a fixed value.
+INT sub_013bba00(INT bShow);
+// @baa 0x013bc1c0
+INT sub_013bc1c0(INT bShow)
+{
+    return sub_013bba00(TRUE);
+}
+
+// @baa 0x013bc1d0
+INT sub_013bc1d0(INT bShow)
+{
+    return sub_013bba00(FALSE);
+}
+
+// The original takes one argument and discards it, forwarding a fixed value.
+INT sub_013bb960(INT bShow);
+// @baa 0x013bc1e0
+INT sub_013bc1e0(INT bShow)
+{
+    return sub_013bb960(TRUE);
+}
+
+// @baa 0x013bc1f0
+INT sub_013bc1f0(INT bShow)
+{
+    return sub_013bb960(FALSE);
 }

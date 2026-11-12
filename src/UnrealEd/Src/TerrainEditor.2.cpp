@@ -1,4 +1,4 @@
-// TerrainEditor.cpp (part 2 of 4): 4 functions
+// TerrainEditor.cpp (part 2 of 4): 6 functions
 // Placed here by: neighbours 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -70,4 +70,18 @@ void C_0124c040::sub_0124c040()
     if (sub_target) {
         sub_target->sub_vf4(0);
     }
+}
+
+void sub_01270d70(UBOOL bUpdate);
+// @baa 0x01273230
+void sub_01273230(UBOOL bUpdate)
+{
+    sub_01270d70(TRUE);
+}
+
+void sub_01270d70(INT Arg);
+// @baa 0x01273240
+void sub_01273240(INT Arg)
+{
+    sub_01270d70(FALSE);
 }

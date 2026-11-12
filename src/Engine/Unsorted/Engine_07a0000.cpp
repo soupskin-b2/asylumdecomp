@@ -1,4 +1,4 @@
-// Engine_07a0000.cpp (part 1 of 4): 224 functions
+// Engine_07a0000.cpp (part 1 of 4): 226 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1658,4 +1658,17 @@ struct AController_ : public AController
 void use_it(AController_ *C, INT A, FMoveSpec_ *S)
 {
     C->sub_007a0de0(A, S);
+}
+
+// @baa 0x007a2030
+BYTE APlayerReplicationInfo::GetTeamNum()
+{
+    return Team ? Team->TeamIndex : 255;
+}
+
+// @baa 0x007a1ff0
+/* The team of this controller's player, or 255 when it has none. */
+BYTE AController::GetTeamNum()
+{
+    return (PlayerReplicationInfo && PlayerReplicationInfo->Team) ? PlayerReplicationInfo->Team->TeamIndex : 255;
 }

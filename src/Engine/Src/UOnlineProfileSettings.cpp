@@ -1,4 +1,4 @@
-// UOnlineProfileSettings.cpp: 36 functions
+// UOnlineProfileSettings.cpp: 46 functions
 // Placed here by: neighbours 21, class 6, callers 1, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -366,4 +366,293 @@ FName UOnlineProfileSettings::GetProfileSettingValueName(INT ProfileSettingId)
 		}
 	}
 	return NAME_None;
+}
+
+// @baa 0x00d73c70
+/* How a profile setting's values are mapped; FALSE when it has no metadata. */
+INT UOnlineProfileSettings::GetProfileSettingMappingType(INT ProfileSettingId, BYTE& OutType)
+{
+	for (INT Index = 0; Index < ProfileMappings.Num(); Index++)
+	{
+		FSettingsPropertyPropertyMetaData& MetaData = ProfileMappings(Index);
+		if (MetaData.Id == ProfileSettingId)
+		{
+			OutType = MetaData.MappingType;
+			return TRUE;
+		}
+	}
+	return FALSE;
+}
+
+/* Kit gap: the script natives FindProfileSettingIndex / FindProfileMappingIndex (execs 00c8db10 / 00c8db80) aren't
+ * declared. */
+struct UOnlineProfileSettings_ : public UOnlineProfileSettings
+{
+	INT FindProfileSettingIndex(INT ProfileSettingId) const;
+	INT FindProfileMappingIndex(INT ProfileSettingId) const;
+};
+
+// @baa 0x00d72590
+/* The index of a profile setting in ProfileSettings; INDEX_NONE when there's none. */
+INT UOnlineProfileSettings_::FindProfileSettingIndex(INT ProfileSettingId) const
+{
+	INT Result = INDEX_NONE;
+	for (INT Index = 0; Index < ProfileSettings.Num(); Index++)
+	{
+		if (ProfileSettings(Index).ProfileSetting.PropertyId == ProfileSettingId)
+		{
+			Result = Index;
+			break;
+		}
+	}
+	return Result;
+}
+
+// @baa 0x00d72610
+/* The index of a profile setting's metadata in ProfileMappings; INDEX_NONE when there's none. */
+INT UOnlineProfileSettings_::FindProfileMappingIndex(INT ProfileSettingId) const
+{
+	INT Result = INDEX_NONE;
+	for (INT Index = 0; Index < ProfileMappings.Num(); Index++)
+	{
+		if (ProfileMappings(Index).Id == ProfileSettingId)
+		{
+			Result = Index;
+			break;
+		}
+	}
+	return Result;
+}
+
+/* Kit gap: FSettingsData::GetData (structcpptext) isn't declared. */
+struct FSettingsData__00d73af0 : public FSettingsData
+{
+	FORCEINLINE void GetData(INT& OutData) const
+	{
+		if (Type == SDT_Int32)
+		{
+			OutData = Value1;
+		}
+		else
+		{
+			OutData = 0;
+		}
+	}
+};
+
+// @baa 0x00d73af0
+/* The profile's version (the int value of PSI_ProfileVersionNum); -1 when it has none. */
+INT UOnlineProfileSettings::GetVersionNumber()
+{
+	INT Version = -1;
+	for (INT Index = 0; Index < ProfileSettings.Num(); Index++)
+	{
+		FOnlineProfileSetting& Setting = ProfileSettings(Index);
+		if (Setting.ProfileSetting.PropertyId == PSI_ProfileVersionNum)
+		{
+			((const FSettingsData__00d73af0&)Setting.ProfileSetting.Data).GetData(Version);
+			break;
+		}
+	}
+	return Version;
+}
+
+/* Kit gap: FName has no operator== (UnName.h). */
+static FORCEINLINE UBOOL operator==(const FName& A, const FName& B)
+{
+	return A.Index == B.Index && A.Number == B.Number;
+}
+
+// @baa 0x00d723d0
+/* The id of the profile setting with this name; FALSE when there's none. */
+INT UOnlineProfileSettings::GetProfileSettingId(FName ProfileSettingName, INT& ProfileSettingId)
+{
+	for (INT Index = 0; Index < ProfileMappings.Num(); Index++)
+	{
+		FSettingsPropertyPropertyMetaData& MetaData = ProfileMappings(Index);
+		if (MetaData.Name == ProfileSettingName)
+		{
+			ProfileSettingId = MetaData.Id;
+			return TRUE;
+		}
+	}
+	return FALSE;
+}
+
+// @baa 0x00d72450
+/* The name of a profile setting; NAME_None when there's none. */
+FName UOnlineProfileSettings::GetProfileSettingName(INT ProfileSettingId)
+{
+	for (INT Index = 0; Index < ProfileMappings.Num(); Index++)
+	{
+		FSettingsPropertyPropertyMetaData& MetaData = ProfileMappings(Index);
+		if (MetaData.Id == ProfileSettingId)
+		{
+			return MetaData.Name;
+		}
+	}
+	return NAME_None;
+}
+
+// @baa 0x00d724d0
+/* The column header text of a profile setting; empty when there's none. */
+FString UOnlineProfileSettings::GetProfileSettingColumnHeader(INT ProfileSettingId)
+{
+	FString Result;
+	for (INT Index = 0; Index < ProfileMappings.Num(); Index++)
+	{
+		FSettingsPropertyPropertyMetaData& MetaData = ProfileMappings(Index);
+		if (MetaData.Id == ProfileSettingId)
+		{
+			Result = MetaData.ColumnHeaderText;
+			break;
+		}
+	}
+	return Result;
+}
+
+/* Kit gap: UOnlineProfileSettings' FindProfileSetting / FindProfileMappingMetaData aren't declared. */
+struct UOnlineProfileSettings__00d73ce0 : public UOnlineProfileSettings
+{
+	FORCEINLINE FOnlineProfileSetting* FindProfileSetting(INT ProfileSettingId)
+	{
+		for (INT Index = 0; Index < ProfileSettings.Num(); Index++)
+		{
+			FOnlineProfileSetting& Setting = ProfileSettings(Index);
+			if (Setting.ProfileSetting.PropertyId == ProfileSettingId)
+			{
+				return &Setting;
+			}
+		}
+		return NULL;
+	}
+	FORCEINLINE FSettingsPropertyPropertyMetaData* FindProfileMappingMetaData(INT ProfileSettingId)
+	{
+		for (INT Index = 0; Index < ProfileMappings.Num(); Index++)
+		{
+			FSettingsPropertyPropertyMetaData& MetaData = ProfileMappings(Index);
+			if (MetaData.Id == ProfileSettingId)
+			{
+				return &MetaData;
+			}
+		}
+		return NULL;
+	}
+};
+
+// @baa 0x00d73ce0
+/* The range of a ranged profile setting and whether it's shown as an int; FALSE when it isn't a ranged profile setting. */
+INT UOnlineProfileSettings::GetProfileSettingRange(INT ProfileSettingId, FLOAT& OutMinValue, FLOAT& OutMaxValue, FLOAT& RangeIncrement, BYTE& bFormatAsInt)
+{
+	UBOOL bOk = FALSE;
+	FSettingsPropertyPropertyMetaData* MetaData = ((UOnlineProfileSettings__00d73ce0*)this)->FindProfileMappingMetaData(ProfileSettingId);
+	FOnlineProfileSetting* Setting = ((UOnlineProfileSettings__00d73ce0*)this)->FindProfileSetting(ProfileSettingId);
+	if (MetaData != NULL && MetaData->MappingType == PVMT_Ranged && Setting != NULL)
+	{
+		RangeIncrement = MetaData->RangeIncrement;
+		OutMinValue = MetaData->MinVal;
+		OutMaxValue = MetaData->MaxVal;
+		bFormatAsInt = Setting->ProfileSetting.Data.Type == SDT_Int32;
+		bOk = TRUE;
+	}
+	return bOk;
+}
+
+struct UOnlineProfileSettings__00d73f90 : public UOnlineProfileSettings
+{
+	FORCEINLINE FOnlineProfileSetting* FindProfileSetting(INT ProfileSettingId)
+	{
+		for (INT Index = 0; Index < ProfileSettings.Num(); Index++)
+		{
+			FOnlineProfileSetting& Setting = ProfileSettings(Index);
+			if (Setting.ProfileSetting.PropertyId == ProfileSettingId)
+			{
+				return &Setting;
+			}
+		}
+		return NULL;
+	}
+};
+
+// @baa 0x00d73f90
+/* A ranged profile setting's value as a float (ints are converted); false when there's no such setting. */
+bool UOnlineProfileSettings::GetRangedProfileSettingValue(INT ProfileSettingId, FLOAT& OutValue)
+{
+	FOnlineProfileSetting* Setting = ((UOnlineProfileSettings__00d73f90*)this)->FindProfileSetting(ProfileSettingId);
+	if (Setting != NULL)
+	{
+		switch (Setting->ProfileSetting.Data.Type)
+		{
+			case SDT_Int32:
+			{
+				INT Value;
+				((const FSettingsData_&)Setting->ProfileSetting.Data).GetData(Value);
+				OutValue = (FLOAT)Value;
+				break;
+			}
+			case SDT_Float:
+			{
+				((const FSettingsData_&)Setting->ProfileSetting.Data).GetData(OutValue);
+				break;
+			}
+			default:
+			{
+				Setting = NULL;
+				break;
+			}
+		}
+	}
+	return Setting != NULL;
+}
+
+/* Kit gap: FSettingsData::GetData (structcpptext) isn't declared. */
+struct FSettingsData__00d73540 : public FSettingsData
+{
+	FORCEINLINE void GetData(INT& OutData) const
+	{
+		if (Type == SDT_Int32)
+		{
+			OutData = Value1;
+		}
+		else
+		{
+			OutData = 0;
+		}
+	}
+};
+
+// @baa 0x00d73540
+/* The default value id of an id-mapped profile setting and its index in the value list; FALSE when the setting is
+ * unknown or isn't id mapped. */
+INT UOnlineProfileSettings::GetProfileSettingDefaultId(INT ProfileSettingId, INT& DefaultId, INT& ListIndex)
+{
+	for (INT MapIdx = 0; MapIdx < ProfileMappings.Num(); MapIdx++)
+	{
+		const FSettingsPropertyPropertyMetaData& MetaData = ProfileMappings(MapIdx);
+		if (MetaData.Id == ProfileSettingId)
+		{
+			for (INT Index = 0; Index < DefaultSettings.Num(); Index++)
+			{
+				FOnlineProfileSetting& Setting = DefaultSettings(Index);
+				if (Setting.ProfileSetting.PropertyId == ProfileSettingId)
+				{
+					if (MetaData.MappingType != PVMT_IdMapped)
+					{
+						return FALSE;
+					}
+					((const FSettingsData__00d73540&)Setting.ProfileSetting.Data).GetData(DefaultId);
+					for (INT ValueIdx = 0; ValueIdx < MetaData.ValueMappings.Num(); ValueIdx++)
+					{
+						if (MetaData.ValueMappings(ValueIdx).Id == DefaultId)
+						{
+							ListIndex = ValueIdx;
+							break;
+						}
+					}
+					return TRUE;
+				}
+			}
+		}
+	}
+	return FALSE;
 }

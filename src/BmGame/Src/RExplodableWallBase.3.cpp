@@ -1,4 +1,4 @@
-// RExplodableWallBase.cpp: 3 functions
+// RExplodableWallBase.cpp: 4 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -36,4 +36,13 @@ void ARExplodableWallBase::execExplodeExtentLine(FFrame& Stack, RESULT_DECL)
     P_GET_STRUCT(FVector, CheckExtent);
     P_FINISH;
     *(UBOOL*)Result = ((ARExplodableWallBase_*)this)->ExplodeExtentLine(ExplosionType, ExplodeFromSide, FuseTime, StartCheckLocation, EndCheckLocation, CheckExtent);
+}
+
+// @baa 0x00c83160
+void ARExplodableWallBase::execGetTargetLocation(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT_OPTX(AActor, RequestedBy, NULL);
+    P_GET_UBOOL_OPTX(bRequestAlternateLoc, FALSE);
+    P_FINISH;
+    *(FVector*)Result = GetTargetLocation(RequestedBy, bRequestAlternateLoc);
 }

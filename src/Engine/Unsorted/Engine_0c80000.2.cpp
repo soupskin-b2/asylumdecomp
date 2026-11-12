@@ -1,4 +1,4 @@
-// Engine_0c80000.cpp: 100 functions
+// Engine_0c80000.cpp: 104 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -1250,4 +1250,40 @@ void UOnlineStatsWrite::execSetIntStat(FFrame& Stack, RESULT_DECL)
     P_GET_INT(Value);
     P_FINISH;
     SetIntStat(StatId, Value);
+}
+
+// @baa 0x00c8d650
+void UOnlineStatsWrite::execIncrementFloatStat(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_INT(StatId);
+    P_GET_FLOAT_OPTX(IncBy, 1.f);
+    P_FINISH;
+    IncrementFloatStat(StatId, IncBy);
+}
+
+// @baa 0x00c8d790
+void UOnlineStatsWrite::execDecrementFloatStat(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_INT(StatId);
+    P_GET_FLOAT_OPTX(DecBy, 1.f);
+    P_FINISH;
+    DecrementFloatStat(StatId, DecBy);
+}
+
+// @baa 0x00c8d6f0
+void UOnlineStatsWrite::execIncrementIntStat(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_INT(StatId);
+    P_GET_INT_OPTX(IncBy, 1);
+    P_FINISH;
+    IncrementIntStat(StatId, IncBy);
+}
+
+// @baa 0x00c8d830
+void UOnlineStatsWrite::execDecrementIntStat(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_INT(StatId);
+    P_GET_INT_OPTX(DecBy, 1);
+    P_FINISH;
+    DecrementIntStat(StatId, DecBy);
 }

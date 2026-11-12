@@ -1,7 +1,7 @@
-// InterpEditorMenus.cpp: 7 functions
+// InterpEditorMenus.cpp: 8 functions
 // Placed here by: callers 4, neighbours 3.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
-#include "ue3/Array.h"
+#include "ue3/Classes.h"
 
 struct T_012f1770;
 // @baa 0x012f1770
@@ -64,3 +64,11 @@ struct C_0130bbc0 { void sub_01307e80(); void sub_0130bbc0(int); };
 
 // @baa 0x0130bbc0
 void C_0130bbc0::sub_0130bbc0(int) { sub_01307e80(); }
+
+// The original takes one argument and discards it, forwarding a fixed value.
+INT sub_012fda20(INT bShow);
+// @baa 0x01306c10
+INT sub_01306c10(INT bShow)
+{
+    return sub_012fda20(TRUE);
+}

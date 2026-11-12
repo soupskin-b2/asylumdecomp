@@ -1,4 +1,4 @@
-// UnrealEd_12e0000.cpp (part 1 of 2): 34 functions
+// UnrealEd_12e0000.cpp (part 1 of 2): 36 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -359,3 +359,17 @@ struct C_012e8580 { void sub_012e4510(); void sub_012e8580(int); };
 
 // @baa 0x012e8580
 void C_012e8580::sub_012e8580(int) { sub_012e4510(); }
+
+// The original takes one argument and discards it, forwarding a fixed value.
+INT sub_012e34c0(INT bShow);
+// @baa 0x012e7350
+INT sub_012e7350(INT bShow)
+{
+    return sub_012e34c0(TRUE);
+}
+
+// @baa 0x012e7360
+INT sub_012e7360(INT bShow)
+{
+    return sub_012e34c0(FALSE);
+}
