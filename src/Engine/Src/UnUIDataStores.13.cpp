@@ -1,4 +1,4 @@
-// UnUIDataStores.cpp: 12 functions
+// UnUIDataStores.cpp: 13 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -237,6 +237,24 @@ struct UUIDataStore_OnlinePlayerData__00d8f570 : public UUIDataStore_OnlinePlaye
 void UUIDataStore_OnlinePlayerData__00d8f570::eventOnRegister(class ULocalPlayer* InPlayer)
 {
 	struct UIDataStore_OnlinePlayerData_eventOnRegister_Parms
+	{
+		class ULocalPlayer* InPlayer;
+	} Parms;
+	Parms.InPlayer = InPlayer;
+	ProcessEvent(FindFunctionChecked(g_026c4358), &Parms);
+}
+
+	/* ENGINE_OnRegister */
+struct UUIDataProvider_OnlinePlayerDataBase_ : public UUIDataProvider_OnlinePlayerDataBase
+{
+	void eventOnRegister(class ULocalPlayer* InPlayer);
+};
+
+// @baa 0x00d94f80
+/* The script event's generated glue (EngineClasses.h), out of line here. */
+void UUIDataProvider_OnlinePlayerDataBase_::eventOnRegister(class ULocalPlayer* InPlayer)
+{
+	struct UIDataProvider_OnlinePlayerDataBase_eventOnRegister_Parms
 	{
 		class ULocalPlayer* InPlayer;
 	} Parms;

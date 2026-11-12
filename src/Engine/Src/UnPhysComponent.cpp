@@ -1,4 +1,4 @@
-// UnPhysComponent.cpp: 6 functions
+// UnPhysComponent.cpp: 8 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -71,4 +71,38 @@ void UPrimitiveComponent::execRigidBodyIsNearlyStill(FFrame& Stack, RESULT_DECL)
     P_GET_NAME_OPTX(BoneName, NAME_None);
     P_FINISH;
     *(UBOOL*)Result = vf_1c0(BoneName.Index, BoneName.Number);
+}
+
+/* Kit gap: Script.h lacks UE3's P_GET_STRUCT_OPTX (UnScript.h); the struct constructors (UnMath.h) build the defaults. */
+#define P_GET_STRUCT_OPTX(t, v, d) t v; GRuntimeUCFlags &= ~RUC_SkippedOptionalParm; Stack.Step(Stack.Object, &v); if (GRuntimeUCFlags & RUC_SkippedOptionalParm) v = d;
+struct FVector_ : public FVector
+{
+	FVector_(FLOAT InX, FLOAT InY, FLOAT InZ) { X = InX; Y = InY; Z = InZ; }
+};
+
+// @baa 0x009fed10
+void UPrimitiveComponent::execAddImpulse(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_VECTOR(Impulse);
+	P_GET_STRUCT_OPTX(FVector, Position, FVector_(0.f, 0.f, 0.f));
+	P_GET_NAME_OPTX(BoneName, NAME_None);
+	P_GET_UBOOL_OPTX(bVelChange, FALSE);
+	P_FINISH;
+	AddImpulse(Impulse, Position, BoneName, bVelChange);
+}
+
+/* Kit gaps: AddForce (009ff110) isn't declared (names from the exe's native table). */
+struct UPrimitiveComponent__009ff200 : public UPrimitiveComponent
+{
+	void AddForce(FVector Force, FVector Position, FName BoneName);	/* 0x009ff110 */
+};
+
+// @baa 0x009ff200
+void UPrimitiveComponent::execAddForce(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_VECTOR(Force);
+	P_GET_STRUCT_OPTX(FVector, Position, FVector_(0.f, 0.f, 0.f));
+	P_GET_NAME_OPTX(BoneName, NAME_None);
+	P_FINISH;
+	((UPrimitiveComponent__009ff200*)this)->AddForce(Force, Position, BoneName);
 }

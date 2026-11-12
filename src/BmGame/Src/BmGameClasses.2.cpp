@@ -1,4 +1,4 @@
-// BmGameClasses.cpp: 48 functions
+// BmGameClasses.cpp: 61 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -879,4 +879,209 @@ UBOOL URSeqEvent_RopeCut_::eventHandle(class AActor* InOriginator, INT typeNo)
 	Parms.ReturnValue = FALSE;
 	ProcessEvent(FindFunctionChecked(g_026e3560), &Parms);
 	return Parms.ReturnValue;
+}
+
+extern FName g_026e2730;
+	/* BMGAME_SetT */
+struct URSeqAct_SetTrackingObjectVars_ : public URSeqAct_SetTrackingObjectVars
+{
+	void eventSetT();
+};
+
+// @baa 0x01580e10
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+void URSeqAct_SetTrackingObjectVars_::eventSetT()
+{
+	ProcessEvent(FindFunctionChecked(g_026e2730), NULL);
+}
+
+	/* BMGAME_SetT */
+struct URSeqAct_SetTrackingSpotlightVars__01581050 : public URSeqAct_SetTrackingSpotlightVars
+{
+	void eventSetT();
+};
+
+// @baa 0x01581050
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+void URSeqAct_SetTrackingSpotlightVars__01581050::eventSetT()
+{
+	ProcessEvent(FindFunctionChecked(g_026e2730), NULL);
+}
+
+extern FName g_026e30f0;
+	/* BMGAME_SetParameters */
+struct URSeqAct_SetVenomParameters_ : public URSeqAct_SetVenomParameters
+{
+	void eventSetParameters();
+};
+
+// @baa 0x01581300
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+void URSeqAct_SetVenomParameters_::eventSetParameters()
+{
+	ProcessEvent(FindFunctionChecked(g_026e30f0), NULL);
+}
+
+extern FName g_026e3558;
+	/* BMGAME_Unlock */
+struct URSeqAct_UnlockXrayMode_ : public URSeqAct_UnlockXrayMode
+{
+	void eventUnlock();
+};
+
+// @baa 0x015815a0
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+void URSeqAct_UnlockXrayMode_::eventUnlock()
+{
+	ProcessEvent(FindFunctionChecked(g_026e3558), NULL);
+}
+
+extern FName g_026e2c00;
+	/* BMGAME_ShutdownHUD */
+struct URSeqAct_Credits_ : public URSeqAct_Credits
+{
+	void eventShutdownHUD();
+};
+
+// @baa 0x01581870
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+void URSeqAct_Credits_::eventShutdownHUD()
+{
+	ProcessEvent(FindFunctionChecked(g_026e2c00), NULL);
+}
+
+extern FName g_026e2644;
+	/* BMGAME_InitHUD */
+struct URSeqAct_Credits__015818a0 : public URSeqAct_Credits
+{
+	void eventInitHUD();
+};
+
+// @baa 0x015818a0
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+void URSeqAct_Credits__015818a0::eventInitHUD()
+{
+	ProcessEvent(FindFunctionChecked(g_026e2644), NULL);
+}
+
+extern FName g_026e375c;
+	/* BMGAME_TickFade */
+struct URSeqAct_FadeScreen_ : public URSeqAct_FadeScreen
+{
+	UBOOL eventTickFade(FLOAT DeltaTime);
+};
+
+// @baa 0x01581ae0
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+UBOOL URSeqAct_FadeScreen_::eventTickFade(FLOAT DeltaTime)
+{
+	struct RSeqAct_FadeScreen_eventTickFade_Parms
+	{
+		FLOAT DeltaTime;
+		UBOOL ReturnValue;
+	} Parms;
+	Parms.ReturnValue = FALSE;
+	Parms.DeltaTime = DeltaTime;
+	ProcessEvent(FindFunctionChecked(g_026e375c), &Parms);
+	return Parms.ReturnValue;
+}
+
+extern FName g_026e315c;
+	/* BMGAME_SetFadeType */
+struct URSeqAct_FadeScreen__01581b40 : public URSeqAct_FadeScreen
+{
+	void eventSetFadeType(UBOOL FadeIn);
+};
+
+// @baa 0x01581b40
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+void URSeqAct_FadeScreen__01581b40::eventSetFadeType(UBOOL FadeIn)
+{
+	struct RSeqAct_FadeScreen_eventSetFadeType_Parms
+	{
+		UBOOL FadeIn;
+	} Parms;
+	Parms.FadeIn = FadeIn ? TRUE : FALSE;
+	ProcessEvent(FindFunctionChecked(g_026e315c), &Parms);
+}
+
+	/* BMGAME_TickFade */
+struct URSeqAct_FadeSound_ : public URSeqAct_FadeSound
+{
+	UBOOL eventTickFade(FLOAT DeltaTime);
+};
+
+// @baa 0x01581e50
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+UBOOL URSeqAct_FadeSound_::eventTickFade(FLOAT DeltaTime)
+{
+	struct RSeqAct_FadeSound_eventTickFade_Parms
+	{
+		FLOAT DeltaTime;
+		UBOOL ReturnValue;
+	} Parms;
+	Parms.ReturnValue = FALSE;
+	Parms.DeltaTime = DeltaTime;
+	ProcessEvent(FindFunctionChecked(g_026e375c), &Parms);
+	return Parms.ReturnValue;
+}
+
+	/* BMGAME_SetFadeType */
+struct URSeqAct_FadeSound__01581eb0 : public URSeqAct_FadeSound
+{
+	void eventSetFadeType(UBOOL FadeIn);
+};
+
+// @baa 0x01581eb0
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+void URSeqAct_FadeSound__01581eb0::eventSetFadeType(UBOOL FadeIn)
+{
+	struct RSeqAct_FadeSound_eventSetFadeType_Parms
+	{
+		UBOOL FadeIn;
+	} Parms;
+	Parms.FadeIn = FadeIn ? TRUE : FALSE;
+	ProcessEvent(FindFunctionChecked(g_026e315c), &Parms);
+}
+
+extern FName g_026e30dc;
+	/* BMGAME_StopAll */
+struct URSeqAct_CombatMusic__01583780 : public URSeqAct_CombatMusic
+{
+	void eventStopAll();
+};
+
+// @baa 0x01583780
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+void URSeqAct_CombatMusic__01583780::eventStopAll()
+{
+	ProcessEvent(FindFunctionChecked(g_026e30dc), NULL);
+}
+
+extern FName g_026e39b0;
+	/* BMGAME_StartIntro */
+struct URSeqAct_CombatMusic__015837b0 : public URSeqAct_CombatMusic
+{
+	void eventStartIntro();
+};
+
+// @baa 0x015837b0
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+void URSeqAct_CombatMusic__015837b0::eventStartIntro()
+{
+	ProcessEvent(FindFunctionChecked(g_026e39b0), NULL);
+}
+
+extern FName g_026e386c;
+	/* BMGAME_AdvanceCue */
+struct URSeqAct_Music__01583bc0 : public URSeqAct_Music
+{
+	void eventAdvanceCue();
+};
+
+// @baa 0x01583bc0
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+void URSeqAct_Music__01583bc0::eventAdvanceCue()
+{
+	ProcessEvent(FindFunctionChecked(g_026e386c), NULL);
 }

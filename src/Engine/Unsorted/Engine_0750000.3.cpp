@@ -1,4 +1,4 @@
-// Engine_0750000.cpp (part 3 of 4): 9 functions
+// Engine_0750000.cpp (part 3 of 4): 10 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -134,4 +134,24 @@ UBOOL AVolume::ShouldTrace(UPrimitiveComponent* Primitive, AActor* SourceActor, 
             && ((TraceFlags & 0x20)
                 ? (bProjTarget || (bBlockActors && Primitive->BlockActors))
                 : (!(TraceFlags & 0x40) || (SourceActor && ((AActor__00758680*)SourceActor)->IsBlockedBy(this, Primitive)))));
+}
+
+extern FName g_026c40d4;
+	/* Render */
+/* Kit gap: the delegate's generated glue isn't declared. */
+struct UScriptedTexture_ : public UScriptedTexture
+{
+	void delegateRender(class UCanvas* C);
+};
+
+// @baa 0x00754b50
+/* The script delegate's generated glue, out of line here. */
+void UScriptedTexture_::delegateRender(class UCanvas* C)
+{
+	struct ScriptedTexture_eventRender_Parms
+	{
+		class UCanvas* C;
+	} Parms;
+	Parms.C = C;
+	ProcessDelegate(g_026c40d4, &__Render__Delegate, &Parms, NULL);
 }

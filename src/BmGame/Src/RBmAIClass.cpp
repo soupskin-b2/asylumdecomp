@@ -1,4 +1,4 @@
-// RBmAIClass.cpp: 44 functions
+// RBmAIClass.cpp: 48 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -803,4 +803,75 @@ UBOOL URBMBehaviour_IdleWithPlannarProp__015fb1f0::eventHasLOS()
 	Parms.ReturnValue = FALSE;
 	ProcessEvent(FindFunctionChecked(g_026e2a90), &Parms);
 	return Parms.ReturnValue;
+}
+
+extern FName g_026e3534;
+	/* BMGAME_GetEventCoordinator */
+struct UAlertInstance__015d92c0 : public UAlertInstance
+{
+	class ARAlertEventCoordinator* eventGetEventCoordinator();
+};
+
+// @baa 0x015d92c0
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+class ARAlertEventCoordinator* UAlertInstance__015d92c0::eventGetEventCoordinator()
+{
+	struct AlertInstance_eventGetEventCoordinator_Parms
+	{
+		class ARAlertEventCoordinator* ReturnValue;
+	} Parms;
+	Parms.ReturnValue = NULL;
+	ProcessEvent(FindFunctionChecked(g_026e3534), &Parms);
+	return Parms.ReturnValue;
+}
+
+extern FName g_026e3544;
+	/* BMGAME_TriggerCombat */
+struct URBMBehaviour_IdleWithPlannarProp__015fb150 : public URBMBehaviour_IdleWithPlannarProp
+{
+	void eventTriggerCombat();
+};
+
+// @baa 0x015fb150
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+void URBMBehaviour_IdleWithPlannarProp__015fb150::eventTriggerCombat()
+{
+	ProcessEvent(FindFunctionChecked(g_026e3544), NULL);
+}
+
+extern FName g_026e28b0;
+	/* BMGAME_DisconnectGuard */
+struct URBMBehaviour_MoveToBatmanInChair__015fb650 : public URBMBehaviour_MoveToBatmanInChair
+{
+	void eventDisconnectGuard(INT guardNo);
+};
+
+// @baa 0x015fb650
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+void URBMBehaviour_MoveToBatmanInChair__015fb650::eventDisconnectGuard(INT guardNo)
+{
+	struct RBMBehaviour_MoveToBatmanInChair_eventDisconnectGuard_Parms
+	{
+		INT guardNo;
+	} Parms;
+	Parms.guardNo = guardNo;
+	ProcessEvent(FindFunctionChecked(g_026e28b0), &Parms);
+}
+
+	/* BMGAME_DisconnectGuard */
+struct URBMBehaviour_MoveToJokerInChair__015fb9a0 : public URBMBehaviour_MoveToJokerInChair
+{
+	void eventDisconnectGuard(INT guardNo);
+};
+
+// @baa 0x015fb9a0
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+void URBMBehaviour_MoveToJokerInChair__015fb9a0::eventDisconnectGuard(INT guardNo)
+{
+	struct RBMBehaviour_MoveToJokerInChair_eventDisconnectGuard_Parms
+	{
+		INT guardNo;
+	} Parms;
+	Parms.guardNo = guardNo;
+	ProcessEvent(FindFunctionChecked(g_026e28b0), &Parms);
 }

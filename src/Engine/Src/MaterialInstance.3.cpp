@@ -1,4 +1,4 @@
-// MaterialInstance.cpp (part 3 of 3): 3 functions
+// MaterialInstance.cpp (part 3 of 3): 5 functions
 // Placed here by: class 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -57,3 +57,45 @@ void UMaterialInstance::PostEditChange(UProperty* PropertyThatChanged)
         }
     }
 }
+
+// @baa 0x006aee00
+/* UE3's UMaterialInstance::CompileStaticPermutation(FStaticParameterSet* Permutation, FMaterialResource*
+ * StaticPermutation, EShaderPlatform Platform, UBOOL bFlushExistingShaderMaps, UBOOL bDebugDump, ...) (the kit types the
+ * six arguments as INT): a material instance compiles through its parent. */
+INT UMaterialInstance::CompileStaticPermutation(INT Permutation, INT StaticPermutation, INT Platform, INT bFlushExistingShaderMaps,
+    INT bDebugDump, INT Arg6)
+{
+    INT Result = FALSE;
+    if (Parent != NULL)
+    {
+        Result = Parent->CompileStaticPermutation(Permutation, StaticPermutation, Platform, bFlushExistingShaderMaps, bDebugDump, Arg6);
+    }
+    return Result;
+}
+
+/* Kit gap: UMaterialInstance::StaticPermutationResources is FMaterialResource* in UE3 but an FPointer mirror here; this
+ * lets check() test it as the engine's pointer test does. */
+FORCEINLINE UBOOL operator!(const FPointer& P)
+{
+    return !P.Dummy;
+}
+
+// @baa 0x006aecb0
+/* UMaterialInstance slot 0x14c (kit vf_14c, UE3 FMaterialResource* GetMaterialResource(EShaderPlatform Platform)): the
+ * instance's own static-permutation resource when it has one, else the parent's (returned as the kit's INT). */
+INT UMaterialInstance::vf_14c(INT Platform)
+{
+    if (bHasStaticPermutationResource)
+    {
+#line 316 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\MaterialInstance.cpp"
+        check(StaticPermutationResources[Platform]);
+        return StaticPermutationResources[Platform].Dummy;
+    }
+    else if (Parent)
+    {
+        return Parent->vf_14c(Platform);
+    }
+    return 0;
+}
+
+#line 102 "candidate.cpp"

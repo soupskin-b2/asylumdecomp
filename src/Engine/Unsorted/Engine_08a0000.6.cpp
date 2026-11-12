@@ -1,4 +1,4 @@
-// Engine_08a0000.cpp: 24 functions
+// Engine_08a0000.cpp: 25 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -477,4 +477,22 @@ void AActor::execIsOwnedBy(FFrame& Stack, RESULT_DECL)
     P_GET_OBJECT(AActor, Other);
     P_FINISH;
     *(UBOOL*)Result = ((AActor__008aa0f0*)this)->IsOwnedBy(Other);
+}
+
+/* Kit gap: Script.h lacks UE3's P_GET_STRUCT_OPTX (UnScript.h); the struct constructors (UnMath.h) build the defaults. */
+#define P_GET_STRUCT_OPTX(t, v, d) t v; GRuntimeUCFlags &= ~RUC_SkippedOptionalParm; Stack.Step(Stack.Object, &v); if (GRuntimeUCFlags & RUC_SkippedOptionalParm) v = d;
+struct FVector_ : public FVector
+{
+	FVector_(FLOAT InX, FLOAT InY, FLOAT InZ) { X = InX; Y = InY; Z = InZ; }
+};
+
+// @baa 0x008a7980
+void AActor::execSetBase(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(AActor, NewBase);
+	P_GET_STRUCT_OPTX(FVector, NewFloor, FVector_(0.f, 0.f, 1.f));
+	P_GET_OBJECT_OPTX(USkeletalMeshComponent, SkelComp, NULL);
+	P_GET_NAME_OPTX(AttachName, NAME_None);
+	P_FINISH;
+	SetBase(NewBase, NewFloor, 1, SkelComp, AttachName);
 }

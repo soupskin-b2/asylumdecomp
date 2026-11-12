@@ -1,4 +1,4 @@
-// UnSkeletalAnim.cpp: 7 functions
+// UnSkeletalAnim.cpp: 8 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -97,4 +97,37 @@ void UAnimNotify_Scripted_::eventNotify(class AActor* Owner, class USkeletalMesh
 	Parms.Owner = Owner;
 	Parms.AnimSeqInstigator = AnimSeqInstigator;
 	ProcessEvent(FindFunctionChecked(g_026c53a8), &Parms);
+}
+
+/* Kit gap: Script.h lacks UE3's P_GET_STRUCT_OPTX (UnScript.h); the struct constructors (UnMath.h) build the defaults. */
+#define P_GET_STRUCT_OPTX(t, v, d) t v; GRuntimeUCFlags &= ~RUC_SkippedOptionalParm; Stack.Step(Stack.Object, &v); if (GRuntimeUCFlags & RUC_SkippedOptionalParm) v = d;
+struct FRotator_ : public FRotator
+{
+	FRotator_(INT InPitch, INT InYaw, INT InRoll) { Pitch = InPitch; Yaw = InYaw; Roll = InRoll; }
+};
+
+struct FVector_ : public FVector
+{
+	FVector_(FLOAT InX, FLOAT InY, FLOAT InZ) { X = InX; Y = InY; Z = InZ; }
+};
+
+/* Kit gaps: AttachComponent (0093fba0) isn't declared (names from the exe's native table). */
+struct USkeletalMeshComponent_ : public USkeletalMeshComponent
+{
+	void AttachComponent(class UActorComponent* Component, FName BoneName, FVector RelativeLocation, FRotator RelativeRotation, FVector RelativeScale);	/* 0x0093fba0 */
+};
+
+// @baa 0x0093fea0
+void USkeletalMeshComponent::execAttachComponent(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(UActorComponent, Component);
+	P_GET_NAME(BoneName);
+	P_GET_STRUCT_OPTX(FVector, RelativeLocation, FVector_(0.f, 0.f, 0.f));
+	P_GET_STRUCT_OPTX(FRotator, RelativeRotation, FRotator_(0, 0, 0));
+	P_GET_STRUCT_OPTX(FVector, RelativeScale, FVector_(1.f, 1.f, 1.f));
+	P_FINISH;
+	if (Component)
+	{
+		((USkeletalMeshComponent_*)this)->AttachComponent(Component, BoneName, RelativeLocation, RelativeRotation, RelativeScale);
+	}
 }

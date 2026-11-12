@@ -1,4 +1,4 @@
-// BmGameDialogueClasses.cpp: 5 functions
+// BmGameDialogueClasses.cpp: 7 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -84,4 +84,31 @@ struct URSeqAct_VoiceOfArkham_ : public URSeqAct_VoiceOfArkham
 void URSeqAct_VoiceOfArkham_::eventVoAStartSound()
 {
 	ProcessEvent(FindFunctionChecked(g_026e328c), NULL);
+}
+
+extern FName g_026e3a70;
+	/* BMGAME_CheckForNewLine */
+struct URSeqAct_ConversationDialogue__01585020 : public URSeqAct_ConversationDialogue
+{
+	void eventCheckForNewLine();
+};
+
+// @baa 0x01585020
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+void URSeqAct_ConversationDialogue__01585020::eventCheckForNewLine()
+{
+	ProcessEvent(FindFunctionChecked(g_026e3a70), NULL);
+}
+
+	/* BMGAME_CheckForNewLine */
+struct URSeqAct_PlaySpeechConversation_ : public URSeqAct_PlaySpeechConversation
+{
+	void eventCheckForNewLine();
+};
+
+// @baa 0x01585510
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+void URSeqAct_PlaySpeechConversation_::eventCheckForNewLine()
+{
+	ProcessEvent(FindFunctionChecked(g_026e3a70), NULL);
 }

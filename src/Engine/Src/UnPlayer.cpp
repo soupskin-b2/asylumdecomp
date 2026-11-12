@@ -1,4 +1,4 @@
-// UnPlayer.cpp (part 1 of 3): 107 functions
+// UnPlayer.cpp (part 1 of 3): 111 functions
 // Placed here by: neighbours 67, class 23, callers 7, file 4.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1019,4 +1019,128 @@ void* UPostProcessChain::sub_00892bb0(FName EffectName)
         }
     }
     return NULL;
+}
+
+extern FName g_026c51b8;
+	/* HandleInputAxis */
+/* Kit gap: the delegate's generated glue isn't declared. */
+struct UGameViewportClient_ : public UGameViewportClient
+{
+	UBOOL delegateHandleInputAxis(INT ControllerId, FName Key, FLOAT Delta, FLOAT DeltaTime, UBOOL bGamepad);
+};
+
+// @baa 0x008889d0
+/* The script delegate's generated glue, out of line here. */
+UBOOL UGameViewportClient_::delegateHandleInputAxis(INT ControllerId, FName Key, FLOAT Delta, FLOAT DeltaTime, UBOOL bGamepad)
+{
+	struct GameViewportClient_eventHandleInputAxis_Parms
+	{
+		INT ControllerId;
+		FName Key;
+		FLOAT Delta;
+		FLOAT DeltaTime;
+		UBOOL bGamepad;
+		UBOOL ReturnValue;
+	} Parms;
+	Parms.ReturnValue = FALSE;
+	Parms.ControllerId = ControllerId;
+	Parms.Key = Key;
+	Parms.Delta = Delta;
+	Parms.DeltaTime = DeltaTime;
+	Parms.bGamepad = bGamepad ? TRUE : FALSE;
+	ProcessDelegate(g_026c51b8, &__HandleInputAxis__Delegate, &Parms, NULL);
+	return Parms.ReturnValue;
+}
+
+extern FName g_026c55ac;
+	/* HandleInputKey */
+/* Kit gap: the delegate's generated glue isn't declared. */
+struct UGameViewportClient__00888a50 : public UGameViewportClient
+{
+	UBOOL delegateHandleInputKey(INT ControllerId, FName Key, BYTE EventType, FLOAT AmountDepressed, UBOOL bGamepad);
+};
+
+// @baa 0x00888a50
+/* The script delegate's generated glue, out of line here. */
+UBOOL UGameViewportClient__00888a50::delegateHandleInputKey(INT ControllerId, FName Key, BYTE EventType, FLOAT AmountDepressed, UBOOL bGamepad)
+{
+	struct GameViewportClient_eventHandleInputKey_Parms
+	{
+		INT ControllerId;
+		FName Key;
+		BYTE EventType;
+		FLOAT AmountDepressed;
+		UBOOL bGamepad;
+		UBOOL ReturnValue;
+	} Parms;
+	Parms.ReturnValue = FALSE;
+	Parms.ControllerId = ControllerId;
+	Parms.Key = Key;
+	Parms.EventType = EventType;
+	Parms.AmountDepressed = AmountDepressed;
+	Parms.bGamepad = bGamepad ? TRUE : FALSE;
+	ProcessDelegate(g_026c55ac, &__HandleInputKey__Delegate, &Parms, NULL);
+	return Parms.ReturnValue;
+}
+
+extern FName g_026c4064;
+	/* OnReceivedNativeInputAxis */
+/* Kit gap: the delegate's generated glue isn't declared. */
+struct UInteraction_ : public UInteraction
+{
+	UBOOL delegateOnReceivedNativeInputAxis(INT ControllerId, FName Key, FLOAT Delta, FLOAT DeltaTime, UBOOL bGamepad);
+};
+
+// @baa 0x00888d90
+/* The script delegate's generated glue, out of line here. */
+UBOOL UInteraction_::delegateOnReceivedNativeInputAxis(INT ControllerId, FName Key, FLOAT Delta, FLOAT DeltaTime, UBOOL bGamepad)
+{
+	struct Interaction_eventOnReceivedNativeInputAxis_Parms
+	{
+		INT ControllerId;
+		FName Key;
+		FLOAT Delta;
+		FLOAT DeltaTime;
+		UBOOL bGamepad;
+		UBOOL ReturnValue;
+	} Parms;
+	Parms.ReturnValue = FALSE;
+	Parms.ControllerId = ControllerId;
+	Parms.Key = Key;
+	Parms.Delta = Delta;
+	Parms.DeltaTime = DeltaTime;
+	Parms.bGamepad = bGamepad ? TRUE : FALSE;
+	ProcessDelegate(g_026c4064, &__OnReceivedNativeInputAxis__Delegate, &Parms, NULL);
+	return Parms.ReturnValue;
+}
+
+extern FName g_026c3e1c;
+	/* OnReceivedNativeInputKey */
+/* Kit gap: the delegate's generated glue isn't declared. */
+struct UInteraction__00888e10 : public UInteraction
+{
+	UBOOL delegateOnReceivedNativeInputKey(INT ControllerId, FName Key, BYTE EventType, FLOAT AmountDepressed, UBOOL bGamepad);
+};
+
+// @baa 0x00888e10
+/* The script delegate's generated glue, out of line here. */
+UBOOL UInteraction__00888e10::delegateOnReceivedNativeInputKey(INT ControllerId, FName Key, BYTE EventType, FLOAT AmountDepressed, UBOOL bGamepad)
+{
+	struct Interaction_eventOnReceivedNativeInputKey_Parms
+	{
+		INT ControllerId;
+		FName Key;
+		BYTE EventType;
+		FLOAT AmountDepressed;
+		UBOOL bGamepad;
+		UBOOL ReturnValue;
+	} Parms;
+	Parms.ReturnValue = FALSE;
+	Parms.ControllerId = ControllerId;
+	Parms.Key = Key;
+	Parms.EventType = EventType;
+	Parms.AmountDepressed = AmountDepressed;
+	Parms.bGamepad = bGamepad ? TRUE : FALSE;
+	ProcessDelegate(g_026c3e1c, &__OnReceivedNativeInputKey__Delegate, &Parms, NULL);
+	return Parms.ReturnValue;
 }

@@ -1,4 +1,4 @@
-// Engine_0cc0000.cpp: 5 functions
+// Engine_0cc0000.cpp: 8 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -104,4 +104,62 @@ void UUISkin::execGetStyleGroups(FFrame& Stack, RESULT_DECL)
     P_GET_UBOOL_OPTX(bIncludeInheritedGroups, TRUE);
     P_FINISH;
     ((UUISkin__00ccbd00*)this)->sub_00dd3900(StyleGroupArray, bIncludeInheritedGroups);
+}
+
+// @baa 0x00cc86b0
+void UMaterialInterface::execGetScalarCurveParameterValue(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_NAME(ParameterName);
+	/* This build's P_GET_STRUCT_REF zeroes the temporary after clearing GPropAddr (the kit's macro doesn't). */
+	FInterpCurveFloat OutValueT;
+	GPropAddr = 0;
+	appMemzero(&OutValueT, sizeof(FInterpCurveFloat));
+	Stack.Step(Stack.Object, &OutValueT);
+	FInterpCurveFloat& OutValue = GPropAddr ? *(FInterpCurveFloat*)GPropAddr : OutValueT;
+	P_FINISH;
+	*(UBOOL*)Result = GetScalarCurveParameterValue(ParameterName, OutValue);
+}
+
+/* Kit gaps: SetDataStoreFieldValue (00d9ca20) isn't declared (names from the exe's native table). */
+struct UUIRoot_ : public UUIRoot
+{
+	UBOOL SetDataStoreFieldValue(const FString& InDataStoreMarkup, FUIProviderFieldValue& InFieldValue, class UUIScene* OwnerScene, class ULocalPlayer* OwnerPlayer);	/* 0x00d9ca20 */
+};
+
+// @baa 0x00cc7090
+void UUIRoot::execSetDataStoreFieldValue(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STR(InDataStoreMarkup);
+	/* This build's P_GET_STRUCT_REF zeroes the temporary after clearing GPropAddr (the kit's macro doesn't). */
+	FUIProviderFieldValue InFieldValueT;
+	GPropAddr = 0;
+	appMemzero(&InFieldValueT, sizeof(FUIProviderFieldValue));
+	Stack.Step(Stack.Object, &InFieldValueT);
+	FUIProviderFieldValue& InFieldValue = GPropAddr ? *(FUIProviderFieldValue*)GPropAddr : InFieldValueT;
+	P_GET_OBJECT_OPTX(UUIScene, OwnerScene, NULL);
+	P_GET_OBJECT_OPTX(ULocalPlayer, OwnerPlayer, NULL);
+	P_FINISH;
+	*(UBOOL*)Result = ((UUIRoot_*)this)->SetDataStoreFieldValue(InDataStoreMarkup, InFieldValue, OwnerScene, OwnerPlayer);
+}
+
+/* Kit gaps: GetDataStoreFieldValue (00d9cb70) isn't declared (names from the exe's native table). */
+struct UUIRoot__00cc7210 : public UUIRoot
+{
+	UBOOL GetDataStoreFieldValue(const FString& InDataStoreMarkup, FUIProviderFieldValue& OutFieldValue, class UUIScene* OwnerScene, class ULocalPlayer* OwnerPlayer);	/* 0x00d9cb70 */
+};
+
+// @baa 0x00cc7210
+void UUIRoot::execGetDataStoreFieldValue(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STR(InDataStoreMarkup);
+	/* This build's P_GET_STRUCT_REF zeroes the temporary after clearing GPropAddr (the kit's macro doesn't). */
+	FUIProviderFieldValue OutFieldValueT;
+	GPropAddr = 0;
+	appMemzero(&OutFieldValueT, sizeof(FUIProviderFieldValue));
+	Stack.Step(Stack.Object, &OutFieldValueT);
+	FUIProviderFieldValue& OutFieldValue = GPropAddr ? *(FUIProviderFieldValue*)GPropAddr : OutFieldValueT;
+	P_GET_OBJECT_OPTX(UUIScene, OwnerScene, NULL);
+	P_GET_OBJECT_OPTX(ULocalPlayer, OwnerPlayer, NULL);
+	P_FINISH;
+	*(UBOOL*)Result = ((UUIRoot__00cc7210*)this)->GetDataStoreFieldValue(InDataStoreMarkup, OutFieldValue, OwnerScene, OwnerPlayer);
 }

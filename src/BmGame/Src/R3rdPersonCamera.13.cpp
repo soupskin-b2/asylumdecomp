@@ -1,4 +1,4 @@
-// R3rdPersonCamera.cpp: 24 functions
+// R3rdPersonCamera.cpp: 25 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -335,4 +335,29 @@ void AR3rdPersonCamera::execApplyCameraModifiers(FFrame& Stack, RESULT_DECL)
     P_GET_STRUCT_REF(FTPOV, OutPOV);
     P_FINISH;
     ApplyCameraModifiers(DeltaTime, OutPOV);
+}
+
+/* Kit gap: Script.h lacks UE3's P_GET_STRUCT_OPTX (UnScript.h); the struct constructors (UnMath.h) build the defaults. */
+#define P_GET_STRUCT_OPTX(t, v, d) t v; GRuntimeUCFlags &= ~RUC_SkippedOptionalParm; Stack.Step(Stack.Object, &v); if (GRuntimeUCFlags & RUC_SkippedOptionalParm) v = d;
+struct FRotator_ : public FRotator
+{
+	FRotator_(INT InPitch, INT InYaw, INT InRoll) { Pitch = InPitch; Yaw = InYaw; Roll = InRoll; }
+};
+
+/* Kit gaps: BlendToCameraTarget (01689c30) isn't declared (names from the exe's native table). */
+struct AR3rdPersonCamera__017095a0 : public AR3rdPersonCamera
+{
+	void BlendToCameraTarget(class AActor* Target, FLOAT BlendTime, UBOOL bResetCam, FRotator ResetRotation, UBOOL BlendBatmanRelativePosition);	/* 0x01689c30 */
+};
+
+// @baa 0x017095a0
+void AR3rdPersonCamera::execBlendToCameraTarget(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(AActor, Target);
+	P_GET_FLOAT(BlendTime);
+	P_GET_UBOOL_OPTX(bResetCam, FALSE);
+	P_GET_STRUCT_OPTX(FRotator, ResetRotation, FRotator_(0, 0, 0));
+	P_GET_UBOOL_OPTX(BlendBatmanRelativePosition, FALSE);
+	P_FINISH;
+	((AR3rdPersonCamera__017095a0*)this)->BlendToCameraTarget(Target, BlendTime, bResetCam, ResetRotation, BlendBatmanRelativePosition);
 }

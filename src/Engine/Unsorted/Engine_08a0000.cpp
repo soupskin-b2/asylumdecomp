@@ -1,4 +1,4 @@
-// Engine_08a0000.cpp (part 1 of 4): 161 functions
+// Engine_08a0000.cpp (part 1 of 4): 162 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1295,3 +1295,22 @@ void CNode::sub_008aef40()
     sub_008a4ba0();
 }
 
+extern FName g_026c48d4;
+	/* OnSystemFinished */
+/* Kit gap: the delegate's generated glue isn't declared. */
+struct UParticleSystemComponent_ : public UParticleSystemComponent
+{
+	void delegateOnSystemFinished(class UParticleSystemComponent* PSystem);
+};
+
+// @baa 0x008a7780
+/* The script delegate's generated glue, out of line here. */
+void UParticleSystemComponent_::delegateOnSystemFinished(class UParticleSystemComponent* PSystem)
+{
+	struct ParticleSystemComponent_eventOnSystemFinished_Parms
+	{
+		class UParticleSystemComponent* PSystem;
+	} Parms;
+	Parms.PSystem = PSystem;
+	ProcessDelegate(g_026c48d4, &__OnSystemFinished__Delegate, &Parms, NULL);
+}

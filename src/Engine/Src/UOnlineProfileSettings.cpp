@@ -1,4 +1,4 @@
-// UOnlineProfileSettings.cpp: 47 functions
+// UOnlineProfileSettings.cpp: 49 functions
 // Placed here by: neighbours 21, class 6, callers 1, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -665,6 +665,38 @@ INT UOnlineProfileSettings::SetProfileSettingValueByName(FName ProfileSettingNam
 	if (GetProfileSettingId(ProfileSettingName, ProfileSettingId))
 	{
 		return SetProfileSettingValue(ProfileSettingId, NewValue);
+	}
+	return FALSE;
+}
+
+extern FName g_026c438c;
+	/* NotifySettingValueUpdated */
+/* Kit gap: the delegate's generated glue (EngineClasses.h) isn't declared. */
+struct UOnlineProfileSettings__00d67120 : public UOnlineProfileSettings
+{
+	void delegateNotifySettingValueUpdated(FName SettingName);
+};
+
+// @baa 0x00d67120
+/* The script delegate's generated glue, out of line here. */
+void UOnlineProfileSettings__00d67120::delegateNotifySettingValueUpdated(FName SettingName)
+{
+	struct OnlineProfileSettings_eventNotifySettingValueUpdated_Parms
+	{
+		FName SettingName;
+	} Parms;
+	Parms.SettingName = SettingName;
+	ProcessDelegate(g_026c438c, &__NotifySettingValueUpdated__Delegate, &Parms, NULL);
+}
+
+// @baa 0x00d67580
+/* Looks the setting up by name and returns its value as a string. */
+INT UOnlineProfileSettings::GetProfileSettingValueByName(FName ProfileSettingName, FString& Value)
+{
+	INT ProfileSettingId;
+	if (GetProfileSettingId(ProfileSettingName, ProfileSettingId))
+	{
+		return GetProfileSettingValue(ProfileSettingId, Value, INDEX_NONE);
 	}
 	return FALSE;
 }

@@ -1,4 +1,4 @@
-// BmGame_1600000.cpp: 3 functions
+// BmGame_1600000.cpp: 4 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -57,5 +57,27 @@ INT URIdleConfig_::eventGetNumEvents()
 	} Parms;
 	Parms.ReturnValue = 0;
 	ProcessEvent(FindFunctionChecked(g_026e3280), &Parms);
+	return Parms.ReturnValue;
+}
+
+extern FName g_026e2c9c;
+	/* BMGAME_GetEventName */
+struct URIdleConfig__0160e730 : public URIdleConfig
+{
+	FName eventGetEventName(INT I);
+};
+
+// @baa 0x0160e730
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+FName URIdleConfig__0160e730::eventGetEventName(INT I)
+{
+	struct RIdleConfig_eventGetEventName_Parms
+	{
+		INT I;
+		FName ReturnValue;
+	} Parms;
+	Parms.ReturnValue = FName(NAME_None);
+	Parms.I = I;
+	ProcessEvent(FindFunctionChecked(g_026e2c9c), &Parms);
 	return Parms.ReturnValue;
 }

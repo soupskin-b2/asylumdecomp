@@ -1,4 +1,4 @@
-// UnActor.cpp: 4 functions
+// UnActor.cpp: 5 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -52,4 +52,14 @@ struct UObject_ : public UObject
 UBOOL AActor::IsPendingKill()
 {
     return bDeleteMe || ((UObject_*)this)->HasAnyFlags(RF_PendingKill);
+}
+
+/* DECLARE_CLASS glue: compares AGameInfo's StaticConfigName (0x00754150, returns "Game") with the base one
+ * (0x0053f6c0, returns "Engine"); both are bound as INT-returning free functions. */
+INT sub_00754150();
+INT sub_0053f6c0();
+// @baa 0x00756930
+INT AGameInfo::vf_000()
+{
+    return sub_00754150 == sub_0053f6c0;
 }

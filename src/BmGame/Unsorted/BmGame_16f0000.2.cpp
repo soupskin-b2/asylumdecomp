@@ -1,4 +1,4 @@
-// BmGame_16f0000.cpp: 224 functions
+// BmGame_16f0000.cpp: 226 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -2090,4 +2090,44 @@ void ARPawnPlayer__016f6e10::execClearOverridableTransition(FFrame& Stack, RESUL
 {
     P_FINISH;
     sub_0168d8b0();
+}
+
+/* Kit gap: Script.h lacks UE3's P_GET_STRUCT_OPTX (UnScript.h); the struct constructors (UnMath.h) build the defaults. */
+#define P_GET_STRUCT_OPTX(t, v, d) t v; GRuntimeUCFlags &= ~RUC_SkippedOptionalParm; Stack.Step(Stack.Object, &v); if (GRuntimeUCFlags & RUC_SkippedOptionalParm) v = d;
+struct FVector_ : public FVector
+{
+	FVector_(FLOAT InX, FLOAT InY, FLOAT InZ) { X = InX; Y = InY; Z = InZ; }
+};
+
+// @baa 0x016f6ab0
+void ARPawnPlayerCombat::execFindFacingActorForStrike(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT_OPTX(MaxDist, -1.f);
+	P_GET_FLOAT_OPTX(MaxVenomDist, -1.f);
+	P_GET_STRUCT_OPTX(FVector, FacingDir, FVector_(0.f, 0.f, 0.f));
+	P_GET_OBJECT_OPTX(UClass, dmgType, URDamageType::StaticClass());
+	P_FINISH;
+	*(class AActor**)Result = FindFacingActorForStrike(MaxDist, MaxVenomDist, FacingDir, dmgType);
+}
+
+/* FEnvironmentSpecialMoveLocator's constructor (struct cpptext: it clears Type, AnimDir and ActorInstance); the kit's mirror has none. */
+struct FEnvironmentSpecialMoveLocator_ : public FEnvironmentSpecialMoveLocator
+{
+	FEnvironmentSpecialMoveLocator_() { Type = 0; AnimDir = 0; ActorInstance = NULL; }
+};
+
+/* Kit gaps: ShouldIDoLandAnim (016422e0) isn't declared (names from the exe's native table). */
+struct ARSpecialMoveInstance_LineLauncher__016fb880 : public ARSpecialMoveInstance_LineLauncher
+{
+	BYTE ShouldIDoLandAnim(FEnvironmentSpecialMoveLocator& Locator, FLOAT MinLandHeight, FLOAT MaxLandHeight);	/* 0x016422e0 */
+};
+
+// @baa 0x016fb880
+void ARSpecialMoveInstance_LineLauncher::execShouldIDoLandAnim(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT_REF(FEnvironmentSpecialMoveLocator_, Locator);
+	P_GET_FLOAT(MinLandHeight);
+	P_GET_FLOAT(MaxLandHeight);
+	P_FINISH;
+	*(BYTE*)Result = ((ARSpecialMoveInstance_LineLauncher__016fb880*)this)->ShouldIDoLandAnim(Locator, MinLandHeight, MaxLandHeight);
 }

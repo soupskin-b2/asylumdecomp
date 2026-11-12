@@ -1,4 +1,4 @@
-// Engine_0da0000.cpp (part 1 of 2): 34 functions
+// Engine_0da0000.cpp (part 1 of 2): 37 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -311,4 +311,65 @@ S00dab9c0* S00dab9c0::sub_00dab9c0(int A, int B, int C)
 	ValueB = B;
 	ValueC = C;
 	return this;
+}
+
+extern FName g_026c453c;
+	/* OnInitialSceneUpdate */
+/* Kit gap: the delegate's generated glue isn't declared. */
+struct UUIScreenObject_ : public UUIScreenObject
+{
+	void delegateOnInitialSceneUpdate();
+};
+
+// @baa 0x00da6ec0
+/* The script delegate's generated glue, out of line here. */
+void UUIScreenObject_::delegateOnInitialSceneUpdate()
+{
+	ProcessDelegate(g_026c453c, &__OnInitialSceneUpdate__Delegate, NULL, NULL);
+}
+
+extern FName g_026c3f64;
+	/* NotifyActiveStateChanged */
+/* Kit gap: the delegate's generated glue isn't declared. */
+struct UUIScreenObject__00da6ef0 : public UUIScreenObject
+{
+	void delegateNotifyActiveStateChanged(class UUIScreenObject* Sender, INT PlayerIndex, class UUIState* NewlyActiveState, class UUIState* PreviouslyActiveState);
+};
+
+// @baa 0x00da6ef0
+/* The script delegate's generated glue, out of line here. */
+void UUIScreenObject__00da6ef0::delegateNotifyActiveStateChanged(class UUIScreenObject* Sender, INT PlayerIndex, class UUIState* NewlyActiveState, class UUIState* PreviouslyActiveState)
+{
+	struct UIScreenObject_eventNotifyActiveStateChanged_Parms
+	{
+		class UUIScreenObject* Sender;
+		INT PlayerIndex;
+		class UUIState* NewlyActiveState;
+		class UUIState* PreviouslyActiveState;
+	} Parms;
+	Parms.Sender = Sender;
+	Parms.PlayerIndex = PlayerIndex;
+	Parms.NewlyActiveState = NewlyActiveState;
+	Parms.PreviouslyActiveState = PreviouslyActiveState;
+	ProcessDelegate(g_026c3f64, &__NotifyActiveStateChanged__Delegate, &Parms, NULL);
+}
+
+extern FName g_026c5388;
+	/* NotifyPositionChanged */
+/* Kit gap: the delegate's generated glue isn't declared. */
+struct UUIScreenObject__00da6f90 : public UUIScreenObject
+{
+	void delegateNotifyPositionChanged(class UUIScreenObject* Sender);
+};
+
+// @baa 0x00da6f90
+/* The script delegate's generated glue, out of line here. */
+void UUIScreenObject__00da6f90::delegateNotifyPositionChanged(class UUIScreenObject* Sender)
+{
+	struct UIScreenObject_eventNotifyPositionChanged_Parms
+	{
+		class UUIScreenObject* Sender;
+	} Parms;
+	Parms.Sender = Sender;
+	ProcessDelegate(g_026c5388, &__NotifyPositionChanged__Delegate, &Parms, NULL);
 }

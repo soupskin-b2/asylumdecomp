@@ -1,4 +1,4 @@
-// BmGame_1700000.cpp: 111 functions
+// BmGame_1700000.cpp: 112 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -1155,4 +1155,21 @@ void ARBMAIController::execIsPointInFOVWithLookDir(FFrame& Stack, RESULT_DECL)
 	P_GET_VECTOR(LookDir);
 	P_FINISH;
 	*(BYTE*)Result = IsPointInFOVWithLookDir(TestPos, LookDir);
+}
+
+/* Kit gaps: CalculateFlightPath (01640b10) isn't declared (names from the exe's native table). */
+struct ARBatarangProjectile__01707ed0 : public ARBatarangProjectile
+{
+	void CalculateFlightPath(FVector DesiredLaunchPosition, FVector TargetPosition, class AActor* TargetActor, FLOAT CheckSizeMod);	/* 0x01640b10 */
+};
+
+// @baa 0x01707ed0
+void ARBatarangProjectile::execCalculateFlightPath(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_VECTOR(DesiredLaunchPosition);
+	P_GET_VECTOR(TargetPosition);
+	P_GET_OBJECT(AActor, TargetActor);
+	P_GET_FLOAT_OPTX(CheckSizeMod, 1.0f);
+	P_FINISH;
+	((ARBatarangProjectile__01707ed0*)this)->CalculateFlightPath(DesiredLaunchPosition, TargetPosition, TargetActor, CheckSizeMod);
 }

@@ -1,4 +1,4 @@
-// BmGame_1550000.cpp: 4 functions
+// BmGame_1550000.cpp: 6 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -84,4 +84,41 @@ void URSeqAct_PlayerDialogueLine_::eventSetSource(class URSeqAct_PlayerDialogueO
 	} Parms;
 	Parms.D = D;
 	ProcessEvent(FindFunctionChecked(g_026e2e08), &Parms);
+}
+
+extern FName g_026e335c;
+	/* BMGAME_SetVariableLinkType */
+struct URSeqAct_ConversationDialogue__01558490 : public URSeqAct_ConversationDialogue
+{
+	void eventSetVariableLinkType(INT I);
+};
+
+// @baa 0x01558490
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+void URSeqAct_ConversationDialogue__01558490::eventSetVariableLinkType(INT I)
+{
+	struct RSeqAct_ConversationDialogue_eventSetVariableLinkType_Parms
+	{
+		INT I;
+	} Parms;
+	Parms.I = I;
+	ProcessEvent(FindFunctionChecked(g_026e335c), &Parms);
+}
+
+	/* BMGAME_SetVariableLinkType */
+struct URSeqAct_ConversationDialogue__015585b0 : public URSeqAct_ConversationDialogue
+{
+	void eventSetVariableLinkType(INT I);
+};
+
+// @baa 0x015585b0
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+void URSeqAct_ConversationDialogue__015585b0::eventSetVariableLinkType(INT I)
+{
+	struct RSeqAct_ConversationDialogue_eventSetVariableLinkType_Parms
+	{
+		INT I;
+	} Parms;
+	Parms.I = I;
+	ProcessEvent(FindFunctionChecked(g_026e335c), &Parms);
 }

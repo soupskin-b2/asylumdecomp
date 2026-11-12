@@ -1,4 +1,4 @@
-// BmGame_1660000.cpp (part 2 of 3): 129 functions
+// BmGame_1660000.cpp (part 2 of 3): 132 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1987,4 +1987,73 @@ FLOAT ARPawnCombat::AngleDiff(FLOAT Angle1, FLOAT Angle2)
         Diff += PI_;
     }
     return Diff;
+}
+
+extern FName g_026e2f20;
+	/* IsSniperPointValid */
+/* Kit gap: the delegate's generated glue isn't declared. */
+struct ARPawn_ : public ARPawn
+{
+	UBOOL delegateIsSniperPointValid(class AActor* A);
+};
+
+// @baa 0x016688e0
+/* The script delegate's generated glue, out of line here. */
+UBOOL ARPawn_::delegateIsSniperPointValid(class AActor* A)
+{
+	struct RPawn_eventIsSniperPointValid_Parms
+	{
+		class AActor* A;
+		UBOOL ReturnValue;
+	} Parms;
+	Parms.A = A;
+	Parms.ReturnValue = FALSE;
+	ProcessDelegate(g_026e2f20, &__IsSniperPointValid__Delegate, &Parms, NULL);
+	return Parms.ReturnValue;
+}
+
+extern FName g_026e2b18;
+	/* IsRoamPointValid */
+/* Kit gap: the delegate's generated glue isn't declared. */
+struct ARPawn__01668920 : public ARPawn
+{
+	UBOOL delegateIsRoamPointValid(class AActor* A);
+};
+
+// @baa 0x01668920
+/* The script delegate's generated glue, out of line here. */
+UBOOL ARPawn__01668920::delegateIsRoamPointValid(class AActor* A)
+{
+	struct RPawn_eventIsRoamPointValid_Parms
+	{
+		class AActor* A;
+		UBOOL ReturnValue;
+	} Parms;
+	Parms.A = A;
+	Parms.ReturnValue = FALSE;
+	ProcessDelegate(g_026e2b18, &__IsRoamPointValid__Delegate, &Parms, NULL);
+	return Parms.ReturnValue;
+}
+
+extern FName g_026e2b30;
+	/* IsActorSafe */
+/* Kit gap: the delegate's generated glue isn't declared. */
+struct ARPawn__01668960 : public ARPawn
+{
+	UBOOL delegateIsActorSafe(class AActor* A);
+};
+
+// @baa 0x01668960
+/* The script delegate's generated glue, out of line here. */
+UBOOL ARPawn__01668960::delegateIsActorSafe(class AActor* A)
+{
+	struct RPawn_eventIsActorSafe_Parms
+	{
+		class AActor* A;
+		UBOOL ReturnValue;
+	} Parms;
+	Parms.A = A;
+	Parms.ReturnValue = FALSE;
+	ProcessDelegate(g_026e2b30, &__IsActorSafe__Delegate, &Parms, NULL);
+	return Parms.ReturnValue;
 }

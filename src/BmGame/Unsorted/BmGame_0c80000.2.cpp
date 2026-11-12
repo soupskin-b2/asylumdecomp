@@ -1,4 +1,4 @@
-// BmGame_0c80000.cpp: 48 functions
+// BmGame_0c80000.cpp: 49 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -530,4 +530,30 @@ void APlayerController::execGetPlayerControllerFromNetId(FFrame& Stack, RESULT_D
 	P_GET_STRUCT(FUniqueNetId, PlayerNetId);
 	P_FINISH;
 	*(class APlayerController**)Result = ((APlayerController__00c876e0*)this)->GetPlayerControllerFromNetId(PlayerNetId);
+}
+
+/* Kit gap: Script.h lacks UE3's P_GET_STRUCT_OPTX (UnScript.h); the struct constructors (UnMath.h) build the defaults. */
+#define P_GET_STRUCT_OPTX(t, v, d) t v; GRuntimeUCFlags &= ~RUC_SkippedOptionalParm; Stack.Step(Stack.Object, &v); if (GRuntimeUCFlags & RUC_SkippedOptionalParm) v = d;
+struct FVector_ : public FVector
+{
+	FVector_(FLOAT InX, FLOAT InY, FLOAT InZ) { X = InX; Y = InY; Z = InZ; }
+};
+
+/* Kit gaps: CreateAudioComponent (008a7ad0) isn't declared (names from the exe's native table). */
+struct AActor__00c82c40 : public AActor
+{
+	class UAudioComponent* CreateAudioComponent(class USoundCue* InSoundCue, UBOOL bPlay, UBOOL bStopWhenOwnerDestroyed, UBOOL bUseLocation, FVector SourceLocation, UBOOL bAttachToSelf);	/* 0x008a7ad0 */
+};
+
+// @baa 0x00c82c40
+void AActor::execCreateAudioComponent(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(USoundCue, InSoundCue);
+	P_GET_UBOOL_OPTX(bPlay, FALSE);
+	P_GET_UBOOL_OPTX(bStopWhenOwnerDestroyed, FALSE);
+	P_GET_UBOOL_OPTX(bUseLocation, FALSE);
+	P_GET_STRUCT_OPTX(FVector, SourceLocation, FVector_(0.f, 0.f, 0.f));
+	P_GET_UBOOL_OPTX(bAttachToSelf, TRUE);
+	P_FINISH;
+	*(class UAudioComponent**)Result = ((AActor__00c82c40*)this)->CreateAudioComponent(InSoundCue, bPlay, bStopWhenOwnerDestroyed, bUseLocation, SourceLocation, bAttachToSelf);
 }
