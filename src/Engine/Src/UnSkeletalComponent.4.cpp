@@ -209,7 +209,7 @@ struct SkeletalMeshNative_0091f940 : USkeletalMeshComponent
 void USkeletalMeshComponent::execSetDepthBias(FFrame& Stack, RESULT_DECL)
 {
     P_GET_FLOAT(NewDepthBias);
-    FExtraDepthBiasData NewDepthBiasData = {0, {0.0f, 0.0f, 0.0f}, -1.0f, 0.5f};
+    FExtraDepthBiasData NewDepthBiasData = {0, FVector(0.0f, 0.0f, 0.0f), -1.0f, 0.5f};
     Stack.Step(Stack.Object, &NewDepthBiasData);
     P_FINISH;
     static_cast<SkeletalMeshNative_0091f940*>(this)->sub_00914150(NewDepthBias, NewDepthBiasData);

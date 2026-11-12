@@ -330,7 +330,7 @@ void ARPlayerController::execAmIStandingNextToFeature(FFrame& Stack, RESULT_DECL
     FVector& FeatureNormal = GPropAddr ? *(FVector*)GPropAddr : FeatureNormalT;
     if (GRuntimeUCFlags & RUC_SkippedOptionalParm)
     {
-        FVector Zero = {0.0f, 0.0f, 0.0f};
+        FVector Zero(0.0f, 0.0f, 0.0f);
         FeatureNormal = Zero;
     }
     P_FINISH;

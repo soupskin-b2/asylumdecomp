@@ -133,7 +133,7 @@ void UObject::execSubtract_PreVector(FFrame& Stack, RESULT_DECL)
 {
     P_GET_STRUCT(FVector, A);
     P_FINISH;
-    FVector Negated = {-A.X, -A.Y, -A.Z};
+    FVector Negated(-A.X, -A.Y, -A.Z);
     *(FVector*)Result = Negated;
 }
 
@@ -148,7 +148,7 @@ void UObject::execQuatToRotator(FFrame& Stack, RESULT_DECL)
 {
     P_GET_STRUCT(FQuat, A);
     P_FINISH;
-    FVector Origin = {0.0f, 0.0f, 0.0f};
+    FVector Origin(0.0f, 0.0f, 0.0f);
     *(FRotator*)Result = FQuatRotationTranslationMatrix(A, Origin).sub_005c3fc0();
 }
 

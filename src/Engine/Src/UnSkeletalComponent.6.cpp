@@ -22,7 +22,7 @@ void USkeletalMeshComponent::execGetRefPosePosition(FFrame& Stack, RESULT_DECL)
         *(FVector*)Result = static_cast<SkeletalMeshNative*>(SkeletalMesh)->RefPosePosition(BoneIndex);
     else
     {
-        FVector Zero = {0.0f, 0.0f, 0.0f};
+        FVector Zero(0.0f, 0.0f, 0.0f);
         *(FVector*)Result = Zero;
     }
 }

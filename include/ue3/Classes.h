@@ -3193,6 +3193,9 @@ struct FVector {
     FLOAT X; /* 0x0 */
     FLOAT Y; /* 0x4 */
     FLOAT Z; /* 0x8 */
+    FVector() {}
+    explicit FORCEINLINE FVector(FLOAT InF) : X(InF), Y(InF), Z(InF) {}
+    FORCEINLINE FVector(FLOAT InX, FLOAT InY, FLOAT InZ) : X(InX), Y(InY), Z(InZ) {}
     /* other member functions */
     FVector* sub_0058df30(FVector*); /* 0x0058df30 */
 };
@@ -3231,6 +3234,9 @@ struct FTwoVectors {
 struct __declspec(align(16)) FPlane : public FVector {
     /* Core.Plane */
     FLOAT W; /* 0xc */
+    FPlane() {}
+    FORCEINLINE FPlane(FLOAT InX, FLOAT InY, FLOAT InZ, FLOAT InW) : FVector(InX, InY, InZ), W(InW) {}
+    FORCEINLINE FPlane(FVector V, FLOAT InW) : FVector(V), W(InW) {}
 };
 
 struct FRotator {
@@ -3317,6 +3323,25 @@ struct __declspec(align(16)) FMatrix {
     FPlane YPlane; /* 0x10 */
     FPlane ZPlane; /* 0x20 */
     FPlane WPlane; /* 0x30 */
+    FMatrix() {}
+    FORCEINLINE FMatrix(const FPlane& InX, const FPlane& InY, const FPlane& InZ, const FPlane& InW)
+    {
+        XPlane.X = InX.X; XPlane.Y = InX.Y; XPlane.Z = InX.Z; XPlane.W = InX.W;
+        YPlane.X = InY.X; YPlane.Y = InY.Y; YPlane.Z = InY.Z; YPlane.W = InY.W;
+        ZPlane.X = InZ.X; ZPlane.Y = InZ.Y; ZPlane.Z = InZ.Z; ZPlane.W = InZ.W;
+        WPlane.X = InW.X; WPlane.Y = InW.Y; WPlane.Z = InW.Z; WPlane.W = InW.W;
+    }
+};
+
+struct FTranslationMatrix : public FMatrix {
+    FORCEINLINE FTranslationMatrix(const FVector& Delta)
+        : FMatrix(FPlane(1.0f, 0.0f, 0.0f, 0.0f), FPlane(0.0f, 1.0f, 0.0f, 0.0f), FPlane(0.0f, 0.0f, 1.0f, 0.0f), FPlane(Delta.X, Delta.Y, Delta.Z, 1.0f)) {}
+};
+
+/* UnCanvas.h: the render-thread canvas UCanvas draws through (only what code here calls) */
+class FCanvas {
+public:
+    void PushRelativeTransform(const FMatrix& Transform); /* 0x00a73d80 */
 };
 
 struct FCylinder {
@@ -3948,6 +3973,7 @@ struct FBasedPosition {
     FVector CachedBaseLocation; /* 0x10 */
     FRotator CachedBaseRotation; /* 0x1c */
     FVector CachedTransPosition; /* 0x28 */
+    FBasedPosition() : Base(NULL) { Position = FVector(0.f); }
 };
 
 struct FVisiblePortalInfo {
@@ -18414,7 +18440,7 @@ struct UCanvas : public UObject {
     BITFIELD bNoSmooth : 1; /* 0x54 */
     INT SizeX; /* 0x58 */
     INT SizeY; /* 0x5c */
-    FPointer Canvas; /* 0x60 */
+    class FCanvas* Canvas; /* 0x60 */
     FPointer SceneView; /* 0x64 */
     BYTE _pad0[8];
     FPlane ColorModulate; /* 0x70 */
@@ -30973,6 +30999,7 @@ struct APawn : public AActor {
     void execGetBoundingCylinder(FFrame& Stack, RESULT_DECL); /* 0x00c82670 */
     void execSetBasedPosition(FFrame& Stack, RESULT_DECL); /* 0x00c8a640 */
     void execGetBasedPosition(FFrame& Stack, RESULT_DECL); /* 0x00c8a750 */
+    FVector GetBasedPosition(FBasedPosition BP); /* 0x007ad450 */
     void execIsAliveAndWell(FFrame& Stack, RESULT_DECL); /* 0x00c8a810 */
     void execAdjustDestination(FFrame& Stack, RESULT_DECL); /* 0x00c8a850 */
     void execValidAnchor(FFrame& Stack, RESULT_DECL); /* 0x00c8a950 */

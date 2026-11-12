@@ -95,6 +95,9 @@ inline void appFree(void* Original) {
 
 static __forceinline void appMemzero( void* Dest, INT Count ) { memset( Dest, 0, Count ); }
 
+#ifndef FORCEINLINE
+#define FORCEINLINE __forceinline
+#endif
 enum { INDEX_NONE = -1 };
 
 /* UnNames.h: the names the engine hardcodes, by index (add them as code needs them) */

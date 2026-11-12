@@ -20,10 +20,10 @@ struct FCanvas_
 void UCanvas::execPopTransform(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	if (Canvas.Dummy)
+	if (Canvas)
 	{
 		FCanvasTransform Transform;
-		((FCanvas_*)(Canvas.Dummy + 0x24))->sub_00a7b870(Transform);
+		((FCanvas_*)((BYTE*)Canvas + 0x24))->sub_00a7b870(Transform);
 	}
 }
 
@@ -427,7 +427,6 @@ void UCanvas__00aaa970::execDrawRotatedMaterialTile(FFrame& Stack, RESULT_DECL)
 	DrawRotatedMaterialTile(Mat, Rotation, XL, YL, U, V, UL, VL, AnchorX, AnchorY);
 }
 
-class FCanvas;
 /* Classes.h has FVector2D / FLinearColor as plain script mirrors without their constructors. */
 struct FVector2D_ : public FVector2D
 {
@@ -437,10 +436,9 @@ struct FVector2D_ : public FVector2D
 void DrawLine2D( FCanvas* Canvas, const FVector2D& StartPos, const FVector2D& EndPos, const FLinearColor_& Color );
 struct UCanvas__00aaabc0 : public UCanvas
 {
-	/* UCanvas::Canvas is declared as its script mirror FPointer. */
 	FCanvas* GetCanvas() const
 	{
-		return (FCanvas*)Canvas.Dummy;
+		return Canvas;
 	}
 	void execDraw2DLine(FFrame& Stack, RESULT_DECL);
 };
