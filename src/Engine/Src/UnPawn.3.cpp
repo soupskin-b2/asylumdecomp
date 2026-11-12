@@ -624,11 +624,11 @@ void APawn::execIsValidEnemyTargetFor(FFrame& Stack, RESULT_DECL)
 }
 
 // @baa 0x00c8b410
-/* IncrementPathChild(int Delta, Controller C) */
+/* IncrementPathChild(int Cnt, Canvas C) */
 void APawn::execIncrementPathChild(FFrame& Stack, RESULT_DECL)
 {
-	P_GET_INT(Delta);
-	P_GET_OBJECT(AController, C);
+	P_GET_INT(Cnt);
+	P_GET_OBJECT(UCanvas, C);
 	P_FINISH;
-	IncrementPathChild(Delta, C);
+	IncrementPathChild(Cnt, C);
 }
