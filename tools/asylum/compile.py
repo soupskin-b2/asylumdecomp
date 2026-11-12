@@ -180,6 +180,7 @@ def _pch(src: str, p: Profile) -> tuple[str, Path] | None:
     d = HOME / "cache" / "pch"
     hdr, out = "asylum_pch_%s.h" % tag, d / ("%s.pch" % tag)
     if out.exists():
+        _used(out)
         return hdr, out
     d.mkdir(parents=True, exist_ok=True)
     text = "".join('#include "%s"\n' % h for h in p.prelude + [header])
@@ -224,6 +225,43 @@ def _pch(src: str, p: Profile) -> tuple[str, Path] | None:
         shutil.rmtree(work, ignore_errors=True)
 
 
+CACHE_DAYS = 3
+
+
+def _used(f: Path) -> None:
+    """Marks a cache file as used, so prune() keeps it."""
+    try:
+        if time.time() - f.stat().st_mtime > 3600:
+            os.utime(f)
+    except OSError:
+        pass
+
+
+def prune() -> None:
+    """Once a day, delete compile-cache files unused for CACHE_DAYS. Every header change starts a new set
+    of .pch and .obj files (they're keyed by the headers), so without this the cache only grows."""
+    mark = HOME / "cache" / "pruned"
+    try:
+        if time.time() - mark.stat().st_mtime < 86400:
+            return
+    except OSError:
+        pass
+    mark.parent.mkdir(parents=True, exist_ok=True)
+    mark.touch()
+    old = time.time() - CACHE_DAYS * 86400
+    for sub in ("pch", "obj"):
+        try:
+            entries = list(os.scandir(HOME / "cache" / sub))
+        except OSError:
+            continue
+        for e in entries:
+            try:
+                if e.is_file() and e.stat().st_mtime < old:
+                    os.unlink(e.path)
+            except OSError:  # in use by another process
+                pass
+
+
 def _tmp() -> Path:
     t = HOME / "cache" / "tmp"
     t.mkdir(parents=True, exist_ok=True)
@@ -251,6 +289,7 @@ def compile(src: str, p: Profile, check: bool = True) -> Compiled:
     cache = HOME / "cache" / "obj"
     co, ce = cache / (key + ".obj"), cache / (key + ".err")
     if co.exists():
+        _used(co)
         return Compiled(co.read_bytes())
     if ce.exists():
         d = ce.read_text(encoding="utf-8")

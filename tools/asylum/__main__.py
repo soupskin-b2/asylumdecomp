@@ -557,6 +557,8 @@ def main(argv=None):
     try:
         globals()["cmd_" + a.cmd.replace("-", "_")](a)
         sys.stdout.flush()
+        import compile as cc  # (lazy: most commands never compile)
+        cc.prune()  # once a day: drops compile-cache files unused for days
     except api.ApiError as e:
         sys.exit("error: %s" % e)
     except BrokenPipeError:  # `... | head` closed the pipe: not an error

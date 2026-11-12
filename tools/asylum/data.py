@@ -69,6 +69,9 @@ def _fingerprint_shard(page: int) -> dict[str, dict]:
             os.replace(tmp, d)
         except OSError:  # another process finished first
             shutil.rmtree(tmp, ignore_errors=True)
+        for old in d.parent.glob("fingerprints-*"):  # earlier kits' (~140 MB each)
+            if old != d and not old.name.endswith(".tmp"):
+                shutil.rmtree(old, ignore_errors=True)
     f = d / ("%04x.json" % page)
     return json.loads(f.read_text(encoding="utf-8")) if f.exists() else {}
 
