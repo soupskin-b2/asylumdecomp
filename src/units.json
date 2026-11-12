@@ -18088,7 +18088,7 @@
     {
      "va": "01613d20",
      "size": 70,
-     "symbol": "?sub_01613d20@ARPlayerController__01613d20@@QAEXPAUUSoundCue@@@Z"
+     "symbol": "?StartNewAmbientSound@ARPlayerController@@UAEXPAUUSoundCue@@@Z"
     },
     {
      "va": "0160e3b0",

@@ -2010,13 +2010,8 @@ bool ARPlayerControllerCombat::vf_004()
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
-struct ARPlayerController__01613d20 : ARPlayerController
-{
-    void sub_01613d20(USoundCue* AmbientSound);
-};
-
 // @baa 0x01613d20
-void ARPlayerController__01613d20::sub_01613d20(USoundCue* AmbientSound)
+void ARPlayerController::StartNewAmbientSound(USoundCue* AmbientSound)
 {
     AmbOtherSoundPtr->Stop();
     if (!AmbientSound)
