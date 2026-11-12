@@ -12503,7 +12503,7 @@ struct AActor : public UObject {
     virtual UINT vf_334(); /* 0x334 */
     virtual void vf_338(INT, INT); /* 0x338 */
     virtual INT vf_33c(INT); /* 0x33c */
-    virtual void vf_340(INT); /* 0x340 */
+    virtual void vf_340(TArray<class AActor*>& Actors); /* 0x340 */
     virtual void vf_344(INT); /* 0x344 */
     virtual INT vf_348(INT, INT); /* 0x348 */
     virtual char* vf_34c(); /* 0x34c */
@@ -15655,8 +15655,8 @@ struct APlayerController : public AController {
     virtual INT vf_440(INT, INT, INT, INT, INT); /* 0x440 */
     virtual void vf_444(INT); /* 0x444 */
     virtual INT vf_448(); /* 0x448 */
-    virtual void vf_44c(INT, INT); /* 0x44c */
-    virtual void vf_450(INT, INT); /* 0x450 */
+    virtual void vf_44c(const FString& Str, FVector& Out); /* 0x44c */
+    virtual void vf_450(const FString& Str, FRotator& Out); /* 0x450 */
     virtual INT LogOutBugItGoToLogFile(INT, INT, INT); /* 0x454 */
     virtual INT LogOutBugItAIGoToLogFile(INT, INT, INT); /* 0x458 */
     virtual void SmoothTargetViewRotation(class APawn* TargetPawn, FLOAT DeltaSeconds); /* 0x45c */
@@ -15924,7 +15924,7 @@ struct ANavigationPoint : public AActor {
     virtual INT vf_374(INT); /* 0x374 */
     virtual UINT vf_378(); /* 0x378 */
     virtual void vf_37c(INT); /* 0x37c */
-    virtual INT vf_380(INT); /* 0x380 */
+    virtual INT CheckSatisfactoryConnection(class ANavigationPoint* Other); /* 0x380 */
     virtual void* vf_384(); /* 0x384 */
     virtual INT vf_388(INT, INT, INT); /* 0x388 */
     virtual void vf_38c(INT); /* 0x38c */
@@ -17191,7 +17191,7 @@ struct UAnimNotify : public UObject {
     FColor NotifyColour; /* 0x30 */
     /* virtual functions this class introduces (vtable 0x01f77bc0) */
     virtual void vf_10c(UINT); /* 0x10c */
-    virtual INT vf_110(INT); /* 0x110 */
+    virtual FString GetEditorComment(); /* 0x110 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -17388,7 +17388,7 @@ struct UAnimNotify_Script : public UAnimNotify {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_10c(UINT); /* 0x10c */
-    virtual INT vf_110(INT); /* 0x110 */
+    virtual FString GetEditorComment(); /* 0x110 */
     /* registered size 0x3c */
 };
 
@@ -17404,7 +17404,7 @@ struct UAnimNotify_Sound : public UAnimNotify {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_10c(UINT); /* 0x10c */
-    virtual INT vf_110(INT); /* 0x110 */
+    virtual FString GetEditorComment(); /* 0x110 */
     /* registered size 0x44 */
 };
 
@@ -17822,7 +17822,7 @@ struct UApexDestructibleAsset : public UApexAsset {
     class UApexMeshParticleFactoryAsset* DustMeshParticleFactory; /* 0x60 */
     TArrayNoInit<class UPhysicalMaterial*> FractureEffects; /* 0x64 */
     /* virtual functions this class introduces (vtable 0x01fa46c0) */
-    virtual INT vf_120(INT); /* 0x120 */
+    virtual class UMaterialInterface* GetMaterial(INT MaterialIndex); /* 0x120 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -18477,7 +18477,7 @@ struct UFont : public UObject {
     virtual FLOAT vf_114(FLOAT); /* 0x114 */
     virtual FLOAT vf_118(); /* 0x118 */
     virtual FLOAT StrWidth(INT); /* 0x11c */
-    virtual void vf_120(); /* 0x120 */
+    virtual void CacheCharacterCountAndMaxCharHeight(); /* 0x120 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -23112,8 +23112,8 @@ struct UGameEngine : public UEngine {
     TArrayNoInit<FFullyLoadedPackagesInfo> PackagesToFullyLoad; /* 0x53c */
     TArrayNoInit<FNamedNetDriver> NamedNetDrivers; /* 0x548 */
     /* virtual functions this class introduces (vtable 0x01f37120) */
-    virtual INT vf_190(INT, INT); /* 0x190 */
-    virtual void vf_194(INT, INT); /* 0x194 */
+    virtual INT CreateNamedNetDriver(FName NetDriverName); /* 0x190 */
+    virtual void DestroyNamedNetDriver(FName NetDriverName); /* 0x194 */
     virtual void vf_198(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x198 */
     virtual void vf_19c(INT, INT, INT); /* 0x19c */
     virtual INT vf_1a0(); /* 0x1a0 */
@@ -25140,7 +25140,7 @@ struct AKActorSpawnable : public AKActor {
     BITFIELD bRecycleScaleToZero : 1; /* 0x2a0 */
     BITFIELD bScalingToZero : 1; /* 0x2a0 */
     /* virtual functions this class introduces (vtable 0x01fa6050) */
-    virtual INT vf_354(); /* 0x354 */
+    virtual void ResetComponents(); /* 0x354 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -27909,7 +27909,7 @@ struct UMultiFont : public UFont {
     virtual INT vf_10c(FLOAT); /* 0x10c */
     virtual FLOAT vf_110(FLOAT); /* 0x110 */
     virtual FLOAT vf_114(FLOAT); /* 0x114 */
-    virtual void vf_120(); /* 0x120 */
+    virtual void CacheCharacterCountAndMaxCharHeight(); /* 0x120 */
     /* UnrealScript natives */
     void execGetResolutionTestTableIndex(FFrame& Stack, RESULT_DECL); /* 0x00c8cbc0 */
     /* registered size 0x130 */
@@ -28786,7 +28786,7 @@ struct UOnlineStatsRead : public UOnlineStats {
     virtual INT GetFloatStatValueForPlayer(INT, INT, INT, INT); /* 0x11c */
     virtual INT SetFloatStatValueForPlayer(INT, INT, INT, INT); /* 0x120 */
     virtual INT vf_124(INT, INT, INT); /* 0x124 */
-    virtual INT GetRankForPlayer(INT, INT); /* 0x128 */
+    virtual INT GetRankForPlayer(FUniqueNetId PlayerID); /* 0x128 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -30664,7 +30664,7 @@ struct UParticleSystem : public UObject {
     virtual INT vf_110(); /* 0x110 */
     virtual FLOAT vf_114(INT); /* 0x114 */
     virtual void vf_118(BYTE); /* 0x118 */
-    virtual void SetLODDistance(INT LODLevel, FLOAT InDistance); /* 0x11c */
+    virtual UBOOL SetLODDistance(INT LODLevel, FLOAT InDistance); /* 0x11c */
     virtual INT vf_120(); /* 0x120 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
@@ -40289,7 +40289,7 @@ struct ARRainVolumeBase : public AREffectVolume {
     FLOAT storedGotoRainSoundValue; /* 0x2a4 */
     FLOAT randomSoundTimer; /* 0x2a8 */
     /* virtual functions this class introduces (vtable 0x022e7ef8) */
-    virtual INT vf_36c(); /* 0x36c */
+    virtual void vf_36c(); /* 0x36c */
     virtual INT vf_370(INT); /* 0x370 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
@@ -42129,7 +42129,7 @@ struct URAnimNotify_AnimSpeech : public URAnimNotify_Script {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_110(INT); /* 0x110 */
+    virtual FString GetEditorComment(); /* 0x110 */
     /* registered size 0x40 */
 };
 
@@ -42152,7 +42152,7 @@ struct URAnimNotify_BeginEnd : public UAnimNotify {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_10c(UINT); /* 0x10c */
-    virtual INT vf_110(INT); /* 0x110 */
+    virtual FString GetEditorComment(); /* 0x110 */
     /* registered size 0x38 */
 };
 
@@ -42177,7 +42177,7 @@ struct URAnimNotify_BeginFixIK : public UAnimNotify {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_10c(UINT); /* 0x10c */
-    virtual INT vf_110(INT); /* 0x110 */
+    virtual FString GetEditorComment(); /* 0x110 */
     /* registered size 0x40 */
 };
 
@@ -42290,7 +42290,7 @@ struct URAnimNotify_Emote : public UAnimNotify {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_10c(UINT); /* 0x10c */
-    virtual INT vf_110(INT); /* 0x110 */
+    virtual FString GetEditorComment(); /* 0x110 */
     /* registered size 0x3c */
 };
 
@@ -42313,7 +42313,7 @@ struct URAnimNotify_EndFixIK : public UAnimNotify {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_10c(UINT); /* 0x10c */
-    virtual INT vf_110(INT); /* 0x110 */
+    virtual FString GetEditorComment(); /* 0x110 */
     /* registered size 0x38 */
 };
 
@@ -42345,7 +42345,7 @@ struct URAnimNotify_Foley : public UAnimNotify {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_10c(UINT); /* 0x10c */
-    virtual INT vf_110(INT); /* 0x110 */
+    virtual FString GetEditorComment(); /* 0x110 */
     /* registered size 0x38 */
 };
 
@@ -42357,7 +42357,7 @@ struct URAnimNotify_FootPassing : public UAnimNotify {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_10c(UINT); /* 0x10c */
-    virtual INT vf_110(INT); /* 0x110 */
+    virtual FString GetEditorComment(); /* 0x110 */
     /* registered size 0x38 */
 };
 
@@ -42370,7 +42370,7 @@ struct URAnimNotify_Footstep : public UAnimNotify {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_10c(UINT); /* 0x10c */
-    virtual INT vf_110(INT); /* 0x110 */
+    virtual FString GetEditorComment(); /* 0x110 */
     /* registered size 0x38 */
 };
 
@@ -42393,7 +42393,7 @@ struct URAnimNotify_FootSyncOut : public UAnimNotify {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_10c(UINT); /* 0x10c */
-    virtual INT vf_110(INT); /* 0x110 */
+    virtual FString GetEditorComment(); /* 0x110 */
     /* registered size 0x38 */
 };
 
@@ -42427,7 +42427,7 @@ struct URAnimNotify_MeetingPoint : public UAnimNotify {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_10c(UINT); /* 0x10c */
-    virtual INT vf_110(INT); /* 0x110 */
+    virtual FString GetEditorComment(); /* 0x110 */
     /* registered size 0x3c */
 };
 
@@ -42439,7 +42439,7 @@ struct URAnimNotify_PlayGadgetAnim : public UAnimNotify {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_10c(UINT); /* 0x10c */
-    virtual INT vf_110(INT); /* 0x110 */
+    virtual FString GetEditorComment(); /* 0x110 */
     /* registered size 0x3c */
 };
 
@@ -42482,7 +42482,7 @@ struct URAnimNotify_SpawnParticleFX : public UAnimNotify {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_10c(UINT); /* 0x10c */
-    virtual INT vf_110(INT); /* 0x110 */
+    virtual FString GetEditorComment(); /* 0x110 */
     /* registered size 0x4c */
 };
 
@@ -43689,7 +43689,7 @@ struct ARBMAIController : public AAIController {
     virtual INT vf_458(); /* 0x458 */
     virtual INT vf_45c(); /* 0x45c */
     virtual class UAlertInstance* vf_460(INT); /* 0x460 */
-    virtual class UAlertInstance* vf_464(INT); /* 0x464 */
+    virtual class UAlertInstance* FindAlertFor(class AActor* Instigator); /* 0x464 */
     virtual INT vf_468(); /* 0x468 */
     virtual void vf_46c(INT); /* 0x46c */
     /* overrides */
@@ -46341,7 +46341,7 @@ struct ARBMPathNode_VariablePositionTraverse : public ARBMPathNode_SpecialMove {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_340(INT); /* 0x340 */
+    virtual void vf_340(TArray<class AActor*>& Actors); /* 0x340 */
     /* registered size 0x30c */
 };
 
@@ -47152,7 +47152,7 @@ struct URBMRouterPath : public UObject {
     TArray<FPathNodeInfo> SmoothedNodes; /* 0x4c */
     /* virtual functions this class introduces (vtable 0x02344ab0) */
     virtual FVector GetNodePos(INT Index); /* 0x10c */
-    virtual INT vf_110(INT); /* 0x110 */
+    virtual class AActor* vf_110(INT Index); /* 0x110 */
     virtual INT vf_114(); /* 0x114 */
     virtual INT vf_118(); /* 0x118 */
     virtual INT vf_11c(INT); /* 0x11c */
@@ -47160,7 +47160,7 @@ struct URBMRouterPath : public UObject {
     virtual void vf_124(INT); /* 0x124 */
     virtual INT vf_128(INT); /* 0x128 */
     virtual void UpdatePath(class ARPawn* User, INT& bPathShortened, UBOOL bSkipAngleCheck, UBOOL bForceShorten, UBOOL bUpdateEstimateStartAnchor); /* 0x12c */
-    virtual INT ClearPath(); /* 0x130 */
+    virtual void ClearPath(); /* 0x130 */
     virtual void AddNode_Pos(FVector NewPathNode); /* 0x134 */
     virtual INT AddNode_Actor(class AActor* NewPathNode); /* 0x138 */
     virtual void InsertNode_Pos(FVector NewPathNode, INT Index); /* 0x13c */
@@ -48263,7 +48263,7 @@ struct ARCinematicActor : public ASkeletalMeshActor {
     virtual INT vf_354(); /* 0x354 */
     virtual void InternalBeginAnimControl(TArray<class UAnimSet*>& InAnimSets); /* 0x358 */
     virtual void vf_35c(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x35c */
-    virtual INT vf_360(); /* 0x360 */
+    virtual void vf_360(); /* 0x360 */
     virtual void InternalSetMorphWeight(FName MorphNodeName, FLOAT MorphWeight); /* 0x364 */
     virtual INT vf_368(INT, INT, INT); /* 0x368 */
     virtual void GetThoughts(INT, INT); /* 0x36c */
@@ -49261,7 +49261,7 @@ struct ARCornerPointBase : public AActor {
     virtual void vf_184(); /* 0x184 */
     virtual INT vf_29c(INT); /* 0x29c */
     virtual void vf_2b8(); /* 0x2b8 */
-    virtual void vf_340(INT); /* 0x340 */
+    virtual void vf_340(TArray<class AActor*>& Actors); /* 0x340 */
     /* registered size 0x1c8 */
 };
 
@@ -51035,7 +51035,7 @@ struct ARFractureWallBase : public AFracturedStaticMeshActor, public IRSpotableI
     virtual INT vf_3c0(INT, INT, INT); /* 0x3c0 */
     virtual void vf_3c4(); /* 0x3c4 */
     virtual INT vf_3c8(); /* 0x3c8 */
-    virtual INT vf_3cc(INT, INT); /* 0x3cc */
+    virtual FVector vf_3cc(BYTE Side); /* 0x3cc */
     virtual bool vf_3d0(INT, INT, INT); /* 0x3d0 */
     virtual INT vf_3d4(INT, INT, INT, INT, INT, INT, INT); /* 0x3d4 */
     virtual INT vf_3d8(INT, INT, INT, INT); /* 0x3d8 */
@@ -53007,7 +53007,7 @@ struct ARLadder : public ARSpecialMoveEnvironmentObject {
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_184(); /* 0x184 */
     virtual INT vf_29c(INT); /* 0x29c */
-    virtual void vf_340(INT); /* 0x340 */
+    virtual void vf_340(TArray<class AActor*>& Actors); /* 0x340 */
     /* registered size 0x208 */
 };
 
@@ -53077,7 +53077,7 @@ struct ARLevelTransition : public AActor {
     virtual INT vf_368(); /* 0x368 */
     virtual INT vf_36c(INT); /* 0x36c */
     virtual FName GetNonCurrentLevel(); /* 0x370 */
-    virtual INT GetAllConnectedLevels(INT); /* 0x374 */
+    virtual void GetAllConnectedLevels(TArray<FName>& Out); /* 0x374 */
     virtual INT vf_378(INT, INT); /* 0x378 */
     virtual INT vf_37c(INT, INT); /* 0x37c */
     virtual INT vf_380(INT); /* 0x380 */
@@ -55982,7 +55982,7 @@ struct ARPontoonBase : public AActor {
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual UBOOL ShouldTrace(UPrimitiveComponent* Primitive, AActor* SourceActor, DWORD TraceFlags); /* 0x198 */
     virtual INT vf_29c(INT); /* 0x29c */
-    virtual void vf_340(INT); /* 0x340 */
+    virtual void vf_340(TArray<class AActor*>& Actors); /* 0x340 */
     virtual FVector vf_350(); /* 0x350 */
     /* UnrealScript natives */
     void execBoundsCheck(FFrame& Stack, RESULT_DECL); /* 0x016e9b70 */

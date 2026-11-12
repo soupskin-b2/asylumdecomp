@@ -33,8 +33,9 @@ struct C_A_5ef50
 };
 
 // @baa 0x0161d510
-void ARPontoonBase::vf_340(INT A)
+void ARPontoonBase::vf_340(TArray<AActor*>& Actors)
 {
+    INT A = (INT)&Actors;
     ARPathNode_Pontoon* P;
     if (PontoonPathNode == NULL)
         return;

@@ -12580,7 +12580,7 @@
     {
      "va": "0161d510",
      "size": 31,
-     "symbol": "?vf_340@ARPontoonBase@@UAEXH@Z"
+     "symbol": "?vf_340@ARPontoonBase@@UAEXAAV?$TArray@PAVAActor@@@@@Z"
     },
     {
      "va": "01616470",
@@ -263915,7 +263915,7 @@
     {
      "va": "0068f170",
      "size": 3,
-     "symbol": "?vf_340@AActor@@UAEXH@Z"
+     "symbol": "?vf_340@AActor@@UAEXAAV?$TArray@PAVAActor@@@@@Z"
     },
     {
      "va": "0068f180",

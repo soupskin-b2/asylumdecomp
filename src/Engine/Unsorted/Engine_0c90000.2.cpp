@@ -8,7 +8,7 @@
 void AKActorSpawnable::execResetComponents( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_354();
+	ResetComponents();
 }
 
 // @baa 0x00c93c80

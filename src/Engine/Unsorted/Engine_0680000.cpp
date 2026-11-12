@@ -2728,7 +2728,7 @@ void AActor::vf_338(int a0, int a1) {  }
 int AActor::vf_33c(int a0) { return 0; }
 
 // @baa 0x0068f170
-void AActor::vf_340(int a0) {  }
+void AActor::vf_340(TArray<AActor*>& a0) {  }
 
 // @baa 0x0068f180
 int AActor::vf_348(int a0, int a1) { return 0; }

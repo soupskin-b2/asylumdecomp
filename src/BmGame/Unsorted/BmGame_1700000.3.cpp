@@ -343,7 +343,7 @@ void ARBMAIController::execFindAlertFor(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(AActor, A);
 	P_FINISH;
-	*(UAlertInstance**)Result = (UAlertInstance*)vf_464((INT)A);
+	*(UAlertInstance**)Result = FindAlertFor(A);
 }
 
 // @baa 0x01705fc0
