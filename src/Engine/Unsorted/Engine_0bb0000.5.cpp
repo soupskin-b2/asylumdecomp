@@ -1,4 +1,4 @@
-// Engine_0bb0000.cpp: 1 function
+// Engine_0bb0000.cpp: 2 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Core.h"
@@ -158,4 +158,26 @@ void C_SingletonClient::sub_00bbe8f0()
     {
         g_026b0d94->sub_218(Field_08);
     }
+}
+
+extern INT g_0201a1d0;
+struct F00bb4560
+{
+	INT* A;
+	INT B;
+	INT C;
+
+	F00bb4560* sub_00bb4560(INT b, INT c)
+	{
+		A = &g_0201a1d0;
+		B = b;
+		C = c;
+		return this;
+	}
+};
+
+// @baa 0x00bb4560
+void Use(F00bb4560* S, INT b, INT c)
+{
+	S->sub_00bb4560(b, c);
 }

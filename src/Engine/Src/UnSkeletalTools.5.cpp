@@ -1,4 +1,4 @@
-// UnSkeletalTools.cpp: 3 functions
+// UnSkeletalTools.cpp: 4 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #define BAA_OUTLINE_ALLOC
@@ -69,3 +69,16 @@ FFloatArray::FFloatArray(INT InNum)
     ArrayMax = InNum;
     AllocatorInstance.ResizeAllocation(0, ArrayMax, sizeof(FLOAT));
 }
+
+/* FRigidSkinVertex (UnSkeletalMesh.h): a vertex bound to a single bone (0x24 bytes). Not in the kit. */
+struct FRigidSkinVertex
+{
+    FVector Position;
+    FPackedNormal TangentX, TangentY, TangentZ;
+    FLOAT U, V;
+    BYTE Bone;
+};
+
+// @baa 0x00d480f0
+/* the out-of-line TArray<FRigidSkinVertex>::AddItem instantiation (FSkelMeshChunk::RigidVertices) */
+template INT TArrayAddItem_<FRigidSkinVertex>::AddItem(const FRigidSkinVertex& Item);

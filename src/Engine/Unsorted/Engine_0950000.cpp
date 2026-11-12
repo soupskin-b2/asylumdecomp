@@ -1,4 +1,4 @@
-// Engine_0950000.cpp: 88 functions
+// Engine_0950000.cpp: 89 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -1167,4 +1167,33 @@ undefined4 * C_0095f680::sub_0095f680(undefined4 param_2)
   *param_1 = param_2;
   ((C_0095f680 *)(((char *)this + 0x10)))->sub_00664a20();
   return param_1;
+}
+
+struct FRigidSkinVertex;
+struct FSoftSkinVertex;
+/* the chunk's arrays, with their out-of-line ~TArray copies */
+struct FRigidVertexArray : public TArray<FRigidSkinVertex> { ~FRigidVertexArray(); /* 0x006666b0 */ };
+
+struct FSoftVertexArray : public TArray<FSoftSkinVertex> { ~FSoftVertexArray(); /* 0x00666710 */ };
+
+struct FBoneMapArray : public TArray<WORD> { ~FBoneMapArray(); /* 0x00602210 */ };
+
+/* FSkelMeshChunk (UnSkeletalMesh.h): vertices of one LOD skinned with one bone map. Not in the kit. */
+struct FSkelMeshChunk
+{
+    DWORD BaseVertexIndex;
+    FRigidVertexArray RigidVertices;
+    FSoftVertexArray SoftVertices;
+    FBoneMapArray BoneMap;
+    INT NumRigidVertices;
+    INT NumSoftVertices;
+    INT MaxBoneInfluences;
+
+    ~FSkelMeshChunk();
+};
+
+// @baa 0x009590c0
+/* the implicit destructor: destroys BoneMap, SoftVertices, RigidVertices */
+FSkelMeshChunk::~FSkelMeshChunk()
+{
 }

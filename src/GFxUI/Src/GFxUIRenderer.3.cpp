@@ -1,4 +1,4 @@
-// GFxUIRenderer.cpp (part 3 of 3): 8 functions
+// GFxUIRenderer.cpp (part 3 of 3): 11 functions
 // Placed here by: neighbours 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -142,4 +142,61 @@ struct C_00e57950
 INT C_00e57950::sub_00e57950(INT Value)
 {
     return InterlockedExchangeAdd(&Counter, Value);
+}
+
+// 00e48220: 3-INT copy, returns *this
+struct C_00e48220 {
+    INT First;
+    INT Second;
+    INT Third;
+    C_00e48220& sub_00e48220(C_00e48220& Source);
+};
+
+// @baa 0x00e48220
+C_00e48220& C_00e48220::sub_00e48220(C_00e48220& Source)
+{
+    First = Source.First;
+    Second = Source.Second;
+    Third = Source.Third;
+    return *this;
+}
+
+static void C_00e48220Caller(C_00e48220& Target, C_00e48220& Source)
+{
+    Target.sub_00e48220(Source);
+}
+
+extern int* g_026b0d94;
+struct C_00e47dd0 {
+    void sub_00e47dd0(void);
+};
+
+// @baa 0x00e47dd0
+// @baa 0x00e47dd0
+void C_00e47dd0::sub_00e47dd0(void)
+{
+    int thisPtr = (int)this;
+
+    if (*(int*)(thisPtr + 4)) {
+        (*(void(__stdcall**)(int))(*g_026b0d94 + 0x23c))(*(int*)(thisPtr + 4));
+    }
+    return;
+}
+
+// This member forwards its display object to the shared GFx renderer table.
+// The call at table slot 0x23c is a stdcall method taking the display object.
+struct GFxUIMovie_00e479d0
+{
+    void *VFPtr;
+    void sub_00e479d0();
+    int DisplayObject;
+};
+
+// @baa 0x00e479d0
+void GFxUIMovie_00e479d0::sub_00e479d0()
+{
+    if (DisplayObject)
+    {
+        (*(void(__stdcall**)(int))(g_026b0d94[0] + 0x23c))(DisplayObject);
+    }
 }

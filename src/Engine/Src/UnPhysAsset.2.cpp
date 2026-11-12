@@ -1,4 +1,4 @@
-// UnPhysAsset.cpp: 37 functions
+// UnPhysAsset.cpp: 38 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -550,4 +550,23 @@ void URB_BodyInstance__00c95090::execGetUnrealWorldVelocityAtPoint(FFrame& Stack
 	P_GET_STRUCT(FVector, Point);
 	P_FINISH;
 	*(FVector*)Result = GetUnrealWorldVelocityAtPoint(Point);
+}
+
+extern FName g_026c4f70;
+	/* ENGINE_OnRigidBodySpringOverextension */
+struct AActor_ : public AActor
+{
+	void eventOnRigidBodySpringOverextension(URB_BodyInstance* BodyInstance);
+};
+
+// @baa 0x009f7230
+/* The script event's generated glue (EngineClasses.h), out of line here. */
+void AActor_::eventOnRigidBodySpringOverextension(URB_BodyInstance* BodyInstance)
+{
+	struct Actor_eventOnRigidBodySpringOverextension_Parms
+	{
+		class URB_BodyInstance* BodyInstance;
+	} Parms;
+	Parms.BodyInstance = BodyInstance;
+	ProcessEvent(FindFunctionChecked(g_026c4f70), &Parms);
 }

@@ -1,4 +1,4 @@
-// Engine_0d40000.cpp (part 4 of 4): 8 functions
+// Engine_0d40000.cpp (part 4 of 4): 10 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -192,4 +192,49 @@ C_00d45600* C_00d45600::sub_00d45600()
     Value_10 = 0;
     Value_14 = 0;
     return this;
+}
+
+struct Vec3Like {
+    int A;
+    int B;
+    int C;
+
+    Vec3Like* sub_00d47020(const Vec3Like& Src)
+    {
+        A = Src.A;
+        B = Src.B;
+        C = Src.C;
+        return this;
+    }
+};
+
+// @baa 0x00d47020
+int ForceSub(Vec3Like& Dst, const Vec3Like& Src)
+{
+    Dst.sub_00d47020(Src);
+    return Dst.A;
+}
+
+// 00d46000: member of a 12-byte struct; stores its three arguments
+// into the struct's three 32-bit fields and returns this.
+struct V3
+{
+    INT X;
+    INT Y;
+    INT Z;
+
+    V3* sub_00d46000(INT A, INT B, INT C)
+    {
+        X = A;
+        Y = B;
+        Z = C;
+        return this;
+    }
+};
+
+// @baa 0x00d46000
+// keeps sub_00d46000 in the object
+V3* sub_00d46100(V3* V, INT A, INT B, INT C)
+{
+    return V->sub_00d46000(A, B, C);
 }

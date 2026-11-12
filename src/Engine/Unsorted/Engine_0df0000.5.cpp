@@ -1,4 +1,4 @@
-// Engine_0df0000.cpp (part 5 of 5): 6 functions
+// Engine_0df0000.cpp (part 5 of 5): 7 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -124,3 +124,27 @@ void C_00df18c0::sub_00df18c0()
     First = 0.0f;
     Second = 0.0f;
 }
+
+struct D {
+    int a;
+    int b;
+    int c;
+};
+
+struct C_00df5dc0 {
+    int x;
+    int y;
+    int z;
+    C_00df5dc0& sub_00df5dc0(const D& o);
+};
+
+// @baa 0x00df5dc0
+C_00df5dc0& C_00df5dc0::sub_00df5dc0(const D& o)
+{
+    x = o.a;
+    y = o.b;
+    z = o.c;
+    return *this;
+}
+
+static int Keep(C_00df5dc0& c, const D& o) { return c.sub_00df5dc0(o).x; }

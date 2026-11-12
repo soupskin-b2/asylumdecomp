@@ -1,4 +1,4 @@
-// UOnlineProfileSettings.cpp: 29 functions
+// UOnlineProfileSettings.cpp: 30 functions
 // Placed here by: neighbours 21, class 6, callers 1, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -126,3 +126,43 @@ bool UOnlineProfileSettings::vf_004()
 // @baa 0x00d88c40
 // @baa 0x00d8aba0
 // @baa 0x00d8ac90
+
+struct F00d67250Record
+{
+		INT	First;
+		INT	Second;
+		DOUBLE Value;
+		INT	Flags;
+};
+
+struct C_00d67250Record : F00d67250Record
+{
+		F00d67250Record* sub_00d67250();
+};
+
+// @baa 0x00d67250
+F00d67250Record* C_00d67250Record::sub_00d67250()
+{
+		Flags |= 1;
+		Value = 0.0;
+		First = 0;
+		Second = 0;
+		return this;
+}
+
+struct C_00d67250Driver
+{
+		C_00d67250Record Record;
+		void Run();
+};
+
+void C_00d67250Driver::Run()
+{
+		Record.sub_00d67250();
+}
+
+static void Use_00d67250()
+{
+		C_00d67250Driver Driver;
+		Driver.Run();
+}

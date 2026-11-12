@@ -1,4 +1,4 @@
-// OnlineSubsystemSteamworks_0e80000.cpp (part 1 of 2): 51 functions
+// OnlineSubsystemSteamworks_0e80000.cpp (part 1 of 2): 52 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -380,3 +380,27 @@ void sub_00e8fdd0(void) { sub_00e8ecb0(); }
 void sub_00e8ee30();
 // @baa 0x00e8fde0
 void sub_00e8fde0(void) { sub_00e8ee30(); }
+
+struct E89MaskClass {
+    virtual int v0();
+    virtual int v1();
+    virtual int v2();
+    virtual int v3();
+    virtual int v4();
+    virtual int v5();
+    virtual int v6();
+    virtual int v7();
+    virtual int v8();
+    virtual int v9();
+    virtual int v10();
+    virtual int v11();
+    virtual int GetFlags();
+    virtual bool sub_00e89c90(int Mask);
+};
+
+// @baa 0x00e89c90
+bool E89MaskClass::sub_00e89c90(int Mask)
+{
+    int Flags = GetFlags();
+    return (Flags & (Mask << 1)) != 0;
+}

@@ -1,4 +1,4 @@
-// WinClient.cpp (part 1 of 4): 129 functions
+// WinClient.cpp (part 1 of 4): 130 functions
 // Placed here by: neighbours 108, class 16, callers 4, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1309,3 +1309,27 @@ undefined4 UWindowsClient::sub_00ec0210(byte param_2)
 }
 
 // @baa 0x00ec0240
+
+struct C_00eb5350
+{
+	INT   A;
+	INT   B;
+	BYTE  C;
+
+	C_00eb5350* sub_00eb5350(const C_00eb5350* Src);
+};
+
+// @baa 0x00eb5350
+C_00eb5350* C_00eb5350::sub_00eb5350(const C_00eb5350* Src)
+{
+	A = Src->A;
+	B = Src->B;
+	C = Src->C;
+	return this;
+}
+
+void ForceSub_00eb5350()
+{
+	C_00eb5350 Dst, Src;
+	Dst.sub_00eb5350(&Src);
+}

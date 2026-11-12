@@ -1,4 +1,4 @@
-// UnUIDataStores.cpp (part 5 of 6): 5 functions
+// UnUIDataStores.cpp (part 5 of 6): 6 functions
 // Placed here by: neighbours 3.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -78,4 +78,20 @@ INT __stdcall sub_00d9bab0(INT A, INT B, INT C, BYTE* Out)
 {
     *Out = 0;
     return 1;
+}
+
+struct S_00d90fd0 {
+    int Field0;
+    int Field4;
+    int Field8;
+    S_00d90fd0* sub_00d90fd0(int a, int b, int c);
+};
+
+// @baa 0x00d90fd0
+S_00d90fd0* S_00d90fd0::sub_00d90fd0(int a, int b, int c)
+{
+    Field0 = a;
+    Field4 = b;
+    Field8 = c;
+    return this;
 }

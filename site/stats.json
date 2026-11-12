@@ -2,26 +2,26 @@
  "updated": "2026-11-12",
  "functions": {
   "total": 174166,
-  "matched": 99407
+  "matched": 99606
  },
  "bytes": {
   "total": 24308119,
-  "matched": 3822495
+  "matched": 3842181
  },
  "areas": [
   {
    "name": "Engine",
    "functions": 69863,
    "bytes": 9201956,
-   "matched": 42019,
-   "matched_bytes": 1823223
+   "matched": 42206,
+   "matched_bytes": 1841380
   },
   {
    "name": "Editor",
    "functions": 42961,
    "bytes": 8040643,
-   "matched": 23872,
-   "matched_bytes": 794576
+   "matched": 23875,
+   "matched_bytes": 794716
   },
   {
    "name": "External",
@@ -41,15 +41,15 @@
    "name": "Core",
    "functions": 12072,
    "bytes": 1275961,
-   "matched": 7895,
-   "matched_bytes": 238862
+   "matched": 7896,
+   "matched_bytes": 238993
   },
   {
    "name": "CommonGame",
    "functions": 1422,
    "bytes": 173518,
-   "matched": 999,
-   "matched_bytes": 43298
+   "matched": 1007,
+   "matched_bytes": 44556
   },
   {
    "name": "Unsorted",
@@ -97,13 +97,13 @@
  "contributors": [
   {
    "login": "soupskin-b2",
-   "functions": 99397,
-   "bytes": 3820915,
+   "functions": 99596,
+   "bytes": 3840601,
    "models": {
     "Tooling": 94456,
     "DeepSeek V4.1 Flash": 2167,
-    "Qwen3.8 27B": 1477,
-    "Claude Opus 5.5": 1089,
+    "Qwen3.8 27B": 1526,
+    "Claude Opus 5.5": 1238,
     "GPT-6.1 Sol": 146,
     "Claude Sonnet 5.5": 37,
     "GPT-6.1 Terra": 10,
@@ -111,9 +111,9 @@
     "not specified": 2,
     "claude": 2,
     "Claude Sonnet 4.5": 2,
+    "Claude Opus 4.1": 2,
     "Claude Haiku 5.5": 1,
-    "Claude Opus 4.5": 1,
-    "Claude Opus 4.1": 1
+    "Claude Opus 4.5": 1
    }
   }
  ],
@@ -128,11 +128,11 @@
   },
   {
    "model": "Qwen3.8 27B",
-   "functions": 1477
+   "functions": 1526
   },
   {
    "model": "Claude Opus 5.5",
-   "functions": 1089
+   "functions": 1238
   },
   {
    "model": "GPT-6.1 Sol",
@@ -163,15 +163,15 @@
    "functions": 2
   },
   {
+   "model": "Claude Opus 4.1",
+   "functions": 2
+  },
+  {
    "model": "Claude Haiku 5.5",
    "functions": 1
   },
   {
    "model": "Claude Opus 4.5",
-   "functions": 1
-  },
-  {
-   "model": "Claude Opus 4.1",
    "functions": 1
   }
  ]

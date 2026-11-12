@@ -1,4 +1,4 @@
-// UnUIStyles.cpp (part 1 of 4): 355 functions
+// UnUIStyles.cpp (part 1 of 4): 357 functions
 // Placed here by: neighbours 301, class 36, callers 11, file 7.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -3792,4 +3792,36 @@ UBOOL UUIStyle_Combo::IsDirty()
     }
   }
   return 1;
+}
+
+/* Kit gaps: FUIStyleReference has no methods; UUIStyle::GetStyleForState (sub_00ddaa80) is declared,
+ * GetStyleForStateByClass is sub_00ddac00. */
+struct FUIStyleReference_ : public FUIStyleReference
+{
+	UUIStyle_Data* GetStyleDataByState(UUIState* StateObject) const;
+	UUIStyle_Data* GetStyleDataByClass(UClass* StateClass) const;
+};
+
+// @baa 0x00ddb4e0
+/* The resolved style's data for StateObject. */
+UUIStyle_Data* FUIStyleReference_::GetStyleDataByState(UUIState* StateObject) const
+{
+	UUIStyle_Data* Result = NULL;
+	if (StateObject != NULL && ResolvedStyle != NULL)
+	{
+		Result = ResolvedStyle->sub_00ddaa80(StateObject);
+	}
+	return Result;
+}
+
+// @baa 0x00ddb500
+/* The resolved style's data for the state of class StateClass. */
+UUIStyle_Data* FUIStyleReference_::GetStyleDataByClass(UClass* StateClass) const
+{
+	UUIStyle_Data* Result = NULL;
+	if (StateClass != NULL && ResolvedStyle != NULL)
+	{
+		Result = ResolvedStyle->sub_00ddac00(StateClass);
+	}
+	return Result;
 }

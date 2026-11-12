@@ -1,7 +1,7 @@
-// Engine_0940000.cpp: 3 functions
+// Engine_0940000.cpp: 4 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
-#include "ue3/Core.h"
+#include "ue3/Classes.h"
 
 struct IShutdown {
     virtual void NotifyShutdown(INT bValue) = 0;
@@ -79,4 +79,14 @@ void OuterClass::sub_00948000()
 	if (Inner != NULL)
 		Inner->OnNotify(1);
 	Inner = NULL;
+}
+
+inline FArchive& operator<<(FArchive& Ar, INT& I) { Ar.ByteOrderSerialize(&I, sizeof(I)); return Ar; }
+
+FArchive& operator<<(FArchive& Ar, FSimpleBox& Box);
+// @baa 0x00943a30
+ /* 0x00943580 */
+FArchive& operator<<(FArchive& Ar, FBoneBounds& B)
+{
+    return Ar << B.BoneIndex << B.Box;
 }

@@ -1,4 +1,4 @@
-// OnlineSubsystemSteamworks.cpp (part 1 of 3): 272 functions
+// OnlineSubsystemSteamworks.cpp (part 1 of 3): 278 functions
 // Placed here by: neighbours 242, class 65, callers 17.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -2482,3 +2482,140 @@ void Outer::sub_00e9a180() {
 
 struct X {};
 
+extern FName g_026c4acc;
+ /* ENGINE_SetVoiceInterface */
+struct UOnlineSubsystem_ : public UOnlineSubsystem
+{
+    UBOOL eventSetVoiceInterface(UObject* NewInterface);
+};
+
+// @baa 0x00e85c40
+/* OnlineSubsystem.uc's SetVoiceInterface script event, generated glue (EngineClasses.h). */
+UBOOL UOnlineSubsystem_::eventSetVoiceInterface(UObject* NewInterface)
+{
+    struct OnlineSubsystem_eventSetVoiceInterface_Parms
+    {
+        UObject* NewInterface;
+        UBOOL ReturnValue;
+    };
+    OnlineSubsystem_eventSetVoiceInterface_Parms Parms;
+    Parms.ReturnValue = FALSE;
+    Parms.NewInterface = NewInterface;
+    ProcessEvent(FindFunctionChecked(g_026c4acc), &Parms);
+    return Parms.ReturnValue;
+}
+
+extern FName g_026c5344;
+ /* ENGINE_SetGameInterface */
+struct UOnlineSubsystem__00e85c90 : public UOnlineSubsystem
+{
+    UBOOL eventSetGameInterface(UObject* NewInterface);
+};
+
+// @baa 0x00e85c90
+/* OnlineSubsystem.uc's SetGameInterface script event, generated glue (EngineClasses.h). */
+UBOOL UOnlineSubsystem__00e85c90::eventSetGameInterface(UObject* NewInterface)
+{
+    struct OnlineSubsystem_eventSetGameInterface_Parms
+    {
+        UObject* NewInterface;
+        UBOOL ReturnValue;
+    };
+    OnlineSubsystem_eventSetGameInterface_Parms Parms;
+    Parms.ReturnValue = FALSE;
+    Parms.NewInterface = NewInterface;
+    ProcessEvent(FindFunctionChecked(g_026c5344), &Parms);
+    return Parms.ReturnValue;
+}
+
+extern FName g_026c3eb0;
+ /* ENGINE_SetSystemInterface */
+struct UOnlineSubsystem__00e85ce0 : public UOnlineSubsystem
+{
+    UBOOL eventSetSystemInterface(UObject* NewInterface);
+};
+
+// @baa 0x00e85ce0
+/* OnlineSubsystem.uc's SetSystemInterface script event, generated glue (EngineClasses.h). */
+UBOOL UOnlineSubsystem__00e85ce0::eventSetSystemInterface(UObject* NewInterface)
+{
+    struct OnlineSubsystem_eventSetSystemInterface_Parms
+    {
+        UObject* NewInterface;
+        UBOOL ReturnValue;
+    };
+    OnlineSubsystem_eventSetSystemInterface_Parms Parms;
+    Parms.ReturnValue = FALSE;
+    Parms.NewInterface = NewInterface;
+    ProcessEvent(FindFunctionChecked(g_026c3eb0), &Parms);
+    return Parms.ReturnValue;
+}
+
+extern FName g_026c50f4;
+ /* ENGINE_SetPlayerInterfaceEx */
+struct UOnlineSubsystem__00e85d30 : public UOnlineSubsystem
+{
+    UBOOL eventSetPlayerInterfaceEx(UObject* NewInterface);
+};
+
+// @baa 0x00e85d30
+/* OnlineSubsystem.uc's SetPlayerInterfaceEx script event, generated glue (EngineClasses.h). */
+UBOOL UOnlineSubsystem__00e85d30::eventSetPlayerInterfaceEx(UObject* NewInterface)
+{
+    struct OnlineSubsystem_eventSetPlayerInterfaceEx_Parms
+    {
+        UObject* NewInterface;
+        UBOOL ReturnValue;
+    };
+    OnlineSubsystem_eventSetPlayerInterfaceEx_Parms Parms;
+    Parms.ReturnValue = FALSE;
+    Parms.NewInterface = NewInterface;
+    ProcessEvent(FindFunctionChecked(g_026c50f4), &Parms);
+    return Parms.ReturnValue;
+}
+
+extern FName g_026c3edc;
+ /* ENGINE_SetPlayerInterface */
+struct UOnlineSubsystem__00e85d80 : public UOnlineSubsystem
+{
+    UBOOL eventSetPlayerInterface(UObject* NewInterface);
+};
+
+// @baa 0x00e85d80
+/* OnlineSubsystem.uc's SetPlayerInterface script event, generated glue (EngineClasses.h). */
+UBOOL UOnlineSubsystem__00e85d80::eventSetPlayerInterface(UObject* NewInterface)
+{
+    struct OnlineSubsystem_eventSetPlayerInterface_Parms
+    {
+        UObject* NewInterface;
+        UBOOL ReturnValue;
+    };
+    OnlineSubsystem_eventSetPlayerInterface_Parms Parms;
+    Parms.ReturnValue = FALSE;
+    Parms.NewInterface = NewInterface;
+    ProcessEvent(FindFunctionChecked(g_026c3edc), &Parms);
+    return Parms.ReturnValue;
+}
+
+extern FName g_026c4288;
+ /* ENGINE_SetAccountInterface */
+struct UOnlineSubsystem__00e85dd0 : public UOnlineSubsystem
+{
+    UBOOL eventSetAccountInterface(UObject* NewInterface);
+};
+
+// @baa 0x00e85dd0
+/* OnlineSubsystem.uc's SetAccountInterface script event, generated glue (EngineClasses.h). */
+UBOOL UOnlineSubsystem__00e85dd0::eventSetAccountInterface(UObject* NewInterface)
+{
+    struct OnlineSubsystem_eventSetAccountInterface_Parms
+    {
+        UObject* NewInterface;
+        UBOOL ReturnValue;
+    };
+    OnlineSubsystem_eventSetAccountInterface_Parms Parms;
+    Parms.ReturnValue = FALSE;
+    Parms.NewInterface = NewInterface;
+    ProcessEvent(FindFunctionChecked(g_026c4288), &Parms);
+    return Parms.ReturnValue;
+}

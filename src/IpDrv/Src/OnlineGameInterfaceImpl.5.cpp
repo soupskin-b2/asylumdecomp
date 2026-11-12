@@ -1,4 +1,4 @@
-// OnlineGameInterfaceImpl.cpp (part 5 of 5): 9 functions
+// OnlineGameInterfaceImpl.cpp (part 5 of 5): 10 functions
 // Placed here by: class 8.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -42,4 +42,28 @@ void Reader::sub_00e2a3b0(Result* Out)
 {
     Out->Size = *(int*)(Buffer + Offset);
     Out->Data = Buffer + Offset + 4;
+}
+
+extern FName g_026cad34;
+ /* IPDRV_GetPlayerUniqueNetIdFromIndex */
+struct UOnlineSubsystemCommonImpl_ : public UOnlineSubsystemCommonImpl
+{
+    FUniqueNetId eventGetPlayerUniqueNetIdFromIndex(INT UserIndex);
+};
+
+// @baa 0x00e2a1e0
+/* OnlineSubsystemCommonImpl.uc's GetPlayerUniqueNetIdFromIndex script event, generated glue
+ * (IpDrvClasses.h). */
+FUniqueNetId UOnlineSubsystemCommonImpl_::eventGetPlayerUniqueNetIdFromIndex(INT UserIndex)
+{
+    struct OnlineSubsystemCommonImpl_eventGetPlayerUniqueNetIdFromIndex_Parms
+    {
+        INT UserIndex;
+        FUniqueNetId ReturnValue;
+    };
+    OnlineSubsystemCommonImpl_eventGetPlayerUniqueNetIdFromIndex_Parms Parms;
+    appMemzero(&Parms.ReturnValue, sizeof(Parms.ReturnValue));
+    Parms.UserIndex = UserIndex;
+    ProcessEvent(FindFunctionChecked(g_026cad34), &Parms);
+    return Parms.ReturnValue;
 }

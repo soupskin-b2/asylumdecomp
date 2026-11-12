@@ -1,4 +1,4 @@
-// UOnlineEventsInterfaceMcp.cpp: 22 functions
+// UOnlineEventsInterfaceMcp.cpp: 24 functions
 // Placed here by: neighbours 14, class 6, callers 1, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -149,3 +149,30 @@ void C_00e3e4f0::sub_00e3e4f0(undefined4 param_2)
 }
 
 // @baa 0x00e3e510
+
+struct UOnlineEventsInterfaceMcp_ : public UOnlineEventsInterfaceMcp {
+    void sub_00e2c7f0(INT, INT);
+};
+
+// @baa 0x00e2c7f0
+// @baa 0x00e2c7f0
+void UOnlineEventsInterfaceMcp_::sub_00e2c7f0(INT A, INT B)
+{
+    vf_11c(0, A, B);
+}
+
+struct C_00e3d180 {
+    void sub_00e3d180(INT, INT);
+};
+
+class UObject_00e3e4d0 : public UObject {
+public:
+    void sub_00e3e4d0(INT A, INT B, INT C, INT D);
+};
+
+// @baa 0x00e3e4d0
+void UObject_00e3e4d0::sub_00e3e4d0(INT A, INT B, INT C, INT D)
+{
+    if (Class)
+        ((C_00e3d180 *)Class)->sub_00e3d180(C, D);
+}

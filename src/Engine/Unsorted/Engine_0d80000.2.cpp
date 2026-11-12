@@ -1,4 +1,4 @@
-// Engine_0d80000.cpp (part 2 of 2): 2 functions
+// Engine_0d80000.cpp (part 2 of 2): 3 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -26,4 +26,22 @@ struct FOnlineGameSearchQuery_ : public FOnlineGameSearchQuery {
 // @baa 0x00d872b0
 FOnlineGameSearchQuery_::~FOnlineGameSearchQuery_()
 {
+}
+
+struct FPair_
+{
+	int         A;
+	int         B;
+	unsigned char C;
+
+	FPair_& sub_00d8f300(const FPair_& In);
+};
+
+// @baa 0x00d8f300
+FPair_& FPair_::sub_00d8f300(const FPair_& In)
+{
+	A = In.A;
+	B = In.B;
+	C = In.C;
+	return *this;
 }

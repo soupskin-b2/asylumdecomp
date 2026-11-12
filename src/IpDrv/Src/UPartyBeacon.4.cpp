@@ -1,4 +1,4 @@
-// UPartyBeacon.cpp (part 4 of 4): 9 functions
+// UPartyBeacon.cpp (part 4 of 4): 10 functions
 // Placed here by: class 5.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -128,3 +128,17 @@ undefined4 * UPartyBeacon::sub_00e38150(void)
 void sub_00e3e280();
 // @baa 0x00e3f490
 void sub_00e3f490(void) { sub_00e3e280(); }
+
+struct S_00e2d540 {
+    int A, B, C;
+    S_00e2d540& sub_00e2d540(const S_00e2d540& S);
+};
+
+// @baa 0x00e2d540
+S_00e2d540& S_00e2d540::sub_00e2d540(const S_00e2d540& S)
+{
+    A = S.A;
+    B = S.B;
+    C = S.C;
+    return *this;
+}

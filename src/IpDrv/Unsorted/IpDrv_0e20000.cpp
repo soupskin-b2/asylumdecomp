@@ -1,4 +1,4 @@
-// IpDrv_0e20000.cpp: 53 functions
+// IpDrv_0e20000.cpp: 54 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -446,4 +446,24 @@ struct C_00e28a90
 INT C_00e28a90::sub_00e28a90()
 {
     return (WORD)sub_018d3526(Value_02);
+}
+
+extern FName g_026cad88;
+ /* IPDRV_UnregisterParty */
+struct UPartyBeaconHost_ : public UPartyBeaconHost
+{
+    void eventUnregisterParty(FUniqueNetId PartyLeader);
+};
+
+// @baa 0x00e29870
+/* PartyBeaconHost.uc's UnregisterParty script event, generated glue (IpDrvClasses.h). */
+void UPartyBeaconHost_::eventUnregisterParty(FUniqueNetId PartyLeader)
+{
+    struct PartyBeaconHost_eventUnregisterParty_Parms
+    {
+        FUniqueNetId PartyLeader;
+    };
+    PartyBeaconHost_eventUnregisterParty_Parms Parms;
+    Parms.PartyLeader = PartyLeader;
+    ProcessEvent(FindFunctionChecked(g_026cad88), &Parms);
 }

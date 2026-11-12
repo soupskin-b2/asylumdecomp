@@ -1,4 +1,4 @@
-// UnSkeletalTools.cpp: 1 function
+// UnSkeletalTools.cpp: 3 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #define BAA_OUTLINE_ALLOC
@@ -53,3 +53,11 @@ struct FMeshBone_
 // @baa 0x00950000
 /* the out-of-line new(TArray<FMeshBone>&) instance (Array.h line 1275) */
 template void* operator new<FMeshBone_>(size_t Size, TArray<FMeshBone_>& Array);
+
+// @baa 0x00950350
+/* the out-of-line new(TArray<FBoneBounds>&) instance (Array.h line 1275) */
+template void* operator new<FBoneBounds>(size_t Size, TArray<FBoneBounds>& Array);
+
+// @baa 0x00950400
+/* the out-of-line new(TArray<USkeletalMeshSocket*>&) instance (Array.h line 1275) */
+template void* operator new<USkeletalMeshSocket*>(size_t Size, TArray<USkeletalMeshSocket*>& Array);

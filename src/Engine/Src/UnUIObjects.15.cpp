@@ -1,4 +1,4 @@
-// UnUIObjects.cpp (part 15 of 17): 18 functions
+// UnUIObjects.cpp (part 15 of 17): 23 functions
 // Placed here by: class 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -256,4 +256,101 @@ C_00dc2cd0* C_00dc2cd0::sub_00dc2cd0(void) { return this; }
 BYTE UUIScene::GetInputMask(UINT a, UINT b)
 {
     return PlayerInputMask;
+}
+
+struct UUIObject_ : public UUIObject {
+    void sub_00daa410();
+};
+
+// @baa 0x00daa410
+void UUIObject_::sub_00daa410()
+{
+    UUIScene* Scene = (UUIScene*)GetScene();
+    if (Scene) {
+        Scene->bReevaluateRotationSupport = true;
+    }
+}
+
+struct C_00da67b0 {
+    int A;
+    int B;
+    int C;
+    C_00da67b0* sub_00da67b0(int Value);
+};
+
+// @baa 0x00da67b0
+C_00da67b0* C_00da67b0::sub_00da67b0(int Value)
+{
+    A = 0;
+    B = 0;
+    C = Value;
+    return this;
+}
+
+/* Kit gap: FName::operator== (UnName.h). */
+FORCEINLINE UBOOL operator==(const FName& A, const FName& B)
+{
+	return A.Index == B.Index && A.Number == B.Number;
+}
+
+/* Kit gap: FindChildIndex is const in this build (the const operator() is used); Classes.h declares it non-const. */
+struct UUIScreenObject_ : public UUIScreenObject
+{
+	INT FindChildIndex(FName WidgetName) const;
+};
+
+// @baa 0x00daf640
+/* The index of the child whose WidgetTag is WidgetName, or INDEX_NONE. */
+INT UUIScreenObject_::FindChildIndex(FName WidgetName) const
+{
+	INT Result = INDEX_NONE;
+	for (INT ChildIndex = 0; ChildIndex < Children.Num(); ChildIndex++)
+	{
+		if (Children(ChildIndex)->WidgetTag == WidgetName)
+		{
+			Result = ChildIndex;
+			break;
+		}
+	}
+	return Result;
+}
+
+// @baa 0x00db0230
+/* Sets the widget's depth, and optionally its children's. */
+void UUIScreenObject::SetZDepth(FLOAT NewZDepth, UBOOL bPropagateToChildren)
+{
+	ZDepth = NewZDepth;
+	if (bPropagateToChildren)
+	{
+		for (INT ChildIndex = 0; ChildIndex < Children.Num(); ChildIndex++)
+		{
+			UUIObject* Child = Children(ChildIndex);
+			if (Child != NULL)
+			{
+				Child->SetZDepth(NewZDepth, TRUE);
+			}
+		}
+	}
+}
+
+// @baa 0x00db1270
+/* Sets or clears the private behavior flags in Behavior, and optionally on all children. */
+void UUIObject::SetPrivateBehavior(INT Behavior, UBOOL Value, UBOOL bRecurse)
+{
+	if (Value)
+	{
+		PrivateFlags |= Behavior;
+	}
+	else
+	{
+		PrivateFlags &= ~Behavior;
+	}
+
+	if (bRecurse)
+	{
+		for (INT ChildIndex = 0; ChildIndex < Children.Num(); ChildIndex++)
+		{
+			Children(ChildIndex)->SetPrivateBehavior(Behavior, Value, bRecurse);
+		}
+	}
 }

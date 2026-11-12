@@ -1,4 +1,4 @@
-// UnUIStyles.cpp: 1 function
+// UnUIStyles.cpp: 6 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -39,4 +39,146 @@ void UUIStyle_Combo::vf_01c()
 	{
 		ImageStyle.OwnerStyle = Cast<UUIStyle>(((UObject_*)this)->GetOuter());
 	}
+}
+
+struct UUIStyle_Data_ : public UUIStyle_Data
+{
+	UUIStyle* GetOwnerStyle() const;
+};
+
+// @baa 0x00ddb0a0
+/* The style that owns this style data: its outer, or for custom style data its outer's outer. */
+UUIStyle* UUIStyle_Data_::GetOwnerStyle() const
+{
+	UUIStyle* Result = NULL;
+	if (((UObject_*)this)->GetOuter() != NULL)
+	{
+		Result = Cast<UUIStyle>(((UObject_*)this)->GetOuter());
+		if (Result == NULL)
+		{
+			Result = Cast<UUIStyle>(((UObject_*)((UObject_*)this)->GetOuter())->GetOuter());
+		}
+	}
+	return Result;
+}
+
+struct UUIStyle_Data__00ddb1d0 : public UUIStyle_Data
+{
+	/* GetOwnerStyle (00ddb0a0), inline here. */
+	FORCEINLINE UUIStyle* GetOwnerStyle() const
+	{
+		UUIStyle* Result = NULL;
+		if (((UObject_*)this)->GetOuter() != NULL)
+		{
+			Result = Cast<UUIStyle>(((UObject_*)this)->GetOuter());
+			if (Result == NULL)
+			{
+				Result = Cast<UUIStyle>(((UObject_*)((UObject_*)this)->GetOuter())->GetOuter());
+			}
+		}
+		return Result;
+	}
+};
+
+struct FStyleDataReference_ : public FStyleDataReference
+{
+	UBOOL IsCustomStyleDataValid() const;
+	UBOOL IsCustomStyleDataEnabled() const;
+	void EnableCustomStyleData(UBOOL bEnabled);
+};
+
+// @baa 0x00ddb1d0
+/* Whether CustomStyleData belongs to the style this reference is in. */
+UBOOL FStyleDataReference_::IsCustomStyleDataValid() const
+{
+	return CustomStyleData != NULL && ((UUIStyle_Data__00ddb1d0*)CustomStyleData)->GetOwnerStyle() == OwnerStyle;
+}
+
+struct UUIStyle_Data__00ddb220 : public UUIStyle_Data
+{
+	/* GetOwnerStyle (00ddb0a0), inline here. */
+	FORCEINLINE UUIStyle* GetOwnerStyle() const
+	{
+		UUIStyle* Result = NULL;
+		if (((UObject_*)this)->GetOuter() != NULL)
+		{
+			Result = Cast<UUIStyle>(((UObject_*)this)->GetOuter());
+			if (Result == NULL)
+			{
+				Result = Cast<UUIStyle>(((UObject_*)((UObject_*)this)->GetOuter())->GetOuter());
+			}
+		}
+		return Result;
+	}
+};
+
+// @baa 0x00ddb220
+/* Whether the custom style data is valid and enabled. */
+UBOOL FStyleDataReference_::IsCustomStyleDataEnabled() const
+{
+	return CustomStyleData != NULL && ((UUIStyle_Data__00ddb220*)CustomStyleData)->GetOwnerStyle() == OwnerStyle && CustomStyleData->bEnabled;
+}
+
+struct UUIStyle_Data__00ddb180 : public UUIStyle_Data
+{
+	/* GetOwnerStyle (00ddb0a0), inline here. */
+	FORCEINLINE UUIStyle* GetOwnerStyle() const
+	{
+		UUIStyle* Result = NULL;
+		if (((UObject_*)this)->GetOuter() != NULL)
+		{
+			Result = Cast<UUIStyle>(((UObject_*)this)->GetOuter());
+			if (Result == NULL)
+			{
+				Result = Cast<UUIStyle>(((UObject_*)((UObject_*)this)->GetOuter())->GetOuter());
+			}
+		}
+		return Result;
+	}
+};
+
+// @baa 0x00ddb180
+/* Turns the custom style data on or off, if it belongs to this reference's style. */
+void FStyleDataReference_::EnableCustomStyleData(UBOOL bEnabled)
+{
+	if (CustomStyleData != NULL && ((UUIStyle_Data__00ddb180*)CustomStyleData)->GetOwnerStyle() == OwnerStyle)
+	{
+		CustomStyleData->bEnabled = bEnabled;
+	}
+}
+
+/* Kit gaps: CastChecked<T> (out of line here, 00dd9c10), UObject::GetArchetype<T>, GetDefault<T> and UUIStyle::GetArchetypeStyleForState aren't declared. */
+template<class T> T* CastChecked(UObject* Src);
+struct UObject__00ddb7a0 : public UObject
+{
+	FORCEINLINE UObject* GetArchetype() const { return ObjectArchetype; }
+	template<class T> FORCEINLINE T* GetArchetype() const
+	{
+		return CastChecked<T>(GetArchetype());
+	}
+};
+
+template<class T> FORCEINLINE T* GetDefault()
+{
+	return (T*)T::StaticClass()->GetDefaultObject();
+}
+
+struct UUIStyle_ : public UUIStyle
+{
+	UUIStyle_Data* GetArchetypeStyleForState(UUIState* StateObject) const;
+};
+
+// @baa 0x00ddb7a0
+/* The archetype style's data for StateObject, unless the archetype is the class default. */
+UUIStyle_Data* UUIStyle_::GetArchetypeStyleForState(UUIState* StateObject) const
+{
+	UUIStyle_Data* Result = NULL;
+
+	UUIStyle* StyleArchetype = ((UObject__00ddb7a0*)this)->GetArchetype<UUIStyle>();
+	if (StyleArchetype != GetDefault<UUIStyle>())
+	{
+		Result = StyleArchetype->sub_00ddaa80(StateObject);		/* GetStyleForState */
+	}
+
+	return Result;
 }

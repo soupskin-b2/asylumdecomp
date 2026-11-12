@@ -1,25 +1,26 @@
-// UnInterpolation.cpp (part 1 of 8): 7 functions
-// Placed here by: neighbours 6, callers 1.
+// UnInterpolation.cpp: 1 function
+// Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
-#include "ue3/Cast.h"
 
-// @baa 0x0086e7b0
-template UInterpGroupInst* Cast<UInterpGroupInst>(UObject* Src);
+struct S {
+    DWORD Field0;
+    DWORD Field4;
+    DWORD Field8;
+    DWORD FieldC;
+    DWORD Field10;
+    DWORD Field14;
+    DWORD Field18;
+    S* sub_00cf05a0(int Unused);
+};
 
-// @baa 0x00ced2d0
-template USeqVar_External* Cast<USeqVar_External>(UObject* Src);
-
-// @baa 0x00ced330
-template ALensFlareSource* Cast<ALensFlareSource>(UObject* Src);
-
-// @baa 0x00ced390
-template AMaterialInstanceActor* Cast<AMaterialInstanceActor>(UObject* Src);
-
-// @baa 0x00cfd9a0
-template UInterpTrackInstMove* Cast<UInterpTrackInstMove>(UObject* Src);
-
-// @baa 0x00d05d80
-template UInterpTrack* Cast<UInterpTrack>(UObject* Src);
-
-// @baa 0x00d11630
-template UInterpGroupDirector* Cast<UInterpGroupDirector>(UObject* Src);
+// @baa 0x00cf05a0
+S* S::sub_00cf05a0(int Unused)
+{
+    Field4 = 0;
+    Field8 = 0;
+    FieldC = 0;
+    Field10 = 0;
+    Field14 = 0;
+    Field18 = 0;
+    return this;
+}

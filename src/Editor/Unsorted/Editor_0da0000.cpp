@@ -1,7 +1,7 @@
-// Editor_0da0000.cpp (part 1 of 2): 41 functions
+// Editor_0da0000.cpp (part 1 of 2): 43 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
-#include "ue3/Array.h"
+#include "ue3/Classes.h"
 
 // @baa 0x00dabcc0
 int sub_00dabcc0(int a0) { return *(int*)a0; }
@@ -274,3 +274,47 @@ struct C_00dac3f0 { int a, b; C_00dac3f0(const C_00dac3f0 &); };
 
 // @baa 0x00dac3f0
 C_00dac3f0::C_00dac3f0(const C_00dac3f0 &o) : a(o.a), b(o.b) {}
+
+struct C_00dac4a0 {
+    int x;
+    int y;
+    int z;
+    C_00dac4a0& sub_00dac4a0(const C_00dac4a0&);
+};
+
+// @baa 0x00dac4a0
+C_00dac4a0& C_00dac4a0::sub_00dac4a0(const C_00dac4a0& Other)
+{
+    x = Other.x;
+    y = Other.y;
+    z = Other.z;
+    return *this;
+}
+
+static C_00dac4a0& Keep(C_00dac4a0& A, const C_00dac4a0& B)
+{
+    return A.sub_00dac4a0(B);
+}
+
+struct S00dac3d0Record {
+    INT First;
+    BYTE Second;
+    INT Third;
+    S00dac3d0Record* sub_00dac3d0(S00dac3d0Record* In);
+};
+
+// @baa 0x00dac3d0
+S00dac3d0Record* S00dac3d0Record::sub_00dac3d0(S00dac3d0Record* In)
+{
+    First = In->First;
+    Second = In->Second;
+    Third = In->Third;
+    return this;
+}
+
+static void sub_00dac3d0_caller()
+{
+    S00dac3d0Record A;
+    S00dac3d0Record B;
+    A.sub_00dac3d0(&B);
+}

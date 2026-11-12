@@ -1,4 +1,4 @@
-// UnDebuggerCore.cpp (part 3 of 3): 4 functions
+// UnDebuggerCore.cpp (part 3 of 3): 5 functions
 // Placed here by: class 4.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -75,3 +75,21 @@ undefined4 UNetPendingLevel::sub_00e20240(byte param_2)
   }
   return param_1;
 }
+
+struct C_00e17780 {
+    int A;
+    int B;
+    BYTE C;
+    C_00e17780* sub_00e17780(const C_00e17780* Src);
+};
+
+// @baa 0x00e17780
+C_00e17780* C_00e17780::sub_00e17780(const C_00e17780* Src)
+{
+    A = Src->A;
+    B = Src->B;
+    C = Src->C;
+    return this;
+}
+
+static void ForceSub_00e17780(void) {}

@@ -1,4 +1,4 @@
-// CommonGame_1530000.cpp (part 1 of 4): 113 functions
+// CommonGame_1530000.cpp (part 1 of 4): 114 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -751,3 +751,24 @@ int URSeqVar_AnalogControlFloat::vf_198(int a0) { return 0; }
 // @baa 0x0153ff70
 IMPLEMENT_CLASS_AT(URSeqVar_AnalogControlFloat, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonGame\\Src\\CommonGameSequenceClasses.cpp", 11);
 
+extern FName g_026e0c1c;
+ /* COMMONGAME_InitCollideDamageScale */
+struct ARBreakablePropStatic_ : public ARBreakablePropStatic
+{
+    void eventInitCollideDamageScale(FLOAT Scale);
+};
+
+// @baa 0x0153bbb0
+/* The InitCollideDamageScale script event's generated glue (CommonGameClasses.h); called on the
+ * spawned ARBreakablePropStatic by URActorFactoryBreakablePropStatic (0154a3a0). The parameter's
+ * script name isn't known. */
+void ARBreakablePropStatic_::eventInitCollideDamageScale(FLOAT Scale)
+{
+    struct RBreakablePropStatic_eventInitCollideDamageScale_Parms
+    {
+        FLOAT Scale;
+    };
+    RBreakablePropStatic_eventInitCollideDamageScale_Parms Parms;
+    Parms.Scale = Scale;
+    ProcessEvent(FindFunctionChecked(g_026e0c1c), &Parms);
+}

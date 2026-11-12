@@ -1,4 +1,4 @@
-// Engine_0da0000.cpp (part 1 of 2): 33 functions
+// Engine_0da0000.cpp (part 1 of 2): 34 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -287,4 +287,28 @@ void sub_00dac670(int param_1)
 {
   sub_00dac230(*(undefined4 *)(param_1 + 8),0);
   return;
+}
+
+struct S00dab9c0
+{
+	int ValueA;
+	int ValueB;
+	int ValueC;
+
+	S00dab9c0* sub_00dab9c0(int A, int B, int C);
+};
+
+S00dab9c0* g_00dab9c0_dummy;
+S00dab9c0* S00dab9c0_use(int A, int B, int C)
+{
+	return g_00dab9c0_dummy->sub_00dab9c0(A, B, C);
+}
+
+// @baa 0x00dab9c0
+S00dab9c0* S00dab9c0::sub_00dab9c0(int A, int B, int C)
+{
+	ValueA = A;
+	ValueB = B;
+	ValueC = C;
+	return this;
 }

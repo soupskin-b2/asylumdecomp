@@ -1,4 +1,4 @@
-// UnNavigationPoint.cpp: 17 functions
+// UnNavigationPoint.cpp: 18 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -161,4 +161,25 @@ void ACoverLink::execGetSlotActions(FFrame& Stack, RESULT_DECL)
 	P_GET_TARRAY_REF(BYTE, Actions);
 	P_FINISH;
 	GetSlotActions(SlotIdx, Actions);
+}
+
+extern FName g_026c4c18;
+	/* ENGINE_SetSlotEnabled */
+struct ACoverLink_ : public ACoverLink
+{
+	void eventSetSlotEnabled(INT SlotIdx, UBOOL bEnable);
+};
+
+// @baa 0x00833c40
+/* The script event's generated glue (EngineClasses.h), out of line here. */
+void ACoverLink_::eventSetSlotEnabled(INT SlotIdx, UBOOL bEnable)
+{
+	struct CoverLink_eventSetSlotEnabled_Parms
+	{
+		INT SlotIdx;
+		UBOOL bEnable;
+	} Parms;
+	Parms.SlotIdx = SlotIdx;
+	Parms.bEnable = bEnable ? TRUE : FALSE;
+	ProcessEvent(FindFunctionChecked(g_026c4c18), &Parms);
 }

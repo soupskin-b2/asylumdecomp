@@ -1,4 +1,4 @@
-// PhysXParticleSystem.cpp: 24 functions
+// PhysXParticleSystem.cpp: 25 functions
 // Placed here by: neighbours 8, callers 8, class 6, file 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -304,4 +304,35 @@ void UPhysXParticleSystem::sub_00e0cc80(int param_2)
     }
   }
   return;
+}
+
+class C_00dfede0Host
+{
+public:
+	char pad[0x48];
+	BYTE Flags; // at offset 0x48
+	char pad0_0049[0x54 - 0x49];
+	int* Data;
+	int Num;
+	int Max;
+	// Removes every entry equal to *InValue from this int array.
+	void sub_00dfede0(int* InValue);
+};
+
+struct C_00e00e20Owner
+{
+	char pad0_0000[0x54];
+	C_00dfede0Host* FlagsObject; // 0x54
+	char pad0_0058[0x74 - 0x58];
+	C_00dfede0Host Ints;         // 0x74
+	void sub_00e00e20(int ValueToRemove);
+};
+
+// @baa 0x00e00e20
+void C_00e00e20Owner::sub_00e00e20(int ValueToRemove)
+{
+	if (FlagsObject->Flags & 0x10) {
+		return;
+	}
+	Ints.sub_00dfede0(&ValueToRemove);
 }
