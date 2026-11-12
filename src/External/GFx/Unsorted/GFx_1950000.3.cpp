@@ -1,4 +1,4 @@
-// GFx_1950000.cpp (part 3 of 3): 9 functions
+// GFx_1950000.cpp (part 3 of 3): 11 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -135,4 +135,28 @@ void C_0195b670::sub_0195b670()
     Sub_0195b670* Object = this->Object;
     if (--Object->RefCount == 0)
         Object->sub_01971650();
+}
+
+// @baa 0x0195a620
+BYTE sub_0195a620(BYTE A, BYTE B, BYTE C)
+{
+    if (A >= C)
+    {
+        A = C;
+    }
+    if (A < B)
+    {
+        A = B;
+    }
+    return A;
+}
+
+// @baa 0x0195eca0
+INT sub_0195eca0(INT Value, INT MinBound, INT MaxBound)
+{
+	if (Value >= MaxBound)
+		Value = MaxBound;
+	if (Value < MinBound)
+		Value = MinBound;
+	return Value;
 }

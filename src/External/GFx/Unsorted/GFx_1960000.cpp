@@ -1,4 +1,4 @@
-// GFx_1960000.cpp (part 1 of 2): 90 functions
+// GFx_1960000.cpp (part 1 of 2): 93 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -974,4 +974,65 @@ void C_0196b870::sub_0196b870()
     Sub* Object = this->Object;
     if (--Object->RefCount == 0)
         Object->sub_01971650();
+}
+
+struct TThreeWord {
+    unsigned int w0, w1, w2;
+
+    TThreeWord* sub_01968180(unsigned int a, unsigned int b, unsigned int c) {
+        w0 = a;
+        w1 = b;
+        w2 = c;
+        return this;
+    }
+};
+
+// @baa 0x01968180
+void caller(TThreeWord* t, unsigned int a, unsigned int b, unsigned int c) {
+    t->sub_01968180(a, b, c);
+}
+
+struct UGFxDataStoreSubscriber_ : public UGFxDataStoreSubscriber {
+    INT sub_0196e740(); // 0x0196e740
+    INT sub_0196b020(); // 0x0196b020
+    INT sub_0196ec00(); // 0x0196ec00
+};
+
+// @baa 0x0196ec00
+INT UGFxDataStoreSubscriber_::sub_0196ec00()
+{
+    INT R = sub_0196e740();
+    if (R)
+        return R + 8;
+    return sub_0196b020();
+}
+
+// 0196e3c0: decrement the reference count held by the node this handle points
+// to; when the count reaches zero the node detaches itself (0x01971650). The
+// handle is then marked closed (-2).
+struct GFxHandleNode
+{
+    int      m_RefCount;   // +0x00
+    void*    m_Prev;       // +0x04
+    void*    m_Next;       // +0x08
+    int      m_References; // +0x0c
+
+    void Detach(); // 0x01971650
+};
+
+struct GFxHandle
+{
+    int             m_State; // +0x00
+    GFxHandleNode*  m_Node;  // +0x04
+
+    void Release(); // 0x0196e3c0
+};
+
+// @baa 0x0196e3c0
+void GFxHandle::Release()
+{
+    GFxHandleNode* Node = m_Node;
+    if (--Node->m_References == 0)
+        Node->Detach();
+    m_State = -2;
 }

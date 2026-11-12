@@ -1,4 +1,4 @@
-// GFx_1940000.cpp (part 2 of 3): 84 functions
+// GFx_1940000.cpp (part 2 of 3): 86 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -983,4 +983,43 @@ SInitHeader* SInitHeader::sub_0194a6b0()
     Pad2 = 0;
     Pad3 = 0;
     return this;
+}
+
+// An entry created by the pass allocator.
+struct FPassEntry
+{
+	void*		VTable;	// 0x0
+	INT		Flags;		// 0x4
+	INT		Data;		// 0x8
+	INT		Count;		// 0xc
+};
+
+class FPassList
+{
+public:
+	FPassEntry*	AllocPass( INT Param );		// 0x01971880
+	FPassEntry**	AddPass( FPassEntry** OutEntry, INT Param );	// 0x01947550
+};
+
+// @baa 0x01947550
+// 0x01947550
+FPassEntry**	FPassList::AddPass( FPassEntry** OutEntry, INT Param )
+{
+	FPassEntry*	Entry = AllocPass( Param );
+	Entry->Count++;
+	*OutEntry = Entry;
+	return OutEntry;
+}
+
+struct F {
+    // 019485f0: __thiscall, 4 stack args
+    void sub_019485f0(int A, int B, int C, int D);
+    // 0194a530: __thiscall, 3 stack args
+    void sub_0194a530(int A, int B, int C);
+};
+
+// @baa 0x0194a530
+void F::sub_0194a530(int A, int B, int C)
+{
+    sub_019485f0(A, B, C, 0);
 }

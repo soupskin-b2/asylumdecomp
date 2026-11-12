@@ -1,4 +1,4 @@
-// BmGameDialogueClasses.cpp: 70 functions
+// BmGameDialogueClasses.cpp: 71 functions
 // Placed here by: callers 13, file 13.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -346,4 +346,20 @@ void URSeqAct_PlaySpeechConversation::vf_188()
 {
     ((URSeqAct_PlaySpeechConversation_*)this)->sub_01578f40();
     vf_1a4();
+}
+
+struct C_008caeb0
+{
+    INT sub_008caeb0(FLOAT F);
+};
+
+struct C_01584b60
+{
+    INT sub_01584b60(FLOAT F);
+};
+
+// @baa 0x01584b60
+INT C_01584b60::sub_01584b60(FLOAT F)
+{
+    return ((C_008caeb0*)this)->sub_008caeb0(F);
 }

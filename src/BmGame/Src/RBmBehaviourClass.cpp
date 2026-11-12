@@ -1,4 +1,4 @@
-// RBmBehaviourClass.cpp: 13 functions
+// RBmBehaviourClass.cpp: 14 functions
 // Placed here by: callers 2, file 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -91,4 +91,11 @@ void URBMBehaviour::vf_1ac(undefined4 param_2)
   *(undefined2 *)(*(int *)(param_1 + 0x18) + 0x34) = 0xfa1;
   *(undefined4 *)(param_1 + 0xf4) = param_2;
   return;
+}
+
+// @baa 0x015dea30
+void URBMBehaviour::vf_1b0()
+{
+    bSpawned = TRUE;
+    Activated();
 }

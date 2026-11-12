@@ -1,4 +1,4 @@
-// RSmashableProp.cpp: 22 functions
+// RSmashableProp.cpp: 24 functions
 // Placed here by: class 9, neighbours 6, callers 3, file 3.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -101,3 +101,48 @@ void C::sub_01676e40() {
 // @baa 0x016843a0
 
 // @baa 0x016807b0
+
+struct C_Inner_009f9b40
+{
+    BYTE Pad[0x58];
+    DWORD Value;
+    DWORD sub_009f9b40();
+};
+
+struct C_Comp_154
+{
+    BYTE Pad[0x154];
+    C_Inner_009f9b40* Inner;
+};
+
+struct C_0166b680
+{
+    BYTE Pad[0x1a8];
+    C_Comp_154* Comp;
+    DWORD sub_0166b680();
+};
+
+// @baa 0x0166b680
+DWORD C_0166b680::sub_0166b680()
+{
+    DWORD Result = 0;
+    C_Comp_154* C = Comp;
+    if (C != NULL && C->Inner != NULL)
+        Result = C->Inner->sub_009f9b40();
+    return Result;
+}
+
+struct C_01672eb0
+{
+    BYTE Pad[0x2a4];
+    void* PropData;
+    void sub_01672eb0(UINT P);
+    void sub_0166b6a0();
+};
+
+// @baa 0x01672eb0
+void C_01672eb0::sub_01672eb0(UINT P)
+{
+    if (PropData != NULL)
+        sub_0166b6a0();
+}

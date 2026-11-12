@@ -1,4 +1,4 @@
-// GFx_1990000.cpp (part 3 of 3): 12 functions
+// GFx_1990000.cpp (part 3 of 3): 13 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -99,4 +99,23 @@ int sub_01996830(GFx_01996* Self, int* Value)
         return Self->sub_019756d0(V);
     }
     return 0;
+}
+
+struct Sub019965a0Object
+{
+    int X;
+    int Y;
+    int Z;
+
+    Sub019965a0Object* sub_019965a0(const Sub019965a0Object* Other)
+    {
+        *this = *Other;
+        return this;
+    }
+};
+
+// @baa 0x019965a0
+Sub019965a0Object* Sub019965a0CopyInto(Sub019965a0Object* Dest, const Sub019965a0Object* Other)
+{
+    return Dest->sub_019965a0(Other);
 }

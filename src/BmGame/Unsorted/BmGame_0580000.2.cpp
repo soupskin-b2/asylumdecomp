@@ -1,4 +1,4 @@
-// BmGame_0580000.cpp (part 2 of 2): 45 functions
+// BmGame_0580000.cpp (part 2 of 2): 46 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -385,4 +385,18 @@ INT sub_0058df10(INT A)
     if (A > 0x7fff)
         A -= 0x10000;
     return A;
+}
+
+struct C_0058def0
+{
+    INT A, B, C;
+    INT sub_0058def0();
+};
+
+// @baa 0x0058def0
+INT C_0058def0::sub_0058def0()
+{
+    if ((A & 0xffff) || (B & 0xffff) || (C & 0xffff))
+        return 0;
+    return 1;
 }

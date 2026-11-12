@@ -1,4 +1,4 @@
-// Engine_0d70000.cpp (part 1 of 2): 218 functions
+// Engine_0d70000.cpp (part 1 of 2): 219 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -2695,4 +2695,49 @@ int C_00d7f9f0::sub_00d7f9f0(void)
     undefined4 * param_1 = (undefined4 *)this;
 
   return param_1[5] * 0x10 + 4 + *(int *)*param_1;
+}
+
+/* Kit gap: the structcpptext of FSettingsData (operator=), FSettingsProperty (copy constructor, operator=) and
+ * FOnlineProfileSetting (operator=) isn't declared. */
+struct FSettingsData_ : public FSettingsData
+{
+	FSettingsData_& operator=(const FSettingsData_& Other); /* 0x00d74260 */
+};
+
+struct FSettingsProperty_ : public FSettingsProperty
+{
+	FSettingsProperty_(const FSettingsProperty_& Other);
+	FSettingsProperty_& operator=(const FSettingsProperty_& Other)
+	{
+		if (&Other != this)
+		{
+			PropertyId = Other.PropertyId;
+			(FSettingsData_&)Data = (const FSettingsData_&)Other.Data;
+		}
+		return *this;
+	}
+};
+
+struct FOnlineProfileSetting_ : public FOnlineProfileSetting
+{
+	FOnlineProfileSetting_& operator=(const FOnlineProfileSetting_& Other);
+};
+
+/* Copies the id and (a deep copy of) the data. */
+FSettingsProperty_::FSettingsProperty_(const FSettingsProperty_& Other)
+{
+	PropertyId = Other.PropertyId;
+	(FSettingsData_&)Data = (const FSettingsData_&)Other.Data;
+}
+
+// @baa 0x00d79520
+/* Copies the owner and the setting. */
+FOnlineProfileSetting_& FOnlineProfileSetting_::operator=(const FOnlineProfileSetting_& Other)
+{
+	if (&Other != this)
+	{
+		Owner = Other.Owner;
+		(FSettingsProperty_&)ProfileSetting = (const FSettingsProperty_&)Other.ProfileSetting;
+	}
+	return *this;
 }

@@ -1,4 +1,4 @@
-// Engine_0970000.cpp: 3 functions
+// Engine_0970000.cpp: 4 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #define BAA_OUTLINE_ALLOC
@@ -141,4 +141,70 @@ template<> __declspec(noinline) TArray<TArray<FInfluenceIndexPair> >::~TArray()
 void DestroyInfluenceIndexPairs(TArray<TArray<FInfluenceIndexPair> >& InfluenceIndexPairs)
 {
     InfluenceIndexPairs.~TArray();
+}
+
+/* the placement forms of new and delete (<new>) */
+inline void* operator new(size_t Size, void* Mem) { return Mem; }
+
+inline void operator delete(void* Ptr, void* Mem) {}
+
+class UMaterialInterface;
+/* FSkeletalMeshSceneProxy::FSectionElementInfo (UnSkeletalRender.h): the material a section is drawn
+ * with. Not in the kit. */
+struct FSectionElementInfo
+{
+    FSectionElementInfo(UMaterialInterface* InMaterial, UBOOL bInEnableShadowCasting)
+        : Material(InMaterial)
+        , bEnableShadowCasting(bInEnableShadowCasting)
+    {}
+
+    UMaterialInterface* Material;
+    UBOOL bEnableShadowCasting;
+};
+
+/* TArray<FSectionElementInfo> with its copy constructor and Copy */
+struct FSectionElementInfoArray : public TArray<FSectionElementInfo>
+{
+    FSectionElementInfoArray(const FSectionElementInfoArray& Other); /* 0x009673c0 */
+    ~FSectionElementInfoArray();
+};
+
+/* FSkeletalMeshSceneProxy::FLODSectionElements (UnSkeletalRender.h): the section materials of one LOD */
+struct FLODSectionElements
+{
+    FSectionElementInfoArray SectionElements;
+};
+
+/* TArray<FLODSectionElements> with its out-of-line Empty (0x0096e520), Copy and copy constructor */
+struct FLODSectionElementsArray : public TArray<FLODSectionElements>
+{
+    FLODSectionElementsArray() {}
+    FLODSectionElementsArray(const FLODSectionElementsArray& Other)
+    {
+        Copy(Other);
+    }
+    void Empty(INT Slack = 0);
+    void Copy(const TArray<FLODSectionElements>& Source);
+};
+
+// @baa 0x00976100
+/* TArray::Copy (Array.h): copy-construct each element */
+void FLODSectionElementsArray::Copy(const TArray<FLODSectionElements>& Source)
+{
+    if (this != &Source)
+    {
+        if (Source.Num() > 0)
+        {
+            Empty(Source.Num());
+            for (INT Index = 0; Index < Source.Num(); Index++)
+            {
+                ::new(GetTypedData() + Index) FLODSectionElements(Source(Index));
+            }
+            ArrayNum = Source.Num();
+        }
+        else
+        {
+            Empty();
+        }
+    }
 }

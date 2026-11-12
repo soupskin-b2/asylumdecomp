@@ -1,4 +1,4 @@
-// Core_0590000.cpp (part 2 of 4): 109 functions
+// Core_0590000.cpp (part 2 of 4): 116 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -1107,4 +1107,113 @@ void UObject::execQuatDot(FFrame& Stack, RESULT_DECL)
 	Stack.Step(Stack.Object, &B);
 	P_FINISH;
 	*(FLOAT*)Result = B.W * A.W + A.X * B.X + B.Z * A.Z + B.Y * A.Y;
+}
+
+// @baa 0x005956b0
+void UObject::execAdd_VectorVector(FFrame& Stack, RESULT_DECL)
+{
+	// the two vectors, read in the script's order
+	FVector V[2];
+
+	Stack.Step(Stack.Object, &V[0]);
+	Stack.Step(Stack.Object, &V[1]);
+	P_FINISH;
+
+	FVector Sum;
+	Sum.X = V[0].X + V[1].X;
+	Sum.Y = V[1].Y + V[0].Y;
+	Sum.Z = V[1].Z + V[0].Z;
+
+	*(FVector*)Result = Sum;
+}
+
+// @baa 0x00595500
+void UObject::execMultiply_VectorVector(FFrame& Stack, RESULT_DECL)
+{
+	// the two vectors, read in the script's order
+	FVector V[2];
+
+	Stack.Step(Stack.Object, &V[0]);
+	Stack.Step(Stack.Object, &V[1]);
+	P_FINISH;
+
+	FVector Product;
+	Product.X = V[0].X * V[1].X;
+	Product.Y = V[1].Y * V[0].Y;
+	Product.Z = V[1].Z * V[0].Z;
+
+	*(FVector*)Result = Product;
+}
+
+// Core.RotationMatrix: the rotation-matrix form of a transform, derived from FMatrix.
+// Its constructor from a rotator is out-of-line at 0x004029a0.
+struct FRotationMatrix : public FMatrix {
+    explicit FRotationMatrix(const FRotator& R); /* 0x004029a0 */
+};
+
+// FQuat's constructor from a rotation matrix is out-of-line at 0x005c40e0.
+struct FQuat_ : public FQuat {
+    FQuat_(const FRotationMatrix& M); /* 0x005c40e0 */
+};
+
+// @baa 0x00598e90
+void UObject::execQuatFromRotator(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_ROTATOR(A);
+    P_FINISH;
+    *(FQuat*)Result = FQuat_(FRotationMatrix(A));
+}
+
+FLOAT sub_005c6f80(FLOAT Current, FLOAT Target, FLOAT DeltaTime, FLOAT InterpSpeed);
+// @baa 0x005946f0
+void UObject::execFInterpTo(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(Current);
+	P_GET_FLOAT(Target);
+	P_GET_FLOAT(DeltaTime);
+	P_GET_FLOAT(InterpSpeed);
+	P_FINISH;
+
+	*(FLOAT*)Result = sub_005c6f80(Current, Target, DeltaTime, InterpSpeed);
+}
+
+FLOAT sub_005c7370(FLOAT A, FLOAT B, FLOAT Alpha, FLOAT Exp);
+// @baa 0x005945f0
+void UObject::execFInterpEaseInOut(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(A);
+	P_GET_FLOAT(B);
+	P_GET_FLOAT(Alpha);
+	P_GET_FLOAT(Exp);
+	P_FINISH;
+
+	*(FLOAT*)Result = sub_005c7370(A, B, Alpha, Exp);
+}
+
+FRotator* sub_005c6e00(FRotator* Out, const FRotator* Current, const FRotator* Target, const FLOAT* DeltaTime, FLOAT InterpSpeed);
+// @baa 0x00597fd0
+void UObject::execRInterpTo(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT(FRotator, Current);
+	P_GET_STRUCT(FRotator, Target);
+	P_GET_FLOAT(DeltaTime);
+	P_GET_FLOAT(InterpSpeed);
+	P_FINISH;
+
+	FRotator Out;
+	*(FRotator*)Result = *sub_005c6e00(&Out, &Current, &Target, &DeltaTime, InterpSpeed);
+}
+
+FVector* sub_005c6d10(FVector* Out, const FVector* Current, const FVector* Target, const FLOAT* DeltaTime, FLOAT InterpSpeed);
+// @baa 0x005968a0
+void UObject::execVInterpTo(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT(FVector, Current);
+	P_GET_STRUCT(FVector, Target);
+	P_GET_FLOAT(DeltaTime);
+	P_GET_FLOAT(InterpSpeed);
+	P_FINISH;
+
+	FVector Out;
+	*(FVector*)Result = *sub_005c6d10(&Out, &Current, &Target, &DeltaTime, InterpSpeed);
 }

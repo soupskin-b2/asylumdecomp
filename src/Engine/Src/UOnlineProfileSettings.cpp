@@ -1,4 +1,4 @@
-// UOnlineProfileSettings.cpp: 30 functions
+// UOnlineProfileSettings.cpp: 36 functions
 // Placed here by: neighbours 21, class 6, callers 1, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -165,4 +165,205 @@ static void Use_00d67250()
 {
 		C_00d67250Driver Driver;
 		Driver.Run();
+}
+
+// @baa 0x00d72710
+/* Whether a profile setting's values are mapped to ids. */
+UBOOL UOnlineProfileSettings::IsProfileSettingIdMapped(INT ProfileSettingId)
+{
+	for (INT Index = 0; Index < ProfileMappings.Num(); Index++)
+	{
+		FSettingsPropertyPropertyMetaData& MetaData = ProfileMappings(Index);
+		if (MetaData.Id == ProfileSettingId)
+		{
+			return MetaData.MappingType == PVMT_IdMapped;
+		}
+	}
+	return FALSE;
+}
+
+/* Kit gap: FSettingsData::GetData (structcpptext) isn't declared. */
+struct FSettingsData_ : public FSettingsData
+{
+	FORCEINLINE void GetData(INT& OutData) const
+	{
+		if (Type == SDT_Int32)
+		{
+			OutData = Value1;
+		}
+		else
+		{
+			OutData = 0;
+		}
+	}
+	FORCEINLINE void GetData(FLOAT& OutData) const
+	{
+		if (Type == SDT_Float)
+		{
+			OutData = *(const FLOAT*)&Value1;
+		}
+		else
+		{
+			OutData = 0.f;
+		}
+	}
+};
+
+// @baa 0x00d72e60
+/* The value of a raw-value int profile setting; FALSE when it is unknown or id mapped. */
+INT UOnlineProfileSettings::GetProfileSettingValueInt(INT ProfileSettingId, INT& Value)
+{
+	for (INT MapIdx = 0; MapIdx < ProfileMappings.Num(); MapIdx++)
+	{
+		FSettingsPropertyPropertyMetaData& MetaData = ProfileMappings(MapIdx);
+		if (MetaData.Id == ProfileSettingId)
+		{
+			for (INT Index = 0; Index < ProfileSettings.Num(); Index++)
+			{
+				FOnlineProfileSetting& Setting = ProfileSettings(Index);
+				if (Setting.ProfileSetting.PropertyId == ProfileSettingId)
+				{
+					if (MetaData.MappingType == PVMT_RawValue)
+					{
+						((const FSettingsData_&)Setting.ProfileSetting.Data).GetData(Value);
+						return TRUE;
+					}
+					return FALSE;
+				}
+			}
+		}
+	}
+	return FALSE;
+}
+
+// @baa 0x00d72f50
+/* The value of a raw-value float profile setting; FALSE when it is unknown or id mapped. */
+INT UOnlineProfileSettings::GetProfileSettingValueFloat(INT ProfileSettingId, FLOAT& Value)
+{
+	for (INT MapIdx = 0; MapIdx < ProfileMappings.Num(); MapIdx++)
+	{
+		FSettingsPropertyPropertyMetaData& MetaData = ProfileMappings(MapIdx);
+		if (MetaData.Id == ProfileSettingId)
+		{
+			for (INT Index = 0; Index < ProfileSettings.Num(); Index++)
+			{
+				FOnlineProfileSetting& Setting = ProfileSettings(Index);
+				if (Setting.ProfileSetting.PropertyId == ProfileSettingId)
+				{
+					if (MetaData.MappingType == PVMT_RawValue)
+					{
+						((const FSettingsData_&)Setting.ProfileSetting.Data).GetData(Value);
+						return TRUE;
+					}
+					return FALSE;
+				}
+			}
+		}
+	}
+	return FALSE;
+}
+
+// @baa 0x00d73690
+/* The default value of a raw-value int profile setting; FALSE when it is unknown or id mapped. */
+INT UOnlineProfileSettings::GetProfileSettingDefaultInt(INT ProfileSettingId, INT& DefaultInt)
+{
+	for (INT MapIdx = 0; MapIdx < ProfileMappings.Num(); MapIdx++)
+	{
+		FSettingsPropertyPropertyMetaData& MetaData = ProfileMappings(MapIdx);
+		if (MetaData.Id == ProfileSettingId)
+		{
+			for (INT Index = 0; Index < DefaultSettings.Num(); Index++)
+			{
+				FOnlineProfileSetting& Setting = DefaultSettings(Index);
+				if (Setting.ProfileSetting.PropertyId == ProfileSettingId)
+				{
+					if (MetaData.MappingType == PVMT_RawValue)
+					{
+						((const FSettingsData_&)Setting.ProfileSetting.Data).GetData(DefaultInt);
+						return TRUE;
+					}
+					return FALSE;
+				}
+			}
+		}
+	}
+	return FALSE;
+}
+
+// @baa 0x00d73780
+/* The default value of a raw-value float profile setting; FALSE when it is unknown or id mapped. */
+INT UOnlineProfileSettings::GetProfileSettingDefaultFloat(INT ProfileSettingId, FLOAT& DefaultFloat)
+{
+	for (INT MapIdx = 0; MapIdx < ProfileMappings.Num(); MapIdx++)
+	{
+		FSettingsPropertyPropertyMetaData& MetaData = ProfileMappings(MapIdx);
+		if (MetaData.Id == ProfileSettingId)
+		{
+			for (INT Index = 0; Index < DefaultSettings.Num(); Index++)
+			{
+				FOnlineProfileSetting& Setting = DefaultSettings(Index);
+				if (Setting.ProfileSetting.PropertyId == ProfileSettingId)
+				{
+					if (MetaData.MappingType == PVMT_RawValue)
+					{
+						((const FSettingsData_&)Setting.ProfileSetting.Data).GetData(DefaultFloat);
+						return TRUE;
+					}
+					return FALSE;
+				}
+			}
+		}
+	}
+	return FALSE;
+}
+
+/* Kit gap: FSettingsData::GetData (structcpptext) isn't declared. */
+struct FSettingsData__00d72780 : public FSettingsData
+{
+	FORCEINLINE void GetData(INT& OutData) const
+	{
+		if (Type == SDT_Int32)
+		{
+			OutData = Value1;
+		}
+		else
+		{
+			OutData = 0;
+		}
+	}
+};
+
+// @baa 0x00d72780
+/* The name of an id-mapped profile setting's current value; NAME_None when there's none. */
+FName UOnlineProfileSettings::GetProfileSettingValueName(INT ProfileSettingId)
+{
+	for (INT MapIdx = 0; MapIdx < ProfileMappings.Num(); MapIdx++)
+	{
+		const FSettingsPropertyPropertyMetaData& MetaData = ProfileMappings(MapIdx);
+		if (MetaData.Id == ProfileSettingId)
+		{
+			for (INT Index = 0; Index < ProfileSettings.Num(); Index++)
+			{
+				FOnlineProfileSetting& Setting = ProfileSettings(Index);
+				if (Setting.ProfileSetting.PropertyId == ProfileSettingId)
+				{
+					if (MetaData.MappingType != PVMT_IdMapped)
+					{
+						return NAME_None;
+					}
+					INT ValueId;
+					((const FSettingsData__00d72780&)Setting.ProfileSetting.Data).GetData(ValueId);
+					for (INT ValueIdx = 0; ValueIdx < MetaData.ValueMappings.Num(); ValueIdx++)
+					{
+						const FIdToStringMapping& Mapping = MetaData.ValueMappings(ValueIdx);
+						if (Mapping.Id == ValueId)
+						{
+							return Mapping.Name;
+						}
+					}
+				}
+			}
+		}
+	}
+	return NAME_None;
 }

@@ -1,4 +1,4 @@
-// BmGame_1640000.cpp (part 1 of 5): 133 functions
+// BmGame_1640000.cpp (part 1 of 5): 134 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -1088,5 +1088,20 @@ C_0164ac50* C_0164ac50::sub_0164ac50(INT P)
     A = 0;
     B = 0;
     C = 0;
+    return this;
+}
+
+struct C_01644160
+{
+    FLOAT A, B, C;
+    C_01644160* sub_01644160();
+};
+
+// @baa 0x01644160
+C_01644160* C_01644160::sub_01644160()
+{
+    A = 0.0f;
+    B = 0.0f;
+    C = 1.0f;
     return this;
 }

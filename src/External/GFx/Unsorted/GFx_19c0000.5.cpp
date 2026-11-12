@@ -1,4 +1,4 @@
-// GFx_19c0000.cpp: 7 functions
+// GFx_19c0000.cpp: 10 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Core.h"
@@ -146,4 +146,67 @@ void C_019cb700::sub_019cb700()
 {
     if (Object)
         sub_018d7170(Object);
+}
+
+// sub_019c9fc0 — 25-byte thiscall bit test
+// Returns 1 if the bit indexed by Flag is set in a 32-bit flag word at offset 0x28, else 0.
+struct CBitFlags {
+    unsigned char Reserved[0x28]; // layout unknown before the flag word
+    unsigned int Flags;           // 0x28
+
+    int sub_019c9fc0(int Flag);
+};
+
+// @baa 0x019c9fc0
+int CBitFlags::sub_019c9fc0(int Flag)
+{
+    return ((1 << Flag) & Flags) != 0;
+}
+
+struct S_019ca790 {
+	int Data[4];
+	int Arg;
+	S_019ca790* sub_019ca790(int Arg1);
+};
+
+// @baa 0x019ca790
+__declspec(noinline)
+S_019ca790* S_019ca790::sub_019ca790(int Arg1)
+{
+	Data[0] = 0;
+	Data[1] = 0;
+	Data[2] = 0;
+	Data[3] = 0;
+	Arg = Arg1;
+	return this;
+}
+
+int s019c(int* P, int Arg1)
+{
+	S_019ca790 S;
+	S.sub_019ca790(Arg1);
+	return *P;
+}
+
+struct F019CA800 {
+    INT a;
+    INT b;
+    INT c;
+    INT d;
+    INT e;
+    F019CA800* sub_019ca800(INT arg)
+    {
+        a = 0;
+        b = 0;
+        c = 0;
+        d = 0;
+        e = arg;
+        return this;
+    }
+};
+
+// @baa 0x019ca800
+void sub_019ca810(F019CA800& T, INT arg)
+{
+    T.sub_019ca800(arg);
 }

@@ -1,4 +1,4 @@
-// UnPawn.cpp (part 1 of 2): 98 functions
+// UnPawn.cpp (part 1 of 2): 99 functions
 // Placed here by: neighbours 49, class 32, callers 3, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1369,4 +1369,61 @@ void AActor__00864d20::SetCollisionForPathBuilding(UBOOL bNowPathBuilding)
 void APawn::sub_00865220(INT NewRemoteViewPitch)
 {
     RemoteViewPitch = (BYTE)(NewRemoteViewPitch >> 8);
+}
+
+/* Kit gaps: FRotationMatrix (constructor out of line, 004029a0), FMatrix::TransformFVector/TransformFVector4
+ * (UnMath.h), FVector's operator+ and operator!=, and FRotator's operator!= aren't declared. */
+struct FRotationMatrix : public FMatrix
+{
+	FRotationMatrix(const FRotator& Rot);
+};
+
+struct FMatrix_ : public FMatrix
+{
+	FORCEINLINE FVector4 TransformFVector4(const FVector4& P) const
+	{
+		FVector4 Result;
+		Result.X = P.X * XPlane.X + P.Y * YPlane.X + P.Z * ZPlane.X + P.W * WPlane.X;
+		Result.Y = P.X * XPlane.Y + P.Y * YPlane.Y + P.Z * ZPlane.Y + P.W * WPlane.Y;
+		Result.Z = P.X * XPlane.Z + P.Y * YPlane.Z + P.Z * ZPlane.Z + P.W * WPlane.Z;
+		Result.W = P.X * XPlane.W + P.Y * YPlane.W + P.Z * ZPlane.W + P.W * WPlane.W;
+		return Result;
+	}
+	FORCEINLINE FVector4 TransformFVector(const FVector& V) const
+	{
+		return TransformFVector4(FVector4(V.X, V.Y, V.Z, 1.0f));
+	}
+};
+
+static FORCEINLINE FVector AddVectors(const FVector& A, const FVector4& B)
+{
+	return FVector(A.X + B.X, A.Y + B.Y, A.Z + B.Z);
+}
+
+static FORCEINLINE UBOOL VectorsDiffer(const FVector& A, const FVector& B)
+{
+	return A.X != B.X || A.Y != B.Y || A.Z != B.Z;
+}
+
+static FORCEINLINE UBOOL RotatorsDiffer(const FRotator& A, const FRotator& B)
+{
+	return A.Pitch != B.Pitch || A.Yaw != B.Yaw || A.Roll != B.Roll;
+}
+
+// @baa 0x007ad450
+/* The world position of a based position: Position in its base's frame (cached while the base hasn't moved), or
+ * Position itself when there's no base. */
+FVector APawn::GetBasedPosition(FBasedPosition BP)
+{
+	if (BP.Base != NULL)
+	{
+		if (VectorsDiffer(BP.CachedBaseLocation, BP.Base->Location) || RotatorsDiffer(BP.CachedBaseRotation, BP.Base->Rotation))
+		{
+			BP.CachedBaseLocation = BP.Base->Location;
+			BP.CachedBaseRotation = BP.Base->Rotation;
+			BP.CachedTransPosition = AddVectors(BP.Base->Location, ((const FMatrix_&)FRotationMatrix(BP.Base->Rotation)).TransformFVector(BP.Position));
+		}
+		return BP.CachedTransPosition;
+	}
+	return BP.Position;
 }

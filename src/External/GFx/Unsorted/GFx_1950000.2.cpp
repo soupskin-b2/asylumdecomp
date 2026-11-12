@@ -1,7 +1,7 @@
-// GFx_1950000.cpp (part 2 of 3): 65 functions
+// GFx_1950000.cpp (part 2 of 3): 66 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
-#include "ue3/Core.h"
+#include "ue3/Classes.h"
 
 struct C { void sub_0194f130(int); void sub_01951a30(); };
 
@@ -744,4 +744,22 @@ int GFxSprite_0195d300::sub_0195d300()
     if (ValueSlot != 0)
         return ValueSlot->Value;
     return Sprite->sub_0195d300_v4c();
+}
+
+// Local visitor used by GFx_InitObjectMembers (External/GFx).
+// sub_0195d7a0 is its constructor; its vtable holds one (empty) visitor op.
+struct sub_0195d7a0_InitVisitor
+{
+    virtual void sub_0195d7c0() = 0;
+    INT A;
+    INT B;
+
+    sub_0195d7a0_InitVisitor(INT A, INT B);
+};
+
+// @baa 0x0195d7a0
+sub_0195d7a0_InitVisitor::sub_0195d7a0_InitVisitor(INT A, INT B)
+    : A(A)
+    , B(B)
+{
 }

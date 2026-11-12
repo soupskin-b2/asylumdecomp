@@ -1,4 +1,4 @@
-// BmGame_1550000.cpp (part 1 of 3): 434 functions
+// BmGame_1550000.cpp (part 1 of 3): 435 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -3126,4 +3126,22 @@ struct URAnimNode_AnimCapture_ : public URAnimNode_AnimCapture
 void URAnimNode_AnimCapture::vf_134(FLOAT A, FLOAT B)
 {
     ((URAnimNode_AnimCapture_*)this)->sub_00c535b0(A, B);
+}
+
+void sub_0155c5d0(const FVector& OriginA, const FVector& DirectionA,
+                  const FVector& OriginB, const FVector& DirectionB,
+                  FLOAT& ParameterA, FLOAT& ParameterB);
+DOUBLE sub_0155c520(const FVector& Origin, const FVector& Direction,
+                    const FVector& Point);
+// @baa 0x0155c760
+void sub_0155c760(const FVector& OriginA, const FVector& DirectionA,
+                  const FVector& OriginB, const FVector& DirectionB,
+                  FLOAT& ParameterA, FLOAT& ParameterB)
+{
+    sub_0155c5d0(OriginA, DirectionA, OriginB, DirectionB, ParameterA, ParameterB);
+    if (ParameterB < 0.0f)
+    {
+        ParameterB = 0.0f;
+        ParameterA = (FLOAT)sub_0155c520(OriginA, DirectionA, OriginB);
+    }
 }

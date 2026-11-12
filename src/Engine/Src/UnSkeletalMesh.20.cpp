@@ -1,4 +1,4 @@
-// UnSkeletalMesh.cpp: 1 function
+// UnSkeletalMesh.cpp: 3 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -108,3 +108,192 @@ FVector2D FSkeletalMeshVertexBuffer::GetVertexUV(UINT VertexIndex, UINT UVIndex)
         return ((FGPUSkinVertexFloat32Uvs*)(Data + VertexIndex * Stride))->UVs[UVIndex];
     }
 }
+
+/* the placement forms of new and delete (<new>) */
+inline void* operator new(size_t Size, void* Mem) { return Mem; }
+
+inline void operator delete(void* Ptr, void* Mem) {}
+
+class UMaterialInterface;
+/* FSkeletalMeshSceneProxy::FSectionElementInfo (UnSkeletalRender.h): the material a section is drawn
+ * with. Not in the kit. */
+struct FSectionElementInfo
+{
+    FSectionElementInfo(UMaterialInterface* InMaterial, UBOOL bInEnableShadowCasting)
+        : Material(InMaterial)
+        , bEnableShadowCasting(bInEnableShadowCasting)
+    {}
+
+    UMaterialInterface* Material;
+    UBOOL bEnableShadowCasting;
+};
+
+/* TArray<FSectionElementInfo> with its copy constructor and Copy */
+struct FSectionElementInfoArray : public TArray<FSectionElementInfo>
+{
+    ~FSectionElementInfoArray();
+};
+
+/* FSkeletalMeshSceneProxy::FLODSectionElements (UnSkeletalRender.h): the section materials of one LOD */
+struct FLODSectionElements
+{
+    FSectionElementInfoArray SectionElements;
+};
+
+/* TArray<FLODSectionElements> with its out-of-line copy constructor (0x00979f10) */
+struct FLODSectionElementsArray : public TArray<FLODSectionElements>
+{
+    FLODSectionElementsArray(const FLODSectionElementsArray& Other);
+    ~FLODSectionElementsArray(); /* 0x00975820 */
+};
+
+class FSkeletalMeshSceneProxy;
+/* FRenderCommand (RenderingThread.h): a command queued for the rendering thread. Not in the kit. */
+class FRenderCommand
+{
+public:
+    virtual UINT Execute() = 0;
+    virtual const TCHAR* DescribeCommand() = 0;
+    virtual ~FRenderCommand() {}
+};
+
+/* ENQUEUE_UNIQUE_RENDER_COMMAND_TWOPARAMETER(UpdateSkelProxyLODSectionElementsCmd, ...) in
+ * FSkeletalMeshSceneProxy::UpdateMorphMaterialUsage_GameThread (UnSkeletalMesh.cpp): gives the proxy
+ * its new section materials */
+class EURCMacro_UpdateSkelProxyLODSectionElementsCmd : public FRenderCommand
+{
+public:
+    typedef FLODSectionElementsArray _ParamType1;
+    typedef FSkeletalMeshSceneProxy* _ParamType2;
+
+    EURCMacro_UpdateSkelProxyLODSectionElementsCmd(const _ParamType1& InNewLODSections, const _ParamType2& InSkelMeshSceneProxy);
+    virtual UINT Execute();
+    virtual const TCHAR* DescribeCommand();
+
+private:
+    _ParamType1 NewLODSections;
+    _ParamType2 SkelMeshSceneProxy;
+};
+
+// @baa 0x0097ba40
+EURCMacro_UpdateSkelProxyLODSectionElementsCmd::EURCMacro_UpdateSkelProxyLODSectionElementsCmd(const _ParamType1& InNewLODSections, const _ParamType2& InSkelMeshSceneProxy)
+    : NewLODSections(InNewLODSections)
+    , SkelMeshSceneProxy(InSkelMeshSceneProxy)
+{
+}
+
+/* Exchange and Sort (UnTemplate.h); not in the kit. */
+template<class T> inline void Exchange(T& A, T& B)
+{
+    const T Temp = A;
+    A = B;
+    B = Temp;
+}
+
+template<class T, class CompareClass> void Sort(T* First, INT Num)
+{
+    struct FStack
+    {
+        T* Min;
+        T* Max;
+    };
+    if (Num < 2)
+    {
+        return;
+    }
+    FStack RecursionStack[32] = {First, First + Num - 1}, Current, Inner;
+    for (FStack* StackTop = RecursionStack; StackTop >= RecursionStack; --StackTop)
+    {
+        Current = *StackTop;
+    Loop:
+        INT Count = Current.Max - Current.Min + 1;
+        if (Count <= 8)
+        {
+            // simple bubble sort
+            while (Current.Max > Current.Min)
+            {
+                T *Max, *Item;
+                for (Max = Current.Min, Item = Current.Min + 1; Item <= Current.Max; Item++)
+                {
+                    if (CompareClass::Compare(*Item, *Max) > 0)
+                    {
+                        Max = Item;
+                    }
+                }
+                Exchange(*Max, *Current.Max--);
+            }
+        }
+        else
+        {
+            // grab the middle element so presorted lists don't hit the worst case
+            Exchange(Current.Min[Count / 2], Current.Min[0]);
+
+            // split into items <= Current.Min and items > it
+            Inner.Min = Current.Min;
+            Inner.Max = Current.Max + 1;
+            for (;;)
+            {
+                while (++Inner.Min <= Current.Max && CompareClass::Compare(*Inner.Min, *Current.Min) <= 0);
+                while (--Inner.Max > Current.Min && CompareClass::Compare(*Inner.Max, *Current.Min) >= 0);
+                if (Inner.Min > Inner.Max)
+                {
+                    break;
+                }
+                Exchange(*Inner.Min, *Inner.Max);
+            }
+            Exchange(*Current.Min, *Inner.Max);
+
+            // save the big half and recurse with the small one
+            if (Inner.Max - 1 - Current.Min >= Current.Max - Inner.Min)
+            {
+                if (Current.Min + 1 < Inner.Max)
+                {
+                    StackTop->Min = Current.Min;
+                    StackTop->Max = Inner.Max - 1;
+                    StackTop++;
+                }
+                if (Current.Max > Inner.Min)
+                {
+                    Current.Min = Inner.Min;
+                    goto Loop;
+                }
+            }
+            else
+            {
+                if (Current.Max > Inner.Min)
+                {
+                    StackTop->Min = Inner.Min;
+                    StackTop++->Max = Current.Max;
+                }
+                if (Current.Min + 1 < Inner.Max)
+                {
+                    Current.Max = Inner.Max - 1;
+                    goto Loop;
+                }
+            }
+        }
+    }
+}
+
+/* FDecalInteraction (UnDecalRenderData.h): a decal on a primitive; only its sort key is needed here.
+ * Not in the kit. */
+class FDecalInteraction
+{
+public:
+    BYTE OpaqueDecalInteraction[0xcc]; /* Decal, RenderData and the start of DecalState (layout not needed here) */
+    INT SortOrder;                     /* 0xcc: DecalState.SortOrder (name assumed) */
+};
+
+/* IMPLEMENT_COMPARE_POINTER(FDecalInteraction, UnSkeletalMesh, ...): orders a skeletal mesh proxy's decals by
+ * sort order before drawing them (FSkeletalMeshSceneProxy::DrawDynamicElements, 0096e760) */
+class CompareUnSkeletalMeshFDecalInteractionPointer
+{
+public:
+    static inline INT Compare(FDecalInteraction* A, FDecalInteraction* B)
+    {
+        return (A->SortOrder > B->SortOrder) ? 1 : -1;
+    }
+};
+
+// @baa 0x00959b90
+template void Sort<FDecalInteraction*, CompareUnSkeletalMeshFDecalInteractionPointer>(FDecalInteraction** First, INT Num);

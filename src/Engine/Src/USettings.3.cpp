@@ -1,4 +1,4 @@
-// USettings.cpp: 32 functions
+// USettings.cpp: 38 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -285,4 +285,67 @@ void USettings::execGetRangedPropertyValue(FFrame& Stack, RESULT_DECL)
     P_GET_FLOAT_REF(OutValue);
     P_FINISH;
     *(UBOOL*)Result = GetRangedPropertyValue(PropertyId, OutValue);
+}
+
+/* Kit gap: USettings' FSettingsData helpers below (USettings.h) aren't declared. */
+struct USettings_ : public USettings
+{
+	void SetSettingsDataDateTime(FSettingsData& Data, INT InPart1, INT InPart2); /* 0x00d6e700 */
+	void GetSettingsDataDateTime(FSettingsData& Data, INT& OutPart1, INT& OutPart2); /* 0x00d67fe0 */
+	void SetSettingsData(FSettingsData& Data, FSettingsData& Data2Copy); /* 0x00d74300 */
+	void SetSettingsDataString(FSettingsData& Data, const FString& InString); /* 0x00d6e620 */
+};
+
+// @baa 0x00c85400
+void USettings::execSetSettingsDataDateTime(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT_REF(FSettingsData, Data);
+	P_GET_INT(InPart1);
+	P_GET_INT(InPart2);
+	P_FINISH;
+	((USettings_*)this)->SetSettingsDataDateTime(Data, InPart1, InPart2);
+}
+
+// @baa 0x00c85840
+void USettings::execGetSettingsDataDateTime(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT_REF(FSettingsData, Data);
+	P_GET_INT_REF(OutPart1);
+	P_GET_INT_REF(OutPart2);
+	P_FINISH;
+	((USettings_*)this)->GetSettingsDataDateTime(Data, OutPart1, OutPart2);
+}
+
+// @baa 0x00c85500
+void USettings::execSetSettingsData(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT_REF(FSettingsData, Data);
+	P_GET_STRUCT_REF(FSettingsData, Data2Copy);
+	P_FINISH;
+	((USettings_*)this)->SetSettingsData(Data, Data2Copy);
+}
+
+// @baa 0x00cb5f00
+void USettings::execSetSettingsDataString(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT_REF(FSettingsData, Data);
+	P_GET_STR(InString);
+	P_FINISH;
+	((USettings_*)this)->SetSettingsDataString(Data, InString);
+}
+
+// @baa 0x00cb60e0
+void USettings::execGetStringSettingColumnHeader(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(StringSettingId);
+	P_FINISH;
+	*(FString*)Result = GetStringSettingColumnHeader(StringSettingId);
+}
+
+// @baa 0x00cb62a0
+void USettings::execGetPropertyColumnHeader(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(PropertyId);
+	P_FINISH;
+	*(FString*)Result = GetPropertyColumnHeader(PropertyId);
 }

@@ -1,4 +1,4 @@
-// Core_0590000.cpp: 3 functions
+// Core_0590000.cpp: 5 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -42,4 +42,42 @@ void UObject::execSqrt(FFrame& Stack, RESULT_DECL)
 	}
 
 	*(FLOAT*)Result = Value;
+}
+
+// @baa 0x00593cd0
+void UObject::execAcos(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(A);
+	P_FINISH;
+
+	FLOAT Value;
+
+	if (A < -1.0f)
+		Value = -1.0f;
+	else if (A < 1.0f)
+		Value = A;
+	else
+		Value = 1.0f;
+
+	*(FLOAT*)Result = (FLOAT)asin(Value);
+}
+
+// @baa 0x00593bd0
+void UObject::execAsin(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(A);
+	P_FINISH;
+
+	FLOAT Value;
+
+	if (A < -1.0f)
+		Value = -1.0f;
+	else if (A < 1.0f)
+		Value = A;
+	else
+		Value = 1.0f;
+
+	// the original calls the CRT routine at 0x1a37a4a, which the exe's symbol
+	// table names __CIcosh
+	*(FLOAT*)Result = (FLOAT)cosh(Value);
 }

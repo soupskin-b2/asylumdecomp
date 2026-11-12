@@ -1,4 +1,4 @@
-// RAnimNode_Pose.cpp (part 4 of 4): 19 functions
+// RAnimNode_Pose.cpp (part 4 of 4): 22 functions
 // Placed here by: neighbours 3, class 2, callers 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -316,4 +316,46 @@ C_015b5f10* C_015b5f10::sub_015b5f10()
     F = 0;
     G = 0;
     return this;
+}
+
+struct C_015bcc00
+{
+    FLOAT A, B, C, D;
+    C_015bcc00* sub_015bcc00(INT P);
+};
+
+// @baa 0x015bcc00
+C_015bcc00* C_015bcc00::sub_015bcc00(INT P)
+{
+    A = 0.0f;
+    B = 0.0f;
+    C = 0.0f;
+    D = 0.0f;
+    return this;
+}
+
+struct FRagdollPlayer_ : public FRagdollPlayer
+{
+    INT sub_015d7a70(USkeletalMeshComponent* Skel, INT A, INT B);
+};
+
+// @baa 0x01596000
+INT URAnimNode_Pose::vf_2d0(INT A, INT B)
+{
+    return ((FRagdollPlayer_*)&RagdollPlayer)->sub_015d7a70(SkelComponent, A, B);
+}
+
+struct C_015bcb00
+{
+    FLOAT A, B;
+    INT C;
+    INT sub_015bcb00();
+};
+
+// @baa 0x015bcb00
+INT C_015bcb00::sub_015bcb00()
+{
+    if (C > 0 || (C == 0 && A >= B))
+        return 1;
+    return 0;
 }

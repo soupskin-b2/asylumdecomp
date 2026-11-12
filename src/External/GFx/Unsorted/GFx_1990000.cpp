@@ -1,4 +1,4 @@
-// GFx_1990000.cpp (part 1 of 3): 117 functions
+// GFx_1990000.cpp (part 1 of 3): 119 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -1338,4 +1338,40 @@ BYTE GASEnvironment::sub_01995260()
 {    INT b = 0;
     b = m_Compare->GetResult()->bFlag == b;
     return b ? 1 : 0;
+}
+
+// 0x01999b50 - copy of a 12-byte GFx data struct, original file GFx_1990000.cpp
+struct FGfx_0x12 {
+    INT X;
+    INT Y;
+    INT Z;
+    FGfx_0x12& sub_01999b50(const FGfx_0x12& Other);
+};
+
+// @baa 0x01999b50
+FGfx_0x12& FGfx_0x12::sub_01999b50(const FGfx_0x12& Other)
+{
+    X = Other.X;
+    Y = Other.Y;
+    Z = Other.Z;
+    return *this;
+}
+
+class GASEnvironment;
+// Visitor for GASActionBuffer::Execute's EnumerateOp (local class).
+class EnumerateOpVisitor
+{
+public:
+	GASEnvironment* Environment;
+	int ActionIndex;
+
+	EnumerateOpVisitor(GASEnvironment* InEnvironment, int InActionIndex);
+	virtual void VisitOp();
+};
+
+// @baa 0x01995170
+EnumerateOpVisitor::EnumerateOpVisitor(GASEnvironment* InEnvironment, int InActionIndex)
+{
+	Environment = InEnvironment;
+	ActionIndex = InActionIndex;
 }
