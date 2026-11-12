@@ -167,7 +167,7 @@ happened; on HTTP 429 or 503 wait as told, don't retry in a loop.
   `appRand`, `appFrand`, `appSRand`, `Abs`, `Min`, `Max`, `Clamp`, `Square`, `Lerp`: don't redefine them),
   `"ue3/Script.h"` for natives (`P_GET_*`, `GError`, `PURE_VIRTUAL(Class::Func, return 0;)` for the
   "Pure virtual not implemented" bodies), `"ue3/Native.h"` for `FNameText(TEXT("Name"))`, `GWorld`,
-  `GObjObjects` and object iterators, `"ue3/PhysX.h"` for PhysX (NxCloth, NxSoftBody), `"ue3/Win32.h"` for the Windows API (critical sections,
+  `GObjObjects` and object iterators, `"ue3/PhysX.h"` for PhysX (NxCloth, NxSoftBody), `"ue3/GFx.h"` for Scaleform (GFxMovieView, FGFxMovie, GGFxEngine), `"ue3/Win32.h"` for the Windows API (critical sections,
   `Interlocked*`, `Tls*`, `MessageBoxA` ...; `<windows.h>` isn't allowed, and add a missing function to
   Win32.h the SDK's way rather than declaring Windows types in your file).
 - Write the code the original programmer wrote: named fields and named virtuals from the headers. No
