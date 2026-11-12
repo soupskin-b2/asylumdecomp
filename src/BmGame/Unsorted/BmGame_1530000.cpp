@@ -202,7 +202,7 @@ bool URSeqAct_BoolCounter::vf_004()
 }
 
 // @baa 0x0153d180
-void URSeqAct_EventSequence::vf_178(void) {  }
+void URSeqAct_EventSequence::DeActivated() {  }
 
 struct V_0153d210 {
     virtual void v0();

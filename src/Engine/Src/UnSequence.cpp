@@ -1483,7 +1483,7 @@ UBOOL USeqAct_SetMotionBlurParams::UpdateOp(FLOAT DeltaTime) { return FALSE; }
 void USeqAct_SetMotionBlurParams::Activated(void) {  }
 
 // @baa 0x008abfd0
-void USeqAct_ActorFactory::vf_178(void)
+void USeqAct_ActorFactory::DeActivated()
 {
     int param_1 = (int)this;
 
@@ -1492,13 +1492,13 @@ void USeqAct_ActorFactory::vf_178(void)
 }
 
 // @baa 0x008ac010
-void USeqAct_Delay::vf_178(void) {  }
+void USeqAct_Delay::DeActivated() {  }
 
 // @baa 0x008ac020
 void USeqAct_StreamInTextures::Activated(void) {  }
 
 // @baa 0x008ac030
-void USeqAct_StreamInTextures::vf_178(void) {  }
+void USeqAct_StreamInTextures::DeActivated() {  }
 
 // @baa 0x008ac040
 void USeqAct_AIMoveToActor::Activated(void) {  }
@@ -4340,7 +4340,7 @@ undefined4 * UObject::sub_008e3750(void)
 }
 
 // @baa 0x008e3770
-void USeqAct_DelaySwitch::vf_178(void) {  }
+void USeqAct_DelaySwitch::DeActivated() {  }
 
 // @baa 0x008e3bd0
 IMPLEMENT_CLASS_AT(USeqAct_DelaySwitch, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSequence.cpp", 115);
@@ -4658,7 +4658,7 @@ undefined4 * UObject::sub_008e4bf0(void)
 }
 
 // @baa 0x008e4c10
-void USeqAct_RangeSwitch::vf_178(void) {  }
+void USeqAct_RangeSwitch::DeActivated() {  }
 
 // @baa 0x008e4c20
 int USeqAct_RangeSwitch::sub_008e4c20(void) { return *(int*)((char*)this + 4); }
@@ -5070,7 +5070,7 @@ IMPLEMENT_CLASS_AT(USeqAct_SubtractInt, "e:\\Projects\\Amadeus\\AA\\Game\\Unreal
 IMPLEMENT_CLASS_AT(USeqAct_Switch, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSequence.cpp", 160);
 
 // @baa 0x008e6810
-void USeqAct_Switch::vf_178(void) {  }
+void USeqAct_Switch::DeActivated() {  }
 
 // @baa 0x008e6c50
 extern undefined * g_01f69e58;
@@ -5156,7 +5156,7 @@ undefined4 * UObject::sub_008e7050(void)
 }
 
 // @baa 0x008e7070
-void USeqAct_Trace::vf_178(void) {  }
+void USeqAct_Trace::DeActivated() {  }
 
 // @baa 0x008e7080
 IMPLEMENT_CLASS_AT(USeqAct_Trace, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSequence.cpp", 164);

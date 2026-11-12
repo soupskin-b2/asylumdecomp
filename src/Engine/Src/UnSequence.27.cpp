@@ -45,7 +45,7 @@ void USequenceOp::PostEditChange(UProperty* PropertyThatChanged)
 // @baa 0x008bdf20
 /* USequenceOp slot 0x178 (kit vf_178, UE3 DeActivated()): fire every enabled output link when
  * bAutoActivateOutputLinks is set. */
-void USequenceOp::vf_178()
+void USequenceOp::DeActivated()
 {
     if (bAutoActivateOutputLinks)
     {

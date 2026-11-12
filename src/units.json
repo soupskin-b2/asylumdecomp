@@ -4624,7 +4624,7 @@
     {
      "va": "0158c460",
      "size": 22,
-     "symbol": "?vf_354@ARLevelTransition@@UAEPAUARGameRI@@XZ"
+     "symbol": "?GetGameRI@ARLevelTransition@@UAEPAUARGameRI@@XZ"
     },
     {
      "va": "0158d0d0",
@@ -4651,7 +4651,7 @@
     {
      "va": "0155abb0",
      "size": 27,
-     "symbol": "?vf_178@URSeqAct_PrepareMapChangeFromURL@@UAEXXZ"
+     "symbol": "?DeActivated@URSeqAct_PrepareMapChangeFromURL@@UAEXXZ"
     },
     {
      "va": "0155a3a0",
@@ -23839,7 +23839,7 @@
     {
      "va": "0153d180",
      "size": 1,
-     "symbol": "?vf_178@URSeqAct_EventSequence@@UAEXXZ"
+     "symbol": "?DeActivated@URSeqAct_EventSequence@@UAEXXZ"
     },
     {
      "va": "0153d210",
@@ -30550,7 +30550,7 @@
     {
      "va": "0157f2f0",
      "size": 1,
-     "symbol": "?vf_178@URSeqAct_GetThugStatus@@UAEXXZ"
+     "symbol": "?DeActivated@URSeqAct_GetThugStatus@@UAEXXZ"
     },
     {
      "va": "0157f3d0",
@@ -31064,7 +31064,7 @@
     {
      "va": "015818e0",
      "size": 1,
-     "symbol": "?vf_178@URSeqAct_Credits@@UAEXXZ"
+     "symbol": "?DeActivated@URSeqAct_Credits@@UAEXXZ"
     },
     {
      "va": "01581a00",
@@ -31094,7 +31094,7 @@
     {
      "va": "01581b80",
      "size": 1,
-     "symbol": "?vf_178@URSeqAct_FadeScreen@@UAEXXZ"
+     "symbol": "?DeActivated@URSeqAct_FadeScreen@@UAEXXZ"
     },
     {
      "va": "01581d80",
@@ -31124,7 +31124,7 @@
     {
      "va": "01581ef0",
      "size": 1,
-     "symbol": "?vf_178@URSeqAct_FadeSound@@UAEXXZ"
+     "symbol": "?DeActivated@URSeqAct_FadeSound@@UAEXXZ"
     },
     {
      "va": "01582050",
@@ -31159,7 +31159,7 @@
     {
      "va": "015821d0",
      "size": 1,
-     "symbol": "?vf_178@URSeqAct_HUDTimer@@UAEXXZ"
+     "symbol": "?DeActivated@URSeqAct_HUDTimer@@UAEXXZ"
     },
     {
      "va": "015821e0",
@@ -40429,7 +40429,7 @@
     {
      "va": "01612d30",
      "size": 1,
-     "symbol": "?vf_178@URSeqAct_SpeechEventManagerBase@@UAEXXZ"
+     "symbol": "?DeActivated@URSeqAct_SpeechEventManagerBase@@UAEXXZ"
     },
     {
      "va": "01612d40",
@@ -40499,7 +40499,7 @@
     {
      "va": "016168a0",
      "size": 1,
-     "symbol": "?vf_178@URSeqAct_SpeechEventManager@@UAEXXZ"
+     "symbol": "?DeActivated@URSeqAct_SpeechEventManager@@UAEXXZ"
     },
     {
      "va": "0161a1e0",
@@ -63389,7 +63389,7 @@
     {
      "va": "01547120",
      "size": 1,
-     "symbol": "?vf_178@URSeqAct_WaitForAllInputs@@UAEXXZ"
+     "symbol": "?DeActivated@URSeqAct_WaitForAllInputs@@UAEXXZ"
     },
     {
      "va": "01547510",
@@ -63409,7 +63409,7 @@
     {
      "va": "015475e0",
      "size": 1,
-     "symbol": "?vf_178@URSeqAct_WaitForBool@@UAEXXZ"
+     "symbol": "?DeActivated@URSeqAct_WaitForBool@@UAEXXZ"
     },
     {
      "va": "015477e0",
@@ -181284,7 +181284,7 @@
     {
      "va": "00755f00",
      "size": 17,
-     "symbol": "?vf_114@UScriptedTexture@@UAEXXZ"
+     "symbol": "?UpdateResource@UScriptedTexture@@UAEXXZ"
     },
     {
      "va": "00755f20",
@@ -219260,7 +219260,7 @@
     {
      "va": "008c0660",
      "size": 64,
-     "symbol": "?DeActivated@USeqAct_PrepareMapChange_@@QAEXXZ"
+     "symbol": "?DeActivated@USeqAct_PrepareMapChange_@@UAEXXZ"
     },
     {
      "va": "008abfe0",
@@ -219570,7 +219570,7 @@
     {
      "va": "008bdf20",
      "size": 109,
-     "symbol": "?vf_178@USequenceOp@@UAEXXZ"
+     "symbol": "?DeActivated@USequenceOp@@UAEXXZ"
     },
     {
      "va": "008ac6d0",
@@ -220049,7 +220049,7 @@
     {
      "va": "008bea90",
      "size": 128,
-     "symbol": "?DeActivated@USeqAct_Latent_@@QAEXXZ"
+     "symbol": "?DeActivated@USeqAct_Latent_@@UAEXXZ"
     },
     {
      "va": "008cc4a0",
@@ -220069,22 +220069,22 @@
     {
      "va": "008bed40",
      "size": 105,
-     "symbol": "?DeActivated@USeqAct_ModifyObjectList_@@QAEXXZ"
+     "symbol": "?DeActivated@USeqAct_ModifyObjectList_@@UAEXXZ"
     },
     {
      "va": "008c0360",
      "size": 106,
-     "symbol": "?DeActivated@USeqAct_PlaySound__008c0360@@QAEXXZ"
+     "symbol": "?DeActivated@USeqAct_PlaySound__008c0360@@UAEXXZ"
     },
     {
      "va": "008c0e00",
      "size": 106,
-     "symbol": "?DeActivated@USeqAct_PlayCameraAnim_@@QAEXXZ"
+     "symbol": "?DeActivated@USeqAct_PlayCameraAnim_@@UAEXXZ"
     },
     {
      "va": "008bedb0",
      "size": 90,
-     "symbol": "?DeActivated@USeqAct_IsInObjectList_@@QAEXXZ"
+     "symbol": "?DeActivated@USeqAct_IsInObjectList_@@UAEXXZ"
     },
     {
      "va": "008ac830",
@@ -221728,12 +221728,12 @@
     {
      "va": "008abfd0",
      "size": 8,
-     "symbol": "?vf_178@USeqAct_ActorFactory@@UAEXXZ"
+     "symbol": "?DeActivated@USeqAct_ActorFactory@@UAEXXZ"
     },
     {
      "va": "008ac010",
      "size": 1,
-     "symbol": "?vf_178@USeqAct_Delay@@UAEXXZ"
+     "symbol": "?DeActivated@USeqAct_Delay@@UAEXXZ"
     },
     {
      "va": "008ac020",
@@ -221743,7 +221743,7 @@
     {
      "va": "008ac030",
      "size": 1,
-     "symbol": "?vf_178@USeqAct_StreamInTextures@@UAEXXZ"
+     "symbol": "?DeActivated@USeqAct_StreamInTextures@@UAEXXZ"
     },
     {
      "va": "008ac040",
@@ -223988,7 +223988,7 @@
     {
      "va": "008e3770",
      "size": 1,
-     "symbol": "?vf_178@USeqAct_DelaySwitch@@UAEXXZ"
+     "symbol": "?DeActivated@USeqAct_DelaySwitch@@UAEXXZ"
     },
     {
      "va": "008e3bd0",
@@ -224308,7 +224308,7 @@
     {
      "va": "008e4c10",
      "size": 1,
-     "symbol": "?vf_178@USeqAct_RangeSwitch@@UAEXXZ"
+     "symbol": "?DeActivated@USeqAct_RangeSwitch@@UAEXXZ"
     },
     {
      "va": "008e4c20",
@@ -224728,7 +224728,7 @@
     {
      "va": "008e6810",
      "size": 1,
-     "symbol": "?vf_178@USeqAct_Switch@@UAEXXZ"
+     "symbol": "?DeActivated@USeqAct_Switch@@UAEXXZ"
     },
     {
      "va": "008e6c50",
@@ -224808,7 +224808,7 @@
     {
      "va": "008e7070",
      "size": 1,
-     "symbol": "?vf_178@USeqAct_Trace@@UAEXXZ"
+     "symbol": "?DeActivated@USeqAct_Trace@@UAEXXZ"
     },
     {
      "va": "008e7080",
@@ -340784,7 +340784,7 @@
     {
      "va": "00c8c620",
      "size": 3,
-     "symbol": "?vf_11c@UCodecMovie@@UAEMXZ"
+     "symbol": "?GetFrameRate@UCodecMovie@@UAEMXZ"
     },
     {
      "va": "00c8c630",
@@ -340814,7 +340814,7 @@
     {
      "va": "00c8c680",
      "size": 4,
-     "symbol": "?vf_134@UCodecMovie@@UAEMXZ"
+     "symbol": "?GetDuration@UCodecMovie@@UAEMXZ"
     },
     {
      "va": "00c8c6a0",
@@ -341858,7 +341858,7 @@
     {
      "va": "00c98040",
      "size": 7,
-     "symbol": "?vf_11c@UCodecMovieFallback@@UAEMXZ"
+     "symbol": "?GetFrameRate@UCodecMovieFallback@@UAEMXZ"
     },
     {
      "va": "00c98050",

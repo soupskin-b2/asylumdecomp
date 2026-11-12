@@ -1589,7 +1589,7 @@ void UObjectThunk_0157f2c0::sub_0157f2c0()
 }
 
 // @baa 0x0157f2f0
-void URSeqAct_GetThugStatus::vf_178(void) {  }
+void URSeqAct_GetThugStatus::DeActivated() {  }
 
 // @baa 0x0157f3d0
 IMPLEMENT_CLASS_AT(URSeqAct_GetThugStatus, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameClasses.cpp", 104);

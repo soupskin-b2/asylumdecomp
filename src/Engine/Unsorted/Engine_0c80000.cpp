@@ -774,7 +774,7 @@ UINT UCodecMovie::vf_110() { return 0; }
 UINT UCodecMovie::vf_114() { return 0; }
 
 // @baa 0x00c8c620
-FLOAT UCodecMovie::vf_11c() {
+FLOAT UCodecMovie::GetFrameRate() {
   return (float10)0;
 }
 
@@ -794,7 +794,7 @@ void UCodecMovie::ResetStream() {  }
 void UCodecMovie::vf_130(int a0) {  }
 
 // @baa 0x00c8c680
-float UCodecMovie::vf_134(void) { return *(float*)((char*)this + 48); }
+FLOAT UCodecMovie::GetDuration() { return *(float*)((char*)this + 48); }
 
 // @baa 0x00c8c6a0
 void UCodecMovie::vf_13c(int a0) {  }

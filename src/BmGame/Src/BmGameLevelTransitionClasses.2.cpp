@@ -6,7 +6,7 @@
 
 extern template ARGameRI* Cast<ARGameRI>(UObject* Src);
 // @baa 0x0158c460
-ARGameRI* ARLevelTransition::vf_354()
+ARGameRI* ARLevelTransition::GetGameRI()
 {
     return Cast<ARGameRI>(WorldInfo->GRI);
 }

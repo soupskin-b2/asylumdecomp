@@ -171,7 +171,7 @@ bool URSeqAct_SpeechEventManagerBase::vf_004()
 void sub_01612d20(void) {  }
 
 // @baa 0x01612d30
-void URSeqAct_SpeechEventManagerBase::vf_178(void) {  }
+void URSeqAct_SpeechEventManagerBase::DeActivated() {  }
 
 // @baa 0x01612d40
 void URSeqAct_SpeechEventManagerBase::vf_1a0(void)
@@ -352,7 +352,7 @@ void sub_00572b30();
 void sub_016163b0(void) { sub_00572b30(); }
 
 // @baa 0x016168a0
-void URSeqAct_SpeechEventManager::vf_178(void) {  }
+void URSeqAct_SpeechEventManager::DeActivated() {  }
 
 struct S {
     TArray<DWORD> Items; // 0x00

@@ -37,7 +37,7 @@ struct URSeqAct_PrepareMapChangeFromURL_ : public URSeqAct_PrepareMapChangeFromU
 };
 
 // @baa 0x0155abb0
-void URSeqAct_PrepareMapChangeFromURL::vf_178()
+void URSeqAct_PrepareMapChangeFromURL::DeActivated()
 {
     URSeqAct_PrepareMapChangeFromURL_* Self = (URSeqAct_PrepareMapChangeFromURL_*)this;
     C_X_290* X;

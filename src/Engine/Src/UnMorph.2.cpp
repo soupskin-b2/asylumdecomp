@@ -9,5 +9,5 @@ void UMorphNodeWeight::execSetNodeWeight(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(NewWeight);
 	P_FINISH;
-	vf_144(NewWeight);
+	SetNodeWeight(NewWeight);
 }

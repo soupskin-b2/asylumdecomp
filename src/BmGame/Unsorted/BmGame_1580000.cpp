@@ -918,7 +918,7 @@ undefined4 * UObject::sub_01581850(void)
 void URSeqAct_Credits::Activated(void) {  }
 
 // @baa 0x015818e0
-void URSeqAct_Credits::vf_178(void) {  }
+void URSeqAct_Credits::DeActivated() {  }
 
 // @baa 0x01581a00
 IMPLEMENT_CLASS_AT(URSeqAct_Credits, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameClasses.cpp", 98);
@@ -946,7 +946,7 @@ struct C_01581ad0 { C_01581ad0* sub_01581ad0(int a0); };
 C_01581ad0* C_01581ad0::sub_01581ad0(int a0) { return this; }
 
 // @baa 0x01581b80
-void URSeqAct_FadeScreen::vf_178(void) {  }
+void URSeqAct_FadeScreen::DeActivated() {  }
 
 // @baa 0x01581d80
 IMPLEMENT_CLASS_AT(URSeqAct_FadeScreen, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameClasses.cpp", 100);
@@ -974,7 +974,7 @@ struct C_01581e40 { C_01581e40* sub_01581e40(int a0); };
 C_01581e40* C_01581e40::sub_01581e40(int a0) { return this; }
 
 // @baa 0x01581ef0
-void URSeqAct_FadeSound::vf_178(void) {  }
+void URSeqAct_FadeSound::DeActivated() {  }
 
 // @baa 0x01582050
 IMPLEMENT_CLASS_AT(URSeqAct_FadeSound, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameClasses.cpp", 101);
@@ -1007,7 +1007,7 @@ undefined4 * UObject::sub_015821b0(void)
 }
 
 // @baa 0x015821d0
-void URSeqAct_HUDTimer::vf_178(void) {  }
+void URSeqAct_HUDTimer::DeActivated() {  }
 
 // @baa 0x015821e0
 IMPLEMENT_CLASS_AT(URSeqAct_HUDTimer, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameClasses.cpp", 107);

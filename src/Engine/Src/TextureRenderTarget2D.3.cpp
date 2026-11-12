@@ -41,7 +41,7 @@ int UScriptedTexture::vf_000(void) { return 1; }
 
 int sub_0073cbc0(void);
 // @baa 0x00755f00
-void UScriptedTexture::vf_114(void)
+void UScriptedTexture::UpdateResource()
 {
     int param_1 = (int)this;
 

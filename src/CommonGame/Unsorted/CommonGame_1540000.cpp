@@ -540,7 +540,7 @@ IMPLEMENT_CLASS_AT(URSeqAct_SetFarCullDistance, "e:\\Projects\\Amadeus\\AA\\Game
 IMPLEMENT_CLASS_AT(URSeqAct_EventSequence, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonGame\\Src\\CommonGameSequenceClasses.cpp", 6);
 
 // @baa 0x01547120
-void URSeqAct_WaitForAllInputs::vf_178(void) {  }
+void URSeqAct_WaitForAllInputs::DeActivated() {  }
 
 // @baa 0x01547510
 IMPLEMENT_CLASS_AT(URSeqAct_WaitForAllInputs, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonGame\\Src\\CommonGameSequenceClasses.cpp", 7);
@@ -549,7 +549,7 @@ IMPLEMENT_CLASS_AT(URSeqAct_WaitForAllInputs, "e:\\Projects\\Amadeus\\AA\\Game\\
 void URSeqAct_WaitForBool::Activated(void) {  }
 
 // @baa 0x015475e0
-void URSeqAct_WaitForBool::vf_178(void) {  }
+void URSeqAct_WaitForBool::DeActivated() {  }
 
 // @baa 0x015477e0
 IMPLEMENT_CLASS_AT(URSeqAct_WaitForBool, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonGame\\Src\\CommonGameSequenceClasses.cpp", 8);

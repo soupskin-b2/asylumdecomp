@@ -896,7 +896,7 @@ void UCodecMovieFallback::ResetStream()
 }
 
 // @baa 0x00c98040
-float UCodecMovieFallback::vf_11c()
+FLOAT UCodecMovieFallback::GetFrameRate()
 {
     return 30.0f;
 }

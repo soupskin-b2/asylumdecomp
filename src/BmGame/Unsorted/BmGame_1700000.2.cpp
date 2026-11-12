@@ -586,7 +586,7 @@ void ARPlayerStartInLevel::execGetMyLevelVolume(FFrame& Stack, RESULT_DECL)
 void ARLevelTransition::execGetGRI(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(ARGameRI**)Result = vf_354();
+	*(ARGameRI**)Result = GetGameRI();
 }
 
 // @baa 0x017089d0
