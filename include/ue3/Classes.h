@@ -29,6 +29,7 @@ namespace UE3
     };
 }
 struct FRBPhysScene;
+struct FBoneData;  /* AnimationCompressionAlgorithm.h: per-bone data for DoReduction */
 /* UObject::GotoState's result (UnObjBas.h) */
 enum EGotoState
 {
@@ -12620,8 +12621,8 @@ struct AActor : public UObject {
     void sub_00763700(FBox&); /* 0x00763700 */
     UBOOL sub_00763730(AActor*, INT, INT, INT); /* 0x00763730 */
     void sub_00769500(AActor*); /* 0x00769500 */
-    void sub_00777400(FLOAT); /* 0x00777400 */
-    void sub_00777420(FVector); /* 0x00777420 */
+    void SetDrawScale(FLOAT NewScale); /* 0x00777400 */
+    void SetDrawScale3D(FVector NewScale3D); /* 0x00777420 */
     void sub_00777440(UBOOL); /* 0x00777440 */
     void sub_00784080(BYTE); /* 0x00784080 */
     UBOOL PlayerCanSeeMe(); /* 0x00865230 */
@@ -16462,7 +16463,7 @@ struct UAnimationCompressionAlgorithm : public UObject {
     BYTE TranslationCompressionFormat; /* 0x40 */
     BYTE RotationCompressionFormat; /* 0x41 */
     /* virtual functions this class introduces (vtable 0x02030af8) */
-    virtual void DoReduction(INT, INT, INT); /* 0x10c */
+    virtual void DoReduction(class UAnimSequence* AnimSeq, class USkeletalMesh* SkelMesh, const TArray<FBoneData>& BoneData); /* 0x10c */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -16493,7 +16494,7 @@ struct UAnimationCompressionAlgorithm_AutoRemoveLinearKeys : public UAnimationCo
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void PostLoad(); /* 0x01c */
-    virtual void DoReduction(INT, INT, INT); /* 0x10c */
+    virtual void DoReduction(class UAnimSequence* AnimSeq, class USkeletalMesh* SkelMesh, const TArray<FBoneData>& BoneData); /* 0x10c */
     /* registered size 0x98 */
 };
 
@@ -16503,7 +16504,7 @@ struct UAnimationCompressionAlgorithm_BitwiseCompressOnly : public UAnimationCom
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void DoReduction(INT, INT, INT); /* 0x10c */
+    virtual void DoReduction(class UAnimSequence* AnimSeq, class USkeletalMesh* SkelMesh, const TArray<FBoneData>& BoneData); /* 0x10c */
     /* registered size 0x44 */
 };
 
@@ -16515,7 +16516,7 @@ struct UAnimationCompressionAlgorithm_RemoveEverySecondKey : public UAnimationCo
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void DoReduction(INT, INT, INT); /* 0x10c */
+    virtual void DoReduction(class UAnimSequence* AnimSeq, class USkeletalMesh* SkelMesh, const TArray<FBoneData>& BoneData); /* 0x10c */
     /* registered size 0x4c */
 };
 
@@ -16531,7 +16532,7 @@ struct UAnimationCompressionAlgorithm_RemoveLinearKeys : public UAnimationCompre
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void DoReduction(INT, INT, INT); /* 0x10c */
+    virtual void DoReduction(class UAnimSequence* AnimSeq, class USkeletalMesh* SkelMesh, const TArray<FBoneData>& BoneData); /* 0x10c */
     /* other member functions */
     static void BitwiseCompressAnimationTracks( UAnimSequence* Seq, BYTE TargetTranslationFormat, BYTE TargetRotationFormat, const TArray<FTranslationTrack>& TranslationData, const TArray<FRotationTrack>& RotationData, UBOOL IncludeKeyTable ); /* 0x00c00e80 */
     static void FilterTrivialPositionKeys( TArray<FTranslationTrack>& Track, FLOAT MaxPosDelta ); /* 0x00c01c00 */
@@ -16547,7 +16548,7 @@ struct UAnimationCompressionAlgorithm_RemoveTrivialKeys : public UAnimationCompr
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void DoReduction(INT, INT, INT); /* 0x10c */
+    virtual void DoReduction(class UAnimSequence* AnimSeq, class USkeletalMesh* SkelMesh, const TArray<FBoneData>& BoneData); /* 0x10c */
     /* registered size 0x4c */
 };
 
@@ -16557,7 +16558,7 @@ struct UAnimationCompressionAlgorithm_RevertToRaw : public UAnimationCompression
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void DoReduction(INT, INT, INT); /* 0x10c */
+    virtual void DoReduction(class UAnimSequence* AnimSeq, class USkeletalMesh* SkelMesh, const TArray<FBoneData>& BoneData); /* 0x10c */
     /* registered size 0x44 */
 };
 
@@ -16611,7 +16612,7 @@ struct UAnimNode : public UAnimObject {
     virtual INT vf_138(); /* 0x138 */
     virtual INT vf_13c(); /* 0x13c */
     virtual void vf_140(INT); /* 0x140 */
-    virtual void vf_144(INT, INT, INT, INT); /* 0x144 */
+    virtual void GetBoneAtoms(TArray<FBoneAtom>& Atoms, const TArray<BYTE>& DesiredBones, FBoneAtom& RootMotionDelta, INT& bHasRootMotion); /* 0x144 */
     virtual INT vf_148(INT, INT, INT); /* 0x148 */
     virtual bool vf_14c(); /* 0x14c */
     virtual void vf_150(); /* 0x150 */
@@ -16662,7 +16663,7 @@ struct UAnimNodeBlendBase : public UAnimNode {
     virtual void InitAnim(class USkeletalMeshComponent* MeshComp, class UAnimNodeBlendBase* Parent); /* 0x128 */
     virtual void vf_134(FLOAT, FLOAT); /* 0x134 */
     virtual void vf_140(INT); /* 0x140 */
-    virtual void vf_144(INT, INT, INT, INT); /* 0x144 */
+    virtual void GetBoneAtoms(TArray<FBoneAtom>& Atoms, const TArray<BYTE>& DesiredBones, FBoneAtom& RootMotionDelta, INT& bHasRootMotion); /* 0x144 */
     virtual void vf_154(); /* 0x154 */
     virtual void vf_164(INT, INT, INT, INT); /* 0x164 */
     virtual FString vf_168(); /* 0x168 */
@@ -16698,7 +16699,7 @@ struct UAnimNodeAdditiveBlending : public UAnimNodeBlend {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_144(INT, INT, INT, INT); /* 0x144 */
+    virtual void GetBoneAtoms(TArray<FBoneAtom>& Atoms, const TArray<BYTE>& DesiredBones, FBoneAtom& RootMotionDelta, INT& bHasRootMotion); /* 0x144 */
     virtual void SetChildrenTotalWeightAccumulator(const INT Index); /* 0x188 */
     /* registered size 0xdc */
 };
@@ -16729,7 +16730,7 @@ struct UAnimNodeAimOffset : public UAnimNodeBlendBase {
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void InitAnim(class USkeletalMeshComponent* MeshComp, class UAnimNodeBlendBase* Parent); /* 0x128 */
     virtual void vf_130(UINT); /* 0x130 */
-    virtual void vf_144(INT, INT, INT, INT); /* 0x144 */
+    virtual void GetBoneAtoms(TArray<FBoneAtom>& Atoms, const TArray<BYTE>& DesiredBones, FBoneAtom& RootMotionDelta, INT& bHasRootMotion); /* 0x144 */
     virtual UINT vf_170(); /* 0x170 */
     virtual INT vf_174(INT); /* 0x174 */
     virtual FLOAT GetSliderPosition(INT SliderIndex, INT ValueIndex); /* 0x178 */
@@ -16858,7 +16859,7 @@ struct UAnimNodeBlendMultiBone : public UAnimNodeBlendBase {
     virtual bool vf_004(); /* 0x004 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void InitAnim(class USkeletalMeshComponent* MeshComp, class UAnimNodeBlendBase* Parent); /* 0x128 */
-    virtual void vf_144(INT, INT, INT, INT); /* 0x144 */
+    virtual void GetBoneAtoms(TArray<FBoneAtom>& Atoms, const TArray<BYTE>& DesiredBones, FBoneAtom& RootMotionDelta, INT& bHasRootMotion); /* 0x144 */
     virtual void SetChildrenTotalWeightAccumulator(const INT Index); /* 0x188 */
     /* UnrealScript natives */
     void execSetTargetStartBone(FFrame& Stack, RESULT_DECL); /* 0x00c4b920 */
@@ -16877,7 +16878,7 @@ struct UAnimNodeBlendPerBone : public UAnimNodeBlend {
     virtual bool vf_004(); /* 0x004 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void InitAnim(class USkeletalMeshComponent* MeshComp, class UAnimNodeBlendBase* Parent); /* 0x128 */
-    virtual void vf_144(INT, INT, INT, INT); /* 0x144 */
+    virtual void GetBoneAtoms(TArray<FBoneAtom>& Atoms, const TArray<BYTE>& DesiredBones, FBoneAtom& RootMotionDelta, INT& bHasRootMotion); /* 0x144 */
     virtual void SetChildrenTotalWeightAccumulator(const INT Index); /* 0x188 */
     /* registered size 0x100 */
 };
@@ -16910,7 +16911,7 @@ struct UAnimNodeMirror : public UAnimNodeBlendBase {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_144(INT, INT, INT, INT); /* 0x144 */
+    virtual void GetBoneAtoms(TArray<FBoneAtom>& Atoms, const TArray<BYTE>& DesiredBones, FBoneAtom& RootMotionDelta, INT& bHasRootMotion); /* 0x144 */
     /* registered size 0xcc */
 };
 
@@ -17028,7 +17029,7 @@ struct UAnimNodeSequence : public UAnimNode {
     virtual void InitAnim(class USkeletalMeshComponent* MeshComp, class UAnimNodeBlendBase* Parent); /* 0x128 */
     virtual void vf_12c(); /* 0x12c */
     virtual void vf_134(FLOAT, FLOAT); /* 0x134 */
-    virtual void vf_144(INT, INT, INT, INT); /* 0x144 */
+    virtual void GetBoneAtoms(TArray<FBoneAtom>& Atoms, const TArray<BYTE>& DesiredBones, FBoneAtom& RootMotionDelta, INT& bHasRootMotion); /* 0x144 */
     virtual INT vf_148(INT, INT, INT); /* 0x148 */
     virtual bool vf_14c(); /* 0x14c */
     virtual void SetAnim(FName Sequence); /* 0x15c */
@@ -17068,7 +17069,7 @@ struct UAnimNodeSequenceBlendBase : public UAnimNodeSequence {
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void InitAnim(class USkeletalMeshComponent* MeshComp, class UAnimNodeBlendBase* Parent); /* 0x128 */
     virtual void vf_12c(); /* 0x12c */
-    virtual void vf_144(INT, INT, INT, INT); /* 0x144 */
+    virtual void GetBoneAtoms(TArray<FBoneAtom>& Atoms, const TArray<BYTE>& DesiredBones, FBoneAtom& RootMotionDelta, INT& bHasRootMotion); /* 0x144 */
     /* registered size 0x10c */
 };
 
@@ -17127,7 +17128,7 @@ struct UAnimNodeSlot : public UAnimNodeBlendBase {
     virtual void vf_11c(); /* 0x11c */
     virtual void InitAnim(class USkeletalMeshComponent* MeshComp, class UAnimNodeBlendBase* Parent); /* 0x128 */
     virtual void vf_134(FLOAT, FLOAT); /* 0x134 */
-    virtual void vf_144(INT, INT, INT, INT); /* 0x144 */
+    virtual void GetBoneAtoms(TArray<FBoneAtom>& Atoms, const TArray<BYTE>& DesiredBones, FBoneAtom& RootMotionDelta, INT& bHasRootMotion); /* 0x144 */
     virtual UINT vf_170(); /* 0x170 */
     virtual INT vf_190(INT); /* 0x190 */
     virtual INT vf_194(INT); /* 0x194 */
@@ -17553,7 +17554,7 @@ struct UAnimTree : public UAnimNodeBlendBase {
     virtual bool vf_004(); /* 0x004 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void InitAnim(class USkeletalMeshComponent* MeshComp, class UAnimNodeBlendBase* Parent); /* 0x128 */
-    virtual void vf_144(INT, INT, INT, INT); /* 0x144 */
+    virtual void GetBoneAtoms(TArray<FBoneAtom>& Atoms, const TArray<BYTE>& DesiredBones, FBoneAtom& RootMotionDelta, INT& bHasRootMotion); /* 0x144 */
     virtual void* vf_158(); /* 0x158 */
     virtual void vf_164(INT, INT, INT, INT); /* 0x164 */
     virtual INT vf_16c(INT, INT, INT); /* 0x16c */
@@ -20571,7 +20572,7 @@ struct UMaterialInterface : public USurface {
     virtual UBOOL GetScalarCurveParameterValue(FName ParameterName, FInterpCurveFloat& OutValue); /* 0x11c */
     virtual UBOOL GetTextureParameterValue(FName ParameterName, class UTexture*& OutValue); /* 0x120 */
     virtual UBOOL GetVectorParameterValue(FName ParameterName, FLinearColor& OutValue); /* 0x124 */
-    virtual INT vf_128(INT, INT, INT); /* 0x128 */
+    virtual UBOOL GetVectorCurveParameterValue(FName ParameterName, FInterpCurveVector& OutValue); /* 0x128 */
     virtual void vf_12c(FLOAT); /* 0x12c */
     virtual INT vf_130(INT); /* 0x130 */
     virtual INT vf_134(INT); /* 0x134 */
@@ -24173,8 +24174,8 @@ struct UInterpTrack : public UObject, public FCurveEdInterface, public FInterpEd
     virtual void RemoveKeyframe(INT KeyIndex); /* 0x124 */
     virtual INT DuplicateKeyframe(INT KeyIndex, FLOAT NewKeyTime); /* 0x128 */
     virtual UBOOL GetClosestSnapPosition(FLOAT InPosition, TArray<INT>& IgnoreKeys, FLOAT& OutPosition); /* 0x12c */
-    virtual INT vf_130(INT, INT); /* 0x130 */
-    virtual INT vf_134(INT, INT, INT); /* 0x134 */
+    virtual void PreviewUpdateTrack(FLOAT NewPosition, class UInterpTrackInst* TrInst); /* 0x130 */
+    virtual void UpdateTrack(FLOAT NewPosition, class UInterpTrackInst* TrInst, UBOOL bJump); /* 0x134 */
     virtual void vf_138(INT, INT); /* 0x138 */
     virtual void vf_13c(INT, INT, INT); /* 0x13c */
     virtual void vf_140(INT); /* 0x140 */
@@ -24833,7 +24834,7 @@ struct UInterpTrackMove : public UInterpTrack {
     virtual void RemoveKeyframe(INT KeyIndex); /* 0x124 */
     virtual INT DuplicateKeyframe(INT KeyIndex, FLOAT NewKeyTime); /* 0x128 */
     virtual UBOOL GetClosestSnapPosition(FLOAT InPosition, TArray<INT>& IgnoreKeys, FLOAT& OutPosition); /* 0x12c */
-    virtual INT vf_130(INT, INT); /* 0x130 */
+    virtual void PreviewUpdateTrack(FLOAT NewPosition, class UInterpTrackInst* TrInst); /* 0x130 */
     virtual void vf_138(INT, INT); /* 0x138 */
     virtual INT vf_148(); /* 0x148 */
     virtual void vf_150(INT, INT); /* 0x150 */
@@ -27545,7 +27546,7 @@ struct UMaterialInstanceTimeVarying : public UMaterialInstance {
     virtual UBOOL GetScalarCurveParameterValue(FName ParameterName, FInterpCurveFloat& OutValue); /* 0x11c */
     virtual UBOOL GetTextureParameterValue(FName ParameterName, class UTexture*& OutValue); /* 0x120 */
     virtual UBOOL GetVectorParameterValue(FName ParameterName, FLinearColor& OutValue); /* 0x124 */
-    virtual INT vf_128(INT, INT, INT); /* 0x128 */
+    virtual UBOOL GetVectorCurveParameterValue(FName ParameterName, FInterpCurveVector& OutValue); /* 0x128 */
     virtual void SetParent(class UMaterialInterface* NewParent); /* 0x160 */
     virtual void SetVectorParameterValue(FName ParameterName, FLinearColor Value); /* 0x164 */
     virtual void SetScalarParameterValue(FName ParameterName, FLOAT Value); /* 0x168 */
@@ -41773,7 +41774,7 @@ struct URAnimNode_AnimCapture : public UAnimNodeBlendBase {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_134(FLOAT, FLOAT); /* 0x134 */
-    virtual void vf_144(INT, INT, INT, INT); /* 0x144 */
+    virtual void GetBoneAtoms(TArray<FBoneAtom>& Atoms, const TArray<BYTE>& DesiredBones, FBoneAtom& RootMotionDelta, INT& bHasRootMotion); /* 0x144 */
     /* UnrealScript natives */
     void execCapture(FFrame& Stack, RESULT_DECL); /* 0x016ebd70 */
     /* registered size 0xd4 */
@@ -41789,7 +41790,7 @@ struct URAnimNode_AnimTransform : public UAnimNodeSequence {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_144(INT, INT, INT, INT); /* 0x144 */
+    virtual void GetBoneAtoms(TArray<FBoneAtom>& Atoms, const TArray<BYTE>& DesiredBones, FBoneAtom& RootMotionDelta, INT& bHasRootMotion); /* 0x144 */
     /* registered size 0x130 */
 };
 
@@ -41801,7 +41802,7 @@ struct URAnimNode_Bat : public UAnimNode {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void InitAnim(class USkeletalMeshComponent* MeshComp, class UAnimNodeBlendBase* Parent); /* 0x128 */
-    virtual void vf_144(INT, INT, INT, INT); /* 0x144 */
+    virtual void GetBoneAtoms(TArray<FBoneAtom>& Atoms, const TArray<BYTE>& DesiredBones, FBoneAtom& RootMotionDelta, INT& bHasRootMotion); /* 0x144 */
     /* registered size 0xb8 */
 };
 
@@ -41857,7 +41858,7 @@ struct URAnimNode_Cape : public UAnimNodeBlendBase {
     virtual bool vf_004(); /* 0x004 */
     virtual void InitAnim(class USkeletalMeshComponent* MeshComp, class UAnimNodeBlendBase* Parent); /* 0x128 */
     virtual void vf_134(FLOAT, FLOAT); /* 0x134 */
-    virtual void vf_144(INT, INT, INT, INT); /* 0x144 */
+    virtual void GetBoneAtoms(TArray<FBoneAtom>& Atoms, const TArray<BYTE>& DesiredBones, FBoneAtom& RootMotionDelta, INT& bHasRootMotion); /* 0x144 */
     virtual UINT vf_170(); /* 0x170 */
     virtual FLOAT GetSliderPosition(INT SliderIndex, INT ValueIndex); /* 0x178 */
     virtual void HandleSliderMove(INT SliderIndex, INT ValueIndex, FLOAT NewSliderValue); /* 0x17c */
@@ -42049,7 +42050,7 @@ struct URAnimNode_Pose : public UAnimNodeBlendBase, public FTickableObject {
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void InitAnim(class USkeletalMeshComponent* MeshComp, class UAnimNodeBlendBase* Parent); /* 0x128 */
     virtual void vf_134(FLOAT, FLOAT); /* 0x134 */
-    virtual void vf_144(INT, INT, INT, INT); /* 0x144 */
+    virtual void GetBoneAtoms(TArray<FBoneAtom>& Atoms, const TArray<BYTE>& DesiredBones, FBoneAtom& RootMotionDelta, INT& bHasRootMotion); /* 0x144 */
     virtual UINT vf_170(); /* 0x170 */
     virtual INT vf_174(INT); /* 0x174 */
     virtual FLOAT GetSliderPosition(INT SliderIndex, INT ValueIndex); /* 0x178 */
@@ -51136,7 +51137,7 @@ struct ARGameInfo : public ARGameInfoBase {
     virtual INT SecuROMProtectionCheck4(INT A, INT B); /* 0x3c0 */
     virtual void vf_3c4(); /* 0x3c4 */
     virtual void SetTrioviz(const FString& Value); /* 0x3c8 */
-    virtual INT vf_3cc(FLOAT); /* 0x3cc */
+    virtual void vf_3cc(FLOAT); /* 0x3cc */
     virtual INT vf_3d0(INT, INT, INT, INT, INT, INT, INT); /* 0x3d0 */
     virtual FString GetGameTimePlayedString(); /* 0x3d4 */
     /* overrides */

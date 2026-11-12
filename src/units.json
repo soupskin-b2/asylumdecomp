@@ -160004,7 +160004,7 @@
     {
      "va": "00c16ee0",
      "size": 344,
-     "symbol": "?DoReduction@UAnimationCompressionAlgorithm_RemoveLinearKeys_@@QAEXPAUUAnimSequence@@PAUUSkeletalMesh@@ABV?$TArray@UFBoneData@@@@@Z"
+     "symbol": "?DoReduction@UAnimationCompressionAlgorithm_RemoveLinearKeys_@@UAEXPAUUAnimSequence@@PAUUSkeletalMesh@@ABV?$TArray@UFBoneData@@@@@Z"
     }
    ]
   },
@@ -171128,7 +171128,7 @@
     {
      "va": "006d9340",
      "size": 5,
-     "symbol": "?vf_128@UMaterialInterface@@UAEHHHH@Z"
+     "symbol": "?GetVectorCurveParameterValue@UMaterialInterface@@UAEHUFName@@AAUFInterpCurveVector@@@Z"
     },
     {
      "va": "006d9350",
@@ -184496,12 +184496,12 @@
     {
      "va": "00777400",
      "size": 32,
-     "symbol": "?sub_00777400@AActor@@QAEXM@Z"
+     "symbol": "?SetDrawScale@AActor@@QAEXM@Z"
     },
     {
      "va": "00777420",
      "size": 31,
-     "symbol": "?sub_00777420@AActor@@QAEXUFVector@@@Z"
+     "symbol": "?SetDrawScale3D@AActor@@QAEXUFVector@@@Z"
     }
    ]
   },
@@ -190234,7 +190234,7 @@
     {
      "va": "00c71100",
      "size": 250,
-     "symbol": "?GetBoneAtoms@UAnimTree__00c71100@@QAEXAAV?$TArray@UFBoneAtom@@@@ABV?$TArray@E@@AAUFBoneAtom@@AAH@Z"
+     "symbol": "?GetBoneAtoms@UAnimTree__00c71100@@UAEXAAV?$TArray@UFBoneAtom@@@@ABV?$TArray@E@@AAUFBoneAtom@@AAH@Z"
     },
     {
      "va": "00c52fa0",
@@ -192021,7 +192021,7 @@
     {
      "va": "00c5ecc0",
      "size": 180,
-     "symbol": "?GetBoneAtoms@UAnimNode__00c5ecc0@@QAEXAAV?$TArray@UFBoneAtom@@@@ABV?$TArray@E@@AAUFBoneAtom@@AAH@Z"
+     "symbol": "?GetBoneAtoms@UAnimNode__00c5ecc0@@UAEXAAV?$TArray@UFBoneAtom@@@@ABV?$TArray@E@@AAUFBoneAtom@@AAH@Z"
     },
     {
      "va": "00c560b0",
@@ -333505,7 +333505,7 @@
     {
      "va": "00bfbc50",
      "size": 27,
-     "symbol": "?DoReduction@UAnimationCompressionAlgorithm@@UAEXHHH@Z"
+     "symbol": "?DoReduction@UAnimationCompressionAlgorithm@@UAEXPAUUAnimSequence@@PAUUSkeletalMesh@@ABV?$TArray@UFBoneData@@@@@Z"
     }
    ]
   },

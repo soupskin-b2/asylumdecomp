@@ -65,8 +65,7 @@ INT AGameInfo::vf_000()
 }
 
 // @baa 0x00777400
-/* AActor::SetDrawScale (the kit names it sub_00777400). */
-void AActor::sub_00777400(FLOAT NewScale)
+void AActor::SetDrawScale(FLOAT NewScale)
 {
 	DrawScale = NewScale;
 	MarkComponentsAsDirty();
@@ -74,8 +73,7 @@ void AActor::sub_00777400(FLOAT NewScale)
 }
 
 // @baa 0x00777420
-/* AActor::SetDrawScale3D (the kit names it sub_00777420). */
-void AActor::sub_00777420(FVector NewScale3D)
+void AActor::SetDrawScale3D(FVector NewScale3D)
 {
 	DrawScale3D = NewScale3D;
 	MarkComponentsAsDirty();

@@ -942,7 +942,7 @@ C_00bfbff0 *C_00bfbff0::sub_00bfbff0(int a) { sub_00bfaa00(a); return this; }
 extern INT g_026667a8;
 void sub_00630f20(INT, const wchar_t*, const wchar_t*);
 // @baa 0x00bfbc50
-void UAnimationCompressionAlgorithm::DoReduction(INT, INT, INT)
+void UAnimationCompressionAlgorithm::DoReduction(UAnimSequence* AnimSeq, USkeletalMesh* SkelMesh, const TArray<FBoneData>& BoneData)
 {
     sub_00630f20(g_026667a8, L"Pure virtual not implemented (%s)", L"UAnimationCompressionAlgorithm::DoReduction");
 }

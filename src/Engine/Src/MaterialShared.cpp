@@ -828,7 +828,7 @@ UBOOL UMaterialInterface::GetScalarParameterValue(FName ParameterName, FLOAT& Ou
 UBOOL UMaterialInterface::GetScalarCurveParameterValue(FName ParameterName, FInterpCurveFloat& OutValue) { return 0; }
 
 // @baa 0x006d9340
-int UMaterialInterface::vf_128(int a0, int a1, int a2) { return 0; }
+UBOOL UMaterialInterface::GetVectorCurveParameterValue(FName ParameterName, FInterpCurveVector& OutValue) { return 0; }
 
 // @baa 0x006d9350
 UBOOL UMaterialInterface::GetTextureParameterValue(FName ParameterName, UTexture*& OutValue) { return 0; }

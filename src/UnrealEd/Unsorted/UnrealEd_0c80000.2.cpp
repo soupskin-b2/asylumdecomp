@@ -90,17 +90,12 @@ void AActor::execSleep(FFrame& Stack, RESULT_DECL)
 	((AActor__00c80d30*)this)->sub_008a7810(Seconds);
 }
 
-struct AActor__00c80f00 : public AActor
-{
-	void sub_00777400(FLOAT);
-};
-
 // @baa 0x00c80f00
 void AActor::execSetDrawScale(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(NewScale);
 	P_FINISH;
-	((AActor__00c80f00*)this)->sub_00777400(NewScale);
+	SetDrawScale(NewScale);
 }
 
 struct AActor__00c81460 : public AActor
@@ -116,17 +111,12 @@ void AActor::execAutonomousPhysics(FFrame& Stack, RESULT_DECL)
 	((AActor__00c81460*)this)->sub_00867da0(DeltaSeconds);
 }
 
-struct AActor__00c80f70 : public AActor
-{
-	void sub_00777420(FVector);
-};
-
 // @baa 0x00c80f70
 void AActor::execSetDrawScale3D(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT(FVector, NewScale3D);
 	P_FINISH;
-	((AActor__00c80f70*)this)->sub_00777420(NewScale3D);
+	SetDrawScale3D(NewScale3D);
 }
 
 struct AActor__00c81060 : public AActor
