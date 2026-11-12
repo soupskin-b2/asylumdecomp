@@ -36,7 +36,7 @@ void UOnlineProfileSettings::execSetDefaultVersionNumber( FFrame& Stack, RESULT_
 void UOnlineProfileSettings::execGetVersionNumber(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(INT*)Result = vf_160();
+	*(INT*)Result = GetVersionNumber();
 }
 
 // @baa 0x00c8db10
@@ -78,7 +78,7 @@ void UOnlineProfileSettings::execIsProfileSettingIdMapped(FFrame& Stack, RESULT_
 {
 	P_GET_INT(ProfileSettingId);
 	P_FINISH;
-	*(UBOOL*)Result = vf_118(ProfileSettingId);
+	*(UBOOL*)Result = IsProfileSettingIdMapped(ProfileSettingId);
 }
 
 // @baa 0x00c8dbf0

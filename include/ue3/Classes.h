@@ -18596,6 +18596,7 @@ struct UUIRoot : public UObject {
     void execGetFaceOrientation(FFrame& Stack, RESULT_DECL); /* 0x00da89e0 */
     void execGetInputPlatformType(FFrame& Stack, RESULT_DECL); /* 0x00da8a50 */
     void execGetCursorPosition(FFrame& Stack, RESULT_DECL); /* 0x00da8af0 */
+    static UBOOL GetCursorPosition(INT& CursorX, INT& CursorY, class UUIScene* Scene); /* 0x00da8790 */
     void execGetCursorSize(FFrame& Stack, RESULT_DECL); /* 0x00da8bf0 */
     void execSetMouseCaptureOverride(FFrame& Stack, RESULT_DECL); /* 0x00da8cf0 */
     void execGetPrimitiveTransform(FFrame& Stack, RESULT_DECL); /* 0x00dc62d0 */
@@ -19593,6 +19594,7 @@ struct USkeletalMeshComponent : public UMeshComponent {
     void execTransformToBoneSpace(FFrame& Stack, RESULT_DECL); /* 0x0091e6d0 */
     void execTransformFromBoneSpace(FFrame& Stack, RESULT_DECL); /* 0x0091e8d0 */
     void execFindClosestBone(FFrame& Stack, RESULT_DECL); /* 0x0091ee70 */
+    FName FindClosestBone(FVector TestLocation, FVector* BoneLocation = NULL, FLOAT IgnoreScale = -1.0f); /* 0x0091eac0 */
     void execGetClosestCollidingBoneLocation(FFrame& Stack, RESULT_DECL); /* 0x0091ef60 */
     void execDeclareFaceFXRegister(FFrame& Stack, RESULT_DECL); /* 0x0091f4e0 */
     void execGetFaceFXRegister(FFrame& Stack, RESULT_DECL); /* 0x0091f590 */
@@ -28336,49 +28338,49 @@ struct USettings : public UObject {
     FScriptDelegate __NotifySettingValueUpdated__Delegate; /* 0x60 */
     FScriptDelegate __NotifyPropertyValueUpdated__Delegate; /* 0x6c */
     /* virtual functions this class introduces (vtable 0x020b6d88) */
-    virtual INT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT); /* 0x110 */
-    virtual INT vf_114(INT, INT, INT); /* 0x114 */
-    virtual INT vf_118(INT, INT); /* 0x118 */
-    virtual INT vf_11c(INT, INT, INT, INT); /* 0x11c */
-    virtual INT vf_120(INT, INT, INT); /* 0x120 */
-    virtual INT vf_124(INT, INT, INT); /* 0x124 */
+    virtual void SetStringSettingValue(INT StringSettingId, INT ValueIndex, UBOOL bShouldAutoAdd); /* 0x10c */
+    virtual UBOOL GetStringSettingValue(INT StringSettingId, INT& ValueIndex); /* 0x110 */
+    virtual void IncrementStringSettingValue(INT StringSettingId, INT Direction, UBOOL bShouldWrapValue); /* 0x114 */
+    virtual UBOOL GetStringSettingValueNames(INT StringSettingId, TArray<FIdToStringMapping>& Values); /* 0x118 */
+    virtual void SetStringSettingValueByName(FName StringSettingName, INT ValueIndex, UBOOL bShouldAutoAdd); /* 0x11c */
+    virtual UBOOL GetStringSettingValueByName(FName StringSettingName, INT& ValueIndex); /* 0x120 */
+    virtual UBOOL GetStringSettingId(FName StringSettingName, INT& StringSettingId); /* 0x124 */
     virtual FName GetStringSettingName(INT StringSettingId); /* 0x128 */
-    virtual void vf_12c(INT, INT); /* 0x12c */
-    virtual INT vf_130(INT); /* 0x130 */
-    virtual INT vf_134(INT, INT, INT); /* 0x134 */
-    virtual INT vf_138(INT, INT, INT); /* 0x138 */
-    virtual INT vf_13c(INT, INT, INT); /* 0x13c */
-    virtual INT vf_140(INT, INT, INT); /* 0x140 */
+    virtual FString GetStringSettingColumnHeader(INT StringSettingId); /* 0x12c */
+    virtual UBOOL IsWildcardStringSetting(INT StringSettingId); /* 0x130 */
+    virtual FName GetStringSettingValueName(INT StringSettingId, INT ValueIndex); /* 0x134 */
+    virtual FName GetStringSettingValueNameByName(FName StringSettingName); /* 0x138 */
+    virtual UBOOL SetStringSettingValueFromStringByName(FName StringSettingName, const FString& NewValue); /* 0x13c */
+    virtual UBOOL GetPropertyId(FName PropertyName, INT& PropertyId); /* 0x140 */
     virtual FName GetPropertyName(INT PropertyId); /* 0x144 */
-    virtual void vf_148(INT, INT); /* 0x148 */
-    virtual INT vf_14c(INT, INT); /* 0x14c */
-    virtual INT vf_150(INT, INT, INT); /* 0x150 */
-    virtual INT vf_154(INT, INT, INT); /* 0x154 */
-    virtual void vf_158(INT, INT); /* 0x158 */
-    virtual INT vf_15c(INT, INT); /* 0x15c */
-    virtual void vf_160(INT, INT); /* 0x160 */
-    virtual INT vf_164(INT, INT); /* 0x164 */
-    virtual void vf_168(INT, INT); /* 0x168 */
-    virtual INT vf_16c(INT, INT); /* 0x16c */
-    virtual INT vf_170(INT, INT); /* 0x170 */
-    virtual INT vf_174(INT, INT); /* 0x174 */
-    virtual bool vf_178(INT); /* 0x178 */
-    virtual void vf_17c(INT, INT); /* 0x17c */
-    virtual void vf_180(INT, INT); /* 0x180 */
-    virtual INT vf_184(INT); /* 0x184 */
-    virtual INT vf_188(INT); /* 0x188 */
-    virtual INT vf_18c(INT, INT); /* 0x18c */
-    virtual INT vf_190(INT, INT, INT, INT, INT); /* 0x190 */
-    virtual INT vf_194(INT, INT); /* 0x194 */
-    virtual bool vf_198(INT, INT); /* 0x198 */
-    virtual void vf_19c(INT); /* 0x19c */
-    virtual void vf_1a0(INT); /* 0x1a0 */
-    virtual void vf_1a4(INT); /* 0x1a4 */
-    virtual void vf_1a8(INT); /* 0x1a8 */
-    virtual void vf_1ac(INT); /* 0x1ac */
-    virtual INT vf_1b0(INT); /* 0x1b0 */
-    virtual void vf_1b4(INT, INT); /* 0x1b4 */
+    virtual FString GetPropertyColumnHeader(INT PropertyId); /* 0x148 */
+    virtual FString GetPropertyAsString(INT PropertyId); /* 0x14c */
+    virtual FString GetPropertyAsStringByName(FName PropertyName); /* 0x150 */
+    virtual UBOOL SetPropertyFromStringByName(FName PropertyName, const FString& NewValue); /* 0x154 */
+    virtual void SetFloatProperty(INT PropertyId, FLOAT Value); /* 0x158 */
+    virtual UBOOL GetFloatProperty(INT PropertyId, FLOAT& Value); /* 0x15c */
+    virtual void SetIntProperty(INT PropertyId, INT Value); /* 0x160 */
+    virtual UBOOL GetIntProperty(INT PropertyId, INT& Value); /* 0x164 */
+    virtual void SetStringProperty(INT PropertyId, const FString& Value); /* 0x168 */
+    virtual UBOOL GetStringProperty(INT PropertyId, FString& Value); /* 0x16c */
+    virtual UBOOL SetPropertyValueId(INT PropertyId, INT ValueId); /* 0x170 */
+    virtual UBOOL GetPropertyValueId(INT PropertyId, INT& ValueId); /* 0x174 */
+    virtual BYTE GetPropertyType(INT PropertyId); /* 0x178 */
+    virtual void UpdateStringSettings(const TArray<FLocalizedStringSetting>& NewStringSettings, UBOOL bShouldAddIfMissing); /* 0x17c */
+    virtual void UpdateProperties(const TArray<FSettingsProperty>& NewProperties, UBOOL bShouldAddIfMissing); /* 0x180 */
+    virtual UBOOL HasProperty(INT PropertyId); /* 0x184 */
+    virtual UBOOL HasStringSetting(INT SettingId); /* 0x188 */
+    virtual UBOOL GetPropertyMappingType(INT PropertyId, BYTE& OutType); /* 0x18c */
+    virtual UBOOL GetPropertyRange(INT PropertyId, FLOAT& OutMinValue, FLOAT& OutMaxValue, FLOAT& RangeIncrement, BYTE& bFormatAsInt); /* 0x190 */
+    virtual UBOOL SetRangedPropertyValue(INT PropertyId, FLOAT NewValue); /* 0x194 */
+    virtual UBOOL GetRangedPropertyValue(INT PropertyId, FLOAT& OutValue); /* 0x198 */
+    virtual void GetQoSAdvertisedProperties(TArray<FSettingsProperty>& QoSProps); /* 0x19c */
+    virtual void GetQoSAdvertisedStringSettings(TArray<FLocalizedStringSetting>& QoSSettings); /* 0x1a0 */
+    virtual void AppendDataBindingsToURL(FString& URL); /* 0x1a4 */
+    virtual void AppendPropertiesToURL(FString& URL); /* 0x1a8 */
+    virtual void AppendContextsToURL(FString& URL); /* 0x1ac */
+    virtual INT BuildURL(FString& URL); /* 0x1b0 */
+    virtual void UpdateFromURL(const FString& URL, class AGameInfo* Game); /* 0x1b4 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -28588,33 +28590,33 @@ struct UOnlineProfileSettings : public UObject {
     BYTE AsyncState; /* 0x70 */
     FScriptDelegate __NotifySettingValueUpdated__Delegate; /* 0x74 */
     /* virtual functions this class introduces (vtable 0x020b7458) */
-    virtual INT vf_10c(INT, INT, INT); /* 0x10c */
+    virtual INT GetProfileSettingId(FName ProfileSettingName, INT& ProfileSettingId); /* 0x10c */
     virtual FName GetProfileSettingName(INT ProfileSettingId); /* 0x110 */
-    virtual void vf_114(INT, INT); /* 0x114 */
-    virtual INT vf_118(INT); /* 0x118 */
+    virtual FString GetProfileSettingColumnHeader(INT ProfileSettingId); /* 0x114 */
+    virtual UBOOL IsProfileSettingIdMapped(INT ProfileSettingId); /* 0x118 */
     virtual void vf_11c(INT, INT, INT); /* 0x11c */
     virtual FName GetProfileSettingValueName(INT ProfileSettingId); /* 0x120 */
-    virtual INT vf_124(INT, INT); /* 0x124 */
-    virtual INT vf_128(INT, INT, INT); /* 0x128 */
-    virtual INT vf_12c(INT, INT, INT); /* 0x12c */
-    virtual INT vf_130(INT, INT); /* 0x130 */
-    virtual INT vf_134(INT, INT, INT); /* 0x134 */
-    virtual INT vf_138(INT, INT); /* 0x138 */
-    virtual INT vf_13c(INT, INT); /* 0x13c */
-    virtual INT vf_140(INT, INT); /* 0x140 */
-    virtual INT vf_144(INT, INT); /* 0x144 */
-    virtual INT vf_148(INT, INT); /* 0x148 */
-    virtual INT vf_14c(INT, INT, INT); /* 0x14c */
-    virtual INT vf_150(INT, INT); /* 0x150 */
-    virtual INT vf_154(INT, INT); /* 0x154 */
+    virtual INT GetProfileSettingValues(INT ProfileSettingId, TArray<FName>& Values); /* 0x124 */
+    virtual INT GetProfileSettingValueByName(FName ProfileSettingName, FString& Value); /* 0x128 */
+    virtual INT SetProfileSettingValueByName(FName ProfileSettingName, const FString& NewValue); /* 0x12c */
+    virtual INT SetProfileSettingValue(INT ProfileSettingId, const FString& NewValue); /* 0x130 */
+    virtual INT GetProfileSettingValueId(INT ProfileSettingId, INT& ValueId, INT& ListIndex); /* 0x134 */
+    virtual INT GetProfileSettingValueInt(INT ProfileSettingId, INT& Value); /* 0x138 */
+    virtual INT GetProfileSettingValueFloat(INT ProfileSettingId, FLOAT& Value); /* 0x13c */
+    virtual INT SetProfileSettingValueId(INT ProfileSettingId, INT Value); /* 0x140 */
+    virtual INT SetProfileSettingValueInt(INT ProfileSettingId, INT Value); /* 0x144 */
+    virtual INT SetProfileSettingValueFloat(INT ProfileSettingId, FLOAT Value); /* 0x148 */
+    virtual INT GetProfileSettingDefaultId(INT ProfileSettingId, INT& DefaultId, INT& ListIndex); /* 0x14c */
+    virtual INT GetProfileSettingDefaultInt(INT ProfileSettingId, INT& DefaultInt); /* 0x150 */
+    virtual INT GetProfileSettingDefaultFloat(INT ProfileSettingId, FLOAT& DefaultFloat); /* 0x154 */
     virtual INT vf_158(); /* 0x158 */
     virtual INT vf_15c(); /* 0x15c */
-    virtual INT vf_160(); /* 0x160 */
+    virtual INT GetVersionNumber(); /* 0x160 */
     virtual void vf_164(); /* 0x164 */
-    virtual INT vf_168(INT, INT); /* 0x168 */
-    virtual INT vf_16c(INT, INT, INT, INT, INT); /* 0x16c */
-    virtual INT vf_170(INT, INT); /* 0x170 */
-    virtual bool vf_174(INT, INT); /* 0x174 */
+    virtual INT GetProfileSettingMappingType(INT ProfileSettingId, BYTE& OutType); /* 0x168 */
+    virtual INT GetProfileSettingRange(INT ProfileSettingId, FLOAT& OutMinValue, FLOAT& OutMaxValue, FLOAT& RangeIncrement, BYTE& bFormatAsInt); /* 0x16c */
+    virtual INT SetRangedProfileSettingValue(INT ProfileSettingId, FLOAT NewValue); /* 0x170 */
+    virtual bool GetRangedProfileSettingValue(INT ProfileSettingId, FLOAT& OutValue); /* 0x174 */
     virtual void vf_178(); /* 0x178 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */

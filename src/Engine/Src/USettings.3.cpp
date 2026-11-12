@@ -27,7 +27,7 @@ void USettings::execIsWildcardStringSetting(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(StringSettingId);
 	P_FINISH;
-	*(UBOOL*)Result = vf_130(StringSettingId);
+	*(UBOOL*)Result = IsWildcardStringSetting(StringSettingId);
 }
 
 // @baa 0x00c86550
@@ -35,7 +35,7 @@ void USettings::execGetPropertyType(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(PropertyId);
 	P_FINISH;
-	*(BYTE*)Result = vf_178(PropertyId);
+	*(BYTE*)Result = GetPropertyType(PropertyId);
 }
 
 // @baa 0x00c865c0
@@ -43,7 +43,7 @@ void USettings::execHasProperty(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(PropertyId);
 	P_FINISH;
-	*(UBOOL*)Result = vf_184(PropertyId);
+	*(UBOOL*)Result = HasProperty(PropertyId);
 }
 
 // @baa 0x00c86630
@@ -51,5 +51,5 @@ void USettings::execHasStringSetting(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(SettingId);
 	P_FINISH;
-	*(UBOOL*)Result = vf_188(SettingId);
+	*(UBOOL*)Result = HasStringSetting(SettingId);
 }

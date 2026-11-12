@@ -114,6 +114,16 @@ template<class T> struct TScriptInterface {  /* FScriptInterface's layout (Class
 // its {Index, 0} (EName is in Core.h): P_GET_NAME_OPTX(BoneName, NAME_None). The game stores both zeros as immediates.
 #define P_GET_NAME_OPTX(v, d)   FName v = { d, 0 }; GRuntimeUCFlags &= ~RUC_SkippedOptionalParm; Stack.Step(Stack.Object, &v);
 #define P_GET_STR_OPTX(v, d)    FString v(d); GRuntimeUCFlags &= ~RUC_SkippedOptionalParm; Stack.Step(Stack.Object, &v);
+// optional out parameters: the default lands in a local, the reference is the caller's variable when it passed one
+// (pVar is that variable's address, or NULL when the caller left the parameter out)
+#define P_GET_INT_OPTX_REF(v, d)    INT v##T = d; GRuntimeUCFlags &= ~RUC_SkippedOptionalParm; GPropAddr = 0; Stack.Step(Stack.Object, &v##T); INT* p##v = (INT*)GPropAddr; INT& v = GPropAddr ? *(INT*)GPropAddr : v##T;
+#define P_GET_FLOAT_OPTX_REF(v, d)  FLOAT v##T = d; GRuntimeUCFlags &= ~RUC_SkippedOptionalParm; GPropAddr = 0; Stack.Step(Stack.Object, &v##T); FLOAT* p##v = (FLOAT*)GPropAddr; FLOAT& v = GPropAddr ? *(FLOAT*)GPropAddr : v##T;
+#define P_GET_BYTE_OPTX_REF(v, d)   BYTE v##T = d; GRuntimeUCFlags &= ~RUC_SkippedOptionalParm; GPropAddr = 0; Stack.Step(Stack.Object, &v##T); BYTE* p##v = (BYTE*)GPropAddr; BYTE& v = GPropAddr ? *(BYTE*)GPropAddr : v##T;
+#define P_GET_UBOOL_OPTX_REF(v, d)  UBOOL v##T = d; GRuntimeUCFlags &= ~RUC_SkippedOptionalParm; GPropAddr = 0; Stack.Step(Stack.Object, &v##T); UBOOL* p##v = (UBOOL*)GPropAddr; UBOOL& v = GPropAddr ? *(UBOOL*)GPropAddr : v##T;
+#define P_GET_OBJECT_OPTX_REF(c, v, d) c* v##T = d; GRuntimeUCFlags &= ~RUC_SkippedOptionalParm; GPropAddr = 0; Stack.Step(Stack.Object, &v##T); c** p##v = (c**)GPropAddr; c*& v = GPropAddr ? *(c**)GPropAddr : v##T;
+#define P_GET_STR_OPTX_REF(v, d)    FString v##T(d); GRuntimeUCFlags &= ~RUC_SkippedOptionalParm; GPropAddr = 0; Stack.Step(Stack.Object, &v##T); FString* p##v = (FString*)GPropAddr; FString& v = GPropAddr ? *(FString*)GPropAddr : v##T;
+// (structs: no default and no flag change; the temp stays uninitialized when the caller leaves it out)
+#define P_GET_STRUCT_OPTX_REF(t, v) t v##T; GPropAddr = 0; Stack.Step(Stack.Object, &v##T); t* p##v = (t*)GPropAddr; t& v = GPropAddr ? *(t*)GPropAddr : v##T;
 
 // After the last parameter: skip EX_EndFunctionParms, then a debug-info opcode if there is one.
 #define P_FINISH           Stack.Code++; if (*Stack.Code == EX_DebugInfo) Stack.Step(Stack.Object, 0);
