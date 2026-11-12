@@ -95,7 +95,7 @@ int AController::vf_3b8(void)
 void APlayerController::sub_007a14f0(int a0) { *(int*)((char*)this + 876) = a0; }
 
 // @baa 0x007a1500
-int APlayerController::sub_007a1500(void) { return *(int*)((char*)this + 876); }
+UInterpTrackInstDirector* APlayerController::sub_007a1500() { return *(UInterpTrackInstDirector**)((char*)this + 876); }
 
 extern undefined4 g_026c3cdc;
 // @baa 0x007a1f40

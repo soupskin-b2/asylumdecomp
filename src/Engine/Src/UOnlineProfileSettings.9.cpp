@@ -144,7 +144,7 @@ struct FOnlineProfileSetting_ : public FOnlineProfileSetting
 
 // @baa 0x00d81460
 /* Replaces the settings with the defaults (plus the version setting), then tells the NotifySettingValueUpdated delegate. */
-void UOnlineProfileSettings::vf_178()
+void UOnlineProfileSettings::SetToDefaults()
 {
     ProfileSettings.Empty();
     for (INT Index = 0; Index < DefaultSettings.Num(); Index++)

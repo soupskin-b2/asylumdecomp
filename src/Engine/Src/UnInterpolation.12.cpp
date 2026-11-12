@@ -112,7 +112,7 @@ void UInterpGroupInst::vf_110()
     check(Group);
     for (INT i = 0; i < TrackInst.Num(); i++)
     {
-        TrackInst(i)->vf_110(Group->InterpTracks(i));
+        TrackInst(i)->RestoreActorState(Group->InterpTracks(i));
     }
 }
 

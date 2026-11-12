@@ -942,7 +942,7 @@ void ARPontoonBridgeManager::execFindClosestPontoon(FFrame& Stack, RESULT_DECL)
 {
     P_GET_STRUCT(FVector, pos);
     P_FINISH;
-    *(INT*)Result = FindClosestPontoon(pos);
+    *(ARPontoonBase**)Result = FindClosestPontoon(pos);
 }
 
 // @baa 0x016fe800

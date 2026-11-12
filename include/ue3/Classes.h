@@ -15730,7 +15730,7 @@ struct APlayerController : public AController {
     UINT sub_0077cca0(BYTE); /* 0x0077cca0 */
     UINT* sub_0077cd70(); /* 0x0077cd70 */
     void sub_007a14f0(INT); /* 0x007a14f0 */
-    INT sub_007a1500(); /* 0x007a1500 */
+    class UInterpTrackInstDirector* sub_007a1500(); /* 0x007a1500: returns ControllingDirTrackInst */
     UINT* sub_00e27fc0(); /* 0x00e27fc0 */
     UINT* sub_01533560(); /* 0x01533560 */
     UINT* sub_016303f0(); /* 0x016303f0 */
@@ -18476,7 +18476,7 @@ struct UFont : public UObject {
     virtual FLOAT vf_110(FLOAT); /* 0x110 */
     virtual FLOAT vf_114(FLOAT); /* 0x114 */
     virtual FLOAT vf_118(); /* 0x118 */
-    virtual FLOAT StrWidth(INT); /* 0x11c */
+    virtual FLOAT StrWidth(const FString& Text); /* 0x11c */
     virtual void CacheCharacterCountAndMaxCharHeight(); /* 0x120 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
@@ -19010,7 +19010,7 @@ struct UUIObject : public UUIScreenObject {
     /* virtual functions this class introduces (vtable 0x020c2728) */
     virtual INT vf_1ec(INT, INT); /* 0x1ec */
     virtual void NotifyValueChanged(INT PlayerIndex, INT NotifyFlags); /* 0x1f0 */
-    virtual INT SetDockTarget(INT, INT, INT); /* 0x1f4 */
+    virtual UBOOL SetDockTarget(BYTE SourceFace, class UUIScreenObject* Target, BYTE TargetFace); /* 0x1f4 */
     virtual INT vf_1f8(INT, INT, INT, INT); /* 0x1f8 */
     virtual INT vf_1fc(INT, INT, INT, INT); /* 0x1fc */
     virtual INT vf_200(INT, INT, INT, INT); /* 0x200 */
@@ -20311,7 +20311,7 @@ struct UInput : public UInteraction {
     TArrayNoInit<FNativeElem_008c2090> AxisArray; /* 0xc0 */
     /* virtual functions this class introduces (vtable 0x020b75d8) */
     virtual void vf_120(); /* 0x120 */
-    virtual INT GetBind(INT, INT, INT); /* 0x124 */
+    virtual FString GetBind(FName& Key, UBOOL bGamepad); /* 0x124 */
     virtual INT vf_128(INT, INT); /* 0x128 */
     virtual void vf_12c(); /* 0x12c */
     virtual INT vf_130(INT, INT); /* 0x130 */
@@ -20578,7 +20578,7 @@ struct UMaterialInterface : public USurface {
     FRenderCommandFence_Mirror ParentRefFence; /* 0x30 */
     FStringNoInit PreviewMesh; /* 0x34 */
     /* virtual functions this class introduces (vtable 0x01ebd268) */
-    virtual UINT GetFontParameterValue(UINT, UINT, INT*, UINT*); /* 0x114 */
+    virtual UBOOL GetFontParameterValue(FName ParameterName, class UFont*& OutFontValue, INT& OutFontPage); /* 0x114 */
     virtual UBOOL GetScalarParameterValue(FName ParameterName, FLOAT& OutValue); /* 0x118 */
     virtual UBOOL GetScalarCurveParameterValue(FName ParameterName, FInterpCurveFloat& OutValue); /* 0x11c */
     virtual UBOOL GetTextureParameterValue(FName ParameterName, class UTexture*& OutValue); /* 0x120 */
@@ -20716,7 +20716,7 @@ struct UMaterial : public UMaterialInterface {
     virtual void vf_0e8(INT); /* 0x0e8 */
     virtual DOUBLE vf_10c(); /* 0x10c */
     virtual DOUBLE GetSurfaceHeight(); /* 0x110 */
-    virtual UINT GetFontParameterValue(UINT, UINT, INT*, UINT*); /* 0x114 */
+    virtual UBOOL GetFontParameterValue(FName ParameterName, class UFont*& OutFontValue, INT& OutFontPage); /* 0x114 */
     virtual UBOOL GetScalarParameterValue(FName ParameterName, FLOAT& OutValue); /* 0x118 */
     virtual UBOOL GetTextureParameterValue(FName ParameterName, class UTexture*& OutValue); /* 0x120 */
     virtual UBOOL GetVectorParameterValue(FName ParameterName, FLinearColor& OutValue); /* 0x124 */
@@ -21557,16 +21557,16 @@ struct UParticleSystemComponent : public UPrimitiveComponent {
     virtual INT vf_25c(); /* 0x25c */
     virtual void SetBeamType(INT, INT); /* 0x260 */
     virtual void SetBeamTessellationFactor(INT EmitterIndex, FLOAT NewFactor); /* 0x264 */
-    virtual void vf_268(INT, INT, INT, INT); /* 0x268 */
+    virtual void SetBeamEndPoint(INT EmitterIndex, FVector NewEndPoint); /* 0x268 */
     virtual void SetBeamDistance(INT EmitterIndex, FLOAT Distance); /* 0x26c */
-    virtual INT vf_270(INT, INT, INT, INT, INT); /* 0x270 */
-    virtual void SetBeamSourceActor(INT, INT); /* 0x274 */
-    virtual INT vf_278(INT, INT, INT, INT, INT); /* 0x278 */
-    virtual void vf_27c(INT, INT, INT); /* 0x27c */
-    virtual INT vf_280(INT, INT, INT, INT, INT); /* 0x280 */
-    virtual void SetBeamTargetActor(INT, INT); /* 0x284 */
-    virtual INT vf_288(INT, INT, INT, INT, INT); /* 0x288 */
-    virtual void vf_28c(INT, INT, INT); /* 0x28c */
+    virtual void SetBeamSourcePoint(INT EmitterIndex, FVector NewSourcePoint, INT SourceIndex); /* 0x270 */
+    virtual void SetBeamSourceActor(INT EmitterIndex, class AActor* NewSourceActor); /* 0x274 */
+    virtual void SetBeamSourceTangent(INT EmitterIndex, FVector NewTangentPoint, INT SourceIndex); /* 0x278 */
+    virtual void SetBeamSourceStrength(INT EmitterIndex, FLOAT NewSourceStrength, INT SourceIndex); /* 0x27c */
+    virtual void SetBeamTargetPoint(INT EmitterIndex, FVector NewTargetPoint, INT TargetIndex); /* 0x280 */
+    virtual void SetBeamTargetActor(INT EmitterIndex, class AActor* NewTargetActor); /* 0x284 */
+    virtual void SetBeamTargetTangent(INT EmitterIndex, FVector NewTangentPoint, INT TargetIndex); /* 0x288 */
+    virtual void SetBeamTargetStrength(INT EmitterIndex, FLOAT NewTargetStrength, INT TargetIndex); /* 0x28c */
     virtual FLOAT vf_290(); /* 0x290 */
     virtual void vf_294(FLOAT); /* 0x294 */
     virtual UBOOL GetFloatParameter(FName InName, FLOAT& OutFloat); /* 0x298 */
@@ -23300,7 +23300,7 @@ struct AGameInfo : public AInfo {
     virtual INT vf_360(INT); /* 0x360 */
     virtual void vf_364(); /* 0x364 */
     virtual void vf_368(); /* 0x368 */
-    virtual void GetTravelLocations(INT, INT, INT, INT); /* 0x36c */
+    virtual void GetTravelLocations(FName PlayerStartTag, class APlayerController* PC, TArray<FString>& Locations); /* 0x36c */
     virtual void DoSentinel_MemoryAtSpecificLocation(FVector InLocation, FRotator InRotation); /* 0x370 */
     virtual void DoSentinel_PerfAtSpecificLocation(FVector InLocation, FRotator InRotation); /* 0x374 */
     virtual void vf_378(INT, INT); /* 0x378 */
@@ -24188,8 +24188,8 @@ struct UInterpTrack : public UObject, public FCurveEdInterface, public FInterpEd
     virtual UBOOL GetClosestSnapPosition(FLOAT InPosition, TArray<INT>& IgnoreKeys, FLOAT& OutPosition); /* 0x12c */
     virtual void PreviewUpdateTrack(FLOAT NewPosition, class UInterpTrackInst* TrInst); /* 0x130 */
     virtual void UpdateTrack(FLOAT NewPosition, class UInterpTrackInst* TrInst, UBOOL bJump); /* 0x134 */
-    virtual void vf_138(INT, INT); /* 0x138 */
-    virtual void vf_13c(INT, INT, INT); /* 0x13c */
+    virtual void vf_138(FLOAT NewPosition, class UInterpTrackInst* TrInst); /* 0x138 */
+    virtual void vf_13c(FLOAT NewPosition, class UInterpTrackInst* TrInst, UBOOL bJump); /* 0x13c */
     virtual void vf_140(INT); /* 0x140 */
     virtual FString vf_144(); /* 0x144 */
     virtual INT vf_148(); /* 0x148 */
@@ -24248,8 +24248,8 @@ struct UInterpTrackAnimControl : public UInterpTrackFloatBase {
     virtual void RemoveKeyframe(INT KeyIndex); /* 0x124 */
     virtual INT DuplicateKeyframe(INT KeyIndex, FLOAT NewKeyTime); /* 0x128 */
     virtual UBOOL GetClosestSnapPosition(FLOAT InPosition, TArray<INT>& IgnoreKeys, FLOAT& OutPosition); /* 0x12c */
-    virtual void vf_138(INT, INT); /* 0x138 */
-    virtual void vf_13c(INT, INT, INT); /* 0x13c */
+    virtual void vf_138(FLOAT NewPosition, class UInterpTrackInst* TrInst); /* 0x138 */
+    virtual void vf_13c(FLOAT NewPosition, class UInterpTrackInst* TrInst, UBOOL bJump); /* 0x13c */
     virtual FString vf_144(); /* 0x144 */
     virtual INT vf_148(); /* 0x148 */
     virtual void vf_150(INT, INT); /* 0x150 */
@@ -24291,8 +24291,8 @@ struct UInterpTrackAudioMaster : public UInterpTrackVectorBase {
     virtual bool vf_004(); /* 0x004 */
     virtual INT AddKeyframe(FLOAT Time, class UInterpTrackInst* TrInst, BYTE InitInterpMode); /* 0x118 */
     virtual void UpdateKeyframe(INT KeyIndex, class UInterpTrackInst* TrInst); /* 0x11c */
-    virtual void vf_138(INT, INT); /* 0x138 */
-    virtual void vf_13c(INT, INT, INT); /* 0x13c */
+    virtual void vf_138(FLOAT NewPosition, class UInterpTrackInst* TrInst); /* 0x138 */
+    virtual void vf_13c(FLOAT NewPosition, class UInterpTrackInst* TrInst, UBOOL bJump); /* 0x13c */
     virtual INT vf_148(); /* 0x148 */
     virtual void vf_15c(); /* 0x15c */
     /* registered size 0xc8 */
@@ -24307,8 +24307,8 @@ struct UInterpTrackColorProp : public UInterpTrackVectorBase {
     virtual bool vf_004(); /* 0x004 */
     virtual INT AddKeyframe(FLOAT Time, class UInterpTrackInst* TrInst, BYTE InitInterpMode); /* 0x118 */
     virtual void UpdateKeyframe(INT KeyIndex, class UInterpTrackInst* TrInst); /* 0x11c */
-    virtual void vf_138(INT, INT); /* 0x138 */
-    virtual void vf_13c(INT, INT, INT); /* 0x13c */
+    virtual void vf_138(FLOAT NewPosition, class UInterpTrackInst* TrInst); /* 0x138 */
+    virtual void vf_13c(FLOAT NewPosition, class UInterpTrackInst* TrInst, UBOOL bJump); /* 0x13c */
     virtual FString vf_144(); /* 0x144 */
     virtual INT vf_148(); /* 0x148 */
     /* registered size 0xd0 */
@@ -24322,8 +24322,8 @@ struct UInterpTrackColorScale : public UInterpTrackVectorBase {
     virtual bool vf_004(); /* 0x004 */
     virtual INT AddKeyframe(FLOAT Time, class UInterpTrackInst* TrInst, BYTE InitInterpMode); /* 0x118 */
     virtual void UpdateKeyframe(INT KeyIndex, class UInterpTrackInst* TrInst); /* 0x11c */
-    virtual void vf_138(INT, INT); /* 0x138 */
-    virtual void vf_13c(INT, INT, INT); /* 0x13c */
+    virtual void vf_138(FLOAT NewPosition, class UInterpTrackInst* TrInst); /* 0x138 */
+    virtual void vf_13c(FLOAT NewPosition, class UInterpTrackInst* TrInst, UBOOL bJump); /* 0x13c */
     virtual INT vf_148(); /* 0x148 */
     virtual void vf_15c(); /* 0x15c */
     /* registered size 0xc8 */
@@ -24350,7 +24350,7 @@ struct UInterpTrackDirector : public UInterpTrack {
     virtual void RemoveKeyframe(INT KeyIndex); /* 0x124 */
     virtual INT DuplicateKeyframe(INT KeyIndex, FLOAT NewKeyTime); /* 0x128 */
     virtual UBOOL GetClosestSnapPosition(FLOAT InPosition, TArray<INT>& IgnoreKeys, FLOAT& OutPosition); /* 0x12c */
-    virtual void vf_13c(INT, INT, INT); /* 0x13c */
+    virtual void vf_13c(FLOAT NewPosition, class UInterpTrackInst* TrInst, UBOOL bJump); /* 0x13c */
     virtual FString vf_144(); /* 0x144 */
     virtual INT vf_148(); /* 0x148 */
     virtual void vf_150(INT, INT); /* 0x150 */
@@ -24375,7 +24375,7 @@ struct UInterpTrackEvent : public UInterpTrack {
     virtual void RemoveKeyframe(INT KeyIndex); /* 0x124 */
     virtual INT DuplicateKeyframe(INT KeyIndex, FLOAT NewKeyTime); /* 0x128 */
     virtual UBOOL GetClosestSnapPosition(FLOAT InPosition, TArray<INT>& IgnoreKeys, FLOAT& OutPosition); /* 0x12c */
-    virtual void vf_13c(INT, INT, INT); /* 0x13c */
+    virtual void vf_13c(FLOAT NewPosition, class UInterpTrackInst* TrInst, UBOOL bJump); /* 0x13c */
     virtual FString vf_144(); /* 0x144 */
     virtual INT vf_148(); /* 0x148 */
     virtual INT vf_14c(); /* 0x14c */
@@ -24402,8 +24402,8 @@ struct UInterpTrackFaceFX : public UInterpTrack {
     virtual INT SetKeyframeTime(INT KeyIndex, FLOAT NewKeyTime, UBOOL bUpdateOrder); /* 0x120 */
     virtual void RemoveKeyframe(INT KeyIndex); /* 0x124 */
     virtual INT DuplicateKeyframe(INT KeyIndex, FLOAT NewKeyTime); /* 0x128 */
-    virtual void vf_138(INT, INT); /* 0x138 */
-    virtual void vf_13c(INT, INT, INT); /* 0x13c */
+    virtual void vf_138(FLOAT NewPosition, class UInterpTrackInst* TrInst); /* 0x138 */
+    virtual void vf_13c(FLOAT NewPosition, class UInterpTrackInst* TrInst, UBOOL bJump); /* 0x13c */
     virtual void vf_140(INT); /* 0x140 */
     virtual FString vf_144(); /* 0x144 */
     virtual INT vf_148(); /* 0x148 */
@@ -24423,8 +24423,8 @@ struct UInterpTrackFaceFXRegister : public UInterpTrackFloatBase {
     virtual bool vf_004(); /* 0x004 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual INT AddKeyframe(FLOAT Time, class UInterpTrackInst* TrInst, BYTE InitInterpMode); /* 0x118 */
-    virtual void vf_138(INT, INT); /* 0x138 */
-    virtual void vf_13c(INT, INT, INT); /* 0x13c */
+    virtual void vf_138(FLOAT NewPosition, class UInterpTrackInst* TrInst); /* 0x138 */
+    virtual void vf_13c(FLOAT NewPosition, class UInterpTrackInst* TrInst, UBOOL bJump); /* 0x13c */
     /* registered size 0xa8 */
 };
 
@@ -24437,8 +24437,8 @@ struct UInterpTrackFade : public UInterpTrackFloatBase {
     virtual bool vf_004(); /* 0x004 */
     virtual INT AddKeyframe(FLOAT Time, class UInterpTrackInst* TrInst, BYTE InitInterpMode); /* 0x118 */
     virtual void UpdateKeyframe(INT KeyIndex, class UInterpTrackInst* TrInst); /* 0x11c */
-    virtual void vf_138(INT, INT); /* 0x138 */
-    virtual void vf_13c(INT, INT, INT); /* 0x13c */
+    virtual void vf_138(FLOAT NewPosition, class UInterpTrackInst* TrInst); /* 0x138 */
+    virtual void vf_13c(FLOAT NewPosition, class UInterpTrackInst* TrInst, UBOOL bJump); /* 0x13c */
     virtual INT vf_148(); /* 0x148 */
     /* registered size 0x9c */
 };
@@ -24451,8 +24451,8 @@ struct UInterpTrackFloatMaterialParam : public UInterpTrackFloatBase {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual INT AddKeyframe(FLOAT Time, class UInterpTrackInst* TrInst, BYTE InitInterpMode); /* 0x118 */
-    virtual void vf_138(INT, INT); /* 0x138 */
-    virtual void vf_13c(INT, INT, INT); /* 0x13c */
+    virtual void vf_138(FLOAT NewPosition, class UInterpTrackInst* TrInst); /* 0x138 */
+    virtual void vf_13c(FLOAT NewPosition, class UInterpTrackInst* TrInst, UBOOL bJump); /* 0x13c */
     /* registered size 0xa0 */
 };
 
@@ -24464,8 +24464,8 @@ struct UInterpTrackFloatParticleParam : public UInterpTrackFloatBase {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual INT AddKeyframe(FLOAT Time, class UInterpTrackInst* TrInst, BYTE InitInterpMode); /* 0x118 */
-    virtual void vf_138(INT, INT); /* 0x138 */
-    virtual void vf_13c(INT, INT, INT); /* 0x13c */
+    virtual void vf_138(FLOAT NewPosition, class UInterpTrackInst* TrInst); /* 0x138 */
+    virtual void vf_13c(FLOAT NewPosition, class UInterpTrackInst* TrInst, UBOOL bJump); /* 0x13c */
     /* registered size 0xa0 */
 };
 
@@ -24478,8 +24478,8 @@ struct UInterpTrackFloatProp : public UInterpTrackFloatBase {
     virtual bool vf_004(); /* 0x004 */
     virtual INT AddKeyframe(FLOAT Time, class UInterpTrackInst* TrInst, BYTE InitInterpMode); /* 0x118 */
     virtual void UpdateKeyframe(INT KeyIndex, class UInterpTrackInst* TrInst); /* 0x11c */
-    virtual void vf_138(INT, INT); /* 0x138 */
-    virtual void vf_13c(INT, INT, INT); /* 0x13c */
+    virtual void vf_138(FLOAT NewPosition, class UInterpTrackInst* TrInst); /* 0x138 */
+    virtual void vf_13c(FLOAT NewPosition, class UInterpTrackInst* TrInst, UBOOL bJump); /* 0x13c */
     virtual FString vf_144(); /* 0x144 */
     virtual INT vf_148(); /* 0x148 */
     /* registered size 0xa0 */
@@ -24490,7 +24490,7 @@ struct UInterpTrackInst : public UObject {
     DECLARE_CLASS(UInterpTrackInst, UObject, 0x0, 0x0, Engine)
     /* virtual functions this class introduces (vtable 0x02096a18) */
     virtual FLOAT vf_10c(INT); /* 0x10c */
-    virtual void vf_110(UInterpTrack*); /* 0x110 */
+    virtual void RestoreActorState(UInterpTrack*); /* 0x110 */
     virtual void InitTrackInst(class UInterpTrack* Track); /* 0x114 */
     virtual void vf_118(UInterpTrack*); /* 0x118 */
     /* overrides */
@@ -24542,7 +24542,7 @@ struct UInterpTrackInstColorProp : public UInterpTrackInstProperty {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual FLOAT vf_10c(INT); /* 0x10c */
-    virtual void vf_110(UInterpTrack*); /* 0x110 */
+    virtual void RestoreActorState(UInterpTrack*); /* 0x110 */
     virtual void InitTrackInst(class UInterpTrack* Track); /* 0x114 */
     /* registered size 0x40 */
 };
@@ -24589,7 +24589,7 @@ struct UInterpTrackInstFaceFX : public UInterpTrackInst {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual FLOAT vf_10c(INT); /* 0x10c */
-    virtual void vf_110(UInterpTrack*); /* 0x110 */
+    virtual void RestoreActorState(UInterpTrack*); /* 0x110 */
     virtual void InitTrackInst(class UInterpTrack* Track); /* 0x114 */
     virtual void vf_118(UInterpTrack*); /* 0x118 */
     /* registered size 0x38 */
@@ -24601,7 +24601,7 @@ struct UInterpTrackInstFaceFXRegister : public UInterpTrackInst {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_110(UInterpTrack*); /* 0x110 */
+    virtual void RestoreActorState(UInterpTrack*); /* 0x110 */
     /* registered size 0x30 */
 };
 
@@ -24623,7 +24623,7 @@ struct UInterpTrackInstFloatMaterialParam : public UInterpTrackInst {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual FLOAT vf_10c(INT); /* 0x10c */
-    virtual void vf_110(UInterpTrack*); /* 0x110 */
+    virtual void RestoreActorState(UInterpTrack*); /* 0x110 */
     /* registered size 0x34 */
 };
 
@@ -24635,7 +24635,7 @@ struct UInterpTrackInstFloatParticleParam : public UInterpTrackInst {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual FLOAT vf_10c(INT); /* 0x10c */
-    virtual void vf_110(UInterpTrack*); /* 0x110 */
+    virtual void RestoreActorState(UInterpTrack*); /* 0x110 */
     /* registered size 0x34 */
 };
 
@@ -24648,7 +24648,7 @@ struct UInterpTrackInstFloatProp : public UInterpTrackInstProperty {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual FLOAT vf_10c(INT); /* 0x10c */
-    virtual void vf_110(UInterpTrack*); /* 0x110 */
+    virtual void RestoreActorState(UInterpTrack*); /* 0x110 */
     virtual void InitTrackInst(class UInterpTrack* Track); /* 0x114 */
     /* registered size 0x40 */
 };
@@ -24659,7 +24659,7 @@ struct UInterpTrackInstMorphWeight : public UInterpTrackInst {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_110(UInterpTrack*); /* 0x110 */
+    virtual void RestoreActorState(UInterpTrack*); /* 0x110 */
     /* registered size 0x30 */
 };
 
@@ -24685,7 +24685,7 @@ struct UInterpTrackInstParticleReplay : public UInterpTrackInst {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_110(UInterpTrack*); /* 0x110 */
+    virtual void RestoreActorState(UInterpTrack*); /* 0x110 */
     virtual void InitTrackInst(class UInterpTrack* Track); /* 0x114 */
     /* registered size 0x34 */
 };
@@ -24696,7 +24696,7 @@ struct UInterpTrackInstSkelControlScale : public UInterpTrackInst {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_110(UInterpTrack*); /* 0x110 */
+    virtual void RestoreActorState(UInterpTrack*); /* 0x110 */
     /* registered size 0x30 */
 };
 
@@ -24708,7 +24708,7 @@ struct UInterpTrackInstSlomo : public UInterpTrackInst {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual FLOAT vf_10c(INT); /* 0x10c */
-    virtual void vf_110(UInterpTrack*); /* 0x110 */
+    virtual void RestoreActorState(UInterpTrack*); /* 0x110 */
     virtual void InitTrackInst(class UInterpTrack* Track); /* 0x114 */
     virtual void vf_118(UInterpTrack*); /* 0x118 */
     /* registered size 0x34 */
@@ -24749,7 +24749,7 @@ struct UInterpTrackInstToggle : public UInterpTrackInst {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual FLOAT vf_10c(INT); /* 0x10c */
-    virtual void vf_110(UInterpTrack*); /* 0x110 */
+    virtual void RestoreActorState(UInterpTrack*); /* 0x110 */
     virtual void InitTrackInst(class UInterpTrack* Track); /* 0x114 */
     /* registered size 0x3c */
 };
@@ -24762,7 +24762,7 @@ struct UInterpTrackInstVectorMaterialParam : public UInterpTrackInst {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual FLOAT vf_10c(INT); /* 0x10c */
-    virtual void vf_110(UInterpTrack*); /* 0x110 */
+    virtual void RestoreActorState(UInterpTrack*); /* 0x110 */
     /* registered size 0x3c */
 };
 
@@ -24775,7 +24775,7 @@ struct UInterpTrackInstVectorProp : public UInterpTrackInstProperty {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual FLOAT vf_10c(INT); /* 0x10c */
-    virtual void vf_110(UInterpTrack*); /* 0x110 */
+    virtual void RestoreActorState(UInterpTrack*); /* 0x110 */
     virtual void InitTrackInst(class UInterpTrack* Track); /* 0x114 */
     /* registered size 0x48 */
 };
@@ -24800,8 +24800,8 @@ struct UInterpTrackMorphWeight : public UInterpTrackFloatBase {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual INT AddKeyframe(FLOAT Time, class UInterpTrackInst* TrInst, BYTE InitInterpMode); /* 0x118 */
-    virtual void vf_138(INT, INT); /* 0x138 */
-    virtual void vf_13c(INT, INT, INT); /* 0x13c */
+    virtual void vf_138(FLOAT NewPosition, class UInterpTrackInst* TrInst); /* 0x138 */
+    virtual void vf_13c(FLOAT NewPosition, class UInterpTrackInst* TrInst, UBOOL bJump); /* 0x13c */
     /* registered size 0xa0 */
 };
 
@@ -24847,7 +24847,7 @@ struct UInterpTrackMove : public UInterpTrack {
     virtual INT DuplicateKeyframe(INT KeyIndex, FLOAT NewKeyTime); /* 0x128 */
     virtual UBOOL GetClosestSnapPosition(FLOAT InPosition, TArray<INT>& IgnoreKeys, FLOAT& OutPosition); /* 0x12c */
     virtual void PreviewUpdateTrack(FLOAT NewPosition, class UInterpTrackInst* TrInst); /* 0x130 */
-    virtual void vf_138(INT, INT); /* 0x138 */
+    virtual void vf_138(FLOAT NewPosition, class UInterpTrackInst* TrInst); /* 0x138 */
     virtual INT vf_148(); /* 0x148 */
     virtual void vf_150(INT, INT); /* 0x150 */
     virtual INT vf_154(INT, INT); /* 0x154 */
@@ -24873,8 +24873,8 @@ struct UInterpTrackParticleReplay : public UInterpTrack {
     virtual void RemoveKeyframe(INT KeyIndex); /* 0x124 */
     virtual INT DuplicateKeyframe(INT KeyIndex, FLOAT NewKeyTime); /* 0x128 */
     virtual UBOOL GetClosestSnapPosition(FLOAT InPosition, TArray<INT>& IgnoreKeys, FLOAT& OutPosition); /* 0x12c */
-    virtual void vf_138(INT, INT); /* 0x138 */
-    virtual void vf_13c(INT, INT, INT); /* 0x13c */
+    virtual void vf_138(FLOAT NewPosition, class UInterpTrackInst* TrInst); /* 0x138 */
+    virtual void vf_13c(FLOAT NewPosition, class UInterpTrackInst* TrInst, UBOOL bJump); /* 0x13c */
     virtual FString vf_144(); /* 0x144 */
     virtual INT vf_148(); /* 0x148 */
     virtual INT vf_14c(); /* 0x14c */
@@ -24890,8 +24890,8 @@ struct UInterpTrackSkelControlScale : public UInterpTrackFloatBase {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual INT AddKeyframe(FLOAT Time, class UInterpTrackInst* TrInst, BYTE InitInterpMode); /* 0x118 */
-    virtual void vf_138(INT, INT); /* 0x138 */
-    virtual void vf_13c(INT, INT, INT); /* 0x13c */
+    virtual void vf_138(FLOAT NewPosition, class UInterpTrackInst* TrInst); /* 0x138 */
+    virtual void vf_13c(FLOAT NewPosition, class UInterpTrackInst* TrInst, UBOOL bJump); /* 0x13c */
     /* registered size 0xa0 */
 };
 
@@ -24903,8 +24903,8 @@ struct UInterpTrackSlomo : public UInterpTrackFloatBase {
     virtual bool vf_004(); /* 0x004 */
     virtual INT AddKeyframe(FLOAT Time, class UInterpTrackInst* TrInst, BYTE InitInterpMode); /* 0x118 */
     virtual void UpdateKeyframe(INT KeyIndex, class UInterpTrackInst* TrInst); /* 0x11c */
-    virtual void vf_138(INT, INT); /* 0x138 */
-    virtual void vf_13c(INT, INT, INT); /* 0x13c */
+    virtual void vf_138(FLOAT NewPosition, class UInterpTrackInst* TrInst); /* 0x138 */
+    virtual void vf_13c(FLOAT NewPosition, class UInterpTrackInst* TrInst, UBOOL bJump); /* 0x13c */
     virtual INT vf_148(); /* 0x148 */
     virtual void vf_15c(); /* 0x15c */
     /* registered size 0x98 */
@@ -24929,8 +24929,8 @@ struct UInterpTrackSound : public UInterpTrackVectorBase {
     virtual void RemoveKeyframe(INT KeyIndex); /* 0x124 */
     virtual INT DuplicateKeyframe(INT KeyIndex, FLOAT NewKeyTime); /* 0x128 */
     virtual UBOOL GetClosestSnapPosition(FLOAT InPosition, TArray<INT>& IgnoreKeys, FLOAT& OutPosition); /* 0x12c */
-    virtual void vf_138(INT, INT); /* 0x138 */
-    virtual void vf_13c(INT, INT, INT); /* 0x13c */
+    virtual void vf_138(FLOAT NewPosition, class UInterpTrackInst* TrInst); /* 0x138 */
+    virtual void vf_13c(FLOAT NewPosition, class UInterpTrackInst* TrInst, UBOOL bJump); /* 0x13c */
     virtual void vf_140(INT); /* 0x140 */
     virtual FString vf_144(); /* 0x144 */
     virtual INT vf_148(); /* 0x148 */
@@ -24950,8 +24950,8 @@ struct UInterpTrackSoundFade : public UInterpTrackFloatBase {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void UpdateKeyframe(INT KeyIndex, class UInterpTrackInst* TrInst); /* 0x11c */
-    virtual void vf_138(INT, INT); /* 0x138 */
-    virtual void vf_13c(INT, INT, INT); /* 0x13c */
+    virtual void vf_138(FLOAT NewPosition, class UInterpTrackInst* TrInst); /* 0x138 */
+    virtual void vf_13c(FLOAT NewPosition, class UInterpTrackInst* TrInst, UBOOL bJump); /* 0x13c */
     virtual INT vf_148(); /* 0x148 */
     /* registered size 0x9c */
 };
@@ -24975,8 +24975,8 @@ struct UInterpTrackToggle : public UInterpTrack {
     virtual void RemoveKeyframe(INT KeyIndex); /* 0x124 */
     virtual INT DuplicateKeyframe(INT KeyIndex, FLOAT NewKeyTime); /* 0x128 */
     virtual UBOOL GetClosestSnapPosition(FLOAT InPosition, TArray<INT>& IgnoreKeys, FLOAT& OutPosition); /* 0x12c */
-    virtual void vf_138(INT, INT); /* 0x138 */
-    virtual void vf_13c(INT, INT, INT); /* 0x13c */
+    virtual void vf_138(FLOAT NewPosition, class UInterpTrackInst* TrInst); /* 0x138 */
+    virtual void vf_13c(FLOAT NewPosition, class UInterpTrackInst* TrInst, UBOOL bJump); /* 0x13c */
     virtual FString vf_144(); /* 0x144 */
     virtual INT vf_148(); /* 0x148 */
     virtual INT vf_14c(); /* 0x14c */
@@ -24992,8 +24992,8 @@ struct UInterpTrackVectorMaterialParam : public UInterpTrackVectorBase {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual INT AddKeyframe(FLOAT Time, class UInterpTrackInst* TrInst, BYTE InitInterpMode); /* 0x118 */
-    virtual void vf_138(INT, INT); /* 0x138 */
-    virtual void vf_13c(INT, INT, INT); /* 0x13c */
+    virtual void vf_138(FLOAT NewPosition, class UInterpTrackInst* TrInst); /* 0x138 */
+    virtual void vf_13c(FLOAT NewPosition, class UInterpTrackInst* TrInst, UBOOL bJump); /* 0x13c */
     /* registered size 0xd0 */
 };
 
@@ -25006,8 +25006,8 @@ struct UInterpTrackVectorProp : public UInterpTrackVectorBase {
     virtual bool vf_004(); /* 0x004 */
     virtual INT AddKeyframe(FLOAT Time, class UInterpTrackInst* TrInst, BYTE InitInterpMode); /* 0x118 */
     virtual void UpdateKeyframe(INT KeyIndex, class UInterpTrackInst* TrInst); /* 0x11c */
-    virtual void vf_138(INT, INT); /* 0x138 */
-    virtual void vf_13c(INT, INT, INT); /* 0x13c */
+    virtual void vf_138(FLOAT NewPosition, class UInterpTrackInst* TrInst); /* 0x138 */
+    virtual void vf_13c(FLOAT NewPosition, class UInterpTrackInst* TrInst, UBOOL bJump); /* 0x13c */
     virtual FString vf_144(); /* 0x144 */
     virtual INT vf_148(); /* 0x148 */
     /* registered size 0xd0 */
@@ -25031,8 +25031,8 @@ struct UInterpTrackVisibility : public UInterpTrack {
     virtual void RemoveKeyframe(INT KeyIndex); /* 0x124 */
     virtual INT DuplicateKeyframe(INT KeyIndex, FLOAT NewKeyTime); /* 0x128 */
     virtual UBOOL GetClosestSnapPosition(FLOAT InPosition, TArray<INT>& IgnoreKeys, FLOAT& OutPosition); /* 0x12c */
-    virtual void vf_138(INT, INT); /* 0x138 */
-    virtual void vf_13c(INT, INT, INT); /* 0x13c */
+    virtual void vf_138(FLOAT NewPosition, class UInterpTrackInst* TrInst); /* 0x138 */
+    virtual void vf_13c(FLOAT NewPosition, class UInterpTrackInst* TrInst, UBOOL bJump); /* 0x13c */
     virtual FString vf_144(); /* 0x144 */
     virtual INT vf_148(); /* 0x148 */
     virtual INT vf_14c(); /* 0x14c */
@@ -27500,7 +27500,7 @@ struct UMaterialInstanceConstant : public UMaterialInstance {
     virtual bool vf_004(); /* 0x004 */
     virtual void PostLoad(); /* 0x01c */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
-    virtual UINT GetFontParameterValue(UINT, UINT, INT*, UINT*); /* 0x114 */
+    virtual UBOOL GetFontParameterValue(FName ParameterName, class UFont*& OutFontValue, INT& OutFontPage); /* 0x114 */
     virtual UBOOL GetScalarParameterValue(FName ParameterName, FLOAT& OutValue); /* 0x118 */
     virtual UBOOL GetTextureParameterValue(FName ParameterName, class UTexture*& OutValue); /* 0x120 */
     virtual UBOOL GetVectorParameterValue(FName ParameterName, FLinearColor& OutValue); /* 0x124 */
@@ -27553,7 +27553,7 @@ struct UMaterialInstanceTimeVarying : public UMaterialInstance {
     virtual bool vf_004(); /* 0x004 */
     virtual void PostLoad(); /* 0x01c */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
-    virtual UINT GetFontParameterValue(UINT, UINT, INT*, UINT*); /* 0x114 */
+    virtual UBOOL GetFontParameterValue(FName ParameterName, class UFont*& OutFontValue, INT& OutFontPage); /* 0x114 */
     virtual UBOOL GetScalarParameterValue(FName ParameterName, FLOAT& OutValue); /* 0x118 */
     virtual UBOOL GetScalarCurveParameterValue(FName ParameterName, FInterpCurveFloat& OutValue); /* 0x11c */
     virtual UBOOL GetTextureParameterValue(FName ParameterName, class UTexture*& OutValue); /* 0x120 */
@@ -28690,7 +28690,7 @@ struct UOnlineProfileSettings : public UObject {
     virtual INT GetProfileSettingRange(INT ProfileSettingId, FLOAT& OutMinValue, FLOAT& OutMaxValue, FLOAT& RangeIncrement, BYTE& bFormatAsInt); /* 0x16c */
     virtual INT SetRangedProfileSettingValue(INT ProfileSettingId, FLOAT NewValue); /* 0x170 */
     virtual bool GetRangedProfileSettingValue(INT ProfileSettingId, FLOAT& OutValue); /* 0x174 */
-    virtual void vf_178(); /* 0x178 */
+    virtual void SetToDefaults(); /* 0x178 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -28781,10 +28781,10 @@ struct UOnlineStatsRead : public UOnlineStats {
     FStringNoInit ViewName; /* 0x6c */
     INT TitleId; /* 0x78 */
     /* virtual functions this class introduces (vtable 0x020a86a0) */
-    virtual INT GetIntStatValueForPlayer(INT, INT, INT, INT); /* 0x114 */
-    virtual INT SetIntStatValueForPlayer(INT, INT, INT, INT); /* 0x118 */
-    virtual INT GetFloatStatValueForPlayer(INT, INT, INT, INT); /* 0x11c */
-    virtual INT SetFloatStatValueForPlayer(INT, INT, INT, INT); /* 0x120 */
+    virtual UBOOL GetIntStatValueForPlayer(FUniqueNetId PlayerID, INT StatColumnNo, INT& StatValue); /* 0x114 */
+    virtual UBOOL SetIntStatValueForPlayer(FUniqueNetId PlayerID, INT StatColumnNo, INT StatValue); /* 0x118 */
+    virtual UBOOL GetFloatStatValueForPlayer(FUniqueNetId PlayerID, INT StatColumnNo, FLOAT& StatValue); /* 0x11c */
+    virtual UBOOL SetFloatStatValueForPlayer(FUniqueNetId PlayerID, INT StatColumnNo, FLOAT StatValue); /* 0x120 */
     virtual INT vf_124(INT, INT, INT); /* 0x124 */
     virtual INT GetRankForPlayer(FUniqueNetId PlayerID); /* 0x128 */
     /* overrides */
@@ -28859,7 +28859,7 @@ struct UOnlineSubsystem : public UObject, public FTickableObject {
     FStringNoInit IniLocPatcherClassName; /* 0xb0 */
     class UIniLocPatcher* Patcher; /* 0xbc */
     /* virtual functions this class introduces (vtable 0x020b6f58) */
-    virtual INT vf_10c(); /* 0x10c */
+    virtual UBOOL Init(); /* 0x10c */
     virtual INT vf_110(INT); /* 0x110 */
     virtual INT vf_114(); /* 0x114 */
     virtual void RemoveNamedSession(FName SessionName); /* 0x118 */
@@ -31000,7 +31000,7 @@ struct APawn : public AActor {
     /* overloads: MSVC gives the later declaration the lower slot */
     virtual UBOOL ReachedDestination(class AActor* Goal); /* 0x378 */
     virtual INT ReachedDestination(const FVector& Start, const FVector& Dest, class AActor* GoalActor); /* 0x374 */
-    virtual INT vf_37c(INT, INT, INT, INT); /* 0x37c */
+    virtual UBOOL ReachedPoint(FVector Point, class AActor* NewAnchor); /* 0x37c */
     virtual void vf_380(); /* 0x380 */
     virtual void SetPushesRigidBodies(UBOOL NewPush); /* 0x384 */
     virtual INT vf_388(); /* 0x388 */
@@ -31013,7 +31013,7 @@ struct APawn : public AActor {
     virtual void AddPathConstraint(class UPathConstraint* Constraint); /* 0x3a4 */
     virtual void AddGoalEvaluator(class UPathGoalEvaluator* Evaluator); /* 0x3a8 */
     virtual void IncrementPathStep(INT Delta, class AController* C); /* 0x3ac */
-    virtual void IncrementPathChild(INT Delta, class AController* C); /* 0x3b0 */
+    virtual void IncrementPathChild(INT Cnt, class UCanvas* C); /* 0x3b0 */
     virtual void DrawPathStep(class UCanvas* C); /* 0x3b4 */
     virtual void vf_3b8(); /* 0x3b8 */
     virtual void vf_3bc(INT, INT, INT, INT); /* 0x3bc */
@@ -31689,7 +31689,7 @@ struct ASceneCaptureReflectActor : public ASceneCaptureActor {
     class UStaticMeshComponent* StaticMesh; /* 0x1ac */
     class UMaterialInstanceConstant* ReflectMaterialInst; /* 0x1b0 */
     /* virtual functions this class introduces (vtable 0x01f61e98) */
-    virtual INT vf_358(); /* 0x358 */
+    virtual void vf_358(); /* 0x358 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -32997,7 +32997,7 @@ struct ASceneCaptureCubeMapActor : public ASceneCaptureActor {
     class UStaticMeshComponent* StaticMesh; /* 0x1ac */
     class UMaterialInstanceConstant* CubeMaterialInst; /* 0x1b0 */
     /* virtual functions this class introduces (vtable 0x01f61b38) */
-    virtual INT vf_358(); /* 0x358 */
+    virtual void vf_358(); /* 0x358 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -34718,7 +34718,7 @@ struct USeqCond_SwitchBase : public USequenceCondition {
     /* Engine.SeqCond_SwitchBase */
     DECLARE_CLASS(USeqCond_SwitchBase, USequenceCondition, 0x1, 0x0, Engine)
     /* virtual functions this class introduces (vtable 0x01f6b9a0) */
-    virtual INT GetOutputLinksToActivate(INT); /* 0x198 */
+    virtual INT GetOutputLinksToActivate(TArray<INT>& out_LinksToActivate); /* the base's PURE_VIRTUAL returns 0 */ /* 0x198 */
     virtual INT FindCaseValueIndex(INT); /* 0x19c */
     virtual INT GetSupportedValueCount(); /* 0x1a0 */
     virtual FString GetCaseValueString(INT ValueIndex) const; /* 0x1a4 */
@@ -34738,7 +34738,7 @@ struct USeqCond_SwitchClass : public USeqCond_SwitchBase {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT GetOutputLinksToActivate(INT); /* 0x198 */
+    virtual INT GetOutputLinksToActivate(TArray<INT>& out_LinksToActivate); /* the base's PURE_VIRTUAL returns 0 */ /* 0x198 */
     virtual INT FindCaseValueIndex(INT); /* 0x19c */
     virtual INT GetSupportedValueCount(); /* 0x1a0 */
     virtual FString GetCaseValueString(INT ValueIndex) const; /* 0x1a4 */
@@ -34752,7 +34752,7 @@ struct USeqCond_SwitchName : public USeqCond_SwitchBase {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT GetOutputLinksToActivate(INT); /* 0x198 */
+    virtual INT GetOutputLinksToActivate(TArray<INT>& out_LinksToActivate); /* the base's PURE_VIRTUAL returns 0 */ /* 0x198 */
     virtual INT FindCaseValueIndex(INT); /* 0x19c */
     virtual INT GetSupportedValueCount(); /* 0x1a0 */
     virtual FString GetCaseValueString(INT ValueIndex) const; /* 0x1a4 */
@@ -34767,7 +34767,7 @@ struct USeqCond_SwitchObject : public USeqCond_SwitchBase {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT GetOutputLinksToActivate(INT); /* 0x198 */
+    virtual INT GetOutputLinksToActivate(TArray<INT>& out_LinksToActivate); /* the base's PURE_VIRTUAL returns 0 */ /* 0x198 */
     virtual INT FindCaseValueIndex(INT); /* 0x19c */
     virtual INT GetSupportedValueCount(); /* 0x1a0 */
     virtual FString GetCaseValueString(INT ValueIndex) const; /* 0x1a4 */
@@ -39183,8 +39183,8 @@ struct UGFxMovie : public UObject {
     virtual void vf_124(); /* 0x124 */
     virtual void PublishDataStoreValues(); /* 0x128 */
     virtual void vf_12c(INT, INT); /* 0x12c */
-    virtual void GetVariableBool(INT); /* 0x130 */
-    virtual void GetVariableNumber(INT); /* 0x134 */
+    virtual UBOOL GetVariableBool(const FString& Path); /* 0x130 */
+    virtual FLOAT GetVariableNumber(const FString& Path); /* 0x134 */
     virtual void vf_138(INT, INT); /* 0x138 */
     virtual void vf_13c(INT, INT, INT, INT, INT, INT, INT); /* 0x13c */
     virtual void vf_140(INT, INT); /* 0x140 */
@@ -39635,7 +39635,7 @@ struct URBarkFlagBase : public UObject {
     DECLARE_CLASS(URBarkFlagBase, UObject, 0x0, 0x0, CommonGame)
     TArrayNoInit<FBarkFlag> FlagList; /* 0x30 */
     /* virtual functions this class introduces (vtable 0x022e0cc0) */
-    virtual INT GetValueForType(INT, INT, INT); /* 0x10c */
+    virtual FString GetValueForType(const FString& FlagType, INT ValueIndex); /* 0x10c */
     virtual UBOOL HasTheseFlags(class URBarkFlagBase* OtherBase); /* 0x110 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
@@ -39927,7 +39927,7 @@ struct URFlagManager : public UObject {
     virtual INT vf_114(INT, INT, INT, INT); /* 0x114 */
     virtual UBOOL GetGlobalFlag(FName FlagName); /* 0x118 */
     virtual UBOOL SetGlobalFlag(FName FlagName, UBOOL bValue); /* 0x11c */
-    virtual void SetGlobalFlags(INT); /* 0x120 */
+    virtual INT SetGlobalFlags(const FString& Flags); /* 0x120 */
     virtual FString GetPersistentMapName(); /* 0x124 */
     virtual void vf_128(INT, INT); /* 0x128 */
     /* overrides */
@@ -40886,7 +40886,7 @@ struct UOnlineSubsystemSteamworks : public UOnlineSubsystemCommonImpl {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_02c(); /* 0x02c */
-    virtual INT vf_10c(); /* 0x10c */
+    virtual UBOOL Init(); /* 0x10c */
     /* other member functions */
     INT sub_00e92e80(INT); /* 0x00e92e80 */
     UINT sub_00e92f20(BYTE); /* 0x00e92f20 */
@@ -48266,7 +48266,7 @@ struct ARCinematicActor : public ASkeletalMeshActor {
     virtual void vf_360(); /* 0x360 */
     virtual void InternalSetMorphWeight(FName MorphNodeName, FLOAT MorphWeight); /* 0x364 */
     virtual INT vf_368(INT, INT, INT); /* 0x368 */
-    virtual void GetThoughts(INT, INT); /* 0x36c */
+    virtual void GetThoughts(TArray<FThought>& ThoughtList, FVector& ThoughtLocation); /* 0x36c */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -54221,7 +54221,7 @@ struct ARPawnPlayerCombat : public ARPawnPlayerAnim {
     virtual void vf_650(INT, INT, INT, INT, INT, INT, INT); /* 0x650 */
     virtual void vf_654(INT, INT, INT, INT, INT); /* 0x654 */
     virtual INT vf_658(INT, INT, INT, INT, INT); /* 0x658 */
-    virtual INT GetNumberOfCounterHits(INT, INT); /* 0x65c */
+    virtual INT GetNumberOfCounterHits(class UAnimSequence* StrikeAnimSequence, TArray<FLOAT>& SlowMoHitTimes); /* 0x65c */
     virtual FLOAT GetStrikeContactTime(class UAnimSequence* StrikeAnimSequence); /* 0x660 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
@@ -55425,7 +55425,7 @@ struct ARPlayerController : public ARPlayerControllerBase {
     virtual UBOOL IsMoviePresent(const FString& Path); /* 0x654 */
     virtual FString GetReturnPoint(); /* 0x658 */
     virtual INT SetReturnPoint(const FString& Str); /* 0x65c */
-    virtual INT StripGlobalNamePart(INT); /* 0x660 */
+    virtual void StripGlobalNamePart(TArray<FString>& Names); /* 0x660 */
     virtual void GetVisitedPMapsList(INT); /* 0x664 */
     virtual void GetCreditsStrings(INT, INT, INT, INT); /* 0x668 */
     virtual INT vf_66c(); /* 0x66c */
@@ -56013,7 +56013,7 @@ struct ARPontoonBridgeManager : public AActor {
     FLOAT CollisionReenableTimer; /* 0x1e4 */
     FLOAT WorldPontoonZValue; /* 0x1e8 */
     /* virtual functions this class introduces (vtable 0x02349ee0) */
-    virtual INT FindClosestPontoon(FVector pos); /* 0x354 */
+    virtual class ARPontoonBase* FindClosestPontoon(FVector pos); /* 0x354 */
     virtual INT vf_358(INT, INT, INT, INT, INT); /* 0x358 */
     virtual INT FindPontoonByPosition(FVector pos); /* 0x35c */
     /* overrides */
@@ -60221,7 +60221,7 @@ struct ARTapePlayer : public AActor {
     class UAudioComponent* TapeAudioComponent; /* 0x228 */
     /* virtual functions this class introduces (vtable 0x0235f680) */
     virtual void vf_354(); /* 0x354 */
-    virtual void LoadConversation(const FString& Str); /* 0x358 */
+    virtual UBOOL LoadConversation(const FString& Str); /* 0x358 */
     virtual INT vf_35c(); /* 0x35c */
     virtual void SetSubtitles(const FString& Str); /* 0x360 */
     virtual INT vf_364(INT); /* 0x364 */

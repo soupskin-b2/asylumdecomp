@@ -171889,7 +171889,7 @@
     {
      "va": "006d9360",
      "size": 5,
-     "symbol": "?GetFontParameterValue@UMaterialInterface@@UAEIIIPAHPAI@Z"
+     "symbol": "?GetFontParameterValue@UMaterialInterface@@UAEHUFName@@AAPAUUFont@@AAH@Z"
     },
     {
      "va": "00702e50",
@@ -181544,7 +181544,7 @@
     {
      "va": "00d81460",
      "size": 401,
-     "symbol": "?vf_178@UOnlineProfileSettings@@UAEXXZ"
+     "symbol": "?SetToDefaults@UOnlineProfileSettings@@UAEXXZ"
     }
    ]
   },
@@ -182450,7 +182450,7 @@
     {
      "va": "00d74070",
      "size": 391,
-     "symbol": "?vf_10c@UOnlineSubsystem@@UAEHXZ"
+     "symbol": "?Init@UOnlineSubsystem@@UAEHXZ"
     }
    ]
   },
@@ -202408,12 +202408,12 @@
     {
      "va": "00d16230",
      "size": 93,
-     "symbol": "?vf_110@UInterpTrackInstFloatParticleParam@@UAEXPAUUInterpTrack@@@Z"
+     "symbol": "?RestoreActorState@UInterpTrackInstFloatParticleParam@@UAEXPAUUInterpTrack@@@Z"
     },
     {
      "va": "00d10d80",
      "size": 95,
-     "symbol": "?vf_110@UInterpTrackInstParticleReplay@@UAEXPAUUInterpTrack@@@Z"
+     "symbol": "?RestoreActorState@UInterpTrackInstParticleReplay@@UAEXPAUUInterpTrack@@@Z"
     },
     {
      "va": "00d14fe0",
@@ -202428,7 +202428,7 @@
     {
      "va": "00d16310",
      "size": 107,
-     "symbol": "?vf_110@UInterpTrackInstFloatMaterialParam@@UAEXPAUUInterpTrack@@@Z"
+     "symbol": "?RestoreActorState@UInterpTrackInstFloatMaterialParam@@UAEXPAUUInterpTrack@@@Z"
     },
     {
      "va": "00d10830",
@@ -202438,7 +202438,7 @@
     {
      "va": "00d16440",
      "size": 185,
-     "symbol": "?vf_110@UInterpTrackInstVectorMaterialParam@@UAEXPAUUInterpTrack@@@Z"
+     "symbol": "?RestoreActorState@UInterpTrackInstVectorMaterialParam@@UAEXPAUUInterpTrack@@@Z"
     }
    ]
   },
@@ -213560,7 +213560,7 @@
     {
      "va": "008a6850",
      "size": 3,
-     "symbol": "?IncrementPathChild@APawn@@UAEXHPAUAController@@@Z"
+     "symbol": "?IncrementPathChild@APawn@@UAEXHPAUUCanvas@@@Z"
     },
     {
      "va": "008a6860",
@@ -219147,7 +219147,7 @@
     {
      "va": "008e7f60",
      "size": 29,
-     "symbol": "?GetOutputLinksToActivate@USeqCond_SwitchBase@@UAEHH@Z"
+     "symbol": "?GetOutputLinksToActivate@USeqCond_SwitchBase@@UAEHAAV?$TArray@H@@@Z"
     },
     {
      "va": "007d6380",
@@ -271019,12 +271019,12 @@
     {
      "va": "006e8ee0",
      "size": 64,
-     "symbol": "?GetFontParameterValue@UMaterialInstanceConstant@@UAEIIIPAHPAI@Z"
+     "symbol": "?GetFontParameterValue@UMaterialInstanceConstant@@UAEHUFName@@AAPAUUFont@@AAH@Z"
     },
     {
      "va": "006e94e0",
      "size": 64,
-     "symbol": "?GetFontParameterValue@UMaterialInstanceTimeVarying@@UAEIIIPAHPAI@Z"
+     "symbol": "?GetFontParameterValue@UMaterialInstanceTimeVarying@@UAEHUFName@@AAPAUUFont@@AAH@Z"
     },
     {
      "va": "006ea840",
@@ -344603,12 +344603,12 @@
     {
      "va": "00cf04d0",
      "size": 3,
-     "symbol": "?vf_138@UInterpTrack@@UAEXHH@Z"
+     "symbol": "?vf_138@UInterpTrack@@UAEXMPAUUInterpTrackInst@@@Z"
     },
     {
      "va": "00cf04e0",
      "size": 3,
-     "symbol": "?vf_13c@UInterpTrack@@UAEXHHH@Z"
+     "symbol": "?vf_13c@UInterpTrack@@UAEXMPAUUInterpTrackInst@@H@Z"
     },
     {
      "va": "00cf04f0",

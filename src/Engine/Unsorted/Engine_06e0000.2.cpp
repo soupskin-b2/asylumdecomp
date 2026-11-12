@@ -2589,9 +2589,12 @@ int C_006e83a0::sub_006e83a0(void)
 
 int sub_006e8bb0(...);
 // @baa 0x006e8ee0
-UINT UMaterialInstanceConstant::GetFontParameterValue(UINT param_2, UINT param_3, INT* param_4, UINT* param_5)
+UBOOL UMaterialInstanceConstant::GetFontParameterValue(FName ParameterName, UFont*& OutFontValue, INT& OutFontPage)
 {
     int param_1 = (int)this;
+    UINT param_2 = ((UINT*)&ParameterName)[0], param_3 = ((UINT*)&ParameterName)[1];
+    INT* param_4 = (INT*)&OutFontValue;
+    UINT* param_5 = (UINT*)&OutFontPage;
 
   int iVar1;
   
@@ -2608,9 +2611,12 @@ UINT UMaterialInstanceConstant::GetFontParameterValue(UINT param_2, UINT param_3
 
 int sub_006e9270(...);
 // @baa 0x006e94e0
-UINT UMaterialInstanceTimeVarying::GetFontParameterValue(UINT param_2, UINT param_3, INT* param_4, UINT* param_5)
+UBOOL UMaterialInstanceTimeVarying::GetFontParameterValue(FName ParameterName, UFont*& OutFontValue, INT& OutFontPage)
 {
     int param_1 = (int)this;
+    UINT param_2 = ((UINT*)&ParameterName)[0], param_3 = ((UINT*)&ParameterName)[1];
+    INT* param_4 = (INT*)&OutFontValue;
+    UINT* param_5 = (UINT*)&OutFontPage;
 
   int iVar1;
   

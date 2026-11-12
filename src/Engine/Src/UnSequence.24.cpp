@@ -5,7 +5,7 @@
 #include "ue3/Script.h"
 
 // @baa 0x008e7f60
-INT USeqCond_SwitchBase::GetOutputLinksToActivate(INT)
+INT USeqCond_SwitchBase::GetOutputLinksToActivate(TArray<INT>& out_LinksToActivate)
 {
     PURE_VIRTUAL(USeqCond_SwitchBase::GetOutputLinksToActivate, return 0;);
 }

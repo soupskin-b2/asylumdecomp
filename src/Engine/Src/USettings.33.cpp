@@ -56,7 +56,7 @@ template<class T> FORCEINLINE INT AddZeroed_(TArray<T>& Array, INT Count)
 
 // @baa 0x00d74070
 /* UOnlineSubsystem slot 0x10c (kit vf_10c; UE3's Init): create each named interface from its configured class. */
-INT UOnlineSubsystem::vf_10c()
+UBOOL UOnlineSubsystem::Init()
 {
     for (INT InterfaceIndex = 0; InterfaceIndex < NamedInterfaceDefs.Num(); InterfaceIndex++)
     {

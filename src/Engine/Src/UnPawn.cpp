@@ -1176,7 +1176,7 @@ undefined4 APawn::sub_008a66c0(void)
 void APawn::IncrementPathStep(INT a0, AController* a1) {  }
 
 // @baa 0x008a6850
-void APawn::IncrementPathChild(INT a0, AController* a1) {  }
+void APawn::IncrementPathChild(INT a0, UCanvas* a1) {  }
 
 // @baa 0x008a6860
 void APawn::DrawPathStep(class UCanvas* a0) {  }

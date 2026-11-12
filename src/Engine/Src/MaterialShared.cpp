@@ -834,7 +834,7 @@ UBOOL UMaterialInterface::GetVectorCurveParameterValue(FName ParameterName, FInt
 UBOOL UMaterialInterface::GetTextureParameterValue(FName ParameterName, UTexture*& OutValue) { return 0; }
 
 // @baa 0x006d9360
-UINT UMaterialInterface::GetFontParameterValue(UINT a0, UINT a1, INT* a2, UINT* a3) { return 0; }
+UBOOL UMaterialInterface::GetFontParameterValue(FName ParameterName, UFont*& OutFontValue, INT& OutFontPage) { return 0; }
 
 void sub_006fdcd0();
 // @baa 0x00702e50

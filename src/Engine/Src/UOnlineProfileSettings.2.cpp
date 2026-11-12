@@ -8,7 +8,7 @@
 void UOnlineProfileSettings::execSetToDefaults( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_178();
+	SetToDefaults();
 }
 
 // @baa 0x00c8e430

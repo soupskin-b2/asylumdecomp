@@ -21,7 +21,7 @@ inline AActor* GetGroupActorOf(UInterpGroupInst* GrInst)
 // @baa 0x00d16230
 /* UInterpTrackInstFloatParticleParam slot 0x110 (kit vf_110, UE3 RestoreActorState(UInterpTrack* Track)): put the
  * saved value back into the emitter's particle parameter. */
-void UInterpTrackInstFloatParticleParam::vf_110(UInterpTrack* Track)
+void UInterpTrackInstFloatParticleParam::RestoreActorState(UInterpTrack* Track)
 {
     UInterpTrackFloatParticleParam* ParamTrack = CastChecked<UInterpTrackFloatParticleParam>(Track);
     AEmitter* Emitter = Cast<AEmitter>(GetGroupActorOf(CastChecked<UInterpGroupInst>(GetOuterOf(this))));
@@ -34,7 +34,7 @@ void UInterpTrackInstFloatParticleParam::vf_110(UInterpTrack* Track)
 // @baa 0x00d10d80
 /* UInterpTrackInstParticleReplay slot 0x110 (kit vf_110, UE3 RestoreActorState(UInterpTrack* Track)): take the
  * emitter's particle system out of replay mode (PRS_Disabled, clip and frame 0). */
-void UInterpTrackInstParticleReplay::vf_110(UInterpTrack* Track)
+void UInterpTrackInstParticleReplay::RestoreActorState(UInterpTrack* Track)
 {
     AActor* Actor = GetGroupActorOf(CastChecked<UInterpGroupInst>(GetOuterOf(this)));
     if (Actor != NULL)
@@ -84,7 +84,7 @@ void UInterpTrackInstSoundFade::vf_118(UInterpTrack* Track)
 // @baa 0x00d16310
 /* UInterpTrackInstFloatMaterialParam slot 0x110 (kit vf_110, UE3 RestoreActorState(UInterpTrack* Track)): put the
  * saved scalar back on the material instance actor's material. */
-void UInterpTrackInstFloatMaterialParam::vf_110(UInterpTrack* Track)
+void UInterpTrackInstFloatMaterialParam::RestoreActorState(UInterpTrack* Track)
 {
     UInterpTrackFloatMaterialParam* ParamTrack = CastChecked<UInterpTrackFloatMaterialParam>(Track);
     AMaterialInstanceActor* MatInstActor = Cast<AMaterialInstanceActor>(GetGroupActorOf(CastChecked<UInterpGroupInst>(GetOuterOf(this))));
@@ -110,7 +110,7 @@ void UInterpTrackInstColorScale::vf_118(UInterpTrack* Track)
 // @baa 0x00d16440
 /* UInterpTrackInstVectorMaterialParam slot 0x110 (kit vf_110, UE3 RestoreActorState(UInterpTrack* Track)): put the
  * saved vector (alpha 1) back on the material instance actor's material. */
-void UInterpTrackInstVectorMaterialParam::vf_110(UInterpTrack* Track)
+void UInterpTrackInstVectorMaterialParam::RestoreActorState(UInterpTrack* Track)
 {
     UInterpTrackVectorMaterialParam* ParamTrack = CastChecked<UInterpTrackVectorMaterialParam>(Track);
     AMaterialInstanceActor* MatInstActor = Cast<AMaterialInstanceActor>(GetGroupActorOf(CastChecked<UInterpGroupInst>(GetOuterOf(this))));

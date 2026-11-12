@@ -119,10 +119,10 @@ INT UInterpTrack::DuplicateKeyframe(INT a, FLOAT b) {
 UBOOL UInterpTrack::GetClosestSnapPosition(FLOAT a0, TArray<INT>& a1, FLOAT& a2) { return 0; }
 
 // @baa 0x00cf04d0
-void UInterpTrack::vf_138(int a0, int a1) {  }
+void UInterpTrack::vf_138(FLOAT a0, UInterpTrackInst* a1) {  }
 
 // @baa 0x00cf04e0
-void UInterpTrack::vf_13c(int a0, int a1, int a2) {  }
+void UInterpTrack::vf_13c(FLOAT a0, UInterpTrackInst* a1, UBOOL a2) {  }
 
 // @baa 0x00cf04f0
 void UInterpTrack::vf_140(int a0) {  }
