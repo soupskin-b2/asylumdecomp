@@ -330,6 +330,8 @@ def apply(inp: Path, batch: Path, push: bool) -> None:
         commit("match", len(new), [subs[r["id"]] for r in new])
     if new or revised:
         if push:
+            # a push that lands meanwhile (a header change) rebases these data files row by row, not as a conflict
+            git("config", "merge.jsongz.driver", "python tools/ci/gzmerge.py %O %A %B")
             for k in range(5):
                 try:
                     git("push", "-q", "origin", "HEAD:main")
