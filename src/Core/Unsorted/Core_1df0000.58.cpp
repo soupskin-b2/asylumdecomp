@@ -1,0 +1,32 @@
+// Core_1df0000.cpp: 1 function
+// Placed here by: contributions.
+// Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
+#include "ue3/Classes.h"
+#include "ue3/Script.h"
+
+// UOnlineEventsInterfaceMcp's script natives that the kit's class does not declare.
+struct UOnlineEventsInterfaceMcp_ : public UOnlineEventsInterfaceMcp
+{
+	void execUploadGameplayEventsData(FFrame& Stack, RESULT_DECL);
+	void execUploadProfileData(FFrame& Stack, RESULT_DECL);
+};
+
+/* UnScript.h DECLARE_NATIVE_TYPE: the class's table of script natives (name, member pointer). */
+typedef void (UOnlineEventsInterfaceMcp_::*UOnlineEventsInterfaceMcpNative)(FFrame& TheStack, RESULT_DECL);
+
+#pragma pack(push, 4)
+struct UOnlineEventsInterfaceMcpNativeInfo
+{
+	const TCHAR* Name;
+	UOnlineEventsInterfaceMcpNative Pointer;
+};
+
+#pragma pack(pop)
+#define MAP_NATIVE(cls, name) { TEXT("int") TEXT(#cls) TEXT(#name), &UOnlineEventsInterfaceMcp_::name },
+// @baa 0x01df71c0
+UOnlineEventsInterfaceMcpNativeInfo GIpDrvUOnlineEventsInterfaceMcpNatives[] =
+{
+	MAP_NATIVE(UOnlineEventsInterfaceMcp, execUploadGameplayEventsData)
+	MAP_NATIVE(UOnlineEventsInterfaceMcp, execUploadProfileData)
+	{ NULL, NULL }
+};

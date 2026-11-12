@@ -1,4 +1,4 @@
-// BmGame_1680000.cpp (part 5 of 7): 3 functions
+// BmGame_1680000.cpp (part 5 of 7): 4 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -47,4 +47,25 @@ void URSimpleRopeComponent::vf_25c()
         Self->sub_016857b0();
         Self->sub_0163f550();
     }
+}
+
+struct URSimpleRopeComponent__01685d40 : public URSimpleRopeComponent
+{
+    INT sub_0163f500();
+    void sub_01666110();
+    INT sub_01685860();
+};
+
+// @baa 0x01685d40
+INT URSimpleRopeComponent::vf_258()
+{
+    URSimpleRopeComponent__01685d40* Self = (URSimpleRopeComponent__01685d40*)this;
+    INT R = Self->sub_0163f500();
+    if (R == 0)
+    {
+        Self->PreviousSpoolArraySize = 0;
+        Self->sub_01666110();
+        return Self->sub_01685860();
+    }
+    return R;
 }

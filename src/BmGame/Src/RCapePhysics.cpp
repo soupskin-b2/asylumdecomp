@@ -1,4 +1,4 @@
-// RCapePhysics.cpp (part 1 of 2): 33 functions
+// RCapePhysics.cpp (part 1 of 2): 34 functions
 // Placed here by: neighbours 18, class 6, file 6, callers 3.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -406,4 +406,18 @@ void URCapeConfig::sub_016ccf60(void)
   ((C_view *)(this))->sub_016ccd90();
   *param_1 = 0;
   return;
+}
+
+struct C_016c15c0
+{
+    void sub_016bb590(FLOAT F);
+    void sub_016bb8e0(FLOAT F);
+    void sub_016c15c0(FLOAT F);
+};
+
+// @baa 0x016c15c0
+void C_016c15c0::sub_016c15c0(FLOAT F)
+{
+    sub_016bb590(F);
+    sub_016bb8e0(F);
 }

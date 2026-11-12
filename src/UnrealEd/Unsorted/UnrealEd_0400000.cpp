@@ -1,4 +1,4 @@
-// UnrealEd_0400000.cpp: 182 functions
+// UnrealEd_0400000.cpp: 183 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -1474,4 +1474,65 @@ INT sub_0047e520(UObject* Object);
 INT __stdcall sub_0040c600(UObject* Object)
 {
     return sub_0047e520(Object);
+}
+
+/* Kit gaps: UnMath.h's FGlobalMath (GMath, its sine table the only member) and FRotationMatrix aren't declared;
+ * this build has FRotationMatrix's constructor out of line. */
+class FGlobalMath
+{
+public:
+	enum { ANGLE_SHIFT = 2 };
+	enum { ANGLE_BITS = 14 };
+	enum { NUM_ANGLES = 16384 };
+
+	FORCEINLINE FLOAT SinTab(int i) const
+	{
+		return TrigFLOAT[((i >> ANGLE_SHIFT) & (NUM_ANGLES - 1))];
+	}
+	FORCEINLINE FLOAT CosTab(int i) const
+	{
+		return TrigFLOAT[(((i + 16384) >> ANGLE_SHIFT) & (NUM_ANGLES - 1))];
+	}
+
+private:
+	FLOAT TrigFLOAT[NUM_ANGLES];
+};
+
+extern FGlobalMath g_026761a8;
+#define GMath g_026761a8
+struct FRotationMatrix : public FMatrix
+{
+	FRotationMatrix(const FRotator& Rot);
+};
+
+// @baa 0x004029a0
+/* UnMath.h: the rotation matrix for a rotator (roll, then pitch, then yaw). */
+FRotationMatrix::FRotationMatrix(const FRotator& Rot)
+{
+	const FLOAT SR = GMath.SinTab(Rot.Roll);
+	const FLOAT SP = GMath.SinTab(Rot.Pitch);
+	const FLOAT SY = GMath.SinTab(Rot.Yaw);
+	const FLOAT CR = GMath.CosTab(Rot.Roll);
+	const FLOAT CP = GMath.CosTab(Rot.Pitch);
+	const FLOAT CY = GMath.CosTab(Rot.Yaw);
+
+	XPlane.X = CP * CY;
+	XPlane.Y = CP * SY;
+	XPlane.Z = SP;
+	XPlane.W = 0.f;
+
+	YPlane.X = SR * SP * CY - CR * SY;
+	YPlane.Y = SR * SP * SY + CR * CY;
+	YPlane.Z = - SR * CP;
+	YPlane.W = 0.f;
+
+	ZPlane.X = -( CR * SP * CY + SR * SY );
+	ZPlane.Y = CY * SR - CR * SP * SY;
+	ZPlane.Z = CR * CP;
+	ZPlane.W = 0.f;
+
+	WPlane.X = 0.f;
+	WPlane.Y = 0.f;
+	WPlane.Z = 0.f;
+	WPlane.W = 1.f;
 }

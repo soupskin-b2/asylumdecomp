@@ -1,4 +1,4 @@
-// Core_05c0000.cpp (part 1 of 3): 179 functions
+// Core_05c0000.cpp (part 1 of 3): 180 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -1824,4 +1824,26 @@ struct FThreeWords
 FThreeWords& fwords_assign_helper(FThreeWords& A, const FThreeWords& B)
 {
 	return A.sub_005c2e30(B);
+}
+
+/* Kit gap: FRotationMatrix (constructor out of line, 004029a0) and FMatrix::GetAxis (UnMath.h) aren't declared. */
+struct FRotationMatrix : public FMatrix
+{
+	FRotationMatrix(const FRotator& Rot);
+};
+
+struct FMatrix_ : public FMatrix
+{
+	FORCEINLINE FVector GetAxis(INT i) const
+	{
+		const FPlane& P = (&XPlane)[i];
+		return FVector(P.X, P.Y, P.Z);
+	}
+};
+
+// @baa 0x005c99e0
+/* UnMath.cpp: the rotation's forward axis. */
+FVector FRotator::Vector() const
+{
+	return ((const FMatrix_&)FRotationMatrix(*this)).GetAxis(0);
 }

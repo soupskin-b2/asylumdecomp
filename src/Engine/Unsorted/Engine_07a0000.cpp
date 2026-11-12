@@ -1,4 +1,4 @@
-// Engine_07a0000.cpp (part 1 of 4): 235 functions
+// Engine_07a0000.cpp (part 1 of 4): 236 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1805,4 +1805,66 @@ void APlayerController::SmoothTargetViewRotation(APawn* TargetPawn, FLOAT DeltaS
 	BlendedTargetViewRotation.Pitch = BlendRot(DeltaSeconds, BlendedTargetViewRotation.Pitch, TargetViewRotation.Pitch & 65535);
 	BlendedTargetViewRotation.Yaw = BlendRot(DeltaSeconds, BlendedTargetViewRotation.Yaw, TargetViewRotation.Yaw & 65535);
 	BlendedTargetViewRotation.Roll = BlendRot(DeltaSeconds, BlendedTargetViewRotation.Roll, TargetViewRotation.Roll & 65535);
+}
+
+/* Kit gaps: FRotationMatrix (constructor out of line, 004029a0), FMatrix::TransformFVector/TransformFVector4
+ * (UnMath.h), FVector's operator+ and operator!=, and FRotator's operator!= aren't declared. */
+struct FRotationMatrix : public FMatrix
+{
+	FRotationMatrix(const FRotator& Rot);
+};
+
+struct FMatrix_ : public FMatrix
+{
+	FORCEINLINE FVector4 TransformFVector4(const FVector4& P) const
+	{
+		FVector4 Result;
+		Result.X = P.X * XPlane.X + P.Y * YPlane.X + P.Z * ZPlane.X + P.W * WPlane.X;
+		Result.Y = P.X * XPlane.Y + P.Y * YPlane.Y + P.Z * ZPlane.Y + P.W * WPlane.Y;
+		Result.Z = P.X * XPlane.Z + P.Y * YPlane.Z + P.Z * ZPlane.Z + P.W * WPlane.Z;
+		Result.W = P.X * XPlane.W + P.Y * YPlane.W + P.Z * ZPlane.W + P.W * WPlane.W;
+		return Result;
+	}
+	FORCEINLINE FVector4 TransformFVector(const FVector& V) const
+	{
+		return TransformFVector4(FVector4(V.X, V.Y, V.Z, 1.0f));
+	}
+};
+
+static FORCEINLINE FVector AddVectors(const FVector& A, const FVector4& B)
+{
+	return FVector(A.X + B.X, A.Y + B.Y, A.Z + B.Z);
+}
+
+static FORCEINLINE UBOOL VectorsDiffer(const FVector& A, const FVector& B)
+{
+	return A.X != B.X || A.Y != B.Y || A.Z != B.Z;
+}
+
+static FORCEINLINE UBOOL RotatorsDiffer(const FRotator& A, const FRotator& B)
+{
+	return A.Pitch != B.Pitch || A.Yaw != B.Yaw || A.Roll != B.Roll;
+}
+
+struct AController__007ad610 : public AController
+{
+	FVector GetBasedPosition(FBasedPosition BP); /* 0x007ad610 */
+};
+
+// @baa 0x007ad610
+/* The world position of a based position: Position in its base's frame (cached while the base hasn't moved), or
+ * Position itself when there's no base. Same body as APawn::GetBasedPosition. */
+FVector AController__007ad610::GetBasedPosition(FBasedPosition BP)
+{
+	if (BP.Base != NULL)
+	{
+		if (VectorsDiffer(BP.CachedBaseLocation, BP.Base->Location) || RotatorsDiffer(BP.CachedBaseRotation, BP.Base->Rotation))
+		{
+			BP.CachedBaseLocation = BP.Base->Location;
+			BP.CachedBaseRotation = BP.Base->Rotation;
+			BP.CachedTransPosition = AddVectors(BP.Base->Location, ((const FMatrix_&)FRotationMatrix(BP.Base->Rotation)).TransformFVector(BP.Position));
+		}
+		return BP.CachedTransPosition;
+	}
+	return BP.Position;
 }

@@ -1,4 +1,4 @@
-// UnPawn.cpp: 2 functions
+// UnPawn.cpp: 3 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -52,4 +52,17 @@ FLOAT AActor::GetGravityZ()
 		return ((UWorld__00867f90*)GWorld)->GetGravityZ() * WorldInfo->RBPhysicsGravityScaling;
 	}
 	return PhysicsVolume ? PhysicsVolume->GetGravityZ() : ((UWorld__00867f90*)GWorld)->GetGravityZ();
+}
+
+struct UWorld__00865010 : public UWorld
+{
+	void RemovePawn(APawn* Pawn); /* 0x009c8e10 */
+};
+
+// @baa 0x00865010
+// @baa 0x00865010
+/* APawn slot 0x194: PostScriptDestroyed. */
+void APawn::vf_194()
+{
+	((UWorld__00865010*)GWorld)->RemovePawn(this);
 }

@@ -1,7 +1,7 @@
-// FCollada_0ec0000.cpp: 163 functions
+// FCollada_0ec0000.cpp: 165 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
-#include "ue3/Array.h"
+#include "ue3/Classes.h"
 
 struct C {
     void sub_00ec1990();
@@ -1562,4 +1562,23 @@ C_00ec22f0* C_00ec22f0::sub_00ec22f0(INT* Source)
 {
     Value_04 = *Source;
     return this;
+}
+
+// @baa 0x00ec1e40
+/* An FColor's red, green and blue as a 0..1 vector (a vertex-data conversion callback). */
+FVector sub_00ec1e40(const FColor& Color)
+{
+	return FVector(Color.R / 255.0f, Color.G / 255.0f, Color.B / 255.0f);
+}
+
+// @baa 0x00ec1ec0
+/* An FColor as a linear color, each channel scaled to 0..1 without gamma correction (a vertex-data conversion callback). */
+FLinearColor sub_00ec1ec0(const FColor& Color)
+{
+	FLinearColor Result;
+	Result.R = Color.R / 255.0f;
+	Result.G = Color.G / 255.0f;
+	Result.B = Color.B / 255.0f;
+	Result.A = Color.A / 255.0f;
+	return Result;
 }

@@ -1,4 +1,4 @@
-// UnAnimTree.cpp: 3 functions
+// UnAnimTree.cpp: 4 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -92,3 +92,22 @@ FLOAT UAnimNodeScaleRateBySpeed_::GetScaleValue()
 	}
 	return ScaleByValue;
 }
+
+// @baa 0x00c50350
+void UAnimNodeBlendList::HandleSliderMove(INT SliderIndex, INT ValueIndex, FLOAT NewSliderValue)
+{
+#line 2188 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTree.cpp"
+	check(0 == SliderIndex && 0 == ValueIndex);
+	SliderPosition = NewSliderValue;
+
+	if (Children.Num() > 0)
+	{
+		const INT TargetChannel = appRound(NewSliderValue * (Children.Num() - 1));
+		if (ActiveChildIndex != TargetChannel)
+		{
+			SetActiveChild(TargetChannel, 0.1f);
+		}
+	}
+}
+
+#line 114 "candidate.cpp"
