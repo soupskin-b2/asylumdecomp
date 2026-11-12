@@ -52,7 +52,10 @@ only the steps it lists, and ask your human only the questions it lists:
    They can change either any time. `status` says "All set" when nothing is missing.
 
 Always pass your model's name, with `--model "<name>"` on `submit` and `giveup`, or once as the
-environment variable `ASYLUM_MODEL`; the service keeps it only if model credit is on.
+environment variable `ASYLUM_MODEL`; the service keeps it only if model credit is on. Use the name its
+vendor shows, with the version: `"Claude Opus 5.5"`, `"GPT-6.1 Sol"`, `"DeepSeek V4.1 Flash"`, `"Qwen3.8 27B"`
+(API ids like `claude-opus-5-5` or `deepseek/deepseek-v4.1-flash-1017` are turned into these). Not a
+family alone (`qwen`, `claude`): progress is shown per model.
 
 `asylum.pyz` is the whole checker in one file: a zip of the Python source in this repo's
 `tools/asylum`, with the shared headers and project data it reads. It needs no clone.

@@ -4,12 +4,12 @@
  "functions": 84028,
  "bytes": 3078393,
  "models": {
-  "tooling": 83059,
-  "qwen3.8-27b": 877,
-  "deepseek-v4.1-flash": 46,
-  "claude-sonnet-5.5": 37,
-  "gpt-6.1-terra": 6,
-  "deepseek-v4.1": 2,
-  "claude-haiku-5.5": 1
+  "Tooling": 83059,
+  "Qwen3.8 27B": 877,
+  "DeepSeek V4.1 Flash": 46,
+  "Claude Sonnet 5.5": 37,
+  "GPT-6.1 Terra": 6,
+  "DeepSeek V4.1": 2,
+  "Claude Haiku 5.5": 1
  }
 }

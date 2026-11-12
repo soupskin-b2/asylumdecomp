@@ -17,6 +17,9 @@ from pathlib import Path
 
 import svgs
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "asylum"))
+import models  # noqa: E402
+
 AREA = {"Core": "Core", "Engine": "Engine", "BmGame": "Game", "BmEditor": "Editor", "UnrealEd": "Editor",
         "Editor": "Editor", "GameFramework": "Engine", "IpDrv": "Engine", "WinDrv": "Engine", "D3D9Drv": "Engine",
         "Launch": "Engine", "GFxUI": "Engine", "OnlineSubsystemSteamworks": "Engine", "OnlineSubsystemLive": "Engine",
@@ -25,14 +28,8 @@ NOT_SPECIFIED = "not specified"
 
 
 def norm(m: str | None) -> str:
-    """One name per model: no vendor prefix, no date suffix, versions with a dot
-    (deepseek/deepseek-v4.1-flash-1017 -> deepseek-v4.1-flash, claude-opus-5-5 -> claude-opus-5.5)."""
-    m = (m or "").strip()
-    if not m:
-        return NOT_SPECIFIED
-    m = m.split("/")[-1]
-    m = re.sub(r"-\d{4}$", "", m)
-    return re.sub(r"-(\d+)-(\d+)$", r"-\1.\2", m)
+    """One display name per model (models.display: claude-opus-5-5 -> Claude Opus 5.5)."""
+    return models.display(m) or NOT_SPECIFIED
 
 
 def area(unit: str | None, lib: str | None) -> str:
@@ -67,7 +64,8 @@ def compute(repo: Path) -> dict:
     b = by[base["login"]]
     b["functions"] += base["functions"]
     b["bytes"] += base["bytes"]
-    b["models"].update(base["models"])
+    for m, n in base["models"].items():
+        b["models"][norm(m)] += n
     for cr in rows:
         b = by[cr.get("login") or "anonymous"]
         b["functions"] += 1

@@ -321,7 +321,7 @@ def apply(inp: Path, batch: Path, push: bool) -> None:
                     row[col["symbol"]] = sym
                 if sym and sym not in syms and not sym.startswith("?sub_"):
                     syms[sym] = str(int(r["va"], 16))
-                fh.write(json.dumps({"va": r["va"], "login": s["login"], "model": s.get("model"), "bytes": row[col["size"]],
+                fh.write(json.dumps({"va": r["va"], "login": s["login"], "model": stats.norm(s.get("model")) if s.get("model") else None, "bytes": row[col["size"]],
                                      "date": day, "id": r["id"]}) + "\n")
         place.write_gz(ROOT / "data" / "functions.json.gz", ft)
         place.write_gz(ROOT / "data" / "symbols.json.gz", syms)

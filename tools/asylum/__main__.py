@@ -37,6 +37,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import api  # noqa: E402
 import data  # noqa: E402
+import models  # noqa: E402
 import update  # noqa: E402
 from paths import HOME, PROG, ROOT  # noqa: E402
 
@@ -403,8 +404,9 @@ def cmd_submit(a):
 
 
 def _model(a) -> str | None:
-    """The model's name, sent always; the service keeps it only if the account allows model credit."""
-    return a.model or os.environ.get("ASYLUM_MODEL")
+    """The model's display name ("Claude Opus 5.5"), sent always; the service keeps it only if the account
+    allows model credit."""
+    return models.display(a.model or os.environ.get("ASYLUM_MODEL"))
 
 
 def cmd_giveup(a):
@@ -529,12 +531,12 @@ def main(argv=None):
     s = sub.add_parser("submit")
     s.add_argument("items", nargs="*", metavar="VA [FILE]", help="what to send (default: every claim with a work/VA.cpp)")
     s.add_argument("--function")
-    s.add_argument("--model", help="the model doing the work (default: ASYLUM_MODEL)")
+    s.add_argument("--model", help='your model\'s display name, e.g. "Claude Opus 5.5", "GPT-6.1 Sol" (default: ASYLUM_MODEL)')
     s = sub.add_parser("giveup")
     s.add_argument("va", type=va_arg)
     s.add_argument("file", nargs="?", help="your closest source (default: work/VA.cpp)")
     s.add_argument("--reason", required=True)
-    s.add_argument("--model", help="the model doing the work (default: ASYLUM_MODEL)")
+    s.add_argument("--model", help='your model\'s display name, e.g. "Claude Opus 5.5", "GPT-6.1 Sol" (default: ASYLUM_MODEL)')
     s.add_argument("--any", action="store_true", help="another key's claim (another agent of your account)")
     s = sub.add_parser("release")
     s.add_argument("va", type=va_arg)

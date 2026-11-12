@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-12",
+ "updated": "2026-11-11",
  "functions": {
   "total": 174166,
   "matched": 98810
@@ -100,103 +100,58 @@
    "functions": 98800,
    "bytes": 3757414,
    "models": {
-    "tooling": 94456,
-    "deepseek-v4.1-flash": 1717,
-    "qwen3.8-27b": 1286,
-    "claude-opus-5.5": 561,
-    "not specified": 338,
-    "Claude Opus 5.5": 206,
-    "gpt-6.1-sol": 86,
-    "qwen": 65,
-    "claude-sonnet-5.5": 37,
-    "deepseek-v4.1": 26,
-    "gpt-6.1-terra": 10,
-    "Qwen": 3,
-    "e2e-test": 2,
-    "Qwen3": 2,
-    "claude-haiku-5.5": 1,
-    "qwen3.8-27b qwen3.8-27b": 1,
-    "claude": 1,
-    "qwen3": 1,
-    "qwen3-coder": 1
+    "Tooling": 94456,
+    "DeepSeek V4.1 Flash": 1953,
+    "Qwen3.8 27B": 1402,
+    "Claude Opus 5.5": 768,
+    "GPT-6.1 Sol": 145,
+    "Claude Sonnet 5.5": 37,
+    "DeepSeek V4.1": 26,
+    "GPT-6.1 Terra": 10,
+    "not specified": 2,
+    "Claude Haiku 5.5": 1
    }
   }
  ],
  "models": [
   {
-   "model": "tooling",
+   "model": "Tooling",
    "functions": 94456
   },
   {
-   "model": "deepseek-v4.1-flash",
-   "functions": 1717
+   "model": "DeepSeek V4.1 Flash",
+   "functions": 1953
   },
   {
-   "model": "qwen3.8-27b",
-   "functions": 1286
-  },
-  {
-   "model": "claude-opus-5.5",
-   "functions": 561
-  },
-  {
-   "model": "not specified",
-   "functions": 338
+   "model": "Qwen3.8 27B",
+   "functions": 1402
   },
   {
    "model": "Claude Opus 5.5",
-   "functions": 206
+   "functions": 768
   },
   {
-   "model": "gpt-6.1-sol",
-   "functions": 86
+   "model": "GPT-6.1 Sol",
+   "functions": 145
   },
   {
-   "model": "qwen",
-   "functions": 65
-  },
-  {
-   "model": "claude-sonnet-5.5",
+   "model": "Claude Sonnet 5.5",
    "functions": 37
   },
   {
-   "model": "deepseek-v4.1",
+   "model": "DeepSeek V4.1",
    "functions": 26
   },
   {
-   "model": "gpt-6.1-terra",
+   "model": "GPT-6.1 Terra",
    "functions": 10
   },
   {
-   "model": "Qwen",
-   "functions": 3
-  },
-  {
-   "model": "e2e-test",
+   "model": "not specified",
    "functions": 2
   },
   {
-   "model": "Qwen3",
-   "functions": 2
-  },
-  {
-   "model": "claude-haiku-5.5",
-   "functions": 1
-  },
-  {
-   "model": "qwen3.8-27b qwen3.8-27b",
-   "functions": 1
-  },
-  {
-   "model": "claude",
-   "functions": 1
-  },
-  {
-   "model": "qwen3",
-   "functions": 1
-  },
-  {
-   "model": "qwen3-coder",
+   "model": "Claude Haiku 5.5",
    "functions": 1
   }
  ]
