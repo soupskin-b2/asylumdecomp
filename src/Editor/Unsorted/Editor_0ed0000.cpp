@@ -1,4 +1,4 @@
-// Editor_0ed0000.cpp: 65 functions
+// Editor_0ed0000.cpp: 66 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -959,3 +959,10 @@ void C_00ed9c40::sub_00ed9c40() { m.sub_00ed6e50(); }
 void sub_00edc5c0();
 // @baa 0x00eddf00
 void sub_00eddf00(void) { sub_00edc5c0(); }
+
+void __stdcall sub_00ecc690(INT A, INT B);
+// @baa 0x00ed1b10
+void __stdcall sub_00ed1b10(INT Value)
+{
+    sub_00ecc690(-1, Value);
+}

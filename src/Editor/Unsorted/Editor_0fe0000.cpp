@@ -1,4 +1,4 @@
-// Editor_0fe0000.cpp: 47 functions
+// Editor_0fe0000.cpp: 49 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -295,4 +295,32 @@ int UStaticMeshFactory::vf_000(void) { return 1; }
 bool UStaticMeshFactory::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+struct C_00fed760
+{
+    char pad_00[0x20];
+    INT Value;
+
+    INT sub_00fed760(INT A, INT B, INT C_00fed760, INT D, INT E);
+};
+
+// @baa 0x00fed760
+INT C_00fed760::sub_00fed760(INT A, INT, INT, INT, INT)
+{
+    return Value == A;
+}
+
+struct C_00fed7c0
+{
+    char pad_00[0x20];
+    INT Value;
+
+    INT sub_00fed7c0(INT A, INT B, INT C_00fed7c0, INT D, INT E);
+};
+
+// @baa 0x00fed7c0
+INT C_00fed7c0::sub_00fed7c0(INT A, INT, INT, INT, INT)
+{
+    return Value == A;
 }

@@ -1,4 +1,4 @@
-// UnParticleComponents.cpp: 27 functions
+// UnParticleComponents.cpp: 28 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -324,4 +324,13 @@ void UParticleSystemComponent__00c9dcd0::execSetColorParameter(FFrame& Stack, RE
 	P_GET_STRUCT(FColor, Param);
 	P_FINISH;
 	SetColorParameter(ParameterName, Param);
+}
+
+// @baa 0x00c9e020
+void UParticleSystemComponent::execGetVectorParameter(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(InName);
+    P_GET_STRUCT_REF(FVector, OutVector);
+    P_FINISH;
+    *(UBOOL*)Result = GetVectorParameter(InName, OutVector);
 }

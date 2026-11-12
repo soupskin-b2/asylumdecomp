@@ -1,4 +1,4 @@
-// Engine_0650000.cpp (part 6 of 9): 30 functions
+// Engine_0650000.cpp (part 6 of 9): 31 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -479,4 +479,22 @@ undefined4 C_0065fa90::sub_0065fa90(byte param_2)
     sub_0053dfa0(param_1);
   }
   return param_1;
+}
+
+extern DWORD g_01ebc98c;
+struct F00658ed0Obj
+{
+    DWORD* Ptr;
+    INT   A;
+    INT   B;
+
+    F00658ed0Obj(INT X, INT Y);
+};
+
+// @baa 0x00658ed0
+F00658ed0Obj::F00658ed0Obj(INT X, INT Y)
+{
+    Ptr = &g_01ebc98c;
+    A   = X;
+    B   = Y;
 }

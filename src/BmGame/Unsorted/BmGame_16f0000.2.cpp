@@ -1,4 +1,4 @@
-// BmGame_16f0000.cpp: 138 functions
+// BmGame_16f0000.cpp: 141 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -1151,4 +1151,25 @@ void g_caller()
 {
     ARPawnPlayerCombat Pawn;
     Pawn.execGetHeading(*(FFrame*)0, 0);
+}
+
+// @baa 0x016f52e0
+void ARPawnCharacter::execGetLegDirection(FFrame& Stack, RESULT_DECL) {
+    P_FINISH;
+    FVector LocalDir;
+    *(FVector*)Result = *reinterpret_cast<FVector*>(this->vf_5d8(reinterpret_cast<INT>(&LocalDir)));
+}
+
+// @baa 0x016f4d80
+void ARPawnCharacter::execGetActualAimAtDirection(FFrame& Stack, RESULT_DECL)
+{
+    P_FINISH;
+    *(FVector*)Result = GetActualAimAtDirection();
+}
+
+// @baa 0x016f4de0
+void ARPawnCharacter::execGetHeadPosition(FFrame& Stack, RESULT_DECL)
+{
+    P_FINISH;
+    *(FVector*)Result = GetHeadPosition();
 }

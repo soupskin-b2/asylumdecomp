@@ -1,4 +1,4 @@
-// Editor_0ef0000.cpp (part 11 of 11): 1 function
+// Editor_0ef0000.cpp (part 11 of 11): 2 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -23,4 +23,11 @@ int FMArrayInt::sub_00ef47d0()
     else
         return 0;
     return ElementSize;
+}
+
+void __stdcall sub_00ef6060(INT A, INT B);
+// @baa 0x00efbc80
+void __stdcall sub_00efbc80(INT Value)
+{
+    sub_00ef6060(-1, Value);
 }

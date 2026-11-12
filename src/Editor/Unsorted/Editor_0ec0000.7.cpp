@@ -1,4 +1,4 @@
-// Editor_0ec0000.cpp: 3 functions
+// Editor_0ec0000.cpp: 4 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Core.h"
@@ -49,4 +49,10 @@ C* C::sub_00ecc800()
     Value_50 = 0;
     Value_54 = 0;
     return this;
+}
+
+// @baa 0x00ec1670
+INT __cdecl sub_00ec1670(INT A, INT B)
+{
+    return A < B ? A : B;
 }

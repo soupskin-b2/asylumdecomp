@@ -1,4 +1,4 @@
-// UnInterpolation.cpp: 2 functions
+// UnInterpolation.cpp: 3 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -62,4 +62,11 @@ UInterpGroupInst* USeqAct_Interp__00cf36a0::sub_00cf36a0(AActor* Actor)
     }
 
     return NULL;
+}
+
+void __stdcall sub_00d1ba30(INT A, INT B);
+// @baa 0x00d1bbf0
+void __stdcall sub_00d1bbf0(INT Value)
+{
+    sub_00d1ba30(Value, 0);
 }

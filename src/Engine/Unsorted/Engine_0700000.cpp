@@ -1,4 +1,4 @@
-// Engine_0700000.cpp (part 1 of 2): 181 functions
+// Engine_0700000.cpp (part 1 of 2): 182 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1976,4 +1976,10 @@ void __stdcall sub_0070f200(int a1, int** a2, int a3, int* a4)
     ((CC*)(a3 + 0x18))->sub_0070a9b0(a1, *(int*)((char*)*a2 + 0xe8), (int)*a2, i, (int)(a2 + 1));
     ((V*)(a3 + 0x18))->vf((int*)*a2, a1);
   }
+}
+
+// @baa 0x00701000
+INT __cdecl sub_00701000(INT A, INT B)
+{
+    return A <= B ? A : B;
 }

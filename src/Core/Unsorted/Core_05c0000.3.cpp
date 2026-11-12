@@ -1,4 +1,4 @@
-// Core_05c0000.cpp (part 3 of 3): 6 functions
+// Core_05c0000.cpp (part 3 of 3): 7 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -70,4 +70,18 @@ C_005c2e50& C_005c2e50::sub_005c2e50(const C_005c2e50& r)
     f4 = r.f4;
     f8 = r.f8;
     return *this;
+}
+
+struct S005c86d0
+{
+	int sub_005c86d0();
+};
+
+// @baa 0x005c86d0
+// Returns 4 * (5 * *(int*)(this + 0x08) + *(int*)(this + 0x24) / 32).
+int S005c86d0::sub_005c86d0()
+{
+	int DataStart = *(int*)((char*)this + 8);
+	int EntryCount = *(int*)((char*)this + 0x24);
+	return (DataStart * 5 + EntryCount / 32) * 4;
 }

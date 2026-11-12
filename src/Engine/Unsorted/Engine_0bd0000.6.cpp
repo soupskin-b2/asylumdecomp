@@ -1,4 +1,4 @@
-// Engine_0bd0000.cpp: 2 functions
+// Engine_0bd0000.cpp: 4 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -33,4 +33,33 @@ static F g_Tiny;
 void caller_user(float A, float B)
 {
     g_Tiny.sub_00bdb470(A, B);
+}
+
+struct C
+{
+    float Value;
+
+    C* sub_00bdb8a0(float In);
+};
+
+// @baa 0x00bdb8a0
+C* C::sub_00bdb8a0(float In)
+{
+    Value = In;
+    return this;
+}
+
+extern float flt_01f86fd0;
+struct C_00bdef80
+{
+    float Value;
+
+    C_00bdef80* sub_00bdef80();
+};
+
+// @baa 0x00bdef80
+C_00bdef80* C_00bdef80::sub_00bdef80()
+{
+    Value = flt_01f86fd0;
+    return this;
 }

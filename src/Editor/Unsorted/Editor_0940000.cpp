@@ -1,4 +1,4 @@
-// Editor_0940000.cpp: 5 functions
+// Editor_0940000.cpp: 7 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -51,3 +51,31 @@ void C_00943850::sub_00943850(undefined4 param_2)
 
 // @baa 0x00943870
 int sub_00943870(int a0, int a1) { return a1; }
+
+struct C_00943440
+{
+    WORD Value;
+
+    C_00943440* sub_00943440(WORD* Source);
+};
+
+// @baa 0x00943440
+C_00943440* C_00943440::sub_00943440(WORD* Source)
+{
+    Value = *Source;
+    return this;
+}
+
+struct C_00943450
+{
+    WORD Value;
+
+    C_00943450* sub_00943450(WORD* Source);
+};
+
+// @baa 0x00943450
+C_00943450* C_00943450::sub_00943450(WORD* Source)
+{
+    Value = *Source;
+    return this;
+}

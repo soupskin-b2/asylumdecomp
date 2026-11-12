@@ -1,4 +1,4 @@
-// UnrealEd_0d10000.cpp: 11 functions
+// UnrealEd_0d10000.cpp: 12 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -102,3 +102,10 @@ void sub_00d1f740(void) { sub_00c38ac0(); }
 
 // @baa 0x00d1f770
 IMPLEMENT_CLASS_AT(UOnlineStats, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnOnlineStats.cpp", 7);
+
+extern INT g_025e3b40;
+// @baa 0x00d1ede0
+void __stdcall sub_00d1ede0(INT* Out, INT Unused)
+{
+    *Out = g_025e3b40;
+}

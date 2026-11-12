@@ -1,4 +1,4 @@
-// WinClient.cpp (part 4 of 4): 9 functions
+// WinClient.cpp (part 4 of 4): 12 functions
 // Placed here by: neighbours 8.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -146,4 +146,32 @@ void C_00eb4110::sub_00eb4110()
         DestroyWindow(Window);
         Window = 0;
     }
+}
+
+extern "C" __declspec(dllimport) int __stdcall InvalidateRect(void* Window, const void* Rect, int Erase);
+struct C_00eb4710
+{
+    char pad_00[0x5c];
+    void* Window;
+
+    void sub_00eb4710();
+};
+
+// @baa 0x00eb4710
+void C_00eb4710::sub_00eb4710()
+{
+    InvalidateRect(Window, 0, 0);
+}
+
+// @baa 0x00eb5200
+INT __cdecl sub_00eb5200(INT A, INT B)
+{
+    return A <= B ? A : B;
+}
+
+void __stdcall sub_00eb55d0(INT A, INT B);
+// @baa 0x00eb65a0
+void __stdcall sub_00eb65a0(INT Value)
+{
+    sub_00eb55d0(Value, 0xd);
 }

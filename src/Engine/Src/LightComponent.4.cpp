@@ -1,7 +1,7 @@
-// LightComponent.cpp (part 4 of 5): 6 functions
+// LightComponent.cpp (part 4 of 5): 8 functions
 // Placed here by: class 6.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
-#include "ue3/Classes.h"
+#include "ue3/Implement.h"
 
 // @baa 0x006ace00
 int ULightComponent::vf_000(void) { return 1; }
@@ -71,4 +71,17 @@ void ULightComponent::Serialize(FArchive& Ar)
   sub_006d3cd0(param_2,param_1 + 0x11c);
   sub_006d3cd0(param_2,param_1 + 0x128);
   return;
+}
+
+// @baa 0x006ad1d0
+void ULightComponent::vf_09c() {
+    vf_16c();
+    bHasLightEverBeenBuiltIntoLightMap = 0;
+}
+
+// @baa 0x006ad1b0
+void ULightComponent::vf_05c()
+{
+	vf_16c();
+	bHasLightEverBeenBuiltIntoLightMap = 0;
 }

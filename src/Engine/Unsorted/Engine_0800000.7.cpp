@@ -1,4 +1,4 @@
-// Engine_0800000.cpp: 3 functions
+// Engine_0800000.cpp: 4 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -53,4 +53,28 @@ struct APlayerController_ : public APlayerController
 INT APlayerController_::sub_00803a80(void* Other, INT, INT)
 {
     return this == Other;
+}
+
+struct FFlagsWord {
+    DWORD x;
+    DWORD y;
+    DWORD z;
+};
+
+struct FFlagsWord_ : public FFlagsWord {
+    FFlagsWord_& sub_00803c20(const FFlagsWord& Other);
+};
+
+// @baa 0x00803c20
+FFlagsWord_& FFlagsWord_::sub_00803c20(const FFlagsWord& Other)
+{
+    x |= Other.x;
+    y |= Other.y;
+    z |= Other.z;
+    return *this;
+}
+
+FFlagsWord_ flags_or_helper(FFlagsWord_& Self, const FFlagsWord& Other)
+{
+    return Self.sub_00803c20(Other);
 }

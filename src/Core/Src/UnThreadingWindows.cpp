@@ -1,4 +1,4 @@
-// UnThreadingWindows.cpp: 6 functions
+// UnThreadingWindows.cpp: 7 functions
 // Placed here by: neighbours 5, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -79,4 +79,19 @@ T *C_005f0230::sub_005f0230(T *r, int a2, int a3, int a4, int a5, int a6)
         t = 0;
     }
     return t;
+}
+
+// UnThreadingWindows.cpp
+struct C_005ec200 {
+    virtual void v0(int);
+    void *p;
+};
+
+// @baa 0x005ec200
+// @baa 0x005ec200
+void __stdcall sub_005ec200(C_005ec200 *Object)
+{
+    if (Object != 0) {
+        Object->v0(1);
+    }
 }

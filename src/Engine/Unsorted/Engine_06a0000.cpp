@@ -1,4 +1,4 @@
-// Engine_06a0000.cpp (part 1 of 2): 262 functions
+// Engine_06a0000.cpp (part 1 of 2): 263 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -2011,4 +2011,29 @@ struct C_006acb80
 void C_006acb80::sub_006acb80(Inner* Source)
 {
     Value = Source->Value;
+}
+
+extern int g_01ece4ec;
+struct Sub_006ae060
+{
+	int Field_0;
+	int Field_4;
+	int Field_8;
+
+	Sub_006ae060* sub_006ae060(int A, int B);
+};
+
+// @baa 0x006ae060
+Sub_006ae060* Sub_006ae060::sub_006ae060(int A, int B)
+{
+	Sub_006ae060* v0 = this;
+	v0->Field_0 = (int)&g_01ece4ec;
+	v0->Field_4 = A;
+	v0->Field_8 = B;
+	return v0;
+}
+
+int sub_006ae07c(Sub_006ae060* S)
+{
+	return S->sub_006ae060(0, 0)->Field_0;
 }

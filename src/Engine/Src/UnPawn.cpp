@@ -1,4 +1,4 @@
-// UnPawn.cpp (part 1 of 2): 89 functions
+// UnPawn.cpp (part 1 of 2): 90 functions
 // Placed here by: neighbours 49, class 32, callers 3, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1230,4 +1230,35 @@ void C_00867a50::sub_00867a50(INT)
 FLOAT AActor::vf_11c()
 {
     return PhysicsVolume ? PhysicsVolume->TerminalVelocity : ((APhysicsVolume*)APhysicsVolume::StaticClass()->GetDefaultObject())->TerminalVelocity;
+}
+
+extern FName g_026c54d0;
+	/* ENGINE_TakeDamage */
+struct AActor_ : public AActor
+{
+	void eventTakeDamage(INT Damage, AController* EventInstigator, FVector HitLocation, FVector Momentum, UClass* DamageType, FTraceHitInfo HitInfo, AActor* DamageCauser);
+};
+
+// @baa 0x00863e60
+/* The script event's generated glue (EngineClasses.h), out of line here. */
+void AActor_::eventTakeDamage(INT Damage, AController* EventInstigator, FVector HitLocation, FVector Momentum, UClass* DamageType, FTraceHitInfo HitInfo, AActor* DamageCauser)
+{
+	struct Actor_eventTakeDamage_Parms
+	{
+		INT Damage;
+		AController* EventInstigator;
+		FVector HitLocation;
+		FVector Momentum;
+		UClass* DamageType;
+		FTraceHitInfo HitInfo;
+		AActor* DamageCauser;
+	} Parms;
+	Parms.Damage = Damage;
+	Parms.EventInstigator = EventInstigator;
+	Parms.HitLocation = HitLocation;
+	Parms.Momentum = Momentum;
+	Parms.DamageType = DamageType;
+	Parms.HitInfo = HitInfo;
+	Parms.DamageCauser = DamageCauser;
+	ProcessEvent(FindFunctionChecked(g_026c54d0), &Parms);
 }

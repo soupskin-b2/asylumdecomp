@@ -1,4 +1,4 @@
-// Engine_0860000.cpp (part 1 of 3): 22 functions
+// Engine_0860000.cpp (part 1 of 3): 23 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -126,4 +126,28 @@ struct S {
 const DWORD* S::sub_0086e870(INT Index) const
 {
     return &Items(Index);
+}
+
+struct S_00863dd0 {
+    INT f0;
+    INT f4;
+    INT f8;
+    INT fc;
+    INT f10;
+    INT f14;
+    INT f18;
+
+    S_00863dd0();
+};
+
+// @baa 0x00863dd0
+S_00863dd0::S_00863dd0()
+{
+    f0 = 0;
+    f4 = 0;
+    f8 = 0;
+    fc = 0;
+    f10 = 0;
+    f14 = 0;
+    f18 = 0;
 }

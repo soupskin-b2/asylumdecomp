@@ -1,7 +1,7 @@
-// UnActorComponent.cpp: 1 function
+// UnActorComponent.cpp: 2 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
-#include "ue3/Classes.h"
+#include "ue3/Implement.h"
 
 /* TArray<UActorComponent*> members the exe keeps out of line */
 struct FActorComponentArray : public TArray<UActorComponent*> {
@@ -35,4 +35,29 @@ void AFogVolumeDensityInfo::vf_01c()
             ((FActorComponentArray&)Components).Remove(ComponentIndex);
         }
     }
+}
+
+// @baa 0x006d4390
+struct Sub7 {
+    INT A;
+    INT B;
+    INT C;
+    INT D;
+    INT E;
+    INT F;
+    INT G;
+    Sub7& sub_006d4390();
+};
+
+// @baa 0x006d4390
+Sub7& Sub7::sub_006d4390()
+{
+    A = 0;
+    B = 0;
+    C = 0;
+    D = 0;
+    E = 0;
+    F = 0;
+    G = 0;
+    return *this;
 }

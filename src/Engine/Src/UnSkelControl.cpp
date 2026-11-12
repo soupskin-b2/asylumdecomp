@@ -1,4 +1,4 @@
-// UnSkelControl.cpp: 87 functions
+// UnSkelControl.cpp: 94 functions
 // Placed here by: neighbours 45, class 29, file 9, callers 4.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -327,3 +327,134 @@ bool USkelControlTrail::vf_004()
 }
 
 // @baa 0x00937c30
+
+struct USkelControlBase_ : public USkelControlBase
+{
+    void SetSkelControlActive(UBOOL bInActive);
+};
+
+// @baa 0x0090cec0
+void USkelControlBase_::SetSkelControlActive(UBOOL bInActive)
+{
+    if (bInActive)
+    {
+        BlendTimeToGo = BlendInTime;
+        StrengthTarget = 1.f;
+    }
+    else
+    {
+        BlendTimeToGo = BlendOutTime;
+        StrengthTarget = 0.f;
+    }
+
+    // if we want the new weight now, apply it straight away rather than waiting for TickSkelControl
+    if (BlendTimeToGo <= 0.f)
+    {
+        ControlStrength = StrengthTarget;
+        BlendTimeToGo = 0.f;
+    }
+
+    // pass it down the chain
+    if (NextControl && bPropagateSetActive)
+    {
+        ((USkelControlBase_*)NextControl)->SetSkelControlActive(bInActive);
+    }
+}
+
+struct USkelControlBase__0090cf30 : public USkelControlBase
+{
+    void SetSkelControlStrength(FLOAT NewStrength);
+};
+
+// @baa 0x0090cf30
+/* set the strength immediately, with no blend */
+void USkelControlBase__0090cf30::SetSkelControlStrength(FLOAT NewStrength)
+{
+    ControlStrength = NewStrength;
+    StrengthTarget = NewStrength;
+}
+
+#define KINDA_SMALL_NUMBER (1.e-5f)
+struct USkelControlLookAt_ : public USkelControlLookAt
+{
+    void SetTargetLocation(FVector NewTargetLocation);
+};
+
+// @baa 0x0090d0f0
+void USkelControlLookAt_::SetTargetLocation(FVector NewTargetLocation)
+{
+    DesiredTargetLocation = NewTargetLocation;
+
+    // not blended in, so snap straight to the target
+    if (LookAtAlpha * ControlStrength < KINDA_SMALL_NUMBER)
+    {
+        TargetLocation = NewTargetLocation;
+    }
+}
+
+/* VInterpTo (UnMath.cpp, 0x005c6d10) */
+FVector VInterpTo(const FVector& Current, const FVector& Target, FLOAT& DeltaTime, FLOAT InterpSpeed);
+struct USkelControlLookAt__0090d0a0 : public USkelControlLookAt
+{
+    void InterpolateTargetLocation(FLOAT DeltaTime);
+};
+
+// @baa 0x0090d0a0
+void USkelControlLookAt__0090d0a0::InterpolateTargetLocation(FLOAT DeltaTime)
+{
+    TargetLocation = VInterpTo(TargetLocation, DesiredTargetLocation, DeltaTime, TargetLocationInterpSpeed);
+}
+
+/* slot 0x13c (vf_13c) is USkelControlBase::GetWidgetTM */
+struct USkelControlBase__00922570 : public USkelControlBase
+{
+    FMatrix GetWidgetTM(INT WidgetIndex, USkeletalMeshComponent* SkelComp, INT BoneIndex);
+};
+
+// @baa 0x00922570
+FMatrix USkelControlBase__00922570::GetWidgetTM(INT WidgetIndex, USkeletalMeshComponent* SkelComp, INT BoneIndex)
+{
+    return FMatrix::Identity;
+}
+
+/* TArray<INT>::AddItem, out of line here (0x00545f40); not in the kit TArray. */
+struct FIntArray : public TArray<INT>
+{
+    INT AddItem(const INT& Item);
+};
+
+/* slot 0x124 (vf_124) is USkelControlBase::GetAffectedBones */
+struct USkelControlSingleBone_ : public USkelControlSingleBone
+{
+    void GetAffectedBones(INT BoneIndex, USkeletalMeshComponent* SkelComp, TArray<INT>& OutBoneIndices);
+};
+
+// @baa 0x00916440
+void USkelControlSingleBone_::GetAffectedBones(INT BoneIndex, USkeletalMeshComponent* SkelComp, TArray<INT>& OutBoneIndices)
+{
+#line 378 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSkelControl.cpp"
+    check(OutBoneIndices.Num() == 0);
+    ((FIntArray&)OutBoneIndices).AddItem(BoneIndex);
+}
+
+#line 441 "candidate.cpp"
+
+/* slot 0x124 (vf_124) is USkelControlBase::GetAffectedBones */
+struct USkelControlLookAt__00916480 : public USkelControlLookAt
+{
+    void GetAffectedBones(INT BoneIndex, USkeletalMeshComponent* SkelComp, TArray<INT>& OutBoneIndices);
+};
+
+// @baa 0x00916480
+void USkelControlLookAt__00916480::GetAffectedBones(INT BoneIndex, USkeletalMeshComponent* SkelComp, TArray<INT>& OutBoneIndices)
+{
+    // only affects the bone if some rotation is allowed
+    if (bAllowRotationX || bAllowRotationY || bAllowRotationZ)
+    {
+#line 660 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSkelControl.cpp"
+        check(OutBoneIndices.Num() == 0);
+        ((FIntArray&)OutBoneIndices).AddItem(BoneIndex);
+    }
+}
+
+#line 461 "candidate.cpp"

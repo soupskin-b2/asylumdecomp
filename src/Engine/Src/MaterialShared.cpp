@@ -1,4 +1,4 @@
-// MaterialShared.cpp (part 1 of 2): 59 functions
+// MaterialShared.cpp (part 1 of 2): 60 functions
 // Placed here by: neighbours 51, callers 6, file 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -734,3 +734,19 @@ struct D { void sub_006fdcd0(); };
 extern D g_026b1344;
 // @baa 0x01e23660
 void sub_01e23660() { g_026b1344.sub_006fdcd0(); }
+
+extern int g_01ed92e0;
+struct C_00703130 {
+    int* p;
+    int f4;
+    int f8;
+    C_00703130& sub_00703130(int x);
+};
+
+// @baa 0x00703130
+C_00703130& C_00703130::sub_00703130(int x) {
+    f4 = 0;
+    p = &g_01ed92e0;
+    f8 = x;
+    return *this;
+}

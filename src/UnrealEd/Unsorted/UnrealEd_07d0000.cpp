@@ -1,7 +1,7 @@
-// UnrealEd_07d0000.cpp (part 1 of 2): 102 functions
+// UnrealEd_07d0000.cpp (part 1 of 2): 103 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
-#include "ue3/Array.h"
+#include "ue3/Classes.h"
 
 struct C {
     int sub_007d8490(int);
@@ -673,3 +673,21 @@ void sub_007d9030(undefined4 param_1, undefined4 param_2, undefined4 param_3)
 void sub_00572b30();
 // @baa 0x007d9070
 void sub_007d9070(void) { sub_00572b30(); }
+
+struct sub_007d8af0_vt {
+    virtual void sub_007d8af0_vt0(int);
+};
+
+struct sub_007d8af0_holder {
+    sub_007d8af0_vt* Object;
+
+    void sub_007d8af0();
+};
+
+// @baa 0x007d8af0
+void sub_007d8af0_holder::sub_007d8af0()
+{
+    if (Object)
+        Object->sub_007d8af0_vt0(1);
+    Object = 0;
+}

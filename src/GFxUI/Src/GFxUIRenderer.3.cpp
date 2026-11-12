@@ -1,4 +1,4 @@
-// GFxUIRenderer.cpp (part 3 of 3): 5 functions
+// GFxUIRenderer.cpp (part 3 of 3): 8 functions
 // Placed here by: neighbours 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -102,4 +102,44 @@ INT C_00e5dd90::sub_00e5dd90()
 {
     Object->sub_00e5c430();
     return 8;
+}
+
+extern "C" __declspec(dllimport) long __stdcall InterlockedExchangeAdd(long volatile* Addend, long Value);
+struct C_00e47280
+{
+    long Counter;
+
+    INT sub_00e47280(INT Value);
+};
+
+// @baa 0x00e47280
+INT C_00e47280::sub_00e47280(INT Value)
+{
+    return InterlockedExchangeAdd(&Counter, Value);
+}
+
+struct C_00e56690
+{
+    long Counter;
+
+    INT sub_00e56690(INT Value);
+};
+
+// @baa 0x00e56690
+INT C_00e56690::sub_00e56690(INT Value)
+{
+    return InterlockedExchangeAdd(&Counter, Value);
+}
+
+struct C_00e57950
+{
+    long Counter;
+
+    INT sub_00e57950(INT Value);
+};
+
+// @baa 0x00e57950
+INT C_00e57950::sub_00e57950(INT Value)
+{
+    return InterlockedExchangeAdd(&Counter, Value);
 }

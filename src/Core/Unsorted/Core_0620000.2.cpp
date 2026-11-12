@@ -1,4 +1,4 @@
-// Core_0620000.cpp (part 2 of 2): 2 functions
+// Core_0620000.cpp (part 2 of 2): 3 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -27,4 +27,11 @@ undefined4 UObject::sub_006212f0(byte param_2)
     sub_0053dfa0(param_1);
   }
   return param_1;
+}
+
+extern "C" void* sub_01a375f0(void* Dst, const void* Src, DWORD Size);
+// @baa 0x0062a740
+void UProperty::vf_144(INT* InValue, INT* OutValue, INT C, INT D, INT E)
+{
+	sub_01a375f0(InValue, OutValue, ElementSize);
 }

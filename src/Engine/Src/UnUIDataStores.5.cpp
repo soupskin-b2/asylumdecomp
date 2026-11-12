@@ -1,4 +1,4 @@
-// UnUIDataStores.cpp (part 5 of 6): 3 functions
+// UnUIDataStores.cpp (part 5 of 6): 5 functions
 // Placed here by: neighbours 3.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -65,4 +65,17 @@ void C_00d94200::sub_00d94200(int param_2)
     }
   }
   return;
+}
+
+// @baa 0x00d92ce0
+UINT __cdecl sub_00d92ce0(UINT A, UINT B)
+{
+    return A <= B ? A : B;
+}
+
+// @baa 0x00d9bab0
+INT __stdcall sub_00d9bab0(INT A, INT B, INT C, BYTE* Out)
+{
+    *Out = 0;
+    return 1;
 }

@@ -1,4 +1,4 @@
-// UnAnimPlay.cpp (part 1 of 2): 37 functions
+// UnAnimPlay.cpp (part 1 of 2): 40 functions
 // Placed here by: class 21, neighbours 6, file 5, callers 4.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -250,4 +250,135 @@ struct UAnimNodeSequenceBlendByAim2 : public UAnimNodeSequenceBlendByAim {
 FVector2D UAnimNodeSequenceBlendByAim2::sub_00c4b080()
 {
     return Aim;
+}
+
+/* SetAnimInfo (00c52b90) isn't declared on UAnimNodeSequenceBlendBase. */
+struct UAnimNodeSequenceBlendBase_ : public UAnimNodeSequenceBlendBase
+{
+	void SetAnimInfo(FName InSequenceName, FAnimInfo& InAnimInfo);
+};
+
+// @baa 0x00c5e6a0
+/* vf_1a0 is CheckAnimsUpToDate (flagged): refreshes every blended animation's info, and plays the first
+ * one that resolves on this node. */
+void UAnimNodeSequenceBlendBase::vf_1a0()
+{
+	const INT NumAnims = Anims.Num();
+	bool bUpdatedSeqNode = false;
+	for (INT i = 0; i < NumAnims; i++)
+	{
+		((UAnimNodeSequenceBlendBase_*)this)->SetAnimInfo(Anims(i).AnimName, Anims(i).AnimInfo);
+
+		if (!bUpdatedSeqNode && Anims(i).AnimInfo.AnimSeq)
+		{
+			SetAnim(Anims(i).AnimName);
+			bUpdatedSeqNode = (AnimSeq != NULL);
+		}
+	}
+}
+
+/* Kit gaps: FBoneAtom::Identity (UnSkeletalMesh.h) and TArray<FBoneAtom>::operator= (out of line here,
+ * 00c64160). */
+struct FBoneAtom_ : public FBoneAtom
+{
+	static const FBoneAtom Identity;	/* 025df358 */
+};
+
+struct FBoneAtomArray : public TArray<FBoneAtom>
+{
+	void sub_00c64160(const TArray<FBoneAtom>& Other);	/* operator= */
+};
+
+/* UAnimNode::GetCachedResults is vtable slot 0x148 (declared only as vf_148, flagged). */
+struct UAnimNode_ : public UAnimNode
+{
+	UBOOL GetCachedResults(FBoneAtomArray& OutAtoms, FBoneAtom& OutRootMotionDelta, INT& bOutHasRootMotion);
+};
+
+// @baa 0x00c6b8e0
+/* Hands back this node's cached pose (and root motion, if it was cached this tick) when it fits OutAtoms. */
+UBOOL UAnimNode_::GetCachedResults(FBoneAtomArray& OutAtoms, FBoneAtom& OutRootMotionDelta, INT& bOutHasRootMotion)
+{
+#line 17 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimPlay.cpp"
+	check(SkelComponent);
+
+	// See if the cached array is the same size as the target array.
+	if (CachedBoneAtoms.Num() == OutAtoms.Num())
+	{
+		OutAtoms.sub_00c64160(CachedBoneAtoms);
+
+		// The root motion is only valid if it was cached this frame.
+		if (NodeCachedAtomsTag == SkelComponent->CachedAtomsTag)
+		{
+			// FBoneAtom::operator= (copies the members; not in the kit)
+			OutRootMotionDelta.Rotation = CachedRootMotionDelta.Rotation;
+			OutRootMotionDelta.Translation = CachedRootMotionDelta.Translation;
+			OutRootMotionDelta.Scale = CachedRootMotionDelta.Scale;
+			bOutHasRootMotion = bCachedHasRootMotion;
+		}
+		else
+		{
+			OutRootMotionDelta.Rotation = FBoneAtom_::Identity.Rotation;
+			OutRootMotionDelta.Translation = FBoneAtom_::Identity.Translation;
+			OutRootMotionDelta.Scale = FBoneAtom_::Identity.Scale;
+			bOutHasRootMotion = 0;
+		}
+		return TRUE;
+	}
+
+	return FALSE;
+}
+
+#line 333 "candidate.cpp"
+
+/* Kit gaps: FName comparisons, USkeletalMeshComponent::FindAnimSequence (0091d860) and
+ * UAnimNodeSequence::ShouldKeepCachedResult (00c4ad70) aren't declared. */
+inline UBOOL operator==(const FName& A, const FName& B) { return A.Index == B.Index && A.Number == B.Number; }
+
+inline UBOOL operator!=(const FName& A, const FName& B) { return A.Index != B.Index || A.Number != B.Number; }
+
+/* Kit gap (Array.h): this build's TArray::Reset() is just 'DestructItems(0, ArrayNum); ArrayNum = 0;' (see
+ * 00c5e220); the kit's Reset(NewSize) adds an Empty branch that VC8 can't fold. */
+template<class T> struct TArrayReset : public TArray<T>
+{
+	void Reset() { this->ArrayNum = 0; }
+};
+
+struct USkeletalMeshComponent_ : public USkeletalMeshComponent
+{
+	UAnimSequence* sub_0091d860(FName AnimSeqName);		/* FindAnimSequence */
+};
+
+struct UAnimNodeSequence__00c5e520 : public UAnimNodeSequence
+{
+	UBOOL sub_00c4ad70();					/* ShouldKeepCachedResult */
+
+	/* ClearCachedResult (00c5e220), inline here. */
+	void ClearCachedResult()
+	{
+		if (CachedBoneAtoms.Num() > 0 && !sub_00c4ad70())
+		{
+			((TArrayReset<FBoneAtom>&)CachedBoneAtoms).Reset();
+		}
+	}
+};
+
+// @baa 0x00c5e520
+/* Switches the node to InSequenceName, looking the sequence up in the skeletal mesh component's AnimSets. */
+void UAnimNodeSequence::SetAnim(FName InSequenceName)
+{
+	// Changing the animation while its notifies are being fired would pull it out from under them.
+	if (bIsIssuingNotifies && AnimSeqName != InSequenceName)
+	{
+		return;
+	}
+
+	AnimSeqName = InSequenceName;
+	AnimSeq = NULL;
+	((UAnimNodeSequence__00c5e520*)this)->ClearCachedResult();
+
+	if (InSequenceName != FName(NAME_None) && SkelComponent && SkelComponent->SkeletalMesh)
+	{
+		AnimSeq = ((USkeletalMeshComponent_*)SkelComponent)->sub_0091d860(AnimSeqName);
+	}
 }

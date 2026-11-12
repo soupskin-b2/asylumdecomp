@@ -1,4 +1,4 @@
-// Engine_0940000.cpp (part 6 of 6): 2 functions
+// Engine_0940000.cpp (part 6 of 6): 3 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -64,4 +64,18 @@ if((undefined4*)0x0!=puVar1){
 *puVar1=*param_2;
 }
 return iVar2;
+}
+
+struct C_00943430
+{
+    float Value;
+
+    C_00943430* sub_00943430(float In);
+};
+
+// @baa 0x00943430
+C_00943430* C_00943430::sub_00943430(float In)
+{
+    Value = In;
+    return this;
 }

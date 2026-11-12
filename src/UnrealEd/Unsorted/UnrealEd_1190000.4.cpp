@@ -1,4 +1,4 @@
-// UnrealEd_1190000.cpp (part 4 of 5): 1 function
+// UnrealEd_1190000.cpp (part 4 of 5): 2 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -23,4 +23,19 @@ void C::sub_01192c50(wxCommandEvent * param_2)
   *(uint *)(*(int *)(param_1 + 0x278) + 0x310) = (uint)bVar1;
   ((C *)((*(char **)((char *)this + 0x278))))->sub_00f78160(0, 1);
   return;
+}
+
+extern void __stdcall sub_01198290(INT Value);
+struct C_0119be60
+{
+    char pad_00[0x334];
+    INT Object;
+
+    void sub_0119be60(INT Unused);
+};
+
+// @baa 0x0119be60
+void C_0119be60::sub_0119be60(INT)
+{
+    sub_01198290(Object);
 }

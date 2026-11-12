@@ -1,4 +1,4 @@
-// Engine_0bb0000.cpp (part 3 of 3): 9 functions
+// Engine_0bb0000.cpp (part 3 of 3): 10 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -170,4 +170,20 @@ C_00bb7b50* C_00bb7b50::sub_00bb7b50()
     Value_50 = 0;
     Value_54 = 0;
     return this;
+}
+
+struct C_00bb4b40
+{
+    char pad_00[0x17c];
+    INT Value_17c;
+    char pad_180[0x54];
+    INT Value_1d4;
+
+    void sub_00bb4b40(INT Unused);
+};
+
+// @baa 0x00bb4b40
+void C_00bb4b40::sub_00bb4b40(INT)
+{
+    Value_1d4 = Value_17c;
 }

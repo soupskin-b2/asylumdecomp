@@ -2,26 +2,26 @@
  "updated": "2026-11-12",
  "functions": {
   "total": 174166,
-  "matched": 98695
+  "matched": 98810
  },
  "bytes": {
   "total": 24308119,
-  "matched": 3748628
+  "matched": 3758994
  },
  "areas": [
   {
    "name": "Engine",
    "functions": 69863,
    "bytes": 9201956,
-   "matched": 41522,
-   "matched_bytes": 1758691
+   "matched": 41613,
+   "matched_bytes": 1768440
   },
   {
    "name": "Editor",
    "functions": 42961,
    "bytes": 8040643,
-   "matched": 23835,
-   "matched_bytes": 793987
+   "matched": 23852,
+   "matched_bytes": 794262
   },
   {
    "name": "External",
@@ -34,15 +34,15 @@
    "name": "Game",
    "functions": 13563,
    "bytes": 1853804,
-   "matched": 9340,
-   "matched_bytes": 533892
+   "matched": 9343,
+   "matched_bytes": 534144
   },
   {
    "name": "Core",
    "functions": 12072,
    "bytes": 1275961,
-   "matched": 7890,
-   "matched_bytes": 238526
+   "matched": 7893,
+   "matched_bytes": 238601
   },
   {
    "name": "CommonGame",
@@ -62,8 +62,8 @@
    "name": "FMod",
    "functions": 1472,
    "bytes": 150189,
-   "matched": 915,
-   "matched_bytes": 27557
+   "matched": 916,
+   "matched_bytes": 27572
   },
   {
    "name": "CommonEditor",
@@ -97,17 +97,17 @@
  "contributors": [
   {
    "login": "soupskin-b2",
-   "functions": 98685,
-   "bytes": 3747048,
+   "functions": 98800,
+   "bytes": 3757414,
    "models": {
     "tooling": 94456,
-    "deepseek-v4.1-flash": 1676,
-    "qwen3.8-27b": 1259,
-    "claude-opus-5.5": 519,
+    "deepseek-v4.1-flash": 1717,
+    "qwen3.8-27b": 1286,
+    "claude-opus-5.5": 561,
     "not specified": 338,
     "Claude Opus 5.5": 206,
     "gpt-6.1-sol": 86,
-    "qwen": 60,
+    "qwen": 65,
     "claude-sonnet-5.5": 37,
     "deepseek-v4.1": 26,
     "gpt-6.1-terra": 10,
@@ -129,15 +129,15 @@
   },
   {
    "model": "deepseek-v4.1-flash",
-   "functions": 1676
+   "functions": 1717
   },
   {
    "model": "qwen3.8-27b",
-   "functions": 1259
+   "functions": 1286
   },
   {
    "model": "claude-opus-5.5",
-   "functions": 519
+   "functions": 561
   },
   {
    "model": "not specified",
@@ -153,7 +153,7 @@
   },
   {
    "model": "qwen",
-   "functions": 60
+   "functions": 65
   },
   {
    "model": "claude-sonnet-5.5",

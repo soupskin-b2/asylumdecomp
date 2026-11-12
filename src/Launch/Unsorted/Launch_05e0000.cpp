@@ -1,4 +1,4 @@
-// Launch_05e0000.cpp: 5 functions
+// Launch_05e0000.cpp: 6 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -34,4 +34,22 @@ undefined4 * C_005ee6b0::sub_005ee6b0(byte param_2)
     sub_0053dfa0(param_1);
   }
   return param_1;
+}
+
+struct Sub_005ed660_Type
+{
+	double f0_0[14];
+	double f0_70;
+	double f0_78;
+	double f0_80;
+	double f0_88;
+};
+
+// @baa 0x005ed660
+void sub_005ed660(Sub_005ed660_Type* v)
+{
+	v->f0_70 = 0.0;
+	v->f0_78 = 0.0;
+	v->f0_80 = 0.0;
+	v->f0_88 = 0.0;
 }

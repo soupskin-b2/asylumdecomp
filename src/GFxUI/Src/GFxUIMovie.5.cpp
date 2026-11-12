@@ -1,4 +1,4 @@
-// GFxUIMovie.cpp: 3 functions
+// GFxUIMovie.cpp: 4 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -40,4 +40,20 @@ struct C_00e42aa0
 void C_00e42aa0::sub_00e42aa0(float In)
 {
     Value = In;
+}
+
+struct C_00e42eb0
+{
+    INT Value_00;
+    BYTE Flag_04;
+
+    C_00e42eb0* sub_00e42eb0(INT Value);
+};
+
+// @baa 0x00e42eb0
+C_00e42eb0* C_00e42eb0::sub_00e42eb0(INT Value)
+{
+    Flag_04 = 0;
+    Value_00 = Value;
+    return this;
 }

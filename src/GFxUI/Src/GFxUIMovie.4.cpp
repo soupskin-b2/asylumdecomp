@@ -1,4 +1,4 @@
-// GFxUIMovie.cpp: 8 functions
+// GFxUIMovie.cpp: 10 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -71,4 +71,47 @@ void UGFxMovie::execGetStickMagAng(FFrame& Stack, RESULT_DECL)
     P_GET_INT(Stick);
     P_FINISH;
     *(FName*)Result = GetStickMagAng(Stick);
+}
+
+/* UGFxMovie::SetViewport(INT X, INT Y, INT Width, INT Height) is out of line at 00e49d40;
+ * the kit doesn't declare it. */
+struct UGFxMovie_ : public UGFxMovie {
+    void SetViewport(INT X, INT Y, INT Width, INT Height); /* 0x00e49d40 */
+};
+
+// @baa 0x00e513f0
+void UGFxMovie::execSetViewport(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_INT(X);
+    P_GET_INT(Y);
+    P_GET_INT(Width);
+    P_GET_INT(Height);
+    P_FINISH;
+    ((UGFxMovie_*)this)->SetViewport(X, Y, Width, Height);
+}
+
+/* FGFxEngine (the native GFx engine singleton, GGFxEngine at 026caed4) isn't in the kit;
+ * FlushPlayerInput(TSet<NAME_INDEX>* Keys) is out of line at 00e68530. */
+struct FGFxEngine {
+    void FlushPlayerInput(void* Keys); /* 0x00e68530 */
+};
+
+extern FGFxEngine* GGFxEngine;
+// @baa 0x00e6a470
+ /* 0x026caed4 */
+void UGFxMovie::execFlushPlayerInput(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_UBOOL(capturekeysonly);
+    P_FINISH;
+    if (GGFxEngine)
+    {
+        if (!capturekeysonly)
+        {
+            GGFxEngine->FlushPlayerInput(NULL);
+        }
+        else if (pCaptureKeys.Dummy)
+        {
+            GGFxEngine->FlushPlayerInput((void*)pCaptureKeys.Dummy);
+        }
+    }
 }

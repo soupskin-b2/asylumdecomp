@@ -1,4 +1,4 @@
-// UnEdViewport.cpp: 51 functions
+// UnEdViewport.cpp: 52 functions
 // Placed here by: neighbours 41, callers 9, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -586,3 +586,25 @@ undefined4 C_00f87330::sub_00f87330(byte param_2)
 IMPLEMENT_CLASS_AT(UEditorViewportInput, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnEdViewport.cpp", 4666);
 
 // @baa 0x00f9c430
+
+struct Sub
+{
+    void sub_00cbe7d0(INT Value);
+};
+
+struct C_00cc65e0
+{
+    char pad_00[0x38];
+    Sub Marker;
+    char pad_3c[0x18];
+    INT Flags;
+
+    void sub_00cc65e0();
+};
+
+// @baa 0x00cc65e0
+void C_00cc65e0::sub_00cc65e0()
+{
+    Flags &= ~4;
+    ((Sub*)((char*)this + 0x38))->sub_00cbe7d0(0);
+}

@@ -1,4 +1,4 @@
-// Engine_0710000.cpp (part 6 of 7): 7 functions
+// Engine_0710000.cpp (part 6 of 7): 8 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -105,4 +105,10 @@ INT C_0071d490::sub_0071d490()
 {
     Object->sub_00717f70();
     return 8;
+}
+
+// @baa 0x007197e0
+UINT __cdecl sub_007197e0(UINT A, UINT B)
+{
+    return A <= B ? A : B;
 }
