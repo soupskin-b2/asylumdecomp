@@ -54,18 +54,17 @@ inline INT    appFloor2Int( FLOAT F )            { return appTrunc(floorf(F)); }
 inline INT    appRand()                          { return rand(); }
 inline FLOAT  appFrand()                         { return rand() / (FLOAT)RAND_MAX; }
 
-// UnMath.h: the seeded generator (GSRandSeed, appSRandInit), not rand()
-extern DWORD GSRandSeed;
-inline FLOAT appFractional( FLOAT Value )        { return Value - appTrunc(Value); }
-inline FLOAT appSRand()
+// UnMath.h: the seeded generator. It steps GSRandSeed and builds a float in [1,2) from its low 23 bits,
+// returning the fractional part; appTrunc's asm makes the seed store/reload each call.
+extern INT GSRandSeed;
+FORCEINLINE FLOAT appFractional( FLOAT Value )   { return Value - appTrunc(Value); }
+FORCEINLINE FLOAT appSRand()
 {
 	GSRandSeed = (GSRandSeed * 196314165) + 907633515;
-	union { FLOAT f; INT i; } Result;
-	union { FLOAT f; INT i; } Temp;
-	const FLOAT SRandTemp = 1.0f;
-	Temp.f = SRandTemp;
-	Result.i = (Temp.i & 0xff800000) | (GSRandSeed & 0x007fffff);
-	return appFractional(Result.f);
+	static const FLOAT SRandTemp = 1.0f;
+	FLOAT Result;
+	*(INT*)&Result = (*(INT*)&SRandTemp & 0xff800000) | (GSRandSeed & 0x007fffff);
+	return appFractional(Result);
 }
 
 // UnTemplate.h

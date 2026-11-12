@@ -2418,16 +2418,14 @@ UBOOL UPrimitiveComponent::IsReadyForFinishDestroy()
 }
 
 // @baa 0x006dba30
-/* Slot 0x21c (unnamed in the kit; UE3's SetIgnoreOwnerHidden). */
-void UPrimitiveComponent::vf_21c(INT bNewIgnoreOwnerHidden)
+void UPrimitiveComponent::SetIgnoreOwnerHidden(UBOOL bNewIgnoreOwnerHidden)
 {
 	bIgnoreOwnerHidden = bNewIgnoreOwnerHidden;
 	BeginDeferredReattach();
 }
 
 // @baa 0x006dbb80
-/* Slot 0x220 (unnamed in the kit; UE3's SetHiddenGame). */
-void UPrimitiveComponent::vf_220(INT NewHidden)
+void UPrimitiveComponent::SetHiddenGame(UBOOL NewHidden)
 {
 	if (NewHidden != HiddenGame)
 	{

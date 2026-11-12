@@ -268304,12 +268304,12 @@
     {
      "va": "006dba30",
      "size": 32,
-     "symbol": "?vf_21c@UPrimitiveComponent@@UAEXH@Z"
+     "symbol": "?SetIgnoreOwnerHidden@UPrimitiveComponent@@UAEXH@Z"
     },
     {
      "va": "006dbb80",
      "size": 46,
-     "symbol": "?vf_220@UPrimitiveComponent@@UAEXH@Z"
+     "symbol": "?SetHiddenGame@UPrimitiveComponent@@UAEXH@Z"
     }
    ]
   },
