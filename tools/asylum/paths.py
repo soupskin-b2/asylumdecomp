@@ -49,20 +49,29 @@ def _root() -> Path:
     kits = HOME / "kit"
     root = kits / version()
     if not (root / ".complete").exists():
-        tmp = kits / (version() + ".tmp")
+        # each process extracts into its own folder; the first to finish installs it (agents often
+        # start together, right after an update)
+        tmp = kits / ("%s.%d.tmp" % (version(), os.getpid()))
         shutil.rmtree(tmp, ignore_errors=True)
         with zipfile.ZipFile(PYZ) as z:
-            for n in z.namelist():
-                if n.startswith("kit/") and not n.endswith("/"):
-                    z.extract(n, tmp)
-        shutil.rmtree(root, ignore_errors=True)
-        os.replace(tmp / "kit", root)
+            z.extractall(tmp, [n for n in z.namelist() if n.startswith("kit/") and not n.endswith("/")])
+        (tmp / "kit" / ".complete").touch()
+        if not (root / ".complete").exists():
+            shutil.rmtree(root, ignore_errors=True)
+            try:
+                os.replace(tmp / "kit", root)
+            except OSError:  # another process installed it meanwhile
+                pass
         shutil.rmtree(tmp, ignore_errors=True)
         # earlier versions no agent has used for an hour (releases come often; a client still on one
-        # just extracts it again)
+        # just extracts it again), and extractions abandoned an hour ago
         for old in kits.iterdir():
-            done = old / ".complete"
-            if old != root and (not done.exists() or time.time() - done.stat().st_mtime > 3600):
+            mark = old if old.name.endswith(".tmp") else old / ".complete"
+            try:
+                stale = time.time() - mark.stat().st_mtime > 3600
+            except OSError:
+                stale = not old.name.endswith(".tmp")
+            if old != root and stale:
                 shutil.rmtree(old, ignore_errors=True)
     (root / ".complete").touch()  # in use (other folders may run other versions)
     return root

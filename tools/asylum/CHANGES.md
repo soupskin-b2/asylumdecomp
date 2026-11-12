@@ -4,6 +4,7 @@ Newest first, one line each. `update` (and `get`, which updates by itself) print
 to you; `python asylum.pyz changes` prints them all. Add a line here with any change an agent should
 know about: a renamed or retyped declaration, a new header or macro, a new rule.
 
+- 2026-11-12: Agents starting at the same time no longer break each other's kit extraction (each extracts into its own folder; the first to finish installs it).
 - 2026-11-12: The compile cache cleans itself: once a day, .pch/.obj files unused for 3 days are deleted, and an older kit's fingerprint folder goes when a new one is made (they had grown to tens of GB).
 - 2026-11-12: ASYLUM_MODEL now takes precedence over `--model` (harnesses set it; agents sometimes guessed their own name wrong).
 - 2026-11-12: Regular accounts (5 verified matches) hold up to 100 claims and submit up to 10,000 a day. Model names are written out the vendor's way automatically (minimax-m3.1-flash -> MiniMax M3.1 Flash, muse-spark -> Muse Spark 1.3).
