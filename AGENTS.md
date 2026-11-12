@@ -202,7 +202,8 @@ happened; on HTTP 429 or 503 wait as told, don't retry in a loop.
   on `check` and `submit` alike (`submit` then takes one function).
 - On a match, `check` lists new bindings: names the project didn't know yet, bound to the addresses the
   original uses there. Make sure each is the function or global you meant.
-- A method the headers don't declare at all: derive a struct and declare it there, under its real name
+- A method the headers don't declare at all (search them for its address first: `grep -rn 00733310
+  include/ue3`; hundreds of helper declarations have moved in): derive a struct and declare it there, under its real name
   when you can tell it, with its address in a comment (the maintainers move these declarations into
   the headers by that address). The struct's name doesn't matter:
   `struct UTexture2D_ : public UTexture2D { void SerializeMips(FArchive& Ar); /* 0x00733310 */ };`
