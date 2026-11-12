@@ -1,4 +1,4 @@
-// Engine_0be0000.cpp (part 4 of 4): 5 functions
+// Engine_0be0000.cpp (part 4 of 4): 7 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -95,4 +95,44 @@ static S_00be28c0 g_self_00be28c0;
 static int caller_00be28c0()
 {
     return g_self_00be28c0.sub_00be28c0();
+}
+
+struct Sub
+{
+    void sub_00be0c50();
+};
+
+struct C
+{
+    INT pad_00;
+    Sub* Object;
+
+    INT sub_00be0e20();
+};
+
+// @baa 0x00be0e20
+INT C::sub_00be0e20()
+{
+    Object->sub_00be0c50();
+    return 8;
+}
+
+struct Sub_00be0e30
+{
+    void sub_00be03b0();
+};
+
+struct C_00be0e30
+{
+    INT pad_00;
+    Sub_00be0e30* Object;
+
+    INT sub_00be0e30();
+};
+
+// @baa 0x00be0e30
+INT C_00be0e30::sub_00be0e30()
+{
+    Object->sub_00be03b0();
+    return 8;
 }

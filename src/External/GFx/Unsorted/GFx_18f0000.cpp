@@ -1,4 +1,4 @@
-// GFx_18f0000.cpp (part 1 of 3): 124 functions
+// GFx_18f0000.cpp (part 1 of 3): 129 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Core.h"
@@ -1496,4 +1496,63 @@ LARGE_INTEGER_ sub_018f1200()
 	LARGE_INTEGER_ Counter;
 	QueryPerformanceCounter(&Counter);
 	return Counter;
+}
+
+extern double g_023f58b8;
+// @baa 0x018f11f0
+double __stdcall sub_018f11f0(__int64 Value)
+{
+    return Value * g_023f58b8;
+}
+
+struct C_018f50e0
+{
+    INT Value;
+
+    C_018f50e0* sub_018f50e0(INT* Source);
+};
+
+// @baa 0x018f50e0
+C_018f50e0* C_018f50e0::sub_018f50e0(INT* Source)
+{
+    Value = *Source;
+    return this;
+}
+
+struct C_018f5550
+{
+    INT Value_00;
+    INT Value_04;
+    INT Value_08;
+
+    C_018f5550* sub_018f5550();
+};
+
+// @baa 0x018f5550
+C_018f5550* C_018f5550::sub_018f5550()
+{
+    Value_08 = 0;
+    Value_00 = 0;
+    Value_04 = 0;
+    return this;
+}
+
+// @baa 0x018f7640
+char* __stdcall sub_018f7640(void* Object)
+{
+    return *(char**)((char*)Object + 0x10) + 0xc;
+}
+
+struct C_018f9140
+{
+    char pad_00[0x48];
+    INT Value;
+
+    C_018f9140* sub_018f9140();
+};
+
+// @baa 0x018f9140
+C_018f9140* C_018f9140::sub_018f9140()
+{
+    return Value ? (C_018f9140*)((char*)this + 0x48) : 0;
 }

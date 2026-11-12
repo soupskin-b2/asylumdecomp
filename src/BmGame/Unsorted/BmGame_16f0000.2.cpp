@@ -1,4 +1,4 @@
-// BmGame_16f0000.cpp: 126 functions
+// BmGame_16f0000.cpp: 134 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -1036,4 +1036,76 @@ void URBMRouterPath::execGetNodeOwner(FFrame& Stack, RESULT_DECL)
 	P_GET_INT(Index);
 	P_FINISH;
 	*(AActor**)Result = (AActor*)vf_110(Index);
+}
+
+// @baa 0x016f03c0
+// @baa 0x016f03c0
+void ARPawnCharacter::execOverlayExists(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(OverlayName);
+    P_FINISH;
+    *(INT*)Result = OverlayExists(OverlayName);
+}
+
+// @baa 0x016ffad0
+// @baa 0x016ffad0
+void ARHidePoint::execGetFragmentSaveName(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_INT(FragmentIndex);
+    P_FINISH;
+    *(FName*)Result = GetFragmentSaveName(FragmentIndex);
+}
+
+// @baa 0x016f7750
+// @baa 0x016f7750
+void ARCombatArea::execIsLocationInArea(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, TestLocation);
+    P_FINISH;
+    *(UBOOL*)Result = IsLocationInArea(TestLocation);
+}
+
+// @baa 0x016f79b0
+// @baa 0x016f79b0
+void ARCombatMove_BatmanStrike::execGetScoreForHandedness(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FStrikeInfo, TestStrike);
+    P_FINISH;
+    *(INT*)Result = GetScoreForHandedness(TestStrike);
+}
+
+// @baa 0x016f7b50
+// @baa 0x016f7b50
+void ARCombatMove_BatmanStrike::execGetScoreForTimeSinceUse(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FStrikeInfo, TestStrike);
+    P_FINISH;
+    *(INT*)Result = GetScoreForTimeSinceUse(TestStrike);
+}
+
+// @baa 0x016f7bd0
+// @baa 0x016f7bd0
+void ARCombatMove_BatmanStrike::execGetScoreForStrikeSpeed(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FStrikeInfo, TestStrike);
+    P_FINISH;
+    *(INT*)Result = GetScoreForStrikeSpeed(TestStrike);
+}
+
+// @baa 0x016fd6c0
+// @baa 0x016fd6c0
+void ARBMRouter::execFindEndAnchor(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, DestPos);
+    P_FINISH;
+    *(INT*)Result = FindEndAnchor(DestPos);
+}
+
+// @baa 0x016fd8a0
+// @baa 0x016fd8a0
+void ARBMRouter::execCanMovePartwayToPos(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, TestPos);
+    P_FINISH;
+    *(UBOOL*)Result = CanMovePartwayToPos(TestPos);
 }

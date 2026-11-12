@@ -1,4 +1,4 @@
-// GFx_1960000.cpp (part 1 of 2): 84 functions
+// GFx_1960000.cpp (part 1 of 2): 88 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -876,4 +876,65 @@ INT __stdcall sub_0196c660(INT* Object)
 INT __stdcall sub_0196c820(INT* Object)
 {
     return *(INT*)(*Object + 0x10);
+}
+
+// @baa 0x0196ace0
+unsigned int __stdcall sub_0196ace0(unsigned int * param)
+{
+    unsigned int v = param[1];
+    if ((*param & 0x20000) != 0)
+    {
+        v ^= *(short*)&param[2];
+    }
+    return v;
+}
+
+extern double g_023f9e60;
+struct S01968240
+{
+	char _Reserved[0x20];
+	int Value;
+
+	float sub_01968240(int arg);
+};
+
+// @baa 0x01968240
+float S01968240::sub_01968240(int arg)
+{
+	return (float)((double)Value * g_023f9e60 / (double)arg);
+}
+
+struct F0196c770Data
+{
+	unsigned int Flags;
+	int Value;
+	short Delta;
+};
+
+// @baa 0x0196c770
+int __stdcall sub_0196c770(const F0196c770Data* Data)
+{
+	int Value = Data->Value;
+	if (Data->Flags & 0x20000)
+	{
+		Value ^= Data->Delta;
+	}
+	return Value;
+}
+
+struct sub_0196c640_Desc
+{
+	DWORD Flags;	// bit 0x20000: value is a signed short
+	DWORD Value;
+	// signed value lives in the next word, offset 8
+	short Sign;
+};
+
+// @baa 0x0196c640
+unsigned __stdcall sub_0196c640(const sub_0196c640_Desc* Desc)
+{
+	DWORD Value = Desc->Value;
+	if (Desc->Flags & 0x20000)
+		Value ^= (DWORD)(short)Desc->Sign;
+	return Value;
 }

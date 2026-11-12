@@ -1,4 +1,4 @@
-// Editor_0600000.cpp: 8 functions
+// Editor_0600000.cpp: 9 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -95,4 +95,23 @@ int UFracturedStaticMeshComponent::sub_0060bde0(void)
     undefined4 * param_1 = (undefined4 *)this;
 
   return *(int *)*param_1 + 0x10 + param_1[5] * 0x1c;
+}
+
+struct C_00601a80
+{
+    char pad_0[0x8];
+    INT Value_8;
+    INT Value_c;
+    INT Value_10;
+
+    C_00601a80* sub_00601a80();
+};
+
+// @baa 0x00601a80
+C_00601a80* C_00601a80::sub_00601a80()
+{
+    Value_8 = 0;
+    Value_c = 0;
+    Value_10 = 0;
+    return this;
 }

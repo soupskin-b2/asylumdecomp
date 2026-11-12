@@ -1,4 +1,4 @@
-// UnMorph.cpp: 37 functions
+// UnMorph.cpp: 39 functions
 // Placed here by: class 13, neighbours 10, file 8, callers 6.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -141,4 +141,32 @@ IMPLEMENT_CLASS_AT(UMorphNodeWeightByBoneAngle, "e:\\Projects\\Amadeus\\AA\\Game
 bool UMorphNodeWeight::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+struct C_008348d0
+{
+    char pad_00[0x6c];
+    float Value;
+
+    void sub_008348d0(float In);
+};
+
+// @baa 0x008348d0
+void C_008348d0::sub_008348d0(float In)
+{
+    Value = In;
+}
+
+struct C_008348f0
+{
+    char pad_00[0x6c];
+    float Value;
+
+    void sub_008348f0(float In);
+};
+
+// @baa 0x008348f0
+void C_008348f0::sub_008348f0(float In)
+{
+    Value = In;
 }

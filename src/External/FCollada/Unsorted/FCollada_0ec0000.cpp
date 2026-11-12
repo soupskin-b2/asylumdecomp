@@ -1,4 +1,4 @@
-// FCollada_0ec0000.cpp: 162 functions
+// FCollada_0ec0000.cpp: 163 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Array.h"
@@ -1547,4 +1547,19 @@ void C_00ecfff0::sub_00ecfff0() {
     d.~D();
     }
     if (t) { sub_0053dfa0(t); Data = 0; }
+}
+
+struct C_00ec22f0
+{
+    INT Value_00;
+    INT Value_04;
+
+    C_00ec22f0* sub_00ec22f0(INT* Source);
+};
+
+// @baa 0x00ec22f0
+C_00ec22f0* C_00ec22f0::sub_00ec22f0(INT* Source)
+{
+    Value_04 = *Source;
+    return this;
 }

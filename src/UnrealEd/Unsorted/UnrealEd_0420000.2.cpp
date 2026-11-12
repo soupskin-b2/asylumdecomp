@@ -1,4 +1,4 @@
-// UnrealEd_0420000.cpp (part 2 of 2): 7 functions
+// UnrealEd_0420000.cpp (part 2 of 2): 10 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -111,4 +111,49 @@ bool sub_0042ea90(wchar_t * param_1, wxString * param_2)
   
   iVar1 = ((wxString *)(param_2))->wxString::Cmp(param_1);
   return iVar1 != 0;
+}
+
+struct C_0042f2f0
+{
+    char pad_00[0x14];
+    float Value;
+
+    void sub_0042f2f0(float In);
+};
+
+// @baa 0x0042f2f0
+void C_0042f2f0::sub_0042f2f0(float In)
+{
+    Value = In;
+}
+
+struct C_0042f310
+{
+    char pad_00[0x18];
+    float Value;
+
+    void sub_0042f310(float In);
+};
+
+// @baa 0x0042f310
+void C_0042f310::sub_0042f310(float In)
+{
+    Value = In;
+}
+
+class wxDialogBase
+{
+protected:
+    __declspec(dllimport) void EndDialog(int Value);
+};
+
+struct C_0042fd90 : public wxDialogBase
+{
+    void sub_0042fd90(INT Unused);
+};
+
+// @baa 0x0042fd90
+void C_0042fd90::sub_0042fd90(INT)
+{
+    EndDialog(0x13ec);
 }

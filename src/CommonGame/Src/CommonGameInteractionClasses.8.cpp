@@ -1,4 +1,4 @@
-// CommonGameInteractionClasses.cpp: 2 functions
+// CommonGameInteractionClasses.cpp: 3 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -18,4 +18,13 @@ void URInteractionManager::execUnRegisterActor(FFrame& Stack, RESULT_DECL)
     P_GET_OBJECT(URInteractionComponent, OldActor);
     P_FINISH;
     vf_118((INT)OldActor);
+}
+
+// @baa 0x0150cf90
+// @baa 0x0150cf90
+void URInteractionManager::execGetInteractionClass(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(ClassName);
+    P_FINISH;
+    *(INT*)Result = GetInteractionClass(ClassName);
 }

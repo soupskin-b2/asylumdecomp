@@ -1,4 +1,4 @@
-// UnrealEd_0520000.cpp (part 2 of 2): 2 functions
+// UnrealEd_0520000.cpp (part 2 of 2): 3 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -89,4 +89,20 @@ sub_0052fec0::sub_0052fec0(int a, int b, int c, int d, int e)
 {
     m184 = -2147483648.0f;
     sub_0052b830(a, b, c, d, e);
+}
+
+struct C_00520270
+{
+    char pad_00[0x14];
+    INT Value_14;
+    char pad_18[0x5c];
+    INT Value_74;
+
+    bool sub_00520270();
+};
+
+// @baa 0x00520270
+bool C_00520270::sub_00520270()
+{
+    return Value_74 == Value_14;
 }

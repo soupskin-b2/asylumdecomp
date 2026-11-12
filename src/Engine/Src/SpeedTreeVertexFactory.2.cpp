@@ -1,4 +1,4 @@
-// SpeedTreeVertexFactory.cpp (part 2 of 2): 23 functions
+// SpeedTreeVertexFactory.cpp (part 2 of 2): 24 functions
 // Placed here by: neighbours 20, callers 3.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Core.h"
@@ -381,4 +381,18 @@ void* sub_01a71a50(void* First, void* Last, void* NewBase)
     if (Count != 0)
         memmove_s(NewBase, (unsigned int)Bytes, First, (unsigned int)Bytes);
     return NewEnd;
+}
+
+struct C_01a6ec70
+{
+    char pad_00[0x94];
+    float Value;
+
+    void sub_01a6ec70(float In);
+};
+
+// @baa 0x01a6ec70
+void C_01a6ec70::sub_01a6ec70(float In)
+{
+    Value = In;
 }

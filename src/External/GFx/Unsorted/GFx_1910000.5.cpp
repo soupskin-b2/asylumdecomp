@@ -1,4 +1,4 @@
-// GFx_1910000.cpp (part 5 of 5): 9 functions
+// GFx_1910000.cpp (part 5 of 5): 11 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -172,4 +172,41 @@ int sub_0191a7f0(int ObjectOffset, const char* Message);
 void __stdcall sub_0191b7a0(int ObjectOffset, int tag)
 {
     sub_0191a7f0(ObjectOffset + 0x1c, "Deprecated tag 1004 - DefineGradientMapLoader encountered, ignored\n");
+}
+
+struct C_01914060
+{
+    INT Value_00;
+    BYTE Flag_04;
+    BYTE Flag_05;
+
+    C_01914060* sub_01914060();
+};
+
+// @baa 0x01914060
+C_01914060* C_01914060::sub_01914060()
+{
+    Value_00 = 0;
+    Flag_04 = 0;
+    Flag_05 = 0;
+    return this;
+}
+
+struct Sub
+{
+    void sub_01988220(INT A, INT B);
+};
+
+struct C_01914600
+{
+    char pad_00[0x10];
+    Sub* Object;
+
+    void sub_01914600();
+};
+
+// @baa 0x01914600
+void C_01914600::sub_01914600()
+{
+    Object->sub_01988220(0, 0);
 }

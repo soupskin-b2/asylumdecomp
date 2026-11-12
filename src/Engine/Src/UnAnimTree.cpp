@@ -1,4 +1,4 @@
-// UnAnimTree.cpp (part 1 of 4): 239 functions
+// UnAnimTree.cpp (part 1 of 4): 241 functions
 // Placed here by: neighbours 121, class 74, file 25, callers 19.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1829,4 +1829,53 @@ void UAnimNodeAimOffset::vf_130(undefined4 param_2)
   *(undefined4 *)(param_1 + 0xfc) = uVar1;
   ((C_view *)(((char *)this + 0x100)))->sub_00c76c40(0);
   return;
+}
+
+#define ZERO_ANIMWEIGHT_THRESH (0.00001f)
+/* UAnimNodeSlot::GetNextAvailableChild isn't declared in Classes.h. PlayCustomAnim (00c7ef60) passes it
+ * the animation's name, which this build doesn't use. */
+struct UAnimNodeSlot_ : public UAnimNodeSlot
+{
+	INT GetNextAvailableChild(FName AnimToPlay);
+};
+
+// @baa 0x00c56bb0
+INT UAnimNodeSlot_::GetNextAvailableChild(FName AnimToPlay)
+{
+	INT CurrentBestChildIndex = INDEX_NONE;
+	FLOAT BestWeight = 1.f;
+
+	// the custom channel with the least weight (child 0 is the normal animation)
+	for (INT i = 1; i < Children.Num(); i++)
+	{
+		if (CurrentBestChildIndex == INDEX_NONE || Children(i).Weight < BestWeight)
+		{
+			CurrentBestChildIndex = i;
+			BestWeight = Children(i).Weight;
+
+			// a free one: no need to look further
+			if (BestWeight <= ZERO_ANIMWEIGHT_THRESH)
+			{
+				break;
+			}
+		}
+	}
+
+	return CurrentBestChildIndex;
+}
+
+/* UAnimNodeBlendBase::SetChildrenTotalWeightAccumulator (vtable 0x188) isn't declared by name in Classes.h. */
+struct UAnimNodeBlendBase_ : public UAnimNodeBlendBase
+{
+	void SetChildrenTotalWeightAccumulator(const INT Index);
+};
+
+// @baa 0x00c533f0
+void UAnimNodeBlendBase_::SetChildrenTotalWeightAccumulator(const INT Index)
+{
+	// the child's weight in the whole tree
+	Children(Index).TotalWeight = Children(Index).Weight * NodeTotalWeight;
+
+	// and the child node's sum over all its parents
+	Children(Index).Anim->TotalWeightAccumulator += Children(Index).TotalWeight;
 }

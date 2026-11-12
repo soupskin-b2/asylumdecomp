@@ -1,4 +1,4 @@
-// GFx_1900000.cpp (part 6 of 6): 6 functions
+// GFx_1900000.cpp (part 6 of 6): 7 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -115,4 +115,23 @@ INT* C::sub_01903b00(INT* Out)
 {
     *Out = Value;
     return Out;
+}
+
+struct C_01901680
+{
+    INT Value_00;
+    INT Value_04;
+    INT Value_08;
+    INT Value_0c;
+
+    C_01901680* sub_01901680();
+};
+
+// @baa 0x01901680
+C_01901680* C_01901680::sub_01901680()
+{
+    Value_00 = 0;
+    Value_04 = 0;
+    Value_0c = 0;
+    return this;
 }

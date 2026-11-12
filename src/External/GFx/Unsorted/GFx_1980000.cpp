@@ -1,4 +1,4 @@
-// GFx_1980000.cpp (part 1 of 2): 69 functions
+// GFx_1980000.cpp (part 1 of 2): 72 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -834,4 +834,54 @@ BYTE* C_0198f7b0::sub_0198f7b0(BYTE* Out)
 {
     *Out = Value;
     return Out;
+}
+
+struct Sub
+{
+    void sub_018ec370();
+};
+
+struct C_019859c0
+{
+    char pad_00[0x4];
+    Sub* Object;
+
+    void sub_019859c0();
+};
+
+// @baa 0x019859c0
+void C_019859c0::sub_019859c0()
+{
+    if (Object)
+        Object->sub_018ec370();
+}
+
+struct C_01985fb0
+{
+    char pad_00[0xc];
+    Sub* Object;
+
+    void sub_01985fb0();
+};
+
+// @baa 0x01985fb0
+void C_01985fb0::sub_01985fb0()
+{
+    if (Object)
+        Object->sub_018ec370();
+}
+
+struct GFxThing {
+    virtual int f00();
+    virtual int f04();
+    virtual int GetState();
+
+    void* sub_0198f870();
+};
+
+// @baa 0x0198f870
+void* GFxThing::sub_0198f870() {
+    if (GetState() == 2)
+        return (void*)((char*)this - 0x6c);
+    return 0;
 }

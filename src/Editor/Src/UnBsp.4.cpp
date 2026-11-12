@@ -1,4 +1,4 @@
-// UnBsp.cpp (part 4 of 5): 2 functions
+// UnBsp.cpp (part 4 of 5): 3 functions
 // Placed here by: neighbours 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -35,4 +35,19 @@ void C::sub_00ec6d10()
 {
     field_70 = 0;
     Flags_18 |= 1;
+}
+
+struct C_00ec6d00
+{
+    INT Value_00;
+    INT Value_04;
+
+    C_00ec6d00* sub_00ec6d00(INT* Source);
+};
+
+// @baa 0x00ec6d00
+C_00ec6d00* C_00ec6d00::sub_00ec6d00(INT* Source)
+{
+    Value_04 = *Source;
+    return this;
 }

@@ -1,4 +1,4 @@
-// GFx_1920000.cpp: 1 function
+// GFx_1920000.cpp: 2 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Core.h"
@@ -19,4 +19,19 @@ S* S::sub_01921b00()
     c = 0;
     d = 0;
     return this;
+}
+
+extern "C" __declspec(dllimport) long __stdcall InterlockedExchangeAdd(long volatile* Addend, long Value);
+struct C
+{
+    char pad_00[0x18];
+    long Counter;
+
+    void sub_019237a0();
+};
+
+// @baa 0x019237a0
+void C::sub_019237a0()
+{
+    InterlockedExchangeAdd(&Counter, 1);
 }

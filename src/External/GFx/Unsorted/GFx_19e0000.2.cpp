@@ -1,4 +1,4 @@
-// GFx_19e0000.cpp (part 2 of 4): 81 functions
+// GFx_19e0000.cpp (part 2 of 4): 88 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -905,3 +905,121 @@ C_019efc20::C_019efc20() {}
 
 // @baa 0x019efc20
 void C_019efc20::sub_019efda0() {}
+
+class TActorComponent;
+struct C_019e1270 {
+    int sub_019729b0(int, int);
+    int sub_019e1270(int Arg);
+};
+
+// @baa 0x019e1270
+int C_019e1270::sub_019e1270(int Arg)
+{
+    ((C_019e1270*)Arg)->sub_019729b0((int)((char*)this + 0x30), 0);
+    return Arg;
+}
+
+struct C_019ea270 {
+    int sub_019ea270(int Arg);
+    int sub_019729b0(int, int);
+};
+
+// @baa 0x019ea270
+int C_019ea270::sub_019ea270(int Arg)
+{
+    ((C_019ea270*)Arg)->sub_019729b0((int)((char*)this + 0x30), 0);
+    return Arg;
+}
+
+class sub_019729b0_class
+{
+public:
+    int sub_019729b0(int arg0, int arg1);
+};
+
+struct sub_019e7d70_class
+{
+    char pad_0x48[0x48];
+    char M_0x48[4];
+    int sub_019e7d70(sub_019729b0_class* Other);
+};
+
+// @baa 0x019e7d70
+int sub_019e7d70_class::sub_019e7d70(sub_019729b0_class* Other)
+{
+    Other->sub_019729b0((int)&M_0x48, 0);
+    return (int)Other;
+}
+
+class C_019ee7d0
+{
+public:
+	C_019ee7d0* sub_019ee7d0(C_019ee7d0* Other);
+	int sub_019729b0(int Arg0, int Arg1);
+
+private:
+	char pad[0x34];
+	int Member_0x34;
+};
+
+// @baa 0x019ee7d0
+C_019ee7d0* C_019ee7d0::sub_019ee7d0(C_019ee7d0* Other)
+{
+	Other->sub_019729b0((int)&Member_0x34, 0);
+	return Other;
+}
+
+struct C_019e57b0 {
+    int sub_019729b0(int A, int Mode);
+};
+
+struct B {
+    C_019e57b0* sub_019e57b0(C_019e57b0* Arg);
+    char pad[0x48];
+    C_019e57b0 m_0048;
+};
+
+// @baa 0x019e57b0
+C_019e57b0* B::sub_019e57b0(C_019e57b0* Arg)
+{
+    Arg->sub_019729b0((int)&m_0048, 0);
+    return Arg;
+}
+
+struct C_019ec510
+{
+    int sub_019729b0(C_019ec510* A, int B);
+};
+
+struct Outer_019ec510
+{
+    char Prefix[0x40];
+    C_019ec510 Member;
+    C_019ec510* sub_019ec510(C_019ec510* Obj);
+};
+
+// @baa 0x019ec510
+C_019ec510* Outer_019ec510::sub_019ec510(C_019ec510* Obj)
+{
+    Obj->sub_019729b0(&Member, 0);
+    return Obj;
+}
+
+struct sub_019729b0_
+{
+    int sub_019729b0(int param1, int param2);
+};
+
+struct sub_019ef6d0_
+{
+    char pad[0x34];
+    sub_019729b0_ member_0x34;
+    int sub_019ef6d0(sub_019729b0_* param);
+};
+
+// @baa 0x019ef6d0
+int sub_019ef6d0_::sub_019ef6d0(sub_019729b0_* param)
+{
+    param->sub_019729b0((int)&member_0x34, 0);
+    return (int)param;
+}

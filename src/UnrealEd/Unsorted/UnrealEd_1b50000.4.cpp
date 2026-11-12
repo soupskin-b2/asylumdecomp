@@ -1,4 +1,4 @@
-// UnrealEd_1b50000.cpp (part 4 of 6): 1 function
+// UnrealEd_1b50000.cpp (part 4 of 6): 2 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -27,4 +27,19 @@ bool C::sub_01b5e540(const char* filename) {
  loc.m.reset(); char line[256];
  while(!feof(file)) { fgets(line,256,file); if(!_strnicmp(line,"newmtl",6)) { if(strlen(loc.m.name)) a->sub_01b5e010(&loc.m); loc.m.reset(); sscanf(line+7,"%s",loc.m.name); } else if(!_strnicmp(line,"Ka",2)) sscanf(line+3,"%f %f %f",&loc.m.a,&loc.m.b,&loc.m.c); else if(!_strnicmp(line,"Kd",2)) sscanf(line+3,"%f %f %f",&loc.m.d,&loc.m.e,&loc.m.f); else if(!_strnicmp(line,"Ks",2)) sscanf(line+3,"%f %f %f",&loc.m.g,&loc.m.h,&loc.m.i); else if(!_strnicmp(line,"Ns",2)) sscanf(line+3,"%f",&loc.m.k); else if(!_strnicmp(line,"Tr",2)) sscanf(line+3,"%f",&loc.m.j); else if(!_strnicmp(line,"d ",2)) sscanf(line+2,"%f",&loc.m.j); else if(!_strnicmp(line,"map_K ",5)) sscanf(line+7,"%s",loc.m.map); }
  if(strlen(loc.m.name)) a->sub_01b5e010(&loc.m); fclose(file); return true;
+}
+
+struct C_01b57870
+{
+    float First;
+    float Second;
+
+    void sub_01b57870();
+};
+
+// @baa 0x01b57870
+void C_01b57870::sub_01b57870()
+{
+    First = 0.0f;
+    Second = 0.0f;
 }

@@ -1,4 +1,4 @@
-// UnUIObjects.cpp (part 15 of 17): 9 functions
+// UnUIObjects.cpp (part 15 of 17): 14 functions
 // Placed here by: class 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -69,4 +69,66 @@ int sub_00ca5000()
 int UUIObject::sub_00daabb0(INT Flags)
 {
     return (PrivateFlags & Flags) == Flags;
+}
+
+void sub_00dde830();
+struct C_00da6dc0
+{
+    C_00da6dc0* sub_00da6dc0(INT Unused);
+};
+
+// @baa 0x00da6dc0
+C_00da6dc0* C_00da6dc0::sub_00da6dc0(INT)
+{
+    sub_00dde830();
+    return this;
+}
+
+struct C_00da6dd0
+{
+    C_00da6dd0* sub_00da6dd0(INT Unused);
+};
+
+// @baa 0x00da6dd0
+C_00da6dd0* C_00da6dd0::sub_00da6dd0(INT)
+{
+    sub_00dde830();
+    return this;
+}
+
+void sub_00dde720();
+struct C_00da6de0
+{
+    C_00da6de0* sub_00da6de0(INT Unused);
+};
+
+// @baa 0x00da6de0
+C_00da6de0* C_00da6de0::sub_00da6de0(INT)
+{
+    sub_00dde720();
+    return this;
+}
+
+struct C_00da6df0
+{
+    C_00da6df0* sub_00da6df0(INT Unused);
+};
+
+// @baa 0x00da6df0
+C_00da6df0* C_00da6df0::sub_00da6df0(INT)
+{
+    sub_00dde720();
+    return this;
+}
+
+struct C_00da7360
+{
+    C_00da7360* sub_00da7360(INT Unused);
+};
+
+// @baa 0x00da7360
+C_00da7360* C_00da7360::sub_00da7360(INT)
+{
+    sub_00dde720();
+    return this;
 }

@@ -1,4 +1,4 @@
-// UnPhysComponent.cpp: 15 functions
+// UnPhysComponent.cpp: 17 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -123,4 +123,22 @@ void UPrimitiveComponent::execGetRBLinearVelocity(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
 	*(FVector*)Result = GetRBLinearVelocity();
+}
+
+// @baa 0x009fde40
+// @baa 0x009fde40
+void UPrimitiveComponent::execPutRigidBodyToSleep(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME_OPTX(BoneName, NAME_None);
+    P_FINISH;
+    PutRigidBodyToSleep(BoneName);
+}
+
+// @baa 0x009fdd80
+// @baa 0x009fdd80
+void UPrimitiveComponent::execWakeRigidBody(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME_OPTX(BoneName, NAME_None);
+    P_FINISH;
+    WakeRigidBody(BoneName);
 }

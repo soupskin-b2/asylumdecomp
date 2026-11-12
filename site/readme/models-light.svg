@@ -5,30 +5,30 @@
 <text x="860" y="20" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">94,456</text>
 <text x="0" y="50" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">deepseek-v4.1-flash</text>
 <rect x="242" y="40" width="528" height="10" fill="#eaeef2" stroke="#d1d9e0"/>
-<rect x="242" y="40" width="7.27806" height="10" fill="#1f2328"/>
-<text x="860" y="50" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">1,302</text>
+<rect x="242" y="40" width="7.99915" height="10" fill="#1f2328"/>
+<text x="860" y="50" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">1,431</text>
 <text x="0" y="80" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">qwen3.8-27b</text>
 <rect x="242" y="70" width="528" height="10" fill="#eaeef2" stroke="#d1d9e0"/>
-<rect x="242" y="70" width="6.24392" height="10" fill="#1f2328"/>
-<text x="860" y="80" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">1,117</text>
+<rect x="242" y="70" width="6.39485" height="10" fill="#1f2328"/>
+<text x="860" y="80" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">1,144</text>
 <text x="0" y="110" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">not specified</text>
 <rect x="242" y="100" width="528" height="10" fill="#eaeef2" stroke="#d1d9e0"/>
 <rect x="242" y="100" width="1.88939" height="10" fill="#1f2328"/>
 <text x="860" y="110" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">338</text>
-<text x="0" y="140" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">Claude Opus 5.5</text>
+<text x="0" y="140" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">claude-opus-5.5</text>
 <rect x="242" y="130" width="528" height="10" fill="#eaeef2" stroke="#d1d9e0"/>
-<rect x="242" y="130" width="1.15152" height="10" fill="#1f2328"/>
-<text x="860" y="140" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">206</text>
-<text x="0" y="170" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">claude-opus-5.5</text>
+<rect x="242" y="130" width="1.21301" height="10" fill="#1f2328"/>
+<text x="860" y="140" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">217</text>
+<text x="0" y="170" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">Claude Opus 5.5</text>
 <rect x="242" y="160" width="528" height="10" fill="#eaeef2" stroke="#d1d9e0"/>
-<rect x="242" y="160" width="1.00618" height="10" fill="#1f2328"/>
-<text x="860" y="170" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">180</text>
+<rect x="242" y="160" width="1.15152" height="10" fill="#1f2328"/>
+<text x="860" y="170" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">206</text>
 <text x="0" y="200" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">gpt-6.1-sol</text>
 <rect x="242" y="190" width="528" height="10" fill="#eaeef2" stroke="#d1d9e0"/>
 <rect x="242" y="190" width="0.480732" height="10" fill="#1f2328"/>
 <text x="860" y="200" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">86</text>
 <text x="0" y="230" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">other</text>
 <rect x="242" y="220" width="528" height="10" fill="#eaeef2" stroke="#d1d9e0"/>
-<rect x="242" y="220" width="0.665199" height="10" fill="#1f2328"/>
-<text x="860" y="230" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">119</text>
+<rect x="242" y="220" width="0.698738" height="10" fill="#1f2328"/>
+<text x="860" y="230" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">125</text>
 </svg>

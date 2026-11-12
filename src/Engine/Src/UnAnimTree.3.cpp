@@ -1,4 +1,4 @@
-// UnAnimTree.cpp (part 3 of 4): 7 functions
+// UnAnimTree.cpp (part 3 of 4): 8 functions
 // Placed here by: neighbours 6.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -139,4 +139,42 @@ void UAnimNodeSlot_::UpdateWeightsForAdditiveAnimations()
 
 	// Set source weight to 1 - total weight of other children
 	Children(0).Weight = 1.f - Clamp<FLOAT>(AccumulatedWeight, 0.f, 1.f);
+}
+
+/* The kit's FName has no comparison operators (UnName.h). */
+inline UBOOL operator==(const FName& A, const FName& B) { return A.Index == B.Index && A.Number == B.Number; }
+
+/* UnAnimTree.cpp's static helper: a node's relative position on its time line, 0 without a positive length. */
+static inline FLOAT GetNodeRelativePosition(UAnimNodeSequence* SeqNode)
+{
+	if (SeqNode && SeqNode->AnimSeq && SeqNode->AnimSeq->SequenceLength > 0.f)
+	{
+		FLOAT RelativePosition = appFmod((SeqNode->CurrentTime / SeqNode->AnimSeq->SequenceLength) - SeqNode->SynchPosOffset, 1.f);
+		if (RelativePosition < 0.f)
+		{
+			RelativePosition += 1.f;
+		}
+		return RelativePosition;
+	}
+	return 0.f;
+}
+
+/* UAnimNodeSynch::GetRelativePosition isn't declared in Classes.h. */
+struct UAnimNodeSynch_ : public UAnimNodeSynch
+{
+	FLOAT GetRelativePosition(FName GroupName);
+};
+
+// @baa 0x00c56440
+FLOAT UAnimNodeSynch_::GetRelativePosition(FName GroupName)
+{
+	for (INT GroupIdx = 0; GroupIdx < Groups.Num(); GroupIdx++)
+	{
+		FSynchGroup& SynchGroup = Groups(GroupIdx);
+		if (SynchGroup.GroupName == GroupName && SynchGroup.MasterNode)
+		{
+			return GetNodeRelativePosition(SynchGroup.MasterNode);
+		}
+	}
+	return 0.f;
 }

@@ -1,4 +1,4 @@
-// SpeedTree.cpp: 5 functions
+// SpeedTree.cpp: 6 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Core.h"
@@ -52,4 +52,12 @@ struct Sub_01aa0110
 void __stdcall sub_01aa0110(Sub_01aa0110* Object)
 {
     Object->sub_01a71530();
+}
+
+extern double g_027be3d0;
+extern double g_023dda00;
+// @baa 0x01ab2270
+double sub_01ab2270()
+{
+    return g_023dda00 * g_027be3d0;
 }

@@ -1,4 +1,4 @@
-// UnrealEd_0450000.cpp: 123 functions
+// UnrealEd_0450000.cpp: 125 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -950,4 +950,32 @@ void C_0045c520::sub_0045c520()
 {
     *(void**)this = g_01e529d8;
     ((wxWindow*)this)->wxWindow::~wxWindow();
+}
+
+struct C_0045d9f0
+{
+    char pad_00[0x14];
+    float Value;
+
+    void sub_0045d9f0(float In);
+};
+
+// @baa 0x0045d9f0
+void C_0045d9f0::sub_0045d9f0(float In)
+{
+    Value = In;
+}
+
+struct C_0045da10
+{
+    char pad_00[0x18];
+    float Value;
+
+    void sub_0045da10(float In);
+};
+
+// @baa 0x0045da10
+void C_0045da10::sub_0045da10(float In)
+{
+    Value = In;
 }

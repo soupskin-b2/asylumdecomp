@@ -1,4 +1,4 @@
-// GFx_19d0000.cpp (part 2 of 2): 87 functions
+// GFx_19d0000.cpp (part 2 of 2): 93 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -890,3 +890,100 @@ C_019df940::C_019df940() {}
 
 // @baa 0x019df940
 void C_019df940::sub_019dfac0() {}
+
+typedef INT (__stdcall *FnType)(INT);
+
+struct C_019da990
+{
+    FnType Fn;
+
+    INT sub_019da990(INT A);
+};
+
+// @baa 0x019da990
+INT C_019da990::sub_019da990(INT A)
+{
+    if (Fn)
+        return Fn(A);
+    return 0;
+}
+
+extern double g_01e729a8;
+struct C_019dca80
+{
+    char pad_00[0x30];
+    double First;
+    double Second;
+
+    void sub_019dca80();
+};
+
+// @baa 0x019dca80
+void C_019dca80::sub_019dca80()
+{
+    double Value = g_01e729a8;
+    First = Value;
+    Second = Value;
+}
+
+struct C_019ddc40 {
+    int sub_019729b0(int a, int b);
+    int sub_019ddc40(int Arg);
+};
+
+// @baa 0x019ddc40
+int C_019ddc40::sub_019ddc40(int Arg)
+{
+    ((C_019ddc40*)Arg)->sub_019729b0((int)((char*)this + 0x40), 0);
+    return Arg;
+}
+
+class C_019df420
+{
+public:
+	C_019df420* sub_019df420(C_019df420* Other);
+	int sub_019729b0(int Arg0, int Arg1);
+
+private:
+	char pad[0x30];
+	int Member_0x30;
+};
+
+// @baa 0x019df420
+C_019df420* C_019df420::sub_019df420(C_019df420* Other)
+{
+	Other->sub_019729b0((int)&Member_0x30, 0);
+	return Other;
+}
+
+struct GFx_019dc0a0
+{
+	void sub_019729b0(void* A, int B);
+	INT sub_019dc0a0(GFx_019dc0a0* Obj);
+};
+
+// @baa 0x019dc0a0
+INT GFx_019dc0a0::sub_019dc0a0(GFx_019dc0a0* Obj)
+{
+	Obj->sub_019729b0((void*)((char*)this + 0x30), 0);
+	return (INT)Obj;
+}
+
+struct Sub_019d1910 {
+    char flags[0x40];
+};
+
+struct Holder_019d1860 {
+    int a, b, c, d;
+    Sub_019d1910* p;
+    void sub_019d1860(char bFlag);
+};
+
+// @baa 0x019d1860
+void Holder_019d1860::sub_019d1860(char bFlag)
+{
+    if (bFlag != 0)
+        p->flags[0x2c] |= 8;
+    else
+        p->flags[0x2c] &= 0xf7;
+}

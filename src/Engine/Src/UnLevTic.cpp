@@ -1,4 +1,4 @@
-// UnLevTic.cpp: 1 function
+// UnLevTic.cpp: 2 functions
 // Placed here by: callers 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -20,4 +20,17 @@ void C::sub_00a497e0(void)
     }
   }
   return;
+}
+
+void sub_0080b170();
+struct C_0080b400
+{
+    C_0080b400* sub_0080b400(INT Unused);
+};
+
+// @baa 0x0080b400
+C_0080b400* C_0080b400::sub_0080b400(INT)
+{
+    sub_0080b170();
+    return this;
 }

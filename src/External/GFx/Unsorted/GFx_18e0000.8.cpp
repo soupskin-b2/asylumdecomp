@@ -1,4 +1,4 @@
-// GFx_18e0000.cpp (part 8 of 8): 2 functions
+// GFx_18e0000.cpp (part 8 of 8): 3 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -37,4 +37,18 @@ struct GFxColoredItem
 GColor GFxColoredItem::sub_018e9ec0() const
 {
     return Color;
+}
+
+struct C_018e8b70
+{
+    char pad_00[0x9e0];
+    float Value;
+
+    void sub_018e8b70(float In);
+};
+
+// @baa 0x018e8b70
+void C_018e8b70::sub_018e8b70(float In)
+{
+    Value = In;
 }

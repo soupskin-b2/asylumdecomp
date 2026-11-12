@@ -1,4 +1,4 @@
-// IpDrv_0e20000.cpp: 62 functions
+// IpDrv_0e20000.cpp: 63 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -480,4 +480,19 @@ bool UTcpipConnection_::sub_00e2be70(int Second)
 {
     int First = *(int*)((char*)this + 8);
     return sub_018d354a(First, Second) == 0;
+}
+
+extern INT __stdcall sub_018d3526(INT Value);
+struct C_00e28a90
+{
+    WORD Value_00;
+    WORD Value_02;
+
+    INT sub_00e28a90();
+};
+
+// @baa 0x00e28a90
+INT C_00e28a90::sub_00e28a90()
+{
+    return (WORD)sub_018d3526(Value_02);
 }

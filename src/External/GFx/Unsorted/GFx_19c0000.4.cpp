@@ -1,4 +1,4 @@
-// GFx_19c0000.cpp (part 4 of 4): 35 functions
+// GFx_19c0000.cpp (part 4 of 4): 37 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -347,4 +347,37 @@ INT* C_019c81f0::sub_019c81f0(INT* Out)
 {
     *Out = Value;
     return Out;
+}
+
+struct C_019ca180
+{
+    char pad_00[0x20];
+    float First;
+    float Second;
+
+    void sub_019ca180(float In);
+};
+
+// @baa 0x019ca180
+void C_019ca180::sub_019ca180(float In)
+{
+    Second = In;
+    First = In;
+}
+
+// 019caf70: 24 bytes, returns its argument after calling sub_018daa80 on it,
+// or null. The callee is a __thiscall member, so the argument rides in ecx.
+struct sub_019caf70_obj {
+    void sub_018daa80();
+};
+
+// @baa 0x019caf70
+sub_019caf70_obj* sub_019caf70(sub_019caf70_obj* Object)
+{
+    if (Object != NULL)
+    {
+        Object->sub_018daa80();
+        return Object;
+    }
+    return NULL;
 }

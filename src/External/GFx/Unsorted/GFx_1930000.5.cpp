@@ -1,4 +1,4 @@
-// GFx_1930000.cpp: 3 functions
+// GFx_1930000.cpp: 5 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Core.h"
@@ -71,4 +71,32 @@ void GRefCountBaseImpl_::sub_0193ea60()
     if (Object)
         sub_018d7170(Object);
     sub_018d3de0();
+}
+
+struct C
+{
+    INT Value;
+
+    C* sub_01937b80(INT* Source);
+};
+
+// @baa 0x01937b80
+C* C::sub_01937b80(INT* Source)
+{
+    Value = *Source;
+    return this;
+}
+
+struct C_0193b6b0
+{
+    char pad_00[8];
+    INT Offset;
+
+    BYTE sub_0193b6b0(char* Object);
+};
+
+// @baa 0x0193b6b0
+BYTE C_0193b6b0::sub_0193b6b0(char* Object)
+{
+    return Object[Offset];
 }

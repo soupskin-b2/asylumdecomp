@@ -1,4 +1,4 @@
-// Engine_0960000.cpp (part 1 of 2): 186 functions
+// Engine_0960000.cpp (part 1 of 2): 187 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -1998,4 +1998,20 @@ struct C_00967b40
 C_00967b40* C_00967b40::sub_00967b40()
 {
     return (C_00967b40*)((char*)this - 0x2d0) ? this : 0;
+}
+
+struct C_00969e20
+{
+    WORD First;
+    WORD Second;
+
+    C_00969e20* sub_00969e20();
+};
+
+// @baa 0x00969e20
+C_00969e20* C_00969e20::sub_00969e20()
+{
+    First = 0;
+    Second = 0;
+    return this;
 }

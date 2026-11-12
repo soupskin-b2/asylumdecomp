@@ -1,4 +1,4 @@
-// UnrealEd_1b40000.cpp (part 5 of 5): 2 functions
+// UnrealEd_1b40000.cpp (part 5 of 5): 3 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -22,4 +22,22 @@ struct C
 BYTE C::sub_01b453f0(INT Mask)
 {
     return (Flags & Mask) != 0;
+}
+
+struct C_01b45440
+{
+    double First;
+    double Second;
+    double Third;
+
+    C_01b45440* sub_01b45440();
+};
+
+// @baa 0x01b45440
+C_01b45440* C_01b45440::sub_01b45440()
+{
+    First = 0.0;
+    Second = 0.0;
+    Third = 0.0;
+    return this;
 }

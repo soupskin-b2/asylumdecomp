@@ -1,4 +1,4 @@
-// Launch_1700000.cpp: 4 functions
+// Launch_1700000.cpp: 5 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -37,4 +37,13 @@ void URGFxMovieFrontend::execGetVersionNumber(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
 	*(INT*)Result = vf_180();
+}
+
+// @baa 0x0170b3d0
+// @baa 0x0170b3d0
+void URSeqAct_SetScarecrowCamera::execGetPercDistAlongPath(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_FLOAT(TimeDelta);
+    P_FINISH;
+    *(FLOAT*)Result = GetPercDistAlongPath(TimeDelta);
 }

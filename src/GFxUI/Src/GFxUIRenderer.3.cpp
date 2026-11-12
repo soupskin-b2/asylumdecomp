@@ -1,4 +1,4 @@
-// GFxUIRenderer.cpp (part 3 of 3): 3 functions
+// GFxUIRenderer.cpp (part 3 of 3): 5 functions
 // Placed here by: neighbours 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -62,4 +62,44 @@ void FGFxRenderTexture::sub_00e565a0()
 {
     if (pTexture)
         sub_00e56530();
+}
+
+struct Sub
+{
+    void sub_00e4b290();
+};
+
+struct C_00e56400
+{
+    INT pad_00;
+    Sub* Object;
+
+    INT sub_00e56400();
+};
+
+// @baa 0x00e56400
+INT C_00e56400::sub_00e56400()
+{
+    Object->sub_00e4b290();
+    return 8;
+}
+
+struct Sub_00e5dd90
+{
+    void sub_00e5c430();
+};
+
+struct C_00e5dd90
+{
+    INT pad_00;
+    Sub_00e5dd90* Object;
+
+    INT sub_00e5dd90();
+};
+
+// @baa 0x00e5dd90
+INT C_00e5dd90::sub_00e5dd90()
+{
+    Object->sub_00e5c430();
+    return 8;
 }

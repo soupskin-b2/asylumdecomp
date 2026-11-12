@@ -1,4 +1,4 @@
-// Scene.cpp (part 1 of 2): 38 functions
+// Scene.cpp (part 1 of 2): 40 functions
 // Placed here by: neighbours 31, callers 5, file 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -454,3 +454,42 @@ int C_00af3860::sub_00af3860(void)
 void sub_00aec1b0();
 // @baa 0x00af3f60
 void sub_00af3f60(void) { sub_00aec1b0(); }
+
+struct C_00ac6cd0
+{
+    char pad_0[0xc];
+    INT Value_c;
+    INT Value_10;
+    INT Value_14;
+
+    C_00ac6cd0* sub_00ac6cd0();
+};
+
+// @baa 0x00ac6cd0
+C_00ac6cd0* C_00ac6cd0::sub_00ac6cd0()
+{
+    Value_c = 0;
+    Value_10 = 0;
+    Value_14 = 0;
+    return this;
+}
+
+struct Sub
+{
+    void sub_00af21e0();
+};
+
+struct C_00af2260
+{
+    char pad_00[0x10];
+    Sub Marker;
+
+    INT sub_00af2260();
+};
+
+// @baa 0x00af2260
+INT C_00af2260::sub_00af2260()
+{
+    ((Sub*)((char*)this + 0x10))->sub_00af21e0();
+    return 0xc0;
+}

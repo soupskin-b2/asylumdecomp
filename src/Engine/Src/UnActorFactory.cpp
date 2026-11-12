@@ -1,4 +1,4 @@
-// UnActorFactory.cpp (part 1 of 2): 190 functions
+// UnActorFactory.cpp (part 1 of 2): 191 functions
 // Placed here by: neighbours 141, file 30, class 18, callers 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -632,3 +632,12 @@ bool UActorFactoryFogVolumeSphericalDensityInfo::vf_004()
 // @baa 0x00c6b280
 // @baa 0x00c757a0
 // @baa 0x00c757c0
+
+// @baa 0x00c4ac10
+INT __cdecl sub_00c4ac10(INT Value)
+{
+    INT Result = 0;
+    if (Value)
+        Result = 1;
+    return Result;
+}

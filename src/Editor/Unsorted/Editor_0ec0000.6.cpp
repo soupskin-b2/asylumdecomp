@@ -1,4 +1,4 @@
-// Editor_0ec0000.cpp: 5 functions
+// Editor_0ec0000.cpp: 6 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -47,4 +47,12 @@ void UBrushBuilder::execPolyi(FFrame& Stack, RESULT_DECL)
 	P_GET_INT(Index);
 	P_FINISH;
 	vf_138(Index);
+}
+
+// @baa 0x00ec3160
+void UBrushBuilder::execVertexv(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, V);
+    P_FINISH;
+    *(INT*)Result = Vertexv(V);
 }

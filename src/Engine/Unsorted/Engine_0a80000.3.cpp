@@ -1,4 +1,4 @@
-// Engine_0a80000.cpp (part 3 of 3): 16 functions
+// Engine_0a80000.cpp (part 3 of 3): 17 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -265,4 +265,23 @@ undefined4 C_00a8c570::sub_00a8c570(byte param_2)
     sub_0053dfa0(param_1);
   }
   return param_1;
+}
+
+struct C_00a8ad50
+{
+    char pad_0[0x20];
+    INT Value_20;
+    INT Value_24;
+    INT Value_28;
+
+    C_00a8ad50* sub_00a8ad50();
+};
+
+// @baa 0x00a8ad50
+C_00a8ad50* C_00a8ad50::sub_00a8ad50()
+{
+    Value_20 = 0;
+    Value_24 = 0;
+    Value_28 = 0;
+    return this;
 }

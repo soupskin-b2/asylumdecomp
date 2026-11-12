@@ -1,4 +1,4 @@
-// Engine_0d40000.cpp (part 4 of 4): 7 functions
+// Engine_0d40000.cpp (part 4 of 4): 8 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -173,4 +173,23 @@ INT* C_00d49190::sub_00d49190(INT* Out)
 {
     *Out = Value;
     return Out;
+}
+
+struct C_00d45600
+{
+    char pad_0[0xc];
+    INT Value_c;
+    INT Value_10;
+    INT Value_14;
+
+    C_00d45600* sub_00d45600();
+};
+
+// @baa 0x00d45600
+C_00d45600* C_00d45600::sub_00d45600()
+{
+    Value_c = 0;
+    Value_10 = 0;
+    Value_14 = 0;
+    return this;
 }

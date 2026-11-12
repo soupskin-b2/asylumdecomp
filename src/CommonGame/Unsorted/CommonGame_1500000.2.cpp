@@ -1,4 +1,4 @@
-// CommonGame_1500000.cpp (part 2 of 3): 37 functions
+// CommonGame_1500000.cpp (part 2 of 3): 38 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -280,4 +280,13 @@ void ARDebugMenu::execForcePause(FFrame& Stack, RESULT_DECL)
 	P_GET_UBOOL(Pause);
 	P_FINISH;
 	vf_384(Pause);
+}
+
+// @baa 0x0150cd20
+// @baa 0x0150cd20
+void URFlockComponent::execTick(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_FLOAT(DeltaTime);
+    P_FINISH;
+    Tick(DeltaTime);
 }

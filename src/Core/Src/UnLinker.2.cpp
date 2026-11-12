@@ -1,4 +1,4 @@
-// UnLinker.cpp (part 2 of 3): 6 functions
+// UnLinker.cpp (part 2 of 3): 7 functions
 // Placed here by: neighbours 5.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -114,4 +114,23 @@ void ULinker::StaticConstructor()
     const DWORD SkipIndexIndex = TheClass->sub_005f2cf0(0xb0, 0x28);
     TheClass->sub_005f2bf0(0x20);
     TheClass->sub_005f2d90(SkipIndexIndex);
+}
+
+struct C_005a9ee0
+{
+    char pad_0[0x8];
+    INT Value_8;
+    INT Value_c;
+    INT Value_10;
+
+    C_005a9ee0* sub_005a9ee0();
+};
+
+// @baa 0x005a9ee0
+C_005a9ee0* C_005a9ee0::sub_005a9ee0()
+{
+    Value_8 = 0;
+    Value_c = 0;
+    Value_10 = 0;
+    return this;
 }

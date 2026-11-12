@@ -1,4 +1,4 @@
-// Engine_0d30000.cpp: 20 functions
+// Engine_0d30000.cpp: 22 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -243,3 +243,41 @@ TConstSetBitIterator_00d3c5d0& TConstSetBitIterator_00d3c5d0::operator++()
 void sub_00d3c1c0();
 // @baa 0x00d3c620
 void sub_00d3c620(void) { sub_00d3c1c0(); }
+
+struct C_00d31460
+{
+    char pad_0[0x18];
+    INT Value_18;
+    INT Value_1c;
+    INT Value_20;
+
+    C_00d31460* sub_00d31460();
+};
+
+// @baa 0x00d31460
+C_00d31460* C_00d31460::sub_00d31460()
+{
+    Value_18 = 0;
+    Value_1c = 0;
+    Value_20 = 0;
+    return this;
+}
+
+struct C_00d3afb0
+{
+    char pad_0[0x8];
+    INT Value_8;
+    INT Value_c;
+    INT Value_10;
+
+    C_00d3afb0* sub_00d3afb0();
+};
+
+// @baa 0x00d3afb0
+C_00d3afb0* C_00d3afb0::sub_00d3afb0()
+{
+    Value_8 = 0;
+    Value_c = 0;
+    Value_10 = 0;
+    return this;
+}

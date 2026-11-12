@@ -1,4 +1,4 @@
-// Engine_0720000.cpp (part 6 of 7): 3 functions
+// Engine_0720000.cpp (part 6 of 7): 4 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -54,4 +54,24 @@ struct C
 INT C::sub_00724110()
 {
     return sub_00723710(&Object);
+}
+
+struct Sub
+{
+    void sub_00721e20();
+};
+
+struct C_00725930
+{
+    INT pad_00;
+    Sub* Object;
+
+    INT sub_00725930();
+};
+
+// @baa 0x00725930
+INT C_00725930::sub_00725930()
+{
+    Object->sub_00721e20();
+    return 8;
 }

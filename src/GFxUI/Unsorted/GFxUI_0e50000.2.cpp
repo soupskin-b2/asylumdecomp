@@ -1,4 +1,4 @@
-// GFxUI_0e50000.cpp (part 2 of 2): 22 functions
+// GFxUI_0e50000.cpp (part 2 of 2): 24 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -353,4 +353,43 @@ struct GAtomicRefCount
 long GAtomicRefCount::sub_00e5c750(int Unused)
 {
     return InterlockedExchangeAdd(&RefCount, 1);
+}
+
+struct C_00e513e0
+{
+    char pad_0[0xc];
+    INT Value_c;
+    INT Value_10;
+    INT Value_14;
+
+    C_00e513e0* sub_00e513e0();
+};
+
+// @baa 0x00e513e0
+C_00e513e0* C_00e513e0::sub_00e513e0()
+{
+    Value_c = 0;
+    Value_10 = 0;
+    Value_14 = 0;
+    return this;
+}
+
+struct Sub
+{
+    void sub_00e5b950();
+};
+
+struct C_00e5db50
+{
+    INT pad_00;
+    Sub* Object;
+
+    INT sub_00e5db50();
+};
+
+// @baa 0x00e5db50
+INT C_00e5db50::sub_00e5db50()
+{
+    Object->sub_00e5b950();
+    return 8;
 }

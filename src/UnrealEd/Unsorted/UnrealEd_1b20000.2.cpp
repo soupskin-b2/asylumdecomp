@@ -1,4 +1,4 @@
-// UnrealEd_1b20000.cpp (part 2 of 2): 11 functions
+// UnrealEd_1b20000.cpp (part 2 of 2): 12 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -141,4 +141,22 @@ void C_01b2f3e0::sub_01b2f3e0(void)
     *param_1 = 0;
   }
   return;
+}
+
+struct C_01b28b30
+{
+    INT Value_00;
+    INT Value_04;
+    INT Value_08;
+
+    C_01b28b30* sub_01b28b30();
+};
+
+// @baa 0x01b28b30
+C_01b28b30* C_01b28b30::sub_01b28b30()
+{
+    Value_04 = 0;
+    Value_08 = 0;
+    Value_00 = 0;
+    return this;
 }

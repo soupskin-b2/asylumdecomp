@@ -1,4 +1,4 @@
-// Unknown_1ba0000.cpp (part 2 of 3): 16 functions
+// Unknown_1ba0000.cpp (part 2 of 3): 19 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -221,4 +221,47 @@ int * C_01baf300::sub_01baf300(int param_2)
   iVar1 = ((C_01baf300 *)(this))->sub_01baefe0();
   param_1[3] = iVar1;
   return param_1;
+}
+
+struct C_01ba15c0
+{
+    WORD* Table;
+
+    WORD sub_01ba15c0(INT Index);
+};
+
+// @baa 0x01ba15c0
+WORD C_01ba15c0::sub_01ba15c0(INT Index)
+{
+    return Table[Index];
+}
+
+INT sub_01baee30(void* Value);
+struct C_01baef90
+{
+    char pad_00[0x8];
+    void* Value;
+
+    INT sub_01baef90();
+};
+
+// @baa 0x01baef90
+INT C_01baef90::sub_01baef90()
+{
+    return sub_01baee30(Value);
+}
+
+INT sub_01baf9a0(void* Value);
+struct C_01bafa10
+{
+    char pad_00[0x8];
+    void* Value;
+
+    INT sub_01bafa10();
+};
+
+// @baa 0x01bafa10
+INT C_01bafa10::sub_01bafa10()
+{
+    return sub_01baf9a0(Value);
 }

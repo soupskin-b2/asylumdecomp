@@ -1,4 +1,4 @@
-// GFx_19b0000.cpp (part 14 of 14): 3 functions
+// GFx_19b0000.cpp (part 14 of 14): 5 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -48,4 +48,33 @@ void GFxItemRef::sub_019bc910(const char* Name)
 INT __stdcall sub_019b6db0(INT* Object)
 {
     return *(INT*)(*Object + 8);
+}
+
+struct C {
+    int sub_019bbec0(int Arg);
+    int sub_019729b0(int A, int B);
+};
+
+// @baa 0x019bbec0
+int C::sub_019bbec0(int Arg)
+{
+    ((C*)Arg)->sub_019729b0((int)((char*)this + 0x34), 0);
+    return Arg;
+}
+
+struct SInner {
+    int sub_019729b0(SInner*, int);
+};
+
+struct S019b41a0 {
+    char pad[0x30];
+    SInner Sub;      // 0x30
+    int sub_019b41a0(SInner*);
+};
+
+// @baa 0x019b41a0
+int S019b41a0::sub_019b41a0(SInner* Arg)
+{
+    Arg->sub_019729b0(&Sub, 0);
+    return (int)Arg;
 }

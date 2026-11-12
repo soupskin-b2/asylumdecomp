@@ -1,4 +1,4 @@
-// UnrealEd_04e0000.cpp: 3 functions
+// UnrealEd_04e0000.cpp: 4 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Core.h"
@@ -89,4 +89,21 @@ void C_004eb030::sub_004eb030()
 {
     *(void**)this = g_01e65dc0;
     ((wxWindow*)this)->wxWindow::~wxWindow();
+}
+
+class wxDialogBase
+{
+protected:
+    __declspec(dllimport) void EndDialog(int Value);
+};
+
+struct C_004ed500 : public wxDialogBase
+{
+    void sub_004ed500(INT Unused);
+};
+
+// @baa 0x004ed500
+void C_004ed500::sub_004ed500(INT)
+{
+    EndDialog(0x13ec);
 }

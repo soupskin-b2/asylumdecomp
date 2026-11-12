@@ -1,4 +1,4 @@
-// GFx_19a0000.cpp (part 2 of 2): 29 functions
+// GFx_19a0000.cpp (part 2 of 2): 30 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -360,4 +360,16 @@ struct GFxFlagsOwner
 bool GFxFlagsOwner::sub_019aa4d0() const
 {
     return (Flags & 0x80) != 0;
+}
+
+struct C_019af8b0 {
+    int sub_019af8b0(int Arg);
+    int sub_019729b0(int A, int B);
+};
+
+// @baa 0x019af8b0
+int C_019af8b0::sub_019af8b0(int Arg)
+{
+    ((C_019af8b0*)Arg)->sub_019729b0((int)((char*)this + 0x3c), 0);
+    return Arg;
 }

@@ -1,4 +1,4 @@
-// UOnlineGameInterfaceSteamworks.cpp (part 1 of 3): 37 functions
+// UOnlineGameInterfaceSteamworks.cpp (part 1 of 3): 38 functions
 // Placed here by: class 17, neighbours 14, callers 4.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -356,4 +356,16 @@ struct UOnlineGameInterfaceSteamworks_ : public UOnlineGameInterfaceSteamworks
 INT UOnlineGameInterfaceSteamworks_::sub_00e89940(FLOAT Value)
 {
     return sub_00e3a290(Value);
+}
+
+struct Object
+{
+    INT Value_00;
+    INT Value_04;
+};
+
+// @baa 0x00e89870
+void __stdcall sub_00e89870(Object* Target)
+{
+    Target->Value_04 = 1;
 }

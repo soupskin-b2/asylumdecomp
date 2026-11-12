@@ -1,4 +1,4 @@
-// Launch_1ae0000.cpp (part 2 of 3): 9 functions
+// Launch_1ae0000.cpp (part 2 of 3): 10 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -87,3 +87,21 @@ struct C_01aeffb0 { int a, b, c; C_01aeffb0(); };
 
 // @baa 0x01aeffb0
 C_01aeffb0::C_01aeffb0() : a(0), b(0), c(0) {}
+
+struct C_01aeeb50
+{
+    INT Value_00;
+    INT Value_04;
+    INT Value_08;
+
+    C_01aeeb50* sub_01aeeb50();
+};
+
+// @baa 0x01aeeb50
+C_01aeeb50* C_01aeeb50::sub_01aeeb50()
+{
+    Value_04 = 0;
+    Value_08 = 0;
+    Value_00 = 0;
+    return this;
+}

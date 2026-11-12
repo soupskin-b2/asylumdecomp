@@ -1,4 +1,4 @@
-// PhysX_1a50000.cpp (part 2 of 3): 357 functions
+// PhysX_1a50000.cpp (part 2 of 3): 359 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -2926,4 +2926,32 @@ void C_01a5ccb0::sub_01a5ccb0(float * param_2, float param_3)
   param_2[7] = param_1[7] * param_3;
   param_2[8] = param_3 * param_1[8];
   return;
+}
+
+struct C_01a54fc0
+{
+    INT Value;
+
+    C_01a54fc0* sub_01a54fc0(INT* Source);
+};
+
+// @baa 0x01a54fc0
+C_01a54fc0* C_01a54fc0::sub_01a54fc0(INT* Source)
+{
+    Value = *Source;
+    return this;
+}
+
+struct C_01a54fd0
+{
+    INT Value;
+
+    C_01a54fd0* sub_01a54fd0(INT* Source);
+};
+
+// @baa 0x01a54fd0
+C_01a54fd0* C_01a54fd0::sub_01a54fd0(INT* Source)
+{
+    Value = *Source;
+    return this;
 }

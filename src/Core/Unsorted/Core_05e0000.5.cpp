@@ -1,4 +1,4 @@
-// Core_05e0000.cpp (part 5 of 5): 5 functions
+// Core_05e0000.cpp (part 5 of 5): 8 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -83,4 +83,48 @@ struct C_005ef9c0
 void C_005ef9c0::sub_005ef9c0(INT Value)
 {
     sub_005ef1c0(&Value);
+}
+
+extern "C" __declspec(dllimport) int __stdcall SetConsoleCtrlHandler(void* Handler, int Add);
+INT sub_005ebed0();
+// @baa 0x005ec000
+void sub_005ec000()
+{
+    SetConsoleCtrlHandler((void*)sub_005ebed0, 1);
+}
+
+struct C_005eede0
+{
+    char pad_00[8];
+    volatile INT Value_08;
+    INT Flags_0c;
+
+    void sub_005eede0();
+};
+
+// @baa 0x005eede0
+void C_005eede0::sub_005eede0()
+{
+    Value_08 = Value_08;
+    Flags_0c |= 0x20000000;
+}
+
+struct Sub
+{
+    void sub_005edfe0();
+};
+
+struct C_005ef790
+{
+    Sub* Object;
+    INT Count_04;
+
+    void sub_005ef790();
+};
+
+// @baa 0x005ef790
+void C_005ef790::sub_005ef790()
+{
+    if (Count_04 > 1)
+        Object->sub_005edfe0();
 }

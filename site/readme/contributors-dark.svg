@@ -7,8 +7,8 @@
 <line x1="0" y1="28" x2="860" y2="28" stroke="#3d444d" stroke-width="1"/>
 <text x="0" y="52" font-size="14" fill="#e6edf3" text-anchor="start" font-weight="normal">1</text>
 <text x="30" y="52" font-size="14" fill="#e6edf3" text-anchor="start" font-weight="bold">soupskin-b2</text>
-<text x="420" y="52" font-size="14" fill="#e6edf3" text-anchor="end" font-weight="normal">97,804</text>
+<text x="420" y="52" font-size="14" fill="#e6edf3" text-anchor="end" font-weight="normal">98,003</text>
 <text x="510" y="52" font-size="14" fill="#e6edf3" text-anchor="end" font-weight="normal">3.5 MB</text>
-<text x="530" y="52" font-size="12" fill="#8d96a0" text-anchor="start" font-weight="normal">tooling 94,456, deepseek-v4.1-flash 1,302, q…</text>
+<text x="530" y="52" font-size="12" fill="#8d96a0" text-anchor="start" font-weight="normal">tooling 94,456, deepseek-v4.1-flash 1,431, q…</text>
 <line x1="0" y1="62" x2="860" y2="62" stroke="#3d444d" stroke-width="1"/>
 </svg>

@@ -1,4 +1,4 @@
-// Engine_0c90000.cpp: 42 functions
+// Engine_0c90000.cpp: 45 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -412,4 +412,30 @@ void AFracturedStaticMeshActor::execUpdateStasis(FFrame& Stack, RESULT_DECL)
 	P_GET_UBOOL(NewValue);
 	P_FINISH;
 	vf_368(NewValue);
+}
+
+// @baa 0x00c9b880
+// @baa 0x00c9b880
+void UMaterialInstanceTimeVarying::execSetDuration(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_FLOAT(Value);
+    P_FINISH;
+    SetDuration(Value);
+}
+
+// @baa 0x00c93df0
+// @baa 0x00c93df0
+void URB_Handle::execUpdateSmoothLocation(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT_REF(FVector, NewLocation);
+    P_FINISH;
+    UpdateSmoothLocation(NewLocation);
+}
+
+// @baa 0x00c9f300
+void UFracturedStaticMeshComponent::execGetFragmentBox(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_INT(FragmentIndex);
+    P_FINISH;
+    *(FBox*)Result = GetFragmentBox(FragmentIndex);
 }

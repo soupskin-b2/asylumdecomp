@@ -1,4 +1,4 @@
-// GFx_18d0000.cpp: 3 functions
+// GFx_18d0000.cpp: 4 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -43,4 +43,18 @@ struct C_018da820
 void C_018da820::sub_018da820()
 {
     InterlockedExchangeAdd(&Counter, -1);
+}
+
+struct C_018dcb30
+{
+    char pad_00[0x4];
+    long Counter;
+
+    void sub_018dcb30();
+};
+
+// @baa 0x018dcb30
+void C_018dcb30::sub_018dcb30()
+{
+    InterlockedExchangeAdd(&Counter, 1);
 }

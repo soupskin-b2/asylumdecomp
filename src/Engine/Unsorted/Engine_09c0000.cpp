@@ -1,4 +1,4 @@
-// Engine_09c0000.cpp: 56 functions
+// Engine_09c0000.cpp: 57 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -731,4 +731,24 @@ int C_009cf670::sub_009cf670(void)
     int param_1 = (int)this;
 
   return *(int *)(param_1 + 0x84) * 4 + 0x1b0;
+}
+
+struct Sub
+{
+    void sub_009bf3a0();
+};
+
+struct C_009c1d10
+{
+    INT pad_00;
+    Sub* Object;
+
+    INT sub_009c1d10();
+};
+
+// @baa 0x009c1d10
+INT C_009c1d10::sub_009c1d10()
+{
+    Object->sub_009bf3a0();
+    return 8;
 }

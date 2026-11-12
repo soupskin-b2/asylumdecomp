@@ -1,4 +1,4 @@
-// Engine_0640000.cpp (part 2 of 2): 3 functions
+// Engine_0640000.cpp (part 2 of 2): 5 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -50,4 +50,30 @@ struct C
 INT C::sub_0064aae0()
 {
     return field_02 > 0;
+}
+
+struct USurface_ : public USurface
+{
+    void sub_0064bbf0();
+};
+
+// @baa 0x0064bbf0
+void USurface_::sub_0064bbf0()
+{
+    if (--*(INT*)((char*)this + 0x14) == 0)
+        vf_020();
+}
+
+struct C_0064d1e0
+{
+    char pad_00[0x2c];
+    float Value;
+
+    void sub_0064d1e0(float In);
+};
+
+// @baa 0x0064d1e0
+void C_0064d1e0::sub_0064d1e0(float In)
+{
+    Value = In;
 }

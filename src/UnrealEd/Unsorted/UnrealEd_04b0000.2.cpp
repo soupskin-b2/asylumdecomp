@@ -1,4 +1,4 @@
-// UnrealEd_04b0000.cpp (part 2 of 2): 8 functions
+// UnrealEd_04b0000.cpp (part 2 of 2): 9 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -84,4 +84,18 @@ short __cdecl sub_004b8880(void)
     if (g_02663d30 == 0)
         g_02663d30 = sub_004b3d80();
     return g_02663d30->sub_01ab5e50();
+}
+
+struct C_004ba8a0
+{
+    char pad_00[0x24];
+    float Value;
+
+    void sub_004ba8a0(float In);
+};
+
+// @baa 0x004ba8a0
+void C_004ba8a0::sub_004ba8a0(float In)
+{
+    Value = In;
 }

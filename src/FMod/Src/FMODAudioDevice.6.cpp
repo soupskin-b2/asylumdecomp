@@ -1,4 +1,4 @@
-// FMODAudioDevice.cpp (part 6 of 6): 3 functions
+// FMODAudioDevice.cpp (part 6 of 6): 6 functions
 // Placed here by: neighbours 1, callers 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -51,4 +51,49 @@ void __stdcall sub_00e85970(INT A, INT B);
 void sub_00e85a70(INT A)
 {
     sub_00e85970(A, 0);
+}
+
+void sub_0053dfa0(INT Value);
+// @baa 0x00e70bc0
+void __stdcall sub_00e70bc0(INT A, INT B)
+{
+    sub_0053dfa0(A);
+}
+
+struct C_00e73ee0
+{
+    char pad_0[0x14];
+    INT Value_14;
+    INT Value_18;
+    INT Value_1c;
+
+    C_00e73ee0* sub_00e73ee0();
+};
+
+// @baa 0x00e73ee0
+C_00e73ee0* C_00e73ee0::sub_00e73ee0()
+{
+    Value_14 = 0;
+    Value_18 = 0;
+    Value_1c = 0;
+    return this;
+}
+
+struct Sub
+{
+    void sub_00e7f750(INT Value);
+};
+
+struct C_00e80ac0
+{
+    char pad_00[0x2f8];
+    Sub Marker;
+
+    void sub_00e80ac0();
+};
+
+// @baa 0x00e80ac0
+void C_00e80ac0::sub_00e80ac0()
+{
+    ((Sub*)((char*)this + 0x2f8))->sub_00e7f750(0);
 }

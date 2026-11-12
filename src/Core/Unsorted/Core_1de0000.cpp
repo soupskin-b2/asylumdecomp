@@ -1,4 +1,4 @@
-// Core_1de0000.cpp: 689 functions
+// Core_1de0000.cpp: 690 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -5411,3 +5411,15 @@ extern char g_025df9b0[];
 extern unsigned char g_026c46cf;
 // @baa 0x01defff0
 void sub_01defff0() { g_026c46cf = sub_0059f5f0(-1, (int)g_025df9b0); }
+
+struct Sub
+{
+    void sub_009837f0(INT Value);
+};
+
+extern Sub g_026b6050;
+// @baa 0x01de6100
+void sub_01de6100()
+{
+    g_026b6050.sub_009837f0(0x10);
+}

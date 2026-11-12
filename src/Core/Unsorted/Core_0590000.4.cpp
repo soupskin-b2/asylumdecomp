@@ -1,4 +1,4 @@
-// Core_0590000.cpp (part 4 of 4): 8 functions
+// Core_0590000.cpp (part 4 of 4): 9 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -105,4 +105,16 @@ void __stdcall sub_00590e90(INT A, INT* Out)
 void __stdcall sub_00590ea0(INT A, INT* Out)
 {
     *Out = 0;
+}
+
+struct Object
+{
+    char pad_00[0x18];
+    INT Value;
+};
+
+// @baa 0x00590740
+void __stdcall sub_00590740(Object* Target, INT Unused)
+{
+    Target->Value = 0;
 }

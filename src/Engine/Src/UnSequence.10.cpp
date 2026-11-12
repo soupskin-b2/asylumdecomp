@@ -1,4 +1,4 @@
-// UnSequence.cpp (part 10 of 10): 10 functions
+// UnSequence.cpp (part 10 of 10): 11 functions
 // Placed here by: neighbours 6.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -73,4 +73,36 @@ struct C
 void C::sub_008e6260()
 {
     Target = Source;
+}
+
+/* USeqCond_CompareFloat's Activated (USequenceOp vtable 0x174, declared only as vf_174). */
+struct USeqCond_CompareFloat_ : public USeqCond_CompareFloat
+{
+	void Activated();
+};
+
+// @baa 0x008e7290
+void USeqCond_CompareFloat_::Activated()
+{
+	// compare the values and set the matching output impulses
+	if (ValueA <= ValueB)
+	{
+		OutputLinks(0).bHasImpulse = TRUE;
+	}
+	if (ValueA > ValueB)
+	{
+		OutputLinks(1).bHasImpulse = TRUE;
+	}
+	if (ValueA == ValueB)
+	{
+		OutputLinks(2).bHasImpulse = TRUE;
+	}
+	if (ValueA < ValueB)
+	{
+		OutputLinks(3).bHasImpulse = TRUE;
+	}
+	if (ValueA >= ValueB)
+	{
+		OutputLinks(4).bHasImpulse = TRUE;
+	}
 }

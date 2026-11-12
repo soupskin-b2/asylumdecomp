@@ -2,8 +2,8 @@
  "note": "Maintained by CI (tools/ci); every file is checked by python tools/asylum unit-check.",
  "totals": {
   "units": 1432,
-  "files": 3919,
-  "functions": 97804,
+  "files": 3930,
+  "functions": 98003,
   "failed": 0
  },
  "units": [
@@ -5080,6 +5080,21 @@
      "va": "01709970",
      "size": 114,
      "symbol": "?execGetTunnelCameraDirection@AR3rdPersonCamera@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "00c83920",
+     "size": 119,
+     "symbol": "?execCheckViewTarget@ACamera@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "01709140",
+     "size": 115,
+     "symbol": "?execSetFreeCameraConfig@AR3rdPersonCamera@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "017091c0",
+     "size": 122,
+     "symbol": "?execSaveFreeCameraConfig@AR3rdPersonCamera@@QAEXAAUFFrame@@QAX@Z"
     }
    ]
   },
@@ -47057,6 +47072,26 @@
      "va": "016e9160",
      "size": 113,
      "symbol": "?execSetCombatFlag@ARGameRI@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016e8c00",
+     "size": 123,
+     "symbol": "?execIsLevelLoaded@ARGameRI@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016e8c80",
+     "size": 123,
+     "symbol": "?execIsLevelLoading@ARGameRI@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016e8d00",
+     "size": 123,
+     "symbol": "?execIsLevelVisible@ARGameRI@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016e8f80",
+     "size": 123,
+     "symbol": "?execIsCurrentLevel@ARGameRI@@QAEXAAUFFrame@@QAX@Z"
     }
    ]
   },
@@ -48621,6 +48656,46 @@
      "va": "016fea20",
      "size": 106,
      "symbol": "?execGetNodeOwner@URBMRouterPath@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016f03c0",
+     "size": 123,
+     "symbol": "?execOverlayExists@ARPawnCharacter@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016ffad0",
+     "size": 123,
+     "symbol": "?execGetFragmentSaveName@ARHidePoint@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016f7750",
+     "size": 122,
+     "symbol": "?execIsLocationInArea@ARCombatArea@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016f79b0",
+     "size": 115,
+     "symbol": "?execGetScoreForHandedness@ARCombatMove_BatmanStrike@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016f7b50",
+     "size": 115,
+     "symbol": "?execGetScoreForTimeSinceUse@ARCombatMove_BatmanStrike@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016f7bd0",
+     "size": 115,
+     "symbol": "?execGetScoreForStrikeSpeed@ARCombatMove_BatmanStrike@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016fd6c0",
+     "size": 122,
+     "symbol": "?execFindEndAnchor@ARBMRouter@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "016fd8a0",
+     "size": 122,
+     "symbol": "?execCanMovePartwayToPos@ARBMRouter@@QAEXAAUFFrame@@QAX@Z"
     }
    ]
   },
@@ -49582,6 +49657,21 @@
      "va": "01708c40",
      "size": 106,
      "symbol": "?execIsInActivationRange@ARLevelTransitionDoorBunkerNativeBase@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "017078b0",
+     "size": 123,
+     "symbol": "?execGetShouldKnockHelmetOff@ARJokerGunGadgetBase@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "01708950",
+     "size": 123,
+     "symbol": "?execIsConnectedToLevel@ARLevelTransition@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "01704dd0",
+     "size": 110,
+     "symbol": "?execUpdateOp@URBMBehaviour@@QAEXAAUFFrame@@QAX@Z"
     }
    ]
   },
@@ -54554,6 +54644,11 @@
      "va": "0150d080",
      "size": 100,
      "symbol": "?execUnRegisterActor@URInteractionManager@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "0150cf90",
+     "size": 123,
+     "symbol": "?execGetInteractionClass@URInteractionManager@@QAEXAAUFFrame@@QAX@Z"
     }
    ]
   },
@@ -55220,6 +55315,11 @@
      "va": "0150bfb0",
      "size": 113,
      "symbol": "?execForcePause@ARDebugMenu@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "0150cd20",
+     "size": 104,
+     "symbol": "?execTick@URFlockComponent@@QAEXAAUFFrame@@QAX@Z"
     }
    ]
   },
@@ -61855,6 +61955,11 @@
      "va": "0059a3e0",
      "size": 50,
      "symbol": "?StaticConstructor@ULinker@@QAEXXZ"
+    },
+    {
+     "va": "005a9ee0",
+     "size": 14,
+     "symbol": "?sub_005a9ee0@C_005a9ee0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -66101,6 +66206,16 @@
      "va": "0053e080",
      "size": 33,
      "symbol": "?sub_0053e080@@YAPADPAD0I@Z"
+    },
+    {
+     "va": "00539ce0",
+     "size": 14,
+     "symbol": "?sub_00539ce0@C@@QAEXH@Z"
+    },
+    {
+     "va": "0053b7a0",
+     "size": 14,
+     "symbol": "?sub_0053b7a0@C_0053b7a0@@QAEXHH@Z"
     }
    ]
   },
@@ -69513,6 +69628,11 @@
      "va": "00590ea0",
      "size": 13,
      "symbol": "?sub_00590ea0@@YGXHPAH@Z"
+    },
+    {
+     "va": "00590740",
+     "size": 14,
+     "symbol": "?sub_00590740@@YGXPAUObject@@H@Z"
     }
    ]
   },
@@ -72350,6 +72470,21 @@
      "va": "005ef9c0",
      "size": 13,
      "symbol": "?sub_005ef9c0@C_005ef9c0@@QAEXH@Z"
+    },
+    {
+     "va": "005ec000",
+     "size": 14,
+     "symbol": "?sub_005ec000@@YAXXZ"
+    },
+    {
+     "va": "005eede0",
+     "size": 14,
+     "symbol": "?sub_005eede0@C_005eede0@@QAEXXZ"
+    },
+    {
+     "va": "005ef790",
+     "size": 14,
+     "symbol": "?sub_005ef790@C_005ef790@@QAEXXZ"
     }
    ]
   },
@@ -85224,6 +85359,11 @@
      "va": "01defff0",
      "size": 21,
      "symbol": "?sub_01defff0@@YAXXZ"
+    },
+    {
+     "va": "01de6100",
+     "size": 13,
+     "symbol": "?sub_01de6100@@YAXXZ"
     }
    ]
   },
@@ -108321,6 +108461,11 @@
      "va": "00ec6d10",
      "size": 12,
      "symbol": "?sub_00ec6d10@C@@QAEXXZ"
+    },
+    {
+     "va": "00ec6d00",
+     "size": 14,
+     "symbol": "?sub_00ec6d00@C_00ec6d00@@QAEPAU1@PAH@Z"
     }
    ]
   },
@@ -129283,6 +129428,11 @@
      "va": "0060bde0",
      "size": 21,
      "symbol": "?sub_0060bde0@UFracturedStaticMeshComponent@@QAEHXZ"
+    },
+    {
+     "va": "00601a80",
+     "size": 14,
+     "symbol": "?sub_00601a80@C_00601a80@@QAEPAU1@XZ"
     }
    ]
   },
@@ -133004,6 +133154,11 @@
      "va": "00ec3640",
      "size": 100,
      "symbol": "?execPolyi@UBrushBuilder@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "00ec3160",
+     "size": 122,
+     "symbol": "?execVertexv@UBrushBuilder@@QAEXAAUFFrame@@QAX@Z"
     }
    ]
   },
@@ -138655,6 +138810,11 @@
      "va": "00f730c0",
      "size": 29,
      "symbol": "?Begin@UTransactor@@UAEHH@Z"
+    },
+    {
+     "va": "00f73160",
+     "size": 29,
+     "symbol": "?CanUndo@UTransactor@@UAEHH@Z"
     }
    ]
   },
@@ -155153,6 +155313,18 @@
   },
   {
    "unit": "Engine/Src/DynamicLightEnvironmentComponent.cpp",
+   "source": "Engine/Src/DynamicLightEnvironmentComponent.3.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "006b7ab0",
+     "size": 14,
+     "symbol": "?sub_006b7ab0@C@@QAEPAU1@XZ"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Src/DynamicLightEnvironmentComponent.cpp",
    "source": "Engine/Src/DynamicLightEnvironmentComponent.cpp",
    "profile": "ue3",
    "functions": [
@@ -165181,6 +165353,16 @@
      "va": "00af3f60",
      "size": 5,
      "symbol": "?sub_00af3f60@@YAXXZ"
+    },
+    {
+     "va": "00ac6cd0",
+     "size": 14,
+     "symbol": "?sub_00ac6cd0@C_00ac6cd0@@QAEPAU1@XZ"
+    },
+    {
+     "va": "00af2260",
+     "size": 14,
+     "symbol": "?sub_00af2260@C_00af2260@@QAEHXZ"
     }
    ]
   },
@@ -168806,6 +168988,11 @@
      "va": "01aa0110",
      "size": 12,
      "symbol": "?sub_01aa0110@@YGXPAUSub_01aa0110@@@Z"
+    },
+    {
+     "va": "01ab2270",
+     "size": 13,
+     "symbol": "?sub_01ab2270@@YANXZ"
     }
    ]
   },
@@ -168991,6 +169178,11 @@
      "va": "01a71a50",
      "size": 47,
      "symbol": "?sub_01a71a50@@YAPAXPAX00@Z"
+    },
+    {
+     "va": "01a6ec70",
+     "size": 13,
+     "symbol": "?sub_01a6ec70@C_01a6ec70@@QAEXM@Z"
     }
    ]
   },
@@ -171882,6 +172074,18 @@
   },
   {
    "unit": "Engine/Src/UnActorComponent.cpp",
+   "source": "Engine/Src/UnActorComponent.5.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "006d43c0",
+     "size": 14,
+     "symbol": "?sub_006d43c0@C@@QAEXXZ"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Src/UnActorComponent.cpp",
    "source": "Engine/Src/UnActorComponent.cpp",
    "profile": "ue3",
    "functions": [
@@ -174248,6 +174452,11 @@
      "va": "00c757c0",
      "size": 185,
      "symbol": "?GetPrivateStaticClassUActorFactoryApexDestructible@UActorFactoryApexDestructible@@SAPAUUClass@@PB_W@Z"
+    },
+    {
+     "va": "00c4ac10",
+     "size": 14,
+     "symbol": "?sub_00c4ac10@@YAHH@Z"
     }
    ]
   },
@@ -174497,6 +174706,42 @@
   },
   {
    "unit": "Engine/Src/UnAnimTree.cpp",
+   "source": "Engine/Src/UnAnimTree.10.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "00c7c810",
+     "size": 291,
+     "symbol": "?TickAnim@UAnimNodePlayCustomAnim_@@QAEXMM@Z"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Src/UnAnimTree.cpp",
+   "source": "Engine/Src/UnAnimTree.11.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "00c803f0",
+     "size": 342,
+     "symbol": "?AddToSynchGroup@UAnimNodeSlot_@@QAEXUFName@@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Src/UnAnimTree.cpp",
+   "source": "Engine/Src/UnAnimTree.12.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "00c5ed80",
+     "size": 431,
+     "symbol": "?GetNodesByClass@UAnimNode_@@QAEXAAV?$TArray@PAUUAnimNode@@@@PAUUClass@@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Src/UnAnimTree.cpp",
    "source": "Engine/Src/UnAnimTree.2.cpp",
    "profile": "ue3",
    "functions": [
@@ -174561,6 +174806,11 @@
      "va": "00c56870",
      "size": 313,
      "symbol": "?UpdateWeightsForAdditiveAnimations@UAnimNodeSlot_@@QAEXXZ"
+    },
+    {
+     "va": "00c56440",
+     "size": 240,
+     "symbol": "?GetRelativePosition@UAnimNodeSynch_@@QAEMUFName@@@Z"
     }
    ]
   },
@@ -174669,6 +174919,30 @@
      "va": "00c4b5d0",
      "size": 13,
      "symbol": "?vf_194@UAnimNodeBlendBase_@@UAEHH@Z"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Src/UnAnimTree.cpp",
+   "source": "Engine/Src/UnAnimTree.8.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "00c7cbb0",
+     "size": 243,
+     "symbol": "?SetActorAnimEndNotification@UAnimNodeSlot_@@QAEXH@Z"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Src/UnAnimTree.cpp",
+   "source": "Engine/Src/UnAnimTree.9.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "00c7a590",
+     "size": 263,
+     "symbol": "?GetActiveChild@UAnimNodeCrossfader_@@QAEPAUUAnimNodeSequence@@XZ"
     }
    ]
   },
@@ -175871,6 +176145,16 @@
      "va": "00c803c0",
      "size": 39,
      "symbol": "?vf_130@UAnimNodeAimOffset@@UAEXI@Z"
+    },
+    {
+     "va": "00c56bb0",
+     "size": 235,
+     "symbol": "?GetNextAvailableChild@UAnimNodeSlot_@@QAEHUFName@@@Z"
+    },
+    {
+     "va": "00c533f0",
+     "size": 292,
+     "symbol": "?SetChildrenTotalWeightAccumulator@UAnimNodeBlendBase_@@QAEXH@Z"
     }
    ]
   },
@@ -180929,6 +181213,11 @@
      "va": "00df9b90",
      "size": 29,
      "symbol": "?sub_00df9b90@C@@QAEXPA_W@Z"
+    },
+    {
+     "va": "00dfa3e0",
+     "size": 14,
+     "symbol": "?sub_00dfa3e0@C_00dfa3e0@@QAEXXZ"
     }
    ]
   },
@@ -188078,6 +188367,11 @@
      "va": "00a497e0",
      "size": 53,
      "symbol": "?sub_00a497e0@C@@QAEXXZ"
+    },
+    {
+     "va": "0080b400",
+     "size": 14,
+     "symbol": "?sub_0080b400@C_0080b400@@QAEPAU1@H@Z"
     }
    ]
   },
@@ -189055,6 +189349,16 @@
      "va": "0085a240",
      "size": 52,
      "symbol": "?vf_004@UMorphNodeWeight@@UAE_NXZ"
+    },
+    {
+     "va": "008348d0",
+     "size": 14,
+     "symbol": "?sub_008348d0@C_008348d0@@QAEXM@Z"
+    },
+    {
+     "va": "008348f0",
+     "size": 14,
+     "symbol": "?sub_008348f0@C_008348f0@@QAEXM@Z"
     }
    ]
   },
@@ -197665,6 +197969,16 @@
      "va": "009fe480",
      "size": 84,
      "symbol": "?execGetRBLinearVelocity@UPrimitiveComponent@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "009fde40",
+     "size": 124,
+     "symbol": "?execPutRigidBodyToSleep@UPrimitiveComponent@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "009fdd80",
+     "size": 124,
+     "symbol": "?execWakeRigidBody@UPrimitiveComponent@@QAEXAAUFFrame@@QAX@Z"
     }
    ]
   },
@@ -200368,6 +200682,11 @@
      "va": "008e6260",
      "size": 13,
      "symbol": "?sub_008e6260@C@@QAEXXZ"
+    },
+    {
+     "va": "008e7290",
+     "size": 339,
+     "symbol": "?Activated@USeqCond_CompareFloat_@@QAEXXZ"
     }
    ]
   },
@@ -200467,6 +200786,11 @@
      "va": "00c98110",
      "size": 121,
      "symbol": "?execHasLinkedOps@USequenceOp@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "00c98630",
+     "size": 119,
+     "symbol": "?execGetColour@USeqAct_GetMatInstVectorParam@@QAEXAAUFFrame@@QAX@Z"
     }
    ]
   },
@@ -214921,6 +215245,16 @@
      "va": "00d92b80",
      "size": 24,
      "symbol": "?sub_00d92b80@S_00d92b80@@QAEPAU1@H@Z"
+    },
+    {
+     "va": "00d98610",
+     "size": 14,
+     "symbol": "?sub_00d98610@C@@QAEPAU1@XZ"
+    },
+    {
+     "va": "00d9a500",
+     "size": 14,
+     "symbol": "?sub_00d9a500@C_00d9a500@@QAEPAU1@XZ"
     }
    ]
   },
@@ -218754,6 +219088,31 @@
      "va": "00daabb0",
      "size": 24,
      "symbol": "?sub_00daabb0@UUIObject@@QAEHH@Z"
+    },
+    {
+     "va": "00da6dc0",
+     "size": 14,
+     "symbol": "?sub_00da6dc0@C_00da6dc0@@QAEPAU1@H@Z"
+    },
+    {
+     "va": "00da6dd0",
+     "size": 14,
+     "symbol": "?sub_00da6dd0@C_00da6dd0@@QAEPAU1@H@Z"
+    },
+    {
+     "va": "00da6de0",
+     "size": 14,
+     "symbol": "?sub_00da6de0@C_00da6de0@@QAEPAU1@H@Z"
+    },
+    {
+     "va": "00da6df0",
+     "size": 14,
+     "symbol": "?sub_00da6df0@C_00da6df0@@QAEPAU1@H@Z"
+    },
+    {
+     "va": "00da7360",
+     "size": 14,
+     "symbol": "?sub_00da7360@C_00da7360@@QAEPAU1@H@Z"
     }
    ]
   },
@@ -231368,6 +231727,11 @@
      "va": "00565f80",
      "size": 12,
      "symbol": "?sub_00565f80@@YAXPCJ@Z"
+    },
+    {
+     "va": "00566190",
+     "size": 14,
+     "symbol": "?sub_00566190@C@@QAEXM@Z"
     }
    ]
   },
@@ -233421,6 +233785,16 @@
      "va": "0064aae0",
      "size": 12,
      "symbol": "?sub_0064aae0@C@@QAEHXZ"
+    },
+    {
+     "va": "0064bbf0",
+     "size": 14,
+     "symbol": "?sub_0064bbf0@USurface_@@QAEXXZ"
+    },
+    {
+     "va": "0064d1e0",
+     "size": 14,
+     "symbol": "?sub_0064d1e0@C_0064d1e0@@QAEXM@Z"
     }
    ]
   },
@@ -234730,6 +235104,16 @@
      "va": "006502e0",
      "size": 13,
      "symbol": "?sub_006502e0@C_006502e0@@QAEPAU1@XZ"
+    },
+    {
+     "va": "006519f0",
+     "size": 14,
+     "symbol": "?sub_006519f0@C_006519f0@@QAEPAU1@XZ"
+    },
+    {
+     "va": "00651a00",
+     "size": 14,
+     "symbol": "?sub_00651a00@C_00651a00@@QAEPAU1@XZ"
     }
    ]
   },
@@ -238886,6 +239270,33 @@
      "va": "00665c50",
      "size": 13,
      "symbol": "?sub_00665c50@C@@QAEXHH@Z"
+    },
+    {
+     "va": "00663590",
+     "size": 14,
+     "symbol": "?sub_00663590@@YAMXZ"
+    },
+    {
+     "va": "00665db0",
+     "size": 14,
+     "symbol": "?sub_00665db0@C_00665db0@@QAEPAU1@XZ"
+    },
+    {
+     "va": "00666770",
+     "size": 14,
+     "symbol": "?sub_00666770@C_00666770@@QAEPAU1@XZ"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Unsorted/Engine_0660000.cpp",
+   "source": "Engine/Unsorted/Engine_0660000.24.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "00663630",
+     "size": 29,
+     "symbol": "?CheckMaterialUsage@UMaterialInterface@@UAEHH@Z"
     }
    ]
   },
@@ -244165,6 +244576,11 @@
      "va": "006bd000",
      "size": 53,
      "symbol": "?sub_006bd000@C_006bd000@@QAEXH@Z"
+    },
+    {
+     "va": "006b9130",
+     "size": 14,
+     "symbol": "?sub_006b9130@C_006b9130@@QAEPAU1@XZ"
     }
    ]
   },
@@ -245528,6 +245944,16 @@
      "va": "006dff00",
      "size": 13,
      "symbol": "?sub_006dff00@C@@QAEPAU1@XZ"
+    },
+    {
+     "va": "006d9a80",
+     "size": 14,
+     "symbol": "?sub_006d9a80@C_006d9a80@@QAEHXZ"
+    },
+    {
+     "va": "006d9a90",
+     "size": 14,
+     "symbol": "?sub_006d9a90@C_006d9a90@@QAEHXZ"
     }
    ]
   },
@@ -251934,6 +252360,21 @@
      "va": "00718c40",
      "size": 13,
      "symbol": "?sub_00718c40@C_00718c40@@QAEPAU1@XZ"
+    },
+    {
+     "va": "007159c0",
+     "size": 14,
+     "symbol": "?sub_007159c0@C_007159c0@@QAEPAU1@XZ"
+    },
+    {
+     "va": "00715a50",
+     "size": 14,
+     "symbol": "?sub_00715a50@C_00715a50@@QAEHXZ"
+    },
+    {
+     "va": "0071d490",
+     "size": 14,
+     "symbol": "?sub_0071d490@C_0071d490@@QAEHXZ"
     }
    ]
   },
@@ -254220,6 +254661,11 @@
      "va": "00724110",
      "size": 13,
      "symbol": "?sub_00724110@C@@QAEHXZ"
+    },
+    {
+     "va": "00725930",
+     "size": 14,
+     "symbol": "?sub_00725930@C_00725930@@QAEHXZ"
     }
    ]
   },
@@ -269058,6 +269504,11 @@
      "va": "007e4c30",
      "size": 30,
      "symbol": "?sub_007e4c30@C@@QAEIE@Z"
+    },
+    {
+     "va": "007e0500",
+     "size": 14,
+     "symbol": "?sub_007e0500@C_007e0500@@QAEPAU1@XZ"
     }
    ]
   },
@@ -272807,6 +273258,11 @@
      "va": "0081f980",
      "size": 23,
      "symbol": "??ETConstSetBitIterator_0081f980@@QAEAAU0@XZ"
+    },
+    {
+     "va": "00812a40",
+     "size": 14,
+     "symbol": "?sub_00812a40@C_00812a40@@QAEPAU1@XZ"
     }
    ]
   },
@@ -276966,6 +277422,11 @@
      "va": "008aea10",
      "size": 29,
      "symbol": "?sub_008aea10@@YAPA_WPA_W0@Z"
+    },
+    {
+     "va": "008a7800",
+     "size": 14,
+     "symbol": "?sub_008a7800@@YAXXZ"
     }
    ]
   },
@@ -284844,6 +285305,11 @@
      "va": "00967b40",
      "size": 13,
      "symbol": "?sub_00967b40@C_00967b40@@QAEPAU1@XZ"
+    },
+    {
+     "va": "00969e20",
+     "size": 14,
+     "symbol": "?sub_00969e20@C_00969e20@@QAEPAU1@XZ"
     }
    ]
   },
@@ -286564,6 +287030,11 @@
      "va": "009cf670",
      "size": 14,
      "symbol": "?sub_009cf670@C_009cf670@@QAEHXZ"
+    },
+    {
+     "va": "009c1d10",
+     "size": 14,
+     "symbol": "?sub_009c1d10@C_009c1d10@@QAEHXZ"
     }
    ]
   },
@@ -296692,6 +297163,11 @@
      "va": "00a73980",
      "size": 13,
      "symbol": "?sub_00a73980@C_00a73980@@QAEHXZ"
+    },
+    {
+     "va": "00a75a60",
+     "size": 14,
+     "symbol": "?sub_00a75a60@C_00a75a60@@QAEPAU1@XZ"
     }
    ]
   },
@@ -296866,6 +297342,11 @@
      "va": "00a8c570",
      "size": 30,
      "symbol": "?sub_00a8c570@C_00a8c570@@QAEIE@Z"
+    },
+    {
+     "va": "00a8ad50",
+     "size": 14,
+     "symbol": "?sub_00a8ad50@C_00a8ad50@@QAEPAU1@XZ"
     }
    ]
   },
@@ -302194,6 +302675,16 @@
      "va": "00ac1080",
      "size": 12,
      "symbol": "?sub_00ac1080@C_00ac1080@@QAEPAHPAH@Z"
+    },
+    {
+     "va": "00ac4660",
+     "size": 14,
+     "symbol": "?sub_00ac4660@C_00ac4660@@QAEPAU1@XZ"
+    },
+    {
+     "va": "00ac4670",
+     "size": 14,
+     "symbol": "?sub_00ac4670@C_00ac4670@@QAEPAU1@XZ"
     }
    ]
   },
@@ -307080,6 +307571,16 @@
      "va": "00b0fe70",
      "size": 24,
      "symbol": "?sub_00b0fe70@FS00b0fe70@@UAEHXZ"
+    },
+    {
+     "va": "00b0adf0",
+     "size": 14,
+     "symbol": "?sub_00b0adf0@C_00b0adf0@@QAEPAU1@XZ"
+    },
+    {
+     "va": "00b0ae00",
+     "size": 14,
+     "symbol": "?sub_00b0ae00@C_00b0ae00@@QAEPAU1@XZ"
     }
    ]
   },
@@ -312240,6 +312741,11 @@
      "va": "00bbe8a0",
      "size": 12,
      "symbol": "?sub_00bbe8a0@C_00bbe8a0@@QAEPAHPAH@Z"
+    },
+    {
+     "va": "00bb7b50",
+     "size": 14,
+     "symbol": "?sub_00bb7b50@C_00bb7b50@@QAEPAU1@XZ"
     }
    ]
   },
@@ -314302,6 +314808,16 @@
      "va": "00be28c0",
      "size": 24,
      "symbol": "?sub_00be28c0@S_00be28c0@@QAEHXZ"
+    },
+    {
+     "va": "00be0e20",
+     "size": 14,
+     "symbol": "?sub_00be0e20@C@@QAEHXZ"
+    },
+    {
+     "va": "00be0e30",
+     "size": 14,
+     "symbol": "?sub_00be0e30@C_00be0e30@@QAEHXZ"
     }
    ]
   },
@@ -321284,6 +321800,21 @@
      "va": "00c9fa70",
      "size": 113,
      "symbol": "?execUpdateStasis@AFracturedStaticMeshActor@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "00c9b880",
+     "size": 104,
+     "symbol": "?execSetDuration@UMaterialInstanceTimeVarying@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "00c93df0",
+     "size": 119,
+     "symbol": "?execUpdateSmoothLocation@URB_Handle@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "00c9f300",
+     "size": 122,
+     "symbol": "?execGetFragmentBox@UFracturedStaticMeshComponent@@QAEXAAUFFrame@@QAX@Z"
     }
    ]
   },
@@ -322760,6 +323291,21 @@
      "va": "00cb5ac0",
      "size": 29,
      "symbol": "?CreateViewport@UClient@@UAEHHHHHH@Z"
+    },
+    {
+     "va": "00cb02b0",
+     "size": 14,
+     "symbol": "?sub_00cb02b0@@YAXXZ"
+    },
+    {
+     "va": "00cb5990",
+     "size": 14,
+     "symbol": "?sub_00cb5990@C@@QAEPAU1@XZ"
+    },
+    {
+     "va": "00cbf7f0",
+     "size": 14,
+     "symbol": "?sub_00cbf7f0@C_00cbf7f0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -326518,6 +327064,16 @@
      "va": "00d3c620",
      "size": 5,
      "symbol": "?sub_00d3c620@@YAXXZ"
+    },
+    {
+     "va": "00d31460",
+     "size": 14,
+     "symbol": "?sub_00d31460@C_00d31460@@QAEPAU1@XZ"
+    },
+    {
+     "va": "00d3afb0",
+     "size": 14,
+     "symbol": "?sub_00d3afb0@C_00d3afb0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -326684,6 +327240,11 @@
      "va": "00d49190",
      "size": 12,
      "symbol": "?sub_00d49190@C_00d49190@@QAEPAHPAH@Z"
+    },
+    {
+     "va": "00d45600",
+     "size": 14,
+     "symbol": "?sub_00d45600@C_00d45600@@QAEPAU1@XZ"
     }
    ]
   },
@@ -332523,6 +333084,11 @@
      "va": "00dffcc0",
      "size": 56,
      "symbol": "?sub_00dffcc0@C_00dffcc0@@QAEXH@Z"
+    },
+    {
+     "va": "00df18c0",
+     "size": 14,
+     "symbol": "?sub_00df18c0@C_00df18c0@@QAEXXZ"
     }
    ]
   },
@@ -348842,6 +349408,11 @@
      "va": "00ecfff0",
      "size": 96,
      "symbol": "?sub_00ecfff0@C_00ecfff0@@QAEXXZ"
+    },
+    {
+     "va": "00ec22f0",
+     "size": 14,
+     "symbol": "?sub_00ec22f0@C_00ec22f0@@QAEPAU1@PAH@Z"
     }
    ]
   },
@@ -362798,6 +363369,18 @@
   },
   {
    "unit": "External/FCollada/Unsorted/FCollada_1bc0000.cpp",
+   "source": "External/FCollada/Unsorted/FCollada_1bc0000.4.cpp",
+   "profile": "ue3_x87",
+   "functions": [
+    {
+     "va": "01bc1760",
+     "size": 13,
+     "symbol": "?sub_01bc1760@@YAXXZ"
+    }
+   ]
+  },
+  {
+   "unit": "External/FCollada/Unsorted/FCollada_1bc0000.cpp",
    "source": "External/FCollada/Unsorted/FCollada_1bc0000.cpp",
    "profile": "ue3",
    "functions": [
@@ -371127,6 +371710,11 @@
      "va": "018da820",
      "size": 13,
      "symbol": "?sub_018da820@C_018da820@@QAEXXZ"
+    },
+    {
+     "va": "018dcb30",
+     "size": 13,
+     "symbol": "?sub_018dcb30@C_018dcb30@@QAEXXZ"
     }
    ]
   },
@@ -372898,6 +373486,11 @@
      "va": "018e9ec0",
      "size": 12,
      "symbol": "?sub_018e9ec0@GFxColoredItem@@QBE?AUGColor@@XZ"
+    },
+    {
+     "va": "018e8b70",
+     "size": 13,
+     "symbol": "?sub_018e8b70@C_018e8b70@@QAEXM@Z"
     }
    ]
   },
@@ -375946,6 +376539,31 @@
      "va": "018f1200",
      "size": 24,
      "symbol": "?sub_018f1200@@YA?AULARGE_INTEGER_@@XZ"
+    },
+    {
+     "va": "018f11f0",
+     "size": 13,
+     "symbol": "?sub_018f11f0@@YGN_J@Z"
+    },
+    {
+     "va": "018f50e0",
+     "size": 13,
+     "symbol": "?sub_018f50e0@C_018f50e0@@QAEPAU1@PAH@Z"
+    },
+    {
+     "va": "018f5550",
+     "size": 13,
+     "symbol": "?sub_018f5550@C_018f5550@@QAEPAU1@XZ"
+    },
+    {
+     "va": "018f7640",
+     "size": 13,
+     "symbol": "?sub_018f7640@@YGPADPAX@Z"
+    },
+    {
+     "va": "018f9140",
+     "size": 13,
+     "symbol": "?sub_018f9140@C_018f9140@@QAEPAU1@XZ"
     }
    ]
   },
@@ -376756,6 +377374,11 @@
      "va": "01903b00",
      "size": 12,
      "symbol": "?sub_01903b00@C@@QAEPAHPAH@Z"
+    },
+    {
+     "va": "01901680",
+     "size": 13,
+     "symbol": "?sub_01901680@C_01901680@@QAEPAU1@XZ"
     }
    ]
   },
@@ -379986,6 +380609,16 @@
      "va": "0191b7a0",
      "size": 24,
      "symbol": "?sub_0191b7a0@@YGXHH@Z"
+    },
+    {
+     "va": "01914060",
+     "size": 13,
+     "symbol": "?sub_01914060@C_01914060@@QAEPAU1@XZ"
+    },
+    {
+     "va": "01914600",
+     "size": 13,
+     "symbol": "?sub_01914600@C_01914600@@QAEXXZ"
     }
    ]
   },
@@ -380853,6 +381486,11 @@
      "va": "01921b00",
      "size": 24,
      "symbol": "?sub_01921b00@S@@QAEPAU1@XZ"
+    },
+    {
+     "va": "019237a0",
+     "size": 13,
+     "symbol": "?sub_019237a0@C@@QAEXXZ"
     }
    ]
   },
@@ -382278,6 +382916,16 @@
      "va": "0193ea60",
      "size": 24,
      "symbol": "?sub_0193ea60@GRefCountBaseImpl_@@QAEXXZ"
+    },
+    {
+     "va": "01937b80",
+     "size": 13,
+     "symbol": "?sub_01937b80@C@@QAEPAU1@PAH@Z"
+    },
+    {
+     "va": "0193b6b0",
+     "size": 13,
+     "symbol": "?sub_0193b6b0@C_0193b6b0@@QAEEPAD@Z"
     }
    ]
   },
@@ -384119,6 +384767,31 @@
      "va": "01947f80",
      "size": 24,
      "symbol": "?sub_01947f80@GFxMovieRoot@@QAEXPAX@Z"
+    },
+    {
+     "va": "01947650",
+     "size": 13,
+     "symbol": "?sub_01947650@C_01947650@@QAEPAU1@PAE@Z"
+    },
+    {
+     "va": "0194a1c0",
+     "size": 13,
+     "symbol": "?sub_0194a1c0@C_0194a1c0@@QAEPAU1@XZ"
+    },
+    {
+     "va": "0194a5f0",
+     "size": 13,
+     "symbol": "?sub_0194a5f0@C_0194a5f0@@QAEPAU1@XZ"
+    },
+    {
+     "va": "0194a630",
+     "size": 13,
+     "symbol": "?sub_0194a630@C_0194a630@@QAEPAU1@XZ"
+    },
+    {
+     "va": "0194a670",
+     "size": 13,
+     "symbol": "?sub_0194a670@C_0194a670@@QAEPAU1@XZ"
     }
    ]
   },
@@ -385860,6 +386533,21 @@
      "va": "0195b160",
      "size": 12,
      "symbol": "?sub_0195b160@C@@QAEPAHPAH@Z"
+    },
+    {
+     "va": "0195b000",
+     "size": 13,
+     "symbol": "?sub_0195b000@C_0195b000@@QAEPAU1@XZ"
+    },
+    {
+     "va": "0195b060",
+     "size": 13,
+     "symbol": "?sub_0195b060@C_0195b060@@QAEPAU1@PAE@Z"
+    },
+    {
+     "va": "0195b600",
+     "size": 13,
+     "symbol": "?sub_0195b600@C_0195b600@@QAEHXZ"
     }
    ]
   },
@@ -387931,6 +388619,26 @@
      "va": "0196c820",
      "size": 12,
      "symbol": "?sub_0196c820@@YGHPAH@Z"
+    },
+    {
+     "va": "0196ace0",
+     "size": 24,
+     "symbol": "?sub_0196ace0@@YGIPAI@Z"
+    },
+    {
+     "va": "01968240",
+     "size": 24,
+     "symbol": "?sub_01968240@S01968240@@QAEMH@Z"
+    },
+    {
+     "va": "0196c770",
+     "size": 24,
+     "symbol": "?sub_0196c770@@YGHPBUF0196c770Data@@@Z"
+    },
+    {
+     "va": "0196c640",
+     "size": 24,
+     "symbol": "?sub_0196c640@@YGIPBUsub_0196c640_Desc@@@Z"
     }
    ]
   },
@@ -388489,6 +389197,36 @@
      "va": "01978380",
      "size": 24,
      "symbol": "?sub_01978380@GFxWordBuffer@@QAEXXZ"
+    },
+    {
+     "va": "01978450",
+     "size": 24,
+     "symbol": "?sub_01978450@UGFxDataStoreSubscriber_@@QAEIXZ"
+    },
+    {
+     "va": "01972970",
+     "size": 24,
+     "symbol": "?sub_01972970@GASTextFieldCtorFunction@@UAEHH@Z"
+    },
+    {
+     "va": "0197a980",
+     "size": 24,
+     "symbol": "?sub_0197a980@FDataStoreSubscriber@@QAEHXZ"
+    },
+    {
+     "va": "01974d20",
+     "size": 24,
+     "symbol": "?sub_01974d20@C@@QAEPAU1@PAU1@@Z"
+    },
+    {
+     "va": "0197a9a0",
+     "size": 24,
+     "symbol": "?sub_0197a9a0@FDataStoreSubscriber2@@QAEHXZ"
+    },
+    {
+     "va": "01973a50",
+     "size": 24,
+     "symbol": "?sub_01973a50@GASSuperObject@@QAEPAV1@PAV1@H@Z"
     }
    ]
   },
@@ -390665,6 +391403,21 @@
      "va": "0198f7b0",
      "size": 12,
      "symbol": "?sub_0198f7b0@C_0198f7b0@@QAEPAEPAE@Z"
+    },
+    {
+     "va": "019859c0",
+     "size": 13,
+     "symbol": "?sub_019859c0@C_019859c0@@QAEXXZ"
+    },
+    {
+     "va": "01985fb0",
+     "size": 13,
+     "symbol": "?sub_01985fb0@C_01985fb0@@QAEXXZ"
+    },
+    {
+     "va": "0198f870",
+     "size": 24,
+     "symbol": "?sub_0198f870@GFxThing@@QAEPAXXZ"
     }
    ]
   },
@@ -391829,6 +392582,16 @@
      "va": "01999c30",
      "size": 12,
      "symbol": "?sub_01999c30@@YGHPAH@Z"
+    },
+    {
+     "va": "01996850",
+     "size": 24,
+     "symbol": "?sub_01996850@@YAHPAUsub_01996850_T@@PAH@Z"
+    },
+    {
+     "va": "01996830",
+     "size": 24,
+     "symbol": "?sub_01996830@@YAHPAUGFx_01996@@PAH@Z"
     }
    ]
   },
@@ -392568,6 +393331,11 @@
      "va": "019aa4d0",
      "size": 11,
      "symbol": "?sub_019aa4d0@GFxFlagsOwner@@QBE_NXZ"
+    },
+    {
+     "va": "019af8b0",
+     "size": 24,
+     "symbol": "?sub_019af8b0@C_019af8b0@@QAEHH@Z"
     }
    ]
   },
@@ -392865,6 +393633,28 @@
      "va": "019b6db0",
      "size": 12,
      "symbol": "?sub_019b6db0@@YGHPAH@Z"
+    },
+    {
+     "va": "019bbec0",
+     "size": 24,
+     "symbol": "?sub_019bbec0@C@@QAEHH@Z"
+    },
+    {
+     "va": "019b41a0",
+     "size": 24,
+     "symbol": "?sub_019b41a0@S019b41a0@@QAEHPAUSInner@@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "External/GFx/Unsorted/GFx_19b0000.cpp",
+   "source": "External/GFx/Unsorted/GFx_19b0000.15.cpp",
+   "profile": "ue3_x87",
+   "functions": [
+    {
+     "va": "019b0860",
+     "size": 24,
+     "symbol": "?sub_019b0860@GFx19b0860@@QAEPAXPAX@Z"
     }
    ]
   },
@@ -394599,6 +395389,28 @@
      "va": "019c81f0",
      "size": 12,
      "symbol": "?sub_019c81f0@C_019c81f0@@QAEPAHPAH@Z"
+    },
+    {
+     "va": "019ca180",
+     "size": 13,
+     "symbol": "?sub_019ca180@C_019ca180@@QAEXM@Z"
+    },
+    {
+     "va": "019caf70",
+     "size": 24,
+     "symbol": "?sub_019caf70@@YAPAUsub_019caf70_obj@@PAU1@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "External/GFx/Unsorted/GFx_19c0000.cpp",
+   "source": "External/GFx/Unsorted/GFx_19c0000.5.cpp",
+   "profile": "ue3_x87",
+   "functions": [
+    {
+     "va": "019c6c70",
+     "size": 24,
+     "symbol": "?sub_019c6c70@FOwner@@QAEAAUFHandler@@AAU2@@Z"
     }
    ]
   },
@@ -396258,6 +397070,36 @@
      "va": "019df940",
      "size": 8,
      "symbol": "?sub_019dfac0@C_019df940@@WBA@AEXXZ"
+    },
+    {
+     "va": "019da990",
+     "size": 13,
+     "symbol": "?sub_019da990@C_019da990@@QAEHH@Z"
+    },
+    {
+     "va": "019dca80",
+     "size": 13,
+     "symbol": "?sub_019dca80@C_019dca80@@QAEXXZ"
+    },
+    {
+     "va": "019ddc40",
+     "size": 24,
+     "symbol": "?sub_019ddc40@C_019ddc40@@QAEHH@Z"
+    },
+    {
+     "va": "019df420",
+     "size": 24,
+     "symbol": "?sub_019df420@C_019df420@@QAEPAV1@PAV1@@Z"
+    },
+    {
+     "va": "019dc0a0",
+     "size": 24,
+     "symbol": "?sub_019dc0a0@GFx_019dc0a0@@QAEHPAU1@@Z"
+    },
+    {
+     "va": "019d1860",
+     "size": 24,
+     "symbol": "?sub_019d1860@Holder_019d1860@@QAEXD@Z"
     }
    ]
   },
@@ -397292,6 +398134,41 @@
      "va": "019efc20",
      "size": 8,
      "symbol": "?sub_019efda0@C_019efc20@@WBA@AEXXZ"
+    },
+    {
+     "va": "019e1270",
+     "size": 24,
+     "symbol": "?sub_019e1270@C_019e1270@@QAEHH@Z"
+    },
+    {
+     "va": "019ea270",
+     "size": 24,
+     "symbol": "?sub_019ea270@C_019ea270@@QAEHH@Z"
+    },
+    {
+     "va": "019e7d70",
+     "size": 24,
+     "symbol": "?sub_019e7d70@sub_019e7d70_class@@QAEHPAVsub_019729b0_class@@@Z"
+    },
+    {
+     "va": "019ee7d0",
+     "size": 24,
+     "symbol": "?sub_019ee7d0@C_019ee7d0@@QAEPAV1@PAV1@@Z"
+    },
+    {
+     "va": "019e57b0",
+     "size": 24,
+     "symbol": "?sub_019e57b0@B@@QAEPAUC_019e57b0@@PAU2@@Z"
+    },
+    {
+     "va": "019ec510",
+     "size": 24,
+     "symbol": "?sub_019ec510@Outer_019ec510@@QAEPAUC_019ec510@@PAU2@@Z"
+    },
+    {
+     "va": "019ef6d0",
+     "size": 24,
+     "symbol": "?sub_019ef6d0@sub_019ef6d0_@@QAEHPAUsub_019729b0_@@@Z"
     }
    ]
   },
@@ -398072,6 +398949,11 @@
      "va": "019ff5b0",
      "size": 18,
      "symbol": "?sub_019ff5b0@@YAXH@Z"
+    },
+    {
+     "va": "019f15f0",
+     "size": 24,
+     "symbol": "?sub_019f15f0@@YAHPAUSub01975740_@@PAH@Z"
     }
    ]
   },
@@ -403097,6 +403979,16 @@
      "va": "01a5ccb0",
      "size": 83,
      "symbol": "?sub_01a5ccb0@C_01a5ccb0@@QAEXPAMM@Z"
+    },
+    {
+     "va": "01a54fc0",
+     "size": 13,
+     "symbol": "?sub_01a54fc0@C_01a54fc0@@QAEPAU1@PAH@Z"
+    },
+    {
+     "va": "01a54fd0",
+     "size": 13,
+     "symbol": "?sub_01a54fd0@C_01a54fd0@@QAEPAU1@PAH@Z"
     }
    ]
   },
@@ -404571,6 +405463,21 @@
      "va": "00e85a70",
      "size": 13,
      "symbol": "?sub_00e85a70@@YAXH@Z"
+    },
+    {
+     "va": "00e70bc0",
+     "size": 14,
+     "symbol": "?sub_00e70bc0@@YGXHH@Z"
+    },
+    {
+     "va": "00e73ee0",
+     "size": 14,
+     "symbol": "?sub_00e73ee0@C_00e73ee0@@QAEPAU1@XZ"
+    },
+    {
+     "va": "00e80ac0",
+     "size": 14,
+     "symbol": "?sub_00e80ac0@C_00e80ac0@@QAEXXZ"
     }
    ]
   },
@@ -410015,6 +410922,11 @@
      "va": "00e42bd0",
      "size": 13,
      "symbol": "?sub_00e42bd0@C@@QAEPAU1@PAH@Z"
+    },
+    {
+     "va": "00e42aa0",
+     "size": 14,
+     "symbol": "?sub_00e42aa0@C_00e42aa0@@QAEXM@Z"
     }
    ]
   },
@@ -410791,6 +411703,16 @@
      "va": "00e565a0",
      "size": 12,
      "symbol": "?sub_00e565a0@FGFxRenderTexture@@QAEXXZ"
+    },
+    {
+     "va": "00e56400",
+     "size": 14,
+     "symbol": "?sub_00e56400@C_00e56400@@QAEHXZ"
+    },
+    {
+     "va": "00e5dd90",
+     "size": 14,
+     "symbol": "?sub_00e5dd90@C_00e5dd90@@QAEHXZ"
     }
    ]
   },
@@ -414903,6 +415825,16 @@
      "va": "00e5c750",
      "size": 12,
      "symbol": "?sub_00e5c750@GAtomicRefCount@@QAEJH@Z"
+    },
+    {
+     "va": "00e513e0",
+     "size": 14,
+     "symbol": "?sub_00e513e0@C_00e513e0@@QAEPAU1@XZ"
+    },
+    {
+     "va": "00e5db50",
+     "size": 14,
+     "symbol": "?sub_00e5db50@C_00e5db50@@QAEHXZ"
     }
    ]
   },
@@ -419053,6 +419985,11 @@
      "va": "00e2be70",
      "size": 24,
      "symbol": "?sub_00e2be70@UTcpipConnection_@@QAE_NH@Z"
+    },
+    {
+     "va": "00e28a90",
+     "size": 14,
+     "symbol": "?sub_00e28a90@C_00e28a90@@QAEHXZ"
     }
    ]
   },
@@ -422195,6 +423132,11 @@
      "va": "0170b6c0",
      "size": 59,
      "symbol": "?execGetVersionNumber@URGFxMovieFrontend@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "0170b3d0",
+     "size": 110,
+     "symbol": "?execGetPercDistAlongPath@URSeqAct_SetScarecrowCamera@@QAEXAAUFFrame@@QAX@Z"
     }
    ]
   },
@@ -422810,6 +423752,26 @@
      "va": "01ab76f0",
      "size": 26,
      "symbol": "?sub_01ab76f0@@YAFXZ"
+    },
+    {
+     "va": "01ab2d00",
+     "size": 13,
+     "symbol": "?sub_01ab2d00@C_01ab2d00@@QAEPAU1@XZ"
+    },
+    {
+     "va": "01ab2f80",
+     "size": 13,
+     "symbol": "?sub_01ab2f80@@YAHXZ"
+    },
+    {
+     "va": "01ab5ce0",
+     "size": 13,
+     "symbol": "?sub_01ab5ce0@C_01ab5ce0@@QAEPAU1@PAH@Z"
+    },
+    {
+     "va": "01ab5cf0",
+     "size": 13,
+     "symbol": "?sub_01ab5cf0@C_01ab5cf0@@QAEPAU1@PAH@Z"
     }
    ]
   },
@@ -424043,6 +425005,11 @@
      "va": "01aeffb0",
      "size": 13,
      "symbol": "??0C_01aeffb0@@QAE@XZ"
+    },
+    {
+     "va": "01aeeb50",
+     "size": 13,
+     "symbol": "?sub_01aeeb50@C_01aeeb50@@QAEPAU1@XZ"
     }
    ]
   },
@@ -426834,6 +427801,11 @@
      "va": "00e89940",
      "size": 16,
      "symbol": "?sub_00e89940@UOnlineGameInterfaceSteamworks_@@QAEHM@Z"
+    },
+    {
+     "va": "00e89870",
+     "size": 14,
+     "symbol": "?sub_00e89870@@YGXPAUObject@@@Z"
     }
    ]
   },
@@ -437170,6 +438142,21 @@
      "va": "01baf300",
      "size": 48,
      "symbol": "?sub_01baf300@C_01baf300@@QAEPAHH@Z"
+    },
+    {
+     "va": "01ba15c0",
+     "size": 13,
+     "symbol": "?sub_01ba15c0@C_01ba15c0@@QAEGH@Z"
+    },
+    {
+     "va": "01baef90",
+     "size": 13,
+     "symbol": "?sub_01baef90@C_01baef90@@QAEHXZ"
+    },
+    {
+     "va": "01bafa10",
+     "size": 13,
+     "symbol": "?sub_01bafa10@C_01bafa10@@QAEHXZ"
     }
    ]
   },
@@ -441880,6 +442867,11 @@
      "va": "0045c9f0",
      "size": 13,
      "symbol": "?sub_0045c9f0@C_0045c9f0@@QAEPAU1@XZ"
+    },
+    {
+     "va": "004c0d80",
+     "size": 14,
+     "symbol": "?sub_004c0d80@C_004c0d80@@QAEXM@Z"
     }
    ]
   },
@@ -462228,6 +463220,21 @@
      "va": "0042ea90",
      "size": 22,
      "symbol": "?sub_0042ea90@@YA_NPA_WPAVwxString@@@Z"
+    },
+    {
+     "va": "0042f2f0",
+     "size": 14,
+     "symbol": "?sub_0042f2f0@C_0042f2f0@@QAEXM@Z"
+    },
+    {
+     "va": "0042f310",
+     "size": 14,
+     "symbol": "?sub_0042f310@C_0042f310@@QAEXM@Z"
+    },
+    {
+     "va": "0042fd90",
+     "size": 14,
+     "symbol": "?sub_0042fd90@C_0042fd90@@QAEXH@Z"
     }
    ]
   },
@@ -462603,6 +463610,26 @@
      "va": "004310d0",
      "size": 13,
      "symbol": "?sub_004310d0@C@@QAEXH@Z"
+    },
+    {
+     "va": "00433c10",
+     "size": 14,
+     "symbol": "?sub_00433c10@C_00433c10@@QAEXH@Z"
+    },
+    {
+     "va": "00433ef0",
+     "size": 14,
+     "symbol": "?sub_00433ef0@C_00433ef0@@QAEXH@Z"
+    },
+    {
+     "va": "004389f0",
+     "size": 14,
+     "symbol": "?sub_004389f0@C_004389f0@@QAEXH@Z"
+    },
+    {
+     "va": "00438ff0",
+     "size": 14,
+     "symbol": "?sub_00438ff0@C_00438ff0@@QAEXH@Z"
     }
    ]
   },
@@ -464438,6 +465465,16 @@
      "va": "0045c520",
      "size": 12,
      "symbol": "?sub_0045c520@C_0045c520@@QAEXXZ"
+    },
+    {
+     "va": "0045d9f0",
+     "size": 14,
+     "symbol": "?sub_0045d9f0@C_0045d9f0@@QAEXM@Z"
+    },
+    {
+     "va": "0045da10",
+     "size": 14,
+     "symbol": "?sub_0045da10@C_0045da10@@QAEXM@Z"
     }
    ]
   },
@@ -467153,6 +468190,11 @@
      "va": "004b8880",
      "size": 26,
      "symbol": "?sub_004b8880@@YAFXZ"
+    },
+    {
+     "va": "004ba8a0",
+     "size": 14,
+     "symbol": "?sub_004ba8a0@C_004ba8a0@@QAEXM@Z"
     }
    ]
   },
@@ -468095,6 +469137,11 @@
      "va": "004eb030",
      "size": 12,
      "symbol": "?sub_004eb030@C_004eb030@@QAEXXZ"
+    },
+    {
+     "va": "004ed500",
+     "size": 14,
+     "symbol": "?sub_004ed500@C_004ed500@@QAEXH@Z"
     }
    ]
   },
@@ -469869,6 +470916,11 @@
      "va": "0052fec0",
      "size": 402,
      "symbol": "??0sub_0052fec0@@QAE@HHHHH@Z"
+    },
+    {
+     "va": "00520270",
+     "size": 14,
+     "symbol": "?sub_00520270@C_00520270@@QAE_NXZ"
     }
    ]
   },
@@ -504843,6 +505895,11 @@
      "va": "01acb880",
      "size": 12,
      "symbol": "?sub_01acb880@C_01acb880@@QAEEHH@Z"
+    },
+    {
+     "va": "01ace010",
+     "size": 13,
+     "symbol": "?sub_01ace010@@YAXPAM@Z"
     }
    ]
   },
@@ -505284,6 +506341,11 @@
      "va": "01b2f3e0",
      "size": 41,
      "symbol": "?sub_01b2f3e0@C_01b2f3e0@@QAEXXZ"
+    },
+    {
+     "va": "01b28b30",
+     "size": 13,
+     "symbol": "?sub_01b28b30@C_01b28b30@@QAEPAU1@XZ"
     }
    ]
   },
@@ -506587,6 +507649,11 @@
      "va": "01b453f0",
      "size": 12,
      "symbol": "?sub_01b453f0@C@@QAEEH@Z"
+    },
+    {
+     "va": "01b45440",
+     "size": 13,
+     "symbol": "?sub_01b45440@C_01b45440@@QAEPAU1@XZ"
     }
    ]
   },
@@ -508665,6 +509732,11 @@
      "va": "01b5e540",
      "size": 1029,
      "symbol": "?sub_01b5e540@C@@QAE_NPBD@Z"
+    },
+    {
+     "va": "01b57870",
+     "size": 13,
+     "symbol": "?sub_01b57870@C_01b57870@@QAEXXZ"
     }
    ]
   },

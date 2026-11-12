@@ -1,4 +1,4 @@
-// UnSequence.cpp: 2 functions
+// UnSequence.cpp: 3 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -20,4 +20,13 @@ void USequenceOp::execHasLinkedOps(FFrame& Stack, RESULT_DECL)
 	P_GET_UBOOL_OPTX(bConsiderInputLinks, FALSE);
 	P_FINISH;
 	*(UBOOL*)Result = HasLinkedOps(bConsiderInputLinks);
+}
+
+// @baa 0x00c98630
+// @baa 0x00c98630
+void USeqAct_GetMatInstVectorParam::execGetColour(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT_REF(FLinearColor, Colour);
+    P_FINISH;
+    GetColour(Colour);
 }

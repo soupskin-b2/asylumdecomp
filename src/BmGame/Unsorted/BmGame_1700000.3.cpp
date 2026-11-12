@@ -1,4 +1,4 @@
-// BmGame_1700000.cpp: 44 functions
+// BmGame_1700000.cpp: 47 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -360,4 +360,31 @@ void ARLevelTransitionDoorBunkerNativeBase::execIsInActivationRange(FFrame& Stac
 	P_GET_OBJECT(ARPlayerController, PC);
 	P_FINISH;
 	*(UBOOL*)Result = vf_38c((INT)PC);
+}
+
+// @baa 0x017078b0
+// @baa 0x017078b0
+void ARJokerGunGadgetBase::execGetShouldKnockHelmetOff(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(BoneName);
+    P_FINISH;
+    *(INT*)Result = GetShouldKnockHelmetOff(BoneName);
+}
+
+// @baa 0x01708950
+// @baa 0x01708950
+void ARLevelTransition::execIsConnectedToLevel(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(Level);
+    P_FINISH;
+    *(UBOOL*)Result = IsConnectedToLevel(Level);
+}
+
+// @baa 0x01704dd0
+// @baa 0x01704dd0
+void URBMBehaviour::execUpdateOp(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_FLOAT(DeltaTime);
+    P_FINISH;
+    *(UBOOL*)Result = UpdateOp(DeltaTime);
 }

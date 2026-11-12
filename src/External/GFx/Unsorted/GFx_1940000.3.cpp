@@ -1,4 +1,4 @@
-// GFx_1940000.cpp (part 3 of 3): 9 functions
+// GFx_1940000.cpp (part 3 of 3): 14 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -124,4 +124,88 @@ void GFxMovieRoot::sub_01947f80(void* arg)
 {
     Stored = arg;
     Call20(&Sub);
+}
+
+struct C_01947650
+{
+    BYTE Value;
+
+    C_01947650* sub_01947650(BYTE* Source);
+};
+
+// @baa 0x01947650
+C_01947650* C_01947650::sub_01947650(BYTE* Source)
+{
+    Value = *Source;
+    return this;
+}
+
+struct C_0194a1c0
+{
+    INT Value_00;
+    BYTE Flag_04;
+    INT Value_08;
+
+    C_0194a1c0* sub_0194a1c0();
+};
+
+// @baa 0x0194a1c0
+C_0194a1c0* C_0194a1c0::sub_0194a1c0()
+{
+    Value_00 = 0;
+    Value_08 = 0;
+    Flag_04 = 0;
+    return this;
+}
+
+struct C_0194a5f0
+{
+    BYTE Flag_00;
+    char pad_01[0xf];
+    INT Value_10;
+
+    C_0194a5f0* sub_0194a5f0();
+};
+
+// @baa 0x0194a5f0
+C_0194a5f0* C_0194a5f0::sub_0194a5f0()
+{
+    Flag_00 = 0;
+    Value_10 = 0;
+    return this;
+}
+
+struct C_0194a630
+{
+    BYTE Flag_00;
+    char pad_01[0xf];
+    INT Value_10;
+
+    C_0194a630* sub_0194a630();
+};
+
+// @baa 0x0194a630
+C_0194a630* C_0194a630::sub_0194a630()
+{
+    Flag_00 = 0;
+    Value_10 = 0;
+    return this;
+}
+
+struct C_0194a670
+{
+    INT Value_00;
+    INT Value_04;
+    INT Value_08;
+
+    C_0194a670* sub_0194a670();
+};
+
+// @baa 0x0194a670
+C_0194a670* C_0194a670::sub_0194a670()
+{
+    Value_04 = 0;
+    Value_08 = 0;
+    Value_00 = 0;
+    return this;
 }

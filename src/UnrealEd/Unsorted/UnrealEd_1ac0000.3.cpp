@@ -1,4 +1,4 @@
-// UnrealEd_1ac0000.cpp (part 3 of 4): 14 functions
+// UnrealEd_1ac0000.cpp (part 3 of 4): 15 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -149,4 +149,11 @@ BYTE C_01acb880::sub_01acb880(INT, INT Delta)
 {
     Counter += Delta;
     return 1;
+}
+
+// @baa 0x01ace010
+void sub_01ace010(float* Value)
+{
+    if (Value)
+        *Value = 0.0f;
 }

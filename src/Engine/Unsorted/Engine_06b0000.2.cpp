@@ -1,4 +1,4 @@
-// Engine_06b0000.cpp (part 2 of 3): 8 functions
+// Engine_06b0000.cpp (part 2 of 3): 9 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -143,4 +143,23 @@ void C_006bd000::sub_006bd000(int param_2)
     }
   }
   return;
+}
+
+struct C_006b9130
+{
+    char pad_0[0x4];
+    INT Value_4;
+    INT Value_8;
+    INT Value_c;
+
+    C_006b9130* sub_006b9130();
+};
+
+// @baa 0x006b9130
+C_006b9130* C_006b9130::sub_006b9130()
+{
+    Value_4 = 0;
+    Value_8 = 0;
+    Value_c = 0;
+    return this;
 }

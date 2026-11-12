@@ -1,4 +1,4 @@
-// Engine_0b00000.cpp: 70 functions
+// Engine_0b00000.cpp: 72 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -2151,4 +2151,42 @@ INT FS00b0fe70::sub_00b0fe70()
 {
     g_026be2a8.sub_00b0fda0(Field0, Field1);
     return 0xc;
+}
+
+struct C_00b0adf0
+{
+    char pad_0[0x60];
+    INT Value_60;
+    INT Value_64;
+    INT Value_68;
+
+    C_00b0adf0* sub_00b0adf0();
+};
+
+// @baa 0x00b0adf0
+C_00b0adf0* C_00b0adf0::sub_00b0adf0()
+{
+    Value_60 = 0;
+    Value_64 = 0;
+    Value_68 = 0;
+    return this;
+}
+
+struct C_00b0ae00
+{
+    char pad_0[0x30];
+    INT Value_30;
+    INT Value_34;
+    INT Value_38;
+
+    C_00b0ae00* sub_00b0ae00();
+};
+
+// @baa 0x00b0ae00
+C_00b0ae00* C_00b0ae00::sub_00b0ae00()
+{
+    Value_30 = 0;
+    Value_34 = 0;
+    Value_38 = 0;
+    return this;
 }
