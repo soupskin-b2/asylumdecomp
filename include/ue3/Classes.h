@@ -19411,7 +19411,7 @@ struct USkeletalMeshComponent : public UMeshComponent {
     FLOAT ClothDynamicBlendWeight; /* 0x390 */
     FLOAT ClothBlendMinDistanceFactor; /* 0x394 */
     FLOAT ClothBlendMaxDistanceFactor; /* 0x398 */
-    FPointer ClothSim; /* 0x39c */
+    void* ClothSim; /* 0x39c: an NxCloth (ue3/PhysX.h) */
     INT SceneIndex; /* 0x3a0 */
     TArray<FVector> ClothMeshPosData; /* 0x3a4 */
     TArray<FVector> ClothMeshNormalData; /* 0x3b0 */
@@ -19436,7 +19436,7 @@ struct USkeletalMeshComponent : public UMeshComponent {
     BITFIELD bClothUseBannerCompartment : 1; /* 0x438 */
     FLOAT MinDistanceForClothReset; /* 0x43c */
     FVector LastClothLocation; /* 0x440 */
-    FPointer SoftBodySim; /* 0x44c */
+    void* SoftBodySim; /* 0x44c: an NxSoftBody (ue3/PhysX.h) */
     INT SoftBodySceneIndex; /* 0x450 */
     BITFIELD bEnableSoftBodySimulation : 1; /* 0x454 */
     TArray<FVector> SoftBodyTetraPosData; /* 0x458 */
@@ -19633,6 +19633,36 @@ struct USkeletalMeshComponent : public UMeshComponent {
     void execAttachComponentToSocket(FFrame& Stack, RESULT_DECL); /* 0x00940100 */
     void execUpdatePermanentFixing(FFrame& Stack, RESULT_DECL); /* 0x00940310 */
     void execPlayFaceFXAnim(FFrame& Stack, RESULT_DECL); /* 0x00942940 */
+    /* UnSkeletalComponent.cpp's cloth accessors (inlined into their execs; ClothSim is an NxCloth) */
+    FLOAT GetClothAttachmentResponseCoefficient();
+    void SetClothAttachmentResponseCoefficient(FLOAT ClothAttachmentResponseCoefficient);
+    FLOAT GetClothAttachmentTearFactor();
+    void SetClothAttachmentTearFactor(FLOAT ClothAttachmentTearFactor);
+    FLOAT GetClothBendingStiffness();
+    void SetClothBendingStiffness(FLOAT ClothBendingStiffness);
+    FLOAT GetClothCollisionResponseCoefficient();
+    void SetClothCollisionResponseCoefficient(FLOAT ClothCollisionResponseCoefficient);
+    FLOAT GetClothDampingCoefficient();
+    void SetClothDampingCoefficient(FLOAT ClothDampingCoefficient);
+    INT GetClothFlags();
+    void SetClothFlags(INT ClothFlags);
+    FLOAT GetClothFriction();
+    void SetClothFriction(FLOAT ClothFriction);
+    FLOAT GetClothPressure();
+    void SetClothPressure(FLOAT ClothPressure);
+    FLOAT GetClothSleepLinearVelocity();
+    void SetClothSleepLinearVelocity(FLOAT ClothSleepLinearVelocity);
+    INT GetClothSolverIterations();
+    void SetClothSolverIterations(INT ClothSolverIterations);
+    FLOAT GetClothStretchingStiffness();
+    void SetClothStretchingStiffness(FLOAT ClothStretchingStiffness);
+    FLOAT GetClothTearFactor();
+    void SetClothTearFactor(FLOAT ClothTearFactor);
+    FLOAT GetClothThickness();
+    void SetClothThickness(FLOAT ClothThickness);
+    void SetClothSleep(UBOOL bClothSleep);
+    void AttachClothToCollidingShapes(UBOOL AttatchTwoWay, UBOOL AttachTearable);
+    void WakeSoftBody();
     void execGetClothAttachmentResponseCoefficient(FFrame& Stack, RESULT_DECL); /* 0x00a00560 */
     void execGetClothAttachmentTearFactor(FFrame& Stack, RESULT_DECL); /* 0x00a005d0 */
     void execGetClothBendingStiffness(FFrame& Stack, RESULT_DECL); /* 0x00a00640 */
