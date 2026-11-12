@@ -1,4 +1,4 @@
-// RRopeComponentBase.cpp: 18 functions
+// RRopeComponentBase.cpp: 21 functions
 // Placed here by: class 10, file 5, neighbours 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -305,4 +305,45 @@ struct C_0163f750
 FLOAT C_0163f750::sub_0163f750()
 {
     return vf264() - F1e8;
+}
+
+/* A writable global float holding -1 (shared by the rope/gadget code); its name isn't known. Because it isn't const,
+ * the compiler reloads it after each float store. */
+extern FLOAT g_02352c90;
+// @baa 0x0163f4c0
+/* Cancels any rope length change in progress. */
+void URRopeComponentBase::StopCurrentRopeLengthChange()
+{
+	RopeChangeLength = g_02352c90;
+	RopeChangeDuration = g_02352c90;
+	RopeChangeType = 6;
+	RopeLengthControlType = 0;
+}
+
+/* Kit gap: FVector has no constructor (UnMath.h). */
+struct FVector_ : public FVector
+{
+	FORCEINLINE FVector_(FLOAT InX, FLOAT InY, FLOAT InZ) { X = InX; Y = InY; Z = InZ; }
+};
+
+// @baa 0x0163f3a0
+void URRopeComponentBase::DetachRopeEnd1()
+{
+	IsRopeEnd1Attached = FALSE;
+	RopeAttachActor1 = NULL;
+	ConstraintActor1AttachPos = FVector_(0, 0, 0);
+	RopeActor1AttachBone = NAME_None;
+	RopeAttachComponent1 = NULL;
+	RopeEnd1AttachMaxDistance = 0.f;
+}
+
+// @baa 0x0163f410
+void URRopeComponentBase::DetachRopeEnd2()
+{
+	IsRopeEnd2Attached = FALSE;
+	RopeAttachActor2 = NULL;
+	ConstraintActor2AttachPos = FVector_(0, 0, 0);
+	RopeActor2AttachBone = NAME_None;
+	RopeAttachComponent2 = NULL;
+	RopeEnd2AttachMaxDistance = 0.f;
 }

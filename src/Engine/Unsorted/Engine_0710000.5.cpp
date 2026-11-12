@@ -1,4 +1,4 @@
-// Engine_0710000.cpp (part 5 of 7): 2 functions
+// Engine_0710000.cpp (part 5 of 7): 3 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -38,4 +38,19 @@ F00718DD0* F00718DD0::sub_00718dd0(FVector2_ const* Src)
     Y = Src->Y;
     Z = -1;
     return this;
+}
+
+// @baa 0x00717c40
+/* Slot 0x130 (unnamed in the kit): marks the texture sRGB and resets the unpack range to 0..1. */
+void UTexture2D::vf_130()
+{
+	SRGB = TRUE;
+	UnpackMin[3] = 0.f;
+	UnpackMin[2] = 0.f;
+	UnpackMin[1] = 0.f;
+	UnpackMin[0] = 0.f;
+	UnpackMax[3] = 1.f;
+	UnpackMax[2] = 1.f;
+	UnpackMax[1] = 1.f;
+	UnpackMax[0] = 1.f;
 }

@@ -1,4 +1,4 @@
-// LightComponent.cpp (part 4 of 5): 9 functions
+// LightComponent.cpp (part 4 of 5): 11 functions
 // Placed here by: class 6.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -122,4 +122,30 @@ void ULightComponent_::sub_006bab80()
 
     sub_0079ae50(ExclusionVolumes, ExclusionConvexVolumes);
     sub_0079ae50(InclusionVolumes, InclusionConvexVolumes);
+}
+
+// @baa 0x006ad110
+/* Slot 0x174 (unnamed in the kit): a light that only casts dynamic shadows onto dynamic primitives. */
+INT ULightComponent::vf_174()
+{
+	UBOOL bResult = FALSE;
+	if (CastShadows && !CastStaticShadows && CastDynamicShadows && !bForceDynamicLight && !UseDirectLightMap
+		&& !LightingChannels.BSP && LightingChannels.Dynamic && !LightingChannels.Static)
+	{
+		bResult = TRUE;
+	}
+	return bResult;
+}
+
+// @baa 0x006ad150
+/* Slot 0x17c (unnamed in the kit): a fully shadow-casting light that affects BSP, static and dynamic primitives. */
+INT ULightComponent::vf_17c()
+{
+	UBOOL bResult = FALSE;
+	if (CastShadows && CastStaticShadows && CastDynamicShadows && !bForceDynamicLight && !UseDirectLightMap
+		&& LightingChannels.BSP && LightingChannels.Dynamic && LightingChannels.Static)
+	{
+		bResult = TRUE;
+	}
+	return bResult;
 }

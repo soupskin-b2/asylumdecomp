@@ -1,4 +1,4 @@
-// UnUIObjects.cpp: 19 functions
+// UnUIObjects.cpp: 21 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -353,4 +353,16 @@ UBOOL UUIScene::sub_00db42a0(FName& Name)
         }
     }
     return bResult;
+}
+
+// @baa 0x00da9930
+UBOOL UUIScreenObject::IsVisible(UBOOL bIncludeParents)
+{
+	return !bHidden && (!bIncludeParents || GetParent() == NULL || GetParent()->IsVisible(TRUE));
+}
+
+// @baa 0x00da9980
+UBOOL UUIScreenObject::IsHidden(UBOOL bIncludeParents)
+{
+	return bHidden || (bIncludeParents && GetParent() != NULL && GetParent()->IsHidden(TRUE));
 }

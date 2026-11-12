@@ -1,4 +1,4 @@
-// UnSequence.cpp: 3 functions
+// UnSequence.cpp: 4 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #define BAA_OUTLINE_ALLOC
@@ -88,5 +88,34 @@ void USeqAct_InterpolateFloat::Activated()
             MatInst(Idx)->GetScalarParameterValue(ParamName, CurrentValue);
         }
         DeltaValue(Idx) = TargetValue - CurrentValue;
+    }
+}
+
+// @baa 0x008cc080
+/* UE3's USeqAct_InterpolateColour::Activated(): start the countdown and record, per material instance, how far the
+ * colour parameter has to move to reach TargetColour (the kit's FLinearColor has no constructors or operators, so
+ * FLinearColor(0,0,0,0) and TargetColour - CurrentValue are written out). */
+void USeqAct_InterpolateColour::Activated()
+{
+    RemainingTime = Duration;
+    FLinearColor CurrentValue;
+    CurrentValue.R = 0.f;
+    CurrentValue.G = 0.f;
+    CurrentValue.B = 0.f;
+    CurrentValue.A = 0.f;
+    DeltaColour.Empty(MatInst.Num());
+    DeltaColour.Add(MatInst.Num());
+    for (INT Idx = 0; Idx < MatInst.Num(); Idx++)
+    {
+        if (MatInst(Idx) != NULL)
+        {
+            MatInst(Idx)->GetVectorParameterValue(ParamName, CurrentValue);
+        }
+        FLinearColor Delta;
+        Delta.R = TargetColour.R - CurrentValue.R;
+        Delta.G = TargetColour.G - CurrentValue.G;
+        Delta.B = TargetColour.B - CurrentValue.B;
+        Delta.A = TargetColour.A - CurrentValue.A;
+        DeltaColour(Idx) = Delta;
     }
 }

@@ -1,4 +1,4 @@
-// UnAnimTree.cpp: 13 functions
+// UnAnimTree.cpp: 14 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -200,4 +200,16 @@ void UAnimNodeBlendBase::vf_154()
 		Children(i).TotalWeight = 0.f;
 	}
 	((UAnimNode__00c53520*)this)->eventOnCeaseRelevant();
+}
+
+// @baa 0x00c7f1b0
+/* The animation playing on the slot's current custom-animation node (sub_00c7ccb0 is UE3's GetCustomAnimNodeSeq). */
+FName UAnimNodeSlot::GetPlayedAnimation()
+{
+	UAnimNodeSequence* SeqNode = sub_00c7ccb0();
+	if (SeqNode)
+	{
+		return SeqNode->AnimSeqName;
+	}
+	return NAME_None;
 }

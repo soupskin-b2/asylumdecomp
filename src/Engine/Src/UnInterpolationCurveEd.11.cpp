@@ -1,4 +1,4 @@
-// UnInterpolationCurveEd.cpp: 11 functions
+// UnInterpolationCurveEd.cpp: 12 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -156,4 +156,18 @@ FSoundTrackKey& UInterpTrackSound_::sub_00cf63a0(FLOAT InPosition)
         SoundIndex = 0;
     }
     return Sounds(SoundIndex);
+}
+
+/* Unnamed in the kit (0x005a9fc0): FString::Printf with one FLOAT argument (non-variadic wrapper; this build's
+ * typed Printf overload, which forwards to the variadic 0x00637b60). */
+struct FString_ : public FString
+{
+    static FString sub_005a9fc0(const TCHAR* Fmt, FLOAT Arg);
+};
+
+// @baa 0x00cfa870
+/* UInterpData slot 0x194 (kit vf_194, UE3's GetValueStr()): "Matinee Data (<length>s)". */
+FString UInterpData::vf_194()
+{
+    return FString_::sub_005a9fc0(TEXT("Matinee Data (%3.1fs)"), InterpLength);
 }

@@ -1,4 +1,4 @@
-// RCapeComponent.cpp: 6 functions
+// RCapeComponent.cpp: 8 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -109,4 +109,47 @@ void URCapeStateConfigFactoryNew::InitializeIntrinsicPropertyValues()
 	SupportedClass = URCapeStateConfig::StaticClass();
 	((FFactoryFlags*)_native2)->bCreateNew = TRUE;
 	Description = TEXT("CapeStateConfig");
+}
+
+// @baa 0x016ae4e0
+/* The cape state being entered (a pending forward request wins over the controller's current state). */
+FName URCapeComponent::GetCurrentCapeStateName()
+{
+	if (CapePhysics.Dummy)
+	{
+		if (IsStateChangeRequested)
+		{
+			return ForwardToStateName;
+		}
+		return CapeStateController->CapeStateName;
+	}
+	return NAME_None;
+}
+
+/* Kit gap: FName has no operator== (UnName.h). */
+struct FName_ : public FName
+{
+	FORCEINLINE UBOOL operator==(const FName& Other) const { return Index == Other.Index && Number == Other.Number; }
+};
+
+// @baa 0x016ae690
+UBOOL URCapeComponent::GetIsInCinematicsState()
+{
+	if (CapePhysics.Dummy)
+	{
+		FName StateName;
+		if (IsStateChangeRequested)
+		{
+			StateName = ForwardToStateName;
+		}
+		else
+		{
+			StateName = CapeStateController->CapeStateName;
+		}
+		if ((const FName_&)StateName == CapeConfig->CinematicCapeStateName)
+		{
+			return TRUE;
+		}
+	}
+	return FALSE;
 }

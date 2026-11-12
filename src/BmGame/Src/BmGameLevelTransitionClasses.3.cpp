@@ -1,4 +1,4 @@
-// BmGameLevelTransitionClasses.cpp: 5 functions
+// BmGameLevelTransitionClasses.cpp: 8 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -83,4 +83,61 @@ void ARGameRI::RemoveNextLevelRequest(FName Level, AActor* Originator)
     {
         NextLevelOriginators.Remove(Index);
     }
+}
+
+/* Kit gap: FName has no operator== (UnName.h); both of UE3's overloads. */
+struct FName_ : public FName
+{
+	FORCEINLINE UBOOL operator==(const FName& Other) const { return Index == Other.Index && Number == Other.Number; }
+	FORCEINLINE UBOOL operator==(EName Other) const { return Index == Other && Number == 0; }
+};
+
+// @baa 0x0155ab10
+/* Slot 0x3a4 (unnamed in the kit): whether the global door lock applies to the current level. */
+INT ARGameRI::vf_3a4()
+{
+	if (GlobalDoorLock)
+	{
+		if ((const FName_&)GlobalDoorLockRoom == NAME_None || (const FName_&)GlobalDoorLockRoom == CurrentLevel)
+		{
+			return TRUE;
+		}
+	}
+	return FALSE;
+}
+
+/* Kit gap: FName has no operator==/!= (UnName.h). */
+struct FName__0155a410 : public FName
+{
+	FORCEINLINE UBOOL operator==(const FName& Other) const { return Index == Other.Index && Number == Other.Number; }
+	FORCEINLINE UBOOL operator!=(EName Other) const { return Index != Other || Number != 0; }
+};
+
+// @baa 0x0155a410
+/* Slot 0x368 (unnamed in the kit): whether this transition has two distinct levels to stream between. */
+INT ARLevelTransition::vf_368()
+{
+	return !bDisabledStreaming && !DisableAllStreaming && !((const FName__0155a410&)LevelInFront == LevelBehind)
+		&& (const FName__0155a410&)LevelInFront != NAME_None && (const FName__0155a410&)LevelBehind != NAME_None;
+}
+
+/* Kit gap: FName has no operator!= (UnName.h). */
+struct FName__0155ff60 : public FName
+{
+	FORCEINLINE UBOOL operator!=(EName Other) const { return Index != Other || Number != 0; }
+};
+
+// @baa 0x0155ff60
+/* Slot 0x368 (unnamed in the kit): a transition into other persistent levels only needs one side to be set. */
+INT ARLevelTransitionP::vf_368()
+{
+	if (PersistentLevelNames.Num() > 0)
+	{
+		if (bDisabledStreaming || DisableAllStreaming)
+		{
+			return FALSE;
+		}
+		return (const FName__0155ff60&)LevelInFront != NAME_None || (const FName__0155ff60&)LevelBehind != NAME_None;
+	}
+	return Super::vf_368();
 }

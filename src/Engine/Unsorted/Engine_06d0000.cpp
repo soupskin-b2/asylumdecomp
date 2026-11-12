@@ -1,4 +1,4 @@
-// Engine_06d0000.cpp (part 1 of 4): 301 functions
+// Engine_06d0000.cpp (part 1 of 4): 303 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -2415,4 +2415,23 @@ struct FRenderCommandFence_ : public FRenderCommandFence
 UBOOL UPrimitiveComponent::IsReadyForFinishDestroy()
 {
 	return ((const FRenderCommandFence_&)DetachFence).GetNumPendingFences() == 0;
+}
+
+// @baa 0x006dba30
+/* Slot 0x21c (unnamed in the kit; UE3's SetIgnoreOwnerHidden). */
+void UPrimitiveComponent::vf_21c(INT bNewIgnoreOwnerHidden)
+{
+	bIgnoreOwnerHidden = bNewIgnoreOwnerHidden;
+	BeginDeferredReattach();
+}
+
+// @baa 0x006dbb80
+/* Slot 0x220 (unnamed in the kit; UE3's SetHiddenGame). */
+void UPrimitiveComponent::vf_220(INT NewHidden)
+{
+	if (NewHidden != HiddenGame)
+	{
+		HiddenGame = NewHidden;
+		BeginDeferredReattach();
+	}
 }

@@ -1,4 +1,4 @@
-// BmGame_16a0000.cpp (part 1 of 2): 134 functions
+// BmGame_16a0000.cpp (part 1 of 2): 135 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -745,4 +745,11 @@ URAnimNode_AnimTransform* ARPontoonBase::GetAnimTransformNode(UBOOL bOther)
         return bOther ? AnimNode2 : AnimNode1;
     }
     return bOther ? AnimNode1 : AnimNode2;
+}
+
+// @baa 0x016aca60
+/* Slot 0x364 (unnamed in the kit): whether either pontoon animation node is playing. */
+INT ARPontoonBase::vf_364()
+{
+	return (AnimNode1 && AnimNode1->bPlaying) || (AnimNode2 && AnimNode2->bPlaying);
 }

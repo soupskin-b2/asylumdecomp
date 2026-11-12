@@ -1,4 +1,4 @@
-// BmGame_1630000.cpp (part 1 of 3): 190 functions
+// BmGame_1630000.cpp (part 1 of 3): 191 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1402,4 +1402,21 @@ INT ARCombatMove_BatmanStrike::GetScoreForStrikeSpeed(FStrikeInfo TestStrike)
 		}
 	}
 	return 0;
+}
+
+/* Kit gap: FVector has no operator!= (UnMath.h). */
+struct FVector_ : public FVector
+{
+	FORCEINLINE UBOOL operator!=(const FVector& V) const { return X != V.X || Y != V.Y || Z != V.Z; }
+};
+
+// @baa 0x0163d210
+void ARBMCombatCollisionProxy::UpdateLocation(FVector NewLocation)
+{
+	if ((const FVector_&)Location != NewLocation)
+	{
+		Location = NewLocation;
+		ForceUpdateComponents(TRUE, TRUE);
+		FindTouchingActors();
+	}
 }

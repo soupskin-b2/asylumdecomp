@@ -1,4 +1,4 @@
-// PhysX_0900000.cpp: 14 functions
+// PhysX_0900000.cpp: 15 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -96,4 +96,15 @@ int USkeletalMeshComponent::vf_000(void) { return 1; }
 bool USkeletalMeshComponent::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x0090e160
+void USkeletalMeshComponent::SetParentToWorld(const FMatrix& ParentToWorld)
+{
+	// If getting transform from ParentAnimComponent, ignore the transform passed in.
+	if (bTransformFromAnimParent && ParentAnimComponent)
+	{
+		return;
+	}
+	Super::SetParentToWorld(ParentToWorld);
 }

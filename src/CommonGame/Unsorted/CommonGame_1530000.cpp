@@ -1,4 +1,4 @@
-// CommonGame_1530000.cpp (part 1 of 4): 115 functions
+// CommonGame_1530000.cpp (part 1 of 4): 116 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -780,4 +780,26 @@ void ARRotateActor::PostLoad()
 {
     Super::PostLoad();
     BaseRotation = Rotation;
+}
+
+/* Kit gap: TArray has no AddZeroed (Array.h); same body as UE3's. */
+template<class T> struct TArray_ : public TArray<T>
+{
+	FORCEINLINE INT AddZeroed(INT Count = 1)
+	{
+		const INT Index = this->Add(Count);
+		appMemzero((T*)this->GetData() + Index, Count * sizeof(T));
+		return Index;
+	}
+};
+
+// @baa 0x0153fe10
+/* Grows LastSeenTime as needed and stamps the current time at Idx. */
+void ARPathNode::UpdateLastSeenTime(INT Idx)
+{
+	if (LastSeenTime.Num() <= Idx)
+	{
+		((TArray_<FLOAT>&)LastSeenTime).AddZeroed(Idx - LastSeenTime.Num() + 1);
+	}
+	LastSeenTime(Idx) = WorldInfo->TimeSeconds;
 }

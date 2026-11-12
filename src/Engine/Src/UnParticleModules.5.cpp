@@ -1,4 +1,4 @@
-// UnParticleModules.cpp (part 5 of 5): 19 functions
+// UnParticleModules.cpp (part 5 of 5): 20 functions
 // Placed here by: neighbours 11, class 5.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -90,4 +90,15 @@ undefined4 * UObject::sub_00b3dc50(void)
   sub_005c7a20();
   *param_1 = (undefined4)(&g_01feead8);
   return param_1;
+}
+
+// @baa 0x00b72890
+/* Slot 0x158 (unnamed in the kit; UE3's IsUsedInLODLevel): whether this module is valid in the given LOD (0..7). */
+INT UParticleModule::vf_158(INT SourceLODIndex)
+{
+	if (SourceLODIndex >= 0 && SourceLODIndex <= 7)
+	{
+		return ((LODValidity & (1 << SourceLODIndex)) != 0);
+	}
+	return FALSE;
 }

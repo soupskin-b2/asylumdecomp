@@ -1,4 +1,4 @@
-// BmGame_1660000.cpp (part 2 of 3): 139 functions
+// BmGame_1660000.cpp (part 2 of 3): 141 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -2129,4 +2129,24 @@ FVector ARPawnCharacter::GetActualAimAtDirection()
 		return MakeVector(1.f, 0.f, 0.f);
 	}
 	return Anim->GetActualAimAtDirection();
+}
+
+// @baa 0x0166ee80
+UBOOL ARPawnCharacter::IsInAnyAutomaticTransition(BYTE Fuzziness, FTransitionId* Transition)
+{
+	if (!Anim)
+	{
+		return FALSE;
+	}
+	return Anim->IsInAnyAutomaticTransition(Fuzziness, Transition);
+}
+
+// @baa 0x0166eec0
+UBOOL ARPawnCharacter::IsInTransition(FTransitionId Id, BYTE Fuzziness)
+{
+	if (!Anim)
+	{
+		return FALSE;
+	}
+	return Anim->IsInTransition(Id, Fuzziness);
 }
