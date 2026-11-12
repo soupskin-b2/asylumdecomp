@@ -608,17 +608,17 @@ void sub_01676e40();
 void sub_01677260(void) { sub_01676e40(); }
 
 struct C_view {
-    int sub_016765c0(int, int);
+    AActor* sub_016765c0(INT, ANavigationPoint*&);
 };
 
 // @baa 0x0167ba30
-void ARPawn::vf_480(undefined4 param_2, undefined4 param_3)
+AActor* ARPawn::GetRoamPoint(INT param_2, ANavigationPoint*& param_3)
 {
     int param_1 = (int)this;
   *(uint *)(param_1 + 0x1cc) = *(uint *)(param_1 + 0x1cc) | 0x80000;
-  ((C_view *)(this))->sub_016765c0(param_2, param_3);
+  AActor* Result = ((C_view *)(this))->sub_016765c0(param_2, param_3);
   *(uint *)(param_1 + 0x1cc) = *(uint *)(param_1 + 0x1cc) & 0xfff7ffff;
-  return;
+  return Result;
 }
 
 struct C_0167bd40 { C_0167bd40* sub_0167bd40(void); };

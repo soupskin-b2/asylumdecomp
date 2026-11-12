@@ -43,7 +43,7 @@ int UParticleModuleBeamModifier::vf_114(int a0) { return 32; }
 void UParticleModuleBeamModifier::vf_168(void) {  }
 
 // @baa 0x00b50e40
-void UParticleModuleBeamModifier::vf_04c(UINT a0) {  }
+void UParticleModuleBeamModifier::PostEditChange(UProperty* a0) {  }
 
 // @baa 0x00b50e50
 void UParticleModuleBeamModifier::vf_134(int a0) {  }

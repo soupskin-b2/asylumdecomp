@@ -9657,7 +9657,7 @@ struct UObject {
     virtual void vf_040(INT); /* 0x040 */
     virtual void vf_044(UINT); /* 0x044 */
     virtual void vf_048(INT); /* 0x048 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_050(); /* 0x050 */
     virtual void vf_054(); /* 0x054 */
     virtual void vf_058(); /* 0x058 */
@@ -12111,7 +12111,7 @@ struct UDistributionFloat : public UComponent, public FCurveEdInterface {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual INT vf_088(); /* 0x088 */
     virtual INT vf_08c(); /* 0x08c */
     /* other member functions */
@@ -12136,7 +12136,7 @@ struct UDistributionVector : public UComponent, public FCurveEdInterface {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual INT vf_088(); /* 0x088 */
     virtual INT vf_08c(); /* 0x08c */
     /* other member functions */
@@ -12319,10 +12319,10 @@ struct AActor : public UObject {
     virtual FLOAT vf_130(INT, INT); /* 0x130 */
     virtual INT vf_134(INT, INT); /* 0x134 */
     virtual FLOAT GetGravityZ(); /* 0x138 */
-    virtual void vf_13c(INT, INT); /* 0x13c */
+    virtual void PrestreamTextures(FLOAT Seconds, UBOOL bEnableStreaming); /* 0x13c */
     virtual DWORD vf_140(); /* 0x140 */
     virtual BYTE GetTeamNum(); /* 0x144 */
-    virtual INT vf_148(INT, INT, INT); /* 0x148 */
+    virtual FVector GetTargetLocation(class AActor* RequestedBy, UBOOL bRequestAlternateLoc); /* 0x148 */
     virtual FVector GetFOVCheckLocation(); /* 0x14c */
     virtual void SetHUDLocation(FVector NewHUDLocation); /* 0x150 */
     virtual INT vf_154(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x154 */
@@ -12462,7 +12462,7 @@ struct AActor : public UObject {
     virtual INT vf_024(); /* 0x024 */
     virtual INT vf_038(); /* 0x038 */
     virtual void vf_044(UINT); /* 0x044 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_058(); /* 0x058 */
     virtual UINT vf_0c4(); /* 0x0c4 */
     virtual void ProcessEvent(UFunction* Function, void* Parms, void* Result = NULL); /* 0x0ec */
@@ -12644,7 +12644,7 @@ struct UActorComponent : public UComponent {
     virtual void vf_020(); /* 0x020 */
     virtual void vf_044(UINT); /* 0x044 */
     virtual void vf_048(INT); /* 0x048 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual INT vf_088(); /* 0x088 */
     virtual INT vf_08c(); /* 0x08c */
     /* UnrealScript natives */
@@ -12842,7 +12842,7 @@ struct UPrimitiveComponent : public UActorComponent {
     virtual void vf_01c(); /* 0x01c */
     virtual INT vf_024(); /* 0x024 */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual INT vf_088(); /* 0x088 */
     virtual INT vf_08c(); /* 0x08c */
     virtual FLOAT vf_110(INT); /* 0x110 */
@@ -13036,7 +13036,7 @@ struct UTexture : public USurface {
     virtual void vf_02c(); /* 0x02c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual void vf_044(UINT); /* 0x044 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual INT vf_0b4(INT); /* 0x0b4 */
     virtual FString GetDesc(); /* 0x0b8 */
     virtual DOUBLE vf_10c(); /* 0x10c */
@@ -14840,7 +14840,7 @@ struct UActorFactory : public UObject {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     /* registered size 0x58 */
 };
 
@@ -14915,7 +14915,7 @@ struct UActorFactoryApexDestructible : public UActorFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual class AActor* CreateActor(const FVector* const Location, const FRotator* const Rotation, const class USeqAct_ActorFactory* const ActorFactoryData); /* 0x10c */
     virtual INT vf_110(INT); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
@@ -15332,9 +15332,9 @@ struct AController : public AActor {
     virtual INT vf_354(); /* 0x354 */
     virtual void vf_358(); /* 0x358 */
     virtual INT vf_35c(class ANavigationPoint*); /* 0x35c */
-    virtual void vf_360(INT, INT); /* 0x360 */
+    virtual void RouteCache_InsertItem(class ANavigationPoint* Nav, INT Idx); /* 0x360 */
     virtual INT RouteCache_RemoveItem(class ANavigationPoint* Nav); /* 0x364 */
-    virtual INT vf_368(INT, INT); /* 0x368 */
+    virtual void RouteCache_RemoveIndex(INT InIndex, INT Count); /* 0x368 */
     virtual void vf_36c(INT, INT, INT, INT, INT); /* 0x36c */
     virtual INT vf_370(); /* 0x370 */
     virtual UINT vf_374(); /* 0x374 */
@@ -15984,7 +15984,7 @@ struct UAmbientOcclusionEffect : public UPostProcessEffect {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual INT vf_10c(INT); /* 0x10c */
     virtual INT vf_110(INT); /* 0x110 */
     /* registered size 0xb0 */
@@ -16094,7 +16094,7 @@ struct UAudioComponent : public UActorComponent {
     virtual void vf_020(); /* 0x020 */
     virtual void vf_02c(); /* 0x02c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual FString GetDetailedInfoInternal(); /* 0x094 */
     virtual FLOAT vf_110(INT); /* 0x110 */
     virtual void vf_114(); /* 0x114 */
@@ -16196,7 +16196,7 @@ struct USoundCue : public UObject {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual INT vf_0b4(INT); /* 0x0b4 */
     virtual FString GetDesc(); /* 0x0b8 */
     virtual FString GetDetailedDescription(INT InIndex); /* 0x0bc */
@@ -16233,7 +16233,7 @@ struct USoundNode : public UObject {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     /* registered size 0x40 */
 };
 
@@ -16292,7 +16292,7 @@ struct AAmbientSoundSimple : public AAmbientSound {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_044(UINT); /* 0x044 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_09c(); /* 0x09c */
     virtual void vf_170(FLOAT*, INT, INT, INT, INT, INT); /* 0x170 */
     virtual void vf_180(); /* 0x180 */
@@ -16369,7 +16369,7 @@ struct ACamera : public AActor {
     FLOAT FadeTime; /* 0x354 */
     FLOAT FadeTimeRemaining; /* 0x358 */
     /* virtual functions this class introduces (vtable 0x01f16638) */
-    virtual void vf_354(FLOAT, FTPOV&); /* 0x354 */
+    virtual void ApplyCameraModifiers(FLOAT DeltaTime, FTPOV& OutPOV); /* 0x354 */
     virtual void CheckViewTarget(FTViewTarget& VT); /* 0x358 */
     virtual void vf_35c(INT, INT, INT, INT, INT); /* 0x35c */
     virtual void vf_360(INT); /* 0x360 */
@@ -16391,15 +16391,15 @@ struct AAnimatedCamera : public ACamera {
     class ADynamicCameraActor* AnimCameraActor; /* 0x394 */
     class ADynamicCameraActor* AccumulatorCameraActor; /* 0x398 */
     /* virtual functions this class introduces (vtable 0x01f169a0) */
-    virtual void vf_364(INT, INT); /* 0x364 */
+    virtual void ApplyCameraModifiersNative(FLOAT DeltaTime, FTPOV& OutPOV); /* 0x364 */
     virtual INT vf_368(INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x368 */
     virtual void vf_36c(INT); /* 0x36c */
-    virtual void vf_370(INT, INT); /* 0x370 */
-    virtual INT vf_374(INT, INT); /* 0x374 */
+    virtual void StopAllCameraAnimsByType(class UCameraAnim* Anim, UBOOL bImmediate); /* 0x370 */
+    virtual void StopCameraAnim(class UCameraAnimInst* AnimInst, UBOOL bImmediate); /* 0x374 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_354(FLOAT, FTPOV&); /* 0x354 */
+    virtual void ApplyCameraModifiers(FLOAT DeltaTime, FTPOV& OutPOV); /* 0x354 */
     virtual void vf_360(INT); /* 0x360 */
     /* UnrealScript natives */
     void execApplyCameraModifiersNative(FFrame& Stack, RESULT_DECL); /* 0x00c83aa0 */
@@ -16682,7 +16682,7 @@ struct UAnimNodeAimOffset : public UAnimNodeBlendBase {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual INT vf_128(INT, INT); /* 0x128 */
     virtual void vf_130(UINT); /* 0x130 */
     virtual void vf_144(INT, INT, INT, INT); /* 0x144 */
@@ -16812,7 +16812,7 @@ struct UAnimNodeBlendMultiBone : public UAnimNodeBlendBase {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual INT vf_128(INT, INT); /* 0x128 */
     virtual void vf_144(INT, INT, INT, INT); /* 0x144 */
     virtual INT vf_188(INT); /* 0x188 */
@@ -16831,7 +16831,7 @@ struct UAnimNodeBlendPerBone : public UAnimNodeBlend {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual INT vf_128(INT, INT); /* 0x128 */
     virtual void vf_144(INT, INT, INT, INT); /* 0x144 */
     virtual INT vf_188(INT); /* 0x188 */
@@ -16978,7 +16978,7 @@ struct UAnimNodeSequence : public UAnimNode {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_020(); /* 0x020 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void PlayAnim(UBOOL bLoop, FLOAT Rate, FLOAT StartTime); /* 0x120 */
     virtual void StopAnim(); /* 0x124 */
     virtual INT vf_128(INT, INT); /* 0x128 */
@@ -17021,7 +17021,7 @@ struct UAnimNodeSequenceBlendBase : public UAnimNodeSequence {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual INT vf_128(INT, INT); /* 0x128 */
     virtual void vf_12c(); /* 0x12c */
     virtual void vf_144(INT, INT, INT, INT); /* 0x144 */
@@ -17232,7 +17232,7 @@ struct URB_ForceComponentCylindrical : public URB_ForceComponent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_250(); /* 0x250 */
     virtual void vf_254(); /* 0x254 */
     /* registered size 0x1f0 */
@@ -17254,7 +17254,7 @@ struct URB_ForceComponentRadial : public URB_ForceComponent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_250(); /* 0x250 */
     virtual void vf_254(); /* 0x254 */
     /* registered size 0x1e0 */
@@ -17440,7 +17440,7 @@ struct UAnimSequence : public UObject {
     virtual void vf_01c(); /* 0x01c */
     virtual void vf_020(); /* 0x020 */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual INT vf_0b4(INT); /* 0x0b4 */
     virtual INT vf_0d4(); /* 0x0d4 */
     /* other member functions */
@@ -17507,7 +17507,7 @@ struct UAnimTree : public UAnimNodeBlendBase {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual INT vf_128(INT, INT); /* 0x128 */
     virtual void vf_144(INT, INT, INT, INT); /* 0x144 */
     virtual void* vf_158(); /* 0x158 */
@@ -17594,7 +17594,7 @@ struct UApexComponentBase : public UMeshComponent {
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
     virtual INT vf_024(); /* 0x024 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_114(); /* 0x114 */
     virtual void vf_118(); /* 0x118 */
     virtual void Detach(UBOOL bWillReattach); /* 0x11c */
@@ -17739,7 +17739,7 @@ struct AApexDestructibleActor : public AActor {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual INT vf_17c(INT); /* 0x17c */
     virtual UBOOL ShouldTrace(UPrimitiveComponent* Primitive, AActor* SourceActor, DWORD TraceFlags); /* 0x198 */
     virtual void vf_1b4(FLOAT); /* 0x1b4 */
@@ -17773,7 +17773,7 @@ struct UApexDestructibleAsset : public UApexAsset {
     virtual void vf_01c(); /* 0x01c */
     virtual void vf_020(); /* 0x020 */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_10c(void*); /* 0x10c */
     virtual INT vf_110(); /* 0x110 */
     virtual void vf_118(); /* 0x118 */
@@ -17802,7 +17802,7 @@ struct UApexMeshParticleFactoryAsset : public UApexAsset {
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_020(); /* 0x020 */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_10c(void*); /* 0x10c */
     virtual void vf_118(); /* 0x118 */
     virtual void vf_11c(); /* 0x11c */
@@ -17818,7 +17818,7 @@ struct UApexParticleSystemAsset : public UApexAsset {
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_020(); /* 0x020 */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_10c(void*); /* 0x10c */
     virtual void vf_118(); /* 0x118 */
     /* registered size 0x44 */
@@ -17834,7 +17834,7 @@ struct UApexRenderMeshAsset : public UApexAsset {
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_020(); /* 0x020 */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_10c(void*); /* 0x10c */
     virtual void vf_118(); /* 0x118 */
     virtual void vf_11c(); /* 0x11c */
@@ -17971,7 +17971,7 @@ struct UAudioDevice : public USubsystem {
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_02c(); /* 0x02c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_0e8(INT); /* 0x0e8 */
     /* other member functions */
     UINT sub_0079cc20(BYTE); /* 0x0079cc20 */
@@ -18108,7 +18108,7 @@ struct ABrush : public AActor {
     virtual INT vf_018(INT); /* 0x018 */
     virtual void vf_01c(); /* 0x01c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_2b8(); /* 0x2b8 */
     virtual INT vf_2cc(); /* 0x2cc */
     virtual INT vf_2d0(); /* 0x2d0 */
@@ -18208,7 +18208,7 @@ struct UStaticMeshComponent : public UMeshComponent {
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_054(); /* 0x054 */
     virtual FString GetDetailedInfoInternal(); /* 0x094 */
     virtual void vf_0e8(INT); /* 0x0e8 */
@@ -18294,7 +18294,7 @@ struct ACameraActor : public AActor {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_180(); /* 0x180 */
     virtual void vf_314(INT); /* 0x314 */
     /* registered size 0x25c */
@@ -18777,7 +18777,7 @@ struct UUIScreenObject : public UUIRoot {
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
     virtual void vf_048(INT); /* 0x048 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_070(); /* 0x070 */
     virtual INT vf_074(INT); /* 0x074 */
     virtual void vf_078(INT); /* 0x078 */
@@ -18980,7 +18980,7 @@ struct UUIObject : public UUIScreenObject {
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
     virtual void vf_048(INT); /* 0x048 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_058(); /* 0x058 */
     virtual void vf_09c(); /* 0x09c */
     virtual void vf_118(INT, INT); /* 0x118 */
@@ -19187,7 +19187,7 @@ struct ACoverLink : public ANavigationPoint {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual INT vf_1d4(); /* 0x1d4 */
     virtual INT vf_29c(INT); /* 0x29c */
     virtual void vf_2b8(); /* 0x2b8 */
@@ -19937,7 +19937,7 @@ struct ACrowdAttractor : public AActor {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_014(); /* 0x014 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_170(FLOAT*, INT, INT, INT, INT, INT); /* 0x170 */
     virtual INT vf_310(INT); /* 0x310 */
     virtual void vf_314(INT); /* 0x314 */
@@ -19964,7 +19964,7 @@ struct ACullDistanceVolume : public AVolume {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual INT vf_17c(INT); /* 0x17c */
     /* registered size 0x1e0 */
 };
@@ -20368,7 +20368,7 @@ struct ADecalActorBase : public AActor {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_09c(); /* 0x09c */
     virtual void vf_170(FLOAT*, INT, INT, INT, INT, INT); /* 0x170 */
     virtual INT vf_17c(INT); /* 0x17c */
@@ -20524,7 +20524,7 @@ struct UMaterialInterface : public USurface {
     /* virtual functions this class introduces (vtable 0x01ebd268) */
     virtual UINT vf_114(UINT, UINT, INT*, UINT*); /* 0x114 */
     virtual UBOOL GetScalarParameterValue(FName ParameterName, FLOAT& OutValue); /* 0x118 */
-    virtual INT vf_11c(INT, INT, INT); /* 0x11c */
+    virtual UBOOL GetScalarCurveParameterValue(FName ParameterName, FInterpCurveFloat& OutValue); /* 0x11c */
     virtual UBOOL GetTextureParameterValue(FName ParameterName, class UTexture*& OutValue); /* 0x120 */
     virtual UBOOL GetVectorParameterValue(FName ParameterName, FLinearColor& OutValue); /* 0x124 */
     virtual INT vf_128(INT, INT, INT); /* 0x128 */
@@ -20653,7 +20653,7 @@ struct UMaterial : public UMaterialInterface {
     virtual void vf_02c(); /* 0x02c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual void vf_044(UINT); /* 0x044 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_05c(); /* 0x05c */
     virtual INT vf_0b4(INT); /* 0x0b4 */
     virtual INT vf_0d4(); /* 0x0d4 */
@@ -20698,7 +20698,7 @@ struct UDecalMaterial : public UMaterial {
     virtual void vf_014(); /* 0x014 */
     virtual void vf_01c(); /* 0x01c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual UINT AllocateResource(); /* 0x148 */
     /* registered size 0x2a4 */
 };
@@ -20736,7 +20736,7 @@ struct APhysicsVolume : public AVolume {
     class APhysicsVolume* NextPhysicsVolume; /* 0x20c */
     FVector ZoneTorque; /* 0x210 */
     /* virtual functions this class introduces (vtable 0x01f01848) */
-    virtual INT vf_360(INT, INT); /* 0x360 */
+    virtual FVector GetZoneVelocityForActor(class AActor* TheActor); /* 0x360 */
     virtual UINT vf_364(UINT); /* 0x364 */
     virtual void vf_368(); /* 0x368 */
     /* overrides */
@@ -20860,7 +20860,7 @@ struct ULightComponent : public UActorComponent {
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_050(); /* 0x050 */
     virtual void vf_054(); /* 0x054 */
     virtual void vf_05c(); /* 0x05c */
@@ -21170,7 +21170,7 @@ struct UDOFEffect : public UPostProcessEffect {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual INT vf_10c(INT); /* 0x10c */
     virtual INT vf_110(INT); /* 0x110 */
     /* registered size 0x84 */
@@ -21535,7 +21535,7 @@ struct UParticleSystemComponent : public UPrimitiveComponent {
     virtual void vf_02c(); /* 0x02c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual void vf_044(UINT); /* 0x044 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual FString GetDetailedInfoInternal(); /* 0x094 */
     virtual void vf_114(); /* 0x114 */
     virtual void vf_118(); /* 0x118 */
@@ -22094,7 +22094,7 @@ struct UFluidInfluenceComponent : public UPrimitiveComponent {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void Tick(FLOAT DeltaTime); /* 0x124 */
     virtual void vf_160(); /* 0x160 */
     /* registered size 0x210 */
@@ -22177,7 +22177,7 @@ struct UFluidSurfaceComponent : public UPrimitiveComponent {
     virtual void vf_02c(); /* 0x02c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual void vf_044(UINT); /* 0x044 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_0e8(INT); /* 0x0e8 */
     virtual void vf_114(); /* 0x114 */
     virtual void Detach(UBOOL bWillReattach); /* 0x11c */
@@ -22242,7 +22242,7 @@ struct AFluidSurfaceActor : public AActor {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_09c(); /* 0x09c */
     virtual void vf_170(FLOAT*, INT, INT, INT, INT, INT); /* 0x170 */
     virtual INT vf_17c(INT); /* 0x17c */
@@ -22491,7 +22491,7 @@ struct AFoliageFactory : public AVolume {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual INT vf_17c(INT); /* 0x17c */
     /* other member functions */
     void sub_00784510(UINT Param); /* 0x00784510 */
@@ -22619,7 +22619,7 @@ struct UFracturedBaseComponent : public UStaticMeshComponent {
     virtual void vf_020(); /* 0x020 */
     virtual INT vf_024(); /* 0x024 */
     virtual void vf_044(UINT); /* 0x044 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_114(); /* 0x114 */
     virtual UINT vf_250(); /* 0x250 */
     virtual UINT vf_254(); /* 0x254 */
@@ -22928,7 +22928,7 @@ struct AFracturedStaticMeshActor : public AActor {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual UINT vf_178(); /* 0x178 */
     virtual void vf_1b4(FLOAT); /* 0x1b4 */
     virtual FLOAT vf_350(INT); /* 0x350 */
@@ -23965,7 +23965,7 @@ struct USequenceObject : public UObject {
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
     virtual INT vf_038(); /* 0x038 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual INT vf_074(INT); /* 0x074 */
     virtual void vf_078(INT); /* 0x078 */
     virtual void vf_07c(INT); /* 0x07c */
@@ -24005,7 +24005,7 @@ struct USequenceVariable : public USequenceObject {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_114(INT, INT, INT, INT, INT, INT); /* 0x114 */
     virtual INT vf_134(INT); /* 0x134 */
     virtual INT vf_150(); /* 0x150 */
@@ -24158,7 +24158,7 @@ struct UInterpTrackFloatBase : public UInterpTrack {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual INT GetNumKeyframes(); /* 0x10c */
     virtual void GetTimeRange(FLOAT& StartTime, FLOAT& EndTime); /* 0x110 */
     virtual FLOAT GetKeyframeTime(INT KeyIndex); /* 0x114 */
@@ -24211,7 +24211,7 @@ struct UInterpTrackVectorBase : public UInterpTrack {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual INT GetNumKeyframes(); /* 0x10c */
     virtual void GetTimeRange(FLOAT& StartTime, FLOAT& EndTime); /* 0x110 */
     virtual FLOAT GetKeyframeTime(INT KeyIndex); /* 0x114 */
@@ -24337,7 +24337,7 @@ struct UInterpTrackFaceFX : public UInterpTrack {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual INT GetNumKeyframes(); /* 0x10c */
     virtual void GetTimeRange(FLOAT& StartTime, FLOAT& EndTime); /* 0x110 */
     virtual FLOAT GetKeyframeTime(INT KeyIndex); /* 0x114 */
@@ -24364,7 +24364,7 @@ struct UInterpTrackFaceFXRegister : public UInterpTrackFloatBase {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual INT AddKeyframe(FLOAT Time, class UInterpTrackInst* TrInst, BYTE InitInterpMode); /* 0x118 */
     virtual void vf_138(INT, INT); /* 0x138 */
     virtual void vf_13c(INT, INT, INT); /* 0x13c */
@@ -24778,7 +24778,7 @@ struct UInterpTrackMove : public UInterpTrack {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_09c(); /* 0x09c */
     virtual INT GetNumKeyframes(); /* 0x10c */
     virtual void GetTimeRange(FLOAT& StartTime, FLOAT& EndTime); /* 0x110 */
@@ -25188,7 +25188,7 @@ struct ULensFlare : public UObject {
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
     virtual void vf_044(UINT); /* 0x044 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     /* other member functions */
     UINT sub_00651a10(BYTE); /* 0x00651a10 */
     void sub_00653140(); /* 0x00653140 */
@@ -25660,7 +25660,7 @@ struct ULensFlareComponent : public UPrimitiveComponent {
     virtual INT vf_024(); /* 0x024 */
     virtual void vf_02c(); /* 0x02c */
     virtual void vf_044(UINT); /* 0x044 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_114(); /* 0x114 */
     virtual void vf_160(); /* 0x160 */
     virtual INT vf_1fc(); /* 0x1fc */
@@ -25781,7 +25781,7 @@ struct ALevelStreamingVolume : public AVolume {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_2b8(); /* 0x2b8 */
     /* registered size 0x1f0 */
 };
@@ -25834,7 +25834,7 @@ struct ALightVolume : public AVolume {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     /* registered size 0x1d0 */
 };
 
@@ -26024,7 +26024,7 @@ struct UMaterialExpression : public UObject {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     /* registered size 0x60 */
 };
 
@@ -26246,7 +26246,7 @@ struct UMaterialExpressionConstant3Vector : public UMaterialExpression {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual UINT vf_110(INT); /* 0x110 */
     virtual FString vf_128(); /* 0x128 */
     /* registered size 0x7c */
@@ -26486,7 +26486,7 @@ struct UMaterialExpressionDynamicParameter : public UMaterialExpression {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_10c(INT, UINT); /* 0x10c */
     virtual UINT vf_110(INT); /* 0x110 */
     virtual void GetOutputs(TArray<FExpressionOutput>& Outputs); /* 0x114 */
@@ -27205,7 +27205,7 @@ struct UTextureCube : public UTexture {
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual FString GetDesc(); /* 0x0b8 */
     virtual FString GetDetailedDescription(INT InIndex); /* 0x0bc */
     virtual DOUBLE vf_10c(); /* 0x10c */
@@ -27389,7 +27389,7 @@ struct UMaterialInstance : public UMaterialInterface {
     virtual INT vf_024(); /* 0x024 */
     virtual void vf_02c(); /* 0x02c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual DOUBLE vf_10c(); /* 0x10c */
     virtual DOUBLE GetSurfaceHeight(); /* 0x110 */
     virtual INT vf_130(INT); /* 0x130 */
@@ -27442,7 +27442,7 @@ struct UMaterialInstanceConstant : public UMaterialInstance {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual UINT vf_114(UINT, UINT, INT*, UINT*); /* 0x114 */
     virtual UBOOL GetScalarParameterValue(FName ParameterName, FLOAT& OutValue); /* 0x118 */
     virtual UBOOL GetTextureParameterValue(FName ParameterName, class UTexture*& OutValue); /* 0x120 */
@@ -27495,10 +27495,10 @@ struct UMaterialInstanceTimeVarying : public UMaterialInstance {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual UINT vf_114(UINT, UINT, INT*, UINT*); /* 0x114 */
     virtual UBOOL GetScalarParameterValue(FName ParameterName, FLOAT& OutValue); /* 0x118 */
-    virtual INT vf_11c(INT, INT, INT); /* 0x11c */
+    virtual UBOOL GetScalarCurveParameterValue(FName ParameterName, FInterpCurveFloat& OutValue); /* 0x11c */
     virtual UBOOL GetTextureParameterValue(FName ParameterName, class UTexture*& OutValue); /* 0x120 */
     virtual UBOOL GetVectorParameterValue(FName ParameterName, FLinearColor& OutValue); /* 0x124 */
     virtual INT vf_128(INT, INT, INT); /* 0x128 */
@@ -27655,7 +27655,7 @@ struct UMorphNodePose : public UMorphNodeBase {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_120(INT); /* 0x120 */
     virtual void vf_124(INT); /* 0x124 */
     virtual void vf_12c(INT, INT, INT); /* 0x12c */
@@ -27949,7 +27949,7 @@ struct ANxCylindricalForceFieldCapsule : public ANxCylindricalForceField {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_170(FLOAT*, INT, INT, INT, INT, INT); /* 0x170 */
     virtual void vf_1b4(FLOAT); /* 0x1b4 */
     virtual void vf_238(); /* 0x238 */
@@ -27986,7 +27986,7 @@ struct ANxForceFieldGeneric : public ANxForceField {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_170(FLOAT*, INT, INT, INT, INT, INT); /* 0x170 */
     virtual void vf_238(); /* 0x238 */
     virtual void vf_23c(INT); /* 0x23c */
@@ -28010,7 +28010,7 @@ struct ANxForceFieldRadial : public ANxForceField {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_170(FLOAT*, INT, INT, INT, INT, INT); /* 0x170 */
     virtual void vf_238(); /* 0x238 */
     virtual void vf_23c(INT); /* 0x23c */
@@ -28041,7 +28041,7 @@ struct ANxForceFieldTornado : public ANxForceField {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_170(FLOAT*, INT, INT, INT, INT, INT); /* 0x170 */
     virtual void vf_238(); /* 0x238 */
     virtual void vf_23c(INT); /* 0x23c */
@@ -28088,7 +28088,7 @@ struct ANxGenericForceFieldBox : public ANxGenericForceField {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_170(FLOAT*, INT, INT, INT, INT, INT); /* 0x170 */
     virtual void vf_1b4(FLOAT); /* 0x1b4 */
     virtual void vf_238(); /* 0x238 */
@@ -28143,7 +28143,7 @@ struct ANxGenericForceFieldCapsule : public ANxGenericForceField {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_170(FLOAT*, INT, INT, INT, INT, INT); /* 0x170 */
     virtual void vf_1b4(FLOAT); /* 0x1b4 */
     virtual void vf_238(); /* 0x238 */
@@ -28163,7 +28163,7 @@ struct ANxRadialForceField : public ANxForceField {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_170(FLOAT*, INT, INT, INT, INT, INT); /* 0x170 */
     virtual void vf_1b4(FLOAT); /* 0x1b4 */
     virtual void vf_238(); /* 0x238 */
@@ -28218,7 +28218,7 @@ struct ANxTornadoAngularForceFieldCapsule : public ANxTornadoAngularForceField {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_170(FLOAT*, INT, INT, INT, INT, INT); /* 0x170 */
     virtual void vf_1b4(FLOAT); /* 0x1b4 */
     virtual void vf_238(); /* 0x238 */
@@ -28257,7 +28257,7 @@ struct ANxTornadoForceFieldCapsule : public ANxTornadoForceField {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_170(FLOAT*, INT, INT, INT, INT, INT); /* 0x170 */
     virtual void vf_1b4(FLOAT); /* 0x1b4 */
     virtual void vf_238(); /* 0x238 */
@@ -28878,7 +28878,7 @@ struct UParticleEmitter : public UObject {
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
     virtual void vf_044(UINT); /* 0x044 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     /* other member functions */
     void sub_00b519d0(UINT, UINT); /* 0x00b519d0 */
     char* sub_00b519f0(); /* 0x00b519f0 */
@@ -28912,7 +28912,7 @@ struct UParticleLODLevel : public UObject {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     /* registered size 0x98 */
 };
 
@@ -29082,7 +29082,7 @@ struct UParticleModuleBeamModifier : public UParticleModuleBeamBase {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
     virtual INT vf_110(INT, INT, INT); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
@@ -29121,7 +29121,7 @@ struct UParticleModuleBeamNoise : public UParticleModuleBeamBase {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
     virtual INT vf_110(INT, INT, INT); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
@@ -29146,7 +29146,7 @@ struct UParticleModuleBeamSource : public UParticleModuleBeamBase {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
     virtual INT vf_110(INT, INT, INT); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
@@ -29174,7 +29174,7 @@ struct UParticleModuleBeamTarget : public UParticleModuleBeamBase {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
     virtual INT vf_110(INT, INT, INT); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
@@ -29240,7 +29240,7 @@ struct UParticleModuleColor : public UParticleModuleColorBase {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
     virtual void vf_120(INT); /* 0x120 */
     virtual void vf_128(INT); /* 0x128 */
@@ -29271,7 +29271,7 @@ struct UParticleModuleColorOverLife : public UParticleModuleColorBase {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
     virtual INT vf_110(INT, INT, INT); /* 0x110 */
     virtual void vf_120(INT); /* 0x120 */
@@ -29330,7 +29330,7 @@ struct UParticleModuleEventGenerator : public UParticleModuleEventBase {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
     virtual INT vf_110(INT, INT, INT); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
@@ -29366,7 +29366,7 @@ struct UParticleModuleEventReceiverSpawn : public UParticleModuleEventReceiverBa
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
     virtual INT vf_110(INT, INT, INT); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
@@ -29472,7 +29472,7 @@ struct UParticleModuleLocationDirect : public UParticleModuleLocationBase {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
     virtual INT vf_110(INT, INT, INT); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
@@ -29587,7 +29587,7 @@ struct UParticleModuleMaterialByParameter : public UParticleModuleMaterialBase {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual INT vf_110(INT, INT, INT); /* 0x110 */
     /* registered size 0x60 */
 };
@@ -29707,7 +29707,7 @@ struct UParticleModuleOrientationAxisLock : public UParticleModuleOrientationBas
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
     virtual INT vf_110(INT, INT, INT); /* 0x110 */
     /* registered size 0x4c */
@@ -29731,7 +29731,7 @@ struct UParticleModuleParameterDynamic : public UParticleModuleParameterBase {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
     virtual INT vf_110(INT, INT, INT); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
@@ -29808,7 +29808,7 @@ struct UParticleModuleRequired : public UParticleModule {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
     virtual INT vf_110(INT, INT, INT); /* 0x110 */
     virtual void vf_128(INT); /* 0x128 */
@@ -29959,7 +29959,7 @@ struct UParticleModuleSpawn : public UParticleModuleSpawnBase {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual INT vf_138(INT, INT, INT); /* 0x138 */
     virtual UINT vf_168(UINT, UINT, UINT, UINT, UINT, UINT); /* 0x168 */
     /* registered size 0x98 */
@@ -30063,7 +30063,7 @@ struct UParticleModuleTrailSource : public UParticleModuleTrailBase {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
     virtual INT vf_110(INT, INT, INT); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
@@ -30083,7 +30083,7 @@ struct UParticleModuleTrailSpawn : public UParticleModuleTrailBase {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
     virtual INT vf_110(INT, INT, INT); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
@@ -30100,7 +30100,7 @@ struct UParticleModuleTrailTaper : public UParticleModuleTrailBase {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
     virtual INT vf_110(INT, INT, INT); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
@@ -30143,7 +30143,7 @@ struct UParticleModuleTypeDataBeam : public UParticleModuleTypeDataBase {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
     virtual INT vf_114(INT); /* 0x114 */
     virtual INT vf_168(INT, INT); /* 0x168 */
@@ -30182,7 +30182,7 @@ struct UParticleModuleTypeDataBeam2 : public UParticleModuleTypeDataBase {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
     virtual INT vf_110(INT, INT, INT); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
@@ -30206,7 +30206,7 @@ struct UParticleModuleTypeDataMesh : public UParticleModuleTypeDataBase {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual INT vf_168(INT, INT); /* 0x168 */
     virtual void vf_16c(); /* 0x16c */
     virtual INT vf_17c(); /* 0x17c */
@@ -30226,7 +30226,7 @@ struct UParticleModuleTypeDataMeshPhysX : public UParticleModuleTypeDataMesh {
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_02c(); /* 0x02c */
     virtual void vf_044(UINT); /* 0x044 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual INT vf_168(INT, INT); /* 0x168 */
     virtual void vf_16c(); /* 0x16c */
     /* other member functions */
@@ -30244,7 +30244,7 @@ struct UParticleModuleTypeDataPhysX : public UParticleModuleTypeDataBase {
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_02c(); /* 0x02c */
     virtual void vf_044(UINT); /* 0x044 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual INT vf_168(INT, INT); /* 0x168 */
     virtual void vf_16c(); /* 0x16c */
     /* registered size 0x5c */
@@ -30264,7 +30264,7 @@ struct UParticleModuleTypeDataTrail : public UParticleModuleTypeDataBase {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual INT vf_168(INT, INT); /* 0x168 */
     virtual void vf_16c(); /* 0x16c */
     /* other member functions */
@@ -30292,7 +30292,7 @@ struct UParticleModuleTypeDataTrail2 : public UParticleModuleTypeDataBase {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
     virtual INT vf_110(INT, INT, INT); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
@@ -30562,7 +30562,7 @@ struct UParticleSpriteEmitter : public UParticleEmitter {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual INT vf_10c(INT); /* 0x10c */
     virtual void vf_110(); /* 0x110 */
     /* registered size 0xd0 */
@@ -30614,7 +30614,7 @@ struct UParticleSystem : public UObject {
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_014(); /* 0x014 */
     virtual void vf_01c(); /* 0x01c */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     /* UnrealScript natives */
     void execGetCurrentLODMethod(FFrame& Stack, RESULT_DECL); /* 0x00c9cb80 */
     void execGetLODLevelCount(FFrame& Stack, RESULT_DECL); /* 0x00c9cbc0 */
@@ -31139,7 +31139,7 @@ struct UPhysicalMaterial : public UObject {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_02c(); /* 0x02c */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_0a8(INT, INT, INT); /* 0x0a8 */
     /* UnrealScript natives */
     void execFindPhysEffectInfo(FFrame& Stack, RESULT_DECL); /* 0x00c94150 */
@@ -31311,7 +31311,7 @@ struct UPhysXParticleSystem : public UObject {
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_02c(); /* 0x02c */
     virtual void vf_044(UINT); /* 0x044 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     /* other member functions */
     void sub_00e0cc80(INT); /* 0x00e0cc80 */
     /* registered size 0x88 */
@@ -31482,7 +31482,7 @@ struct UPointLightComponent : public ULightComponent {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual FLOAT vf_110(INT); /* 0x110 */
     virtual void vf_114(); /* 0x114 */
     virtual void vf_118(); /* 0x118 */
@@ -31568,7 +31568,7 @@ struct ASceneCaptureActor : public AActor {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_2b8(); /* 0x2b8 */
     /* registered size 0x1ac */
 };
@@ -31682,7 +31682,7 @@ struct APortalTeleporter : public ASceneCapturePortalActor {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_180(); /* 0x180 */
     virtual void vf_1b4(FLOAT); /* 0x1b4 */
     virtual INT vf_29c(INT); /* 0x29c */
@@ -31736,7 +31736,7 @@ struct APostProcessVolume : public AVolume {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual INT vf_310(INT); /* 0x310 */
     virtual void vf_314(INT); /* 0x314 */
     /* registered size 0x27c */
@@ -31839,7 +31839,7 @@ struct USequenceOp : public USequenceObject {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_10c(); /* 0x10c */
     virtual void vf_114(INT, INT, INT, INT, INT, INT); /* 0x114 */
     virtual void vf_118(INT, INT, INT, INT, INT, INT); /* 0x118 */
@@ -32122,7 +32122,7 @@ struct URB_BodySetup : public UKMeshProps {
     virtual void vf_020(); /* 0x020 */
     virtual void vf_02c(); /* 0x02c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     /* registered size 0xcc */
 };
 
@@ -32231,7 +32231,7 @@ struct ARB_ConstraintActor : public AActor {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual INT vf_17c(INT); /* 0x17c */
     virtual void vf_230(INT); /* 0x230 */
     virtual void vf_238(); /* 0x238 */
@@ -32298,7 +32298,7 @@ struct URB_ConstraintSetup : public UObject {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     /* registered size 0x108 */
 };
 
@@ -32341,7 +32341,7 @@ struct ARB_CylindricalForceActor : public AActor {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_170(FLOAT*, INT, INT, INT, INT, INT); /* 0x170 */
     virtual void vf_1b4(FLOAT); /* 0x1b4 */
     /* registered size 0x1d8 */
@@ -32440,7 +32440,7 @@ struct ARB_LineImpulseActor : public AActor {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_170(FLOAT*, INT, INT, INT, INT, INT); /* 0x170 */
     /* UnrealScript natives */
     void execFireLineImpulse(FFrame& Stack, RESULT_DECL); /* 0x00c939a0 */
@@ -32494,7 +32494,7 @@ struct ARB_RadialForceActor : public AActor {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_170(FLOAT*, INT, INT, INT, INT, INT); /* 0x170 */
     virtual void vf_1b4(FLOAT); /* 0x1b4 */
     /* registered size 0x1c8 */
@@ -32615,7 +32615,7 @@ struct AReverbVolume : public AVolume {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual INT vf_310(INT); /* 0x310 */
     virtual void vf_314(INT); /* 0x314 */
     /* registered size 0x1e8 */
@@ -33040,7 +33040,7 @@ struct UTextureRenderTarget2D : public UTextureRenderTarget {
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual FString GetDesc(); /* 0x0b8 */
     virtual FString GetDetailedDescription(INT InIndex); /* 0x0bc */
     virtual INT vf_0d4(); /* 0x0d4 */
@@ -33089,7 +33089,7 @@ struct USeqAct_ActivateRemoteEvent : public USequenceAction {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void Activated(); /* 0x174 */
     virtual void vf_194(INT, INT); /* 0x194 */
     /* registered size 0xe4 */
@@ -33136,7 +33136,7 @@ struct USeqAct_ActorFactory : public USeqAct_Latent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void Activated(); /* 0x174 */
     virtual void vf_178(); /* 0x178 */
@@ -33521,7 +33521,7 @@ struct USeqAct_DelaySwitch : public USeqAct_Latent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void Activated(); /* 0x174 */
     virtual void vf_178(); /* 0x178 */
@@ -33569,7 +33569,7 @@ struct USeqAct_FinishSequence : public USequenceAction {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_120(); /* 0x120 */
     virtual void Activated(); /* 0x174 */
     /* registered size 0xe0 */
@@ -33731,7 +33731,7 @@ struct USeqAct_Interp : public USeqAct_Latent {
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_120(); /* 0x120 */
     virtual void vf_124(); /* 0x124 */
     virtual void vf_140(); /* 0x140 */
@@ -33823,7 +33823,7 @@ struct USeqAct_LevelStreaming : public USeqAct_LevelStreamingBase {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void Activated(); /* 0x174 */
     virtual void vf_194(INT, INT); /* 0x194 */
@@ -33841,7 +33841,7 @@ struct USeqAct_LevelVisibility : public USeqAct_Latent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void Activated(); /* 0x174 */
     virtual void vf_194(INT, INT); /* 0x194 */
@@ -33897,7 +33897,7 @@ struct USeqAct_MultiLevelStreaming : public USeqAct_LevelStreamingBase {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void Activated(); /* 0x174 */
     virtual void vf_194(INT, INT); /* 0x194 */
@@ -33947,7 +33947,7 @@ struct USeqAct_ParticleEventGenerator : public USequenceAction {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void Activated(); /* 0x174 */
     virtual void vf_178(); /* 0x178 */
@@ -34028,7 +34028,7 @@ struct USeqAct_PlaySound : public USeqAct_Latent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_13c(INT, INT, INT, INT, INT); /* 0x13c */
     virtual void vf_154(); /* 0x154 */
     virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
@@ -34065,7 +34065,7 @@ struct USeqAct_PrepareMapChange : public USeqAct_Latent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void Activated(); /* 0x174 */
     virtual void vf_178(); /* 0x178 */
@@ -34084,7 +34084,7 @@ struct USeqAct_Switch : public USequenceAction {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_140(); /* 0x140 */
     virtual void Activated(); /* 0x174 */
     virtual void vf_178(); /* 0x178 */
@@ -34111,7 +34111,7 @@ struct USeqAct_RangeSwitch : public USequenceAction {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void Activated(); /* 0x174 */
     virtual void vf_178(); /* 0x178 */
     /* other member functions */
@@ -34229,7 +34229,7 @@ struct USeqAct_SetMaterial : public USequenceAction {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     /* registered size 0xdc */
 };
 
@@ -34912,7 +34912,7 @@ struct USeqEvent_RemoteEvent : public USequenceEvent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_194(INT, INT); /* 0x194 */
     /* registered size 0x104 */
 };
@@ -34944,7 +34944,7 @@ struct USeqEvent_SequenceActivated : public USequenceEvent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_120(); /* 0x120 */
     /* registered size 0x104 */
 };
@@ -35182,7 +35182,7 @@ struct USeqVar_Named : public USequenceVariable {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_110(INT, INT); /* 0x110 */
     virtual INT vf_150(); /* 0x150 */
     virtual FString vf_194(); /* 0x194 */
@@ -35792,7 +35792,7 @@ struct USkeletalMesh : public UObject {
     virtual void vf_02c(); /* 0x02c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual void vf_044(UINT); /* 0x044 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_05c(); /* 0x05c */
     virtual FString GetDetailedInfoInternal(); /* 0x094 */
     virtual INT vf_0b4(INT); /* 0x0b4 */
@@ -35933,7 +35933,7 @@ struct USkyLightComponent : public ULightComponent {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual UINT CreateSceneInfo(); /* 0x14c */
     virtual FVector4 GetPosition() const; /* 0x15c */
     virtual INT GetLightType(); /* 0x160 */
@@ -35988,7 +35988,7 @@ struct USoundMode : public UObject {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual FString GetDesc(); /* 0x0b8 */
     virtual FString GetDetailedDescription(INT InIndex); /* 0x0bc */
     /* registered size 0x74 */
@@ -36229,7 +36229,7 @@ struct USoundNodeWave : public USoundNode {
     virtual INT vf_024(); /* 0x024 */
     virtual void vf_02c(); /* 0x02c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual INT vf_0b4(INT); /* 0x0b4 */
     virtual FString GetDesc(); /* 0x0b8 */
     virtual FString GetDetailedDescription(INT InIndex); /* 0x0bc */
@@ -36281,7 +36281,7 @@ struct USpeechRecognition : public UObject {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_014(); /* 0x014 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual FString GetDesc(); /* 0x0b8 */
     virtual FString GetDetailedDescription(INT InIndex); /* 0x0bc */
     virtual INT vf_0d4(); /* 0x0d4 */
@@ -36359,7 +36359,7 @@ struct USpeedTree : public UObject {
     virtual void vf_02c(); /* 0x02c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual void vf_044(UINT); /* 0x044 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual FString GetDesc(); /* 0x0b8 */
     virtual FString GetDetailedDescription(INT InIndex); /* 0x0bc */
     virtual INT vf_0d4(); /* 0x0d4 */
@@ -36409,7 +36409,7 @@ struct USpeedTreeComponent : public UPrimitiveComponent {
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_054(); /* 0x054 */
     virtual INT vf_10c(UINT); /* 0x10c */
     virtual FLOAT vf_110(INT); /* 0x110 */
@@ -36566,7 +36566,7 @@ struct AStaticMeshActor : public AStaticMeshActorBase {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual FString GetDetailedInfoInternal(); /* 0x094 */
     virtual UINT vf_178(); /* 0x178 */
     virtual void vf_2b8(); /* 0x2b8 */
@@ -36779,7 +36779,7 @@ struct ATerrain : public AInfo {
     virtual void vf_02c(); /* 0x02c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual void vf_044(UINT); /* 0x044 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_0e8(INT); /* 0x0e8 */
     virtual INT vf_17c(INT); /* 0x17c */
     virtual void vf_180(); /* 0x180 */
@@ -36873,7 +36873,7 @@ struct UTerrainLayerSetup : public UObject {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     /* UnrealScript natives */
     void execSetMaterials(FFrame& Stack, RESULT_DECL); /* 0x00cc6a40 */
     /* other member functions */
@@ -36900,7 +36900,7 @@ struct UTerrainMaterial : public UObject {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     /* registered size 0xa0 */
 };
 
@@ -37036,7 +37036,7 @@ struct UTextureFlipBook : public UTexture2D, public FTickableObject {
     virtual INT vf_024(); /* 0x024 */
     virtual void vf_02c(); /* 0x02c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual FString GetDesc(); /* 0x0b8 */
     virtual FString GetDetailedDescription(INT InIndex); /* 0x0bc */
     virtual FLOAT vf_12c(); /* 0x12c */
@@ -37077,7 +37077,7 @@ struct UTextureMovie : public UTexture {
     virtual void vf_02c(); /* 0x02c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual void vf_044(UINT); /* 0x044 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual FString GetDesc(); /* 0x0b8 */
     virtual FString GetDetailedDescription(INT InIndex); /* 0x0bc */
     virtual INT vf_0d4(); /* 0x0d4 */
@@ -37115,7 +37115,7 @@ struct UTextureRenderTargetCube : public UTextureRenderTarget {
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual FString GetDesc(); /* 0x0b8 */
     virtual FString GetDetailedDescription(INT InIndex); /* 0x0bc */
     virtual INT vf_0d4(); /* 0x0d4 */
@@ -37178,7 +37178,7 @@ struct UUberPostProcessEffect : public UDOFBloomMotionBlurEffect {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual INT vf_10c(INT); /* 0x10c */
     /* registered size 0xe8 */
 };
@@ -38601,7 +38601,7 @@ struct AWorldInfo : public AZoneInfo {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual FLOAT GetGravityZ(); /* 0x138 */
     virtual void SetZone(UBOOL bTest, UBOOL bForceRefresh); /* 0x1c8 */
     virtual INT vf_1cc(INT); /* 0x1cc */
@@ -39595,7 +39595,7 @@ struct URBarkSet : public UObject {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     /* registered size 0x3c */
 };
 
@@ -40279,7 +40279,7 @@ struct URScriptConversation : public UObject {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     /* registered size 0x3c */
 };
 
@@ -40305,7 +40305,7 @@ struct URSeqAct_BoolCounter : public USequenceAction {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_110(INT, INT); /* 0x110 */
     virtual void vf_120(); /* 0x120 */
     virtual void vf_128(); /* 0x128 */
@@ -40374,7 +40374,7 @@ struct URSeqAct_EventSequence : public USeqAct_Latent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void Activated(); /* 0x174 */
     virtual void vf_178(); /* 0x178 */
@@ -40394,7 +40394,7 @@ struct URSeqAct_SetBoolEx : public USeqAct_SetSequenceVariable {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void Activated(); /* 0x174 */
     virtual void vf_178(); /* 0x178 */
     /* registered size 0xd8 */
@@ -40438,7 +40438,7 @@ struct URSeqAct_SwitchFlags : public USequenceAction {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void Activated(); /* 0x174 */
     /* registered size 0xf0 */
 };
@@ -40464,7 +40464,7 @@ struct URSeqAct_WaitForAllInputs : public USeqAct_Latent {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void Activated(); /* 0x174 */
     virtual void vf_178(); /* 0x178 */
@@ -40519,7 +40519,7 @@ struct URSeqVar_GlobalFlag : public USeqVar_Bool {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual char* vf_170(); /* 0x170 */
     virtual FString vf_194(); /* 0x194 */
     virtual INT vf_198(INT); /* 0x198 */
@@ -40534,7 +40534,7 @@ struct URSeqVar_LocalFlag : public USeqVar_Bool {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual char* vf_170(); /* 0x170 */
     virtual FString vf_194(); /* 0x194 */
     virtual INT vf_198(INT); /* 0x198 */
@@ -40908,10 +40908,10 @@ struct URBMScreenShakeModifier : public UObject {
     FVector OldLoc; /* 0x48 */
     INT CurrentShakeId; /* 0x54 */
     /* virtual functions this class introduces (vtable 0x022fce00) */
-    virtual void vf_10c(INT, INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, INT, INT, INT); /* 0x110 */
-    virtual INT vf_114(INT, INT, INT, INT, INT); /* 0x114 */
-    virtual void vf_118(INT, INT, INT, INT); /* 0x118 */
+    virtual void ApplyJitter(FLOAT& Amplitude, FLOAT& Offset, FLOAT Frequency, FLOAT DeltaTime); /* 0x10c */
+    virtual void ApplyShake(FLOAT DeltaTime, FBMScreenShakeStruct& Shake, FVector& Loc, FRotator& Rot, FLOAT ShakePct); /* 0x110 */
+    virtual UBOOL UpdateShake(FLOAT DeltaTime, FBMScreenShakeStruct& Shake, FVector& Loc, FRotator& Rot, FLOAT& FOV); /* 0x114 */
+    virtual void UpdateFast(FLOAT DeltaTime, FVector& Loc, FRotator& Rot, FLOAT& FOV); /* 0x118 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -41274,16 +41274,16 @@ struct AR3rdPersonCamera : public ACamera {
     /* virtual functions this class introduces (vtable 0x023802d0) */
     virtual void SetFreeCameraConfig(FFreeCameraConfig NewConfig); /* 0x364 */
     virtual void SaveFreeCameraConfig(FFreeCameraConfig& ConfigToSave); /* 0x368 */
-    virtual INT vf_36c(INT, INT, INT); /* 0x36c */
-    virtual INT vf_370(INT, INT); /* 0x370 */
-    virtual INT vf_374(INT, INT, INT, INT); /* 0x374 */
-    virtual INT vf_378(INT, INT); /* 0x378 */
+    virtual void ProcessViewRotation(FLOAT DeltaTime, FRotator& out_ViewRotation, FRotator& out_DeltaRot); /* 0x36c */
+    virtual void UpdateViewTarget(FTViewTarget& OutVT, FLOAT DeltaTime); /* 0x370 */
+    virtual FTPOV BlendViewTargets(FTViewTarget& A, FTViewTarget& B, FLOAT Alpha); /* 0x374 */
+    virtual void UpdateCameraPosition(FLOAT DeltaTime, UBOOL ProperReset); /* 0x378 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_1d8(); /* 0x1d8 */
-    virtual void vf_354(FLOAT, FTPOV&); /* 0x354 */
+    virtual void ApplyCameraModifiers(FLOAT DeltaTime, FTPOV& OutPOV); /* 0x354 */
     virtual void vf_35c(INT, INT, INT, INT, INT); /* 0x35c */
     virtual void vf_360(INT); /* 0x360 */
     /* UnrealScript natives */
@@ -41605,7 +41605,7 @@ struct URConfig : public UObject {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     /* registered size 0x30 */
 };
 
@@ -41648,7 +41648,7 @@ struct ARAmbientSoundTrackingVolume : public AVolume {
     class UAudioDevice* AD; /* 0x1f8 */
     FLOAT sizeM; /* 0x1fc */
     /* virtual functions this class introduces (vtable 0x02305858) */
-    virtual INT vf_360(INT, INT, INT, INT); /* 0x360 */
+    virtual FVector GetClosestPosition(FVector V); /* 0x360 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -41908,7 +41908,7 @@ struct URAnimNode_Pose : public UAnimNodeBlendBase, public FTickableObject {
     virtual void vf_1b4(); /* 0x1b4 */
     virtual INT vf_1b8(INT); /* 0x1b8 */
     virtual void vf_1bc(); /* 0x1bc */
-    virtual INT vf_1c0(INT, INT); /* 0x1c0 */
+    virtual INT vf_1c0(INT, FLOAT); /* 0x1c0 */
     virtual void vf_1c4(); /* 0x1c4 */
     virtual INT vf_1c8(INT); /* 0x1c8 */
     virtual INT vf_1cc(INT); /* 0x1cc */
@@ -41917,7 +41917,7 @@ struct URAnimNode_Pose : public UAnimNodeBlendBase, public FTickableObject {
     virtual INT vf_1d8(INT, INT, INT); /* 0x1d8 */
     virtual INT vf_1dc(INT, INT, INT, INT, INT, INT); /* 0x1dc */
     virtual void vf_1e0(); /* 0x1e0 */
-    virtual INT vf_1e4(); /* 0x1e4 */
+    virtual INT vf_1e4(BYTE); /* 0x1e4 */
     virtual void vf_1e8(INT, INT); /* 0x1e8 */
     virtual BYTE vf_1ec(); /* 0x1ec */
     virtual FLOAT vf_1f0(); /* 0x1f0 */
@@ -41957,11 +41957,11 @@ struct URAnimNode_Pose : public UAnimNodeBlendBase, public FTickableObject {
     virtual void vf_278(); /* 0x278 */
     virtual INT vf_27c(INT, INT); /* 0x27c */
     virtual INT vf_280(); /* 0x280 */
-    virtual INT vf_284(); /* 0x284 */
-    virtual INT vf_288(); /* 0x288 */
-    virtual INT vf_28c(); /* 0x28c */
-    virtual INT vf_290(); /* 0x290 */
-    virtual INT vf_294(); /* 0x294 */
+    virtual INT vf_284(BYTE); /* 0x284 */
+    virtual INT vf_288(BYTE); /* 0x288 */
+    virtual INT vf_28c(BYTE); /* 0x28c */
+    virtual INT vf_290(INT, BYTE); /* 0x290 */
+    virtual INT vf_294(INT, BYTE); /* 0x294 */
     virtual INT vf_298(INT, INT, INT); /* 0x298 */
     virtual void vf_29c(); /* 0x29c */
     virtual void vf_2a0(); /* 0x2a0 */
@@ -41994,14 +41994,14 @@ struct URAnimNode_Pose : public UAnimNodeBlendBase, public FTickableObject {
     virtual INT vf_30c(INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x30c */
     virtual INT vf_310(INT); /* 0x310 */
     virtual INT vf_314(); /* 0x314 */
-    virtual INT vf_318(INT, INT, INT, INT); /* 0x318 */
+    virtual INT vf_318(FLOAT, INT, INT, INT); /* 0x318 */
     virtual FLOAT vf_31c(INT); /* 0x31c */
     virtual INT vf_320(INT); /* 0x320 */
     virtual void vf_324(); /* 0x324 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual INT vf_128(INT, INT); /* 0x128 */
     virtual void vf_134(FLOAT, FLOAT); /* 0x134 */
     virtual void vf_144(INT, INT, INT, INT); /* 0x144 */
@@ -42634,7 +42634,7 @@ struct ARAudioPoint : public AActor {
     FLOAT oldSetV; /* 0x1e0 */
     /* virtual functions this class introduces (vtable 0x02306548) */
     virtual INT BuildNodes(class UAudioComponent* AC); /* 0x354 */
-    virtual INT vf_358(INT, INT); /* 0x358 */
+    virtual void ResyncChapter7(class ARGameInfo* RGI, UBOOL bSet); /* 0x358 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -42692,12 +42692,12 @@ struct ARPawn : public APawn {
     FScriptDelegate __IsRoamPointValid__Delegate; /* 0x428 */
     FScriptDelegate __IsSniperPointValid__Delegate; /* 0x434 */
     /* virtual functions this class introduces (vtable 0x02304da8) */
-    virtual void vf_46c(INT, INT, INT, INT, INT); /* 0x46c */
-    virtual void vf_470(INT, INT, INT); /* 0x470 */
+    virtual void GetRunAwayPoints(FVector CentrePoint, class AActor* BlockingActor, UBOOL bClearNavs); /* 0x46c */
+    virtual void TransientWeightByDist(class ANavigationPoint* StartNode, FLOAT TestDist, INT CostToAdd); /* 0x470 */
     virtual void vf_474(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x474 */
     virtual void vf_478(); /* 0x478 */
     virtual INT vf_47c(); /* 0x47c */
-    virtual void vf_480(UINT, UINT); /* 0x480 */
+    virtual class AActor* GetRoamPoint(INT ApproxRoamJumps, class ANavigationPoint*& StartAnchor); /* 0x480 */
     virtual INT vf_484(INT); /* 0x484 */
     virtual void vf_488(INT, INT, INT, INT, INT, INT, INT); /* 0x488 */
     virtual UINT vf_48c(); /* 0x48c */
@@ -42784,13 +42784,13 @@ struct ARPawnCharacter : public ARPawn {
     virtual INT vf_4b0(); /* 0x4b0 */
     virtual INT vf_4b4(INT); /* 0x4b4 */
     virtual INT vf_4b8(INT); /* 0x4b8 */
-    virtual INT vf_4bc(INT, INT, INT); /* 0x4bc */
-    virtual INT vf_4c0(INT, INT, INT); /* 0x4c0 */
-    virtual INT vf_4c4(INT, INT, INT); /* 0x4c4 */
-    virtual INT vf_4c8(INT, INT, INT); /* 0x4c8 */
-    virtual INT vf_4cc(INT, INT, INT); /* 0x4cc */
+    virtual FTransitionId ChangeMovementStance(FName Stance); /* 0x4bc */
+    virtual UBOOL IsInMovementStance(FName Stance, BYTE Fuzziness); /* 0x4c0 */
+    virtual FTransitionId ChangeWeaponStance(FName Stance); /* 0x4c4 */
+    virtual UBOOL IsInWeaponStance(FName Stance, BYTE Fuzziness); /* 0x4c8 */
+    virtual FTransitionId ChangeIdleStance(FName Stance); /* 0x4cc */
     virtual void ChangeIdleStanceWithoutTransition(FName Stance); /* 0x4d0 */
-    virtual INT vf_4d4(INT, INT, INT, INT); /* 0x4d4 */
+    virtual UBOOL IsInPose(FName MovementStance, FName WeaponStance); /* 0x4d4 */
     virtual INT vf_4d8(); /* 0x4d8 */
     virtual INT vf_4dc(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x4dc */
     virtual INT vf_4e0(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x4e0 */
@@ -42808,37 +42808,37 @@ struct ARPawnCharacter : public ARPawn {
     virtual INT vf_510(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x510 */
     virtual INT vf_514(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x514 */
     virtual INT vf_518(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x518 */
-    virtual INT vf_51c(INT, INT, INT, INT); /* 0x51c */
-    virtual INT vf_520(INT, INT, INT, INT, INT, INT, INT); /* 0x520 */
-    virtual INT vf_524(INT, INT); /* 0x524 */
-    virtual INT vf_528(INT, INT, INT, INT, INT, INT); /* 0x528 */
+    virtual FTransitionId ChangeWeapon(class AInventory* NewWeapon, class AInventory* NewTransitionWeapon, UBOOL bForce); /* 0x51c */
+    virtual FTransitionId ChangePoseOverTime(FName MovementStance, FName WeaponStance, FLOAT Time, UBOOL bMirrored); /* 0x520 */
+    virtual void OverrideTransitionTime(FLOAT Time, INT DisableTimeAdvanceForNumFrames); /* 0x524 */
+    virtual UBOOL HasPose(FName MovementStance, FName WeaponStance, FName IdleStance); /* 0x528 */
     virtual INT vf_52c(); /* 0x52c */
     virtual INT vf_530(); /* 0x530 */
     virtual INT vf_534(INT); /* 0x534 */
-    virtual INT vf_538(INT, INT); /* 0x538 */
+    virtual UBOOL IsInAnyAutomaticTransition(BYTE Fuzziness, FTransitionId& Transition); /* 0x538 */
     virtual INT vf_53c(INT); /* 0x53c */
-    virtual INT vf_540(INT, INT); /* 0x540 */
-    virtual INT vf_544(INT, INT, INT); /* 0x544 */
-    virtual FLOAT vf_548(INT, INT); /* 0x548 */
+    virtual UBOOL IsInTransition(FTransitionId Id, BYTE Fuzziness); /* 0x540 */
+    virtual UBOOL WillBeInTransition(FTransitionId Id, FLOAT DeltaSeconds, BYTE Fuzziness); /* 0x544 */
+    virtual FLOAT GetTimeThroughTransition(FTransitionId Id, BYTE Fuzziness); /* 0x548 */
     virtual INT vf_54c(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x54c */
-    virtual INT vf_550(INT, INT, INT, INT); /* 0x550 */
+    virtual FOverlayId PlayWeaponOverlay(FName OverlayName, FLOAT StartTime); /* 0x550 */
     virtual FOverlayId PlayCustomWeaponOverlay(FCustomAnimConfig OverrideAnim, FLOAT StartTime); /* 0x554 */
-    virtual INT vf_558(INT, INT, INT, INT); /* 0x558 */
-    virtual INT vf_55c(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x55c */
-    virtual INT vf_560(INT, INT, INT, INT); /* 0x560 */
-    virtual INT vf_564(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x564 */
+    virtual FOverlayId PlayMovementOverlay(FName OverlayName, FLOAT StartTime); /* 0x558 */
+    virtual FOverlayId PlayCustomMovementOverlay(FCustomAnimConfig OverrideAnim, FLOAT StartTime); /* 0x55c */
+    virtual FOverlayId PlayIdleOverlay(FName OverlayName, FLOAT StartTime); /* 0x560 */
+    virtual FOverlayId PlayCustomIdleOverlay(FCustomAnimConfig OverrideAnim, FLOAT StartTime); /* 0x564 */
     virtual INT vf_568(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x568 */
     virtual INT vf_56c(INT, INT); /* 0x56c */
     virtual INT vf_570(); /* 0x570 */
-    virtual INT vf_574(INT, INT); /* 0x574 */
+    virtual void SetMovementSpeed(BYTE NewSpeed, FLOAT NewSpeedScale); /* 0x574 */
     virtual void MoveTo(FVector Position); /* 0x578 */
     virtual void MoveInDirection(FVector Direction); /* 0x57c */
     virtual INT vf_580(); /* 0x580 */
     virtual INT vf_584(); /* 0x584 */
     virtual INT vf_588(INT); /* 0x588 */
-    virtual INT vf_58c(FVector, FName, BYTE); /* 0x58c */
-    virtual INT vf_590(INT, INT, INT, INT, INT, INT); /* 0x590 */
-    virtual void vf_594(AActor*, FName, FName, UBOOL); /* 0x594 */
+    virtual void AimAt(FVector Position, FName Description, BYTE AllowTurningToAim); /* 0x58c */
+    virtual void AimInDirection(FVector Direction, FName Description, BYTE AllowTurningToAim); /* 0x590 */
+    virtual void AimAtActor(class AActor* Actor, FName Description, FName ActorBoneName, BYTE AllowTurningToAim); /* 0x594 */
     virtual INT vf_598(); /* 0x598 */
     virtual INT vf_59c(); /* 0x59c */
     virtual INT vf_5a0(); /* 0x5a0 */
@@ -42848,11 +42848,11 @@ struct ARPawnCharacter : public ARPawn {
     virtual FVector GetHeadPositionBeforeAdditive(); /* 0x5b0 */
     virtual void LookAt(FVector Position); /* 0x5b4 */
     virtual void LookInDirection(FVector Direction); /* 0x5b8 */
-    virtual INT vf_5bc(INT, INT, INT); /* 0x5bc */
+    virtual void LookAtActor(class AActor* Actor, FName ActorBoneName); /* 0x5bc */
     virtual INT vf_5c0(); /* 0x5c0 */
     virtual void FaceAt(FVector Position); /* 0x5c4 */
     virtual void FaceInDirection(FVector Direction); /* 0x5c8 */
-    virtual INT vf_5cc(INT, INT, INT); /* 0x5cc */
+    virtual void FaceAtActor(class AActor* Actor, FName ActorBoneName); /* 0x5cc */
     virtual INT vf_5d0(); /* 0x5d0 */
     virtual INT vf_5d4(INT); /* 0x5d4 */
     virtual INT vf_5d8(INT); /* 0x5d8 */
@@ -42873,7 +42873,7 @@ struct ARPawnCharacter : public ARPawn {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_148(INT, INT, INT); /* 0x148 */
+    virtual FVector GetTargetLocation(class AActor* RequestedBy, UBOOL bRequestAlternateLoc); /* 0x148 */
     virtual FVector GetFOVCheckLocation(); /* 0x14c */
     virtual UINT vf_164(INT); /* 0x164 */
     virtual void vf_238(); /* 0x238 */
@@ -43610,19 +43610,19 @@ struct ARBMAIController : public AAIController {
     /* virtual functions this class introduces (vtable 0x02334150) */
     virtual INT vf_408(INT); /* 0x408 */
     virtual UBOOL IsRunningBehaviour(class URBMBehaviour* TestBehaviour); /* 0x40c */
-    virtual bool vf_410(INT, INT); /* 0x410 */
-    virtual INT vf_414(INT, INT, INT, INT); /* 0x414 */
+    virtual BYTE IsInFOV(class AActor* TestActor, UBOOL bFixUpAnimAimDir); /* 0x410 */
+    virtual BYTE IsPointInFOV(FVector TestPos, UBOOL bFixUpAnimAimDir); /* 0x414 */
     virtual bool vf_418(INT, INT, INT, INT, INT, INT); /* 0x418 */
     virtual UBOOL CanSeePos(FVector TestPos); /* 0x41c */
-    virtual INT vf_420(INT, INT); /* 0x420 */
-    virtual INT vf_424(INT, INT, INT, INT, INT); /* 0x424 */
-    virtual INT vf_428(INT, INT); /* 0x428 */
+    virtual FLOAT CanSeeActor(class AActor* TestActor, UBOOL bEarlyOut); /* 0x420 */
+    virtual FLOAT CanSeeActorFromPos(class AActor* TestActor, FVector TestPos, UBOOL bEarlyOut); /* 0x424 */
+    virtual FVector GetViewDir(UBOOL bFixUpAnimAimDir); /* 0x428 */
     virtual FLOAT vf_42c(); /* 0x42c */
     virtual INT vf_430(); /* 0x430 */
-    virtual INT vf_434(INT, INT, INT); /* 0x434 */
-    virtual INT vf_438(INT, INT, INT); /* 0x438 */
-    virtual INT vf_43c(INT); /* 0x43c */
-    virtual INT vf_440(INT); /* 0x440 */
+    virtual FName ResolveWeaponMetaPose(FName InPose); /* 0x434 */
+    virtual FName ResolveMovementMetaPose(FName InPose); /* 0x438 */
+    virtual FName GetSilentPredatorStanceName(); /* 0x43c */
+    virtual FName GetSilentPredatorGlanceStanceName(); /* 0x440 */
     virtual void vf_444(); /* 0x444 */
     virtual UINT vf_448(); /* 0x448 */
     virtual INT vf_44c(FLOAT); /* 0x44c */
@@ -43894,7 +43894,7 @@ struct URBMBehaviour : public USeqAct_Latent {
     virtual UINT vf_1a4(); /* 0x1a4 */
     virtual INT vf_1a8(FLOAT); /* 0x1a8 */
     virtual void vf_1ac(UINT); /* 0x1ac */
-    virtual INT vf_1b0(); /* 0x1b0 */
+    virtual void vf_1b0(); /* 0x1b0 */
     virtual INT vf_1b4(); /* 0x1b4 */
     virtual INT vf_1b8(); /* 0x1b8 */
     /* overrides */
@@ -44023,18 +44023,18 @@ struct URBMBehaviour_Combat : public URBMBehaviour_Controlled {
     INT CurrCombatants; /* 0x1ac */
     BITFIELD bBeenInRange : 1; /* 0x1b0 */
     /* virtual functions this class introduces (vtable 0x0233a7f8) */
-    virtual INT vf_1bc(INT, INT); /* 0x1bc */
+    virtual FVector GetStepDirection(class UAnimSequence* Anim); /* 0x1bc */
     virtual INT vf_1c0(); /* 0x1c0 */
     virtual INT vf_1c4(); /* 0x1c4 */
-    virtual INT vf_1c8(INT, INT); /* 0x1c8 */
-    virtual INT vf_1cc(INT, INT, INT); /* 0x1cc */
+    virtual UBOOL HasClearPathToCombat(UBOOL bForceCheck, UBOOL bDefaultValue); /* 0x1c8 */
+    virtual FVector GatherForcesFromVillains(FLOAT MaxForce, FLOAT MinRange); /* 0x1cc */
     virtual UBOOL IsLocationInCombatArea(FVector TestLocation); /* 0x1d0 */
     virtual INT vf_1d4(); /* 0x1d4 */
     virtual INT vf_1d8(INT); /* 0x1d8 */
     virtual INT vf_1dc(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x1dc */
     virtual INT vf_1e0(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x1e0 */
-    virtual INT vf_1e4(INT, INT); /* 0x1e4 */
-    virtual INT vf_1e8(INT, INT, INT, INT, INT); /* 0x1e8 */
+    virtual UBOOL IsInFrontOfPawn(class ARPawnCombat* TestPawn, FLOAT Angle); /* 0x1e4 */
+    virtual FVector GetForceToGiveToPawn(class ARPawnCombat* ForceReceiver, FLOAT MaxForce, FLOAT MinRange, FLOAT MaxRange); /* 0x1e8 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -44117,7 +44117,7 @@ struct URBMBehaviour_CombatHeavyObject : public URBMBehaviour_CombatAI {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual INT vf_1d8(INT); /* 0x1d8 */
-    virtual INT vf_1e8(INT, INT, INT, INT, INT); /* 0x1e8 */
+    virtual FVector GetForceToGiveToPawn(class ARPawnCombat* ForceReceiver, FLOAT MaxForce, FLOAT MinRange, FLOAT MaxRange); /* 0x1e8 */
     /* UnrealScript natives */
     void execGetMovementForce(FFrame& Stack, RESULT_DECL); /* 0x01705280 */
     /* registered size 0x290 */
@@ -44151,7 +44151,7 @@ struct URBMBehaviour_CombatRifle : public URBMBehaviour_CombatAI {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_1e8(INT, INT, INT, INT, INT); /* 0x1e8 */
+    virtual FVector GetForceToGiveToPawn(class ARPawnCombat* ForceReceiver, FLOAT MaxForce, FLOAT MinRange, FLOAT MaxRange); /* 0x1e8 */
     /* registered size 0x28c */
 };
 
@@ -44184,7 +44184,7 @@ struct URBMBehaviour_CombatStunStick : public URBMBehaviour_CombatAI {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_1e8(INT, INT, INT, INT, INT); /* 0x1e8 */
+    virtual FVector GetForceToGiveToPawn(class ARPawnCombat* ForceReceiver, FLOAT MaxForce, FLOAT MinRange, FLOAT MaxRange); /* 0x1e8 */
     /* registered size 0x298 */
 };
 
@@ -44731,7 +44731,7 @@ struct URBMBehaviour_IdleWithPlannarProp : public URBMBehaviour {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void vf_188(); /* 0x188 */
     /* registered size 0x248 */
@@ -44847,7 +44847,7 @@ struct URBMBehaviour_MiniCutscene : public URBMBehaviour {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     /* registered size 0x1f4 */
 };
 
@@ -44897,7 +44897,7 @@ struct URBMBehaviour_MoveToGroup : public URBMBehaviour_MoveTo {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0x1f8 */
 };
@@ -44931,7 +44931,7 @@ struct URBMBehaviour_MoveToBatmanInChair : public URBMBehaviour_MoveToGroup {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* UnrealScript natives */
     void execChaseCallThrough(FFrame& Stack, RESULT_DECL); /* 0x017058b0 */
@@ -44990,7 +44990,7 @@ struct URBMBehaviour_MoveToJokerInChair : public URBMBehaviour_MoveToGroup {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* UnrealScript natives */
     void execUpdateJokerStruggling(FFrame& Stack, RESULT_DECL); /* 0x01705a10 */
@@ -45218,7 +45218,7 @@ struct URBMBehaviour_Sniper : public URBMBehaviour {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_188(); /* 0x188 */
     /* UnrealScript natives */
     void execBuildSniperPointArray(FFrame& Stack, RESULT_DECL); /* 0x01705be0 */
@@ -45257,7 +45257,7 @@ struct URBMBehaviour_StartConversation : public URBMBehaviour_Conversation {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     /* registered size 0x1ec */
 };
 
@@ -45384,7 +45384,7 @@ struct URBMBehaviour_Venom : public URBMBehaviour_Combat {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_1e8(INT, INT, INT, INT, INT); /* 0x1e8 */
+    virtual FVector GetForceToGiveToPawn(class ARPawnCombat* ForceReceiver, FLOAT MaxForce, FLOAT MinRange, FLOAT MaxRange); /* 0x1e8 */
     /* UnrealScript natives */
     void execGetForceToGiveToPawn(FFrame& Stack, RESULT_DECL); /* 0x017055c0 */
     /* registered size 0x204 */
@@ -45482,7 +45482,7 @@ struct URBMBehaviourAutoStringUp : public URBMBehaviour {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     /* UnrealScript natives */
     void execSetRope(FFrame& Stack, RESULT_DECL); /* 0x0171e210 */
     /* registered size 0x1f8 */
@@ -45582,7 +45582,7 @@ struct ARBMCameraEmitter : public AREmitter {
     class UParticleSystem* ParticleSystem; /* 0x1b8 */
     FLOAT DistFromCamera; /* 0x1bc */
     /* virtual functions this class introduces (vtable 0x02300580) */
-    virtual INT vf_354(INT, INT, INT); /* 0x354 */
+    virtual void UpdateLocation(FVector& CamLoc, FRotator& CamRot, FLOAT CamFOVDeg); /* 0x354 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -45794,7 +45794,7 @@ struct ARBMCombatManager : public AActor {
     virtual INT vf_35c(INT); /* 0x35c */
     virtual INT vf_360(INT); /* 0x360 */
     virtual UBOOL IsLocationInCombatArea(FVector TestLocation); /* 0x364 */
-    virtual INT vf_368(INT, INT, INT, INT); /* 0x368 */
+    virtual UBOOL IsCombatantNearLocation(FVector TestLocation, FLOAT TestRadius); /* 0x368 */
     virtual bool vf_36c(); /* 0x36c */
     virtual INT vf_370(); /* 0x370 */
     virtual INT vf_374(); /* 0x374 */
@@ -45802,8 +45802,8 @@ struct ARBMCombatManager : public AActor {
     virtual INT vf_37c(); /* 0x37c */
     virtual void vf_380(); /* 0x380 */
     virtual UINT vf_384(); /* 0x384 */
-    virtual INT vf_388(INT, INT); /* 0x388 */
-    virtual FLOAT vf_38c(INT, INT); /* 0x38c */
+    virtual class ARPawnCombat* LOSFromPawnToPawn(class ARPawnCombat* Pawn1, class ARPawnCombat* Pawn2); /* 0x388 */
+    virtual FLOAT GetAngleFromPawnToPawn(class ARPawnCombat* Pawn1, class ARPawnCombat* Pawn2); /* 0x38c */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -46090,7 +46090,7 @@ struct ARBMDialogueCoordinator : public AActor {
     TArrayNoInit<class ARAlertEventCoordinator*> LockList; /* 0x208 */
     INT RoomSpecificBias; /* 0x214 */
     /* virtual functions this class introduces (vtable 0x02335c00) */
-    virtual void vf_354(INT, INT, INT, INT); /* 0x354 */
+    virtual FBarkDefinition GetBark(class ARPawnVillain* Barker, BYTE BarkType, class URBarkFlagBase* ContextFlags); /* 0x354 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -46165,7 +46165,7 @@ struct URBMExitConditionCombiner : public URBMExitCondition {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_110(INT, INT); /* 0x110 */
     virtual void vf_120(); /* 0x120 */
     virtual void vf_128(); /* 0x128 */
@@ -46414,11 +46414,11 @@ struct ARPawnCombat : public ARPawnCharacter {
     /* virtual functions this class introduces (vtable 0x02331480) */
     virtual FLOAT vf_614(INT); /* 0x614 */
     virtual FLOAT vf_618(); /* 0x618 */
-    virtual INT vf_61c(INT, INT, INT, INT, INT); /* 0x61c */
-    virtual INT vf_620(INT, INT, INT, INT, INT); /* 0x620 */
+    virtual FVector GetForceToGiveToPawn(class ARPawnCombat* Receiver, FLOAT MaxForce, FLOAT MinRange, FLOAT MaxRange); /* 0x61c */
+    virtual FVector GetRadialForce(class ARPawnCombat* Receiver, FLOAT MaxForce, FLOAT MinRange, FLOAT MaxRange); /* 0x620 */
     virtual UINT vf_624(); /* 0x624 */
     virtual UINT vf_628(); /* 0x628 */
-    virtual FLOAT vf_62c(INT, INT); /* 0x62c */
+    virtual FLOAT AngleDiff(FLOAT Angle1, FLOAT Angle2); /* 0x62c */
     virtual INT vf_630(INT); /* 0x630 */
     virtual INT vf_634(); /* 0x634 */
     virtual INT vf_638(INT, INT, INT, INT, INT); /* 0x638 */
@@ -46574,7 +46574,7 @@ struct ARBMPawnAI : public ARBMPawnAIAnim {
     class ARElectrifiedFloorPanel* LastFloorPanel; /* 0x7ec */
     /* virtual functions this class introduces (vtable 0x02332110) */
     virtual INT vf_64c(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x64c */
-    virtual void vf_650(INT, INT); /* 0x650 */
+    virtual class USoundCue* ConstructFootstepSFX(class URFMODSound* bank, class USoundCue* InSoundCue); /* 0x650 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -46634,7 +46634,7 @@ struct URBmPawnSpawner : public USeqAct_Latent {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void Activated(); /* 0x174 */
     virtual bool vf_180(INT, INT); /* 0x180 */
@@ -46649,7 +46649,7 @@ struct URBMPawnSpawnerController : public USeqAct_Latent {
     TArrayNoInit<FPawnSpawnerDesc> PawnTypes; /* 0xe4 */
     INT NumberOfPawnSpawners; /* 0xf0 */
     /* virtual functions this class introduces (vtable 0x0233ca18) */
-    virtual void vf_1a0(INT, INT); /* 0x1a0 */
+    virtual void ActiveNumberAltered(INT Index, INT NewNumber); /* 0x1a0 */
     virtual INT vf_1a4(INT); /* 0x1a4 */
     virtual INT vf_1a8(INT); /* 0x1a8 */
     virtual void vf_1ac(); /* 0x1ac */
@@ -46659,7 +46659,7 @@ struct URBMPawnSpawnerController : public USeqAct_Latent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_110(INT, INT); /* 0x110 */
     virtual void vf_120(); /* 0x120 */
     virtual void vf_128(); /* 0x128 */
@@ -46754,7 +46754,7 @@ struct ARBMRouter_DynamicObject : public AActor {
     BITFIELD bActive : 1; /* 0x1b8 */
     /* virtual functions this class introduces (vtable 0x02346e38) */
     virtual INT vf_354(INT); /* 0x354 */
-    virtual INT vf_358(INT, INT); /* 0x358 */
+    virtual UBOOL UpdateRouterObject_Searching(FLOAT DeltaTime, INT& UpdatesLeft); /* 0x358 */
     virtual INT vf_35c(FLOAT); /* 0x35c */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
@@ -46799,15 +46799,15 @@ struct ARBMRouter : public ARBMRouter_DynamicObject {
     FLOAT CachedWorldAvoidanceWeight; /* 0x278 */
     /* virtual functions this class introduces (vtable 0x02347198) */
     virtual FVector GetMovementDir(); /* 0x360 */
-    virtual INT vf_364(INT, INT, INT); /* 0x364 */
-    virtual INT vf_368(INT, INT); /* 0x368 */
+    virtual FVector GetDivergeVector(FLOAT& DivergeWeight, UBOOL bIgnoreCasualties); /* 0x364 */
+    virtual FVector GetPawnAvoidVector(FLOAT& AvoidWeight); /* 0x368 */
     virtual bool vf_36c(); /* 0x36c */
     virtual INT FindEndAnchor(FVector DestPos); /* 0x370 */
-    virtual INT vf_374(INT, INT); /* 0x374 */
-    virtual INT vf_378(INT, INT, INT, INT); /* 0x378 */
+    virtual UBOOL CanMoveBetweenAnchors(class ANavigationPoint* StartPoint, class ANavigationPoint* EndPoint); /* 0x374 */
+    virtual UBOOL CanMoveDirectlyToPos(FVector TestPos, UBOOL bKnowVisible); /* 0x378 */
     virtual UBOOL CanMovePartwayToPos(FVector TestPos); /* 0x37c */
-    virtual INT vf_380(INT, INT, INT, INT, INT); /* 0x380 */
-    virtual INT vf_384(INT, INT); /* 0x384 */
+    virtual class URBMRouterPath* BuildPathTo(FVector Dest, class ANavigationPoint* StartAnchor, class ANavigationPoint* EndAnchor); /* 0x380 */
+    virtual INT SmoothPathBothEnds(class ARPawn* User, class URBMRouterPath*& aPath); /* 0x384 */
     virtual INT vf_388(); /* 0x388 */
     virtual INT vf_38c(); /* 0x38c */
     virtual INT vf_390(); /* 0x390 */
@@ -46822,7 +46822,7 @@ struct ARBMRouter : public ARBMRouter_DynamicObject {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual INT vf_354(INT); /* 0x354 */
-    virtual INT vf_358(INT, INT); /* 0x358 */
+    virtual UBOOL UpdateRouterObject_Searching(FLOAT DeltaTime, INT& UpdatesLeft); /* 0x358 */
     virtual INT vf_35c(FLOAT); /* 0x35c */
     /* UnrealScript natives */
     void execGetMovementDir(FFrame& Stack, RESULT_DECL); /* 0x016fd4a0 */
@@ -46909,7 +46909,7 @@ struct ARBMRouteRequest_BuildComparisonList : public ARBMRouteRequest {
     TArrayNoInit<FGoalItem> SearchList; /* 0x1e4 */
     INT NextPGPIndexToTest; /* 0x1f0 */
     /* virtual functions this class introduces (vtable 0x02347c20) */
-    virtual void vf_378(INT, INT, INT, INT); /* 0x378 */
+    virtual void SetIndexedGoalList(class UComparisonListSharedDataCache* NewSharedData, FVector StartLoc); /* 0x378 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -46958,7 +46958,7 @@ struct ARBMRouteRequest_FindSinglePath : public ARBMRouteRequest {
     class ANavigationPoint* StartAnchor; /* 0x1c8 */
     class ANavigationPoint* EndAnchor; /* 0x1cc */
     /* virtual functions this class introduces (vtable 0x023486a0) */
-    virtual INT vf_378(INT, INT, INT, INT); /* 0x378 */
+    virtual void SetGoal(FVector TargetPos, UBOOL bAutoFixPos); /* 0x378 */
     virtual void SetGoalForStaticAvoidance(FVector TargetPos); /* 0x37c */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
@@ -47093,7 +47093,7 @@ struct URBMRouterPath : public UObject {
     FVector OldPathPos; /* 0x40 */
     TArray<FPathNodeInfo> SmoothedNodes; /* 0x4c */
     /* virtual functions this class introduces (vtable 0x02344ab0) */
-    virtual INT vf_10c(INT, INT); /* 0x10c */
+    virtual FVector GetNodePos(INT Index); /* 0x10c */
     virtual INT vf_110(INT); /* 0x110 */
     virtual INT vf_114(); /* 0x114 */
     virtual INT vf_118(); /* 0x118 */
@@ -47101,15 +47101,15 @@ struct URBMRouterPath : public UObject {
     virtual INT vf_120(INT); /* 0x120 */
     virtual INT vf_124(INT); /* 0x124 */
     virtual INT vf_128(INT); /* 0x128 */
-    virtual INT vf_12c(INT, INT, INT, INT, INT); /* 0x12c */
+    virtual void UpdatePath(class ARPawn* User, INT& bPathShortened, UBOOL bSkipAngleCheck, UBOOL bForceShorten, UBOOL bUpdateEstimateStartAnchor); /* 0x12c */
     virtual INT vf_130(); /* 0x130 */
     virtual void AddNode_Pos(FVector NewPathNode); /* 0x134 */
     virtual INT AddNode_Actor(class AActor* NewPathNode); /* 0x138 */
-    virtual INT vf_13c(INT, INT, INT, INT); /* 0x13c */
-    virtual INT vf_140(INT, INT); /* 0x140 */
+    virtual void InsertNode_Pos(FVector NewPathNode, INT Index); /* 0x13c */
+    virtual void InsertNode_Actor(class AActor* NewPathNode, INT Index); /* 0x140 */
     virtual FLOAT GetPathLength(FVector CurrentPos); /* 0x144 */
     virtual FLOAT GetEstimatePostSmoothPathLength(FVector CurrentPos); /* 0x148 */
-    virtual FLOAT vf_14c(INT, INT, INT, INT); /* 0x14c */
+    virtual FLOAT GetDistanceSquaredFromPath(class ARPawn* User, FVector TestLocation); /* 0x14c */
     virtual INT vf_150(); /* 0x150 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
@@ -47288,7 +47288,7 @@ struct URBMWaveController : public USeqAct_Latent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_110(INT, INT); /* 0x110 */
     virtual void vf_120(); /* 0x120 */
     virtual void vf_128(); /* 0x128 */
@@ -48206,7 +48206,7 @@ struct ARCinematicActor : public ASkeletalMeshActor {
     virtual void vf_358(INT); /* 0x358 */
     virtual void vf_35c(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x35c */
     virtual INT vf_360(); /* 0x360 */
-    virtual INT vf_364(INT, INT, INT); /* 0x364 */
+    virtual void InternalSetMorphWeight(FName MorphNodeName, FLOAT MorphWeight); /* 0x364 */
     virtual INT vf_368(INT, INT, INT); /* 0x368 */
     virtual void vf_36c(INT, INT); /* 0x36c */
     /* overrides */
@@ -48265,7 +48265,7 @@ struct ARCinematicCameraActor : public ACameraActor {
     class AActor* RelativeTo; /* 0x268 */
     FName BoneName; /* 0x26c */
     /* virtual functions this class introduces (vtable 0x02394230) */
-    virtual INT vf_354(INT, INT, INT, INT); /* 0x354 */
+    virtual void InternalSetAnimPosition(FName InAnimSeqName, FLOAT InPosition, UBOOL bLooping); /* 0x354 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -48307,7 +48307,7 @@ struct ARCombatArea : public AActor {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     /* UnrealScript natives */
     void execIsLocationInArea(FFrame& Stack, RESULT_DECL); /* 0x016f7750 */
     /* registered size 0x1e4 */
@@ -48454,10 +48454,10 @@ struct ARCombatMove_BatmanStrike : public ARCombatMove_BatmanAttack {
     FLOAT ChapterNumber; /* 0x344 */
     /* virtual functions this class introduces (vtable 0x02362280) */
     virtual void vf_358(); /* 0x358 */
-    virtual INT vf_35c(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x35c */
+    virtual INT GetStrikeInfoScore(FStrikeInfo TestStrike, BYTE StrikeDir, BYTE StrikeStrength, BYTE StrikeRange, UBOOL bCanTravelBeyondTarget); /* 0x35c */
     virtual INT GetScoreForHandedness(FStrikeInfo TestStrike); /* 0x360 */
-    virtual INT vf_364(INT, INT); /* 0x364 */
-    virtual INT vf_368(INT, INT); /* 0x368 */
+    virtual INT GetScoreForStrikeRange(BYTE TestRange, BYTE DesRange); /* 0x364 */
+    virtual INT GetScoreForStrikeDir(BYTE TestDir, BYTE DesDir); /* 0x368 */
     virtual INT GetScoreForTimeSinceUse(FStrikeInfo TestStrike); /* 0x36c */
     virtual INT GetScoreForStrikeSpeed(FStrikeInfo TestStrike); /* 0x370 */
     virtual UBOOL CanHitPawn(class ARPawnCombat* TargetPawn); /* 0x374 */
@@ -48549,8 +48549,8 @@ struct ARCombatMove_BatmanCounter : public ARCombatMove_BatmanWeaponAttack {
     TArrayNoInit<FLOAT> SlowMoHitTimes; /* 0x2d4 */
     FLOAT CounterTime; /* 0x2e0 */
     /* virtual functions this class introduces (vtable 0x02362950) */
-    virtual void vf_358(INT); /* 0x358 */
-    virtual FLOAT vf_35c(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x35c */
+    virtual UBOOL SetCounterInfo(BYTE CStrength); /* 0x358 */
+    virtual FLOAT GetCounterInfoScore(FCounterInfo TestCounter, BYTE MoveDir, BYTE Limb, BYTE TestStrength); /* 0x35c */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -49226,7 +49226,7 @@ struct ARCornerPoint : public ARCornerPointBase {
     class ARCornerPoint* PairedCorner; /* 0x1cc */
     FLOAT LastLockTime; /* 0x1d0 */
     /* virtual functions this class introduces (vtable 0x02338f18) */
-    virtual INT vf_35c(INT, INT, INT); /* 0x35c */
+    virtual FVector GetCornerFor(class ARCornerWallMarker* StartWall, class ARCornerWallMarker* DestWall); /* 0x35c */
     virtual FLOAT vf_360(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x360 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
@@ -49258,11 +49258,11 @@ struct ARCornerWallMarkerBase : public AActor {
     FVector BatmanCoverPosition; /* 0x1cc */
     FLOAT BatmanLROffset; /* 0x1d8 */
     /* virtual functions this class introduces (vtable 0x02339280) */
-    virtual INT vf_354(INT, INT, INT); /* 0x354 */
+    virtual void GetBatmanCornerPositionAndRotation(FLOAT CollisionRadius, FVector& BatmanPosition, FRotator& BatmanCoverRotation); /* 0x354 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual INT vf_188(); /* 0x188 */
     virtual void vf_2b8(); /* 0x2b8 */
     /* UnrealScript natives */
@@ -49280,7 +49280,7 @@ struct ARCornerWallMarker : public ARCornerWallMarkerBase {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     /* registered size 0x1ec */
 };
 
@@ -49353,7 +49353,7 @@ struct ARSnapToPositionActor : public AActor {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual INT vf_17c(INT); /* 0x17c */
     virtual INT vf_29c(INT); /* 0x29c */
     /* registered size 0x1a8 */
@@ -49389,7 +49389,7 @@ struct ARGrapplePoint : public ARSnapToPositionActor {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_02c(); /* 0x02c */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_2b8(); /* 0x2b8 */
     virtual void vf_358(INT); /* 0x358 */
     virtual void vf_35c(); /* 0x35c */
@@ -49490,7 +49490,7 @@ struct ARCrowdAttractor : public AActor {
     INT FlockID; /* 0x1c0 */
     INT InfluencedAgentsCount; /* 0x1c4 */
     /* virtual functions this class introduces (vtable 0x023a3a58) */
-    virtual INT vf_354(INT, INT, INT); /* 0x354 */
+    virtual FVector GetAttractionForce(class ARCrowdAgent* Agent, FLOAT DeltaTime); /* 0x354 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -49510,7 +49510,7 @@ struct ARCrowdAttractor_Cylinder : public ARCrowdAttractor {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_354(INT, INT, INT); /* 0x354 */
+    virtual FVector GetAttractionForce(class ARCrowdAgent* Agent, FLOAT DeltaTime); /* 0x354 */
     /* UnrealScript natives */
     void execGetAttractionForce(FFrame& Stack, RESULT_DECL); /* 0x016e9750 */
     /* registered size 0x1e4 */
@@ -49689,7 +49689,7 @@ struct ARDeadBodyBase : public ASkeletalMeshActor, public IREvidenceInterface {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual FLOAT vf_350(INT); /* 0x350 */
     /* registered size 0x270 */
 };
@@ -49822,13 +49822,13 @@ struct ARDisruptableObjectDoor : public AActor {
     class UAudioComponent* DoorSound; /* 0x1d4 */
     FLOAT sizeM; /* 0x1d8 */
     /* virtual functions this class introduces (vtable 0x023ce640) */
-    virtual FLOAT vf_354(INT, INT, INT, INT); /* 0x354 */
+    virtual FLOAT CalcCharge(FVector InLoc, FLOAT& Dist); /* 0x354 */
     virtual INT UpdateSound(class ARPawnPlayer* Batman); /* 0x358 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual UINT vf_178(); /* 0x178 */
     virtual INT vf_17c(INT); /* 0x17c */
     virtual UBOOL ShouldTrace(UPrimitiveComponent* Primitive, AActor* SourceActor, DWORD TraceFlags); /* 0x198 */
@@ -50375,7 +50375,7 @@ struct UREvidence : public URConfig {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     /* registered size 0x74 */
 };
 
@@ -50554,8 +50554,8 @@ struct ARExplodableWallBase : public AActor {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
-    virtual void vf_04c(UINT); /* 0x04c */
-    virtual INT vf_148(INT, INT, INT); /* 0x148 */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
+    virtual FVector GetTargetLocation(class AActor* RequestedBy, UBOOL bRequestAlternateLoc); /* 0x148 */
     virtual FVector GetFOVCheckLocation(); /* 0x14c */
     virtual void vf_170(FLOAT*, INT, INT, INT, INT, INT); /* 0x170 */
     virtual INT vf_174(INT, INT); /* 0x174 */
@@ -50849,7 +50849,7 @@ struct ARForensicsDevice : public AInventory {
     virtual UINT vf_354(); /* 0x354 */
     virtual INT EvidenceRegisterDnaSNS(class ARForensicDnaSplatStaticNonScan* Splat); /* 0x358 */
     virtual INT EvidenceRegisterDnaS(class ARForensicDnaSplatStatic* Splat); /* 0x35c */
-    virtual void vf_360(INT, INT); /* 0x360 */
+    virtual void EvidenceRegisterVap(class ARVaporVolumeBase* vapor, FLOAT Distance); /* 0x360 */
     virtual INT EvidenceRegisterDNA(class ARForensicDnaSplat* Splat); /* 0x364 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
@@ -50886,7 +50886,7 @@ struct URForensicsInvestigator : public UObject {
     /* virtual functions this class introduces (vtable 0x022fd618) */
     virtual INT vf_10c(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x10c */
     virtual void vf_110(INT, INT, INT, INT); /* 0x110 */
-    virtual void vf_114(INT, INT); /* 0x114 */
+    virtual void DrawHUDNative(class AHUD* H, class ARPlayerController* RPC); /* 0x114 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -50907,7 +50907,7 @@ struct ARFracturablePontoonPropBase : public AFracturedStaticMeshActor {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual UBOOL ShouldTrace(UPrimitiveComponent* Primitive, AActor* SourceActor, DWORD TraceFlags); /* 0x198 */
     virtual FLOAT vf_350(INT); /* 0x350 */
     /* UnrealScript natives */
@@ -50985,8 +50985,8 @@ struct ARFractureWallBase : public AFracturedStaticMeshActor, public IRSpotableI
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
-    virtual void vf_04c(UINT); /* 0x04c */
-    virtual INT vf_148(INT, INT, INT); /* 0x148 */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
+    virtual FVector GetTargetLocation(class AActor* RequestedBy, UBOOL bRequestAlternateLoc); /* 0x148 */
     virtual INT vf_174(INT, INT); /* 0x174 */
     virtual UBOOL ShouldTrace(UPrimitiveComponent* Primitive, AActor* SourceActor, DWORD TraceFlags); /* 0x198 */
     virtual INT vf_1a0(INT, INT, INT); /* 0x1a0 */
@@ -51083,12 +51083,12 @@ struct ARGameInfo : public ARGameInfoBase {
     FLOAT PlantPodSpawnTime; /* 0x4b0 */
     INT PodsAlive; /* 0x4b4 */
     /* virtual functions this class introduces (vtable 0x023008d8) */
-    virtual void vf_3ac(INT); /* 0x3ac */
+    virtual class ARLevelVolume* GetLevelVolumeFor(class UObject* Obj); /* 0x3ac */
     virtual AController* vf_3b0(); /* 0x3b0 */
     virtual INT vf_3b4(); /* 0x3b4 */
     virtual INT vf_3b8(); /* 0x3b8 */
     virtual INT vf_3bc(); /* 0x3bc */
-    virtual INT vf_3c0(INT, INT); /* 0x3c0 */
+    virtual INT SecuROMProtectionCheck4(INT A, INT B); /* 0x3c0 */
     virtual void vf_3c4(); /* 0x3c4 */
     virtual void vf_3c8(INT); /* 0x3c8 */
     virtual INT vf_3cc(FLOAT); /* 0x3cc */
@@ -51276,11 +51276,11 @@ struct ARGameRI : public ARGameReplicationInfoBase {
     class ARPawnBossScarecrowBase* Scarecrow; /* 0x440 */
     FName BatmanInCombatFlagName; /* 0x444 */
     /* virtual functions this class introduces (vtable 0x02301088) */
-    virtual void vf_358(INT, INT, INT); /* 0x358 */
+    virtual void SetLevelHiddenOnNamedLevelsComponents(FName LevelName, UBOOL Value); /* 0x358 */
     virtual INT vf_35c(); /* 0x35c */
     virtual void vf_360(); /* 0x360 */
-    virtual INT vf_364(INT, INT, INT, INT, INT); /* 0x364 */
-    virtual INT vf_368(INT, INT, INT); /* 0x368 */
+    virtual void AddNextLevelRequest(FName Level, class AActor* Originator, UBOOL BlockOnLoad, UBOOL MarkLevelsHidden); /* 0x364 */
+    virtual void RemoveNextLevelRequest(FName Level, class AActor* Originator); /* 0x368 */
     virtual UBOOL IsLevelLoaded(FName Level); /* 0x36c */
     virtual UBOOL IsLevelLoading(FName Level); /* 0x370 */
     virtual UBOOL IsLevelVisible(FName Level); /* 0x374 */
@@ -51974,7 +51974,7 @@ struct ARGrapplePointCatchmentArea : public AActor {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual INT vf_17c(INT); /* 0x17c */
     /* other member functions */
     void sub_00757e00(UFunction* Function, void* Parms, void* Result); /* 0x00757e00 */
@@ -52125,7 +52125,7 @@ struct ARHidePoint : public AFracturedStaticMeshActor {
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_020(); /* 0x020 */
     virtual void vf_02c(); /* 0x02c */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual INT vf_17c(INT); /* 0x17c */
     virtual UBOOL ShouldTrace(UPrimitiveComponent* Primitive, AActor* SourceActor, DWORD TraceFlags); /* 0x198 */
     virtual void vf_1d8(); /* 0x1d8 */
@@ -52168,7 +52168,7 @@ struct ARHarpoonDragFloatingPlatformBase : public ARHarpoonDragBase {
     DECLARE_CLASS(ARHarpoonDragFloatingPlatformBase, ARHarpoonDragBase, 0x0, 0x0, BmGame)
     class ARWaterLevelMarker* WaterLevel; /* 0x20c */
     /* virtual functions this class introduces (vtable 0x023ca8a0) */
-    virtual bool vf_358(INT, INT, INT, INT); /* 0x358 */
+    virtual BYTE MoveObject(FVector Direction, FLOAT DeltaTime); /* 0x358 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -52212,14 +52212,14 @@ struct ARSmashableProp : public ARKActorSpawnable {
     class ARShockNoise_AlertProxy* AlertProxy; /* 0x338 */
     /* virtual functions this class introduces (vtable 0x02377200) */
     virtual void SetupProp(class URSmashablePropConfig* propSetupData); /* 0x354 */
-    virtual INT vf_358(INT, INT, INT, INT, INT, INT); /* 0x358 */
+    virtual UBOOL HandleCollision(FVector TotalNormalForceVector, class AActor* CollideActor0, class AActor* CollideActor1, UBOOL IsAlwaysSmash); /* 0x358 */
     virtual void vf_35c(); /* 0x35c */
     virtual void SetLightEnvironment(UDynamicLightEnvironmentComponent* NewLightEnvironment); /* 0x360 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual INT vf_174(INT, INT); /* 0x174 */
     virtual void vf_180(); /* 0x180 */
     virtual void vf_1d8(); /* 0x1d8 */
@@ -52278,7 +52278,7 @@ struct ARHarpoonDragTrack : public AInterpActor {
     FLOAT ProportionAlongTrack; /* 0x234 */
     class URSpecialMoveConfig* OpenCloseMove; /* 0x238 */
     /* virtual functions this class introduces (vtable 0x023cac00) */
-    virtual INT vf_358(INT, INT, INT, INT); /* 0x358 */
+    virtual UBOOL MoveObject(FVector Direction, FLOAT DeltaTime); /* 0x358 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -52839,7 +52839,7 @@ struct ARJokerGunGadgetBase : public ARInventoryGadget {
     class AActor* AutoTargetActor; /* 0x3b4 */
     /* virtual functions this class introduces (vtable 0x023cd7b0) */
     virtual void vf_358(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x358 */
-    virtual INT vf_35c(INT, INT, INT); /* 0x35c */
+    virtual FName GetWritheAnimName(FName BoneName); /* 0x35c */
     virtual INT GetShouldKnockHelmetOff(FName BoneName); /* 0x360 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
@@ -53018,7 +53018,7 @@ struct ARLevelTransition : public AActor {
     virtual INT vf_364(); /* 0x364 */
     virtual INT vf_368(); /* 0x368 */
     virtual INT vf_36c(INT); /* 0x36c */
-    virtual INT vf_370(INT); /* 0x370 */
+    virtual FName GetNonCurrentLevel(); /* 0x370 */
     virtual INT vf_374(INT); /* 0x374 */
     virtual INT vf_378(INT, INT); /* 0x378 */
     virtual INT vf_37c(INT, INT); /* 0x37c */
@@ -53027,7 +53027,7 @@ struct ARLevelTransition : public AActor {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual INT vf_17c(INT); /* 0x17c */
     virtual void vf_1b4(FLOAT); /* 0x1b4 */
     /* UnrealScript natives */
@@ -53105,7 +53105,7 @@ struct ARLevelTransitionDoorBase : public ARLevelTransitionP {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual char* vf_34c(); /* 0x34c */
     virtual FLOAT vf_350(INT); /* 0x350 */
     /* registered size 0x2c8 */
@@ -53157,7 +53157,7 @@ struct ARLevelTransitionPath : public ARLevelTransition {
     BITFIELD StartedStreamingWait : 1; /* 0x224 */
     BITFIELD ForceStart : 1; /* 0x224 */
     /* virtual functions this class introduces (vtable 0x023084b8) */
-    virtual INT vf_388(INT, INT, INT, INT); /* 0x388 */
+    virtual UBOOL IsInActivationRange(FVector pos, FLOAT ExtraSize); /* 0x388 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -53192,7 +53192,7 @@ struct ARLevelVolume : public APostProcessVolume {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual INT vf_17c(INT); /* 0x17c */
     virtual void vf_180(); /* 0x180 */
     /* UnrealScript natives */
@@ -53492,7 +53492,7 @@ struct ARPatrolPoint : public AActor {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual INT vf_17c(INT); /* 0x17c */
     virtual INT vf_29c(INT); /* 0x29c */
     /* UnrealScript natives */
@@ -53935,7 +53935,7 @@ struct ARPawnBossIvyBase : public ARBMPawnAI {
     TArrayNoInit<INT> MusicProgression; /* 0xc40 */
     INT MusicIndex; /* 0xc4c */
     /* virtual functions this class introduces (vtable 0x0233d278) */
-    virtual INT vf_654(INT, INT, INT, INT); /* 0x654 */
+    virtual class ARPawn* SpawnPawn(class UClass* PawnClass, class UClass* CharacterClass, class UClass* WeaponClass, class AActor* SpawnPoint); /* 0x654 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -54024,7 +54024,7 @@ struct ARPawnBossScarecrowBase : public ARBMPawnAIAnim {
     TArrayNoInit<FScarecrowBossCustomConstraintConfig> CustomConstraintConfigs; /* 0x8e0 */
     FLOAT BatmanStandTime; /* 0x8ec */
     /* virtual functions this class introduces (vtable 0x023952f0) */
-    virtual INT vf_64c(INT, INT, INT, INT, INT, INT); /* 0x64c */
+    virtual UBOOL CanSeeBatmanTest(class ARPawnCharacter* Batman, FVector ViewPoint, class ARPawnBossScarecrowBase* Scarecrow, INT NumBonesToCheck); /* 0x64c */
     virtual INT vf_650(INT, INT, INT, INT, INT, INT, INT); /* 0x650 */
     virtual INT vf_654(INT, INT, INT, INT, INT, INT, INT); /* 0x654 */
     /* overrides */
@@ -54157,9 +54157,9 @@ struct ARPawnPlayerCombat : public ARPawnPlayerAnim {
     TArrayNoInit<FName> AfterCombatAnims; /* 0x6b0 */
     /* virtual functions this class introduces (vtable 0x0237e210) */
     virtual void vf_640(); /* 0x640 */
-    virtual INT vf_644(INT, INT); /* 0x644 */
-    virtual INT vf_648(INT, INT); /* 0x648 */
-    virtual void vf_64c(INT, INT, INT, INT, INT, INT); /* 0x64c */
+    virtual UBOOL IsValidTargetForStrike_Cheap(class ARPawnCombat* TestPawn, class UClass* DamageType); /* 0x644 */
+    virtual UBOOL IsValidTargetForStrike_Expensive(class ARPawnCombat* TestPawn, class UClass* DamageType); /* 0x648 */
+    virtual class AActor* FindFacingActorForStrike(FLOAT MaxDist, FLOAT MaxVenomDist, FVector FacingDir, class UClass* dmgType); /* 0x64c */
     virtual void vf_650(INT, INT, INT, INT, INT, INT, INT); /* 0x650 */
     virtual void vf_654(INT, INT, INT, INT, INT); /* 0x654 */
     virtual INT vf_658(INT, INT, INT, INT, INT); /* 0x658 */
@@ -54403,7 +54403,7 @@ struct ARPawnSpawnObject : public AActor {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     /* UnrealScript natives */
     void execSpawnPawn(FFrame& Stack, RESULT_DECL); /* 0x016e9ad0 */
     /* registered size 0x1c4 */
@@ -54757,7 +54757,7 @@ struct ARPlantPod : public AActor {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     /* registered size 0x24c */
 };
 
@@ -55327,10 +55327,10 @@ struct ARPlayerController : public ARPlayerControllerBase {
     virtual INT vf_5b4(INT); /* 0x5b4 */
     virtual INT vf_5b8(INT); /* 0x5b8 */
     virtual INT vf_5bc(); /* 0x5bc */
-    virtual void vf_5c0(INT); /* 0x5c0 */
-    virtual void vf_5c4(INT); /* 0x5c4 */
+    virtual UBOOL Live_LoadSavedGame(INT Id); /* 0x5c0 */
+    virtual INT Live_LoadSavedGameFast(INT Id); /* 0x5c4 */
     virtual INT vf_5c8(INT); /* 0x5c8 */
-    virtual void vf_5cc(INT); /* 0x5cc */
+    virtual UBOOL Live_DeleteSavedGame(INT Id); /* 0x5cc */
     virtual INT vf_5d0(); /* 0x5d0 */
     virtual INT vf_5d4(INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x5d4 */
     virtual INT vf_5d8(INT); /* 0x5d8 */
@@ -55705,7 +55705,7 @@ struct ARPlayerControllerCombat : public ARPlayerController {
     FLOAT CurrentLookAtTargetTime; /* 0xe04 */
     /* virtual functions this class introduces (vtable 0x0234c640) */
     virtual INT vf_6f4(); /* 0x6f4 */
-    virtual INT vf_6f8(INT); /* 0x6f8 */
+    virtual class ARPawnCombat* FindStrikeTarget(class UClass* dmgType); /* 0x6f8 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -55849,7 +55849,7 @@ struct ARPlayerStartInLevel : public APlayerStart {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual INT vf_17c(INT); /* 0x17c */
     virtual void vf_1b4(FLOAT); /* 0x1b4 */
     /* UnrealScript natives */
@@ -55911,17 +55911,17 @@ struct ARPontoonBase : public AActor {
     class ARPathNode_Pontoon* PontoonPathNode; /* 0x2a4 */
     INT ActiveAnimNode; /* 0x2a8 */
     /* virtual functions this class introduces (vtable 0x02302880) */
-    virtual INT vf_354(INT, INT, INT, INT); /* 0x354 */
-    virtual INT vf_358(INT, INT, INT, INT); /* 0x358 */
+    virtual UBOOL BoundsCheck(FVector V, UBOOL bExtend); /* 0x354 */
+    virtual UBOOL DrawBoundsCheck(FVector V, UBOOL bExtend); /* 0x358 */
     virtual void vf_35c(); /* 0x35c */
-    virtual INT vf_360(INT); /* 0x360 */
+    virtual class URAnimNode_AnimTransform* GetAnimTransformNode(UBOOL bOther); /* 0x360 */
     virtual INT vf_364(); /* 0x364 */
     virtual void vf_368(FLOAT); /* 0x368 */
     virtual INT vf_36c(); /* 0x36c */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual UBOOL ShouldTrace(UPrimitiveComponent* Primitive, AActor* SourceActor, DWORD TraceFlags); /* 0x198 */
     virtual INT vf_29c(INT); /* 0x29c */
     virtual void vf_340(INT); /* 0x340 */
@@ -56384,7 +56384,7 @@ struct URRopeComponent : public URRopeComponentBase {
     BYTE LoDUpdateMode; /* 0x294 */
     FLOAT LoDUpdateTimer; /* 0x298 */
     /* virtual functions this class introduces (vtable 0x0235a148) */
-    virtual INT vf_26c(INT, INT, INT); /* 0x26c */
+    virtual UBOOL GetIsOverstretched(BYTE TestStartEnd, FLOAT& OutOverstretchPos, FLOAT OverstretchRatio); /* 0x26c */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -56421,7 +56421,7 @@ struct ARRopeBase : public AActor {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual INT vf_174(INT, INT); /* 0x174 */
     virtual INT vf_17c(INT); /* 0x17c */
     virtual void vf_180(); /* 0x180 */
@@ -56698,7 +56698,7 @@ struct URSeqAct_CameraShake : public USequenceAction {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     /* registered size 0x188 */
 };
 
@@ -56795,7 +56795,7 @@ struct URSeqAct_CheckPlayerHealth : public USequenceAction {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     /* registered size 0xe4 */
 };
 
@@ -56809,7 +56809,7 @@ struct URSeqAct_CheckURLParam : public USequenceAction {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void Activated(); /* 0x174 */
     /* registered size 0xf8 */
 };
@@ -56843,7 +56843,7 @@ struct URSeqAct_CombatChallengeSpawner : public URSeqAct_ChallengeAction {
     class ARChallengeCounter* Counter; /* 0x13c */
     FMedalTimes MedalTimeInfo; /* 0x140 */
     /* virtual functions this class introduces (vtable 0x0233cf20) */
-    virtual INT vf_1a0(INT, INT, INT, INT); /* 0x1a0 */
+    virtual class ARPawn* SpawnPawn(class UClass* PawnClass, class UClass* CharacterClass, class UClass* WeaponClass, class AActor* SpawnPoint); /* 0x1a0 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -56903,7 +56903,7 @@ struct URSeqAct_CombatProgress : public USeqAct_Latent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_110(INT, INT); /* 0x110 */
     virtual void vf_120(); /* 0x120 */
     virtual void vf_128(); /* 0x128 */
@@ -56960,15 +56960,15 @@ struct URSeqAct_ConversationDialogue : public URSeqAct_PlaySpeechBase {
     /* virtual functions this class introduces (vtable 0x0230f510) */
     virtual INT vf_1a0(); /* 0x1a0 */
     virtual INT vf_1a4(INT); /* 0x1a4 */
-    virtual void vf_1a8(INT, INT, INT, INT); /* 0x1a8 */
-    virtual INT vf_1ac(INT, INT, INT); /* 0x1ac */
+    virtual UBOOL LookAtTagOnLine(class ARPawnCharacter* Looker, FName CharName, class USoundCue* SpeechToPlay); /* 0x1a8 */
+    virtual class ARPawnCharacter* GetSpeaker(class APlayerController* PC, FName ScriptName); /* 0x1ac */
     virtual void vf_1b0(INT, INT); /* 0x1b0 */
     virtual void vf_1b4(); /* 0x1b4 */
     virtual void vf_1b8(); /* 0x1b8 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void vf_178(); /* 0x178 */
     virtual void vf_188(); /* 0x188 */
@@ -57371,7 +57371,7 @@ struct URSeqAct_GetNumPawnsInVolume : public USequenceAction {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_110(INT, INT); /* 0x110 */
     virtual void vf_120(); /* 0x120 */
     virtual void vf_128(); /* 0x128 */
@@ -57491,7 +57491,7 @@ struct URSeqAct_HUDTimer : public USeqAct_Latent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void Activated(); /* 0x174 */
     virtual void vf_178(); /* 0x178 */
@@ -57529,7 +57529,7 @@ struct URSeqAct_InfiniteCombatSpawner : public USeqAct_Latent {
     class UAnimSet* EntryAnimSet; /* 0x138 */
     FName EntryAnim; /* 0x13c */
     /* virtual functions this class introduces (vtable 0x0233d0c8) */
-    virtual INT vf_1a0(INT, INT, INT, INT); /* 0x1a0 */
+    virtual class ARPawn* SpawnPawn(class UClass* NewPawnClass, class UClass* NewCharacterClass, class UClass* NewWeaponClass, class AActor* NewSpawnPoint); /* 0x1a0 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -57702,7 +57702,7 @@ struct URSeqAct_Music : public USeqAct_Latent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* other member functions */
     void sub_0157c210(); /* 0x0157c210 */
@@ -57823,7 +57823,7 @@ struct URSeqAct_PlayerDialogueLine : public URSeqAct_ConversationDialogue {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     /* registered size 0x154 */
 };
 
@@ -57846,7 +57846,7 @@ struct URSeqAct_PlayerDialogueOptions : public USeqAct_Latent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_140(); /* 0x140 */
     virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void vf_178(); /* 0x178 */
@@ -57911,7 +57911,7 @@ struct URSeqAct_PlaySpeechConversation : public URSeqAct_PlaySpeechBase {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void vf_178(); /* 0x178 */
     virtual void vf_188(); /* 0x188 */
@@ -57998,7 +57998,7 @@ struct URSeqAct_RadioDialogueLine : public URSeqAct_ConversationDialogue {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     /* registered size 0x158 */
 };
 
@@ -58228,7 +58228,7 @@ struct URSeqAct_SetScarecrowCamera : public USeqAct_Latent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     /* UnrealScript natives */
     void execGetPercDistAlongPath(FFrame& Stack, RESULT_DECL); /* 0x0170b3d0 */
     /* registered size 0x134 */
@@ -58301,7 +58301,7 @@ struct URSeqAct_SetScarecrowPositionOnPath : public USeqAct_Latent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     /* registered size 0x100 */
 };
 
@@ -58461,7 +58461,7 @@ struct URSeqAct_SmilexBombClock : public USeqAct_Latent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     /* registered size 0x12c */
 };
 
@@ -58511,7 +58511,7 @@ struct URSeqAct_SpeechEventManagerBase : public URSeqAct_PlaySpeechBase {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_110(INT, INT); /* 0x110 */
     virtual void vf_120(); /* 0x120 */
     virtual void vf_128(); /* 0x128 */
@@ -58599,7 +58599,7 @@ struct URSeqAct_StreamInPackage : public USeqAct_Latent {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_020(); /* 0x020 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void Activated(); /* 0x174 */
     /* registered size 0x100 */
@@ -58698,7 +58698,7 @@ struct URSeqAct_UpdateBatmanDamageLevel : public USequenceAction {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     /* registered size 0xec */
 };
 
@@ -59080,7 +59080,7 @@ struct ARShimmyEdgeMarker : public ARSnapToPositionActor {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_02c(); /* 0x02c */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_2b8(); /* 0x2b8 */
     virtual void vf_358(INT); /* 0x358 */
     virtual void vf_35c(); /* 0x35c */
@@ -59193,7 +59193,7 @@ struct ARSoftBodyProjectile : public AActor {
     BITFIELD bValidSoftBodyPos : 1; /* 0x1ac */
     FVector LastSoftBodyPos; /* 0x1b0 */
     /* virtual functions this class introduces (vtable 0x023966a8) */
-    virtual INT vf_354(INT); /* 0x354 */
+    virtual FVector GetSoftBodyCenter(); /* 0x354 */
     virtual void ApplySoftBodyExternalAcceleration(FVector Force); /* 0x358 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
@@ -60254,7 +60254,7 @@ struct ARTunnelFunnel : public AActor {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     /* registered size 0x1b8 */
 };
 
@@ -60422,7 +60422,7 @@ struct ARWindVolume : public AVolume {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_01c(); /* 0x01c */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual INT vf_17c(INT); /* 0x17c */
     /* UnrealScript natives */
     void execTick(FFrame& Stack, RESULT_DECL); /* 0x01701480 */
@@ -63938,7 +63938,7 @@ struct UStaticMesh : public UObject {
     virtual INT vf_024(); /* 0x024 */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual void vf_044(UINT); /* 0x044 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_05c(); /* 0x05c */
     virtual void vf_0a8(INT, INT, INT); /* 0x0a8 */
     virtual INT vf_0b4(INT); /* 0x0b4 */
@@ -63968,7 +63968,7 @@ struct UFracturedStaticMesh : public UStaticMesh {
     virtual void vf_01c(); /* 0x01c */
     virtual void vf_02c(); /* 0x02c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual INT vf_10c(); /* 0x10c */
     virtual INT vf_110(); /* 0x110 */
     /* other member functions */
@@ -65288,7 +65288,7 @@ struct ULensFlareEditorPropertyWrapper : public UObject {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_044(UINT); /* 0x044 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     /* other member functions */
     UINT sub_0146f7b0(BYTE); /* 0x0146f7b0 */
     /* registered size 0x178 */
@@ -65777,7 +65777,7 @@ struct UMaterialEditorInstanceConstant : public UObject {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     /* other member functions */
     UINT sub_0141c030(BYTE); /* 0x0141c030 */
     UINT* sub_0141c400(UINT); /* 0x0141c400 */
@@ -65807,7 +65807,7 @@ struct UMaterialEditorInstanceTimeVarying : public UObject {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     /* registered size 0x94 */
 };
 

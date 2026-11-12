@@ -127,11 +127,11 @@ struct C_view_0157cf90 {
 };
 
 // @baa 0x0157cf90
-void URSeqAct_RadioDialogueLine::vf_04c(undefined4 param_2)
+void URSeqAct_RadioDialogueLine::PostEditChange(UProperty* param_2)
 {
     int param_1 = (int)this;
   ((C_view_0157cf90 *)(((char *)this + 0x60)))->sub_00547da0(param_1 + 0x110);
-  ((C_view_0157cf90 *)(this))->sub_00d201d0(param_2);
+  URSeqAct_PlaySpeechBase::PostEditChange(param_2);
   ((C_view_0157cf90 *)(((char *)this + 0x94)))->sub_008dc680(0, *(undefined4 *)(param_1 + 0x98));
   return;
 }

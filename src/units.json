@@ -3133,7 +3133,7 @@
     {
      "va": "0157cf90",
      "size": 54,
-     "symbol": "?vf_04c@URSeqAct_RadioDialogueLine@@UAEXI@Z"
+     "symbol": "?PostEditChange@URSeqAct_RadioDialogueLine@@UAEXPAUUProperty@@@Z"
     },
     {
      "va": "01584b40",
@@ -36790,7 +36790,7 @@
     {
      "va": "0160f260",
      "size": 5,
-     "symbol": "?vf_358@ARBMRouter_DynamicObject@@UAEHHH@Z"
+     "symbol": "?UpdateRouterObject_Searching@ARBMRouter_DynamicObject@@UAEHMAAH@Z"
     },
     {
      "va": "0160f270",
@@ -42032,7 +42032,7 @@
     {
      "va": "0167ba30",
      "size": 44,
-     "symbol": "?vf_480@ARPawn@@UAEXII@Z"
+     "symbol": "?GetRoamPoint@ARPawn@@UAEPAUAActor@@HAAPAUANavigationPoint@@@Z"
     },
     {
      "va": "0167bd40",
@@ -53360,7 +53360,7 @@
     {
      "va": "01533790",
      "size": 26,
-     "symbol": "?vf_04c@URBarkSet@@UAEXI@Z"
+     "symbol": "?PostEditChange@URBarkSet@@UAEXPAUUProperty@@@Z"
     },
     {
      "va": "0150f410",
@@ -54996,7 +54996,7 @@
     {
      "va": "0153d950",
      "size": 3,
-     "symbol": "?vf_04c@URSeqVar_LocalFlag@@UAEXI@Z"
+     "symbol": "?PostEditChange@URSeqVar_LocalFlag@@UAEXPAUUProperty@@@Z"
     },
     {
      "va": "01540630",
@@ -55036,7 +55036,7 @@
     {
      "va": "01540870",
      "size": 87,
-     "symbol": "?vf_04c@URSeqAct_SwitchFlags@@UAEXI@Z"
+     "symbol": "?PostEditChange@URSeqAct_SwitchFlags@@UAEXPAUUProperty@@@Z"
     }
    ]
   },
@@ -66169,7 +66169,7 @@
     {
      "va": "0053d5c0",
      "size": 21,
-     "symbol": "?vf_04c@UDistributionFloat@@UAEXI@Z"
+     "symbol": "?PostEditChange@UDistributionFloat@@UAEXPAUUProperty@@@Z"
     },
     {
      "va": "0053d5e0",
@@ -66184,7 +66184,7 @@
     {
      "va": "0053d680",
      "size": 21,
-     "symbol": "?vf_04c@UDistributionVector@@UAEXI@Z"
+     "symbol": "?PostEditChange@UDistributionVector@@UAEXPAUUProperty@@@Z"
     },
     {
      "va": "0053d760",
@@ -165641,7 +165641,7 @@
     {
      "va": "006d9330",
      "size": 5,
-     "symbol": "?vf_11c@UMaterialInterface@@UAEHHHH@Z"
+     "symbol": "?GetScalarCurveParameterValue@UMaterialInterface@@UAEHUFName@@AAUFInterpCurveFloat@@@Z"
     },
     {
      "va": "006d9340",
@@ -166421,7 +166421,7 @@
     {
      "va": "00b33050",
      "size": 3,
-     "symbol": "?vf_04c@UParticleModuleEventReceiverSpawn@@UAEXI@Z"
+     "symbol": "?PostEditChange@UParticleModuleEventReceiverSpawn@@UAEXPAUUProperty@@@Z"
     },
     {
      "va": "00b33060",
@@ -166766,7 +166766,7 @@
     {
      "va": "00b33b70",
      "size": 3,
-     "symbol": "?vf_04c@UParticleModuleParameterDynamic@@UAEXI@Z"
+     "symbol": "?PostEditChange@UParticleModuleParameterDynamic@@UAEXPAUUProperty@@@Z"
     },
     {
      "va": "00b33b80",
@@ -174271,7 +174271,7 @@
     {
      "va": "0075bec0",
      "size": 107,
-     "symbol": "?vf_04c@UTextureFlipBook@@UAEXI@Z"
+     "symbol": "?PostEditChange@UTextureFlipBook@@UAEXPAUUProperty@@@Z"
     },
     {
      "va": "0076ea30",
@@ -183511,12 +183511,12 @@
     {
      "va": "00c698d0",
      "size": 103,
-     "symbol": "?PostEditChange@UAnimNodeBlendPerBone_@@QAEXPAUUProperty@@@Z"
+     "symbol": "?PostEditChange@UAnimNodeBlendPerBone_@@UAEXPAUUProperty@@@Z"
     },
     {
      "va": "00c7ecf0",
      "size": 106,
-     "symbol": "?PostEditChange@UAnimNodeAimOffset__00c7ecf0@@QAEXPAUUProperty@@@Z"
+     "symbol": "?PostEditChange@UAnimNodeAimOffset__00c7ecf0@@UAEXPAUUProperty@@@Z"
     }
    ]
   },
@@ -185061,7 +185061,7 @@
     {
      "va": "00c4b6d0",
      "size": 326,
-     "symbol": "?PostEditChange@UAnimTree_@@QAEXPAUUProperty@@@Z"
+     "symbol": "?PostEditChange@UAnimTree_@@UAEXPAUUProperty@@@Z"
     },
     {
      "va": "00c556d0",
@@ -186014,7 +186014,7 @@
     {
      "va": "00791b10",
      "size": 50,
-     "symbol": "?vf_04c@AAmbientSoundSimple@@UAEXI@Z"
+     "symbol": "?PostEditChange@AAmbientSoundSimple@@UAEXPAUUProperty@@@Z"
     },
     {
      "va": "00792fa0",
@@ -195012,7 +195012,7 @@
     {
      "va": "00cfb5d0",
      "size": 50,
-     "symbol": "?vf_04c@UInterpTrackFloatBase@@UAEXI@Z"
+     "symbol": "?PostEditChange@UInterpTrackFloatBase@@UAEXPAUUProperty@@@Z"
     },
     {
      "va": "00cf5120",
@@ -197945,7 +197945,7 @@
     {
      "va": "00b50e40",
      "size": 3,
-     "symbol": "?vf_04c@UParticleModuleBeamModifier@@UAEXI@Z"
+     "symbol": "?PostEditChange@UParticleModuleBeamModifier@@UAEXPAUUProperty@@@Z"
     },
     {
      "va": "00b50e50",
@@ -199385,7 +199385,7 @@
     {
      "va": "00b63e50",
      "size": 54,
-     "symbol": "?vf_04c@UParticleSystemComponent@@UAEXI@Z"
+     "symbol": "?PostEditChange@UParticleSystemComponent@@UAEXPAUUProperty@@@Z"
     },
     {
      "va": "00b64aa0",
@@ -209256,7 +209256,7 @@
     {
      "va": "008abad0",
      "size": 26,
-     "symbol": "?PostEditChange@USequenceObject__008abad0@@QAEXPAUUProperty@@@Z"
+     "symbol": "?PostEditChange@USequenceObject__008abad0@@UAEXPAUUProperty@@@Z"
     },
     {
      "va": "008c1e40",
@@ -275934,7 +275934,7 @@
     {
      "va": "007b5410",
      "size": 48,
-     "symbol": "?vf_360@AController@@UAEXHH@Z"
+     "symbol": "?RouteCache_InsertItem@AController@@UAEXPAUANavigationPoint@@H@Z"
     },
     {
      "va": "007b78c0",
@@ -323815,7 +323815,7 @@
     {
      "va": "00c1b540",
      "size": 3,
-     "symbol": "?vf_04c@USpeechRecognition@@UAEXI@Z"
+     "symbol": "?PostEditChange@USpeechRecognition@@UAEXPAUUProperty@@@Z"
     },
     {
      "va": "00c1b550",
@@ -342429,7 +342429,7 @@
     {
      "va": "015682f0",
      "size": 34,
-     "symbol": "?vf_04c@URSeqAct_ConversationDialogue@@UAEXI@Z"
+     "symbol": "?PostEditChange@URSeqAct_ConversationDialogue@@UAEXPAUUProperty@@@Z"
     }
    ]
   },

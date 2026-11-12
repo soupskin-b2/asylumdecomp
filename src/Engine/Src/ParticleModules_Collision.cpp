@@ -44,7 +44,7 @@ int UParticleModuleEventReceiverSpawn::vf_11c(int a0, int a1) { return 0; }
 void UParticleModuleEventReceiverSpawn::vf_170(void) {  }
 
 // @baa 0x00b33050
-void UParticleModuleEventReceiverSpawn::vf_04c(UINT a0) {  }
+void UParticleModuleEventReceiverSpawn::PostEditChange(UProperty* a0) {  }
 
 // @baa 0x00b33060
 undefined4 UParticleModuleEventReceiverSpawn::vf_168(uint param_2)

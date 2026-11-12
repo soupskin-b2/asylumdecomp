@@ -484,7 +484,7 @@ void ARPontoonBase::execGetAnimTransformNode(FFrame& Stack, RESULT_DECL)
 {
     P_GET_UBOOL_OPTX(bOther, 0);
     P_FINISH;
-    *(URAnimNode_AnimTransform**)Result = (URAnimNode_AnimTransform*)(UINT)vf_360(bOther);
+    *(URAnimNode_AnimTransform**)Result = (URAnimNode_AnimTransform*)(UINT)GetAnimTransformNode(bOther);
 }
 
 extern FName g_026e2698;

@@ -1272,7 +1272,7 @@ struct C_view_00b63e50 {
 };
 
 // @baa 0x00b63e50
-void UParticleSystemComponent::vf_04c(undefined4 param_2)
+void UParticleSystemComponent::PostEditChange(UProperty* param_2)
 {
     int param_1 = (int)this;
   *(uint *)(param_1 + 0x1cc) = *(uint *)(param_1 + 0x1cc) | 0x10000;
@@ -1280,7 +1280,7 @@ void UParticleSystemComponent::vf_04c(undefined4 param_2)
   if ((*(byte *)(param_1 + 0x1cc) & 1) != 0) {
     ((C_view_00b63e50 *)(this))->sub_00b5cdb0(0, 0);
   }
-  ((C_view_00b63e50 *)(this))->sub_006e49d0(param_2);
+  Super::PostEditChange(param_2);
   return;
 }
 

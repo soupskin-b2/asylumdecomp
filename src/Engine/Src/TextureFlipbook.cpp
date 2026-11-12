@@ -159,11 +159,11 @@ struct C_view_0075bec0 {
 };
 
 // @baa 0x0075bec0
-void UTextureFlipBook::vf_04c(undefined4 param_2)
+void UTextureFlipBook::PostEditChange(UProperty* param_2)
 {
     int param_1 = (int)this;
   float fVar1;
-  ((C_view_0075bec0 *)(this))->sub_00720bc0(param_2);
+  Super::PostEditChange(param_2);
   fVar1 = 1.0;
   *(float *)(param_1 + 0x10c) = 1.0 / (float)*(int *)(param_1 + 0x118);
   *(float *)(param_1 + 0x110) = 1.0 / (float)*(int *)(param_1 + 0x11c);

@@ -984,14 +984,14 @@ struct C_view {
 };
 
 // @baa 0x007b5410
-void AController::vf_360(int param_2, int param_3)
+void AController::RouteCache_InsertItem(ANavigationPoint* param_2, INT param_3)
 {
     int param_1 = (int)this;
-  int *piVar1;
+  ANavigationPoint **piVar1;
   if (param_2 != 0) {
     ((C_view *)(((char *)this + 0x280)))->sub_007a8600(param_3, 1);
-    piVar1 = (int *)(*(int *)(param_1 + 0x280) + param_3 * 4);
-    if (piVar1 != (int *)0x0) {
+    piVar1 = (ANavigationPoint **)(*(int *)(param_1 + 0x280) + param_3 * 4);
+    if (piVar1 != NULL) {
       *piVar1 = param_2;
     }
   }

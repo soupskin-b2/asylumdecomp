@@ -673,7 +673,7 @@ int __stdcall sub_00c1b520(int a0) { return 1; }
 int sub_00c1b530(void) { return 1; }
 
 // @baa 0x00c1b540
-void USpeechRecognition::vf_04c(UINT a0) {  }
+void USpeechRecognition::PostEditChange(UProperty* a0) {  }
 
 // @baa 0x00c1b550
 void sub_00c1b550(void) {  }

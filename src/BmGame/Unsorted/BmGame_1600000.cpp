@@ -479,7 +479,7 @@ bool ARBMRouter_DynamicObject::vf_004()
 }
 
 // @baa 0x0160f260
-int ARBMRouter_DynamicObject::vf_358(int a0, int a1) { return 0; }
+UBOOL ARBMRouter_DynamicObject::UpdateRouterObject_Searching(FLOAT a0, INT& a1) { return 0; }
 
 // @baa 0x0160f270
 int ARBMRouter_DynamicObject::vf_35c(FLOAT) { return 1; }

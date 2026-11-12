@@ -30,7 +30,7 @@ int UParticleModuleParameterDynamic::vf_114(int a0) { return 16; }
 void UParticleModuleParameterDynamic::vf_120(int a0) {  }
 
 // @baa 0x00b33b70
-void UParticleModuleParameterDynamic::vf_04c(UINT a0) {  }
+void UParticleModuleParameterDynamic::PostEditChange(UProperty* a0) {  }
 
 // @baa 0x00b33b80
 void UParticleModuleParameterDynamic::vf_15c(int a0) {  }

@@ -1082,13 +1082,13 @@ C_00d23780::C_00d23780() {}
 void C_00d23780::sub_00d29f10() {}
 
 // @baa 0x00cfb5d0
-void UInterpTrackFloatBase::vf_04c(UINT PropertyThatChanged)
+void UInterpTrackFloatBase::PostEditChange(UProperty* PropertyThatChanged)
 {
     if (Randomiser.bUseRandomise) {
         vf_160();
     }
     ((FInterpCurveFloat&)FloatTrack).sub_007b96a0(CurveTension);
-    UInterpTrack::vf_04c(PropertyThatChanged);
+    UInterpTrack::PostEditChange(PropertyThatChanged);
 }
 
 /* Kit gap (Array.h, issue #39): this build inlines TArray::operator() where the kit's plain-inline one is

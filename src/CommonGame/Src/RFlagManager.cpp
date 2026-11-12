@@ -59,7 +59,7 @@ bool URFlagManager::vf_004()
 }
 
 // @baa 0x0153d950
-void URSeqVar_LocalFlag::vf_04c(UINT a0) {  }
+void URSeqVar_LocalFlag::PostEditChange(UProperty* a0) {  }
 
 int sub_005c7a20(void);
 extern undefined * g_022e5c68;
@@ -151,7 +151,7 @@ public:
 // @baa 0x01540870
 /* UObject::PostEditChange(UProperty* PropertyThatChanged) (slot 0x4c, a placeholder vf_04c taking
  * UINT in the kit): the action's comment shows the comment of the selected mode. */
-void URSeqAct_SwitchFlags::vf_04c(UINT PropertyThatChanged)
+void URSeqAct_SwitchFlags::PostEditChange(UProperty* PropertyThatChanged)
 {
     (FStringNoInit_&)ObjComment = Comments(Mode);
 }

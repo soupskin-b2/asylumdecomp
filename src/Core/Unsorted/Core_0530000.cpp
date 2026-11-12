@@ -194,10 +194,10 @@ struct C_view {
 };
 
 // @baa 0x0053d5c0
-void UDistributionFloat::vf_04c(undefined4 param_2)
+void UDistributionFloat::PostEditChange(UProperty* param_2)
 {
     int param_1 = (int)this;
-  ((C_view *)(this))->sub_005c1a10(param_2);
+  Super::PostEditChange(param_2);
   *(uint *)(param_1 + 0x40) = *(uint *)(param_1 + 0x40) | 2;
   return;
 }
@@ -321,10 +321,10 @@ INT UDistributionVector::vf_08c() { return 0; }
 int C_0053d670::sub_0053d670() { return sub_00546de0(); }
 
 // @baa 0x0053d680
-void UDistributionVector::vf_04c(undefined4 param_2)
+void UDistributionVector::PostEditChange(UProperty* param_2)
 {
     int param_1 = (int)this;
-  ((C_view *)(this))->sub_005c1a10(param_2);
+  Super::PostEditChange(param_2);
   *(uint *)(param_1 + 0x40) = *(uint *)(param_1 + 0x40) | 2;
   return;
 }

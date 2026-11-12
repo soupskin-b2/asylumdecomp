@@ -9,10 +9,10 @@ struct C_view {
 };
 
 // @baa 0x015682f0
-void URSeqAct_ConversationDialogue::vf_04c(undefined4 param_2)
+void URSeqAct_ConversationDialogue::PostEditChange(UProperty* param_2)
 {
     int param_1 = (int)this;
   ((C_view *)(((char *)this + 0x60)))->sub_00547da0(param_1 + 0x110);
-  ((C_view *)(this))->sub_00d201d0(param_2);
+  Super::PostEditChange(param_2);
   return;
 }

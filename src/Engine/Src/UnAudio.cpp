@@ -753,7 +753,7 @@ struct C_view_00791b10 {
 };
 
 // @baa 0x00791b10
-void AAmbientSoundSimple::vf_04c(undefined4 param_2)
+void AAmbientSoundSimple::PostEditChange(UProperty* param_2)
 {
     int param_1 = (int)this;
   if (*(int *)(param_1 + 0x1ac) != 0) {
@@ -762,7 +762,7 @@ void AAmbientSoundSimple::vf_04c(undefined4 param_2)
       ((C_view_00791b10 *)((*(char **)((char *)this + 0x1ac))))->sub_00791770();
     }
   }
-  ((C_view_00791b10 *)(this))->sub_00783b70(param_2);
+  Super::PostEditChange(param_2);
   return;
 }
 

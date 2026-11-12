@@ -334,9 +334,9 @@ struct UObject_ : public UObject
 // @baa 0x01533790
 /* UObject::PostEditChange(UProperty* PropertyThatChanged) (slot 0x4c, a placeholder vf_04c taking
  * UINT in the kit): editing a bark set marks its package dirty. */
-void URBarkSet::vf_04c(UINT PropertyThatChanged)
+void URBarkSet::PostEditChange(UProperty* PropertyThatChanged)
 {
-    Super::vf_04c(PropertyThatChanged);
+    Super::PostEditChange(PropertyThatChanged);
     ((UObject_*)this)->MarkPackageDirty();
 }
 
