@@ -1,4 +1,4 @@
-// Engine_0a60000.cpp (part 3 of 3): 42 functions
+// Engine_0a60000.cpp (part 3 of 3): 43 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -691,4 +691,55 @@ C_00a62310* C_00a62310::sub_00a62310(INT* Source, INT)
 {
     *(INT*)this = *Source;
     return this;
+}
+
+// Object whose state is queried here.  Only slot 0x94 (index 37) is reached;
+// the rest of the vtable is a shared layout not present in the headers, so it
+// is kept as numbered placeholders.
+struct FStateObject
+{
+    virtual void f00();
+    virtual void f04();
+    virtual void f08();
+    virtual void f0c();
+    virtual void f10();
+    virtual void f14();
+    virtual void f18();
+    virtual void f1c();
+    virtual void f20();
+    virtual void f24();
+    virtual void f28();
+    virtual void f2c();
+    virtual void f30();
+    virtual void f34();
+    virtual void f38();
+    virtual void f3c();
+    virtual void f40();
+    virtual void f44();
+    virtual void f48();
+    virtual void f4c();
+    virtual void f50();
+    virtual void f54();
+    virtual void f58();
+    virtual void f5c();
+    virtual void f60();
+    virtual void f64();
+    virtual void f68();
+    virtual void f6c();
+    virtual void f70();
+    virtual void f74();
+    virtual void f78();
+    virtual void f7c();
+    virtual void f80();
+    virtual void f84();
+    virtual void f88();
+    virtual void f8c();
+    virtual void f90();
+    virtual int  GetState();
+};
+
+// @baa 0x00a68c30
+int sub_00a68c30(int unused, FStateObject* Object)
+{
+    return Object->GetState() != 2;
 }

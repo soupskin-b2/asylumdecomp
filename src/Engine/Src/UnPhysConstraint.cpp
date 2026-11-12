@@ -1,4 +1,4 @@
-// UnPhysConstraint.cpp (part 1 of 2): 138 functions
+// UnPhysConstraint.cpp (part 1 of 2): 139 functions
 // Placed here by: neighbours 110, class 15, file 11, callers 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -982,4 +982,18 @@ INT ARB_ConstraintActor_::sub_00a37f70(INT param)
 {
     sub_00a37880();
     return sub_007771e0(param);
+}
+
+class C_00a306b0
+{
+public:
+    virtual void sub_A();
+    virtual void sub_B(void*, void*, void*);
+    virtual void sub_00a306b0(void*, void*, void*, void*, void*);
+};
+
+// @baa 0x00a306b0
+void C_00a306b0::sub_00a306b0(void* a, void* b, void* c, void* d, void* e)
+{
+    this->sub_B(a, b, c);
 }

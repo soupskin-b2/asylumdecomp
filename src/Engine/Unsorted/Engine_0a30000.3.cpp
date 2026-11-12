@@ -1,4 +1,4 @@
-// Engine_0a30000.cpp (part 3 of 3): 12 functions
+// Engine_0a30000.cpp (part 3 of 3): 19 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -182,4 +182,137 @@ void Sub00a35540::sub_00a35540(float F)
     N++;
     float T = F;
     this->F = *(DWORD*)&T;
+}
+
+struct sub_00a35580_Cls {
+    int Count;      // +0x00
+    char pad[8];
+    int Value;      // +0x0c
+
+    void sub_00a35580(float NewValue);
+};
+
+// @baa 0x00a35580
+void sub_00a35580_Cls::sub_00a35580(float NewValue)
+{
+    float f = NewValue;
+    ++Count;
+    Value = *(int*)&f;
+}
+
+struct C_00a35610 {
+    int Count;
+    int Pad0;
+    int Pad1;
+    int Bits;
+    int sub_00a35610(float V);
+};
+
+// @baa 0x00a35610
+int C_00a35610::sub_00a35610(float V)
+{
+    union { float F; int I; } U;
+    U.F = V;
+    Count++;
+    Bits = U.I;
+    return U.I;
+}
+
+struct F00a35720Obj
+{
+    INT Counter;
+    INT Other;
+    INT Value;
+
+    void sub_00a35720(FLOAT Param)
+    {
+        FLOAT F = Param;
+        Counter++;
+        Value = *(INT*)&F;
+    }
+};
+
+// @baa 0x00a35720
+void g_00a35720Call()
+{
+    F00a35720Obj Obj;
+    Obj.sub_00a35720(1.5f);
+}
+
+struct C_00a357a0 {
+    int Counter0;
+    int Field4;
+    int Field8;
+    int FieldC;
+    int Field10;
+    int Field14;
+    int Field18;
+    void sub_00a357a0(float);
+};
+
+// @baa 0x00a357a0
+void C_00a357a0::sub_00a357a0(float Value)
+{
+    union { float F; int I; } V;
+    V.F = Value;
+    ++Counter0;
+    Field18 = V.I;
+}
+
+struct A {
+    int Field0;
+    int Field4;
+    int Field8;
+    int FieldC;
+    int Field10;
+    int Field14;
+    int Field18;
+    int Field1C;
+    int Field20;
+    int Field24;
+    void sub_00a357f0(float Value);
+};
+
+// @baa 0x00a357f0
+void A::sub_00a357f0(float Value)
+{
+    union { float F; int I; } V;
+    V.F = Value;
+    ++Field0;
+    Field24 = V.I;
+}
+
+struct C_00a3c690 {
+    float Data[3];
+    C_00a3c690* sub_00a3c690(float* Src);
+};
+
+// @baa 0x00a3c690
+C_00a3c690* C_00a3c690::sub_00a3c690(float* Src)
+{
+    Data[0] = Src[0];
+    Data[1] = Src[1];
+    Data[2] = Src[2];
+    return this;
+}
+
+struct S00a35740
+{
+	int Field_0;
+	int Field_4;
+	int Field_8;
+	int Field_C;
+
+	void sub_00a35740(float value)
+	{
+		float t = value;
+		Field_0++;
+		Field_C = *(int*)&t;
+	}
+};
+
+// @baa 0x00a35740
+void g_00a35760(S00a35740* In, float Value)
+{
+	In->sub_00a35740(Value);
 }

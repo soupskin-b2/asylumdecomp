@@ -1,4 +1,4 @@
-// UnInterpolationCurveEd.cpp (part 1 of 3): 162 functions
+// UnInterpolationCurveEd.cpp (part 1 of 3): 186 functions
 // Placed here by: neighbours 124, class 31, callers 4, file 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1089,4 +1089,619 @@ void UInterpTrackFloatBase::vf_04c(UINT PropertyThatChanged)
     }
     ((FInterpCurveFloat&)FloatTrack).sub_007b96a0(CurveTension);
     UInterpTrack::vf_04c(PropertyThatChanged);
+}
+
+/* Kit gap (Array.h, issue #39): this build inlines TArray::operator() where the kit's plain-inline one is
+ * called out of line; same body, forced inline. */
+template<class T> struct TArrayAt_ : public TArray<T>
+{
+    __forceinline T& At(INT i)
+    {
+#line 560 BAA_ARRAY_FILE
+        check(i>=0 && (i<this->ArrayNum||(i==0 && this->ArrayNum==0)));
+        return this->GetTypedData()[i];
+    }
+    __forceinline const T& At(INT i) const
+    {
+#line 566 BAA_ARRAY_FILE
+        check(i>=0 && (i<this->ArrayNum||(i==0 && this->ArrayNum==0)));
+        return this->GetTypedData()[i];
+    }
+};
+
+/* TArray<FEventTrackKey>: Insert out of line in the exe (00cebce0), InsertZeroed inlined (Array.h) */
+struct FEventTrackKeyArray : public TArrayAt_<FEventTrackKey>
+{
+    void Insert(INT Index, INT Count = 1);
+    void InsertZeroed(INT Index, INT Count = 1)
+    {
+        Insert(Index, Count);
+        appMemzero((BYTE*)AllocatorInstance.GetAllocation() + Index * sizeof(FEventTrackKey), Count * sizeof(FEventTrackKey));
+    }
+};
+
+// @baa 0x00cf5120
+INT UInterpTrackEvent::DuplicateKeyframe(INT KeyIndex, FLOAT NewKeyTime)
+{
+    if (KeyIndex < 0 || KeyIndex >= EventTrack.Num())
+    {
+        return INDEX_NONE;
+    }
+
+    FEventTrackKey EventKey = ((FEventTrackKeyArray&)EventTrack).At(KeyIndex);
+    EventKey.Time = NewKeyTime;
+
+    // Find the correct index to insert this key.
+    INT i = 0;
+    for (i = 0; i < EventTrack.Num() && ((FEventTrackKeyArray&)EventTrack).At(i).Time < NewKeyTime; i++);
+    ((FEventTrackKeyArray&)EventTrack).InsertZeroed(i);
+    ((FEventTrackKeyArray&)EventTrack).At(i) = EventKey;
+
+    return i;
+}
+
+#line 1144 "candidate.cpp"
+
+/* TArray<FEventTrackKey>: Insert out of line in the exe (00cebce0) */
+struct FEventTrackKeyArray_00cf53b0 : public TArrayAt_<FEventTrackKey>
+{
+    void Insert(INT Index, INT Count = 1);
+};
+
+// @baa 0x00cf53b0
+INT UInterpTrackEvent::AddKeyframe(FLOAT Time, UInterpTrackInst* TrInst, BYTE InitInterpMode)
+{
+    FEventTrackKey NewEventKey;
+    NewEventKey.EventName = NAME_None;
+    NewEventKey.Time = Time;
+
+    // Find the correct index to insert this key.
+    INT i = 0;
+    for (i = 0; i < EventTrack.Num() && ((FEventTrackKeyArray_00cf53b0&)EventTrack).At(i).Time < Time; i++);
+    ((FEventTrackKeyArray_00cf53b0&)EventTrack).Insert(i);
+    ((FEventTrackKeyArray_00cf53b0&)EventTrack).At(i) = NewEventKey;
+
+    return i;
+}
+
+/* TArray<FDirectorTrackCut>: Insert out of line in the exe (00cebb60) */
+struct FDirectorTrackCutArray : public TArrayAt_<FDirectorTrackCut>
+{
+    void Insert(INT Index, INT Count = 1);
+};
+
+// @baa 0x00cf5870
+INT UInterpTrackDirector::AddKeyframe(FLOAT Time, UInterpTrackInst* TrInst, BYTE InitInterpMode)
+{
+    FDirectorTrackCut NewCut;
+    NewCut.TransitionTime = 0.f;
+    NewCut.TargetCamGroup = NAME_None;
+    NewCut.TargetBoneName = NAME_None;
+    NewCut.Time = Time;
+
+    // Find the correct index to insert this cut.
+    INT i = 0;
+    for (i = 0; i < CutTrack.Num() && ((FDirectorTrackCutArray&)CutTrack).At(i).Time < Time; i++);
+    ((FDirectorTrackCutArray&)CutTrack).Insert(i);
+    ((FDirectorTrackCutArray&)CutTrack).At(i) = NewCut;
+
+    return i;
+}
+
+/* TArray<FDirectorTrackCut>: Insert out of line in the exe (00cebb60), InsertZeroed inlined (Array.h) */
+struct FDirectorTrackCutArray_00cf55b0 : public TArrayAt_<FDirectorTrackCut>
+{
+    void Insert(INT Index, INT Count = 1);
+    void InsertZeroed(INT Index, INT Count = 1)
+    {
+        Insert(Index, Count);
+        appMemzero((BYTE*)AllocatorInstance.GetAllocation() + Index * sizeof(FDirectorTrackCut), Count * sizeof(FDirectorTrackCut));
+    }
+};
+
+// @baa 0x00cf55b0
+INT UInterpTrackDirector::DuplicateKeyframe(INT KeyIndex, FLOAT NewKeyTime)
+{
+    if (KeyIndex < 0 || KeyIndex >= CutTrack.Num())
+    {
+        return INDEX_NONE;
+    }
+
+    FDirectorTrackCut NewCut = ((FDirectorTrackCutArray_00cf55b0&)CutTrack).At(KeyIndex);
+    NewCut.Time = NewKeyTime;
+
+    // Find the correct index to insert this key.
+    INT i = 0;
+    for (i = 0; i < CutTrack.Num() && ((FDirectorTrackCutArray_00cf55b0&)CutTrack).At(i).Time < NewKeyTime; i++);
+    ((FDirectorTrackCutArray_00cf55b0&)CutTrack).InsertZeroed(i);
+    ((FDirectorTrackCutArray_00cf55b0&)CutTrack).At(i) = NewCut;
+
+    return i;
+}
+
+/* TArray<FEventTrackKey>: Insert and Remove out of line in the exe (00cebce0, 00cf7cf0), InsertZeroed inlined (Array.h) */
+struct FEventTrackKeyArray_00cfb960 : public TArrayAt_<FEventTrackKey>
+{
+    void Insert(INT Index, INT Count = 1);
+    void Remove(INT Index, INT Count = 1);
+    void InsertZeroed(INT Index, INT Count = 1)
+    {
+        Insert(Index, Count);
+        appMemzero((BYTE*)AllocatorInstance.GetAllocation() + Index * sizeof(FEventTrackKey), Count * sizeof(FEventTrackKey));
+    }
+};
+
+// @baa 0x00cfb960
+INT UInterpTrackEvent::SetKeyframeTime(INT KeyIndex, FLOAT NewKeyTime, UBOOL bUpdateOrder)
+{
+    if (KeyIndex < 0 || KeyIndex >= EventTrack.Num())
+    {
+        return KeyIndex;
+    }
+
+    if (bUpdateOrder)
+    {
+        // First, remove cut from array.
+        FEventTrackKey MoveKey = ((FEventTrackKeyArray_00cfb960&)EventTrack).At(KeyIndex);
+        ((FEventTrackKeyArray_00cfb960&)EventTrack).Remove(KeyIndex);
+
+        // Set its time to the new one.
+        MoveKey.Time = NewKeyTime;
+
+        // Find correct new position and insert.
+        INT i = 0;
+        for (i = 0; i < EventTrack.Num() && ((FEventTrackKeyArray_00cfb960&)EventTrack).At(i).Time < NewKeyTime; i++);
+        ((FEventTrackKeyArray_00cfb960&)EventTrack).InsertZeroed(i);
+        ((FEventTrackKeyArray_00cfb960&)EventTrack).At(i) = MoveKey;
+
+        return i;
+    }
+    else
+    {
+        ((FEventTrackKeyArray_00cfb960&)EventTrack).At(KeyIndex).Time = NewKeyTime;
+        return KeyIndex;
+    }
+}
+
+/* TArray<FDirectorTrackCut>: Insert and Remove out of line in the exe (00cebb60, 00cf7ba0), InsertZeroed inlined (Array.h) */
+struct FDirectorTrackCutArray_00cfbb10 : public TArrayAt_<FDirectorTrackCut>
+{
+    void Insert(INT Index, INT Count = 1);
+    void Remove(INT Index, INT Count = 1);
+    void InsertZeroed(INT Index, INT Count = 1)
+    {
+        Insert(Index, Count);
+        appMemzero((BYTE*)AllocatorInstance.GetAllocation() + Index * sizeof(FDirectorTrackCut), Count * sizeof(FDirectorTrackCut));
+    }
+};
+
+// @baa 0x00cfbb10
+INT UInterpTrackDirector::SetKeyframeTime(INT KeyIndex, FLOAT NewKeyTime, UBOOL bUpdateOrder)
+{
+    if (KeyIndex < 0 || KeyIndex >= CutTrack.Num())
+    {
+        return KeyIndex;
+    }
+
+    if (bUpdateOrder)
+    {
+        // First, remove cut from array.
+        FDirectorTrackCut MoveCut = ((FDirectorTrackCutArray_00cfbb10&)CutTrack).At(KeyIndex);
+        ((FDirectorTrackCutArray_00cfbb10&)CutTrack).Remove(KeyIndex);
+
+        // Set its time to the new one.
+        MoveCut.Time = NewKeyTime;
+
+        // Find correct new position and insert.
+        INT i = 0;
+        for (i = 0; i < CutTrack.Num() && ((FDirectorTrackCutArray_00cfbb10&)CutTrack).At(i).Time < NewKeyTime; i++);
+        ((FDirectorTrackCutArray_00cfbb10&)CutTrack).InsertZeroed(i);
+        ((FDirectorTrackCutArray_00cfbb10&)CutTrack).At(i) = MoveCut;
+
+        return i;
+    }
+    else
+    {
+        ((FDirectorTrackCutArray_00cfbb10&)CutTrack).At(KeyIndex).Time = NewKeyTime;
+        return KeyIndex;
+    }
+}
+
+/* TArray<FAnimControlTrackKey>: Insert and Remove out of line in the exe (00cebe90, 00cf7ed0), InsertZeroed inlined (Array.h) */
+struct FAnimControlTrackKeyArray : public TArrayAt_<FAnimControlTrackKey>
+{
+    void Insert(INT Index, INT Count = 1);
+    void Remove(INT Index, INT Count = 1);
+    void InsertZeroed(INT Index, INT Count = 1)
+    {
+        Insert(Index, Count);
+        appMemzero((BYTE*)AllocatorInstance.GetAllocation() + Index * sizeof(FAnimControlTrackKey), Count * sizeof(FAnimControlTrackKey));
+    }
+};
+
+// @baa 0x00cfbfd0
+INT UInterpTrackAnimControl::SetKeyframeTime(INT KeyIndex, FLOAT NewKeyTime, UBOOL bUpdateOrder)
+{
+    if (KeyIndex < 0 || KeyIndex >= AnimSeqs.Num())
+    {
+        return KeyIndex;
+    }
+
+    if (bUpdateOrder)
+    {
+        // First, remove cut from array.
+        FAnimControlTrackKey MoveSeq = ((FAnimControlTrackKeyArray&)AnimSeqs).At(KeyIndex);
+        ((FAnimControlTrackKeyArray&)AnimSeqs).Remove(KeyIndex);
+
+        // Set its time to the new one.
+        MoveSeq.StartTime = NewKeyTime;
+
+        // Find correct new position and insert.
+        INT i = 0;
+        for (i = 0; i < AnimSeqs.Num() && ((FAnimControlTrackKeyArray&)AnimSeqs).At(i).StartTime < NewKeyTime; i++);
+        ((FAnimControlTrackKeyArray&)AnimSeqs).InsertZeroed(i);
+        ((FAnimControlTrackKeyArray&)AnimSeqs).At(i) = MoveSeq;
+
+        return i;
+    }
+    else
+    {
+        ((FAnimControlTrackKeyArray&)AnimSeqs).At(KeyIndex).StartTime = NewKeyTime;
+        return KeyIndex;
+    }
+}
+
+/* TArray<FSoundTrackKey>: Insert and Remove out of line in the exe (00cec2e0, 00cf83f0), InsertZeroed inlined (Array.h) */
+struct FSoundTrackKeyArray : public TArrayAt_<FSoundTrackKey>
+{
+    void Insert(INT Index, INT Count = 1);
+    void Remove(INT Index, INT Count = 1);
+    void InsertZeroed(INT Index, INT Count = 1)
+    {
+        Insert(Index, Count);
+        appMemzero((BYTE*)AllocatorInstance.GetAllocation() + Index * sizeof(FSoundTrackKey), Count * sizeof(FSoundTrackKey));
+    }
+};
+
+// @baa 0x00cfc200
+INT UInterpTrackSound::SetKeyframeTime(INT KeyIndex, FLOAT NewKeyTime, UBOOL bUpdateOrder)
+{
+    if (KeyIndex < 0 || KeyIndex >= Sounds.Num())
+    {
+        return KeyIndex;
+    }
+
+    if (bUpdateOrder)
+    {
+        // First, remove cut from array.
+        FSoundTrackKey MoveSound = ((FSoundTrackKeyArray&)Sounds).At(KeyIndex);
+        ((FSoundTrackKeyArray&)Sounds).Remove(KeyIndex);
+
+        // Set its time to the new one.
+        MoveSound.Time = NewKeyTime;
+
+        // Find correct new position and insert.
+        INT i = 0;
+        for (i = 0; i < Sounds.Num() && ((FSoundTrackKeyArray&)Sounds).At(i).Time < NewKeyTime; i++);
+        ((FSoundTrackKeyArray&)Sounds).InsertZeroed(i);
+        ((FSoundTrackKeyArray&)Sounds).At(i) = MoveSound;
+
+        return i;
+    }
+    else
+    {
+        ((FSoundTrackKeyArray&)Sounds).At(KeyIndex).Time = NewKeyTime;
+        return KeyIndex;
+    }
+}
+
+/* TArray<FAnimControlTrackKey>: Insert out of line in the exe (00cebe90), InsertZeroed inlined (Array.h) */
+struct FAnimControlTrackKeyArray_00cf5b70 : public TArrayAt_<FAnimControlTrackKey>
+{
+    void Insert(INT Index, INT Count = 1);
+    void InsertZeroed(INT Index, INT Count = 1)
+    {
+        Insert(Index, Count);
+        appMemzero((BYTE*)AllocatorInstance.GetAllocation() + Index * sizeof(FAnimControlTrackKey), Count * sizeof(FAnimControlTrackKey));
+    }
+};
+
+// @baa 0x00cf5b70
+INT UInterpTrackAnimControl::DuplicateKeyframe(INT KeyIndex, FLOAT NewKeyTime)
+{
+    if (KeyIndex < 0 || KeyIndex >= AnimSeqs.Num())
+    {
+        return INDEX_NONE;
+    }
+
+    FAnimControlTrackKey NewSeq = ((FAnimControlTrackKeyArray_00cf5b70&)AnimSeqs).At(KeyIndex);
+    NewSeq.StartTime = NewKeyTime;
+
+    // Find the correct index to insert this key.
+    INT i = 0;
+    for (i = 0; i < AnimSeqs.Num() && ((FAnimControlTrackKeyArray_00cf5b70&)AnimSeqs).At(i).StartTime < NewKeyTime; i++);
+    ((FAnimControlTrackKeyArray_00cf5b70&)AnimSeqs).InsertZeroed(i);
+    ((FAnimControlTrackKeyArray_00cf5b70&)AnimSeqs).At(i) = NewSeq;
+
+    return i;
+}
+
+/* TArray<FSoundTrackKey>: Insert out of line in the exe (00cec2e0), InsertZeroed inlined (Array.h) */
+struct FSoundTrackKeyArray_00cf5f30 : public TArrayAt_<FSoundTrackKey>
+{
+    void Insert(INT Index, INT Count = 1);
+    void InsertZeroed(INT Index, INT Count = 1)
+    {
+        Insert(Index, Count);
+        appMemzero((BYTE*)AllocatorInstance.GetAllocation() + Index * sizeof(FSoundTrackKey), Count * sizeof(FSoundTrackKey));
+    }
+};
+
+// @baa 0x00cf5f30
+INT UInterpTrackSound::DuplicateKeyframe(INT KeyIndex, FLOAT NewKeyTime)
+{
+    if (KeyIndex < 0 || KeyIndex >= Sounds.Num())
+    {
+        return INDEX_NONE;
+    }
+
+    FSoundTrackKey NewSound = ((FSoundTrackKeyArray_00cf5f30&)Sounds).At(KeyIndex);
+    NewSound.Time = NewKeyTime;
+
+    // Find the correct index to insert this key.
+    INT i = 0;
+    for (i = 0; i < Sounds.Num() && ((FSoundTrackKeyArray_00cf5f30&)Sounds).At(i).Time < NewKeyTime; i++);
+    ((FSoundTrackKeyArray_00cf5f30&)Sounds).InsertZeroed(i);
+    ((FSoundTrackKeyArray_00cf5f30&)Sounds).At(i) = NewSound;
+
+    return i;
+}
+
+/* FInterpCurve<FLOAT> (UnMath.h): AddPoint out of line in the exe (007b95b0), AutoSetTangents is the kit's sub_007b96a0 */
+struct FInterpCurveFloat_ : public FInterpCurveFloat
+{
+    INT AddPoint(const FLOAT InVal, const FLOAT& OutVal);
+    void AutoSetTangents(FLOAT Tension) { sub_007b96a0(Tension); }
+};
+
+// @baa 0x00cfb470
+INT UInterpTrackFloatBase::DuplicateKeyframe(INT KeyIndex, FLOAT NewKeyTime)
+{
+    if (KeyIndex < 0 || KeyIndex >= FloatTrack.Points.Num())
+    {
+        return INDEX_NONE;
+    }
+
+    FInterpCurveFloat_& Curve = (FInterpCurveFloat_&)FloatTrack;
+    TArrayAt_<FInterpCurvePointFloat>& Points = (TArrayAt_<FInterpCurvePointFloat>&)FloatTrack.Points;
+
+    FInterpCurvePointFloat FloatPoint = Points.At(KeyIndex);
+    INT NewKeyIndex = Curve.AddPoint(NewKeyTime, 0.f);
+    Points.At(NewKeyIndex) = FloatPoint;
+    Points.At(NewKeyIndex).InVal = NewKeyTime;
+
+    Curve.AutoSetTangents(CurveTension);
+
+    return NewKeyIndex;
+}
+
+/* FInterpCurve<FVector> (UnMath.h): AddPoint and AutoSetTangents out of line in the exe (007bb100, 007bb200) */
+struct FInterpCurveVector_ : public FInterpCurveVector
+{
+    INT AddPoint(const FLOAT InVal, const FVector& OutVal);
+    void AutoSetTangents(FLOAT Tension);
+};
+
+// @baa 0x00cfb7e0
+INT UInterpTrackVectorBase::DuplicateKeyframe(INT KeyIndex, FLOAT NewKeyTime)
+{
+    if (KeyIndex < 0 || KeyIndex >= VectorTrack.Points.Num())
+    {
+        return INDEX_NONE;
+    }
+
+    FInterpCurveVector_& Curve = (FInterpCurveVector_&)VectorTrack;
+    TArrayAt_<FInterpCurvePointVector>& Points = (TArrayAt_<FInterpCurvePointVector>&)VectorTrack.Points;
+
+    FInterpCurvePointVector VectorPoint = Points.At(KeyIndex);
+    INT NewKeyIndex = Curve.AddPoint(NewKeyTime, FVector(0.f));
+    Points.At(NewKeyIndex) = VectorPoint;
+    Points.At(NewKeyIndex).InVal = NewKeyTime;
+
+    Curve.AutoSetTangents(CurveTension);
+
+    return NewKeyIndex;
+}
+
+// @baa 0x00cfbcf0
+INT UInterpTrackFade::AddKeyframe(FLOAT Time, UInterpTrackInst* TrInst, BYTE InitInterpMode)
+{
+    INT NewKeyIndex = ((FInterpCurveFloat_&)FloatTrack).AddPoint(Time, 0.f);
+    ((TArrayAt_<FInterpCurvePointFloat>&)FloatTrack.Points).At(NewKeyIndex).InterpMode = InitInterpMode;
+
+    ((FInterpCurveFloat_&)FloatTrack).AutoSetTangents(CurveTension);
+
+    return NewKeyIndex;
+}
+
+// @baa 0x00cfbeb0
+INT UInterpTrackSlomo::AddKeyframe(FLOAT Time, UInterpTrackInst* TrInst, BYTE InitInterpMode)
+{
+    INT NewKeyIndex = ((FInterpCurveFloat_&)FloatTrack).AddPoint(Time, 1.f);
+    ((TArrayAt_<FInterpCurvePointFloat>&)FloatTrack.Points).At(NewKeyIndex).InterpMode = InitInterpMode;
+
+    ((FInterpCurveFloat_&)FloatTrack).AutoSetTangents(CurveTension);
+
+    return NewKeyIndex;
+}
+
+/* TArray<FSoundTrackKey>: Insert out of line in the exe (00cec2e0) */
+struct FSoundTrackKeyArray_00cf6090 : public TArrayAt_<FSoundTrackKey>
+{
+    void Insert(INT Index, INT Count = 1);
+};
+
+// @baa 0x00cf6090
+INT UInterpTrackSound::AddKeyframe(FLOAT Time, UInterpTrackInst* TrInst, BYTE InitInterpMode)
+{
+    FSoundTrackKey NewSound;
+    NewSound.Sound = NULL;
+    NewSound.Time = Time;
+    NewSound.Volume = 1.0f;
+    NewSound.Pitch = 1.0f;
+
+    // Find the correct index to insert this sound.
+    INT i = 0;
+    for (i = 0; i < Sounds.Num() && ((FSoundTrackKeyArray_00cf6090&)Sounds).At(i).Time < Time; i++);
+    ((FSoundTrackKeyArray_00cf6090&)Sounds).Insert(i);
+    ((FSoundTrackKeyArray_00cf6090&)Sounds).At(i) = NewSound;
+
+    return i;
+}
+
+/* TArray<FAnimControlTrackKey>: Insert out of line in the exe (00cebe90) */
+struct FAnimControlTrackKeyArray_00cf5ce0 : public TArrayAt_<FAnimControlTrackKey>
+{
+    void Insert(INT Index, INT Count = 1);
+};
+
+// @baa 0x00cf5ce0
+INT UInterpTrackAnimControl::AddKeyframe(FLOAT Time, UInterpTrackInst* TrInst, BYTE InitInterpMode)
+{
+    FAnimControlTrackKey NewSeq;
+    NewSeq.AnimSeqName = NAME_None;
+    NewSeq.bLooping = FALSE;
+    NewSeq.AnimStartOffset = 0.f;
+    NewSeq.AnimEndOffset = 0.f;
+    NewSeq.AnimPlayRate = 1.f;
+    NewSeq.StartTime = Time;
+    NewSeq.bReverse = FALSE;
+
+    // Find the correct index to insert this sequence.
+    INT i = 0;
+    for (i = 0; i < AnimSeqs.Num() && ((FAnimControlTrackKeyArray_00cf5ce0&)AnimSeqs).At(i).StartTime < Time; i++);
+    ((FAnimControlTrackKeyArray_00cf5ce0&)AnimSeqs).Insert(i);
+    ((FAnimControlTrackKeyArray_00cf5ce0&)AnimSeqs).At(i) = NewSeq;
+
+    return i;
+}
+
+// @baa 0x00cf5020
+void UInterpTrackEvent::GetTimeRange(FLOAT& StartTime, FLOAT& EndTime)
+{
+    if (EventTrack.Num() == 0)
+    {
+        StartTime = 0.f;
+        EndTime = 0.f;
+    }
+    else
+    {
+        StartTime = ((TArrayAt_<FEventTrackKey>&)EventTrack).At(0).Time;
+        EndTime = ((TArrayAt_<FEventTrackKey>&)EventTrack).At(EventTrack.Num() - 1).Time;
+    }
+}
+
+// @baa 0x00cf54b0
+void UInterpTrackDirector::GetTimeRange(FLOAT& StartTime, FLOAT& EndTime)
+{
+    if (CutTrack.Num() == 0)
+    {
+        StartTime = 0.f;
+        EndTime = 0.f;
+    }
+    else
+    {
+        StartTime = ((TArrayAt_<FDirectorTrackCut>&)CutTrack).At(0).Time;
+        EndTime = ((TArrayAt_<FDirectorTrackCut>&)CutTrack).At(CutTrack.Num() - 1).Time;
+    }
+}
+
+// @baa 0x00cf47a0
+void UInterpTrackFloatBase::GetTimeRange(FLOAT& StartTime, FLOAT& EndTime)
+{
+    if (FloatTrack.Points.Num() == 0)
+    {
+        StartTime = 0.f;
+        EndTime = 0.f;
+    }
+    else
+    {
+        StartTime = ((TArrayAt_<FInterpCurvePointFloat>&)FloatTrack.Points).At(0).InVal;
+        EndTime = ((TArrayAt_<FInterpCurvePointFloat>&)FloatTrack.Points).At(FloatTrack.Points.Num() - 1).InVal;
+    }
+}
+
+// @baa 0x00cf4d60
+void UInterpTrackVectorBase::GetTimeRange(FLOAT& StartTime, FLOAT& EndTime)
+{
+    if (VectorTrack.Points.Num() == 0)
+    {
+        StartTime = 0.f;
+        EndTime = 0.f;
+    }
+    else
+    {
+        StartTime = ((TArrayAt_<FInterpCurvePointVector>&)VectorTrack.Points).At(0).InVal;
+        EndTime = ((TArrayAt_<FInterpCurvePointVector>&)VectorTrack.Points).At(VectorTrack.Points.Num() - 1).InVal;
+    }
+}
+
+// @baa 0x00cf5a60
+void UInterpTrackAnimControl::GetTimeRange(FLOAT& StartTime, FLOAT& EndTime)
+{
+    if (AnimSeqs.Num() == 0)
+    {
+        StartTime = 0.f;
+        EndTime = 0.f;
+    }
+    else
+    {
+        StartTime = ((TArrayAt_<FAnimControlTrackKey>&)AnimSeqs).At(0).StartTime;
+        EndTime = ((TArrayAt_<FAnimControlTrackKey>&)AnimSeqs).At(AnimSeqs.Num() - 1).StartTime;
+    }
+}
+
+// @baa 0x00cf5e20
+void UInterpTrackSound::GetTimeRange(FLOAT& StartTime, FLOAT& EndTime)
+{
+    if (Sounds.Num() == 0)
+    {
+        StartTime = 0.f;
+        EndTime = 0.f;
+    }
+    else
+    {
+        StartTime = ((TArrayAt_<FSoundTrackKey>&)Sounds).At(0).Time;
+        EndTime = ((TArrayAt_<FSoundTrackKey>&)Sounds).At(Sounds.Num() - 1).Time;
+    }
+}
+
+// @baa 0x00cf6e30
+void UInterpTrackVisibility::GetTimeRange(FLOAT& StartTime, FLOAT& EndTime)
+{
+    if (VisibilityTrack.Num() == 0)
+    {
+        StartTime = 0.f;
+        EndTime = 0.f;
+    }
+    else
+    {
+        StartTime = ((TArrayAt_<FVisibilityTrackKey>&)VisibilityTrack).At(0).Time;
+        EndTime = ((TArrayAt_<FVisibilityTrackKey>&)VisibilityTrack).At(VisibilityTrack.Num() - 1).Time;
+    }
+}
+
+// @baa 0x00cf64a0
+void UInterpTrackFaceFX::GetTimeRange(FLOAT& StartTime, FLOAT& EndTime)
+{
+    if (FaceFXSeqs.Num() == 0)
+    {
+        StartTime = 0.f;
+        EndTime = 0.f;
+    }
+    else
+    {
+        StartTime = ((TArrayAt_<FFaceFXTrackKey>&)FaceFXSeqs).At(0).StartTime;
+        EndTime = ((TArrayAt_<FFaceFXTrackKey>&)FaceFXSeqs).At(FaceFXSeqs.Num() - 1).StartTime;
+    }
 }

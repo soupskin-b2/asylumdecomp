@@ -1,4 +1,4 @@
-// UnCanvas.cpp: 53 functions
+// UnCanvas.cpp: 55 functions
 // Placed here by: neighbours 43, class 7, callers 2, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -518,4 +518,33 @@ void sub_00aa7d30(void* p1, const float* p2, const void* p3, const float* p4, co
         if (e) e->sub_0064cac0(&v, p7, p8, n);
     }
     s->sub_00a90e30(n1, n2, n3, nm, mask);
+}
+
+struct C_00a58630 {
+    void sub_00a58630(float A, float B);
+};
+
+// @baa 0x00a58630
+// @baa 0x00a58630
+void C_00a58630::sub_00a58630(float A, float B)
+{
+    *(float*)((char*)this + 0x44) = A;
+    *(float*)((char*)this + 0x48) = B;
+}
+
+struct ArrayStruct {
+    void sub_00a7b870(unsigned char* Dest);
+};
+
+struct C_00a81b60 {
+    char pad[0x24];
+    ArrayStruct Data;
+    void sub_00a81b60();
+};
+
+// @baa 0x00a81b60
+void C_00a81b60::sub_00a81b60()
+{
+    __declspec(align(16)) double a[10];
+    Data.sub_00a7b870((unsigned char*)a);
 }

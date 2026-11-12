@@ -2,19 +2,19 @@
  "updated": "2026-11-12",
  "functions": {
   "total": 174166,
-  "matched": 99010
+  "matched": 99209
  },
  "bytes": {
   "total": 24308119,
-  "matched": 3777887
+  "matched": 3807830
  },
  "areas": [
   {
    "name": "Engine",
    "functions": 69863,
    "bytes": 9201956,
-   "matched": 41698,
-   "matched_bytes": 1780516
+   "matched": 41890,
+   "matched_bytes": 1809886
   },
   {
    "name": "Editor",
@@ -34,22 +34,22 @@
    "name": "Game",
    "functions": 13563,
    "bytes": 1853804,
-   "matched": 9353,
-   "matched_bytes": 534363
+   "matched": 9355,
+   "matched_bytes": 534531
   },
   {
    "name": "Core",
    "functions": 12072,
    "bytes": 1275961,
-   "matched": 7893,
-   "matched_bytes": 238601
+   "matched": 7894,
+   "matched_bytes": 238731
   },
   {
    "name": "CommonGame",
    "functions": 1422,
    "bytes": 173518,
-   "matched": 997,
-   "matched_bytes": 43064
+   "matched": 999,
+   "matched_bytes": 43298
   },
   {
    "name": "Unsorted",
@@ -62,8 +62,8 @@
    "name": "FMod",
    "functions": 1472,
    "bytes": 150189,
-   "matched": 917,
-   "matched_bytes": 27846
+   "matched": 919,
+   "matched_bytes": 27887
   },
   {
    "name": "CommonEditor",
@@ -97,19 +97,22 @@
  "contributors": [
   {
    "login": "soupskin-b2",
-   "functions": 99000,
-   "bytes": 3776307,
+   "functions": 99199,
+   "bytes": 3806250,
    "models": {
     "Tooling": 94456,
     "DeepSeek V4.1 Flash": 2080,
-    "Qwen3.8 27B": 1411,
-    "Claude Opus 5.5": 855,
-    "GPT-6.1 Sol": 145,
+    "Qwen3.8 27B": 1450,
+    "Claude Opus 5.5": 1006,
+    "GPT-6.1 Sol": 146,
     "Claude Sonnet 5.5": 37,
     "GPT-6.1 Terra": 10,
-    "qwen": 3,
+    "qwen": 6,
     "not specified": 2,
-    "Claude Haiku 5.5": 1
+    "claude": 2,
+    "Claude Sonnet 4.5": 2,
+    "Claude Haiku 5.5": 1,
+    "Claude Opus 4.5": 1
    }
   }
  ],
@@ -124,15 +127,15 @@
   },
   {
    "model": "Qwen3.8 27B",
-   "functions": 1411
+   "functions": 1450
   },
   {
    "model": "Claude Opus 5.5",
-   "functions": 855
+   "functions": 1006
   },
   {
    "model": "GPT-6.1 Sol",
-   "functions": 145
+   "functions": 146
   },
   {
    "model": "Claude Sonnet 5.5",
@@ -144,14 +147,26 @@
   },
   {
    "model": "qwen",
-   "functions": 3
+   "functions": 6
   },
   {
    "model": "not specified",
    "functions": 2
   },
   {
+   "model": "claude",
+   "functions": 2
+  },
+  {
+   "model": "Claude Sonnet 4.5",
+   "functions": 2
+  },
+  {
    "model": "Claude Haiku 5.5",
+   "functions": 1
+  },
+  {
+   "model": "Claude Opus 4.5",
    "functions": 1
   }
  ]

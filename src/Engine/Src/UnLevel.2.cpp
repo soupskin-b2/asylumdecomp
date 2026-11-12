@@ -1,0 +1,10 @@
+// UnLevel.cpp: 1 function
+// Placed here by: contributions.
+// Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
+#include "ue3/Classes.h"
+#include "ue3/Array.h"
+#include "ue3/Native.h"
+
+// @baa 0x007ea9c0
+/* TObjectIterator<APortalTeleporter> constructor, instantiated out of line. */
+template TObjectIterator<APortalTeleporter>::TObjectIterator(UBOOL bOnlyGCedObjects);

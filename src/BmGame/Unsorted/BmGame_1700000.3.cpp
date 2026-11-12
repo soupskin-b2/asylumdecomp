@@ -1,4 +1,4 @@
-// BmGame_1700000.cpp: 48 functions
+// BmGame_1700000.cpp: 50 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -404,4 +404,22 @@ void g_caller()
 {
     ARBMCombatManager Manager;
     Manager.execGetBatmanLocation(*(FFrame*)0, 0);
+}
+
+// @baa 0x01704430
+void ARBMCombatManager::execGetBatmanRotation(FFrame& Stack, RESULT_DECL)
+{
+    P_FINISH;
+
+    FRotator BatmanRotation;
+    *(FRotator*)Result = *(FRotator*)vf_360((INT)&BatmanRotation);
+}
+
+// @baa 0x01705280
+void URBMBehaviour_CombatHeavyObject::execGetMovementForce(FFrame& Stack, RESULT_DECL)
+{
+    P_FINISH;
+
+    FVector MovementForce;
+    *(FVector*)Result = *(FVector*)vf_1d8((INT)&MovementForce);
 }

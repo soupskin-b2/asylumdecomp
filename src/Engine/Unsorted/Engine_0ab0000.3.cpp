@@ -1,4 +1,4 @@
-// Engine_0ab0000.cpp (part 3 of 3): 6 functions
+// Engine_0ab0000.cpp (part 3 of 3): 7 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -111,4 +111,20 @@ sub_00ab2090_struct* sub_00ab2090(sub_00ab2090_struct* This, sub_00ab2090_struct
 {
 	This->sub_00ab1f50((sub_00ab2090_struct*)((char*)Other + 0x10));
 	return This;
+}
+
+struct C_00ab8f80 {
+  int Field0;  // +0x0
+  int Field4;  // +0x4
+  int Ref;     // +0x8
+  void sub_00ab8f80();
+};
+
+extern int *g_026b0d94;
+// @baa 0x00ab8f80
+void C_00ab8f80::sub_00ab8f80(void)
+{
+  if (Ref != 0) {
+    (*(int(__stdcall **)(int))(*g_026b0d94 + 0x218))(Ref);
+  }
 }

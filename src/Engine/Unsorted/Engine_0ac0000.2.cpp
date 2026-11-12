@@ -1,4 +1,4 @@
-// Engine_0ac0000.cpp (part 2 of 2): 4 functions
+// Engine_0ac0000.cpp (part 2 of 2): 7 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -103,4 +103,61 @@ C_00ac4670* C_00ac4670::sub_00ac4670()
     Value_50 = 0;
     Value_54 = 0;
     return this;
+}
+
+struct C_00ac1af0
+{
+	int Field0;
+	int Field4;
+	int Field8;
+	int FieldC;
+	int Field10;
+	int Field14;
+	int Field18;
+	int Field1C;
+	int Field20;
+	int Field24;
+
+	int sub_00ac1af0();
+};
+
+// @baa 0x00ac1af0
+int C_00ac1af0::sub_00ac1af0()
+{
+	return (Field24 / 32 + Field8 * 19) << 2;
+}
+
+struct sub_00ac1bb0_T {
+    int Field0;
+    int Field4;
+    int Field8;
+    int FieldC;
+    int Field10;
+    int Field14;
+    int Field18;
+    int Field1C;
+    int Field20;
+    int Value24;
+
+    int sub_00ac1bb0();
+};
+
+// @baa 0x00ac1bb0
+int sub_00ac1bb0_T::sub_00ac1bb0()
+{
+    return (Value24 / 32 + Field8 * 21) << 2;
+}
+
+struct sub_00ac1b30_cls {
+    char pad[8];
+    int b;
+    char pad2[24];
+    int a;
+    int sub_00ac1b30();
+};
+
+// @baa 0x00ac1b30
+int sub_00ac1b30_cls::sub_00ac1b30()
+{
+    return ((b * 21) + (a / 32)) * 4;
 }

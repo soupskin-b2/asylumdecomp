@@ -1,4 +1,4 @@
-// UnNovodexSupport.cpp: 28 functions
+// UnNovodexSupport.cpp: 33 functions
 // Placed here by: neighbours 16, class 10, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -221,4 +221,149 @@ FVector sub_009d7b70(FLOAT* Src)
 	V.Y = Src[1];
 	V.Z = Src[2];
 	return V;
+}
+
+// Shared virtual (URB_BodyInstance vtable slot 79): forwards to the object's own
+// virtual slot at offset 0x30 with a parameter address and a fixed flag, returning this.
+struct C009d7e10 {
+    virtual void f_000();
+    virtual void f_004();
+    virtual void f_008();
+    virtual void f_00c();
+    virtual void f_010();
+    virtual void f_014();
+    virtual void f_018();
+    virtual void f_01c();
+    virtual void f_020();
+    virtual void f_024();
+    virtual void f_028();
+    virtual void f_02c();
+    virtual void f_030(int*, int);
+
+    C009d7e10* sub_009d7e10(int Param);
+};
+
+// @baa 0x009d7e10
+C009d7e10* C009d7e10::sub_009d7e10(int Param) {
+    f_030(&Param, 4);
+    return this;
+}
+
+// This body is linker-merged across several unrelated vtables (UPhysicalMaterial,
+// UPhysicalMaterialPropertyBase, URB_BodyInstance); it only touches the object's
+// vtable pointer, so it lives on a small standalone class.  It forwards the
+// caller's value argument (by reference) plus a constant to its own virtual at
+// vtable offset 0x30, and returns this.
+struct sub_009d7e30_ {
+    virtual void v00();
+    virtual void v04();
+    virtual void v08();
+    virtual void v0c();
+    virtual void v10();
+    virtual void v14();
+    virtual void v18();
+    virtual void v1c();
+    virtual void v20();
+    virtual void v24();
+    virtual void v28();
+    virtual void v2c();
+    virtual void v30(INT*, INT); /* slot 12, vtable offset 0x30 */
+
+    sub_009d7e30_* sub_009d7e30(INT Value);
+};
+
+// @baa 0x009d7e30
+sub_009d7e30_* sub_009d7e30_::sub_009d7e30(INT Value)
+{
+    v30(&Value, 4);
+    return this;
+}
+
+struct S009d7e50
+{
+    virtual void vf_000();
+    virtual void vf_004();
+    virtual void vf_008();
+    virtual void vf_00c();
+    virtual void vf_010();
+    virtual void vf_014();
+    virtual void vf_018();
+    virtual void vf_01c();
+    virtual void vf_020();
+    virtual void vf_024();
+    virtual void vf_028();
+    virtual void vf_02c();
+    virtual void vf_030(int* P, int V);
+    S009d7e50* sub_009d7e50(int R, int Unused);
+};
+
+// @baa 0x009d7e50
+S009d7e50* S009d7e50::sub_009d7e50(int R, int Unused)
+{
+    vf_030(&R, 8);
+    return this;
+}
+
+struct D009d7e50 : public S009d7e50
+{
+    void vf_030(int* P, int V); // keeps the vtable lookup out of line
+};
+
+// `this` starts with a vtable pointer; the call goes to virtual slot 12
+// (vtable offset 0x30), a thiscall taking an int by reference and an int.
+// The method returns `this`.
+struct C_009d7dd0
+{
+    virtual void f00();
+    virtual void f04();
+    virtual void f08();
+    virtual void f0c();
+    virtual void f10();
+    virtual void f14();
+    virtual void f18();
+    virtual void f1c();
+    virtual void f20();
+    virtual void f24();
+    virtual void f28();
+    virtual void f2c();
+    virtual void target_0x30(int&, int);
+    C_009d7dd0* sub_009d7dd0(int Arg);
+};
+
+// @baa 0x009d7dd0
+C_009d7dd0* C_009d7dd0::sub_009d7dd0(int Arg)
+{
+    target_0x30(Arg, 1);
+    return this;
+}
+
+// Merged virtual (slot 78 / 0x138 of URB_BodyInstance's vtable; address-bound as sub_009d7df0)
+// shared by UPhysicalMaterial, UPhysicalMaterialPropertyBase and URB_BodyInstance.
+// It asks its own vtable (slot 0x030) to run against the value P it is given, by reference, with
+// mode 2, then returns this. The base carries one leading virtual so the target method lands at
+// vtable offset 0x030.
+struct sub_009d7df0_Base
+{
+    virtual ~sub_009d7df0_Base() {}
+    virtual INT vf_004() = 0;
+    virtual void vf_008() = 0;
+    virtual void vf_00c() = 0;
+    virtual void vf_010() = 0;
+    virtual void vf_014() = 0;
+    virtual void vf_018() = 0;
+    virtual void vf_01c() = 0;
+    virtual void vf_020() = 0;
+    virtual void vf_024() = 0;
+    virtual void vf_028() = 0;
+    virtual void vf_02c() = 0;
+    virtual void vf_030(int* P, INT Mode) = 0;
+
+    sub_009d7df0_Base* sub_009d7df0(int P);
+};
+
+// @baa 0x009d7df0
+sub_009d7df0_Base* sub_009d7df0_Base::sub_009d7df0(int P)
+{
+    this->vf_030(&P, 2);
+    return this;
 }

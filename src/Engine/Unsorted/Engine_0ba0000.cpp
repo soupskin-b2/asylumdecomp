@@ -1,4 +1,4 @@
-// Engine_0ba0000.cpp (part 1 of 2): 278 functions
+// Engine_0ba0000.cpp (part 1 of 2): 279 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1931,3 +1931,15 @@ struct C_00bafc40 { int sub_00bafc40(void); };
 
 // @baa 0x00bafc40
 int C_00bafc40::sub_00bafc40(void) { return *(int*)((char*)this + 16); }
+
+struct UParticleModuleTypeDataTrail2_BAA : public UParticleModuleTypeDataTrail2
+{
+	virtual void sub_00baaf50(INT A, INT B, INT* Source, INT* Dest, INT* Tail);
+};
+
+// @baa 0x00baaf50
+void UParticleModuleTypeDataTrail2_BAA::sub_00baaf50(INT A, INT B, INT* Source, INT* Dest, INT* Tail)
+{
+	*Dest = *Source;
+	*Tail = -1;
+}

@@ -1,4 +1,4 @@
-// Engine_0ac0000.cpp (part 1 of 2): 439 functions
+// Engine_0ac0000.cpp (part 1 of 2): 444 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -5462,4 +5462,85 @@ INT TScene::sub_00ac52c0()
     TLensFlareSub* Lens = (TLensFlareSub*)((char*)LensBase + 0x33e0);
     Lens->sub_00abd280(&LensArgs);
     return 12;
+}
+
+struct C_00ac1790
+{
+    int f0;
+    int f1;
+    void sub_00ac1790(void);
+};
+
+// @baa 0x00ac1790
+void C_00ac1790::sub_00ac1790(void)
+{
+    if (f1 != 0) {
+        (*(void(__stdcall**)(INT))(*g_026b0d94 + 0x218))(f1);
+    }
+}
+
+struct sub_00ac1b10_ : public UObject {
+    int sub_00ac1b10();
+};
+
+// @baa 0x00ac1b10
+int sub_00ac1b10_::sub_00ac1b10()
+{
+    int A = Name.Number;
+    int B = *(DWORD*)&ObjectFlags;
+    int R = A / 32 + B * 21;
+    return R * 4;
+}
+
+struct C_00ac1b50 {
+    int a;
+    int b;
+    int Stride;    // +0x8
+    int c;
+    int d;
+    int e;
+    int f;
+    int g;
+    int h;
+    int Count;     // +0x24
+    int sub_00ac1b50(void);
+};
+
+// @baa 0x00ac1b50
+int C_00ac1b50::sub_00ac1b50(void)
+{
+    return (Count / 32 + Stride * 21) * 4;
+}
+
+struct sub_00ac1bd0_ : public UObject {
+    int sub_00ac1bd0();
+};
+
+// @baa 0x00ac1bd0
+int sub_00ac1bd0_::sub_00ac1bd0()
+{
+    int A = Name.Number;
+    int B = *(DWORD*)&ObjectFlags;
+    int R = A / 32 + B * 21;
+    return R * 4;
+}
+
+struct FGridIndex_00ac {
+    int A;         // 0x00
+    int B;         // 0x04
+    int Row;       // 0x08
+    int C;         // 0x0c
+    int D;         // 0x10
+    int E;         // 0x14
+    int F;         // 0x18
+    int G;         // 0x1c
+    int H;         // 0x20
+    int Cell;      // 0x24
+    __declspec(noinline) int sub_00ac1b70();
+};
+
+// @baa 0x00ac1b70
+int FGridIndex_00ac::sub_00ac1b70()
+{
+    return (Cell / 32 + Row * 23) * 4;
 }

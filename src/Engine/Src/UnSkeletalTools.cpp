@@ -1,4 +1,4 @@
-// UnSkeletalTools.cpp (part 1 of 3): 79 functions
+// UnSkeletalTools.cpp (part 1 of 3): 80 functions
 // Placed here by: neighbours 64, callers 9, class 6.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -729,4 +729,65 @@ undefined4 * C_00d5e810::sub_00d5e810(undefined4 param_2, undefined4 param_3, un
   ((C_00d5e810 *)(this))->sub_00d5e490(param_2, param_3, param_4);
   *param_1 = (undefined4)(&g_020afbb4);
   return param_1;
+}
+
+/* UE3's FArchive operators for plain values (UnArc.h): byte-order serialization of the value. */
+inline FArchive& operator<<(FArchive& Ar, FLOAT& F) { Ar.ByteOrderSerialize(&F, sizeof(F)); return Ar; }
+
+inline FArchive& operator<<(FArchive& Ar, INT& I) { Ar.ByteOrderSerialize(&I, sizeof(I)); return Ar; }
+
+inline FArchive& operator<<(FArchive& Ar, DWORD& D) { Ar.ByteOrderSerialize(&D, sizeof(D)); return Ar; }
+
+inline FArchive& operator<<(FArchive& Ar, FVector& V) { return Ar << V.X << V.Y << V.Z; }
+
+inline FArchive& operator<<(FArchive& Ar, FQuat& F) { return Ar << F.X << F.Y << F.Z << F.W; }
+
+/* FColor(R, G, B, A) (UnMath.h); the kit's FColor has no constructor. */
+struct FColor_ : public FColor
+{
+    FColor_(BYTE InR, BYTE InG, BYTE InB, BYTE InA) { B = InB; G = InG; R = InR; A = InA; }
+};
+
+/* VJointPos (UnSkeletalMesh.h): a bone's reference pose. Not in the kit (its FMeshBone has it flattened). */
+struct VJointPos
+{
+    FQuat Orientation;
+    FVector Position;
+    FLOAT Length;
+    FLOAT XSize;
+    FLOAT YSize;
+    FLOAT ZSize;
+};
+
+FArchive& operator<<(FArchive& Ar, VJointPos& V);
+ /* 0x00943a60 */
+inline FArchive& operator<<(FArchive& Ar, FColor& Color) { Ar.ByteOrderSerialize(&Color, sizeof(Color)); return Ar; }
+
+#define VER_ADDED_BONE_COLOR 0x203 /* name guessed: the package version that added FMeshBone::BoneColor */
+/* FMeshBone as this build has it (UnSkeletalMesh.h, 0x48 bytes). The kit's FMeshBone flattens BonePos
+ * without Length/XSize/YSize/ZSize, so its NumChildren and ParentIndex sit at the wrong offsets. */
+struct FMeshBone_
+{
+    FName Name;           /* 0x00 */
+    DWORD Flags;          /* 0x08 */
+    VJointPos BonePos;    /* 0x0c */
+    INT ParentIndex;      /* 0x38 */
+    INT NumChildren;      /* 0x3c */
+    INT Depth;            /* 0x40 */
+    FColor BoneColor;     /* 0x44 */
+};
+
+// @baa 0x00943ad0
+FArchive& operator<<(FArchive& Ar, FMeshBone_& F)
+{
+    Ar << F.Name << F.Flags << F.BonePos << F.NumChildren << F.ParentIndex;
+    if (Ar.IsLoading() && Ar.Ver() < VER_ADDED_BONE_COLOR)
+    {
+        F.BoneColor = FColor_(255, 255, 255, 255);
+    }
+    else
+    {
+        Ar << F.BoneColor;
+    }
+    return Ar;
 }

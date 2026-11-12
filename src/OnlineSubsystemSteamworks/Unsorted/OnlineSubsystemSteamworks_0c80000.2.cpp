@@ -1,4 +1,4 @@
-// OnlineSubsystemSteamworks_0c80000.cpp: 15 functions
+// OnlineSubsystemSteamworks_0c80000.cpp: 19 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -180,4 +180,68 @@ void AWorldInfo::execUpdateMusicTrack(FFrame& Stack, RESULT_DECL)
     P_GET_STRUCT(FMusicTrackStruct, NewMusicTrack);
     P_FINISH;
     ((AWorldInfo__00c89980*)this)->sub_009b0b80(NewMusicTrack);
+}
+
+/* AGameInfo::SwapPlayerControllers (008b0c60) isn't declared in the kit. */
+struct AGameInfo_ : public AGameInfo
+{
+    void SwapPlayerControllers(APlayerController* OldPC, APlayerController* NewPC);
+};
+
+// @baa 0x00c89160
+void AGameInfo::execSwapPlayerControllers(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(APlayerController, OldPC);
+    P_GET_OBJECT(APlayerController, NewPC);
+    P_FINISH;
+    ((AGameInfo_*)this)->SwapPlayerControllers(OldPC, NewPC);
+}
+
+/* ARoute::ResolveRouteIndex (0086eba0) isn't declared in the kit. */
+struct ARoute_ : public ARoute
+{
+    INT ResolveRouteIndex(INT Idx, BYTE RouteDirection, BYTE& out_bComplete, BYTE& out_bReverse);
+};
+
+// @baa 0x00c89760
+void ARoute::execResolveRouteIndex(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_INT(Idx);
+    P_GET_BYTE(RouteDirection);
+    P_GET_BYTE_REF(out_bComplete);
+    P_GET_BYTE_REF(out_bReverse);
+    P_FINISH;
+    *(INT*)Result = ((ARoute_*)this)->ResolveRouteIndex(Idx, RouteDirection, out_bComplete, out_bReverse);
+}
+
+/* ARoute::MoveOntoRoutePath (0087a580) isn't declared in the kit. */
+struct ARoute__00c89870 : public ARoute
+{
+    INT MoveOntoRoutePath(APawn* P, BYTE RouteDirection, FLOAT DistFudgeFactor);
+};
+
+// @baa 0x00c89870
+void ARoute::execMoveOntoRoutePath(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(APawn, P);
+    P_GET_BYTE_OPTX(RouteDirection, ERD_Forward);
+    P_GET_FLOAT_OPTX(DistFudgeFactor, 1.f);
+    P_FINISH;
+    *(INT*)Result = ((ARoute__00c89870*)this)->MoveOntoRoutePath(P, RouteDirection, DistFudgeFactor);
+}
+
+/* AWorldInfo::NotifyMatchStarted (007dde10) isn't declared in the kit. */
+struct AWorldInfo__00c89ca0 : public AWorldInfo
+{
+    void NotifyMatchStarted(UBOOL bShouldPauseMovies, UBOOL bShouldAllowPausing, UBOOL bShouldSkipMovies);
+};
+
+// @baa 0x00c89ca0
+void AWorldInfo::execNotifyMatchStarted(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_UBOOL_OPTX(bShouldPauseMovies, TRUE);
+    P_GET_UBOOL_OPTX(bShouldAllowPausing, TRUE);
+    P_GET_UBOOL_OPTX(bShouldSkipMovies, FALSE);
+    P_FINISH;
+    ((AWorldInfo__00c89ca0*)this)->NotifyMatchStarted(bShouldPauseMovies, bShouldAllowPausing, bShouldSkipMovies);
 }

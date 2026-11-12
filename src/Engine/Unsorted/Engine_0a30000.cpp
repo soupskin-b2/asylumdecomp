@@ -1,4 +1,4 @@
-// Engine_0a30000.cpp (part 1 of 3): 225 functions
+// Engine_0a30000.cpp (part 1 of 3): 239 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1789,4 +1789,294 @@ void ANxForceFieldRadial::vf_354()
 	Kernel.Dummy = 0;
 	ForceField.Dummy = 0;
 	vf_238();
+}
+
+struct F00A355D0
+{
+    INT Counter;
+    INT Value;
+
+    void sub_00a355d0(FLOAT NewValue);
+};
+
+// @baa 0x00a355d0
+void F00A355D0::sub_00a355d0(FLOAT NewValue)
+{
+    ++Counter;
+    FLOAT F = NewValue;
+    Value = *(INT*)&F;
+}
+
+static void g_00a355d0caller(F00A355D0* Obj, FLOAT NewValue)
+{
+    Obj->sub_00a355d0(NewValue);
+}
+
+struct F00A35630
+{
+    INT Counter;
+    INT First;
+    INT Second;
+    INT Third;
+    INT Value;
+
+    void sub_00a35630(FLOAT NewValue);
+};
+
+// @baa 0x00a35630
+void F00A35630::sub_00a35630(FLOAT NewValue)
+{
+    ++Counter;
+    FLOAT F = NewValue;
+    Value = *(INT*)&F;
+}
+
+static void g_00a35630caller(F00A35630* Obj, FLOAT NewValue)
+{
+    Obj->sub_00a35630(NewValue);
+}
+
+struct F00a356c0Obj
+{
+    INT Counter;
+    INT First;
+    INT Second;
+    INT Third;
+    INT Fourth;
+    INT Fifth;
+    INT Sixth;
+    INT Seventh;
+    INT Eighth;
+    INT Value;
+
+    void sub_00a356c0(FLOAT InValue);
+};
+
+// @baa 0x00a356c0
+void F00a356c0Obj::sub_00a356c0(FLOAT InValue)
+{
+    FLOAT Sample = InValue;
+    Counter++;
+    Value = *(INT*)&Sample;
+}
+
+static F00a356c0Obj g_test00a356c0;
+static void sub_00a356c0_test()
+{
+    g_test00a356c0.sub_00a356c0(1.0f);
+}
+
+struct S_00a356a0
+{
+    int Count;
+    int Pad[7];
+    int Value;
+    void sub_00a356a0(float f);
+};
+
+// @baa 0x00a356a0
+void S_00a356a0::sub_00a356a0(float f)
+{
+    float v = f;
+    Count++;
+    Value = *(int*)&v;
+}
+
+struct F00a35700Obj
+{
+    INT Counter;
+    INT Value;
+
+    void sub_00a35700(FLOAT Param);
+};
+
+// @baa 0x00a35700
+void F00a35700Obj::sub_00a35700(FLOAT Param)
+{
+    FLOAT F = Param;
+    Counter++;
+    Value = *(INT*)&F;
+}
+
+static F00a35700Obj g_00a35700Obj;
+static void sub_00a35700Caller(FLOAT F)
+{
+    g_00a35700Obj.sub_00a35700(F);
+}
+
+struct F00a356e0
+{
+	int Count;
+	char Pad[0x24];
+	int Value;
+
+	void sub_00a356e0(float Value);
+};
+
+// @baa 0x00a356e0
+void F00a356e0::sub_00a356e0(float Value)
+{
+	float f = Value;
+	++Count;
+	this->Value = *(int*)&f;
+}
+
+struct F00A35780Counter {
+    INT Counter;
+    INT First;
+    INT Second;
+    INT Third;
+    INT Fourth;
+    INT Value;
+    void sub_00a35780(FLOAT Param);
+};
+
+// @baa 0x00a35780
+void F00A35780Counter::sub_00a35780(FLOAT Param)
+{
+    FLOAT F = Param;
+    Counter++;
+    Value = *(INT*)&F;
+}
+
+static void Caller(F00A35780Counter* C, FLOAT V)
+{
+    C->sub_00a35780(V);
+}
+
+struct C_00a35760
+{
+    int Counter0;
+    int Field4;
+    int Field8;
+    int FieldC;
+    int Field10;
+
+    void sub_00a35760(float Value);
+};
+
+// @baa 0x00a35760
+void C_00a35760::sub_00a35760(float Value)
+{
+    union { float F; int I; } V;
+    V.F = Value;
+    ++Counter0;
+    Field10 = V.I;
+}
+
+struct F00a35560 {
+	INT Count;
+	INT Index;
+	INT Value;
+
+	void sub_00a35560(FLOAT InValue);
+};
+
+// @baa 0x00a35560
+void F00a35560::sub_00a35560(FLOAT InValue)
+{
+	FLOAT tmp = InValue;
+	Count++;
+	Value = *(INT*)&tmp;
+}
+
+struct C00a355f0
+{
+	INT		Count;
+	INT		sub_00a355f0_mid;
+	INT		Value;
+	void	sub_00a355f0(float f);
+};
+
+// @baa 0x00a355f0
+void C00a355f0::sub_00a355f0(float f)
+{
+	float x = f;
+	Count += 1;
+	Value = *(INT*)&x;
+}
+
+struct F00a35650
+{
+	INT Count;
+	INT f4;
+	INT f8;
+	INT fc;
+	INT f10;
+	INT LastValue;
+
+	void sub_00a35650(FLOAT Value);
+};
+
+// @baa 0x00a35650
+void F00a35650::sub_00a35650(FLOAT Value)
+{
+	FLOAT v;
+	v = Value;
+	++Count;
+	LastValue = *(INT*)&v;
+}
+
+struct FPoint3
+{
+    INT A;
+    INT B;
+    INT C;
+
+    FPoint3& sub_00a36150(FPoint3* In)
+    {
+        A = In->A;
+        B = In->B;
+        C = In->C;
+        return *this;
+    }
+};
+
+// @baa 0x00a36150
+FPoint3& Call_00a36150(FPoint3* Out, FPoint3* In)
+{
+    return Out->sub_00a36150(In);
+}
+
+struct S00a357d0
+{
+    int Count;
+    char _pad[0x1c];
+    int Bits;
+
+    void sub_00a357d0(float f);
+};
+
+// @baa 0x00a357d0
+void S00a357d0::sub_00a357d0(float f)
+{
+    ++Count;
+    float x = f;
+    Bits = *(int*)&x;
+}
+
+struct A35670State
+{
+	INT Count;		// 0x00
+	INT Unknown1;	// 0x04
+	INT Unknown2;	// 0x08
+	INT Unknown3;	// 0x0c
+	INT Unknown4;	// 0x10
+	INT Unknown5;	// 0x14
+	INT LastBits;	// 0x18
+
+	// Records the raw bits of Value and bumps the count, returning the bits.
+	INT __declspec(noinline) sub_00a35670(FLOAT Value)
+	{
+		FLOAT Last = Value;
+		Count++;
+		LastBits = *(INT*)&Last;
+		return *(INT*)&Last;
+	}
+};
+
+// @baa 0x00a35670
+void ProbeA35670(A35670State* State, FLOAT Value)
+{
+	State->sub_00a35670(Value);
 }

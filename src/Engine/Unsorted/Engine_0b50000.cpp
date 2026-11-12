@@ -1,4 +1,4 @@
-// Engine_0b50000.cpp (part 1 of 4): 105 functions
+// Engine_0b50000.cpp (part 1 of 4): 106 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -892,4 +892,22 @@ if(iVar1){
 (*(undefined4(__stdcall**)(int))(*g_026b0d94+0x248))((int)(iVar1));
 }
 return;
+}
+
+struct sub_00b50130_Class
+{
+    int Field0;
+    int Field4;
+    int Field8;
+
+    sub_00b50130_Class* sub_00b50130(int Value);
+};
+
+// @baa 0x00b50130
+sub_00b50130_Class* sub_00b50130_Class::sub_00b50130(int Value)
+{
+    Field0 = 0;
+    Field4 = -1;
+    Field8 = 0;
+    return this;
 }
