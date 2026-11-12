@@ -1,4 +1,4 @@
-// UnAudio.cpp: 5 functions
+// UnAudio.cpp: 6 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -108,4 +108,13 @@ UBOOL UAudioComponent__0078e3a0::sub_0078e3a0(FName InName, FLOAT& OutValue)
         }
     }
     return FALSE;
+}
+
+// @baa 0x0078a830
+void AAnimatedCamera::StopCameraAnim(UCameraAnimInst* AnimInst, UBOOL bImmediate)
+{
+	if (AnimInst)
+	{
+		AnimInst->sub_007880c0(bImmediate);	/* UCameraAnimInst::Stop */
+	}
 }

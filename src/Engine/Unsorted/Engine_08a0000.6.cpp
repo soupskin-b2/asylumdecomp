@@ -1,4 +1,4 @@
-// Engine_08a0000.cpp: 25 functions
+// Engine_08a0000.cpp: 26 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -490,4 +490,15 @@ void AActor::execSetBase(FFrame& Stack, RESULT_DECL)
 	P_GET_NAME_OPTX(AttachName, NAME_None);
 	P_FINISH;
 	SetBase(NewBase, NewFloor, 1, SkelComp, AttachName);
+}
+
+// @baa 0x008a7870
+void AActor::execSetCollision(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL_OPTX(bNewCollideActors, bCollideActors);
+	P_GET_UBOOL_OPTX(bNewBlockActors, bBlockActors);
+	P_GET_UBOOL_OPTX(bNewIgnoreEncroachers, bIgnoreEncroachers);
+	P_FINISH;
+
+	SetCollision(bNewCollideActors, bNewBlockActors, bNewIgnoreEncroachers);
 }

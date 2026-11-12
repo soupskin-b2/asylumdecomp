@@ -1,4 +1,4 @@
-// BmGame_1590000.cpp (part 1 of 2): 302 functions
+// BmGame_1590000.cpp (part 1 of 2): 304 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1866,4 +1866,42 @@ INT C_01592f10::sub_01592f10()
     if (F0 > g_01e5f588 || F1 > g_01e5f588)
         return 1;
     return 0;
+}
+
+struct C_015927f0
+{
+    DWORD A, B, C, D, E, F, G, H, I;
+    C_015927f0* sub_015927f0(UINT P);
+};
+
+// @baa 0x015927f0
+C_015927f0* C_015927f0::sub_015927f0(UINT P)
+{
+    A = 0;
+    B = 0;
+    C = 0;
+    D = 0;
+    E = 0;
+    F = 0;
+    G = 0;
+    H = 0;
+    I = 0;
+    return this;
+}
+
+struct C_01592c20
+{
+    FLOAT F0;
+    FLOAT F4;
+    DWORD D8;
+    C_01592c20* sub_01592c20(FLOAT F1, FLOAT F2, DWORD A3);
+};
+
+// @baa 0x01592c20
+C_01592c20* C_01592c20::sub_01592c20(FLOAT F1, FLOAT F2, DWORD A3)
+{
+    F0 = F1;
+    F4 = F2;
+    D8 = A3;
+    return this;
 }

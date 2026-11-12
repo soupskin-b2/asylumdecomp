@@ -1,4 +1,4 @@
-// BmGame_1710000.cpp (part 1 of 2): 122 functions
+// BmGame_1710000.cpp (part 1 of 2): 123 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -858,4 +858,12 @@ INT ARJokerGunGadgetBase::GetShouldKnockHelmetOff(FName BoneName)
         }
     }
     return bKnockOff;
+}
+
+// @baa 0x017161c0
+INT ARSnapToPositionActor::vf_29c(INT A)
+{
+    vf_358(1);
+    vf_35c();
+    return 0;
 }

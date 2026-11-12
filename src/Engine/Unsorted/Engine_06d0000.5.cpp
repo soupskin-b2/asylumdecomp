@@ -1,4 +1,4 @@
-// Engine_06d0000.cpp: 22 functions
+// Engine_06d0000.cpp: 23 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -240,4 +240,12 @@ void UPrimitiveComponent::execGetRotation(FFrame& Stack, RESULT_DECL)
 {
     P_FINISH;
     *(FRotator*)Result = ((const FMatrix_&)LocalToWorld).Rotator();
+}
+
+// @baa 0x006dc120
+void UPrimitiveComponent::execSetDepthPriorityGroup(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_BYTE(NewDepthPriorityGroup);
+    P_FINISH;
+    SetDepthPriorityGroup((ESceneDepthPriorityGroup)NewDepthPriorityGroup);
 }

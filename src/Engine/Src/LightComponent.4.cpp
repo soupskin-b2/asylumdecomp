@@ -1,4 +1,4 @@
-// LightComponent.cpp (part 4 of 5): 11 functions
+// LightComponent.cpp (part 4 of 5): 12 functions
 // Placed here by: class 6.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -148,4 +148,12 @@ INT ULightComponent::vf_17c()
 		bResult = TRUE;
 	}
 	return bResult;
+}
+
+/* Engine.h (not in the kit headers) */
+#define HALF_WORLD_MAX	262144.0f
+// @baa 0x00697460
+FBox ULightComponent::GetBoundingBox() const
+{
+	return FBox(FVector(-HALF_WORLD_MAX, -HALF_WORLD_MAX, -HALF_WORLD_MAX), FVector(HALF_WORLD_MAX, HALF_WORLD_MAX, HALF_WORLD_MAX));
 }

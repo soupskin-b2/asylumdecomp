@@ -1,4 +1,4 @@
-// BmGame_1550000.cpp (part 1 of 3): 435 functions
+// BmGame_1550000.cpp (part 1 of 3): 436 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -3144,4 +3144,18 @@ void sub_0155c760(const FVector& OriginA, const FVector& DirectionA,
         ParameterB = 0.0f;
         ParameterA = (FLOAT)sub_0155c520(OriginA, DirectionA, OriginB);
     }
+}
+
+struct C_F1cc_5780
+{
+    BYTE Pad[0x1cc];
+    FLOAT F;
+};
+
+// @baa 0x01557f80
+INT sub_01557f80(C_F1cc_5780* P1, C_F1cc_5780* P2)
+{
+    if (P2->F > P1->F)
+        return 1;
+    return 0;
 }

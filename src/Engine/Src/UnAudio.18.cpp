@@ -1,4 +1,4 @@
-// UnAudio.cpp: 3 functions
+// UnAudio.cpp: 4 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -23,4 +23,11 @@ void UAudioComponent::execKeyOffOnMarker( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	KeyOffOnMarker();
+}
+
+// @baa 0x00786320
+void UAudioComponent::execIsPlaying(FFrame& Stack, RESULT_DECL)
+{
+    P_FINISH;
+    *(UBOOL*)Result = bPlaying;
 }

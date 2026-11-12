@@ -1,4 +1,4 @@
-// RHidePoint.cpp: 15 functions
+// RHidePoint.cpp: 16 functions
 // Placed here by: callers 2, file 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -79,4 +79,12 @@ void ARHidePoint::vf_02c()
 {
 	g_026e1c70.RemoveItem(this);
 	Super::vf_02c();
+}
+
+// @baa 0x0163df60
+INT ARHidePoint::vf_29c(INT A)
+{
+    vf_398(1);
+    vf_39c();
+    return 0;
 }

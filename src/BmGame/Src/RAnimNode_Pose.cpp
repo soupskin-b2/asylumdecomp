@@ -1,4 +1,4 @@
-// RAnimNode_Pose.cpp (part 1 of 4): 203 functions
+// RAnimNode_Pose.cpp (part 1 of 4): 204 functions
 // Placed here by: neighbours 138, class 47, callers 16, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1958,4 +1958,31 @@ void URAnimNode_Pose::SetMovementSpeed(BYTE Speed, FLOAT Rate)
     }
     PosePlayer.MoveToRequest.TargetSpeed = Speed;
     PosePlayer.MoveToRequest.TargetSpeedScale = Rate;
+}
+
+struct C_Sub1_a1c0
+{
+    BYTE Pad[0x2c];
+    void* F2c;
+    INT sub_015a4a00(INT P1, void* S, void* Sub2);
+};
+
+struct C_015aa1c0
+{
+    BYTE Pad[0x50];
+    void* S50;
+    BYTE Pad2[0x27e0];
+    C_Sub1_a1c0 Sub1;
+    INT sub_015aa1c0(INT P1);
+};
+
+// @baa 0x015aa1c0
+INT C_015aa1c0::sub_015aa1c0(INT P1)
+{
+    C_015aa1c0* Self = this;
+    INT Arg = P1;
+    C_Sub1_a1c0* PSub = &Self->Sub1;
+    void* S = Self->S50;
+    PSub->sub_015a4a00(Arg, S, &PSub->F2c);
+    return Arg;
 }

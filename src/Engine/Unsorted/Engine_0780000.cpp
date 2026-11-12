@@ -1,4 +1,4 @@
-// Engine_0780000.cpp (part 1 of 5): 232 functions
+// Engine_0780000.cpp (part 1 of 5): 233 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1881,3 +1881,17 @@ struct C_0078fd70 { void sub_0078fd70(void); };
 // @baa 0x0078fd70
 void C_0078fd70::sub_0078fd70(void) { *(int*)((char*)this + 4) = 0; }
 
+// @baa 0x0078eda0
+void ACamera::ApplyCameraModifiers(FLOAT DeltaTime, FTPOV& OutPOV)
+{
+	for (INT ModifierIdx = 0; ModifierIdx < ModifierList.Num(); ModifierIdx++)
+	{
+		if (ModifierList(ModifierIdx) != NULL && !ModifierList(ModifierIdx)->IsDisabled())
+		{
+			if (ModifierList(ModifierIdx)->ModifyCamera(this, DeltaTime, OutPOV))
+			{
+				break;
+			}
+		}
+	}
+}

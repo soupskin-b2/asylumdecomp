@@ -1,4 +1,4 @@
-// Engine_06d0000.cpp (part 1 of 4): 303 functions
+// Engine_06d0000.cpp (part 1 of 4): 304 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -2430,6 +2430,16 @@ void UPrimitiveComponent::SetHiddenGame(UBOOL NewHidden)
 	if (NewHidden != HiddenGame)
 	{
 		HiddenGame = NewHidden;
+		BeginDeferredReattach();
+	}
+}
+
+// @baa 0x006dbc30
+void UPrimitiveComponent::SetHiddenEditor(UBOOL NewHidden)
+{
+	if (NewHidden != HiddenEditor)
+	{
+		HiddenEditor = NewHidden;
 		BeginDeferredReattach();
 	}
 }

@@ -1,4 +1,4 @@
-// BmGame_1680000.cpp (part 5 of 7): 1 function
+// BmGame_1680000.cpp (part 5 of 7): 3 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -15,3 +15,36 @@ undefined4 * UObject::sub_01686730(void)
   return param_1;
 }
 
+struct URSimpleRopeComponent_ : public URSimpleRopeComponent
+{
+    void sub_0164fb40();
+    INT sub_0163f500();
+    void sub_01685860();
+};
+
+// @baa 0x01685d20
+void URSimpleRopeComponent::vf_250()
+{
+    URSimpleRopeComponent_* Self = (URSimpleRopeComponent_*)this;
+    Self->sub_0164fb40();
+    if (Self->sub_0163f500() != 0)
+        Self->sub_01685860();
+}
+
+struct URSimpleRopeComponent_2 : public URSimpleRopeComponent
+{
+    INT sub_0163f500();
+    void sub_016857b0();
+    void sub_0163f550();
+};
+
+// @baa 0x01685d70
+void URSimpleRopeComponent::vf_25c()
+{
+    URSimpleRopeComponent_2* Self = (URSimpleRopeComponent_2*)this;
+    if (Self->sub_0163f500() != 0)
+    {
+        Self->sub_016857b0();
+        Self->sub_0163f550();
+    }
+}

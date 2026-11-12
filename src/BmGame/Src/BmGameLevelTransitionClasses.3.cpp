@@ -1,4 +1,4 @@
-// BmGameLevelTransitionClasses.cpp: 8 functions
+// BmGameLevelTransitionClasses.cpp: 9 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -140,4 +140,29 @@ INT ARLevelTransitionP::vf_368()
 		return (const FName__0155ff60&)LevelInFront != NAME_None || (const FName__0155ff60&)LevelBehind != NAME_None;
 	}
 	return Super::vf_368();
+}
+
+struct C_WS_a8f0
+{
+    BYTE b[0x44];
+};
+
+struct C_WC_a8f0
+{
+    BYTE b[1];
+};
+
+struct C_0155a8f0
+{
+    BYTE Pad[0x424];
+    C_WS_a8f0 WS;
+    C_WC_a8f0 WC;
+    void sub_0155a8f0(FLOAT F);
+};
+
+void sub_016d4390(C_WS_a8f0* A, C_WC_a8f0* B, FLOAT F);
+// @baa 0x0155a8f0
+void C_0155a8f0::sub_0155a8f0(FLOAT F)
+{
+    sub_016d4390((C_WS_a8f0*)((BYTE*)this + 0x424), &WC, F);
 }

@@ -1,4 +1,4 @@
-// UnUIObjects.cpp: 15 functions
+// UnUIObjects.cpp: 16 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -224,4 +224,14 @@ void UUIObject::execNotifyValueChanged(FFrame& Stack, RESULT_DECL)
 	P_GET_INT_OPTX(NotifyFlags, 0);
 	P_FINISH;
 	NotifyValueChanged(PlayerIndex, NotifyFlags);
+}
+
+// @baa 0x00ca5600
+void UUIObject::execSetDockTarget(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_BYTE(SourceFace);
+	P_GET_OBJECT(UUIScreenObject, Target);
+	P_GET_BYTE(TargetFace);
+	P_FINISH;
+	*(UBOOL*)Result = SetDockTarget(SourceFace, Target, TargetFace);
 }

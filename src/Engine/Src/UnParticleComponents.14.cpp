@@ -1,4 +1,4 @@
-// UnParticleComponents.cpp: 10 functions
+// UnParticleComponents.cpp: 19 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -99,4 +99,91 @@ void UParticleSystemComponent::execSetBeamType(FFrame& Stack, RESULT_DECL)
     P_GET_INT(NewMethod);
     P_FINISH;
     SetBeamType(EmitterIndex, NewMethod);
+}
+
+// @baa 0x00c9cce0
+void UParticleSystem::execSetLODDistance(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(LODLevel);
+	P_GET_FLOAT(InDistance);
+	P_FINISH;
+	*(UBOOL*)Result = SetLODDistance(LODLevel, InDistance);
+}
+
+// @baa 0x00c9d510
+void UParticleSystemComponent::execSetBeamSourceActor(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(EmitterIndex);
+	P_GET_OBJECT(AActor, NewActor);
+	P_FINISH;
+	SetBeamSourceActor(EmitterIndex, NewActor);
+}
+
+// @baa 0x00c9d670
+void UParticleSystemComponent::execSetBeamSourceStrength(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(EmitterIndex);
+	P_GET_FLOAT(NewStrength);
+	P_GET_INT(SourceIndex);
+	P_FINISH;
+	SetBeamSourceStrength(EmitterIndex, NewStrength, SourceIndex);
+}
+
+// @baa 0x00c9d440
+void UParticleSystemComponent::execSetBeamSourcePoint(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(EmitterIndex);
+	P_GET_VECTOR(NewPoint);
+	P_GET_INT(SourceIndex);
+	P_FINISH;
+	SetBeamSourcePoint(EmitterIndex, NewPoint, SourceIndex);
+}
+
+// @baa 0x00c9d810
+void UParticleSystemComponent::execSetBeamTargetActor(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(EmitterIndex);
+	P_GET_OBJECT(AActor, NewActor);
+	P_FINISH;
+	SetBeamTargetActor(EmitterIndex, NewActor);
+}
+
+// @baa 0x00c9d970
+void UParticleSystemComponent::execSetBeamTargetStrength(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(EmitterIndex);
+	P_GET_FLOAT(NewStrength);
+	P_GET_INT(SourceIndex);
+	P_FINISH;
+	SetBeamTargetStrength(EmitterIndex, NewStrength, SourceIndex);
+}
+
+// @baa 0x00c9d5a0
+void UParticleSystemComponent::execSetBeamSourceTangent(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(EmitterIndex);
+	P_GET_VECTOR(NewPoint);
+	P_GET_INT(SourceIndex);
+	P_FINISH;
+	SetBeamSourceTangent(EmitterIndex, NewPoint, SourceIndex);
+}
+
+// @baa 0x00c9d740
+void UParticleSystemComponent::execSetBeamTargetPoint(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(EmitterIndex);
+	P_GET_VECTOR(NewPoint);
+	P_GET_INT(SourceIndex);
+	P_FINISH;
+	SetBeamTargetPoint(EmitterIndex, NewPoint, SourceIndex);
+}
+
+// @baa 0x00c9d8a0
+void UParticleSystemComponent::execSetBeamTargetTangent(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(EmitterIndex);
+	P_GET_VECTOR(NewPoint);
+	P_GET_INT(SourceIndex);
+	P_FINISH;
+	SetBeamTargetTangent(EmitterIndex, NewPoint, SourceIndex);
 }

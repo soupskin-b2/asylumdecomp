@@ -1,4 +1,4 @@
-// RSimpleRopePhysics.cpp (part 1 of 3): 5 functions
+// RSimpleRopePhysics.cpp (part 1 of 3): 6 functions
 // Placed here by: file 3, neighbours 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Core.h"
@@ -99,4 +99,12 @@ extern TCHAR g_0236f83c[];
 void __stdcall sub_0166ab20(INT Unused)
 {
     appFailAssert("false", "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RSimpleRopePhysics.cpp", 0x225, g_0236f83c);
+}
+
+extern TCHAR g_0236f9dc[];
+// @baa 0x0166ab80
+FLOAT __stdcall sub_0166ab80(INT A, INT B)
+{
+    appFailAssert("false", "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RSimpleRopePhysics.cpp", 0x236, g_0236f9dc);
+    return 0.0f;
 }

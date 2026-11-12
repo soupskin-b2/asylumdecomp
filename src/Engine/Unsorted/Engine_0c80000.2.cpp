@@ -1,4 +1,4 @@
-// Engine_0c80000.cpp: 106 functions
+// Engine_0c80000.cpp: 109 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -1310,4 +1310,28 @@ void UCameraModifier::execModifyCamera(FFrame& Stack, RESULT_DECL)
 	P_GET_STRUCT_REF(FTPOV, OutPOV);
 	P_FINISH;
 	*(UBOOL*)Result = ModifyCamera(Camera, DeltaTime, OutPOV);
+}
+
+// @baa 0x00c88c90
+void ACoverSlotMarker::execGetSlotLocation(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(FVector*)Result = GetSlotLocation();
+}
+
+// @baa 0x00c88cf0
+void ACoverSlotMarker::execGetSlotRotation(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(FRotator*)Result = GetSlotRotation();
+}
+
+// @baa 0x00c8efd0
+void UMaterialInterface::execGetFontParameterValue(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_NAME(ParameterName);
+	P_GET_OBJECT_REF(UFont, OutFontValue);
+	P_GET_INT_REF(OutFontPage);
+	P_FINISH;
+	*(UBOOL*)Result = GetFontParameterValue(ParameterName, OutFontValue, OutFontPage);
 }

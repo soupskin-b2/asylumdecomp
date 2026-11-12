@@ -1,4 +1,4 @@
-// UnAnimPlay.cpp (part 2 of 2): 11 functions
+// UnAnimPlay.cpp (part 2 of 2): 12 functions
 // Placed here by: class 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -109,5 +109,46 @@ void UAnimNodeSequence::InitAnim(USkeletalMeshComponent* MeshComp, UAnimNodeBlen
 		ActiveCameraAnimInstance->sub_007880c0(TRUE);	/* Stop(bImmediate) */
 		ActiveCameraAnimInstance->bAutoReleaseWhenFinished = TRUE;
 		ActiveCameraAnimInstance = NULL;
+	}
+}
+
+extern FName g_026c4644;
+	/* ENGINE_OnAnimEnd */
+struct AActor_ : public AActor
+{
+	/* the script event's generated glue (EngineClasses.h) */
+	void eventOnAnimEnd(class UAnimNodeSequence* SeqNode, FLOAT PlayedTime, FLOAT ExcessTime)
+	{
+		struct Actor_eventOnAnimEnd_Parms
+		{
+			class UAnimNodeSequence* SeqNode;
+			FLOAT PlayedTime;
+			FLOAT ExcessTime;
+		} Parms;
+		Parms.SeqNode = SeqNode;
+		Parms.PlayedTime = PlayedTime;
+		Parms.ExcessTime = ExcessTime;
+		ProcessEvent(FindFunctionChecked(g_026c4644), &Parms);
+	}
+};
+
+// @baa 0x00c52610
+void UAnimNodeSequence::OnAnimEnd(FLOAT PlayedTime, FLOAT ExcessTime)
+{
+	// tell the parent blend nodes
+	for (INT i = 0; i < ParentNodes.Num(); i++)
+	{
+		ParentNodes(i)->OnChildAnimEnd(this, PlayedTime, ExcessTime);
+	}
+
+	if (bForceRefposeWhenNotPlaying && !SkelComponent->bForceRefpose)
+	{
+		SkelComponent->sub_0090eaa0(TRUE);
+	}
+
+	// notify the owning actor
+	if (bCauseActorAnimEnd && SkelComponent->Owner)
+	{
+		((AActor_*)SkelComponent->Owner)->eventOnAnimEnd(this, PlayedTime, ExcessTime);
 	}
 }

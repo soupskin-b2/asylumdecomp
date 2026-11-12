@@ -1,56 +1,27 @@
-// BmGameClasses.cpp (part 6 of 9): 1 function
-// Placed here by: neighbours 1.
+// BmGameClasses.cpp: 2 functions
+// Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
+#include "ue3/Classes.h"
+#include "ue3/Cast.h"
 
-extern char g_01ebe858[];
-extern char g_02305f20[];
-struct C { C* sub_005c7a20(void); };
-
-struct AInfo {
-    INT Unk00;  // 0x00 vtable ptr
-    INT Unk04;
-    INT Unk08;
-    INT Unk0C;
-    INT Unk10;
-    INT Unk14;
-    INT Unk18;
-    INT Unk1C;
-    INT Unk20;
-    INT Unk24;
-    INT Unk28;
-    INT Unk2C;
-    INT Unk30;
-    INT Unk34;
-    INT Unk38;
-    INT Unk3C;
-    INT Unk40;
-    INT Unk44;
-    INT Unk48;
-    INT Unk4C;
-    INT Unk50;
-    INT Unk54;
-    INT Unk58;
-    INT Unk5C;
-    INT Unk60;
-    INT Unk64;
-    INT Unk68;
-    INT Unk6C;
-    INT Unk70;
-    INT Unk74;
-    INT Unk78;
-    INT Unk7C;
-    INT Unk80;
-    INT Unk84;
-    INT DetachFence; // 0x88
-    AInfo* sub_01577ad0(void);
-};
-
-// @baa 0x01577ad0
-AInfo* AInfo::sub_01577ad0(void)
+// @baa 0x01557e70
+/* The line launcher's traces pass through; everything else is as usual. */
+UBOOL ARGatherRootPointBase::ShouldTrace(UPrimitiveComponent* Primitive, AActor* SourceActor, DWORD TraceFlags)
 {
-    ((C*)this)->sub_005c7a20();
-    *(volatile INT*)this = (INT)g_01ebe858;
-    DetachFence = 0;
-    *(INT*)this = (INT)g_02305f20;
-    return this;
+	if (SourceActor && ObjectIsA(SourceActor, ARLineLauncher::StaticClass()))
+	{
+		return FALSE;
+	}
+	return Super::ShouldTrace(Primitive, SourceActor, TraceFlags);
+}
+
+// @baa 0x01557ee0
+/* The line launcher's traces pass through; everything else is as usual. */
+UBOOL ARGatherRootPointSpawnerBase::ShouldTrace(UPrimitiveComponent* Primitive, AActor* SourceActor, DWORD TraceFlags)
+{
+	if (SourceActor && ObjectIsA(SourceActor, ARLineLauncher::StaticClass()))
+	{
+		return FALSE;
+	}
+	return Super::ShouldTrace(Primitive, SourceActor, TraceFlags);
 }

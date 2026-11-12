@@ -1,0 +1,98 @@
+// OnlineSubsystemSteamworks.cpp: 1 function
+// Placed here by: contributions.
+// Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
+#include "ue3/Classes.h"
+
+// FName's string constructor (UnName.cpp), missing from the kit's FName.
+enum EFindName { FNAME_Find, FNAME_Add };
+
+struct FNameString : public FName
+{
+	FNameString(const TCHAR* Name, EFindName FindType = FNAME_Add, UBOOL bSplitName = TRUE); /* 0x005d5620 */
+};
+
+#define AUTOGENERATE_NAME(name) extern FName ONLINESUBSYSTEMSTEAMWORKS_##name;
+AUTOGENERATE_NAME(OnAddFriendByNameComplete)
+AUTOGENERATE_NAME(OnConnectionStatusChange)
+AUTOGENERATE_NAME(OnControllerChange)
+AUTOGENERATE_NAME(OnCreateOnlineAccountCompleted)
+AUTOGENERATE_NAME(OnDeviceSelectionComplete)
+AUTOGENERATE_NAME(OnExternalUIChange)
+AUTOGENERATE_NAME(OnFlushOnlineStatsComplete)
+AUTOGENERATE_NAME(OnFriendInviteReceived)
+AUTOGENERATE_NAME(OnFriendMessageReceived)
+AUTOGENERATE_NAME(OnFriendsChange)
+AUTOGENERATE_NAME(OnGetNumberOfCurrentPlayersComplete)
+AUTOGENERATE_NAME(OnJoinFriendGameComplete)
+AUTOGENERATE_NAME(OnKeyboardInputComplete)
+AUTOGENERATE_NAME(OnLinkStatusChange)
+AUTOGENERATE_NAME(OnLoginCancelled)
+AUTOGENERATE_NAME(OnLoginChange)
+AUTOGENERATE_NAME(OnLoginFailed)
+AUTOGENERATE_NAME(OnLoginStatusChange)
+AUTOGENERATE_NAME(OnLogoutCompleted)
+AUTOGENERATE_NAME(OnMutingChange)
+AUTOGENERATE_NAME(OnNewInfocast)
+AUTOGENERATE_NAME(OnPlayerTalking)
+AUTOGENERATE_NAME(OnProfileDataChanged)
+AUTOGENERATE_NAME(OnReadAchievementsComplete)
+AUTOGENERATE_NAME(OnReadFriendsComplete)
+AUTOGENERATE_NAME(OnReadOnlineAvatarComplete)
+AUTOGENERATE_NAME(OnReadOnlineStatsComplete)
+AUTOGENERATE_NAME(OnReadPlayerStorageComplete)
+AUTOGENERATE_NAME(OnReadPlayerStorageForNetIdComplete)
+AUTOGENERATE_NAME(OnReadProfileSettingsComplete)
+AUTOGENERATE_NAME(OnReadTitleFileComplete)
+AUTOGENERATE_NAME(OnReceivedGameInvite)
+AUTOGENERATE_NAME(OnRecognitionComplete)
+AUTOGENERATE_NAME(OnRegisterHostStatGuidComplete)
+AUTOGENERATE_NAME(OnStorageDeviceChange)
+AUTOGENERATE_NAME(OnUnlockAchievementComplete)
+AUTOGENERATE_NAME(OnWritePlayerStorageComplete)
+AUTOGENERATE_NAME(OnWriteProfileSettingsComplete)
+#undef AUTOGENERATE_NAME
+#define AUTOGENERATE_NAME(name) ONLINESUBSYSTEMSTEAMWORKS_##name = FNameString(TEXT(#name));
+// @baa 0x00e88f10
+void AutoGenerateNamesOnlineSubsystemSteamworks()
+{
+AUTOGENERATE_NAME(OnAddFriendByNameComplete)
+AUTOGENERATE_NAME(OnConnectionStatusChange)
+AUTOGENERATE_NAME(OnControllerChange)
+AUTOGENERATE_NAME(OnCreateOnlineAccountCompleted)
+AUTOGENERATE_NAME(OnDeviceSelectionComplete)
+AUTOGENERATE_NAME(OnExternalUIChange)
+AUTOGENERATE_NAME(OnFlushOnlineStatsComplete)
+AUTOGENERATE_NAME(OnFriendInviteReceived)
+AUTOGENERATE_NAME(OnFriendMessageReceived)
+AUTOGENERATE_NAME(OnFriendsChange)
+AUTOGENERATE_NAME(OnGetNumberOfCurrentPlayersComplete)
+AUTOGENERATE_NAME(OnJoinFriendGameComplete)
+AUTOGENERATE_NAME(OnKeyboardInputComplete)
+AUTOGENERATE_NAME(OnLinkStatusChange)
+AUTOGENERATE_NAME(OnLoginCancelled)
+AUTOGENERATE_NAME(OnLoginChange)
+AUTOGENERATE_NAME(OnLoginFailed)
+AUTOGENERATE_NAME(OnLoginStatusChange)
+AUTOGENERATE_NAME(OnLogoutCompleted)
+AUTOGENERATE_NAME(OnMutingChange)
+AUTOGENERATE_NAME(OnNewInfocast)
+AUTOGENERATE_NAME(OnPlayerTalking)
+AUTOGENERATE_NAME(OnProfileDataChanged)
+AUTOGENERATE_NAME(OnReadAchievementsComplete)
+AUTOGENERATE_NAME(OnReadFriendsComplete)
+AUTOGENERATE_NAME(OnReadOnlineAvatarComplete)
+AUTOGENERATE_NAME(OnReadOnlineStatsComplete)
+AUTOGENERATE_NAME(OnReadPlayerStorageComplete)
+AUTOGENERATE_NAME(OnReadPlayerStorageForNetIdComplete)
+AUTOGENERATE_NAME(OnReadProfileSettingsComplete)
+AUTOGENERATE_NAME(OnReadTitleFileComplete)
+AUTOGENERATE_NAME(OnReceivedGameInvite)
+AUTOGENERATE_NAME(OnRecognitionComplete)
+AUTOGENERATE_NAME(OnRegisterHostStatGuidComplete)
+AUTOGENERATE_NAME(OnStorageDeviceChange)
+AUTOGENERATE_NAME(OnUnlockAchievementComplete)
+AUTOGENERATE_NAME(OnWritePlayerStorageComplete)
+AUTOGENERATE_NAME(OnWriteProfileSettingsComplete)
+}
+
+#undef AUTOGENERATE_NAME

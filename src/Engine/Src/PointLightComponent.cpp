@@ -1,4 +1,4 @@
-// PointLightComponent.cpp: 14 functions
+// PointLightComponent.cpp: 15 functions
 // Placed here by: callers 1, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -116,4 +116,24 @@ void UPointLightComponent::vf_184()
         CachedParentToWorld;
     ((FMatrix_&)LightToWorld).RemoveScaling();
     WorldToLight = ((FMatrix_&)LightToWorld).Inverse();
+}
+
+/* UnMath.h inlines the kit's FVector/FMatrix don't declare yet (data-free helpers). */
+struct FVector_ : public FVector
+{
+	FORCEINLINE FVector_(FLOAT InX, FLOAT InY, FLOAT InZ) : FVector(InX, InY, InZ) {}
+	FORCEINLINE FVector operator+(const FVector& V) const { return FVector(X + V.X, Y + V.Y, Z + V.Z); }
+	FORCEINLINE FVector operator-(const FVector& V) const { return FVector(X - V.X, Y - V.Y, Z - V.Z); }
+};
+
+struct FMatrix__006daa30 : public FMatrix
+{
+	FORCEINLINE FVector_ GetOrigin() const { return FVector_(WPlane.X, WPlane.Y, WPlane.Z);	/* M[3][0..2] */ }
+};
+
+// @baa 0x006daa30
+FBox UPointLightComponent::GetBoundingBox() const
+{
+	return FBox(((const FMatrix__006daa30&)LightToWorld).GetOrigin() - FVector(Radius, Radius, Radius),
+		((const FMatrix__006daa30&)LightToWorld).GetOrigin() + FVector(Radius, Radius, Radius));
 }

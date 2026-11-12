@@ -1,4 +1,4 @@
-// BmGame_1600000.cpp (part 2 of 3): 1 function
+// BmGame_1600000.cpp (part 2 of 3): 2 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -15,4 +15,10 @@ struct ARBMRouter_NoPawn_ : public ARBMRouter_NoPawn
 FVector ARBMRouter_NoPawn_::sub_0160f290()
 {
     return Location;
+}
+
+// @baa 0x0160f230
+FVector ARBMRouter_DynamicObject::vf_354()
+{
+    return HostPawn->Location;
 }

@@ -1,4 +1,4 @@
-// UnInterpolation.cpp: 7 functions
+// UnInterpolation.cpp: 8 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -123,4 +123,30 @@ void UInterpTrackInstVectorMaterialParam::RestoreActorState(UInterpTrack* Track)
         ResetColor.A = 1.f;
         MatInstActor->MatInst->SetVectorParameterValue(ParamTrack->ParamName, ResetColor);
     }
+}
+
+// @baa 0x00d06e20
+/* UInterpCurveEdSetup::GetCurveEdInterfacePointer (static): the curve-editor interface of an entry's
+ * curve object, which may be a float or vector distribution or an interp track. */
+FCurveEdInterface* sub_00d06e20(const FCurveEdEntry& Entry)
+{
+	UDistributionFloat* FloatDist = Cast<UDistributionFloat>(Entry.CurveObject);
+	if (FloatDist)
+	{
+		return FloatDist;
+	}
+
+	UDistributionVector* VectorDist = Cast<UDistributionVector>(Entry.CurveObject);
+	if (VectorDist)
+	{
+		return VectorDist;
+	}
+
+	UInterpTrack* InterpTrack = Cast<UInterpTrack>(Entry.CurveObject);
+	if (InterpTrack)
+	{
+		return InterpTrack;
+	}
+
+	return NULL;
 }

@@ -1,4 +1,4 @@
-// Engine_0cb0000.cpp: 16 functions
+// Engine_0cb0000.cpp: 17 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -182,4 +182,12 @@ void APlayerController::execCopyToClipboard(FFrame& Stack, RESULT_DECL)
 	P_GET_STR(Text);
 	P_FINISH;
 	CopyToClipboard(Text);
+}
+
+// @baa 0x00cb8360
+void UFont::execStrWidth(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STR(Text);
+	P_FINISH;
+	*(FLOAT*)Result = StrWidth(Text);
 }

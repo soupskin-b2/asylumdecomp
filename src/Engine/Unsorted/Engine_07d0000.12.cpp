@@ -1,4 +1,4 @@
-// Engine_07d0000.cpp: 3 functions
+// Engine_07d0000.cpp: 6 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -82,4 +82,65 @@ void AActor::vf_1d8()
             vf_124();
         }
     }
+}
+
+struct AActor__007d5bb0 : public AActor
+{
+	void eventPostBeginPlay();
+};
+
+// @baa 0x007d5bb0
+/* The script event's generated glue (EngineClasses.h), out of line here. PostBeginPlay is a probe
+ * function: the glue only calls into script when the current state probes for it. */
+void AActor__007d5bb0::eventPostBeginPlay()
+{
+	if (!StateFrame || (StateFrame->ProbeMask & ((QWORD)1 << (NAME_PostBeginPlay - NAME_PROBEMIN))))
+	{
+		ProcessEvent(FindFunctionChecked(g_026c4570), NULL);
+	}
+}
+
+extern FName g_026c54b0;
+	/* ENGINE_PreBeginPlay */
+/* EName entries Core.h doesn't list yet (UnNames.h) */
+#define NAME_PreBeginPlay 0x163
+struct AActor__007d5c00 : public AActor
+{
+	void eventPreBeginPlay();
+};
+
+// @baa 0x007d5c00
+/* The script event's generated glue (EngineClasses.h), out of line here. PreBeginPlay is a probe
+ * function: the glue only calls into script when the current state probes for it. */
+void AActor__007d5c00::eventPreBeginPlay()
+{
+	if (!StateFrame || (StateFrame->ProbeMask & ((QWORD)1 << (NAME_PreBeginPlay - NAME_PROBEMIN))))
+	{
+		ProcessEvent(FindFunctionChecked(g_026c54b0), NULL);
+	}
+}
+
+extern FName g_026c5544;
+	/* ENGINE_ActorLeavingVolume */
+/* EName entries Core.h doesn't list yet (UnNames.h) */
+#define NAME_ActorLeavingVolume 0x169
+struct APhysicsVolume_ : public APhysicsVolume
+{
+	void eventActorLeavingVolume(class AActor* Other);
+};
+
+// @baa 0x007d5fd0
+/* The script event's generated glue (EngineClasses.h), out of line here. ActorLeavingVolume is a probe
+ * function: the glue only calls into script when the current state probes for it. */
+void APhysicsVolume_::eventActorLeavingVolume(class AActor* Other)
+{
+	if (!StateFrame || (StateFrame->ProbeMask & ((QWORD)1 << (NAME_ActorLeavingVolume - NAME_PROBEMIN))))
+	{
+		struct PhysicsVolume_eventActorLeavingVolume_Parms
+		{
+			class AActor* Other;
+		} Parms;
+		Parms.Other = Other;
+		ProcessEvent(FindFunctionChecked(g_026c5544), &Parms);
+	}
 }

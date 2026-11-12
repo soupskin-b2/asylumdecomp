@@ -1,4 +1,4 @@
-// BmGame_1560000.cpp (part 3 of 4): 2 functions
+// BmGame_1560000.cpp (part 3 of 4): 3 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -19,4 +19,26 @@ undefined4 UObject::sub_0156f500(byte param_2)
     sub_0053dfa0(param_1);
   }
   return param_1;
+}
+
+struct C_01563980
+{
+    BYTE Pad[8];
+    DWORD A, B, C, D, E, F, G, H, I;
+    C_01563980* sub_01563980(UINT P);
+};
+
+// @baa 0x01563980
+C_01563980* C_01563980::sub_01563980(UINT P)
+{
+    A = 0;
+    B = 0;
+    C = 0;
+    D = 0;
+    E = 0;
+    F = 0;
+    G = 0;
+    H = 0;
+    I = 0;
+    return this;
 }

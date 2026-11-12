@@ -1,4 +1,4 @@
-// UnAnimTree.cpp: 14 functions
+// UnAnimTree.cpp: 15 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -212,4 +212,28 @@ FName UAnimNodeSlot::GetPlayedAnimation()
 		return SeqNode->AnimSeqName;
 	}
 	return NAME_None;
+}
+
+/* Kit gap: FName's comparison operators (UnName.h) */
+struct FName_ : public FName
+{
+	FORCEINLINE UBOOL operator!=(const FName& Other) const
+	{
+		return Index != Other.Index || Number != Other.Number;
+	}
+};
+
+// @baa 0x00c55a30
+void UAnimNodeBlendMultiBone::InitAnim(USkeletalMeshComponent* MeshComp, UAnimNodeBlendBase* Parent)
+{
+	Super::InitAnim(MeshComp, Parent);
+
+	// set up the per-bone weights the script configured
+	for (INT i = 0; i < BlendTargetList.Num(); i++)
+	{
+		if ((const FName_&)BlendTargetList(i).InitTargetStartBone != FName(NAME_None))
+		{
+			SetTargetStartBone(i, BlendTargetList(i).InitTargetStartBone, BlendTargetList(i).InitPerBoneIncrease);
+		}
+	}
 }
