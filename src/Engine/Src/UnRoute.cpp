@@ -1,4 +1,4 @@
-// UnRoute.cpp (part 1 of 2): 110 functions
+// UnRoute.cpp (part 1 of 2): 111 functions
 // Placed here by: neighbours 71, file 12, callers 6, class 6.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -481,3 +481,35 @@ bool UPath_WithinDistanceEnvelope::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
+
+// @baa 0x008a67c0
+/* Appends a goal evaluator to the end of the pawn's evaluator list (an evaluator may only be in it once). */
+void APawn::AddGoalEvaluator(UPathGoalEvaluator* Evaluator)
+{
+    Evaluator->NextEvaluator = NULL;
+    if (PathGoalList == NULL)
+    {
+        PathGoalList = Evaluator;
+    }
+    else
+    {
+        UPathGoalEvaluator* Cur = PathGoalList;
+        while (Cur->NextEvaluator != NULL)
+        {
+            Cur = Cur->NextEvaluator;
+#line 1782 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnRoute.cpp"
+            check(Evaluator != Cur);
+        }
+        if (Evaluator == Cur)
+        {
+#line 1784 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnRoute.cpp"
+            check(Evaluator != Cur);
+        }
+        else
+        {
+            Cur->NextEvaluator = Evaluator;
+        }
+    }
+}
+
+#line 516 "candidate.cpp"

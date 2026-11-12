@@ -1,4 +1,4 @@
-// UnrealEd_1b80000.cpp (part 2 of 3): 12 functions
+// UnrealEd_1b80000.cpp (part 2 of 3): 13 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -208,4 +208,16 @@ C_01b8c390* C_01b8c390::sub_01b8c390()
     Value_8 = 0;
     Value_c = 0;
     return this;
+}
+
+// @baa 0x01b8c100
+// Copies two dwords from source to destination, when destination is non-null.
+// 01b8c100
+void __stdcall sub_01b8c100(int* Destination, int* Source)
+{
+	if (Destination != 0)
+	{
+		Destination[0] = Source[0];
+		Destination[1] = Source[1];
+	}
 }

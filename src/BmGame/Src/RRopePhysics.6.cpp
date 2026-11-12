@@ -1,4 +1,4 @@
-// RRopePhysics.cpp: 4 functions
+// RRopePhysics.cpp: 5 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Core.h"
@@ -54,4 +54,21 @@ FLOAT sub_0165d0f0()
 {
     C_60_288* P = (C_60_288*)sub_0165cf60();
     return P->F * 0.02f;
+}
+
+struct C_01674280
+{
+    virtual void d0() = 0;
+    virtual bool vf04();
+    void sub_01670500();
+    BYTE Pad[8];
+    DWORD F0c;
+    void sub_01674280(UINT P);
+};
+
+// @baa 0x01674280
+void C_01674280::sub_01674280(UINT P)
+{
+    if (vf04() && F0c == 0)
+        sub_01670500();
 }

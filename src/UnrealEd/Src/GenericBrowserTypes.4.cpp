@@ -1,4 +1,4 @@
-// GenericBrowserTypes.cpp (part 4 of 4): 19 functions
+// GenericBrowserTypes.cpp (part 4 of 4): 21 functions
 // Placed here by: neighbours 3, class 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -293,3 +293,56 @@ void UGenericBrowserType_FracturedStaticMesh::vf_120(int a0, int a1) {  }
 
 // @baa 0x0115b4d0
 int UGenericBrowserType_MorphWeightSequence::vf_114(int a0) { return 1; }
+
+class wxWindowBase;
+class wxWindowBase {
+public:
+    __declspec(dllimport) void ReleaseMouse();
+};
+
+// A generic browser coordinate, held as two floats (0x0045cb50 writes it).
+struct C_0045cb50 {
+    FLOAT X;
+    FLOAT Y;
+    wxWindowBase * Window;
+    C_0045cb50 * sub_0045cb50(FLOAT InX, FLOAT InY);
+};
+
+// @baa 0x0045cb50
+// 0x0045cb50 : store the two components and return this.
+C_0045cb50 * C_0045cb50::sub_0045cb50(FLOAT InX, FLOAT InY)
+{
+    X = InX;
+    Y = InY;
+    return this;
+}
+
+void C_0045cb50_caller(C_0045cb50 * Self, FLOAT A, FLOAT B)
+{
+    Self->sub_0045cb50(A, B);
+}
+
+struct S0045c9a0 {
+    int A;
+    float B;
+    float C;
+    unsigned char D;
+
+    S0045c9a0* sub_0045c9a0();
+};
+
+// @baa 0x0045c9a0
+S0045c9a0* S0045c9a0::sub_0045c9a0()
+{
+    A = 0;
+    B = 0.0f;
+    C = 0.0f;
+    D = 0;
+    return this;
+}
+
+static int s_driver()
+{
+    S0045c9a0* p = new S0045c9a0;
+    return (int)p->sub_0045c9a0();
+}

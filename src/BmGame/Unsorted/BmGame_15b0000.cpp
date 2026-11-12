@@ -1,4 +1,4 @@
-// BmGame_15b0000.cpp: 133 functions
+// BmGame_15b0000.cpp: 134 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -639,5 +639,22 @@ C_015be110* C_015be110::sub_015be110(FLOAT X, FLOAT Y)
 {
     A = X;
     B = Y;
+    return this;
+}
+
+struct C_015be340
+{
+    BYTE B0;
+    DWORD D4;
+    FLOAT F8;
+    C_015be340* sub_015be340(BYTE B, DWORD D, FLOAT F);
+};
+
+// @baa 0x015be340
+C_015be340* C_015be340::sub_015be340(BYTE B, DWORD D, FLOAT F)
+{
+    B0 = B;
+    D4 = D;
+    F8 = F;
     return this;
 }

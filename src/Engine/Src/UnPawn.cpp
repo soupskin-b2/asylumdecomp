@@ -1,4 +1,4 @@
-// UnPawn.cpp (part 1 of 2): 102 functions
+// UnPawn.cpp (part 1 of 2): 103 functions
 // Placed here by: neighbours 49, class 32, callers 3, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1458,4 +1458,23 @@ FLOAT AWorldInfo::GetGravityZ()
         }
     }
     return WorldGravityZ;
+}
+
+// @baa 0x00867bd0
+/* A pawn's team comes from its controller, then its player info, then the vehicle it drives. */
+BYTE APawn::GetTeamNum()
+{
+    if (Controller)
+    {
+        return Controller->GetTeamNum();
+    }
+    if (PlayerReplicationInfo)
+    {
+        return PlayerReplicationInfo->Team ? PlayerReplicationInfo->Team->TeamIndex : 255;
+    }
+    if (DrivenVehicle)
+    {
+        return DrivenVehicle->GetTeamNum();
+    }
+    return 255;
 }

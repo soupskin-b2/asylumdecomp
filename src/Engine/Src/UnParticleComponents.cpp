@@ -1,4 +1,4 @@
-// UnParticleComponents.cpp (part 1 of 4): 235 functions
+// UnParticleComponents.cpp (part 1 of 4): 238 functions
 // Placed here by: neighbours 143, class 74, callers 9, file 9.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -2232,4 +2232,67 @@ int sub_00b71390(void)
     sub_00b51730();
   }
   return g_026bf5b4;
+}
+
+/* Kit gap: FName has no comparison operator (UnName.h compares Index and Number). */
+inline UBOOL operator==(const FName& A, const FName& B) { return A.Index == B.Index && A.Number == B.Number; }
+
+// @baa 0x00b5eb70
+/* Looks up the instance parameter InName of actor type (PSPT_Actor). */
+UBOOL UParticleSystemComponent::GetActorParameter(FName InName, AActor*& OutActor)
+{
+    if (InName == NAME_None)
+    {
+        return FALSE;
+    }
+    for (INT i = 0; i < InstanceParameters.Num(); i++)
+    {
+        FParticleSysParam& Param = InstanceParameters(i);
+        if (Param.Name == InName && Param.ParamType == PSPT_Actor)
+        {
+            OutActor = Param.Actor;
+            return TRUE;
+        }
+    }
+    return FALSE;
+}
+
+// @baa 0x00b5ec10
+/* Looks up the instance parameter InName of material type (PSPT_Material). */
+UBOOL UParticleSystemComponent::GetMaterialParameter(FName InName, UMaterialInterface*& OutMaterial)
+{
+    if (InName == NAME_None)
+    {
+        return FALSE;
+    }
+    for (INT i = 0; i < InstanceParameters.Num(); i++)
+    {
+        FParticleSysParam& Param = InstanceParameters(i);
+        if (Param.Name == InName && Param.ParamType == PSPT_Material)
+        {
+            OutMaterial = Param.Material;
+            return TRUE;
+        }
+    }
+    return FALSE;
+}
+
+// @baa 0x00b5ea20
+/* Looks up the instance parameter InName of vector type (PSPT_Vector). */
+UBOOL UParticleSystemComponent::GetVectorParameter(FName InName, FVector& OutVector)
+{
+    if (InName == NAME_None)
+    {
+        return FALSE;
+    }
+    for (INT i = 0; i < InstanceParameters.Num(); i++)
+    {
+        FParticleSysParam& Param = InstanceParameters(i);
+        if (Param.Name == InName && Param.ParamType == PSPT_Vector)
+        {
+            OutVector = Param.Vector;
+            return TRUE;
+        }
+    }
+    return FALSE;
 }

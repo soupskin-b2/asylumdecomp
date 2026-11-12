@@ -1,4 +1,4 @@
-// R3rdPersonCamera.cpp (part 12 of 12): 8 functions
+// R3rdPersonCamera.cpp (part 12 of 12): 10 functions
 // Placed here by: neighbours 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -86,4 +86,56 @@ void AR3rdPersonCamera_::sub_0168a730()
     Smoother.DirectionDistance[3] = 10000.0f;
     Smoother.CurrentSmootherIndex = 0;
     Smoother.MinSmootherIndex = 0;
+}
+
+/* Kit gap: the ApplyModifiers script-event glue (out of line, 0x01686bf0) isn't declared on AR3rdPersonCamera. */
+struct AR3rdPersonCamera__016895b0 : public AR3rdPersonCamera
+{
+    void eventApplyModifiers(FLOAT DeltaTime, FTPOV& OutPOV); /* 0x01686bf0 */
+};
+
+// @baa 0x016895b0
+/* The base camera modifiers run first, then the script's ApplyModifiers event. */
+void AR3rdPersonCamera::ApplyCameraModifiers(FLOAT DeltaTime, FTPOV& OutPOV)
+{
+    Super::ApplyCameraModifiers(DeltaTime, OutPOV);
+    ((AR3rdPersonCamera__016895b0*)this)->eventApplyModifiers(DeltaTime, OutPOV);
+}
+
+struct C_Vft19_4c
+{
+    virtual void d00() = 0;
+    virtual void d01() = 0;
+    virtual void d02() = 0;
+    virtual void d03() = 0;
+    virtual void d04() = 0;
+    virtual void d05() = 0;
+    virtual void d06() = 0;
+    virtual void d07() = 0;
+    virtual void d08() = 0;
+    virtual void d09() = 0;
+    virtual void d10() = 0;
+    virtual void d11() = 0;
+    virtual void d12() = 0;
+    virtual void d13() = 0;
+    virtual void d14() = 0;
+    virtual void d15() = 0;
+    virtual void d16() = 0;
+    virtual void d17() = 0;
+    virtual void d18() = 0;
+    virtual void vf4c(UINT A) = 0;
+};
+
+struct URSeqAct_UpdateBatmanDamageLevel_ : public URSeqAct_UpdateBatmanDamageLevel
+{
+    INT sub_009086f0();
+};
+
+// @baa 0x01688930
+void URSeqAct_UpdateBatmanDamageLevel::vf_01c()
+{
+    URSeqAct_UpdateBatmanDamageLevel_* Self = (URSeqAct_UpdateBatmanDamageLevel_*)this;
+    Self->sub_009086f0();
+    if (DamageState == NULL)
+        reinterpret_cast<C_Vft19_4c*>(Self)->vf4c(0);
 }

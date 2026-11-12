@@ -1,4 +1,4 @@
-// RAnimNode_Pose.cpp (part 4 of 4): 27 functions
+// RAnimNode_Pose.cpp (part 4 of 4): 36 functions
 // Placed here by: neighbours 3, class 2, callers 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -452,4 +452,188 @@ void C_015bc010::sub_015bc010(UINT P)
 {
     sub_005c1a10((INT)P);
     sub_015bbb90((INT)P, 0);
+}
+
+extern double g_01e5f588;
+struct C_015bcbd0
+{
+    void* P0;
+    BYTE Pad[8];
+    FLOAT F0c;
+    INT sub_015bcbd0();
+};
+
+// @baa 0x015bcbd0
+INT C_015bcbd0::sub_015bcbd0()
+{
+    if (F0c > g_01e5f588 && P0 != NULL)
+        return 0;
+    return 1;
+}
+
+struct C_X_20_b8ce0
+{
+    BYTE Pad[4];
+    INT V4;
+    BYTE Pad2[0x24];
+    INT V2c;
+    void sub_00bf5ad0(INT A, INT B);
+};
+
+struct C_015b8ce0
+{
+    BYTE Pad[0x20];
+    C_X_20_b8ce0* X;
+    INT F24;
+    void* F28;
+    void sub_015b8ce0();
+};
+
+// @baa 0x015b8ce0
+void C_015b8ce0::sub_015b8ce0()
+{
+    if (F24 != 0 && F28 != NULL)
+        X->sub_00bf5ad0(X->V4 - X->V2c, 1);
+}
+
+struct C_E40_1230
+{
+    FLOAT F;
+    BYTE Pad[0x3c];
+};
+
+struct C_015c1230
+{
+    INT N;
+    BYTE Pad[0x10];
+    C_E40_1230 Arr[1];
+    void sub_015c1230();
+};
+
+// @baa 0x015c1230
+void C_015c1230::sub_015c1230()
+{
+    for (INT i = 0; i < N; i++)
+        Arr[i].F = 0.0f;
+}
+
+// @baa 0x01595610
+void __stdcall sub_01595610(DWORD* P)
+{
+    P[0] = 0;
+    P[1] = 0;
+    P[2] = 0;
+    P[3] = 0;
+    P[4] = 0;
+    P[5] = 0;
+    P[6] = 0;
+    P[7] = 0;
+}
+
+struct C_Target_4380
+{
+    void sub_015d4380(FLOAT A, FLOAT B);
+};
+
+struct C_01596090
+{
+    BYTE Pad[0x2bc0];
+    C_Target_4380 T;
+    void sub_01596090(INT A1, FLOAT F2, FLOAT F3);
+};
+
+// @baa 0x01596090
+void C_01596090::sub_01596090(INT A1, FLOAT F2, FLOAT F3)
+{
+    T.sub_015d4380(F2, F3);
+}
+
+struct C_P_2820
+{
+    BYTE Pad[0x624];
+    FLOAT F624;
+};
+
+struct C_T_224_2820
+{
+    C_P_2820* sub_015c2820();
+};
+
+struct C_015960d0
+{
+    BYTE Pad[0x224];
+    C_T_224_2820 T;
+    void sub_015960d0(FLOAT F);
+};
+
+// @baa 0x015960d0
+void C_015960d0::sub_015960d0(FLOAT F)
+{
+    C_P_2820* P = T.sub_015c2820();
+    if (P != NULL)
+        P->F624 = F;
+}
+
+struct C_015a94a0
+{
+    BYTE Pad[0xc];
+    DWORD A, B, C, D, E, F, G, H, I, J;
+    C_015a94a0* sub_015a94a0();
+};
+
+// @baa 0x015a94a0
+C_015a94a0* C_015a94a0::sub_015a94a0()
+{
+    A = 0;
+    B = 0;
+    C = 0;
+    D = 0;
+    E = 0;
+    F = 0;
+    H = 0;
+    I = 0;
+    J = 0;
+    return this;
+}
+
+struct C_015b40f0
+{
+    BYTE Pad[0x54];
+    DWORD A, B, C;
+    BYTE Pad2[0x4c];
+    DWORD D, E, F;
+    C_015b40f0* sub_015b40f0();
+};
+
+// @baa 0x015b40f0
+C_015b40f0* C_015b40f0::sub_015b40f0()
+{
+    A = 0;
+    B = 0;
+    C = 0;
+    D = 0;
+    E = 0;
+    F = 0;
+    return this;
+}
+
+struct C_Sub4_ef0
+{
+    void sub_015b5bd0(INT X);
+};
+
+struct C_015b5ef0
+{
+    FLOAT F0;
+    C_Sub4_ef0 Sub4;
+    C_015b5ef0* sub_015b5ef0(FLOAT F, INT A);
+};
+
+// @baa 0x015b5ef0
+C_015b5ef0* C_015b5ef0::sub_015b5ef0(FLOAT F, INT A)
+{
+    FLOAT V = F;
+    F0 = V;
+    Sub4.sub_015b5bd0(A);
+    return this;
 }

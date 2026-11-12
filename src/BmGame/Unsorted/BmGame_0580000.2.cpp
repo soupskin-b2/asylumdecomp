@@ -1,4 +1,4 @@
-// BmGame_0580000.cpp (part 2 of 2): 46 functions
+// BmGame_0580000.cpp (part 2 of 2): 47 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -399,4 +399,16 @@ INT C_0058def0::sub_0058def0()
     if ((A & 0xffff) || (B & 0xffff) || (C & 0xffff))
         return 0;
     return 1;
+}
+
+typedef float FLOAT;
+
+typedef int INT;
+
+extern "C" __declspec(dllimport) double ceil(double);
+// @baa 0x0058c540
+INT sub_0058c540(FLOAT F)
+{
+    *(volatile FLOAT*)&F = (FLOAT)ceil((double)F);
+    return (INT)F;
 }

@@ -1,4 +1,4 @@
-// UOnlineProfileSettings.cpp: 46 functions
+// UOnlineProfileSettings.cpp: 47 functions
 // Placed here by: neighbours 21, class 6, callers 1, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -653,6 +653,18 @@ INT UOnlineProfileSettings::GetProfileSettingDefaultId(INT ProfileSettingId, INT
 				}
 			}
 		}
+	}
+	return FALSE;
+}
+
+// @baa 0x00d675d0
+/* Sets the value of the profile setting with this name from a string; FALSE when there's no such setting. */
+INT UOnlineProfileSettings::SetProfileSettingValueByName(FName ProfileSettingName, const FString& NewValue)
+{
+	INT ProfileSettingId;
+	if (GetProfileSettingId(ProfileSettingName, ProfileSettingId))
+	{
+		return SetProfileSettingValue(ProfileSettingId, NewValue);
 	}
 	return FALSE;
 }

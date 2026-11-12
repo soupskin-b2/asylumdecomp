@@ -2,61 +2,61 @@
  "updated": "2026-11-12",
  "functions": {
   "total": 174166,
-  "matched": 101328
+  "matched": 101528
  },
  "bytes": {
   "total": 24308119,
-  "matched": 4037328
+  "matched": 4054360
  },
  "areas": [
   {
    "name": "Engine",
    "functions": 69863,
    "bytes": 9201956,
-   "matched": 42717,
-   "matched_bytes": 1924181
+   "matched": 42773,
+   "matched_bytes": 1932406
   },
   {
    "name": "Editor",
    "functions": 42961,
    "bytes": 8040643,
-   "matched": 24126,
-   "matched_bytes": 820355
+   "matched": 24162,
+   "matched_bytes": 822300
   },
   {
    "name": "External",
    "functions": 29410,
    "bytes": 3194268,
-   "matched": 12064,
-   "matched_bytes": 193972
+   "matched": 12065,
+   "matched_bytes": 194073
   },
   {
    "name": "Game",
    "functions": 13563,
    "bytes": 1853804,
-   "matched": 10029,
-   "matched_bytes": 600508
+   "matched": 10109,
+   "matched_bytes": 605293
   },
   {
    "name": "Core",
    "functions": 12072,
    "bytes": 1275961,
-   "matched": 7989,
-   "matched_bytes": 254171
+   "matched": 8005,
+   "matched_bytes": 255881
   },
   {
    "name": "CommonGame",
    "functions": 1422,
    "bytes": 173518,
-   "matched": 1023,
-   "matched_bytes": 45664
+   "matched": 1025,
+   "matched_bytes": 45745
   },
   {
    "name": "Unsorted",
    "functions": 2316,
    "bytes": 163463,
-   "matched": 1631,
-   "matched_bytes": 21408
+   "matched": 1640,
+   "matched_bytes": 21593
   },
   {
    "name": "FMod",
@@ -97,18 +97,18 @@
  "contributors": [
   {
    "login": "soupskin-b2",
-   "functions": 101318,
-   "bytes": 4035748,
+   "functions": 101518,
+   "bytes": 4052780,
    "models": {
     "Tooling": 94456,
-    "Claude Opus 5.5": 2304,
+    "Claude Opus 5.5": 2411,
     "DeepSeek V4.1 Flash": 2167,
-    "Qwen3.8 27B": 1822,
+    "Qwen3.8 27B": 1853,
     "GPT-6.1 Sol": 292,
-    "Muse Spark 1.3": 147,
+    "Muse Spark 1.3": 187,
+    "deepseek-v4.1-flash-(freebuff)": 55,
     "MiniMax M3.1 Flash": 48,
     "Claude Sonnet 5.5": 37,
-    "deepseek-v4.1-flash-(freebuff)": 33,
     "GPT-6.1 Terra": 10,
     "Claude Haiku 5.5": 1,
     "Claude Opus 4.6": 1
@@ -122,7 +122,7 @@
   },
   {
    "model": "Claude Opus 5.5",
-   "functions": 2304
+   "functions": 2411
   },
   {
    "model": "DeepSeek V4.1 Flash",
@@ -130,7 +130,7 @@
   },
   {
    "model": "Qwen3.8 27B",
-   "functions": 1822
+   "functions": 1853
   },
   {
    "model": "GPT-6.1 Sol",
@@ -138,7 +138,11 @@
   },
   {
    "model": "Muse Spark 1.3",
-   "functions": 147
+   "functions": 187
+  },
+  {
+   "model": "deepseek-v4.1-flash-(freebuff)",
+   "functions": 55
   },
   {
    "model": "MiniMax M3.1 Flash",
@@ -147,10 +151,6 @@
   {
    "model": "Claude Sonnet 5.5",
    "functions": 37
-  },
-  {
-   "model": "deepseek-v4.1-flash-(freebuff)",
-   "functions": 33
   },
   {
    "model": "GPT-6.1 Terra",

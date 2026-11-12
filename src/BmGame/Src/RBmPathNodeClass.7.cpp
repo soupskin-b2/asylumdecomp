@@ -1,4 +1,4 @@
-// RBmPathNodeClass.cpp: 6 functions
+// RBmPathNodeClass.cpp: 8 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -48,4 +48,26 @@ struct ARBMAIController_ : public ARBMAIController
 INT ARBMAIController_::vf_424(INT A, INT B, INT C, INT D, INT E)
 {
     return sub_015ef760(A, &B, E);
+}
+
+/* Kit gap: the shared visibility test both CanSeeActor overloads forward to (0x015ef760; the view position is
+ * optional) isn't declared. */
+struct ARBMAIController__015f1f30 : public ARBMAIController
+{
+    FLOAT CanSeeActorInternal(AActor* TestActor, const FVector* TestPos, UBOOL bEarlyOut); /* 0x015ef760 */
+};
+
+// @baa 0x015f1f30
+/* How well the controller sees TestActor from its own view point. */
+FLOAT ARBMAIController::CanSeeActor(AActor* TestActor, UBOOL bEarlyOut)
+{
+    return ((ARBMAIController__015f1f30*)this)->CanSeeActorInternal(TestActor, NULL, bEarlyOut);
+}
+
+// @baa 0x015e1090
+/* Batman takes cover at the stored position, facing away from the marker (yaw + 180 degrees). */
+void ARCornerWallMarkerBase::GetBatmanCornerPositionAndRotation(FLOAT CollisionRadius, FVector& BatmanPosition, FRotator& BatmanCoverRotation)
+{
+    BatmanPosition = BatmanCoverPosition;
+    BatmanCoverRotation = FRotator(Rotation.Pitch, Rotation.Yaw + 32768, Rotation.Roll);
 }

@@ -1,4 +1,4 @@
-// FCollada_1840000.cpp: 6 functions
+// FCollada_1840000.cpp: 7 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -163,4 +163,34 @@ FUObjectContainer_FCDEffectProfile::FUObjectContainer_FCDEffectProfile()
 // @baa 0x01841c70
 FUObjectContainer_FCDEffectProfile::~FUObjectContainer_FCDEffectProfile()
 {
+}
+
+// FCollada's FMMatrix44 conversion: the source matrix is row-major (four rows of four floats), the
+// destination is stored column-major, so a source row becomes a destination column.
+struct FMMatrix44
+{
+    FLOAT Elements[4][4];
+
+    void Transpose(const FMMatrix44& Other);
+};
+
+// @baa 0x0184b3b0
+void FMMatrix44::Transpose(const FMMatrix44& Other)
+{
+    Elements[0][0] = Other.Elements[0][0];
+    Elements[1][0] = Other.Elements[0][1];
+    Elements[2][0] = Other.Elements[0][2];
+    Elements[3][0] = Other.Elements[0][3];
+    Elements[0][1] = Other.Elements[1][0];
+    Elements[1][1] = Other.Elements[1][1];
+    Elements[2][1] = Other.Elements[1][2];
+    Elements[3][1] = Other.Elements[1][3];
+    Elements[0][2] = Other.Elements[2][0];
+    Elements[1][2] = Other.Elements[2][1];
+    Elements[2][2] = Other.Elements[2][2];
+    Elements[3][2] = Other.Elements[2][3];
+    Elements[0][3] = Other.Elements[3][0];
+    Elements[1][3] = Other.Elements[3][1];
+    Elements[2][3] = Other.Elements[3][2];
+    Elements[3][3] = Other.Elements[3][3];
 }

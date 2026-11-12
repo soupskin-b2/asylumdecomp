@@ -1,4 +1,4 @@
-// MaterialExpressions.cpp: 2 functions
+// MaterialExpressions.cpp: 3 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #define BAA_OUTLINE_NEW
@@ -20,4 +20,15 @@ void UMaterialExpressionTextureSample::GetOutputs(TArray<FExpressionOutput>& Out
 void UMaterialExpression::GetOutputs(TArray<FExpressionOutput>& Outputs)
 {
     new(Outputs) FExpressionOutput(FALSE);
+}
+
+// @baa 0x00c287b0
+/* A font sample has an RGBA output plus one per channel. */
+void UMaterialExpressionFontSample::GetOutputs(TArray<FExpressionOutput>& Outputs)
+{
+    new(Outputs) FExpressionOutput(TRUE, TRUE, TRUE, TRUE, FALSE);
+    new(Outputs) FExpressionOutput(TRUE, TRUE, FALSE, FALSE, FALSE);
+    new(Outputs) FExpressionOutput(TRUE, FALSE, TRUE, FALSE, FALSE);
+    new(Outputs) FExpressionOutput(TRUE, FALSE, FALSE, TRUE, FALSE);
+    new(Outputs) FExpressionOutput(TRUE, FALSE, FALSE, FALSE, TRUE);
 }

@@ -1,4 +1,4 @@
-// Unknown_1b90000.cpp (part 2 of 2): 16 functions
+// Unknown_1b90000.cpp (part 2 of 2): 19 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -312,4 +312,43 @@ void C01B965F0::sub_01b965f0(int Param)
 {
 	sub_01b964a0();
 	sub_01ad9a10(Param);
+}
+
+struct S01b97da0
+{
+    int A;
+    float B;
+    float C;
+
+    S01b97da0 * sub_01b97da0(int a, float b, float c) /* 01b97da0 */
+    {
+        B = b;
+        A = a;
+        C = c;
+        return this;
+    }
+};
+
+// @baa 0x01b97da0
+void sub_driver(S01b97da0 * Out)
+{
+    Out->sub_01b97da0(0, 0.f, 0.f);
+}
+
+extern float g_0260fdb4;
+// @baa 0x01b9e170
+int sub_01b9e170(float *Value)
+{
+	*Value = g_0260fdb4;
+	g_0260fdb0 = 0;
+	return 0;
+}
+
+extern float g_0260fdb8;
+// @baa 0x01b9e190
+int sub_01b9e190(float * valueOut)
+{
+    *valueOut = g_0260fdb8;
+    g_0260fdb0 = 0;
+    return 0;
 }

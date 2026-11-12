@@ -1,61 +1,61 @@
-// UnInterpolation.cpp (part 5 of 8): 1 function
-// Placed here by: neighbours 1.
+// UnInterpolation.cpp: 1 function
+// Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
+#include "ue3/Classes.h"
+#include "ue3/Array.h"
+#include "ue3/AppMath.h"
 
-typedef uint size_t;
-
-struct C{
-void sub_00cecba0(int,int);
+/* Kit gap (Array.h, issue #39): this build inlines TArray::operator() where the kit's plain-inline one is
+ * called out of line; same body, forced inline. */
+template<class T> struct TArrayAt_ : public TArray<T>
+{
+    using TArray<T>::ArrayNum;
+    __forceinline T& At(INT i)
+    {
+#line 560 BAA_ARRAY_FILE
+        check(i>=0 && (i<ArrayNum||(i==0 && ArrayNum==0)));
+        return this->GetTypedData()[i];
+    }
+    __forceinline const T& At(INT i) const
+    {
+#line 566 BAA_ARRAY_FILE
+        check(i>=0 && (i<ArrayNum||(i==0 && ArrayNum==0)));
+        return this->GetTypedData()[i];
+    }
 };
 
-int sub_0053d240(...);
-void*sub_0053df30(void*,void*,size_t);
-uint sub_0053df70(...);
-int sub_006311e0(...);
-extern undefined2 g_01e3f3dc;
-// @baa 0x00cecba0
-void C::sub_00cecba0(int param_2,int param_3)
+#define BIG_NUMBER (3.4e+38f)
+// @baa 0x00cf4500
+/* Snaps to the closest position key not in IgnoreKeys; FALSE when there is none. */
+UBOOL UInterpTrackMove::GetClosestSnapPosition(FLOAT InPosition, TArray<INT>& IgnoreKeys, FLOAT& OutPosition)
 {
-int*param_1=(int*)this;
-int iVar1;
-INT iVar2;
-if(param_3<0){
-sub_006311e0("Count>=0",
-"e:\\projects\\amadeus\\aa\\game\\unrealengine3\\development\\src\\core\\inc\\Array.h"
-,0x31a,&g_01e3f3dc);
+#line 3235 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnInterpolation.cpp"
+    check((PosTrack.Points.Num() == EulerTrack.Points.Num()) && (PosTrack.Points.Num() == LookupTrack.Points.Num()));
+
+    if (PosTrack.Points.Num() == 0)
+    {
+        return FALSE;
+    }
+
+    UBOOL bFoundSnap = FALSE;
+    FLOAT ClosestSnap = 0.f;
+    FLOAT ClosestDist = BIG_NUMBER;
+    for (INT i = 0; i < PosTrack.Points.Num(); i++)
+    {
+        if (!IgnoreKeys.ContainsItem(i))
+        {
+            FLOAT Dist = appAbs(((TArrayAt_<FInterpCurvePointVector>&)PosTrack.Points).At(i).InVal - InPosition);
+            if (Dist < ClosestDist)
+            {
+                ClosestSnap = ((TArrayAt_<FInterpCurvePointVector>&)PosTrack.Points).At(i).InVal;
+                ClosestDist = Dist;
+                bFoundSnap = TRUE;
+            }
+        }
+    }
+
+    OutPosition = ClosestSnap;
+    return bFoundSnap;
 }
-if(param_1[1]<0){
-sub_006311e0("ArrayNum>=0",
-"e:\\projects\\amadeus\\aa\\game\\unrealengine3\\development\\src\\core\\inc\\Array.h"
-,0x31b,&g_01e3f3dc);
-}
-if(param_1[2]<param_1[1]){
-sub_006311e0("ArrayMax>=ArrayNum",
-"e:\\projects\\amadeus\\aa\\game\\unrealengine3\\development\\src\\core\\inc\\Array.h"
-,0x31c,&g_01e3f3dc);
-}
-if(param_2<0){
-sub_006311e0("Index>=0",
-"e:\\projects\\amadeus\\aa\\game\\unrealengine3\\development\\src\\core\\inc\\Array.h"
-,0x31d,&g_01e3f3dc);
-}
-if(param_2>param_1[1]){
-sub_006311e0("Index<=ArrayNum",
-"e:\\projects\\amadeus\\aa\\game\\unrealengine3\\development\\src\\core\\inc\\Array.h"
-,0x31e,&g_01e3f3dc);
-}
-iVar1=param_1[1];
-iVar2=iVar1+param_3;
-param_1[1]=iVar2;
-if(iVar2>param_1[2]){
-iVar2=sub_0053d240(iVar2,param_1[2],0xc);
-param_1[2]=iVar2;
-if((*param_1!=0)||(iVar2)){
-iVar2=sub_0053df70(*param_1,iVar2*0xc,8);
-*param_1=iVar2;
-}
-}
-sub_0053df30((void*)(*param_1+(param_2+param_3)*0xc),(void*)(*param_1+param_2*0xc),
-(iVar1-param_2)*0xc);
-return;
-}
+
+#line 62 "candidate.cpp"

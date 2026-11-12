@@ -1,4 +1,4 @@
-// Engine_0750000.cpp (part 3 of 4): 7 functions
+// Engine_0750000.cpp (part 3 of 4): 9 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -98,4 +98,40 @@ struct AActor__00758b40 : public AActor
 FVector AActor__00758b40::sub_00758b40()
 {
     return Location;
+}
+
+/* Kit gap: AActor::IsBlockedBy (0x00758100) isn't declared. */
+struct AActor__007585b0 : public AActor
+{
+    UBOOL IsBlockedBy(const AActor* Other, const UPrimitiveComponent* Primitive) const; /* 0x00758100 */
+};
+
+// @baa 0x007585b0
+/* World geometry answers level-geometry traces; other actors answer traces for "others" when they're projectile
+ * targets or blocking. (0x80 TRACE_LevelGeometry, 0x10 TRACE_Others, 0x20 TRACE_OnlyProjActor, 0x40 TRACE_Blocking) */
+UBOOL AActor::ShouldTrace(UPrimitiveComponent* Primitive, AActor* SourceActor, DWORD TraceFlags)
+{
+    return (bWorldGeometry && (TraceFlags & 0x80))
+        || (!bWorldGeometry && (TraceFlags & 0x10)
+            && ((TraceFlags & 0x20)
+                ? (bProjTarget || (bBlockActors && Primitive->BlockActors))
+                : (!(TraceFlags & 0x40) || (SourceActor && ((AActor__007585b0*)SourceActor)->IsBlockedBy(this, Primitive)))));
+}
+
+/* Kit gap: AActor::IsBlockedBy (0x00758100) isn't declared. */
+struct AActor__00758680 : public AActor
+{
+    UBOOL IsBlockedBy(const AActor* Other, const UPrimitiveComponent* Primitive) const; /* 0x00758100 */
+};
+
+// @baa 0x00758680
+/* Like AActor::ShouldTrace, but volumes answer volume traces (0x08 TRACE_Volumes) instead of "others".
+ * (0x80 TRACE_LevelGeometry, 0x20 TRACE_OnlyProjActor, 0x40 TRACE_Blocking) */
+UBOOL AVolume::ShouldTrace(UPrimitiveComponent* Primitive, AActor* SourceActor, DWORD TraceFlags)
+{
+    return (bWorldGeometry && (TraceFlags & 0x80))
+        || (!bWorldGeometry && (TraceFlags & 0x08)
+            && ((TraceFlags & 0x20)
+                ? (bProjTarget || (bBlockActors && Primitive->BlockActors))
+                : (!(TraceFlags & 0x40) || (SourceActor && ((AActor__00758680*)SourceActor)->IsBlockedBy(this, Primitive)))));
 }

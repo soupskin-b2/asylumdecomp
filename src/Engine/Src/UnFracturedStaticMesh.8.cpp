@@ -1,4 +1,4 @@
-// UnFracturedStaticMesh.cpp: 8 functions
+// UnFracturedStaticMesh.cpp: 10 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -83,4 +83,68 @@ undefined4 C::sub_007c3370(void)
 FLOAT AFracturedStaticMeshPart::GetGravityZ()
 {
     return Super::GetGravityZ() * FracPartGravScale;
+}
+
+/* Kit gap (Array.h, issue #39): this build inlines TArray::operator() where the kit's plain-inline one is
+ * called out of line; same body, forced inline. */
+template<class T> struct TArrayAt_ : public TArray<T>
+{
+    using TArray<T>::ArrayNum;
+    __forceinline T& At(INT i)
+    {
+#line 560 BAA_ARRAY_FILE
+        check(i>=0 && (i<ArrayNum||(i==0 && ArrayNum==0)));
+        return this->GetTypedData()[i];
+    }
+    __forceinline const T& At(INT i) const
+    {
+#line 566 BAA_ARRAY_FILE
+        check(i>=0 && (i<ArrayNum||(i==0 && ArrayNum==0)));
+        return this->GetTypedData()[i];
+    }
+};
+
+// @baa 0x007b8a60
+/* Whether a fragment is currently drawn; out-of-range indices aren't. */
+UBOOL UFracturedBaseComponent::IsFragmentVisible(INT FragmentIndex)
+{
+    if (FragmentIndex >= 0 && FragmentIndex < VisibleFragments.Num())
+    {
+        return ((const TArrayAt_<BYTE>&)VisibleFragments).At(FragmentIndex) != 0;
+    }
+    return FALSE;
+}
+
+#line 119 "candidate.cpp"
+
+/* Kit gaps, with UE3's definitions (UnName.h, UnObjBas.h): FName has no constructor from a string and no
+ * comparison operators, and UObject has no GetFName(). */
+struct FName_ : public FName
+{
+    FName_(const TCHAR* Name, INT FindType = 1, UBOOL bSplitName = 1); /* 0x005d5620 */
+};
+
+inline UBOOL operator==(const FName& A, const FName& B) { return A.Index == B.Index && A.Number == B.Number; }
+
+static __forceinline FName GetFName(const UObject* Object)
+{
+    return Object->ObjectInternalInteger != INDEX_NONE ? (const FName_&)Object->Name : FName_(TEXT("<uninitialized>"));
+}
+
+// @baa 0x007a7460
+/* Fractured meshes that only touch aren't world geometry; any other collision type makes them world geometry. */
+void AFracturedStaticMeshActor::PostEditChange(UProperty* PropertyThatChanged)
+{
+    if (PropertyThatChanged && GetFName(PropertyThatChanged) == FName_(TEXT("CollisionType")))
+    {
+        if (CollisionType == COLLIDE_TouchAll || CollisionType == COLLIDE_TouchWeapons || CollisionType == COLLIDE_TouchAllButWeapons)
+        {
+            bWorldGeometry = FALSE;
+        }
+        else
+        {
+            bWorldGeometry = TRUE;
+        }
+    }
+    Super::PostEditChange(PropertyThatChanged);
 }

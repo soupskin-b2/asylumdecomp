@@ -1,4 +1,4 @@
-// Core_0590000.cpp (part 2 of 4): 116 functions
+// Core_0590000.cpp (part 2 of 4): 118 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -1216,4 +1216,36 @@ void UObject::execVInterpTo(FFrame& Stack, RESULT_DECL)
 
 	FVector Out;
 	*(FVector*)Result = *sub_005c6d10(&Out, &Current, &Target, &DeltaTime, InterpSpeed);
+}
+
+/* Kit gap: FMatrix::GetOrigin (UnMath.h) isn't declared. */
+struct FMatrix_ : public FMatrix
+{
+	FORCEINLINE FVector GetOrigin() const
+	{
+		return FVector(WPlane.X, WPlane.Y, WPlane.Z);
+	}
+};
+
+// @baa 0x005986a0
+void UObject::execMatrixGetOrigin(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT(FMatrix, TM);
+	P_FINISH;
+	*(FVector*)Result = ((FMatrix_&)TM).GetOrigin();
+}
+
+/* Kit gap: FMatrix::operator* (UnMath.h; out of line here, 561 callers) isn't declared. */
+struct FMatrix__005982f0 : public FMatrix
+{
+	FMatrix operator*(const FMatrix& Other) const;	/* 0x0058e560 */
+};
+
+// @baa 0x005982f0
+void UObject::execMultiply_MatrixMatrix(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT(FMatrix, A);
+	P_GET_STRUCT(FMatrix, B);
+	P_FINISH;
+	*(FMatrix*)Result = ((const FMatrix__005982f0&)A) * B;
 }

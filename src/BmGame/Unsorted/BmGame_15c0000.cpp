@@ -1,4 +1,4 @@
-// BmGame_15c0000.cpp (part 1 of 3): 41 functions
+// BmGame_15c0000.cpp (part 1 of 3): 42 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -505,4 +505,25 @@ INT C_015c1de0::sub_015c1de0()
     if (F598 > F5b4)
         return 1;
     return 0;
+}
+
+struct C_E44_1170
+{
+    FLOAT F;
+    BYTE Pad[0x40];
+};
+
+struct C_015c1170
+{
+    INT N;
+    BYTE Pad[0x18];
+    C_E44_1170 Arr[1];
+    void sub_015c1170();
+};
+
+// @baa 0x015c1170
+void C_015c1170::sub_015c1170()
+{
+    for (INT i = 0; i < N; i++)
+        Arr[i].F = 0.0f;
 }

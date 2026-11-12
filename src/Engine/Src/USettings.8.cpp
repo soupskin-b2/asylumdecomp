@@ -1,4 +1,4 @@
-// USettings.cpp: 18 functions
+// USettings.cpp: 19 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -423,4 +423,35 @@ FName USettings::GetStringSettingValueName(INT StringSettingId, INT ValueIndex)
 		}
 	}
 	return NAME_None;
+}
+
+// @baa 0x00d74d30
+/* Whether the current value of a string setting is its wildcard value. The settings lookup indexes LocalizedSettings
+ * with the mappings' index, as the original does. */
+UBOOL USettings::IsWildcardStringSetting(INT StringSettingId)
+{
+	for (INT Index = 0; Index < LocalizedSettingsMappings.Num(); Index++)
+	{
+		if (LocalizedSettingsMappings(Index).Id == StringSettingId)
+		{
+			INT ValueIndex = -1;
+			for (INT SettingIdx = 0; SettingIdx < LocalizedSettings.Num(); SettingIdx++)
+			{
+				FLocalizedStringSetting& Setting = LocalizedSettings(Index);
+				if (StringSettingId == Setting.Id)
+				{
+					ValueIndex = Setting.ValueIndex;
+					break;
+				}
+			}
+			for (INT ValueIdx = 0; ValueIdx < LocalizedSettingsMappings(Index).ValueMappings.Num(); ValueIdx++)
+			{
+				if (LocalizedSettingsMappings(Index).ValueMappings(ValueIdx).Id == ValueIndex)
+				{
+					return LocalizedSettingsMappings(Index).ValueMappings(ValueIdx).bIsWildcard;
+				}
+			}
+		}
+	}
+	return FALSE;
 }

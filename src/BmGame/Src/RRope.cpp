@@ -1,4 +1,4 @@
-// RRope.cpp: 10 functions
+// RRope.cpp: 11 functions
 // Placed here by: class 7, callers 1, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -58,3 +58,20 @@ return iVar2;
 
 // @baa 0x0163e530
 int sub_0163e530(void) { return 0; }
+
+/* Kit gap: AActor::IsBlockedBy (0x00758100) isn't declared. */
+struct AActor_ : public AActor
+{
+    UBOOL IsBlockedBy(const AActor* Other, const UPrimitiveComponent* Primitive) const; /* 0x00758100 */
+};
+
+// @baa 0x0163e540
+/* Ropes answer only pawn traces (0x2 TRACE_Pawns), then like any other actor: projectile targets or blockers for
+ * projectile-actor traces (0x20), blockers of the source for blocking traces (0x40). */
+UBOOL ARRopeBase::ShouldTrace(UPrimitiveComponent* Primitive, AActor* SourceActor, DWORD TraceFlags)
+{
+    return (TraceFlags & 0x2)
+        && ((TraceFlags & 0x20)
+            ? (bProjTarget || (bBlockActors && Primitive->BlockActors))
+            : (!(TraceFlags & 0x40) || (SourceActor && ((AActor_*)SourceActor)->IsBlockedBy(this, Primitive))));
+}

@@ -1,4 +1,4 @@
-// Core_0560000.cpp (part 3 of 3): 5 functions
+// Core_0560000.cpp (part 3 of 3): 6 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -81,4 +81,15 @@ TData12& TData12::sub_00566ac0(const TData12* Src)
     Field1 = Src->Field1;
     Field2 = Src->Field2;
     return *this;
+}
+
+struct C_00567cd0
+{
+    int sub_0053ea70(int a, int b);
+};
+
+// @baa 0x00567cd0
+void __stdcall sub_00567cd0(C_00567cd0 *obj, int a, int b)
+{
+    obj->sub_0053ea70(a + b * 4, 4);
 }

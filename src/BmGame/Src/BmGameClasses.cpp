@@ -1,4 +1,4 @@
-// BmGameClasses.cpp: 30 functions
+// BmGameClasses.cpp: 32 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -890,4 +890,36 @@ void C_015767e0::sub_015767e0(UINT A)
 {
     sub_00783b70((INT)A);
     vf35c();
+}
+
+/* Kit gap: AActor::IsBlockedBy (0x00758100) isn't declared. */
+struct AActor_ : public AActor
+{
+    UBOOL IsBlockedBy(const AActor* Other, const UPrimitiveComponent* Primitive) const; /* 0x00758100 */
+};
+
+// @baa 0x01558120
+/* Like AActor::ShouldTrace, but the panel answers every level-geometry trace (0x80) even though it isn't world
+ * geometry. (0x10 TRACE_Others, 0x20 TRACE_OnlyProjActor, 0x40 TRACE_Blocking) */
+UBOOL ARElectrifiedFloorPanel::ShouldTrace(UPrimitiveComponent* Primitive, AActor* SourceActor, DWORD TraceFlags)
+{
+    return (TraceFlags & 0x80)
+        || (!bWorldGeometry && (TraceFlags & 0x10)
+            && ((TraceFlags & 0x20)
+                ? (bProjTarget || (bBlockActors && Primitive->BlockActors))
+                : (!(TraceFlags & 0x40) || (SourceActor && ((AActor_*)SourceActor)->IsBlockedBy(this, Primitive)))));
+}
+
+struct C_01574e00
+{
+    void sub_01573870();
+    INT sub_0081c2f0(FLOAT F, INT A);
+    INT sub_01574e00(FLOAT F, INT A);
+};
+
+// @baa 0x01574e00
+INT C_01574e00::sub_01574e00(FLOAT F, INT A)
+{
+    sub_01573870();
+    return sub_0081c2f0(F, A);
 }

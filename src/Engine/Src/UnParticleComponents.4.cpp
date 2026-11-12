@@ -1,4 +1,4 @@
-// UnParticleComponents.cpp (part 4 of 4): 30 functions
+// UnParticleComponents.cpp (part 4 of 4): 31 functions
 // Placed here by: neighbours 13, class 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -494,4 +494,20 @@ IMPLEMENT_CLASS_AT(UPhysXParticleSystemComponent, "e:\\Projects\\Amadeus\\AA\\Ga
 bool UPhysXParticleSystemComponent::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x00b5d2c0
+/* The path name of the component's Template, or "No_ParticleSystem". */
+FString UParticleSystemComponent::GetDetailedInfoInternal()
+{
+    FString Result;
+    if (Template != NULL)
+    {
+        Result = Template->GetPathName();
+    }
+    else
+    {
+        Result = TEXT("No_ParticleSystem");
+    }
+    return Result;
 }

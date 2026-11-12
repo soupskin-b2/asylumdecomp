@@ -1,4 +1,4 @@
-// Engine_0910000.cpp: 1 function
+// Engine_0910000.cpp: 2 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -20,4 +20,20 @@ void USkeletalMeshComponent::UpdateSceneProxy()
 		((USkeletalMeshComponent_*)this)->SetDepthBias(DepthBias, DepthBiasData);
 		((USkeletalMeshComponent_*)this)->SetDisableColourWrites(bDisableColourWrites);
 	}
+}
+
+// @baa 0x0091aa40
+/* The detailed info of the SkeletalMesh, or "No_SkeletalMesh". */
+FString USkeletalMeshComponent::GetDetailedInfoInternal()
+{
+    FString Result;
+    if (SkeletalMesh != NULL)
+    {
+        Result = SkeletalMesh->GetDetailedInfoInternal();
+    }
+    else
+    {
+        Result = TEXT("No_SkeletalMesh");
+    }
+    return Result;
 }

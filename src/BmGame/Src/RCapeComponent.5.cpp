@@ -1,4 +1,4 @@
-// RCapeComponent.cpp: 4 functions
+// RCapeComponent.cpp: 5 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -73,4 +73,22 @@ void C_016c6430::sub_016c6430(INT A1, INT A2, INT A3, INT A4, INT A5, INT A6, IN
     C_Phys_15f0* P = Cape;
     if (P != NULL)
         P->sub_016c15f0(&A1, A10);
+}
+
+struct C_Cape80_2480
+{
+    void sub_01562480(INT A1, INT A2, FLOAT F3);
+};
+
+struct C_016ae850
+{
+    BYTE Pad[0x60];
+    C_Cape80_2480* Cape;
+    void sub_016ae850(INT A1, INT A2, FLOAT F3);
+};
+
+// @baa 0x016ae850
+void C_016ae850::sub_016ae850(INT A1, INT A2, FLOAT F3)
+{
+    Cape->sub_01562480(A1, A2, F3);
 }

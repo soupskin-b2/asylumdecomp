@@ -1,4 +1,4 @@
-// Editor_0910000.cpp: 6 functions
+// Editor_0910000.cpp: 7 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -28,4 +28,27 @@ IMPLEMENT_CLASS_AT(UAnimNotify_Scripted, "e:\\Projects\\Amadeus\\AA\\Game\\Unrea
 bool UAnimNotify_Scripted::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+/* Kit gap: FName has no comparison operators (UnName.h compares Index and Number). */
+inline UBOOL operator==(const FName& A, const FName& B) { return A.Index == B.Index && A.Number == B.Number; }
+
+inline UBOOL operator!=(const FName& A, EName B) { return A.Index != B || A.Number != 0; }
+
+// @baa 0x00918870
+/* The set's sequence named SequenceName, or NULL. (The original reads the array through its const accessor.) */
+UAnimSequence* UAnimSet::FindAnimSequence(FName SequenceName)
+{
+    if (SequenceName != NAME_None)
+    {
+        const TArray<UAnimSequence*>& ConstSequences = Sequences;
+        for (INT i = 0; i < Sequences.Num(); i++)
+        {
+            if (ConstSequences(i)->SequenceName == SequenceName)
+            {
+                return ConstSequences(i);
+            }
+        }
+    }
+    return NULL;
 }

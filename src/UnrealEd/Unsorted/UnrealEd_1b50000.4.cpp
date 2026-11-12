@@ -1,4 +1,4 @@
-// UnrealEd_1b50000.cpp (part 4 of 6): 28 functions
+// UnrealEd_1b50000.cpp (part 4 of 6): 29 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -368,4 +368,15 @@ C_01b5b010* C_01b5b010::sub_01b5b010()
     Value_8 = 0;
     Value_c = 0;
     return this;
+}
+
+// @baa 0x01b59e70
+// 0x01b59e70
+void __stdcall sub_01b59e70(unsigned int* OutValue, const unsigned int* InValue)
+{
+	if (OutValue != 0)
+	{
+		OutValue[0] = InValue[0];
+		OutValue[1] = InValue[1];
+	}
 }

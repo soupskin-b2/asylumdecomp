@@ -1,4 +1,4 @@
-// UnParticleTrailModules.cpp: 54 functions
+// UnParticleTrailModules.cpp: 55 functions
 // Placed here by: neighbours 28, class 15, file 5.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -211,4 +211,53 @@ undefined4 * UObject::sub_00bc8ff0(void)
 bool UParticleModuleTrailTaper::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+/* Kit gaps, with UE3's definitions (UnName.h, UnObjBas.h): FName has no constructor from a string and no
+ * comparison operators, and UObject has no GetFName(). */
+struct FName_ : public FName
+{
+    FName_(const TCHAR* Name, INT FindType = 1, UBOOL bSplitName = 1); /* 0x005d5620 */
+};
+
+inline UBOOL operator==(const FName& A, const FName& B) { return A.Index == B.Index && A.Number == B.Number; }
+
+static __forceinline FName GetFName(const UObject* Object)
+{
+    return Object->ObjectInternalInteger != INDEX_NONE ? (const FName_&)Object->Name : FName_(TEXT("<uninitialized>"));
+}
+
+/* Kit gap: TArray::InsertZeroed (Array.h; out of line here, 0x00b51d40) isn't in the kit's TArray. */
+template<typename T> struct TArrayInsertZeroed_ : public TArray<T>
+{
+    void InsertZeroed(INT Index, INT Count = 1); /* 0x00b51d40 for FVector */
+};
+
+// @baa 0x00bbf090
+/* Editing SourceOffsetCount grows or shrinks the default offsets to match. */
+void UParticleModuleTrailSource::PostEditChange(UProperty* PropertyThatChanged)
+{
+    if (PropertyThatChanged)
+    {
+        if (GetFName(PropertyThatChanged) == FName_(TEXT("SourceOffsetCount")))
+        {
+            if (SourceOffsetDefaults.Num() > 0)
+            {
+                if (SourceOffsetDefaults.Num() < SourceOffsetCount)
+                {
+                    ((TArrayInsertZeroed_<FVector>&)SourceOffsetDefaults).InsertZeroed(SourceOffsetDefaults.Num(), SourceOffsetCount - SourceOffsetDefaults.Num());
+                }
+                else if (SourceOffsetDefaults.Num() > SourceOffsetCount)
+                {
+                    const INT RemoveIndex = SourceOffsetCount ? (SourceOffsetCount - 1) : 0;
+                    SourceOffsetDefaults.Remove(RemoveIndex, SourceOffsetDefaults.Num() - SourceOffsetCount);
+                }
+            }
+            else if (SourceOffsetCount > 0)
+            {
+                ((TArrayInsertZeroed_<FVector>&)SourceOffsetDefaults).InsertZeroed(0, SourceOffsetCount);
+            }
+        }
+    }
+    Super::PostEditChange(PropertyThatChanged);
 }

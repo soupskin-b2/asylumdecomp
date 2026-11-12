@@ -1,4 +1,4 @@
-// Engine_0400000.cpp (part 3 of 3): 3 functions
+// Engine_0400000.cpp (part 3 of 3): 4 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -32,4 +32,10 @@ double C_0040ce70::sub_0040ce70()
 double sub_0040dd40(double * A, double * B)
 {
 	return (*A <= *B) ? *A : *B;
+}
+
+// @baa 0x0040dd60
+double sub_0040dd60(double * A, double * B)
+{
+	return *A >= *B ? *A : *B;
 }

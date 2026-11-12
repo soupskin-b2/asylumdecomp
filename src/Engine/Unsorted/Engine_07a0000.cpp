@@ -1,4 +1,4 @@
-// Engine_07a0000.cpp (part 1 of 4): 226 functions
+// Engine_07a0000.cpp (part 1 of 4): 227 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1671,4 +1671,33 @@ BYTE APlayerReplicationInfo::GetTeamNum()
 BYTE AController::GetTeamNum()
 {
     return (PlayerReplicationInfo && PlayerReplicationInfo->Team) ? PlayerReplicationInfo->Team->TeamIndex : 255;
+}
+
+// @baa 0x007afdc0
+/* Two actors are on the same team only in team games, and only when both have a team. */
+UBOOL AGameReplicationInfo::OnSameTeam(AActor* A, AActor* B)
+{
+    if (!A || !B)
+    {
+        return FALSE;
+    }
+    if (GameClass)
+    {
+        AGameInfo* DefaultGame = (AGameInfo*)GameClass->GetDefaultObject();
+        if (DefaultGame && !DefaultGame->bTeamGame)
+        {
+            return FALSE;
+        }
+    }
+    const BYTE ATeamIndex = A->GetTeamNum();
+    if (ATeamIndex == 255)
+    {
+        return FALSE;
+    }
+    const BYTE BTeamIndex = B->GetTeamNum();
+    if (BTeamIndex == 255)
+    {
+        return FALSE;
+    }
+    return ATeamIndex == BTeamIndex;
 }

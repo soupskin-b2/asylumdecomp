@@ -1,4 +1,4 @@
-// BmGame_1630000.cpp (part 1 of 3): 183 functions
+// BmGame_1630000.cpp (part 1 of 3): 190 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1187,4 +1187,219 @@ INT __stdcall sub_0163d280(INT A, INT B, INT C)
     if (C & 0x400000)
         return 1;
     return sub_007585b0(A, B, C);
+}
+
+struct C_0163d2a0
+{
+    virtual void d000() = 0;
+    virtual void d001() = 0;
+    virtual void d002() = 0;
+    virtual void d003() = 0;
+    virtual void d004() = 0;
+    virtual void d005() = 0;
+    virtual void d006() = 0;
+    virtual void d007() = 0;
+    virtual void d008() = 0;
+    virtual void d009() = 0;
+    virtual void d010() = 0;
+    virtual void d011() = 0;
+    virtual void d012() = 0;
+    virtual void d013() = 0;
+    virtual void d014() = 0;
+    virtual void d015() = 0;
+    virtual void d016() = 0;
+    virtual void d017() = 0;
+    virtual void d018() = 0;
+    virtual void d019() = 0;
+    virtual void d020() = 0;
+    virtual void d021() = 0;
+    virtual void d022() = 0;
+    virtual void d023() = 0;
+    virtual void d024() = 0;
+    virtual void d025() = 0;
+    virtual void d026() = 0;
+    virtual void d027() = 0;
+    virtual void d028() = 0;
+    virtual void d029() = 0;
+    virtual void d030() = 0;
+    virtual void d031() = 0;
+    virtual void d032() = 0;
+    virtual void d033() = 0;
+    virtual void d034() = 0;
+    virtual void d035() = 0;
+    virtual void d036() = 0;
+    virtual void d037() = 0;
+    virtual void d038() = 0;
+    virtual void d039() = 0;
+    virtual void d040() = 0;
+    virtual void d041() = 0;
+    virtual void d042() = 0;
+    virtual void d043() = 0;
+    virtual void d044() = 0;
+    virtual void d045() = 0;
+    virtual void d046() = 0;
+    virtual void d047() = 0;
+    virtual void d048() = 0;
+    virtual void d049() = 0;
+    virtual void d050() = 0;
+    virtual void d051() = 0;
+    virtual void d052() = 0;
+    virtual void d053() = 0;
+    virtual void d054() = 0;
+    virtual void d055() = 0;
+    virtual void d056() = 0;
+    virtual void d057() = 0;
+    virtual void d058() = 0;
+    virtual void d059() = 0;
+    virtual void d060() = 0;
+    virtual void d061() = 0;
+    virtual void d062() = 0;
+    virtual void d063() = 0;
+    virtual void d064() = 0;
+    virtual void d065() = 0;
+    virtual void d066() = 0;
+    virtual void d067() = 0;
+    virtual void d068() = 0;
+    virtual void d069() = 0;
+    virtual void d070() = 0;
+    virtual void d071() = 0;
+    virtual void d072() = 0;
+    virtual void d073() = 0;
+    virtual void d074() = 0;
+    virtual void d075() = 0;
+    virtual void d076() = 0;
+    virtual void d077() = 0;
+    virtual void d078() = 0;
+    virtual void d079() = 0;
+    virtual void d080() = 0;
+    virtual void d081() = 0;
+    virtual void d082() = 0;
+    virtual void d083() = 0;
+    virtual void d084() = 0;
+    virtual void d085() = 0;
+    virtual void d086() = 0;
+    virtual void d087() = 0;
+    virtual void d088() = 0;
+    virtual void d089() = 0;
+    virtual void d090() = 0;
+    virtual void d091() = 0;
+    virtual void d092() = 0;
+    virtual void d093() = 0;
+    virtual void d094() = 0;
+    virtual void d095() = 0;
+    virtual void d096() = 0;
+    virtual void d097() = 0;
+    virtual void d098() = 0;
+    virtual void d099() = 0;
+    virtual void d100() = 0;
+    virtual void d101() = 0;
+    virtual void d102() = 0;
+    virtual void d103() = 0;
+    virtual void vf1a0();
+    INT sub_00d201d0(INT A);
+    void sub_0163d2a0(UINT A);
+};
+
+// @baa 0x0163d2a0
+void C_0163d2a0::sub_0163d2a0(UINT A)
+{
+    sub_00d201d0((INT)A);
+    vf1a0();
+}
+
+// @baa 0x0163c770
+/* A strike scores 4 when the test range matches the desired range, else 0. */
+INT ARCombatMove_BatmanStrike::GetScoreForStrikeRange(BYTE TestRange, BYTE DesRange)
+{
+    return TestRange == DesRange ? 4 : 0;
+}
+
+// @baa 0x0163c7e0
+/* Strikes not used for a while score higher: over 40 → 3, over 10 → 2, over 3 → 1, else 0. */
+INT ARCombatMove_BatmanStrike::GetScoreForTimeSinceUse(FStrikeInfo TestStrike)
+{
+    if (TestStrike.TimeSinceUse > 40)
+    {
+        return 3;
+    }
+    if (TestStrike.TimeSinceUse > 10)
+    {
+        return 2;
+    }
+    return TestStrike.TimeSinceUse > 3;
+}
+
+// @baa 0x0163c740
+/* How well a strike's expected previous hand fits the hand of the last strike (2 when either is unknown). */
+INT ARCombatMove_BatmanStrike::GetScoreForHandedness(FStrikeInfo TestStrike)
+{
+	if (PrevStrikeInfo.StrikeHand != 0 && TestStrike.PrevStrikeHand != 0)
+	{
+		return TestStrike.PrevStrikeHand == PrevStrikeInfo.StrikeHand ? 2 : 0;
+	}
+	return 2;
+}
+
+// @baa 0x0163c790
+/* How well a strike direction fits the desired one: 5 for the same direction, 2 for the matching direction of the
+ * other axis pair, else 0. (The StrikeDirection enum is left out of Enums.h.) */
+INT ARCombatMove_BatmanStrike::GetScoreForStrikeDir(BYTE TestDir, BYTE DesDir)
+{
+	if (TestDir == DesDir)
+	{
+		return 5;
+	}
+	if ((TestDir == 1 || TestDir == 2) && (DesDir == 3 || DesDir == 4))
+	{
+		return 2;
+	}
+	if ((TestDir == 3 || TestDir == 4) && (DesDir == 1 || DesDir == 2))
+	{
+		return 2;
+	}
+	return 0;
+}
+
+// @baa 0x0163d1a0
+/* Whether a point is inside this area's current cylinder (height, then 2D radius). */
+UBOOL ARCombatArea::IsLocationInArea(FVector TestLocation)
+{
+	if (TestLocation.Z > Location.Z + HalfHeight)
+	{
+		return FALSE;
+	}
+	if (TestLocation.Z < Location.Z - HalfHeight)
+	{
+		return FALSE;
+	}
+	FVector Delta(TestLocation.X - Location.X, TestLocation.Y - Location.Y, 0.f);
+	if (Delta.Y * Delta.Y + Delta.X * Delta.X > CurrentRadiusSq)
+	{
+		return FALSE;
+	}
+	return TRUE;
+}
+
+// @baa 0x0163c810
+/* How well a strike's speed fits a forced quick or slow strike: 20 when its contact time is short (quick) or long
+ * (slow) enough, else 0. */
+INT ARCombatMove_BatmanStrike::GetScoreForStrikeSpeed(FStrikeInfo TestStrike)
+{
+	if (bForceQuickStrike || bForceSlowStrike)
+	{
+		UAnimSequence* StrikeAnim = Batman->AutoStrikeAnimSet->FindAnimSequence(TestStrike.StrikeAnimName);
+		FLOAT ContactTime = Batman->GetStrikeContactTime(StrikeAnim);
+		if (bForceQuickStrike)
+		{
+			if (ContactTime < 0.5f)
+			{
+				return 20;
+			}
+		}
+		else if (bForceSlowStrike && ContactTime > 0.4f)
+		{
+			return 20;
+		}
+	}
+	return 0;
 }

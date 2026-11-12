@@ -1,4 +1,4 @@
-// BmGame_1710000.cpp (part 1 of 2): 120 functions
+// BmGame_1710000.cpp (part 1 of 2): 121 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -831,4 +831,10 @@ C_0171c180& C_0171c180::sub_0171c180(int Arg)
     Unk04 = 0;
     Unk08 = 0;
     return *this;
+}
+
+// @baa 0x017176a0
+void ARHarpoonDragTrack::vf_180()
+{
+    CurrentLocation = Location;
 }

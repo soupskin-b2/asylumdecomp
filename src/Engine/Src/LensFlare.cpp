@@ -1,4 +1,4 @@
-// LensFlare.cpp: 20 functions
+// LensFlare.cpp: 21 functions
 // Placed here by: file 4, callers 3.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -377,4 +377,21 @@ int ULensFlareComponent::vf_260()
     }
 Done:
     return Result;
+}
+
+/* Kit gap: UActorComponent::BeginDeferredReattach (0x00765d00) isn't declared. */
+struct UActorComponent_ : public UActorComponent
+{
+    void BeginDeferredReattach(); /* 0x00765d00 */
+};
+
+// @baa 0x00baccf0
+/* A new source colour needs the flare's render state rebuilt. */
+void ULensFlareComponent::SetSourceColor(FLinearColor InSourceColor)
+{
+    if (SourceColor.R != InSourceColor.R || SourceColor.G != InSourceColor.G || SourceColor.B != InSourceColor.B || SourceColor.A != InSourceColor.A)
+    {
+        SourceColor = InSourceColor;
+        ((UActorComponent_*)this)->BeginDeferredReattach();
+    }
 }

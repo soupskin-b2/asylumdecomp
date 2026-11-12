@@ -1,0 +1,86 @@
+// Engine_0cb0000.cpp: 8 functions
+// Placed here by: contributions.
+// Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
+#include "ue3/Classes.h"
+#include "ue3/Script.h"
+
+/* Kit gap: APlayerController::GetPlayerNetworkAddress (UnPlayer.cpp) isn't declared. */
+struct APlayerController_ : public APlayerController
+{
+	FString GetPlayerNetworkAddress();	/* 0x008b6e50 */
+};
+
+// @baa 0x00cb6db0
+void APlayerController::execGetPlayerNetworkAddress(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(FString*)Result = ((APlayerController_*)this)->GetPlayerNetworkAddress();
+}
+
+/* Kit gap: AFileWriter::Logf (UnActor.cpp) isn't declared. */
+struct AFileWriter_ : public AFileWriter
+{
+	void Logf(const FString& LogString);	/* 0x0064bff0 */
+};
+
+// @baa 0x00cb7bd0
+void AFileWriter::execLogf(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STR(LogString);
+	P_FINISH;
+	((AFileWriter_*)this)->Logf(LogString);
+}
+
+/* Kit gap: AActor::GetURLMap isn't declared. */
+struct AActor_ : public AActor
+{
+	FString GetURLMap();	/* 0x00769e10 */
+};
+
+// @baa 0x00cb5d80
+void AActor::execGetURLMap(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(FString*)Result = ((AActor_*)this)->GetURLMap();
+}
+
+/* Kit gap: APlayerController::GetServerNetworkAddress isn't declared. */
+struct APlayerController__00cb6e40 : public APlayerController
+{
+	FString GetServerNetworkAddress();	/* 0x008b6ef0 */
+};
+
+// @baa 0x00cb6e40
+void APlayerController::execGetServerNetworkAddress(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(FString*)Result = ((APlayerController__00cb6e40*)this)->GetServerNetworkAddress();
+}
+
+// @baa 0x00cb7c80
+void AGameInfo::execGetNetworkNumber(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(FString*)Result = GetNetworkNumber();
+}
+
+// @baa 0x00cb7e50
+void APlayerReplicationInfo::execGetPlayerAlias(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(FString*)Result = GetPlayerAlias();
+}
+
+// @baa 0x00cb7ee0
+void AWorldInfo::execGetLocalURL(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(FString*)Result = GetLocalURL();
+}
+
+// @baa 0x00cb7f70
+void AWorldInfo::execGetAddressURL(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(FString*)Result = GetAddressURL();
+}

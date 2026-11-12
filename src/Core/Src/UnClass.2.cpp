@@ -1,4 +1,4 @@
-// UnClass.cpp (part 2 of 2): 14 functions
+// UnClass.cpp (part 2 of 2): 15 functions
 // Placed here by: neighbours 3, class 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -114,3 +114,20 @@ int UConst::vf_000(void) { return 1; }
 
 // @baa 0x0058aa40
 IMPLEMENT_CLASS_AT(UConst, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Core\\Src\\UnClass.cpp", 2357);
+
+/* Kit gap: UObject::ConditionalRegister (0x005c7a50) isn't declared. */
+struct UObject_ : public UObject
+{
+    void ConditionalRegister(); /* 0x005c7a50 */
+};
+
+// @baa 0x00567ff0
+/* Registering a field registers its super field first. */
+void UField::Register()
+{
+    Super::Register();
+    if (SuperField)
+    {
+        ((UObject_*)SuperField)->ConditionalRegister();
+    }
+}

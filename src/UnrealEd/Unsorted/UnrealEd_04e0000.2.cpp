@@ -1,4 +1,4 @@
-// UnrealEd_04e0000.cpp: 4 functions
+// UnrealEd_04e0000.cpp: 6 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Core.h"
@@ -106,4 +106,60 @@ struct C_004ed500 : public wxDialogBase
 void C_004ed500::sub_004ed500(INT)
 {
     EndDialog(0x13ec);
+}
+
+struct SubObj_004dc1e0
+{
+	void sub_004dc1e0();  /* 0x004dc1e0 */
+};
+
+extern INT sub_004097a0();
+  /* 0x004097a0 */
+struct C_004e0a90
+{
+	char pad[0x34];
+	INT m_Field34;
+	void sub_004e0a90(INT Arg);
+};
+
+// @baa 0x004e0a90
+void C_004e0a90::sub_004e0a90(INT Arg)
+{
+	INT V = sub_004097a0();
+	SubObj_004dc1e0 * Sub = (SubObj_004dc1e0*)((char*)this - 0x144);
+	m_Field34 = V;
+	Sub->sub_004dc1e0();
+}
+
+// 0x004e8890
+struct sub_004e8890_Target
+{
+    unsigned _A;
+    unsigned _B;
+    unsigned _C;
+    unsigned _D;
+    unsigned char _Flag;
+};
+
+struct sub_004e8890_Getter
+{
+    void* _Target;
+    sub_004e8890_Target* sub_01ab5d00(); /* out-of-line: mov eax, [ecx]; ret */
+};
+
+struct sub_004e8890_Node
+{
+    unsigned _A;
+    unsigned _B;
+    sub_004e8890_Getter _Getter;
+};
+
+// @baa 0x004e8890
+void __stdcall sub_004e8890(sub_004e8890_Node* Node, unsigned char Flag)
+{
+    if (Node != NULL)
+    {
+        sub_004e8890_Target* Target = Node->_Getter.sub_01ab5d00();
+        Target->_Flag = Flag;
+    }
 }

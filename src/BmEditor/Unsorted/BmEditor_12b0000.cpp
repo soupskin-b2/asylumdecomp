@@ -1,4 +1,4 @@
-// BmEditor_12b0000.cpp: 6 functions
+// BmEditor_12b0000.cpp: 7 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -44,4 +44,11 @@ void __stdcall sub_012b7380(INT A, INT B);
 void __stdcall sub_012bd400(INT Unused)
 {
     sub_012b7380(0, 0);
+}
+
+INT sub_012b9a40(INT Arg);
+// @baa 0x012bd830
+INT sub_012bd830(INT Arg)
+{
+    return sub_012b9a40(TRUE);
 }

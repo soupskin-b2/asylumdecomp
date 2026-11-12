@@ -1,4 +1,4 @@
-// RFractureWall.cpp: 15 functions
+// RFractureWall.cpp: 16 functions
 // Placed here by: class 8, neighbours 2, file 2, callers 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -451,4 +451,29 @@ INT C_016d0420::sub_016d0420()
     if (Comp != NULL)
         return Comp->vf284();
     return 0;
+}
+
+/* Kit gaps, with UE3's definitions (UnName.h, UnObjBas.h): FName has no constructor from a string and no
+ * comparison operators, and UObject has no GetFName(). */
+struct FName_ : public FName
+{
+    FName_(const TCHAR* Name, INT FindType = 1, UBOOL bSplitName = 1); /* 0x005d5620 */
+};
+
+inline UBOOL operator==(const FName& A, const FName& B) { return A.Index == B.Index && A.Number == B.Number; }
+
+static __forceinline FName GetFName(const UObject* Object)
+{
+    return Object->ObjectInternalInteger != INDEX_NONE ? (const FName_&)Object->Name : FName_(TEXT("<uninitialized>"));
+}
+
+// @baa 0x016d0910
+/* A fracture wall is never world geometry, whatever collision type it's given. */
+void ARFractureWallBase::PostEditChange(UProperty* PropertyThatChanged)
+{
+    if (PropertyThatChanged && GetFName(PropertyThatChanged) == FName_(TEXT("CollisionType")))
+    {
+        bWorldGeometry = FALSE;
+    }
+    Super::PostEditChange(PropertyThatChanged);
 }

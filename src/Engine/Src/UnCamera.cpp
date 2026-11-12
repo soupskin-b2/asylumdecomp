@@ -1,4 +1,4 @@
-// UnCamera.cpp: 25 functions
+// UnCamera.cpp: 26 functions
 // Placed here by: file 7, callers 3.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -84,4 +84,18 @@ bool ADynamicCameraActor::vf_004()
 void UCameraAnimInst::ApplyTransientScaling(FLOAT Scalar)
 {
     TransientScaleModifier *= Scalar;
+}
+
+// @baa 0x00787fd0
+/* Keeps the editor frustum in step with the camera's field of view and aspect ratio. */
+void ACameraActor::PostEditChange(UProperty* PropertyThatChanged)
+{
+    if (DrawFrustum)
+    {
+        DrawFrustum->FrustumAngle = FOVAngle;
+        DrawFrustum->FrustumStartDist = 10.f;
+        DrawFrustum->FrustumEndDist = 1000.f;
+        DrawFrustum->FrustumAspectRatio = AspectRatio;
+    }
+    Super::PostEditChange(PropertyThatChanged);
 }

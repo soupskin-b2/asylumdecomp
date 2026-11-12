@@ -1,4 +1,4 @@
-// Engine_0900000.cpp: 6 functions
+// Engine_0900000.cpp: 7 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -90,4 +90,12 @@ void USkeletalMeshComponent::execHideBone(FFrame& Stack, RESULT_DECL)
     P_GET_UBOOL(bTermBodiesBelow);
     P_FINISH;
     ((USkeletalMeshComponent__0090f000*)this)->HideBone(BoneIndex, bTermBodiesBelow);
+}
+
+// @baa 0x0090ede0
+void USkeletalMeshComponent::execFindAnimNode(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_NAME(InNodeName);
+	P_FINISH;
+	*(UAnimNode**)Result = Animations ? Animations->FindAnimNode(InNodeName) : NULL;
 }

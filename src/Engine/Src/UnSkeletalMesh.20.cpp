@@ -1,4 +1,4 @@
-// UnSkeletalMesh.cpp: 3 functions
+// UnSkeletalMesh.cpp: 4 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -297,3 +297,19 @@ public:
 
 // @baa 0x00959b90
 template void Sort<FDecalInteraction*, CompareUnSkeletalMeshFDecalInteractionPointer>(FDecalInteraction** First, INT Num);
+
+// @baa 0x00951e60
+/* The detailed info of the SkeletalMeshComponent, or "No_SkeletalMeshComponent". */
+FString ASkeletalMeshActor::GetDetailedInfoInternal()
+{
+    FString Result;
+    if (SkeletalMeshComponent != NULL)
+    {
+        Result = SkeletalMeshComponent->GetDetailedInfoInternal();
+    }
+    else
+    {
+        Result = TEXT("No_SkeletalMeshComponent");
+    }
+    return Result;
+}
