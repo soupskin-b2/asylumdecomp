@@ -1,4 +1,4 @@
-// UnAudioNodes.cpp (part 1 of 3): 231 functions
+// UnAudioNodes.cpp (part 1 of 3): 232 functions
 // Placed here by: neighbours 143, class 53, file 18, callers 7.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1311,4 +1311,35 @@ void USoundNode::PostEditChange(UProperty* PropertyThatChanged)
 {
     Super::PostEditChange(PropertyThatChanged);
     ((UObject_*)this)->MarkPackageDirty();
+}
+
+/* Kit gap: FUntypedBulkData::Serialize (0x00585e80) and RemoveBulkData (0x0056bfe0) aren't declared. */
+struct FUntypedBulkData_ : public FUntypedBulkData_Mirror
+{
+	void Serialize(FArchive& Ar, UObject* Owner, INT Index = -1);
+	void RemoveBulkData();
+};
+
+/* Kit gap: an engine flag (0x0266e874) under which loading drops the cooked payloads. */
+extern UBOOL g_0266e874;
+// @baa 0x00c93100
+void USoundNodeWave::Serialize(FArchive& Ar)
+{
+	Super::Serialize(Ar);
+	((FUntypedBulkData_&)RawData).Serialize(Ar, this);
+	((FUntypedBulkData_&)CompressedPCData).Serialize(Ar, this);
+	((FUntypedBulkData_&)CompressedXbox360Data).Serialize(Ar, this);
+	((FUntypedBulkData_&)CompressedPS3Data).Serialize(Ar, this);
+
+	if (Ar.Ver() < 539)
+	{
+		((FUntypedBulkData_&)CompressedPS3Data).RemoveBulkData();
+	}
+
+	if (Ar.IsLoading() && g_0266e874)
+	{
+		((FUntypedBulkData_&)CompressedPCData).RemoveBulkData();
+		((FUntypedBulkData_&)CompressedPS3Data).RemoveBulkData();
+		((FUntypedBulkData_&)CompressedXbox360Data).RemoveBulkData();
+	}
 }

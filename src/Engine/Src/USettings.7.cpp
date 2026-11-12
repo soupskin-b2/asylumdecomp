@@ -1,4 +1,4 @@
-// USettings.cpp: 1 function
+// USettings.cpp: 2 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -44,4 +44,22 @@ void FSettingsData_::SetData(FLOAT InData)
 	CleanUp();
 	Type = SDT_Float;
 	Value1 = *(INT*)&InData;
+}
+
+/* Kit gap: FName has no operator== (UE3's compares Index and Number). */
+inline UBOOL operator==(const FName& A, const FName& B) { return A.Index == B.Index && A.Number == B.Number; }
+
+// @baa 0x00d88830
+/* Drop the named session from the subsystem's list. */
+void UOnlineSubsystem::RemoveNamedSession(FName SessionName)
+{
+    for (INT SearchIndex = 0; SearchIndex < Sessions.Num(); SearchIndex++)
+    {
+        FNamedSession& Session = Sessions(SearchIndex);
+        if (Session.SessionName == SessionName)
+        {
+            Sessions.Remove(SearchIndex, 1);
+            return;
+        }
+    }
 }

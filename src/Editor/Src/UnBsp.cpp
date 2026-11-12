@@ -1,4 +1,4 @@
-// UnBsp.cpp (part 1 of 5): 106 functions
+// UnBsp.cpp (part 1 of 5): 107 functions
 // Placed here by: neighbours 105, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -938,3 +938,25 @@ undefined4 C_00eca500::sub_00eca500(byte param_2)
   }
   return param_1;
 }
+
+/* Kit gap (Array.h, issue #39): this build inlines TArray::operator() where the kit's plain-inline one is
+ * called out of line; same body, forced inline. */
+template<class T> struct TArrayAt_ : public TArray<T>
+{
+	using TArray<T>::ArrayNum;
+	__forceinline T& At(INT i)
+	{
+#line 560 BAA_ARRAY_FILE
+		check(i>=0 && (i<ArrayNum||(i==0 && ArrayNum==0)));
+		return this->GetTypedData()[i];
+	}
+};
+
+// @baa 0x00ec9cf0
+/* Vertex i of the built brush, or the origin when i is out of range (Native_48 is UE3's Vertices). */
+FVector UBrushBuilder::GetVertex(INT i)
+{
+	return (i >= 0 && i < Native_48.Num()) ? ((TArrayAt_<FVector>&)Native_48).At(i) : FVector(0, 0, 0);
+}
+
+#line 963 "candidate.cpp"

@@ -2,8 +2,8 @@
  "note": "Maintained by CI (tools/ci); every file is checked by python tools/asylum unit-check.",
  "totals": {
   "units": 1439,
-  "files": 5285,
-  "functions": 101119,
+  "files": 5292,
+  "functions": 101139,
   "failed": 0
  },
  "units": [
@@ -28013,6 +28013,16 @@
      "va": "01563940",
      "size": 16,
      "symbol": "?sub_01563940@C_01563940@@QAEPAU1@H@Z"
+    },
+    {
+     "va": "0156d990",
+     "size": 280,
+     "symbol": "?vf_19c@URAnimNode_AnimCapture@@UAEXPAUUSkeletalMeshComponent@@@Z"
+    },
+    {
+     "va": "0156d880",
+     "size": 265,
+     "symbol": "?GetBoneAtoms@URAnimNode_AnimCapture@@UAEXAAV?$TArray@UFBoneAtom@@@@ABV?$TArray@E@@AAUFBoneAtom@@AAH@Z"
     }
    ]
   },
@@ -47560,6 +47570,11 @@
      "va": "016aca60",
      "size": 47,
      "symbol": "?vf_364@ARPontoonBase@@UAEHXZ"
+    },
+    {
+     "va": "016aca90",
+     "size": 164,
+     "symbol": "?vf_36c@ARPontoonBase@@UAEHXZ"
     }
    ]
   },
@@ -115191,6 +115206,11 @@
      "va": "00eca500",
      "size": 30,
      "symbol": "?sub_00eca500@C_00eca500@@QAEIE@Z"
+    },
+    {
+     "va": "00ec9cf0",
+     "size": 127,
+     "symbol": "?GetVertex@UBrushBuilder@@UAE?AUFVector@@H@Z"
     }
    ]
   },
@@ -166256,6 +166276,23 @@
   },
   {
    "unit": "Engine/Src/MaterialExpressions.cpp",
+   "source": "Engine/Src/MaterialExpressions.4.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "00c30250",
+     "size": 179,
+     "symbol": "?vf_128@UMaterialExpressionFontSampleParameter@@UAE?AVFString@@XZ"
+    },
+    {
+     "va": "00c2f3c0",
+     "size": 182,
+     "symbol": "?vf_128@UMaterialExpressionTextureSampleParameter@@UAE?AVFString@@XZ"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Src/MaterialExpressions.cpp",
    "source": "Engine/Src/MaterialExpressions.cpp",
    "profile": "ue3",
    "functions": [
@@ -181269,6 +181306,30 @@
   },
   {
    "unit": "Engine/Src/UOnlineProfileSettings.cpp",
+   "source": "Engine/Src/UOnlineProfileSettings.8.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "00d73920",
+     "size": 458,
+     "symbol": "?AppendVersionToSettings@UOnlineProfileSettings@@UAEXXZ"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Src/UOnlineProfileSettings.cpp",
+   "source": "Engine/Src/UOnlineProfileSettings.9.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "00d81460",
+     "size": 401,
+     "symbol": "?vf_178@UOnlineProfileSettings@@UAEXXZ"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Src/UOnlineProfileSettings.cpp",
    "source": "Engine/Src/UOnlineProfileSettings.cpp",
    "profile": "ue3",
    "functions": [
@@ -182163,6 +182224,30 @@
   },
   {
    "unit": "Engine/Src/USettings.cpp",
+   "source": "Engine/Src/USettings.33.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "00d74070",
+     "size": 391,
+     "symbol": "?vf_10c@UOnlineSubsystem@@UAEHXZ"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Src/USettings.cpp",
+   "source": "Engine/Src/USettings.34.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "00d7a060",
+     "size": 587,
+     "symbol": "?UpdateProperties@USettings@@UAEXABV?$TArray@UFSettingsProperty@@@@H@Z"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Src/USettings.cpp",
    "source": "Engine/Src/USettings.4.cpp",
    "profile": "ue3",
    "functions": [
@@ -182206,6 +182291,11 @@
      "va": "00d6e320",
      "size": 45,
      "symbol": "?SetData@FSettingsData_@@QAEXN@Z"
+    },
+    {
+     "va": "00d88830",
+     "size": 136,
+     "symbol": "?RemoveNamedSession@UOnlineSubsystem@@UAEXUFName@@@Z"
     }
    ]
   },
@@ -195642,6 +195732,11 @@
      "va": "00c92f50",
      "size": 26,
      "symbol": "?PostEditChange@USoundNode@@UAEXPAUUProperty@@@Z"
+    },
+    {
+     "va": "00c93100",
+     "size": 145,
+     "symbol": "?Serialize@USoundNodeWave@@UAEXAAVFArchive@@@Z"
     }
    ]
   },
@@ -199765,6 +199860,18 @@
      "va": "007b1890",
      "size": 200,
      "symbol": "?sub_007b1890@UFracturedStaticMeshComponent_@@QAEXXZ"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Src/UnFracturedStaticMesh.cpp",
+   "source": "Engine/Src/UnFracturedStaticMesh.12.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "007b8990",
+     "size": 197,
+     "symbol": "?vf_37c@AFracturedStaticMeshActor@@UAEXH@Z"
     }
    ]
   },
@@ -206724,6 +206831,11 @@
      "va": "00c9df60",
      "size": 190,
      "symbol": "?execGetFloatParameter@UParticleSystemComponent@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "00c9d1d0",
+     "size": 143,
+     "symbol": "?execSetBeamType@UParticleSystemComponent@@QAEXAAUFFrame@@QAX@Z"
     }
    ]
   },
@@ -214130,6 +214242,11 @@
      "va": "00a17b50",
      "size": 46,
      "symbol": "?GetDesc@UPhysicsAsset@@UAE?AVFString@@XZ"
+    },
+    {
+     "va": "00a17b80",
+     "size": 212,
+     "symbol": "?GetDetailedDescription@UPhysicsAsset@@UAE?AVFString@@H@Z"
     }
    ]
   },
@@ -214844,6 +214961,16 @@
      "va": "00a01dd0",
      "size": 32,
      "symbol": "?vf_114@URB_RadialImpulseComponent@@UAEXXZ"
+    },
+    {
+     "va": "00a110c0",
+     "size": 256,
+     "symbol": "?vf_1f4@USkeletalMeshComponent@@UAEHH@Z"
+    },
+    {
+     "va": "009ff710",
+     "size": 21,
+     "symbol": "?vf_1f4@UPrimitiveComponent@@UAEHH@Z"
     }
    ]
   },
@@ -216910,6 +217037,11 @@
      "va": "0088a1c0",
      "size": 134,
      "symbol": "?vf_310@APostProcessVolume@@UAEXH@Z"
+    },
+    {
+     "va": "0088a250",
+     "size": 199,
+     "symbol": "?vf_314@APostProcessVolume@@UAEXH@Z"
     }
    ]
   },
@@ -293300,6 +293432,11 @@
      "va": "008358f0",
      "size": 53,
      "symbol": "?GetBoundingCylinder@ANavigationPoint@@UAEXAAM0@Z"
+    },
+    {
+     "va": "0083eb20",
+     "size": 188,
+     "symbol": "?vf_31c@ANavigationPoint@@UAEXH@Z"
     }
    ]
   },
@@ -354682,6 +354819,18 @@
      "va": "01537ee0",
      "size": 91,
      "symbol": "??1URPlayerInputBase@@UAE@XZ"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Unsorted/Engine_1560000.cpp",
+   "source": "Engine/Unsorted/Engine_1560000.2.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "01566d10",
+     "size": 189,
+     "symbol": "?vf_364@ARElectrifiedFloorPanel@@UAEXXZ"
     }
    ]
   },

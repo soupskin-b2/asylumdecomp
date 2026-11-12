@@ -1,4 +1,4 @@
-// UnPhysAsset.cpp: 6 functions
+// UnPhysAsset.cpp: 7 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -146,4 +146,27 @@ struct FString_ : public FString
 FString UPhysicsAsset::GetDesc()
 {
 	return FString_::Printf(TEXT("%d Bodies, %d Constraints"), BodySetup.Num(), ConstraintSetup.Num());
+}
+
+/* Kit gap: FString::Printf (0x005488a0) isn't declared. */
+struct FString__00a17b80 : public FString
+{
+	static FString Printf(const TCHAR* Fmt, ...);
+};
+
+// @baa 0x00a17b80
+/* The lines under the asset's thumbnail in the browser. */
+FString UPhysicsAsset::GetDetailedDescription(INT InIndex)
+{
+	FString Description = TEXT("");
+	switch (InIndex)
+	{
+	case 0:
+		Description = FString__00a17b80::Printf(TEXT("%d Bodies"), BodySetup.Num());
+		break;
+	case 1:
+		Description = FString__00a17b80::Printf(TEXT("%d Constraints"), ConstraintSetup.Num());
+		break;
+	}
+	return Description;
 }

@@ -1,4 +1,4 @@
-// BmGame_16a0000.cpp (part 1 of 2): 135 functions
+// BmGame_16a0000.cpp (part 1 of 2): 136 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -752,4 +752,36 @@ URAnimNode_AnimTransform* ARPontoonBase::GetAnimTransformNode(UBOOL bOther)
 INT ARPontoonBase::vf_364()
 {
 	return (AnimNode1 && AnimNode1->bPlaying) || (AnimNode2 && AnimNode2->bPlaying);
+}
+
+/* Slot 0x36c (unnamed in the kit): eases pitch and roll 5% of the way to TargetRotation (yaw is kept), noting
+ * whether the pontoon has settled, then clears the target's pitch and roll. */
+struct FRotator_ : public FRotator
+{
+	FRotator_(const FRotator& R) : FRotator(R) {}
+	UBOOL operator!=(const FRotator& R) const { return Pitch != R.Pitch || Yaw != R.Yaw || Roll != R.Roll; }
+	UBOOL operator==(const FRotator& R) const { return Pitch == R.Pitch && Yaw == R.Yaw && Roll == R.Roll; }
+};
+
+// @baa 0x016aca90
+INT ARPontoonBase::vf_36c()
+{
+	if (((FRotator_&)Rotation) != TargetRotation)
+	{
+		FRotator NewRotation = Rotation;
+		NewRotation.Pitch += (INT)((TargetRotation.Pitch - NewRotation.Pitch) * 0.05f);
+		NewRotation.Roll += (INT)((TargetRotation.Roll - NewRotation.Roll) * 0.05f);
+		if (((FRotator_&)NewRotation) == Rotation)
+		{
+			bInPosition = TRUE;
+		}
+		else
+		{
+			bInPosition = FALSE;
+		}
+		sub_008a7f10(NewRotation);
+	}
+	TargetRotation.Roll = 0;
+	TargetRotation.Pitch = 0;
+	return 0;
 }

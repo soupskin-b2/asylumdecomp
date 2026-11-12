@@ -1,4 +1,4 @@
-// UnParticleComponents.cpp: 9 functions
+// UnParticleComponents.cpp: 10 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -89,4 +89,14 @@ void UParticleSystemComponent::execGetFloatParameter(FFrame& Stack, RESULT_DECL)
 	P_GET_FLOAT_REF(OutFloat);
 	P_FINISH;
 	*(UBOOL*)Result = GetFloatParameter(InName, OutFloat);
+}
+
+// @baa 0x00c9d1d0
+/* Script native SetBeamType(int EmitterIndex, int NewMethod): forwards to the virtual. */
+void UParticleSystemComponent::execSetBeamType(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_INT(EmitterIndex);
+    P_GET_INT(NewMethod);
+    P_FINISH;
+    SetBeamType(EmitterIndex, NewMethod);
 }

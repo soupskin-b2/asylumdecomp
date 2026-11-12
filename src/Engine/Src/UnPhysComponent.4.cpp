@@ -1,4 +1,4 @@
-// UnPhysComponent.cpp: 5 functions
+// UnPhysComponent.cpp: 7 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -74,4 +74,64 @@ void URB_RadialImpulseComponent::vf_114()
     {
         PreviewSphere->SphereRadius = ImpulseRadius;
     }
+}
+
+/* Kit gap (Array.h, issue #39): this build inlines TArray::operator() where the kit's plain-inline one is
+ * called out of line; same body, forced inline. */
+template<class T> struct TArrayAt_ : public TArray<T>
+{
+	using TArray<T>::ArrayNum;
+	__forceinline T& At(INT i)
+	{
+#line 560 BAA_ARRAY_FILE
+		check(i>=0 && (i<ArrayNum||(i==0 && ArrayNum==0)));
+		return this->GetTypedData()[i];
+	}
+};
+
+// @baa 0x00a110c0
+/* Slot 0x1f4 (unnamed in the kit; UE3's GetNxActor): the physics actor of body BodyIndex (the root body for
+ * INDEX_NONE), or of the component's single body when there's no physics asset instance. */
+INT USkeletalMeshComponent::vf_1f4(INT BodyIndex)
+{
+	if (PhysicsAssetInstance)
+	{
+		if (PhysicsAssetInstance->Bodies.Num() == 0)
+		{
+			return 0;
+		}
+#line 1258 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPhysComponent.cpp"
+		check(PhysicsAsset);
+
+		URB_BodyInstance* BodyInst;
+		if (BodyIndex == INDEX_NONE)
+		{
+			BodyInst = ((TArrayAt_<URB_BodyInstance*>&)PhysicsAssetInstance->Bodies).At(PhysicsAssetInstance->RootBodyIndex);
+		}
+		else
+		{
+			BodyInst = ((TArrayAt_<URB_BodyInstance*>&)PhysicsAssetInstance->Bodies).At(BodyIndex);
+		}
+#line 1272 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPhysComponent.cpp"
+		check(BodyInst);
+		return BodyInst->BodyData.Dummy;
+	}
+	else if (BodyInstance)
+	{
+		return BodyInstance->BodyData.Dummy;
+	}
+	return 0;
+}
+
+#line 127 "candidate.cpp"
+
+// @baa 0x009ff710
+/* Slot 0x1f4 (unnamed in the kit; UE3's GetNxActor): the physics actor of the component's body, if any. */
+INT UPrimitiveComponent::vf_1f4(INT BodyIndex)
+{
+	if (BodyInstance)
+	{
+		return BodyInstance->BodyData.Dummy;
+	}
+	return 0;
 }
