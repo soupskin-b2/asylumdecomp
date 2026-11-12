@@ -1,4 +1,4 @@
-// UnParticleComponents.cpp: 8 functions
+// UnParticleComponents.cpp: 9 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -80,4 +80,13 @@ void UParticleSystemComponent::execSetBeamDistance(FFrame& Stack, RESULT_DECL)
 	P_GET_FLOAT(Distance);
 	P_FINISH;
 	SetBeamDistance(EmitterIndex, Distance);
+}
+
+// @baa 0x00c9df60
+void UParticleSystemComponent::execGetFloatParameter(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_NAME(InName);
+	P_GET_FLOAT_REF(OutFloat);
+	P_FINISH;
+	*(UBOOL*)Result = GetFloatParameter(InName, OutFloat);
 }

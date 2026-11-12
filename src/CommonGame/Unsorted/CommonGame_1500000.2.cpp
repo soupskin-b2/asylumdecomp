@@ -1,4 +1,4 @@
-// CommonGame_1500000.cpp (part 2 of 3): 40 functions
+// CommonGame_1500000.cpp (part 2 of 3): 41 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -307,4 +307,13 @@ void URFlagManager::execSetGlobalFlag(FFrame& Stack, RESULT_DECL)
 	P_GET_UBOOL(Value);
 	P_FINISH;
 	*(UBOOL*)Result = SetGlobalFlag(FlagName, Value);
+}
+
+// @baa 0x0150ba10
+void ARHUDBase::execGetPromptYPosition(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(scr_width);
+	P_GET_INT(scr_height);
+	P_FINISH;
+	*(INT*)Result = GetPromptYPosition(scr_width, scr_height);
 }

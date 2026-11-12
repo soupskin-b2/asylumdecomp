@@ -1,4 +1,4 @@
-// R3rdPersonCamera.cpp: 1 function
+// R3rdPersonCamera.cpp: 2 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -33,4 +33,46 @@ FVector AR3rdPersonCamera_::sub_01689920(const FVector& Target, FLOAT DeltaTime)
         ChasePosition = (const FVector_&)Target + ((const FVector_&)ChasePosition - Target) * (FLOAT)appExp(-(DeltaTime * SmoothingConfigStrength));
     }
     return ChasePosition;
+}
+
+struct AR3rdPersonCamera__01689170 : AR3rdPersonCamera
+{
+    void sub_01689170(); /* 0x01689170 */
+};
+
+// @baa 0x01689170
+void AR3rdPersonCamera__01689170::sub_01689170()
+{
+    const FLOAT DegreesToRadians = 3.14159265358979323846f / 180.0f;
+    const FLOAT InvSqrtTwo = 0.70710678118654752440f;
+    {
+        ZoomPointDir[0] = FVector(1.0f, 0.0f, 0.0f);
+        const FLOAT Angle = ZoomPointAngle * DegreesToRadians;
+        const FLOAT CosAngle = appCos(Angle);
+        const FLOAT SinAngle = appSin(Angle);
+        const FLOAT Diagonal = SinAngle * InvSqrtTwo;
+        ZoomPointDir[1] = FVector(CosAngle, Diagonal, Diagonal);
+        ZoomPointDir[2] = FVector(CosAngle, Diagonal, -Diagonal);
+        ZoomPointDir[3] = FVector(CosAngle, -Diagonal, Diagonal);
+        ZoomPointDir[4] = FVector(CosAngle, -Diagonal, -Diagonal);
+        ZoomPointDir[5] = FVector(CosAngle, SinAngle, 0.0f);
+        ZoomPointDir[6] = FVector(CosAngle, -SinAngle, 0.0f);
+        ZoomPointDir[7] = FVector(CosAngle, 0.0f, SinAngle);
+        ZoomPointDir[8] = FVector(CosAngle, 0.0f, -SinAngle);
+    }
+    {
+        TightZoomPointDir[0] = FVector(1.0f, 0.0f, 0.0f);
+        const FLOAT Angle = TightZoomPointAngle * DegreesToRadians;
+        const FLOAT CosAngle = appCos(Angle);
+        const FLOAT SinAngle = appSin(Angle);
+        const FLOAT Diagonal = SinAngle * InvSqrtTwo;
+        TightZoomPointDir[1] = FVector(CosAngle, Diagonal, Diagonal);
+        TightZoomPointDir[2] = FVector(CosAngle, Diagonal, -Diagonal);
+        TightZoomPointDir[3] = FVector(CosAngle, -Diagonal, Diagonal);
+        TightZoomPointDir[4] = FVector(CosAngle, -Diagonal, -Diagonal);
+        TightZoomPointDir[5] = FVector(CosAngle, SinAngle, 0.0f);
+        TightZoomPointDir[6] = FVector(CosAngle, -SinAngle, 0.0f);
+        TightZoomPointDir[7] = FVector(CosAngle, 0.0f, SinAngle);
+        TightZoomPointDir[8] = FVector(CosAngle, 0.0f, -SinAngle);
+    }
 }

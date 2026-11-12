@@ -2,8 +2,8 @@
  "note": "Maintained by CI (tools/ci); every file is checked by python tools/asylum unit-check.",
  "totals": {
   "units": 1439,
-  "files": 5213,
-  "functions": 100693,
+  "files": 5215,
+  "functions": 100717,
   "failed": 0
  },
  "units": [
@@ -5368,6 +5368,11 @@
      "va": "01689920",
      "size": 274,
      "symbol": "?sub_01689920@AR3rdPersonCamera_@@QAE?AUFVector@@ABU2@M@Z"
+    },
+    {
+     "va": "01689170",
+     "size": 1003,
+     "symbol": "?sub_01689170@AR3rdPersonCamera__01689170@@QAEXXZ"
     }
    ]
   },
@@ -20489,6 +20494,11 @@
      "va": "0171df30",
      "size": 182,
      "symbol": "?execFE_StopSoundFromString@ARPlayerController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "0171d3c0",
+     "size": 703,
+     "symbol": "?execLive_StoreSaveInfo@ARPlayerController@@QAEXAAUFFrame@@QAX@Z"
     }
    ]
   },
@@ -59198,6 +59208,11 @@
      "va": "0150cad0",
      "size": 179,
      "symbol": "?execSetGlobalFlag@URFlagManager@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "0150ba10",
+     "size": 149,
+     "symbol": "?execGetPromptYPosition@ARHUDBase@@QAEXAAUFFrame@@QAX@Z"
     }
    ]
   },
@@ -180296,6 +180311,50 @@
   },
   {
    "unit": "Engine/Src/UOnlineProfileSettings.cpp",
+   "source": "Engine/Src/UOnlineProfileSettings.6.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "00d73b60",
+     "size": 270,
+     "symbol": "?vf_164@UOnlineProfileSettings@@UAEXXZ"
+    },
+    {
+     "va": "00d73040",
+     "size": 424,
+     "symbol": "?SetProfileSettingValueId@UOnlineProfileSettings@@UAEHHH@Z"
+    },
+    {
+     "va": "00d731f0",
+     "size": 406,
+     "symbol": "?SetProfileSettingValueInt@UOnlineProfileSettings@@UAEHHH@Z"
+    },
+    {
+     "va": "00d73390",
+     "size": 418,
+     "symbol": "?SetProfileSettingValueFloat@UOnlineProfileSettings@@UAEHHM@Z"
+    },
+    {
+     "va": "00d72a10",
+     "size": 776,
+     "symbol": "?SetProfileSettingValue@UOnlineProfileSettings@@UAEHHABVFString@@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Src/UOnlineProfileSettings.cpp",
+   "source": "Engine/Src/UOnlineProfileSettings.7.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "00d72d20",
+     "size": 320,
+     "symbol": "?GetProfileSettingValueId@UOnlineProfileSettings@@UAEHHAAHPAH@Z"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Src/UOnlineProfileSettings.cpp",
    "source": "Engine/Src/UOnlineProfileSettings.cpp",
    "profile": "ue3",
    "functions": [
@@ -181347,6 +181406,16 @@
      "va": "00d79720",
      "size": 124,
      "symbol": "?GetData@FSettingsData_@@QBEXAAV?$TArray@E@@@Z"
+    },
+    {
+     "va": "00d743a0",
+     "size": 568,
+     "symbol": "?SetStringSettingValue@USettings@@UAEXHHH@Z"
+    },
+    {
+     "va": "00d74690",
+     "size": 585,
+     "symbol": "?IncrementStringSettingValue@USettings@@UAEHHHH@Z"
     }
    ]
   },
@@ -205018,6 +205087,11 @@
      "va": "00c9d3a0",
      "size": 147,
      "symbol": "?execSetBeamDistance@UParticleSystemComponent@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "00c9df60",
+     "size": 190,
+     "symbol": "?execGetFloatParameter@UParticleSystemComponent@@QAEXAAUFFrame@@QAX@Z"
     }
    ]
   },
@@ -238278,6 +238352,61 @@
      "va": "00daf4f0",
      "size": 325,
      "symbol": "?FindChildUsingID@UUIScreenObject@@QBEPAUUUIObject@@UFWIDGET_ID@@H@Z"
+    },
+    {
+     "va": "00db5b00",
+     "size": 33,
+     "symbol": "?vf_01c@UUIObject@@UAEXXZ"
+    },
+    {
+     "va": "00dc8f60",
+     "size": 37,
+     "symbol": "?SetAnchorPosition@UUIObject@@QAEXUFVector@@E@Z"
+    },
+    {
+     "va": "00daa860",
+     "size": 42,
+     "symbol": "?sub_00daa860@UUIObject@@QAEXH@Z"
+    },
+    {
+     "va": "00daa820",
+     "size": 45,
+     "symbol": "?sub_00daa820@UUIObject@@QAEHPAU1@@Z"
+    },
+    {
+     "va": "00db5ac0",
+     "size": 59,
+     "symbol": "?sub_00db5ac0@UUIObject_@@QAEXAAV?$TArray@PAVUUIDataStore@@@@@Z"
+    },
+    {
+     "va": "00db1250",
+     "size": 19,
+     "symbol": "?CanAcceptFocus@UUIObject@@UAEHH@Z"
+    },
+    {
+     "va": "00daab70",
+     "size": 29,
+     "symbol": "?sub_00daab70@UUIObject__00daab70@@QAEHHH@Z"
+    },
+    {
+     "va": "00dc45f0",
+     "size": 100,
+     "symbol": "?ContainsPoint@UUIObject@@UAEHABUFVector2D@@@Z"
+    },
+    {
+     "va": "00daa990",
+     "size": 153,
+     "symbol": "?vf_1fc@UUIObject@@UAEHHHHH@Z"
+    },
+    {
+     "va": "00db0f20",
+     "size": 163,
+     "symbol": "?vf_23c@UUIObject@@UAEHH@Z"
+    },
+    {
+     "va": "00daaaa0",
+     "size": 202,
+     "symbol": "?vf_200@UUIObject@@UAEHHHHH@Z"
     }
    ]
   },
@@ -339430,6 +339559,11 @@
      "va": "00cb72c0",
      "size": 143,
      "symbol": "?execPasteFromClipboard@APlayerController@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "00cb7210",
+     "size": 176,
+     "symbol": "?execCopyToClipboard@APlayerController@@QAEXAAUFFrame@@QAX@Z"
     }
    ]
   },

@@ -1,4 +1,4 @@
-// RPlayerController.cpp: 31 functions
+// RPlayerController.cpp: 32 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -487,4 +487,20 @@ void ARPlayerController::execFE_StopSoundFromString(FFrame& Stack, RESULT_DECL)
 	P_GET_STR(Cmd);
 	P_FINISH;
 	*(UBOOL*)Result = FE_StopSoundFromString(Cmd);
+}
+
+// @baa 0x0171d3c0
+void ARPlayerController::execLive_StoreSaveInfo(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(Id);
+	P_GET_STR(Difficulty);
+	P_GET_STR(Percentage);
+	P_GET_STR(TimePlayed);
+	P_GET_STR(RoomName);
+	P_GET_STR(ChallengeStr);
+	P_GET_STR(RiddlerStr);
+	P_GET_STR(UpgradesStr);
+	P_GET_STR(BioStr);
+	P_FINISH;
+	Live_StoreSaveInfo(Id, Difficulty, Percentage, TimePlayed, RoomName, ChallengeStr, RiddlerStr, UpgradesStr, BioStr);
 }
