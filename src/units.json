@@ -515323,6 +515323,11 @@
    "includes": [],
    "functions": [
     {
+     "va": "01a1aa00",
+     "size": 20,
+     "symbol": "_write_marker_byte"
+    },
+    {
      "va": "01a1a450",
      "size": 53,
      "symbol": "_emit_byte"
@@ -515760,6 +515765,16 @@
    "includes": [],
    "functions": [
     {
+     "va": "01a121d0",
+     "size": 71,
+     "symbol": "_jpeg_input_complete"
+    },
+    {
+     "va": "01a12100",
+     "size": 195,
+     "symbol": "_jpeg_consume_input"
+    },
+    {
      "va": "01a11e10",
      "size": 242,
      "symbol": "_jpeg_CreateDecompress"
@@ -515793,6 +515808,11 @@
    "profile": "libjpeg",
    "includes": [],
    "functions": [
+    {
+     "va": "01a14680",
+     "size": 146,
+     "symbol": "_jpeg_finish_output"
+    },
     {
      "va": "01a143f0",
      "size": 200,
@@ -515943,6 +515963,11 @@
    "profile": "libjpeg",
    "includes": [],
    "functions": [
+    {
+     "va": "01a19500",
+     "size": 330,
+     "symbol": "_start_pass_huff_decoder"
+    },
     {
      "va": "01a18b60",
      "size": 724,
@@ -516542,6 +516567,11 @@
    "includes": [],
    "functions": [
     {
+     "va": "01a259b0",
+     "size": 59,
+     "symbol": "_jpeg_idct_1x1"
+    },
+    {
      "va": "01a25220",
      "size": 793,
      "symbol": "_jpeg_idct_4x4"
@@ -516718,6 +516748,11 @@
    "profile": "libjpeg",
    "includes": [],
    "functions": [
+    {
+     "va": "01a1f470",
+     "size": 120,
+     "symbol": "_prescan_quantize"
+    },
     {
      "va": "01a1f4f0",
      "size": 44,

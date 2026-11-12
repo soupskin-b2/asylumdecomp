@@ -4,8 +4,6 @@
 #include "ue3/Classes.h"
 #include <string.h>
 
-/* EParticleSysParamType */
-enum { PSPT_None = 0, PSPT_Scalar = 1, PSPT_Vector = 2, PSPT_Color = 3, PSPT_Actor = 4, PSPT_Material = 5 };
 static inline UBOOL operator==(const FName& A, const FName& B) { return A.Index == B.Index && A.Number == B.Number; }
 
 /* The exe calls TArray<FParticleSysParam>::Add out of line (00b520f0); AddZeroed is inline around it. */

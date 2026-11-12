@@ -27,12 +27,6 @@ void AnimationFormat_SetInterfaceLinks( UAnimSequence& Seq );
 UObject* StaticDuplicateObject( UObject* SourceObject, UObject* RootObject, UObject* DestOuter, const TCHAR* DestName, QWORD FlagMask = ~0, UClass* DestClass = NULL, void* InstanceGraph = NULL );
 /* Core's UObject::MarkPackageDirty (0x005d9570), not declared on UObject in Classes.h. */
 
-enum AnimationKeyFormat
-{
-	AKF_ConstantKeyLerp,
-	AKF_VariableKeyLerp,
-	AKF_MAX,
-};
 
 #define TRIVIAL_TRANSLATION_DIFF	0.0001f
 #define TRIVIAL_ROTATION_DIFF		0.0003f

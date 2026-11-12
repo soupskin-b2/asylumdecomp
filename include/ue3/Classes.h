@@ -6,6 +6,7 @@
  */
 #pragma once
 #include "Array.h"
+#include "Enums.h"
 
 #ifndef BAA_UE3_CLASSES
 #define BAA_UE3_CLASSES

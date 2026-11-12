@@ -548,13 +548,6 @@ void UUIScreenObject::execCanAcceptFocus(FFrame& Stack, RESULT_DECL)
 	*(UBOOL*)Result = CanAcceptFocus(PlayerIndex);
 }
 
-enum EInputPlatformType
-{
-	IPT_PC,
-	IPT_360,
-	IPT_PS3,
-	IPT_MAX,
-};
 
 struct UUIRoot_ : public UUIRoot
 {
@@ -581,17 +574,6 @@ void UUIRoot_::execGetInputPlatformType(FFrame& Stack, RESULT_DECL)
 	*(BYTE*)Result = GetInputPlatformType(OwningPlayer);
 }
 
-enum EPositionEvalType
-{
-	EVALPOS_None,
-	EVALPOS_PixelViewport,
-	EVALPOS_PixelScene,
-	EVALPOS_PixelOwner,
-	EVALPOS_PercentageViewport,
-	EVALPOS_PercentageOwner,
-	EVALPOS_PercentageScene,
-	EVALPOS_MAX,
-};
 
 struct UUIObject__00ca5180 : public UUIObject
 {
@@ -757,14 +739,6 @@ void UUIScreenObject__00ca3710::execFindChildUsingID(FFrame& Stack, RESULT_DECL)
 	*(UUIObject**)Result = FindChildUsingID(WidgetID, bRecurse);
 }
 
-enum EUIWidgetFace
-{
-	UIFACE_Left,
-	UIFACE_Top,
-	UIFACE_Right,
-	UIFACE_Bottom,
-	UIFACE_MAX,
-};
 
 struct UUIObject__00ca5a50 : public UUIObject
 {
@@ -813,15 +787,6 @@ void UUIObject__00ca5bb0::execSetForcedNavigationTarget(FFrame& Stack, RESULT_DE
 	*(UBOOL*)Result = SetForcedNavigationTarget(Face, NavTarget, bIsNullOverride);
 }
 
-enum EUIExtentEvalType
-{
-	UIEXTENTEVAL_Pixels,
-	UIEXTENTEVAL_PercentSelf,
-	UIEXTENTEVAL_PercentOwner,
-	UIEXTENTEVAL_PercentScene,
-	UIEXTENTEVAL_PercentViewport,
-	UIEXTENTEVAL_MAX,
-};
 
 struct UUIScreenObject__00ca4980 : public UUIScreenObject
 {
@@ -1402,12 +1367,6 @@ void UUIObject__00ca6140::execFindStyleSubscriberIndexById(FFrame& Stack, RESULT
 	*(INT*)Result = FindStyleSubscriberIndexById(StyleSubscriberId);
 }
 
-enum ESplitScreenRenderMode
-{
-	SPLITRENDER_Fullscreen,
-	SPLITRENDER_PlayerOwner,
-	SPLITRENDER_MAX,
-};
 
 struct UUIScene__00cb4040 : public UUIScene
 {

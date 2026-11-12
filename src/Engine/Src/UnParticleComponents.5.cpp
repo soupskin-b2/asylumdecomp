@@ -257,16 +257,6 @@ void UParticleSystemComponent__00c9de10::execSetMaterialParameter(FFrame& Stack,
 	SetMaterialParameter(ParameterName, Param);
 }
 
-enum EParticleSysParamType
-{
-	PSPT_None,
-	PSPT_Scalar,
-	PSPT_Vector,
-	PSPT_Color,
-	PSPT_Actor,
-	PSPT_Material,
-	PSPT_MAX,
-};
 
 struct UParticleSystemComponent__00c9e300 : public UParticleSystemComponent
 {

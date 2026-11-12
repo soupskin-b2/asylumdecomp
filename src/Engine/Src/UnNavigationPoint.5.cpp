@@ -109,30 +109,7 @@ void ACoverLink::execIsExposedTo(FFrame& Stack, RESULT_DECL)
 	*(UBOOL*)Result = IsExposedTo(SlotIdx, ChkSlot, out_ExposedScale);
 }
 
-enum ECoverType
-{
-	CT_None,
-	CT_Standing,
-	CT_MidLevel,
-	CT_MAX,
-};
 
-enum ECoverAction
-{
-	CA_Default,
-	CA_BlindLeft,
-	CA_BlindRight,
-	CA_LeanLeft,
-	CA_LeanRight,
-	CA_StepLeft,
-	CA_StepRight,
-	CA_PopUp,
-	CA_BlindUp,
-	CA_PeekLeft,
-	CA_PeekRight,
-	CA_PeekUp,
-	CA_MAX,
-};
 
 // @baa 0x00c88290
 void ACoverLink::execGetSlotViewPoint(FFrame& Stack, RESULT_DECL)

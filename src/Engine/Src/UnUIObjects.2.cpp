@@ -14,7 +14,6 @@ void UUIObject::execSetWidgetStyleByName(FFrame& Stack, RESULT_DECL)
 }
 
 /* Engine.UIRoot.EUIWidgetFace (not in Classes.h) */
-enum EUIWidgetFace { UIFACE_Left, UIFACE_Top, UIFACE_Right, UIFACE_Bottom, UIFACE_MAX };
 
 // @baa 0x00cc7650
 void UUIScreenObject::execGetDockedWidgets(FFrame& Stack, RESULT_DECL)

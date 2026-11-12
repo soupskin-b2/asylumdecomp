@@ -85,13 +85,6 @@ void UUISkin::execAddUISoundCue(FFrame& Stack, RESULT_DECL)
 	*(UBOOL*)Result = AddUISoundCue(SoundCueName, SoundToPlay);
 }
 
-enum EInputPlatformType
-{
-	IPT_PC,
-	IPT_360,
-	IPT_PS3,
-	IPT_MAX,
-};
 
 // @baa 0x00ca2560
 void UUIDataStore_InputAlias::execGetAliasInputKeyNameByIndex(FFrame& Stack, RESULT_DECL)

@@ -161,7 +161,8 @@ happened; on HTTP 429 or 503 wait as told, don't retry in a loop.
 ## Writing the source
 
 - One function per file. Include what you use: `#include "ue3/Classes.h"` for engine classes (fields by
-  name, real virtual methods), `"ue3/Core.h"` for the basic types, `"ue3/AppMath.h"` for UE3's math
+  name, real virtual methods, and the script enums from `ue3/Enums.h`: `SPLITRENDER_MAX`, `NM_Client`
+  ...; don't define them again), `"ue3/Core.h"` for the basic types (and `EName`: `NAME_None` ...), `"ue3/AppMath.h"` for UE3's math
   (`appPow`, `appSqrt`, `appTrunc` (its inline assembly is the `cvttss2si` from memory), `appRound`,
   `appRand`, `appFrand`, `appSRand`, `Abs`, `Min`, `Max`, `Clamp`, `Square`, `Lerp`: don't redefine them),
   `"ue3/Script.h"` for natives (`P_GET_*`, `GError`, `PURE_VIRTUAL(Class::Func, return 0;)` for the
