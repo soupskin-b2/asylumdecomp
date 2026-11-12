@@ -22,7 +22,9 @@ CH = 8.4          # width of one character at 14px in a monospace font (for trun
 
 
 def fmt_bytes(n):
-    return "%.1f MB" % (n / 1048576) if n >= 1048576 else "%d KB" % round(n / 1024)
+    if n >= 1048576:
+        return "%.1f MB" % (n / 1048576)
+    return "%d KB" % round(n / 1024) if n >= 1024 else "%d B" % n
 
 
 def cut(s, n):
@@ -146,13 +148,13 @@ def contributors(s, t, top=25):   # capped so the image stays small whatever the
 
 
 def models(s, t, top=20):
-    """Functions matched per model, as bars: the top 19 and 'other' when there are more than 20."""
+    """Code matched per model, as bars: the top 19 and 'other' when there are more than 20."""
     ms = s["models"]
     shown = ms[:top - 1] if len(ms) > top else ms
-    rest = sum(m["functions"] for m in ms[len(shown):])
-    items = [(m["model"], m["functions"]) for m in shown] + ([("other", rest)] if rest else [])
-    g = Svg(t, 16 + 30 * len(items))
-    lw = 230
+    rest = sum(m["bytes"] for m in ms[len(shown):])
+    items = [(m["model"], m["bytes"]) for m in shown] + ([("other", rest)] if rest else [])
+    g = Svg(t, 30 + 30 * len(items))
+    lw = 280
     mx = max([v for _, v in items] or [1])
     y = 20
     for name, v in items:
@@ -160,8 +162,9 @@ def models(s, t, top=20):
         bx0, bx1 = lw + 12, W - 90
         g.rect(bx0, y - 10, bx1 - bx0, 10, g.t["track"], g.t["line"])
         g.rect(bx0, y - 10, (bx1 - bx0) * v / mx, 10, g.t["fill"])
-        g.text(W, y, format(v, ","), anchor="end")
+        g.text(W, y, fmt_bytes(v), anchor="end")
         y += 30
+    g.text(W, y - 4, "by code", "dim", 12, anchor="end")
     return g.render()
 
 

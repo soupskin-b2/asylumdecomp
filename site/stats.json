@@ -106,7 +106,7 @@
     "Qwen3.8 27B": 1935,
     "GPT-6.1 Sol": 296,
     "Muse Spark 1.3": 204,
-    "deepseek-v4.1-flash-(freebuff)": 74,
+    "DeepSeek V4.1 Flash (Freebuff)": 74,
     "MiniMax M3.1 Flash": 58,
     "Claude Sonnet 5.5": 37,
     "Claude Fable 5.2": 14,
@@ -119,55 +119,68 @@
  "models": [
   {
    "model": "Tooling",
-   "functions": 94456
+   "functions": 94456,
+   "bytes": 3458745
   },
   {
    "model": "Claude Opus 5.5",
-   "functions": 3653
+   "functions": 3653,
+   "bytes": 519031
   },
   {
    "model": "DeepSeek V4.1 Flash",
-   "functions": 2167
-  },
-  {
-   "model": "Qwen3.8 27B",
-   "functions": 1935
-  },
-  {
-   "model": "GPT-6.1 Sol",
-   "functions": 296
-  },
-  {
-   "model": "Muse Spark 1.3",
-   "functions": 204
-  },
-  {
-   "model": "deepseek-v4.1-flash-(freebuff)",
-   "functions": 74
-  },
-  {
-   "model": "MiniMax M3.1 Flash",
-   "functions": 58
-  },
-  {
-   "model": "Claude Sonnet 5.5",
-   "functions": 37
+   "functions": 2167,
+   "bytes": 111183
   },
   {
    "model": "Claude Fable 5.2",
-   "functions": 14
+   "functions": 14,
+   "bytes": 104169
+  },
+  {
+   "model": "GPT-6.1 Sol",
+   "functions": 296,
+   "bytes": 43517
+  },
+  {
+   "model": "Qwen3.8 27B",
+   "functions": 1935,
+   "bytes": 39265
+  },
+  {
+   "model": "Claude Sonnet 5.5",
+   "functions": 37,
+   "bytes": 13634
+  },
+  {
+   "model": "MiniMax M3.1 Flash",
+   "functions": 58,
+   "bytes": 10732
   },
   {
    "model": "GPT-6.1 Terra",
-   "functions": 10
+   "functions": 10,
+   "bytes": 5391
+  },
+  {
+   "model": "Muse Spark 1.3",
+   "functions": 204,
+   "bytes": 5159
+  },
+  {
+   "model": "DeepSeek V4.1 Flash (Freebuff)",
+   "functions": 74,
+   "bytes": 1747
   },
   {
    "model": "Claude Haiku 5.5",
-   "functions": 1
+   "functions": 1,
+   "bytes": 182
   },
   {
    "model": "Claude Opus 4.6",
-   "functions": 1
+   "functions": 1,
+   "bytes": 25
   }
  ]
 }

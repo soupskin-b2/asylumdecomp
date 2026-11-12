@@ -66,11 +66,13 @@ def compute(repo: Path) -> dict:
     b["bytes"] += base["bytes"]
     for m, n in base["models"].items():
         b["models"][norm(m)] += n
+    code = collections.Counter({norm(m): n for m, n in base.get("model_bytes", {}).items()})
     for cr in rows:
         b = by[cr.get("login") or "anonymous"]
         b["functions"] += 1
         b["bytes"] += cr.get("bytes") or 0
         b["models"][norm(cr.get("model"))] += 1
+        code[norm(cr.get("model"))] += cr.get("bytes") or 0
     models = collections.Counter()
     for v in by.values():
         models.update(v["models"])
@@ -83,7 +85,8 @@ def compute(repo: Path) -> dict:
         "areas": sorted([{"name": k, "functions": v[0], "bytes": v[1], "matched": v[2], "matched_bytes": v[3]}
                          for k, v in areas.items() if v[0] >= 50], key=lambda x: -x["bytes"]),
         "contributors": sorted(people, key=lambda x: (-x["functions"], x["login"])),
-        "models": [{"model": k, "functions": v} for k, v in models.most_common() if v > 0],
+        "models": sorted([{"model": k, "functions": v, "bytes": code[k]} for k, v in models.items() if v > 0],
+                         key=lambda x: (-x["bytes"], -x["functions"])),
     }
 
 

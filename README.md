@@ -93,7 +93,7 @@ site/             the charts on this page
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="site/readme/models-dark.svg">
-  <img alt="Models used for matches" src="site/readme/models-light.svg">
+  <img alt="Code matched per model" src="site/readme/models-light.svg">
 </picture>
 
 ## Legal

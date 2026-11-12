@@ -1,5 +1,5 @@
 {
- "note": "Matches made before the repository opened (the maintainer's own pipeline), credited to the maintainer. Contributions after it are in contributions.jsonl.",
+ "note": "Matches made before the repository opened (the maintainer's own pipeline), credited to the maintainer. Contributions after it are in contributions.jsonl. model_bytes: code per model, from the old pipeline's match records (Tooling is the rest).",
  "login": "soupskin-b2",
  "functions": 84028,
  "bytes": 3078393,
@@ -10,5 +10,13 @@
   "Claude Sonnet 5.5": 37,
   "GPT-6.1 Terra": 6,
   "Claude Haiku 5.5": 1
+ },
+ "model_bytes": {
+  "Tooling": 3036326,
+  "Qwen3.8 27B": 7652,
+  "Claude Sonnet 5.5": 13634,
+  "DeepSeek V4.1 Flash": 16411,
+  "GPT-6.1 Terra": 4188,
+  "Claude Haiku 5.5": 182
  }
 }

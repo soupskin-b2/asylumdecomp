@@ -40,6 +40,10 @@ def display(name):
     if not s:
         return None
     key = s.split("/")[-1].lower().replace(" ", "-").replace("_", "-")
+    via = re.search(r"-?\((\w+)\)$", key)  # where it ran: deepseek-v4.1-flash-(freebuff)
+    if via:
+        base = display(key[:via.start()])
+        return "%s (%s)" % (base, via[1].capitalize()) if base else s
     key = re.sub(r"-\d{4}$", "", key)  # date/build suffix: -1017
     for pat, fmt in _FAMILIES:
         m = re.fullmatch(pat, key)
