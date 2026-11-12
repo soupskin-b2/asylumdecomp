@@ -24,7 +24,7 @@ struct UObject_016757e0 : public UObject {
 // @baa 0x016757e0
 void UObject_016757e0::sub_016757e0()
 {
-    new(*(FNameArray*)((BYTE*)GetClass() + 0xf0)) FName_(TEXT("Object"));
+    new(*(FNameArray*)((BYTE*)GetClass() + 0xf0)) FName(TEXT("Object"));
 }
 
 // @baa 0x01677220

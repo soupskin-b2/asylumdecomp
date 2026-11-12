@@ -1339,14 +1339,8 @@ void UUIScene__00ca6a00::execIsSceneActive(FFrame& Stack, RESULT_DECL)
 	*(UBOOL*)Result = IsSceneActive(bTopmostScene);
 }
 
-struct UUIScreenObject__00ca37d0 : public UUIScreenObject
-{
-	INT FindChildIndex(FName WidgetName);
-	void execFindChildIndex(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00ca37d0
-void UUIScreenObject__00ca37d0::execFindChildIndex(FFrame& Stack, RESULT_DECL)
+void UUIScreenObject::execFindChildIndex(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_NAME(WidgetName);
 	P_FINISH;

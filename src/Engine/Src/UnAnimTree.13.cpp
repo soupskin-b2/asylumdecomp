@@ -598,20 +598,6 @@ FLOAT UAnimNodeAimOffset__00c4ba00::GetSliderPosition(INT SliderIndex, INT Value
 
 #line 602 "candidate.cpp"
 
-/* Kit gaps, with UE3's definitions (UnName.h, UnObjBas.h): FName has no constructor from a string and
- * no comparison operators, and UObject has no GetFName(). */
-struct FName_ : public FName
-{
-	FName_(const TCHAR* Name, INT FindType = 1, UBOOL bSplitName = 1);	/* 005d5620 */
-};
-
-/* UObject::GetFName, inlined at every call here; the cast lets both arms of the ?: be the same type, as they are
- * with UE3's FName(const TCHAR*) constructor. */
-static __forceinline FName GetFName(const UObject* Object)
-{
-	return Object->ObjectInternalInteger != INDEX_NONE ? (const FName_&)Object->Name : FName_(TEXT("<uninitialized>"));
-}
-
 /* The Super:: PostEditChange (UObject's; the classes between don't override it). */
 struct UObject_ : public UObject
 {
@@ -630,7 +616,7 @@ void UAnimNodeBlendPerBone_::PostEditChange(UProperty* PropertyThatChanged)
 {
 	if (PropertyThatChanged)
 	{
-		if (GetFName(PropertyThatChanged) == FName_(TEXT("BranchStartBoneName")))
+		if (PropertyThatChanged->GetFName() == FName(TEXT("BranchStartBoneName")))
 		{
 			sub_00c60a20();
 		}
@@ -653,7 +639,7 @@ void UAnimNodeAimOffset__00c7ecf0::PostEditChange(UProperty* PropertyThatChanged
 
 	if (PropertyThatChanged)
 	{
-		if (GetFName(PropertyThatChanged) == FName_(TEXT("bBakeFromAnimations")))
+		if (PropertyThatChanged->GetFName() == FName(TEXT("bBakeFromAnimations")))
 		{
 			bBakeFromAnimations = FALSE;
 			sub_00c7bab0();

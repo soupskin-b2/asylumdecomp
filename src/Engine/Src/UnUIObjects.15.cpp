@@ -287,16 +287,9 @@ C_00da67b0* C_00da67b0::sub_00da67b0(int Value)
     return this;
 }
 
-/* Kit gap: FName::operator== (UnName.h). */
-/* Kit gap: FindChildIndex is const in this build (the const operator() is used); Classes.h declares it non-const. */
-struct UUIScreenObject_ : public UUIScreenObject
-{
-	INT FindChildIndex(FName WidgetName) const;
-};
-
 // @baa 0x00daf640
 /* The index of the child whose WidgetTag is WidgetName, or INDEX_NONE. */
-INT UUIScreenObject_::FindChildIndex(FName WidgetName) const
+INT UUIScreenObject::FindChildIndex(FName WidgetName) const
 {
 	INT Result = INDEX_NONE;
 	for (INT ChildIndex = 0; ChildIndex < Children.Num(); ChildIndex++)

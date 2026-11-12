@@ -1880,20 +1880,6 @@ void UAnimNodeBlendBase_::SetChildrenTotalWeightAccumulator(const INT Index)
 	Children(Index).Anim->TotalWeightAccumulator += Children(Index).TotalWeight;
 }
 
-/* Kit gaps, with UE3's definitions (UnName.h, UnObjBas.h): FName has no constructor from a string and
- * no comparison operators, and UObject has no GetFName(). */
-struct FName_ : public FName
-{
-	FName_(const TCHAR* Name, INT FindType = 1, UBOOL bSplitName = 1);	/* 005d5620 */
-};
-
-/* UObject::GetFName, inlined at every call here; the cast lets both arms of the ?: be the same type, as they are
- * with UE3's FName(const TCHAR*) constructor. */
-static __forceinline FName GetFName(const UObject* Object)
-{
-	return Object->ObjectInternalInteger != INDEX_NONE ? (const FName_&)Object->Name : FName_(TEXT("<uninitialized>"));
-}
-
 /* Callees Classes.h doesn't declare. */
 struct USkeletalMeshComponent_ : public USkeletalMeshComponent
 {
@@ -1918,15 +1904,15 @@ void UAnimTree_::PostEditChange(UProperty* PropertyThatChanged)
 	if (PropertyThatChanged)
 	{
 		// rebuild the priority list from the new branches
-		if (GetFName(PropertyThatChanged) == FName_(TEXT("PrioritizedSkelBranches")) && SkelComponent)
+		if (PropertyThatChanged->GetFName() == FName(TEXT("PrioritizedSkelBranches")) && SkelComponent)
 		{
 			((USkeletalMeshComponent_*)SkelComponent)->sub_0092c310(PriorityList);
 		}
 
 		// a new preview mesh or anim set: refresh the preview
-		if ((GetFName(PropertyThatChanged) == FName_(TEXT("PreviewSkelMesh")) ||
-			GetFName(PropertyThatChanged) == FName_(TEXT("PreviewSkelMesh")) ||
-			GetFName(PropertyThatChanged) == FName_(TEXT("PreviewAnimSets"))) && SkelComponent)
+		if ((PropertyThatChanged->GetFName() == FName(TEXT("PreviewSkelMesh")) ||
+			PropertyThatChanged->GetFName() == FName(TEXT("PreviewSkelMesh")) ||
+			PropertyThatChanged->GetFName() == FName(TEXT("PreviewAnimSets"))) && SkelComponent)
 		{
 			((USkeletalMeshComponent_*)SkelComponent)->sub_009357b0(TRUE);
 		}

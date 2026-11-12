@@ -20,7 +20,7 @@ struct UObject_0161d720 : public UObject {
 // @baa 0x0161d720
 void UObject_0161d720::sub_0161d720()
 {
-    new(*(FNameArray*)((BYTE*)GetClass() + 0xf0)) FName_(TEXT("Object"));
+    new(*(FNameArray*)((BYTE*)GetClass() + 0xf0)) FName(TEXT("Object"));
 }
 
 // @baa 0x016249f0

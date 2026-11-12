@@ -200,7 +200,7 @@ struct AActor__00758050 : public AActor
 /* UnActor.cpp: RelativeRotation is the rotation relative to the base's rotation. */
 void AActor__00758050::UpdateRelativeRotation()
 {
-	if (!Base || Base->bWorldGeometry || ((const FName_&)BaseBoneName) != NAME_None)
+	if (!Base || Base->bWorldGeometry || (BaseBoneName) != NAME_None)
 	{
 		return;
 	}

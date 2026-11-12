@@ -240800,7 +240800,7 @@
     {
      "va": "00d95840",
      "size": 453,
-     "symbol": "?GetAvailableDataStores@UDataStoreClient_@@QBEXPAUUUIScene@@AAV?$TArray@PAVUUIDataStore@@@@@Z"
+     "symbol": "?GetAvailableDataStores@UDataStoreClient@@QBEXPAUUUIScene@@AAV?$TArray@PAVUUIDataStore@@@@@Z"
     },
     {
      "va": "00d91ae0",
@@ -245438,7 +245438,7 @@
     {
      "va": "00daf640",
      "size": 118,
-     "symbol": "?FindChildIndex@UUIScreenObject_@@QBEHUFName@@@Z"
+     "symbol": "?FindChildIndex@UUIScreenObject@@QBEHUFName@@@Z"
     },
     {
      "va": "00db0230",
@@ -246039,7 +246039,7 @@
     {
      "va": "00ca37d0",
      "size": 118,
-     "symbol": "?execFindChildIndex@UUIScreenObject__00ca37d0@@QAEXAAUFFrame@@QAX@Z"
+     "symbol": "?execFindChildIndex@UUIScreenObject@@QAEXAAUFFrame@@QAX@Z"
     },
     {
      "va": "00ca6140",

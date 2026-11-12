@@ -35,7 +35,7 @@ void USkeletalMeshComponent::execIsComponentAttached(FFrame& Stack, RESULT_DECL)
     for (INT i = 0; i < Attachments.Num(); i++)
     {
         if (((TArrayAt_<FAttachment>&)Attachments).At(i).Component == Component &&
-            ((const FName_&)BoneName == FName(NAME_None) || (const FName_&)((TArrayAt_<FAttachment>&)Attachments).At(i).BoneName == BoneName))
+            (BoneName == FName(NAME_None) || ((TArrayAt_<FAttachment>&)Attachments).At(i).BoneName == BoneName))
         {
             bAttached = TRUE;
             break;

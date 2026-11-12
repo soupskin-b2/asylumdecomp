@@ -117,23 +117,11 @@ UBOOL UFracturedBaseComponent::IsFragmentVisible(INT FragmentIndex)
 
 #line 119 "candidate.cpp"
 
-/* Kit gaps, with UE3's definitions (UnName.h, UnObjBas.h): FName has no constructor from a string and no
- * comparison operators, and UObject has no GetFName(). */
-struct FName_ : public FName
-{
-    FName_(const TCHAR* Name, INT FindType = 1, UBOOL bSplitName = 1); /* 0x005d5620 */
-};
-
-static __forceinline FName GetFName(const UObject* Object)
-{
-    return Object->ObjectInternalInteger != INDEX_NONE ? (const FName_&)Object->Name : FName_(TEXT("<uninitialized>"));
-}
-
 // @baa 0x007a7460
 /* Fractured meshes that only touch aren't world geometry; any other collision type makes them world geometry. */
 void AFracturedStaticMeshActor::PostEditChange(UProperty* PropertyThatChanged)
 {
-    if (PropertyThatChanged && GetFName(PropertyThatChanged) == FName_(TEXT("CollisionType")))
+    if (PropertyThatChanged && PropertyThatChanged->GetFName() == FName(TEXT("CollisionType")))
     {
         if (CollisionType == COLLIDE_TouchAll || CollisionType == COLLIDE_TouchWeapons || CollisionType == COLLIDE_TouchAllButWeapons)
         {

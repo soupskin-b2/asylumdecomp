@@ -9682,6 +9682,8 @@ struct UObject {
     typedef UObject WithinClass;
     UObject(); /* 005c7a20 */
     UClass* GetClass() const { return Class; }
+    FORCEINLINE FName GetFName() const { return ObjectInternalInteger != INDEX_NONE ? Name : FName(TEXT("<uninitialized>")); }
+    UObject* GetOuter() const { return Outer; }
     static const TCHAR* StaticConfigName() { return TEXT("Engine"); }
     void StaticConstructor(); /* 0x005c19d0 */
     void InitializeIntrinsicPropertyValues(); /* 0x005c19e0 */
@@ -18941,7 +18943,7 @@ struct UUIScreenObject : public UUIRoot {
     UBOOL GetViewportSize(FVector2D& out_ViewportSize); /* 0x00daf2d0 */
     UUIObject* FindChild(FName WidgetName, UBOOL bRecurse) const; /* 0x00daf3e0 */
     UUIObject* FindChildUsingID(FWIDGET_ID WidgetID, UBOOL bRecurse) const; /* 0x00daf4f0 */
-    INT FindChildIndex(FName WidgetName); /* 0x00daf640 */
+    INT FindChildIndex(FName WidgetName) const; /* 0x00daf640 */
     UBOOL ContainsChild(UUIObject* Child, UBOOL bRecurse); /* 0x00daf6c0 */
     UBOOL ContainsChildOfClass(UClass* SearchClass, UBOOL bRecurse); /* 0x00daf790 */
     INT GetObjectCount(); /* 0x00daf950 */
@@ -20221,7 +20223,7 @@ struct UDataStoreClient : public UUIRoot {
     void execGetAvailableDataStores(FFrame& Stack, RESULT_DECL); /* 0x00cc7390 */
     /* other member functions */
     INT sub_00d92fb0(ULocalPlayer*); /* 0x00d92fb0 */
-    void GetAvailableDataStores(UUIScene* CurrentScene, TArray<UUIDataStore*>& out_DataStores); /* 0x00d95840 */
+    void GetAvailableDataStores(UUIScene* CurrentScene, TArray<UUIDataStore*>& out_DataStores) const; /* 0x00d95840 */
     UUIDataStore* FindDataStore(FName DataStoreTag, ULocalPlayer* PlayerOwner); /* 0x00d95a10 */
     UBOOL RegisterDataStore(UUIDataStore* DataStore, ULocalPlayer* PlayerOwner); /* 0x00d95c00 */
     UBOOL sub_00d9cc20(UUIDataStore*); /* 0x00d9cc20 */

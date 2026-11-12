@@ -77,10 +77,11 @@ struct FStateFrame : public FFrame {
 // Out parameters (`out` in UnrealScript): Step leaves the variable's address in GPropAddr (0 if the
 // argument isn't a variable); the native writes through it. Optional parameters: Step sets
 // RUC_SkippedOptionalParm in GRuntimeUCFlags when the caller left one out (the default stays).
-// Verified: GPropAddr 0x026667e8, GRuntimeUCFlags 0x026667f0, GCasts 0x0268c8a0 (after GNatives' 16 pages of 256).
+// Verified: GPropAddr 0x026667e8, GRuntimeUCFlags 0x026667f0, GNativeLookupFuncs 0x0268c8a0 (after GNatives' 16 pages of 256).
 extern BYTE* GPropAddr;
 extern DWORD GRuntimeUCFlags;
-extern Native GCasts[];
+typedef Native (*NativeLookup)(const TCHAR* Name);
+extern NativeLookup GNativeLookupFuncs[500]; /* each package's name -> native table (InitializeRegistrantsAndRegisterNames) */
 enum { RUC_SkippedOptionalParm = 0x02 };
 
 #define P_GET_STRUCT_REF(t, v) t v##T; GPropAddr = 0; Stack.Step(Stack.Object, &v##T); t& v = GPropAddr ? *(t*)GPropAddr : v##T;

@@ -33,16 +33,10 @@ struct UUIScene_ : public UUIScene
 	USceneDataStore* sub_00db0a70();	/* GetSceneDataStore */
 };
 
-/* Kit gap: GetAvailableDataStores is const in this build (every array access uses the const operator()). */
-struct UDataStoreClient_ : public UDataStoreClient
-{
-	void GetAvailableDataStores(UUIScene* CurrentScene, TArray<UUIDataStore*>& out_DataStores) const;
-};
-
 // @baa 0x00d95840
 /* Collects the data stores available to CurrentScene: the global ones, the scene owner's player data stores,
  * and the scene's own data store. */
-void UDataStoreClient_::GetAvailableDataStores(UUIScene* CurrentScene, TArray<UUIDataStore*>& out_DataStores) const
+void UDataStoreClient::GetAvailableDataStores(UUIScene* CurrentScene, TArray<UUIDataStore*>& out_DataStores) const
 {
 	TArrayAddUnique_<UUIDataStore*>& DataStores = (TArrayAddUnique_<UUIDataStore*>&)out_DataStores;
 	DataStores.Empty();

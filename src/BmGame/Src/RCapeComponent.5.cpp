@@ -146,7 +146,7 @@ UBOOL URCapeComponent::GetIsInCinematicsState()
 		{
 			StateName = CapeStateController->CapeStateName;
 		}
-		if ((const FName_&)StateName == CapeConfig->CinematicCapeStateName)
+		if (StateName == CapeConfig->CinematicCapeStateName)
 		{
 			return TRUE;
 		}

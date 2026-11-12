@@ -229,7 +229,7 @@ void UAnimNodeBlendMultiBone::InitAnim(USkeletalMeshComponent* MeshComp, UAnimNo
 	// set up the per-bone weights the script configured
 	for (INT i = 0; i < BlendTargetList.Num(); i++)
 	{
-		if ((const FName_&)BlendTargetList(i).InitTargetStartBone != FName(NAME_None))
+		if (BlendTargetList(i).InitTargetStartBone != FName(NAME_None))
 		{
 			SetTargetStartBone(i, BlendTargetList(i).InitTargetStartBone, BlendTargetList(i).InitPerBoneIncrease);
 		}

@@ -44,7 +44,7 @@ UBOOL URAnimNode_Cape_::sub_01569e10(FName AnimName)
         if (Child)
         {
             const FName ChildName = Child->NodeName;
-            if ((const FName_&)ChildName == AnimName)
+            if (ChildName == AnimName)
             {
                 return TRUE;
             }

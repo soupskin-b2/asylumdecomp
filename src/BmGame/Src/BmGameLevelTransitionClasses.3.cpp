@@ -96,7 +96,7 @@ INT ARGameRI::vf_3a4()
 {
 	if (GlobalDoorLock)
 	{
-		if ((const FName_&)GlobalDoorLockRoom == NAME_None || (const FName_&)GlobalDoorLockRoom == CurrentLevel)
+		if (GlobalDoorLockRoom == NAME_None || GlobalDoorLockRoom == CurrentLevel)
 		{
 			return TRUE;
 		}

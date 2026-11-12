@@ -442,7 +442,7 @@ void AActor_::ClearTimer(FName inTimerFunc, UObject* inObj)
     }
     for (INT Idx = 0; Idx < Timers.Num(); Idx++)
     {
-        if ((const FName_&)Timers(Idx).FuncName == inTimerFunc && Timers(Idx).TimerObj == inObj)
+        if (Timers(Idx).FuncName == inTimerFunc && Timers(Idx).TimerObj == inObj)
         {
             Timers(Idx).Rate = 0.f;
         }
@@ -546,7 +546,7 @@ FLOAT AActor__008b8270::GetTimerRate(FName TimerFuncName, UObject* inObj)
     }
     for (INT Idx = 0; Idx < Timers.Num(); Idx++)
     {
-        if ((const FName_&)Timers(Idx).FuncName == TimerFuncName && Timers(Idx).TimerObj == inObj)
+        if (Timers(Idx).FuncName == TimerFuncName && Timers(Idx).TimerObj == inObj)
         {
             return Timers(Idx).Rate;
         }
