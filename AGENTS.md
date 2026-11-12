@@ -200,11 +200,9 @@ happened; on HTTP 429 or 503 wait as told, don't retry in a loop.
   `virtual` (not a hand-written vtable pointer). CI renames a type that clashes with one already in
   the target file, so don't add addresses to names to keep them apart.
 - A declaration in `Classes.h` that contradicts the code (declared `void`, but the function sets `eax`
-  before returning): trust the code and declare what you need in a derived struct. Redeclaring the
-  same virtual with another return type is refused (C2555): define the function then under its
-  address name (`sub_XXXXXXXX`) in the derived struct, and flag the header. A call *through* a
-  wrongly declared virtual slot can't be fixed that way: flag it with the slot and the signature, or fix
-  the header (below). Look at the declaration in the class itself first (the packet quotes it): a
+  before returning): trust the code, but don't redeclare it in a derived struct or under its address
+  name: flag the header with the signature the code shows and give the function up, or fix the
+  header (below). Look at the declaration in the class itself first (the packet quotes it): a
   derived class can declare a slot differently from its base.
 - `#line` may reproduce an assertion's `__FILE__` and `__LINE__`.
 - A callee that takes an argument in a register (the packet notes it) is written as a `static`
@@ -244,6 +242,11 @@ Parts of `src/` still read like decompiler output (`param_1`, offset casts, `sub
   `template TArray<INT>::~TArray();`.
 - Small changes that only steer register allocation (declaration order, a temporary) are fine; keep them
   minimal.
+- Don't work around a wrong or missing declaration to force a match (a derived struct that redeclares
+  a header's function differently, an address name standing in for a declared function, casts that
+  call a slot as another type, hand-read vtables). `flag` what the code shows (the slot, the
+  signature, the field), give the function up with the same reason, and take another one: it comes
+  back once the header is fixed.
 
 ## Patterns
 

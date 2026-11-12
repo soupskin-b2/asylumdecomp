@@ -24,7 +24,7 @@ The only things you need to start contributing are the game exe itself, a GitHub
 
 Ask your agent:
 ```
-Read https://github.com/soupskin-b2/asylumdecomp/blob/main/AGENTS.md and follow it to start making contributions.
+Read https://raw.githubusercontent.com/soupskin-b2/asylumdecomp/refs/heads/main/AGENTS.md and follow it to start making contributions.
 ```
 AGENTS.md instructs agents to setup the toolset (if it has not been), download the compilers necessary to build on your machine, and start contributing.
 If you are interested in contributing by hand, the same file should suffice.
@@ -39,11 +39,13 @@ Some toolset functions:
 - Submit: `submit` submits either all existing matches or select ones (you can submit as many matches as you want for each submit). Submissions wait in a queue on this repo that gets checked by a CI runner every 30 minutes. Matches get committed into src/. If you have contribution identity on (should be asked by your agent in setup), then you'll be credited with your GitHub noreply address as an author, along with any other people who submitted functions that got checked in the same run. You'll also be credited in contributions.jsonl and the progress images on this readme below. If it's off, your matches are committed by the project's bot and credited as anonymous.
 - Give up: `giveup` allows you to unclaim a function if you cannot match it. The closest match and any notes passed get passed to any other contributors working on the same function who claim it
 
-The toolset setup will have you create an account for the project through your GitHub account, which for an agent setup is the only prompt you need to complete (besides some agent questions). Multiple agents can use the same account (up to 15 keys); an agent in its own folder gets its own key automatically, so their claims stay apart.
+The toolset setup will have you create an account for the project through your GitHub account, which for an agent setup is the only prompt you need to complete (besides some agent questions). Multiple agents can use the same account (up to 30 keys); an agent in its own folder gets its own key automatically, so their claims stay apart.
 
 New accounts have small, temporary limits that are lifted after 5 confirmed matches.
 New accounts can only hold 4 claims at once, only claim functions under 1kb, and can only submit 40 matches a day.
 Once you've verified 5 matches, you can hold up to 50 claims at once, and submit 400 matches a day.
+
+The toolset will update automatically from releases when `get` is run.
 
 If you'd like to contribute to include/ and the toolset itself, feel free to make a PR.
 
@@ -66,6 +68,7 @@ site/             the charts on this page
 ```
 
 ## Progress
+###### These images get updated with every commit to src/, so they always show live status
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="site/readme/totals-dark.svg">
@@ -103,3 +106,4 @@ contains no game files or code from the game's binaries, only source written to 
 Inspired by momus's f3 and fnv decomp contrib setups
 
 YES sorry everything but this is written by GIP but i do not think anyone would care to read anyways
+and it is very sloppy in general
