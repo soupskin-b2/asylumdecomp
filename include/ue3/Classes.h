@@ -3196,15 +3196,23 @@ struct FVector {
     FVector* sub_0058df30(FVector*); /* 0x0058df30 */
 };
 
-struct FVector4 {
+struct __declspec(align(16)) FVector4 {  /* UE3: MS_ALIGN(16) */
     /* Core.Vector4 */
     FLOAT X; /* 0x0 */
     FLOAT Y; /* 0x4 */
     FLOAT Z; /* 0x8 */
     FLOAT W; /* 0xc */
-    FVector4() {}
+    FVector4() : X(0.f), Y(0.f), Z(0.f), W(1.0f) {}
     FVector4(FLOAT InX, FLOAT InY, FLOAT InZ, FLOAT InW = 1.0f) : X(InX), Y(InY), Z(InZ), W(InW) {}
     FVector4(const FVector& InVector, FLOAT InW = 1.0f) : X(InVector.X), Y(InVector.Y), Z(InVector.Z), W(InW) {}
+};
+
+/* Script structs lay Vector4 members out unaligned (FSTriovizParms_MinMax has one at 0x8): they hold this */
+struct FVector4Unaligned {
+    FLOAT X; /* 0x0 */
+    FLOAT Y; /* 0x4 */
+    FLOAT Z; /* 0x8 */
+    FLOAT W; /* 0xc */
 };
 
 struct FVector2D {
@@ -5322,8 +5330,8 @@ struct FSTriovizParms_MinMax {
     /* Engine.STriovizParms_MinMax */
     FLOAT AdaptedSpeed; /* 0x0 */
     BYTE TargetShape; /* 0x4 */
-    FVector4 TargetShapeCenterAndScale; /* 0x8 */
-    FVector4 TargetMaxZShapeCenterAndScale; /* 0x18 */
+    FVector4Unaligned TargetShapeCenterAndScale; /* 0x8 */
+    FVector4Unaligned TargetMaxZShapeCenterAndScale; /* 0x18 */
     BYTE EditType; /* 0x28 */
 };
 
@@ -5343,8 +5351,8 @@ struct FSTriovizParms_DMap {
     FLOAT DMapGammaBackground; /* 0x4 */
     FLOAT DMapScaleBackground; /* 0x8 */
     BITFIELD DMapCompose : 1; /* 0xc */
-    FVector4 DMapComposeWeight; /* 0x10 */
-    FVector4 DMapCurveY; /* 0x20 */
+    FVector4Unaligned DMapComposeWeight; /* 0x10 */
+    FVector4Unaligned DMapCurveY; /* 0x20 */
     class UTexture2D* DMapComposeTexture; /* 0x30 */
     BYTE EditType; /* 0x34 */
 };
@@ -18844,6 +18852,10 @@ struct UUIScreenObject : public UUIRoot {
     FVector GetPositionVector(UBOOL bIncludeParentPosition); /* 0x00dbe5d0 */
     void InvalidateAllPositions(UBOOL bIgnoreDockedFaces); /* 0x00dbe620 */
     FMatrix GetCanvasToScreen(); /* 0x00dbe710 */
+    FVector4 CanvasToScreen(const FVector& CanvasPosition) const; /* 0x00dc0e10 */
+    FVector4 PixelToScreen(const FVector2D& PixelPosition) const; /* 0x00da9500 */
+    FVector2D ScreenToPixel(const FVector4& ScreenPosition) const; /* 0x00daff10 */
+    FVector ScreenToCanvas(const FVector4& ScreenPosition) const; /* 0x00dc0f00 */
     FMatrix GetInverseCanvasToScreen(); /* 0x00dbe770 */
     FVector Project(const FVector& CanvasPosition); /* 0x00dc3550 */
     FVector DeProject(const FVector& PixelPosition); /* 0x00dc3690 */

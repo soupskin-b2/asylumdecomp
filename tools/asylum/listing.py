@@ -166,6 +166,9 @@ def _class_body(header: str, cls: str) -> str | None:
     return m.group(0) if m else None
 
 
+_NATIVE = re.compile(r"`void (\w+)::(exec\w+)\(FFrame& Stack, RESULT_DECL\)`.*?(as a member of a struct deriving from \w+)")
+_REF_HINT = ("(If the assembly zeroes GPropAddr before a struct's Step and then uses GPropAddr or the local, that "
+             "parameter is P_GET_STRUCT_REF(FStruct, Name), even when the script doesn't mark it out.)")
 _PURE_HINT = ("This is a pure virtual stub (GError->Logf(\"Pure virtual not implemented (%s)\", ...)): "
               "`#include \"ue3/Script.h\"` and write `RET Class::Func(PARAMS) PURE_VIRTUAL(Class::Func, return 0;)` "
               "(or `PURE_VIRTUAL(Class::Func,)` for void), with the declaration's exact signature.\n\n")
@@ -177,6 +180,11 @@ def refresh_head(head: str, va: int, header: str) -> str:
     if "Pure virtual not implemented" in head and "PURE_VIRTUAL" not in head:
         k = head.find("## Starting point")
         head = head[:k] + _PURE_HINT + head[k:] if k >= 0 else head + _PURE_HINT
+    n = _NATIVE.search(head)
+    if n and _class_body(header, n.group(1)) and re.search(r"\b%s\s*\(" % n.group(2), _class_body(header, n.group(1))):
+        head = head.replace(n.group(3), "as `%s::%s` itself (Classes.h declares it: no helper struct)" % (n.group(1), n.group(2)))
+    if "-> P_GET_STRUCT(" in head and _REF_HINT not in head:
+        head = head.replace("- then P_FINISH;", "- then P_FINISH;\n" + _REF_HINT, 1)
     m = _CLASS_LINE.search(head)
     body = _class_body(header, m.group(1)) if m else None
     if body is None:

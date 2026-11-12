@@ -83,7 +83,7 @@
     },
     {
      "va": "0175e2c0",
-     "size": 91,
+     "size": 90,
      "symbol": "??1UChangeDashesToUnderscoresCommandlet@@UAE@XZ"
     },
     {
@@ -515265,6 +515265,16 @@
    "includes": [],
    "functions": [
     {
+     "va": "01a14210",
+     "size": 31,
+     "symbol": "_error_exit"
+    },
+    {
+     "va": "01a14230",
+     "size": 91,
+     "symbol": "_output_message"
+    },
+    {
      "va": "01a14290",
      "size": 58,
      "symbol": "_emit_message"
@@ -517570,6 +517580,11 @@
    "profile": "lib_c71",
    "includes": [],
    "functions": [
+    {
+     "va": "0180df60",
+     "size": 517,
+     "symbol": "__tr_flush_block"
+    },
     {
      "va": "0180c640",
      "size": 100,
