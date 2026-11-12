@@ -216,7 +216,7 @@ IMPLEMENT_CLASS_AT(ADynamicAnchor, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngin
 IMPLEMENT_CLASS_AT(ASceneCaptureActor, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSceneCapture.cpp", 15);
 
 // @baa 0x008dd2c0
-void ASceneCaptureActor::vf_354(void) {  }
+void ASceneCaptureActor::SyncComponents() {  }
 
 // @baa 0x008dd2d0
 // @baa 0x008dd360

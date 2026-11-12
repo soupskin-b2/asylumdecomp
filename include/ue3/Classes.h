@@ -23788,8 +23788,8 @@ struct UGameViewportClient : public UObject, public FViewportClient, public FExe
     virtual INT vf_130(INT); /* 0x130 */
     virtual INT vf_134(INT); /* 0x134 */
     virtual INT vf_138(INT); /* 0x138 */
-    virtual INT vf_13c(INT); /* 0x13c */
-    virtual INT vf_140(INT); /* 0x140 */
+    virtual INT vf_13c(FLOAT); /* 0x13c */
+    virtual void vf_140(INT); /* 0x140 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -31608,7 +31608,7 @@ struct ASceneCaptureActor : public AActor {
     DECLARE_CLASS(ASceneCaptureActor, AActor, 0x1, 0x0, Engine)
     class USceneCaptureComponent* SceneCapture; /* 0x1a8 */
     /* virtual functions this class introduces (vtable 0x01f61488) */
-    virtual void vf_354(); /* 0x354 */
+    virtual void SyncComponents(); /* 0x354 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -31683,7 +31683,7 @@ struct ASceneCaptureReflectActor : public ASceneCaptureActor {
     virtual void PostLoad(); /* 0x01c */
     virtual void vf_02c(); /* 0x02c */
     virtual void vf_180(); /* 0x180 */
-    virtual void vf_354(); /* 0x354 */
+    virtual void SyncComponents(); /* 0x354 */
     /* registered size 0x1b4 */
 };
 
@@ -31709,7 +31709,7 @@ struct ASceneCapturePortalActor : public ASceneCaptureReflectActor {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_354(); /* 0x354 */
+    virtual void SyncComponents(); /* 0x354 */
     /* registered size 0x1b4 */
 };
 
@@ -32958,7 +32958,7 @@ struct ASceneCapture2DActor : public ASceneCaptureActor {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_354(); /* 0x354 */
+    virtual void SyncComponents(); /* 0x354 */
     /* registered size 0x1b0 */
 };
 
@@ -32991,7 +32991,7 @@ struct ASceneCaptureCubeMapActor : public ASceneCaptureActor {
     virtual void PostLoad(); /* 0x01c */
     virtual void vf_02c(); /* 0x02c */
     virtual void vf_180(); /* 0x180 */
-    virtual void vf_354(); /* 0x354 */
+    virtual void SyncComponents(); /* 0x354 */
     /* registered size 0x1b4 */
 };
 
@@ -39177,10 +39177,10 @@ struct UGFxMovie : public UObject {
     virtual void vf_140(INT, INT); /* 0x140 */
     virtual void vf_144(INT, INT); /* 0x144 */
     virtual void vf_148(INT, INT); /* 0x148 */
-    virtual INT vf_14c(INT, INT, INT); /* 0x14c */
-    virtual class UTexture2D* GetPicture(); /* 0x150 */
-    virtual INT vf_154(INT, INT, INT); /* 0x154 */
-    virtual INT vf_158(INT, INT, INT); /* 0x158 */
+    virtual INT GetVariableArray(INT, INT, INT); /* 0x14c */
+    virtual UBOOL GetVariableIntArray(const FString& Path, INT Index, TArray<INT>& Arg); /* 0x150 */
+    virtual INT GetVariableFloatArray(INT, INT, INT); /* 0x154 */
+    virtual INT GetVariableStringArray(INT, INT, INT); /* 0x158 */
     virtual INT SetVariableArray(INT, INT, INT); /* 0x15c */
     virtual void SetVariableIntArray(INT, INT, INT); /* 0x160 */
     virtual void SetVariableFloatArray(INT, INT, INT); /* 0x164 */
@@ -51510,7 +51510,7 @@ struct URGFxMovie : public UGFxMovie {
     class UTexture2D* CurrentStreamedPicture; /* 0x98 */
     /* virtual functions this class introduces (vtable 0x023a5270) */
     virtual void vf_174(const FString&, const FString&); /* 0x174 */
-    virtual void vf_178(); /* 0x178 */
+    virtual class UTexture2D* GetPicture(); /* 0x178 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -55356,7 +55356,7 @@ struct ARPlayerController : public ARPlayerControllerBase {
     virtual INT vf_574(); /* 0x574 */
     virtual INT vf_578(INT); /* 0x578 */
     virtual INT vf_57c(const FString&); /* 0x57c */
-    virtual INT GetInfocastMsg(INT); /* 0x580 */
+    virtual FString GetInfocastMsg(); /* 0x580 */
     virtual void vf_584(UINT); /* 0x584 */
     virtual INT vf_588(INT&); /* 0x588 */
     virtual void vf_58c(); /* 0x58c */
@@ -55384,9 +55384,9 @@ struct ARPlayerController : public ARPlayerControllerBase {
     virtual INT vf_5e4(INT, INT); /* 0x5e4 */
     virtual INT vf_5e8(INT, const FString&); /* 0x5e8 */
     virtual void vf_5ec(); /* 0x5ec */
-    virtual INT TestSave(INT); /* 0x5f0 */
-    virtual INT TestLoad(INT); /* 0x5f4 */
-    virtual void TestQuery(INT); /* 0x5f8 */
+    virtual INT TestSave(const FString& Str); /* 0x5f0 */
+    virtual INT TestLoad(const FString& Str); /* 0x5f4 */
+    virtual void TestQuery(const FString& Str); /* 0x5f8 */
     virtual INT vf_5fc(); /* 0x5fc */
     virtual UBOOL CheckContentExists(const FString& Path); /* 0x600 */
     virtual INT vf_604(); /* 0x604 */
@@ -55410,8 +55410,8 @@ struct ARPlayerController : public ARPlayerControllerBase {
     virtual INT vf_64c(); /* 0x64c */
     virtual INT vf_650(); /* 0x650 */
     virtual UBOOL IsMoviePresent(const FString& Path); /* 0x654 */
-    virtual INT GetReturnPoint(INT); /* 0x658 */
-    virtual INT SetReturnPoint(INT); /* 0x65c */
+    virtual FString GetReturnPoint(); /* 0x658 */
+    virtual INT SetReturnPoint(const FString& Str); /* 0x65c */
     virtual INT StripGlobalNamePart(INT); /* 0x660 */
     virtual void GetVisitedPMapsList(INT); /* 0x664 */
     virtual void GetCreditsStrings(INT, INT, INT, INT); /* 0x668 */
@@ -57004,7 +57004,7 @@ struct URSeqAct_ConversationDialogue : public URSeqAct_PlaySpeechBase {
     class ARCinematicCameraActor* BatsFirstCamera; /* 0x14c */
     /* virtual functions this class introduces (vtable 0x0230f510) */
     virtual INT vf_1a0(); /* 0x1a0 */
-    virtual INT CheckName(INT); /* 0x1a4 */
+    virtual UBOOL CheckName(const FString& Name); /* 0x1a4 */
     virtual UBOOL LookAtTagOnLine(class ARPawnCharacter* Looker, FName CharName, class USoundCue* SpeechToPlay); /* 0x1a8 */
     virtual class ARPawnCharacter* GetSpeaker(class APlayerController* PC, FName ScriptName); /* 0x1ac */
     virtual void vf_1b0(INT, INT); /* 0x1b0 */
@@ -60208,9 +60208,9 @@ struct ARTapePlayer : public AActor {
     class UAudioComponent* TapeAudioComponent; /* 0x228 */
     /* virtual functions this class introduces (vtable 0x0235f680) */
     virtual void vf_354(); /* 0x354 */
-    virtual void LoadConversation(INT); /* 0x358 */
+    virtual void LoadConversation(const FString& Str); /* 0x358 */
     virtual INT vf_35c(); /* 0x35c */
-    virtual void SetSubtitles(INT); /* 0x360 */
+    virtual void SetSubtitles(const FString& Str); /* 0x360 */
     virtual INT vf_364(INT); /* 0x364 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */

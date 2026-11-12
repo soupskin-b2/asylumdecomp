@@ -16,13 +16,11 @@ void URGFxFSCmdHandler_PlayMovie::execGetPlayMovieAction(FFrame& Stack, RESULT_D
 	*(URSeqAct_PlayGfxMovie**)Result = ((URGFxFSCmdHandler_PlayMovie_*)this)->sub_016d2420();
 }
 
-typedef UTexture2D* (__thiscall* FSlot)(void*);
-
 // @baa 0x0170b610
 void URGFxMovie::execGetPicture(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UTexture2D**)Result = ((FSlot)(*(void***)this)[0x178 / 4])(this);
+	*(UTexture2D**)Result = GetPicture();
 }
 
 // @baa 0x0170b680
