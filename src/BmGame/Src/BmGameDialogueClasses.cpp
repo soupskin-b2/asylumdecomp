@@ -1,4 +1,4 @@
-// BmGameDialogueClasses.cpp: 73 functions
+// BmGameDialogueClasses.cpp: 74 functions
 // Placed here by: callers 13, file 13.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -422,4 +422,19 @@ UBOOL URSeqAct_PlayTVSequenceBase::UpdateOp(FLOAT DeltaTime)
 {
 	((URSeqAct_PlayTVSequenceBase_*)this)->UpdateTVSequence(DeltaTime);
 	return Super::UpdateOp(DeltaTime);
+}
+
+// @baa 0x01585540
+/* Slot 0x178 is USequenceOp::DeActivated (unnamed in the kit). Unless aborted, the first output fires
+ * (USequenceOp::ActivateOutputLink(0), inlined). */
+void URSeqAct_PlaySpeechConversation::vf_178()
+{
+	if (!bAborted)
+	{
+		FSeqOpOutputLink& Link = OutputLinks(0);
+		if (!Link.bDisabled)
+		{
+			Link.bHasImpulse = TRUE;
+		}
+	}
 }

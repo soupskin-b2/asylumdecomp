@@ -1,4 +1,4 @@
-// RBmPathNodeClass.cpp: 9 functions
+// RBmPathNodeClass.cpp: 10 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -80,4 +80,21 @@ void ARBMPathNode_FenceJump::vf_180()
 	JumpNormal.Y = 0.f;
 	JumpNormal.Z = 0.f;
 	Super::vf_180();
+}
+
+// @baa 0x015e1030
+/* Shows the sprite for the marker's current mode in the editor: two-way when Batman can use it, else one-way. */
+void ARCornerWallMarkerBase::PostEditChange(UProperty* PropertyThatChanged)
+{
+	if (BatmanCanUse)
+	{
+		SpriteComponentTwoWay->SetHiddenEditor(FALSE);
+		SpriteComponentOneWay->SetHiddenEditor(TRUE);
+	}
+	else
+	{
+		SpriteComponentTwoWay->SetHiddenEditor(TRUE);
+		SpriteComponentOneWay->SetHiddenEditor(FALSE);
+	}
+	Super::PostEditChange(PropertyThatChanged);
 }

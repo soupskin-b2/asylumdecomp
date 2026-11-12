@@ -1,4 +1,4 @@
-// TTFontImport.cpp (part 1 of 2): 34 functions
+// TTFontImport.cpp (part 1 of 2): 36 functions
 // Placed here by: neighbours 19, class 12, file 2, callers 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -289,4 +289,38 @@ int sub_00ee01d0(void)
 bool UTrueTypeMultiFontFactory::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+/* UFactory's flags (UE3: bCreateNew, bEditAfterNew, bEditorImport, bText) and AutoPriority are in the kit's
+ * _native2 blob at 0x50; this stand-in names them. */
+struct FFactoryFlags
+{
+	BITFIELD bCreateNew : 1;
+	BITFIELD bEditAfterNew : 1;
+	BITFIELD bEditorImport : 1;
+	BITFIELD bText : 1;
+	INT AutoPriority;
+};
+
+// @baa 0x00ec9c20
+void UTrueTypeFontFactory::InitializeIntrinsicPropertyValues()
+{
+	SupportedClass = UFont::StaticClass();
+	((FFactoryFlags*)_native2)->bCreateNew = TRUE;
+	((FFactoryFlags*)_native2)->bEditAfterNew = TRUE;
+	((FFactoryFlags*)_native2)->AutoPriority = INDEX_NONE;
+	Description = TEXT("Font Imported From TrueType");
+}
+
+// @baa 0x00ec9c70
+void UTrueTypeMultiFontFactory::InitializeIntrinsicPropertyValues()
+{
+	/* UTrueTypeFontFactory::InitializeIntrinsicPropertyValues, inlined */
+	SupportedClass = UFont::StaticClass();
+	((FFactoryFlags*)_native2)->bCreateNew = TRUE;
+	((FFactoryFlags*)_native2)->bEditAfterNew = TRUE;
+	((FFactoryFlags*)_native2)->AutoPriority = INDEX_NONE;
+	Description = TEXT("Font Imported From TrueType");
+	SupportedClass = UMultiFont::StaticClass();
+	Description = TEXT("MultiFont Imported From TrueType");
 }

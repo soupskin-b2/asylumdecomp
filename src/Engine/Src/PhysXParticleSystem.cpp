@@ -1,4 +1,4 @@
-// PhysXParticleSystem.cpp: 25 functions
+// PhysXParticleSystem.cpp: 26 functions
 // Placed here by: neighbours 8, callers 8, class 6, file 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -335,4 +335,23 @@ void C_00e00e20Owner::sub_00e00e20(int ValueToRemove)
 		return;
 	}
 	Ints.sub_00dfede0(&ValueToRemove);
+}
+
+/* UFactory's flags (UE3: bCreateNew, bEditAfterNew, bEditorImport, bText) are in the kit's
+ * _native2 blob at 0x50; this stand-in names them. */
+struct FFactoryFlags
+{
+	BITFIELD bCreateNew : 1;
+	BITFIELD bEditAfterNew : 1;
+	BITFIELD bEditorImport : 1;
+	BITFIELD bText : 1;
+};
+
+// @baa 0x00f20a60
+void UPhysXParticleSystemFactoryNew::InitializeIntrinsicPropertyValues()
+{
+	SupportedClass = UPhysXParticleSystem::StaticClass();
+	((FFactoryFlags*)_native2)->bCreateNew = TRUE;
+	((FFactoryFlags*)_native2)->bEditAfterNew = TRUE;
+	Description = TEXT("PhysXParticleSystem");
 }

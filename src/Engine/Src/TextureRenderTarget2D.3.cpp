@@ -1,4 +1,4 @@
-// TextureRenderTarget2D.cpp (part 3 of 3): 22 functions
+// TextureRenderTarget2D.cpp (part 3 of 3): 23 functions
 // Placed here by: callers 1, class 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -208,4 +208,32 @@ void UScriptedTexture::BeginDestroy()
 {
 	GScriptedTextures.RemoveItem(this);
 	Super::BeginDestroy();
+}
+
+/* Kit gaps: FPixelFormatInfo / GPixelFormats (0x025da760, UnRHI) and FString::Printf (as the linker specialised it
+ * for these argument types, 0x00766b80) aren't declared. */
+struct FPixelFormatInfo
+{
+	const TCHAR* Name;
+	INT BlockSizeX;
+	INT BlockSizeY;
+	INT BlockSizeZ;
+	INT BlockBytes;
+	INT NumComponents;
+	DWORD PlatformFormat;
+	DWORD Flags;
+	UBOOL Supported;
+};
+
+extern FPixelFormatInfo g_025da760[];
+#define GPixelFormats g_025da760
+struct FString_ : public FString
+{
+	static FString Printf(const TCHAR* Fmt, INT A, INT B, const TCHAR* C);
+};
+
+// @baa 0x00768090
+FString UTextureRenderTarget2D::GetDesc()
+{
+	return FString_::Printf(TEXT("Render to Texture %dx%d[%s]"), SizeX, SizeY, GPixelFormats[Format].Name);
 }

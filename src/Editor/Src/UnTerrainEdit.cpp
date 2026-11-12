@@ -1,4 +1,4 @@
-// UnTerrainEdit.cpp: 16 functions
+// UnTerrainEdit.cpp: 18 functions
 // Placed here by: neighbours 10, callers 3, file 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -205,4 +205,32 @@ C_00ffe1c0* C_00ffe1c0::sub_00ffe1c0()
     Value_c = 0;
     Value_10 = 0;
     return this;
+}
+
+/* UFactory's flags (UE3: bCreateNew, bEditAfterNew, bEditorImport, bText) are in the kit's
+ * _native2 blob at 0x50; this stand-in names them. */
+struct FFactoryFlags
+{
+	BITFIELD bCreateNew : 1;
+	BITFIELD bEditAfterNew : 1;
+	BITFIELD bEditorImport : 1;
+	BITFIELD bText : 1;
+};
+
+// @baa 0x00ff1ae0
+void UTerrainMaterialFactoryNew::InitializeIntrinsicPropertyValues()
+{
+	SupportedClass = UTerrainMaterial::StaticClass();
+	((FFactoryFlags*)_native2)->bCreateNew = TRUE;
+	((FFactoryFlags*)_native2)->bEditAfterNew = TRUE;
+	Description = TEXT("TerrainMaterial");
+}
+
+// @baa 0x00ff1b20
+void UTerrainLayerSetupFactoryNew::InitializeIntrinsicPropertyValues()
+{
+	SupportedClass = UTerrainLayerSetup::StaticClass();
+	((FFactoryFlags*)_native2)->bCreateNew = TRUE;
+	((FFactoryFlags*)_native2)->bEditAfterNew = TRUE;
+	Description = TEXT("TerrainLayerSetup");
 }

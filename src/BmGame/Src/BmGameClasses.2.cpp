@@ -1,4 +1,4 @@
-// BmGameClasses.cpp: 61 functions
+// BmGameClasses.cpp: 68 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -1084,4 +1084,225 @@ struct URSeqAct_Music__01583bc0 : public URSeqAct_Music
 void URSeqAct_Music__01583bc0::eventAdvanceCue()
 {
 	ProcessEvent(FindFunctionChecked(g_026e386c), NULL);
+}
+
+	/* BMGAME_InitHUD */
+/* Kit gaps: the script events' generated glue (BmGameClasses.h); ShutdownHUD's copy is out of line (0x01581870),
+ * and USeqAct_Latent's Update glue is out of line too (0x008aa600). */
+struct URSeqAct_Credits__015818f0 : public URSeqAct_Credits
+{
+	void eventInitHUD()
+	{
+		ProcessEvent(FindFunctionChecked(g_026e2644), NULL);
+	}
+	void eventShutdownHUD();
+};
+
+struct USeqAct_Latent_ : public USeqAct_Latent
+{
+	UBOOL eventUpdate(FLOAT DeltaTime);
+};
+
+// @baa 0x015818f0
+/* Inputs: start, stop (which also fires the second output), pause and resume. While the credits run, script
+ * Update drives them, and the action finishes once it reports they're done. */
+UBOOL URSeqAct_Credits::UpdateOp(FLOAT DeltaTime)
+{
+	if (InputLinks(0).bHasImpulse)
+	{
+		((URSeqAct_Credits__015818f0*)this)->eventInitHUD();
+	}
+	else if (InputLinks.Num() > 1 && InputLinks(1).bHasImpulse)
+	{
+		((URSeqAct_Credits__015818f0*)this)->eventShutdownHUD();
+		sub_008bd720(1);
+	}
+	else if (InputLinks.Num() > 2 && InputLinks(2).bHasImpulse)
+	{
+		bCreditsPaused = TRUE;
+	}
+	else if (InputLinks.Num() > 3 && InputLinks(3).bHasImpulse)
+	{
+		bCreditsPaused = FALSE;
+	}
+	else if (bCreditsActive)
+	{
+		return !((USeqAct_Latent_*)this)->eventUpdate(DeltaTime);
+	}
+	return FALSE;
+}
+
+extern FName g_026e3520;
+	/* BMGAME_Set */
+extern FName g_026e29a4;
+	/* BMGAME_Clear */
+/* Kit gap: the script events' generated glue (BmGameClasses.h). */
+struct URSeqAct_ScarecrowEffect_ : public URSeqAct_ScarecrowEffect
+{
+	void eventSet()
+	{
+		ProcessEvent(FindFunctionChecked(g_026e3520), NULL);
+	}
+	void eventClear()
+	{
+		ProcessEvent(FindFunctionChecked(g_026e29a4), NULL);
+	}
+};
+
+// @baa 0x0157fe70
+/* The first input calls script Set, the second Clear; the action finishes at once. */
+UBOOL URSeqAct_ScarecrowEffect::UpdateOp(FLOAT DeltaTime)
+{
+	if (InputLinks(0).bHasImpulse)
+	{
+		((URSeqAct_ScarecrowEffect_*)this)->eventSet();
+	}
+	if (InputLinks(1).bHasImpulse)
+	{
+		((URSeqAct_ScarecrowEffect_*)this)->eventClear();
+	}
+	return TRUE;
+}
+
+	/* BMGAME_Clear */
+/* Kit gap: the script events' generated glue (BmGameClasses.h). */
+struct URSeqAct_MakeBatmanLookAtItems_ : public URSeqAct_MakeBatmanLookAtItems
+{
+	void eventSet()
+	{
+		ProcessEvent(FindFunctionChecked(g_026e3520), NULL);
+	}
+	void eventClear()
+	{
+		ProcessEvent(FindFunctionChecked(g_026e29a4), NULL);
+	}
+};
+
+// @baa 0x0157f9f0
+/* The first input calls script Set, the second Clear; the action finishes at once. */
+UBOOL URSeqAct_MakeBatmanLookAtItems::UpdateOp(FLOAT DeltaTime)
+{
+	if (InputLinks(0).bHasImpulse)
+	{
+		((URSeqAct_MakeBatmanLookAtItems_*)this)->eventSet();
+	}
+	if (InputLinks(1).bHasImpulse)
+	{
+		((URSeqAct_MakeBatmanLookAtItems_*)this)->eventClear();
+	}
+	return TRUE;
+}
+
+	/* BMGAME_Unlock */
+extern FName g_026e3410;
+	/* BMGAME_Lock */
+/* Kit gap: the script events' generated glue (BmGameClasses.h). */
+struct URSeqAct_SetRoomUnlocked_ : public URSeqAct_SetRoomUnlocked
+{
+	void eventUnlock()
+	{
+		ProcessEvent(FindFunctionChecked(g_026e3558), NULL);
+	}
+	void eventLock()
+	{
+		ProcessEvent(FindFunctionChecked(g_026e3410), NULL);
+	}
+};
+
+// @baa 0x01580570
+/* The first input calls script Unlock, the second Lock; the action finishes at once. */
+UBOOL URSeqAct_SetRoomUnlocked::UpdateOp(FLOAT DeltaTime)
+{
+	if (InputLinks(0).bHasImpulse)
+	{
+		((URSeqAct_SetRoomUnlocked_*)this)->eventUnlock();
+	}
+	if (InputLinks(1).bHasImpulse)
+	{
+		((URSeqAct_SetRoomUnlocked_*)this)->eventLock();
+	}
+	return TRUE;
+}
+
+extern FName g_026e2884;
+	/* BMGAME_FocusIn */
+extern FName g_026e2a48;
+	/* BMGAME_FocusOut */
+/* Kit gap: the script events' generated glue (BmGameClasses.h). */
+struct URSeqAct_SetScarecrowFocus_ : public URSeqAct_SetScarecrowFocus
+{
+	void eventFocusIn()
+	{
+		ProcessEvent(FindFunctionChecked(g_026e2884), NULL);
+	}
+	void eventFocusOut()
+	{
+		ProcessEvent(FindFunctionChecked(g_026e2a48), NULL);
+	}
+};
+
+// @baa 0x01580740
+/* The first input calls script FocusIn, the second FocusOut; the action finishes at once. */
+UBOOL URSeqAct_SetScarecrowFocus::UpdateOp(FLOAT DeltaTime)
+{
+	if (InputLinks(0).bHasImpulse)
+	{
+		((URSeqAct_SetScarecrowFocus_*)this)->eventFocusIn();
+	}
+	if (InputLinks(1).bHasImpulse)
+	{
+		((URSeqAct_SetScarecrowFocus_*)this)->eventFocusOut();
+	}
+	return TRUE;
+}
+
+extern FName g_026e3844;
+	/* BMGAME_GetStatus */
+/* Kit gap: the script event's generated glue (BmGameClasses.h). */
+struct URSeqAct_GetThugStatus_ : public URSeqAct_GetThugStatus
+{
+	void eventGetStatus()
+	{
+		ProcessEvent(FindFunctionChecked(g_026e3844), NULL);
+	}
+};
+
+// @baa 0x0157f300
+/* Script works out the thug's status and picks the output; that output fires (USequenceOp::ActivateOutputLink,
+ * inlined). */
+UBOOL URSeqAct_GetThugStatus::UpdateOp(FLOAT DeltaTime)
+{
+	if (InputLinks(0).bHasImpulse)
+	{
+		((URSeqAct_GetThugStatus_*)this)->eventGetStatus();
+		FSeqOpOutputLink& Link = OutputLinks(OutputToFire);
+		if (!Link.bDisabled)
+		{
+			Link.bHasImpulse = TRUE;
+		}
+	}
+	return TRUE;
+}
+
+	/* BMGAME_DoCheck */
+/* Kit gap: the script event's generated glue (BmGameClasses.h). */
+struct URSeqAct_IsOnPontoon__0157f740 : public URSeqAct_IsOnPontoon
+{
+	UBOOL eventDoCheck()
+	{
+		struct RSeqAct_IsOnPontoon_eventDoCheck_Parms
+		{
+			UBOOL ReturnValue;
+		} Parms;
+		Parms.ReturnValue = FALSE;
+		ProcessEvent(FindFunctionChecked(g_026e30a0), &Parms);
+		return Parms.ReturnValue;
+	}
+};
+
+// @baa 0x0157f740
+/* Script does the check (and fires the outputs); the action finishes when it says so. */
+UBOOL URSeqAct_IsOnPontoon::UpdateOp(FLOAT DeltaTime)
+{
+	return ((URSeqAct_IsOnPontoon__0157f740*)this)->eventDoCheck() != FALSE;
 }

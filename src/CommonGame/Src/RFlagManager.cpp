@@ -1,4 +1,4 @@
-// RFlagManager.cpp: 25 functions
+// RFlagManager.cpp: 26 functions
 // Placed here by: callers 5, file 5, neighbours 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -154,4 +154,28 @@ public:
 void URSeqAct_SwitchFlags::PostEditChange(UProperty* PropertyThatChanged)
 {
     (FStringNoInit_&)ObjComment = Comments(Mode);
+}
+
+// @baa 0x015406f0
+/* Slot 0x178 is USequenceOp::DeActivated (unnamed in the kit). With expanded outputs, a false value fires the
+ * second output, else the first (USequenceOp::ActivateOutputLink, inlined). */
+void URSeqAct_SetBoolEx::vf_178()
+{
+	if (bExpandOutputs && !bOriginalValue)
+	{
+		FSeqOpOutputLink& Link = OutputLinks(1);
+		if (!Link.bDisabled)
+		{
+			Link.bHasImpulse = TRUE;
+		}
+	}
+	else
+	{
+		FSeqOpOutputLink& Link = OutputLinks(0);
+		if (!Link.bDisabled)
+		{
+			Link.bHasImpulse = TRUE;
+		}
+	}
+	Super::vf_178();
 }

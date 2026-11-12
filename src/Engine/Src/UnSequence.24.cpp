@@ -1,4 +1,4 @@
-// UnSequence.cpp: 4 functions
+// UnSequence.cpp: 5 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -73,5 +73,27 @@ UBOOL USeqCond_IsLoggedIn_::eventCheckLogins()
 	} Parms;
 	Parms.ReturnValue = FALSE;
 	ProcessEvent(FindFunctionChecked(g_026c4db8), &Parms);
+	return Parms.ReturnValue;
+}
+
+extern FName g_026c45cc;
+	/* ENGINE_Update */
+struct USeqAct_Latent_ : public USeqAct_Latent
+{
+	UBOOL eventUpdate(FLOAT DeltaTime);
+};
+
+// @baa 0x008aa600
+/* The script event's generated glue (EngineClasses.h), out of line here. */
+UBOOL USeqAct_Latent_::eventUpdate(FLOAT DeltaTime)
+{
+	struct SeqAct_Latent_eventUpdate_Parms
+	{
+		FLOAT DeltaTime;
+		UBOOL ReturnValue;
+	} Parms;
+	Parms.ReturnValue = FALSE;
+	Parms.DeltaTime = DeltaTime;
+	ProcessEvent(FindFunctionChecked(g_026c45cc), &Parms);
 	return Parms.ReturnValue;
 }

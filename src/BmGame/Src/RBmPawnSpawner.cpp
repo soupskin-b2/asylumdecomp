@@ -1,4 +1,4 @@
-// RBmPawnSpawner.cpp (part 1 of 2): 63 functions
+// RBmPawnSpawner.cpp (part 1 of 2): 64 functions
 // Placed here by: callers 11, file 11, neighbours 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -268,4 +268,22 @@ undefined4 ARPawnBossIvyBase::sub_015fe9a0(byte param_2)
 bool URSeqAct_CombatChallengeSpawner::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x015ede00
+/* Slot 0x178 is USequenceOp::DeActivated (unnamed in the kit). Once the pawns have been spawned, the second
+ * output fires (USequenceOp::ActivateOutputLink(1), inlined); then the wave state resets. */
+void URBMWaveController::vf_178()
+{
+	if (bPawnsSpawned)
+	{
+		FSeqOpOutputLink& Link = OutputLinks(1);
+		if (!Link.bDisabled)
+		{
+			Link.bHasImpulse = TRUE;
+		}
+	}
+	bExitWaveController = FALSE;
+	bPawnsSpawned = FALSE;
+	Super::vf_178();
 }

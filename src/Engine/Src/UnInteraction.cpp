@@ -1,4 +1,4 @@
-// UnInteraction.cpp: 71 functions
+// UnInteraction.cpp: 72 functions
 // Placed here by: neighbours 31, class 23, file 5, callers 3.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -572,4 +572,11 @@ UBOOL UUIInteraction::InputChar(INT ControllerId, TCHAR Character)
         bResult = SceneClient->InputChar(ControllerId, Character);
     }
     return bResult;
+}
+
+// @baa 0x00d6bfd0
+/* Interactions take part in script execution from the start. */
+UInteraction::UInteraction()
+{
+	InitExecution();
 }

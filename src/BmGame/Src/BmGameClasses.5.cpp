@@ -1,56 +1,31 @@
-// BmGameClasses.cpp (part 5 of 9): 1 function
-// Placed here by: neighbours 1.
+// BmGameClasses.cpp: 1 function
+// Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
+#include "ue3/Classes.h"
+#include "ue3/Script.h"
+#include "ue3/Native.h"
 
-extern char g_01ebe858[];
-extern char g_02305bc0[];
-struct C { C* sub_005c7a20(void); };
-
-struct AInfo {
-    INT Unk00;  // 0x00 vtable ptr
-    INT Unk04;
-    INT Unk08;
-    INT Unk0C;
-    INT Unk10;
-    INT Unk14;
-    INT Unk18;
-    INT Unk1C;
-    INT Unk20;
-    INT Unk24;
-    INT Unk28;
-    INT Unk2C;
-    INT Unk30;
-    INT Unk34;
-    INT Unk38;
-    INT Unk3C;
-    INT Unk40;
-    INT Unk44;
-    INT Unk48;
-    INT Unk4C;
-    INT Unk50;
-    INT Unk54;
-    INT Unk58;
-    INT Unk5C;
-    INT Unk60;
-    INT Unk64;
-    INT Unk68;
-    INT Unk6C;
-    INT Unk70;
-    INT Unk74;
-    INT Unk78;
-    INT Unk7C;
-    INT Unk80;
-    INT Unk84;
-    INT DetachFence; // 0x88
-    AInfo* sub_01577990(void);
+extern FName g_026e2ac8;
+	/* BMGAME_DeactivatePP */
+/* Kit gap: the script event's generated glue (BmGameClasses.h). */
+struct URSeqAct_ModifyPostProcess_ : public URSeqAct_ModifyPostProcess
+{
+	void eventDeactivatePP(class ULocalPlayer* Player)
+	{
+		struct RSeqAct_ModifyPostProcess_eventDeactivatePP_Parms
+		{
+			class ULocalPlayer* Player;
+		} Parms;
+		Parms.Player = Player;
+		ProcessEvent(FindFunctionChecked(g_026e2ac8), &Parms);
+	}
 };
 
-// @baa 0x01577990
-AInfo* AInfo::sub_01577990(void)
+// @baa 0x01564df0
+/* Slot 0x178 is USequenceOp::DeActivated (unnamed in the kit): script restores the first local player's post
+ * process, then the base deactivation runs. */
+void URSeqAct_ModifyPostProcess::vf_178()
 {
-    ((C*)this)->sub_005c7a20();
-    *(volatile INT*)this = (INT)g_01ebe858;
-    DetachFence = 0;
-    *(INT*)this = (INT)g_02305bc0;
-    return this;
+	((URSeqAct_ModifyPostProcess_*)this)->eventDeactivatePP(GEngine->GamePlayers(0));
+	Super::vf_178();
 }

@@ -1,4 +1,4 @@
-// R3rdPersonCamera.cpp: 25 functions
+// R3rdPersonCamera.cpp: 26 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -360,4 +360,24 @@ void AR3rdPersonCamera::execBlendToCameraTarget(FFrame& Stack, RESULT_DECL)
 	P_GET_UBOOL_OPTX(BlendBatmanRelativePosition, FALSE);
 	P_FINISH;
 	((AR3rdPersonCamera__017095a0*)this)->BlendToCameraTarget(Target, BlendTime, bResetCam, ResetRotation, BlendBatmanRelativePosition);
+}
+
+	/* BMGAME_SettingsChanged */
+/* Kit gaps: the script event's generated glue (BmGameClasses.h) and the native settings rebuild (0x01689170,
+ * which derives the cached camera values from the edited angles). */
+struct AR3rdPersonCamera__016898e0 : public AR3rdPersonCamera
+{
+	void eventSettingsChanged()
+	{
+		ProcessEvent(FindFunctionChecked(g_026e25a8), NULL);
+	}
+	void UpdateCameraSettings();
+};
+
+// @baa 0x016898e0
+/* Editing a property refreshes the camera settings, script side first. */
+void AR3rdPersonCamera::PostEditChange(UProperty* PropertyThatChanged)
+{
+	((AR3rdPersonCamera__016898e0*)this)->eventSettingsChanged();
+	((AR3rdPersonCamera__016898e0*)this)->UpdateCameraSettings();
 }
