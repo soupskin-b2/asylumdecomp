@@ -193,8 +193,11 @@ happened; on HTTP 429 or 503 wait as told, don't retry in a loop.
   on `check` and `submit` alike (`submit` then takes one function).
 - On a match, `check` lists new bindings: names the project didn't know yet, bound to the addresses the
   original uses there. Make sure each is the function or global you meant.
-- A method the headers don't declare: derive a struct and declare it there. The address binds it; the
-  struct's name doesn't matter: `struct UTexture2D_ : public UTexture2D { void sub_00733310(FArchive& Ar); };`
+- A method the headers don't declare at all: derive a struct and declare it there, under its real name
+  when you can tell it, with its address in a comment (the maintainers move these declarations into
+  the headers by that address). The struct's name doesn't matter:
+  `struct UTexture2D_ : public UTexture2D { void SerializeMips(FArchive& Ar); /* 0x00733310 */ };`
+  Only for methods the headers lack: never redeclare or override one they declare (see below).
 - A class the headers don't have: define it in your file under its real name when you know it
   (`FNetworkNotify`, say), with its fields by name and its virtual functions declared
   `virtual` (not a hand-written vtable pointer). CI renames a type that clashes with one already in
@@ -242,8 +245,8 @@ Parts of `src/` still read like decompiler output (`param_1`, offset casts, `sub
   `template TArray<INT>::~TArray();`.
 - Small changes that only steer register allocation (declaration order, a temporary) are fine; keep them
   minimal.
-- Don't work around a wrong or missing declaration to force a match (a derived struct that redeclares
-  a header's function differently, an address name standing in for a declared function, casts that
+- Don't work around a wrong declaration to force a match (a derived struct that redeclares or
+  overrides a header's function, an address name standing in for a declared function, casts that
   call a slot as another type, hand-read vtables). `flag` what the code shows (the slot, the
   signature, the field), give the function up with the same reason, and take another one: it comes
   back once the header is fixed.
