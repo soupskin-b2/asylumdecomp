@@ -1,4 +1,4 @@
-// BmGameDialogueClasses.cpp: 71 functions
+// BmGameDialogueClasses.cpp: 72 functions
 // Placed here by: callers 13, file 13.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -362,4 +362,50 @@ struct C_01584b60
 INT C_01584b60::sub_01584b60(FLOAT F)
 {
     return ((C_008caeb0*)this)->sub_008caeb0(F);
+}
+
+struct FName_ : FName
+{
+    UBOOL operator==(const TCHAR* Other) const; /* 0x005cac60 */
+};
+
+struct FString_ : FString
+{
+    UBOOL operator!=(const FString& Other) const; /* 0x00489970 */
+};
+
+template<class T>
+static FORCEINLINE void InsertZeroed(TArray<T>& Array, INT Index, INT Count = 1)
+{
+    Array.Insert(Index, Count);
+    appMemzero(Array.GetTypedData() + Index, Count * sizeof(T));
+}
+
+struct URSeqAct_ConversationDialogue__0156c490 : URSeqAct_ConversationDialogue
+{
+    void sub_0156c490(USoundCue* Cue, INT& OutputIndex); /* 0x0156c490 */
+};
+
+// @baa 0x0156c490
+void URSeqAct_ConversationDialogue__0156c490::sub_0156c490(USoundCue* Cue, INT& OutputIndex)
+{
+    for (INT TriggerIndex = 0; TriggerIndex < Cue->AnimTriggers.Num(); ++TriggerIndex)
+    {
+        if ((static_cast<const FName_&>(Cue->AnimTriggers(TriggerIndex).TagName) == TEXT("DialogueOutput")
+          || static_cast<const FName_&>(Cue->AnimTriggers(TriggerIndex).TagName) == TEXT("Out"))
+            && Cue->AnimTriggers(TriggerIndex).TagParams.Num() > 0)
+        {
+            if (OutputIndex == OutputLinks.Num())
+            {
+                InsertZeroed<FSeqOpOutputLink>(OutputLinks, OutputIndex);
+            }
+            else if (static_cast<const FString_&>(static_cast<const FString&>(OutputLinks(OutputIndex).LinkDesc))
+                     != Cue->AnimTriggers(TriggerIndex).TagParams(0))
+            {
+                OutputLinks(OutputIndex).Links.Remove(0, OutputLinks(OutputIndex).Links.Num());
+            }
+            OutputLinks(OutputIndex).LinkDesc = Cue->AnimTriggers(TriggerIndex).TagParams(0);
+            ++OutputIndex;
+        }
+    }
 }

@@ -1,4 +1,4 @@
-// PointLightComponent.cpp: 13 functions
+// PointLightComponent.cpp: 14 functions
 // Placed here by: callers 1, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -89,4 +89,31 @@ void UPointLightComponent__006da950::UpdatePreviewLightRadius()
 		PreviewLightRadius->SphereRadius = Radius;
 		PreviewLightRadius->Translation = Translation;
 	}
+}
+
+#define SMALL_NUMBER (1.e-8f)
+/* FMatrix's operator* (0x0058e560), RemoveScaling (0x006a7f30) and Inverse (0x006e1510) (UnMath.h, out of line
+ * here); the kit's FMatrix has no methods. */
+struct FMatrix_ : public FMatrix
+{
+    void RemoveScaling(FLOAT Tolerance = SMALL_NUMBER);
+    FMatrix operator*(const FMatrix& Other) const;
+    FMatrix Inverse() const;
+};
+
+// @baa 0x006e42d0
+/* Slot 0x184 (unnamed in the kit; UE3's SetTransformedToWorld): the light's frame is the parent's, translated
+ * and with X and Z swapped, without scaling. */
+void UPointLightComponent::vf_184()
+{
+    LightToWorld = (const FMatrix_&)((const FMatrix_&)FMatrix(
+            FPlane(+0, +0, +1, +0),
+            FPlane(+0, +1, +0, +0),
+            FPlane(+1, +0, +0, +0),
+            FPlane(+0, +0, +0, +1)
+            ) *
+        FTranslationMatrix(Translation)) *
+        CachedParentToWorld;
+    ((FMatrix_&)LightToWorld).RemoveScaling();
+    WorldToLight = ((FMatrix_&)LightToWorld).Inverse();
 }

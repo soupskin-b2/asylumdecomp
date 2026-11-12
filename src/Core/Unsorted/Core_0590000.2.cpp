@@ -1,4 +1,4 @@
-// Core_0590000.cpp (part 2 of 4): 137 functions
+// Core_0590000.cpp (part 2 of 4): 138 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -1563,4 +1563,14 @@ void UObject::execQuatRotateVector(FFrame& Stack, RESULT_DECL)
 	P_GET_STRUCT(FVector, B);
 	P_FINISH;
 	*(FVector*)Result = ((FQuat__005989d0*)&A)->RotateVector(B);
+}
+
+// @baa 0x00591960
+/* byte /= byte; division by zero leaves A alone and yields 0. */
+void UObject::execDivideEqual_ByteByte(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_BYTE_REF(A);
+	P_GET_BYTE(B);
+	P_FINISH;
+	*(BYTE*)Result = B ? (A /= B) : 0;
 }

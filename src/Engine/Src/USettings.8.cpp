@@ -1,4 +1,4 @@
-// USettings.cpp: 21 functions
+// USettings.cpp: 22 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -481,4 +481,44 @@ void ANxCylindricalForceFieldCapsule::vf_23c(INT Scene)
 	ANxForceField::vf_23c(Scene);
 	delete (NxForceFieldKernel*)Kernel.Dummy;
 	Kernel.Dummy = 0;
+}
+
+/* Kit gaps: appMemCrc (0x00627f70), UObject::GetOutermost (0x005d7350), UPackage::Guid (0x58, inside the kit's
+ * opaque UPackage) and UOnlineSubsystem::GetBuildUniqueId (UnOnlineSubsystem.h; only its exec calls it). */
+DWORD appMemCrc(const void* Data, INT Length, DWORD CRC = 0);
+struct UPackage_ : public UObject
+{
+	BYTE OpaquePackageState[0x58 - sizeof(UObject)];
+	FGuid Guid; /* 0x58 */
+};
+
+struct UObject_ : public UObject
+{
+	UPackage_* GetOutermost() const;
+};
+
+struct UOnlineSubsystem_ : public UOnlineSubsystem
+{
+	INT GetBuildUniqueId();
+};
+
+// @baa 0x00d67980
+/* The id matchmaking uses to keep different builds apart: the override when set, else a CRC of the engine
+ * package's guid. */
+INT UOnlineSubsystem_::GetBuildUniqueId()
+{
+	INT Crc = 0;
+	if (bUseBuildIdOverride == FALSE)
+	{
+		UPackage_* EnginePackage = ((UObject_*)UEngine::StaticClass())->GetOutermost();
+		if (EnginePackage)
+		{
+			Crc = appMemCrc(&EnginePackage->Guid, sizeof(INT), 0);
+		}
+	}
+	else
+	{
+		Crc = BuildIdOverride;
+	}
+	return Crc;
 }

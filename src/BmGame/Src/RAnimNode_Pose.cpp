@@ -1,4 +1,4 @@
-// RAnimNode_Pose.cpp (part 1 of 4): 202 functions
+// RAnimNode_Pose.cpp (part 1 of 4): 203 functions
 // Placed here by: neighbours 138, class 47, callers 16, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1924,4 +1924,38 @@ void __fastcall sub_015e53a0(undefined4 * param_1, int param_2)
     *(int *)(param_2 + 0xa0) = *(int *)(param_2 + 0xa0) + 1;
   }
   return;
+}
+
+/* Kit gaps: FString::Printf (0x00549620 in this build) and operator* (UnString.h) aren't declared; neither are
+ * the enum-name helper (0x00553ae0: an enum value's name looked up by the enum's name) or the pose log's
+ * add-a-line method (0x015b7650: text and an R, G, B colour). */
+struct FString_ : public FString
+{
+    FORCEINLINE const TCHAR* operator*() const
+    {
+        return Num() ? &(*this)(0) : TEXT("");
+    }
+};
+
+FString sub_00549620(const TCHAR* Fmt, ...);
+FString GetEnumNameString(const TCHAR* EnumName, INT Value, UBOOL bStripPrefix);
+struct FPersistentThoughts_ : public FPersistentThoughts
+{
+    void AddThought(const FString& Text, INT R, INT G, INT B);
+};
+
+// @baa 0x015b7d70
+/* Logs the movement speed change to the pose log, then stores the new speed and rate in the move-to request. */
+void URAnimNode_Pose::SetMovementSpeed(BYTE Speed, FLOAT Rate)
+{
+    if (Speed != PosePlayer.MoveToRequest.TargetSpeed)
+    {
+        ((FPersistentThoughts_&)PosePlayer.PoseLog).AddThought(
+            sub_00549620(TEXT("SetMovementSpeed: %s -> %s"),
+                *(const FString_&)GetEnumNameString(TEXT("EMovementSpeed"), PosePlayer.MoveToRequest.TargetSpeed, TRUE),
+                *(const FString_&)GetEnumNameString(TEXT("EMovementSpeed"), Speed, TRUE)),
+            255, 191, 255);
+    }
+    PosePlayer.MoveToRequest.TargetSpeed = Speed;
+    PosePlayer.MoveToRequest.TargetSpeedScale = Rate;
 }

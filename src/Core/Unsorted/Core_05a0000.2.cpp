@@ -1,4 +1,4 @@
-// Core_05a0000.cpp: 15 functions
+// Core_05a0000.cpp: 16 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -208,4 +208,19 @@ INT UCommandlet_::eventMain(const FString& Params)
 	Parms.Params = Params;
 	ProcessEvent(FindFunctionChecked(g_0268d0bc), &Parms);
 	return Parms.ReturnValue;
+}
+
+/* Kit gap: FString::Len (inline in UnString.h). */
+struct FString__005a4cc0 : public FString
+{
+	INT Len() const { return Num() ? Num() - 1 : 0; }
+};
+
+// @baa 0x005a4cc0
+/* Len(string S): the number of characters, without the terminator. */
+void UObject::execLen(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STR(S);
+	P_FINISH;
+	*(INT*)Result = ((const FString__005a4cc0&)S).Len();
 }

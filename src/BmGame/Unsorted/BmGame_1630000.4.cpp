@@ -1,4 +1,4 @@
-// BmGame_1630000.cpp: 9 functions
+// BmGame_1630000.cpp: 10 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -178,4 +178,51 @@ BYTE ARPawnCombat__016383e0::eventGetCounterLimb()
 	Parms.ReturnValue = 0;
 	ProcessEvent(FindFunctionChecked(g_026e2f7c), &Parms);
 	return Parms.ReturnValue;
+}
+
+// @baa 0x0163c600
+/* How well TestStrike fits the requested direction, strength and range: -1 when it can't be used at all
+ * (inactive, needs a target, wrong strength, travels too far, blocked, locked for this chapter, or the target is
+ * getting up), otherwise the sum of the per-criterion scores. */
+INT ARCombatMove_BatmanStrike::GetStrikeInfoScore(FStrikeInfo TestStrike, BYTE StrikeDir, BYTE StrikeStrength, BYTE StrikeRange, UBOOL bCanTravelBeyondTarget)
+{
+	if (!TestStrike.bActive)
+	{
+		return -1;
+	}
+	if (!Target && !TestStrike.bCanPerformWithNoTarget)
+	{
+		return -1;
+	}
+	if (bFinalBlow && !TestStrike.bCanBeFinalBlow)
+	{
+		return -1;
+	}
+	if (TestStrike.StrikeStrength != StrikeStrength)
+	{
+		return -1;
+	}
+	if (!bCanTravelBeyondTarget && TestStrike.bTravelsBeyondTarget)
+	{
+		return -1;
+	}
+	if (TargetResponse == 1 && !TestStrike.bCanPerformOnBlocker)
+	{
+		return -1;
+	}
+	if (!WorldInfo->IsDemoBuild() && ChapterNumber > 0.f && (FLOAT)TestStrike.UnlockChapter > ChapterNumber)
+	{
+		return -1;
+	}
+	if (Target && !TestStrike.bHitsLow && ((ARPawnCharacter_*)Target)->eventIsGettingUpFromRagdoll())
+	{
+		return -1;
+	}
+
+	INT Score = GetScoreForStrikeDir(TestStrike.StrikeDirection, StrikeDir);
+	Score += GetScoreForStrikeRange(TestStrike.StrikeRange, StrikeRange);
+	Score += GetScoreForHandedness(TestStrike);
+	Score += GetScoreForTimeSinceUse(TestStrike);
+	Score += GetScoreForStrikeSpeed(TestStrike);
+	return Score;
 }

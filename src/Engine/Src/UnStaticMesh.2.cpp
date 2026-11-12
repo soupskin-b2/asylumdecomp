@@ -1,95 +1,44 @@
-// UnStaticMesh.cpp (part 2 of 2): 18 functions
-// Placed here by: neighbours 14, callers 4.
+// UnStaticMesh.cpp: 1 function
+// Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
-#define BAA_OUTLINE_ALLOC
+#include "ue3/Classes.h"
 #include "ue3/Array.h"
+#include "ue3/AppMath.h"
+#include "ue3/Cast.h"
 
-struct T_0094ae70 { BYTE b[20]; };
+/* Kit gap: UnMath.h's appCeilLogTwo (inline). */
+FORCEINLINE DWORD appCeilLogTwo(DWORD Arg)
+{
+    INT Bitmask = ((INT)(appCountLeadingZeros(Arg) << 26)) >> 31;
+    return (32 - appCountLeadingZeros(Arg - 1)) & (~Bitmask);
+}
 
-// @baa 0x0094ae70
-template INT TArray<T_0094ae70>::Add(INT);
+// @baa 0x009574f0
+/* Keeps the light map resolution a power of two, drops decal materials from the overrides, and clamps the
+ * subdivision settings. */
+void UStaticMeshComponent::PostEditChange(UProperty* PropertyThatChanged)
+{
+    if (OverriddenLightMapResolution > 0)
+    {
+        OverriddenLightMapResolution = 1 << appCeilLogTwo(OverriddenLightMapResolution);
+    }
+    else
+    {
+        OverriddenLightMapResolution = 0;
+    }
 
-struct T_0094aef0 { BYTE b[28]; };
+    for (INT MaterialIndex = 0; MaterialIndex < Materials.Num(); MaterialIndex++)
+    {
+        UMaterialInterface*& MaterialInterface = Materials(MaterialIndex);
+        if (MaterialInterface && ObjectIsA(MaterialInterface, UDecalMaterial::StaticClass()))
+        {
+            MaterialInterface = NULL;
+        }
+    }
 
-// @baa 0x0094aef0
-template INT TArray<T_0094aef0>::Add(INT);
+    SubDivisionStepSize = Clamp(SubDivisionStepSize, 1, 128);
+    MaxSubDivisions = Clamp(MaxSubDivisions, 2, 50);
+    MinSubDivisions = Clamp(MinSubDivisions, 2, MaxSubDivisions);
 
-struct T_0094af80 { BYTE b[36]; };
-
-// @baa 0x0094af80
-template INT TArray<T_0094af80>::Add(INT);
-
-struct T_0094b000 { BYTE b[44]; };
-
-// @baa 0x0094b000
-template INT TArray<T_0094b000>::Add(INT);
-
-struct T_0096ad60 { BYTE b[16]; };
-
-// @baa 0x0096ad60
-template INT TArray<T_0096ad60>::Add(INT);
-
-struct T_0096afa0 { BYTE b[16]; };
-
-// @baa 0x0096afa0
-template void TArray<T_0096afa0>::Remove(INT, INT);
-
-struct T_0096b350 { BYTE b[20]; };
-
-// @baa 0x0096b350
-template INT TArray<T_0096b350>::Add(INT);
-
-struct T_0096b5b0 { BYTE b[20]; };
-
-// @baa 0x0096b5b0
-template void TArray<T_0096b5b0>::Remove(INT, INT);
-
-struct T_0096b960 { BYTE b[24]; };
-
-// @baa 0x0096b960
-template INT TArray<T_0096b960>::Add(INT);
-
-struct T_0096bbe0 { BYTE b[24]; };
-
-// @baa 0x0096bbe0
-template void TArray<T_0096bbe0>::Remove(INT, INT);
-
-struct T_0096bfa0 { BYTE b[28]; };
-
-// @baa 0x0096bfa0
-template INT TArray<T_0096bfa0>::Add(INT);
-
-struct T_0096c230 { BYTE b[28]; };
-
-// @baa 0x0096c230
-template void TArray<T_0096c230>::Remove(INT, INT);
-
-struct T_0096c610 { BYTE b[20]; };
-
-// @baa 0x0096c610
-template INT TArray<T_0096c610>::Add(INT);
-
-struct T_0096c850 { BYTE b[20]; };
-
-// @baa 0x0096c850
-template void TArray<T_0096c850>::Remove(INT, INT);
-
-struct T_0096cbf0 { BYTE b[28]; };
-
-// @baa 0x0096cbf0
-template INT TArray<T_0096cbf0>::Add(INT);
-
-struct T_0096ce60 { BYTE b[28]; };
-
-// @baa 0x0096ce60
-template void TArray<T_0096ce60>::Remove(INT, INT);
-
-struct T_0096d220 { BYTE b[36]; };
-
-// @baa 0x0096d220
-template INT TArray<T_0096d220>::Add(INT);
-
-struct T_0096d470 { BYTE b[36]; };
-
-// @baa 0x0096d470
-template void TArray<T_0096d470>::Remove(INT, INT);
+    Super::PostEditChange(PropertyThatChanged);
+}

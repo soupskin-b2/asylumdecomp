@@ -1,4 +1,4 @@
-// RPlayerController.cpp: 6 functions
+// RPlayerController.cpp: 7 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -418,4 +418,28 @@ INT __stdcall sub_016d2000(INT A)
     if (D != NULL)
         return D->vf1a4(A);
     return 0;
+}
+
+/* TArray<FString>::Empty is out of line in this build (0x00551710). */
+template<> void TArray<FString>::Empty(INT Slack);
+/* Kit gap: TArray::AddItem (UE3 Array.h) isn't declared; TArray<FString>'s copy is out of line. */
+struct FStringArray_ : public TArray<FString>
+{
+	INT AddItem(const FString& Item); /* 0x0054cfe0 */
+};
+
+/* The per-slot save descriptions shown in the load menu (one string list per save slot). */
+extern FStringArray_ g_026e2d88[];
+// @baa 0x0172d170
+void ARPlayerController::Live_StoreSaveInfo(INT Id, const FString& Difficulty, const FString& Percentage, const FString& TimePlayed, const FString& RoomName, const FString& ChallengeStr, const FString& RiddlerStr, const FString& UpgradesStr, const FString& BioStr)
+{
+	g_026e2d88[Id].Empty();
+	g_026e2d88[Id].AddItem(Difficulty);
+	g_026e2d88[Id].AddItem(Percentage);
+	g_026e2d88[Id].AddItem(TimePlayed);
+	g_026e2d88[Id].AddItem(RoomName);
+	g_026e2d88[Id].AddItem(ChallengeStr);
+	g_026e2d88[Id].AddItem(RiddlerStr);
+	g_026e2d88[Id].AddItem(UpgradesStr);
+	g_026e2d88[Id].AddItem(BioStr);
 }

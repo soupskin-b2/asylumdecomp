@@ -1,4 +1,4 @@
-// UnParticleComponents.cpp (part 4 of 4): 36 functions
+// UnParticleComponents.cpp (part 4 of 4): 37 functions
 // Placed here by: neighbours 13, class 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -581,4 +581,28 @@ UParticleSystemReplay* UParticleSystemComponent__00b5f140::sub_00b5f140(const IN
         }
     }
     return NULL;
+}
+
+/* Kit gaps: UObject::ConditionalPostLoad (0x005e5a00) and UParticleSystemComponent::InitializeSystem (0x00b5d240)
+ * aren't declared. */
+struct UObject_ : public UObject
+{
+	void ConditionalPostLoad();
+};
+
+struct UParticleSystemComponent__00b63d30 : public UParticleSystemComponent
+{
+	void InitializeSystem();
+};
+
+// @baa 0x00b63d30
+void UParticleSystemComponent::PostLoad()
+{
+	Super::PostLoad();
+	if (Template)
+	{
+		((UObject_*)Template)->ConditionalPostLoad();
+	}
+	bIsViewRelevanceDirty = TRUE;
+	((UParticleSystemComponent__00b63d30*)this)->InitializeSystem();
 }

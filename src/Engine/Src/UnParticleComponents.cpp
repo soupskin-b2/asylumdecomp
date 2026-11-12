@@ -1,4 +1,4 @@
-// UnParticleComponents.cpp (part 1 of 4): 238 functions
+// UnParticleComponents.cpp (part 1 of 4): 239 functions
 // Placed here by: neighbours 143, class 74, callers 9, file 9.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -2291,6 +2291,26 @@ UBOOL UParticleSystemComponent::GetVectorParameter(FName InName, FVector& OutVec
         if (Param.Name == InName && Param.ParamType == PSPT_Vector)
         {
             OutVector = Param.Vector;
+            return TRUE;
+        }
+    }
+    return FALSE;
+}
+
+// @baa 0x00b5e980
+/* Looks up the instance parameter InName of scalar type (PSPT_Scalar). */
+UBOOL UParticleSystemComponent::GetFloatParameter(FName InName, FLOAT& OutFloat)
+{
+    if (InName == NAME_None)
+    {
+        return FALSE;
+    }
+    for (INT i = 0; i < InstanceParameters.Num(); i++)
+    {
+        FParticleSysParam& Param = InstanceParameters(i);
+        if (Param.Name == InName && Param.ParamType == PSPT_Scalar)
+        {
+            OutFloat = Param.Scalar;
             return TRUE;
         }
     }
