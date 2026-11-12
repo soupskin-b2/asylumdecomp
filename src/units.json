@@ -7440,7 +7440,7 @@
     {
      "va": "01595c10",
      "size": 40,
-     "symbol": "?vf_254@URAnimNode_Pose@@UAEXIII@Z"
+     "symbol": "?OverrideTranslationVelocity@URAnimNode_Pose@@UAEXUFVector@@@Z"
     },
     {
      "va": "01595cb0",
@@ -189103,7 +189103,7 @@
     {
      "va": "00c7ef10",
      "size": 72,
-     "symbol": "?OnChildAnimEnd@UAnimNodeRandom_@@QAEXPAUUAnimNodeSequence@@MM@Z"
+     "symbol": "?OnChildAnimEnd@UAnimNodeRandom_@@UAEXPAUUAnimNodeSequence@@MM@Z"
     },
     {
      "va": "00c4b1c0",

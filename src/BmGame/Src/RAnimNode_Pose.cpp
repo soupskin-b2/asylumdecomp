@@ -280,14 +280,12 @@ undefined1 URAnimNode_Pose::vf_1ec(void)
 float URAnimNode_Pose::vf_1f0(void) { return *(float*)((char*)this + 10248); }
 
 // @baa 0x01595c10
-void URAnimNode_Pose::vf_254(undefined4 param_2, undefined4 param_3, undefined4 param_4)
+void URAnimNode_Pose::OverrideTranslationVelocity(FVector Velocity)
 {
     int param_1 = (int)this;
 
   *(uint *)(param_1 + 0x3008) = *(uint *)(param_1 + 0x3008) | 1;
-  *(undefined4 *)(param_1 + 0x300c) = param_2;
-  *(undefined4 *)(param_1 + 0x3010) = param_3;
-  *(undefined4 *)(param_1 + 0x3014) = param_4;
+  *(FVector *)(param_1 + 0x300c) = Velocity;
   return;
 }
 

@@ -1114,16 +1114,14 @@ void ARBMRouter::execCanMovePartwayToPos(FFrame& Stack, RESULT_DECL)
 void ARPawnCharacter::execGetMoveToDirection(FFrame& Stack, RESULT_DECL)
 {
     P_FINISH;
-    FVector Direction;
-    *(FVector*)Result = *(FVector*)vf_588((INT)&Direction);
+    *(FVector*)Result = vf_588();
 }
 
 // @baa 0x016f5280
 void ARPawnCharacter::execGetFaceAtDirection(FFrame& Stack, RESULT_DECL)
 {
     P_FINISH;
-    FVector Direction;
-    *(FVector*)Result = *(FVector*)vf_5d4((INT)&Direction);
+    *(FVector*)Result = vf_5d4();
 }
 
 // @baa 0x016fd320
@@ -1179,8 +1177,7 @@ void ARPawnCharacter::execGetTargetAimAtDirection(FFrame& Stack, RESULT_DECL)
 {
     P_FINISH;
 
-    FVector AimAtDirection;
-    *(FVector*)Result = *(FVector*)vf_5a4((INT)&AimAtDirection);
+    *(FVector*)Result = vf_5a4();
 }
 
 extern FName g_026e2e18;

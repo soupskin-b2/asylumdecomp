@@ -76,7 +76,7 @@ struct FStateFrame : public FFrame {
 // Out parameters (`out` in UnrealScript): Step leaves the variable's address in GPropAddr (0 if the
 // argument isn't a variable); the native writes through it. Optional parameters: Step sets
 // RUC_SkippedOptionalParm in GRuntimeUCFlags when the caller left one out (the default stays).
-// Verified: GPropAddr 0x026667e8, GRuntimeUCFlags 0x026667f0, GCasts 0x02688ca0.
+// Verified: GPropAddr 0x026667e8, GRuntimeUCFlags 0x026667f0, GCasts 0x0268c8a0 (after GNatives' 16 pages of 256).
 extern BYTE* GPropAddr;
 extern DWORD GRuntimeUCFlags;
 extern Native GCasts[];

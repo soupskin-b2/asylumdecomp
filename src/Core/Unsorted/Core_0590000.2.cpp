@@ -4,7 +4,6 @@
 #include "ue3/Classes.h"
 #include "ue3/Script.h"
 
-extern Native g_02688ca0[];
 struct UObject_ : public UObject {
     void sub_005996a0(FFrame& Stack, RESULT_DECL);
 };
@@ -13,7 +12,7 @@ struct UObject_ : public UObject {
 void UObject_::sub_005996a0(FFrame& Stack, RESULT_DECL)
 {
     BYTE B = *Stack.Code++;
-    (this->*g_02688ca0[B])(Stack, Result);
+    (this->*GNatives[0x100 + B])(Stack, Result);  // extended native page 1
 }
 
 // @baa 0x00599e30

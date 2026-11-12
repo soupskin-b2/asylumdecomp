@@ -16648,7 +16648,7 @@ struct UAnimNodeBlendBase : public UAnimNode {
     BYTE BlendType; /* 0xc4 */
     /* virtual functions this class introduces (vtable 0x02059b60) */
     virtual void SetChildrenTotalWeightAccumulator(const INT Index); /* 0x188 */
-    virtual void vf_18c(INT, INT, INT); /* 0x18c */
+    virtual void OnChildAnimEnd(class UAnimNodeSequence* Child, FLOAT PlayedTime, FLOAT ExcessTime); /* 0x18c */
     virtual INT vf_190(INT); /* 0x190 */
     virtual INT vf_194(INT); /* 0x194 */
     virtual void vf_198(); /* 0x198 */
@@ -16944,7 +16944,7 @@ struct UAnimNodeRandom : public UAnimNodeBlendList {
     virtual void InitAnim(class USkeletalMeshComponent* MeshComp, class UAnimNodeBlendBase* Parent); /* 0x128 */
     virtual void vf_134(FLOAT, FLOAT); /* 0x134 */
     virtual void vf_150(); /* 0x150 */
-    virtual void vf_18c(INT, INT, INT); /* 0x18c */
+    virtual void OnChildAnimEnd(class UAnimNodeSequence* Child, FLOAT PlayedTime, FLOAT ExcessTime); /* 0x18c */
     virtual INT vf_190(INT); /* 0x190 */
     virtual INT vf_194(INT); /* 0x194 */
     /* registered size 0xf8 */
@@ -40034,9 +40034,9 @@ struct ARGameInfoBase : public AGameInfo {
     virtual void ActivateRemoteEvent(FName EventName); /* 0x380 */
     virtual INT vf_384(INT); /* 0x384 */
     virtual INT vf_388(); /* 0x388 */
-    virtual INT vf_38c(INT); /* 0x38c */
-    virtual bool vf_390(INT); /* 0x390 */
-    virtual INT vf_394(INT); /* 0x394 */
+    virtual INT IsInCorrectChapterForLevel(const FString& LevelName); /* 0x38c */
+    virtual bool IsPhysXLevel(const FString& LevelName); /* 0x390 */
+    virtual INT IsPhysXLevelToNotLoad(const FString& LevelName); /* 0x394 */
     virtual void vf_398(); /* 0x398 */
     virtual void vf_39c(INT, INT); /* 0x39c */
     virtual void vf_3a0(INT, INT, INT, INT); /* 0x3a0 */
@@ -41861,7 +41861,7 @@ struct URAnimNode_Cape : public UAnimNodeBlendBase {
     virtual FLOAT GetSliderPosition(INT SliderIndex, INT ValueIndex); /* 0x178 */
     virtual void HandleSliderMove(INT SliderIndex, INT ValueIndex, FLOAT NewSliderValue); /* 0x17c */
     virtual FString GetSliderDrawValue(INT SliderIndex); /* 0x180 */
-    virtual void vf_18c(INT, INT, INT); /* 0x18c */
+    virtual void OnChildAnimEnd(class UAnimNodeSequence* Child, FLOAT PlayedTime, FLOAT ExcessTime); /* 0x18c */
     /* UnrealScript natives */
     void execChangeAnim(FFrame& Stack, RESULT_DECL); /* 0x016ebe10 */
     void execPauseAnim(FFrame& Stack, RESULT_DECL); /* 0x016ec050 */
@@ -41944,7 +41944,7 @@ struct URAnimNode_Pose : public UAnimNodeBlendBase, public FTickableObject {
     FAimingReferences WorldSpaceAimingReferences; /* 0x4ff0 */
     /* virtual functions this class introduces (vtable 0x0231d880) */
     virtual INT vf_19c(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x19c */
-    virtual INT vf_1a0(FLOAT, INT); /* 0x1a0 */
+    virtual INT OverrideTransitionTime(FLOAT, INT); /* 0x1a0 */
     virtual INT vf_1a4(INT, INT, INT); /* 0x1a4 */
     virtual void vf_1a8(); /* 0x1a8 */
     virtual INT vf_1ac(INT, INT, INT); /* 0x1ac */
@@ -41965,32 +41965,32 @@ struct URAnimNode_Pose : public UAnimNodeBlendBase, public FTickableObject {
     virtual void SetMovementSpeed(BYTE Speed, FLOAT Rate); /* 0x1e8 */
     virtual BYTE vf_1ec(); /* 0x1ec */
     virtual FLOAT vf_1f0(); /* 0x1f0 */
-    virtual void vf_1f4(INT, INT, INT, INT); /* 0x1f4 */
+    virtual void vf_1f4(FVector Target, UBOOL bIsDirection); /* 0x1f4 */
     virtual INT vf_1f8(); /* 0x1f8 */
     virtual void vf_1fc(); /* 0x1fc */
-    virtual INT vf_200(INT); /* 0x200 */
+    virtual FVector vf_200(); /* 0x200 */
     virtual INT vf_204(); /* 0x204 */
     virtual INT vf_208(); /* 0x208 */
     virtual void vf_20c(INT, INT, INT, INT, INT, INT, INT); /* 0x20c */
     virtual void vf_210(AActor*, FName, FName, UBOOL); /* 0x210 */
     virtual INT vf_214(); /* 0x214 */
     virtual INT vf_218(); /* 0x218 */
-    virtual INT vf_21c(INT); /* 0x21c */
-    virtual INT vf_220(INT); /* 0x220 */
-    virtual void vf_224(INT, INT, INT, INT); /* 0x224 */
-    virtual void vf_228(INT, INT, INT); /* 0x228 */
+    virtual FVector vf_21c(); /* 0x21c */
+    virtual FVector GetActualAimAtDirection(); /* 0x220 */
+    virtual void vf_224(FVector Target, UBOOL bIsDirection); /* 0x224 */
+    virtual void LookAtActor(class AActor* Actor, FName BoneName); /* 0x228 */
     virtual INT vf_22c(); /* 0x22c */
-    virtual void vf_230(INT, INT, INT, INT); /* 0x230 */
-    virtual void vf_234(INT, INT, INT); /* 0x234 */
+    virtual void vf_230(FVector Target, UBOOL bIsDirection); /* 0x230 */
+    virtual void FaceAtActor(class AActor* Actor, FName BoneName); /* 0x234 */
     virtual INT vf_238(); /* 0x238 */
-    virtual INT vf_23c(INT); /* 0x23c */
+    virtual FVector vf_23c(); /* 0x23c */
     virtual INT vf_240(INT); /* 0x240 */
-    virtual void vf_244(INT, INT, INT); /* 0x244 */
-    virtual void vf_248(INT, INT, INT); /* 0x248 */
-    virtual void vf_24c(INT); /* 0x24c */
-    virtual void vf_250(INT); /* 0x250 */
-    virtual void vf_254(UINT, UINT, UINT); /* 0x254 */
-    virtual void vf_258(INT); /* 0x258 */
+    virtual void AddTranslationVelocity(FVector Velocity); /* 0x244 */
+    virtual void AddTranslation(FVector Translation); /* 0x248 */
+    virtual void vf_24c(FLOAT); /* 0x24c */
+    virtual void vf_250(FLOAT); /* 0x250 */
+    virtual void OverrideTranslationVelocity(FVector Velocity); /* 0x254 */
+    virtual void vf_258(FLOAT); /* 0x258 */
     virtual INT vf_25c(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x25c */
     virtual void vf_260(); /* 0x260 */
     virtual INT vf_264(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x264 */
@@ -41999,10 +41999,10 @@ struct URAnimNode_Pose : public UAnimNodeBlendBase, public FTickableObject {
     virtual void vf_270(); /* 0x270 */
     virtual INT vf_274(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x274 */
     virtual void vf_278(); /* 0x278 */
-    virtual INT vf_27c(INT, INT); /* 0x27c */
+    virtual INT vf_27c(FName); /* 0x27c */
     virtual INT vf_280(); /* 0x280 */
     virtual INT vf_284(BYTE); /* 0x284 */
-    virtual INT vf_288(BYTE); /* 0x288 */
+    virtual INT IsInAnyAutomaticTransition(BYTE Fuzziness, FTransitionId* Transition); /* 0x288 */
     virtual INT vf_28c(BYTE); /* 0x28c */
     virtual INT IsInTransition(FTransitionId Transition, BYTE Fuzziness); /* 0x290 */
     virtual INT vf_294(INT, BYTE); /* 0x294 */
@@ -42031,7 +42031,7 @@ struct URAnimNode_Pose : public UAnimNodeBlendBase, public FTickableObject {
     virtual INT vf_2f0(INT, INT); /* 0x2f0 */
     virtual INT vf_2f4(INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x2f4 */
     virtual BYTE vf_2f8(); /* 0x2f8 */
-    virtual INT vf_2fc(INT); /* 0x2fc */
+    virtual INT vf_2fc(FLOAT); /* 0x2fc */
     virtual INT vf_300(); /* 0x300 */
     virtual INT vf_304(INT, INT, INT, INT, INT, INT); /* 0x304 */
     virtual INT vf_308(INT); /* 0x308 */
@@ -42877,40 +42877,40 @@ struct ARPawnCharacter : public ARPawn {
     virtual void SetMovementSpeed(BYTE NewSpeed, FLOAT NewSpeedScale); /* 0x574 */
     virtual void MoveTo(FVector Position); /* 0x578 */
     virtual void MoveInDirection(FVector Direction); /* 0x57c */
-    virtual INT vf_580(); /* 0x580 */
-    virtual INT vf_584(); /* 0x584 */
-    virtual INT vf_588(INT); /* 0x588 */
+    virtual void vf_580(); /* 0x580 */
+    virtual void vf_584(); /* 0x584 */
+    virtual FVector vf_588(); /* 0x588 */
     virtual void AimAt(FVector Position, FName Description, BYTE AllowTurningToAim); /* 0x58c */
     virtual void AimInDirection(FVector Direction, FName Description, BYTE AllowTurningToAim); /* 0x590 */
     virtual void AimAtActor(class AActor* Actor, FName Description, FName ActorBoneName, BYTE AllowTurningToAim); /* 0x594 */
-    virtual INT vf_598(); /* 0x598 */
+    virtual void vf_598(); /* 0x598 */
     virtual INT vf_59c(); /* 0x59c */
-    virtual INT vf_5a0(); /* 0x5a0 */
-    virtual INT vf_5a4(INT); /* 0x5a4 */
+    virtual void vf_5a0(); /* 0x5a0 */
+    virtual FVector vf_5a4(); /* 0x5a4 */
     virtual FVector GetActualAimAtDirection(); /* 0x5a8 */
     virtual FVector GetHeadPosition(); /* 0x5ac */
     virtual FVector GetHeadPositionBeforeAdditive(); /* 0x5b0 */
     virtual void LookAt(FVector Position); /* 0x5b4 */
     virtual void LookInDirection(FVector Direction); /* 0x5b8 */
     virtual void LookAtActor(class AActor* Actor, FName ActorBoneName); /* 0x5bc */
-    virtual INT vf_5c0(); /* 0x5c0 */
+    virtual void vf_5c0(); /* 0x5c0 */
     virtual void FaceAt(FVector Position); /* 0x5c4 */
     virtual void FaceInDirection(FVector Direction); /* 0x5c8 */
     virtual void FaceAtActor(class AActor* Actor, FName ActorBoneName); /* 0x5cc */
-    virtual INT vf_5d0(); /* 0x5d0 */
-    virtual INT vf_5d4(INT); /* 0x5d4 */
+    virtual void vf_5d0(); /* 0x5d0 */
+    virtual FVector vf_5d4(); /* 0x5d4 */
     virtual INT vf_5d8(INT); /* 0x5d8 */
     virtual void AddTranslationVelocity(FVector TranslationVelocity); /* 0x5dc */
     virtual void AddTranslation(FVector Translation); /* 0x5e0 */
-    virtual INT vf_5e4(FLOAT); /* 0x5e4 */
-    virtual INT vf_5e8(FLOAT); /* 0x5e8 */
+    virtual void vf_5e4(FLOAT); /* 0x5e4 */
+    virtual void vf_5e8(FLOAT); /* 0x5e8 */
     virtual void OverrideTranslationVelocity(FVector TranslationVelocity); /* 0x5ec */
-    virtual INT vf_5f0(FLOAT); /* 0x5f0 */
+    virtual void vf_5f0(FLOAT); /* 0x5f0 */
     virtual INT vf_5f4(); /* 0x5f4 */
     virtual INT vf_5f8(); /* 0x5f8 */
-    virtual INT vf_5fc(FLOAT); /* 0x5fc */
+    virtual void vf_5fc(FLOAT); /* 0x5fc */
     virtual void vf_600(INT, INT, INT, INT, INT, INT, INT); /* 0x600 */
-    virtual bool vf_604(); /* 0x604 */
+    virtual BYTE vf_604(); /* 0x604 */
     virtual DOUBLE vf_608(); /* 0x608 */
     virtual void vf_60c(); /* 0x60c */
     virtual void vf_610(FLOAT); /* 0x610 */
@@ -43652,7 +43652,7 @@ struct ARBMAIController : public AAIController {
     FVector CachedAnimatedAimDir; /* 0x42c */
     FLOAT LastCheckUnconsciousThugTime; /* 0x438 */
     /* virtual functions this class introduces (vtable 0x02334150) */
-    virtual INT vf_408(INT); /* 0x408 */
+    virtual class URBMBehaviour* vf_408(INT); /* 0x408 */
     virtual UBOOL IsRunningBehaviour(class URBMBehaviour* TestBehaviour); /* 0x40c */
     virtual BYTE IsInFOV(class AActor* TestActor, UBOOL bFixUpAnimAimDir); /* 0x410 */
     virtual BYTE IsPointInFOV(FVector TestPos, UBOOL bFixUpAnimAimDir); /* 0x414 */
@@ -43674,8 +43674,8 @@ struct ARBMAIController : public AAIController {
     virtual void vf_454(); /* 0x454 */
     virtual INT vf_458(); /* 0x458 */
     virtual INT vf_45c(); /* 0x45c */
-    virtual INT vf_460(INT); /* 0x460 */
-    virtual INT vf_464(INT); /* 0x464 */
+    virtual class UAlertInstance* vf_460(INT); /* 0x460 */
+    virtual class UAlertInstance* vf_464(INT); /* 0x464 */
     virtual INT vf_468(); /* 0x468 */
     virtual void vf_46c(INT); /* 0x46c */
     /* overrides */
@@ -46532,7 +46532,7 @@ struct ARBMPawnAIAnim : public ARPawnCombat {
     FName OverworldName; /* 0x644 */
     class ULevelStreaming* MyLevelForXray; /* 0x64c */
     /* virtual functions this class introduces (vtable 0x02331ac0) */
-    virtual INT vf_640(); /* 0x640 */
+    virtual void vf_640(); /* 0x640 */
     virtual INT vf_644(FLOAT); /* 0x644 */
     virtual INT vf_648(); /* 0x648 */
     /* overrides */
@@ -51134,7 +51134,7 @@ struct ARGameInfo : public ARGameInfoBase {
     virtual INT vf_3bc(); /* 0x3bc */
     virtual INT SecuROMProtectionCheck4(INT A, INT B); /* 0x3c0 */
     virtual void vf_3c4(); /* 0x3c4 */
-    virtual void vf_3c8(INT); /* 0x3c8 */
+    virtual void SetTrioviz(const FString& Value); /* 0x3c8 */
     virtual INT vf_3cc(FLOAT); /* 0x3cc */
     virtual INT vf_3d0(INT, INT, INT, INT, INT, INT, INT); /* 0x3d0 */
     virtual FString GetGameTimePlayedString(); /* 0x3d4 */
