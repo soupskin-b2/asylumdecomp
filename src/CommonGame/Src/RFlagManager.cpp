@@ -159,7 +159,7 @@ void URSeqAct_SwitchFlags::PostEditChange(UProperty* PropertyThatChanged)
 // @baa 0x015406f0
 /* Slot 0x178 is USequenceOp::DeActivated (unnamed in the kit). With expanded outputs, a false value fires the
  * second output, else the first (USequenceOp::ActivateOutputLink, inlined). */
-void URSeqAct_SetBoolEx::vf_178()
+void URSeqAct_SetBoolEx::DeActivated()
 {
 	if (bExpandOutputs && !bOriginalValue)
 	{
@@ -177,5 +177,5 @@ void URSeqAct_SetBoolEx::vf_178()
 			Link.bHasImpulse = TRUE;
 		}
 	}
-	Super::vf_178();
+	Super::DeActivated();
 }

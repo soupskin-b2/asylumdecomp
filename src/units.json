@@ -3055,7 +3055,7 @@
     {
      "va": "01564df0",
      "size": 119,
-     "symbol": "?vf_178@URSeqAct_ModifyPostProcess@@UAEXXZ"
+     "symbol": "?DeActivated@URSeqAct_ModifyPostProcess@@UAEXXZ"
     }
    ]
   },
@@ -3314,7 +3314,7 @@
     {
      "va": "015850c0",
      "size": 302,
-     "symbol": "?vf_178@URSeqAct_ConversationDialogue@@UAEXXZ"
+     "symbol": "?DeActivated@URSeqAct_ConversationDialogue@@UAEXXZ"
     }
    ]
   },
@@ -3326,7 +3326,7 @@
     {
      "va": "01591ca0",
      "size": 287,
-     "symbol": "?vf_178@URSeqAct_PlayerDialogueOptions@@UAEXXZ"
+     "symbol": "?DeActivated@URSeqAct_PlayerDialogueOptions@@UAEXXZ"
     }
    ]
   },
@@ -3703,7 +3703,7 @@
     {
      "va": "01585540",
      "size": 73,
-     "symbol": "?vf_178@URSeqAct_PlaySpeechConversation@@UAEXXZ"
+     "symbol": "?DeActivated@URSeqAct_PlaySpeechConversation@@UAEXXZ"
     }
    ]
   },
@@ -12612,7 +12612,7 @@
     {
      "va": "015ede00",
      "size": 87,
-     "symbol": "?vf_178@URBMWaveController@@UAEXXZ"
+     "symbol": "?DeActivated@URBMWaveController@@UAEXXZ"
     }
    ]
   },
@@ -59785,7 +59785,7 @@
     {
      "va": "015406f0",
      "size": 152,
-     "symbol": "?vf_178@URSeqAct_SetBoolEx@@UAEXXZ"
+     "symbol": "?DeActivated@URSeqAct_SetBoolEx@@UAEXXZ"
     }
    ]
   },

@@ -31,7 +31,7 @@ struct URSeqAct_PlayerDialogueLine_ : public URSeqAct_PlayerDialogueLine
 // @baa 0x01591ca0
 /* Slot 0x178 is USequenceOp::DeActivated (unnamed in the kit). Unless aborted, the output for the selected option
  * fires (USequenceOp::ActivateOutputLink, inlined), and the dialogue line it leads to learns where it came from. */
-void URSeqAct_PlayerDialogueOptions::vf_178()
+void URSeqAct_PlayerDialogueOptions::DeActivated()
 {
 	if (!bAborted)
 	{

@@ -222,7 +222,7 @@ struct URSeqAct_ConversationDialogue__015850c0 : public URSeqAct_ConversationDia
 /* Slot 0x178 is USequenceOp::DeActivated (unnamed in the kit). When the player's dialogue options come next, the
  * camera changes and the options op linked from the exit output is told it may end; then the first output fires
  * (USequenceOp::ActivateOutputLink(0), inlined). */
-void URSeqAct_ConversationDialogue::vf_178()
+void URSeqAct_ConversationDialogue::DeActivated()
 {
 	if (((URSeqAct_ConversationDialogue__015850c0*)this)->eventIsOptionNext())
 	{

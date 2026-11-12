@@ -24,8 +24,8 @@ struct URSeqAct_ModifyPostProcess_ : public URSeqAct_ModifyPostProcess
 // @baa 0x01564df0
 /* Slot 0x178 is USequenceOp::DeActivated (unnamed in the kit): script restores the first local player's post
  * process, then the base deactivation runs. */
-void URSeqAct_ModifyPostProcess::vf_178()
+void URSeqAct_ModifyPostProcess::DeActivated()
 {
 	((URSeqAct_ModifyPostProcess_*)this)->eventDeactivatePP(GEngine->GamePlayers(0));
-	Super::vf_178();
+	Super::DeActivated();
 }

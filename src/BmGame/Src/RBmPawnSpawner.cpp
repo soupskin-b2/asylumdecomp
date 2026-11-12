@@ -273,7 +273,7 @@ bool URSeqAct_CombatChallengeSpawner::vf_004()
 // @baa 0x015ede00
 /* Slot 0x178 is USequenceOp::DeActivated (unnamed in the kit). Once the pawns have been spawned, the second
  * output fires (USequenceOp::ActivateOutputLink(1), inlined); then the wave state resets. */
-void URBMWaveController::vf_178()
+void URBMWaveController::DeActivated()
 {
 	if (bPawnsSpawned)
 	{
@@ -285,5 +285,5 @@ void URBMWaveController::vf_178()
 	}
 	bExitWaveController = FALSE;
 	bPawnsSpawned = FALSE;
-	Super::vf_178();
+	Super::DeActivated();
 }

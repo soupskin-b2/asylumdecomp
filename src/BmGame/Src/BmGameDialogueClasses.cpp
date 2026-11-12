@@ -427,7 +427,7 @@ UBOOL URSeqAct_PlayTVSequenceBase::UpdateOp(FLOAT DeltaTime)
 // @baa 0x01585540
 /* Slot 0x178 is USequenceOp::DeActivated (unnamed in the kit). Unless aborted, the first output fires
  * (USequenceOp::ActivateOutputLink(0), inlined). */
-void URSeqAct_PlaySpeechConversation::vf_178()
+void URSeqAct_PlaySpeechConversation::DeActivated()
 {
 	if (!bAborted)
 	{
