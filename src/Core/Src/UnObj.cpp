@@ -1,4 +1,4 @@
-// UnObj.cpp (part 1 of 3): 142 functions
+// UnObj.cpp (part 1 of 3): 143 functions
 // Placed here by: neighbours 135, callers 4, file 3.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1897,3 +1897,30 @@ struct D_01e22f30 { void sub_005cbb00(); };
 extern D_01e22f30 g_026a1e04;
 // @baa 0x01e22f30
 void sub_01e22f30() { g_026a1e04.sub_005cbb00(); }
+
+/* Kit gaps: the RF_/CLASS_ flags, UObject::SetFlags/HasAnyFlags (ObjectFlags is an FQWord here) and
+ * UObject::LoadConfig/LoadLocalized (UnObj.cpp) aren't declared. */
+#define RF_DebugPostLoad ((QWORD)0x0000000000000008)
+#define RF_PerObjectConfig ((QWORD)0x0000010000000000)
+#define CLASS_Config 0x00000400
+struct UObject__005e59b0 : public UObject
+{
+	FORCEINLINE void SetFlags(QWORD NewFlags) { *(QWORD*)&ObjectFlags |= NewFlags; }
+	FORCEINLINE UBOOL HasAnyFlags(QWORD Flags) const { return (*(const QWORD*)&ObjectFlags & Flags) != 0; }
+	void LoadConfig(UBOOL Propagate = FALSE, UClass* Class = NULL, const TCHAR* Filename = NULL, DWORD PropagationFlags = 0);
+	void LoadLocalized(UObject* LocBase = NULL, UBOOL bLoadHierachecally = FALSE);
+};
+
+// @baa 0x005e59b0
+void UObject::PostLoad()
+{
+	// Note that it has propagated.
+	((UObject__005e59b0*)this)->SetFlags(RF_DebugPostLoad);
+
+	// Load configuration.
+	if ((GetClass()->ClassFlags & CLASS_Config) || ((UObject__005e59b0*)this)->HasAnyFlags(RF_PerObjectConfig))
+	{
+		((UObject__005e59b0*)this)->LoadConfig();
+		((UObject__005e59b0*)this)->LoadLocalized();
+	}
+}

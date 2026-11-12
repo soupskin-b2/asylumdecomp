@@ -1,4 +1,4 @@
-// UnSequence.cpp: 3 functions
+// UnSequence.cpp: 7 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -56,6 +56,48 @@ void USequenceOp::vf_178()
             {
                 Link.bHasImpulse = TRUE;
             }
+        }
+    }
+}
+
+// @baa 0x008ac6d0
+/* UE3's USeqAct_SetMatInstScalarParam::Activated(): push the scalar onto the material instance. */
+void USeqAct_SetMatInstScalarParam::Activated()
+{
+    if (MatInst != NULL)
+    {
+        MatInst->SetScalarParameterValue(ParamName, ScalarValue);
+    }
+}
+
+// @baa 0x008ac710
+/* UE3's USeqAct_SetMatInstTexParam::Activated(): push the texture onto the material instance. */
+void USeqAct_SetMatInstTexParam::Activated()
+{
+    if (NewTexture != NULL && MatInst != NULL)
+    {
+        MatInst->SetTextureParameterValue(ParamName, NewTexture);
+    }
+}
+
+// @baa 0x008abb80
+/* USequenceEvent slot 0x19c (kit vf_19c, UE3's CheckActivate(InOriginator, InInstigator, bTest) short form): forward to
+ * slot 0x1a4 with no activate indices and bPushTop off. */
+INT USequenceEvent::vf_19c(INT InOriginator, INT InInstigator, INT bTest)
+{
+    return vf_1a4(InOriginator, InInstigator, bTest, 0, 0);
+}
+
+// @baa 0x008c0980
+/* USequence slot 0x154 (kit vf_154, UE3 USequenceObject::CleanUp-style pass): run it on every object in the sequence. */
+void USequence::vf_154()
+{
+    for (INT Idx = 0; Idx < SequenceObjects.Num(); Idx++)
+    {
+        USequenceObject* SeqObj = SequenceObjects(Idx);
+        if (SeqObj != NULL)
+        {
+            SeqObj->vf_154();
         }
     }
 }

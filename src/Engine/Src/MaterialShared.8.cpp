@@ -1,4 +1,4 @@
-// MaterialShared.cpp: 3 functions
+// MaterialShared.cpp: 4 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #define BAA_OUTLINE_NEW		/* new(Array) T kept out of line, per T (006e7f80) */
@@ -155,4 +155,53 @@ void UMaterialInstanceTimeVarying::SetScalarParameterValue(FName ParameterName, 
 
 	// Update the material instance data in the rendering thread.
 	MITVScalarParameterMapping::GameThread_UpdateParameter(this, *ParameterValue);
+}
+
+/* Kit gaps: the default constructor of the parameter structs (it zeroes ExpressionGUID: FGuid's default
+ * constructor, presumably) and the TMaterialInstanceTimeVaryingParameterMapping statics (MaterialInstanceTimeVarying
+ * .cpp: FindParameterByName 006e90e0, GameThread_UpdateParameter 00708cb0) aren't declared. */
+struct FVectorParameterValueOverTime_ : public FVectorParameterValueOverTime
+{
+	FVectorParameterValueOverTime_()
+	{
+		ExpressionGUID.A = 0;
+	}
+};
+
+struct MITVVectorParameterMapping
+{
+	static FVectorParameterValueOverTime* FindParameterByName(UMaterialInstanceTimeVarying* Instance, FName Name);
+	static void GameThread_UpdateParameter(UMaterialInstanceTimeVarying* Instance, const FVectorParameterValueOverTime& Parameter);
+};
+
+// @baa 0x007090b0
+/* Sets the named vector parameter, adding it (with default timing) if it isn't overridden yet, and passes it to
+ * the rendering thread. */
+void UMaterialInstanceTimeVarying::SetVectorParameterValue(FName ParameterName, FLinearColor Value)
+{
+	sub_006c47c0(TEXT("MITV::SetVectorParameterValue"));
+
+	FVectorParameterValueOverTime* ParameterValue = MITVVectorParameterMapping::FindParameterByName(this, ParameterName);
+	if (ParameterValue == NULL)
+	{
+		// If there's no element for the named parameter in the array yet, add one.
+		ParameterValue = new(VectorParameterValues) FVectorParameterValueOverTime_;
+
+		appMemzero(&ParameterValue->ParameterValueCurve.Points, sizeof(ParameterValue->ParameterValueCurve.Points));
+		ParameterValue->StartTime = -1.f;
+		ParameterValue->bLoop = FALSE;
+		ParameterValue->bAutoActivate = FALSE;
+		ParameterValue->CycleTime = 1.f;
+		ParameterValue->bNormalizeTime = FALSE;
+		ParameterValue->bOffsetFromEnd = FALSE;
+
+		ParameterValue->ParameterName = ParameterName;
+		ParameterValue->OffsetTime = 0.f;
+		ParameterValue->ExpressionGUID.Invalidate();
+	}
+
+	ParameterValue->ParameterValue = Value;
+
+	// Update the material instance data in the rendering thread.
+	MITVVectorParameterMapping::GameThread_UpdateParameter(this, *ParameterValue);
 }

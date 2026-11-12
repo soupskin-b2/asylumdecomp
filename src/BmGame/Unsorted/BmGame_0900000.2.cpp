@@ -1,4 +1,4 @@
-// BmGame_0900000.cpp: 3 functions
+// BmGame_0900000.cpp: 4 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -56,4 +56,27 @@ void USkeletalMeshComponent::execBoneIsChildOf(FFrame& Stack, RESULT_DECL)
 		}
 		*(UBOOL*)Result = ((USkeletalMesh__0090e9c0*)SkeletalMesh)->BoneIsChildOf(BoneIndex, ParentBoneIndex);
 	}
+}
+
+/* Kit gap: FName has no comparison operator (UnName.h compares Index and Number). */
+inline UBOOL operator!=(const FName& A, const FName& B) { return A.Index != B.Index || A.Number != B.Number; }
+
+/* Kit gap: USkeletalMesh::MatchRefBone (00976be0) isn't declared. */
+struct USkeletalMesh__0090e910 : public USkeletalMesh
+{
+	INT MatchRefBone(FName BoneName);
+};
+
+// @baa 0x0090e910
+void USkeletalMeshComponent::execMatchRefBone(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_NAME(BoneName);
+	P_FINISH;
+
+	INT BoneIndex = INDEX_NONE;
+	if (BoneName != FName(NAME_None) && SkeletalMesh)
+	{
+		BoneIndex = ((USkeletalMesh__0090e910*)SkeletalMesh)->MatchRefBone(BoneName);
+	}
+	*(INT*)Result = BoneIndex;
 }

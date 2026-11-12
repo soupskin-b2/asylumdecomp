@@ -1,4 +1,4 @@
-// UnActor.cpp: 5 functions
+// UnActor.cpp: 7 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -62,4 +62,21 @@ INT sub_0053f6c0();
 INT AGameInfo::vf_000()
 {
     return sub_00754150 == sub_0053f6c0;
+}
+
+// @baa 0x00777400
+/* AActor::SetDrawScale (the kit names it sub_00777400). */
+void AActor::sub_00777400(FLOAT NewScale)
+{
+	DrawScale = NewScale;
+	MarkComponentsAsDirty();
+	bNetDirty = TRUE;
+}
+
+// @baa 0x00777420
+/* AActor::SetDrawScale3D (the kit names it sub_00777420). */
+void AActor::sub_00777420(FVector NewScale3D)
+{
+	DrawScale3D = NewScale3D;
+	MarkComponentsAsDirty();
 }

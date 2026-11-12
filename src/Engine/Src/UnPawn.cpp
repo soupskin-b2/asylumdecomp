@@ -1,4 +1,4 @@
-// UnPawn.cpp (part 1 of 2): 110 functions
+// UnPawn.cpp (part 1 of 2): 111 functions
 // Placed here by: neighbours 49, class 32, callers 3, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1601,4 +1601,38 @@ FLOAT APawn::vf_444()
         Result *= WalkingPct;
     }
     return Result;
+}
+
+/* Kit gap: UObject::HasAnyFlags/IsTemplate and the RF_ flags (UnObjBas.h); ObjectFlags is an FQWord here. */
+#define RF_ClassDefaultObject ((QWORD)0x0000000000000200)
+#define RF_ArchetypeObject ((QWORD)0x0000000000000400)
+struct UObject_ : public UObject
+{
+	FORCEINLINE UBOOL HasAnyFlags(QWORD Flags) const { return (*(const QWORD*)&ObjectFlags & Flags) != 0; }
+	FORCEINLINE UBOOL IsTemplate(QWORD TemplateTypes = (RF_ArchetypeObject | RF_ClassDefaultObject)) const
+	{
+		for (const UObject* TestOuter = this; TestOuter; TestOuter = TestOuter->Outer)
+		{
+			if (((const UObject_*)TestOuter)->HasAnyFlags(TemplateTypes))
+			{
+				return TRUE;
+			}
+		}
+		return FALSE;
+	}
+};
+
+// @baa 0x00871a10
+/* Templates have no collision set up yet, so read the cylinder directly. */
+void APawn::GetBoundingCylinder(FLOAT& CollisionRadius, FLOAT& CollisionHeight)
+{
+	if (CylinderComponent != CollisionComponent && ((UObject_*)this)->IsTemplate() && CylinderComponent)
+	{
+		CollisionRadius = CylinderComponent->CollisionRadius;
+		CollisionHeight = CylinderComponent->CollisionHeight;
+	}
+	else
+	{
+		Super::GetBoundingCylinder(CollisionRadius, CollisionHeight);
+	}
 }

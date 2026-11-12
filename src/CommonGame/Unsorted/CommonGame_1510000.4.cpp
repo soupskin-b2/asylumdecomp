@@ -1,4 +1,4 @@
-// CommonGame_1510000.cpp: 4 functions
+// CommonGame_1510000.cpp: 6 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -36,4 +36,19 @@ void URFlagManager::execGetPersistentMapName(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
 	*(FString*)Result = GetPersistentMapName();
+}
+
+// @baa 0x01512320
+void ARGameInfoBase::execIsPhysXLevel(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STR(LevelPackageName);
+	P_FINISH;
+	*(UBOOL*)Result = IsPhysXLevel(LevelPackageName);
+}
+
+// @baa 0x015126a0
+void ARDebugMenu::execGetVersionInfo(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(FString*)Result = GetVersionInfo();
 }

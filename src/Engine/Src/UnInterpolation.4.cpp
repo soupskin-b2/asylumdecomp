@@ -1,4 +1,4 @@
-// UnInterpolation.cpp: 11 functions
+// UnInterpolation.cpp: 16 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -175,4 +175,91 @@ void UInterpTrackParticleReplay::RemoveKeyframe(INT KeyIndex)
     {
         TrackKeys.Remove(KeyIndex);
     }
+}
+
+/* Unnamed in the kit: UE3's FInterpCurveVector::AutoSetTangents(FLOAT Tension). */
+struct FInterpCurveVector_ : public FInterpCurveVector
+{
+    void sub_007bb200(FLOAT Tension);
+};
+
+// @baa 0x00cfb050
+/* UE3's UInterpTrackMove::PostEditChange(UProperty* PropertyThatChanged): reapply the randomiser (slot 0x178), then
+ * rebuild both curves' tangents with their tensions. */
+void UInterpTrackMove::PostEditChange(UProperty* PropertyThatChanged)
+{
+    if (Randomiser.bUseRandomise)
+    {
+        vf_178();
+    }
+#line 3340 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnInterpolation.cpp"
+    check((PosTrack.Points.Num() == EulerTrack.Points.Num()) && (PosTrack.Points.Num() == LookupTrack.Points.Num()));
+    ((FInterpCurveVector_&)PosTrack).sub_007bb200(LinCurveTension);
+    ((FInterpCurveVector_&)EulerTrack).sub_007bb200(AngCurveTension);
+    Super::PostEditChange(PropertyThatChanged);
+}
+
+#line 203 "candidate.cpp"
+
+// @baa 0x00cf49e0
+/* UE3's UInterpTrackToggle::GetTimeRange(FLOAT& StartTime, FLOAT& EndTime): the first and last toggle key times, 0 for an empty track. */
+void UInterpTrackToggle::GetTimeRange(FLOAT& StartTime, FLOAT& EndTime)
+{
+    if (ToggleTrack.Num() == 0)
+    {
+        StartTime = 0.f;
+        EndTime = 0.f;
+    }
+    else
+    {
+        StartTime = ToggleTrack(0).Time;
+        EndTime = ToggleTrack(ToggleTrack.Num() - 1).Time;
+    }
+}
+
+// @baa 0x00cf71b0
+/* UE3's UInterpTrackParticleReplay::GetTimeRange(FLOAT& StartTime, FLOAT& EndTime): the first and last replay key times, 0 for an empty track. */
+void UInterpTrackParticleReplay::GetTimeRange(FLOAT& StartTime, FLOAT& EndTime)
+{
+    if (TrackKeys.Num() == 0)
+    {
+        StartTime = 0.f;
+        EndTime = 0.f;
+    }
+    else
+    {
+        StartTime = TrackKeys(0).Time;
+        EndTime = TrackKeys(TrackKeys.Num() - 1).Time;
+    }
+}
+
+// @baa 0x00d04720
+/* UE3's UInterpTrackToggle::AddKeyframe(FLOAT Time, UInterpTrackInst* TrInst, BYTE InitInterpMode): insert a key in
+ * time order, taking the instance's current action. */
+INT UInterpTrackToggle::AddKeyframe(FLOAT Time, UInterpTrackInst* TrInst, BYTE InitInterpMode)
+{
+    UInterpTrackInstToggle* ToggleInst = CastChecked<UInterpTrackInstToggle>(TrInst);
+
+    INT i = 0;
+    for (i = 0; i < ToggleTrack.Num() && ToggleTrack(i).Time < Time; i++);
+    ToggleTrack.Insert(i);
+    ToggleTrack(i).Time = Time;
+    ToggleTrack(i).ToggleAction = ToggleInst->Action;
+
+    return i;
+}
+
+/* Unnamed in the kit: the USeqAct_Interp member at 0x00d19950 taking one flag (UE3's UpdateInterp/ConditionalPersistent
+ * refresh after an edit). */
+struct USeqAct_Interp__00d19a50 : public USeqAct_Interp
+{
+    void sub_00d19950(UBOOL bFlag);
+};
+
+// @baa 0x00d19a50
+/* UE3's USeqAct_Interp::PostEditChange(UProperty* PropertyThatChanged). */
+void USeqAct_Interp::PostEditChange(UProperty* PropertyThatChanged)
+{
+    Super::PostEditChange(PropertyThatChanged);
+    ((USeqAct_Interp__00d19a50*)this)->sub_00d19950(TRUE);
 }

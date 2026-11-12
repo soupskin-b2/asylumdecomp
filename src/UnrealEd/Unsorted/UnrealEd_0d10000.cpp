@@ -1,4 +1,4 @@
-// UnrealEd_0d10000.cpp: 12 functions
+// UnrealEd_0d10000.cpp: 13 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -108,4 +108,48 @@ extern INT g_025e3b40;
 void __stdcall sub_00d1ede0(INT* Out, INT Unused)
 {
     *Out = g_025e3b40;
+}
+
+/* Unnamed in the kit: UE3's UInterpTrackAnimControl::CropKeyAtPosition(FLOAT InPosition, UBOOL bCutAreaBeforePosition)
+ * and FindAnimSequence(FName InSequenceName) (0x00d0fec0). */
+struct UInterpTrackAnimControl_ : public UInterpTrackAnimControl
+{
+    UAnimSequence* sub_00d0fec0(FName InSequenceName);
+    INT sub_00d10210(FLOAT InPosition, UBOOL bCutAreaBeforePosition);
+};
+
+// @baa 0x00d10210
+/* Crop the key playing at InPosition: either start it there or end it there. */
+INT UInterpTrackAnimControl_::sub_00d10210(FLOAT InPosition, UBOOL bCutAreaBeforePosition)
+{
+    INT KeyIndex;
+    for (KeyIndex = -1; KeyIndex < AnimSeqs.Num() - 1 && AnimSeqs(KeyIndex + 1).StartTime <= InPosition; KeyIndex++);
+    if (KeyIndex == INDEX_NONE)
+    {
+        return INDEX_NONE;
+    }
+
+    FAnimControlTrackKey& CropKey = AnimSeqs(KeyIndex);
+    UAnimSequence* Seq = sub_00d0fec0(CropKey.AnimSeqName);
+    if (!Seq)
+    {
+        return INDEX_NONE;
+    }
+
+    FLOAT SeqPosition = ((InPosition - CropKey.StartTime) * CropKey.AnimPlayRate) + CropKey.AnimStartOffset;
+    if (SeqPosition <= CropKey.AnimStartOffset || SeqPosition >= (Seq->SequenceLength - CropKey.AnimEndOffset))
+    {
+        return INDEX_NONE;
+    }
+
+    if (bCutAreaBeforePosition)
+    {
+        CropKey.StartTime = InPosition;
+        CropKey.AnimStartOffset = SeqPosition;
+    }
+    else
+    {
+        CropKey.AnimEndOffset = Seq->SequenceLength - SeqPosition;
+    }
+    return KeyIndex;
 }

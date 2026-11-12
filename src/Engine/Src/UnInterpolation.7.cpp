@@ -1,4 +1,4 @@
-// UnInterpolation.cpp: 4 functions
+// UnInterpolation.cpp: 7 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -78,5 +78,49 @@ void UInterpTrackInstSoundFade::vf_118(UInterpTrack* Track)
         {
             PC->PlayerCamera->SoundFadeAmount = storedSoundFade;
         }
+    }
+}
+
+// @baa 0x00d16310
+/* UInterpTrackInstFloatMaterialParam slot 0x110 (kit vf_110, UE3 RestoreActorState(UInterpTrack* Track)): put the
+ * saved scalar back on the material instance actor's material. */
+void UInterpTrackInstFloatMaterialParam::vf_110(UInterpTrack* Track)
+{
+    UInterpTrackFloatMaterialParam* ParamTrack = CastChecked<UInterpTrackFloatMaterialParam>(Track);
+    AMaterialInstanceActor* MatInstActor = Cast<AMaterialInstanceActor>(GetGroupActorOf(CastChecked<UInterpGroupInst>(GetOuterOf(this))));
+    if (MatInstActor != NULL && MatInstActor->MatInst != NULL)
+    {
+        MatInstActor->MatInst->SetScalarParameterValue(ParamTrack->ParamName, ResetFloat);
+    }
+}
+
+// @baa 0x00d10830
+/* UInterpTrackInstColorScale slot 0x118 (kit vf_118, UE3 TermTrackInst(UInterpTrack* Track)): turn colour scaling off
+ * on the player camera and reset the scale. */
+void UInterpTrackInstColorScale::vf_118(UInterpTrack* Track)
+{
+    APlayerController* PC = Cast<APlayerController>(CastChecked<UInterpGroupInst>(GetOuterOf(this))->GroupActor);
+    if (PC != NULL && PC->PlayerCamera != NULL && !PC->PlayerCamera->bDeleteMe)
+    {
+        PC->PlayerCamera->bEnableColorScaling = FALSE;
+        PC->PlayerCamera->ColorScale = FVector(1.f, 1.f, 1.f);
+    }
+}
+
+// @baa 0x00d16440
+/* UInterpTrackInstVectorMaterialParam slot 0x110 (kit vf_110, UE3 RestoreActorState(UInterpTrack* Track)): put the
+ * saved vector (alpha 1) back on the material instance actor's material. */
+void UInterpTrackInstVectorMaterialParam::vf_110(UInterpTrack* Track)
+{
+    UInterpTrackVectorMaterialParam* ParamTrack = CastChecked<UInterpTrackVectorMaterialParam>(Track);
+    AMaterialInstanceActor* MatInstActor = Cast<AMaterialInstanceActor>(GetGroupActorOf(CastChecked<UInterpGroupInst>(GetOuterOf(this))));
+    if (MatInstActor != NULL && MatInstActor->MatInst != NULL)
+    {
+        FLinearColor ResetColor;
+        ResetColor.R = ResetVector.X;
+        ResetColor.G = ResetVector.Y;
+        ResetColor.B = ResetVector.Z;
+        ResetColor.A = 1.f;
+        MatInstActor->MatInst->SetVectorParameterValue(ParamTrack->ParamName, ResetColor);
     }
 }

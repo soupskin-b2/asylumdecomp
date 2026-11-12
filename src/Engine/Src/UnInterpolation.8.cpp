@@ -1,64 +1,70 @@
-// UnInterpolation.cpp (part 8 of 8): 3 functions
-// Placed here by: neighbours 3.
+// UnInterpolation.cpp: 2 functions
+// Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
+#include "ue3/AppMath.h"
+#include "ue3/Array.h"
+#include "ue3/Classes.h"
 
-struct C {
-    void sub_00cf7860(int);
-};
-
-int sub_0053df70(...);
-// @baa 0x00cf7860
-void C::sub_00cf7860(int param_2)
+/* UnMath.h constant the kit lacks. */
+#define BIG_NUMBER (3.4e+38f)
+// @baa 0x00cf4c00
+/* UE3's UInterpTrackToggle::GetClosestSnapPosition(FLOAT InPosition, TArray<INT>& IgnoreKeys, FLOAT& OutPosition):
+ * the key time nearest InPosition, skipping IgnoreKeys; FALSE if there is none. */
+UBOOL UInterpTrackToggle::GetClosestSnapPosition(FLOAT InPosition, TArray<INT>& IgnoreKeys, FLOAT& OutPosition)
 {
-    int * param_1 = (int *)this;
-  int iVar1;
-  param_1[1] = 0;
-  if (param_1[2] != param_2) {
-    param_1[2] = param_2;
-    if ((*param_1 != 0) || (param_2 != 0)) {
-      iVar1 = sub_0053df70(*param_1,param_2 * 4,8);
-      *param_1 = iVar1;
+    if (ToggleTrack.Num() == 0)
+    {
+        return FALSE;
     }
-  }
-  return;
+
+    UBOOL bFoundSnap = FALSE;
+    FLOAT ClosestSnap = 0.f;
+    FLOAT ClosestDist = BIG_NUMBER;
+    for (INT i = 0; i < ToggleTrack.Num(); i++)
+    {
+        if (!IgnoreKeys.ContainsItem(i))
+        {
+            FLOAT Dist = appAbs(ToggleTrack(i).Time - InPosition);
+            if (Dist < ClosestDist)
+            {
+                ClosestSnap = ToggleTrack(i).Time;
+                ClosestDist = Dist;
+                bFoundSnap = TRUE;
+            }
+        }
+    }
+
+    OutPosition = ClosestSnap;
+    return bFoundSnap;
 }
 
-struct C_00cf7b00 {
-    void sub_00cf7b00(int);
-};
-
-// @baa 0x00cf7b00
-void C_00cf7b00::sub_00cf7b00(int param_2)
+// @baa 0x00cf7400
+/* UE3's UInterpTrackParticleReplay::GetClosestSnapPosition(FLOAT InPosition, TArray<INT>& IgnoreKeys, FLOAT& OutPosition):
+ * the key time nearest InPosition, skipping IgnoreKeys; FALSE if there is none. */
+UBOOL UInterpTrackParticleReplay::GetClosestSnapPosition(FLOAT InPosition, TArray<INT>& IgnoreKeys, FLOAT& OutPosition)
 {
-    int * param_1 = (int *)this;
-  int iVar1;
-  param_1[1] = 0;
-  if (param_1[2] != param_2) {
-    param_1[2] = param_2;
-    if ((*param_1 != 0) || (param_2 != 0)) {
-      iVar1 = sub_0053df70(*param_1,param_2 * 4,8);
-      *param_1 = iVar1;
+    if (TrackKeys.Num() == 0)
+    {
+        return FALSE;
     }
-  }
-  return;
-}
 
-struct C_00cf7e30 {
-    void sub_00cf7e30(int);
-};
-
-// @baa 0x00cf7e30
-void C_00cf7e30::sub_00cf7e30(int param_2)
-{
-    int * param_1 = (int *)this;
-  int iVar1;
-  param_1[1] = 0;
-  if (param_1[2] != param_2) {
-    param_1[2] = param_2;
-    if ((*param_1 != 0) || (param_2 != 0)) {
-      iVar1 = sub_0053df70(*param_1,param_2 * 4,8);
-      *param_1 = iVar1;
+    UBOOL bFoundSnap = FALSE;
+    FLOAT ClosestSnap = 0.f;
+    FLOAT ClosestDist = BIG_NUMBER;
+    for (INT i = 0; i < TrackKeys.Num(); i++)
+    {
+        if (!IgnoreKeys.ContainsItem(i))
+        {
+            FLOAT Dist = appAbs(TrackKeys(i).Time - InPosition);
+            if (Dist < ClosestDist)
+            {
+                ClosestSnap = TrackKeys(i).Time;
+                ClosestDist = Dist;
+                bFoundSnap = TRUE;
+            }
+        }
     }
-  }
-  return;
+
+    OutPosition = ClosestSnap;
+    return bFoundSnap;
 }

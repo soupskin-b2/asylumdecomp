@@ -1,4 +1,4 @@
-// UnTerrain.cpp (part 1 of 4): 395 functions
+// UnTerrain.cpp (part 1 of 4): 396 functions
 // Placed here by: neighbours 359, class 16, callers 10, file 6.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -3728,4 +3728,35 @@ struct C_00984660 {
 void C_00984660::sub_00984660(C_00984660_Target* Other)
 {
     Other->vf_014(_f04, _f08);
+}
+
+/* Kit gap: UObject::ConditionalPostLoad isn't declared in Classes.h. */
+struct UObject_ : public UObject
+{
+	void ConditionalPostLoad();
+};
+
+// @baa 0x009918f0
+void UTerrainLayerSetup::PostLoad()
+{
+	Super::PostLoad();
+
+	// at most 64 materials
+	if (Materials.Num() > 64)
+	{
+		Materials.Remove(64, Materials.Num() - 64);
+	}
+
+	for (INT MaterialIndex = 0; MaterialIndex < Materials.Num(); MaterialIndex++)
+	{
+		UTerrainMaterial* TerrainMaterial = Materials(MaterialIndex).Material;
+		if (TerrainMaterial)
+		{
+			((UObject_*)TerrainMaterial)->ConditionalPostLoad();
+			if (TerrainMaterial->Material)
+			{
+				((UObject_*)TerrainMaterial->Material)->ConditionalPostLoad();
+			}
+		}
+	}
 }

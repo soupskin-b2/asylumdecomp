@@ -1,4 +1,4 @@
-// UnInterpolationCurveEd.cpp: 9 functions
+// UnInterpolationCurveEd.cpp: 11 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -122,4 +122,38 @@ void UInterpTrackFaceFX::PostEditChange(UProperty* PropertyThatChanged)
             }
         }
     }
+}
+
+// @baa 0x00cf5990
+/* UE3's UInterpTrackAnimControl::PostLoad(): fix up keys saved with a (near) zero play rate. */
+void UInterpTrackAnimControl::PostLoad()
+{
+    Super::PostLoad();
+
+    for (INT i = 0; i < AnimSeqs.Num(); i++)
+    {
+        if (AnimSeqs(i).AnimPlayRate < 0.001f)
+        {
+            AnimSeqs(i).AnimPlayRate = 1.f;
+        }
+    }
+}
+
+/* Unnamed in the kit: UE3's UInterpTrackSound::GetSoundTrackKeyAtPosition(FLOAT InPosition): the last key starting
+ * before InPosition (the first key if none does). */
+struct UInterpTrackSound_ : public UInterpTrackSound
+{
+    FSoundTrackKey& sub_00cf63a0(FLOAT InPosition);
+};
+
+// @baa 0x00cf63a0
+FSoundTrackKey& UInterpTrackSound_::sub_00cf63a0(FLOAT InPosition)
+{
+    INT SoundIndex;
+    for (SoundIndex = -1; SoundIndex < Sounds.Num() - 1 && Sounds(SoundIndex + 1).Time < InPosition; SoundIndex++);
+    if (SoundIndex == -1)
+    {
+        SoundIndex = 0;
+    }
+    return Sounds(SoundIndex);
 }

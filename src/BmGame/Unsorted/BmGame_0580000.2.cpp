@@ -1,4 +1,4 @@
-// BmGame_0580000.cpp (part 2 of 2): 47 functions
+// BmGame_0580000.cpp (part 2 of 2): 48 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -411,4 +411,25 @@ INT sub_0058c540(FLOAT F)
 {
     *(volatile FLOAT*)&F = (FLOAT)ceil((double)F);
     return (INT)F;
+}
+
+/* UnMath.h: wraps an angle to -32768..32767. */
+static FORCEINLINE INT NormalizeAxis(INT Angle)
+{
+	Angle &= 0xFFFF;
+	if (Angle > 32767)
+	{
+		Angle -= 0x10000;
+	}
+	return Angle;
+}
+
+// @baa 0x0058df30
+FRotator FRotator::GetNormalized() const
+{
+	FRotator Rot = *this;
+	Rot.Pitch = NormalizeAxis(Rot.Pitch);
+	Rot.Roll = NormalizeAxis(Rot.Roll);
+	Rot.Yaw = NormalizeAxis(Rot.Yaw);
+	return Rot;
 }

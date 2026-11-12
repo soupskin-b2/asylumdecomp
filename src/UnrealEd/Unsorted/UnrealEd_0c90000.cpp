@@ -1,4 +1,4 @@
-// UnrealEd_0c90000.cpp: 121 functions
+// UnrealEd_0c90000.cpp: 122 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1449,4 +1449,11 @@ int sub_00c9c960(void)
 bool USeqAct_CrowdSpawner::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x00c9a330
+/* USeqAct_CrowdSpawner slot 0x1a8 (kit vf_1a8): just runs UpdateOp(DeltaTime). */
+INT USeqAct_CrowdSpawner::vf_1a8(FLOAT DeltaTime)
+{
+    return UpdateOp(DeltaTime);
 }
