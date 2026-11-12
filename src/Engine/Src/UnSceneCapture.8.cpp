@@ -1,4 +1,4 @@
-// UnSceneCapture.cpp: 2 functions
+// UnSceneCapture.cpp: 3 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -41,4 +41,11 @@ void ASceneCaptureReflectActor::vf_02c()
     ReflectMaterialInst = NULL;
 
     Super::vf_02c();
+}
+
+// @baa 0x008a75e0
+void ASceneCaptureActor::PostLoad()
+{
+	Super::PostLoad();
+	SyncComponents();
 }

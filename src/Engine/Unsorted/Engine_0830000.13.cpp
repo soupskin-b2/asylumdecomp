@@ -1,4 +1,4 @@
-// Engine_0830000.cpp: 1 function
+// Engine_0830000.cpp: 2 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -14,4 +14,27 @@ struct APortalTeleporter_ : public APortalTeleporter
 UBOOL APortalMarker::CanTeleport(AActor* A)
 {
 	return (MyPortal != NULL && ((APortalTeleporter_*)MyPortal)->CanTeleport(A));
+}
+
+/* Unnamed ANavigationPoint helper: bubble-sorts PathList by ascending reach spec Distance. */
+struct ANavigationPoint_ : public ANavigationPoint
+{
+	void sub_0083f3a0();
+};
+
+// @baa 0x0083f3a0
+void ANavigationPoint_::sub_0083f3a0()
+{
+	for (INT i = 0; i < PathList.Num(); i++)
+	{
+		for (INT j = 0; j < PathList.Num() - 1; j++)
+		{
+			if (PathList(j)->Distance > PathList(j + 1)->Distance)
+			{
+				UReachSpec* Temp = PathList(j + 1);
+				PathList(j + 1) = PathList(j);
+				PathList(j) = Temp;
+			}
+		}
+	}
 }

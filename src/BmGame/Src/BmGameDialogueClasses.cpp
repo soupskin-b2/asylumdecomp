@@ -1,4 +1,4 @@
-// BmGameDialogueClasses.cpp: 74 functions
+// BmGameDialogueClasses.cpp: 75 functions
 // Placed here by: callers 13, file 13.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -436,5 +436,23 @@ void URSeqAct_PlaySpeechConversation::DeActivated()
 		{
 			Link.bHasImpulse = TRUE;
 		}
+	}
+}
+
+// @baa 0x015856e0
+void URSeqAct_PlayTVSequenceBase::DeActivated()
+{
+	/* USeqAct_Latent::DeActivated, inlined */
+	if (!bAborted)
+	{
+		FSeqOpOutputLink& Link = OutputLinks(0);
+		if (!Link.bDisabled)
+		{
+			Link.bHasImpulse = TRUE;
+		}
+	}
+	if (bExposeMainTextureLink)
+	{
+		TV_MainSequenceTexture = NULL;
 	}
 }

@@ -2,19 +2,19 @@
  "updated": "2026-11-12",
  "functions": {
   "total": 174166,
-  "matched": 102915
+  "matched": 103115
  },
  "bytes": {
   "total": 24308119,
-  "matched": 4313400
+  "matched": 4395755
  },
  "areas": [
   {
    "name": "Engine",
    "functions": 69863,
    "bytes": 9201956,
-   "matched": 43562,
-   "matched_bytes": 2127713
+   "matched": 43664,
+   "matched_bytes": 2137909
   },
   {
    "name": "Editor",
@@ -34,15 +34,15 @@
    "name": "Game",
    "functions": 13563,
    "bytes": 1853804,
-   "matched": 10460,
-   "matched_bytes": 642472
+   "matched": 10472,
+   "matched_bytes": 644067
   },
   {
    "name": "Core",
    "functions": 12072,
    "bytes": 1275961,
-   "matched": 8085,
-   "matched_bytes": 265602
+   "matched": 8171,
+   "matched_bytes": 336166
   },
   {
    "name": "CommonGame",
@@ -97,19 +97,19 @@
  "contributors": [
   {
    "login": "soupskin-b2",
-   "functions": 102906,
-   "bytes": 4312780,
+   "functions": 103106,
+   "bytes": 4395135,
    "models": {
     "Tooling": 94456,
-    "Claude Opus 5.5": 3653,
+    "Claude Opus 5.5": 3763,
     "DeepSeek V4.1 Flash": 2167,
     "Qwen3.8 27B": 1935,
-    "GPT-6.1 Sol": 296,
-    "Muse Spark 1.3": 204,
+    "GPT-6.1 Sol": 297,
+    "Muse Spark 1.3": 207,
+    "Claude Fable 5.2": 100,
     "DeepSeek V4.1 Flash (Freebuff)": 74,
     "MiniMax M3.1 Flash": 58,
     "Claude Sonnet 5.5": 37,
-    "Claude Fable 5.2": 14,
     "GPT-6.1 Terra": 10,
     "Claude Haiku 5.5": 1,
     "Claude Opus 4.6": 1
@@ -124,8 +124,13 @@
   },
   {
    "model": "Claude Opus 5.5",
-   "functions": 3653,
-   "bytes": 519031
+   "functions": 3763,
+   "bytes": 530113
+  },
+  {
+   "model": "Claude Fable 5.2",
+   "functions": 100,
+   "bytes": 174733
   },
   {
    "model": "DeepSeek V4.1 Flash",
@@ -133,14 +138,9 @@
    "bytes": 111183
   },
   {
-   "model": "Claude Fable 5.2",
-   "functions": 14,
-   "bytes": 104169
-  },
-  {
    "model": "GPT-6.1 Sol",
-   "functions": 296,
-   "bytes": 43517
+   "functions": 297,
+   "bytes": 44121
   },
   {
    "model": "Qwen3.8 27B",
@@ -164,8 +164,8 @@
   },
   {
    "model": "Muse Spark 1.3",
-   "functions": 204,
-   "bytes": 5159
+   "functions": 207,
+   "bytes": 5264
   },
   {
    "model": "DeepSeek V4.1 Flash (Freebuff)",

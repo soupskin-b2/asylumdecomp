@@ -1,4 +1,4 @@
-// Engine_0800000.cpp: 2 functions
+// Engine_0800000.cpp: 3 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -44,4 +44,29 @@ void AController_::eventGetPlayerViewPoint(FVector& out_Location, FRotator& out_
 	ProcessEvent(FindFunctionChecked(g_026c4c6c), &Parms);
 	out_Location = Parms.out_Location;
 	out_Rotation = Parms.out_Rotation;
+}
+
+extern FName g_026c4030;
+	/* ENGINE_PostTouch */
+/* EName entry Core.h doesn't list yet (UnNames.h): probe bit 31 */
+#define NAME_PostTouch 0x14b
+struct AActor_ : public AActor
+{
+	void eventPostTouch(AActor* Other);
+};
+
+// @baa 0x00802900
+/* The script event's generated glue (EngineClasses.h), out of line here. PostTouch is a probe
+ * function: the glue only calls into script when the current state probes for it. */
+void AActor_::eventPostTouch(AActor* Other)
+{
+	if (!StateFrame || (StateFrame->ProbeMask & ((QWORD)1 << (NAME_PostTouch - NAME_PROBEMIN))))
+	{
+		struct Actor_eventPostTouch_Parms
+		{
+			AActor* Other;
+		} Parms;
+		Parms.Other = Other;
+		ProcessEvent(FindFunctionChecked(g_026c4030), &Parms);
+	}
 }

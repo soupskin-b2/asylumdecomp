@@ -1,4 +1,4 @@
-// UnUIDataStores.cpp: 6 functions
+// UnUIDataStores.cpp: 7 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -148,4 +148,10 @@ UUIDataStore* UDataStoreClient::sub_00da19f0(UClass* DataStoreClass)
 		Result->InitializeDataStore();
 	}
 	return Result;
+}
+
+// @baa 0x00d950a0
+FName UUIDataStore::GetDataStoreID()
+{
+	return Tag;
 }

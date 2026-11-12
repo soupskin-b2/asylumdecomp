@@ -1,4 +1,4 @@
-// UnPawn.cpp (part 1 of 2): 119 functions
+// UnPawn.cpp (part 1 of 2): 120 functions
 // Placed here by: neighbours 49, class 32, callers 3, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1722,4 +1722,15 @@ void APawn::MarkEndPoints(ANavigationPoint* EndAnchor, AActor* Goal, const FVect
 	{
 		EndAnchor->bEndPoint = TRUE;
 	}
+}
+
+// @baa 0x008687b0
+AActor* AActor::GetBaseMost()
+{
+	AActor* Dest = this;
+	while (Dest && Dest->Base)
+	{
+		Dest = Dest->Base;
+	}
+	return Dest;
 }

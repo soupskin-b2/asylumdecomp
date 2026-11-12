@@ -1,4 +1,4 @@
-// LaunchEngineLoop.cpp: 66 functions
+// LaunchEngineLoop.cpp: 156 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -4248,6 +4248,2350 @@ USkeletalMeshComponentNative* sub_00ca9520(const TCHAR* NativeName)
 		if (wcscmp(NativeName, g_025e1800[NativeIndex].Name) == 0)
 		{
 			return &g_025e1800[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for USoundCue: the class's table of script natives (name, member pointer). */
+typedef void (USoundCue::*USoundCueNative)(FFrame& TheStack, RESULT_DECL);
+
+struct USoundCueNativeInfo
+{
+	const TCHAR* Name;
+	USoundCueNative Pointer;
+};
+
+extern USoundCueNativeInfo g_025e1bc8[];
+// @baa 0x00ca9580
+/* IMPLEMENT_NATIVE_HANDLER for USoundCue: the native registered under this name, or NULL. */
+USoundCueNative* sub_00ca9580(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e1bc8[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e1bc8[NativeIndex].Name) == 0)
+		{
+			return &g_025e1bc8[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for UStaticMeshComponent: the class's table of script natives (name, member pointer). */
+typedef void (UStaticMeshComponent::*UStaticMeshComponentNative)(FFrame& TheStack, RESULT_DECL);
+
+struct UStaticMeshComponentNativeInfo
+{
+	const TCHAR* Name;
+	UStaticMeshComponentNative Pointer;
+};
+
+extern UStaticMeshComponentNativeInfo g_025e1be0[];
+// @baa 0x00ca95e0
+/* IMPLEMENT_NATIVE_HANDLER for UStaticMeshComponent: the native registered under this name, or NULL. */
+UStaticMeshComponentNative* sub_00ca95e0(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e1be0[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e1be0[NativeIndex].Name) == 0)
+		{
+			return &g_025e1be0[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for USurface: the class's table of script natives (name, member pointer). */
+typedef void (USurface::*USurfaceNative)(FFrame& TheStack, RESULT_DECL);
+
+struct USurfaceNativeInfo
+{
+	const TCHAR* Name;
+	USurfaceNative Pointer;
+};
+
+extern USurfaceNativeInfo g_025e1c10[];
+// @baa 0x00ca9640
+/* IMPLEMENT_NATIVE_HANDLER for USurface: the native registered under this name, or NULL. */
+USurfaceNative* sub_00ca9640(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e1c10[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e1c10[NativeIndex].Name) == 0)
+		{
+			return &g_025e1c10[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for ATeamInfo: the class's table of script natives (name, member pointer). */
+typedef void (ATeamInfo::*ATeamInfoNative)(FFrame& TheStack, RESULT_DECL);
+
+struct ATeamInfoNativeInfo
+{
+	const TCHAR* Name;
+	ATeamInfoNative Pointer;
+};
+
+extern ATeamInfoNativeInfo g_025e1c28[];
+// @baa 0x00ca96a0
+/* IMPLEMENT_NATIVE_HANDLER for ATeamInfo: the native registered under this name, or NULL. */
+ATeamInfoNative* sub_00ca96a0(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e1c28[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e1c28[NativeIndex].Name) == 0)
+		{
+			return &g_025e1c28[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for ATeleporter: the class's table of script natives (name, member pointer). */
+typedef void (ATeleporter::*ATeleporterNative)(FFrame& TheStack, RESULT_DECL);
+
+struct ATeleporterNativeInfo
+{
+	const TCHAR* Name;
+	ATeleporterNative Pointer;
+};
+
+extern ATeleporterNativeInfo g_025e1c38[];
+// @baa 0x00ca9700
+/* IMPLEMENT_NATIVE_HANDLER for ATeleporter: the native registered under this name, or NULL. */
+ATeleporterNative* sub_00ca9700(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e1c38[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e1c38[NativeIndex].Name) == 0)
+		{
+			return &g_025e1c38[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for UTexture2D: the class's table of script natives (name, member pointer). */
+typedef void (UTexture2D::*UTexture2DNative)(FFrame& TheStack, RESULT_DECL);
+
+struct UTexture2DNativeInfo
+{
+	const TCHAR* Name;
+	UTexture2DNative Pointer;
+};
+
+extern UTexture2DNativeInfo g_025e1c48[];
+// @baa 0x00ca9760
+/* IMPLEMENT_NATIVE_HANDLER for UTexture2D: the native registered under this name, or NULL. */
+UTexture2DNative* sub_00ca9760(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e1c48[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e1c48[NativeIndex].Name) == 0)
+		{
+			return &g_025e1c48[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for UTexture2DComposite: the class's table of script natives (name, member pointer). */
+typedef void (UTexture2DComposite::*UTexture2DCompositeNative)(FFrame& TheStack, RESULT_DECL);
+
+struct UTexture2DCompositeNativeInfo
+{
+	const TCHAR* Name;
+	UTexture2DCompositeNative Pointer;
+};
+
+extern UTexture2DCompositeNativeInfo g_025e1c60[];
+// @baa 0x00ca97c0
+/* IMPLEMENT_NATIVE_HANDLER for UTexture2DComposite: the native registered under this name, or NULL. */
+UTexture2DCompositeNative* sub_00ca97c0(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e1c60[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e1c60[NativeIndex].Name) == 0)
+		{
+			return &g_025e1c60[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for UTexture2DDynamic: the class's table of script natives (name, member pointer). */
+typedef void (UTexture2DDynamic::*UTexture2DDynamicNative)(FFrame& TheStack, RESULT_DECL);
+
+struct UTexture2DDynamicNativeInfo
+{
+	const TCHAR* Name;
+	UTexture2DDynamicNative Pointer;
+};
+
+extern UTexture2DDynamicNativeInfo g_025e1c80[];
+// @baa 0x00ca9820
+/* IMPLEMENT_NATIVE_HANDLER for UTexture2DDynamic: the native registered under this name, or NULL. */
+UTexture2DDynamicNative* sub_00ca9820(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e1c80[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e1c80[NativeIndex].Name) == 0)
+		{
+			return &g_025e1c80[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for UTextureFlipBook: the class's table of script natives (name, member pointer). */
+typedef void (UTextureFlipBook::*UTextureFlipBookNative)(FFrame& TheStack, RESULT_DECL);
+
+#pragma pack(push, 4)
+struct UTextureFlipBookNativeInfo
+{
+	const TCHAR* Name;
+	UTextureFlipBookNative Pointer;
+};
+
+#pragma pack(pop)
+extern UTextureFlipBookNativeInfo g_025e352c[];
+// @baa 0x00ca9880
+/* IMPLEMENT_NATIVE_HANDLER for UTextureFlipBook: the native registered under this name, or NULL. */
+UTextureFlipBookNative* sub_00ca9880(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e352c[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e352c[NativeIndex].Name) == 0)
+		{
+			return &g_025e352c[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for UTextureMovie: the class's table of script natives (name, member pointer). */
+typedef void (UTextureMovie::*UTextureMovieNative)(FFrame& TheStack, RESULT_DECL);
+
+struct UTextureMovieNativeInfo
+{
+	const TCHAR* Name;
+	UTextureMovieNative Pointer;
+};
+
+extern UTextureMovieNativeInfo g_025e1c98[];
+// @baa 0x00ca98f0
+/* IMPLEMENT_NATIVE_HANDLER for UTextureMovie: the native registered under this name, or NULL. */
+UTextureMovieNative* sub_00ca98f0(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e1c98[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e1c98[NativeIndex].Name) == 0)
+		{
+			return &g_025e1c98[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for UTextureRenderTarget2D: the class's table of script natives (name, member pointer). */
+typedef void (UTextureRenderTarget2D::*UTextureRenderTarget2DNative)(FFrame& TheStack, RESULT_DECL);
+
+struct UTextureRenderTarget2DNativeInfo
+{
+	const TCHAR* Name;
+	UTextureRenderTarget2DNative Pointer;
+};
+
+extern UTextureRenderTarget2DNativeInfo g_025e1cb8[];
+// @baa 0x00ca9950
+/* IMPLEMENT_NATIVE_HANDLER for UTextureRenderTarget2D: the native registered under this name, or NULL. */
+UTextureRenderTarget2DNative* sub_00ca9950(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e1cb8[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e1cb8[NativeIndex].Name) == 0)
+		{
+			return &g_025e1cb8[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for AVolume: the class's table of script natives (name, member pointer). */
+typedef void (AVolume::*AVolumeNative)(FFrame& TheStack, RESULT_DECL);
+
+struct AVolumeNativeInfo
+{
+	const TCHAR* Name;
+	AVolumeNative Pointer;
+};
+
+extern AVolumeNativeInfo g_025e1cc8[];
+// @baa 0x00ca99b0
+/* IMPLEMENT_NATIVE_HANDLER for AVolume: the native registered under this name, or NULL. */
+AVolumeNative* sub_00ca99b0(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e1cc8[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e1cc8[NativeIndex].Name) == 0)
+		{
+			return &g_025e1cc8[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for AVolumePathNode: the class's table of script natives (name, member pointer). */
+typedef void (AVolumePathNode::*AVolumePathNodeNative)(FFrame& TheStack, RESULT_DECL);
+
+struct AVolumePathNodeNativeInfo
+{
+	const TCHAR* Name;
+	AVolumePathNodeNative Pointer;
+};
+
+extern AVolumePathNodeNativeInfo g_025e1ce0[];
+// @baa 0x00ca9a10
+/* IMPLEMENT_NATIVE_HANDLER for AVolumePathNode: the native registered under this name, or NULL. */
+AVolumePathNodeNative* sub_00ca9a10(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e1ce0[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e1ce0[NativeIndex].Name) == 0)
+		{
+			return &g_025e1ce0[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for AWeapon: the class's table of script natives (name, member pointer). */
+typedef void (AWeapon::*AWeaponNative)(FFrame& TheStack, RESULT_DECL);
+
+struct AWeaponNativeInfo
+{
+	const TCHAR* Name;
+	AWeaponNative Pointer;
+};
+
+extern AWeaponNativeInfo g_025e1cf0[];
+// @baa 0x00ca9a70
+/* IMPLEMENT_NATIVE_HANDLER for AWeapon: the native registered under this name, or NULL. */
+AWeaponNative* sub_00ca9a70(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e1cf0[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e1cf0[NativeIndex].Name) == 0)
+		{
+			return &g_025e1cf0[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for AWorldInfo: the class's table of script natives (name, member pointer). */
+typedef void (AWorldInfo::*AWorldInfoNative)(FFrame& TheStack, RESULT_DECL);
+
+struct AWorldInfoNativeInfo
+{
+	const TCHAR* Name;
+	AWorldInfoNative Pointer;
+};
+
+extern AWorldInfoNativeInfo g_025e1d00[];
+// @baa 0x00ca9ad0
+/* IMPLEMENT_NATIVE_HANDLER for AWorldInfo: the native registered under this name, or NULL. */
+AWorldInfoNative* sub_00ca9ad0(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e1d00[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e1d00[NativeIndex].Name) == 0)
+		{
+			return &g_025e1d00[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for UPath_AvoidInEscapableNodes: the class's table of script natives (name, member pointer). */
+typedef void (UPath_AvoidInEscapableNodes::*UPath_AvoidInEscapableNodesNative)(FFrame& TheStack, RESULT_DECL);
+
+struct UPath_AvoidInEscapableNodesNativeInfo
+{
+	const TCHAR* Name;
+	UPath_AvoidInEscapableNodesNative Pointer;
+};
+
+extern UPath_AvoidInEscapableNodesNativeInfo g_025e1e48[];
+// @baa 0x00ca9b30
+/* IMPLEMENT_NATIVE_HANDLER for UPath_AvoidInEscapableNodes: the native registered under this name, or NULL. */
+UPath_AvoidInEscapableNodesNative* sub_00ca9b30(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e1e48[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e1e48[NativeIndex].Name) == 0)
+		{
+			return &g_025e1e48[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for UMaterialInstance: the class's table of script natives (name, member pointer). */
+typedef void (UMaterialInstance::*UMaterialInstanceNative)(FFrame& TheStack, RESULT_DECL);
+
+struct UMaterialInstanceNativeInfo
+{
+	const TCHAR* Name;
+	UMaterialInstanceNative Pointer;
+};
+
+extern UMaterialInstanceNativeInfo g_025e1e58[];
+// @baa 0x00ca9b90
+/* IMPLEMENT_NATIVE_HANDLER for UMaterialInstance: the native registered under this name, or NULL. */
+UMaterialInstanceNative* sub_00ca9b90(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e1e58[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e1e58[NativeIndex].Name) == 0)
+		{
+			return &g_025e1e58[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for UMaterialInstanceConstant: the class's table of script natives (name, member pointer). */
+typedef void (UMaterialInstanceConstant::*UMaterialInstanceConstantNative)(FFrame& TheStack, RESULT_DECL);
+
+struct UMaterialInstanceConstantNativeInfo
+{
+	const TCHAR* Name;
+	UMaterialInstanceConstantNative Pointer;
+};
+
+extern UMaterialInstanceConstantNativeInfo g_025e1ea0[];
+// @baa 0x00ca9bf0
+/* IMPLEMENT_NATIVE_HANDLER for UMaterialInstanceConstant: the native registered under this name, or NULL. */
+UMaterialInstanceConstantNative* sub_00ca9bf0(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e1ea0[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e1ea0[NativeIndex].Name) == 0)
+		{
+			return &g_025e1ea0[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for UMaterialInstanceTimeVarying: the class's table of script natives (name, member pointer). */
+typedef void (UMaterialInstanceTimeVarying::*UMaterialInstanceTimeVaryingNative)(FFrame& TheStack, RESULT_DECL);
+
+struct UMaterialInstanceTimeVaryingNativeInfo
+{
+	const TCHAR* Name;
+	UMaterialInstanceTimeVaryingNative Pointer;
+};
+
+extern UMaterialInstanceTimeVaryingNativeInfo g_025e1ed8[];
+// @baa 0x00ca9c50
+/* IMPLEMENT_NATIVE_HANDLER for UMaterialInstanceTimeVarying: the native registered under this name, or NULL. */
+UMaterialInstanceTimeVaryingNative* sub_00ca9c50(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e1ed8[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e1ed8[NativeIndex].Name) == 0)
+		{
+			return &g_025e1ed8[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for ATerrain: the class's table of script natives (name, member pointer). */
+typedef void (ATerrain::*ATerrainNative)(FFrame& TheStack, RESULT_DECL);
+
+struct ATerrainNativeInfo
+{
+	const TCHAR* Name;
+	ATerrainNative Pointer;
+};
+
+extern ATerrainNativeInfo g_025e1f40[];
+// @baa 0x00ca9cb0
+/* IMPLEMENT_NATIVE_HANDLER for ATerrain: the native registered under this name, or NULL. */
+ATerrainNative* sub_00ca9cb0(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e1f40[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e1f40[NativeIndex].Name) == 0)
+		{
+			return &g_025e1f40[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for UTerrainLayerSetup: the class's table of script natives (name, member pointer). */
+typedef void (UTerrainLayerSetup::*UTerrainLayerSetupNative)(FFrame& TheStack, RESULT_DECL);
+
+struct UTerrainLayerSetupNativeInfo
+{
+	const TCHAR* Name;
+	UTerrainLayerSetupNative Pointer;
+};
+
+extern UTerrainLayerSetupNativeInfo g_025e1f50[];
+// @baa 0x00ca9d10
+/* IMPLEMENT_NATIVE_HANDLER for UTerrainLayerSetup: the native registered under this name, or NULL. */
+UTerrainLayerSetupNative* sub_00ca9d10(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e1f50[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e1f50[NativeIndex].Name) == 0)
+		{
+			return &g_025e1f50[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for AKActor: the class's table of script natives (name, member pointer). */
+typedef void (AKActor::*AKActorNative)(FFrame& TheStack, RESULT_DECL);
+
+struct AKActorNativeInfo
+{
+	const TCHAR* Name;
+	AKActorNative Pointer;
+};
+
+extern AKActorNativeInfo g_025e1f60[];
+// @baa 0x00ca9d70
+/* IMPLEMENT_NATIVE_HANDLER for AKActor: the native registered under this name, or NULL. */
+AKActorNative* sub_00ca9d70(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e1f60[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e1f60[NativeIndex].Name) == 0)
+		{
+			return &g_025e1f60[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for AKActorSpawnable: the class's table of script natives (name, member pointer). */
+typedef void (AKActorSpawnable::*AKActorSpawnableNative)(FFrame& TheStack, RESULT_DECL);
+
+struct AKActorSpawnableNativeInfo
+{
+	const TCHAR* Name;
+	AKActorSpawnableNative Pointer;
+};
+
+extern AKActorSpawnableNativeInfo g_025e1f78[];
+// @baa 0x00ca9dd0
+/* IMPLEMENT_NATIVE_HANDLER for AKActorSpawnable: the native registered under this name, or NULL. */
+AKActorSpawnableNative* sub_00ca9dd0(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e1f78[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e1f78[NativeIndex].Name) == 0)
+		{
+			return &g_025e1f78[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for UPhysicalMaterial: the class's table of script natives (name, member pointer). */
+typedef void (UPhysicalMaterial::*UPhysicalMaterialNative)(FFrame& TheStack, RESULT_DECL);
+
+struct UPhysicalMaterialNativeInfo
+{
+	const TCHAR* Name;
+	UPhysicalMaterialNative Pointer;
+};
+
+extern UPhysicalMaterialNativeInfo g_025e1f88[];
+// @baa 0x00ca9e30
+/* IMPLEMENT_NATIVE_HANDLER for UPhysicalMaterial: the native registered under this name, or NULL. */
+UPhysicalMaterialNative* sub_00ca9e30(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e1f88[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e1f88[NativeIndex].Name) == 0)
+		{
+			return &g_025e1f88[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for UPhysicsAsset: the class's table of script natives (name, member pointer). */
+typedef void (UPhysicsAsset::*UPhysicsAssetNative)(FFrame& TheStack, RESULT_DECL);
+
+struct UPhysicsAssetNativeInfo
+{
+	const TCHAR* Name;
+	UPhysicsAssetNative Pointer;
+};
+
+extern UPhysicsAssetNativeInfo g_025e1fa8[];
+// @baa 0x00ca9e90
+/* IMPLEMENT_NATIVE_HANDLER for UPhysicsAsset: the native registered under this name, or NULL. */
+UPhysicsAssetNative* sub_00ca9e90(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e1fa8[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e1fa8[NativeIndex].Name) == 0)
+		{
+			return &g_025e1fa8[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for UPhysicsAssetInstance: the class's table of script natives (name, member pointer). */
+typedef void (UPhysicsAssetInstance::*UPhysicsAssetInstanceNative)(FFrame& TheStack, RESULT_DECL);
+
+struct UPhysicsAssetInstanceNativeInfo
+{
+	const TCHAR* Name;
+	UPhysicsAssetInstanceNative Pointer;
+};
+
+extern UPhysicsAssetInstanceNativeInfo g_025e1fb8[];
+// @baa 0x00ca9ef0
+/* IMPLEMENT_NATIVE_HANDLER for UPhysicsAssetInstance: the native registered under this name, or NULL. */
+UPhysicsAssetInstanceNative* sub_00ca9ef0(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e1fb8[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e1fb8[NativeIndex].Name) == 0)
+		{
+			return &g_025e1fb8[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for URB_BodyInstance: the class's table of script natives (name, member pointer). */
+typedef void (URB_BodyInstance::*URB_BodyInstanceNative)(FFrame& TheStack, RESULT_DECL);
+
+struct URB_BodyInstanceNativeInfo
+{
+	const TCHAR* Name;
+	URB_BodyInstanceNative Pointer;
+};
+
+extern URB_BodyInstanceNativeInfo g_025e2050[];
+// @baa 0x00ca9f50
+/* IMPLEMENT_NATIVE_HANDLER for URB_BodyInstance: the native registered under this name, or NULL. */
+URB_BodyInstanceNative* sub_00ca9f50(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e2050[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e2050[NativeIndex].Name) == 0)
+		{
+			return &g_025e2050[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for ARB_ConstraintActor: the class's table of script natives (name, member pointer). */
+typedef void (ARB_ConstraintActor::*ARB_ConstraintActorNative)(FFrame& TheStack, RESULT_DECL);
+
+struct ARB_ConstraintActorNativeInfo
+{
+	const TCHAR* Name;
+	ARB_ConstraintActorNative Pointer;
+};
+
+extern ARB_ConstraintActorNativeInfo g_025e20f0[];
+// @baa 0x00ca9fb0
+/* IMPLEMENT_NATIVE_HANDLER for ARB_ConstraintActor: the native registered under this name, or NULL. */
+ARB_ConstraintActorNative* sub_00ca9fb0(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e20f0[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e20f0[NativeIndex].Name) == 0)
+		{
+			return &g_025e20f0[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for URB_ConstraintInstance: the class's table of script natives (name, member pointer). */
+typedef void (URB_ConstraintInstance::*URB_ConstraintInstanceNative)(FFrame& TheStack, RESULT_DECL);
+
+struct URB_ConstraintInstanceNativeInfo
+{
+	const TCHAR* Name;
+	URB_ConstraintInstanceNative Pointer;
+};
+
+extern URB_ConstraintInstanceNativeInfo g_025e2110[];
+// @baa 0x00caa010
+/* IMPLEMENT_NATIVE_HANDLER for URB_ConstraintInstance: the native registered under this name, or NULL. */
+URB_ConstraintInstanceNative* sub_00caa010(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e2110[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e2110[NativeIndex].Name) == 0)
+		{
+			return &g_025e2110[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for URB_Handle: the class's table of script natives (name, member pointer). */
+typedef void (URB_Handle::*URB_HandleNative)(FFrame& TheStack, RESULT_DECL);
+
+struct URB_HandleNativeInfo
+{
+	const TCHAR* Name;
+	URB_HandleNative Pointer;
+};
+
+extern URB_HandleNativeInfo g_025e21b0[];
+// @baa 0x00caa070
+/* IMPLEMENT_NATIVE_HANDLER for URB_Handle: the native registered under this name, or NULL. */
+URB_HandleNative* sub_00caa070(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e21b0[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e21b0[NativeIndex].Name) == 0)
+		{
+			return &g_025e21b0[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for ARB_LineImpulseActor: the class's table of script natives (name, member pointer). */
+typedef void (ARB_LineImpulseActor::*ARB_LineImpulseActorNative)(FFrame& TheStack, RESULT_DECL);
+
+struct ARB_LineImpulseActorNativeInfo
+{
+	const TCHAR* Name;
+	ARB_LineImpulseActorNative Pointer;
+};
+
+extern ARB_LineImpulseActorNativeInfo g_025e21f0[];
+// @baa 0x00caa0d0
+/* IMPLEMENT_NATIVE_HANDLER for ARB_LineImpulseActor: the native registered under this name, or NULL. */
+ARB_LineImpulseActorNative* sub_00caa0d0(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e21f0[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e21f0[NativeIndex].Name) == 0)
+		{
+			return &g_025e21f0[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for URB_RadialImpulseComponent: the class's table of script natives (name, member pointer). */
+typedef void (URB_RadialImpulseComponent::*URB_RadialImpulseComponentNative)(FFrame& TheStack, RESULT_DECL);
+
+struct URB_RadialImpulseComponentNativeInfo
+{
+	const TCHAR* Name;
+	URB_RadialImpulseComponentNative Pointer;
+};
+
+extern URB_RadialImpulseComponentNativeInfo g_025e2200[];
+// @baa 0x00caa130
+/* IMPLEMENT_NATIVE_HANDLER for URB_RadialImpulseComponent: the native registered under this name, or NULL. */
+URB_RadialImpulseComponentNative* sub_00caa130(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e2200[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e2200[NativeIndex].Name) == 0)
+		{
+			return &g_025e2200[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for URB_Spring: the class's table of script natives (name, member pointer). */
+typedef void (URB_Spring::*URB_SpringNative)(FFrame& TheStack, RESULT_DECL);
+
+struct URB_SpringNativeInfo
+{
+	const TCHAR* Name;
+	URB_SpringNative Pointer;
+};
+
+extern URB_SpringNativeInfo g_025e2210[];
+// @baa 0x00caa190
+/* IMPLEMENT_NATIVE_HANDLER for URB_Spring: the native registered under this name, or NULL. */
+URB_SpringNative* sub_00caa190(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e2210[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e2210[NativeIndex].Name) == 0)
+		{
+			return &g_025e2210[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for URPhysOnContactHandler: the class's table of script natives (name, member pointer). */
+typedef void (URPhysOnContactHandler::*URPhysOnContactHandlerNative)(FFrame& TheStack, RESULT_DECL);
+
+struct URPhysOnContactHandlerNativeInfo
+{
+	const TCHAR* Name;
+	URPhysOnContactHandlerNative Pointer;
+};
+
+extern URPhysOnContactHandlerNativeInfo g_025e2228[];
+// @baa 0x00caa1f0
+/* IMPLEMENT_NATIVE_HANDLER for URPhysOnContactHandler: the native registered under this name, or NULL. */
+URPhysOnContactHandlerNative* sub_00caa1f0(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e2228[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e2228[NativeIndex].Name) == 0)
+		{
+			return &g_025e2228[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for ANxCylindricalForceFieldCapsule: the class's table of script natives (name, member pointer). */
+typedef void (ANxCylindricalForceFieldCapsule::*ANxCylindricalForceFieldCapsuleNative)(FFrame& TheStack, RESULT_DECL);
+
+struct ANxCylindricalForceFieldCapsuleNativeInfo
+{
+	const TCHAR* Name;
+	ANxCylindricalForceFieldCapsuleNative Pointer;
+};
+
+extern ANxCylindricalForceFieldCapsuleNativeInfo g_025e2238[];
+// @baa 0x00caa250
+/* IMPLEMENT_NATIVE_HANDLER for ANxCylindricalForceFieldCapsule: the native registered under this name, or NULL. */
+ANxCylindricalForceFieldCapsuleNative* sub_00caa250(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e2238[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e2238[NativeIndex].Name) == 0)
+		{
+			return &g_025e2238[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for ANxForceField: the class's table of script natives (name, member pointer). */
+typedef void (ANxForceField::*ANxForceFieldNative)(FFrame& TheStack, RESULT_DECL);
+
+struct ANxForceFieldNativeInfo
+{
+	const TCHAR* Name;
+	ANxForceFieldNative Pointer;
+};
+
+extern ANxForceFieldNativeInfo g_025e2248[];
+// @baa 0x00caa2b0
+/* IMPLEMENT_NATIVE_HANDLER for ANxForceField: the native registered under this name, or NULL. */
+ANxForceFieldNative* sub_00caa2b0(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e2248[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e2248[NativeIndex].Name) == 0)
+		{
+			return &g_025e2248[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for ANxForceFieldGeneric: the class's table of script natives (name, member pointer). */
+typedef void (ANxForceFieldGeneric::*ANxForceFieldGenericNative)(FFrame& TheStack, RESULT_DECL);
+
+struct ANxForceFieldGenericNativeInfo
+{
+	const TCHAR* Name;
+	ANxForceFieldGenericNative Pointer;
+};
+
+extern ANxForceFieldGenericNativeInfo g_025e2258[];
+// @baa 0x00caa310
+/* IMPLEMENT_NATIVE_HANDLER for ANxForceFieldGeneric: the native registered under this name, or NULL. */
+ANxForceFieldGenericNative* sub_00caa310(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e2258[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e2258[NativeIndex].Name) == 0)
+		{
+			return &g_025e2258[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for ANxForceFieldRadial: the class's table of script natives (name, member pointer). */
+typedef void (ANxForceFieldRadial::*ANxForceFieldRadialNative)(FFrame& TheStack, RESULT_DECL);
+
+struct ANxForceFieldRadialNativeInfo
+{
+	const TCHAR* Name;
+	ANxForceFieldRadialNative Pointer;
+};
+
+extern ANxForceFieldRadialNativeInfo g_025e2268[];
+// @baa 0x00caa370
+/* IMPLEMENT_NATIVE_HANDLER for ANxForceFieldRadial: the native registered under this name, or NULL. */
+ANxForceFieldRadialNative* sub_00caa370(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e2268[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e2268[NativeIndex].Name) == 0)
+		{
+			return &g_025e2268[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for ANxGenericForceFieldBox: the class's table of script natives (name, member pointer). */
+typedef void (ANxGenericForceFieldBox::*ANxGenericForceFieldBoxNative)(FFrame& TheStack, RESULT_DECL);
+
+struct ANxGenericForceFieldBoxNativeInfo
+{
+	const TCHAR* Name;
+	ANxGenericForceFieldBoxNative Pointer;
+};
+
+extern ANxGenericForceFieldBoxNativeInfo g_025e2278[];
+// @baa 0x00caa3d0
+/* IMPLEMENT_NATIVE_HANDLER for ANxGenericForceFieldBox: the native registered under this name, or NULL. */
+ANxGenericForceFieldBoxNative* sub_00caa3d0(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e2278[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e2278[NativeIndex].Name) == 0)
+		{
+			return &g_025e2278[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for UPrefabSequence: the class's table of script natives (name, member pointer). */
+typedef void (UPrefabSequence::*UPrefabSequenceNative)(FFrame& TheStack, RESULT_DECL);
+
+struct UPrefabSequenceNativeInfo
+{
+	const TCHAR* Name;
+	UPrefabSequenceNative Pointer;
+};
+
+extern UPrefabSequenceNativeInfo g_025e2288[];
+// @baa 0x00caa430
+/* IMPLEMENT_NATIVE_HANDLER for UPrefabSequence: the native registered under this name, or NULL. */
+UPrefabSequenceNative* sub_00caa430(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e2288[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e2288[NativeIndex].Name) == 0)
+		{
+			return &g_025e2288[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for USeqAct_CrowdSpawner: the class's table of script natives (name, member pointer). */
+typedef void (USeqAct_CrowdSpawner::*USeqAct_CrowdSpawnerNative)(FFrame& TheStack, RESULT_DECL);
+
+struct USeqAct_CrowdSpawnerNativeInfo
+{
+	const TCHAR* Name;
+	USeqAct_CrowdSpawnerNative Pointer;
+};
+
+extern USeqAct_CrowdSpawnerNativeInfo g_025e22a0[];
+// @baa 0x00caa490
+/* IMPLEMENT_NATIVE_HANDLER for USeqAct_CrowdSpawner: the native registered under this name, or NULL. */
+USeqAct_CrowdSpawnerNative* sub_00caa490(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e22a0[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e22a0[NativeIndex].Name) == 0)
+		{
+			return &g_025e22a0[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for USeqAct_GetMatInstVectorParam: the class's table of script natives (name, member pointer). */
+typedef void (USeqAct_GetMatInstVectorParam::*USeqAct_GetMatInstVectorParamNative)(FFrame& TheStack, RESULT_DECL);
+
+struct USeqAct_GetMatInstVectorParamNativeInfo
+{
+	const TCHAR* Name;
+	USeqAct_GetMatInstVectorParamNative Pointer;
+};
+
+extern USeqAct_GetMatInstVectorParamNativeInfo g_025e22c0[];
+// @baa 0x00caa4f0
+/* IMPLEMENT_NATIVE_HANDLER for USeqAct_GetMatInstVectorParam: the native registered under this name, or NULL. */
+USeqAct_GetMatInstVectorParamNative* sub_00caa4f0(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e22c0[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e22c0[NativeIndex].Name) == 0)
+		{
+			return &g_025e22c0[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for USeqAct_Interp: the class's table of script natives (name, member pointer). */
+typedef void (USeqAct_Interp::*USeqAct_InterpNative)(FFrame& TheStack, RESULT_DECL);
+
+struct USeqAct_InterpNativeInfo
+{
+	const TCHAR* Name;
+	USeqAct_InterpNative Pointer;
+};
+
+extern USeqAct_InterpNativeInfo g_025e22d0[];
+// @baa 0x00caa550
+/* IMPLEMENT_NATIVE_HANDLER for USeqAct_Interp: the native registered under this name, or NULL. */
+USeqAct_InterpNative* sub_00caa550(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e22d0[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e22d0[NativeIndex].Name) == 0)
+		{
+			return &g_025e22d0[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for USeqAct_Latent: the class's table of script natives (name, member pointer). */
+typedef void (USeqAct_Latent::*USeqAct_LatentNative)(FFrame& TheStack, RESULT_DECL);
+
+struct USeqAct_LatentNativeInfo
+{
+	const TCHAR* Name;
+	USeqAct_LatentNative Pointer;
+};
+
+extern USeqAct_LatentNativeInfo g_025e22f0[];
+// @baa 0x00caa5b0
+/* IMPLEMENT_NATIVE_HANDLER for USeqAct_Latent: the native registered under this name, or NULL. */
+USeqAct_LatentNative* sub_00caa5b0(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e22f0[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e22f0[NativeIndex].Name) == 0)
+		{
+			return &g_025e22f0[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for USeqEvent_Touch: the class's table of script natives (name, member pointer). */
+typedef void (USeqEvent_Touch::*USeqEvent_TouchNative)(FFrame& TheStack, RESULT_DECL);
+
+struct USeqEvent_TouchNativeInfo
+{
+	const TCHAR* Name;
+	USeqEvent_TouchNative Pointer;
+};
+
+extern USeqEvent_TouchNativeInfo g_025e2300[];
+// @baa 0x00caa610
+/* IMPLEMENT_NATIVE_HANDLER for USeqEvent_Touch: the native registered under this name, or NULL. */
+USeqEvent_TouchNative* sub_00caa610(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e2300[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e2300[NativeIndex].Name) == 0)
+		{
+			return &g_025e2300[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for USequence: the class's table of script natives (name, member pointer). */
+typedef void (USequence::*USequenceNative)(FFrame& TheStack, RESULT_DECL);
+
+struct USequenceNativeInfo
+{
+	const TCHAR* Name;
+	USequenceNative Pointer;
+};
+
+extern USequenceNativeInfo g_025e2318[];
+// @baa 0x00caa670
+/* IMPLEMENT_NATIVE_HANDLER for USequence: the native registered under this name, or NULL. */
+USequenceNative* sub_00caa670(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e2318[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e2318[NativeIndex].Name) == 0)
+		{
+			return &g_025e2318[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for USequenceEvent: the class's table of script natives (name, member pointer). */
+typedef void (USequenceEvent::*USequenceEventNative)(FFrame& TheStack, RESULT_DECL);
+
+struct USequenceEventNativeInfo
+{
+	const TCHAR* Name;
+	USequenceEventNative Pointer;
+};
+
+extern USequenceEventNativeInfo g_025e2338[];
+// @baa 0x00caa6d0
+/* IMPLEMENT_NATIVE_HANDLER for USequenceEvent: the native registered under this name, or NULL. */
+USequenceEventNative* sub_00caa6d0(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e2338[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e2338[NativeIndex].Name) == 0)
+		{
+			return &g_025e2338[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for USequenceObject: the class's table of script natives (name, member pointer). */
+typedef void (USequenceObject::*USequenceObjectNative)(FFrame& TheStack, RESULT_DECL);
+
+struct USequenceObjectNativeInfo
+{
+	const TCHAR* Name;
+	USequenceObjectNative Pointer;
+};
+
+extern USequenceObjectNativeInfo g_025e2348[];
+// @baa 0x00caa730
+/* IMPLEMENT_NATIVE_HANDLER for USequenceObject: the native registered under this name, or NULL. */
+USequenceObjectNative* sub_00caa730(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e2348[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e2348[NativeIndex].Name) == 0)
+		{
+			return &g_025e2348[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for USequenceOp: the class's table of script natives (name, member pointer). */
+typedef void (USequenceOp::*USequenceOpNative)(FFrame& TheStack, RESULT_DECL);
+
+struct USequenceOpNativeInfo
+{
+	const TCHAR* Name;
+	USequenceOpNative Pointer;
+};
+
+extern USequenceOpNativeInfo g_025e2360[];
+// @baa 0x00caa790
+/* IMPLEMENT_NATIVE_HANDLER for USequenceOp: the native registered under this name, or NULL. */
+USequenceOpNative* sub_00caa790(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e2360[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e2360[NativeIndex].Name) == 0)
+		{
+			return &g_025e2360[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for USoundNodeRandom: the class's table of script natives (name, member pointer). */
+typedef void (USoundNodeRandom::*USoundNodeRandomNative)(FFrame& TheStack, RESULT_DECL);
+
+struct USoundNodeRandomNativeInfo
+{
+	const TCHAR* Name;
+	USoundNodeRandomNative Pointer;
+};
+
+extern USoundNodeRandomNativeInfo g_025e23d0[];
+// @baa 0x00caa7f0
+/* IMPLEMENT_NATIVE_HANDLER for USoundNodeRandom: the native registered under this name, or NULL. */
+USoundNodeRandomNative* sub_00caa7f0(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e23d0[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e23d0[NativeIndex].Name) == 0)
+		{
+			return &g_025e23d0[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for UParticleSystem: the class's table of script natives (name, member pointer). */
+typedef void (UParticleSystem::*UParticleSystemNative)(FFrame& TheStack, RESULT_DECL);
+
+struct UParticleSystemNativeInfo
+{
+	const TCHAR* Name;
+	UParticleSystemNative Pointer;
+};
+
+extern UParticleSystemNativeInfo g_025e23e0[];
+// @baa 0x00caa850
+/* IMPLEMENT_NATIVE_HANDLER for UParticleSystem: the native registered under this name, or NULL. */
+UParticleSystemNative* sub_00caa850(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e23e0[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e23e0[NativeIndex].Name) == 0)
+		{
+			return &g_025e23e0[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for UParticleSystemComponent: the class's table of script natives (name, member pointer). */
+typedef void (UParticleSystemComponent::*UParticleSystemComponentNative)(FFrame& TheStack, RESULT_DECL);
+
+struct UParticleSystemComponentNativeInfo
+{
+	const TCHAR* Name;
+	UParticleSystemComponentNative Pointer;
+};
+
+extern UParticleSystemComponentNativeInfo g_025e2410[];
+// @baa 0x00caa8b0
+/* IMPLEMENT_NATIVE_HANDLER for UParticleSystemComponent: the native registered under this name, or NULL. */
+UParticleSystemComponentNative* sub_00caa8b0(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e2410[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e2410[NativeIndex].Name) == 0)
+		{
+			return &g_025e2410[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for APhysXEmitterSpawnable: the class's table of script natives (name, member pointer). */
+typedef void (APhysXEmitterSpawnable::*APhysXEmitterSpawnableNative)(FFrame& TheStack, RESULT_DECL);
+
+struct APhysXEmitterSpawnableNativeInfo
+{
+	const TCHAR* Name;
+	APhysXEmitterSpawnableNative Pointer;
+};
+
+extern APhysXEmitterSpawnableNativeInfo g_025e2578[];
+// @baa 0x00caa910
+/* IMPLEMENT_NATIVE_HANDLER for APhysXEmitterSpawnable: the native registered under this name, or NULL. */
+APhysXEmitterSpawnableNative* sub_00caa910(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e2578[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e2578[NativeIndex].Name) == 0)
+		{
+			return &g_025e2578[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for UAnimNode: the class's table of script natives (name, member pointer). */
+typedef void (UAnimNode::*UAnimNodeNative)(FFrame& TheStack, RESULT_DECL);
+
+struct UAnimNodeNativeInfo
+{
+	const TCHAR* Name;
+	UAnimNodeNative Pointer;
+};
+
+extern UAnimNodeNativeInfo g_025e2588[];
+// @baa 0x00caa970
+/* IMPLEMENT_NATIVE_HANDLER for UAnimNode: the native registered under this name, or NULL. */
+UAnimNodeNative* sub_00caa970(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e2588[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e2588[NativeIndex].Name) == 0)
+		{
+			return &g_025e2588[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for UAnimNodeAimOffset: the class's table of script natives (name, member pointer). */
+typedef void (UAnimNodeAimOffset::*UAnimNodeAimOffsetNative)(FFrame& TheStack, RESULT_DECL);
+
+struct UAnimNodeAimOffsetNativeInfo
+{
+	const TCHAR* Name;
+	UAnimNodeAimOffsetNative Pointer;
+};
+
+extern UAnimNodeAimOffsetNativeInfo g_025e25a8[];
+// @baa 0x00caa9d0
+/* IMPLEMENT_NATIVE_HANDLER for UAnimNodeAimOffset: the native registered under this name, or NULL. */
+UAnimNodeAimOffsetNative* sub_00caa9d0(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e25a8[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e25a8[NativeIndex].Name) == 0)
+		{
+			return &g_025e25a8[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for UAnimNodeBlend: the class's table of script natives (name, member pointer). */
+typedef void (UAnimNodeBlend::*UAnimNodeBlendNative)(FFrame& TheStack, RESULT_DECL);
+
+struct UAnimNodeBlendNativeInfo
+{
+	const TCHAR* Name;
+	UAnimNodeBlendNative Pointer;
+};
+
+extern UAnimNodeBlendNativeInfo g_025e25c0[];
+// @baa 0x00caaa30
+/* IMPLEMENT_NATIVE_HANDLER for UAnimNodeBlend: the native registered under this name, or NULL. */
+UAnimNodeBlendNative* sub_00caaa30(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e25c0[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e25c0[NativeIndex].Name) == 0)
+		{
+			return &g_025e25c0[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for UAnimNodeBlendBase: the class's table of script natives (name, member pointer). */
+typedef void (UAnimNodeBlendBase::*UAnimNodeBlendBaseNative)(FFrame& TheStack, RESULT_DECL);
+
+struct UAnimNodeBlendBaseNativeInfo
+{
+	const TCHAR* Name;
+	UAnimNodeBlendBaseNative Pointer;
+};
+
+extern UAnimNodeBlendBaseNativeInfo g_025e25d0[];
+// @baa 0x00caaa90
+/* IMPLEMENT_NATIVE_HANDLER for UAnimNodeBlendBase: the native registered under this name, or NULL. */
+UAnimNodeBlendBaseNative* sub_00caaa90(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e25d0[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e25d0[NativeIndex].Name) == 0)
+		{
+			return &g_025e25d0[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for UAnimNodeBlendList: the class's table of script natives (name, member pointer). */
+typedef void (UAnimNodeBlendList::*UAnimNodeBlendListNative)(FFrame& TheStack, RESULT_DECL);
+
+struct UAnimNodeBlendListNativeInfo
+{
+	const TCHAR* Name;
+	UAnimNodeBlendListNative Pointer;
+};
+
+extern UAnimNodeBlendListNativeInfo g_025e25e8[];
+// @baa 0x00caaaf0
+/* IMPLEMENT_NATIVE_HANDLER for UAnimNodeBlendList: the native registered under this name, or NULL. */
+UAnimNodeBlendListNative* sub_00caaaf0(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e25e8[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e25e8[NativeIndex].Name) == 0)
+		{
+			return &g_025e25e8[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for UAnimNodeBlendMultiBone: the class's table of script natives (name, member pointer). */
+typedef void (UAnimNodeBlendMultiBone::*UAnimNodeBlendMultiBoneNative)(FFrame& TheStack, RESULT_DECL);
+
+struct UAnimNodeBlendMultiBoneNativeInfo
+{
+	const TCHAR* Name;
+	UAnimNodeBlendMultiBoneNative Pointer;
+};
+
+extern UAnimNodeBlendMultiBoneNativeInfo g_025e25f8[];
+// @baa 0x00caab50
+/* IMPLEMENT_NATIVE_HANDLER for UAnimNodeBlendMultiBone: the native registered under this name, or NULL. */
+UAnimNodeBlendMultiBoneNative* sub_00caab50(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e25f8[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e25f8[NativeIndex].Name) == 0)
+		{
+			return &g_025e25f8[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for UAnimNodeCrossfader: the class's table of script natives (name, member pointer). */
+typedef void (UAnimNodeCrossfader::*UAnimNodeCrossfaderNative)(FFrame& TheStack, RESULT_DECL);
+
+struct UAnimNodeCrossfaderNativeInfo
+{
+	const TCHAR* Name;
+	UAnimNodeCrossfaderNative Pointer;
+};
+
+extern UAnimNodeCrossfaderNativeInfo g_025e2608[];
+// @baa 0x00caabb0
+/* IMPLEMENT_NATIVE_HANDLER for UAnimNodeCrossfader: the native registered under this name, or NULL. */
+UAnimNodeCrossfaderNative* sub_00caabb0(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e2608[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e2608[NativeIndex].Name) == 0)
+		{
+			return &g_025e2608[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for UAnimNodePlayCustomAnim: the class's table of script natives (name, member pointer). */
+typedef void (UAnimNodePlayCustomAnim::*UAnimNodePlayCustomAnimNative)(FFrame& TheStack, RESULT_DECL);
+
+struct UAnimNodePlayCustomAnimNativeInfo
+{
+	const TCHAR* Name;
+	UAnimNodePlayCustomAnimNative Pointer;
+};
+
+extern UAnimNodePlayCustomAnimNativeInfo g_025e2630[];
+// @baa 0x00caac10
+/* IMPLEMENT_NATIVE_HANDLER for UAnimNodePlayCustomAnim: the native registered under this name, or NULL. */
+UAnimNodePlayCustomAnimNative* sub_00caac10(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e2630[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e2630[NativeIndex].Name) == 0)
+		{
+			return &g_025e2630[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for UAnimNodeSequence: the class's table of script natives (name, member pointer). */
+typedef void (UAnimNodeSequence::*UAnimNodeSequenceNative)(FFrame& TheStack, RESULT_DECL);
+
+struct UAnimNodeSequenceNativeInfo
+{
+	const TCHAR* Name;
+	UAnimNodeSequenceNative Pointer;
+};
+
+extern UAnimNodeSequenceNativeInfo g_025e2650[];
+// @baa 0x00caac70
+/* IMPLEMENT_NATIVE_HANDLER for UAnimNodeSequence: the native registered under this name, or NULL. */
+UAnimNodeSequenceNative* sub_00caac70(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e2650[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e2650[NativeIndex].Name) == 0)
+		{
+			return &g_025e2650[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for UAnimNodeSequenceBlendByAim: the class's table of script natives (name, member pointer). */
+typedef void (UAnimNodeSequenceBlendByAim::*UAnimNodeSequenceBlendByAimNative)(FFrame& TheStack, RESULT_DECL);
+
+struct UAnimNodeSequenceBlendByAimNativeInfo
+{
+	const TCHAR* Name;
+	UAnimNodeSequenceBlendByAimNative Pointer;
+};
+
+extern UAnimNodeSequenceBlendByAimNativeInfo g_025e26a0[];
+// @baa 0x00caacd0
+/* IMPLEMENT_NATIVE_HANDLER for UAnimNodeSequenceBlendByAim: the native registered under this name, or NULL. */
+UAnimNodeSequenceBlendByAimNative* sub_00caacd0(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e26a0[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e26a0[NativeIndex].Name) == 0)
+		{
+			return &g_025e26a0[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for UAnimNodeSlot: the class's table of script natives (name, member pointer). */
+typedef void (UAnimNodeSlot::*UAnimNodeSlotNative)(FFrame& TheStack, RESULT_DECL);
+
+struct UAnimNodeSlotNativeInfo
+{
+	const TCHAR* Name;
+	UAnimNodeSlotNative Pointer;
+};
+
+extern UAnimNodeSlotNativeInfo g_025e26b0[];
+// @baa 0x00caad30
+/* IMPLEMENT_NATIVE_HANDLER for UAnimNodeSlot: the native registered under this name, or NULL. */
+UAnimNodeSlotNative* sub_00caad30(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e26b0[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e26b0[NativeIndex].Name) == 0)
+		{
+			return &g_025e26b0[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for UAnimNodeSynch: the class's table of script natives (name, member pointer). */
+typedef void (UAnimNodeSynch::*UAnimNodeSynchNative)(FFrame& TheStack, RESULT_DECL);
+
+struct UAnimNodeSynchNativeInfo
+{
+	const TCHAR* Name;
+	UAnimNodeSynchNative Pointer;
+};
+
+extern UAnimNodeSynchNativeInfo g_025e2700[];
+// @baa 0x00caad90
+/* IMPLEMENT_NATIVE_HANDLER for UAnimNodeSynch: the native registered under this name, or NULL. */
+UAnimNodeSynchNative* sub_00caad90(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e2700[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e2700[NativeIndex].Name) == 0)
+		{
+			return &g_025e2700[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for UAnimSet: the class's table of script natives (name, member pointer). */
+typedef void (UAnimSet::*UAnimSetNative)(FFrame& TheStack, RESULT_DECL);
+
+struct UAnimSetNativeInfo
+{
+	const TCHAR* Name;
+	UAnimSetNative Pointer;
+};
+
+extern UAnimSetNativeInfo g_025e2738[];
+// @baa 0x00caadf0
+/* IMPLEMENT_NATIVE_HANDLER for UAnimSet: the native registered under this name, or NULL. */
+UAnimSetNative* sub_00caadf0(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e2738[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e2738[NativeIndex].Name) == 0)
+		{
+			return &g_025e2738[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for UAnimTree: the class's table of script natives (name, member pointer). */
+typedef void (UAnimTree::*UAnimTreeNative)(FFrame& TheStack, RESULT_DECL);
+
+struct UAnimTreeNativeInfo
+{
+	const TCHAR* Name;
+	UAnimTreeNative Pointer;
+};
+
+extern UAnimTreeNativeInfo g_025e2748[];
+// @baa 0x00caae50
+/* IMPLEMENT_NATIVE_HANDLER for UAnimTree: the native registered under this name, or NULL. */
+UAnimTreeNative* sub_00caae50(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e2748[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e2748[NativeIndex].Name) == 0)
+		{
+			return &g_025e2748[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for ACrowdAgent: the class's table of script natives (name, member pointer). */
+typedef void (ACrowdAgent::*ACrowdAgentNative)(FFrame& TheStack, RESULT_DECL);
+
+struct ACrowdAgentNativeInfo
+{
+	const TCHAR* Name;
+	ACrowdAgentNative Pointer;
+};
+
+extern ACrowdAgentNativeInfo g_025e27a8[];
+// @baa 0x00caaeb0
+/* IMPLEMENT_NATIVE_HANDLER for ACrowdAgent: the native registered under this name, or NULL. */
+ACrowdAgentNative* sub_00caaeb0(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e27a8[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e27a8[NativeIndex].Name) == 0)
+		{
+			return &g_025e27a8[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for UMorphNodePose: the class's table of script natives (name, member pointer). */
+typedef void (UMorphNodePose::*UMorphNodePoseNative)(FFrame& TheStack, RESULT_DECL);
+
+struct UMorphNodePoseNativeInfo
+{
+	const TCHAR* Name;
+	UMorphNodePoseNative Pointer;
+};
+
+extern UMorphNodePoseNativeInfo g_025e27b8[];
+// @baa 0x00caaf10
+/* IMPLEMENT_NATIVE_HANDLER for UMorphNodePose: the native registered under this name, or NULL. */
+UMorphNodePoseNative* sub_00caaf10(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e27b8[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e27b8[NativeIndex].Name) == 0)
+		{
+			return &g_025e27b8[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for UMorphNodeWeight: the class's table of script natives (name, member pointer). */
+typedef void (UMorphNodeWeight::*UMorphNodeWeightNative)(FFrame& TheStack, RESULT_DECL);
+
+struct UMorphNodeWeightNativeInfo
+{
+	const TCHAR* Name;
+	UMorphNodeWeightNative Pointer;
+};
+
+extern UMorphNodeWeightNativeInfo g_025e27c8[];
+// @baa 0x00caaf70
+/* IMPLEMENT_NATIVE_HANDLER for UMorphNodeWeight: the native registered under this name, or NULL. */
+UMorphNodeWeightNative* sub_00caaf70(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e27c8[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e27c8[NativeIndex].Name) == 0)
+		{
+			return &g_025e27c8[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for UMorphTargetSet: the class's table of script natives (name, member pointer). */
+typedef void (UMorphTargetSet::*UMorphTargetSetNative)(FFrame& TheStack, RESULT_DECL);
+
+struct UMorphTargetSetNativeInfo
+{
+	const TCHAR* Name;
+	UMorphTargetSetNative Pointer;
+};
+
+extern UMorphTargetSetNativeInfo g_025e27d8[];
+// @baa 0x00caafd0
+/* IMPLEMENT_NATIVE_HANDLER for UMorphTargetSet: the native registered under this name, or NULL. */
+UMorphTargetSetNative* sub_00caafd0(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e27d8[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e27d8[NativeIndex].Name) == 0)
+		{
+			return &g_025e27d8[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for USkelControlBase: the class's table of script natives (name, member pointer). */
+typedef void (USkelControlBase::*USkelControlBaseNative)(FFrame& TheStack, RESULT_DECL);
+
+struct USkelControlBaseNativeInfo
+{
+	const TCHAR* Name;
+	USkelControlBaseNative Pointer;
+};
+
+extern USkelControlBaseNativeInfo g_025e27e8[];
+// @baa 0x00cab030
+/* IMPLEMENT_NATIVE_HANDLER for USkelControlBase: the native registered under this name, or NULL. */
+USkelControlBaseNative* sub_00cab030(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e27e8[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e27e8[NativeIndex].Name) == 0)
+		{
+			return &g_025e27e8[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for USkelControlLookAt: the class's table of script natives (name, member pointer). */
+typedef void (USkelControlLookAt::*USkelControlLookAtNative)(FFrame& TheStack, RESULT_DECL);
+
+struct USkelControlLookAtNativeInfo
+{
+	const TCHAR* Name;
+	USkelControlLookAtNative Pointer;
+};
+
+extern USkelControlLookAtNativeInfo g_025e2800[];
+// @baa 0x00cab090
+/* IMPLEMENT_NATIVE_HANDLER for USkelControlLookAt: the native registered under this name, or NULL. */
+USkelControlLookAtNative* sub_00cab090(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e2800[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e2800[NativeIndex].Name) == 0)
+		{
+			return &g_025e2800[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for ASkeletalMeshActorMAT: the class's table of script natives (name, member pointer). */
+typedef void (ASkeletalMeshActorMAT::*ASkeletalMeshActorMATNative)(FFrame& TheStack, RESULT_DECL);
+
+struct ASkeletalMeshActorMATNativeInfo
+{
+	const TCHAR* Name;
+	ASkeletalMeshActorMATNative Pointer;
+};
+
+extern ASkeletalMeshActorMATNativeInfo g_025e2828[];
+// @baa 0x00cab0f0
+/* IMPLEMENT_NATIVE_HANDLER for ASkeletalMeshActorMAT: the native registered under this name, or NULL. */
+ASkeletalMeshActorMATNative* sub_00cab0f0(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e2828[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e2828[NativeIndex].Name) == 0)
+		{
+			return &g_025e2828[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for UDecalComponent: the class's table of script natives (name, member pointer). */
+typedef void (UDecalComponent::*UDecalComponentNative)(FFrame& TheStack, RESULT_DECL);
+
+struct UDecalComponentNativeInfo
+{
+	const TCHAR* Name;
+	UDecalComponentNative Pointer;
+};
+
+extern UDecalComponentNativeInfo g_025e2860[];
+// @baa 0x00cab150
+/* IMPLEMENT_NATIVE_HANDLER for UDecalComponent: the native registered under this name, or NULL. */
+UDecalComponentNative* sub_00cab150(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e2860[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e2860[NativeIndex].Name) == 0)
+		{
+			return &g_025e2860[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for ADecalManager: the class's table of script natives (name, member pointer). */
+typedef void (ADecalManager::*ADecalManagerNative)(FFrame& TheStack, RESULT_DECL);
+
+struct ADecalManagerNativeInfo
+{
+	const TCHAR* Name;
+	ADecalManagerNative Pointer;
+};
+
+extern ADecalManagerNativeInfo g_025e2880[];
+// @baa 0x00cab1b0
+/* IMPLEMENT_NATIVE_HANDLER for ADecalManager: the native registered under this name, or NULL. */
+ADecalManagerNative* sub_00cab1b0(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e2880[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e2880[NativeIndex].Name) == 0)
+		{
+			return &g_025e2880[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for UFogVolumeDensityComponent: the class's table of script natives (name, member pointer). */
+typedef void (UFogVolumeDensityComponent::*UFogVolumeDensityComponentNative)(FFrame& TheStack, RESULT_DECL);
+
+struct UFogVolumeDensityComponentNativeInfo
+{
+	const TCHAR* Name;
+	UFogVolumeDensityComponentNative Pointer;
+};
+
+extern UFogVolumeDensityComponentNativeInfo g_025e2890[];
+// @baa 0x00cab210
+/* IMPLEMENT_NATIVE_HANDLER for UFogVolumeDensityComponent: the native registered under this name, or NULL. */
+UFogVolumeDensityComponentNative* sub_00cab210(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e2890[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e2890[NativeIndex].Name) == 0)
+		{
+			return &g_025e2890[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for AApexDestructibleActor: the class's table of script natives (name, member pointer). */
+typedef void (AApexDestructibleActor::*AApexDestructibleActorNative)(FFrame& TheStack, RESULT_DECL);
+
+struct AApexDestructibleActorNativeInfo
+{
+	const TCHAR* Name;
+	AApexDestructibleActorNative Pointer;
+};
+
+extern AApexDestructibleActorNativeInfo g_025e28a0[];
+// @baa 0x00cab270
+/* IMPLEMENT_NATIVE_HANDLER for AApexDestructibleActor: the native registered under this name, or NULL. */
+AApexDestructibleActorNative* sub_00cab270(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e28a0[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e28a0[NativeIndex].Name) == 0)
+		{
+			return &g_025e28a0[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for UFracturedBaseComponent: the class's table of script natives (name, member pointer). */
+typedef void (UFracturedBaseComponent::*UFracturedBaseComponentNative)(FFrame& TheStack, RESULT_DECL);
+
+struct UFracturedBaseComponentNativeInfo
+{
+	const TCHAR* Name;
+	UFracturedBaseComponentNative Pointer;
+};
+
+extern UFracturedBaseComponentNativeInfo g_025e28c0[];
+// @baa 0x00cab2d0
+/* IMPLEMENT_NATIVE_HANDLER for UFracturedBaseComponent: the native registered under this name, or NULL. */
+UFracturedBaseComponentNative* sub_00cab2d0(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e28c0[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e28c0[NativeIndex].Name) == 0)
+		{
+			return &g_025e28c0[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for AFracturedStaticMeshActor: the class's table of script natives (name, member pointer). */
+typedef void (AFracturedStaticMeshActor::*AFracturedStaticMeshActorNative)(FFrame& TheStack, RESULT_DECL);
+
+struct AFracturedStaticMeshActorNativeInfo
+{
+	const TCHAR* Name;
+	AFracturedStaticMeshActorNative Pointer;
+};
+
+extern AFracturedStaticMeshActorNativeInfo g_025e2900[];
+// @baa 0x00cab330
+/* IMPLEMENT_NATIVE_HANDLER for AFracturedStaticMeshActor: the native registered under this name, or NULL. */
+AFracturedStaticMeshActorNative* sub_00cab330(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e2900[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e2900[NativeIndex].Name) == 0)
+		{
+			return &g_025e2900[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for UFracturedStaticMeshComponent: the class's table of script natives (name, member pointer). */
+typedef void (UFracturedStaticMeshComponent::*UFracturedStaticMeshComponentNative)(FFrame& TheStack, RESULT_DECL);
+
+struct UFracturedStaticMeshComponentNativeInfo
+{
+	const TCHAR* Name;
+	UFracturedStaticMeshComponentNative Pointer;
+};
+
+extern UFracturedStaticMeshComponentNativeInfo g_025e2988[];
+// @baa 0x00cab390
+/* IMPLEMENT_NATIVE_HANDLER for UFracturedStaticMeshComponent: the native registered under this name, or NULL. */
+UFracturedStaticMeshComponentNative* sub_00cab390(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e2988[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e2988[NativeIndex].Name) == 0)
+		{
+			return &g_025e2988[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for AFracturedStaticMeshPart: the class's table of script natives (name, member pointer). */
+typedef void (AFracturedStaticMeshPart::*AFracturedStaticMeshPartNative)(FFrame& TheStack, RESULT_DECL);
+
+struct AFracturedStaticMeshPartNativeInfo
+{
+	const TCHAR* Name;
+	AFracturedStaticMeshPartNative Pointer;
+};
+
+extern AFracturedStaticMeshPartNativeInfo g_025e29d8[];
+// @baa 0x00cab3f0
+/* IMPLEMENT_NATIVE_HANDLER for AFracturedStaticMeshPart: the native registered under this name, or NULL. */
+AFracturedStaticMeshPartNative* sub_00cab3f0(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e29d8[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e29d8[NativeIndex].Name) == 0)
+		{
+			return &g_025e29d8[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for AFractureManager: the class's table of script natives (name, member pointer). */
+typedef void (AFractureManager::*AFractureManagerNative)(FFrame& TheStack, RESULT_DECL);
+
+struct AFractureManagerNativeInfo
+{
+	const TCHAR* Name;
+	AFractureManagerNative Pointer;
+};
+
+extern AFractureManagerNativeInfo g_025e29f8[];
+// @baa 0x00cab450
+/* IMPLEMENT_NATIVE_HANDLER for AFractureManager: the native registered under this name, or NULL. */
+AFractureManagerNative* sub_00cab450(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e29f8[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e29f8[NativeIndex].Name) == 0)
+		{
+			return &g_025e29f8[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for UDataStoreClient: the class's table of script natives (name, member pointer). */
+typedef void (UDataStoreClient::*UDataStoreClientNative)(FFrame& TheStack, RESULT_DECL);
+
+struct UDataStoreClientNativeInfo
+{
+	const TCHAR* Name;
+	UDataStoreClientNative Pointer;
+};
+
+extern UDataStoreClientNativeInfo g_025e2a38[];
+// @baa 0x00cab4b0
+/* IMPLEMENT_NATIVE_HANDLER for UDataStoreClient: the native registered under this name, or NULL. */
+UDataStoreClientNative* sub_00cab4b0(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e2a38[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e2a38[NativeIndex].Name) == 0)
+		{
+			return &g_025e2a38[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for UInput: the class's table of script natives (name, member pointer). */
+typedef void (UInput::*UInputNative)(FFrame& TheStack, RESULT_DECL);
+
+struct UInputNativeInfo
+{
+	const TCHAR* Name;
+	UInputNative Pointer;
+};
+
+extern UInputNativeInfo g_025e2a70[];
+// @baa 0x00cab510
+/* IMPLEMENT_NATIVE_HANDLER for UInput: the native registered under this name, or NULL. */
+UInputNative* sub_00cab510(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e2a70[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e2a70[NativeIndex].Name) == 0)
+		{
+			return &g_025e2a70[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for UScriptDataBaseCommandlet: the class's table of script natives (name, member pointer). */
+typedef void (UScriptDataBaseCommandlet::*UScriptDataBaseCommandletNative)(FFrame& TheStack, RESULT_DECL);
+
+struct UScriptDataBaseCommandletNativeInfo
+{
+	const TCHAR* Name;
+	UScriptDataBaseCommandletNative Pointer;
+};
+
+extern UScriptDataBaseCommandletNativeInfo g_025e8c84[];
+// @baa 0x0127c280
+/* IMPLEMENT_NATIVE_HANDLER for UScriptDataBaseCommandlet: the native registered under this name, or NULL. */
+UScriptDataBaseCommandletNative* sub_0127c280(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e8c84[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e8c84[NativeIndex].Name) == 0)
+		{
+			return &g_025e8c84[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for UUISceneManager: the class's table of script natives (name, member pointer). */
+typedef void (UUISceneManager::*UUISceneManagerNative)(FFrame& TheStack, RESULT_DECL);
+
+#pragma pack(push, 4)
+struct UUISceneManagerNativeInfo
+{
+	const TCHAR* Name;
+	UUISceneManagerNative Pointer;
+};
+
+#pragma pack(pop)
+extern UUISceneManagerNativeInfo g_025e8cdc[];
+// @baa 0x0127c2e0
+/* IMPLEMENT_NATIVE_HANDLER for UUISceneManager: the native registered under this name, or NULL. */
+UUISceneManagerNative* sub_0127c2e0(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e8cdc[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e8cdc[NativeIndex].Name) == 0)
+		{
+			return &g_025e8cdc[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for UInteraction: the class's table of script natives (name, member pointer). */
+typedef void (UInteraction::*UInteractionNative)(FFrame& TheStack, RESULT_DECL);
+
+struct UInteractionNativeInfo
+{
+	const TCHAR* Name;
+	UInteractionNative Pointer;
+};
+
+extern UInteractionNativeInfo g_025e2a88[];
+// @baa 0x00cab570
+/* IMPLEMENT_NATIVE_HANDLER for UInteraction: the native registered under this name, or NULL. */
+UInteractionNative* sub_00cab570(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e2a88[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e2a88[NativeIndex].Name) == 0)
+		{
+			return &g_025e2a88[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for UUILayer: the class's table of script natives (name, member pointer). */
+typedef void (UUILayer::*UUILayerNative)(FFrame& TheStack, RESULT_DECL);
+
+struct UUILayerNativeInfo
+{
+	const TCHAR* Name;
+	UUILayerNative Pointer;
+};
+
+extern UUILayerNativeInfo g_025e8c94[];
+// @baa 0x0127c350
+/* IMPLEMENT_NATIVE_HANDLER for UUILayer: the native registered under this name, or NULL. */
+UUILayerNative* sub_0127c350(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e8c94[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e8c94[NativeIndex].Name) == 0)
+		{
+			return &g_025e8c94[NativeIndex].Pointer;
+		}
+		NativeIndex++;
+	}
+	return NULL;
+}
+
+/* UnScript.h DECLARE_NATIVE_TYPE for UUIInputConfiguration: the class's table of script natives (name, member pointer). */
+typedef void (UUIInputConfiguration::*UUIInputConfigurationNative)(FFrame& TheStack, RESULT_DECL);
+
+struct UUIInputConfigurationNativeInfo
+{
+	const TCHAR* Name;
+	UUIInputConfigurationNative Pointer;
+};
+
+extern UUIInputConfigurationNativeInfo g_025e2a98[];
+// @baa 0x00cab5d0
+/* IMPLEMENT_NATIVE_HANDLER for UUIInputConfiguration: the native registered under this name, or NULL. */
+UUIInputConfigurationNative* sub_00cab5d0(const TCHAR* NativeName)
+{
+	DWORD NativeIndex = 0;
+	while (g_025e2a98[NativeIndex].Name)
+	{
+		if (wcscmp(NativeName, g_025e2a98[NativeIndex].Name) == 0)
+		{
+			return &g_025e2a98[NativeIndex].Pointer;
 		}
 		NativeIndex++;
 	}

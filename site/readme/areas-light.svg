@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="860" height="394" viewBox="0 0 860 394" font-family="ui-monospace, SFMono-Regular, &#x27;Cascadia Mono&#x27;, Consolas, &#x27;DejaVu Sans Mono&#x27;, monospace">
 <text x="0" y="16" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">Engine</text>
 <rect x="150" y="8" width="438" height="10" fill="#eaeef2" stroke="#d1d9e0"/>
-<rect x="150" y="8" width="101.276" height="10" fill="#1f2328"/>
-<text x="860" y="16" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">2.0 MB / 8.8 MB  23.1%</text>
+<rect x="150" y="8" width="101.761" height="10" fill="#1f2328"/>
+<text x="860" y="16" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">2.0 MB / 8.8 MB  23.2%</text>
 <text x="0" y="46" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">Editor</text>
 <rect x="150" y="38" width="438" height="10" fill="#eaeef2" stroke="#d1d9e0"/>
 <rect x="150" y="38" width="45.1514" height="10" fill="#1f2328"/>
@@ -13,12 +13,12 @@
 <text x="860" y="76" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">196 KB / 3.0 MB  6.3%</text>
 <text x="0" y="106" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">Game</text>
 <rect x="150" y="98" width="438" height="10" fill="#eaeef2" stroke="#d1d9e0"/>
-<rect x="150" y="98" width="151.797" height="10" fill="#1f2328"/>
-<text x="860" y="106" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">627 KB / 1.8 MB  34.7%</text>
+<rect x="150" y="98" width="152.174" height="10" fill="#1f2328"/>
+<text x="860" y="106" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">629 KB / 1.8 MB  34.7%</text>
 <text x="0" y="136" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">Core</text>
 <rect x="150" y="128" width="438" height="10" fill="#eaeef2" stroke="#d1d9e0"/>
-<rect x="150" y="128" width="91.1734" height="10" fill="#1f2328"/>
-<text x="860" y="136" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">259 KB / 1.2 MB  20.8%</text>
+<rect x="150" y="128" width="115.396" height="10" fill="#1f2328"/>
+<text x="860" y="136" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">328 KB / 1.2 MB  26.3%</text>
 <text x="0" y="166" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">CommonGame</text>
 <rect x="150" y="158" width="438" height="10" fill="#eaeef2" stroke="#d1d9e0"/>
 <rect x="150" y="158" width="123.73" height="10" fill="#1f2328"/>

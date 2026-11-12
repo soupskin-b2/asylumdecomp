@@ -1,4 +1,4 @@
-// UnActor.cpp: 11 functions
+// UnActor.cpp: 12 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -123,4 +123,12 @@ void AActor::GetActorReferences(TArray<FActorReference*>& ActorRefs, UBOOL bIsRe
 FVector AActor::vf_350()
 {
 	return Location;
+}
+
+// @baa 0x00777440
+/* Sets bOnlyOwnerSee and has the components re-attached (a full update, not transform-only). */
+void AActor::sub_00777440(UBOOL bNewOnlyOwnerSee)
+{
+	bOnlyOwnerSee = bNewOnlyOwnerSee;
+	MarkComponentsAsDirty(FALSE);
 }

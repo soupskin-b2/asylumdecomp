@@ -1,4 +1,4 @@
-// BmGameLevelTransitionClasses.cpp: 9 functions
+// BmGameLevelTransitionClasses.cpp: 10 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -165,4 +165,26 @@ void sub_016d4390(C_WS_a8f0* A, C_WC_a8f0* B, FLOAT F);
 void C_0155a8f0::sub_0155a8f0(FLOAT F)
 {
     sub_016d4390((C_WS_a8f0*)((BYTE*)this + 0x424), &WC, F);
+}
+
+struct C_T1_5a090
+{
+    INT sub_00759640(INT A);
+};
+
+struct C_P1_5a090
+{
+    BYTE Pad[0x348];
+    C_T1_5a090* T;
+    void sub_00759430(INT A);
+};
+
+// @baa 0x0155a090
+void __stdcall sub_0155a090(C_P1_5a090* P)
+{
+    if (P != NULL)
+    {
+        P->T->sub_00759640(0);
+        P->sub_00759430(0);
+    }
 }

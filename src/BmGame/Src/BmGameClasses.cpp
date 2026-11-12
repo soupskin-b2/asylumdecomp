@@ -1,4 +1,4 @@
-// BmGameClasses.cpp: 46 functions
+// BmGameClasses.cpp: 47 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -1036,4 +1036,24 @@ UObject* URWeaponConfigFactoryNew::FactoryCreateNew(UClass* InClass, UObject* In
 UObject* URAlternateAnimationAndWeaponConfigFactoryNew::FactoryCreateNew(UClass* InClass, UObject* InParent, FName InName, QWORD Flags, UObject* Context, FFeedbackContext* Warn)
 {
 	return StaticConstructObject(InClass, InParent, InName, Flags);
+}
+
+/* Kit gap: TArray::Remove isn't declared; this build calls TArray<FBMScreenShakeStruct>::Remove out of line
+ * (0x0156a3d0). */
+template<class T> struct TArray_ : public TArray<T>
+{
+	void Remove(INT Index, INT Count = 1);
+};
+
+// @baa 0x0156b630
+/* Updates every active shake (newest first), dropping those that have finished. */
+void URBMScreenShakeModifier::UpdateFast(FLOAT DeltaTime, FVector& Loc, FRotator& Rot, FLOAT& FOV)
+{
+	for (INT i = Shakes.Num() - 1; i >= 0; i--)
+	{
+		if (UpdateShake(DeltaTime, Shakes(i), Loc, Rot, FOV))
+		{
+			((TArray_<FBMScreenShakeStruct>&)Shakes).Remove(i, 1);
+		}
+	}
 }

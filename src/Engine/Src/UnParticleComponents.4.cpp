@@ -1,4 +1,4 @@
-// UnParticleComponents.cpp (part 4 of 4): 37 functions
+// UnParticleComponents.cpp (part 4 of 4): 38 functions
 // Placed here by: neighbours 13, class 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -605,4 +605,15 @@ void UParticleSystemComponent::PostLoad()
 	}
 	bIsViewRelevanceDirty = TRUE;
 	((UParticleSystemComponent__00b63d30*)this)->InitializeSystem();
+}
+
+// @baa 0x00b5c6a0
+UBOOL UParticleSystem::SetLODDistance(INT LODLevel, FLOAT InDistance)
+{
+	if (LODLevel >= LODDistances.Num())
+	{
+		return FALSE;
+	}
+	LODDistances(LODLevel) = InDistance;
+	return TRUE;
 }

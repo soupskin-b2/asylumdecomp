@@ -2,8 +2,8 @@
  "note": "Maintained by CI (tools/ci); every file is checked by python tools/asylum unit-check.",
  "totals": {
   "units": 1439,
-  "files": 5355,
-  "functions": 101522,
+  "files": 5369,
+  "functions": 101722,
   "failed": 0
  },
  "units": [
@@ -3066,6 +3066,11 @@
      "va": "0155f900",
      "size": 165,
      "symbol": "?GetClosestPosition@ARAmbientSoundTrackingVolume@@UAE?AUFVector@@U2@@Z"
+    },
+    {
+     "va": "015571e0",
+     "size": 233,
+     "symbol": "?UpdateShake@URBMScreenShakeModifier@@UAEHMAAUFBMScreenShakeStruct@@AAUFVector@@AAUFRotator@@AAM@Z"
     }
    ]
   },
@@ -3332,6 +3337,11 @@
      "va": "0154fc70",
      "size": 53,
      "symbol": "?FactoryCreateNew@URAlternateAnimationAndWeaponConfigFactoryNew@@UAEPAUUObject@@PAUUClass@@PAU2@UFName@@_K1PAUFFeedbackContext@@@Z"
+    },
+    {
+     "va": "0156b630",
+     "size": 136,
+     "symbol": "?UpdateFast@URBMScreenShakeModifier@@UAEXMAAUFVector@@AAUFRotator@@AAM@Z"
     }
    ]
   },
@@ -3783,6 +3793,11 @@
      "va": "01585540",
      "size": 73,
      "symbol": "?DeActivated@URSeqAct_PlaySpeechConversation@@UAEXXZ"
+    },
+    {
+     "va": "015856e0",
+     "size": 92,
+     "symbol": "?DeActivated@URSeqAct_PlayTVSequenceBase@@UAEXXZ"
     }
    ]
   },
@@ -4766,6 +4781,11 @@
      "va": "0155a8f0",
      "size": 33,
      "symbol": "?sub_0155a8f0@C_0155a8f0@@QAEXM@Z"
+    },
+    {
+     "va": "0155a090",
+     "size": 35,
+     "symbol": "?sub_0155a090@@YGXPAUC_P1_5a090@@@Z"
     }
    ]
   },
@@ -6884,6 +6904,11 @@
      "va": "0155cfa0",
      "size": 80,
      "symbol": "?OnChildAnimEnd@URAnimNode_Cape@@UAEXPAUUAnimNodeSequence@@MM@Z"
+    },
+    {
+     "va": "01590a30",
+     "size": 35,
+     "symbol": "?vf_17c@ARLevelTransition@@UAEHH@Z"
     }
    ]
   },
@@ -8810,6 +8835,11 @@
      "va": "015aa1c0",
      "size": 33,
      "symbol": "?sub_015aa1c0@C_015aa1c0@@QAEHH@Z"
+    },
+    {
+     "va": "01595eb0",
+     "size": 35,
+     "symbol": "?sub_01595eb0@C_01595eb0@@QAEHXZ"
     }
    ]
   },
@@ -9343,6 +9373,18 @@
      "va": "01598d60",
      "size": 33,
      "symbol": "?sub_01598d60@@YAXPAUC_Target_6e0@@HMM@Z"
+    }
+   ]
+  },
+  {
+   "unit": "BmGame/Src/RAnimUtil.cpp",
+   "source": "BmGame/Src/RAnimUtil.9.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "015abbb0",
+     "size": 604,
+     "symbol": "?sub_015abbb0@@YAXABV?$TArray@E@@0AAV1@@Z"
     }
    ]
   },
@@ -12988,6 +13030,18 @@
   },
   {
    "unit": "BmGame/Src/RBmRouterClass.cpp",
+   "source": "BmGame/Src/RBmRouterClass.23.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "01621e70",
+     "size": 88,
+     "symbol": "?ClearPath@URBMRouterPath@@UAEXXZ"
+    }
+   ]
+  },
+  {
+   "unit": "BmGame/Src/RBmRouterClass.cpp",
    "source": "BmGame/Src/RBmRouterClass.3.cpp",
    "profile": "ue3",
    "functions": [
@@ -14756,6 +14810,23 @@
      "va": "016d5ec0",
      "size": 41,
      "symbol": "?StaticConstructor@URCapeCollisionShapeConfigFactoryNew@@QAEXXZ"
+    }
+   ]
+  },
+  {
+   "unit": "BmGame/Src/RCapeStateController.cpp",
+   "source": "BmGame/Src/RCapeStateController.9.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "016e7490",
+     "size": 143,
+     "symbol": "?sub_016e7490@URCapeStateController_@@QAEXIPAUFCapeStateData@@@Z"
+    },
+    {
+     "va": "016e7520",
+     "size": 135,
+     "symbol": "?sub_016e7520@URCapeStateController__016e7520@@QAEXUFName@@@Z"
     }
    ]
   },
@@ -34885,6 +34956,18 @@
   },
   {
    "unit": "BmGame/Unsorted/BmGame_15d0000.cpp",
+   "source": "BmGame/Unsorted/BmGame_15d0000.5.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "015dd380",
+     "size": 27,
+     "symbol": "?GetAngleFromPawnToPawn@ARBMCombatManager@@UAEMPAUARPawnCombat@@0@Z"
+    }
+   ]
+  },
+  {
+   "unit": "BmGame/Unsorted/BmGame_15d0000.cpp",
    "source": "BmGame/Unsorted/BmGame_15d0000.cpp",
    "profile": "ue3",
    "functions": [
@@ -45501,6 +45584,18 @@
      "va": "01662450",
      "size": 83,
      "symbol": "??$Cast@UARProjectile@@@@YAPAUARProjectile@@PAUUObject@@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "BmGame/Unsorted/BmGame_1660000.cpp",
+   "source": "BmGame/Unsorted/BmGame_1660000.6.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "0166d6d0",
+     "size": 32,
+     "symbol": "?GetHeading@ARPawnCombat@@UAE?AUFVector@@XZ"
     }
    ]
   },
@@ -92112,6 +92207,98 @@
   },
   {
    "unit": "Core/Unsorted/Core_1df0000.cpp",
+   "source": "Core/Unsorted/Core_1df0000.46.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "01dfb8c0",
+     "size": 10141,
+     "symbol": "??__E?sm_eventTableEntries@WxEditorFrame@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01dff060",
+     "size": 2560,
+     "symbol": "??__E?sm_eventTableEntries@WxLevelViewportToolBar@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01dfe5f0",
+     "size": 2131,
+     "symbol": "??__E?sm_eventTableEntries@WxKismet@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01dfab20",
+     "size": 1047,
+     "symbol": "??__E?sm_eventTableEntries@WxCurveEditor@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01dfa180",
+     "size": 685,
+     "symbol": "??__E?sm_eventTableEntries@WxButtonBar@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01dfe100",
+     "size": 560,
+     "symbol": "??__E?sm_eventTableEntries@WxFontPropertiesDlg@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01dfa810",
+     "size": 494,
+     "symbol": "??__E?sm_eventTableEntries@WxSpinner@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01dffda0",
+     "size": 501,
+     "symbol": "??__E?sm_eventTableEntries@WxClass_025e86b8@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01dffbd0",
+     "size": 99,
+     "symbol": "??__E?sm_eventTableEntries@WxLogWindow@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01dfb380",
+     "size": 277,
+     "symbol": "??__E?sm_eventTableEntries@WxClass_021b2c10@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01dfb0f0",
+     "size": 274,
+     "symbol": "??__E?sm_eventTableEntries@WxFloatingFrame_01dfb0f0@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01dfafc0",
+     "size": 248,
+     "symbol": "??__E?sm_eventTableEntries@WxClass_025e85f0@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01dfb260",
+     "size": 245,
+     "symbol": "??__E?sm_eventTableEntries@WxBrowser@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01df9d90",
+     "size": 219,
+     "symbol": "??__E?sm_eventTableEntries@WxGeomModifiers@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01dfaa30",
+     "size": 182,
+     "symbol": "??__E?sm_eventTableEntries@WxClass_025e85d8@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01dfe370",
+     "size": 170,
+     "symbol": "??__E?sm_eventTableEntries@WxClass_025e8658@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01dffc70",
+     "size": 153,
+     "symbol": "??__E?sm_eventTableEntries@WxClass_025e86b0@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    }
+   ]
+  },
+  {
+   "unit": "Core/Unsorted/Core_1df0000.cpp",
    "source": "Core/Unsorted/Core_1df0000.5.cpp",
    "profile": "ue3",
    "functions": [
@@ -98005,6 +98192,330 @@
   },
   {
    "unit": "Core/Unsorted/Core_1e00000.cpp",
+   "source": "Core/Unsorted/Core_1e00000.161.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "01e02e00",
+     "size": 5048,
+     "symbol": "??__E?sm_eventTableEntries@WxTerrainEditor@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01e07190",
+     "size": 4615,
+     "symbol": "??__E?sm_eventTableEntries@WxAnimSetViewer@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01e05940",
+     "size": 3719,
+     "symbol": "??__E?sm_eventTableEntries@WxInterpEd@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01e04cc0",
+     "size": 2376,
+     "symbol": "??__E?sm_eventTableEntries@WxCascade@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01e09050",
+     "size": 1837,
+     "symbol": "??__E?sm_eventTableEntries@WxGenericBrowser@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01e06950",
+     "size": 1765,
+     "symbol": "??__E?sm_eventTableEntries@WxPhAT@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01e01eb0",
+     "size": 1509,
+     "symbol": "??__E?sm_eventTableEntries@WxStaticMeshEditor@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01e0d0b0",
+     "size": 1420,
+     "symbol": "??__E?sm_eventTableEntries@WxMaterialEditor@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01e0eae0",
+     "size": 1163,
+     "symbol": "??__E?sm_eventTableEntries@WxLensFlareEditor@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01e024d0",
+     "size": 1100,
+     "symbol": "??__E?sm_eventTableEntries@WxFractureTool@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01e0a3b0",
+     "size": 973,
+     "symbol": "??__E?sm_eventTableEntries@WxLevelBrowser@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01e09a60",
+     "size": 1022,
+     "symbol": "??__E?sm_eventTableEntries@WxGBRightContainer@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01e0a820",
+     "size": 921,
+     "symbol": "??__E?sm_eventTableEntries@WxReferencedAssetsBrowser@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01e01170",
+     "size": 913,
+     "symbol": "??__E?sm_eventTableEntries@WxRemoteControlRenderPage@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01e01850",
+     "size": 878,
+     "symbol": "??__E?sm_eventTableEntries@WxSentinel@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01e087a0",
+     "size": 792,
+     "symbol": "??__E?sm_eventTableEntries@WxAnimTreeEditor@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01e0b5e0",
+     "size": 786,
+     "symbol": "??__E?sm_eventTableEntries@WxDlgUISkinEditor@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01e0b080",
+     "size": 758,
+     "symbol": "??__E?sm_eventTableEntries@WxDlgUIEventKeyBindings@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01e08410",
+     "size": 743,
+     "symbol": "??__E?sm_eventTableEntries@WxAnimAimOffsetEditor@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01e0e040",
+     "size": 628,
+     "symbol": "??__E?sm_eventTableEntries@WxDlgGeometryTools@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01e00600",
+     "size": 610,
+     "symbol": "??__E?sm_eventTableEntries@WxPropertyWindow_Base@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01e02ba0",
+     "size": 566,
+     "symbol": "??__E?sm_eventTableEntries@WxTagBrowser@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01e09810",
+     "size": 535,
+     "symbol": "??__E?sm_eventTableEntries@WxGBLeftContainer@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01e09ef0",
+     "size": 527,
+     "symbol": "??__E?sm_eventTableEntries@WxGroupBrowser@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01e0c040",
+     "size": 533,
+     "symbol": "??__E?sm_eventTableEntries@WxClass_025e9038@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01e00d50",
+     "size": 462,
+     "symbol": "??__E?sm_eventTableEntries@WxNumericPropertySpinner@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01e0caf0",
+     "size": 470,
+     "symbol": "??__E?sm_eventTableEntries@WxMaterialEditorBase_01e0caf0@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01e0be70",
+     "size": 406,
+     "symbol": "??__E?sm_eventTableEntries@WxClass_025e9030@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01e015f0",
+     "size": 435,
+     "symbol": "??__E?sm_eventTableEntries@WxSceneManager@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01e029e0",
+     "size": 403,
+     "symbol": "??__E?sm_eventTableEntries@WxClass_025e8bd4@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01e0a200",
+     "size": 391,
+     "symbol": "??__E?sm_eventTableEntries@WxClass_025e8fb0@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01e00400",
+     "size": 402,
+     "symbol": "??__E?sm_eventTableEntries@WxPropertyWindow@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01e01cb0",
+     "size": 343,
+     "symbol": "??__E?sm_eventTableEntries@WxSoundCueEditor@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01e0e380",
+     "size": 343,
+     "symbol": "??__E?sm_eventTableEntries@WxDlgMapCheck@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01e0fdb0",
+     "size": 343,
+     "symbol": "??__E?sm_eventTableEntries@WxClass_025e93f4@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01e05640",
+     "size": 342,
+     "symbol": "??__E?sm_eventTableEntries@WxClass_025e8df0@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01e0efd0",
+     "size": 342,
+     "symbol": "??__E?sm_eventTableEntries@WxClass_025e9368@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01e0fbb0",
+     "size": 308,
+     "symbol": "??__E?sm_eventTableEntries@WxStyleBrowser@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01e0d860",
+     "size": 305,
+     "symbol": "??__E?sm_eventTableEntries@WxClass_025e90c4@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01e0e500",
+     "size": 280,
+     "symbol": "??__E?sm_eventTableEntries@WxClass_02292c30@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01e0fa00",
+     "size": 280,
+     "symbol": "??__E?sm_eventTableEntries@WxSceneTreeCtrl@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01e00280",
+     "size": 274,
+     "symbol": "??__E?sm_eventTableEntries@WxPropertyWindowFrame@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01e048e0",
+     "size": 274,
+     "symbol": "??__E?sm_eventTableEntries@WxClass_025e8d34@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01e00f50",
+     "size": 248,
+     "symbol": "??__E?sm_eventTableEntries@WxClass_025e8724@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01e0ade0",
+     "size": 248,
+     "symbol": "??__E?sm_eventTableEntries@WxClass_025e8fc0@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01e08b50",
+     "size": 248,
+     "symbol": "??__E?sm_eventTableEntries@WxActorBrowser@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01e0bd40",
+     "size": 248,
+     "symbol": "??__E?sm_eventTableEntries@WxClass_02270354@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01e0b9c0",
+     "size": 245,
+     "symbol": "??__E?sm_eventTableEntries@WxDlgEditSoundCue@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01e0c620",
+     "size": 242,
+     "symbol": "??__E?sm_eventTableEntries@WxUILayerBrowser@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01e044a0",
+     "size": 198,
+     "symbol": "??__E?sm_eventTableEntries@WxClass_025e8ccc@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01e0c820",
+     "size": 188,
+     "symbol": "??__E?sm_eventTableEntries@WxClass_025e9088@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01e0cdb0",
+     "size": 185,
+     "symbol": "??__E?sm_eventTableEntries@WxMaterialInstanceConstantEditor@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01e0e8f0",
+     "size": 185,
+     "symbol": "??__E?sm_eventTableEntries@WxClass_02293e40@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01e0cf50",
+     "size": 185,
+     "symbol": "??__E?sm_eventTableEntries@WxMaterialInstanceTimeVaryingEditor@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01e00160",
+     "size": 182,
+     "symbol": "??__E?sm_eventTableEntries@WxClass_025e86c8@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01e00a70",
+     "size": 179,
+     "symbol": "??__E?sm_eventTableEntries@WxPropertyWindow_Item@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01e00970",
+     "size": 170,
+     "symbol": "??__E?sm_eventTableEntries@WxPropertyWindow_Category@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01e01080",
+     "size": 179,
+     "symbol": "??__E?sm_eventTableEntries@WxClass_025e872c@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01e0f4f0",
+     "size": 153,
+     "symbol": "??__E?sm_eventTableEntries@WxClass_025e93c4@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01e0c520",
+     "size": 153,
+     "symbol": "??__E?sm_eventTableEntries@WxUILayerTreeCtrl@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01e0c750",
+     "size": 156,
+     "symbol": "??__E?sm_eventTableEntries@WxClass_025e9080@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    }
+   ]
+  },
+  {
+   "unit": "Core/Unsorted/Core_1e00000.cpp",
+   "source": "Core/Unsorted/Core_1e00000.162.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "01e045c0",
+     "size": 94,
+     "symbol": "??__E?sm_eventTableEntries@WxClass_026d5180@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    }
+   ]
+  },
+  {
+   "unit": "Core/Unsorted/Core_1e00000.cpp",
    "source": "Core/Unsorted/Core_1e00000.17.cpp",
    "profile": "ue3",
    "functions": [
@@ -100463,6 +100974,48 @@
      "va": "01e1f290",
      "size": 25,
      "symbol": "?sub_01e1f290@@YAXXZ"
+    }
+   ]
+  },
+  {
+   "unit": "Core/Unsorted/Core_1e10000.cpp",
+   "source": "Core/Unsorted/Core_1e10000.26.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "01e10250",
+     "size": 2725,
+     "symbol": "??__E?sm_eventTableEntries@WxUIEditorBase@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01e11700",
+     "size": 533,
+     "symbol": "??__E?sm_eventTableEntries@WxStyleTextPropertiesGroup@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01e11360",
+     "size": 470,
+     "symbol": "??__E?sm_eventTableEntries@WxImageAdjustmentPanel@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01e111a0",
+     "size": 343,
+     "symbol": "??__E?sm_eventTableEntries@WxColorAdjustmentPanel@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01e119e0",
+     "size": 280,
+     "symbol": "??__E?sm_eventTableEntries@WxStyleComboPropertiesGroup@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01e10d80",
+     "size": 219,
+     "symbol": "??__E?sm_eventTableEntries@WxUIKismetEditor@@0QBUwxEventTableEntry@@B@@YAXXZ"
+    },
+    {
+     "va": "01e11b60",
+     "size": 182,
+     "symbol": "??__E?sm_eventTableEntries@WxDlgEditUIStyle@@0QBUwxEventTableEntry@@B@@YAXXZ"
     }
    ]
   },
@@ -173143,6 +173696,18 @@
   },
   {
    "unit": "Engine/Src/NxForceFieldRadial.cpp",
+   "source": "Engine/Src/NxForceFieldRadial.2.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "00a42830",
+     "size": 175,
+     "symbol": "?PostLoad@ANxForceFieldRadial@@UAEXXZ"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Src/NxForceFieldRadial.cpp",
    "source": "Engine/Src/NxForceFieldRadial.cpp",
    "profile": "ue3",
    "functions": [
@@ -173175,6 +173740,18 @@
      "va": "00a34750",
      "size": 24,
      "symbol": "?vf_354@ANxForceFieldRadial@@UAEXXZ"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Src/NxForceFieldTornado.cpp",
+   "source": "Engine/Src/NxForceFieldTornado.2.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "00a42c90",
+     "size": 221,
+     "symbol": "?PostLoad@ANxForceFieldTornado@@UAEXXZ"
     }
    ]
   },
@@ -186245,6 +186822,11 @@
      "va": "0068f1a0",
      "size": 24,
      "symbol": "?vf_350@AActor@@UAE?AUFVector@@XZ"
+    },
+    {
+     "va": "00777440",
+     "size": 31,
+     "symbol": "?sub_00777440@AActor@@QAEXH@Z"
     }
    ]
   },
@@ -201003,6 +201585,18 @@
   },
   {
    "unit": "Engine/Src/UnFracturedStaticMesh.cpp",
+   "source": "Engine/Src/UnFracturedStaticMesh.13.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "00947260",
+     "size": 20,
+     "symbol": "?GetMaterial@UStaticMeshComponent@@UAEPAUUMaterialInterface@@H@Z"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Src/UnFracturedStaticMesh.cpp",
    "source": "Engine/Src/UnFracturedStaticMesh.2.cpp",
    "profile": "ue3",
    "functions": [
@@ -205766,6 +206360,18 @@
   },
   {
    "unit": "Engine/Src/UnMorph.cpp",
+   "source": "Engine/Src/UnMorph.3.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "00834860",
+     "size": 85,
+     "symbol": "?GetConnectionLocation@UMorphNodeBase@@UAE?AUFIntPoint@@HH@Z"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Src/UnMorph.cpp",
    "source": "Engine/Src/UnMorph.cpp",
    "profile": "ue3",
    "functions": [
@@ -208430,6 +209036,11 @@
      "va": "00b63d30",
      "size": 41,
      "symbol": "?PostLoad@UParticleSystemComponent@@UAEXXZ"
+    },
+    {
+     "va": "00b5c6a0",
+     "size": 91,
+     "symbol": "?SetLODDistance@UParticleSystem@@UAEHHM@Z"
     }
    ]
   },
@@ -214724,6 +215335,11 @@
      "va": "008a68d0",
      "size": 18,
      "symbol": "?MarkEndPoints@APawn@@UAEXPAUANavigationPoint@@PAUAActor@@ABUFVector@@@Z"
+    },
+    {
+     "va": "008687b0",
+     "size": 23,
+     "symbol": "?GetBaseMost@AActor@@UAEPAU1@XZ"
     }
    ]
   },
@@ -219232,6 +219848,11 @@
      "va": "008b6b70",
      "size": 214,
      "symbol": "?vf_02c@ASceneCaptureReflectActor@@UAEXXZ"
+    },
+    {
+     "va": "008a75e0",
+     "size": 21,
+     "symbol": "?PostLoad@ASceneCaptureActor@@UAEXXZ"
     }
    ]
   },
@@ -236495,6 +237116,11 @@
      "va": "00da19f0",
      "size": 122,
      "symbol": "?sub_00da19f0@UDataStoreClient@@QAEPAUUUIDataStore@@PAUUClass@@@Z"
+    },
+    {
+     "va": "00d950a0",
+     "size": 18,
+     "symbol": "?GetDataStoreID@UUIDataStore@@UAE?AUFName@@XZ"
     }
    ]
   },
@@ -291901,6 +292527,11 @@
      "va": "00802b50",
      "size": 150,
      "symbol": "?eventGetPlayerViewPoint@AController_@@QAEXAAUFVector@@AAUFRotator@@@Z"
+    },
+    {
+     "va": "00802900",
+     "size": 80,
+     "symbol": "?eventPostTouch@AActor_@@QAEXPAUAActor@@@Z"
     }
    ]
   },
@@ -294899,6 +295530,23 @@
      "va": "00837990",
      "size": 37,
      "symbol": "?CanTeleport@APortalMarker@@UAEHPAUAActor@@@Z"
+    },
+    {
+     "va": "0083f3a0",
+     "size": 479,
+     "symbol": "?sub_0083f3a0@ANavigationPoint_@@QAEXXZ"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Unsorted/Engine_0830000.cpp",
+   "source": "Engine/Unsorted/Engine_0830000.14.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "0083fc20",
+     "size": 300,
+     "symbol": "?sub_0083fc20@ANavigationPoint_@@QAEXXZ"
     }
    ]
   },
@@ -444866,6 +445514,456 @@
      "va": "00ca9520",
      "size": 96,
      "symbol": "?sub_00ca9520@@YAPAP8USkeletalMeshComponent@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00ca9580",
+     "size": 96,
+     "symbol": "?sub_00ca9580@@YAPAP8USoundCue@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00ca95e0",
+     "size": 96,
+     "symbol": "?sub_00ca95e0@@YAPAP8UStaticMeshComponent@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00ca9640",
+     "size": 96,
+     "symbol": "?sub_00ca9640@@YAPAP8USurface@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00ca96a0",
+     "size": 96,
+     "symbol": "?sub_00ca96a0@@YAPAP8ATeamInfo@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00ca9700",
+     "size": 96,
+     "symbol": "?sub_00ca9700@@YAPAP8ATeleporter@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00ca9760",
+     "size": 96,
+     "symbol": "?sub_00ca9760@@YAPAP8UTexture2D@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00ca97c0",
+     "size": 96,
+     "symbol": "?sub_00ca97c0@@YAPAP8UTexture2DComposite@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00ca9820",
+     "size": 96,
+     "symbol": "?sub_00ca9820@@YAPAP8UTexture2DDynamic@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00ca9880",
+     "size": 102,
+     "symbol": "?sub_00ca9880@@YAPAP8UTextureFlipBook@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00ca98f0",
+     "size": 96,
+     "symbol": "?sub_00ca98f0@@YAPAP8UTextureMovie@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00ca9950",
+     "size": 96,
+     "symbol": "?sub_00ca9950@@YAPAP8UTextureRenderTarget2D@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00ca99b0",
+     "size": 96,
+     "symbol": "?sub_00ca99b0@@YAPAP8AVolume@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00ca9a10",
+     "size": 96,
+     "symbol": "?sub_00ca9a10@@YAPAP8AVolumePathNode@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00ca9a70",
+     "size": 96,
+     "symbol": "?sub_00ca9a70@@YAPAP8AWeapon@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00ca9ad0",
+     "size": 96,
+     "symbol": "?sub_00ca9ad0@@YAPAP8AWorldInfo@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00ca9b30",
+     "size": 96,
+     "symbol": "?sub_00ca9b30@@YAPAP8UPath_AvoidInEscapableNodes@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00ca9b90",
+     "size": 96,
+     "symbol": "?sub_00ca9b90@@YAPAP8UMaterialInstance@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00ca9bf0",
+     "size": 96,
+     "symbol": "?sub_00ca9bf0@@YAPAP8UMaterialInstanceConstant@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00ca9c50",
+     "size": 96,
+     "symbol": "?sub_00ca9c50@@YAPAP8UMaterialInstanceTimeVarying@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00ca9cb0",
+     "size": 96,
+     "symbol": "?sub_00ca9cb0@@YAPAP8ATerrain@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00ca9d10",
+     "size": 96,
+     "symbol": "?sub_00ca9d10@@YAPAP8UTerrainLayerSetup@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00ca9d70",
+     "size": 96,
+     "symbol": "?sub_00ca9d70@@YAPAP8AKActor@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00ca9dd0",
+     "size": 96,
+     "symbol": "?sub_00ca9dd0@@YAPAP8AKActorSpawnable@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00ca9e30",
+     "size": 96,
+     "symbol": "?sub_00ca9e30@@YAPAP8UPhysicalMaterial@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00ca9e90",
+     "size": 96,
+     "symbol": "?sub_00ca9e90@@YAPAP8UPhysicsAsset@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00ca9ef0",
+     "size": 96,
+     "symbol": "?sub_00ca9ef0@@YAPAP8UPhysicsAssetInstance@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00ca9f50",
+     "size": 96,
+     "symbol": "?sub_00ca9f50@@YAPAP8URB_BodyInstance@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00ca9fb0",
+     "size": 96,
+     "symbol": "?sub_00ca9fb0@@YAPAP8ARB_ConstraintActor@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00caa010",
+     "size": 96,
+     "symbol": "?sub_00caa010@@YAPAP8URB_ConstraintInstance@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00caa070",
+     "size": 96,
+     "symbol": "?sub_00caa070@@YAPAP8URB_Handle@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00caa0d0",
+     "size": 96,
+     "symbol": "?sub_00caa0d0@@YAPAP8ARB_LineImpulseActor@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00caa130",
+     "size": 96,
+     "symbol": "?sub_00caa130@@YAPAP8URB_RadialImpulseComponent@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00caa190",
+     "size": 96,
+     "symbol": "?sub_00caa190@@YAPAP8URB_Spring@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00caa1f0",
+     "size": 96,
+     "symbol": "?sub_00caa1f0@@YAPAP8URPhysOnContactHandler@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00caa250",
+     "size": 96,
+     "symbol": "?sub_00caa250@@YAPAP8ANxCylindricalForceFieldCapsule@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00caa2b0",
+     "size": 96,
+     "symbol": "?sub_00caa2b0@@YAPAP8ANxForceField@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00caa310",
+     "size": 96,
+     "symbol": "?sub_00caa310@@YAPAP8ANxForceFieldGeneric@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00caa370",
+     "size": 96,
+     "symbol": "?sub_00caa370@@YAPAP8ANxForceFieldRadial@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00caa3d0",
+     "size": 96,
+     "symbol": "?sub_00caa3d0@@YAPAP8ANxGenericForceFieldBox@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00caa430",
+     "size": 96,
+     "symbol": "?sub_00caa430@@YAPAP8UPrefabSequence@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00caa490",
+     "size": 96,
+     "symbol": "?sub_00caa490@@YAPAP8USeqAct_CrowdSpawner@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00caa4f0",
+     "size": 96,
+     "symbol": "?sub_00caa4f0@@YAPAP8USeqAct_GetMatInstVectorParam@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00caa550",
+     "size": 96,
+     "symbol": "?sub_00caa550@@YAPAP8USeqAct_Interp@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00caa5b0",
+     "size": 96,
+     "symbol": "?sub_00caa5b0@@YAPAP8USeqAct_Latent@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00caa610",
+     "size": 96,
+     "symbol": "?sub_00caa610@@YAPAP8USeqEvent_Touch@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00caa670",
+     "size": 96,
+     "symbol": "?sub_00caa670@@YAPAP8USequence@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00caa6d0",
+     "size": 96,
+     "symbol": "?sub_00caa6d0@@YAPAP8USequenceEvent@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00caa730",
+     "size": 96,
+     "symbol": "?sub_00caa730@@YAPAP8USequenceObject@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00caa790",
+     "size": 96,
+     "symbol": "?sub_00caa790@@YAPAP8USequenceOp@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00caa7f0",
+     "size": 96,
+     "symbol": "?sub_00caa7f0@@YAPAP8USoundNodeRandom@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00caa850",
+     "size": 96,
+     "symbol": "?sub_00caa850@@YAPAP8UParticleSystem@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00caa8b0",
+     "size": 96,
+     "symbol": "?sub_00caa8b0@@YAPAP8UParticleSystemComponent@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00caa910",
+     "size": 96,
+     "symbol": "?sub_00caa910@@YAPAP8APhysXEmitterSpawnable@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00caa970",
+     "size": 96,
+     "symbol": "?sub_00caa970@@YAPAP8UAnimNode@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00caa9d0",
+     "size": 96,
+     "symbol": "?sub_00caa9d0@@YAPAP8UAnimNodeAimOffset@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00caaa30",
+     "size": 96,
+     "symbol": "?sub_00caaa30@@YAPAP8UAnimNodeBlend@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00caaa90",
+     "size": 96,
+     "symbol": "?sub_00caaa90@@YAPAP8UAnimNodeBlendBase@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00caaaf0",
+     "size": 96,
+     "symbol": "?sub_00caaaf0@@YAPAP8UAnimNodeBlendList@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00caab50",
+     "size": 96,
+     "symbol": "?sub_00caab50@@YAPAP8UAnimNodeBlendMultiBone@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00caabb0",
+     "size": 96,
+     "symbol": "?sub_00caabb0@@YAPAP8UAnimNodeCrossfader@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00caac10",
+     "size": 96,
+     "symbol": "?sub_00caac10@@YAPAP8UAnimNodePlayCustomAnim@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00caac70",
+     "size": 96,
+     "symbol": "?sub_00caac70@@YAPAP8UAnimNodeSequence@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00caacd0",
+     "size": 96,
+     "symbol": "?sub_00caacd0@@YAPAP8UAnimNodeSequenceBlendByAim@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00caad30",
+     "size": 96,
+     "symbol": "?sub_00caad30@@YAPAP8UAnimNodeSlot@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00caad90",
+     "size": 96,
+     "symbol": "?sub_00caad90@@YAPAP8UAnimNodeSynch@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00caadf0",
+     "size": 96,
+     "symbol": "?sub_00caadf0@@YAPAP8UAnimSet@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00caae50",
+     "size": 96,
+     "symbol": "?sub_00caae50@@YAPAP8UAnimTree@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00caaeb0",
+     "size": 96,
+     "symbol": "?sub_00caaeb0@@YAPAP8ACrowdAgent@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00caaf10",
+     "size": 96,
+     "symbol": "?sub_00caaf10@@YAPAP8UMorphNodePose@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00caaf70",
+     "size": 96,
+     "symbol": "?sub_00caaf70@@YAPAP8UMorphNodeWeight@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00caafd0",
+     "size": 96,
+     "symbol": "?sub_00caafd0@@YAPAP8UMorphTargetSet@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00cab030",
+     "size": 96,
+     "symbol": "?sub_00cab030@@YAPAP8USkelControlBase@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00cab090",
+     "size": 96,
+     "symbol": "?sub_00cab090@@YAPAP8USkelControlLookAt@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00cab0f0",
+     "size": 96,
+     "symbol": "?sub_00cab0f0@@YAPAP8ASkeletalMeshActorMAT@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00cab150",
+     "size": 96,
+     "symbol": "?sub_00cab150@@YAPAP8UDecalComponent@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00cab1b0",
+     "size": 96,
+     "symbol": "?sub_00cab1b0@@YAPAP8ADecalManager@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00cab210",
+     "size": 96,
+     "symbol": "?sub_00cab210@@YAPAP8UFogVolumeDensityComponent@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00cab270",
+     "size": 96,
+     "symbol": "?sub_00cab270@@YAPAP8AApexDestructibleActor@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00cab2d0",
+     "size": 96,
+     "symbol": "?sub_00cab2d0@@YAPAP8UFracturedBaseComponent@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00cab330",
+     "size": 96,
+     "symbol": "?sub_00cab330@@YAPAP8AFracturedStaticMeshActor@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00cab390",
+     "size": 96,
+     "symbol": "?sub_00cab390@@YAPAP8UFracturedStaticMeshComponent@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00cab3f0",
+     "size": 96,
+     "symbol": "?sub_00cab3f0@@YAPAP8AFracturedStaticMeshPart@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00cab450",
+     "size": 96,
+     "symbol": "?sub_00cab450@@YAPAP8AFractureManager@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00cab4b0",
+     "size": 96,
+     "symbol": "?sub_00cab4b0@@YAPAP8UDataStoreClient@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00cab510",
+     "size": 96,
+     "symbol": "?sub_00cab510@@YAPAP8UInput@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "0127c280",
+     "size": 96,
+     "symbol": "?sub_0127c280@@YAPAP8UScriptDataBaseCommandlet@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "0127c2e0",
+     "size": 102,
+     "symbol": "?sub_0127c2e0@@YAPAP8UUISceneManager@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00cab570",
+     "size": 96,
+     "symbol": "?sub_00cab570@@YAPAP8UInteraction@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "0127c350",
+     "size": 96,
+     "symbol": "?sub_0127c350@@YAPAP8UUILayer@@AEXAAUFFrame@@QAX@ZPB_W@Z"
+    },
+    {
+     "va": "00cab5d0",
+     "size": 96,
+     "symbol": "?sub_00cab5d0@@YAPAP8UUIInputConfiguration@@AEXAAUFFrame@@QAX@ZPB_W@Z"
     }
    ]
   },
