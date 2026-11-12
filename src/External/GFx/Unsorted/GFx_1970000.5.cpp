@@ -1,4 +1,4 @@
-// GFx_1970000.cpp: 16 functions
+// GFx_1970000.cpp: 17 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -335,4 +335,31 @@ GFxSerialRecord* GFxSerialRecord::sub_0197eb50(GFxSerialOwner* Owner)
     Owner->NextSerial = NewSerial + 1;
     Serial = NewSerial;
     return this;
+}
+
+// GFx: appends a zero terminator to a wide-character array, in place when there's room.
+struct GFxWideArray
+{
+    unsigned short* pData;
+    unsigned int    Size;
+    unsigned int    Capacity;
+
+    unsigned short* sub_01978230(void* pHeap, unsigned int Index, unsigned int Count);	/* InsertSpace */
+    void sub_019783a0(void* pHeap);
+};
+
+// @baa 0x019783a0
+void GFxWideArray::sub_019783a0(void* pHeap)
+{
+    if (Size > 0 && Size < Capacity)
+    {
+        pData[Size] = 0;
+        Size++;
+    }
+    else
+    {
+        unsigned short* p = sub_01978230(pHeap, Size, 1);
+        if (p)
+            *p = 0;
+    }
 }

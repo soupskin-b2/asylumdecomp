@@ -1,4 +1,4 @@
-// GFx_1910000.cpp (part 5 of 5): 21 functions
+// GFx_1910000.cpp (part 5 of 5): 22 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -347,4 +347,57 @@ F01971850 ** __stdcall sub_01913790(F01971850 **Out, F01971850 *Self)
     ++Object->field_0c;
     *Out = Object;
     return Out;
+}
+
+// GFx: points a cached handle at another source: keeps the source, and takes a fresh ref-counted
+// node from it (or none), releasing the node held before.
+void __stdcall sub_018d7170(void* Block);
+			/* GMemory::Free */
+struct GFxSharedNode
+{
+    int RefCount;
+
+    void Release()
+    {
+        if (--RefCount == 0)
+            sub_018d7170(this);
+    }
+};
+
+struct GFxNodeSource
+{
+    GFxSharedNode* sub_018d3e40();				/* creates a node holding one reference */
+};
+
+struct GFxNodeHandleArg
+{
+    GFxNodeSource* pSource;
+};
+
+struct GFxNodeHandle
+{
+    GFxSharedNode* pNode;
+    GFxNodeSource* pSource;
+
+    void sub_01912820(const GFxNodeHandleArg& Arg);
+};
+
+// @baa 0x01912820
+void GFxNodeHandle::sub_01912820(const GFxNodeHandleArg& Arg)
+{
+    GFxNodeSource* pNewSource = Arg.pSource;
+    pSource = pNewSource;
+    if (pNewSource)
+    {
+        GFxSharedNode* pNew = pNewSource->sub_018d3e40();
+        if (pNode)
+            pNode->Release();
+        pNode = pNew;
+    }
+    else
+    {
+        if (pNode)
+            pNode->Release();
+        pNode = 0;
+    }
 }

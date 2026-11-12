@@ -1,4 +1,4 @@
-// RLadder.cpp: 4 functions
+// RLadder.cpp: 5 functions
 // Placed here by: callers 1, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -19,4 +19,24 @@ void ARLadder::vf_184(void)
   *(undefined4 *)(param_1 + 0x1cc) = 0;
   *(undefined4 *)(param_1 + 0x1d0) = 0;
   return;
+}
+
+/* Kit gap: TArray::AddItem isn't declared; this build calls it out of line (TArray<AActor*>::AddItem, 0x0075ef50). */
+template<class T> struct TArray_ : public TArray<T>
+{
+	INT AddItem(const T& Item);
+};
+
+// @baa 0x01720540
+/* The ladder's related actors: its top and bottom path nodes (those that are set). */
+void ARLadder::vf_340(TArray<AActor*>& Actors)
+{
+	if (TopNode)
+	{
+		((TArray_<AActor*>&)Actors).AddItem((AActor*)TopNode);
+	}
+	if (BottomNode)
+	{
+		((TArray_<AActor*>&)Actors).AddItem((AActor*)BottomNode);
+	}
 }

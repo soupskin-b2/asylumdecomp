@@ -1,4 +1,4 @@
-// RRopeComponentBase.cpp: 22 functions
+// RRopeComponentBase.cpp: 24 functions
 // Placed here by: class 10, file 5, neighbours 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -354,4 +354,66 @@ void URRopeComponentBase::DetachRopeEnd2()
 void URRopeComponentBase::vf_260(BYTE Channel, UBOOL bValue)
 {
     sub_009ff970(Channel, bValue);
+}
+
+/* Undeclared BmGame helper (cdecl): the primitive component a rope end attaches to on an actor. */
+UPrimitiveComponent* sub_01560ac0(AActor* Actor);
+struct URRopeComponentBase_ : public URRopeComponentBase
+{
+	void sub_01644e00(AActor* Actor, FVector AttachPos, FName AttachBone, UPrimitiveComponent* AttachComponent, FLOAT MaxDistance);
+};
+
+// @baa 0x01644e00
+/* Attaches the rope's first end: to the given component (and its owner) when one is given, else to the actor's
+ * attach component, at the given position and bone, allowed to stretch out to MaxDistance (at least 0). */
+void URRopeComponentBase_::sub_01644e00(AActor* Actor, FVector AttachPos, FName AttachBone, UPrimitiveComponent* AttachComponent, FLOAT MaxDistance)
+{
+	IsRopeEnd1Attached = TRUE;
+	RopeAttachActor1 = Actor;
+	ConstraintActor1AttachPos = AttachPos;
+	RopeActor1AttachBone = AttachBone;
+	RopeEnd1AttachMaxDistance = MaxDistance >= 0.f ? MaxDistance : 0.f;
+	if (AttachComponent)
+	{
+		RopeAttachComponent1 = AttachComponent;
+		RopeAttachActor1 = AttachComponent->Owner;
+	}
+	else if (Actor)
+	{
+		RopeAttachComponent1 = sub_01560ac0(Actor);
+	}
+	else
+	{
+		RopeAttachComponent1 = NULL;
+	}
+}
+
+struct URRopeComponentBase__01644ea0 : public URRopeComponentBase
+{
+	void sub_01644ea0(AActor* Actor, FVector AttachPos, FName AttachBone, UPrimitiveComponent* AttachComponent, FLOAT MaxDistance);
+};
+
+// @baa 0x01644ea0
+/* Attaches the rope's second end: to the given component (and its owner) when one is given, else to the actor's
+ * attach component, at the given position and bone, allowed to stretch out to MaxDistance (at least 0). */
+void URRopeComponentBase__01644ea0::sub_01644ea0(AActor* Actor, FVector AttachPos, FName AttachBone, UPrimitiveComponent* AttachComponent, FLOAT MaxDistance)
+{
+	IsRopeEnd2Attached = TRUE;
+	RopeAttachActor2 = Actor;
+	ConstraintActor2AttachPos = AttachPos;
+	RopeActor2AttachBone = AttachBone;
+	RopeEnd2AttachMaxDistance = MaxDistance >= 0.f ? MaxDistance : 0.f;
+	if (AttachComponent)
+	{
+		RopeAttachComponent2 = AttachComponent;
+		RopeAttachActor2 = AttachComponent->Owner;
+	}
+	else if (Actor)
+	{
+		RopeAttachComponent2 = sub_01560ac0(Actor);
+	}
+	else
+	{
+		RopeAttachComponent2 = NULL;
+	}
 }

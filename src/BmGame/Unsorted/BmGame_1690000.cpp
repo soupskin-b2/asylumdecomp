@@ -1,4 +1,4 @@
-// BmGame_1690000.cpp: 78 functions
+// BmGame_1690000.cpp: 79 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -521,4 +521,11 @@ int sub_0169d5a0(void)
     sub_0169d1b0();
   }
   return g_026e1e24;
+}
+
+// @baa 0x01694af0
+/* A new, default Batman damage state. */
+UObject* URBatmanDamageStateFactoryNew::FactoryCreateNew(UClass* InClass, UObject* InParent, FName InName, QWORD Flags, UObject* Context, FFeedbackContext* Warn)
+{
+	return StaticConstructObject(URBatmanDamageState::StaticClass(), InParent, InName, Flags);
 }

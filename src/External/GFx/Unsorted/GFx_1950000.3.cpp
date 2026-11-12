@@ -1,4 +1,4 @@
-// GFx_1950000.cpp (part 3 of 3): 11 functions
+// GFx_1950000.cpp (part 3 of 3): 12 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -159,4 +159,54 @@ INT sub_0195eca0(INT Value, INT MinBound, INT MaxBound)
 	if (Value < MinBound)
 		Value = MinBound;
 	return Value;
+}
+
+// GFx: GHashSet::findIndexCore for a set keyed by node pointers whose hash is cached in the node:
+// walks the collision chain that starts at the hashed slot and returns the matching slot, or -1.
+struct GFxHashedNode
+{
+    char         Header[0x10];
+    unsigned int HashValue;
+};
+
+struct GFxNodeSetEntry
+{
+    int            NextInChain;		// -2 = empty slot, -1 = end of chain
+    GFxHashedNode* Key;
+    void*          Value;
+};
+
+struct GFxNodeSetTable
+{
+    unsigned int    EntryCount;
+    unsigned int    SizeMask;
+    GFxNodeSetEntry Entries[1];
+};
+
+struct GFxNodeSet
+{
+    GFxNodeSetTable* pTable;
+
+    int sub_01950080(GFxHashedNode* const& Key, unsigned int HashValue) const;
+};
+
+// @baa 0x01950080
+int GFxNodeSet::sub_01950080(GFxHashedNode* const& Key, unsigned int HashValue) const
+{
+    int Index = (int)HashValue;
+    const GFxNodeSetEntry* e = &pTable->Entries[Index];
+
+    if (e->NextInChain == -2 || (e->Key->HashValue & pTable->SizeMask) != (unsigned int)Index)
+        return -1;
+
+    for (;;)
+    {
+        if ((e->Key->HashValue & pTable->SizeMask) == HashValue && e->Key == Key)
+            return Index;
+        Index = e->NextInChain;
+        if (Index == -1)
+            break;
+        e = &pTable->Entries[Index];
+    }
+    return -1;
 }

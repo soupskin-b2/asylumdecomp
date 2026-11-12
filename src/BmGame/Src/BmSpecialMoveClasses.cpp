@@ -1,4 +1,4 @@
-// BmSpecialMoveClasses.cpp: 68 functions
+// BmSpecialMoveClasses.cpp: 69 functions
 // Placed here by: neighbours 18, file 12, callers 8, class 6.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -257,4 +257,11 @@ void URMatineeSpecialMoveFactoryNew::InitializeIntrinsicPropertyValues()
 	SupportedClass = URSpecialMoveConfig::StaticClass();
 	((FFactoryFlags*)_native2)->bCreateNew = TRUE;
 	Description = TEXT("Matinee Special Move Config");
+}
+
+// @baa 0x0162b680
+/* A new special-move config; this factory always makes a simple special move config, whatever class was asked for. */
+UObject* URMatineeSpecialMoveFactoryNew::FactoryCreateNew(UClass* InClass, UObject* InParent, FName InName, QWORD Flags, UObject* Context, FFeedbackContext* Warn)
+{
+	return StaticConstructObject(URSimpleSpecialMoveConfig::StaticClass(), InParent, InName, Flags);
 }

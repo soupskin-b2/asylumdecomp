@@ -1,4 +1,4 @@
-// UnTerrain.cpp: 2 functions
+// UnTerrain.cpp: 3 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -64,4 +64,30 @@ void UTerrainComponent::vf_158(UINT* Width, UINT* Height)
         *Width = 0;
         *Height = 0;
     }
+}
+
+struct ATerrain__00986dc0 : public ATerrain
+{
+	void sub_00986dc0();
+};
+
+// @baa 0x00986dc0
+/* Clamps the terrain's patch counts to 1..2048, rounds them up to whole tessellation blocks, and derives the
+ * vertex and section counts from them. */
+void ATerrain__00986dc0::sub_00986dc0()
+{
+	NumPatchesX = Clamp(NumPatchesX, 1, 2048);
+	NumPatchesY = Clamp(NumPatchesY, 1, 2048);
+	if (NumPatchesX % MaxTesselationLevel > 0)
+	{
+		NumPatchesX += MaxTesselationLevel - (NumPatchesX % MaxTesselationLevel);
+	}
+	if (NumPatchesY % MaxTesselationLevel > 0)
+	{
+		NumPatchesY += MaxTesselationLevel - (NumPatchesY % MaxTesselationLevel);
+	}
+	NumVerticesX = NumPatchesX + 1;
+	NumVerticesY = NumPatchesY + 1;
+	NumSectionsX = ((NumPatchesX / MaxTesselationLevel) + MaxComponentSize - 1) / MaxComponentSize;
+	NumSectionsY = ((NumPatchesY / MaxTesselationLevel) + MaxComponentSize - 1) / MaxComponentSize;
 }

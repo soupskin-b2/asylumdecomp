@@ -1,4 +1,4 @@
-// GFx_1970000.cpp: 4 functions
+// GFx_1970000.cpp: 6 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 // GFx: GArrayData<T> (8-byte elements) Reserve: reallocates the buffer to hold NewCapacity
@@ -203,4 +203,60 @@ void GArrayUInt16::sub_01978290(unsigned int Index, unsigned int Count)
             Size -= Count;
         }
     }
+}
+
+	/* GMemory::Realloc */
+struct GFxWideBuffer
+{
+    char            Header[0x18];
+    unsigned short* pData;
+    unsigned int    Capacity;
+    unsigned int    Length;
+
+    void sub_01979320(const unsigned short* pChars, unsigned int Count);
+};
+
+// @baa 0x01979320
+void GFxWideBuffer::sub_01979320(const unsigned short* pChars, unsigned int Count)
+{
+    if (Length + Count > Capacity)
+    {
+        Capacity += Count;
+        pData = (unsigned short*)sub_018d7160(pData, Capacity * sizeof(unsigned short));
+    }
+    memcpy(pData + Length, pChars, Count * sizeof(unsigned short));
+    Length += Count;
+}
+
+	/* GMemory::Realloc */
+unsigned int sub_01978310(const unsigned short* pStr);
+/* GMemory::Realloc for typed buffers */
+template<class T> inline T* GReallocT(T* p, unsigned int Count)
+{
+    return (T*)sub_018d7160(p, Count * sizeof(T));
+}
+
+		/* wide strlen */
+struct GFxWideArray
+{
+    unsigned short* pData;
+    unsigned int    Size;
+    unsigned int    Capacity;
+
+    void sub_01979a60(void* pHeap, const unsigned short* pChars, unsigned int Length);
+};
+
+// @baa 0x01979a60
+void GFxWideArray::sub_01979a60(void* pHeap, const unsigned short* pChars, unsigned int Length)
+{
+    if (Length == (unsigned int)-1)
+        Length = sub_01978310(pChars);
+    if (Capacity < Length)
+    {
+        pData = GReallocT(pData, Length);
+        Capacity = Length;
+    }
+    if (Length > 0)
+        memcpy(pData, pChars, Length * sizeof(unsigned short));
+    Size = Length;
 }

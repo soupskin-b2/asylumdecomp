@@ -1,4 +1,4 @@
-// GFx_1980000.cpp: 4 functions
+// GFx_1980000.cpp: 6 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Core.h"
@@ -68,4 +68,102 @@ struct C_0198cb10 {
 int C_0198cb10::sub_0198cb10(int BitIndex)
 {
     return (m_050 & (1 << BitIndex)) != 0;
+}
+
+// GFx: assigns a (value, ref-counted object) pair from a pair of pointers to them.
+struct GFxRefObject
+{
+    int RefCount;
+
+    void AddRef() { RefCount++; }
+    void sub_018ec370();					/* Release */
+};
+
+struct GFxPairSource
+{
+    unsigned int*  pValue;
+    GFxRefObject** ppObject;
+};
+
+struct GFxValueObjectPair
+{
+    unsigned int  Value;
+    GFxRefObject* pObject;
+
+    void sub_019859d0(const GFxPairSource& Src);
+};
+
+// @baa 0x019859d0
+void GFxValueObjectPair::sub_019859d0(const GFxPairSource& Src)
+{
+    Value = *Src.pValue;
+    GFxRefObject** ppObj = Src.ppObject;
+    if (*ppObj)
+        (*ppObj)->AddRef();
+    if (pObject)
+        pObject->sub_018ec370();
+    pObject = *ppObj;
+}
+
+// GFx: makes sure the owner's lazily created text data exists, then asks its record list about Key.
+void* __stdcall sub_018d7150(unsigned int Size);
+			/* GMemory::Alloc */
+/* A list of 40-byte keyed records (see 0x0192ebd0); 0x1c bytes. */
+struct GFxKeyedRecordList
+{
+    void*         pData;
+    unsigned int  Size;
+    unsigned int  Policy;
+    unsigned int  Serial;
+    unsigned int  Extra10;
+    unsigned int  Extra14;
+    unsigned char bDirty0;
+    unsigned char bDirty1;
+
+    GFxKeyedRecordList();						/* 0x0192f8c0 */
+    int sub_0192f6d0(unsigned int Key);
+};
+
+/* Only its out-of-line constructor is used here; 0x90 bytes. */
+struct GFxDrawingContext
+{
+    GFxDrawingContext();						/* 0x019d1b90 */
+
+    unsigned char Data[0x90];
+};
+
+struct GFxLazyTextData
+{
+    GFxKeyedRecordList Records;		// 0x00
+    GFxDrawingContext  Drawing;		// 0x1c
+    float              Width;		// 0xac
+    float              Height;		// 0xb0
+    unsigned short     Flags;		// 0xb4
+
+    GFxLazyTextData() : Width(-1.f), Height(-1.f), Flags(0) {}
+
+    /* GFx allocation (no matching delete, so a throwing constructor leaks rather than unwinds) */
+    void* operator new(unsigned int Size, int /*StatId*/) { return sub_018d7150(Size); }
+};
+
+struct GFxLazyTextOwner
+{
+    unsigned char    Header[0x1c];
+    GFxLazyTextData* pData;		// 0x1c
+
+    __forceinline GFxLazyTextData* GetData()
+    {
+        if (!pData)
+            pData = new(0) GFxLazyTextData;
+        return pData;
+    }
+
+    int sub_01988150(unsigned int Key);
+};
+
+// @baa 0x01988150
+int GFxLazyTextOwner::sub_01988150(unsigned int Key)
+{
+    GetData();
+    return pData->Records.sub_0192f6d0(Key) != 0;
 }

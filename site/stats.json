@@ -2,19 +2,19 @@
  "updated": "2026-11-12",
  "functions": {
   "total": 174166,
-  "matched": 102728
+  "matched": 102784
  },
  "bytes": {
   "total": 24308119,
-  "matched": 4190238
+  "matched": 4196875
  },
  "areas": [
   {
    "name": "Engine",
    "functions": 69863,
    "bytes": 9201956,
-   "matched": 43443,
-   "matched_bytes": 2011184
+   "matched": 43450,
+   "matched_bytes": 2012326
   },
   {
    "name": "Editor",
@@ -27,15 +27,15 @@
    "name": "External",
    "functions": 29410,
    "bytes": 3194268,
-   "matched": 12096,
-   "matched_bytes": 197819
+   "matched": 12121,
+   "matched_bytes": 201007
   },
   {
    "name": "Game",
    "functions": 13563,
    "bytes": 1853804,
-   "matched": 10420,
-   "matched_bytes": 639540
+   "matched": 10442,
+   "matched_bytes": 641740
   },
   {
    "name": "Core",
@@ -48,8 +48,8 @@
    "name": "CommonGame",
    "functions": 1422,
    "bytes": 173518,
-   "matched": 1043,
-   "matched_bytes": 48964
+   "matched": 1044,
+   "matched_bytes": 49017
   },
   {
    "name": "Unsorted",
@@ -69,8 +69,8 @@
    "name": "CommonEditor",
    "functions": 554,
    "bytes": 94053,
-   "matched": 337,
-   "matched_bytes": 13494
+   "matched": 338,
+   "matched_bytes": 13548
   },
   {
    "name": "Libjpeg",
@@ -97,11 +97,11 @@
  "contributors": [
   {
    "login": "soupskin-b2",
-   "functions": 102719,
-   "bytes": 4189618,
+   "functions": 102775,
+   "bytes": 4196255,
    "models": {
     "Tooling": 94456,
-    "Claude Opus 5.5": 3496,
+    "Claude Opus 5.5": 3552,
     "DeepSeek V4.1 Flash": 2167,
     "Qwen3.8 27B": 1935,
     "GPT-6.1 Sol": 296,
@@ -122,7 +122,7 @@
   },
   {
    "model": "Claude Opus 5.5",
-   "functions": 3496
+   "functions": 3552
   },
   {
    "model": "DeepSeek V4.1 Flash",

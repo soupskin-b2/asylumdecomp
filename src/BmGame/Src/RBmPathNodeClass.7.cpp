@@ -1,4 +1,4 @@
-// RBmPathNodeClass.cpp: 10 functions
+// RBmPathNodeClass.cpp: 12 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -97,4 +97,52 @@ void ARCornerWallMarkerBase::PostEditChange(UProperty* PropertyThatChanged)
 		SpriteComponentOneWay->SetHiddenEditor(FALSE);
 	}
 	Super::PostEditChange(PropertyThatChanged);
+}
+
+/* Kit gap: TArray::AddItem isn't declared; this build calls it out of line (TArray<AActor*>::AddItem, 0x0075ef50). */
+template<class T> struct TArray_ : public TArray<T>
+{
+	INT AddItem(const T& Item);
+};
+
+// @baa 0x015edb20
+/* The traverse node's related actors: its two proxies and two end points (those that are set). */
+void ARBMPathNode_VariablePositionTraverse::vf_340(TArray<AActor*>& Actors)
+{
+	if (Proxy1)
+	{
+		((TArray_<AActor*>&)Actors).AddItem((AActor*)Proxy1);
+	}
+	if (Proxy2)
+	{
+		((TArray_<AActor*>&)Actors).AddItem((AActor*)Proxy2);
+	}
+	if (EndPoint1)
+	{
+		((TArray_<AActor*>&)Actors).AddItem((AActor*)EndPoint1);
+	}
+	if (EndPoint2)
+	{
+		((TArray_<AActor*>&)Actors).AddItem((AActor*)EndPoint2);
+	}
+}
+
+/* Kit gap: TArray::AddUniqueItem isn't declared; this build calls it out of line
+ * (TArray<AActor*>::AddUniqueItem, 0x008b1a70). */
+template<class T> struct TArray__015edba0 : public TArray<T>
+{
+	INT AddUniqueItem(const T& Item);
+};
+
+// @baa 0x015edba0
+/* The corner point's related actors: its wall markers (those that are set). */
+void ARCornerPointBase::vf_340(TArray<AActor*>& Actors)
+{
+	for (INT i = 0; i < 4; i++)
+	{
+		if (WallPoint[i])
+		{
+			((TArray__015edba0<AActor*>&)Actors).AddUniqueItem((AActor*)WallPoint[i]);
+		}
+	}
 }

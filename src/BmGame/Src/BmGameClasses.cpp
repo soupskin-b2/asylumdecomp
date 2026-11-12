@@ -1,4 +1,4 @@
-// BmGameClasses.cpp: 39 functions
+// BmGameClasses.cpp: 46 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -987,4 +987,53 @@ void URAlternateAnimationAndWeaponConfigFactoryNew::InitializeIntrinsicPropertyV
 FVector ARPontoonBase::vf_350()
 {
 	return FVector(Location.X, Location.Y, Location.Z + 32.f);
+}
+
+// @baa 0x0154f2b0
+/* A new, empty object of the class the editor asked for. */
+UObject* URAimingConfigFactoryNew::FactoryCreateNew(UClass* InClass, UObject* InParent, FName InName, QWORD Flags, UObject* Context, FFeedbackContext* Warn)
+{
+	return StaticConstructObject(InClass, InParent, InName, Flags);
+}
+
+// @baa 0x0154f450
+/* A new, empty object of the class the editor asked for. */
+UObject* URBoneRescaleConfigFactoryNew::FactoryCreateNew(UClass* InClass, UObject* InParent, FName InName, QWORD Flags, UObject* Context, FFeedbackContext* Warn)
+{
+	return StaticConstructObject(InClass, InParent, InName, Flags);
+}
+
+// @baa 0x0154f5f0
+/* A new, empty object of the class the editor asked for. */
+UObject* URCharacterViewerConfigFactoryNew::FactoryCreateNew(UClass* InClass, UObject* InParent, FName InName, QWORD Flags, UObject* Context, FFeedbackContext* Warn)
+{
+	return StaticConstructObject(InClass, InParent, InName, Flags);
+}
+
+// @baa 0x0154f790
+/* A new, empty object of the class the editor asked for. */
+UObject* URMirrorConfigFactoryNew::FactoryCreateNew(UClass* InClass, UObject* InParent, FName InName, QWORD Flags, UObject* Context, FFeedbackContext* Warn)
+{
+	return StaticConstructObject(InClass, InParent, InName, Flags);
+}
+
+// @baa 0x0154f930
+/* A new, empty object of the class the editor asked for. */
+UObject* URPoseConfigFactoryNew::FactoryCreateNew(UClass* InClass, UObject* InParent, FName InName, QWORD Flags, UObject* Context, FFeedbackContext* Warn)
+{
+	return StaticConstructObject(InClass, InParent, InName, Flags);
+}
+
+// @baa 0x0154fad0
+/* A new, empty object of the class the editor asked for. */
+UObject* URWeaponConfigFactoryNew::FactoryCreateNew(UClass* InClass, UObject* InParent, FName InName, QWORD Flags, UObject* Context, FFeedbackContext* Warn)
+{
+	return StaticConstructObject(InClass, InParent, InName, Flags);
+}
+
+// @baa 0x0154fc70
+/* A new, empty object of the class the editor asked for. */
+UObject* URAlternateAnimationAndWeaponConfigFactoryNew::FactoryCreateNew(UClass* InClass, UObject* InParent, FName InName, QWORD Flags, UObject* Context, FFeedbackContext* Warn)
+{
+	return StaticConstructObject(InClass, InParent, InName, Flags);
 }

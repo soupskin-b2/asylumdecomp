@@ -1,4 +1,4 @@
-// RCapeComponent.cpp (part 1 of 2): 76 functions
+// RCapeComponent.cpp (part 1 of 2): 77 functions
 // Placed here by: neighbours 22, file 19, class 12, callers 8.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -670,3 +670,27 @@ void URCapeComponent::vf_13c(INT)
 }
 
 // @baa 0x016c6d40
+
+struct URCapeSkeletalMeshComponent_ : public URCapeSkeletalMeshComponent
+{
+	UBOOL sub_016d59d0() const;
+};
+
+// @baa 0x016d59d0
+/* Whether the cape's anim sets differ from its core anim sets (and so need resetting to them). */
+UBOOL URCapeSkeletalMeshComponent_::sub_016d59d0() const
+{
+	const INT NumCore = CoreAnimSets.Num();
+	if (AnimSets.Num() != NumCore)
+	{
+		return TRUE;
+	}
+	for (INT i = 0; i < NumCore; i++)
+	{
+		if (AnimSets(i) != CoreAnimSets(i))
+		{
+			return TRUE;
+		}
+	}
+	return FALSE;
+}

@@ -1,4 +1,4 @@
-// GFx_1920000.cpp: 11 functions
+// GFx_1920000.cpp: 12 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -205,4 +205,49 @@ bool GFxModeEntryList::sub_0192ed00()
         }
     }
     return HasModeCache == 1;
+}
+
+// GFx: returns a copy of the first 40-byte record with this key, or a default record if none has it.
+struct GFxKeyedRecord
+{
+    int           Index0;		// 0x00
+    unsigned int  Value04;
+    int           Index8;		// 0x08
+    unsigned int  Value0c;
+    unsigned int  Value10;
+    unsigned int  Key;		// 0x14
+    unsigned int  Value18;
+    unsigned int  Value1c;
+    unsigned int  Value20;
+    struct FFlags
+    {
+        unsigned char Bits;
+        FFlags(unsigned char InBits) : Bits(InBits) {}
+        FFlags(const FFlags& Other) : Bits(Other.Bits) {}
+    } Flags;		// 0x24
+
+    GFxKeyedRecord()
+        : Index0(-1), Value04(0), Index8(-1), Value0c(0), Value10(0), Key(0), Flags(0)
+    {
+    }
+
+};
+
+struct GFxKeyedRecordArray
+{
+    GFxKeyedRecord* Data;
+    unsigned int    Size;
+
+    GFxKeyedRecord sub_0192f4a0(unsigned int Key) const;
+};
+
+// @baa 0x0192f4a0
+GFxKeyedRecord GFxKeyedRecordArray::sub_0192f4a0(unsigned int Key) const
+{
+    for (unsigned int i = 0; i < Size; i++)
+    {
+        if (Data[i].Key == Key)
+            return Data[i];
+    }
+    return GFxKeyedRecord();
 }

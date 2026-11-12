@@ -1,4 +1,4 @@
-// BmGameEnvironmentClasses.cpp: 1 function
+// BmGameEnvironmentClasses.cpp: 2 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -15,4 +15,23 @@ undefined4 ULensFlare::sub_017352d0(byte param_2)
     sub_0053dfa0(param_1);
   }
   return param_1;
+}
+
+struct ARTunnelGrateBase_ : public ARTunnelGrateBase
+{
+	void sub_0171a890(UBOOL bDisable);
+};
+
+// @baa 0x0171a890
+/* Caches whether cape collision should be off for the grate; when that (or the timed disable) changes the state,
+ * the collision component stops or starts colliding with channel 15 (the cape). */
+void ARTunnelGrateBase_::sub_0171a890(UBOOL bDisable)
+{
+	bCachedDisableCapeCollision = bDisable;
+	const UBOOL bDisabled = (bCachedDisableCapeCollision || bCachedTimedDisableCapeCollision) ? TRUE : FALSE;
+	if (bDisabled != bCurrentCollisionDisabledState)
+	{
+		CollisionComponent->sub_009ff970(15, !bDisabled);
+		bCurrentCollisionDisabledState = bDisabled;
+	}
 }

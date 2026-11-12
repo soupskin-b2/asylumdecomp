@@ -1,4 +1,4 @@
-// GFx_1960000.cpp (part 1 of 2): 93 functions
+// GFx_1960000.cpp (part 1 of 2): 95 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -1035,4 +1035,113 @@ void GFxHandle::Release()
     if (--Node->m_References == 0)
         Node->Detach();
     m_State = -2;
+}
+
+// GFx: GHashSet::findIndexCore for a set keyed by node pointers whose hash is cached in the node:
+// walks the collision chain that starts at the hashed slot and returns the matching slot, or -1.
+struct GFxHashedNode
+{
+    char         Header[0x10];
+    unsigned int HashValue;
+};
+
+struct GFxNodeSetEntry
+{
+    int            NextInChain;		// -2 = empty slot, -1 = end of chain
+    GFxHashedNode* Key;
+    void*          Value;
+};
+
+struct GFxNodeSetTable
+{
+    unsigned int    EntryCount;
+    unsigned int    SizeMask;
+    GFxNodeSetEntry Entries[1];
+};
+
+struct GFxNodeSet
+{
+    GFxNodeSetTable* pTable;
+
+    int sub_0196c830(GFxHashedNode* const& Key, unsigned int HashValue) const;
+};
+
+// @baa 0x0196c830
+int GFxNodeSet::sub_0196c830(GFxHashedNode* const& Key, unsigned int HashValue) const
+{
+    int Index = (int)HashValue;
+    const GFxNodeSetEntry* e = &pTable->Entries[Index];
+
+    if (e->NextInChain == -2 || (e->Key->HashValue & pTable->SizeMask) != (unsigned int)Index)
+        return -1;
+
+    for (;;)
+    {
+        if ((e->Key->HashValue & pTable->SizeMask) == HashValue && e->Key == Key)
+            return Index;
+        Index = e->NextInChain;
+        if (Index == -1)
+            break;
+        e = &pTable->Entries[Index];
+    }
+    return -1;
+}
+
+// GFx: GHashSet::Clear for a set of ref-counted values: releases every occupied slot's value,
+// marks it empty, then frees the table.
+void __stdcall sub_018d7170(void* Block);
+			/* GMemory::Free */
+struct GFxRefCountedValue
+{
+    char         Header[0xc];
+    int          RefCount;
+
+    void sub_01971650();					/* destroys the value */
+
+    void Release()
+    {
+        if (--RefCount == 0)
+            sub_01971650();
+    }
+};
+
+struct GFxValueSetEntry
+{
+    int                 NextInChain;	// -2 = empty slot
+    GFxRefCountedValue* Value;
+    unsigned int        Extra;
+};
+
+struct GFxValueSetTable
+{
+    unsigned int     EntryCount;
+    unsigned int     SizeMask;
+    GFxValueSetEntry Entries[1];
+};
+
+struct GFxValueSet
+{
+    GFxValueSetTable* pTable;
+
+    void sub_0196ea80();
+};
+
+// @baa 0x0196ea80
+void GFxValueSet::sub_0196ea80()
+{
+    if (pTable)
+    {
+        unsigned int SizeMask = pTable->SizeMask;
+        for (unsigned int i = 0; i <= SizeMask; i++)
+        {
+            GFxValueSetEntry* e = &pTable->Entries[i];
+            if (e->NextInChain != -2)
+            {
+                e->Value->Release();
+                e->NextInChain = -2;
+            }
+        }
+        sub_018d7170(pTable);
+        pTable = 0;
+    }
 }
