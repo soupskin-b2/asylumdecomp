@@ -1,4 +1,4 @@
-// UnrealEd_0400000.cpp: 179 functions
+// UnrealEd_0400000.cpp: 182 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -1450,4 +1450,28 @@ int __cdecl sub_0053d240(int a, int b, int c);
 int __stdcall sub_00402630(int a, int b, int c)
 {
     return sub_0053d240(a, b, c);
+}
+
+// The callee takes one argument; this wrapper hands back what it returns.
+INT sub_00483e90(UObject* Object);
+// @baa 0x0040c5e0
+INT __stdcall sub_0040c5e0(UObject* Object)
+{
+    return sub_00483e90(Object);
+}
+
+// The callee takes one argument; this wrapper hands back what it returns.
+INT sub_004824e0(UObject* Object);
+// @baa 0x0040c5f0
+INT __stdcall sub_0040c5f0(UObject* Object)
+{
+    return sub_004824e0(Object);
+}
+
+// The callee takes one argument; this wrapper hands back what it returns.
+INT sub_0047e520(UObject* Object);
+// @baa 0x0040c600
+INT __stdcall sub_0040c600(UObject* Object)
+{
+    return sub_0047e520(Object);
 }

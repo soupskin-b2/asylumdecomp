@@ -1,4 +1,4 @@
-// Engine_0cb0000.cpp: 8 functions
+// Engine_0cb0000.cpp: 12 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -83,4 +83,63 @@ void AWorldInfo::execGetAddressURL(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
 	*(FString*)Result = GetAddressURL();
+}
+
+/* Kit gap: APlayerController::ClientConvolve (UnPlayer.cpp; an empty stub in this build) isn't declared. */
+struct APlayerController__00cb7350 : public APlayerController
+{
+	void ClientConvolve(const FString& C, INT H);	/* 0x008aa010 */
+};
+
+// @baa 0x00cb7350
+void APlayerController::execClientConvolve(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STR(C);
+	P_GET_INT(H);
+	P_FINISH;
+	((APlayerController__00cb7350*)this)->ClientConvolve(C, H);
+}
+
+/* Kit gap: APlayerController::ServerProcessConvolve (UnPlayer.cpp; an empty stub in this build) isn't declared. */
+struct APlayerController__00cb7430 : public APlayerController
+{
+	void ServerProcessConvolve(const FString& C, INT H);	/* 0x008aa020 */
+};
+
+// @baa 0x00cb7430
+void APlayerController::execServerProcessConvolve(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STR(C);
+	P_GET_INT(H);
+	P_FINISH;
+	((APlayerController__00cb7430*)this)->ServerProcessConvolve(C, H);
+}
+
+/* Kit gap: APlayerController::GetDefaultURL (UnPlayer.cpp) isn't declared. */
+struct APlayerController__00cb7140 : public APlayerController
+{
+	FString GetDefaultURL(const FString& Option);	/* 0x007c6df0 */
+};
+
+// @baa 0x00cb7140
+void APlayerController::execGetDefaultURL(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STR(Option);
+	P_FINISH;
+	*(FString*)Result = ((APlayerController__00cb7140*)this)->GetDefaultURL(Option);
+}
+
+/* Kit gap: AActor::ChartData (UnActor.cpp) isn't declared. */
+struct AActor__00cb5ca0 : public AActor
+{
+	void ChartData(const FString& DataName, FLOAT DataValue);	/* 0x00769c80 */
+};
+
+// @baa 0x00cb5ca0
+void AActor::execChartData(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STR(DataName);
+	P_GET_FLOAT(DataValue);
+	P_FINISH;
+	((AActor__00cb5ca0*)this)->ChartData(DataName, DataValue);
 }

@@ -1,4 +1,4 @@
-// UnrealEd_0c90000.cpp: 120 functions
+// UnrealEd_0c90000.cpp: 121 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1441,4 +1441,12 @@ int sub_00c9c960(void)
     sub_00cfa480();
   }
   return g_026c569c;
+}
+
+// @baa 0x00c99ca0
+// The class-feature check UE3 generates for every native class: is this class's superclass the one
+// its Super typedef names? (The engine uses it while registering the class.)
+bool USeqAct_CrowdSpawner::vf_004()
+{
+    return GetClass()->GetSuperClass() != Super::StaticClass();
 }

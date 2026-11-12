@@ -2,26 +2,26 @@
  "updated": "2026-11-12",
  "functions": {
   "total": 174166,
-  "matched": 101528
+  "matched": 101727
  },
  "bytes": {
   "total": 24308119,
-  "matched": 4054360
+  "matched": 4069648
  },
  "areas": [
   {
    "name": "Engine",
    "functions": 69863,
    "bytes": 9201956,
-   "matched": 42773,
-   "matched_bytes": 1932406
+   "matched": 42850,
+   "matched_bytes": 1938242
   },
   {
    "name": "Editor",
    "functions": 42961,
    "bytes": 8040643,
-   "matched": 24162,
-   "matched_bytes": 822300
+   "matched": 24187,
+   "matched_bytes": 823415
   },
   {
    "name": "External",
@@ -34,15 +34,15 @@
    "name": "Game",
    "functions": 13563,
    "bytes": 1853804,
-   "matched": 10109,
-   "matched_bytes": 605293
+   "matched": 10174,
+   "matched_bytes": 610879
   },
   {
    "name": "Core",
    "functions": 12072,
    "bytes": 1275961,
-   "matched": 8005,
-   "matched_bytes": 255881
+   "matched": 8037,
+   "matched_bytes": 258632
   },
   {
    "name": "CommonGame",
@@ -97,16 +97,16 @@
  "contributors": [
   {
    "login": "soupskin-b2",
-   "functions": 101518,
-   "bytes": 4052780,
+   "functions": 101718,
+   "bytes": 4069028,
    "models": {
     "Tooling": 94456,
-    "Claude Opus 5.5": 2411,
+    "Claude Opus 5.5": 2544,
     "DeepSeek V4.1 Flash": 2167,
-    "Qwen3.8 27B": 1853,
+    "Qwen3.8 27B": 1900,
     "GPT-6.1 Sol": 292,
-    "Muse Spark 1.3": 187,
-    "deepseek-v4.1-flash-(freebuff)": 55,
+    "Muse Spark 1.3": 188,
+    "deepseek-v4.1-flash-(freebuff)": 74,
     "MiniMax M3.1 Flash": 48,
     "Claude Sonnet 5.5": 37,
     "GPT-6.1 Terra": 10,
@@ -122,7 +122,7 @@
   },
   {
    "model": "Claude Opus 5.5",
-   "functions": 2411
+   "functions": 2544
   },
   {
    "model": "DeepSeek V4.1 Flash",
@@ -130,7 +130,7 @@
   },
   {
    "model": "Qwen3.8 27B",
-   "functions": 1853
+   "functions": 1900
   },
   {
    "model": "GPT-6.1 Sol",
@@ -138,11 +138,11 @@
   },
   {
    "model": "Muse Spark 1.3",
-   "functions": 187
+   "functions": 188
   },
   {
    "model": "deepseek-v4.1-flash-(freebuff)",
-   "functions": 55
+   "functions": 74
   },
   {
    "model": "MiniMax M3.1 Flash",

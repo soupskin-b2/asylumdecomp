@@ -1,4 +1,4 @@
-// Engine_0730000.cpp (part 2 of 3): 23 functions
+// Engine_0730000.cpp (part 2 of 3): 25 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -393,3 +393,38 @@ struct CCtr {
 
 // @baa 0x0073f870
 void g_use(CCtr* p, int x) { if (x) p->sub_0073f870(); }
+
+struct S0073fa40
+{
+	int f0;
+	S0073fa40* sub_0073fa40(int Arg1, int Arg2); /* 0x0073fa40 */
+};
+
+// @baa 0x0073fa40
+S0073fa40* S0073fa40::sub_0073fa40(int Arg1, int Arg2)
+{
+	f0 = Arg1;
+	if (Arg1 && Arg2)
+	{
+		int* P = (int*)(Arg1 + 4);
+		*P = *P + 1;
+	}
+	return this;
+}
+
+struct S0073fa60
+{
+	S0073fa60* Next;
+	INT Ref;
+
+	S0073fa60* sub_0073fa60(S0073fa60* Obj, INT Flag);
+};
+
+// @baa 0x0073fa60
+S0073fa60* S0073fa60::sub_0073fa60(S0073fa60* Obj, INT Flag)
+{
+	Next = Obj;
+	if (Obj && Flag)
+		++Obj->Ref;
+	return this;
+}

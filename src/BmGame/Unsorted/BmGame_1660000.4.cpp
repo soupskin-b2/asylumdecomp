@@ -1,4 +1,4 @@
-// BmGame_1660000.cpp: 4 functions
+// BmGame_1660000.cpp: 6 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -69,4 +69,32 @@ struct ARCombatMove__0166d250 : public ARCombatMove
 void ARCombatMove__0166d250::eventTakedownNotify()
 {
 	ProcessEvent(FindFunctionChecked(g_026e394c), NULL);
+}
+
+extern FName g_026c41a8;
+	/* ENGINE_SetPhysicalCollisionProperties */
+struct AKActor_ : public AKActor
+{
+	void eventSetPhysicalCollisionProperties();
+};
+
+// @baa 0x01668770
+/* The script event's generated glue (EngineClasses.h), out of line here. */
+void AKActor_::eventSetPhysicalCollisionProperties()
+{
+	ProcessEvent(FindFunctionChecked(g_026c41a8), NULL);
+}
+
+extern FName g_026e2b54;
+	/* BMGAME_StrikeContact */
+struct ARCombatMove__0166d2f0 : public ARCombatMove
+{
+	void eventStrikeContact();
+};
+
+// @baa 0x0166d2f0
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+void ARCombatMove__0166d2f0::eventStrikeContact()
+{
+	ProcessEvent(FindFunctionChecked(g_026e2b54), NULL);
 }

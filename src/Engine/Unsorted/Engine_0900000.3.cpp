@@ -1,4 +1,4 @@
-// Engine_0900000.cpp: 7 functions
+// Engine_0900000.cpp: 10 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -98,4 +98,52 @@ void USkeletalMeshComponent::execFindAnimNode(FFrame& Stack, RESULT_DECL)
 	P_GET_NAME(InNodeName);
 	P_FINISH;
 	*(UAnimNode**)Result = Animations ? Animations->FindAnimNode(InNodeName) : NULL;
+}
+
+/* Kit gap: UPhysicsAsset::FindConstraintIndex (UnPhysAsset.cpp) isn't declared. */
+struct UPhysicsAsset_ : public UPhysicsAsset
+{
+	INT FindConstraintIndex(FName ConstraintName);	/* 0x00a09910 */
+};
+
+// @baa 0x0090ee70
+void USkeletalMeshComponent::execFindConstraintIndex(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_NAME(ConstraintName);
+	P_FINISH;
+	*(INT*)Result = PhysicsAsset ? ((UPhysicsAsset_*)PhysicsAsset)->FindConstraintIndex(ConstraintName) : INDEX_NONE;
+}
+
+/* Kit gap: UPhysicsAsset::FindConstraintBoneName (UnPhysAsset.cpp) isn't declared. */
+struct UPhysicsAsset__0090ef00 : public UPhysicsAsset
+{
+	FName FindConstraintBoneName(INT ConstraintIndex);	/* 0x00a099c0 */
+};
+
+// @baa 0x0090ef00
+void USkeletalMeshComponent::execFindConstraintBoneName(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(ConstraintIndex);
+	P_FINISH;
+	*(FName*)Result = PhysicsAsset ? ((UPhysicsAsset__0090ef00*)PhysicsAsset)->FindConstraintBoneName(ConstraintIndex) : FName(NAME_None);
+}
+
+extern FName g_026c4a10;
+	/* ENGINE_GetFaceFXAudioComponent */
+struct AActor_ : public AActor
+{
+	class UAudioComponent* eventGetFaceFXAudioComponent();
+};
+
+// @baa 0x0090ae80
+/* The script event's generated glue (EngineClasses.h), out of line here. */
+class UAudioComponent* AActor_::eventGetFaceFXAudioComponent()
+{
+	struct Actor_eventGetFaceFXAudioComponent_Parms
+	{
+		class UAudioComponent* ReturnValue;
+	} Parms;
+	Parms.ReturnValue = NULL;
+	ProcessEvent(FindFunctionChecked(g_026c4a10), &Parms);
+	return Parms.ReturnValue;
 }

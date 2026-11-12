@@ -1,4 +1,4 @@
-// Core_0570000.cpp: 65 functions
+// Core_0570000.cpp: 66 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -936,4 +936,26 @@ undefined4 UTexture2D::sub_0057cb40(int param_2)
   ((C_view_0057cb40 *)(this))->sub_00567b80(param_2);
   ((C_view_0057cb40 *)(this))->sub_00567a20();
   return param_1;
+}
+
+struct S00570fc0 {
+    int f0;
+    int f1;
+    int f2;
+    int f3;
+    int f4;
+    int f5;
+    S00570fc0* sub_00570fc0();
+};
+
+// @baa 0x00570fc0
+S00570fc0* S00570fc0::sub_00570fc0()
+{
+    f0 = -1;
+    f1 = 0;
+    f2 = 0;
+    f3 = 0;
+    f4 = 0;
+    f5 = 0;
+    return this;
 }

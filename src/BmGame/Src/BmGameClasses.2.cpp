@@ -1,4 +1,4 @@
-// BmGameClasses.cpp: 39 functions
+// BmGameClasses.cpp: 44 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -716,4 +716,74 @@ struct URSeqAct_PlayScaledDistanceSound__01583fc0 : public URSeqAct_PlayScaledDi
 void URSeqAct_PlayScaledDistanceSound__01583fc0::eventStartSound()
 {
 	ProcessEvent(FindFunctionChecked(g_026e2a2c), NULL);
+}
+
+extern FName g_026e3628;
+	/* BMGAME_TurnOnFaked */
+struct URSeqAct_SetTrackingSpotlightVars__01580f90 : public URSeqAct_SetTrackingSpotlightVars
+{
+	void eventTurnOnFaked();
+};
+
+// @baa 0x01580f90
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+void URSeqAct_SetTrackingSpotlightVars__01580f90::eventTurnOnFaked()
+{
+	ProcessEvent(FindFunctionChecked(g_026e3628), NULL);
+}
+
+extern FName g_026e3420;
+	/* BMGAME_TurnOn */
+struct URSeqAct_SetTrackingSpotlightVars__01580fc0 : public URSeqAct_SetTrackingSpotlightVars
+{
+	void eventTurnOn();
+};
+
+// @baa 0x01580fc0
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+void URSeqAct_SetTrackingSpotlightVars__01580fc0::eventTurnOn()
+{
+	ProcessEvent(FindFunctionChecked(g_026e3420), NULL);
+}
+
+extern FName g_026e2cd0;
+	/* BMGAME_TurnOff */
+struct URSeqAct_SetTrackingSpotlightVars__01580ff0 : public URSeqAct_SetTrackingSpotlightVars
+{
+	void eventTurnOff();
+};
+
+// @baa 0x01580ff0
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+void URSeqAct_SetTrackingSpotlightVars__01580ff0::eventTurnOff()
+{
+	ProcessEvent(FindFunctionChecked(g_026e2cd0), NULL);
+}
+
+extern FName g_026e2780;
+	/* BMGAME_Start */
+struct URSeqAct_Mixbin_ : public URSeqAct_Mixbin
+{
+	void eventStart();
+};
+
+// @baa 0x015823f0
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+void URSeqAct_Mixbin_::eventStart()
+{
+	ProcessEvent(FindFunctionChecked(g_026e2780), NULL);
+}
+
+extern FName g_026e3590;
+	/* BMGAME_Stop */
+struct URSeqAct_MovePlayer__01582630 : public URSeqAct_MovePlayer
+{
+	void eventStop();
+};
+
+// @baa 0x01582630
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+void URSeqAct_MovePlayer__01582630::eventStop()
+{
+	ProcessEvent(FindFunctionChecked(g_026e3590), NULL);
 }

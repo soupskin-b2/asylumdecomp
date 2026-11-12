@@ -1,4 +1,4 @@
-// Engine_0b20000.cpp: 19 functions
+// Engine_0b20000.cpp: 20 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -182,4 +182,12 @@ int UTexture2D::sub_00b29a10(void)
   *(undefined4 *)(param_1 + 0x34) = 0;
   *(undefined4 *)(param_1 + 0x38) = 0;
   return param_1;
+}
+
+// The callee takes one argument; this wrapper hands back what it returns.
+INT sub_00afaf90(UObject* Object);
+// @baa 0x00b28240
+INT __stdcall sub_00b28240(UObject* Object)
+{
+    return sub_00afaf90(Object);
 }

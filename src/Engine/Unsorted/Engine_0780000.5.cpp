@@ -1,4 +1,4 @@
-// Engine_0780000.cpp (part 5 of 5): 3 functions
+// Engine_0780000.cpp (part 5 of 5): 4 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -51,4 +51,21 @@ void C_0078fd30::sub_0078fd30(int param_2)
 INT __stdcall sub_00785620(INT Value)
 {
     return (Value + 1) & ~1;
+}
+
+struct F00788e10 {
+    INT FieldA;
+    INT FieldB;
+    INT FieldC;
+
+    F00788e10* sub_00788e10(const F00788e10* Other);
+};
+
+// @baa 0x00788e10
+F00788e10* F00788e10::sub_00788e10(const F00788e10* Other)
+{
+    FieldA = Other->FieldA;
+    FieldB = Other->FieldB;
+    FieldC = -1;
+    return this;
 }

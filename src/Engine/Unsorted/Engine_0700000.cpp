@@ -1,4 +1,4 @@
-// Engine_0700000.cpp (part 1 of 2): 182 functions
+// Engine_0700000.cpp (part 1 of 2): 183 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -2012,4 +2012,30 @@ void UMaterialInstanceConstant_::SetVectorParameterValue(FName ParameterName, FL
 	Entry->ParameterValue = Value;
 
 	sub_00702180(this, Entry);
+}
+
+struct FNode
+{
+	INT Value;
+	INT Count;
+};
+
+struct FNodeOwner
+{
+	FNodeOwner* sub_0070a480(FNode* Node, INT* Flag)
+	{
+		Current = Node;
+		if (Node && Flag)
+			++Node->Count;
+		return this;
+	}
+
+	FNode* Current;
+};
+
+static FNodeOwner g_NodeOwner;
+// @baa 0x0070a480
+void sub_0070a481()
+{
+	g_NodeOwner.sub_0070a480(0, 0);
 }

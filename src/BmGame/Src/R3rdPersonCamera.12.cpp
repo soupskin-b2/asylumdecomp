@@ -1,4 +1,4 @@
-// R3rdPersonCamera.cpp (part 12 of 12): 10 functions
+// R3rdPersonCamera.cpp (part 12 of 12): 11 functions
 // Placed here by: neighbours 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -139,3 +139,23 @@ void URSeqAct_UpdateBatmanDamageLevel::vf_01c()
     if (DamageState == NULL)
         reinterpret_cast<C_Vft19_4c*>(Self)->vf4c(0);
 }
+
+/* Unnamed in the kit: the zoom point direction for an index (the tight set when bUseTightFocusPoints). */
+struct AR3rdPersonCamera__01689560 : public AR3rdPersonCamera
+{
+    FVector* sub_01689560(INT CurrentZoomPointIndex);
+};
+
+// @baa 0x01689560
+FVector* AR3rdPersonCamera__01689560::sub_01689560(INT CurrentZoomPointIndex)
+{
+#line 70 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\R3rdPersonCamera.cpp"
+    check(CurrentZoomPointIndex < 9);
+    if (bUseTightFocusPoints)
+    {
+        return &TightZoomPointDir[CurrentZoomPointIndex];
+    }
+    return &ZoomPointDir[CurrentZoomPointIndex];
+}
+
+#line 162 "candidate.cpp"

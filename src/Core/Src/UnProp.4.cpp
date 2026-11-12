@@ -1,4 +1,4 @@
-// UnProp.cpp: 31 functions
+// UnProp.cpp: 42 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -253,4 +253,141 @@ int __stdcall sub_0062a8d0(const BYTE* Source, BYTE* Value)
         Result = 1;
     }
     return Result;
+}
+
+// @baa 0x0062a8f0
+UINT __stdcall sub_0062a8f0(BYTE* Value, BYTE* Data)
+{
+	UINT Result = 0;
+	if (Value)
+	{
+		*Value = *Data;
+		Result = 1;
+	}
+	return Result;
+}
+
+// @baa 0x0062aa00
+INT UIntProperty::GetPropertyValue(INT PropertyValueAddress, INT OutValue)
+{
+    UBOOL bResult = 0;
+    INT Value = 0;
+    if (PropertyValueAddress)
+    {
+        Value = *(INT*)PropertyValueAddress;
+        *(INT*)OutValue = Value;
+        bResult = 1;
+    }
+    return bResult;
+}
+
+// @baa 0x0062ad40
+INT UFloatProperty::GetPropertyValue(INT PropertyValueAddress, INT OutValue)
+{
+    UBOOL bResult = 0;
+    if (PropertyValueAddress)
+    {
+        *(FLOAT*)OutValue = *(FLOAT*)PropertyValueAddress;
+        bResult = 1;
+    }
+    return bResult;
+}
+
+// @baa 0x0062aa20
+UINT UIntProperty::SetPropertyValue(UINT* Value, INT* Source)
+{
+    UINT bResult = 0;
+    if (Value)
+    {
+        *Value = *Source;
+        bResult = 1;
+    }
+    return bResult;
+}
+
+// @baa 0x0062ae90
+INT UObjectProperty::GetPropertyValue(INT PropertyValueAddress, INT OutValue)
+{
+    UBOOL bResult = 0;
+    if (PropertyValueAddress)
+    {
+        *(INT*)OutValue = *(INT*)PropertyValueAddress;
+        bResult = 1;
+    }
+    return bResult;
+}
+
+// @baa 0x0062af30
+// @baa 0x0062af30
+INT UClassProperty::GetPropertyValue(INT PropertyValueAddress, INT OutValue)
+{
+    UBOOL bResult = 0;
+    if (PropertyValueAddress)
+    {
+        *(INT*)OutValue = *(INT*)PropertyValueAddress;
+        bResult = 1;
+    }
+    return bResult;
+}
+
+// @baa 0x0062af50
+// 0062af50
+UINT UClassProperty::SetPropertyValue(UINT* InValue, INT* InSource)
+{
+	UINT bSet = 0;
+	if (InValue != 0)
+	{
+		*InValue = *InSource;
+		bSet = 1;
+	}
+	return bSet;
+}
+
+// @baa 0x0062aeb0
+UINT __stdcall sub_0062aeb0(UINT* Dest, UINT* Source)
+{
+	UINT Result = 0;
+	if (Dest != NULL)
+	{
+		*Dest = *Source;
+		Result = 1;
+	}
+	return Result;
+}
+
+// @baa 0x0062ad60
+UINT UFloatProperty::SetPropertyValue(UINT* Dest, INT* Src)
+{
+    UINT Result = 0;
+    if (Dest)
+    {
+        *(FLOAT*)Dest = *(FLOAT*)Src;
+        Result = 1;
+    }
+    return Result;
+}
+
+// @baa 0x0062afd0
+// 0x0062afd0: copy the property's value into Value, reporting success.
+INT UComponentProperty::GetPropertyValue(INT PropertyAddress, INT Value)
+{
+	INT Result = 0;
+	if (PropertyAddress != 0)
+	{
+		*(INT*)Value = *(INT*)PropertyAddress;
+		Result = 1;
+	}
+	return Result;
+}
+
+// @baa 0x0062aff0
+UINT __stdcall sub_0062aff0(UINT* Value, INT* InValue)
+{
+    UINT bResult = 0;
+    if (Value != NULL)
+    {
+        *Value = *InValue;
+        bResult = 1;
+    }
+    return bResult;
 }

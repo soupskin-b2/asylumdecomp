@@ -1,4 +1,4 @@
-// BmGame_16a0000.cpp (part 1 of 2): 133 functions
+// BmGame_16a0000.cpp (part 1 of 2): 134 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -713,4 +713,36 @@ struct Sub
 void __stdcall sub_016afac0(Sub* Object)
 {
     Object->sub_009ef010();
+}
+
+/* Kit gaps: FName has no constructor from a string (UnName.h; 0x005d5620), and USkeletalMeshComponent::FindAnimNode
+ * (0x0090eb80) isn't declared. FName_ is a same-layout stand-in; its declared copy constructor lets MSVC build
+ * the by-value argument in place, as the original does. */
+struct FName_
+{
+    INT Index;
+    INT Number;
+    FName_(const TCHAR* Name, INT FindType = 1, UBOOL bSplitName = 1); /* 0x005d5620 */
+    FORCEINLINE FName_(const FName_& Other) : Index(Other.Index), Number(Other.Number) {}
+};
+
+struct USkeletalMeshComponent_ : public USkeletalMeshComponent
+{
+    UAnimNode* FindAnimNode(FName_ InNodeName); /* 0x0090eb80 (takes an FName by value) */
+};
+
+// @baa 0x016ac9d0
+/* The pontoon's two transform nodes are looked up on first use; bOther picks the inactive one. */
+URAnimNode_AnimTransform* ARPontoonBase::GetAnimTransformNode(UBOOL bOther)
+{
+    if (AnimNode1 == NULL || AnimNode2 == NULL)
+    {
+        AnimNode1 = (URAnimNode_AnimTransform*)((USkeletalMeshComponent_*)Mesh)->FindAnimNode(FName_(TEXT("TransformNode1")));
+        AnimNode2 = (URAnimNode_AnimTransform*)((USkeletalMeshComponent_*)Mesh)->FindAnimNode(FName_(TEXT("TransformNode2")));
+    }
+    if (ActiveAnimNode == 0)
+    {
+        return bOther ? AnimNode2 : AnimNode1;
+    }
+    return bOther ? AnimNode1 : AnimNode2;
 }

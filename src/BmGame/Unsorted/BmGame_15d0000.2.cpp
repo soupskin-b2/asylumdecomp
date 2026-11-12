@@ -1,4 +1,4 @@
-// BmGame_15d0000.cpp: 20 functions
+// BmGame_15d0000.cpp: 29 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -349,4 +349,188 @@ struct URBmPawnSpawner__015d9e00 : public URBmPawnSpawner
 void URBmPawnSpawner__015d9e00::eventDestroyKOPawn()
 {
 	ProcessEvent(FindFunctionChecked(g_026e2aa8), NULL);
+}
+
+extern FName g_026e2cf0;
+	/* BMGAME_ShouldCombatantForceCombatCamera */
+struct ARPawnVillain__015d8720 : public ARPawnVillain
+{
+	UBOOL eventShouldCombatantForceCombatCamera();
+};
+
+// @baa 0x015d8720
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+UBOOL ARPawnVillain__015d8720::eventShouldCombatantForceCombatCamera()
+{
+	struct RPawnVillain_eventShouldCombatantForceCombatCamera_Parms
+	{
+		UBOOL ReturnValue;
+	} Parms;
+	Parms.ReturnValue = FALSE;
+	ProcessEvent(FindFunctionChecked(g_026e2cf0), &Parms);
+	return Parms.ReturnValue;
+}
+
+extern FName g_026e2a1c;
+	/* BMGAME_ForceAttack */
+struct ARPawnPlayerCombat_ : public ARPawnPlayerCombat
+{
+	UBOOL eventForceAttack();
+};
+
+// @baa 0x015d87d0
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+UBOOL ARPawnPlayerCombat_::eventForceAttack()
+{
+	struct RPawnPlayerCombat_eventForceAttack_Parms
+	{
+		UBOOL ReturnValue;
+	} Parms;
+	Parms.ReturnValue = FALSE;
+	ProcessEvent(FindFunctionChecked(g_026e2a1c), &Parms);
+	return Parms.ReturnValue;
+}
+
+extern FName g_026e2d70;
+	/* BMGAME_ForceTick */
+struct ARBMAIController__015d8ab0 : public ARBMAIController
+{
+	UBOOL eventForceTick();
+};
+
+// @baa 0x015d8ab0
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+UBOOL ARBMAIController__015d8ab0::eventForceTick()
+{
+	struct RBMAIController_eventForceTick_Parms
+	{
+		UBOOL ReturnValue;
+	} Parms;
+	Parms.ReturnValue = FALSE;
+	ProcessEvent(FindFunctionChecked(g_026e2d70), &Parms);
+	return Parms.ReturnValue;
+}
+
+extern FName g_026e27a8;
+	/* BMGAME_CanLookAtPlayer */
+struct URBMBehaviour__015d96a0 : public URBMBehaviour
+{
+	UBOOL eventCanLookAtPlayer();
+};
+
+// @baa 0x015d96a0
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+UBOOL URBMBehaviour__015d96a0::eventCanLookAtPlayer()
+{
+	struct RBMBehaviour_eventCanLookAtPlayer_Parms
+	{
+		UBOOL ReturnValue;
+	} Parms;
+	Parms.ReturnValue = FALSE;
+	ProcessEvent(FindFunctionChecked(g_026e27a8), &Parms);
+	return Parms.ReturnValue;
+}
+
+extern FName g_026e2c54;
+	/* BMGAME_InterruptedTick */
+struct URBMBehaviour__015d96e0 : public URBMBehaviour
+{
+	void eventInterruptedTick(FLOAT DeltaTime);
+};
+
+// @baa 0x015d96e0
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+void URBMBehaviour__015d96e0::eventInterruptedTick(FLOAT DeltaTime)
+{
+	struct RBMBehaviour_eventInterruptedTick_Parms
+	{
+		FLOAT DeltaTime;
+	} Parms;
+	Parms.DeltaTime = DeltaTime;
+	ProcessEvent(FindFunctionChecked(g_026e2c54), &Parms);
+}
+
+extern FName g_026e3810;
+	/* BMGAME_GetAttackPriority */
+struct URBMBehaviour_Combat_ : public URBMBehaviour_Combat
+{
+	INT eventGetAttackPriority();
+};
+
+// @baa 0x015d97b0
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+INT URBMBehaviour_Combat_::eventGetAttackPriority()
+{
+	struct RBMBehaviour_Combat_eventGetAttackPriority_Parms
+	{
+		INT ReturnValue;
+	} Parms;
+	Parms.ReturnValue = 0;
+	ProcessEvent(FindFunctionChecked(g_026e3810), &Parms);
+	return Parms.ReturnValue;
+}
+
+extern FName g_026e2b5c;
+	/* BMGAME_AttackBatman */
+struct URBMBehaviour_Combat__015d97f0 : public URBMBehaviour_Combat
+{
+	UBOOL eventAttackBatman(UBOOL bForceAttack);
+};
+
+// @baa 0x015d97f0
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+UBOOL URBMBehaviour_Combat__015d97f0::eventAttackBatman(UBOOL bForceAttack)
+{
+	struct RBMBehaviour_Combat_eventAttackBatman_Parms
+	{
+		UBOOL bForceAttack;
+		UBOOL ReturnValue;
+	} Parms;
+	Parms.bForceAttack = bForceAttack ? TRUE : FALSE;
+	Parms.ReturnValue = FALSE;
+	ProcessEvent(FindFunctionChecked(g_026e2b5c), &Parms);
+	return Parms.ReturnValue;
+}
+
+extern FName g_026e3468;
+	/* BMGAME_CanPlayIdleOverlay */
+struct URBMBehaviour_CombatAI__015d9890 : public URBMBehaviour_CombatAI
+{
+	UBOOL eventCanPlayIdleOverlay();
+};
+
+// @baa 0x015d9890
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+UBOOL URBMBehaviour_CombatAI__015d9890::eventCanPlayIdleOverlay()
+{
+	struct RBMBehaviour_CombatAI_eventCanPlayIdleOverlay_Parms
+	{
+		UBOOL ReturnValue;
+	} Parms;
+	Parms.ReturnValue = FALSE;
+	ProcessEvent(FindFunctionChecked(g_026e3468), &Parms);
+	return Parms.ReturnValue;
+}
+
+extern FName g_026e3598;
+	/* BMGAME_PlayStepInDirection */
+struct URBMBehaviour_CombatAI__015d9930 : public URBMBehaviour_CombatAI
+{
+	void eventPlayStepInDirection(FVector MoveDir, FVector FrontDir, FLOAT MoveSize);
+};
+
+// @baa 0x015d9930
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+void URBMBehaviour_CombatAI__015d9930::eventPlayStepInDirection(FVector MoveDir, FVector FrontDir, FLOAT MoveSize)
+{
+	struct RBMBehaviour_CombatAI_eventPlayStepInDirection_Parms
+	{
+		FVector MoveDir;
+		FVector FrontDir;
+		FLOAT MoveSize;
+	} Parms;
+	Parms.MoveDir = MoveDir;
+	Parms.FrontDir = FrontDir;
+	Parms.MoveSize = MoveSize;
+	ProcessEvent(FindFunctionChecked(g_026e3598), &Parms);
 }

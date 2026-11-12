@@ -1,4 +1,4 @@
-// UnrealEd_0a30000.cpp: 4 functions
+// UnrealEd_0a30000.cpp: 5 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -57,4 +57,23 @@ FLOAT UForceFieldShapeCapsule_::eventGetHeight()
 	Parms.ReturnValue = 0;
 	ProcessEvent(FindFunctionChecked(g_026c4a08), &Parms);
 	return Parms.ReturnValue;
+}
+
+extern FName g_026c537c;
+// A parameterless UnrealScript event that returns an int: the generated glue, out of line here.
+struct UObject_ : public UObject
+{
+    INT eventScriptCall();
+};
+
+// @baa 0x00a33c90
+INT UObject_::eventScriptCall()
+{
+    struct ScriptCall_Parms
+    {
+        INT ReturnValue;
+    } Parms;
+    Parms.ReturnValue = 0;
+    ProcessEvent(FindFunctionChecked(g_026c537c), &Parms);
+    return Parms.ReturnValue;
 }

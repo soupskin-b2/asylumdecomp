@@ -1,4 +1,4 @@
-// Core_0590000.cpp (part 4 of 4): 9 functions
+// Core_0590000.cpp (part 4 of 4): 11 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -117,4 +117,50 @@ struct Object
 void __stdcall sub_00590740(Object* Target, INT Unused)
 {
     Target->Value = 0;
+}
+
+struct sub_0059b500_Object
+{
+    int FieldA;
+    int FieldB;
+    int FieldC;
+};
+
+struct sub_0059b500_Class
+{
+    sub_0059b500_Object Object;
+
+    sub_0059b500_Object& sub_0059b500(const sub_0059b500_Object& Source);
+};
+
+// @baa 0x0059b500
+sub_0059b500_Object& sub_0059b500_Class::sub_0059b500(const sub_0059b500_Object& Source)
+{
+    Object.FieldA = Source.FieldA;
+    Object.FieldB = Source.FieldB;
+    Object.FieldC = -1;
+    return Object;
+}
+
+struct FSomething
+{
+	INT A;
+	INT B;
+	INT C;
+
+	FSomething* sub_0059b470(const INT* R)
+	{
+		A = R[0];
+		B = R[1];
+		C = -1;
+		return this;
+	}
+};
+
+static FSomething g_something;
+// @baa 0x0059b470
+int sub_ref_0059b470(const INT* R)
+{
+	FSomething* T = g_something.sub_0059b470(R);
+	return T->C;
 }

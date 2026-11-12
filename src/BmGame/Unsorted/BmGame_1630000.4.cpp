@@ -1,4 +1,4 @@
-// BmGame_1630000.cpp: 5 functions
+// BmGame_1630000.cpp: 8 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -99,4 +99,63 @@ struct ARTapePlayer_ : public ARTapePlayer
 void ARTapePlayer_::eventHasLoaded()
 {
 	ProcessEvent(FindFunctionChecked(g_026e3818), NULL);
+}
+
+extern FName g_026e38dc;
+	/* BMGAME_GetHealth */
+struct ARPawnCombat__016383a0 : public ARPawnCombat
+{
+	INT eventGetHealth();
+};
+
+// @baa 0x016383a0
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+INT ARPawnCombat__016383a0::eventGetHealth()
+{
+	struct RPawnCombat_eventGetHealth_Parms
+	{
+		INT ReturnValue;
+	} Parms;
+	Parms.ReturnValue = 0;
+	ProcessEvent(FindFunctionChecked(g_026e38dc), &Parms);
+	return Parms.ReturnValue;
+}
+
+extern FName g_026e2560;
+	/* BMGAME_IsAttacking */
+struct ARPawnCombat__01638420 : public ARPawnCombat
+{
+	UBOOL eventIsAttacking();
+};
+
+// @baa 0x01638420
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+UBOOL ARPawnCombat__01638420::eventIsAttacking()
+{
+	struct RPawnCombat_eventIsAttacking_Parms
+	{
+		UBOOL ReturnValue;
+	} Parms;
+	Parms.ReturnValue = FALSE;
+	ProcessEvent(FindFunctionChecked(g_026e2560), &Parms);
+	return Parms.ReturnValue;
+}
+
+extern FName g_026e399c;
+	/* BMGAME_CollisionWith */
+struct ARPawnCombat__016384a0 : public ARPawnCombat
+{
+	void eventCollisionWith(class ARPawnCombat* OtherPawn);
+};
+
+// @baa 0x016384a0
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+void ARPawnCombat__016384a0::eventCollisionWith(class ARPawnCombat* OtherPawn)
+{
+	struct RPawnCombat_eventCollisionWith_Parms
+	{
+		class ARPawnCombat* OtherPawn;
+	} Parms;
+	Parms.OtherPawn = OtherPawn;
+	ProcessEvent(FindFunctionChecked(g_026e399c), &Parms);
 }

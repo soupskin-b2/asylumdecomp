@@ -1,4 +1,4 @@
-// Engine_06e0000.cpp: 4 functions
+// Engine_06e0000.cpp: 5 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -139,4 +139,26 @@ UBOOL UMaterialInstanceConstant::GetTextureParameterValue(FName ParameterName, U
 	{
 		return FALSE;
 	}
+}
+
+struct C_006e1440
+{
+    INT A;
+    INT B;
+    INT C;
+
+    C_006e1440* sub_006e1440(const C_006e1440* Src)
+    {
+        A = Src->A;
+        B = Src->B;
+        C = -1;
+        return this;
+    }
+};
+
+static C_006e1440 g_Instance;
+// @baa 0x006e1440
+C_006e1440* UseInstance(const C_006e1440* Src)
+{
+    return g_Instance.sub_006e1440(Src);
 }

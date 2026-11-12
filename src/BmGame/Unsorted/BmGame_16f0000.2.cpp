@@ -1,4 +1,4 @@
-// BmGame_16f0000.cpp: 221 functions
+// BmGame_16f0000.cpp: 224 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -2052,4 +2052,45 @@ void URSeqAct_ConversationDialogue::execGetSpeaker(FFrame& Stack, RESULT_DECL)
     P_GET_NAME(ScriptName);
     P_FINISH;
     *(ARPawnCharacter**)Result = GetSpeaker(PC, ScriptName);
+}
+
+/* Kit gap: ARPawnPlayer's native ForceUnCrouch and the unnamed sub_01688660 it wraps aren't declared (the name comes from the class's native table). */
+struct ARPawnPlayer_ : public ARPawnPlayer
+{
+    void execForceUnCrouch(FFrame& Stack, RESULT_DECL);
+    void sub_01688660(); /* 0x01688660 */
+};
+
+// @baa 0x016f6db0
+void ARPawnPlayer_::execForceUnCrouch(FFrame& Stack, RESULT_DECL)
+{
+    P_FINISH;
+    sub_01688660();
+}
+
+/* Kit gap: ARPawnPlayer's native UpdateGrateExcluder and the unnamed sub_0169bc40 it wraps aren't declared (the name comes from the class's native table). */
+struct ARPawnPlayer__016f6de0 : public ARPawnPlayer
+{
+    void execUpdateGrateExcluder(FFrame& Stack, RESULT_DECL);
+    void sub_0169bc40(); /* 0x0169bc40 */
+};
+
+// @baa 0x016f6de0
+void ARPawnPlayer__016f6de0::execUpdateGrateExcluder(FFrame& Stack, RESULT_DECL)
+{
+    P_FINISH;
+    sub_0169bc40();
+}
+
+/* Kit gap: ARPawnPlayer's native ClearOverridableTransition aren't declared (the name comes from the class's native table). */
+struct ARPawnPlayer__016f6e10 : public ARPawnPlayer
+{
+    void execClearOverridableTransition(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x016f6e10
+void ARPawnPlayer__016f6e10::execClearOverridableTransition(FFrame& Stack, RESULT_DECL)
+{
+    P_FINISH;
+    sub_0168d8b0();
 }

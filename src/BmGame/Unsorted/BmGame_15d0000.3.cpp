@@ -1,4 +1,4 @@
-// BmGame_15d0000.cpp: 5 functions
+// BmGame_15d0000.cpp: 6 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -164,4 +164,27 @@ FVector URBMBehaviour_Combat::GetForceToGiveToPawn(ARPawnCombat* ForceReceiver, 
 UBOOL URBMBehaviour_Combat::IsLocationInCombatArea(FVector TestLocation)
 {
     return !HostController->bUseCombatAreas || CombatManager->IsLocationInCombatArea(TestLocation);
+}
+
+/* Kit gap: FVector has no operators (UnMath.h operator- and operator|). */
+struct FVector_ : public FVector
+{
+    FORCEINLINE FVector_() {}
+    FORCEINLINE FVector_(FLOAT InX, FLOAT InY, FLOAT InZ) { X = InX; Y = InY; Z = InZ; }
+    FORCEINLINE FVector_ operator-(const FVector& V) const { return FVector_(X - V.X, Y - V.Y, Z - V.Z); }
+    FORCEINLINE FLOAT operator|(const FVector& V) const { return X * V.X + Y * V.Y + Z * V.Z; }
+};
+
+// @baa 0x015dda00
+/* TestPawn is "in front" when our pawn lies along its aim direction by more than Angle (a dot product against the
+ * unnormalised offset, as in the original). */
+UBOOL URBMBehaviour_Combat::IsInFrontOfPawn(ARPawnCombat* TestPawn, FLOAT Angle)
+{
+    FVector_ AimDir;
+    (FVector&)AimDir = TestPawn->GetActualAimAtDirection();
+    if ((AimDir | (((FVector_&)HostPawn->Location) - TestPawn->Location)) > Angle)
+    {
+        return TRUE;
+    }
+    return FALSE;
 }

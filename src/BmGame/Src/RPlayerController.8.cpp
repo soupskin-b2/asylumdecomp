@@ -1,4 +1,4 @@
-// RPlayerController.cpp: 11 functions
+// RPlayerController.cpp: 19 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -137,4 +137,162 @@ void ARPlayerController::execLive_DeleteSavedGame(FFrame& Stack, RESULT_DECL)
     P_GET_INT(Id);
     P_FINISH;
     *(UBOOL*)Result = Live_DeleteSavedGame(Id);
+}
+
+/* Kit gap: ARPlayerController::GetLeftRightAxis (out of line at 01614b70) isn't declared. */
+struct ARPlayerController__016f8f30 : public ARPlayerController
+{
+	FVector GetLeftRightAxis(FVector& ForwardAxis, INT Side);	/* 0x01614b70 */
+};
+
+// @baa 0x016f8f30
+void ARPlayerController::execGetLeftRightAxis(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT_REF(FVector, ForwardAxis);
+	P_GET_INT_OPTX(Side, 1);
+	P_FINISH;
+	*(FVector*)Result = ((ARPlayerController__016f8f30*)this)->GetLeftRightAxis(ForwardAxis, Side);
+}
+
+extern FName g_026e2c28;
+	/* BMGAME_ForceNotDestroy */
+struct ARSpecialMoveInstance_ : public ARSpecialMoveInstance
+{
+	UBOOL eventForceNotDestroy();
+};
+
+// @baa 0x016128b0
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+UBOOL ARSpecialMoveInstance_::eventForceNotDestroy()
+{
+	struct RSpecialMoveInstance_eventForceNotDestroy_Parms
+	{
+		UBOOL ReturnValue;
+	} Parms;
+	Parms.ReturnValue = FALSE;
+	ProcessEvent(FindFunctionChecked(g_026e2c28), &Parms);
+	return Parms.ReturnValue;
+}
+
+extern FName g_026e3568;
+	/* BMGAME_CancelSpecialMove */
+struct ARSpecialMoveInstance__01612880 : public ARSpecialMoveInstance
+{
+	void eventCancelSpecialMove();
+};
+
+// @baa 0x01612880
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+void ARSpecialMoveInstance__01612880::eventCancelSpecialMove()
+{
+	ProcessEvent(FindFunctionChecked(g_026e3568), NULL);
+}
+
+extern FName g_026e31e4;
+	/* BMGAME_IsStunned */
+struct ARBMAIController_ : public ARBMAIController
+{
+	UBOOL eventIsStunned();
+};
+
+// @baa 0x015d8a70
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+UBOOL ARBMAIController_::eventIsStunned()
+{
+	struct RBMAIController_eventIsStunned_Parms
+	{
+		UBOOL ReturnValue;
+	} Parms;
+	Parms.ReturnValue = FALSE;
+	ProcessEvent(FindFunctionChecked(g_026e31e4), &Parms);
+	return Parms.ReturnValue;
+}
+
+extern FName g_026e2708;
+	/* BMGAME_IsOnSamePath */
+struct ARBMPathNode_SpecialMove_ : public ARBMPathNode_SpecialMove
+{
+	UBOOL eventIsOnSamePath(class ARPathNode* TestNode);
+};
+
+// @baa 0x0160db90
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+UBOOL ARBMPathNode_SpecialMove_::eventIsOnSamePath(class ARPathNode* TestNode)
+{
+	struct RBMPathNode_SpecialMove_eventIsOnSamePath_Parms
+	{
+		class ARPathNode* TestNode;
+		UBOOL ReturnValue;
+	} Parms;
+	Parms.TestNode = TestNode;
+	Parms.ReturnValue = FALSE;
+	ProcessEvent(FindFunctionChecked(g_026e2708), &Parms);
+	return Parms.ReturnValue;
+}
+
+extern FName g_026e295c;
+	/* BMGAME_IsValidForStrike */
+struct ARPawnBossVenomBase_ : public ARPawnBossVenomBase
+{
+	UBOOL eventIsValidForStrike(class ARPawnCombat* TestPawn, class UClass* DamageType);
+};
+
+// @baa 0x0160e540
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+UBOOL ARPawnBossVenomBase_::eventIsValidForStrike(class ARPawnCombat* TestPawn, class UClass* DamageType)
+{
+	struct RPawnBossVenomBase_eventIsValidForStrike_Parms
+	{
+		class ARPawnCombat* TestPawn;
+		class UClass* DamageType;
+		UBOOL ReturnValue;
+	} Parms;
+	Parms.TestPawn = TestPawn;
+	Parms.DamageType = DamageType;
+	Parms.ReturnValue = FALSE;
+	ProcessEvent(FindFunctionChecked(g_026e295c), &Parms);
+	return Parms.ReturnValue;
+}
+
+extern FName g_026e3184;
+	/* BMGAME_CanReachItem */
+struct ARPlayerController__01612690 : public ARPlayerController
+{
+	UBOOL eventCanReachItem(class AActor* CheckActor);
+};
+
+// @baa 0x01612690
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+UBOOL ARPlayerController__01612690::eventCanReachItem(class AActor* CheckActor)
+{
+	struct RPlayerController_eventCanReachItem_Parms
+	{
+		class AActor* CheckActor;
+		UBOOL ReturnValue;
+	} Parms;
+	Parms.CheckActor = CheckActor;
+	Parms.ReturnValue = FALSE;
+	ProcessEvent(FindFunctionChecked(g_026e3184), &Parms);
+	return Parms.ReturnValue;
+}
+
+extern FName g_026e2c14;
+	/* BMGAME_TriggerSpecialMove */
+struct URSpecialMoveConfig_ : public URSpecialMoveConfig
+{
+	void eventTriggerSpecialMove(class ARPlayerController* Controller, FEnvironmentSpecialMoveLocator MoveLocation);
+};
+
+// @baa 0x01612950
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+void URSpecialMoveConfig_::eventTriggerSpecialMove(class ARPlayerController* Controller, FEnvironmentSpecialMoveLocator MoveLocation)
+{
+	struct RSpecialMoveConfig_eventTriggerSpecialMove_Parms
+	{
+		class ARPlayerController* Controller;
+		FEnvironmentSpecialMoveLocator MoveLocation;
+	} Parms;
+	Parms.Controller = Controller;
+	Parms.MoveLocation = MoveLocation;
+	ProcessEvent(FindFunctionChecked(g_026e2c14), &Parms);
 }

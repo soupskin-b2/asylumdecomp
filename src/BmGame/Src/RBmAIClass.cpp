@@ -1,4 +1,4 @@
-// RBmAIClass.cpp: 38 functions
+// RBmAIClass.cpp: 44 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -674,4 +674,133 @@ struct URBMBehaviourAutoStringUp_ : public URBMBehaviourAutoStringUp
 void URBMBehaviourAutoStringUp_::eventUpdateLinks()
 {
 	ProcessEvent(FindFunctionChecked(g_026e2794), NULL);
+}
+
+extern FName g_026e284c;
+	/* BMGAME_CalcVisibilityFor */
+struct ARBMAIController__015d8d10 : public ARBMAIController
+{
+	BYTE eventCalcVisibilityFor(class AActor* A);
+};
+
+// @baa 0x015d8d10
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+BYTE ARBMAIController__015d8d10::eventCalcVisibilityFor(class AActor* A)
+{
+	struct RBMAIController_eventCalcVisibilityFor_Parms
+	{
+		class AActor* A;
+		BYTE ReturnValue;
+	} Parms;
+	Parms.A = A;
+	Parms.ReturnValue = 0;
+	ProcessEvent(FindFunctionChecked(g_026e284c), &Parms);
+	return Parms.ReturnValue;
+}
+
+extern FName g_026e2828;
+	/* BMGAME_AlertSeen */
+struct ARAlertEventCoordinator_ : public ARAlertEventCoordinator
+{
+	void eventAlertSeen(class ARBMAIController* Spotter);
+};
+
+// @baa 0x015d8ee0
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+void ARAlertEventCoordinator_::eventAlertSeen(class ARBMAIController* Spotter)
+{
+	struct RAlertEventCoordinator_eventAlertSeen_Parms
+	{
+		class ARBMAIController* Spotter;
+	} Parms;
+	Parms.Spotter = Spotter;
+	ProcessEvent(FindFunctionChecked(g_026e2828), &Parms);
+}
+
+extern FName g_026e3930;
+	/* BMGAME_AlertSuspected */
+struct ARAlertEventCoordinator__015d8f20 : public ARAlertEventCoordinator
+{
+	void eventAlertSuspected(class ARBMAIController* Suspectee, UBOOL bUpdateAlert);
+};
+
+// @baa 0x015d8f20
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+void ARAlertEventCoordinator__015d8f20::eventAlertSuspected(class ARBMAIController* Suspectee, UBOOL bUpdateAlert)
+{
+	struct RAlertEventCoordinator_eventAlertSuspected_Parms
+	{
+		class ARBMAIController* Suspectee;
+		UBOOL bUpdateAlert;
+	} Parms;
+	Parms.Suspectee = Suspectee;
+	Parms.bUpdateAlert = bUpdateAlert ? TRUE : FALSE;
+	ProcessEvent(FindFunctionChecked(g_026e3930), &Parms);
+}
+
+extern FName g_026e36fc;
+	/* BMGAME_IsPlayingOverlay */
+struct URBMBehaviour_MoveToJokerInChair__015d9ba0 : public URBMBehaviour_MoveToJokerInChair
+{
+	UBOOL eventIsPlayingOverlay(class ARPawnCharacter* P, FOverlayId Id);
+};
+
+// @baa 0x015d9ba0
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+UBOOL URBMBehaviour_MoveToJokerInChair__015d9ba0::eventIsPlayingOverlay(class ARPawnCharacter* P, FOverlayId Id)
+{
+	struct RBMBehaviour_MoveToJokerInChair_eventIsPlayingOverlay_Parms
+	{
+		class ARPawnCharacter* P;
+		FOverlayId Id;
+		UBOOL ReturnValue;
+	} Parms;
+	Parms.P = P;
+	Parms.Id = Id;
+	Parms.ReturnValue = FALSE;
+	ProcessEvent(FindFunctionChecked(g_026e36fc), &Parms);
+	return Parms.ReturnValue;
+}
+
+extern FName g_026e2dfc;
+	/* BMGAME_ChangePose */
+struct URBMBehaviour_MoveToJokerInChair__015d9c00 : public URBMBehaviour_MoveToJokerInChair
+{
+	void eventChangePose(class ARPawnCharacter* P, FName Stand, FName Weap);
+};
+
+// @baa 0x015d9c00
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+void URBMBehaviour_MoveToJokerInChair__015d9c00::eventChangePose(class ARPawnCharacter* P, FName Stand, FName Weap)
+{
+	struct RBMBehaviour_MoveToJokerInChair_eventChangePose_Parms
+	{
+		class ARPawnCharacter* P;
+		FName Stand;
+		FName Weap;
+	} Parms;
+	Parms.P = P;
+	Parms.Stand = Stand;
+	Parms.Weap = Weap;
+	ProcessEvent(FindFunctionChecked(g_026e2dfc), &Parms);
+}
+
+extern FName g_026e2a90;
+	/* BMGAME_HasLOS */
+struct URBMBehaviour_IdleWithPlannarProp__015fb1f0 : public URBMBehaviour_IdleWithPlannarProp
+{
+	UBOOL eventHasLOS();
+};
+
+// @baa 0x015fb1f0
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+UBOOL URBMBehaviour_IdleWithPlannarProp__015fb1f0::eventHasLOS()
+{
+	struct RBMBehaviour_IdleWithPlannarProp_eventHasLOS_Parms
+	{
+		UBOOL ReturnValue;
+	} Parms;
+	Parms.ReturnValue = FALSE;
+	ProcessEvent(FindFunctionChecked(g_026e2a90), &Parms);
+	return Parms.ReturnValue;
 }

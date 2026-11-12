@@ -1,4 +1,4 @@
-// UnSkeletalAnim.cpp: 4 functions
+// UnSkeletalAnim.cpp: 5 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -38,4 +38,23 @@ void USkeletalMeshComponent::execAttachComponentToSocket(FFrame& Stack, RESULT_D
 	{
 		AttachComponentToSocket(Component, SocketName);
 	}
+}
+
+extern FName g_026c430c;
+	/* ENGINE_PlayRumble */
+struct APlayerController_ : public APlayerController
+{
+	void eventPlayRumble(class UAnimNotify_Rumble* TheAnimNotify);
+};
+
+// @baa 0x0090afa0
+/* The script event's generated glue (EngineClasses.h), out of line here. */
+void APlayerController_::eventPlayRumble(class UAnimNotify_Rumble* TheAnimNotify)
+{
+	struct PlayerController_eventPlayRumble_Parms
+	{
+		class UAnimNotify_Rumble* TheAnimNotify;
+	} Parms;
+	Parms.TheAnimNotify = TheAnimNotify;
+	ProcessEvent(FindFunctionChecked(g_026c430c), &Parms);
 }

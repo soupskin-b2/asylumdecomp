@@ -1,4 +1,4 @@
-// UnNetDrv.cpp (part 3 of 3): 8 functions
+// UnNetDrv.cpp (part 3 of 3): 9 functions
 // Placed here by: class 5.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -68,4 +68,26 @@ undefined4 * UPackageMap::sub_00e14990(void)
   sub_0061bbe0();
   *param_1 = (undefined4)(&g_020e41b0);
   return param_1;
+}
+
+// sub_005a9030 = int __thiscall TArray<T_005a9030 *>::RemoveItem(T_005a9030 * const &)
+struct T_005a9030 {
+    char *Ptr;
+};
+
+struct TArrayPtr_005a9030 : public T_005a9030 {
+    int __thiscall RemoveItem(T_005a9030 * const &Item); /* 0x005a9030 */
+};
+
+extern volatile TArrayPtr_005a9030 *const g_0268d110;
+extern char g_01e8bd3c[];
+struct S_005aa290 : public T_005a9030 {
+    void sub_005aa290();
+};
+
+// @baa 0x005aa290
+void S_005aa290::sub_005aa290()
+{
+    Ptr = g_01e8bd3c;
+    (*(TArrayPtr_005a9030 *)&g_0268d110).RemoveItem(this);
 }

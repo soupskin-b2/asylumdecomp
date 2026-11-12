@@ -1,4 +1,4 @@
-// Core_05f0000.cpp (part 6 of 6): 4 functions
+// Core_05f0000.cpp (part 6 of 6): 7 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -64,4 +64,72 @@ INT __stdcall sub_005fa520(INT A, INT* Out)
 {
     *Out = 0;
     return 0;
+}
+
+extern "C" double g_01ea7090;
+struct Gadget
+{
+	double A;		// 0x00
+	double B;		// 0x08
+	double C;		// 0x10
+	INT D;			// 0x18
+	Gadget* sub_005fb4e0();	// 0x005fb4e0
+};
+
+// @baa 0x005fb4e0
+Gadget* Gadget::sub_005fb4e0(void)
+{
+	A = 0.0;
+	D = 0;
+	B = g_01ea7090;
+	C = 0.0;
+	return this;
+}
+
+// 005fd0e0
+// Copies two INT fields from a source into *this and stamps the third with -1.
+struct S005fd0e0
+{
+	INT Value0;
+	INT Value1;
+	INT Value2;
+
+	S005fd0e0& sub_005fd0e0(const S005fd0e0& Src);
+};
+
+// @baa 0x005fd0e0
+S005fd0e0& S005fd0e0::sub_005fd0e0(const S005fd0e0& Src)
+{
+	Value0 = Src.Value0;
+	Value1 = Src.Value1;
+	Value2 = -1;
+	return *this;
+}
+
+struct Source2 {
+    INT A;
+    INT B;
+};
+
+struct Dest3 {
+    INT A;
+    INT B;
+    INT C;
+
+    __declspec(noinline) Dest3* Init(const Source2* Source)
+    {
+        A = Source->A;
+        B = Source->B;
+        C = -1;
+        return this;
+    }
+};
+
+static Dest3 g_005fcda0_obj;
+// @baa 0x005fcda0
+void sub_005fcda0_caller()
+{
+    const Source2 S = { 1, 2 };
+    Dest3* d = g_005fcda0_obj.Init(&S);
+    (void)d;
 }

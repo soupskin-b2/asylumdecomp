@@ -1,4 +1,4 @@
-// UnrealEd_0620000.cpp: 23 functions
+// UnrealEd_0620000.cpp: 25 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -157,3 +157,26 @@ void __stdcall sub_0062c0f0(int a0, int a1) {  }
 
 // @baa 0x0062c110
 void __stdcall sub_0062c110(int a0, int a1, int a2) {  }
+
+extern "C" INT sub_00623a10(INT A, INT B, const wchar_t* Str);
+// @baa 0x00624ac0
+void sub_00624ac0(INT A, INT B, const wchar_t* Str)
+{
+	Str = Str ? L"True" : L"False";
+	sub_00623a10(A, B, Str);
+}
+
+struct UPackageMap_ : public UPackageMap
+{
+	void* sub_00622120(void* Obj, INT B); /* 00622120 */
+	void* sub_00623550(void* Obj);        /* 00623550 */
+};
+
+// @baa 0x00623550
+void* UPackageMap_::sub_00623550(void* Obj)
+{
+	void* R = sub_00622120(Obj, 1);
+	if (R)
+		*(INT*)((char*)R + 0x40) = 1;
+	return R;
+}

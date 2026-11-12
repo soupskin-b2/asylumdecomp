@@ -1,4 +1,4 @@
-// UnPawn.cpp (part 1 of 2): 103 functions
+// UnPawn.cpp (part 1 of 2): 108 functions
 // Placed here by: neighbours 49, class 32, callers 3, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1479,4 +1479,76 @@ BYTE APawn::GetTeamNum()
         return DrivenVehicle->GetTeamNum();
     }
     return 255;
+}
+
+/* Unnamed in the kit: UE3's APawn::ClearSerpentine() (called from AController::execMoveTo/execMoveToward). */
+struct APawn__00865610 : public APawn
+{
+    void sub_00865610();
+};
+
+// @baa 0x00865610
+void APawn__00865610::sub_00865610()
+{
+    SerpentineTime = 999.f;
+    SerpentineDist = 0.f;
+}
+
+/* Kit gap: FVector has no constructors or operators here (UnMath.h); builds the return value in place. */
+static FORCEINLINE FVector MakeVector(FLOAT X, FLOAT Y, FLOAT Z)
+{
+    FVector Result;
+    Result.X = X;
+    Result.Y = Y;
+    Result.Z = Z;
+    return Result;
+}
+
+// @baa 0x00867c30
+/* APawn slot 0x398 (kit vf_398): UE3's APawn::GetPawnViewLocation(): Location + FVector(0,0,1) * BaseEyeHeight. */
+FVector APawn::vf_398()
+{
+    const FVector EyeOffset = MakeVector(0.f * BaseEyeHeight, 0.f * BaseEyeHeight, 1.f * BaseEyeHeight);
+    return MakeVector(Location.X + EyeOffset.X, Location.Y + EyeOffset.Y, Location.Z + EyeOffset.Z);
+}
+
+/* Unnamed in the kit: the pawn's gravity direction (spiders fall away from their floor, everyone else down). */
+struct APawn__00866050 : public APawn
+{
+    FVector sub_00866050();
+};
+
+// @baa 0x00866050
+FVector APawn__00866050::sub_00866050()
+{
+    if (Physics == PHYS_Spider)
+    {
+        return MakeVector(-Floor.X, -Floor.Y, -Floor.Z);
+    }
+    return MakeVector(0.f, 0.f, -1.f);
+}
+
+/* Unnamed in the kit: UE3's APawn::IsHumanControlled(). */
+struct APawn__00865070 : public APawn
+{
+    UBOOL sub_00865070();
+};
+
+// @baa 0x00865070
+UBOOL APawn__00865070::sub_00865070()
+{
+    return Controller && Controller->GetAPlayerController();
+}
+
+/* Unnamed in the kit: UE3's APawn::IsLocallyControlled() (0x008650a0). */
+struct APawn__008038b0 : public APawn
+{
+    UBOOL sub_008650a0();
+};
+
+// @baa 0x008038b0
+/* APawn slot 0x1b8 (kit vf_1b8): UE3's IsLocalPlayerControlled(): locally controlled by a player controller. */
+bool APawn::vf_1b8()
+{
+    return ((APawn__008038b0*)this)->sub_008650a0() && Controller && Controller->GetAPlayerController();
 }

@@ -1,4 +1,4 @@
-// Engine_0560000.cpp (part 1 of 2): 167 functions
+// Engine_0560000.cpp (part 1 of 2): 168 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1361,4 +1361,22 @@ struct Sub005663c0 {
 unsigned int Sub005663c0::sub_005663c0(unsigned int Mask)
 {
     return (*(unsigned int*)((char*)this + 0xdc) & Mask) == Mask;
+}
+
+// 0x005677f0: a small non-UObject resource object's accessor. It forwards to the object's
+// third virtual (vtable + 0x8; the first two slots belong to its base class) with a zeroed
+// out param and an index, then returns the out param.
+struct S_005677f0 {
+    virtual void vf_000();
+    virtual void vf_004();
+    virtual BYTE sub_005677d0(BYTE* Result, INT Index);
+    BYTE sub_005677f0();
+};
+
+// @baa 0x005677f0
+BYTE S_005677f0::sub_005677f0()
+{
+    BYTE Result = 0;
+    sub_005677d0(&Result, 1);
+    return Result;
 }

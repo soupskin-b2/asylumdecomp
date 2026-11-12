@@ -1,4 +1,4 @@
-// Editor_0640000.cpp: 14 functions
+// Editor_0640000.cpp: 15 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -110,4 +110,18 @@ undefined4 C_00649570::sub_00649570(void)
 {
     undefined4 param_1 = (undefined4)this;
   return param_1;
+}
+
+struct S006490f0 {
+	float f0;
+	float f1;
+	S006490f0* sub_006490f0(float a, float b);
+};
+
+// @baa 0x006490f0
+S006490f0* S006490f0::sub_006490f0(float a, float b)
+{
+	f0 = a;
+	f1 = b;
+	return this;
 }

@@ -1,4 +1,4 @@
-// BmGame_1710000.cpp (part 1 of 2): 121 functions
+// BmGame_1710000.cpp (part 1 of 2): 122 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -837,4 +837,25 @@ C_0171c180& C_0171c180::sub_0171c180(int Arg)
 void ARHarpoonDragTrack::vf_180()
 {
     CurrentLocation = Location;
+}
+
+/* Kit gap: FName has no comparison operator (UnName.h compares Index and Number). */
+inline UBOOL operator==(const FName& A, const FName& B) { return A.Index == B.Index && A.Number == B.Number; }
+
+// @baa 0x0171f3d0
+/* Hitting one of the instant-kill bones knocks the helmet off. */
+INT ARJokerGunGadgetBase::GetShouldKnockHelmetOff(FName BoneName)
+{
+    const TArray<FName>& BoneNames = InstantKillBoneNames;
+    const INT NumBones = BoneNames.Num();
+    UBOOL bKnockOff = FALSE;
+    for (INT i = 0; i < NumBones; i++)
+    {
+        if (BoneName == BoneNames(i))
+        {
+            bKnockOff = TRUE;
+            break;
+        }
+    }
+    return bKnockOff;
 }

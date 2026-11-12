@@ -1,4 +1,4 @@
-// ParticleModules_Parameter.cpp (part 1 of 2): 93 functions
+// ParticleModules_Parameter.cpp (part 1 of 2): 94 functions
 // Placed here by: class 57, neighbours 29, file 2, callers 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1000,4 +1000,12 @@ int UParticleModuleParameterBase::vf_000(void) { return 1; }
 bool UParticleModuleParameterBase::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// The callee takes one argument; this wrapper hands back what it returns.
+INT sub_00a5a020(UObject* Object);
+// @baa 0x00b4c970
+INT __stdcall sub_00b4c970(UObject* Object)
+{
+    return sub_00a5a020(Object);
 }

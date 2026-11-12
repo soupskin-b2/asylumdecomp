@@ -1,4 +1,4 @@
-// Engine_0690000.cpp (part 6 of 8): 4 functions
+// Engine_0690000.cpp (part 6 of 8): 5 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -70,4 +70,12 @@ void Use_0069be30(C_0069be30* This)
 void __stdcall sub_0069be00(INT* Out, INT B)
 {
     *Out = 0;
+}
+
+int sub_0053d240(INT, INT, INT);
+// @baa 0x00699200
+ // 0053d240
+void __stdcall sub_00699200(INT A, INT B, INT C)
+{
+	sub_0053d240(A, B, C);
 }

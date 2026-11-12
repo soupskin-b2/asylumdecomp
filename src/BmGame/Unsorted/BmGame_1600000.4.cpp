@@ -1,4 +1,4 @@
-// BmGame_1600000.cpp: 2 functions
+// BmGame_1600000.cpp: 3 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -38,4 +38,24 @@ struct URBMSpeechManager_ : public URBMSpeechManager
 void URBMSpeechManager_::eventStopAllSpeech()
 {
 	ProcessEvent(FindFunctionChecked(g_026e3048), NULL);
+}
+
+extern FName g_026e3280;
+	/* BMGAME_GetNumEvents */
+struct URIdleConfig_ : public URIdleConfig
+{
+	INT eventGetNumEvents();
+};
+
+// @baa 0x0160e790
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+INT URIdleConfig_::eventGetNumEvents()
+{
+	struct RIdleConfig_eventGetNumEvents_Parms
+	{
+		INT ReturnValue;
+	} Parms;
+	Parms.ReturnValue = 0;
+	ProcessEvent(FindFunctionChecked(g_026e3280), &Parms);
+	return Parms.ReturnValue;
 }

@@ -1,4 +1,4 @@
-// Engine_0920000.cpp: 10 functions
+// Engine_0920000.cpp: 11 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -98,4 +98,19 @@ void USkeletalMeshComponent::execGetBoneQuaternion(FFrame& Stack, RESULT_DECL)
     P_GET_INT_OPTX(Space, 0);
     P_FINISH;
     *(FQuat*)Result = ((USkeletalMeshComponent__0092de90*)this)->GetBoneQuaternion(BoneName, Space);
+}
+
+/* Kit gap: USkeletalMeshComponent::AddInstanceVertexWeightBoneParented (UnSkeletalComponent.cpp) isn't declared. */
+struct USkeletalMeshComponent__0092e7a0 : public USkeletalMeshComponent
+{
+	void AddInstanceVertexWeightBoneParented(FName BoneName, UBOOL bPairWithParent);	/* 0x0092e720 */
+};
+
+// @baa 0x0092e7a0
+void USkeletalMeshComponent::execAddInstanceVertexWeightBoneParented(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_NAME(BoneName);
+	P_GET_UBOOL_OPTX(bPairWithParent, TRUE);
+	P_FINISH;
+	((USkeletalMeshComponent__0092e7a0*)this)->AddInstanceVertexWeightBoneParented(BoneName, bPairWithParent);
 }

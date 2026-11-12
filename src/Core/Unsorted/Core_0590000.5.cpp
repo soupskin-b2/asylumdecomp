@@ -1,4 +1,4 @@
-// Core_0590000.cpp: 11 functions
+// Core_0590000.cpp: 12 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -102,4 +102,22 @@ void UObject::execFClamp(FFrame& Stack, RESULT_DECL)
 	P_GET_FLOAT(B);
 	P_FINISH;
 	*(FLOAT*)Result = Clamp(V, A, B);
+}
+
+/* Kit gap: FRotator::operator*(FLOAT) (UnMath.h) isn't declared. */
+struct FRotator_ : public FRotator
+{
+	FORCEINLINE FRotator operator*(FLOAT Scale) const
+	{
+		return FRotator(appTrunc(Pitch * Scale), appTrunc(Yaw * Scale), appTrunc(Roll * Scale));
+	}
+};
+
+// @baa 0x00597150
+void UObject::execMultiply_FloatRotator(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(A);
+	P_GET_STRUCT(FRotator, B);
+	P_FINISH;
+	*(FRotator*)Result = ((const FRotator_&)B) * A;
 }

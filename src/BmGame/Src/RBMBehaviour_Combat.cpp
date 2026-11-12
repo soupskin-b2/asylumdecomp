@@ -1,4 +1,4 @@
-// RBMBehaviour_Combat.cpp: 33 functions
+// RBMBehaviour_Combat.cpp: 34 functions
 // Placed here by: callers 7, file 7.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -147,4 +147,22 @@ bool URBMBehaviour_CombatRifle::vf_004()
 bool URBMBehaviour_CombatStunStick::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x015ed580
+/* With no combat areas every location counts; otherwise it has to be inside one of them. */
+UBOOL ARBMCombatManager::IsLocationInCombatArea(FVector TestLocation)
+{
+    if (CombatAreas.Num() == 0)
+    {
+        return TRUE;
+    }
+    for (INT i = 0; i < CombatAreas.Num(); i++)
+    {
+        if (CombatAreas(i)->IsLocationInArea(TestLocation))
+        {
+            return TRUE;
+        }
+    }
+    return FALSE;
 }

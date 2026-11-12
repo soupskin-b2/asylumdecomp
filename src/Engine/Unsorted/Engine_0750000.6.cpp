@@ -1,4 +1,4 @@
-// Engine_0750000.cpp: 3 functions
+// Engine_0750000.cpp: 4 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -66,4 +66,23 @@ BYTE AActor__00758bf0::eventScriptGetTeamNum()
 	Parms.ReturnValue = 0;
 	ProcessEvent(FindFunctionChecked(g_026c52d8), &Parms);
 	return Parms.ReturnValue;
+}
+
+extern FName g_026c45ac;
+	/* ENGINE_FellOutOfWorld */
+struct AActor__00753840 : public AActor
+{
+	void eventFellOutOfWorld(class UClass* dmgType);
+};
+
+// @baa 0x00753840
+/* The script event's generated glue (EngineClasses.h), out of line here. */
+void AActor__00753840::eventFellOutOfWorld(class UClass* dmgType)
+{
+	struct Actor_eventFellOutOfWorld_Parms
+	{
+		class UClass* dmgType;
+	} Parms;
+	Parms.dmgType = dmgType;
+	ProcessEvent(FindFunctionChecked(g_026c45ac), &Parms);
 }

@@ -1,4 +1,4 @@
-// BmGame_1680000.cpp: 7 functions
+// BmGame_1680000.cpp: 11 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -135,5 +135,85 @@ FName ARPlayerController__01686910::eventGetPostLandPose()
 	} Parms;
 	Parms.ReturnValue = FName(NAME_None);
 	ProcessEvent(FindFunctionChecked(g_026e3418), &Parms);
+	return Parms.ReturnValue;
+}
+
+extern FName g_026e2bcc;
+	/* BMGAME_FinaliseHeadAndMaterials */
+struct ARPawn_ : public ARPawn
+{
+	void eventFinaliseHeadAndMaterials();
+};
+
+// @baa 0x01686280
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+void ARPawn_::eventFinaliseHeadAndMaterials()
+{
+	ProcessEvent(FindFunctionChecked(g_026e2bcc), NULL);
+}
+
+extern FName g_026e31d0;
+	/* BMGAME_GetTargetPriority */
+struct ARPawnCombat_ : public ARPawnCombat
+{
+	FLOAT eventGetTargetPriority(class ARPawnCombat* Attacker, class UClass* dmgType);
+};
+
+// @baa 0x016862d0
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+FLOAT ARPawnCombat_::eventGetTargetPriority(class ARPawnCombat* Attacker, class UClass* dmgType)
+{
+	struct RPawnCombat_eventGetTargetPriority_Parms
+	{
+		class ARPawnCombat* Attacker;
+		class UClass* dmgType;
+		FLOAT ReturnValue;
+	} Parms;
+	Parms.Attacker = Attacker;
+	Parms.dmgType = dmgType;
+	Parms.ReturnValue = 0;
+	ProcessEvent(FindFunctionChecked(g_026e31d0), &Parms);
+	return Parms.ReturnValue;
+}
+
+extern FName g_026e354c;
+	/* BMGAME_CanBeHitInCombat */
+struct ARPawnCombat__01686330 : public ARPawnCombat
+{
+	UBOOL eventCanBeHitInCombat(class URDamageType* DamageType);
+};
+
+// @baa 0x01686330
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+UBOOL ARPawnCombat__01686330::eventCanBeHitInCombat(class URDamageType* DamageType)
+{
+	struct RPawnCombat_eventCanBeHitInCombat_Parms
+	{
+		class URDamageType* DamageType;
+		UBOOL ReturnValue;
+	} Parms;
+	Parms.DamageType = DamageType;
+	Parms.ReturnValue = FALSE;
+	ProcessEvent(FindFunctionChecked(g_026e354c), &Parms);
+	return Parms.ReturnValue;
+}
+
+extern FName g_026e3428;
+	/* BMGAME_CanBeTargettedByPlayer */
+struct ARCombatMove_ : public ARCombatMove
+{
+	UBOOL eventCanBeTargettedByPlayer();
+};
+
+// @baa 0x016869f0
+/* The script event's generated glue (BmGameClasses.h), out of line here. */
+UBOOL ARCombatMove_::eventCanBeTargettedByPlayer()
+{
+	struct RCombatMove_eventCanBeTargettedByPlayer_Parms
+	{
+		UBOOL ReturnValue;
+	} Parms;
+	Parms.ReturnValue = FALSE;
+	ProcessEvent(FindFunctionChecked(g_026e3428), &Parms);
 	return Parms.ReturnValue;
 }

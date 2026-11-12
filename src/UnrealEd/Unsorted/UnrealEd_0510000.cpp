@@ -1,4 +1,4 @@
-// UnrealEd_0510000.cpp (part 1 of 3): 213 functions
+// UnrealEd_0510000.cpp (part 1 of 3): 214 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Core.h"
@@ -1523,4 +1523,20 @@ void SOuter::sub_0051be20()
 {
     if (Field_148)
         Field_148->sub_0051be20(0);
+}
+
+// Returns the playback object (g_0261884c).
+extern "C" INT sub_00472f80(void);
+// 0x00464ad0
+struct Playback_
+{
+    void sub_00464ad0(INT a, INT b);
+};
+
+// @baa 0x00512210
+void __stdcall sub_00512210(INT Arg)
+{
+    Playback_ *Playback = (Playback_ *)sub_00472f80();
+    if (Playback)
+        Playback->sub_00464ad0(Arg, 0);
 }

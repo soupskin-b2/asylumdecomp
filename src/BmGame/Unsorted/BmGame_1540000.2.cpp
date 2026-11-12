@@ -1,4 +1,4 @@
-// BmGame_1540000.cpp: 9 functions
+// BmGame_1540000.cpp: 12 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -187,5 +187,65 @@ UBOOL ARPlayerController__0154c9a0::eventDrawHUDLines()
 	} Parms;
 	Parms.ReturnValue = FALSE;
 	ProcessEvent(FindFunctionChecked(g_026e2550), &Parms);
+	return Parms.ReturnValue;
+}
+
+extern FName g_026e3a3c;
+// A parameterless UnrealScript event that returns an int: the generated glue, out of line here.
+struct UObject_ : public UObject
+{
+    INT eventScriptCall();
+};
+
+// @baa 0x0154af90
+INT UObject_::eventScriptCall()
+{
+    struct ScriptCall_Parms
+    {
+        INT ReturnValue;
+    } Parms;
+    Parms.ReturnValue = 0;
+    ProcessEvent(FindFunctionChecked(g_026e3a3c), &Parms);
+    return Parms.ReturnValue;
+}
+
+extern FName g_026c4398;
+	/* ENGINE_SetInvestigateHighlighted */
+struct AActor_ : public AActor
+{
+	void eventSetInvestigateHighlighted(class UMaterialInstanceConstant* highMat, UBOOL On);
+};
+
+// @baa 0x0154aae0
+/* The script event's generated glue (EngineClasses.h), out of line here. */
+void AActor_::eventSetInvestigateHighlighted(class UMaterialInstanceConstant* highMat, UBOOL On)
+{
+	struct Actor_eventSetInvestigateHighlighted_Parms
+	{
+		class UMaterialInstanceConstant* highMat;
+		UBOOL On;
+	} Parms;
+	Parms.highMat = highMat;
+	Parms.On = On ? TRUE : FALSE;
+	ProcessEvent(FindFunctionChecked(g_026c4398), &Parms);
+}
+
+extern FName g_026c4d88;
+	/* ENGINE_GetGameTimePlayed */
+struct AGameInfo_ : public AGameInfo
+{
+	FLOAT eventGetGameTimePlayed();
+};
+
+// @baa 0x0154abf0
+/* The script event's generated glue (EngineClasses.h), out of line here. */
+FLOAT AGameInfo_::eventGetGameTimePlayed()
+{
+	struct GameInfo_eventGetGameTimePlayed_Parms
+	{
+		FLOAT ReturnValue;
+	} Parms;
+	Parms.ReturnValue = 0;
+	ProcessEvent(FindFunctionChecked(g_026c4d88), &Parms);
 	return Parms.ReturnValue;
 }

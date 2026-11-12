@@ -1,4 +1,4 @@
-// Engine_08b0000.cpp (part 1 of 2): 29 functions
+// Engine_08b0000.cpp (part 1 of 2): 34 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -420,3 +420,136 @@ int sub_008b4610(void)
   return g_026b5a84;
 }
 
+/* Kit gap: FName has no operator== here (UnName.h compares Index and Number). */
+struct FName_ : public FName
+{
+    FORCEINLINE UBOOL operator==(const FName& Other) const { return Index == Other.Index && Number == Other.Number; }
+};
+
+/* Kit gap: AActor's timer functions (UnActor.cpp) aren't declared. */
+struct AActor_ : public AActor
+{
+    void ClearTimer(FName inTimerFunc, UObject* inObj);
+};
+
+// @baa 0x008b7da0
+/* Stops every matching timer (a zero rate is removed on the next tick). */
+void AActor_::ClearTimer(FName inTimerFunc, UObject* inObj)
+{
+    if (inObj == NULL)
+    {
+        inObj = this;
+    }
+    for (INT Idx = 0; Idx < Timers.Num(); Idx++)
+    {
+        if ((const FName_&)Timers(Idx).FuncName == inTimerFunc && Timers(Idx).TimerObj == inObj)
+        {
+            Timers(Idx).Rate = 0.f;
+        }
+    }
+}
+
+/* Kit gap: FName has no operator== here (UnName.h compares Index and Number). */
+static FORCEINLINE UBOOL NamesEqual(const FName& A, const FName& B)
+{
+    return A.Index == B.Index && A.Number == B.Number;
+}
+
+/* Kit gap: AActor's timer functions (UnActor.cpp) aren't declared. */
+struct AActor__008b7ec0 : public AActor
+{
+    void PauseTimer(UBOOL bPause, FName inTimerFunc, UObject* inObj);
+};
+
+// @baa 0x008b7ec0
+/* Pauses or resumes every matching timer. */
+void AActor__008b7ec0::PauseTimer(UBOOL bPause, FName inTimerFunc, UObject* inObj)
+{
+    if (inObj == NULL)
+    {
+        inObj = this;
+    }
+    for (INT Idx = 0; Idx < Timers.Num(); Idx++)
+    {
+        if (NamesEqual(Timers(Idx).FuncName, inTimerFunc) && Timers(Idx).TimerObj == inObj)
+        {
+            Timers(Idx).bPaused = bPause;
+        }
+    }
+}
+
+/* Kit gap: AActor's timer queries (UnActor.cpp) aren't declared. */
+struct AActor__008b7ff0 : public AActor
+{
+    UBOOL IsTimerActive(FName inTimerFunc, UObject* inObj);
+};
+
+// @baa 0x008b7ff0
+/* A timer is active while its rate is positive. */
+UBOOL AActor__008b7ff0::IsTimerActive(FName inTimerFunc, UObject* inObj)
+{
+    if (inObj == NULL)
+    {
+        inObj = this;
+    }
+    UBOOL bActive = FALSE;
+    for (INT Idx = 0; Idx < Timers.Num(); Idx++)
+    {
+        if (NamesEqual(Timers(Idx).FuncName, inTimerFunc) && Timers(Idx).TimerObj == inObj)
+        {
+            bActive = Timers(Idx).Rate > 0.f;
+            break;
+        }
+    }
+    return bActive;
+}
+
+/* Kit gap: AActor's timer functions (UnActor.cpp) aren't declared. */
+struct AActor__008b8130 : public AActor
+{
+    FLOAT GetTimerCount(FName inTimerFunc, UObject* inObj);
+};
+
+// @baa 0x008b8130
+/* How long the matching timer has been counting, or -1 when there is none. */
+FLOAT AActor__008b8130::GetTimerCount(FName inTimerFunc, UObject* inObj)
+{
+    if (inObj == NULL)
+    {
+        inObj = this;
+    }
+    FLOAT Count = -1.f;
+    for (INT Idx = 0; Idx < Timers.Num(); Idx++)
+    {
+        if (NamesEqual(Timers(Idx).FuncName, inTimerFunc) && Timers(Idx).TimerObj == inObj)
+        {
+            Count = Timers(Idx).Count;
+            break;
+        }
+    }
+    return Count;
+}
+
+/* Kit gap: AActor's timer functions (UnActor.cpp) aren't declared. */
+struct AActor__008b8270 : public AActor
+{
+    FLOAT GetTimerRate(FName TimerFuncName, UObject* inObj);
+};
+
+// @baa 0x008b8270
+/* The matching timer's rate, or -1 when there is none. */
+FLOAT AActor__008b8270::GetTimerRate(FName TimerFuncName, UObject* inObj)
+{
+    if (inObj == NULL)
+    {
+        inObj = this;
+    }
+    for (INT Idx = 0; Idx < Timers.Num(); Idx++)
+    {
+        if ((const FName_&)Timers(Idx).FuncName == TimerFuncName && Timers(Idx).TimerObj == inObj)
+        {
+            return Timers(Idx).Rate;
+        }
+    }
+    return -1.f;
+}

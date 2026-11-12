@@ -1,4 +1,4 @@
-// UnPhysComponent.cpp: 5 functions
+// UnPhysComponent.cpp: 6 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -63,4 +63,12 @@ void UPrimitiveComponent::execAddTorqueImpulse(FFrame& Stack, RESULT_DECL)
     P_GET_NAME_OPTX(BoneName, NAME_None);
     P_FINISH;
     ((UPrimitiveComponent__009ff640*)this)->AddTorqueImpulse(Torgue, BoneName);
+}
+
+// @baa 0x009fea70
+void UPrimitiveComponent::execRigidBodyIsNearlyStill(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME_OPTX(BoneName, NAME_None);
+    P_FINISH;
+    *(UBOOL*)Result = vf_1c0(BoneName.Index, BoneName.Number);
 }

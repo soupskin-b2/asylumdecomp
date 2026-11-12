@@ -1,4 +1,4 @@
-// UnTerrain.cpp (part 1 of 4): 391 functions
+// UnTerrain.cpp (part 1 of 4): 393 functions
 // Placed here by: neighbours 359, class 16, callers 10, file 6.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -3660,4 +3660,27 @@ undefined4 C_015b0d90::sub_015b0d90(int param_2)
   ((C_015b0d90 *)(((char *)this + 0x78)))->sub_0054e560(param_2 + 0x78);
   ((C_015b0d90 *)(((char *)this + 0x84)))->sub_0054e560(param_2 + 0x84);
   return param_1;
+}
+
+// @baa 0x00757d70
+/* AActor slot 0x20 (kit vf_020): UE3's AActor::BeginDestroy(): detach the components (slot 0x310, UE3
+ * ClearComponents) before the object-level BeginDestroy. */
+void AActor::vf_020()
+{
+    vf_310(FALSE);
+    Super::vf_020();
+}
+
+/* Kit gap: FRenderCommandFence::GetNumPendingFences (0x0071f7e0) isn't declared. */
+struct FRenderCommandFence_ : public FRenderCommandFence
+{
+    UINT GetNumPendingFences() const;
+};
+
+// @baa 0x00757d90
+/* AActor slot 0x24 (kit vf_024): UE3's AActor::IsReadyForFinishDestroy(): the render thread is done with the
+ * components detached in BeginDestroy. */
+INT AActor::vf_024()
+{
+    return ((const FRenderCommandFence_&)DetachFence).GetNumPendingFences() == 0;
 }

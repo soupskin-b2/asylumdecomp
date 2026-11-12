@@ -1,4 +1,4 @@
-// Engine_0880000.cpp: 6 functions
+// Engine_0880000.cpp: 7 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -112,4 +112,24 @@ void UReachSpec::execGetDirection(FFrame& Stack, RESULT_DECL)
 {
     P_FINISH;
     *(FVector*)Result = ((UReachSpec_*)this)->GetDirection();
+}
+
+extern FName g_026c4c3c;
+	/* ENGINE_GetZoomMagnification */
+struct APlayerController_ : public APlayerController
+{
+	FLOAT eventGetZoomMagnification();
+};
+
+// @baa 0x00888660
+/* The script event's generated glue (EngineClasses.h), out of line here. */
+FLOAT APlayerController_::eventGetZoomMagnification()
+{
+	struct PlayerController_eventGetZoomMagnification_Parms
+	{
+		FLOAT ReturnValue;
+	} Parms;
+	Parms.ReturnValue = 0;
+	ProcessEvent(FindFunctionChecked(g_026c4c3c), &Parms);
+	return Parms.ReturnValue;
 }

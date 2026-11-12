@@ -1,4 +1,4 @@
-// Core_05a0000.cpp: 8 functions
+// Core_05a0000.cpp: 14 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -85,4 +85,105 @@ void UObject::execLogInternalPlayer(FFrame& Stack, RESULT_DECL)
 	P_GET_STR(S);
 	P_GET_NAME_OPTX(Tag, (EName)0x5e9);
 	P_FINISH;
+}
+
+// @baa 0x005a5570
+/* Script logging; the debugf is compiled out of this build. The default tag (0x5ed) is one of the log names the kit's
+ * EName list doesn't have. */
+void UObject::execLogInternalBoss(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STR(S);
+	P_GET_NAME_OPTX(Tag, (EName)0x5ed);
+	P_FINISH;
+}
+
+/* Kit gap: FString::Printf (UnString.h) isn't declared. */
+class FString_ : public FString
+{
+public:
+	static FString Printf(const TCHAR* Fmt, ...);	/* 0x005488a0 */
+};
+
+// @baa 0x005ab860
+void UObject::execToHex(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(A);
+	P_FINISH;
+	*(FString*)Result = FString_::Printf(TEXT("%08X"), A);
+}
+
+/* Kit gap: FString::ToUpper (UnString.h) isn't declared. */
+class FString__005abe50 : public FString
+{
+public:
+	FString ToUpper() const;	/* 0x0054df00 */
+};
+
+// @baa 0x005abe50
+void UObject::execCaps(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STR(S);
+	P_FINISH;
+	*(FString*)Result = ((const FString__005abe50&)S).ToUpper();
+}
+
+/* Kit gap: FString::ToLower (UnString.h) isn't declared. */
+class FString__005abf20 : public FString
+{
+public:
+	FString ToLower() const;	/* 0x005aa530 */
+};
+
+// @baa 0x005abf20
+void UObject::execLocs(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STR(S);
+	P_FINISH;
+	*(FString*)Result = ((const FString__005abf20&)S).ToLower();
+}
+
+/* Kit gap: FString::sub_005aa650 (UnString.h) isn't declared. */
+class FString__005ac4e0 : public FString
+{
+public:
+	FString sub_005aa650() const;	/* 0x005aa650 */
+};
+
+// @baa 0x005ac4e0
+void UObject::execCapitalise(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STR(S);
+	P_FINISH;
+	*(FString*)Result = ((const FString__005ac4e0&)S).sub_005aa650();
+}
+
+/* Kit gaps: UEnum's Names (Native_38) accessors, and IsA/Cast through ClassCastFlags (the form this build uses for
+ * classes with a cast flag; ue3/Cast.h only has the SuperField walk). */
+struct UEnum_ : public UEnum
+{
+	FName GetEnum(INT i) const;	/* 0x00549020 */
+	INT NumEnums() const { return Native_38.Num(); }
+};
+
+template<class T> FORCEINLINE UBOOL IsACast(const UObject* Object)
+{
+	return (Object->GetClass()->ClassCastFlags & T::StaticClassCastFlags) != 0;
+}
+
+template<class T> FORCEINLINE T* CastFlags(UObject* Src)
+{
+	return Src && IsACast<T>(Src) ? (T*)Src : NULL;
+}
+
+// @baa 0x005a67c0
+void UObject::execGetEnum(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(UObject, E);
+	P_GET_INT(i);
+	P_FINISH;
+	*(FName*)Result = NAME_None;
+	if (E && IsACast<UEnum>(E) && i >= 0 && i < ((UEnum_*)E)->NumEnums())
+	{
+		*(FName*)Result = ((UEnum_*)CastFlags<UEnum>(E))->GetEnum(i);
+	}
 }

@@ -1,4 +1,4 @@
-// Editor_0800000.cpp: 24 functions
+// Editor_0800000.cpp: 25 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -366,4 +366,30 @@ void AActor::vf_1b4(FLOAT a0) {  }
 INT __stdcall sub_00803510(void* Object)
 {
     return *(INT*)((char*)Object + 0x11c);
+}
+
+/* Kit gap: APawn::eventBreathTimer (the script-event glue, 0x00802db0) isn't declared. */
+struct APawn_ : public APawn
+{
+    void eventBreathTimer();
+};
+
+// @baa 0x00803820
+/* APawn slot 0x1b4 (kit vf_1b4): UE3's APawn::TickSpecial(FLOAT DeltaSeconds): the authority counts down
+ * BreathTime (firing BreathTimer when it runs out); a pawn without physics counts down its controller's MoveTimer. */
+void APawn::vf_1b4(FLOAT DeltaSeconds)
+{
+    if (Role == ROLE_Authority && BreathTime > 0.f)
+    {
+        BreathTime -= DeltaSeconds;
+        if (BreathTime < 0.001f)
+        {
+            BreathTime = 0.f;
+            ((APawn_*)this)->eventBreathTimer();
+        }
+    }
+    if (Physics == PHYS_None && Controller)
+    {
+        Controller->MoveTimer -= DeltaSeconds;
+    }
 }

@@ -1,4 +1,4 @@
-// Core_0560000.cpp (part 1 of 3): 177 functions
+// Core_0560000.cpp (part 1 of 3): 180 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1674,4 +1674,53 @@ struct C005685d0
 void Probe005685d0(C005685d0* Dest, C005685d0* Source)
 {
     Dest->sub_005685d0(*Source);
+}
+
+struct C_0053ea70_
+{
+	int __thiscall sub_0053ea70(int a, int b); /* 0x0053ea70 */
+};
+
+// @baa 0x00567d00
+void __stdcall sub_00567d00(C_0053ea70_ * obj, int a, int b)
+{
+	obj->sub_0053ea70(a + b * 4, 4);
+}
+
+struct Notif_ {
+	virtual void sub_A();
+	virtual void sub_B();
+	virtual void sub_C();
+	virtual void sub_D();
+	virtual void sub_E();
+	virtual void Notify(int A, int B);
+};
+
+struct S_ {
+	virtual void sub_V();
+	int f4;
+	int f8;
+	void sub_00568660(Notif_ *N);
+};
+
+// @baa 0x00568660
+void S_::sub_00568660(Notif_ *N)
+{
+	N->Notify(f4, f8);
+}
+
+// int __thiscall sub_0053ea70(int Offset, int Count) at 0x0053ea70
+struct C_0053ea70 {
+    INT sub_0053ea70(INT Offset, INT Count); /* 0x0053ea70 */
+};
+
+// Virtual method of USkeletalMeshSocket, vtable slot 77 (0x00567ca0)
+struct USkeletalMeshSocket_ : public USkeletalMeshSocket {
+    INT sub_00567ca0(INT Object, INT Array, INT Index); /* 0x00567ca0 */
+};
+
+// @baa 0x00567ca0
+INT USkeletalMeshSocket_::sub_00567ca0(INT Object, INT Array, INT Index)
+{
+    return ((C_0053ea70*)Object)->sub_0053ea70(Array + Index * 2, 2);
 }

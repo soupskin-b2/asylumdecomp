@@ -1,4 +1,4 @@
-// Engine_08a0000.cpp: 18 functions
+// Engine_08a0000.cpp: 22 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -348,4 +348,85 @@ void AActor::execSetHardAttach(FFrame& Stack, RESULT_DECL)
 	P_GET_UBOOL_OPTX(bNewHardAttach, bHardAttach);
 	P_FINISH;
 	vf_19c(bNewHardAttach);
+}
+
+/* Kit gap: FStateFrame stops at ProbeMask; UE3's next member is the latent action (WORD LatentAction at 0x34). */
+#pragma pack(push, 4)
+struct FStateFrame_ : public FStateFrame
+{
+    WORD LatentAction; /* 0x34 */
+};
+
+#pragma pack(pop)
+enum { EPOLL_Sleep = 384 };
+// @baa 0x008a7810
+/* The native half of latent Sleep(Seconds): poll EPOLL_Sleep until LatentFloat runs out. */
+void AActor::sub_008a7810(FLOAT Seconds)
+{
+    ((FStateFrame_*)StateFrame)->LatentAction = EPOLL_Sleep;
+    LatentFloat = Seconds;
+}
+
+extern FName g_026c490c;
+	/* ENGINE_IsInCombat */
+struct AController__008a4de0 : public AController
+{
+	UBOOL eventIsInCombat();
+};
+
+// @baa 0x008a4de0
+/* The script event's generated glue (EngineClasses.h), out of line here. */
+UBOOL AController__008a4de0::eventIsInCombat()
+{
+	struct Controller_eventIsInCombat_Parms
+	{
+		UBOOL ReturnValue;
+	} Parms;
+	Parms.ReturnValue = FALSE;
+	ProcessEvent(FindFunctionChecked(g_026c490c), &Parms);
+	return Parms.ReturnValue;
+}
+
+extern FName g_026c406c;
+	/* ENGINE_DetourWeight */
+struct ANavigationPoint_ : public ANavigationPoint
+{
+	FLOAT eventDetourWeight(class APawn* Other, FLOAT PathWeight);
+};
+
+// @baa 0x008a53e0
+/* The script event's generated glue (EngineClasses.h), out of line here. */
+FLOAT ANavigationPoint_::eventDetourWeight(class APawn* Other, FLOAT PathWeight)
+{
+	struct NavigationPoint_eventDetourWeight_Parms
+	{
+		class APawn* Other;
+		FLOAT PathWeight;
+		FLOAT ReturnValue;
+	} Parms;
+	Parms.Other = Other;
+	Parms.PathWeight = PathWeight;
+	Parms.ReturnValue = 0;
+	ProcessEvent(FindFunctionChecked(g_026c406c), &Parms);
+	return Parms.ReturnValue;
+}
+
+extern FName g_026c4fcc;
+	/* ENGINE_GetObjClassVersion */
+struct USequenceObject_ : public USequenceObject
+{
+	INT eventGetObjClassVersion();
+};
+
+// @baa 0x008aa210
+/* The script event's generated glue (EngineClasses.h), out of line here. */
+INT USequenceObject_::eventGetObjClassVersion()
+{
+	struct SequenceObject_eventGetObjClassVersion_Parms
+	{
+		INT ReturnValue;
+	} Parms;
+	Parms.ReturnValue = 0;
+	ProcessEvent(FindFunctionChecked(g_026c4fcc), &Parms);
+	return Parms.ReturnValue;
 }

@@ -1,4 +1,4 @@
-// Engine_0ae0000.cpp (part 1 of 2): 69 functions
+// Engine_0ae0000.cpp (part 1 of 2): 70 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -800,4 +800,12 @@ int C_00aefc20::sub_00aefc20(void)
   *(undefined4 *)(param_1 + 0x34) = 0;
   *(undefined4 *)(param_1 + 0x38) = 0;
   return param_1;
+}
+
+// The callee takes one argument; this wrapper hands back what it returns.
+INT sub_00a5a020(UObject* Object);
+// @baa 0x00aef9b0
+INT __stdcall sub_00aef9b0(UObject* Object)
+{
+    return sub_00a5a020(Object);
 }

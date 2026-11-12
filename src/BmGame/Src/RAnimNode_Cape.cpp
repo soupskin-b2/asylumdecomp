@@ -1,4 +1,4 @@
-// RAnimNode_Cape.cpp (part 1 of 3): 96 functions
+// RAnimNode_Cape.cpp (part 1 of 3): 97 functions
 // Placed here by: neighbours 84, class 8, file 2, callers 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -479,3 +479,43 @@ FName URAnimNode_Cape_0155cff0::GetNewCapeAnimName()
 {
     return NewCapeAnimName;
 }
+
+/* Kit gap (Array.h, issue #39): this build inlines TArray::operator() where the kit's plain-inline one is
+ * called out of line; same body, forced inline. */
+template<class T> struct TArrayAt_ : public TArray<T>
+{
+    using TArray<T>::ArrayNum;
+    __forceinline T& At(INT i)
+    {
+#line 560 BAA_ARRAY_FILE
+        check(i>=0 && (i<ArrayNum||(i==0 && ArrayNum==0)));
+        return this->GetTypedData()[i];
+    }
+    __forceinline const T& At(INT i) const
+    {
+#line 566 BAA_ARRAY_FILE
+        check(i>=0 && (i<ArrayNum||(i==0 && ArrayNum==0)));
+        return this->GetTypedData()[i];
+    }
+};
+
+// @baa 0x015690d0
+/* The editor slider picks the child whose node name becomes the new cape animation. */
+void URAnimNode_Cape::HandleSliderMove(INT SliderIndex, INT ValueIndex, FLOAT NewSliderValue)
+{
+#line 444 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimNode_Cape.cpp"
+    check(0 == SliderIndex && 0 == ValueIndex);
+    SliderPos = NewSliderValue;
+    const FLOAT NumChildren = (FLOAT)Children.Num();
+    const INT ChildIndex = (INT)((NewSliderValue - 0.5f / NumChildren) * NumChildren);
+    if (((TArrayAt_<FAnimBlendChild>&)Children).At(ChildIndex).Anim)
+    {
+        NewCapeAnimName = ((TArrayAt_<FAnimBlendChild>&)Children).At(ChildIndex).Anim->NodeName;
+    }
+    else
+    {
+        NewCapeAnimName = NAME_None;
+    }
+}
+
+#line 522 "candidate.cpp"

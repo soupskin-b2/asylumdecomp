@@ -1,4 +1,4 @@
-// Engine_0710000.cpp (part 6 of 7): 8 functions
+// Engine_0710000.cpp (part 6 of 7): 10 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -111,4 +111,34 @@ INT C_0071d490::sub_0071d490()
 UINT __cdecl sub_007197e0(UINT A, UINT B)
 {
     return A <= B ? A : B;
+}
+
+struct TwoInts
+{
+    int A;
+    int B;
+};
+
+struct Target_00718e60 : public TwoInts
+{
+    int Count;
+
+    TwoInts* sub_00718e60(const TwoInts& In);
+};
+
+// @baa 0x00718e60
+TwoInts* Target_00718e60::sub_00718e60(const TwoInts& In)
+{
+    A = In.A;
+    B = In.B;
+    Count = -1;
+    return this;
+}
+
+extern "C" INT sub_0053d240(INT, INT, INT);
+// @baa 0x00718fc0
+// 0x00718fc0
+INT __stdcall sub_00718fc0(INT A, INT B, INT C)
+{
+    return sub_0053d240(A, B, C);
 }

@@ -1,4 +1,4 @@
-// UnrealEd_06b0000.cpp (part 1 of 3): 70 functions
+// UnrealEd_06b0000.cpp (part 1 of 3): 71 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -976,4 +976,23 @@ undefined4 * sub_006ba4e0(void)
     return puVar1;
   }
   return (undefined4 *)0x0;
+}
+
+struct S_ {
+    void DoIt(); /* 007162b0 */
+};
+
+struct C_ {
+    S_* m_S;
+    C_* sub_006b00f0(S_** S);
+};
+
+// @baa 0x006b00f0
+C_* C_::sub_006b00f0(S_** S)
+{
+    S_ *T = *S;
+    m_S = T;
+    if (T)
+        T->DoIt();
+    return this;
 }

@@ -1,4 +1,4 @@
-// Editor_0800000.cpp: 3 functions
+// Editor_0800000.cpp: 4 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -60,4 +60,22 @@ FRotator APawn_::eventGetViewRotation()
 	appMemzero(&Parms.ReturnValue, sizeof(Parms.ReturnValue));
 	ProcessEvent(FindFunctionChecked(g_026c40f0), &Parms);
 	return Parms.ReturnValue;
+}
+
+extern FName g_026c3f94;
+// A one-FLOAT UnrealScript event with no return value: the generated glue, out of line here.
+struct UObject_ : public UObject
+{
+    void eventScriptCall(FLOAT Value);
+};
+
+// @baa 0x00803550
+void UObject_::eventScriptCall(FLOAT Value)
+{
+    struct ScriptCall_Parms
+    {
+        FLOAT Value;
+    } Parms;
+    Parms.Value = Value;
+    ProcessEvent(FindFunctionChecked(g_026c3f94), &Parms);
 }
