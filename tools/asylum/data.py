@@ -8,6 +8,7 @@ import re
 
 import os
 import shutil
+import time
 
 from paths import HOME, ROOT
 
@@ -69,9 +70,14 @@ def _fingerprint_shard(page: int) -> dict[str, dict]:
             os.replace(tmp, d)
         except OSError:  # another process finished first
             shutil.rmtree(tmp, ignore_errors=True)
-        for old in d.parent.glob("fingerprints-*"):  # earlier kits' (~140 MB each)
-            if old != d and not old.name.endswith(".tmp"):
-                shutil.rmtree(old, ignore_errors=True)
+        for old in d.parent.glob("fingerprints-*"):  # other kits' (~140 MB each), unused for a day
+            try:
+                if old != d and time.time() - old.stat().st_mtime > 86400:
+                    shutil.rmtree(old, ignore_errors=True)
+            except OSError:
+                pass
+    elif time.time() - d.stat().st_mtime > 3600:  # in use: keep it
+        os.utime(d)
     f = d / ("%04x.json" % page)
     return json.loads(f.read_text(encoding="utf-8")) if f.exists() else {}
 
