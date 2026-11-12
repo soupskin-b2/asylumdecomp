@@ -103,22 +103,16 @@
     "Tooling": 94456,
     "DeepSeek V4.1 Flash": 2167,
     "Claude Opus 5.5": 1717,
-    "Qwen3.8 27B": 1677,
+    "Qwen3.8 27B": 1699,
     "GPT-6.1 Sol": 159,
     "Claude Sonnet 5.5": 37,
     "MiniMax M3.1 Flash": 35,
     "Muse Spark 1.3": 33,
     "GPT-6.1 Terra": 10,
-    "Qwen": 10,
-    "Claude Sonnet 4.5": 6,
-    "not specified": 3,
-    "Claude Opus 4.5": 2,
-    "Claude": 2,
-    "Claude Opus 4.1": 2,
-    "Claude Haiku 5.5": 1,
-    "Qwen3.5": 1,
-    "GPT-5": 1,
-    "Qwen3.8": 1
+    "not specified": 2,
+    "Claude Sonnet 4.5": 2,
+    "Qwen": 2,
+    "Claude Haiku 5.5": 1
    }
   }
  ],
@@ -137,7 +131,7 @@
   },
   {
    "model": "Qwen3.8 27B",
-   "functions": 1677
+   "functions": 1699
   },
   {
    "model": "GPT-6.1 Sol",
@@ -160,43 +154,19 @@
    "functions": 10
   },
   {
-   "model": "Qwen",
-   "functions": 10
+   "model": "not specified",
+   "functions": 2
   },
   {
    "model": "Claude Sonnet 4.5",
-   "functions": 6
-  },
-  {
-   "model": "not specified",
-   "functions": 3
-  },
-  {
-   "model": "Claude Opus 4.5",
    "functions": 2
   },
   {
-   "model": "Claude",
-   "functions": 2
-  },
-  {
-   "model": "Claude Opus 4.1",
+   "model": "Qwen",
    "functions": 2
   },
   {
    "model": "Claude Haiku 5.5",
-   "functions": 1
-  },
-  {
-   "model": "Qwen3.5",
-   "functions": 1
-  },
-  {
-   "model": "GPT-5",
-   "functions": 1
-  },
-  {
-   "model": "Qwen3.8",
    "functions": 1
   }
  ]

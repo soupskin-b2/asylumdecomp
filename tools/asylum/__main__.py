@@ -405,8 +405,8 @@ def cmd_submit(a):
 
 def _model(a) -> str | None:
     """The model's display name ("Claude Opus 5.5"), sent always; the service keeps it only if the account
-    allows model credit."""
-    return models.display(a.model or os.environ.get("ASYLUM_MODEL"))
+    allows model credit. ASYLUM_MODEL wins: a harness sets it and knows; an agent may guess its own name."""
+    return models.display(os.environ.get("ASYLUM_MODEL") or a.model)
 
 
 def cmd_giveup(a):
