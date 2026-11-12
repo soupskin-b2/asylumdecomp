@@ -1,4 +1,4 @@
-// FCDGeometryMesh.cpp (part 3 of 3): 2 functions
+// FCDGeometryMesh.cpp (part 3 of 3): 3 functions
 // Placed here by: neighbours 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -29,4 +29,45 @@ C* C::sub_01848200(INT* Source)
 {
     Value_04 = *Source;
     return this;
+}
+
+// FCDGeometryMesh.cpp
+// Constructor of the object container used to track FCDGeometryPolygons
+// objects: a tracked list of contained objects (First/Last/Count) with a
+// pointer to the count for lock-free readers.
+// Base part shared by all containers: initialize the tracked list.
+class FUObjectContainerList
+{
+public:
+	void* First;
+	void* Last;
+	unsigned Count;
+	unsigned* CountPtr;
+
+	FUObjectContainerList();
+};
+
+FUObjectContainerList::FUObjectContainerList()
+{
+	First = NULL;
+	Last = NULL;
+	Count = 0;
+	CountPtr = &Count;
+}
+
+// Container tracking the FCollada objects of a given type.
+class FUObjectContainer : public FUObjectContainerList
+{
+public:
+	FUObjectContainer();
+	virtual ~FUObjectContainer();
+};
+
+FUObjectContainer::FUObjectContainer()
+{
+}
+
+// @baa 0x01848250
+FUObjectContainer::~FUObjectContainer()
+{
 }

@@ -1,4 +1,4 @@
-// FCDEffectStandard.cpp (part 2 of 2): 8 functions
+// FCDEffectStandard.cpp (part 2 of 2): 9 functions
 // Placed here by: neighbours 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -151,5 +151,23 @@ struct C_01870810
 C_01870810* C_01870810::sub_01870810(Object* Source)
 {
     Value_04 = Source->Value_04;
+    return this;
+}
+
+struct FThreeInts
+{
+    int X;
+    int Y;
+    int Z;
+
+    FThreeInts* sub_01857db0(int NewX, int NewY, int NewZ);
+};
+
+// @baa 0x01857db0
+FThreeInts* FThreeInts::sub_01857db0(int NewX, int NewY, int NewZ)
+{
+    X = NewX;
+    Y = NewY;
+    Z = NewZ;
     return this;
 }

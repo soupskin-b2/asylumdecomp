@@ -1,4 +1,4 @@
-// BmSaveGameManager.cpp: 25 functions
+// BmSaveGameManager.cpp: 26 functions
 // Placed here by: class 6, file 4, neighbours 3, callers 3.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -104,4 +104,12 @@ undefined4 * UObject::sub_0172b3c0(void)
   sub_005c7a20();
   *param_1 = (undefined4)(&g_023ca430);
   return param_1;
+}
+
+const TCHAR* sub_0170a8d0();
+const TCHAR* sub_0053f6c0();
+// @baa 0x01718d90
+INT URPersistentOptions::vf_000()
+{
+    return sub_0170a8d0 == sub_0053f6c0;
 }

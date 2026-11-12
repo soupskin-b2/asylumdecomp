@@ -1,4 +1,4 @@
-// fmod_systemi.cpp: 6 functions
+// fmod_systemi.cpp: 7 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Core.h"
@@ -90,4 +90,15 @@ void __stdcall sub_0178b1c0(int cb, int arg2)
 {
     C_0178b014* p = cb ? (C_0178b014*)(cb - 0x1c) : 0;
     p->sub_0178b014(arg2);
+}
+
+struct C_017c8e54 {
+    float m_Value;
+    float sub_017c8e54(void);
+};
+
+// @baa 0x017c8e54
+float C_017c8e54::sub_017c8e54(void)
+{
+    return m_Value;
 }

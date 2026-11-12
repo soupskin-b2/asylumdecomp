@@ -1,4 +1,4 @@
-// BmGameLevelTransitionClasses.cpp: 7 functions
+// BmGameLevelTransitionClasses.cpp: 8 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -150,4 +150,23 @@ UBOOL ARLevelTransitionDoorBunkerNativeBase__01559150::eventAttemptToCloseDoor(U
 	Parms.Instantly = Instantly ? TRUE : FALSE;
 	ProcessEvent(FindFunctionChecked(g_026e25dc), &Parms);
 	return Parms.ReturnValue;
+}
+
+extern FName g_026e257c;
+	/* AttemptToOpenDoor */
+struct ARLevelTransitionDoorBunkerNativeBase__015591b0 : public ARLevelTransitionDoorBunkerNativeBase
+{
+	void eventAttemptToOpenDoor(class ARPlayerController* PC);
+};
+
+// @baa 0x015591b0
+/* RLevelTransitionDoorBunkerNativeBase.AttemptToOpenDoor script event: the generated glue, out of line here. */
+void ARLevelTransitionDoorBunkerNativeBase__015591b0::eventAttemptToOpenDoor(class ARPlayerController* PC)
+{
+	struct RLevelTransitionDoorBunkerNativeBase_eventAttemptToOpenDoor_Parms
+	{
+		class ARPlayerController* PC;
+	} Parms;
+	Parms.PC = PC;
+	ProcessEvent(FindFunctionChecked(g_026e257c), &Parms);
 }

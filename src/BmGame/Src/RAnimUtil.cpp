@@ -1,4 +1,4 @@
-// RAnimUtil.cpp (part 1 of 2): 21 functions
+// RAnimUtil.cpp (part 1 of 2): 22 functions
 // Placed here by: neighbours 8, file 7, callers 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -230,4 +230,29 @@ const TCHAR* sub_01598d90(INT Direction)
     if (Direction >= 0 && (UINT)Direction < 4)
         return g_025eb6c8[Direction];
     return TEXT("ERROR");
+}
+
+// @baa 0x01598f00
+FCycleTime sub_01598f00(const FCycleTime& CycleTime)
+{
+    INT Phase = CycleTime.Phase.Phase + 1;
+    INT LoopIndex = CycleTime.Phase.LoopIndex;
+    if (Phase == 4)
+    {
+        Phase = 0;
+        ++LoopIndex;
+    }
+    Phase = (BYTE)Phase + 1;
+    if (Phase == 4)
+    {
+        Phase = 0;
+        ++LoopIndex;
+    }
+    FCyclePhase NextPhase;
+    NextPhase.Phase = (BYTE)Phase;
+    NextPhase.LoopIndex = LoopIndex;
+    FCycleTime Result;
+    Result.Phase = NextPhase;
+    Result.Time = CycleTime.Time;
+    return Result;
 }

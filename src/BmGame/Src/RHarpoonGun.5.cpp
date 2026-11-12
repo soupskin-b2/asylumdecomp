@@ -1,4 +1,4 @@
-// RHarpoonGun.cpp: 5 functions
+// RHarpoonGun.cpp: 6 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -103,4 +103,20 @@ void ARHarpoonProjectile_::eventBumpLevel(FVector HitLocation, FVector HitNormal
 	Parms.HitLocation = HitLocation;
 	Parms.HitNormal = HitNormal;
 	ProcessEvent(FindFunctionChecked(g_026e33ac), &Parms);
+}
+
+/* ARSpecialMoveInstance_HarpoonYank::UpdateYankees (0x1648e20) isn't declared in the kit. */
+struct ARSpecialMoveInstance_HarpoonYank__016fb680 : public ARSpecialMoveInstance_HarpoonYank
+{
+    void UpdateYankees(FLOAT DeltaTime, FLOAT PullForce, FLOAT PelvisCheatForce);
+};
+
+// @baa 0x016fb680
+void ARSpecialMoveInstance_HarpoonYank::execUpdateYankees(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_FLOAT(DeltaTime);
+    P_GET_FLOAT(PullForce);
+    P_GET_FLOAT(PelvisCheatForce);
+    P_FINISH;
+    ((ARSpecialMoveInstance_HarpoonYank__016fb680*)this)->UpdateYankees(DeltaTime, PullForce, PelvisCheatForce);
 }

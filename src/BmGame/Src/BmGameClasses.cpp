@@ -1,4 +1,4 @@
-// BmGameClasses.cpp: 26 functions
+// BmGameClasses.cpp: 27 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -619,4 +619,12 @@ UBOOL URSeqAct_SetNeedsRescue::UpdateOp(FLOAT DeltaTime)
 {
     ((URSeqAct_SetNeedsRescue_*)this)->eventSetNR();
     return TRUE;
+}
+
+const TCHAR* sub_0154b870();
+const TCHAR* sub_0053f6c0();
+// @baa 0x0154da90
+INT URHUDPrompt::vf_000()
+{
+    return sub_0154b870 == sub_0053f6c0;
 }

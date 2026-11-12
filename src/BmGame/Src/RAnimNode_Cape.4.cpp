@@ -1,4 +1,4 @@
-// RAnimNode_Cape.cpp: 7 functions
+// RAnimNode_Cape.cpp: 8 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -80,4 +80,19 @@ void URAnimNode_Cape::execGetAnimTreeNodeBlendValue(FFrame& Stack, RESULT_DECL)
 	P_GET_NAME(getNodeName);
 	P_FINISH;
 	*(FLOAT*)Result = ((URAnimNode_Cape__016ec210*)this)->sub_01562440(getNodeName);
+}
+
+/* URAnimNode_Cape::SetAnimTreeNodeBlendValue (0x1562480) isn't declared in the kit. */
+struct URAnimNode_Cape__016ec290 : public URAnimNode_Cape
+{
+    void SetAnimTreeNodeBlendValue(FName setNodeName, FLOAT blendValue);
+};
+
+// @baa 0x016ec290
+void URAnimNode_Cape::execSetAnimTreeNodeBlendValue(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(setNodeName);
+    P_GET_FLOAT(blendValue);
+    P_FINISH;
+    ((URAnimNode_Cape__016ec290*)this)->SetAnimTreeNodeBlendValue(setNodeName, blendValue);
 }

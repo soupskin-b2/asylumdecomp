@@ -1,4 +1,4 @@
-// RAnimUtil_PosePlayer.cpp: 23 functions
+// RAnimUtil_PosePlayer.cpp: 25 functions
 // Placed here by: neighbours 18, file 2, callers 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -311,4 +311,26 @@ void S_015c29a0::sub_015c29a0(int yaw)
         if (TI != 0)
             TI[0x128] = yaw;
     }
+}
+
+// @baa 0x015bdd50
+bool sub_015bdd50(INT* A, INT* B)
+{
+    return *A > *B;
+}
+
+struct C_015c2670
+{
+    INT A, B, C, D;
+    C_015c2670* sub_015c2670(INT P);
+};
+
+// @baa 0x015c2670
+C_015c2670* C_015c2670::sub_015c2670(INT P)
+{
+    A = 0;
+    B = 0;
+    C = 0;
+    D = 0;
+    return this;
 }

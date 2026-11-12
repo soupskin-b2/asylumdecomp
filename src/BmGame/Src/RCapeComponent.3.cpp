@@ -1,4 +1,4 @@
-// RCapeComponent.cpp: 18 functions
+// RCapeComponent.cpp: 22 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -221,4 +221,62 @@ void URCapeComponent::execGetAnimTreeNodeBlendValue(FFrame& Stack, RESULT_DECL)
 	P_GET_NAME(getNodeName);
 	P_FINISH;
 	*(FLOAT*)Result = ((URCapeComponent__01702810*)this)->sub_016ae830(getNodeName);
+}
+
+/* URCapeComponent::CalculateCapeLocalToWorld (016b1fe0) isn't declared in the kit. */
+struct URCapeComponent__01702d70 : public URCapeComponent
+{
+    FMatrix CalculateCapeLocalToWorld();
+};
+
+// @baa 0x01702d70
+void URCapeComponent::execCalculateCapeLocalToWorld(FFrame& Stack, RESULT_DECL)
+{
+    P_FINISH;
+    *(FMatrix*)Result = ((URCapeComponent__01702d70*)this)->CalculateCapeLocalToWorld();
+}
+
+/* URCapeComponent::SetAnimTreeNodeBlendValue (0x16ae850) isn't declared in the kit. */
+struct URCapeComponent__01702890 : public URCapeComponent
+{
+    void SetAnimTreeNodeBlendValue(FName setNodeName, FLOAT blendValue);
+};
+
+// @baa 0x01702890
+void URCapeComponent::execSetAnimTreeNodeBlendValue(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(setNodeName);
+    P_GET_FLOAT(blendValue);
+    P_FINISH;
+    ((URCapeComponent__01702890*)this)->SetAnimTreeNodeBlendValue(setNodeName, blendValue);
+}
+
+/* URCapeComponent::SetCapeDebugRenderBone (0x16ae900) isn't declared in the kit. */
+struct URCapeComponent__01702b60 : public URCapeComponent
+{
+    void SetCapeDebugRenderBone(INT DebugRenderBoneChainIndex, INT DebugRenderBoneLinkIndex);
+};
+
+// @baa 0x01702b60
+void URCapeComponent::execSetCapeDebugRenderBone(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_INT(DebugRenderBoneChainIndex);
+    P_GET_INT(DebugRenderBoneLinkIndex);
+    P_FINISH;
+    ((URCapeComponent__01702b60*)this)->SetCapeDebugRenderBone(DebugRenderBoneChainIndex, DebugRenderBoneLinkIndex);
+}
+
+/* URCapeComponent::ApplyWind (0x16c6430) isn't declared in the kit. */
+struct URCapeComponent__01702c50 : public URCapeComponent
+{
+    void ApplyWind(FRWindConfig WindConfig, FRWindState& WindState);
+};
+
+// @baa 0x01702c50
+void URCapeComponent::execApplyWind(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FRWindConfig, WindConfig);
+    P_GET_STRUCT_REF(FRWindState, WindState);
+    P_FINISH;
+    ((URCapeComponent__01702c50*)this)->ApplyWind(WindConfig, WindState);
 }

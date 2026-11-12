@@ -1,4 +1,4 @@
-// R3rdPersonCamera.cpp: 15 functions
+// R3rdPersonCamera.cpp: 19 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -220,4 +220,72 @@ void AR3rdPersonCamera__01686cd0::eventUpdateCurrentCamera(FVector DesiredCamera
 	Parms.DesiredCameraFOV = DesiredCameraFOV;
 	Parms.DeltaTime = DeltaTime;
 	ProcessEvent(FindFunctionChecked(g_026e3138), &Parms);
+}
+
+extern FName g_026e38c8;
+	/* ResetCamera */
+struct AR3rdPersonCamera__01559350 : public AR3rdPersonCamera
+{
+	void eventResetCamera(FRotator ResetRotation, UBOOL bResetForBlend, UBOOL bResetSmoother);
+};
+
+// @baa 0x01559350
+/* R3rdPersonCamera.ResetCamera script event: the generated glue, out of line here. */
+void AR3rdPersonCamera__01559350::eventResetCamera(FRotator ResetRotation, UBOOL bResetForBlend, UBOOL bResetSmoother)
+{
+	struct R3rdPersonCamera_eventResetCamera_Parms
+	{
+		FRotator ResetRotation;
+		UBOOL bResetForBlend;
+		UBOOL bResetSmoother;
+	} Parms;
+	Parms.ResetRotation = ResetRotation;
+	Parms.bResetForBlend = bResetForBlend ? TRUE : FALSE;
+	Parms.bResetSmoother = bResetSmoother ? TRUE : FALSE;
+	ProcessEvent(FindFunctionChecked(g_026e38c8), &Parms);
+}
+
+extern FName g_026e2a80;
+	/* CancelZoom */
+struct AR3rdPersonCamera__01686b90 : public AR3rdPersonCamera
+{
+	void eventCancelZoom();
+};
+
+// @baa 0x01686b90
+/* R3rdPersonCamera.CancelZoom script event: the generated glue, out of line here. */
+void AR3rdPersonCamera__01686b90::eventCancelZoom()
+{
+	ProcessEvent(FindFunctionChecked(g_026e2a80), NULL);
+}
+
+extern FName g_026e25a8;
+	/* SettingsChanged */
+struct AR3rdPersonCamera__01686bc0 : public AR3rdPersonCamera
+{
+	void eventSettingsChanged();
+};
+
+// @baa 0x01686bc0
+/* R3rdPersonCamera.SettingsChanged script event: the generated glue, out of line here. */
+void AR3rdPersonCamera__01686bc0::eventSettingsChanged()
+{
+	ProcessEvent(FindFunctionChecked(g_026e25a8), NULL);
+}
+
+/* AR3rdPersonCamera::UpdateFreeCam (0x16a3db0) isn't declared in the kit. */
+struct AR3rdPersonCamera__01709490 : public AR3rdPersonCamera
+{
+    void UpdateFreeCam(FVector DesiredCameraPosition, FRotator DesiredCameraRotation, FLOAT DesiredCameraFOV, FLOAT DeltaTime);
+};
+
+// @baa 0x01709490
+void AR3rdPersonCamera::execUpdateFreeCam(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, DesiredCameraPosition);
+    P_GET_STRUCT(FRotator, DesiredCameraRotation);
+    P_GET_FLOAT(DesiredCameraFOV);
+    P_GET_FLOAT(DeltaTime);
+    P_FINISH;
+    ((AR3rdPersonCamera__01709490*)this)->UpdateFreeCam(DesiredCameraPosition, DesiredCameraRotation, DesiredCameraFOV, DeltaTime);
 }

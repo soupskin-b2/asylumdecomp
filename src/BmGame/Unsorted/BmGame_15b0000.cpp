@@ -1,4 +1,4 @@
-// BmGame_15b0000.cpp: 128 functions
+// BmGame_15b0000.cpp: 130 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -575,3 +575,33 @@ bool URAnimNotify_BeginFixIK::vf_004()
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
+struct C_015bccd0
+{
+    FLOAT X, Y;
+    C_015bccd0& operator=(const C_015bccd0& O);
+};
+
+// @baa 0x015bccd0
+C_015bccd0& C_015bccd0::operator=(const C_015bccd0& O)
+{
+    X = O.X;
+    Y = O.Y;
+    return *this;
+}
+
+struct C_015be820
+{
+    INT A, B, C, D, E;
+    C_015be820* sub_015be820();
+};
+
+// @baa 0x015be820
+C_015be820* C_015be820::sub_015be820()
+{
+    A = 0;
+    B = 0;
+    C = 0;
+    D = 0;
+    E = 0;
+    return this;
+}

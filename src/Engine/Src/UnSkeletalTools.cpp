@@ -1,4 +1,4 @@
-// UnSkeletalTools.cpp (part 1 of 3): 81 functions
+// UnSkeletalTools.cpp (part 1 of 3): 82 functions
 // Placed here by: neighbours 64, callers 9, class 6.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -907,3 +907,141 @@ void FNameIntPairSet::Empty(INT ExpectedNumElements)
         }
     }
 }
+
+/* Kit gap (Array.h, issue #39): this build inlines TArray::operator() where the kit's plain-inline one is
+ * called out of line; same body, forced inline. */
+template<class T> struct TArrayAt_ : public TArray<T>
+{
+    __forceinline T& At(INT i)
+    {
+#line 560 BAA_ARRAY_FILE
+        check(i>=0 && (i<this->ArrayNum||(i==0 && this->ArrayNum==0)));
+        return this->GetTypedData()[i];
+    }
+    __forceinline const T& At(INT i) const
+    {
+#line 566 BAA_ARRAY_FILE
+        check(i>=0 && (i<this->ArrayNum||(i==0 && this->ArrayNum==0)));
+        return this->GetTypedData()[i];
+    }
+};
+
+/* FPackedNormal (UnMath.h): a unit vector packed into 4 bytes. */
+struct FPackedNormal
+{
+    union
+    {
+        struct { BYTE X, Y, Z, W; } Vector;
+        DWORD Packed;
+    };
+};
+
+/* FRigidSkinVertex (UnSkeletalMesh.h): a vertex bound to a single bone (0x24 bytes). Not in the kit. */
+struct FRigidSkinVertex
+{
+    FVector Position;
+    FPackedNormal TangentX, TangentY, TangentZ;
+    FLOAT U, V;
+    BYTE Bone;
+};
+
+/* FSoftSkinVertex (UnSkeletalMesh.h): a vertex skinned to up to 4 bones (0x28 bytes). Not in the kit. */
+struct FSoftSkinVertex
+{
+    FVector Position;
+    FPackedNormal TangentX, TangentY, TangentZ;
+    FLOAT U, V;
+    BYTE InfluenceBones[4];
+    BYTE InfluenceWeights[4];
+};
+
+/* FSkelMeshSection (UnSkeletalMesh.h). Not in the kit. */
+struct FSkelMeshSection
+{
+    WORD MaterialIndex;
+    WORD ChunkIndex;
+    DWORD BaseIndex;
+    WORD NumTriangles;
+};
+
+/* FSkelMeshChunk (UnSkeletalMesh.h): vertices of one LOD skinned with one bone map. Not in the kit. */
+struct FSkelMeshChunk
+{
+    DWORD BaseVertexIndex;
+    TArray<FRigidSkinVertex> RigidVertices;
+    TArray<FSoftSkinVertex> SoftVertices;
+    TArray<WORD> BoneMap;
+    INT NumRigidVertices;
+    INT NumSoftVertices;
+    INT MaxBoneInfluences;
+
+    INT GetNumVertices() const { return NumRigidVertices + NumSoftVertices; }
+};
+
+/* FRenderResource (RenderResource.h); the kit has no render resources. Only its address is used here. */
+class FRenderResource
+{
+public:
+    virtual ~FRenderResource();
+};
+
+/* starts releasing a resource on the rendering thread (RenderResource.cpp, 0x0071a040) */
+void BeginReleaseResource(FRenderResource* Resource);
+/* FRawStaticIndexBuffer (RawIndexBuffer.h): 0x60 bytes; its contents aren't used here. */
+class FRawStaticIndexBuffer : public FRenderResource
+{
+    BYTE Opaque[0x5c];
+};
+
+/* FSkeletalMeshVertexBuffer (UnSkeletalMesh.h): only its address is used here. */
+class FSkeletalMeshVertexBuffer : public FRenderResource
+{
+};
+
+/* FStaticLODModel (UnSkeletalMesh.h), up to the GPU-skin vertex buffer. */
+struct FStaticLODModel
+{
+    TArray<FSkelMeshSection> Sections;
+    TArrayAt_<FSkelMeshChunk> Chunks;
+    TArray<WORD> ActiveBoneIndices;
+    DWORD Size;
+    DWORD NumVertices;
+    DWORD NumTexCoords;
+    FRawStaticIndexBuffer IndexBuffer;               /* 0x30 */
+    FSkeletalMeshVertexBuffer VertexBufferGPUSkin;   /* 0x90 */
+
+    void ReleaseResources();
+};
+
+/* FRenderCommandFence::BeginFence (RenderingThread.cpp, 0x00719c60); the kit has USkeletalMesh::ReleaseResourcesFence as a bare INT */
+struct FRenderCommandFence_ : public FRenderCommandFence
+{
+    void BeginFence();
+};
+
+/* USkeletalMesh::ReleaseResources isn't declared in Classes.h */
+struct USkeletalMesh_ : public USkeletalMesh
+{
+    void ReleaseResources();
+};
+
+// @baa 0x0094bca0
+/* the LOD's index and GPU-skin vertex buffers */
+inline void FStaticLODModel::ReleaseResources()
+{
+    BeginReleaseResource(&IndexBuffer);
+    BeginReleaseResource(&VertexBufferGPUSkin);
+}
+
+/* start releasing the render resources of every LOD, with a fence to tell when that is done */
+void USkeletalMesh_::ReleaseResources()
+{
+    for (INT LODIndex = 0; LODIndex < ((TIndirectArray<FStaticLODModel>&)LODModels).Num(); LODIndex++)
+    {
+        ((TIndirectArray<FStaticLODModel>&)LODModels)(LODIndex).ReleaseResources();
+    }
+
+    ((FRenderCommandFence_&)ReleaseResourcesFence).BeginFence();
+}
+
+#line 1048 "candidate.cpp"

@@ -1,4 +1,4 @@
-// BmGame_1610000.cpp: 1 function
+// BmGame_1610000.cpp: 2 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -23,4 +23,18 @@ void URPlayerInput_::eventMouseInput(FLOAT DeltaTime, FLOAT FOVScale)
 	Parms.DeltaTime = DeltaTime;
 	Parms.FOVScale = FOVScale;
 	ProcessEvent(FindFunctionChecked(g_026e314c), &Parms);
+}
+
+extern FName g_026e345c;
+	/* DebugUpdateCinematicCapes */
+struct ARBMDebugCameraController_ : public ARBMDebugCameraController
+{
+	void eventDebugUpdateCinematicCapes();
+};
+
+// @baa 0x016121e0
+/* RBMDebugCameraController.DebugUpdateCinematicCapes script event: the generated glue, out of line here. */
+void ARBMDebugCameraController_::eventDebugUpdateCinematicCapes()
+{
+	ProcessEvent(FindFunctionChecked(g_026e345c), NULL);
 }

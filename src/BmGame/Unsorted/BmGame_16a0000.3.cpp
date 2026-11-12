@@ -1,4 +1,4 @@
-// BmGame_16a0000.cpp: 8 functions
+// BmGame_16a0000.cpp: 13 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -170,4 +170,74 @@ void URCapeComponent_::eventCapeSetHiddenGame(UBOOL bNewIsHidden)
 	} Parms;
 	Parms.bNewIsHidden = bNewIsHidden ? TRUE : FALSE;
 	ProcessEvent(FindFunctionChecked(g_026e33cc), &Parms);
+}
+
+extern FName g_026e36a4;
+	/* ShakeTimeExpired */
+struct ARPontoonBase__016a9a50 : public ARPontoonBase
+{
+	void eventShakeTimeExpired();
+};
+
+// @baa 0x016a9a50
+/* RPontoonBase.ShakeTimeExpired script event: the generated glue, out of line here. */
+void ARPontoonBase__016a9a50::eventShakeTimeExpired()
+{
+	ProcessEvent(FindFunctionChecked(g_026e36a4), NULL);
+}
+
+extern FName g_026e2728;
+	/* UpdateFractureMesh */
+struct ARPontoonBase__016a9b60 : public ARPontoonBase
+{
+	void eventUpdateFractureMesh();
+};
+
+// @baa 0x016a9b60
+/* RPontoonBase.UpdateFractureMesh script event: the generated glue, out of line here. */
+void ARPontoonBase__016a9b60::eventUpdateFractureMesh()
+{
+	ProcessEvent(FindFunctionChecked(g_026e2728), NULL);
+}
+
+extern FName g_026e360c;
+	/* DestroyRippleParticleEmitter */
+struct ARPontoonBase__016a9b90 : public ARPontoonBase
+{
+	void eventDestroyRippleParticleEmitter();
+};
+
+// @baa 0x016a9b90
+/* RPontoonBase.DestroyRippleParticleEmitter script event: the generated glue, out of line here. */
+void ARPontoonBase__016a9b90::eventDestroyRippleParticleEmitter()
+{
+	ProcessEvent(FindFunctionChecked(g_026e360c), NULL);
+}
+
+extern FName g_026e2cc8;
+	/* SpawnRippleParticleEmitter */
+struct ARPontoonBase__016a9bc0 : public ARPontoonBase
+{
+	void eventSpawnRippleParticleEmitter();
+};
+
+// @baa 0x016a9bc0
+/* RPontoonBase.SpawnRippleParticleEmitter script event: the generated glue, out of line here. */
+void ARPontoonBase__016a9bc0::eventSpawnRippleParticleEmitter()
+{
+	ProcessEvent(FindFunctionChecked(g_026e2cc8), NULL);
+}
+
+extern FName g_026e33f4;
+	/* DistanceToNearestRootChanged */
+struct ARPawnBossCrocBase_ : public ARPawnBossCrocBase
+{
+	void eventDistanceToNearestRootChanged();
+};
+
+// @baa 0x016ab6e0
+/* RPawnBossCrocBase.DistanceToNearestRootChanged script event: the generated glue, out of line here. */
+void ARPawnBossCrocBase_::eventDistanceToNearestRootChanged()
+{
+	ProcessEvent(FindFunctionChecked(g_026e33f4), NULL);
 }

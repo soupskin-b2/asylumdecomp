@@ -1,4 +1,4 @@
-// RRemovableGrate.cpp: 8 functions
+// RRemovableGrate.cpp: 9 functions
 // Placed here by: class 6, file 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -38,4 +38,11 @@ IMPLEMENT_CLASS_AT(ARRemoveableGrate, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEn
 bool ARRemoveableGrate::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x01717f10
+INT ARRemoveableGrate::vf_29c(INT P)
+{
+    vf_17c(1);
+    return 0;
 }

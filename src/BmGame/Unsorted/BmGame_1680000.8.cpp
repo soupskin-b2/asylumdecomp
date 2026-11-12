@@ -1,4 +1,4 @@
-// BmGame_1680000.cpp: 4 functions
+// BmGame_1680000.cpp: 7 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -81,5 +81,59 @@ FRotator ARPlayerController_::eventGetYawAnchorRotation()
 	} Parms;
 	appMemzero(&Parms.ReturnValue, sizeof(Parms.ReturnValue));
 	ProcessEvent(FindFunctionChecked(g_026e2df0), &Parms);
+	return Parms.ReturnValue;
+}
+
+extern FName g_026e2674;
+	/* EyeMaterialUpdated */
+struct ARPawnPlayerBm_ : public ARPawnPlayerBm
+{
+	void eventEyeMaterialUpdated();
+};
+
+// @baa 0x01686660
+/* RPawnPlayerBm.EyeMaterialUpdated script event: the generated glue, out of line here. */
+void ARPawnPlayerBm_::eventEyeMaterialUpdated()
+{
+	ProcessEvent(FindFunctionChecked(g_026e2674), NULL);
+}
+
+extern FName g_026e3030;
+	/* GetPCStateName */
+struct ARPawnPlayer__01686540 : public ARPawnPlayer
+{
+	FName eventGetPCStateName();
+};
+
+// @baa 0x01686540
+/* RPawnPlayer.GetPCStateName script event: the generated glue, out of line here. */
+FName ARPawnPlayer__01686540::eventGetPCStateName()
+{
+	struct RPawnPlayer_eventGetPCStateName_Parms
+	{
+		FName ReturnValue;
+	} Parms;
+	Parms.ReturnValue = FName(NAME_None);
+	ProcessEvent(FindFunctionChecked(g_026e3030), &Parms);
+	return Parms.ReturnValue;
+}
+
+extern FName g_026e3418;
+	/* GetPostLandPose */
+struct ARPlayerController__01686910 : public ARPlayerController
+{
+	FName eventGetPostLandPose();
+};
+
+// @baa 0x01686910
+/* RPlayerController.GetPostLandPose script event: the generated glue, out of line here. */
+FName ARPlayerController__01686910::eventGetPostLandPose()
+{
+	struct RPlayerController_eventGetPostLandPose_Parms
+	{
+		FName ReturnValue;
+	} Parms;
+	Parms.ReturnValue = FName(NAME_None);
+	ProcessEvent(FindFunctionChecked(g_026e3418), &Parms);
 	return Parms.ReturnValue;
 }

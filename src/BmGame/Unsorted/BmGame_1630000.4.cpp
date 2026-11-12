@@ -1,4 +1,4 @@
-// BmGame_1630000.cpp: 4 functions
+// BmGame_1630000.cpp: 5 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -85,4 +85,18 @@ FVector ARPhotoScanner_::eventTestPos(FVector testPosition, class UCanvas* Canva
 	Parms.Canvas = Canvas;
 	ProcessEvent(FindFunctionChecked(g_026e3240), &Parms);
 	return Parms.ReturnValue;
+}
+
+extern FName g_026e3818;
+	/* HasLoaded */
+struct ARTapePlayer_ : public ARTapePlayer
+{
+	void eventHasLoaded();
+};
+
+// @baa 0x01638ca0
+/* RTapePlayer.HasLoaded script event: the generated glue, out of line here. */
+void ARTapePlayer_::eventHasLoaded()
+{
+	ProcessEvent(FindFunctionChecked(g_026e3818), NULL);
 }

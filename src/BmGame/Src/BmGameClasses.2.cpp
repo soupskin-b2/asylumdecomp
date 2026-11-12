@@ -1,4 +1,4 @@
-// BmGameClasses.cpp: 25 functions
+// BmGameClasses.cpp: 39 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -520,4 +520,200 @@ struct URSeqAct_SetScarecrowSearch_ : public URSeqAct_SetScarecrowSearch
 void URSeqAct_SetScarecrowSearch_::eventSearch()
 {
 	ProcessEvent(FindFunctionChecked(g_026e2568), NULL);
+}
+
+extern FName g_026e2ab8;
+	/* SetAnimNames */
+struct URSeqAct_SetScarecrowSearchAnims_ : public URSeqAct_SetScarecrowSearchAnims
+{
+	void eventSetAnimNames();
+};
+
+// @baa 0x01580cc0
+/* RSeqAct_SetScarecrowSearchAnims.SetAnimNames script event: the generated glue, out of line here. */
+void URSeqAct_SetScarecrowSearchAnims_::eventSetAnimNames()
+{
+	ProcessEvent(FindFunctionChecked(g_026e2ab8), NULL);
+}
+
+extern FName g_026e35c0;
+	/* BatmanUse */
+struct URSeqAct_SetTrackingSpotlightVars_ : public URSeqAct_SetTrackingSpotlightVars
+{
+	void eventBatmanUse();
+};
+
+// @baa 0x01580f60
+/* RSeqAct_SetTrackingSpotlightVars.BatmanUse script event: the generated glue, out of line here. */
+void URSeqAct_SetTrackingSpotlightVars_::eventBatmanUse()
+{
+	ProcessEvent(FindFunctionChecked(g_026e35c0), NULL);
+}
+
+extern FName g_026e3078;
+	/* SetS */
+struct URSeqAct_SetTrackingSpotlightVars__01581020 : public URSeqAct_SetTrackingSpotlightVars
+{
+	void eventSetS();
+};
+
+// @baa 0x01581020
+/* RSeqAct_SetTrackingSpotlightVars.SetS script event: the generated glue, out of line here. */
+void URSeqAct_SetTrackingSpotlightVars__01581020::eventSetS()
+{
+	ProcessEvent(FindFunctionChecked(g_026e3078), NULL);
+}
+
+extern FName g_026e2844;
+	/* TriggerRunTheGauntlet */
+struct URSeqAct_TriggerRunTheGauntlet_ : public URSeqAct_TriggerRunTheGauntlet
+{
+	void eventTriggerRunTheGauntlet();
+};
+
+// @baa 0x01581450
+/* RSeqAct_TriggerRunTheGauntlet.TriggerRunTheGauntlet script event: the generated glue, out of line here. */
+void URSeqAct_TriggerRunTheGauntlet_::eventTriggerRunTheGauntlet()
+{
+	ProcessEvent(FindFunctionChecked(g_026e2844), NULL);
+}
+
+extern FName g_026e30b0;
+	/* CheckDialogue */
+struct URSeqAct_InDialogue_ : public URSeqAct_InDialogue
+{
+	void eventCheckDialogue();
+};
+
+// @baa 0x015822a0
+/* RSeqAct_InDialogue.CheckDialogue script event: the generated glue, out of line here. */
+void URSeqAct_InDialogue_::eventCheckDialogue()
+{
+	ProcessEvent(FindFunctionChecked(g_026e30b0), NULL);
+}
+
+extern FName g_026e26f4;
+	/* UpdateMoveSpeed */
+struct URSeqAct_MovePlayer_ : public URSeqAct_MovePlayer
+{
+	void eventUpdateMoveSpeed();
+};
+
+// @baa 0x01582660
+/* RSeqAct_MovePlayer.UpdateMoveSpeed script event: the generated glue, out of line here. */
+void URSeqAct_MovePlayer_::eventUpdateMoveSpeed()
+{
+	ProcessEvent(FindFunctionChecked(g_026e26f4), NULL);
+}
+
+extern FName g_026e2bf8;
+	/* Move */
+struct URSeqAct_MovePlayer__01582690 : public URSeqAct_MovePlayer
+{
+	void eventMove();
+};
+
+// @baa 0x01582690
+/* RSeqAct_MovePlayer.Move script event: the generated glue, out of line here. */
+void URSeqAct_MovePlayer__01582690::eventMove()
+{
+	ProcessEvent(FindFunctionChecked(g_026e2bf8), NULL);
+}
+
+extern FName g_026e31bc;
+	/* AdvanceResetCue */
+struct URSeqAct_Music_ : public URSeqAct_Music
+{
+	void eventAdvanceResetCue();
+};
+
+// @baa 0x01583b90
+/* RSeqAct_Music.AdvanceResetCue script event: the generated glue, out of line here. */
+void URSeqAct_Music_::eventAdvanceResetCue()
+{
+	ProcessEvent(FindFunctionChecked(g_026e31bc), NULL);
+}
+
+extern FName g_026e2db8;
+	/* StopCue */
+struct URSeqAct_Music__01583bf0 : public URSeqAct_Music
+{
+	void eventStopCue();
+};
+
+// @baa 0x01583bf0
+/* RSeqAct_Music.StopCue script event: the generated glue, out of line here. */
+void URSeqAct_Music__01583bf0::eventStopCue()
+{
+	ProcessEvent(FindFunctionChecked(g_026e2db8), NULL);
+}
+
+extern FName g_026e3444;
+	/* StartCue */
+struct URSeqAct_Music__01583c20 : public URSeqAct_Music
+{
+	void eventStartCue();
+};
+
+// @baa 0x01583c20
+/* RSeqAct_Music.StartCue script event: the generated glue, out of line here. */
+void URSeqAct_Music__01583c20::eventStartCue()
+{
+	ProcessEvent(FindFunctionChecked(g_026e3444), NULL);
+}
+
+extern FName g_026e31b4;
+	/* KeyOffSound */
+struct URSeqAct_PlayScaledDistanceSound_ : public URSeqAct_PlayScaledDistanceSound
+{
+	void eventKeyOffSound();
+};
+
+// @baa 0x01583f30
+/* RSeqAct_PlayScaledDistanceSound.KeyOffSound script event: the generated glue, out of line here. */
+void URSeqAct_PlayScaledDistanceSound_::eventKeyOffSound()
+{
+	ProcessEvent(FindFunctionChecked(g_026e31b4), NULL);
+}
+
+extern FName g_026e263c;
+	/* StopSound */
+struct URSeqAct_PlayScaledDistanceSound__01583f60 : public URSeqAct_PlayScaledDistanceSound
+{
+	void eventStopSound();
+};
+
+// @baa 0x01583f60
+/* RSeqAct_PlayScaledDistanceSound.StopSound script event: the generated glue, out of line here. */
+void URSeqAct_PlayScaledDistanceSound__01583f60::eventStopSound()
+{
+	ProcessEvent(FindFunctionChecked(g_026e263c), NULL);
+}
+
+extern FName g_026e2924;
+	/* ProcessDistance */
+struct URSeqAct_PlayScaledDistanceSound__01583f90 : public URSeqAct_PlayScaledDistanceSound
+{
+	void eventProcessDistance();
+};
+
+// @baa 0x01583f90
+/* RSeqAct_PlayScaledDistanceSound.ProcessDistance script event: the generated glue, out of line here. */
+void URSeqAct_PlayScaledDistanceSound__01583f90::eventProcessDistance()
+{
+	ProcessEvent(FindFunctionChecked(g_026e2924), NULL);
+}
+
+extern FName g_026e2a2c;
+	/* StartSound */
+struct URSeqAct_PlayScaledDistanceSound__01583fc0 : public URSeqAct_PlayScaledDistanceSound
+{
+	void eventStartSound();
+};
+
+// @baa 0x01583fc0
+/* RSeqAct_PlayScaledDistanceSound.StartSound script event: the generated glue, out of line here. */
+void URSeqAct_PlayScaledDistanceSound__01583fc0::eventStartSound()
+{
+	ProcessEvent(FindFunctionChecked(g_026e2a2c), NULL);
 }

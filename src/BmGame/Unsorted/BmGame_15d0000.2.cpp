@@ -1,4 +1,4 @@
-// BmGame_15d0000.cpp: 12 functions
+// BmGame_15d0000.cpp: 20 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -237,4 +237,116 @@ UBOOL ARPlayerControllerCombat_::eventIsBatarangPrimed()
 	Parms.ReturnValue = FALSE;
 	ProcessEvent(FindFunctionChecked(g_026e2c3c), &Parms);
 	return Parms.ReturnValue;
+}
+
+extern FName g_026e3000;
+	/* PostLoadXrayCheck */
+struct ARBMPawnAI_ : public ARBMPawnAI
+{
+	void eventPostLoadXrayCheck();
+};
+
+// @baa 0x015d8620
+/* RBMPawnAI.PostLoadXrayCheck script event: the generated glue, out of line here. */
+void ARBMPawnAI_::eventPostLoadXrayCheck()
+{
+	ProcessEvent(FindFunctionChecked(g_026e3000), NULL);
+}
+
+extern FName g_026e2d34;
+	/* DestroyPawn */
+struct ARBMPawnAI__015d8650 : public ARBMPawnAI
+{
+	void eventDestroyPawn();
+};
+
+// @baa 0x015d8650
+/* RBMPawnAI.DestroyPawn script event: the generated glue, out of line here. */
+void ARBMPawnAI__015d8650::eventDestroyPawn()
+{
+	ProcessEvent(FindFunctionChecked(g_026e2d34), NULL);
+}
+
+extern FName g_026e37e0;
+	/* StartMonitoringRagdollVelocity */
+struct ARPawnVillain_ : public ARPawnVillain
+{
+	void eventStartMonitoringRagdollVelocity();
+};
+
+// @baa 0x015d8760
+/* RPawnVillain.StartMonitoringRagdollVelocity script event: the generated glue, out of line here. */
+void ARPawnVillain_::eventStartMonitoringRagdollVelocity()
+{
+	ProcessEvent(FindFunctionChecked(g_026e37e0), NULL);
+}
+
+extern FName g_026e39cc;
+	/* TriggerExitCondition */
+struct URBMBehaviour__015d95c0 : public URBMBehaviour
+{
+	void eventTriggerExitCondition();
+};
+
+// @baa 0x015d95c0
+/* RBMBehaviour.TriggerExitCondition script event: the generated glue, out of line here. */
+void URBMBehaviour__015d95c0::eventTriggerExitCondition()
+{
+	ProcessEvent(FindFunctionChecked(g_026e39cc), NULL);
+}
+
+extern FName g_026e2f68;
+	/* EndInterrupt */
+struct URBMBehaviour__015d9670 : public URBMBehaviour
+{
+	void eventEndInterrupt();
+};
+
+// @baa 0x015d9670
+/* RBMBehaviour.EndInterrupt script event: the generated glue, out of line here. */
+void URBMBehaviour__015d9670::eventEndInterrupt()
+{
+	ProcessEvent(FindFunctionChecked(g_026e2f68), NULL);
+}
+
+extern FName g_026e2d80;
+	/* TriggerExitConditionCombiner */
+struct URBMExitConditionCombiner_ : public URBMExitConditionCombiner
+{
+	void eventTriggerExitConditionCombiner();
+};
+
+// @baa 0x015d9d90
+/* RBMExitConditionCombiner.TriggerExitConditionCombiner script event: the generated glue, out of line here. */
+void URBMExitConditionCombiner_::eventTriggerExitConditionCombiner()
+{
+	ProcessEvent(FindFunctionChecked(g_026e2d80), NULL);
+}
+
+extern FName g_026e2ce8;
+	/* RegisterDeadGuyWithRoomInfo */
+struct URBmPawnSpawner_ : public URBmPawnSpawner
+{
+	void eventRegisterDeadGuyWithRoomInfo();
+};
+
+// @baa 0x015d9dd0
+/* RBmPawnSpawner.RegisterDeadGuyWithRoomInfo script event: the generated glue, out of line here. */
+void URBmPawnSpawner_::eventRegisterDeadGuyWithRoomInfo()
+{
+	ProcessEvent(FindFunctionChecked(g_026e2ce8), NULL);
+}
+
+extern FName g_026e2aa8;
+	/* DestroyKOPawn */
+struct URBmPawnSpawner__015d9e00 : public URBmPawnSpawner
+{
+	void eventDestroyKOPawn();
+};
+
+// @baa 0x015d9e00
+/* RBmPawnSpawner.DestroyKOPawn script event: the generated glue, out of line here. */
+void URBmPawnSpawner__015d9e00::eventDestroyKOPawn()
+{
+	ProcessEvent(FindFunctionChecked(g_026e2aa8), NULL);
 }

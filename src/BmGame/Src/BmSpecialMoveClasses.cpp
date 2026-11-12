@@ -1,4 +1,4 @@
-// BmSpecialMoveClasses.cpp: 65 functions
+// BmSpecialMoveClasses.cpp: 66 functions
 // Placed here by: neighbours 18, file 12, callers 8, class 6.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -224,4 +224,11 @@ bool ARSpecialMoveInstance_SwingToVantagePoint::vf_004()
 bool ARSpecialMoveInstance_CatchLedge::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+extern UBOOL g_026bb6a8;
+// @baa 0x01613570
+void __stdcall sub_01613570(void* P)
+{
+    g_026bb6a8 = (P == NULL);
 }

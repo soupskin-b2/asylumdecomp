@@ -1,4 +1,4 @@
-// BmGame_1700000.cpp: 57 functions
+// BmGame_1700000.cpp: 77 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -523,4 +523,295 @@ class UAnimNodeCrossfader* ARControllableChatteringTeethBase__01707e80::eventGet
 	Parms.ReturnValue = NULL;
 	ProcessEvent(FindFunctionChecked(g_026e3068), &Parms);
 	return Parms.ReturnValue;
+}
+
+/* ARControllableChatteringTeethCamera::CalculateCurrentDragPos (016aa6b0) isn't declared in the kit. */
+struct ARControllableChatteringTeethCamera_ : public ARControllableChatteringTeethCamera
+{
+    FVector CalculateCurrentDragPos();
+};
+
+// @baa 0x01709d60
+void ARControllableChatteringTeethCamera::execCalculateCurrentDragPos(FFrame& Stack, RESULT_DECL)
+{
+    P_FINISH;
+    *(FVector*)Result = ((ARControllableChatteringTeethCamera_*)this)->CalculateCurrentDragPos();
+}
+
+/* ARControllableChatteringTeethCamera::CalculateCurrentTargetPos (016aa760) isn't declared in the kit. */
+struct ARControllableChatteringTeethCamera__01709db0 : public ARControllableChatteringTeethCamera
+{
+    FVector CalculateCurrentTargetPos();
+};
+
+// @baa 0x01709db0
+void ARControllableChatteringTeethCamera::execCalculateCurrentTargetPos(FFrame& Stack, RESULT_DECL)
+{
+    P_FINISH;
+    *(FVector*)Result = ((ARControllableChatteringTeethCamera__01709db0*)this)->CalculateCurrentTargetPos();
+}
+
+/* ARControllableChatteringTeethCamera::CalculateCurrentFallbackPos (016aa810) isn't declared in the kit. */
+struct ARControllableChatteringTeethCamera__01709e00 : public ARControllableChatteringTeethCamera
+{
+    FVector CalculateCurrentFallbackPos();
+};
+
+// @baa 0x01709e00
+void ARControllableChatteringTeethCamera::execCalculateCurrentFallbackPos(FFrame& Stack, RESULT_DECL)
+{
+    P_FINISH;
+    *(FVector*)Result = ((ARControllableChatteringTeethCamera__01709e00*)this)->CalculateCurrentFallbackPos();
+}
+
+extern FName g_026e38b0;
+	/* DestroyImpactEffects */
+struct ARRemoveableGrate_ : public ARRemoveableGrate
+{
+	void eventDestroyImpactEffects();
+};
+
+// @baa 0x01701350
+/* RRemoveableGrate.DestroyImpactEffects script event: the generated glue, out of line here. */
+void ARRemoveableGrate_::eventDestroyImpactEffects()
+{
+	ProcessEvent(FindFunctionChecked(g_026e38b0), NULL);
+}
+
+extern FName g_026e3974;
+	/* UpdateImpactEffects */
+struct ARRemoveableGrate__01701380 : public ARRemoveableGrate
+{
+	void eventUpdateImpactEffects();
+};
+
+// @baa 0x01701380
+/* RRemoveableGrate.UpdateImpactEffects script event: the generated glue, out of line here. */
+void ARRemoveableGrate__01701380::eventUpdateImpactEffects()
+{
+	ProcessEvent(FindFunctionChecked(g_026e3974), NULL);
+}
+
+/* ARBatarang::FindInterceptDirection (0x16390a0) isn't declared in the kit. */
+struct ARBatarang_ : public ARBatarang
+{
+    FVector FindInterceptDirection(FVector BatarangStartPos, FLOAT BatarangSpeed, FVector BatarangTargetPosition, FVector BatarangTargetVelocity);
+};
+
+// @baa 0x01707050
+void ARBatarang::execFindInterceptDirection(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, BatarangStartPos);
+    P_GET_FLOAT(BatarangSpeed);
+    P_GET_STRUCT(FVector, BatarangTargetPosition);
+    P_GET_STRUCT(FVector, BatarangTargetVelocity);
+    P_FINISH;
+    *(FVector*)Result = ((ARBatarang_*)this)->FindInterceptDirection(BatarangStartPos, BatarangSpeed, BatarangTargetPosition, BatarangTargetVelocity);
+}
+
+/* ARGrappleGun::CheckGrapplePoint (0x1641970) isn't declared in the kit. */
+struct ARGrappleGun_ : public ARGrappleGun
+{
+    UBOOL CheckGrapplePoint(class ARGrapplePoint* PointToCheck, FVector& GrapplePos, INT CheckIndex);
+};
+
+// @baa 0x01707510
+void ARGrappleGun::execCheckGrapplePoint(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(ARGrapplePoint, PointToCheck);
+    P_GET_STRUCT_REF(FVector, GrapplePos);
+    P_GET_INT(CheckIndex);
+    P_FINISH;
+    *(UBOOL*)Result = ((ARGrappleGun_*)this)->CheckGrapplePoint(PointToCheck, GrapplePos, CheckIndex);
+}
+
+/* ARLineLauncher::GetLineLaucherTetherPoints (0x1663980) isn't declared in the kit. */
+struct ARLineLauncher_ : public ARLineLauncher
+{
+    UBOOL GetLineLaucherTetherPoints(FVector& RearPoint, FVector& FrontPoint, FVector& ActorStartPoint, FVector& ActorEndPoint);
+};
+
+// @baa 0x01707940
+void ARLineLauncher::execGetLineLaucherTetherPoints(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT_REF(FVector, RearPoint);
+    P_GET_STRUCT_REF(FVector, FrontPoint);
+    P_GET_STRUCT_REF(FVector, ActorStartPoint);
+    P_GET_STRUCT_REF(FVector, ActorEndPoint);
+    P_FINISH;
+    *(UBOOL*)Result = ((ARLineLauncher_*)this)->GetLineLaucherTetherPoints(RearPoint, FrontPoint, ActorStartPoint, ActorEndPoint);
+}
+
+extern FName g_026e3954;
+	/* FinishStandSpecialMove */
+struct ARControllableChatteringTeethBase__01707c40 : public ARControllableChatteringTeethBase
+{
+	void eventFinishStandSpecialMove();
+};
+
+// @baa 0x01707c40
+/* RControllableChatteringTeethBase.FinishStandSpecialMove script event: the generated glue, out of line here. */
+void ARControllableChatteringTeethBase__01707c40::eventFinishStandSpecialMove()
+{
+	ProcessEvent(FindFunctionChecked(g_026e3954), NULL);
+}
+
+extern FName g_026e2a40;
+	/* TriggerDropSound */
+struct ARControllableChatteringTeethBase__01707c70 : public ARControllableChatteringTeethBase
+{
+	void eventTriggerDropSound();
+};
+
+// @baa 0x01707c70
+/* RControllableChatteringTeethBase.TriggerDropSound script event: the generated glue, out of line here. */
+void ARControllableChatteringTeethBase__01707c70::eventTriggerDropSound()
+{
+	ProcessEvent(FindFunctionChecked(g_026e2a40), NULL);
+}
+
+extern FName g_026e2a98;
+	/* AlertPeopleToExplosion */
+struct ARControllableChatteringTeethBase__01707ca0 : public ARControllableChatteringTeethBase
+{
+	void eventAlertPeopleToExplosion();
+};
+
+// @baa 0x01707ca0
+/* RControllableChatteringTeethBase.AlertPeopleToExplosion script event: the generated glue, out of line here. */
+void ARControllableChatteringTeethBase__01707ca0::eventAlertPeopleToExplosion()
+{
+	ProcessEvent(FindFunctionChecked(g_026e2a98), NULL);
+}
+
+extern FName g_026e37b4;
+	/* DamageNearbyFractureWalls */
+struct ARControllableChatteringTeethBase__01707cd0 : public ARControllableChatteringTeethBase
+{
+	void eventDamageNearbyFractureWalls();
+};
+
+// @baa 0x01707cd0
+/* RControllableChatteringTeethBase.DamageNearbyFractureWalls script event: the generated glue, out of line here. */
+void ARControllableChatteringTeethBase__01707cd0::eventDamageNearbyFractureWalls()
+{
+	ProcessEvent(FindFunctionChecked(g_026e37b4), NULL);
+}
+
+extern FName g_026e2ef4;
+	/* TriggerExplodeEffects */
+struct ARControllableChatteringTeethBase__01707d30 : public ARControllableChatteringTeethBase
+{
+	void eventTriggerExplodeEffects();
+};
+
+// @baa 0x01707d30
+/* RControllableChatteringTeethBase.TriggerExplodeEffects script event: the generated glue, out of line here. */
+void ARControllableChatteringTeethBase__01707d30::eventTriggerExplodeEffects()
+{
+	ProcessEvent(FindFunctionChecked(g_026e2ef4), NULL);
+}
+
+extern FName g_026e2e98;
+	/* TriggerExplosionRumble */
+struct ARControllableChatteringTeethBase__01707d60 : public ARControllableChatteringTeethBase
+{
+	void eventTriggerExplosionRumble();
+};
+
+// @baa 0x01707d60
+/* RControllableChatteringTeethBase.TriggerExplosionRumble script event: the generated glue, out of line here. */
+void ARControllableChatteringTeethBase__01707d60::eventTriggerExplosionRumble()
+{
+	ProcessEvent(FindFunctionChecked(g_026e2e98), NULL);
+}
+
+extern FName g_026e2f84;
+	/* ApplyExplosionCameraShake */
+struct ARControllableChatteringTeethBase__01707d90 : public ARControllableChatteringTeethBase
+{
+	void eventApplyExplosionCameraShake();
+};
+
+// @baa 0x01707d90
+/* RControllableChatteringTeethBase.ApplyExplosionCameraShake script event: the generated glue, out of line here. */
+void ARControllableChatteringTeethBase__01707d90::eventApplyExplosionCameraShake()
+{
+	ProcessEvent(FindFunctionChecked(g_026e2f84), NULL);
+}
+
+/* ARExplosiveGooMine::ComplexTrace (0x163b2d0) isn't declared in the kit. */
+struct ARExplosiveGooMine_ : public ARExplosiveGooMine
+{
+    AActor* ComplexTrace(class AActor* MyOwner, FVector& HitLocation, FVector End, FVector Start);
+};
+
+// @baa 0x01708290
+void ARExplosiveGooMine::execComplexTrace(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(AActor, MyOwner);
+    P_GET_STRUCT_REF(FVector, HitLocation);
+    P_GET_STRUCT(FVector, End);
+    P_GET_STRUCT(FVector, Start);
+    P_FINISH;
+    *(AActor**)Result = ((ARExplosiveGooMine_*)this)->ComplexTrace(MyOwner, HitLocation, End, Start);
+}
+
+/* ARBatarangCamera::TrackPostImpact (0x16aa290) isn't declared in the kit. */
+struct ARBatarangCamera_ : public ARBatarangCamera
+{
+    void TrackPostImpact(FVector ActorLocation, FLOAT DeltaTime);
+};
+
+// @baa 0x01709bb0
+void ARBatarangCamera::execTrackPostImpact(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, ActorLocation);
+    P_GET_FLOAT(DeltaTime);
+    P_FINISH;
+    ((ARBatarangCamera_*)this)->TrackPostImpact(ActorLocation, DeltaTime);
+}
+
+/* ARLineLauncherDirectorCamera::FindBestCentrePoint (0x16aad30) isn't declared in the kit. */
+struct ARLineLauncherDirectorCamera_ : public ARLineLauncherDirectorCamera
+{
+    void FindBestCentrePoint(FVector& StartPoint, FVector& EndPoint);
+};
+
+// @baa 0x0170a1f0
+void ARLineLauncherDirectorCamera::execFindBestCentrePoint(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT_REF(FVector, StartPoint);
+    P_GET_STRUCT_REF(FVector, EndPoint);
+    P_FINISH;
+    ((ARLineLauncherDirectorCamera_*)this)->FindBestCentrePoint(StartPoint, EndPoint);
+}
+
+/* ARSilentPredatorCamera::LookAround (0x16ab590) isn't declared in the kit. */
+struct ARSilentPredatorCamera_ : public ARSilentPredatorCamera
+{
+    void LookAround(FLOAT DeltaTime, FRotator LookInput);
+};
+
+// @baa 0x0170a3e0
+void ARSilentPredatorCamera::execLookAround(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_FLOAT(DeltaTime);
+    P_GET_STRUCT(FRotator, LookInput);
+    P_FINISH;
+    ((ARSilentPredatorCamera_*)this)->LookAround(DeltaTime, LookInput);
+}
+
+extern FName g_026e2f18;
+	/* Dump */
+struct URPersistentOptions_ : public URPersistentOptions
+{
+	void eventDump();
+};
+
+// @baa 0x0170a890
+/* RPersistentOptions.Dump script event: the generated glue, out of line here. */
+void URPersistentOptions_::eventDump()
+{
+	ProcessEvent(FindFunctionChecked(g_026e2f18), NULL);
 }

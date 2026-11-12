@@ -1,4 +1,4 @@
-// BmGame_16f0000.cpp: 145 functions
+// BmGame_16f0000.cpp: 160 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -1245,4 +1245,230 @@ void ARExplodableWallBase__016ffd10::eventSetBrickSaveRemovedState(class UStatic
 	Parms.brickComponent = brickComponent;
 	Parms.Removed = Removed ? TRUE : FALSE;
 	ProcessEvent(FindFunctionChecked(g_026e3638), &Parms);
+}
+
+// @baa 0x016f4e40
+void ARPawnCharacter::execGetHeadPositionBeforeAdditive(FFrame& Stack, RESULT_DECL)
+{
+    P_FINISH;
+    *(FVector*)Result = GetHeadPositionBeforeAdditive();
+}
+
+// @baa 0x016fd4a0
+void ARBMRouter::execGetMovementDir(FFrame& Stack, RESULT_DECL)
+{
+    P_FINISH;
+    *(FVector*)Result = GetMovementDir();
+}
+
+extern FName g_026e3ac0;
+	/* ClearAmbientSoundStack */
+struct ARPlayerController_ : public ARPlayerController
+{
+	void eventClearAmbientSoundStack();
+};
+
+// @baa 0x016fb510
+/* RPlayerController.ClearAmbientSoundStack script event: the generated glue, out of line here. */
+void ARPlayerController_::eventClearAmbientSoundStack()
+{
+	ProcessEvent(FindFunctionChecked(g_026e3ac0), NULL);
+}
+
+extern FName g_026e367c;
+	/* TriggerSaveIcon */
+struct ARPlayerController__016fb540 : public ARPlayerController
+{
+	void eventTriggerSaveIcon();
+};
+
+// @baa 0x016fb540
+/* RPlayerController.TriggerSaveIcon script event: the generated glue, out of line here. */
+void ARPlayerController__016fb540::eventTriggerSaveIcon()
+{
+	ProcessEvent(FindFunctionChecked(g_026e367c), NULL);
+}
+
+extern FName g_026e2eec;
+	/* OnLoadedSaveGame */
+struct ARPlayerController__016fb570 : public ARPlayerController
+{
+	void eventOnLoadedSaveGame();
+};
+
+// @baa 0x016fb570
+/* RPlayerController.OnLoadedSaveGame script event: the generated glue, out of line here. */
+void ARPlayerController__016fb570::eventOnLoadedSaveGame()
+{
+	ProcessEvent(FindFunctionChecked(g_026e2eec), NULL);
+}
+
+/* ARSpecialMoveInstance_LineLauncher::LineLauncherMovement (0x1642870) isn't declared in the kit. */
+struct ARSpecialMoveInstance_LineLauncher__016fb780 : public ARSpecialMoveInstance_LineLauncher
+{
+    BYTE LineLauncherMovement(FLOAT DeltaTime, FLOAT HorizontalSpeed, FLOAT VerticalAccel, FLOAT MaxVerticalSpeed);
+};
+
+// @baa 0x016fb780
+void ARSpecialMoveInstance_LineLauncher::execLineLauncherMovement(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_FLOAT(DeltaTime);
+    P_GET_FLOAT(HorizontalSpeed);
+    P_GET_FLOAT(VerticalAccel);
+    P_GET_FLOAT(MaxVerticalSpeed);
+    P_FINISH;
+    *(BYTE*)Result = ((ARSpecialMoveInstance_LineLauncher__016fb780*)this)->LineLauncherMovement(DeltaTime, HorizontalSpeed, VerticalAccel, MaxVerticalSpeed);
+}
+
+/* ARSpecialMoveInstance_LineLauncher::GetKickTarget (0x1642cd0) isn't declared in the kit. */
+struct ARSpecialMoveInstance_LineLauncher__016fb970 : public ARSpecialMoveInstance_LineLauncher
+{
+    ARPawnVillain* GetKickTarget(FLOAT KickTime, FLOAT LeftKickTime, FLOAT RightKickTime, FLOAT MinOffsetForFwdKick, FLOAT MaxSpeed, FLOAT LineLauncherAccel, BYTE& KickDir);
+};
+
+// @baa 0x016fb970
+void ARSpecialMoveInstance_LineLauncher::execGetKickTarget(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_FLOAT(KickTime);
+    P_GET_FLOAT(LeftKickTime);
+    P_GET_FLOAT(RightKickTime);
+    P_GET_FLOAT(MinOffsetForFwdKick);
+    P_GET_FLOAT(MaxSpeed);
+    P_GET_FLOAT(LineLauncherAccel);
+    P_GET_BYTE_REF(KickDir);
+    P_FINISH;
+    *(ARPawnVillain**)Result = ((ARSpecialMoveInstance_LineLauncher__016fb970*)this)->GetKickTarget(KickTime, LeftKickTime, RightKickTime, MinOffsetForFwdKick, MaxSpeed, LineLauncherAccel, KickDir);
+}
+
+/* ARSpecialMoveInstance_CatchLedge::CorrectLedgeCatchVelocity (0x1616e90) isn't declared in the kit. */
+struct ARSpecialMoveInstance_CatchLedge_ : public ARSpecialMoveInstance_CatchLedge
+{
+    void CorrectLedgeCatchVelocity(class APawn* Player, FVector& DesiredPosition, FLOAT Max2DAccel, FLOAT DeltaTime);
+};
+
+// @baa 0x016fbdb0
+void ARSpecialMoveInstance_CatchLedge::execCorrectLedgeCatchVelocity(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(APawn, Player);
+    P_GET_STRUCT_REF(FVector, DesiredPosition);
+    P_GET_FLOAT(Max2DAccel);
+    P_GET_FLOAT(DeltaTime);
+    P_FINISH;
+    ((ARSpecialMoveInstance_CatchLedge_*)this)->CorrectLedgeCatchVelocity(Player, DesiredPosition, Max2DAccel, DeltaTime);
+}
+
+/* ARSpecialMoveInstance_ResonateObject::InterpThumb (0x1613630) isn't declared in the kit. */
+struct ARSpecialMoveInstance_ResonateObject__016fbee0 : public ARSpecialMoveInstance_ResonateObject
+{
+    FLOAT InterpThumb(FLOAT DesiredPos, FLOAT CurrentPos, FLOAT DeltaTime);
+};
+
+// @baa 0x016fbee0
+void ARSpecialMoveInstance_ResonateObject::execInterpThumb(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_FLOAT(DesiredPos);
+    P_GET_FLOAT(CurrentPos);
+    P_GET_FLOAT(DeltaTime);
+    P_FINISH;
+    *(FLOAT*)Result = ((ARSpecialMoveInstance_ResonateObject__016fbee0*)this)->InterpThumb(DesiredPos, CurrentPos, DeltaTime);
+}
+
+/* ARSpecialMoveInstance_ResonateObject::GetLeftAndRightAngles (0x1613590) isn't declared in the kit. */
+struct ARSpecialMoveInstance_ResonateObject__016fbfe0 : public ARSpecialMoveInstance_ResonateObject
+{
+    void GetLeftAndRightAngles(FLOAT& LeftAngle, FLOAT& RightAngle, FLOAT RawLeftX, FLOAT RawLeftY, FLOAT RawRightX, FLOAT RawRightY);
+};
+
+// @baa 0x016fbfe0
+void ARSpecialMoveInstance_ResonateObject::execGetLeftAndRightAngles(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_FLOAT_REF(LeftAngle);
+    P_GET_FLOAT_REF(RightAngle);
+    P_GET_FLOAT(RawLeftX);
+    P_GET_FLOAT(RawLeftY);
+    P_GET_FLOAT(RawRightX);
+    P_GET_FLOAT(RawRightY);
+    P_FINISH;
+    ((ARSpecialMoveInstance_ResonateObject__016fbfe0*)this)->GetLeftAndRightAngles(LeftAngle, RightAngle, RawLeftX, RawLeftY, RawRightX, RawRightY);
+}
+
+/* ARSpecialMoveInstance_ResonateObject::UpdatePCResonatorPos (0x1613720) isn't declared in the kit. */
+struct ARSpecialMoveInstance_ResonateObject__016fc160 : public ARSpecialMoveInstance_ResonateObject
+{
+    void UpdatePCResonatorPos(class URPlayerInput* Input, FLOAT DeltaTime, FLOAT TurnSpeed, FLOAT Accel, FLOAT Decel);
+};
+
+// @baa 0x016fc160
+void ARSpecialMoveInstance_ResonateObject::execUpdatePCResonatorPos(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(URPlayerInput, Input);
+    P_GET_FLOAT(DeltaTime);
+    P_GET_FLOAT(TurnSpeed);
+    P_GET_FLOAT(Accel);
+    P_GET_FLOAT(Decel);
+    P_FINISH;
+    ((ARSpecialMoveInstance_ResonateObject__016fc160*)this)->UpdatePCResonatorPos(Input, DeltaTime, TurnSpeed, Accel, Decel);
+}
+
+/* ARSpecialMoveInstance_SwingToVantagePoint::SetupTrajectory (0x1616a70) isn't declared in the kit. */
+struct ARSpecialMoveInstance_SwingToVantagePoint_ : public ARSpecialMoveInstance_SwingToVantagePoint
+{
+    void SetupTrajectory(FVector StartLocation, FVector EndLocation, FLOAT DefaultDistance, FLOAT DefaultRadius, FLOAT AnimationDuration);
+};
+
+// @baa 0x016fc2c0
+void ARSpecialMoveInstance_SwingToVantagePoint::execSetupTrajectory(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, StartLocation);
+    P_GET_STRUCT(FVector, EndLocation);
+    P_GET_FLOAT(DefaultDistance);
+    P_GET_FLOAT(DefaultRadius);
+    P_GET_FLOAT(AnimationDuration);
+    P_FINISH;
+    ((ARSpecialMoveInstance_SwingToVantagePoint_*)this)->SetupTrajectory(StartLocation, EndLocation, DefaultDistance, DefaultRadius, AnimationDuration);
+}
+
+/* ARSpecialMoveInstance_SwingToVantagePoint::UpdateTrajectory (0x1616d50) isn't declared in the kit. */
+struct ARSpecialMoveInstance_SwingToVantagePoint__016fc400 : public ARSpecialMoveInstance_SwingToVantagePoint
+{
+    FLOAT UpdateTrajectory(FLOAT DeltaTime, FVector& Position);
+};
+
+// @baa 0x016fc400
+void ARSpecialMoveInstance_SwingToVantagePoint::execUpdateTrajectory(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_FLOAT(DeltaTime);
+    P_GET_STRUCT_REF(FVector, Position);
+    P_FINISH;
+    *(FLOAT*)Result = ((ARSpecialMoveInstance_SwingToVantagePoint__016fc400*)this)->UpdateTrajectory(DeltaTime, Position);
+}
+
+/* URPlayerInput::FastPlayerInput (0x1635210) isn't declared in the kit. */
+struct URPlayerInput_ : public URPlayerInput
+{
+    void FastPlayerInput(FLOAT DeltaTime, UBOOL bMoveInputIgnored, UBOOL bLookInputIgnored);
+};
+
+// @baa 0x016fc620
+void URPlayerInput::execFastPlayerInput(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_FLOAT(DeltaTime);
+    P_GET_UBOOL(bMoveInputIgnored);
+    P_GET_UBOOL(bLookInputIgnored);
+    P_FINISH;
+    ((URPlayerInput_*)this)->FastPlayerInput(DeltaTime, bMoveInputIgnored, bLookInputIgnored);
+}
+
+extern FName g_026e25bc;
+	/* PlayExplosionSound */
+struct ARExplodableWallBase__016ffc90 : public ARExplodableWallBase
+{
+	void eventPlayExplosionSound();
+};
+
+// @baa 0x016ffc90
+/* RExplodableWallBase.PlayExplosionSound script event: the generated glue, out of line here. */
+void ARExplodableWallBase__016ffc90::eventPlayExplosionSound()
+{
+	ProcessEvent(FindFunctionChecked(g_026e25bc), NULL);
 }

@@ -1,4 +1,4 @@
-// RSmashableProp.cpp: 13 functions
+// RSmashableProp.cpp: 15 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -200,4 +200,32 @@ class ARSmashableProp* ARSmashableProp__01668c30::eventSpawnProp(class AActor* s
 	Parms.brickPropConfig = brickPropConfig;
 	ProcessEvent(FindFunctionChecked(g_026e3a04), &Parms);
 	return Parms.ReturnValue;
+}
+
+extern FName g_026e37cc;
+	/* InitXRayMode */
+struct ARSmashableProp__01668b70 : public ARSmashableProp
+{
+	void eventInitXRayMode();
+};
+
+// @baa 0x01668b70
+/* RSmashableProp.InitXRayMode script event: the generated glue, out of line here. */
+void ARSmashableProp__01668b70::eventInitXRayMode()
+{
+	ProcessEvent(FindFunctionChecked(g_026e37cc), NULL);
+}
+
+/* ARSmashableProp::GetDecalData (0x1675110) isn't declared in the kit. */
+struct ARSmashableProp__016ff8e0 : public ARSmashableProp
+{
+    FRSmashablePropDecalData GetDecalData(FName DecalTypeName);
+};
+
+// @baa 0x016ff8e0
+void ARSmashableProp::execGetDecalData(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(DecalTypeName);
+    P_FINISH;
+    *(FRSmashablePropDecalData*)Result = ((ARSmashableProp__016ff8e0*)this)->GetDecalData(DecalTypeName);
 }

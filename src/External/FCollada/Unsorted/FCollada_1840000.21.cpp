@@ -1,4 +1,4 @@
-// FCollada_1840000.cpp (part 21 of 21): 4 functions
+// FCollada_1840000.cpp (part 21 of 21): 5 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -63,4 +63,28 @@ struct C_0184a9e0
 bool C_0184a9e0::sub_0184a9e0()
 {
     return Pointer->Value != 0;
+}
+
+// FUTrackedList<FCDSceneNode> constructor (FUObjectContainer layout)
+struct FUObjectContainerBase {
+    void* First;
+    void* Last;
+    int Count;
+    int* CountPtr;
+
+    FUObjectContainerBase() : First(NULL), Last(NULL), Count(0), CountPtr(&Count) {}
+};
+
+struct FUTrackedList_FCDSceneNode : public FUObjectContainerBase {
+    FUTrackedList_FCDSceneNode();
+    virtual ~FUTrackedList_FCDSceneNode();
+};
+
+FUTrackedList_FCDSceneNode::FUTrackedList_FCDSceneNode()
+{
+}
+
+// @baa 0x01840080
+FUTrackedList_FCDSceneNode::~FUTrackedList_FCDSceneNode()
+{
 }

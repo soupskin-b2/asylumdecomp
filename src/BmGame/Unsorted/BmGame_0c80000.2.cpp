@@ -1,4 +1,4 @@
-// BmGame_0c80000.cpp: 30 functions
+// BmGame_0c80000.cpp: 36 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -303,4 +303,90 @@ void g_caller()
 {
     AActor__00c82f00 Actor;
     Actor.execGetDestination(*(FFrame*)0, 0);
+}
+
+/* AController::GetFocalPoint (007ad7e0) isn't declared in the kit. */
+struct AController_ : public AController
+{
+    FVector GetFocalPoint();
+};
+
+// @baa 0x00c844c0
+void AController::execGetFocalPoint(FFrame& Stack, RESULT_DECL)
+{
+    P_FINISH;
+    *(FVector*)Result = ((AController_*)this)->GetFocalPoint();
+}
+
+/* AController::GetDestinationPosition (007ada10) isn't declared in the kit. */
+struct AController__00c845c0 : public AController
+{
+    FVector GetDestinationPosition();
+};
+
+// @baa 0x00c845c0
+void AController::execGetDestinationPosition(FFrame& Stack, RESULT_DECL)
+{
+    P_FINISH;
+    *(FVector*)Result = ((AController__00c845c0*)this)->GetDestinationPosition();
+}
+
+/* AActor::GetPackageGuid (0x8ef1d0) isn't declared in the kit. */
+struct AActor__00c83420 : public AActor
+{
+    FGuid GetPackageGuid(FName PackageName);
+};
+
+// @baa 0x00c83420
+void AActor::execGetPackageGuid(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(PackageName);
+    P_FINISH;
+    *(FGuid*)Result = ((AActor__00c83420*)this)->GetPackageGuid(PackageName);
+}
+
+/* AController::GetBasedPosition (0x7ad610) isn't declared in the kit. */
+struct AController__00c84350 : public AController
+{
+    FVector GetBasedPosition(FBasedPosition BP);
+};
+
+// @baa 0x00c84350
+void AController::execGetBasedPosition(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FBasedPosition, BP);
+    P_FINISH;
+    *(FVector*)Result = ((AController__00c84350*)this)->GetBasedPosition(BP);
+}
+
+/* APlayerController::ClientUpdateLevelStreamingStatus (0x7b4f70) isn't declared in the kit. */
+struct APlayerController__00c87470 : public APlayerController
+{
+    void ClientUpdateLevelStreamingStatus(FName PackageName, UBOOL bNewShouldBeLoaded, UBOOL bNewShouldBeVisible, UBOOL bNewShouldBlockOnLoad);
+};
+
+// @baa 0x00c87470
+void APlayerController::execClientUpdateLevelStreamingStatus(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(PackageName);
+    P_GET_UBOOL(bNewShouldBeLoaded);
+    P_GET_UBOOL(bNewShouldBeVisible);
+    P_GET_UBOOL(bNewShouldBlockOnLoad);
+    P_FINISH;
+    ((APlayerController__00c87470*)this)->ClientUpdateLevelStreamingStatus(PackageName, bNewShouldBeLoaded, bNewShouldBeVisible, bNewShouldBlockOnLoad);
+}
+
+/* APlayerController::ServerUpdateLevelVisibility (0x7bf380) isn't declared in the kit. */
+struct APlayerController__00c87580 : public APlayerController
+{
+    void ServerUpdateLevelVisibility(FName PackageName, UBOOL bIsVisible);
+};
+
+// @baa 0x00c87580
+void APlayerController::execServerUpdateLevelVisibility(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(PackageName);
+    P_GET_UBOOL(bIsVisible);
+    P_FINISH;
+    ((APlayerController__00c87580*)this)->ServerUpdateLevelVisibility(PackageName, bIsVisible);
 }
