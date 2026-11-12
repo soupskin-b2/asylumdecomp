@@ -1,4 +1,4 @@
-// UnPhysComponent.cpp: 4 functions
+// UnPhysComponent.cpp: 5 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -61,5 +61,17 @@ void UPrimitiveComponent::sub_009feb00(UBOOL bInDisableAllRigidBody)
             vf_134(Owner->Physics != PHYS_RigidBody);
         }
         bDisableAllRigidBody = bInDisableAllRigidBody;
+    }
+}
+
+// @baa 0x00a01dd0
+/* URB_RadialImpulseComponent slot 0x114 (kit vf_114, UE3's UpdateTransform()): keep the editor preview sphere's
+ * radius in step with the impulse radius. */
+void URB_RadialImpulseComponent::vf_114()
+{
+    Super::vf_114();
+    if (PreviewSphere != NULL)
+    {
+        PreviewSphere->SphereRadius = ImpulseRadius;
     }
 }

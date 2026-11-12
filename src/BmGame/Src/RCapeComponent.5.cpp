@@ -1,4 +1,4 @@
-// RCapeComponent.cpp: 8 functions
+// RCapeComponent.cpp: 17 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -153,3 +153,186 @@ UBOOL URCapeComponent::GetIsInCinematicsState()
 	}
 	return FALSE;
 }
+
+struct URCapeComponent__016aea50 : public URCapeComponent
+{
+    FLOAT GetCapeChainWidth(); /* 0x016aea50 */
+};
+
+// @baa 0x016aea50
+/* The cape config's chain width. */
+FLOAT URCapeComponent__016aea50::GetCapeChainWidth()
+{
+#line 1435 "e:\\\\Projects\\\\Amadeus\\\\AA\\\\Game\\\\UnrealEngine3\\\\Development\\\\Src\\\\BmGame\\\\Src\\\\RCapeComponent.cpp"
+    check(CapeConfig != NULL);
+    return CapeConfig->CapeChainWidth;
+}
+
+#line 172 "candidate.cpp"
+
+struct URCapeComponent__016aecd0 : public URCapeComponent
+{
+    FLOAT GetHorizontalDamping(); /* 0x016aecd0 */
+};
+
+// @baa 0x016aecd0
+/* The cape config's horizontal damping. */
+FLOAT URCapeComponent__016aecd0::GetHorizontalDamping()
+{
+#line 1528 "e:\\\\Projects\\\\Amadeus\\\\AA\\\\Game\\\\UnrealEngine3\\\\Development\\\\Src\\\\BmGame\\\\Src\\\\RCapeComponent.cpp"
+    check(CapeConfig != NULL);
+    return CapeConfig->HorizontalDamping;
+}
+
+#line 188 "candidate.cpp"
+
+struct URCapeComponent__016b2140 : public URCapeComponent
+{
+    INT GetNumSupportConnectorIndexPairs(); /* 0x016b2140 */
+};
+
+// @baa 0x016b2140
+/* How many support connector index pairs the cape config has. */
+INT URCapeComponent__016b2140::GetNumSupportConnectorIndexPairs()
+{
+#line 1504 "e:\\\\Projects\\\\Amadeus\\\\AA\\\\Game\\\\UnrealEngine3\\\\Development\\\\Src\\\\BmGame\\\\Src\\\\RCapeComponent.cpp"
+    check(CapeConfig != NULL);
+    return CapeConfig->SupportConnectorIndexPairs.Num();
+}
+
+#line 204 "candidate.cpp"
+
+struct URCapeComponent__016aea10 : public URCapeComponent
+{
+    INT GetNumChainsInCape(); /* 0x016aea10 */
+};
+
+// @baa 0x016aea10
+/* How many chains the cape has. */
+INT URCapeComponent__016aea10::GetNumChainsInCape()
+{
+#line 1253 "e:\\\\Projects\\\\Amadeus\\\\AA\\\\Game\\\\UnrealEngine3\\\\Development\\\\Src\\\\BmGame\\\\Src\\\\RCapeComponent.cpp"
+    check(0 <= CapeConfig->NumChainsInCape);
+    return CapeConfig->NumChainsInCape;
+}
+
+#line 220 "candidate.cpp"
+
+/* Unnamed in the kit (0x015691f0): the skeleton bone index for a cape chain link. */
+struct URAnimNode_Cape_ : public URAnimNode_Cape
+{
+    INT sub_015691f0(INT ChainIndex, INT LinkIndex);
+};
+
+struct URCapeComponent__016ae900 : public URCapeComponent
+{
+    void SetDebugRenderBone(INT ChainNumber, INT LinkNumber); /* 0x016ae900 */
+};
+
+// @baa 0x016ae900
+/* Pick the cape bone the state controller debug-renders (1-based chain number and link; 0 turns it off). */
+void URCapeComponent__016ae900::SetDebugRenderBone(INT ChainNumber, INT LinkNumber)
+{
+    if (ChainNumber != 0 && LinkNumber != 0)
+    {
+        CapeStateController->sub_016ced50(((URAnimNode_Cape_*)CapeAnimNode)->sub_015691f0(ChainNumber - 1, LinkNumber));
+    }
+    else
+    {
+        CapeStateController->sub_016ced50(-1);
+    }
+}
+
+struct URCapeComponent__016ae800 : public URCapeComponent
+{
+    void* sub_016ae800(FName Name); /* 0x016ae800 */
+};
+
+// @baa 0x016ae800
+/* Unnamed in the kit: look the name up through the cape anim node (URAnimNode_Cape::sub_01575620), once both the
+ * anim node and the state controller exist. */
+void* URCapeComponent__016ae800::sub_016ae800(FName Name)
+{
+    if (CapeAnimNode != NULL && CapeStateController != NULL)
+    {
+        void* Result = CapeAnimNode->sub_01575620(Name);
+        if (Result != NULL)
+        {
+            return Result;
+        }
+    }
+    return NULL;
+}
+
+struct URCapeComponent__016aed10 : public URCapeComponent
+{
+    FLOAT GetVerticalDamping(); /* 0x016aed10 */
+};
+
+// @baa 0x016aed10
+/* The cape config's vertical damping. */
+FLOAT URCapeComponent__016aed10::GetVerticalDamping()
+{
+#line 1534 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RCapeComponent.cpp"
+    check(CapeConfig != NULL);
+    return CapeConfig->VerticalDamping;
+}
+
+#line 282 "candidate.cpp"
+
+struct URCapeComponent__016ae870 : public URCapeComponent
+{
+    void SetCapeAnimBlendWeights(UBOOL bEnable, FLOAT RootWeight, FLOAT ChildWeight); /* 0x016ae870 */
+};
+
+// @baa 0x016ae870
+/* Switch manual blend-weight setting on the cape anim node and set the root weight and both child weights. */
+void URCapeComponent__016ae870::SetCapeAnimBlendWeights(UBOOL bEnable, FLOAT RootWeight, FLOAT ChildWeight)
+{
+    CapeAnimNode->IsBlendWeightSettingEnabled = bEnable;
+    CapeAnimNode->RootBlendWeight = RootWeight;
+    CapeAnimNode->Child1BlendWeight = ChildWeight;
+    CapeAnimNode->Child2BlendWeight = ChildWeight;
+}
+
+/* Kit gap (Array.h, issue #39): this build inlines TArray::operator() where the kit's plain-inline one is
+ * called out of line; same body, forced inline. */
+template<class T> struct TArrayAt_ : public TArray<T>
+{
+    using TArray<T>::ArrayNum;
+    __forceinline T& At(INT i)
+    {
+#line 560 BAA_ARRAY_FILE
+        check(i>=0 && (i<ArrayNum||(i==0 && ArrayNum==0)));
+        return this->GetTypedData()[i];
+    }
+    __forceinline const T& At(INT i) const
+    {
+#line 566 BAA_ARRAY_FILE
+        check(i>=0 && (i<ArrayNum||(i==0 && ArrayNum==0)));
+        return this->GetTypedData()[i];
+    }
+};
+
+struct URCapeComponent__016ba4a0 : public URCapeComponent
+{
+    UBOOL GetBoneCollisionWithWorld(INT StateIndex, INT BoneIndex) const; /* 0x016ba4a0 */
+};
+
+// @baa 0x016ba4a0
+/* Whether a cape bone collides with the world in a cape state (FALSE when either index is past the config's table). */
+UBOOL URCapeComponent__016ba4a0::GetBoneCollisionWithWorld(INT StateIndex, INT BoneIndex) const
+{
+    const TArray<FCapeBoolArrayType>& States = CapeConfig->BoneCollisionWithWorldStates;
+    if (StateIndex < States.Num())
+    {
+        const FCapeBoolArrayType& State = ((const TArrayAt_<FCapeBoolArrayType>&)States).At(StateIndex);
+        if (BoneIndex < State.BoolArray.Num())
+        {
+            return ((const TArrayAt_<UBOOL>&)State.BoolArray).At(BoneIndex);
+        }
+    }
+    return FALSE;
+}
+
+#line 339 "candidate.cpp"

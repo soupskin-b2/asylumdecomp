@@ -1,4 +1,4 @@
-// Engine_0680000.cpp (part 1 of 7): 289 functions
+// Engine_0680000.cpp (part 1 of 7): 290 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -2762,4 +2762,20 @@ undefined4 UStaticMeshComponent::sub_0068f860(byte param_2)
     sub_005c7a70(param_1,0x1f0);
   }
   return param_1;
+}
+
+/* Kit gap: the mesh-side handler (0x00963100; its name isn't known) isn't declared. */
+struct UStaticMesh_ : public UStaticMesh
+{
+	void sub_00963100(INT); /* 0x00963100 */
+};
+
+// @baa 0x0068f840
+/* Slot 0x248 (unnamed in the kit): forwards to the static mesh. */
+void UStaticMeshComponent::vf_248(INT Param)
+{
+	if (StaticMesh)
+	{
+		((UStaticMesh_*)StaticMesh)->sub_00963100(Param);
+	}
 }

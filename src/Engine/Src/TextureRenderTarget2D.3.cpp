@@ -1,4 +1,4 @@
-// TextureRenderTarget2D.cpp (part 3 of 3): 21 functions
+// TextureRenderTarget2D.cpp (part 3 of 3): 22 functions
 // Placed here by: callers 1, class 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -199,4 +199,13 @@ void UTextureRenderTargetFactoryNew::InitializeIntrinsicPropertyValues()
 	Settings->Width = 256;
 	Settings->Height = 256;
 	Settings->Format = 0;
+}
+
+/* UnScriptedTexture.cpp: the list of scripted textures the renderer updates each frame. */
+extern TArray<UScriptedTexture*> GScriptedTextures;
+// @baa 0x007684a0
+void UScriptedTexture::BeginDestroy()
+{
+	GScriptedTextures.RemoveItem(this);
+	Super::BeginDestroy();
 }

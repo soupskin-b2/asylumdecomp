@@ -1,4 +1,4 @@
-// RHidePoint.cpp: 13 functions
+// RHidePoint.cpp: 15 functions
 // Placed here by: callers 2, file 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -64,4 +64,19 @@ struct ARHidePoint__0164efa0 : public ARHidePoint
 INT ARHidePoint__0164efa0::sub_0164efa0()
 {
     return g_026e1c70.RemoveItem(this);
+}
+
+// @baa 0x01652010
+void ARHidePoint::BeginDestroy()
+{
+	g_026e1c70.RemoveItem(this);
+	Super::BeginDestroy();
+}
+
+// @baa 0x01651fe0
+/* Slot 0x2c (unnamed in the kit): also drops the hide point from the list. */
+void ARHidePoint::vf_02c()
+{
+	g_026e1c70.RemoveItem(this);
+	Super::vf_02c();
 }

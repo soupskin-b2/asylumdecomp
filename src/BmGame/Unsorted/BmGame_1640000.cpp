@@ -1,4 +1,4 @@
-// BmGame_1640000.cpp (part 1 of 5): 134 functions
+// BmGame_1640000.cpp (part 1 of 5): 135 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -1104,4 +1104,14 @@ C_01644160* C_01644160::sub_01644160()
     B = 0.0f;
     C = 1.0f;
     return this;
+}
+
+/* The game's list of grapple points (its name isn't known); they add themselves to it. */
+extern TArray<ARGrapplePoint*> g_026e1c54;
+// @baa 0x01647dc0
+/* Slot 0x2c (unnamed in the kit): also drops the grapple point from the list. */
+void ARGrapplePoint::vf_02c()
+{
+	g_026e1c54.RemoveItem(this);
+	Super::vf_02c();
 }

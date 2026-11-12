@@ -1,4 +1,4 @@
-// BmGame_1660000.cpp (part 2 of 3): 141 functions
+// BmGame_1660000.cpp (part 2 of 3): 142 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -2149,4 +2149,15 @@ UBOOL ARPawnCharacter::IsInTransition(FTransitionId Id, BYTE Fuzziness)
 		return FALSE;
 	}
 	return Anim->IsInTransition(Id, Fuzziness);
+}
+
+// @baa 0x0166fd50
+/* Slot 0x604 (unnamed in the kit): the phase of the current movement cycle. */
+BYTE ARPawnCharacter::vf_604()
+{
+	if (Anim)
+	{
+		return Anim->MovementPlayer.CurrentCycleTime.Phase.Phase;
+	}
+	return 0;
 }

@@ -1,4 +1,4 @@
-// RCapeStateController.cpp (part 1 of 6): 123 functions
+// RCapeStateController.cpp (part 1 of 6): 126 functions
 // Placed here by: neighbours 86, class 13, callers 10, file 10.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -890,3 +890,93 @@ void URCapeStateBoneConfigFactoryNew::InitializeIntrinsicPropertyValues()
 	((FFactoryFlags*)_native2)->bCreateNew = TRUE;
 	Description = TEXT("CapeStateBoneConfig");
 }
+
+/* Kit gap: the controller's pause/unpause helpers (RCapeStateController.cpp) aren't declared; their names aren't known.
+ * The first asserts !IsCapePaused, the second IsCapePaused || IsSubUpdatePauseRequested. */
+struct URCapeStateController__016e7610 : public URCapeStateController
+{
+	void sub_016e72b0(UBOOL bStateChanged); /* 0x016e72b0 */
+	void sub_016e75b0(UBOOL bStateChanged); /* 0x016e75b0 */
+};
+
+// @baa 0x016e7610
+void URCapeStateController::UpdatePauseState()
+{
+	if (IsInitialised)
+	{
+		const UBOOL bStateChanged = IsCapePauseRequested != IsCapePaused;
+		if ((IsCapePauseRequested && !IsCapePaused) || IsSubUpdatePauseRequested)
+		{
+			((URCapeStateController__016e7610*)this)->sub_016e72b0(bStateChanged);
+		}
+		if ((!IsCapePauseRequested && IsCapePaused) || IsSubUpdatePauseRequested)
+		{
+			((URCapeStateController__016e7610*)this)->sub_016e75b0(bStateChanged);
+			IsSubUpdatePauseRequested = FALSE;
+		}
+	}
+}
+
+/* The project's existing name for the cape physics object behind CapePhysicsRef (0x016af420 is bound as
+ * S_016ceca0::sub_016af420). */
+struct S_016ceca0
+{
+    UINT sub_016af420();
+};
+
+struct URCapeStateController__016ceca0 : public URCapeStateController
+{
+    UINT sub_016ceca0(); /* 0x016ceca0 */
+};
+
+// @baa 0x016ceca0
+/* Unnamed in the kit: forwards to the cape physics object. */
+UINT URCapeStateController__016ceca0::sub_016ceca0()
+{
+#line 390 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RCapeStateController.cpp"
+    check(CapePhysicsRef.Dummy != NULL);
+    return ((S_016ceca0*)CapePhysicsRef.Dummy)->sub_016af420();
+}
+
+#line 942 "candidate.cpp"
+
+/* Kit gap (Array.h, issue #39): this build inlines TArray::operator() where the kit's plain-inline one is
+ * called out of line; same body, forced inline. */
+template<class T> struct TArrayAt_ : public TArray<T>
+{
+    using TArray<T>::ArrayNum;
+    __forceinline T& At(INT i)
+    {
+#line 560 BAA_ARRAY_FILE
+        check(i>=0 && (i<ArrayNum||(i==0 && ArrayNum==0)));
+        return this->GetTypedData()[i];
+    }
+    __forceinline const T& At(INT i) const
+    {
+#line 566 BAA_ARRAY_FILE
+        check(i>=0 && (i<ArrayNum||(i==0 && ArrayNum==0)));
+        return this->GetTypedData()[i];
+    }
+};
+
+struct URCapeStateController__016d6050 : public URCapeStateController
+{
+    INT FindBoneStateCacheIndex(URCapeStateBoneConfig* BoneConfig) const; /* 0x016d6050 */
+};
+
+// @baa 0x016d6050
+/* The bone state cache entry for a bone config; the cache size when there is none yet (the slot it would take). */
+INT URCapeStateController__016d6050::FindBoneStateCacheIndex(URCapeStateBoneConfig* BoneConfig) const
+{
+    INT Num = BoneStateCache.Num();
+    for (INT Idx = 0; Idx < Num; Idx++)
+    {
+        if (((const TArrayAt_<FCapeBoneStateData>&)BoneStateCache).At(Idx).BoneConfig == BoneConfig)
+        {
+            return Idx;
+        }
+    }
+    return Num;
+}
+
+#line 983 "candidate.cpp"

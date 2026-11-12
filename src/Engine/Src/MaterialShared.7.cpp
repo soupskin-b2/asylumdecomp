@@ -1,4 +1,4 @@
-// MaterialShared.cpp: 6 functions
+// MaterialShared.cpp: 7 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -51,3 +51,7 @@ void UMaterialInterface::execGetPhysicalMaterial(FFrame& Stack, RESULT_DECL)
 	P_FINISH;
 	*(UPhysicalMaterial**)Result = (UPhysicalMaterial*)GetPhysicalMaterial();
 }
+
+// @baa 0x006635b0
+/* Slot 0x130 (unnamed in the kit; UE3's GetMaterial(EMaterialShaderPlatform)). */
+INT UMaterialInterface::vf_130(INT) PURE_VIRTUAL(UMaterialInterface::GetMaterial, return NULL;);

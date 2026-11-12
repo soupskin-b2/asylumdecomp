@@ -1,4 +1,4 @@
-// UnPhysAsset.cpp: 2 functions
+// UnPhysAsset.cpp: 5 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -64,4 +64,73 @@ void UPhysicsAsset::PostLoad()
 	{
 		This->UpdateBodySetupIndexMap();
 	}
+}
+
+struct UPhysicsAssetInstance_ : public UPhysicsAssetInstance
+{
+    void SetAllBodiesFixed(UBOOL bNewFixed); /* 0x00a0b380 */
+};
+
+// @baa 0x00a0b380
+/* UE3's UPhysicsAssetInstance::SetAllBodiesFixed: fix or unfix every body of the instance. */
+void UPhysicsAssetInstance_::SetAllBodiesFixed(UBOOL bNewFixed)
+{
+    for (INT i = 0; i < Bodies.Num(); i++)
+    {
+        Bodies(i)->sub_00a09ca0(bNewFixed);
+    }
+}
+
+/* Unnamed in the kit (0x00a2ca60): UE3's UKMeshProps::CopyMeshPropsFrom(UKMeshProps* FromProps). */
+struct UKMeshProps_ : public UKMeshProps
+{
+    void CopyMeshPropsFrom(UKMeshProps* FromProps);
+};
+
+struct URB_BodySetup_ : public URB_BodySetup
+{
+    void CopyBodyPropertiesFrom(URB_BodySetup* FromSetup); /* 0x00a2d190 */
+};
+
+// @baa 0x00a2d190
+/* UE3's URB_BodySetup::CopyBodyPropertiesFrom: take over another body's geometry and physical settings. */
+void URB_BodySetup_::CopyBodyPropertiesFrom(URB_BodySetup* FromSetup)
+{
+    ((UKMeshProps_*)this)->CopyMeshPropsFrom(FromSetup);
+    PhysMaterial = FromSetup->PhysMaterial;
+    COMNudge = FromSetup->COMNudge;
+    GroupName = FromSetup->GroupName;
+    bFixed = FromSetup->bFixed;
+    bNoCollision = FromSetup->bNoCollision;
+    bPawnCollisionOnly = FromSetup->bPawnCollisionOnly;
+    bNoPawnCollision = FromSetup->bNoPawnCollision;
+    bBlockNonZeroExtent = FromSetup->bBlockNonZeroExtent;
+    bBlockZeroExtent = FromSetup->bBlockZeroExtent;
+    bEnableContinuousCollisionDetection = FromSetup->bEnableContinuousCollisionDetection;
+    bUseSingleVertCCDSkeleton = FromSetup->bUseSingleVertCCDSkeleton;
+    MinCCDSpeedThreshold = FromSetup->MinCCDSpeedThreshold;
+    bAlwaysFullAnimWeight = FromSetup->bAlwaysFullAnimWeight;
+    MassScale = FromSetup->MassScale;
+    SleepFamily = FromSetup->SleepFamily;
+}
+
+/* Unnamed in the kit (0x00a2c3b0): UE3's URB_BodySetup::ClearShapeCache(). */
+struct URB_BodySetup__00a2d130 : public URB_BodySetup
+{
+    void ClearShapeCache();
+};
+
+struct UPhysicsAsset__00a2d130 : public UPhysicsAsset
+{
+    void ClearShapeCaches(); /* 0x00a2d130 */
+};
+
+// @baa 0x00a2d130
+/* UE3's UPhysicsAsset::ClearShapeCaches: drop every body's cached physics shapes. */
+void UPhysicsAsset__00a2d130::ClearShapeCaches()
+{
+    for (INT i = 0; i < BodySetup.Num(); i++)
+    {
+        ((URB_BodySetup__00a2d130*)BodySetup(i))->ClearShapeCache();
+    }
 }

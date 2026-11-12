@@ -1,4 +1,4 @@
-// Engine_0710000.cpp (part 5 of 7): 3 functions
+// Engine_0710000.cpp (part 5 of 7): 4 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -53,4 +53,11 @@ void UTexture2D::vf_130()
 	UnpackMax[2] = 1.f;
 	UnpackMax[1] = 1.f;
 	UnpackMax[0] = 1.f;
+}
+
+// @baa 0x00716610
+/* SH lights have no position; this is the dummy the renderer expects. */
+FVector4 USphericalHarmonicLightComponent::GetPosition() const
+{
+	return FVector4(0, 0, 1, 0);
 }

@@ -1,4 +1,4 @@
-// Engine_0940000.cpp: 2 functions
+// Engine_0940000.cpp: 3 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -74,4 +74,14 @@ struct S0094c800 {
 extern "C" void g_KeepAlive_0094c800() {
     S0094c800* Self = 0;
     Self->sub_0094c800(0, 1);
+}
+
+// @baa 0x00944aa0
+/* Slot 0x280 (unnamed in the kit): stops any FaceFX animation on the head mesh. */
+void ASkeletalMeshActor::vf_280()
+{
+	if (HeadMesh)
+	{
+		HeadMesh->StopFaceFXAnim();
+	}
 }

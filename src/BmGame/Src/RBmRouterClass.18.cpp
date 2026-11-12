@@ -1,4 +1,4 @@
-// RBmRouterClass.cpp: 5 functions
+// RBmRouterClass.cpp: 6 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -67,4 +67,14 @@ class URBMRouterPath* ARBMRouter::BuildPathTo(FVector Dest, class ANavigationPoi
 	URBMRouterPath* NewPath = ConstructObject<URBMRouterPath>(URBMRouterPath::StaticClass());
 	((ARBMRouter_*)this)->sub_0161b520(Dest, NewPath, StartAnchor, EndAnchor);
 	return NewPath;
+}
+
+// @baa 0x01621e50
+/* Slot 0x124 (unnamed in the kit): drops the first Count nodes of the path. */
+void URBMRouterPath::vf_124(INT Count)
+{
+	if (Count <= PathNodes.Num())
+	{
+		PathNodes.Remove(0, Count);
+	}
 }

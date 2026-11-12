@@ -1,4 +1,4 @@
-// TextureFlipbook.cpp: 16 functions
+// TextureFlipbook.cpp: 17 functions
 // Placed here by: class 12, callers 1, neighbours 1, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -227,4 +227,19 @@ void UTextureFlipBook_::sub_0076ea70(FLOAT *Out)
 	*Out = X;
 	FLOAT Y = VerticalScale;
 	Out[1] = Y;
+}
+
+// @baa 0x00755390
+/* Slot 0x130 (unnamed in the kit): marks the texture sRGB and resets the unpack range to 0..1. */
+void UTextureFlipBook::vf_130()
+{
+	SRGB = TRUE;
+	UnpackMin[3] = 0.f;
+	UnpackMin[2] = 0.f;
+	UnpackMin[1] = 0.f;
+	UnpackMin[0] = 0.f;
+	UnpackMax[3] = 1.f;
+	UnpackMax[2] = 1.f;
+	UnpackMax[1] = 1.f;
+	UnpackMax[0] = 1.f;
 }

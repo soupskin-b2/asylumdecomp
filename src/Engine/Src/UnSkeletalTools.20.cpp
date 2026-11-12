@@ -1,4 +1,4 @@
-// UnSkeletalTools.cpp: 1 function
+// UnSkeletalTools.cpp: 3 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -113,4 +113,54 @@ void USkeletalMesh_::Serialize(FArchive& Ar)
     {
         StripData(UE3::PLATFORM_Console);
     }
+}
+
+/* Kit gaps: UObject::HasAnyFlags/IsTemplate and the RF_ flags (UnObjBas.h); ObjectFlags is an FQWord here. */
+#define RF_ClassDefaultObject ((QWORD)0x0000000000000200)
+#define RF_ArchetypeObject ((QWORD)0x0000000000000400)
+struct UObject_ : public UObject
+{
+	FORCEINLINE UBOOL HasAnyFlags(QWORD Flags) const { return (*(const QWORD*)&ObjectFlags & Flags) != 0; }
+	FORCEINLINE UBOOL IsTemplate(QWORD TemplateTypes = (RF_ArchetypeObject | RF_ClassDefaultObject)) const
+	{
+		for (const UObject* TestOuter = this; TestOuter; TestOuter = TestOuter->Outer)
+		{
+			if (((const UObject_*)TestOuter)->HasAnyFlags(TemplateTypes))
+			{
+				return TRUE;
+			}
+		}
+		return FALSE;
+	}
+};
+
+/* Kit gap: the mesh's resource setup (0x0097baf0, likely UE3's InitResources) isn't declared. */
+struct USkeletalMesh__0097dae0 : public USkeletalMesh
+{
+	void sub_0097baf0(); /* 0x0097baf0 */
+};
+
+/* A global flag (its name isn't known) that suppresses the setup, e.g. while running a commandlet. */
+extern INT g_02676094;
+// @baa 0x0097dae0
+/* Slot 0x14 (unnamed in the kit). */
+void USkeletalMesh::vf_014()
+{
+	if (!((UObject_*)this)->IsTemplate() && !g_02676094)
+	{
+		((USkeletalMesh__0097dae0*)this)->sub_0097baf0();
+	}
+}
+
+/* Kit gaps: ReleaseResourcesFence is an FRenderCommandFence (declared INT here), and FRenderCommandFence::
+ * GetNumPendingFences (0x0071f7e0) isn't declared. */
+struct FRenderCommandFence_ : public FRenderCommandFence_Mirror
+{
+	UINT GetNumPendingFences() const;
+};
+
+// @baa 0x009449a0
+UBOOL USkeletalMesh::IsReadyForFinishDestroy()
+{
+	return ((const FRenderCommandFence_&)ReleaseResourcesFence).GetNumPendingFences() == 0;
 }

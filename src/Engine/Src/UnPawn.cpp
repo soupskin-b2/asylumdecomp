@@ -1,4 +1,4 @@
-// UnPawn.cpp (part 1 of 2): 117 functions
+// UnPawn.cpp (part 1 of 2): 119 functions
 // Placed here by: neighbours 49, class 32, callers 3, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1705,4 +1705,21 @@ void APawn::SetBase(AActor* NewBase, FVector NewFloor, INT bNotifyActor, USkelet
 {
 	Floor = NewFloor;
 	Super::SetBase(NewBase, NewFloor, bNotifyActor, SkelComp, AttachName);
+}
+
+// @baa 0x00776240
+/* Slot 0x45c (unnamed in the kit; UE3's GetPawnViewLocation): the eye position. */
+FVector APawn::vf_45c()
+{
+	return FVector(Location.X, Location.Y, Location.Z + BaseEyeHeight);
+}
+
+// @baa 0x008a68d0
+/* Only the anchor is an end point for a pawn's path search. */
+void APawn::MarkEndPoints(ANavigationPoint* EndAnchor, AActor* Goal, const FVector& GoalLocation)
+{
+	if (EndAnchor)
+	{
+		EndAnchor->bEndPoint = TRUE;
+	}
 }

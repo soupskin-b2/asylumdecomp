@@ -1,4 +1,4 @@
-// UnActorComponent.cpp: 5 functions
+// UnActorComponent.cpp: 6 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -73,3 +73,7 @@ void UActorComponent::execSetComponentRBFixed(FFrame& Stack, RESULT_DECL)
 	P_FINISH;
 	SetComponentRBFixed(bFixed);
 }
+
+// @baa 0x006c0c10
+/* Slot 0x14c (unnamed in the kit; UE3's CreateFogVolumeDensityInfo(const FBox&)). */
+INT UFogVolumeDensityComponent::vf_14c(INT) PURE_VIRTUAL(UFogVolumeDensityComponent::CreateFogVolumeDensityInfo, return NULL;);

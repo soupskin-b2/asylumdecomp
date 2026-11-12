@@ -1,4 +1,4 @@
-// UnPlayer.cpp (part 1 of 3): 112 functions
+// UnPlayer.cpp (part 1 of 3): 113 functions
 // Placed here by: neighbours 67, class 23, callers 7, file 4.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1163,4 +1163,29 @@ UBOOL ULocalPlayer_::sub_0089e590(INT InIndex)
         return TRUE;
     }
     return FALSE;
+}
+
+// @baa 0x008898f0
+/* Slot 0x140 (unnamed in the kit): turns the collision light view on (1) or off (0), saving and restoring the show
+ * flags. The SHOW_ flag names aren't in the kit; the bits are SHOW_ values (low 0x60 and 0x70000, high 0x800000). */
+void UGameViewportClient::vf_140(INT Mode)
+{
+	if (Mode == 0)
+	{
+		if (bCollisionLight)
+		{
+			bCollisionLight = FALSE;
+			*(QWORD*)&ShowFlags = *(QWORD*)&CollisionLightSavedShowFlags & ~QWORD(0x70000);
+		}
+	}
+	else if (Mode == 1)
+	{
+		if (!bCollisionLight)
+		{
+			bCollisionLight = TRUE;
+			*(QWORD*)&CollisionLightSavedShowFlags = *(QWORD*)&ShowFlags;
+			*(QWORD*)&ShowFlags &= ~QWORD(0x60);
+			*(QWORD*)&ShowFlags |= QWORD(0x800000) << 32;
+		}
+	}
 }

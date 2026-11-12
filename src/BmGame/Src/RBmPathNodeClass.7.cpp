@@ -1,4 +1,4 @@
-// RBmPathNodeClass.cpp: 8 functions
+// RBmPathNodeClass.cpp: 9 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -70,4 +70,14 @@ void ARCornerWallMarkerBase::GetBatmanCornerPositionAndRotation(FLOAT CollisionR
 {
     BatmanPosition = BatmanCoverPosition;
     BatmanCoverRotation = FRotator(Rotation.Pitch, Rotation.Yaw + 32768, Rotation.Roll);
+}
+
+// @baa 0x015dfb90
+/* Slot 0x180 (unnamed in the kit; called for actors spawned at run time): fence jumps always face along X. */
+void ARBMPathNode_FenceJump::vf_180()
+{
+	JumpNormal.X = 1.f;
+	JumpNormal.Y = 0.f;
+	JumpNormal.Z = 0.f;
+	Super::vf_180();
 }

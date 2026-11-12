@@ -1,4 +1,4 @@
-// RShimmyEdgeMarker.cpp: 3 functions
+// RShimmyEdgeMarker.cpp: 4 functions
 // Placed here by: file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -23,4 +23,12 @@ struct ARShimmyEdgeMarker_ : public ARShimmyEdgeMarker
 INT ARShimmyEdgeMarker_::sub_01678d20()
 {
     return g_026e1dd0.AddUniqueItem(this);
+}
+
+// @baa 0x016748d0
+/* Slot 0x2c (unnamed in the kit): also drops the marker from the list. */
+void ARShimmyEdgeMarker::vf_02c()
+{
+	g_026e1dd0.RemoveItem(this);
+	Super::vf_02c();
 }

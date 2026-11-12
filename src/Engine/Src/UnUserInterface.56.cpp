@@ -1,4 +1,4 @@
-// UnUserInterface.cpp: 6 functions
+// UnUserInterface.cpp: 7 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -118,4 +118,16 @@ void UUIScreenObject_::delegateNotifyResolutionChanged(const FVector2D& OldViewp
 	Parms.OldViewportsize = OldViewportsize;
 	Parms.NewViewportSize = NewViewportSize;
 	ProcessDelegate(g_026c45d4, &__NotifyResolutionChanged__Delegate, &Parms, NULL);
+}
+
+// @baa 0x00dde3f0
+/* Slot 0x19c (unnamed in the kit): whether a mouse cursor should be drawn. */
+INT UGameUISceneClient::vf_19c(INT, INT)
+{
+	UBOOL bResult = FALSE;
+	if (bRenderCursor && CurrentMouseCursor != NULL)
+	{
+		bResult = TRUE;
+	}
+	return bResult;
 }

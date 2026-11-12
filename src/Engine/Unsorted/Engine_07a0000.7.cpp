@@ -1,4 +1,4 @@
-// Engine_07a0000.cpp: 1 function
+// Engine_07a0000.cpp: 2 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -19,4 +19,11 @@ void APlayerController::vf_194()
     PlayerInput = NULL;
     CheatManager = NULL;
     ((UWorld_*)GWorld)->sub_009c8d50(this);
+}
+
+// @baa 0x007a06b0
+/* Slot 0x414 (unnamed in the kit; UE3's SetAllowMatureLanguage). */
+void APlayerController::vf_414(INT bAllowMatureLanguge)
+{
+	GEngine->bAllowMatureLanguage = bAllowMatureLanguge;
 }

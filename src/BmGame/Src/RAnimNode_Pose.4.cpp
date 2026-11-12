@@ -1,4 +1,4 @@
-// RAnimNode_Pose.cpp (part 4 of 4): 36 functions
+// RAnimNode_Pose.cpp (part 4 of 4): 50 functions
 // Placed here by: neighbours 3, class 2, callers 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -636,4 +636,174 @@ C_015b5ef0* C_015b5ef0::sub_015b5ef0(FLOAT F, INT A)
     F0 = V;
     Sub4.sub_015b5bd0(A);
     return this;
+}
+
+// @baa 0x01595b30
+void URAnimNode_Pose::AddTranslationVelocity(FVector Velocity)
+{
+	FVector& V = MovementOutput.ProceduralMovement.AddTranslationVelocity;
+	V.X += Velocity.X;
+	V.Y += Velocity.Y;
+	V.Z += Velocity.Z;
+}
+
+// @baa 0x01595b80
+void URAnimNode_Pose::AddTranslation(FVector Translation)
+{
+	FVector& V = MovementOutput.ProceduralMovement.AddTranslation;
+	V.X += Translation.X;
+	V.Y += Translation.Y;
+	V.Z += Translation.Z;
+}
+
+// @baa 0x0159c2b0
+/* Slot 0x318 (unnamed in the kit): queues a floor height change for the IK; the other parameters are unused here. */
+INT URAnimNode_Pose::vf_318(FLOAT FloorChange, INT, INT, INT)
+{
+	FIKOutput& Output = IKOutput;
+	Output.PendingFloorChange += FloorChange;
+	return TRUE;
+}
+
+/* Kit gap: FPosePlayer's methods aren't declared (the node forwards to the one of the same name; they take the
+ * fuzziness as a 32-bit enum). */
+struct FPosePlayer__01595770 : public FPosePlayer
+{
+	INT sub_015c2c00(INT); /* 0x015c2c00 */
+};
+
+// @baa 0x01595770
+/* Slot 0x284 (unnamed in the kit). */
+INT URAnimNode_Pose::vf_284(BYTE Fuzziness)
+{
+	return ((FPosePlayer__01595770&)PosePlayer).sub_015c2c00(Fuzziness);
+}
+
+/* Kit gap: FPosePlayer's methods aren't declared (the node forwards to the one of the same name; they take the
+ * fuzziness as a 32-bit enum). */
+struct FPosePlayer__01595790 : public FPosePlayer
+{
+	INT IsInAnyAutomaticTransition(INT Fuzziness, FTransitionId* Transition); /* 0x015c2c70 */
+};
+
+// @baa 0x01595790
+INT URAnimNode_Pose::IsInAnyAutomaticTransition(BYTE Fuzziness, FTransitionId* Transition)
+{
+	return ((FPosePlayer__01595790&)PosePlayer).IsInAnyAutomaticTransition(Fuzziness, Transition);
+}
+
+/* Kit gap: FPosePlayer's methods aren't declared (the node forwards to the one of the same name; they take the
+ * fuzziness as a 32-bit enum). */
+struct FPosePlayer__015957b0 : public FPosePlayer
+{
+	INT sub_015c2d00(INT); /* 0x015c2d00 */
+};
+
+// @baa 0x015957b0
+/* Slot 0x28c (unnamed in the kit). */
+INT URAnimNode_Pose::vf_28c(BYTE Fuzziness)
+{
+	return ((FPosePlayer__015957b0&)PosePlayer).sub_015c2d00(Fuzziness);
+}
+
+/* Kit gap: FPosePlayer's methods aren't declared (the node forwards to the one of the same name; they take the
+ * fuzziness as a 32-bit enum). */
+struct FPosePlayer__015957d0 : public FPosePlayer
+{
+	INT IsInTransition(FTransitionId Transition, INT Fuzziness); /* 0x015c2d70 */
+};
+
+// @baa 0x015957d0
+INT URAnimNode_Pose::IsInTransition(FTransitionId Transition, BYTE Fuzziness)
+{
+	return ((FPosePlayer__015957d0&)PosePlayer).IsInTransition(Transition, Fuzziness);
+}
+
+/* Kit gap: FPosePlayer's methods aren't declared (the node forwards to the one of the same name; they take the
+ * fuzziness as a 32-bit enum). */
+struct FPosePlayer__01595a40 : public FPosePlayer
+{
+	INT sub_015c2ff0(INT); /* 0x015c2ff0 */
+};
+
+// @baa 0x01595a40
+/* Slot 0x1e4 (unnamed in the kit). */
+INT URAnimNode_Pose::vf_1e4(BYTE Fuzziness)
+{
+	return ((FPosePlayer__01595a40&)PosePlayer).sub_015c2ff0(Fuzziness);
+}
+
+/* Kit gap: FPosePlayer's methods (RPosePlayer.cpp) aren't declared; the node forwards to the one of the same name. */
+struct FPosePlayer__01595650 : public FPosePlayer
+{
+	INT OverrideTransitionTime(FLOAT, INT); /* 0x015c2910 */
+};
+
+// @baa 0x01595650
+INT URAnimNode_Pose::OverrideTransitionTime(FLOAT Time, INT Param)
+{
+	return ((FPosePlayer__01595650&)PosePlayer).OverrideTransitionTime(Time, Param);
+}
+
+/* Kit gap: FPosePlayer's methods aren't declared (the node forwards to the one of the same name; they take the
+ * fuzziness as a 32-bit enum). */
+struct FPosePlayer__015959c0 : public FPosePlayer
+{
+	INT IsInMovementStance(FName Stance, INT Fuzziness); /* 0x015c2ec0 */
+};
+
+// @baa 0x015959c0
+INT URAnimNode_Pose::IsInMovementStance(FName Stance, BYTE Fuzziness)
+{
+	return ((FPosePlayer__015959c0&)PosePlayer).IsInMovementStance(Stance, Fuzziness);
+}
+
+/* Kit gap: FPosePlayer's methods aren't declared (the node forwards to the one of the same name; they take the
+ * fuzziness as a 32-bit enum). */
+struct FPosePlayer__015959e0 : public FPosePlayer
+{
+	INT IsInWeaponStance(FName Stance, INT Fuzziness); /* 0x015c2f50 */
+};
+
+// @baa 0x015959e0
+INT URAnimNode_Pose::IsInWeaponStance(FName Stance, BYTE Fuzziness)
+{
+	return ((FPosePlayer__015959e0&)PosePlayer).IsInWeaponStance(Stance, Fuzziness);
+}
+
+/* Kit gap: FPosePlayer's methods aren't declared (the node forwards to the one of the same name). */
+struct FPosePlayer__01595810 : public FPosePlayer
+{
+	INT WillBeInTransition(FTransitionId Transition, FLOAT Time, INT Fuzziness); /* 0x015c8f00 */
+};
+
+// @baa 0x01595810
+INT URAnimNode_Pose::WillBeInTransition(FTransitionId Transition, FLOAT Time, BYTE Fuzziness)
+{
+	return ((FPosePlayer__01595810&)PosePlayer).WillBeInTransition(Transition, Time, Fuzziness);
+}
+
+/* Kit gap: FPosePlayer's methods aren't declared (the node forwards to the one of the same name). */
+struct FPosePlayer__01595740 : public FPosePlayer
+{
+	INT sub_015c2b90(USkeletalMeshComponent* SkelComp, INT, FLOAT); /* 0x015c2b90 */
+};
+
+// @baa 0x01595740
+/* Slot 0x1c0 (unnamed in the kit). */
+INT URAnimNode_Pose::vf_1c0(INT Param, FLOAT Value)
+{
+	return ((FPosePlayer__01595740&)PosePlayer).sub_015c2b90(SkelComponent, Param, Value);
+}
+
+/* Kit gap: FPosePlayer's methods aren't declared (the node forwards to the one of the same name). */
+struct FPosePlayer__01595a00 : public FPosePlayer
+{
+	INT HasPose(USkeletalMeshComponent* SkelComp, FName MovementStance, FName WeaponStance, FName IdleStance); /* 0x015c28b0 */
+};
+
+// @baa 0x01595a00
+INT URAnimNode_Pose::HasPose(FName MovementStance, FName WeaponStance, FName IdleStance)
+{
+	return ((FPosePlayer__01595a00&)PosePlayer).HasPose(SkelComponent, MovementStance, WeaponStance, IdleStance);
 }

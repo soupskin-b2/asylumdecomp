@@ -1,4 +1,4 @@
-// UnParticleBeamModules.cpp: 59 functions
+// UnParticleBeamModules.cpp: 60 functions
 // Placed here by: class 26, neighbours 15, file 6, callers 3.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -192,4 +192,18 @@ int UParticleModuleBeamBase::vf_130(void) { return 2; }
 bool UParticleModuleBeamTarget::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x00b50e90
+/* Slot 0x168 (unnamed in the kit): a negative lock time means the noise is locked for good. */
+void UParticleModuleBeamNoise::vf_168()
+{
+	if (NoiseLockTime < 0.f)
+	{
+		bNoiseLock = TRUE;
+	}
+	else
+	{
+		bNoiseLock = FALSE;
+	}
 }

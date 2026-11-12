@@ -1,4 +1,4 @@
-// UnUIObjects.cpp: 21 functions
+// UnUIObjects.cpp: 22 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -365,4 +365,11 @@ UBOOL UUIScreenObject::IsVisible(UBOOL bIncludeParents)
 UBOOL UUIScreenObject::IsHidden(UBOOL bIncludeParents)
 {
 	return bHidden || (bIncludeParents && GetParent() != NULL && GetParent()->IsHidden(TRUE));
+}
+
+// @baa 0x00dc2d20
+/* A scene's positions are resolved for every face once no position update is pending. */
+INT UUIScene::HasPositionBeenResolved(BYTE Face)
+{
+	return !bUpdateScenePositions;
 }

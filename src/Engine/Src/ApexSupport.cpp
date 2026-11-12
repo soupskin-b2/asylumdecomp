@@ -1,4 +1,4 @@
-// ApexSupport.cpp (part 1 of 4): 169 functions
+// ApexSupport.cpp (part 1 of 4): 170 functions
 // Placed here by: neighbours 103, class 30, file 12, callers 10.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1363,4 +1363,16 @@ UBOOL AApexDestructibleActor::ShouldTrace(UPrimitiveComponent* Primitive, AActor
         return TRUE;
     }
     return Super::ShouldTrace(Primitive, SourceActor, TraceFlags);
+}
+
+/* Kit gap: FRenderCommandFence::GetNumPendingFences (0x0071f7e0) isn't declared. */
+struct FRenderCommandFence_ : public FRenderCommandFence_Mirror
+{
+	UINT GetNumPendingFences() const;
+};
+
+// @baa 0x009d7500
+UBOOL UApexComponentBase::IsReadyForFinishDestroy()
+{
+	return Super::IsReadyForFinishDestroy() && ((const FRenderCommandFence_&)ReleaseResourcesFence).GetNumPendingFences() == 0;
 }

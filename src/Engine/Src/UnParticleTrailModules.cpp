@@ -1,4 +1,4 @@
-// UnParticleTrailModules.cpp: 55 functions
+// UnParticleTrailModules.cpp: 56 functions
 // Placed here by: neighbours 28, class 15, file 5.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -260,4 +260,18 @@ void UParticleModuleTrailSource::PostEditChange(UProperty* PropertyThatChanged)
         }
     }
     Super::PostEditChange(PropertyThatChanged);
+}
+
+// @baa 0x00baab90
+/* Slot 0x114 (unnamed in the kit; UE3's RequiredBytes): particle-sourced trails store the source index per particle. */
+INT UParticleModuleTrailSource::vf_114(INT)
+{
+	INT Size = 0;
+	switch (SourceMethod)
+	{
+	case 1:
+		Size = sizeof(INT);
+		break;
+	}
+	return Size;
 }

@@ -1,4 +1,4 @@
-// RSmashableProp.cpp: 25 functions
+// RSmashableProp.cpp: 27 functions
 // Placed here by: class 9, neighbours 6, callers 3, file 3.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -163,4 +163,34 @@ void URSmashablePropConfigFactoryNew::InitializeIntrinsicPropertyValues()
 	SupportedClass = URSmashablePropConfig::StaticClass();
 	((FFactoryFlags*)_native2)->bCreateNew = TRUE;
 	Description = TEXT("SmashablePropConfig");
+}
+
+/* Kit gap: the prop's setup from its config (0x0166b6a0; its name isn't known) isn't declared. */
+struct ARSmashableProp_ : public ARSmashableProp
+{
+	void sub_0166b6a0(); /* 0x0166b6a0 */
+};
+
+// @baa 0x01672e80
+/* Props loaded with the level weren't spawned. */
+void ARSmashableProp::PostLoad()
+{
+	Super::PostLoad();
+	PropWasSpawned = FALSE;
+	if (PropData)
+	{
+		((ARSmashableProp_*)this)->sub_0166b6a0();
+	}
+}
+
+// @baa 0x01672ed0
+/* Slot 0x180 (unnamed in the kit; called for actors spawned at run time). */
+void ARSmashableProp::vf_180()
+{
+	Super::vf_180();
+	PropWasSpawned = TRUE;
+	if (PropData)
+	{
+		((ARSmashableProp_*)this)->sub_0166b6a0();
+	}
 }

@@ -1,4 +1,4 @@
-// RRopeComponentBase.cpp: 21 functions
+// RRopeComponentBase.cpp: 22 functions
 // Placed here by: class 10, file 5, neighbours 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -346,4 +346,12 @@ void URRopeComponentBase::DetachRopeEnd2()
 	RopeActor2AttachBone = NAME_None;
 	RopeAttachComponent2 = NULL;
 	RopeEnd2AttachMaxDistance = 0.f;
+}
+
+// @baa 0x0163f5b0
+/* URRopeComponentBase slot 0x260 (kit vf_260(BYTE, UBOOL)): forwards to the primitive component's version
+ * (UPrimitiveComponent::sub_009ff970, which the kit types as (INT, INT)). */
+void URRopeComponentBase::vf_260(BYTE Channel, UBOOL bValue)
+{
+    sub_009ff970(Channel, bValue);
 }
