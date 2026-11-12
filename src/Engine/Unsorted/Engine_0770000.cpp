@@ -1071,7 +1071,7 @@ void sub_0077cad0(void) { sub_007777c0(); }
 void* APlayerController::vf_2e0() { return this; }
 
 // @baa 0x0077cc80
-int APlayerController::vf_380(int a0) { return 0; }
+UBOOL APlayerController::ShouldCheckVisibilityOf(AController* C) { return FALSE; }
 
 // @baa 0x0077cc90
 void APlayerController::vf_468(int a0, int a1, int a2) {  }

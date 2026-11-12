@@ -172631,7 +172631,7 @@
     {
      "va": "00758370",
      "size": 187,
-     "symbol": "?vf_358@ABrush@@UAEXXZ"
+     "symbol": "?InitPosRotScale@ABrush@@UAEXXZ"
     }
    ]
   },
@@ -175873,7 +175873,7 @@
     {
      "va": "00c4b590",
      "size": 3,
-     "symbol": "?vf_120@UAnimNode@@UAEXHHH@Z"
+     "symbol": "?PlayAnim@UAnimNode@@UAEXHMM@Z"
     },
     {
      "va": "00c4b5a0",
@@ -221120,7 +221120,7 @@
     {
      "va": "00d99150",
      "size": 27,
-     "symbol": "?InvalidatePositionDependencies@UUIScreenObject@@UAEXH@Z"
+     "symbol": "?InvalidatePositionDependencies@UUIScreenObject@@UAEXE@Z"
     },
     {
      "va": "00daa3f0",
@@ -264845,7 +264845,7 @@
     {
      "va": "0077cc80",
      "size": 5,
-     "symbol": "?vf_380@APlayerController@@UAEHH@Z"
+     "symbol": "?ShouldCheckVisibilityOf@APlayerController@@UAEHPAUAController@@@Z"
     },
     {
      "va": "0077cc90",

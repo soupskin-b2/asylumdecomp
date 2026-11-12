@@ -202,7 +202,7 @@ void UObjectThunk_00c4b4c0::sub_00c4b4c0()
 }
 
 // @baa 0x00c4b590
-void UAnimNode::vf_120(int a0, int a1, int a2) {  }
+void UAnimNode::PlayAnim(UBOOL bLoop, FLOAT Rate, FLOAT StartTime) {  }
 
 // @baa 0x00c4b5a0
 void sub_00c4b5a0(void) {  }

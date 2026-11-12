@@ -5854,6 +5854,18 @@ struct FExpressionInput {
     INT GCC64_Padding; /* 0x18 */
 };
 
+/* MaterialExpression.h: one output of an expression (UMaterialExpression::GetOutputs) */
+struct FExpressionOutput {
+    FString Name; /* 0x0 */
+    INT Mask; /* 0xc */
+    INT MaskR; /* 0x10 */
+    INT MaskG; /* 0x14 */
+    INT MaskB; /* 0x18 */
+    INT MaskA; /* 0x1c */
+    FExpressionOutput(INT InMask, INT InMaskR = 0, INT InMaskG = 0, INT InMaskB = 0, INT InMaskA = 0)
+        : Mask(InMask), MaskR(InMaskR), MaskG(InMaskG), MaskB(InMaskB), MaskA(InMaskA) {}
+};
+
 struct FFontParameterValue {
     /* Engine.FontParameterValue */
     FName ParameterName; /* 0x0 */
@@ -12769,7 +12781,7 @@ struct UPrimitiveComponent : public UActorComponent {
     virtual UINT vf_17c(); /* 0x17c */
     virtual INT vf_180(INT); /* 0x180 */
     virtual INT vf_184(INT, INT); /* 0x184 */
-    virtual INT vf_188(INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x188 */
+    virtual void AddImpulse(FVector Impulse, FVector Position, FName BoneName, UBOOL bVelChange); /* 0x188 */
     virtual void vf_18c(INT, INT, INT, INT, INT); /* 0x18c */
     virtual void vf_190(INT, INT, INT, INT); /* 0x190 */
     virtual INT vf_194(INT, INT, INT, INT); /* 0x194 */
@@ -15323,7 +15335,7 @@ struct AController : public AActor {
     virtual UINT vf_374(); /* 0x374 */
     virtual INT vf_378(INT, INT, INT); /* 0x378 */
     virtual INT vf_37c(); /* 0x37c */
-    virtual INT vf_380(INT); /* 0x380 */
+    virtual UBOOL ShouldCheckVisibilityOf(class AController* C); /* 0x380 */
     virtual INT vf_384(INT, INT); /* 0x384 */
     virtual INT vf_388(INT, INT, INT, INT); /* 0x388 */
     virtual void vf_38c(INT, INT, INT, INT); /* 0x38c */
@@ -15342,7 +15354,7 @@ struct AController : public AActor {
     virtual INT vf_3c0(INT, INT, INT); /* 0x3c0 */
     virtual INT vf_3c4(); /* 0x3c4 */
     virtual INT vf_3c8(INT, INT); /* 0x3c8 */
-    virtual INT vf_3cc(INT, INT); /* 0x3cc */
+    virtual FRotator SetRotationRate(FLOAT deltaTime); /* 0x3cc */
     virtual INT vf_3d0(INT); /* 0x3d0 */
     virtual void vf_3d4(); /* 0x3d4 */
     virtual void vf_3d8(INT); /* 0x3d8 */
@@ -15599,7 +15611,7 @@ struct APlayerController : public AController {
     virtual INT vf_1bc(INT, INT, INT); /* 0x1bc */
     virtual void* vf_2e0(); /* 0x2e0 */
     virtual INT vf_354(); /* 0x354 */
-    virtual INT vf_380(INT); /* 0x380 */
+    virtual UBOOL ShouldCheckVisibilityOf(class AController* C); /* 0x380 */
     virtual void vf_38c(INT, INT, INT, INT); /* 0x38c */
     virtual INT vf_3a4(); /* 0x3a4 */
     virtual UINT vf_3a8(); /* 0x3a8 */
@@ -16540,7 +16552,7 @@ struct UAnimNode : public UAnimObject {
     INT InstanceVersionNumber; /* 0xac */
     INT SearchTag; /* 0xb0 */
     /* virtual functions this class introduces (vtable 0x020599d8) */
-    virtual void vf_120(INT, INT, INT); /* 0x120 */
+    virtual void PlayAnim(UBOOL bLoop, FLOAT Rate, FLOAT StartTime); /* 0x120 */
     virtual INT vf_124(); /* 0x124 */
     virtual INT vf_128(INT, INT); /* 0x128 */
     virtual void vf_12c(); /* 0x12c */
@@ -16595,7 +16607,7 @@ struct UAnimNodeBlendBase : public UAnimNode {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_11c(); /* 0x11c */
-    virtual void vf_120(INT, INT, INT); /* 0x120 */
+    virtual void PlayAnim(UBOOL bLoop, FLOAT Rate, FLOAT StartTime); /* 0x120 */
     virtual INT vf_124(); /* 0x124 */
     virtual INT vf_128(INT, INT); /* 0x128 */
     virtual void vf_134(FLOAT, FLOAT); /* 0x134 */
@@ -16961,7 +16973,7 @@ struct UAnimNodeSequence : public UAnimNode {
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_020(); /* 0x020 */
     virtual void vf_04c(UINT); /* 0x04c */
-    virtual void vf_120(INT, INT, INT); /* 0x120 */
+    virtual void PlayAnim(UBOOL bLoop, FLOAT Rate, FLOAT StartTime); /* 0x120 */
     virtual INT vf_124(); /* 0x124 */
     virtual INT vf_128(INT, INT); /* 0x128 */
     virtual void vf_12c(); /* 0x12c */
@@ -18082,7 +18094,7 @@ struct ABrush : public AActor {
     TArrayNoInit<FGeomSelection> SavedSelections; /* 0x1c0 */
     /* virtual functions this class introduces (vtable 0x01edb680) */
     virtual INT vf_354(INT); /* 0x354 */
-    virtual void vf_358(); /* 0x358 */
+    virtual void InitPosRotScale(); /* 0x358 */
     virtual INT vf_35c(INT); /* 0x35c */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
@@ -18305,7 +18317,7 @@ struct UInterpGroupInst : public UObject {
     /* virtual functions this class introduces (vtable 0x02098eb8) */
     virtual void vf_10c(); /* 0x10c */
     virtual void vf_110(); /* 0x110 */
-    virtual INT vf_114(INT, INT); /* 0x114 */
+    virtual void InitGroupInst(class UInterpGroup* InGroup, class AActor* InGroupActor); /* 0x114 */
     virtual INT vf_118(INT); /* 0x118 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
@@ -18743,7 +18755,7 @@ struct UUIScreenObject : public UUIRoot {
     virtual void vf_1b4(INT); /* 0x1b4 */
     virtual void vf_1b8(INT, INT); /* 0x1b8 */
     virtual INT vf_1bc(INT); /* 0x1bc */
-    virtual void InvalidatePositionDependencies(INT); /* 0x1c0 */
+    virtual void InvalidatePositionDependencies(BYTE Face); /* 0x1c0 */
     virtual void vf_1c4(); /* 0x1c4 */
     virtual INT vf_1c8(); /* 0x1c8 */
     virtual INT vf_1cc(); /* 0x1cc */
@@ -18989,7 +19001,7 @@ struct UUIObject : public UUIScreenObject {
     virtual INT HasPositionBeenResolved(BYTE Face); /* 0x1a0 */
     virtual void vf_1b8(INT, INT); /* 0x1b8 */
     virtual INT vf_1bc(INT); /* 0x1bc */
-    virtual void InvalidatePositionDependencies(INT); /* 0x1c0 */
+    virtual void InvalidatePositionDependencies(BYTE Face); /* 0x1c0 */
     virtual INT vf_1e0(INT); /* 0x1e0 */
     /* UnrealScript natives */
     void execResolveDefaultDataBinding(FFrame& Stack, RESULT_DECL); /* 0x00ca5030 */
@@ -19524,7 +19536,7 @@ struct USkeletalMeshComponent : public UMeshComponent {
     virtual INT vf_178(INT, INT, INT, INT, INT); /* 0x178 */
     virtual UINT vf_17c(); /* 0x17c */
     virtual INT vf_184(INT, INT); /* 0x184 */
-    virtual INT vf_188(INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x188 */
+    virtual void AddImpulse(FVector Impulse, FVector Position, FName BoneName, UBOOL bVelChange); /* 0x188 */
     virtual void vf_18c(INT, INT, INT, INT, INT); /* 0x18c */
     virtual void vf_190(INT, INT, INT, INT); /* 0x190 */
     virtual INT vf_194(INT, INT, INT, INT); /* 0x194 */
@@ -24416,7 +24428,7 @@ struct UInterpTrackInst : public UObject {
     /* virtual functions this class introduces (vtable 0x02096a18) */
     virtual FLOAT vf_10c(INT); /* 0x10c */
     virtual void vf_110(UInterpTrack*); /* 0x110 */
-    virtual FLOAT vf_114(INT); /* 0x114 */
+    virtual void InitTrackInst(class UInterpTrack* Track); /* 0x114 */
     virtual void vf_118(UInterpTrack*); /* 0x118 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
@@ -24431,7 +24443,7 @@ struct UInterpTrackInstAnimControl : public UInterpTrackInst {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual FLOAT vf_114(INT); /* 0x114 */
+    virtual void InitTrackInst(class UInterpTrack* Track); /* 0x114 */
     /* registered size 0x34 */
 };
 
@@ -24441,7 +24453,7 @@ struct UInterpTrackInstAudioMaster : public UInterpTrackInst {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual FLOAT vf_114(INT); /* 0x114 */
+    virtual void InitTrackInst(class UInterpTrack* Track); /* 0x114 */
     virtual void vf_118(UInterpTrack*); /* 0x118 */
     /* registered size 0x30 */
 };
@@ -24468,7 +24480,7 @@ struct UInterpTrackInstColorProp : public UInterpTrackInstProperty {
     virtual bool vf_004(); /* 0x004 */
     virtual FLOAT vf_10c(INT); /* 0x10c */
     virtual void vf_110(UInterpTrack*); /* 0x110 */
-    virtual FLOAT vf_114(INT); /* 0x114 */
+    virtual void InitTrackInst(class UInterpTrack* Track); /* 0x114 */
     /* registered size 0x40 */
 };
 
@@ -24489,7 +24501,7 @@ struct UInterpTrackInstDirector : public UInterpTrackInst {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual FLOAT vf_114(INT); /* 0x114 */
+    virtual void InitTrackInst(class UInterpTrack* Track); /* 0x114 */
     virtual void vf_118(UInterpTrack*); /* 0x118 */
     /* registered size 0x34 */
 };
@@ -24501,7 +24513,7 @@ struct UInterpTrackInstEvent : public UInterpTrackInst {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual FLOAT vf_114(INT); /* 0x114 */
+    virtual void InitTrackInst(class UInterpTrack* Track); /* 0x114 */
     /* registered size 0x34 */
 };
 
@@ -24515,7 +24527,7 @@ struct UInterpTrackInstFaceFX : public UInterpTrackInst {
     virtual bool vf_004(); /* 0x004 */
     virtual FLOAT vf_10c(INT); /* 0x10c */
     virtual void vf_110(UInterpTrack*); /* 0x110 */
-    virtual FLOAT vf_114(INT); /* 0x114 */
+    virtual void InitTrackInst(class UInterpTrack* Track); /* 0x114 */
     virtual void vf_118(UInterpTrack*); /* 0x118 */
     /* registered size 0x38 */
 };
@@ -24574,7 +24586,7 @@ struct UInterpTrackInstFloatProp : public UInterpTrackInstProperty {
     virtual bool vf_004(); /* 0x004 */
     virtual FLOAT vf_10c(INT); /* 0x10c */
     virtual void vf_110(UInterpTrack*); /* 0x110 */
-    virtual FLOAT vf_114(INT); /* 0x114 */
+    virtual void InitTrackInst(class UInterpTrack* Track); /* 0x114 */
     /* registered size 0x40 */
 };
 
@@ -24599,7 +24611,7 @@ struct UInterpTrackInstMove : public UInterpTrackInst {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual FLOAT vf_114(INT); /* 0x114 */
+    virtual void InitTrackInst(class UInterpTrack* Track); /* 0x114 */
     /* registered size 0xa0 */
 };
 
@@ -24611,7 +24623,7 @@ struct UInterpTrackInstParticleReplay : public UInterpTrackInst {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_110(UInterpTrack*); /* 0x110 */
-    virtual FLOAT vf_114(INT); /* 0x114 */
+    virtual void InitTrackInst(class UInterpTrack* Track); /* 0x114 */
     /* registered size 0x34 */
 };
 
@@ -24634,7 +24646,7 @@ struct UInterpTrackInstSlomo : public UInterpTrackInst {
     virtual bool vf_004(); /* 0x004 */
     virtual FLOAT vf_10c(INT); /* 0x10c */
     virtual void vf_110(UInterpTrack*); /* 0x110 */
-    virtual FLOAT vf_114(INT); /* 0x114 */
+    virtual void InitTrackInst(class UInterpTrack* Track); /* 0x114 */
     virtual void vf_118(UInterpTrack*); /* 0x118 */
     /* registered size 0x34 */
 };
@@ -24647,7 +24659,7 @@ struct UInterpTrackInstSound : public UInterpTrackInst {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual FLOAT vf_114(INT); /* 0x114 */
+    virtual void InitTrackInst(class UInterpTrack* Track); /* 0x114 */
     virtual void vf_118(UInterpTrack*); /* 0x118 */
     /* registered size 0x38 */
 };
@@ -24659,7 +24671,7 @@ struct UInterpTrackInstSoundFade : public UInterpTrackInst {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual FLOAT vf_114(INT); /* 0x114 */
+    virtual void InitTrackInst(class UInterpTrack* Track); /* 0x114 */
     virtual void vf_118(UInterpTrack*); /* 0x118 */
     /* registered size 0x34 */
 };
@@ -24675,7 +24687,7 @@ struct UInterpTrackInstToggle : public UInterpTrackInst {
     virtual bool vf_004(); /* 0x004 */
     virtual FLOAT vf_10c(INT); /* 0x10c */
     virtual void vf_110(UInterpTrack*); /* 0x110 */
-    virtual FLOAT vf_114(INT); /* 0x114 */
+    virtual void InitTrackInst(class UInterpTrack* Track); /* 0x114 */
     /* registered size 0x3c */
 };
 
@@ -24701,7 +24713,7 @@ struct UInterpTrackInstVectorProp : public UInterpTrackInstProperty {
     virtual bool vf_004(); /* 0x004 */
     virtual FLOAT vf_10c(INT); /* 0x10c */
     virtual void vf_110(UInterpTrack*); /* 0x110 */
-    virtual FLOAT vf_114(INT); /* 0x114 */
+    virtual void InitTrackInst(class UInterpTrack* Track); /* 0x114 */
     /* registered size 0x48 */
 };
 
@@ -24713,7 +24725,7 @@ struct UInterpTrackInstVisibility : public UInterpTrackInst {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual FLOAT vf_114(INT); /* 0x114 */
+    virtual void InitTrackInst(class UInterpTrack* Track); /* 0x114 */
     /* registered size 0x38 */
 };
 
@@ -25994,7 +26006,7 @@ struct UMaterialExpression : public UObject {
     /* virtual functions this class introduces (vtable 0x02044a80) */
     virtual void vf_10c(INT, UINT); /* 0x10c */
     virtual UINT vf_110(INT); /* 0x110 */
-    virtual INT vf_114(INT); /* 0x114 */
+    virtual void GetOutputs(TArray<FExpressionOutput>& Outputs); /* 0x114 */
     virtual INT vf_118(); /* 0x118 */
     virtual INT vf_11c(); /* 0x11c */
     virtual INT vf_120(); /* 0x120 */
@@ -26054,7 +26066,7 @@ struct UMaterialExpressionAddNormalMap : public UMaterialExpression {
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_10c(INT, UINT); /* 0x10c */
     virtual UINT vf_110(INT); /* 0x110 */
-    virtual INT vf_114(INT); /* 0x114 */
+    virtual void GetOutputs(TArray<FExpressionOutput>& Outputs); /* 0x114 */
     virtual INT vf_118(); /* 0x118 */
     virtual FString vf_128(); /* 0x128 */
     virtual INT vf_12c(); /* 0x12c */
@@ -26317,7 +26329,7 @@ struct UMaterialExpressionTextureSample : public UMaterialExpression {
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_10c(INT, UINT); /* 0x10c */
     virtual UINT vf_110(INT); /* 0x110 */
-    virtual INT vf_114(INT); /* 0x114 */
+    virtual void GetOutputs(TArray<FExpressionOutput>& Outputs); /* 0x114 */
     virtual INT vf_118(); /* 0x118 */
     virtual FString vf_128(); /* 0x128 */
     virtual INT vf_12c(); /* 0x12c */
@@ -26335,7 +26347,7 @@ struct UMaterialExpressionDepthBiasBlend : public UMaterialExpressionTextureSamp
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_10c(INT, UINT); /* 0x10c */
     virtual UINT vf_110(INT); /* 0x110 */
-    virtual INT vf_114(INT); /* 0x114 */
+    virtual void GetOutputs(TArray<FExpressionOutput>& Outputs); /* 0x114 */
     virtual INT vf_118(); /* 0x118 */
     virtual FString vf_128(); /* 0x128 */
     virtual INT vf_12c(); /* 0x12c */
@@ -26373,7 +26385,7 @@ struct UMaterialExpressionDepthBiasedBlend : public UMaterialExpression {
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_10c(INT, UINT); /* 0x10c */
     virtual UINT vf_110(INT); /* 0x110 */
-    virtual INT vf_114(INT); /* 0x114 */
+    virtual void GetOutputs(TArray<FExpressionOutput>& Outputs); /* 0x114 */
     virtual INT vf_118(); /* 0x118 */
     virtual FString vf_128(); /* 0x128 */
     virtual INT vf_12c(); /* 0x12c */
@@ -26415,7 +26427,7 @@ struct UMaterialExpressionDestColor : public UMaterialExpression {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual UINT vf_110(INT); /* 0x110 */
-    virtual INT vf_114(INT); /* 0x114 */
+    virtual void GetOutputs(TArray<FExpressionOutput>& Outputs); /* 0x114 */
     virtual FString vf_128(); /* 0x128 */
     /* registered size 0x60 */
 };
@@ -26428,7 +26440,7 @@ struct UMaterialExpressionDestDepth : public UMaterialExpression {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual UINT vf_110(INT); /* 0x110 */
-    virtual INT vf_114(INT); /* 0x114 */
+    virtual void GetOutputs(TArray<FExpressionOutput>& Outputs); /* 0x114 */
     virtual FString vf_128(); /* 0x128 */
     /* registered size 0x64 */
 };
@@ -26471,7 +26483,7 @@ struct UMaterialExpressionDynamicParameter : public UMaterialExpression {
     virtual void vf_04c(UINT); /* 0x04c */
     virtual void vf_10c(INT, UINT); /* 0x10c */
     virtual UINT vf_110(INT); /* 0x110 */
-    virtual INT vf_114(INT); /* 0x114 */
+    virtual void GetOutputs(TArray<FExpressionOutput>& Outputs); /* 0x114 */
     virtual INT vf_118(); /* 0x118 */
     virtual FString vf_128(); /* 0x128 */
     virtual INT vf_12c(); /* 0x12c */
@@ -26523,7 +26535,7 @@ struct UMaterialExpressionFontSample : public UMaterialExpression {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual UINT vf_110(INT); /* 0x110 */
-    virtual INT vf_114(INT); /* 0x114 */
+    virtual void GetOutputs(TArray<FExpressionOutput>& Outputs); /* 0x114 */
     virtual INT vf_118(); /* 0x118 */
     virtual FString vf_128(); /* 0x128 */
     virtual INT vf_12c(); /* 0x12c */
@@ -26600,7 +26612,7 @@ struct UMaterialExpressionLensFlareIntensity : public UMaterialExpression {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual UINT vf_110(INT); /* 0x110 */
-    virtual INT vf_114(INT); /* 0x114 */
+    virtual void GetOutputs(TArray<FExpressionOutput>& Outputs); /* 0x114 */
     virtual INT vf_118(); /* 0x118 */
     virtual FString vf_128(); /* 0x128 */
     virtual INT vf_12c(); /* 0x12c */
@@ -26614,7 +26626,7 @@ struct UMaterialExpressionLensFlareOcclusion : public UMaterialExpression {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual UINT vf_110(INT); /* 0x110 */
-    virtual INT vf_114(INT); /* 0x114 */
+    virtual void GetOutputs(TArray<FExpressionOutput>& Outputs); /* 0x114 */
     virtual INT vf_118(); /* 0x118 */
     virtual FString vf_128(); /* 0x128 */
     virtual INT vf_12c(); /* 0x12c */
@@ -26628,7 +26640,7 @@ struct UMaterialExpressionLensFlareRadialDistance : public UMaterialExpression {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual UINT vf_110(INT); /* 0x110 */
-    virtual INT vf_114(INT); /* 0x114 */
+    virtual void GetOutputs(TArray<FExpressionOutput>& Outputs); /* 0x114 */
     virtual INT vf_118(); /* 0x118 */
     virtual FString vf_128(); /* 0x128 */
     virtual INT vf_12c(); /* 0x12c */
@@ -26642,7 +26654,7 @@ struct UMaterialExpressionLensFlareRayDistance : public UMaterialExpression {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual UINT vf_110(INT); /* 0x110 */
-    virtual INT vf_114(INT); /* 0x114 */
+    virtual void GetOutputs(TArray<FExpressionOutput>& Outputs); /* 0x114 */
     virtual INT vf_118(); /* 0x118 */
     virtual FString vf_128(); /* 0x128 */
     virtual INT vf_12c(); /* 0x12c */
@@ -26656,7 +26668,7 @@ struct UMaterialExpressionLensFlareSourceDistance : public UMaterialExpression {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual UINT vf_110(INT); /* 0x110 */
-    virtual INT vf_114(INT); /* 0x114 */
+    virtual void GetOutputs(TArray<FExpressionOutput>& Outputs); /* 0x114 */
     virtual INT vf_118(); /* 0x118 */
     virtual FString vf_128(); /* 0x128 */
     virtual INT vf_12c(); /* 0x12c */
@@ -26800,7 +26812,7 @@ struct UMaterialExpressionMeshEmitterVertexColor : public UMaterialExpression {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual UINT vf_110(INT); /* 0x110 */
-    virtual INT vf_114(INT); /* 0x114 */
+    virtual void GetOutputs(TArray<FExpressionOutput>& Outputs); /* 0x114 */
     virtual FString vf_128(); /* 0x128 */
     /* registered size 0x60 */
 };
@@ -26812,7 +26824,7 @@ struct UMaterialExpressionMeshSubUV : public UMaterialExpressionTextureSample {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual UINT vf_110(INT); /* 0x110 */
-    virtual INT vf_114(INT); /* 0x114 */
+    virtual void GetOutputs(TArray<FExpressionOutput>& Outputs); /* 0x114 */
     virtual INT vf_118(); /* 0x118 */
     virtual FString vf_128(); /* 0x128 */
     virtual INT vf_12c(); /* 0x12c */
@@ -26923,7 +26935,7 @@ struct UMaterialExpressionParticleSubUV : public UMaterialExpressionTextureSampl
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual UINT vf_110(INT); /* 0x110 */
-    virtual INT vf_114(INT); /* 0x114 */
+    virtual void GetOutputs(TArray<FExpressionOutput>& Outputs); /* 0x114 */
     virtual INT vf_118(); /* 0x118 */
     virtual FString vf_128(); /* 0x128 */
     virtual INT vf_12c(); /* 0x12c */
@@ -26938,7 +26950,7 @@ struct UMaterialExpressionPixelDepth : public UMaterialExpression {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual UINT vf_110(INT); /* 0x110 */
-    virtual INT vf_114(INT); /* 0x114 */
+    virtual void GetOutputs(TArray<FExpressionOutput>& Outputs); /* 0x114 */
     virtual FString vf_128(); /* 0x128 */
     /* registered size 0x64 */
 };
@@ -27007,7 +27019,7 @@ struct UMaterialExpressionSceneDepth : public UMaterialExpression {
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_10c(INT, UINT); /* 0x10c */
     virtual UINT vf_110(INT); /* 0x110 */
-    virtual INT vf_114(INT); /* 0x114 */
+    virtual void GetOutputs(TArray<FExpressionOutput>& Outputs); /* 0x114 */
     virtual FString vf_128(); /* 0x128 */
     /* registered size 0x80 */
 };
@@ -27023,7 +27035,7 @@ struct UMaterialExpressionSceneTexture : public UMaterialExpression {
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_10c(INT, UINT); /* 0x10c */
     virtual UINT vf_110(INT); /* 0x110 */
-    virtual INT vf_114(INT); /* 0x114 */
+    virtual void GetOutputs(TArray<FExpressionOutput>& Outputs); /* 0x114 */
     virtual FString vf_128(); /* 0x128 */
     /* registered size 0x84 */
 };
@@ -27081,7 +27093,7 @@ struct UMaterialExpressionStaticComponentMaskParameter : public UMaterialExpress
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_10c(INT, UINT); /* 0x10c */
     virtual UINT vf_110(INT); /* 0x110 */
-    virtual INT vf_114(INT); /* 0x114 */
+    virtual void GetOutputs(TArray<FExpressionOutput>& Outputs); /* 0x114 */
     virtual FString vf_128(); /* 0x128 */
     /* registered size 0x90 */
 };
@@ -27303,7 +27315,7 @@ struct UMaterialExpressionVectorParameter : public UMaterialExpressionParameter 
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual UINT vf_110(INT); /* 0x110 */
-    virtual INT vf_114(INT); /* 0x114 */
+    virtual void GetOutputs(TArray<FExpressionOutput>& Outputs); /* 0x114 */
     virtual FString vf_128(); /* 0x128 */
     /* registered size 0x7c */
 };
@@ -27315,7 +27327,7 @@ struct UMaterialExpressionVertexColor : public UMaterialExpression {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual UINT vf_110(INT); /* 0x110 */
-    virtual INT vf_114(INT); /* 0x114 */
+    virtual void GetOutputs(TArray<FExpressionOutput>& Outputs); /* 0x114 */
     virtual FString vf_128(); /* 0x128 */
     /* registered size 0x60 */
 };
@@ -37937,7 +37949,7 @@ struct UUIScene : public UUIScreenObject {
     virtual INT HasPositionBeenResolved(BYTE Face); /* 0x1a0 */
     virtual void vf_1b4(INT); /* 0x1b4 */
     virtual void vf_1b8(INT, INT); /* 0x1b8 */
-    virtual void InvalidatePositionDependencies(INT); /* 0x1c0 */
+    virtual void InvalidatePositionDependencies(BYTE Face); /* 0x1c0 */
     virtual INT vf_1c8(); /* 0x1c8 */
     virtual INT vf_1e0(INT); /* 0x1e0 */
     /* UnrealScript natives */

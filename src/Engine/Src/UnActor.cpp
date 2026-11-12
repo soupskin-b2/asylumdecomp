@@ -639,7 +639,7 @@ struct FRotator_ : public FRotator { FRotator_(INT InPitch, INT InYaw, INT InRol
 
 // @baa 0x00758370
 // ABrush::InitPosRotScale (vtable slot 0x358)
-void ABrush::vf_358()
+void ABrush::InitPosRotScale()
 {
 #line 3104 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp"
     check(BrushComponent);
