@@ -1,4 +1,4 @@
-// Core_0590000.cpp: 20 functions
+// Core_0590000.cpp: 21 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -233,4 +233,25 @@ void UObject::execPercent_FloatFloat(FFrame& Stack, RESULT_DECL)
 		sub_00630ea0(Stack, 0x301, L"Modulo by zero");
 
 	*(FLOAT*)Result = (B != 0.0f) ? (FLOAT)appFmod(A, B) : 0.0f;
+}
+
+// @baa 0x00596a80
+/* RotRand(optional bool bRoll): a random rotator, with a random roll only when asked. */
+void UObject::execRotRand(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_UBOOL_OPTX(bRoll, 0);
+	P_FINISH;
+
+	FRotator RotR;
+	RotR.Yaw = appTrunc(2.f * appRand());
+	RotR.Pitch = appTrunc(2.f * appRand());
+	if (bRoll)
+	{
+		RotR.Roll = appTrunc(2.f * appRand());
+	}
+	else
+	{
+		RotR.Roll = 0;
+	}
+	*(FRotator*)Result = RotR;
 }

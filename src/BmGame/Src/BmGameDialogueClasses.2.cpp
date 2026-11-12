@@ -1,4 +1,4 @@
-// BmGameDialogueClasses.cpp: 7 functions
+// BmGameDialogueClasses.cpp: 9 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -111,4 +111,53 @@ struct URSeqAct_PlaySpeechConversation_ : public URSeqAct_PlaySpeechConversation
 void URSeqAct_PlaySpeechConversation_::eventCheckForNewLine()
 {
 	ProcessEvent(FindFunctionChecked(g_026e3a70), NULL);
+}
+
+	/* BMGAME_CheckForNewLine */
+/* Kit gap: the script event's generated glue (BmGameClasses.h). */
+struct URSeqAct_ConversationDialogue__015851f0 : public URSeqAct_ConversationDialogue
+{
+	void eventCheckForNewLine()
+	{
+		ProcessEvent(FindFunctionChecked(g_026e3a70), NULL);
+	}
+};
+
+// @baa 0x015851f0
+/* Lets script queue the next line, then runs the speech as usual. */
+UBOOL URSeqAct_ConversationDialogue::UpdateOp(FLOAT DeltaTime)
+{
+	((URSeqAct_ConversationDialogue__015851f0*)this)->eventCheckForNewLine();
+	return Super::UpdateOp(DeltaTime);
+}
+
+	/* BMGAME_CheckForNewLine */
+/* Kit gap: the script event's generated glue (BmGameClasses.h). */
+struct URSeqAct_PlaySpeechConversation__01585590 : public URSeqAct_PlaySpeechConversation
+{
+	void eventCheckForNewLine()
+	{
+		ProcessEvent(FindFunctionChecked(g_026e3a70), NULL);
+	}
+};
+
+// @baa 0x01585590
+/* The third and fourth inputs duck and unduck the conversation; then the line delay counts down, script gets
+ * a chance to queue the next line, and the speech runs as usual. */
+UBOOL URSeqAct_PlaySpeechConversation::UpdateOp(FLOAT DeltaTime)
+{
+	if (InputLinks.Num() >= 3)
+	{
+		if (InputLinks(2).bHasImpulse)
+		{
+			bDucked = TRUE;
+		}
+		if (InputLinks.Num() >= 4 && InputLinks(3).bHasImpulse)
+		{
+			bDucked = FALSE;
+		}
+	}
+	DelayTimer -= DeltaTime;
+	((URSeqAct_PlaySpeechConversation__01585590*)this)->eventCheckForNewLine();
+	return Super::UpdateOp(DeltaTime);
 }

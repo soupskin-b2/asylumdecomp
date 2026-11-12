@@ -1,0 +1,36 @@
+// UnSequence.cpp: 1 function
+// Placed here by: contributions.
+// Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
+#include "ue3/Classes.h"
+#include "ue3/Script.h"
+#include "ue3/Cast.h"
+
+/* Kit gap: UActorComponent::GetOwner (inline in EngineBaseTypes.h). */
+struct UActorComponent_ : public UActorComponent
+{
+	AActor* GetOwner() const { return Owner; }
+};
+
+// @baa 0x008f7780
+/* SetCaptureParameters(optional TextureRenderTarget2D NewTextureTarget, optional float NewScaleFOV,
+ * optional Actor NewViewDest): any parameter left out keeps its current value. */
+void USceneCapturePortalComponent::execSetCaptureParameters(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT_OPTX(UTextureRenderTarget2D, NewTextureTarget, TextureTarget);
+	P_GET_FLOAT_OPTX(NewScaleFOV, ScaleFOV);
+	P_GET_OBJECT_OPTX(AActor, NewViewDest, ViewDestination);
+	P_FINISH;
+
+	TextureTarget = NewTextureTarget;
+	ScaleFOV = NewScaleFOV;
+	ViewDestination = NewViewDest;
+
+	/* keep the owning portal actor's other components in step */
+	ASceneCapturePortalActor* PortalOwner = Cast<ASceneCapturePortalActor>(((UActorComponent_*)this)->GetOwner());
+	if (PortalOwner)
+	{
+		PortalOwner->SyncComponents();
+	}
+
+	bNeedsSceneUpdate = TRUE;
+}

@@ -1,4 +1,4 @@
-// Engine_0cc0000.cpp: 8 functions
+// Engine_0cc0000.cpp: 10 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -162,4 +162,34 @@ void UUIRoot::execGetDataStoreFieldValue(FFrame& Stack, RESULT_DECL)
 	P_GET_OBJECT_OPTX(ULocalPlayer, OwnerPlayer, NULL);
 	P_FINISH;
 	*(UBOOL*)Result = ((UUIRoot__00cc7210*)this)->GetDataStoreFieldValue(InDataStoreMarkup, OutFieldValue, OwnerScene, OwnerPlayer);
+}
+
+// @baa 0x00cc4360
+/* SetVisibleFragments(array<byte> VisibilityFactors) */
+void UFracturedStaticMeshComponent::execSetVisibleFragments(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_TARRAY(BYTE, VisibilityFactors);
+	P_FINISH;
+	SetVisibleFragments(VisibilityFactors);
+}
+
+/* Kit gap: FInterpCurveVector's destructor (out of line, 0x006f17f0) isn't declared. */
+struct FInterpCurveVector_ : public FInterpCurveVector
+{
+	~FInterpCurveVector_();
+};
+
+// @baa 0x00cc87b0
+/* GetVectorCurveParameterValue(name ParameterName, out InterpCurveVector OutValue) */
+void UMaterialInterface::execGetVectorCurveParameterValue(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_NAME(ParameterName);
+	/* This build's P_GET_STRUCT_REF zeroes the temporary after clearing GPropAddr (the kit's macro doesn't). */
+	FInterpCurveVector_ OutValueT;
+	GPropAddr = 0;
+	appMemzero(&OutValueT, sizeof(FInterpCurveVector));
+	Stack.Step(Stack.Object, &OutValueT);
+	FInterpCurveVector& OutValue = GPropAddr ? *(FInterpCurveVector*)GPropAddr : OutValueT;
+	P_FINISH;
+	*(UBOOL*)Result = GetVectorCurveParameterValue(ParameterName, OutValue);
 }

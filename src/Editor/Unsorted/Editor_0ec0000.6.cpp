@@ -1,4 +1,4 @@
-// Editor_0ec0000.cpp: 6 functions
+// Editor_0ec0000.cpp: 7 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -55,4 +55,13 @@ void UBrushBuilder::execVertexv(FFrame& Stack, RESULT_DECL)
     P_GET_STRUCT(FVector, V);
     P_FINISH;
     *(INT*)Result = Vertexv(V);
+}
+
+// @baa 0x00ec3090
+/* vector GetVertex(int i) */
+void UBrushBuilder::execGetVertex(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(i);
+	P_FINISH;
+	*(FVector*)Result = GetVertex(i);
 }

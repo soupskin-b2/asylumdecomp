@@ -1,4 +1,4 @@
-// Editor_0c80000.cpp: 14 functions
+// Editor_0c80000.cpp: 15 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -110,4 +110,21 @@ void AWorldInfo::execGetWorldFractureSettings(FFrame& Stack, RESULT_DECL)
 {
     P_FINISH;
     *(FWorldFractureSettings*)Result = ((AWorldInfo_*)this)->GetWorldFractureSettings();
+}
+
+/* Kit gaps: AWorldInfo::GetDemoFrameInfo (0x00bf99c0) and the optional out INT parameter macro. */
+struct AWorldInfo__00c8a0f0 : public AWorldInfo
+{
+	void GetDemoFrameInfo(INT* CurrentFrame, INT* TotalFrames);
+};
+
+#define P_GET_INT_OPTX_REF(v, d) INT v##T = d; GPropAddr = 0; GRuntimeUCFlags &= ~RUC_SkippedOptionalParm; Stack.Step(Stack.Object, &v##T); INT* p##v = (INT*)GPropAddr; INT& v = GPropAddr ? *(INT*)GPropAddr : v##T;
+// @baa 0x00c8a0f0
+/* GetDemoFrameInfo(optional out int CurrentFrame, optional out int TotalFrames) */
+void AWorldInfo::execGetDemoFrameInfo(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT_OPTX_REF(CurrentFrame, 0);
+	P_GET_INT_OPTX_REF(TotalFrames, 0);
+	P_FINISH;
+	((AWorldInfo__00c8a0f0*)this)->GetDemoFrameInfo(pCurrentFrame ? &CurrentFrame : NULL, pTotalFrames ? &TotalFrames : NULL);
 }

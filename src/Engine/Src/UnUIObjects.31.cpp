@@ -1,4 +1,4 @@
-// UnUIObjects.cpp: 22 functions
+// UnUIObjects.cpp: 23 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -372,4 +372,18 @@ UBOOL UUIScreenObject::IsHidden(UBOOL bIncludeParents)
 INT UUIScene::HasPositionBeenResolved(BYTE Face)
 {
 	return !bUpdateScenePositions;
+}
+
+// @baa 0x00da9d30
+/* Asks the scene client to reinitialize this scene's primitives and/or flags the primitive usage for review. */
+void UUIScene::RequestPrimitiveReview(UBOOL bReinitializePrimitives, UBOOL bReviewPrimitiveUsage)
+{
+	if (bReinitializePrimitives && SceneClient != NULL)
+	{
+		SceneClient->RequestPrimitiveReinitialization(this);
+	}
+	if (bReviewPrimitiveUsage)
+	{
+		bUpdatePrimitiveUsage = TRUE;
+	}
 }

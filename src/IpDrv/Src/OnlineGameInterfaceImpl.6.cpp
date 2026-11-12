@@ -1,4 +1,4 @@
-// OnlineGameInterfaceImpl.cpp: 6 functions
+// OnlineGameInterfaceImpl.cpp: 7 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -53,4 +53,17 @@ void UOnlineGameInterfaceImpl::execFindOnlineGames(FFrame& Stack, RESULT_DECL)
 	P_GET_OBJECT(UOnlineGameSearch, SearchSettings);
 	P_FINISH;
 	*(UBOOL*)Result = FindOnlineGames(SearchingPlayerNum, SearchSettings);
+}
+
+// @baa 0x00e2a060
+/* BindPlatformSpecificSessionToSearch(byte SearchingPlayerNum, OnlineGameSearch SearchSettings,
+ * byte PlatformSpecificInfo[]): the static array is read whole into a stack buffer (0x8000 bytes in this build). */
+void UOnlineGameInterfaceImpl::execBindPlatformSpecificSessionToSearch(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_BYTE(SearchingPlayerNum);
+	P_GET_OBJECT(UOnlineGameSearch, SearchSettings);
+	BYTE PlatformSpecificInfo[0x8000];
+	Stack.Step(Stack.Object, PlatformSpecificInfo);
+	P_FINISH;
+	*(UBOOL*)Result = BindPlatformSpecificSessionToSearch(SearchingPlayerNum, SearchSettings, PlatformSpecificInfo);
 }

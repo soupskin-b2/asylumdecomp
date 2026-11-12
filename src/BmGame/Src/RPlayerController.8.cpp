@@ -1,4 +1,4 @@
-// RPlayerController.cpp: 32 functions
+// RPlayerController.cpp: 38 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -503,4 +503,52 @@ void ARPlayerController::execLive_StoreSaveInfo(FFrame& Stack, RESULT_DECL)
 	P_GET_STR(BioStr);
 	P_FINISH;
 	Live_StoreSaveInfo(Id, Difficulty, Percentage, TimePlayed, RoomName, ChallengeStr, RiddlerStr, UpgradesStr, BioStr);
+}
+
+// @baa 0x0171d8e0
+void ARPlayerController::execTestSave(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STR(Filename);
+	P_FINISH;
+	TestSave(Filename);
+}
+
+// @baa 0x0171d990
+void ARPlayerController::execTestLoad(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STR(Filename);
+	P_FINISH;
+	TestLoad(Filename);
+}
+
+// @baa 0x0171da40
+void ARPlayerController::execTestQuery(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STR(Filename);
+	P_FINISH;
+	TestQuery(Filename);
+}
+
+// @baa 0x0171dd00
+void ARPlayerController::execSetReturnPoint(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STR(Str);
+	P_FINISH;
+	SetReturnPoint(Str);
+}
+
+// @baa 0x0171e3b0
+void ARTapePlayer::execSetSubtitles(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STR(Str);
+	P_FINISH;
+	SetSubtitles(Str);
+}
+
+// @baa 0x0171e000
+void URSeqAct_ConversationDialogue::execCheckName(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STR(Name);
+	P_FINISH;
+	*(UBOOL*)Result = CheckName(Name);
 }

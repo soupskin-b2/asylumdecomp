@@ -1,4 +1,4 @@
-// BmGameDialogueClasses.cpp: 72 functions
+// BmGameDialogueClasses.cpp: 73 functions
 // Placed here by: callers 13, file 13.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -408,4 +408,18 @@ void URSeqAct_ConversationDialogue__0156c490::sub_0156c490(USoundCue* Cue, INT& 
             ++OutputIndex;
         }
     }
+}
+
+/* Kit gap: the TV movie-texture update (0x0155fd40, non-virtual, only called from here) isn't declared. */
+struct URSeqAct_PlayTVSequenceBase_ : public URSeqAct_PlayTVSequenceBase
+{
+	void UpdateTVSequence(FLOAT DeltaTime);
+};
+
+// @baa 0x01585740
+/* Advances the TV movie, then lets the conversation run as usual. */
+UBOOL URSeqAct_PlayTVSequenceBase::UpdateOp(FLOAT DeltaTime)
+{
+	((URSeqAct_PlayTVSequenceBase_*)this)->UpdateTVSequence(DeltaTime);
+	return Super::UpdateOp(DeltaTime);
 }
