@@ -13,13 +13,9 @@ struct FSequenceObjectArray : public TArray<USequenceObject*>
 };
 
 /* USequence::FindSeqObjectsByClass isn't declared in Classes.h. */
-struct USequence_ : public USequence
-{
-	void FindSeqObjectsByClass(UClass* DesiredClass, TArray<USequenceObject*>& OutputObjects, UBOOL bRecursive) const;
-};
 
 // @baa 0x009043d0
-void USequence_::FindSeqObjectsByClass(UClass* DesiredClass, TArray<USequenceObject*>& OutputObjects, UBOOL bRecursive) const
+void USequence::FindSeqObjectsByClass(UClass* DesiredClass, TArray<USequenceObject*>& OutputObjects, UBOOL bRecursive) const
 {
 	// The original has a local array that is constructed (with its own unwind state) but never
 	// used; its inlined destructor folds away. Without it the EH frame and stack layout differ.
@@ -38,7 +34,7 @@ void USequence_::FindSeqObjectsByClass(UClass* DesiredClass, TArray<USequenceObj
 		// search the nested sequences too
 		for (INT Idx = 0; Idx < NestedSequences.Num(); Idx++)
 		{
-			const USequence_* Seq = (const USequence_*)NestedSequences(Idx);
+			const USequence* Seq = (const USequence*)NestedSequences(Idx);
 			if (Seq != NULL)
 			{
 				Seq->FindSeqObjectsByClass(DesiredClass, OutputObjects, bRecursive);

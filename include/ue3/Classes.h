@@ -9898,6 +9898,7 @@ struct UObject {
     void execPopState(FFrame& Stack, RESULT_DECL); /* 0x005aeed0 */
     void execGetPerObjectConfigSections(FFrame& Stack, RESULT_DECL); /* 0x005aef50 */
     /* other member functions */
+    UBOOL sub_00402b40(UClass* SomeBase) const; /* 0x00402b40 */
     FString GetPathName(UObject* StopOuter = NULL) const; /* 0x005d59a0 */
     void sub_005aecc0(FFrame&, UBOOL); /* 0x005aecc0 */
     void sub_005de600(INT, INT, INT); /* 0x005de600 */
@@ -20585,6 +20586,7 @@ struct UMaterial : public UMaterialInterface {
     virtual INT GetStaticComponentMaskParameterValue(INT, INT, INT, INT, INT, INT, INT); /* 0x158 */
     virtual UINT vf_15c(); /* 0x15c */
     /* other member functions */
+    INT sub_006d72b0(INT* bInUse, INT Usage); /* 0x006d72b0 */
     UINT* sub_0064f240(UINT); /* 0x0064f240 */
     UINT sub_0069b820(BYTE); /* 0x0069b820 */
     UINT* sub_0069b9d0(); /* 0x0069b9d0 */
@@ -34654,6 +34656,8 @@ struct USequenceEvent : public USequenceOp {
     virtual void vf_184(); /* 0x184 */
     /* UnrealScript natives */
     void execCheckActivate(FFrame& Stack, RESULT_DECL); /* 0x008cabb0 */
+    /* other member functions */
+    UBOOL sub_008abba0(AActor* InOriginator, AActor* InInstigator, UBOOL bTest, TArray<INT>* ActivateIndices, UBOOL bPushTop); /* 0x008abba0 */
     /* registered size 0xf8 */
 };
 
@@ -69565,6 +69569,9 @@ struct UWorld : public UObject, public FInterface_UWorld_30 {
     virtual void vf_02c(); /* 0x02c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     /* other member functions */
+    AController* sub_009c8570(); /* 0x009c8570 */
+    void sub_00a47a10(URB_BodyInstance* Body); /* 0x00a47a10 */
+    void sub_00a47a90(URB_ConstraintInstance* Constraint); /* 0x00a47a90 */
     UBOOL sub_007e72a0(AActor*, UBOOL, UBOOL); /* 0x007e72a0 */
     URB_BodyInstance* sub_00a49820(UPrimitiveComponent* Owner); /* 0x00a49820 */
     INT sub_009c68d0(); /* 0x009c68d0 */

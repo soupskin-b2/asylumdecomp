@@ -174906,7 +174906,7 @@
     {
      "va": "00c4b5c0",
      "size": 13,
-     "symbol": "?vf_190@UAnimNodeBlendBase_@@UAEHH@Z"
+     "symbol": "?vf_190@UAnimNodeBlendBase@@UAEHH@Z"
     }
    ]
   },
@@ -174918,7 +174918,7 @@
     {
      "va": "00c4b5d0",
      "size": 13,
-     "symbol": "?vf_194@UAnimNodeBlendBase_@@UAEHH@Z"
+     "symbol": "?vf_194@UAnimNodeBlendBase@@UAEHH@Z"
     }
    ]
   },
@@ -200814,7 +200814,7 @@
     {
      "va": "009043d0",
      "size": 455,
-     "symbol": "?FindSeqObjectsByClass@USequence_@@QBEXPAUUClass@@AAV?$TArray@PAUUSequenceObject@@@@H@Z"
+     "symbol": "?FindSeqObjectsByClass@USequence@@QBEXPAUUClass@@AAV?$TArray@PAUUSequenceObject@@@@H@Z"
     }
    ]
   },

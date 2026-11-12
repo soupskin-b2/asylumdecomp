@@ -6,13 +6,9 @@
 /* the original returns whatever the callee leaves in eax (no value is set), so the
    wrapper is declared INT but falls off the end after the void call */
 #pragma warning(disable:4716)
-struct UAnimNodeBlendBase_ : public UAnimNodeBlendBase
-{
-    INT vf_194(INT Arg);
-};
 
 // @baa 0x00c4b5d0
-INT UAnimNodeBlendBase_::vf_194(INT)
+INT UAnimNodeBlendBase::vf_194(INT)
 {
     vf_198();
 }
