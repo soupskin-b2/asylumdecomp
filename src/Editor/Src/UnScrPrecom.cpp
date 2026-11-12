@@ -1,4 +1,4 @@
-// UnScrPrecom.cpp: 3 functions
+// UnScrPrecom.cpp: 4 functions
 // Placed here by: callers 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -52,4 +52,37 @@ struct C
 INT C::sub_00ff3250()
 {
     return *Marker.sub_00de0ab0(0);
+}
+
+struct TScrMarkerObj
+{
+    int sub_00ffff90(int, int);
+};
+
+struct TScrPrecom
+{
+    TScrMarkerObj * Obj;
+};
+
+// TArray<TScrPrecom>-like: Data at 0, Num at 4
+struct FScrPrecomArray
+{
+    TScrPrecom * Data;
+
+    int Num;
+
+    int Max;
+
+    TScrPrecom * sub_00ff0440(int);
+
+    int sub_00ffffe0(int, int);
+};
+
+// @baa 0x00ffffe0
+// @baa 0x00ffffe0
+int FScrPrecomArray::sub_00ffffe0(int Param1, int Param2)
+{
+    if (Num > 0)
+        return sub_00ff0440(0)->Obj->sub_00ffff90(Param1, Param2);
+    return 0;
 }

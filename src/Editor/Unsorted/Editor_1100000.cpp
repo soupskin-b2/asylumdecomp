@@ -1,4 +1,4 @@
-// Editor_1100000.cpp (part 1 of 2): 85 functions
+// Editor_1100000.cpp (part 1 of 2): 86 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1033,4 +1033,28 @@ undefined4 USetMaterialUsageCommandlet::sub_0110f840(byte param_2)
     sub_005c7a70(param_1,0x70);
   }
   return param_1;
+}
+
+struct S011035c0 {
+    INT A;
+    INT B;
+    INT C;
+
+    S011035c0& sub_011035c0(INT A_, INT B_, INT C_);
+    static void KeepAlive();
+};
+
+// @baa 0x011035c0
+S011035c0& S011035c0::sub_011035c0(INT A_, INT B_, INT C_)
+{
+    A = A_;
+    B = B_;
+    C = C_;
+    return *this;
+}
+
+void S011035c0::KeepAlive()
+{
+    S011035c0 S;
+    S.sub_011035c0(0, 0, 0);
 }

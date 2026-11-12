@@ -1,4 +1,4 @@
-// UnrealEd_1110000.cpp: 7 functions
+// UnrealEd_1110000.cpp: 9 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Core.h"
@@ -332,4 +332,55 @@ extern Sub_01117840* g_026cce28;
 void __stdcall sub_01117840(INT Unused)
 {
     g_026cce28->sub_00f973c0();
+}
+
+struct SBody_ {
+    virtual void f0() {}
+    virtual void f1() {}
+    virtual void f2() {}
+    virtual void f3() {}
+    virtual void sub_01116bc0(int A) {}
+};
+
+struct SWrapper_ {
+    char pad[0x110];
+    SBody_* Body;
+    void sub_01116bc0(int A);
+};
+
+// @baa 0x01116bc0
+void SWrapper_::sub_01116bc0(int A)
+{
+    if (Body)
+        Body->sub_01116bc0(A);
+}
+
+void sub_helper()
+{
+    SWrapper_ w;
+    w.sub_01116bc0(0);
+}
+
+struct SubVirtTarget
+{
+    virtual void sub_00000000();
+    virtual void sub_00000004();
+    virtual void Notify();
+};
+
+struct Sub01115ef0Owner
+{
+    char _pad[0x1c4];
+    SubVirtTarget* _target;
+
+    void sub_01115ef0(int InParam);
+};
+
+// @baa 0x01115ef0
+void Sub01115ef0Owner::sub_01115ef0(int InParam)
+{
+    if (_target != 0)
+    {
+        _target->Notify();
+    }
 }

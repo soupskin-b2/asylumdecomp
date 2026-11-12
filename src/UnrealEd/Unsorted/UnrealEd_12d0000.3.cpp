@@ -1,4 +1,4 @@
-// UnrealEd_12d0000.cpp (part 3 of 3): 9 functions
+// UnrealEd_12d0000.cpp (part 3 of 3): 10 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -138,4 +138,13 @@ void C_012defb0::sub_012defb0()
 {
     *(void**)this = g_0223fb88;
     ((wxMenu*)this)->wxMenu::~wxMenu();
+}
+
+// @baa 0x012de9a0
+// 012de9a0: store the product of two floats into a destination float and
+// return the destination pointer.
+FLOAT* sub_012de9a0(FLOAT* Destination, const FLOAT* First, const FLOAT* Second)
+{
+	*Destination = *First * *Second;
+	return Destination;
 }

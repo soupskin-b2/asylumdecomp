@@ -1,4 +1,4 @@
-// UnUIObjects.cpp (part 15 of 17): 23 functions
+// UnUIObjects.cpp (part 15 of 17): 25 functions
 // Placed here by: class 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -354,3 +354,71 @@ void UUIObject::SetPrivateBehavior(INT Behavior, UBOOL Value, UBOOL bRecurse)
 		}
 	}
 }
+
+/* Kit gap: FPlayerInteractionData::GetFocusedControl (00ddece0, out of line) isn't declared. */
+struct FPlayerInteractionData_ : public FPlayerInteractionData
+{
+	UUIObject* GetFocusedControl() const;
+};
+
+/* TArray's const operator() (Array.h:566), which the compiler inlines here but won't from the kit's plain
+ * inline for this element type. */
+struct FFocusControlArray : public TArray<FPlayerInteractionData>
+{
+	__forceinline const FPlayerInteractionData& At(INT i) const
+	{
+#line 566 BAA_ARRAY_FILE
+		check(i>=0 && (i<ArrayNum||(i==0 && ArrayNum==0)));
+		return GetTypedData()[i];
+	}
+};
+
+// @baa 0x00db0550
+/* The control that has focus for PlayerIndex; with bRecurse, the innermost focused descendant. */
+UUIObject* UUIScreenObject::GetFocusedControl(UBOOL bRecurse, INT PlayerIndex) const
+{
+	UUIObject* Result = NULL;
+	if (PlayerIndex >= 0 && PlayerIndex < FocusControls.Num())
+	{
+		const FPlayerInteractionData& PlayerData = ((const FFocusControlArray&)FocusControls).At(PlayerIndex);
+		Result = ((const FPlayerInteractionData_&)PlayerData).GetFocusedControl();
+		if (Result != NULL && bRecurse)
+		{
+			UUIObject* FocusedChild = Result->GetFocusedControl(bRecurse, PlayerIndex);
+			if (FocusedChild != NULL)
+			{
+				Result = FocusedChild;
+			}
+		}
+	}
+	return Result;
+}
+
+#line 398 "candidate.cpp"
+
+/* Kit gaps: UUIScene::GetSceneClient (inline, UnUIObjects.cpp) and UUIObject::GetActiveSkin aren't declared. */
+struct UUIScene_ : public UUIScene
+{
+	FORCEINLINE UUISceneClient* GetSceneClient() const
+	{
+#line 5864 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnUIObjects.cpp"
+		check(SceneClient);
+		return SceneClient;
+	}
+};
+
+struct UUIObject__00daa120 : public UUIObject
+{
+	UUISkin* GetActiveSkin() const;
+};
+
+// @baa 0x00daa120
+/* The skin the owning scene's scene client is using. */
+UUISkin* UUIObject__00daa120::GetActiveSkin() const
+{
+#line 8658 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnUIObjects.cpp"
+	check(OwnerScene);
+	return ((UUIScene_*)OwnerScene)->GetSceneClient()->ActiveSkin;
+}
+
+#line 425 "candidate.cpp"

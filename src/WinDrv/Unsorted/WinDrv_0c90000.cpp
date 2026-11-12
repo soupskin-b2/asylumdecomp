@@ -1,4 +1,4 @@
-// WinDrv_0c90000.cpp: 19 functions
+// WinDrv_0c90000.cpp: 20 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -128,3 +128,21 @@ void sub_00c97ac0(void) {  }
 
 // @baa 0x00c97b00
 IMPLEMENT_CLASS_AT(UCodecMovieBink, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnCodecs.cpp", 11);
+
+/* UClient's configuration (UE3 UnClient.h: DisplayGamma, InitialButtonRepeatDelay,
+ * ButtonRepeatDelay, at 0x44..0x4c) is inside the kit's _native blob (0x34..0x50); this stand-in
+ * overlays it from 0x44. */
+struct FClientConfig
+{
+    FLOAT DisplayGamma;
+    FLOAT InitialButtonRepeatDelay;
+    FLOAT ButtonRepeatDelay;
+};
+
+// @baa 0x00c975e0
+void UClient::InitializeIntrinsicPropertyValues()
+{
+    FClientConfig* Config = (FClientConfig*)&_native[0x44 - 0x34];
+    Config->InitialButtonRepeatDelay = 0.2f;
+    Config->ButtonRepeatDelay = 0.1f;
+}

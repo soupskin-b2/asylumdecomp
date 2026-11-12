@@ -1,4 +1,4 @@
-// Editor_0f10000.cpp (part 1 of 3): 71 functions
+// Editor_0f10000.cpp (part 1 of 3): 72 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -321,3 +321,25 @@ DWORD* S::sub_00f1af00(INT Index)
     return &Items(Index);
 }
 
+struct FCopy3
+{
+    INT Value0;
+    INT Value1;
+    INT Value2;
+
+    __declspec(noinline) FCopy3* sub_00f1a380(const FCopy3* Source)
+    {
+        Value0 = Source->Value0;
+        Value1 = Source->Value1;
+        Value2 = Source->Value2;
+        return this;
+    }
+};
+
+// @baa 0x00f1a380
+void driver_emit()
+{
+    FCopy3 A;
+    FCopy3 B;
+    A.sub_00f1a380(&B);
+}

@@ -1,7 +1,7 @@
-// UnEdModes.cpp (part 3 of 3): 6 functions
+// UnEdModes.cpp (part 3 of 3): 7 functions
 // Placed here by: class 3.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
-#include "ue3/Classes.h"
+#include "ue3/Implement.h"
 
 int sub_0053dfa0(...);
 int sub_00f5bbb0(void);
@@ -101,4 +101,58 @@ extern Object* sub_00ec5970();
 void sub_00f5dc10()
 {
     sub_00ec5970()->Pointer->sub_00f5c640();
+}
+
+struct V_00f4d280_target {
+    virtual void v0();
+    virtual void v1();
+    virtual void v2();
+    virtual void v3();
+    virtual void v4();
+    virtual void v5();
+    virtual void v6();
+    virtual void v7();
+    virtual void v8();
+    virtual void v9();
+    virtual void v10();
+    virtual void v11();
+    virtual void v12();
+    virtual void v13();
+    virtual void v14();
+    virtual void v15();
+    virtual void v16();
+    virtual void v17();
+    virtual void v18();
+    virtual void v19();
+    virtual void v20();
+    virtual void v21();
+    virtual void v22();
+    virtual void v23();
+    virtual void v24();
+    virtual void v25();
+    virtual void v26();
+    virtual void v27();
+    virtual void v28();
+    virtual void v29();
+    virtual void v30();
+    virtual void v31();
+    virtual void v32();
+    virtual void v33();
+    virtual void v34();
+    virtual void v35();
+    virtual void v36();
+    virtual void v37();
+    virtual void v38(bool);
+};
+
+struct C_00f4d280 {
+    char pad[0x48];
+    V_00f4d280_target* m_48;
+    void sub_00f4d280(int);
+};
+
+// @baa 0x00f4d280
+void C_00f4d280::sub_00f4d280(int Value)
+{
+    m_48->v38(Value != 0);
 }

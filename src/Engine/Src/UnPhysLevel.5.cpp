@@ -1,4 +1,4 @@
-// UnPhysLevel.cpp: 2 functions
+// UnPhysLevel.cpp: 4 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -22,3 +22,11 @@ INT __stdcall sub_00a3b8a0(void* a, void* b, void* c)
     sub_00630f20(g_026667a8, L"onSweepQuery - NOT SUPPORTED");
     return 0;
 }
+
+// @baa 0x00a446d0
+/* TArray<URB_BodyInstance*>::ContainsItem, out of line (UWorld body instance pool, UnPhysLevel.cpp) */
+template UBOOL TArray<URB_BodyInstance*>::ContainsItem(URB_BodyInstance* const& Item) const;
+
+// @baa 0x00a44730
+/* TArray<URB_ConstraintInstance*>::ContainsItem, out of line (UWorld::ConstraintInstancePool, UnPhysLevel.cpp) */
+template UBOOL TArray<URB_ConstraintInstance*>::ContainsItem(URB_ConstraintInstance* const& Item) const;

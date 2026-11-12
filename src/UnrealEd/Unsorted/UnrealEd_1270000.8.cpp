@@ -1,4 +1,4 @@
-// UnrealEd_1270000.cpp (part 8 of 8): 8 functions
+// UnrealEd_1270000.cpp (part 8 of 8): 9 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -138,4 +138,25 @@ void __stdcall sub_01278150(INT A, INT B, INT C)
 {
     if (A == 0x2e)
         sub_007160b0();
+}
+
+struct CopyTriple
+{
+    INT X;
+    INT Y;
+    INT Z;
+
+    CopyTriple* sub_012785d0(const CopyTriple* Source)
+    {
+        X = Source->X;
+        Y = Source->Y;
+        Z = Source->Z;
+        return this;
+    }
+};
+
+// @baa 0x012785d0
+void UseCopy(CopyTriple* A, const CopyTriple* B)
+{
+    A->sub_012785d0(B);
 }

@@ -1,4 +1,4 @@
-// GFxUIRenderer.cpp (part 3 of 3): 11 functions
+// GFxUIRenderer.cpp (part 3 of 3): 12 functions
 // Placed here by: neighbours 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -199,4 +199,22 @@ void GFxUIMovie_00e479d0::sub_00e479d0()
     {
         (*(void(__stdcall**)(int))(g_026b0d94[0] + 0x23c))(DisplayObject);
     }
+}
+
+struct C_00e4a6e0 {
+	void sub_00e4a6e0(void);
+	int x00;
+	int x04;
+	int x08;
+};
+
+typedef void (__stdcall *Fn23c)(int);
+
+// @baa 0x00e4a6e0
+// @baa 0x00e4a6e0
+void C_00e4a6e0::sub_00e4a6e0(void)
+{
+	if (x08) {
+		(*(Fn23c*)(*(int *)g_026b0d94 + 0x23c))(x08);
+	}
 }

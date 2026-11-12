@@ -1,4 +1,4 @@
-// UnrealEd_11c0000.cpp (part 1 of 3): 224 functions
+// UnrealEd_11c0000.cpp (part 1 of 3): 226 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1842,4 +1842,39 @@ undefined4 C_011cb5b0::sub_011cb5b0(byte param_2)
     sub_0053dfa0(param_1);
   }
   return param_1;
+}
+
+struct C_011ce090 {
+    void sub_011ce090(void* p, int a, int b);
+};
+
+struct C_011cf250 {
+    char _pad[0x168];
+    C_011ce090* _0x168;
+
+    void sub_011cf250(int a, int b);
+};
+
+// @baa 0x011cf250
+void C_011cf250::sub_011cf250(int a, int b)
+{
+    _0x168->sub_011ce090(this, a, b);
+}
+
+struct Grid_011cddd0
+{
+	void sub_011cddd0(void* Owner, void* A, void* B);
+};
+
+struct C_011cf230
+{
+	char _base[0x168];
+	Grid_011cddd0* m_Grid; // offset 0x168
+	void sub_011cf230(void* A, void* B);
+};
+
+// @baa 0x011cf230
+void C_011cf230::sub_011cf230(void* A, void* B)
+{
+	m_Grid->sub_011cddd0(this, A, B);
 }

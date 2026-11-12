@@ -1,4 +1,4 @@
-// UnrealEd_13e0000.cpp (part 2 of 2): 6 functions
+// UnrealEd_13e0000.cpp (part 2 of 2): 7 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -94,4 +94,23 @@ struct C_013e05f0
 INT C_013e05f0::sub_013e05f0()
 {
     return sub_013dede0(Value);
+}
+
+class wxListEvent
+{
+public:
+	__declspec(dllimport) long GetIndex() const;
+};
+
+class C_013e1cd0
+{
+public:
+	int sub_013e1c10(int ItemIndex);
+	int sub_013e1cd0(wxListEvent* Event);
+};
+
+// @baa 0x013e1cd0
+int C_013e1cd0::sub_013e1cd0(wxListEvent* Event)
+{
+	return sub_013e1c10(Event->GetIndex());
 }

@@ -1,4 +1,4 @@
-// RAnimUtil.cpp (part 1 of 2): 20 functions
+// RAnimUtil.cpp (part 1 of 2): 21 functions
 // Placed here by: neighbours 8, file 7, callers 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -221,4 +221,13 @@ int URSkelControlFootPlacement::vf_000(void) { return 1; }
 bool URSkelControlFootPlacement::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+extern const TCHAR* g_025eb6c8[4];
+// @baa 0x01598d90
+const TCHAR* sub_01598d90(INT Direction)
+{
+    if (Direction >= 0 && (UINT)Direction < 4)
+        return g_025eb6c8[Direction];
+    return TEXT("ERROR");
 }

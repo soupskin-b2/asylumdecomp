@@ -1,4 +1,4 @@
-// Engine_0950000.cpp: 89 functions
+// Engine_0950000.cpp: 90 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -1196,4 +1196,33 @@ struct FSkelMeshChunk
 /* the implicit destructor: destroys BoneMap, SoftVertices, RigidVertices */
 FSkelMeshChunk::~FSkelMeshChunk()
 {
+}
+
+/* FSkelMeshSection (UnSkeletalMesh.h): a run of triangles of one LOD drawn with one material. Not in the kit. */
+struct FSkelMeshSection
+{
+    WORD MaterialIndex;
+    WORD ChunkIndex;
+    DWORD BaseIndex;
+    WORD NumTriangles;
+};
+
+/* FStaticLODModel (UnSkeletalMesh.h); only its leading Sections array is used here. */
+struct FStaticLODModel
+{
+    TArray<FSkelMeshSection> Sections;
+
+    INT GetTotalFaces();
+};
+
+// @baa 0x00951780
+/* the number of triangles in all sections of this LOD */
+INT FStaticLODModel::GetTotalFaces()
+{
+    INT TotalFaces = 0;
+    for (INT i = 0; i < Sections.Num(); i++)
+    {
+        TotalFaces += Sections(i).NumTriangles;
+    }
+    return TotalFaces;
 }

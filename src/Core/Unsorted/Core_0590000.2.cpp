@@ -1,4 +1,4 @@
-// Core_0590000.cpp (part 2 of 4): 38 functions
+// Core_0590000.cpp (part 2 of 4): 56 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -350,4 +350,184 @@ void UObject::execAnd_IntInt(FFrame& Stack, RESULT_DECL)
     P_GET_INT(B);
     P_FINISH;
     *(INT*)Result = A & B;
+}
+
+// @baa 0x005926c0
+void UObject::execXor_IntInt(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(A);
+	P_GET_INT(B);
+	P_FINISH;
+	*(INT*)Result = A ^ B;
+}
+
+// @baa 0x00592750
+void UObject::execOr_IntInt(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(A);
+	P_GET_INT(B);
+	P_FINISH;
+	*(INT*)Result = A | B;
+}
+
+// @baa 0x00599040
+void UObject::execAdd_QuatQuat(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT(FQuat, A);
+	P_GET_STRUCT(FQuat, B);
+	P_FINISH;
+	FQuat Sum = {A.X + B.X, B.Y + A.Y, B.Z + A.Z, B.W + A.W};
+	*(FQuat*)Result = Sum;
+}
+
+// @baa 0x00599110
+void UObject::execSubtract_QuatQuat(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT(FQuat, A);
+	P_GET_STRUCT(FQuat, B);
+	P_FINISH;
+	FQuat Difference = {A.X - B.X, A.Y - B.Y, A.Z - B.Z, A.W - B.W};
+	*(FQuat*)Result = Difference;
+}
+
+// @baa 0x00591800
+void UObject::execMultiplyEqual_ByteByte(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_BYTE_REF(A);
+	P_GET_BYTE(B);
+	P_FINISH;
+	A = A * B;
+	*(BYTE*)Result = A;
+}
+
+// @baa 0x00591a10
+void UObject::execAddEqual_ByteByte(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_BYTE_REF(A);
+	P_GET_BYTE(B);
+	P_FINISH;
+	A = A + B;
+	*(BYTE*)Result = A;
+}
+
+// @baa 0x00591ab0
+void UObject::execSubtractEqual_ByteByte(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_BYTE_REF(A);
+	P_GET_BYTE(B);
+	P_FINISH;
+	A = A - B;
+	*(BYTE*)Result = A;
+}
+
+// @baa 0x005933c0
+void UObject::execLess_FloatFloat(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(A);
+	P_GET_FLOAT(B);
+	P_FINISH;
+	*(UBOOL*)Result = A < B;
+}
+
+// @baa 0x00593460
+void UObject::execGreater_FloatFloat(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(A);
+	P_GET_FLOAT(B);
+	P_FINISH;
+	*(UBOOL*)Result = A > B;
+}
+
+// @baa 0x00593640
+void UObject::execEqualEqual_FloatFloat(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(A);
+	P_GET_FLOAT(B);
+	P_FINISH;
+	*(UBOOL*)Result = A == B;
+}
+
+// @baa 0x005936e0
+void UObject::execNotEqual_FloatFloat(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(A);
+	P_GET_FLOAT(B);
+	P_FINISH;
+	*(UBOOL*)Result = A != B;
+}
+
+// @baa 0x00592970
+void UObject::execAddEqual_IntInt(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT_REF(A);
+	P_GET_INT(B);
+	P_FINISH;
+	A = A + B;
+	*(INT*)Result = A;
+}
+
+// @baa 0x00592a10
+void UObject::execSubtractEqual_IntInt(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT_REF(A);
+	P_GET_INT(B);
+	P_FINISH;
+	A = A - B;
+	*(INT*)Result = A;
+}
+
+// @baa 0x00595c60
+void UObject::execDot_VectorVector(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT(FVector, A);
+	P_GET_STRUCT(FVector, B);
+	P_FINISH;
+	*(FLOAT*)Result = B.Z * A.Z + A.X * B.X + B.Y * A.Y;
+}
+
+// @baa 0x00592090
+void UObject::execAdd_IntInt(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(A);
+	P_GET_INT(B);
+	P_FINISH;
+	*(INT*)Result = A + B;
+}
+
+// @baa 0x005938e0
+void UObject::execDivideEqual_FloatFloat(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT_REF(A);
+	P_GET_FLOAT(B);
+	P_FINISH;
+
+	if (B == 0.0f)
+		sub_00630ea0(Stack, 0x301, L"Divide by zero");
+
+	A = A / B;
+	*(FLOAT*)Result = A;
+}
+
+// @baa 0x00595df0
+void UObject::execMultiplyEqual_VectorFloat(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT_REF(FVector, A);
+	P_GET_FLOAT(B);
+	P_FINISH;
+
+	const FLOAT Scale = B;
+	A.X = A.X * Scale;
+	A.Y = A.Y * Scale;
+	A.Z = A.Z * Scale;
+
+	*(FVector*)Result = A;
+}
+
+// @baa 0x00591ea0
+void UObject::execMultiply_IntInt(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_INT(A);
+    P_GET_INT(B);
+    P_FINISH;
+    *(INT*)Result = A * B;
 }

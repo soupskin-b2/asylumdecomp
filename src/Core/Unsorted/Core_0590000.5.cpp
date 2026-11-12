@@ -1,4 +1,4 @@
-// Core_0590000.cpp: 7 functions
+// Core_0590000.cpp: 10 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -63,4 +63,43 @@ void UObject::execRand(FFrame& Stack, RESULT_DECL)
 	P_FINISH;
 	INT Max = A;
 	*(INT*)Result = Max > 0 ? appTrunc(appRand() * (FLOAT)Max / 32768.f) : 0;
+}
+
+struct FRotatorCtor : public FRotator
+{
+	FRotatorCtor(INT InPitch, INT InYaw, INT InRoll)
+	{
+		Pitch = InPitch;
+		Yaw   = InYaw;
+		Roll  = InRoll;
+	}
+};
+
+// @baa 0x00597080
+void UObject::execMultiply_RotatorFloat(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STRUCT(FRotator, A);
+	P_GET_FLOAT(B);
+	P_FINISH;
+
+	const FLOAT Scale = B;
+	*(FRotator*)Result = FRotatorCtor(appTrunc(A.Pitch * Scale), appTrunc(A.Yaw * Scale), appTrunc(A.Roll * Scale));
+}
+
+// @baa 0x005942f0
+void UObject::execFMin(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(A);
+	P_GET_FLOAT(B);
+	P_FINISH;
+	*(FLOAT*)Result = Min(A, B);
+}
+
+// @baa 0x00594390
+void UObject::execFMax(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(A);
+	P_GET_FLOAT(B);
+	P_FINISH;
+	*(FLOAT*)Result = Max(A, B);
 }

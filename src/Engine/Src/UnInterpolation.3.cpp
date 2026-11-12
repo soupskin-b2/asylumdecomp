@@ -1,61 +1,34 @@
-// UnInterpolation.cpp (part 3 of 8): 1 function
-// Placed here by: callers 1.
+// UnInterpolation.cpp: 1 function
+// Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
+#include "ue3/Classes.h"
 
-typedef uint size_t;
-
-struct C{
-void sub_00cec170(int,int);
+/* Kit gap (Array.h, issue #39): this build inlines TArray::operator() where the kit's plain-inline one is
+ * called out of line; same body, forced inline. */
+template<class T> struct TArrayAt_ : public TArray<T>
+{
+    __forceinline T& At(INT i)
+    {
+#line 560 BAA_ARRAY_FILE
+        check(i>=0 && (i<this->ArrayNum||(i==0 && this->ArrayNum==0)));
+        return this->GetTypedData()[i];
+    }
+    __forceinline const T& At(INT i) const
+    {
+#line 566 BAA_ARRAY_FILE
+        check(i>=0 && (i<this->ArrayNum||(i==0 && this->ArrayNum==0)));
+        return this->GetTypedData()[i];
+    }
 };
 
-int sub_0053d240(...);
-void*sub_0053df30(void*,void*,size_t);
-int sub_0053df70(...);
-int sub_006311e0(...);
-extern undefined2 g_01e3f3dc;
-// @baa 0x00cec170
-void C::sub_00cec170(int param_2,int param_3)
+// @baa 0x00cf4a80
+FLOAT UInterpTrackToggle::GetKeyframeTime(INT KeyIndex)
 {
-int iVar1;
-int*param_1=(int*)this;
-int iVar2;
-if(param_3<0){
-sub_006311e0("Count>=0",
-"e:\\projects\\amadeus\\aa\\game\\unrealengine3\\development\\src\\core\\inc\\Array.h"
-,0x31a,&g_01e3f3dc);
+    if (KeyIndex < 0 || KeyIndex >= ToggleTrack.Num())
+    {
+        return 0.f;
+    }
+    return ((TArrayAt_<FToggleTrackKey>&)ToggleTrack).At(KeyIndex).Time;
 }
-if(param_1[1]<0){
-sub_006311e0("ArrayNum>=0",
-"e:\\projects\\amadeus\\aa\\game\\unrealengine3\\development\\src\\core\\inc\\Array.h"
-,0x31b,&g_01e3f3dc);
-}
-if(param_1[2]<param_1[1]){
-sub_006311e0("ArrayMax>=ArrayNum",
-"e:\\projects\\amadeus\\aa\\game\\unrealengine3\\development\\src\\core\\inc\\Array.h"
-,0x31c,&g_01e3f3dc);
-}
-if(0>param_2){
-sub_006311e0("Index>=0",
-"e:\\projects\\amadeus\\aa\\game\\unrealengine3\\development\\src\\core\\inc\\Array.h"
-,0x31d,&g_01e3f3dc);
-}
-if(param_2>param_1[1]){
-sub_006311e0("Index<=ArrayNum",
-"e:\\projects\\amadeus\\aa\\game\\unrealengine3\\development\\src\\core\\inc\\Array.h"
-,0x31e,&g_01e3f3dc);
-}
-iVar1=param_1[1];
-iVar2=iVar1+param_3;
-param_1[1]=iVar2;
-if(iVar2>param_1[2]){
-iVar2=sub_0053d240(iVar2,param_1[2],8);
-param_1[2]=iVar2;
-if((*param_1)||(0!=iVar2)){
-iVar2=sub_0053df70(*param_1,iVar2*8,8);
-*param_1=iVar2;
-}
-}
-sub_0053df30((void*)(*param_1+(param_2+param_3)*8),(void*)(*param_1+param_2*8),
-(iVar1-param_2)*8);
-return;
-}
+
+#line 35 "candidate.cpp"

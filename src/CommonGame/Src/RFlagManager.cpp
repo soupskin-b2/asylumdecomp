@@ -1,4 +1,4 @@
-// RFlagManager.cpp: 22 functions
+// RFlagManager.cpp: 25 functions
 // Placed here by: callers 5, file 5, neighbours 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -122,4 +122,36 @@ undefined4 URFlagManager::vf_11c(undefined4 param_2, undefined4 param_3, undefin
   uVar1 = *puVar2;
   *puVar2 = param_4;
   return uVar1;
+}
+
+// @baa 0x01540790
+/* USequenceVariable::GetValueStr (slot 0x194, a placeholder vf_194 in the kit): a local flag
+ * variable shows the name of its flag. */
+FString URSeqVar_LocalFlag::vf_194()
+{
+    return FlagName.ToString();
+}
+
+// @baa 0x015407c0
+/* USequenceVariable::GetValueStr (slot 0x194, a placeholder vf_194 in the kit): a global flag
+ * variable shows the name of its flag. */
+FString URSeqVar_GlobalFlag::vf_194()
+{
+    return FlagName.ToString();
+}
+
+/* UE3's FStringNoInit::operator=(const FString&) (004899f0, out of line); the kit's FStringNoInit
+ * doesn't declare it. */
+class FStringNoInit_ : public FStringNoInit
+{
+public:
+    FStringNoInit_& operator=(const FString& Other);
+};
+
+// @baa 0x01540870
+/* UObject::PostEditChange(UProperty* PropertyThatChanged) (slot 0x4c, a placeholder vf_04c taking
+ * UINT in the kit): the action's comment shows the comment of the selected mode. */
+void URSeqAct_SwitchFlags::vf_04c(UINT PropertyThatChanged)
+{
+    (FStringNoInit_&)ObjComment = Comments(Mode);
 }

@@ -1,4 +1,4 @@
-// GFxUI_0e50000.cpp (part 1 of 2): 71 functions
+// GFxUI_0e50000.cpp (part 1 of 2): 72 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -941,4 +941,21 @@ struct C_00e5db00
 void C_00e5db00::sub_00e5db00()
 {
     InterlockedExchangeAdd(&Counter, 1);
+}
+
+struct GFxUI_0e50000_00e51330
+{
+	int bInit;
+	int Fields[6];
+
+	// @baa 0x00e51330
+	GFxUI_0e50000_00e51330* sub_00e51330(int bFree);
+};
+
+// @baa 0x00e51330
+GFxUI_0e50000_00e51330* GFxUI_0e50000_00e51330::sub_00e51330(int bFree)
+{
+	for (int i = 0; i < 6; ++i)
+		Fields[i] = 0;
+	return this;
 }

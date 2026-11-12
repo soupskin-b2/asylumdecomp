@@ -1,4 +1,4 @@
-// Editor_0fb0000.cpp: 165 functions
+// Editor_0fb0000.cpp: 166 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -2556,3 +2556,24 @@ void sub_00fbe780(void) { sub_00fbd900(); }
 void sub_00fbe7d0();
 // @baa 0x00fbf280
 void sub_00fbf280(void) { sub_00fbe7d0(); }
+
+struct FSub_00fb8e60 {
+    void sub_00fb8e60(INT);
+    void sub_00fb9010(INT);
+    BYTE pad[12];
+};
+
+struct USub_00fbb320 {
+    BYTE pad[0x40];
+    FSub_00fb8e60 A;
+    FSub_00fb8e60 B;
+
+    void sub_00fbb320();
+};
+
+// @baa 0x00fbb320
+void USub_00fbb320::sub_00fbb320()
+{
+    B.sub_00fb9010(0);
+    A.sub_00fb8e60(0);
+}

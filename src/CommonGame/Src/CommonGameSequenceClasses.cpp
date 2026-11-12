@@ -1,4 +1,4 @@
-// CommonGameSequenceClasses.cpp: 24 functions
+// CommonGameSequenceClasses.cpp: 28 functions
 // Placed here by: callers 8, file 8.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -248,4 +248,82 @@ undefined4 * UObject::sub_01547870(void)
   sub_005c7a20();
   *param_1 = (undefined4)(&g_022e8bd8);
   return param_1;
+}
+
+/* Clears the activated state of every input (01547180, called from UpdateOp and Activated). The
+ * kit doesn't declare it; the name is descriptive, the original's isn't known. */
+struct URSeqAct_WaitForAllInputs_ : public URSeqAct_WaitForAllInputs
+{
+    void ResetInputs();
+};
+
+// @baa 0x01547180
+void URSeqAct_WaitForAllInputs_::ResetInputs()
+{
+    for (INT Idx = 0; Idx < InputCount; Idx++)
+    {
+        InputsActivated(Idx) = FALSE;
+    }
+}
+
+// @baa 0x015471e0
+/* Once all inputs have fired the action resets and fires its output. */
+UBOOL URSeqAct_WaitForAllInputs::UpdateOp(FLOAT DeltaTime)
+{
+    ((URSeqAct_WaitForAllInputs_*)this)->ResetInputs();
+    OutputLinks(0).bHasImpulse = TRUE;
+    return TRUE;
+}
+
+/* TArray<UBOOL>::AddZeroed: the kit's TArray has no AddZeroed, and this build calls Add out of
+ * line here (007a8510), so a subclass declares that copy and adds UE3's AddZeroed on top. */
+struct FBoolArray : public TArray<FNativeElem_007b9350>
+{
+    INT Add(INT Count); /* 0x007a8510 */
+    INT AddZeroed(INT Count = 1)
+    {
+        INT Index = Add(Count);
+        appMemzero((BYTE*)AllocatorInstance.GetAllocation() + Index * sizeof(FNativeElem_007b9350), Count * sizeof(FNativeElem_007b9350));
+        return Index;
+    }
+};
+
+// @baa 0x01547130
+/* UObject slot 0x1c (a placeholder vf_01c in the kit; UE3's PostLoad there): make sure there is
+ * an InputsActivated entry for every input. */
+void URSeqAct_WaitForAllInputs::vf_01c()
+{
+    if (InputsActivated.Num() < InputCount)
+    {
+        ((FBoolArray&)InputsActivated).AddZeroed(InputCount - InputsActivated.Num());
+    }
+    Super::vf_01c();
+}
+
+// @baa 0x01547230
+/* USequenceOp::Activated (slot 0x174). Input 0 resets the
+ * action; inputs 1..InputCount are the ones waited for. The latent action stays active until all
+ * of them have fired (UpdateOp then fires the output). */
+void URSeqAct_WaitForAllInputs::Activated()
+{
+    if (InputLinks(0).bHasImpulse)
+    {
+        ((URSeqAct_WaitForAllInputs_*)this)->ResetInputs();
+        if (!bTriggerOutputIfSkipped)
+        {
+            bActive = FALSE;
+        }
+        return;
+    }
+    for (INT Idx = 0; Idx < InputCount; Idx++)
+    {
+        if (InputLinks(Idx + 1).bHasImpulse)
+        {
+            InputsActivated(Idx) = TRUE;
+        }
+        else if (!InputsActivated(Idx))
+        {
+            bActive = FALSE;
+        }
+    }
 }

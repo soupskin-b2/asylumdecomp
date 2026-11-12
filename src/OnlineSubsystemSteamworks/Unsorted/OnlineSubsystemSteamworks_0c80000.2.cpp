@@ -1,4 +1,4 @@
-// OnlineSubsystemSteamworks_0c80000.cpp: 19 functions
+// OnlineSubsystemSteamworks_0c80000.cpp: 23 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -244,4 +244,40 @@ void AWorldInfo::execNotifyMatchStarted(FFrame& Stack, RESULT_DECL)
     P_GET_UBOOL_OPTX(bShouldSkipMovies, FALSE);
     P_FINISH;
     ((AWorldInfo__00c89ca0*)this)->NotifyMatchStarted(bShouldPauseMovies, bShouldAllowPausing, bShouldSkipMovies);
+}
+
+// @baa 0x00c891f0
+void AGameInfo::execAddSentinelPerTimePeriodStats(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_VECTOR(InLocation);
+    P_GET_ROTATOR(InRotation);
+    P_FINISH;
+    AddSentinelPerTimePeriodStats(InLocation, InRotation);
+}
+
+// @baa 0x00c89390
+void AGameInfo::execDoSentinel_MemoryAtSpecificLocation(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_VECTOR(InLocation);
+    P_GET_ROTATOR(InRotation);
+    P_FINISH;
+    DoSentinel_MemoryAtSpecificLocation(InLocation, InRotation);
+}
+
+// @baa 0x00c89440
+void AGameInfo::execDoSentinel_PerfAtSpecificLocation(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_VECTOR(InLocation);
+    P_GET_ROTATOR(InRotation);
+    P_FINISH;
+    DoSentinel_PerfAtSpecificLocation(InLocation, InRotation);
+}
+
+// @baa 0x00c89580
+void AGameReplicationInfo::execOnSameTeam(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(AActor, A);
+    P_GET_OBJECT(AActor, B);
+    P_FINISH;
+    *(UBOOL*)Result = OnSameTeam(A, B);
 }

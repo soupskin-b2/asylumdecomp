@@ -1,4 +1,4 @@
-// CommonGame_1500000.cpp (part 1 of 3): 183 functions
+// CommonGame_1500000.cpp (part 1 of 3): 184 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1401,4 +1401,20 @@ struct C_0150fec0
 INT C_0150fec0::sub_0150fec0()
 {
     return Value == 0 ? -1 : 0;
+}
+
+struct sub_0150f900_owner {
+    INT a[5];
+    sub_0150f900_owner* sub_0150f900(INT V);
+};
+
+// @baa 0x0150f900
+sub_0150f900_owner* sub_0150f900_owner::sub_0150f900(INT V)
+{
+    a[0] = V;
+    a[1] = 0;
+    a[2] = 0;
+    a[3] = 0;
+    a[4] = 0;
+    return this;
 }

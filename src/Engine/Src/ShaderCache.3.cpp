@@ -1,4 +1,4 @@
-// ShaderCache.cpp (part 3 of 3): 8 functions
+// ShaderCache.cpp (part 3 of 3): 9 functions
 // Placed here by: neighbours 7.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -96,3 +96,21 @@ undefined4 C::sub_00751a90(byte param_2)
 
 // @baa 0x00715ed0
 IMPLEMENT_CLASS_AT(UShaderCache, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\ShaderCache.cpp", 9);
+
+// The per-scene info block a spot light builds (Engine/Src/ShaderCache.cpp).
+// Its constructor runs out-of-line at 00751400; declared only so `new` calls it.
+// The block is exactly 0xaf0 bytes on the heap.
+struct USpotLightSceneInfo
+{
+    USpotLightSceneInfo(USpotLightComponent* InComponent);
+    ~USpotLightSceneInfo();
+
+    char Data[0xaf0];
+};
+
+// @baa 0x00751ab0
+UINT USpotLightComponent::CreateSceneInfo()
+{
+    USpotLightSceneInfo* Info = new USpotLightSceneInfo(this);
+    return Info ? (UINT)Info : 0;
+}

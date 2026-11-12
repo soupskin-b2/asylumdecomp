@@ -1,4 +1,4 @@
-// UnrealEd_13d0000.cpp (part 2 of 4): 8 functions
+// UnrealEd_13d0000.cpp (part 2 of 4): 9 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -112,4 +112,31 @@ public:
 void __stdcall sub_013dc5c0(wxEvent* Event)
 {
     Event->Skip(true);
+}
+
+// sub_013d2d30: if A (0x190) is set, tail-dispatch B->sub_00cc65f0 (B at 0x1e8);
+// else tail-dispatch this->sub_013cbbe0.
+struct EngineDispatcher_
+{
+    BYTE _pad[0x1e8];
+    void* sub_00cc65f0();
+};
+
+struct EngineDispatchHost_
+{
+    BYTE _pad0[0x190];
+    EngineDispatcher_* B;   // 0x190 (read as pointer, null test)
+    BYTE _pad1[0x54];
+    EngineDispatcher_* C;   // 0x1e8 (object the taken path dispatches on)
+
+    void* sub_013cbbe0();
+    void* sub_013d2d30();
+};
+
+// @baa 0x013d2d30
+void* EngineDispatchHost_::sub_013d2d30()
+{
+    if (B == NULL)
+        return sub_013cbbe0();
+    return C->sub_00cc65f0();
 }

@@ -1,4 +1,4 @@
-// UnSkeletalTools.cpp (part 2 of 3): 5 functions
+// UnSkeletalTools.cpp (part 2 of 3): 6 functions
 // Placed here by: neighbours 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -306,4 +306,100 @@ void FNameIntPairSet::HashElement(FSetElementId_00d4c2d0 ElementId, const FEleme
     Element.HashIndex = GetTypeHash(Element.Value.Key) & (HashSize - 1);
     Element.HashNextId = GetTypedHash(Element.HashIndex);
     GetTypedHash(Element.HashIndex) = ElementId;
+}
+
+/* FSetElementId_00d587c0 (UnSet.h): index of an element in a TSet, INDEX_NONE if none. */
+class FSetElementId_00d587c0
+{
+public:
+    FSetElementId_00d587c0() : Index(INDEX_NONE) {}
+    explicit FSetElementId_00d587c0(INT InIndex) : Index(InIndex) {}
+    operator INT() const { return Index; }
+private:
+    INT Index;
+};
+
+/* TSet<TMap<FName,INT>::FPair> (UnSet.h) as this build lays it out; no TSet/TMap in the kit. Elements is a
+ * TSparseArray (data, then its allocation bit array and free list); Hash is a TInlineAllocator<1> of
+ * FSetElementIds, HashSize a power of two. The value type is assumed to be INT (the caller copies a
+ * 12-byte pair). */
+struct FNameIntPairSet_00d587c0
+{
+    struct FPair
+    {
+        FName Key;
+        INT Value;
+    };
+    struct FElement
+    {
+        FPair Value;
+        mutable FSetElementId_00d587c0 HashNextId;
+        mutable INT HashIndex;
+
+        FElement(const FPair& InValue) : Value(InValue) {}
+    };
+
+    /* TInlineAllocator<1>::ForElementType<FSetElementId_00d587c0> (ContainerAllocationPolicies.h) */
+    struct FHashAllocation
+    {
+        FSetElementId_00d587c0 InlineData[1];
+        FSetElementId_00d587c0* SecondaryData; /* FHeapAllocator's Data, NULL while the inline element is used */
+
+        FSetElementId_00d587c0* GetInlineElements() const { return (FSetElementId_00d587c0*)InlineData; }
+        FSetElementId_00d587c0* GetAllocation() const { return IfAThenAElseB<FSetElementId_00d587c0>(SecondaryData, GetInlineElements()); }
+    };
+
+    /* TSparseArray<FElement> (UnSparseArray.h): its element array, the allocation bit array and the free list */
+    FElement* ElementData;
+    INT ElementArrayNum;
+    INT ElementArrayMax;
+    BYTE AllocationFlags[0x1c]; /* TBitArray with its inline allocation; not used here */
+    INT FirstFreeIndex;
+    INT NumFreeIndices;
+
+    INT NumElements() const { return ElementArrayNum - NumFreeIndices; }
+    FHashAllocation Hash;
+    INT HashSize;
+
+    FSetElementId_00d587c0& GetTypedHash(INT HashIndex) const
+    {
+        return ((FSetElementId_00d587c0*)Hash.GetAllocation())[HashIndex & (HashSize - 1)];
+    }
+
+    /* TSparseArray::Add's result (UnSparseArray.h) */
+    struct FSparseArrayAllocationInfo
+    {
+        INT Index;
+        void* Pointer;
+    };
+
+    void HashElement(FSetElementId_00d587c0 ElementId, const FElement& Element) const; /* 0x00d4c2d0 */
+    FSetElementId_00d587c0 FindId(const FName Key) const;                              /* 0x009591d0 */
+    FSparseArrayAllocationInfo AddElement();                                  /* TSparseArray::Add, 0x00d53c30 */
+    UBOOL ConditionalRehash(INT NumHashedElements, UBOOL bAllowShrinking = FALSE); /* 0x00d56870 */
+    FSetElementId_00d587c0 Add(const FPair& InElement, UBOOL* bIsAlreadyInSetPtr = NULL); /* 0x00d580c0 */
+};
+
+/* placement new (UnTemplate.h) */
+inline void* operator new(size_t, void* Mem) { return Mem; }
+
+inline void operator delete(void*, void*) {}
+
+inline void* operator new(size_t Size, const FNameIntPairSet_00d587c0::FSparseArrayAllocationInfo& Allocation) { return Allocation.Pointer; }
+
+/* TMap<FName,INT> (UnMap.h): the pair set plus the map interface */
+struct FNameIntMap : public FNameIntPairSet_00d587c0
+{
+    INT& Set(FName InKey, INT InValue);
+};
+
+// @baa 0x00d587c0
+/* set the value for a key, adding the pair if it's new; returns the stored value */
+INT& FNameIntMap::Set(FName InKey, INT InValue)
+{
+    FPair Pair;
+    Pair.Key = InKey;
+    Pair.Value = InValue;
+    const FSetElementId_00d587c0 PairId = Add(Pair);
+    return ElementData[PairId].Value.Value;
 }

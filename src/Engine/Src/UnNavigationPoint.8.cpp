@@ -1,4 +1,4 @@
-// UnNavigationPoint.cpp: 11 functions
+// UnNavigationPoint.cpp: 17 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -132,4 +132,117 @@ undefined4 C_00858f50::sub_00858f50(byte param_2)
     sub_0053dfa0(param_1);
   }
   return param_1;
+}
+
+/* Kit gap (Array.h, issue #39): this build inlines TArray::operator() where the kit's plain-inline one is
+ * called out of line; same body, forced inline. */
+template<class T> struct TArrayAt_ : public TArray<T>
+{
+    __forceinline T& At(INT i)
+    {
+#line 560 BAA_ARRAY_FILE
+        check(i>=0 && (i<this->ArrayNum||(i==0 && this->ArrayNum==0)));
+        return this->GetTypedData()[i];
+    }
+    __forceinline const T& At(INT i) const
+    {
+#line 566 BAA_ARRAY_FILE
+        check(i>=0 && (i<this->ArrayNum||(i==0 && this->ArrayNum==0)));
+        return this->GetTypedData()[i];
+    }
+};
+
+// @baa 0x00843b80
+UBOOL ACoverLink::IsEnabled()
+{
+    if (bDisabled)
+    {
+        return FALSE;
+    }
+    // enabled if any slot is enabled
+    for (INT SlotIdx = 0; SlotIdx < Slots.Num(); SlotIdx++)
+    {
+        if (((TArrayAt_<FCoverSlot>&)Slots).At(SlotIdx).bEnabled)
+        {
+            return TRUE;
+        }
+    }
+    return FALSE;
+}
+
+#line 174 "candidate.cpp"
+
+struct ACoverSlotMarker_ : public ACoverSlotMarker {
+    UBOOL IsValidClaim(APawn* ChkClaim, UBOOL bSkipTeamCheck, UBOOL bSkipOverlapCheck); // 008603f0
+};
+
+// @baa 0x008447a0
+UBOOL ACoverLink::IsValidClaim(APawn* ChkClaim, INT SlotIdx, UBOOL bSkipTeamCheck, UBOOL bSkipOverlapCheck)
+{
+    ACoverSlotMarker* SlotMarker = ((TArrayAt_<FCoverSlot>&)Slots).At(SlotIdx).SlotMarker;
+    return SlotMarker && ((ACoverSlotMarker_*)SlotMarker)->IsValidClaim(ChkClaim, bSkipTeamCheck, bSkipOverlapCheck);
+}
+
+struct ACoverLink_ : public ACoverLink {
+    BYTE GetLocationDescription(INT SlotIdx); // 00842180
+};
+
+// @baa 0x00842180
+BYTE ACoverLink_::GetLocationDescription(INT SlotIdx)
+{
+    if (SlotIdx >= 0 && SlotIdx < Slots.Num())
+    {
+        // use the slot's description if it has one, otherwise the link's
+        BYTE Desc = ((TArrayAt_<FCoverSlot>&)Slots).At(SlotIdx).LocationDescription;
+        if (Desc == CoverDesc_None)
+        {
+            Desc = LocationDescription;
+        }
+        return Desc;
+    }
+    return CoverDesc_None;
+}
+
+// @baa 0x0084e950
+UBOOL ACoverLink::IsEdgeSlot(INT SlotIdx, UBOOL bIgnoreLeans)
+{
+    // circular/looped links have no edges
+    if (!bCircular && !bLooped)
+    {
+        if (IsLeftEdgeSlot(SlotIdx, bIgnoreLeans) || IsRightEdgeSlot(SlotIdx, bIgnoreLeans))
+        {
+            return TRUE;
+        }
+    }
+    return FALSE;
+}
+
+// @baa 0x0083a4c0
+INT ACoverLink::GetSlotIdxToLeft(INT SlotIdx, INT Cnt)
+{
+    INT NextSlotIdx = SlotIdx - Cnt;
+    if (bLooped)
+    {
+        // wrap around
+        while (NextSlotIdx < 0)
+        {
+            NextSlotIdx += Slots.Num();
+        }
+    }
+    return (NextSlotIdx >= 0 && NextSlotIdx < Slots.Num()) ? NextSlotIdx : -1;
+}
+
+// @baa 0x0083a500
+INT ACoverLink::GetSlotIdxToRight(INT SlotIdx, INT Cnt)
+{
+    INT NextSlotIdx = SlotIdx + Cnt;
+    if (bLooped)
+    {
+        // wrap around
+        while (NextSlotIdx >= Slots.Num())
+        {
+            NextSlotIdx -= Slots.Num();
+        }
+    }
+    return (NextSlotIdx >= 0 && NextSlotIdx < Slots.Num()) ? NextSlotIdx : -1;
 }

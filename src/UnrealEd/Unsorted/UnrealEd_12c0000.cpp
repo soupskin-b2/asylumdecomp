@@ -1,4 +1,4 @@
-// UnrealEd_12c0000.cpp: 68 functions
+// UnrealEd_12c0000.cpp: 70 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -751,4 +751,37 @@ public:
 void __stdcall sub_012c0700(wxEvent* Event)
 {
     Event->Skip(true);
+}
+
+struct S012c0bb0
+{
+	INT X;
+	INT Y;
+	INT Z;
+	S012c0bb0* sub_012c0bb0(INT A, INT B, INT C);
+};
+
+// @baa 0x012c0bb0
+S012c0bb0* S012c0bb0::sub_012c0bb0(INT A, INT B, INT C)
+{
+	X = A;
+	Y = B;
+	Z = C;
+	return this;
+}
+
+// FColor -> FLinearColor (sRGB to linear).  this = destination, arg = source.
+struct FColorToLinear {
+    void sub_0053d1d0(FColor* In);
+};
+
+struct UUnrealEdEngine_ : public UUnrealEdEngine {
+    FLinearColor* sub_012c0300(FLinearColor* OutColor);
+};
+
+// @baa 0x012c0300
+FLinearColor* UUnrealEdEngine_::sub_012c0300(FLinearColor* OutColor)
+{
+    reinterpret_cast<FColorToLinear*>(OutColor)->sub_0053d1d0((FColor*)&PrimitiveProbablyVisibleTime);
+    return OutColor;
 }

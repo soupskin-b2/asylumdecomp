@@ -1,4 +1,4 @@
-// UnPawn.cpp (part 1 of 2): 96 functions
+// UnPawn.cpp (part 1 of 2): 97 functions
 // Placed here by: neighbours 49, class 32, callers 3, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1326,4 +1326,39 @@ undefined4 AActor::vf_334(void)
     return 0;
   }
   return 1;
+}
+
+struct AActor__00864d20 : public AActor
+{
+    UBOOL sub_00764820(); // TRUE if CollisionComponent is the only actor-colliding component (00764820)
+    void SetCollision(UBOOL bNewCollideActors, UBOOL bNewBlockActors, UBOOL bNewIgnoreEncroachers); // 00784170
+    void SetCollisionForPathBuilding(UBOOL bNowPathBuilding); // 00864d20
+};
+
+// @baa 0x00864d20
+void AActor__00864d20::SetCollisionForPathBuilding(UBOOL bNowPathBuilding)
+{
+    if (bNowPathBuilding)
+    {
+        if (bDeleteMe)
+        {
+            return;
+        }
+        // turn off collision for non-static actors with bPathColliding false (or whose only colliding component doesn't block zero extent)
+        if (bBlockActors && bCollideActors &&
+            ((!bStatic && !bPathColliding) || (sub_00764820() && !CollisionComponent->BlockNonZeroExtent)))
+        {
+            bPathTemp = TRUE;
+            SetCollision(FALSE, bBlockActors, bIgnoreEncroachers);
+        }
+        else
+        {
+            bPathTemp = FALSE;
+        }
+    }
+    else if (bPathTemp)
+    {
+        bPathTemp = FALSE;
+        SetCollision(TRUE, bBlockActors, bIgnoreEncroachers);
+    }
 }

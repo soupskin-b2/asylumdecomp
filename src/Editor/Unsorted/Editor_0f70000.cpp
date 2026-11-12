@@ -1,4 +1,4 @@
-// Editor_0f70000.cpp (part 1 of 5): 120 functions
+// Editor_0f70000.cpp (part 1 of 5): 121 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -970,4 +970,20 @@ int UState::sub_00f7df20(int param_2)
     int * param_1 = (int *)this;
 
   return param_2 * 0x10 + *param_1;
+}
+
+// 00f73020
+struct sub_00f73020_C
+{
+    char _Pad[0x5e0];
+    DWORD _05e0;
+
+    void sub_00f73020(int Value);
+};
+
+// @baa 0x00f73020
+void sub_00f73020_C::sub_00f73020(int Value)
+{
+    int doubled = Value << 1;
+    _05e0 ^= (doubled ^ _05e0) & 2;
 }

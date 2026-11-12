@@ -1,4 +1,4 @@
-// UnrealEd_11c0000.cpp (part 3 of 3): 5 functions
+// UnrealEd_11c0000.cpp (part 3 of 3): 6 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -91,4 +91,33 @@ void sub_011bf200(int A, int B, int C);
 void __stdcall sub_011c0010(void *Unused)
 {
     sub_011bf200(0, 1, ((FEditorFrameObject *)g_026d4e00)->Field_0058);
+}
+
+struct SInner_ {
+    void sub_00cc65f0(void);
+};
+
+struct SOuter_ {
+    int x00;
+    int x04;
+    SInner_* Inner;
+};
+
+struct SHost_ {
+    char pad[0x328];
+    SOuter_* Outer;
+    void sub_011c1720(void);
+};
+
+// @baa 0x011c1720
+void SHost_::sub_011c1720(void)
+{
+    if (Outer && Outer->Inner)
+        Outer->Inner->sub_00cc65f0();
+}
+
+void sub_helper()
+{
+    SHost_ h;
+    h.sub_011c1720();
 }

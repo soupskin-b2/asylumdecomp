@@ -1,4 +1,4 @@
-// UnActorComponent.cpp: 8 functions
+// UnActorComponent.cpp: 9 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -127,3 +127,42 @@ bool AActor::vf_30c()
     }
     return !bPendingKill;
 }
+
+/* TArray<UActorComponent*>::RemoveItem as this build has it (Array.h:1032, the older remove-in-place form
+ * whose check reads the allocation directly; the kit's RemoveItem is the newer compacting one).
+ * operator() is forced inline (issue #39), Remove is out of line in the exe (00766450). */
+template<class T> class TArrayRemoveItem_
+{
+public:
+    typedef T ElementType;
+    FHeapAllocation AllocatorInstance;
+    INT ArrayNum;
+    INT ArrayMax;
+
+    void Remove(INT Index, INT Count = 1);
+    __forceinline T& operator()(INT i)
+    {
+#line 560 BAA_ARRAY_FILE
+        check(i>=0 && (i<ArrayNum||(i==0 && ArrayNum==0)));
+        return ((T*)AllocatorInstance.GetAllocation())[i];
+    }
+    INT RemoveItem(const T& Item)
+    {
+#line 1032 BAA_ARRAY_FILE
+        check( ((&Item) < (ElementType*)AllocatorInstance.GetAllocation()) || ((&Item) >= (ElementType*)AllocatorInstance.GetAllocation()+ArrayMax) );
+        const INT OriginalNum = ArrayNum;
+        for (INT Index = 0; Index < ArrayNum; Index++)
+        {
+            if ((*this)(Index) == Item)
+            {
+                Remove(Index--);
+            }
+        }
+        return OriginalNum - ArrayNum;
+    }
+};
+
+// @baa 0x0076a3b0
+template INT TArrayRemoveItem_<UActorComponent*>::RemoveItem(UActorComponent* const& Item);
+
+#line 169 "candidate.cpp"

@@ -1,4 +1,4 @@
-// RPlayerController.cpp (part 2 of 6): 324 functions
+// RPlayerController.cpp (part 2 of 6): 325 functions
 // Placed here by: neighbours 227, class 67, callers 9, file 5.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -2008,4 +2008,23 @@ ARPlayerControllerCombat::ARPlayerControllerCombat()
 bool ARPlayerControllerCombat::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+struct ARPlayerController__01613d20 : ARPlayerController
+{
+    void sub_01613d20(USoundCue* AmbientSound);
+};
+
+// @baa 0x01613d20
+void ARPlayerController__01613d20::sub_01613d20(USoundCue* AmbientSound)
+{
+    AmbOtherSoundPtr->Stop();
+    if (!AmbientSound)
+    {
+        AmbStopping = TRUE;
+        return;
+    }
+    AmbStopping = FALSE;
+    AmbOtherSoundPtr->SoundCue = AmbientSound;
+    AmbOtherSoundPtr->sub_00791770();
 }

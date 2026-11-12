@@ -9,26 +9,26 @@
 <text x="860" y="50" font-size="14" fill="#e6edf3" text-anchor="end" font-weight="normal">2,167</text>
 <text x="0" y="80" font-size="14" fill="#8d96a0" text-anchor="start" font-weight="normal">Qwen3.8 27B</text>
 <rect x="242" y="70" width="528" height="10" fill="#262c33" stroke="#3d444d"/>
-<rect x="242" y="70" width="8.53019" height="10" fill="#e6edf3"/>
-<text x="860" y="80" font-size="14" fill="#e6edf3" text-anchor="end" font-weight="normal">1,526</text>
+<rect x="242" y="70" width="8.88795" height="10" fill="#e6edf3"/>
+<text x="860" y="80" font-size="14" fill="#e6edf3" text-anchor="end" font-weight="normal">1,590</text>
 <text x="0" y="110" font-size="14" fill="#8d96a0" text-anchor="start" font-weight="normal">Claude Opus 5.5</text>
 <rect x="242" y="100" width="528" height="10" fill="#262c33" stroke="#3d444d"/>
-<rect x="242" y="100" width="6.9203" height="10" fill="#e6edf3"/>
-<text x="860" y="110" font-size="14" fill="#e6edf3" text-anchor="end" font-weight="normal">1,238</text>
+<rect x="242" y="100" width="7.50165" height="10" fill="#e6edf3"/>
+<text x="860" y="110" font-size="14" fill="#e6edf3" text-anchor="end" font-weight="normal">1,342</text>
 <text x="0" y="140" font-size="14" fill="#8d96a0" text-anchor="start" font-weight="normal">GPT-6.1 Sol</text>
 <rect x="242" y="130" width="528" height="10" fill="#262c33" stroke="#3d444d"/>
-<rect x="242" y="130" width="0.816126" height="10" fill="#e6edf3"/>
-<text x="860" y="140" font-size="14" fill="#e6edf3" text-anchor="end" font-weight="normal">146</text>
+<rect x="242" y="130" width="0.877615" height="10" fill="#e6edf3"/>
+<text x="860" y="140" font-size="14" fill="#e6edf3" text-anchor="end" font-weight="normal">157</text>
 <text x="0" y="170" font-size="14" fill="#8d96a0" text-anchor="start" font-weight="normal">Claude Sonnet 5.5</text>
 <rect x="242" y="160" width="528" height="10" fill="#262c33" stroke="#3d444d"/>
 <rect x="242" y="160" width="0.206826" height="10" fill="#e6edf3"/>
 <text x="860" y="170" font-size="14" fill="#e6edf3" text-anchor="end" font-weight="normal">37</text>
-<text x="0" y="200" font-size="14" fill="#8d96a0" text-anchor="start" font-weight="normal">GPT-6.1 Terra</text>
+<text x="0" y="200" font-size="14" fill="#8d96a0" text-anchor="start" font-weight="normal">minimax-m3.1-flash</text>
 <rect x="242" y="190" width="528" height="10" fill="#262c33" stroke="#3d444d"/>
-<rect x="242" y="190" width="0.055899" height="10" fill="#e6edf3"/>
-<text x="860" y="200" font-size="14" fill="#e6edf3" text-anchor="end" font-weight="normal">10</text>
+<rect x="242" y="190" width="0.0950284" height="10" fill="#e6edf3"/>
+<text x="860" y="200" font-size="14" fill="#e6edf3" text-anchor="end" font-weight="normal">17</text>
 <text x="0" y="230" font-size="14" fill="#8d96a0" text-anchor="start" font-weight="normal">other</text>
 <rect x="242" y="220" width="528" height="10" fill="#262c33" stroke="#3d444d"/>
-<rect x="242" y="220" width="0.0894385" height="10" fill="#e6edf3"/>
-<text x="860" y="230" font-size="14" fill="#e6edf3" text-anchor="end" font-weight="normal">16</text>
+<rect x="242" y="220" width="0.167697" height="10" fill="#e6edf3"/>
+<text x="860" y="230" font-size="14" fill="#e6edf3" text-anchor="end" font-weight="normal">30</text>
 </svg>

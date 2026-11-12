@@ -1,4 +1,4 @@
-// GFxUI_0e40000.cpp: 232 functions
+// GFxUI_0e40000.cpp: 233 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -2500,3 +2500,21 @@ void C_00e4fef0::sub_00e4fef0(undefined4 param_2, undefined4 param_3)
   return;
 }
 
+struct S00e45100
+{
+    INT A;
+    INT B;
+    INT C;
+
+    S00e45100& sub_00e45100(S00e45100 Other);
+    static void KeepAlive() { S00e45100 S; S.sub_00e45100(S); }
+};
+
+// @baa 0x00e45100
+S00e45100& S00e45100::sub_00e45100(S00e45100 Other)
+{
+    A = Other.A;
+    B = Other.B;
+    C = Other.C;
+    return *this;
+}

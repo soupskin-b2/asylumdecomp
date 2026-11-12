@@ -1,4 +1,4 @@
-// Properties.cpp: 70 functions
+// Properties.cpp: 71 functions
 // Placed here by: neighbours 57, callers 9, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1873,4 +1873,27 @@ void __stdcall sub_011c2a70(wxEvent* Event)
 bool UCustomPropertyItemBindings::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+struct SubVirtTarget
+{
+    virtual void sub_00000000(int a0);
+    virtual void sub_00000004();
+};
+
+struct Sub011c2030Owner
+{
+    char _pad[0x1c8];
+    SubVirtTarget* _target;
+
+    void sub_011c2030();
+};
+
+// @baa 0x011c2030
+void Sub011c2030Owner::sub_011c2030()
+{
+    if (_target != 0)
+    {
+        _target->sub_00000000((int)this);
+    }
 }

@@ -1,4 +1,4 @@
-// UnScrCom.cpp (part 2 of 4): 4 functions
+// UnScrCom.cpp (part 2 of 4): 5 functions
 // Placed here by: neighbours 2, callers 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -93,4 +93,27 @@ INT __stdcall sub_00fd86d0(INT A, INT B)
 {
     sub_00fd85d0();
     return 1;
+}
+
+struct C_00f9e5e0 {
+    int F0;
+    int F1;
+    int F2;
+
+    C_00f9e5e0* sub_00f9e5e0(int Value, int Value2, int Value3);
+};
+
+// @baa 0x00f9e5e0
+C_00f9e5e0* C_00f9e5e0::sub_00f9e5e0(int Value, int Value2, int Value3)
+{
+    C_00f9e5e0* R = this;
+    R->F0 = Value;
+    R->F1 = Value2;
+    R->F2 = Value3;
+    return R;
+}
+
+static void sub_00f9e5e0_caller(C_00f9e5e0* C)
+{
+    C->sub_00f9e5e0(0, 1, 2);
 }

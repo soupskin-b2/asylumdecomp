@@ -1,4 +1,4 @@
-// BmGame_1700000.cpp: 50 functions
+// BmGame_1700000.cpp: 53 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -422,4 +422,43 @@ void URBMBehaviour_CombatHeavyObject::execGetMovementForce(FFrame& Stack, RESULT
 
     FVector MovementForce;
     *(FVector*)Result = *(FVector*)vf_1d8((INT)&MovementForce);
+}
+
+struct ARBatarangProjectile_ : ARBatarangProjectile
+{
+    FVector GetFlightPathPosition(FLOAT Proportion);
+};
+
+// @baa 0x01707fe0
+void ARBatarangProjectile::execGetFlightPathPosition(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_FLOAT(Proportion);
+    P_FINISH;
+    *(FVector*)Result = ((ARBatarangProjectile_*)this)->GetFlightPathPosition(Proportion);
+}
+
+struct ARBatarangProjectile__01708060 : ARBatarangProjectile
+{
+    FVector GetFlightPathTangent(FLOAT Proportion);
+};
+
+// @baa 0x01708060
+void ARBatarangProjectile::execGetFlightPathTangent(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_FLOAT(Proportion);
+    P_FINISH;
+    *(FVector*)Result = ((ARBatarangProjectile__01708060*)this)->GetFlightPathTangent(Proportion);
+}
+
+struct ARBatarangProjectile__017080e0 : ARBatarangProjectile
+{
+    FVector GetFlightPathDeltaTangent(FLOAT Proportion);
+};
+
+// @baa 0x017080e0
+void ARBatarangProjectile::execGetFlightPathDeltaTangent(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_FLOAT(Proportion);
+    P_FINISH;
+    *(FVector*)Result = ((ARBatarangProjectile__017080e0*)this)->GetFlightPathDeltaTangent(Proportion);
 }

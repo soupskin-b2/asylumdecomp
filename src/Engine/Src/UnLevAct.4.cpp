@@ -1,4 +1,4 @@
-// UnLevAct.cpp: 3 functions
+// UnLevAct.cpp: 4 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -124,3 +124,7 @@ void AActor__0076cc90::sub_0076cc90()
         }
     }
 }
+
+// @baa 0x006b6a10
+/* TArray<UActorComponent*>::FindItemIndex, out of line (used by GWorld->SpawnActor on Components) */
+template INT TArray<UActorComponent*>::FindItemIndex(UActorComponent* const& Item) const;

@@ -1,4 +1,4 @@
-// AnalyzeReferencedContent.cpp (part 1 of 3): 261 functions
+// AnalyzeReferencedContent.cpp (part 1 of 3): 262 functions
 // Placed here by: neighbours 250, class 5, callers 4, file 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1763,3 +1763,26 @@ undefined4 UAnalyzeReferencedContentCommandlet::sub_01059700(byte param_2)
 
 // @baa 0x01059730
 // @baa 0x01059740
+
+struct S01014380
+{
+    INT First;
+    INT Second;
+    INT Third;
+
+    S01014380* sub_01014380(S01014380* Other);
+};
+
+// @baa 0x01014380
+S01014380* S01014380::sub_01014380(S01014380* Other)
+{
+    First = Other->First;
+    Second = Other->Second;
+    Third = Other->Third;
+    return this;
+}
+
+S01014380* sub_01014390(S01014380* Target, S01014380* Source)
+{
+    return Target->sub_01014380(Source);
+}

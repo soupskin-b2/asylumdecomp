@@ -1,4 +1,4 @@
-// WinClient.cpp (part 4 of 4): 12 functions
+// WinClient.cpp (part 4 of 4): 13 functions
 // Placed here by: neighbours 8.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -174,4 +174,20 @@ void __stdcall sub_00eb55d0(INT A, INT B);
 void __stdcall sub_00eb65a0(INT Value)
 {
     sub_00eb55d0(Value, 0xd);
+}
+
+struct S_00eb5330 {
+    BYTE v0;
+    INT v4;
+    INT v8;
+    S_00eb5330& operator=(const S_00eb5330& Src);
+};
+
+// @baa 0x00eb5330
+S_00eb5330& S_00eb5330::operator=(const S_00eb5330& Src)
+{
+    v0 = Src.v0;
+    v4 = Src.v4;
+    v8 = Src.v8;
+    return *this;
 }

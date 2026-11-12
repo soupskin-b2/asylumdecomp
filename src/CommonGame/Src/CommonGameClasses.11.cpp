@@ -1,4 +1,4 @@
-// CommonGameClasses.cpp (part 11 of 12): 23 functions
+// CommonGameClasses.cpp (part 11 of 12): 28 functions
 // Placed here by: neighbours 3.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -323,4 +323,79 @@ UBOOL ARDebugMenu__01516c80::eventItemFdB(const FString& Text, FLOAT& Value, FLO
     ProcessEvent(FindFunctionChecked(g_026e0f60), &Parms);
     Value = Parms.Value;
     return Parms.ReturnValue;
+}
+
+/* UObject::MarkPackageDirty (005d9570) isn't declared in the kit. */
+struct UObject_ : public UObject
+{
+    void MarkPackageDirty(UBOOL InDirty = TRUE);
+};
+
+// @baa 0x01533790
+/* UObject::PostEditChange(UProperty* PropertyThatChanged) (slot 0x4c, a placeholder vf_04c taking
+ * UINT in the kit): editing a bark set marks its package dirty. */
+void URBarkSet::vf_04c(UINT PropertyThatChanged)
+{
+    Super::vf_04c(PropertyThatChanged);
+    ((UObject_*)this)->MarkPackageDirty();
+}
+
+/* Engine helper at 00d457e0 (unnamed in the kit): the text height for a screen of the given height
+ * (Height >= 800 ? 26 : 18). */
+INT sub_00d457e0(INT Height);
+// @baa 0x0150f410
+/* ARHUDBase's GetPromptYPosition (slot 0x360, called by execGetPromptYPosition; a placeholder
+ * vf_360(INT, INT) in the kit): the prompt sits one text line above 92.5% of the canvas height.
+ * The text height is picked for 85% of the first size. Parameter names are descriptive. */
+INT ARHUDBase::vf_360(INT SizeY, INT ClipY)
+{
+    FLOAT Height = (FLOAT)ClipY;
+    INT TextHeight = sub_00d457e0(SizeY * 85 / 100);
+    return (INT)((0.925f - TextHeight / Height) * Height);
+}
+
+/* The FMOD device's linear volume to decibels conversion (00e70d10, FMODAudioDevice.cpp). */
+FLOAT VolumeToDecibels(FLOAT Volume);
+// @baa 0x0150f480
+/* ARDebugMenu slot 0x38c (a placeholder vf_38c(FLOAT) in the kit): a volume as the attenuation the
+ * debug menu shows (0 at full volume). */
+INT ARDebugMenu::vf_38c(FLOAT Volume)
+{
+    if (Volume == 1.0f)
+    {
+        return 0;
+    }
+    return -(INT)VolumeToDecibels(Volume);
+}
+
+/* Platform memory statistics (00eb4c30, WinDrv). On PC it fills the free and total physical
+ * memory from GlobalMemoryStatus and zeroes the other four. The kit doesn't declare it; the name
+ * and parameter names are descriptive. */
+void GetMemoryStats(DWORD& AvailPhysical, DWORD& TotalPhysical, DWORD& Stat3, DWORD& Stat4, DWORD& Stat5, DWORD& Stat6);
+// @baa 0x0150f360
+/* ARGameInfoBase slot 0x384 (a placeholder vf_384(INT) in the kit): free memory in megabytes, the
+ * physical memory or (with the flag set) the third statistic, which PC doesn't report. */
+INT ARGameInfoBase::vf_384(INT bOtherStat)
+{
+    DWORD AvailPhysical, TotalPhysical, Stat3, Stat4, Stat5, Stat6;
+    GetMemoryStats(AvailPhysical, TotalPhysical, Stat3, Stat4, Stat5, Stat6);
+    return (bOtherStat ? Stat3 : AvailPhysical) >> 20;
+}
+
+/* UFactory's flags (UE3: bCreateNew, bEditAfterNew, bEditorImport, bText) are in the kit's
+ * _native2 blob at 0x50; this stand-in names them. */
+struct FFactoryFlags
+{
+    BITFIELD bCreateNew : 1;
+    BITFIELD bEditAfterNew : 1;
+    BITFIELD bEditorImport : 1;
+    BITFIELD bText : 1;
+};
+
+// @baa 0x01530720
+void URScriptConversationFactoryNew::InitializeIntrinsicPropertyValues()
+{
+    SupportedClass = URScriptConversation::StaticClass();
+    ((FFactoryFlags*)_native2)->bCreateNew = TRUE;
+    Description = TEXT("Script Conversation");
 }

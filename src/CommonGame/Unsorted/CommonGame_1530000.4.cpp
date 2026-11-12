@@ -1,4 +1,4 @@
-// CommonGame_1530000.cpp (part 4 of 4): 4 functions
+// CommonGame_1530000.cpp (part 4 of 4): 5 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -109,4 +109,21 @@ struct C_0153ee10
 bool C_0153ee10::sub_0153ee10(INT)
 {
     return Value > 0;
+}
+
+struct S0153e800
+{
+	int Data[3];
+
+	S0153e800* sub_0153e800(S0153e800 const& Other)
+	{
+		*this = Other;
+		return this;
+	}
+};
+
+// @baa 0x0153e800
+void sub_0153e801(S0153e800* A, S0153e800 const& B)
+{
+	(void)A->sub_0153e800(B);
 }

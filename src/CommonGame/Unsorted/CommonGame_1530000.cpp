@@ -1,4 +1,4 @@
-// CommonGame_1530000.cpp (part 1 of 4): 114 functions
+// CommonGame_1530000.cpp (part 1 of 4): 115 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -771,4 +771,13 @@ void ARBreakablePropStatic_::eventInitCollideDamageScale(FLOAT Scale)
     RBreakablePropStatic_eventInitCollideDamageScale_Parms Parms;
     Parms.Scale = Scale;
     ProcessEvent(FindFunctionChecked(g_026e0c1c), &Parms);
+}
+
+// @baa 0x0153b0c0
+/* UObject slot 0x1c (a placeholder vf_01c in the kit; UE3's PostLoad there): a rotating actor
+ * remembers the rotation it was placed with. */
+void ARRotateActor::vf_01c()
+{
+    Super::vf_01c();
+    BaseRotation = Rotation;
 }

@@ -1,4 +1,4 @@
-// Editor_0ee0000.cpp: 53 functions
+// Editor_0ee0000.cpp: 54 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -470,3 +470,27 @@ void UEditorEngine::vf_218(int a0) {  }
 // @baa 0x00eecc70
 void UEditorEngine::vf_21c(int a0) {  }
 
+struct FVector3 {
+    float X;
+    float Y;
+    float Z;
+};
+
+struct Sub_00eec620_ {
+    FVector3 Value;
+    Sub_00eec620_* sub_00eec620(const Sub_00eec620_* Other);
+};
+
+// @baa 0x00eec620
+Sub_00eec620_* Sub_00eec620_::sub_00eec620(const Sub_00eec620_* Other)
+{
+    Value.X = Other->Value.X;
+    Value.Y = Other->Value.Y;
+    Value.Z = Other->Value.Z;
+    return this;
+}
+
+static void sub_00eec620_ref(Sub_00eec620_* A, const Sub_00eec620_* B)
+{
+    A->sub_00eec620(B);
+}

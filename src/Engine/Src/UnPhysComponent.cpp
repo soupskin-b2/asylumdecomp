@@ -1,20 +1,13 @@
-// UnPhysComponent.cpp (part 1 of 2): 3 functions
-// Placed here by: callers 3.
+// UnPhysComponent.cpp: 1 function
+// Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
-#define BAA_OUTLINE_ALLOC
-#include "ue3/Array.h"
+#include "ue3/Classes.h"
+#include "ue3/Script.h"
 
-struct T_009b1900 { BYTE b[4]; };
-
-// @baa 0x009b1900
-template INT TArray<T_009b1900>::Add(INT);
-
-struct T_00a02760 { BYTE b[12]; };
-
-// @baa 0x00a02760
-template INT TArray<T_00a02760>::Add(INT);
-
-struct T_00a02ed0 { BYTE b[4]; };
-
-// @baa 0x00a02ed0
-template INT TArray<T_00a02ed0>::Add(INT);
+// @baa 0x009fe9e0
+void UPrimitiveComponent::execRigidBodyIsAwake(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME_OPTX(BoneName, NAME_None);
+    P_FINISH;
+    *(UBOOL*)Result = (UBOOL)vf_1bc(BoneName.Index, BoneName.Number);
+}

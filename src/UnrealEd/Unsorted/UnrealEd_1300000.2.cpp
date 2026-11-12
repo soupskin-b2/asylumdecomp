@@ -1,4 +1,4 @@
-// UnrealEd_1300000.cpp (part 2 of 2): 3 functions
+// UnrealEd_1300000.cpp (part 2 of 2): 4 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -52,4 +52,20 @@ void C_0130d880::sub_0130d880()
 {
     *(void**)this = g_02249678;
     ((wxMenuBar*)this)->wxMenuBar::~wxMenuBar();
+}
+
+struct S0130ef30 {
+    int x;
+    int y;
+    int z;
+    S0130ef30* sub_0130ef30(const S0130ef30& Other);
+};
+
+// @baa 0x0130ef30
+S0130ef30* S0130ef30::sub_0130ef30(const S0130ef30& Other)
+{
+    x = Other.x;
+    y = Other.y;
+    z = Other.z;
+    return this;
 }

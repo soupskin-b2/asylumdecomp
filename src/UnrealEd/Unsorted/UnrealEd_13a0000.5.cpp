@@ -1,4 +1,4 @@
-// UnrealEd_13a0000.cpp (part 5 of 5): 8 functions
+// UnrealEd_13a0000.cpp (part 5 of 5): 9 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -167,4 +167,28 @@ C_013af460* C_013af460::sub_013af460()
     Value_8 = 0;
     Value_c = 0;
     return this;
+}
+
+struct FThreeInts {
+    INT A;
+    INT B;
+    INT C;
+};
+
+struct U013a3d10Host {
+    FThreeInts Value;
+    U013a3d10Host* sub_013a3d10(const FThreeInts* Src)
+    {
+        Value.A = Src->A;
+        Value.B = Src->B;
+        Value.C = Src->C;
+        return this;
+    }
+};
+
+// @baa 0x013a3d10
+volatile int Driver(U013a3d10Host* Host, const FThreeInts* Src)
+{
+    Host->sub_013a3d10(Src);
+    return 0;
 }

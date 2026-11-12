@@ -1,4 +1,4 @@
-// UIEditorDialogs.cpp: 2 functions
+// UIEditorDialogs.cpp: 3 functions
 // Placed here by: neighbours 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -32,4 +32,23 @@ void C_013f1870::sub_013f1870(undefined4 param_2)
 
   sub_013ec340(param_2,param_1 + 8);
   return;
+}
+
+// UIEditorDialogs.cpp
+class wxCommandEvent
+{
+public:
+	__declspec(dllimport) int GetSelection() const;
+};
+
+struct C_013f1ef0
+{
+	void sub_013f1c20(int Selection);
+	void sub_013f1ef0(wxCommandEvent* Command);
+};
+
+// @baa 0x013f1ef0
+void C_013f1ef0::sub_013f1ef0(wxCommandEvent* Command)
+{
+	sub_013f1c20(Command->GetSelection());
 }

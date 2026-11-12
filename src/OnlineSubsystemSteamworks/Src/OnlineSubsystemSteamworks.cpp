@@ -1,4 +1,4 @@
-// OnlineSubsystemSteamworks.cpp (part 1 of 3): 278 functions
+// OnlineSubsystemSteamworks.cpp (part 1 of 3): 280 functions
 // Placed here by: neighbours 242, class 65, callers 17.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -2618,4 +2618,41 @@ UBOOL UOnlineSubsystem__00e85dd0::eventSetAccountInterface(UObject* NewInterface
     Parms.NewInterface = NewInterface;
     ProcessEvent(FindFunctionChecked(g_026c4288), &Parms);
     return Parms.ReturnValue;
+}
+
+struct C_00e8a7f0 {
+    int f0, f1, f2;
+    C_00e8a7f0* sub_00e8a7f0(int a, int b, int c);
+};
+
+// @baa 0x00e8a7f0
+C_00e8a7f0* C_00e8a7f0::sub_00e8a7f0(int a, int b, int c)
+{
+    f0 = a;
+    f1 = b;
+    f2 = c;
+    return this;
+}
+
+void force_ref_00e8a7f0()
+{
+    volatile C_00e8a7f0* p = ((C_00e8a7f0*)0)->sub_00e8a7f0(1, 2, 3);
+    (void)p;
+}
+
+struct S_00e8a5f0
+{
+	int Field_00;
+	int Field_04;
+	int Field_08;
+	S_00e8a5f0& sub_00e8a5f0(int Value0, int Value1, int Value2);
+};
+
+// @baa 0x00e8a5f0
+S_00e8a5f0& S_00e8a5f0::sub_00e8a5f0(int Value0, int Value1, int Value2)
+{
+	Field_00 = Value0;
+	Field_04 = Value1;
+	Field_08 = Value2;
+	return *this;
 }

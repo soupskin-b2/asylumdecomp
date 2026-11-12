@@ -1,4 +1,4 @@
-// UnrealEd_11d0000.cpp: 26 functions
+// UnrealEd_11d0000.cpp: 27 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -386,4 +386,24 @@ TConstSetBitIterator_011d6b90& TConstSetBitIterator_011d6b90::operator++()
 {
     It.Advance();
     return *this;
+}
+
+class wxCommandEvent
+{
+public:
+	__declspec(dllimport) void* GetClientData() const;
+};
+
+class UFracturedStaticMeshComponent_ : public UFracturedStaticMeshComponent
+{
+public:
+	void sub_011d62f0(void* Data);
+	void sub_011d63e0(wxCommandEvent* Event);
+};
+
+// @baa 0x011d63e0
+void UFracturedStaticMeshComponent_::sub_011d63e0(wxCommandEvent* Event)
+{
+	void* Data = Event->GetClientData();
+	sub_011d62f0(Data);
 }

@@ -1,4 +1,4 @@
-// UnrealEd_14c0000.cpp (part 2 of 2): 2 functions
+// UnrealEd_14c0000.cpp (part 2 of 2): 3 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -33,4 +33,28 @@ struct C_014cb690
 INT C_014cb690::sub_014cb690()
 {
     return sub_014ca030(Value);
+}
+
+struct sub_014c7500_C
+{
+    DWORD Field_00;
+    DWORD Field_04;
+    DWORD Field_08;
+    DWORD Field_0C;
+    DWORD Field_10;
+    DWORD Field_14;
+    int sub_014c7500();
+};
+
+// @baa 0x014c7500
+int sub_014c7500_C::sub_014c7500()
+{
+    int result = (int)this;
+    Field_00 = 0;
+    Field_04 = 0;
+    Field_08 = 0;
+    Field_0C = -1;
+    Field_10 = 0;
+    Field_14 = -1;
+    return result;
 }

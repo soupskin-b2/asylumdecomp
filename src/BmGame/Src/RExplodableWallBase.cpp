@@ -1,4 +1,4 @@
-// RExplodableWallBase.cpp (part 1 of 2): 10 functions
+// RExplodableWallBase.cpp (part 1 of 2): 11 functions
 // Placed here by: class 7, neighbours 1, callers 1, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -53,3 +53,19 @@ void C_01722350::sub_01722350() {
 // @baa 0x01731410
 // @baa 0x01733220
 // @baa 0x01733fd0
+
+struct ARExplodableWallBase_ : ARExplodableWallBase
+{
+    FVector sub_01720230(INT PointIndex);
+    FVector sub_01720390(INT FirstPointIndex, INT SecondPointIndex);
+};
+
+// @baa 0x01720390
+FVector ARExplodableWallBase_::sub_01720390(INT FirstPointIndex, INT SecondPointIndex)
+{
+    FVector FirstPoint = sub_01720230(FirstPointIndex);
+    FVector SecondPoint = sub_01720230(SecondPointIndex);
+    return FVector(FirstPoint.X - SecondPoint.X,
+                   FirstPoint.Y - SecondPoint.Y,
+                   FirstPoint.Z - SecondPoint.Z);
+}

@@ -1,4 +1,4 @@
-// UnSkelControl.cpp: 6 functions
+// UnSkelControl.cpp: 7 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -29,3 +29,70 @@ bool USkelControlWheel::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
+
+/* VJointPos (UnSkeletalMesh.h): a bone's reference pose. */
+struct VJointPos
+{
+    FQuat Orientation;
+    FVector Position;
+    FLOAT Length;
+    FLOAT XSize;
+    FLOAT YSize;
+    FLOAT ZSize;
+};
+
+/* FMeshBone as this build has it (0x48 bytes); the kit's FMeshBone has ParentIndex at the wrong offset. */
+struct FMeshBone_
+{
+    FName Name;
+    DWORD Flags;
+    VJointPos BonePos;
+    INT ParentIndex;      /* 0x38 */
+    INT NumChildren;
+    INT Depth;
+    FColor BoneColor;
+};
+
+/* TArray<INT> with its out-of-line Add (0x00540c80); Reset() is a bare ArrayNum = 0 in this build. */
+struct FIntArray : public TArray<INT>
+{
+    INT Add(INT Count);
+    void Reset() { ArrayNum = 0; }
+};
+
+/* slot 0x124 (vf_124) is USkelControlBase::GetAffectedBones */
+struct USkelControl_CCD_IK_ : public USkelControl_CCD_IK
+{
+    void GetAffectedBones(INT BoneIndex, USkeletalMeshComponent* SkelComp, TArray<INT>& OutBoneIndices);
+};
+
+// @baa 0x0092a250
+/* the controlled bone and its NumBones-1 parents, root-most first */
+void USkelControl_CCD_IK_::GetAffectedBones(INT BoneIndex, USkeletalMeshComponent* SkelComp, TArray<INT>& OutBoneIndices)
+{
+#line 1826 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSkelControl.cpp"
+    check(OutBoneIndices.Num() == 0);
+
+    if (NumBones < 2)
+    {
+        return;
+    }
+
+    ((FIntArray&)OutBoneIndices).Add(NumBones);
+
+    INT WalkBoneIndex = BoneIndex;
+    for (INT i = NumBones - 1; i >= 0; i--)
+    {
+        // ran out of parents: not enough bones in the chain
+        if (WalkBoneIndex == 0)
+        {
+            ((FIntArray&)OutBoneIndices).Reset();
+            return;
+        }
+
+        OutBoneIndices(i) = WalkBoneIndex;
+        WalkBoneIndex = ((TArray<FMeshBone_>&)SkelComp->SkeletalMesh->RefSkeleton)(WalkBoneIndex).ParentIndex;
+    }
+}
+
+#line 99 "candidate.cpp"
