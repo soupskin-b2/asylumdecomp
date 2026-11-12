@@ -1,4 +1,4 @@
-// BmGame_1590000.cpp (part 1 of 2): 310 functions
+// BmGame_1590000.cpp (part 1 of 2): 311 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -2009,4 +2009,17 @@ FVector_01594730* FVector_01594730::sub_01594730(FLOAT A, FLOAT B, FLOAT C)
     Y = B;
     Z = C;
     return this;
+}
+
+struct C_01594340
+{
+    INT A;
+    FLOAT B;
+    UBOOL sub_01594340(const C_01594340* Other); /* 0x01594340 */
+};
+
+// @baa 0x01594340
+UBOOL C_01594340::sub_01594340(const C_01594340* Other)
+{
+    return (A == Other->A) && (B == Other->B);
 }

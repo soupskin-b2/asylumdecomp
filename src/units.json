@@ -2,8 +2,8 @@
  "note": "Maintained by CI (tools/ci); every file is checked by python tools/asylum unit-check.",
  "totals": {
   "units": 1442,
-  "files": 5521,
-  "functions": 102321,
+  "files": 5539,
+  "functions": 102521,
   "failed": 0
  },
  "units": [
@@ -34170,6 +34170,11 @@
      "va": "01594730",
      "size": 37,
      "symbol": "?sub_01594730@FVector_01594730@@QAEPAU1@MMM@Z"
+    },
+    {
+     "va": "01594340",
+     "size": 38,
+     "symbol": "?sub_01594340@C_01594340@@QAEHPBU1@@Z"
     }
    ]
   },
@@ -76193,6 +76198,11 @@
      "va": "00596a80",
      "size": 231,
      "symbol": "?execRotRand@UObject@@QAEXAAUFFrame@@QAX@Z"
+    },
+    {
+     "va": "00594150",
+     "size": 92,
+     "symbol": "?execRound@UObject@@QAEXAAUFFrame@@QAX@Z"
     }
    ]
   },
@@ -88537,6 +88547,126 @@
   },
   {
    "unit": "Core/Unsorted/Core_1de0000.cpp",
+   "source": "Core/Unsorted/Core_1de0000.10.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "01de0ff0",
+     "size": 86,
+     "symbol": "??__E?StaticType@MediumQualityShaderName@@2VFGlobalShaderType@@A@@YAXXZ"
+    }
+   ]
+  },
+  {
+   "unit": "Core/Unsorted/Core_1de0000.cpp",
+   "source": "Core/Unsorted/Core_1de0000.11.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "01de1110",
+     "size": 86,
+     "symbol": "??__E?StaticType@HwPCFMediumQualityShaderName@@2VFGlobalShaderType@@A@@YAXXZ"
+    }
+   ]
+  },
+  {
+   "unit": "Core/Unsorted/Core_1de0000.cpp",
+   "source": "Core/Unsorted/Core_1de0000.12.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "01de1050",
+     "size": 86,
+     "symbol": "??__E?StaticType@HighQualityShaderName@@2VFGlobalShaderType@@A@@YAXXZ"
+    }
+   ]
+  },
+  {
+   "unit": "Core/Unsorted/Core_1de0000.cpp",
+   "source": "Core/Unsorted/Core_1de0000.13.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "01de1170",
+     "size": 86,
+     "symbol": "??__E?StaticType@HwPCFHighQualityShaderName@@2VFGlobalShaderType@@A@@YAXXZ"
+    }
+   ]
+  },
+  {
+   "unit": "Core/Unsorted/Core_1de0000.cpp",
+   "source": "Core/Unsorted/Core_1de0000.14.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "01de12f0",
+     "size": 86,
+     "symbol": "??__E?StaticType@TLightVertexShaderFDirectionalLightPolicyFNoStaticShadowingPolicy@@2VFMeshMaterialShaderType@@A@@YAXXZ"
+    }
+   ]
+  },
+  {
+   "unit": "Core/Unsorted/Core_1de0000.cpp",
+   "source": "Core/Unsorted/Core_1de0000.15.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "01de1350",
+     "size": 86,
+     "symbol": "??__E?StaticType@TLightPixelShaderFDirectionalLightPolicyFNoStaticShadowingPolicy@@2VFMeshMaterialShaderType@@A@@YAXXZ"
+    }
+   ]
+  },
+  {
+   "unit": "Core/Unsorted/Core_1de0000.cpp",
+   "source": "Core/Unsorted/Core_1de0000.16.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "01de13b0",
+     "size": 86,
+     "symbol": "??__E?StaticType@TLightVertexShaderFDirectionalLightPolicyFShadowTexturePolicy@@2VFMeshMaterialShaderType@@A@@YAXXZ"
+    }
+   ]
+  },
+  {
+   "unit": "Core/Unsorted/Core_1de0000.cpp",
+   "source": "Core/Unsorted/Core_1de0000.17.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "01de1290",
+     "size": 83,
+     "symbol": "??__E?StaticType@Fetch4PCFHighQualityShaderName@@2VFGlobalShaderType@@A@@YAXXZ"
+    }
+   ]
+  },
+  {
+   "unit": "Core/Unsorted/Core_1de0000.cpp",
+   "source": "Core/Unsorted/Core_1de0000.18.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "01de1470",
+     "size": 86,
+     "symbol": "??__E?StaticType@TLightVertexShaderFDirectionalLightPolicyFShadowVertexBufferPolicy@@2VFMeshMaterialShaderType@@A@@YAXXZ"
+    }
+   ]
+  },
+  {
+   "unit": "Core/Unsorted/Core_1de0000.cpp",
+   "source": "Core/Unsorted/Core_1de0000.19.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "01de1410",
+     "size": 86,
+     "symbol": "??__E?StaticType@TLightPixelShaderFDirectionalLightPolicyFShadowTexturePolicy@@2VFMeshMaterialShaderType@@A@@YAXXZ"
+    }
+   ]
+  },
+  {
+   "unit": "Core/Unsorted/Core_1de0000.cpp",
    "source": "Core/Unsorted/Core_1de0000.2.cpp",
    "profile": "ue3",
    "functions": [
@@ -88544,6 +88674,66 @@
      "va": "01de4d90",
      "size": 24,
      "symbol": "?sub_01de4d90@@YAXXZ"
+    }
+   ]
+  },
+  {
+   "unit": "Core/Unsorted/Core_1de0000.cpp",
+   "source": "Core/Unsorted/Core_1de0000.20.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "01de14d0",
+     "size": 86,
+     "symbol": "??__E?StaticType@TLightPixelShaderFDirectionalLightPolicyFShadowVertexBufferPolicy@@2VFMeshMaterialShaderType@@A@@YAXXZ"
+    }
+   ]
+  },
+  {
+   "unit": "Core/Unsorted/Core_1de0000.cpp",
+   "source": "Core/Unsorted/Core_1de0000.21.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "01de1530",
+     "size": 86,
+     "symbol": "??__E?StaticType@TModShadowVolumePixelShaderFDirectionalLightPolicy@@2VFGlobalShaderType@@A@@YAXXZ"
+    }
+   ]
+  },
+  {
+   "unit": "Core/Unsorted/Core_1de0000.cpp",
+   "source": "Core/Unsorted/Core_1de0000.22.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "01de1590",
+     "size": 86,
+     "symbol": "??__E?StaticType@TModShadowProjectionPixelShaderFDirectionalLightPolicyF4SampleHwPCF@@2VFGlobalShaderType@@A@@YAXXZ"
+    }
+   ]
+  },
+  {
+   "unit": "Core/Unsorted/Core_1de0000.cpp",
+   "source": "Core/Unsorted/Core_1de0000.23.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "01de15f0",
+     "size": 86,
+     "symbol": "??__E?StaticType@TModShadowProjectionPixelShaderFDirectionalLightPolicyF4SampleManualPCF@@2VFGlobalShaderType@@A@@YAXXZ"
+    }
+   ]
+  },
+  {
+   "unit": "Core/Unsorted/Core_1de0000.cpp",
+   "source": "Core/Unsorted/Core_1de0000.24.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "01de1650",
+     "size": 86,
+     "symbol": "??__E?StaticType@TModShadowProjectionPixelShaderFDirectionalLightPolicyF16SampleHwPCF@@2VFGlobalShaderType@@A@@YAXXZ"
     }
    ]
   },
@@ -88580,6 +88770,11 @@
      "va": "01deda10",
      "size": 24,
      "symbol": "?sub_01deda10@@YAXXZ"
+    },
+    {
+     "va": "01de0f90",
+     "size": 86,
+     "symbol": "??__E?StaticType@LowQualityShaderName@@2VFGlobalShaderType@@A@@YAXXZ"
     }
    ]
   },
@@ -88604,6 +88799,11 @@
      "va": "01dee3b0",
      "size": 24,
      "symbol": "?sub_01dee3b0@@YAXXZ"
+    },
+    {
+     "va": "01de10b0",
+     "size": 86,
+     "symbol": "??__E?StaticType@HwPCFLowQualityShaderName@@2VFGlobalShaderType@@A@@YAXXZ"
     }
    ]
   },
@@ -88616,6 +88816,18 @@
      "va": "01ded610",
      "size": 24,
      "symbol": "?sub_01ded610@@YAXXZ"
+    }
+   ]
+  },
+  {
+   "unit": "Core/Unsorted/Core_1de0000.cpp",
+   "source": "Core/Unsorted/Core_1de0000.9.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "01de1230",
+     "size": 83,
+     "symbol": "??__E?StaticType@Fetch4PCFMediumQualityShaderName@@2VFGlobalShaderType@@A@@YAXXZ"
     }
    ]
   },
@@ -167281,6 +167493,908 @@
      "va": "00f88180",
      "size": 164,
      "symbol": "??0?$TObjectIterator@UUFluidSurfaceComponent@@@@QAE@H@Z"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Src/FluidSurfaceComponent.cpp",
+   "source": "Engine/Src/FluidSurfaceComponent.4.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "006a4d90",
+     "size": 93,
+     "symbol": "??$GetShader@VTBranchingPCFModProjectionPixelShaderFDirectionalLightPolicyFMediumQualityFetch4PCF@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVTBranchingPCFModProjectionPixelShaderFDirectionalLightPolicyFMediumQualityFetch4PCF@@XZ"
+    },
+    {
+     "va": "006a4cd0",
+     "size": 93,
+     "symbol": "??$GetShader@VTBranchingPCFModProjectionPixelShaderFDirectionalLightPolicyFLowQualityManualPCF@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVTBranchingPCFModProjectionPixelShaderFDirectionalLightPolicyFLowQualityManualPCF@@XZ"
+    },
+    {
+     "va": "006a4df0",
+     "size": 93,
+     "symbol": "??$GetShader@VTBranchingPCFModProjectionPixelShaderFDirectionalLightPolicyFMediumQualityManualPCF@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVTBranchingPCFModProjectionPixelShaderFDirectionalLightPolicyFMediumQualityManualPCF@@XZ"
+    },
+    {
+     "va": "006a4e50",
+     "size": 93,
+     "symbol": "??$GetShader@VTBranchingPCFModProjectionPixelShaderFDirectionalLightPolicyFHighQualityHwPCF@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVTBranchingPCFModProjectionPixelShaderFDirectionalLightPolicyFHighQualityHwPCF@@XZ"
+    },
+    {
+     "va": "006a4eb0",
+     "size": 93,
+     "symbol": "??$GetShader@VTBranchingPCFModProjectionPixelShaderFDirectionalLightPolicyFHighQualityFetch4PCF@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVTBranchingPCFModProjectionPixelShaderFDirectionalLightPolicyFHighQualityFetch4PCF@@XZ"
+    },
+    {
+     "va": "006a4f70",
+     "size": 93,
+     "symbol": "??$GetShader@VTModShadowVolumePixelShaderFDirectionalLightPolicy@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVTModShadowVolumePixelShaderFDirectionalLightPolicy@@XZ"
+    },
+    {
+     "va": "006a4fd0",
+     "size": 93,
+     "symbol": "??$GetShader@VFModShadowVolumeVertexShader@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVFModShadowVolumeVertexShader@@XZ"
+    },
+    {
+     "va": "006a4f10",
+     "size": 93,
+     "symbol": "??$GetShader@VTBranchingPCFModProjectionPixelShaderFDirectionalLightPolicyFHighQualityManualPCF@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVTBranchingPCFModProjectionPixelShaderFDirectionalLightPolicyFHighQualityManualPCF@@XZ"
+    },
+    {
+     "va": "007124c0",
+     "size": 93,
+     "symbol": "??$GetShader@VTModShadowVolumePixelShaderFPointLightPolicy@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVTModShadowVolumePixelShaderFPointLightPolicy@@XZ"
+    },
+    {
+     "va": "00712520",
+     "size": 93,
+     "symbol": "??$GetShader@VTModShadowProjectionPixelShaderFPointLightPolicyF4SampleHwPCF@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVTModShadowProjectionPixelShaderFPointLightPolicyF4SampleHwPCF@@XZ"
+    },
+    {
+     "va": "00712580",
+     "size": 93,
+     "symbol": "??$GetShader@VTModShadowProjectionPixelShaderFPointLightPolicyF4SampleManualPCF@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVTModShadowProjectionPixelShaderFPointLightPolicyF4SampleManualPCF@@XZ"
+    },
+    {
+     "va": "007125e0",
+     "size": 93,
+     "symbol": "??$GetShader@VTModShadowProjectionPixelShaderFPointLightPolicyF16SampleHwPCF@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVTModShadowProjectionPixelShaderFPointLightPolicyF16SampleHwPCF@@XZ"
+    },
+    {
+     "va": "00712640",
+     "size": 93,
+     "symbol": "??$GetShader@VTModShadowProjectionPixelShaderFPointLightPolicyF16SampleFetch4PCF@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVTModShadowProjectionPixelShaderFPointLightPolicyF16SampleFetch4PCF@@XZ"
+    },
+    {
+     "va": "007126a0",
+     "size": 93,
+     "symbol": "??$GetShader@VTModShadowProjectionPixelShaderFPointLightPolicyF16SampleManualPCF@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVTModShadowProjectionPixelShaderFPointLightPolicyF16SampleManualPCF@@XZ"
+    },
+    {
+     "va": "00712760",
+     "size": 93,
+     "symbol": "??$GetShader@VTBranchingPCFModProjectionPixelShaderFPointLightPolicyFLowQualityFetch4PCF@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVTBranchingPCFModProjectionPixelShaderFPointLightPolicyFLowQualityFetch4PCF@@XZ"
+    },
+    {
+     "va": "00712700",
+     "size": 93,
+     "symbol": "??$GetShader@VTBranchingPCFModProjectionPixelShaderFPointLightPolicyFLowQualityHwPCF@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVTBranchingPCFModProjectionPixelShaderFPointLightPolicyFLowQualityHwPCF@@XZ"
+    },
+    {
+     "va": "007127c0",
+     "size": 93,
+     "symbol": "??$GetShader@VTBranchingPCFModProjectionPixelShaderFPointLightPolicyFLowQualityManualPCF@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVTBranchingPCFModProjectionPixelShaderFPointLightPolicyFLowQualityManualPCF@@XZ"
+    },
+    {
+     "va": "007128e0",
+     "size": 93,
+     "symbol": "??$GetShader@VTBranchingPCFModProjectionPixelShaderFPointLightPolicyFMediumQualityManualPCF@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVTBranchingPCFModProjectionPixelShaderFPointLightPolicyFMediumQualityManualPCF@@XZ"
+    },
+    {
+     "va": "00712880",
+     "size": 93,
+     "symbol": "??$GetShader@VTBranchingPCFModProjectionPixelShaderFPointLightPolicyFMediumQualityFetch4PCF@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVTBranchingPCFModProjectionPixelShaderFPointLightPolicyFMediumQualityFetch4PCF@@XZ"
+    },
+    {
+     "va": "00712820",
+     "size": 93,
+     "symbol": "??$GetShader@VTBranchingPCFModProjectionPixelShaderFPointLightPolicyFMediumQualityHwPCF@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVTBranchingPCFModProjectionPixelShaderFPointLightPolicyFMediumQualityHwPCF@@XZ"
+    },
+    {
+     "va": "007129a0",
+     "size": 93,
+     "symbol": "??$GetShader@VTBranchingPCFModProjectionPixelShaderFPointLightPolicyFHighQualityFetch4PCF@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVTBranchingPCFModProjectionPixelShaderFPointLightPolicyFHighQualityFetch4PCF@@XZ"
+    },
+    {
+     "va": "00712940",
+     "size": 93,
+     "symbol": "??$GetShader@VTBranchingPCFModProjectionPixelShaderFPointLightPolicyFHighQualityHwPCF@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVTBranchingPCFModProjectionPixelShaderFPointLightPolicyFHighQualityHwPCF@@XZ"
+    },
+    {
+     "va": "00712a00",
+     "size": 93,
+     "symbol": "??$GetShader@VTBranchingPCFModProjectionPixelShaderFPointLightPolicyFHighQualityManualPCF@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVTBranchingPCFModProjectionPixelShaderFPointLightPolicyFHighQualityManualPCF@@XZ"
+    },
+    {
+     "va": "0072ece0",
+     "size": 93,
+     "symbol": "??$GetShader@VFLDRExtractVertexShader@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVFLDRExtractVertexShader@@XZ"
+    },
+    {
+     "va": "0072ed40",
+     "size": 93,
+     "symbol": "??$GetShader@VFShaderComplexityApplyPixelShader@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVFShaderComplexityApplyPixelShader@@XZ"
+    },
+    {
+     "va": "0072ec80",
+     "size": 93,
+     "symbol": "??$GetShader@VFScreenVertexShader@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVFScreenVertexShader@@XZ"
+    },
+    {
+     "va": "00750150",
+     "size": 93,
+     "symbol": "??$GetShader@VTModShadowProjectionPixelShaderFSpotLightPolicyF4SampleHwPCF@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVTModShadowProjectionPixelShaderFSpotLightPolicyF4SampleHwPCF@@XZ"
+    },
+    {
+     "va": "007501b0",
+     "size": 93,
+     "symbol": "??$GetShader@VTModShadowProjectionPixelShaderFSpotLightPolicyF4SampleManualPCF@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVTModShadowProjectionPixelShaderFSpotLightPolicyF4SampleManualPCF@@XZ"
+    },
+    {
+     "va": "00750210",
+     "size": 93,
+     "symbol": "??$GetShader@VTModShadowProjectionPixelShaderFSpotLightPolicyF16SampleHwPCF@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVTModShadowProjectionPixelShaderFSpotLightPolicyF16SampleHwPCF@@XZ"
+    },
+    {
+     "va": "00750270",
+     "size": 93,
+     "symbol": "??$GetShader@VTModShadowProjectionPixelShaderFSpotLightPolicyF16SampleFetch4PCF@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVTModShadowProjectionPixelShaderFSpotLightPolicyF16SampleFetch4PCF@@XZ"
+    },
+    {
+     "va": "007502d0",
+     "size": 93,
+     "symbol": "??$GetShader@VTModShadowProjectionPixelShaderFSpotLightPolicyF16SampleManualPCF@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVTModShadowProjectionPixelShaderFSpotLightPolicyF16SampleManualPCF@@XZ"
+    },
+    {
+     "va": "00750330",
+     "size": 93,
+     "symbol": "??$GetShader@VTBranchingPCFModProjectionPixelShaderFSpotLightPolicyFLowQualityHwPCF@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVTBranchingPCFModProjectionPixelShaderFSpotLightPolicyFLowQualityHwPCF@@XZ"
+    },
+    {
+     "va": "00750390",
+     "size": 93,
+     "symbol": "??$GetShader@VTBranchingPCFModProjectionPixelShaderFSpotLightPolicyFLowQualityFetch4PCF@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVTBranchingPCFModProjectionPixelShaderFSpotLightPolicyFLowQualityFetch4PCF@@XZ"
+    },
+    {
+     "va": "007503f0",
+     "size": 93,
+     "symbol": "??$GetShader@VTBranchingPCFModProjectionPixelShaderFSpotLightPolicyFLowQualityManualPCF@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVTBranchingPCFModProjectionPixelShaderFSpotLightPolicyFLowQualityManualPCF@@XZ"
+    },
+    {
+     "va": "00750450",
+     "size": 93,
+     "symbol": "??$GetShader@VTBranchingPCFModProjectionPixelShaderFSpotLightPolicyFMediumQualityHwPCF@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVTBranchingPCFModProjectionPixelShaderFSpotLightPolicyFMediumQualityHwPCF@@XZ"
+    },
+    {
+     "va": "007504b0",
+     "size": 93,
+     "symbol": "??$GetShader@VTBranchingPCFModProjectionPixelShaderFSpotLightPolicyFMediumQualityFetch4PCF@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVTBranchingPCFModProjectionPixelShaderFSpotLightPolicyFMediumQualityFetch4PCF@@XZ"
+    },
+    {
+     "va": "00750510",
+     "size": 93,
+     "symbol": "??$GetShader@VTBranchingPCFModProjectionPixelShaderFSpotLightPolicyFMediumQualityManualPCF@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVTBranchingPCFModProjectionPixelShaderFSpotLightPolicyFMediumQualityManualPCF@@XZ"
+    },
+    {
+     "va": "00750570",
+     "size": 93,
+     "symbol": "??$GetShader@VTBranchingPCFModProjectionPixelShaderFSpotLightPolicyFHighQualityHwPCF@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVTBranchingPCFModProjectionPixelShaderFSpotLightPolicyFHighQualityHwPCF@@XZ"
+    },
+    {
+     "va": "007505d0",
+     "size": 93,
+     "symbol": "??$GetShader@VTBranchingPCFModProjectionPixelShaderFSpotLightPolicyFHighQualityFetch4PCF@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVTBranchingPCFModProjectionPixelShaderFSpotLightPolicyFHighQualityFetch4PCF@@XZ"
+    },
+    {
+     "va": "00750630",
+     "size": 93,
+     "symbol": "??$GetShader@VTBranchingPCFModProjectionPixelShaderFSpotLightPolicyFHighQualityManualPCF@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVTBranchingPCFModProjectionPixelShaderFSpotLightPolicyFHighQualityManualPCF@@XZ"
+    },
+    {
+     "va": "00750690",
+     "size": 93,
+     "symbol": "??$GetShader@VTModShadowVolumePixelShaderFSpotLightPolicy@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVTModShadowVolumePixelShaderFSpotLightPolicy@@XZ"
+    },
+    {
+     "va": "007711f0",
+     "size": 93,
+     "symbol": "??$GetShader@VFUberPostProcessVertexShader@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVFUberPostProcessVertexShader@@XZ"
+    },
+    {
+     "va": "007712b0",
+     "size": 93,
+     "symbol": "??$GetShader@VTUberPostProcessBlendPixelShaderFALSE@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVTUberPostProcessBlendPixelShaderFALSE@@XZ"
+    },
+    {
+     "va": "00771250",
+     "size": 93,
+     "symbol": "??$GetShader@VTUberPostProcessBlendPixelShaderTRUE@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVTUberPostProcessBlendPixelShaderTRUE@@XZ"
+    },
+    {
+     "va": "00855f20",
+     "size": 93,
+     "symbol": "??$GetShader@VFMotionBlurVertexShader@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVFMotionBlurVertexShader@@XZ"
+    },
+    {
+     "va": "00855f80",
+     "size": 93,
+     "symbol": "??$GetShader@VFMotionBlurPixelShader@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVFMotionBlurPixelShader@@XZ"
+    },
+    {
+     "va": "00855fe0",
+     "size": 93,
+     "symbol": "??$GetShader@VFMotionBlurPixelShaderDynamicVelocitiesOnly@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVFMotionBlurPixelShaderDynamicVelocitiesOnly@@XZ"
+    },
+    {
+     "va": "00a873c0",
+     "size": 93,
+     "symbol": "??$GetShader@V?$TAOMaskPixelShader@$0A@@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$TAOMaskPixelShader@$0A@@@XZ"
+    },
+    {
+     "va": "00a87420",
+     "size": 93,
+     "symbol": "??$GetShader@V?$TAOMaskPixelShader@$00@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$TAOMaskPixelShader@$00@@XZ"
+    },
+    {
+     "va": "00a87480",
+     "size": 93,
+     "symbol": "??$GetShader@V?$TAOMaskPixelShader@$01@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$TAOMaskPixelShader@$01@@XZ"
+    },
+    {
+     "va": "00a87540",
+     "size": 93,
+     "symbol": "??$GetShader@V?$TAOMaskPixelShader@$03@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$TAOMaskPixelShader@$03@@XZ"
+    },
+    {
+     "va": "00a874e0",
+     "size": 93,
+     "symbol": "??$GetShader@V?$TAOMaskPixelShader@$02@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$TAOMaskPixelShader@$02@@XZ"
+    },
+    {
+     "va": "00a875a0",
+     "size": 93,
+     "symbol": "??$GetShader@VFDownsampleDepthVertexShader@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVFDownsampleDepthVertexShader@@XZ"
+    },
+    {
+     "va": "00a87600",
+     "size": 93,
+     "symbol": "??$GetShader@VFDownsampleDepthPixelShader@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVFDownsampleDepthPixelShader@@XZ"
+    },
+    {
+     "va": "00a87660",
+     "size": 93,
+     "symbol": "??$GetShader@VFOneColorVertexShader@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVFOneColorVertexShader@@XZ"
+    },
+    {
+     "va": "00a876c0",
+     "size": 93,
+     "symbol": "??$GetShader@VFOneColorPixelShader@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVFOneColorPixelShader@@XZ"
+    },
+    {
+     "va": "00a87720",
+     "size": 93,
+     "symbol": "??$GetShader@VFAmbientOcclusionVertexShader@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVFAmbientOcclusionVertexShader@@XZ"
+    },
+    {
+     "va": "00a87780",
+     "size": 93,
+     "symbol": "??$GetShader@VTAmbientOcclusionPixelShaderFDefaultQualityAOTRUE@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVTAmbientOcclusionPixelShaderFDefaultQualityAOTRUE@@XZ"
+    },
+    {
+     "va": "00a877e0",
+     "size": 93,
+     "symbol": "??$GetShader@VTAmbientOcclusionPixelShaderFDefaultQualityAOFALSE@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVTAmbientOcclusionPixelShaderFDefaultQualityAOFALSE@@XZ"
+    },
+    {
+     "va": "00a878a0",
+     "size": 93,
+     "symbol": "??$GetShader@V?$TEdgePreservingFilterPixelShader@$01@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$TEdgePreservingFilterPixelShader@$01@@XZ"
+    },
+    {
+     "va": "00a87840",
+     "size": 93,
+     "symbol": "??$GetShader@VFEdgePreservingFilterVertexShader@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVFEdgePreservingFilterVertexShader@@XZ"
+    },
+    {
+     "va": "00a87900",
+     "size": 93,
+     "symbol": "??$GetShader@V?$TEdgePreservingFilterPixelShader@$03@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$TEdgePreservingFilterPixelShader@$03@@XZ"
+    },
+    {
+     "va": "00a87960",
+     "size": 93,
+     "symbol": "??$GetShader@V?$TEdgePreservingFilterPixelShader@$05@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$TEdgePreservingFilterPixelShader@$05@@XZ"
+    },
+    {
+     "va": "00a879c0",
+     "size": 93,
+     "symbol": "??$GetShader@V?$TEdgePreservingFilterPixelShader@$07@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$TEdgePreservingFilterPixelShader@$07@@XZ"
+    },
+    {
+     "va": "00a87a20",
+     "size": 93,
+     "symbol": "??$GetShader@V?$TEdgePreservingFilterPixelShader@$09@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$TEdgePreservingFilterPixelShader@$09@@XZ"
+    },
+    {
+     "va": "00a87a80",
+     "size": 93,
+     "symbol": "??$GetShader@V?$TEdgePreservingFilterPixelShader@$0M@@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$TEdgePreservingFilterPixelShader@$0M@@@XZ"
+    },
+    {
+     "va": "00a87ae0",
+     "size": 93,
+     "symbol": "??$GetShader@V?$TEdgePreservingFilterPixelShader@$0O@@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$TEdgePreservingFilterPixelShader@$0O@@@XZ"
+    },
+    {
+     "va": "00a87b40",
+     "size": 93,
+     "symbol": "??$GetShader@V?$TEdgePreservingFilterPixelShader@$0BA@@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$TEdgePreservingFilterPixelShader@$0BA@@@XZ"
+    },
+    {
+     "va": "00a87ba0",
+     "size": 93,
+     "symbol": "??$GetShader@V?$TEdgePreservingFilterPixelShader@$0BC@@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$TEdgePreservingFilterPixelShader@$0BC@@@XZ"
+    },
+    {
+     "va": "00a87c00",
+     "size": 93,
+     "symbol": "??$GetShader@V?$TEdgePreservingFilterPixelShader@$0BE@@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$TEdgePreservingFilterPixelShader@$0BE@@@XZ"
+    },
+    {
+     "va": "00a87c60",
+     "size": 93,
+     "symbol": "??$GetShader@V?$TEdgePreservingFilterPixelShader@$0BG@@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$TEdgePreservingFilterPixelShader@$0BG@@@XZ"
+    },
+    {
+     "va": "00a87cc0",
+     "size": 93,
+     "symbol": "??$GetShader@V?$TEdgePreservingFilterPixelShader@$0BI@@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$TEdgePreservingFilterPixelShader@$0BI@@@XZ"
+    },
+    {
+     "va": "00a87d20",
+     "size": 93,
+     "symbol": "??$GetShader@V?$TEdgePreservingFilterPixelShader@$0BK@@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$TEdgePreservingFilterPixelShader@$0BK@@@XZ"
+    },
+    {
+     "va": "00a87d80",
+     "size": 93,
+     "symbol": "??$GetShader@V?$TEdgePreservingFilterPixelShader@$0BM@@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$TEdgePreservingFilterPixelShader@$0BM@@@XZ"
+    },
+    {
+     "va": "00a87e40",
+     "size": 93,
+     "symbol": "??$GetShader@VFHistoryUpdateVertexShader@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVFHistoryUpdateVertexShader@@XZ"
+    },
+    {
+     "va": "00a87de0",
+     "size": 93,
+     "symbol": "??$GetShader@V?$TEdgePreservingFilterPixelShader@$0BO@@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$TEdgePreservingFilterPixelShader@$0BO@@@XZ"
+    },
+    {
+     "va": "00a87ea0",
+     "size": 93,
+     "symbol": "??$GetShader@VFStaticHistoryUpdatePixelShader@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVFStaticHistoryUpdatePixelShader@@XZ"
+    },
+    {
+     "va": "00a87f00",
+     "size": 93,
+     "symbol": "??$GetShader@V?$TAOApplyPixelShader@$0A@@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$TAOApplyPixelShader@$0A@@@XZ"
+    },
+    {
+     "va": "00a87f60",
+     "size": 93,
+     "symbol": "??$GetShader@V?$TAOApplyPixelShader@$00@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$TAOApplyPixelShader@$00@@XZ"
+    },
+    {
+     "va": "00a87fc0",
+     "size": 93,
+     "symbol": "??$GetShader@V?$TAOApplyPixelShader@$01@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$TAOApplyPixelShader@$01@@XZ"
+    },
+    {
+     "va": "00a88080",
+     "size": 93,
+     "symbol": "??$GetShader@VFSimpleElementVertexShader@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVFSimpleElementVertexShader@@XZ"
+    },
+    {
+     "va": "00a88020",
+     "size": 93,
+     "symbol": "??$GetShader@V?$TAOApplyPixelShader@$02@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$TAOApplyPixelShader@$02@@XZ"
+    },
+    {
+     "va": "00a880e0",
+     "size": 93,
+     "symbol": "??$GetShader@VFSimpleElementHitProxyPixelShader@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVFSimpleElementHitProxyPixelShader@@XZ"
+    },
+    {
+     "va": "00a88140",
+     "size": 93,
+     "symbol": "??$GetShader@VFSimpleElementMaskedGammaPixelShader@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVFSimpleElementMaskedGammaPixelShader@@XZ"
+    },
+    {
+     "va": "00a881a0",
+     "size": 93,
+     "symbol": "??$GetShader@VFSimpleElementPixelShader@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVFSimpleElementPixelShader@@XZ"
+    },
+    {
+     "va": "00a88200",
+     "size": 93,
+     "symbol": "??$GetShader@VFSimpleElementGammaPixelShader@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVFSimpleElementGammaPixelShader@@XZ"
+    },
+    {
+     "va": "00a88260",
+     "size": 93,
+     "symbol": "??$GetShader@V?$THeightFogVertexShader@$00@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$THeightFogVertexShader@$00@@XZ"
+    },
+    {
+     "va": "00a882c0",
+     "size": 93,
+     "symbol": "??$GetShader@V?$THeightFogPixelShader@$00@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$THeightFogPixelShader@$00@@XZ"
+    },
+    {
+     "va": "00a88320",
+     "size": 93,
+     "symbol": "??$GetShader@V?$THeightFogVertexShader@$03@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$THeightFogVertexShader@$03@@XZ"
+    },
+    {
+     "va": "00a88380",
+     "size": 93,
+     "symbol": "??$GetShader@V?$THeightFogPixelShader@$03@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$THeightFogPixelShader@$03@@XZ"
+    },
+    {
+     "va": "00adce80",
+     "size": 93,
+     "symbol": "??$GetShader@VFLightFunctionVertexShader@@@?$TShaderMap@VFMaterialShaderType@@@@QBEPAVFLightFunctionVertexShader@@XZ"
+    },
+    {
+     "va": "00adcee0",
+     "size": 93,
+     "symbol": "??$GetShader@VFLightFunctionPixelShader@@@?$TShaderMap@VFMaterialShaderType@@@@QBEPAVFLightFunctionPixelShader@@XZ"
+    },
+    {
+     "va": "00add0e0",
+     "size": 93,
+     "symbol": "??$GetShader@V?$TFilterPixelShader@$01@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$TFilterPixelShader@$01@@XZ"
+    },
+    {
+     "va": "00add080",
+     "size": 93,
+     "symbol": "??$GetShader@V?$TFilterVertexShader@$00@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$TFilterVertexShader@$00@@XZ"
+    },
+    {
+     "va": "00add140",
+     "size": 93,
+     "symbol": "??$GetShader@V?$TFilterVertexShader@$01@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$TFilterVertexShader@$01@@XZ"
+    },
+    {
+     "va": "00add1a0",
+     "size": 93,
+     "symbol": "??$GetShader@V?$TFilterPixelShader@$02@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$TFilterPixelShader@$02@@XZ"
+    },
+    {
+     "va": "00add200",
+     "size": 93,
+     "symbol": "??$GetShader@V?$TFilterVertexShader@$02@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$TFilterVertexShader@$02@@XZ"
+    },
+    {
+     "va": "00add260",
+     "size": 93,
+     "symbol": "??$GetShader@V?$TFilterPixelShader@$03@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$TFilterPixelShader@$03@@XZ"
+    },
+    {
+     "va": "00add2c0",
+     "size": 93,
+     "symbol": "??$GetShader@V?$TFilterVertexShader@$03@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$TFilterVertexShader@$03@@XZ"
+    },
+    {
+     "va": "00add320",
+     "size": 93,
+     "symbol": "??$GetShader@V?$TFilterPixelShader@$04@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$TFilterPixelShader@$04@@XZ"
+    },
+    {
+     "va": "00add380",
+     "size": 93,
+     "symbol": "??$GetShader@V?$TFilterVertexShader@$04@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$TFilterVertexShader@$04@@XZ"
+    },
+    {
+     "va": "00add440",
+     "size": 93,
+     "symbol": "??$GetShader@V?$TFilterVertexShader@$05@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$TFilterVertexShader@$05@@XZ"
+    },
+    {
+     "va": "00add3e0",
+     "size": 93,
+     "symbol": "??$GetShader@V?$TFilterPixelShader@$05@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$TFilterPixelShader@$05@@XZ"
+    },
+    {
+     "va": "00add4a0",
+     "size": 93,
+     "symbol": "??$GetShader@V?$TFilterPixelShader@$06@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$TFilterPixelShader@$06@@XZ"
+    },
+    {
+     "va": "00add560",
+     "size": 93,
+     "symbol": "??$GetShader@V?$TFilterPixelShader@$07@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$TFilterPixelShader@$07@@XZ"
+    },
+    {
+     "va": "00add500",
+     "size": 93,
+     "symbol": "??$GetShader@V?$TFilterVertexShader@$06@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$TFilterVertexShader@$06@@XZ"
+    },
+    {
+     "va": "00add5c0",
+     "size": 93,
+     "symbol": "??$GetShader@V?$TFilterVertexShader@$07@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$TFilterVertexShader@$07@@XZ"
+    },
+    {
+     "va": "00add620",
+     "size": 93,
+     "symbol": "??$GetShader@V?$TFilterPixelShader@$08@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$TFilterPixelShader@$08@@XZ"
+    },
+    {
+     "va": "00add680",
+     "size": 93,
+     "symbol": "??$GetShader@V?$TFilterVertexShader@$08@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$TFilterVertexShader@$08@@XZ"
+    },
+    {
+     "va": "00add6e0",
+     "size": 93,
+     "symbol": "??$GetShader@V?$TFilterPixelShader@$09@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$TFilterPixelShader@$09@@XZ"
+    },
+    {
+     "va": "00add7a0",
+     "size": 93,
+     "symbol": "??$GetShader@V?$TFilterPixelShader@$0L@@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$TFilterPixelShader@$0L@@@XZ"
+    },
+    {
+     "va": "00add740",
+     "size": 93,
+     "symbol": "??$GetShader@V?$TFilterVertexShader@$09@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$TFilterVertexShader@$09@@XZ"
+    },
+    {
+     "va": "00add800",
+     "size": 93,
+     "symbol": "??$GetShader@V?$TFilterVertexShader@$0L@@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$TFilterVertexShader@$0L@@@XZ"
+    },
+    {
+     "va": "00add860",
+     "size": 93,
+     "symbol": "??$GetShader@V?$TFilterPixelShader@$0M@@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$TFilterPixelShader@$0M@@@XZ"
+    },
+    {
+     "va": "00add8c0",
+     "size": 93,
+     "symbol": "??$GetShader@V?$TFilterVertexShader@$0M@@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$TFilterVertexShader@$0M@@@XZ"
+    },
+    {
+     "va": "00add920",
+     "size": 93,
+     "symbol": "??$GetShader@V?$TFilterPixelShader@$0N@@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$TFilterPixelShader@$0N@@@XZ"
+    },
+    {
+     "va": "00add980",
+     "size": 93,
+     "symbol": "??$GetShader@V?$TFilterVertexShader@$0N@@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$TFilterVertexShader@$0N@@@XZ"
+    },
+    {
+     "va": "00adda40",
+     "size": 93,
+     "symbol": "??$GetShader@V?$TFilterVertexShader@$0O@@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$TFilterVertexShader@$0O@@@XZ"
+    },
+    {
+     "va": "00add9e0",
+     "size": 93,
+     "symbol": "??$GetShader@V?$TFilterPixelShader@$0O@@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$TFilterPixelShader@$0O@@@XZ"
+    },
+    {
+     "va": "00addaa0",
+     "size": 93,
+     "symbol": "??$GetShader@V?$TFilterPixelShader@$0P@@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$TFilterPixelShader@$0P@@@XZ"
+    },
+    {
+     "va": "00addb00",
+     "size": 93,
+     "symbol": "??$GetShader@V?$TFilterVertexShader@$0P@@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$TFilterVertexShader@$0P@@@XZ"
+    },
+    {
+     "va": "00addb60",
+     "size": 93,
+     "symbol": "??$GetShader@V?$TFilterPixelShader@$0BA@@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$TFilterPixelShader@$0BA@@@XZ"
+    },
+    {
+     "va": "00addc20",
+     "size": 93,
+     "symbol": "??$GetShader@V?$FOcclusionQueryVertexShader@$0A@@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$FOcclusionQueryVertexShader@$0A@@@XZ"
+    },
+    {
+     "va": "00addbc0",
+     "size": 93,
+     "symbol": "??$GetShader@V?$TFilterVertexShader@$0BA@@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$TFilterVertexShader@$0BA@@@XZ"
+    },
+    {
+     "va": "00addc80",
+     "size": 93,
+     "symbol": "??$GetShader@VFGammaCorrectionVertexShader@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVFGammaCorrectionVertexShader@@XZ"
+    },
+    {
+     "va": "00addce0",
+     "size": 93,
+     "symbol": "??$GetShader@VFGammaCorrectionPixelShader@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVFGammaCorrectionPixelShader@@XZ"
+    },
+    {
+     "va": "00b14080",
+     "size": 93,
+     "symbol": "??$GetShader@V?$TShadowProjectionPixelShader@VF4SampleHwPCF@@@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$TShadowProjectionPixelShader@VF4SampleHwPCF@@@@XZ"
+    },
+    {
+     "va": "00b140e0",
+     "size": 93,
+     "symbol": "??$GetShader@V?$TShadowProjectionPixelShader@VF4SampleManualPCF@@@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$TShadowProjectionPixelShader@VF4SampleManualPCF@@@@XZ"
+    },
+    {
+     "va": "00b14140",
+     "size": 93,
+     "symbol": "??$GetShader@V?$TShadowProjectionPixelShader@VF16SampleHwPCF@@@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$TShadowProjectionPixelShader@VF16SampleHwPCF@@@@XZ"
+    },
+    {
+     "va": "00b14200",
+     "size": 93,
+     "symbol": "??$GetShader@V?$TShadowProjectionPixelShader@VF16SampleManualPCF@@@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$TShadowProjectionPixelShader@VF16SampleManualPCF@@@@XZ"
+    },
+    {
+     "va": "00b141a0",
+     "size": 93,
+     "symbol": "??$GetShader@V?$TShadowProjectionPixelShader@VF16SampleFetch4PCF@@@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$TShadowProjectionPixelShader@VF16SampleFetch4PCF@@@@XZ"
+    },
+    {
+     "va": "00b14260",
+     "size": 93,
+     "symbol": "??$GetShader@VFFilterOSMVertexShader@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVFFilterOSMVertexShader@@XZ"
+    },
+    {
+     "va": "00b142c0",
+     "size": 93,
+     "symbol": "??$GetShader@VFGenerateOSMPixelShader@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVFGenerateOSMPixelShader@@XZ"
+    },
+    {
+     "va": "00b14320",
+     "size": 93,
+     "symbol": "??$GetShader@VFShadowProjectionVertexShader@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVFShadowProjectionVertexShader@@XZ"
+    },
+    {
+     "va": "00b14380",
+     "size": 93,
+     "symbol": "??$GetShader@V?$TShadowProjectionPixelShader@VF4SampleManualPCFVolumetricOSM@@@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$TShadowProjectionPixelShader@VF4SampleManualPCFVolumetricOSM@@@@XZ"
+    },
+    {
+     "va": "00b143e0",
+     "size": 93,
+     "symbol": "??$GetShader@VFModShadowProjectionVertexShader@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVFModShadowProjectionVertexShader@@XZ"
+    },
+    {
+     "va": "00b14440",
+     "size": 93,
+     "symbol": "??$GetShader@VFShadowVolumeVertexShader@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVFShadowVolumeVertexShader@@XZ"
+    },
+    {
+     "va": "00b14560",
+     "size": 93,
+     "symbol": "??$GetShader@VFStereoCalibPixelShader@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVFStereoCalibPixelShader@@XZ"
+    },
+    {
+     "va": "00b144a0",
+     "size": 93,
+     "symbol": "??$GetShader@VFStereoExemplarVertexShader@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVFStereoExemplarVertexShader@@XZ"
+    },
+    {
+     "va": "00b14500",
+     "size": 93,
+     "symbol": "??$GetShader@VFStereoExemplarPixelShader@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVFStereoExemplarPixelShader@@XZ"
+    },
+    {
+     "va": "00b145c0",
+     "size": 93,
+     "symbol": "??$GetShader@VFParticleDownsamplePixelShader@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVFParticleDownsamplePixelShader@@XZ"
+    },
+    {
+     "va": "00b14620",
+     "size": 93,
+     "symbol": "??$GetShader@VFParticleUpsamplePixelShader4@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVFParticleUpsamplePixelShader4@@XZ"
+    },
+    {
+     "va": "00b14680",
+     "size": 93,
+     "symbol": "??$GetShader@VFLDRExtractPixelShader@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVFLDRExtractPixelShader@@XZ"
+    },
+    {
+     "va": "00b42e80",
+     "size": 93,
+     "symbol": "??$GetShader@VFVelocityVertexShader@@@?$TShaderMap@VFMeshMaterialShaderType@@@@QBEPAVFVelocityVertexShader@@XZ"
+    },
+    {
+     "va": "00b42ee0",
+     "size": 93,
+     "symbol": "??$GetShader@VFVelocityPixelShader@@@?$TShaderMap@VFMeshMaterialShaderType@@@@QBEPAVFVelocityPixelShader@@XZ"
+    },
+    {
+     "va": "00be8d30",
+     "size": 93,
+     "symbol": "??$GetShader@VFFluidVertexShader@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVFFluidVertexShader@@XZ"
+    },
+    {
+     "va": "00be8e50",
+     "size": 93,
+     "symbol": "??$GetShader@VFFluidNormalPixelShader@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVFFluidNormalPixelShader@@XZ"
+    },
+    {
+     "va": "00be8d90",
+     "size": 93,
+     "symbol": "??$GetShader@VFApplyForcePixelShader@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVFApplyForcePixelShader@@XZ"
+    },
+    {
+     "va": "00be8df0",
+     "size": 93,
+     "symbol": "??$GetShader@VFFluidSimulatePixelShader@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVFFluidSimulatePixelShader@@XZ"
+    },
+    {
+     "va": "00be8eb0",
+     "size": 93,
+     "symbol": "??$GetShader@VFFluidApplyPixelShader@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVFFluidApplyPixelShader@@XZ"
+    },
+    {
+     "va": "00c406d0",
+     "size": 93,
+     "symbol": "??$GetShader@VFLoadingIconPixelShader@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVFLoadingIconPixelShader@@XZ"
+    },
+    {
+     "va": "00c40670",
+     "size": 93,
+     "symbol": "??$GetShader@VFLoadingIconVertexShader@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVFLoadingIconVertexShader@@XZ"
+    },
+    {
+     "va": "00ccca70",
+     "size": 93,
+     "symbol": "??$GetShader@VFBinkYCrCbAToRGBAPixelShader@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVFBinkYCrCbAToRGBAPixelShader@@XZ"
+    },
+    {
+     "va": "00ccca10",
+     "size": 93,
+     "symbol": "??$GetShader@VFBinkVertexShader@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVFBinkVertexShader@@XZ"
+    },
+    {
+     "va": "00e092e0",
+     "size": 93,
+     "symbol": "??$GetShader@VFTextureDensityVertexShader@@@?$TShaderMap@VFMeshMaterialShaderType@@@@QBEPAVFTextureDensityVertexShader@@XZ"
+    },
+    {
+     "va": "00cccad0",
+     "size": 93,
+     "symbol": "??$GetShader@VFBinkYCrCbToRGBNoPixelAlphaPixelShader@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVFBinkYCrCbToRGBNoPixelAlphaPixelShader@@XZ"
+    },
+    {
+     "va": "00e09340",
+     "size": 93,
+     "symbol": "??$GetShader@VFTextureDensityPixelShader@@@?$TShaderMap@VFMeshMaterialShaderType@@@@QBEPAVFTextureDensityPixelShader@@XZ"
+    },
+    {
+     "va": "00e62bd0",
+     "size": 93,
+     "symbol": "??$GetShader@V?$FGFxPixelShader@$0A@@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$FGFxPixelShader@$0A@@@XZ"
+    },
+    {
+     "va": "00e62c30",
+     "size": 93,
+     "symbol": "??$GetShader@V?$FGFxPixelShader@$00@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$FGFxPixelShader@$00@@XZ"
+    },
+    {
+     "va": "00e62c90",
+     "size": 93,
+     "symbol": "??$GetShader@V?$FGFxPixelShader@$01@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$FGFxPixelShader@$01@@XZ"
+    },
+    {
+     "va": "00e62d50",
+     "size": 93,
+     "symbol": "??$GetShader@V?$FGFxPixelShader@$03@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$FGFxPixelShader@$03@@XZ"
+    },
+    {
+     "va": "00e62cf0",
+     "size": 93,
+     "symbol": "??$GetShader@V?$FGFxPixelShader@$02@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$FGFxPixelShader@$02@@XZ"
+    },
+    {
+     "va": "00e62e10",
+     "size": 93,
+     "symbol": "??$GetShader@V?$FGFxPixelShader@$05@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$FGFxPixelShader@$05@@XZ"
+    },
+    {
+     "va": "00e62db0",
+     "size": 93,
+     "symbol": "??$GetShader@V?$FGFxPixelShader@$04@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$FGFxPixelShader@$04@@XZ"
+    },
+    {
+     "va": "00e62e70",
+     "size": 93,
+     "symbol": "??$GetShader@V?$FGFxPixelShader@$06@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$FGFxPixelShader@$06@@XZ"
+    },
+    {
+     "va": "00e62ed0",
+     "size": 93,
+     "symbol": "??$GetShader@V?$FGFxPixelShader@$07@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$FGFxPixelShader@$07@@XZ"
+    },
+    {
+     "va": "00e62f90",
+     "size": 93,
+     "symbol": "??$GetShader@V?$FGFxPixelShader@$09@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$FGFxPixelShader@$09@@XZ"
+    },
+    {
+     "va": "00e62ff0",
+     "size": 93,
+     "symbol": "??$GetShader@V?$FGFxPixelShader@$0L@@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$FGFxPixelShader@$0L@@@XZ"
+    },
+    {
+     "va": "00e62f30",
+     "size": 93,
+     "symbol": "??$GetShader@V?$FGFxPixelShader@$08@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$FGFxPixelShader@$08@@XZ"
+    },
+    {
+     "va": "00e63050",
+     "size": 93,
+     "symbol": "??$GetShader@V?$FGFxPixelShader@$0M@@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$FGFxPixelShader@$0M@@@XZ"
+    },
+    {
+     "va": "00e630b0",
+     "size": 93,
+     "symbol": "??$GetShader@V?$FGFxPixelShader@$0N@@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$FGFxPixelShader@$0N@@@XZ"
+    },
+    {
+     "va": "00e631d0",
+     "size": 93,
+     "symbol": "??$GetShader@V?$FGFxVertexShader@$01@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$FGFxVertexShader@$01@@XZ"
+    },
+    {
+     "va": "00e63170",
+     "size": 93,
+     "symbol": "??$GetShader@V?$FGFxVertexShader@$00@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$FGFxVertexShader@$00@@XZ"
+    },
+    {
+     "va": "00e63110",
+     "size": 93,
+     "symbol": "??$GetShader@V?$FGFxVertexShader@$0A@@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$FGFxVertexShader@$0A@@@XZ"
+    },
+    {
+     "va": "00e63290",
+     "size": 93,
+     "symbol": "??$GetShader@V?$FGFxVertexShader@$03@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$FGFxVertexShader@$03@@XZ"
+    },
+    {
+     "va": "00e63230",
+     "size": 93,
+     "symbol": "??$GetShader@V?$FGFxVertexShader@$02@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$FGFxVertexShader@$02@@XZ"
+    },
+    {
+     "va": "00e632f0",
+     "size": 93,
+     "symbol": "??$GetShader@V?$FGFxVertexShader@$04@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$FGFxVertexShader@$04@@XZ"
+    },
+    {
+     "va": "00e63350",
+     "size": 93,
+     "symbol": "??$GetShader@V?$FGFxVertexShader@$05@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAV?$FGFxVertexShader@$05@@XZ"
+    },
+    {
+     "va": "00eaad20",
+     "size": 93,
+     "symbol": "??$GetShader@VFNULLPixelShader@@@?$TShaderMap@VFGlobalShaderType@@@@QBEPAVFNULLPixelShader@@XZ"
     }
    ]
   },
@@ -449855,6 +450969,18 @@
      "va": "00401460",
      "size": 45,
      "symbol": "?sub_00401460@@YAPAUOA_BUF@@XZ"
+    }
+   ]
+  },
+  {
+   "unit": "Launch/Src/LaunchOpenAutomate.cpp",
+   "source": "Launch/Src/LaunchOpenAutomate.4.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "004011d0",
+     "size": 19,
+     "symbol": "?sub_004011d0@@YAXPAUoaCommandStruct@@@Z"
     }
    ]
   },
