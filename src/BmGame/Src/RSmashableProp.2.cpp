@@ -56,7 +56,7 @@ void ARSmashableProp::execSetupProp(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(URSmashablePropConfig, propSetupData);
 	P_FINISH;
-	vf_354((INT)propSetupData);
+	SetupProp(propSetupData);
 }
 
 struct ARSmashableProp__016ff4f0 : public ARSmashableProp

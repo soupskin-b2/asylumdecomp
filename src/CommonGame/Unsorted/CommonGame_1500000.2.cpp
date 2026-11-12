@@ -213,7 +213,7 @@ void URReachSpec::execRemoveBlocker(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(UObject, NewUnblocker);
 	P_FINISH;
-	vf_140((INT)NewUnblocker);
+	RemoveBlocker(NewUnblocker);
 }
 
 // @baa 0x0150ce30
@@ -255,7 +255,7 @@ void URBarkFlagBase::execHasTheseFlags(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(URBarkFlagBase, OtherBase);
 	P_FINISH;
-	*(UBOOL*)Result = vf_110((INT)OtherBase);
+	*(UBOOL*)Result = HasTheseFlags(OtherBase);
 }
 
 // @baa 0x0150c350
@@ -263,7 +263,7 @@ void ARPathNode::execIsSafe(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(APawn, TestPawn);
 	P_FINISH;
-	*(UBOOL*)Result = vf_3b0((INT)TestPawn);
+	*(UBOOL*)Result = IsSafe(TestPawn);
 }
 
 // @baa 0x0150c430

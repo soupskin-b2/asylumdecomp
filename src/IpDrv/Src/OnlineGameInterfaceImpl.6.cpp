@@ -43,5 +43,5 @@ void UOnlineGameInterfaceImpl::execFreeSearchResults(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(UOnlineGameSearch, Search);
 	P_FINISH;
-	*(UBOOL*)Result = vf_11c((INT)Search);
+	*(UBOOL*)Result = FreeSearchResults(Search);
 }

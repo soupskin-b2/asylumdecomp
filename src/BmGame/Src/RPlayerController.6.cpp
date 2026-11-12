@@ -1176,7 +1176,7 @@ void ARPlayerController::execStartNewAmbientSound(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(USoundCue, Cue);
 	P_FINISH;
-	vf_518((INT)Cue);
+	StartNewAmbientSound(Cue);
 }
 
 // @baa 0x016f8910
@@ -1184,7 +1184,7 @@ void ARPlayerController::execAmbientSaveToPersistent(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(USoundCue, Cue);
 	P_FINISH;
-	vf_51c((INT)Cue);
+	AmbientSaveToPersistent(Cue);
 }
 
 // @baa 0x016f8980
@@ -1192,7 +1192,7 @@ void ARPlayerController::execMixbinSaveToPersistent(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(UMixBin, Mix);
 	P_FINISH;
-	vf_520((INT)Mix);
+	MixbinSaveToPersistent(Mix);
 }
 
 // @baa 0x016f89f0
@@ -1200,7 +1200,7 @@ void ARPlayerController::execLevelSetRoomMixBin(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(UMixBin, Mix);
 	P_FINISH;
-	vf_524((INT)Mix);
+	LevelSetRoomMixBin(Mix);
 }
 
 // @baa 0x016f9dd0

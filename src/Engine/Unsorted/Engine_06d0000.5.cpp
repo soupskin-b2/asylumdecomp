@@ -76,7 +76,7 @@ void UPrimitiveComponent::execSetLightEnvironment(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(ULightEnvironmentComponent, NewLightEnvironment);
 	P_FINISH;
-	vf_238((INT)NewLightEnvironment);
+	SetLightEnvironment(NewLightEnvironment);
 }
 
 // @baa 0x006dc0a0

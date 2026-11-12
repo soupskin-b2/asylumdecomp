@@ -42,7 +42,7 @@ void ARBMAIController::execShutDownBehaviour(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(URBMBehaviour, BehaviourToExit);
 	P_FINISH;
-	vf_450((INT)BehaviourToExit);
+	ShutDownBehaviour(BehaviourToExit);
 }
 
 // @baa 0x01704b50
@@ -50,7 +50,7 @@ void URSimpleIdleConfig::execFireOutputLink(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(URBMBehaviour_IdleWithPlannarProp, Owner);
 	P_FINISH;
-	vf_10c((INT)Owner);
+	FireOutputLink(Owner);
 }
 
 // @baa 0x01704bc0
@@ -58,7 +58,7 @@ void URIdleWithDeathConfig::execFireDeathLink(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(URBMBehaviour_IdleWithPlannarProp, Owner);
 	P_FINISH;
-	vf_120((INT)Owner);
+	FireDeathLink(Owner);
 }
 
 // @baa 0x01706b60
@@ -66,7 +66,7 @@ void ARForensicsDevice::execEvidenceRegisterDnaSNS(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(ARForensicDnaSplatStaticNonScan, Splat);
 	P_FINISH;
-	vf_358((INT)Splat);
+	EvidenceRegisterDnaSNS(Splat);
 }
 
 // @baa 0x01706bd0
@@ -74,7 +74,7 @@ void ARForensicsDevice::execEvidenceRegisterDnaS(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(ARForensicDnaSplatStatic, Splat);
 	P_FINISH;
-	vf_35c((INT)Splat);
+	EvidenceRegisterDnaS(Splat);
 }
 
 // @baa 0x01706ce0
@@ -82,7 +82,7 @@ void ARForensicsDevice::execEvidenceRegisterDNA(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(ARForensicDnaSplat, Splat);
 	P_FINISH;
-	vf_364((INT)Splat);
+	EvidenceRegisterDNA(Splat);
 }
 
 // @baa 0x01708ff0
@@ -90,7 +90,7 @@ void ARDisruptableObjectDoor::execUpdateSound(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(ARPawnPlayer, Batman);
 	P_FINISH;
-	vf_358((INT)Batman);
+	UpdateSound(Batman);
 }
 
 // @baa 0x01709ad0
@@ -319,7 +319,7 @@ void ARBMAIController::execIsRunningBehaviour(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(URBMBehaviour, TestBehaviour);
 	P_FINISH;
-	*(UBOOL*)Result = vf_40c((INT)TestBehaviour);
+	*(UBOOL*)Result = IsRunningBehaviour(TestBehaviour);
 }
 
 // @baa 0x01704040
@@ -327,7 +327,7 @@ void ARBMAIManager::execCanUpdateCombatCollision(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(ARPawn, TestPawn);
 	P_FINISH;
-	*(UBOOL*)Result = vf_354((INT)TestPawn);
+	*(UBOOL*)Result = CanUpdateCombatCollision(TestPawn);
 }
 
 // @baa 0x01705f50
@@ -359,7 +359,7 @@ void ARLevelTransitionDoorBunkerNativeBase::execIsInActivationRange(FFrame& Stac
 {
 	P_GET_OBJECT(ARPlayerController, PC);
 	P_FINISH;
-	*(UBOOL*)Result = vf_38c((INT)PC);
+	*(UBOOL*)Result = IsInActivationRange(PC);
 }
 
 // @baa 0x017078b0

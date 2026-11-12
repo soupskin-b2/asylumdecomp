@@ -67,13 +67,11 @@ struct C_view {
 };
 
 // @baa 0x01672850
-void ARSmashableProp::vf_354(undefined4 param_2)
+void ARSmashableProp::SetupProp(class URSmashablePropConfig* propSetupData)
 {
-    int param_1 = (int)this;
-  *(undefined4 *)(param_1 + 0x2a4) = param_2;
-  ((C_view *)(this))->sub_0166b6a0();
-  ((C_view *)(this))->sub_0166b820();
-  return;
+    PropData = propSetupData;
+    ((C_view *)(this))->sub_0166b6a0();
+    ((C_view *)(this))->sub_0166b820();
 }
 
 void sub_004025d0(void*);

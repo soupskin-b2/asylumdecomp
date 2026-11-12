@@ -12787,7 +12787,7 @@ struct UPrimitiveComponent : public UActorComponent {
     virtual void vf_22c(UINT); /* 0x22c */
     virtual void vf_230(UINT); /* 0x230 */
     virtual void vf_234(UPrimitiveComponent*); /* 0x234 */
-    virtual void vf_238(UINT); /* 0x238 */
+    virtual void SetLightEnvironment(class ULightEnvironmentComponent* NewLightEnvironment); /* 0x238 */
     virtual void vf_23c(FLOAT); /* 0x23c */
     virtual void vf_240(UINT); /* 0x240 */
     virtual void vf_244(BYTE); /* 0x244 */
@@ -15290,7 +15290,7 @@ struct AController : public AActor {
     virtual void vf_358(); /* 0x358 */
     virtual INT vf_35c(class ANavigationPoint*); /* 0x35c */
     virtual void vf_360(INT, INT); /* 0x360 */
-    virtual INT vf_364(INT); /* 0x364 */
+    virtual INT RouteCache_RemoveItem(class ANavigationPoint* Nav); /* 0x364 */
     virtual INT vf_368(INT, INT); /* 0x368 */
     virtual void vf_36c(INT, INT, INT, INT, INT); /* 0x36c */
     virtual INT vf_370(); /* 0x370 */
@@ -15667,7 +15667,7 @@ struct UReachSpec : public UObject {
     FVector RealStartPos; /* 0x78 */
     FVector RealEndPos; /* 0x84 */
     /* virtual functions this class introduces (vtable 0x01eff6f0) */
-    virtual INT vf_10c(INT); /* 0x10c */
+    virtual INT CostFor(class APawn* P); /* 0x10c */
     virtual INT vf_110(); /* 0x110 */
     virtual INT vf_114(INT, INT, INT, INT); /* 0x114 */
     virtual UINT vf_118(INT); /* 0x118 */
@@ -15697,7 +15697,7 @@ struct UAdvancedReachSpec : public UReachSpec {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(INT); /* 0x10c */
+    virtual INT CostFor(class APawn* P); /* 0x10c */
     virtual INT vf_128(INT); /* 0x128 */
     /* registered size 0x90 */
 };
@@ -15813,8 +15813,8 @@ struct ANavigationPoint : public AActor {
     class AActor* BlockingActor; /* 0x278 */
     class UClass* DefaultReachSpecClass; /* 0x27c */
     /* virtual functions this class introduces (vtable 0x01f03ae8) */
-    virtual INT vf_354(INT); /* 0x354 */
-    virtual UINT vf_358(INT); /* 0x358 */
+    virtual UBOOL IsUsableAnchorFor(class APawn* P); /* 0x354 */
+    virtual UBOOL CanTeleport(class AActor* A); /* 0x358 */
     virtual INT vf_35c(INT, INT); /* 0x35c */
     virtual INT vf_360(INT); /* 0x360 */
     virtual void vf_364(INT, INT); /* 0x364 */
@@ -18468,7 +18468,7 @@ struct UCeilingReachSpec : public UReachSpec {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(INT); /* 0x10c */
+    virtual INT CostFor(class APawn* P); /* 0x10c */
     virtual INT vf_114(INT, INT, INT, INT); /* 0x114 */
     /* registered size 0x90 */
 };
@@ -19217,7 +19217,7 @@ struct UForcedReachSpec : public UReachSpec {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(INT); /* 0x10c */
+    virtual INT CostFor(class APawn* P); /* 0x10c */
     virtual UINT vf_118(INT); /* 0x118 */
     virtual INT vf_11c(); /* 0x11c */
     virtual INT vf_128(INT); /* 0x128 */
@@ -19231,7 +19231,7 @@ struct UCoverSlipReachSpec : public UForcedReachSpec {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(INT); /* 0x10c */
+    virtual INT CostFor(class APawn* P); /* 0x10c */
     virtual INT vf_134(INT, INT, INT, INT); /* 0x134 */
     /* registered size 0x94 */
 };
@@ -21980,7 +21980,7 @@ struct UFloorToCeilingReachSpec : public UForcedReachSpec {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(INT); /* 0x10c */
+    virtual INT CostFor(class APawn* P); /* 0x10c */
     virtual INT vf_114(INT, INT, INT, INT); /* 0x114 */
     /* registered size 0x90 */
 };
@@ -25062,7 +25062,7 @@ struct ULadderReachSpec : public UReachSpec {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(INT); /* 0x10c */
+    virtual INT CostFor(class APawn* P); /* 0x10c */
     virtual INT vf_128(INT); /* 0x128 */
     /* registered size 0x90 */
 };
@@ -25886,7 +25886,7 @@ struct UMantleReachSpec : public UForcedReachSpec {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(INT); /* 0x10c */
+    virtual INT CostFor(class APawn* P); /* 0x10c */
     virtual INT vf_134(INT, INT, INT, INT); /* 0x134 */
     virtual UINT vf_138(INT); /* 0x138 */
     /* registered size 0x94 */
@@ -27294,7 +27294,7 @@ struct UMaterialInstance : public UMaterialInterface {
     FPointer Resources[2]; /* 0x5c */
     TArrayNoInit<class UTexture*> ReferencedTextures; /* 0x64 */
     /* virtual functions this class introduces (vtable 0x01ed1098) */
-    virtual void vf_160(INT); /* 0x160 */
+    virtual void SetParent(class UMaterialInterface* NewParent); /* 0x160 */
     virtual void vf_164(INT, INT, INT, INT, INT, INT); /* 0x164 */
     virtual void vf_168(INT, INT, INT); /* 0x168 */
     virtual void vf_16c(INT, INT, INT, INT, INT, INT); /* 0x16c */
@@ -27371,7 +27371,7 @@ struct UMaterialInstanceConstant : public UMaterialInstance {
     virtual INT vf_118(INT, INT, INT); /* 0x118 */
     virtual INT vf_120(INT, INT, INT); /* 0x120 */
     virtual INT vf_124(INT, INT, INT); /* 0x124 */
-    virtual void vf_160(INT); /* 0x160 */
+    virtual void SetParent(class UMaterialInterface* NewParent); /* 0x160 */
     virtual void vf_164(INT, INT, INT, INT, INT, INT); /* 0x164 */
     virtual void vf_168(INT, INT, INT); /* 0x168 */
     virtual void vf_170(INT, INT, INT); /* 0x170 */
@@ -27428,7 +27428,7 @@ struct UMaterialInstanceTimeVarying : public UMaterialInstance {
     virtual INT vf_120(INT, INT, INT); /* 0x120 */
     virtual INT vf_124(INT, INT, INT); /* 0x124 */
     virtual INT vf_128(INT, INT, INT); /* 0x128 */
-    virtual void vf_160(INT); /* 0x160 */
+    virtual void SetParent(class UMaterialInterface* NewParent); /* 0x160 */
     virtual void vf_164(INT, INT, INT, INT, INT, INT); /* 0x164 */
     virtual void vf_168(INT, INT, INT); /* 0x168 */
     virtual void vf_16c(INT, INT, INT, INT, INT, INT); /* 0x16c */
@@ -30594,7 +30594,7 @@ struct UPath_AvoidInEscapableNodes : public UPathConstraint {
     INT MaxFallSpeed; /* 0x40 */
     INT MoveFlags; /* 0x44 */
     /* virtual functions this class introduces (vtable 0x01f5da08) */
-    virtual INT vf_110(INT); /* 0x110 */
+    virtual INT CachePawnReacFlags(class APawn* P); /* 0x110 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -30861,13 +30861,13 @@ struct APawn : public AActor {
     virtual UINT vf_354(); /* 0x354 */
     virtual INT vf_358(INT, INT, INT, INT, INT); /* 0x358 */
     virtual INT vf_35c(INT, INT, INT, INT, INT, INT, INT); /* 0x35c */
-    virtual INT vf_360(INT); /* 0x360 */
+    virtual UBOOL IsValidTargetFor(class AController* C); /* 0x360 */
     virtual UINT vf_364(INT, UINT); /* 0x364 */
     virtual INT vf_368(); /* 0x368 */
     virtual INT vf_36c(INT); /* 0x36c */
     virtual INT vf_370(INT, INT, INT, INT, INT, INT, INT); /* 0x370 */
     virtual INT vf_374(INT, INT, INT); /* 0x374 */
-    virtual INT vf_378(INT); /* 0x378 */
+    virtual UBOOL ReachedDestination(class AActor* Goal); /* 0x378 */
     virtual INT vf_37c(INT, INT, INT, INT); /* 0x37c */
     virtual void vf_380(); /* 0x380 */
     virtual void SetPushesRigidBodies(UBOOL NewPush); /* 0x384 */
@@ -30879,10 +30879,10 @@ struct APawn : public AActor {
     virtual INT vf_39c(); /* 0x39c */
     virtual void vf_3a0(); /* 0x3a0 */
     virtual INT vf_3a4(UPathConstraint*); /* 0x3a4 */
-    virtual void vf_3a8(INT); /* 0x3a8 */
+    virtual void AddGoalEvaluator(class UPathGoalEvaluator* Evaluator); /* 0x3a8 */
     virtual void vf_3ac(INT, INT); /* 0x3ac */
     virtual void vf_3b0(INT, INT); /* 0x3b0 */
-    virtual void vf_3b4(INT); /* 0x3b4 */
+    virtual void DrawPathStep(class UCanvas* C); /* 0x3b4 */
     virtual void vf_3b8(); /* 0x3b8 */
     virtual void vf_3bc(INT, INT, INT, INT); /* 0x3bc */
     virtual FLOAT vf_3c0(INT, INT, INT, INT); /* 0x3c0 */
@@ -31478,7 +31478,7 @@ struct APortalMarker : public ANavigationPoint {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_2ac(INT, UINT, UINT); /* 0x2ac */
-    virtual UINT vf_358(INT); /* 0x358 */
+    virtual UBOOL CanTeleport(class AActor* A); /* 0x358 */
     virtual void vf_364(INT, INT); /* 0x364 */
     /* registered size 0x284 */
 };
@@ -31922,7 +31922,7 @@ struct UProscribedReachSpec : public UReachSpec {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(INT); /* 0x10c */
+    virtual INT CostFor(class APawn* P); /* 0x10c */
     virtual INT vf_120(); /* 0x120 */
     virtual INT vf_128(INT); /* 0x128 */
     /* registered size 0x90 */
@@ -35891,7 +35891,7 @@ struct USlotToSlotReachSpec : public UForcedReachSpec {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(INT); /* 0x10c */
+    virtual INT CostFor(class APawn* P); /* 0x10c */
     virtual UINT vf_118(INT); /* 0x118 */
     virtual INT vf_124(INT, INT, INT); /* 0x124 */
     virtual UINT vf_138(INT); /* 0x138 */
@@ -36573,7 +36573,7 @@ struct USwatTurnReachSpec : public UForcedReachSpec {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(INT); /* 0x10c */
+    virtual INT CostFor(class APawn* P); /* 0x10c */
     virtual INT vf_124(INT, INT, INT); /* 0x124 */
     virtual INT vf_134(INT, INT, INT, INT); /* 0x134 */
     /* registered size 0x94 */
@@ -36621,7 +36621,7 @@ struct ATeleporter : public ANavigationPoint {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual UINT vf_358(INT); /* 0x358 */
+    virtual UBOOL CanTeleport(class AActor* A); /* 0x358 */
     virtual void vf_364(INT, INT); /* 0x364 */
     /* UnrealScript natives */
     void execCanTeleport(FFrame& Stack, RESULT_DECL); /* 0x00c88030 */
@@ -36634,7 +36634,7 @@ struct UTeleportReachSpec : public UReachSpec {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(INT); /* 0x10c */
+    virtual INT CostFor(class APawn* P); /* 0x10c */
     /* registered size 0x90 */
 };
 
@@ -38293,7 +38293,7 @@ struct UWallTransReachSpec : public UForcedReachSpec {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(INT); /* 0x10c */
+    virtual INT CostFor(class APawn* P); /* 0x10c */
     /* registered size 0x90 */
 };
 
@@ -39221,7 +39221,7 @@ struct UOnlineGameInterfaceImpl : public UObject {
     virtual UBOOL DestroyOnlineGame(FName SessionName); /* 0x110 */
     virtual INT vf_114(INT, INT); /* 0x114 */
     virtual INT vf_118(); /* 0x118 */
-    virtual INT vf_11c(INT); /* 0x11c */
+    virtual UBOOL FreeSearchResults(class UOnlineGameSearch* Search); /* 0x11c */
     virtual INT vf_120(INT, INT, INT, INT); /* 0x120 */
     virtual INT vf_124(INT, INT, INT); /* 0x124 */
     virtual UBOOL StartOnlineGame(FName SessionName); /* 0x128 */
@@ -39503,7 +39503,7 @@ struct URBarkFlagBase : public UObject {
     TArrayNoInit<FBarkFlag> FlagList; /* 0x30 */
     /* virtual functions this class introduces (vtable 0x022e0cc0) */
     virtual INT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT); /* 0x110 */
+    virtual UBOOL HasTheseFlags(class URBarkFlagBase* OtherBase); /* 0x110 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -39858,7 +39858,7 @@ struct URReachSpec : public UReachSpec {
     TArrayNoInit<class UObject*> PathBlockers; /* 0x90 */
     /* virtual functions this class introduces (vtable 0x022e6688) */
     virtual INT vf_13c(UObject*); /* 0x13c */
-    virtual INT vf_140(INT); /* 0x140 */
+    virtual INT RemoveBlocker(class UObject* NewUnblocker); /* 0x140 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -39888,8 +39888,8 @@ struct URInteractionManager : public UComponent {
     TArrayNoInit<class URInteractionClass*> ReferencedClasses; /* 0x78 */
     /* virtual functions this class introduces (vtable 0x022e91e0) */
     virtual INT GetInteractionClass(FName ClassName); /* 0x110 */
-    virtual void vf_114(INT); /* 0x114 */
-    virtual void vf_118(INT); /* 0x118 */
+    virtual void RegisterNewActor(class URInteractionComponent* NewActor); /* 0x114 */
+    virtual void UnRegisterActor(class URInteractionComponent* OldActor); /* 0x118 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -40070,7 +40070,7 @@ struct ARPathNode : public APathNode {
     TArrayNoInit<FLOAT> LastSeenTime; /* 0x290 */
     TArrayNoInit<class APhysicsVolume*> AllPhysVolumes; /* 0x29c */
     /* virtual functions this class introduces (vtable 0x022e77e0) */
-    virtual INT vf_3b0(INT); /* 0x3b0 */
+    virtual UBOOL IsSafe(class APawn* TestPawn); /* 0x3b0 */
     virtual FLOAT vf_3b4(INT); /* 0x3b4 */
     virtual FLOAT vf_3b8(INT); /* 0x3b8 */
     /* overrides */
@@ -42558,7 +42558,7 @@ struct ARAudioPoint : public AActor {
     FLOAT setV; /* 0x1dc */
     FLOAT oldSetV; /* 0x1e0 */
     /* virtual functions this class introduces (vtable 0x02306548) */
-    virtual INT vf_354(INT); /* 0x354 */
+    virtual INT BuildNodes(class UAudioComponent* AC); /* 0x354 */
     virtual INT vf_358(INT, INT); /* 0x358 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
@@ -43534,7 +43534,7 @@ struct ARBMAIController : public AAIController {
     FLOAT LastCheckUnconsciousThugTime; /* 0x438 */
     /* virtual functions this class introduces (vtable 0x02334150) */
     virtual INT vf_408(INT); /* 0x408 */
-    virtual INT vf_40c(INT); /* 0x40c */
+    virtual UBOOL IsRunningBehaviour(class URBMBehaviour* TestBehaviour); /* 0x40c */
     virtual bool vf_410(INT, INT); /* 0x410 */
     virtual INT vf_414(INT, INT, INT, INT); /* 0x414 */
     virtual bool vf_418(INT, INT, INT, INT, INT, INT); /* 0x418 */
@@ -43551,7 +43551,7 @@ struct ARBMAIController : public AAIController {
     virtual void vf_444(); /* 0x444 */
     virtual UINT vf_448(); /* 0x448 */
     virtual INT vf_44c(FLOAT); /* 0x44c */
-    virtual INT vf_450(INT); /* 0x450 */
+    virtual INT ShutDownBehaviour(class URBMBehaviour* BehaviourToExit); /* 0x450 */
     virtual void vf_454(); /* 0x454 */
     virtual INT vf_458(); /* 0x458 */
     virtual INT vf_45c(); /* 0x45c */
@@ -43705,7 +43705,7 @@ struct ARBMAIManager : public AActor {
     TArrayNoInit<FLOAT> PredFiringCountDamageMultiplier; /* 0x270 */
     TArrayNoInit<class AActor*> InvestigateMovePoints; /* 0x27c */
     /* virtual functions this class introduces (vtable 0x023354f0) */
-    virtual INT vf_354(INT); /* 0x354 */
+    virtual UBOOL CanUpdateCombatCollision(class ARPawn* TestPawn); /* 0x354 */
     virtual INT vf_358(); /* 0x358 */
     virtual INT vf_35c(FLOAT); /* 0x35c */
     virtual void vf_360(); /* 0x360 */
@@ -45989,7 +45989,7 @@ struct ARBMDebugCameraController : public ARDebugCameraController {
     class ARPlayerController* RPC; /* 0x5ec */
     class USequenceAction* FakeCrashAction; /* 0x5f0 */
     /* virtual functions this class introduces (vtable 0x0234bad8) */
-    virtual INT vf_46c(INT); /* 0x46c */
+    virtual INT UpdateBatmansCapeInternal(class URCapeComponent* CapeComponent); /* 0x46c */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -47029,7 +47029,7 @@ struct URBMRouterPath : public UObject {
     virtual INT vf_12c(INT, INT, INT, INT, INT); /* 0x12c */
     virtual INT vf_130(); /* 0x130 */
     virtual void AddNode_Pos(FVector NewPathNode); /* 0x134 */
-    virtual INT vf_138(INT); /* 0x138 */
+    virtual INT AddNode_Actor(class AActor* NewPathNode); /* 0x138 */
     virtual INT vf_13c(INT, INT, INT, INT); /* 0x13c */
     virtual INT vf_140(INT, INT); /* 0x140 */
     virtual FLOAT GetPathLength(FVector CurrentPos); /* 0x144 */
@@ -48385,7 +48385,7 @@ struct ARCombatMove_BatmanStrike : public ARCombatMove_BatmanAttack {
     virtual INT vf_368(INT, INT); /* 0x368 */
     virtual INT GetScoreForTimeSinceUse(FStrikeInfo TestStrike); /* 0x36c */
     virtual INT GetScoreForStrikeSpeed(FStrikeInfo TestStrike); /* 0x370 */
-    virtual INT vf_374(INT); /* 0x374 */
+    virtual UBOOL CanHitPawn(class ARPawnCombat* TargetPawn); /* 0x374 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -49389,7 +49389,7 @@ struct ARCrowdAgent : public AActor {
     INT FlockID; /* 0x214 */
     class ARCrowdSequence* CrowdSequence; /* 0x218 */
     /* virtual functions this class introduces (vtable 0x023a36f8) */
-    virtual INT vf_354(INT); /* 0x354 */
+    virtual UBOOL CanRespondToAttractor(class ARCrowdAttractor* Attractor); /* 0x354 */
     virtual void vf_358(INT, INT); /* 0x358 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
@@ -49748,7 +49748,7 @@ struct ARDisruptableObjectDoor : public AActor {
     FLOAT sizeM; /* 0x1d8 */
     /* virtual functions this class introduces (vtable 0x023ce640) */
     virtual FLOAT vf_354(INT, INT, INT, INT); /* 0x354 */
-    virtual INT vf_358(INT); /* 0x358 */
+    virtual INT UpdateSound(class ARPawnPlayer* Batman); /* 0x358 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -50772,10 +50772,10 @@ struct ARForensicsDevice : public AInventory {
     FLOAT TimeSinceLastForensicsRequest; /* 0x280 */
     /* virtual functions this class introduces (vtable 0x02377f80) */
     virtual UINT vf_354(); /* 0x354 */
-    virtual INT vf_358(INT); /* 0x358 */
-    virtual INT vf_35c(INT); /* 0x35c */
+    virtual INT EvidenceRegisterDnaSNS(class ARForensicDnaSplatStaticNonScan* Splat); /* 0x358 */
+    virtual INT EvidenceRegisterDnaS(class ARForensicDnaSplatStatic* Splat); /* 0x35c */
     virtual void vf_360(INT, INT); /* 0x360 */
-    virtual INT vf_364(INT); /* 0x364 */
+    virtual INT EvidenceRegisterDNA(class ARForensicDnaSplat* Splat); /* 0x364 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -51218,7 +51218,7 @@ struct ARGameRI : public ARGameReplicationInfoBase {
     virtual void ShowLoadingIcon(UBOOL bShow); /* 0x390 */
     virtual void vf_394(INT); /* 0x394 */
     virtual UBOOL IsCurrentLevel(FName Level); /* 0x398 */
-    virtual INT vf_39c(INT); /* 0x39c */
+    virtual UBOOL IsInCurrentLevel(class UObject* Obj); /* 0x39c */
     virtual INT vf_3a0(INT); /* 0x3a0 */
     virtual INT vf_3a4(); /* 0x3a4 */
     virtual UINT vf_3a8(); /* 0x3a8 */
@@ -52136,7 +52136,7 @@ struct ARSmashableProp : public ARKActorSpawnable {
     class UMaterialInterface* XRayMetalMaterial; /* 0x334 */
     class ARShockNoise_AlertProxy* AlertProxy; /* 0x338 */
     /* virtual functions this class introduces (vtable 0x02377200) */
-    virtual void vf_354(UINT); /* 0x354 */
+    virtual void SetupProp(class URSmashablePropConfig* propSetupData); /* 0x354 */
     virtual INT vf_358(INT, INT, INT, INT, INT, INT); /* 0x358 */
     virtual void vf_35c(); /* 0x35c */
     virtual void SetLightEnvironment(UDynamicLightEnvironmentComponent* NewLightEnvironment); /* 0x360 */
@@ -52433,7 +52433,7 @@ struct URIdleConfig : public URConfig {
     BITFIELD bUseSpineAiming : 1; /* 0x88 */
     BYTE IdleRelativeStyle; /* 0x8c */
     /* virtual functions this class introduces (vtable 0x02344c08) */
-    virtual void vf_10c(INT); /* 0x10c */
+    virtual void FireOutputLink(class URBMBehaviour_IdleWithPlannarProp* Owner); /* 0x10c */
     virtual void vf_110(INT); /* 0x110 */
     virtual void vf_114(INT); /* 0x114 */
     /* overrides */
@@ -52462,7 +52462,7 @@ struct URSimpleIdleConfig : public URIdleConfig {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_10c(INT); /* 0x10c */
+    virtual void FireOutputLink(class URBMBehaviour_IdleWithPlannarProp* Owner); /* 0x10c */
     virtual void vf_110(INT); /* 0x110 */
     virtual void vf_114(INT); /* 0x114 */
     /* UnrealScript natives */
@@ -52484,7 +52484,7 @@ struct URIdleTransitionConfig : public URSimpleIdleConfig {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_10c(INT); /* 0x10c */
+    virtual void FireOutputLink(class URBMBehaviour_IdleWithPlannarProp* Owner); /* 0x10c */
     virtual void vf_118(INT, INT); /* 0x118 */
     virtual void vf_11c(INT); /* 0x11c */
     /* registered size 0x104 */
@@ -52496,7 +52496,7 @@ struct URIdleWithDeathConfig : public URSimpleIdleConfig {
     FLOAT TimeInToDie; /* 0xc4 */
     INT DeathLink; /* 0xc8 */
     /* virtual functions this class introduces (vtable 0x02345560) */
-    virtual INT vf_120(INT); /* 0x120 */
+    virtual INT FireDeathLink(class URBMBehaviour_IdleWithPlannarProp* Owner); /* 0x120 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -53056,7 +53056,7 @@ struct ARLevelTransitionDoorBunkerNativeBase : public ARLevelTransition {
     class ARBunkerDoorVillainBlocker* VillainBlocker; /* 0x224 */
     /* virtual functions this class introduces (vtable 0x02307a08) */
     virtual UINT vf_388(); /* 0x388 */
-    virtual INT vf_38c(INT); /* 0x38c */
+    virtual UBOOL IsInActivationRange(class ARPlayerController* PC); /* 0x38c */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -53365,7 +53365,7 @@ struct URPairedIdleConfig : public URSimpleIdleConfig {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_10c(INT); /* 0x10c */
+    virtual void FireOutputLink(class URBMBehaviour_IdleWithPlannarProp* Owner); /* 0x10c */
     virtual void vf_118(INT, INT); /* 0x118 */
     virtual void vf_11c(INT); /* 0x11c */
     /* registered size 0x174 */
@@ -54089,7 +54089,7 @@ struct ARPawnPlayerCombat : public ARPawnPlayerAnim {
     virtual void vf_654(INT, INT, INT, INT, INT); /* 0x654 */
     virtual INT vf_658(INT, INT, INT, INT, INT); /* 0x658 */
     virtual INT vf_65c(INT, INT); /* 0x65c */
-    virtual FLOAT vf_660(INT); /* 0x660 */
+    virtual FLOAT GetStrikeContactTime(class UAnimSequence* StrikeAnimSequence); /* 0x660 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -55210,10 +55210,10 @@ struct ARPlayerController : public ARPlayerControllerBase {
     virtual DOUBLE vf_50c(); /* 0x50c */
     virtual DOUBLE vf_510(); /* 0x510 */
     virtual INT vf_514(class USoundCue* Cue); /* 0x514 */
-    virtual INT vf_518(INT); /* 0x518 */
-    virtual INT vf_51c(INT); /* 0x51c */
-    virtual INT vf_520(INT); /* 0x520 */
-    virtual INT vf_524(INT); /* 0x524 */
+    virtual INT StartNewAmbientSound(class USoundCue* Cue); /* 0x518 */
+    virtual INT AmbientSaveToPersistent(class USoundCue* Cue); /* 0x51c */
+    virtual INT MixbinSaveToPersistent(class UMixBin* Mix); /* 0x520 */
+    virtual INT LevelSetRoomMixBin(class UMixBin* Mix); /* 0x524 */
     virtual void vf_528(FLOAT, FRotator&, FRotator); /* 0x528 */
     virtual INT vf_52c(); /* 0x52c */
     virtual void vf_530(FLOAT); /* 0x530 */
@@ -57859,7 +57859,7 @@ struct URSeqAct_PlayTVSequenceBase : public URSeqAct_PlaySpeechConversation {
     class UTexture* TV_MainSequenceTexture; /* 0x154 */
     class UTexture* TV_SequenceFinishedTexture; /* 0x158 */
     /* virtual functions this class introduces (vtable 0x0230fc10) */
-    virtual INT vf_1a8(INT); /* 0x1a8 */
+    virtual INT StopMovieTexture(class UTextureMovie* NewTexture); /* 0x1a8 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -57880,7 +57880,7 @@ struct URSeqAct_PlayTVSequenceSingleLine : public URBMSeqAct_PlaySpeech {
     BITFIELD bAddDistortionFX : 1; /* 0x10c */
     BITFIELD bStopMainMovieWhenConversationFinished : 1; /* 0x10c */
     /* virtual functions this class introduces (vtable 0x0230f368) */
-    virtual INT vf_1a0(INT); /* 0x1a0 */
+    virtual INT StopMovieTexture(class UTextureMovie* NewTexture); /* 0x1a0 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */

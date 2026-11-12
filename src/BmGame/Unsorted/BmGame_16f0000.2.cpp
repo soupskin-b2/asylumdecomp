@@ -620,7 +620,7 @@ void ARAudioPoint::execBuildNodes(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(UAudioComponent, AC);
 	P_FINISH;
-	vf_354((INT)AC);
+	BuildNodes(AC);
 }
 
 // @baa 0x016fcb80
@@ -628,7 +628,7 @@ void URSeqAct_PlayTVSequenceSingleLine::execStopMovieTexture(FFrame& Stack, RESU
 {
 	P_GET_OBJECT(UTextureMovie, NewTexture);
 	P_FINISH;
-	vf_1a0((INT)NewTexture);
+	StopMovieTexture(NewTexture);
 }
 
 // @baa 0x016fce90
@@ -636,7 +636,7 @@ void URSeqAct_PlayTVSequenceBase::execStopMovieTexture(FFrame& Stack, RESULT_DEC
 {
 	P_GET_OBJECT(UTextureMovie, NewTexture);
 	P_FINISH;
-	vf_1a8((INT)NewTexture);
+	StopMovieTexture(NewTexture);
 }
 
 // @baa 0x016fe2d0
@@ -668,7 +668,7 @@ void URBMRouterPath::execAddNode_Actor(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(AActor, NewPathNode);
 	P_FINISH;
-	vf_138((INT)NewPathNode);
+	AddNode_Actor(NewPathNode);
 }
 
 // @baa 0x016febf0
@@ -708,7 +708,7 @@ void ARBMDebugCameraController::execUpdateBatmansCapeInternal(FFrame& Stack, RES
 {
 	P_GET_OBJECT(URCapeComponent, CapeComponent);
 	P_FINISH;
-	vf_46c((INT)CapeComponent);
+	UpdateBatmansCapeInternal(CapeComponent);
 }
 
 struct ARPawnCombat__016f5f20 : public ARPawnCombat
@@ -995,7 +995,7 @@ void ARPawnPlayerCombat::execGetStrikeContactTime(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(UAnimSequence, StrikeAnimSequence);
 	P_FINISH;
-	*(FLOAT*)Result = vf_660((INT)StrikeAnimSequence);
+	*(FLOAT*)Result = GetStrikeContactTime(StrikeAnimSequence);
 }
 
 // @baa 0x016f7c50
@@ -1003,7 +1003,7 @@ void ARCombatMove_BatmanStrike::execCanHitPawn(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(ARPawnCombat, TargetPawn);
 	P_FINISH;
-	*(UBOOL*)Result = vf_374((INT)TargetPawn);
+	*(UBOOL*)Result = CanHitPawn(TargetPawn);
 }
 
 // @baa 0x016f01f0

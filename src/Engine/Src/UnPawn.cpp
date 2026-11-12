@@ -1175,7 +1175,7 @@ void APawn::vf_3ac(int a0, int a1) {  }
 void APawn::vf_3b0(int a0, int a1) {  }
 
 // @baa 0x008a6860
-void APawn::vf_3b4(int a0) {  }
+void APawn::DrawPathStep(class UCanvas* a0) {  }
 
 // @baa 0x008a6870
 void APawn::vf_3b8(void) {  }

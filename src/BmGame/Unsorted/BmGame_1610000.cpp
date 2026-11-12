@@ -217,7 +217,7 @@ void URIdleConfig::vf_110(int a0) {  }
 void URIdleConfig::vf_114(int a0) {  }
 
 // @baa 0x01611f90
-void URIdleConfig::vf_10c(int a0) {  }
+void URIdleConfig::FireOutputLink(class URBMBehaviour_IdleWithPlannarProp* a0) {  }
 
 // @baa 0x01611fa0
 IMPLEMENT_CLASS_AT(ARJokerTannoy, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RJokerTannoy.cpp", 4);

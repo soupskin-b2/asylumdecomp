@@ -408,7 +408,7 @@ void ARGameRI::execIsInCurrentLevel(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(UObject, Obj);
 	P_FINISH;
-	*(UBOOL*)Result = vf_39c((INT)Obj);
+	*(UBOOL*)Result = IsInCurrentLevel(Obj);
 }
 
 // @baa 0x016e96b0
@@ -416,7 +416,7 @@ void ARCrowdAgent::execCanRespondToAttractor(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(ARCrowdAttractor, Attractor);
 	P_FINISH;
-	*(UBOOL*)Result = vf_354((INT)Attractor);
+	*(UBOOL*)Result = CanRespondToAttractor(Attractor);
 }
 
 // @baa 0x016e9830

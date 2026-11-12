@@ -170,7 +170,7 @@ void AController::execRouteCache_RemoveItem(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(ANavigationPoint, Nav);
 	P_FINISH;
-	vf_364((INT)Nav);
+	RouteCache_RemoveItem(Nav);
 }
 
 // @baa 0x00c84020

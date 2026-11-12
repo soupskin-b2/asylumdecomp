@@ -147,7 +147,7 @@ void UPath_AvoidInEscapableNodes::execCachePawnReacFlags(FFrame& Stack, RESULT_D
 {
 	P_GET_OBJECT(APawn, P);
 	P_FINISH;
-	vf_110((INT)P);
+	CachePawnReacFlags(P);
 }
 
 struct AFracturedStaticMeshActor_ : public AFracturedStaticMeshActor

@@ -1922,14 +1922,14 @@ void UPrimitiveComponent::vf_234(UPrimitiveComponent* NewShadowParent)
 }
 
 // @baa 0x006dbfd0
-void UPrimitiveComponent::vf_238(undefined4 param_2)
+void UPrimitiveComponent::SetLightEnvironment(class ULightEnvironmentComponent* param_2)
 {
     int param_1 = (int)this;
 
   if ((*(byte *)(param_1 + 0x44) & 1) != 0) {
-    *(undefined4 *)(param_1 + 0x120) = *(undefined4 *)(param_1 + 0x11c);
+    PreviousLightEnvironment = LightEnvironment;
   }
-  *(undefined4 *)(param_1 + 0x11c) = param_2;
+  LightEnvironment = param_2;
   sub_00765d00();
   return;
 }
@@ -2457,37 +2457,19 @@ DWORD* S_006dffb0::sub_006dffb0(INT Index)
     return &Items(Index);
 }
 
-struct UMaterialInstanceConstant_ : public UMaterialInstanceConstant
-{
-	/* UMaterialInstance's parameter bookkeeping that takes the name of the caller it was reached
-	 * through (0x006c47c0), and its SetParent (0x006aef90). */
-	void sub_006c47c0(const TCHAR* Caller);
-	void sub_006aef90(class UMaterialInterface* NewParent);
-	void SetParent(class UMaterialInterface* NewParent);
-};
-
 // @baa 0x006d8b90
-void UMaterialInstanceConstant_::SetParent( class UMaterialInterface* NewParent )
+void UMaterialInstanceConstant::SetParent(class UMaterialInterface* NewParent)
 {
 	sub_006c47c0(TEXT("MIC::SetParent"));
-	sub_006aef90(NewParent);
+	UMaterialInstance::SetParent(NewParent);
 	vf_180();
 }
 
-struct UMaterialInstanceTimeVarying_ : public UMaterialInstanceTimeVarying
-{
-	/* UMaterialInstance's parameter bookkeeping that takes the name of the caller it was reached
-	 * through (0x006c47c0), and its SetParent (0x006aef90). */
-	void sub_006c47c0(const TCHAR* Caller);
-	void sub_006aef90(class UMaterialInterface* NewParent);
-	void SetParent(class UMaterialInterface* NewParent);
-};
-
 // @baa 0x006d8ef0
-void UMaterialInstanceTimeVarying_::SetParent( class UMaterialInterface* NewParent )
+void UMaterialInstanceTimeVarying::SetParent(class UMaterialInterface* NewParent)
 {
 	sub_006c47c0(TEXT("MITV::SetParent"));
-	sub_006aef90(NewParent);
+	UMaterialInstance::SetParent(NewParent);
 	vf_180();
 }
 

@@ -318,19 +318,17 @@ int sub_00889cd0(int a0, int a1, int a2, int a3) { return a3; }
 int sub_00889ce0(int a0, int a1, int a2, int a3) { return a3; }
 
 // @baa 0x0088a740
-int ULadderReachSpec::vf_10c(int param_2)
+INT ULadderReachSpec::CostFor(class APawn* P)
 {
-    int param_1 = (int)this;
-
-  if ((((*(uint *)(param_2 + 0x1c8) & 0x4000) == 0) && (*(char *)(param_2 + 0x90) != '\x04')) &&
-     (*(char *)(param_2 + 0x90) != '\n')) {
-    return 10000000;
-  }
-  return *(int *)(*(int *)(param_1 + 0x48) + 0x228) + *(int *)(param_1 + 0x34);
+    if (!P->bCanClimbLadders && P->Physics != PHYS_Flying && P->Physics != PHYS_RigidBody)
+    {
+        return 10000000;  // UCONST_BLOCKEDPATHCOST
+    }
+    return ((ANavigationPoint*)End.Actor)->Cost + Distance;  // End is a nav point (~End in UE3)
 }
 
 // @baa 0x0088a780
-int UProscribedReachSpec::vf_10c(int a0) { return 10000000; }
+INT UProscribedReachSpec::CostFor(class APawn* a0) { return 10000000; }
 
 // @baa 0x0088a830
 undefined4 USlotToSlotReachSpec::vf_138(int param_2)
@@ -345,11 +343,11 @@ undefined4 USlotToSlotReachSpec::vf_138(int param_2)
 }
 
 struct C_view {
-    int sub_0088a360(int);
+    int sub_0088a360(class APawn*);
 };
 
 // @baa 0x0088a860
-INT USwatTurnReachSpec::vf_10c(INT param_2) {
+INT USwatTurnReachSpec::CostFor(class APawn* param_2) {
     int param_1 = (int)this;
   int iVar1;
   iVar1 = ((C_view *)(this))->sub_0088a360(param_2);

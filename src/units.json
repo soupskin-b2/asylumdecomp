@@ -17076,7 +17076,7 @@
     {
      "va": "01672850",
      "size": 29,
-     "symbol": "?vf_354@ARSmashableProp@@UAEXI@Z"
+     "symbol": "?SetupProp@ARSmashableProp@@UAEXPAUURSmashablePropConfig@@@Z"
     },
     {
      "va": "01676e40",
@@ -35547,7 +35547,7 @@
     {
      "va": "01611f90",
      "size": 3,
-     "symbol": "?vf_10c@URIdleConfig@@UAEXH@Z"
+     "symbol": "?FireOutputLink@URIdleConfig@@UAEXPAUURBMBehaviour_IdleWithPlannarProp@@@Z"
     },
     {
      "va": "01611fa0",
@@ -161633,7 +161633,7 @@
     {
      "va": "006aef90",
      "size": 10,
-     "symbol": "?vf_160@UMaterialInstance@@UAEXH@Z"
+     "symbol": "?SetParent@UMaterialInstance@@UAEXPAUUMaterialInterface@@@Z"
     },
     {
      "va": "006aefa0",
@@ -196867,7 +196867,7 @@
     {
      "va": "008a6860",
      "size": 3,
-     "symbol": "?vf_3b4@APawn@@UAEXH@Z"
+     "symbol": "?DrawPathStep@APawn@@UAEXPAUUCanvas@@@Z"
     },
     {
      "va": "008a6870",
@@ -247720,7 +247720,7 @@
     {
      "va": "006dbfd0",
      "size": 36,
-     "symbol": "?vf_238@UPrimitiveComponent@@UAEXI@Z"
+     "symbol": "?SetLightEnvironment@UPrimitiveComponent@@UAEXPAUULightEnvironmentComponent@@@Z"
     },
     {
      "va": "006dc070",
@@ -248155,12 +248155,12 @@
     {
      "va": "006d8b90",
      "size": 41,
-     "symbol": "?SetParent@UMaterialInstanceConstant_@@QAEXPAUUMaterialInterface@@@Z"
+     "symbol": "?SetParent@UMaterialInstanceConstant@@UAEXPAUUMaterialInterface@@@Z"
     },
     {
      "va": "006d8ef0",
      "size": 41,
-     "symbol": "?SetParent@UMaterialInstanceTimeVarying_@@QAEXPAUUMaterialInterface@@@Z"
+     "symbol": "?SetParent@UMaterialInstanceTimeVarying@@UAEXPAUUMaterialInterface@@@Z"
     },
     {
      "va": "006db600",
@@ -274776,7 +274776,7 @@
     {
      "va": "008379d0",
      "size": 5,
-     "symbol": "?vf_358@ANavigationPoint@@UAEIH@Z"
+     "symbol": "?CanTeleport@ANavigationPoint@@UAEHPAUAActor@@@Z"
     },
     {
      "va": "00837ab0",
@@ -275406,7 +275406,7 @@
     {
      "va": "0083a480",
      "size": 52,
-     "symbol": "?vf_358@ATeleporter@@UAEIH@Z"
+     "symbol": "?CanTeleport@ATeleporter@@UAEHPAUAActor@@@Z"
     },
     {
      "va": "0083a9a0",
@@ -276977,12 +276977,12 @@
     {
      "va": "0088a740",
      "size": 53,
-     "symbol": "?vf_10c@ULadderReachSpec@@UAEHH@Z"
+     "symbol": "?CostFor@ULadderReachSpec@@UAEHPAUAPawn@@@Z"
     },
     {
      "va": "0088a780",
      "size": 8,
-     "symbol": "?vf_10c@UProscribedReachSpec@@UAEHH@Z"
+     "symbol": "?CostFor@UProscribedReachSpec@@UAEHPAUAPawn@@@Z"
     },
     {
      "va": "0088a830",
@@ -276992,7 +276992,7 @@
     {
      "va": "0088a860",
      "size": 42,
-     "symbol": "?vf_10c@USwatTurnReachSpec@@UAEHH@Z"
+     "symbol": "?CostFor@USwatTurnReachSpec@@UAEHPAUAPawn@@@Z"
     },
     {
      "va": "0088a920",

@@ -173,7 +173,7 @@ void APawn::execDrawPathStep(FFrame& Stack, RESULT_DECL)
 	P_GET_OBJECT(UCanvas, C);
 	P_FINISH;
 
-	vf_3b4((INT)C);
+	DrawPathStep(C);
 }
 
 // @baa 0x00c8b310
@@ -181,7 +181,7 @@ void APawn::execAddGoalEvaluator(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(UPathGoalEvaluator, Evaluator);
 	P_FINISH;
-	vf_3a8((INT)Evaluator);
+	AddGoalEvaluator(Evaluator);
 }
 
 // @baa 0x00c8aa80
@@ -189,7 +189,7 @@ void APawn::execIsValidTargetFor(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(AController, C);
 	P_FINISH;
-	*(UBOOL*)Result = vf_360((INT)C);
+	*(UBOOL*)Result = IsValidTargetFor(C);
 }
 
 // @baa 0x00c8ae00
@@ -197,7 +197,7 @@ void APawn::execReachedDestination(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(AActor, Goal);
 	P_FINISH;
-	*(UBOOL*)Result = vf_378((INT)Goal);
+	*(UBOOL*)Result = ReachedDestination(Goal);
 }
 
 // @baa 0x00c8af60

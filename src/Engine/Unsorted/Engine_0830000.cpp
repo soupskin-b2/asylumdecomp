@@ -636,7 +636,7 @@ void ADoorMarker::vf_2c0(void)
 void ANavigationPoint::vf_3ac(void) {  }
 
 // @baa 0x008379d0
-UINT ANavigationPoint::vf_358(INT a0) { return 0; }
+UBOOL ANavigationPoint::CanTeleport(class AActor* a0) { return 0; }
 
 struct C_00837ab0 {
     float10 sub_00837ab0(float *);
@@ -1579,21 +1579,19 @@ undefined4 * UMorphWeightSequence::sub_0083a420(byte param_2)
   return param_1;
 }
 
-int sub_007aa380(...);
+int sub_007aa380(class AActor* A);
 // @baa 0x0083a480
-undefined4 ATeleporter::vf_358(int param_2)
+UBOOL ATeleporter::CanTeleport(class AActor* A)
 {
-    int param_1 = (int)this;
-
-  int iVar1;
-  
-  if ((param_2 == 0) || ((*(uint *)(param_2 + 0x34) & 0x4000000) == 0)) {
-    return 0;
-  }
-  if (((*(byte *)(param_1 + 0x294) & 0x40) == 0) && (iVar1 = sub_007aa380(param_2), iVar1 != 0)) {
-    return 0;
-  }
-  return 1;
+    if (A == NULL || !A->bCanTeleport)
+    {
+        return FALSE;
+    }
+    if (!bCanTeleportVehicles && sub_007aa380(A))  // A->IsA(AVehicle::StaticClass())
+    {
+        return FALSE;
+    }
+    return TRUE;
 }
 
 struct C_0083a9a0 {

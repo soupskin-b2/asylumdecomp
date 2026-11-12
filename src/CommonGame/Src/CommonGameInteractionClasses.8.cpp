@@ -9,7 +9,7 @@ void URInteractionManager::execRegisterNewActor(FFrame& Stack, RESULT_DECL)
 {
     P_GET_OBJECT(URInteractionComponent, NewActor);
     P_FINISH;
-    vf_114((INT)NewActor);
+    RegisterNewActor(NewActor);
 }
 
 // @baa 0x0150d080
@@ -17,7 +17,7 @@ void URInteractionManager::execUnRegisterActor(FFrame& Stack, RESULT_DECL)
 {
     P_GET_OBJECT(URInteractionComponent, OldActor);
     P_FINISH;
-    vf_118((INT)OldActor);
+    UnRegisterActor(OldActor);
 }
 
 // @baa 0x0150cf90

@@ -701,7 +701,7 @@ void UReachSpec::execCostFor(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(APawn, P);
 	P_FINISH;
-	*(INT*)Result = vf_10c((INT)P);
+	*(INT*)Result = CostFor(P);
 }
 
 // @baa 0x00c87fc0
@@ -709,7 +709,7 @@ void ANavigationPoint::execIsUsableAnchorFor(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(APawn, P);
 	P_FINISH;
-	*(UBOOL*)Result = vf_354((INT)P);
+	*(UBOOL*)Result = IsUsableAnchorFor(P);
 }
 
 // @baa 0x00c88030
@@ -717,7 +717,7 @@ void ATeleporter::execCanTeleport(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(AActor, A);
 	P_FINISH;
-	*(UBOOL*)Result = vf_358((INT)A);
+	*(UBOOL*)Result = CanTeleport(A);
 }
 
 // @baa 0x00c81ff0

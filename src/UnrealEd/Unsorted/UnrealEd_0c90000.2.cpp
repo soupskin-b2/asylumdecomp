@@ -16,7 +16,7 @@ void UMaterialInstanceTimeVarying::execSetParent(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(UMaterialInterface, NewParent);
 	P_FINISH;
-	vf_160((INT)NewParent);
+	SetParent(NewParent);
 }
 
 // @baa 0x00c926d0
