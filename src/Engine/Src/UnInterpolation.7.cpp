@@ -1,36 +1,82 @@
-// UnInterpolation.cpp (part 7 of 8): 1 function
-// Placed here by: neighbours 1.
+// UnInterpolation.cpp: 4 functions
+// Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
+#include "ue3/Classes.h"
+#include "ue3/Cast.h"
 
-struct C{
-int sub_00cef5c0(undefined4*);
-};
+/* UnObjBas.h CastChecked<T> (a Cast that fails loudly): out of line in this build, so only declared here. */
+template<class T> T* CastChecked(UObject* Src);
+/* UE3's inline UObject::GetOuter() and UInterpGroupInst::GetGroupActor() (the kit lacks both). */
+inline UObject* GetOuterOf(const UObject* Object) { return Object->Outer; }
 
-int sub_0053d240(...);
-undefined4 sub_0053df70(...);
-// @baa 0x00cef5c0
-int C::sub_00cef5c0(undefined4*param_2)
+inline AActor* GetGroupActorOf(UInterpGroupInst* GrInst)
 {
-int*param_1=(int*)this;
+    if (GrInst->GroupActor == NULL || GrInst->GroupActor->bDeleteMe)
+    {
+        return NULL;
+    }
+    return GrInst->GroupActor;
+}
 
-undefined4*puVar1;
-int iVar2;
-int iVar3;
+// @baa 0x00d16230
+/* UInterpTrackInstFloatParticleParam slot 0x110 (kit vf_110, UE3 RestoreActorState(UInterpTrack* Track)): put the
+ * saved value back into the emitter's particle parameter. */
+void UInterpTrackInstFloatParticleParam::vf_110(UInterpTrack* Track)
+{
+    UInterpTrackFloatParticleParam* ParamTrack = CastChecked<UInterpTrackFloatParticleParam>(Track);
+    AEmitter* Emitter = Cast<AEmitter>(GetGroupActorOf(CastChecked<UInterpGroupInst>(GetOuterOf(this))));
+    if (Emitter != NULL)
+    {
+        Emitter->ParticleSystemComponent->SetFloatParameter(ParamTrack->ParamName, ResetFloat);
+    }
+}
 
-iVar2=param_1[1];
-iVar3=iVar2+1;
-param_1[1]=iVar3;
-if(iVar3>param_1[2]){
-iVar3=sub_0053d240(iVar3,param_1[2],4);
-param_1[2]=iVar3;
-if((*param_1!=0)||(iVar3)){
-iVar3=sub_0053df70(*param_1,iVar3*4,8);
-*param_1=iVar3;
+// @baa 0x00d10d80
+/* UInterpTrackInstParticleReplay slot 0x110 (kit vf_110, UE3 RestoreActorState(UInterpTrack* Track)): take the
+ * emitter's particle system out of replay mode (PRS_Disabled, clip and frame 0). */
+void UInterpTrackInstParticleReplay::vf_110(UInterpTrack* Track)
+{
+    AActor* Actor = GetGroupActorOf(CastChecked<UInterpGroupInst>(GetOuterOf(this)));
+    if (Actor != NULL)
+    {
+        AEmitter* Emitter = Cast<AEmitter>(Actor);
+        if (Emitter != NULL && Emitter->ParticleSystemComponent != NULL)
+        {
+            Emitter->ParticleSystemComponent->ReplayState = 0;
+            Emitter->ParticleSystemComponent->ReplayClipIDNumber = 0;
+            Emitter->ParticleSystemComponent->ReplayFrameIndex = 0;
+        }
+    }
 }
+
+// @baa 0x00d14fe0
+/* UE3's UInterpTrackInstSoundFade::InitTrackInst(UInterpTrack* Track): with ResetVolume, remember the player camera's
+ * current sound fade. */
+void UInterpTrackInstSoundFade::InitTrackInst(UInterpTrack* Track)
+{
+    UInterpTrackSoundFade* SoundFadeTrack = CastChecked<UInterpTrackSoundFade>(Track);
+    if (SoundFadeTrack->ResetVolume)
+    {
+        APlayerController* PC = Cast<APlayerController>(CastChecked<UInterpGroupInst>(GetOuterOf(this))->GroupActor);
+        if (PC != NULL && PC->PlayerCamera != NULL)
+        {
+            storedSoundFade = PC->PlayerCamera->SoundFadeAmount;
+        }
+    }
 }
-puVar1=(undefined4*)(*param_1+4*iVar2);
-if((undefined4*)0x0!=puVar1){
-*puVar1=*param_2;
-}
-return iVar2;
+
+// @baa 0x00d15030
+/* UInterpTrackInstSoundFade slot 0x118 (kit vf_118, UE3 TermTrackInst(UInterpTrack* Track)): with ResetVolume, give the
+ * player camera back the sound fade saved at init. */
+void UInterpTrackInstSoundFade::vf_118(UInterpTrack* Track)
+{
+    UInterpTrackSoundFade* SoundFadeTrack = CastChecked<UInterpTrackSoundFade>(Track);
+    if (SoundFadeTrack->ResetVolume)
+    {
+        APlayerController* PC = Cast<APlayerController>(CastChecked<UInterpGroupInst>(GetOuterOf(this))->GroupActor);
+        if (PC != NULL && PC->PlayerCamera != NULL && !PC->PlayerCamera->bDeleteMe)
+        {
+            PC->PlayerCamera->SoundFadeAmount = storedSoundFade;
+        }
+    }
 }

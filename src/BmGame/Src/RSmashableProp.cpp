@@ -1,4 +1,4 @@
-// RSmashableProp.cpp: 24 functions
+// RSmashableProp.cpp: 25 functions
 // Placed here by: class 9, neighbours 6, callers 3, file 3.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -145,4 +145,22 @@ void C_01672eb0::sub_01672eb0(UINT P)
 {
     if (PropData != NULL)
         sub_0166b6a0();
+}
+
+/* UFactory's flags (UE3: bCreateNew, bEditAfterNew, bEditorImport, bText) are in the kit's
+ * _native2 blob at 0x50; this stand-in names them. */
+struct FFactoryFlags
+{
+	BITFIELD bCreateNew : 1;
+	BITFIELD bEditAfterNew : 1;
+	BITFIELD bEditorImport : 1;
+	BITFIELD bText : 1;
+};
+
+// @baa 0x01682960
+void URSmashablePropConfigFactoryNew::InitializeIntrinsicPropertyValues()
+{
+	SupportedClass = URSmashablePropConfig::StaticClass();
+	((FFactoryFlags*)_native2)->bCreateNew = TRUE;
+	Description = TEXT("SmashablePropConfig");
 }

@@ -1,4 +1,4 @@
-// UnUIObjects.cpp: 17 functions
+// UnUIObjects.cpp: 19 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -326,4 +326,31 @@ INT UUIScene::sub_00db0a90(FName& Name)
         Result = ((FNamedElemArray_&)TickableObjects).sub_00dad6e0(Name);
     }
     return Result;
+}
+
+// @baa 0x00dafa80
+/* UUIScreenObject slot 0x1cc (kit vf_1cc, unnamed in UE3 terms): pass the notification on to every child. */
+void UUIScreenObject::vf_1cc()
+{
+    for (INT ChildIndex = 0; ChildIndex < Children.Num(); ChildIndex++)
+    {
+        Children(ChildIndex)->vf_1cc();
+    }
+}
+
+// @baa 0x00db42a0
+/* UUIScene helper (UE3 UnregisterTickableObject-style): drop the entry from TickableObjects; TRUE if it was there. */
+UBOOL UUIScene::sub_00db42a0(FName& Name)
+{
+    UBOOL bResult = FALSE;
+    if (Name.Index != 0 && Name.Number != 0)
+    {
+        INT ObjIndex = ((FNamedElemArray_&)TickableObjects).sub_00dad6e0(Name);
+        if (TickableObjects.IsValidIndex(ObjIndex))
+        {
+            TickableObjects.Remove(ObjIndex, 1);
+            bResult = TRUE;
+        }
+    }
+    return bResult;
 }

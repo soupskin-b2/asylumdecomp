@@ -1,4 +1,4 @@
-// UnSkeletalTools.cpp: 1 function
+// UnSkeletalTools.cpp: 3 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #define BAA_OUTLINE_NEW
@@ -81,4 +81,30 @@ FArchive& operator<<(FArchive& Ar, TArray<FMeshBone_>& A)
         }
     }
     return Ar;
+}
+
+/* UFactory's flags (UE3: bCreateNew, bEditAfterNew, bEditorImport, bText) are in the kit's
+ * _native2 blob at 0x50; this stand-in names them. */
+struct FFactoryFlags
+{
+	BITFIELD bCreateNew : 1;
+	BITFIELD bEditAfterNew : 1;
+	BITFIELD bEditorImport : 1;
+	BITFIELD bText : 1;
+};
+
+// @baa 0x00f24e00
+void UReimportSkeletalMeshFactory::InitializeIntrinsicPropertyValues()
+{
+	SupportedClass = USkeletalMesh::StaticClass();
+	new(Formats) FString(TEXT("psk;Skeletal Mesh"));
+	((FFactoryFlags*)_native2)->bCreateNew = FALSE;
+}
+
+// @baa 0x00fa7940
+void USkeletalMeshFactory::InitializeIntrinsicPropertyValues()
+{
+	SupportedClass = USkeletalMesh::StaticClass();
+	new(Formats) FString(TEXT("psk;Skeletal Mesh"));
+	((FFactoryFlags*)_native2)->bCreateNew = FALSE;
 }

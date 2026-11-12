@@ -1,4 +1,4 @@
-// TextureRenderTarget2D.cpp (part 3 of 3): 20 functions
+// TextureRenderTarget2D.cpp (part 3 of 3): 21 functions
 // Placed here by: callers 1, class 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -166,4 +166,37 @@ undefined4 * UScriptedTexture::sub_00756020(byte param_2)
 bool UScriptedTexture::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+/* UFactory's flags (UE3: bCreateNew, bEditAfterNew, bEditorImport, bText) are in the kit's
+ * _native2 blob at 0x50; this stand-in names them. */
+struct FFactoryFlags
+{
+	BITFIELD bCreateNew : 1;
+	BITFIELD bEditAfterNew : 1;
+	BITFIELD bEditorImport : 1;
+	BITFIELD bText : 1;
+};
+
+/* UTextureRenderTargetFactoryNew's members (UE3 UnFactory.h: Width, Height, Format) are the kit's _native blob
+ * (from 0x64); this stand-in names them. */
+struct FRenderTargetFactorySettings
+{
+	INT Width;
+	INT Height;
+	BYTE Format;
+};
+
+// @baa 0x00f20ba0
+void UTextureRenderTargetFactoryNew::InitializeIntrinsicPropertyValues()
+{
+	SupportedClass = UTextureRenderTarget2D::StaticClass();
+	((FFactoryFlags*)_native2)->bCreateNew = TRUE;
+	((FFactoryFlags*)_native2)->bEditAfterNew = TRUE;
+	((FFactoryFlags*)_native2)->bEditorImport = FALSE;
+	Description = TEXT("RenderToTexture");
+	FRenderTargetFactorySettings* Settings = (FRenderTargetFactorySettings*)_native;
+	Settings->Width = 256;
+	Settings->Height = 256;
+	Settings->Format = 0;
 }

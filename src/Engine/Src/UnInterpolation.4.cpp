@@ -1,4 +1,4 @@
-// UnInterpolation.cpp: 8 functions
+// UnInterpolation.cpp: 11 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -145,4 +145,34 @@ void UInterpTrackInstSound::InitTrackInst(UInterpTrack* Track)
     UObject* GrOuter = GrInst->Outer;
     USeqAct_Interp* Seq = CastChecked<USeqAct_Interp>(GrOuter);
     LastUpdatePosition = Seq->Position;
+}
+
+// @baa 0x00d09160
+/* UE3's UInterpTrackFaceFX::RemoveKeyframe(INT KeyIndex): drop the FaceFX sequence key when the index is valid. */
+void UInterpTrackFaceFX::RemoveKeyframe(INT KeyIndex)
+{
+    if (KeyIndex >= 0 && KeyIndex < FaceFXSeqs.Num())
+    {
+        FaceFXSeqs.Remove(KeyIndex);
+    }
+}
+
+// @baa 0x00cfb780
+/* UE3's UInterpTrackToggle::RemoveKeyframe(INT KeyIndex): drop the toggle key when the index is valid. */
+void UInterpTrackToggle::RemoveKeyframe(INT KeyIndex)
+{
+    if (KeyIndex >= 0 && KeyIndex < ToggleTrack.Num())
+    {
+        ToggleTrack.Remove(KeyIndex);
+    }
+}
+
+// @baa 0x00cfce50
+/* UE3's UInterpTrackParticleReplay::RemoveKeyframe(INT KeyIndex): drop the replay key when the index is valid. */
+void UInterpTrackParticleReplay::RemoveKeyframe(INT KeyIndex)
+{
+    if (KeyIndex >= 0 && KeyIndex < TrackKeys.Num())
+    {
+        TrackKeys.Remove(KeyIndex);
+    }
 }

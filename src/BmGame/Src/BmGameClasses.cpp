@@ -1,4 +1,4 @@
-// BmGameClasses.cpp: 32 functions
+// BmGameClasses.cpp: 38 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -922,4 +922,62 @@ INT C_01574e00::sub_01574e00(FLOAT F, INT A)
 {
     sub_01573870();
     return sub_0081c2f0(F, A);
+}
+
+/* UFactory's flags (UE3: bCreateNew, bEditAfterNew, bEditorImport, bText) are in the kit's
+ * _native2 blob at 0x50; this stand-in names them. */
+struct FFactoryFlags
+{
+	BITFIELD bCreateNew : 1;
+	BITFIELD bEditAfterNew : 1;
+	BITFIELD bEditorImport : 1;
+	BITFIELD bText : 1;
+};
+
+// @baa 0x015640e0
+void URAimingConfigFactoryNew::InitializeIntrinsicPropertyValues()
+{
+	SupportedClass = URAimingConfig::StaticClass();
+	((FFactoryFlags*)_native2)->bCreateNew = TRUE;
+	Description = TEXT("Animation Aiming Config");
+}
+
+// @baa 0x0156b040
+void URCharacterViewerConfigFactoryNew::InitializeIntrinsicPropertyValues()
+{
+	SupportedClass = URCharacterViewerConfig::StaticClass();
+	((FFactoryFlags*)_native2)->bCreateNew = TRUE;
+	Description = TEXT("Character Viewer Config");
+}
+
+// @baa 0x01577f70
+void URBoneRescaleConfigFactoryNew::InitializeIntrinsicPropertyValues()
+{
+	SupportedClass = URBoneRescaleConfig::StaticClass();
+	((FFactoryFlags*)_native2)->bCreateNew = TRUE;
+	Description = TEXT("Animation Bone Rescale Config");
+}
+
+// @baa 0x01577fb0
+void URMirrorConfigFactoryNew::InitializeIntrinsicPropertyValues()
+{
+	SupportedClass = URMirrorConfig::StaticClass();
+	((FFactoryFlags*)_native2)->bCreateNew = TRUE;
+	Description = TEXT("Animation Mirror Config");
+}
+
+// @baa 0x01577ff0
+void URWeaponConfigFactoryNew::InitializeIntrinsicPropertyValues()
+{
+	SupportedClass = URWeaponConfig::StaticClass();
+	((FFactoryFlags*)_native2)->bCreateNew = TRUE;
+	Description = TEXT("Animation Weapon Config");
+}
+
+// @baa 0x01578030
+void URAlternateAnimationAndWeaponConfigFactoryNew::InitializeIntrinsicPropertyValues()
+{
+	SupportedClass = URAlternateAnimationAndWeaponConfig::StaticClass();
+	((FFactoryFlags*)_native2)->bCreateNew = TRUE;
+	Description = TEXT("Alternate Animation Weapon Config");
 }

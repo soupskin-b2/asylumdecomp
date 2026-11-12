@@ -1,4 +1,4 @@
-// UnPlayer.cpp (part 1 of 3): 111 functions
+// UnPlayer.cpp (part 1 of 3): 112 functions
 // Placed here by: neighbours 67, class 23, callers 7, file 4.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1143,4 +1143,24 @@ UBOOL UInteraction__00888e10::delegateOnReceivedNativeInputKey(INT ControllerId,
 	Parms.bGamepad = bGamepad ? TRUE : FALSE;
 	ProcessDelegate(g_026c3e1c, &__OnReceivedNativeInputKey__Delegate, &Parms, NULL);
 	return Parms.ReturnValue;
+}
+
+/* Unnamed in the kit: UE3's ULocalPlayer::RemovePostProcessingChain(INT InIndex) and
+ * ULocalPlayer::RebuildPlayerPostProcessChain() (0x0089dea0). */
+struct ULocalPlayer_ : public ULocalPlayer
+{
+    void sub_0089dea0();
+    UBOOL sub_0089e590(INT InIndex);
+};
+
+// @baa 0x0089e590
+UBOOL ULocalPlayer_::sub_0089e590(INT InIndex)
+{
+    if (InIndex >= 0 && InIndex < PlayerPostProcessChains.Num())
+    {
+        PlayerPostProcessChains.Remove(InIndex, 1);
+        sub_0089dea0();
+        return TRUE;
+    }
+    return FALSE;
 }

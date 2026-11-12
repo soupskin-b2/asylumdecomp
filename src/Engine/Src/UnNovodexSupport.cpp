@@ -1,4 +1,4 @@
-// UnNovodexSupport.cpp: 33 functions
+// UnNovodexSupport.cpp: 34 functions
 // Placed here by: neighbours 16, class 10, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -366,4 +366,23 @@ sub_009d7df0_Base* sub_009d7df0_Base::sub_009d7df0(int P)
 {
     this->vf_030(&P, 2);
     return this;
+}
+
+/* UFactory's flags (UE3: bCreateNew, bEditAfterNew, bEditorImport, bText) are in the kit's
+ * _native2 blob at 0x50; this stand-in names them. */
+struct FFactoryFlags
+{
+	BITFIELD bCreateNew : 1;
+	BITFIELD bEditAfterNew : 1;
+	BITFIELD bEditorImport : 1;
+	BITFIELD bText : 1;
+};
+
+// @baa 0x00f20b60
+void UPhysicalMaterialFactoryNew::InitializeIntrinsicPropertyValues()
+{
+	SupportedClass = UPhysicalMaterial::StaticClass();
+	((FFactoryFlags*)_native2)->bCreateNew = TRUE;
+	((FFactoryFlags*)_native2)->bEditAfterNew = TRUE;
+	Description = TEXT("Physical Material");
 }

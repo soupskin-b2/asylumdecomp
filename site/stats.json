@@ -2,19 +2,19 @@
  "updated": "2026-11-12",
  "functions": {
   "total": 174166,
-  "matched": 102142
+  "matched": 102204
  },
  "bytes": {
   "total": 24308119,
-  "matched": 4120489
+  "matched": 4125635
  },
  "areas": [
   {
    "name": "Engine",
    "functions": 69863,
    "bytes": 9201956,
-   "matched": 43134,
-   "matched_bytes": 1971798
+   "matched": 43181,
+   "matched_bytes": 1975988
   },
   {
    "name": "Editor",
@@ -34,15 +34,15 @@
    "name": "Game",
    "functions": 13563,
    "bytes": 1853804,
-   "matched": 10265,
-   "matched_bytes": 623473
+   "matched": 10279,
+   "matched_bytes": 624341
   },
   {
    "name": "Core",
    "functions": 12072,
    "bytes": 1275961,
-   "matched": 8064,
-   "matched_bytes": 261704
+   "matched": 8065,
+   "matched_bytes": 261792
   },
   {
    "name": "CommonGame",
@@ -97,11 +97,11 @@
  "contributors": [
   {
    "login": "soupskin-b2",
-   "functions": 102133,
-   "bytes": 4119869,
+   "functions": 102195,
+   "bytes": 4125015,
    "models": {
     "Tooling": 94456,
-    "Claude Opus 5.5": 2911,
+    "Claude Opus 5.5": 2973,
     "DeepSeek V4.1 Flash": 2167,
     "Qwen3.8 27B": 1935,
     "GPT-6.1 Sol": 295,
@@ -122,7 +122,7 @@
   },
   {
    "model": "Claude Opus 5.5",
-   "functions": 2911
+   "functions": 2973
   },
   {
    "model": "DeepSeek V4.1 Flash",

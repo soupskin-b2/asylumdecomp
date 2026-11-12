@@ -1,4 +1,4 @@
-// RCapeComponent.cpp: 5 functions
+// RCapeComponent.cpp: 6 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -91,4 +91,22 @@ struct C_016ae850
 void C_016ae850::sub_016ae850(INT A1, INT A2, FLOAT F3)
 {
     Cape->sub_01562480(A1, A2, F3);
+}
+
+/* UFactory's flags (UE3: bCreateNew, bEditAfterNew, bEditorImport, bText) are in the kit's
+ * _native2 blob at 0x50; this stand-in names them. */
+struct FFactoryFlags
+{
+	BITFIELD bCreateNew : 1;
+	BITFIELD bEditAfterNew : 1;
+	BITFIELD bEditorImport : 1;
+	BITFIELD bText : 1;
+};
+
+// @baa 0x016c9f30
+void URCapeStateConfigFactoryNew::InitializeIntrinsicPropertyValues()
+{
+	SupportedClass = URCapeStateConfig::StaticClass();
+	((FFactoryFlags*)_native2)->bCreateNew = TRUE;
+	Description = TEXT("CapeStateConfig");
 }

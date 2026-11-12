@@ -1,4 +1,4 @@
-// UnParticleComponents.cpp: 2 functions
+// UnParticleComponents.cpp: 3 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -50,4 +50,23 @@ INT UParticleSystemComponent_::sub_00b5ecb0(FName InName)
         }
     }
     return 0;
+}
+
+/* UFactory's flags (UE3: bCreateNew, bEditAfterNew, bEditorImport, bText) are in the kit's
+ * _native2 blob at 0x50; this stand-in names them. */
+struct FFactoryFlags
+{
+	BITFIELD bCreateNew : 1;
+	BITFIELD bEditAfterNew : 1;
+	BITFIELD bEditorImport : 1;
+	BITFIELD bText : 1;
+};
+
+// @baa 0x00f209e0
+void UParticleSystemFactoryNew::InitializeIntrinsicPropertyValues()
+{
+	SupportedClass = UParticleSystem::StaticClass();
+	((FFactoryFlags*)_native2)->bCreateNew = TRUE;
+	((FFactoryFlags*)_native2)->bEditAfterNew = TRUE;
+	Description = TEXT("ParticleSystem");
 }
