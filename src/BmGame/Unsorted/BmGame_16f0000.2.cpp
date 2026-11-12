@@ -1,4 +1,4 @@
-// BmGame_16f0000.cpp: 137 functions
+// BmGame_16f0000.cpp: 138 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -1133,4 +1133,22 @@ void ARBMRouter_NoPawn::execGetPos(FFrame& Stack, RESULT_DECL)
 
     FVector Position;
     *(FVector*)Result = *(FVector*)vf_354((INT)&Position);
+}
+
+// @baa 0x016f6060
+// The base declares vf_630 as "virtual INT vf_630(INT)". The code shows it is a
+// virtual that fills a caller-supplied FVector (its INT parameter is the buffer
+// address, thiscall's first stack argument) and returns that buffer's pointer.
+// The Unisylum port names it GetHeading().
+void ARPawnPlayerCombat::execGetHeading(FFrame& Stack, RESULT_DECL)
+{
+    P_FINISH;
+    FVector Heading;
+    *(FVector*)Result = *(FVector*)vf_630((INT)&Heading);
+}
+
+void g_caller()
+{
+    ARPawnPlayerCombat Pawn;
+    Pawn.execGetHeading(*(FFrame*)0, 0);
 }

@@ -1,4 +1,4 @@
-// UnrealEd_0410000.cpp: 50 functions
+// UnrealEd_0410000.cpp: 51 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -692,4 +692,28 @@ struct Sub
 void sub_0041d3a0(INT A1, Sub* Object)
 {
     Object->sub_00417080(A1);
+}
+
+// Reconstructed source for 0041b4d0 (25 bytes).
+// A function pointer object whose sole known operation is sub_00416800:
+// it walks a linked list through a head pointer (next at 0x30) and, for each
+// entry, destroys/releases the entry (sub_0046c170, sub_01ab3290) before
+// clearing the two head words. The tail jump here is a method call, so
+// sub_00416800 takes the object in ecx.
+struct FObjectList_00416800
+{
+    void sub_00416800(void);
+};
+
+extern FObjectList_00416800 g_026174dc;
+extern void sub_0041b410(void);
+extern void sub_0048b8d0(void);
+extern void sub_0046cbc0(void);
+// @baa 0x0041b4d0
+void sub_0041b4d0(void)
+{
+    sub_0041b410();
+    sub_0048b8d0();
+    sub_0046cbc0();
+    g_026174dc.sub_00416800();
 }

@@ -1,4 +1,4 @@
-// Core_0560000.cpp (part 3 of 3): 4 functions
+// Core_0560000.cpp (part 3 of 3): 5 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -65,4 +65,20 @@ struct C_0056a540
 bool C_0056a540::sub_0056a540()
 {
     return Value < g_026a1c50;
+}
+
+struct TData12 {
+    DWORD Field0;
+    DWORD Field1;
+    DWORD Field2;
+    TData12& sub_00566ac0(const TData12* Src);
+};
+
+// @baa 0x00566ac0
+TData12& TData12::sub_00566ac0(const TData12* Src)
+{
+    Field0 = Src->Field0;
+    Field1 = Src->Field1;
+    Field2 = Src->Field2;
+    return *this;
 }

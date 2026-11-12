@@ -1,4 +1,4 @@
-// Engine_06d0000.cpp: 22 functions
+// Engine_06d0000.cpp: 29 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -190,4 +190,115 @@ void UPrimitiveComponent::execSetDontDrawThisFrame(FFrame& Stack, RESULT_DECL)
 	P_GET_UBOOL(bDontDrawThisFrame);
 	P_FINISH;
 	vf_230(bDontDrawThisFrame);
+}
+
+// @baa 0x006dc270
+void UPrimitiveComponent::execSetRotation(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FRotator, NewRotation);
+    P_FINISH;
+
+    if (NewRotation.Pitch != Rotation.Pitch || NewRotation.Yaw != Rotation.Yaw || NewRotation.Roll != Rotation.Roll)
+    {
+        Rotation = NewRotation;
+        BeginDeferredUpdateTransform();
+    }
+}
+
+struct UActorComponent_ : public UActorComponent
+{
+    /* BeginDeferredReattach; Classes.h doesn't declare it. */
+    void sub_00765d00();
+};
+
+// @baa 0x006dce00
+void UCylinderComponent::execSetCylinderSize(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_FLOAT(NewRadius);
+    P_GET_FLOAT(NewHeight);
+    P_FINISH;
+
+    CollisionHeight = NewHeight;
+    CollisionRadius = NewRadius;
+    ((UActorComponent_*)this)->sub_00765d00();
+}
+
+struct UMeshComponent_ : public UMeshComponent
+{
+    /* PrestreamTextures; Classes.h doesn't declare it. */
+    void sub_006dc850(FLOAT Seconds, UBOOL bPrioritizeCharacterTextures);
+};
+
+// @baa 0x006dc970
+void UMeshComponent::execPrestreamTextures(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_FLOAT(Seconds);
+    P_GET_UBOOL(bPrioritizeCharacterTextures);
+    P_FINISH;
+    ((UMeshComponent_*)this)->sub_006dc850(Seconds, bPrioritizeCharacterTextures);
+}
+
+// @baa 0x006dc1c0
+void UPrimitiveComponent::execSetTranslation(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, NewTranslation);
+    P_FINISH;
+
+    if (NewTranslation.X != Translation.X || NewTranslation.Y != Translation.Y || NewTranslation.Z != Translation.Z)
+    {
+        Translation = NewTranslation;
+        BeginDeferredUpdateTransform();
+    }
+}
+
+// @baa 0x006db6e0
+void UPrimitiveComponent::execSetTraceBlocking(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_UBOOL(NewBlockZeroExtent);
+    P_GET_UBOOL(NewBlockNonZeroExtent);
+    P_FINISH;
+
+    BlockZeroExtent = NewBlockZeroExtent;
+    BlockNonZeroExtent = NewBlockNonZeroExtent;
+}
+
+// @baa 0x006dc460
+void UPrimitiveComponent::execSetAbsolute(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_UBOOL_OPTX(NewAbsoluteTranslation, AbsoluteTranslation);
+    P_GET_UBOOL_OPTX(NewAbsoluteRotation, AbsoluteRotation);
+    P_GET_UBOOL_OPTX(NewAbsoluteScale, AbsoluteScale);
+    P_FINISH;
+
+    AbsoluteTranslation = NewAbsoluteTranslation;
+    AbsoluteRotation = NewAbsoluteRotation;
+    AbsoluteScale = NewAbsoluteScale;
+    BeginDeferredUpdateTransform();
+}
+
+struct AActor_ : public AActor
+{
+    /* FindTouchingActors; Classes.h doesn't declare it. */
+    void sub_007814c0();
+};
+
+// @baa 0x006db7a0
+void UPrimitiveComponent::execSetActorCollision(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_UBOOL(NewCollideActors);
+    P_GET_UBOOL(NewBlockActors);
+    P_GET_UBOOL_OPTX(NewAlwaysCheckCollision, FALSE);
+    P_FINISH;
+
+    AlwaysCheckCollision = NewAlwaysCheckCollision;
+    if (NewCollideActors != CollideActors)
+    {
+        CollideActors = NewCollideActors;
+        ((UActorComponent_*)this)->sub_00765d00();
+        if (CollideActors && AlwaysCheckCollision && Owner)
+        {
+            ((AActor_*)Owner)->sub_007814c0();
+        }
+    }
+    BlockActors = NewBlockActors;
 }

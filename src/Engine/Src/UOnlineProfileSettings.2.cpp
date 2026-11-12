@@ -1,4 +1,4 @@
-// UOnlineProfileSettings.cpp: 11 functions
+// UOnlineProfileSettings.cpp: 18 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -87,4 +87,69 @@ void UOnlineProfileSettings::execFindProfileMappingIndexByName(FFrame& Stack, RE
 	P_GET_NAME(ProfileSettingName);
 	P_FINISH;
 	*(INT*)Result = FindProfileMappingIndexByName(ProfileSettingName);
+}
+
+// @baa 0x00c8d9e0
+void UOnlineProfileSettings::execGetProfileSettingId(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(ProfileSettingName);
+    P_GET_INT_REF(ProfileSettingId);
+    P_FINISH;
+    *(UBOOL*)Result = GetProfileSettingId(ProfileSettingName, ProfileSettingId);
+}
+
+// @baa 0x00c8de60
+void UOnlineProfileSettings::execGetProfileSettingValueInt(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_INT(ProfileSettingId);
+    P_GET_INT_REF(Value);
+    P_FINISH;
+    *(UBOOL*)Result = GetProfileSettingValueInt(ProfileSettingId, Value);
+}
+
+// @baa 0x00c8e100
+void UOnlineProfileSettings::execSetProfileSettingValueFloat(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_INT(ProfileSettingId);
+    P_GET_FLOAT(Value);
+    P_FINISH;
+    *(UBOOL*)Result = SetProfileSettingValueFloat(ProfileSettingId, Value);
+}
+
+// @baa 0x00c8e5e0
+void UOnlineProfileSettings::execGetProfileSettingRange(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_INT(ProfileSettingId);
+    P_GET_FLOAT_REF(OutMinValue);
+    P_GET_FLOAT_REF(OutMaxValue);
+    P_GET_FLOAT_REF(RangeIncrement);
+    P_GET_BYTE_REF(bFormatAsInt);
+    P_FINISH;
+    *(UBOOL*)Result = GetProfileSettingRange(ProfileSettingId, OutMinValue, OutMaxValue, RangeIncrement, bFormatAsInt);
+}
+
+// @baa 0x00cb85f0
+void UOnlineProfileSettings::execGetProfileSettingColumnHeader(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_INT(ProfileSettingId);
+    P_FINISH;
+    *(FString*)Result = GetProfileSettingColumnHeader(ProfileSettingId);
+}
+
+// @baa 0x00cb88e0
+void UOnlineProfileSettings::execSetProfileSettingValueByName(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_NAME(ProfileSettingName);
+    P_GET_STR_REF(NewValue);
+    P_FINISH;
+    *(UBOOL*)Result = SetProfileSettingValueByName(ProfileSettingName, NewValue);
+}
+
+// @baa 0x00cc0420
+void UOnlineProfileSettings::execGetProfileSettingValues(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_INT(ProfileSettingId);
+    P_GET_TARRAY_REF(FName, Values);
+    P_FINISH;
+    *(UBOOL*)Result = GetProfileSettingValues(ProfileSettingId, Values);
 }

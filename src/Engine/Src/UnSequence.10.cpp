@@ -1,4 +1,4 @@
-// UnSequence.cpp (part 10 of 10): 30 functions
+// UnSequence.cpp (part 10 of 10): 34 functions
 // Placed here by: neighbours 6.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -480,4 +480,117 @@ struct USeqVar_Object_ : public USeqVar_Object
 FString USeqVar_Object_::GetValueStr()
 {
     return FString__008c84a0::Printf(TEXT("%s"), ObjValue != NULL ? *(const FString__008c84a0&)((UObject__008c84a0*)ObjValue)->GetName() : TEXT("???"));
+}
+
+/* slot 0x19c (vf_19c) is USeqAct_Latent::AbortFor */
+struct USeqAct_Latent_ : public USeqAct_Latent
+{
+    void AbortFor(AActor* LatentActor);
+};
+
+// @baa 0x008be9e0
+void USeqAct_Latent_::AbortFor(AActor* LatentActor)
+{
+#line 4890 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSequence.cpp"
+    check(LatentActor != NULL && "Trying abort Latent action with a NULL actor");
+    if (!bAborted)
+    {
+        // only abort if the actor is one of ours
+        UBOOL bFoundEntry = FALSE;
+        for (INT Idx = 0; Idx < LatentActors.Num() && !bFoundEntry; Idx++)
+        {
+            if (LatentActors(Idx) == LatentActor)
+            {
+                bFoundEntry = TRUE;
+            }
+        }
+        if (bFoundEntry)
+        {
+            bAborted = TRUE;
+        }
+    }
+}
+
+#line 515 "candidate.cpp"
+
+// The game keeps ~TArray<UObject**> out of line (0x008c26a0).
+extern template TArray<UObject**>::~TArray();
+/* USequenceOp::GetObjectVars (0x008e9100) isn't declared in Classes.h. */
+struct USequenceOp__008f7e00 : public USequenceOp
+{
+    void GetObjectVars(TArray<UObject**>& outObjVars, const TCHAR* inDesc = NULL);
+};
+
+/* slot 0x174 (vf_174) is USequenceOp::Activated */
+struct USeqAct_ModifyObjectList_ : public USeqAct_ModifyObjectList
+{
+    void ActivateAddRemove_Helper(); /* 0x008f6b60: handles the Add/Remove/Empty inputs */
+    void Activated();
+};
+
+// @baa 0x008f7e00
+void USeqAct_ModifyObjectList_::Activated()
+{
+    ActivateAddRemove_Helper();
+
+    // count the entries attached to the list variable
+    TArray<UObject**> ObjVars;
+    ((USequenceOp__008f7e00*)this)->GetObjectVars(ObjVars, TEXT("ObjectListVar"));
+    ListEntriesCount = ObjVars.Num();
+}
+
+struct USeqAct_ModifyObjectList__008f6b60 : public USeqAct_ModifyObjectList
+{
+    /* 0x008e9c30: adds (0), removes (1) or empties (2) the attached object lists */
+    void ModifyList(INT InputIdx);
+    void ActivateAddRemove_Helper();
+};
+
+// @baa 0x008f6b60
+void USeqAct_ModifyObjectList__008f6b60::ActivateAddRemove_Helper()
+{
+    if (InputLinks(0).bHasImpulse)
+    {
+        ModifyList(0);
+    }
+    else if (InputLinks(1).bHasImpulse)
+    {
+        ModifyList(1);
+    }
+    else if (InputLinks(2).bHasImpulse)
+    {
+        ModifyList(2);
+    }
+}
+
+// The game keeps TArray<FSeqOpOutputLink>::Empty out of line (0x008dc430).
+extern template void TArray<FSeqOpOutputLink>::Empty(INT Slack);
+/* TArray<FSeqOpOutputLink>'s copy constructor (0x008e6bf0), destructor (0x008dc1e0) and operator+=
+ * (0x008dcec0), all out of line in the exe; the kit's TArray has no copy constructor or operator+=. */
+struct FSeqOpOutputLinkArray : public TArray<FSeqOpOutputLink>
+{
+    FSeqOpOutputLinkArray(const TArray<FSeqOpOutputLink>& Other);
+    ~FSeqOpOutputLinkArray();
+    TArray<FSeqOpOutputLink>& operator+=(const TArray<FSeqOpOutputLink>& Other);
+};
+
+/* slot 0x140 (vf_140) is USequenceObject::UpdateObject; USequenceOp's is 0x00902260 */
+struct USequenceOp__00907d90 : public USequenceOp
+{
+    void UpdateObject();
+};
+
+struct USeqAct_Switch_ : public USeqAct_Switch
+{
+    void UpdateObject();
+};
+
+// @baa 0x00907d90
+void USeqAct_Switch_::UpdateObject()
+{
+    // keep the output links, which the switch creates itself
+    FSeqOpOutputLinkArray SavedOutputLinks(OutputLinks);
+    ((USequenceOp__00907d90*)this)->USequenceOp__00907d90::UpdateObject(); // Super::UpdateObject()
+    OutputLinks.Empty();
+    ((FSeqOpOutputLinkArray&)OutputLinks) += SavedOutputLinks;
 }

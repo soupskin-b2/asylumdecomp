@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="860" height="70" viewBox="0 0 860 70" font-family="ui-monospace, SFMono-Regular, &#x27;Cascadia Mono&#x27;, Consolas, &#x27;DejaVu Sans Mono&#x27;, monospace">
 <text x="0" y="24" font-size="14" fill="#e6edf3" text-anchor="start" font-weight="normal">code</text>
 <rect x="150" y="10" width="438" height="16" fill="#262c33" stroke="#3d444d"/>
-<rect x="150" y="10" width="67.1306" height="16" fill="#e6edf3"/>
-<text x="860" y="24" font-size="14" fill="#e6edf3" text-anchor="end" font-weight="normal">3.6 MB / 23.2 MB  15.3%</text>
+<rect x="150" y="10" width="67.5453" height="16" fill="#e6edf3"/>
+<text x="860" y="24" font-size="14" fill="#e6edf3" text-anchor="end" font-weight="normal">3.6 MB / 23.2 MB  15.4%</text>
 <text x="0" y="56" font-size="14" fill="#e6edf3" text-anchor="start" font-weight="normal">functions</text>
 <rect x="150" y="42" width="438" height="16" fill="#262c33" stroke="#3d444d"/>
-<rect x="150" y="42" width="247.86" height="16" fill="#e6edf3"/>
-<text x="860" y="56" font-size="14" fill="#e6edf3" text-anchor="end" font-weight="normal">98,559 / 174,166  56.6%</text>
+<rect x="150" y="42" width="248.202" height="16" fill="#e6edf3"/>
+<text x="860" y="56" font-size="14" fill="#e6edf3" text-anchor="end" font-weight="normal">98,695 / 174,166  56.7%</text>
 </svg>

@@ -1,4 +1,4 @@
-// Core_05c0000.cpp (part 1 of 3): 177 functions
+// Core_05c0000.cpp (part 1 of 3): 179 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -1788,4 +1788,40 @@ int UObject::sub_005cbe00(int param_2)
     int * param_1 = (int *)this;
 
   return *param_1 + param_2 * 0x1c;
+}
+
+extern DWORD g_026a1c58;
+extern DWORD g_026a1c5c;
+struct UObject_ : public UObject
+{
+    DWORD sub_005c2140();
+};
+
+// @baa 0x005c2140
+DWORD UObject_::sub_005c2140()
+{
+    if (this < (UObject*)g_026a1c58 || this >= (UObject*)g_026a1c5c)
+        return 0;
+    return 1;
+}
+
+struct FThreeWords
+{
+	INT X;
+	INT Y;
+	INT Z;
+
+	FThreeWords& sub_005c2e30(const FThreeWords& Other)
+	{
+		X = Other.X;
+		Y = Other.Y;
+		Z = Other.Z;
+		return *this;
+	}
+};
+
+// @baa 0x005c2e30
+FThreeWords& fwords_assign_helper(FThreeWords& A, const FThreeWords& B)
+{
+	return A.sub_005c2e30(B);
 }

@@ -1,7 +1,7 @@
-// GenericBrowserTypes.cpp (part 4 of 4): 15 functions
+// GenericBrowserTypes.cpp (part 4 of 4): 17 functions
 // Placed here by: neighbours 3, class 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
-#include "ue3/Classes.h"
+#include "ue3/Implement.h"
 
 struct wxMenu {
     __declspec(dllimport) virtual ~wxMenu();
@@ -240,4 +240,50 @@ void C_004cbf50::sub_004cbf50(INT)
 {
     if (Object)
         Object->sub_004cab50();
+}
+
+struct C_0052e0e0 {
+    void sub_0052e0e0(int NewValue);
+};
+
+struct C_0052f710 {
+    void sub_0052f710(int NewValue);
+};
+
+// @baa 0x0052f710
+// @baa 0x0052f710
+void C_0052f710::sub_0052f710(int NewValue)
+{
+    char *Self = (char *)this;
+
+    *(int *)(Self + 0x160) = NewValue;
+    ((C_0052e0e0 *)(Self + 0x16c))->sub_0052e0e0(NewValue);
+    return;
+}
+
+int probe(int Seed)
+{
+    C_0052f710 Object;
+    Object.sub_0052f710(Seed);
+    return Seed ^ 1;
+}
+
+struct T2_0052e0e0
+{
+    void sub_0052e0e0(int);
+};
+
+struct T2_00530ae0
+{
+    char Data[0x15c];
+    DWORD Field_015c;
+    T2_0052e0e0 Item_0160;
+    void sub_00530ae0(int Item);
+};
+
+// @baa 0x00530ae0
+void T2_00530ae0::sub_00530ae0(int Item)
+{
+    Field_015c = Item;
+    Item_0160.sub_0052e0e0(Item);
 }

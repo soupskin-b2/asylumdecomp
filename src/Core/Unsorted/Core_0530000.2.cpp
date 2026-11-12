@@ -1,4 +1,4 @@
-// Core_0530000.cpp (part 2 of 2): 3 functions
+// Core_0530000.cpp (part 2 of 2): 4 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -44,4 +44,11 @@ struct C_0053b7a0
 void C_0053b7a0::sub_0053b7a0(INT, INT)
 {
     ((Sub_0053b7a0*)((char*)this - 0x144))->sub_00539830();
+}
+
+extern "C" int __declspec(dllimport) frexp(double Value, int* Exponent);
+// @baa 0x0053d1a0
+int sub_0053d1a0(float Value, int* Exponent)
+{
+	return frexp(Value, Exponent);
 }

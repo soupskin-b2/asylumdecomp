@@ -1,4 +1,4 @@
-// UnSkeletalMesh.cpp (part 2 of 2): 47 functions
+// UnSkeletalMesh.cpp (part 2 of 2): 48 functions
 // Placed here by: neighbours 34, file 7, callers 6.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -338,3 +338,25 @@ IMPLEMENT_CLASS_AT(ASkeletalMeshActorMAT, "e:\\Projects\\Amadeus\\AA\\Game\\Unre
 // @baa 0x0097d970
 // @baa 0x0097fe70
 IMPLEMENT_CLASS_AT(USkeletalMesh, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSkeletalMesh.cpp", 27);
+
+/* FQuatRotationTranslationMatrix (UnMath.h); its constructor is out of line (0x0059d4a0). */
+class FQuatRotationTranslationMatrix : public FMatrix
+{
+public:
+    FQuatRotationTranslationMatrix(const FQuat& Q, const FVector& Origin);
+};
+
+struct USkeletalMesh_ : public USkeletalMesh
+{
+    FMatrix GetRefPoseMatrix(INT BoneIndex) const;
+};
+
+// @baa 0x00951c70
+FMatrix USkeletalMesh_::GetRefPoseMatrix(INT BoneIndex) const
+{
+#line 1323 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSkeletalMesh.cpp"
+    check(BoneIndex >= 0 && BoneIndex < RefSkeleton.Num());
+    return FQuatRotationTranslationMatrix(RefSkeleton(BoneIndex).Orientation, RefSkeleton(BoneIndex).Position);
+}
+
+#line 363 "candidate.cpp"

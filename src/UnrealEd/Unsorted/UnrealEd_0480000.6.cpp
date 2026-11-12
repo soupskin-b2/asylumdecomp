@@ -1,4 +1,4 @@
-// UnrealEd_0480000.cpp: 2 functions
+// UnrealEd_0480000.cpp: 3 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -22,4 +22,22 @@ INT __stdcall sub_00488870(INT Unused)
 {
     sub_0041b410();
     return 1;
+}
+
+extern int g_02663d8c;
+struct C;
+struct C
+{
+	int sub_00476b40(int value);
+};
+
+// @baa 0x00488ec0
+char sub_00488ec0(C* obj)
+{
+	if (g_02663d8c != 0)
+	{
+		obj->sub_00476b40(g_02663d8c);
+		return 1;
+	}
+	return 0;
 }

@@ -1,4 +1,4 @@
-// UnNavigationPoint.cpp (part 1 of 4): 51 functions
+// UnNavigationPoint.cpp (part 1 of 4): 52 functions
 // Placed here by: neighbours 21, class 18, callers 7, file 4.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -489,3 +489,25 @@ struct USelection_ : public USelection {
 
 // @baa 0x011d4d00
 template ACoverLink* USelection_::GetTop<ACoverLink>();
+
+/* placement new as UE3 declares it (UnTemplate.h); the exe keeps the matching delete out of line (00401890) */
+inline void* operator new(size_t Size, void* Mem) { return Mem; }
+
+void operator delete(void* Ptr, void* Mem);
+/* FCoverSlot's (implicit) copy constructor, out of line in the exe (00859980) */
+struct FCoverSlot_ : public FCoverSlot {
+    FCoverSlot_(const FCoverSlot& Other);
+};
+
+struct FCoverSlotArray : public TArray<FCoverSlot> {
+    void sub_00838e00(INT Index, INT Count);                 // Insert (void in this build)
+    INT sub_00859db0(const FCoverSlot& Item, INT Index);     // InsertItem
+};
+
+// @baa 0x00859db0
+INT FCoverSlotArray::sub_00859db0(const FCoverSlot& Item, INT Index)
+{
+    sub_00838e00(Index, 1);
+    ::new(GetTypedData() + Index) FCoverSlot_(Item);
+    return Index;
+}

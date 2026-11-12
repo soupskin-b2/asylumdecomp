@@ -1,4 +1,4 @@
-// Engine_0c80000.cpp: 70 functions
+// Engine_0c80000.cpp: 79 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -782,4 +782,153 @@ void UMaterialInterface::execSetForceMipLevelsToBeResident(FFrame& Stack, RESULT
 	P_GET_FLOAT(ForceDuration);
 	P_FINISH;
 	vf_12c(ForceDuration);
+}
+
+struct UCameraAnimInst__00c8c210 : public UCameraAnimInst
+{
+    /* AdvanceAnim; Classes.h doesn't declare it. */
+    void sub_0078a850(FLOAT DeltaTime, UBOOL bJump);
+};
+
+// @baa 0x00c8c210
+void UCameraAnimInst::execAdvanceAnim(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_FLOAT(DeltaTime);
+    P_GET_UBOOL(bJump);
+    P_FINISH;
+    ((UCameraAnimInst__00c8c210*)this)->sub_0078a850(DeltaTime, bJump);
+}
+
+struct APortalTeleporter__00c8b970 : public APortalTeleporter
+{
+    /* TransformVectorDir; Classes.h doesn't declare it. */
+    FVector sub_008de2d0(FVector V);
+};
+
+// @baa 0x00c8b970
+void APortalTeleporter::execTransformVectorDir(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, V);
+    P_FINISH;
+    *(FVector*)Result = ((APortalTeleporter__00c8b970*)this)->sub_008de2d0(V);
+}
+
+struct APortalTeleporter__00c8ba00 : public APortalTeleporter
+{
+    /* TransformHitLocation; Classes.h doesn't declare it. */
+    FVector sub_008de460(FVector HitLocation);
+};
+
+// @baa 0x00c8ba00
+void APortalTeleporter::execTransformHitLocation(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, HitLocation);
+    P_FINISH;
+    *(FVector*)Result = ((APortalTeleporter__00c8ba00*)this)->sub_008de460(HitLocation);
+}
+
+struct USceneCapture2DComponent_ : public USceneCapture2DComponent
+{
+    /* SetView; Classes.h doesn't declare it. */
+    void sub_008b03e0(FVector NewLocation, FRotator NewRotation);
+};
+
+// @baa 0x00c8b7c0
+void USceneCapture2DComponent::execSetView(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, NewLocation);
+    P_GET_STRUCT(FRotator, NewRotation);
+    P_FINISH;
+    ((USceneCapture2DComponent_*)this)->sub_008b03e0(NewLocation, NewRotation);
+}
+
+struct AHUD_ : public AHUD
+{
+    /* Draw3DLine; Classes.h doesn't declare it. */
+    void sub_008a9530(FVector Start, FVector End, FColor LineColor);
+};
+
+// @baa 0x00c87be0
+void AHUD::execDraw3DLine(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, Start);
+    P_GET_STRUCT(FVector, End);
+    P_GET_STRUCT(FColor, LineColor);
+    P_FINISH;
+    ((AHUD_*)this)->sub_008a9530(Start, End, LineColor);
+}
+
+struct AHUD__00c87cb0 : public AHUD
+{
+    /* Draw2DLine; Classes.h doesn't declare it. */
+    void sub_008a9580(INT X1, INT Y1, INT X2, INT Y2, FColor LineColor);
+};
+
+// @baa 0x00c87cb0
+void AHUD::execDraw2DLine(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_INT(X1);
+    P_GET_INT(Y1);
+    P_GET_INT(X2);
+    P_GET_INT(Y2);
+    P_GET_STRUCT(FColor, LineColor);
+    P_FINISH;
+    ((AHUD__00c87cb0*)this)->sub_008a9580(X1, Y1, X2, Y2, LineColor);
+}
+
+struct UTexture2DDynamic_ : public UTexture2DDynamic
+{
+    /* Init(INT InSizeX, INT InSizeY, BYTE InFormat, UBOOL InIsResolveTarget); Classes.h doesn't declare it. */
+    void sub_00754ed0(INT InSizeX, INT InSizeY, BYTE InFormat, UBOOL InIsResolveTarget);
+};
+
+// @baa 0x00c8f620
+void UTexture2DDynamic::execInit(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_INT(InSizeX);
+    P_GET_INT(InSizeY);
+    P_GET_BYTE_OPTX(InFormat, PF_A8R8G8B8);
+    P_GET_UBOOL_OPTX(InIsResolveTarget, FALSE);
+    P_FINISH;
+    ((UTexture2DDynamic_*)this)->sub_00754ed0(InSizeX, InSizeY, InFormat, InIsResolveTarget);
+}
+
+struct UCameraAnimInst__00c8c0e0 : public UCameraAnimInst
+{
+    /* Update(FLOAT NewRate, FLOAT NewScale, FLOAT NewBlendInTime, FLOAT NewBlendOutTime, FLOAT NewDuration); Classes.h doesn't declare it. */
+    void sub_00788030(FLOAT NewRate, FLOAT NewScale, FLOAT NewBlendInTime, FLOAT NewBlendOutTime, FLOAT NewDuration);
+};
+
+// @baa 0x00c8c0e0
+void UCameraAnimInst::execUpdate(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_FLOAT(NewRate);
+    P_GET_FLOAT(NewScale);
+    P_GET_FLOAT(NewBlendInTime);
+    P_GET_FLOAT(NewBlendOutTime);
+    P_GET_FLOAT_OPTX(NewDuration, 0.f);
+    P_FINISH;
+    ((UCameraAnimInst__00c8c0e0*)this)->sub_00788030(NewRate, NewScale, NewBlendInTime, NewBlendOutTime, NewDuration);
+}
+
+struct UCameraAnimInst__00c8bef0 : public UCameraAnimInst
+{
+    /* Play(UCameraAnim*, AActor*, FLOAT InRate, FLOAT InScale, FLOAT InBlendInTime, FLOAT InBlendOutTime, UBOOL bInLoop, UBOOL bRandomStartTime, FLOAT Duration); Classes.h doesn't declare it. */
+    void sub_00791ee0(UCameraAnim* Anim, AActor* CamActor, FLOAT InRate, FLOAT InScale, FLOAT InBlendInTime, FLOAT InBlendOutTime, UBOOL bInLoop, UBOOL bRandomStartTime, FLOAT Duration);
+};
+
+// @baa 0x00c8bef0
+void UCameraAnimInst::execPlay(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_OBJECT(UCameraAnim, Anim);
+    P_GET_OBJECT(AActor, CamActor);
+    P_GET_FLOAT(InRate);
+    P_GET_FLOAT(InScale);
+    P_GET_FLOAT(InBlendInTime);
+    P_GET_FLOAT(InBlendOutTime);
+    P_GET_UBOOL(bInLoop);
+    P_GET_UBOOL(bRandomStartTime);
+    P_GET_FLOAT_OPTX(Duration, 0.f);
+    P_FINISH;
+    ((UCameraAnimInst__00c8bef0*)this)->sub_00791ee0(Anim, CamActor, InRate, InScale, InBlendInTime, InBlendOutTime, bInLoop, bRandomStartTime, Duration);
 }

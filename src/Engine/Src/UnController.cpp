@@ -1,4 +1,4 @@
-// UnController.cpp (part 1 of 2): 7 functions
+// UnController.cpp (part 1 of 2): 8 functions
 // Placed here by: neighbours 5, callers 1, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -92,3 +92,35 @@ int APlayerController::vf_43c(int a0, int a1) { return 0; }
 IMPLEMENT_CLASS_AT(UCheatManager, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnController.cpp", 20);
 
 // @baa 0x007ac450
+
+/* EName entries Core.h doesn't list yet (UnNames.h) */
+#define NAME_SeePlayer  0x154
+#define NAME_SeeMonster 0x158
+/* FName(EName) as UE3 has it (the kit's FName is an aggregate) */
+struct FName_ : public FName { FName_(INT N) { Index = N; Number = 0; } };
+
+struct AController_ : public AController {
+    UBOOL IsProbing(FName_ ProbeName); // UObject::IsProbing (0058f750)
+};
+
+// @baa 0x007a1600
+UBOOL AController::ShouldCheckVisibilityOf(AController* C)
+{
+    // only check visibility if one of the two is a player, and the sight counter allows it
+    if ((bIsPlayer || C->bIsPlayer) && SightCounter < 0.f)
+    {
+        if (C->bIsPlayer ? ((AController_*)this)->IsProbing(NAME_SeePlayer) : ((AController_*)this)->IsProbing(NAME_SeeMonster))
+        {
+            // don't check visibility of team members unless we want to see friendlies
+            if (!bSeeFriendly && (!WorldInfo->Game || WorldInfo->Game->bTeamGame)
+                && PlayerReplicationInfo && PlayerReplicationInfo->Team
+                && C->PlayerReplicationInfo && C->PlayerReplicationInfo->Team
+                && PlayerReplicationInfo->Team == C->PlayerReplicationInfo->Team)
+            {
+                return FALSE;
+            }
+            return TRUE;
+        }
+    }
+    return FALSE;
+}

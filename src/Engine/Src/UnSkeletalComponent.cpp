@@ -1,4 +1,4 @@
-// UnSkeletalComponent.cpp (part 1 of 3): 71 functions
+// UnSkeletalComponent.cpp (part 1 of 3): 74 functions
 // Placed here by: neighbours 58, callers 8, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -612,3 +612,204 @@ UBOOL RemoveAdjacentDuplicates(TArray<BYTE> Array)
     }
     return TRUE;
 }
+
+struct USkeletalMeshComponent__0091fad0 : public USkeletalMeshComponent
+{
+    INT FindInstanceVertexweightBonePair(const FBonePair& Bones) const;
+};
+
+// @baa 0x0091fad0
+/* index of the instanced vertex weight entry for this pair of bones (in either order), or INDEX_NONE */
+INT USkeletalMeshComponent__0091fad0::FindInstanceVertexweightBonePair(const FBonePair& Bones) const
+{
+    INT Result = INDEX_NONE;
+    for (INT i = 0; i < InstanceVertexWeightBones.Num(); i++)
+    {
+        const FBonePair& BonePair = InstanceVertexWeightBones(i);
+        if ((Bones.Bones[0] == BonePair.Bones[0] || Bones.Bones[1] == BonePair.Bones[0]) &&
+            (Bones.Bones[0] == BonePair.Bones[1] || Bones.Bones[1] == BonePair.Bones[1]))
+        {
+            Result = i;
+            break;
+        }
+    }
+    return Result;
+}
+
+/* Exchange and Sort (UnTemplate.h); not in the kit. */
+template<class T> inline void Exchange(T& A, T& B)
+{
+    const T Temp = A;
+    A = B;
+    B = Temp;
+}
+
+template<class T, class CompareClass> void Sort(T* First, INT Num)
+{
+    struct FStack
+    {
+        T* Min;
+        T* Max;
+    };
+    if (Num < 2)
+    {
+        return;
+    }
+    FStack RecursionStack[32] = {First, First + Num - 1}, Current, Inner;
+    for (FStack* StackTop = RecursionStack; StackTop >= RecursionStack; --StackTop)
+    {
+        Current = *StackTop;
+    Loop:
+        INT Count = Current.Max - Current.Min + 1;
+        if (Count <= 8)
+        {
+            // simple bubble sort
+            while (Current.Max > Current.Min)
+            {
+                T *Max, *Item;
+                for (Max = Current.Min, Item = Current.Min + 1; Item <= Current.Max; Item++)
+                {
+                    if (CompareClass::Compare(*Item, *Max) > 0)
+                    {
+                        Max = Item;
+                    }
+                }
+                Exchange(*Max, *Current.Max--);
+            }
+        }
+        else
+        {
+            // grab the middle element so presorted lists don't hit the worst case
+            Exchange(Current.Min[Count / 2], Current.Min[0]);
+
+            // split into items <= Current.Min and items > it
+            Inner.Min = Current.Min;
+            Inner.Max = Current.Max + 1;
+            for (;;)
+            {
+                while (++Inner.Min <= Current.Max && CompareClass::Compare(*Inner.Min, *Current.Min) <= 0);
+                while (--Inner.Max > Current.Min && CompareClass::Compare(*Inner.Max, *Current.Min) >= 0);
+                if (Inner.Min > Inner.Max)
+                {
+                    break;
+                }
+                Exchange(*Inner.Min, *Inner.Max);
+            }
+            Exchange(*Current.Min, *Inner.Max);
+
+            // save the big half and recurse with the small one
+            if (Inner.Max - 1 - Current.Min >= Current.Max - Inner.Min)
+            {
+                if (Current.Min + 1 < Inner.Max)
+                {
+                    StackTop->Min = Current.Min;
+                    StackTop->Max = Inner.Max - 1;
+                    StackTop++;
+                }
+                if (Current.Max > Inner.Min)
+                {
+                    Current.Min = Inner.Min;
+                    goto Loop;
+                }
+            }
+            else
+            {
+                if (Current.Max > Inner.Min)
+                {
+                    StackTop->Min = Inner.Min;
+                    StackTop++->Max = Current.Max;
+                }
+                if (Current.Min + 1 < Inner.Max)
+                {
+                    Current.Max = Inner.Max - 1;
+                    goto Loop;
+                }
+            }
+        }
+    }
+}
+
+/* IMPLEMENT_COMPARE_CONSTREF(BYTE, UnSkeletalComponent, { return A - B; }): orders RequiredBones */
+class CompareUnSkeletalComponentBYTEConstRef
+{
+public:
+    static inline INT Compare(const BYTE& A, const BYTE& B) { return A - B; }
+};
+
+// @baa 0x00921c60
+template void Sort<BYTE, CompareUnSkeletalComponentBYTEConstRef>(BYTE* First, INT Num);
+
+class FSceneInterface;
+/* FMatrix::operator* (UnMath.h, out of line at 0x0058e560); the kit's FMatrix has no methods. */
+struct FMatrix_ : public FMatrix
+{
+    FMatrix operator*(const FMatrix& Other) const;
+};
+
+/* FScaleRotationTranslationMatrix (UnMath.h); constructor out of line at 0x006d8130. */
+class FScaleRotationTranslationMatrix : public FMatrix_
+{
+public:
+    FScaleRotationTranslationMatrix(const FVector& Scale, const FRotator& Rot, const FVector& Origin);
+};
+
+/* UActorComponent::UpdateComponent (0x0076a330) isn't declared in Classes.h. */
+struct UActorComponent_ : public UActorComponent
+{
+    void UpdateComponent(FSceneInterface* InScene, AActor* InOwner, const FMatrix& InLocalToWorld, UBOOL bCollisionUpdate = FALSE);
+};
+
+/* USkeletalMesh::MatchRefBone (0x00976be0) isn't declared in Classes.h. */
+struct USkeletalMesh_ : public USkeletalMesh
+{
+    INT MatchRefBone(FName BoneName) const;
+};
+
+/* FVector(X,Y,Z) and IsZero (UnMath.h) */
+struct FVector_ : public FVector
+{
+    FVector_(FLOAT InX, FLOAT InY, FLOAT InZ) { X = InX; Y = InY; Z = InZ; }
+};
+
+inline UBOOL IsZero(const FVector& V) { return V.X == 0.0f && V.Y == 0.0f && V.Z == 0.0f; }
+
+inline UBOOL operator!=(const FName& A, EName B) { return A.Index != B || A.Number != 0; }
+
+/* slot 0x128 (vf_128) is UActorComponent::UpdateChildComponents */
+struct USkeletalMeshComponent__0091c910 : public USkeletalMeshComponent
+{
+    void SetAttachmentOwnerVisibility(UActorComponent* Component); /* 0x00913f30 */
+    void UpdateChildComponents();
+};
+
+// @baa 0x0091c910
+void USkeletalMeshComponent__0091c910::UpdateChildComponents()
+{
+#line 1496 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSkeletalComponent.cpp"
+    check(bEnableUpdateChildComponents);
+
+    for (UINT AttachmentIndex = 0; AttachmentIndex < (UINT)Attachments.Num(); AttachmentIndex++)
+    {
+        FAttachment& Attachment = Attachments(AttachmentIndex);
+
+        INT BoneIndex = INDEX_NONE;
+        const FName BoneName = Attachment.BoneName;
+        if (BoneName != NAME_None && SkeletalMesh)
+        {
+            BoneIndex = ((USkeletalMesh_*)SkeletalMesh)->MatchRefBone(Attachment.BoneName);
+        }
+
+        if (Attachment.Component && BoneIndex != INDEX_NONE && BoneIndex < SpaceBases.Num())
+        {
+            // a zero scale means unscaled
+            const FVector RelativeScale = IsZero(Attachment.RelativeScale) ? (const FVector&)FVector_(1.0f, 1.0f, 1.0f) : Attachment.RelativeScale;
+
+            const FMatrix ParentToWorld = (const FMatrix_&)(FScaleRotationTranslationMatrix(RelativeScale, Attachment.RelativeRotation, Attachment.RelativeLocation) * SpaceBases(BoneIndex)) * LocalToWorld;
+
+            SetAttachmentOwnerVisibility(Attachment.Component);
+            ((UActorComponent_*)Attachment.Component)->UpdateComponent((FSceneInterface*)Scene.Dummy, /* Scene is an FSceneInterface* (script FPointer) */ Owner, ParentToWorld);
+        }
+    }
+}
+
+#line 816 "candidate.cpp"

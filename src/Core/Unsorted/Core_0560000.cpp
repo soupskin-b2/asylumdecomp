@@ -1,4 +1,4 @@
-// Core_0560000.cpp (part 1 of 3): 183 functions
+// Core_0560000.cpp (part 1 of 3): 186 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1665,4 +1665,57 @@ void UField::StaticConstructor()
     UClass* C = Class;
     ((UClass_*)C)->sub_005f2bf0(&UField::SuperField);
     ((UClass_*)C)->sub_005f2bf0(&UField::Next);
+}
+
+struct sub_00565e50_Base
+{
+    virtual ~sub_00565e50_Base() {}
+    virtual void sub_00565e51(sub_00565e50_Base* Other, INT Mode) = 0;
+};
+
+// @baa 0x00565e50
+sub_00565e50_Base* __cdecl sub_00565e50(sub_00565e50_Base* A, sub_00565e50_Base* B)
+{
+    A->sub_00565e51(B, 1);
+    return A;
+}
+
+struct SThreeDWORDs {
+    DWORD A;
+    DWORD B;
+    DWORD C;
+
+    SThreeDWORDs& sub_00568b90(INT FA, INT FB, INT FC);
+};
+
+// @baa 0x00568b90
+SThreeDWORDs& SThreeDWORDs::sub_00568b90(INT FA, INT FB, INT FC)
+{
+    A = FA;
+    B = FB;
+    C = FC;
+    return *this;
+}
+
+// 12-byte value object; assignment overwrites the destination's fields
+// with the source's copy and returns the destination.
+struct C005685d0
+{
+    DWORD Part0;
+    DWORD Part1;
+    DWORD Part2;
+
+    __declspec(noinline) C005685d0& sub_005685d0(const C005685d0& Source)
+    {
+        Part0 = Source.Part0;
+        Part1 = Source.Part1;
+        Part2 = Source.Part2;
+        return *this;
+    }
+};
+
+// @baa 0x005685d0
+void Probe005685d0(C005685d0* Dest, C005685d0* Source)
+{
+    Dest->sub_005685d0(*Source);
 }

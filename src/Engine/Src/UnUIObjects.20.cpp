@@ -1,4 +1,4 @@
-// UnUIObjects.cpp: 1 function
+// UnUIObjects.cpp: 2 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -39,4 +39,29 @@ void UUIScreenObject::execGetDockClients(FFrame& Stack, RESULT_DECL)
     P_FINISH;
 
     *(INT*)Result = ((UUIScreenObject_*)this)->sub_00db3360(pDockClients, bDirectDockClientsOnly, TargetFace, SourceFace);
+}
+
+/* TArray<UUIDataStore*> with the out-of-line destructor (00cc4a60) the original calls. */
+struct FUIDataStoreArray : public TArray<UUIDataStore*>
+{
+    FUIDataStoreArray() {}
+    ~FUIDataStoreArray();
+};
+
+struct UUIObject_ : public UUIObject
+{
+    /* GetDefaultDataStores(TArray<UUIDataStore*>& out_BoundDataStores); Classes.h doesn't declare it. */
+    void sub_00db5ac0(FUIDataStoreArray& out_BoundDataStores);
+};
+
+// @baa 0x00cc7770
+void UUIObject::execGetDefaultDataStores(FFrame& Stack, RESULT_DECL)
+{
+    /* P_GET_TARRAY_REF(UUIDataStore*, out_BoundDataStores) */
+    FUIDataStoreArray out_BoundDataStoresT;
+    GPropAddr = 0;
+    Stack.Step(Stack.Object, &out_BoundDataStoresT);
+    FUIDataStoreArray& out_BoundDataStores = GPropAddr ? *(FUIDataStoreArray*)GPropAddr : out_BoundDataStoresT;
+    P_FINISH;
+    ((UUIObject_*)this)->sub_00db5ac0(out_BoundDataStores);
 }

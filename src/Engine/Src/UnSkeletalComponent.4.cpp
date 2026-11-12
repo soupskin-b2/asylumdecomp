@@ -1,4 +1,4 @@
-// UnSkeletalComponent.cpp: 22 functions
+// UnSkeletalComponent.cpp: 23 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -283,4 +283,14 @@ void USkeletalMeshComponent::execSetDisableRagdollCalmingMeasures(FFrame& Stack,
 	P_GET_UBOOL(bEnabled);
 	P_FINISH;
 	bDisableRagdollCalmingMeasures = bEnabled;
+}
+
+// @baa 0x0091ee70
+void USkeletalMeshComponent::execFindClosestBone(FFrame& Stack, RESULT_DECL)
+{
+    P_GET_STRUCT(FVector, TestLocation);
+    P_GET_STRUCT_OPTX_REF(FVector, BoneLocation);
+    P_GET_FLOAT_OPTX(IgnoreScale, -1.0f);
+    P_FINISH;
+    *(FName*)Result = FindClosestBone(TestLocation, pBoneLocation, IgnoreScale);
 }

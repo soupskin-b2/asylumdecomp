@@ -1,4 +1,4 @@
-// UnrealEd_0450000.cpp: 125 functions
+// UnrealEd_0450000.cpp: 126 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -978,4 +978,26 @@ struct C_0045da10
 void C_0045da10::sub_0045da10(float In)
 {
     Value = In;
+}
+
+struct sub_0045e140_Obj
+{
+    DWORD First;
+    DWORD Second;
+    DWORD Third;
+    DWORD Fourth;
+    DWORD Fifth;
+
+    sub_0045e140_Obj* sub_0045e140(DWORD Value);
+};
+
+// @baa 0x0045e140
+sub_0045e140_Obj* sub_0045e140_Obj::sub_0045e140(DWORD Value)
+{
+    First = Value;
+    Second = 0;
+    Third = 0;
+    Fourth = 0;
+    Fifth = 0;
+    return this;
 }

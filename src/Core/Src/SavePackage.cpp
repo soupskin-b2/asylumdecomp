@@ -1,4 +1,4 @@
-// SavePackage.cpp: 93 functions
+// SavePackage.cpp: 94 functions
 // Placed here by: neighbours 90, callers 3.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -992,4 +992,23 @@ S16* S16::sub_0059a330()
     f08 = 0;
     f0c = 0;
     return this;
+}
+
+// 0059a380: assign three INTs to this, return a reference to this.
+struct S_0059a380
+{
+	INT X;
+	INT Y;
+	INT Z;
+
+	S_0059a380& sub_0059a380(INT FX, INT FY, INT FZ);
+};
+
+// @baa 0x0059a380
+S_0059a380& S_0059a380::sub_0059a380(INT FX, INT FY, INT FZ)
+{
+	X = FX;
+	Y = FY;
+	Z = FZ;
+	return *this;
 }

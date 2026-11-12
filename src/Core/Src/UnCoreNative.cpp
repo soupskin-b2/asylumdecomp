@@ -1,4 +1,4 @@
-// UnCoreNative.cpp: 80 functions
+// UnCoreNative.cpp: 81 functions
 // Placed here by: neighbours 36, class 23, callers 11, file 10.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -711,4 +711,18 @@ void sub_005c0a50(int * param_1)
     return;
   }
   return;
+}
+
+struct TVector3 {
+    FLOAT X, Y, Z;
+    TVector3& Set(FLOAT F);
+};
+
+// @baa 0x005400e0
+TVector3& TVector3::Set(FLOAT F)
+{
+    X = F;
+    Y = F;
+    Z = F;
+    return *this;
 }

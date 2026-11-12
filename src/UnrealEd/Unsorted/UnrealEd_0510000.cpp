@@ -1,4 +1,4 @@
-// UnrealEd_0510000.cpp (part 1 of 3): 212 functions
+// UnrealEd_0510000.cpp (part 1 of 3): 213 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Core.h"
@@ -1479,4 +1479,48 @@ undefined4 C_0051e810::sub_0051e810(byte param_2)
     sub_00402660(param_1);
   }
   return param_1;
+}
+
+struct STarget {
+    virtual void sub00() {}
+    virtual void sub01() {}
+    virtual void sub02() {}
+    virtual void sub03() {}
+    virtual void sub04() {}
+    virtual void sub05() {}
+    virtual void sub06() {}
+    virtual void sub07() {}
+    virtual void sub08() {}
+    virtual void sub09() {}
+    virtual void sub10() {}
+    virtual void sub11() {}
+    virtual void sub12() {}
+    virtual void sub13() {}
+    virtual void sub14() {}
+    virtual void sub15() {}
+    virtual void sub16() {}
+    virtual void sub17() {}
+    virtual void sub18() {}
+    virtual void sub19() {}
+    virtual void sub20() {}
+    virtual void sub21() {}
+    virtual void sub22() {}
+    virtual void sub23() {}
+    virtual void sub24() {}
+    virtual void sub25() {}
+    virtual void sub_0051be20(int) {} // slot 26 = 0x68
+};
+
+struct SOuter {
+    char pad0[0x148];
+    STarget* Field_148;
+
+    void sub_0051be20();
+};
+
+// @baa 0x0051be20
+void SOuter::sub_0051be20()
+{
+    if (Field_148)
+        Field_148->sub_0051be20(0);
 }
