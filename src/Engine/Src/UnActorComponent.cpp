@@ -31,7 +31,7 @@ void UActorComponent::vf_130(void) {  }
 void UActorComponent::vf_134(int a0) {  }
 
 // @baa 0x0064b5e0
-void UActorComponent::vf_138(int a0) {  }
+void UActorComponent::SetComponentRBFixed(int a0) {  }
 
 // @baa 0x0064b5f0
 void UActorComponent::vf_13c(int a0) {  }

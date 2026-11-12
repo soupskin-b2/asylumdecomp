@@ -146,4 +146,63 @@ def listing(img: Image, va: int, size: int, names: dict[int, str], slots: dict[i
 def packet(img: Image, va: int, size: int, record: dict, names: dict[int, str]) -> str:
     """A packet's text: the record's head and tail around the listing."""
     slots = {int(k): v for k, v in (record.get("slots") or {}).items()}
-    return "%s## Original assembly\n```\n%s\n```\n%s" % (record["head"], listing(img, va, size, names, slots), record["tail"])
+    head = record["head"]
+    try:
+        from paths import ROOT
+        head = refresh_head(head, va, (ROOT / "include/ue3/Classes.h").read_text(encoding="utf-8"))
+    except OSError:
+        pass
+    return "%s## Original assembly\n```\n%s\n```\n%s" % (head, listing(img, va, size, names, slots), record["tail"])
+
+
+_CLASS_LINE = re.compile(r"^`this` is an? (\w+) ", re.M)
+_DECL_LINE = re.compile(r"^Its declaration in Classes\.h: `[^`\n]*`$", re.M)
+_MEMBERS_LINE = re.compile(r"^Other members it declares: .*$", re.M)
+_SLOT = re.compile(r"occupies slot (\d+) of (\w+)'s vtable")
+
+
+def _class_body(header: str, cls: str) -> str | None:
+    m = re.search(r"^struct %s\b[^;{]*\{.*?^\};" % re.escape(cls), header, re.S | re.M)
+    return m.group(0) if m else None
+
+
+_PURE_HINT = ("This is a pure virtual stub (GError->Logf(\"Pure virtual not implemented (%s)\", ...)): "
+              "`#include \"ue3/Script.h\"` and write `RET Class::Func(PARAMS) PURE_VIRTUAL(Class::Func, return 0;)` "
+              "(or `PURE_VIRTUAL(Class::Func,)` for void), with the declaration's exact signature.\n\n")
+
+
+def refresh_head(head: str, va: int, header: str) -> str:
+    """The record's head quotes Classes.h as it was when the packet was built: quote the kit's instead,
+    so header fixes reach packets (the declaration of this function, and its class's other members)."""
+    if "Pure virtual not implemented" in head and "PURE_VIRTUAL" not in head:
+        k = head.find("## Starting point")
+        head = head[:k] + _PURE_HINT + head[k:] if k >= 0 else head + _PURE_HINT
+    m = _CLASS_LINE.search(head)
+    body = _class_body(header, m.group(1)) if m else None
+    if body is None:
+        return head
+    decl = None
+    for line in body.split("\n"):  # a declaration with this function's address
+        if "/* 0x%08x */" % va in line:
+            decl = line.split("/*")[0].strip()
+            break
+    s = _SLOT.search(head)
+    if decl is None and s:  # a virtual: the declaration at its slot, here or in a base
+        c, slot = m.group(1), int(s.group(1)) * 4
+        while c and decl is None:
+            b = _class_body(header, c)
+            if b is None:
+                break
+            for line in b.split("\n"):
+                if "virtual" in line and "/* 0x%03x */" % slot in line:
+                    decl = line.split("/*")[0].strip()
+                    break
+            p = re.search(r"^struct %s : public (\w+)" % re.escape(c), header, re.M)
+            c = p.group(1) if p else None
+    if decl:
+        head = _DECL_LINE.sub(lambda _: "Its declaration in Classes.h: `%s`" % decl, head)
+    names = [n for n in dict.fromkeys(re.findall(r"^\s+(?:virtual\s+)?[^;(/]*?\b(~?\w+)\s*\([^;]*\)[^;]*;", body, re.M))
+             if not n.isupper()]  # not macros (DECLARE_CLASS)
+    if names:
+        head = _MEMBERS_LINE.sub(lambda _: "Other members it declares: " + ", ".join(names[:60]) + (" ..." if len(names) > 60 else ""), head)
+    return head

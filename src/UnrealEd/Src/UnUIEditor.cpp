@@ -246,13 +246,13 @@ undefined4 UEditorUISceneClient::IsSceneInitialized(int param_2)
 }
 
 // @baa 0x0149b210
-int UEditorUISceneClient::InputKey(int a0, int a1, int a2, int a3, int a4, int a5) { return 0; }
+INT UEditorUISceneClient::InputKey(INT ControllerId, FName Key, EInputEvent Event, FLOAT AmountDepressed, UBOOL bGamepad) { return FALSE; }
 
 // @baa 0x0149b220
-int UEditorUISceneClient::InputAxis(int a0, int a1, int a2, int a3, int a4, int a5) { return 0; }
+INT UEditorUISceneClient::InputAxis(INT ControllerId, FName Key, FLOAT Delta, FLOAT DeltaTime, UBOOL bGamepad) { return FALSE; }
 
 // @baa 0x0149b230
-int UEditorUISceneClient::InputChar(int a0, int a1) { return 0; }
+INT UEditorUISceneClient::InputChar(INT ControllerId, TCHAR Character) { return FALSE; }
 
 // @baa 0x0149cea0
 IMPLEMENT_CLASS_AT(UEditorUISceneClient, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\UnUIEditor.cpp", 28);

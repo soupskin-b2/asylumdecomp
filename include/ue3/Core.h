@@ -96,6 +96,17 @@ inline void appFree(void* Original) {
 static __forceinline void appMemzero( void* Dest, INT Count ) { memset( Dest, 0, Count ); }
 
 enum { INDEX_NONE = -1 };
+
+/* UnClient.h: what happened to a key or button */
+enum EInputEvent
+{
+	IE_Pressed      = 0,
+	IE_Released     = 1,
+	IE_Repeat       = 2,
+	IE_DoubleClick  = 3,
+	IE_Axis         = 4,
+	IE_MAX          = 5,
+};
 extern "C" void* __cdecl memmove(void* Dest, const void* Src, unsigned int Count);
 #endif
 inline void* appMemmove(void* Dest, const void* Src, INT Count) { return memmove(Dest, Src, Count); }

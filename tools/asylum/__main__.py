@@ -10,7 +10,8 @@
     python asylum.pyz list --matched [filters]   matched functions (to improve one's source)
     python asylum.pyz get [VA] [filters]     claim a function (VA, or the next one that fits) and write its packet
     python asylum.pyz get VA --revise        claim a matched function to improve its source (its file in work/VA.cpp)
-    python asylum.pyz check VA FILE [--function NAME]       compile and compare (the verdict CI gives)
+    python asylum.pyz check VA [FILE] [VA [FILE] ...]        compile and compare (the verdict CI gives); FILE defaults
+                                                          to work/VA.cpp; several at once print verdicts, no diffs
     python asylum.pyz submit [VA [FILE] ...] [--model M]       check again, send the matches (no VA: every
                                              claim of this folder with a work/VA.cpp; FILE defaults to work/VA.cpp)
     python asylum.pyz giveup VA --reason TEXT [FILE] [--model M]   let it go, sharing what you learned
@@ -317,8 +318,24 @@ def _check(va, file, function=None, quiet=False):
 
 
 def cmd_check(a):
-    r, _ = _check(a.va, a.file, a.function)
-    sys.exit(0 if r.status == "match" else 1)
+    todo = _submit_list(a.items) if a.items else sys.exit("check VA [FILE] [VA [FILE] ...]")
+    if len(todo) == 1:
+        r, _ = _check(todo[0][0], todo[0][1], a.function)
+        sys.exit(0 if r.status == "match" else 1)
+    if a.function:
+        sys.exit("--function works with one function at a time")
+    verdicts = []  # several: one process, no diffs (check one alone for its diff)
+    for va, f in todo:
+        print("%08x (%s):" % (va, os.path.relpath(f)))
+        if not f.is_file():
+            verdicts.append((va, "no file"))
+            print("  no file %s" % f)
+            continue
+        r, _ = _check(va, f, quiet=True)
+        verdicts.append((va, r.status))
+    ok = [va for va, s in verdicts if s == "match"]
+    print("\n%d of %d match%s" % (len(ok), len(verdicts), (": " + " ".join("%08x" % v for v in ok)) if ok else ""))
+    sys.exit(0 if len(ok) == len(verdicts) else 1)
 
 
 def _submit_list(items: list[str]) -> list[tuple[int, Path]]:
@@ -501,8 +518,7 @@ def main(argv=None):
     filters(s)
     s.add_argument("--revise", action="store_true", help="a matched function: its file, to improve the source")
     s = sub.add_parser("check")
-    s.add_argument("va", type=va_arg)
-    s.add_argument("file")
+    s.add_argument("items", nargs="+", metavar="VA [FILE]", help="one or more; a VA's file defaults to work/VA.cpp")
     s.add_argument("--function")
     s = sub.add_parser("submit")
     s.add_argument("items", nargs="*", metavar="VA [FILE]", help="what to send (default: every claim with a work/VA.cpp)")

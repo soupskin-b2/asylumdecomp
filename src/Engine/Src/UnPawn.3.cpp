@@ -205,5 +205,5 @@ void APawn::execSetPushesRigidBodies(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(NewPush);
 	P_FINISH;
-	vf_384(NewPush);
+	SetPushesRigidBodies(NewPush);
 }

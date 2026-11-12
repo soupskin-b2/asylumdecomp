@@ -171846,7 +171846,7 @@
     {
      "va": "0064b5e0",
      "size": 3,
-     "symbol": "?vf_138@UActorComponent@@UAEXH@Z"
+     "symbol": "?SetComponentRBFixed@UActorComponent@@UAEXH@Z"
     },
     {
      "va": "0064b5f0",
@@ -224262,7 +224262,7 @@
     {
      "va": "00de14b0",
      "size": 27,
-     "symbol": "?UpdateActivePrimitives@UUISceneClient@@UAEXH@Z"
+     "symbol": "?UpdateActivePrimitives@UUISceneClient@@UAEXPAVFCanvas@@@Z"
     },
     {
      "va": "00de0940",
@@ -224272,27 +224272,27 @@
     {
      "va": "00de13f0",
      "size": 29,
-     "symbol": "?InputKey@UUISceneClient@@UAEHHHHHHH@Z"
+     "symbol": "?InputKey@UUISceneClient@@UAEHHUFName@@W4EInputEvent@@MH@Z"
     },
     {
      "va": "00de1410",
      "size": 29,
-     "symbol": "?InputAxis@UUISceneClient@@UAEHHHHHHH@Z"
+     "symbol": "?InputAxis@UUISceneClient@@UAEHHUFName@@MMH@Z"
     },
     {
      "va": "00de1430",
      "size": 29,
-     "symbol": "?InputChar@UUISceneClient@@UAEHHH@Z"
+     "symbol": "?InputChar@UUISceneClient@@UAEHH_W@Z"
     },
     {
      "va": "00de14d0",
      "size": 29,
-     "symbol": "?IsUIActive@UUISceneClient@@UAEHH@Z"
+     "symbol": "?IsUIActive@UUISceneClient@@UAEHK@Z"
     },
     {
      "va": "00de1390",
      "size": 29,
-     "symbol": "?ChangeActiveSkin@UUISceneClient@@UAEHH@Z"
+     "symbol": "?ChangeActiveSkin@UUISceneClient@@UAEHPAUUUISkin@@@Z"
     },
     {
      "va": "00de1470",
@@ -224302,7 +224302,7 @@
     {
      "va": "00de1490",
      "size": 27,
-     "symbol": "?InitializePrimitives@UUISceneClient@@UAEXH@Z"
+     "symbol": "?InitializePrimitives@UUISceneClient@@UAEXPAVFCanvas@@@Z"
     },
     {
      "va": "00dde510",
@@ -457207,17 +457207,17 @@
     {
      "va": "0149b210",
      "size": 5,
-     "symbol": "?InputKey@UEditorUISceneClient@@UAEHHHHHHH@Z"
+     "symbol": "?InputKey@UEditorUISceneClient@@UAEHHUFName@@W4EInputEvent@@MH@Z"
     },
     {
      "va": "0149b220",
      "size": 5,
-     "symbol": "?InputAxis@UEditorUISceneClient@@UAEHHHHHHH@Z"
+     "symbol": "?InputAxis@UEditorUISceneClient@@UAEHHUFName@@MMH@Z"
     },
     {
      "va": "0149b230",
      "size": 5,
-     "symbol": "?InputChar@UEditorUISceneClient@@UAEHHH@Z"
+     "symbol": "?InputChar@UEditorUISceneClient@@UAEHH_W@Z"
     },
     {
      "va": "0149cea0",

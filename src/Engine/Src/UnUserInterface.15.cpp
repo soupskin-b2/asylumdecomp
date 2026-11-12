@@ -2,6 +2,7 @@
 // Placed here by: class 3.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
+#include "ue3/Script.h"
 
 // @baa 0x00de1650
 bool UUISceneClient::vf_004()
@@ -18,14 +19,9 @@ bool UGameUISceneClient::vf_004()
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
-extern int g_026667a8;
-int sub_00630f20(int Log, const wchar_t* Message, const wchar_t* Func);
 // @baa 0x00de1450
-// Pure virtual thunk: the base class provides the message, the derived class must override.
 void UUISceneClient::RenderScenes(INT)
-{
-    sub_00630f20(g_026667a8, L"Pure virtual not implemented (%s)", L"UUISceneClient::RenderScenes");
-}
+PURE_VIRTUAL(UUISceneClient::RenderScenes,)
 
 struct C
 {
@@ -64,12 +60,9 @@ INT UGameUISceneClient::vf_1b0(INT, INT, INT)
     return 0;
 }
 
-int sub_00630f20(...);
 // @baa 0x00de14b0
-void UUISceneClient::UpdateActivePrimitives(INT)
-{
-    sub_00630f20(g_026667a8, L"Pure virtual not implemented (%s)", L"UUISceneClient::UpdateActivePrimitives");
-}
+void UUISceneClient::UpdateActivePrimitives( FCanvas* Canvas )
+PURE_VIRTUAL(UUISceneClient::UpdateActivePrimitives,)
 
 // UnUserInterface.cpp
 struct M_00de0940 {
@@ -93,33 +86,24 @@ INT sub_00de0941(M_00de0940* T, INT A, INT B)
     return 0;
 }
 
-class FOutputDevice
-{
-public:
-	void Logf( const TCHAR* Fmt, ... );
-};
-
-extern FOutputDevice* GError;
-#define appErrorf GError->Logf
-#define PURE_VIRTUAL(func,extra) { appErrorf(TEXT("Pure virtual not implemented (%s)"), TEXT(#func)); extra }
 // @baa 0x00de13f0
-INT UUISceneClient::InputKey( INT ControllerId, INT KeyIndex, INT KeyNumber, INT Event, INT AmountDepressed, INT bGamepad )
+INT UUISceneClient::InputKey( INT ControllerId, FName Key, EInputEvent Event, FLOAT AmountDepressed, UBOOL bGamepad )
 PURE_VIRTUAL(UUISceneClient::InputKey,return FALSE;)
 
 // @baa 0x00de1410
-INT UUISceneClient::InputAxis( INT ControllerId, INT KeyIndex, INT KeyNumber, INT Delta, INT DeltaTime, INT bGamepad )
+INT UUISceneClient::InputAxis( INT ControllerId, FName Key, FLOAT Delta, FLOAT DeltaTime, UBOOL bGamepad )
 PURE_VIRTUAL(UUISceneClient::InputAxis,return FALSE;)
 
 // @baa 0x00de1430
-INT UUISceneClient::InputChar( INT ControllerId, INT Character )
+INT UUISceneClient::InputChar( INT ControllerId, TCHAR Character )
 PURE_VIRTUAL(UUISceneClient::InputChar,return FALSE;)
 
 // @baa 0x00de14d0
-INT UUISceneClient::IsUIActive( INT Flags )
+INT UUISceneClient::IsUIActive( DWORD Flags )
 PURE_VIRTUAL(UUISceneClient::IsUIActive,return FALSE;)
 
 // @baa 0x00de1390
-INT UUISceneClient::ChangeActiveSkin( INT NewActiveSkin )
+INT UUISceneClient::ChangeActiveSkin( UUISkin* NewActiveSkin )
 PURE_VIRTUAL(UUISceneClient::ChangeActiveSkin,return FALSE;)
 
 // @baa 0x00de1470
@@ -127,7 +111,7 @@ void UUISceneClient::RequestPrimitiveReinitialization( UUIScene* Scene )
 PURE_VIRTUAL(UUISceneClient::RequestPrimitiveReinitialization,)
 
 // @baa 0x00de1490
-void UUISceneClient::InitializePrimitives( INT Canvas )
+void UUISceneClient::InitializePrimitives( FCanvas* Canvas )
 PURE_VIRTUAL(UUISceneClient::InitializePrimitives,)
 
 struct Inner

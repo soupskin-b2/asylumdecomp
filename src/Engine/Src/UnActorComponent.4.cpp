@@ -71,5 +71,5 @@ void UActorComponent::execSetComponentRBFixed(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bFixed);
 	P_FINISH;
-	vf_138(bFixed);
+	SetComponentRBFixed(bFixed);
 }

@@ -12579,7 +12579,7 @@ struct UActorComponent : public UComponent {
     virtual UINT vf_12c(); /* 0x12c */
     virtual void vf_130(); /* 0x130 */
     virtual void vf_134(INT); /* 0x134 */
-    virtual void vf_138(INT); /* 0x138 */
+    virtual void SetComponentRBFixed(UBOOL bFixed); /* 0x138 */
     virtual void vf_13c(INT); /* 0x13c */
     virtual void vf_140(); /* 0x140 */
     virtual INT vf_144(); /* 0x144 */
@@ -12747,9 +12747,9 @@ struct UPrimitiveComponent : public UActorComponent {
     virtual INT vf_1b8(INT, INT); /* 0x1b8 */
     virtual INT vf_1bc(INT, INT); /* 0x1bc */
     virtual INT vf_1c0(INT, INT); /* 0x1c0 */
-    virtual INT vf_1c4(INT); /* 0x1c4 */
-    virtual void vf_1c8(INT); /* 0x1c8 */
-    virtual void vf_1cc(INT); /* 0x1cc */
+    virtual INT SetBlockRigidBody(UBOOL bNewBlockRigidBody); /* 0x1c4 */
+    virtual void SetNotifyRigidBodyCollision(UBOOL bNewNotifyRigidBodyCollision); /* 0x1c8 */
+    virtual void SetContactModification(UBOOL bNewContactModification); /* 0x1cc */
     virtual void vf_1d0(INT); /* 0x1d0 */
     virtual INT vf_1d4(class UPhysicalMaterial*); /* 0x1d4 */
     virtual INT vf_1d8(); /* 0x1d8 */
@@ -12796,7 +12796,7 @@ struct UPrimitiveComponent : public UActorComponent {
     virtual void vf_118(); /* 0x118 */
     virtual void vf_11c(UINT); /* 0x11c */
     virtual void vf_134(INT); /* 0x134 */
-    virtual void vf_138(INT); /* 0x138 */
+    virtual void SetComponentRBFixed(UBOOL bFixed); /* 0x138 */
     virtual void vf_13c(INT); /* 0x13c */
     virtual void vf_140(); /* 0x140 */
     /* UnrealScript natives */
@@ -18670,7 +18670,7 @@ struct UUIScreenObject : public UUIRoot {
     virtual INT vf_128(INT); /* 0x128 */
     virtual INT vf_12c(INT); /* 0x12c */
     virtual INT vf_130(INT); /* 0x130 */
-    virtual INT vf_134(INT); /* 0x134 */
+    virtual INT CanAcceptFocus(INT PlayerIndex); /* 0x134 */
     virtual INT vf_138(INT, INT, INT, INT, INT, INT, INT); /* 0x138 */
     virtual INT vf_13c(); /* 0x13c */
     virtual INT GetOwner(); /* 0x140 */
@@ -18924,7 +18924,7 @@ struct UUIObject : public UUIScreenObject {
     virtual void vf_058(); /* 0x058 */
     virtual void vf_09c(); /* 0x09c */
     virtual void vf_118(INT, INT); /* 0x118 */
-    virtual INT vf_134(INT); /* 0x134 */
+    virtual INT CanAcceptFocus(INT PlayerIndex); /* 0x134 */
     virtual INT vf_13c(); /* 0x13c */
     virtual INT GetOwner(); /* 0x140 */
     virtual INT vf_144(); /* 0x144 */
@@ -19472,7 +19472,7 @@ struct USkeletalMeshComponent : public UMeshComponent {
     virtual void vf_128(); /* 0x128 */
     virtual UINT vf_12c(); /* 0x12c */
     virtual void vf_134(INT); /* 0x134 */
-    virtual void vf_138(INT); /* 0x138 */
+    virtual void SetComponentRBFixed(UBOOL bFixed); /* 0x138 */
     virtual void vf_13c(INT); /* 0x13c */
     virtual INT vf_14c(INT); /* 0x14c */
     virtual INT vf_150(INT); /* 0x150 */
@@ -19496,8 +19496,8 @@ struct USkeletalMeshComponent : public UMeshComponent {
     virtual INT vf_1b8(INT, INT); /* 0x1b8 */
     virtual INT vf_1bc(INT, INT); /* 0x1bc */
     virtual INT vf_1c0(INT, INT); /* 0x1c0 */
-    virtual INT vf_1c4(INT); /* 0x1c4 */
-    virtual void vf_1c8(INT); /* 0x1c8 */
+    virtual INT SetBlockRigidBody(UBOOL bNewBlockRigidBody); /* 0x1c4 */
+    virtual void SetNotifyRigidBodyCollision(UBOOL bNewNotifyRigidBodyCollision); /* 0x1c8 */
     virtual void vf_1d0(INT); /* 0x1d0 */
     virtual INT vf_1d4(class UPhysicalMaterial*); /* 0x1d4 */
     virtual INT vf_1d8(); /* 0x1d8 */
@@ -23280,7 +23280,7 @@ struct UUISceneClient : public UUIRoot, public FExec {
     virtual INT vf_110(INT, INT); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
     virtual INT vf_118(INT); /* 0x118 */
-    virtual INT ChangeActiveSkin(INT); /* 0x11c */
+    virtual INT ChangeActiveSkin(class UUISkin* NewActiveSkin); /* 0x11c */
     virtual void OnActiveSkinChanged(); /* 0x120 */
     virtual INT vf_124(INT, INT); /* 0x124 */
     virtual FLOAT vf_128(INT); /* 0x128 */
@@ -23288,9 +23288,9 @@ struct UUISceneClient : public UUIRoot, public FExec {
     virtual INT vf_130(INT, INT); /* 0x130 */
     virtual void UpdateCanvasToScreen(); /* 0x134 */
     virtual INT vf_138(INT); /* 0x138 */
-    virtual INT InputKey(INT, INT, INT, INT, INT, INT); /* 0x13c */
-    virtual INT InputAxis(INT, INT, INT, INT, INT, INT); /* 0x140 */
-    virtual INT InputChar(INT, INT); /* 0x144 */
+    virtual INT InputKey(INT ControllerId, FName Key, EInputEvent Event, FLOAT AmountDepressed, UBOOL bGamepad); /* 0x13c */
+    virtual INT InputAxis(INT ControllerId, FName Key, FLOAT Delta, FLOAT DeltaTime, UBOOL bGamepad); /* 0x140 */
+    virtual INT InputChar(INT ControllerId, TCHAR Character); /* 0x144 */
     virtual void vf_148(INT, INT, INT); /* 0x148 */
     virtual INT vf_14c(INT, INT, INT, INT); /* 0x14c */
     virtual INT vf_150(INT, INT, INT, INT, INT, INT); /* 0x150 */
@@ -23302,10 +23302,10 @@ struct UUISceneClient : public UUIRoot, public FExec {
     virtual INT vf_168(INT, INT, INT); /* 0x168 */
     virtual void vf_16c(INT, INT, INT); /* 0x16c */
     virtual void RequestPrimitiveReinitialization(class UUIScene* Scene); /* 0x170 */
-    virtual void InitializePrimitives(INT); /* 0x174 */
-    virtual void UpdateActivePrimitives(INT); /* 0x178 */
+    virtual void InitializePrimitives(class FCanvas* Canvas); /* 0x174 */
+    virtual void UpdateActivePrimitives(class FCanvas* Canvas); /* 0x178 */
     virtual INT vf_17c(INT, INT); /* 0x17c */
-    virtual INT IsUIActive(INT); /* 0x180 */
+    virtual INT IsUIActive(DWORD Flags); /* 0x180 */
     virtual UINT IsSceneInitialized(INT); /* 0x184 */
     virtual INT vf_188(); /* 0x188 */
     /* overrides */
@@ -23378,14 +23378,14 @@ struct UGameUISceneClient : public UUISceneClient {
     virtual void vf_10c(INT, INT); /* 0x10c */
     virtual INT vf_110(INT, INT); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
-    virtual INT ChangeActiveSkin(INT); /* 0x11c */
+    virtual INT ChangeActiveSkin(class UUISkin* NewActiveSkin); /* 0x11c */
     virtual void OnActiveSkinChanged(); /* 0x120 */
     virtual UINT vf_12c(UINT, FLOAT*); /* 0x12c */
     virtual INT vf_130(INT, INT); /* 0x130 */
     virtual void UpdateCanvasToScreen(); /* 0x134 */
-    virtual INT InputKey(INT, INT, INT, INT, INT, INT); /* 0x13c */
-    virtual INT InputAxis(INT, INT, INT, INT, INT, INT); /* 0x140 */
-    virtual INT InputChar(INT, INT); /* 0x144 */
+    virtual INT InputKey(INT ControllerId, FName Key, EInputEvent Event, FLOAT AmountDepressed, UBOOL bGamepad); /* 0x13c */
+    virtual INT InputAxis(INT ControllerId, FName Key, FLOAT Delta, FLOAT DeltaTime, UBOOL bGamepad); /* 0x140 */
+    virtual INT InputChar(INT ControllerId, TCHAR Character); /* 0x144 */
     virtual INT vf_14c(INT, INT, INT, INT); /* 0x14c */
     virtual INT vf_150(INT, INT, INT, INT, INT, INT); /* 0x150 */
     virtual INT vf_154(INT, INT, INT, INT, INT); /* 0x154 */
@@ -23394,9 +23394,9 @@ struct UGameUISceneClient : public UUISceneClient {
     virtual INT vf_160(INT, INT, INT); /* 0x160 */
     virtual void RenderScenes(INT); /* 0x164 */
     virtual void RequestPrimitiveReinitialization(class UUIScene* Scene); /* 0x170 */
-    virtual void InitializePrimitives(INT); /* 0x174 */
-    virtual void UpdateActivePrimitives(INT); /* 0x178 */
-    virtual INT IsUIActive(INT); /* 0x180 */
+    virtual void InitializePrimitives(class FCanvas* Canvas); /* 0x174 */
+    virtual void UpdateActivePrimitives(class FCanvas* Canvas); /* 0x178 */
+    virtual INT IsUIActive(DWORD Flags); /* 0x180 */
     virtual UINT IsSceneInitialized(INT); /* 0x184 */
     /* other member functions */
     INT sub_00573840(); /* 0x00573840 */
@@ -30848,7 +30848,7 @@ struct APawn : public AActor {
     virtual INT vf_378(INT); /* 0x378 */
     virtual INT vf_37c(INT, INT, INT, INT); /* 0x37c */
     virtual void vf_380(); /* 0x380 */
-    virtual void vf_384(INT); /* 0x384 */
+    virtual void SetPushesRigidBodies(UBOOL NewPush); /* 0x384 */
     virtual INT vf_388(); /* 0x388 */
     virtual INT vf_38c(); /* 0x38c */
     virtual INT vf_390(); /* 0x390 */
@@ -63214,7 +63214,7 @@ struct UEditorUISceneClient : public UUISceneClient, public FInterface_UEditorEn
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_02c(); /* 0x02c */
-    virtual INT ChangeActiveSkin(INT); /* 0x11c */
+    virtual INT ChangeActiveSkin(class UUISkin* NewActiveSkin); /* 0x11c */
     virtual void OnActiveSkinChanged(); /* 0x120 */
     virtual INT vf_124(INT, INT); /* 0x124 */
     virtual FLOAT vf_128(INT); /* 0x128 */
@@ -63222,16 +63222,16 @@ struct UEditorUISceneClient : public UUISceneClient, public FInterface_UEditorEn
     virtual INT vf_130(INT, INT); /* 0x130 */
     virtual void UpdateCanvasToScreen(); /* 0x134 */
     virtual INT vf_138(INT); /* 0x138 */
-    virtual INT InputKey(INT, INT, INT, INT, INT, INT); /* 0x13c */
-    virtual INT InputAxis(INT, INT, INT, INT, INT, INT); /* 0x140 */
-    virtual INT InputChar(INT, INT); /* 0x144 */
+    virtual INT InputKey(INT ControllerId, FName Key, EInputEvent Event, FLOAT AmountDepressed, UBOOL bGamepad); /* 0x13c */
+    virtual INT InputAxis(INT ControllerId, FName Key, FLOAT Delta, FLOAT DeltaTime, UBOOL bGamepad); /* 0x140 */
+    virtual INT InputChar(INT ControllerId, TCHAR Character); /* 0x144 */
     virtual INT vf_14c(INT, INT, INT, INT); /* 0x14c */
     virtual INT vf_15c(INT, INT, INT); /* 0x15c */
     virtual void RenderScenes(INT); /* 0x164 */
     virtual void RequestPrimitiveReinitialization(class UUIScene* Scene); /* 0x170 */
-    virtual void InitializePrimitives(INT); /* 0x174 */
-    virtual void UpdateActivePrimitives(INT); /* 0x178 */
-    virtual INT IsUIActive(INT); /* 0x180 */
+    virtual void InitializePrimitives(class FCanvas* Canvas); /* 0x174 */
+    virtual void UpdateActivePrimitives(class FCanvas* Canvas); /* 0x178 */
+    virtual INT IsUIActive(DWORD Flags); /* 0x180 */
     virtual UINT IsSceneInitialized(INT); /* 0x184 */
     /* registered size 0x100 */
 };

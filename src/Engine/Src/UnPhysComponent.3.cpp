@@ -81,7 +81,7 @@ void UPrimitiveComponent::execSetBlockRigidBody(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bNewBlockRigidBody);
 	P_FINISH;
-	vf_1c4(bNewBlockRigidBody);
+	SetBlockRigidBody(bNewBlockRigidBody);
 }
 
 // @baa 0x009fe010
@@ -89,7 +89,7 @@ void UPrimitiveComponent::execSetContactModification(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(isEnableContactModificationCallback);
 	P_FINISH;
-	vf_1cc(isEnableContactModificationCallback);
+	SetContactModification(isEnableContactModificationCallback);
 }
 
 // @baa 0x009fe0e0
@@ -97,7 +97,7 @@ void UPrimitiveComponent::execSetNotifyRigidBodyCollision(FFrame& Stack, RESULT_
 {
 	P_GET_UBOOL(bNewNotifyRigidBodyCollision);
 	P_FINISH;
-	vf_1c8(bNewNotifyRigidBodyCollision);
+	SetNotifyRigidBodyCollision(bNewNotifyRigidBodyCollision);
 }
 
 // @baa 0x00a132a0

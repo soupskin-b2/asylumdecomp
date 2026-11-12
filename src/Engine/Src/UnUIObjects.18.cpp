@@ -545,7 +545,7 @@ void UUIScreenObject::execCanAcceptFocus(FFrame& Stack, RESULT_DECL)
 	INT DefaultPlayerIndex = ((UUIScreenObject__00ca3fa0*)this)->sub_00db02b0();
 	P_GET_INT_OPTX(PlayerIndex, DefaultPlayerIndex);
 	P_FINISH;
-	*(UBOOL*)Result = vf_134(PlayerIndex);
+	*(UBOOL*)Result = CanAcceptFocus(PlayerIndex);
 }
 
 enum EInputPlatformType
