@@ -1,4 +1,4 @@
-// BmGame_16f0000.cpp: 226 functions
+// BmGame_16f0000.cpp: 227 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -2123,4 +2123,19 @@ void ARSpecialMoveInstance_LineLauncher::execShouldIDoLandAnim(FFrame& Stack, RE
 	P_GET_FLOAT(MaxLandHeight);
 	P_FINISH;
 	*(BYTE*)Result = ((ARSpecialMoveInstance_LineLauncher__016fb880*)this)->ShouldIDoLandAnim(Locator, MinLandHeight, MaxLandHeight);
+}
+
+// @baa 0x016f3c20
+void ARPawnCharacter::execIsInAnyAutomaticTransition(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_BYTE_OPTX(Fuzziness, FUZZ_Exact);
+	/* Optional out struct: the kit's P_GET_STRUCT_OPTX_REF leaves out the skipped-parameter handling, written here. */
+	GRuntimeUCFlags &= ~RUC_SkippedOptionalParm;
+	P_GET_STRUCT_OPTX_REF(FTransitionId, Transition);
+	if (GRuntimeUCFlags & RUC_SkippedOptionalParm)
+	{
+		Transition.Id = 0;
+	}
+	P_FINISH;
+	*(UBOOL*)Result = IsInAnyAutomaticTransition(Fuzziness, pTransition ? &Transition : NULL);
 }

@@ -1,4 +1,4 @@
-// BmGame_1720000.cpp: 4 functions
+// BmGame_1720000.cpp: 5 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -60,4 +60,13 @@ void URAnimUtil::execSortAnimSets(FFrame& Stack, RESULT_DECL)
 	P_GET_TARRAY_REF(UAnimSet*, Array);
 	P_FINISH;
 	((URAnimUtil__01726ee0*)this)->SortAnimSets(Array);
+}
+
+// @baa 0x01722cd0
+void ARPawnPlayerCombat::execGetNumberOfCounterHits(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_OBJECT(UAnimSequence, StrikeAnimSequence);
+	P_GET_TARRAY_REF(FLOAT, SlowMoHitTimes);
+	P_FINISH;
+	*(INT*)Result = GetNumberOfCounterHits(StrikeAnimSequence, SlowMoHitTimes);
 }

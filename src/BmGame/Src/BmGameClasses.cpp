@@ -1,4 +1,4 @@
-// BmGameClasses.cpp: 38 functions
+// BmGameClasses.cpp: 39 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -980,4 +980,11 @@ void URAlternateAnimationAndWeaponConfigFactoryNew::InitializeIntrinsicPropertyV
 	SupportedClass = URAlternateAnimationAndWeaponConfig::StaticClass();
 	((FFactoryFlags*)_native2)->bCreateNew = TRUE;
 	Description = TEXT("Alternate Animation Weapon Config");
+}
+
+// @baa 0x01576800
+/* Slot 0x350 (unnamed in the kit): the point to investigate, 32 units above the pontoon. */
+FVector ARPontoonBase::vf_350()
+{
+	return FVector(Location.X, Location.Y, Location.Z + 32.f);
 }

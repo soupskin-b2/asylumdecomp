@@ -1,4 +1,4 @@
-// CommonGame_1500000.cpp (part 2 of 3): 41 functions
+// CommonGame_1500000.cpp (part 2 of 3): 42 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -316,4 +316,12 @@ void ARHUDBase::execGetPromptYPosition(FFrame& Stack, RESULT_DECL)
 	P_GET_INT(scr_height);
 	P_FINISH;
 	*(INT*)Result = GetPromptYPosition(scr_width, scr_height);
+}
+
+// @baa 0x0150c3c0
+void ARPathNode::execUpdateLastSeenTime(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(Index);
+	P_FINISH;
+	UpdateLastSeenTime(Index);
 }

@@ -1,4 +1,4 @@
-// TextureCube.cpp: 15 functions
+// TextureCube.cpp: 16 functions
 // Placed here by: neighbours 2, callers 1, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -125,4 +125,20 @@ struct S_00761820 {
 void S_00761820::sub_00761820() {
     sub_0075b630();
     sub_00720ef0();
+}
+
+// @baa 0x007550b0
+/* The defaults UTexture's own initializer sets (sRGB, unpack range 0..1), inlined: TextureCube adds none of
+ * its own. */
+void UTextureCube::InitializeIntrinsicPropertyValues()
+{
+	SRGB = TRUE;
+	UnpackMin[3] = 0.f;
+	UnpackMin[2] = 0.f;
+	UnpackMin[1] = 0.f;
+	UnpackMin[0] = 0.f;
+	UnpackMax[3] = 1.f;
+	UnpackMax[2] = 1.f;
+	UnpackMax[1] = 1.f;
+	UnpackMax[0] = 1.f;
 }

@@ -1,4 +1,4 @@
-// UnEdFact.cpp: 15 functions
+// UnEdFact.cpp: 31 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -154,4 +154,120 @@ void UCameraAnimFactory::InitializeIntrinsicPropertyValues()
 	SupportedClass = UCameraAnim::StaticClass();
 	((FFactoryFlags*)_native2)->bCreateNew = TRUE;
 	Description = TEXT("Camera Animation");
+}
+
+// @baa 0x00f19360
+/* A new, empty object of the class the editor asked for. */
+UObject* UTextureCubeFactoryNew::FactoryCreateNew(UClass* InClass, UObject* InParent, FName InName, QWORD Flags, UObject* Context, FFeedbackContext* Warn)
+{
+	return StaticConstructObject(InClass, InParent, InName, Flags);
+}
+
+// @baa 0x00f193a0
+/* A new, empty object of the class the editor asked for. */
+UObject* UMaterialInstanceConstantFactoryNew::FactoryCreateNew(UClass* InClass, UObject* InParent, FName InName, QWORD Flags, UObject* Context, FFeedbackContext* Warn)
+{
+	return StaticConstructObject(InClass, InParent, InName, Flags);
+}
+
+// @baa 0x00f193e0
+/* A new, empty object of the class the editor asked for. */
+UObject* UMaterialInstanceTimeVaryingFactoryNew::FactoryCreateNew(UClass* InClass, UObject* InParent, FName InName, QWORD Flags, UObject* Context, FFeedbackContext* Warn)
+{
+	return StaticConstructObject(InClass, InParent, InName, Flags);
+}
+
+// @baa 0x00f19430
+/* A new, empty object of the class the editor asked for. */
+UObject* UMaterialFactoryNew::FactoryCreateNew(UClass* InClass, UObject* InParent, FName InName, QWORD Flags, UObject* Context, FFeedbackContext* Warn)
+{
+	return StaticConstructObject(InClass, InParent, InName, Flags);
+}
+
+// @baa 0x00f19470
+/* A new, empty object of the class the editor asked for. */
+UObject* UDecalMaterialFactoryNew::FactoryCreateNew(UClass* InClass, UObject* InParent, FName InName, QWORD Flags, UObject* Context, FFeedbackContext* Warn)
+{
+	return StaticConstructObject(InClass, InParent, InName, Flags);
+}
+
+// @baa 0x00f19580
+/* A new, empty object of the class the editor asked for. */
+UObject* UParticleSystemFactoryNew::FactoryCreateNew(UClass* InClass, UObject* InParent, FName InName, QWORD Flags, UObject* Context, FFeedbackContext* Warn)
+{
+	return StaticConstructObject(InClass, InParent, InName, Flags);
+}
+
+// @baa 0x00f195c0
+/* A new, empty object of the class the editor asked for. */
+UObject* UDestructibleDamageParametersFactoryNew::FactoryCreateNew(UClass* InClass, UObject* InParent, FName InName, QWORD Flags, UObject* Context, FFeedbackContext* Warn)
+{
+	return StaticConstructObject(InClass, InParent, InName, Flags);
+}
+
+// @baa 0x00f19600
+/* A new, empty object of the class the editor asked for. */
+UObject* UPhysXParticleSystemFactoryNew::FactoryCreateNew(UClass* InClass, UObject* InParent, FName InName, QWORD Flags, UObject* Context, FFeedbackContext* Warn)
+{
+	return StaticConstructObject(InClass, InParent, InName, Flags);
+}
+
+// @baa 0x00f19640
+/* A new, empty object of the class the editor asked for. */
+UObject* UAnimSetFactoryNew::FactoryCreateNew(UClass* InClass, UObject* InParent, FName InName, QWORD Flags, UObject* Context, FFeedbackContext* Warn)
+{
+	return StaticConstructObject(InClass, InParent, InName, Flags);
+}
+
+// @baa 0x00f19680
+/* A new, empty object of the class the editor asked for. */
+UObject* UAnimTreeFactoryNew::FactoryCreateNew(UClass* InClass, UObject* InParent, FName InName, QWORD Flags, UObject* Context, FFeedbackContext* Warn)
+{
+	return StaticConstructObject(InClass, InParent, InName, Flags);
+}
+
+// @baa 0x00f196c0
+/* A new, empty object of the class the editor asked for. */
+UObject* UPostProcessFactoryNew::FactoryCreateNew(UClass* InClass, UObject* InParent, FName InName, QWORD Flags, UObject* Context, FFeedbackContext* Warn)
+{
+	return StaticConstructObject(InClass, InParent, InName, Flags);
+}
+
+// @baa 0x00f19700
+/* A new, empty object of the class the editor asked for. */
+UObject* UPhysicalMaterialFactoryNew::FactoryCreateNew(UClass* InClass, UObject* InParent, FName InName, QWORD Flags, UObject* Context, FFeedbackContext* Warn)
+{
+	return StaticConstructObject(InClass, InParent, InName, Flags);
+}
+
+// @baa 0x00f19de0
+/* A new, empty object of the class the editor asked for. */
+UObject* UCurveEdPresetCurveFactoryNew::FactoryCreateNew(UClass* InClass, UObject* InParent, FName InName, QWORD Flags, UObject* Context, FFeedbackContext* Warn)
+{
+	return StaticConstructObject(InClass, InParent, InName, Flags);
+}
+
+class FObjectInstancingGraph;
+/* UnObjBas.h ConstructObject<T>; its instances are out of line in the exe (USoundCue: 0x0078cfb0). */
+template<class T>
+T* ConstructObject(UClass* Class, UObject* Outer, FName Name, QWORD SetFlags, UObject* Template = NULL, UObject* SubobjectRoot = NULL, FObjectInstancingGraph* InstanceGraph = NULL);
+// @baa 0x00f23910
+/* A new, empty sound cue. */
+UObject* USoundCueFactoryNew::FactoryCreateNew(UClass* InClass, UObject* InParent, FName InName, QWORD Flags, UObject* Context, FFeedbackContext* Warn)
+{
+	return ConstructObject<USoundCue>(USoundCue::StaticClass(), InParent, InName, Flags);
+}
+
+// @baa 0x00f239d0
+/* A new, empty speech recognition object. */
+UObject* UFonixFactory::FactoryCreateNew(UClass* InClass, UObject* InParent, FName InName, QWORD Flags, UObject* Context, FFeedbackContext* Warn)
+{
+	return ConstructObject<USpeechRecognition>(USpeechRecognition::StaticClass(), InParent, InName, Flags);
+}
+
+// @baa 0x00f23a60
+/* A new, empty lens flare. */
+UObject* ULensFlareFactoryNew::FactoryCreateNew(UClass* InClass, UObject* InParent, FName InName, QWORD Flags, UObject* Context, FFeedbackContext* Warn)
+{
+	return ConstructObject<ULensFlare>(ULensFlare::StaticClass(), InParent, InName, Flags);
 }

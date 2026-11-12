@@ -1,4 +1,4 @@
-// UnCamera.cpp: 1 function
+// UnCamera.cpp: 2 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -16,4 +16,27 @@ void ACameraActor::PostEditChange(UProperty* PropertyThatChanged)
         DrawFrustum->FrustumEndDist = 1000.f;
         DrawFrustum->FrustumAspectRatio = AspectRatio;
     }
+}
+
+// @baa 0x007880c0
+/* UE3's UCameraAnimInst::Stop(bImmediate) (named sub_007880c0 in the kit). With a blend-out time and no hurry, the
+ * anim starts blending out; otherwise it finishes now and lets go of its interp data. */
+void UCameraAnimInst::sub_007880c0(UBOOL bImmediate)
+{
+	if (bImmediate || BlendOutTime <= 0.f)
+	{
+		if (InterpGroupInst->Group)
+		{
+			InterpGroupInst->TermGroupInst(TRUE);
+		}
+		bFinished = TRUE;
+		MoveTrack = NULL;
+		MoveInst = NULL;
+		SourceAnimNode = NULL;
+	}
+	else
+	{
+		bBlendingOut = TRUE;
+		CurBlendOutTime = 0.f;
+	}
 }

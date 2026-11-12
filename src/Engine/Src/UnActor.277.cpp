@@ -1,4 +1,4 @@
-// UnActor.cpp: 10 functions
+// UnActor.cpp: 11 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -116,4 +116,11 @@ void AActor::GetActorReferences(TArray<FActorReference*>& ActorRefs, UBOOL bIsRe
 			Components(ComponentIndex)->GetActorReferences(ActorRefs, bIsRemovingLevel);
 		}
 	}
+}
+
+// @baa 0x0068f1a0
+/* Slot 0x350 (unnamed in the kit): the point other actors should look at or go to; by default the actor's location. */
+FVector AActor::vf_350()
+{
+	return Location;
 }

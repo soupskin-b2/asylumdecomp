@@ -1,4 +1,4 @@
-// BMBossCrocClass.cpp: 50 functions
+// BMBossCrocClass.cpp: 52 functions
 // Placed here by: callers 10, file 10.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -398,4 +398,20 @@ void C_016c9610::sub_016c9610(UINT A)
 {
     sub_007a7460((INT)A);
     vf394();
+}
+
+// @baa 0x016c95d0
+/* Slot 0x350 (unnamed in the kit): the point to investigate, offset from the prop's location. */
+FVector ARFracturablePontoonPropBase::vf_350()
+{
+	/* Location + InvestigateOffset (the kit's FVector has no operator+) */
+	return FVector(Location.X + InvestigateOffset.X, Location.Y + InvestigateOffset.Y, Location.Z + InvestigateOffset.Z);
+}
+
+// @baa 0x016c9bb0
+/* Slot 0x350 (unnamed in the kit): the point to investigate, offset from the gate's location. */
+FVector ARPontoonGateBase::vf_350()
+{
+	/* Location + InvestigateOffset (the kit's FVector has no operator+) */
+	return FVector(Location.X + InvestigateOffset.X, Location.Y + InvestigateOffset.Y, Location.Z + InvestigateOffset.Z);
 }

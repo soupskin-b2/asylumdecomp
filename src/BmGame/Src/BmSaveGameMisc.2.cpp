@@ -1,4 +1,4 @@
-// BmSaveGameMisc.cpp: 1 function
+// BmSaveGameMisc.cpp: 2 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -21,4 +21,12 @@ void ARPlayerController_::eventFE_NewGame(const FString& Difficulty)
 	} Parms;
 	Parms.Difficulty = Difficulty;
 	ProcessEvent(FindFunctionChecked(g_026e3aa0), &Parms);
+}
+
+// @baa 0x017232b0
+void ARLevelTransition::execGetAllConnectedLevels(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_TARRAY_REF(FName, Out);
+	P_FINISH;
+	GetAllConnectedLevels(Out);
 }

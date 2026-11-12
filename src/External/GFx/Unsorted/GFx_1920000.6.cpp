@@ -1,7 +1,7 @@
-// GFx_1920000.cpp: 9 functions
+// GFx_1920000.cpp: 11 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
-#include "ue3/Core.h"
+#include "ue3/Classes.h"
 
 struct S {
     INT a;
@@ -136,4 +136,73 @@ C_0192aa80 * C_0192aa80::sub_0192aa80(float V)
 	X += V;
 	Z += V;
 	return this;
+}
+
+/* A 40-byte GFx record whose key (an id or pointer) sits at +0x14; only the key is named. */
+struct FGFxKeyedRecord
+{
+	BYTE _pad_0[0x14];
+	DWORD Key;		/* 0x14 */
+	BYTE _pad_18[0x10];
+};
+
+/* GFx's GArray<FGFxKeyedRecord> (data pointer, then count). */
+struct FGFxKeyedRecordArray
+{
+	FGFxKeyedRecord* Data;
+	UINT Size;
+
+	FGFxKeyedRecord* sub_0192ebd0(DWORD Key);
+};
+
+// @baa 0x0192ebd0
+/* Linear search: the first record with this key, or NULL. */
+FGFxKeyedRecord* FGFxKeyedRecordArray::sub_0192ebd0(DWORD Key)
+{
+	for (UINT i = 0; i < Size; i++)
+	{
+		if (Data[i].Key == Key)
+		{
+			return &Data[i];
+		}
+	}
+	return NULL;
+}
+
+// GFx: lazily works out (and caches) whether any 40-byte entry has a nonzero 3-bit mode.
+struct GFxModeEntry
+{
+    char          Header[0x24];
+    unsigned char Mode : 3;
+    unsigned char Other : 5;
+    char          Pad[3];
+};
+
+struct GFxModeEntryList
+{
+    GFxModeEntry* Data;
+    unsigned int  Size;
+    char          Pad[0x11];
+    signed char   HasModeCache;		// 0 = not computed yet, 1 = yes, -1 = no
+
+    bool sub_0192ed00();
+};
+
+// @baa 0x0192ed00
+bool GFxModeEntryList::sub_0192ed00()
+{
+    if (HasModeCache == 0)
+    {
+        HasModeCache = -1;
+        unsigned int Count = Size;
+        for (unsigned int i = 0; i < Count; i++)
+        {
+            if (Data[i].Mode)
+            {
+                HasModeCache = 1;
+                break;
+            }
+        }
+    }
+    return HasModeCache == 1;
 }

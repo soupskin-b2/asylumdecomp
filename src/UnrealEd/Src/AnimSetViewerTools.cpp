@@ -1,4 +1,4 @@
-// AnimSetViewerTools.cpp (part 1 of 4): 56 functions
+// AnimSetViewerTools.cpp (part 1 of 4): 57 functions
 // Placed here by: neighbours 46, callers 8.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -597,4 +597,20 @@ INT sub_01357790(INT bShow)
 INT sub_013577a0(INT bShow)
 {
     return sub_013566f0(TRUE);
+}
+
+/* FName::operator!= (UnName.h); the kit's FName has no comparison operators. */
+inline UBOOL operator!=(const FName& A, const FName& B) { return A.Index != B.Index || A.Number != B.Number; }
+
+// @baa 0x00834900
+/* UE3's UMorphNodePose::SetMorphTarget (named sub_00834900 in the kit): remembers the name and looks the target up
+ * on the skeletal mesh component, when there is one. */
+void UMorphNodePose::sub_00834900(FName MorphTargetName)
+{
+	MorphName = MorphTargetName;
+	Target = NULL;
+	if (MorphTargetName != FName(NAME_None) && SkelComponent)
+	{
+		Target = SkelComponent->FindMorphTarget(MorphTargetName);
+	}
 }

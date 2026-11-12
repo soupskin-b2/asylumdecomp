@@ -1,4 +1,4 @@
-// CommonGameSequenceClasses.cpp: 28 functions
+// CommonGameSequenceClasses.cpp: 29 functions
 // Placed here by: callers 8, file 8.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -326,4 +326,18 @@ void URSeqAct_WaitForAllInputs::Activated()
             bActive = FALSE;
         }
     }
+}
+
+/* Kit gap: FString::Printf isn't declared; this is the copy the linker specialised for six FLOAT arguments
+ * (0x01541b70). */
+struct FString_ : public FString
+{
+	static FString Printf(const TCHAR* Fmt, FLOAT A, FLOAT B, FLOAT C, FLOAT D, FLOAT E, FLOAT F);
+};
+
+// @baa 0x015422d0
+/* Slot 0x194 is USequenceVariable::GetValueStr (unnamed in the kit): the range the random vector is drawn from. */
+FString URSeqVar_RandomVector::vf_194()
+{
+	return FString_::Printf(TEXT("(%2.1f,%2.1f,%2.1f)..(%2.1f,%2.1f,%2.1f)"), Min.X, Min.Y, Min.Z, Max.X, Max.Y, Max.Z);
 }

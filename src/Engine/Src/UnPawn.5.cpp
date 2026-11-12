@@ -1,4 +1,4 @@
-// UnPawn.cpp: 1 function
+// UnPawn.cpp: 2 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -19,4 +19,20 @@ ETestMoveResult APawn_::sub_008660b0(AActor* GoalActor)
         return TESTMOVE_Stopped;
     }
     return TESTMOVE_HitGoal;
+}
+
+// @baa 0x00871450
+/* Reaching the point makes the new anchor (when it is a navigation point) this pawn's anchor. */
+UBOOL APawn::ReachedPoint(FVector Point, AActor* NewAnchor)
+{
+	if (ReachedDestination(Location, Point, NULL))
+	{
+		ANavigationPoint* Nav = Cast<ANavigationPoint>(NewAnchor);
+		if (Nav)
+		{
+			SetAnchor(Nav);
+		}
+		return TRUE;
+	}
+	return FALSE;
 }

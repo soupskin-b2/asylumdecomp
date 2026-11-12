@@ -2,54 +2,54 @@
  "updated": "2026-11-12",
  "functions": {
   "total": 174166,
-  "matched": 102645
+  "matched": 102728
  },
  "bytes": {
   "total": 24308119,
-  "matched": 4181314
+  "matched": 4190238
  },
  "areas": [
   {
    "name": "Engine",
    "functions": 69863,
    "bytes": 9201956,
-   "matched": 43427,
-   "matched_bytes": 2009824
+   "matched": 43443,
+   "matched_bytes": 2011184
   },
   {
    "name": "Editor",
    "functions": 42961,
    "bytes": 8040643,
-   "matched": 24234,
-   "matched_bytes": 827782
+   "matched": 24253,
+   "matched_bytes": 828873
   },
   {
    "name": "External",
    "functions": 29410,
    "bytes": 3194268,
-   "matched": 12066,
-   "matched_bytes": 194099
+   "matched": 12096,
+   "matched_bytes": 197819
   },
   {
    "name": "Game",
    "functions": 13563,
    "bytes": 1853804,
-   "matched": 10408,
-   "matched_bytes": 637827
+   "matched": 10420,
+   "matched_bytes": 639540
   },
   {
    "name": "Core",
    "functions": 12072,
    "bytes": 1275961,
-   "matched": 8082,
-   "matched_bytes": 264790
+   "matched": 8084,
+   "matched_bytes": 265196
   },
   {
    "name": "CommonGame",
    "functions": 1422,
    "bytes": 173518,
-   "matched": 1039,
-   "matched_bytes": 48330
+   "matched": 1043,
+   "matched_bytes": 48964
   },
   {
    "name": "Unsorted",
@@ -97,11 +97,11 @@
  "contributors": [
   {
    "login": "soupskin-b2",
-   "functions": 102636,
-   "bytes": 4180694,
+   "functions": 102719,
+   "bytes": 4189618,
    "models": {
     "Tooling": 94456,
-    "Claude Opus 5.5": 3413,
+    "Claude Opus 5.5": 3496,
     "DeepSeek V4.1 Flash": 2167,
     "Qwen3.8 27B": 1935,
     "GPT-6.1 Sol": 296,
@@ -122,7 +122,7 @@
   },
   {
    "model": "Claude Opus 5.5",
-   "functions": 3413
+   "functions": 3496
   },
   {
    "model": "DeepSeek V4.1 Flash",

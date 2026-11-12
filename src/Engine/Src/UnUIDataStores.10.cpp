@@ -1,4 +1,4 @@
-// UnUIDataStores.cpp: 4 functions
+// UnUIDataStores.cpp: 6 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -88,4 +88,64 @@ UBOOL USessionSettingsProvider::UnbindProviderClient()
 		((USessionSettingsProvider_*)this)->eventProviderClientUnbound(OldProviderClient);
 	}
 	return TRUE;
+}
+
+// @baa 0x00d92c70
+/* UnUIDataStores.cpp markup parsing helper: the first occurrence of SearchChar in Str that isn't escaped
+ * by a preceding backslash, or NULL. */
+const TCHAR* sub_00d92c70(const TCHAR* Str, TCHAR SearchChar)
+{
+	if (Str != NULL)
+	{
+		UBOOL bEscaped = FALSE;
+		for (; *Str; Str++)
+		{
+			if (bEscaped)
+			{
+				bEscaped = FALSE;
+			}
+			else if (*Str == TEXT('\\'))
+			{
+				bEscaped = TRUE;
+			}
+			else if (*Str == SearchChar)
+			{
+				return Str;
+			}
+		}
+	}
+	return NULL;
+}
+
+class FObjectInstancingGraph;
+/* UnObjBas.h ConstructObject<T>; its instances are out of line in the exe (UUIDataStore: 0x00da0cd0). */
+template<class T>
+T* ConstructObject(UClass* Class, UObject* Outer, FName Name = NAME_None, QWORD SetFlags = 0, UObject* Template = NULL, UObject* SubobjectRoot = NULL, FObjectInstancingGraph* InstanceGraph = NULL);
+/* Kit gap: UStruct::IsChildOf isn't declared; UE3's inline body. */
+struct UClass_ : public UClass
+{
+	UBOOL IsChildOf(const UField* SomeBase) const
+	{
+		for (const UField* Struct = this; Struct; Struct = Struct->SuperField)
+		{
+			if (Struct == SomeBase)
+			{
+				return TRUE;
+			}
+		}
+		return FALSE;
+	}
+};
+
+// @baa 0x00da19f0
+/* CreateDataStore: a new, initialized data store of the given class (NULL unless it's a UIDataStore class). */
+UUIDataStore* UDataStoreClient::sub_00da19f0(UClass* DataStoreClass)
+{
+	UUIDataStore* Result = NULL;
+	if (DataStoreClass != NULL && ((UClass_*)DataStoreClass)->IsChildOf(UUIDataStore::StaticClass()))
+	{
+		Result = ConstructObject<UUIDataStore>(DataStoreClass, this);
+		Result->InitializeDataStore();
+	}
+	return Result;
 }

@@ -1,4 +1,4 @@
-// UnObj.cpp (part 1 of 3): 143 functions
+// UnObj.cpp (part 1 of 3): 144 functions
 // Placed here by: neighbours 135, callers 4, file 3.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1923,4 +1923,16 @@ void UObject::PostLoad()
 		((UObject__005e59b0*)this)->LoadConfig();
 		((UObject__005e59b0*)this)->LoadLocalized();
 	}
+}
+
+// @baa 0x005d1930
+/* The browser's detail columns: by default column 0 is the object's description and the rest are empty. */
+FString UObject::GetDetailedDescription(INT InIndex)
+{
+	FString Result = TEXT("");
+	if (InIndex == 0)
+	{
+		Result = GetDesc();
+	}
+	return Result;
 }

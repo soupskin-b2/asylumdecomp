@@ -1,4 +1,4 @@
-// UnAnimPlay.cpp (part 2 of 2): 10 functions
+// UnAnimPlay.cpp (part 2 of 2): 11 functions
 // Placed here by: class 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -81,4 +81,33 @@ void UAnimNodeSequence::execPlayAnim(FFrame& Stack, RESULT_DECL)
     P_GET_FLOAT_OPTX(StartTime, 0.f);
     P_FINISH;
     PlayAnim(bLoop, InRate, StartTime);
+}
+
+extern FName g_026c4f90;
+	/* ENGINE_OnInit */
+/* Kit gap: the OnInit event's generated glue (EngineClasses.h) isn't declared. */
+struct UAnimNode_ : public UAnimNode
+{
+	FORCEINLINE void eventOnInit()
+	{
+		ProcessEvent(FindFunctionChecked(g_026c4f90), NULL);
+	}
+};
+
+// @baa 0x00c4d1e0
+void UAnimNodeSequence::InitAnim(USkeletalMeshComponent* MeshComp, UAnimNodeBlendBase* Parent)
+{
+	/* Super::InitAnim (UAnimNode::InitAnim, 0x00c4b4f0), inlined: same source file in the original. */
+	SkelComponent = MeshComp;
+	((UAnimNode_*)this)->eventOnInit();
+
+	SetAnim(AnimSeqName);
+
+	/* A camera anim left playing from before is stopped and let go. */
+	if (ActiveCameraAnimInstance)
+	{
+		ActiveCameraAnimInstance->sub_007880c0(TRUE);	/* Stop(bImmediate) */
+		ActiveCameraAnimInstance->bAutoReleaseWhenFinished = TRUE;
+		ActiveCameraAnimInstance = NULL;
+	}
 }

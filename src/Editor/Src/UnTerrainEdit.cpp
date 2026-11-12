@@ -1,4 +1,4 @@
-// UnTerrainEdit.cpp: 18 functions
+// UnTerrainEdit.cpp: 19 functions
 // Placed here by: neighbours 10, callers 3, file 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -233,4 +233,11 @@ void UTerrainLayerSetupFactoryNew::InitializeIntrinsicPropertyValues()
 	((FFactoryFlags*)_native2)->bCreateNew = TRUE;
 	((FFactoryFlags*)_native2)->bEditAfterNew = TRUE;
 	Description = TEXT("TerrainLayerSetup");
+}
+
+// @baa 0x00fed820
+/* A new, empty object of the class the editor asked for. */
+UObject* UTerrainLayerSetupFactoryNew::FactoryCreateNew(UClass* InClass, UObject* InParent, FName InName, QWORD Flags, UObject* Context, FFeedbackContext* Warn)
+{
+	return StaticConstructObject(InClass, InParent, InName, Flags);
 }

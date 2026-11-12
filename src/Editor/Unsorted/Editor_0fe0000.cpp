@@ -1,4 +1,4 @@
-// Editor_0fe0000.cpp: 46 functions
+// Editor_0fe0000.cpp: 47 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -307,4 +307,11 @@ struct C_00fed7c0
 INT C_00fed7c0::sub_00fed7c0(INT A, INT, INT, INT, INT)
 {
     return Value == A;
+}
+
+// @baa 0x00fed7e0
+/* A new, empty object of the class the editor asked for. */
+UObject* UTerrainMaterialFactoryNew::FactoryCreateNew(UClass* InClass, UObject* InParent, FName InName, QWORD Flags, UObject* Context, FFeedbackContext* Warn)
+{
+	return StaticConstructObject(InClass, InParent, InName, Flags);
 }

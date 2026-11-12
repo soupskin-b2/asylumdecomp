@@ -1,4 +1,4 @@
-// UnPhysActor.cpp: 3 functions
+// UnPhysActor.cpp: 4 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -25,4 +25,23 @@ void APawn::vf_23c(INT Scene)
 {
     Super::vf_23c(Scene);
     SetPushesRigidBodies(FALSE);
+}
+
+// @baa 0x009d9b10
+/* A spawnable KActor going back to the pool drops its replicated mesh/material and detaches its impact and slide
+ * effects. */
+void AKActorSpawnable::ResetComponents()
+{
+	ReplicatedMesh = NULL;
+	ReplicatedMaterial = NULL;
+	sub_008c7f00(ImpactEffectComponent);	/* DetachComponent */
+	ImpactEffectComponent = NULL;
+	sub_008c7f00(ImpactSoundComponent);
+	ImpactSoundComponent = NULL;
+	sub_008c7f00(ImpactSoundComponent2);
+	ImpactSoundComponent2 = NULL;
+	sub_008c7f00(SlideEffectComponent);
+	SlideEffectComponent = NULL;
+	sub_008c7f00(SlideSoundComponent);
+	SlideSoundComponent = NULL;
 }

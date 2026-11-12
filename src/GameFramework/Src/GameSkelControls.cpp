@@ -1,4 +1,4 @@
-// GameSkelControls.cpp: 13 functions
+// GameSkelControls.cpp: 14 functions
 // Placed here by: class 7, neighbours 4, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -78,3 +78,33 @@ RecoilRange UGameSkelCtrl_Recoil_::vf_150(INT a)
     R.Max = *(INT*)&_native[0x78];
     return R;
 }
+
+/* TArray<INT>::AddItem, out of line here (0x00545f40); not in the kit TArray. */
+struct FIntArray : public TArray<INT>
+{
+    INT AddItem(const INT& Item);
+};
+
+/* GameSkelCtrl_Recoil's script bools (bBoneSpaceRecoil, bPlayRecoil, bOldPlayRecoil, bApplyControl) sit at
+ * the start of the kit's _native blob (0xa8); this stand-in names them. */
+struct FRecoilFlags
+{
+    BITFIELD bBoneSpaceRecoil : 1;
+    BITFIELD bPlayRecoil : 1;
+    BITFIELD bOldPlayRecoil : 1;
+    BITFIELD bApplyControl : 1;
+};
+
+// @baa 0x00e26c90
+/* Only the controlled bone is affected, and only while the recoil is being applied. */
+void UGameSkelCtrl_Recoil::GetAffectedBones(INT BoneIndex, USkeletalMeshComponent* SkelComp, TArray<INT>& OutBoneIndices)
+{
+#line 117 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\GameFramework\\Src\\GameSkelControls.cpp"
+    check(OutBoneIndices.Num() == 0);
+    if (((FRecoilFlags*)_native)->bApplyControl)
+    {
+        ((FIntArray&)OutBoneIndices).AddItem(BoneIndex);
+    }
+}
+
+#line 111 "candidate.cpp"

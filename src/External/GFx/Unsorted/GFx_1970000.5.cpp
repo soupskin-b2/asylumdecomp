@@ -1,4 +1,4 @@
-// GFx_1970000.cpp: 14 functions
+// GFx_1970000.cpp: 16 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -273,4 +273,66 @@ unsigned FUCharStream::sub_01977f50()
 		return Value;
 	}
 	return 0;
+}
+
+// GFx: copy-constructs a record: the leading list (data, size, capacity, extra) starts out empty,
+// the five trailing values are copied.
+struct GFxListRecord
+{
+    void*        pData;
+    unsigned int Size;
+    unsigned int Policy;
+    unsigned int Extra;
+    unsigned int Values[5];
+
+    GFxListRecord* sub_01979b30(const GFxListRecord& Other);
+};
+
+// @baa 0x01979b30
+GFxListRecord* GFxListRecord::sub_01979b30(const GFxListRecord& Other)
+{
+    pData  = 0;
+    Size   = 0;
+    Policy = 0;
+    Extra  = 0;
+    Values[0] = Other.Values[0];
+    Values[1] = Other.Values[1];
+    Values[2] = Other.Values[2];
+    Values[3] = Other.Values[3];
+    Values[4] = Other.Values[4];
+    return this;
+}
+
+// GFx: constructs an empty record and gives it the owner's next serial number.
+struct GFxSerialOwner
+{
+    char         Header[0x18];
+    unsigned int NextSerial;
+};
+
+struct GFxSerialRecord
+{
+    unsigned int   Fields[8];
+    unsigned int   Serial;
+    unsigned short Flags;
+
+    GFxSerialRecord* sub_0197eb50(GFxSerialOwner* Owner);
+};
+
+// @baa 0x0197eb50
+GFxSerialRecord* GFxSerialRecord::sub_0197eb50(GFxSerialOwner* Owner)
+{
+    Fields[0] = 0;
+    Fields[1] = 0;
+    Fields[2] = 0;
+    Fields[3] = 0;
+    Fields[4] = 0;
+    Fields[5] = 0;
+    Fields[6] = 0;
+    Fields[7] = 0;
+    Flags = 0;
+    unsigned int NewSerial = Owner->NextSerial;
+    Owner->NextSerial = NewSerial + 1;
+    Serial = NewSerial;
+    return this;
 }

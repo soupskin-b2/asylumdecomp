@@ -1,4 +1,4 @@
-// RPlayerController.cpp: 38 functions
+// RPlayerController.cpp: 42 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -551,4 +551,34 @@ void URSeqAct_ConversationDialogue::execCheckName(FFrame& Stack, RESULT_DECL)
 	P_GET_STR(Name);
 	P_FINISH;
 	*(UBOOL*)Result = CheckName(Name);
+}
+
+// @baa 0x0171d100
+void ARPlayerController::execGetInfocastMsg(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(FString*)Result = GetInfocastMsg();
+}
+
+// @baa 0x0171dc70
+void ARPlayerController::execGetReturnPoint(FFrame& Stack, RESULT_DECL)
+{
+	P_FINISH;
+	*(FString*)Result = GetReturnPoint();
+}
+
+// @baa 0x0171e2f0
+void ARTapePlayer::execLoadConversation(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STR(Str);
+	P_FINISH;
+	*(UBOOL*)Result = LoadConversation(Str);
+}
+
+// @baa 0x0172a8d0
+void ARPlayerController::execStripGlobalNamePart(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_TARRAY_REF(FString, Names);
+	P_FINISH;
+	StripGlobalNamePart(Names);
 }
