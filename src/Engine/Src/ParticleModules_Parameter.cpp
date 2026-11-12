@@ -854,7 +854,7 @@ undefined4 * UObject::sub_00b4c520(void)
 }
 
 // @baa 0x00b4c540
-int UParticleModuleParameterDynamic::vf_154(int a0, int a1, int a2) { return 1; }
+INT UParticleModuleParameterDynamic::vf_154(INT a0, INT a1, FLOAT a2) { return 1; }
 
 // @baa 0x00b4c550
 // @baa 0x00b4c5c0

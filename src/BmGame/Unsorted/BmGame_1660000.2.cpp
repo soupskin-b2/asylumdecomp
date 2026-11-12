@@ -696,10 +696,9 @@ void ARPawnCombat::sub_0166d720(FLOAT F)
 }
 
 // @baa 0x0166d6f0
-INT ARPawnPlayerCombat::vf_630(INT A)
+FVector ARPawnPlayerCombat::GetHeading()
 {
-    vf_5d8(A);
-    return A;
+    return GetLegDirection();
 }
 
 struct FVec3

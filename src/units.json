@@ -7442,7 +7442,7 @@
     {
      "va": "01595650",
      "size": 27,
-     "symbol": "?OverrideTransitionTime@URAnimNode_Pose@@UAEHMH@Z"
+     "symbol": "?OverrideTransitionTime@URAnimNode_Pose@@UAEXMH@Z"
     },
     {
      "va": "015959c0",
@@ -44785,7 +44785,7 @@
     {
      "va": "0166d6f0",
      "size": 22,
-     "symbol": "?vf_630@ARPawnPlayerCombat@@UAEHH@Z"
+     "symbol": "?GetHeading@ARPawnPlayerCombat@@UAE?AUFVector@@XZ"
     },
     {
      "va": "0166d490",
@@ -63965,7 +63965,7 @@
     {
      "va": "005b1600",
      "size": 5,
-     "symbol": "?vf_118@UFactory@@UAEHHHHHHHHH@Z"
+     "symbol": "?FactoryCreateNew@UFactory@@UAEPAUUObject@@PAUUClass@@PAU2@UFName@@_K1PAUFFeedbackContext@@@Z"
     },
     {
      "va": "005b1610",
@@ -124486,7 +124486,7 @@
     {
      "va": "00f19570",
      "size": 5,
-     "symbol": "?vf_118@USoundModeFactory@@UAEHHHHHHHHH@Z"
+     "symbol": "?FactoryCreateNew@USoundModeFactory@@UAEPAUUObject@@PAUUClass@@PAU2@UFName@@_K1PAUFFeedbackContext@@@Z"
     },
     {
      "va": "00f19740",
@@ -173052,7 +173052,7 @@
     {
      "va": "00b4c540",
      "size": 8,
-     "symbol": "?vf_154@UParticleModuleParameterDynamic@@UAEHHHH@Z"
+     "symbol": "?vf_154@UParticleModuleParameterDynamic@@UAEHHHM@Z"
     },
     {
      "va": "00b4c550",
@@ -212797,7 +212797,7 @@
     {
      "va": "007761d0",
      "size": 3,
-     "symbol": "?vf_400@APawn@@UAEXH@Z"
+     "symbol": "?vf_400@APawn@@UAEXM@Z"
     },
     {
      "va": "007761e0",
@@ -288268,12 +288268,12 @@
     {
      "va": "007d9c10",
      "size": 12,
-     "symbol": "?sub_007d9c10@UGameEngine@@QAE_NXZ"
+     "symbol": "?IsPreparingMapChange@UGameEngine@@QAEHXZ"
     },
     {
      "va": "007d9c20",
      "size": 27,
-     "symbol": "?sub_007d9c20@UGameEngine@@QAEIXZ"
+     "symbol": "?IsReadyForMapChange@UGameEngine@@QAEHXZ"
     },
     {
      "va": "007d9c40",

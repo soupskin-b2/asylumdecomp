@@ -1129,20 +1129,14 @@ void ARBMRouter_NoPawn::execGetPos(FFrame& Stack, RESULT_DECL)
 {
     P_FINISH;
 
-    FVector Position;
-    *(FVector*)Result = *(FVector*)vf_354((INT)&Position);
+    *(FVector*)Result = vf_354();
 }
 
 // @baa 0x016f6060
-// The base declares vf_630 as "virtual INT vf_630(INT)". The code shows it is a
-// virtual that fills a caller-supplied FVector (its INT parameter is the buffer
-// address, thiscall's first stack argument) and returns that buffer's pointer.
-// The Unisylum port names it GetHeading().
 void ARPawnPlayerCombat::execGetHeading(FFrame& Stack, RESULT_DECL)
 {
     P_FINISH;
-    FVector Heading;
-    *(FVector*)Result = *(FVector*)vf_630((INT)&Heading);
+    *(FVector*)Result = GetHeading();
 }
 
 void g_caller()
@@ -1154,8 +1148,7 @@ void g_caller()
 // @baa 0x016f52e0
 void ARPawnCharacter::execGetLegDirection(FFrame& Stack, RESULT_DECL) {
     P_FINISH;
-    FVector LocalDir;
-    *(FVector*)Result = *reinterpret_cast<FVector*>(this->vf_5d8(reinterpret_cast<INT>(&LocalDir)));
+    *(FVector*)Result = GetLegDirection();
 }
 
 // @baa 0x016f4d80

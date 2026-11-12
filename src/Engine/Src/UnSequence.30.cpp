@@ -14,7 +14,7 @@ UBOOL USeqAct_PrepareMapChange::UpdateOp(FLOAT DeltaTime)
     UGameEngine* GameEngine = Cast<UGameEngine>(GEngine);
     if (GameEngine != NULL)
     {
-        bResult = GameEngine->sub_007d9c20();
+        bResult = GameEngine->IsReadyForMapChange();
     }
     return bResult;
 }

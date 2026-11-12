@@ -48,7 +48,7 @@ void* APawn::vf_2e8() { return this; }
 int APawn::vf_3f0(void) { return 0; }
 
 // @baa 0x007761d0
-void APawn::vf_400(int a0) {  }
+void APawn::vf_400(FLOAT a0) {  }
 
 // @baa 0x007761e0
 int APawn::vf_414(int a0, int a1) { return 0; }

@@ -29,6 +29,9 @@ namespace UE3
     };
 }
 struct FRBPhysScene;
+struct FFeedbackContext;
+struct FOutputDevice;
+extern FOutputDevice* GError;  /* Script.h */
 struct FBoneData;  /* AnimationCompressionAlgorithm.h: per-bone data for DoReduction */
 /* UObject::GotoState's result (UnObjBas.h) */
 enum EGotoState
@@ -9680,6 +9683,9 @@ struct UObject {
     void StaticConstructor(); /* 0x005c19d0 */
     void InitializeIntrinsicPropertyValues(); /* 0x005c19e0 */
     static UBOOL GetInitialized(); /* 005c1d60 */
+    static UObject* StaticConstructObject(class UClass* Class, UObject* InOuter, FName Name, QWORD SetFlags = 0,
+        UObject* Template = NULL, FOutputDevice* Error = GError, UObject* SubobjectRoot = NULL,
+        FObjectInstancingGraph* InstanceGraph = NULL); /* 0x005e44e0 */
     static void operator delete(void* Object, UINT Size);
     UBOOL ConditionalDestroy();
     UFunction* sub_005d7d10(FName InName, UBOOL Global);
@@ -12501,7 +12507,7 @@ struct AActor : public UObject {
     virtual void vf_344(INT); /* 0x344 */
     virtual INT vf_348(INT, INT); /* 0x348 */
     virtual char* vf_34c(); /* 0x34c */
-    virtual FLOAT vf_350(INT); /* 0x350 */
+    virtual FVector vf_350(); /* 0x350 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -15410,7 +15416,7 @@ struct AController : public AActor {
     virtual void vf_3c4(); /* 0x3c4 */
     virtual INT vf_3c8(INT, INT); /* 0x3c8 */
     virtual FRotator SetRotationRate(FLOAT deltaTime); /* 0x3cc */
-    virtual INT vf_3d0(INT); /* 0x3d0 */
+    virtual FVector vf_3d0(); /* 0x3d0 */
     virtual void vf_3d4(); /* 0x3d4 */
     virtual void vf_3d8(INT); /* 0x3d8 */
     virtual void vf_3dc(INT); /* 0x3dc */
@@ -15813,7 +15819,7 @@ struct AAIController : public AController {
     virtual void vf_36c(INT, INT, INT, INT, INT); /* 0x36c */
     virtual INT vf_390(INT); /* 0x390 */
     virtual INT vf_398(INT, INT, INT, INT); /* 0x398 */
-    virtual INT vf_3d0(INT); /* 0x3d0 */
+    virtual FVector vf_3d0(); /* 0x3d0 */
     /* registered size 0x348 */
 };
 
@@ -22981,7 +22987,7 @@ struct AFracturedStaticMeshActor : public AActor {
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual UINT vf_178(); /* 0x178 */
     virtual void vf_1b4(FLOAT); /* 0x1b4 */
-    virtual FLOAT vf_350(INT); /* 0x350 */
+    virtual FVector vf_350(); /* 0x350 */
     /* UnrealScript natives */
     void execSpawnPart(FFrame& Stack, RESULT_DECL); /* 0x00c9f820 */
     void execRecreatePhysState(FFrame& Stack, RESULT_DECL); /* 0x00c9f970 */
@@ -23136,8 +23142,9 @@ struct UGameEngine : public UEngine {
     UINT* sub_007d6f90(BYTE); /* 0x007d6f90 */
     UINT* sub_007d6fb0(BYTE); /* 0x007d6fb0 */
     UINT* sub_007d6fd0(BYTE); /* 0x007d6fd0 */
-    bool sub_007d9c10(); /* 0x007d9c10 */
-    UINT sub_007d9c20(); /* 0x007d9c20 */
+    UBOOL IsPreparingMapChange(); /* 0x007d9c10 */
+    UBOOL IsReadyForMapChange(); /* 0x007d9c20 */
+    void CancelPendingMapChange(); /* 0x007e19a0 */
     void sub_007d9c40(FLOAT); /* 0x007d9c40 */
     UINT sub_007e6c30(BYTE); /* 0x007e6c30 */
     UINT sub_007f7540(BYTE); /* 0x007f7540 */
@@ -28999,7 +29006,7 @@ struct UParticleModule : public UObject {
     virtual INT vf_148(INT); /* 0x148 */
     virtual INT vf_14c(INT); /* 0x14c */
     virtual void vf_150(INT, INT, INT, INT, INT); /* 0x150 */
-    virtual INT vf_154(INT, INT, INT); /* 0x154 */
+    virtual INT vf_154(INT, INT, FLOAT); /* 0x154 */
     virtual INT vf_158(INT); /* 0x158 */
     virtual void vf_15c(INT); /* 0x15c */
     virtual void vf_160(INT); /* 0x160 */
@@ -29787,7 +29794,7 @@ struct UParticleModuleParameterDynamic : public UParticleModuleParameterBase {
     virtual INT vf_114(INT); /* 0x114 */
     virtual void vf_120(INT); /* 0x120 */
     virtual void vf_124(INT); /* 0x124 */
-    virtual INT vf_154(INT, INT, INT); /* 0x154 */
+    virtual INT vf_154(INT, INT, FLOAT); /* 0x154 */
     virtual void vf_15c(INT); /* 0x15c */
     virtual void vf_160(INT); /* 0x160 */
     virtual void vf_164(INT, INT, INT); /* 0x164 */
@@ -31026,7 +31033,7 @@ struct APawn : public AActor {
     virtual INT vf_3f4(INT, INT, INT, INT); /* 0x3f4 */
     virtual INT vf_3f8(INT, INT, INT, INT); /* 0x3f8 */
     virtual INT vf_3fc(INT); /* 0x3fc */
-    virtual void vf_400(INT); /* 0x400 */
+    virtual void vf_400(FLOAT); /* 0x400 */
     virtual INT vf_404(INT, INT, INT); /* 0x404 */
     virtual INT calcMoveFlags(); /* 0x408 */
     virtual void MarkEndPoints(class ANavigationPoint* EndAnchor, class AActor* Goal, const FVector& GoalLocation); /* 0x40c */
@@ -33052,7 +33059,7 @@ struct AScout : public APawn {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_1d8(); /* 0x1d8 */
-    virtual void vf_400(INT); /* 0x400 */
+    virtual void vf_400(FLOAT); /* 0x400 */
     /* other member functions */
     INT sub_00776490(); /* 0x00776490 */
     /* registered size 0x3e0 */
@@ -41951,7 +41958,7 @@ struct URAnimNode_Pose : public UAnimNodeBlendBase, public FTickableObject {
     FAimingReferences WorldSpaceAimingReferences; /* 0x4ff0 */
     /* virtual functions this class introduces (vtable 0x0231d880) */
     virtual INT vf_19c(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x19c */
-    virtual INT OverrideTransitionTime(FLOAT, INT); /* 0x1a0 */
+    virtual void OverrideTransitionTime(FLOAT, INT); /* 0x1a0 */
     virtual INT vf_1a4(INT, INT, INT); /* 0x1a4 */
     virtual void vf_1a8(); /* 0x1a8 */
     virtual INT vf_1ac(INT, INT, INT); /* 0x1ac */
@@ -42015,7 +42022,7 @@ struct URAnimNode_Pose : public UAnimNodeBlendBase, public FTickableObject {
     virtual FLOAT GetTimeThroughTransition(FTransitionId Transition, BYTE Fuzziness); /* 0x294 */
     virtual INT WillBeInTransition(FTransitionId Transition, FLOAT Time, BYTE Fuzziness); /* 0x298 */
     virtual void vf_29c(); /* 0x29c */
-    virtual void vf_2a0(); /* 0x2a0 */
+    virtual INT vf_2a0(FTransitionId Transition); /* 0x2a0 */
     virtual INT vf_2a4(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x2a4 */
     virtual INT vf_2a8(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x2a8 */
     virtual INT vf_2ac(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x2ac */
@@ -42906,7 +42913,7 @@ struct ARPawnCharacter : public ARPawn {
     virtual void FaceAtActor(class AActor* Actor, FName ActorBoneName); /* 0x5cc */
     virtual void vf_5d0(); /* 0x5d0 */
     virtual FVector vf_5d4(); /* 0x5d4 */
-    virtual INT vf_5d8(INT); /* 0x5d8 */
+    virtual FVector GetLegDirection(); /* 0x5d8 */
     virtual void AddTranslationVelocity(FVector TranslationVelocity); /* 0x5dc */
     virtual void AddTranslation(FVector Translation); /* 0x5e0 */
     virtual void vf_5e4(FLOAT); /* 0x5e4 */
@@ -45686,7 +45693,7 @@ struct ARBMCombatPoint : public AActor {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual UBOOL ShouldTrace(UPrimitiveComponent* Primitive, AActor* SourceActor, DWORD TraceFlags); /* 0x198 */
-    virtual FLOAT vf_350(INT); /* 0x350 */
+    virtual FVector vf_350(); /* 0x350 */
     /* registered size 0x1c4 */
 };
 
@@ -46470,7 +46477,7 @@ struct ARPawnCombat : public ARPawnCharacter {
     virtual UINT vf_624(); /* 0x624 */
     virtual UINT vf_628(); /* 0x628 */
     virtual FLOAT AngleDiff(FLOAT Angle1, FLOAT Angle2); /* 0x62c */
-    virtual INT vf_630(INT); /* 0x630 */
+    virtual FVector GetHeading(); /* 0x630 */
     virtual INT vf_634(); /* 0x634 */
     virtual void vf_638(BYTE, BYTE, BYTE, FName); /* 0x638 */
     virtual INT vf_63c(); /* 0x63c */
@@ -46630,7 +46637,7 @@ struct ARBMPawnAI : public ARBMPawnAIAnim {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual UBOOL ShouldTrace(UPrimitiveComponent* Primitive, AActor* SourceActor, DWORD TraceFlags); /* 0x198 */
-    virtual FLOAT vf_350(INT); /* 0x350 */
+    virtual FVector vf_350(); /* 0x350 */
     virtual INT vf_3dc(INT, INT, INT, INT); /* 0x3dc */
     virtual void vf_494(INT); /* 0x494 */
     /* UnrealScript natives */
@@ -46804,7 +46811,7 @@ struct ARBMRouter_DynamicObject : public AActor {
     FLOAT RouterRadius; /* 0x1b4 */
     BITFIELD bActive : 1; /* 0x1b8 */
     /* virtual functions this class introduces (vtable 0x02346e38) */
-    virtual INT vf_354(INT); /* 0x354 */
+    virtual FVector vf_354(); /* 0x354 */
     virtual UBOOL UpdateRouterObject_Searching(FLOAT DeltaTime, INT& UpdatesLeft); /* 0x358 */
     virtual INT vf_35c(FLOAT); /* 0x35c */
     /* overrides */
@@ -46872,7 +46879,7 @@ struct ARBMRouter : public ARBMRouter_DynamicObject {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_354(INT); /* 0x354 */
+    virtual FVector vf_354(); /* 0x354 */
     virtual UBOOL UpdateRouterObject_Searching(FLOAT DeltaTime, INT& UpdatesLeft); /* 0x358 */
     virtual INT vf_35c(FLOAT); /* 0x35c */
     /* UnrealScript natives */
@@ -46905,7 +46912,7 @@ struct ARBMRouter_NoPawn : public ARBMRouter_DynamicObject {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_354(INT); /* 0x354 */
+    virtual FVector vf_354(); /* 0x354 */
     /* UnrealScript natives */
     void execGetPos(FFrame& Stack, RESULT_DECL); /* 0x016fd320 */
     /* registered size 0x1bc */
@@ -49741,7 +49748,7 @@ struct ARDeadBodyBase : public ASkeletalMeshActor, public IREvidenceInterface {
     virtual bool vf_004(); /* 0x004 */
     virtual void PostLoad(); /* 0x01c */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
-    virtual FLOAT vf_350(INT); /* 0x350 */
+    virtual FVector vf_350(); /* 0x350 */
     /* registered size 0x270 */
 };
 
@@ -49849,7 +49856,7 @@ struct ARDisruptableObjectBase : public AActor {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual UINT vf_178(); /* 0x178 */
-    virtual FLOAT vf_350(INT); /* 0x350 */
+    virtual FVector vf_350(); /* 0x350 */
     /* registered size 0x1e8 */
 };
 
@@ -49883,7 +49890,7 @@ struct ARDisruptableObjectDoor : public AActor {
     virtual UINT vf_178(); /* 0x178 */
     virtual INT vf_17c(INT); /* 0x17c */
     virtual UBOOL ShouldTrace(UPrimitiveComponent* Primitive, AActor* SourceActor, DWORD TraceFlags); /* 0x198 */
-    virtual FLOAT vf_350(INT); /* 0x350 */
+    virtual FVector vf_350(); /* 0x350 */
     /* UnrealScript natives */
     void execCalcCharge(FFrame& Stack, RESULT_DECL); /* 0x01708f30 */
     void execUpdateSound(FFrame& Stack, RESULT_DECL); /* 0x01708ff0 */
@@ -50354,7 +50361,7 @@ struct ARElectrifiedFloorPanel : public AStaticMeshActor {
     virtual bool vf_004(); /* 0x004 */
     virtual UBOOL ShouldTrace(UPrimitiveComponent* Primitive, AActor* SourceActor, DWORD TraceFlags); /* 0x198 */
     virtual void vf_1b4(FLOAT); /* 0x1b4 */
-    virtual FLOAT vf_350(INT); /* 0x350 */
+    virtual FVector vf_350(); /* 0x350 */
     /* UnrealScript natives */
     void execSetState(FFrame& Stack, RESULT_DECL); /* 0x016ea290 */
     void execIntialise(FFrame& Stack, RESULT_DECL); /* 0x016ea300 */
@@ -50614,7 +50621,7 @@ struct ARExplodableWallBase : public AActor {
     virtual void vf_1d8(); /* 0x1d8 */
     virtual void vf_244(INT, INT, INT); /* 0x244 */
     virtual void vf_314(INT); /* 0x314 */
-    virtual FLOAT vf_350(INT); /* 0x350 */
+    virtual FVector vf_350(); /* 0x350 */
     /* UnrealScript natives */
     void execGetTargetLocation(FFrame& Stack, RESULT_DECL); /* 0x00c83160 */
     void execGetFOVCheckLocation(FFrame& Stack, RESULT_DECL); /* 0x00c83230 */
@@ -50960,7 +50967,7 @@ struct ARFracturablePontoonPropBase : public AFracturedStaticMeshActor {
     virtual bool vf_004(); /* 0x004 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual UBOOL ShouldTrace(UPrimitiveComponent* Primitive, AActor* SourceActor, DWORD TraceFlags); /* 0x198 */
-    virtual FLOAT vf_350(INT); /* 0x350 */
+    virtual FVector vf_350(); /* 0x350 */
     /* UnrealScript natives */
     void execEditorInitPontoonPropMeshes(FFrame& Stack, RESULT_DECL); /* 0x0170a8f0 */
     void execDoUpdateCollision(FFrame& Stack, RESULT_DECL); /* 0x0170a930 */
@@ -51046,7 +51053,7 @@ struct ARFractureWallBase : public AFracturedStaticMeshActor, public IRSpotableI
     virtual void vf_244(INT, INT, INT); /* 0x244 */
     virtual INT vf_248(INT, INT); /* 0x248 */
     virtual char* vf_34c(); /* 0x34c */
-    virtual FLOAT vf_350(INT); /* 0x350 */
+    virtual FVector vf_350(); /* 0x350 */
     virtual INT vf_358(INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x358 */
     /* other member functions */
     INT sub_016e10b0(); /* 0x016e10b0 */
@@ -51455,7 +51462,7 @@ struct ARGatherRootPointBase : public AKActorSpawnable {
     virtual bool vf_004(); /* 0x004 */
     virtual UBOOL ShouldTrace(UPrimitiveComponent* Primitive, AActor* SourceActor, DWORD TraceFlags); /* 0x198 */
     virtual void vf_244(INT, INT, INT); /* 0x244 */
-    virtual FLOAT vf_350(INT); /* 0x350 */
+    virtual FVector vf_350(); /* 0x350 */
     /* registered size 0x32c */
 };
 
@@ -51472,7 +51479,7 @@ struct ARGatherRootPointSpawnerBase : public AStaticMeshActor {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual UBOOL ShouldTrace(UPrimitiveComponent* Primitive, AActor* SourceActor, DWORD TraceFlags); /* 0x198 */
-    virtual FLOAT vf_350(INT); /* 0x350 */
+    virtual FVector vf_350(); /* 0x350 */
     /* registered size 0x1c0 */
 };
 
@@ -52312,7 +52319,7 @@ struct ARHarpoonDragPhysicsBase : public ARSmashableProp {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_244(INT, INT, INT); /* 0x244 */
-    virtual FLOAT vf_350(INT); /* 0x350 */
+    virtual FVector vf_350(); /* 0x350 */
     /* UnrealScript natives */
     void execGetAnchorPointPositionAndRotation(FFrame& Stack, RESULT_DECL); /* 0x01722f10 */
     /* registered size 0x380 */
@@ -52725,7 +52732,7 @@ struct ARInvestigateStaticMeshActor : public AStaticMeshActor {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual FLOAT vf_350(INT); /* 0x350 */
+    virtual FVector vf_350(); /* 0x350 */
     /* registered size 0x1c8 */
 };
 
@@ -52976,7 +52983,7 @@ struct ARSpecialMoveEnvironmentObject : public AActor {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual FLOAT vf_350(INT); /* 0x350 */
+    virtual FVector vf_350(); /* 0x350 */
     /* registered size 0x1cc */
 };
 
@@ -53158,7 +53165,7 @@ struct ARLevelTransitionDoorBase : public ARLevelTransitionP {
     virtual bool vf_004(); /* 0x004 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual char* vf_34c(); /* 0x34c */
-    virtual FLOAT vf_350(INT); /* 0x350 */
+    virtual FVector vf_350(); /* 0x350 */
     /* registered size 0x2c8 */
 };
 
@@ -53187,7 +53194,7 @@ struct ARLevelTransitionDoorBunkerNativeBase : public ARLevelTransition {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_1b4(FLOAT); /* 0x1b4 */
-    virtual FLOAT vf_350(INT); /* 0x350 */
+    virtual FVector vf_350(); /* 0x350 */
     /* UnrealScript natives */
     void execDoorIsAnimating(FFrame& Stack, RESULT_DECL); /* 0x01708c00 */
     void execIsInActivationRange(FFrame& Stack, RESULT_DECL); /* 0x01708c40 */
@@ -54219,7 +54226,7 @@ struct ARPawnPlayerCombat : public ARPawnPlayerAnim {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_630(INT); /* 0x630 */
+    virtual FVector GetHeading(); /* 0x630 */
     /* UnrealScript natives */
     void execGetHeading(FFrame& Stack, RESULT_DECL); /* 0x016f6060 */
     void execDetectStrikes(FFrame& Stack, RESULT_DECL); /* 0x016f6930 */
@@ -54744,7 +54751,7 @@ struct ARPickupBase : public AActor {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual FLOAT vf_350(INT); /* 0x350 */
+    virtual FVector vf_350(); /* 0x350 */
     /* registered size 0x1f4 */
 };
 
@@ -55976,7 +55983,7 @@ struct ARPontoonBase : public AActor {
     virtual UBOOL ShouldTrace(UPrimitiveComponent* Primitive, AActor* SourceActor, DWORD TraceFlags); /* 0x198 */
     virtual INT vf_29c(INT); /* 0x29c */
     virtual void vf_340(INT); /* 0x340 */
-    virtual FLOAT vf_350(INT); /* 0x350 */
+    virtual FVector vf_350(); /* 0x350 */
     /* UnrealScript natives */
     void execBoundsCheck(FFrame& Stack, RESULT_DECL); /* 0x016e9b70 */
     void execDrawBoundsCheck(FFrame& Stack, RESULT_DECL); /* 0x016e9c30 */
@@ -56151,7 +56158,7 @@ struct ARPontoonGateBase : public AActor {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual UBOOL ShouldTrace(UPrimitiveComponent* Primitive, AActor* SourceActor, DWORD TraceFlags); /* 0x198 */
-    virtual FLOAT vf_350(INT); /* 0x350 */
+    virtual FVector vf_350(); /* 0x350 */
     /* registered size 0x1cc */
 };
 
@@ -56480,7 +56487,7 @@ struct ARRopeBase : public AActor {
     virtual void vf_1d8(); /* 0x1d8 */
     virtual void vf_238(); /* 0x238 */
     virtual void vf_23c(INT); /* 0x23c */
-    virtual FLOAT vf_350(INT); /* 0x350 */
+    virtual FVector vf_350(); /* 0x350 */
     /* UnrealScript natives */
     void execSplitRope(FFrame& Stack, RESULT_DECL); /* 0x01700fe0 */
     void execJoinRope(FFrame& Stack, RESULT_DECL); /* 0x017010c0 */
@@ -60536,7 +60543,7 @@ struct ARXrayInteractableItem : public ARInteractableItem {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual FLOAT vf_350(INT); /* 0x350 */
+    virtual FVector vf_350(); /* 0x350 */
     /* registered size 0x208 */
 };
 
@@ -60558,7 +60565,7 @@ struct ARXrayInterpActor : public AInterpActor {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual FLOAT vf_350(INT); /* 0x350 */
+    virtual FVector vf_350(); /* 0x350 */
     /* registered size 0x234 */
 };
 
@@ -60858,7 +60865,7 @@ struct UFactory : public UObject {
     virtual INT vf_10c(); /* 0x10c */
     virtual INT vf_110(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x110 */
     virtual INT vf_114(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x114 */
-    virtual INT vf_118(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x118 */
+    virtual class UObject* FactoryCreateNew(class UClass* InClass, class UObject* InParent, FName InName, QWORD Flags, class UObject* Context, FFeedbackContext* Warn); /* 0x118 */
     virtual INT vf_11c(INT); /* 0x11c */
     virtual void vf_120(INT, INT); /* 0x120 */
     virtual void vf_124(INT, INT, INT); /* 0x124 */
@@ -60966,7 +60973,7 @@ struct UAnimSetFactoryNew : public UFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_118(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x118 */
+    virtual class UObject* FactoryCreateNew(class UClass* InClass, class UObject* InParent, FName InName, QWORD Flags, class UObject* Context, FFeedbackContext* Warn); /* 0x118 */
     /* registered size 0x64 */
 };
 
@@ -61014,7 +61021,7 @@ struct UAnimTreeFactoryNew : public UFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_118(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x118 */
+    virtual class UObject* FactoryCreateNew(class UClass* InClass, class UObject* InParent, FName InName, QWORD Flags, class UObject* Context, FFeedbackContext* Warn); /* 0x118 */
     /* registered size 0x64 */
 };
 
@@ -61929,7 +61936,7 @@ struct UCameraAnimFactory : public UFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_118(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x118 */
+    virtual class UObject* FactoryCreateNew(class UClass* InClass, class UObject* InParent, FName InName, QWORD Flags, class UObject* Context, FFeedbackContext* Warn); /* 0x118 */
     /* registered size 0x64 */
 };
 
@@ -62901,7 +62908,7 @@ struct UCurveEdPresetCurveFactoryNew : public UFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_118(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x118 */
+    virtual class UObject* FactoryCreateNew(class UClass* InClass, class UObject* InParent, FName InName, QWORD Flags, class UObject* Context, FFeedbackContext* Warn); /* 0x118 */
     /* registered size 0x64 */
 };
 
@@ -63043,7 +63050,7 @@ struct UDecalMaterialFactoryNew : public UFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_118(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x118 */
+    virtual class UObject* FactoryCreateNew(class UClass* InClass, class UObject* InParent, FName InName, QWORD Flags, class UObject* Context, FFeedbackContext* Warn); /* 0x118 */
     /* registered size 0x64 */
 };
 
@@ -63239,7 +63246,7 @@ struct UDestructibleDamageParametersFactoryNew : public UFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_118(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x118 */
+    virtual class UObject* FactoryCreateNew(class UClass* InClass, class UObject* InParent, FName InName, QWORD Flags, class UObject* Context, FFeedbackContext* Warn); /* 0x118 */
     /* registered size 0x64 */
 };
 
@@ -63896,7 +63903,7 @@ struct UFonixFactory : public UFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_118(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x118 */
+    virtual class UObject* FactoryCreateNew(class UClass* InClass, class UObject* InParent, FName InName, QWORD Flags, class UObject* Context, FFeedbackContext* Warn); /* 0x118 */
     /* registered size 0x64 */
 };
 
@@ -65353,7 +65360,7 @@ struct ULensFlareFactoryNew : public UFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_118(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x118 */
+    virtual class UObject* FactoryCreateNew(class UClass* InClass, class UObject* InParent, FName InName, QWORD Flags, class UObject* Context, FFeedbackContext* Warn); /* 0x118 */
     /* registered size 0x64 */
 };
 
@@ -65929,7 +65936,7 @@ struct UMaterialFactoryNew : public UFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_118(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x118 */
+    virtual class UObject* FactoryCreateNew(class UClass* InClass, class UObject* InParent, FName InName, QWORD Flags, class UObject* Context, FFeedbackContext* Warn); /* 0x118 */
     /* registered size 0x64 */
 };
 
@@ -65941,7 +65948,7 @@ struct UMaterialInstanceConstantFactoryNew : public UFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_118(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x118 */
+    virtual class UObject* FactoryCreateNew(class UClass* InClass, class UObject* InParent, FName InName, QWORD Flags, class UObject* Context, FFeedbackContext* Warn); /* 0x118 */
     /* registered size 0x64 */
 };
 
@@ -65973,7 +65980,7 @@ struct UMaterialInstanceTimeVaryingFactoryNew : public UFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_118(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x118 */
+    virtual class UObject* FactoryCreateNew(class UClass* InClass, class UObject* InParent, FName InName, QWORD Flags, class UObject* Context, FFeedbackContext* Warn); /* 0x118 */
     /* registered size 0x64 */
 };
 
@@ -67037,7 +67044,7 @@ struct UParticleSystemFactoryNew : public UFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_118(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x118 */
+    virtual class UObject* FactoryCreateNew(class UClass* InClass, class UObject* InParent, FName InName, QWORD Flags, class UObject* Context, FFeedbackContext* Warn); /* 0x118 */
     /* registered size 0x64 */
 };
 
@@ -67154,7 +67161,7 @@ struct UPhysXParticleSystemFactoryNew : public UFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_118(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x118 */
+    virtual class UObject* FactoryCreateNew(class UClass* InClass, class UObject* InParent, FName InName, QWORD Flags, class UObject* Context, FFeedbackContext* Warn); /* 0x118 */
     /* registered size 0x64 */
 };
 
@@ -67166,7 +67173,7 @@ struct UPhysicalMaterialFactoryNew : public UFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_118(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x118 */
+    virtual class UObject* FactoryCreateNew(class UClass* InClass, class UObject* InParent, FName InName, QWORD Flags, class UObject* Context, FFeedbackContext* Warn); /* 0x118 */
     /* registered size 0x64 */
 };
 
@@ -67304,7 +67311,7 @@ struct UPostProcessFactoryNew : public UFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_118(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x118 */
+    virtual class UObject* FactoryCreateNew(class UClass* InClass, class UObject* InParent, FName InName, QWORD Flags, class UObject* Context, FFeedbackContext* Warn); /* 0x118 */
     /* registered size 0x64 */
 };
 
@@ -67604,7 +67611,7 @@ struct URAimingConfigFactoryNew : public UFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_118(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x118 */
+    virtual class UObject* FactoryCreateNew(class UClass* InClass, class UObject* InParent, FName InName, QWORD Flags, class UObject* Context, FFeedbackContext* Warn); /* 0x118 */
     /* registered size 0x64 */
 };
 
@@ -67616,7 +67623,7 @@ struct URAlternateAnimationAndWeaponConfigFactoryNew : public UFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_118(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x118 */
+    virtual class UObject* FactoryCreateNew(class UClass* InClass, class UObject* InParent, FName InName, QWORD Flags, class UObject* Context, FFeedbackContext* Warn); /* 0x118 */
     /* registered size 0x64 */
 };
 
@@ -67628,7 +67635,7 @@ struct URBatmanDamageStateFactoryNew : public UFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_118(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x118 */
+    virtual class UObject* FactoryCreateNew(class UClass* InClass, class UObject* InParent, FName InName, QWORD Flags, class UObject* Context, FFeedbackContext* Warn); /* 0x118 */
     /* registered size 0x64 */
 };
 
@@ -67640,7 +67647,7 @@ struct URBoneRescaleConfigFactoryNew : public UFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_118(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x118 */
+    virtual class UObject* FactoryCreateNew(class UClass* InClass, class UObject* InParent, FName InName, QWORD Flags, class UObject* Context, FFeedbackContext* Warn); /* 0x118 */
     /* registered size 0x64 */
 };
 
@@ -67652,7 +67659,7 @@ struct URCapeCollisionConfigFactoryNew : public UFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_118(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x118 */
+    virtual class UObject* FactoryCreateNew(class UClass* InClass, class UObject* InParent, FName InName, QWORD Flags, class UObject* Context, FFeedbackContext* Warn); /* 0x118 */
     /* registered size 0x64 */
 };
 
@@ -67664,7 +67671,7 @@ struct URCapeCollisionShapeConfigFactoryNew : public UFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_118(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x118 */
+    virtual class UObject* FactoryCreateNew(class UClass* InClass, class UObject* InParent, FName InName, QWORD Flags, class UObject* Context, FFeedbackContext* Warn); /* 0x118 */
     /* registered size 0x64 */
 };
 
@@ -67676,7 +67683,7 @@ struct URCapeConfigFactoryNew : public UFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_118(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x118 */
+    virtual class UObject* FactoryCreateNew(class UClass* InClass, class UObject* InParent, FName InName, QWORD Flags, class UObject* Context, FFeedbackContext* Warn); /* 0x118 */
     /* registered size 0x64 */
 };
 
@@ -67688,7 +67695,7 @@ struct URCapeStateBoneConfigFactoryNew : public UFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_118(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x118 */
+    virtual class UObject* FactoryCreateNew(class UClass* InClass, class UObject* InParent, FName InName, QWORD Flags, class UObject* Context, FFeedbackContext* Warn); /* 0x118 */
     /* registered size 0x64 */
 };
 
@@ -67700,7 +67707,7 @@ struct URCapeStateConfigFactoryNew : public UFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_118(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x118 */
+    virtual class UObject* FactoryCreateNew(class UClass* InClass, class UObject* InParent, FName InName, QWORD Flags, class UObject* Context, FFeedbackContext* Warn); /* 0x118 */
     /* registered size 0x64 */
 };
 
@@ -67712,7 +67719,7 @@ struct URCharacterBioCueFactoryNew : public UFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_118(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x118 */
+    virtual class UObject* FactoryCreateNew(class UClass* InClass, class UObject* InParent, FName InName, QWORD Flags, class UObject* Context, FFeedbackContext* Warn); /* 0x118 */
     /* registered size 0x64 */
 };
 
@@ -67724,7 +67731,7 @@ struct URCharacterViewerConfigFactoryNew : public UFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_118(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x118 */
+    virtual class UObject* FactoryCreateNew(class UClass* InClass, class UObject* InParent, FName InName, QWORD Flags, class UObject* Context, FFeedbackContext* Warn); /* 0x118 */
     /* registered size 0x64 */
 };
 
@@ -67736,7 +67743,7 @@ struct URCrimeSceneAssetFactoryNew : public UFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_118(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x118 */
+    virtual class UObject* FactoryCreateNew(class UClass* InClass, class UObject* InParent, FName InName, QWORD Flags, class UObject* Context, FFeedbackContext* Warn); /* 0x118 */
     /* registered size 0x64 */
 };
 
@@ -67748,7 +67755,7 @@ struct URDummyEvidenceConfigFactoryNew : public UFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_118(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x118 */
+    virtual class UObject* FactoryCreateNew(class UClass* InClass, class UObject* InParent, FName InName, QWORD Flags, class UObject* Context, FFeedbackContext* Warn); /* 0x118 */
     /* registered size 0x64 */
 };
 
@@ -67760,7 +67767,7 @@ struct UREvidenceFactoryNew : public UFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_118(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x118 */
+    virtual class UObject* FactoryCreateNew(class UClass* InClass, class UObject* InParent, FName InName, QWORD Flags, class UObject* Context, FFeedbackContext* Warn); /* 0x118 */
     /* registered size 0x64 */
 };
 
@@ -67803,7 +67810,7 @@ struct URForceFieldConfigFactoryNew : public UFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_118(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x118 */
+    virtual class UObject* FactoryCreateNew(class UClass* InClass, class UObject* InParent, FName InName, QWORD Flags, class UObject* Context, FFeedbackContext* Warn); /* 0x118 */
     /* registered size 0x64 */
 };
 
@@ -67863,7 +67870,7 @@ struct URIdleTransitionConfigFactoryNew : public UFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_118(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x118 */
+    virtual class UObject* FactoryCreateNew(class UClass* InClass, class UObject* InParent, FName InName, QWORD Flags, class UObject* Context, FFeedbackContext* Warn); /* 0x118 */
     /* registered size 0x64 */
 };
 
@@ -67875,7 +67882,7 @@ struct URIdleWithDeathConfigFactoryNew : public UFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_118(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x118 */
+    virtual class UObject* FactoryCreateNew(class UClass* InClass, class UObject* InParent, FName InName, QWORD Flags, class UObject* Context, FFeedbackContext* Warn); /* 0x118 */
     /* registered size 0x64 */
 };
 
@@ -67887,7 +67894,7 @@ struct URMatineeSpecialMoveFactoryNew : public UFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_118(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x118 */
+    virtual class UObject* FactoryCreateNew(class UClass* InClass, class UObject* InParent, FName InName, QWORD Flags, class UObject* Context, FFeedbackContext* Warn); /* 0x118 */
     /* registered size 0x64 */
 };
 
@@ -67899,7 +67906,7 @@ struct URMirrorConfigFactoryNew : public UFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_118(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x118 */
+    virtual class UObject* FactoryCreateNew(class UClass* InClass, class UObject* InParent, FName InName, QWORD Flags, class UObject* Context, FFeedbackContext* Warn); /* 0x118 */
     /* registered size 0x64 */
 };
 
@@ -67911,7 +67918,7 @@ struct URPairedIdleConfigFactoryNew : public UFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_118(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x118 */
+    virtual class UObject* FactoryCreateNew(class UClass* InClass, class UObject* InParent, FName InName, QWORD Flags, class UObject* Context, FFeedbackContext* Warn); /* 0x118 */
     /* registered size 0x64 */
 };
 
@@ -67923,7 +67930,7 @@ struct URPoseConfigFactoryNew : public UFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_118(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x118 */
+    virtual class UObject* FactoryCreateNew(class UClass* InClass, class UObject* InParent, FName InName, QWORD Flags, class UObject* Context, FFeedbackContext* Warn); /* 0x118 */
     /* registered size 0x64 */
 };
 
@@ -67948,7 +67955,7 @@ struct URScriptConversationFactoryNew : public UFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_118(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x118 */
+    virtual class UObject* FactoryCreateNew(class UClass* InClass, class UObject* InParent, FName InName, QWORD Flags, class UObject* Context, FFeedbackContext* Warn); /* 0x118 */
     /* other member functions */
     bool sub_0150f2d0(); /* 0x0150f2d0 */
     UINT sub_0152c3c0(BYTE); /* 0x0152c3c0 */
@@ -67963,7 +67970,7 @@ struct URSimpleIdleConfigFactoryNew : public UFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_118(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x118 */
+    virtual class UObject* FactoryCreateNew(class UClass* InClass, class UObject* InParent, FName InName, QWORD Flags, class UObject* Context, FFeedbackContext* Warn); /* 0x118 */
     /* registered size 0x64 */
 };
 
@@ -67975,7 +67982,7 @@ struct URSmashablePropConfigFactoryNew : public UFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_118(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x118 */
+    virtual class UObject* FactoryCreateNew(class UClass* InClass, class UObject* InParent, FName InName, QWORD Flags, class UObject* Context, FFeedbackContext* Warn); /* 0x118 */
     /* registered size 0x64 */
 };
 
@@ -67988,7 +67995,7 @@ struct URSpecialMoveFactoryNew : public UFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_118(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x118 */
+    virtual class UObject* FactoryCreateNew(class UClass* InClass, class UObject* InParent, FName InName, QWORD Flags, class UObject* Context, FFeedbackContext* Warn); /* 0x118 */
     /* registered size 0x68 */
 };
 
@@ -68000,7 +68007,7 @@ struct URWeaponConfigFactoryNew : public UFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_118(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x118 */
+    virtual class UObject* FactoryCreateNew(class UClass* InClass, class UObject* InParent, FName InName, QWORD Flags, class UObject* Context, FFeedbackContext* Warn); /* 0x118 */
     /* registered size 0x64 */
 };
 
@@ -68494,7 +68501,7 @@ struct USoundCueFactoryNew : public UFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_118(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x118 */
+    virtual class UObject* FactoryCreateNew(class UClass* InClass, class UObject* InParent, FName InName, QWORD Flags, class UObject* Context, FFeedbackContext* Warn); /* 0x118 */
     /* registered size 0x64 */
 };
 
@@ -68541,7 +68548,7 @@ struct USoundModeFactory : public UFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_118(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x118 */
+    virtual class UObject* FactoryCreateNew(class UClass* InClass, class UObject* InParent, FName InName, QWORD Flags, class UObject* Context, FFeedbackContext* Warn); /* 0x118 */
     /* registered size 0x64 */
 };
 
@@ -68596,7 +68603,7 @@ struct USoundTTSFactory : public UFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_118(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x118 */
+    virtual class UObject* FactoryCreateNew(class UClass* InClass, class UObject* InParent, FName InName, QWORD Flags, class UObject* Context, FFeedbackContext* Warn); /* 0x118 */
     /* registered size 0x80 */
 };
 
@@ -68977,7 +68984,7 @@ struct UTerrainLayerSetupFactoryNew : public UFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_118(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x118 */
+    virtual class UObject* FactoryCreateNew(class UClass* InClass, class UObject* InParent, FName InName, QWORD Flags, class UObject* Context, FFeedbackContext* Warn); /* 0x118 */
     /* registered size 0x64 */
 };
 
@@ -68989,7 +68996,7 @@ struct UTerrainMaterialFactoryNew : public UFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_118(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x118 */
+    virtual class UObject* FactoryCreateNew(class UClass* InClass, class UObject* InParent, FName InName, QWORD Flags, class UObject* Context, FFeedbackContext* Warn); /* 0x118 */
     /* registered size 0x64 */
 };
 
@@ -69149,7 +69156,7 @@ struct UTextureCubeFactoryNew : public UFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_118(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x118 */
+    virtual class UObject* FactoryCreateNew(class UClass* InClass, class UObject* InParent, FName InName, QWORD Flags, class UObject* Context, FFeedbackContext* Warn); /* 0x118 */
     /* registered size 0x64 */
 };
 
@@ -69233,7 +69240,7 @@ struct UTextureRenderTargetCubeFactoryNew : public UFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_118(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x118 */
+    virtual class UObject* FactoryCreateNew(class UClass* InClass, class UObject* InParent, FName InName, QWORD Flags, class UObject* Context, FFeedbackContext* Warn); /* 0x118 */
     /* registered size 0x6c */
 };
 
@@ -69246,7 +69253,7 @@ struct UTextureRenderTargetFactoryNew : public UFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_118(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x118 */
+    virtual class UObject* FactoryCreateNew(class UClass* InClass, class UObject* InParent, FName InName, QWORD Flags, class UObject* Context, FFeedbackContext* Warn); /* 0x118 */
     /* registered size 0x70 */
 };
 
@@ -69294,7 +69301,7 @@ struct UTrueTypeFontFactory : public UFontFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_118(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x118 */
+    virtual class UObject* FactoryCreateNew(class UClass* InClass, class UObject* InParent, FName InName, QWORD Flags, class UObject* Context, FFeedbackContext* Warn); /* 0x118 */
     /* registered size 0xb4 */
 };
 
@@ -69310,7 +69317,7 @@ struct UTrueTypeMultiFontFactory : public UTrueTypeFontFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_118(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x118 */
+    virtual class UObject* FactoryCreateNew(class UClass* InClass, class UObject* InParent, FName InName, QWORD Flags, class UObject* Context, FFeedbackContext* Warn); /* 0x118 */
     /* registered size 0xd8 */
 };
 
@@ -69419,7 +69426,7 @@ struct UUISceneFactoryNew : public UUISceneFactory {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_118(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x118 */
+    virtual class UObject* FactoryCreateNew(class UClass* InClass, class UObject* InParent, FName InName, QWORD Flags, class UObject* Context, FFeedbackContext* Warn); /* 0x118 */
     /* registered size 0x6c */
 };
 

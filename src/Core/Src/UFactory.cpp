@@ -17,7 +17,7 @@ int UFactory::vf_110(int a0, int a1, int a2, int a3, int a4, int a5, int a6, int
 int UFactory::vf_114(int a0, int a1, int a2, int a3, int a4, int a5, int a6, int a7, int a8, int a9, int a10) { return 0; }
 
 // @baa 0x005b1600
-int UFactory::vf_118(int a0, int a1, int a2, int a3, int a4, int a5, int a6, int a7) { return 0; }
+UObject* UFactory::FactoryCreateNew(UClass* InClass, UObject* InParent, FName InName, QWORD Flags, UObject* Context, FFeedbackContext* Warn) { return 0; }
 
 // @baa 0x005b1610
 int UFactory::vf_11c(int a0) { return 0; }

@@ -1533,7 +1533,7 @@ void sub_007d9b00(undefined4 * param_1, undefined4 * param_2)
 }
 
 // @baa 0x007d9c10
-bool UGameEngine::sub_007d9c10(void)
+UBOOL UGameEngine::IsPreparingMapChange()
 {
     int param_1 = (int)this;
 
@@ -1541,7 +1541,7 @@ bool UGameEngine::sub_007d9c10(void)
 }
 
 // @baa 0x007d9c20
-undefined4 UGameEngine::sub_007d9c20(void)
+UBOOL UGameEngine::IsReadyForMapChange()
 {
     int param_1 = (int)this;
 

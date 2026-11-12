@@ -736,13 +736,13 @@ INT URAnimNode_Pose::vf_1e4(BYTE Fuzziness)
 /* Kit gap: FPosePlayer's methods (RPosePlayer.cpp) aren't declared; the node forwards to the one of the same name. */
 struct FPosePlayer__01595650 : public FPosePlayer
 {
-	INT OverrideTransitionTime(FLOAT, INT); /* 0x015c2910 */
+	void OverrideTransitionTime(FLOAT, INT); /* 0x015c2910 */
 };
 
 // @baa 0x01595650
-INT URAnimNode_Pose::OverrideTransitionTime(FLOAT Time, INT Param)
+void URAnimNode_Pose::OverrideTransitionTime(FLOAT Time, INT Param)
 {
-	return ((FPosePlayer__01595650&)PosePlayer).OverrideTransitionTime(Time, Param);
+	((FPosePlayer__01595650&)PosePlayer).OverrideTransitionTime(Time, Param);
 }
 
 /* Kit gap: FPosePlayer's methods aren't declared (the node forwards to the one of the same name; they take the
