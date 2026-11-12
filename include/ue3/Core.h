@@ -97,6 +97,13 @@ static __forceinline void appMemzero( void* Dest, INT Count ) { memset( Dest, 0,
 
 enum { INDEX_NONE = -1 };
 
+/* UnNames.h: the names the engine hardcodes, by index (add them as code needs them) */
+enum EName
+{
+	NAME_None           = 0,
+	NAME_ScriptWarning  = 0x2ff,
+};
+
 /* UnClient.h: what happened to a key or button */
 enum EInputEvent
 {

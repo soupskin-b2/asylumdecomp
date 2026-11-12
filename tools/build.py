@@ -19,7 +19,7 @@ DATA = ["functions", "names", "symbols", "imports", "fingerprints"]
 def main():
     out = Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / "dist"
     out.mkdir(parents=True, exist_ok=True)
-    files = [(p, p.relative_to(CODE).as_posix()) for p in sorted(CODE.iterdir()) if p.suffix in (".py", ".json")]
+    files = [(p, p.relative_to(CODE).as_posix()) for p in sorted(CODE.iterdir()) if p.suffix in (".py", ".json") or p.name == "CHANGES.md"]
     for d in ("include", "third_party"):
         files += [(p, "kit/" + p.relative_to(ROOT).as_posix()) for p in sorted((ROOT / d).rglob("*")) if p.is_file()]
     files += [(ROOT / "data" / (n + ".json.gz"), "kit/data/%s.json.gz" % n) for n in DATA]

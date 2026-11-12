@@ -258,11 +258,6 @@ void UCanvas__00aaa040::execDrawTileClipped(FFrame& Stack, RESULT_DECL)
 	}
 }
 
-enum EName
-{
-	NAME_ScriptWarning = 0x2ff,
-};
-
 /* Script.h's FOutputDevice only declares Logf(const TCHAR*, ...); the engine also has the
  * Logf(EName Type, const TCHAR* Fmt, ...) overload (0x00630ea0). */
 struct FFrame_ : public FFrame

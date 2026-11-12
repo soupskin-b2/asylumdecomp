@@ -560,8 +560,7 @@ void URCapeSkeletalMeshComponent::sub_016d5a90(int param_2)
 // @baa 0x017196e0
 int sub_017196e0(void) { return 1; }
 
-// UE3's FName(EName) constructor and NAME_None; the shared FName is an aggregate without them.
-enum EName { NAME_None = 0 };
+// UE3's FName(EName) constructor; the shared FName is an aggregate without it.
 
 struct FName_ : public FName {
     FName_(EName N) { Index = N; Number = 0; }

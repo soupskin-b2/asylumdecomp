@@ -9,7 +9,7 @@ import sys
 import urllib.request
 import zipfile
 
-from paths import PYZ, version
+from paths import PROG, PYZ, version
 
 REPO = "https://github.com/soupskin-b2/asylumdecomp"
 RELEASE = os.environ.get("ASYLUM_RELEASE", REPO + "/releases/download/checker/")
@@ -53,11 +53,27 @@ def update(quiet: bool = False) -> bool:
         new.unlink()
         raise SystemExit("the download isn't the version announced; try again in a few minutes")
     try:
+        was = _changes(zipfile.ZipFile(PYZ).read("CHANGES.md").decode("utf-8"))
+    except (KeyError, OSError, zipfile.BadZipFile):
+        was = None
+    with zipfile.ZipFile(new) as z:
+        now = _changes(z.read("CHANGES.md").decode("utf-8")) if "CHANGES.md" in z.namelist() else []
+    try:
         os.replace(new, PYZ)
     except OSError:
         raise SystemExit("couldn't replace %s (in use?): the new version is %s; rename it over the old one" % (PYZ, new))
     print("asylum.pyz updated: %s -> %s" % (old[:12], v[:12]))
+    fresh = [c for c in now if c not in was] if was is not None else now[:8]
+    if fresh:
+        print("what changed (all of it: %s changes):" % PROG)
+        for c in fresh:
+            print("  " + c)
     return True
+
+
+def _changes(text: str) -> list[str]:
+    """CHANGES.md's entries, newest first."""
+    return [l[2:].strip() for l in text.splitlines() if l.startswith("- ")]
 
 
 def rerun_if_updated() -> None:

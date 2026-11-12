@@ -12742,8 +12742,8 @@ struct UPrimitiveComponent : public UActorComponent {
     virtual void vf_1a4(INT, INT); /* 0x1a4 */
     virtual INT vf_1a8(INT, INT, INT); /* 0x1a8 */
     virtual INT vf_1ac(INT, INT, INT); /* 0x1ac */
-    virtual void vf_1b0(INT, INT); /* 0x1b0 */
-    virtual void vf_1b4(INT, INT); /* 0x1b4 */
+    virtual void WakeRigidBody(FName BoneName); /* 0x1b0 */
+    virtual void PutRigidBodyToSleep(FName BoneName); /* 0x1b4 */
     virtual INT vf_1b8(INT, INT); /* 0x1b8 */
     virtual INT vf_1bc(INT, INT); /* 0x1bc */
     virtual INT vf_1c0(INT, INT); /* 0x1c0 */
@@ -19491,8 +19491,8 @@ struct USkeletalMeshComponent : public UMeshComponent {
     virtual void vf_1a4(INT, INT); /* 0x1a4 */
     virtual INT vf_1a8(INT, INT, INT); /* 0x1a8 */
     virtual INT vf_1ac(INT, INT, INT); /* 0x1ac */
-    virtual void vf_1b0(INT, INT); /* 0x1b0 */
-    virtual void vf_1b4(INT, INT); /* 0x1b4 */
+    virtual void WakeRigidBody(FName BoneName); /* 0x1b0 */
+    virtual void PutRigidBodyToSleep(FName BoneName); /* 0x1b4 */
     virtual INT vf_1b8(INT, INT); /* 0x1b8 */
     virtual INT vf_1bc(INT, INT); /* 0x1bc */
     virtual INT vf_1c0(INT, INT); /* 0x1c0 */
@@ -39863,7 +39863,7 @@ struct URInteractionManager : public UComponent {
     FMap_Mirror_01545f40 InteractionClasses; /* 0x3c */
     TArrayNoInit<class URInteractionClass*> ReferencedClasses; /* 0x78 */
     /* virtual functions this class introduces (vtable 0x022e91e0) */
-    virtual INT vf_110(INT, INT); /* 0x110 */
+    virtual INT GetInteractionClass(FName ClassName); /* 0x110 */
     virtual void vf_114(INT); /* 0x114 */
     virtual void vf_118(INT); /* 0x118 */
     /* overrides */
@@ -42676,7 +42676,7 @@ struct ARPawnCharacter : public ARPawn {
     class URConstrainingComponent* BodyConstrainingComponent; /* 0x53c */
     class ARPawnCombat* IgnoreCollisionWithPawn; /* 0x540 */
     /* virtual functions this class introduces (vtable 0x02305240) */
-    virtual INT vf_498(INT, INT); /* 0x498 */
+    virtual INT OverlayExists(FName OverlayName); /* 0x498 */
     virtual INT vf_49c(INT, INT, INT, INT, INT, INT); /* 0x49c */
     virtual INT vf_4a0(INT, INT, INT, INT, INT, INT); /* 0x4a0 */
     virtual INT vf_4a4(INT, INT, INT, INT, INT, INT); /* 0x4a4 */
@@ -51182,9 +51182,9 @@ struct ARGameRI : public ARGameReplicationInfoBase {
     virtual void vf_360(); /* 0x360 */
     virtual INT vf_364(INT, INT, INT, INT, INT); /* 0x364 */
     virtual INT vf_368(INT, INT, INT); /* 0x368 */
-    virtual void vf_36c(INT, INT); /* 0x36c */
-    virtual void vf_370(INT, INT); /* 0x370 */
-    virtual void vf_374(INT, INT); /* 0x374 */
+    virtual UBOOL IsLevelLoaded(FName Level); /* 0x36c */
+    virtual UBOOL IsLevelLoading(FName Level); /* 0x370 */
+    virtual UBOOL IsLevelVisible(FName Level); /* 0x374 */
     virtual void HideLevel(FName Level); /* 0x378 */
     virtual void StartLevel(FName Level); /* 0x37c */
     virtual void StartChapterSpecificLevels(FName Level); /* 0x380 */
@@ -51193,7 +51193,7 @@ struct ARGameRI : public ARGameReplicationInfoBase {
     virtual void vf_38c(INT, INT, INT, INT); /* 0x38c */
     virtual void ShowLoadingIcon(UBOOL bShow); /* 0x390 */
     virtual void vf_394(INT); /* 0x394 */
-    virtual INT vf_398(INT, INT); /* 0x398 */
+    virtual UBOOL IsCurrentLevel(FName Level); /* 0x398 */
     virtual INT vf_39c(INT); /* 0x39c */
     virtual INT vf_3a0(INT); /* 0x3a0 */
     virtual INT vf_3a4(); /* 0x3a4 */
@@ -52018,7 +52018,7 @@ struct ARHidePoint : public AFracturedStaticMeshActor {
     TArrayNoInit<class ANavigationPoint*> CachedAttackPointsHanging; /* 0x314 */
     class ARBMRouter_NoPawn* AvoidanceObject; /* 0x320 */
     /* virtual functions this class introduces (vtable 0x0235f9e8) */
-    virtual INT vf_394(INT, INT); /* 0x394 */
+    virtual FName GetFragmentSaveName(INT FragmentIndex); /* 0x394 */
     virtual void vf_398(INT); /* 0x398 */
     virtual void vf_39c(); /* 0x39c */
     /* overrides */
@@ -52741,7 +52741,7 @@ struct ARJokerGunGadgetBase : public ARInventoryGadget {
     /* virtual functions this class introduces (vtable 0x023cd7b0) */
     virtual void vf_358(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x358 */
     virtual INT vf_35c(INT, INT, INT); /* 0x35c */
-    virtual INT vf_360(INT, INT); /* 0x360 */
+    virtual INT GetShouldKnockHelmetOff(FName BoneName); /* 0x360 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -52913,7 +52913,7 @@ struct ARLevelTransition : public AActor {
     BYTE MapIconType; /* 0x200 */
     /* virtual functions this class introduces (vtable 0x02307680) */
     virtual ARGameRI* vf_354(); /* 0x354 */
-    virtual INT vf_358(FName); /* 0x358 */
+    virtual UBOOL IsConnectedToLevel(FName Level); /* 0x358 */
     virtual INT vf_35c(); /* 0x35c */
     virtual INT vf_360(); /* 0x360 */
     virtual INT vf_364(); /* 0x364 */

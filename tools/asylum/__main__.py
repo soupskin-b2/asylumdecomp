@@ -20,7 +20,8 @@
     python asylum.pyz flag [VA] --reason TEXT                report a problem (wrong data, a bad header ...)
     python asylum.pyz asm VA                 the original's assembly
     python asylum.pyz callers VA             who calls it (and vtables holding it): context for unknown classes
-    python asylum.pyz update                 the latest asylum.pyz (get does this by itself)
+    python asylum.pyz update                 the latest asylum.pyz (get does this by itself); prints what changed
+    python asylum.pyz changes                what changed for agents, newest first (headers, macros, rules)
     python asylum.pyz unit-check UNIT.json   (CI) a src/units.json entry: compile, verify every function
 """
 from __future__ import annotations
@@ -270,6 +271,11 @@ def cmd_get(a):
 
 def cmd_update(a):
     update.update()
+
+
+def cmd_changes(a):
+    import paths
+    print(paths.resource("CHANGES.md"))
 
 
 def _matched_key(va, src, function):
@@ -542,6 +548,7 @@ def main(argv=None):
     s.add_argument("va", type=va_arg)
     s.add_argument("--limit", type=int, default=40)
     sub.add_parser("update")
+    sub.add_parser("changes")
     s = sub.add_parser("unit-check")
     s.add_argument("spec")
     a = p.parse_args(argv)

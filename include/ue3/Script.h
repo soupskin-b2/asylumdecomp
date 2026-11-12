@@ -110,7 +110,9 @@ template<class T> struct TScriptInterface {  /* FScriptInterface's layout (Class
 #define P_GET_BYTE_OPTX(v, d)   BYTE v = d; GRuntimeUCFlags &= ~RUC_SkippedOptionalParm; Stack.Step(Stack.Object, &v);
 #define P_GET_UBOOL_OPTX(v, d)  UBOOL v = d; GRuntimeUCFlags &= ~RUC_SkippedOptionalParm; Stack.Step(Stack.Object, &v); v = (v != 0);
 #define P_GET_OBJECT_OPTX(c, v, d) c* v = d; GRuntimeUCFlags &= ~RUC_SkippedOptionalParm; Stack.Step(Stack.Object, &v);
-#define P_GET_NAME_OPTX(v, d)   FName v = d; GRuntimeUCFlags &= ~RUC_SkippedOptionalParm; Stack.Step(Stack.Object, &v);
+// FName stays an aggregate (a constructor would change how functions return it), so a name default is
+// its {Index, 0} (EName is in Core.h): P_GET_NAME_OPTX(BoneName, NAME_None). The game stores both zeros as immediates.
+#define P_GET_NAME_OPTX(v, d)   FName v = { d, 0 }; GRuntimeUCFlags &= ~RUC_SkippedOptionalParm; Stack.Step(Stack.Object, &v);
 #define P_GET_STR_OPTX(v, d)    FString v(d); GRuntimeUCFlags &= ~RUC_SkippedOptionalParm; Stack.Step(Stack.Object, &v);
 
 // After the last parameter: skip EX_EndFunctionParms, then a debug-info opcode if there is one.

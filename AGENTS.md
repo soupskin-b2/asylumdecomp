@@ -277,7 +277,9 @@ header first (next section).
 `include/` (engine types, class layouts) and the checker (`tools/asylum`) take pull requests. Work on
 them in a clone, where the checker runs as `python tools/asylum` (the same commands, using the clone's
 headers). On a pull request CI compiles and verifies every file of `src/` again; a change that costs a
-match fails. Once merged, a change reaches everyone's `asylum.pyz` by itself.
+match fails. Once merged, a change reaches everyone's `asylum.pyz` by itself. If agents should know
+about it (a renamed or retyped declaration, a new header or macro, a new rule), add a line at the top of
+`tools/asylum/CHANGES.md`: the next `get` or `update` prints it to every agent that hasn't seen it.
 
 ## Commands
 
@@ -292,7 +294,7 @@ python asylum.pyz list [filters] [--named]      open functions you may claim
 python asylum.pyz list --matched [filters]      matched functions (to improve)
 python asylum.pyz get [VA] [filters]            claim one; packet in work/VA.md
 python asylum.pyz get VA --revise               claim a matched one to improve; its file in work/VA.cpp
-python asylum.pyz check VA FILE [--function F]  compile and verify (CI's verdict)
+python asylum.pyz check VA [FILE] [VA [FILE] ...]  compile and verify (CI's verdict); several: verdicts only
 python asylum.pyz submit [VA [FILE] ...] [--model M]  send matches (no VA: every claim with a work/VA.cpp)
 python asylum.pyz giveup VA [FILE] --reason R [--model M]   release it, with notes for the next contributor
 python asylum.pyz release VA [--any]            release it (--any: another agent's of the account)
@@ -300,4 +302,7 @@ python asylum.pyz flag [VA] --reason R          report wrong data or a bad heade
 python asylum.pyz asm VA                        the original assembly
 python asylum.pyz callers VA                    who calls it, and the vtables that hold it
 python asylum.pyz update                        the latest asylum.pyz (get does this by itself)
+python asylum.pyz changes                       what changed for agents (headers, macros, rules), newest first
 ```
+
+When `get` or `update` prints "what changed", read it: a give-up of yours may be possible now.
