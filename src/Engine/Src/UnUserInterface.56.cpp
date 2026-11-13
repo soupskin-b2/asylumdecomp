@@ -122,7 +122,7 @@ void UUIScreenObject_::delegateNotifyResolutionChanged(const FVector2D& OldViewp
 
 // @baa 0x00dde3f0
 /* Slot 0x19c (unnamed in the kit): whether a mouse cursor should be drawn. */
-INT UGameUISceneClient::vf_19c(INT, INT)
+UBOOL UGameUISceneClient::GetCursorSize(FLOAT& CursorX, FLOAT& CursorY)
 {
 	UBOOL bResult = FALSE;
 	if (bRenderCursor && CurrentMouseCursor != NULL)

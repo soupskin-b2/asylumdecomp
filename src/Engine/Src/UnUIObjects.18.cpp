@@ -259,7 +259,7 @@ UUIScene* UUIScreenObject::GetScene()
 }
 
 // @baa 0x00d990f0
-BYTE UUIScreenObject::GetInputMask(UINT, UINT)
+BYTE UUIScreenObject::GetInputMask(UBOOL bInheritedMaskOnly, UBOOL bOverrideMaskOnly)
 {
     PURE_VIRTUAL(UUIScreenObject::GetInputMask, return 0xff;);
 }
@@ -1103,7 +1103,7 @@ INT UUIScreenObject::HasPositionBeenResolved(BYTE Face)
 }
 
 // @baa 0x00daa360
-BYTE UUIObject::GetInputMask(UINT PlayerIndex, UINT bShift)
+BYTE UUIObject::GetInputMask(UBOOL PlayerIndex, UBOOL bShift)
 {
 	if (bShift)
 		return PlayerInputMask >> 4;

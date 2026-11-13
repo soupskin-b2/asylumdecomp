@@ -1229,13 +1229,12 @@ struct C_view {
 };
 
 // @baa 0x01583340
-undefined4 URSeqEvent_HitByGadget::vf_198(undefined4 param_2, int param_3, undefined4 param_4, undefined4 param_5, undefined4 param_6)
+UBOOL URSeqEvent_HitByGadget::CheckActivate(AActor* param_2, AActor* param_3, UBOOL param_4, TArray<INT>* param_5, UBOOL param_6)
 {
     int param_1 = (int)this;
   int iVar1;
-  undefined4 uVar2;
   if (*(int *)(param_1 + 0xf8) != 0) {
-    iVar1 = *(int *)(param_3 + 0x28);
+    iVar1 = *(int *)((int)param_3 + 0x28);
     while( true ) {
       if (iVar1 == 0) {
         return 0;
@@ -1244,8 +1243,7 @@ undefined4 URSeqEvent_HitByGadget::vf_198(undefined4 param_2, int param_3, undef
       iVar1 = *(int *)(iVar1 + 0x30);
     }
   }
-  uVar2 = ((C_view *)(this))->sub_008abba0(param_2, param_3, param_4, param_5, param_6);
-  return uVar2;
+  return Super::CheckActivate(param_2, param_3, param_4, param_5, param_6);
 }
 
 // @baa 0x01583390

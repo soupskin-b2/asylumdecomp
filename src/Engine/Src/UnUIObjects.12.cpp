@@ -40,7 +40,7 @@ int UUIScreenObject::vf_1e4(int a0) { return 0; }
 int UUIScreenObject::vf_1e8(int a0, int a1) { return 0; }
 
 // @baa 0x00da98a0
-int UUIScreenObject::vf_124(int a0, int a1) { return 0; }
+UBOOL UUIScreenObject::SetEnabled(UBOOL a0, INT a1) { return 0; }
 
 // @baa 0x00da9900
 int UUIScreenObject::vf_160(int a0, int a1, int a2) { return 0; }

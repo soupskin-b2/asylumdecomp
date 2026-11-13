@@ -11,21 +11,15 @@ struct FVector_ : public FVector
     FVector_(FLOAT InX, FLOAT InY, FLOAT InZ) { X = InX; Y = InY; Z = InZ; }
 };
 
-/* slot 0x198 (vf_198) is USequenceEvent::CheckActivate */
-struct USeqEvent_AISeeEnemy_ : public USeqEvent_AISeeEnemy
-{
-    UBOOL CheckActivate(AActor* InOriginator, AActor* InInstigator, UBOOL bTest, TArray<INT>* ActivateIndices, UBOOL bPushTop);
-};
-
 // @baa 0x008e83a0
-UBOOL USeqEvent_AISeeEnemy_::CheckActivate(AActor* InOriginator, AActor* InInstigator, UBOOL bTest, TArray<INT>* ActivateIndices, UBOOL bPushTop)
+UBOOL USeqEvent_AISeeEnemy::CheckActivate(AActor* InOriginator, AActor* InInstigator, UBOOL bTest, TArray<INT>* ActivateIndices, UBOOL bPushTop)
 {
     // only activate if the enemy is within sight distance (when one is set)
     if (InOriginator != NULL && InInstigator != NULL &&
         (MaxSightDistance <= 0.f ||
          (((const FVector_&)InOriginator->Location) - InInstigator->Location).Size() <= MaxSightDistance))
     {
-        return sub_008abba0(InOriginator, InInstigator, bTest, ActivateIndices, bPushTop); // Super::CheckActivate
+        return Super::CheckActivate(InOriginator, InInstigator, bTest, ActivateIndices, bPushTop);
     }
     return FALSE;
 }

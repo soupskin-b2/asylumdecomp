@@ -160,7 +160,7 @@ struct C_00dc2cd0 { C_00dc2cd0* sub_00dc2cd0(void); };
 C_00dc2cd0* C_00dc2cd0::sub_00dc2cd0(void) { return this; }
 
 // @baa 0x00dc2d30
-BYTE UUIScene::GetInputMask(UINT a, UINT b)
+BYTE UUIScene::GetInputMask(UBOOL a, UBOOL b)
 {
     return PlayerInputMask;
 }

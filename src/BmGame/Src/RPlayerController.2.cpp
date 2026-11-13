@@ -333,13 +333,13 @@ void ARPlayerController::RecordMetrics(const FString& a0, const FString& a1, con
 UBOOL ARPlayerController::IsEidosMetricsEnabled() { return 0; }
 
 // @baa 0x01614b00
-void ARPlayerController::RecordEidosMetricsFrontend(INT a0, INT a1, INT a2) {  }
+void ARPlayerController::RecordEidosMetricsFrontend(const FString& a0, const FString& a1, const FString& a2) {  }
 
 // @baa 0x01614b10
-void ARPlayerController::RecordEidosMetrics(INT a0, INT a1, INT a2) {  }
+void ARPlayerController::RecordEidosMetrics(const FString& a0, const FString& a1, const FString& a2) {  }
 
 // @baa 0x01614b20
-void ARPlayerController::RecordEidosMetricsLocation(INT a0, INT a1, INT a2) {  }
+void ARPlayerController::RecordEidosMetricsLocation(const FString& a0, const FString& a1, const FString& a2) {  }
 
 void * sub_01a37612(void *, int, size_t);
 extern undefined4 g_026e1800;

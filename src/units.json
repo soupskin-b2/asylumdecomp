@@ -19466,17 +19466,17 @@
     {
      "va": "01614b00",
      "size": 3,
-     "symbol": "?RecordEidosMetricsFrontend@ARPlayerController@@UAEXHHH@Z"
+     "symbol": "?RecordEidosMetricsFrontend@ARPlayerController@@UAEXABVFString@@00@Z"
     },
     {
      "va": "01614b10",
      "size": 3,
-     "symbol": "?RecordEidosMetrics@ARPlayerController@@UAEXHHH@Z"
+     "symbol": "?RecordEidosMetrics@ARPlayerController@@UAEXABVFString@@00@Z"
     },
     {
      "va": "01614b20",
      "size": 3,
-     "symbol": "?RecordEidosMetricsLocation@ARPlayerController@@UAEXHHH@Z"
+     "symbol": "?RecordEidosMetricsLocation@ARPlayerController@@UAEXABVFString@@00@Z"
     },
     {
      "va": "01614b30",
@@ -32376,7 +32376,7 @@
     {
      "va": "01583340",
      "size": 69,
-     "symbol": "?vf_198@URSeqEvent_HitByGadget@@UAEIIHIII@Z"
+     "symbol": "?CheckActivate@URSeqEvent_HitByGadget@@UAEHPAUAActor@@0HPAV?$TArray@H@@H@Z"
     },
     {
      "va": "01583390",
@@ -229705,7 +229705,7 @@
     {
      "va": "008e83a0",
      "size": 115,
-     "symbol": "?CheckActivate@USeqEvent_AISeeEnemy_@@QAEHPAUAActor@@0HPAV?$TArray@H@@H@Z"
+     "symbol": "?CheckActivate@USeqEvent_AISeeEnemy@@UAEHPAUAActor@@0HPAV?$TArray@H@@H@Z"
     },
     {
      "va": "008e57e0",
@@ -250510,7 +250510,7 @@
     {
      "va": "00da98a0",
      "size": 5,
-     "symbol": "?vf_124@UUIScreenObject@@UAEHHH@Z"
+     "symbol": "?SetEnabled@UUIScreenObject@@UAEHHH@Z"
     },
     {
      "va": "00da9900",
@@ -250791,7 +250791,7 @@
     {
      "va": "00dc2d30",
      "size": 9,
-     "symbol": "?GetInputMask@UUIScene@@UAEEII@Z"
+     "symbol": "?GetInputMask@UUIScene@@UAEEHH@Z"
     },
     {
      "va": "00daa410",
@@ -251022,7 +251022,7 @@
     {
      "va": "00d990f0",
      "size": 29,
-     "symbol": "?GetInputMask@UUIScreenObject@@UAEEII@Z"
+     "symbol": "?GetInputMask@UUIScreenObject@@UAEEHH@Z"
     },
     {
      "va": "00ca6510",
@@ -251332,7 +251332,7 @@
     {
      "va": "00daa360",
      "size": 59,
-     "symbol": "?GetInputMask@UUIObject@@UAEEII@Z"
+     "symbol": "?GetInputMask@UUIObject@@UAEEHH@Z"
     },
     {
      "va": "00ca4ec0",
@@ -261897,7 +261897,7 @@
     {
      "va": "00dde3f0",
      "size": 27,
-     "symbol": "?vf_19c@UGameUISceneClient@@UAEHHH@Z"
+     "symbol": "?GetCursorSize@UGameUISceneClient@@UAEHAAM0@Z"
     },
     {
      "va": "00de6f80",

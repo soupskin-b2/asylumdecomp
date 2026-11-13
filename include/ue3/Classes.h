@@ -16072,8 +16072,8 @@ struct APlayerController : public AController {
     virtual UBOOL IsShowingSubtitles(); /* 0x448 */
     virtual FVector GetFVectorFromString(const FString& InStr); /* 0x44c */
     virtual FRotator GetFRotatorFromString(const FString& InStr); /* 0x450 */
-    virtual INT LogOutBugItGoToLogFile(INT, INT, INT); /* 0x454 */
-    virtual INT LogOutBugItAIGoToLogFile(INT, INT, INT); /* 0x458 */
+    virtual void LogOutBugItGoToLogFile(const FString& InScreenShotDesc, const FString& InGoString, const FString& InLocString); /* 0x454 */
+    virtual void LogOutBugItAIGoToLogFile(const FString& InScreenShotDesc, const FString& InGoString, const FString& InLocString); /* 0x458 */
     virtual void SmoothTargetViewRotation(class APawn* TargetPawn, FLOAT DeltaSeconds); /* 0x45c */
     virtual void vf_460(INT); /* 0x460 */
     virtual INT vf_464(INT, INT, INT, INT); /* 0x464 */
@@ -19268,7 +19268,7 @@ struct UUIScreenObject : public UUIRoot {
     virtual void Initialize(class UUIScene* inOwnerScene, class UUIObject* inOwner); /* 0x118 */
     virtual INT InsertChild(class UUIObject* NewChild, INT InsertIndex = 0, UBOOL bRenameExisting = FALSE); /* 0x11c */
     virtual UBOOL RebuildNavigationLinks(); /* 0x120 */
-    virtual INT vf_124(INT, INT); /* 0x124 */
+    virtual UBOOL SetEnabled(UBOOL bEnabled, INT PlayerIndex = 0); /* 0x124 */
     virtual UBOOL IsHoldingCtrl(INT ControllerId); /* 0x128 */
     virtual UBOOL IsHoldingAlt(INT ControllerId); /* 0x12c */
     virtual UBOOL IsHoldingShift(INT ControllerId); /* 0x130 */
@@ -19295,7 +19295,7 @@ struct UUIScreenObject : public UUIRoot {
     virtual INT vf_184(INT); /* 0x184 */
     virtual void vf_188(); /* 0x188 */
     virtual INT vf_18c(); /* 0x18c */
-    virtual BYTE GetInputMask(UINT, UINT); /* 0x190 */
+    virtual BYTE GetInputMask(UBOOL bInheritedMaskOnly = FALSE, UBOOL bOverrideMaskOnly = FALSE); /* 0x190 */
     virtual void SetInputMask(BYTE NewInputMask, UBOOL bRecurse = FALSE, UBOOL bForcedOverride = FALSE); /* 0x194 */
     virtual INT vf_198(); /* 0x198 */
     virtual UINT GetNumResolvedFaces(); /* 0x19c */
@@ -19552,7 +19552,7 @@ struct UUIObject : public UUIScreenObject {
     virtual void vf_180(); /* 0x180 */
     virtual INT vf_184(INT); /* 0x184 */
     virtual void vf_188(); /* 0x188 */
-    virtual BYTE GetInputMask(UINT, UINT); /* 0x190 */
+    virtual BYTE GetInputMask(UBOOL bInheritedMaskOnly = FALSE, UBOOL bOverrideMaskOnly = FALSE); /* 0x190 */
     virtual void SetInputMask(BYTE NewInputMask, UBOOL bRecurse = FALSE, UBOOL bForcedOverride = FALSE); /* 0x194 */
     virtual UINT GetNumResolvedFaces(); /* 0x19c */
     virtual INT HasPositionBeenResolved(BYTE Face); /* 0x1a0 */
@@ -20552,7 +20552,7 @@ struct UUIDataProvider : public UUIRoot {
     TArrayNoInit<FScriptDelegate> ProviderChangedNotifies; /* 0x34 */
     FScriptDelegate __OnDataProviderPropertyChange__Delegate; /* 0x40 */
     /* virtual functions this class introduces (vtable 0x020bfbe8) */
-    virtual void ParseArrayDelimiter(INT); /* 0x10c */
+    virtual INT ParseArrayDelimiter(FString& DataTag); /* 0x10c */
     virtual void vf_110(INT, INT); /* 0x110 */
     virtual INT vf_114(INT, INT); /* 0x114 */
     virtual INT vf_118(INT, INT, INT); /* 0x118 */
@@ -22089,7 +22089,7 @@ struct UParticleSystemComponent : public UPrimitiveComponent {
     virtual void SetKillOnCompleted(INT EmitterIndex, UBOOL bKill); /* 0x254 */
     virtual void RewindEmitterInstance(INT EmitterIndex); /* 0x258 */
     virtual void RewindEmitterInstances(); /* 0x25c */
-    virtual void SetBeamType(INT, INT); /* 0x260 */
+    virtual void SetBeamType(INT EmitterIndex, INT NewMethod); /* 0x260 */
     virtual void SetBeamTessellationFactor(INT EmitterIndex, FLOAT NewFactor); /* 0x264 */
     virtual void SetBeamEndPoint(INT EmitterIndex, FVector NewEndPoint); /* 0x268 */
     virtual void SetBeamDistance(INT EmitterIndex, FLOAT Distance); /* 0x26c */
@@ -23837,7 +23837,7 @@ struct AGameInfo : public AInfo {
     FScriptDelegate __CanUnpause__Delegate; /* 0x38c */
     /* virtual functions this class introduces (vtable 0x01f06e90) */
     virtual FString GetNetworkNumber(); /* 0x354 */
-    virtual void BeginSentinelRun(INT, INT, INT); /* 0x358 */
+    virtual void BeginSentinelRun(const FString& TaskDescription, const FString& TaskParameter, const FString& TagDesc); /* 0x358 */
     virtual void AddSentinelPerTimePeriodStats(FVector InLocation, FRotator InRotation); /* 0x35c */
     virtual void EndSentinelRun(BYTE RunResult); /* 0x360 */
     virtual void vf_364(); /* 0x364 */
@@ -24057,7 +24057,7 @@ struct UGameUISceneClient : public UUISceneClient {
     virtual void vf_190(INT); /* 0x190 */
     virtual void vf_194(INT); /* 0x194 */
     virtual INT vf_198(); /* 0x198 */
-    virtual INT vf_19c(INT, INT); /* 0x19c */
+    virtual UBOOL GetCursorSize(FLOAT& CursorX, FLOAT& CursorY); /* 0x19c */
     virtual INT vf_1a0(INT); /* 0x1a0 */
     virtual INT vf_1a4(INT); /* 0x1a4 */
     virtual void vf_1a8(INT); /* 0x1a8 */
@@ -35416,7 +35416,7 @@ struct USequenceEvent : public USequenceOp {
     INT MaxWidth; /* 0xe8 */
     TArrayNoInit<FQueuedActivationInfo> QueuedActivations; /* 0xec */
     /* virtual functions this class introduces (vtable 0x01f6c1b8) */
-    virtual UINT vf_198(UINT, INT, UINT, UINT, UINT); /* 0x198 */
+    virtual UBOOL CheckActivate(class AActor* InOriginator, class AActor* InInstigator, UBOOL bTest = FALSE, TArray<INT>* ActivateIndices = NULL, UBOOL bPushTop = FALSE); /* 0x198 */
     virtual INT vf_19c(INT, INT, INT); /* 0x19c */
     virtual UBOOL RegisterEvent(); /* 0x1a0 */
     virtual INT vf_1a4(INT, INT, INT, INT, INT); /* 0x1a4 */
@@ -35445,7 +35445,7 @@ struct USeqEvent_AISeeEnemy : public USequenceEvent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual UINT vf_198(UINT, INT, UINT, UINT, UINT); /* 0x198 */
+    virtual UBOOL CheckActivate(class AActor* InOriginator, class AActor* InInstigator, UBOOL bTest = FALSE, TArray<INT>* ActivateIndices = NULL, UBOOL bPushTop = FALSE); /* 0x198 */
     /* registered size 0xfc */
 };
 
@@ -35490,7 +35490,7 @@ struct USeqEvent_GetInventory : public USequenceEvent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual UINT vf_198(UINT, INT, UINT, UINT, UINT); /* 0x198 */
+    virtual UBOOL CheckActivate(class AActor* InOriginator, class AActor* InInstigator, UBOOL bTest = FALSE, TArray<INT>* ActivateIndices = NULL, UBOOL bPushTop = FALSE); /* 0x198 */
     /* registered size 0xf8 */
 };
 
@@ -35560,7 +35560,7 @@ struct USeqEvent_ParticleEvent : public USequenceEvent {
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_120(); /* 0x120 */
     virtual void vf_188(); /* 0x188 */
-    virtual UINT vf_198(UINT, INT, UINT, UINT, UINT); /* 0x198 */
+    virtual UBOOL CheckActivate(class AActor* InOriginator, class AActor* InInstigator, UBOOL bTest = FALSE, TArray<INT>* ActivateIndices = NULL, UBOOL bPushTop = FALSE); /* 0x198 */
     /* registered size 0x12c */
 };
 
@@ -35580,7 +35580,7 @@ struct USeqEvent_ProjectileLanded : public USequenceEvent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual UINT vf_198(UINT, INT, UINT, UINT, UINT); /* 0x198 */
+    virtual UBOOL CheckActivate(class AActor* InOriginator, class AActor* InInstigator, UBOOL bTest = FALSE, TArray<INT>* ActivateIndices = NULL, UBOOL bPushTop = FALSE); /* 0x198 */
     /* registered size 0xfc */
 };
 
@@ -35615,7 +35615,7 @@ struct USeqEvent_SeeDeath : public USequenceEvent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual UINT vf_198(UINT, INT, UINT, UINT, UINT); /* 0x198 */
+    virtual UBOOL CheckActivate(class AActor* InOriginator, class AActor* InInstigator, UBOOL bTest = FALSE, TArray<INT>* ActivateIndices = NULL, UBOOL bPushTop = FALSE); /* 0x198 */
     /* registered size 0xf8 */
 };
 
@@ -35663,7 +35663,7 @@ struct USeqEvent_Touch : public USequenceEvent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual UINT vf_198(UINT, INT, UINT, UINT, UINT); /* 0x198 */
+    virtual UBOOL CheckActivate(class AActor* InOriginator, class AActor* InInstigator, UBOOL bTest = FALSE, TArray<INT>* ActivateIndices = NULL, UBOOL bPushTop = FALSE); /* 0x198 */
     /* UnrealScript natives */
     void execCheckTouchActivate(FFrame& Stack, RESULT_DECL); /* 0x008abce0 */
     void execCheckUnTouchActivate(FFrame& Stack, RESULT_DECL); /* 0x008abdc0 */
@@ -35682,7 +35682,7 @@ struct USeqEvent_Used : public USequenceEvent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual UINT vf_198(UINT, INT, UINT, UINT, UINT); /* 0x198 */
+    virtual UBOOL CheckActivate(class AActor* InOriginator, class AActor* InInstigator, UBOOL bTest = FALSE, TArray<INT>* ActivateIndices = NULL, UBOOL bPushTop = FALSE); /* 0x198 */
     /* registered size 0x128 */
 };
 
@@ -38665,7 +38665,7 @@ struct UUIScene : public UUIScreenObject {
     virtual void RequestPrimitiveReview(UBOOL bReinitializePrimitives, UBOOL bReviewPrimitiveUsage); /* 0x170 */
     virtual void vf_17c(INT, INT, INT); /* 0x17c */
     virtual INT vf_184(INT); /* 0x184 */
-    virtual BYTE GetInputMask(UINT, UINT); /* 0x190 */
+    virtual BYTE GetInputMask(UBOOL bInheritedMaskOnly = FALSE, UBOOL bOverrideMaskOnly = FALSE); /* 0x190 */
     virtual void SetInputMask(BYTE NewInputMask, UBOOL bRecurse = FALSE, UBOOL bForcedOverride = FALSE); /* 0x194 */
     virtual UINT GetNumResolvedFaces(); /* 0x19c */
     virtual INT HasPositionBeenResolved(BYTE Face); /* 0x1a0 */
@@ -39858,25 +39858,25 @@ struct UGFxMovie : public UObject {
     virtual FName GetStickMagAng(INT Stick); /* 0x114 */
     virtual void Pause(UBOOL pauseplay = FALSE); /* 0x118 */
     virtual void SetTimingMode(BYTE Mode); /* 0x11c */
-    virtual INT Invoke(INT, INT, INT); /* 0x120 */
+    virtual FASValue Invoke(const FString& method, const TArray<FASValue>& args); /* 0x120 */
     virtual void RefreshDataStoreBindings(); /* 0x124 */
     virtual void PublishDataStoreValues(); /* 0x128 */
     virtual FASValue GetVariable(const FString& Path); /* 0x12c */
     virtual UBOOL GetVariableBool(const FString& Path); /* 0x130 */
     virtual FLOAT GetVariableNumber(const FString& Path); /* 0x134 */
     virtual FString GetVariableString(const FString& Path); /* 0x138 */
-    virtual void vf_13c(INT, INT, INT, INT, INT, INT, INT); /* 0x13c */
+    virtual void SetVariable(const FString& Path, FASValue Arg); /* 0x13c */
     virtual void SetVariableBool(const FString& Path, UBOOL B); /* 0x140 */
     virtual void SetVariableNumber(const FString& Path, FLOAT F); /* 0x144 */
     virtual void SetVariableString(const FString& Path, const FString& S); /* 0x148 */
-    virtual INT GetVariableArray(INT, INT, INT); /* 0x14c */
+    virtual UBOOL GetVariableArray(const FString& Path, INT Index, TArray<FASValue>& Arg); /* 0x14c */
     virtual UBOOL GetVariableIntArray(const FString& Path, INT Index, TArray<INT>& Arg); /* 0x150 */
-    virtual INT GetVariableFloatArray(INT, INT, INT); /* 0x154 */
-    virtual INT GetVariableStringArray(INT, INT, INT); /* 0x158 */
-    virtual INT SetVariableArray(INT, INT, INT); /* 0x15c */
-    virtual void SetVariableIntArray(INT, INT, INT); /* 0x160 */
-    virtual void SetVariableFloatArray(INT, INT, INT); /* 0x164 */
-    virtual INT SetVariableStringArray(INT, INT, INT); /* 0x168 */
+    virtual UBOOL GetVariableFloatArray(const FString& Path, INT Index, TArray<FLOAT>& Arg); /* 0x154 */
+    virtual UBOOL GetVariableStringArray(const FString& Path, INT Index, TArray<FString>& Arg); /* 0x158 */
+    virtual UBOOL SetVariableArray(const FString& Path, INT Index, const TArray<FASValue>& Arg); /* 0x15c */
+    virtual UBOOL SetVariableIntArray(const FString& Path, INT Index, const TArray<INT>& Arg); /* 0x160 */
+    virtual UBOOL SetVariableFloatArray(const FString& Path, INT Index, const TArray<FLOAT>& Arg); /* 0x164 */
+    virtual UBOOL SetVariableStringArray(const FString& Path, INT Index, const TArray<FString>& Arg); /* 0x168 */
     virtual void vf_16c(); /* 0x16c */
     virtual INT vf_170(INT, INT); /* 0x170 */
     /* overrides */
@@ -40037,7 +40037,7 @@ struct UOnlineGameInterfaceImpl : public UObject {
     virtual INT FindOnlineGames(BYTE SearchingPlayerNum, class UOnlineGameSearch* SearchSettings); /* 0x114 */
     virtual UBOOL CancelFindOnlineGames(); /* 0x118 */
     virtual UBOOL FreeSearchResults(class UOnlineGameSearch* Search); /* 0x11c */
-    virtual INT JoinOnlineGame(INT, INT, INT, INT); /* 0x120 */
+    virtual UBOOL JoinOnlineGame(BYTE PlayerNum, FName SessionName, FOnlineGameSearchResult& DesiredGame); /* 0x120 */
     virtual UBOOL GetResolvedConnectString(FName SessionName, FString& ConnectInfo); /* 0x124 */
     virtual UBOOL StartOnlineGame(FName SessionName); /* 0x128 */
     virtual UBOOL EndOnlineGame(FName SessionName); /* 0x12c */
@@ -40779,7 +40779,7 @@ struct ARHUDBase : public AHUD {
     virtual void ClearWarningsAndErrors(); /* 0x354 */
     virtual void DisplayWarningsAndErrors(UBOOL ShowDuplicates, UBOOL Outline, INT Max); /* 0x358 */
     virtual void DebugAssetSupport(INT Mode); /* 0x35c */
-    virtual INT GetPromptYPosition(INT, INT); /* 0x360 */
+    virtual INT GetPromptYPosition(INT scr_width, INT scr_height); /* 0x360 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -40888,7 +40888,7 @@ struct ARPathNode : public APathNode {
     TArrayNoInit<class APhysicsVolume*> AllPhysVolumes; /* 0x29c */
     /* virtual functions this class introduces (vtable 0x022e77e0) */
     virtual UBOOL IsSafe(class APawn* TestPawn); /* 0x3b0 */
-    virtual void UpdateLastSeenTime(INT); /* 0x3b4 */
+    virtual void UpdateLastSeenTime(INT Index); /* 0x3b4 */
     virtual FLOAT GetTimeSinceLastSighting(INT Index); /* 0x3b8 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
@@ -41327,9 +41327,9 @@ struct UOnlineGameInterfaceSteamworks : public UOnlineGameInterfaceImpl {
     FScriptDelegate __OnUnregisterPlayerComplete__Delegate; /* 0x1c4 */
     /* virtual functions this class introduces (vtable 0x0211bfe0) */
     virtual UBOOL UpdateOnlineGame(FName SessionName, class UOnlineGameSettings* UpdatedGameSettings, UBOOL bShouldRefreshOnlineData = FALSE); /* 0x178 */
-    virtual INT AcceptGameInvite(INT, INT, INT); /* 0x17c */
-    virtual INT RegisterPlayer(INT, INT, INT, INT, INT); /* 0x180 */
-    virtual INT UnregisterPlayer(INT, INT, INT, INT); /* 0x184 */
+    virtual UBOOL AcceptGameInvite(BYTE LocalUserNum, FName SessionName); /* 0x17c */
+    virtual UBOOL RegisterPlayer(FName SessionName, FUniqueNetId PlayerID, UBOOL bWasInvited); /* 0x180 */
+    virtual UBOOL UnregisterPlayer(FName SessionName, FUniqueNetId PlayerID); /* 0x184 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -41338,7 +41338,7 @@ struct UOnlineGameInterfaceSteamworks : public UOnlineGameInterfaceImpl {
     virtual UBOOL DestroyOnlineGame(FName SessionName); /* 0x110 */
     virtual INT FindOnlineGames(BYTE SearchingPlayerNum, class UOnlineGameSearch* SearchSettings); /* 0x114 */
     virtual UBOOL CancelFindOnlineGames(); /* 0x118 */
-    virtual INT JoinOnlineGame(INT, INT, INT, INT); /* 0x120 */
+    virtual UBOOL JoinOnlineGame(BYTE PlayerNum, FName SessionName, FOnlineGameSearchResult& DesiredGame); /* 0x120 */
     virtual UBOOL StartOnlineGame(FName SessionName); /* 0x128 */
     virtual UBOOL EndOnlineGame(FName SessionName); /* 0x12c */
     virtual INT vf_138(FLOAT); /* 0x138 */
@@ -47976,7 +47976,7 @@ struct URBMSeqEvent_BehaviourRoot : public USequenceEvent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual UINT vf_198(UINT, INT, UINT, UINT, UINT); /* 0x198 */
+    virtual UBOOL CheckActivate(class AActor* InOriginator, class AActor* InInstigator, UBOOL bTest = FALSE, TArray<INT>* ActivateIndices = NULL, UBOOL bPushTop = FALSE); /* 0x198 */
     /* registered size 0xf8 */
 };
 
@@ -56112,9 +56112,9 @@ struct ARPlayerController : public ARPlayerControllerBase {
     virtual FString ChopOffFront(const FString& Data, const FString& ChopOff, UBOOL QuoteIt = FALSE); /* 0x4ec */
     virtual void RecordMetrics(const FString&, const FString&, const FString&); /* 0x4f0 */
     virtual UBOOL IsEidosMetricsEnabled(); /* 0x4f4 */
-    virtual void RecordEidosMetricsFrontend(INT, INT, INT); /* 0x4f8 */
-    virtual void RecordEidosMetrics(INT, INT, INT); /* 0x4fc */
-    virtual void RecordEidosMetricsLocation(INT, INT, INT); /* 0x500 */
+    virtual void RecordEidosMetricsFrontend(const FString& MetricName, const FString& ParamNames, const FString& Params); /* 0x4f8 */
+    virtual void RecordEidosMetrics(const FString& MetricName, const FString& ParamNames, const FString& Params); /* 0x4fc */
+    virtual void RecordEidosMetricsLocation(const FString& MetricName, const FString& ParamNames, const FString& Params); /* 0x500 */
     virtual void ResetEidosMetricsAchievements(); /* 0x504 */
     virtual void RecordEidosMetricsLocationAchievement(const FString& MetricName, INT AchievementId, const FString& ParamNames, const FString& Params); /* 0x508 */
     virtual FLOAT AmbientGetStartTime(); /* 0x50c */
@@ -59649,7 +59649,7 @@ struct URSeqEvent_EvidenceFlagSet : public USequenceEvent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual UINT vf_198(UINT, INT, UINT, UINT, UINT); /* 0x198 */
+    virtual UBOOL CheckActivate(class AActor* InOriginator, class AActor* InInstigator, UBOOL bTest = FALSE, TArray<INT>* ActivateIndices = NULL, UBOOL bPushTop = FALSE); /* 0x198 */
     /* registered size 0xf8 */
 };
 
@@ -59659,7 +59659,7 @@ struct URSeqEvent_EvidenceFound : public USequenceEvent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual UINT vf_198(UINT, INT, UINT, UINT, UINT); /* 0x198 */
+    virtual UBOOL CheckActivate(class AActor* InOriginator, class AActor* InInstigator, UBOOL bTest = FALSE, TArray<INT>* ActivateIndices = NULL, UBOOL bPushTop = FALSE); /* 0x198 */
     /* registered size 0xf8 */
 };
 
@@ -59707,7 +59707,7 @@ struct URSeqEvent_HitByGadget : public USequenceEvent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual UINT vf_198(UINT, INT, UINT, UINT, UINT); /* 0x198 */
+    virtual UBOOL CheckActivate(class AActor* InOriginator, class AActor* InInstigator, UBOOL bTest = FALSE, TArray<INT>* ActivateIndices = NULL, UBOOL bPushTop = FALSE); /* 0x198 */
     /* registered size 0xfc */
 };
 
@@ -59717,7 +59717,7 @@ struct URSeqEvent_ItemInvestigated : public USequenceEvent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual UINT vf_198(UINT, INT, UINT, UINT, UINT); /* 0x198 */
+    virtual UBOOL CheckActivate(class AActor* InOriginator, class AActor* InInstigator, UBOOL bTest = FALSE, TArray<INT>* ActivateIndices = NULL, UBOOL bPushTop = FALSE); /* 0x198 */
     /* registered size 0xf8 */
 };
 
@@ -59779,7 +59779,7 @@ struct URSeqEvent_RopeCut : public USequenceEvent {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual UINT vf_198(UINT, INT, UINT, UINT, UINT); /* 0x198 */
+    virtual UBOOL CheckActivate(class AActor* InOriginator, class AActor* InInstigator, UBOOL bTest = FALSE, TArray<INT>* ActivateIndices = NULL, UBOOL bPushTop = FALSE); /* 0x198 */
     /* registered size 0xf8 */
 };
 
