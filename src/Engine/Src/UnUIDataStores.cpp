@@ -4170,17 +4170,9 @@ C_00d9b870& C_00d9b870::sub_00d9b870(int Arg)
     return *this;
 }
 
-struct C_00d9baa0 {
-    int sub_00d9baa0();
-};
-
 // @baa 0x00d9baa0
-int C_00d9baa0::sub_00d9baa0(void)
-{
-    int param_1 = (int)this;
-
-  return param_1 + -0x50;
-}
+/* DECLARE_CLASS's interface accessor; compiled for the IUIListElementCellProvider subobject */
+UObject* UUIDataProvider_OnlineFriends::GetUObjectInterfaceUIListElementCellProvider() { return this; }
 
 struct A_00d9bac0 { virtual void sub_00d9bcb0(); char pad[76]; };
 

@@ -19,7 +19,7 @@ bool UMCPBase::vf_004()
 }
 
 // @baa 0x00e34720
-int sub_00e34720(void) { return 1; }
+UBOOL UMCPBase::IsTickableWhenPaused() const { return TRUE; }
 
 int sub_005c7a70(...);
 int sub_00e34670(void);

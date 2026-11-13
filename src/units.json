@@ -8766,7 +8766,7 @@
     {
      "va": "015b9070",
      "size": 6,
-     "symbol": "?sub_015b9070@@YAHXZ"
+     "symbol": "?IsTickableWhenPaused@URAnimNode_Pose@@UBEHXZ"
     },
     {
      "va": "015b9080",
@@ -192359,7 +192359,7 @@
     {
      "va": "00d88650",
      "size": 6,
-     "symbol": "?sub_00d88650@@YAHXZ"
+     "symbol": "?IsTickableWhenPaused@UOnlineSubsystem@@UBEHXZ"
     },
     {
      "va": "00d88680",
@@ -246375,7 +246375,7 @@
     {
      "va": "00d9bab0",
      "size": 15,
-     "symbol": "?sub_00d9bab0@@YGHHHHPAE@Z"
+     "symbol": "?GetCellFieldType@UUIDataProvider_OnlineFriends@@UAEHUFName@@ABU2@AAE@Z"
     },
     {
      "va": "00d90fd0",
@@ -249640,7 +249640,7 @@
     {
      "va": "00d9baa0",
      "size": 4,
-     "symbol": "?sub_00d9baa0@C_00d9baa0@@QAEHXZ"
+     "symbol": "?GetUObjectInterfaceUIListElementCellProvider@UUIDataProvider_OnlineFriends@@UAEPAUUObject@@XZ"
     },
     {
      "va": "00d9bac0",
@@ -250535,7 +250535,7 @@
     {
      "va": "00db4230",
      "size": 112,
-     "symbol": "?RegisterTickableObject@UUIScene__00db4230@@QAEHABUFScriptInterface@@H@Z"
+     "symbol": "?RegisterTickableObject@UUIScene@@QAEHABU?$TScriptInterface@UIUITickableObject@@@@H@Z"
     },
     {
      "va": "00da8010",
@@ -251312,7 +251312,7 @@
     {
      "va": "00cb3e90",
      "size": 163,
-     "symbol": "?execRegisterTickableObject@UUIScene__00cb3e90@@QAEXAAUFFrame@@QAX@Z"
+     "symbol": "?execRegisterTickableObject@UUIScene@@QAEXAAUFFrame@@QAX@Z"
     },
     {
      "va": "00cb3d20",
@@ -251872,7 +251872,7 @@
     {
      "va": "00db0a90",
      "size": 36,
-     "symbol": "?sub_00db0a90@UUIScene@@QAEHAAUFName@@@Z"
+     "symbol": "?FindTickableObjectIndex@UUIScene@@QBEHABU?$TScriptInterface@UIUITickableObject@@@@@Z"
     },
     {
      "va": "00dafa80",
@@ -251882,7 +251882,7 @@
     {
      "va": "00db42a0",
      "size": 80,
-     "symbol": "?sub_00db42a0@UUIScene@@QAEHAAUFName@@@Z"
+     "symbol": "?UnregisterTickableObject@UUIScene@@QAEHABU?$TScriptInterface@UIUITickableObject@@@@@Z"
     },
     {
      "va": "00da9930",
@@ -260547,7 +260547,7 @@
     {
      "va": "00ddfac0",
      "size": 4,
-     "symbol": "?sub_00ddfac0@UUITickableObjectProxy@@QAEHXZ"
+     "symbol": "?GetUObjectInterfaceUITickableObject@UUITickableObjectProxy@@UAEPAUUObject@@XZ"
     },
     {
      "va": "00ddfad0",
@@ -447223,7 +447223,7 @@
     {
      "va": "00e425f0",
      "size": 4,
-     "symbol": "?sub_00e425f0@UGFxDataStoreSubscriber@@QAEHXZ"
+     "symbol": "?GetUObjectInterfaceUIDataStoreSubscriber@UGFxDataStoreSubscriber@@UAEPAUUObject@@XZ"
     },
     {
      "va": "00e42600",
@@ -454966,7 +454966,7 @@
     {
      "va": "00e34720",
      "size": 6,
-     "symbol": "?sub_00e34720@@YAHXZ"
+     "symbol": "?IsTickableWhenPaused@UMCPBase@@UBEHXZ"
     },
     {
      "va": "00e34760",
@@ -455104,7 +455104,7 @@
     {
      "va": "00e348c0",
      "size": 6,
-     "symbol": "?sub_00e348c0@@YAHXZ"
+     "symbol": "?IsTickableWhenPaused@UPartyBeacon@@UBEHXZ"
     },
     {
      "va": "00e348e0",

@@ -154,6 +154,15 @@ struct FScriptInterface {
     UBOOL operator==(const FScriptInterface& Other) const { return GetInterface() == Other.GetInterface() && Object == Other.Object; }
     UBOOL operator!=(const FScriptInterface& Other) const { return GetInterface() != Other.GetInterface() || Object != Other.Object; }
 };
+/* an interface reference typed by its interface class */
+template<class InterfaceType> struct TScriptInterface : public FScriptInterface {
+    TScriptInterface() {}
+    InterfaceType* GetInterface() const { return (InterfaceType*)FScriptInterface::GetInterface(); }
+    InterfaceType* operator->() const { return GetInterface(); }
+    InterfaceType& operator*() const { return *GetInterface(); }
+    class UObject* GetObject() const { return Object; }
+    operator UBOOL() const { return GetInterface() != NULL; }
+};
 #define BAA_C_ASSERT(e, n) typedef char baa_assert_##n[(e) ? 1 : -1]
 
 /* constructors that zero a member with appMemzero use the memset intrinsic (as <string.h> declares it) */
@@ -3183,7 +3192,24 @@ struct FShadowMapVertexBufferBase {
 };
 /* UnTickable.h. Its vtable (0x01eceb54): the destructor (out of line: leaves the tickable list), then Tick and
  * IsTickable (pure), then three that return FALSE (0x006be4a0, 0x006be4b0, 0x006be4c0). */
-struct FTickableObject { virtual ~FTickableObject(); /* 0x006be4d0 */ };
+extern UBOOL GIsAffectingClassDefaultObject;
+/* UnTickable.h: objects ticked once a frame, by the game thread or (registered as such) the rendering thread */
+struct FTickableObject {
+    static TArrayNoInit<FTickableObject*> TickableObjects;
+    static TArrayNoInit<FTickableObject*> RenderingThreadTickableObjects;
+    FTickableObject(UBOOL bIsRenderingThreadObject = FALSE, UBOOL bRegisterImmediately = TRUE)
+    {
+        if (!GIsAffectingClassDefaultObject && bRegisterImmediately)
+            Register(bIsRenderingThreadObject);
+    }
+    void Register(UBOOL bIsRenderingThreadObject = FALSE); /* 0x006b7c00 */
+    virtual ~FTickableObject(); /* 0x006be4d0 */
+    virtual void Tick(FLOAT DeltaTime) = 0;
+    virtual UBOOL IsTickable() const = 0;
+    virtual UBOOL IsTickableWhenPaused() const { return FALSE; }
+    virtual UBOOL IsTickableInEditor() const { return FALSE; }
+    virtual UBOOL NeedsRenderingResumedForRenderingThreadTick() const { return FALSE; }
+};
 struct FViewportClient { virtual void FViewportClient_vf000(); };  /* an interface base: its virtuals aren't known */
 struct IREvidenceInterface {
     virtual ~IREvidenceInterface() {}
@@ -3197,12 +3223,34 @@ struct IRSpotableInterface {
     virtual UBOOL eventCheckVisibility() = 0;
     virtual class ARAlertEventCoordinator* eventGetEventCoordinator() = 0;
 };
-struct IUIDataStorePublisher { virtual ~IUIDataStorePublisher() {}
-    virtual void Publisher_vf_004(); virtual void Publisher_vf_008(); virtual void Publisher_vf_00c();
-    virtual void Publisher_vf_010(); virtual void Publisher_vf_014(); virtual void Publisher_vf_018(); virtual void Publisher_vf_01c(); };
-struct IUIDataStoreSubscriber : IUIDataStorePublisher { virtual ~IUIDataStoreSubscriber() {} };
-struct IUIListElementCellProvider { virtual void IUIListElementCellProvider_vf000(); virtual ~IUIListElementCellProvider() {} };  /* an interface base: its virtuals aren't known */
-struct IUITickableObject { virtual void IUITickableObject_vf000(); virtual ~IUITickableObject() {} };  /* an interface base: its virtuals aren't known */
+struct IUIDataStoreSubscriber {
+    virtual ~IUIDataStoreSubscriber() {}
+    virtual class UObject* GetUObjectInterfaceUIDataStoreSubscriber() = 0;
+    virtual void SetDataStoreBinding(const FString& MarkupText, INT BindingIndex = INDEX_NONE) = 0;
+    virtual FString GetDataStoreBinding(INT BindingIndex = INDEX_NONE) const = 0;
+    virtual UBOOL RefreshSubscriberValue(INT BindingIndex = INDEX_NONE) = 0;
+    virtual void NotifyDataStoreValueUpdated(UUIDataStore* SourceDataStore, UBOOL bValuesInvalidated, FName PropertyTag, UUIDataProvider* SourceProvider, INT ArrayIndex) = 0;
+    virtual void GetBoundDataStores(TArray<UUIDataStore*>& out_BoundDataStores) = 0;
+    virtual void ClearBoundDataStores() = 0;
+};
+struct IUIDataStorePublisher : public IUIDataStoreSubscriber {
+    virtual ~IUIDataStorePublisher() {}
+    virtual UBOOL SaveSubscriberValue(TArray<UUIDataStore*>& out_BoundDataStores, INT BindingIndex = INDEX_NONE) = 0;
+};
+struct FMap_Mirror;
+struct IUIListElementCellProvider {
+    virtual ~IUIListElementCellProvider() {}
+    virtual class UObject* GetUObjectInterfaceUIListElementCellProvider() = 0;
+    /* out_CellTags is UE3's TMap<FName,FString>, which the headers mirror as FMap_Mirror */
+    virtual void GetElementCellTags(FName ListName, FMap_Mirror& out_CellTags) = 0;
+    virtual UBOOL GetCellFieldType(FName ListName, const FName& CellTag, BYTE& out_CellFieldType) = 0;
+    virtual UBOOL GetCellFieldValue(FName ListName, const FName& CellTag, INT ListIndex, struct FUIProviderFieldValue& out_FieldValue, INT ArrayIndex = INDEX_NONE) = 0;
+};
+struct IUITickableObject {
+    virtual ~IUITickableObject() {}
+    virtual class UObject* GetUObjectInterfaceUITickableObject() = 0;
+    virtual void Tick(FLOAT DeltaTime) = 0;
+};
 
 struct FNativeLightMap {
     virtual void LightMap_vf000(); virtual void LightMap_vf004(); virtual void LightMap_vf008();
@@ -29708,6 +29756,10 @@ struct UOnlineSubsystem : public UObject, public FTickableObject {
     UINT* sub_00e3f620(); /* 0x00e3f620 */
     UINT* sub_00e995b0(); /* 0x00e995b0 */
     /* registered size 0xc0 */
+    /* FTickableObject */
+    virtual void Tick(FLOAT DeltaTime); /* 0x00d88660 */
+    virtual UBOOL IsTickable() const; /* 0x00d88620 */
+    virtual UBOOL IsTickableWhenPaused() const; /* 0x00d88650 */
 };
 
 struct UOnlineSystemInterface : public UInterface {
@@ -38005,6 +38057,9 @@ struct UTextureFlipBook : public UTexture2D, public FTickableObject {
     /* other member functions */
     UINT sub_0076eb40(BYTE); /* 0x0076eb40 */
     /* registered size 0x140 */
+    /* FTickableObject */
+    virtual void Tick(FLOAT DeltaTime); /* 0x00767450 */
+    virtual UBOOL IsTickable() const; /* 0x0076ea00 */
 };
 
 struct UTextureMovie : public UTexture {
@@ -38401,6 +38456,11 @@ struct UUIDataProvider_OnlineFriends : public UUIDataProvider_OnlinePlayerDataBa
     virtual INT vf_118(INT, INT, INT); /* 0x118 */
     virtual void vf_120(INT); /* 0x120 */
     /* registered size 0x108 */
+    /* IUIListElementCellProvider */
+    virtual class UObject* GetUObjectInterfaceUIListElementCellProvider(); /* 0x00d9baa0 */
+    virtual void GetElementCellTags(FName ListName, FMap_Mirror& out_CellTags); /* 0x00da27d0 */
+    virtual UBOOL GetCellFieldType(FName ListName, const FName& CellTag, BYTE& out_CellFieldType); /* 0x00d9bab0 */
+    virtual UBOOL GetCellFieldValue(FName ListName, const FName& CellTag, INT ListIndex, struct FUIProviderFieldValue& out_FieldValue, INT ArrayIndex = INDEX_NONE); /* 0x00d93800 */
 };
 
 struct UUIDataProvider_OnlinePlayers : public UUIDataProvider_OnlinePlayerDataBase {
@@ -38816,7 +38876,6 @@ struct UUIListElementProvider : public UInterface {
     /* registered size 0x30 */
 };
 
-struct FNativeElem_00db1b20 { FScriptInterface Value; FNativeElem_00db1b20() {} FNativeElem_00db1b20(const FScriptInterface& V) : Value(V) {} operator FScriptInterface&() { return Value; } operator const FScriptInterface&() const { return Value; } };  /* the native element type of the arrays ~TArray at 0x00db1b20 destroys */
 struct FLookupMap_Mirror_00dc02f0 : FLookupMap_Mirror { ~FLookupMap_Mirror_00dc02f0(); /* 0x00dc02f0 */ };  /* the native type behind this script mirror */
 struct UUIScene : public UUIScreenObject {
     /* Engine.UIScene */
@@ -38829,7 +38888,7 @@ struct UUIScene : public UUIScreenObject {
     class UUISkin* SceneSkin; /* 0x134 */
     FLookupMap_Mirror_00dc02f0 DockingStack; /* 0x138 */
     TArrayNoInit<class UUIObject*> RenderStack; /* 0x180 */
-    TArrayNoInit<FNativeElem_00db1b20> TickableObjects; /* 0x18c */
+    TArrayNoInit<TScriptInterface<IUITickableObject> > TickableObjects; /* 0x18c */
     FMap_Mirror InputSubscriptions[4]; /* 0x198 */
     INT LastPlayerIndex; /* 0x288 */
     BITFIELD bUpdateDockingStack : 1; /* 0x28c */
@@ -38965,9 +39024,10 @@ struct UUIScene : public UUIScreenObject {
     void sub_00da9df0(BYTE); /* 0x00da9df0 */
     BYTE GetSceneInputMode(UBOOL bMemberValueOnly); /* 0x00da9e20 */
     BYTE sub_00da9eb0(INT); /* 0x00da9eb0 */
-    INT sub_00db0a90(FName&); /* 0x00db0a90 */
+    INT FindTickableObjectIndex(const TScriptInterface<IUITickableObject>& SearchObj) const; /* 0x00db0a90 */
     UUIDataStore* ResolveDataStore(FName DataStoreTag, ULocalPlayer* InPlayerOwner); /* 0x00db0c60 */
-    UBOOL sub_00db42a0(FName&); /* 0x00db42a0 */
+    UBOOL RegisterTickableObject(const TScriptInterface<IUITickableObject>& ObjectToRegister, INT InsertIndex = INDEX_NONE); /* 0x00db4230 */
+    UBOOL UnregisterTickableObject(const TScriptInterface<IUITickableObject>& ObjectToRemove); /* 0x00db42a0 */
     void LogDockingStack(); /* 0x00db42f0 */
     void LoadSceneDataValues(); /* 0x00db74d0 */
     void SaveSceneDataValues(UBOOL bUnbindSubscribers); /* 0x00db75f0 */
@@ -39311,9 +39371,11 @@ struct UUITickableObjectProxy : public UUIRoot, public IUITickableObject {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     /* other member functions */
-    INT sub_00ddfac0(); /* 0x00ddfac0 */
     UINT sub_00de02c0(); /* 0x00de02c0 */
     /* registered size 0x40 */
+    /* IUITickableObject */
+    virtual class UObject* GetUObjectInterfaceUITickableObject(); /* 0x00ddfac0 */
+    virtual void Tick(FLOAT DeltaTime); /* 0x00dddbc0 */
 };
 
 struct AVolumePathNode : public APathNode {
@@ -39751,7 +39813,7 @@ struct UGFxAction_SetVariable : public USequenceAction {
     /* registered size 0xe4 */
 };
 
-struct UGFxDataStoreSubscriber : public UObject, public IUIDataStoreSubscriber {
+struct UGFxDataStoreSubscriber : public UObject, public IUIDataStorePublisher {
     /* GFxUI.GFxDataStoreSubscriber */
     DECLARE_CLASS(UGFxDataStoreSubscriber, UObject, 0x0, 0x0, GFxUI)
     class UGFxMovie* Movie; /* 0x34 */
@@ -39766,7 +39828,6 @@ struct UGFxDataStoreSubscriber : public UObject, public IUIDataStoreSubscriber {
     INT sub_0196e740(); /* 0x0196e740 */
     bool sub_01978400(); /* 0x01978400 */
     void sub_0197ecd0(UINT Count, UINT Count2); /* 0x0197ecd0 */
-    INT sub_00e425f0(); /* 0x00e425f0 */
     void sub_00e48c10(INT); /* 0x00e48c10 */
     void* sub_018e5390(); /* 0x018e5390 */
     void sub_018e53a0(INT, INT); /* 0x018e53a0 */
@@ -39990,6 +40051,15 @@ struct UGFxDataStoreSubscriber : public UObject, public IUIDataStoreSubscriber {
     void sub_019f1a70(); /* 0x019f1a70 */
     void* sub_019f24a0(); /* 0x019f24a0 */
     /* registered size 0x38 */
+    /* IUIDataStorePublisher */
+    virtual class UObject* GetUObjectInterfaceUIDataStoreSubscriber(); /* 0x00e425f0 */
+    virtual void SetDataStoreBinding(const FString& MarkupText, INT BindingIndex = INDEX_NONE); /* 0x00e43280 */
+    virtual FString GetDataStoreBinding(INT BindingIndex = INDEX_NONE) const; /* 0x00e521e0 */
+    virtual UBOOL RefreshSubscriberValue(INT BindingIndex = INDEX_NONE); /* 0x00e5d0b0 */
+    virtual void NotifyDataStoreValueUpdated(UUIDataStore* SourceDataStore, UBOOL bValuesInvalidated, FName PropertyTag, UUIDataProvider* SourceProvider, INT ArrayIndex); /* 0x00e52260 */
+    virtual void GetBoundDataStores(TArray<UUIDataStore*>& out_BoundDataStores); /* 0x00e595a0 */
+    virtual void ClearBoundDataStores(); /* 0x00e59650 */
+    virtual UBOOL SaveSubscriberValue(TArray<UUIDataStore*>& out_BoundDataStores, INT BindingIndex = INDEX_NONE); /* 0x00e597c0 */
 };
 
 struct UGFxEngine : public UObject {
@@ -40229,6 +40299,10 @@ struct UMCPBase : public UObject, public FTickableObject {
     UINT* sub_00e3cfc0(); /* 0x00e3cfc0 */
     UINT* sub_00e3d090(); /* 0x00e3d090 */
     /* registered size 0x34 */
+    /* FTickableObject */
+    virtual void Tick(FLOAT DeltaTime); /* 0x00e34730 */
+    virtual UBOOL IsTickable() const; /* 0x00e346f0 */
+    virtual UBOOL IsTickableWhenPaused() const; /* 0x00e34720 */
 };
 
 struct FNativeElem_00e33630 { FPointer Value; FNativeElem_00e33630() {} FNativeElem_00e33630(const FPointer& V) : Value(V) {} operator FPointer&() { return Value; } operator const FPointer&() const { return Value; } };  /* the native element type of the arrays ~TArray at 0x00e33630 destroys */
@@ -40250,6 +40324,8 @@ struct UOnlineEventsInterfaceMcp : public UMCPBase {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     /* registered size 0x5c */
+    /* FTickableObject */
+    virtual void Tick(FLOAT DeltaTime); /* 0x00e3def0 */
 };
 
 struct UOnlineGameInterfaceImpl : public UObject {
@@ -40351,6 +40427,8 @@ struct UOnlineNewsInterfaceMcp : public UMCPBase {
     void sub_00e3d0b0(); /* 0x00e3d0b0 */
     void sub_00e3f640(); /* 0x00e3f640 */
     /* registered size 0x5c */
+    /* FTickableObject */
+    virtual void Tick(FLOAT DeltaTime); /* 0x00e3df80 */
 };
 
 struct UOnlineSubsystemCommonImpl : public UOnlineSubsystem {
@@ -40388,6 +40466,8 @@ struct UOnlineTitleFileDownloadMcp : public UMCPBase {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     /* registered size 0x70 */
+    /* FTickableObject */
+    virtual void Tick(FLOAT DeltaTime); /* 0x00e403e0 */
 };
 
 struct UPartyBeacon : public UObject, public FTickableObject {
@@ -40413,6 +40493,10 @@ struct UPartyBeacon : public UObject, public FTickableObject {
     void sub_00e38190(); /* 0x00e38190 */
     UINT* sub_00e3cdb0(); /* 0x00e3cdb0 */
     /* registered size 0x50 */
+    /* FTickableObject */
+    virtual void Tick(FLOAT DeltaTime); /* 0x00e2cb50 */
+    virtual UBOOL IsTickable() const; /* 0x00e34890 */
+    virtual UBOOL IsTickableWhenPaused() const; /* 0x00e348c0 */
 };
 
 struct UPartyBeaconClient : public UPartyBeacon {
@@ -40440,6 +40524,8 @@ struct UPartyBeaconClient : public UPartyBeacon {
     virtual bool vf_004(); /* 0x004 */
     virtual void DestroyBeacon(); /* 0x10c */
     /* registered size 0xc4 */
+    /* FTickableObject */
+    virtual void Tick(FLOAT DeltaTime); /* 0x00e394b0 */
 };
 
 struct UPartyBeaconHost : public UPartyBeacon {
@@ -40517,6 +40603,8 @@ struct UPartyBeaconHost : public UPartyBeacon {
     INT sub_00e3f530(); /* 0x00e3f530 */
     INT sub_00e40890(); /* 0x00e40890 */
     /* registered size 0xb8 */
+    /* FTickableObject */
+    virtual void Tick(FLOAT DeltaTime); /* 0x00e40710 */
 };
 
 struct URActorFactoryBreakablePropStatic : public UActorFactoryRigidBody {
@@ -41854,6 +41942,8 @@ struct UOnlineSubsystemSteamworks : public UOnlineSubsystemCommonImpl {
     INT sub_00e9a020(); /* 0x00e9a020 */
     void sub_00e9a170(); /* 0x00e9a170 */
     /* registered size 0x588 */
+    /* FTickableObject */
+    virtual void Tick(FLOAT DeltaTime); /* 0x00e95bc0 */
 };
 
 struct UAlertInstance : public UObject {
@@ -43039,6 +43129,10 @@ struct URAnimNode_Pose : public UAnimNodeBlendBase, public FTickableObject {
     INT sub_015b8cb0(UINT, UINT, UINT); /* 0x015b8cb0 */
     UINT sub_015b9190(BYTE); /* 0x015b9190 */
     /* registered size 0x5070 */
+    /* FTickableObject */
+    virtual void Tick(FLOAT DeltaTime); /* 0x015b6260 */
+    virtual UBOOL IsTickable() const; /* 0x015b9040 */
+    virtual UBOOL IsTickableWhenPaused() const; /* 0x015b9070 */
 };
 
 struct URAnimNode_ScalePlayRateToLength : public UAnimNodeBlendBase {

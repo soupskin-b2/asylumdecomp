@@ -1344,7 +1344,7 @@ int URAnimNode_Pose::sub_015b8cb0(undefined4 param_2, undefined4 param_3, undefi
 }
 
 // @baa 0x015b9070
-int sub_015b9070(void) { return 1; }
+UBOOL URAnimNode_Pose::IsTickableWhenPaused() const { return TRUE; }
 
 struct A_015b9080 { virtual void sub_015b9190(); char pad[196]; };
 

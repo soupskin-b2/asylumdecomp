@@ -309,20 +309,13 @@ EUIPostProcessGroup UUIScene::GetScenePostProcessGroup()
     return (EUIPostProcessGroup)Result;
 }
 
-/* Unnamed in the kit: the lookup of an entry by name in the array at UUIScene+0x18c. */
-struct FNamedElemArray_ : public TArrayNoInit<FNativeElem_00db1b20>
-{
-    INT sub_00dad6e0(FName& Name);
-};
-
 // @baa 0x00db0a90
-/* UUIScene helper: the index of the entry named Name, INDEX_NONE when either part of Name is zero. */
-INT UUIScene::sub_00db0a90(FName& Name)
+INT UUIScene::FindTickableObjectIndex(const TScriptInterface<IUITickableObject>& SearchObj) const
 {
     INT Result = INDEX_NONE;
-    if (Name.Index != 0 && Name.Number != 0)
+    if (SearchObj.Object != NULL && SearchObj.Interface != NULL)
     {
-        Result = ((FNamedElemArray_&)TickableObjects).sub_00dad6e0(Name);
+        Result = TickableObjects.FindItemIndex(SearchObj);
     }
     return Result;
 }
@@ -338,13 +331,12 @@ void UUIScreenObject::vf_1cc()
 }
 
 // @baa 0x00db42a0
-/* UUIScene helper (UE3 UnregisterTickableObject-style): drop the entry from TickableObjects; TRUE if it was there. */
-UBOOL UUIScene::sub_00db42a0(FName& Name)
+UBOOL UUIScene::UnregisterTickableObject(const TScriptInterface<IUITickableObject>& ObjectToRemove)
 {
     UBOOL bResult = FALSE;
-    if (Name.Index != 0 && Name.Number != 0)
+    if (ObjectToRemove.Object != NULL && ObjectToRemove.Interface != NULL)
     {
-        INT ObjIndex = ((FNamedElemArray_&)TickableObjects).sub_00dad6e0(Name);
+        INT ObjIndex = TickableObjects.FindItemIndex(ObjectToRemove);
         if (TickableObjects.IsValidIndex(ObjIndex))
         {
             TickableObjects.Remove(ObjIndex, 1);

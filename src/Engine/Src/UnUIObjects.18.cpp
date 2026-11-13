@@ -1055,14 +1055,8 @@ void UUIScreenObject__00ca40d0::execGetLastFocusedControl(FFrame& Stack, RESULT_
 	*(UUIObject**)Result = GetLastFocusedControl(bRecurse, PlayerIndex);
 }
 
-struct UUIScene__00cb3e90 : public UUIScene
-{
-	UBOOL RegisterTickableObject(const TScriptInterface<IUITickableObject>& ObjectToRegister, INT InsertIndex);
-	void execRegisterTickableObject(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00cb3e90
-void UUIScene__00cb3e90::execRegisterTickableObject(FFrame& Stack, RESULT_DECL)
+void UUIScene::execRegisterTickableObject(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_TINTERFACE(IUITickableObject, ObjectToRegister);
 	P_GET_INT_OPTX(InsertIndex, INDEX_NONE);
@@ -1411,30 +1405,20 @@ void UUIObject::execSetActiveCursorUpdate(FFrame& Stack, RESULT_DECL)
 	SetActiveCursorUpdate(bShouldReceiveCursorUpdates);
 }
 
-struct UUIScene__00cb3f40 : public UUIScene
-{
-	UBOOL sub_00db42a0(FName&);
-};
-
 // @baa 0x00cb3f40
 void UUIScene::execUnregisterTickableObject(FFrame& Stack, RESULT_DECL)
 {
-	P_GET_NAME(ObjName);
+	P_GET_TINTERFACE(IUITickableObject, ObjectToRemove);
 	P_FINISH;
-	*(UBOOL*)Result = this->sub_00db42a0(ObjName);
+	*(UBOOL*)Result = UnregisterTickableObject(ObjectToRemove);
 }
-
-struct UUIScene__00cb3fc0 : public UUIScene
-{
-	INT sub_00db0a90(FName&);
-};
 
 // @baa 0x00cb3fc0
 void UUIScene::execFindTickableObjectIndex(FFrame& Stack, RESULT_DECL)
 {
-	P_GET_NAME(ObjName);
+	P_GET_TINTERFACE(IUITickableObject, SearchObj);
 	P_FINISH;
-	*(INT*)Result = this->sub_00db0a90(ObjName);
+	*(INT*)Result = FindTickableObjectIndex(SearchObj);
 }
 
 struct UUIScreenObject__00ca4af0 : public UUIScreenObject

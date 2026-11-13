@@ -7945,12 +7945,8 @@ IMPLEMENT_CLASS_AT(UUILayerBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3
 IMPLEMENT_CLASS_AT(UUITickableObjectProxy, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnUserInterface.cpp", 186);
 
 // @baa 0x00ddfac0
-int UUITickableObjectProxy::sub_00ddfac0(void)
-{
-    int param_1 = (int)this;
-
-  return param_1 + -0x30;
-}
+/* DECLARE_CLASS's interface accessor; compiled for the IUITickableObject subobject */
+UObject* UUITickableObjectProxy::GetUObjectInterfaceUITickableObject() { return this; }
 
 // @baa 0x00ddfad0
 struct A_00ddfaf0 { virtual void sub_00ddfad0(); char pad[44]; };

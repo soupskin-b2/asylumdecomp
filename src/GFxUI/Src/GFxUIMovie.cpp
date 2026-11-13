@@ -180,12 +180,8 @@ IMPLEMENT_CLASS_AT(UGFxDataStoreSubscriber, "e:\\Projects\\Amadeus\\AA\\Game\\Un
 void* UGFxDataStoreSubscriber::vf_110() { return this; }
 
 // @baa 0x00e425f0
-int UGFxDataStoreSubscriber::sub_00e425f0(void)
-{
-    int param_1 = (int)this;
-
-  return param_1 + -0x30;
-}
+/* DECLARE_CLASS's interface accessor; compiled for the IUIDataStorePublisher subobject */
+UObject* UGFxDataStoreSubscriber::GetUObjectInterfaceUIDataStoreSubscriber() { return this; }
 
 // @baa 0x00e42600
 struct C_00e42830 {

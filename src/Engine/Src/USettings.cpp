@@ -288,7 +288,7 @@ undefined4 * UObject::sub_00d88550(void)
 }
 
 // @baa 0x00d88650
-int sub_00d88650(void) { return 1; }
+UBOOL UOnlineSubsystem::IsTickableWhenPaused() const { return TRUE; }
 
 // @baa 0x00d88680
 int USettings::sub_00d88680(void) { return *(int*)((char*)this + 4); }

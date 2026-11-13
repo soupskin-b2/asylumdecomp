@@ -1,6 +1,7 @@
 // UnUIDataStores.cpp (part 5 of 6): 6 functions
 // Placed here by: neighbours 3.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
+#include "ue3/Classes.h"
 
 struct C {
     void sub_00d92b10(int);
@@ -74,10 +75,10 @@ UINT __cdecl sub_00d92ce0(UINT A, UINT B)
 }
 
 // @baa 0x00d9bab0
-INT __stdcall sub_00d9bab0(INT A, INT B, INT C, BYTE* Out)
+UBOOL UUIDataProvider_OnlineFriends::GetCellFieldType(FName ListName, const FName& CellTag, BYTE& out_CellFieldType)
 {
-    *Out = 0;
-    return 1;
+    out_CellFieldType = DATATYPE_Property;
+    return TRUE;
 }
 
 struct S_00d90fd0 {

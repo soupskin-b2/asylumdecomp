@@ -95,7 +95,7 @@ void UPartyBeaconHost::sub_00e335f0(int param_2)
 }
 
 // @baa 0x00e348c0
-int sub_00e348c0(void) { return 1; }
+UBOOL UPartyBeacon::IsTickableWhenPaused() const { return TRUE; }
 
 int sub_005c7a70(...);
 int sub_00e34810(void);
