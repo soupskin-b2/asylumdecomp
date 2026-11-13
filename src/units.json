@@ -241824,7 +241824,7 @@
     {
      "va": "00d49b40",
      "size": 119,
-     "symbol": "?FindBoneIndex@@YAHABV?$TArray@UFMeshBone_@@@@UFName@@@Z"
+     "symbol": "?FindBoneIndex@@YAHABV?$TArray@UFMeshBone@@@@UFName@@@Z"
     },
     {
      "va": "00d49bc0",
@@ -242365,7 +242365,7 @@
     {
      "va": "00963a80",
      "size": 224,
-     "symbol": "??6@YAAAVFArchive@@AAV0@AAV?$TArray@UFMeshBone_@@@@@Z"
+     "symbol": "??6@YAAAVFArchive@@AAV0@AAV?$TArray@UFMeshBone@@@@@Z"
     },
     {
      "va": "00f24e00",
@@ -242387,7 +242387,7 @@
     {
      "va": "00950000",
      "size": 165,
-     "symbol": "??$?2UFMeshBone_@@@@YAPAXIAAV?$TArray@UFMeshBone_@@@@@Z"
+     "symbol": "??$?2UFMeshBone@@@@YAPAXIAAV?$TArray@UFMeshBone@@@@@Z"
     },
     {
      "va": "00950350",
@@ -242853,7 +242853,7 @@
     {
      "va": "00943ad0",
      "size": 142,
-     "symbol": "??6@YAAAVFArchive@@AAV0@AAUFMeshBone_@@@Z"
+     "symbol": "??6@YAAAVFArchive@@AAV0@AAUFMeshBone@@@Z"
     },
     {
      "va": "00d58060",
@@ -358466,7 +358466,7 @@
     {
      "va": "00d4cef0",
      "size": 149,
-     "symbol": "?Copy@FRefSkeletonArray@@QAEXABV?$TArray@UFMeshBone_@@@@@Z"
+     "symbol": "?Copy@FRefSkeletonArray@@QAEXABV?$TArray@UFMeshBone@@@@@Z"
     }
    ]
   },

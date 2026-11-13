@@ -5,29 +5,6 @@
 #include "ue3/Classes.h"
 #include "ue3/Array.h"
 
-/* VJointPos (UnSkeletalMesh.h): a bone's reference pose. */
-struct VJointPos
-{
-    FQuat Orientation;
-    FVector Position;
-    FLOAT Length;
-    FLOAT XSize;
-    FLOAT YSize;
-    FLOAT ZSize;
-};
-
-/* FMeshBone as this build has it (0x48 bytes); the kit's FMeshBone has ParentIndex at the wrong offset. */
-struct FMeshBone_
-{
-    FName Name;
-    DWORD Flags;
-    VJointPos BonePos;
-    INT ParentIndex;      /* 0x38 */
-    INT NumChildren;
-    INT Depth;
-    FColor BoneColor;
-};
-
 /* TArray<INT> with its out-of-line Add (0x00540c80) */
 struct FIntArray : public TArray<INT>
 {
@@ -63,7 +40,7 @@ void USkelControlSpline::GetAffectedBones(INT BoneIndex, USkeletalMeshComponent*
             return;
         }
 
-        WalkBoneIndex = ((TArray<FMeshBone_>&)SkelComp->SkeletalMesh->RefSkeleton)(WalkBoneIndex).ParentIndex;
+        WalkBoneIndex = SkelComp->SkeletalMesh->RefSkeleton(WalkBoneIndex).ParentIndex;
         OutBoneIndices(OutTransformIndex) = WalkBoneIndex;
     }
 }
@@ -99,7 +76,7 @@ void USkelControlTrail::GetAffectedBones(INT BoneIndex, USkeletalMeshComponent* 
             return;
         }
 
-        WalkBoneIndex = ((TArray<FMeshBone_>&)SkelComp->SkeletalMesh->RefSkeleton)(WalkBoneIndex).ParentIndex;
+        WalkBoneIndex = SkelComp->SkeletalMesh->RefSkeleton(WalkBoneIndex).ParentIndex;
         OutBoneIndices(OutTransformIndex) = WalkBoneIndex;
     }
 }

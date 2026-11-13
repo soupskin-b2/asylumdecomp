@@ -81,8 +81,7 @@ template<class T> struct TArrayAt__01569700 : public TArray<T>
     }
 };
 
-/* Unnamed in the kit: the number of children of a reference-skeleton bone. FMeshBone in the kit is a guess
- * (Unknown38 is UE3's NumChildren: Name, Flags, VJointPos BonePos (0x2c bytes), NumChildren, ParentIndex). */
+/* Unnamed: a reference-skeleton bone's parent. */
 struct URAnimNode_Cape__01569700 : public URAnimNode_Cape
 {
     INT sub_01569700(INT BoneIndex);
@@ -95,7 +94,7 @@ INT URAnimNode_Cape__01569700::sub_01569700(INT BoneIndex)
     check(SkelComponent != NULL);
 #line 568 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimNode_Cape.cpp"
     check(SkelComponent->SkeletalMesh != NULL);
-    return ((TArrayAt__01569700<FMeshBone>&)SkelComponent->SkeletalMesh->RefSkeleton).At(BoneIndex).Unknown38;
+    return ((TArrayAt__01569700<FMeshBone>&)SkelComponent->SkeletalMesh->RefSkeleton).At(BoneIndex).ParentIndex;
 }
 
 #line 108 "candidate.cpp"
@@ -142,7 +141,7 @@ INT URAnimNode_Cape__01569c40::sub_01569c40(INT boneIndex)
     USkeletalMesh* pCapeSkeletalMesh = pCapeSkeletalMeshComponent->SkeletalMesh;
 #line 893 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimNode_Cape.cpp"
     check(pCapeSkeletalMesh != NULL);
-    return ((TArrayAt_<FMeshBone>&)pCapeSkeletalMesh->RefSkeleton).At(boneIndex).Unknown38;
+    return ((TArrayAt_<FMeshBone>&)pCapeSkeletalMesh->RefSkeleton).At(boneIndex).ParentIndex;
 }
 
 #line 155 "candidate.cpp"
@@ -166,7 +165,7 @@ UBOOL URAnimNode_Cape__015697a0::sub_015697a0(INT BoneIndex, INT ParentBoneIndex
     while (CurrentBone != ParentBoneIndex)
     {
         const INT ChildBone = CurrentBone;
-        CurrentBone = RefSkeleton.At(CurrentBone).Unknown38;
+        CurrentBone = RefSkeleton.At(CurrentBone).ParentIndex;
         if (CurrentBone == ChildBone)
         {
             return FALSE;

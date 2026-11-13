@@ -6,29 +6,6 @@
 #include "ue3/Array.h"
 #include "ue3/AppMath.h"
 
-/* VJointPos (UnSkeletalMesh.h): a bone's reference pose. */
-struct VJointPos
-{
-    FQuat Orientation;
-    FVector Position;
-    FLOAT Length;
-    FLOAT XSize;
-    FLOAT YSize;
-    FLOAT ZSize;
-};
-
-/* FMeshBone as this build has it (0x48 bytes); the kit's FMeshBone has ParentIndex at the wrong offset. */
-struct FMeshBone_
-{
-    FName Name;
-    DWORD Flags;
-    VJointPos BonePos;
-    INT ParentIndex;      /* 0x38 */
-    INT NumChildren;
-    INT Depth;
-    FColor BoneColor;
-};
-
 /* FSkelMeshMergeSectionMapping (UnSkeletalMeshMerge.h): forced section IDs for one source mesh */
 struct FSkelMeshMergeSectionMapping
 {
@@ -50,9 +27,9 @@ struct FBoxSphereBounds_ : public FBoxSphereBounds
 };
 
 /* the USkeletalMesh array members with their out-of-line operations */
-struct FRefSkeletonArray : public TArray<FMeshBone_>
+struct FRefSkeletonArray : public TArray<FMeshBone>
 {
-    FRefSkeletonArray& operator=(const TArray<FMeshBone_>& Other); /* 0x00d4cef0 */
+    FRefSkeletonArray& operator=(const TArray<FMeshBone>& Other); /* 0x00d4cef0 */
 };
 
 struct FMatrixArray : public TArray<FMatrix>
@@ -91,7 +68,7 @@ private:
     const TArray<USkeletalMesh*>& SrcMeshList;
     const TArray<FSkelMeshMergeSectionMapping>& ForceSectionMapping;
     TArray<FMergeMeshInfo> SrcMeshInfo;
-    TArray<FMeshBone_> NewRefSkeleton;
+    TArray<FMeshBone> NewRefSkeleton;
     INT StripTopLODs;
     TArray<INT> MergeIndices;
 };

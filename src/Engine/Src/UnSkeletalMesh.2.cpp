@@ -349,7 +349,7 @@ FMatrix USkeletalMesh_::GetRefPoseMatrix(INT BoneIndex) const
 {
 #line 1323 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSkeletalMesh.cpp"
     check(BoneIndex >= 0 && BoneIndex < RefSkeleton.Num());
-    return FQuatRotationTranslationMatrix(RefSkeleton(BoneIndex).Orientation, RefSkeleton(BoneIndex).Position);
+    return FQuatRotationTranslationMatrix(RefSkeleton(BoneIndex).BonePos.Orientation, RefSkeleton(BoneIndex).BonePos.Position);
 }
 
 #line 363 "candidate.cpp"

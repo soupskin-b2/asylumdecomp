@@ -1991,7 +1991,6 @@ void C_01abc7a0::sub_01abc7a0(undefined1 param_2)
   return;
 }
 
-DWORD appStrihash(const TCHAR* Data);
 // @baa 0x00915bc0
 		/* 0053e7c0 */
 /* UnString.h's FString hash (TMap<FString, ...> keys); FString's operator* (not in the kit) inline. */

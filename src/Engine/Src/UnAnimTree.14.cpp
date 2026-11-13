@@ -75,8 +75,8 @@ void UAnimNode_::FillWithRefPose(TArray<FBoneAtom>& OutAtoms, const TArray<BYTE>
 		const INT BoneIndex = DesiredBones(i);
 		const FMeshBone& RefBone = RefSkel(BoneIndex);
 		FBoneAtom& Atom = OutAtoms(BoneIndex);
-		Atom.Rotation = RefBone.Orientation;
-		Atom.Translation = RefBone.Position;
+		Atom.Rotation = RefBone.BonePos.Orientation;
+		Atom.Translation = RefBone.BonePos.Position;
 		Atom.Scale = 1.f;
 	}
 }
@@ -97,8 +97,8 @@ void FillWithRefPose(TArray<FBoneAtom>& OutAtoms, const TArray<BYTE>& DesiredBon
 		const INT BoneIndex = DesiredBones(i);
 		const FMeshBone& RefBone = RefSkel(BoneIndex);
 		FBoneAtom& Atom = OutAtoms(BoneIndex);
-		Atom.Rotation = RefBone.Orientation;
-		Atom.Translation = RefBone.Position;
+		Atom.Rotation = RefBone.BonePos.Orientation;
+		Atom.Translation = RefBone.BonePos.Position;
 		Atom.Scale = 1.f;
 	}
 }

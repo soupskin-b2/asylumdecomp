@@ -110,7 +110,40 @@ enum EThumbnailPrimType
 enum EFindName { FNAME_Find, FNAME_Add };
 struct FName { INT Index; INT Number; FName() {} FName(EName N) : Index(N), Number(0) {} explicit FName(const TCHAR* Name, EFindName FindType = FNAME_Add, UBOOL bSplitName = TRUE); /* 0x005d5620 */ UBOOL operator==(const FName& Other) const { return Index == Other.Index && Number == Other.Number; } UBOOL operator!=(const FName& Other) const { return Index != Other.Index || Number != Other.Number; } void sub_005d5620(const TCHAR* Name, INT FindType, UBOOL bSplitName); FString ToString() const; /* 0x005d5690 */ };
 template<> TArray<TCHAR>::TArray(INT InNum); /* 0x00417dc0, out of line */
-class FString : public TArray<TCHAR> { public: FString() {} FString(ENoInit) : TArray<TCHAR>(E_NoInit) {} FORCEINLINE FString(const FString& Other) : TArray<TCHAR>(Other.Num()) { if (ArrayNum) appMemcpy(GetTypedData(), Other.GetTypedData(), ArrayNum * sizeof(TCHAR)); } FORCEINLINE const TCHAR* operator*() const { return Num() ? &(*this)(0) : TEXT(""); } INT Len() const { return Num() ? Num() - 1 : 0; } FString(const TCHAR* In); /* 0x00417ef0 */ FString& sub_00544ab0(const TCHAR* In); FString& operator=(const TCHAR* In) { return sub_00544ab0(In); } ~FString(); /* 0x0040fcc0 */ FString& operator=(const FString& Other); /* 0x00547da0 */ };
+class FString : public TArray<TCHAR>
+{
+public:
+    FString() {}
+    FString(ENoInit) : TArray<TCHAR>(E_NoInit) {}
+    FORCEINLINE FString(const FString& Other) : TArray<TCHAR>(Other.Num()) { if (ArrayNum) appMemcpy(GetTypedData(), Other.GetTypedData(), ArrayNum * sizeof(TCHAR)); }
+#ifdef BAA_INLINE_FSTRING
+    /* UE3's inline constructor and the implicit destructor: the code builds the string itself (a call to
+     * TArray<TCHAR>(INT) 0x00417dc0 and a memcpy) and frees it with the inline ~TArray */
+    FORCEINLINE FString(const TCHAR* In) : TArray<TCHAR>(*In ? appStrlen(In) + 1 : 0) { if (ArrayNum) appMemcpy(&(*this)(0), In, ArrayNum * sizeof(TCHAR)); }
+#else
+    /* out of line, as most of the game calls them */
+    FString(const TCHAR* In); /* 0x00417ef0 */
+    ~FString(); /* 0x0040fcc0 */
+#endif
+    FORCEINLINE const TCHAR* operator*() const { return Num() ? &(*this)(0) : TEXT(""); }
+    INT Len() const { return Num() ? Num() - 1 : 0; }
+    FString& sub_00544ab0(const TCHAR* In);
+    FString& operator=(const TCHAR* In) { return sub_00544ab0(In); }
+    FString& operator=(const FString& Other); /* 0x00547da0 */
+    FString& operator+=(const TCHAR* Str); /* out of line: 005a4bb0 and copies */
+    FString& operator+=(const FString& Str); /* out of line: 005a4aa0 and copies */
+    UBOOL operator==(const TCHAR* Other) const; /* out of line: 00544cf0 */
+    UBOOL operator==(const FString& Other) const; /* out of line: 00544d40, 00d6e560 */
+    UBOOL operator!=(const FString& Other) const; /* out of line: 00489970 */
+    FString Left(INT Count) const;
+    FString Right(INT Count) const; /* out of line: 0054dc90 */
+    FString Mid(INT Start, INT Count = MAXINT) const;
+    FString ToUpper() const; /* out of line: 0054df00 */
+    FString ToLower() const; /* out of line: 005aa530 */
+    /* variadic, out of line (005488a0 and copies); the link-time compiler also made typed clones (e.g. 005a9fc0
+     * takes a FLOAT): a call to one of those is declared with its own parameters in a local struct FString_ */
+    static FString Printf(const TCHAR* Fmt, ...);
+};
 class FStringNoInit : public FString { public: FStringNoInit() : FString(E_NoInit) {} FStringNoInit& operator=(const FString& Other); /* 0x004899f0 */ };
 struct FScriptDelegate { class UObject* Object; FName FunctionName; };
 struct FScriptInterface { class UObject* Object; void* Interface; };
@@ -36317,7 +36350,11 @@ struct USkelControlWheel : public USkelControlSingleBone {
 };
 
 struct FNativeElem_00979d40 { INT Value; FNativeElem_00979d40() {} FNativeElem_00979d40(const INT& V) : Value(V) {} operator INT&() { return Value; } operator const INT&() const { return Value; } };  /* the native element type of the arrays ~TArray at 0x00979d40 destroys */
-struct FMeshBone { FName Name; DWORD Flags; FQuat Orientation; FVector Position; INT NumChildren; INT ParentIndex; INT Unknown30, Unknown34, Unknown38, Unknown3C, Unknown40, Unknown44; };  /* 72 bytes; Name and Position: 0091d470, 0091d730 */
+/* VJointPos (UnSkeletalMesh.h): a bone's reference pose */
+struct VJointPos { FQuat Orientation; FVector Position; FLOAT Length; FLOAT XSize; FLOAT YSize; FLOAT ZSize; };
+/* this build's FMeshBone (72 bytes): ParentIndex before NumChildren (GetParentBone 0091d550 reads 0x38; the
+ * serializer 00943ad0 stores NumChildren, then ParentIndex), then Depth and BoneColor */
+struct FMeshBone { FName Name; DWORD Flags; VJointPos BonePos; INT ParentIndex; INT NumChildren; INT Depth; FColor BoneColor; };
 struct FIndirectArray_Mirror_0097e680 : FIndirectArray_Mirror { ~FIndirectArray_Mirror_0097e680(); /* 0x0097e680 */ };  /* the native type behind this script mirror */
 struct FMap_Mirror_0097d2c0 : FMap_Mirror { ~FMap_Mirror_0097d2c0(); /* 0x0097d2c0 */ };  /* the native type behind this script mirror */
 struct FNativeElem_007b9350 { UBOOL Value; FNativeElem_007b9350() {} FNativeElem_007b9350(const UBOOL& V) : Value(V) {} operator UBOOL&() { return Value; } operator const UBOOL&() const { return Value; } };  /* the native element type of the arrays ~TArray at 0x007b9350 destroys */
@@ -70498,6 +70535,37 @@ struct UWindowsClient : public UClient {
 struct FNativeDtor_006d0eb0_3c { ~FNativeDtor_006d0eb0_3c(); /* 0x006d0eb0 */ DWORD _data[15]; };  /* a C++-only member: only its destructor is known; size up to the next member */
 struct FNativeDtor_009c5f90_30 { ~FNativeDtor_009c5f90_30(); /* 0x009c5f90 */ DWORD _data[12]; };  /* a C++-only member: only its destructor is known; size up to the next member */
 struct FNativeDtor_009c5ec0_10 { ~FNativeDtor_009c5ec0_10(); /* 0x009c5ec0 */ DWORD _data[4]; };  /* a C++-only member: only its destructor is known; size up to the next member */
+/* UnPrim.h: an actor in a list, and a collision query's result (0x50 bytes in this build) */
+struct FIteratorActorList
+{
+    FIteratorActorList* Next;
+    class AActor* Actor;
+    FIteratorActorList() {}
+    FIteratorActorList(FIteratorActorList* InNext, class AActor* InActor) : Next(InNext), Actor(InActor) {}
+    FIteratorActorList* GetNext() { return Next; }
+};
+struct FCheckResult : public FIteratorActorList
+{
+    FVector Location;                        /* 0x08 */
+    FVector Normal;                          /* 0x14 */
+    FLOAT Time;                              /* 0x20 */
+    INT Item;                                /* 0x24 */
+    class UMaterialInterface* Material;      /* 0x28 */
+    class UPhysicalMaterial* PhysMaterial;   /* 0x2c */
+    class UPrimitiveComponent* Component;    /* 0x30 */
+    INT Unknown34;                           /* 0x34: zeroed by the constructor */
+    FName BoneName;                          /* 0x38 */
+    class ULevel* Level;                     /* 0x40 */
+    INT LevelIndex;                          /* 0x44 */
+    FLOAT Unknown48;                         /* 0x48: zeroed by the constructor */
+    UBOOL bStartPenetrating;                 /* 0x4c */
+    FCheckResult(FLOAT InTime = 1.f, FCheckResult* InNext = NULL)
+        : FIteratorActorList(InNext, NULL), Location(0, 0, 0), Normal(0, 0, 0), Time(InTime), Item(INDEX_NONE),
+          Material(NULL), PhysMaterial(NULL), Component(NULL), Unknown34(0), BoneName(NAME_None), Level(NULL),
+          LevelIndex(INDEX_NONE), Unknown48(0.f), bStartPenetrating(FALSE) {}
+    FCheckResult* GetNext() const { return (FCheckResult*)Next; }
+};
+
 struct UWorld : public UObject, public FInterface_UWorld_30 {
     /* Engine.World (native only: no script package describes it) */
     DECLARE_CLASS(UWorld, UObject, 0x10000000, 0x0, Engine)
@@ -70520,8 +70588,6 @@ struct UWorld : public UObject, public FInterface_UWorld_30 {
     FNativeDtor_006d0eb0_3c Native_228; /* 0x228: C++ only (destroyed by its destructor) */
     TArrayNoInit<class UObject*> Native_264; /* 0x264: C++ only (destroyed by its destructor) */
     BYTE _native[0x8]; /* C++-only members, to the registered size 0x278 */
-    AWorldInfo* sub_009c6b40(UBOOL bCheckStreaming);
-    AWorldInfo* GetWorldInfo(UBOOL bCheckStreaming = FALSE) { return sub_009c6b40(bCheckStreaming); }
     /* virtual functions this class introduces (vtable 0x01f9a9a0) */
     virtual bool vf_10c(); /* 0x10c */
     /* overrides */
@@ -70535,6 +70601,16 @@ struct UWorld : public UObject, public FInterface_UWorld_30 {
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     /* other member functions */
     FLOAT GetGravityZ(); /* 0x009c6c80 */
+    class AWorldInfo* GetWorldInfo(UBOOL bCheckStreamingPersistent = FALSE); /* 0x009c6b40 */
+    class AGameInfo* GetGameInfo(); /* 0x009c84f0 */
+    FLOAT GetDeltaSeconds() const; /* 0x009c9040 */
+    class ABrush* GetBrush() const; /* 0x009b0830 */
+    class UModel* GetModel() const; /* 0x009b08a0 */
+    AActor* SpawnActor(UClass* Class, FName InName = NAME_None, const FVector& Location = FVector(0, 0, 0), const FRotator& Rotation = FRotator(0, 0, 0), AActor* Template = NULL, UBOOL bNoCollisionFail = FALSE, UBOOL bRemoteOwned = FALSE, AActor* Owner = NULL, class APawn* Instigator = NULL, UBOOL bNoFail = FALSE); /* 0x007fd2d0 */
+    UBOOL EditorDestroyActor(AActor* ThisActor, UBOOL bShouldModifyLevel); /* 0x007ed180 */
+    UBOOL FarMoveActor(AActor* Actor, const FVector& DestLocation, UBOOL bTest = FALSE, UBOOL bNoCheck = FALSE, UBOOL bAttachedMove = FALSE); /* 0x007eda90 */
+    UBOOL SingleLineCheck(FCheckResult& Hit, AActor* SourceActor, const FVector& End, const FVector& Start, DWORD TraceFlags, const FVector& Extent = FVector(0, 0, 0), class ULightComponent* SourceLight = NULL); /* 0x007e9a10 */
+    UBOOL SinglePointCheck(FCheckResult& Hit, const FVector& Location, const FVector& Extent, DWORD TraceFlags); /* 0x007e96a0 */
     class ANavigationPoint* sub_009c8530(); /* 0x009c8530 */
     void sub_009c8cc0(AController* Controller); /* 0x009c8cc0 */
     void sub_009c8d50(AController* Controller); /* 0x009c8d50 */

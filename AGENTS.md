@@ -226,6 +226,9 @@ happened; on HTTP 429 or 503 wait as told, don't retry in a loop.
   function in the same file; check the caller with `--function`.
 - If the code calls the out-of-line `appRealloc` (0053df70) or `appFree` (0053dfa0) instead of inlining
   `GMalloc`, put `#define BAA_OUTLINE_ALLOC` before the first include (the packet says when).
+- If the code builds an `FString` from a `TCHAR*` itself (a call to `TArray<TCHAR>(INT)` 00417dc0 and a
+  copy) instead of calling 00417ef0, and frees strings inline instead of calling 0040fcc0, put
+  `#define BAA_INLINE_FSTRING` before the first include.
 - zlib 1.2.3, libpng 1.2.8 and IJG libjpeg 6b were compiled unchanged: copy the function and its
   includes (`"jinclude.h"`, `"zlib.h"`, `"png.h"` ...) from the library's file the packet names
   (`third_party/` in this repo). These profiles compile C, not C++. A `static` function there was

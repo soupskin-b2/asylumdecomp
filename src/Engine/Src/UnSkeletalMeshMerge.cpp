@@ -13,29 +13,6 @@ public:
 // @baa 0x00d4cff0
 template void Sort<BYTE, CompareUnSkeletalMeshMergeBYTEConstRef>(BYTE* First, INT Num);
 
-/* VJointPos (UnSkeletalMesh.h): a bone's reference pose. */
-struct VJointPos
-{
-    FQuat Orientation;
-    FVector Position;
-    FLOAT Length;
-    FLOAT XSize;
-    FLOAT YSize;
-    FLOAT ZSize;
-};
-
-/* FMeshBone as this build has it (0x48 bytes); the kit's FMeshBone has ParentIndex at the wrong offset. */
-struct FMeshBone_
-{
-    FName Name;
-    DWORD Flags;
-    VJointPos BonePos;
-    INT ParentIndex;      /* 0x38 */
-    INT NumChildren;
-    INT Depth;
-    FColor BoneColor;
-};
-
 /* FSkelMeshMergeSectionMapping (UnSkeletalMeshMerge.h): forced section IDs for one source mesh */
 struct FSkelMeshMergeSectionMapping
 {
@@ -59,7 +36,7 @@ private:
     const TArray<USkeletalMesh*>& SrcMeshList;
     const TArray<FSkelMeshMergeSectionMapping>& ForceSectionMapping;
     TArray<FMergeMeshInfo> SrcMeshInfo;
-    TArray<FMeshBone_> NewRefSkeleton;
+    TArray<FMeshBone> NewRefSkeleton;
     INT StripTopLODs;
     TArray<INT> MergeIndices; /* an INT array the merge fills later; its role isn't recovered here */
 };
@@ -79,7 +56,7 @@ FSkeletalMeshMerge::FSkeletalMeshMerge(USkeletalMesh* InMergeMesh, const TArray<
 
 // @baa 0x00d49b40
 /* UnSkeletalMeshMerge.cpp: the index of the bone with the given name in a reference skeleton, INDEX_NONE if absent */
-INT FindBoneIndex(const TArray<FMeshBone_>& RefSkeleton, FName BoneName)
+INT FindBoneIndex(const TArray<FMeshBone>& RefSkeleton, FName BoneName)
 {
     for (INT i = 0; i < RefSkeleton.Num(); i++)
     {

@@ -58,7 +58,7 @@ void FAnimationUtils::BuildPoseFromRawData(TArray<FBoneAtom>& OutAtoms, UAnimSeq
 		if (TrackIndex == INDEX_NONE)
 		{
 			// no track: the reference pose
-			(FBoneAtom_&)OutAtoms(BoneIndex) = FBoneAtom_(RefSkel(BoneIndex).Orientation, RefSkel(BoneIndex).Position, 1.f);
+			(FBoneAtom_&)OutAtoms(BoneIndex) = FBoneAtom_(RefSkel(BoneIndex).BonePos.Orientation, RefSkel(BoneIndex).BonePos.Position, 1.f);
 		}
 		else
 		{

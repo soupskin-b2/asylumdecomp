@@ -22,46 +22,24 @@ struct FColor_ : public FColor
     FColor_(BYTE InR, BYTE InG, BYTE InB, BYTE InA) { B = InB; G = InG; R = InR; A = InA; }
 };
 
-/* VJointPos (UnSkeletalMesh.h): a bone's reference pose. Not in the kit (its FMeshBone has it flattened). */
-struct VJointPos
-{
-    FQuat Orientation;
-    FVector Position;
-    FLOAT Length;
-    FLOAT XSize;
-    FLOAT YSize;
-    FLOAT ZSize;
-};
-
 inline FArchive& operator<<(FArchive& Ar, FColor& Color) { Ar.ByteOrderSerialize(&Color, sizeof(Color)); return Ar; }
 
 #define VER_ADDED_BONE_COLOR 0x203 /* name guessed: the package version that added FMeshBone::BoneColor */
 /* FMeshBone as this build has it (UnSkeletalMesh.h, 0x48 bytes). The kit's FMeshBone flattens BonePos
  * without Length/XSize/YSize/ZSize, so its NumChildren and ParentIndex sit at the wrong offsets. */
-struct FMeshBone_
-{
-    FName Name;           /* 0x00 */
-    DWORD Flags;          /* 0x08 */
-    VJointPos BonePos;    /* 0x0c */
-    INT ParentIndex;      /* 0x38 */
-    INT NumChildren;      /* 0x3c */
-    INT Depth;            /* 0x40 */
-    FColor BoneColor;     /* 0x44 */
-};
-
-FArchive& operator<<(FArchive& Ar, FMeshBone_& F);
+FArchive& operator<<(FArchive& Ar, FMeshBone& F);
  /* 0x00943ad0 */
 /* TArray<FMeshBone>::Empty(INT Slack), out of line here (0x009582f0). */
-struct FMeshBoneArray : public TArray<FMeshBone_>
+struct FMeshBoneArray : public TArray<FMeshBone>
 {
     void Empty(INT Slack);
 };
 
 // @baa 0x00963a80
 /* TArray<FMeshBone>'s operator<< (Array.h): count, then each bone. */
-FArchive& operator<<(FArchive& Ar, TArray<FMeshBone_>& A)
+FArchive& operator<<(FArchive& Ar, TArray<FMeshBone>& A)
 {
-    Ar.CountBytes(A.ArrayNum * sizeof(FMeshBone_), A.ArrayMax * sizeof(FMeshBone_));
+    Ar.CountBytes(A.ArrayNum * sizeof(FMeshBone), A.ArrayMax * sizeof(FMeshBone));
     if (Ar.IsLoading())
     {
         INT NewNum;
@@ -69,7 +47,7 @@ FArchive& operator<<(FArchive& Ar, TArray<FMeshBone_>& A)
         A.Empty(NewNum);
         for (INT i = 0; i < NewNum; i++)
         {
-            Ar << *::new(A) FMeshBone_;
+            Ar << *::new(A) FMeshBone;
         }
     }
     else

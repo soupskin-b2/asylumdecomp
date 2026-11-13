@@ -120,6 +120,27 @@ extern "C" void* __cdecl memmove(void* Dest, const void* Src, unsigned int Count
 #endif
 inline void* appMemmove(void* Dest, const void* Src, INT Count) { return memmove(Dest, Src, Count); }
 
+/* UnVcWin32.h: the string functions are the C library's wide ones */
+#define appStrcpy   wcscpy
+#define appStrcat   wcscat
+#define appStrlen   wcslen
+#define appStrstr   wcsstr
+#define appStrchr   wcschr
+#define appStrrchr  wcsrchr
+#define appStrcmp   wcscmp
+#define appStricmp  _wcsicmp
+#define appStrncmp  wcsncmp
+#define appStrnicmp _wcsnicmp
+#define appAtoi     _wtoi
+#define appAtof     _wtof
+#define appStrtoi   wcstoul
+#define appToUpper  towupper
+#define appToLower  towlower
+DWORD appStrihash(const TCHAR* Data); /* 0x0053e7c0 */
+#ifndef MAXINT
+#define MAXINT 0x7fffffff
+#endif
+
 /* 0053d240 DefaultCalculateSlack(NumElements, NumAllocatedElements, BytesPerElement);
  * 00627f00 appMemswap(A, B, Size). */
 INT   sub_0053d240(INT NumElements, INT NumAllocatedElements, UINT BytesPerElement);

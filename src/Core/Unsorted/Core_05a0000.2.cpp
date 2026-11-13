@@ -214,7 +214,6 @@ void UObject::execLen(FFrame& Stack, RESULT_DECL)
 	*(INT*)Result = S.Len();
 }
 
-#define MAXINT 0x7fffffff
 /* Kit gap: FString::Mid (out of line here, 0x0054dd30). */
 struct FString__005abb50 : public FString
 {

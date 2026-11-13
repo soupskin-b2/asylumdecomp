@@ -30,29 +30,6 @@ bool USkelControlWheel::vf_004()
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
-/* VJointPos (UnSkeletalMesh.h): a bone's reference pose. */
-struct VJointPos
-{
-    FQuat Orientation;
-    FVector Position;
-    FLOAT Length;
-    FLOAT XSize;
-    FLOAT YSize;
-    FLOAT ZSize;
-};
-
-/* FMeshBone as this build has it (0x48 bytes); the kit's FMeshBone has ParentIndex at the wrong offset. */
-struct FMeshBone_
-{
-    FName Name;
-    DWORD Flags;
-    VJointPos BonePos;
-    INT ParentIndex;      /* 0x38 */
-    INT NumChildren;
-    INT Depth;
-    FColor BoneColor;
-};
-
 /* TArray<INT> with its out-of-line Add (0x00540c80); Reset() is a bare ArrayNum = 0 in this build. */
 struct FIntArray : public TArray<INT>
 {
@@ -87,7 +64,7 @@ void USkelControl_CCD_IK::GetAffectedBones(INT BoneIndex, USkeletalMeshComponent
         }
 
         OutBoneIndices(i) = WalkBoneIndex;
-        WalkBoneIndex = ((TArray<FMeshBone_>&)SkelComp->SkeletalMesh->RefSkeleton)(WalkBoneIndex).ParentIndex;
+        WalkBoneIndex = SkelComp->SkeletalMesh->RefSkeleton(WalkBoneIndex).ParentIndex;
     }
 }
 

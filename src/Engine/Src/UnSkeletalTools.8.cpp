@@ -205,29 +205,6 @@ template<class T> struct TArrayAt_ : public TArray<T>
     }
 };
 
-/* VJointPos (UnSkeletalMesh.h): a bone's reference pose. */
-struct VJointPos
-{
-    FQuat Orientation;
-    FVector Position;
-    FLOAT Length;
-    FLOAT XSize;
-    FLOAT YSize;
-    FLOAT ZSize;
-};
-
-/* FMeshBone as this build has it (0x48 bytes); the kit's FMeshBone has ParentIndex at the wrong offset. */
-struct FMeshBone_
-{
-    FName Name;
-    DWORD Flags;
-    VJointPos BonePos;
-    INT ParentIndex;      /* 0x38 */
-    INT NumChildren;
-    INT Depth;
-    FColor BoneColor;
-};
-
 // @baa 0x00d49ed0
 /* whether ParentBoneIndex is an ancestor of ChildBoneIndex */
 UBOOL USkeletalMesh::BoneIsChildOf(INT ChildBoneIndex, INT ParentBoneIndex) const
@@ -238,7 +215,7 @@ UBOOL USkeletalMesh::BoneIsChildOf(INT ChildBoneIndex, INT ParentBoneIndex) cons
         return FALSE;
     }
 
-    INT BoneIndex = ((const TArrayAt_<FMeshBone_>&)RefSkeleton).At(ChildBoneIndex).ParentIndex;
+    INT BoneIndex = ((const TArrayAt_<FMeshBone>&)RefSkeleton).At(ChildBoneIndex).ParentIndex;
     while (TRUE)
     {
         if (BoneIndex == ParentBoneIndex)
@@ -249,7 +226,7 @@ UBOOL USkeletalMesh::BoneIsChildOf(INT ChildBoneIndex, INT ParentBoneIndex) cons
         {
             return FALSE;
         }
-        BoneIndex = ((const TArrayAt_<FMeshBone_>&)RefSkeleton).At(BoneIndex).ParentIndex;
+        BoneIndex = ((const TArrayAt_<FMeshBone>&)RefSkeleton).At(BoneIndex).ParentIndex;
     }
 }
 
@@ -325,7 +302,7 @@ void USkeletalMesh::InitNameIndexMap()
     Map.Empty();
     for (INT i = 0; i < RefSkeleton.Num(); i++)
     {
-        const FName BoneName = ((TArray<FMeshBone_>&)RefSkeleton)(i).Name;
+        const FName BoneName = RefSkeleton(i).Name;
         if (BoneName != NAME_None)
         {
             Map.Set(BoneName, i);

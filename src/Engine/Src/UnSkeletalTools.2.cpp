@@ -48,17 +48,6 @@ inline FArchive& operator<<(FArchive& Ar, FVector& V) { return Ar << V.X << V.Y 
 
 inline FArchive& operator<<(FArchive& Ar, FQuat& F) { return Ar << F.X << F.Y << F.Z << F.W; }
 
-/* VJointPos (UnSkeletalMesh.h): a bone's reference pose. Not in the kit (its FMeshBone has it flattened). */
-struct VJointPos
-{
-    FQuat Orientation;
-    FVector Position;
-    FLOAT Length;
-    FLOAT XSize;
-    FLOAT YSize;
-    FLOAT ZSize;
-};
-
 // @baa 0x00943a60
 FArchive& operator<<(FArchive& Ar, VJointPos& V)
 {

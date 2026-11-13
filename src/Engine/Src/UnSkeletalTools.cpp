@@ -748,17 +748,6 @@ struct FColor_ : public FColor
     FColor_(BYTE InR, BYTE InG, BYTE InB, BYTE InA) { B = InB; G = InG; R = InR; A = InA; }
 };
 
-/* VJointPos (UnSkeletalMesh.h): a bone's reference pose. Not in the kit (its FMeshBone has it flattened). */
-struct VJointPos
-{
-    FQuat Orientation;
-    FVector Position;
-    FLOAT Length;
-    FLOAT XSize;
-    FLOAT YSize;
-    FLOAT ZSize;
-};
-
 FArchive& operator<<(FArchive& Ar, VJointPos& V);
  /* 0x00943a60 */
 inline FArchive& operator<<(FArchive& Ar, FColor& Color) { Ar.ByteOrderSerialize(&Color, sizeof(Color)); return Ar; }
@@ -766,19 +755,8 @@ inline FArchive& operator<<(FArchive& Ar, FColor& Color) { Ar.ByteOrderSerialize
 #define VER_ADDED_BONE_COLOR 0x203 /* name guessed: the package version that added FMeshBone::BoneColor */
 /* FMeshBone as this build has it (UnSkeletalMesh.h, 0x48 bytes). The kit's FMeshBone flattens BonePos
  * without Length/XSize/YSize/ZSize, so its NumChildren and ParentIndex sit at the wrong offsets. */
-struct FMeshBone_
-{
-    FName Name;           /* 0x00 */
-    DWORD Flags;          /* 0x08 */
-    VJointPos BonePos;    /* 0x0c */
-    INT ParentIndex;      /* 0x38 */
-    INT NumChildren;      /* 0x3c */
-    INT Depth;            /* 0x40 */
-    FColor BoneColor;     /* 0x44 */
-};
-
 // @baa 0x00943ad0
-FArchive& operator<<(FArchive& Ar, FMeshBone_& F)
+FArchive& operator<<(FArchive& Ar, FMeshBone& F)
 {
     Ar << F.Name << F.Flags << F.BonePos << F.NumChildren << F.ParentIndex;
     if (Ar.IsLoading() && Ar.Ver() < VER_ADDED_BONE_COLOR)
