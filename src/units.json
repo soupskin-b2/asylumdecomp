@@ -1,9 +1,9 @@
 {
  "note": "Maintained by CI (tools/ci); every file is checked by python tools/asylum unit-check.",
  "totals": {
-  "units": 1444,
-  "files": 5937,
-  "functions": 103357,
+  "units": 1451,
+  "files": 5998,
+  "functions": 103418,
   "failed": 0
  },
  "units": [
@@ -10908,6 +10908,18 @@
      "va": "015cecf0",
      "size": 463,
      "symbol": "??$CastChecked@UURAnimNotify_MeetingPoint@@@@YAPAUURAnimNotify_MeetingPoint@@PAUUObject@@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "BmGame/Src/RAnimUtil_Sequence.cpp",
+   "source": "BmGame/Src/RAnimUtil_Sequence.3.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "015c9e80",
+     "size": 549,
+     "symbol": "?sub_015c9e80@@YA?AUFBoneAtom@@PAUUSkeletalMeshComponent@@ABUFAnimOrigin@@@Z"
     }
    ]
   },
@@ -375687,6 +375699,18 @@
   },
   {
    "unit": "External/CRT/Unsorted/CRT_18c0000.cpp",
+   "source": "External/CRT/Unsorted/CRT_18c0000.6.cpp",
+   "profile": "ue3_x87",
+   "functions": [
+    {
+     "va": "018c7920",
+     "size": 1337,
+     "symbol": "?ReadSourceInterleaved@FUDaeParser@@YAKPAU_xmlNode@@AAV?$pvector@V?$vector@VFMVector3@@$0A@@fm@@@fm@@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "External/CRT/Unsorted/CRT_18c0000.cpp",
    "source": "External/CRT/Unsorted/CRT_18c0000.cpp",
    "profile": "ue3_x87",
    "functions": [
@@ -376069,6 +376093,66 @@
   },
   {
    "unit": "External/FCollada/FCollada/FAXAnimationExport.cpp",
+   "source": "External/FCollada/FCollada/FAXAnimationExport.3.cpp",
+   "profile": "ue3_x87",
+   "functions": [
+    {
+     "va": "018a3ba0",
+     "size": 2882,
+     "symbol": "?WriteSourceFCDAnimationMultiCurve@FArchiveXML@@SAXPAVFCDAnimationMultiCurve@@PAU_xmlNode@@PAPBDABV?$stringT@D@fm@@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "External/FCollada/FCollada/FAXAnimationExport.cpp",
+   "source": "External/FCollada/FCollada/FAXAnimationExport.4.cpp",
+   "profile": "ue3_x87",
+   "functions": [
+    {
+     "va": "018a4f40",
+     "size": 2617,
+     "symbol": "?WriteSourceFCDAnimationCurve@FArchiveXML@@SAXPAVFCDAnimationCurve@@PAU_xmlNode@@ABV?$stringT@D@fm@@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "External/FCollada/FCollada/FAXAnimationExport.cpp",
+   "source": "External/FCollada/FCollada/FAXAnimationExport.5.cpp",
+   "profile": "ue3_x87",
+   "functions": [
+    {
+     "va": "018a6020",
+     "size": 2219,
+     "symbol": "?WriteAnimationChannel@FArchiveXML@@SAPAU_xmlNode@@PAVFCDObject@@PAU2@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "External/FCollada/FCollada/FAXAnimationExport.cpp",
+   "source": "External/FCollada/FCollada/FAXAnimationExport.6.cpp",
+   "profile": "ue3_x87",
+   "functions": [
+    {
+     "va": "018a5980",
+     "size": 1215,
+     "symbol": "?WriteSamplerFCDAnimationCurve@FArchiveXML@@SAPAU_xmlNode@@PAVFCDAnimationCurve@@PAU2@ABV?$stringT@D@fm@@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "External/FCollada/FCollada/FAXAnimationExport.cpp",
+   "source": "External/FCollada/FCollada/FAXAnimationExport.7.cpp",
+   "profile": "ue3_x87",
+   "functions": [
+    {
+     "va": "018a4a90",
+     "size": 1200,
+     "symbol": "?WriteAnimatedValue@FArchiveXML@@SAXPBVFCDAnimated@@PAU_xmlNode@@PBD@Z"
+    }
+   ]
+  },
+  {
+   "unit": "External/FCollada/FCollada/FAXAnimationExport.cpp",
    "source": "External/FCollada/FCollada/FAXAnimationExport.cpp",
    "profile": "ue3",
    "functions": [
@@ -376198,6 +376282,18 @@
      "va": "018babd0",
      "size": 14,
      "symbol": "?sub_018babd0@C_018babd0@@QAEXM@Z"
+    }
+   ]
+  },
+  {
+   "unit": "External/FCollada/FCollada/FAXAnimationImport.cpp",
+   "source": "External/FCollada/FCollada/FAXAnimationImport.3.cpp",
+   "profile": "ue3_x87",
+   "functions": [
+    {
+     "va": "018bba10",
+     "size": 1511,
+     "symbol": "?ProcessChannels@FArchiveXML@@SA_NPAVFCDAnimated@@AAV?$pvector@VFCDAnimationChannel@@@fm@@@Z"
     }
    ]
   },
@@ -376366,6 +376462,18 @@
   },
   {
    "unit": "External/FCollada/FCollada/FAXGeometryExport.cpp",
+   "source": "External/FCollada/FCollada/FAXGeometryExport.2.cpp",
+   "profile": "ue3_x87",
+   "functions": [
+    {
+     "va": "018a9000",
+     "size": 1568,
+     "symbol": "?WriteGeometryPolygons@FArchiveXML@@SAPAU_xmlNode@@PAVFCDObject@@PAU2@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "External/FCollada/FCollada/FAXGeometryExport.cpp",
    "source": "External/FCollada/FCollada/FAXGeometryExport.cpp",
    "profile": "ue3_x87",
    "functions": [
@@ -376410,6 +376518,18 @@
   },
   {
    "unit": "External/FCollada/FCollada/FAXGeometryImport.cpp",
+   "source": "External/FCollada/FCollada/FAXGeometryImport.3.cpp",
+   "profile": "ue3_x87",
+   "functions": [
+    {
+     "va": "018acb00",
+     "size": 4131,
+     "symbol": "?LoadGeometryPolygons@FArchiveXML@@SA_NPAVFCDObject@@PAU_xmlNode@@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "External/FCollada/FCollada/FAXGeometryImport.cpp",
    "source": "External/FCollada/FCollada/FAXGeometryImport.cpp",
    "profile": "ue3",
    "functions": [
@@ -376429,6 +376549,30 @@
      "va": "01811b90",
      "size": 11,
      "symbol": "?sub_01811b90@A@@QAEHXZ"
+    }
+   ]
+  },
+  {
+   "unit": "External/FCollada/FCollada/FAXMaterialImport.cpp",
+   "source": "External/FCollada/FCollada/FAXMaterialImport.2.cpp",
+   "profile": "ue3_x87",
+   "functions": [
+    {
+     "va": "018b7730",
+     "size": 1205,
+     "symbol": "?LoadEffectPassShader@FArchiveXML@@SA_NPAVFCDObject@@PAU_xmlNode@@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "External/FCollada/FCollada/FAXMaterialImport.cpp",
+   "source": "External/FCollada/FCollada/FAXMaterialImport.cpp",
+   "profile": "ue3_x87",
+   "functions": [
+    {
+     "va": "018b6800",
+     "size": 3874,
+     "symbol": "?LoadEffectParameterSurface@FArchiveXML@@SA_NPAVFCDObject@@PAU_xmlNode@@@Z"
     }
    ]
   },
@@ -376506,6 +376650,18 @@
      "va": "0188f110",
      "size": 84,
      "symbol": "?rotateRight@node@?$tree@PBVFUObjectType@@P6APAU_xmlNode@@PAVFCDObject@@PAU2@@Z@fm@@QAEXXZ"
+    }
+   ]
+  },
+  {
+   "unit": "External/FCollada/FCollada/FArchiveXML.cpp",
+   "source": "External/FCollada/FCollada/FArchiveXML.13.cpp",
+   "profile": "ue3_x87",
+   "functions": [
+    {
+     "va": "0189a720",
+     "size": 1123,
+     "symbol": "?LoadAsset@FArchiveXML@@SA_NPAVFCDObject@@PAU_xmlNode@@@Z"
     }
    ]
   },
@@ -378121,6 +378277,18 @@
   },
   {
    "unit": "External/FCollada/FCollada/FCDocument/FCDAnimationCurve.cpp",
+   "source": "External/FCollada/FCollada/FCDocument/FCDAnimationCurve.4.cpp",
+   "profile": "ue3_x87_gsoff",
+   "functions": [
+    {
+     "va": "0182f9e0",
+     "size": 2196,
+     "symbol": "?Evaluate@FCDAnimationCurve@@QBEMM@Z"
+    }
+   ]
+  },
+  {
+   "unit": "External/FCollada/FCollada/FCDocument/FCDAnimationCurve.cpp",
    "source": "External/FCollada/FCollada/FCDocument/FCDAnimationCurve.cpp",
    "profile": "ue3_x87_gsoff",
    "functions": [
@@ -378140,6 +378308,18 @@
      "va": "01885500",
      "size": 34,
      "symbol": "?sub_01885500@C@@QAEXXZ"
+    }
+   ]
+  },
+  {
+   "unit": "External/FCollada/FCollada/FCDocument/FCDEffectPassState.cpp",
+   "source": "External/FCollada/FCollada/FCDocument/FCDEffectPassState.cpp",
+   "profile": "ue3_x87_gsoff",
+   "functions": [
+    {
+     "va": "0188dfd0",
+     "size": 1432,
+     "symbol": "?SetDefaultValue@FCDEffectPassState@@QAEXXZ"
     }
    ]
   },
@@ -378197,6 +378377,30 @@
      "va": "018707a0",
      "size": 25,
      "symbol": "??0FCDTexture@@QAE@XZ"
+    }
+   ]
+  },
+  {
+   "unit": "External/FCollada/FCollada/FCDocument/FCDEffectStandard.cpp",
+   "source": "External/FCollada/FCollada/FCDocument/FCDEffectStandard.3.cpp",
+   "profile": "ue3_x87_gsoff",
+   "functions": [
+    {
+     "va": "0186ee50",
+     "size": 1912,
+     "symbol": "??0FCDEffectStandard@@QAE@PAVFCDocument@@PAVFCDEffect@@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "External/FCollada/FCollada/FCDocument/FCDEffectStandard.cpp",
+   "source": "External/FCollada/FCollada/FCDocument/FCDEffectStandard.4.cpp",
+   "profile": "ue3_x87_gsoff",
+   "functions": [
+    {
+     "va": "0186fb80",
+     "size": 1299,
+     "symbol": "?Clone@FCDEffectStandard@@UBEPAVFCDEffectProfile@@PAV2@@Z"
     }
    ]
   },
@@ -378698,6 +378902,18 @@
    ]
   },
   {
+   "unit": "External/FCollada/FCollada/FCDocument/FCDLightTools.cpp",
+   "source": "External/FCollada/FCollada/FCDocument/FCDLightTools.cpp",
+   "profile": "ue3_x87_gsoff",
+   "functions": [
+    {
+     "va": "01873930",
+     "size": 1135,
+     "symbol": "?Evaluate@FCDAnimationMultiCurve@@QBEXMPAM@Z"
+    }
+   ]
+  },
+  {
    "unit": "External/FCollada/FCollada/FCDocument/FCDObjectWithId.cpp",
    "source": "External/FCollada/FCollada/FCDocument/FCDObjectWithId.2.cpp",
    "profile": "ue3_x87_gsoff",
@@ -378955,6 +379171,18 @@
   },
   {
    "unit": "External/FCollada/FCollada/FMath/FMArrayTest.cpp",
+   "source": "External/FCollada/FCollada/FMath/FMArrayTest.3.cpp",
+   "profile": "ue3_x87_gsoff",
+   "functions": [
+    {
+     "va": "0186cb20",
+     "size": 2129,
+     "symbol": "?RunTest@FUTestSuiteFMArray@@UAE_NAAVFUTestBed@@AAVFULogFile@@AA_NI@Z"
+    }
+   ]
+  },
+  {
+   "unit": "External/FCollada/FCollada/FMath/FMArrayTest.cpp",
    "source": "External/FCollada/FCollada/FMath/FMArrayTest.cpp",
    "profile": "ue3",
    "functions": [
@@ -379037,6 +379265,18 @@
      "va": "01868d70",
      "size": 51,
      "symbol": "?Length@FMVector4@@QAEMXZ"
+    }
+   ]
+  },
+  {
+   "unit": "External/FCollada/FCollada/FMath/FMQuaternionTest.cpp",
+   "source": "External/FCollada/FCollada/FMath/FMQuaternionTest.7.cpp",
+   "profile": "ue3_x87_gsoff",
+   "functions": [
+    {
+     "va": "01868f10",
+     "size": 4017,
+     "symbol": "?RunTest@FUTestSuiteFMQuaternion@@UAE_NAAVFUTestBed@@AAVFULogFile@@AA_NI@Z"
     }
    ]
   },
@@ -379163,6 +379403,18 @@
      "va": "0186a480",
      "size": 13,
      "symbol": "?sub_0186a480@C_0186a480@@QAEPAU1@XZ"
+    }
+   ]
+  },
+  {
+   "unit": "External/FCollada/FCollada/FMath/FMTreeTest.cpp",
+   "source": "External/FCollada/FCollada/FMath/FMTreeTest.4.cpp",
+   "profile": "ue3_x87_gsoff",
+   "functions": [
+    {
+     "va": "0186b270",
+     "size": 4839,
+     "symbol": "?RunTest@FUTestSuiteFMTree@@UAE_NAAVFUTestBed@@AAVFULogFile@@AA_NI@Z"
     }
    ]
   },
@@ -379297,6 +379549,18 @@
      "va": "01879400",
      "size": 1,
      "symbol": "?sub_01879400@@YAXXZ"
+    }
+   ]
+  },
+  {
+   "unit": "External/FCollada/FCollada/FUtils/FUBoundingTest.cpp",
+   "source": "External/FCollada/FCollada/FUtils/FUBoundingTest.3.cpp",
+   "profile": "ue3_x87_gsoff",
+   "functions": [
+    {
+     "va": "0185e6b0",
+     "size": 4725,
+     "symbol": "?RunTest@FUTestSuiteFUBoundingTest@@UAE_NAAVFUTestBed@@AAVFULogFile@@AA_NI@Z"
     }
    ]
   },
@@ -379654,6 +379918,18 @@
      "va": "01863ba0",
      "size": 25,
      "symbol": "??0FUFunctor1_01863ba0@@QAE@PAUFUTAntisocialCallee@@PAUFUTDumbCaller@@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "External/FCollada/FCollada/FUtils/FUEventTest.cpp",
+   "source": "External/FCollada/FCollada/FUtils/FUEventTest.5.cpp",
+   "profile": "ue3_x87_gsoff",
+   "functions": [
+    {
+     "va": "01864be0",
+     "size": 1642,
+     "symbol": "?RunTest@FUTestSuiteFUEvent@@UAE_NAAVFUTestBed@@AAVFULogFile@@AA_NI@Z"
     }
    ]
   },
@@ -380070,6 +380346,18 @@
    ]
   },
   {
+   "unit": "External/FCollada/FCollada/FUtils/FUFileManagerTest.cpp",
+   "source": "External/FCollada/FCollada/FUtils/FUFileManagerTest.cpp",
+   "profile": "ue3_x87_gsoff",
+   "functions": [
+    {
+     "va": "0185f9a0",
+     "size": 9096,
+     "symbol": "?RunTest@FUTestSuiteFUFileManager@@UAE_NAAVFUTestBed@@AAVFULogFile@@AA_NI@Z"
+    }
+   ]
+  },
+  {
    "unit": "External/FCollada/FCollada/FUtils/FUFunctorTest.cpp",
    "source": "External/FCollada/FCollada/FUtils/FUFunctorTest.2.cpp",
    "profile": "ue3_x87",
@@ -380140,6 +380428,18 @@
      "va": "018655b0",
      "size": 25,
      "symbol": "?sub_018655b0@FUFunctor1LL@@QAEPAU1@JJ@Z"
+    }
+   ]
+  },
+  {
+   "unit": "External/FCollada/FCollada/FUtils/FUFunctorTest.cpp",
+   "source": "External/FCollada/FCollada/FUtils/FUFunctorTest.4.cpp",
+   "profile": "ue3_x87_gsoff",
+   "functions": [
+    {
+     "va": "01865a70",
+     "size": 1961,
+     "symbol": "?RunTest@FUTestSuiteFUFunctor@@UAE_NAAVFUTestBed@@AAVFULogFile@@AA_NI@Z"
     }
    ]
   },
@@ -380436,6 +380736,18 @@
   },
   {
    "unit": "External/FCollada/FCollada/FUtils/FUObjectTest.cpp",
+   "source": "External/FCollada/FCollada/FUtils/FUObjectTest.9.cpp",
+   "profile": "ue3_x87_gsoff",
+   "functions": [
+    {
+     "va": "018678a0",
+     "size": 5108,
+     "symbol": "?RunTest@FUTestSuiteFUObject@@UAE_NAAVFUTestBed@@AAVFULogFile@@AA_NI@Z"
+    }
+   ]
+  },
+  {
+   "unit": "External/FCollada/FCollada/FUtils/FUObjectTest.cpp",
    "source": "External/FCollada/FCollada/FUtils/FUObjectTest.cpp",
    "profile": "ue3",
    "functions": [
@@ -380564,6 +380876,42 @@
    ]
   },
   {
+   "unit": "External/FCollada/FCollada/FUtils/FUStringBuilderTest.cpp",
+   "source": "External/FCollada/FCollada/FUtils/FUStringBuilderTest.cpp",
+   "profile": "ue3_x87_gsoff",
+   "functions": [
+    {
+     "va": "0187d060",
+     "size": 2023,
+     "symbol": "?RunTest@FUTestSuiteFUStringBuilder@@UAE_NAAVFUTestBed@@AAVFULogFile@@AA_NI@Z"
+    }
+   ]
+  },
+  {
+   "unit": "External/FCollada/FCollada/FUtils/FUStringConversionTest.cpp",
+   "source": "External/FCollada/FCollada/FUtils/FUStringConversionTest.cpp",
+   "profile": "ue3_x87_gsoff",
+   "functions": [
+    {
+     "va": "0187c5a0",
+     "size": 2540,
+     "symbol": "?RunTest@FUTestSuiteFUStringConversion@@UAE_NAAVFUTestBed@@AAVFULogFile@@AA_NI@Z"
+    }
+   ]
+  },
+  {
+   "unit": "External/FCollada/FCollada/FUtils/FUStringTest.cpp",
+   "source": "External/FCollada/FCollada/FUtils/FUStringTest.cpp",
+   "profile": "ue3_x87_gsoff",
+   "functions": [
+    {
+     "va": "01861e20",
+     "size": 5332,
+     "symbol": "?RunTest@FUTestSuiteFUString@@UAE_NAAVFUTestBed@@AAVFULogFile@@AA_NI@Z"
+    }
+   ]
+  },
+  {
    "unit": "External/FCollada/FCollada/FUtils/FUUniqueStringMapTest.cpp",
    "source": "External/FCollada/FCollada/FUtils/FUUniqueStringMapTest.2.cpp",
    "profile": "ue3_x87",
@@ -380572,6 +380920,18 @@
      "va": "01823f80",
      "size": 26,
      "symbol": "?sub_01823f80@C@@QAEXI@Z"
+    }
+   ]
+  },
+  {
+   "unit": "External/FCollada/FCollada/FUtils/FUUniqueStringMapTest.cpp",
+   "source": "External/FCollada/FCollada/FUtils/FUUniqueStringMapTest.3.cpp",
+   "profile": "ue3_x87_gsoff",
+   "functions": [
+    {
+     "va": "0187a220",
+     "size": 8257,
+     "symbol": "?RunTest@FUTestSuiteFUUniqueStringMap@@UAE_NAAVFUTestBed@@AAVFULogFile@@AA_NI@Z"
     }
    ]
   },
@@ -381841,6 +382201,18 @@
   },
   {
    "unit": "External/FCollada/Unsorted/FCollada_1810000.cpp",
+   "source": "External/FCollada/Unsorted/FCollada_1810000.10.cpp",
+   "profile": "ue3_x87_gsoff",
+   "functions": [
+    {
+     "va": "01812960",
+     "size": 1762,
+     "symbol": "??0FCDocument@@QAE@XZ"
+    }
+   ]
+  },
+  {
+   "unit": "External/FCollada/Unsorted/FCollada_1810000.cpp",
    "source": "External/FCollada/Unsorted/FCollada_1810000.2.cpp",
    "profile": "ue3_x87_gsoff",
    "functions": [
@@ -382285,6 +382657,18 @@
      "va": "01817860",
      "size": 25,
      "symbol": "?sub_01817860@S01817860@@QAEHXZ"
+    }
+   ]
+  },
+  {
+   "unit": "External/FCollada/Unsorted/FCollada_1810000.cpp",
+   "source": "External/FCollada/Unsorted/FCollada_1810000.9.cpp",
+   "profile": "ue3_x87_gsoff",
+   "functions": [
+    {
+     "va": "01812220",
+     "size": 1846,
+     "symbol": "??1FCDocument@@UAE@XZ"
     }
    ]
   },
@@ -385432,6 +385816,18 @@
   },
   {
    "unit": "External/FCollada/Unsorted/FCollada_1830000.cpp",
+   "source": "External/FCollada/Unsorted/FCollada_1830000.27.cpp",
+   "profile": "ue3_x87_gsoff",
+   "functions": [
+    {
+     "va": "0183f8e0",
+     "size": 1081,
+     "symbol": "?SetSubId@FCDSceneNode@@QAEXABV?$stringT@D@fm@@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "External/FCollada/Unsorted/FCollada_1830000.cpp",
    "source": "External/FCollada/Unsorted/FCollada_1830000.3.cpp",
    "profile": "ue3_x87",
    "functions": [
@@ -386900,6 +387296,30 @@
      "va": "0184b3b0",
      "size": 101,
      "symbol": "?Transpose@FMMatrix44@@QAEXABU1@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "External/FCollada/Unsorted/FCollada_1840000.cpp",
+   "source": "External/FCollada/Unsorted/FCollada_1840000.25.cpp",
+   "profile": "ue3_x87_gsoff",
+   "functions": [
+    {
+     "va": "01849920",
+     "size": 2791,
+     "symbol": "?MergeCurves@FCDAnimationCurveTools@@YAPAVFCDAnimationMultiCurve@@ABV?$pvector@$$CBVFCDAnimationCurve@@@fm@@ABV?$vector@M$00@4@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "External/FCollada/Unsorted/FCollada_1840000.cpp",
+   "source": "External/FCollada/Unsorted/FCollada_1840000.26.cpp",
+   "profile": "ue3_x87_gsoff",
+   "functions": [
+    {
+     "va": "0184e9f0",
+     "size": 1779,
+     "symbol": "?GenerateSampledAnimation@FCDSceneNodeTools@@YAXPAVFCDSceneNode@@@Z"
     }
    ]
   },
@@ -388470,6 +388890,18 @@
      "va": "0185bcf0",
      "size": 25,
      "symbol": "??0FUObjectContainer@@QAE@XZ"
+    }
+   ]
+  },
+  {
+   "unit": "External/FCollada/Unsorted/FCollada_1850000.cpp",
+   "source": "External/FCollada/Unsorted/FCollada_1850000.21.cpp",
+   "profile": "ue3_x87_gsoff",
+   "functions": [
+    {
+     "va": "01855f10",
+     "size": 1243,
+     "symbol": "?MakeAbsolute@FUUri@@QBEXAAV1@@Z"
     }
    ]
   },
@@ -394329,6 +394761,42 @@
   },
   {
    "unit": "External/FCollada/Unsorted/FCollada_1890000.cpp",
+   "source": "External/FCollada/Unsorted/FCollada_1890000.4.cpp",
+   "profile": "ue3_x87",
+   "functions": [
+    {
+     "va": "0189f8d0",
+     "size": 1844,
+     "symbol": "?WriteEffectParameterSurface@FArchiveXML@@SAPAU_xmlNode@@PAVFCDObject@@PAU2@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "External/FCollada/Unsorted/FCollada_1890000.cpp",
+   "source": "External/FCollada/Unsorted/FCollada_1890000.5.cpp",
+   "profile": "ue3_x87",
+   "functions": [
+    {
+     "va": "0189bd60",
+     "size": 1464,
+     "symbol": "?WriteLight@FArchiveXML@@SAPAU_xmlNode@@PAVFCDObject@@PAU2@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "External/FCollada/Unsorted/FCollada_1890000.cpp",
+   "source": "External/FCollada/Unsorted/FCollada_1890000.6.cpp",
+   "profile": "ue3_x87",
+   "functions": [
+    {
+     "va": "0189daf0",
+     "size": 1268,
+     "symbol": "?WritePhysicsRigidConstraint@FArchiveXML@@SAPAU_xmlNode@@PAVFCDObject@@PAU2@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "External/FCollada/Unsorted/FCollada_1890000.cpp",
    "source": "External/FCollada/Unsorted/FCollada_1890000.cpp",
    "profile": "ue3",
    "functions": [
@@ -394971,6 +395439,18 @@
   },
   {
    "unit": "External/FCollada/Unsorted/FCollada_18a0000.cpp",
+   "source": "External/FCollada/Unsorted/FCollada_18a0000.10.cpp",
+   "profile": "ue3_x87",
+   "functions": [
+    {
+     "va": "018a7bd0",
+     "size": 1805,
+     "symbol": "?WriteSkinController@FArchiveXML@@SAPAU_xmlNode@@PAVFCDObject@@PAU2@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "External/FCollada/Unsorted/FCollada_18a0000.cpp",
    "source": "External/FCollada/Unsorted/FCollada_18a0000.2.cpp",
    "profile": "ue3_x87",
    "functions": [
@@ -395125,6 +395605,78 @@
      "va": "018aecc0",
      "size": 14,
      "symbol": "?sub_018aecc0@C_018aecc0@@QAEPAU1@PAM@Z"
+    }
+   ]
+  },
+  {
+   "unit": "External/FCollada/Unsorted/FCollada_18a0000.cpp",
+   "source": "External/FCollada/Unsorted/FCollada_18a0000.4.cpp",
+   "profile": "ue3_x87",
+   "functions": [
+    {
+     "va": "018a1220",
+     "size": 3428,
+     "symbol": "?WriteEffectPassState@FArchiveXML@@SAPAU_xmlNode@@PAVFCDObject@@PAU2@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "External/FCollada/Unsorted/FCollada_18a0000.cpp",
+   "source": "External/FCollada/Unsorted/FCollada_18a0000.5.cpp",
+   "profile": "ue3_x87",
+   "functions": [
+    {
+     "va": "018adb30",
+     "size": 2306,
+     "symbol": "?LoadGeometryMesh@FArchiveXML@@SA_NPAVFCDObject@@PAU_xmlNode@@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "External/FCollada/Unsorted/FCollada_18a0000.cpp",
+   "source": "External/FCollada/Unsorted/FCollada_18a0000.6.cpp",
+   "profile": "ue3_x87",
+   "functions": [
+    {
+     "va": "018afad0",
+     "size": 2151,
+     "symbol": "?LoadPhysicsRigidBodyParameters@FArchiveXML@@SA_NPAVFCDPhysicsRigidBodyParameters@@PAU_xmlNode@@0@Z"
+    }
+   ]
+  },
+  {
+   "unit": "External/FCollada/Unsorted/FCollada_18a0000.cpp",
+   "source": "External/FCollada/Unsorted/FCollada_18a0000.7.cpp",
+   "profile": "ue3_x87",
+   "functions": [
+    {
+     "va": "018ab220",
+     "size": 2105,
+     "symbol": "?LoadLight@FArchiveXML@@SA_NPAVFCDObject@@PAU_xmlNode@@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "External/FCollada/Unsorted/FCollada_18a0000.cpp",
+   "source": "External/FCollada/Unsorted/FCollada_18a0000.8.cpp",
+   "profile": "ue3_x87",
+   "functions": [
+    {
+     "va": "018aa910",
+     "size": 1691,
+     "symbol": "?WriteSceneNode@FArchiveXML@@SAPAU_xmlNode@@PAVFCDObject@@PAU2@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "External/FCollada/Unsorted/FCollada_18a0000.cpp",
+   "source": "External/FCollada/Unsorted/FCollada_18a0000.9.cpp",
+   "profile": "ue3_x87",
+   "functions": [
+    {
+     "va": "018af540",
+     "size": 1418,
+     "symbol": "?LoadPhysicsShape@FArchiveXML@@SA_NPAVFCDObject@@PAU_xmlNode@@@Z"
     }
    ]
   },
@@ -395517,6 +396069,18 @@
   },
   {
    "unit": "External/FCollada/Unsorted/FCollada_18b0000.cpp",
+   "source": "External/FCollada/Unsorted/FCollada_18b0000.10.cpp",
+   "profile": "ue3_x87",
+   "functions": [
+    {
+     "va": "018ba360",
+     "size": 1021,
+     "symbol": "?LoadCamera@FArchiveXML@@SA_NPAVFCDObject@@PAU_xmlNode@@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "External/FCollada/Unsorted/FCollada_18b0000.cpp",
    "source": "External/FCollada/Unsorted/FCollada_18b0000.2.cpp",
    "profile": "ue3_x87",
    "functions": [
@@ -395694,6 +396258,90 @@
   },
   {
    "unit": "External/FCollada/Unsorted/FCollada_18b0000.cpp",
+   "source": "External/FCollada/Unsorted/FCollada_18b0000.3.cpp",
+   "profile": "ue3_x87",
+   "functions": [
+    {
+     "va": "018bc1e0",
+     "size": 7213,
+     "symbol": "?LoadAnimationChannel@FArchiveXML@@SA_NPAVFCDObject@@PAU_xmlNode@@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "External/FCollada/Unsorted/FCollada_18b0000.cpp",
+   "source": "External/FCollada/Unsorted/FCollada_18b0000.4.cpp",
+   "profile": "ue3_x87",
+   "functions": [
+    {
+     "va": "018b23f0",
+     "size": 6964,
+     "symbol": "?LoadEffectPassState@FArchiveXML@@SA_NPAVFCDObject@@PAU_xmlNode@@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "External/FCollada/Unsorted/FCollada_18b0000.cpp",
+   "source": "External/FCollada/Unsorted/FCollada_18b0000.5.cpp",
+   "profile": "ue3_x87",
+   "functions": [
+    {
+     "va": "018b8d60",
+     "size": 5549,
+     "symbol": "?LoadEffectStandard@FArchiveXML@@SA_NPAVFCDObject@@PAU_xmlNode@@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "External/FCollada/Unsorted/FCollada_18b0000.cpp",
+   "source": "External/FCollada/Unsorted/FCollada_18b0000.6.cpp",
+   "profile": "ue3_x87",
+   "functions": [
+    {
+     "va": "018b0430",
+     "size": 3287,
+     "symbol": "?LoadPhysicsRigidConstraint@FArchiveXML@@SA_NPAVFCDObject@@PAU_xmlNode@@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "External/FCollada/Unsorted/FCollada_18b0000.cpp",
+   "source": "External/FCollada/Unsorted/FCollada_18b0000.7.cpp",
+   "profile": "ue3_x87",
+   "functions": [
+    {
+     "va": "018b5be0",
+     "size": 1654,
+     "symbol": "?LoadEffectParameter@FArchiveXML@@SA_NPAVFCDObject@@PAU_xmlNode@@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "External/FCollada/Unsorted/FCollada_18b0000.cpp",
+   "source": "External/FCollada/Unsorted/FCollada_18b0000.8.cpp",
+   "profile": "ue3_x87",
+   "functions": [
+    {
+     "va": "018b41c0",
+     "size": 1490,
+     "symbol": "?GetEffectParameterType@FArchiveXML@@SAKPAU_xmlNode@@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "External/FCollada/Unsorted/FCollada_18b0000.cpp",
+   "source": "External/FCollada/Unsorted/FCollada_18b0000.9.cpp",
+   "profile": "ue3_x87",
+   "functions": [
+    {
+     "va": "018be7d0",
+     "size": 1185,
+     "symbol": "?LoadMaterialInstance@FArchiveXML@@SA_NPAVFCDObject@@PAU_xmlNode@@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "External/FCollada/Unsorted/FCollada_18b0000.cpp",
    "source": "External/FCollada/Unsorted/FCollada_18b0000.cpp",
    "profile": "ue3",
    "functions": [
@@ -395818,6 +396466,78 @@
      "va": "018c15e0",
      "size": 14,
      "symbol": "?sub_018c15e0@C_018c15e0@@QAEPAU1@PAM@Z"
+    }
+   ]
+  },
+  {
+   "unit": "External/FCollada/Unsorted/FCollada_18c0000.cpp",
+   "source": "External/FCollada/Unsorted/FCollada_18c0000.3.cpp",
+   "profile": "ue3_x87",
+   "functions": [
+    {
+     "va": "018c0180",
+     "size": 3028,
+     "symbol": "?LoadSkinController@FArchiveXML@@SA_NPAVFCDObject@@PAU_xmlNode@@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "External/FCollada/Unsorted/FCollada_18c0000.cpp",
+   "source": "External/FCollada/Unsorted/FCollada_18c0000.4.cpp",
+   "profile": "ue3_x87",
+   "functions": [
+    {
+     "va": "018c1fa0",
+     "size": 1638,
+     "symbol": "?LoadFromExtraSceneNode@FArchiveXML@@SA_NPAVFCDSceneNode@@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "External/FCollada/Unsorted/FCollada_18c0000.cpp",
+   "source": "External/FCollada/Unsorted/FCollada_18c0000.5.cpp",
+   "profile": "ue3_x87",
+   "functions": [
+    {
+     "va": "018c0d60",
+     "size": 1310,
+     "symbol": "?LoadMorphController@FArchiveXML@@SA_NPAVFCDObject@@PAU_xmlNode@@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "External/FCollada/Unsorted/FCollada_18c0000.cpp",
+   "source": "External/FCollada/Unsorted/FCollada_18c0000.6.cpp",
+   "profile": "ue3_x87",
+   "functions": [
+    {
+     "va": "018c7460",
+     "size": 1215,
+     "symbol": "?ReadSourceInterleaved@FUDaeParser@@YAKPAU_xmlNode@@AAV?$pvector@V?$vector@VFMVector2@@$0A@@fm@@@fm@@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "External/FCollada/Unsorted/FCollada_18c0000.cpp",
+   "source": "External/FCollada/Unsorted/FCollada_18c0000.7.cpp",
+   "profile": "ue3_x87",
+   "functions": [
+    {
+     "va": "018c27a0",
+     "size": 1081,
+     "symbol": "?LoadEntity@FArchiveXML@@SA_NPAVFCDObject@@PAU_xmlNode@@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "External/FCollada/Unsorted/FCollada_18c0000.cpp",
+   "source": "External/FCollada/Unsorted/FCollada_18c0000.8.cpp",
+   "profile": "ue3_x87",
+   "functions": [
+    {
+     "va": "018c2be0",
+     "size": 1001,
+     "symbol": "?LoadSceneNode@FArchiveXML@@SA_NPAVFCDObject@@PAU_xmlNode@@@Z"
     }
    ]
   },
@@ -397381,6 +398101,18 @@
      "va": "01c17370",
      "size": 24,
      "symbol": "?sub_01c17370@@YAPAUXMLBuffer@@PAU1@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "External/FCollada/Unsorted/FCollada_1c10000.cpp",
+   "source": "External/FCollada/Unsorted/FCollada_1c10000.6.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "01c12c00",
+     "size": 2917,
+     "symbol": "?FromString@FUDaePassState@@YA?AW4State@1@PBD@Z"
     }
    ]
   },

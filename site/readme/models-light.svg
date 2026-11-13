@@ -9,16 +9,16 @@
 <text x="860" y="50" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">571 KB</text>
 <text x="0" y="80" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">Claude Fable 5.2</text>
 <rect x="292" y="70" width="478" height="10" fill="#eaeef2" stroke="#d1d9e0"/>
-<rect x="292" y="70" width="59.1368" height="10" fill="#1f2328"/>
-<text x="860" y="80" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">418 KB</text>
+<rect x="292" y="70" width="80.5661" height="10" fill="#1f2328"/>
+<text x="860" y="80" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">569 KB</text>
 <text x="0" y="110" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">DeepSeek V4.1 Flash</text>
 <rect x="292" y="100" width="478" height="10" fill="#eaeef2" stroke="#d1d9e0"/>
 <rect x="292" y="100" width="15.3655" height="10" fill="#1f2328"/>
 <text x="860" y="110" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">109 KB</text>
 <text x="0" y="140" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">GPT-6.1 Sol</text>
 <rect x="292" y="130" width="478" height="10" fill="#eaeef2" stroke="#d1d9e0"/>
-<rect x="292" y="130" width="6.66209" height="10" fill="#1f2328"/>
-<text x="860" y="140" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">47 KB</text>
+<rect x="292" y="130" width="6.73796" height="10" fill="#1f2328"/>
+<text x="860" y="140" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">48 KB</text>
 <text x="0" y="170" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">Qwen3.8 27B</text>
 <rect x="292" y="160" width="478" height="10" fill="#eaeef2" stroke="#d1d9e0"/>
 <rect x="292" y="160" width="5.42644" height="10" fill="#1f2328"/>
