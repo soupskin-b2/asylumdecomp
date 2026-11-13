@@ -1,4 +1,4 @@
-// UnParticleComponents.cpp: 19 functions
+// UnParticleComponents.cpp: 20 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -181,4 +181,13 @@ void UParticleSystemComponent::execSetBeamTargetTangent(FFrame& Stack, RESULT_DE
 	P_GET_INT(SourceIndex);
 	P_FINISH;
 	SetBeamTargetTangent(EmitterIndex, NewPoint, SourceIndex);
+}
+
+// @baa 0x00c9d300
+void UParticleSystemComponent::execSetBeamEndPoint(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(EmitterIndex);
+	P_GET_STRUCT(FVector, NewEndPoint);
+	P_FINISH;
+	SetBeamEndPoint(EmitterIndex, NewEndPoint);
 }

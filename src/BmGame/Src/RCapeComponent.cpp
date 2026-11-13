@@ -1,4 +1,4 @@
-// RCapeComponent.cpp (part 1 of 2): 80 functions
+// RCapeComponent.cpp (part 1 of 2): 81 functions
 // Placed here by: neighbours 22, file 19, class 12, callers 8.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -723,4 +723,11 @@ FLOAT URCapeComponent__016b20a0::sub_016b20a0()
     if (P != 0 && *(int*)(P + 0x440) != 0)
         return *(FLOAT*)(*(int*)(P + 0x440) + 0x2fd8);
     return 0.0f;
+}
+
+// @baa 0x016ae830
+/* Forwards to the cape's animation node. */
+FLOAT URCapeComponent::sub_016ae830(FName Name)
+{
+	return CapeAnimNode->sub_01562440(Name);
 }

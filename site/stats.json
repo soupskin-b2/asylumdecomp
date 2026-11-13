@@ -1,55 +1,55 @@
 {
- "updated": "2026-11-12",
+ "updated": "2026-11-13",
  "functions": {
   "total": 174166,
-  "matched": 104111
+  "matched": 104310
  },
  "bytes": {
   "total": 24308119,
-  "matched": 4631716
+  "matched": 4656596
  },
  "areas": [
   {
    "name": "Engine",
    "functions": 69863,
    "bytes": 9201956,
-   "matched": 44048,
-   "matched_bytes": 2221323
+   "matched": 44092,
+   "matched_bytes": 2227741
   },
   {
    "name": "Editor",
    "functions": 42961,
    "bytes": 8040643,
-   "matched": 24407,
-   "matched_bytes": 907675
+   "matched": 24413,
+   "matched_bytes": 907917
   },
   {
    "name": "External",
    "functions": 29410,
    "bytes": 3194268,
-   "matched": 12128,
-   "matched_bytes": 209817
+   "matched": 12130,
+   "matched_bytes": 214657
   },
   {
    "name": "Game",
    "functions": 13563,
    "bytes": 1853804,
-   "matched": 10565,
-   "matched_bytes": 658391
+   "matched": 10572,
+   "matched_bytes": 659688
   },
   {
    "name": "Core",
    "functions": 12072,
    "bytes": 1275961,
-   "matched": 8525,
-   "matched_bytes": 385263
+   "matched": 8662,
+   "matched_bytes": 396972
   },
   {
    "name": "CommonGame",
    "functions": 1422,
    "bytes": 173518,
-   "matched": 1048,
-   "matched_bytes": 50531
+   "matched": 1049,
+   "matched_bytes": 50707
   },
   {
    "name": "Unsorted",
@@ -62,8 +62,8 @@
    "name": "FMod",
    "functions": 1472,
    "bytes": 150189,
-   "matched": 920,
-   "matched_bytes": 27939
+   "matched": 922,
+   "matched_bytes": 28137
   },
   {
    "name": "CommonEditor",
@@ -97,14 +97,14 @@
  "contributors": [
   {
    "login": "soupskin-b2",
-   "functions": 104102,
-   "bytes": 4631096,
+   "functions": 104301,
+   "bytes": 4655976,
    "models": {
     "Tooling": 94456,
-    "Claude Opus 5.5": 3924,
+    "Claude Opus 5.5": 3978,
     "DeepSeek V4.1 Flash": 2167,
     "Qwen3.8 27B": 1935,
-    "Claude Fable 5.2": 898,
+    "Claude Fable 5.2": 1043,
     "GPT-6.1 Sol": 297,
     "Muse Spark 1.3": 240,
     "DeepSeek V4.1 Flash (Freebuff)": 78,
@@ -124,13 +124,13 @@
   },
   {
    "model": "Claude Opus 5.5",
-   "functions": 3924,
-   "bytes": 553809
+   "functions": 3978,
+   "bytes": 559784
   },
   {
    "model": "Claude Fable 5.2",
-   "functions": 898,
-   "bytes": 385180
+   "functions": 1043,
+   "bytes": 404085
   },
   {
    "model": "DeepSeek V4.1 Flash",

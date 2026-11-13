@@ -1,4 +1,4 @@
-// UnUIObjects.cpp: 2 functions
+// UnUIObjects.cpp: 3 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -46,4 +46,11 @@ UUIScene* UUIScene::GetPreviousScene(UBOOL bRequireMatchingPlayerOwner, UBOOL bI
             bRequireMatchingPlayerOwner, bIgnoreUnfocusedScenes);
     }
     return Result;
+}
+
+// @baa 0x00da9a10
+/* The current world's WorldInfo, if there is a world. */
+AWorldInfo* UUIScene::sub_00da9a10()
+{
+	return GWorld ? GWorld->GetWorldInfo() : NULL;
 }

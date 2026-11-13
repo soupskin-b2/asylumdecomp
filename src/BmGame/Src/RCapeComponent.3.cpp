@@ -1,4 +1,4 @@
-// RCapeComponent.cpp: 27 functions
+// RCapeComponent.cpp: 28 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -374,4 +374,19 @@ void URCapeComponent::execStartCapeInState(FFrame& Stack, RESULT_DECL)
 	P_GET_BYTE_OPTX(MirroredType, 0);
 	P_FINISH;
 	((URCapeComponent__01702310*)this)->StartCapeInState(NewCapeStateName, AnimStartTime, AnimPlayRate, MirroredType);
+}
+
+struct URCapeComponent__01701f00 : public URCapeComponent
+{
+	void InitEnable(BYTE NewState, UBOOL bEnable); /* 0x016cd7b0 */
+};
+
+// @baa 0x01701f00
+/* native function InitEnable(byte NewState, bool bEnable) */
+void URCapeComponent::execInitEnable(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_BYTE(NewState);
+	P_GET_UBOOL(bEnable);
+	P_FINISH;
+	((URCapeComponent__01701f00*)this)->InitEnable(NewState, bEnable);
 }

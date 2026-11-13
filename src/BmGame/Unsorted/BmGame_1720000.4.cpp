@@ -1,4 +1,4 @@
-// BmGame_1720000.cpp: 5 functions
+// BmGame_1720000.cpp: 6 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -57,4 +57,23 @@ void ARPawnPlayerCombat::execGetNumberOfCounterHits(FFrame& Stack, RESULT_DECL)
 	P_GET_TARRAY_REF(FLOAT, SlowMoHitTimes);
 	P_FINISH;
 	*(INT*)Result = GetNumberOfCounterHits(StrikeAnimSequence, SlowMoHitTimes);
+}
+
+// @baa 0x01722b90
+/* HelpLinesMatch(out HelpLine A, out HelpLine B) */
+void URHUDPrompt::execHelpLinesMatch(FFrame& Stack, RESULT_DECL)
+{
+	/* This build's P_GET_STRUCT_REF zeroes the temporary after clearing GPropAddr (the kit's macro doesn't). */
+	FHelpLine AT;
+	GPropAddr = 0;
+	appMemzero(&AT, sizeof(FHelpLine));
+	Stack.Step(Stack.Object, &AT);
+	FHelpLine& A = GPropAddr ? *(FHelpLine*)GPropAddr : AT;
+	FHelpLine BT;
+	GPropAddr = 0;
+	appMemzero(&BT, sizeof(FHelpLine));
+	Stack.Step(Stack.Object, &BT);
+	FHelpLine& B = GPropAddr ? *(FHelpLine*)GPropAddr : BT;
+	P_FINISH;
+	*(UBOOL*)Result = HelpLinesMatch(A, B);
 }

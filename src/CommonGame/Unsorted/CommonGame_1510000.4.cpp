@@ -1,4 +1,4 @@
-// CommonGame_1510000.cpp: 8 functions
+// CommonGame_1510000.cpp: 9 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -68,4 +68,12 @@ void URBarkFlagBase::execGetValueForType(FFrame& Stack, RESULT_DECL)
 	P_GET_INT_OPTX(TestIndex, 0);
 	P_FINISH;
 	*(FString*)Result = GetValueForType(TestType, TestIndex);
+}
+
+// @baa 0x01512730
+void ARDebugMenu::execLoadLevel(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STR(LevelName);
+	P_FINISH;
+	LoadLevel(LevelName);
 }

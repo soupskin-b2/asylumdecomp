@@ -1,4 +1,4 @@
-// BmSaveGameMisc.cpp: 2 functions
+// BmSaveGameMisc.cpp: 3 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -29,4 +29,25 @@ void ARLevelTransition::execGetAllConnectedLevels(FFrame& Stack, RESULT_DECL)
 	P_GET_TARRAY_REF(FName, Out);
 	P_FINISH;
 	GetAllConnectedLevels(Out);
+}
+
+struct ARHarpoonDragPhysicsBase_ : public ARHarpoonDragPhysicsBase
+{
+	UBOOL GetAnchorPointPositionAndRotation(INT AnchorIndex, FVector& OutPosition, FRotator* OutRotation); /* 0x0171fb20 */
+};
+
+// @baa 0x01722f10
+/* native function bool GetAnchorPointPositionAndRotation(int AnchorIndex, out vector OutPosition, optional out rotator OutRotation) */
+void ARHarpoonDragPhysicsBase::execGetAnchorPointPositionAndRotation(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INT(AnchorIndex);
+	P_GET_STRUCT_REF(FVector, OutPosition);
+	GRuntimeUCFlags &= ~RUC_SkippedOptionalParm;
+	P_GET_STRUCT_OPTX_REF(FRotator, OutRotation);
+	if (GRuntimeUCFlags & RUC_SkippedOptionalParm)
+	{
+		OutRotation = FRotator(0, 0, 0);
+	}
+	P_FINISH;
+	*(UBOOL*)Result = ((ARHarpoonDragPhysicsBase_*)this)->GetAnchorPointPositionAndRotation(AnchorIndex, OutPosition, pOutRotation ? &OutRotation : NULL);
 }

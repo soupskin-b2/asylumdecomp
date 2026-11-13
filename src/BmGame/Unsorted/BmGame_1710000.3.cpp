@@ -1,4 +1,4 @@
-// BmGame_1710000.cpp: 5 functions
+// BmGame_1710000.cpp: 7 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -47,4 +47,20 @@ void ARGameInfo::execGetGameTimePlayedString(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
 	*(FString*)Result = GetGameTimePlayedString();
+}
+
+// @baa 0x0171bb60
+void ARGameRI::execSetLevelsInURL(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STR(Levels);
+	P_FINISH;
+	SetLevelsInURL(Levels);
+}
+
+// @baa 0x0171bc10
+void ARJokerTannoy::execLoadBarkSet(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STR(BarkSet);
+	P_FINISH;
+	*(UBOOL*)Result = LoadBarkSet(BarkSet);
 }

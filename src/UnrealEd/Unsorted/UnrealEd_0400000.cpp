@@ -1,4 +1,4 @@
-// UnrealEd_0400000.cpp: 183 functions
+// UnrealEd_0400000.cpp: 184 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -1535,4 +1535,22 @@ FRotationMatrix::FRotationMatrix(const FRotator& Rot)
 	WPlane.Y = 0.f;
 	WPlane.Z = 0.f;
 	WPlane.W = 1.f;
+}
+
+// @baa 0x00402b40
+/* UObject::IsA, out of line: whether the object's class is SomeBase or derives from it. */
+UBOOL UObject::sub_00402b40(UClass* SomeBase) const
+{
+	if (!SomeBase)
+	{
+		return 1;
+	}
+	for (UClass* TempClass = Class; TempClass; TempClass = (UClass*)TempClass->SuperField)
+	{
+		if (TempClass == SomeBase)
+		{
+			return 1;
+		}
+	}
+	return 0;
 }

@@ -1,4 +1,4 @@
-// UnAnimTree.cpp: 1 function
+// UnAnimTree.cpp: 2 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #define BAA_OUTLINE_ALLOC	/* appFree out of line, so the local array's destructor inlines */
@@ -31,3 +31,7 @@ UMorphNodeBase* UAnimTree::FindMorphNode(FName InNodeName)
 
 	return NULL;
 }
+
+// @baa 0x00c76b70
+/* TArray<FAimOffsetProfile>'s destructor, instantiated for UAnimNodeAimOffset's Profiles. */
+template TArray<FAimOffsetProfile>::~TArray();

@@ -1,4 +1,4 @@
-// Launch_0400000.cpp (part 1 of 2): 20 functions
+// Launch_0400000.cpp (part 1 of 2): 22 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -184,4 +184,33 @@ void sub_004019d0(wxEvtHandler* Dest, wxEvent* Event)
     if (Dest) {
         Dest->AddPendingEvent(*Event);
     }
+}
+
+// @baa 0x00401ba0
+/* Rounds to the nearest int, clamping to the int range (float version). */
+int sub_00401ba0(float x)
+{
+	int Result = 0;
+	if (x > 0.f)
+	{
+		x += 0.5f;
+		if (x >= 2147483648.f)
+			return 0x7fffffff;
+		Result = (int)x;
+	}
+	else if (x < 0.f)
+	{
+		x -= 0.5f;
+		if (x <= -2147483648.f)
+			return (int)0x80000000;
+		Result = (int)x;
+	}
+	return Result;
+}
+
+// @baa 0x00401c50
+/* Whether two floats are equal within 0.001. */
+int sub_00401c50(float a, float b)
+{
+	return (a - b) < 0.001 && (a - b) > -0.001;
 }

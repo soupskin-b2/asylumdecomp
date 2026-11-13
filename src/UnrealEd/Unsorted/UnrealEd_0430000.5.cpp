@@ -1,4 +1,4 @@
-// UnrealEd_0430000.cpp: 7 functions
+// UnrealEd_0430000.cpp: 8 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -105,4 +105,16 @@ void C_0043ccd0::sub_0043ccd0()
         Sub->sub_0043ac50();
     else
         Sub->sub_0043acc0();
+}
+
+/* FString::operator* (UnString.h), which the kit's FString lacks; the exe calls this copy out of line. */
+struct FString_ : public FString
+{
+	const TCHAR* sub_00439b40() const; /* 0x00439b40: FString::operator* */
+};
+
+// @baa 0x00439b40
+const TCHAR* FString_::sub_00439b40() const
+{
+	return Num() ? &(*this)(0) : TEXT("");
 }

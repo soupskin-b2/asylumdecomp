@@ -1,4 +1,4 @@
-// UnAnimTree.cpp: 19 functions
+// UnAnimTree.cpp: 20 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -299,4 +299,15 @@ void UAnimNodeRandom::InitAnim(USkeletalMeshComponent* MeshComp, UAnimNodeBlendB
 		}
 	}
 	sub_00c7c270(0.f, 0.f);
+}
+
+// @baa 0x00c4bba0
+/* Ends the custom animation's play state, remembering the blend-out time to use. */
+void UAnimNodePlayCustomAnim::sub_00c4bba0(FLOAT BlendOutTime)
+{
+	if (bIsPlayingCustomAnim)
+	{
+		bIsPlayingCustomAnim = FALSE;
+		CustomPendingBlendOutTime = BlendOutTime;
+	}
 }

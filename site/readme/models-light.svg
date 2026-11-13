@@ -5,12 +5,12 @@
 <text x="860" y="20" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">3.3 MB</text>
 <text x="0" y="50" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">Claude Opus 5.5</text>
 <rect x="292" y="40" width="478" height="10" fill="#eaeef2" stroke="#d1d9e0"/>
-<rect x="292" y="40" width="76.5366" height="10" fill="#1f2328"/>
-<text x="860" y="50" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">541 KB</text>
+<rect x="292" y="40" width="77.3624" height="10" fill="#1f2328"/>
+<text x="860" y="50" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">547 KB</text>
 <text x="0" y="80" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">Claude Fable 5.2</text>
 <rect x="292" y="70" width="478" height="10" fill="#eaeef2" stroke="#d1d9e0"/>
-<rect x="292" y="70" width="53.232" height="10" fill="#1f2328"/>
-<text x="860" y="80" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">376 KB</text>
+<rect x="292" y="70" width="55.8447" height="10" fill="#1f2328"/>
+<text x="860" y="80" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">395 KB</text>
 <text x="0" y="110" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">DeepSeek V4.1 Flash</text>
 <rect x="292" y="100" width="478" height="10" fill="#eaeef2" stroke="#d1d9e0"/>
 <rect x="292" y="100" width="15.3655" height="10" fill="#1f2328"/>

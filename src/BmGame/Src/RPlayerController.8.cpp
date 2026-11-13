@@ -1,4 +1,4 @@
-// RPlayerController.cpp: 42 functions
+// RPlayerController.cpp: 43 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -559,4 +559,12 @@ void ARPlayerController::execStripGlobalNamePart(FFrame& Stack, RESULT_DECL)
 	P_GET_TARRAY_REF(FString, Names);
 	P_FINISH;
 	StripGlobalNamePart(Names);
+}
+
+// @baa 0x0172a9a0
+void ARPlayerController::execGetVisitedPMapsList(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_TARRAY_REF(FString, Out);
+	P_FINISH;
+	GetVisitedPMapsList(Out);
 }

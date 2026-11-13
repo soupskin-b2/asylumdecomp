@@ -1,4 +1,4 @@
-// Engine_0950000.cpp: 1 function
+// Engine_0950000.cpp: 2 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #define BAA_OUTLINE_ALLOC
@@ -57,3 +57,7 @@ void FSectionElementInfoArray::Copy(const TArray<FSectionElementInfo>& Source)
         }
     }
 }
+
+// @baa 0x0095a7c0
+/* TArray<UAnimSet*>::operator=, out of line (USkeletalMeshComponent::AnimSets; identical copies of other pointer arrays fold into it). */
+template void TArray<UAnimSet*>::operator=(const TArray<UAnimSet*>& Other);

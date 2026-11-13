@@ -1,4 +1,4 @@
-// UnSequence.cpp: 13 functions
+// UnSequence.cpp: 14 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -224,4 +224,42 @@ UBOOL USequenceEvent::RegisterEvent()
     ((USequenceEvent_*)this)->eventRegisterEvent();
     bRegistered = TRUE;
     return bRegistered;
+}
+
+/* GIsEditor is a compile-time FALSE in this build (see Material.cpp's check(!Selected || GIsEditor), which compiles to
+ * a plain "if (Selected) fail"); the kit doesn't define it. */
+#define GIsEditor FALSE
+// @baa 0x008e6820
+void USeqAct_Switch::Activated()
+{
+	// for each index in the list
+	for (INT Idx = 0; Idx < Indices.Num(); Idx++)
+	{
+		INT OutIdx = Indices(Idx) - 1;
+		// if it's a valid, enabled output
+		if (OutIdx >= 0 && OutIdx < OutputLinks.Num() &&
+			!OutputLinks(OutIdx).bDisabled &&
+			!(OutputLinks(OutIdx).bDisabledPIE && GIsEditor))
+		{
+			// activate it
+			OutputLinks(OutIdx).bHasImpulse = TRUE;
+			// and disable it if necessary
+			if (bAutoDisableLinks)
+			{
+				OutputLinks(OutIdx).bDisabled = TRUE;
+			}
+		}
+		// increment the index
+		if (IncrementAmount != 0)
+		{
+			if (bLooping)
+			{
+				Indices(Idx) = ((Indices(Idx) + IncrementAmount - 1) % OutputLinks.Num()) + 1;
+			}
+			else
+			{
+				Indices(Idx) += IncrementAmount;
+			}
+		}
+	}
 }

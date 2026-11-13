@@ -1,4 +1,4 @@
-// UnInterpolation.cpp: 1 function
+// UnInterpolation.cpp: 2 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -23,4 +23,15 @@ void UFont::PostLoad()
 			Texture->LODGroup = TEXTUREGROUP_UI;
 		}
 	}
+}
+
+// @baa 0x00cf7250
+/* UE3's UInterpTrackParticleReplay::GetKeyframeTime(INT KeyIndex): the key's time, 0 for an invalid index. */
+FLOAT UInterpTrackParticleReplay::GetKeyframeTime(INT KeyIndex)
+{
+    if (KeyIndex < 0 || KeyIndex >= TrackKeys.Num())
+    {
+        return 0.f;
+    }
+    return TrackKeys(KeyIndex).Time;
 }

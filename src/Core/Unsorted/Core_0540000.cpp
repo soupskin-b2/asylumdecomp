@@ -1,4 +1,4 @@
-// Core_0540000.cpp (part 1 of 2): 196 functions
+// Core_0540000.cpp (part 1 of 2): 198 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -1676,3 +1676,35 @@ int C_0054f580::sub_0054f580(void)
 
 // @baa 0x00549160
 template TArray<INT>::~TArray();
+
+/* TArray<UObject*>::FindItemIndex, an out-of-line instance */
+struct TArray_UObjectPtr_ : public TArray<UObject*>
+{
+	INT sub_005460d0(UObject* const& Item) const; /* 0x005460d0 */
+};
+
+// @baa 0x005460d0
+INT TArray_UObjectPtr_::sub_005460d0(UObject* const& Item) const
+{
+	return FindItemIndex(Item);
+}
+
+/* TArray<FName>::FindItemIndex, an out-of-line instance (Array.h's body, with FName::operator==) */
+struct TArray_FName_ : public TArray<FName>
+{
+	INT sub_00546020(const FName& Item) const; /* 0x00546020 */
+};
+
+// @baa 0x00546020
+INT TArray_FName_::sub_00546020(const FName& Item) const
+{
+	const FName* DataEnd = GetTypedData() + ArrayNum;
+	for (const FName* Data = GetTypedData(); Data < DataEnd; Data++)
+	{
+		if (Data->Index == Item.Index && Data->Number == Item.Number)
+		{
+			return (INT)(Data - GetTypedData());
+		}
+	}
+	return INDEX_NONE;
+}
