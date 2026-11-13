@@ -74,8 +74,8 @@ FLOAT sub_005c8e30(const FVector& V1, const FVector& V2)
 }
 
 // @baa 0x005c5f20
-/* PointDistToSegment (UnMath.cpp): the distance from Point to the segment, and the closest point on it. */
-FLOAT sub_005c5f20(const FVector& Point, const FVector& StartPoint, const FVector& EndPoint, FVector& OutClosestPoint)
+/* The distance from Point to the segment, and the closest point on it. */
+FLOAT PointDistToSegment(const FVector& Point, const FVector& StartPoint, const FVector& EndPoint, FVector& OutClosestPoint)
 {
 	const FVector Segment = EndPoint - StartPoint;
 	const FVector VectToPoint = Point - StartPoint;

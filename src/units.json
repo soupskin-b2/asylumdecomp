@@ -69461,7 +69461,7 @@
     {
      "va": "005c4800",
      "size": 152,
-     "symbol": "?Exp@FQuat_@@QBE?AUFQuat@@XZ"
+     "symbol": "?Exp@FQuat@@QBE?AUFQuat@@XZ"
     }
    ]
   },
@@ -78679,7 +78679,7 @@
     {
      "va": "005c5f20",
      "size": 341,
-     "symbol": "?sub_005c5f20@@YAMABUFVector@@00AAU1@@Z"
+     "symbol": "?PointDistToSegment@@YAMABUFVector@@00AAU1@@Z"
     },
     {
      "va": "005c2940",
@@ -146882,7 +146882,7 @@
     {
      "va": "006497a0",
      "size": 194,
-     "symbol": "??0FBoxSphereBounds_@@QAE@ABUFBox@@@Z"
+     "symbol": "??0FBoxSphereBounds@@QAE@ABUFBox@@@Z"
     }
    ]
   },
