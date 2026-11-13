@@ -122,6 +122,15 @@ def merge(current: str, base: str, new: str) -> str | None:
     return r.stdout if r.returncode == 0 else None
 
 
+def unhelper(symbol: str | None) -> str | None:
+    """The symbol with helper structs (`UCanvas_`, `UCanvas__00a58750`) read as their real class: a revision that
+    removes a helper renames the functions defined through it."""
+    if not symbol:
+        return None
+    s = re.sub(r"\b([A-Z]\w*?)(?:__[0-9a-f]{8}|_)(?=@)", r"\1", symbol)
+    return s if s != symbol else None
+
+
 def revise(repo, s: dict) -> dict:
     """A revision: the part file replaced by the contributor's version, if every function in it still
     matches and it has no more readability warnings than before."""
@@ -145,7 +154,7 @@ def revise(repo, s: dict) -> dict:
     if now > was:
         return {"status": "failed", "reason": "more readability warnings than before (%d, was %d)" % (now, was)}
     funcs = [(int(f["va"], 16), ([s["function"]] if f["va"] == va and s.get("function") else [])
-              + [n for n in (f.get("symbol"), "sub_" + f["va"]) if n]) for f in entry["functions"]]
+              + [n for n in (f.get("symbol"), unhelper(f.get("symbol")), "sub_" + f["va"]) if n]) for f in entry["functions"]]
     res = checker.unit_check(new, entry["profile"], funcs)
     bad = repo.problems(res, [v for v, _ in funcs])
     if bad:

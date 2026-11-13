@@ -363,6 +363,7 @@ def _submit_list(items: list[str]) -> list[tuple[int, Path]]:
 
 
 def cmd_submit(a):
+    update.rerun_if_updated()  # CI checks against the latest headers: so must we (a header change can break a match)
     todo = _submit_list(a.items)
     if a.function and len(todo) > 1:
         sys.exit("--function works with one function at a time")
