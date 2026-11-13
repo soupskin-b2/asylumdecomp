@@ -54,17 +54,9 @@ struct C_01731870 { C_01731870* sub_01731870(int a0); };
 // @baa 0x01731870
 C_01731870* C_01731870::sub_01731870(int a0) { return this; }
 
-struct C_017319d0 {
-    int sub_017319d0();
-};
-
 // @baa 0x017319d0
-int C_017319d0::sub_017319d0(void)
-{
-    int param_1 = (int)this;
-
-  return param_1 + -0x1cc;
-}
+/* DECLARE_CLASS's interface accessor; compiled for the IRSpotableInterface subobject, so it subtracts its offset */
+UObject* ARRemoveableGrate::GetUObjectInterfaceRSpotableInterface() { return this; }
 
 struct A_017319e0 { virtual void sub_01731a70(); char pad[456]; };
 

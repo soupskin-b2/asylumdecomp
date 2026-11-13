@@ -860,12 +860,8 @@ struct C_015f4330 { C_015f4330* sub_015f4330(int a0); };
 C_015f4330* C_015f4330::sub_015f4330(int a0) { return this; }
 
 // @baa 0x015f4490
-int ARPawnVillain::sub_015f4490(void)
-{
-    int param_1 = (int)this;
-
-  return param_1 + -0x7f0;
-}
+/* DECLARE_CLASS's interface accessor; compiled for the IRSpotableInterface subobject, so it subtracts its offset */
+UObject* ARPawnVillain::GetUObjectInterfaceRSpotableInterface() { return this; }
 
 // @baa 0x015f44a0
 uint ARPawnVillain::vf_178(void)
@@ -992,17 +988,9 @@ struct C_015f5100 { C_015f5100* sub_015f5100(int a0); };
 // @baa 0x015f5100
 C_015f5100* C_015f5100::sub_015f5100(int a0) { return this; }
 
-struct C_015f5260 {
-    int sub_015f5260();
-};
-
 // @baa 0x015f5260
-int C_015f5260::sub_015f5260(void)
-{
-    int param_1 = (int)this;
-
-  return param_1 + -0x1a8;
-}
+/* DECLARE_CLASS's interface accessor; compiled for the IRSpotableInterface subobject, so it subtracts its offset */
+UObject* ARShockNoise_AlertProxy::GetUObjectInterfaceRSpotableInterface() { return this; }
 
 struct A_015f5270 { virtual void sub_015f5300(); char pad[420]; };
 
@@ -1019,17 +1007,9 @@ void C_015f5270::sub_015f5300() {}
 IMPLEMENT_CLASS_AT(ARShockNoise_AlertProxy, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmAIClass.cpp", 27);
 
 // @baa 0x015f5300
-struct C_015f5370 {
-    int sub_015f5370();
-};
-
 // @baa 0x015f5370
-int C_015f5370::sub_015f5370(void)
-{
-    int param_1 = (int)this;
-
-  return param_1 + -0x1e8;
-}
+/* DECLARE_CLASS's interface accessor; compiled for the IREvidenceInterface subobject, so it subtracts its offset */
+UObject* ARDeadBodyBase::GetUObjectInterfaceREvidenceInterface() { return this; }
 
 struct A_015f55e0 { virtual void sub_015f56a0(); char pad[484]; };
 

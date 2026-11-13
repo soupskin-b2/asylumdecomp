@@ -130,59 +130,46 @@ int UDistributionVectorParameterBase::vf_000(void) { return 1; }
 FLOAT UDistributionFloatConstant::GetValue(FLOAT a0, UObject* a1) { return *(float*)((char*)this + 68); }
 
 // @baa 0x007a2bf0
-int sub_007a2bf0(void) { return 1; }
+INT UDistributionFloatConstant::GetNumKeys() { return 1; }
 
 // @baa 0x007a2c00
-int sub_007a2c00(void) { return 1; }
-
-struct C {
-    float10 sub_007a2c40(int, int);
-};
+INT UDistributionFloatConstant::GetNumSubCurves() { return 1; }
 
 int sub_006311e0(...);
 extern undefined4 g_01f195ec;
 extern undefined4 g_01f196cc;
 // @baa 0x007a2c40
-float10 C::sub_007a2c40(int param_2, int param_3)
+FLOAT UDistributionFloatConstant::GetKeyOut(INT SubIndex, INT KeyIndex)
 {
-    int param_1 = (int)this;
-
-  if (param_2 != 0) {
-    sub_006311e0("SubIndex == 0",
-                 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnDistributions.cpp"
-                 ,0x32,&g_01f195ec);
-  }
-  if (param_3 != 0) {
-    sub_006311e0("KeyIndex == 0",
-                 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnDistributions.cpp"
-                 ,0x33,&g_01f196cc);
-  }
-  return (float10)*(float *)(param_1 + 8);
+#line 50 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnDistributions.cpp"
+    check(SubIndex == 0);
+    check(KeyIndex == 0);
+    return Constant;
 }
 
 // @baa 0x007a2d90
-int __stdcall sub_007a2d90(int a0) { return 0; }
+INT UDistributionFloatConstant::CreateNewKey(FLOAT KeyIn) { return 0; }
 
 // @baa 0x007a2ee0
-int sub_007a2ee0(void) { return 1; }
+INT UDistributionFloatConstantCurve::GetNumSubCurves() { return 1; }
 
 // @baa 0x007a2f80
-int sub_007a2f80(void) { return 1; }
+INT UDistributionFloatUniform::GetNumKeys() { return 1; }
 
 // @baa 0x007a2f90
-int sub_007a2f90(void) { return 2; }
+INT UDistributionFloatUniform::GetNumSubCurves() { return 2; }
 
 // @baa 0x007a3190
-int __stdcall sub_007a3190(int a0) { return 0; }
+INT UDistributionFloatUniform::CreateNewKey(FLOAT KeyIn) { return 0; }
 
 // @baa 0x007a32c0
-int sub_007a32c0(void) { return 2; }
+INT UDistributionFloatUniformCurve::GetNumSubCurves() { return 2; }
 
 // @baa 0x007a3390
-int sub_007a3390(void) { return 1; }
+INT UDistributionVectorConstant::GetNumKeys() { return 1; }
 
 // @baa 0x007a3620
-int __stdcall sub_007a3620(int a0) { return 0; }
+INT UDistributionVectorConstant::CreateNewKey(FLOAT KeyIn) { return 0; }
 
 // @baa 0x007a37b0
 void UDistributionVectorConstant::GetOutRange(FVector& MinOut, FVector& MaxOut)
@@ -204,10 +191,10 @@ uint UDistributionVectorUniform::vf_110(void)
 }
 
 // @baa 0x007a3fe0
-int sub_007a3fe0(void) { return 1; }
+INT UDistributionVectorUniform::GetNumKeys() { return 1; }
 
 // @baa 0x007a43a0
-int __stdcall sub_007a43a0(int a0) { return 0; }
+INT UDistributionVectorUniform::CreateNewKey(FLOAT KeyIn) { return 0; }
 
 // @baa 0x007a4490
 void UDistributionVectorUniform::GetOutRange(FVector& MinOut, FVector& MaxOut)
@@ -217,7 +204,7 @@ void UDistributionVectorUniform::GetOutRange(FVector& MinOut, FVector& MaxOut)
 }
 
 // @baa 0x007a45c0
-int sub_007a45c0(void) { return 6; }
+INT UDistributionVectorUniformCurve::GetNumSubCurves() { return 6; }
 
 // @baa 0x007a46f0
 IMPLEMENT_CLASS_AT(UBloomEffect, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnDOFEffect.cpp", 10);
@@ -264,95 +251,38 @@ bool UForceFeedbackWaveform::vf_004()
 // @baa 0x007afe40
 // @baa 0x007aff00
 // @baa 0x007affc0
-struct C_007b0080 { int sub_007b0080(void); };
-
 // @baa 0x007b0080
-int C_007b0080::sub_007b0080(void) { return *(int*)((char*)this + 12); }
-
-struct C_007b0090 {
-    bool sub_007b0090();
-};
+INT UDistributionFloatConstantCurve::GetNumKeys() { return ConstantCurve.Points.Num(); }
 
 // @baa 0x007b0090
-bool C_007b0090::sub_007b0090(void)
-{
-    int param_1 = (int)this;
-
-  return *(char *)(param_1 + 0x14) != '\0';
-}
-
-struct C_007b0100 {
-    void sub_007b0100(int, int, float);
-};
+UBOOL UDistributionFloatConstantCurve::UsingLegacyInterpMethod() const { return ConstantCurve.InterpMethod != IMT_UseFixedTangentEvalAndNewAutoTangents; }
 
 extern undefined4 g_01f1b8ac;
 extern undefined4 g_01f1b99c;
 // @baa 0x007b0100
-void C_007b0100::sub_007b0100(int param_2, int param_3, float param_4)
+void UDistributionFloatUniform::SetKeyOut(INT SubIndex, INT KeyIndex, FLOAT NewOutVal)
 {
-    int param_1 = (int)this;
-  float fVar1;
-  if ((param_2 != 0) && (param_2 != 1)) {
-    sub_006311e0("SubIndex == 0 || SubIndex == 1",
-                 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnDistributions.cpp"
-                 ,0x19d,&g_01f1b8ac);
-  }
-  if (param_3 != 0) {
-    sub_006311e0("KeyIndex == 0",
-                 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnDistributions.cpp"
-                 ,0x19e,&g_01f1b99c);
-  }
-  if (param_2 == 0) {
-    fVar1 = *(float *)(param_1 + 0xc);
-    if (param_4 <= *(float *)(param_1 + 0xc)) {
-      fVar1 = param_4;
-    }
-    *(uint *)(param_1 + 4) = *(uint *)(param_1 + 4) | 2;
-    *(float *)(param_1 + 8) = fVar1;
-    return;
-  }
-  fVar1 = *(float *)(param_1 + 8);
-  if (*(float *)(param_1 + 8) <= param_4) {
-    fVar1 = param_4;
-  }
-  *(uint *)(param_1 + 4) = *(uint *)(param_1 + 4) | 2;
-  *(float *)(param_1 + 0xc) = fVar1;
-  return;
+#line 413 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnDistributions.cpp"
+    check(SubIndex == 0 || SubIndex == 1);
+    check(KeyIndex == 0);
+    if (SubIndex == 0)
+        Min = ::Min<FLOAT>(NewOutVal, Max);
+    else
+        Max = ::Max<FLOAT>(NewOutVal, Min);
+    bIsDirty = TRUE;
 }
-
-struct C_007b01f0 { int sub_007b01f0(void); };
 
 // @baa 0x007b01f0
-int C_007b01f0::sub_007b01f0(void) { return *(int*)((char*)this + 12); }
-
-struct C_007b0280 {
-    bool sub_007b0280();
-};
+INT UDistributionFloatUniformCurve::GetNumKeys() { return ConstantCurve.Points.Num(); }
 
 // @baa 0x007b0280
-bool C_007b0280::sub_007b0280(void)
-{
-    int param_1 = (int)this;
-
-  return *(char *)(param_1 + 0x14) != '\0';
-}
-
-struct C_007b03e0 { int sub_007b03e0(void); };
+UBOOL UDistributionFloatUniformCurve::UsingLegacyInterpMethod() const { return ConstantCurve.InterpMethod != IMT_UseFixedTangentEvalAndNewAutoTangents; }
 
 // @baa 0x007b03e0
-int C_007b03e0::sub_007b03e0(void) { return *(int*)((char*)this + 12); }
-
-struct C_007b0490 {
-    bool sub_007b0490();
-};
+INT UDistributionVectorConstantCurve::GetNumKeys() { return ConstantCurve.Points.Num(); }
 
 // @baa 0x007b0490
-bool C_007b0490::sub_007b0490(void)
-{
-    int param_1 = (int)this;
-
-  return *(char *)(param_1 + 0x14) != '\0';
-}
+UBOOL UDistributionVectorConstantCurve::UsingLegacyInterpMethod() const { return ConstantCurve.InterpMethod != IMT_UseFixedTangentEvalAndNewAutoTangents; }
 
 struct FLinkerVer {
     BYTE _pad[0xec];
@@ -390,10 +320,8 @@ void UDistributionVectorUniform::PostLoad()
     This->sub_005e59b0();
 }
 
-struct C_007b09d0 { int sub_007b09d0(void); };
-
 // @baa 0x007b09d0
-int C_007b09d0::sub_007b09d0(void) { return *(int*)((char*)this + 12); }
+INT UDistributionVectorUniformCurve::GetNumKeys() { return ConstantCurve.Points.Num(); }
 
 struct C_007b4b60 {
     void sub_007b4b60(int);
@@ -1108,17 +1036,8 @@ bool UDistributionFloatUniformCurve::vf_004()
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
-struct C_007b0ac0 {
-    bool sub_007b0ac0();
-};
-
 // @baa 0x007b0ac0
-bool C_007b0ac0::sub_007b0ac0(void)
-{
-    int param_1 = (int)this;
-
-  return *(char *)(param_1 + 0x14) != '\0';
-}
+UBOOL UDistributionVectorUniformCurve::UsingLegacyInterpMethod() const { return ConstantCurve.InterpMethod != IMT_UseFixedTangentEvalAndNewAutoTangents; }
 
 // @baa 0x007c0db0
 /* Removes Count route-cache entries starting at a valid InIndex. */

@@ -4468,7 +4468,7 @@
     {
      "va": "016833d0",
      "size": 7,
-     "symbol": "?sub_016833d0@C_016833d0@@QAEHXZ"
+     "symbol": "?GetUObjectInterfaceREvidenceInterface@ARForensicDnaSplatStatic@@UAEPAUUObject@@XZ"
     },
     {
      "va": "01683400",
@@ -6516,7 +6516,7 @@
     {
      "va": "0169e2b0",
      "size": 7,
-     "symbol": "?sub_0169e2b0@ARPawnPlayer@@QAEHXZ"
+     "symbol": "?GetUObjectInterfaceRSpotableInterface@ARPawnPlayer@@UAEPAUUObject@@XZ"
     },
     {
      "va": "0169e2c0",
@@ -16898,7 +16898,7 @@
     {
      "va": "016e10b0",
      "size": 7,
-     "symbol": "?sub_016e10b0@ARFractureWallBase@@QAEHXZ"
+     "symbol": "?GetUObjectInterfaceRSpotableInterface@ARFractureWallBase@@UAEPAUUObject@@XZ"
     },
     {
      "va": "016e12d0",
@@ -31087,7 +31087,7 @@
     {
      "va": "015769c0",
      "size": 7,
-     "symbol": "?sub_015769c0@C_015769c0@@QAEHXZ"
+     "symbol": "?GetUObjectInterfaceREvidenceInterface@ARVaporVolumeBase@@UAEPAUUObject@@XZ"
     },
     {
      "va": "015769d0",
@@ -38930,7 +38930,7 @@
     {
      "va": "015f43a0",
      "size": 72,
-     "symbol": "?sub_015f43a0@ARPawnVillain_@@UAEHXZ"
+     "symbol": "?eventDoCustomVisCheck@ARPawnVillain@@UAEHXZ"
     }
    ]
   },
@@ -39736,7 +39736,7 @@
     {
      "va": "015f4490",
      "size": 7,
-     "symbol": "?sub_015f4490@ARPawnVillain@@QAEHXZ"
+     "symbol": "?GetUObjectInterfaceRSpotableInterface@ARPawnVillain@@UAEPAUUObject@@XZ"
     },
     {
      "va": "015f44a0",
@@ -39901,7 +39901,7 @@
     {
      "va": "015f5260",
      "size": 7,
-     "symbol": "?sub_015f5260@C_015f5260@@QAEHXZ"
+     "symbol": "?GetUObjectInterfaceRSpotableInterface@ARShockNoise_AlertProxy@@UAEPAUUObject@@XZ"
     },
     {
      "va": "015f5270",
@@ -39921,7 +39921,7 @@
     {
      "va": "015f5370",
      "size": 7,
-     "symbol": "?sub_015f5370@C_015f5370@@QAEHXZ"
+     "symbol": "?GetUObjectInterfaceREvidenceInterface@ARDeadBodyBase@@UAEPAUUObject@@XZ"
     },
     {
      "va": "015f55e0",
@@ -45081,7 +45081,7 @@
     {
      "va": "01656a30",
      "size": 7,
-     "symbol": "?sub_01656a30@C_01656a30@@QAEHXZ"
+     "symbol": "?GetUObjectInterfaceRSpotableInterface@ARBatDistractProjectile@@UAEPAUUObject@@XZ"
     },
     {
      "va": "01656a40",
@@ -47233,7 +47233,7 @@
     {
      "va": "01683130",
      "size": 7,
-     "symbol": "?sub_01683130@C_01683130@@QAEHXZ"
+     "symbol": "?GetUObjectInterfaceREvidenceInterface@ARForensicDnaSplat@@UAEPAUUObject@@XZ"
     },
     {
      "va": "01683140",
@@ -57164,7 +57164,7 @@
     {
      "va": "017319d0",
      "size": 7,
-     "symbol": "?sub_017319d0@C_017319d0@@QAEHXZ"
+     "symbol": "?GetUObjectInterfaceRSpotableInterface@ARRemoveableGrate@@UAEPAUUObject@@XZ"
     },
     {
      "va": "017319e0",
@@ -208064,57 +208064,57 @@
     {
      "va": "007a2bf0",
      "size": 6,
-     "symbol": "?sub_007a2bf0@@YAHXZ"
+     "symbol": "?GetNumKeys@UDistributionFloatConstant@@UAEHXZ"
     },
     {
      "va": "007a2c00",
      "size": 6,
-     "symbol": "?sub_007a2c00@@YAHXZ"
+     "symbol": "?GetNumSubCurves@UDistributionFloatConstant@@UAEHXZ"
     },
     {
      "va": "007a2c40",
      "size": 74,
-     "symbol": "?sub_007a2c40@C@@QAEOHH@Z"
+     "symbol": "?GetKeyOut@UDistributionFloatConstant@@UAEMHH@Z"
     },
     {
      "va": "007a2d90",
      "size": 5,
-     "symbol": "?sub_007a2d90@@YGHH@Z"
+     "symbol": "?CreateNewKey@UDistributionFloatConstant@@UAEHM@Z"
     },
     {
      "va": "007a2ee0",
      "size": 6,
-     "symbol": "?sub_007a2ee0@@YAHXZ"
+     "symbol": "?GetNumSubCurves@UDistributionFloatConstantCurve@@UAEHXZ"
     },
     {
      "va": "007a2f80",
      "size": 6,
-     "symbol": "?sub_007a2f80@@YAHXZ"
+     "symbol": "?GetNumKeys@UDistributionFloatUniform@@UAEHXZ"
     },
     {
      "va": "007a2f90",
      "size": 6,
-     "symbol": "?sub_007a2f90@@YAHXZ"
+     "symbol": "?GetNumSubCurves@UDistributionFloatUniform@@UAEHXZ"
     },
     {
      "va": "007a3190",
      "size": 5,
-     "symbol": "?sub_007a3190@@YGHH@Z"
+     "symbol": "?CreateNewKey@UDistributionFloatUniform@@UAEHM@Z"
     },
     {
      "va": "007a32c0",
      "size": 6,
-     "symbol": "?sub_007a32c0@@YAHXZ"
+     "symbol": "?GetNumSubCurves@UDistributionFloatUniformCurve@@UAEHXZ"
     },
     {
      "va": "007a3390",
      "size": 6,
-     "symbol": "?sub_007a3390@@YAHXZ"
+     "symbol": "?GetNumKeys@UDistributionVectorConstant@@UAEHXZ"
     },
     {
      "va": "007a3620",
      "size": 5,
-     "symbol": "?sub_007a3620@@YGHH@Z"
+     "symbol": "?CreateNewKey@UDistributionVectorConstant@@UAEHM@Z"
     },
     {
      "va": "007a37b0",
@@ -208129,12 +208129,12 @@
     {
      "va": "007a3fe0",
      "size": 6,
-     "symbol": "?sub_007a3fe0@@YAHXZ"
+     "symbol": "?GetNumKeys@UDistributionVectorUniform@@UAEHXZ"
     },
     {
      "va": "007a43a0",
      "size": 5,
-     "symbol": "?sub_007a43a0@@YGHH@Z"
+     "symbol": "?CreateNewKey@UDistributionVectorUniform@@UAEHM@Z"
     },
     {
      "va": "007a4490",
@@ -208144,7 +208144,7 @@
     {
      "va": "007a45c0",
      "size": 6,
-     "symbol": "?sub_007a45c0@@YAHXZ"
+     "symbol": "?GetNumSubCurves@UDistributionVectorUniformCurve@@UAEHXZ"
     },
     {
      "va": "007a46f0",
@@ -208229,37 +208229,37 @@
     {
      "va": "007b0080",
      "size": 4,
-     "symbol": "?sub_007b0080@C_007b0080@@QAEHXZ"
+     "symbol": "?GetNumKeys@UDistributionFloatConstantCurve@@UAEHXZ"
     },
     {
      "va": "007b0090",
      "size": 9,
-     "symbol": "?sub_007b0090@C_007b0090@@QAE_NXZ"
+     "symbol": "?UsingLegacyInterpMethod@UDistributionFloatConstantCurve@@UBEHXZ"
     },
     {
      "va": "007b0100",
      "size": 144,
-     "symbol": "?sub_007b0100@C_007b0100@@QAEXHHM@Z"
+     "symbol": "?SetKeyOut@UDistributionFloatUniform@@UAEXHHM@Z"
     },
     {
      "va": "007b01f0",
      "size": 4,
-     "symbol": "?sub_007b01f0@C_007b01f0@@QAEHXZ"
+     "symbol": "?GetNumKeys@UDistributionFloatUniformCurve@@UAEHXZ"
     },
     {
      "va": "007b0280",
      "size": 9,
-     "symbol": "?sub_007b0280@C_007b0280@@QAE_NXZ"
+     "symbol": "?UsingLegacyInterpMethod@UDistributionFloatUniformCurve@@UBEHXZ"
     },
     {
      "va": "007b03e0",
      "size": 4,
-     "symbol": "?sub_007b03e0@C_007b03e0@@QAEHXZ"
+     "symbol": "?GetNumKeys@UDistributionVectorConstantCurve@@UAEHXZ"
     },
     {
      "va": "007b0490",
      "size": 9,
-     "symbol": "?sub_007b0490@C_007b0490@@QAE_NXZ"
+     "symbol": "?UsingLegacyInterpMethod@UDistributionVectorConstantCurve@@UBEHXZ"
     },
     {
      "va": "007b04a0",
@@ -208269,7 +208269,7 @@
     {
      "va": "007b09d0",
      "size": 4,
-     "symbol": "?sub_007b09d0@C_007b09d0@@QAEHXZ"
+     "symbol": "?GetNumKeys@UDistributionVectorUniformCurve@@UAEHXZ"
     },
     {
      "va": "007b4b60",
@@ -208719,7 +208719,7 @@
     {
      "va": "007b0ac0",
      "size": 9,
-     "symbol": "?sub_007b0ac0@C_007b0ac0@@QAE_NXZ"
+     "symbol": "?UsingLegacyInterpMethod@UDistributionVectorUniformCurve@@UBEHXZ"
     },
     {
      "va": "007c0db0",
@@ -212968,7 +212968,7 @@
     {
      "va": "00d2af40",
      "size": 25,
-     "symbol": "?sub_00d2af40@UInterpTrackVectorBase_@@QAEXXZ"
+     "symbol": "?UpgradeInterpMethod@UInterpTrackVectorBase@@UAEXXZ"
     }
    ]
   },
@@ -213495,12 +213495,12 @@
     {
      "va": "00d1eb20",
      "size": 6,
-     "symbol": "?sub_00d1eb20@@YAHXZ"
+     "symbol": "?GetNumSubCurves@UInterpTrackFloatBase@@UAEHXZ"
     },
     {
      "va": "00d1eb30",
      "size": 6,
-     "symbol": "?sub_00d1eb30@@YAHXZ"
+     "symbol": "?GetNumSubCurves@UInterpTrackVectorBase@@UAEHXZ"
     },
     {
      "va": "00d1f030",
@@ -213550,37 +213550,37 @@
     {
      "va": "00d215f0",
      "size": 41,
-     "symbol": "?sub_00d215f0@UInterpTrackVisibility@@QAEHXZ"
+     "symbol": "?GetNumKeys@UInterpTrackMove@@UAEHXZ"
     },
     {
      "va": "00d21620",
      "size": 66,
-     "symbol": "?sub_00d21620@UInterpTrackVisibility@@QAEHXZ"
+     "symbol": "?GetNumSubCurves@UInterpTrackMove@@UAEHXZ"
     },
     {
      "va": "00d218d0",
      "size": 21,
-     "symbol": "?sub_00d218d0@UInterpTrackVisibility@@QAEIXZ"
+     "symbol": "?UsingLegacyInterpMethod@UInterpTrackMove@@UBEHXZ"
     },
     {
      "va": "00d218f0",
      "size": 4,
-     "symbol": "?sub_00d218f0@UInterpTrackFloatBase@@QAEHXZ"
+     "symbol": "?GetNumKeys@UInterpTrackFloatBase@@UAEHXZ"
     },
     {
      "va": "00d21900",
      "size": 9,
-     "symbol": "?sub_00d21900@UInterpTrackFloatBase@@QAE_NXZ"
+     "symbol": "?UsingLegacyInterpMethod@UInterpTrackFloatBase@@UBEHXZ"
     },
     {
      "va": "00d21910",
      "size": 4,
-     "symbol": "?sub_00d21910@UInterpTrackVectorBase@@QAEHXZ"
+     "symbol": "?GetNumKeys@UInterpTrackVectorBase@@UAEHXZ"
     },
     {
      "va": "00d219c0",
      "size": 9,
-     "symbol": "?sub_00d219c0@UInterpTrackVectorBase@@QAE_NXZ"
+     "symbol": "?UsingLegacyInterpMethod@UInterpTrackVectorBase@@UBEHXZ"
     },
     {
      "va": "00d219d0",

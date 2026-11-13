@@ -69,12 +69,8 @@ void C::sub_016d84d0() {
 }
 
 // @baa 0x016e10b0
-int ARFractureWallBase::sub_016e10b0(void)
-{
-    int param_1 = (int)this;
-
-  return param_1 + -0x230;
-}
+/* DECLARE_CLASS's interface accessor; compiled for the IRSpotableInterface subobject, so it subtracts its offset */
+UObject* ARFractureWallBase::GetUObjectInterfaceRSpotableInterface() { return this; }
 
 struct A_016e12d0 { virtual void sub_016e16e0(); char pad[556]; };
 

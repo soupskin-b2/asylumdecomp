@@ -380,17 +380,9 @@ struct C_016568d0 { C_016568d0* sub_016568d0(int a0); };
 // @baa 0x016568d0
 C_016568d0* C_016568d0::sub_016568d0(int a0) { return this; }
 
-struct C_01656a30 {
-    int sub_01656a30();
-};
-
 // @baa 0x01656a30
-int C_01656a30::sub_01656a30(void)
-{
-    int param_1 = (int)this;
-
-  return param_1 + -0x2c8;
-}
+/* DECLARE_CLASS's interface accessor; compiled for the IRSpotableInterface subobject, so it subtracts its offset */
+UObject* ARBatDistractProjectile::GetUObjectInterfaceRSpotableInterface() { return this; }
 
 struct A_01656a40 { virtual void sub_01656ad0(); char pad[708]; };
 

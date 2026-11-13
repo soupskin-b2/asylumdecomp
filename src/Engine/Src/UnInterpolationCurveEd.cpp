@@ -465,10 +465,10 @@ bool UInterpTrackVisibility::vf_004()
 // @baa 0x00d07560
 // @baa 0x00d075a0
 // @baa 0x00d1eb20
-int sub_00d1eb20(void) { return 1; }
+INT UInterpTrackFloatBase::GetNumSubCurves() { return 1; }
 
 // @baa 0x00d1eb30
-int sub_00d1eb30(void) { return 3; }
+INT UInterpTrackVectorBase::GetNumSubCurves() { return 3; }
 
 int sub_005eae70(...);
 int sub_006adc00(void);
@@ -575,79 +575,44 @@ void sub_00d1f230(void)
 
 extern undefined4 g_0209cdfc;
 // @baa 0x00d215f0
-int UInterpTrackVisibility::sub_00d215f0(void)
+INT UInterpTrackMove::GetNumKeys()
 {
-    int param_1 = (int)this;
-
-  int iVar1;
-  
-  iVar1 = *(int *)(param_1 + 0x24);
-  if (iVar1 != *(int *)(param_1 + 0x34)) {
-    sub_006311e0("PosTrack.Points.Num() == EulerTrack.Points.Num()",
-                 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnInterpolationCurveEd.cpp"
-                 ,0x2f,&g_0209cdfc);
-    iVar1 = *(int *)(param_1 + 0x24);
-  }
-  return iVar1;
+#line 47 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnInterpolationCurveEd.cpp"
+    check(PosTrack.Points.Num() == EulerTrack.Points.Num());
+    return PosTrack.Points.Num();
 }
 
 extern undefined4 g_0209cf2c;
 // @baa 0x00d21620
-int UInterpTrackVisibility::sub_00d21620(void)
+INT UInterpTrackMove::GetNumSubCurves()
 {
-    int param_1 = (int)this;
-
-  uint uVar1;
-  int iVar2;
-  
-  if (*(int *)(param_1 + 0x24) != *(int *)(param_1 + 0x34)) {
-    sub_006311e0("PosTrack.Points.Num() == EulerTrack.Points.Num()",
-                 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnInterpolationCurveEd.cpp"
-                 ,0x35,&g_0209cf2c);
-  }
-  uVar1 = *(uint *)(param_1 + 0x5c);
-  iVar2 = 0;
-  if ((uVar1 & 8) != 0) {
-    iVar2 = 3;
-  }
-  if (((uVar1 & 0x10) != 0) && ((uVar1 & 1) == 0)) {
-    iVar2 = iVar2 + 3;
-  }
-  return iVar2;
+#line 53 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnInterpolationCurveEd.cpp"
+    check(PosTrack.Points.Num() == EulerTrack.Points.Num());
+    INT NumSubs = 0;
+    if (bShowTranslationOnCurveEd)
+        NumSubs += 3;
+    if (bShowRotationOnCurveEd && !bUseQuatInterpolation)
+        NumSubs += 3;
+    return NumSubs;
 }
 
 // @baa 0x00d218d0
-undefined4 UInterpTrackVisibility::sub_00d218d0(void)
+UBOOL UInterpTrackMove::UsingLegacyInterpMethod() const
 {
-    int param_1 = (int)this;
-
-  if ((*(char *)(param_1 + 0x2c) == '\0') && (*(char *)(param_1 + 0x3c) == '\0')) {
-    return 0;
-  }
-  return 1;
+    return PosTrack.InterpMethod != IMT_UseFixedTangentEvalAndNewAutoTangents || EulerTrack.InterpMethod != IMT_UseFixedTangentEvalAndNewAutoTangents;
 }
 
 // @baa 0x00d218f0
-int UInterpTrackFloatBase::sub_00d218f0(void) { return *(int*)((char*)this + 36); }
+INT UInterpTrackFloatBase::GetNumKeys() { return FloatTrack.Points.Num(); }
 
 // @baa 0x00d21900
-bool UInterpTrackFloatBase::sub_00d21900(void)
-{
-    int param_1 = (int)this;
-
-  return *(char *)(param_1 + 0x2c) != '\0';
-}
+UBOOL UInterpTrackFloatBase::UsingLegacyInterpMethod() const { return FloatTrack.InterpMethod != IMT_UseFixedTangentEvalAndNewAutoTangents; }
 
 // @baa 0x00d21910
-int UInterpTrackVectorBase::sub_00d21910(void) { return *(int*)((char*)this + 36); }
+INT UInterpTrackVectorBase::GetNumKeys() { return VectorTrack.Points.Num(); }
 
 // @baa 0x00d219c0
-bool UInterpTrackVectorBase::sub_00d219c0(void)
-{
-    int param_1 = (int)this;
-
-  return *(char *)(param_1 + 0x2c) != '\0';
-}
+UBOOL UInterpTrackVectorBase::UsingLegacyInterpMethod() const { return VectorTrack.InterpMethod != IMT_UseFixedTangentEvalAndNewAutoTangents; }
 
 int sub_0053dfa0(...);
 int sub_00c38ac0(void);

@@ -353,17 +353,9 @@ IMPLEMENT_CLASS_AT(ARPickupBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3
 IMPLEMENT_CLASS_AT(ARPontoonBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameClasses.cpp", 153);
 
 // @baa 0x01576950
-struct C_015769c0 {
-    int sub_015769c0();
-};
-
 // @baa 0x015769c0
-int C_015769c0::sub_015769c0(void)
-{
-    int param_1 = (int)this;
-
-  return param_1 + -0x1a8;
-}
+/* DECLARE_CLASS's interface accessor; compiled for the IREvidenceInterface subobject, so it subtracts its offset */
+UObject* ARVaporVolumeBase::GetUObjectInterfaceREvidenceInterface() { return this; }
 
 struct A_015769d0 { virtual void sub_01576a60(); char pad[420]; };
 

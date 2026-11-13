@@ -636,12 +636,8 @@ struct C_0169e150 { C_0169e150* sub_0169e150(int a0); };
 C_0169e150* C_0169e150::sub_0169e150(int a0) { return this; }
 
 // @baa 0x0169e2b0
-int ARPawnPlayer::sub_0169e2b0(void)
-{
-    int param_1 = (int)this;
-
-  return param_1 + -0x6bc;
-}
+/* DECLARE_CLASS's interface accessor; compiled for the IRSpotableInterface subobject, so it subtracts its offset */
+UObject* ARPawnPlayer::GetUObjectInterfaceRSpotableInterface() { return this; }
 
 // @baa 0x0169e2c0
 UINT ARPawnPlayer::vf_178() { return 1; }

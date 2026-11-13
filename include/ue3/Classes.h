@@ -3157,7 +3157,6 @@ class UWrangleContentCommandlet;
 class UXnaForceFeedbackManager;
 
 struct FCallbackEventDevice { virtual void FCallbackEventDevice_vf000(); virtual ~FCallbackEventDevice() {} };  /* an interface base: its virtuals aren't known */
-struct FCurveEdInterface { virtual void FCurveEdInterface_vf000(); };  /* an interface base: its virtuals aren't known */
 struct FExec { virtual UBOOL Exec(const TCHAR* Cmd, struct FOutputDevice& Ar); };
 struct FGlobalDataStoreClientManager { virtual void FGlobalDataStoreClientManager_vf000(); virtual ~FGlobalDataStoreClientManager() {} };  /* an interface base: its virtuals aren't known */
 struct FInterface_UControlChannel_5c { virtual void FInterface_UControlChannel_5c_vf000(); virtual ~FInterface_UControlChannel_5c() {} };  /* an interface base: its virtuals aren't known */
@@ -3186,8 +3185,18 @@ struct FShadowMapVertexBufferBase {
  * IsTickable (pure), then three that return FALSE (0x006be4a0, 0x006be4b0, 0x006be4c0). */
 struct FTickableObject { virtual ~FTickableObject(); /* 0x006be4d0 */ };
 struct FViewportClient { virtual void FViewportClient_vf000(); };  /* an interface base: its virtuals aren't known */
-struct IREvidenceInterface { virtual void IREvidenceInterface_vf000(); virtual ~IREvidenceInterface() {} };  /* an interface base: its virtuals aren't known */
-struct IRSpotableInterface { virtual void IRSpotableInterface_vf000(); virtual ~IRSpotableInterface() {} };  /* an interface base: its virtuals aren't known */
+struct IREvidenceInterface {
+    virtual ~IREvidenceInterface() {}
+    virtual class UObject* GetUObjectInterfaceREvidenceInterface() = 0;
+};
+struct IRSpotableInterface {
+    virtual ~IRSpotableInterface() {}
+    virtual class UObject* GetUObjectInterfaceRSpotableInterface() = 0;
+    virtual BYTE eventCustomCalcVisibility(class ARBMAIController* CheckController) = 0;
+    virtual UBOOL eventDoCustomVisCheck() = 0;
+    virtual UBOOL eventCheckVisibility() = 0;
+    virtual class ARAlertEventCoordinator* eventGetEventCoordinator() = 0;
+};
 struct IUIDataStorePublisher { virtual ~IUIDataStorePublisher() {}
     virtual void Publisher_vf_004(); virtual void Publisher_vf_008(); virtual void Publisher_vf_00c();
     virtual void Publisher_vf_010(); virtual void Publisher_vf_014(); virtual void Publisher_vf_018(); virtual void Publisher_vf_01c(); };
@@ -3685,6 +3694,7 @@ struct FInterpCurveFloat {
     INT AddPoint(const FLOAT InVal, const FLOAT& OutVal); /* 0x007b95b0 */
     INT MovePoint(INT PointIndex, FLOAT NewInVal); /* 0x007c3a80 */
     void sub_007b96a0(FLOAT Tension); /* 0x007b96a0 */
+    void UpgradeInterpMethod(); /* 0x007b9e60 */
 };
 
 struct FInterpCurvePointVector2D {
@@ -3720,6 +3730,7 @@ struct FInterpCurveVector {
     INT AddPoint(const FLOAT InVal, const FVector& OutVal); /* 0x007bb100 */
     void AutoSetTangents(FLOAT Tension); /* 0x007bb200 */
     INT MovePoint(INT PointIndex, FLOAT NewInVal); /* 0x007c3d10 */
+    void UpgradeInterpMethod(); /* 0x007bb890 */
 };
 
 struct FInterpCurvePointTwoVectors {
@@ -12528,6 +12539,30 @@ struct UCommandlet : public UObject {
     /* registered size 0x70 */
 };
 
+// The curve editor's view of a curve (UnCurveEdInterface.h): UE3's virtuals in this build's slot order. vf_028
+// (unnamed) gives the output range per component; its default splats GetOutRange.
+struct FCurveEdInterface {
+    virtual INT GetNumKeys() { return 0; }
+    virtual INT GetNumSubCurves() { return 0; }
+    virtual FLOAT GetKeyIn(INT KeyIndex) { return 0.f; }
+    virtual FLOAT GetKeyOut(INT SubIndex, INT KeyIndex) { return 0.f; }
+    virtual FColor GetKeyColor(INT SubIndex, INT KeyIndex, const FColor& CurveColor) { return CurveColor; }
+    virtual FLOAT EvalSub(INT SubIndex, FLOAT InVal) { return 0.f; }
+    virtual BYTE GetKeyInterpMode(INT KeyIndex) { return CIM_Linear; }
+    virtual void GetTangents(INT SubIndex, INT KeyIndex, FLOAT& ArriveTangent, FLOAT& LeaveTangent) { ArriveTangent = 0.f; LeaveTangent = 0.f; }
+    virtual void GetInRange(FLOAT& MinIn, FLOAT& MaxIn) { MinIn = 0.f; MaxIn = 0.f; }
+    virtual void GetOutRange(FLOAT& MinOut, FLOAT& MaxOut) { MinOut = 0.f; MaxOut = 0.f; }
+    virtual void vf_028(FVector& MinOut, FVector& MaxOut) { FLOAT MinF, MaxF; GetOutRange(MinF, MaxF); MinOut = FVector(MinF); MaxOut = FVector(MaxF); }
+    virtual INT CreateNewKey(FLOAT KeyIn) { return INDEX_NONE; }
+    virtual void DeleteKey(INT KeyIndex) {}
+    virtual INT SetKeyIn(INT KeyIndex, FLOAT NewInVal) { return KeyIndex; }
+    virtual void SetKeyOut(INT SubIndex, INT KeyIndex, FLOAT NewOutVal) {}
+    virtual void SetKeyInterpMode(INT KeyIndex, EInterpCurveMode NewMode) {}
+    virtual void SetTangents(INT SubIndex, INT KeyIndex, FLOAT ArriveTangent, FLOAT LeaveTangent) {}
+    virtual UBOOL UsingLegacyInterpMethod() const { return FALSE; }
+    virtual void UpgradeInterpMethod() {}
+};
+
 struct UDistributionFloat : public UComponent, public FCurveEdInterface {
     /* Core.DistributionFloat */
     DECLARE_CLASS(UDistributionFloat, UComponent, 0x0, 0x0, Core)
@@ -12549,6 +12584,9 @@ struct UDistributionFloat : public UComponent, public FCurveEdInterface {
     /* other member functions */
     UINT sub_00545c80(BYTE); /* 0x00545c80 */
     /* registered size 0x44 */
+    /* FCurveEdInterface */
+    virtual void GetInRange(FLOAT& MinIn, FLOAT& MaxIn); /* 0x0053d5f0 */
+    virtual void GetOutRange(FLOAT& MinOut, FLOAT& MaxOut); /* 0x0053d610 */
 };
 
 struct UDistributionVector : public UComponent, public FCurveEdInterface {
@@ -12574,6 +12612,9 @@ struct UDistributionVector : public UComponent, public FCurveEdInterface {
     /* other member functions */
     UINT sub_005403b0(BYTE); /* 0x005403b0 */
     /* registered size 0x44 */
+    /* FCurveEdInterface */
+    virtual void GetInRange(FLOAT& MinIn, FLOAT& MaxIn); /* 0x0053d6a0 */
+    virtual void GetOutRange(FLOAT& MinOut, FLOAT& MaxOut); /* 0x0053d6c0 */
 };
 
 struct UHelpCommandlet : public UCommandlet {
@@ -16769,6 +16810,22 @@ struct UDistributionFloatUniform : public UDistributionFloat {
     virtual INT InitializeRawEntry(FLOAT Time, FLOAT* Values); /* 0x118 */
     virtual FLOAT GetValue(FLOAT F = 0.f, UObject* Data = NULL); /* 0x11c */
     /* registered size 0x4c */
+    /* FCurveEdInterface */
+    virtual INT GetNumKeys(); /* 0x007a2f80 */
+    virtual INT GetNumSubCurves(); /* 0x007a2f90 */
+    virtual FLOAT GetKeyIn(INT KeyIndex); /* 0x007a2fa0 */
+    virtual FLOAT GetKeyOut(INT SubIndex, INT KeyIndex); /* 0x007a2fd0 */
+    virtual FLOAT EvalSub(INT SubIndex, FLOAT InVal); /* 0x007a3130 */
+    virtual BYTE GetKeyInterpMode(INT KeyIndex); /* 0x007a3090 */
+    virtual void GetTangents(INT SubIndex, INT KeyIndex, FLOAT& ArriveTangent, FLOAT& LeaveTangent); /* 0x007a30c0 */
+    virtual void GetInRange(FLOAT& MinIn, FLOAT& MaxIn); /* 0x007a3050 */
+    virtual void GetOutRange(FLOAT& MinOut, FLOAT& MaxOut); /* 0x007a3070 */
+    virtual INT CreateNewKey(FLOAT KeyIn); /* 0x007a3190 */
+    virtual void DeleteKey(INT KeyIndex); /* 0x007a31a0 */
+    virtual INT SetKeyIn(INT KeyIndex, FLOAT NewInVal); /* 0x007a31d0 */
+    virtual void SetKeyOut(INT SubIndex, INT KeyIndex, FLOAT NewOutVal); /* 0x007b0100 */
+    virtual void SetKeyInterpMode(INT KeyIndex, EInterpCurveMode NewMode); /* 0x007a3200 */
+    virtual void SetTangents(INT SubIndex, INT KeyIndex, FLOAT ArriveTangent, FLOAT LeaveTangent); /* 0x007a3230 */
 };
 
 struct USoundNodeAmbient : public USoundNode {
@@ -19301,8 +19358,9 @@ struct UUIScreenObject : public UUIRoot {
     virtual INT vf_138(INT, INT, INT, INT, INT, INT, INT); /* 0x138 */
     virtual class UUIScreenObject* GetParent(); /* 0x13c */
     virtual class UUIObject* GetOwner(); /* 0x140 */
+    /* overloads take slots in reverse order: the const GetScene is 0x144 */
     virtual class UUIScene* GetScene(); /* 0x148 */
-    virtual const class UUIScene* GetScene() const; /* 0x144: overloads take slots in reverse order */
+    virtual const class UUIScene* GetScene() const; /* 0x144 */
     virtual FName GetTag(); /* 0x14c */
     virtual FString GetWidgetPathName(); /* 0x150 */
     virtual void vf_154(); /* 0x154 */
@@ -19563,8 +19621,9 @@ struct UUIObject : public UUIScreenObject {
     virtual INT CanAcceptFocus(INT PlayerIndex); /* 0x134 */
     virtual class UUIScreenObject* GetParent(); /* 0x13c */
     virtual class UUIObject* GetOwner(); /* 0x140 */
+    /* overloads take slots in reverse order: the const GetScene is 0x144 */
     virtual class UUIScene* GetScene(); /* 0x148 */
-    virtual const class UUIScene* GetScene() const; /* 0x144: overloads take slots in reverse order */
+    virtual const class UUIScene* GetScene() const; /* 0x144 */
     virtual FName GetTag(); /* 0x14c */
     virtual FString GetWidgetPathName(); /* 0x150 */
     virtual void RequestSceneUpdate(UBOOL bDockingStackChanged, UBOOL bPositionsChanged, UBOOL bNavLinksOutdated = FALSE, UBOOL bWidgetStylesChanged = FALSE); /* 0x164 */
@@ -21544,6 +21603,22 @@ struct UDistributionFloatConstant : public UDistributionFloat {
     virtual bool vf_004(); /* 0x004 */
     virtual FLOAT GetValue(FLOAT F = 0.f, UObject* Data = NULL); /* 0x11c */
     /* registered size 0x48 */
+    /* FCurveEdInterface */
+    virtual INT GetNumKeys(); /* 0x007a2bf0 */
+    virtual INT GetNumSubCurves(); /* 0x007a2c00 */
+    virtual FLOAT GetKeyIn(INT KeyIndex); /* 0x007a2c10 */
+    virtual FLOAT GetKeyOut(INT SubIndex, INT KeyIndex); /* 0x007a2c40 */
+    virtual FLOAT EvalSub(INT SubIndex, FLOAT InVal); /* 0x007a2d60 */
+    virtual BYTE GetKeyInterpMode(INT KeyIndex); /* 0x007a2cd0 */
+    virtual void GetTangents(INT SubIndex, INT KeyIndex, FLOAT& ArriveTangent, FLOAT& LeaveTangent); /* 0x007a2d00 */
+    virtual void GetInRange(FLOAT& MinIn, FLOAT& MaxIn); /* 0x007a2c90 */
+    virtual void GetOutRange(FLOAT& MinOut, FLOAT& MaxOut); /* 0x007a2cb0 */
+    virtual INT CreateNewKey(FLOAT KeyIn); /* 0x007a2d90 */
+    virtual void DeleteKey(INT KeyIndex); /* 0x007a2da0 */
+    virtual INT SetKeyIn(INT KeyIndex, FLOAT NewInVal); /* 0x007a2dd0 */
+    virtual void SetKeyOut(INT SubIndex, INT KeyIndex, FLOAT NewOutVal); /* 0x007a2e00 */
+    virtual void SetKeyInterpMode(INT KeyIndex, EInterpCurveMode NewMode); /* 0x007a2e60 */
+    virtual void SetTangents(INT SubIndex, INT KeyIndex, FLOAT ArriveTangent, FLOAT LeaveTangent); /* 0x007a2e90 */
 };
 
 struct UDistributionFloatConstantCurve : public UDistributionFloat {
@@ -21558,6 +21633,24 @@ struct UDistributionFloatConstantCurve : public UDistributionFloat {
     virtual bool vf_004(); /* 0x004 */
     virtual FLOAT GetValue(FLOAT F = 0.f, UObject* Data = NULL); /* 0x11c */
     /* registered size 0x54 */
+    /* FCurveEdInterface */
+    virtual INT GetNumKeys(); /* 0x007b0080 */
+    virtual INT GetNumSubCurves(); /* 0x007a2ee0 */
+    virtual FLOAT GetKeyIn(INT KeyIndex); /* 0x007b5a10 */
+    virtual FLOAT GetKeyOut(INT SubIndex, INT KeyIndex); /* 0x007b5a80 */
+    virtual FLOAT EvalSub(INT SubIndex, FLOAT InVal); /* 0x007c0f90 */
+    virtual BYTE GetKeyInterpMode(INT KeyIndex); /* 0x007b5bf0 */
+    virtual void GetTangents(INT SubIndex, INT KeyIndex, FLOAT& ArriveTangent, FLOAT& LeaveTangent); /* 0x007b5c60 */
+    virtual void GetInRange(FLOAT& MinIn, FLOAT& MaxIn); /* 0x007b5b10 */
+    virtual void GetOutRange(FLOAT& MinOut, FLOAT& MaxOut); /* 0x007c0f60 */
+    virtual INT CreateNewKey(FLOAT KeyIn); /* 0x007c0fe0 */
+    virtual void DeleteKey(INT KeyIndex); /* 0x007c1040 */
+    virtual INT SetKeyIn(INT KeyIndex, FLOAT NewInVal); /* 0x007c5220 */
+    virtual void SetKeyOut(INT SubIndex, INT KeyIndex, FLOAT NewOutVal); /* 0x007c10a0 */
+    virtual void SetKeyInterpMode(INT KeyIndex, EInterpCurveMode NewMode); /* 0x007c1150 */
+    virtual void SetTangents(INT SubIndex, INT KeyIndex, FLOAT ArriveTangent, FLOAT LeaveTangent); /* 0x007b5d40 */
+    virtual UBOOL UsingLegacyInterpMethod() const; /* 0x007b0090 */
+    virtual void UpgradeInterpMethod(); /* 0x007c11e0 */
 };
 
 struct UDistributionFloatParameterBase : public UDistributionFloatConstant {
@@ -21616,6 +21709,25 @@ struct UDistributionFloatUniformCurve : public UDistributionFloat {
     virtual INT InitializeRawEntry(FLOAT Time, FLOAT* Values); /* 0x118 */
     virtual FLOAT GetValue(FLOAT F = 0.f, UObject* Data = NULL); /* 0x11c */
     /* registered size 0x54 */
+    /* FCurveEdInterface */
+    virtual INT GetNumKeys(); /* 0x007b01f0 */
+    virtual INT GetNumSubCurves(); /* 0x007a32c0 */
+    virtual FLOAT GetKeyIn(INT KeyIndex); /* 0x007b5e70 */
+    virtual FLOAT GetKeyOut(INT SubIndex, INT KeyIndex); /* 0x007b5ee0 */
+    virtual FColor GetKeyColor(INT SubIndex, INT KeyIndex, const FColor& CurveColor); /* 0x007b0200 */
+    virtual FLOAT EvalSub(INT SubIndex, FLOAT InVal); /* 0x007c1340 */
+    virtual BYTE GetKeyInterpMode(INT KeyIndex); /* 0x007b60a0 */
+    virtual void GetTangents(INT SubIndex, INT KeyIndex, FLOAT& ArriveTangent, FLOAT& LeaveTangent); /* 0x007b6110 */
+    virtual void GetInRange(FLOAT& MinIn, FLOAT& MaxIn); /* 0x007b5fc0 */
+    virtual void GetOutRange(FLOAT& MinOut, FLOAT& MaxOut); /* 0x007c12c0 */
+    virtual INT CreateNewKey(FLOAT KeyIn); /* 0x007c13c0 */
+    virtual void DeleteKey(INT KeyIndex); /* 0x007c1430 */
+    virtual INT SetKeyIn(INT KeyIndex, FLOAT NewInVal); /* 0x007c5280 */
+    virtual void SetKeyOut(INT SubIndex, INT KeyIndex, FLOAT NewOutVal); /* 0x007c1490 */
+    virtual void SetKeyInterpMode(INT KeyIndex, EInterpCurveMode NewMode); /* 0x007c1590 */
+    virtual void SetTangents(INT SubIndex, INT KeyIndex, FLOAT ArriveTangent, FLOAT LeaveTangent); /* 0x007b6280 */
+    virtual UBOOL UsingLegacyInterpMethod() const; /* 0x007b0280 */
+    virtual void UpgradeInterpMethod(); /* 0x007c1620 */
 };
 
 struct UDistributionVectorConstant : public UDistributionVector {
@@ -21634,6 +21746,23 @@ struct UDistributionVectorConstant : public UDistributionVector {
     virtual FVector GetValue(FLOAT F = 0.f, UObject* Data = NULL, INT LastExtreme = 0); /* 0x120 */
     virtual void GetOutRange(FVector& MinOut, FVector& MaxOut); /* 0x124 */
     /* registered size 0x58 */
+    /* FCurveEdInterface */
+    virtual INT GetNumKeys(); /* 0x007a3390 */
+    virtual INT GetNumSubCurves(); /* 0x007a33a0 */
+    virtual FLOAT GetKeyIn(INT KeyIndex); /* 0x007a33d0 */
+    virtual FLOAT GetKeyOut(INT SubIndex, INT KeyIndex); /* 0x007a3400 */
+    virtual FColor GetKeyColor(INT SubIndex, INT KeyIndex, const FColor& CurveColor); /* 0x007a3490 */
+    virtual FLOAT EvalSub(INT SubIndex, FLOAT InVal); /* 0x007a35e0 */
+    virtual BYTE GetKeyInterpMode(INT KeyIndex); /* 0x007a3540 */
+    virtual void GetTangents(INT SubIndex, INT KeyIndex, FLOAT& ArriveTangent, FLOAT& LeaveTangent); /* 0x007a3570 */
+    virtual void GetInRange(FLOAT& MinIn, FLOAT& MaxIn); /* 0x007a3520 */
+    virtual void GetOutRange(FLOAT& MinOut, FLOAT& MaxOut); /* 0x007b0290 */
+    virtual INT CreateNewKey(FLOAT KeyIn); /* 0x007a3620 */
+    virtual void DeleteKey(INT KeyIndex); /* 0x007a3630 */
+    virtual INT SetKeyIn(INT KeyIndex, FLOAT NewInVal); /* 0x007a3660 */
+    virtual void SetKeyOut(INT SubIndex, INT KeyIndex, FLOAT NewOutVal); /* 0x007a3690 */
+    virtual void SetKeyInterpMode(INT KeyIndex, EInterpCurveMode NewMode); /* 0x007a3730 */
+    virtual void SetTangents(INT SubIndex, INT KeyIndex, FLOAT ArriveTangent, FLOAT LeaveTangent); /* 0x007a3760 */
 };
 
 struct UDistributionVectorConstantCurve : public UDistributionVector {
@@ -21652,6 +21781,25 @@ struct UDistributionVectorConstantCurve : public UDistributionVector {
     virtual FVector GetValue(FLOAT F = 0.f, UObject* Data = NULL, INT LastExtreme = 0); /* 0x120 */
     virtual void GetOutRange(FVector& MinOut, FVector& MaxOut); /* 0x124 */
     /* registered size 0x5c */
+    /* FCurveEdInterface */
+    virtual INT GetNumKeys(); /* 0x007b03e0 */
+    virtual INT GetNumSubCurves(); /* 0x007a37f0 */
+    virtual FLOAT GetKeyIn(INT KeyIndex); /* 0x007b6400 */
+    virtual FLOAT GetKeyOut(INT SubIndex, INT KeyIndex); /* 0x007b6470 */
+    virtual FColor GetKeyColor(INT SubIndex, INT KeyIndex, const FColor& CurveColor); /* 0x007b03f0 */
+    virtual FLOAT EvalSub(INT SubIndex, FLOAT InVal); /* 0x007c1850 */
+    virtual BYTE GetKeyInterpMode(INT KeyIndex); /* 0x007b6720 */
+    virtual void GetTangents(INT SubIndex, INT KeyIndex, FLOAT& ArriveTangent, FLOAT& LeaveTangent); /* 0x007b6790 */
+    virtual void GetInRange(FLOAT& MinIn, FLOAT& MaxIn); /* 0x007b6640 */
+    virtual void GetOutRange(FLOAT& MinOut, FLOAT& MaxOut); /* 0x007c1750 */
+    virtual INT CreateNewKey(FLOAT KeyIn); /* 0x007c18e0 */
+    virtual void DeleteKey(INT KeyIndex); /* 0x007c1950 */
+    virtual INT SetKeyIn(INT KeyIndex, FLOAT NewInVal); /* 0x007c52e0 */
+    virtual void SetKeyOut(INT SubIndex, INT KeyIndex, FLOAT NewOutVal); /* 0x007c19b0 */
+    virtual void SetKeyInterpMode(INT KeyIndex, EInterpCurveMode NewMode); /* 0x007c1b00 */
+    virtual void SetTangents(INT SubIndex, INT KeyIndex, FLOAT ArriveTangent, FLOAT LeaveTangent); /* 0x007b6990 */
+    virtual UBOOL UsingLegacyInterpMethod() const; /* 0x007b0490 */
+    virtual void UpgradeInterpMethod(); /* 0x007c1c90 */
 };
 
 struct UDistributionVectorParameterBase : public UDistributionVectorConstant {
@@ -21711,6 +21859,23 @@ struct UDistributionVectorUniform : public UDistributionVector {
     /* other member functions */
     void sub_005e59b0(); /* 0x005e59b0 */
     /* registered size 0x64 */
+    /* FCurveEdInterface */
+    virtual INT GetNumKeys(); /* 0x007a3fe0 */
+    virtual INT GetNumSubCurves(); /* 0x007a3ff0 */
+    virtual FLOAT GetKeyIn(INT KeyIndex); /* 0x007a4020 */
+    virtual FLOAT GetKeyOut(INT SubIndex, INT KeyIndex); /* 0x007a4050 */
+    virtual FColor GetKeyColor(INT SubIndex, INT KeyIndex, const FColor& CurveColor); /* 0x007a4200 */
+    virtual FLOAT EvalSub(INT SubIndex, FLOAT InVal); /* 0x007a4390 */
+    virtual BYTE GetKeyInterpMode(INT KeyIndex); /* 0x007a42f0 */
+    virtual void GetTangents(INT SubIndex, INT KeyIndex, FLOAT& ArriveTangent, FLOAT& LeaveTangent); /* 0x007a4320 */
+    virtual void GetInRange(FLOAT& MinIn, FLOAT& MaxIn); /* 0x007a42d0 */
+    virtual void GetOutRange(FLOAT& MinOut, FLOAT& MaxOut); /* 0x007b0550 */
+    virtual INT CreateNewKey(FLOAT KeyIn); /* 0x007a43a0 */
+    virtual void DeleteKey(INT KeyIndex); /* 0x007a43b0 */
+    virtual INT SetKeyIn(INT KeyIndex, FLOAT NewInVal); /* 0x007a43e0 */
+    virtual void SetKeyOut(INT SubIndex, INT KeyIndex, FLOAT NewOutVal); /* 0x007b07e0 */
+    virtual void SetKeyInterpMode(INT KeyIndex, EInterpCurveMode NewMode); /* 0x007a4410 */
+    virtual void SetTangents(INT SubIndex, INT KeyIndex, FLOAT ArriveTangent, FLOAT LeaveTangent); /* 0x007a4440 */
 };
 
 struct UDistributionVectorUniformCurve : public UDistributionVector {
@@ -21742,6 +21907,25 @@ struct UDistributionVectorUniformCurve : public UDistributionVector {
     virtual FVector GetValue(FLOAT F = 0.f, UObject* Data = NULL, INT LastExtreme = 0); /* 0x120 */
     virtual void GetOutRange(FVector& MinOut, FVector& MaxOut); /* 0x124 */
     /* registered size 0x60 */
+    /* FCurveEdInterface */
+    virtual INT GetNumKeys(); /* 0x007b09d0 */
+    virtual INT GetNumSubCurves(); /* 0x007a45c0 */
+    virtual FLOAT GetKeyIn(INT KeyIndex); /* 0x007b6c30 */
+    virtual FLOAT GetKeyOut(INT SubIndex, INT KeyIndex); /* 0x007b6ca0 */
+    virtual FColor GetKeyColor(INT SubIndex, INT KeyIndex, const FColor& CurveColor); /* 0x007b09e0 */
+    virtual FLOAT EvalSub(INT SubIndex, FLOAT InVal); /* 0x007c2130 */
+    virtual BYTE GetKeyInterpMode(INT KeyIndex); /* 0x007b6ea0 */
+    virtual void GetTangents(INT SubIndex, INT KeyIndex, FLOAT& ArriveTangent, FLOAT& LeaveTangent); /* 0x007b6f10 */
+    virtual void GetInRange(FLOAT& MinIn, FLOAT& MaxIn); /* 0x007b6dc0 */
+    virtual void GetOutRange(FLOAT& MinOut, FLOAT& MaxOut); /* 0x007c1f20 */
+    virtual INT CreateNewKey(FLOAT KeyIn); /* 0x007c21f0 */
+    virtual void DeleteKey(INT KeyIndex); /* 0x007c2270 */
+    virtual INT SetKeyIn(INT KeyIndex, FLOAT NewInVal); /* 0x007c5340 */
+    virtual void SetKeyOut(INT SubIndex, INT KeyIndex, FLOAT NewOutVal); /* 0x007c22d0 */
+    virtual void SetKeyInterpMode(INT KeyIndex, EInterpCurveMode NewMode); /* 0x007c2460 */
+    virtual void SetTangents(INT SubIndex, INT KeyIndex, FLOAT ArriveTangent, FLOAT LeaveTangent); /* 0x007b72b0 */
+    virtual UBOOL UsingLegacyInterpMethod() const; /* 0x007b0ac0 */
+    virtual void UpgradeInterpMethod(); /* 0x007c24f0 */
 };
 
 struct UDmgType_Crushed : public UDamageType {
@@ -24811,9 +24995,25 @@ struct UInterpTrackFloatBase : public UInterpTrack {
     virtual UBOOL GetClosestSnapPosition(FLOAT InPosition, TArray<INT>& IgnoreKeys, FLOAT& OutPosition); /* 0x12c */
     virtual FColor GetKeyframeColor(INT KeyIndex); /* 0x154 */
     /* other member functions */
-    INT sub_00d218f0(); /* 0x00d218f0 */
-    bool sub_00d21900(); /* 0x00d21900 */
     /* registered size 0x98 */
+    /* FCurveEdInterface */
+    virtual INT GetNumKeys(); /* 0x00d218f0 */
+    virtual INT GetNumSubCurves(); /* 0x00d1eb20 */
+    virtual FLOAT GetKeyIn(INT KeyIndex); /* 0x00d24660 */
+    virtual FLOAT GetKeyOut(INT SubIndex, INT KeyIndex); /* 0x00d246d0 */
+    virtual FLOAT EvalSub(INT SubIndex, FLOAT InVal); /* 0x00d2a900 */
+    virtual BYTE GetKeyInterpMode(INT KeyIndex); /* 0x00d24800 */
+    virtual void GetTangents(INT SubIndex, INT KeyIndex, FLOAT& ArriveTangent, FLOAT& LeaveTangent); /* 0x00d24870 */
+    virtual void GetInRange(FLOAT& MinIn, FLOAT& MaxIn); /* 0x00d24760 */
+    virtual void GetOutRange(FLOAT& MinOut, FLOAT& MaxOut); /* 0x00d2a8d0 */
+    virtual INT CreateNewKey(FLOAT KeyIn); /* 0x00d2a950 */
+    virtual void DeleteKey(INT KeyIndex); /* 0x00d2a9b0 */
+    virtual INT SetKeyIn(INT KeyIndex, FLOAT NewInVal); /* 0x00d395b0 */
+    virtual void SetKeyOut(INT SubIndex, INT KeyIndex, FLOAT NewOutVal); /* 0x00d2aa00 */
+    virtual void SetKeyInterpMode(INT KeyIndex, EInterpCurveMode NewMode); /* 0x00d2aab0 */
+    virtual void SetTangents(INT SubIndex, INT KeyIndex, FLOAT ArriveTangent, FLOAT LeaveTangent); /* 0x00d24950 */
+    virtual UBOOL UsingLegacyInterpMethod() const; /* 0x00d21900 */
+    virtual void UpgradeInterpMethod(); /* 0x00d2ab40 */
 };
 
 struct UInterpTrackAnimControl : public UInterpTrackFloatBase {
@@ -24866,9 +25066,26 @@ struct UInterpTrackVectorBase : public UInterpTrack {
     virtual UBOOL GetClosestSnapPosition(FLOAT InPosition, TArray<INT>& IgnoreKeys, FLOAT& OutPosition); /* 0x12c */
     virtual FColor GetKeyframeColor(INT KeyIndex); /* 0x154 */
     /* other member functions */
-    INT sub_00d21910(); /* 0x00d21910 */
-    bool sub_00d219c0(); /* 0x00d219c0 */
     /* registered size 0xc8 */
+    /* FCurveEdInterface */
+    virtual INT GetNumKeys(); /* 0x00d21910 */
+    virtual INT GetNumSubCurves(); /* 0x00d1eb30 */
+    virtual FLOAT GetKeyIn(INT KeyIndex); /* 0x00d24a30 */
+    virtual FLOAT GetKeyOut(INT SubIndex, INT KeyIndex); /* 0x00d24aa0 */
+    virtual FColor GetKeyColor(INT SubIndex, INT KeyIndex, const FColor& CurveColor); /* 0x00d21920 */
+    virtual FLOAT EvalSub(INT SubIndex, FLOAT InVal); /* 0x00d2ac00 */
+    virtual BYTE GetKeyInterpMode(INT KeyIndex); /* 0x00d24c60 */
+    virtual void GetTangents(INT SubIndex, INT KeyIndex, FLOAT& ArriveTangent, FLOAT& LeaveTangent); /* 0x00d24cd0 */
+    virtual void GetInRange(FLOAT& MinIn, FLOAT& MaxIn); /* 0x00d24bc0 */
+    virtual void GetOutRange(FLOAT& MinOut, FLOAT& MaxOut); /* 0x00d2ab60 */
+    virtual INT CreateNewKey(FLOAT KeyIn); /* 0x00d2ac90 */
+    virtual void DeleteKey(INT KeyIndex); /* 0x00d2ad00 */
+    virtual INT SetKeyIn(INT KeyIndex, FLOAT NewInVal); /* 0x00d39610 */
+    virtual void SetKeyOut(INT SubIndex, INT KeyIndex, FLOAT NewOutVal); /* 0x00d2ad50 */
+    virtual void SetKeyInterpMode(INT KeyIndex, EInterpCurveMode NewMode); /* 0x00d2aeb0 */
+    virtual void SetTangents(INT SubIndex, INT KeyIndex, FLOAT ArriveTangent, FLOAT LeaveTangent); /* 0x00d24ed0 */
+    virtual UBOOL UsingLegacyInterpMethod() const; /* 0x00d219c0 */
+    virtual void UpgradeInterpMethod(); /* 0x00d2af40 */
 };
 
 struct UInterpTrackAudioMaster : public UInterpTrackVectorBase {
@@ -25444,6 +25661,26 @@ struct UInterpTrackMove : public UInterpTrack {
     virtual void vf_158(INT, INT, INT, INT, INT, INT); /* 0x158 */
     virtual void vf_15c(); /* 0x15c */
     /* registered size 0x140 */
+    /* FCurveEdInterface */
+    virtual INT GetNumKeys(); /* 0x00d215f0 */
+    virtual INT GetNumSubCurves(); /* 0x00d21620 */
+    virtual FLOAT GetKeyIn(INT KeyIndex); /* 0x00d23850 */
+    virtual FLOAT GetKeyOut(INT SubIndex, INT KeyIndex); /* 0x00d238e0 */
+    virtual FColor GetKeyColor(INT SubIndex, INT KeyIndex, const FColor& CurveColor); /* 0x00d216f0 */
+    virtual FLOAT EvalSub(INT SubIndex, FLOAT InVal); /* 0x00d2a120 */
+    virtual BYTE GetKeyInterpMode(INT KeyIndex); /* 0x00d23c40 */
+    virtual void GetTangents(INT SubIndex, INT KeyIndex, FLOAT& ArriveTangent, FLOAT& LeaveTangent); /* 0x00d23d80 */
+    virtual void GetInRange(FLOAT& MinIn, FLOAT& MaxIn); /* 0x00d23b80 */
+    virtual void GetOutRange(FLOAT& MinOut, FLOAT& MaxOut); /* 0x00d21670 */
+    virtual void vf_028(FVector& MinOut, FVector& MaxOut); /* 0x00d29f30 */
+    virtual INT CreateNewKey(FLOAT KeyIn); /* 0x00d2a2e0 */
+    virtual void DeleteKey(INT KeyIndex); /* 0x00d2a410 */
+    virtual INT SetKeyIn(INT KeyIndex, FLOAT NewInVal); /* 0x00d39490 */
+    virtual void SetKeyOut(INT SubIndex, INT KeyIndex, FLOAT NewOutVal); /* 0x00d2a4b0 */
+    virtual void SetKeyInterpMode(INT KeyIndex, EInterpCurveMode NewMode); /* 0x00d2a7a0 */
+    virtual void SetTangents(INT SubIndex, INT KeyIndex, FLOAT ArriveTangent, FLOAT LeaveTangent); /* 0x00d241e0 */
+    virtual UBOOL UsingLegacyInterpMethod() const; /* 0x00d218d0 */
+    virtual void UpgradeInterpMethod(); /* 0x00d2a8a0 */
 };
 
 struct UInterpTrackParticleReplay : public UInterpTrack {
@@ -25628,9 +25865,6 @@ struct UInterpTrackVisibility : public UInterpTrack {
     virtual INT vf_14c(); /* 0x14c */
     virtual void vf_150(INT, INT); /* 0x150 */
     /* other member functions */
-    INT sub_00d215f0(); /* 0x00d215f0 */
-    INT sub_00d21620(); /* 0x00d21620 */
-    UINT sub_00d218d0(); /* 0x00d218d0 */
     /* registered size 0x60 */
 };
 
@@ -38676,8 +38910,9 @@ struct UUIScene : public UUIScreenObject {
     virtual void Initialize(class UUIScene* inOwnerScene, class UUIObject* inOwner); /* 0x118 */
     virtual UBOOL RebuildNavigationLinks(); /* 0x120 */
     virtual class UUIObject* GetOwner(); /* 0x140 */
+    /* overloads take slots in reverse order: the const GetScene is 0x144 */
     virtual class UUIScene* GetScene(); /* 0x148 */
-    virtual const class UUIScene* GetScene() const; /* 0x144: overloads take slots in reverse order */
+    virtual const class UUIScene* GetScene() const; /* 0x144 */
     virtual FName GetTag(); /* 0x14c */
     virtual FString GetWidgetPathName(); /* 0x150 */
     virtual INT AnimGetCurrentPPSettings(INT); /* 0x158 */
@@ -44307,6 +44542,12 @@ struct ARBatDistractProjectile : public ARBatarangProjectile, public IRSpotableI
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     /* registered size 0x308 */
+    /* IRSpotableInterface */
+    virtual class UObject* GetUObjectInterfaceRSpotableInterface(); /* 0x01656a30 */
+    virtual BYTE eventCustomCalcVisibility(class ARBMAIController* CheckController); /* 0x016568e0 */
+    virtual UBOOL eventDoCustomVisCheck(); /* 0x01656940 */
+    virtual UBOOL eventCheckVisibility(); /* 0x01656990 */
+    virtual class ARAlertEventCoordinator* eventGetEventCoordinator(); /* 0x016569e0 */
 };
 
 struct ARBatDistractProjectile_Detonatable : public ARBatDistractProjectile {
@@ -50517,6 +50758,8 @@ struct ARDeadBodyBase : public ASkeletalMeshActor, public IREvidenceInterface {
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual FVector vf_350(); /* 0x350 */
     /* registered size 0x270 */
+    /* IREvidenceInterface */
+    virtual class UObject* GetUObjectInterfaceREvidenceInterface(); /* 0x015f5370 */
 };
 
 struct ARDeathCamera : public ARCameraActor {
@@ -51581,6 +51824,8 @@ struct ARForensicDnaSplat : public ADecalActor, public IREvidenceInterface {
     virtual UINT vf_178(); /* 0x178 */
     virtual void vf_1b4(FLOAT); /* 0x1b4 */
     /* registered size 0x1ec */
+    /* IREvidenceInterface */
+    virtual class UObject* GetUObjectInterfaceREvidenceInterface(); /* 0x01683130 */
 };
 
 struct ARForensicDnaSplatStatic : public AActor, public IREvidenceInterface {
@@ -51607,6 +51852,8 @@ struct ARForensicDnaSplatStatic : public AActor, public IREvidenceInterface {
     virtual void vf_1b4(FLOAT); /* 0x1b4 */
     virtual void vf_1d8(); /* 0x1d8 */
     /* registered size 0x1f0 */
+    /* IREvidenceInterface */
+    virtual class UObject* GetUObjectInterfaceREvidenceInterface(); /* 0x016833d0 */
 };
 
 struct ARForensicDnaSplatStaticNonScan : public ARForensicDnaSplatStatic {
@@ -51825,8 +52072,13 @@ struct ARFractureWallBase : public AFracturedStaticMeshActor, public IRSpotableI
     virtual class AFracturedStaticMeshPart* SpawnPartMulti(const TArray<INT>& ChunkIndices, FVector InitialVel, FVector InitialAngVel, FLOAT RelativeScale, UBOOL bExplosion); /* 0x358 */
     /* other member functions */
     void UpdateWallState(); /* 0x016d8e90 */
-    INT sub_016e10b0(); /* 0x016e10b0 */
     /* registered size 0x2d0 */
+    /* IRSpotableInterface */
+    virtual class UObject* GetUObjectInterfaceRSpotableInterface(); /* 0x016e10b0 */
+    virtual BYTE eventCustomCalcVisibility(class ARBMAIController* CheckController); /* 0x016e0f20 */
+    virtual UBOOL eventDoCustomVisCheck(); /* 0x016e0f80 */
+    virtual UBOOL eventCheckVisibility(); /* 0x016e0fd0 */
+    virtual class ARAlertEventCoordinator* eventGetEventCoordinator(); /* 0x016e1020 */
 };
 
 struct ARFrameRateKiller : public AActor {
@@ -54433,8 +54685,13 @@ struct ARPawnVillain : public ARBMPawnAI, public IRSpotableInterface {
     virtual UINT vf_178(); /* 0x178 */
     virtual UBOOL IsIncapacitated(); /* 0x48c */
     /* other member functions */
-    INT sub_015f4490(); /* 0x015f4490 */
     /* registered size 0x8ec */
+    /* IRSpotableInterface */
+    virtual class UObject* GetUObjectInterfaceRSpotableInterface(); /* 0x015f4490 */
+    virtual BYTE eventCustomCalcVisibility(class ARBMAIController* CheckController); /* 0x015f4340 */
+    virtual UBOOL eventDoCustomVisCheck(); /* 0x015f43a0 */
+    virtual UBOOL eventCheckVisibility(); /* 0x015f43f0 */
+    virtual class ARAlertEventCoordinator* eventGetEventCoordinator(); /* 0x015f4440 */
 };
 
 struct ARPawnBossVenomBase : public ARPawnVillain {
@@ -55165,12 +55422,17 @@ struct ARPawnPlayer : public ARPawnPlayerCombat, public IRSpotableInterface {
     void sub_0169bc40(); /* 0x0169bc40 */
     void sub_016a5440(FLOAT A, FLOAT B, FLOAT C); /* 0x016a5440 */
     void sub_0168d8b0(); /* 0x0168d8b0 */
-    INT sub_0169e2b0(); /* 0x0169e2b0 */
     UINT sub_0169e2e0(BYTE); /* 0x0169e2e0 */
     UINT* sub_0169e3b0(); /* 0x0169e3b0 */
     UINT* sub_0169e4a0(); /* 0x0169e4a0 */
     UINT* sub_0169e5a0(); /* 0x0169e5a0 */
     /* registered size 0xa8c */
+    /* IRSpotableInterface */
+    virtual class UObject* GetUObjectInterfaceRSpotableInterface(); /* 0x0169e2b0 */
+    virtual BYTE eventCustomCalcVisibility(class ARBMAIController* CheckController); /* 0x0169e160 */
+    virtual UBOOL eventDoCustomVisCheck(); /* 0x0169e1c0 */
+    virtual UBOOL eventCheckVisibility(); /* 0x0169e210 */
+    virtual class ARAlertEventCoordinator* eventGetEventCoordinator(); /* 0x0169e260 */
 };
 
 struct ARPawnPlayerBm : public ARPawnPlayer {
@@ -57102,6 +57364,12 @@ struct ARRemoveableGrate : public ARSpecialMoveEnvironmentObject, public IRSpota
     virtual INT vf_29c(INT); /* 0x29c */
     virtual void vf_2b8(); /* 0x2b8 */
     /* registered size 0x2dc */
+    /* IRSpotableInterface */
+    virtual class UObject* GetUObjectInterfaceRSpotableInterface(); /* 0x017319d0 */
+    virtual BYTE eventCustomCalcVisibility(class ARBMAIController* CheckController); /* 0x01731880 */
+    virtual UBOOL eventDoCustomVisCheck(); /* 0x017318e0 */
+    virtual UBOOL eventCheckVisibility(); /* 0x01731930 */
+    virtual class ARAlertEventCoordinator* eventGetEventCoordinator(); /* 0x01731980 */
 };
 
 struct ARRescuePoint : public ARGrapplePoint {
@@ -59985,6 +60253,12 @@ struct ARShockNoise_AlertProxy : public AActor, public IRSpotableInterface {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     /* registered size 0x1b0 */
+    /* IRSpotableInterface */
+    virtual class UObject* GetUObjectInterfaceRSpotableInterface(); /* 0x015f5260 */
+    virtual BYTE eventCustomCalcVisibility(class ARBMAIController* CheckController); /* 0x015f5110 */
+    virtual UBOOL eventDoCustomVisCheck(); /* 0x015f5170 */
+    virtual UBOOL eventCheckVisibility(); /* 0x015f51c0 */
+    virtual class ARAlertEventCoordinator* eventGetEventCoordinator(); /* 0x015f5210 */
 };
 
 struct ARSilentPredatorCamera : public ARCameraActor {
@@ -61253,6 +61527,8 @@ struct ARVaporVolumeBase : public AActor, public IREvidenceInterface {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     /* registered size 0x1dc */
+    /* IREvidenceInterface */
+    virtual class UObject* GetUObjectInterfaceREvidenceInterface(); /* 0x015769c0 */
 };
 
 struct ARVenomHenchmanThrowBlockingVolume : public ARPhysicsBlockingVolume {

@@ -79,17 +79,9 @@ int sub_01682e10(void)
 IMPLEMENT_CLASS_AT(ARShimmyEdgeMarker, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RShimmyEdgeMarker.cpp", 7);
 
 // @baa 0x01682f90
-struct C_01683130 {
-    int sub_01683130();
-};
-
 // @baa 0x01683130
-int C_01683130::sub_01683130(void)
-{
-    int param_1 = (int)this;
-
-  return param_1 + -0x1ac;
-}
+/* DECLARE_CLASS's interface accessor; compiled for the IREvidenceInterface subobject, so it subtracts its offset */
+UObject* ARForensicDnaSplat::GetUObjectInterfaceREvidenceInterface() { return this; }
 
 // @baa 0x01683140
 uint ARForensicDnaSplat::vf_178(void)

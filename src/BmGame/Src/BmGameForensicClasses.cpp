@@ -190,17 +190,9 @@ bool URActorFactoryForensicsDnaNonScan::vf_004()
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
-struct C_016833d0 {
-    int sub_016833d0();
-};
-
 // @baa 0x016833d0
-int C_016833d0::sub_016833d0(void)
-{
-    int param_1 = (int)this;
-
-  return param_1 + -0x1a8;
-}
+/* DECLARE_CLASS's interface accessor; compiled for the IREvidenceInterface subobject, so it subtracts its offset */
+UObject* ARForensicDnaSplatStatic::GetUObjectInterfaceREvidenceInterface() { return this; }
 
 extern FName g_026e30cc;
 	/* BMGAME_InitialiseDna */
