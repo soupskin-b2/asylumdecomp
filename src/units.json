@@ -180361,7 +180361,7 @@
     {
      "va": "006635f0",
      "size": 27,
-     "symbol": "?GetPhysicalMaterial@UMaterialInterface@@QAEIXZ"
+     "symbol": "?GetPhysicalMaterial@UMaterialInterface@@UAEPAUUPhysicalMaterial@@XZ"
     }
    ]
   },
@@ -180373,7 +180373,7 @@
     {
      "va": "00663650",
      "size": 27,
-     "symbol": "?AllocateResource@UMaterialInterface@@QAEIXZ"
+     "symbol": "?AllocateResource@UMaterialInterface@@UAEIXZ"
     }
    ]
   },
@@ -189572,7 +189572,7 @@
     {
      "va": "00760fc0",
      "size": 7,
-     "symbol": "?GetSurfaceHeight@UTextureCube@@QAEOXZ"
+     "symbol": "?GetSurfaceHeight@UTextureCube@@UAENXZ"
     }
    ]
   },
@@ -190066,7 +190066,7 @@
     {
      "va": "00761320",
      "size": 7,
-     "symbol": "?GetSurfaceHeight@UTextureRenderTarget2D@@QAEOXZ"
+     "symbol": "?GetSurfaceHeight@UTextureRenderTarget2D@@UAENXZ"
     }
    ]
   },
@@ -206388,7 +206388,7 @@
     {
      "va": "00cb5b40",
      "size": 25,
-     "symbol": "?ForceClearForceFeedback@UClient@@QAEXXZ"
+     "symbol": "?ForceClearForceFeedback@UClient@@UAEXXZ"
     }
    ]
   },
@@ -215534,7 +215534,7 @@
     {
      "va": "00c1a570",
      "size": 25,
-     "symbol": "?LowLevelDestroy@UNetDriver@@QAEXXZ"
+     "symbol": "?LowLevelDestroy@UNetDriver@@UAEXXZ"
     }
    ]
   },
@@ -249885,7 +249885,7 @@
     {
      "va": "00d990b0",
      "size": 25,
-     "symbol": "?RequestSceneInputMaskUpdate@UUIScreenObject@@QAEXXZ"
+     "symbol": "?RequestSceneInputMaskUpdate@UUIScreenObject@@UAEXXZ"
     }
    ]
   },
@@ -250190,7 +250190,7 @@
     {
      "va": "00da6660",
      "size": 12,
-     "symbol": "?sub_00da6660@C@@QAEHH@Z"
+     "symbol": "?sub_00da6660@FFlagByteArray@@QAEHH@Z"
     },
     {
      "va": "00ca5000",
@@ -251556,7 +251556,7 @@
     {
      "va": "00d99090",
      "size": 25,
-     "symbol": "?RequestFormattingUpdate@UUIScreenObject@@QAEXXZ"
+     "symbol": "?RequestFormattingUpdate@UUIScreenObject@@UAEXXZ"
     }
    ]
   },
@@ -256507,7 +256507,7 @@
     {
      "va": "00de13b0",
      "size": 25,
-     "symbol": "?OnActiveSkinChanged@UUISceneClient@@QAEXXZ"
+     "symbol": "?OnActiveSkinChanged@UUISceneClient@@UAEXXZ"
     }
    ]
   },
@@ -256519,7 +256519,7 @@
     {
      "va": "00de13d0",
      "size": 25,
-     "symbol": "?UpdateCanvasToScreen@UUISceneClient@@QAEXXZ"
+     "symbol": "?UpdateCanvasToScreen@UUISceneClient@@UAEXXZ"
     }
    ]
   },
@@ -271838,7 +271838,7 @@
     {
      "va": "006634d0",
      "size": 27,
-     "symbol": "?GetSurfaceHeight@USurface@@QAEOXZ"
+     "symbol": "?GetSurfaceHeight@USurface@@UAENXZ"
     }
    ]
   },
@@ -346699,7 +346699,7 @@
     {
      "va": "00c14950",
      "size": 25,
-     "symbol": "?SendJoin@UPendingLevel@@QAEXXZ"
+     "symbol": "?SendJoin@UPendingLevel@@UAEXXZ"
     }
    ]
   },
@@ -362548,7 +362548,7 @@
     {
      "va": "00dc2e00",
      "size": 8,
-     "symbol": "?RequestFormattingUpdate@UUIPrefabScene@@QAEXXZ"
+     "symbol": "?RequestFormattingUpdate@UUIScene@@UAEXXZ"
     }
    ]
   },
@@ -362560,7 +362560,7 @@
     {
      "va": "00dc2e10",
      "size": 8,
-     "symbol": "?RequestSceneInputMaskUpdate@UUIPrefabScene@@QAEXXZ"
+     "symbol": "?RequestSceneInputMaskUpdate@UUIScene@@UAEXXZ"
     }
    ]
   },
@@ -448774,7 +448774,7 @@
     {
      "va": "0072ef10",
      "size": 7,
-     "symbol": "?GetSurfaceHeight@UTexture2D@@QAEOXZ"
+     "symbol": "?GetSurfaceHeight@UTexture2D@@UAENXZ"
     }
    ]
   },

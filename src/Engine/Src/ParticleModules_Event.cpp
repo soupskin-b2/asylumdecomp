@@ -45,15 +45,14 @@ void C::sub_00b3c2d0() {
 IMPLEMENT_CLASS_AT(UParticleModuleEventBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\ParticleModules_Event.cpp", 11);
 
 int sub_005c7a20(void);
-extern undefined * g_01fef1f0;
-// @baa 0x00b40d20
-undefined4 * UObject::sub_00b40d20(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
+extern const unsigned char g_01fef1f0;
 
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_01fef1f0);
-  return param_1;
+// @baa 0x00b40d20
+UINT* UObject::sub_00b40d20(void)
+{
+	sub_005c7a20();
+	*(const void**)this = &g_01fef1f0;
+	return (UINT*)this;
 }
 
 // @baa 0x00b40d40
@@ -90,13 +89,12 @@ bool UParticleModuleEventBase::vf_004()
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
-extern undefined * g_01fef7a0;
-// @baa 0x00b43870
-undefined4 * UObject::sub_00b43870(void)
-{
-    undefined4 * param_1 = (undefined4 *)this;
+extern const unsigned char g_01fef7a0;
 
-  sub_005c7a20();
-  *param_1 = (undefined4)(&g_01fef7a0);
-  return param_1;
+// @baa 0x00b43870
+UINT* UObject::sub_00b43870(void)
+{
+	sub_005c7a20();
+	*(const void**)this = &g_01fef7a0;
+	return (UINT*)this;
 }

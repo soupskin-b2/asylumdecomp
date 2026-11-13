@@ -43,16 +43,16 @@ void UUIObject::RequestFormattingUpdate()
         Scene->RequestFormattingUpdate();
 }
 
-struct C
+struct FFlagByteArray
 {
-    BYTE pad_00[0x10];
+    BYTE Header[0x10];
     BYTE Values[1];
 
     INT sub_00da6660(INT Index);
 };
 
 // @baa 0x00da6660
-INT C::sub_00da6660(INT Index)
+INT FFlagByteArray::sub_00da6660(INT Index)
 {
     return Values[Index];
 }
