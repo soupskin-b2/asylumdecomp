@@ -386,7 +386,7 @@ def main():
     sub = p.add_subparsers(dest="cmd", required=True)
     s = sub.add_parser("fetch")
     s.add_argument("--out", type=Path, required=True)
-    s.add_argument("--limit", type=int, default=200)
+    s.add_argument("--limit", type=int, default=400)  # 30-min runs; ~2 min per 200
     s = sub.add_parser("check")
     s.add_argument("--in", dest="inp", type=Path, required=True)
     s.add_argument("--out", type=Path, required=True)
