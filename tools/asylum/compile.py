@@ -22,6 +22,12 @@ from paths import HOME, ROOT, resource
 STD_HEADERS = ["math", "float", "string", "memory", "stdlib", "stddef", "stdarg", "limits", "ctype", "wchar", "malloc",
                "search", "mmintrin", "xmmintrin", "emmintrin", "intrin", "tchar", "new", "stdio", "setjmp", "assert",
                "errno", "time", "locale", "signal", "wctype"]
+# the C++ standard library (VC8's own; the game links its msvcp80 too)
+CXX_HEADERS = ["algorithm", "bitset", "cassert", "cctype", "cerrno", "cfloat", "climits", "clocale", "cmath", "complex", "csetjmp",
+               "csignal", "cstdarg", "cstddef", "cstdio", "cstdlib", "cstring", "ctime", "cwchar", "cwctype", "deque", "exception",
+               "fstream", "functional", "hash_map", "hash_set", "iomanip", "ios", "iosfwd", "iostream", "istream", "iterator",
+               "limits", "list", "locale", "map", "memory", "new", "numeric", "ostream", "queue", "set", "sstream", "stack",
+               "stdexcept", "streambuf", "string", "strstream", "typeinfo", "utility", "valarray", "vector"]
 LIB_HEADERS = ["cderror", "cdjpeg", "jchuff", "jconfig", "jdct", "jdhuff", "jerror", "jinclude", "jmemsys", "jmorecfg",
                "jpegint", "jpeglib", "jversion", "transupp", "png", "pngconf", "crc32", "deflate", "inffast", "inffixed",
                "inflate", "inftrees", "trees", "zconf", "zlib", "zutil"]
@@ -29,7 +35,8 @@ LIB_DIRS = ["jpeg-6b", "zlib-1.2.3", "libpng-1.2.8", "wxWidgets-2.8.6/include"]
 PRAGMAS = {"pack", "intrinsic", "function", "once", "optimize", "warning", "inline_depth", "inline_recursion",
            "auto_inline", "push_macro", "pop_macro", "float_control", "fenv_access", "fp_contract", "check_stack",
            "runtime_checks", "strict_gs_check", "deprecated", "message", "vtordisp", "pointers_to_members", "conform"}
-_OK_INC = re.compile(r'^"(ue3|steam)/\w+\.h"\s*$|^<(%s)\.h>\s*$|^"(%s)\.h"\s*$' % ("|".join(STD_HEADERS), "|".join(LIB_HEADERS)))
+_OK_INC = re.compile(r'^"(ue3|steam)/\w+\.h"\s*$|^<(%s)\.h>\s*$|^<(%s)>\s*$|^"(%s)\.h"\s*$' % (
+    "|".join(STD_HEADERS), "|".join(CXX_HEADERS), "|".join(LIB_HEADERS)))
 _TRIGRAPH = re.compile(r"\?\?[=/'()!<>-]")
 _TOKENS = re.compile(r'//[^\n]*|/\*.*?(?:\*/|$)|"(?:\\.|[^"\\\n])*"?|\'(?:\\.|[^\'\\\n])*\'?', re.S)
 _OTHER = [
@@ -60,7 +67,7 @@ def check_source(src: str) -> str | None:
         name, arg = m.group(1), m.group(2).strip()
         if name == "include" and not _OK_INC.match(arg):
             return ("line %d: #include %s is not allowed: only the shared headers (\"ue3/Classes.h\" ..., \"steam/steam_api.h\"), the zlib, "
-                    "libpng and libjpeg headers and these standard headers: %s" % (n, arg, " ".join("<%s.h>" % h for h in STD_HEADERS)))
+                    "libpng and libjpeg headers and these standard headers: %s" % (n, arg, " ".join(["<%s.h>" % h for h in STD_HEADERS] + ["<%s>" % h for h in CXX_HEADERS])))
         if name in ("import", "using", "include_next"):
             return "line %d: #%s is not allowed" % (n, name)
         if name == "pragma" and re.match(r"\w*", arg).group(0) not in PRAGMAS:

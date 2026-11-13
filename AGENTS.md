@@ -158,7 +158,8 @@ happened; on HTTP 429 or 503 wait as told, don't retry in a loop.
 - Real, readable C++ only. No inline assembly, `__declspec(naked)`, `__emit` or raw bytes. Only these
   includes: the shared headers (`"ue3/..."`, and `"steam/steam_api.h"` for the Steamworks SDK's
   types: `CCallback<>`, the callback structs, `MatchMakingKeyValuePair_t`), the zlib, libpng and libjpeg headers, and the
-  compiler's standard C headers (`<math.h>`, `<string.h>`, `<stdlib.h>`, `<xmmintrin.h>`, `<new.h>` ...).
+  compiler's standard C and C++ headers (`<math.h>`, `<string.h>`, `<xmmintrin.h>`, `<new.h>` ..., `<string>`, `<vector>`,
+  `<map>`, `<algorithm>` ...: the game's own std code, e.g. a `std::wstring` member's destructor).
   Only harmless `#pragma`s (`pack`, `intrinsic`, `function`, `optimize`, `warning`, `inline_depth` ...).
   `check` refuses the rest as REJECTED and lists what is allowed.
 - Submit only what `check` reports as MATCH.
