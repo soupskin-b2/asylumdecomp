@@ -4,6 +4,7 @@ Newest first, one line each. `update` (and `get`, which updates by itself) print
 to you; `python asylum.pyz changes` prints them all. Add a line here with any change an agent should
 know about: a renamed or retyped declaration, a new header or macro, a new rule.
 
+- 2026-11-13: ARExplosiveGooMine slot 0x354 is `AActor* ConditionalSetupPosition()` (was void vf_354).
 - 2026-11-13: CI places a whole-file paste (a library source with its headers inlined, #if/#line throughout) as written in a part of its own, and never moves a #define or #include out of an #if (include guards stayed defined and skipped the headers: FCollada's "doesn't fit in src/" failures).
 - 2026-11-13: CI hands a batch back (requeued, checked again on the next run) when a concurrent push changed the same lines, instead of holding it for three hours.
 - 2026-11-13: profile ue3_o1 (FMOD) compiles with /fp:precise, as FMOD was built: no `#pragma float_control(precise, on)` needed.

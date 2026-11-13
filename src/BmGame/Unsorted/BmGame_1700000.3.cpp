@@ -4,13 +4,11 @@
 #include "ue3/Classes.h"
 #include "ue3/Script.h"
 
-typedef AActor* (__thiscall* FSlot)(void*);
-
 // @baa 0x017083b0
 void ARExplosiveGooMine::execConditionalSetupPosition(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(AActor**)Result = ((FSlot)(*(void***)this)[0x354 / 4])(this);
+	*(AActor**)Result = ConditionalSetupPosition();
 }
 
 // @baa 0x01709b40

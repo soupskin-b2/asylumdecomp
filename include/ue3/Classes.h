@@ -51391,7 +51391,7 @@ struct ARExplosiveGooMine : public AActor {
     class AActor* ProximityTrigger; /* 0x294 */
     class UDestructibleDamageParameters* DamageParams; /* 0x298 */
     /* virtual functions this class introduces (vtable 0x0235e5c8) */
-    virtual void vf_354(); /* 0x354 */
+    virtual class AActor* ConditionalSetupPosition(); /* 0x354 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
