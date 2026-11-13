@@ -2,8 +2,8 @@
  "note": "Maintained by CI (tools/ci); every file is checked by python tools/asylum unit-check.",
  "totals": {
   "units": 1443,
-  "files": 5909,
-  "functions": 103130,
+  "files": 5912,
+  "functions": 103173,
   "failed": 0
  },
  "units": [
@@ -66812,6 +66812,11 @@
      "va": "00567ff0",
      "size": 22,
      "symbol": "?Register@UField@@UAEXXZ"
+    },
+    {
+     "va": "00587da0",
+     "size": 27,
+     "symbol": "?GetDesc@UClass@@UAE?AVFString@@XZ"
     }
    ]
   },
@@ -72754,6 +72759,11 @@
      "va": "00542c60",
      "size": 13,
      "symbol": "?sub_00542c60@@YAXXZ"
+    },
+    {
+     "va": "00541450",
+     "size": 15,
+     "symbol": "?sub_00541450@@YAHHH@Z"
     }
    ]
   },
@@ -79627,6 +79637,11 @@
      "va": "005ebdb0",
      "size": 15,
      "symbol": "?sub_005ebdb0@@YGXPB_W@Z"
+    },
+    {
+     "va": "005efcf0",
+     "size": 16,
+     "symbol": "?Init@FVtObject_005efcf0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -116016,6 +116031,18 @@
   },
   {
    "unit": "D3D9Drv/Unsorted/D3D9Drv_1a10000.cpp",
+   "source": "D3D9Drv/Unsorted/D3D9Drv_1a10000.3.cpp",
+   "profile": "ue3_x87",
+   "functions": [
+    {
+     "va": "01a1d360",
+     "size": 15,
+     "symbol": "?sub_01a1d360@@YAPAXHI@Z"
+    }
+   ]
+  },
+  {
+   "unit": "D3D9Drv/Unsorted/D3D9Drv_1a10000.cpp",
    "source": "D3D9Drv/Unsorted/D3D9Drv_1a10000.cpp",
    "profile": "ue3",
    "functions": [
@@ -116394,6 +116421,11 @@
      "va": "01015ae0",
      "size": 7,
      "symbol": "?sub_01015ae0@C@@QAEXXZ"
+    },
+    {
+     "va": "01014920",
+     "size": 16,
+     "symbol": "?Init@FVtObject_01014920@@QAEPAU1@XZ"
     }
    ]
   },
@@ -146491,6 +146523,18 @@
   },
   {
    "unit": "Editor/Unsorted/Editor_0640000.cpp",
+   "source": "Editor/Unsorted/Editor_0640000.3.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "006491a0",
+     "size": 16,
+     "symbol": "?Size@FVector2_@@QAEMXZ"
+    }
+   ]
+  },
+  {
+   "unit": "Editor/Unsorted/Editor_0640000.cpp",
    "source": "Editor/Unsorted/Editor_0640000.cpp",
    "profile": "ue3",
    "functions": [
@@ -156158,6 +156202,11 @@
      "va": "00f9f240",
      "size": 14,
      "symbol": "?sub_00f9f240@C_00f9f240@@QAEXM@Z"
+    },
+    {
+     "va": "00f9d970",
+     "size": 16,
+     "symbol": "?Init@FVtObject_00f9d970@@QAEPAU1@XZ"
     }
    ]
   },
@@ -161802,6 +161851,21 @@
      "va": "0102ab80",
      "size": 5,
      "symbol": "?sub_0102ab80@@YAXXZ"
+    },
+    {
+     "va": "01027210",
+     "size": 16,
+     "symbol": "?Dispatch@FHolder_@@QAEXPAUFTarget_@@@Z"
+    },
+    {
+     "va": "01027220",
+     "size": 16,
+     "symbol": "?Dispatch@FHolder_01027220@@QAEXPAUFTarget_01027220@@@Z"
+    },
+    {
+     "va": "01027230",
+     "size": 16,
+     "symbol": "?Dispatch@FHolder_01027230@@QAEXPAUFTarget_01027230@@@Z"
     }
    ]
   },
@@ -168210,6 +168274,18 @@
      "va": "00c00c00",
      "size": 628,
      "symbol": "?CompressScaleKeys@@YAXPAUUAnimSequence@@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "Engine/Src/AnimationCompressionAlgorithm.cpp",
+   "source": "Engine/Src/AnimationCompressionAlgorithm.6.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "00c01df0",
+     "size": 589,
+     "symbol": "?FilterTrivialRotationKeys@UAnimationCompressionAlgorithm_RemoveLinearKeys@@SAXAAV?$TArray@UFRotationTrack@@@@M@Z"
     }
    ]
   },
@@ -209395,6 +209471,11 @@
      "va": "007c5a10",
      "size": 35,
      "symbol": "?GetVisibleFragments@UFracturedBaseComponent@@UAE?AV?$TArray@E@@XZ"
+    },
+    {
+     "va": "007a70e0",
+     "size": 14,
+     "symbol": "?Wrap@FRing_@@QAEHG@Z"
     }
    ]
   },
@@ -224229,6 +224310,11 @@
      "va": "00d8b400",
      "size": 52,
      "symbol": "?vf_004@ANxGenericForceFieldCapsule@@UAE_NXZ"
+    },
+    {
+     "va": "00d77910",
+     "size": 16,
+     "symbol": "?vf_1b4@ANxRadialForceField_@@UAEXM@Z"
     }
    ]
   },
@@ -264244,6 +264330,11 @@
      "va": "00547740",
      "size": 67,
      "symbol": "?ContainsItem@?$TArray@PAVUObject@@@@QBEHABQAUUObject@@@Z"
+    },
+    {
+     "va": "00542410",
+     "size": 92,
+     "symbol": "?vf_124@UDistributionVector@@UAEXPAI0@Z"
     }
    ]
   },
@@ -266449,6 +266540,11 @@
      "va": "0064bc60",
      "size": 30,
      "symbol": "?TestDrawHint@FMeshBatchElement_@@QAEHH@Z"
+    },
+    {
+     "va": "0064a9e0",
+     "size": 16,
+     "symbol": "?Invoke@FInterfaceSlot_@@QAEXHHH@Z"
     }
    ]
   },
@@ -274729,6 +274825,11 @@
      "va": "00699200",
      "size": 26,
      "symbol": "?sub_00699200@@YGXHHH@Z"
+    },
+    {
+     "va": "0069bc50",
+     "size": 16,
+     "symbol": "?Init@FVtObject_0069bc50@@QAEPAU1@XZ"
     }
    ]
   },
@@ -276946,6 +277047,11 @@
      "va": "006af090",
      "size": 26,
      "symbol": "?sub_006af090@S006af090@@QAEPAU1@HH@Z"
+    },
+    {
+     "va": "006a44f0",
+     "size": 12,
+     "symbol": "?GetBlock@FHolder_006a44f0@@QAEPADXZ"
     }
    ]
   },
@@ -278244,6 +278350,11 @@
      "va": "006d9a90",
      "size": 14,
      "symbol": "?sub_006d9a90@C_006d9a90@@QAEHXZ"
+    },
+    {
+     "va": "006d9e20",
+     "size": 16,
+     "symbol": "?sub_006d9e20@@YGXPAUFSource_@@PAM@Z"
     }
    ]
   },
@@ -284417,6 +284528,11 @@
      "va": "0070a480",
      "size": 26,
      "symbol": "?sub_0070a480@FNodeOwner@@QAEPAU1@PAUFNode@@PAH@Z"
+    },
+    {
+     "va": "00700780",
+     "size": 12,
+     "symbol": "?GetBlock@FHolder_00700780@@QAEPADXZ"
     }
    ]
   },
@@ -288013,6 +288129,11 @@
      "va": "0073fa60",
      "size": 26,
      "symbol": "?sub_0073fa60@S0073fa60@@QAEPAU1@PAU1@H@Z"
+    },
+    {
+     "va": "00739e70",
+     "size": 12,
+     "symbol": "?GetBlock@FHolder_00739e70@@QAEPADXZ"
     }
    ]
   },
@@ -289458,6 +289579,11 @@
      "va": "0074fff0",
      "size": 38,
      "symbol": "?sub_0074fff0@C_0074fff0@@QAEXXZ"
+    },
+    {
+     "va": "0074f3f0",
+     "size": 12,
+     "symbol": "?GetBlock@FHolder_0074f3f0@@QAEPADXZ"
     }
    ]
   },
@@ -297409,6 +297535,11 @@
      "va": "007a1f60",
      "size": 28,
      "symbol": "?vf_460@APlayerController@@UAEXH@Z"
+    },
+    {
+     "va": "007afa70",
+     "size": 78,
+     "symbol": "?vf_3d0@AAIController@@UAE?AUFVector@@XZ"
     }
    ]
   },
@@ -317183,6 +317314,11 @@
      "va": "009afe60",
      "size": 13,
      "symbol": "?sub_009afe60@@YGHH@Z"
+    },
+    {
+     "va": "009afd10",
+     "size": 16,
+     "symbol": "?Init@FVtObject_009afd10@@QAEPAU1@XZ"
     }
    ]
   },
@@ -329665,6 +329801,11 @@
      "va": "00ab8430",
      "size": 25,
      "symbol": "?sub_00ab8430@Sub_00ab8430_Holder@@QAEXXZ"
+    },
+    {
+     "va": "00ab2d00",
+     "size": 12,
+     "symbol": "?GetBlock@FHolder_00ab2d00@@QAEPADXZ"
     }
    ]
   },
@@ -357553,6 +357694,11 @@
      "va": "00d46000",
      "size": 25,
      "symbol": "?sub_00d46000@V3@@QAEPAU1@HHH@Z"
+    },
+    {
+     "va": "00d477a0",
+     "size": 16,
+     "symbol": "?Init@FVtObject_00d477a0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -403170,6 +403316,11 @@
      "va": "00e521a0",
      "size": 13,
      "symbol": "?sub_00e521a0@C_00e521a0@@QAEXXZ"
+    },
+    {
+     "va": "00e52190",
+     "size": 16,
+     "symbol": "?Init@FVtObject_00e52190@@QAEPAU1@XZ"
     }
    ]
   },
@@ -413105,6 +413256,16 @@
      "va": "01912820",
      "size": 75,
      "symbol": "?sub_01912820@GFxNodeHandle@@QAEXABUGFxNodeHandleArg@@@Z"
+    },
+    {
+     "va": "01910630",
+     "size": 13,
+     "symbol": "?sub_01910630@@YGXPAXH@Z"
+    },
+    {
+     "va": "01910640",
+     "size": 13,
+     "symbol": "?sub_01910640@@YGXPAXH@Z"
     }
    ]
   },
@@ -424013,6 +424174,11 @@
      "va": "01988150",
      "size": 99,
      "symbol": "?sub_01988150@GFxLazyTextOwner@@QAEHI@Z"
+    },
+    {
+     "va": "0198cf90",
+     "size": 15,
+     "symbol": "?Set@FFlagByte_@@QAEPAU1@E@Z"
     }
    ]
   },
@@ -434045,6 +434211,56 @@
      "va": "01a39360",
      "size": 25,
      "symbol": "?sub_01a39360@NxdScene@@UAEHH@Z"
+    },
+    {
+     "va": "01a3c7c0",
+     "size": 16,
+     "symbol": "?sub_01a3c7c0@@YGHPBUFRecord_01a3c7c0@@@Z"
+    },
+    {
+     "va": "01a3c830",
+     "size": 16,
+     "symbol": "?sub_01a3c830@@YGHPBUFRecord_01a3c830@@@Z"
+    },
+    {
+     "va": "01a3c890",
+     "size": 16,
+     "symbol": "?sub_01a3c890@@YGHPBUFRecord_01a3c890@@@Z"
+    },
+    {
+     "va": "01a3c900",
+     "size": 16,
+     "symbol": "?sub_01a3c900@@YGHPBUFRecord_01a3c900@@@Z"
+    },
+    {
+     "va": "01a3c960",
+     "size": 16,
+     "symbol": "?sub_01a3c960@@YGHPBUFRecord_01a3c960@@@Z"
+    },
+    {
+     "va": "01a3c9d0",
+     "size": 16,
+     "symbol": "?sub_01a3c9d0@@YGHPBUFRecord_01a3c9d0@@@Z"
+    },
+    {
+     "va": "01a3cb00",
+     "size": 16,
+     "symbol": "?sub_01a3cb00@@YGHPBUFRecord_01a3cb00@@@Z"
+    },
+    {
+     "va": "01a3cbd0",
+     "size": 16,
+     "symbol": "?sub_01a3cbd0@@YGHPBUFRecord_01a3cbd0@@@Z"
+    },
+    {
+     "va": "01a3cc10",
+     "size": 16,
+     "symbol": "?sub_01a3cc10@@YGHPBUFRecord_01a3cc10@@@Z"
+    },
+    {
+     "va": "01a3cc50",
+     "size": 16,
+     "symbol": "?sub_01a3cc50@@YGHPBUFRecord_01a3cc50@@@Z"
     }
    ]
   },
@@ -435236,6 +435452,11 @@
      "va": "01a44f20",
      "size": 24,
      "symbol": "?sub_01a44f20@NxdSoftBody_@@QAEGXZ"
+    },
+    {
+     "va": "01a4f080",
+     "size": 16,
+     "symbol": "?sub_01a4f080@@YGHPBUFRecord_01a4f080@@@Z"
     }
    ]
   },
@@ -499165,6 +499386,11 @@
      "va": "014dc9d0",
      "size": 25,
      "symbol": "?sub_014dc9d0@StyleObj@@QAEXXZ"
+    },
+    {
+     "va": "00dca7c0",
+     "size": 16,
+     "symbol": "?Init@FClear_@@QAEPAU1@XZ"
     }
    ]
   },
@@ -510266,6 +510492,11 @@
      "va": "005350c0",
      "size": 15,
      "symbol": "?sub_005350c0@@YAXHPAUSub_005350c0@@@Z"
+    },
+    {
+     "va": "0053e4f0",
+     "size": 16,
+     "symbol": "?Init@FVtObject_0053e4f0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -514257,6 +514488,11 @@
      "va": "00b71f60",
      "size": 5,
      "symbol": "?sub_00b71f60@@YAHHH@Z"
+    },
+    {
+     "va": "00b71a90",
+     "size": 16,
+     "symbol": "?Init@FVtObject_00b71a90@@QAEPAU1@XZ"
     }
    ]
   },

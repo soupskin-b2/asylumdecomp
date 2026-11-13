@@ -1,4 +1,4 @@
-// Editor_0f90000.cpp: 78 functions
+// Editor_0f90000.cpp: 79 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -602,4 +602,20 @@ struct C_00f9f240
 void C_00f9f240::sub_00f9f240(float In)
 {
     Value = In;
+}
+
+struct FVtObject_00f9d970
+{
+	const void* ClassVTable; /* 0x0 */
+	void* Owner; /* 0x4 */
+
+	FVtObject_00f9d970* Init();
+};
+
+// @baa 0x00f9d970
+FVtObject_00f9d970* FVtObject_00f9d970::Init()
+{
+	ClassVTable = &g_02177260;
+	Owner = NULL;
+	return this;
 }

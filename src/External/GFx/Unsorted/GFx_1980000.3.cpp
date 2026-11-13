@@ -1,4 +1,4 @@
-// GFx_1980000.cpp: 6 functions
+// GFx_1980000.cpp: 7 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Core.h"
@@ -166,4 +166,20 @@ int GFxLazyTextOwner::sub_01988150(unsigned int Key)
 {
     GetData();
     return pData->Records.sub_0192f6d0(Key) != 0;
+}
+
+// Stores the low three bits of the flag byte at +0xc.
+struct FFlagByte_
+{
+	BYTE Header[0xc];
+	BYTE Flags; /* 0xc */
+
+	FFlagByte_* Set(BYTE Mask);
+};
+
+// @baa 0x0198cf90
+FFlagByte_* FFlagByte_::Set(BYTE Mask)
+{
+	Flags = (BYTE)(Mask & 7);
+	return this;
 }

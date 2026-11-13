@@ -1,4 +1,4 @@
-// UnrealEd_0530000.cpp (part 2 of 3): 3 functions
+// UnrealEd_0530000.cpp (part 2 of 3): 4 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -36,4 +36,22 @@ struct Sub_005350c0
 void sub_005350c0(INT A1, Sub_005350c0* Object)
 {
     Object->sub_00534e60(A1);
+}
+
+// FVtObject_0053e4f0: its class's vtable is installed and the trailing word set.
+extern const unsigned char g_01e729d0;
+struct FVtObject_0053e4f0
+{
+	const void* ClassVTable; /* 0x0 */
+	void* Owner; /* 0x4 */
+
+	FVtObject_0053e4f0* Init();
+};
+
+// @baa 0x0053e4f0
+FVtObject_0053e4f0* FVtObject_0053e4f0::Init()
+{
+	ClassVTable = &g_01e729d0;
+	Owner = NULL;
+	return this;
 }

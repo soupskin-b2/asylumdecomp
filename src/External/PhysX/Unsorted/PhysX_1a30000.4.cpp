@@ -1,4 +1,4 @@
-// PhysX_1a30000.cpp: 1 function
+// PhysX_1a30000.cpp: 11 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -146,4 +146,134 @@ int NxdScene::sub_01a39360(int Arg)
 {
     m_Sub->Call61(Arg);
     return Arg;
+}
+
+// Reports whether the handle at +0x14 of the given record has been assigned.
+struct FRecord_01a3c7c0
+{
+	BYTE Header[0x14];
+	INT Handle; /* 0x14 */
+};
+
+// @baa 0x01a3c7c0
+INT __stdcall sub_01a3c7c0(const FRecord_01a3c7c0* Record)
+{
+	return Record->Handle != -1;
+}
+
+// Reports whether the handle at +0x18 of the given record has been assigned.
+struct FRecord_01a3c830
+{
+	BYTE Header[0x18];
+	INT Handle; /* 0x18 */
+};
+
+// @baa 0x01a3c830
+INT __stdcall sub_01a3c830(const FRecord_01a3c830* Record)
+{
+	return Record->Handle != -1;
+}
+
+// Reports whether the handle at +0x10 of the given record has been assigned.
+struct FRecord_01a3c890
+{
+	BYTE Header[0x10];
+	INT Handle; /* 0x10 */
+};
+
+// @baa 0x01a3c890
+INT __stdcall sub_01a3c890(const FRecord_01a3c890* Record)
+{
+	return Record->Handle != -1;
+}
+
+// Reports whether the handle at +0x14 of the given record has been assigned.
+struct FRecord_01a3c900
+{
+	BYTE Header[0x14];
+	INT Handle; /* 0x14 */
+};
+
+// @baa 0x01a3c900
+INT __stdcall sub_01a3c900(const FRecord_01a3c900* Record)
+{
+	return Record->Handle != -1;
+}
+
+// Reports whether the handle at +0x68 of the given record has been assigned.
+struct FRecord_01a3c960
+{
+	BYTE Header[0x68];
+	INT Handle; /* 0x68 */
+};
+
+// @baa 0x01a3c960
+INT __stdcall sub_01a3c960(const FRecord_01a3c960* Record)
+{
+	return Record->Handle != -1;
+}
+
+// Reports whether the handle at +0x6c of the given record has been assigned.
+struct FRecord_01a3c9d0
+{
+	BYTE Header[0x6c];
+	INT Handle; /* 0x6c */
+};
+
+// @baa 0x01a3c9d0
+INT __stdcall sub_01a3c9d0(const FRecord_01a3c9d0* Record)
+{
+	return Record->Handle != -1;
+}
+
+// Reports whether the handle at +0x48 of the given record has been assigned.
+struct FRecord_01a3cb00
+{
+	BYTE Header[0x48];
+	INT Handle; /* 0x48 */
+};
+
+// @baa 0x01a3cb00
+INT __stdcall sub_01a3cb00(const FRecord_01a3cb00* Record)
+{
+	return Record->Handle != -1;
+}
+
+// Reports whether the handle at +0x14 of the given record has been assigned.
+struct FRecord_01a3cbd0
+{
+	BYTE Header[0x14];
+	INT Handle; /* 0x14 */
+};
+
+// @baa 0x01a3cbd0
+INT __stdcall sub_01a3cbd0(const FRecord_01a3cbd0* Record)
+{
+	return Record->Handle != -1;
+}
+
+// Reports whether the handle at +0x14 of the given record has been assigned.
+struct FRecord_01a3cc10
+{
+	BYTE Header[0x14];
+	INT Handle; /* 0x14 */
+};
+
+// @baa 0x01a3cc10
+INT __stdcall sub_01a3cc10(const FRecord_01a3cc10* Record)
+{
+	return Record->Handle != -1;
+}
+
+// Reports whether the handle at +0x14 of the given record has been assigned.
+struct FRecord_01a3cc50
+{
+	BYTE Header[0x14];
+	INT Handle; /* 0x14 */
+};
+
+// @baa 0x01a3cc50
+INT __stdcall sub_01a3cc50(const FRecord_01a3cc50* Record)
+{
+	return Record->Handle != -1;
 }

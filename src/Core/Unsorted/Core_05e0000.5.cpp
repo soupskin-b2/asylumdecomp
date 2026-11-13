@@ -1,4 +1,4 @@
-// Core_05e0000.cpp (part 5 of 5): 9 functions
+// Core_05e0000.cpp (part 5 of 5): 10 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -134,4 +134,22 @@ extern "C" __declspec(dllimport) int __cdecl wprintf(const wchar_t* Format, ...)
 void __stdcall sub_005ebdb0(const wchar_t* Format)
 {
     wprintf(Format);
+}
+
+// FVtObject_005efcf0: its class's vtable is installed and the trailing word set.
+extern const unsigned char g_01e9f7f0;
+struct FVtObject_005efcf0
+{
+	const void* ClassVTable; /* 0x0 */
+	void* Owner; /* 0x4 */
+
+	FVtObject_005efcf0* Init();
+};
+
+// @baa 0x005efcf0
+FVtObject_005efcf0* FVtObject_005efcf0::Init()
+{
+	ClassVTable = &g_01e9f7f0;
+	Owner = NULL;
+	return this;
 }

@@ -1,4 +1,4 @@
-// UnUIStyleEditor.cpp (part 5 of 5): 2 functions
+// UnUIStyleEditor.cpp (part 5 of 5): 3 functions
 // Placed here by: neighbours 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -39,4 +39,22 @@ extern GObj* g_026667c4;
 void StyleObj::sub_014dc9d0()
 {
     g_026667c4->V4(0x26, Field_0x154);
+}
+
+// A two-word record, cleared.
+struct FClear_
+{
+	INT First; /* 0x0 */
+	INT Header[6];
+	INT Second; /* 0x1c */
+
+	FClear_* Init();
+};
+
+// @baa 0x00dca7c0
+FClear_* FClear_::Init()
+{
+	First = 0;
+	Second = 0;
+	return this;
 }

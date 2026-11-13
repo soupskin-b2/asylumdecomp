@@ -1,4 +1,4 @@
-// Engine_0730000.cpp (part 2 of 3): 25 functions
+// Engine_0730000.cpp (part 2 of 3): 26 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -427,4 +427,18 @@ S0073fa60* S0073fa60::sub_0073fa60(S0073fa60* Obj, INT Flag)
 	if (Obj && Flag)
 		++Obj->Ref;
 	return this;
+}
+
+// FHolder_00739e70: the block at +0x250 inside the object this interface returns.
+struct FHolder_00739e70
+{
+	virtual void* GetBase();
+
+	char* GetBlock();
+};
+
+// @baa 0x00739e70
+char* FHolder_00739e70::GetBlock()
+{
+	return (char*)GetBase() + 0x250;
 }

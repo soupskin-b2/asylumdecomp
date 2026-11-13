@@ -1,4 +1,4 @@
-// GFx_1910000.cpp (part 5 of 5): 22 functions
+// GFx_1910000.cpp (part 5 of 5): 24 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -400,4 +400,18 @@ void GFxNodeHandle::sub_01912820(const GFxNodeHandleArg& Arg)
             pNode->Release();
         pNode = 0;
     }
+}
+
+// Forwards the argument to the handler.
+void __stdcall sub_019103e0(void* Arg);
+// @baa 0x01910630
+void __stdcall sub_01910630(void* Arg, int Unused)
+{
+	sub_019103e0(Arg);
+}
+
+// @baa 0x01910640
+void __stdcall sub_01910640(void* Arg, int Unused)
+{
+	sub_019103e0(Arg);
 }

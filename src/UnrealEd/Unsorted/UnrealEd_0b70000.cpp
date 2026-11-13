@@ -1,4 +1,4 @@
-// UnrealEd_0b70000.cpp: 42 functions
+// UnrealEd_0b70000.cpp: 43 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -213,3 +213,21 @@ int sub_00b71f50(int a0, int a1) { return a1; }
 
 // @baa 0x00b71f60
 int sub_00b71f60(int a0, int a1) { return a1; }
+
+// FVtObject_00b71a90: its class's vtable is installed and the trailing word set.
+extern const unsigned char g_0200bfb8;
+struct FVtObject_00b71a90
+{
+	const void* ClassVTable; /* 0x0 */
+	void* Owner; /* 0x4 */
+
+	FVtObject_00b71a90* Init();
+};
+
+// @baa 0x00b71a90
+FVtObject_00b71a90* FVtObject_00b71a90::Init()
+{
+	ClassVTable = &g_0200bfb8;
+	Owner = NULL;
+	return this;
+}

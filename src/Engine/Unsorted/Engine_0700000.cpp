@@ -1,4 +1,4 @@
-// Engine_0700000.cpp (part 1 of 2): 183 functions
+// Engine_0700000.cpp (part 1 of 2): 184 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -2034,4 +2034,18 @@ static FNodeOwner g_NodeOwner;
 void sub_0070a481()
 {
 	g_NodeOwner.sub_0070a480(0, 0);
+}
+
+// FHolder_00700780: the block at +0x250 inside the object this interface returns.
+struct FHolder_00700780
+{
+	virtual void* GetBase();
+
+	char* GetBlock();
+};
+
+// @baa 0x00700780
+char* FHolder_00700780::GetBlock()
+{
+	return (char*)GetBase() + 0x250;
 }

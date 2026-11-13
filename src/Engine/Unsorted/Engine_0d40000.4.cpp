@@ -1,4 +1,4 @@
-// Engine_0d40000.cpp (part 4 of 4): 10 functions
+// Engine_0d40000.cpp (part 4 of 4): 11 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -237,4 +237,22 @@ struct V3
 V3* sub_00d46100(V3* V, INT A, INT B, INT C)
 {
     return V->sub_00d46000(A, B, C);
+}
+
+// FVtObject_00d477a0: its class's vtable is installed and the trailing word set.
+extern const unsigned char g_020afaf8;
+struct FVtObject_00d477a0
+{
+	const void* ClassVTable; /* 0x0 */
+	void* Owner; /* 0x4 */
+
+	FVtObject_00d477a0* Init();
+};
+
+// @baa 0x00d477a0
+FVtObject_00d477a0* FVtObject_00d477a0::Init()
+{
+	ClassVTable = &g_020afaf8;
+	Owner = (void*)1;
+	return this;
 }

@@ -1,4 +1,4 @@
-// Engine_06a0000.cpp (part 1 of 2): 248 functions
+// Engine_06a0000.cpp (part 1 of 2): 249 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1945,4 +1945,18 @@ S006af090* S006af090::sub_006af090(int Arg1, int Arg2)
         *P = *P + 1;
     }
     return this;
+}
+
+// FHolder_006a44f0: the block at +0xac0 inside the object this interface returns.
+struct FHolder_006a44f0
+{
+	virtual void* GetBase();
+
+	char* GetBlock();
+};
+
+// @baa 0x006a44f0
+char* FHolder_006a44f0::GetBlock()
+{
+	return (char*)GetBase() + 0xac0;
 }

@@ -1,4 +1,4 @@
-// Engine_0690000.cpp (part 6 of 8): 5 functions
+// Engine_0690000.cpp (part 6 of 8): 6 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -76,4 +76,22 @@ int sub_0053d240(INT, INT, INT);
 void __stdcall sub_00699200(INT A, INT B, INT C)
 {
 	sub_0053d240(A, B, C);
+}
+
+// FVtObject_0069bc50: its class's vtable is installed and the trailing word set.
+extern const unsigned char g_01ec1274;
+struct FVtObject_0069bc50
+{
+	const void* ClassVTable; /* 0x0 */
+	void* Owner; /* 0x4 */
+
+	FVtObject_0069bc50* Init();
+};
+
+// @baa 0x0069bc50
+FVtObject_0069bc50* FVtObject_0069bc50::Init()
+{
+	ClassVTable = &g_01ec1274;
+	Owner = NULL;
+	return this;
 }

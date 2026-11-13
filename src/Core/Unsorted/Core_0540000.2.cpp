@@ -1,4 +1,4 @@
-// Core_0540000.cpp (part 2 of 2): 2 functions
+// Core_0540000.cpp (part 2 of 2): 3 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -16,4 +16,11 @@ extern DWORD g_02686250;
 void sub_00542c60()
 {
     TlsGetValue(g_02686250);
+}
+
+// @baa 0x00541450
+// The smaller of two ints.
+INT sub_00541450(INT A, INT B)
+{
+	return A > B ? B : A;
 }

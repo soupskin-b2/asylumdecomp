@@ -1,4 +1,4 @@
-// Engine_07a0000.cpp (part 1 of 4): 240 functions
+// Engine_07a0000.cpp (part 1 of 4): 241 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1969,4 +1969,11 @@ void APlayerController::vf_460(INT PPSettings)
 	{
 		PlayerCamera->vf_360(*(FPostProcessSettings*)PPSettings);
 	}
+}
+
+// @baa 0x007afa70
+/* The offset from the pawn to where the AI is heading. */
+FVector AAIController::vf_3d0()
+{
+	return GetDestinationPosition() - Pawn->Location;
 }

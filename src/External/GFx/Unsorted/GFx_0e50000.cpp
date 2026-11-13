@@ -1,4 +1,4 @@
-// GFx_0e50000.cpp: 3 functions
+// GFx_0e50000.cpp: 4 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -45,4 +45,22 @@ struct C_00e521a0
 void C_00e521a0::sub_00e521a0()
 {
     InterlockedExchangeAdd(&Counter, 1);
+}
+
+// FVtObject_00e52190: its class's vtable is installed and the trailing word set.
+extern const unsigned char g_02106218;
+struct FVtObject_00e52190
+{
+	const void* ClassVTable; /* 0x0 */
+	void* Owner; /* 0x4 */
+
+	FVtObject_00e52190* Init();
+};
+
+// @baa 0x00e52190
+FVtObject_00e52190* FVtObject_00e52190::Init()
+{
+	ClassVTable = &g_02106218;
+	Owner = (void*)1;
+	return this;
 }

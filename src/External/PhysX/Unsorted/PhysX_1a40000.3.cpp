@@ -1,4 +1,4 @@
-// PhysX_1a40000.cpp: 1 function
+// PhysX_1a40000.cpp: 2 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Core.h"
@@ -60,4 +60,17 @@ WORD NxdSoftBody_::sub_01a44f20()
     if (state & 0x200)
         return material_index;
     return impl->sub_01a44f20();
+}
+
+// Reports whether the handle at +0x10 of the given record has been assigned.
+struct FRecord_01a4f080
+{
+	BYTE Header[0x10];
+	INT Handle; /* 0x10 */
+};
+
+// @baa 0x01a4f080
+INT __stdcall sub_01a4f080(const FRecord_01a4f080* Record)
+{
+	return Record->Handle != -1;
 }

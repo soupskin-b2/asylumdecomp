@@ -1,4 +1,4 @@
-// UnPhysActorForceField.cpp: 45 functions
+// UnPhysActorForceField.cpp: 46 functions
 // Placed here by: file 10, callers 9.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -230,4 +230,18 @@ bool ANxGenericForceFieldBox::vf_004()
 bool ANxGenericForceFieldCapsule::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// ANxRadialForceField: forwards a scalar update to the fracture/force helper.
+struct ANxRadialForceField_ : public ANxRadialForceField
+{
+	void sub_00d6f720(FLOAT Value);
+
+	virtual void vf_1b4(FLOAT);
+};
+
+// @baa 0x00d77910
+void ANxRadialForceField_::vf_1b4(FLOAT Value)
+{
+	sub_00d6f720(Value);
 }

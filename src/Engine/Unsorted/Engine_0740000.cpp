@@ -1,4 +1,4 @@
-// Engine_0740000.cpp: 66 functions
+// Engine_0740000.cpp: 67 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -928,4 +928,18 @@ void C_0074fff0::sub_0074fff0(void)
 
   sub_00b01b80(*(undefined1 *)(param_1 + 0xf7),param_1 + 0x154,param_1 + 0x178,param_1 + 0x19c);
   return;
+}
+
+// FHolder_0074f3f0: the block at +0xb50 inside the object this interface returns.
+struct FHolder_0074f3f0
+{
+	virtual void* GetBase();
+
+	char* GetBlock();
+};
+
+// @baa 0x0074f3f0
+char* FHolder_0074f3f0::GetBlock()
+{
+	return (char*)GetBase() + 0xb50;
 }

@@ -1,4 +1,4 @@
-// Engine_0ab0000.cpp: 2 functions
+// Engine_0ab0000.cpp: 3 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -41,4 +41,18 @@ void Sub_00ab8430_Holder::sub_00ab8430()
 static void Caller_00ab8430(Sub_00ab8430_Holder* H)
 {
     H->sub_00ab8430();
+}
+
+// FHolder_00ab2d00: the block at +0x230 inside the object this interface returns.
+struct FHolder_00ab2d00
+{
+	virtual void* GetBase();
+
+	char* GetBlock();
+};
+
+// @baa 0x00ab2d00
+char* FHolder_00ab2d00::GetBlock()
+{
+	return (char*)GetBase() + 0x230;
 }

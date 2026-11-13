@@ -1,4 +1,4 @@
-// UnClass.cpp (part 2 of 2): 15 functions
+// UnClass.cpp (part 2 of 2): 16 functions
 // Placed here by: neighbours 3, class 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -124,4 +124,11 @@ void UField::Register()
     {
         SuperField->ConditionalRegister();
     }
+}
+
+// @baa 0x00587da0
+/* GetDesc: a class is described by its name. */
+FString UClass::GetDesc()
+{
+	return GetName();
 }

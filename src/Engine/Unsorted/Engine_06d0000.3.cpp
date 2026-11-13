@@ -1,4 +1,4 @@
-// Engine_06d0000.cpp (part 3 of 4): 3 functions
+// Engine_06d0000.cpp (part 3 of 4): 4 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -62,4 +62,17 @@ struct C_006d9a90
 INT C_006d9a90::sub_006d9a90()
 {
     return Pointer->Value;
+}
+
+// Copies the FLOAT at +8 of the source into the destination.
+struct FSource_
+{
+	BYTE Header[8];
+	FLOAT Value; /* 0x8 */
+};
+
+// @baa 0x006d9e20
+void __stdcall sub_006d9e20(FSource_* Source, FLOAT* Out)
+{
+	*Out = Source->Value;
 }

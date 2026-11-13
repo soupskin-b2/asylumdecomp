@@ -1,4 +1,4 @@
-// Engine_0540000.cpp: 32 functions
+// Engine_0540000.cpp: 33 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -189,3 +189,12 @@ void UDistributionVector_::sub_005423f0(FVector& OutVector, FLOAT A, FLOAT B, FL
 // @baa 0x00547740
 /* TArray<UObject*>::ContainsItem, an out-of-line instance */
 template UBOOL TArray<UObject*>::ContainsItem(UObject* const& Item) const;
+
+// @baa 0x00542410
+/* GetOutRange: the base distribution has no range (both bounds are the zero vector). The kit declares
+ * the FVector& out parameters as UINT*. */
+void UDistributionVector::vf_124(UINT* MinOut, UINT* MaxOut)
+{
+	*(FVector*)MinOut = FVector(0.f, 0.f, 0.f);
+	*(FVector*)MaxOut = FVector(0.f, 0.f, 0.f);
+}

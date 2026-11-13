@@ -1,4 +1,4 @@
-// Engine_09a0000.cpp (part 2 of 2): 54 functions
+// Engine_09a0000.cpp (part 2 of 2): 55 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -647,4 +647,22 @@ BYTE C_009afe00::sub_009afe00(char* Object)
 INT __stdcall sub_009afe60(INT Value)
 {
     return Value == 1;
+}
+
+// FVtObject_009afd10: its class's vtable is installed and the trailing word set.
+extern const unsigned char g_01f99c90;
+struct FVtObject_009afd10
+{
+	const void* ClassVTable; /* 0x0 */
+	void* Owner; /* 0x4 */
+
+	FVtObject_009afd10* Init();
+};
+
+// @baa 0x009afd10
+FVtObject_009afd10* FVtObject_009afd10::Init()
+{
+	ClassVTable = &g_01f99c90;
+	Owner = NULL;
+	return this;
 }

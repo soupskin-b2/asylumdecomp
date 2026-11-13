@@ -1,4 +1,4 @@
-// Engine_0640000.cpp (part 2 of 2): 28 functions
+// Engine_0640000.cpp (part 2 of 2): 29 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -443,4 +443,21 @@ UBOOL FMeshBatchElement_::TestDrawHint(INT DrawHint)
 		}
 	}
 	return 0;
+}
+
+// An interface slot that takes three ints and returns nothing.
+struct FInterfaceSlot_
+{
+	void* Object;
+	void Invoke(INT Arg1, INT Arg2, INT Arg3);
+};
+
+// @baa 0x0064a9e0
+void FInterfaceSlot_::Invoke(INT Arg1, INT Arg2, INT Arg3)
+{
+	typedef void (__thiscall *Fn)(void*, INT, INT, INT);
+	if (Object != NULL)
+	{
+		((Fn)(*(void***)Object)[3])(Object, Arg1, Arg2, Arg3);
+	}
 }
