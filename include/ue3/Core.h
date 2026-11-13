@@ -90,10 +90,12 @@ inline void appFree(void* Original) {
    <string.h> and <wchar.h> (which declares it again) are included here with memmove renamed, so a source may
    include them too (after this). */
 #ifndef _INC_STRING
+#define BAA_OWN_MEMMOVE
 #define memmove baa_string_h_memmove
 #include <string.h>
 #include <wchar.h>
 #undef memmove
+#endif
 
 static __forceinline void appMemzero( void* Dest, INT Count ) { memset( Dest, 0, Count ); }
 #define appMemcpy memcpy /* as UE3's UnFile.h */
@@ -116,6 +118,7 @@ enum EInputEvent
 	IE_Axis         = 4,
 	IE_MAX          = 5,
 };
+#ifdef BAA_OWN_MEMMOVE
 extern "C" void* __cdecl memmove(void* Dest, const void* Src, unsigned int Count);
 #endif
 inline void* appMemmove(void* Dest, const void* Src, INT Count) { return memmove(Dest, Src, Count); }
@@ -298,5 +301,24 @@ template<class T, class CompareClass> void Sort(T* First, INT Num)
         }
     }
 }
+
+/* UnOutputDevices.h: where log lines go (GLog, GError, an FFrame's script warnings) */
+struct FOutputDevice {
+    UBOOL bAllowSuppression;          /* 0x4 */
+    UBOOL bSuppressEventTag;          /* 0x8 */
+    UBOOL bAutoEmitLineTerminator;    /* 0xc */
+
+    FOutputDevice() : bAllowSuppression(TRUE), bSuppressEventTag(FALSE), bAutoEmitLineTerminator(TRUE) {}
+    virtual ~FOutputDevice() {}
+    virtual void Serialize(const TCHAR* V, EName Event) {}
+    virtual void Flush() {}
+    virtual void TearDown() {}
+
+    void Logf(const TCHAR* Fmt, ...); /* 0x00630f20 */
+    void Logf(EName Event, const TCHAR* Fmt, ...); /* 0x00630ea0: e.g. Stack.Logf(NAME_ScriptWarning, TEXT("Divide by zero")) */
+};
+
+// The error device: GError->Logf reports a fatal error (appErrorf in other builds). Verified: 0x026667a8.
+extern FOutputDevice* GError;
 
 #endif

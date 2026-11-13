@@ -67882,7 +67882,7 @@
     {
      "va": "0059d720",
      "size": 5,
-     "symbol": "?sub_0059d720@@YGHHH@Z"
+     "symbol": "?Exec@USubsystem@@UAEHPB_WAAUFOutputDevice@@@Z"
     },
     {
      "va": "0059d8a0",
@@ -167549,7 +167549,7 @@
     {
      "va": "00e174a0",
      "size": 5,
-     "symbol": "?sub_00e174a0@@YGHHH@Z"
+     "symbol": "?NotifySendingFile@UNetPendingLevel@@UAEHPAUUNetConnection@@ABUFGuid@@@Z"
     },
     {
      "va": "00e17500",
@@ -227336,7 +227336,7 @@
     {
      "va": "00889a50",
      "size": 3,
-     "symbol": "?sub_00889a50@@YGXH@Z"
+     "symbol": "?FViewportClient_vf040@UGameViewportClient@@UAEXH@Z"
     },
     {
      "va": "0088e5c0",
@@ -227576,7 +227576,7 @@
     {
      "va": "0089f690",
      "size": 3,
-     "symbol": "?sub_0089f690@@YGXH@Z"
+     "symbol": "?RedrawRequested@UGameViewportClient@@UAEXPAUFViewport@@@Z"
     },
     {
      "va": "0089f6a0",
@@ -227586,12 +227586,12 @@
     {
      "va": "0089f6b0",
      "size": 3,
-     "symbol": "?sub_0089f6b0@@YAHXZ"
+     "symbol": "?FViewportClient_vf050@UGameViewportClient@@UAEHXZ"
     },
     {
      "va": "0089f6c0",
      "size": 4,
-     "symbol": "?sub_0089f6c0@URCapeStateBoneConfig@@QAEHXZ"
+     "symbol": "?GetUObject@UGameViewportClient@@UAEPAUUObject@@XZ"
     },
     {
      "va": "0089f6d0",
@@ -227691,7 +227691,7 @@
     {
      "va": "00889a60",
      "size": 24,
-     "symbol": "?sub_00889a60@URCapeStateBoneConfig_@@QAEXH@Z"
+     "symbol": "?FViewportClient_vf044@UGameViewportClient@@UAEXH@Z"
     },
     {
      "va": "00889060",
@@ -263560,7 +263560,7 @@
     {
      "va": "009c68d0",
      "size": 4,
-     "symbol": "?sub_009c68d0@UWorld@@QAEHXZ"
+     "symbol": "?NotifyGetWorld@UWorld@@UAEPAU1@XZ"
     },
     {
      "va": "009c69f0",
@@ -301694,32 +301694,32 @@
     {
      "va": "007ec790",
      "size": 3,
-     "symbol": "?sub_007ec790@@YAHXZ"
+     "symbol": "?IsHitTesting@ULineBatchComponent@@UAEHXZ"
     },
     {
      "va": "007ec7a0",
      "size": 3,
-     "symbol": "?sub_007ec7a0@@YGXH@Z"
+     "symbol": "?SetHitProxy@ULineBatchComponent@@UAEXPAUHHitProxy@@@Z"
     },
     {
      "va": "007ec7b0",
      "size": 3,
-     "symbol": "?sub_007ec7b0@@YGXH@Z"
+     "symbol": "?RegisterDynamicResource@ULineBatchComponent@@UAEXPAUFDynamicPrimitiveResource@@@Z"
     },
     {
      "va": "007ec7c0",
      "size": 5,
-     "symbol": "?sub_007ec7c0@@YGHH@Z"
+     "symbol": "?FPrimitiveDrawInterface_vf01c@ULineBatchComponent@@UAEHH@Z"
     },
     {
      "va": "007ec7d0",
      "size": 3,
-     "symbol": "?sub_007ec7d0@@YGXHHHHHH@Z"
+     "symbol": "?DrawSprite@ULineBatchComponent@@UAEXABUFVector@@MMPBUFTexture@@ABUFLinearColor@@E@Z"
     },
     {
      "va": "007ec7e0",
      "size": 3,
-     "symbol": "?sub_007ec7e0@@YGXHHHH@Z"
+     "symbol": "?DrawPoint@ULineBatchComponent@@UAEXABUFVector@@ABUFLinearColor@@ME@Z"
     },
     {
      "va": "007ec7f0",
@@ -318107,7 +318107,7 @@
     {
      "va": "009b47a0",
      "size": 29,
-     "symbol": "?NotifyAcceptingChannel@FNetworkNotify@@UAEHPAVUChannel@@@Z"
+     "symbol": "?NotifyAcceptingChannel@FNetworkNotify@@UAEHPAUUChannel@@@Z"
     }
    ]
   },
@@ -318201,12 +318201,12 @@
     {
      "va": "009b4760",
      "size": 30,
-     "symbol": "?sub_009b4760@@YAIXZ"
+     "symbol": "?NotifyAcceptingConnection@FNetworkNotify@@UAE?AW4EAcceptConnection@@XZ"
     },
     {
      "va": "009b47c0",
      "size": 27,
-     "symbol": "?NotifyGetWorld@FNetworkNotify@@QAEIXZ"
+     "symbol": "?NotifyGetWorld@FNetworkNotify@@UAEPAUUWorld@@XZ"
     },
     {
      "va": "009b4b60",
@@ -318336,22 +318336,22 @@
     {
      "va": "009b4820",
      "size": 27,
-     "symbol": "?NotifyReceivedFile@FNetworkNotify_@@UAEXHHHH@Z"
+     "symbol": "?NotifyReceivedFile@FNetworkNotify@@UAEXPAUUNetConnection@@HPB_WH@Z"
     },
     {
      "va": "009b4840",
      "size": 27,
-     "symbol": "?sub_009b4840@@YGXMMM@Z"
+     "symbol": "?NotifyProgress@FNetworkNotify@@UAEXPB_W0M@Z"
     },
     {
      "va": "009b47e0",
      "size": 27,
-     "symbol": "?sub_009b47e0@@YGXPB_W0@Z"
+     "symbol": "?NotifyReceivedText@FNetworkNotify@@UAEXPAUUNetConnection@@PB_W@Z"
     },
     {
      "va": "009b4800",
      "size": 29,
-     "symbol": "?sub_009b4800@@YGHPA_W0@Z"
+     "symbol": "?NotifySendingFile@FNetworkNotify@@UAEHPAUUNetConnection@@ABUFGuid@@@Z"
     }
    ]
   },
@@ -347593,37 +347593,37 @@
     {
      "va": "00c14900",
      "size": 3,
-     "symbol": "?sub_00c14900@@YGXHHH@Z"
+     "symbol": "?NotifyProgress@UPendingLevel@@UAEXPB_W0M@Z"
     },
     {
      "va": "00c14a50",
      "size": 3,
-     "symbol": "?sub_00c14a50@@YAHXZ"
+     "symbol": "?NotifyAcceptingConnection@UDemoPlayPendingLevel@@UAE?AW4EAcceptConnection@@XZ"
     },
     {
      "va": "00c14a60",
      "size": 3,
-     "symbol": "?sub_00c14a60@@YGXH@Z"
+     "symbol": "?NotifyAcceptedConnection@UDemoPlayPendingLevel@@UAEXPAUUNetConnection@@@Z"
     },
     {
      "va": "00c14a70",
      "size": 8,
-     "symbol": "?sub_00c14a70@@YGHH@Z"
+     "symbol": "?NotifyAcceptingChannel@UDemoPlayPendingLevel@@UAEHPAUUChannel@@@Z"
     },
     {
      "va": "00c14a80",
      "size": 3,
-     "symbol": "?sub_00c14a80@@YAHXZ"
+     "symbol": "?NotifyGetWorld@UDemoPlayPendingLevel@@UAEPAUUWorld@@XZ"
     },
     {
      "va": "00c14a90",
      "size": 5,
-     "symbol": "?sub_00c14a90@@YGHHH@Z"
+     "symbol": "?NotifySendingFile@UDemoPlayPendingLevel@@UAEHPAUUNetConnection@@ABUFGuid@@@Z"
     },
     {
      "va": "00c14aa0",
      "size": 3,
-     "symbol": "?sub_00c14aa0@@YGXHHHH@Z"
+     "symbol": "?NotifyReceivedFile@UDemoPlayPendingLevel@@UAEXPAUUNetConnection@@HPB_WH@Z"
     },
     {
      "va": "00c14f00",
@@ -356560,7 +356560,7 @@
     {
      "va": "00cf0530",
      "size": 4,
-     "symbol": "?sub_00cf0530@UInterpGroupInstDirector@@QAEHXZ"
+     "symbol": "?GetUObject@UInterpTrack@@UAEPAUUObject@@XZ"
     },
     {
      "va": "00cf0540",
@@ -365729,22 +365729,22 @@
     {
      "va": "00e17420",
      "size": 3,
-     "symbol": "?sub_00e17420@@YAHXZ"
+     "symbol": "?NotifyAcceptingConnection@UNetPendingLevel@@UAE?AW4EAcceptConnection@@XZ"
     },
     {
      "va": "00e17430",
      "size": 3,
-     "symbol": "?sub_00e17430@@YGXH@Z"
+     "symbol": "?NotifyAcceptedConnection@UNetPendingLevel@@UAEXPAUUNetConnection@@@Z"
     },
     {
      "va": "00e17440",
      "size": 5,
-     "symbol": "?sub_00e17440@@YGHH@Z"
+     "symbol": "?NotifyAcceptingChannel@UNetPendingLevel@@UAEHPAUUChannel@@@Z"
     },
     {
      "va": "00e17450",
      "size": 3,
-     "symbol": "?sub_00e17450@@YAHXZ"
+     "symbol": "?NotifyGetWorld@UNetPendingLevel@@UAEPAUUWorld@@XZ"
     },
     {
      "va": "00e195c0",
@@ -544070,7 +544070,7 @@
     {
      "va": "0149b240",
      "size": 5,
-     "symbol": "?sub_0149b240@@YGHHH@Z"
+     "symbol": "?Exec@UEditorUISceneClient@@UAEHPB_WAAUFOutputDevice@@@Z"
     },
     {
      "va": "0149b260",

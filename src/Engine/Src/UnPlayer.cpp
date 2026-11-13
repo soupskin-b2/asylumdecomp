@@ -315,7 +315,7 @@ int C_008898e0::sub_008898e0()
 }
 
 // @baa 0x00889a50
-void __stdcall sub_00889a50(int a0) {  }
+void UGameViewportClient::FViewportClient_vf040(INT) {}
 
 // @baa 0x0088e5c0
 // @baa 0x0088e5f0
@@ -795,21 +795,16 @@ UGameViewportClient::UGameViewportClient()
 }
 
 // @baa 0x0089f690
-void __stdcall sub_0089f690(int a0) {  }
+void UGameViewportClient::RedrawRequested(FViewport* Viewport) {}
 
 // @baa 0x0089f6a0
 void UGameViewportClient::vf_114(int a0, int a1) {  }
 
 // @baa 0x0089f6b0
-int sub_0089f6b0(void) { return 0; }
+INT UGameViewportClient::FViewportClient_vf050() { return 0; }
 
 // @baa 0x0089f6c0
-int URCapeStateBoneConfig::sub_0089f6c0(void)
-{
-    int param_1 = (int)this;
-
-  return param_1 + -0x30;
-}
+class UObject* UGameViewportClient::GetUObject() { return this; }
 
 // @baa 0x0089f6d0
 int sub_005c7a70(...);
@@ -972,13 +967,8 @@ struct C_00e6fba0_T
 };
 
 C_00e6fba0_T* sub_00e6fba0();
-struct URCapeStateBoneConfig_ : public URCapeStateBoneConfig
-{
-    void sub_00889a60(int Param);
-};
-
 // @baa 0x00889a60
-void URCapeStateBoneConfig_::sub_00889a60(int Param)
+void UGameViewportClient::FViewportClient_vf044(INT Param)
 {
     if (sub_00e6fba0() != 0)
         sub_00e6fba0()->sub_00e5f880();

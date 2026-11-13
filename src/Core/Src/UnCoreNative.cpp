@@ -763,7 +763,7 @@ bool UPackage::vf_004()
 }
 
 // @baa 0x0059d720
-int __stdcall sub_0059d720(int a0, int a1) { return 0; }
+UBOOL USubsystem::Exec(const TCHAR* Cmd, FOutputDevice& Ar) { return FALSE; }
 
 struct USubsystem_ : public USubsystem {
     BYTE Pad[0x80 - sizeof(USubsystem)];

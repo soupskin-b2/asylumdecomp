@@ -4094,12 +4094,7 @@ int C_009c67a0::sub_009c67a0(void)
 }
 
 // @baa 0x009c68d0
-int UWorld::sub_009c68d0(void)
-{
-    int param_1 = (int)this;
-
-  return param_1 + -0x30;
-}
+class UWorld* UWorld::NotifyGetWorld() { return this; }
 
 int sub_005c7a70(...);
 int sub_009c68e0(void);

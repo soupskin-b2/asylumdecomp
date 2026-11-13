@@ -2,6 +2,7 @@
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
+#include "ue3/Script.h"
 
 struct C { int sub_009b0030(void); };
 
@@ -140,23 +141,10 @@ void sub_009b03f0(S* p, INT Value)
 int sub_00630f20(...);
 extern undefined4 g_026667a8;
 // @baa 0x009b4760
-undefined4 sub_009b4760(void)
-{
-  sub_00630f20(g_026667a8,L"Pure virtual not implemented (%s)",
-               L"FNetworkNotify::NotifyAcceptedConnection");
-  return 2;
-}
-
-struct FNetworkNotify {
-    undefined4 NotifyGetWorld();
-};
+EAcceptConnection FNetworkNotify::NotifyAcceptingConnection() PURE_VIRTUAL(FNetworkNotify::NotifyAcceptedConnection, return ACCEPTC_Ignore;)
 
 // @baa 0x009b47c0
-undefined4 FNetworkNotify::NotifyGetWorld()
-{
-  sub_00630f20(g_026667a8,L"Pure virtual not implemented (%s)",L"FNetworkNotify::NotifyGetWorld");
-  return 0;
-}
+UWorld* FNetworkNotify::NotifyGetWorld() PURE_VIRTUAL(FNetworkNotify::NotifyGetWorld, return NULL;)
 
 int sub_00656490(void);
 // @baa 0x009b4b60
@@ -478,33 +466,15 @@ void C_009bbf10::sub_009bbf10() {
 
 int sub_00630f20(int Value, const wchar_t* Format, const wchar_t* Name);
 // Pure virtual not implemented
-struct FNetworkNotify_
-{
-    virtual void NotifyReceivedFile(int a, int b, int c, int d);
-};
-
 // @baa 0x009b4820
-void FNetworkNotify_::NotifyReceivedFile(int a, int b, int c, int d)
-{
-    sub_00630f20(g_026667a8, L"Pure virtual not implemented (%s)", L"FNetworkNotify::NotifyReceivedFile");
-}
+void FNetworkNotify::NotifyReceivedFile(UNetConnection* Connection, INT PackageIndex, const TCHAR* Error, UBOOL Skipped) PURE_VIRTUAL(FNetworkNotify::NotifyReceivedFile,)
 
 int __cdecl sub_00630f20(void* Log, const wchar_t* Format, const wchar_t* Name);
 // @baa 0x009b4840
-void __stdcall sub_009b4840(float Progress, float Total, float Delta)
-{
-    sub_00630f20(g_026667a8, L"Pure virtual not implemented (%s)", L"FNetworkNotify::NotifyProgress");
-}
+void FNetworkNotify::NotifyProgress(const TCHAR* Str1, const TCHAR* Str2, FLOAT Seconds) PURE_VIRTUAL(FNetworkNotify::NotifyProgress,)
 
 // @baa 0x009b47e0
-void __stdcall sub_009b47e0(const wchar_t* Text, const wchar_t* Channel)
-{
-    sub_00630f20(g_026667a8, L"Pure virtual not implemented (%s)", L"FNetworkNotify::NotifyReceivedText");
-}
+void FNetworkNotify::NotifyReceivedText(UNetConnection* Connection, const TCHAR* Text) PURE_VIRTUAL(FNetworkNotify::NotifyReceivedText,)
 
 // @baa 0x009b4800
-INT __stdcall sub_009b4800(wchar_t* FileName, wchar_t* ComputerName)
-{
-    sub_00630f20(g_026667a8, L"Pure virtual not implemented (%s)", L"FNetworkNotify::NotifySendingFile");
-    return 0;
-}
+UBOOL FNetworkNotify::NotifySendingFile(UNetConnection* Connection, const FGuid& GUID) PURE_VIRTUAL(FNetworkNotify::NotifySendingFile, return 0;)

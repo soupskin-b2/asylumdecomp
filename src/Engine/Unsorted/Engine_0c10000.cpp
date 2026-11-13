@@ -201,25 +201,25 @@ void UPendingLevel::vf_02c(void)
 }
 
 // @baa 0x00c14900
-void __stdcall sub_00c14900(int a0, int a1, int a2) {  }
+void UPendingLevel::NotifyProgress(const TCHAR* Str1, const TCHAR* Str2, FLOAT Seconds) {}
 
 // @baa 0x00c14a50
-int sub_00c14a50(void) { return 0; }
+EAcceptConnection UDemoPlayPendingLevel::NotifyAcceptingConnection() { return ACCEPTC_Reject; }
 
 // @baa 0x00c14a60
-void __stdcall sub_00c14a60(int a0) {  }
+void UDemoPlayPendingLevel::NotifyAcceptedConnection(class UNetConnection* Connection) {}
 
 // @baa 0x00c14a70
-int __stdcall sub_00c14a70(int a0) { return 1; }
+UBOOL UDemoPlayPendingLevel::NotifyAcceptingChannel(class UChannel* Channel) { return TRUE; }
 
 // @baa 0x00c14a80
-int sub_00c14a80(void) { return 0; }
+class UWorld* UDemoPlayPendingLevel::NotifyGetWorld() { return NULL; }
 
 // @baa 0x00c14a90
-int __stdcall sub_00c14a90(int a0, int a1) { return 0; }
+UBOOL UDemoPlayPendingLevel::NotifySendingFile(class UNetConnection* Connection, const FGuid& GUID) { return FALSE; }
 
 // @baa 0x00c14aa0
-void __stdcall sub_00c14aa0(int a0, int a1, int a2, int a3) {  }
+void UDemoPlayPendingLevel::NotifyReceivedFile(class UNetConnection* Connection, INT PackageIndex, const TCHAR* Error, UBOOL Skipped) {}
 
 struct TConstSetBitIterator_00c14f00 {
     const TBitArray& Array;

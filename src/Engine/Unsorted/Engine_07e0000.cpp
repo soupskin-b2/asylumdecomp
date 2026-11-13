@@ -1985,22 +1985,22 @@ TConstSetBitIterator_007ec3d0& TConstSetBitIterator_007ec3d0::operator++()
 }
 
 // @baa 0x007ec790
-int sub_007ec790(void) { return 0; }
+UBOOL ULineBatchComponent::IsHitTesting() { return FALSE; }
 
 // @baa 0x007ec7a0
-void __stdcall sub_007ec7a0(int a0) {  }
+void ULineBatchComponent::SetHitProxy(HHitProxy* HitProxy) {}
 
 // @baa 0x007ec7b0
-void __stdcall sub_007ec7b0(int a0) {  }
+void ULineBatchComponent::RegisterDynamicResource(FDynamicPrimitiveResource* DynamicResource) {}
 
 // @baa 0x007ec7c0
-int __stdcall sub_007ec7c0(int a0) { return 0; }
+INT ULineBatchComponent::FPrimitiveDrawInterface_vf01c(INT) { return 0; }
 
 // @baa 0x007ec7d0
-void __stdcall sub_007ec7d0(int a0, int a1, int a2, int a3, int a4, int a5) {  }
+void ULineBatchComponent::DrawSprite(const FVector& Position, FLOAT SizeX, FLOAT SizeY, const FTexture* Sprite, const FLinearColor& Color, BYTE DepthPriorityGroup) {}
 
 // @baa 0x007ec7e0
-void __stdcall sub_007ec7e0(int a0, int a1, int a2, int a3) {  }
+void ULineBatchComponent::DrawPoint(const FVector& Position, const FLinearColor& Color, FLOAT PointSize, BYTE DepthPriorityGroup) {}
 
 // @baa 0x007ec7f0
 INT ULineBatchComponent::vf_264(INT a, INT b, INT c, INT d) {
@@ -2013,7 +2013,7 @@ void ULineBatchComponent::vf_268(INT a0, INT a1, INT a2, INT a3, INT a4) {  }
 // @baa 0x007ec870
 ULineBatchComponent::ULineBatchComponent()
 {
-    FPrimitiveDrawInterfaceView.Dummy = 0;
+    View = NULL;
     BatchLineDrawDepth = 0;
     DefaultLifeTime = 0.0f;
 }

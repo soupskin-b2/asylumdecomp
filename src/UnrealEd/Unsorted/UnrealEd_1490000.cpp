@@ -128,7 +128,7 @@ void sub_0149abd0(S* p, INT Value)
 int sub_0149abf0(int a0, int a1) { return a1; }
 
 // @baa 0x0149b240
-int __stdcall sub_0149b240(int a0, int a1) { return 0; }
+UBOOL UEditorUISceneClient::Exec(const TCHAR* Cmd, FOutputDevice& Ar) { return FALSE; }
 
 // @baa 0x0149b260
 int UUIPreviewString::vf_10c(void) { return *(int*)((char*)this + 48); }

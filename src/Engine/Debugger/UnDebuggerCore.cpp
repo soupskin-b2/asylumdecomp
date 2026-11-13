@@ -1352,7 +1352,7 @@ void sub_007f6030();
 void sub_007f69d0(void) { sub_007f6030(); }
 
 // @baa 0x00e174a0
-int __stdcall sub_00e174a0(int a0, int a1) { return 0; }
+UBOOL UNetPendingLevel::NotifySendingFile(class UNetConnection* Connection, const FGuid& GUID) { return FALSE; }
 
 // @baa 0x00e17500
 int UNetPendingLevel::vf_000(void) { return 1; }

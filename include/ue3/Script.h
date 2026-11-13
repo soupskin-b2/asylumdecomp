@@ -20,18 +20,7 @@ extern Native GNatives[];
 
 enum { EX_DebugInfo = 0x41 };
 
-struct FOutputDevice {
-    void* VfTable;                    /* 0x0: FOutputDevice has virtuals (Serialize, Flush, ...) */
-    UBOOL bAllowSuppression;          /* 0x4 */
-    UBOOL bSuppressEventTag;          /* 0x8 */
-    UBOOL bAutoEmitLineTerminator;    /* 0xc */
-
-    void Logf(const TCHAR* Fmt, ...); /* 0x00630f20 */
-    void Logf(EName Event, const TCHAR* Fmt, ...); /* 0x00630ea0: e.g. Stack.Logf(NAME_ScriptWarning, TEXT("Divide by zero")) */
-};
-
-// The error device: GError->Logf reports a fatal error (appErrorf in other builds). Verified: 0x026667a8.
-extern FOutputDevice* GError;
+/* FOutputDevice and GError: Core.h */
 
 // A virtual that a class must override, as UE3 declares it: `virtual FString GetWidgetPathName()
 // PURE_VIRTUAL(UUIScreenObject::GetWidgetPathName, return TEXT(""););`. Defined out of line, the body is

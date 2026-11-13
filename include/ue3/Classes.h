@@ -90,6 +90,11 @@ enum EGotoState
     GOTOSTATE_Preempted = 2,
 };
 struct FViewport;
+struct FDecalInteraction;
+struct FWaveInstance;
+struct FSoundSource;
+struct FStaticReceiverData;
+struct IUIStyleResolver;
 /* what a thumbnail is drawn over (UnThumbnail.h) */
 enum EThumbnailBackgroundType
 {
@@ -3204,18 +3209,104 @@ struct FCallbackEventObserver : public FCallbackEventDevice {
 };
 extern FCallbackEventObserver* GCallbackEvent;
 struct FExec { virtual UBOOL Exec(const TCHAR* Cmd, struct FOutputDevice& Ar); };
-struct FGlobalDataStoreClientManager { virtual void FGlobalDataStoreClientManager_vf000(); virtual ~FGlobalDataStoreClientManager() {} };  /* an interface base: its virtuals aren't known */
-struct FInterface_UControlChannel_5c { virtual void FInterface_UControlChannel_5c_vf000(); virtual ~FInterface_UControlChannel_5c() {} };  /* an interface base: its virtuals aren't known */
-struct FInterface_UNetConnection_54 { virtual void FInterface_UNetConnection_54_vf000(); virtual ~FInterface_UNetConnection_54() {} };  /* an interface base: its virtuals aren't known */
-struct FInterface_UNetDriver_34 { virtual void FInterface_UNetDriver_34_vf000(); };  /* an interface base: its virtuals aren't known */
-struct FInterface_UPendingLevel_84 { virtual void FInterface_UPendingLevel_84_vf000(); };  /* an interface base: its virtuals aren't known */
-struct FInterface_UTextBuffer_30 { virtual void FInterface_UTextBuffer_30_vf000(); virtual ~FInterface_UTextBuffer_30() {} };  /* an interface base: its virtuals aren't known */
-struct FInterface_UUISceneManager_30 { virtual void FInterface_UUISceneManager_30_vf000(); virtual ~FInterface_UUISceneManager_30() {} };  /* an interface base: its virtuals aren't known */
-struct FInterface_UUISceneManager_34 { virtual void FInterface_UUISceneManager_34_vf000(); };  /* an interface base: its virtuals aren't known */
-struct FInterface_UUnrealEdEngine_618 { virtual void FInterface_UUnrealEdEngine_618_vf000(); };  /* an interface base: its virtuals aren't known */
-struct FInterface_UWorld_30 { virtual void FInterface_UWorld_30_vf000(); };  /* an interface base: its virtuals aren't known */
-struct FInterpEdInputInterface { virtual void FInterpEdInputInterface_vf000(); };  /* an interface base: its virtuals aren't known */
-struct FPrimitiveDrawInterface { virtual void FPrimitiveDrawInterface_vf000(); };  /* an interface base: its virtuals aren't known */
+struct FGuid;
+struct FLinearColor;
+struct FSceneView;
+struct FCanvas;
+struct FTexture;
+struct FMeshElement;
+struct HHitProxy;
+struct FDynamicPrimitiveResource;
+struct FEditPropertyChain;
+/* UnNetDrv.h: what a connection asks its owner (the world, or a level being joined) */
+enum EAcceptConnection
+{
+    ACCEPTC_Reject,
+    ACCEPTC_Accept,
+    ACCEPTC_Ignore,
+};
+struct FNetworkNotify {
+    virtual EAcceptConnection NotifyAcceptingConnection(); /* 0x009b4760 */
+    virtual void NotifyAcceptedConnection(class UNetConnection* Connection); /* 0x009b4780 */
+    virtual UBOOL NotifyAcceptingChannel(class UChannel* Channel); /* 0x009b47a0 */
+    virtual class UWorld* NotifyGetWorld(); /* 0x009b47c0 */
+    virtual void NotifyReceivedText(class UNetConnection* Connection, const TCHAR* Text); /* 0x009b47e0 */
+    virtual UBOOL NotifySendingFile(class UNetConnection* Connection, const FGuid& GUID); /* 0x009b4800 */
+    virtual void NotifyReceivedFile(class UNetConnection* Connection, INT PackageIndex, const TCHAR* Error, UBOOL Skipped); /* 0x009b4820 */
+    virtual void NotifyProgress(const TCHAR* Str1, const TCHAR* Str2, FLOAT Seconds); /* 0x009b4840 */
+};
+/* UnNetDrv.h: told when packages and objects come and go, for the net drivers' package maps */
+struct FNetObjectNotify {
+    virtual ~FNetObjectNotify();
+    virtual void NotifyNetPackageAdded(class UPackage* Package) = 0;
+    virtual void NotifyNetPackageRemoved(class UPackage* Package) = 0;
+    virtual void NotifyNetObjectRemoved(class UObject* Object) = 0;
+};
+/* UnObjBas.h: told about property edits (MSVC slots overloads in reverse: PreChange(FEditPropertyChain*) is 0x04) */
+struct FNotifyHook {
+    virtual void NotifyDestroy(void* Src) {}
+    virtual void NotifyPreChange(void* Src, class UProperty* PropertyAboutToChange) {}
+    virtual void NotifyPostChange(void* Src, class UProperty* PropertyThatChanged) {}
+    virtual void NotifyPreChange(void* Src, FEditPropertyChain* PropertyAboutToChange); /* 0x00541fb0 */
+    virtual void NotifyPostChange(void* Src, FEditPropertyChain* PropertyThatChanged); /* 0x00541ff0 */
+    virtual void NotifyExec(void* Src, const TCHAR* Cmd) {}
+};
+/* UnUIDataStores.h: an owner of global data stores */
+struct FGlobalDataStoreClientManager {
+    virtual ~FGlobalDataStoreClientManager() {}
+    virtual void InitializeGlobalDataStore() = 0;
+};
+/* InterpEditor.h: a Matinee group or track the editor drags; this build's names for the slots aren't known */
+struct FInterpEdInputInterface {
+    virtual INT FInterpEdInputInterface_vf000(INT) { return 1; }
+    virtual void FInterpEdInputInterface_vf004(INT) {}
+    virtual void FInterpEdInputInterface_vf008(INT) {}
+    virtual INT FInterpEdInputInterface_vf00c(INT, INT) { return 0; }
+    virtual void FInterpEdInputInterface_vf010(INT) {}
+    virtual void FInterpEdInputInterface_vf014(INT, INT, INT) {}
+    virtual void FInterpEdInputInterface_vf018(INT, INT, INT) {}
+    virtual INT FInterpEdInputInterface_vf01c(INT) { return 0; }
+    virtual class UObject* GetUObject() { return NULL; }  /* the object implementing it (unnamed in this build) */
+};
+/* SceneManagement.h: draws primitives for a view */
+struct FPrimitiveDrawInterface {
+    const FSceneView* View;
+    virtual UBOOL IsHitTesting() = 0;
+    virtual void SetHitProxy(HHitProxy* HitProxy) = 0;
+    virtual void RegisterDynamicResource(FDynamicPrimitiveResource* DynamicResource) = 0;
+    virtual void DrawSprite(const FVector& Position, FLOAT SizeX, FLOAT SizeY, const FTexture* Sprite, const FLinearColor& Color, BYTE DepthPriorityGroup) = 0;
+    virtual void DrawLine(const FVector& Start, const FVector& End, const FLinearColor& Color, BYTE DepthPriorityGroup) = 0;
+    virtual void DrawPoint(const FVector& Position, const FLinearColor& Color, FLOAT PointSize, BYTE DepthPriorityGroup) = 0;
+    virtual INT DrawMesh(const FMeshElement& Mesh) { return 0; }
+    virtual INT FPrimitiveDrawInterface_vf01c(INT) = 0;
+};
+/* UnClient.h: the client of a viewport (draws it and takes its input); names past Draw aren't known */
+struct FViewportClient {
+    virtual void Precache() {}
+    virtual void RedrawRequested(FViewport* Viewport); /* 0x006a9310 */
+    virtual void Draw(FViewport* Viewport, FCanvas* Canvas) {}
+    virtual void FViewportClient_vf00c(INT, INT, INT, INT, INT, INT) {}
+    virtual INT FViewportClient_vf010(INT, INT, INT, INT, INT, INT, INT); /* 0x006a9330 */
+    virtual void FViewportClient_vf014(INT, INT, INT, INT, INT, INT) {}
+    virtual INT FViewportClient_vf018(INT, INT, INT, INT, INT, INT, INT); /* 0x006a9360 */
+    virtual void FViewportClient_vf01c(INT, INT) {}
+    virtual INT FViewportClient_vf020(INT, INT, INT); /* 0x00404e30 */
+    virtual INT FViewportClient_vf024(INT) { return 0; }
+    virtual INT FViewportClient_vf028() { return 0; }
+    virtual void FViewportClient_vf02c(INT) {}
+    virtual void FViewportClient_vf030(INT) {}
+    virtual void FViewportClient_vf034(INT) {}
+    virtual void FViewportClient_vf038(INT, INT, INT) {}
+    virtual INT FViewportClient_vf03c(INT, INT, INT); /* 0x006a93b0 */
+    virtual void FViewportClient_vf040(INT) {}
+    virtual void FViewportClient_vf044(INT) {}
+    virtual INT FViewportClient_vf048(INT) { return 1; }
+    virtual void FViewportClient_vf04c(INT) {}
+    virtual INT FViewportClient_vf050() { return 1; }
+    virtual INT FViewportClient_vf054() { return 0; }
+    virtual INT FViewportClient_vf058() { return 1; }
+    virtual class UObject* GetUObject() { return NULL; }  /* the object implementing it (unnamed in this build) */
+};
 struct FShadowMapVertexBufferBase {
     virtual ~FShadowMapVertexBufferBase(); /* 0x00656490 */
     virtual void VertexBuffer_vf004(); virtual void VertexBuffer_vf008(); virtual void VertexBuffer_vf00c();
@@ -3245,7 +3336,6 @@ struct FTickableObject {
     virtual UBOOL IsTickableInEditor() const { return FALSE; }
     virtual UBOOL NeedsRenderingResumedForRenderingThreadTick() const { return FALSE; }
 };
-struct FViewportClient { virtual void FViewportClient_vf000(); };  /* an interface base: its virtuals aren't known */
 struct IREvidenceInterface {
     virtual ~IREvidenceInterface() {}
     virtual class UObject* GetUObjectInterfaceREvidenceInterface() = 0;
@@ -12596,6 +12686,8 @@ struct USubsystem : public UObject, public FExec {
     UINT sub_0059d930(BYTE); /* 0x0059d930 */
     FString sub_005a1730(); /* 0x005a1730 */
     /* registered size 0x34 */
+    /* FExec */
+    virtual UBOOL Exec(const TCHAR* Cmd, FOutputDevice& Ar); /* 0x0059d720 */
 };
 
 struct UCommandlet : public UObject {
@@ -12635,7 +12727,7 @@ struct FCurveEdInterface {
     virtual void GetTangents(INT SubIndex, INT KeyIndex, FLOAT& ArriveTangent, FLOAT& LeaveTangent) { ArriveTangent = 0.f; LeaveTangent = 0.f; }
     virtual void GetInRange(FLOAT& MinIn, FLOAT& MaxIn) { MinIn = 0.f; MaxIn = 0.f; }
     virtual void GetOutRange(FLOAT& MinOut, FLOAT& MaxOut) { MinOut = 0.f; MaxOut = 0.f; }
-    virtual void vf_028(FVector& MinOut, FVector& MaxOut) { FLOAT MinF, MaxF; GetOutRange(MinF, MaxF); MinOut = FVector(MinF); MaxOut = FVector(MaxF); }
+    virtual void FCurveEdInterface_vf028(FVector& MinOut, FVector& MaxOut) { FLOAT MinF, MaxF; GetOutRange(MinF, MaxF); MinOut = FVector(MinF); MaxOut = FVector(MaxF); }
     virtual INT CreateNewKey(FLOAT KeyIn) { return INDEX_NONE; }
     virtual void DeleteKey(INT KeyIndex) {}
     virtual INT SetKeyIn(INT KeyIndex, FLOAT NewInVal) { return KeyIndex; }
@@ -13263,7 +13355,6 @@ struct UActorComponent : public UComponent {
 };
 
 struct FNativeElem_00675920 { INT Value; FNativeElem_00675920() {} FNativeElem_00675920(const INT& V) : Value(V) {} operator INT&() { return Value; } operator const INT&() const { return Value; } };  /* the native element type of the arrays ~TArray at 0x00675920 destroys */
-struct FNativeElem_006660f0 { FPointer Value; FNativeElem_006660f0() {} FNativeElem_006660f0(const FPointer& V) : Value(V) {} operator FPointer&() { return Value; } operator const FPointer&() const { return Value; } };  /* the native element type of the arrays ~TArray at 0x006660f0 destroys */
 struct UPrimitiveComponent : public UActorComponent {
     /* Engine.PrimitiveComponent */
     DECLARE_CLASS(UPrimitiveComponent, UActorComponent, 0x101, 0x0, Engine)
@@ -13274,7 +13365,7 @@ struct UPrimitiveComponent : public UActorComponent {
     FRenderCommandFence DetachFence; /* 0xd0 */
     FLOAT LocalToWorldDeterminant; /* 0xd4 */
     INT MotionBlurInfoIndex; /* 0xd8 */
-    TArray<FNativeElem_006660f0> DecalList; /* 0xdc */
+    TArray<FDecalInteraction*> DecalList; /* 0xdc */
     TArray<UDecalComponent*> DecalsToReattach; /* 0xe8 */
     INT Tag; /* 0xf4 */
     class UPrimitiveComponent* ShadowParent; /* 0xf8 */
@@ -16661,7 +16752,6 @@ struct UDrawSoundRadiusComponent : public UDrawSphereComponent {
     /* registered size 0x1c0 */
 };
 
-struct FNativeElem_0076a4b0 { FPointer Value; FNativeElem_0076a4b0() {} FNativeElem_0076a4b0(const FPointer& V) : Value(V) {} operator FPointer&() { return Value; } operator const FPointer&() const { return Value; } };  /* the native element type of the arrays ~TArray at 0x0076a4b0 destroys */
 struct FMultiMap_Mirror_00777750 : FMultiMap_Mirror { ~FMultiMap_Mirror_00777750(); /* 0x00777750 */ };  /* the native type behind this script mirror */
 struct FMap_Mirror_007776e0 : FMap_Mirror { ~FMap_Mirror_007776e0(); /* 0x007776e0 */ };  /* the native type behind this script mirror */
 struct UAudioComponent : public UActorComponent {
@@ -16693,7 +16783,7 @@ struct UAudioComponent : public UActorComponent {
     BITFIELD bPlaying : 1; /* 0x60 */
     BITFIELD bForcePauseUpdate : 1; /* 0x60 */
     FLOAT SubPriDistance; /* 0x64 */
-    TArrayNoInit<FNativeElem_0076a4b0> WaveInstances; /* 0x68 */
+    TArrayNoInit<FWaveInstance*> WaveInstances; /* 0x68 */
     TArrayNoInit<BYTE> SoundNodeData; /* 0x74 */
     FMap_Mirror_007776e0 SoundNodeOffsetMap; /* 0x80 */
     FMultiMap_Mirror_00777750 SoundNodeResetWaveMap; /* 0xbc */
@@ -18546,7 +18636,6 @@ struct UApexRenderMeshAsset : public UApexAsset {
     /* registered size 0x50 */
 };
 
-struct FNativeElem_007902a0 { FPointer Value; FNativeElem_007902a0() {} FNativeElem_007902a0(const FPointer& V) : Value(V) {} operator FPointer&() { return Value; } operator const FPointer&() const { return Value; } };  /* the native element type of the arrays ~TArray at 0x007902a0 destroys */
 struct FMap_Mirror_007985d0 : FMap_Mirror { ~FMap_Mirror_007985d0(); /* 0x007985d0 */ };  /* the native type behind this script mirror */
 struct UAudioDevice : public USubsystem {
     /* Engine.AudioDevice */
@@ -18566,8 +18655,8 @@ struct UAudioDevice : public USubsystem {
     FPointer CommonAudioPool; /* 0x40 */
     INT CommonAudioPoolFreeBytes; /* 0x44 */
     TArrayNoInit<class UAudioComponent*> AudioComponents; /* 0x48 */
-    TArrayNoInit<FNativeElem_007902a0> Sources; /* 0x54 */
-    TArrayNoInit<FNativeElem_007902a0> FreeSources; /* 0x60 */
+    TArrayNoInit<FSoundSource*> Sources; /* 0x54 */
+    TArrayNoInit<FSoundSource*> FreeSources; /* 0x60 */
     FMap_Mirror_007985d0 WaveInstanceSourceMap; /* 0x6c */
     TArrayNoInit<FListener> Listeners; /* 0xa8 */
     FQWord CurrentTick; /* 0xb4 */
@@ -18681,6 +18770,8 @@ struct UAudioDevice : public USubsystem {
     /* other member functions */
     UINT sub_0079cc20(BYTE); /* 0x0079cc20 */
     /* registered size 0x19c */
+    /* FExec */
+    virtual UBOOL Exec(const TCHAR* Cmd, FOutputDevice& Ar); /* 0x0079dea0 */
 };
 
 struct ALadder : public ANavigationPoint {
@@ -19629,7 +19720,6 @@ struct UUIScreenObject : public UUIRoot {
     /* registered size 0x120 */
 };
 
-struct FNativeElem_00d96280 { FScriptInterface Value; FNativeElem_00d96280() {} FNativeElem_00d96280(const FScriptInterface& V) : Value(V) {} operator FScriptInterface&() { return Value; } operator const FScriptInterface&() const { return Value; } };  /* the native element type of the arrays ~TArray at 0x00d96280 destroys */
 struct UUIObject : public UUIScreenObject {
     /* Engine.UIObject */
     DECLARE_CLASS(UUIObject, UUIScreenObject, 0x1, 0x0, Engine)
@@ -19652,7 +19742,7 @@ struct UUIObject : public UUIScreenObject {
     INT PrivateFlags; /* 0x27c */
     FUIDataStoreBinding ToolTip; /* 0x280 */
     FUIDataStoreBinding ContextMenuData; /* 0x2b0 */
-    TArrayNoInit<FNativeElem_00d96280> StyleSubscribers; /* 0x2e0 */
+    TArrayNoInit<TScriptInterface<IUIStyleResolver> > StyleSubscribers; /* 0x2e0 */
     BITFIELD bEnableActiveCursorUpdates : 1; /* 0x2ec */
     BITFIELD bSupportsPrimaryStyle : 1; /* 0x2ec */
     BITFIELD bEnableSceneUpdateNotifications : 1; /* 0x2ec */
@@ -20986,7 +21076,6 @@ struct ADebugCameraHUD : public AHUD {
     /* Engine.DebugCameraHUD */
 };
 
-struct FNativeElem_008c2090 { FPointer Value; FNativeElem_008c2090() {} FNativeElem_008c2090(const FPointer& V) : Value(V) {} operator FPointer&() { return Value; } operator const FPointer&() const { return Value; } };  /* the native element type of the arrays ~TArray at 0x008c2090 destroys */
 struct FMap_Mirror_00d86560 : FMap_Mirror { ~FMap_Mirror_00d86560(); /* 0x00d86560 */ };  /* the native type behind this script mirror */
 struct UInput : public UInteraction {
     /* Engine.Input */
@@ -20999,7 +21088,7 @@ struct UInput : public UInteraction {
     FLOAT CurrentDelta; /* 0x7c */
     FLOAT CurrentDeltaTime; /* 0x80 */
     FMap_Mirror_00d86560 NameToPtr; /* 0x84 */
-    TArrayNoInit<FNativeElem_008c2090> AxisArray; /* 0xc0 */
+    TArrayNoInit<FLOAT*> AxisArray; /* 0xc0 */
     /* virtual functions this class introduces (vtable 0x020b75d8) */
     virtual void ResetInput(); /* 0x120 */
     virtual FString GetBind(FName Key); /* 0x124 */
@@ -21123,7 +21212,6 @@ struct ADecalActorBase : public AActor {
     /* registered size 0x1ac */
 };
 
-struct FNativeElem_006671d0 { FPointer Value; FNativeElem_006671d0() {} FNativeElem_006671d0(const FPointer& V) : Value(V) {} operator FPointer&() { return Value; } operator const FPointer&() const { return Value; } };  /* the native element type of the arrays ~TArray at 0x006671d0 destroys */
 struct UDecalComponent : public UPrimitiveComponent {
     /* Engine.DecalComponent */
     DECLARE_CLASS(UDecalComponent, UPrimitiveComponent, 0x0, 0x0, Engine)
@@ -21162,7 +21250,7 @@ struct UDecalComponent : public UPrimitiveComponent {
     INT FracturedStaticMeshComponentIndex; /* 0x230 */
     TArrayNoInit<INT> HitNodeIndices; /* 0x234 */
     TArrayNoInit<FDecalReceiver> DecalReceivers; /* 0x240 */
-    TArrayNoInit<FNativeElem_006671d0> StaticReceivers; /* 0x24c */
+    TArrayNoInit<FStaticReceiverData*> StaticReceivers; /* 0x24c */
     class FRenderCommandFence* ReleaseResourcesFence; /* 0x258 */
     TArrayNoInit<FPlane> Planes; /* 0x25c */
     FLOAT DepthBias; /* 0x268 */
@@ -22310,12 +22398,11 @@ struct UEdCoordSystem : public UObject {
     /* registered size 0x80 */
 };
 
-struct FNativeElem_00b5f310 { FPointer Value; FNativeElem_00b5f310() {} FNativeElem_00b5f310(const FPointer& V) : Value(V) {} operator FPointer&() { return Value; } operator const FPointer&() const { return Value; } };  /* the native element type of the arrays ~TArray at 0x00b5f310 destroys */
 struct UParticleSystemComponent : public UPrimitiveComponent {
     /* Engine.ParticleSystemComponent */
     DECLARE_CLASS(UParticleSystemComponent, UPrimitiveComponent, 0x0, 0x0, Engine)
     class UParticleSystem* Template; /* 0x1a4 */
-    TArrayNoInit<FNativeElem_00b5f310> EmitterInstances; /* 0x1a8 */
+    TArrayNoInit<FParticleEmitterInstance*> EmitterInstances; /* 0x1a8 */
     TArrayNoInit<class UStaticMeshComponent*> SMComponents; /* 0x1b4 */
     TArrayNoInit<class UMaterialInterface*> SMMaterialInterfaces; /* 0x1c0 */
     BITFIELD bAutoActivate : 1; /* 0x1cc */
@@ -22810,6 +22897,8 @@ struct UEngine : public USubsystem {
     INT sub_00cb0420(); /* 0x00cb0420 */
     UINT sub_00cb0430(); /* 0x00cb0430 */
     /* registered size 0x42c */
+    /* FExec */
+    virtual UBOOL Exec(const TCHAR* Cmd, FOutputDevice& Ar); /* 0x00cb0440 */
 };
 
 struct UFaceFXAnimSet : public UObject {
@@ -23980,6 +24069,8 @@ struct UGameEngine : public UEngine {
     UINT sub_007e6c30(BYTE); /* 0x007e6c30 */
     UINT sub_007f7540(BYTE); /* 0x007f7540 */
     /* registered size 0x554 */
+    /* FExec */
+    virtual UBOOL Exec(const TCHAR* Cmd, FOutputDevice& Ar); /* 0x007ff170 */
 };
 
 struct UMixBin : public UObject {
@@ -24298,6 +24389,8 @@ struct UUISceneClient : public UUIRoot, public FExec {
     void sub_00dddee0(); /* 0x00dddee0 */
     UINT* sub_00dddef0(BYTE); /* 0x00dddef0 */
     /* registered size 0xf0 */
+    /* FExec */
+    virtual UBOOL Exec(const TCHAR* Cmd, FOutputDevice& Ar); /* 0x00dddc90 */
 };
 
 struct FMap_Mirror_00dec7f0 : FMap_Mirror { ~FMap_Mirror_00dec7f0(); /* 0x00dec7f0 */ };  /* the native type behind this script mirror */
@@ -24599,6 +24692,8 @@ struct UGameUISceneClient : public UUISceneClient {
     INT sub_0111f080(UINT*, INT); /* 0x0111f080 */
     INT sub_013b6f30(INT); /* 0x013b6f30 */
     /* registered size 0x160 */
+    /* FExec */
+    virtual UBOOL Exec(const TCHAR* Cmd, FOutputDevice& Ar); /* 0x00de4d10 */
 };
 
 struct UGameViewportClient : public UObject, public FViewportClient, public FExec {
@@ -24660,6 +24755,24 @@ struct UGameViewportClient : public UObject, public FViewportClient, public FExe
     UINT* sub_00e67de0(); /* 0x00e67de0 */
     UINT* sub_016e5820(); /* 0x016e5820 */
     /* registered size 0xf8 */
+    /* FExec */
+    virtual UBOOL Exec(const TCHAR* Cmd, FOutputDevice& Ar); /* 0x00889b30 */
+    /* FViewportClient */
+    virtual void Precache(); /* 0x0089a5a0 */
+    virtual void RedrawRequested(FViewport* Viewport); /* 0x0089f690 */
+    virtual void Draw(FViewport* Viewport, FCanvas* Canvas); /* 0x008a0230 */
+    virtual INT FViewportClient_vf010(INT, INT, INT, INT, INT, INT, INT); /* 0x008924f0 */
+    virtual INT FViewportClient_vf018(INT, INT, INT, INT, INT, INT, INT); /* 0x008926d0 */
+    virtual INT FViewportClient_vf020(INT, INT, INT); /* 0x008962a0 */
+    virtual INT FViewportClient_vf024(INT); /* 0x00892870 */
+    virtual INT FViewportClient_vf03c(INT, INT, INT); /* 0x008896d0 */
+    virtual void FViewportClient_vf040(INT); /* 0x00889a50 */
+    virtual void FViewportClient_vf044(INT); /* 0x00889a60 */
+    virtual INT FViewportClient_vf048(INT); /* 0x00889a80 */
+    virtual void FViewportClient_vf04c(INT); /* 0x00889ab0 */
+    virtual INT FViewportClient_vf050(); /* 0x0089f6b0 */
+    virtual INT FViewportClient_vf054(); /* 0x008896a0 */
+    virtual class UObject* GetUObject(); /* 0x0089f6c0 */
 };
 
 struct UPathGoalEvaluator : public UObject {
@@ -25014,7 +25127,6 @@ struct UInterpGroupInstDirector : public UInterpGroupInst {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     /* other member functions */
-    INT sub_00cf0530(); /* 0x00cf0530 */
     /* registered size 0x44 */
 };
 
@@ -25055,6 +25167,8 @@ struct UInterpTrack : public UObject, public FCurveEdInterface, public FInterpEd
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     /* registered size 0x50 */
+    /* FInterpEdInputInterface */
+    virtual class UObject* GetUObject(); /* 0x00cf0530 */
 };
 
 struct UInterpTrackFloatBase : public UInterpTrack {
@@ -25126,6 +25240,11 @@ struct UInterpTrackAnimControl : public UInterpTrackFloatBase {
     /* other member functions */
     UAnimSequence* sub_00d0fec0(FName InSequenceName); /* 0x00d0fec0 */
     /* registered size 0xb8 */
+    /* FInterpEdInputInterface */
+    virtual INT FInterpEdInputInterface_vf000(INT); /* 0x00d1f010 */
+    virtual void FInterpEdInputInterface_vf004(INT); /* 0x00d25380 */
+    virtual void FInterpEdInputInterface_vf008(INT); /* 0x00d1eff0 */
+    virtual void FInterpEdInputInterface_vf010(INT); /* 0x00d25450 */
 };
 
 struct UInterpTrackVectorBase : public UInterpTrack {
@@ -25755,7 +25874,7 @@ struct UInterpTrackMove : public UInterpTrack {
     virtual void GetTangents(INT SubIndex, INT KeyIndex, FLOAT& ArriveTangent, FLOAT& LeaveTangent); /* 0x00d23d80 */
     virtual void GetInRange(FLOAT& MinIn, FLOAT& MaxIn); /* 0x00d23b80 */
     virtual void GetOutRange(FLOAT& MinOut, FLOAT& MaxOut); /* 0x00d21670 */
-    virtual void vf_028(FVector& MinOut, FVector& MaxOut); /* 0x00d29f30 */
+    virtual void FCurveEdInterface_vf028(FVector& MinOut, FVector& MaxOut); /* 0x00d29f30 */
     virtual INT CreateNewKey(FLOAT KeyIn); /* 0x00d2a2e0 */
     virtual void DeleteKey(INT KeyIndex); /* 0x00d2a410 */
     virtual INT SetKeyIn(INT KeyIndex, FLOAT NewInVal); /* 0x00d39490 */
@@ -25790,6 +25909,11 @@ struct UInterpTrackParticleReplay : public UInterpTrack {
     virtual INT vf_14c(); /* 0x14c */
     virtual void vf_150(INT, INT); /* 0x150 */
     /* registered size 0x64 */
+    /* FInterpEdInputInterface */
+    virtual INT FInterpEdInputInterface_vf000(INT); /* 0x00d1f2d0 */
+    virtual void FInterpEdInputInterface_vf004(INT); /* 0x00d25730 */
+    virtual void FInterpEdInputInterface_vf008(INT); /* 0x00d1f2b0 */
+    virtual void FInterpEdInputInterface_vf010(INT); /* 0x00d257c0 */
 };
 
 struct UInterpTrackSkelControlScale : public UInterpTrackFloatBase {
@@ -26809,7 +26933,6 @@ struct ULineBatchComponent : public UPrimitiveComponent, public FPrimitiveDrawIn
     /* Engine.LineBatchComponent */
     DECLARE_CLASS(ULineBatchComponent, UPrimitiveComponent, 0x100, 0x0, Engine)
     ULineBatchComponent(); /* 0x007ec6f0 */
-    FPointer FPrimitiveDrawInterfaceView; /* 0x1a8 */
     INT BatchLineDrawDepth; /* 0x1ac */
     TArray<FNativeElem_007df550> BatchedLines; /* 0x1b0 */
     FLOAT DefaultLifeTime; /* 0x1bc */
@@ -26830,6 +26953,14 @@ struct ULineBatchComponent : public UPrimitiveComponent, public FPrimitiveDrawIn
     UINT sub_007ec8f0(BYTE); /* 0x007ec8f0 */
     void sub_009c3c90(INT); /* 0x009c3c90 */
     /* registered size 0x1c0 */
+    /* FPrimitiveDrawInterface */
+    virtual UBOOL IsHitTesting(); /* 0x007ec790 */
+    virtual void SetHitProxy(HHitProxy* HitProxy); /* 0x007ec7a0 */
+    virtual void RegisterDynamicResource(FDynamicPrimitiveResource* DynamicResource); /* 0x007ec7b0 */
+    virtual void DrawSprite(const FVector& Position, FLOAT SizeX, FLOAT SizeY, const FTexture* Sprite, const FLinearColor& Color, BYTE DepthPriorityGroup); /* 0x007ec7d0 */
+    virtual void DrawLine(const FVector& Start, const FVector& End, const FLinearColor& Color, BYTE DepthPriorityGroup); /* 0x007de420 */
+    virtual void DrawPoint(const FVector& Position, const FLinearColor& Color, FLOAT PointSize, BYTE DepthPriorityGroup); /* 0x007ec7e0 */
+    virtual INT FPrimitiveDrawInterface_vf01c(INT); /* 0x007ec7c0 */
 };
 
 struct UPlayer : public UObject, public FExec {
@@ -26849,6 +26980,8 @@ struct UPlayer : public UObject, public FExec {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     /* registered size 0x54 */
+    /* FExec */
+    virtual UBOOL Exec(const TCHAR* Cmd, FOutputDevice& Ar); /* 0x008a3810 */
 };
 
 struct ULocalPlayer : public UPlayer {
@@ -26886,6 +27019,8 @@ struct ULocalPlayer : public UPlayer {
     void RebuildPlayerPostProcessChain(); /* 0x0089dea0 */
     UINT* sub_00ed7f30(); /* 0x00ed7f30 */
     /* registered size 0x1ec */
+    /* FExec */
+    virtual UBOOL Exec(const TCHAR* Cmd, FOutputDevice& Ar); /* 0x008a39f0 */
 };
 
 struct UMacroReachSpec : public UObject {
@@ -38876,6 +39011,10 @@ struct UUIInteraction : public UInteraction, public FExec, public FGlobalDataSto
     /* FCallbackEventDevice */
     virtual void Send(ECallbackEventType InType, FViewport* InViewport, UINT InMessage); /* 0x00d6c150 */
     virtual void Send(ECallbackEventType InType); /* 0x00d8ea00 */
+    /* FGlobalDataStoreClientManager */
+    virtual void InitializeGlobalDataStore(); /* 0x00d6c040 */
+    /* FExec */
+    virtual UBOOL Exec(const TCHAR* Cmd, FOutputDevice& Ar); /* 0x00d6c860 */
 };
 
 struct UUILayerBase : public UUIRoot {
@@ -40175,6 +40314,8 @@ struct UGFxGameViewportClient : public UGameViewportClient {
     virtual INT vf_134(INT); /* 0x134 */
     virtual INT vf_138(INT); /* 0x138 */
     /* registered size 0x100 */
+    /* FExec */
+    virtual UBOOL Exec(const TCHAR* Cmd, FOutputDevice& Ar); /* 0x00e43cb0 */
 };
 
 struct UGFxInteraction : public UInteraction, public FCallbackEventDevice {
@@ -49042,7 +49183,6 @@ struct URCapeStateBoneConfig : public UObject {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     /* other member functions */
-    INT sub_0089f6c0(); /* 0x0089f6c0 */
     /* registered size 0x40 */
 };
 
@@ -62681,12 +62821,14 @@ struct __declspec(align(16)) UEditorEngine : public UEngine, public FCallbackEve
     /* FCallbackEventDevice */
     virtual void Send(ECallbackEventType InType, DWORD InFlag); /* 0x00ed9c20 */
     virtual void Send(ECallbackEventType InType); /* 0x00ed9c00 */
+    /* FExec */
+    virtual UBOOL Exec(const TCHAR* Cmd, FOutputDevice& Ar); /* 0x00f9a340 */
 };
 
 struct FNativeElem_012902a0 { DWORD Value; FNativeElem_012902a0() {} FNativeElem_012902a0(const DWORD& V) : Value(V) {} operator DWORD&() { return Value; } operator const DWORD&() const { return Value; } };  /* the native element type of the arrays ~TArray at 0x012902a0 destroys */
 struct FNativeElem_01284ab0 { DWORD Value; FNativeElem_01284ab0() {} FNativeElem_01284ab0(const DWORD& V) : Value(V) {} operator DWORD&() { return Value; } operator const DWORD&() const { return Value; } };  /* the native element type of the arrays ~TArray at 0x01284ab0 destroys */
 struct FNativeElem_01284a50 { DWORD Value; FNativeElem_01284a50() {} FNativeElem_01284a50(const DWORD& V) : Value(V) {} operator DWORD&() { return Value; } operator const DWORD&() const { return Value; } };  /* the native element type of the arrays ~TArray at 0x01284a50 destroys */
-struct UUnrealEdEngine : public UEditorEngine, public FInterface_UUnrealEdEngine_618 {
+struct UUnrealEdEngine : public UEditorEngine, public FNotifyHook {
     /* UnrealEd.UnrealEdEngine (native only: no script package describes it) */
     DECLARE_CLASS(UUnrealEdEngine, UEditorEngine, 0x10c, 0x0, UnrealEd)
     UUnrealEdEngine(); /* 0x01292820 */
@@ -63049,6 +63191,13 @@ struct UUnrealEdEngine : public UEditorEngine, public FInterface_UUnrealEdEngine
     UINT sub_01745700(BYTE); /* 0x01745700 */
     UINT* sub_0175ef80(); /* 0x0175ef80 */
     /* registered size 0x690 */
+    /* FNotifyHook */
+    virtual void NotifyDestroy(void* Src); /* 0x011368d0 */
+    virtual void NotifyPreChange(void* Src, class UProperty* PropertyAboutToChange); /* 0x01128050 */
+    virtual void NotifyPostChange(void* Src, class UProperty* PropertyThatChanged); /* 0x0111eb10 */
+    virtual void NotifyExec(void* Src, const TCHAR* Cmd); /* 0x01128100 */
+    /* FExec */
+    virtual UBOOL Exec(const TCHAR* Cmd, FOutputDevice& Ar); /* 0x012bd960 */
 };
 
 struct UBmEdEngine : public UUnrealEdEngine {
@@ -63058,6 +63207,8 @@ struct UBmEdEngine : public UUnrealEdEngine {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     /* registered size 0x690 */
+    /* FExec */
+    virtual UBOOL Exec(const TCHAR* Cmd, FOutputDevice& Ar); /* 0x0175d640 */
 };
 
 struct UBoolProperty : public UProperty {
@@ -63369,12 +63520,12 @@ struct FNativeDtor_00c17130_40 { ~FNativeDtor_00c17130_40(); /* 0x00c17130 */ DW
 struct FNativeDtor_00c00410_c { ~FNativeDtor_00c00410_c(); /* 0x00c00410 */ DWORD _data[3]; };  /* a C++-only member: only its destructor is known; size up to the next member */
 struct FNativeDtor_00572130_4c8c { ~FNativeDtor_00572130_4c8c(); /* 0x00572130 */ DWORD _data[4899]; };  /* a C++-only member: only its destructor is known; size up to the next member */
 struct FNativeDtor_00572130_fc { ~FNativeDtor_00572130_fc(); /* 0x00572130 */ DWORD _data[63]; };  /* a C++-only member: only its destructor is known; size up to the next member */
-struct UNetConnection : public UPlayer, public FInterface_UNetConnection_54 {
+struct UNetConnection : public UPlayer, public FOutputDevice {
     /* Engine.NetConnection (native only: no script package describes it) */
     DECLARE_CLASS(UNetConnection, UPlayer, 0x1000000d, 0x0, Engine)
     UNetConnection(); /* 0x00e135b0 */
     void StaticConstructor(); /* 0x00e165e0 */
-    BYTE _native0[0x14];
+    BYTE _native0[0x8];
     FURL Native_6c; /* 0x6c: C++ only (destroyed by its destructor) */
     BYTE _native1[0x1c];
     FStringNoInit Native_cc; /* 0xcc: C++ only (destroyed by its destructor) */
@@ -63426,6 +63577,10 @@ struct UNetConnection : public UPlayer, public FInterface_UNetConnection_54 {
     UINT* sub_00c1a2a0(); /* 0x00c1a2a0 */
     UINT* sub_00e14ba0(); /* 0x00e14ba0 */
     /* registered size 0x4fb8 */
+    /* FOutputDevice */
+    virtual void Serialize(const TCHAR* V, EName Event); /* 0x00df3dc0 */
+    /* FExec */
+    virtual UBOOL Exec(const TCHAR* Cmd, FOutputDevice& Ar); /* 0x00df3c90 */
 };
 
 struct UChildConnection : public UNetConnection {
@@ -63827,6 +63982,8 @@ struct UClient : public UObject, public FExec {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     /* registered size 0x50 */
+    /* FExec */
+    virtual UBOOL Exec(const TCHAR* Cmd, FOutputDevice& Ar); /* 0x00cbbd40 */
 };
 
 struct UCodecMovieBink : public UCodecMovie {
@@ -64063,12 +64220,12 @@ struct UContentTagIndex : public UObject {
     /* registered size 0x4c */
 };
 
-struct UControlChannel : public UChannel, public FInterface_UControlChannel_5c {
+struct UControlChannel : public UChannel, public FOutputDevice {
     /* Engine.ControlChannel (native only: no script package describes it) */
     DECLARE_CLASS(UControlChannel, UChannel, 0x8, 0x0, Engine)
-    UControlChannel() { *(DWORD*)((BYTE*)this + 0x64) = 0; *(DWORD*)((BYTE*)this + 0x60) = 0x1; *(DWORD*)((BYTE*)this + 0x68) = 0x1; *(DWORD*)((BYTE*)this + 0x70) = 0; *(DWORD*)((BYTE*)this + 0x74) = 0; *(DWORD*)((BYTE*)this + 0x78) = 0; }
+    UControlChannel() { *(DWORD*)((BYTE*)this + 0x70) = 0; *(DWORD*)((BYTE*)this + 0x74) = 0; *(DWORD*)((BYTE*)this + 0x78) = 0; }
     void InitializeIntrinsicPropertyValues(); /* 0x00df30d0 */
-    BYTE _native0[0x10];
+    BYTE _native0[0x4];
     TArrayNoInit<FString> Native_70; /* 0x70: C++ only (destroyed by its destructor) */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
@@ -64078,6 +64235,8 @@ struct UControlChannel : public UChannel, public FInterface_UControlChannel_5c {
     virtual void ReceivedBunch(INT); /* 0x11c */
     virtual void vf_124(); /* 0x124 */
     /* registered size 0x7c */
+    /* FOutputDevice */
+    virtual void Serialize(const TCHAR* V, EName Event); /* 0x00e0d500 */
 };
 
 struct FNativeDtor_008c2810_c { ~FNativeDtor_008c2810_c(); /* 0x008c2810 */ DWORD _data[3]; };  /* a C++-only member: only its destructor is known; size up to the next member */
@@ -64387,7 +64546,7 @@ struct ULevelBase : public UObject {
 };
 
 struct FNativeElem_00c06710 { DWORD Value; FNativeElem_00c06710() {} FNativeElem_00c06710(const DWORD& V) : Value(V) {} operator DWORD&() { return Value; } operator const DWORD&() const { return Value; } };  /* the native element type of the arrays ~TArray at 0x00c06710 destroys */
-struct UPendingLevel : public ULevelBase, public FInterface_UPendingLevel_84 {
+struct UPendingLevel : public ULevelBase, public FNetworkNotify {
     /* Engine.PendingLevel (native only: no script package describes it) */
     DECLARE_CLASS(UPendingLevel, ULevelBase, 0x9, 0x0, Engine)
     UPendingLevel(); /* 0x00c14990 */
@@ -64410,6 +64569,8 @@ struct UPendingLevel : public ULevelBase, public FInterface_UPendingLevel_84 {
     UINT* sub_00c14a30(); /* 0x00c14a30 */
     UINT* sub_00e1d6e0(); /* 0x00e1d6e0 */
     /* registered size 0xb4 */
+    /* FNetworkNotify */
+    virtual void NotifyProgress(const TCHAR* Str1, const TCHAR* Str2, FLOAT Seconds); /* 0x00c14900 */
 };
 
 struct UDemoPlayPendingLevel : public UPendingLevel {
@@ -64423,6 +64584,14 @@ struct UDemoPlayPendingLevel : public UPendingLevel {
     virtual void SendJoin(); /* 0x114 */
     virtual INT TrySkipFile(); /* 0x118 */
     /* registered size 0xb4 */
+    /* FNetworkNotify */
+    virtual EAcceptConnection NotifyAcceptingConnection(); /* 0x00c14a50 */
+    virtual void NotifyAcceptedConnection(class UNetConnection* Connection); /* 0x00c14a60 */
+    virtual UBOOL NotifyAcceptingChannel(class UChannel* Channel); /* 0x00c14a70 */
+    virtual class UWorld* NotifyGetWorld(); /* 0x00c14a80 */
+    virtual void NotifyReceivedText(class UNetConnection* Connection, const TCHAR* Text); /* 0x00c062d0 */
+    virtual UBOOL NotifySendingFile(class UNetConnection* Connection, const FGuid& GUID); /* 0x00c14a90 */
+    virtual void NotifyReceivedFile(class UNetConnection* Connection, INT PackageIndex, const TCHAR* Error, UBOOL Skipped); /* 0x00c14aa0 */
 };
 
 struct UDemoRecConnection : public UNetConnection {
@@ -64447,7 +64616,7 @@ struct UDemoRecConnection : public UNetConnection {
 
 struct FNativeDtor_00c19590_48 { ~FNativeDtor_00c19590_48(); /* 0x00c19590 */ DWORD _data[18]; };  /* a C++-only member: only its destructor is known; size up to the next member */
 struct FNativeDtor_00c003b0_60 { ~FNativeDtor_00c003b0_60(); /* 0x00c003b0 */ DWORD _data[24]; };  /* a C++-only member: only its destructor is known; size up to the next member */
-struct UNetDriver : public USubsystem, public FInterface_UNetDriver_34 {
+struct UNetDriver : public USubsystem, public FNetObjectNotify {
     /* Engine.NetDriver (native only: no script package describes it) */
     DECLARE_CLASS(UNetDriver, USubsystem, 0x1000000d, 0x0, Engine)
     UNetDriver(); /* 0x00e16060 */
@@ -64481,6 +64650,12 @@ struct UNetDriver : public USubsystem, public FInterface_UNetDriver_34 {
     /* other member functions */
     UINT sub_00c1a5d0(BYTE); /* 0x00c1a5d0 */
     /* registered size 0x150 */
+    /* FNetObjectNotify */
+    virtual void NotifyNetPackageAdded(class UPackage* Package); /* 0x00e04ad0 */
+    virtual void NotifyNetPackageRemoved(class UPackage* Package); /* 0x00e04b90 */
+    virtual void NotifyNetObjectRemoved(class UObject* Object); /* 0x00dfe8f0 */
+    /* FExec */
+    virtual UBOOL Exec(const TCHAR* Cmd, FOutputDevice& Ar); /* 0x00dfe2b0 */
 };
 
 struct FNativeDtor_00c13850_20 { ~FNativeDtor_00c13850_20(); /* 0x00c13850 */ DWORD _data[8]; };  /* a C++-only member: only its destructor is known; size up to the next member */
@@ -64510,6 +64685,10 @@ struct UDemoRecDriver : public UNetDriver {
     /* other member functions */
     UINT sub_00c1a7a0(BYTE); /* 0x00c1a7a0 */
     /* registered size 0x214 */
+    /* FNetObjectNotify */
+    virtual void NotifyNetPackageAdded(class UPackage* Package); /* 0x00c00050 */
+    /* FExec */
+    virtual UBOOL Exec(const TCHAR* Cmd, FOutputDevice& Ar); /* 0x00c19180 */
 };
 
 struct UDestructibleDamageParametersFactoryNew : public UFactory {
@@ -64628,6 +64807,8 @@ struct UEditorPlayer : public ULocalPlayer {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     /* registered size 0x1ec */
+    /* FExec */
+    virtual UBOOL Exec(const TCHAR* Cmd, FOutputDevice& Ar); /* 0x00ec1470 */
 };
 
 struct UEditorUISceneClient : public UUISceneClient, public FCallbackEventDevice {
@@ -64667,6 +64848,8 @@ struct UEditorUISceneClient : public UUISceneClient, public FCallbackEventDevice
     /* registered size 0x100 */
     /* FCallbackEventDevice */
     virtual void Send(ECallbackEventType InType, FViewport* InViewport, UINT InMessage); /* 0x0149dea0 */
+    /* FExec */
+    virtual UBOOL Exec(const TCHAR* Cmd, FOutputDevice& Ar); /* 0x0149b240 */
 };
 
 struct UEditorUserSettings : public UObject {
@@ -64867,6 +65050,8 @@ struct UFMODAudioDevice : public UAudioDevice {
     INT sub_00e80b10(); /* 0x00e80b10 */
     UINT sub_00e80f40(BYTE); /* 0x00e80f40 */
     /* registered size 0x35c */
+    /* FExec */
+    virtual UBOOL Exec(const TCHAR* Cmd, FOutputDevice& Ar); /* 0x00e80f70 */
 };
 
 struct UFMODReverbLabelRenderer : public UThumbnailLabelRenderer {
@@ -67552,6 +67737,15 @@ struct UNetPendingLevel : public UPendingLevel {
     bool sub_00e233d0(); /* 0x00e233d0 */
     bool sub_00e23530(); /* 0x00e23530 */
     /* registered size 0xb4 */
+    /* FNetworkNotify */
+    virtual EAcceptConnection NotifyAcceptingConnection(); /* 0x00e17420 */
+    virtual void NotifyAcceptedConnection(class UNetConnection* Connection); /* 0x00e17430 */
+    virtual UBOOL NotifyAcceptingChannel(class UChannel* Channel); /* 0x00e17440 */
+    virtual class UWorld* NotifyGetWorld(); /* 0x00e17450 */
+    virtual void NotifyReceivedText(class UNetConnection* Connection, const TCHAR* Text); /* 0x00e1f4d0 */
+    virtual UBOOL NotifySendingFile(class UNetConnection* Connection, const FGuid& GUID); /* 0x00e174a0 */
+    virtual void NotifyReceivedFile(class UNetConnection* Connection, INT PackageIndex, const TCHAR* Error, UBOOL Skipped); /* 0x00e1e6a0 */
+    virtual void NotifyProgress(const TCHAR* Str1, const TCHAR* Str2, FLOAT Seconds); /* 0x00e174b0 */
 };
 
 struct UObjectEditorViewportInput : public UEditorViewportInput {
@@ -70068,6 +70262,8 @@ struct USystem : public USubsystem {
     /* other member functions */
     UINT sub_00642fb0(BYTE); /* 0x00642fb0 */
     /* registered size 0xf0 */
+    /* FExec */
+    virtual UBOOL Exec(const TCHAR* Cmd, FOutputDevice& Ar); /* 0x00645b20 */
 };
 
 struct FNativeZeroed_TcpNetDriver_158 { BYTE Data[16]; FNativeZeroed_TcpNetDriver_158() { memset(Data, 0, 16); *(WORD*)((BYTE*)this + 0x0) = 0x2; } };  /* a C++-only member whose constructor zeroes it (appMemzero) */
@@ -70385,11 +70581,11 @@ struct UTexAlignerPlanar : public UTexAligner {
     /* registered size 0x50 */
 };
 
-struct UTextBuffer : public UObject, public FInterface_UTextBuffer_30 {
+struct UTextBuffer : public UObject, public FOutputDevice {
     /* Core.TextBuffer (native only: no script package describes it) */
     DECLARE_CLASS(UTextBuffer, UObject, 0x10000000, 0x0, Core)
     UTextBuffer(const TCHAR* InText = TEXT("")); /* 0x005aa160 */
-    BYTE _native0[0x14];
+    BYTE _native0[0x8];
     FStringNoInit Native_48; /* 0x48: C++ only (destroyed by its destructor) */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
@@ -70399,6 +70595,8 @@ struct UTextBuffer : public UObject, public FInterface_UTextBuffer_30 {
     void sub_005aa1e0(); /* 0x005aa1e0 */
     UINT sub_005aa270(BYTE); /* 0x005aa270 */
     /* registered size 0x54 */
+    /* FOutputDevice */
+    virtual void Serialize(const TCHAR* V, EName Event); /* 0x005a1200 */
 };
 
 struct UTextBufferExporterTXT : public UExporter {
@@ -70741,7 +70939,7 @@ struct FNativeDtor_014b3b20_c { ~FNativeDtor_014b3b20_c(); /* 0x014b3b20 */ DWOR
 struct FNativeDtor_014b3a50_c { ~FNativeDtor_014b3a50_c(); /* 0x014b3a50 */ DWORD _data[3]; };  /* a C++-only member: only its destructor is known; size up to the next member */
 struct FNativeDtor_014b3980_c { ~FNativeDtor_014b3980_c(); /* 0x014b3980 */ DWORD _data[3]; };  /* a C++-only member: only its destructor is known; size up to the next member */
 struct FNativeDtor_014a6fb0_c { ~FNativeDtor_014a6fb0_c(); /* 0x014a6fb0 */ DWORD _data[3]; };  /* a C++-only member: only its destructor is known; size up to the next member */
-struct UUISceneManager : public UObject, public FInterface_UUISceneManager_30, public FInterface_UUISceneManager_34, public FCallbackEventDevice {
+struct UUISceneManager : public UObject, public FGlobalDataStoreClientManager, public FExec, public FCallbackEventDevice {
     /* UnrealEd.UISceneManager (native only: no script package describes it) */
     DECLARE_CLASS(UUISceneManager, UObject, 0xc, 0x0, UnrealEd)
     UUISceneManager(); /* 0x014bdca0 */
@@ -70763,6 +70961,10 @@ struct UUISceneManager : public UObject, public FInterface_UUISceneManager_30, p
     /* registered size 0xc8 */
     /* FCallbackEventDevice */
     virtual void Send(ECallbackEventType InType, class UObject* InObject); /* 0x014a0160 */
+    /* FGlobalDataStoreClientManager */
+    virtual void InitializeGlobalDataStore(); /* 0x0149ae80 */
+    /* FExec */
+    virtual UBOOL Exec(const TCHAR* Cmd, FOutputDevice& Ar); /* 0x014a00e0 */
 };
 
 struct UUISceneThumbnailRenderer : public UIconThumbnailRenderer {
@@ -70977,6 +71179,8 @@ struct UWindowsClient : public UClient {
     INT sub_00ebebf0(); /* 0x00ebebf0 */
     UINT sub_00ec0210(BYTE); /* 0x00ec0210 */
     /* registered size 0x1d0 */
+    /* FExec */
+    virtual UBOOL Exec(const TCHAR* Cmd, FOutputDevice& Ar); /* 0x00eb5ef0 */
 };
 
 struct FNativeDtor_006d0eb0_3c { ~FNativeDtor_006d0eb0_3c(); /* 0x006d0eb0 */ DWORD _data[15]; };  /* a C++-only member: only its destructor is known; size up to the next member */
@@ -71013,7 +71217,7 @@ struct FCheckResult : public FIteratorActorList
     FCheckResult* GetNext() const { return (FCheckResult*)Next; }
 };
 
-struct UWorld : public UObject, public FInterface_UWorld_30 {
+struct UWorld : public UObject, public FNetworkNotify {
     /* Engine.World (native only: no script package describes it) */
     DECLARE_CLASS(UWorld, UObject, 0x10000000, 0x0, Engine)
     UWorld(); /* 0x009c67c0 */
@@ -71072,9 +71276,17 @@ struct UWorld : public UObject, public FInterface_UWorld_30 {
     void sub_00a47a90(URB_ConstraintInstance* Constraint); /* 0x00a47a90 */
     UBOOL sub_007e72a0(AActor*, UBOOL, UBOOL); /* 0x007e72a0 */
     URB_BodyInstance* sub_00a49820(UPrimitiveComponent* Owner); /* 0x00a49820 */
-    INT sub_009c68d0(); /* 0x009c68d0 */
     UINT sub_009c69f0(BYTE); /* 0x009c69f0 */
     /* registered size 0x278 */
+    /* FNetworkNotify */
+    virtual EAcceptConnection NotifyAcceptingConnection(); /* 0x009c6d40 */
+    virtual void NotifyAcceptedConnection(class UNetConnection* Connection); /* 0x009b08e0 */
+    virtual UBOOL NotifyAcceptingChannel(class UChannel* Channel); /* 0x009b0940 */
+    virtual class UWorld* NotifyGetWorld(); /* 0x009c68d0 */
+    virtual void NotifyReceivedText(class UNetConnection* Connection, const TCHAR* Text); /* 0x009ccbb0 */
+    virtual UBOOL NotifySendingFile(class UNetConnection* Connection, const FGuid& GUID); /* 0x009b0a10 */
+    virtual void NotifyReceivedFile(class UNetConnection* Connection, INT PackageIndex, const TCHAR* Error, UBOOL Skipped); /* 0x009b09f0 */
+    virtual void NotifyProgress(const TCHAR* Str1, const TCHAR* Str2, FLOAT Seconds); /* 0x009b0730 */
 };
 
 struct UWrangleContentCommandlet : public UCommandlet {

@@ -137,12 +137,7 @@ void UInterpTrack::vf_158(int a0, int a1, int a2, int a3, int a4, int a5) {  }
 void UInterpTrack::vf_15c(void) {  }
 
 // @baa 0x00cf0530
-int UInterpGroupInstDirector::sub_00cf0530(void)
-{
-    int param_1 = (int)this;
-
-  return param_1 + -0x34;
-}
+class UObject* UInterpTrack::GetUObject() { return this; }
 
 // @baa 0x00cf0540
 struct C_00cf0590 {

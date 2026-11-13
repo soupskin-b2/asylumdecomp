@@ -355,16 +355,16 @@ bool UPendingLevel::vf_004()
 }
 
 // @baa 0x00e17420
-int sub_00e17420(void) { return 0; }
+EAcceptConnection UNetPendingLevel::NotifyAcceptingConnection() { return ACCEPTC_Reject; }
 
 // @baa 0x00e17430
-void __stdcall sub_00e17430(int a0) {  }
+void UNetPendingLevel::NotifyAcceptedConnection(class UNetConnection* Connection) {}
 
 // @baa 0x00e17440
-int __stdcall sub_00e17440(int a0) { return 0; }
+UBOOL UNetPendingLevel::NotifyAcceptingChannel(class UChannel* Channel) { return FALSE; }
 
 // @baa 0x00e17450
-int sub_00e17450(void) { return 0; }
+class UWorld* UNetPendingLevel::NotifyGetWorld() { return NULL; }
 
 // @baa 0x00e195c0
 void sub_00e195c0(undefined4 * param_1, undefined4 * param_2)
