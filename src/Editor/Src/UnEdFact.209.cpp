@@ -25,7 +25,7 @@ void UFonixFactory::StaticConstructor()
  * UClass::HideCategories is the kit's Native_f0 (UE3's UClass member at 0xf0, unnamed in the kit). */
 void UTextureCubeFactoryNew::StaticConstructor()
 {
-    new((FNameArray&)GetClass()->Native_f0) FName((EName)0x97);
+    new((FNameArray&)GetClass()->Native_f0) FName(NAME_Object);
 }
 
 // @baa 0x00f22980
@@ -33,7 +33,7 @@ void UTextureCubeFactoryNew::StaticConstructor()
  * UClass::HideCategories is the kit's Native_f0 (UE3's UClass member at 0xf0, unnamed in the kit). */
 void UMaterialInstanceConstantFactoryNew::StaticConstructor()
 {
-    new((FNameArray&)GetClass()->Native_f0) FName((EName)0x97);
+    new((FNameArray&)GetClass()->Native_f0) FName(NAME_Object);
 }
 
 // @baa 0x00f229b0
@@ -41,7 +41,7 @@ void UMaterialInstanceConstantFactoryNew::StaticConstructor()
  * UClass::HideCategories is the kit's Native_f0 (UE3's UClass member at 0xf0, unnamed in the kit). */
 void UMaterialInstanceTimeVaryingFactoryNew::StaticConstructor()
 {
-    new((FNameArray&)GetClass()->Native_f0) FName((EName)0x97);
+    new((FNameArray&)GetClass()->Native_f0) FName(NAME_Object);
 }
 
 // @baa 0x00f22a40
@@ -49,7 +49,7 @@ void UMaterialInstanceTimeVaryingFactoryNew::StaticConstructor()
  * UClass::HideCategories is the kit's Native_f0 (UE3's UClass member at 0xf0, unnamed in the kit). */
 void UMaterialFactoryNew::StaticConstructor()
 {
-    new((FNameArray&)GetClass()->Native_f0) FName((EName)0x97);
+    new((FNameArray&)GetClass()->Native_f0) FName(NAME_Object);
 }
 
 // @baa 0x00f22a70
@@ -57,7 +57,7 @@ void UMaterialFactoryNew::StaticConstructor()
  * UClass::HideCategories is the kit's Native_f0 (UE3's UClass member at 0xf0, unnamed in the kit). */
 void UDecalMaterialFactoryNew::StaticConstructor()
 {
-    new((FNameArray&)GetClass()->Native_f0) FName((EName)0x97);
+    new((FNameArray&)GetClass()->Native_f0) FName(NAME_Object);
 }
 
 // @baa 0x00f238e0
@@ -65,7 +65,7 @@ void UDecalMaterialFactoryNew::StaticConstructor()
  * UClass::HideCategories is the kit's Native_f0 (UE3's UClass member at 0xf0, unnamed in the kit). */
 void USoundCueFactoryNew::StaticConstructor()
 {
-    new((FNameArray&)GetClass()->Native_f0) FName((EName)0x97);
+    new((FNameArray&)GetClass()->Native_f0) FName(NAME_Object);
 }
 
 // @baa 0x00f23a30
@@ -73,7 +73,7 @@ void USoundCueFactoryNew::StaticConstructor()
  * UClass::HideCategories is the kit's Native_f0 (UE3's UClass member at 0xf0, unnamed in the kit). */
 void ULensFlareFactoryNew::StaticConstructor()
 {
-    new((FNameArray&)GetClass()->Native_f0) FName((EName)0x97);
+    new((FNameArray&)GetClass()->Native_f0) FName(NAME_Object);
 }
 
 // @baa 0x00f23ac0
@@ -81,7 +81,7 @@ void ULensFlareFactoryNew::StaticConstructor()
  * UClass::HideCategories is the kit's Native_f0 (UE3's UClass member at 0xf0, unnamed in the kit). */
 void UParticleSystemFactoryNew::StaticConstructor()
 {
-    new((FNameArray&)GetClass()->Native_f0) FName((EName)0x97);
+    new((FNameArray&)GetClass()->Native_f0) FName(NAME_Object);
 }
 
 // @baa 0x00f23af0
@@ -89,7 +89,7 @@ void UParticleSystemFactoryNew::StaticConstructor()
  * UClass::HideCategories is the kit's Native_f0 (UE3's UClass member at 0xf0, unnamed in the kit). */
 void UApexDestructibleAssetFactory::StaticConstructor()
 {
-    new((FNameArray&)GetClass()->Native_f0) FName((EName)0x97);
+    new((FNameArray&)GetClass()->Native_f0) FName(NAME_Object);
 }
 
 // @baa 0x00f23b80
@@ -97,7 +97,7 @@ void UApexDestructibleAssetFactory::StaticConstructor()
  * UClass::HideCategories is the kit's Native_f0 (UE3's UClass member at 0xf0, unnamed in the kit). */
 void UApexRenderMeshAssetFactory::StaticConstructor()
 {
-    new((FNameArray&)GetClass()->Native_f0) FName((EName)0x97);
+    new((FNameArray&)GetClass()->Native_f0) FName(NAME_Object);
 }
 
 // @baa 0x00f23c10
@@ -105,7 +105,7 @@ void UApexRenderMeshAssetFactory::StaticConstructor()
  * UClass::HideCategories is the kit's Native_f0 (UE3's UClass member at 0xf0, unnamed in the kit). */
 void UApexParticleSystemAssetFactory::StaticConstructor()
 {
-    new((FNameArray&)GetClass()->Native_f0) FName((EName)0x97);
+    new((FNameArray&)GetClass()->Native_f0) FName(NAME_Object);
 }
 
 // @baa 0x00f23ca0
@@ -113,7 +113,7 @@ void UApexParticleSystemAssetFactory::StaticConstructor()
  * UClass::HideCategories is the kit's Native_f0 (UE3's UClass member at 0xf0, unnamed in the kit). */
 void UApexMeshParticleFactoryAssetFactory::StaticConstructor()
 {
-    new((FNameArray&)GetClass()->Native_f0) FName((EName)0x97);
+    new((FNameArray&)GetClass()->Native_f0) FName(NAME_Object);
 }
 
 // @baa 0x00f23d30
@@ -121,7 +121,7 @@ void UApexMeshParticleFactoryAssetFactory::StaticConstructor()
  * UClass::HideCategories is the kit's Native_f0 (UE3's UClass member at 0xf0, unnamed in the kit). */
 void UDestructibleDamageParametersFactoryNew::StaticConstructor()
 {
-    new((FNameArray&)GetClass()->Native_f0) FName((EName)0x97);
+    new((FNameArray&)GetClass()->Native_f0) FName(NAME_Object);
 }
 
 // @baa 0x00f23d60
@@ -129,7 +129,7 @@ void UDestructibleDamageParametersFactoryNew::StaticConstructor()
  * UClass::HideCategories is the kit's Native_f0 (UE3's UClass member at 0xf0, unnamed in the kit). */
 void UPhysXParticleSystemFactoryNew::StaticConstructor()
 {
-    new((FNameArray&)GetClass()->Native_f0) FName((EName)0x97);
+    new((FNameArray&)GetClass()->Native_f0) FName(NAME_Object);
 }
 
 // @baa 0x00f23d90
@@ -137,7 +137,7 @@ void UPhysXParticleSystemFactoryNew::StaticConstructor()
  * UClass::HideCategories is the kit's Native_f0 (UE3's UClass member at 0xf0, unnamed in the kit). */
 void UAnimSetFactoryNew::StaticConstructor()
 {
-    new((FNameArray&)GetClass()->Native_f0) FName((EName)0x97);
+    new((FNameArray&)GetClass()->Native_f0) FName(NAME_Object);
 }
 
 // @baa 0x00f23dc0
@@ -145,7 +145,7 @@ void UAnimSetFactoryNew::StaticConstructor()
  * UClass::HideCategories is the kit's Native_f0 (UE3's UClass member at 0xf0, unnamed in the kit). */
 void UAnimTreeFactoryNew::StaticConstructor()
 {
-    new((FNameArray&)GetClass()->Native_f0) FName((EName)0x97);
+    new((FNameArray&)GetClass()->Native_f0) FName(NAME_Object);
 }
 
 // @baa 0x00f23df0
@@ -153,7 +153,7 @@ void UAnimTreeFactoryNew::StaticConstructor()
  * UClass::HideCategories is the kit's Native_f0 (UE3's UClass member at 0xf0, unnamed in the kit). */
 void UPostProcessFactoryNew::StaticConstructor()
 {
-    new((FNameArray&)GetClass()->Native_f0) FName((EName)0x97);
+    new((FNameArray&)GetClass()->Native_f0) FName(NAME_Object);
 }
 
 // @baa 0x00f23e20
@@ -161,7 +161,7 @@ void UPostProcessFactoryNew::StaticConstructor()
  * UClass::HideCategories is the kit's Native_f0 (UE3's UClass member at 0xf0, unnamed in the kit). */
 void UPhysicalMaterialFactoryNew::StaticConstructor()
 {
-    new((FNameArray&)GetClass()->Native_f0) FName((EName)0x97);
+    new((FNameArray&)GetClass()->Native_f0) FName(NAME_Object);
 }
 
 // @baa 0x00f25170
@@ -169,7 +169,7 @@ void UPhysicalMaterialFactoryNew::StaticConstructor()
  * UClass::HideCategories is the kit's Native_f0 (UE3's UClass member at 0xf0, unnamed in the kit). */
 void UCurveEdPresetCurveFactoryNew::StaticConstructor()
 {
-    new((FNameArray&)GetClass()->Native_f0) FName((EName)0x97);
+    new((FNameArray&)GetClass()->Native_f0) FName(NAME_Object);
 }
 
 // @baa 0x00f251a0
@@ -177,5 +177,5 @@ void UCurveEdPresetCurveFactoryNew::StaticConstructor()
  * UClass::HideCategories is the kit's Native_f0 (UE3's UClass member at 0xf0, unnamed in the kit). */
 void UCameraAnimFactory::StaticConstructor()
 {
-    new((FNameArray&)GetClass()->Native_f0) FName((EName)0x97);
+    new((FNameArray&)GetClass()->Native_f0) FName(NAME_Object);
 }

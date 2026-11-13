@@ -29,7 +29,7 @@ void UObject::execPushState(FFrame& Stack, RESULT_DECL)
 void UObject::execLogInternal(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STR(S);
-	P_GET_NAME_OPTX(Tag, (EName)0x302);
+	P_GET_NAME_OPTX(Tag, NAME_ScriptLog);
 	P_FINISH;
 }
 
@@ -39,7 +39,7 @@ void UObject::execLogInternal(FFrame& Stack, RESULT_DECL)
 void UObject::execLogInternalAudio(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STR(S);
-	P_GET_NAME_OPTX(Tag, (EName)0x5e8);
+	P_GET_NAME_OPTX(Tag, NAME_LogAudio);
 	P_FINISH;
 }
 
@@ -49,7 +49,7 @@ void UObject::execLogInternalAudio(FFrame& Stack, RESULT_DECL)
 void UObject::execLogInternalAnim(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STR(S);
-	P_GET_NAME_OPTX(Tag, (EName)0x5ea);
+	P_GET_NAME_OPTX(Tag, NAME_LogAnim);
 	P_FINISH;
 }
 
@@ -59,7 +59,7 @@ void UObject::execLogInternalAnim(FFrame& Stack, RESULT_DECL)
 void UObject::execLogInternalAI(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STR(S);
-	P_GET_NAME_OPTX(Tag, (EName)0x5e7);
+	P_GET_NAME_OPTX(Tag, NAME_LogAI);
 	P_FINISH;
 }
 
@@ -69,7 +69,7 @@ void UObject::execLogInternalAI(FFrame& Stack, RESULT_DECL)
 void UObject::execLogInternalEngine(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STR(S);
-	P_GET_NAME_OPTX(Tag, (EName)0x5e6);
+	P_GET_NAME_OPTX(Tag, NAME_LogEngine);
 	P_FINISH;
 }
 
@@ -79,7 +79,7 @@ void UObject::execLogInternalEngine(FFrame& Stack, RESULT_DECL)
 void UObject::execLogInternalPlayer(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STR(S);
-	P_GET_NAME_OPTX(Tag, (EName)0x5e9);
+	P_GET_NAME_OPTX(Tag, NAME_LogPlayer);
 	P_FINISH;
 }
 
@@ -89,7 +89,7 @@ void UObject::execLogInternalPlayer(FFrame& Stack, RESULT_DECL)
 void UObject::execLogInternalBoss(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STR(S);
-	P_GET_NAME_OPTX(Tag, (EName)0x5ed);
+	P_GET_NAME_OPTX(Tag, NAME_LogBoss);
 	P_FINISH;
 }
 

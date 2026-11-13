@@ -33,8 +33,6 @@ void UGameViewportClient_::eventPostRender(class UCanvas* Canvas)
 extern FName g_026c4ce4;
 	/* ENGINE_Tick */
 /* EName entries Core.h doesn't list yet (UnNames.h) */
-#define NAME_PROBEMIN 0x12c
-#define NAME_Tick 0x150
 struct UGameViewportClient__008888c0 : public UGameViewportClient
 {
 	void eventTick(FLOAT DeltaTime);

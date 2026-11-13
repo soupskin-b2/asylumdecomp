@@ -7,8 +7,6 @@
 extern FName g_026c49e8;
 	/* ENGINE_Bump */
 /* EName entries Core.h doesn't list yet (UnNames.h) */
-#define NAME_PROBEMIN 0x12c
-#define NAME_Bump 0x13b
 struct AActor_ : public AActor
 {
 	void eventBump(AActor* Other, UPrimitiveComponent* OtherComp, FVector HitNormal);
@@ -73,7 +71,6 @@ void AActor__007d5e80::eventProcessActorSetVolume(AVolume* V)
 }
 
 extern FName g_026c4fac;
-#define NAME_EncroachedBy 0x148
 struct AActor__007d5c90 : public AActor
 {
 	void eventEncroachedBy(AActor* Other);
@@ -96,7 +93,6 @@ void AActor__007d5c90::eventEncroachedBy(AActor* Other)
 }
 
 extern FName g_026c4a74;
-#define NAME_PhysicsVolumeChange 0x138
 struct AActor__007d5dd0 : public AActor
 {
 	void eventPhysicsVolumeChange(APhysicsVolume* NewVolume);
@@ -119,7 +115,6 @@ void AActor__007d5dd0::eventPhysicsVolumeChange(APhysicsVolume* NewVolume)
 }
 
 extern FName g_026c43cc;
-#define NAME_EncroachingOn 0x147
 struct AActor__007d5ce0 : public AActor
 {
 	UBOOL eventEncroachingOn(AActor* Other);
@@ -145,7 +140,6 @@ UBOOL AActor__007d5ce0::eventEncroachingOn(AActor* Other)
 }
 
 extern FName g_026c4c88;
-#define NAME_NotifyHeadVolumeChange 0x15f
 struct AController_ : public AController
 {
 	UBOOL eventNotifyHeadVolumeChange(APhysicsVolume* NewVolume);
@@ -171,7 +165,6 @@ UBOOL AController_::eventNotifyHeadVolumeChange(APhysicsVolume* NewVolume)
 }
 
 extern FName g_026c5284;
-#define NAME_NotifyPhysicsVolumeChange 0x15d
 struct AController__007d61e0 : public AController
 {
 	void eventNotifyPhysicsVolumeChange(APhysicsVolume* NewVolume);
@@ -194,7 +187,6 @@ void AController__007d61e0::eventNotifyPhysicsVolumeChange(APhysicsVolume* NewVo
 }
 
 extern FName g_026c3f3c;
-#define NAME_Destroyed 0x12d
 struct AActor__007d5e20 : public AActor
 {
 	void eventDestroyed();
@@ -212,7 +204,6 @@ void AActor__007d5e20::eventDestroyed()
 }
 
 extern FName g_026c4c9c;
-#define NAME_PawnLeavingVolume 0x14f
 struct APhysicsVolume_ : public APhysicsVolume
 {
 	void eventPawnLeavingVolume(APawn* Other);
@@ -235,7 +226,6 @@ void APhysicsVolume_::eventPawnLeavingVolume(APawn* Other)
 }
 
 extern FName g_026c4554;
-#define NAME_PawnEnteredVolume 0x14c
 struct APhysicsVolume__007d5f80 : public APhysicsVolume
 {
 	void eventPawnEnteredVolume(APawn* Other);

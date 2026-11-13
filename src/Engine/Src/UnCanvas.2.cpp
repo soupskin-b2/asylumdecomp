@@ -281,7 +281,7 @@ void UCanvas__00aa9c00::execDrawText(FFrame& Stack, RESULT_DECL)
 
 	if ( !Font )
 	{
-		((FFrame_&)Stack).Logf(NAME_ScriptWarning, TEXT("DrawText: No font"));
+		((FFrame_&)Stack).Logf(NAME_Warning, TEXT("DrawText: No font"));
 		return;
 	}
 	INT XL = 0, YL = 0;

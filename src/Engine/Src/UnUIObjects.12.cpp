@@ -96,7 +96,7 @@ UUIDataStore* UUIScene::ResolveDataStore(FName DataStoreTag, ULocalPlayer* InPla
 {
 	UUIDataStore* Result = NULL;
 
-	if (DataStoreTag == FName((EName)0x364))		/* NAME_SceneData (not in Core.h EName) */
+	if (DataStoreTag == FName(NAME_SceneData))		/* NAME_SceneData (not in Core.h EName) */
 	{
 		if (this != NULL)
 		{

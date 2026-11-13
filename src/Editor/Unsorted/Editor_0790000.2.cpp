@@ -4,8 +4,6 @@
 #include "ue3/Classes.h"
 #include "ue3/Script.h"
 
-/* Kit gap: Core.h's EName list lacks NAME_SpecialHandling (0x15a, UnNames.h; a probe event). */
-#define NAME_SpecialHandling ((EName)0x15a)
 extern FName g_026c54f8;
 	/* ENGINE_SpecialHandling */
 /* Kit gap: the generated glue for Actor's script event SpecialHandling (EngineClasses.h) isn't declared; this build

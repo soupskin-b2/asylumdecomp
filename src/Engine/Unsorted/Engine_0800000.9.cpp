@@ -49,7 +49,6 @@ void AController_::eventGetPlayerViewPoint(FVector& out_Location, FRotator& out_
 extern FName g_026c4030;
 	/* ENGINE_PostTouch */
 /* EName entry Core.h doesn't list yet (UnNames.h): probe bit 31 */
-#define NAME_PostTouch 0x14b
 struct AActor_ : public AActor
 {
 	void eventPostTouch(AActor* Other);

@@ -24,7 +24,7 @@ struct UComponentProperty_ : public UComponentProperty {
 // @baa 0x0062f570
 FName UComponentProperty_::sub_0062f570() const
 {
-    FName Result((EName)5); // NAME_ObjectProperty
+    FName Result(NAME_ObjectProperty); // NAME_ObjectProperty
     return Result;
 }
 

@@ -4,8 +4,6 @@
 #include "ue3/Classes.h"
 #include "ue3/Script.h"
 
-/* Kit gap: Core.h's EName list lacks NAME_NotifyBump (0x15c, UnNames.h; a probe event). */
-#define NAME_NotifyBump ((EName)0x15c)
 extern FName g_026c4f04;
 	/* ENGINE_NotifyBump */
 /* Kit gap: the generated glue for Controller's script event NotifyBump (EngineClasses.h) isn't declared; this build

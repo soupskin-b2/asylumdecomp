@@ -33,15 +33,15 @@ FName ARBMAIController::GetSilentPredatorStanceName()
 		BYTE FearLevel = ((ARBMAIController_*)this)->eventGetAnimationFearLevel();
 		if (!AIPawn->bFriendly && FearLevel == 2)
 		{
-			return FName((EName)0x516);
+			return FName(NAME_Standing_Terrified);
 		}
 		if (!AIPawn->bFriendly && FearLevel == 1)
 		{
 			AIPawn->ChangeIdleStance(NervousIdleVariantName);
-			return FName((EName)0x517);
+			return FName(NAME_Standing_Panicked);
 		}
 	}
-	return FName((EName)0x51a);
+	return FName(NAME_Standing);
 }
 
 // @baa 0x01604840
@@ -54,11 +54,11 @@ FName ARBMAIController::GetSilentPredatorGlanceStanceName()
 		BYTE FearLevel = ((ARBMAIController_*)this)->eventGetAnimationFearLevel();
 		if (!AIPawn->bFriendly && FearLevel == 0 && AIPawn->bSilentPredatorAI)
 		{
-			return FName((EName)0x518);
+			return FName(NAME_Standing_Glance);
 		}
 		if (!AIPawn->bFriendly && FearLevel == 1)
 		{
-			return FName((EName)0x519);
+			return FName(NAME_Standing_Panicked_Glance);
 		}
 	}
 	return GetSilentPredatorStanceName();

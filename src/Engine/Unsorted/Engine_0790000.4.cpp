@@ -27,7 +27,6 @@ void AGameInfo_::eventHandleSeamlessTravelPlayer(class AController*& C)
 extern FName g_026c4700;
 	/* ENGINE_EnemyNotVisible */
 /* EName entries Core.h doesn't list yet (UnNames.h) */
-#define NAME_EnemyNotVisible 0x155
 struct AController_ : public AController
 {
 	void eventEnemyNotVisible();
@@ -47,7 +46,6 @@ void AController_::eventEnemyNotVisible()
 extern FName g_026c55b4;
 	/* ENGINE_HearNoise */
 /* EName entries Core.h doesn't list yet (UnNames.h) */
-#define NAME_HearNoise 0x156
 struct AController__0079f520 : public AController
 {
 	void eventHearNoise(FLOAT Loudness, class AActor* NoiseMaker, FName NoiseType);

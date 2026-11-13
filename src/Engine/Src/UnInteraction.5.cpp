@@ -7,8 +7,6 @@
 extern FName g_026c4ce4;
 	/* ENGINE_Tick */
 /* EName entries Core.h doesn't list yet (UnNames.h) */
-#define NAME_PROBEMIN 0x12c
-#define NAME_Tick 0x150
 struct UInteraction_ : public UInteraction
 {
 	void eventTick(FLOAT DeltaTime);

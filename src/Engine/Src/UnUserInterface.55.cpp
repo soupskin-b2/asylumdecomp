@@ -202,7 +202,7 @@ UUIScene* UGameUISceneClient::GetNextScene(UUIScene* SourceScene, UBOOL bRequire
 	return Result;
 }
 
-#define NAME_TransientScene ((EName)0x6b)
+#define NAME_TransientScene (NAME_Transient)
 /* Kit gap: UGameUISceneClient::GetTransientScene isn't declared (name from the exe's native table). */
 struct UGameUISceneClient__00de6d90 : public UGameUISceneClient
 {

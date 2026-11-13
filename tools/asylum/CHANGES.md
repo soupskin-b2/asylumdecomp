@@ -4,6 +4,7 @@ Newest first, one line each. `update` (and `get`, which updates by itself) print
 to you; `python asylum.pyz changes` prints them all. Add a line here with any change an agent should
 know about: a renamed or retyped declaration, a new header or macro, a new rule.
 
+- 2026-11-13: `EName` has every name the engine hardcodes (593, `include/ue3/Names.h`, generated from FName::StaticInit): use `NAME_X`, not `(EName)0x...`. NAME_ScriptWarning was wrong (0x2ff is NAME_Warning).
 - 2026-11-13: the C++ standard library headers (`<string>`, `<vector>`, `<map>`, `<algorithm>` ...) are allowed: the game has std code of its own.
 - 2026-11-13: ARExplosiveGooMine slot 0x354 is `AActor* ConditionalSetupPosition()` (was void vf_354).
 - 2026-11-13: CI places a whole-file paste (a library source with its headers inlined, #if/#line throughout) as written in a part of its own, and never moves a #define or #include out of an #if (include guards stayed defined and skipped the headers: FCollada's "doesn't fit in src/" failures).

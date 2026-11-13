@@ -220,8 +220,6 @@ void APawn::execGetPawnViewLocation(FFrame& Stack, RESULT_DECL)
 extern FName g_026c51e8;
 	/* ENGINE_Landed */
 /* EName entries Core.h doesn't list yet (UnNames.h) */
-#define NAME_PROBEMIN 0x12c
-#define NAME_Landed 0x137
 struct AActor_ : public AActor
 {
 	void eventLanded(FVector HitNormal, AActor* FloorActor);
@@ -246,7 +244,6 @@ void AActor_::eventLanded(FVector HitNormal, AActor* FloorActor)
 }
 
 extern FName g_026c4e70;
-#define NAME_HitWall 0x135
 struct AActor__00863fc0 : public AActor
 {
 	void eventHitWall(FVector HitNormal, AActor* Wall, UPrimitiveComponent* WallComp);
@@ -273,7 +270,6 @@ void AActor__00863fc0::eventHitWall(FVector HitNormal, AActor* Wall, UPrimitiveC
 }
 
 extern FName g_026c4278;
-#define NAME_NotifyHitWall 0x161
 struct AController_ : public AController
 {
 	UBOOL eventNotifyHitWall(FVector HitNormal, AActor* Wall);
@@ -301,7 +297,6 @@ UBOOL AController_::eventNotifyHitWall(FVector HitNormal, AActor* Wall)
 }
 
 extern FName g_026c4150;
-#define NAME_NotifyLanded 0x160
 struct AController__00864570 : public AController
 {
 	UBOOL eventNotifyLanded(FVector HitNormal, AActor* FloorActor);
@@ -405,7 +400,6 @@ void APawn__008648b0::eventEndCrouch(FLOAT HeightAdjust)
 }
 
 extern FName g_026c3fac;
-#define NAME_Falling 0x136
 struct AActor__00863f70 : public AActor
 {
 	void eventFalling();
@@ -423,7 +417,6 @@ void AActor__00863f70::eventFalling()
 }
 
 extern FName g_026c4be0;
-#define NAME_HeadVolumeChange 0x14a
 
 // @baa 0x007d6550
 /* The script event's generated glue (EngineClasses.h), out of line here. HeadVolumeChange is a probe
@@ -504,7 +497,6 @@ FVector APawn__015d81c0::eventGetPawnViewLocation()
 }
 
 extern FName g_026c4b68;
-#define NAME_MayFall 0x14d
 struct AController__008645f0 : public AController
 {
 	void eventMayFall();

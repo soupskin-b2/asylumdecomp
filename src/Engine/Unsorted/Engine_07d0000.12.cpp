@@ -52,7 +52,6 @@ extern FName g_026c4570;
 extern FName g_026c3ff8;
 	/* ENGINE_SetInitialState */
 /* EName entry Core.h doesn't list yet (UnNames.h): the PostBeginPlay probe. */
-#define NAME_PostBeginPlay 0x165
 /* Kit gap: the script-event glue (EngineClasses.h, inline) isn't declared. PostBeginPlay is a probe function: the
  * glue only calls into script when the current state probes for it. */
 struct AActor_ : public AActor
@@ -103,7 +102,6 @@ void AActor__007d5bb0::eventPostBeginPlay()
 extern FName g_026c54b0;
 	/* ENGINE_PreBeginPlay */
 /* EName entries Core.h doesn't list yet (UnNames.h) */
-#define NAME_PreBeginPlay 0x163
 struct AActor__007d5c00 : public AActor
 {
 	void eventPreBeginPlay();
@@ -123,7 +121,6 @@ void AActor__007d5c00::eventPreBeginPlay()
 extern FName g_026c5544;
 	/* ENGINE_ActorLeavingVolume */
 /* EName entries Core.h doesn't list yet (UnNames.h) */
-#define NAME_ActorLeavingVolume 0x169
 
 // @baa 0x007d5fd0
 /* The script event's generated glue (EngineClasses.h), out of line here. ActorLeavingVolume is a probe

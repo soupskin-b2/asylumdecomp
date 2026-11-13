@@ -30,8 +30,6 @@ void AActor_::eventDetach(AActor* Other)
 extern FName g_026c513c;
 	/* ENGINE_Touch */
 /* EName entries Core.h doesn't list yet (UnNames.h) */
-#define NAME_PROBEMIN 0x12c
-#define NAME_Touch 0x139
 struct AActor__007539f0 : public AActor
 {
 	void eventTouch(AActor* Other, UPrimitiveComponent* OtherComp, FVector HitLocation, FVector HitNormal);
@@ -60,7 +58,6 @@ void AActor__007539f0::eventTouch(AActor* Other, UPrimitiveComponent* OtherComp,
 }
 
 extern FName g_026c4aa4;
-#define NAME_BaseChange 0x13e
 struct AActor__00753950 : public AActor
 {
 	void eventBaseChange();
@@ -78,7 +75,6 @@ void AActor__00753950::eventBaseChange()
 }
 
 extern FName g_026c4ec4;
-#define NAME_UnTouch 0x13a
 struct AActor__007539a0 : public AActor
 {
 	void eventUnTouch(AActor* Other);
@@ -101,7 +97,6 @@ void AActor__007539a0::eventUnTouch(AActor* Other)
 }
 
 extern FName g_026c3fc0;
-#define NAME_LostChild 0x12f
 struct AActor__00753a80 : public AActor
 {
 	void eventLostChild(AActor* Other);
@@ -124,7 +119,6 @@ void AActor__00753a80::eventLostChild(AActor* Other)
 }
 
 extern FName g_026c43fc;
-#define NAME_GainedChild 0x12e
 struct AActor__00753ad0 : public AActor
 {
 	void eventGainedChild(AActor* Other);

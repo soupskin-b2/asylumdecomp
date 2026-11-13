@@ -4,8 +4,6 @@
 #include "ue3/Classes.h"
 #include "ue3/Script.h"
 
-/* Kit gap: Core.h's EName list lacks NAME_BeginState (0x13c, UnNames.h). */
-#define NAME_BeginState ((EName)0x13c)
 struct UObject_ : public UObject
 {
 	void eventBeginState(FName PreviousStateName);
@@ -23,8 +21,6 @@ void UObject_::eventBeginState(FName PreviousStateName)
 	ProcessEvent(FindFunctionChecked(NAME_BeginState), &Parms);
 }
 
-/* Kit gap: Core.h's EName list lacks NAME_EndState (0x13d, UnNames.h). */
-#define NAME_EndState ((EName)0x13d)
 struct UObject__0058cce0 : public UObject
 {
 	void eventEndState(FName NextStateName);
@@ -42,8 +38,6 @@ void UObject__0058cce0::eventEndState(FName NextStateName)
 	ProcessEvent(FindFunctionChecked(NAME_EndState), &Parms);
 }
 
-/* Kit gap: Core.h's EName list lacks NAME_PushedState (0x14e, UnNames.h). */
-#define NAME_PushedState ((EName)0x14e)
 struct UObject__0058cd30 : public UObject
 {
 	void eventPushedState();
@@ -56,8 +50,6 @@ void UObject__0058cd30::eventPushedState()
 	ProcessEvent(FindFunctionChecked(NAME_PushedState), NULL);
 }
 
-/* Kit gap: Core.h's EName list lacks NAME_PoppedState (0x149, UnNames.h). */
-#define NAME_PoppedState ((EName)0x149)
 struct UObject__0058cd60 : public UObject
 {
 	void eventPoppedState();

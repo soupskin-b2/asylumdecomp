@@ -236,11 +236,11 @@ void URBMBehaviourAutoStringUp::PostEditChange(class UProperty* PropertyThatChan
 /* Resolves the silent-predator meta poses to this AI's current stance; any other pose is itself. */
 FName ARBMAIController::ResolveMovementMetaPose(FName InPose)
 {
-	if (InPose == FName((EName)0x514))
+	if (InPose == FName(NAME_SilentPredator))
 	{
 		return GetSilentPredatorStanceName();
 	}
-	else if (InPose == FName((EName)0x515))
+	else if (InPose == FName(NAME_SilentPredator_Glance))
 	{
 		return GetSilentPredatorGlanceStanceName();
 	}

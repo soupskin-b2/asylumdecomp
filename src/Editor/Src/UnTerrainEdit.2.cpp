@@ -9,7 +9,7 @@
  * UClass::HideCategories is the kit's Native_f0 (UE3's UClass member at 0xf0, unnamed in the kit). */
 void UTerrainMaterialFactoryNew::StaticConstructor()
 {
-    new((FNameArray&)GetClass()->Native_f0) FName((EName)0x97);
+    new((FNameArray&)GetClass()->Native_f0) FName(NAME_Object);
 }
 
 // @baa 0x00ff64b0
@@ -17,5 +17,5 @@ void UTerrainMaterialFactoryNew::StaticConstructor()
  * UClass::HideCategories is the kit's Native_f0 (UE3's UClass member at 0xf0, unnamed in the kit). */
 void UTerrainLayerSetupFactoryNew::StaticConstructor()
 {
-    new((FNameArray&)GetClass()->Native_f0) FName((EName)0x97);
+    new((FNameArray&)GetClass()->Native_f0) FName(NAME_Object);
 }

@@ -50,8 +50,8 @@ void FParentTwistBoneFixers_::Init(USkeletalMeshComponent* SkelComp)
 	{
 		FName BoneNames[10] =
 		{
-			FName((EName)0x623), FName((EName)0x624), FName((EName)0x625), FName((EName)0x627), FName((EName)0x628),
-			FName((EName)0x637), FName((EName)0x638), FName((EName)0x639), FName((EName)0x63b), FName((EName)0x63c)
+			FName(NAME_Bip01_LUpArmTwist), FName(NAME_Bip01_LUpArmTwist1), FName(NAME_Bip01_LUpArmTwist2), FName(NAME_Bip01_L_Foretwist), FName(NAME_Bip01_L_Foretwist1),
+			FName(NAME_Bip01_RUpArmTwist), FName(NAME_Bip01_RUpArmTwist1), FName(NAME_Bip01_RUpArmTwist2), FName(NAME_Bip01_R_Foretwist), FName(NAME_Bip01_R_Foretwist1)
 		};
 
 		for (INT i = 0; i < 10; i++)

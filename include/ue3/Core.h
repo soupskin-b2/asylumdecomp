@@ -104,58 +104,7 @@ static __forceinline void appMemzero( void* Dest, INT Count ) { memset( Dest, 0,
 #endif
 enum { INDEX_NONE = -1 };
 
-/* UnNames.h: the names the engine hardcodes, by index (add them as code needs them) */
-enum EName
-{
-	NAME_None           = 0,
-	/* property types (UProperty::GetID) */
-	NAME_ByteProperty               = 1,
-	NAME_IntProperty                = 2,
-	NAME_BoolProperty               = 3,
-	NAME_FloatProperty              = 4,
-	NAME_ObjectProperty             = 5,
-	NAME_NameProperty               = 6,
-	NAME_DelegateProperty           = 7,
-	NAME_ClassProperty              = 8,
-	NAME_ArrayProperty              = 9,
-	NAME_StructProperty             = 10,
-	NAME_VectorProperty             = 11,
-	NAME_RotatorProperty            = 12,
-	NAME_StrProperty                = 13,
-	NAME_MapProperty                = 14,
-	NAME_InterfaceProperty          = 15,
-	/* probe events: ProbeMask bit (Name - NAME_PROBEMIN) */
-	NAME_PROBEMIN                   = 0x12c,
-	NAME_Destroyed                  = 0x12d,
-	NAME_GainedChild                = 0x12e,
-	NAME_LostChild                  = 0x12f,
-	NAME_HitWall                    = 0x135,
-	NAME_Falling                    = 0x136,
-	NAME_Landed                     = 0x137,
-	NAME_PhysicsVolumeChange        = 0x138,
-	NAME_Touch                      = 0x139,
-	NAME_UnTouch                    = 0x13a,
-	NAME_Bump                       = 0x13b,
-	NAME_BeginState                 = 0x13c,
-	NAME_EndState                   = 0x13d,
-	NAME_BaseChange                 = 0x13e,
-	NAME_Detach                     = 0x140,
-	NAME_EncroachingOn              = 0x147,
-	NAME_EncroachedBy               = 0x148,
-	NAME_PoppedState                = 0x149,
-	NAME_HeadVolumeChange           = 0x14a,
-	NAME_PawnEnteredVolume          = 0x14c,
-	NAME_MayFall                    = 0x14d,
-	NAME_PushedState                = 0x14e,
-	NAME_PawnLeavingVolume          = 0x14f,
-	NAME_Tick                       = 0x150,
-	NAME_PlayerTick                 = 0x151,
-	NAME_SeePlayer                  = 0x154,
-	NAME_SeeMonster                 = 0x158,
-	NAME_NotifyLanded               = 0x160,
-	NAME_NotifyHitWall              = 0x161,
-	NAME_ScriptWarning  = 0x2ff,
-};
+#include "Names.h"   /* enum EName: the names the engine hardcodes (UnNames.h) */
 
 /* UnClient.h: what happened to a key or button */
 enum EInputEvent
