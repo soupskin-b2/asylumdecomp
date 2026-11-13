@@ -1618,7 +1618,7 @@ extern FName g_026e31bc;
 struct URSeqAct_Music_ : URSeqAct_Music
 {
     void sub_01583bf0(); /* 0x01583bf0 */
-    void UpdateLinkedParameters(); /* 0x0156bcb0 */
+    UBOOL UpdateLinkedParameters(); /* 0x0156bcb0 */
 };
 
 // @baa 0x01583c50
