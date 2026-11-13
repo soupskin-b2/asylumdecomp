@@ -3,7 +3,8 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
 
-struct FTickableObject_ : public FTickableObject {
+/* a Core object that registers itself in the list at 0x02676180 (its vtable 0x01e73548 isn't Engine's FTickableObject's) */
+struct FTickableObject_ {
     FTickableObject_();
     virtual void Tick(FLOAT DeltaTime);
 };

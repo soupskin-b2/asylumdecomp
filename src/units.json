@@ -246245,7 +246245,7 @@
     {
      "va": "00d93a90",
      "size": 107,
-     "symbol": "?GetTotalGamerScore@UUIDataProvider_PlayerAchievements@@QAEHXZ"
+     "symbol": "?GetTotalGamerScore@UUIDataProvider_PlayerAchievements@@QBEHXZ"
     }
    ]
   },
@@ -250605,7 +250605,7 @@
     {
      "va": "00daf950",
      "size": 95,
-     "symbol": "?GetObjectCount@UUIScreenObject@@QAEHXZ"
+     "symbol": "?GetObjectCount@UUIScreenObject@@QBEHXZ"
     },
     {
      "va": "00dbe6a0",
@@ -306823,7 +306823,7 @@
     {
      "va": "0083d730",
      "size": 3,
-     "symbol": "?vf_120@UMorphNodeBase@@UAEXH@Z"
+     "symbol": "?GetActiveMorphs@UMorphNodeBase@@UAEXAAV?$TArray@UFActiveMorph@@@@@Z"
     },
     {
      "va": "0083d760",

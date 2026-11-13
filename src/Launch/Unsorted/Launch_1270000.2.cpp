@@ -12,18 +12,6 @@ void UUILayer::execFindNodeIndex(FFrame& Stack, RESULT_DECL)
 	*(INT*)Result = sub_014a25c0(NodeIndex);
 }
 
-/* UILayer.uc's UILayerNode (const out parameter of RemoveNode); the kit doesn't declare it.
- * Stand-in with UE3's members; only its size (0xc, from the exec's frame) matters here. */
-struct FUILayerNode
-{
-    BITFIELD bLocked : 1;
-    BITFIELD bHidden : 1;
-    UObject* LayerObject;
-    UUILayerBase* ParentLayer;
-};
-
-/* UUILayer::RemoveNode (014a7e10, UILayerBrowser.cpp) isn't declared in the kit. */
-
 // @baa 0x0127c190
 void UUILayer::execRemoveNode(FFrame& Stack, RESULT_DECL)
 {

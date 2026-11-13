@@ -2057,7 +2057,7 @@ undefined4 * UObject::sub_0083d6a0(void)
 void* UMorphNodeBase::vf_110() { return this; }
 
 // @baa 0x0083d730
-void UMorphNodeBase::vf_120(int a0) {  }
+void UMorphNodeBase::GetActiveMorphs(TArray<FActiveMorph>& a0) {  }
 
 // @baa 0x0083d760
 void UMorphNodeBase::vf_12c(int a0, int a1, int a2) {  }

@@ -3175,7 +3175,9 @@ struct FShadowMapVertexBufferBase {
     UBOOL IsCallable(const UObject* OwningObject) const; /* 0x00784f80 */
     void sub_005d5620(const TCHAR* Name, INT FindType, UBOOL bSplitName); /* 0x005d5620 */
 };
-struct FTickableObject { virtual void FTickableObject_vf000(); };  /* an interface base: its virtuals aren't known */
+/* UnTickable.h. Its vtable (0x01eceb54): the destructor (out of line: leaves the tickable list), then Tick and
+ * IsTickable (pure), then three that return FALSE (0x006be4a0, 0x006be4b0, 0x006be4c0). */
+struct FTickableObject { virtual ~FTickableObject(); /* 0x006be4d0 */ };
 struct FViewportClient { virtual void FViewportClient_vf000(); };  /* an interface base: its virtuals aren't known */
 struct IREvidenceInterface { virtual void IREvidenceInterface_vf000(); virtual ~IREvidenceInterface() {} };  /* an interface base: its virtuals aren't known */
 struct IRSpotableInterface { virtual void IRSpotableInterface_vf000(); virtual ~IRSpotableInterface() {} };  /* an interface base: its virtuals aren't known */
@@ -3805,6 +3807,7 @@ struct FRenderCommandFence {
     /* other member functions */
     void BeginFence(); /* 0x00719c60 */
     UINT GetNumPendingFences() const; /* 0x0071f7e0 */
+    void Wait() const; /* 0x0071f7f0 */
 };
 
 struct FOctreeElementId {
@@ -4222,6 +4225,8 @@ struct FSettingsData {
     BYTE Type; /* 0x0 */
     INT Value1; /* 0x4 */
     FPointer Value2; /* 0x8 */
+    FSettingsData() {} /* this build leaves it uninitialized (P_GET_STRUCT_REF locals aren't zeroed) */
+    FSettingsData(const FSettingsData& Other); /* 0x00d74200: duplicates the string or blob */
     ~FSettingsData(); /* 0x00d67c50: frees Value2's string or blob */
     /* other member functions */
     void SetData(const TCHAR* InString); /* 0x00d6e1f0 */
@@ -4868,6 +4873,9 @@ struct FUIRangeData {
     FLOAT MaxValue; /* 0x8 */
     FLOAT NudgeValue; /* 0xc */
     BITFIELD bIntRange : 1; /* 0x10 */
+    /* other member functions */
+    UBOOL HasValue() const; /* 0x00dde670 */
+    UBOOL operator==(const FUIRangeData& Other) const; /* 0x00dde520 */
 };
 
 struct FTextureCoordinates {
@@ -6179,7 +6187,9 @@ struct FLevelUseForPropertiesWindow {
 };
 
 struct FSynchronizedActorVisibilityHistory {
-    ~FSynchronizedActorVisibilityHistory(); /* 0x00ab30e0: the native struct has a destructor */
+    FSynchronizedActorVisibilityHistory(); /* 0x00ab30d0 */
+    ~FSynchronizedActorVisibilityHistory(); /* 0x00ab30e0 */
+    void Init(); /* 0x00ab3110 */
     /* Engine.SynchronizedActorVisibilityHistory */
     FPointer State; /* 0x0 */
     FPointer CriticalSection; /* 0x4 */
@@ -19435,7 +19445,7 @@ struct UUIScreenObject : public UUIRoot {
     INT FindChildIndex(FName WidgetName) const; /* 0x00daf640 */
     UBOOL ContainsChild(UUIObject* Child, UBOOL bRecurse); /* 0x00daf6c0 */
     UBOOL ContainsChildOfClass(UClass* SearchClass, UBOOL bRecurse); /* 0x00daf790 */
-    INT GetObjectCount(); /* 0x00daf950 */
+    INT GetObjectCount() const; /* 0x00daf950 */
     FLOAT GetBounds(BYTE Dimension, BYTE OutputType, UBOOL bIgnoreDockPadding); /* 0x00dafc20 */
     void SetPosition(FLOAT NewValue, BYTE Face, BYTE InputType, UBOOL bIncludesViewportOrigin, UBOOL bResolveChange); /* 0x00dafc80 */
     FLOAT sub_00db0090(INT); /* 0x00db0090 */
@@ -21212,12 +21222,12 @@ struct UMaterial : public UMaterialInterface {
     TArrayNoInit<class UTexture*> ReferencedTextures; /* 0x28c */
     TArrayNoInit<FName> ContentTags; /* 0x298 */
     /* virtual functions this class introduces (vtable 0x01ec0f20) */
-    virtual INT vf_160(INT, INT); /* 0x160 */
-    virtual INT vf_164(INT, INT); /* 0x164 */
-    virtual INT vf_168(INT, INT); /* 0x168 */
-    virtual INT vf_16c(INT, INT); /* 0x16c */
-    virtual INT vf_170(INT, INT); /* 0x170 */
-    virtual INT vf_174(INT, INT); /* 0x174 */
+    virtual void GetAllVectorParameterNames(TArray<FName>& OutParameterNames, TArray<FGuid>& OutParameterIds); /* 0x160 */
+    virtual void GetAllScalarParameterNames(TArray<FName>& OutParameterNames, TArray<FGuid>& OutParameterIds); /* 0x164 */
+    virtual void GetAllTextureParameterNames(TArray<FName>& OutParameterNames, TArray<FGuid>& OutParameterIds); /* 0x168 */
+    virtual void GetAllFontParameterNames(TArray<FName>& OutParameterNames, TArray<FGuid>& OutParameterIds); /* 0x16c */
+    virtual void GetAllStaticSwitchParameterNames(TArray<FName>& OutParameterNames, TArray<FGuid>& OutParameterIds); /* 0x170 */
+    virtual void GetAllStaticComponentMaskParameterNames(TArray<FName>& OutParameterNames, TArray<FGuid>& OutParameterIds); /* 0x174 */
     virtual void vf_178(INT); /* 0x178 */
     virtual INT vf_17c(); /* 0x17c */
     virtual void vf_180(INT); /* 0x180 */
@@ -28259,7 +28269,7 @@ struct UMorphNodeBase : public UAnimObject {
     FName NodeName; /* 0x54 */
     BITFIELD bDrawSlider : 1; /* 0x5c */
     /* virtual functions this class introduces (vtable 0x01f43ff8) */
-    virtual void vf_120(INT); /* 0x120 */
+    virtual void GetActiveMorphs(TArray<FActiveMorph>& OutMorphs); /* 0x120 */
     virtual void vf_124(INT); /* 0x124 */
     virtual void vf_128(INT); /* 0x128 */
     virtual void vf_12c(INT, INT, INT); /* 0x12c */
@@ -28287,7 +28297,7 @@ struct UMorphNodePose : public UMorphNodeBase {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
-    virtual void vf_120(INT); /* 0x120 */
+    virtual void GetActiveMorphs(TArray<FActiveMorph>& OutMorphs); /* 0x120 */
     virtual void vf_124(INT); /* 0x124 */
     virtual void vf_12c(INT, INT, INT); /* 0x12c */
     /* UnrealScript natives */
@@ -28319,7 +28329,7 @@ struct UMorphNodeWeight : public UMorphNodeWeightBase {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_120(INT); /* 0x120 */
+    virtual void GetActiveMorphs(TArray<FActiveMorph>& OutMorphs); /* 0x120 */
     virtual FLOAT vf_134(); /* 0x134 */
     virtual void vf_138(INT); /* 0x138 */
     /* UnrealScript natives */
@@ -28346,7 +28356,7 @@ struct UMorphNodeWeightByBoneAngle : public UMorphNodeWeightBase {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual void vf_120(INT); /* 0x120 */
+    virtual void GetActiveMorphs(TArray<FActiveMorph>& OutMorphs); /* 0x120 */
     virtual void vf_13c(INT, INT); /* 0x13c */
     virtual void vf_140(INT, INT, INT); /* 0x140 */
     /* registered size 0xa8 */
@@ -29311,7 +29321,9 @@ struct UOnlineProfileSettings : public UObject {
     /* other member functions */
     INT sub_00d72590(INT); /* 0x00d72590 */
     INT sub_00d72610(INT); /* 0x00d72610 */
-    INT FindProfileMappingIndexByName(FName ProfileSettingName); /* 0x00d72690 */
+    INT FindProfileMappingIndexByName(FName ProfileSettingName) const; /* 0x00d72690 */
+    INT FindProfileSettingIndex(INT ProfileSettingId) const; /* 0x00d72590 */
+    INT FindProfileMappingIndex(INT ProfileSettingId) const; /* 0x00d72610 */
     /* registered size 0x80 */
 };
 
@@ -36467,7 +36479,7 @@ struct USkeletalMesh : public UObject {
     BITFIELD bEnableSoftBodyTwoWayCollision : 1; /* 0x32c */
     FLOAT SoftBodyAttachmentTearFactor; /* 0x330 */
     BITFIELD bEnableSoftBodyLineChecks : 1; /* 0x334 */
-    INT ReleaseResourcesFence; /* 0x338 */
+    FRenderCommandFence ReleaseResourcesFence; /* 0x338 */
     FGuid SkelMeshGUID; /* 0x33c */
     TArrayNoInit<FStretchDescription> Stretches; /* 0x340 */
     /* overrides */
@@ -38195,7 +38207,7 @@ struct UUIDataProvider_PlayerAchievements : public UUIDataProvider_OnlinePlayerD
     /* UnrealScript natives */
     void execGetTotalGamerScore(FFrame& Stack, RESULT_DECL); /* 0x00ca2130 */
     /* other member functions */
-    INT GetTotalGamerScore(); /* 0x00d93a90 */
+    INT GetTotalGamerScore() const; /* 0x00d93a90 */
     /* registered size 0x5c */
 };
 
@@ -39498,7 +39510,7 @@ struct UGFxDataStoreSubscriber : public UObject, public IUIDataStoreSubscriber {
     DECLARE_CLASS(UGFxDataStoreSubscriber, UObject, 0x0, 0x0, GFxUI)
     class UGFxMovie* Movie; /* 0x34 */
     /* virtual functions this class introduces (vtable 0x02106100) */
-    virtual void vf_10c(); /* 0x10c */
+    virtual void PublishValues(); /* 0x10c */
     virtual void* vf_110(); /* 0x110 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
@@ -70196,6 +70208,14 @@ struct UUIEvent_MetaObjectHelper : public USequenceObjectHelper {
 };
 
 struct FNativeDtor_014a5aa0_c { ~FNativeDtor_014a5aa0_c(); /* 0x014a5aa0 */ DWORD _data[3]; };  /* a C++-only member: only its destructor is known; size up to the next member */
+/* UILayer.uc's UILayerNode (0xc bytes) */
+struct FUILayerNode {
+    BITFIELD bLocked : 1; /* 0x0 */
+    BITFIELD bHidden : 1; /* 0x0 */
+    class UObject* LayerObject; /* 0x4 */
+    class UUILayer* ParentLayer; /* 0x8 */
+};
+
 struct UUILayer : public UUILayerBase {
     /* UnrealEd.UILayer (native only: no script package describes it) */
     DECLARE_CLASS(UUILayer, UUILayerBase, 0x0, 0x0, UnrealEd)

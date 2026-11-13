@@ -4,16 +4,6 @@
 #include "ue3/Classes.h"
 #include "ue3/Script.h"
 
-/* Kit gaps: UnrealEd's UILayerNode struct (bLocked/bVisible bits, the widget and the layer it lives in) and
- * UUILayer::InsertNode (0x014a2530) aren't declared (UILayer is native-only). */
-struct FUILayerNode
-{
-	BITFIELD bLocked : 1;
-	BITFIELD bVisible : 1;
-	class UObject* Object;
-	class UUILayer* ParentLayer;
-};
-
 // @baa 0x0127c0e0
 /* bool InsertNode(const out UILayerNode NodeToInsert, optional int InsertIndex = INDEX_NONE) */
 void UUILayer::execInsertNode(FFrame& Stack, RESULT_DECL)

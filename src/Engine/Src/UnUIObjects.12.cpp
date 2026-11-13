@@ -337,7 +337,7 @@ FLOAT UUIScreenObject::GetBounds(BYTE Dimension, BYTE OutputType, UBOOL bIgnoreD
 
 // @baa 0x00daf950
 /* UE3's UUIScreenObject::GetObjectCount(): this widget plus all of its descendants. */
-INT UUIScreenObject::GetObjectCount()
+INT UUIScreenObject::GetObjectCount() const
 {
     INT Result = 1;
     for (INT ChildIndex = 0; ChildIndex < Children.Num(); ChildIndex++)

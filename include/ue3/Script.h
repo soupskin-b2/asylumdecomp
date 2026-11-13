@@ -27,6 +27,7 @@ struct FOutputDevice {
     UBOOL bAutoEmitLineTerminator;    /* 0xc */
 
     void Logf(const TCHAR* Fmt, ...); /* 0x00630f20 */
+    void Logf(EName Event, const TCHAR* Fmt, ...); /* 0x00630ea0: e.g. Stack.Logf(NAME_ScriptWarning, TEXT("Divide by zero")) */
 };
 
 // The error device: GError->Logf reports a fatal error (appErrorf in other builds). Verified: 0x026667a8.
