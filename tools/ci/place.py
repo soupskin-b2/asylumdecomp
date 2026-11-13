@@ -90,15 +90,25 @@ class Member:
     isolated: bool = False
     drop: set = field(default_factory=set)
     level: int = -1
+    top: list = field(default_factory=list)   # per item: outside any #if
 
     def prepare(self):
         src = self.source
         for a, b in self.renames.items():
             src = re.sub(r"(?<![\w$\"])%s(?![\w$\"])" % re.escape(a), b, src)
         self.items = cppsplit.split(src)
-        incs = [k for k, it in enumerate(self.items) if it.kind == "include"]
+        # includes (and the macros set before them) go to the part's top: those outside any #if only, as
+        # one inside an include guard (pasted library headers) must stay where it is
+        self.top, depth = [], 0
+        for it in self.items:
+            if it.kind == "pp" and re.match(r"#\s*endif", it.code):
+                depth -= 1
+            self.top.append(depth == 0)
+            if it.kind == "pp" and re.match(r"#\s*if", it.code):
+                depth += 1
+        incs = [k for k, it in enumerate(self.items) if it.kind == "include" and self.top[k]]
         last = incs[-1] if incs else -1
-        pre = [it.code for k, it in enumerate(self.items) if it.kind == "include" or (it.kind == "define" and k < last)]
+        pre = [it.code for k, it in enumerate(self.items) if self.top[k] and (it.kind == "include" or (it.kind == "define" and k < last))]
         self.key = (self.profile, tuple(pre))
         self.level = -1
         if self.profile.startswith("ue3") and all(x in UE3_CHAIN for x in pre):
@@ -240,7 +250,7 @@ class Part:
         t = m.target_item()
         relined = False
         for k, it in enumerate(m.items):
-            if it.kind in ("include",) or (it.kind == "define" and it.code in m.key[1]):
+            if m.top[k] and (it.kind == "include" or (it.kind == "define" and it.code in m.key[1])):
                 continue
             if it.kind == "pragma" and "pack" in it.code:
                 self.pack = self.pack[:-1] if "pop" in it.code else self.pack + (it.code,)
@@ -264,6 +274,20 @@ class Part:
         if relined:
             put('#line %d "candidate.cpp"' % (n[0] + 2))
         return "\n".join(out).rstrip() + "\n"
+
+
+def marked(m: Member) -> str:
+    """The member's source with its // @baa line: before the #line in force at its definition (so no
+    line number moves), else right before the definition."""
+    src = strip_header(m.source)
+    code = m.items[m.target_item()].text.strip("\n")
+    at = src.rfind(code)
+    if at < 0:
+        at = len(src)
+    at = src.rfind("\n", 0, at) + 1
+    ln = src.rfind("\n#line ", 0, at)
+    at = ln + 1 if ln >= 0 else (0 if src.startswith("#line ") and at > 0 else at)
+    return src[:at] + "// @baa 0x%08x\n" % m.va + src[at:]
 
 
 def lead_text(key, level: int, m: Member) -> list[str]:
@@ -463,6 +487,10 @@ class Repo:
         for m in added:
             text += part.render(m, text.count("\n") + 1) + "\n"
         text = text.rstrip("\n") + "\n"
+        if len(group) == 1 and added[0].isolated and not added[0].renames:
+            # a whole-file paste (#if/#line all through it, e.g. a library with its headers inlined): it
+            # passed the check as written, so it goes in as written
+            text = "\n".join(head + [""]) + "\n" + marked(added[0])
         path = self.root / "src" / src_path
         path.parent.mkdir(parents=True, exist_ok=True)
         tmp = path.with_name(path.name + ".try")

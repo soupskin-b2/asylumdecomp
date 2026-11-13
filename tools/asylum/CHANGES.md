@@ -4,6 +4,7 @@ Newest first, one line each. `update` (and `get`, which updates by itself) print
 to you; `python asylum.pyz changes` prints them all. Add a line here with any change an agent should
 know about: a renamed or retyped declaration, a new header or macro, a new rule.
 
+- 2026-11-13: CI places a whole-file paste (a library source with its headers inlined, #if/#line throughout) as written in a part of its own, and never moves a #define or #include out of an #if (include guards stayed defined and skipped the headers: FCollada's "doesn't fit in src/" failures).
 - 2026-11-13: CI hands a batch back (requeued, checked again on the next run) when a concurrent push changed the same lines, instead of holding it for three hours.
 - 2026-11-13: profile ue3_o1 (FMOD) compiles with /fp:precise, as FMOD was built: no `#pragma float_control(precise, on)` needed.
 - 2026-11-13: FMatrix::Inverse is 0058ea10 (the plain one, 234 callers) and the near-zero-safe 006e1510 is InverseSafe. The checker now pins methods of `struct __declspec(align(16)) X` and multiple-inheritance classes to their header addresses too (FMatrix's were unchecked: a call bound to whatever the original called). New in the headers: SMALL_NUMBER is a double (as in UE3), FDist, PointDistToSegment, ClampLength, FQuat::Exp, FBoxSphereBounds constructors, Exchange, Sort and IMPLEMENT_COMPARE_* (local copies removed from 10 sources), NAME_ property-type names and Begin/End/Pushed/PoppedState.
