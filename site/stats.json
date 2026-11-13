@@ -2,19 +2,19 @@
  "updated": "2026-11-13",
  "functions": {
   "total": 174166,
-  "matched": 104811
+  "matched": 104812
  },
  "bytes": {
   "total": 24308119,
-  "matched": 4868245
+  "matched": 4868410
  },
  "areas": [
   {
    "name": "Engine",
    "functions": 69863,
    "bytes": 9201956,
-   "matched": 44302,
-   "matched_bytes": 2244078
+   "matched": 44303,
+   "matched_bytes": 2244243
   },
   {
    "name": "Editor",
@@ -97,8 +97,8 @@
  "contributors": [
   {
    "login": "soupskin-b2",
-   "functions": 104802,
-   "bytes": 4867625,
+   "functions": 104803,
+   "bytes": 4867790,
    "models": {
     "Tooling": 94456,
     "Claude Opus 5.5": 4229,
@@ -112,7 +112,8 @@
     "Claude Sonnet 5.5": 37,
     "GPT-6.1 Terra": 10,
     "Claude Haiku 5.5": 1,
-    "Claude Opus 4.6": 1
+    "Claude Opus 4.6": 1,
+    "not specified": 1
    }
   }
  ],
@@ -176,6 +177,11 @@
    "model": "Claude Haiku 5.5",
    "functions": 1,
    "bytes": 182
+  },
+  {
+   "model": "not specified",
+   "functions": 1,
+   "bytes": 165
   },
   {
    "model": "Claude Opus 4.6",

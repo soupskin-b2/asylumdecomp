@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="860" height="420" viewBox="0 0 860 420" font-family="ui-monospace, SFMono-Regular, &#x27;Cascadia Mono&#x27;, Consolas, &#x27;DejaVu Sans Mono&#x27;, monospace">
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="450" viewBox="0 0 860 450" font-family="ui-monospace, SFMono-Regular, &#x27;Cascadia Mono&#x27;, Consolas, &#x27;DejaVu Sans Mono&#x27;, monospace">
 <text x="0" y="20" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">Tooling</text>
 <rect x="292" y="10" width="478" height="10" fill="#eaeef2" stroke="#d1d9e0"/>
 <rect x="292" y="10" width="478" height="10" fill="#1f2328"/>
@@ -47,9 +47,13 @@
 <rect x="292" y="340" width="478" height="10" fill="#eaeef2" stroke="#d1d9e0"/>
 <rect x="292" y="340" width="0.0251525" height="10" fill="#1f2328"/>
 <text x="860" y="350" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">182 B</text>
-<text x="0" y="380" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">Claude Opus 4.6</text>
+<text x="0" y="380" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">not specified</text>
 <rect x="292" y="370" width="478" height="10" fill="#eaeef2" stroke="#d1d9e0"/>
-<rect x="292" y="370" width="0.00345501" height="10" fill="#1f2328"/>
-<text x="860" y="380" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">25 B</text>
-<text x="860" y="406" font-size="12" fill="#59636e" text-anchor="end" font-weight="normal">by code</text>
+<rect x="292" y="370" width="0.0228031" height="10" fill="#1f2328"/>
+<text x="860" y="380" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">165 B</text>
+<text x="0" y="410" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">Claude Opus 4.6</text>
+<rect x="292" y="400" width="478" height="10" fill="#eaeef2" stroke="#d1d9e0"/>
+<rect x="292" y="400" width="0.00345501" height="10" fill="#1f2328"/>
+<text x="860" y="410" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">25 B</text>
+<text x="860" y="436" font-size="12" fill="#59636e" text-anchor="end" font-weight="normal">by code</text>
 </svg>

@@ -1,16 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="860" height="510" viewBox="0 0 860 510" font-family="ui-monospace, SFMono-Regular, &#x27;Cascadia Mono&#x27;, Consolas, &#x27;DejaVu Sans Mono&#x27;, monospace">
 <text x="0" y="24" font-size="14" fill="#1f2328" text-anchor="start" font-weight="normal">functions</text>
 <rect x="150" y="10" width="438" height="16" fill="#eaeef2" stroke="#d1d9e0"/>
-<rect x="150" y="10" width="263.583" height="16" fill="#1f2328"/>
-<text x="860" y="24" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">104,811 / 174,166  60.2%</text>
+<rect x="150" y="10" width="263.586" height="16" fill="#1f2328"/>
+<text x="860" y="24" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">104,812 / 174,166  60.2%</text>
 <text x="0" y="56" font-size="14" fill="#1f2328" text-anchor="start" font-weight="normal">code</text>
 <rect x="150" y="42" width="438" height="16" fill="#eaeef2" stroke="#d1d9e0"/>
-<rect x="150" y="42" width="87.7193" height="16" fill="#1f2328"/>
+<rect x="150" y="42" width="87.7223" height="16" fill="#1f2328"/>
 <text x="860" y="56" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">4.6 MB / 23.2 MB  20.0%</text>
 <text x="0" y="104" font-size="13" fill="#59636e" text-anchor="start" font-weight="normal">by area</text>
 <text x="0" y="128" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">Engine</text>
 <rect x="150" y="120" width="438" height="10" fill="#eaeef2" stroke="#d1d9e0"/>
-<rect x="150" y="120" width="106.815" height="10" fill="#1f2328"/>
+<rect x="150" y="120" width="106.823" height="10" fill="#1f2328"/>
 <text x="860" y="128" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">2.1 MB / 8.8 MB  24.4%</text>
 <text x="0" y="158" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">Editor</text>
 <rect x="150" y="150" width="438" height="10" fill="#eaeef2" stroke="#d1d9e0"/>

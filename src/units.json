@@ -3,7 +3,7 @@
  "totals": {
   "units": 1451,
   "files": 5998,
-  "functions": 103418,
+  "functions": 103419,
   "failed": 0
  },
  "units": [
@@ -192181,6 +192181,11 @@
      "va": "00d66fb0",
      "size": 60,
      "symbol": "?delegateNotifySettingValueUpdated@USettings__00d66fb0@@QAEXUFName@@@Z"
+    },
+    {
+     "va": "00d88570",
+     "size": 165,
+     "symbol": "??0UOnlineSubsystem@@QAE@XZ"
     }
    ]
   },

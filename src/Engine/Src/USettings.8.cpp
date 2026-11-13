@@ -1,4 +1,4 @@
-// USettings.cpp: 24 functions
+// USettings.cpp: 25 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -556,4 +556,10 @@ void USettings__00d66fb0::delegateNotifySettingValueUpdated(FName SettingName)
 	} Parms;
 	Parms.SettingName = SettingName;
 	ProcessDelegate(g_026c438c, &__NotifySettingValueUpdated__Delegate, &Parms, NULL);
+}
+
+// @baa 0x00d88570
+// @baa 0x00d88570
+UOnlineSubsystem::UOnlineSubsystem()
+{
 }
