@@ -243,7 +243,7 @@ AActor* UActorFactoryVehicle::GetDefaultActor()
 }
 
 // @baa 0x00c4ac20
-int UActorFactoryDecal::vf_110(int a0) { return 1; }
+UBOOL UActorFactoryDecal::CanCreateActor(FString& a0) { return 1; }
 
 struct C_00c4ac30 { int sub_00c4ac30(void); };
 

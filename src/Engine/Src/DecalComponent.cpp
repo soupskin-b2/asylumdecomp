@@ -278,25 +278,12 @@ undefined4 ULensFlare::sub_006a6c60(byte param_2)
   return param_1;
 }
 
-/* Kit gap: FRenderCommandFence has no constructor, BeginFence (0x00719c60) or GetNumPendingFences (0x0071f7e0)
- * (RenderingThread.h). */
-struct FRenderCommandFence_ : public FRenderCommandFence
-{
-	FRenderCommandFence_() { NumPendingFences = 0; }
-};
-
-/* Named accessor for the FPointer field (ISSUES.md 19). */
-static __forceinline FRenderCommandFence_*& GetReleaseResourcesFence(UDecalComponent* Decal)
-{
-	return (FRenderCommandFence_*&)Decal->ReleaseResourcesFence.Dummy;
-}
-
 // @baa 0x0064e080
 UBOOL UDecalComponent::IsReadyForFinishDestroy()
 {
-	if (GetReleaseResourcesFence(this))
+	if (ReleaseResourcesFence)
 	{
-		return GetReleaseResourcesFence(this)->GetNumPendingFences() == 0 && Super::IsReadyForFinishDestroy();
+		return ReleaseResourcesFence->GetNumPendingFences() == 0 && Super::IsReadyForFinishDestroy();
 	}
 	return Super::IsReadyForFinishDestroy();
 }

@@ -31,7 +31,7 @@ struct FInner_00c96bb0
 	virtual void vf_01c();
 	virtual void vf_020();
 	virtual void vf_024();
-	virtual void vf_028();
+	virtual void SetLinker();
 	virtual void vf_02c();
 	virtual void vf_030();
 	virtual void vf_034();

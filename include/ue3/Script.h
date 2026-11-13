@@ -71,6 +71,7 @@ struct FStateFrame : public FFrame {
 #define P_GET_FLOAT(v)     FLOAT v = 0.f; Stack.Step(Stack.Object, &v);
 #define P_GET_NAME(v)      FName v; v.Index = 0; v.Number = 0; Stack.Step(Stack.Object, &v);
 #define P_GET_OBJECT(c, v) c* v = 0; Stack.Step(Stack.Object, &v);
+#define P_GET_INTERFACE(v) FScriptInterface v; Stack.Step(Stack.Object, &v);
 #define P_GET_STRUCT(t, v) t v; Stack.Step(Stack.Object, &v);
 #define P_GET_STR(v)       FString v; Stack.Step(Stack.Object, &v);
 #define P_GET_VECTOR(v)    P_GET_STRUCT(FVector, v)

@@ -3,7 +3,7 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
 
-/* FArchive (UnArc.h) up to ArForceByteSwapping. ByteOrderSerialize is restated as UnArc.h has it
+/* ByteOrderSerialize is restated as UnArc.h has it
  * inline: this file's copy is inlined, while the kit only knows the out-of-line one (0x0053ea70). */
 class FArchive_ : public FArchive
 {
@@ -25,9 +25,6 @@ public:
         return *this;
     }
 
-private:
-    BYTE OpaqueArchiveState[0x48 - 0x18]; /* ArIsTransacting .. ArPortFlags, as far as this needs */
-    UBOOL ArForceByteSwapping;            /* 0x48 */
 };
 
 inline FArchive& operator<<(FArchive& Ar, FLOAT& F) { return ((FArchive_&)Ar).ByteOrderSerialize(&F, sizeof(F)); }

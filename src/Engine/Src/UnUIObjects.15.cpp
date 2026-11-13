@@ -154,10 +154,8 @@ public:
 // @baa 0x00db2760
 template void Sort<UUIObject*, CompareUnUIObjectsUUIObjectPointer>(UUIObject** First, INT Num);
 
-struct C_00dc2cd0 { C_00dc2cd0* sub_00dc2cd0(void); };
-
 // @baa 0x00dc2cd0
-C_00dc2cd0* C_00dc2cd0::sub_00dc2cd0(void) { return this; }
+const UUIScene* UUIScene::GetScene() const { return this; }
 
 // @baa 0x00dc2d30
 BYTE UUIScene::GetInputMask(UBOOL a, UBOOL b)

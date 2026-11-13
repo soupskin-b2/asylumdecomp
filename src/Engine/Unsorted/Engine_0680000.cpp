@@ -1955,7 +1955,6 @@ TConstSetBitIterator_00689110& TConstSetBitIterator_00689110::operator++()
 // @baa 0x006892a0
 UPrimitiveComponent::UPrimitiveComponent()
 {
-    DetachFence = 0;
     MotionBlurInfoIndex = 0xffffffff;
     CachedParentToWorld.XPlane.X = 1.0f;
     CachedParentToWorld.XPlane.Y = 0.0f;

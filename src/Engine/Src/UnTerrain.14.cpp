@@ -21,10 +21,10 @@ void ATerrain::vf_02c()
     ((C*)this)->sub_00990ad0(0);
     WeightedTextureMaps.Empty();
     ((C*)&WeightedMaterials)->sub_0098dbd0(0);
-    if (ReleaseResourcesFence.Dummy)
+    if (ReleaseResourcesFence)
     {
-        delete (FRenderCommandFence_Mirror*)ReleaseResourcesFence.Dummy;
-        ReleaseResourcesFence.Dummy = 0;
+        delete ReleaseResourcesFence;
+        ReleaseResourcesFence = NULL;
     }
     Super::vf_02c();
 }

@@ -37,7 +37,7 @@ bool URActorFactorySmashableProp::vf_004()
 }
 
 // @baa 0x01759330
-int URActorFactorySmashableProp::vf_110(int a0) { return 1; }
+UBOOL URActorFactorySmashableProp::CanCreateActor(FString& a0) { return 1; }
 
 struct C_01759340 { int a, b, c; C_01759340(); };
 

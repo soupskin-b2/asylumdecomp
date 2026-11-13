@@ -14,12 +14,10 @@ inline FArchive& operator<<(FArchive& Ar, INT& I) { Ar.ByteOrderSerialize(&I, si
 
 inline FArchive& operator<<(FArchive& Ar, DWORD& D) { Ar.ByteOrderSerialize(&D, sizeof(D)); return Ar; }
 
-/* FArchive::LicenseeVer (UnArc.h); the kit's FArchive has the field but no accessor. IsLoading is
- * restated as this build compiles it (the flag normalized to 0/1), which the kit's inline doesn't do. */
+/* IsLoading is restated as this build compiles it (the flag normalized to 0/1), which the kit's inline doesn't do. */
 class FArchive_ : public FArchive
 {
 public:
-    INT LicenseeVer() const { return ArLicenseeVer; }
     UBOOL IsLoading() const { return ArIsLoading != 0; }
 };
 

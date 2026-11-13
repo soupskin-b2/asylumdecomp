@@ -54,7 +54,8 @@ struct UAudioDevice_ : public UAudioDevice {
 void UAudioDevice_::sub_00785f10(INT A, INT B)
 {
     if (Effects.Dummy) {
-        ((UObject*)Effects.Dummy)->vf_028(A, B);
+        /* Effects is an FAudioEffectsManager (undeclared); this calls its vtable slot 0x28 */
+        ((UObject*)Effects.Dummy)->SetLinker((ULinkerLoad*)A, B);
     }
 }
 

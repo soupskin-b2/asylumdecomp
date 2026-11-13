@@ -19,13 +19,6 @@ enum
 };
 /* engine flag checked before re-flagging a loaded mesh (0x0266e808; meaning unknown) */
 extern UBOOL g_0266e808;
-/* FArchive::LicenseeVer (UnArc.h); the kit's FArchive has the field but no accessor */
-class FArchive_ : public FArchive
-{
-public:
-    INT LicenseeVer() const { return ArLicenseeVer; }
-};
-
 /* TArray::CountBytes (Array.h) */
 template<class T> inline void CountArrayBytes(FArchive& Ar, const TArray<T>& A)
 {
@@ -70,7 +63,7 @@ void USkeletalMesh::Serialize(FArchive& Ar)
     UObject::Serialize(Ar);
 
     Ar << Bounds;
-    if (((FArchive_&)Ar).LicenseeVer() >= VER_AA_PER_BONE_BOUNDS)
+    if (Ar.LicenseeVer() >= VER_AA_PER_BONE_BOUNDS)
     {
         Ar << ConservativeBounds;
         Ar << PerBoneBounds;
@@ -93,14 +86,14 @@ void USkeletalMesh::Serialize(FArchive& Ar)
     Ar << (FNameIndexMap&)NameIndexMap;
     Ar << PerPolyBoneKDOPs;
 
-    if (((FArchive_&)Ar).LicenseeVer() >= VER_AA_FORCE_SHADOW_VOLUMES)
+    if (Ar.LicenseeVer() >= VER_AA_FORCE_SHADOW_VOLUMES)
     {
         UBOOL bForceShadowVolumes = ForceShadowVolumes;
         Ar << bForceShadowVolumes;
         ForceShadowVolumes = bForceShadowVolumes;
     }
 
-    if (Ar.IsLoading() && ((FArchive_&)Ar).LicenseeVer() < VER_AA_PER_BONE_BOUNDS)
+    if (Ar.IsLoading() && Ar.LicenseeVer() < VER_AA_PER_BONE_BOUNDS)
     {
         CalcPerBoneBounds();
     }
@@ -124,15 +117,8 @@ void USkeletalMesh::vf_014()
 	}
 }
 
-/* Kit gaps: ReleaseResourcesFence is an FRenderCommandFence (declared INT here), and FRenderCommandFence::
- * GetNumPendingFences (0x0071f7e0) isn't declared. */
-struct FRenderCommandFence_ : public FRenderCommandFence_Mirror
-{
-	UINT GetNumPendingFences() const;
-};
-
 // @baa 0x009449a0
 UBOOL USkeletalMesh::IsReadyForFinishDestroy()
 {
-	return ((const FRenderCommandFence_&)ReleaseResourcesFence).GetNumPendingFences() == 0;
+	return ReleaseResourcesFence.GetNumPendingFences() == 0;
 }

@@ -1640,7 +1640,7 @@ void UAudioDevice::vf_198(int a0) {  }
 int UAudioDevice::vf_1a0(int a0) { return 0; }
 
 // @baa 0x0079ca60
-int UAudioDevice::vf_1a4(int a0) { return 0; }
+INT UAudioDevice::vf_1a4(INT a0) { return 0; }
 
 // @baa 0x0079ca70
 int UAudioDevice::vf_1a8(int a0) { return 0; }

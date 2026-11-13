@@ -51,8 +51,8 @@ void UInterpTrackInstToggle::InitTrackInst(UInterpTrack* Track)
 }
 
 // @baa 0x00d10350
-/* UE3's UInterpTrackFloatParticleParam::UpdateTrack (kit slot vf_13c): set the emitter's float parameter from the curve. */
-void UInterpTrackFloatParticleParam::vf_13c(FLOAT NewPosition, UInterpTrackInst* TrInst, UBOOL bJump)
+/* UE3's UInterpTrackFloatParticleParam::UpdateTrack: set the emitter's float parameter from the curve. */
+void UInterpTrackFloatParticleParam::UpdateTrack(FLOAT NewPosition, UInterpTrackInst* TrInst, UBOOL bJump)
 {
 	UInterpGroupInst* GrInst = CastChecked<UInterpGroupInst>(TrInst->GetOuter());
 	AEmitter* Emitter = Cast<AEmitter>(GetGroupActorOf(GrInst));

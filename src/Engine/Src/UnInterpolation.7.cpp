@@ -159,8 +159,8 @@ struct UInterpTrackSoundFade_ : public UInterpTrackSoundFade
 };
 
 // @baa 0x00d0fcf0
-/* UE3's UInterpTrackSoundFade::UpdateTrack (kit slot vf_13c): set the player camera's sound fade from the curve. */
-void UInterpTrackSoundFade::vf_13c(FLOAT NewPosition, UInterpTrackInst* TrInst, UBOOL bJump)
+/* UE3's UInterpTrackSoundFade::UpdateTrack: set the player camera's sound fade from the curve. */
+void UInterpTrackSoundFade::UpdateTrack(FLOAT NewPosition, UInterpTrackInst* TrInst, UBOOL bJump)
 {
     UInterpGroupInst* GrInst = CastChecked<UInterpGroupInst>(GetOuterOf(TrInst));
     APlayerController* PC = Cast<APlayerController>(GetGroupActorOf(GrInst));
@@ -177,8 +177,8 @@ struct UInterpTrackFade_ : public UInterpTrackFade
 };
 
 // @baa 0x00d0fc60
-/* UE3's UInterpTrackFade::UpdateTrack (kit slot vf_13c): drive the player camera's fade from the curve (not when jumping). */
-void UInterpTrackFade::vf_13c(FLOAT NewPosition, UInterpTrackInst* TrInst, UBOOL bJump)
+/* UE3's UInterpTrackFade::UpdateTrack: drive the player camera's fade from the curve (not when jumping). */
+void UInterpTrackFade::UpdateTrack(FLOAT NewPosition, UInterpTrackInst* TrInst, UBOOL bJump)
 {
     if (!bJump)
     {
@@ -199,8 +199,8 @@ struct AActor_ : public AActor
 };
 
 // @baa 0x00d10b80
-/* UE3's UInterpTrackMorphWeight::UpdateTrack (kit slot vf_13c): pass the curve's weight to the actor's morph node. */
-void UInterpTrackMorphWeight::vf_13c(FLOAT NewPosition, UInterpTrackInst* TrInst, UBOOL bJump)
+/* UE3's UInterpTrackMorphWeight::UpdateTrack: pass the curve's weight to the actor's morph node. */
+void UInterpTrackMorphWeight::UpdateTrack(FLOAT NewPosition, UInterpTrackInst* TrInst, UBOOL bJump)
 {
 	UInterpGroupInst* GrInst = CastChecked<UInterpGroupInst>(TrInst->GetOuter());
 	AActor* Actor = GetGroupActorOf(GrInst);
@@ -217,8 +217,8 @@ struct AActor__00d10d20 : public AActor
 };
 
 // @baa 0x00d10d20
-/* UE3's UInterpTrackSkelControlScale::UpdateTrack (kit slot vf_13c): pass the curve's scale to the actor's skel control. */
-void UInterpTrackSkelControlScale::vf_13c(FLOAT NewPosition, UInterpTrackInst* TrInst, UBOOL bJump)
+/* UE3's UInterpTrackSkelControlScale::UpdateTrack: pass the curve's scale to the actor's skel control. */
+void UInterpTrackSkelControlScale::UpdateTrack(FLOAT NewPosition, UInterpTrackInst* TrInst, UBOOL bJump)
 {
 	UInterpGroupInst* GrInst = CastChecked<UInterpGroupInst>(TrInst->GetOuter());
 	AActor* Actor = GetGroupActorOf(GrInst);
@@ -235,8 +235,8 @@ struct AActor__00d10c50 : public AActor
 };
 
 // @baa 0x00d10c50
-/* UInterpTrackFaceFXRegister::UpdateTrack (kit slot vf_13c): pass the curve's value to the actor's FaceFX register. */
-void UInterpTrackFaceFXRegister::vf_13c(FLOAT NewPosition, UInterpTrackInst* TrInst, UBOOL bJump)
+/* UInterpTrackFaceFXRegister::UpdateTrack: pass the curve's value to the actor's FaceFX register. */
+void UInterpTrackFaceFXRegister::UpdateTrack(FLOAT NewPosition, UInterpTrackInst* TrInst, UBOOL bJump)
 {
 	UInterpGroupInst* GrInst = CastChecked<UInterpGroupInst>(TrInst->GetOuter());
 	AActor* Actor = GetGroupActorOf(GrInst);

@@ -49,18 +49,12 @@ UINT UFracturedBaseComponent::vf_254()
     }
 }
 
-/* Kit gap: FRenderCommandFence::GetNumPendingFences (0x0071f7e0) isn't declared on the fence mirror. */
-struct FRenderCommandFence_ : public FRenderCommandFence_Mirror
-{
-    UINT GetNumPendingFences() const;
-};
-
 // @baa 0x007a7060
 /* Ready once the primitive component is and the render thread has released the fragment resources. */
 UBOOL UFracturedBaseComponent::IsReadyForFinishDestroy()
 {
     return UPrimitiveComponent::IsReadyForFinishDestroy() &&
-           ((const FRenderCommandFence_&)ReleaseResourcesFence).GetNumPendingFences() == 0;
+           ReleaseResourcesFence.GetNumPendingFences() == 0;
 }
 
 /* Kit gap (Array.h, issue #39): this build inlines TArray::operator() where the kit's plain-inline one is

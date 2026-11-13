@@ -10,13 +10,6 @@ extern INT GPackageFileVersion;
 extern INT GPackageFileLicenseeVersion;
 inline FArchive& operator<<(FArchive& Ar, INT& I) { Ar.ByteOrderSerialize(&I, sizeof(I)); return Ar; }
 
-/* FArchive::LicenseeVer (UnArc.h); the kit's FArchive has the field but no accessor */
-class FArchive_ : public FArchive
-{
-public:
-    INT LicenseeVer() const { return ArLicenseeVer; }
-};
-
 /* FPackedNormal (UnMath.h): a unit vector packed into 4 bytes. */
 struct FPackedNormal
 {
@@ -59,7 +52,7 @@ void FSoftVertexArray::BulkSerialize(FArchive& Ar)
     INT SerializedElementSize = sizeof(ElementType);
     Ar << SerializedElementSize;
 
-    if (Ar.IsSaving() || Ar.Ver() < GPackageFileVersion || ((FArchive_&)Ar).LicenseeVer() < GPackageFileLicenseeVersion)
+    if (Ar.IsSaving() || Ar.Ver() < GPackageFileVersion || Ar.LicenseeVer() < GPackageFileLicenseeVersion)
     {
         Ar << *this;
     }

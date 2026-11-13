@@ -244,15 +244,7 @@ void UTextureFlipBook::vf_130()
 	UnpackMax[0] = 1.f;
 }
 
-/* Kit gaps: ReleaseResourcesFence is an FRenderCommandFence* (an FPointer in the kit), and
- * FRenderCommandFence::GetNumPendingFences (0x0071f7e0) isn't declared. */
-struct FRenderCommandFence_ : public FRenderCommandFence_Mirror
-{
-	UINT GetNumPendingFences() const;
-};
-
 /* The member as its real type (the check names it). */
-#define ReleaseResourcesFence ((FRenderCommandFence_*)ReleaseResourcesFence.Dummy)
 // @baa 0x00755420
 UBOOL UTextureFlipBook::IsReadyForFinishDestroy()
 {

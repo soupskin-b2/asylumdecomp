@@ -291,7 +291,7 @@ UUIScreenObject* UUIObject::GetParent()
 }
 
 // @baa 0x00d992f0
-ULocalPlayer* UUIObject::GetPlayerOwner() { return *(ULocalPlayer**)((char*)this + 316); }
+const UUIScene* UUIObject::GetScene() const { return OwnerScene; }
 
 // @baa 0x00d99320
 void UUIObject::vf_22c(int a0) {  }

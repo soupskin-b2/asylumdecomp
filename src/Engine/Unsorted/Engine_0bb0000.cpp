@@ -1291,7 +1291,7 @@ undefined4 * ULensFlare::sub_00bb7d10(byte param_2)
 IMPLEMENT_CLASS_AT(UActorFactory, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActorFactory.cpp", 28);
 
 // @baa 0x00bb7ea0
-int UActorFactory::vf_110(int a0) { return 1; }
+UBOOL UActorFactory::CanCreateActor(FString& a0) { return 1; }
 
 // @baa 0x00bb7eb0
 void __stdcall sub_00bb7eb0(int a0) {  }

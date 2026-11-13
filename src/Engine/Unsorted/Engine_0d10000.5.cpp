@@ -26,8 +26,8 @@ struct UInterpTrackColorScale_ : public UInterpTrackColorScale
 };
 
 // @baa 0x00d10790
-/* UE3's UInterpTrackColorScale::UpdateTrack (kit slot vf_13c): set the player camera's color scale from the curve. */
-void UInterpTrackColorScale::vf_13c(FLOAT NewPosition, UInterpTrackInst* TrInst, UBOOL bJump)
+/* UE3's UInterpTrackColorScale::UpdateTrack: set the player camera's color scale from the curve. */
+void UInterpTrackColorScale::UpdateTrack(FLOAT NewPosition, UInterpTrackInst* TrInst, UBOOL bJump)
 {
     UInterpGroupInst* GrInst = CastChecked<UInterpGroupInst>(GetOuterOf(TrInst));
     APlayerController* PC = Cast<APlayerController>(GetGroupActorOf(GrInst));

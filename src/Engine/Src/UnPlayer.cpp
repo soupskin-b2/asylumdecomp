@@ -734,11 +734,11 @@ void sub_0089e210();
 void sub_0089e4f0(void) { sub_0089e210(); }
 
 struct C_view_0089e5d0 {
-    int sub_0089dea0();
+    int RebuildPlayerPostProcessChain();
 };
 
 // @baa 0x0089e5d0
-undefined4 ULocalPlayer::vf_118(void)
+UBOOL ULocalPlayer::RemoveAllPostProcessingChains()
 {
     int param_1 = (int)this;
   undefined4 uVar1;
@@ -750,7 +750,7 @@ undefined4 ULocalPlayer::vf_118(void)
       *(undefined4 *)(param_1 + 0x78) = uVar1;
     }
   }
-  ((C_view_0089e5d0 *)(this))->sub_0089dea0();
+  ((C_view_0089e5d0 *)(this))->RebuildPlayerPostProcessChain();
   return 1;
 }
 
@@ -1143,20 +1143,13 @@ UBOOL UInteraction__00888e10::delegateOnReceivedNativeInputKey(INT ControllerId,
 	return Parms.ReturnValue;
 }
 
-/* Unnamed in the kit: UE3's ULocalPlayer::RemovePostProcessingChain(INT InIndex) and
- * ULocalPlayer::RebuildPlayerPostProcessChain() (0x0089dea0). */
-struct ULocalPlayer_ : public ULocalPlayer
-{
-    UBOOL sub_0089e590(INT InIndex);
-};
-
 // @baa 0x0089e590
-UBOOL ULocalPlayer_::sub_0089e590(INT InIndex)
+UBOOL ULocalPlayer::RemovePostProcessingChain(INT InIndex)
 {
     if (InIndex >= 0 && InIndex < PlayerPostProcessChains.Num())
     {
         PlayerPostProcessChains.Remove(InIndex, 1);
-        sub_0089dea0();
+        RebuildPlayerPostProcessChain();
         return TRUE;
     }
     return FALSE;

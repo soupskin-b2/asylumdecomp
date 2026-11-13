@@ -18,11 +18,6 @@ static __forceinline FDecalRenderData*& GetRenderData(FDecalReceiver& Receiver)
     return (FDecalRenderData*&)Receiver.RenderData.Dummy;
 }
 
-static __forceinline FRenderCommandFence*& GetReleaseResourcesFence(UDecalComponent* Decal)
-{
-    return (FRenderCommandFence*&)Decal->ReleaseResourcesFence.Dummy;
-}
-
 // @baa 0x006986e0
 /* FinishDestroy */
 void UDecalComponent::vf_02c()
@@ -39,8 +34,8 @@ void UDecalComponent::vf_02c()
     DecalReceivers.Empty();
 
     // Delete any existing resource fence.
-    delete GetReleaseResourcesFence(this);
-    GetReleaseResourcesFence(this) = NULL;
+    delete ReleaseResourcesFence;
+    ReleaseResourcesFence = NULL;
 
     Super::vf_02c();
 }

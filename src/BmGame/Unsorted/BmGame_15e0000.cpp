@@ -19,7 +19,7 @@ bool URSeqAct_InfiniteCombatSpawner::vf_004()
 int ARPawnBossIvyBase::vf_000(void) { return 1; }
 
 // @baa 0x015e1e10
-undefined4 URBmPawnSpawner::vf_1a4(void)
+UINT URBmPawnSpawner::vf_1a4()
 {
     int param_1 = (int)this;
 

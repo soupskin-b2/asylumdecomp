@@ -3,27 +3,14 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
 
-/* Kit gap: FRenderCommandFence has no constructor, BeginFence (0x00719c60) or GetNumPendingFences (0x0071f7e0)
- * (RenderingThread.h). */
-struct FRenderCommandFence_ : public FRenderCommandFence
-{
-	FRenderCommandFence_() { NumPendingFences = 0; }
-};
-
-/* Named accessor for the FPointer field (ISSUES.md 19). */
-static __forceinline FRenderCommandFence_*& GetReleaseResourcesFence(ATerrain* Terrain)
-{
-	return (FRenderCommandFence_*&)Terrain->ReleaseResourcesFence.Dummy;
-}
-
 // @baa 0x009827d0
 UBOOL ATerrain::IsReadyForFinishDestroy()
 {
 	// Wait until the rendering thread is done with the terrain's resources.
 	UBOOL bResourcesReleased = TRUE;
-	if (GetReleaseResourcesFence(this))
+	if (ReleaseResourcesFence)
 	{
-		bResourcesReleased = GetReleaseResourcesFence(this)->GetNumPendingFences() == 0;
+		bResourcesReleased = ReleaseResourcesFence->GetNumPendingFences() == 0;
 	}
 	return Super::IsReadyForFinishDestroy() && bResourcesReleased;
 }
@@ -56,50 +43,27 @@ FString UTerrainWeightMapTexture::GetDesc()
 	return FString_::Printf(TEXT("WeightMap: %dx%d [%s]"), SizeX, SizeY, GPixelFormats[Format].Name);
 }
 
-/* Kit gap: FRenderCommandFence (RenderingThread.h) is only a mirror struct; its constructor zeroes the count. */
-struct FRenderCommandFence__00982010 : public FRenderCommandFence_Mirror
-{
-    FRenderCommandFence__00982010() { NumPendingFences = 0; }
-};
-
-struct ATerrain_ : public ATerrain
-{
-    FRenderCommandFence__00982010* GetReleaseResourcesFence(); /* 0x00982010 */
-};
-
 // @baa 0x00982010
-/* EngineTerrainClasses.h's ATerrain::GetReleaseResourcesFence: the fence, created on first use (ReleaseResourcesFence
- * is an FRenderCommandFence* behind FPointer in the kit). */
-FRenderCommandFence__00982010* ATerrain_::GetReleaseResourcesFence()
+/* EngineTerrainClasses.h: the fence, created on first use. */
+FRenderCommandFence* ATerrain::GetReleaseResourcesFence()
 {
-    if (!ReleaseResourcesFence.Dummy)
+    if (!ReleaseResourcesFence)
     {
-        ReleaseResourcesFence.Dummy = (INT)new FRenderCommandFence__00982010();
+        ReleaseResourcesFence = new FRenderCommandFence();
 #line 352 "e:\\projects\\amadeus\\aa\\game\\unrealengine3\\development\\src\\engine\\inc\\EngineTerrainClasses.h"
-        check(ReleaseResourcesFence.Dummy);
+        check(ReleaseResourcesFence);
     }
-    return (FRenderCommandFence__00982010*)ReleaseResourcesFence.Dummy;
+    return ReleaseResourcesFence;
 }
 
 #line 87 "candidate.cpp"
-
-/* Kit gap: FRenderCommandFence (RenderingThread.h) is only a mirror struct; BeginFence is 0x00719c60. */
-struct FRenderCommandFence__009827b0 : public FRenderCommandFence_Mirror
-{
-    void BeginFence();
-};
-
-struct ATerrain__009827b0 : public ATerrain
-{
-    FRenderCommandFence__009827b0* GetReleaseResourcesFence(); /* 0x00982010 */
-};
 
 // @baa 0x009827b0
 /* Start releasing the terrain's render resources once the actor begins destruction. */
 void ATerrain::BeginDestroy()
 {
     Super::BeginDestroy();
-    FRenderCommandFence__009827b0* Fence = ((ATerrain__009827b0*)this)->GetReleaseResourcesFence();
+    FRenderCommandFence* Fence = GetReleaseResourcesFence();
     if (Fence)
     {
         Fence->BeginFence();

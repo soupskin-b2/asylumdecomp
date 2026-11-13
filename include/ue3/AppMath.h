@@ -43,10 +43,10 @@ inline DOUBLE appFmod( DOUBLE Y, DOUBLE X )      { return fmod(Y, X); }
 inline DOUBLE appSin( DOUBLE Value )             { return sin(Value); }
 inline DOUBLE appAsin( DOUBLE Value )            { return asin(Value); }
 inline DOUBLE appCos( DOUBLE Value )             { return cos(Value); }
-inline DOUBLE appAcos( DOUBLE Value )            { return acos(Value); }
+inline FLOAT  appAcos( FLOAT Value )             { return acosf((Value < -1.f) ? -1.f : ((Value < 1.f) ? Value : 1.f)); }
 inline DOUBLE appTan( DOUBLE Value )             { return tan(Value); }
 inline DOUBLE appAtan( DOUBLE Value )            { return atan(Value); }
-inline DOUBLE appAtan2( DOUBLE Y, DOUBLE X )     { return atan2(Y, X); }
+inline FLOAT  appAtan2( FLOAT Y, FLOAT X )       { return atan2f(Y, X); }
 inline DOUBLE appPow( DOUBLE A, DOUBLE B )       { return pow(A, B); }
 inline FLOAT  appSqrt( FLOAT Value )             { return sqrtf(Value); }
 inline FLOAT  appInvSqrt( FLOAT F )              { return 1.0f / sqrtf(F); }

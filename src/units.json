@@ -2205,7 +2205,7 @@
     {
      "va": "01759330",
      "size": 8,
-     "symbol": "?vf_110@URActorFactorySmashableProp@@UAEHH@Z"
+     "symbol": "?CanCreateActor@URActorFactorySmashableProp@@UAEHAAVFString@@@Z"
     },
     {
      "va": "01759340",
@@ -50792,7 +50792,7 @@
     {
      "va": "016d0bf0",
      "size": 29,
-     "symbol": "?sub_016d0bf0@C_016d0bf0@@QAEXI@Z"
+     "symbol": "?PostEditChange@ARWindVolume@@UAEXPAUUProperty@@@Z"
     }
    ]
   },
@@ -174631,7 +174631,7 @@
     {
      "va": "00bd59c0",
      "size": 24,
-     "symbol": "?sub_00bd59c0@AFoliageFactory_@@QAEXI@Z"
+     "symbol": "?PostEditChange@AFoliageFactory@@UAEXPAUUProperty@@@Z"
     }
    ]
   },
@@ -199256,7 +199256,7 @@
     {
      "va": "00c4ac20",
      "size": 8,
-     "symbol": "?vf_110@UActorFactoryDecal@@UAEHH@Z"
+     "symbol": "?CanCreateActor@UActorFactoryDecal@@UAEHAAVFString@@@Z"
     },
     {
      "va": "00c4ac30",
@@ -212571,27 +212571,27 @@
     {
      "va": "00d0fcf0",
      "size": 98,
-     "symbol": "?vf_13c@UInterpTrackSoundFade@@UAEXMPAUUInterpTrackInst@@H@Z"
+     "symbol": "?UpdateTrack@UInterpTrackSoundFade@@UAEXMPAUUInterpTrackInst@@H@Z"
     },
     {
      "va": "00d0fc60",
      "size": 129,
-     "symbol": "?vf_13c@UInterpTrackFade@@UAEXMPAUUInterpTrackInst@@H@Z"
+     "symbol": "?UpdateTrack@UInterpTrackFade@@UAEXMPAUUInterpTrackInst@@H@Z"
     },
     {
      "va": "00d10b80",
      "size": 95,
-     "symbol": "?vf_13c@UInterpTrackMorphWeight@@UAEXMPAUUInterpTrackInst@@H@Z"
+     "symbol": "?UpdateTrack@UInterpTrackMorphWeight@@UAEXMPAUUInterpTrackInst@@H@Z"
     },
     {
      "va": "00d10d20",
      "size": 95,
-     "symbol": "?vf_13c@UInterpTrackSkelControlScale@@UAEXMPAUUInterpTrackInst@@H@Z"
+     "symbol": "?UpdateTrack@UInterpTrackSkelControlScale@@UAEXMPAUUInterpTrackInst@@H@Z"
     },
     {
      "va": "00d10c50",
      "size": 96,
-     "symbol": "?vf_13c@UInterpTrackFaceFXRegister@@UAEXMPAUUInterpTrackInst@@H@Z"
+     "symbol": "?UpdateTrack@UInterpTrackFaceFXRegister@@UAEXMPAUUInterpTrackInst@@H@Z"
     }
    ]
   },
@@ -227551,7 +227551,7 @@
     {
      "va": "0089e5d0",
      "size": 58,
-     "symbol": "?vf_118@ULocalPlayer@@UAEIXZ"
+     "symbol": "?RemoveAllPostProcessingChains@ULocalPlayer@@UAEHXZ"
     },
     {
      "va": "0089f600",
@@ -227731,7 +227731,7 @@
     {
      "va": "0089e590",
      "size": 49,
-     "symbol": "?sub_0089e590@ULocalPlayer_@@QAEHH@Z"
+     "symbol": "?RemovePostProcessingChain@ULocalPlayer@@UAEHH@Z"
     },
     {
      "va": "008898f0",
@@ -232758,17 +232758,17 @@
     {
      "va": "008bc310",
      "size": 3,
-     "symbol": "?sub_008bc310@@YGXHHH@Z"
+     "symbol": "?PublishValue@USequenceVariable@@UAEXPAUUSequenceOp@@PAUUProperty@@AAUFSeqVarLink@@@Z"
     },
     {
      "va": "008bc320",
      "size": 3,
-     "symbol": "?vf_1a0@USequenceVariable@@UAEXHHH@Z"
+     "symbol": "?PopulateValue@USequenceVariable@@UAEXPAUUSequenceOp@@PAUUProperty@@AAUFSeqVarLink@@@Z"
     },
     {
      "va": "008bc330",
      "size": 3,
-     "symbol": "?vf_1a4@USequenceVariable@@UAEXHH@Z"
+     "symbol": "?vf_1a4@USequenceVariable@@UAEXPAUUSequenceOp@@AAUFSeqVarLink@@@Z"
     },
     {
      "va": "008bc340",
@@ -243119,7 +243119,7 @@
     {
      "va": "00982010",
      "size": 84,
-     "symbol": "?GetReleaseResourcesFence@ATerrain_@@QAEPAUFRenderCommandFence__00982010@@XZ"
+     "symbol": "?GetReleaseResourcesFence@ATerrain@@QAEPAUFRenderCommandFence@@XZ"
     },
     {
      "va": "009827b0",
@@ -250672,12 +250672,12 @@
     {
      "va": "00d992d0",
      "size": 7,
-     "symbol": "?GetOwner@UConsoleEntry@@QAEHXZ"
+     "symbol": "?GetOwner@UUIObject@@UAEPAU1@XZ"
     },
     {
      "va": "00dc2cc0",
      "size": 3,
-     "symbol": "?GetScene@UUIPrefabScene@@QAEPAU1@XZ"
+     "symbol": "?GetScene@UUIScene@@UAEPAU1@XZ"
     }
    ]
   },
@@ -250689,12 +250689,12 @@
     {
      "va": "00d992e0",
      "size": 7,
-     "symbol": "?GetScene@UConsoleEntry@@QAEHXZ"
+     "symbol": "?GetScene@UUIObject@@UAEPAUUUIScene@@XZ"
     },
     {
      "va": "00dc2cb0",
      "size": 3,
-     "symbol": "?GetOwner@UUIPrefabScene@@QAEHXZ"
+     "symbol": "?GetOwner@UUIScene@@UAEPAUUUIObject@@XZ"
     }
    ]
   },
@@ -250786,7 +250786,7 @@
     {
      "va": "00dc2cd0",
      "size": 3,
-     "symbol": "?sub_00dc2cd0@C_00dc2cd0@@QAEPAU1@XZ"
+     "symbol": "?GetScene@UUIScene@@UBEPBU1@XZ"
     },
     {
      "va": "00dc2d30",
@@ -252105,7 +252105,7 @@
     {
      "va": "00d98fe0",
      "size": 27,
-     "symbol": "?GetPlayerOwner@UUIScreenObject@@UAEPAUULocalPlayer@@XZ"
+     "symbol": "?GetScene@UUIScreenObject@@UBEPBUUUIScene@@XZ"
     }
    ]
   },
@@ -252284,7 +252284,7 @@
     {
      "va": "00d992f0",
      "size": 7,
-     "symbol": "?GetPlayerOwner@UUIObject@@UAEPAUULocalPlayer@@XZ"
+     "symbol": "?GetScene@UUIObject@@UBEPBUUUIScene@@XZ"
     },
     {
      "va": "00d99320",
@@ -344736,7 +344736,7 @@
     {
      "va": "00bb7ea0",
      "size": 8,
-     "symbol": "?vf_110@UActorFactory@@UAEHH@Z"
+     "symbol": "?CanCreateActor@UActorFactory@@UAEHAAVFString@@@Z"
     },
     {
      "va": "00bb7eb0",
@@ -356525,12 +356525,12 @@
     {
      "va": "00cf04d0",
      "size": 3,
-     "symbol": "?vf_138@UInterpTrack@@UAEXMPAUUInterpTrackInst@@@Z"
+     "symbol": "?PreviewUpdateTrack@UInterpTrack@@UAEXMPAUUInterpTrackInst@@@Z"
     },
     {
      "va": "00cf04e0",
      "size": 3,
-     "symbol": "?vf_13c@UInterpTrack@@UAEXMPAUUInterpTrackInst@@H@Z"
+     "symbol": "?UpdateTrack@UInterpTrack@@UAEXMPAUUInterpTrackInst@@H@Z"
     },
     {
      "va": "00cf04f0",
@@ -357751,7 +357751,7 @@
     {
      "va": "00d10790",
      "size": 145,
-     "symbol": "?vf_13c@UInterpTrackColorScale@@UAEXMPAUUInterpTrackInst@@H@Z"
+     "symbol": "?UpdateTrack@UInterpTrackColorScale@@UAEXMPAUUInterpTrackInst@@H@Z"
     }
    ]
   },
@@ -517614,7 +517614,7 @@
     {
      "va": "00d10350",
      "size": 116,
-     "symbol": "?vf_13c@UInterpTrackFloatParticleParam@@UAEXMPAUUInterpTrackInst@@H@Z"
+     "symbol": "?UpdateTrack@UInterpTrackFloatParticleParam@@UAEXMPAUUInterpTrackInst@@H@Z"
     }
    ]
   },

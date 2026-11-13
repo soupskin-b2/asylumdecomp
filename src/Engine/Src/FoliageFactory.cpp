@@ -10,14 +10,9 @@ IMPLEMENT_CLASS_AT(AFoliageFactory, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngi
 
 // @baa 0x00bac400
 
-struct AFoliageFactory_ : public AFoliageFactory
-{
-    void sub_00bd59c0(UINT Param);
-};
-
 // @baa 0x00bd59c0
-void AFoliageFactory_::sub_00bd59c0(UINT Param)
+void AFoliageFactory::PostEditChange(UProperty* PropertyThatChanged)
 {
-    sub_00784510(Param);
+    Super::PostEditChange(PropertyThatChanged);
     sub_00bd52b0();
 }

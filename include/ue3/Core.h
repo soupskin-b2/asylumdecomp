@@ -162,9 +162,9 @@ template<typename T> struct TTypeInfo {
 #define verify(expr)     { if (!(expr)) appFailAssert(#expr, __FILE__, __LINE__, TEXT("")); }
 
 
-// The archive a Serialize function reads or writes (UnArc.h). Only what is verified is declared: the
-// fields up to ArIsSaving (offsets from Serialize code) and ByteOrderSerialize (0x0053ea70); its
-// virtual functions' slots are left out (the destructor is the first, as in UE3).
+// The archive a Serialize function reads or writes (UnArc.h): 0x7c bytes in this build (Reset 0x0053ec70
+// sets every field). The flags between ArIsSaving and ArForceByteSwapping, and those after it, aren't
+// identified yet (Reset sets 0x28, 0x2c, 0x30 and 0x5c to 1).
 class UObject;
 struct FName;
 
@@ -183,13 +183,20 @@ public:
 	UBOOL IsLoading() const { return ArIsLoading; }
 	UBOOL IsSaving() const { return ArIsSaving; }
 	INT Ver() const { return ArVer; }
+	INT NetVer() const { return ArNetVer; }
+	INT LicenseeVer() const { return ArLicenseeVer; }
+	UBOOL ForceByteSwapping() const { return ArForceByteSwapping; }
 	FArchive& ByteOrderSerialize( void* V, INT Length ); /* 0x0053ea70 */
+	void Reset(); /* 0x0053ec70 */
 protected:
 	INT ArVer;                /* 0x4 */
 	INT ArNetVer;             /* 0x8 */
 	INT ArLicenseeVer;        /* 0xc */
 	UBOOL ArIsLoading;        /* 0x10 */
 	UBOOL ArIsSaving;         /* 0x14 */
+	UBOOL ArFlags18[12];      /* 0x18 */
+	UBOOL ArForceByteSwapping; /* 0x48 */
+	DWORD ArState4c[12];      /* 0x4c */
 };
 
 /* UnTemplate.h: swap, and the quicksort with a compare class (IMPLEMENT_COMPARE_*). Out-of-line Exchange<FLOAT>: 0x0045fea0, 0x007ab150, 0x007b4b00 */

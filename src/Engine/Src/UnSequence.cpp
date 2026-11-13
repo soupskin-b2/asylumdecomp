@@ -2775,13 +2775,13 @@ ANSICHAR* USequenceVariable::vf_190() { return 0; }
 int USequenceVariable::vf_198(int a0) { return 0; }
 
 // @baa 0x008bc310
-void __stdcall sub_008bc310(int a0, int a1, int a2) {  }
+void USequenceVariable::PublishValue(USequenceOp* Op, UProperty* Property, FSeqVarLink& VarLink) {  }
 
 // @baa 0x008bc320
-void USequenceVariable::vf_1a0(int a0, int a1, int a2) {  }
+void USequenceVariable::PopulateValue(USequenceOp* Op, UProperty* Property, FSeqVarLink& VarLink) {  }
 
 // @baa 0x008bc330
-void USequenceVariable::vf_1a4(int a0, int a1) {  }
+void USequenceVariable::vf_1a4(USequenceOp* Op, FSeqVarLink& VarLink) {  }
 
 // @baa 0x008bc340
 void USequenceVariable::vf_1a8(int a0, int a1) {  }
