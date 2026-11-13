@@ -142,7 +142,7 @@ void UParticleSystemComponent::execRewindEmitterInstance(FFrame& Stack, RESULT_D
 
 struct UParticleSystemComponent__00c9cd80 : public UParticleSystemComponent
 {
-	void sub_00b64730(UParticleSystem*);
+	void SetTemplate(UParticleSystem*);
 };
 
 // @baa 0x00c9cd80
@@ -150,12 +150,12 @@ void UParticleSystemComponent::execSetTemplate(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(UParticleSystem, NewTemplate);
 	P_FINISH;
-	this->sub_00b64730(NewTemplate);
+	this->SetTemplate(NewTemplate);
 }
 
 struct UParticleSystemComponent__00c9da40 : public UParticleSystemComponent
 {
-	void sub_00b5d900(INT);
+	void SetLODLevel(INT);
 };
 
 // @baa 0x00c9da40
@@ -163,12 +163,12 @@ void UParticleSystemComponent::execSetLODLevel(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(InLODLevel);
 	P_FINISH;
-	this->sub_00b5d900(InLODLevel);
+	this->SetLODLevel(InLODLevel);
 }
 
 struct UParticleSystemComponent__00c9daa0 : public UParticleSystemComponent
 {
-	void sub_00b51ba0(INT);
+	void SetEditorLODLevel(INT);
 };
 
 // @baa 0x00c9daa0
@@ -176,12 +176,12 @@ void UParticleSystemComponent::execSetEditorLODLevel(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(InLODLevel);
 	P_FINISH;
-	this->sub_00b51ba0(InLODLevel);
+	this->SetEditorLODLevel(InLODLevel);
 }
 
 struct UParticleSystemComponent__00c9cf30 : public UParticleSystemComponent
 {
-	void sub_00b51be0(UBOOL);
+	void SetSkipUpdateDynamicDataDuringTick(UBOOL);
 };
 
 // @baa 0x00c9cf30
@@ -189,12 +189,12 @@ void UParticleSystemComponent::execSetSkipUpdateDynamicDataDuringTick(FFrame& St
 {
 	P_GET_UBOOL(bInSkipUpdateDynamicDataDuringTick);
 	P_FINISH;
-	this->sub_00b51be0(bInSkipUpdateDynamicDataDuringTick);
+	this->SetSkipUpdateDynamicDataDuringTick(bInSkipUpdateDynamicDataDuringTick);
 }
 
 struct UParticleSystemComponent__00c9e480 : public UParticleSystemComponent
 {
-	void sub_00b5d0c0(UBOOL);
+	void SetActive(UBOOL);
 };
 
 // @baa 0x00c9e480
@@ -202,7 +202,7 @@ void UParticleSystemComponent::execSetActive(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bNowActive);
 	P_FINISH;
-	this->sub_00b5d0c0(bNowActive);
+	this->SetActive(bNowActive);
 }
 
 // @baa 0x00c9cc70

@@ -9,7 +9,7 @@ void USkelControlBase::execSetSkelControlActive(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bInActive);
 	P_FINISH;
-	sub_0090cec0(bInActive);
+	SetSkelControlActive(bInActive);
 }
 
 // @baa 0x00c921d0

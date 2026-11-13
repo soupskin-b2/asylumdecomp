@@ -1007,7 +1007,7 @@ void UPlayer::vf_10c(int param_2)
 
 // @baa 0x00892bb0
 /* FindPostProcessEffect: the first effect in the chain with the given name (UE3 returns UPostProcessEffect*). */
-void* UPostProcessChain::sub_00892bb0(FName EffectName)
+void* UPostProcessChain::FindPostProcessEffect(FName EffectName)
 {
     for (INT EffectIdx = 0; EffectIdx < Effects.Num(); EffectIdx++)
     {

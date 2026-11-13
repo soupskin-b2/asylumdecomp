@@ -10,7 +10,7 @@ void UAnimNodeSequence::BeginDestroy()
     if (ActiveCameraAnimInstance)
     {
         /* UE3 UCameraAnimInst::Stop(UBOOL bImmediate) */
-        ActiveCameraAnimInstance->sub_007880c0(TRUE);
+        ActiveCameraAnimInstance->Stop(TRUE);
         ActiveCameraAnimInstance->bAutoReleaseWhenFinished = TRUE;
         ActiveCameraAnimInstance = NULL;
     }

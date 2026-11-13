@@ -10,7 +10,7 @@ void UPrimitiveComponent::execSetRBChannel(FFrame& Stack, RESULT_DECL)
 	P_GET_BYTE(Channel);
 	P_FINISH;
 	RBChannel = Channel;
-	vf_20c();
+	SetRBChannel();
 }
 
 extern FName g_026c4340;

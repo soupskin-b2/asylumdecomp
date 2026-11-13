@@ -10,7 +10,7 @@ void UUIObject::execSetWidgetStyleByName(FFrame& Stack, RESULT_DECL)
     P_GET_NAME(StyleResolverTagToSet);
     P_GET_NAME(StyleFriendlyName);
     P_FINISH;
-    *(UBOOL*)Result = sub_00dc9020(StyleResolverTagToSet, StyleFriendlyName);
+    *(UBOOL*)Result = SetWidgetStyleByName(StyleResolverTagToSet, StyleFriendlyName);
 }
 
 /* Engine.UIRoot.EUIWidgetFace (not in Classes.h) */
@@ -68,7 +68,7 @@ void UUIScreenObject::execCreateWidget(FFrame& Stack, RESULT_DECL)
     P_GET_OBJECT_OPTX(UObject, WidgetArchetype, NULL);
     P_GET_NAME_OPTX(WidgetName, NAME_None);
     P_FINISH;
-    *(UUIObject**)Result = this->sub_00dc8c40(Owner, WidgetClass, WidgetArchetype, WidgetName);
+    *(UUIObject**)Result = this->CreateWidget(Owner, WidgetClass, WidgetArchetype, WidgetName);
 }
 
 /* FVector2D(0,0): the kit's FVector2D has no constructors. */
@@ -101,7 +101,7 @@ void UUIScreenObject::execInstanceUIPrefab(FFrame& Stack, RESULT_DECL)
     P_GET_INT_OPTX(InsertIndex, INDEX_NONE);
     P_GET_UBOOL_OPTX(bRenameExisting, TRUE);
     P_FINISH;
-    *(UUIPrefabInstance**)Result = this->sub_00da90a0(SourcePrefab, PrefabInstanceName, pPlacementLocation ? &PlacementLocation : NULL, InsertIndex, bRenameExisting);
+    *(UUIPrefabInstance**)Result = this->InstanceUIPrefab(SourcePrefab, PrefabInstanceName, pPlacementLocation ? &PlacementLocation : NULL, InsertIndex, bRenameExisting);
 }
 
 /* TArray<UUIObject*> with the out-of-line copy assignment (00db2910) and destructor (00cc4b80) the original calls. */

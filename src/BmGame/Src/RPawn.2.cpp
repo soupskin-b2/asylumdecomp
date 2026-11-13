@@ -5,7 +5,7 @@
 #include <math.h>
 
 // @baa 0x01673b20
-void ARPawnCombat::sub_01673b20(FVector V)
+void ARPawnCombat::SetDestHeading(FVector V)
 {
     DestRot = atan2f(V.Y, V.X);
 }
@@ -14,7 +14,7 @@ void ARPawnCombat::sub_01673b20(FVector V)
  * radians, of TargetLocation - Location). */
 
 // @baa 0x01676b70
-void ARPawnCombat::sub_01676b70(FVector TargetLocation)
+void ARPawnCombat::FacePos(FVector TargetLocation)
 {
     FVector Dir(TargetLocation.X - Location.X, TargetLocation.Y - Location.Y, TargetLocation.Z - Location.Z);
     DestRot = atan2(Dir.Y, Dir.X);
@@ -23,11 +23,11 @@ void ARPawnCombat::sub_01676b70(FVector TargetLocation)
 /* Unnamed in the kit: an ARPawnCombat helper that turns the pawn's DestRot towards another pawn's AimAtPos (planar). */
 struct ARPawnCombat__0167bba0 : public ARPawnCombat
 {
-    void sub_0167bba0(ARPawnCombat* Other);
+    void FacePawn(ARPawnCombat* Other);
 };
 
 // @baa 0x0167bba0
-void ARPawnCombat__0167bba0::sub_0167bba0(ARPawnCombat* Other)
+void ARPawnCombat__0167bba0::FacePawn(ARPawnCombat* Other)
 {
     if (Other)
     {

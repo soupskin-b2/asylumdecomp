@@ -9,7 +9,7 @@ void UUILayer::execFindNodeIndex(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(NodeIndex);
 	P_FINISH;
-	*(INT*)Result = sub_014a25c0(NodeIndex);
+	*(INT*)Result = FindNodeIndex(NodeIndex);
 }
 
 // @baa 0x0127c190

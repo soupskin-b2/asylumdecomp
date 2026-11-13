@@ -513,7 +513,7 @@ FString UParticleSystemComponent::GetDetailedInfoInternal()
 // @baa 0x00b51be0
 /* UE3's UParticleSystemComponent::SetSkipUpdateDynamicDataDuringTick(UBOOL bInSkipUpdateDynamicDataDuringTick)
  * (execSetSkipUpdateDynamicDataDuringTick's native). */
-void UParticleSystemComponent::sub_00b51be0(UBOOL bInSkipUpdateDynamicDataDuringTick)
+void UParticleSystemComponent::SetSkipUpdateDynamicDataDuringTick(UBOOL bInSkipUpdateDynamicDataDuringTick)
 {
     bSkipUpdateDynamicDataDuringTick = bInSkipUpdateDynamicDataDuringTick;
 }
@@ -539,7 +539,7 @@ void UParticleSystemComponent::PreEditChange(UProperty* PropertyAboutToChange)
 // @baa 0x00b5d0c0
 /* UE3's UParticleSystemComponent::SetActive(UBOOL bNowActive): (re)start the system unless it is already running,
  * or stop a running one. */
-void UParticleSystemComponent::sub_00b5d0c0(UBOOL bNowActive)
+void UParticleSystemComponent::SetActive(UBOOL bNowActive)
 {
     if (bNowActive)
     {

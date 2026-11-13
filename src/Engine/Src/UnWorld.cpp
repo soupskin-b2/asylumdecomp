@@ -372,16 +372,16 @@ undefined4 sub_009b0af0(void)
 
 extern undefined1 g_026c0b3c;
 // @baa 0x009b0b00
-undefined1 sub_009b0b00(void)
+undefined1 GetDetailMode(void)
 {
   return g_026c0b3c;
 }
 
 // @baa 0x009b0b70
-void __stdcall sub_009b0b70(int a0) {  }
+void __stdcall ResetActorChannel(int a0) {  }
 
 // @baa 0x009b0b80
-void __stdcall sub_009b0b80(int a0, int a1, int a2, int a3, int a4, int a5) {  }
+void __stdcall UpdateMusicTrack(int a0, int a1, int a2, int a3, int a4, int a5) {  }
 
 // @baa 0x009b0b90
 IMPLEMENT_CLASS_AT(ULevelStreaming, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnWorld.cpp", 5468);

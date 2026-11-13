@@ -350,7 +350,7 @@ UBOOL USequenceOp::ActivateNamedOutputLink(const FString& LinkDesc)
     {
         if ((const FString__008bd7b0&)OutputLinks(Idx).LinkDesc == LinkDesc)
         {
-            bActivated = sub_008bd720(Idx); // ActivateOutputLink(Idx)
+            bActivated = ActivateOutputLink(Idx); // ActivateOutputLink(Idx)
             break;
         }
     }

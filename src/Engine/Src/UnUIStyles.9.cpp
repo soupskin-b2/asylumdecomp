@@ -163,7 +163,7 @@ UUIStyle_Data* UUIStyle_::GetArchetypeStyleForState(UUIState* StateObject) const
 	UUIStyle* StyleArchetype = GetArchetype<UUIStyle>();
 	if (StyleArchetype != GetDefault<UUIStyle>())
 	{
-		Result = StyleArchetype->sub_00ddaa80(StateObject);		/* GetStyleForState */
+		Result = StyleArchetype->GetStyleForState(StateObject);		/* GetStyleForState */
 	}
 
 	return Result;

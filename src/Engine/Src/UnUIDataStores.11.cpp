@@ -54,7 +54,7 @@ void UDataStoreClient::GetAvailableDataStores(UUIScene* CurrentScene, TArray<UUI
 	{
 		if (CurrentScene->PlayerOwner != NULL)
 		{
-			INT PlayerDataStoreIndex = const_cast<UDataStoreClient*>(this)->sub_00d92fb0(CurrentScene->PlayerOwner);	/* FindPlayerDataStoreIndex (const in UE3; the kit declares it non-const) */
+			INT PlayerDataStoreIndex = const_cast<UDataStoreClient*>(this)->FindPlayerDataStoreIndex(CurrentScene->PlayerOwner);	/* FindPlayerDataStoreIndex (const in UE3; the kit declares it non-const) */
 #line 337 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnUIDataStores.cpp"
 			check(PlayerDataStoreIndex);
 

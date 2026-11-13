@@ -1801,7 +1801,7 @@ bool UMacroReachSpec::vf_004()
 }
 
 // @baa 0x007580f0
-void AActor::sub_007580f0(undefined1 param_2)
+void AActor::SetTickGroup(undefined1 param_2)
 {
     int param_1 = (int)this;
 
@@ -1849,10 +1849,10 @@ bool AActor::vf_1c4(undefined4 param_2, int param_3)
 }
 
 // @baa 0x00758b70
-void __stdcall sub_00758b70(int a0) {  }
+void __stdcall SetNetUpdateTime(int a0) {  }
 
 // @baa 0x00758b80
-undefined4 APlayerReplicationInfo::sub_00758b80(int param_2)
+undefined4 APlayerReplicationInfo::AreUniqueNetIdsEqual(int param_2)
 {
     int param_1 = (int)this;
 

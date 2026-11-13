@@ -63,7 +63,7 @@ bool UFogVolumeDensityComponent::vf_004()
 
 int sub_00765d00(void);
 // @baa 0x006ab520
-void UFogVolumeDensityComponent::sub_006ab520(uint param_2)
+void UFogVolumeDensityComponent::SetEnabled(uint param_2)
 {
     int param_1 = (int)this;
 

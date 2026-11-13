@@ -34,7 +34,7 @@ struct APawn_ : public APawn
 
 // @baa 0x007ad390
 /* UE3's AController::FindRandomDest() (execFindRandomDest's native): a random reachable navigation point. */
-ANavigationPoint* AController::sub_007ad390()
+ANavigationPoint* AController::FindRandomDest()
 {
     if (!Pawn)
     {

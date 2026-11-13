@@ -57,7 +57,7 @@ UUIStyle_Data* FStyleDataReference_::GetStyleData() const
 	}
 	else if (SourceStyle != NULL && SourceState != NULL)
 	{
-		Result = SourceStyle->sub_00ddaa80(SourceState);
+		Result = SourceStyle->GetStyleForState(SourceState);
 		if (Result == NULL)
 		{
 			Result = SourceStyle->sub_00dc9980();
@@ -74,7 +74,7 @@ void FStyleDataReference_::SetSourceStyle(UUIStyle* Style)
 	check(Style);
 	check(SourceState);
 
-	if (Style->sub_00ddaa80(SourceState) != NULL)
+	if (Style->GetStyleForState(SourceState) != NULL)
 	{
 		SourceStyle = Style;
 		SourceStyleID = Style->StyleID;
@@ -85,14 +85,14 @@ void FStyleDataReference_::SetSourceStyle(UUIStyle* Style)
 
 // @baa 0x00ddbb50
 /* The text style the combo style uses. */
-UUIStyle_Text* UUIStyle_Combo::sub_00ddbb50()
+UUIStyle_Text* UUIStyle_Combo::GetComboTextStyle()
 {
 	return Cast<UUIStyle_Text>(((FStyleDataReference_&)TextStyle).GetStyleData());
 }
 
 // @baa 0x00ddbb70
 /* The image style the combo style uses. */
-UUIStyle_Image* UUIStyle_Combo::sub_00ddbb70()
+UUIStyle_Image* UUIStyle_Combo::GetComboImageStyle()
 {
 	return Cast<UUIStyle_Image>(((FStyleDataReference_&)ImageStyle).GetStyleData());
 }

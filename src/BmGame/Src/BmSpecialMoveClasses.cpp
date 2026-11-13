@@ -228,7 +228,7 @@ bool ARSpecialMoveInstance_CatchLedge::vf_004()
 
 extern UBOOL g_026bb6a8;
 // @baa 0x01613570
-void __stdcall sub_01613570(void* P)
+void __stdcall SetOcclusion(void* P)
 {
     g_026bb6a8 = (P == NULL);
 }

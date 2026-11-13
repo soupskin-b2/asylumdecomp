@@ -16,7 +16,7 @@ void USkeletalMeshComponent::execSetSoftBodyFrozen(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bNewFrozen);
 	P_FINISH;
-	sub_00a339f0(bNewFrozen);
+	SetSoftBodyFrozen(bNewFrozen);
 }
 
 extern FName g_026c3fe0;

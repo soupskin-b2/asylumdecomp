@@ -24,7 +24,7 @@ void UAudioComponent::execSetFloatParameter(FFrame& Stack, RESULT_DECL)
     P_GET_NAME(InName);
     P_GET_FLOAT(InFloat);
     P_FINISH;
-    this->sub_0078dbc0(InName, InFloat);
+    this->SetFloatParameter(InName, InFloat);
 }
 
 // @baa 0x0078e5e0
@@ -33,7 +33,7 @@ void UAudioComponent::execSetVelocity(FFrame& Stack, RESULT_DECL)
     P_GET_NAME(InName);
     P_GET_FLOAT(InFloat);
     P_FINISH;
-    this->sub_0078df40(InName, InFloat);
+    this->SetVelocity(InName, InFloat);
 }
 
 #define INVALID_OBJECT ((UObject*)-1)

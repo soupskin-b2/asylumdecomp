@@ -40,7 +40,7 @@ void AActor::execGetBaseMost(FFrame& Stack, RESULT_DECL)
 
 struct AActor__00c81570 : public AActor
 {
-	void sub_00769500(AActor*);
+	void SetOwner(AActor*);
 };
 
 // @baa 0x00c81570
@@ -48,12 +48,12 @@ void AActor::execSetOwner(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(AActor, NewOwner);
 	P_FINISH;
-	this->sub_00769500(NewOwner);
+	this->SetOwner(NewOwner);
 }
 
 struct AActor__00c80ea0 : public AActor
 {
-	void sub_00784080(BYTE);
+	void SetCollisionType(BYTE);
 };
 
 // @baa 0x00c80ea0
@@ -61,12 +61,12 @@ void AActor::execSetCollisionType(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_BYTE(NewCollisionType);
 	P_FINISH;
-	this->sub_00784080(NewCollisionType);
+	this->SetCollisionType(NewCollisionType);
 }
 
 struct AActor__00c80da0 : public AActor
 {
-	void sub_00c4afe0(UAnimNodeSequence*);
+	void FinishAnim(UAnimNodeSequence*);
 };
 
 // @baa 0x00c80da0
@@ -74,12 +74,12 @@ void AActor::execFinishAnim(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(UAnimNodeSequence, SeqNode);
 	P_FINISH;
-	((AActor__00c80da0*)this)->sub_00c4afe0(SeqNode);
+	((AActor__00c80da0*)this)->FinishAnim(SeqNode);
 }
 
 struct AActor__00c80d30 : public AActor
 {
-	void sub_008a7810(FLOAT);
+	void Sleep(FLOAT);
 };
 
 // @baa 0x00c80d30
@@ -87,7 +87,7 @@ void AActor::execSleep(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(Seconds);
 	P_FINISH;
-	this->sub_008a7810(Seconds);
+	this->Sleep(Seconds);
 }
 
 // @baa 0x00c80f00
@@ -100,7 +100,7 @@ void AActor::execSetDrawScale(FFrame& Stack, RESULT_DECL)
 
 struct AActor__00c81460 : public AActor
 {
-	void sub_00867da0(FLOAT);
+	void AutonomousPhysics(FLOAT);
 };
 
 // @baa 0x00c81460
@@ -108,7 +108,7 @@ void AActor::execAutonomousPhysics(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(DeltaSeconds);
 	P_FINISH;
-	this->sub_00867da0(DeltaSeconds);
+	this->AutonomousPhysics(DeltaSeconds);
 }
 
 // @baa 0x00c80f70
@@ -121,7 +121,7 @@ void AActor::execSetDrawScale3D(FFrame& Stack, RESULT_DECL)
 
 struct AActor__00c81060 : public AActor
 {
-	UBOOL sub_008a7bb0(FVector);
+	UBOOL SetLocation(FVector);
 };
 
 // @baa 0x00c81060
@@ -129,12 +129,12 @@ void AActor::execSetLocation(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT(FVector, NewLocation);
 	P_FINISH;
-	*(UBOOL*)Result = this->sub_008a7bb0(NewLocation);
+	*(UBOOL*)Result = this->SetLocation(NewLocation);
 }
 
 struct AActor__00c810e0 : public AActor
 {
-	UBOOL sub_008a7f10(FRotator);
+	UBOOL SetRotation(FRotator);
 };
 
 // @baa 0x00c810e0
@@ -142,12 +142,12 @@ void AActor::execSetRotation(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT(FRotator, NewRotation);
 	P_FINISH;
-	*(UBOOL*)Result = this->sub_008a7f10(NewRotation);
+	*(UBOOL*)Result = this->SetRotation(NewRotation);
 }
 
 struct AActor__00c812a0 : public AActor
 {
-	UBOOL sub_008a7fc0(FRotator);
+	UBOOL SetRelativeRotation(FRotator);
 };
 
 // @baa 0x00c812a0
@@ -155,12 +155,12 @@ void AActor::execSetRelativeRotation(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT(FRotator, NewRotation);
 	P_FINISH;
-	*(UBOOL*)Result = this->sub_008a7fc0(NewRotation);
+	*(UBOOL*)Result = this->SetRelativeRotation(NewRotation);
 }
 
 struct AActor__00c81320 : public AActor
 {
-	UBOOL sub_008a7bf0(FVector);
+	UBOOL SetRelativeLocation(FVector);
 };
 
 // @baa 0x00c81320
@@ -168,12 +168,12 @@ void AActor::execSetRelativeLocation(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT(FVector, NewLocation);
 	P_FINISH;
-	*(UBOOL*)Result = this->sub_008a7bf0(NewLocation);
+	*(UBOOL*)Result = this->SetRelativeLocation(NewLocation);
 }
 
 struct AActor__00c80fe0 : public AActor
 {
-	UBOOL sub_008a7b10(FVector);
+	UBOOL Move(FVector);
 };
 
 // @baa 0x00c80fe0
@@ -181,7 +181,7 @@ void AActor::execMove(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT(FVector, Delta);
 	P_FINISH;
-	*(UBOOL*)Result = this->sub_008a7b10(Delta);
+	*(UBOOL*)Result = this->Move(Delta);
 }
 
 // @baa 0x00c80cb0

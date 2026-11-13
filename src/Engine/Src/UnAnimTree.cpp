@@ -1994,7 +1994,7 @@ void UAnimNodeCrossfader_::TickAnim(FLOAT DeltaSeconds, FLOAT TotalWeight)
 	// a one-shot animation blends back out before it is over
 	if (!bDontBlendOutOneShot && PendingBlendOutTimeOneShot > 0.f)
 	{
-		UAnimNodeSequence* ActiveChild = sub_00c7a590();
+		UAnimNodeSequence* ActiveChild = GetActiveChild();
 		if (ActiveChild && ActiveChild->AnimSeq)
 		{
 			FLOAT CountDown = ActiveChild->AnimSeq->SequenceLength - ActiveChild->CurrentTime;

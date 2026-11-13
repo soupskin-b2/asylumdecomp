@@ -17,7 +17,7 @@ struct Sub
 
 extern Sub* g_026b62b8;
 // @baa 0x008a7800
-void sub_008a7800()
+void GetGameSequence()
 {
     g_026b62b8->sub_009b0860(0);
 }

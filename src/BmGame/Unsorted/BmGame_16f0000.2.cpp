@@ -580,7 +580,7 @@ void URPathGateComponent::execOpenGate(FFrame& Stack, RESULT_DECL)
 
 struct ARPawnCombat__016f6000 : public ARPawnCombat
 {
-	void sub_0167bba0(ARPawnCombat*);
+	void FacePawn(ARPawnCombat*);
 };
 
 // @baa 0x016f6000
@@ -588,12 +588,12 @@ void ARPawnCombat::execFacePawn(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(ARPawnCombat, FaceTarget);
 	P_FINISH;
-	this->sub_0167bba0(FaceTarget);
+	this->FacePawn(FaceTarget);
 }
 
 struct ARPawnCombat__016f5eb0 : public ARPawnCombat
 {
-	void sub_0166d720(FLOAT);
+	void SetDestRot(FLOAT);
 };
 
 // @baa 0x016f5eb0
@@ -601,7 +601,7 @@ void ARPawnCombat::execSetDestRot(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(NewRot);
 	P_FINISH;
-	this->sub_0166d720(NewRot);
+	this->SetDestRot(NewRot);
 }
 
 // @baa 0x016f5a90
@@ -681,7 +681,7 @@ void ARPawnCharacter::execIsPlayingOverlay(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT(FOverlayId, Id);
 	P_FINISH;
-	*(UBOOL*)Result = vf_56c(Id.PlayerID, Id.AnimId);
+	*(UBOOL*)Result = IsPlayingOverlay(Id.PlayerID, Id.AnimId);
 }
 
 // @baa 0x016f3bb0
@@ -710,7 +710,7 @@ void ARBMDebugCameraController::execUpdateBatmansCapeInternal(FFrame& Stack, RES
 
 struct ARPawnCombat__016f5f20 : public ARPawnCombat
 {
-	void sub_01673b20(FVector);
+	void SetDestHeading(FVector);
 };
 
 // @baa 0x016f5f20
@@ -718,12 +718,12 @@ void ARPawnCombat::execSetDestHeading(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT(FVector, NewHeading);
 	P_FINISH;
-	this->sub_01673b20(NewHeading);
+	this->SetDestHeading(NewHeading);
 }
 
 struct ARPawnCombat__016f5f90 : public ARPawnCombat
 {
-	void sub_01676b70(FVector);
+	void FacePos(FVector);
 };
 
 // @baa 0x016f5f90
@@ -731,7 +731,7 @@ void ARPawnCombat::execFacePos(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT(FVector, NewFacePos);
 	P_FINISH;
-	this->sub_01676b70(NewFacePos);
+	this->FacePos(NewFacePos);
 }
 
 // @baa 0x016f5440

@@ -21,7 +21,7 @@ undefined4 UObject::sub_008cdab0(byte param_2)
 
 // @baa 0x008c7f00
 /* UE3's AActor::DetachComponent: drop the component from Components and detach it if it was there. */
-void AActor::sub_008c7f00(UActorComponent* ExComponent)
+void AActor::DetachComponent(UActorComponent* ExComponent)
 {
     if (ExComponent)
     {
@@ -34,8 +34,8 @@ void AActor::sub_008c7f00(UActorComponent* ExComponent)
 
 // @baa 0x008c7f30
 /* Detaches the component (if attached through Components) expecting a reattach, then attaches it again
- * (sub_008bba30, likely UE3 AActor::AttachComponent). */
-void AActor::sub_008c7f30(UActorComponent* ExComponent)
+ * (AActor::AttachComponent). */
+void AActor::ReattachComponent(UActorComponent* ExComponent)
 {
     if (ExComponent)
     {
@@ -43,6 +43,6 @@ void AActor::sub_008c7f30(UActorComponent* ExComponent)
         {
             ExComponent->ConditionalDetach(TRUE);
         }
-        sub_008bba30(ExComponent);
+        AttachComponent(ExComponent);
     }
 }

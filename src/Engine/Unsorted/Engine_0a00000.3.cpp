@@ -42,7 +42,7 @@ void USkeletalMeshComponent::execEnableClothValidBounds(FFrame& Stack, RESULT_DE
 {
 	P_GET_UBOOL(IfEnableClothValidBounds);
 	P_FINISH;
-	sub_00a00500(IfEnableClothValidBounds);
+	EnableClothValidBounds(IfEnableClothValidBounds);
 }
 
 // @baa 0x00a019f0
@@ -50,7 +50,7 @@ void USkeletalMeshComponent::execSetHasPhysicsAssetInstance(FFrame& Stack, RESUL
 {
 	P_GET_UBOOL(bHasInstance);
 	P_FINISH;
-	sub_00a01980(bHasInstance);
+	SetHasPhysicsAssetInstance(bHasInstance);
 }
 
 #define INVALID_OBJECT ((UObject*)-1)

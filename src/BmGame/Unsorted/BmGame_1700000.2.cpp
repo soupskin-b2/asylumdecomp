@@ -262,7 +262,7 @@ void ARBMCombatManager::execCacheNumCombatants(FFrame& Stack, RESULT_DECL)
 void URBMBehaviour::execSpawnedByController(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	vf_1b0();
+	SpawnedByController();
 }
 
 // @baa 0x01704e40

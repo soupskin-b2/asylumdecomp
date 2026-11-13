@@ -24,7 +24,7 @@ void UFogVolumeDensityComponent::execSetEnabled(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bSetEnabled);
 	P_FINISH;
-	this->sub_006ab520(bSetEnabled);
+	this->SetEnabled(bSetEnabled);
 }
 
 /* UActorComponent::BeginDeferredUpdateTransform (007596c0) and BeginDeferredReattach (00765d00)

@@ -1,6 +1,7 @@
 // UnUIStyleEditor.cpp (part 5 of 5): 3 functions
 // Placed here by: neighbours 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
+#include "ue3/Classes.h"
 
 struct C {
     undefined4 sub_014e8d20(byte);
@@ -22,23 +23,14 @@ undefined4 C::sub_014e8d20(byte param_2)
 
 struct StyleObj {
     char pad[0x154];
-    int Field_0x154;
+    class UObject* Field_0x154;
     void sub_014dc9d0();
 };
 
-struct GObj {
-    virtual void V0();
-    virtual void V1();
-    virtual void V2();
-    virtual void V3();
-    virtual void V4(int A, int B);
-};
-
-extern GObj* g_026667c4;
 // @baa 0x014dc9d0
 void StyleObj::sub_014dc9d0()
 {
-    g_026667c4->V4(0x26, Field_0x154);
+    GCallbackEvent->Send((ECallbackEventType)0x26, Field_0x154);
 }
 
 // A two-word record, cleared.

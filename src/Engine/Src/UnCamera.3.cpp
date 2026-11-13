@@ -21,7 +21,7 @@ void ACameraActor::PostEditChange(UProperty* PropertyThatChanged)
 // @baa 0x007880c0
 /* UE3's UCameraAnimInst::Stop(bImmediate) (named sub_007880c0 in the kit). With a blend-out time and no hurry, the
  * anim starts blending out; otherwise it finishes now and lets go of its interp data. */
-void UCameraAnimInst::sub_007880c0(UBOOL bImmediate)
+void UCameraAnimInst::Stop(UBOOL bImmediate)
 {
 	if (bImmediate || BlendOutTime <= 0.f)
 	{

@@ -6,7 +6,7 @@
 // @baa 0x00bacd70
 /* UE3's ULensFlareComponent::SetTemplate (named sub_00bacd70 in the kit): takes the new flare's cone and radius
  * settings, activates if set to auto-activate, and reattaches. */
-void ULensFlareComponent::sub_00bacd70(ULensFlare* NewTemplate)
+void ULensFlareComponent::SetTemplate(ULensFlare* NewTemplate)
 {
 	if (NewTemplate != Template)
 	{

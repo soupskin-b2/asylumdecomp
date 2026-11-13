@@ -617,7 +617,7 @@ void UObjectThunk_008a5630::sub_008a5630()
 int sub_008a5660(int a0, int a1) { return a1; }
 
 // @baa 0x008a72f0
-void USceneCaptureComponent::sub_008a72f0(float param_2)
+void USceneCaptureComponent::SetFrameRate(float param_2)
 {
     int param_1 = (int)this;
   if (param_2 != *(float *)(param_1 + 0x5c)) {
@@ -680,7 +680,7 @@ undefined4 sub_008a77c0(void)
 }
 
 // @baa 0x008a77d0
-int __stdcall sub_008a77d0(int a0) { return 0; }
+int __stdcall IsConsoleBuild(int a0) { return 0; }
 
 // @baa 0x008a77e0
 int sub_008a77e0(void) { return 1; }
@@ -719,7 +719,7 @@ void __stdcall sub_008aa010(int a0, int a1) {  }
 void __stdcall sub_008aa020(int a0, int a1) {  }
 
 // @baa 0x008aa030
-void __stdcall sub_008aa030(int a0) {  }
+void __stdcall Clock(int a0) {  }
 
 struct C_008aa200 { C_008aa200* sub_008aa200(int a0); };
 
@@ -1320,7 +1320,7 @@ extern DOUBLE g_0266e7f8;
 #define GSecondsPerCycle g_0266e7f8
 // @baa 0x008aa040
 /* Converts a cycle count to milliseconds in place. */
-void AActor::sub_008aa040(FLOAT& Value)
+void AActor::UnClock(FLOAT& Value)
 {
 	Value = Value * GSecondsPerCycle * 1000.0;
 }

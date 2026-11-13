@@ -43,7 +43,7 @@ FCoverSlot* sub_00840460(FCoverInfo& Info)
 UBOOL ACoverLink::HasFireLinkTo(INT SlotIdx, const FCoverInfo& ChkCover, UBOOL bAllowFallbackLinks)
 {
     FCoverSlot& Slot = ((TArrayAt_<FCoverSlot>&)Slots).At(SlotIdx);
-    ACoverSlotMarker* ChkMarker = ChkCover.Link->sub_00841860(ChkCover.SlotIdx);
+    ACoverSlotMarker* ChkMarker = ChkCover.Link->GetSlotMarker(ChkCover.SlotIdx);
     for (INT Idx = 0; Idx < Slot.FireLinks.Num(); Idx++)
     {
         FFireLink& FireLink = ((TArrayAt_<FFireLink>&)Slot.FireLinks).At(Idx);

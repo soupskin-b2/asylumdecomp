@@ -1684,7 +1684,7 @@ void C_006ac900::sub_006ac900(void) { *(int*)((char*)this + 0) = (int)g_01ecdfc8
 
 int sub_00765d00(void);
 // @baa 0x006acc00
-void UHeightFogComponent::sub_006acc00(uint param_2)
+void UHeightFogComponent::SetEnabled(uint param_2)
 {
     int param_1 = (int)this;
 

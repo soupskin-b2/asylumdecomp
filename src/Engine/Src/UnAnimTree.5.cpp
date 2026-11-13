@@ -80,7 +80,7 @@ void UAnimNodeSlot::execPlayCustomAnim(FFrame& Stack, RESULT_DECL)
 void UAnimNodeSlot::execGetCustomAnimNodeSeq(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UAnimNodeSequence**)Result = sub_00c7ccb0();
+	*(UAnimNodeSequence**)Result = GetCustomAnimNodeSeq();
 }
 
 // @baa 0x00c90490
@@ -115,7 +115,7 @@ void UAnimNodeSlot::execAddToSynchGroup(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_NAME(GroupName);
 	P_FINISH;
-	sub_00c803f0(GroupName);
+	AddToSynchGroup(GroupName);
 }
 
 // @baa 0x00c911e0

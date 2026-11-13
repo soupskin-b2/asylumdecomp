@@ -34,7 +34,7 @@ void UAnimNodeSlot::PlayCustomAnimByDuration(FName AnimName, FLOAT Duration, FLO
 			NewRate /= AnimSeq->RateScale;
 		}
 
-		sub_00c7ef60(AnimName, NewRate, BlendInTime, BlendOutTime, bLooping, bOverride);
+		PlayCustomAnim(AnimName, NewRate, BlendInTime, BlendOutTime, bLooping, bOverride);
 	}
 }
 

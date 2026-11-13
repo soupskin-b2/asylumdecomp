@@ -108,7 +108,7 @@ void UInterpTrackFaceFX::PostEditChange(UProperty* PropertyThatChanged)
             UFaceFXAnimSet* Set = FaceFXAnimSets(i);
             if (Set != NULL)
             {
-                CachedActorFXAsset->sub_00bf70e0(Set);
+                CachedActorFXAsset->MountFaceFXAnimSet(Set);
             }
         }
     }

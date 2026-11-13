@@ -9,7 +9,7 @@ void UFluidSurfaceComponent::execSetDetailPosition(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT(FVector, WorldPos);
 	P_FINISH;
-	sub_00be4940(WorldPos);
+	SetDetailPosition(WorldPos);
 }
 
 // @baa 0x00ca7bf0
@@ -17,7 +17,7 @@ void UFluidSurfaceComponent::execSetSimulationPosition(FFrame& Stack, RESULT_DEC
 {
 	P_GET_STRUCT(FVector, WorldPos);
 	P_FINISH;
-	sub_00be4bb0(WorldPos);
+	SetSimulationPosition(WorldPos);
 }
 
 // @baa 0x00ca7a70

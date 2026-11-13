@@ -32,7 +32,7 @@ void AR3rdPersonCamera__01709240::execFollowCameraRotation( FFrame& Stack, RESUL
 
 struct AR3rdPersonCamera__017090a0 : public AR3rdPersonCamera
 {
-	void sub_01689680(FLOAT);
+	void UpdateCameraWander(FLOAT);
 };
 
 // @baa 0x017090a0
@@ -40,12 +40,12 @@ void AR3rdPersonCamera::execUpdateCameraWander(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(DeltaTime);
 	P_FINISH;
-	this->sub_01689680(DeltaTime);
+	this->UpdateCameraWander(DeltaTime);
 }
 
 struct AR3rdPersonCamera__01709420 : public AR3rdPersonCamera
 {
-	void sub_0168ec60(FLOAT);
+	void TransitionInterpolate(FLOAT);
 };
 
 // @baa 0x01709420
@@ -53,12 +53,12 @@ void AR3rdPersonCamera::execTransitionInterpolate(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(DeltaTime);
 	P_FINISH;
-	this->sub_0168ec60(DeltaTime);
+	this->TransitionInterpolate(DeltaTime);
 }
 
 struct AR3rdPersonCamera__01709880 : public AR3rdPersonCamera
 {
-	void sub_016a03c0(FLOAT);
+	void UpdateZoomFocus(FLOAT);
 };
 
 // @baa 0x01709880
@@ -66,12 +66,12 @@ void AR3rdPersonCamera::execUpdateZoomFocus(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(DeltaTime);
 	P_FINISH;
-	this->sub_016a03c0(DeltaTime);
+	this->UpdateZoomFocus(DeltaTime);
 }
 
 struct AR3rdPersonCamera__01709710 : public AR3rdPersonCamera
 {
-	void sub_0168a650(FLOAT);
+	void DisableCameraDrag(FLOAT);
 };
 
 // @baa 0x01709710
@@ -79,12 +79,12 @@ void AR3rdPersonCamera::execDisableCameraDrag(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT_OPTX(Time, 1.0f);
 	P_FINISH;
-	this->sub_0168a650(Time);
+	this->DisableCameraDrag(Time);
 }
 
 struct AR3rdPersonCamera__017098f0 : public AR3rdPersonCamera
 {
-	void sub_016a4b10(FTPOV&);
+	void HideClippingObjects(FTPOV&);
 };
 
 // @baa 0x017098f0
@@ -92,12 +92,12 @@ void AR3rdPersonCamera::execHideClippingObjects(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT_REF(FTPOV, NewPOV);
 	P_FINISH;
-	this->sub_016a4b10(NewPOV);
+	this->HideClippingObjects(NewPOV);
 }
 
 struct AR3rdPersonCamera__01709970 : public AR3rdPersonCamera
 {
-	void sub_01689e60(FVector&);
+	void GetTunnelCameraDirection(FVector&);
 };
 
 // @baa 0x01709970
@@ -105,7 +105,7 @@ void AR3rdPersonCamera::execGetTunnelCameraDirection(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT_REF(FVector, InDirection);
 	P_FINISH;
-	this->sub_01689e60(InDirection);
+	this->GetTunnelCameraDirection(InDirection);
 }
 
 // @baa 0x00c83920

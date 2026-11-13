@@ -16,7 +16,7 @@ void ARBatarangCamera::execUpdateTrackingPosition(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(DeltaTime);
 	P_FINISH;
-	sub_016a9f20(DeltaTime);
+	UpdateTrackingPosition(DeltaTime);
 }
 
 // @baa 0x0170a180
@@ -24,7 +24,7 @@ void ARLineLauncherDirectorCamera::execSetupPosition(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(DeltaTime);
 	P_FINISH;
-	sub_016b0e10(DeltaTime);
+	SetupPosition(DeltaTime);
 }
 
 // @baa 0x0170a2d0
@@ -32,7 +32,7 @@ void ARMultiTargetCamera::execUpdatePosition(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(DeltaTime);
 	P_FINISH;
-	sub_016b70c0(DeltaTime);
+	UpdatePosition(DeltaTime);
 }
 
 // @baa 0x01703ab0
@@ -96,7 +96,7 @@ void ARCameraActor::execCorrectedAspectRatioFOV(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(AR3rdPersonCamera, OwnerCam);
 	P_FINISH;
-	*(FLOAT*)Result = sub_01690910(OwnerCam);
+	*(FLOAT*)Result = CorrectedAspectRatioFOV(OwnerCam);
 }
 
 // @baa 0x01701480
@@ -120,7 +120,7 @@ void ARBatarang::execUpdateAliveProjectiles(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(ARBatarangProjectile, NewProjectile);
 	P_FINISH;
-	sub_01640960(NewProjectile);
+	UpdateAliveProjectiles(NewProjectile);
 }
 
 // @baa 0x01708ba0
@@ -128,7 +128,7 @@ void ARLevelTransition::execPlayerUpdateTransform(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(ARPawnCharacter, Mesh);
 	P_FINISH;
-	sub_0155a090(Mesh);
+	PlayerUpdateTransform(Mesh);
 }
 
 // @baa 0x017086a0

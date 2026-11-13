@@ -53,7 +53,7 @@ struct URSimpleRopeComponent__01685d40 : public URSimpleRopeComponent
 };
 
 // @baa 0x01685d40
-INT URSimpleRopeComponent::vf_258()
+INT URSimpleRopeComponent::InitialiseRope()
 {
     URSimpleRopeComponent__01685d40* Self = (URSimpleRopeComponent__01685d40*)this;
     INT R = Self->sub_0163f500();

@@ -60,7 +60,7 @@ template<class T> struct TArrayAt_ : public TArray<T>
 
 // @baa 0x00841860
 /* UE3's ACoverLink::GetSlotMarker(INT SlotIdx) (kit sub_00841860): the marker placed for a slot, if any. */
-ACoverSlotMarker* ACoverLink::sub_00841860(INT SlotIdx)
+ACoverSlotMarker* ACoverLink::GetSlotMarker(INT SlotIdx)
 {
     ACoverSlotMarker* Marker = NULL;
     if (SlotIdx >= 0 && SlotIdx < Slots.Num())

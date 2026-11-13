@@ -9,7 +9,7 @@ void UObject::execPopState(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL_OPTX(bPopAll, 0);
 	P_FINISH;
-	sub_005aecc0(Stack, bPopAll);
+	PopState(Stack, bPopAll);
 }
 
 /* UObject::PushState (0x5a61f0) isn't declared in the kit. */

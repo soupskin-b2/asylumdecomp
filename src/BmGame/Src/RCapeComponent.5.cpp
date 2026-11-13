@@ -12,7 +12,7 @@ INT URCapeComponent::vf_000()
 }
 
 // @baa 0x016b1f80
-void URCapeComponent::sub_016b1f80(FLOAT F)
+void URCapeComponent::SetMaterialSpeedVariableOverride(FLOAT F)
 {
     MaterialSpeedVariableOverride = F;
     sub_016aee80();
@@ -228,13 +228,13 @@ void URCapeComponent__016ae900::SetDebugRenderBone(INT ChainNumber, INT LinkNumb
 }
 
 // @baa 0x016ae800
-/* Unnamed in the kit: look the name up through the cape anim node (URAnimNode_Cape::sub_01575620), once both the
+/* Unnamed in the kit: look the name up through the cape anim node (URAnimNode_Cape::GetStateAnimNode), once both the
  * anim node and the state controller exist. */
-void* URCapeComponent::sub_016ae800(FName Name)
+void* URCapeComponent::GetAnimStateTreeNode(FName Name)
 {
     if (CapeAnimNode != NULL && CapeStateController != NULL)
     {
-        void* Result = CapeAnimNode->sub_01575620(Name);
+        void* Result = CapeAnimNode->GetStateAnimNode(Name);
         if (Result != NULL)
         {
             return Result;

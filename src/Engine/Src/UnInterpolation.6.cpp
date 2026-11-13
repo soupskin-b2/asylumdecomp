@@ -65,7 +65,7 @@ void UInterpTrackInstFaceFX::InitTrackInst(UInterpTrack* Track)
                 UFaceFXAnimSet* Set = FaceFXTrack->FaceFXAnimSets(i);
                 if (Set != NULL)
                 {
-                    Asset->sub_00bf70e0(Set);
+                    Asset->MountFaceFXAnimSet(Set);
                 }
             }
         }

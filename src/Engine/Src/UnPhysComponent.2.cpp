@@ -23,8 +23,8 @@ template<class T> struct TArrayAt_ : public TArray<T>
 };
 
 /* Kit gaps: USkeletalMeshComponent::MatchRefBone (0090e8e0, behind execMatchRefBone), USkeletalMesh::BoneIsChildOf
- * (00d49ed0) and the real names of URB_BodyInstance::sub_00a09ca0 (SetFixed) and
- * URB_ConstraintInstance::sub_00a39310 (SetAngularVelocityDrive) aren't declared. */
+ * (00d49ed0) and the real names of URB_BodyInstance::SetFixed (SetFixed) and
+ * URB_ConstraintInstance::SetAngularVelocityDrive (SetAngularVelocityDrive) aren't declared. */
 struct USkeletalMeshComponent_ : public USkeletalMeshComponent
 {
 	INT MatchRefBone(FName BoneName) const;
@@ -69,7 +69,7 @@ void USkeletalMeshComponent::UpdateMeshForBrokenConstraints()
 							// Unfix the body.
 							if (BodyInst->IsFixed())
 							{
-								BodyInst->sub_00a09ca0(FALSE);
+								BodyInst->SetFixed(FALSE);
 							}
 
 							// Turn off its bone springs.
@@ -98,7 +98,7 @@ void USkeletalMeshComponent::UpdateMeshForBrokenConstraints()
 							}
 							if (BodyConstraintInst->bSwingVelocityDrive || BodyConstraintInst->bTwistVelocityDrive)
 							{
-								BodyConstraintInst->sub_00a39310(FALSE, FALSE);
+								BodyConstraintInst->SetAngularVelocityDrive(FALSE, FALSE);
 							}
 						}
 					}

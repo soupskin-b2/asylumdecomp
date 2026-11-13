@@ -46,7 +46,7 @@ void UGFxMovie::execAddCaptureKey(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_NAME(Key);
 	P_FINISH;
-	sub_00e67ad0(Key);
+	AddCaptureKey(Key);
 }
 
 // @baa 0x00e64ef0
@@ -54,7 +54,7 @@ void UGFxMovie::execClose(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL_OPTX(Unload, 1);
 	P_FINISH;
-	sub_00e64310(Unload);
+	Close(Unload);
 }
 
 // @baa 0x00e41ec0

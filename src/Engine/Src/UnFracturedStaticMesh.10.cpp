@@ -13,7 +13,7 @@ struct C
 // @baa 0x007a6fe0
 /* UFracturedBaseComponent slot 0x250: BoxCollisionType forces the answer (1 = on, 2 = off); otherwise the static mesh
  * component's answer. */
-UINT UFracturedBaseComponent::vf_250()
+UINT UFracturedBaseComponent::GetUseSimpleBoxCollision()
 {
     switch (BoxCollisionType)
     {
@@ -36,7 +36,7 @@ struct C_007a7000
 // @baa 0x007a7000
 /* UFracturedBaseComponent slot 0x254: LineCollisionType forces the answer (1 = on, 2 = off); otherwise the static mesh
  * component's answer. */
-UINT UFracturedBaseComponent::vf_254()
+UINT UFracturedBaseComponent::GetUseSimpleLineCollision()
 {
     switch (LineCollisionType)
     {

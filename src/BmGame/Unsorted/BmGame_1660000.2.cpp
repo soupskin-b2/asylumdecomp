@@ -690,7 +690,7 @@ float ARPawnCombat_::sub_0166d590(RAnim R)
 }
 
 // @baa 0x0166d720
-void ARPawnCombat::sub_0166d720(FLOAT F)
+void ARPawnCombat::SetDestRot(FLOAT F)
 {
     DestRot = F;
 }
@@ -1906,12 +1906,12 @@ UBOOL ARPawnCharacter::IsInWeaponTransition()
 
 // @baa 0x0166fea0
 /* ARPawnCharacter slot 0x23c (kit vf_23c, UE3 TermRBPhys(FRBPhysScene* Scene)): refresh the body constraint
- * component (URConstrainingComponent::sub_016d9eb0) before the pawn's physics teardown. */
+ * component (URConstrainingComponent::UpdateRBConstraints) before the pawn's physics teardown. */
 void ARPawnCharacter::TermRBPhys(FRBPhysScene* Scene)
 {
     if (BodyConstrainingComponent)
     {
-        BodyConstrainingComponent->sub_016d9eb0(FALSE);
+        BodyConstrainingComponent->UpdateRBConstraints(FALSE);
     }
     Super::TermRBPhys(Scene);
 }
@@ -1925,7 +1925,7 @@ void ARPawnCharacter::vf_238()
     if (BodyConstrainingComponent)
     {
         BodyConstrainingComponent->ConstrainedComponent = Mesh;
-        BodyConstrainingComponent->sub_016d9eb0(FALSE);
+        BodyConstrainingComponent->UpdateRBConstraints(FALSE);
     }
 }
 

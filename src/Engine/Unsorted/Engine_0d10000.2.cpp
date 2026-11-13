@@ -454,8 +454,8 @@ bool UPrefabSequence::vf_004()
 }
 
 // @baa 0x00d1ff30
-void UPrefabSequence::sub_00d1ff30(int a0) { *(int*)((char*)this + 268) = a0; }
+void UPrefabSequence::SetOwnerPrefab(int a0) { *(int*)((char*)this + 268) = a0; }
 
 // @baa 0x00d1ff40
-int UPrefabSequence::sub_00d1ff40(void) { return *(int*)((char*)this + 268); }
+int UPrefabSequence::GetOwnerPrefab(void) { return *(int*)((char*)this + 268); }
 

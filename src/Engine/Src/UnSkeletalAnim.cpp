@@ -2044,7 +2044,7 @@ struct AActor_ : public AActor
 
 // @baa 0x00937e40
 /* SetAnimTreeTemplate: replaces the tree with a fresh copy of NewTemplate and tells the owner. */
-void USkeletalMeshComponent::sub_00937e40(UAnimTree* NewTemplate)
+void USkeletalMeshComponent::SetAnimTreeTemplate(UAnimTree* NewTemplate)
 {
 	this->sub_0092b860();
 
@@ -2074,7 +2074,7 @@ void USkeletalMeshComponent::UpdateTransform()
 
 	if (!Animations && AnimTreeTemplate)
 	{
-		sub_00937e40(AnimTreeTemplate);
+		SetAnimTreeTemplate(AnimTreeTemplate);
 		this->sub_0093b170(0.f, TRUE, FALSE);
 		this->sub_00759620();
 	}

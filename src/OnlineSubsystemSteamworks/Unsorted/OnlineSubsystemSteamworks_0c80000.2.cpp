@@ -85,19 +85,19 @@ void AWorldInfo__00c89da0::execIsPreparingMapChange( FFrame& Stack, RESULT_DECL 
 
 struct AWorldInfo__00c89a10 : public AWorldInfo
 {
-	USequence* sub_008a7800();
+	USequence* GetGameSequence();
 };
 
 // @baa 0x00c89a10
 void AWorldInfo::execGetGameSequence(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(USequence**)Result = this->sub_008a7800();
+	*(USequence**)Result = this->GetGameSequence();
 }
 
 struct APlayerReplicationInfo_ : public APlayerReplicationInfo
 {
-	void sub_007af980(FLOAT);
+	void UpdatePing(FLOAT);
 };
 
 // @baa 0x00c896c0
@@ -105,7 +105,7 @@ void APlayerReplicationInfo::execUpdatePing(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(TimeStamp);
 	P_FINISH;
-	((APlayerReplicationInfo_*)this)->sub_007af980(TimeStamp);
+	((APlayerReplicationInfo_*)this)->UpdatePing(TimeStamp);
 }
 
 // @baa 0x00c892a0
@@ -118,7 +118,7 @@ void AGameInfo::execEndSentinelRun(FFrame& Stack, RESULT_DECL)
 
 struct APlayerReplicationInfo__00c89650 : public APlayerReplicationInfo
 {
-	UBOOL sub_00758b80(APlayerReplicationInfo*);
+	UBOOL AreUniqueNetIdsEqual(APlayerReplicationInfo*);
 };
 
 // @baa 0x00c89650
@@ -126,12 +126,12 @@ void APlayerReplicationInfo::execAreUniqueNetIdsEqual(FFrame& Stack, RESULT_DECL
 {
 	P_GET_OBJECT(APlayerReplicationInfo, OtherPRI);
 	P_FINISH;
-	*(UBOOL*)Result = ((APlayerReplicationInfo__00c89650*)this)->sub_00758b80(OtherPRI);
+	*(UBOOL*)Result = ((APlayerReplicationInfo__00c89650*)this)->AreUniqueNetIdsEqual(OtherPRI);
 }
 
 struct AWorldInfo__00c89b00 : public AWorldInfo
 {
-	UBOOL sub_008a77d0(BYTE);
+	UBOOL IsConsoleBuild(BYTE);
 };
 
 // @baa 0x00c89b00
@@ -139,12 +139,12 @@ void AWorldInfo::execIsConsoleBuild(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_BYTE_OPTX(ConsoleType, 0);
 	P_FINISH;
-	*(UBOOL*)Result = this->sub_008a77d0(ConsoleType);
+	*(UBOOL*)Result = this->IsConsoleBuild(ConsoleType);
 }
 
 struct AWorldInfo__00c89a50 : public AWorldInfo
 {
-	void sub_00a3b3e0(FVector);
+	void SetLevelRBGravity(FVector);
 };
 
 // @baa 0x00c89a50
@@ -152,12 +152,12 @@ void AWorldInfo::execSetLevelRBGravity(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT(FVector, NewGrav);
 	P_FINISH;
-	this->sub_00a3b3e0(NewGrav);
+	this->SetLevelRBGravity(NewGrav);
 }
 
 struct AWorldInfo__00c89bf0 : public AWorldInfo
 {
-	void sub_00803c90(UBOOL);
+	void ForceGarbageCollection(UBOOL);
 };
 
 // @baa 0x00c89bf0
@@ -165,13 +165,13 @@ void AWorldInfo::execForceGarbageCollection(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL_OPTX(bFullPurge, 0);
 	P_FINISH;
-	this->sub_00803c90(bFullPurge);
+	this->ForceGarbageCollection(bFullPurge);
 }
 
 struct AWorldInfo__00c89980 : public AWorldInfo
 {
     /* UpdateMusicTrack (UnLevel.cpp); Classes.h doesn't declare it. */
-    void sub_009b0b80(FMusicTrackStruct NewMusicTrack);
+    void UpdateMusicTrack(FMusicTrackStruct NewMusicTrack);
 };
 
 // @baa 0x00c89980
@@ -179,7 +179,7 @@ void AWorldInfo::execUpdateMusicTrack(FFrame& Stack, RESULT_DECL)
 {
     P_GET_STRUCT(FMusicTrackStruct, NewMusicTrack);
     P_FINISH;
-    this->sub_009b0b80(NewMusicTrack);
+    this->UpdateMusicTrack(NewMusicTrack);
 }
 
 /* AGameInfo::SwapPlayerControllers (008b0c60) isn't declared in the kit. */

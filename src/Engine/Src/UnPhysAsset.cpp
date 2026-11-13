@@ -43,7 +43,7 @@ IMPLEMENT_CLASS_AT(UPhysicalMaterial, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEn
 // @baa 0x00a04880
 int sub_006b0420(...);
 // @baa 0x00a051a0
-undefined4 URB_BodyInstance::sub_00a051a0(void)
+undefined4 URB_BodyInstance::GetPhysicsAssetInstance(void)
 {
     int param_1 = (int)this;
 
@@ -58,7 +58,7 @@ undefined4 URB_BodyInstance::sub_00a051a0(void)
 
 int sub_00a0ab90(void);
 // @baa 0x00a0acb0
-void URB_BodyInstance::sub_00a0acb0(float param_2)
+void URB_BodyInstance::SetDampingRampupProportion(float param_2)
 {
     int param_1 = (int)this;
   if (*(float *)(param_1 + 0x98) != param_2) {
@@ -212,7 +212,7 @@ void UPhysicsAssetInstance::SetFullAnimWeightBonesFixed(UBOOL bNewFixed, USkelet
         // fix or unfix only the bodies that always follow the animation
         if (BodySetup->bAlwaysFullAnimWeight)
         {
-            BodyInst->sub_00a09ca0(bNewFixed); // SetFixed
+            BodyInst->SetFixed(bNewFixed); // SetFixed
         }
     }
 }
@@ -233,11 +233,11 @@ void UPhysicsAssetInstance::SetGroupBodiesFixed(UBOOL bNewFixed, FName GroupName
 
         if (BodySetup->GroupName == GroupName)
         {
-            BodyInst->sub_00a09ca0(bNewFixed); // SetFixed
+            BodyInst->SetFixed(bNewFixed); // SetFixed
         }
         else if (bSetOtherBodiesToComplement)
         {
-            BodyInst->sub_00a09ca0(!bNewFixed); // SetFixed
+            BodyInst->SetFixed(!bNewFixed); // SetFixed
         }
     }
 }
@@ -249,7 +249,7 @@ void UPhysicsAssetInstance::SetAllMotorsAngularPositionDrive(UBOOL bEnableSwingD
     {
         if (bSkipFullAnimWeightBodies && SkelMesh)
         {
-            const INT BodyIndex = SkelMesh->PhysicsAsset->sub_00a231b0(SkelMesh->PhysicsAsset->ConstraintSetup(i)->JointName); // FindBodyIndex
+            const INT BodyIndex = SkelMesh->PhysicsAsset->FindBodyIndex(SkelMesh->PhysicsAsset->ConstraintSetup(i)->JointName); // FindBodyIndex
             if (SkelMesh->PhysicsAsset->BodySetup(BodyIndex)->bAlwaysFullAnimWeight)
             {
                 continue;
@@ -267,7 +267,7 @@ void UPhysicsAssetInstance::SetAllMotorsAngularDriveParams(FLOAT InSpring, FLOAT
     {
         if (bSkipFullAnimWeightBodies && SkelMesh)
         {
-            const INT BodyIndex = SkelMesh->PhysicsAsset->sub_00a231b0(SkelMesh->PhysicsAsset->ConstraintSetup(i)->JointName); // FindBodyIndex
+            const INT BodyIndex = SkelMesh->PhysicsAsset->FindBodyIndex(SkelMesh->PhysicsAsset->ConstraintSetup(i)->JointName); // FindBodyIndex
             if (SkelMesh->PhysicsAsset->BodySetup(BodyIndex)->bAlwaysFullAnimWeight)
             {
                 continue;
@@ -340,11 +340,11 @@ void UPhysicsAssetInstance::SetNamedBodiesFixed(UBOOL bNewFixed, const TArray<FN
 
         if (BoneNames.FindItemIndex(BodySetup->BoneName) != INDEX_NONE)
         {
-            BodyInst->sub_00a09ca0(bNewFixed); // SetFixed
+            BodyInst->SetFixed(bNewFixed); // SetFixed
         }
         else if (bSetOtherBodiesToComplement)
         {
-            BodyInst->sub_00a09ca0(!bNewFixed); // SetFixed
+            BodyInst->SetFixed(!bNewFixed); // SetFixed
         }
     }
 }

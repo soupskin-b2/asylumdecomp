@@ -57,14 +57,14 @@ void AWorldInfo::execDoMemoryTracking( FFrame& Stack, RESULT_DECL )
 void AWorldInfo::execGetMapInfo(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UMapInfo**)Result = sub_009c9950();
+	*(UMapInfo**)Result = GetMapInfo();
 }
 
 // @baa 0x00c8a030
 void AWorldInfo::execGetDetailMode(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(BYTE*)Result = sub_009b0b00();
+	*(BYTE*)Result = GetDetailMode();
 }
 
 // @baa 0x00c89f70
@@ -72,7 +72,7 @@ void AWorldInfo::execSetMapInfo(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(UMapInfo, NewMapInfo);
 	P_FINISH;
-	sub_009c9a20(NewMapInfo);
+	SetMapInfo(NewMapInfo);
 }
 
 // @baa 0x00c89fd0
@@ -80,7 +80,7 @@ void AWorldInfo::execResetActorChannel(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(AActor, ChannelOwner);
 	P_FINISH;
-	sub_009b0b70(ChannelOwner);
+	ResetActorChannel(ChannelOwner);
 }
 
 // @baa 0x00c8a210
@@ -88,7 +88,7 @@ void AWorldInfo::execOnScreenDebugMessageExists(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(Key);
 	P_FINISH;
-	*(UBOOL*)Result = sub_009c3c40(Key);
+	*(UBOOL*)Result = OnScreenDebugMessageExists(Key);
 }
 
 // @baa 0x00c89ec0
@@ -96,7 +96,7 @@ void AWorldInfo::execSetSeamlessTravelMidpointPause(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bNowPaused);
 	P_FINISH;
-	sub_009cec40(bNowPaused);
+	SetSeamlessTravelMidpointPause(bNowPaused);
 }
 
 /* AWorldInfo::GetWorldFractureSettings (0x9c6dd0) isn't declared in the kit. */

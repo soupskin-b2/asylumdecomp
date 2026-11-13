@@ -94,7 +94,7 @@ void URBMBehaviour::SleepFrame(INT param_2)
 }
 
 // @baa 0x015dea30
-void URBMBehaviour::vf_1b0()
+void URBMBehaviour::SpawnedByController()
 {
     bSpawned = TRUE;
     Activated();

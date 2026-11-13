@@ -32,7 +32,7 @@ void UUIScreenObject::execGetDockClients(FFrame& Stack, RESULT_DECL)
     P_GET_BYTE_OPTX(SourceFace, UIFACE_MAX);
     P_FINISH;
 
-    *(INT*)Result = this->sub_00db3360(pDockClients, bDirectDockClientsOnly, TargetFace, SourceFace);
+    *(INT*)Result = this->GetDockClients(pDockClients, bDirectDockClientsOnly, TargetFace, SourceFace);
 }
 
 /* TArray<UUIDataStore*> with the out-of-line destructor (00cc4a60) the original calls. */
@@ -51,7 +51,7 @@ void UUIObject::execGetDefaultDataStores(FFrame& Stack, RESULT_DECL)
     Stack.Step(Stack.Object, &out_BoundDataStoresT);
     FUIDataStoreArray& out_BoundDataStores = GPropAddr ? *(FUIDataStoreArray*)GPropAddr : out_BoundDataStoresT;
     P_FINISH;
-    this->sub_00db5ac0(out_BoundDataStores);
+    this->GetDefaultDataStores(out_BoundDataStores);
 }
 
 // @baa 0x00ca4b80

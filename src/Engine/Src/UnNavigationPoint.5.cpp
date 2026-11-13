@@ -16,7 +16,7 @@ void ACoverLink::execGetSlotMarker(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(SlotIdx);
 	P_FINISH;
-	*(ACoverSlotMarker**)Result = sub_00841860(SlotIdx);
+	*(ACoverSlotMarker**)Result = GetSlotMarker(SlotIdx);
 }
 
 // @baa 0x00c88c20
@@ -24,7 +24,7 @@ void ACoverLink::execGetLocationDescription(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(SlotIdx);
 	P_FINISH;
-	*(BYTE*)Result = sub_00842180(SlotIdx);
+	*(BYTE*)Result = GetLocationDescription(SlotIdx);
 }
 
 // @baa 0x00c888e0

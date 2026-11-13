@@ -9,7 +9,7 @@ void USkeletalMeshComponent::execUnHideBone(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(BoneIndex);
 	P_FINISH;
-	this->sub_00a14870(BoneIndex);
+	this->UnHideBone(BoneIndex);
 }
 
 // @baa 0x0090f100
@@ -17,7 +17,7 @@ void USkeletalMeshComponent::execIsBoneHidden(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(BoneIndex);
 	P_FINISH;
-	*(UBOOL*)Result = this->sub_00a14920(BoneIndex);
+	*(UBOOL*)Result = this->IsBoneHidden(BoneIndex);
 }
 
 struct USkeletalMeshComponent__0090ed60 : public USkeletalMeshComponent

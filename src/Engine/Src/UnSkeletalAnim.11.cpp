@@ -17,7 +17,7 @@ struct FAttachmentArray : public TArray<FAttachment>
 
 // @baa 0x0093fde0
 /* DetachComponent: undoes AttachComponent (0093fba0) for Component, if it's attached. */
-void USkeletalMeshComponent::sub_0093fde0(UActorComponent* Component)
+void USkeletalMeshComponent::DetachComponent(UActorComponent* Component)
 {
 	if (!Component)
 	{

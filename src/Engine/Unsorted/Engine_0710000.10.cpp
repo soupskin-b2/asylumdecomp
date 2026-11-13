@@ -22,7 +22,7 @@ inline DOUBLE appSeconds()
 
 // @baa 0x00717d50
 /* Keeps all mip levels resident for the next Seconds seconds. */
-void UTexture2D::sub_00717d50(FLOAT Seconds)
+void UTexture2D::SetForceMipLevelsToBeResident(FLOAT Seconds)
 {
 	ForceMipLevelsToBeResidentTimestamp = appSeconds() - g_02666798 + Seconds;
 }

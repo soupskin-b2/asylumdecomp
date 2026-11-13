@@ -18,7 +18,7 @@ template<class T> struct TArrayAt_ : public TArray<T>
 
 // @baa 0x00a14920
 /* UE3's USkeletalMeshComponent::IsBoneHidden(INT BoneIndex) (execIsBoneHidden's native). */
-UBOOL USkeletalMeshComponent::sub_00a14920(INT BoneIndex)
+UBOOL USkeletalMeshComponent::IsBoneHidden(INT BoneIndex)
 {
     if (BoneVisibility.Num() == 0)
     {
@@ -36,7 +36,7 @@ UBOOL USkeletalMeshComponent::sub_00a14920(INT BoneIndex)
 // @baa 0x00a14870
 /* UE3's USkeletalMeshComponent::UnHideBone(INT BoneIndex) (execUnHideBone's native): restore the bone's scale
  * and mark it visible. */
-void USkeletalMeshComponent::sub_00a14870(INT BoneIndex)
+void USkeletalMeshComponent::UnHideBone(INT BoneIndex)
 {
     if (BoneVisibility.Num() && BoneIndex != INDEX_NONE)
     {

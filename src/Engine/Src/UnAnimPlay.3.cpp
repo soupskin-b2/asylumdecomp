@@ -120,7 +120,7 @@ void UAnimNodeSequence__00c4af30::StopCameraAnim()
 {
 	if (ActiveCameraAnimInstance)
 	{
-		ActiveCameraAnimInstance->sub_007880c0(TRUE);		/* Stop(bImmediate) */
+		ActiveCameraAnimInstance->Stop(TRUE);		/* Stop(bImmediate) */
 		ActiveCameraAnimInstance->bAutoReleaseWhenFinished = TRUE;
 		ActiveCameraAnimInstance = NULL;
 	}
@@ -234,7 +234,7 @@ void UAnimNodeSequence::StopAnim()
 
 	if (ActiveCameraAnimInstance != NULL)
 	{
-		ActiveCameraAnimInstance->sub_007880c0(TRUE);		/* Stop(bImmediate) */
+		ActiveCameraAnimInstance->Stop(TRUE);		/* Stop(bImmediate) */
 		ActiveCameraAnimInstance->bAutoReleaseWhenFinished = TRUE;
 		ActiveCameraAnimInstance = NULL;
 	}

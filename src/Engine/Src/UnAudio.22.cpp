@@ -113,6 +113,6 @@ void AAnimatedCamera::StopCameraAnim(UCameraAnimInst* AnimInst, UBOOL bImmediate
 {
 	if (AnimInst)
 	{
-		AnimInst->sub_007880c0(bImmediate);	/* UCameraAnimInst::Stop */
+		AnimInst->Stop(bImmediate);	/* UCameraAnimInst::Stop */
 	}
 }

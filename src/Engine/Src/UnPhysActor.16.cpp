@@ -34,14 +34,14 @@ void AKActorSpawnable::ResetComponents()
 {
 	ReplicatedMesh = NULL;
 	ReplicatedMaterial = NULL;
-	sub_008c7f00(ImpactEffectComponent);	/* DetachComponent */
+	DetachComponent(ImpactEffectComponent);	/* DetachComponent */
 	ImpactEffectComponent = NULL;
-	sub_008c7f00(ImpactSoundComponent);
+	DetachComponent(ImpactSoundComponent);
 	ImpactSoundComponent = NULL;
-	sub_008c7f00(ImpactSoundComponent2);
+	DetachComponent(ImpactSoundComponent2);
 	ImpactSoundComponent2 = NULL;
-	sub_008c7f00(SlideEffectComponent);
+	DetachComponent(SlideEffectComponent);
 	SlideEffectComponent = NULL;
-	sub_008c7f00(SlideSoundComponent);
+	DetachComponent(SlideSoundComponent);
 	SlideSoundComponent = NULL;
 }

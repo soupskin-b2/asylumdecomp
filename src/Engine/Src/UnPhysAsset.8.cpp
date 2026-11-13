@@ -119,11 +119,11 @@ void UPhysicsAssetInstance::SetNamedMotorsAngularVelocityDrive(UBOOL bEnableSwin
         {
             if (BoneNames.FindItemIndex(CS->JointName) != INDEX_NONE)
             {
-                ((TArrayAt_<URB_ConstraintInstance*>&)Constraints).At(i)->sub_00a39310(bEnableSwingDrive, bEnableTwistDrive); // SetAngularVelocityDrive
+                ((TArrayAt_<URB_ConstraintInstance*>&)Constraints).At(i)->SetAngularVelocityDrive(bEnableSwingDrive, bEnableTwistDrive); // SetAngularVelocityDrive
             }
             else if (bSetOtherBodiesToComplement)
             {
-                ((TArrayAt_<URB_ConstraintInstance*>&)Constraints).At(i)->sub_00a39310(!bEnableSwingDrive, !bEnableTwistDrive);
+                ((TArrayAt_<URB_ConstraintInstance*>&)Constraints).At(i)->SetAngularVelocityDrive(!bEnableSwingDrive, !bEnableTwistDrive);
             }
         }
     }
@@ -141,13 +141,13 @@ void UPhysicsAssetInstance::SetAllMotorsAngularVelocityDrive(UBOOL bEnableSwingD
     {
         if (bSkipFullAnimWeightBodies)
         {
-            const INT BodyIndex = SkelMeshComp->PhysicsAsset->sub_00a231b0(((TArrayAt_<URB_ConstraintSetup*>&)SkelMeshComp->PhysicsAsset->ConstraintSetup).At(i)->JointName); // FindBodyIndex
+            const INT BodyIndex = SkelMeshComp->PhysicsAsset->FindBodyIndex(((TArrayAt_<URB_ConstraintSetup*>&)SkelMeshComp->PhysicsAsset->ConstraintSetup).At(i)->JointName); // FindBodyIndex
             if (((TArrayAt_<URB_BodySetup*>&)SkelMeshComp->PhysicsAsset->BodySetup).At(BodyIndex)->bAlwaysFullAnimWeight)
             {
                 continue;
             }
         }
 
-        ((TArrayAt_<URB_ConstraintInstance*>&)Constraints).At(i)->sub_00a39310(bEnableSwingDrive, bEnableTwistDrive); // SetAngularVelocityDrive
+        ((TArrayAt_<URB_ConstraintInstance*>&)Constraints).At(i)->SetAngularVelocityDrive(bEnableSwingDrive, bEnableTwistDrive); // SetAngularVelocityDrive
     }
 }

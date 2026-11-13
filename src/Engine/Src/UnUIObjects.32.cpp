@@ -50,7 +50,7 @@ UUIScene* UUIScene::GetPreviousScene(UBOOL bRequireMatchingPlayerOwner, UBOOL bI
 
 // @baa 0x00da9a10
 /* The current world's WorldInfo, if there is a world. */
-AWorldInfo* UUIScene::sub_00da9a10()
+AWorldInfo* UUIScene::GetWorldInfo()
 {
 	return GWorld ? GWorld->GetWorldInfo() : NULL;
 }

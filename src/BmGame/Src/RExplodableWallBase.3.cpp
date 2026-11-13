@@ -9,7 +9,7 @@ void ARExplodableWallBase::execGetWallSide(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT(FVector, TestLocation);
 	P_FINISH;
-	*(BYTE*)Result = sub_01716aa0(TestLocation);
+	*(BYTE*)Result = GetWallSide(TestLocation);
 }
 
 // @baa 0x00c83230

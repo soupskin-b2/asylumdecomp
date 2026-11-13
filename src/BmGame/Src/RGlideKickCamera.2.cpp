@@ -9,5 +9,5 @@ void ARGlideKickCamera::execUpdateCamera(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(DeltaTime);
 	P_FINISH;
-	sub_016b0a50(DeltaTime);
+	UpdateCamera(DeltaTime);
 }

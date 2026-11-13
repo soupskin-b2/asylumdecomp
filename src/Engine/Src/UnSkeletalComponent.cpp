@@ -231,7 +231,7 @@ undefined4 * USkeletalMeshComponent::sub_0090f2f0(byte param_2)
 }
 
 // @baa 0x0090f310
-uint USkeletalMeshComponent::vf_250(void)
+uint USkeletalMeshComponent::GetUseSimpleBoxCollision(void)
 {
     int param_1 = (int)this;
 
@@ -242,7 +242,7 @@ uint USkeletalMeshComponent::vf_250(void)
 }
 
 // @baa 0x0090f370
-uint USkeletalMeshComponent::vf_254(void)
+uint USkeletalMeshComponent::GetUseSimpleLineCollision(void)
 {
     int param_1 = (int)this;
 
@@ -534,7 +534,7 @@ void USkeletalComponent_0090a320::sub_0090a320(const float * NewScale)
 }
 
 /* FName::operator== (UnName.h); the kit's FName has no operators. */
-/* Classes.h has this as void* sub_0091f3f0(FName). */
+/* Classes.h has this as void* FindBodyInstanceNamed(FName). */
 struct USkeletalMeshComponent_ : public USkeletalMeshComponent
 {
     URB_BodyInstance* FindBodyInstanceNamed(FName BoneName);

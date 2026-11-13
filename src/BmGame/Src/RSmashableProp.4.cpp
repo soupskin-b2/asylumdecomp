@@ -10,7 +10,7 @@ struct ARSmashableProp_ : public ARSmashableProp
 
 // @baa 0x016751c0
 /* The decal material instance for the named decal (NULL without prop data or when the name isn't found). */
-void* ARSmashableProp::sub_016751c0(FName DecalName)
+void* ARSmashableProp::GetDecalMaterialInstance(FName DecalName)
 {
 	UMaterialInstance* DecalMaterial = NULL;
 	if (PropData)

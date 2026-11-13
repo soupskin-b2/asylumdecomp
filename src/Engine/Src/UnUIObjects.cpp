@@ -1180,7 +1180,7 @@ undefined4 sub_00da88f0(int param_1)
 }
 
 // @baa 0x00da90a0
-int __stdcall sub_00da90a0(int a0, int a1, int a2, int a3, int a4, int a5) { return 0; }
+int __stdcall InstanceUIPrefab(int a0, int a1, int a2, int a3, int a4, int a5) { return 0; }
 
 struct V_00da92e0 {
     virtual void v0();
@@ -1273,7 +1273,7 @@ struct V_00da92e0 {
 void V_00da92e0::sub_00da92e0() { g(); }
 
 // @baa 0x00da95c0
-int __stdcall sub_00da95c0(int a0) { return 0; }
+int __stdcall GetCurrentState(int a0) { return 0; }
 
 // @baa 0x00da98b0
 int __stdcall sub_00da98b0(int a0, int a1, int a2) { return 0; }

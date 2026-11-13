@@ -66,7 +66,7 @@ int sub_00ca5000()
 }
 
 // @baa 0x00daabb0
-int UUIObject::sub_00daabb0(INT Flags)
+int UUIObject::IsPrivateBehaviorSet(INT Flags)
 {
     return (PrivateFlags & Flags) == Flags;
 }

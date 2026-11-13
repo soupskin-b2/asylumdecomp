@@ -137,7 +137,7 @@ template<class T> struct TArrayAt_ : public TArray<T>
 /* UE3's APlayerController::IsPlayerMuted(const FUniqueNetId& PlayerId) (execIsPlayerMuted's native): the id is in
  * the voice packet filter (VoicePacketFilter.ContainsItem, FUniqueNetId::operator== inlined). UE3 declares
  * Uid as a QWORD; the kit has it as the script struct FQWord {A, B}, so it is compared as a QWORD here. */
-UBOOL APlayerController::sub_007b5600(FUniqueNetId& PlayerId)
+UBOOL APlayerController::IsPlayerMuted(FUniqueNetId& PlayerId)
 {
     for (INT i = 0; i < VoicePacketFilter.Num(); i++)
     {

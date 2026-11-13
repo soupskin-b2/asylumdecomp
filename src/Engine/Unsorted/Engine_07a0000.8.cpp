@@ -10,7 +10,7 @@ class FSceneViewFamily;
 
 // @baa 0x007ac510
 /* UE3's APlayerController::ClientFlushLevelStreaming(): unless a map change is pending, finish all level
- * streaming now and collect garbage (AWorldInfo::sub_00803c90 is UE3's ForceGarbageCollection(UBOOL bFullPurge)). */
+ * streaming now and collect garbage (AWorldInfo::ForceGarbageCollection is UE3's ForceGarbageCollection(UBOOL bFullPurge)). */
 void APlayerController::ClientFlushLevelStreaming()
 {
     UGameEngine* GameEngine = Cast<UGameEngine>(GEngine);
@@ -18,6 +18,6 @@ void APlayerController::ClientFlushLevelStreaming()
     {
         GWorld->sub_009d0be0(NULL);
         WorldInfo->bRequestedBlockOnAsyncLoading = TRUE;
-        WorldInfo->sub_00803c90(FALSE);
+        WorldInfo->ForceGarbageCollection(FALSE);
     }
 }

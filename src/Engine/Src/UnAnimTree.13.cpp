@@ -459,14 +459,14 @@ void UAnimNode_::GetNodesInternal(TArray<UAnimNode*>& Nodes)
 /* UAnimTree's anim group accessors (UnAnimTree.cpp) aren't declared in Classes.h. */
 struct UAnimTree__00c613b0 : public UAnimTree
 {
-	INT sub_00c556d0(FName GroupName);		/* GetGroupIndex */
+	INT GetGroupIndex(FName GroupName);		/* GetGroupIndex */
 	FLOAT GetGroupRelativePosition(FName GroupName);
 };
 
 // @baa 0x00c613b0
 FLOAT UAnimTree__00c613b0::GetGroupRelativePosition(FName GroupName)
 {
-	const INT GroupIndex = sub_00c556d0(GroupName);
+	const INT GroupIndex = GetGroupIndex(GroupName);
 	if (GroupIndex != INDEX_NONE)
 	{
 		return AnimGroups(GroupIndex).SynchPctPosition;
@@ -478,14 +478,14 @@ FLOAT UAnimTree__00c613b0::GetGroupRelativePosition(FName GroupName)
 /* UAnimTree's anim group accessors (UnAnimTree.cpp) aren't declared in Classes.h. */
 struct UAnimTree__00c61420 : public UAnimTree
 {
-	INT sub_00c556d0(FName GroupName);		/* GetGroupIndex */
+	INT GetGroupIndex(FName GroupName);		/* GetGroupIndex */
 	UAnimNodeSequence* GetGroupSynchMaster(FName GroupName);
 };
 
 // @baa 0x00c61420
 UAnimNodeSequence* UAnimTree__00c61420::GetGroupSynchMaster(FName GroupName)
 {
-	const INT GroupIndex = sub_00c556d0(GroupName);
+	const INT GroupIndex = GetGroupIndex(GroupName);
 	if (GroupIndex != INDEX_NONE)
 	{
 		return AnimGroups(GroupIndex).SynchMaster;
@@ -497,14 +497,14 @@ UAnimNodeSequence* UAnimTree__00c61420::GetGroupSynchMaster(FName GroupName)
 /* UAnimTree's anim group accessors (UnAnimTree.cpp) aren't declared in Classes.h. */
 struct UAnimTree__00c61490 : public UAnimTree
 {
-	INT sub_00c556d0(FName GroupName);		/* GetGroupIndex */
+	INT GetGroupIndex(FName GroupName);		/* GetGroupIndex */
 	UAnimNodeSequence* GetGroupNotifyMaster(FName GroupName);
 };
 
 // @baa 0x00c61490
 UAnimNodeSequence* UAnimTree__00c61490::GetGroupNotifyMaster(FName GroupName)
 {
-	const INT GroupIndex = sub_00c556d0(GroupName);
+	const INT GroupIndex = GetGroupIndex(GroupName);
 	if (GroupIndex != INDEX_NONE)
 	{
 		return AnimGroups(GroupIndex).NotifyMaster;
@@ -516,14 +516,14 @@ UAnimNodeSequence* UAnimTree__00c61490::GetGroupNotifyMaster(FName GroupName)
 /* UAnimTree's anim group accessors (UnAnimTree.cpp) aren't declared in Classes.h. */
 struct UAnimTree__00c61570 : public UAnimTree
 {
-	INT sub_00c556d0(FName GroupName);		/* GetGroupIndex */
+	INT GetGroupIndex(FName GroupName);		/* GetGroupIndex */
 	FLOAT GetGroupRateScale(FName GroupName);
 };
 
 // @baa 0x00c61570
 FLOAT UAnimTree__00c61570::GetGroupRateScale(FName GroupName)
 {
-	const INT GroupIndex = sub_00c556d0(GroupName);
+	const INT GroupIndex = GetGroupIndex(GroupName);
 	if (GroupIndex != INDEX_NONE)
 	{
 		return AnimGroups(GroupIndex).RateScale;
@@ -535,14 +535,14 @@ FLOAT UAnimTree__00c61570::GetGroupRateScale(FName GroupName)
 /* UAnimTree's anim group accessors (UnAnimTree.cpp) aren't declared in Classes.h. */
 struct UAnimTree__00c61500 : public UAnimTree
 {
-	INT sub_00c556d0(FName GroupName);		/* GetGroupIndex */
+	INT GetGroupIndex(FName GroupName);		/* GetGroupIndex */
 	void SetGroupRateScale(FName GroupName, FLOAT NewRateScale);
 };
 
 // @baa 0x00c61500
 void UAnimTree__00c61500::SetGroupRateScale(FName GroupName, FLOAT NewRateScale)
 {
-	const INT GroupIndex = sub_00c556d0(GroupName);
+	const INT GroupIndex = GetGroupIndex(GroupName);
 	if (GroupIndex != INDEX_NONE)
 	{
 		AnimGroups(GroupIndex).RateScale = NewRateScale;

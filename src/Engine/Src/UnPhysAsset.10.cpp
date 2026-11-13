@@ -75,7 +75,7 @@ void UPhysicsAssetInstance_::SetAllBodiesFixed(UBOOL bNewFixed)
 {
     for (INT i = 0; i < Bodies.Num(); i++)
     {
-        Bodies(i)->sub_00a09ca0(bNewFixed);
+        Bodies(i)->SetFixed(bNewFixed);
     }
 }
 

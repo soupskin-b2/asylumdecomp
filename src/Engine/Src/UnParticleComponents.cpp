@@ -171,7 +171,7 @@ void sub_00b51a40(void) {  }
 UBOOL UParticleSystemComponent::IsReadyForFinishDestroy() { return 1; }
 
 // @baa 0x00b51ba0
-void UParticleSystemComponent::sub_00b51ba0(int param_2)
+void UParticleSystemComponent::SetEditorLODLevel(int param_2)
 {
     int param_1 = (int)this;
 

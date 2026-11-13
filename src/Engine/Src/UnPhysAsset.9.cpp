@@ -83,7 +83,7 @@ template<class T> struct TArrayAt_ : public TArray<T>
 
 // @baa 0x00a0bc60
 /* Sets the damping ramp-up proportion on every body (BAA addition; name unknown) */
-void UPhysicsAssetInstance::sub_00a0bc60(FLOAT NewProportion)
+void UPhysicsAssetInstance::SetDampingRampupProportion(FLOAT NewProportion)
 {
     if (NewProportion != CachedDampingRampupProportion)
     {

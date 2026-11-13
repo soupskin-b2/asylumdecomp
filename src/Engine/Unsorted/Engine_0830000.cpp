@@ -514,7 +514,7 @@ undefined4 ANavigationPoint::vf_378(void)
 void ANavigationPoint::vf_38c(int a0) {  }
 
 // @baa 0x00835b60
-undefined4 ANavigationPoint::sub_00835b60(int param_2)
+undefined4 ANavigationPoint::IsOnDifferentNetwork(int param_2)
 {
     int param_1 = (int)this;
 

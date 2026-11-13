@@ -960,7 +960,7 @@ struct UPrimitiveComponent_ : public UPrimitiveComponent
 void UPrimitiveComponent_::sub_009ff9a0(FRBCollisionChannelContainer Channels)
 {
     RBCollideWithChannels = Channels;
-    vf_20c();
+    SetRBChannel();
 }
 
 struct UObject_ : public UObject

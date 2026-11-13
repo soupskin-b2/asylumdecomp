@@ -92,7 +92,7 @@ void ARCinematicBatmanBase::execDamageLevelUpdated( FFrame& Stack, RESULT_DECL )
 void ARCinematicBatmanBase::execLoadDamageMeshes(FFrame& Stack, RESULT_DECL)
 {
     P_FINISH;
-    sub_0156bbd0();
+    LoadDamageMeshes();
 }
 
 // @baa 0x016ea300
@@ -262,14 +262,14 @@ void ARPontoonBase::execAnimationPlaying(FFrame& Stack, RESULT_DECL)
 void URSeqAct_FullScreenPlayer::execWasSkipped(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_1a8();
+	*(UBOOL*)Result = WasSkipped();
 }
 
 // @baa 0x016eb520
 void URSeqAct_FullScreenPlayer::execIsPaused(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_1ac();
+	*(UBOOL*)Result = IsPaused();
 }
 
 // @baa 0x016eb560
@@ -300,7 +300,7 @@ void ARPawn::execSetLocationIgnoringCollision(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT(FVector, NewLocation);
 	P_FINISH;
-	sub_0166d490(NewLocation);
+	SetLocationIgnoringCollision(NewLocation);
 }
 
 // @baa 0x016e8790

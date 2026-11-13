@@ -17,7 +17,7 @@ void AAmbientSound_::sub_00791ad0(INT Param)
 	sub_0076cd90(Param);
 	if (bAutoPlay && AudioComponent && !AudioComponent->bWasPlaying)
 	{
-		AudioComponent->sub_00791770();
+		AudioComponent->Play();
 		bIsPlaying = TRUE;
 	}
 }
@@ -122,19 +122,6 @@ struct FEnumObject
     TArray<FName> Names;
 };
 
-struct CVtObj
-{
-    virtual void v0();
-    virtual void v1();
-    virtual void v2();
-    virtual void v3();
-    virtual void v4();
-    virtual void v5();
-    virtual void v6();
-    virtual void v7();
-    virtual void v8(int);
-};
-
 struct CUSoundMode
 {
     char pad0[0x58];
@@ -144,7 +131,6 @@ struct CUSoundMode
 };
 
 extern void* g_0268d07c;
-extern CVtObj* g_026667c4;
 int sub_005b3970(...);
 int sub_0059c600(void);
 int sub_005d88c0(...);
@@ -166,7 +152,7 @@ void CUSoundMode::sub_0078d860(int)
             Adj.SoundName = Enum->Names(Index);
         }
     }
-    g_026667c4->v8(0x11);
+    GCallbackEvent->Send((ECallbackEventType)0x11);
 }
 
 // @baa 0x0078d960
@@ -195,7 +181,7 @@ void UAudioComponent__00793c40::sub_00793c40(void)
 {
     sub_007654e0();
     if (bAutoPlay)
-        sub_00791770();
+        Play();
 }
 
 // @baa 0x0079b340

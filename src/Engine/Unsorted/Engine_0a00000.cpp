@@ -782,7 +782,7 @@ int sub_00a07bd0(void)
 // @baa 0x00a01980
 /* UE3's USkeletalMeshComponent::SetHasPhysicsAssetInstance(UBOOL bHasInstance): create or destroy the physics
  * asset instance (slot 0x260 InitArticulated(UBOOL bFixed), slot 0x264 TermArticulated(FRBPhysScene* Scene)). */
-void USkeletalMeshComponent::sub_00a01980(UBOOL bHasInstance)
+void USkeletalMeshComponent::SetHasPhysicsAssetInstance(UBOOL bHasInstance)
 {
     if (bHasInstance)
     {

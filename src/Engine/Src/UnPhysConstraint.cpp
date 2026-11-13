@@ -943,7 +943,7 @@ undefined4 * C_00a36fb0::sub_00a36fb0(byte param_2)
 // @baa 0x00a376f0
 int sub_006b0420(...);
 // @baa 0x00a385d0
-undefined4 URB_ConstraintInstance::sub_00a385d0(void)
+undefined4 URB_ConstraintInstance::GetPhysicsAssetInstance(void)
 {
     int param_1 = (int)this;
 

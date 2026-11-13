@@ -283,26 +283,26 @@ void ARPlayerController::execLive_SetLoginStatusError(FFrame& Stack, RESULT_DECL
 
 struct ARPlayerController__016f9330 : public ARPlayerController
 {
-	AActor* sub_016175a0();
+	AActor* GetAerialKickTarget();
 };
 
 // @baa 0x016f9330
 void ARPlayerController::execGetAerialKickTarget(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(AActor**)Result = this->sub_016175a0();
+	*(AActor**)Result = this->GetAerialKickTarget();
 }
 
 struct ARPlayerController__016f9570 : public ARPlayerController
 {
-	ARPawnVillain* sub_01623fd0();
+	ARPawnVillain* GetFallingAttackTarget();
 };
 
 // @baa 0x016f9570
 void ARPlayerController::execGetFallingAttackTarget(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(ARPawnVillain**)Result = this->sub_01623fd0();
+	*(ARPawnVillain**)Result = this->GetFallingAttackTarget();
 }
 
 // @baa 0x00c86e40
@@ -619,7 +619,7 @@ void ARPlayerController::execIsCurrentlyLoadingLevels(FFrame& Stack, RESULT_DECL
 void ARPlayerController::execIsAmerican(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_680();
+	*(UBOOL*)Result = IsAmerican();
 }
 
 // @baa 0x016fad90
@@ -1009,7 +1009,7 @@ void ARPlayerController::execStealthModeModifyPlayerMovement(FFrame& Stack, RESU
 
 struct ARPlayerController__016f90b0 : public ARPlayerController
 {
-	void sub_01615440(ARSpecialMoveInstance*);
+	void SpecialMoveFinished(ARSpecialMoveInstance*);
 };
 
 // @baa 0x016f90b0
@@ -1017,12 +1017,12 @@ void ARPlayerController::execSpecialMoveFinished(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(ARSpecialMoveInstance, FinishedMove);
 	P_FINISH;
-	((ARPlayerController__016f90b0*)this)->sub_01615440(FinishedMove);
+	((ARPlayerController__016f90b0*)this)->SpecialMoveFinished(FinishedMove);
 }
 
 struct ARPlayerController__016f9690 : public ARPlayerController
 {
-	void sub_01636e40(FLOAT);
+	void DoGrappleMovement(FLOAT);
 };
 
 // @baa 0x016f9690
@@ -1030,12 +1030,12 @@ void ARPlayerController::execDoGrappleMovement(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(DeltaTime);
 	P_FINISH;
-	this->sub_01636e40(DeltaTime);
+	this->DoGrappleMovement(DeltaTime);
 }
 
 struct ARPlayerController__016f97e0 : public ARPlayerController
 {
-	void sub_01618c20(FLOAT);
+	void UpdateSilentPredLookAt(FLOAT);
 };
 
 // @baa 0x016f97e0
@@ -1043,7 +1043,7 @@ void ARPlayerController::execUpdateSilentPredLookAt(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(DeltaTime);
 	P_FINISH;
-	this->sub_01618c20(DeltaTime);
+	this->UpdateSilentPredLookAt(DeltaTime);
 }
 
 // @baa 0x016fa5a0
@@ -1121,7 +1121,7 @@ void ARPlayerController::execProcessViewRotation(FFrame& Stack, RESULT_DECL)
 
 struct ARPlayerController__016f9850 : public ARPlayerController
 {
-	UBOOL sub_016184f0(FLOAT);
+	UBOOL AmIInSoftCover(FLOAT);
 };
 
 // @baa 0x016f9850
@@ -1129,12 +1129,12 @@ void ARPlayerController::execAmIInSoftCover(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(DeltaTime);
 	P_FINISH;
-	*(UBOOL*)Result = this->sub_016184f0(DeltaTime);
+	*(UBOOL*)Result = this->AmIInSoftCover(DeltaTime);
 }
 
 struct ARPlayerController__016f8540 : public ARPlayerController
 {
-	void sub_01615460(UBOOL);
+	void SetUsingGamepad(UBOOL);
 };
 
 // @baa 0x016f8540
@@ -1142,12 +1142,12 @@ void ARPlayerController::execSetUsingGamepad(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(UsingGamepad);
 	P_FINISH;
-	this->sub_01615460(UsingGamepad);
+	this->SetUsingGamepad(UsingGamepad);
 }
 
 struct ARPlayerController__016f8a60 : public ARPlayerController
 {
-	void sub_01613570(UBOOL);
+	void SetOcclusion(UBOOL);
 };
 
 // @baa 0x016f8a60
@@ -1155,12 +1155,12 @@ void ARPlayerController::execSetOcclusion(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bOcclusionOn);
 	P_FINISH;
-	this->sub_01613570(bOcclusionOn);
+	this->SetOcclusion(bOcclusionOn);
 }
 
 struct ARTunnelGrateBase_ : public ARTunnelGrateBase
 {
-	void sub_0171a890(UBOOL);
+	void SetDisableCapeCollision(UBOOL);
 };
 
 // @baa 0x0171e1a0
@@ -1168,7 +1168,7 @@ void ARTunnelGrateBase::execSetDisableCapeCollision(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bDisabled);
 	P_FINISH;
-	((ARTunnelGrateBase_*)this)->sub_0171a890(bDisabled);
+	((ARTunnelGrateBase_*)this)->SetDisableCapeCollision(bDisabled);
 }
 
 // @baa 0x016f88a0
@@ -1261,7 +1261,7 @@ void ARPlayerController::execFE_SetVolumeMusic(FFrame& Stack, RESULT_DECL)
 
 struct ARPlayerController__016f9470 : public ARPlayerController
 {
-	UBOOL sub_01618d10(FVector);
+	UBOOL ShouldIKickOffWall(FVector);
 };
 
 // @baa 0x016f9470
@@ -1269,7 +1269,7 @@ void ARPlayerController::execShouldIKickOffWall(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT(FVector, HitNormal);
 	P_FINISH;
-	*(UBOOL*)Result = this->sub_01618d10(HitNormal);
+	*(UBOOL*)Result = this->ShouldIKickOffWall(HitNormal);
 }
 
 // @baa 0x016f9d60

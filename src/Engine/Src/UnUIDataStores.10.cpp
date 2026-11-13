@@ -124,7 +124,7 @@ T* ConstructObject(UClass* Class, UObject* Outer, FName Name = NAME_None, QWORD 
 
 // @baa 0x00da19f0
 /* CreateDataStore: a new, initialized data store of the given class (NULL unless it's a UIDataStore class). */
-UUIDataStore* UDataStoreClient::sub_00da19f0(UClass* DataStoreClass)
+UUIDataStore* UDataStoreClient::CreateDataStore(UClass* DataStoreClass)
 {
 	UUIDataStore* Result = NULL;
 	if (DataStoreClass != NULL && DataStoreClass->IsChildOf(UUIDataStore::StaticClass()))

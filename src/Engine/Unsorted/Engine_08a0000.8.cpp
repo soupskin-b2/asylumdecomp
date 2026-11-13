@@ -11,7 +11,7 @@ struct UWorld_ : public UWorld
 
 // @baa 0x008a7bb0
 /* Teleports the actor to NewLocation (UWorld::FarMoveActor with its default flags). */
-UBOOL AActor::sub_008a7bb0(FVector NewLocation)
+UBOOL AActor::SetLocation(FVector NewLocation)
 {
 	return ((UWorld_*)GWorld)->FarMoveActor(this, NewLocation);
 }

@@ -16,7 +16,7 @@ void USkeletalMeshComponent::execSetAnimTreeTemplate(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(UAnimTree, NewTemplate);
 	P_FINISH;
-	sub_00937e40(NewTemplate);
+	SetAnimTreeTemplate(NewTemplate);
 }
 
 // @baa 0x00940090
@@ -25,7 +25,7 @@ void USkeletalMeshComponent::execDetachComponent(FFrame& Stack, RESULT_DECL)
 	P_GET_OBJECT(UActorComponent, Component);
 	P_FINISH;
 	if (Component)
-		sub_0093fde0(Component);
+		DetachComponent(Component);
 }
 
 // @baa 0x00940100

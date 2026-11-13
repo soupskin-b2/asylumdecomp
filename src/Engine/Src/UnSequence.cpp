@@ -1427,7 +1427,7 @@ void USequenceOp::Activated(void) {  }
 void USequence::vf_1ac() {  }
 
 // @baa 0x008abb60
-void USequence::sub_008abb60(uint param_2)
+void USequence::SetEnabled(uint param_2)
 {
     int param_1 = (int)this;
 

@@ -20,7 +20,7 @@ struct AGameInfo_ : public AGameInfo
 // @baa 0x008c7500
 /* AGameInfo::ForceClearUnpauseDelegates (UnGame.cpp): drops every CanUnpause delegate PauseActor registered, and if
  * PauseActor's player was the pauser, hands that role to another live player (or clears it). */
-void AGameInfo::sub_008c7500(AActor* PauseActor)
+void AGameInfo::ForceClearUnpauseDelegates(AActor* PauseActor)
 {
 	if (PauseActor != NULL)
 	{

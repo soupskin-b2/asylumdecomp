@@ -141,7 +141,7 @@ void APawn::execSetRemoteViewPitch(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(NewRemoteViewPitch);
 	P_FINISH;
-	this->sub_00865220(NewRemoteViewPitch);
+	this->SetRemoteViewPitch(NewRemoteViewPitch);
 }
 
 // @baa 0x00c8b4a0
@@ -207,7 +207,7 @@ void AActor::execMoveSmooth(FFrame& Stack, RESULT_DECL)
 	P_GET_STRUCT(FVector, Delta);
 	P_FINISH;
 	bJustTeleported = 0;
-	*(UBOOL*)Result = sub_00868010(Delta);
+	*(UBOOL*)Result = MoveSmooth(Delta);
 }
 
 // @baa 0x00c8b1c0

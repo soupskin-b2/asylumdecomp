@@ -11,8 +11,8 @@ extern char g_026e0bd8;
 void ARDebugMenu::execBreatherBufferToggle(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	((ARDebugMenu*)&g_026e0bf4)->sub_015109e0();
-	((ARDebugMenu*)&g_026e0bd8)->sub_015109e0();
+	((ARDebugMenu*)&g_026e0bf4)->BreatherBufferToggle();
+	((ARDebugMenu*)&g_026e0bd8)->BreatherBufferToggle();
 }
 
 // @baa 0x01512260

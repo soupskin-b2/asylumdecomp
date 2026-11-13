@@ -71,7 +71,7 @@ struct FUIDataStoreBinding_ : public FUIDataStoreBinding
 // @baa 0x00daa860
 /* UUIObject helper: refresh the tooltip binding (index 100, UCONST_TOOLTIP_BINDING_INDEX) or the context menu binding
  * (101, UCONST_CONTEXTMENU_BINDING_INDEX). */
-void UUIObject::sub_00daa860(INT BindingIndex)
+void UUIObject::ClearDefaultDataBinding(INT BindingIndex)
 {
     if (BindingIndex == 100)
     {
@@ -85,7 +85,7 @@ void UUIObject::sub_00daa860(INT BindingIndex)
 
 // @baa 0x00daa820
 /* UE3's UUIObject::IsContainedBy(UUIObject* Container): whether Container is somewhere up the Owner chain. */
-UBOOL UUIObject::sub_00daa820(UUIObject* Container)
+UBOOL UUIObject::IsContainedBy(UUIObject* Container)
 {
     UBOOL bResult = FALSE;
     if (Container != NULL)
@@ -112,11 +112,11 @@ template<typename T> struct TArrayAddUnique_ : public TArray<T>
  * (UIDataStoreSubscriber): the data stores the tooltip and context menu bindings resolved to. */
 struct UUIObject_ : public UUIObject
 {
-    void sub_00db5ac0(TArray<UUIDataStore*>& out_BoundDataStores);
+    void GetDefaultDataStores(TArray<UUIDataStore*>& out_BoundDataStores);
 };
 
 // @baa 0x00db5ac0
-void UUIObject_::sub_00db5ac0(TArray<UUIDataStore*>& out_BoundDataStores)
+void UUIObject_::GetDefaultDataStores(TArray<UUIDataStore*>& out_BoundDataStores)
 {
     if (ToolTip.ResolvedDataStore != NULL)
     {
@@ -254,7 +254,7 @@ INT UUIObject::vf_200(INT LeftTarget, INT TopTarget, INT RightTarget, INT Bottom
 // @baa 0x00da9df0
 /* UE3's UUIScene::SetSceneInputMode(BYTE NewInputMode): store the mode and, when it changed, request a scene input
  * mask update. */
-void UUIScene::sub_00da9df0(BYTE NewInputMode)
+void UUIScene::SetSceneInputMode(BYTE NewInputMode)
 {
     UBOOL bChanged = SceneInputMode != NewInputMode;
     SceneInputMode = NewInputMode;

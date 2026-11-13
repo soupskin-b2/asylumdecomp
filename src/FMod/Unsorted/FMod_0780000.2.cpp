@@ -10,7 +10,7 @@ void UAudioComponent::execSetSeekSpeed(FFrame& Stack, RESULT_DECL)
     P_GET_NAME(InName);
     P_GET_FLOAT(InFloat);
     P_FINISH;
-    this->sub_0078ddc0(InName, InFloat);
+    this->SetSeekSpeed(InName, InFloat);
 }
 
 // @baa 0x0078e720
@@ -19,5 +19,5 @@ void UAudioComponent::execSetWaveParameter(FFrame& Stack, RESULT_DECL)
     P_GET_NAME(InName);
     P_GET_OBJECT(USoundNodeWave, InWave);
     P_FINISH;
-    this->sub_0078e0c0(InName, InWave);
+    this->SetWaveParameter(InName, InWave);
 }

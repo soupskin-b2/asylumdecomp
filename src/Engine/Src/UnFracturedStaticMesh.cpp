@@ -1187,7 +1187,7 @@ void C_007cf400::sub_007cf400(void)
 }
 
 // @baa 0x00947280
-undefined4 UStaticMeshComponent::vf_250(void)
+undefined4 UStaticMeshComponent::GetUseSimpleBoxCollision(void)
 {
     int param_1 = (int)this;
 
@@ -1198,7 +1198,7 @@ undefined4 UStaticMeshComponent::vf_250(void)
 }
 
 // @baa 0x009472e0
-undefined4 UStaticMeshComponent::vf_254(void)
+undefined4 UStaticMeshComponent::GetUseSimpleLineCollision(void)
 {
     int param_1 = (int)this;
 

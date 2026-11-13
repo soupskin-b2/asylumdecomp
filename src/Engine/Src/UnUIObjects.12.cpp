@@ -215,7 +215,7 @@ void UUIScreenObject::vf_070()
 
 // @baa 0x00da99e0
 /* UE3's UUIScreenObject::AcceptsPlayerInput(INT PlayerIndex): whether the input mask lets PlayerIndex through. */
-UBOOL UUIScreenObject::sub_00da99e0(INT PlayerIndex)
+UBOOL UUIScreenObject::AcceptsPlayerInput(INT PlayerIndex)
 {
     UBOOL bResult = FALSE;
     if (PlayerIndex >= 0 && PlayerIndex < 4)
@@ -231,7 +231,7 @@ UBOOL UUIScreenObject::sub_00da99e0(INT PlayerIndex)
 // @baa 0x00da94c0
 /* Unnamed in the kit: UE3's UUIScreenObject::InvalidatePosition(BYTE Face): mark Face for re-resolve and invalidate
  * the faces that depend on it. */
-void UUIScreenObject::sub_00da94c0(BYTE Face)
+void UUIScreenObject::InvalidatePosition(BYTE Face)
 {
     UBOOL bChanged = Position.sub_00de0600(0, Face);
     Position.bInvalidated[Face] = 1;

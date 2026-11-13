@@ -178,7 +178,7 @@ struct C_P1_5a090
 };
 
 // @baa 0x0155a090
-void __stdcall sub_0155a090(C_P1_5a090* P)
+void __stdcall PlayerUpdateTransform(C_P1_5a090* P)
 {
     if (P != NULL)
     {

@@ -5,12 +5,12 @@
 
 // @baa 0x00a11060
 /* UE3's UPrimitiveComponent::SetComponentRBFixed(UBOOL bFixed): forwarded to the body instance
- * (URB_BodyInstance::sub_00a09ca0, UE3's SetFixed). */
+ * (URB_BodyInstance::SetFixed, UE3's SetFixed). */
 void UPrimitiveComponent::SetComponentRBFixed(UBOOL bFixed)
 {
     if (BodyInstance)
     {
-        BodyInstance->sub_00a09ca0(bFixed);
+        BodyInstance->SetFixed(bFixed);
     }
 }
 
@@ -25,7 +25,7 @@ struct UPrimitiveComponent_ : public UPrimitiveComponent
 void UPrimitiveComponent_::sub_009ff950(BYTE Channel)
 {
     RBChannel = Channel;
-    vf_20c();
+    SetRBChannel();
 }
 
 /* Unnamed in the kit: UE3's FRBCollisionChannelContainer::SetChannel(ERBCollisionChannel Channel, UBOOL bNewState)
@@ -37,7 +37,7 @@ void UPrimitiveComponent_::sub_009ff950(BYTE Channel)
 void UPrimitiveComponent::sub_009ff970(INT Channel, INT bNewCollides)
 {
     RBCollideWithChannels.sub_00a33b40(Channel, bNewCollides);
-    vf_20c();
+    SetRBChannel();
 }
 
 // @baa 0x009feb00

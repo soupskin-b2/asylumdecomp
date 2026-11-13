@@ -57,7 +57,7 @@ public:
  * Returns TRUE once the component is no longer attached. */
 UBOOL DetachComponentFromSkelComp(UActorComponent* Component, USkeletalMeshComponent* SkelComp)
 {
-    SkelComp->sub_0093fde0(Component); // DetachComponent
+    SkelComp->DetachComponent(Component); // DetachComponent
     if (!Component->bAttached)
     {
         return TRUE;

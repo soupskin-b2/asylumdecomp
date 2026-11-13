@@ -8,14 +8,14 @@
 void UFracturedBaseComponent::execGetUseSimpleBoxCollision(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_250();
+	*(UBOOL*)Result = GetUseSimpleBoxCollision();
 }
 
 // @baa 0x00947300
 void UFracturedBaseComponent::execGetUseSimpleLineCollision(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_254();
+	*(UBOOL*)Result = GetUseSimpleLineCollision();
 }
 
 // @baa 0x00c9f100

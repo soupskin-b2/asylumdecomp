@@ -17,7 +17,7 @@ void AActor::execIsOverlapping(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(AActor, A);
 	P_FINISH;
-	*(UBOOL*)Result = sub_00763730(A, 0, 0, 0);
+	*(UBOOL*)Result = IsOverlapping(A, 0, 0, 0);
 }
 
 // @baa 0x008a9430
@@ -356,7 +356,7 @@ void AActor::execSetHardAttach(FFrame& Stack, RESULT_DECL)
 enum { EPOLL_Sleep = 384 };
 // @baa 0x008a7810
 /* The native half of latent Sleep(Seconds): poll EPOLL_Sleep until LatentFloat runs out. */
-void AActor::sub_008a7810(FLOAT Seconds)
+void AActor::Sleep(FLOAT Seconds)
 {
     StateFrame->LatentAction = EPOLL_Sleep;
     LatentFloat = Seconds;

@@ -49,13 +49,13 @@ struct ARPawnPlayer_ : public ARPawnPlayer
 
 struct ARPlayerController__01618d10 : public ARPlayerController
 {
-	UBOOL sub_01618d10(FVector WallNormal);
+	UBOOL ShouldIKickOffWall(FVector WallNormal);
 };
 
 // @baa 0x01618d10
 /* While flying with the cape glide available, probes for a wall ahead: TRUE when there's no front barrier;
  * a found barrier is cleared and refused. */
-UBOOL ARPlayerController__01618d10::sub_01618d10(FVector WallNormal)
+UBOOL ARPlayerController__01618d10::ShouldIKickOffWall(FVector WallNormal)
 {
 	ARPawnPlayer* Player = Cast<ARPawnPlayer>(Pawn);
 	if (!bCapeGlideDisabled && Player->Physics == PHYS_Flying)

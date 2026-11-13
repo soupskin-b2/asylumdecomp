@@ -181,7 +181,7 @@ struct C_view_016ae940 {
 int sub_006311e0(...);
 extern undefined4 g_02383f1c;
 // @baa 0x016ae940
-void URCapeComponent::sub_016ae940(undefined4 param_2)
+void URCapeComponent::AddCinematicAnimSet(undefined4 param_2)
 {
     int param_1 = (int)this;
   if (*(int *)(param_1 + 0xb8) != 0) {
@@ -727,9 +727,9 @@ FLOAT URCapeComponent__016b20a0::sub_016b20a0()
 
 // @baa 0x016ae830
 /* Forwards to the cape's animation node. */
-FLOAT URCapeComponent::sub_016ae830(FName Name)
+FLOAT URCapeComponent::GetAnimTreeNodeBlendValue(FName Name)
 {
-	return CapeAnimNode->sub_01562440(Name);
+	return CapeAnimNode->GetAnimTreeNodeBlendValue(Name);
 }
 
 /* The cape's native physics simulation (CapePhysics is an FPointer to it in the kit); its wind getters
@@ -743,7 +743,7 @@ public:
 
 // @baa 0x016be930
 /* Fills in the wind audio properties from the cape simulation (zero when there is none). */
-void URCapeComponent::sub_016be930(FCapeWindAudioProperties& Properties)
+void URCapeComponent::CalculateWindProperties(FCapeWindAudioProperties& Properties)
 {
 	FCapePhysics* Physics = (FCapePhysics*)CapePhysics.Dummy;
 	if (Physics)

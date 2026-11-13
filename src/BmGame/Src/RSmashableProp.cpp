@@ -276,7 +276,7 @@ void ARSmashableProp__0166b6a0::sub_0166b6a0()
 	}
 	bDoDamage = PropData->PropDoDamage;
 	IgnorePawnCollisions = PropData->IgnorePawnCollisions;
-	sub_0166b2e0(PropData->PropIsStatic);
+	SetIsStatic(PropData->PropIsStatic);
 	bWorldGeometry = PropData->bWorldGeometry;
 	PropBreakingImpulse = FVector(0.f, 0.f, 0.f);
 	BreakCollideActor = NULL;

@@ -78,7 +78,7 @@ void AFracturedStaticMeshActor::execResetHealth( FFrame& Stack, RESULT_DECL )
 void UAnimNodeCrossfader::execGetActiveChild(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UAnimNodeSequence**)Result = this->sub_00c7a590();
+	*(UAnimNodeSequence**)Result = this->GetActiveChild();
 }
 
 // @baa 0x00c9b9a0
@@ -116,7 +116,7 @@ void UAnimNodePlayCustomAnim::execStopCustomAnim(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(BlendOutTime);
 	P_FINISH;
-	this->sub_00c4bba0(BlendOutTime);
+	this->StopCustomAnim(BlendOutTime);
 }
 
 // @baa 0x00c92340
@@ -124,7 +124,7 @@ void USkelControlLookAt::execInterpolateTargetLocation(FFrame& Stack, RESULT_DEC
 {
 	P_GET_FLOAT(DeltaTime);
 	P_FINISH;
-	this->sub_0090d0a0(DeltaTime);
+	this->InterpolateTargetLocation(DeltaTime);
 }
 
 // @baa 0x00c9bb90
@@ -155,7 +155,7 @@ void UAnimTree::execSetUseSavedPose(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bUseSaved);
 	P_FINISH;
-	this->sub_00c7b660(bUseSaved);
+	this->SetUseSavedPose(bUseSaved);
 }
 
 // @baa 0x00c922d0
@@ -163,7 +163,7 @@ void USkelControlLookAt::execSetTargetLocation(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT(FVector, NewTargetLocation);
 	P_FINISH;
-	this->sub_0090d0f0(NewTargetLocation);
+	this->SetTargetLocation(NewTargetLocation);
 }
 
 // @baa 0x00c92020
@@ -171,7 +171,7 @@ void UMorphNodePose::execSetMorphTarget(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_NAME(MorphTargetName);
 	P_FINISH;
-	this->sub_00834900(MorphTargetName);
+	this->SetMorphTarget(MorphTargetName);
 }
 
 // @baa 0x00c988d0
@@ -187,7 +187,7 @@ void UAnimNodeSynch::execGetMasterNodeOfGroup(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_NAME(GroupName);
 	P_FINISH;
-	*(void**)Result = this->sub_00c56530(GroupName);
+	*(void**)Result = this->GetMasterNodeOfGroup(GroupName);
 }
 
 // @baa 0x00c918f0
@@ -195,7 +195,7 @@ void UAnimNodeSynch::execGetRelativePosition(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_NAME(GroupName);
 	P_FINISH;
-	*(FLOAT*)Result = this->sub_00c56440(GroupName);
+	*(FLOAT*)Result = this->GetRelativePosition(GroupName);
 }
 
 struct UAnimTree__00c91a10 : public UAnimTree
@@ -229,7 +229,7 @@ void UAnimTree::execGetGroupSynchMaster(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_NAME(GroupName);
 	P_FINISH;
-	*(void**)Result = this->sub_00c61420(GroupName);
+	*(void**)Result = this->GetGroupSynchMaster(GroupName);
 }
 
 // @baa 0x00c91ce0
@@ -237,7 +237,7 @@ void UAnimTree::execGetGroupNotifyMaster(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_NAME(GroupName);
 	P_FINISH;
-	*(void**)Result = this->sub_00c61490(GroupName);
+	*(void**)Result = this->GetGroupNotifyMaster(GroupName);
 }
 
 // @baa 0x00c91e00
@@ -245,7 +245,7 @@ void UAnimTree::execGetGroupRelativePosition(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_NAME(GroupName);
 	P_FINISH;
-	*(FLOAT*)Result = this->sub_00c613b0(GroupName);
+	*(FLOAT*)Result = this->GetGroupRelativePosition(GroupName);
 }
 
 // @baa 0x00c91f20
@@ -253,7 +253,7 @@ void UAnimTree::execGetGroupRateScale(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_NAME(GroupName);
 	P_FINISH;
-	*(FLOAT*)Result = this->sub_00c61570(GroupName);
+	*(FLOAT*)Result = this->GetGroupRateScale(GroupName);
 }
 
 // @baa 0x00c91fa0
@@ -261,7 +261,7 @@ void UAnimTree::execGetGroupIndex(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_NAME(GroupName);
 	P_FINISH;
-	*(INT*)Result = this->sub_00c556d0(GroupName);
+	*(INT*)Result = this->GetGroupIndex(GroupName);
 }
 
 // @baa 0x00c94320
@@ -269,7 +269,7 @@ void UPhysicsAsset::execFindBodyIndex(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_NAME(BodyName);
 	P_FINISH;
-	*(INT*)Result = this->sub_00a231b0(BodyName);
+	*(INT*)Result = this->FindBodyIndex(BodyName);
 }
 
 // @baa 0x00c93ac0

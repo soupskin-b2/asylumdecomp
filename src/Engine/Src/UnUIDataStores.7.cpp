@@ -23,7 +23,7 @@ void UDataStoreClient::execCreateDataStore(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(UClass, DataStoreClass);
 	P_FINISH;
-	*(UUIDataStore**)Result = sub_00da19f0(DataStoreClass);
+	*(UUIDataStore**)Result = CreateDataStore(DataStoreClass);
 }
 
 // @baa 0x00ca08e0
@@ -31,7 +31,7 @@ void UDataStoreClient::execUnregisterDataStore(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(UUIDataStore, DataStore);
 	P_FINISH;
-	*(UBOOL*)Result = sub_00d9cc20(DataStore);
+	*(UBOOL*)Result = UnregisterDataStore(DataStore);
 }
 
 // @baa 0x00ca0950
@@ -39,7 +39,7 @@ void UDataStoreClient::execFindPlayerDataStoreIndex(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(ULocalPlayer, PlayerOwner);
 	P_FINISH;
-	*(INT*)Result = sub_00d92fb0(PlayerOwner);
+	*(INT*)Result = FindPlayerDataStoreIndex(PlayerOwner);
 }
 
 // @baa 0x00ca2c40
@@ -47,7 +47,7 @@ void UUIDynamicDataProvider::execBindProviderInstance(FFrame& Stack, RESULT_DECL
 {
 	P_GET_OBJECT(UObject, DataSourceInstance);
 	P_FINISH;
-	*(UBOOL*)Result = sub_00d90570(DataSourceInstance);
+	*(UBOOL*)Result = BindProviderInstance(DataSourceInstance);
 }
 
 // @baa 0x00ca2de0
@@ -55,7 +55,7 @@ void USessionSettingsProvider::execBindProviderClient(FFrame& Stack, RESULT_DECL
 {
 	P_GET_OBJECT(UClass, DataSourceClass);
 	P_FINISH;
-	*(UBOOL*)Result = sub_00da32c0(DataSourceClass);
+	*(UBOOL*)Result = BindProviderClient(DataSourceClass);
 }
 
 // @baa 0x00ca0840

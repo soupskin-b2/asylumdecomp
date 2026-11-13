@@ -22,7 +22,7 @@ struct URCapeSkeletalMeshComponent_ : public URCapeSkeletalMeshComponent
 
 // @baa 0x016ae7b0
 /* Passes the new damage material on to the cloth mesh's script. */
-void URCapeComponent::sub_016ae7b0(UMaterialInstance* NewMat)
+void URCapeComponent::UpdateDamageState(UMaterialInstance* NewMat)
 {
 	((URCapeSkeletalMeshComponent_*)ClothSkeletalMesh)->eventUpdateDamageLevel(NewMat);
 }

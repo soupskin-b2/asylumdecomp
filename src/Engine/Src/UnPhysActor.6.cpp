@@ -32,12 +32,12 @@ void ARB_LineImpulseActor_::execFireLineImpulse( FFrame& Stack, RESULT_DECL )
 
 struct AKActor__00c936f0 : public AKActor
 {
-	UPhysicalMaterial* sub_009d9a90();
+	UPhysicalMaterial* GetKActorPhysMaterial();
 };
 
 // @baa 0x00c936f0
 void AKActor::execGetKActorPhysMaterial(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UPhysicalMaterial**)Result = this->sub_009d9a90();
+	*(UPhysicalMaterial**)Result = this->GetKActorPhysMaterial();
 }

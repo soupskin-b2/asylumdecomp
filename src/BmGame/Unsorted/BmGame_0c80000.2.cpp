@@ -149,7 +149,7 @@ void APlayerController::execSetNetSpeed(FFrame& Stack, RESULT_DECL)
 
 struct AActor__00c82fd0 : public AActor
 {
-	void sub_00758b70(FLOAT);
+	void SetNetUpdateTime(FLOAT);
 };
 
 // @baa 0x00c82fd0
@@ -157,7 +157,7 @@ void AActor::execSetNetUpdateTime(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(NewUpdateTime);
 	P_FINISH;
-	this->sub_00758b70(NewUpdateTime);
+	this->SetNetUpdateTime(NewUpdateTime);
 }
 
 // @baa 0x00c84130
@@ -178,7 +178,7 @@ void AController::execRouteCache_AddItem(FFrame& Stack, RESULT_DECL)
 
 struct APlayerController__00c86d20 : public APlayerController
 {
-	UBOOL sub_007a0040(FLOAT);
+	UBOOL CheckSpeedHack(FLOAT);
 };
 
 // @baa 0x00c86d20
@@ -186,12 +186,12 @@ void APlayerController::execCheckSpeedHack(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(DeltaTime);
 	P_FINISH;
-	*(UBOOL*)Result = this->sub_007a0040(DeltaTime);
+	*(UBOOL*)Result = this->CheckSpeedHack(DeltaTime);
 }
 
 struct APlayerController__00c86d90 : public APlayerController
 {
-	INT sub_007acd30(FLOAT);
+	INT FindStairRotation(FLOAT);
 };
 
 // @baa 0x00c86d90
@@ -199,12 +199,12 @@ void APlayerController::execFindStairRotation(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(DeltaTime);
 	P_FINISH;
-	*(INT*)Result = this->sub_007acd30(DeltaTime);
+	*(INT*)Result = this->FindStairRotation(DeltaTime);
 }
 
 struct APlayerController__00c87280 : public APlayerController
 {
-	void sub_007afac0(FName);
+	void ServerNotifyLoadedWorld(FName);
 };
 
 // @baa 0x00c87280
@@ -212,7 +212,7 @@ void APlayerController::execServerNotifyLoadedWorld(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_NAME(WorldPackageName);
 	P_FINISH;
-	this->sub_007afac0(WorldPackageName);
+	this->ServerNotifyLoadedWorld(WorldPackageName);
 }
 
 // @baa 0x00c83d90
@@ -225,7 +225,7 @@ void AAnimatedCamera::execStopAllCameraAnims(FFrame& Stack, RESULT_DECL)
 
 struct APlayerController__00c87660 : public APlayerController
 {
-	UBOOL sub_007b5600(FUniqueNetId&);
+	UBOOL IsPlayerMuted(FUniqueNetId&);
 };
 
 // @baa 0x00c87660
@@ -233,7 +233,7 @@ void APlayerController::execIsPlayerMuted(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT_REF(FUniqueNetId, Sender);
 	P_FINISH;
-	*(UBOOL*)Result = this->sub_007b5600(Sender);
+	*(UBOOL*)Result = this->IsPlayerMuted(Sender);
 }
 
 // @baa 0x00c83290

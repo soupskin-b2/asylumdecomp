@@ -149,7 +149,7 @@ void UObject::execQuatToRotator(FFrame& Stack, RESULT_DECL)
 void UObject::execStoreConfig(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	this->sub_005de600(0x4000, 0, 0);
+	this->StoreConfig(0x4000, 0, 0);
 }
 
 struct UObject__005999b0 : public UObject

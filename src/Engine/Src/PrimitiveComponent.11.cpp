@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x006dc7b0
-UINT UMeshComponent::vf_250() { return 0; }
+UINT UMeshComponent::GetUseSimpleBoxCollision() { return 0; }

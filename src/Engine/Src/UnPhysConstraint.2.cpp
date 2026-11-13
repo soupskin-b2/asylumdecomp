@@ -10,7 +10,7 @@ void URB_ConstraintInstance::execSetAngularVelocityDrive(FFrame& Stack, RESULT_D
     P_GET_UBOOL(bEnableSwingDrive);
     P_GET_UBOOL(bEnableTwistDrive);
     P_FINISH;
-    sub_00a39310(bEnableSwingDrive, bEnableTwistDrive);
+    SetAngularVelocityDrive(bEnableSwingDrive, bEnableTwistDrive);
 }
 
 struct URB_ConstraintInstance__00a400a0 : public URB_ConstraintInstance
@@ -35,19 +35,19 @@ void ARB_ConstraintActor::execTermConstraint( FFrame& Stack, RESULT_DECL )
 
 struct URB_ConstraintInstance__00c95810 : public URB_ConstraintInstance
 {
-	UPhysicsAssetInstance* sub_00a385d0();
+	UPhysicsAssetInstance* GetPhysicsAssetInstance();
 };
 
 // @baa 0x00c95810
 void URB_ConstraintInstance::execGetPhysicsAssetInstance(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UPhysicsAssetInstance**)Result = ((URB_ConstraintInstance__00c95810*)this)->sub_00a385d0();
+	*(UPhysicsAssetInstance**)Result = ((URB_ConstraintInstance__00c95810*)this)->GetPhysicsAssetInstance();
 }
 
 struct URB_ConstraintInstance__00c96410 : public URB_ConstraintInstance
 {
-	void sub_00a3a480(FLOAT);
+	void SetLinearLimitSize(FLOAT);
 };
 
 // @baa 0x00c96410
@@ -55,12 +55,12 @@ void URB_ConstraintInstance::execSetLinearLimitSize(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(NewLimitSize);
 	P_FINISH;
-	this->sub_00a3a480(NewLimitSize);
+	this->SetLinearLimitSize(NewLimitSize);
 }
 
 struct ARB_ConstraintActor__00c937d0 : public ARB_ConstraintActor
 {
-	void sub_00a321f0(UBOOL);
+	void SetDisableCollision(UBOOL);
 };
 
 // @baa 0x00c937d0
@@ -68,12 +68,12 @@ void ARB_ConstraintActor::execSetDisableCollision(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(NewDisableCollision);
 	P_FINISH;
-	this->sub_00a321f0(NewDisableCollision);
+	this->SetDisableCollision(NewDisableCollision);
 }
 
 struct URB_ConstraintInstance__00c95bc0 : public URB_ConstraintInstance
 {
-	void sub_00a32aa0(FVector);
+	void SetLinearPositionTarget(FVector);
 };
 
 // @baa 0x00c95bc0
@@ -81,12 +81,12 @@ void URB_ConstraintInstance::execSetLinearPositionTarget(FFrame& Stack, RESULT_D
 {
 	P_GET_STRUCT(FVector, InPosTarget);
 	P_FINISH;
-	this->sub_00a32aa0(InPosTarget);
+	this->SetLinearPositionTarget(InPosTarget);
 }
 
 struct URB_ConstraintInstance__00c95c30 : public URB_ConstraintInstance
 {
-	void sub_00a32b00(FVector);
+	void SetLinearVelocityTarget(FVector);
 };
 
 // @baa 0x00c95c30
@@ -94,12 +94,12 @@ void URB_ConstraintInstance::execSetLinearVelocityTarget(FFrame& Stack, RESULT_D
 {
 	P_GET_STRUCT(FVector, InVelTarget);
 	P_FINISH;
-	this->sub_00a32b00(InVelTarget);
+	this->SetLinearVelocityTarget(InVelTarget);
 }
 
 struct URB_ConstraintInstance__00c95df0 : public URB_ConstraintInstance
 {
-	void sub_00a32bd0(FVector);
+	void SetAngularVelocityTarget(FVector);
 };
 
 // @baa 0x00c95df0
@@ -107,7 +107,7 @@ void URB_ConstraintInstance::execSetAngularVelocityTarget(FFrame& Stack, RESULT_
 {
 	P_GET_STRUCT(FVector, InVelTarget);
 	P_FINISH;
-	this->sub_00a32bd0(InVelTarget);
+	this->SetAngularVelocityTarget(InVelTarget);
 }
 
 struct URB_ConstraintInstance__00c95a60 : public URB_ConstraintInstance

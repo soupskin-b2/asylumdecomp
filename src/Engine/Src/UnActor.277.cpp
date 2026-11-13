@@ -114,7 +114,7 @@ FVector AActor::vf_350()
 
 // @baa 0x00777440
 /* Sets bOnlyOwnerSee and has the components re-attached (a full update, not transform-only). */
-void AActor::sub_00777440(UBOOL bNewOnlyOwnerSee)
+void AActor::SetOnlyOwnerSee(UBOOL bNewOnlyOwnerSee)
 {
 	bOnlyOwnerSee = bNewOnlyOwnerSee;
 	MarkComponentsAsDirty(FALSE);
@@ -140,7 +140,7 @@ struct AActor__00784080 : public AActor
 
 // @baa 0x00784080
 /* UnActor.cpp: AActor::SetCollisionType(BYTE NewType) */
-void AActor::sub_00784080(BYTE NewType)
+void AActor::SetCollisionType(BYTE NewType)
 {
 	bNetDirty = TRUE;
 	const UBOOL bOldCollideActors = bCollideActors;

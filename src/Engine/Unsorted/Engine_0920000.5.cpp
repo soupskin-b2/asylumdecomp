@@ -7,7 +7,7 @@
 // @baa 0x0092e930
 /* UE3's USkeletalMeshComponent::ToggleInstanceVertexWeights(UBOOL bEnabled): switch to per-instance vertex
  * weights, dropping the bone pairs when they're turned off. */
-void USkeletalMeshComponent::sub_0092e930(UBOOL bEnabled)
+void USkeletalMeshComponent::ToggleInstanceVertexWeights(UBOOL bEnabled)
 {
     bAlwaysUseInstanceWeights = bEnabled;
     bNeedsInstanceWeightUpdate = TRUE;

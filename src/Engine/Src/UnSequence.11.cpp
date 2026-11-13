@@ -41,31 +41,31 @@ void USeqAct_Latent::execAbortFor(FFrame& Stack, RESULT_DECL)
 
 struct USequenceObject_ : public USequenceObject
 {
-	AWorldInfo* sub_008aba50();
+	AWorldInfo* GetWorldInfo();
 };
 
 // @baa 0x00c980a0
 void USequenceObject::execGetWorldInfo(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(AWorldInfo**)Result = ((USequenceObject_*)this)->sub_008aba50();
+	*(AWorldInfo**)Result = ((USequenceObject_*)this)->GetWorldInfo();
 }
 
 struct UPrefabSequence_ : public UPrefabSequence
 {
-	APrefabInstance* sub_00d1ff40();
+	APrefabInstance* GetOwnerPrefab();
 };
 
 // @baa 0x00c983b0
 void UPrefabSequence::execGetOwnerPrefab(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(APrefabInstance**)Result = ((UPrefabSequence_*)this)->sub_00d1ff40();
+	*(APrefabInstance**)Result = ((UPrefabSequence_*)this)->GetOwnerPrefab();
 }
 
 struct USequenceOp_ : public USequenceOp
 {
-	void sub_008be490(INT);
+	void ForceActivateInput(INT);
 };
 
 // @baa 0x00c98280
@@ -73,12 +73,12 @@ void USequenceOp::execForceActivateInput(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(InputIdx);
 	P_FINISH;
-	((USequenceOp_*)this)->sub_008be490(InputIdx);
+	((USequenceOp_*)this)->ForceActivateInput(InputIdx);
 }
 
 struct UPrefabSequence__00c98350 : public UPrefabSequence
 {
-	void sub_00d1ff30(APrefabInstance*);
+	void SetOwnerPrefab(APrefabInstance*);
 };
 
 // @baa 0x00c98350
@@ -86,12 +86,12 @@ void UPrefabSequence::execSetOwnerPrefab(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(APrefabInstance, InOwner);
 	P_FINISH;
-	((UPrefabSequence__00c98350*)this)->sub_00d1ff30(InOwner);
+	((UPrefabSequence__00c98350*)this)->SetOwnerPrefab(InOwner);
 }
 
 struct USequenceOp__00c98190 : public USequenceOp
 {
-	UBOOL sub_008bd720(INT);
+	UBOOL ActivateOutputLink(INT);
 };
 
 // @baa 0x00c98190
@@ -99,12 +99,12 @@ void USequenceOp::execActivateOutputLink(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(OutputIdx);
 	P_FINISH;
-	*(UBOOL*)Result = this->sub_008bd720(OutputIdx);
+	*(UBOOL*)Result = this->ActivateOutputLink(OutputIdx);
 }
 
 struct USequence_ : public USequence
 {
-	void sub_008abb60(UBOOL);
+	void SetEnabled(UBOOL);
 };
 
 // @baa 0x00c982e0
@@ -112,7 +112,7 @@ void USequence::execSetEnabled(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bInEnabled);
 	P_FINISH;
-	((USequence_*)this)->sub_008abb60(bInEnabled);
+	((USequence_*)this)->SetEnabled(bInEnabled);
 }
 
 struct USequenceOp__00cbc690 : public USequenceOp

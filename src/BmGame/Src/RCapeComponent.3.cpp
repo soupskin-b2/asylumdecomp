@@ -135,19 +135,19 @@ void URCapeComponent::execDoubleFrameTeleport(FFrame& Stack, RESULT_DECL)
 
 struct URCapeComponent__01702750 : public URCapeComponent
 {
-	UAnimNode* sub_016ae7f0();
+	UAnimNode* GetCurrentCapeStateAnimTreeNode();
 };
 
 // @baa 0x01702750
 void URCapeComponent::execGetCurrentCapeStateAnimTreeNode(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UAnimNode**)Result = this->sub_016ae7f0();
+	*(UAnimNode**)Result = this->GetCurrentCapeStateAnimTreeNode();
 }
 
 struct URCapeComponent__017026f0 : public URCapeComponent
 {
-	void sub_016ae7b0(UMaterialInstance*);
+	void UpdateDamageState(UMaterialInstance*);
 };
 
 // @baa 0x017026f0
@@ -155,12 +155,12 @@ void URCapeComponent::execUpdateDamageState(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(UMaterialInstance, NewMat);
 	P_FINISH;
-	this->sub_016ae7b0(NewMat);
+	this->UpdateDamageState(NewMat);
 }
 
 struct URCapeComponent__01702bf0 : public URCapeComponent
 {
-	void sub_016ae940(UAnimSet*);
+	void AddCinematicAnimSet(UAnimSet*);
 };
 
 // @baa 0x01702bf0
@@ -168,12 +168,12 @@ void URCapeComponent::execAddCinematicAnimSet(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(UAnimSet, NewAnimSet);
 	P_FINISH;
-	((URCapeComponent__01702bf0*)this)->sub_016ae940(NewAnimSet);
+	((URCapeComponent__01702bf0*)this)->AddCinematicAnimSet(NewAnimSet);
 }
 
 struct URCapeComponent__01702a10 : public URCapeComponent
 {
-	void sub_016b1f80(FLOAT);
+	void SetMaterialSpeedVariableOverride(FLOAT);
 };
 
 // @baa 0x01702a10
@@ -181,12 +181,12 @@ void URCapeComponent::execSetMaterialSpeedVariableOverride(FFrame& Stack, RESULT
 {
 	P_GET_FLOAT_OPTX(Speed, -1.0f);
 	P_FINISH;
-	this->sub_016b1f80(Speed);
+	this->SetMaterialSpeedVariableOverride(Speed);
 }
 
 struct URCapeComponent__01702cf0 : public URCapeComponent
 {
-	void sub_016be930(FCapeWindAudioProperties&);
+	void CalculateWindProperties(FCapeWindAudioProperties&);
 };
 
 // @baa 0x01702cf0
@@ -194,12 +194,12 @@ void URCapeComponent::execCalculateWindProperties(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT_REF(FCapeWindAudioProperties, OutWindProperties);
 	P_FINISH;
-	this->sub_016be930(OutWindProperties);
+	this->CalculateWindProperties(OutWindProperties);
 }
 
 struct URCapeComponent__01702790 : public URCapeComponent
 {
-	void* sub_016ae800(FName);
+	void* GetAnimStateTreeNode(FName);
 };
 
 // @baa 0x01702790
@@ -207,12 +207,12 @@ void URCapeComponent::execGetAnimStateTreeNode(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_NAME(CapeStateName);
 	P_FINISH;
-	*(void**)Result = this->sub_016ae800(CapeStateName);
+	*(void**)Result = this->GetAnimStateTreeNode(CapeStateName);
 }
 
 struct URCapeComponent__01702810 : public URCapeComponent
 {
-	FLOAT sub_016ae830(FName);
+	FLOAT GetAnimTreeNodeBlendValue(FName);
 };
 
 // @baa 0x01702810
@@ -220,7 +220,7 @@ void URCapeComponent::execGetAnimTreeNodeBlendValue(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_NAME(getNodeName);
 	P_FINISH;
-	*(FLOAT*)Result = this->sub_016ae830(getNodeName);
+	*(FLOAT*)Result = this->GetAnimTreeNodeBlendValue(getNodeName);
 }
 
 /* URCapeComponent::CalculateCapeLocalToWorld (016b1fe0) isn't declared in the kit. */

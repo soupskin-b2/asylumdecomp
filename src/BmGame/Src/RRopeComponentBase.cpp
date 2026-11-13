@@ -25,7 +25,7 @@ void URRopeComponentBase::sub_0163f390(void)
 }
 
 // @baa 0x0163f480
-void URRopeComponentBase::sub_0163f480(undefined1 param_2)
+void URRopeComponentBase::SetAutoLength(undefined1 param_2)
 {
     int param_1 = (int)this;
 
@@ -35,7 +35,7 @@ void URRopeComponentBase::sub_0163f480(undefined1 param_2)
 }
 
 // @baa 0x0163f4a0
-void URRopeComponentBase::sub_0163f4a0(undefined1 param_2)
+void URRopeComponentBase::SetContinuousAutoLength(undefined1 param_2)
 {
     int param_1 = (int)this;
 
@@ -349,9 +349,9 @@ void URRopeComponentBase::DetachRopeEnd2()
 }
 
 // @baa 0x0163f5b0
-/* URRopeComponentBase slot 0x260 (kit vf_260(BYTE, UBOOL)): forwards to the primitive component's version
+/* URRopeComponentBase slot 0x260 (kit SetCollidesWithChannel(BYTE, UBOOL)): forwards to the primitive component's version
  * (UPrimitiveComponent::sub_009ff970, which the kit types as (INT, INT)). */
-void URRopeComponentBase::vf_260(BYTE Channel, UBOOL bValue)
+void URRopeComponentBase::SetCollidesWithChannel(BYTE Channel, UBOOL bValue)
 {
     sub_009ff970(Channel, bValue);
 }

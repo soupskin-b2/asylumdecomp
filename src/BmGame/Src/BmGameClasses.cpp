@@ -1654,7 +1654,7 @@ UBOOL URSeqAct_Music::UpdateOp(FLOAT DeltaTime)
         }
         else
         {
-            sub_008bd720(0);
+            ActivateOutputLink(0);
         }
     }
     if (InputLinks(3).bHasImpulse)
@@ -1674,7 +1674,7 @@ UBOOL URSeqAct_Music::UpdateOp(FLOAT DeltaTime)
         const FLOAT NextParam = Param + Amount;
         Param = NextParam;
         ToAdvance -= Amount;
-        AudioComp->sub_0078dbc0(FName(TEXT("Advance")), NextParam);
+        AudioComp->SetFloatParameter(FName(TEXT("Advance")), NextParam);
     }
     static_cast<URSeqAct_Music_*>(this)->UpdateLinkedParameters();
     return FALSE;

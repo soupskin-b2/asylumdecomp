@@ -603,7 +603,7 @@ INT sub_013577a0(INT bShow)
 // @baa 0x00834900
 /* UE3's UMorphNodePose::SetMorphTarget (named sub_00834900 in the kit): remembers the name and looks the target up
  * on the skeletal mesh component, when there is one. */
-void UMorphNodePose::sub_00834900(FName MorphTargetName)
+void UMorphNodePose::SetMorphTarget(FName MorphTargetName)
 {
 	MorphName = MorphTargetName;
 	Target = NULL;

@@ -197,26 +197,26 @@ void ASkeletalMeshActorMAT::execMAT_FinishAnimControl( FFrame& Stack, RESULT_DEC
 
 struct AController__00c84e30 : public AController
 {
-	ANavigationPoint* sub_007ad390();
+	ANavigationPoint* FindRandomDest();
 };
 
 // @baa 0x00c84e30
 void AController::execFindRandomDest(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(ANavigationPoint**)Result = ((AController__00c84e30*)this)->sub_007ad390();
+	*(ANavigationPoint**)Result = ((AController__00c84e30*)this)->FindRandomDest();
 }
 
 struct APortalTeleporter_ : public APortalTeleporter
 {
-	UTextureRenderTarget2D* sub_008c5cb0();
+	UTextureRenderTarget2D* CreatePortalTexture();
 };
 
 // @baa 0x00c8ba90
 void APortalTeleporter::execCreatePortalTexture(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UTextureRenderTarget2D**)Result = ((APortalTeleporter_*)this)->sub_008c5cb0();
+	*(UTextureRenderTarget2D**)Result = ((APortalTeleporter_*)this)->CreatePortalTexture();
 }
 
 // @baa 0x00c87e50
@@ -242,7 +242,7 @@ void UFont::execGetMaxCharHeight(FFrame& Stack, RESULT_DECL)
 
 struct AActor_ : public AActor
 {
-	void sub_008bba30(UActorComponent*);
+	void AttachComponent(UActorComponent*);
 };
 
 // @baa 0x00c821e0
@@ -250,12 +250,12 @@ void AActor::execAttachComponent(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(UActorComponent, NewComponent);
 	P_FINISH;
-	((AActor_*)this)->sub_008bba30(NewComponent);
+	((AActor_*)this)->AttachComponent(NewComponent);
 }
 
 struct AActor__00c82240 : public AActor
 {
-	void sub_008c7f00(UActorComponent*);
+	void DetachComponent(UActorComponent*);
 };
 
 // @baa 0x00c82240
@@ -263,12 +263,12 @@ void AActor::execDetachComponent(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(UActorComponent, ExComponent);
 	P_FINISH;
-	((AActor__00c82240*)this)->sub_008c7f00(ExComponent);
+	((AActor__00c82240*)this)->DetachComponent(ExComponent);
 }
 
 struct AActor__00c822a0 : public AActor
 {
-	void sub_008c7f30(UActorComponent*);
+	void ReattachComponent(UActorComponent*);
 };
 
 // @baa 0x00c822a0
@@ -276,12 +276,12 @@ void AActor::execReattachComponent(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(UActorComponent, ComponentToReattach);
 	P_FINISH;
-	((AActor__00c822a0*)this)->sub_008c7f30(ComponentToReattach);
+	((AActor__00c822a0*)this)->ReattachComponent(ComponentToReattach);
 }
 
 struct AActor__00c82300 : public AActor
 {
-	void sub_007580f0(BYTE);
+	void SetTickGroup(BYTE);
 };
 
 // @baa 0x00c82300
@@ -289,12 +289,12 @@ void AActor::execSetTickGroup(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_BYTE(NewTickGroup);
 	P_FINISH;
-	((AActor__00c82300*)this)->sub_007580f0(NewTickGroup);
+	((AActor__00c82300*)this)->SetTickGroup(NewTickGroup);
 }
 
 struct AEmitterPool_ : public AEmitterPool
 {
-	void sub_008d2e50(UParticleSystemComponent*);
+	void ReturnToPool(UParticleSystemComponent*);
 };
 
 // @baa 0x00c87920
@@ -302,12 +302,12 @@ void AEmitterPool::execReturnToPool(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(UParticleSystemComponent, PSC);
 	P_FINISH;
-	((AEmitterPool_*)this)->sub_008d2e50(PSC);
+	((AEmitterPool_*)this)->ReturnToPool(PSC);
 }
 
 struct AEmitterPool__00c87980 : public AEmitterPool
 {
-	void sub_008cf8f0(UParticleSystemComponent*);
+	void FreeStaticMeshComponents(UParticleSystemComponent*);
 };
 
 // @baa 0x00c87980
@@ -315,12 +315,12 @@ void AEmitterPool::execFreeStaticMeshComponents(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(UParticleSystemComponent, PSC);
 	P_FINISH;
-	((AEmitterPool__00c87980*)this)->sub_008cf8f0(PSC);
+	((AEmitterPool__00c87980*)this)->FreeStaticMeshComponents(PSC);
 }
 
 struct AEmitterPool__00c87a60 : public AEmitterPool
 {
-	void sub_008c7120(UStaticMeshComponent*);
+	void FreeMaterialInstanceConstants(UStaticMeshComponent*);
 };
 
 // @baa 0x00c87a60
@@ -328,12 +328,12 @@ void AEmitterPool::execFreeMaterialInstanceConstants(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(UStaticMeshComponent, SMC);
 	P_FINISH;
-	((AEmitterPool__00c87a60*)this)->sub_008c7120(SMC);
+	((AEmitterPool__00c87a60*)this)->FreeMaterialInstanceConstants(SMC);
 }
 
 struct AGameInfo__00c89100 : public AGameInfo
 {
-	void sub_008c7500(AActor*);
+	void ForceClearUnpauseDelegates(AActor*);
 };
 
 // @baa 0x00c89100
@@ -341,12 +341,12 @@ void AGameInfo::execForceClearUnpauseDelegates(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(AActor, PauseActor);
 	P_FINISH;
-	((AGameInfo__00c89100*)this)->sub_008c7500(PauseActor);
+	((AGameInfo__00c89100*)this)->ForceClearUnpauseDelegates(PauseActor);
 }
 
 struct UTexture2DComposite__00c8f560 : public UTexture2DComposite
 {
-	void sub_00733600(INT);
+	void UpdateCompositeTexture(INT);
 };
 
 // @baa 0x00c8f560
@@ -354,12 +354,12 @@ void UTexture2DComposite::execUpdateCompositeTexture(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(NumMipsToGenerate);
 	P_FINISH;
-	((UTexture2DComposite__00c8f560*)this)->sub_00733600(NumMipsToGenerate);
+	((UTexture2DComposite__00c8f560*)this)->UpdateCompositeTexture(NumMipsToGenerate);
 }
 
 struct ALensFlareSource_ : public ALensFlareSource
 {
-	void sub_00bbbd50(ULensFlare*);
+	void SetTemplate(ULensFlare*);
 };
 
 // @baa 0x00c8faa0
@@ -367,12 +367,12 @@ void ALensFlareSource::execSetTemplate(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(ULensFlare, NewTemplate);
 	P_FINISH;
-	((ALensFlareSource_*)this)->sub_00bbbd50(NewTemplate);
+	((ALensFlareSource_*)this)->SetTemplate(NewTemplate);
 }
 
 struct ULensFlareComponent_ : public ULensFlareComponent
 {
-	void sub_00bacd70(ULensFlare*);
+	void SetTemplate(ULensFlare*);
 };
 
 // @baa 0x00c8fb00
@@ -380,12 +380,12 @@ void ULensFlareComponent::execSetTemplate(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(ULensFlare, NewTemplate);
 	P_FINISH;
-	((ULensFlareComponent_*)this)->sub_00bacd70(NewTemplate);
+	((ULensFlareComponent_*)this)->SetTemplate(NewTemplate);
 }
 
 struct USceneCaptureComponent_ : public USceneCaptureComponent
 {
-	void sub_008a72f0(FLOAT);
+	void SetFrameRate(FLOAT);
 };
 
 // @baa 0x00c8b750
@@ -393,12 +393,12 @@ void USceneCaptureComponent::execSetFrameRate(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(NewFrameRate);
 	P_FINISH;
-	((USceneCaptureComponent_*)this)->sub_008a72f0(NewFrameRate);
+	((USceneCaptureComponent_*)this)->SetFrameRate(NewFrameRate);
 }
 
 struct UTexture2D_ : public UTexture2D
 {
-	void sub_00717d50(FLOAT);
+	void SetForceMipLevelsToBeResident(FLOAT);
 };
 
 // @baa 0x00c8f360
@@ -406,12 +406,12 @@ void UTexture2D::execSetForceMipLevelsToBeResident(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(Seconds);
 	P_FINISH;
-	((UTexture2D_*)this)->sub_00717d50(Seconds);
+	((UTexture2D_*)this)->SetForceMipLevelsToBeResident(Seconds);
 }
 
 struct AController__00c84800 : public AController
 {
-	UBOOL sub_007a0710(APawn*);
+	UBOOL CanSee(APawn*);
 };
 
 // @baa 0x00c84800
@@ -419,12 +419,12 @@ void AController::execCanSee(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(APawn, Other);
 	P_FINISH;
-	*(UBOOL*)Result = ((AController__00c84800*)this)->sub_007a0710(Other);
+	*(UBOOL*)Result = ((AController__00c84800*)this)->CanSee(Other);
 }
 
 struct AController__00c85030 : public AController
 {
-	UBOOL sub_007a0b40(AActor*);
+	UBOOL ActorReachable(AActor*);
 };
 
 // @baa 0x00c85030
@@ -432,12 +432,12 @@ void AController::execActorReachable(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(AActor, anActor);
 	P_FINISH;
-	*(UBOOL*)Result = ((AController__00c85030*)this)->sub_007a0b40(anActor);
+	*(UBOOL*)Result = ((AController__00c85030*)this)->ActorReachable(anActor);
 }
 
 struct AController__00c85160 : public AController
 {
-	UBOOL sub_007a0da0(INT);
+	UBOOL InLatentExecution(INT);
 };
 
 // @baa 0x00c85160
@@ -445,12 +445,12 @@ void AController::execInLatentExecution(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(LatentActionNumber);
 	P_FINISH;
-	*(UBOOL*)Result = ((AController__00c85160*)this)->sub_007a0da0(LatentActionNumber);
+	*(UBOOL*)Result = ((AController__00c85160*)this)->InLatentExecution(LatentActionNumber);
 }
 
 struct AEmitterPool__00c87b40 : public AEmitterPool
 {
-	UParticleSystemComponent* sub_008c7290(UParticleSystem*);
+	UParticleSystemComponent* GetPooledComponent(UParticleSystem*);
 };
 
 // @baa 0x00c87b40
@@ -458,12 +458,12 @@ void AEmitterPool::execGetPooledComponent(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(UParticleSystem, EmitterTemplate);
 	P_FINISH;
-	*(UParticleSystemComponent**)Result = ((AEmitterPool__00c87b40*)this)->sub_008c7290(EmitterTemplate);
+	*(UParticleSystemComponent**)Result = ((AEmitterPool__00c87b40*)this)->GetPooledComponent(EmitterTemplate);
 }
 
 struct ANavigationPoint_ : public ANavigationPoint
 {
-	UBOOL sub_00835b60(ANavigationPoint*);
+	UBOOL IsOnDifferentNetwork(ANavigationPoint*);
 };
 
 // @baa 0x00c880a0
@@ -471,12 +471,12 @@ void ANavigationPoint::execIsOnDifferentNetwork(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(ANavigationPoint, Nav);
 	P_FINISH;
-	*(UBOOL*)Result = ((ANavigationPoint_*)this)->sub_00835b60(Nav);
+	*(UBOOL*)Result = ((ANavigationPoint_*)this)->IsOnDifferentNetwork(Nav);
 }
 
 struct APortalTeleporter__00c8b900 : public APortalTeleporter
 {
-	UBOOL sub_008dd9d0(AActor*);
+	UBOOL TransformActor(AActor*);
 };
 
 // @baa 0x00c8b900
@@ -484,12 +484,12 @@ void APortalTeleporter::execTransformActor(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(AActor, A);
 	P_FINISH;
-	*(UBOOL*)Result = ((APortalTeleporter__00c8b900*)this)->sub_008dd9d0(A);
+	*(UBOOL*)Result = ((APortalTeleporter__00c8b900*)this)->TransformActor(A);
 }
 
 struct AActor__00c82070 : public AActor
 {
-	void sub_00777440(UBOOL);
+	void SetOnlyOwnerSee(UBOOL);
 };
 
 // @baa 0x00c82070
@@ -497,12 +497,12 @@ void AActor::execSetOnlyOwnerSee(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bNewOnlyOwnerSee);
 	P_FINISH;
-	((AActor__00c82070*)this)->sub_00777440(bNewOnlyOwnerSee);
+	((AActor__00c82070*)this)->SetOnlyOwnerSee(bNewOnlyOwnerSee);
 }
 
 struct UHeightFogComponent_ : public UHeightFogComponent
 {
-	void sub_006acc00(UBOOL);
+	void SetEnabled(UBOOL);
 };
 
 // @baa 0x00c8b550
@@ -510,12 +510,12 @@ void UHeightFogComponent::execSetEnabled(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bSetEnabled);
 	P_FINISH;
-	((UHeightFogComponent_*)this)->sub_006acc00(bSetEnabled);
+	((UHeightFogComponent_*)this)->SetEnabled(bSetEnabled);
 }
 
 struct ULightEnvironmentComponent__00c8b660 : public ULightEnvironmentComponent
 {
-	void sub_006ad720(UBOOL);
+	void SetEnabled(UBOOL);
 };
 
 // @baa 0x00c8b660
@@ -523,12 +523,12 @@ void ULightEnvironmentComponent::execSetEnabled(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bNewEnabled);
 	P_FINISH;
-	((ULightEnvironmentComponent__00c8b660*)this)->sub_006ad720(bNewEnabled);
+	((ULightEnvironmentComponent__00c8b660*)this)->SetEnabled(bNewEnabled);
 }
 
 struct UPointLightComponent_ : public UPointLightComponent
 {
-	void sub_006e9f10(FVector);
+	void SetTranslation(FVector);
 };
 
 // @baa 0x00c8b5f0
@@ -536,7 +536,7 @@ void UPointLightComponent::execSetTranslation(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT(FVector, NewTranslation);
 	P_FINISH;
-	((UPointLightComponent_*)this)->sub_006e9f10(NewTranslation);
+	((UPointLightComponent_*)this)->SetTranslation(NewTranslation);
 }
 
 struct AActor__00c825f0 : public AActor
@@ -554,7 +554,7 @@ void AActor::execGetComponentsBoundingBox(FFrame& Stack, RESULT_DECL)
 
 struct UCameraAnimInst__00c8c2b0 : public UCameraAnimInst
 {
-	void sub_007880c0(UBOOL);
+	void Stop(UBOOL);
 };
 
 // @baa 0x00c8c2b0
@@ -562,12 +562,12 @@ void UCameraAnimInst::execStop(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL_OPTX(bImmediate, 0);
 	P_FINISH;
-	((UCameraAnimInst__00c8c2b0*)this)->sub_007880c0(bImmediate);
+	((UCameraAnimInst__00c8c2b0*)this)->Stop(bImmediate);
 }
 
 struct AActor__00c82570 : public AActor
 {
-	UBOOL sub_008bb150(FVector);
+	UBOOL ContainsPoint(FVector);
 };
 
 // @baa 0x00c82570
@@ -575,12 +575,12 @@ void AActor::execContainsPoint(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT(FVector, Spot);
 	P_FINISH;
-	*(UBOOL*)Result = ((AActor__00c82570*)this)->sub_008bb150(Spot);
+	*(UBOOL*)Result = ((AActor__00c82570*)this)->ContainsPoint(Spot);
 }
 
 struct AController__00c84fb0 : public AController
 {
-	UBOOL sub_007a0c00(FVector);
+	UBOOL PointReachable(FVector);
 };
 
 // @baa 0x00c84fb0
@@ -588,12 +588,12 @@ void AController::execPointReachable(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT(FVector, aPoint);
 	P_FINISH;
-	*(UBOOL*)Result = ((AController__00c84fb0*)this)->sub_007a0c00(aPoint);
+	*(UBOOL*)Result = ((AController__00c84fb0*)this)->PointReachable(aPoint);
 }
 
 struct AController__00c850a0 : public AController
 {
-	UBOOL sub_007a08d0(FVector);
+	UBOOL PickWallAdjust(FVector);
 };
 
 // @baa 0x00c850a0
@@ -601,12 +601,12 @@ void AController::execPickWallAdjust(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT(FVector, HitNormal);
 	P_FINISH;
-	*(UBOOL*)Result = ((AController__00c850a0*)this)->sub_007a08d0(HitNormal);
+	*(UBOOL*)Result = ((AController__00c850a0*)this)->PickWallAdjust(HitNormal);
 }
 
 struct AActor__00c820e0 : public AActor
 {
-	void sub_008aa030(FLOAT&);
+	void Clock(FLOAT&);
 };
 
 // @baa 0x00c820e0
@@ -614,12 +614,12 @@ void AActor::execClock(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT_REF(Time);
 	P_FINISH;
-	((AActor__00c820e0*)this)->sub_008aa030(Time);
+	((AActor__00c820e0*)this)->Clock(Time);
 }
 
 struct AActor__00c82160 : public AActor
 {
-	void sub_008aa040(FLOAT&);
+	void UnClock(FLOAT&);
 };
 
 // @baa 0x00c82160
@@ -627,12 +627,12 @@ void AActor::execUnClock(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT_REF(Time);
 	P_FINISH;
-	((AActor__00c82160*)this)->sub_008aa040(Time);
+	((AActor__00c82160*)this)->UnClock(Time);
 }
 
 struct AEmitterPool__00c879e0 : public AEmitterPool
 {
-	UParticleSystemComponent* sub_008cfa50(UBOOL);
+	UParticleSystemComponent* GetFreeStaticMeshComponent(UBOOL);
 };
 
 // @baa 0x00c879e0
@@ -640,12 +640,12 @@ void AEmitterPool::execGetFreeStaticMeshComponent(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL_OPTX(bCreateNewObject, 1);
 	P_FINISH;
-	*(UParticleSystemComponent**)Result = ((AEmitterPool__00c879e0*)this)->sub_008cfa50(bCreateNewObject);
+	*(UParticleSystemComponent**)Result = ((AEmitterPool__00c879e0*)this)->GetFreeStaticMeshComponent(bCreateNewObject);
 }
 
 struct AEmitterPool__00c87ac0 : public AEmitterPool
 {
-	UMaterialInstanceConstant* sub_008cfb40(UBOOL);
+	UMaterialInstanceConstant* GetFreeMatInstConsts(UBOOL);
 };
 
 // @baa 0x00c87ac0
@@ -653,12 +653,12 @@ void AEmitterPool::execGetFreeMatInstConsts(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL_OPTX(bCreateNewObject, 1);
 	P_FINISH;
-	*(UMaterialInstanceConstant**)Result = ((AEmitterPool__00c87ac0*)this)->sub_008cfb40(bCreateNewObject);
+	*(UMaterialInstanceConstant**)Result = ((AEmitterPool__00c87ac0*)this)->GetFreeMatInstConsts(bCreateNewObject);
 }
 
 struct UPostProcessChain_ : public UPostProcessChain
 {
-	void* sub_00892bb0(FName);
+	void* FindPostProcessEffect(FName);
 };
 
 // @baa 0x00c8ed10
@@ -666,7 +666,7 @@ void UPostProcessChain::execFindPostProcessEffect(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_NAME(EffectName);
 	P_FINISH;
-	*(void**)Result = ((UPostProcessChain_*)this)->sub_00892bb0(EffectName);
+	*(void**)Result = ((UPostProcessChain_*)this)->FindPostProcessEffect(EffectName);
 }
 
 // @baa 0x00c8cf20
@@ -787,7 +787,7 @@ void UMaterialInterface::execSetForceMipLevelsToBeResident(FFrame& Stack, RESULT
 struct UCameraAnimInst__00c8c210 : public UCameraAnimInst
 {
     /* AdvanceAnim; Classes.h doesn't declare it. */
-    void sub_0078a850(FLOAT DeltaTime, UBOOL bJump);
+    void AdvanceAnim(FLOAT DeltaTime, UBOOL bJump);
 };
 
 // @baa 0x00c8c210
@@ -796,13 +796,13 @@ void UCameraAnimInst::execAdvanceAnim(FFrame& Stack, RESULT_DECL)
     P_GET_FLOAT(DeltaTime);
     P_GET_UBOOL(bJump);
     P_FINISH;
-    ((UCameraAnimInst__00c8c210*)this)->sub_0078a850(DeltaTime, bJump);
+    ((UCameraAnimInst__00c8c210*)this)->AdvanceAnim(DeltaTime, bJump);
 }
 
 struct APortalTeleporter__00c8b970 : public APortalTeleporter
 {
     /* TransformVectorDir; Classes.h doesn't declare it. */
-    FVector sub_008de2d0(FVector V);
+    FVector TransformVectorDir(FVector V);
 };
 
 // @baa 0x00c8b970
@@ -810,13 +810,13 @@ void APortalTeleporter::execTransformVectorDir(FFrame& Stack, RESULT_DECL)
 {
     P_GET_STRUCT(FVector, V);
     P_FINISH;
-    *(FVector*)Result = ((APortalTeleporter__00c8b970*)this)->sub_008de2d0(V);
+    *(FVector*)Result = ((APortalTeleporter__00c8b970*)this)->TransformVectorDir(V);
 }
 
 struct APortalTeleporter__00c8ba00 : public APortalTeleporter
 {
     /* TransformHitLocation; Classes.h doesn't declare it. */
-    FVector sub_008de460(FVector HitLocation);
+    FVector TransformHitLocation(FVector HitLocation);
 };
 
 // @baa 0x00c8ba00
@@ -824,13 +824,13 @@ void APortalTeleporter::execTransformHitLocation(FFrame& Stack, RESULT_DECL)
 {
     P_GET_STRUCT(FVector, HitLocation);
     P_FINISH;
-    *(FVector*)Result = ((APortalTeleporter__00c8ba00*)this)->sub_008de460(HitLocation);
+    *(FVector*)Result = ((APortalTeleporter__00c8ba00*)this)->TransformHitLocation(HitLocation);
 }
 
 struct USceneCapture2DComponent_ : public USceneCapture2DComponent
 {
     /* SetView; Classes.h doesn't declare it. */
-    void sub_008b03e0(FVector NewLocation, FRotator NewRotation);
+    void SetView(FVector NewLocation, FRotator NewRotation);
 };
 
 // @baa 0x00c8b7c0
@@ -839,13 +839,13 @@ void USceneCapture2DComponent::execSetView(FFrame& Stack, RESULT_DECL)
     P_GET_STRUCT(FVector, NewLocation);
     P_GET_STRUCT(FRotator, NewRotation);
     P_FINISH;
-    ((USceneCapture2DComponent_*)this)->sub_008b03e0(NewLocation, NewRotation);
+    ((USceneCapture2DComponent_*)this)->SetView(NewLocation, NewRotation);
 }
 
 struct AHUD_ : public AHUD
 {
     /* Draw3DLine; Classes.h doesn't declare it. */
-    void sub_008a9530(FVector Start, FVector End, FColor LineColor);
+    void Draw3DLine(FVector Start, FVector End, FColor LineColor);
 };
 
 // @baa 0x00c87be0
@@ -855,13 +855,13 @@ void AHUD::execDraw3DLine(FFrame& Stack, RESULT_DECL)
     P_GET_STRUCT(FVector, End);
     P_GET_STRUCT(FColor, LineColor);
     P_FINISH;
-    ((AHUD_*)this)->sub_008a9530(Start, End, LineColor);
+    ((AHUD_*)this)->Draw3DLine(Start, End, LineColor);
 }
 
 struct AHUD__00c87cb0 : public AHUD
 {
     /* Draw2DLine; Classes.h doesn't declare it. */
-    void sub_008a9580(INT X1, INT Y1, INT X2, INT Y2, FColor LineColor);
+    void Draw2DLine(INT X1, INT Y1, INT X2, INT Y2, FColor LineColor);
 };
 
 // @baa 0x00c87cb0
@@ -873,13 +873,13 @@ void AHUD::execDraw2DLine(FFrame& Stack, RESULT_DECL)
     P_GET_INT(Y2);
     P_GET_STRUCT(FColor, LineColor);
     P_FINISH;
-    ((AHUD__00c87cb0*)this)->sub_008a9580(X1, Y1, X2, Y2, LineColor);
+    ((AHUD__00c87cb0*)this)->Draw2DLine(X1, Y1, X2, Y2, LineColor);
 }
 
 struct UTexture2DDynamic_ : public UTexture2DDynamic
 {
     /* Init(INT InSizeX, INT InSizeY, BYTE InFormat, UBOOL InIsResolveTarget); Classes.h doesn't declare it. */
-    void sub_00754ed0(INT InSizeX, INT InSizeY, BYTE InFormat, UBOOL InIsResolveTarget);
+    void Init(INT InSizeX, INT InSizeY, BYTE InFormat, UBOOL InIsResolveTarget);
 };
 
 // @baa 0x00c8f620
@@ -890,13 +890,13 @@ void UTexture2DDynamic::execInit(FFrame& Stack, RESULT_DECL)
     P_GET_BYTE_OPTX(InFormat, PF_A8R8G8B8);
     P_GET_UBOOL_OPTX(InIsResolveTarget, FALSE);
     P_FINISH;
-    ((UTexture2DDynamic_*)this)->sub_00754ed0(InSizeX, InSizeY, InFormat, InIsResolveTarget);
+    ((UTexture2DDynamic_*)this)->Init(InSizeX, InSizeY, InFormat, InIsResolveTarget);
 }
 
 struct UCameraAnimInst__00c8c0e0 : public UCameraAnimInst
 {
     /* Update(FLOAT NewRate, FLOAT NewScale, FLOAT NewBlendInTime, FLOAT NewBlendOutTime, FLOAT NewDuration); Classes.h doesn't declare it. */
-    void sub_00788030(FLOAT NewRate, FLOAT NewScale, FLOAT NewBlendInTime, FLOAT NewBlendOutTime, FLOAT NewDuration);
+    void Update(FLOAT NewRate, FLOAT NewScale, FLOAT NewBlendInTime, FLOAT NewBlendOutTime, FLOAT NewDuration);
 };
 
 // @baa 0x00c8c0e0
@@ -908,13 +908,13 @@ void UCameraAnimInst::execUpdate(FFrame& Stack, RESULT_DECL)
     P_GET_FLOAT(NewBlendOutTime);
     P_GET_FLOAT_OPTX(NewDuration, 0.f);
     P_FINISH;
-    ((UCameraAnimInst__00c8c0e0*)this)->sub_00788030(NewRate, NewScale, NewBlendInTime, NewBlendOutTime, NewDuration);
+    ((UCameraAnimInst__00c8c0e0*)this)->Update(NewRate, NewScale, NewBlendInTime, NewBlendOutTime, NewDuration);
 }
 
 struct UCameraAnimInst__00c8bef0 : public UCameraAnimInst
 {
     /* Play(UCameraAnim*, AActor*, FLOAT InRate, FLOAT InScale, FLOAT InBlendInTime, FLOAT InBlendOutTime, UBOOL bInLoop, UBOOL bRandomStartTime, FLOAT Duration); Classes.h doesn't declare it. */
-    void sub_00791ee0(UCameraAnim* Anim, AActor* CamActor, FLOAT InRate, FLOAT InScale, FLOAT InBlendInTime, FLOAT InBlendOutTime, UBOOL bInLoop, UBOOL bRandomStartTime, FLOAT Duration);
+    void Play(UCameraAnim* Anim, AActor* CamActor, FLOAT InRate, FLOAT InScale, FLOAT InBlendInTime, FLOAT InBlendOutTime, UBOOL bInLoop, UBOOL bRandomStartTime, FLOAT Duration);
 };
 
 // @baa 0x00c8bef0
@@ -930,7 +930,7 @@ void UCameraAnimInst::execPlay(FFrame& Stack, RESULT_DECL)
     P_GET_UBOOL(bRandomStartTime);
     P_GET_FLOAT_OPTX(Duration, 0.f);
     P_FINISH;
-    ((UCameraAnimInst__00c8bef0*)this)->sub_00791ee0(Anim, CamActor, InRate, InScale, InBlendInTime, InBlendOutTime, bInLoop, bRandomStartTime, Duration);
+    ((UCameraAnimInst__00c8bef0*)this)->Play(Anim, CamActor, InRate, InScale, InBlendInTime, InBlendOutTime, bInLoop, bRandomStartTime, Duration);
 }
 
 // @baa 0x00c8f180

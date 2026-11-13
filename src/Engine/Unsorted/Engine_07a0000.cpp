@@ -58,7 +58,7 @@ void ADroppedPickup::sub_007a06f0(void)
 void AController::SetAdjustLocation(FVector NewLoc, UBOOL bAdjust, UBOOL bOffsetFromBase) {  }
 
 // @baa 0x007a0da0
-bool AController::sub_007a0da0(uint param_2)
+bool AController::InLatentExecution(uint param_2)
 {
     int param_1 = (int)this;
 
@@ -1724,7 +1724,7 @@ INT AController::vf_3ac()
 
 // @baa 0x007a0710
 /* UE3's AController::CanSee(APawn* Other) (execCanSee's native): SeePawn without skipping checks. */
-UBOOL AController::sub_007a0710(APawn* Other)
+UBOOL AController::CanSee(APawn* Other)
 {
     return SeePawn(Other, FALSE);
 }
@@ -1737,7 +1737,7 @@ struct APawn_ : public APawn
 
 // @baa 0x007a08d0
 /* UE3's AController::PointReachable(FVector aPoint) (execPointReachable's native). */
-UBOOL AController::sub_007a08d0(FVector aPoint)
+UBOOL AController::PickWallAdjust(FVector aPoint)
 {
     if (!Pawn)
     {

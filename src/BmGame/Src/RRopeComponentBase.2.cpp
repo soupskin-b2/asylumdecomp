@@ -80,7 +80,7 @@ void URSimpleRopeComponent::execUpdateRope(FFrame& Stack, RESULT_DECL)
 void URSimpleRopeComponent::execInitialiseRope(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	vf_258();
+	InitialiseRope();
 }
 
 // @baa 0x01700bc0
@@ -95,7 +95,7 @@ void URRopeComponentBase::execSetAutoLength(FFrame& Stack, RESULT_DECL)
 {
     P_GET_BYTE(LengthChangeType);
     P_FINISH;
-    sub_0163f480(LengthChangeType);
+    SetAutoLength(LengthChangeType);
 }
 
 // @baa 0x017009b0
@@ -103,7 +103,7 @@ void URRopeComponentBase::execSetContinuousAutoLength(FFrame& Stack, RESULT_DECL
 {
     P_GET_BYTE(LengthChangeType);
     P_FINISH;
-    sub_0163f4a0(LengthChangeType);
+    SetContinuousAutoLength(LengthChangeType);
 }
 
 struct RopeComponentNative : URRopeComponentBase
@@ -287,7 +287,7 @@ void URRopeComponentBase::execSetCollidesWithChannel(FFrame& Stack, RESULT_DECL)
     P_GET_BYTE(CollisionChannel);
     P_GET_UBOOL(Value);
     P_FINISH;
-    vf_260(CollisionChannel, Value);
+    SetCollidesWithChannel(CollisionChannel, Value);
 }
 
 /* URRopeComponentBase::GetWorldSpaceEnd1AttachPos (01644d40) isn't declared in the kit. */

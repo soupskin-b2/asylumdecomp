@@ -20,7 +20,7 @@ undefined4 ULensFlare::sub_017352d0(byte param_2)
 // @baa 0x0171a890
 /* Caches whether cape collision should be off for the grate; when that (or the timed disable) changes the state,
  * the collision component stops or starts colliding with channel 15 (the cape). */
-void ARTunnelGrateBase::sub_0171a890(UBOOL bDisable)
+void ARTunnelGrateBase::SetDisableCapeCollision(UBOOL bDisable)
 {
 	bCachedDisableCapeCollision = bDisable;
 	const UBOOL bDisabled = (bCachedDisableCapeCollision || bCachedTimedDisableCapeCollision) ? TRUE : FALSE;

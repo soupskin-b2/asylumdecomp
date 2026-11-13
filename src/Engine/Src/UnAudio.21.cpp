@@ -44,7 +44,7 @@ void UAudioComponent::Stop()
 		// Remove it from its last owner's components.
 		if (LastOwner)
 		{
-			LastOwner->sub_008c7f00(this); // DetachComponent
+			LastOwner->DetachComponent(this); // DetachComponent
 			LastOwner = NULL;
 		}
 

@@ -3794,7 +3794,7 @@ UBOOL UUIStyle_Combo::IsDirty()
   return 1;
 }
 
-/* Kit gaps: FUIStyleReference has no methods; UUIStyle::GetStyleForState (sub_00ddaa80) is declared,
+/* Kit gaps: FUIStyleReference has no methods; UUIStyle::GetStyleForState is declared,
  * GetStyleForStateByClass is sub_00ddac00. */
 struct FUIStyleReference_ : public FUIStyleReference
 {
@@ -3809,7 +3809,7 @@ UUIStyle_Data* FUIStyleReference_::GetStyleDataByState(UUIState* StateObject) co
 	UUIStyle_Data* Result = NULL;
 	if (StateObject != NULL && ResolvedStyle != NULL)
 	{
-		Result = ResolvedStyle->sub_00ddaa80(StateObject);
+		Result = ResolvedStyle->GetStyleForState(StateObject);
 	}
 	return Result;
 }
@@ -3821,7 +3821,7 @@ UUIStyle_Data* FUIStyleReference_::GetStyleDataByClass(UClass* StateClass) const
 	UUIStyle_Data* Result = NULL;
 	if (StateClass != NULL && ResolvedStyle != NULL)
 	{
-		Result = ResolvedStyle->sub_00ddac00(StateClass);
+		Result = ResolvedStyle->GetStyleForStateByClass(StateClass);
 	}
 	return Result;
 }

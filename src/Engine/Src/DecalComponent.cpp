@@ -68,7 +68,7 @@ undefined4 * UDecalComponent::sub_0064e060(byte param_2)
 
 int sub_00765d00(void);
 // @baa 0x0064e0c0
-void UDecalComponent::sub_0064e0c0(undefined4 param_2)
+void UDecalComponent::SetDecalMaterial(undefined4 param_2)
 {
     int param_1 = (int)this;
 
@@ -78,7 +78,7 @@ void UDecalComponent::sub_0064e0c0(undefined4 param_2)
 }
 
 // @baa 0x0064e0e0
-int UDecalComponent::sub_0064e0e0(void) { return *(int*)((char*)this + 420); }
+int UDecalComponent::GetDecalMaterial(void) { return *(int*)((char*)this + 420); }
 
 // @baa 0x0064e0f0
 int UDecalComponent::vf_200(void) { return 1; }

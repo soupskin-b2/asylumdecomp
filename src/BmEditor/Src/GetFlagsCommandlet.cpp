@@ -31,23 +31,10 @@ void sub_005c8a30(undefined4 param_1, undefined4 param_2, undefined4 param_3, un
   return;
 }
 
-struct IMemObject {
-    virtual void VFunc00(void);
-    virtual void VFunc04(void);
-    virtual void VFunc08(void);
-    virtual void VFunc0C(void);
-    virtual void VFunc10(void);
-    virtual void VFunc14(void);
-    virtual void VFunc18(void);
-    virtual void VFunc1C(void);
-    virtual void VFunc20(int Arg);
-};
-
-extern IMemObject* g_026667c4;
 // @baa 0x005fae30
 void sub_005fae30(void)
 {
-    g_026667c4->VFunc20(17);
+    GCallbackEvent->Send((ECallbackEventType)17);
 }
 
 void sub_004025d0(void*);

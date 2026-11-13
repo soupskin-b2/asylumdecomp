@@ -3615,7 +3615,7 @@ int UTerrainComponent::vf_250(void)
 }
 
 // @baa 0x009a9810
-void __stdcall sub_009a9810(int a0) {  }
+void __stdcall SetMaterials(int a0) {  }
 
 int sub_009a6910(void);
 // @baa 0x009aa040

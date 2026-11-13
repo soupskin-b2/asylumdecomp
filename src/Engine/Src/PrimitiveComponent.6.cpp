@@ -8,14 +8,14 @@
 void UMeshComponent::execGetUseSimpleBoxCollision( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_250();
+	*(UBOOL*)Result = GetUseSimpleBoxCollision();
 }
 
 // @baa 0x006dc810
 void UMeshComponent::execGetUseSimpleLineCollision( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_254();
+	*(UBOOL*)Result = GetUseSimpleLineCollision();
 }
 
 // @baa 0x006dc8c0

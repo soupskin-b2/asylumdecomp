@@ -97,7 +97,7 @@ void URCapeStateController__01701e60::execSetCapeToBoneDataReferencePose( FFrame
 
 struct URCapeStateController__01701750 : public URCapeStateController
 {
-	void sub_016e7ce0(FLOAT);
+	void Update(FLOAT);
 };
 
 // @baa 0x01701750
@@ -105,12 +105,12 @@ void URCapeStateController::execUpdate(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(DeltaTime);
 	P_FINISH;
-	this->sub_016e7ce0(DeltaTime);
+	this->Update(DeltaTime);
 }
 
 struct URCapeStateController__01701680 : public URCapeStateController
 {
-	void sub_016e7ba0(FName);
+	void Initialise(FName);
 };
 
 // @baa 0x01701680
@@ -118,12 +118,12 @@ void URCapeStateController::execInitialise(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_NAME(InitialCapeStateName);
 	P_FINISH;
-	this->sub_016e7ba0(InitialCapeStateName);
+	this->Initialise(InitialCapeStateName);
 }
 
 struct URCapeStateController__01701de0 : public URCapeStateController
 {
-	void sub_016e69c0(UBOOL);
+	void SetCapeToCurrentAnimPose(UBOOL);
 };
 
 // @baa 0x01701de0
@@ -131,7 +131,7 @@ void URCapeStateController::execSetCapeToCurrentAnimPose(FFrame& Stack, RESULT_D
 {
 	P_GET_UBOOL_OPTX(IsEvaluateAnim, 0);
 	P_FINISH;
-	this->sub_016e69c0(IsEvaluateAnim);
+	this->SetCapeToCurrentAnimPose(IsEvaluateAnim);
 }
 
 /* URCapeStateController::SetCapeStateAndTime (0x16e7670) isn't declared in the kit. */

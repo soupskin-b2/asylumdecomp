@@ -72,7 +72,7 @@ void UAnimNodeCrossfader::InitAnim(USkeletalMeshComponent* MeshComp, UAnimNodeBl
 {
 	Super::InitAnim(MeshComp, Parent);
 
-	UAnimNodeSequence* ActiveChild = sub_00c7a590();	/* GetActiveChild */
+	UAnimNodeSequence* ActiveChild = GetActiveChild();	/* GetActiveChild */
 	if (ActiveChild && ActiveChild->AnimSeqName == FName(NAME_None))
 	{
 		SetAnim(DefaultAnimSeqName);
@@ -183,7 +183,7 @@ void UAnimNodeBlendBase::vf_154()
 /* The animation playing on the slot's current custom-animation node (sub_00c7ccb0 is UE3's GetCustomAnimNodeSeq). */
 FName UAnimNodeSlot::GetPlayedAnimation()
 {
-	UAnimNodeSequence* SeqNode = sub_00c7ccb0();
+	UAnimNodeSequence* SeqNode = GetCustomAnimNodeSeq();
 	if (SeqNode)
 	{
 		return SeqNode->AnimSeqName;
@@ -303,7 +303,7 @@ void UAnimNodeRandom::InitAnim(USkeletalMeshComponent* MeshComp, UAnimNodeBlendB
 
 // @baa 0x00c4bba0
 /* Ends the custom animation's play state, remembering the blend-out time to use. */
-void UAnimNodePlayCustomAnim::sub_00c4bba0(FLOAT BlendOutTime)
+void UAnimNodePlayCustomAnim::StopCustomAnim(FLOAT BlendOutTime)
 {
 	if (bIsPlayingCustomAnim)
 	{

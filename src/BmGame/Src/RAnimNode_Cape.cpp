@@ -206,7 +206,7 @@ struct C_view {
 };
 
 // @baa 0x01579fb0
-undefined4 URAnimNode_Cape::sub_01579fb0(void)
+undefined4 URAnimNode_Cape::GetCurrentCapeAnimNode(void)
 {
     int param_1 = (int)this;
   int iVar1;

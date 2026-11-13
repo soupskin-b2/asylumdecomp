@@ -3930,7 +3930,7 @@
     {
      "va": "0171a890",
      "size": 103,
-     "symbol": "?sub_0171a890@ARTunnelGrateBase@@QAEXH@Z"
+     "symbol": "?SetDisableCapeCollision@ARTunnelGrateBase@@QAEXH@Z"
     }
    ]
   },
@@ -4923,7 +4923,7 @@
     {
      "va": "0155a090",
      "size": 35,
-     "symbol": "?sub_0155a090@@YGXPAUC_P1_5a090@@@Z"
+     "symbol": "?PlayerUpdateTransform@@YGXPAUC_P1_5a090@@@Z"
     }
    ]
   },
@@ -5585,7 +5585,7 @@
     {
      "va": "01613570",
      "size": 17,
-     "symbol": "?sub_01613570@@YGXPAX@Z"
+     "symbol": "?SetOcclusion@@YGXPAX@Z"
     },
     {
      "va": "01625fe0",
@@ -7205,7 +7205,7 @@
     {
      "va": "01579fb0",
      "size": 30,
-     "symbol": "?sub_01579fb0@URAnimNode_Cape@@QAEIXZ"
+     "symbol": "?GetCurrentCapeAnimNode@URAnimNode_Cape@@QAEIXZ"
     },
     {
      "va": "01586380",
@@ -11804,7 +11804,7 @@
     {
      "va": "015dea30",
      "size": 17,
-     "symbol": "?vf_1b0@URBMBehaviour@@UAEXXZ"
+     "symbol": "?SpawnedByController@URBMBehaviour@@UAEXXZ"
     }
    ]
   },
@@ -14236,7 +14236,7 @@
     {
      "va": "016b1f80",
      "size": 22,
-     "symbol": "?sub_016b1f80@URCapeComponent@@QAEXM@Z"
+     "symbol": "?SetMaterialSpeedVariableOverride@URCapeComponent@@QAEXM@Z"
     },
     {
      "va": "016b2120",
@@ -14296,7 +14296,7 @@
     {
      "va": "016ae800",
      "size": 39,
-     "symbol": "?sub_016ae800@URCapeComponent@@QAEPAXUFName@@@Z"
+     "symbol": "?GetAnimStateTreeNode@URCapeComponent@@QAEPAXUFName@@@Z"
     },
     {
      "va": "016aed10",
@@ -14323,7 +14323,7 @@
     {
      "va": "016ae7b0",
      "size": 60,
-     "symbol": "?sub_016ae7b0@URCapeComponent@@QAEXPAUUMaterialInstance@@@Z"
+     "symbol": "?UpdateDamageState@URCapeComponent@@QAEXPAUUMaterialInstance@@@Z"
     }
    ]
   },
@@ -14465,7 +14465,7 @@
     {
      "va": "016ae940",
      "size": 63,
-     "symbol": "?sub_016ae940@URCapeComponent@@QAEXI@Z"
+     "symbol": "?AddCinematicAnimSet@URCapeComponent@@QAEXI@Z"
     },
     {
      "va": "016ae980",
@@ -14735,12 +14735,12 @@
     {
      "va": "016ae830",
      "size": 21,
-     "symbol": "?sub_016ae830@URCapeComponent@@QAEMUFName@@@Z"
+     "symbol": "?GetAnimTreeNodeBlendValue@URCapeComponent@@QAEMUFName@@@Z"
     },
     {
      "va": "016be930",
      "size": 60,
-     "symbol": "?sub_016be930@URCapeComponent@@QAEXAAUFCapeWindAudioProperties@@@Z"
+     "symbol": "?CalculateWindProperties@URCapeComponent@@QAEXAAUFCapeWindAudioProperties@@@Z"
     },
     {
      "va": "016b1ee0",
@@ -18578,17 +18578,17 @@
     {
      "va": "01673b20",
      "size": 19,
-     "symbol": "?sub_01673b20@ARPawnCombat@@QAEXUFVector@@@Z"
+     "symbol": "?SetDestHeading@ARPawnCombat@@QAEXUFVector@@@Z"
     },
     {
      "va": "01676b70",
      "size": 27,
-     "symbol": "?sub_01676b70@ARPawnCombat@@QAEXUFVector@@@Z"
+     "symbol": "?FacePos@ARPawnCombat@@QAEXUFVector@@@Z"
     },
     {
      "va": "0167bba0",
      "size": 69,
-     "symbol": "?sub_0167bba0@ARPawnCombat__0167bba0@@QAEXPAUARPawnCombat@@@Z"
+     "symbol": "?FacePawn@ARPawnCombat__0167bba0@@QAEXPAUARPawnCombat@@@Z"
     }
    ]
   },
@@ -19026,7 +19026,7 @@
     {
      "va": "01618d10",
      "size": 110,
-     "symbol": "?sub_01618d10@ARPlayerController__01618d10@@QAEHUFVector@@@Z"
+     "symbol": "?ShouldIKickOffWall@ARPlayerController__01618d10@@QAEHUFVector@@@Z"
     },
     {
      "va": "01618fe0",
@@ -19556,12 +19556,12 @@
     {
      "va": "01615440",
      "size": 25,
-     "symbol": "?sub_01615440@ARPlayerController@@QAEXH@Z"
+     "symbol": "?SpecialMoveFinished@ARPlayerController@@QAEXH@Z"
     },
     {
      "va": "01615460",
      "size": 37,
-     "symbol": "?sub_01615460@ARPlayerController@@QAEXI@Z"
+     "symbol": "?SetUsingGamepad@ARPlayerController@@QAEXI@Z"
     },
     {
      "va": "016155a0",
@@ -20406,7 +20406,7 @@
     {
      "va": "016d2420",
      "size": 4,
-     "symbol": "?sub_016d2420@URGFxFSCmdHandler_PlayMovie@@QAEHXZ"
+     "symbol": "?GetPlayMovieAction@URGFxFSCmdHandler_PlayMovie@@QAEHXZ"
     },
     {
      "va": "016d2430",
@@ -22622,12 +22622,12 @@
     {
      "va": "0163f480",
      "size": 20,
-     "symbol": "?sub_0163f480@URRopeComponentBase@@QAEXE@Z"
+     "symbol": "?SetAutoLength@URRopeComponentBase@@QAEXE@Z"
     },
     {
      "va": "0163f4a0",
      "size": 20,
-     "symbol": "?sub_0163f4a0@URRopeComponentBase@@QAEXE@Z"
+     "symbol": "?SetContinuousAutoLength@URRopeComponentBase@@QAEXE@Z"
     },
     {
      "va": "0163f4f0",
@@ -22707,7 +22707,7 @@
     {
      "va": "0163f5b0",
      "size": 14,
-     "symbol": "?vf_260@URRopeComponentBase@@UAEXEH@Z"
+     "symbol": "?SetCollidesWithChannel@URRopeComponentBase@@UAEXEH@Z"
     },
     {
      "va": "01644e00",
@@ -23284,7 +23284,7 @@
     {
      "va": "016751c0",
      "size": 119,
-     "symbol": "?sub_016751c0@ARSmashableProp@@QAEPAXUFName@@@Z"
+     "symbol": "?GetDecalMaterialInstance@ARSmashableProp@@QAEPAXUFName@@@Z"
     },
     {
      "va": "0166b820",
@@ -46108,7 +46108,7 @@
     {
      "va": "0166d720",
      "size": 17,
-     "symbol": "?sub_0166d720@ARPawnCombat@@QAEXM@Z"
+     "symbol": "?SetDestRot@ARPawnCombat@@QAEXM@Z"
     },
     {
      "va": "0166d6f0",
@@ -47028,7 +47028,7 @@
     {
      "va": "01685d40",
      "size": 35,
-     "symbol": "?vf_258@URSimpleRopeComponent@@UAEHXZ"
+     "symbol": "?InitialiseRope@URSimpleRopeComponent@@UAEHXZ"
     }
    ]
   },
@@ -170952,12 +170952,12 @@
     {
      "va": "0064e0c0",
      "size": 18,
-     "symbol": "?sub_0064e0c0@UDecalComponent@@QAEXI@Z"
+     "symbol": "?SetDecalMaterial@UDecalComponent@@QAEXI@Z"
     },
     {
      "va": "0064e0e0",
      "size": 7,
-     "symbol": "?sub_0064e0e0@UDecalComponent@@QAEHXZ"
+     "symbol": "?GetDecalMaterial@UDecalComponent@@QAEHXZ"
     },
     {
      "va": "0064e0f0",
@@ -174853,7 +174853,7 @@
     {
      "va": "00bacd70",
      "size": 97,
-     "symbol": "?sub_00bacd70@ULensFlareComponent@@QAEXPAUULensFlare@@@Z"
+     "symbol": "?SetTemplate@ULensFlareComponent@@QAEXPAUULensFlare@@@Z"
     }
    ]
   },
@@ -183627,7 +183627,7 @@
     {
      "va": "006dc7b0",
      "size": 3,
-     "symbol": "?vf_250@UMeshComponent@@UAEIXZ"
+     "symbol": "?GetUseSimpleBoxCollision@UMeshComponent@@UAEIXZ"
     }
    ]
   },
@@ -183639,7 +183639,7 @@
     {
      "va": "006dc800",
      "size": 3,
-     "symbol": "?vf_254@UMeshComponent@@UAEIXZ"
+     "symbol": "?GetUseSimpleLineCollision@UMeshComponent@@UAEIXZ"
     }
    ]
   },
@@ -194972,7 +194972,7 @@
     {
      "va": "00777440",
      "size": 31,
-     "symbol": "?sub_00777440@AActor@@QAEXH@Z"
+     "symbol": "?SetOnlyOwnerSee@AActor@@QAEXH@Z"
     },
     {
      "va": "0068f440",
@@ -194982,7 +194982,7 @@
     {
      "va": "00784080",
      "size": 233,
-     "symbol": "?sub_00784080@AActor@@QAEXE@Z"
+     "symbol": "?SetCollisionType@AActor@@QAEXE@Z"
     },
     {
      "va": "0075deb0",
@@ -197563,7 +197563,7 @@
     {
      "va": "006ab520",
      "size": 38,
-     "symbol": "?sub_006ab520@UFogVolumeDensityComponent@@QAEXI@Z"
+     "symbol": "?SetEnabled@UFogVolumeDensityComponent@@QAEXI@Z"
     },
     {
      "va": "006c0ba0",
@@ -200375,7 +200375,7 @@
     {
      "va": "00c4afe0",
      "size": 22,
-     "symbol": "?sub_00c4afe0@AActor@@QAEXI@Z"
+     "symbol": "?FinishAnim@AActor@@QAEXI@Z"
     },
     {
      "va": "00c4b120",
@@ -201185,7 +201185,7 @@
     {
      "va": "00c4bba0",
      "size": 36,
-     "symbol": "?sub_00c4bba0@UAnimNodePlayCustomAnim@@QAEXM@Z"
+     "symbol": "?StopCustomAnim@UAnimNodePlayCustomAnim@@QAEXM@Z"
     }
    ]
   },
@@ -205765,7 +205765,7 @@
     {
      "va": "007880c0",
      "size": 82,
-     "symbol": "?sub_007880c0@UCameraAnimInst@@QAEXH@Z"
+     "symbol": "?Stop@UCameraAnimInst@@QAEXH@Z"
     }
    ]
   },
@@ -209888,12 +209888,12 @@
     {
      "va": "007a6fe0",
      "size": 31,
-     "symbol": "?vf_250@UFracturedBaseComponent@@UAEIXZ"
+     "symbol": "?GetUseSimpleBoxCollision@UFracturedBaseComponent@@UAEIXZ"
     },
     {
      "va": "007a7000",
      "size": 31,
-     "symbol": "?vf_254@UFracturedBaseComponent@@UAEIXZ"
+     "symbol": "?GetUseSimpleLineCollision@UFracturedBaseComponent@@UAEIXZ"
     },
     {
      "va": "007a7060",
@@ -210966,12 +210966,12 @@
     {
      "va": "00947280",
      "size": 20,
-     "symbol": "?vf_250@UStaticMeshComponent@@UAEIXZ"
+     "symbol": "?GetUseSimpleBoxCollision@UStaticMeshComponent@@UAEIXZ"
     },
     {
      "va": "009472e0",
      "size": 20,
-     "symbol": "?vf_254@UStaticMeshComponent@@UAEIXZ"
+     "symbol": "?GetUseSimpleLineCollision@UStaticMeshComponent@@UAEIXZ"
     },
     {
      "va": "00eaa380",
@@ -215390,7 +215390,7 @@
     {
      "va": "00841860",
      "size": 92,
-     "symbol": "?sub_00841860@ACoverLink@@QAEPAUACoverSlotMarker@@H@Z"
+     "symbol": "?GetSlotMarker@ACoverLink@@QAEPAUACoverSlotMarker@@H@Z"
     }
    ]
   },
@@ -217738,7 +217738,7 @@
     {
      "va": "00b51be0",
      "size": 27,
-     "symbol": "?sub_00b51be0@UParticleSystemComponent@@QAEXH@Z"
+     "symbol": "?SetSkipUpdateDynamicDataDuringTick@UParticleSystemComponent@@QAEXH@Z"
     },
     {
      "va": "00b65d30",
@@ -217753,7 +217753,7 @@
     {
      "va": "00b5d0c0",
      "size": 49,
-     "symbol": "?sub_00b5d0c0@UParticleSystemComponent@@QAEXH@Z"
+     "symbol": "?SetActive@UParticleSystemComponent@@QAEXH@Z"
     },
     {
      "va": "00b5f140",
@@ -218150,7 +218150,7 @@
     {
      "va": "00b51ba0",
      "size": 19,
-     "symbol": "?sub_00b51ba0@UParticleSystemComponent@@QAEXH@Z"
+     "symbol": "?SetEditorLODLevel@UParticleSystemComponent@@QAEXH@Z"
     },
     {
      "va": "00b51bc0",
@@ -224011,7 +224011,7 @@
     {
      "va": "00865220",
      "size": 16,
-     "symbol": "?sub_00865220@APawn@@QAEXH@Z"
+     "symbol": "?SetRemoteViewPitch@APawn@@QAEXH@Z"
     },
     {
      "va": "007ad450",
@@ -225304,7 +225304,7 @@
     {
      "va": "00a0bc60",
      "size": 153,
-     "symbol": "?sub_00a0bc60@UPhysicsAssetInstance@@QAEXM@Z"
+     "symbol": "?SetDampingRampupProportion@UPhysicsAssetInstance@@QAEXM@Z"
     }
    ]
   },
@@ -225386,12 +225386,12 @@
     {
      "va": "00a051a0",
      "size": 26,
-     "symbol": "?sub_00a051a0@URB_BodyInstance@@QAEIXZ"
+     "symbol": "?GetPhysicsAssetInstance@URB_BodyInstance@@QAEIXZ"
     },
     {
      "va": "00a0acb0",
      "size": 39,
-     "symbol": "?sub_00a0acb0@URB_BodyInstance@@QAEXM@Z"
+     "symbol": "?SetDampingRampupProportion@URB_BodyInstance@@QAEXM@Z"
     },
     {
      "va": "00a207c0",
@@ -225615,12 +225615,12 @@
     {
      "va": "00a14920",
      "size": 106,
-     "symbol": "?sub_00a14920@USkeletalMeshComponent@@QAEHH@Z"
+     "symbol": "?IsBoneHidden@USkeletalMeshComponent@@QAEHH@Z"
     },
     {
      "va": "00a14870",
      "size": 170,
-     "symbol": "?sub_00a14870@USkeletalMeshComponent@@QAEXH@Z"
+     "symbol": "?UnHideBone@USkeletalMeshComponent@@QAEXH@Z"
     }
    ]
   },
@@ -226527,7 +226527,7 @@
     {
      "va": "00a385d0",
      "size": 26,
-     "symbol": "?sub_00a385d0@URB_ConstraintInstance@@QAEIXZ"
+     "symbol": "?GetPhysicsAssetInstance@URB_ConstraintInstance@@QAEIXZ"
     },
     {
      "va": "00a4d4a0",
@@ -227711,7 +227711,7 @@
     {
      "va": "00892bb0",
      "size": 234,
-     "symbol": "?sub_00892bb0@UPostProcessChain@@QAEPAXUFName@@@Z"
+     "symbol": "?FindPostProcessEffect@UPostProcessChain@@QAEPAXUFName@@@Z"
     },
     {
      "va": "008889d0",
@@ -231938,7 +231938,7 @@
     {
      "va": "008abb60",
      "size": 22,
-     "symbol": "?sub_008abb60@USequence@@QAEXI@Z"
+     "symbol": "?SetEnabled@USequence@@QAEXI@Z"
     },
     {
      "va": "008abea0",
@@ -238857,7 +238857,7 @@
     {
      "va": "0093fde0",
      "size": 188,
-     "symbol": "?sub_0093fde0@USkeletalMeshComponent@@QAEXPAUUActorComponent@@@Z"
+     "symbol": "?DetachComponent@USkeletalMeshComponent@@QAEXPAUUActorComponent@@@Z"
     }
    ]
   },
@@ -240333,7 +240333,7 @@
     {
      "va": "00937e40",
      "size": 121,
-     "symbol": "?sub_00937e40@USkeletalMeshComponent@@QAEXPAUUAnimTree@@@Z"
+     "symbol": "?SetAnimTreeTemplate@USkeletalMeshComponent@@QAEXPAUUAnimTree@@@Z"
     },
     {
      "va": "0093dd00",
@@ -240953,12 +240953,12 @@
     {
      "va": "0090f310",
      "size": 26,
-     "symbol": "?vf_250@USkeletalMeshComponent@@UAEIXZ"
+     "symbol": "?GetUseSimpleBoxCollision@USkeletalMeshComponent@@UAEIXZ"
     },
     {
      "va": "0090f370",
      "size": 25,
-     "symbol": "?vf_254@USkeletalMeshComponent@@UAEIXZ"
+     "symbol": "?GetUseSimpleLineCollision@USkeletalMeshComponent@@UAEIXZ"
     },
     {
      "va": "0090f5d0",
@@ -245442,7 +245442,7 @@
     {
      "va": "009a9810",
      "size": 3,
-     "symbol": "?sub_009a9810@@YGXH@Z"
+     "symbol": "?SetMaterials@@YGXH@Z"
     },
     {
      "va": "009aa040",
@@ -246117,7 +246117,7 @@
     {
      "va": "00da19f0",
      "size": 122,
-     "symbol": "?sub_00da19f0@UDataStoreClient@@QAEPAUUUIDataStore@@PAUUClass@@@Z"
+     "symbol": "?CreateDataStore@UDataStoreClient@@QAEPAUUUIDataStore@@PAUUClass@@@Z"
     },
     {
      "va": "00d950a0",
@@ -250205,7 +250205,7 @@
     {
      "va": "00da32c0",
      "size": 163,
-     "symbol": "?sub_00da32c0@USessionSettingsProvider_@@QAEHPAUUClass@@@Z"
+     "symbol": "?BindProviderClient@USessionSettingsProvider_@@QAEHPAUUClass@@@Z"
     },
     {
      "va": "00da33b0",
@@ -250570,12 +250570,12 @@
     {
      "va": "00da99e0",
      "size": 47,
-     "symbol": "?sub_00da99e0@UUIScreenObject@@QAEHH@Z"
+     "symbol": "?AcceptsPlayerInput@UUIScreenObject@@QAEHH@Z"
     },
     {
      "va": "00da94c0",
      "size": 51,
-     "symbol": "?sub_00da94c0@UUIScreenObject@@QAEXE@Z"
+     "symbol": "?InvalidatePosition@UUIScreenObject@@QAEXE@Z"
     },
     {
      "va": "00dbe5d0",
@@ -250751,7 +250751,7 @@
     {
      "va": "00daabb0",
      "size": 24,
-     "symbol": "?sub_00daabb0@UUIObject@@QAEHH@Z"
+     "symbol": "?IsPrivateBehaviorSet@UUIObject@@QAEHH@Z"
     },
     {
      "va": "00da6dc0",
@@ -251812,17 +251812,17 @@
     {
      "va": "00daa860",
      "size": 42,
-     "symbol": "?sub_00daa860@UUIObject@@QAEXH@Z"
+     "symbol": "?ClearDefaultDataBinding@UUIObject@@QAEXH@Z"
     },
     {
      "va": "00daa820",
      "size": 45,
-     "symbol": "?sub_00daa820@UUIObject@@QAEHPAU1@@Z"
+     "symbol": "?IsContainedBy@UUIObject@@QAEHPAU1@@Z"
     },
     {
      "va": "00db5ac0",
      "size": 59,
-     "symbol": "?sub_00db5ac0@UUIObject_@@QAEXAAV?$TArray@PAVUUIDataStore@@@@@Z"
+     "symbol": "?GetDefaultDataStores@UUIObject_@@QAEXAAV?$TArray@PAVUUIDataStore@@@@@Z"
     },
     {
      "va": "00db1250",
@@ -251857,7 +251857,7 @@
     {
      "va": "00da9df0",
      "size": 38,
-     "symbol": "?sub_00da9df0@UUIScene@@QAEXE@Z"
+     "symbol": "?SetSceneInputMode@UUIScene@@QAEXE@Z"
     },
     {
      "va": "00db0850",
@@ -251954,7 +251954,7 @@
     {
      "va": "00da9a10",
      "size": 21,
-     "symbol": "?sub_00da9a10@UUIScene@@QAEPAUAWorldInfo@@XZ"
+     "symbol": "?GetWorldInfo@UUIScene@@QAEPAUAWorldInfo@@XZ"
     }
    ]
   },
@@ -252944,7 +252944,7 @@
     {
      "va": "00da90a0",
      "size": 5,
-     "symbol": "?sub_00da90a0@@YGHHHHHHH@Z"
+     "symbol": "?InstanceUIPrefab@@YGHHHHHHH@Z"
     },
     {
      "va": "00da92e0",
@@ -252954,7 +252954,7 @@
     {
      "va": "00da95c0",
      "size": 5,
-     "symbol": "?sub_00da95c0@@YGHH@Z"
+     "symbol": "?GetCurrentState@@YGHH@Z"
     },
     {
      "va": "00da98b0",
@@ -254967,12 +254967,12 @@
     {
      "va": "00ddbb50",
      "size": 21,
-     "symbol": "?sub_00ddbb50@UUIStyle_Combo@@QAEPAUUUIStyle_Text@@XZ"
+     "symbol": "?GetComboTextStyle@UUIStyle_Combo@@QAEPAUUUIStyle_Text@@XZ"
     },
     {
      "va": "00ddbb70",
      "size": 18,
-     "symbol": "?sub_00ddbb70@UUIStyle_Combo@@QAEPAUUUIStyle_Image@@XZ"
+     "symbol": "?GetComboImageStyle@UUIStyle_Combo@@QAEPAUUUIStyle_Image@@XZ"
     }
    ]
   },
@@ -262485,17 +262485,17 @@
     {
      "va": "009b0b00",
      "size": 6,
-     "symbol": "?sub_009b0b00@@YAEXZ"
+     "symbol": "?GetDetailMode@@YAEXZ"
     },
     {
      "va": "009b0b70",
      "size": 3,
-     "symbol": "?sub_009b0b70@@YGXH@Z"
+     "symbol": "?ResetActorChannel@@YGXH@Z"
     },
     {
      "va": "009b0b80",
      "size": 3,
-     "symbol": "?sub_009b0b80@@YGXHHHHHH@Z"
+     "symbol": "?UpdateMusicTrack@@YGXHHHHHH@Z"
     },
     {
      "va": "009b0b90",
@@ -277558,7 +277558,7 @@
     {
      "va": "006acc00",
      "size": 38,
-     "symbol": "?sub_006acc00@UHeightFogComponent@@QAEXI@Z"
+     "symbol": "?SetEnabled@UHeightFogComponent@@QAEXI@Z"
     },
     {
      "va": "006acc30",
@@ -285201,7 +285201,7 @@
     {
      "va": "00717d50",
      "size": 70,
-     "symbol": "?sub_00717d50@UTexture2D@@QAEXM@Z"
+     "symbol": "?SetForceMipLevelsToBeResident@UTexture2D@@QAEXM@Z"
     }
    ]
   },
@@ -291743,7 +291743,7 @@
     {
      "va": "007580f0",
      "size": 13,
-     "symbol": "?sub_007580f0@AActor@@QAEXE@Z"
+     "symbol": "?SetTickGroup@AActor@@QAEXE@Z"
     },
     {
      "va": "00758300",
@@ -291778,12 +291778,12 @@
     {
      "va": "00758b70",
      "size": 3,
-     "symbol": "?sub_00758b70@@YGXH@Z"
+     "symbol": "?SetNetUpdateTime@@YGXH@Z"
     },
     {
      "va": "00758b80",
      "size": 49,
-     "symbol": "?sub_00758b80@APlayerReplicationInfo@@QAEIH@Z"
+     "symbol": "?AreUniqueNetIdsEqual@APlayerReplicationInfo@@QAEIH@Z"
     },
     {
      "va": "00758d90",
@@ -296982,7 +296982,7 @@
     {
      "va": "007ad390",
      "size": 147,
-     "symbol": "?sub_007ad390@AController@@QAEPAUANavigationPoint@@XZ"
+     "symbol": "?FindRandomDest@AController@@QAEPAUANavigationPoint@@XZ"
     }
    ]
   },
@@ -297080,7 +297080,7 @@
     {
      "va": "007a0da0",
      "size": 19,
-     "symbol": "?sub_007a0da0@AController@@QAE_NI@Z"
+     "symbol": "?InLatentExecution@AController@@QAE_NI@Z"
     },
     {
      "va": "007a0ec0",
@@ -298185,12 +298185,12 @@
     {
      "va": "007a0710",
      "size": 20,
-     "symbol": "?sub_007a0710@AController@@QAEHPAUAPawn@@@Z"
+     "symbol": "?CanSee@AController@@QAEHPAUAPawn@@@Z"
     },
     {
      "va": "007a08d0",
      "size": 50,
-     "symbol": "?sub_007a08d0@AController@@QAEHUFVector@@@Z"
+     "symbol": "?PickWallAdjust@AController@@QAEHUFVector@@@Z"
     },
     {
      "va": "007ad790",
@@ -298287,7 +298287,7 @@
     {
      "va": "007b5600",
      "size": 121,
-     "symbol": "?sub_007b5600@APlayerController@@QAEHAAUFUniqueNetId@@@Z"
+     "symbol": "?IsPlayerMuted@APlayerController@@QAEHAAUFUniqueNetId@@@Z"
     }
    ]
   },
@@ -305878,7 +305878,7 @@
     {
      "va": "00835b60",
      "size": 47,
-     "symbol": "?sub_00835b60@ANavigationPoint@@QAEIH@Z"
+     "symbol": "?IsOnDifferentNetwork@ANavigationPoint@@QAEIH@Z"
     },
     {
      "va": "008366a0",
@@ -308941,7 +308941,7 @@
     {
      "va": "008a7800",
      "size": 14,
-     "symbol": "?sub_008a7800@@YAXXZ"
+     "symbol": "?GetGameSequence@@YAXXZ"
     }
    ]
   },
@@ -309055,7 +309055,7 @@
     {
      "va": "008a7810",
      "size": 26,
-     "symbol": "?sub_008a7810@AActor@@QAEXM@Z"
+     "symbol": "?Sleep@AActor@@QAEXM@Z"
     },
     {
      "va": "008a4de0",
@@ -309114,7 +309114,7 @@
     {
      "va": "008a7bb0",
      "size": 26,
-     "symbol": "?sub_008a7bb0@AActor@@QAEHUFVector@@@Z"
+     "symbol": "?SetLocation@AActor@@QAEHUFVector@@@Z"
     }
    ]
   },
@@ -309371,7 +309371,7 @@
     {
      "va": "008a72f0",
      "size": 28,
-     "symbol": "?sub_008a72f0@USceneCaptureComponent@@QAEXM@Z"
+     "symbol": "?SetFrameRate@USceneCaptureComponent@@QAEXM@Z"
     },
     {
      "va": "008a76c0",
@@ -309411,7 +309411,7 @@
     {
      "va": "008a77d0",
      "size": 5,
-     "symbol": "?sub_008a77d0@@YGHH@Z"
+     "symbol": "?IsConsoleBuild@@YGHH@Z"
     },
     {
      "va": "008a77e0",
@@ -309446,7 +309446,7 @@
     {
      "va": "008aa030",
      "size": 3,
-     "symbol": "?sub_008aa030@@YGXH@Z"
+     "symbol": "?Clock@@YGXH@Z"
     },
     {
      "va": "008aa200",
@@ -309936,7 +309936,7 @@
     {
      "va": "008aa040",
      "size": 23,
-     "symbol": "?sub_008aa040@AActor@@QAEXAAM@Z"
+     "symbol": "?UnClock@AActor@@QAEXAAM@Z"
     }
    ]
   },
@@ -310220,12 +310220,12 @@
     {
      "va": "008c7f00",
      "size": 39,
-     "symbol": "?sub_008c7f00@AActor@@QAEXPAUUActorComponent@@@Z"
+     "symbol": "?DetachComponent@AActor@@QAEXPAUUActorComponent@@@Z"
     },
     {
      "va": "008c7f30",
      "size": 51,
-     "symbol": "?sub_008c7f30@AActor@@QAEXPAUUActorComponent@@@Z"
+     "symbol": "?ReattachComponent@AActor@@QAEXPAUUActorComponent@@@Z"
     }
    ]
   },
@@ -310276,7 +310276,7 @@
     {
      "va": "008c7500",
      "size": 409,
-     "symbol": "?sub_008c7500@AGameInfo@@QAEXPAUAActor@@@Z"
+     "symbol": "?ForceClearUnpauseDelegates@AGameInfo@@QAEXPAUAActor@@@Z"
     }
    ]
   },
@@ -312553,7 +312553,7 @@
     {
      "va": "0092e930",
      "size": 100,
-     "symbol": "?sub_0092e930@USkeletalMeshComponent@@QAEXH@Z"
+     "symbol": "?ToggleInstanceVertexWeights@USkeletalMeshComponent@@QAEXH@Z"
     }
    ]
   },
@@ -318363,12 +318363,12 @@
     {
      "va": "009c9950",
      "size": 203,
-     "symbol": "?sub_009c9950@AWorldInfo@@QAEPAUUMapInfo@@XZ"
+     "symbol": "?GetMapInfo@AWorldInfo@@QAEPAUUMapInfo@@XZ"
     },
     {
      "va": "009c9a20",
      "size": 247,
-     "symbol": "?sub_009c9a20@AWorldInfo@@QAEXPAUUMapInfo@@@Z"
+     "symbol": "?SetMapInfo@AWorldInfo@@QAEXPAUUMapInfo@@@Z"
     }
    ]
   },
@@ -321049,7 +321049,7 @@
     {
      "va": "00a01980",
      "size": 101,
-     "symbol": "?sub_00a01980@USkeletalMeshComponent@@QAEXH@Z"
+     "symbol": "?SetHasPhysicsAssetInstance@USkeletalMeshComponent@@QAEXH@Z"
     }
    ]
   },
@@ -357670,12 +357670,12 @@
     {
      "va": "00d1ff30",
      "size": 13,
-     "symbol": "?sub_00d1ff30@UPrefabSequence@@QAEXH@Z"
+     "symbol": "?SetOwnerPrefab@UPrefabSequence@@QAEXH@Z"
     },
     {
      "va": "00d1ff40",
      "size": 7,
-     "symbol": "?sub_00d1ff40@UPrefabSequence@@QAEHXZ"
+     "symbol": "?GetOwnerPrefab@UPrefabSequence@@QAEHXZ"
     }
    ]
   },
@@ -478006,7 +478006,7 @@
     {
      "va": "00834900",
      "size": 53,
-     "symbol": "?sub_00834900@UMorphNodePose@@QAEXUFName@@@Z"
+     "symbol": "?SetMorphTarget@UMorphNodePose@@QAEXUFName@@@Z"
     }
    ]
   },

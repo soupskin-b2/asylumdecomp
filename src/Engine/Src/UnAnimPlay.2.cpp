@@ -106,7 +106,7 @@ void UAnimNodeSequence::InitAnim(USkeletalMeshComponent* MeshComp, UAnimNodeBlen
 	/* A camera anim left playing from before is stopped and let go. */
 	if (ActiveCameraAnimInstance)
 	{
-		ActiveCameraAnimInstance->sub_007880c0(TRUE);	/* Stop(bImmediate) */
+		ActiveCameraAnimInstance->Stop(TRUE);	/* Stop(bImmediate) */
 		ActiveCameraAnimInstance->bAutoReleaseWhenFinished = TRUE;
 		ActiveCameraAnimInstance = NULL;
 	}

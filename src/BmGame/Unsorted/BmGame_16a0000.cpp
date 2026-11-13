@@ -777,7 +777,7 @@ void ARPontoonBase::UpdatePontoonForces()
 		{
 			bInPosition = FALSE;
 		}
-		sub_008a7f10(NewRotation);
+		SetRotation(NewRotation);
 	}
 	TargetRotation.Pitch = 0;
 	TargetRotation.Roll = 0;
@@ -812,7 +812,7 @@ FVector4_* FVector4_::sub_016accb0(const FVector* V, FLOAT WIn)
 // @baa 0x016acb40
 void __stdcall sub_016acb40(AActor* A1, FVector V)
 {
-    A1->sub_008a7bb0(V);
+    A1->SetLocation(V);
 }
 
 // @baa 0x016aa6b0

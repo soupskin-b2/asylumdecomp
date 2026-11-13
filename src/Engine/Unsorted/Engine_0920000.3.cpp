@@ -30,7 +30,7 @@ void USkeletalMeshComponent::execRemoveInstanceVertexWeightBoneParented(FFrame& 
 {
 	P_GET_NAME(BoneName);
 	P_FINISH;
-	sub_0092e850(BoneName);
+	RemoveInstanceVertexWeightBoneParented(BoneName);
 }
 
 // @baa 0x0092e3c0
@@ -38,7 +38,7 @@ void USkeletalMeshComponent::execFindBodyInstanceNamed(FFrame& Stack, RESULT_DEC
 {
 	P_GET_NAME(BoneName);
 	P_FINISH;
-	*(void**)Result = sub_0091f3f0(BoneName);
+	*(void**)Result = FindBodyInstanceNamed(BoneName);
 }
 
 // @baa 0x009206c0
@@ -46,7 +46,7 @@ void USkeletalMeshComponent::execSetForceJointProjection(FFrame& Stack, RESULT_D
 {
 	P_GET_UBOOL(bNewForceJointProjection);
 	P_FINISH;
-	sub_009200e0(bNewForceJointProjection);
+	SetForceJointProjection(bNewForceJointProjection);
 }
 
 // @baa 0x0092e9a0
@@ -54,7 +54,7 @@ void USkeletalMeshComponent::execToggleInstanceVertexWeights(FFrame& Stack, RESU
 {
 	P_GET_UBOOL(bEnable);
 	P_FINISH;
-	sub_0092e930(bEnable);
+	ToggleInstanceVertexWeights(bEnable);
 }
 
 // @baa 0x0092df60

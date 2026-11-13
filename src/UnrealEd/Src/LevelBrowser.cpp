@@ -3,23 +3,10 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
 
-struct IMemObject {
-    virtual void VFunc00(void);
-    virtual void VFunc04(void);
-    virtual void VFunc08(void);
-    virtual void VFunc0C(void);
-    virtual void VFunc10(void);
-    virtual void VFunc14(void);
-    virtual void VFunc18(void);
-    virtual void VFunc1C(void);
-    virtual void VFunc20(int Arg);
-};
-
-extern IMemObject* g_026667c4;
 // @baa 0x005fae90
 void sub_005fae90(void)
 {
-    g_026667c4->VFunc20(23);
+    GCallbackEvent->Send((ECallbackEventType)23);
 }
 
 int sub_006311e0(...);

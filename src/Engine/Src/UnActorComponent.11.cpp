@@ -38,7 +38,7 @@ void UActorComponent::DetachFromAny()
         }
         else
         {
-            Owner->sub_008c7f00(this); // DetachComponent
+            Owner->DetachComponent(this); // DetachComponent
             if (bAttached)
             {
                 for (INT CompIdx = 0; CompIdx < Owner->AllComponents.Num(); CompIdx++)

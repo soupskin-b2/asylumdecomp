@@ -8,7 +8,7 @@
 void USkeletalMeshComponent::execGetUseSimpleBoxCollision( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_250();
+	*(UBOOL*)Result = GetUseSimpleBoxCollision();
 }
 
 // @baa 0x0091faa0
@@ -162,7 +162,7 @@ void USkeletalMeshComponent::execSetFaceFXRegister(FFrame& Stack, RESULT_DECL)
 void USkeletalMeshComponent::execGetUseSimpleLineCollision(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_254();
+	*(UBOOL*)Result = GetUseSimpleLineCollision();
 }
 
 // @baa 0x0090f500

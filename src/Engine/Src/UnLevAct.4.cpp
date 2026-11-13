@@ -83,7 +83,7 @@ void AActor__0076cc90::sub_0076cc90()
 {
     for (INT i = 0; i < Touching.Num(); )
     {
-        if (Touching(i) && !sub_00763730(Touching(i), 0, 0, 0)) // IsOverlapping(Other, NULL, NULL, NULL)
+        if (Touching(i) && !IsOverlapping(Touching(i), 0, 0, 0)) // IsOverlapping(Other, NULL, NULL, NULL)
         {
             sub_007691a0(Touching(i), 0); // EndTouch
         }

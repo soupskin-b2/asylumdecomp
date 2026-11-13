@@ -29,7 +29,7 @@ FLOAT UAnimNodeSequence::GetGlobalPlayRate()
         UAnimTree* RootNode = Cast<UAnimTree>(SkelComponent->Animations);
         if (RootNode)
         {
-            const INT GroupIndex = RootNode->sub_00c556d0(SynchGroupName);
+            const INT GroupIndex = RootNode->GetGroupIndex(SynchGroupName);
             if (GroupIndex != INDEX_NONE)
             {
                 GlobalRate *= GetAnimGroup_(RootNode->AnimGroups, GroupIndex).RateScale;

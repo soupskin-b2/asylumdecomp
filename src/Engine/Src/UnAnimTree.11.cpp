@@ -32,7 +32,7 @@ struct UAnimNodeSlot_ : public UAnimNodeSlot
 // @baa 0x00c803f0
 void UAnimNodeSlot_::AddToSynchGroup(FName GroupName)
 {
-	UAnimNodeSequence* SeqNode = sub_00c7ccb0();
+	UAnimNodeSequence* SeqNode = GetCustomAnimNodeSeq();
 
 	// nothing to do without a custom animation, or if it's already in that group
 	if (!SeqNode || SeqNode->SynchGroupName == GroupName)

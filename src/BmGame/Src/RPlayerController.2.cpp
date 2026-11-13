@@ -422,7 +422,7 @@ UBOOL ARPlayerController::IsJokerDLCPresent() { return 0; }
 UBOOL ARPlayerController::IsArmouredBatmanDLCPresent() { return 0; }
 
 // @baa 0x01615440
-void ARPlayerController::sub_01615440(int param_2)
+void ARPlayerController::SpecialMoveFinished(int param_2)
 {
     int param_1 = (int)this;
 
@@ -433,7 +433,7 @@ void ARPlayerController::sub_01615440(int param_2)
 }
 
 // @baa 0x01615460
-void ARPlayerController::sub_01615460(uint param_2)
+void ARPlayerController::SetUsingGamepad(uint param_2)
 {
     int param_1 = (int)this;
 
@@ -1551,7 +1551,7 @@ bool URGFxFSCmdHandler_PlayMovie::vf_004()
 }
 
 // @baa 0x016d2420
-int URGFxFSCmdHandler_PlayMovie::sub_016d2420(void) { return *(int*)((char*)this + 48); }
+int URGFxFSCmdHandler_PlayMovie::GetPlayMovieAction(void) { return *(int*)((char*)this + 48); }
 
 // @baa 0x016d2430
 IMPLEMENT_CLASS_AT(URCharacterBioCue, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameGFxSupportClasses.cpp", 627);
@@ -1961,7 +1961,7 @@ void ARPlayerController::StartNewAmbientSound(USoundCue* AmbientSound)
     }
     AmbStopping = FALSE;
     AmbOtherSoundPtr->SoundCue = AmbientSound;
-    AmbOtherSoundPtr->sub_00791770();
+    AmbOtherSoundPtr->Play();
 }
 
 struct C_0160e3b0

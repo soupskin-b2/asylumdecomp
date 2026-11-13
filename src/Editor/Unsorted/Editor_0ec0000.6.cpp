@@ -46,7 +46,7 @@ void UBrushBuilder::execPolyi(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(Index);
 	P_FINISH;
-	vf_138(Index);
+	Polyi(Index);
 }
 
 // @baa 0x00ec3160

@@ -54,7 +54,7 @@ FLOAT UAnimNodeSequence::GetSliderPosition(INT param_2, INT param_3) {
 }
 
 // @baa 0x00c4afe0
-void AActor::sub_00c4afe0(undefined4 param_2)
+void AActor::FinishAnim(undefined4 param_2)
 {
     int param_1 = (int)this;
 
@@ -173,7 +173,7 @@ struct UAnimNodeSequence_ : public UAnimNodeSequence {
     {
         if (ActiveCameraAnimInstance)
         {
-            ((UCameraAnimInst_*)ActiveCameraAnimInstance)->sub_007880c0(1);
+            ((UCameraAnimInst_*)ActiveCameraAnimInstance)->Stop(1);
             ActiveCameraAnimInstance->bAutoReleaseWhenFinished = 1;
             ActiveCameraAnimInstance = NULL;
         }
