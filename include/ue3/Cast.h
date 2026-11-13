@@ -5,9 +5,19 @@
  */
 #pragma once
 #include "Classes.h"
+#include "Script.h"
 
 #ifndef BAA_UE3_CAST
 #define BAA_UE3_CAST
+
+/* Core.h: appErrorf hands the message to an attached debugger first. This build has no debugger
+ * support (appIsDebuggerPresent is constant), so only the temporaries' destructor flags are left
+ * of that branch in the code. */
+#ifndef appErrorf
+inline UBOOL appIsDebuggerPresent() { return FALSE; }
+void __cdecl appFailAssertFuncDebug(const ANSICHAR* Expr, const ANSICHAR* File, INT Line, const TCHAR* Format = TEXT(""), ...);
+#define appErrorf(...) ( (appIsDebuggerPresent() ? (appFailAssertFuncDebug("appErrorf", __FILE__, __LINE__, ##__VA_ARGS__), 1) : 1), GError->Logf(__VA_ARGS__) )
+#endif
 
 /* UObject::IsA(SomeBase): NULL is a base of everything */
 inline UBOOL ObjectIsA(const UObject* Object, UClass* SomeBase)
@@ -28,6 +38,17 @@ template<class T> T* Cast(UObject* Src)
 template<class T> const T* ConstCast(const UObject* Src)
 {
     return Src && ObjectIsA(Src, T::StaticClass()) ? (const T*)Src : NULL;
+}
+
+/* UnObjBas.h: the cast that must succeed (out of line per class in this build):
+ *   template UMyClass* CastChecked<UMyClass>(UObject* Src); */
+template<class T> T* CastChecked(UObject* Src)
+{
+	if (!Src || !ObjectIsA(Src, T::StaticClass()))
+	{
+		appErrorf(TEXT("Cast of %s to %s failed"), Src ? *Src->GetFullName() : TEXT("NULL"), *((UObject*)T::StaticClass())->GetName());
+	}
+	return (T*)Src;
 }
 
 #endif

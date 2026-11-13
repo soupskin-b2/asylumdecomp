@@ -1826,12 +1826,6 @@ FThreeWords& fwords_assign_helper(FThreeWords& A, const FThreeWords& B)
 	return A.sub_005c2e30(B);
 }
 
-/* Kit gap: FRotationMatrix (constructor out of line, 004029a0) and FMatrix::GetAxis (UnMath.h) aren't declared. */
-struct FRotationMatrix : public FMatrix
-{
-	FRotationMatrix(const FRotator& Rot);
-};
-
 struct FMatrix_ : public FMatrix
 {
 	FORCEINLINE FVector GetAxis(INT i) const

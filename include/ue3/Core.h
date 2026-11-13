@@ -166,6 +166,9 @@ template<typename T> struct TTypeInfo {
 
 #define check(expr)      { if (!(expr)) appFailAssert(#expr, __FILE__, __LINE__, TEXT("")); }
 #define checkSlow(expr)  {}
+#ifndef checkf
+#define checkf(expr, ...) { if (!(expr)) appFailAssert(#expr, __FILE__, __LINE__, ##__VA_ARGS__); }
+#endif
 #define verify(expr)     { if (!(expr)) appFailAssert(#expr, __FILE__, __LINE__, TEXT("")); }
 
 

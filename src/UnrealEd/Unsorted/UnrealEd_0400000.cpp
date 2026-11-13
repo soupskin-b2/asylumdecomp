@@ -1500,10 +1500,6 @@ private:
 
 extern FGlobalMath g_026761a8;
 #define GMath g_026761a8
-struct FRotationMatrix : public FMatrix
-{
-	FRotationMatrix(const FRotator& Rot);
-};
 
 // @baa 0x004029a0
 /* UnMath.h: the rotation matrix for a rotator (roll, then pitch, then yaw). */

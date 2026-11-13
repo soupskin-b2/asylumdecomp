@@ -1377,10 +1377,6 @@ void APawn::sub_00865220(INT NewRemoteViewPitch)
 
 /* Kit gaps: FRotationMatrix (constructor out of line, 004029a0), FMatrix::TransformFVector/TransformFVector4
  * (UnMath.h), FVector's operator+ and operator!=, and FRotator's operator!= aren't declared. */
-struct FRotationMatrix : public FMatrix
-{
-	FRotationMatrix(const FRotator& Rot);
-};
 
 struct FMatrix_ : public FMatrix
 {

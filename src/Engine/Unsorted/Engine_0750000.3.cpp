@@ -174,10 +174,6 @@ void AActor::EditorApplyTranslation(const FVector& DeltaTranslation, UBOOL bAltD
 
 /* Kit gaps: FRotationMatrix (constructor out of line, 004029a0), FMatrix::operator* (0058e560), FMatrix::Transpose
  * (0058e9a0), FMatrix::Rotator (005c3fc0) and FName::operator!= (UnName.h) aren't declared. */
-struct FRotationMatrix : public FMatrix
-{
-	FRotationMatrix(const FRotator& Rot);
-};
 
 struct FMatrix_ : public FMatrix
 {

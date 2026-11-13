@@ -184,7 +184,8 @@ happened; on HTTP 429 or 503 wait as told, don't retry in a loop.
   (`FName(TEXT("X"))`, `==`, `NAME_None`), the math types (`FVector` operators, `|` dot and `^` cross,
   `Size`, `IsNearlyZero`; `FRotator`, `FQuat`, `FMatrix` transforms, `FBox`, `FColor`,
   `FLinearColor`) with `PI`, `SMALL_NUMBER`, `KINDA_SMALL_NUMBER` ..., the `RF_` object flags, and
-  `UObject`'s `GetFName`, `GetOuter`, `HasAnyFlags`, `IsA`, `IsTemplate`, `GetName`. `Classes.h`
+  `UObject`'s `GetFName`, `GetOuter`, `HasAnyFlags`, `IsA`, `IsTemplate`, `GetName`; `check`/`checkf`
+  (Core.h); `Cast<T>`, `CastChecked<T>` and `appErrorf` (`#include "ue3/Cast.h"`). `Classes.h`
   includes `AppMath.h`. Use them; don't write local copies or helper structs that re-implement them.
   If one is missing or its form doesn't match the code (a member called out of line, a different
   body), `flag` it with what the code shows.

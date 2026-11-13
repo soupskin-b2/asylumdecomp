@@ -1131,9 +1131,6 @@ void UObject::execMultiply_VectorVector(FFrame& Stack, RESULT_DECL)
 
 // Core.RotationMatrix: the rotation-matrix form of a transform, derived from FMatrix.
 // Its constructor from a rotator is out-of-line at 0x004029a0.
-struct FRotationMatrix : public FMatrix {
-    explicit FRotationMatrix(const FRotator& R); /* 0x004029a0 */
-};
 
 // FQuat's constructor from a rotation matrix is out-of-line at 0x005c40e0.
 struct FQuat_ : public FQuat {

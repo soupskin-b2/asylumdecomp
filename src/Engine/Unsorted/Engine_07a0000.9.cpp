@@ -33,10 +33,6 @@ INT BlendRot(FLOAT DeltaTime, INT BlendC, INT NewC)
 /* Kit gaps: FRotationMatrix (constructor out of line, 004029a0) and the UnMath.h inlines
  * FVector::IsNearlyZero / FMatrix::InverseTransformFVector aren't declared. */
 #define KINDA_SMALL_NUMBER	(1.e-4f)
-struct FRotationMatrix : public FMatrix
-{
-	FRotationMatrix(const FRotator& Rot);
-};
 
 struct FVector_ : public FVector
 {

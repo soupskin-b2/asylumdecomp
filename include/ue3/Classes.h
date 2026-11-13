@@ -3601,6 +3601,11 @@ struct __declspec(align(16)) FMatrix {
     void RemoveScaling(FLOAT Tolerance = SMALL_NUMBER); /* 0x006a7f30 */
     FRotator Rotator() const; /* 0x005c3fc0 */
 };
+/* UnMath.h: a rotation matrix (the constructor is out of line in this build) */
+struct FRotationMatrix : public FMatrix {
+    FRotationMatrix(const FRotator& Rot); /* 0x004029a0 */
+};
+
 
 struct FTranslationMatrix : public FMatrix {
     FORCEINLINE FTranslationMatrix(const FVector& Delta)
@@ -3921,6 +3926,9 @@ struct FBoneAtom {
     FQuat Rotation; /* 0x0 */
     FVector Translation; /* 0x10 */
     FLOAT Scale; /* 0x1c */
+    FBoneAtom() {}
+    FORCEINLINE FBoneAtom(const FQuat& InRotation, const FVector& InTranslation, FLOAT InScale = 1.f) { Rotation = InRotation; Translation = InTranslation; Scale = InScale; }
+    FORCEINLINE FBoneAtom& operator=(const FBoneAtom& Other) { Rotation = Other.Rotation; Translation = Other.Translation; Scale = Other.Scale; return *this; }
 };
 
 struct FMaterialViewRelevance {
@@ -13006,6 +13014,7 @@ struct AActor : public UObject {
     void SetCollisionSize(FLOAT NewRadius, FLOAT NewHeight); /* 0x00781ad0 */
     void FindTouchingActors(); /* 0x007814c0 */
     void SetCollision(UBOOL bNewCollideActors, UBOOL bNewBlockActors, UBOOL bNewIgnoreEncroachers); /* 0x00784170 */
+    UBOOL ActorIsPendingKill() const { return bDeleteMe || HasAnyFlags(RF_PendingKill); } /* out-of-line copy: 0x00753b30 */
 };
 
 struct UActorComponent : public UComponent {

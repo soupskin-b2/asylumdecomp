@@ -33,12 +33,6 @@ struct FRotator_ : FRotator
     explicit FRotator_(const FQuat& Rotation);
 };
 
-struct FRotationMatrix : FMatrix
-{
-    explicit FRotationMatrix(const FRotator& Rotation);
-    FMatrix Inverse() const;
-};
-
 struct FQuat__0155b530 : FQuat
 {
     explicit FQuat__0155b530(const FMatrix& RotationMatrix);

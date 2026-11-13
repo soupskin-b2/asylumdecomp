@@ -24,10 +24,6 @@ template<class T> struct TArrayAt_ : public TArray<T>
 
 /* Kit gaps: FRotationMatrix (constructor out of line, 004029a0), FMatrix::TransformFVector/TransformFVector4
  * (UnMath.h; FVector4 is spelled FPlane here) and FVector's operator+ aren't declared. */
-struct FRotationMatrix : public FMatrix
-{
-	FRotationMatrix(const FRotator& Rot);
-};
 
 struct FMatrix_ : public FMatrix
 {

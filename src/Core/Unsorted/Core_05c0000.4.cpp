@@ -8,10 +8,6 @@
  * dot product (operator|) aren't declared (UnMath.h). */
 /* UnMath.h */
 #define INV_PI (0.31830988618379067154)
-struct FRotationMatrix : public FMatrix
-{
-	FRotationMatrix(const FRotator& Rot);
-};
 
 struct FVector_ : public FVector
 {
