@@ -17,8 +17,8 @@
 <text x="860" y="110" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">109 KB</text>
 <text x="0" y="140" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">GPT-6.1 Sol</text>
 <rect x="292" y="130" width="478" height="10" fill="#eaeef2" stroke="#d1d9e0"/>
-<rect x="292" y="130" width="6.24279" height="10" fill="#1f2328"/>
-<text x="860" y="140" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">44 KB</text>
+<rect x="292" y="130" width="6.42646" height="10" fill="#1f2328"/>
+<text x="860" y="140" font-size="14" fill="#1f2328" text-anchor="end" font-weight="normal">45 KB</text>
 <text x="0" y="170" font-size="14" fill="#59636e" text-anchor="start" font-weight="normal">Qwen3.8 27B</text>
 <rect x="292" y="160" width="478" height="10" fill="#eaeef2" stroke="#d1d9e0"/>
 <rect x="292" y="160" width="5.42644" height="10" fill="#1f2328"/>

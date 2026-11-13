@@ -2,8 +2,8 @@
  "note": "Maintained by CI (tools/ci); every file is checked by python tools/asylum unit-check.",
  "totals": {
   "units": 1443,
-  "files": 5912,
-  "functions": 103173,
+  "files": 5913,
+  "functions": 103174,
   "failed": 0
  },
  "units": [
@@ -7951,6 +7951,18 @@
      "va": "015a6fa0",
      "size": 463,
      "symbol": "??$CastChecked@UURCharacter@@@@YAPAUURCharacter@@PAUUObject@@@Z"
+    }
+   ]
+  },
+  {
+   "unit": "BmGame/Src/RAnimNode_Pose.cpp",
+   "source": "BmGame/Src/RAnimNode_Pose.8.cpp",
+   "profile": "ue3",
+   "functions": [
+    {
+     "va": "0159c360",
+     "size": 1329,
+     "symbol": "??4FFinalRootBoneArray_@@QAEAAUFFinalRootBoneArray@@ABU1@@Z"
     }
    ]
   },
