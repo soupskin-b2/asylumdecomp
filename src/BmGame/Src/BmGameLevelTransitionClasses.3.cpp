@@ -115,8 +115,8 @@ struct FName__0155a410 : public FName
 /* Slot 0x368 (unnamed in the kit): whether this transition has two distinct levels to stream between. */
 INT ARLevelTransition::vf_368()
 {
-	return !bDisabledStreaming && !DisableAllStreaming && !((const FName__0155a410&)LevelInFront == LevelBehind)
-		&& (const FName__0155a410&)LevelInFront != NAME_None && (const FName__0155a410&)LevelBehind != NAME_None;
+	return !bDisabledStreaming && !DisableAllStreaming && !(LevelInFront == LevelBehind)
+		&& LevelInFront != NAME_None && LevelBehind != NAME_None;
 }
 
 /* Kit gap: FName has no operator!= (UnName.h). */
@@ -135,7 +135,7 @@ INT ARLevelTransitionP::vf_368()
 		{
 			return FALSE;
 		}
-		return (const FName__0155ff60&)LevelInFront != NAME_None || (const FName__0155ff60&)LevelBehind != NAME_None;
+		return LevelInFront != NAME_None || LevelBehind != NAME_None;
 	}
 	return Super::vf_368();
 }

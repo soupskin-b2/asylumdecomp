@@ -52,7 +52,7 @@ void USkeletalMeshComponent::UpdateParentBoneMap()
                 for (INT i = 0; i < ParentBoneMap.Num(); i++)
                 {
                     FName BoneName = ((TArrayAt_<FMeshBone>&)SkeletalMesh->RefSkeleton).At(i).Name;
-                    ((TArrayAt_<INT>&)ParentBoneMap).At(i) = ((USkeletalMesh*)ParentMesh)->MatchRefBone(BoneName);
+                    ((TArrayAt_<INT>&)ParentBoneMap).At(i) = ParentMesh->MatchRefBone(BoneName);
                 }
             }
         }

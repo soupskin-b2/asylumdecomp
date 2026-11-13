@@ -2772,6 +2772,6 @@ void UStaticMeshComponent::vf_248(INT Param)
 {
 	if (StaticMesh)
 	{
-		((UStaticMesh*)StaticMesh)->sub_00963100(Param);
+		StaticMesh->sub_00963100(Param);
 	}
 }

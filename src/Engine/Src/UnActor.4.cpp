@@ -21,7 +21,7 @@ void MarkOwnerRelevantComponentsDirty(AActor* TheActor)
         UPrimitiveComponent* Primitive = Cast<UPrimitiveComponent>(TheActor->AllComponents(i));
         if (Primitive != NULL && (TheActor->bOnlyOwnerSee || Primitive->bOnlyOwnerSee || Primitive->bOwnerNoSee))
         {
-            ((UPrimitiveComponent*)Primitive)->BeginDeferredReattach();
+            Primitive->BeginDeferredReattach();
         }
     }
 

@@ -48,7 +48,7 @@ void AActor::execSetOwner(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(AActor, NewOwner);
 	P_FINISH;
-	((AActor__00c81570*)this)->sub_00769500(NewOwner);
+	this->sub_00769500(NewOwner);
 }
 
 struct AActor__00c80ea0 : public AActor
@@ -61,7 +61,7 @@ void AActor::execSetCollisionType(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_BYTE(NewCollisionType);
 	P_FINISH;
-	((AActor__00c80ea0*)this)->sub_00784080(NewCollisionType);
+	this->sub_00784080(NewCollisionType);
 }
 
 struct AActor__00c80da0 : public AActor
@@ -87,7 +87,7 @@ void AActor::execSleep(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(Seconds);
 	P_FINISH;
-	((AActor__00c80d30*)this)->sub_008a7810(Seconds);
+	this->sub_008a7810(Seconds);
 }
 
 // @baa 0x00c80f00
@@ -108,7 +108,7 @@ void AActor::execAutonomousPhysics(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(DeltaSeconds);
 	P_FINISH;
-	((AActor__00c81460*)this)->sub_00867da0(DeltaSeconds);
+	this->sub_00867da0(DeltaSeconds);
 }
 
 // @baa 0x00c80f70
@@ -129,7 +129,7 @@ void AActor::execSetLocation(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT(FVector, NewLocation);
 	P_FINISH;
-	*(UBOOL*)Result = ((AActor__00c81060*)this)->sub_008a7bb0(NewLocation);
+	*(UBOOL*)Result = this->sub_008a7bb0(NewLocation);
 }
 
 struct AActor__00c810e0 : public AActor
@@ -142,7 +142,7 @@ void AActor::execSetRotation(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT(FRotator, NewRotation);
 	P_FINISH;
-	*(UBOOL*)Result = ((AActor__00c810e0*)this)->sub_008a7f10(NewRotation);
+	*(UBOOL*)Result = this->sub_008a7f10(NewRotation);
 }
 
 struct AActor__00c812a0 : public AActor
@@ -155,7 +155,7 @@ void AActor::execSetRelativeRotation(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT(FRotator, NewRotation);
 	P_FINISH;
-	*(UBOOL*)Result = ((AActor__00c812a0*)this)->sub_008a7fc0(NewRotation);
+	*(UBOOL*)Result = this->sub_008a7fc0(NewRotation);
 }
 
 struct AActor__00c81320 : public AActor
@@ -168,7 +168,7 @@ void AActor::execSetRelativeLocation(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT(FVector, NewLocation);
 	P_FINISH;
-	*(UBOOL*)Result = ((AActor__00c81320*)this)->sub_008a7bf0(NewLocation);
+	*(UBOOL*)Result = this->sub_008a7bf0(NewLocation);
 }
 
 struct AActor__00c80fe0 : public AActor
@@ -181,7 +181,7 @@ void AActor::execMove(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT(FVector, Delta);
 	P_FINISH;
-	*(UBOOL*)Result = ((AActor__00c80fe0*)this)->sub_008a7b10(Delta);
+	*(UBOOL*)Result = this->sub_008a7b10(Delta);
 }
 
 // @baa 0x00c80cb0
@@ -220,7 +220,7 @@ void AActor::execSetLocationForTest(FFrame& Stack, RESULT_DECL)
     P_GET_STRUCT(FVector, NewLocation);
     P_GET_UBOOL(bNoCheck);
     P_FINISH;
-    *(UBOOL*)Result = ((AActor__00c811f0*)this)->SetLocationForTest(NewLocation, bNoCheck);
+    *(UBOOL*)Result = this->SetLocationForTest(NewLocation, bNoCheck);
 }
 
 /* AActor::fixedTurn (0x873ba0) isn't declared in the kit. */
@@ -236,7 +236,7 @@ void AActor::execfixedTurn(FFrame& Stack, RESULT_DECL)
     P_GET_INT(Desired);
     P_GET_INT(DeltaRate);
     P_FINISH;
-    *(INT*)Result = ((AActor__00c813a0*)this)->fixedTurn(Current, Desired, DeltaRate);
+    *(INT*)Result = this->fixedTurn(Current, Desired, DeltaRate);
 }
 
 /* AActor::SetForcedInitialReplicatedProperty (0x77e1a0) isn't declared in the kit. */
@@ -251,7 +251,7 @@ void AActor::execSetForcedInitialReplicatedProperty(FFrame& Stack, RESULT_DECL)
     P_GET_OBJECT(UProperty, PropToReplicate);
     P_GET_UBOOL(bAdd);
     P_FINISH;
-    ((AActor__00c81650*)this)->SetForcedInitialReplicatedProperty(PropToReplicate, bAdd);
+    this->SetForcedInitialReplicatedProperty(PropToReplicate, bAdd);
 }
 
 /* AActor::DrawDebugLine (0x8a9620) isn't declared in the kit. */
@@ -270,7 +270,7 @@ void AActor::execDrawDebugLine(FFrame& Stack, RESULT_DECL)
     P_GET_BYTE(B);
     P_GET_UBOOL_OPTX(bPersistentLines, FALSE);
     P_FINISH;
-    ((AActor__00c81720*)this)->DrawDebugLine(LineStart, LineEnd, R, G, B, bPersistentLines);
+    this->DrawDebugLine(LineStart, LineEnd, R, G, B, bPersistentLines);
 }
 
 /* AActor::DrawDebugBox (0x8a96a0) isn't declared in the kit. */
@@ -289,7 +289,7 @@ void AActor::execDrawDebugBox(FFrame& Stack, RESULT_DECL)
     P_GET_BYTE(B);
     P_GET_UBOOL_OPTX(bPersistentLines, FALSE);
     P_FINISH;
-    ((AActor__00c81880*)this)->DrawDebugBox(Center, Extent, R, G, B, bPersistentLines);
+    this->DrawDebugBox(Center, Extent, R, G, B, bPersistentLines);
 }
 
 // @baa 0x00c81160

@@ -10,7 +10,7 @@
 void APlayerController::execGetPlayerNetworkAddress(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(FString*)Result = ((APlayerController*)this)->GetPlayerNetworkAddress();
+	*(FString*)Result = this->GetPlayerNetworkAddress();
 }
 
 /* Kit gap: AFileWriter::Logf (UnActor.cpp) isn't declared. */
@@ -20,7 +20,7 @@ void AFileWriter::execLogf(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STR(LogString);
 	P_FINISH;
-	((AFileWriter*)this)->Logf(LogString);
+	this->Logf(LogString);
 }
 
 /* Kit gap: AActor::GetURLMap isn't declared. */
@@ -29,7 +29,7 @@ void AFileWriter::execLogf(FFrame& Stack, RESULT_DECL)
 void AActor::execGetURLMap(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(FString*)Result = ((AActor*)this)->GetURLMap();
+	*(FString*)Result = this->GetURLMap();
 }
 
 /* Kit gap: APlayerController::GetServerNetworkAddress isn't declared. */
@@ -38,7 +38,7 @@ void AActor::execGetURLMap(FFrame& Stack, RESULT_DECL)
 void APlayerController::execGetServerNetworkAddress(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(FString*)Result = ((APlayerController*)this)->GetServerNetworkAddress();
+	*(FString*)Result = this->GetServerNetworkAddress();
 }
 
 // @baa 0x00cb7c80
@@ -77,7 +77,7 @@ void APlayerController::execClientConvolve(FFrame& Stack, RESULT_DECL)
 	P_GET_STR(C);
 	P_GET_INT(H);
 	P_FINISH;
-	((APlayerController*)this)->ClientConvolve(C, H);
+	this->ClientConvolve(C, H);
 }
 
 /* Kit gap: APlayerController::ServerProcessConvolve (UnPlayer.cpp; an empty stub in this build) isn't declared. */
@@ -88,7 +88,7 @@ void APlayerController::execServerProcessConvolve(FFrame& Stack, RESULT_DECL)
 	P_GET_STR(C);
 	P_GET_INT(H);
 	P_FINISH;
-	((APlayerController*)this)->ServerProcessConvolve(C, H);
+	this->ServerProcessConvolve(C, H);
 }
 
 /* Kit gap: APlayerController::GetDefaultURL (UnPlayer.cpp) isn't declared. */
@@ -98,7 +98,7 @@ void APlayerController::execGetDefaultURL(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STR(Option);
 	P_FINISH;
-	*(FString*)Result = ((APlayerController*)this)->GetDefaultURL(Option);
+	*(FString*)Result = this->GetDefaultURL(Option);
 }
 
 /* Kit gap: AActor::ChartData (UnActor.cpp) isn't declared. */
@@ -109,7 +109,7 @@ void AActor::execChartData(FFrame& Stack, RESULT_DECL)
 	P_GET_STR(DataName);
 	P_GET_FLOAT(DataValue);
 	P_FINISH;
-	((AActor*)this)->ChartData(DataName, DataValue);
+	this->ChartData(DataName, DataValue);
 }
 
 /* Kit gaps: UpdateURL (007bf4b0) isn't declared (names from the exe's native table). */
@@ -121,7 +121,7 @@ void APlayerController::execUpdateURL(FFrame& Stack, RESULT_DECL)
 	P_GET_STR(NewValue);
 	P_GET_UBOOL(bSave1Default);
 	P_FINISH;
-	((APlayerController*)this)->UpdateURL(NewOption, NewValue, bSave1Default);
+	this->UpdateURL(NewOption, NewValue, bSave1Default);
 }
 
 // @baa 0x00cb5e10

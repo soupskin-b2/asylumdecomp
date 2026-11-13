@@ -13,7 +13,7 @@ void ARRopeBase::execSplitRope(FFrame& Stack, RESULT_DECL)
     P_GET_BYTE(MeasurementRopeEnd);
     P_GET_BYTE_REF(ThisSplitEnd);
     P_FINISH;
-    *(ARRopeBase**)Result = ((ARRopeBase*)this)->SplitRope(SplitPos, MeasurementRopeEnd, ThisSplitEnd);
+    *(ARRopeBase**)Result = this->SplitRope(SplitPos, MeasurementRopeEnd, ThisSplitEnd);
 }
 
 /* ARRopeBase::JoinRope (0x1668660) isn't declared in the kit. */
@@ -25,5 +25,5 @@ void ARRopeBase::execJoinRope(FFrame& Stack, RESULT_DECL)
     P_GET_BYTE(ThisRopeJoinEnd);
     P_GET_BYTE(OtherRopeJoinEnd);
     P_FINISH;
-    ((ARRopeBase*)this)->JoinRope(OtherRope, ThisRopeJoinEnd, OtherRopeJoinEnd);
+    this->JoinRope(OtherRope, ThisRopeJoinEnd, OtherRopeJoinEnd);
 }

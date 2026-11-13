@@ -114,7 +114,7 @@ UBOOL FSkeletalMeshMerge::FinalizeMesh()
             if (bNeedsInit)
             {
                 // initialize the merged mesh with the first source mesh used
-                (FMatrixArray&)MergeMesh->RefBasesInvMatrix = SrcMesh->RefBasesInvMatrix;
+                MergeMesh->RefBasesInvMatrix = SrcMesh->RefBasesInvMatrix;
                 MergeMesh->Bounds = SrcMesh->Bounds;
                 MergeMesh->Origin = SrcMesh->Origin;
                 MergeMesh->RotOrigin = SrcMesh->RotOrigin;
@@ -122,7 +122,7 @@ UBOOL FSkeletalMeshMerge::FinalizeMesh()
                 MergeMesh->SkelMirrorAxis = SrcMesh->SkelMirrorAxis;
                 MergeMesh->SkelMirrorFlipAxis = SrcMesh->SkelMirrorFlipAxis;
 
-                ((FSocketArray&)MergeMesh->Sockets).AddZeroed(SrcMesh->Sockets.Num());
+                MergeMesh->Sockets.AddZeroed(SrcMesh->Sockets.Num());
                 for (INT i = 0; i < SrcMesh->Sockets.Num(); i++)
                 {
                     USkeletalMeshSocket* NewSocket = CastChecked<USkeletalMeshSocket>(UObject_::StaticDuplicateObject(SrcMesh->Sockets(i), SrcMesh->Sockets(i), MergeMesh, TEXT("None")));
@@ -137,7 +137,7 @@ UBOOL FSkeletalMeshMerge::FinalizeMesh()
                 for (INT i = 0; i < SrcMesh->Sockets.Num(); i++)
                 {
                     USkeletalMeshSocket* NewSocket = CastChecked<USkeletalMeshSocket>(UObject_::StaticDuplicateObject(SrcMesh->Sockets(i), SrcMesh->Sockets(i), MergeMesh, TEXT("None")));
-                    ((FSocketArray&)MergeMesh->Sockets).AddUniqueItem(NewSocket);
+                    MergeMesh->Sockets.AddUniqueItem(NewSocket);
                 }
 
                 MergeMesh->Bounds = ((FBoxSphereBounds_&)MergeMesh->Bounds) + SrcMesh->Bounds;

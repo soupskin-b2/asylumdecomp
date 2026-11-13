@@ -11,7 +11,7 @@ void AEmitter::execSetTemplate(FFrame& Stack, RESULT_DECL)
     P_GET_OBJECT(UParticleSystem, NewTemplate);
     P_GET_UBOOL_OPTX(bDestroyOnFinish, FALSE);
     P_FINISH;
-    ((AEmitter*)this)->sub_00b65bf0(NewTemplate, bDestroyOnFinish);
+    this->sub_00b65bf0(NewTemplate, bDestroyOnFinish);
 }
 
 // @baa 0x00c9e1a0

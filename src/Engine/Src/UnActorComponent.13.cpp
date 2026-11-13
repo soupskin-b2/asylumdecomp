@@ -29,7 +29,7 @@ INT UActorComponent::vf_088()
 {
 #line 501 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActorComponent.cpp"
     check(GetOuter());
-    return GetOuter()->vf_088() && !((const UObject*)this)->HasAnyFlags(RF_NotForClient);
+    return GetOuter()->vf_088() && !this->HasAnyFlags(RF_NotForClient);
 }
 
 #line 40 "candidate.cpp"
@@ -44,7 +44,7 @@ INT UActorComponent::vf_08c()
 {
 #line 508 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActorComponent.cpp"
     check(GetOuter());
-    return GetOuter()->vf_08c() && !((const UObject*)this)->HasAnyFlags(RF_NotForServer);
+    return GetOuter()->vf_08c() && !this->HasAnyFlags(RF_NotForServer);
 }
 
 #line 55 "candidate.cpp"

@@ -40,8 +40,8 @@ public:
  * without a track keep the mesh's reference pose. */
 void FAnimationUtils::BuildPoseFromRawData(TArray<FBoneAtom>& OutAtoms, UAnimSequence* AnimSeq, const TArray<BYTE>& RequiredBones, USkeletalMesh* SkelMesh, FLOAT Time, UBOOL bLooping)
 {
-	UAnimSet* AnimSet = ((UAnimSequence*)AnimSeq)->sub_009411e0();
-	const INT AnimLinkupIndex = ((UAnimSet*)AnimSet)->sub_0092b080(SkelMesh);
+	UAnimSet* AnimSet = AnimSeq->sub_009411e0();
+	const INT AnimLinkupIndex = AnimSet->sub_0092b080(SkelMesh);
 #line 192 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\AnimationUtils.cpp"
 	check(AnimLinkupIndex != INDEX_NONE);
 	check(AnimLinkupIndex < AnimSet->LinkupCache.Num());
@@ -63,7 +63,7 @@ void FAnimationUtils::BuildPoseFromRawData(TArray<FBoneAtom>& OutAtoms, UAnimSeq
 		}
 		else
 		{
-			((UAnimSequence*)AnimSeq)->sub_00917b80(OutAtoms(BoneIndex), TrackIndex, Time, bLooping, TRUE);
+			AnimSeq->sub_00917b80(OutAtoms(BoneIndex), TrackIndex, Time, bLooping, TRUE);
 		}
 
 		// the tracks store the conjugate of every rotation but the root's

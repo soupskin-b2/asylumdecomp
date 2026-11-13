@@ -316,7 +316,7 @@ struct UUIScene__00ca69c0 : public UUIScene
 void UUIScene::execGetWorldInfo(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(AWorldInfo**)Result = ((UUIScene__00ca69c0*)this)->sub_00da9a10();
+	*(AWorldInfo**)Result = this->sub_00da9a10();
 }
 
 // @baa 0x00ca3a30
@@ -349,7 +349,7 @@ struct UUIScene__00ca6980 : public UUIScene
 void UUIScene::execGetSceneRenderMode(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(BYTE*)Result = ((UUIScene__00ca6980*)this)->sub_00da9eb0(0);
+	*(BYTE*)Result = this->sub_00da9eb0(0);
 }
 
 // @baa 0x00cb3c90
@@ -369,7 +369,7 @@ UObject* sub_005c1d70();
 void UUIScreenObject::execIsRuntimeInstance(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = ((UUIScreenObject__00cb3cd0*)this)->sub_005d7350() == sub_005c1d70();
+	*(UBOOL*)Result = this->sub_005d7350() == sub_005c1d70();
 }
 
 struct UUIScreenObject__00ca44e0 : public UUIScreenObject
@@ -382,7 +382,7 @@ void UUIScreenObject::execInvalidatePosition(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_BYTE(Face);
 	P_FINISH;
-	((UUIScreenObject__00ca44e0*)this)->sub_00da94c0(Face);
+	this->sub_00da94c0(Face);
 }
 
 struct UUIScene__00ca68a0 : public UUIScene
@@ -395,7 +395,7 @@ void UUIScene::execSetSceneInputMode(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_BYTE(NewInputMode);
 	P_FINISH;
-	((UUIScene__00ca68a0*)this)->sub_00da9df0(NewInputMode);
+	this->sub_00da9df0(NewInputMode);
 }
 
 struct UUIObject__00ca50a0 : public UUIObject
@@ -408,7 +408,7 @@ void UUIObject::execClearDefaultDataBinding(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(BindingIndex);
 	P_FINISH;
-	((UUIObject__00ca50a0*)this)->sub_00daa860(BindingIndex);
+	this->sub_00daa860(BindingIndex);
 }
 
 // @baa 0x00da89e0
@@ -429,7 +429,7 @@ void UUIScreenObject::execAcceptsPlayerInput(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(PlayerIndex);
 	P_FINISH;
-	*(UBOOL*)Result = ((UUIScreenObject__00ca4180*)this)->sub_00da99e0(PlayerIndex);
+	*(UBOOL*)Result = this->sub_00da99e0(PlayerIndex);
 }
 
 struct UUIObject__00ca5030 : public UUIObject
@@ -442,7 +442,7 @@ void UUIObject::execResolveDefaultDataBinding(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(BindingIndex);
 	P_FINISH;
-	*(UBOOL*)Result = ((UUIObject__00ca5030*)this)->sub_00db1130(BindingIndex);
+	*(UBOOL*)Result = this->sub_00db1130(BindingIndex);
 }
 
 struct UUIObject__00ca5590 : public UUIObject
@@ -455,7 +455,7 @@ void UUIObject::execIsContainedBy(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(UUIObject, TestWidget);
 	P_FINISH;
-	*(UBOOL*)Result = ((UUIObject__00ca5590*)this)->sub_00daa820(TestWidget);
+	*(UBOOL*)Result = this->sub_00daa820(TestWidget);
 }
 
 struct UUIObject__00ca5c80 : public UUIObject
@@ -468,7 +468,7 @@ void UUIObject::execIsPrivateBehaviorSet(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(Behavior);
 	P_FINISH;
-	*(UBOOL*)Result = ((UUIObject__00ca5c80*)this)->sub_00daabb0(Behavior);
+	*(UBOOL*)Result = this->sub_00daabb0(Behavior);
 }
 
 // @baa 0x00ca3e10
@@ -505,7 +505,7 @@ void UUIScreenObject::execGetPlayerOwner(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT_OPTX(PlayerIndex, -1);
 	P_FINISH;
-	*(UObject**)Result = (UObject*)((UUIScreenObject__00ca31d0*)this)->sub_00daee30(PlayerIndex);
+	*(UObject**)Result = (UObject*)this->sub_00daee30(PlayerIndex);
 }
 
 struct UUIScreenObject__00ca3da0 : public UUIScreenObject
@@ -518,7 +518,7 @@ void UUIScreenObject::execGetCurrentState(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT_OPTX(PlayerIndex, -1);
 	P_FINISH;
-	*(UObject**)Result = (UObject*)((UUIScreenObject__00ca3da0*)this)->sub_00da95c0(PlayerIndex);
+	*(UObject**)Result = (UObject*)this->sub_00da95c0(PlayerIndex);
 }
 
 struct UUIScreenObject__00ca4f60 : public UUIScreenObject
@@ -531,7 +531,7 @@ void UUIScreenObject::execGetAspectRatioAutoScaleFactor(FFrame& Stack, RESULT_DE
 {
 	P_GET_INT_OPTX(PlayerIndex, 0);
 	P_FINISH;
-	*(FLOAT*)Result = ((UUIScreenObject__00ca4f60*)this)->sub_00db0090(PlayerIndex);
+	*(FLOAT*)Result = this->sub_00db0090(PlayerIndex);
 }
 
 struct UUIScreenObject__00ca3fa0 : public UUIScreenObject
@@ -1107,7 +1107,7 @@ void UUIObject::execAddStyleSubscriber(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_NAME(Subscriber);
 	P_FINISH;
-	((UUIObject__00cb3d20*)this)->sub_00db5880(Subscriber);
+	this->sub_00db5880(Subscriber);
 }
 
 struct UUIObject__00cb3d90 : public UUIObject
@@ -1120,7 +1120,7 @@ void UUIObject::execRemoveStyleSubscriber(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_NAME(Subscriber);
 	P_FINISH;
-	((UUIObject__00cb3d90*)this)->sub_00db58c0(Subscriber);
+	this->sub_00db58c0(Subscriber);
 }
 
 // @baa 0x00d99130
@@ -1449,7 +1449,7 @@ void UUIScene::execUnregisterTickableObject(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_NAME(ObjName);
 	P_FINISH;
-	*(UBOOL*)Result = ((UUIScene__00cb3f40*)this)->sub_00db42a0(ObjName);
+	*(UBOOL*)Result = this->sub_00db42a0(ObjName);
 }
 
 struct UUIScene__00cb3fc0 : public UUIScene
@@ -1462,7 +1462,7 @@ void UUIScene::execFindTickableObjectIndex(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_NAME(ObjName);
 	P_FINISH;
-	*(INT*)Result = ((UUIScene__00cb3fc0*)this)->sub_00db0a90(ObjName);
+	*(INT*)Result = this->sub_00db0a90(ObjName);
 }
 
 struct UUIScreenObject__00ca4af0 : public UUIScreenObject

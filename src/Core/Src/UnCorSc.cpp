@@ -15,7 +15,7 @@ void UObject::execStaticSaveConfig(FFrame& Stack, RESULT_DECL)
     UObject* DefaultObject = ((UClass*)GetClass())->GetDefaultObject();
 #line 5307 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Core\\Src\\UnCorSc.cpp"
     check(DefaultObject);
-    ((UObject*)DefaultObject)->SaveConfig();
+    DefaultObject->SaveConfig();
 }
 
 #line 31 "candidate.cpp"

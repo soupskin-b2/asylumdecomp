@@ -274,5 +274,5 @@ FSkelMeshCollisionDataProvider::FSkelMeshCollisionDataProvider(USkeletalMeshComp
     , BoneIndex(InBoneIndex)
 {
     BoneToWorld = SkelComp->GetBoneMatrix(BoneIndex);
-    WorldToBone = ((FMatrix&)BoneToWorld).Inverse();
+    WorldToBone = BoneToWorld.Inverse();
 }

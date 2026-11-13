@@ -422,7 +422,7 @@ void UAnimTree__00c71100::GetBoneAtoms(TArray<FBoneAtom>& Atoms, const TArray<BY
 		return;
 	}
 
-	((UAnimNodeBlendBase__00c71100*)this)->sub_00c6c9a0(Atoms, DesiredBones, RootMotionDelta, bHasRootMotion);
+	this->sub_00c6c9a0(Atoms, DesiredBones, RootMotionDelta, bHasRootMotion);
 }
 
 #line 431 "candidate.cpp"

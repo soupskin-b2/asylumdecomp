@@ -110,7 +110,7 @@ void UObject::execMultiply_FloatRotator(FFrame& Stack, RESULT_DECL)
 	P_GET_FLOAT(A);
 	P_GET_STRUCT(FRotator, B);
 	P_FINISH;
-	*(FRotator*)Result = ((const FRotator&)B) * A;
+	*(FRotator*)Result = (B) * A;
 }
 
 // @baa 0x005918a0

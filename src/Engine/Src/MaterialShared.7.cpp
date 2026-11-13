@@ -26,7 +26,7 @@ INT UMaterialInterface::GetStaticSwitchParameterValue(INT, INT, INT, INT)
 // @baa 0x006d8f20
 void UMaterialInstanceTimeVarying::SetDuration(FLOAT Value)
 {
-	((UMaterialInstanceTimeVarying*)this)->sub_006c47c0(TEXT("MITV::SetDuration"));
+	this->sub_006c47c0(TEXT("MITV::SetDuration"));
 	Duration = Value;
 	InitResources();
 }

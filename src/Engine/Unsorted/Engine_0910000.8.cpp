@@ -12,5 +12,5 @@ void USkeletalMeshComponent::execUpdateDampingRampUp(FFrame& Stack, RESULT_DECL)
     P_GET_FLOAT(DeltaTime);
     P_GET_UBOOL(bAllowDampingRampup);
     P_FINISH;
-    ((USkeletalMeshComponent*)this)->UpdateDampingRampUp(DeltaTime, bAllowDampingRampup);
+    this->UpdateDampingRampUp(DeltaTime, bAllowDampingRampup);
 }

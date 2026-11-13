@@ -44,7 +44,7 @@ void USkeletalMeshComponent::execGetBoneNames(FFrame& Stack, RESULT_DECL)
     else
     {
         BoneNames.Empty(SkeletalMesh->RefSkeleton.Num());
-        ((FNameArray&)BoneNames).Add(SkeletalMesh->RefSkeleton.Num());
+        BoneNames.Add(SkeletalMesh->RefSkeleton.Num());
         for (INT i = 0; i < SkeletalMesh->RefSkeleton.Num(); i++)
         {
             ((TArrayAt_<FName>&)BoneNames).At(i) = ((TArrayAt_<FMeshBone>&)SkeletalMesh->RefSkeleton).At(i).Name;

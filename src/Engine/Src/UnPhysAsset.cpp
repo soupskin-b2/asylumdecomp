@@ -338,7 +338,7 @@ void UPhysicsAssetInstance::SetNamedBodiesFixed(UBOOL bNewFixed, const TArray<FN
             continue;
         }
 
-        if (((const FNameFindArray&)BoneNames).FindItemIndex(BodySetup->BoneName) != INDEX_NONE)
+        if (BoneNames.FindItemIndex(BodySetup->BoneName) != INDEX_NONE)
         {
             BodyInst->sub_00a09ca0(bNewFixed); // SetFixed
         }

@@ -37,7 +37,7 @@ FArchive& operator<<(FArchive& Ar, TArray<TArray<FInfluenceIndexPair> >& A)
     {
         INT NewNum;
         Ar << NewNum;
-        ((FInfluenceIndexPairArrays&)A).Empty(NewNum);
+        A.Empty(NewNum);
         for (INT i = 0; i < NewNum; i++)
         {
             Ar << *::new(A) TArray<FInfluenceIndexPair>;

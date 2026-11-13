@@ -237,7 +237,7 @@ undefined4 UTextureMovie::sub_00761170(byte param_2)
 void UTextureMovie::Serialize( FArchive& Ar )
 {
 	Super::Serialize( Ar );
-	((FUntypedBulkData_Mirror&)Data).Serialize( Ar, this, INDEX_NONE );
+	Data.Serialize( Ar, this, INDEX_NONE );
 }
 
 /* Kit gap: FRenderCommandFence has no constructor, BeginFence (0x00719c60) or GetNumPendingFences (0x0071f7e0)

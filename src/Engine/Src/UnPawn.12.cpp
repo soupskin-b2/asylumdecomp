@@ -13,13 +13,13 @@ void APawn::SetAnchor(ANavigationPoint* NewAnchor)
 	if (Anchor != NULL && Anchor->AnchoredPawn == this)
 	{
 		Anchor->AnchoredPawn = NULL;
-		Anchor->LastAnchoredPawnTime = ((UWorld*)GWorld)->GetTimeSeconds();
+		Anchor->LastAnchoredPawnTime = GWorld->GetTimeSeconds();
 	}
 
 	Anchor = NewAnchor;
 	if (Anchor != NULL)
 	{
-		LastValidAnchorTime = ((UWorld*)GWorld)->GetTimeSeconds();
+		LastValidAnchorTime = GWorld->GetTimeSeconds();
 		LastAnchor = Anchor;
 		// only AI pawns claim the anchor
 		if (Controller == NULL || Controller->GetAPlayerController() == NULL)
@@ -41,9 +41,9 @@ FLOAT AActor::GetGravityZ()
 		{
 			return PhysicsVolume->GetVolumeRBGravityZ() * WorldInfo->RBPhysicsGravityScaling;
 		}
-		return ((UWorld*)GWorld)->GetGravityZ() * WorldInfo->RBPhysicsGravityScaling;
+		return GWorld->GetGravityZ() * WorldInfo->RBPhysicsGravityScaling;
 	}
-	return PhysicsVolume ? PhysicsVolume->GetGravityZ() : ((UWorld*)GWorld)->GetGravityZ();
+	return PhysicsVolume ? PhysicsVolume->GetGravityZ() : GWorld->GetGravityZ();
 }
 
 
@@ -52,5 +52,5 @@ FLOAT AActor::GetGravityZ()
 /* APawn slot 0x194: PostScriptDestroyed. */
 void APawn::vf_194()
 {
-	((UWorld*)GWorld)->RemovePawn(this);
+	GWorld->RemovePawn(this);
 }

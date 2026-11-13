@@ -7,5 +7,5 @@
 /* Makes this a string value holding a copy of InString. */
 void FSettingsData::SetData(const FString& InString)
 {
-	SetData(*(const FString&)InString);
+	SetData(*InString);
 }

@@ -79,7 +79,7 @@ INT UInterpTrackFloatBase::SetKeyframeTime(INT KeyIndex, FLOAT NewKeyTime, UBOOL
     INT NewKeyIndex = KeyIndex;
     if (bUpdateOrder)
     {
-        NewKeyIndex = ((FInterpCurveFloat__00d04510&)FloatTrack).MovePoint(KeyIndex, NewKeyTime);
+        NewKeyIndex = FloatTrack.MovePoint(KeyIndex, NewKeyTime);
     }
     else
     {
@@ -104,14 +104,14 @@ INT UInterpTrackVectorBase::SetKeyframeTime(INT KeyIndex, FLOAT NewKeyTime, UBOO
     INT NewKeyIndex = KeyIndex;
     if (bUpdateOrder)
     {
-        NewKeyIndex = ((FInterpCurveVector&)VectorTrack).MovePoint(KeyIndex, NewKeyTime);
+        NewKeyIndex = VectorTrack.MovePoint(KeyIndex, NewKeyTime);
     }
     else
     {
         ((TArrayAt_<FInterpCurvePointVector>&)VectorTrack.Points).At(KeyIndex).InVal = NewKeyTime;
     }
 
-    ((FInterpCurveVector&)VectorTrack).AutoSetTangents(CurveTension);
+    VectorTrack.AutoSetTangents(CurveTension);
 
     return NewKeyIndex;
 }
@@ -132,7 +132,7 @@ INT UInterpTrackVisibility::AddKeyframe(FLOAT Time, UInterpTrackInst* TrInst, BY
     // Find the correct index to insert this key.
     INT i = 0;
     for (i = 0; i < VisibilityTrack.Num() && ((FVisibilityTrackKeyArray&)VisibilityTrack).At(i).Time < Time; i++);
-    ((FVisibilityTrackKeyArray&)VisibilityTrack).Insert(i);
+    VisibilityTrack.Insert(i);
     ((FVisibilityTrackKeyArray&)VisibilityTrack).At(i).Time = Time;
     ((FVisibilityTrackKeyArray&)VisibilityTrack).At(i).Action = VisInst->Action;
 
@@ -164,7 +164,7 @@ INT UInterpTrackVisibility::DuplicateKeyframe(INT KeyIndex, FLOAT NewKeyTime)
     // Find the correct index to insert this key.
     INT i = 0;
     for (i = 0; i < VisibilityTrack.Num() && ((FVisibilityTrackKeyArray_00cf6f20&)VisibilityTrack).At(i).Time < NewKeyTime; i++);
-    ((FVisibilityTrackKeyArray_00cf6f20&)VisibilityTrack).InsertZeroed(i);
+    VisibilityTrack.InsertZeroed(i);
     ((FVisibilityTrackKeyArray_00cf6f20&)VisibilityTrack).At(i) = VisKey;
 
     return i;
@@ -194,7 +194,7 @@ INT UInterpTrackVisibility::SetKeyframeTime(INT KeyIndex, FLOAT NewKeyTime, UBOO
     {
         // First, remove cut from array.
         FVisibilityTrackKey MoveKey = ((FVisibilityTrackKeyArray_00cfcb30&)VisibilityTrack).At(KeyIndex);
-        ((FVisibilityTrackKeyArray_00cfcb30&)VisibilityTrack).Remove(KeyIndex);
+        VisibilityTrack.Remove(KeyIndex);
 
         // Set its time to the new one.
         MoveKey.Time = NewKeyTime;
@@ -202,7 +202,7 @@ INT UInterpTrackVisibility::SetKeyframeTime(INT KeyIndex, FLOAT NewKeyTime, UBOO
         // Find correct new position and insert.
         INT i = 0;
         for (i = 0; i < VisibilityTrack.Num() && ((FVisibilityTrackKeyArray_00cfcb30&)VisibilityTrack).At(i).Time < NewKeyTime; i++);
-        ((FVisibilityTrackKeyArray_00cfcb30&)VisibilityTrack).InsertZeroed(i);
+        VisibilityTrack.InsertZeroed(i);
         ((FVisibilityTrackKeyArray_00cfcb30&)VisibilityTrack).At(i) = MoveKey;
 
         return i;

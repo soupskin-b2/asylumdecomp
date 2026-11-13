@@ -156,7 +156,7 @@ void UParticleSystemComponent::execSetTemplate(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(UParticleSystem, NewTemplate);
 	P_FINISH;
-	((UParticleSystemComponent__00c9cd80*)this)->sub_00b64730(NewTemplate);
+	this->sub_00b64730(NewTemplate);
 }
 
 struct UParticleSystemComponent__00c9da40 : public UParticleSystemComponent
@@ -169,7 +169,7 @@ void UParticleSystemComponent::execSetLODLevel(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(InLODLevel);
 	P_FINISH;
-	((UParticleSystemComponent__00c9da40*)this)->sub_00b5d900(InLODLevel);
+	this->sub_00b5d900(InLODLevel);
 }
 
 struct UParticleSystemComponent__00c9daa0 : public UParticleSystemComponent
@@ -182,7 +182,7 @@ void UParticleSystemComponent::execSetEditorLODLevel(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(InLODLevel);
 	P_FINISH;
-	((UParticleSystemComponent__00c9daa0*)this)->sub_00b51ba0(InLODLevel);
+	this->sub_00b51ba0(InLODLevel);
 }
 
 struct UParticleSystemComponent__00c9cf30 : public UParticleSystemComponent
@@ -195,7 +195,7 @@ void UParticleSystemComponent::execSetSkipUpdateDynamicDataDuringTick(FFrame& St
 {
 	P_GET_UBOOL(bInSkipUpdateDynamicDataDuringTick);
 	P_FINISH;
-	((UParticleSystemComponent__00c9cf30*)this)->sub_00b51be0(bInSkipUpdateDynamicDataDuringTick);
+	this->sub_00b51be0(bInSkipUpdateDynamicDataDuringTick);
 }
 
 struct UParticleSystemComponent__00c9e480 : public UParticleSystemComponent
@@ -208,7 +208,7 @@ void UParticleSystemComponent::execSetActive(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bNowActive);
 	P_FINISH;
-	((UParticleSystemComponent__00c9e480*)this)->sub_00b5d0c0(bNowActive);
+	this->sub_00b5d0c0(bNowActive);
 }
 
 // @baa 0x00c9cc70

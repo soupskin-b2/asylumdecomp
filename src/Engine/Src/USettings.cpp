@@ -536,13 +536,13 @@ struct USettings__00d6e620 : public USettings
 /* Makes a settings value a string. */
 void USettings__00d6e620::SetSettingsDataString(FSettingsData& Data, const FString& InString)
 {
-	((FSettingsData__00d6e620&)Data).SetData(*(const FStringM_&)InString);
+	Data.SetData(*(const FStringM_&)InString);
 }
 
 /* Copies one settings value into another. */
 void USettings__00d6e620::SetSettingsData(FSettingsData& Data, FSettingsData& Data2Copy)
 {
-	(FSettingsData__00d6e620&)Data = (FSettingsData__00d6e620&)Data2Copy;
+	Data = (FSettingsData__00d6e620&)Data2Copy;
 }
 
 struct FSettingsData__00d74300 : public FSettingsData
@@ -560,7 +560,7 @@ struct USettings__00d74300 : public USettings
 /* Makes a settings value a string. */
 void USettings__00d74300::SetSettingsDataString(FSettingsData& Data, const FString& InString)
 {
-	((FSettingsData__00d74300&)Data).SetData(*(const FStringM_&)InString);
+	Data.SetData(*(const FStringM_&)InString);
 }
 
 // @baa 0x00d74300
@@ -588,13 +588,13 @@ struct USettings__00d742e0 : public USettings
 /* Makes a settings value a blob holding a copy of Blob. */
 void USettings__00d742e0::SetSettingsDataBlob(FSettingsData& Data, TArray<BYTE>& Blob)
 {
-	((FSettingsData__00d742e0&)Data).SetData(Blob.Num(), Blob.GetTypedData());
+	Data.SetData(Blob.Num(), Blob.GetTypedData());
 }
 
 /* Copies out the blob a settings value holds. */
 void USettings__00d742e0::GetSettingsDataBlob(FSettingsData& Data, TArray<BYTE>& OutBlob)
 {
-	((const FSettingsData__00d742e0&)Data).GetData(OutBlob);
+	Data.GetData(OutBlob);
 }
 
 /* Kit gaps: FSettingsData's structcpptext (the SetData/GetData blob overloads) and USettings' blob helpers aren't
@@ -614,14 +614,14 @@ struct USettings__00d799d0 : public USettings
 /* Makes a settings value a blob holding a copy of Blob. */
 void USettings__00d799d0::SetSettingsDataBlob(FSettingsData& Data, TArray<BYTE>& Blob)
 {
-	((FSettingsData__00d799d0&)Data).SetData(Blob.Num(), Blob.GetTypedData());
+	Data.SetData(Blob.Num(), Blob.GetTypedData());
 }
 
 // @baa 0x00d799d0
 /* Copies out the blob a settings value holds. */
 void USettings__00d799d0::GetSettingsDataBlob(FSettingsData& Data, TArray<BYTE>& OutBlob)
 {
-	((const FSettingsData__00d799d0&)Data).GetData(OutBlob);
+	Data.GetData(OutBlob);
 }
 
 /* Kit gap: the structcpptext of FSettingsData (operator=), FSettingsProperty (copy constructor, operator=) and
@@ -639,7 +639,7 @@ struct FSettingsProperty_ : public FSettingsProperty
 		if (&Other != this)
 		{
 			PropertyId = Other.PropertyId;
-			(FSettingsData__00d79460&)Data = (const FSettingsData__00d79460&)Other.Data;
+			Data = (const FSettingsData__00d79460&)Other.Data;
 		}
 		return *this;
 	}
@@ -923,7 +923,7 @@ void USettings::SetIntProperty(INT PropertyId, INT Value)
 		((FSettingsData__00d75890&)Property->Data).SetData(Value);
 		if (((FScriptDelegate_&)__NotifyPropertyValueUpdated__Delegate).IsCallable(this))
 		{
-			((USettings__00d75890*)this)->delegateNotifyPropertyValueUpdated(GetPropertyName(PropertyId));
+			this->delegateNotifyPropertyValueUpdated(GetPropertyName(PropertyId));
 		}
 	}
 }
@@ -1001,7 +1001,7 @@ void USettings::SetFloatProperty(INT PropertyId, FLOAT Value)
 		((FSettingsData__00d75710&)Property->Data).SetData(Value);
 		if (((FScriptDelegate_&)__NotifyPropertyValueUpdated__Delegate).IsCallable(this))
 		{
-			((USettings__00d75710*)this)->delegateNotifyPropertyValueUpdated(GetPropertyName(PropertyId));
+			this->delegateNotifyPropertyValueUpdated(GetPropertyName(PropertyId));
 		}
 	}
 }
@@ -1035,10 +1035,10 @@ void USettings::SetStringProperty(INT PropertyId, const FString& Value)
 	FSettingsProperty* Property = ((USettings__00d759f0*)this)->FindProperty(PropertyId);
 	if (Property != NULL && Property->Data.Type == SDT_String)
 	{
-		((FSettingsData__00d759f0&)Property->Data).SetData(Value);
+		Property->Data.SetData(Value);
 		if (((FScriptDelegate_&)__NotifyPropertyValueUpdated__Delegate).IsCallable(this))
 		{
-			((USettings__00d759f0*)this)->delegateNotifyPropertyValueUpdated(GetPropertyName(PropertyId));
+			this->delegateNotifyPropertyValueUpdated(GetPropertyName(PropertyId));
 		}
 	}
 }
@@ -1140,10 +1140,10 @@ UBOOL USettings::SetPropertyValueId(INT PropertyId, INT ValueId)
 				FIdToStringMapping& Mapping = ((TArrayAt_<FIdToStringMapping>&)MetaData->ValueMappings).At(Index);
 				if (Mapping.Id == ValueId)
 				{
-					((FSettingsData__00d75b50&)Property->Data).SetData(ValueId);
+					Property->Data.SetData(ValueId);
 					if (((FScriptDelegate_&)__NotifyPropertyValueUpdated__Delegate).IsCallable(this))
 					{
-						((USettings__00d75b50*)this)->delegateNotifyPropertyValueUpdated(Mapping.Name);
+						this->delegateNotifyPropertyValueUpdated(Mapping.Name);
 					}
 					bOk = TRUE;
 					break;

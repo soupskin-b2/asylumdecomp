@@ -29,7 +29,7 @@ struct FSkeletalMeshLODInfo_
 inline FArchive& operator<<(FArchive& Ar, FSkeletalMeshLODInfo_& I)
 {
     Ar << I.LODMaterialMap;
-    Ar << (FUBoolArray&)I.bEnableShadowCasting;
+    Ar << I.bEnableShadowCasting;
     return Ar;
 }
 

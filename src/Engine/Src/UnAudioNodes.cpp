@@ -1298,7 +1298,7 @@ bool USoundNodeAmbientNonLoop::vf_004()
 void USoundCue::PostEditChange(UProperty* PropertyThatChanged)
 {
     Super::PostEditChange(PropertyThatChanged);
-    ((UObject*)this)->MarkPackageDirty();
+    this->MarkPackageDirty();
 }
 
 // @baa 0x00c92f50
@@ -1306,7 +1306,7 @@ void USoundCue::PostEditChange(UProperty* PropertyThatChanged)
 void USoundNode::PostEditChange(UProperty* PropertyThatChanged)
 {
     Super::PostEditChange(PropertyThatChanged);
-    ((UObject*)this)->MarkPackageDirty();
+    this->MarkPackageDirty();
 }
 
 /* Kit gap: FUntypedBulkData::Serialize (0x00585e80) and RemoveBulkData (0x0056bfe0) aren't declared. */

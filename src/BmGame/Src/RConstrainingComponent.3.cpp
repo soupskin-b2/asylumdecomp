@@ -40,7 +40,7 @@ void URConstrainingComponent::execAddRBConstraint(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(URB_ConstraintSetup, ConstraintSetup);
 	P_FINISH;
-	((URConstrainingComponent__01702f50*)this)->sub_016d6ef0(ConstraintSetup);
+	this->sub_016d6ef0(ConstraintSetup);
 }
 
 struct URConstrainingComponent__01702fe0 : public URConstrainingComponent
@@ -53,5 +53,5 @@ void URConstrainingComponent::execUpdateRBConstraints(FFrame& Stack, RESULT_DECL
 {
 	P_GET_UBOOL_OPTX(bNoPhys, 0);
 	P_FINISH;
-	*(UBOOL*)Result = ((URConstrainingComponent__01702fe0*)this)->sub_016d9eb0(bNoPhys);
+	*(UBOOL*)Result = this->sub_016d9eb0(bNoPhys);
 }

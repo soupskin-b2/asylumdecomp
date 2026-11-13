@@ -29,5 +29,5 @@ void UUILayer::execRemoveNode(FFrame& Stack, RESULT_DECL)
 {
     P_GET_STRUCT_REF(FUILayerNode, NodeToRemove);
     P_FINISH;
-    *(UBOOL*)Result = ((UUILayer*)this)->RemoveNode(NodeToRemove);
+    *(UBOOL*)Result = this->RemoveNode(NodeToRemove);
 }

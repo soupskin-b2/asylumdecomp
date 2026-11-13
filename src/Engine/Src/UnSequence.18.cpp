@@ -175,5 +175,5 @@ void USeqAct_Timer_::Activated()
 {
     // start timing from now
     Time = 0.f;
-    ActivationTime = GWorld ? ((UWorld__008e6d80*)GWorld)->GetTimeSeconds() : 0.f;
+    ActivationTime = GWorld ? GWorld->GetTimeSeconds() : 0.f;
 }

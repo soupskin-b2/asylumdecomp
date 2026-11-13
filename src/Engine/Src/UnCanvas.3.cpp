@@ -22,5 +22,5 @@ void UCanvas::execDrawTextClipped(FFrame& Stack, RESULT_DECL)
 		return;
 	}
 	FLinearColor Color(DrawColor);
-	DrawString(Canvas, appTrunc(OrgX + CurX), appTrunc(OrgY + CurY), *(const FString&)InText, Font, Color, XScale, YScale);
+	DrawString(Canvas, appTrunc(OrgX + CurX), appTrunc(OrgY + CurY), *InText, Font, Color, XScale, YScale);
 }

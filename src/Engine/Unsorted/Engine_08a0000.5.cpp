@@ -9,5 +9,5 @@
 void AActor::execDestroy(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = ((UWorld*)GWorld)->sub_007e72a0(this, 0, 1);
+	*(UBOOL*)Result = GWorld->sub_007e72a0(this, 0, 1);
 }

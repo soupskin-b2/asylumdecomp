@@ -248,7 +248,7 @@ UBOOL UUIScreenObject::sub_00da99e0(INT PlayerIndex)
  * the faces that depend on it. */
 void UUIScreenObject::sub_00da94c0(BYTE Face)
 {
-    UBOOL bChanged = ((FUIScreenValue_Bounds&)Position).sub_00de0600(0, Face);
+    UBOOL bChanged = Position.sub_00de0600(0, Face);
     Position.bInvalidated[Face] = 1;
     if (bChanged)
     {
@@ -327,7 +327,7 @@ FVector UUIScreenObject::DeProject(const FVector& PixelPosition)
  * along Dimension, less the viewport origin. */
 FLOAT UUIScreenObject::GetBounds(BYTE Dimension, BYTE OutputType, UBOOL bIgnoreDockPadding)
 {
-    FLOAT Result = ((FUIScreenValue_Bounds&)Position).sub_00de0540(this, Dimension, OutputType, bIgnoreDockPadding);
+    FLOAT Result = Position.sub_00de0540(this, Dimension, OutputType, bIgnoreDockPadding);
     FVector2D ViewportOrigin;
     ViewportOrigin.X = 0.f;
     ViewportOrigin.Y = 0.f;

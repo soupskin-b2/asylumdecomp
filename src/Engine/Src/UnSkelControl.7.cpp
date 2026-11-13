@@ -49,7 +49,7 @@ void USkelControlSpline::GetAffectedBones(INT BoneIndex, USkeletalMeshComponent*
     }
 
     INT WalkBoneIndex = BoneIndex;
-    ((FIntArray&)OutBoneIndices).Add(SplineLength);
+    OutBoneIndices.Add(SplineLength);
     OutBoneIndices(SplineLength - 1) = WalkBoneIndex;
 
     for (INT i = 1; i < SplineLength; i++)
@@ -85,7 +85,7 @@ void USkelControlTrail::GetAffectedBones(INT BoneIndex, USkeletalMeshComponent* 
     }
 
     INT WalkBoneIndex = BoneIndex;
-    ((FIntArray&)OutBoneIndices).Add(ChainLength);
+    OutBoneIndices.Add(ChainLength);
     OutBoneIndices(ChainLength - 1) = WalkBoneIndex;
 
     for (INT i = 1; i < ChainLength; i++)

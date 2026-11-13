@@ -21,7 +21,7 @@ void AFogVolumeDensityInfo::PostLoad()
     {
         if (Components(i) == NULL)
         {
-            ((FActorComponentArray&)Components).Remove(i);
+            Components.Remove(i);
         }
     }
 
@@ -32,7 +32,7 @@ void AFogVolumeDensityInfo::PostLoad()
         INT ComponentIndex = INDEX_NONE;
         if (((FActorComponentArray&)Components).FindItemByClass<UStaticMeshComponent>(&MeshComponent, &ComponentIndex))
         {
-            ((FActorComponentArray&)Components).Remove(ComponentIndex);
+            Components.Remove(ComponentIndex);
         }
     }
 }

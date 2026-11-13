@@ -27,7 +27,7 @@ void AActor::PrestreamTextures(FLOAT Seconds, UBOOL bEnableStreaming)
 		UMeshComponent* MeshComponent = Cast<UMeshComponent>(Component);
 		if (MeshComponent)
 		{
-			((UMeshComponent*)MeshComponent)->PrestreamTextures(Duration, FALSE);
+			MeshComponent->PrestreamTextures(Duration, FALSE);
 		}
 	}
 }

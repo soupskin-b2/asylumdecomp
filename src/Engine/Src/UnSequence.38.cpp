@@ -34,7 +34,7 @@ void USceneCapture2DComponent::execSetCaptureParameters(FFrame& Stack, RESULT_DE
 	/* force the matrices to be rebuilt */
 	UBOOL bOldUpdateMatrices = bUpdateMatrices;
 	bUpdateMatrices = TRUE;
-	((USceneCapture2DComponent*)this)->UpdateMatrices();
+	this->UpdateMatrices();
 	bUpdateMatrices = bOldUpdateMatrices;
 
 	/* keep the owning capture actor's other components in step */

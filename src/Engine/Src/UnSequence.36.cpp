@@ -63,7 +63,7 @@ void USeqAct_ForceMaterialMipsResident::sub_008c09f0(UBOOL bEnable, FLOAT Durati
 /* UE3's USeqAct_ForceMaterialMipsResident::Activated(): start forcing; a (near) zero duration means an hour. */
 void USeqAct_ForceMaterialMipsResident::Activated()
 {
-    ((USeqAct_ForceMaterialMipsResident*)this)->sub_008c09f0(TRUE, ForceDuration);
+    this->sub_008c09f0(TRUE, ForceDuration);
     FLOAT Duration = ForceDuration;
     if (appAbs(Duration) < SMALL_NUMBER)
     {

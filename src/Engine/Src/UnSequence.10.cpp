@@ -473,7 +473,7 @@ struct USeqVar_Object_ : public USeqVar_Object
 // @baa 0x008c84a0
 FString USeqVar_Object_::GetValueStr()
 {
-    return FString__008c84a0::Printf(TEXT("%s"), ObjValue != NULL ? *(const FString__008c84a0&)((UObject__008c84a0*)ObjValue)->GetName() : TEXT("???"));
+    return FString__008c84a0::Printf(TEXT("%s"), ObjValue != NULL ? *(const FString__008c84a0&)ObjValue->GetName() : TEXT("???"));
 }
 
 /* slot 0x19c (vf_19c) is USeqAct_Latent::AbortFor */
@@ -529,7 +529,7 @@ void USeqAct_ModifyObjectList_::Activated()
 
     // count the entries attached to the list variable
     TArray<UObject**> ObjVars;
-    ((USequenceOp__008f7e00*)this)->GetObjectVars(ObjVars, TEXT("ObjectListVar"));
+    this->GetObjectVars(ObjVars, TEXT("ObjectListVar"));
     ListEntriesCount = ObjVars.Num();
 }
 

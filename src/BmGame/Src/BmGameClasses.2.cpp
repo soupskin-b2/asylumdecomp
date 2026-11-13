@@ -1088,7 +1088,7 @@ UBOOL URSeqAct_Credits::UpdateOp(FLOAT DeltaTime)
 	}
 	else if (InputLinks.Num() > 1 && InputLinks(1).bHasImpulse)
 	{
-		((URSeqAct_Credits__015818f0*)this)->eventShutdownHUD();
+		this->eventShutdownHUD();
 		sub_008bd720(1);
 	}
 	else if (InputLinks.Num() > 2 && InputLinks(2).bHasImpulse)

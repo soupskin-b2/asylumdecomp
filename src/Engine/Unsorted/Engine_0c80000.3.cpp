@@ -16,7 +16,7 @@ void AActor::execClearTimer(FFrame& Stack, RESULT_DECL)
 	Stack.Step(Stack.Object, &TimerFuncName);
 	P_GET_OBJECT_OPTX(UObject, inObj, NULL);
 	P_FINISH;
-	((AActor*)this)->ClearTimer(TimerFuncName, inObj);
+	this->ClearTimer(TimerFuncName, inObj);
 }
 
 /* Kit gap: AActor's timer queries (UnActor.cpp) aren't declared. NAME_Timer isn't in the kit's EName list. */
@@ -30,7 +30,7 @@ void AActor::execIsTimerActive(FFrame& Stack, RESULT_DECL)
 	Stack.Step(Stack.Object, &TimerFuncName);
 	P_GET_OBJECT_OPTX(UObject, inObj, NULL);
 	P_FINISH;
-	*(UBOOL*)Result = ((AActor*)this)->IsTimerActive(TimerFuncName, inObj);
+	*(UBOOL*)Result = this->IsTimerActive(TimerFuncName, inObj);
 }
 
 /* Kit gap: AActor's timer queries (UnActor.cpp) aren't declared. NAME_Timer isn't in the kit's EName list. */
@@ -44,7 +44,7 @@ void AActor::execGetTimerCount(FFrame& Stack, RESULT_DECL)
 	Stack.Step(Stack.Object, &TimerFuncName);
 	P_GET_OBJECT_OPTX(UObject, inObj, NULL);
 	P_FINISH;
-	*(FLOAT*)Result = ((AActor*)this)->GetTimerCount(TimerFuncName, inObj);
+	*(FLOAT*)Result = this->GetTimerCount(TimerFuncName, inObj);
 }
 
 /* Kit gap: AActor's timer queries (UnActor.cpp) aren't declared. NAME_Timer isn't in the kit's EName list. */
@@ -58,7 +58,7 @@ void AActor::execGetTimerRate(FFrame& Stack, RESULT_DECL)
 	Stack.Step(Stack.Object, &TimerFuncName);
 	P_GET_OBJECT_OPTX(UObject, inObj, NULL);
 	P_FINISH;
-	*(FLOAT*)Result = ((AActor*)this)->GetTimerRate(TimerFuncName, inObj);
+	*(FLOAT*)Result = this->GetTimerRate(TimerFuncName, inObj);
 }
 
 /* Kit gaps: PauseTimer (008b7ec0) isn't declared (names from the exe's native table). NAME_Timer isn't in the kit's EName list. */
@@ -73,7 +73,7 @@ void AActor::execPauseTimer(FFrame& Stack, RESULT_DECL)
 	Stack.Step(Stack.Object, &inTimerFunc);
 	P_GET_OBJECT_OPTX(UObject, inObj, NULL);
 	P_FINISH;
-	((AActor*)this)->PauseTimer(bPause, inTimerFunc, inObj);
+	this->PauseTimer(bPause, inTimerFunc, inObj);
 }
 
 /* Kit gaps: SetTimer (008b7990) isn't declared (names from the exe's native table). NAME_Timer isn't in the kit's EName list. */
@@ -89,5 +89,5 @@ void AActor::execSetTimer(FFrame& Stack, RESULT_DECL)
 	Stack.Step(Stack.Object, &inTimerFunc);
 	P_GET_OBJECT_OPTX(UObject, inObj, NULL);
 	P_FINISH;
-	((AActor*)this)->SetTimer(InRate, inbLoop, inTimerFunc, inObj);
+	this->SetTimer(InRate, inbLoop, inTimerFunc, inObj);
 }

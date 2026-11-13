@@ -47,5 +47,5 @@ void AActor::PostLoad()
         }
     }
 
-    ((AActor*)this)->SetDefaultCollisionType();
+    this->SetDefaultCollisionType();
 }

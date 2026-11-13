@@ -18,7 +18,7 @@ void UTerrainLayerSetup::execSetMaterials(FFrame& Stack, RESULT_DECL)
     FTerrainFilteredMaterialArray NewMaterials;
     Stack.Step(Stack.Object, &NewMaterials);
     P_FINISH;
-    ((UTerrainLayerSetup*)this)->sub_009a9810(NewMaterials);
+    this->sub_009a9810(NewMaterials);
 }
 
 /* TArray<FUISoundCue> with the out-of-line destructor (00cc4b20) the original calls. */
@@ -38,7 +38,7 @@ void UUISkin::execGetSkinSoundCues(FFrame& Stack, RESULT_DECL)
     Stack.Step(Stack.Object, &out_SoundCuesT);
     FUISoundCueArray& out_SoundCues = GPropAddr ? *(FUISoundCueArray*)GPropAddr : out_SoundCuesT;
     P_FINISH;
-    ((UUISkin*)this)->sub_00dced80(out_SoundCues);
+    this->sub_00dced80(out_SoundCues);
 }
 
 
@@ -47,7 +47,7 @@ void AWorldInfo::execGetDemoRewindPoints(FFrame& Stack, RESULT_DECL)
 {
     P_GET_TARRAY_REF(INT, OutRewindPoints);
     P_FINISH;
-    *(UBOOL*)Result = ((AWorldInfo*)this)->sub_00c06210(OutRewindPoints);
+    *(UBOOL*)Result = this->sub_00c06210(OutRewindPoints);
 }
 
 /* TArray<UUIStyle*> with the out-of-line destructor (00cc4ac0) the original calls. */
@@ -68,7 +68,7 @@ void UUISkin::execGetAvailableStyles(FFrame& Stack, RESULT_DECL)
     FUIStyleArray& out_Styles = GPropAddr ? *(FUIStyleArray*)GPropAddr : out_StylesT;
     P_GET_UBOOL_OPTX(bIncludeInheritedStyles, TRUE);
     P_FINISH;
-    ((UUISkin*)this)->sub_00dd6880(out_Styles, bIncludeInheritedStyles);
+    this->sub_00dd6880(out_Styles, bIncludeInheritedStyles);
 }
 
 
@@ -78,7 +78,7 @@ void UUISkin::execGetStyleGroups(FFrame& Stack, RESULT_DECL)
     P_GET_TARRAY_REF(FString, StyleGroupArray);
     P_GET_UBOOL_OPTX(bIncludeInheritedGroups, TRUE);
     P_FINISH;
-    ((UUISkin*)this)->sub_00dd3900(StyleGroupArray, bIncludeInheritedGroups);
+    this->sub_00dd3900(StyleGroupArray, bIncludeInheritedGroups);
 }
 
 // @baa 0x00cc86b0
@@ -110,7 +110,7 @@ void UUIRoot::execSetDataStoreFieldValue(FFrame& Stack, RESULT_DECL)
 	P_GET_OBJECT_OPTX(UUIScene, OwnerScene, NULL);
 	P_GET_OBJECT_OPTX(ULocalPlayer, OwnerPlayer, NULL);
 	P_FINISH;
-	*(UBOOL*)Result = ((UUIRoot*)this)->SetDataStoreFieldValue(InDataStoreMarkup, InFieldValue, OwnerScene, OwnerPlayer);
+	*(UBOOL*)Result = this->SetDataStoreFieldValue(InDataStoreMarkup, InFieldValue, OwnerScene, OwnerPlayer);
 }
 
 /* Kit gaps: GetDataStoreFieldValue (00d9cb70) isn't declared (names from the exe's native table). */
@@ -128,7 +128,7 @@ void UUIRoot::execGetDataStoreFieldValue(FFrame& Stack, RESULT_DECL)
 	P_GET_OBJECT_OPTX(UUIScene, OwnerScene, NULL);
 	P_GET_OBJECT_OPTX(ULocalPlayer, OwnerPlayer, NULL);
 	P_FINISH;
-	*(UBOOL*)Result = ((UUIRoot*)this)->GetDataStoreFieldValue(InDataStoreMarkup, OutFieldValue, OwnerScene, OwnerPlayer);
+	*(UBOOL*)Result = this->GetDataStoreFieldValue(InDataStoreMarkup, OutFieldValue, OwnerScene, OwnerPlayer);
 }
 
 // @baa 0x00cc4360

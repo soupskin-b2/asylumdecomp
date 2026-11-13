@@ -40,7 +40,7 @@ void USeqAct_SetMaterial::PostEditChange(UProperty* PropertyThatChanged)
  * particle system of each targeted emitter. */
 UBOOL USeqAct_ParticleEventGenerator::UpdateOp(FLOAT DeltaTime)
 {
-    ((USeqAct_ParticleEventGenerator*)this)->HandleEnableInputs();
+    this->HandleEnableInputs();
 
     if (bEnabled && Targets.Num() > 0 && EventNames.Num() > 0)
     {
@@ -52,7 +52,7 @@ UBOOL USeqAct_ParticleEventGenerator::UpdateOp(FLOAT DeltaTime)
                 for (INT NameIdx = 0; NameIdx < EventNames.Num(); NameIdx++)
                 {
                     FName EventName = EventNames(NameIdx);
-                    ((UParticleSystemComponent*)EmitterActor->ParticleSystemComponent)->sub_00b5ef40(EventName, EventTime,
+                    EmitterActor->ParticleSystemComponent->sub_00b5ef40(EventName, EventTime,
                         EventLocation, EventDirection, EventVelocity, bUseEmitterLocation, EventNormal);
                 }
             }

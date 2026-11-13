@@ -13,7 +13,7 @@ void USettings::execSetSettingsDataBlob(FFrame& Stack, RESULT_DECL)
 	P_GET_STRUCT_REF(FSettingsData, Data);
 	P_GET_TARRAY_REF(BYTE, Blob);
 	P_FINISH;
-	((USettings*)this)->SetSettingsDataBlob(Data, Blob);
+	this->SetSettingsDataBlob(Data, Blob);
 }
 
 // @baa 0x00cbfaa0
@@ -22,7 +22,7 @@ void USettings::execGetSettingsDataBlob(FFrame& Stack, RESULT_DECL)
 	P_GET_STRUCT_REF(FSettingsData, Data);
 	P_GET_TARRAY_REF(BYTE, OutBlob);
 	P_FINISH;
-	((USettings*)this)->GetSettingsDataBlob(Data, OutBlob);
+	this->GetSettingsDataBlob(Data, OutBlob);
 }
 
 // @baa 0x00cb67c0

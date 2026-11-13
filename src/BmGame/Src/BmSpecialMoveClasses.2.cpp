@@ -14,7 +14,7 @@ void ARSpecialMoveInstance_RelativeAnimMove::execCheckSpaceAtEndOfAnim(FFrame& S
     P_GET_STRUCT(FVector, AnimLocation);
     P_GET_STRUCT(FRotator, AnimRotation);
     P_FINISH;
-    *(UBOOL*)Result = ((ARSpecialMoveInstance_RelativeAnimMove*)this)->CheckSpaceAtEndOfAnim(AnimName, AnimSet, AnimLocation, AnimRotation);
+    *(UBOOL*)Result = this->CheckSpaceAtEndOfAnim(AnimName, AnimSet, AnimLocation, AnimRotation);
 }
 
 /* ARSpecialMoveInstance_RelativeAnimMove::GetAnimEndLocation (0x1634e00) isn't declared in the kit. */
@@ -27,5 +27,5 @@ void ARSpecialMoveInstance_RelativeAnimMove::execGetAnimEndLocation(FFrame& Stac
     P_GET_STRUCT(FVector, AnimLocation);
     P_GET_STRUCT(FRotator, AnimRotation);
     P_FINISH;
-    *(FVector*)Result = ((ARSpecialMoveInstance_RelativeAnimMove*)this)->GetAnimEndLocation(AnimName, AnimSet, AnimLocation, AnimRotation);
+    *(FVector*)Result = this->GetAnimEndLocation(AnimName, AnimSet, AnimLocation, AnimRotation);
 }

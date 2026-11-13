@@ -64,7 +64,7 @@ void USkeletalMeshComponent::execGetBoneLocation(FFrame& Stack, RESULT_DECL)
     P_GET_NAME(BoneName);
     P_GET_INT_OPTX(Space, 0);
     P_FINISH;
-    *(FVector*)Result = ((USkeletalMeshComponent*)this)->GetBoneLocation(BoneName, Space);
+    *(FVector*)Result = this->GetBoneLocation(BoneName, Space);
 }
 
 
@@ -74,7 +74,7 @@ void USkeletalMeshComponent::execGetBoneAxis(FFrame& Stack, RESULT_DECL)
     P_GET_NAME(BoneName);
     P_GET_BYTE(Axis);
     P_FINISH;
-    *(FVector*)Result = ((USkeletalMeshComponent*)this)->GetBoneAxis(BoneName, Axis);
+    *(FVector*)Result = this->GetBoneAxis(BoneName, Axis);
 }
 
 /* USkeletalMeshComponent::GetBoneQuaternion (0x91e2a0) isn't declared in the kit. */
@@ -85,7 +85,7 @@ void USkeletalMeshComponent::execGetBoneQuaternion(FFrame& Stack, RESULT_DECL)
     P_GET_NAME(BoneName);
     P_GET_INT_OPTX(Space, 0);
     P_FINISH;
-    *(FQuat*)Result = ((USkeletalMeshComponent*)this)->GetBoneQuaternion(BoneName, Space);
+    *(FQuat*)Result = this->GetBoneQuaternion(BoneName, Space);
 }
 
 /* Kit gap: USkeletalMeshComponent::AddInstanceVertexWeightBoneParented (UnSkeletalComponent.cpp) isn't declared. */
@@ -96,5 +96,5 @@ void USkeletalMeshComponent::execAddInstanceVertexWeightBoneParented(FFrame& Sta
 	P_GET_NAME(BoneName);
 	P_GET_UBOOL_OPTX(bPairWithParent, TRUE);
 	P_FINISH;
-	((USkeletalMeshComponent*)this)->AddInstanceVertexWeightBoneParented(BoneName, bPairWithParent);
+	this->AddInstanceVertexWeightBoneParented(BoneName, bPairWithParent);
 }

@@ -363,7 +363,7 @@ UUIObject* UUIScreenObject::GetFocusedControl(UBOOL bRecurse, INT PlayerIndex) c
 	if (PlayerIndex >= 0 && PlayerIndex < FocusControls.Num())
 	{
 		const FPlayerInteractionData& PlayerData = ((const FFocusControlArray&)FocusControls).At(PlayerIndex);
-		Result = ((const FPlayerInteractionData&)PlayerData).GetFocusedControl();
+		Result = PlayerData.GetFocusedControl();
 		if (Result != NULL && bRecurse)
 		{
 			UUIObject* FocusedChild = Result->GetFocusedControl(bRecurse, PlayerIndex);

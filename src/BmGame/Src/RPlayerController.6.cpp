@@ -290,7 +290,7 @@ struct ARPlayerController__016f9330 : public ARPlayerController
 void ARPlayerController::execGetAerialKickTarget(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(AActor**)Result = ((ARPlayerController__016f9330*)this)->sub_016175a0();
+	*(AActor**)Result = this->sub_016175a0();
 }
 
 struct ARPlayerController__016f9570 : public ARPlayerController
@@ -302,7 +302,7 @@ struct ARPlayerController__016f9570 : public ARPlayerController
 void ARPlayerController::execGetFallingAttackTarget(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(ARPawnVillain**)Result = ((ARPlayerController__016f9570*)this)->sub_01623fd0();
+	*(ARPawnVillain**)Result = this->sub_01623fd0();
 }
 
 // @baa 0x00c86e40
@@ -1030,7 +1030,7 @@ void ARPlayerController::execDoGrappleMovement(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(DeltaTime);
 	P_FINISH;
-	((ARPlayerController__016f9690*)this)->sub_01636e40(DeltaTime);
+	this->sub_01636e40(DeltaTime);
 }
 
 struct ARPlayerController__016f97e0 : public ARPlayerController
@@ -1043,7 +1043,7 @@ void ARPlayerController::execUpdateSilentPredLookAt(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(DeltaTime);
 	P_FINISH;
-	((ARPlayerController__016f97e0*)this)->sub_01618c20(DeltaTime);
+	this->sub_01618c20(DeltaTime);
 }
 
 // @baa 0x016fa5a0
@@ -1129,7 +1129,7 @@ void ARPlayerController::execAmIInSoftCover(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(DeltaTime);
 	P_FINISH;
-	*(UBOOL*)Result = ((ARPlayerController__016f9850*)this)->sub_016184f0(DeltaTime);
+	*(UBOOL*)Result = this->sub_016184f0(DeltaTime);
 }
 
 struct ARPlayerController__016f8540 : public ARPlayerController
@@ -1142,7 +1142,7 @@ void ARPlayerController::execSetUsingGamepad(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(UsingGamepad);
 	P_FINISH;
-	((ARPlayerController__016f8540*)this)->sub_01615460(UsingGamepad);
+	this->sub_01615460(UsingGamepad);
 }
 
 struct ARPlayerController__016f8a60 : public ARPlayerController
@@ -1155,7 +1155,7 @@ void ARPlayerController::execSetOcclusion(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bOcclusionOn);
 	P_FINISH;
-	((ARPlayerController__016f8a60*)this)->sub_01613570(bOcclusionOn);
+	this->sub_01613570(bOcclusionOn);
 }
 
 struct ARTunnelGrateBase_ : public ARTunnelGrateBase
@@ -1269,7 +1269,7 @@ void ARPlayerController::execShouldIKickOffWall(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT(FVector, HitNormal);
 	P_FINISH;
-	*(UBOOL*)Result = ((ARPlayerController__016f9470*)this)->sub_01618d10(HitNormal);
+	*(UBOOL*)Result = this->sub_01618d10(HitNormal);
 }
 
 // @baa 0x016f9d60

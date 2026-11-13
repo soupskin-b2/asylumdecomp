@@ -85,7 +85,7 @@ void UAnimNodeCrossfader::InitAnim(USkeletalMeshComponent* MeshComp, UAnimNodeBl
 void UAnimNodeBlendPerBone::InitAnim(USkeletalMeshComponent* MeshComp, UAnimNodeBlendBase* Parent)
 {
 	Super::InitAnim(MeshComp, Parent);
-	((UAnimNodeBlendPerBone*)this)->BuildWeightList();
+	this->BuildWeightList();
 }
 
 /* Kit gaps: USkeletalMeshComponent::BuildComposePriorityList and UAnimTree::InitTreeSynchGroups aren't declared
@@ -97,9 +97,9 @@ void UAnimTree::InitAnim(USkeletalMeshComponent* MeshComp, UAnimNodeBlendBase* P
 	Super::InitAnim(MeshComp, Parent);
 	if (MeshComp)
 	{
-		((USkeletalMeshComponent*)MeshComp)->sub_0092c310(PriorityList);
+		MeshComp->sub_0092c310(PriorityList);
 	}
-	((UAnimTree*)this)->InitTreeSynchGroups();
+	this->InitTreeSynchGroups();
 }
 
 /* Kit gap: UAnimNodeSynch::UpdateAnimSeqNodes isn't declared in Classes.h. */
@@ -107,7 +107,7 @@ void UAnimTree::InitAnim(USkeletalMeshComponent* MeshComp, UAnimNodeBlendBase* P
 // @baa 0x00c7ed60
 void UAnimNodeSynch::InitAnim(USkeletalMeshComponent* MeshComp, UAnimNodeBlendBase* Parent)
 {
-	((UAnimNodeSynch*)this)->UpdateAnimSeqNodes();
+	this->UpdateAnimSeqNodes();
 	Super::InitAnim(MeshComp, Parent);
 }
 
@@ -135,7 +135,7 @@ void UAnimNode::InitAnim(USkeletalMeshComponent* MeshComp, UAnimNodeBlendBase* P
 void UAnimNodeAimOffset::InitAnim(USkeletalMeshComponent* MeshComp, UAnimNodeBlendBase* Parent)
 {
 	Super::InitAnim(MeshComp, Parent);
-	((UAnimNodeAimOffset*)this)->UpdateListOfRequiredBones();
+	this->UpdateListOfRequiredBones();
 }
 
 extern FName g_026c4610;
@@ -290,7 +290,7 @@ void UAnimNodeRandom::InitAnim(USkeletalMeshComponent* MeshComp, UAnimNodeBlendB
 	if (ActiveChildIndex >= 0 && ActiveChildIndex < Children.Num() &&
 		Children(ActiveChildIndex).Anim &&
 		PlayingSeqNode &&
-		((UAnimNode*)PlayingSeqNode)->sub_00c53070(Children(ActiveChildIndex).Anim))
+		PlayingSeqNode->sub_00c53070(Children(ActiveChildIndex).Anim))
 	{
 		const FRandomAnimInfo& Info = RandomInfo(ActiveChildIndex);
 		if (PlayingSeqNode->bPlaying || Info.bStillFrame)

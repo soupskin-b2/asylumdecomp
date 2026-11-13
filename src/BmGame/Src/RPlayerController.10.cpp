@@ -120,7 +120,7 @@ UBOOL ARPlayerController__01618fe0::sub_01618fe0()
 		{
 			(FVector_&)Player->Velocity += (500.f - Speed) * Dir;
 		}
-		UBOOL bHaveRoom = !((ARPawnPlayer__01618fe0*)Player)->sub_01694830(0.5f, 0);
+		UBOOL bHaveRoom = !Player->sub_01694830(0.5f, 0);
 		Player->Velocity = SavedVelocity;
 		return bHaveRoom;
 	}

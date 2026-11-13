@@ -22,5 +22,5 @@ void UUILayer::execInsertNode(FFrame& Stack, RESULT_DECL)
 	P_GET_STRUCT_REF(FUILayerNode, NodeToInsert);
 	P_GET_INT_OPTX(InsertIndex, INDEX_NONE);
 	P_FINISH;
-	*(UBOOL*)Result = ((UUILayer*)this)->InsertNode(NodeToInsert, InsertIndex);
+	*(UBOOL*)Result = this->InsertNode(NodeToInsert, InsertIndex);
 }

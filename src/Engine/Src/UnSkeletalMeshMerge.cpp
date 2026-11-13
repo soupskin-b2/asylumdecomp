@@ -202,9 +202,9 @@ public:
 /* add a section's bone map to the merged section's, recording where each of its bones went */
 void FSkeletalMeshMerge_00d49bc0::MergeBoneMap(TArray<WORD>& MergedBoneMap, TArray<WORD>& BoneMapToMergedBoneMap, const TArray<WORD>& BoneMap)
 {
-    ((FBoneMapArray&)BoneMapToMergedBoneMap).Add(BoneMap.Num());
+    BoneMapToMergedBoneMap.Add(BoneMap.Num());
     for (INT IdxB = 0; IdxB < BoneMap.Num(); IdxB++)
     {
-        BoneMapToMergedBoneMap(IdxB) = ((FBoneMapArray&)MergedBoneMap).AddUniqueItem(BoneMap(IdxB));
+        BoneMapToMergedBoneMap(IdxB) = MergedBoneMap.AddUniqueItem(BoneMap(IdxB));
     }
 }

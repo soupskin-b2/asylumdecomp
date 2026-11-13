@@ -65,7 +65,7 @@ C_00e42eb0* C_00e42eb0::sub_00e42eb0(INT Value)
 void UGFxMovie::Serialize(FArchive& Ar)
 {
     /* don't save a command handler that lives in the transient package */
-    if (Ar.IsSaving() && FSCmdHandler && ((UObject*)FSCmdHandler)->GetOutermost() == UObject::GetTransientPackage())
+    if (Ar.IsSaving() && FSCmdHandler && FSCmdHandler->GetOutermost() == UObject::GetTransientPackage())
     {
         FSCmdHandler = NULL;
     }

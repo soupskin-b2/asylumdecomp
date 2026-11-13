@@ -12,14 +12,6 @@
  * the comparison operators) isn't declared. */
 inline void __cdecl operator delete[](void* Ptr) { sub_0053dfa0(Ptr); }
 
-struct FStringM_ : public FString
-{
-	FORCEINLINE const TCHAR* operator*() const
-	{
-		return Num() ? &(*this)(0) : TEXT("");
-	}
-};
-
 struct FSettingsData_ : public FSettingsData
 {
 	FORCEINLINE void CleanUp()
@@ -200,7 +192,7 @@ UBOOL FSettingsData_::operator==(const FString& Other) const
 {
 	if (Type == SDT_String && Value2.Dummy != 0)
 	{
-		return wcscmp((const TCHAR*)Value2.Dummy, *(const FStringM_&)Other) == 0;
+		return wcscmp((const TCHAR*)Value2.Dummy, *Other) == 0;
 	}
 	return FALSE;
 }

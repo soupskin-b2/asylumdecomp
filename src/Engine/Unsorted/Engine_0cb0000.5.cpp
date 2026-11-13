@@ -43,7 +43,7 @@ void UUISkin::execAddStyleGroupName(FFrame& Stack, RESULT_DECL)
 {
     P_GET_STR(StyleGroupName);
     P_FINISH;
-    *(UBOOL*)Result = ((UUISkin__00cbd680*)this)->sub_00dd9f90(StyleGroupName);
+    *(UBOOL*)Result = this->sub_00dd9f90(StyleGroupName);
 }
 
 struct UUISkin__00cbd740 : public UUISkin
@@ -57,7 +57,7 @@ void UUISkin::execRemoveStyleGroupName(FFrame& Stack, RESULT_DECL)
 {
     P_GET_STR(StyleGroupName);
     P_FINISH;
-    *(UBOOL*)Result = ((UUISkin__00cbd740*)this)->sub_00dda2a0(StyleGroupName);
+    *(UBOOL*)Result = this->sub_00dda2a0(StyleGroupName);
 }
 
 struct UUISkin__00cbd9c0 : public UUISkin
@@ -71,7 +71,7 @@ void UUISkin::execFindStyleGroupIndex(FFrame& Stack, RESULT_DECL)
 {
     P_GET_STR(StyleGroupName);
     P_FINISH;
-    *(INT*)Result = ((UUISkin__00cbd9c0*)this)->sub_00dd38a0(StyleGroupName);
+    *(INT*)Result = this->sub_00dd38a0(StyleGroupName);
 }
 
 struct UUISkin__00cbd900 : public UUISkin
@@ -85,7 +85,7 @@ void UUISkin::execGetStyleGroupAtIndex(FFrame& Stack, RESULT_DECL)
 {
     P_GET_INT(Index);
     P_FINISH;
-    *(FString*)Result = ((UUISkin__00cbd900*)this)->sub_00dcc6b0(Index);
+    *(FString*)Result = this->sub_00dcc6b0(Index);
 }
 
 struct AWorldInfo_ : public AWorldInfo
@@ -129,7 +129,7 @@ void UUISkin::execRenameStyleGroup(FFrame& Stack, RESULT_DECL)
     P_GET_STR(OldStyleGroupName);
     P_GET_STR(NewStyleGroupName);
     P_FINISH;
-    *(UBOOL*)Result = ((UUISkin__00cbd800*)this)->sub_00dda530(OldStyleGroupName, NewStyleGroupName);
+    *(UBOOL*)Result = this->sub_00dda530(OldStyleGroupName, NewStyleGroupName);
 }
 
 /* FGuid(0,0,0,0): this build's FGuid is a single INT with no constructors. */
@@ -162,7 +162,7 @@ void AWorldInfo::execSeamlessTravel(FFrame& Stack, RESULT_DECL)
     }
 
     P_FINISH;
-    ((AWorldInfo__00cb8000*)this)->sub_009ce970(URL, bAbsolute, MapPackageGuid);
+    this->sub_009ce970(URL, bAbsolute, MapPackageGuid);
 }
 
 struct AWorldInfo__00cb8200 : public AWorldInfo
@@ -179,7 +179,7 @@ void AWorldInfo::execAddOnScreenDebugMessage(FFrame& Stack, RESULT_DECL)
     P_GET_STRUCT(FColor, DisplayColor);
     P_GET_STR(DebugMessage);
     P_FINISH;
-    ((AWorldInfo__00cb8200*)this)->sub_009cc8d0(Key, TimeToDisplay, DisplayColor, DebugMessage);
+    this->sub_009cc8d0(Key, TimeToDisplay, DisplayColor, DebugMessage);
 }
 
 #define INVALID_OBJECT ((UObject*)-1)

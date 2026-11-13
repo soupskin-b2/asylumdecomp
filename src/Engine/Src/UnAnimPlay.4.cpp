@@ -113,7 +113,7 @@ void UAnimNodeSequence::sub_00c5e2f0(FLOAT MoveDelta, FLOAT DeltaSeconds, UBOOL 
 		return;
 	}
 
-	if (AnimSeq->NumFrames > 1 && CachedBoneAtoms.Num() > 0 && !((UAnimNodeSequence*)this)->CanUseCachedBoneAtoms())
+	if (AnimSeq->NumFrames > 1 && CachedBoneAtoms.Num() > 0 && !this->CanUseCachedBoneAtoms())
 	{
 		CachedBoneAtoms.Reset();
 	}
@@ -125,7 +125,7 @@ void UAnimNodeSequence::sub_00c5e2f0(FLOAT MoveDelta, FLOAT DeltaSeconds, UBOOL 
 		const UBOOL bShouldIssueNotifies = !bNoNotifies && (bIsSynchronized || bAboveWeightThreshold);
 		if (bShouldIssueNotifies)
 		{
-			((UAnimNodeSequence*)this)->IssueNotifies(MoveDelta);
+			this->IssueNotifies(MoveDelta);
 
 			// A notify may have changed the animation.
 			if (AnimSeq == NULL)

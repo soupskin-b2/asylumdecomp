@@ -105,7 +105,7 @@ void URCapeStateController::execUpdate(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(DeltaTime);
 	P_FINISH;
-	((URCapeStateController__01701750*)this)->sub_016e7ce0(DeltaTime);
+	this->sub_016e7ce0(DeltaTime);
 }
 
 struct URCapeStateController__01701680 : public URCapeStateController
@@ -118,7 +118,7 @@ void URCapeStateController::execInitialise(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_NAME(InitialCapeStateName);
 	P_FINISH;
-	((URCapeStateController__01701680*)this)->sub_016e7ba0(InitialCapeStateName);
+	this->sub_016e7ba0(InitialCapeStateName);
 }
 
 struct URCapeStateController__01701de0 : public URCapeStateController
@@ -131,7 +131,7 @@ void URCapeStateController::execSetCapeToCurrentAnimPose(FFrame& Stack, RESULT_D
 {
 	P_GET_UBOOL_OPTX(IsEvaluateAnim, 0);
 	P_FINISH;
-	((URCapeStateController__01701de0*)this)->sub_016e69c0(IsEvaluateAnim);
+	this->sub_016e69c0(IsEvaluateAnim);
 }
 
 /* URCapeStateController::SetCapeStateAndTime (0x16e7670) isn't declared in the kit. */
@@ -151,7 +151,7 @@ void URCapeStateController::execSetCapeStateAndTime(FFrame& Stack, RESULT_DECL)
     P_GET_NAME_OPTX(SyncAnimNameOverride, NAME_None);
     P_GET_FLOAT_OPTX(SyncAnimOffsetOverride, 0.f);
     P_FINISH;
-    ((URCapeStateController__01701960*)this)->SetCapeStateAndTime(NewCapeStateName, NewCapeStateTime, AnimPlayRate, bMirrored, AnimName, SyncAnimNameOverride, SyncAnimOffsetOverride);
+    this->SetCapeStateAndTime(NewCapeStateName, NewCapeStateTime, AnimPlayRate, bMirrored, AnimName, SyncAnimNameOverride, SyncAnimOffsetOverride);
 }
 
 /* URCapeStateController::BeginCinematicState (0x16e7910) isn't declared in the kit. */
@@ -173,5 +173,5 @@ void URCapeStateController::execBeginCinematicState(FFrame& Stack, RESULT_DECL)
     P_GET_UBOOL_OPTX(bClearVelocityOnExit, FALSE);
     P_GET_UBOOL_OPTX(bTeleportToInitialPose, FALSE);
     P_FINISH;
-    ((URCapeStateController__01701b20*)this)->BeginCinematicState(AnimName, TemplateStateConfig, AnimStartTime, AnimPlayRate, SyncAnimName, SyncAnimOffset, bMirrored, bClearVelocityOnExit, bTeleportToInitialPose);
+    this->BeginCinematicState(AnimName, TemplateStateConfig, AnimStartTime, AnimPlayRate, SyncAnimName, SyncAnimOffset, bMirrored, bClearVelocityOnExit, bTeleportToInitialPose);
 }

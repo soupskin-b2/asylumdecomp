@@ -48,7 +48,7 @@ UBOOL ACoverSlotMarker::IsValidClaim(APawn* ChkClaim, UBOOL bSkipTeamCheck, UBOO
     APawn* SlotOwner = ((TArrayAt_<FCoverSlot>&)Link->Slots).At(SlotIdx).SlotOwner;
     if ((SlotOwner == ChkClaim || SlotOwner == NULL || SlotOwner->bDeleteMe) &&
         (ChkClaim->IsHumanControlled() || !bBlocked) &&
-        ((UWorld*)GWorld)->GetTimeSeconds() >= ((TArrayAt_<FCoverSlot>&)Link->Slots).At(SlotIdx).SlotValidAfterTime)
+        GWorld->GetTimeSeconds() >= ((TArrayAt_<FCoverSlot>&)Link->Slots).At(SlotIdx).SlotValidAfterTime)
     {
         bResult = TRUE;
         if (!bSkipTeamCheck)
@@ -68,7 +68,7 @@ UBOOL ACoverSlotMarker::IsValidClaim(APawn* ChkClaim, UBOOL bSkipTeamCheck, UBOO
                 }
             }
         }
-        if (bResult && !bSkipOverlapCheck && ((ACoverLink*)Link)->sub_00860250(ChkClaim, SlotIdx, bSkipTeamCheck))
+        if (bResult && !bSkipOverlapCheck && Link->sub_00860250(ChkClaim, SlotIdx, bSkipTeamCheck))
         {
             bResult = FALSE;
         }

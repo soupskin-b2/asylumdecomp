@@ -61,7 +61,7 @@ UUIStyle_Data* FStyleDataReference_::GetStyleData() const
 		Result = SourceStyle->sub_00ddaa80(SourceState);
 		if (Result == NULL)
 		{
-			Result = ((UUIStyle*)SourceStyle)->sub_00dc9980();
+			Result = SourceStyle->sub_00dc9980();
 		}
 	}
 	return Result;

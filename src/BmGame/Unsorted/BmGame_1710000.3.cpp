@@ -18,7 +18,7 @@ void ARTunnelGrateBase::execUpdateCapeCollision(FFrame& Stack, RESULT_DECL)
 	UBOOL bDisabled = (bCachedDisableCapeCollision || bCachedTimedDisableCapeCollision) ? 1 : 0;
 	if (bDisabled != bCurrentCollisionDisabledState)
 	{
-		((UPrimitiveComponent*)CollisionComponent)->sub_009ff970(0xf, bDisabled ? 0 : 1);
+		CollisionComponent->sub_009ff970(0xf, bDisabled ? 0 : 1);
 		bCurrentCollisionDisabledState = bDisabled;
 	}
 }
@@ -31,7 +31,7 @@ void ARTunnelGrateBase::execGetFinalGrateRotAndTrans(FFrame& Stack, RESULT_DECL)
     P_GET_STRUCT_REF(FRotator, GrateRot);
     P_GET_STRUCT_REF(FVector, GrateTrans);
     P_FINISH;
-    ((ARTunnelGrateBase*)this)->GetFinalGrateRotAndTrans(GrateRot, GrateTrans);
+    this->GetFinalGrateRotAndTrans(GrateRot, GrateTrans);
 }
 
 // @baa 0x0171ba20

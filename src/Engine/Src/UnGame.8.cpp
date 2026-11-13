@@ -20,7 +20,7 @@ template<class T> T* CastChecked(UObject* Src)
 {
 	if (!Src || !ObjectIsA(Src, T::StaticClass()))
 	{
-		appErrorf(TEXT("Cast of %s to %s failed"), Src ? *((UObject*)Src)->GetFullName() : TEXT("NULL"), *((UObject*)T::StaticClass())->GetName());
+		appErrorf(TEXT("Cast of %s to %s failed"), Src ? *Src->GetFullName() : TEXT("NULL"), *((UObject*)T::StaticClass())->GetName());
 	}
 	return (T*)Src;
 }

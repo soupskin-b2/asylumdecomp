@@ -48,7 +48,7 @@ FArchive& operator<<(FArchive& Ar, TArray<FSkeletalMeshLODInfo_>& A)
     {
         INT NewNum;
         Ar << NewNum;
-        ((FSkeletalMeshLODInfoArray&)A).Empty(NewNum);
+        A.Empty(NewNum);
         for (INT i = 0; i < NewNum; i++)
         {
             Ar << *::new(A) FSkeletalMeshLODInfo_;

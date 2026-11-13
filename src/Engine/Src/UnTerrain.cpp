@@ -3678,7 +3678,7 @@ void AActor::BeginDestroy()
  * components detached in BeginDestroy. */
 UBOOL AActor::IsReadyForFinishDestroy()
 {
-    return ((const FRenderCommandFence&)DetachFence).GetNumPendingFences() == 0;
+    return DetachFence.GetNumPendingFences() == 0;
 }
 
 struct C_00984e90
@@ -3744,10 +3744,10 @@ void UTerrainLayerSetup::PostLoad()
 		UTerrainMaterial* TerrainMaterial = Materials(MaterialIndex).Material;
 		if (TerrainMaterial)
 		{
-			((UObject*)TerrainMaterial)->ConditionalPostLoad();
+			TerrainMaterial->ConditionalPostLoad();
 			if (TerrainMaterial->Material)
 			{
-				((UObject*)TerrainMaterial->Material)->ConditionalPostLoad();
+				TerrainMaterial->Material->ConditionalPostLoad();
 			}
 		}
 	}

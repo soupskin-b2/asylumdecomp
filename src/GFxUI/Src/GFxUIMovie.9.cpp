@@ -31,6 +31,6 @@ void UGFxMovie_::SetTimingMode(BYTE Mode)
     if (GetMovie())
     {
         GetMovie()->TimingMode = Mode;
-        GetMovie()->LastTime = (Mode == TM_Real) ? ((UWorld*)GWorld)->GetRealTimeSeconds() : ((UWorld*)GWorld)->GetTimeSeconds();
+        GetMovie()->LastTime = (Mode == TM_Real) ? GWorld->GetRealTimeSeconds() : GWorld->GetTimeSeconds();
     }
 }

@@ -300,7 +300,7 @@ struct URRopeComponentBase__01700340 : public URRopeComponentBase
 void URRopeComponentBase::execGetWorldSpaceEnd1AttachPos(FFrame& Stack, RESULT_DECL)
 {
     P_FINISH;
-    *(FVector*)Result = ((URRopeComponentBase__01700340*)this)->GetWorldSpaceEnd1AttachPos();
+    *(FVector*)Result = this->GetWorldSpaceEnd1AttachPos();
 }
 
 /* URRopeComponentBase::GetWorldSpaceEnd2AttachPos (01644da0) isn't declared in the kit. */
@@ -313,5 +313,5 @@ struct URRopeComponentBase__01700390 : public URRopeComponentBase
 void URRopeComponentBase::execGetWorldSpaceEnd2AttachPos(FFrame& Stack, RESULT_DECL)
 {
     P_FINISH;
-    *(FVector*)Result = ((URRopeComponentBase__01700390*)this)->GetWorldSpaceEnd2AttachPos();
+    *(FVector*)Result = this->GetWorldSpaceEnd2AttachPos();
 }

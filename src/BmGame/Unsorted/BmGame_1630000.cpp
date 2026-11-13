@@ -1407,7 +1407,7 @@ INT ARCombatMove_BatmanStrike::GetScoreForStrikeSpeed(FStrikeInfo TestStrike)
 // @baa 0x0163d210
 void ARBMCombatCollisionProxy::UpdateLocation(FVector NewLocation)
 {
-	if ((const FVector&)Location != NewLocation)
+	if (Location != NewLocation)
 	{
 		Location = NewLocation;
 		ForceUpdateComponents(TRUE, TRUE);

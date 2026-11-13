@@ -28,10 +28,10 @@ struct ARBMRouteRequest_NervousSearch_ : public ARBMRouteRequest_NervousSearch
 /* Clears every navigation point's transient cost, then lets script block paths around the search centre. */
 void ARBMRouteRequest_NervousSearch::DoPathBlocking(FVector CentrePoint)
 {
-	for (ANavigationPoint* Nav = ((UWorld*)GWorld)->sub_009c8530(); Nav; Nav = Nav->nextNavigationPoint)
+	for (ANavigationPoint* Nav = GWorld->sub_009c8530(); Nav; Nav = Nav->nextNavigationPoint)
 	{
 		Nav->TransientCost = 0;
-		((ANavigationPoint*)Nav)->sub_00856a10();
+		Nav->sub_00856a10();
 	}
 	((ARBMRouteRequest_NervousSearch_*)this)->eventAddTransientCosts(CentrePoint);
 }

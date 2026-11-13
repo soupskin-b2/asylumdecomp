@@ -86,7 +86,7 @@ void UMaterialInstanceTimeVarying::SetScalarStartTime(FName ParameterName, FLOAT
 		ParameterValue->ExpressionGUID.Invalidate();
 	}
 
-	ParameterValue->StartTime = ((UWorld*)GWorld)->GetTimeSeconds() + Value;
+	ParameterValue->StartTime = GWorld->GetTimeSeconds() + Value;
 
 	// Update the material instance data in the rendering thread.
 	MITVScalarParameterMapping::GameThread_UpdateParameter(this, *ParameterValue);

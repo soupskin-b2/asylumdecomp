@@ -26,5 +26,5 @@ void USkeletalMeshComponent::execSetPhysicsAsset(FFrame& Stack, RESULT_DECL)
     P_GET_OBJECT(UPhysicsAsset, NewPhysicsAsset);
     P_GET_UBOOL_OPTX(bForceReInit, FALSE);
     P_FINISH;
-    ((USkeletalMeshComponent*)this)->SetPhysicsAsset(NewPhysicsAsset, bForceReInit);
+    this->SetPhysicsAsset(NewPhysicsAsset, bForceReInit);
 }

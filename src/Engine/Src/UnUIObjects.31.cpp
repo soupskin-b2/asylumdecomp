@@ -193,7 +193,7 @@ INT UUIObject::vf_1fc(INT LeftTarget, INT TopTarget, INT RightTarget, INT Bottom
 {
     if (vf_230(0, LeftTarget) && vf_230(1, TopTarget) && vf_230(2, RightTarget) && vf_230(3, BottomTarget))
     {
-        if (((FUINavigationData__00daa990&)NavigationTargets).sub_00ddee10(LeftTarget, TopTarget, RightTarget, BottomTarget))
+        if (NavigationTargets.sub_00ddee10(LeftTarget, TopTarget, RightTarget, BottomTarget))
         {
             vf_164(FALSE, FALSE, TRUE, FALSE);
         }
@@ -242,7 +242,7 @@ INT UUIObject::vf_200(INT LeftTarget, INT TopTarget, INT RightTarget, INT Bottom
     if (vf_230(0, LeftTarget) && vf_230(1, TopTarget) && vf_230(2, RightTarget) && vf_230(3, BottomTarget))
     {
         vf_018(FALSE);
-        if (((FUINavigationData__00daaaa0&)NavigationTargets).sub_00ddeeb0(LeftTarget, TopTarget, RightTarget, BottomTarget))
+        if (NavigationTargets.sub_00ddeeb0(LeftTarget, TopTarget, RightTarget, BottomTarget))
         {
             vf_164(FALSE, FALSE, TRUE, FALSE);
         }

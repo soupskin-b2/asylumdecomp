@@ -35,7 +35,7 @@ void URSeqAct_PlayerDialogueOptions::DeActivated()
 		URSeqAct_PlayerDialogueLine* Line = Cast<URSeqAct_PlayerDialogueLine>(OutputLinks(OutputIdx).Links(0).LinkedOp);
 		if (Line)
 		{
-			((URSeqAct_PlayerDialogueLine*)Line)->eventSetSource(this);
+			Line->eventSetSource(this);
 		}
 		FSeqOpOutputLink& Link = OutputLinks(OutputIdx);
 		if (!Link.bDisabled)

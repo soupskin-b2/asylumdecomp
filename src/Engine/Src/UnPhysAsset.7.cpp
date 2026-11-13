@@ -35,7 +35,7 @@ void UPhysicsAsset_::GetBodyIndicesBelow(TArray<INT>& OutBodyIndices, FName InBo
         // We want to return this body as well.
         if (TestIndex == BaseIndex || Mesh->BoneIsChildOf(TestIndex, BaseIndex))
         {
-            ((FIntArray&)OutBodyIndices).AddItem(i);
+            OutBodyIndices.AddItem(i);
         }
     }
 }

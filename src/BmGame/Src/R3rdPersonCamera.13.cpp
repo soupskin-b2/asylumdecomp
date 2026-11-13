@@ -40,7 +40,7 @@ void AR3rdPersonCamera::execUpdateCameraWander(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(DeltaTime);
 	P_FINISH;
-	((AR3rdPersonCamera__017090a0*)this)->sub_01689680(DeltaTime);
+	this->sub_01689680(DeltaTime);
 }
 
 struct AR3rdPersonCamera__01709420 : public AR3rdPersonCamera
@@ -53,7 +53,7 @@ void AR3rdPersonCamera::execTransitionInterpolate(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(DeltaTime);
 	P_FINISH;
-	((AR3rdPersonCamera__01709420*)this)->sub_0168ec60(DeltaTime);
+	this->sub_0168ec60(DeltaTime);
 }
 
 struct AR3rdPersonCamera__01709880 : public AR3rdPersonCamera
@@ -66,7 +66,7 @@ void AR3rdPersonCamera::execUpdateZoomFocus(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(DeltaTime);
 	P_FINISH;
-	((AR3rdPersonCamera__01709880*)this)->sub_016a03c0(DeltaTime);
+	this->sub_016a03c0(DeltaTime);
 }
 
 struct AR3rdPersonCamera__01709710 : public AR3rdPersonCamera
@@ -79,7 +79,7 @@ void AR3rdPersonCamera::execDisableCameraDrag(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT_OPTX(Time, 1.0f);
 	P_FINISH;
-	((AR3rdPersonCamera__01709710*)this)->sub_0168a650(Time);
+	this->sub_0168a650(Time);
 }
 
 struct AR3rdPersonCamera__017098f0 : public AR3rdPersonCamera
@@ -92,7 +92,7 @@ void AR3rdPersonCamera::execHideClippingObjects(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT_REF(FTPOV, NewPOV);
 	P_FINISH;
-	((AR3rdPersonCamera__017098f0*)this)->sub_016a4b10(NewPOV);
+	this->sub_016a4b10(NewPOV);
 }
 
 struct AR3rdPersonCamera__01709970 : public AR3rdPersonCamera
@@ -105,7 +105,7 @@ void AR3rdPersonCamera::execGetTunnelCameraDirection(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT_REF(FVector, InDirection);
 	P_FINISH;
-	((AR3rdPersonCamera__01709970*)this)->sub_01689e60(InDirection);
+	this->sub_01689e60(InDirection);
 }
 
 // @baa 0x00c83920
@@ -287,7 +287,7 @@ void AR3rdPersonCamera::execUpdateFreeCam(FFrame& Stack, RESULT_DECL)
     P_GET_FLOAT(DesiredCameraFOV);
     P_GET_FLOAT(DeltaTime);
     P_FINISH;
-    ((AR3rdPersonCamera__01709490*)this)->UpdateFreeCam(DesiredCameraPosition, DesiredCameraRotation, DesiredCameraFOV, DeltaTime);
+    this->UpdateFreeCam(DesiredCameraPosition, DesiredCameraRotation, DesiredCameraFOV, DeltaTime);
 }
 
 // @baa 0x01709370
@@ -359,7 +359,7 @@ void AR3rdPersonCamera::execBlendToCameraTarget(FFrame& Stack, RESULT_DECL)
 	P_GET_STRUCT_OPTX(FRotator, ResetRotation, FRotator_(0, 0, 0));
 	P_GET_UBOOL_OPTX(BlendBatmanRelativePosition, FALSE);
 	P_FINISH;
-	((AR3rdPersonCamera__017095a0*)this)->BlendToCameraTarget(Target, BlendTime, bResetCam, ResetRotation, BlendBatmanRelativePosition);
+	this->BlendToCameraTarget(Target, BlendTime, bResetCam, ResetRotation, BlendBatmanRelativePosition);
 }
 
 	/* BMGAME_SettingsChanged */
@@ -379,5 +379,5 @@ struct AR3rdPersonCamera__016898e0 : public AR3rdPersonCamera
 void AR3rdPersonCamera::PostEditChange(UProperty* PropertyThatChanged)
 {
 	((AR3rdPersonCamera__016898e0*)this)->eventSettingsChanged();
-	((AR3rdPersonCamera__016898e0*)this)->UpdateCameraSettings();
+	this->UpdateCameraSettings();
 }

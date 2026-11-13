@@ -29,7 +29,7 @@ void UInterpGroupInst::TermGroupInst(UBOOL bDeleteData)
     }
     TrackInst.Empty();
 
-    UBOOL bHasAnimTrack = ((UInterpGroup*)Group)->HasAnimControlTrack();
+    UBOOL bHasAnimTrack = Group->HasAnimControlTrack();
     if (GroupActor != NULL && !GroupActor->IsPendingKill() && bHasAnimTrack)
     {
         ((AActor_*)GroupActor)->eventFinishAnimControl();
@@ -72,9 +72,9 @@ void UInterpGroupInst::InitGroupInst(UInterpGroup* InGroup, AActor* InGroupActor
         ((TArrayAddItem_<UInterpTrackInst*>&)TrackInst).AddItem(TrInst);
         TrInst->InitTrackInst(InGroup->InterpTracks(i));
     }
-    if (((UInterpGroup*)Group)->HasAnimControlTrack() && GroupActor != NULL)
+    if (Group->HasAnimControlTrack() && GroupActor != NULL)
     {
-        ((AActor*)GroupActor)->eventBeginAnimControl(Group->GroupAnimSets);
+        GroupActor->eventBeginAnimControl(Group->GroupAnimSets);
     }
 }
 

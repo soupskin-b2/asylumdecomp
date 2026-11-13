@@ -14,7 +14,7 @@ void APlayerController::vf_194()
 {
     PlayerInput = NULL;
     CheatManager = NULL;
-    ((UWorld*)GWorld)->sub_009c8d50(this);
+    GWorld->sub_009c8d50(this);
 }
 
 // @baa 0x007a06b0

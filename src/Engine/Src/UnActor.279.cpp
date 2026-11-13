@@ -31,7 +31,7 @@ struct FBox_ : public FBox
 // @baa 0x00769120
 void AActor::GetBoundingCylinder(FLOAT& CollisionRadius, FLOAT& CollisionHeight)
 {
-	FBox Box = ((AActor*)this)->GetComponentsBoundingBox();
+	FBox Box = this->GetComponentsBoundingBox();
 	FVector_ BoxExtent = ((FBox_&)Box).GetExtent();
 	CollisionHeight = BoxExtent.Z;
 	CollisionRadius = appSqrt((BoxExtent.X * BoxExtent.X) + (BoxExtent.Y * BoxExtent.Y));

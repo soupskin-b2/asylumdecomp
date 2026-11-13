@@ -13,6 +13,6 @@ void AController::vf_1d8()
     AActor::vf_1d8();
     if (!bDeleteMe)
     {
-        ((UWorld*)GWorld)->sub_009c8cc0(this);
+        GWorld->sub_009c8cc0(this);
     }
 }

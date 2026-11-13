@@ -69,7 +69,7 @@ void ARSmashableProp::execSetIsStatic(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(isStatic);
 	P_FINISH;
-	((ARSmashableProp__016ff4f0*)this)->sub_0166b2e0(isStatic);
+	this->sub_0166b2e0(isStatic);
 }
 
 struct ARSmashableProp__016ff980 : public ARSmashableProp
@@ -82,7 +82,7 @@ void ARSmashableProp::execGetDecalMaterialInstance(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_NAME(DecalTypeName);
 	P_FINISH;
-	*(void**)Result = ((ARSmashableProp__016ff980*)this)->sub_016751c0(DecalTypeName);
+	*(void**)Result = this->sub_016751c0(DecalTypeName);
 }
 
 // @baa 0x016ff870
@@ -227,7 +227,7 @@ void ARSmashableProp::execGetDecalData(FFrame& Stack, RESULT_DECL)
 {
     P_GET_NAME(DecalTypeName);
     P_FINISH;
-    *(FRSmashablePropDecalData*)Result = ((ARSmashableProp__016ff8e0*)this)->GetDecalData(DecalTypeName);
+    *(FRSmashablePropDecalData*)Result = this->GetDecalData(DecalTypeName);
 }
 
 /* ARSmashableProp::TriggerBreakProp (0x166b4d0) isn't declared in the kit. */
@@ -244,7 +244,7 @@ void ARSmashableProp::execTriggerBreakProp(FFrame& Stack, RESULT_DECL)
     P_GET_OBJECT_OPTX(AActor, CollideActor0, NULL);
     P_GET_OBJECT_OPTX(AActor, CollideActor1, NULL);
     P_FINISH;
-    ((ARSmashableProp__016ff560*)this)->TriggerBreakProp(BreakNormalForce, breakTimerVal, CollideActor0, CollideActor1);
+    this->TriggerBreakProp(BreakNormalForce, breakTimerVal, CollideActor0, CollideActor1);
 }
 
 // @baa 0x016ff720

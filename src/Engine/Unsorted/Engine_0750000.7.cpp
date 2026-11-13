@@ -14,7 +14,7 @@ extern UBOOL GIsGarbageCollecting;
 /* Actors only run script events once play has begun (or on the class default object), never during GC. */
 void AActor::ProcessEvent(UFunction* Function, void* Parms, void* Result)
 {
-    if (((GWorld && ((UWorld*)GWorld)->HasBegunPlay()) || (*(QWORD*)&ObjectFlags & RF_ClassDefaultObject) != 0) && !GIsGarbageCollecting)
+    if (((GWorld && GWorld->HasBegunPlay()) || (*(QWORD*)&ObjectFlags & RF_ClassDefaultObject) != 0) && !GIsGarbageCollecting)
     {
         Super::ProcessEvent(Function, Parms, Result);
     }

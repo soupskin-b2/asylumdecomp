@@ -39,7 +39,7 @@ void USeqAct_Interp::sub_00d14240(APlayerController* PC)
                         goto NextGroup; /* this player already has an instance of the group */
                     }
                 }
-                if (((USeqAct_Interp*)this)->sub_00cf33e0(PC))
+                if (this->sub_00cf33e0(PC))
                 {
                     UInterpGroupInstDirector* NewGroupInstDir = ConstructObject<UInterpGroupInstDirector>(
                         (UClass*)UInterpGroupInstDirector::StaticClass(), this, NAME_None, RF_Transactional, NULL, NULL, NULL);

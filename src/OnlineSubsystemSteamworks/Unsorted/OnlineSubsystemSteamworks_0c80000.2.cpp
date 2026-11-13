@@ -92,7 +92,7 @@ struct AWorldInfo__00c89a10 : public AWorldInfo
 void AWorldInfo::execGetGameSequence(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(USequence**)Result = ((AWorldInfo__00c89a10*)this)->sub_008a7800();
+	*(USequence**)Result = this->sub_008a7800();
 }
 
 struct APlayerReplicationInfo_ : public APlayerReplicationInfo
@@ -139,7 +139,7 @@ void AWorldInfo::execIsConsoleBuild(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_BYTE_OPTX(ConsoleType, 0);
 	P_FINISH;
-	*(UBOOL*)Result = ((AWorldInfo__00c89b00*)this)->sub_008a77d0(ConsoleType);
+	*(UBOOL*)Result = this->sub_008a77d0(ConsoleType);
 }
 
 struct AWorldInfo__00c89a50 : public AWorldInfo
@@ -152,7 +152,7 @@ void AWorldInfo::execSetLevelRBGravity(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT(FVector, NewGrav);
 	P_FINISH;
-	((AWorldInfo__00c89a50*)this)->sub_00a3b3e0(NewGrav);
+	this->sub_00a3b3e0(NewGrav);
 }
 
 struct AWorldInfo__00c89bf0 : public AWorldInfo
@@ -165,7 +165,7 @@ void AWorldInfo::execForceGarbageCollection(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL_OPTX(bFullPurge, 0);
 	P_FINISH;
-	((AWorldInfo__00c89bf0*)this)->sub_00803c90(bFullPurge);
+	this->sub_00803c90(bFullPurge);
 }
 
 struct AWorldInfo__00c89980 : public AWorldInfo
@@ -179,7 +179,7 @@ void AWorldInfo::execUpdateMusicTrack(FFrame& Stack, RESULT_DECL)
 {
     P_GET_STRUCT(FMusicTrackStruct, NewMusicTrack);
     P_FINISH;
-    ((AWorldInfo__00c89980*)this)->sub_009b0b80(NewMusicTrack);
+    this->sub_009b0b80(NewMusicTrack);
 }
 
 /* AGameInfo::SwapPlayerControllers (008b0c60) isn't declared in the kit. */
@@ -227,7 +227,7 @@ void ARoute::execMoveOntoRoutePath(FFrame& Stack, RESULT_DECL)
     P_GET_BYTE_OPTX(RouteDirection, ERD_Forward);
     P_GET_FLOAT_OPTX(DistFudgeFactor, 1.f);
     P_FINISH;
-    *(INT*)Result = ((ARoute__00c89870*)this)->MoveOntoRoutePath(P, RouteDirection, DistFudgeFactor);
+    *(INT*)Result = this->MoveOntoRoutePath(P, RouteDirection, DistFudgeFactor);
 }
 
 /* AWorldInfo::NotifyMatchStarted (007dde10) isn't declared in the kit. */
@@ -243,7 +243,7 @@ void AWorldInfo::execNotifyMatchStarted(FFrame& Stack, RESULT_DECL)
     P_GET_UBOOL_OPTX(bShouldAllowPausing, TRUE);
     P_GET_UBOOL_OPTX(bShouldSkipMovies, FALSE);
     P_FINISH;
-    ((AWorldInfo__00c89ca0*)this)->NotifyMatchStarted(bShouldPauseMovies, bShouldAllowPausing, bShouldSkipMovies);
+    this->NotifyMatchStarted(bShouldPauseMovies, bShouldAllowPausing, bShouldSkipMovies);
 }
 
 // @baa 0x00c891f0

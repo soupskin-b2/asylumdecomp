@@ -26,11 +26,11 @@ void AController::ShowSelf()
 		{
 			if (bIsPlayer)
 			{
-				((AController*)C)->eventSeePlayer(Pawn);
+				C->eventSeePlayer(Pawn);
 			}
 			else
 			{
-				((AController*)C)->eventSeeMonster(Pawn);
+				C->eventSeeMonster(Pawn);
 			}
 		}
 	}

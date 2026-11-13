@@ -12,5 +12,5 @@ void USkeletalMeshComponent::execUpdateRBBonesFromSpaceBases(FFrame& Stack, RESU
 	P_GET_UBOOL(bMoveUnfixedBodies);
 	P_GET_UBOOL(bTeleport);
 	P_FINISH;
-	((USkeletalMeshComponent*)this)->UpdateRBBonesFromSpaceBases(LocalToWorld, bMoveUnfixedBodies, bTeleport);
+	this->UpdateRBBonesFromSpaceBases(LocalToWorld, bMoveUnfixedBodies, bTeleport);
 }

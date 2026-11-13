@@ -28,7 +28,7 @@ void UPrimitiveComponent::execAddTorque(FFrame& Stack, RESULT_DECL)
     P_GET_STRUCT(FVector, Torque);
     P_GET_NAME_OPTX(BoneName, NAME_None);
     P_FINISH;
-    ((UPrimitiveComponent*)this)->AddTorque(Torque, BoneName);
+    this->AddTorque(Torque, BoneName);
 }
 
 /* UPrimitiveComponent::AddTorqueForce (0x9ff470) isn't declared in the kit. */
@@ -39,7 +39,7 @@ void UPrimitiveComponent::execAddTorqueForce(FFrame& Stack, RESULT_DECL)
     P_GET_STRUCT(FVector, Torgue);
     P_GET_NAME_OPTX(BoneName, NAME_None);
     P_FINISH;
-    ((UPrimitiveComponent*)this)->AddTorqueForce(Torgue, BoneName);
+    this->AddTorqueForce(Torgue, BoneName);
 }
 
 /* UPrimitiveComponent::AddTorqueImpulse (0x9ff5b0) isn't declared in the kit. */
@@ -50,7 +50,7 @@ void UPrimitiveComponent::execAddTorqueImpulse(FFrame& Stack, RESULT_DECL)
     P_GET_STRUCT(FVector, Torgue);
     P_GET_NAME_OPTX(BoneName, NAME_None);
     P_FINISH;
-    ((UPrimitiveComponent*)this)->AddTorqueImpulse(Torgue, BoneName);
+    this->AddTorqueImpulse(Torgue, BoneName);
 }
 
 // @baa 0x009fea70
@@ -88,7 +88,7 @@ void UPrimitiveComponent::execAddForce(FFrame& Stack, RESULT_DECL)
 	P_GET_STRUCT_OPTX(FVector, Position, FVector_(0.f, 0.f, 0.f));
 	P_GET_NAME_OPTX(BoneName, NAME_None);
 	P_FINISH;
-	((UPrimitiveComponent*)this)->AddForce(Force, Position, BoneName);
+	this->AddForce(Force, Position, BoneName);
 }
 
 // @baa 0x009fe790

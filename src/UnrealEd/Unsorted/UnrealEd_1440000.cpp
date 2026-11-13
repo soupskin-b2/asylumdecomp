@@ -855,6 +855,6 @@ struct Sub_0144eae0_Owner
 // @baa 0x0144eae0
 FLinearColor* Sub_0144eae0_Owner::sub_0144eae0(FLinearColor* Out)
 {
-    ((FLinearColor*)Out)->sub_0053d1d0(&Color);
+    Out->sub_0053d1d0(&Color);
     return Out;
 }

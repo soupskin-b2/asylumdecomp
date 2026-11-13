@@ -157,7 +157,7 @@ void AActor::execSetNetUpdateTime(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(NewUpdateTime);
 	P_FINISH;
-	((AActor__00c82fd0*)this)->sub_00758b70(NewUpdateTime);
+	this->sub_00758b70(NewUpdateTime);
 }
 
 // @baa 0x00c84130
@@ -186,7 +186,7 @@ void APlayerController::execCheckSpeedHack(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(DeltaTime);
 	P_FINISH;
-	*(UBOOL*)Result = ((APlayerController__00c86d20*)this)->sub_007a0040(DeltaTime);
+	*(UBOOL*)Result = this->sub_007a0040(DeltaTime);
 }
 
 struct APlayerController__00c86d90 : public APlayerController
@@ -199,7 +199,7 @@ void APlayerController::execFindStairRotation(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(DeltaTime);
 	P_FINISH;
-	*(INT*)Result = ((APlayerController__00c86d90*)this)->sub_007acd30(DeltaTime);
+	*(INT*)Result = this->sub_007acd30(DeltaTime);
 }
 
 struct APlayerController__00c87280 : public APlayerController
@@ -212,7 +212,7 @@ void APlayerController::execServerNotifyLoadedWorld(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_NAME(WorldPackageName);
 	P_FINISH;
-	((APlayerController__00c87280*)this)->sub_007afac0(WorldPackageName);
+	this->sub_007afac0(WorldPackageName);
 }
 
 // @baa 0x00c83d90
@@ -233,7 +233,7 @@ void APlayerController::execIsPlayerMuted(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT_REF(FUniqueNetId, Sender);
 	P_FINISH;
-	*(UBOOL*)Result = ((APlayerController__00c87660*)this)->sub_007b5600(Sender);
+	*(UBOOL*)Result = this->sub_007b5600(Sender);
 }
 
 // @baa 0x00c83290
@@ -321,7 +321,7 @@ struct AController__00c845c0 : public AController
 void AController::execGetDestinationPosition(FFrame& Stack, RESULT_DECL)
 {
     P_FINISH;
-    *(FVector*)Result = ((AController__00c845c0*)this)->GetDestinationPosition();
+    *(FVector*)Result = this->GetDestinationPosition();
 }
 
 /* AActor::GetPackageGuid (0x8ef1d0) isn't declared in the kit. */
@@ -335,7 +335,7 @@ void AActor::execGetPackageGuid(FFrame& Stack, RESULT_DECL)
 {
     P_GET_NAME(PackageName);
     P_FINISH;
-    *(FGuid*)Result = ((AActor__00c83420*)this)->GetPackageGuid(PackageName);
+    *(FGuid*)Result = this->GetPackageGuid(PackageName);
 }
 
 /* AController::GetBasedPosition (0x7ad610) isn't declared in the kit. */
@@ -349,7 +349,7 @@ void AController::execGetBasedPosition(FFrame& Stack, RESULT_DECL)
 {
     P_GET_STRUCT(FBasedPosition, BP);
     P_FINISH;
-    *(FVector*)Result = ((AController__00c84350*)this)->GetBasedPosition(BP);
+    *(FVector*)Result = this->GetBasedPosition(BP);
 }
 
 /* APlayerController::ClientUpdateLevelStreamingStatus (0x7b4f70) isn't declared in the kit. */
@@ -366,7 +366,7 @@ void APlayerController::execClientUpdateLevelStreamingStatus(FFrame& Stack, RESU
     P_GET_UBOOL(bNewShouldBeVisible);
     P_GET_UBOOL(bNewShouldBlockOnLoad);
     P_FINISH;
-    ((APlayerController__00c87470*)this)->ClientUpdateLevelStreamingStatus(PackageName, bNewShouldBeLoaded, bNewShouldBeVisible, bNewShouldBlockOnLoad);
+    this->ClientUpdateLevelStreamingStatus(PackageName, bNewShouldBeLoaded, bNewShouldBeVisible, bNewShouldBlockOnLoad);
 }
 
 /* APlayerController::ServerUpdateLevelVisibility (0x7bf380) isn't declared in the kit. */
@@ -381,7 +381,7 @@ void APlayerController::execServerUpdateLevelVisibility(FFrame& Stack, RESULT_DE
     P_GET_NAME(PackageName);
     P_GET_UBOOL(bIsVisible);
     P_FINISH;
-    ((APlayerController__00c87580*)this)->ServerUpdateLevelVisibility(PackageName, bIsVisible);
+    this->ServerUpdateLevelVisibility(PackageName, bIsVisible);
 }
 
 /* AController::SetBasedPosition (0x7ad5d0) isn't declared in the kit. */
@@ -397,7 +397,7 @@ void AController::execSetBasedPosition(FFrame& Stack, RESULT_DECL)
     P_GET_STRUCT(FVector, pos);
     P_GET_OBJECT_OPTX(AActor, ForcedBase, NULL);
     P_FINISH;
-    ((AController__00c84240*)this)->SetBasedPosition(BP, pos, ForcedBase);
+    this->SetBasedPosition(BP, pos, ForcedBase);
 }
 
 /* AController::SetFocalPoint (0x7ad790) isn't declared in the kit. */
@@ -412,7 +412,7 @@ void AController::execSetFocalPoint(FFrame& Stack, RESULT_DECL)
     P_GET_STRUCT(FVector, FP);
     P_GET_UBOOL_OPTX(bOffsetFromBase, FALSE);
     P_FINISH;
-    ((AController__00c84410*)this)->SetFocalPoint(FP, bOffsetFromBase);
+    this->SetFocalPoint(FP, bOffsetFromBase);
 }
 
 /* AController::SetDestinationPosition (0x7ad9c0) isn't declared in the kit. */
@@ -427,7 +427,7 @@ void AController::execSetDestinationPosition(FFrame& Stack, RESULT_DECL)
     P_GET_STRUCT(FVector, Dest);
     P_GET_UBOOL_OPTX(bOffsetFromBase, FALSE);
     P_FINISH;
-    ((AController__00c84510*)this)->SetDestinationPosition(Dest, bOffsetFromBase);
+    this->SetDestinationPosition(Dest, bOffsetFromBase);
 }
 
 /* AActor::MakeNoise (0x8652a0) isn't declared in the kit. */
@@ -442,7 +442,7 @@ void AActor::execMakeNoise(FFrame& Stack, RESULT_DECL)
     P_GET_FLOAT(Loudness);
     P_GET_NAME_OPTX(NoiseType, NAME_None);
     P_FINISH;
-    ((AActor__00c82e10*)this)->MakeNoise(Loudness, NoiseType);
+    this->MakeNoise(Loudness, NoiseType);
 }
 
 // @baa 0x00c83040
@@ -550,5 +550,5 @@ void AActor::execCreateAudioComponent(FFrame& Stack, RESULT_DECL)
 	P_GET_STRUCT_OPTX(FVector, SourceLocation, FVector_(0.f, 0.f, 0.f));
 	P_GET_UBOOL_OPTX(bAttachToSelf, TRUE);
 	P_FINISH;
-	*(class UAudioComponent**)Result = ((AActor__00c82c40*)this)->CreateAudioComponent(InSoundCue, bPlay, bStopWhenOwnerDestroyed, bUseLocation, SourceLocation, bAttachToSelf);
+	*(class UAudioComponent**)Result = this->CreateAudioComponent(InSoundCue, bPlay, bStopWhenOwnerDestroyed, bUseLocation, SourceLocation, bAttachToSelf);
 }

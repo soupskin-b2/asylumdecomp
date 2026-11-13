@@ -25,7 +25,7 @@ FVector GetAxisVector(BYTE InAxis, UBOOL bInvert)
 
     if (bInvert)
     {
-        (FVector&)AxisVec *= -1.f;
+        AxisVec *= -1.f;
     }
     return AxisVec;
 }

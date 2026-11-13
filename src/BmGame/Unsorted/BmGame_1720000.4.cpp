@@ -19,7 +19,7 @@ void ARGrappleGun::execFindBestVantagePoint(FFrame& Stack, RESULT_DECL)
 	FAvailableVantagePoints& VantagePointList = GPropAddr ? *(FAvailableVantagePoints*)GPropAddr : VantagePointListT;
 	P_GET_UBOOL(Zoomed);
 	P_FINISH;
-	*(FLOAT*)Result = ((ARGrappleGun*)this)->FindBestVantagePoint(CheckLocation, CheckDirection, VantagePointList, Zoomed);
+	*(FLOAT*)Result = this->FindBestVantagePoint(CheckLocation, CheckDirection, VantagePointList, Zoomed);
 }
 
 // @baa 0x01726d70
@@ -37,7 +37,7 @@ void URAnimUtil::execSortCharacterClasses(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_TARRAY_REF(UClass*, Array);
 	P_FINISH;
-	((URAnimUtil*)this)->SortCharacterClasses(Array);
+	this->SortCharacterClasses(Array);
 }
 
 /* Kit gap: URAnimUtil::SortAnimSets (0x015aaf80) isn't declared. */
@@ -47,7 +47,7 @@ void URAnimUtil::execSortAnimSets(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_TARRAY_REF(UAnimSet*, Array);
 	P_FINISH;
-	((URAnimUtil*)this)->SortAnimSets(Array);
+	this->SortAnimSets(Array);
 }
 
 // @baa 0x01722cd0

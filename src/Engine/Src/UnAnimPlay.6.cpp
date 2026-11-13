@@ -46,8 +46,8 @@ void UAnimNodeSequence::PostEditChange(UProperty* PropertyThatChanged)
     SetAnim(AnimSeqName);
     if (SkelComponent && SkelComponent->bAttached)
     {
-        ((USkeletalMeshComponent*)SkelComponent)->sub_0093b170(0.f, TRUE, FALSE);
-        ((UActorComponent*)SkelComponent)->sub_00759620();
+        SkelComponent->sub_0093b170(0.f, TRUE, FALSE);
+        SkelComponent->sub_00759620();
     }
     Super::PostEditChange(PropertyThatChanged);
 }

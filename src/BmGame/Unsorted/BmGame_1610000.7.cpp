@@ -8,7 +8,7 @@
 /* Slot 0x3a0 (unnamed in the kit): whether any of the router's steering vectors is non-trivial. */
 INT ARBMRouter::vf_3a0()
 {
-	return ((const FVector&)AvoidPawnVec).Size() > 0.1
-		|| ((const FVector&)QueuePawnVec).Size() > 0.1
-		|| ((const FVector&)DivergeVec).Size() > 0.1;
+	return AvoidPawnVec.Size() > 0.1
+		|| QueuePawnVec.Size() > 0.1
+		|| DivergeVec.Size() > 0.1;
 }

@@ -306,8 +306,8 @@ UBOOL UDecalComponent::IsReadyForFinishDestroy()
 void UDecalComponent::BeginDestroy()
 {
 	Super::BeginDestroy();
-	((UDecalComponent*)this)->ReleaseResources(FALSE, NULL);
-	((UDecalComponent*)this)->FreeStaticReceivers();
+	this->ReleaseResources(FALSE, NULL);
+	this->FreeStaticReceivers();
 }
 
 /* GSystemSettings.DetailMode (FSystemSettings isn't in the kit). */
@@ -324,11 +324,11 @@ void UDecalComponent::UpdateTransform()
 	{
 		if (StaticReceivers.Num() == 0)
 		{
-			((UDecalComponent*)this)->ComputeReceivers();
+			this->ComputeReceivers();
 		}
 		else
 		{
-			((UDecalComponent*)this)->AttachToStaticReceivers();
+			this->AttachToStaticReceivers();
 		}
 		bHasBeenAttached = TRUE;
 	}

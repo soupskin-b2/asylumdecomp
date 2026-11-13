@@ -69,5 +69,5 @@ UBOOL ARRopeBase::ShouldTrace(UPrimitiveComponent* Primitive, AActor* SourceActo
     return (TraceFlags & 0x2)
         && ((TraceFlags & 0x20)
             ? (bProjTarget || (bBlockActors && Primitive->BlockActors))
-            : (!(TraceFlags & 0x40) || (SourceActor && ((AActor*)SourceActor)->IsBlockedBy(this, Primitive))));
+            : (!(TraceFlags & 0x40) || (SourceActor && SourceActor->IsBlockedBy(this, Primitive))));
 }

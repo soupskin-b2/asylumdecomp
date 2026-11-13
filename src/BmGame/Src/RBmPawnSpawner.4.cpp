@@ -49,27 +49,27 @@ void ARDeadBodyBase::PostEditChange(UProperty* PropertyThatChanged)
         {
             if (Character->bUseHeadMesh)
             {
-                ((UMeshComponent*)HeadMesh)->SetMaterial(Character->HeadOverrideMaterialSlotIndex, Character->HeadOverrideMaterial);
+                HeadMesh->SetMaterial(Character->HeadOverrideMaterialSlotIndex, Character->HeadOverrideMaterial);
             }
             else
             {
-                ((UMeshComponent*)SkeletalMeshComponent)->SetMaterial(Character->HeadOverrideMaterialSlotIndex, Character->HeadOverrideMaterial);
+                SkeletalMeshComponent->SetMaterial(Character->HeadOverrideMaterialSlotIndex, Character->HeadOverrideMaterial);
             }
         }
         if (Character->Head2OverrideMaterial)
         {
             if (Character->bUseHeadMesh)
             {
-                ((UMeshComponent*)HeadMesh)->SetMaterial(Character->Head2OverrideMaterialSlotIndex, Character->Head2OverrideMaterial);
+                HeadMesh->SetMaterial(Character->Head2OverrideMaterialSlotIndex, Character->Head2OverrideMaterial);
             }
             else
             {
-                ((UMeshComponent*)SkeletalMeshComponent)->SetMaterial(Character->Head2OverrideMaterialSlotIndex, Character->Head2OverrideMaterial);
+                SkeletalMeshComponent->SetMaterial(Character->Head2OverrideMaterialSlotIndex, Character->Head2OverrideMaterial);
             }
         }
         if (Character->BodyOverrideMaterial)
         {
-            ((UMeshComponent*)SkeletalMeshComponent)->SetMaterial(Character->BodyOverrideMaterialSlotIndex, Character->BodyOverrideMaterial);
+            SkeletalMeshComponent->SetMaterial(Character->BodyOverrideMaterialSlotIndex, Character->BodyOverrideMaterial);
         }
     }
     PresetCharacterType = NULL;

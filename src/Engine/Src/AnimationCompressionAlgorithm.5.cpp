@@ -58,7 +58,7 @@ void CompressScaleKeys(UAnimSequence* AnimSeq)
 			}
 		}
 
-		((FFloatArray&)AnimSeq->CompressedScaleKeys).Shrink();
+		AnimSeq->CompressedScaleKeys.Shrink();
 	}
 }
 

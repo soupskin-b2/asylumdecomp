@@ -296,7 +296,7 @@ void USettings::execSetSettingsDataDateTime(FFrame& Stack, RESULT_DECL)
 	P_GET_INT(InPart1);
 	P_GET_INT(InPart2);
 	P_FINISH;
-	((USettings*)this)->SetSettingsDataDateTime(Data, InPart1, InPart2);
+	this->SetSettingsDataDateTime(Data, InPart1, InPart2);
 }
 
 // @baa 0x00c85840
@@ -306,7 +306,7 @@ void USettings::execGetSettingsDataDateTime(FFrame& Stack, RESULT_DECL)
 	P_GET_INT_REF(OutPart1);
 	P_GET_INT_REF(OutPart2);
 	P_FINISH;
-	((USettings*)this)->GetSettingsDataDateTime(Data, OutPart1, OutPart2);
+	this->GetSettingsDataDateTime(Data, OutPart1, OutPart2);
 }
 
 // @baa 0x00c85500
@@ -315,7 +315,7 @@ void USettings::execSetSettingsData(FFrame& Stack, RESULT_DECL)
 	P_GET_STRUCT_REF(FSettingsData, Data);
 	P_GET_STRUCT_REF(FSettingsData, Data2Copy);
 	P_FINISH;
-	((USettings*)this)->SetSettingsData(Data, Data2Copy);
+	this->SetSettingsData(Data, Data2Copy);
 }
 
 // @baa 0x00cb5f00
@@ -324,7 +324,7 @@ void USettings::execSetSettingsDataString(FFrame& Stack, RESULT_DECL)
 	P_GET_STRUCT_REF(FSettingsData, Data);
 	P_GET_STR(InString);
 	P_FINISH;
-	((USettings*)this)->SetSettingsDataString(Data, InString);
+	this->SetSettingsDataString(Data, InString);
 }
 
 // @baa 0x00cb60e0

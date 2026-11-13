@@ -85,7 +85,7 @@ void UGFxMovie::execSetViewport(FFrame& Stack, RESULT_DECL)
     P_GET_INT(Width);
     P_GET_INT(Height);
     P_FINISH;
-    ((UGFxMovie*)this)->SetViewport(X, Y, Width, Height);
+    this->SetViewport(X, Y, Width, Height);
 }
 
 /* GFx.h only forward-declares FGFxEngine (GGFxEngine, 026caed4);

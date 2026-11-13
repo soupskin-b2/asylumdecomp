@@ -88,9 +88,9 @@ INT ARBMAIController::vf_458()
         return FALSE;
     }
     ARBMPawnAI* AIPawn = Cast<ARBMPawnAI>(Pawn);
-    if (AIPawn && AIPawn->bSilentPredatorAI && !((ARBMAIController*)this)->eventIsStunned() && !AIPawn->vf_48c())
+    if (AIPawn && AIPawn->bSilentPredatorAI && !this->eventIsStunned() && !AIPawn->vf_48c())
     {
-        return ((ARBMAIController*)this)->eventBehaviourCanRespondToAlerts() ? TRUE : FALSE;
+        return this->eventBehaviourCanRespondToAlerts() ? TRUE : FALSE;
     }
     return FALSE;
 }

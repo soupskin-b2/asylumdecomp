@@ -211,7 +211,7 @@ void UObject::execLen(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STR(S);
 	P_FINISH;
-	*(INT*)Result = ((const FString&)S).Len();
+	*(INT*)Result = S.Len();
 }
 
 #define MAXINT 0x7fffffff
@@ -310,7 +310,7 @@ void UObject::execFindObject(FFrame& Stack, RESULT_DECL)
 	P_GET_STR(ObjectName);
 	P_GET_OBJECT(UClass, ObjectClass);
 	P_FINISH;
-	*(UObject**)Result = UObject__005a69f0::StaticFindObject(ObjectClass, NULL, *(const FString&)ObjectName, FALSE);
+	*(UObject**)Result = UObject__005a69f0::StaticFindObject(ObjectClass, NULL, *ObjectName, FALSE);
 }
 
 // @baa 0x005a6b00

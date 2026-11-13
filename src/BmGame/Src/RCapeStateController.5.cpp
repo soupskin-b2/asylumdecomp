@@ -128,7 +128,7 @@ struct URCapeStateController_ : public URCapeStateController {
 void URCapeStateController_::sub_016e68f0(FLOAT DeltaTime, INT Param2, INT Param3)
 {
     FMatrix LocalToWorld;
-    ((URAnimNode_Cape*)CapeAnimNode)->sub_01569870(LocalToWorld);
+    CapeAnimNode->sub_01569870(LocalToWorld);
     ((FRCapePhysics*)CapePhysicsRef.Dummy)->sub_016c7070(DeltaTime);
 
     const UINT NumBones = GetCapePhysics()->sub_016af420();

@@ -124,7 +124,7 @@ void USkeletalMesh::vf_014()
 {
 	if (!this->IsTemplate() && !g_02676094)
 	{
-		((USkeletalMesh*)this)->sub_0097baf0();
+		this->sub_0097baf0();
 	}
 }
 

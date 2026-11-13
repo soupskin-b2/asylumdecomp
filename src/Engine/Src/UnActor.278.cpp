@@ -28,7 +28,7 @@ void AActor_::SetCollisionSize(FLOAT NewRadius, FLOAT NewHeight)
 	UCylinderComponent* CylComp = Cast<UCylinderComponent>(CollisionComponent);
 	if (CylComp)
 	{
-		((UCylinderComponent*)CylComp)->SetCylinderSize(NewRadius, NewHeight);
+		CylComp->SetCylinderSize(NewRadius, NewHeight);
 	}
 	FindTouchingActors();
 	eventCollisionChanged();

@@ -377,7 +377,7 @@ INT UOnlineProfileSettings::SetProfileSettingValue(INT ProfileSettingId, const F
 					else
 					{
 						UBOOL bChanged = !(((FSettingsData__00d72a10&)Setting.ProfileSetting.Data) == NewValue);
-						((FSettingsData__00d72a10&)Setting.ProfileSetting.Data).FromString(NewValue);
+						Setting.ProfileSetting.Data.FromString(NewValue);
 						if (bChanged && ((FScriptDelegate_&)__NotifySettingValueUpdated__Delegate).IsCallable(this))
 						{
 							((UOnlineProfileSettings_*)this)->delegateNotifySettingValueUpdated(MetaData.Name);

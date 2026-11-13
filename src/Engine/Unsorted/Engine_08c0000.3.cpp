@@ -27,7 +27,7 @@ void AActor::sub_008c7f00(UActorComponent* ExComponent)
     {
         if (Components.RemoveItem(ExComponent) > 0)
         {
-            ((UActorComponent*)ExComponent)->ConditionalDetach();
+            ExComponent->ConditionalDetach();
         }
     }
 }
@@ -41,7 +41,7 @@ void AActor::sub_008c7f30(UActorComponent* ExComponent)
     {
         if (Components.RemoveItem(ExComponent) > 0)
         {
-            ((UActorComponent*)ExComponent)->ConditionalDetach(TRUE);
+            ExComponent->ConditionalDetach(TRUE);
         }
         sub_008bba30(ExComponent);
     }

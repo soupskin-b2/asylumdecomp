@@ -15,7 +15,7 @@ struct FQuatRotationTranslationMatrix : public FMatrix
 /* UnMath.h: a rotation (from a unit quaternion) followed by a translation. */
 FQuatRotationTranslationMatrix::FQuatRotationTranslationMatrix(const FQuat& InQ, const FVector& Origin)
 {
-	const FQuat& Q = (const FQuat&)InQ;
+	const FQuat& Q = InQ;
 #line 3589 "e:\\projects\\amadeus\\aa\\game\\unrealengine3\\development\\src\\core\\inc\\UnMath.h"
 	check(Q.IsNormalized());
 

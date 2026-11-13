@@ -410,7 +410,7 @@ void UParticleSystemComponent::ClearParameter(FName ParameterName, BYTE Paramete
         FParticleSysParam& Param = InstanceParameters(i);
         if (Param.Name == ParameterName && (ParameterType == PSPT_None || InstanceParameters(i).ParamType == ParameterType))
         {
-            ((FParticleSysParamArray&)InstanceParameters).Remove(i--);
+            InstanceParameters.Remove(i--);
         }
     }
 }

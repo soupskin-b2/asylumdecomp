@@ -41,7 +41,7 @@ UBOOL UMaterialInstanceTimeVarying::GetVectorParameterValue(FName ParameterName,
 	{
 		if (ParameterValue->bAutoActivate || bAutoActivateAll || ParameterValue->StartTime >= 0.f)
 		{
-			FLOAT EvalTime = ((UWorld*)GWorld)->GetTimeSeconds() - ParameterValue->StartTime;
+			FLOAT EvalTime = GWorld->GetTimeSeconds() - ParameterValue->StartTime;
 			const FLOAT CycleTime = ParameterValue->CycleTime;
 
 			if (CycleTime > 0.f)
@@ -62,7 +62,7 @@ UBOOL UMaterialInstanceTimeVarying::GetVectorParameterValue(FName ParameterName,
 				}
 			}
 
-			const FVector Value = ((const FInterpCurveVector&)ParameterValue->ParameterValueCurve).Eval(EvalTime, FVector(0.f, 0.f, 0.f));
+			const FVector Value = ParameterValue->ParameterValueCurve.Eval(EvalTime, FVector(0.f, 0.f, 0.f));
 			OutValue.R = Value.X;
 			OutValue.G = Value.Y;
 			OutValue.B = Value.Z;

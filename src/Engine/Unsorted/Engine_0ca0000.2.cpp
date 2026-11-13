@@ -46,5 +46,5 @@ void UUIDataStore_OnlinePlayerData::execOnSettingProviderChanged(FFrame& Stack, 
     P_GET_OBJECT(UUIDataProvider, SourceProvider);
     P_GET_NAME_OPTX(SettingsName, NAME_None);
     P_FINISH;
-    ((UUIDataStore_OnlinePlayerData*)this)->sub_00da1c80(SourceProvider, SettingsName);
+    this->sub_00da1c80(SourceProvider, SettingsName);
 }

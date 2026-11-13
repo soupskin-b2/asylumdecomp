@@ -16,7 +16,7 @@ void APlayerController::ClientFlushLevelStreaming()
     UGameEngine* GameEngine = Cast<UGameEngine>(GEngine);
     if (GameEngine == NULL || !GameEngine->bShouldCommitPendingMapChange)
     {
-        ((UWorld*)GWorld)->sub_009d0be0(NULL);
+        GWorld->sub_009d0be0(NULL);
         WorldInfo->bRequestedBlockOnAsyncLoading = TRUE;
         WorldInfo->sub_00803c90(FALSE);
     }

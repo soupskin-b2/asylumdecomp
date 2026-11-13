@@ -1931,7 +1931,7 @@ void URAnimNode_Pose::SetMovementSpeed(BYTE Speed, FLOAT Rate)
 {
     if (Speed != PosePlayer.MoveToRequest.TargetSpeed)
     {
-        ((FPersistentThoughts&)PosePlayer.PoseLog).AddThought(
+        PosePlayer.PoseLog.AddThought(
             sub_00549620(TEXT("SetMovementSpeed: %s -> %s"),
                 *(const FString&)GetEnumNameString(TEXT("EMovementSpeed"), PosePlayer.MoveToRequest.TargetSpeed, TRUE),
                 *(const FString&)GetEnumNameString(TEXT("EMovementSpeed"), Speed, TRUE)),

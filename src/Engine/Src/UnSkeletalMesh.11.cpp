@@ -68,7 +68,7 @@ FArchive& operator<<(FArchive& Ar, TArray<FSkelMeshChunk>& A)
     {
         INT NewNum;
         Ar << NewNum;
-        ((FSkelMeshChunkArray&)A).Empty(NewNum);
+        A.Empty(NewNum);
         for (INT i = 0; i < NewNum; i++)
         {
             Ar << *::new(A) FSkelMeshChunk;

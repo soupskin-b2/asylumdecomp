@@ -60,7 +60,7 @@ void USkeletalMeshComponent::InitSkelControls()
         check(NumControls < 255);
         for (INT i = 0; i < NumControls; i++)
         {
-            const INT BoneIndex = ((USkeletalMesh*)SkeletalMesh)->MatchRefBone(((TArrayAt_<FSkelControlListHead>&)Tree->SkelControlLists).At(i).BoneName);
+            const INT BoneIndex = SkeletalMesh->MatchRefBone(((TArrayAt_<FSkelControlListHead>&)Tree->SkelControlLists).At(i).BoneName);
             if (BoneIndex != INDEX_NONE && ((TArrayAt_<BYTE>&)SkelControlIndex).At(BoneIndex) == 255)
             {
                 ((TArrayAt_<BYTE>&)SkelControlIndex).At(BoneIndex) = i;

@@ -39,5 +39,5 @@ struct AKActor__00c936f0 : public AKActor
 void AKActor::execGetKActorPhysMaterial(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UPhysicalMaterial**)Result = ((AKActor__00c936f0*)this)->sub_009d9a90();
+	*(UPhysicalMaterial**)Result = this->sub_009d9a90();
 }

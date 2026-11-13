@@ -65,7 +65,7 @@ void URB_ConstraintInstance::execSetLinearLimitSize(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(NewLimitSize);
 	P_FINISH;
-	((URB_ConstraintInstance__00c96410*)this)->sub_00a3a480(NewLimitSize);
+	this->sub_00a3a480(NewLimitSize);
 }
 
 struct ARB_ConstraintActor__00c937d0 : public ARB_ConstraintActor
@@ -78,7 +78,7 @@ void ARB_ConstraintActor::execSetDisableCollision(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(NewDisableCollision);
 	P_FINISH;
-	((ARB_ConstraintActor__00c937d0*)this)->sub_00a321f0(NewDisableCollision);
+	this->sub_00a321f0(NewDisableCollision);
 }
 
 struct URB_ConstraintInstance__00c95bc0 : public URB_ConstraintInstance
@@ -91,7 +91,7 @@ void URB_ConstraintInstance::execSetLinearPositionTarget(FFrame& Stack, RESULT_D
 {
 	P_GET_STRUCT(FVector, InPosTarget);
 	P_FINISH;
-	((URB_ConstraintInstance__00c95bc0*)this)->sub_00a32aa0(InPosTarget);
+	this->sub_00a32aa0(InPosTarget);
 }
 
 struct URB_ConstraintInstance__00c95c30 : public URB_ConstraintInstance
@@ -104,7 +104,7 @@ void URB_ConstraintInstance::execSetLinearVelocityTarget(FFrame& Stack, RESULT_D
 {
 	P_GET_STRUCT(FVector, InVelTarget);
 	P_FINISH;
-	((URB_ConstraintInstance__00c95c30*)this)->sub_00a32b00(InVelTarget);
+	this->sub_00a32b00(InVelTarget);
 }
 
 struct URB_ConstraintInstance__00c95df0 : public URB_ConstraintInstance
@@ -117,7 +117,7 @@ void URB_ConstraintInstance::execSetAngularVelocityTarget(FFrame& Stack, RESULT_
 {
 	P_GET_STRUCT(FVector, InVelTarget);
 	P_FINISH;
-	((URB_ConstraintInstance__00c95df0*)this)->sub_00a32bd0(InVelTarget);
+	this->sub_00a32bd0(InVelTarget);
 }
 
 struct URB_ConstraintInstance__00c95a60 : public URB_ConstraintInstance
@@ -359,5 +359,5 @@ void ARB_ConstraintActor::execInitConstraint(FFrame& Stack, RESULT_DECL)
     P_GET_NAME_OPTX(Actor2Bone, NAME_None);
     P_GET_FLOAT_OPTX(BreakThreshold, 0.f);
     P_FINISH;
-    ((ARB_ConstraintActor__00c93840*)this)->InitConstraint(Actor1, Actor2, Actor1Bone, Actor2Bone, BreakThreshold);
+    this->InitConstraint(Actor1, Actor2, Actor1Bone, Actor2Bone, BreakThreshold);
 }

@@ -4802,7 +4802,7 @@ UBOOL USessionSettingsProvider_::sub_00da32c0(UClass* ProviderClass)
         appFailAssert("ProviderClientMetaClass != NULL", "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnUIDataStores.cpp", 9017, TEXT(""));
 
     if (IsChildOf(ProviderClass, ProviderClientMetaClass)
-        && ((UClass*)ProviderClass)->sub_005b9020(ProviderClientClass))
+        && ProviderClass->sub_005b9020(ProviderClientClass))
     {
         ProviderClient = ProviderClass;
         for (UField* Link = *(UField**)((BYTE*)ProviderClass + 0x64); Link; Link = *(UField**)((BYTE*)Link + 0x58))

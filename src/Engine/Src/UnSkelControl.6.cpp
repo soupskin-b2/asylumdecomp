@@ -74,7 +74,7 @@ void USkelControl_CCD_IK::GetAffectedBones(INT BoneIndex, USkeletalMeshComponent
         return;
     }
 
-    ((FIntArray&)OutBoneIndices).Add(NumBones);
+    OutBoneIndices.Add(NumBones);
 
     INT WalkBoneIndex = BoneIndex;
     for (INT i = NumBones - 1; i >= 0; i--)
@@ -82,7 +82,7 @@ void USkelControl_CCD_IK::GetAffectedBones(INT BoneIndex, USkeletalMeshComponent
         // ran out of parents: not enough bones in the chain
         if (WalkBoneIndex == 0)
         {
-            ((FIntArray&)OutBoneIndices).Reset();
+            OutBoneIndices.Reset();
             return;
         }
 

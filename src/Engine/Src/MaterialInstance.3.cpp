@@ -44,7 +44,7 @@ void UMaterialInstance::PostEditChange(UProperty* PropertyThatChanged)
     Super::PostEditChange(PropertyThatChanged);
     if (PropertyThatChanged)
     {
-        if ((FString_&)((UObject*)PropertyThatChanged)->GetName() == TEXT("Parent"))
+        if ((FString_&)PropertyThatChanged->GetName() == TEXT("Parent"))
         {
             if (Parent == NULL)
             {

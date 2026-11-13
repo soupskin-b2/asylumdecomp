@@ -23,7 +23,7 @@ UBOOL USeqAct_ForceMaterialMipsResident::UpdateOp(FLOAT DeltaTime)
     }
     if (InputLinks.Num() > 1 && InputLinks(1).bHasImpulse)
     {
-        ((USeqAct_ForceMaterialMipsResident*)this)->sub_008c09f0(FALSE, 0.f);
+        this->sub_008c09f0(FALSE, 0.f);
         return TRUE;
     }
     return FALSE;

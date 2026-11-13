@@ -41,7 +41,7 @@ void ARControllableChatteringTeethBase_::sub_0171a4b0(FLOAT DeltaTime)
 			ToTeeth.Y = Location.Y - Joker->Location.Y;
 			ToTeeth.Z = Location.Z - Joker->Location.Z;
 			const FRotator FaceTeeth = ToTeeth.Rotation();
-			((ARPawnPlayerChallengeJokerBase*)Joker)->sub_016a0360(FaceTeeth);
+			Joker->sub_016a0360(FaceTeeth);
 			eventFinishStandSpecialMove();
 		}
 	}

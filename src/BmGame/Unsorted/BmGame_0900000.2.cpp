@@ -53,7 +53,7 @@ void USkeletalMeshComponent::execBoneIsChildOf(FFrame& Stack, RESULT_DECL)
 		{
 			return;
 		}
-		*(UBOOL*)Result = ((USkeletalMesh__0090e9c0*)SkeletalMesh)->BoneIsChildOf(BoneIndex, ParentBoneIndex);
+		*(UBOOL*)Result = SkeletalMesh->BoneIsChildOf(BoneIndex, ParentBoneIndex);
 	}
 }
 

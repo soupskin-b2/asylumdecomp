@@ -11,6 +11,6 @@ void USkeletalMeshComponent::vf_248(INT Param)
 {
 	if (SkeletalMesh)
 	{
-		((USkeletalMesh*)SkeletalMesh)->sub_0095f040(Param);
+		SkeletalMesh->sub_0095f040(Param);
 	}
 }

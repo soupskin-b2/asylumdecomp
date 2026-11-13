@@ -591,7 +591,7 @@ void ARPawnCombat::execFacePawn(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(ARPawnCombat, FaceTarget);
 	P_FINISH;
-	((ARPawnCombat__016f6000*)this)->sub_0167bba0(FaceTarget);
+	this->sub_0167bba0(FaceTarget);
 }
 
 struct ARPawnCombat__016f5eb0 : public ARPawnCombat
@@ -604,7 +604,7 @@ void ARPawnCombat::execSetDestRot(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(NewRot);
 	P_FINISH;
-	((ARPawnCombat__016f5eb0*)this)->sub_0166d720(NewRot);
+	this->sub_0166d720(NewRot);
 }
 
 // @baa 0x016f5a90
@@ -721,7 +721,7 @@ void ARPawnCombat::execSetDestHeading(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT(FVector, NewHeading);
 	P_FINISH;
-	((ARPawnCombat__016f5f20*)this)->sub_01673b20(NewHeading);
+	this->sub_01673b20(NewHeading);
 }
 
 struct ARPawnCombat__016f5f90 : public ARPawnCombat
@@ -734,7 +734,7 @@ void ARPawnCombat::execFacePos(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT(FVector, NewFacePos);
 	P_FINISH;
-	((ARPawnCombat__016f5f90*)this)->sub_01676b70(NewFacePos);
+	this->sub_01676b70(NewFacePos);
 }
 
 // @baa 0x016f5440
@@ -1307,7 +1307,7 @@ void ARSpecialMoveInstance_LineLauncher::execLineLauncherMovement(FFrame& Stack,
     P_GET_FLOAT(VerticalAccel);
     P_GET_FLOAT(MaxVerticalSpeed);
     P_FINISH;
-    *(BYTE*)Result = ((ARSpecialMoveInstance_LineLauncher__016fb780*)this)->LineLauncherMovement(DeltaTime, HorizontalSpeed, VerticalAccel, MaxVerticalSpeed);
+    *(BYTE*)Result = this->LineLauncherMovement(DeltaTime, HorizontalSpeed, VerticalAccel, MaxVerticalSpeed);
 }
 
 /* ARSpecialMoveInstance_LineLauncher::GetKickTarget (0x1642cd0) isn't declared in the kit. */
@@ -1327,7 +1327,7 @@ void ARSpecialMoveInstance_LineLauncher::execGetKickTarget(FFrame& Stack, RESULT
     P_GET_FLOAT(LineLauncherAccel);
     P_GET_BYTE_REF(KickDir);
     P_FINISH;
-    *(ARPawnVillain**)Result = ((ARSpecialMoveInstance_LineLauncher__016fb970*)this)->GetKickTarget(KickTime, LeftKickTime, RightKickTime, MinOffsetForFwdKick, MaxSpeed, LineLauncherAccel, KickDir);
+    *(ARPawnVillain**)Result = this->GetKickTarget(KickTime, LeftKickTime, RightKickTime, MinOffsetForFwdKick, MaxSpeed, LineLauncherAccel, KickDir);
 }
 
 /* ARSpecialMoveInstance_CatchLedge::CorrectLedgeCatchVelocity (0x1616e90) isn't declared in the kit. */
@@ -1360,7 +1360,7 @@ void ARSpecialMoveInstance_ResonateObject::execInterpThumb(FFrame& Stack, RESULT
     P_GET_FLOAT(CurrentPos);
     P_GET_FLOAT(DeltaTime);
     P_FINISH;
-    *(FLOAT*)Result = ((ARSpecialMoveInstance_ResonateObject__016fbee0*)this)->InterpThumb(DesiredPos, CurrentPos, DeltaTime);
+    *(FLOAT*)Result = this->InterpThumb(DesiredPos, CurrentPos, DeltaTime);
 }
 
 /* ARSpecialMoveInstance_ResonateObject::GetLeftAndRightAngles (0x1613590) isn't declared in the kit. */
@@ -1379,7 +1379,7 @@ void ARSpecialMoveInstance_ResonateObject::execGetLeftAndRightAngles(FFrame& Sta
     P_GET_FLOAT(RawRightX);
     P_GET_FLOAT(RawRightY);
     P_FINISH;
-    ((ARSpecialMoveInstance_ResonateObject__016fbfe0*)this)->GetLeftAndRightAngles(LeftAngle, RightAngle, RawLeftX, RawLeftY, RawRightX, RawRightY);
+    this->GetLeftAndRightAngles(LeftAngle, RightAngle, RawLeftX, RawLeftY, RawRightX, RawRightY);
 }
 
 /* ARSpecialMoveInstance_ResonateObject::UpdatePCResonatorPos (0x1613720) isn't declared in the kit. */
@@ -1397,7 +1397,7 @@ void ARSpecialMoveInstance_ResonateObject::execUpdatePCResonatorPos(FFrame& Stac
     P_GET_FLOAT(Accel);
     P_GET_FLOAT(Decel);
     P_FINISH;
-    ((ARSpecialMoveInstance_ResonateObject__016fc160*)this)->UpdatePCResonatorPos(Input, DeltaTime, TurnSpeed, Accel, Decel);
+    this->UpdatePCResonatorPos(Input, DeltaTime, TurnSpeed, Accel, Decel);
 }
 
 /* ARSpecialMoveInstance_SwingToVantagePoint::SetupTrajectory (0x1616a70) isn't declared in the kit. */
@@ -1430,7 +1430,7 @@ void ARSpecialMoveInstance_SwingToVantagePoint::execUpdateTrajectory(FFrame& Sta
     P_GET_FLOAT(DeltaTime);
     P_GET_STRUCT_REF(FVector, Position);
     P_FINISH;
-    *(FLOAT*)Result = ((ARSpecialMoveInstance_SwingToVantagePoint__016fc400*)this)->UpdateTrajectory(DeltaTime, Position);
+    *(FLOAT*)Result = this->UpdateTrajectory(DeltaTime, Position);
 }
 
 /* URPlayerInput::FastPlayerInput (0x1635210) isn't declared in the kit. */
@@ -2122,7 +2122,7 @@ void ARSpecialMoveInstance_LineLauncher::execShouldIDoLandAnim(FFrame& Stack, RE
 	P_GET_FLOAT(MinLandHeight);
 	P_GET_FLOAT(MaxLandHeight);
 	P_FINISH;
-	*(BYTE*)Result = ((ARSpecialMoveInstance_LineLauncher__016fb880*)this)->ShouldIDoLandAnim(Locator, MinLandHeight, MaxLandHeight);
+	*(BYTE*)Result = this->ShouldIDoLandAnim(Locator, MinLandHeight, MaxLandHeight);
 }
 
 // @baa 0x016f3c20

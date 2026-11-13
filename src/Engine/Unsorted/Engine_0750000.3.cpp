@@ -115,7 +115,7 @@ UBOOL AActor::ShouldTrace(UPrimitiveComponent* Primitive, AActor* SourceActor, D
         || (!bWorldGeometry && (TraceFlags & 0x10)
             && ((TraceFlags & 0x20)
                 ? (bProjTarget || (bBlockActors && Primitive->BlockActors))
-                : (!(TraceFlags & 0x40) || (SourceActor && ((AActor__007585b0*)SourceActor)->IsBlockedBy(this, Primitive)))));
+                : (!(TraceFlags & 0x40) || (SourceActor && SourceActor->IsBlockedBy(this, Primitive)))));
 }
 
 /* Kit gap: AActor::IsBlockedBy (0x00758100) isn't declared. */
@@ -133,7 +133,7 @@ UBOOL AVolume::ShouldTrace(UPrimitiveComponent* Primitive, AActor* SourceActor, 
         || (!bWorldGeometry && (TraceFlags & 0x08)
             && ((TraceFlags & 0x20)
                 ? (bProjTarget || (bBlockActors && Primitive->BlockActors))
-                : (!(TraceFlags & 0x40) || (SourceActor && ((AActor__00758680*)SourceActor)->IsBlockedBy(this, Primitive)))));
+                : (!(TraceFlags & 0x40) || (SourceActor && SourceActor->IsBlockedBy(this, Primitive)))));
 }
 
 extern FName g_026c40d4;

@@ -17,7 +17,7 @@ void AAmbientSound_::sub_00791ad0(INT Param)
 	sub_0076cd90(Param);
 	if (bAutoPlay && AudioComponent && !AudioComponent->bWasPlaying)
 	{
-		((UAudioComponent*)AudioComponent)->sub_00791770();
+		AudioComponent->sub_00791770();
 		bIsPlaying = TRUE;
 	}
 }
@@ -415,8 +415,8 @@ void AAmbientSoundSimple_::SyncUpInstantiatedObjects()
 #line 3491 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAudio.cpp"
 		check(SoundNodeInstance);
 		check(SoundCueInstance);
-		((UObject*)SoundNodeInstance)->ClearFlags(RF_Transactional);
-		((UObject*)SoundCueInstance)->ClearFlags(RF_Transactional);
+		SoundNodeInstance->ClearFlags(RF_Transactional);
+		SoundCueInstance->ClearFlags(RF_Transactional);
 	}
 }
 

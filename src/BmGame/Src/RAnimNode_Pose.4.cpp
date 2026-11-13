@@ -676,7 +676,7 @@ struct FPosePlayer__01595770 : public FPosePlayer
 /* Slot 0x284 (unnamed in the kit). */
 INT URAnimNode_Pose::vf_284(BYTE Fuzziness)
 {
-	return ((FPosePlayer__01595770&)PosePlayer).sub_015c2c00(Fuzziness);
+	return PosePlayer.sub_015c2c00(Fuzziness);
 }
 
 /* Kit gap: FPosePlayer's methods aren't declared (the node forwards to the one of the same name; they take the
@@ -689,7 +689,7 @@ struct FPosePlayer__01595790 : public FPosePlayer
 // @baa 0x01595790
 INT URAnimNode_Pose::IsInAnyAutomaticTransition(BYTE Fuzziness, FTransitionId* Transition)
 {
-	return ((FPosePlayer__01595790&)PosePlayer).IsInAnyAutomaticTransition(Fuzziness, Transition);
+	return PosePlayer.IsInAnyAutomaticTransition(Fuzziness, Transition);
 }
 
 /* Kit gap: FPosePlayer's methods aren't declared (the node forwards to the one of the same name; they take the
@@ -703,7 +703,7 @@ struct FPosePlayer__015957b0 : public FPosePlayer
 /* Slot 0x28c (unnamed in the kit). */
 INT URAnimNode_Pose::vf_28c(BYTE Fuzziness)
 {
-	return ((FPosePlayer__015957b0&)PosePlayer).sub_015c2d00(Fuzziness);
+	return PosePlayer.sub_015c2d00(Fuzziness);
 }
 
 /* Kit gap: FPosePlayer's methods aren't declared (the node forwards to the one of the same name; they take the
@@ -716,7 +716,7 @@ struct FPosePlayer__015957d0 : public FPosePlayer
 // @baa 0x015957d0
 INT URAnimNode_Pose::IsInTransition(FTransitionId Transition, BYTE Fuzziness)
 {
-	return ((FPosePlayer__015957d0&)PosePlayer).IsInTransition(Transition, Fuzziness);
+	return PosePlayer.IsInTransition(Transition, Fuzziness);
 }
 
 /* Kit gap: FPosePlayer's methods aren't declared (the node forwards to the one of the same name; they take the
@@ -730,7 +730,7 @@ struct FPosePlayer__01595a40 : public FPosePlayer
 /* Slot 0x1e4 (unnamed in the kit). */
 INT URAnimNode_Pose::vf_1e4(BYTE Fuzziness)
 {
-	return ((FPosePlayer__01595a40&)PosePlayer).sub_015c2ff0(Fuzziness);
+	return PosePlayer.sub_015c2ff0(Fuzziness);
 }
 
 /* Kit gap: FPosePlayer's methods (RPosePlayer.cpp) aren't declared; the node forwards to the one of the same name. */
@@ -742,7 +742,7 @@ struct FPosePlayer__01595650 : public FPosePlayer
 // @baa 0x01595650
 void URAnimNode_Pose::OverrideTransitionTime(FLOAT Time, INT Param)
 {
-	((FPosePlayer__01595650&)PosePlayer).OverrideTransitionTime(Time, Param);
+	PosePlayer.OverrideTransitionTime(Time, Param);
 }
 
 /* Kit gap: FPosePlayer's methods aren't declared (the node forwards to the one of the same name; they take the
@@ -755,7 +755,7 @@ struct FPosePlayer__015959c0 : public FPosePlayer
 // @baa 0x015959c0
 INT URAnimNode_Pose::IsInMovementStance(FName Stance, BYTE Fuzziness)
 {
-	return ((FPosePlayer__015959c0&)PosePlayer).IsInMovementStance(Stance, Fuzziness);
+	return PosePlayer.IsInMovementStance(Stance, Fuzziness);
 }
 
 /* Kit gap: FPosePlayer's methods aren't declared (the node forwards to the one of the same name; they take the
@@ -768,7 +768,7 @@ struct FPosePlayer__015959e0 : public FPosePlayer
 // @baa 0x015959e0
 INT URAnimNode_Pose::IsInWeaponStance(FName Stance, BYTE Fuzziness)
 {
-	return ((FPosePlayer__015959e0&)PosePlayer).IsInWeaponStance(Stance, Fuzziness);
+	return PosePlayer.IsInWeaponStance(Stance, Fuzziness);
 }
 
 /* Kit gap: FPosePlayer's methods aren't declared (the node forwards to the one of the same name). */
@@ -780,7 +780,7 @@ struct FPosePlayer__01595810 : public FPosePlayer
 // @baa 0x01595810
 INT URAnimNode_Pose::WillBeInTransition(FTransitionId Transition, FLOAT Time, BYTE Fuzziness)
 {
-	return ((FPosePlayer__01595810&)PosePlayer).WillBeInTransition(Transition, Time, Fuzziness);
+	return PosePlayer.WillBeInTransition(Transition, Time, Fuzziness);
 }
 
 /* Kit gap: FPosePlayer's methods aren't declared (the node forwards to the one of the same name). */
@@ -793,7 +793,7 @@ struct FPosePlayer__01595740 : public FPosePlayer
 /* Slot 0x1c0 (unnamed in the kit). */
 INT URAnimNode_Pose::vf_1c0(INT Param, FLOAT Value)
 {
-	return ((FPosePlayer__01595740&)PosePlayer).sub_015c2b90(SkelComponent, Param, Value);
+	return PosePlayer.sub_015c2b90(SkelComponent, Param, Value);
 }
 
 /* Kit gap: FPosePlayer's methods aren't declared (the node forwards to the one of the same name). */
@@ -805,7 +805,7 @@ struct FPosePlayer__01595a00 : public FPosePlayer
 // @baa 0x01595a00
 INT URAnimNode_Pose::HasPose(FName MovementStance, FName WeaponStance, FName IdleStance)
 {
-	return ((FPosePlayer__01595a00&)PosePlayer).HasPose(SkelComponent, MovementStance, WeaponStance, IdleStance);
+	return PosePlayer.HasPose(SkelComponent, MovementStance, WeaponStance, IdleStance);
 }
 
 /* The project's existing binding for FStanceChangeArray's find-by-transition-id (0x015c2830, bound as

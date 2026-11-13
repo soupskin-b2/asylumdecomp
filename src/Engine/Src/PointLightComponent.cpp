@@ -132,6 +132,6 @@ struct FMatrix__006daa30 : public FMatrix
 // @baa 0x006daa30
 FBox UPointLightComponent::GetBoundingBox() const
 {
-	return FBox(((const FMatrix__006daa30&)LightToWorld).GetOrigin() - FVector(Radius, Radius, Radius),
-		((const FMatrix__006daa30&)LightToWorld).GetOrigin() + FVector(Radius, Radius, Radius));
+	return FBox(LightToWorld.GetOrigin() - FVector(Radius, Radius, Radius),
+		LightToWorld.GetOrigin() + FVector(Radius, Radius, Radius));
 }

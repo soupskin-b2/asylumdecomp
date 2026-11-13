@@ -43,13 +43,13 @@ void UGFxAction_OpenMovie::Activated()
         if (Movie)
         {
             FObjectVarArray ObjVars;
-            ((USequenceOp*)this)->GetObjectVars(ObjVars, TEXT("External Interface"));
+            this->GetObjectVars(ObjVars, TEXT("External Interface"));
             if (ObjVars.Num() > 0)
             {
                 Movie->ExternalInterface = *ObjVars(0);
             }
             ObjVars.Empty();
-            ((USequenceOp*)this)->GetObjectVars(ObjVars, TEXT("Player Owner"));
+            this->GetObjectVars(ObjVars, TEXT("Player Owner"));
             if (ObjVars.Num() > 0)
             {
                 Movie->PlayerOwner = Cast<APlayerController>(*ObjVars(0));
@@ -59,10 +59,10 @@ void UGFxAction_OpenMovie::Activated()
                 Movie->PlayerOwner = NULL;
             }
 
-            UBOOL bStarted = ((UGFxMovie*)Movie)->eventStart(bStartPaused);
+            UBOOL bStarted = Movie->eventStart(bStartPaused);
             if (bTakeFocus)
             {
-                ((UGFxMovie*)Movie)->SetFocus(bCaptureInput, bTakeFocus);
+                Movie->SetFocus(bCaptureInput, bTakeFocus);
             }
             if (OutputLinks.Num() > 0)
             {

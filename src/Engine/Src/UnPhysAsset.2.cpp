@@ -79,7 +79,7 @@ void URB_BodyInstance::execUpdateMassProperties(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(URB_BodySetup, Setup);
 	P_FINISH;
-	((URB_BodyInstance__00c95580*)this)->sub_00a0a9c0(Setup);
+	this->sub_00a0a9c0(Setup);
 }
 
 struct UPhysicsAssetInstance_ : public UPhysicsAssetInstance
@@ -105,7 +105,7 @@ void URB_BodyInstance::execSetContactReportForceThreshold(FFrame& Stack, RESULT_
 {
 	P_GET_FLOAT(Threshold);
 	P_FINISH;
-	((URB_BodyInstance__00c95510*)this)->sub_009f9ba0(Threshold);
+	this->sub_009f9ba0(Threshold);
 }
 
 struct URB_BodyInstance__00c95610 : public URB_BodyInstance
@@ -118,7 +118,7 @@ void URB_BodyInstance::execSetDampingRampupProportion(FFrame& Stack, RESULT_DECL
 {
 	P_GET_FLOAT(NewDampingRampupProportion);
 	P_FINISH;
-	((URB_BodyInstance__00c95610*)this)->sub_00a0acb0(NewDampingRampupProportion);
+	this->sub_00a0acb0(NewDampingRampupProportion);
 }
 
 struct UPhysicsAssetInstance__00c94600 : public UPhysicsAssetInstance
@@ -131,7 +131,7 @@ void UPhysicsAssetInstance::execSetAllBodiesFixed(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bNewFixed);
 	P_FINISH;
-	((UPhysicsAssetInstance__00c94600*)this)->sub_00a0b380(bNewFixed);
+	this->sub_00a0b380(bNewFixed);
 }
 
 struct URB_BodyInstance__00c94e20 : public URB_BodyInstance
@@ -144,7 +144,7 @@ void URB_BodyInstance::execSetFixed(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bNewFixed);
 	P_FINISH;
-	((URB_BodyInstance__00c94e20*)this)->sub_00a09ca0(bNewFixed);
+	this->sub_00a09ca0(bNewFixed);
 }
 
 struct URB_BodyInstance__00c953d0 : public URB_BodyInstance
@@ -157,7 +157,7 @@ void URB_BodyInstance::execSetBlockRigidBody(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bNewBlockRigidBody);
 	P_FINISH;
-	((URB_BodyInstance__00c953d0*)this)->sub_009f9a10(bNewBlockRigidBody);
+	this->sub_009f9a10(bNewBlockRigidBody);
 }
 
 struct URB_BodyInstance__00c954a0 : public URB_BodyInstance
@@ -170,7 +170,7 @@ void URB_BodyInstance::execEnableCollisionResponse(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bEnableResponse);
 	P_FINISH;
-	((URB_BodyInstance__00c954a0*)this)->sub_009f9b50(bEnableResponse);
+	this->sub_009f9b50(bEnableResponse);
 }
 
 struct UPhysicsAssetInstance__00c94ae0 : public UPhysicsAssetInstance

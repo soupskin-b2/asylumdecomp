@@ -381,7 +381,7 @@ void APawn::vf_1b4(FLOAT DeltaSeconds)
         if (BreathTime < 0.001f)
         {
             BreathTime = 0.f;
-            ((APawn*)this)->eventBreathTimer();
+            this->eventBreathTimer();
         }
     }
     if (Physics == PHYS_None && Controller)

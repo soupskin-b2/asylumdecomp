@@ -11,7 +11,7 @@ UBOOL AActor::TouchReachSucceeded(APawn* P, const FVector& TestPosition)
 {
 	if (bCollideActors && P->bCollideActors)
 	{
-		if ((const FVector&)TestPosition == P->Location)
+		if (TestPosition == P->Location)
 		{
 			for (INT Idx = 0; Idx < Touching.Num(); Idx++)
 			{

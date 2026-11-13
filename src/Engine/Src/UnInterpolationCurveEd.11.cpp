@@ -12,7 +12,7 @@ void UInterpTrackVectorBase::RemoveKeyframe(INT KeyIndex)
         return;
     }
     VectorTrack.Points.Remove(KeyIndex);
-    ((FInterpCurveVector&)VectorTrack).AutoSetTangents(CurveTension);
+    VectorTrack.AutoSetTangents(CurveTension);
 }
 
 // @baa 0x00cfbaf0

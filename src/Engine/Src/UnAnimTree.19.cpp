@@ -147,7 +147,7 @@ INT UAnimNodeAimOffset__00c623d0::GetComponentIdxFromBoneIdx(INT BoneIndex, UBOO
 			InsertIndex = P->AimComponents.Num();
 		}
 
-		((FAimComponentArray&)P->AimComponents).InsertZeroed(InsertIndex, 1);
+		P->AimComponents.InsertZeroed(InsertIndex, 1);
 		((TArrayAt_<FAimComponent>&)P->AimComponents).At(InsertIndex).BoneName = BoneName;
 
 		// no rotation in any direction yet

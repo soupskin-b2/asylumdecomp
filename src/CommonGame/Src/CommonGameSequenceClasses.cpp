@@ -291,7 +291,7 @@ void URSeqAct_WaitForAllInputs::PostLoad()
 {
     if (InputsActivated.Num() < InputCount)
     {
-        ((FBoolArray&)InputsActivated).AddZeroed(InputCount - InputsActivated.Num());
+        InputsActivated.AddZeroed(InputCount - InputsActivated.Num());
     }
     Super::PostLoad();
 }

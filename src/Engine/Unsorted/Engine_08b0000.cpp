@@ -543,5 +543,5 @@ void appClipboardCopy(const TCHAR* Str);
 // @baa 0x008b0a30
 void APlayerController::CopyToClipboard(const FString& Text)
 {
-	appClipboardCopy(*(const FString&)Text);
+	appClipboardCopy(*Text);
 }

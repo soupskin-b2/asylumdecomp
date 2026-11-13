@@ -25,7 +25,7 @@ void USequence::FindSeqObjectsByClass(UClass* DesiredClass, TArray<USequenceObje
 	{
 		if (SequenceObjects(Idx) != NULL && ObjectIsA(SequenceObjects(Idx), DesiredClass))
 		{
-			((FSequenceObjectArray&)OutputObjects).AddItem(SequenceObjects(Idx));
+			OutputObjects.AddItem(SequenceObjects(Idx));
 		}
 	}
 

@@ -29,7 +29,7 @@ void UPhysicsAsset::UpdateBoundsBodiesArray()
 
         if (BodySetup(i)->bConsiderForBounds)
         {
-            ((FIntArray&)BoundsBodies).AddItem(i);
+            BoundsBodies.AddItem(i);
         }
     }
 }

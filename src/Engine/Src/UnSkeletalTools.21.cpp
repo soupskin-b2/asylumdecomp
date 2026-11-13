@@ -76,7 +76,7 @@ FArchive& operator<<(FArchive& Ar, TArray<FPerPolyBoneCollisionData>& A)
     {
         INT NewNum;
         Ar << NewNum;
-        ((FPerPolyBoneCollisionDataArray&)A).Empty(NewNum);
+        A.Empty(NewNum);
         for (INT i = 0; i < NewNum; i++)
         {
             Ar << *::new(A) FPerPolyBoneCollisionData;

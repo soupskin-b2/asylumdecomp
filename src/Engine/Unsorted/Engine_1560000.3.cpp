@@ -41,6 +41,6 @@ UBOOL URSeqAct_PlaySpeechBase::UpdateOp(FLOAT DeltaTime)
 			return TRUE;
 		}
 	}
-	((USeqAct_Latent*)this)->eventUpdate(DeltaTime);
+	this->eventUpdate(DeltaTime);
 	return FALSE;
 }

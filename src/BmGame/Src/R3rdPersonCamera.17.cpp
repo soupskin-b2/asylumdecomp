@@ -21,7 +21,7 @@ void AR3rdPersonCamera::SaveFreeCameraConfig(FFreeCameraConfig& ConfigToSave)
 			if (LocalPlayer)
 			{
 				FVector2D ViewportSize;
-				((UGameViewportClient*)LocalPlayer->ViewportClient)->GetViewportSize(ViewportSize);
+				LocalPlayer->ViewportClient->GetViewportSize(ViewportSize);
 				AspectRatio = ViewportSize.X / ViewportSize.Y;
 			}
 		}

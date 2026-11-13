@@ -105,7 +105,7 @@ void AWorldInfo::execSetSeamlessTravelMidpointPause(FFrame& Stack, RESULT_DECL)
 void AWorldInfo::execGetWorldFractureSettings(FFrame& Stack, RESULT_DECL)
 {
     P_FINISH;
-    *(FWorldFractureSettings*)Result = ((AWorldInfo*)this)->GetWorldFractureSettings();
+    *(FWorldFractureSettings*)Result = this->GetWorldFractureSettings();
 }
 
 /* Kit gaps: AWorldInfo::GetDemoFrameInfo (0x00bf99c0) and the optional out INT parameter macro. */
@@ -118,5 +118,5 @@ void AWorldInfo::execGetDemoFrameInfo(FFrame& Stack, RESULT_DECL)
 	P_GET_INT_OPTX_REF(CurrentFrame, 0);
 	P_GET_INT_OPTX_REF(TotalFrames, 0);
 	P_FINISH;
-	((AWorldInfo*)this)->GetDemoFrameInfo(pCurrentFrame ? &CurrentFrame : NULL, pTotalFrames ? &TotalFrames : NULL);
+	this->GetDemoFrameInfo(pCurrentFrame ? &CurrentFrame : NULL, pTotalFrames ? &TotalFrames : NULL);
 }

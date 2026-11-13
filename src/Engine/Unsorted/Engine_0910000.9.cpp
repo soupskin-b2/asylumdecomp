@@ -12,8 +12,8 @@ void USkeletalMeshComponent::UpdateSceneProxy()
 	bNeedsProxyUpdate = bNeedsProxyUpdate || DepthBias != 0.f || bDisableColourWrites;
 	if (bNeedsProxyUpdate)
 	{
-		((USkeletalMeshComponent*)this)->SetDepthBias(DepthBias, DepthBiasData);
-		((USkeletalMeshComponent*)this)->SetDisableColourWrites(bDisableColourWrites);
+		this->SetDepthBias(DepthBias, DepthBiasData);
+		this->SetDisableColourWrites(bDisableColourWrites);
 	}
 }
 

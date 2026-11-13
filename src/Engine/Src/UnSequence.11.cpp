@@ -99,7 +99,7 @@ void USequenceOp::execActivateOutputLink(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(OutputIdx);
 	P_FINISH;
-	*(UBOOL*)Result = ((USequenceOp__00c98190*)this)->sub_008bd720(OutputIdx);
+	*(UBOOL*)Result = this->sub_008bd720(OutputIdx);
 }
 
 struct USequence_ : public USequence

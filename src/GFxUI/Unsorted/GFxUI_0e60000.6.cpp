@@ -19,7 +19,7 @@ T* ConstructObject(UClass_* Class, UObject* Outer = INVALID_OBJECT, FName Name =
 // @baa 0x00e6ffb0
 INT UGFxEvent_FsCommand::RegisterEvent()
 {
-    UBOOL bResult = ((USequenceEvent*)this)->USequenceEvent::RegisterEvent();
+    UBOOL bResult = this->USequenceEvent::RegisterEvent();
     if (Movie && bResult)
     {
         UGFxFSCmdHandler_Kismet* Handler;
@@ -36,7 +36,7 @@ INT UGFxEvent_FsCommand::RegisterEvent()
             Handler = ConstructObject<UGFxFSCmdHandler_Kismet>((UClass_*)UGFxFSCmdHandler_Kismet::StaticClass());
             Movie->FSCmdHandler = Handler;
         }
-        ((UGFxFSCmdHandler_Kismet*)Handler)->RegisterFSCommand(this);
+        Handler->RegisterFSCommand(this);
     }
     return bResult;
 }

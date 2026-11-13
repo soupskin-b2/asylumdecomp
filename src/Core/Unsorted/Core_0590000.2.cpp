@@ -1231,7 +1231,7 @@ void UObject::execMultiply_MatrixMatrix(FFrame& Stack, RESULT_DECL)
 	P_GET_STRUCT(FMatrix, A);
 	P_GET_STRUCT(FMatrix, B);
 	P_FINISH;
-	*(FMatrix*)Result = ((const FMatrix__005982f0&)A) * B;
+	*(FMatrix*)Result = (A) * B;
 }
 
 /* Kit gap: UField::IsChildOf (UnClass.h, inline in this build) isn't declared. */

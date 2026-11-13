@@ -9,6 +9,6 @@
 // @baa 0x015dd380
 FLOAT ARBMCombatManager::GetAngleFromPawnToPawn(ARPawnCombat* Pawn1, ARPawnCombat* Pawn2)
 {
-	const FVector Delta = ((const FVector&)Pawn2->Location) - Pawn1->Location;
+	const FVector Delta = (Pawn2->Location) - Pawn1->Location;
 	return appAtan2(Delta.Y, Delta.X);
 }

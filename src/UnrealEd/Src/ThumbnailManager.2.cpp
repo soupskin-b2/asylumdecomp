@@ -11,6 +11,6 @@
 /* The thumbnail is the icon texture's size, scaled by the zoom. */
 void UIconThumbnailRenderer::GetThumbnailSize(UObject* Object, EThumbnailPrimType PrimType, FLOAT Zoom, DWORD& OutWidth, DWORD& OutHeight)
 {
-	OutWidth = appTrunc(Zoom * ((UIconThumbnailRenderer*)this)->sub_01250960()->SizeX);
-	OutHeight = appTrunc(Zoom * ((UIconThumbnailRenderer*)this)->sub_01250960()->SizeY);
+	OutWidth = appTrunc(Zoom * this->sub_01250960()->SizeX);
+	OutHeight = appTrunc(Zoom * this->sub_01250960()->SizeY);
 }

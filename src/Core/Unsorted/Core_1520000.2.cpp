@@ -11,7 +11,7 @@ void URFlagManager::execSetFlagList(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_TARRAY_REF(FString, flagsList);
 	P_FINISH;
-	((URFlagManager*)this)->SetFlagList(flagsList);
+	this->SetFlagList(flagsList);
 }
 
 /* Kit gap: URFlagManager::SetFlagListForChallengeMode (0x015483c0) isn't declared. */
@@ -21,5 +21,5 @@ void URFlagManager::execSetFlagListForChallengeMode(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_TARRAY_REF(FString, flagsList);
 	P_FINISH;
-	((URFlagManager*)this)->SetFlagListForChallengeMode(flagsList);
+	this->SetFlagListForChallengeMode(flagsList);
 }

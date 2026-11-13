@@ -72,9 +72,9 @@ void UAnimationCompressionAlgorithm_::FilterTrivialPositionKeys(TArray<FTranslat
 			if (bFramesIdentical)
 			{
 				((FVectorArray&)Track.PosKeys).sub_00667a40(1, Track.PosKeys.Num() - 1);
-				((FVectorArray&)Track.PosKeys).Shrink();
+				Track.PosKeys.Shrink();
 				((FFloatArray&)Track.Times).sub_00920980(1, Track.Times.Num() - 1);
-				((FFloatArray&)Track.Times).Shrink();
+				Track.Times.Shrink();
 				Track.Times(0) = 0.0f;
 			}
 		}

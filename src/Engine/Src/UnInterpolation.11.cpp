@@ -12,7 +12,7 @@
  * unhook it from every latent actor (USeqAct_Latent::CleanUp, inlined). */
 void USeqAct_Interp::vf_154()
 {
-    ((USeqAct_Interp*)this)->sub_00cfa910();
+    this->sub_00cfa910();
 
     if (ReplicatedActor != NULL)
     {

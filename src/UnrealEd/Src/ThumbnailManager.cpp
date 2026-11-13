@@ -662,5 +662,5 @@ void UIconThumbnailRenderer::Draw(UObject* Object, EThumbnailPrimType PrimType, 
 	EThumbnailBackgroundType BackgroundType, FColor PreviewBackgroundColor, FColor PreviewBackgroundColorDropped)
 {
 	sub_00aa7a60(Canvas, X, Y, Width, Height, 0.f, 0.f, 1.f, 1.f, g_025d574c,
-		(const FTexture*)((UIconThumbnailRenderer*)this)->sub_01250960()->Resource.Dummy, FALSE);
+		(const FTexture*)this->sub_01250960()->Resource.Dummy, FALSE);
 }

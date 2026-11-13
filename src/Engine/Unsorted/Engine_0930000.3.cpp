@@ -16,9 +16,9 @@ void USkeletalMeshComponent::ForceSkelUpdate()
     {
         const FLOAT OldLastRenderTime = LastRenderTime;
         LastRenderTime = GWorld->GetWorldInfo()->TimeSeconds;
-        ((USkeletalMeshComponent*)this)->sub_0092be40();
-        ((USkeletalMeshComponent*)this)->sub_0093b170(0.f, TRUE, FALSE);
-        ((UActorComponent*)this)->sub_00759620();
+        this->sub_0092be40();
+        this->sub_0093b170(0.f, TRUE, FALSE);
+        this->sub_00759620();
         LastRenderTime = OldLastRenderTime;
     }
 }

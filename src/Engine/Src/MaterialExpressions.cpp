@@ -3672,7 +3672,7 @@ template<class T> struct TArrayAt_ : public TArray<T>
 /* Slot 0x128 (unnamed in the kit; UE3's GetCaption): the user caption, or a generic name. */
 FString UMaterialExpressionCompound::vf_128()
 {
-	return ((const FString&)Caption).Len() > 0 ? *(const FString&)Caption : TEXT("Compound Expression");
+	return Caption.Len() > 0 ? *Caption : TEXT("Compound Expression");
 }
 
 #line 3692 "candidate.cpp"

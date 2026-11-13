@@ -66,7 +66,7 @@ FArchive& operator<<(FArchive& Ar, TArray<FMeshBone_>& A)
     {
         INT NewNum;
         Ar << NewNum;
-        ((FMeshBoneArray&)A).Empty(NewNum);
+        A.Empty(NewNum);
         for (INT i = 0; i < NewNum; i++)
         {
             Ar << *::new(A) FMeshBone_;

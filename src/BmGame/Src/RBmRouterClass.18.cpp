@@ -62,7 +62,7 @@ template<class T> T* ConstructObject(UClass* Class, UObject* Outer = INVALID_OBJ
 class URBMRouterPath* ARBMRouter::BuildPathTo(FVector Dest, class ANavigationPoint* StartAnchor, class ANavigationPoint* EndAnchor)
 {
 	URBMRouterPath* NewPath = ConstructObject<URBMRouterPath>(URBMRouterPath::StaticClass());
-	((ARBMRouter*)this)->sub_0161b520(Dest, NewPath, StartAnchor, EndAnchor);
+	this->sub_0161b520(Dest, NewPath, StartAnchor, EndAnchor);
 	return NewPath;
 }
 

@@ -1696,7 +1696,7 @@ void APawn::NotifyBump(AActor* Other, UPrimitiveComponent* OtherComp, const FVec
 {
 	if (!Controller || !((AController_*)Controller)->eventNotifyBump(Other, HitNormal))
 	{
-		((AActor__007d70c0*)this)->eventBump(Other, OtherComp, HitNormal);
+		this->eventBump(Other, OtherComp, HitNormal);
 	}
 }
 

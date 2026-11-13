@@ -72,7 +72,7 @@ void UAnimationCompressionAlgorithm_RemoveLinearKeys_::DoReduction( UAnimSequenc
 	AnimSeq->KeyEncodingFormat = AKF_VariableKeyLerp;
 	AnimationFormat_SetInterfaceLinks(*AnimSeq);
 	AnimSeq->CompressionScheme = static_cast<UAnimationCompressionAlgorithm*>( StaticDuplicateObject( this, this, AnimSeq, TEXT("None"), ~(QWORD)0x4000 ) );
-	((UAnimSequence*)AnimSeq)->MarkPackageDirty();
+	AnimSeq->MarkPackageDirty();
 
 	// remove the keys we can interpolate
 	ProcessAnimationTracks(

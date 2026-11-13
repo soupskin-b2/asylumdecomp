@@ -350,7 +350,7 @@ void USkeletalMeshComponent::execTransformFromBoneSpace(FFrame& Stack, RESULT_DE
     P_GET_STRUCT_REF(FRotator, OutRotation);
     P_FINISH;
 
-    const INT BoneIndex = ((USkeletalMeshComponent__0091e8d0*)this)->MatchRefBone(BoneName);
+    const INT BoneIndex = this->MatchRefBone(BoneName);
     if (BoneIndex != INDEX_NONE)
     {
         FMatrix BoneToWorldTM = GetBoneMatrix(BoneIndex);
@@ -410,15 +410,15 @@ void USkeletalMeshComponent::execTransformToBoneSpace(FFrame& Stack, RESULT_DECL
     P_GET_STRUCT_REF(FRotator, OutRotation);
     P_FINISH;
 
-    const INT BoneIndex = ((USkeletalMeshComponent__0091e6d0*)this)->MatchRefBone(BoneName);
+    const INT BoneIndex = this->MatchRefBone(BoneName);
     if (BoneIndex != INDEX_NONE)
     {
         FMatrix BoneToWorldTM = GetBoneMatrix(BoneIndex);
         FMatrix WorldTM = FRotationTranslationMatrix_0091e6d0(InRotation, InPosition);
-        FMatrix LocalTM = (const FMatrix__0091e6d0&)WorldTM * ((const FMatrix__0091e6d0&)BoneToWorldTM).Inverse();
+        FMatrix LocalTM = WorldTM * BoneToWorldTM.Inverse();
 
-        OutPosition = ((const FMatrix__0091e6d0&)LocalTM).GetOrigin();
-        OutRotation = ((const FMatrix__0091e6d0&)LocalTM).Rotator();
+        OutPosition = LocalTM.GetOrigin();
+        OutRotation = LocalTM.Rotator();
     }
 }
 

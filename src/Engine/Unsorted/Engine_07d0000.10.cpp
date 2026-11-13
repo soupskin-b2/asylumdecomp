@@ -67,5 +67,5 @@ void C::sub_007d7120(INT, INT)
 // @baa 0x007d7090
 void AActor::NotifyBump(AActor* Other, UPrimitiveComponent* OtherComp, const FVector& HitNormal)
 {
-	((AActor*)this)->eventBump(Other, OtherComp, HitNormal);
+	this->eventBump(Other, OtherComp, HitNormal);
 }

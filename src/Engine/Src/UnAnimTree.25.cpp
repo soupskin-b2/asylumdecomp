@@ -17,7 +17,7 @@ void UAnimNodeCrossfader::execBlendToLoopingAnim(FFrame& Stack, RESULT_DECL)
 	P_GET_FLOAT_OPTX(Rate, 1.f);
 	P_FINISH;
 	if (Children.Num() != 2 || !Children(0).Anim || !Children(1).Anim || !SkelComponent ||
-		!((USkeletalMeshComponent*)SkelComponent)->FindAnimSequence(AnimSeqName))
+		!SkelComponent->FindAnimSequence(AnimSeqName))
 	{
 		return;
 	}
@@ -29,7 +29,7 @@ void UAnimNodeCrossfader::execBlendToLoopingAnim(FFrame& Stack, RESULT_DECL)
 		PendingBlendOutTimeOneShot = 0.f;
 		Child->SetAnim(AnimSeqName);
 		Child->PlayAnim(TRUE, Rate, 0.f);
-		((UAnimNodeBlend*)this)->SetBlendTarget(BlendTarget, BlendInTime);
+		this->SetBlendTarget(BlendTarget, BlendInTime);
 	}
 }
 
@@ -43,7 +43,7 @@ void UAnimNodeCrossfader::execPlayOneShotAnim(FFrame& Stack, RESULT_DECL)
 	P_GET_FLOAT_OPTX(Rate, 1.f);
 	P_FINISH;
 	if (Children.Num() != 2 || !Children(0).Anim || !Children(1).Anim || !SkelComponent ||
-		!((USkeletalMeshComponent*)SkelComponent)->FindAnimSequence(AnimSeqName))
+		!SkelComponent->FindAnimSequence(AnimSeqName))
 	{
 		return;
 	}
@@ -55,7 +55,7 @@ void UAnimNodeCrossfader::execPlayOneShotAnim(FFrame& Stack, RESULT_DECL)
 		PendingBlendOutTimeOneShot = BlendOutTime;
 		Child->SetAnim(AnimSeqName);
 		Child->PlayAnim(FALSE, Rate, 0.f);
-		((UAnimNodeBlend*)this)->SetBlendTarget(BlendTarget, BlendInTime);
+		this->SetBlendTarget(BlendTarget, BlendInTime);
 	}
 }
 
@@ -73,7 +73,7 @@ template<class T> T* CastChecked(UObject* Src)
 {
 	if (!Src || !ObjectIsA(Src, T::StaticClass()))
 	{
-		appErrorf(TEXT("Cast of %s to %s failed"), Src ? *((UObject*)Src)->GetFullName() : TEXT("NULL"), *((UObject*)T::StaticClass())->GetName());
+		appErrorf(TEXT("Cast of %s to %s failed"), Src ? *Src->GetFullName() : TEXT("NULL"), *((UObject*)T::StaticClass())->GetName());
 	}
 	return (T*)Src;
 }

@@ -31,7 +31,7 @@ void ARExplodableWallBase::execExplodeExtentLine(FFrame& Stack, RESULT_DECL)
     P_GET_STRUCT(FVector, EndCheckLocation);
     P_GET_STRUCT(FVector, CheckExtent);
     P_FINISH;
-    *(UBOOL*)Result = ((ARExplodableWallBase*)this)->ExplodeExtentLine(ExplosionType, ExplodeFromSide, FuseTime, StartCheckLocation, EndCheckLocation, CheckExtent);
+    *(UBOOL*)Result = this->ExplodeExtentLine(ExplosionType, ExplodeFromSide, FuseTime, StartCheckLocation, EndCheckLocation, CheckExtent);
 }
 
 // @baa 0x00c83160

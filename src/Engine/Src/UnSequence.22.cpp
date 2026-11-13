@@ -19,10 +19,10 @@ void USeqAct_Possess::Activated()
     // pick up the pawn to possess
     PawnToPossess = NULL;
     TArray<UObject**> ObjVars;
-    ((USequenceOp*)this)->GetObjectVars(ObjVars, TEXT("Pawn Target"));
+    this->GetObjectVars(ObjVars, TEXT("Pawn Target"));
     if (ObjVars.Num() > 0)
     {
         PawnToPossess = Cast<APawn>(*(ObjVars(0)));
     }
-    ((USequenceAction*)this)->USequenceAction::Activated(); // Super::Activated()
+    this->USequenceAction::Activated(); // Super::Activated()
 }

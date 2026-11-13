@@ -92,7 +92,7 @@ void UPhysicsAssetInstance::SetNamedMotorsAngularPositionDrive(UBOOL bEnableSwin
         URB_ConstraintSetup* CS = ((TArrayAt_<URB_ConstraintSetup*>&)SkelMeshComp->PhysicsAsset->ConstraintSetup).At(((TArrayAt_<URB_ConstraintInstance*>&)Constraints).At(i)->ConstraintIndex);
         if (CS)
         {
-            if (((const FNameFindArray&)BoneNames).FindItemIndex(CS->JointName) != INDEX_NONE)
+            if (BoneNames.FindItemIndex(CS->JointName) != INDEX_NONE)
             {
                 ((TArrayAt_<URB_ConstraintInstance*>&)Constraints).At(i)->SetAngularPositionDrive(bEnableSwingDrive, bEnableTwistDrive);
             }
@@ -117,7 +117,7 @@ void UPhysicsAssetInstance::SetNamedMotorsAngularVelocityDrive(UBOOL bEnableSwin
         URB_ConstraintSetup* CS = ((TArrayAt_<URB_ConstraintSetup*>&)SkelMeshComp->PhysicsAsset->ConstraintSetup).At(((TArrayAt_<URB_ConstraintInstance*>&)Constraints).At(i)->ConstraintIndex);
         if (CS)
         {
-            if (((const FNameFindArray&)BoneNames).FindItemIndex(CS->JointName) != INDEX_NONE)
+            if (BoneNames.FindItemIndex(CS->JointName) != INDEX_NONE)
             {
                 ((TArrayAt_<URB_ConstraintInstance*>&)Constraints).At(i)->sub_00a39310(bEnableSwingDrive, bEnableTwistDrive); // SetAngularVelocityDrive
             }

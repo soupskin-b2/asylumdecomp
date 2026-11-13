@@ -232,14 +232,14 @@ void ARSmashableProp::vf_1d8()
 	((ARSmashableProp__01680090*)this)->eventSetupDecalMaterialInstances();
 	((ARSmashableProp__01680090*)this)->eventInitXRayMode();
 	Super::vf_1d8();
-	if (!PropWasSpawned && PropData && PropData->PropRememberWhenSmashed && ((ARSmashableProp__01680090*)this)->sub_01668ab0())
+	if (!PropWasSpawned && PropData && PropData->PropRememberWhenSmashed && this->sub_01668ab0())
 	{
-		((ARSmashableProp__01680090*)this)->sub_0167aab0();
-		((ARSmashableProp__01680090*)this)->sub_01668bf0(this);
+		this->sub_0167aab0();
+		this->sub_01668bf0(this);
 	}
 	else if (PropData)
 	{
-		((ARSmashableProp__01680090*)this)->sub_0166b820();
+		this->sub_0166b820();
 	}
 }
 

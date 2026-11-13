@@ -15,7 +15,7 @@ struct UInterpTrackFade_ : public UInterpTrackFade
 /* UInterpTrackFade::GetFadeAmountAtTime (UE3 UnInterpolation.cpp; not declared in the kit). */
 FLOAT UInterpTrackFade_::GetFadeAmountAtTime(FLOAT Time)
 {
-    FLOAT FadeAmount = ((FInterpCurveFloat&)FloatTrack).Eval(Time, 0.f);
+    FLOAT FadeAmount = FloatTrack.Eval(Time, 0.f);
     FadeAmount = Clamp(FadeAmount, 0.f, 1.f);
     return FadeAmount;
 }
