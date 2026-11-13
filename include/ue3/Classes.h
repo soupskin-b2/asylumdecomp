@@ -3629,6 +3629,7 @@ struct __declspec(align(16)) FMatrix {
 FORCEINLINE FLOAT FDist(const FVector& V1, const FVector& V2) { return appSqrt(Square(V2.X - V1.X) + Square(V2.Y - V1.Y) + Square(V2.Z - V1.Z)); } /* out-of-line copy: 0x005c8e30 */
 FLOAT PointDistToSegment(const FVector& Point, const FVector& StartPoint, const FVector& EndPoint, FVector& OutClosestPoint); /* 0x005c5f20 */
 FVector ClampLength(const FVector& V, FLOAT MaxLength); /* 0x005c3940 */
+class FSceneViewStateInterface* AllocateViewState(); /* 0x00af25a0: a new FSceneViewState */
 
 /* UnMath.h: a rotation matrix (the constructor is out of line in this build) */
 struct FRotationMatrix : public FMatrix {
@@ -6808,6 +6809,7 @@ struct FTerrainLayer {
 
 struct FAlphaMap {
     /* Engine.AlphaMap */
+    TArray<BYTE> Data; /* 0x0 */
 };
 
 struct FTerrainDecorationInstance {
@@ -10097,7 +10099,7 @@ struct UObject {
     virtual void vf_0cc(); /* 0x0cc */
     virtual void vf_0d0(); /* 0x0d0 */
     virtual INT vf_0d4(); /* 0x0d4 */
-    virtual INT vf_0d8(INT); /* 0x0d8 */
+    virtual FName GetExporterName(); /* 0x0d8 */
     virtual INT vf_0dc(); /* 0x0dc */
     virtual void vf_0e0(INT, INT); /* 0x0e0 */
     virtual INT vf_0e4(INT, INT, INT); /* 0x0e4 */
@@ -10354,6 +10356,7 @@ struct UObject {
     void execGetPerObjectConfigSections(FFrame& Stack, RESULT_DECL); /* 0x005aef50 */
     /* other member functions */
     UBOOL IsInState(FName TestState, UBOOL bTestStateStack); /* 0x0059dc80 */
+    UBOOL IsProbing(FName ProbeName); /* 0x0058f750 */
     void PushState(FName NewState, FName NewLabel); /* 0x005a61f0 */
     void ConditionalRegister(); /* 0x005c7a50 */
     FString GetFullName(const UObject* StopOuter = NULL) const; /* 0x005d2db0 */
@@ -12545,7 +12548,7 @@ struct UDistributionVector : public UComponent, public FCurveEdInterface {
     virtual UINT vf_114(INT); /* 0x114 */
     virtual INT vf_118(); /* 0x118 */
     virtual INT vf_11c(INT, INT); /* 0x11c */
-    virtual FLOAT vf_120(INT, INT, INT, INT); /* 0x120 */
+    virtual FVector GetValue(FLOAT F = 0.f, UObject* Data = NULL, INT LastExtreme = 0); /* 0x120 */
     virtual void GetOutRange(FVector& MinOut, FVector& MaxOut); /* 0x124 */
     virtual UINT vf_128(); /* 0x128 */
     /* overrides */
@@ -16208,7 +16211,7 @@ struct UReachSpec : public UObject {
     virtual INT vf_11c(); /* 0x11c */
     virtual INT vf_120(); /* 0x120 */
     virtual INT vf_124(INT, INT, INT); /* 0x124 */
-    virtual FColor PathColor(); /* 0x128 */
+    virtual FLinearColor PathColor(); /* 0x128 */
     virtual INT vf_12c(INT); /* 0x12c */
     virtual INT vf_130(INT); /* 0x130 */
     virtual INT vf_134(INT, INT, INT, INT); /* 0x134 */
@@ -16234,7 +16237,7 @@ struct UAdvancedReachSpec : public UReachSpec {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual INT CostFor(class APawn* P); /* 0x10c */
-    virtual FColor PathColor(); /* 0x128 */
+    virtual FLinearColor PathColor(); /* 0x128 */
     /* registered size 0x90 */
 };
 
@@ -19828,7 +19831,7 @@ struct UForcedReachSpec : public UReachSpec {
     virtual INT CostFor(class APawn* P); /* 0x10c */
     virtual UINT vf_118(INT); /* 0x118 */
     virtual INT vf_11c(); /* 0x11c */
-    virtual FColor PathColor(); /* 0x128 */
+    virtual FLinearColor PathColor(); /* 0x128 */
     /* registered size 0x90 */
 };
 
@@ -20845,7 +20848,7 @@ struct UInput : public UInteraction {
     TArrayNoInit<FNativeElem_008c2090> AxisArray; /* 0xc0 */
     /* virtual functions this class introduces (vtable 0x020b75d8) */
     virtual void ResetInput(); /* 0x120 */
-    virtual FString GetBind(FName& Key, UBOOL bGamepad); /* 0x124 */
+    virtual FString GetBind(FName Key); /* 0x124 */
     virtual INT vf_128(INT, INT); /* 0x128 */
     virtual void vf_12c(); /* 0x12c */
     virtual INT vf_130(INT, INT); /* 0x130 */
@@ -21127,7 +21130,7 @@ struct UMaterialInterface : public USurface {
     virtual UBOOL IsDependent(class UMaterialInterface* TestDependency); /* 0x134 */
     virtual UINT GetRenderProxy(INT); /* 0x138 */
     virtual class UPhysicalMaterial* GetPhysicalMaterial(); /* 0x13c */
-    virtual void GetTextures(INT, INT); /* 0x140 */
+    virtual void GetTextures(TArray<class UTexture*>& OutTextures, UBOOL bOnlyAddOnce = TRUE); /* 0x140 */
     virtual INT CheckMaterialUsage(INT); /* 0x144 */
     virtual UINT AllocateResource(); /* 0x148 */
     virtual INT vf_14c(INT); /* 0x14c */
@@ -21262,7 +21265,7 @@ struct UMaterial : public UMaterialInterface {
     virtual class UMaterial* GetMaterial(INT Platform = 0); /* 0x130 */
     virtual UINT GetRenderProxy(INT); /* 0x138 */
     virtual class UPhysicalMaterial* GetPhysicalMaterial(); /* 0x13c */
-    virtual void GetTextures(INT, INT); /* 0x140 */
+    virtual void GetTextures(TArray<class UTexture*>& OutTextures, UBOOL bOnlyAddOnce = TRUE); /* 0x140 */
     virtual INT CheckMaterialUsage(INT); /* 0x144 */
     virtual UINT AllocateResource(); /* 0x148 */
     virtual INT vf_14c(INT); /* 0x14c */
@@ -21617,7 +21620,7 @@ struct UDistributionVectorConstant : public UDistributionVector {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
-    virtual FLOAT vf_120(INT, INT, INT, INT); /* 0x120 */
+    virtual FVector GetValue(FLOAT F = 0.f, UObject* Data = NULL, INT LastExtreme = 0); /* 0x120 */
     virtual void GetOutRange(FVector& MinOut, FVector& MaxOut); /* 0x124 */
     /* registered size 0x58 */
 };
@@ -21635,7 +21638,7 @@ struct UDistributionVectorConstantCurve : public UDistributionVector {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
-    virtual FLOAT vf_120(INT, INT, INT, INT); /* 0x120 */
+    virtual FVector GetValue(FLOAT F = 0.f, UObject* Data = NULL, INT LastExtreme = 0); /* 0x120 */
     virtual void GetOutRange(FVector& MinOut, FVector& MaxOut); /* 0x124 */
     /* registered size 0x5c */
 };
@@ -21654,7 +21657,7 @@ struct UDistributionVectorParameterBase : public UDistributionVectorConstant {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual FLOAT vf_120(INT, INT, INT, INT); /* 0x120 */
+    virtual FVector GetValue(FLOAT F = 0.f, UObject* Data = NULL, INT LastExtreme = 0); /* 0x120 */
     virtual UINT vf_128(); /* 0x128 */
     /* registered size 0x94 */
 };
@@ -21692,7 +21695,7 @@ struct UDistributionVectorUniform : public UDistributionVector {
     virtual UINT vf_110(); /* 0x110 */
     virtual UINT vf_114(INT); /* 0x114 */
     virtual INT vf_11c(INT, INT); /* 0x11c */
-    virtual FLOAT vf_120(INT, INT, INT, INT); /* 0x120 */
+    virtual FVector GetValue(FLOAT F = 0.f, UObject* Data = NULL, INT LastExtreme = 0); /* 0x120 */
     virtual void GetOutRange(FVector& MinOut, FVector& MaxOut); /* 0x124 */
     /* other member functions */
     void sub_005e59b0(); /* 0x005e59b0 */
@@ -21725,7 +21728,7 @@ struct UDistributionVectorUniformCurve : public UDistributionVector {
     virtual UINT vf_114(INT); /* 0x114 */
     virtual INT vf_118(); /* 0x118 */
     virtual INT vf_11c(INT, INT); /* 0x11c */
-    virtual FLOAT vf_120(INT, INT, INT, INT); /* 0x120 */
+    virtual FVector GetValue(FLOAT F = 0.f, UObject* Data = NULL, INT LastExtreme = 0); /* 0x120 */
     virtual void GetOutRange(FVector& MinOut, FVector& MaxOut); /* 0x124 */
     /* registered size 0x60 */
 };
@@ -24771,7 +24774,7 @@ struct UInterpTrack : public UObject, public FCurveEdInterface, public FInterpEd
     virtual INT vf_148(); /* 0x148 */
     virtual INT vf_14c(); /* 0x14c */
     virtual void vf_150(INT, INT); /* 0x150 */
-    virtual INT vf_154(INT, INT); /* 0x154 */
+    virtual FColor GetKeyframeColor(INT KeyIndex); /* 0x154 */
     virtual void vf_158(INT, INT, INT, INT, INT, INT); /* 0x158 */
     virtual void vf_15c(); /* 0x15c */
     /* overrides */
@@ -24799,7 +24802,7 @@ struct UInterpTrackFloatBase : public UInterpTrack {
     virtual void RemoveKeyframe(INT KeyIndex); /* 0x124 */
     virtual INT DuplicateKeyframe(INT KeyIndex, FLOAT NewKeyTime); /* 0x128 */
     virtual UBOOL GetClosestSnapPosition(FLOAT InPosition, TArray<INT>& IgnoreKeys, FLOAT& OutPosition); /* 0x12c */
-    virtual INT vf_154(INT, INT); /* 0x154 */
+    virtual FColor GetKeyframeColor(INT KeyIndex); /* 0x154 */
     /* other member functions */
     INT sub_00d218f0(); /* 0x00d218f0 */
     bool sub_00d21900(); /* 0x00d21900 */
@@ -24829,7 +24832,7 @@ struct UInterpTrackAnimControl : public UInterpTrackFloatBase {
     virtual FString vf_144(); /* 0x144 */
     virtual INT vf_148(); /* 0x148 */
     virtual void vf_150(INT, INT); /* 0x150 */
-    virtual INT vf_154(INT, INT); /* 0x154 */
+    virtual FColor GetKeyframeColor(INT KeyIndex); /* 0x154 */
     /* other member functions */
     UAnimSequence* sub_00d0fec0(FName InSequenceName); /* 0x00d0fec0 */
     /* registered size 0xb8 */
@@ -24854,7 +24857,7 @@ struct UInterpTrackVectorBase : public UInterpTrack {
     virtual void RemoveKeyframe(INT KeyIndex); /* 0x124 */
     virtual INT DuplicateKeyframe(INT KeyIndex, FLOAT NewKeyTime); /* 0x128 */
     virtual UBOOL GetClosestSnapPosition(FLOAT InPosition, TArray<INT>& IgnoreKeys, FLOAT& OutPosition); /* 0x12c */
-    virtual INT vf_154(INT, INT); /* 0x154 */
+    virtual FColor GetKeyframeColor(INT KeyIndex); /* 0x154 */
     /* other member functions */
     INT sub_00d21910(); /* 0x00d21910 */
     bool sub_00d219c0(); /* 0x00d219c0 */
@@ -25430,7 +25433,7 @@ struct UInterpTrackMove : public UInterpTrack {
     virtual void vf_138(FLOAT NewPosition, class UInterpTrackInst* TrInst); /* 0x138 */
     virtual INT vf_148(); /* 0x148 */
     virtual void vf_150(INT, INT); /* 0x150 */
-    virtual INT vf_154(INT, INT); /* 0x154 */
+    virtual FColor GetKeyframeColor(INT KeyIndex); /* 0x154 */
     virtual void vf_158(INT, INT, INT, INT, INT, INT); /* 0x158 */
     virtual void vf_15c(); /* 0x15c */
     /* registered size 0x140 */
@@ -25778,7 +25781,7 @@ struct ULadderReachSpec : public UReachSpec {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual INT CostFor(class APawn* P); /* 0x10c */
-    virtual FColor PathColor(); /* 0x128 */
+    virtual FLinearColor PathColor(); /* 0x128 */
     /* registered size 0x90 */
 };
 
@@ -28036,7 +28039,7 @@ struct UMaterialInstance : public UMaterialInterface {
     virtual UBOOL IsDependent(class UMaterialInterface* TestDependency); /* 0x134 */
     virtual UINT GetRenderProxy(INT); /* 0x138 */
     virtual class UPhysicalMaterial* GetPhysicalMaterial(); /* 0x13c */
-    virtual void GetTextures(INT, INT); /* 0x140 */
+    virtual void GetTextures(TArray<class UTexture*>& OutTextures, UBOOL bOnlyAddOnce = TRUE); /* 0x140 */
     virtual INT CheckMaterialUsage(INT); /* 0x144 */
     virtual UINT AllocateResource(); /* 0x148 */
     virtual INT vf_14c(INT); /* 0x14c */
@@ -32665,7 +32668,7 @@ struct UProscribedReachSpec : public UReachSpec {
     virtual bool vf_004(); /* 0x004 */
     virtual INT CostFor(class APawn* P); /* 0x10c */
     virtual INT vf_120(); /* 0x120 */
-    virtual FColor PathColor(); /* 0x128 */
+    virtual FLinearColor PathColor(); /* 0x128 */
     /* registered size 0x90 */
 };
 
@@ -36570,9 +36573,9 @@ struct ASkeletalMeshActorMAT : public ASkeletalMeshActor {
     DECLARE_CLASS(ASkeletalMeshActorMAT, ASkeletalMeshActor, 0x0, 0x0, Engine)
     TArrayNoInit<class UAnimNodeSlot*> SlotNodes; /* 0x1e8 */
     /* virtual functions this class introduces (vtable 0x01f88cf8) */
-    virtual void MAT_BeginAnimControl(INT); /* 0x354 */
+    virtual void MAT_BeginAnimControl(const TArray<class UAnimSet*>& InAnimSets); /* 0x354 */
     virtual void MAT_SetAnimPosition(FName SlotName, INT ChannelIndex, FName InAnimSeqName, FLOAT InPosition, UBOOL bFireNotifies, UBOOL bLooping); /* 0x358 */
-    virtual INT MAT_SetAnimWeights(INT); /* 0x35c */
+    virtual void MAT_SetAnimWeights(const TArray<FAnimSlotInfo>& SlotInfos); /* 0x35c */
     virtual INT vf_360(); /* 0x360 */
     virtual void MAT_SetMorphWeight(FName MorphNodeName, FLOAT MorphWeight); /* 0x364 */
     virtual void MAT_SetSkelControlScale(FName SkelControlName, FLOAT Scale); /* 0x368 */
@@ -36943,7 +36946,7 @@ struct USoundNodeWave : public USoundNode {
     virtual FString GetDesc(); /* 0x0b8 */
     virtual FString GetDetailedDescription(INT InIndex); /* 0x0bc */
     virtual INT vf_0d4(); /* 0x0d4 */
-    virtual INT vf_0d8(INT); /* 0x0d8 */
+    virtual FName GetExporterName(); /* 0x0d8 */
     virtual INT vf_0dc(); /* 0x0dc */
     virtual FLOAT vf_114(); /* 0x114 */
     virtual void vf_11c(INT, INT, INT, INT, INT); /* 0x11c */
@@ -40053,7 +40056,7 @@ struct UOnlineGameInterfaceImpl : public UObject {
     virtual UBOOL GetResolvedConnectString(FName SessionName, FString& ConnectInfo); /* 0x124 */
     virtual UBOOL StartOnlineGame(FName SessionName); /* 0x128 */
     virtual UBOOL EndOnlineGame(FName SessionName); /* 0x12c */
-    virtual void ReadPlatformSpecificSessionInfo(INT, INT); /* 0x130 */
+    virtual UBOOL ReadPlatformSpecificSessionInfo(const FOnlineGameSearchResult& DesiredGame, BYTE* PlatformSpecificInfo); /* 0x130 */
     virtual UBOOL BindPlatformSpecificSessionToSearch(BYTE SearchingPlayerNum, class UOnlineGameSearch* SearchSettings, const BYTE* PlatformSpecificInfo); /* 0x134 */
     virtual INT vf_138(FLOAT); /* 0x138 */
     virtual INT vf_13c(); /* 0x13c */
@@ -40704,7 +40707,7 @@ struct URForcedReachSpec : public URReachSpec {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual INT vf_11c(); /* 0x11c */
-    virtual FColor PathColor(); /* 0x128 */
+    virtual FLinearColor PathColor(); /* 0x128 */
     /* registered size 0x9c */
 };
 
@@ -48020,7 +48023,7 @@ struct URBMSpecialMove_ReachSpec : public URReachSpec {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual FColor PathColor(); /* 0x128 */
+    virtual FLinearColor PathColor(); /* 0x128 */
     /* registered size 0x9c */
 };
 
@@ -62013,10 +62016,10 @@ struct UProperty : public UField {
         struct { INT ArrayDim; INT ElementSize; QWORD PropertyFlags; BYTE _property_tail[0x28]; };
     };
     /* virtual functions this class introduces (vtable 0x01ea6c00) */
-    virtual INT GetCPPMacroType(INT, INT); /* 0x11c */
-    virtual INT GetCPPType(INT, INT, INT); /* 0x120 */
+    virtual FString GetCPPMacroType(FString& ExtendedTypeText) const; /* 0x11c */
+    virtual FString GetCPPType(FString* ExtendedTypeText = NULL, DWORD CPPExportFlags = 0) const; /* 0x120 */
     virtual INT vf_124(INT, INT); /* 0x124 */
-    virtual INT Identical(INT, INT, INT); /* 0x128 */
+    virtual UBOOL Identical(const void* A, const void* B, DWORD PortFlags = 0) const; /* 0x128 */
     virtual void SerializeItem(FArchive& Ar, void* Value, INT MaxReadBytes, void* Defaults) const; /* 0x12c */
     virtual INT vf_130(INT, INT, INT); /* 0x130 */
     virtual void ExportTextItem(UINT, UINT, UINT, UINT, UINT); /* 0x134 */
@@ -62054,10 +62057,10 @@ struct UArrayProperty : public UProperty {
     virtual bool vf_004(); /* 0x004 */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual void AddCppProperty(INT); /* 0x10c */
-    virtual INT GetCPPMacroType(INT, INT); /* 0x11c */
-    virtual INT GetCPPType(INT, INT, INT); /* 0x120 */
+    virtual FString GetCPPMacroType(FString& ExtendedTypeText) const; /* 0x11c */
+    virtual FString GetCPPType(FString* ExtendedTypeText = NULL, DWORD CPPExportFlags = 0) const; /* 0x120 */
     virtual INT vf_124(INT, INT); /* 0x124 */
-    virtual INT Identical(INT, INT, INT); /* 0x128 */
+    virtual UBOOL Identical(const void* A, const void* B, DWORD PortFlags = 0) const; /* 0x128 */
     virtual void SerializeItem(FArchive& Ar, void* Value, INT MaxReadBytes, void* Defaults) const; /* 0x12c */
     virtual INT vf_130(INT, INT, INT); /* 0x130 */
     virtual void ExportTextItem(UINT, UINT, UINT, UINT, UINT); /* 0x134 */
@@ -62649,10 +62652,10 @@ struct UBoolProperty : public UProperty {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
-    virtual INT GetCPPMacroType(INT, INT); /* 0x11c */
-    virtual INT GetCPPType(INT, INT, INT); /* 0x120 */
+    virtual FString GetCPPMacroType(FString& ExtendedTypeText) const; /* 0x11c */
+    virtual FString GetCPPType(FString* ExtendedTypeText = NULL, DWORD CPPExportFlags = 0) const; /* 0x120 */
     virtual INT vf_124(INT, INT); /* 0x124 */
-    virtual INT Identical(INT, INT, INT); /* 0x128 */
+    virtual UBOOL Identical(const void* A, const void* B, DWORD PortFlags = 0) const; /* 0x128 */
     virtual void SerializeItem(FArchive& Ar, void* Value, INT MaxReadBytes, void* Defaults) const; /* 0x12c */
     virtual INT vf_130(INT, INT, INT); /* 0x130 */
     virtual void ExportTextItem(UINT, UINT, UINT, UINT, UINT); /* 0x134 */
@@ -62745,10 +62748,10 @@ struct UByteProperty : public UProperty {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
-    virtual INT GetCPPMacroType(INT, INT); /* 0x11c */
-    virtual INT GetCPPType(INT, INT, INT); /* 0x120 */
+    virtual FString GetCPPMacroType(FString& ExtendedTypeText) const; /* 0x11c */
+    virtual FString GetCPPType(FString* ExtendedTypeText = NULL, DWORD CPPExportFlags = 0) const; /* 0x120 */
     virtual INT vf_124(INT, INT); /* 0x124 */
-    virtual INT Identical(INT, INT, INT); /* 0x128 */
+    virtual UBOOL Identical(const void* A, const void* B, DWORD PortFlags = 0) const; /* 0x128 */
     virtual void SerializeItem(FArchive& Ar, void* Value, INT MaxReadBytes, void* Defaults) const; /* 0x12c */
     virtual INT vf_130(INT, INT, INT); /* 0x130 */
     virtual void ExportTextItem(UINT, UINT, UINT, UINT, UINT); /* 0x134 */
@@ -63341,10 +63344,10 @@ struct UObjectProperty : public UProperty {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
-    virtual INT GetCPPMacroType(INT, INT); /* 0x11c */
-    virtual INT GetCPPType(INT, INT, INT); /* 0x120 */
+    virtual FString GetCPPMacroType(FString& ExtendedTypeText) const; /* 0x11c */
+    virtual FString GetCPPType(FString* ExtendedTypeText = NULL, DWORD CPPExportFlags = 0) const; /* 0x120 */
     virtual INT vf_124(INT, INT); /* 0x124 */
-    virtual INT Identical(INT, INT, INT); /* 0x128 */
+    virtual UBOOL Identical(const void* A, const void* B, DWORD PortFlags = 0) const; /* 0x128 */
     virtual void SerializeItem(FArchive& Ar, void* Value, INT MaxReadBytes, void* Defaults) const; /* 0x12c */
     virtual INT vf_130(INT, INT, INT); /* 0x130 */
     virtual void ExportTextItem(UINT, UINT, UINT, UINT, UINT); /* 0x134 */
@@ -63374,7 +63377,7 @@ struct UClassProperty : public UObjectProperty {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
-    virtual INT GetCPPMacroType(INT, INT); /* 0x11c */
+    virtual FString GetCPPMacroType(FString& ExtendedTypeText) const; /* 0x11c */
     virtual INT ImportText(INT, INT, INT, INT, INT); /* 0x138 */
     virtual INT GetPropertyValue(INT, INT); /* 0x13c */
     virtual UINT SetPropertyValue(UINT*, INT*); /* 0x140 */
@@ -63466,7 +63469,7 @@ struct UComponentProperty : public UObjectProperty {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT Identical(INT, INT, INT); /* 0x128 */
+    virtual UBOOL Identical(const void* A, const void* B, DWORD PortFlags = 0) const; /* 0x128 */
     virtual void ExportTextItem(UINT, UINT, UINT, UINT, UINT); /* 0x134 */
     virtual INT ImportText(INT, INT, INT, INT, INT); /* 0x138 */
     virtual INT GetPropertyValue(INT, INT); /* 0x13c */
@@ -63926,10 +63929,10 @@ struct UDelegateProperty : public UProperty {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
-    virtual INT GetCPPMacroType(INT, INT); /* 0x11c */
-    virtual INT GetCPPType(INT, INT, INT); /* 0x120 */
+    virtual FString GetCPPMacroType(FString& ExtendedTypeText) const; /* 0x11c */
+    virtual FString GetCPPType(FString* ExtendedTypeText = NULL, DWORD CPPExportFlags = 0) const; /* 0x120 */
     virtual INT vf_124(INT, INT); /* 0x124 */
-    virtual INT Identical(INT, INT, INT); /* 0x128 */
+    virtual UBOOL Identical(const void* A, const void* B, DWORD PortFlags = 0) const; /* 0x128 */
     virtual void SerializeItem(FArchive& Ar, void* Value, INT MaxReadBytes, void* Defaults) const; /* 0x12c */
     virtual INT vf_130(INT, INT, INT); /* 0x130 */
     virtual void ExportTextItem(UINT, UINT, UINT, UINT, UINT); /* 0x134 */
@@ -64730,10 +64733,10 @@ struct UFloatProperty : public UProperty {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT GetCPPMacroType(INT, INT); /* 0x11c */
-    virtual INT GetCPPType(INT, INT, INT); /* 0x120 */
+    virtual FString GetCPPMacroType(FString& ExtendedTypeText) const; /* 0x11c */
+    virtual FString GetCPPType(FString* ExtendedTypeText = NULL, DWORD CPPExportFlags = 0) const; /* 0x120 */
     virtual INT vf_124(INT, INT); /* 0x124 */
-    virtual INT Identical(INT, INT, INT); /* 0x128 */
+    virtual UBOOL Identical(const void* A, const void* B, DWORD PortFlags = 0) const; /* 0x128 */
     virtual void SerializeItem(FArchive& Ar, void* Value, INT MaxReadBytes, void* Defaults) const; /* 0x12c */
     virtual INT vf_130(INT, INT, INT); /* 0x130 */
     virtual void ExportTextItem(UINT, UINT, UINT, UINT, UINT); /* 0x134 */
@@ -65887,10 +65890,10 @@ struct UIntProperty : public UProperty {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT GetCPPMacroType(INT, INT); /* 0x11c */
-    virtual INT GetCPPType(INT, INT, INT); /* 0x120 */
+    virtual FString GetCPPMacroType(FString& ExtendedTypeText) const; /* 0x11c */
+    virtual FString GetCPPType(FString* ExtendedTypeText = NULL, DWORD CPPExportFlags = 0) const; /* 0x120 */
     virtual INT vf_124(INT, INT); /* 0x124 */
-    virtual INT Identical(INT, INT, INT); /* 0x128 */
+    virtual UBOOL Identical(const void* A, const void* B, DWORD PortFlags = 0) const; /* 0x128 */
     virtual void SerializeItem(FArchive& Ar, void* Value, INT MaxReadBytes, void* Defaults) const; /* 0x12c */
     virtual INT vf_130(INT, INT, INT); /* 0x130 */
     virtual void ExportTextItem(UINT, UINT, UINT, UINT, UINT); /* 0x134 */
@@ -65914,10 +65917,10 @@ struct UInterfaceProperty : public UProperty {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
-    virtual INT GetCPPMacroType(INT, INT); /* 0x11c */
-    virtual INT GetCPPType(INT, INT, INT); /* 0x120 */
+    virtual FString GetCPPMacroType(FString& ExtendedTypeText) const; /* 0x11c */
+    virtual FString GetCPPType(FString* ExtendedTypeText = NULL, DWORD CPPExportFlags = 0) const; /* 0x120 */
     virtual INT vf_124(INT, INT); /* 0x124 */
-    virtual INT Identical(INT, INT, INT); /* 0x128 */
+    virtual UBOOL Identical(const void* A, const void* B, DWORD PortFlags = 0) const; /* 0x128 */
     virtual void SerializeItem(FArchive& Ar, void* Value, INT MaxReadBytes, void* Defaults) const; /* 0x12c */
     virtual INT vf_130(INT, INT, INT); /* 0x130 */
     virtual void ExportTextItem(UINT, UINT, UINT, UINT, UINT); /* 0x134 */
@@ -66632,10 +66635,10 @@ struct UMapProperty : public UProperty {
     virtual bool vf_004(); /* 0x004 */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual void AddCppProperty(INT); /* 0x10c */
-    virtual INT GetCPPMacroType(INT, INT); /* 0x11c */
-    virtual INT GetCPPType(INT, INT, INT); /* 0x120 */
+    virtual FString GetCPPMacroType(FString& ExtendedTypeText) const; /* 0x11c */
+    virtual FString GetCPPType(FString* ExtendedTypeText = NULL, DWORD CPPExportFlags = 0) const; /* 0x120 */
     virtual INT vf_124(INT, INT); /* 0x124 */
-    virtual INT Identical(INT, INT, INT); /* 0x128 */
+    virtual UBOOL Identical(const void* A, const void* B, DWORD PortFlags = 0) const; /* 0x128 */
     virtual void SerializeItem(FArchive& Ar, void* Value, INT MaxReadBytes, void* Defaults) const; /* 0x12c */
     virtual INT vf_130(INT, INT, INT); /* 0x130 */
     virtual void ExportTextItem(UINT, UINT, UINT, UINT, UINT); /* 0x134 */
@@ -66986,10 +66989,10 @@ struct UNameProperty : public UProperty {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT GetCPPMacroType(INT, INT); /* 0x11c */
-    virtual INT GetCPPType(INT, INT, INT); /* 0x120 */
+    virtual FString GetCPPMacroType(FString& ExtendedTypeText) const; /* 0x11c */
+    virtual FString GetCPPType(FString* ExtendedTypeText = NULL, DWORD CPPExportFlags = 0) const; /* 0x120 */
     virtual INT vf_124(INT, INT); /* 0x124 */
-    virtual INT Identical(INT, INT, INT); /* 0x128 */
+    virtual UBOOL Identical(const void* A, const void* B, DWORD PortFlags = 0) const; /* 0x128 */
     virtual void SerializeItem(FArchive& Ar, void* Value, INT MaxReadBytes, void* Defaults) const; /* 0x12c */
     virtual void ExportTextItem(UINT, UINT, UINT, UINT, UINT); /* 0x134 */
     virtual INT ImportText(INT, INT, INT, INT, INT); /* 0x138 */
@@ -69529,10 +69532,10 @@ struct UStrProperty : public UProperty {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
-    virtual INT GetCPPMacroType(INT, INT); /* 0x11c */
-    virtual INT GetCPPType(INT, INT, INT); /* 0x120 */
+    virtual FString GetCPPMacroType(FString& ExtendedTypeText) const; /* 0x11c */
+    virtual FString GetCPPType(FString* ExtendedTypeText = NULL, DWORD CPPExportFlags = 0) const; /* 0x120 */
     virtual INT vf_124(INT, INT); /* 0x124 */
-    virtual INT Identical(INT, INT, INT); /* 0x128 */
+    virtual UBOOL Identical(const void* A, const void* B, DWORD PortFlags = 0) const; /* 0x128 */
     virtual void SerializeItem(FArchive& Ar, void* Value, INT MaxReadBytes, void* Defaults) const; /* 0x12c */
     virtual void ExportTextItem(UINT, UINT, UINT, UINT, UINT); /* 0x134 */
     virtual INT ImportText(INT, INT, INT, INT, INT); /* 0x138 */
@@ -69592,10 +69595,10 @@ struct UStructProperty : public UProperty {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
-    virtual INT GetCPPMacroType(INT, INT); /* 0x11c */
-    virtual INT GetCPPType(INT, INT, INT); /* 0x120 */
+    virtual FString GetCPPMacroType(FString& ExtendedTypeText) const; /* 0x11c */
+    virtual FString GetCPPType(FString* ExtendedTypeText = NULL, DWORD CPPExportFlags = 0) const; /* 0x120 */
     virtual INT vf_124(INT, INT); /* 0x124 */
-    virtual INT Identical(INT, INT, INT); /* 0x128 */
+    virtual UBOOL Identical(const void* A, const void* B, DWORD PortFlags = 0) const; /* 0x128 */
     virtual void SerializeItem(FArchive& Ar, void* Value, INT MaxReadBytes, void* Defaults) const; /* 0x12c */
     virtual INT vf_130(INT, INT, INT); /* 0x130 */
     virtual void ExportTextItem(UINT, UINT, UINT, UINT, UINT); /* 0x134 */

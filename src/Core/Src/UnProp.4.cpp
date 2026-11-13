@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x0062ada0
-INT UObjectProperty::Identical(INT A, INT B, INT PortFlags)
+UBOOL UObjectProperty::Identical(const void* A, const void* B, DWORD PortFlags) const
 {
     UObject* ObjectA = A ? *(UObject**)A : NULL;
     UObject* ObjectB = B ? *(UObject**)B : NULL;
@@ -407,7 +407,7 @@ INT UByteProperty::HasValue(INT Data, INT PortFlags)
 }
 
 // @baa 0x0062a970
-INT UIntProperty::Identical(INT A, INT B, INT PortFlags)
+UBOOL UIntProperty::Identical(const void* A, const void* B, DWORD PortFlags) const
 {
 	return *(INT*)A == (B ? *(INT*)B : 0);
 }
@@ -605,7 +605,7 @@ INT UProperty::vf_130(INT Ar, INT Map, INT Data)
 }
 
 // @baa 0x0062aca0
-INT UFloatProperty::Identical(INT A, INT B, INT PortFlags)
+UBOOL UFloatProperty::Identical(const void* A, const void* B, DWORD PortFlags) const
 {
 	return *(FLOAT*)A == (B ? *(FLOAT*)B : 0.f);
 }
@@ -640,7 +640,7 @@ inline UObject* GetObject(const FScriptInterface& I) { return I.Object; }
 inline void* GetInterface(const FScriptInterface& I) { return I.Object ? I.Interface : NULL; }
 
 // @baa 0x0062e760
-INT UInterfaceProperty::Identical(INT A, INT B, INT PortFlags)
+UBOOL UInterfaceProperty::Identical(const void* A, const void* B, DWORD PortFlags) const
 {
 	FScriptInterface* InterfaceA = (FScriptInterface*)A;
 	FScriptInterface* InterfaceB = (FScriptInterface*)B;

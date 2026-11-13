@@ -11,7 +11,7 @@ UINT UMaterialInterface::GetRenderProxy(INT)
 }
 
 // @baa 0x00663610
-void UMaterialInterface::GetTextures(INT, INT)
+void UMaterialInterface::GetTextures(TArray<UTexture*>& OutTextures, UBOOL bOnlyAddOnce)
 {
     PURE_VIRTUAL(UMaterial::GetTextures, );
 }

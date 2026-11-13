@@ -70612,7 +70612,7 @@
     {
      "va": "0062ada0",
      "size": 50,
-     "symbol": "?Identical@UObjectProperty@@UAEHHHH@Z"
+     "symbol": "?Identical@UObjectProperty@@UBEHPBX0K@Z"
     },
     {
      "va": "0062b180",
@@ -70832,7 +70832,7 @@
     {
      "va": "0062a970",
      "size": 44,
-     "symbol": "?Identical@UIntProperty@@UAEHHHH@Z"
+     "symbol": "?Identical@UIntProperty@@UBEHPBX0K@Z"
     },
     {
      "va": "0062a9a0",
@@ -70947,7 +70947,7 @@
     {
      "va": "0062aca0",
      "size": 47,
-     "symbol": "?Identical@UFloatProperty@@UAEHHHH@Z"
+     "symbol": "?Identical@UFloatProperty@@UBEHPBX0K@Z"
     },
     {
      "va": "0062acd0",
@@ -70962,7 +70962,7 @@
     {
      "va": "0062e760",
      "size": 77,
-     "symbol": "?Identical@UInterfaceProperty@@UAEHHHH@Z"
+     "symbol": "?Identical@UInterfaceProperty@@UBEHPBX0K@Z"
     },
     {
      "va": "0062e800",
@@ -71139,7 +71139,7 @@
     {
      "va": "0062b310",
      "size": 8,
-     "symbol": "?Identical@UMapProperty@@UAEHHHH@Z"
+     "symbol": "?Identical@UMapProperty@@UBEHPBX0K@Z"
     },
     {
      "va": "0062b320",
@@ -82755,7 +82755,7 @@
     {
      "va": "00600550",
      "size": 29,
-     "symbol": "?Identical@UProperty@@UAEHHHH@Z"
+     "symbol": "?Identical@UProperty@@UBEHPBX0K@Z"
     },
     {
      "va": "006004d0",
@@ -180785,7 +180785,7 @@
     {
      "va": "00663610",
      "size": 27,
-     "symbol": "?GetTextures@UMaterialInterface@@UAEXHH@Z"
+     "symbol": "?GetTextures@UMaterialInterface@@UAEXAAV?$TArray@PAUUTexture@@@@H@Z"
     },
     {
      "va": "00663690",

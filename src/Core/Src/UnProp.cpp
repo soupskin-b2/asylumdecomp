@@ -164,7 +164,7 @@ int UArrayProperty::vf_130(int a0, int a1, int a2) { return 1; }
 UINT UMapProperty::vf_168() { return 4; }
 
 // @baa 0x0062b310
-int UMapProperty::Identical(int a0, int a1, int a2) { return 1; }
+UBOOL UMapProperty::Identical(const void* A, const void* B, DWORD PortFlags) const { return 1; }
 
 // @baa 0x0062b320
 void __stdcall sub_0062b320(int a0, int a1, int a2, int a3) {  }
@@ -597,7 +597,7 @@ struct UProperty_ : public UProperty {
     UBOOL Matches(BYTE* A, BYTE* B, INT ArrayIndex, DWORD PortFlags)
     {
         INT Ofs = ArrayIndex * GetElementSize() + GetOffset();
-        return Identical((INT)(A + Ofs), (INT)(B ? B + Ofs : NULL), PortFlags);
+        return Identical(A + Ofs, B ? B + Ofs : NULL, PortFlags);
     }
     UBOOL sub_0062ddd0(INT Index, FString& ValueStr, BYTE* Data, BYTE* Delta, UObject* Parent, INT PortFlags);
 };

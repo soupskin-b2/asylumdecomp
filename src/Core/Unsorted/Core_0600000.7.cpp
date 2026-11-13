@@ -42,7 +42,7 @@ void UProperty::ClearValue(BYTE* Data, DWORD ArrayDim)
 }
 
 // @baa 0x00600550
-INT UProperty::Identical(INT A, INT B, INT Property)
+UBOOL UProperty::Identical(const void* A, const void* B, DWORD Property) const
 {
 	PURE_VIRTUAL(UProperty::Identical, return 0;);
 }
