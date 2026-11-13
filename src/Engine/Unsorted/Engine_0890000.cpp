@@ -1,4 +1,4 @@
-// Engine_0890000.cpp (part 1 of 2): 86 functions
+// Engine_0890000.cpp (part 1 of 2): 87 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1051,3 +1051,8 @@ struct C_0089f2c0 { C_0089f2c0* sub_0089f2c0(void); };
 
 // @baa 0x0089f2c0
 C_0089f2c0* C_0089f2c0::sub_0089f2c0(void) { return this; }
+
+// @baa 0x00891730
+// Explicit instantiation of TArray<ULocalPlayer*>::FindItemIndex (0x00891730):
+// the out-of-line copy the engine's GamePlayers lookups share.
+template INT TArray<class ULocalPlayer*>::FindItemIndex(class ULocalPlayer* const& Item) const;

@@ -1,4 +1,4 @@
-// DecalComponent.cpp (part 1 of 3): 33 functions
+// DecalComponent.cpp (part 1 of 3): 34 functions
 // Placed here by: class 13, neighbours 11, callers 5, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -332,4 +332,30 @@ void UDecalComponent::UpdateTransform()
 		}
 		bHasBeenAttached = TRUE;
 	}
+}
+
+struct UPrimitiveComponent_ : public UPrimitiveComponent
+{
+	void DetachDecal(UDecalComponent* Decal); /* 0x006eff50 */
+};
+
+struct UDecalComponent_ : public UDecalComponent
+{
+	void ReleaseResources(UBOOL bBlockOnRelease, UPrimitiveComponent* Receiver); /* 0x0069a270 */
+};
+
+// @baa 0x0069ba80
+/* DecalComponent.cpp: DetachFromReceivers. Detaches the decal from every receiver, then frees the receiver render data. */
+void UDecalComponent::sub_0069ba80()
+{
+	for (INT ReceiverIndex = 0; ReceiverIndex < DecalReceivers.Num(); ReceiverIndex++)
+	{
+		FDecalReceiver& Receiver = DecalReceivers(ReceiverIndex);
+		if (Receiver.Component)
+		{
+			((UPrimitiveComponent_*)Receiver.Component)->DetachDecal(this);
+			Receiver.Component = NULL;
+		}
+	}
+	((UDecalComponent_*)this)->ReleaseResources(FALSE, NULL);
 }

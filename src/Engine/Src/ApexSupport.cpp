@@ -1,4 +1,4 @@
-// ApexSupport.cpp (part 1 of 4): 171 functions
+// ApexSupport.cpp (part 1 of 4): 172 functions
 // Placed here by: neighbours 103, class 30, file 12, callers 10.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1381,4 +1381,15 @@ UBOOL UApexComponentBase::IsReadyForFinishDestroy()
 UMaterialInterface* UApexDestructibleAsset::GetMaterial(INT MaterialIndex)
 {
 	return Materials(MaterialIndex);
+}
+
+// @baa 0x009d7460
+/* The asset's material. */
+UMaterialInterface* UApexComponentBase::GetMaterial(INT ElementIndex)
+{
+	if (Asset)
+	{
+		return Asset->GetMaterial(ElementIndex);
+	}
+	return NULL;
 }

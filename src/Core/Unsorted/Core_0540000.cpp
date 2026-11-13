@@ -1,4 +1,4 @@
-// Core_0540000.cpp (part 1 of 2): 198 functions
+// Core_0540000.cpp (part 1 of 2): 199 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -1707,4 +1707,20 @@ INT TArray_FName_::sub_00546020(const FName& Item) const
 		}
 	}
 	return INDEX_NONE;
+}
+
+/* Destroys Count strings of a TArray<FString> starting at Index (the destructor loop of
+ * TArray::Remove, out of line). */
+struct TArray_FString_ : public TArray<FString>
+{
+	void sub_0054f0e0(INT Index, INT Count); /* 0x0054f0e0 */
+};
+
+// @baa 0x0054f0e0
+void TArray_FString_::sub_0054f0e0(INT Index, INT Count)
+{
+	for (INT i = Index; i < Index + Count; i++)
+	{
+		(&(*this)(i))->~FString();
+	}
 }

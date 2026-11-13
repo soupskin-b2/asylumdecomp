@@ -1,4 +1,4 @@
-// UnPhysConstraint.cpp (part 1 of 2): 153 functions
+// UnPhysConstraint.cpp (part 1 of 2): 154 functions
 // Placed here by: neighbours 110, class 15, file 11, callers 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1051,4 +1051,11 @@ bool URB_StayUprightSetup::vf_004()
 bool URB_DistanceJointSetup::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x00a45800
+/* TermRBPhys(Scene): tears down the constraint (without firing the broken event). */
+void ARB_ConstraintActor::vf_23c(INT Scene)
+{
+	ConstraintInstance->TermConstraint((FRBPhysScene*)Scene, FALSE);
 }

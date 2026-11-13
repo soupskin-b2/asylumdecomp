@@ -1,4 +1,4 @@
-// Engine_0800000.cpp: 3 functions
+// Engine_0800000.cpp: 5 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -68,5 +68,51 @@ void AActor_::eventPostTouch(AActor* Other)
 		} Parms;
 		Parms.Other = Other;
 		ProcessEvent(FindFunctionChecked(g_026c4030), &Parms);
+	}
+}
+
+extern FName g_026c4ce4;
+	/* ENGINE_Tick */
+/* Kit gap: the generated glue for Actor's script event Tick (EngineClasses.h) isn't declared; this build keeps it
+ * out of line (AActor::Tick calls it). Tick is a probe function. */
+struct AActor__00802950 : public AActor
+{
+	void eventTick(FLOAT DeltaTime);
+};
+
+// @baa 0x00802950
+void AActor__00802950::eventTick(FLOAT DeltaTime)
+{
+	if (!StateFrame || (StateFrame->ProbeMask & ((QWORD)1 << (NAME_Tick - NAME_PROBEMIN))))
+	{
+		struct Actor_eventTick_Parms
+		{
+			FLOAT DeltaTime;
+		} Parms;
+		Parms.DeltaTime = DeltaTime;
+		ProcessEvent(FindFunctionChecked(g_026c4ce4), &Parms);
+	}
+}
+
+extern FName g_026c5204;
+	/* ENGINE_PlayerTick */
+/* Kit gap: the generated glue for PlayerController's script event PlayerTick (EngineClasses.h) isn't declared;
+ * this build keeps it out of line. PlayerTick is a probe function. */
+struct APlayerController_ : public APlayerController
+{
+	void eventPlayerTick(FLOAT DeltaTime);
+};
+
+// @baa 0x00802c10
+void APlayerController_::eventPlayerTick(FLOAT DeltaTime)
+{
+	if (!StateFrame || (StateFrame->ProbeMask & ((QWORD)1 << (NAME_PlayerTick - NAME_PROBEMIN))))
+	{
+		struct PlayerController_eventPlayerTick_Parms
+		{
+			FLOAT DeltaTime;
+		} Parms;
+		Parms.DeltaTime = DeltaTime;
+		ProcessEvent(FindFunctionChecked(g_026c5204), &Parms);
 	}
 }

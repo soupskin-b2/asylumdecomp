@@ -1,4 +1,4 @@
-// Engine_0770000.cpp (part 1 of 55): 243 functions
+// Engine_0770000.cpp (part 1 of 55): 244 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1165,4 +1165,14 @@ bool AInternetInfo::vf_004()
 bool AAIController::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// @baa 0x00776440
+/* Keeps the largest landing speed seen (velocities are negative going down). */
+void AScout::vf_400(FLOAT ZVelocity)
+{
+	if (-ZVelocity > MaxLandingVelocity)
+	{
+		MaxLandingVelocity = -ZVelocity;
+	}
 }

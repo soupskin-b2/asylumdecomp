@@ -1,4 +1,4 @@
-// RPlayerController.cpp: 43 functions
+// RPlayerController.cpp: 46 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -567,4 +567,44 @@ void ARPlayerController::execGetVisitedPMapsList(FFrame& Stack, RESULT_DECL)
 	P_GET_TARRAY_REF(FString, Out);
 	P_FINISH;
 	GetVisitedPMapsList(Out);
+}
+
+extern FName g_026e2858;
+	/* BMGAME_GetPotentialTargets */
+/* Kit gap: the generated glue for RBMRouteRequest_NervousSearch's script event GetPotentialTargets (BmGameClasses.h) isn't declared; this build keeps it out of line. */
+struct ARBMRouteRequest_NervousSearch__0160e090 : public ARBMRouteRequest_NervousSearch
+{
+	void eventGetPotentialTargets();
+};
+
+// @baa 0x0160e090
+void ARBMRouteRequest_NervousSearch__0160e090::eventGetPotentialTargets()
+{
+	ProcessEvent(FindFunctionChecked(g_026e2858), NULL);
+}
+
+	/* BMGAME_GetPotentialTargets */
+/* Kit gap: the generated glue for RBMRouteRequest_RunAway's script event GetPotentialTargets (BmGameClasses.h) isn't declared; this build keeps it out of line. */
+struct ARBMRouteRequest_RunAway__0160e200 : public ARBMRouteRequest_RunAway
+{
+	void eventGetPotentialTargets();
+};
+
+// @baa 0x0160e200
+void ARBMRouteRequest_RunAway__0160e200::eventGetPotentialTargets()
+{
+	ProcessEvent(FindFunctionChecked(g_026e2858), NULL);
+}
+
+	/* BMGAME_GetPotentialTargets */
+/* Kit gap: the generated glue for RBMRouteRequest_TerrifiedSearch's script event GetPotentialTargets (BmGameClasses.h) isn't declared; this build keeps it out of line. */
+struct ARBMRouteRequest_TerrifiedSearch__0160e310 : public ARBMRouteRequest_TerrifiedSearch
+{
+	void eventGetPotentialTargets();
+};
+
+// @baa 0x0160e310
+void ARBMRouteRequest_TerrifiedSearch__0160e310::eventGetPotentialTargets()
+{
+	ProcessEvent(FindFunctionChecked(g_026e2858), NULL);
 }

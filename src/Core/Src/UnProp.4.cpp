@@ -1,4 +1,4 @@
-// UnProp.cpp: 42 functions
+// UnProp.cpp: 75 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -390,4 +390,297 @@ UINT __stdcall sub_0062aff0(UINT* Value, INT* InValue)
         bResult = 1;
     }
     return bResult;
+}
+
+// @baa 0x0062a7e0
+/* Whether the property is localized (CPF_Localized). */
+INT UProperty::vf_15c()
+{
+	return (PropertyFlags & 0x8000) ? TRUE : FALSE;
+}
+
+// @baa 0x0062a8a0
+/* Whether the byte is nonzero; with PPF_LocalizedOnly (0x80), only for localized properties. */
+INT UByteProperty::HasValue(INT Data, INT PortFlags)
+{
+	return ((PortFlags & 0x80) == 0 || vf_15c()) ? *(BYTE*)Data != 0 : 0;
+}
+
+// @baa 0x0062a970
+INT UIntProperty::Identical(INT A, INT B, INT PortFlags)
+{
+	return *(INT*)A == (B ? *(INT*)B : 0);
+}
+
+// @baa 0x0062a9a0
+/* Whether the int is nonzero; with PPF_LocalizedOnly (0x80), only for localized properties. */
+INT UIntProperty::HasValue(INT Data, INT PortFlags)
+{
+	return ((PortFlags & 0x80) == 0 || vf_15c()) ? *(INT*)Data != 0 : 0;
+}
+
+// @baa 0x0062a9d0
+/* Zeroes the int; with PPF_LocalizedOnly (0x80), only for localized properties. */
+void UIntProperty::ClearValue(BYTE* Data, DWORD PortFlags)
+{
+	if ((PortFlags & 0x80) == 0 || vf_15c())
+	{
+		*(INT*)Data = 0;
+	}
+}
+
+// @baa 0x0062aa50
+/* CopySingleValue: copies the delegate. */
+void UDelegateProperty::vf_144(INT* Dest, INT* Src, INT SubobjectRoot, INT DestOwnerObject, INT InstanceGraph)
+{
+	*(FScriptDelegate*)Dest = *(FScriptDelegate*)Src;
+}
+
+// @baa 0x0062aa90
+/* Writes the delegate the value points to into the property's storage. */
+UINT UDelegateProperty::SetPropertyValue(UINT* PropertyValueAddress, INT* Value)
+{
+	UINT bResult = FALSE;
+	if (PropertyValueAddress != NULL)
+	{
+		*(FScriptDelegate*)PropertyValueAddress = **(FScriptDelegate**)Value;
+		bResult = TRUE;
+	}
+	return bResult;
+}
+
+// @baa 0x0062ad10
+/* Zeroes the float; with PPF_LocalizedOnly (0x80), only for localized properties. */
+void UFloatProperty::ClearValue(BYTE* Data, DWORD PortFlags)
+{
+	if ((PortFlags & 0x80) == 0 || vf_15c())
+	{
+		*(FLOAT*)Data = 0.f;
+	}
+}
+
+// @baa 0x0062ade0
+void UObjectProperty::SerializeItem(FArchive& Ar, void* Value, INT MaxReadBytes, void* Defaults) const
+{
+	Ar << *(UObject**)Value;
+}
+
+// @baa 0x0062ae30
+/* Whether the reference is set; with PPF_LocalizedOnly (0x80), only for localized properties. */
+INT UObjectProperty::HasValue(INT Data, INT PortFlags)
+{
+	return ((PortFlags & 0x80) == 0 || vf_15c()) ? *(UObject**)Data != NULL : 0;
+}
+
+// @baa 0x0062ae60
+/* Clears the reference; with PPF_LocalizedOnly (0x80), only for localized properties. */
+void UObjectProperty::ClearValue(BYTE* Data, DWORD PortFlags)
+{
+	if ((PortFlags & 0x80) == 0 || vf_15c())
+	{
+		*(UObject**)Data = NULL;
+	}
+}
+
+// @baa 0x0062b050
+/* CopySingleValue: copies the interface reference. */
+void UInterfaceProperty::vf_144(INT* Dest, INT* Src, INT SubobjectRoot, INT DestOwnerObject, INT InstanceGraph)
+{
+	*(FScriptInterface*)Dest = *(FScriptInterface*)Src;
+}
+
+// @baa 0x0062b0d0
+/* Writes the interface reference the value points to into the property's storage. */
+UINT UInterfaceProperty::SetPropertyValue(UINT* PropertyValueAddress, INT* Value)
+{
+	UINT bResult = FALSE;
+	if (PropertyValueAddress != NULL)
+	{
+		*(FScriptInterface*)PropertyValueAddress = **(FScriptInterface**)Value;
+		bResult = TRUE;
+	}
+	return bResult;
+}
+
+// @baa 0x0062b110
+/* CopySingleValue: copies the name. */
+void UNameProperty::vf_144(INT* Dest, INT* Src, INT SubobjectRoot, INT DestOwnerObject, INT InstanceGraph)
+{
+	*(FName*)Dest = *(FName*)Src;
+}
+
+// @baa 0x0062b1c0
+/* Writes the name the value points to into the property's storage. */
+UINT UNameProperty::SetPropertyValue(UINT* PropertyValueAddress, INT* Value)
+{
+	UINT bResult = FALSE;
+	if (PropertyValueAddress != NULL)
+	{
+		*(FName*)PropertyValueAddress = **(FName**)Value;
+		bResult = TRUE;
+	}
+	return bResult;
+}
+
+// @baa 0x0062b740
+/* Whether the property has flag 0x400000 (CPF_Component). */
+INT UProperty::vf_170()
+{
+	return (PropertyFlags & 0x400000) ? TRUE : FALSE;
+}
+
+// @baa 0x0062e0e0
+void UIntProperty::SerializeItem(FArchive& Ar, void* Value, INT MaxReadBytes, void* Defaults) const
+{
+	Ar.ByteOrderSerialize(Value, sizeof(INT));
+}
+
+// @baa 0x0062e5e0
+void UFloatProperty::SerializeItem(FArchive& Ar, void* Value, INT MaxReadBytes, void* Defaults) const
+{
+	Ar.ByteOrderSerialize(Value, sizeof(FLOAT));
+}
+
+// @baa 0x0062e940
+/* Resets the name to NAME_None; with PPF_LocalizedOnly (0x80), only for localized properties. */
+void UNameProperty::ClearValue(BYTE* Data, DWORD PortFlags)
+{
+	if ((PortFlags & 0x80) == 0 || vf_15c())
+	{
+		*(FName*)Data = NAME_None;
+	}
+}
+
+// @baa 0x0062e370
+void UDelegateProperty::SerializeItem(FArchive& Ar, void* Value, INT MaxReadBytes, void* Defaults) const
+{
+	Ar << ((FScriptDelegate*)Value)->Object << ((FScriptDelegate*)Value)->FunctionName;
+}
+
+// @baa 0x0062e3a0
+/* NetSerializeItem(Ar, Map, Data): the delegate goes over the wire as its object and function name. */
+INT UDelegateProperty::vf_130(INT Ar, INT Map, INT Data)
+{
+	*(FArchive*)Ar << ((FScriptDelegate*)Data)->Object << ((FScriptDelegate*)Data)->FunctionName;
+	return 1;
+}
+
+// @baa 0x0062e440
+/* Clears the delegate; with PPF_LocalizedOnly (0x80), only for localized properties. */
+void UDelegateProperty::ClearValue(BYTE* Data, DWORD PortFlags)
+{
+	if ((PortFlags & 0x80) == 0 || vf_15c())
+	{
+		((FScriptDelegate*)Data)->Object = NULL;
+		((FScriptDelegate*)Data)->FunctionName = NAME_None;
+	}
+}
+
+// @baa 0x00639310
+/* CopySingleValue: copies the string. */
+void UStrProperty::vf_144(INT* Dest, INT* Src, INT SubobjectRoot, INT DestOwnerObject, INT InstanceGraph)
+{
+	*(FString*)Dest = *(FString*)Src;
+}
+
+// @baa 0x006393f0
+/* Writes the string the value points to into the property's storage. */
+UINT UStrProperty::SetPropertyValue(UINT* PropertyValueAddress, INT* Value)
+{
+	UINT bResult = FALSE;
+	if (PropertyValueAddress != NULL)
+	{
+		*(FString*)PropertyValueAddress = **(FString**)Value;
+		bResult = TRUE;
+	}
+	return bResult;
+}
+
+// @baa 0x0062a7c0
+/* NetSerializeItem(Ar, Map, Data): plain serialization. */
+INT UProperty::vf_130(INT Ar, INT Map, INT Data)
+{
+	SerializeItem(*(FArchive*)Ar, (void*)Data, 0, NULL);
+	return 1;
+}
+
+// @baa 0x0062aca0
+INT UFloatProperty::Identical(INT A, INT B, INT PortFlags)
+{
+	return *(FLOAT*)A == (B ? *(FLOAT*)B : 0.f);
+}
+
+// @baa 0x0062acd0
+/* Whether the float is nonzero; with PPF_LocalizedOnly (0x80), only for localized properties. */
+INT UFloatProperty::HasValue(INT Data, INT PortFlags)
+{
+	return ((PortFlags & 0x80) == 0 || vf_15c()) ? *(FLOAT*)Data != 0.f : 0;
+}
+
+// @baa 0x0062b130
+/* CopyCompleteValue: copies every element of the name array. */
+void UNameProperty::vf_148(void* Dest, void* Src, UObject* SubobjectRoot, UObject* DestOwnerObject, FObjectInstancingGraph* InstanceGraph)
+{
+	if (ArrayDim == 1)
+	{
+		*(FName*)Dest = *(FName*)Src;
+	}
+	else
+	{
+		for (INT i = 0; i < ArrayDim; i++)
+		{
+			((FName*)Dest)[i] = ((FName*)Src)[i];
+		}
+	}
+}
+
+/* FScriptInterface's accessors (UnObjBas.h), which the kit's plain struct lacks */
+inline UObject* GetObject(const FScriptInterface& I) { return I.Object; }
+
+inline void* GetInterface(const FScriptInterface& I) { return I.Object ? I.Interface : NULL; }
+
+// @baa 0x0062e760
+INT UInterfaceProperty::Identical(INT A, INT B, INT PortFlags)
+{
+	FScriptInterface* InterfaceA = (FScriptInterface*)A;
+	FScriptInterface* InterfaceB = (FScriptInterface*)B;
+	if (InterfaceB == NULL)
+	{
+		return GetObject(*InterfaceA) == NULL;
+	}
+	return GetObject(*InterfaceA) == GetObject(*InterfaceB) && GetInterface(*InterfaceA) == GetInterface(*InterfaceB);
+}
+
+// @baa 0x0062e800
+/* Whether an interface is set; with PPF_LocalizedOnly (0x80), only for localized properties. */
+INT UInterfaceProperty::HasValue(INT Data, INT PortFlags)
+{
+	return ((PortFlags & 0x80) == 0 || vf_15c()) ? GetInterface(*(FScriptInterface*)Data) != NULL : 0;
+}
+
+// @baa 0x006305c0
+/* Whether the string is non-empty; with PPF_LocalizedOnly (0x80), only for localized properties. */
+INT UStrProperty::HasValue(INT Data, INT PortFlags)
+{
+	return ((PortFlags & 0x80) == 0 || vf_15c()) ? ((FString*)Data)->Len() > 0 : 0;
+}
+
+// @baa 0x006319b0
+/* Zeroes the byte; with PPF_LocalizedOnly (0x80), only for localized properties. */
+void UByteProperty::ClearValue(BYTE* Data, DWORD PortFlags)
+{
+#line 691 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Core\\Src\\UnProp.cpp"
+	check(Data);
+	if ((PortFlags & 0x80) == 0 || vf_15c())
+	{
+		*Data = 0;
+	}
+}
+
+#line 681 "candidate.cpp"
+
+// @baa 0x0062de80
+FName UProperty::GetID() const
+{
+	return GetClass()->GetFName();
 }

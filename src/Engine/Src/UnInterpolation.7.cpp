@@ -1,4 +1,4 @@
-// UnInterpolation.cpp: 8 functions
+// UnInterpolation.cpp: 10 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -149,4 +149,46 @@ FCurveEdInterface* sub_00d06e20(const FCurveEdEntry& Entry)
 	}
 
 	return NULL;
+}
+
+extern template APlayerController* Cast<APlayerController>(UObject* Src);
+/* Unnamed in the kit: UE3's UInterpTrackSoundFade::GetSoundFadeAmountAtTime(FLOAT Time). */
+struct UInterpTrackSoundFade_ : public UInterpTrackSoundFade
+{
+    FLOAT sub_00cfbe50(FLOAT Time);
+};
+
+// @baa 0x00d0fcf0
+/* UE3's UInterpTrackSoundFade::UpdateTrack (kit slot vf_13c): set the player camera's sound fade from the curve. */
+void UInterpTrackSoundFade::vf_13c(FLOAT NewPosition, UInterpTrackInst* TrInst, UBOOL bJump)
+{
+    UInterpGroupInst* GrInst = CastChecked<UInterpGroupInst>(GetOuterOf(TrInst));
+    APlayerController* PC = Cast<APlayerController>(GetGroupActorOf(GrInst));
+    if (PC && PC->PlayerCamera && !PC->PlayerCamera->bDeleteMe)
+    {
+        PC->PlayerCamera->SoundFadeAmount = ((UInterpTrackSoundFade_*)this)->sub_00cfbe50(NewPosition);
+    }
+}
+
+/* UInterpTrackFade::GetFadeAmountAtTime isn't declared in the kit. */
+struct UInterpTrackFade_ : public UInterpTrackFade
+{
+    FLOAT GetFadeAmountAtTime(FLOAT Time); /* 0x00cfbd70 */
+};
+
+// @baa 0x00d0fc60
+/* UE3's UInterpTrackFade::UpdateTrack (kit slot vf_13c): drive the player camera's fade from the curve (not when jumping). */
+void UInterpTrackFade::vf_13c(FLOAT NewPosition, UInterpTrackInst* TrInst, UBOOL bJump)
+{
+    if (!bJump)
+    {
+        UInterpGroupInst* GrInst = CastChecked<UInterpGroupInst>(GetOuterOf(TrInst));
+        APlayerController* PC = Cast<APlayerController>(GetGroupActorOf(GrInst));
+        if (PC && PC->PlayerCamera && !PC->PlayerCamera->bDeleteMe)
+        {
+            PC->PlayerCamera->bEnableFading = TRUE;
+            PC->PlayerCamera->FadeAmount = ((UInterpTrackFade_*)this)->GetFadeAmountAtTime(NewPosition);
+            PC->PlayerCamera->FadeTimeRemaining = 0.0f;
+        }
+    }
 }

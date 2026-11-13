@@ -1,4 +1,4 @@
-// UnUIStyles.cpp (part 1 of 4): 357 functions
+// UnUIStyles.cpp (part 1 of 4): 359 functions
 // Placed here by: neighbours 301, class 36, callers 11, file 7.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -3824,4 +3824,43 @@ UUIStyle_Data* FUIStyleReference_::GetStyleDataByClass(UClass* StateClass) const
 		Result = ResolvedStyle->sub_00ddac00(StateClass);
 	}
 	return Result;
+}
+
+// @baa 0x00dca790
+/* Forwards to the custom text and image style data. */
+void UUIStyle_Combo::vf_114()
+{
+	UUIStyle_Data* TextData = TextStyle.CustomStyleData;
+	if (TextData)
+	{
+		TextData->vf_114();
+	}
+	UUIStyle_Data* ImageData = ImageStyle.CustomStyleData;
+	if (ImageData)
+	{
+		ImageData->vf_114();
+	}
+}
+
+extern FName g_026c4374;
+	/* MatchesStyleData */
+/* Kit gap: the delegate's generated glue isn't declared. */
+struct UUIStyle_Data_ : public UUIStyle_Data
+{
+	UBOOL delegateMatchesStyleData(class UUIStyle_Data* OtherStyle);
+};
+
+// @baa 0x00dc9a40
+/* The script delegate's generated glue, out of line here. */
+UBOOL UUIStyle_Data_::delegateMatchesStyleData(class UUIStyle_Data* OtherStyle)
+{
+	struct UIStyle_Data_eventMatchesStyleData_Parms
+	{
+		class UUIStyle_Data* OtherStyle;
+		UBOOL ReturnValue;
+	} Parms;
+	Parms.ReturnValue = FALSE;
+	Parms.OtherStyle = OtherStyle;
+	ProcessDelegate(g_026c4374, &__MatchesStyleData__Delegate, &Parms, NULL);
+	return Parms.ReturnValue;
 }

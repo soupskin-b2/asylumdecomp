@@ -1,4 +1,4 @@
-// UnrealEd_04f0000.cpp: 26 functions
+// UnrealEd_04f0000.cpp: 27 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -548,3 +548,79 @@ C_004fb3b0::C_004fb3b0() {}
 
 // @baa 0x004fb3b0
 void C_004fb3b0::sub_005032a0() {}
+
+/* FaceFX Studio, FxFaceGraphWidget: runs the batch of console commands that adds the stock
+ * gesture nodes to the Face Graph (FxVM.h; FxString.h of the FaceFX SDK). */
+typedef char FxChar;
+
+typedef unsigned int FxSize;
+
+static const FxSize FxInvalidIndex = (FxSize)-1;
+void FxFree(void* ptr, FxSize n);
+class FxString
+{
+public:
+	FxString(const FxChar* str, FxSize numChars = FxInvalidIndex);
+	~FxString()
+	{
+		FxFree(_container, _allocatedCount);
+		_container = 0;
+		_usedCount = 0;
+		_allocatedCount = 0;
+	}
+
+private:
+	FxChar* _container;
+	FxSize _allocatedCount;
+	FxSize _usedCount;
+};
+
+/* What executing a command came to. */
+enum FxCommandError;
+/* The virtual machine the console commands run in. */
+class FxVM
+{
+public:
+	static FxCommandError ExecuteCommand(const FxString& command);
+};
+
+class wxCommandEvent;
+/* The Face Graph view of FaceFX Studio (a wxWindow; only this handler is declared here). */
+class FxFaceGraphWidget
+{
+public:
+	void sub_004f8040(wxCommandEvent& event);
+};
+
+// @baa 0x004f8040
+/* Menu handler: adds the stock gesture nodes and their links to the Face Graph. */
+void FxFaceGraphWidget::sub_004f8040(wxCommandEvent& event)
+{
+	FxVM::ExecuteCommand("batch");
+	FxVM::ExecuteCommand("graph -addnode -nodetype \"FxCombinerNode\" -name \"Orientation Head Pitch\" -min -10 -max 10;");
+	FxVM::ExecuteCommand("graph -addnode -nodetype \"FxCombinerNode\" -name \"Orientation Head Roll\" -min -10 -max 10;");
+	FxVM::ExecuteCommand("graph -addnode -nodetype \"FxCombinerNode\" -name \"Orientation Head Yaw\" -min -10 -max 10;");
+	FxVM::ExecuteCommand("graph -addnode -nodetype \"FxCombinerNode\" -name \"Emphasis Head Pitch\" -min -10 -max 10;");
+	FxVM::ExecuteCommand("graph -addnode -nodetype \"FxCombinerNode\" -name \"Emphasis Head Roll\" -min -10 -max 10;");
+	FxVM::ExecuteCommand("graph -addnode -nodetype \"FxCombinerNode\" -name \"Emphasis Head Yaw\" -min -10 -max 10;");
+	FxVM::ExecuteCommand("graph -addnode -nodetype \"FxCombinerNode\" -name \"Gaze Eye Pitch\" -min -10 -max 10;");
+	FxVM::ExecuteCommand("graph -addnode -nodetype \"FxCombinerNode\" -name \"Gaze Eye Yaw\" -min -10 -max 10;");
+	FxVM::ExecuteCommand("graph -addnode -nodetype \"FxCombinerNode\" -name \"Eyebrow Raise\";");
+	FxVM::ExecuteCommand("graph -addnode -nodetype \"FxCombinerNode\" -name \"Blink\";");
+	FxVM::ExecuteCommand("graph -addnode -nodetype \"FxCombinerNode\" -name \"Head Pitch\" -min -10 -max 10;");
+	FxVM::ExecuteCommand("graph -addnode -nodetype \"FxCombinerNode\" -name \"Head Roll\" -min -10 -max 10;");
+	FxVM::ExecuteCommand("graph -addnode -nodetype \"FxCombinerNode\" -name \"Head Yaw\" -min -10 -max 10;");
+	FxVM::ExecuteCommand("graph -addnode -nodetype \"FxCombinerNode\" -name \"Eye Pitch\" -min -10 -max 10;");
+	FxVM::ExecuteCommand("graph -addnode -nodetype \"FxCombinerNode\" -name \"Eye Yaw\" -min -10 -max 10;");
+	FxVM::ExecuteCommand("graph -link -from \"Orientation Head Pitch\" -to \"Head Pitch\" -linkfn \"linear\";");
+	FxVM::ExecuteCommand("graph -link -from \"Emphasis Head Pitch\" -to \"Head Pitch\" -linkfn \"linear\";");
+	FxVM::ExecuteCommand("graph -link -from \"Orientation Head Roll\" -to \"Head Roll\" -linkfn \"linear\";");
+	FxVM::ExecuteCommand("graph -link -from \"Emphasis Head Roll\" -to \"Head Roll\" -linkfn \"linear\";");
+	FxVM::ExecuteCommand("graph -link -from \"Orientation Head Yaw\" -to \"Head Yaw\" -linkfn \"linear\";");
+	FxVM::ExecuteCommand("graph -link -from \"Emphasis Head Yaw\" -to \"Head Yaw\" -linkfn \"linear\";");
+	FxVM::ExecuteCommand("graph -link -from \"Gaze Eye Pitch\" -to \"Eye Pitch\" -linkfn \"linear\";");
+	FxVM::ExecuteCommand("graph -link -from \"Gaze Eye Yaw\" -to \"Eye Yaw\" -linkfn \"linear\";");
+	FxVM::ExecuteCommand("graph -link -from \"Head Yaw\" -to \"Eye Yaw\" -linkfn \"negate\";");
+	FxVM::ExecuteCommand("graph -link -from \"Head Pitch\" -to \"Eye Pitch\" -linkfn \"negate\";");
+	FxVM::ExecuteCommand("execBatch -editednodes");
+}

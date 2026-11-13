@@ -1,4 +1,4 @@
-// Engine_08a0000.cpp (part 1 of 4): 162 functions
+// Engine_08a0000.cpp (part 1 of 4): 163 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1313,4 +1313,14 @@ void UParticleSystemComponent_::delegateOnSystemFinished(class UParticleSystemCo
 	} Parms;
 	Parms.PSystem = PSystem;
 	ProcessDelegate(g_026c48d4, &__OnSystemFinished__Delegate, &Parms, NULL);
+}
+
+/* GSecondsPerCycle (UnVcWin32.cpp), not in the kit. */
+extern DOUBLE g_0266e7f8;
+#define GSecondsPerCycle g_0266e7f8
+// @baa 0x008aa040
+/* Converts a cycle count to milliseconds in place. */
+void AActor::sub_008aa040(FLOAT& Value)
+{
+	Value = Value * GSecondsPerCycle * 1000.0;
 }

@@ -1,4 +1,4 @@
-// Engine_1ab0000.cpp (part 5 of 5): 3 functions
+// Engine_1ab0000.cpp (part 5 of 5): 10 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -49,4 +49,88 @@ void C_01ab0880::sub_01ab0880()
 {
     Value = 0;
     ((Sub*)((char*)this + 4))->sub_01ab0490();
+}
+
+// A free helper: hands the context pointer to the target's operation.
+struct FCallbackTarget_
+{
+	void sub_01ab7b60(void* Context);
+};
+
+// @baa 0x01ab8040
+void sub_01ab8040(void* Context, FCallbackTarget_* Target)
+{
+	Target->sub_01ab7b60(Context);
+}
+
+// A free helper: hands the context pointer to the target's operation.
+struct FCallbackTarget_01abb310
+{
+	void sub_01abaac0(void* Context);
+};
+
+// @baa 0x01abb310
+void sub_01abb310(void* Context, FCallbackTarget_01abb310* Target)
+{
+	Target->sub_01abaac0(Context);
+}
+
+// A free helper: hands the context pointer to the target's operation.
+struct FCallbackTarget_01abbcd0
+{
+	void sub_01abb880(void* Context);
+};
+
+// @baa 0x01abbcd0
+void sub_01abbcd0(void* Context, FCallbackTarget_01abbcd0* Target)
+{
+	Target->sub_01abb880(Context);
+}
+
+// A free helper: hands the context pointer to the target's operation.
+struct FCallbackTarget_01abe950
+{
+	void sub_01abe4f0(void* Context);
+};
+
+// @baa 0x01abe950
+void sub_01abe950(void* Context, FCallbackTarget_01abe950* Target)
+{
+	Target->sub_01abe4f0(Context);
+}
+
+// A free helper: hands the context pointer to the target's operation.
+struct FCallbackTarget_01abe960
+{
+	void sub_01abe640(void* Context);
+};
+
+// @baa 0x01abe960
+void sub_01abe960(void* Context, FCallbackTarget_01abe960* Target)
+{
+	Target->sub_01abe640(Context);
+}
+
+// A free helper: hands the context pointer to the target's operation.
+struct FCallbackTarget_01abef00
+{
+	void sub_01abea90(void* Context);
+};
+
+// @baa 0x01abef00
+void sub_01abef00(void* Context, FCallbackTarget_01abef00* Target)
+{
+	Target->sub_01abea90(Context);
+}
+
+// A free helper: hands the context pointer to the target's operation.
+struct FCallbackTarget_01abfc10
+{
+	void sub_01abfa80(void* Context);
+};
+
+// @baa 0x01abfc10
+void sub_01abfc10(void* Context, FCallbackTarget_01abfc10* Target)
+{
+	Target->sub_01abfa80(Context);
 }

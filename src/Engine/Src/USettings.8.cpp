@@ -1,4 +1,4 @@
-// USettings.cpp: 22 functions
+// USettings.cpp: 24 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -516,4 +516,44 @@ INT UOnlineSubsystem_::GetBuildUniqueId()
 		Crc = BuildIdOverride;
 	}
 	return Crc;
+}
+
+extern FName g_026c47e8;
+	/* NotifyPropertyValueUpdated */
+/* Kit gap: the delegate's generated glue isn't declared. */
+struct USettings__00d66f70 : public USettings
+{
+	void delegateNotifyPropertyValueUpdated(FName PropertyName);
+};
+
+// @baa 0x00d66f70
+/* The script delegate's generated glue, out of line here. */
+void USettings__00d66f70::delegateNotifyPropertyValueUpdated(FName PropertyName)
+{
+	struct Settings_eventNotifyPropertyValueUpdated_Parms
+	{
+		FName PropertyName;
+	} Parms;
+	Parms.PropertyName = PropertyName;
+	ProcessDelegate(g_026c47e8, &__NotifyPropertyValueUpdated__Delegate, &Parms, NULL);
+}
+
+extern FName g_026c438c;
+	/* NotifySettingValueUpdated */
+/* Kit gap: the delegate's generated glue isn't declared. */
+struct USettings__00d66fb0 : public USettings
+{
+	void delegateNotifySettingValueUpdated(FName SettingName);
+};
+
+// @baa 0x00d66fb0
+/* The script delegate's generated glue, out of line here. */
+void USettings__00d66fb0::delegateNotifySettingValueUpdated(FName SettingName)
+{
+	struct Settings_eventNotifySettingValueUpdated_Parms
+	{
+		FName SettingName;
+	} Parms;
+	Parms.SettingName = SettingName;
+	ProcessDelegate(g_026c438c, &__NotifySettingValueUpdated__Delegate, &Parms, NULL);
 }

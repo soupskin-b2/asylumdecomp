@@ -1,4 +1,4 @@
-// Engine_07a0000.cpp (part 1 of 4): 239 functions
+// Engine_07a0000.cpp (part 1 of 4): 240 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1963,4 +1963,14 @@ struct AController__007adc50 : public AController
 FVector AController__007adc50::GetAdjustLocation()
 {
 	return *(FBasedPosition__007adc50&)AdjustPosition;
+}
+
+// @baa 0x007a1f60
+/* ModifyPostProcessSettings: lets the camera adjust the post-process settings. */
+void APlayerController::vf_460(INT PPSettings)
+{
+	if (PlayerCamera)
+	{
+		PlayerCamera->vf_360(*(FPostProcessSettings*)PPSettings);
+	}
 }

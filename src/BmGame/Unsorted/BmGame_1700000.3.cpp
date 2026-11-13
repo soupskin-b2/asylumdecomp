@@ -1,4 +1,4 @@
-// BmGame_1700000.cpp: 112 functions
+// BmGame_1700000.cpp: 113 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -1118,4 +1118,18 @@ void ARBatarangProjectile::execCalculateFlightPath(FFrame& Stack, RESULT_DECL)
 	P_GET_FLOAT_OPTX(CheckSizeMod, 1.0f);
 	P_FINISH;
 	this->CalculateFlightPath(DesiredLaunchPosition, TargetPosition, TargetActor, CheckSizeMod);
+}
+
+extern FName g_026e36f4;
+	/* BMGAME_DamageNearbyPeople */
+/* Kit gap: the generated glue for RControllableChatteringTeethBase's script event DamageNearbyPeople (BmGameClasses.h) isn't declared; this build keeps it out of line. */
+struct ARControllableChatteringTeethBase__01707d00 : public ARControllableChatteringTeethBase
+{
+	void eventDamageNearbyPeople();
+};
+
+// @baa 0x01707d00
+void ARControllableChatteringTeethBase__01707d00::eventDamageNearbyPeople()
+{
+	ProcessEvent(FindFunctionChecked(g_026e36f4), NULL);
 }

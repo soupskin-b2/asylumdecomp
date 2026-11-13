@@ -1,4 +1,4 @@
-// GenericDlgOptions.cpp: 29 functions
+// GenericDlgOptions.cpp: 31 functions
 // Placed here by: callers 17, file 10.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -117,3 +117,21 @@ undefined4 * UObject::sub_0115bef0(void)
 
 // @baa 0x0115bf10
 int sub_0115bf10(int a0, int a1) { return a1; }
+
+// @baa 0x01161f00
+/* Default package and class names for the "new class from selection" dialog (the kit's Native_30/Native_3c
+ * are UE3's Package and Name strings). */
+void UOptionsNewClassFromSel::InitializeIntrinsicPropertyValues()
+{
+	Native_30 = TEXT("MyLevel");
+	Native_3c = TEXT("MyClass");
+}
+
+// @baa 0x01161ee0
+/* Default package and object names for the duplicate-object dialog (the kit's Native_30/Native_3c
+ * are UE3's Package and Name strings). */
+void UOptionsDupObject::InitializeIntrinsicPropertyValues()
+{
+	Native_30 = TEXT("MyLevel");
+	Native_3c = TEXT("NewObject");
+}

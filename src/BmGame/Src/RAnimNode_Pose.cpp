@@ -1,4 +1,4 @@
-// RAnimNode_Pose.cpp (part 1 of 4): 212 functions
+// RAnimNode_Pose.cpp (part 1 of 4): 213 functions
 // Placed here by: neighbours 138, class 47, callers 16, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -2073,3 +2073,14 @@ void sub_015afc70(int A1, float A2, int A3, int A4, int A5)
 {
     sub_015a80f0(A1, A2, A3, A4, A5);
 }
+
+// @baa 0x015962c0
+/* The pose node has two sliders (0 and 1); each has a single axis. */
+INT URAnimNode_Pose::vf_174(INT SliderIndex)
+{
+#line 2475 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimNode_Pose.cpp"
+	check((SliderIndex == 0) || (SliderIndex == 1));
+	return 1;
+}
+
+#line 2087 "candidate.cpp"

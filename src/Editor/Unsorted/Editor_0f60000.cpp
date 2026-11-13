@@ -1,4 +1,4 @@
-// Editor_0f60000.cpp: 88 functions
+// Editor_0f60000.cpp: 89 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -757,3 +757,13 @@ void __stdcall sub_00f67f50(float* P)
 	P[1] = 0.f;
 	P[2] = 0.f;
 }
+
+// @baa 0x00f67ef0
+/* Not supported by the editor engine (asserts, Editor.h). */
+void UEditorEngine::vf_190(INT, INT)
+{
+#line 509 "Editor/Inc\\Editor.h"
+	check(0);
+}
+
+#line 770 "candidate.cpp"

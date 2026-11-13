@@ -5,20 +5,20 @@
 <text x="860" y="20" font-size="14" fill="#e6edf3" text-anchor="end" font-weight="normal">3.3 MB</text>
 <text x="0" y="50" font-size="14" fill="#8d96a0" text-anchor="start" font-weight="normal">Claude Opus 5.5</text>
 <rect x="292" y="40" width="478" height="10" fill="#262c33" stroke="#3d444d"/>
-<rect x="292" y="40" width="77.3624" height="10" fill="#e6edf3"/>
-<text x="860" y="50" font-size="14" fill="#e6edf3" text-anchor="end" font-weight="normal">547 KB</text>
+<rect x="292" y="40" width="79.113" height="10" fill="#e6edf3"/>
+<text x="860" y="50" font-size="14" fill="#e6edf3" text-anchor="end" font-weight="normal">559 KB</text>
 <text x="0" y="80" font-size="14" fill="#8d96a0" text-anchor="start" font-weight="normal">Claude Fable 5.2</text>
 <rect x="292" y="70" width="478" height="10" fill="#262c33" stroke="#3d444d"/>
-<rect x="292" y="70" width="55.8447" height="10" fill="#e6edf3"/>
-<text x="860" y="80" font-size="14" fill="#e6edf3" text-anchor="end" font-weight="normal">395 KB</text>
+<rect x="292" y="70" width="59.0887" height="10" fill="#e6edf3"/>
+<text x="860" y="80" font-size="14" fill="#e6edf3" text-anchor="end" font-weight="normal">418 KB</text>
 <text x="0" y="110" font-size="14" fill="#8d96a0" text-anchor="start" font-weight="normal">DeepSeek V4.1 Flash</text>
 <rect x="292" y="100" width="478" height="10" fill="#262c33" stroke="#3d444d"/>
 <rect x="292" y="100" width="15.3655" height="10" fill="#e6edf3"/>
 <text x="860" y="110" font-size="14" fill="#e6edf3" text-anchor="end" font-weight="normal">109 KB</text>
 <text x="0" y="140" font-size="14" fill="#8d96a0" text-anchor="start" font-weight="normal">GPT-6.1 Sol</text>
 <rect x="292" y="130" width="478" height="10" fill="#262c33" stroke="#3d444d"/>
-<rect x="292" y="130" width="6.09754" height="10" fill="#e6edf3"/>
-<text x="860" y="140" font-size="14" fill="#e6edf3" text-anchor="end" font-weight="normal">43 KB</text>
+<rect x="292" y="130" width="6.24279" height="10" fill="#e6edf3"/>
+<text x="860" y="140" font-size="14" fill="#e6edf3" text-anchor="end" font-weight="normal">44 KB</text>
 <text x="0" y="170" font-size="14" fill="#8d96a0" text-anchor="start" font-weight="normal">Qwen3.8 27B</text>
 <rect x="292" y="160" width="478" height="10" fill="#262c33" stroke="#3d444d"/>
 <rect x="292" y="160" width="5.42644" height="10" fill="#e6edf3"/>
@@ -41,8 +41,8 @@
 <text x="860" y="290" font-size="14" fill="#e6edf3" text-anchor="end" font-weight="normal">5 KB</text>
 <text x="0" y="320" font-size="14" fill="#8d96a0" text-anchor="start" font-weight="normal">DeepSeek V4.1 Flash (Freebuff)</text>
 <rect x="292" y="310" width="478" height="10" fill="#262c33" stroke="#3d444d"/>
-<rect x="292" y="310" width="0.329332" height="10" fill="#e6edf3"/>
-<text x="860" y="320" font-size="14" fill="#e6edf3" text-anchor="end" font-weight="normal">2 KB</text>
+<rect x="292" y="310" width="0.462833" height="10" fill="#e6edf3"/>
+<text x="860" y="320" font-size="14" fill="#e6edf3" text-anchor="end" font-weight="normal">3 KB</text>
 <text x="0" y="350" font-size="14" fill="#8d96a0" text-anchor="start" font-weight="normal">Claude Haiku 5.5</text>
 <rect x="292" y="340" width="478" height="10" fill="#262c33" stroke="#3d444d"/>
 <rect x="292" y="340" width="0.0251525" height="10" fill="#e6edf3"/>

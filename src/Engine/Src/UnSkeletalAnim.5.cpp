@@ -1,4 +1,4 @@
-// UnSkeletalAnim.cpp: 8 functions
+// UnSkeletalAnim.cpp: 9 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -124,4 +124,24 @@ void USkeletalMeshComponent::execAttachComponent(FFrame& Stack, RESULT_DECL)
 	{
 		this->AttachComponent(Component, BoneName, RelativeLocation, RelativeRotation, RelativeScale);
 	}
+}
+
+extern FName g_026c4164;
+	/* ENGINE_ClientSpawnCameraLensEffect */
+/* Kit gap: the generated glue for PlayerController's script event ClientSpawnCameraLensEffect (EngineClasses.h)
+ * isn't declared; this build keeps it out of line (UAnimNotify_CameraEffect::Notify calls it). */
+struct APlayerController__0090af60 : public APlayerController
+{
+	void eventClientSpawnCameraLensEffect(UClass* LensEffectEmitterClass);
+};
+
+// @baa 0x0090af60
+void APlayerController__0090af60::eventClientSpawnCameraLensEffect(UClass* LensEffectEmitterClass)
+{
+	struct PlayerController_eventClientSpawnCameraLensEffect_Parms
+	{
+		UClass* LensEffectEmitterClass;
+	} Parms;
+	Parms.LensEffectEmitterClass = LensEffectEmitterClass;
+	ProcessEvent(FindFunctionChecked(g_026c4164), &Parms);
 }

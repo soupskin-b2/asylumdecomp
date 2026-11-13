@@ -1,4 +1,4 @@
-// BmGame_1680000.cpp: 11 functions
+// BmGame_1680000.cpp: 12 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -215,5 +215,27 @@ UBOOL ARCombatMove_::eventCanBeTargettedByPlayer()
 	} Parms;
 	Parms.ReturnValue = FALSE;
 	ProcessEvent(FindFunctionChecked(g_026e3428), &Parms);
+	return Parms.ReturnValue;
+}
+
+extern FName g_026e296c;
+	/* BMGAME_AdjustMovementDirection */
+/* Kit gap: the generated glue for RPawnPlayer's script event AdjustMovementDirection (BmGameClasses.h) isn't declared; this build keeps it out of line. */
+struct ARPawnPlayer__016865a0 : public ARPawnPlayer
+{
+	FVector eventAdjustMovementDirection(FVector MovDir);
+};
+
+// @baa 0x016865a0
+FVector ARPawnPlayer__016865a0::eventAdjustMovementDirection(FVector MovDir)
+{
+	struct RPawnPlayer_eventAdjustMovementDirection_Parms
+	{
+		FVector MovDir;
+		FVector ReturnValue;
+	} Parms;
+	appMemzero(&Parms.ReturnValue, sizeof(Parms.ReturnValue));
+	Parms.MovDir = MovDir;
+	ProcessEvent(FindFunctionChecked(g_026e296c), &Parms);
 	return Parms.ReturnValue;
 }

@@ -1,4 +1,4 @@
-// RSmashableProp.cpp: 17 functions
+// RSmashableProp.cpp: 18 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -256,4 +256,25 @@ void ARSmashableProp::execHandleCollision(FFrame& Stack, RESULT_DECL)
     P_GET_UBOOL(IsAlwaysSmash);
     P_FINISH;
     *(UBOOL*)Result = HandleCollision(TotalNormalForceVector, CollideActor0, CollideActor1, IsAlwaysSmash);
+}
+
+extern FName g_026e2c1c;
+	/* BMGAME_SetInXrayMode */
+/* Kit gap: FIRST_BITFIELD (UnBuild.h; bitfields start at bit 0 on this platform). */
+#define FIRST_BITFIELD 1
+/* Kit gap: the generated glue for RSmashableProp's script event SetInXrayMode (BmGameClasses.h) isn't declared; this build keeps it out of line. */
+struct ARSmashableProp__01668b30 : public ARSmashableProp
+{
+	void eventSetInXrayMode(UBOOL On);
+};
+
+// @baa 0x01668b30
+void ARSmashableProp__01668b30::eventSetInXrayMode(UBOOL On)
+{
+	struct RSmashableProp_eventSetInXrayMode_Parms
+	{
+		UBOOL On;
+	} Parms;
+	Parms.On = On ? FIRST_BITFIELD : FALSE;
+	ProcessEvent(FindFunctionChecked(g_026e2c1c), &Parms);
 }

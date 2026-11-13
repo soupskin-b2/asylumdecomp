@@ -1,4 +1,4 @@
-// UnPawn.cpp (part 1 of 2): 121 functions
+// UnPawn.cpp (part 1 of 2): 123 functions
 // Placed here by: neighbours 49, class 32, callers 3, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1745,4 +1745,32 @@ UBOOL APhysicsVolume::WillHurt(APawn* P)
 		return FALSE;
 	}
 	return P->HurtByDamageType(DamageType);
+}
+
+// @baa 0x008652f0
+/* DampenNoise(NoiseMaker, Loudness, NoiseType): noises the pawn (or something it owns) makes are
+ * scaled by its instigator's SoundDampening. */
+FLOAT APawn::vf_3c0(INT NoiseMaker, INT Loudness, INT NoiseTypeIndex, INT NoiseTypeNumber)
+{
+	FLOAT DampeningFactor = 1.f;
+	if ((AActor*)NoiseMaker == this || ((AActor*)NoiseMaker)->Owner == this)
+	{
+		DampeningFactor = Instigator->SoundDampening;
+	}
+	return DampeningFactor;
+}
+
+// @baa 0x00867c80
+/* The team of whoever fired the projectile (255 when nobody is known). */
+BYTE AProjectile::GetTeamNum()
+{
+	if (InstigatorController)
+	{
+		return InstigatorController->GetTeamNum();
+	}
+	if (Instigator)
+	{
+		return Instigator->GetTeamNum();
+	}
+	return 255;
 }

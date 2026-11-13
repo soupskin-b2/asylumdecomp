@@ -1,4 +1,4 @@
-// Engine_0830000.cpp: 2 functions
+// Engine_0830000.cpp: 3 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -31,4 +31,16 @@ void ANavigationPoint_::sub_0083f3a0()
 			}
 		}
 	}
+}
+
+// @baa 0x00836b00
+/* The factory this one was ultimately copied from (follows OriginalFactory to the end). */
+void* APickupFactory::vf_330(INT)
+{
+	APickupFactory* Best = this;
+	while (Best->OriginalFactory)
+	{
+		Best = Best->OriginalFactory;
+	}
+	return Best;
 }

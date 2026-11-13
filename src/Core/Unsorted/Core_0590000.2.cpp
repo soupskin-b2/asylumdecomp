@@ -1,4 +1,4 @@
-// Core_0590000.cpp (part 2 of 4): 138 functions
+// Core_0590000.cpp (part 2 of 4): 140 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -1518,4 +1518,41 @@ void UObject::execDivideEqual_ByteByte(FFrame& Stack, RESULT_DECL)
 	P_GET_BYTE(B);
 	P_FINISH;
 	*(BYTE*)Result = B ? (A /= B) : 0;
+}
+
+/* Kit gaps: FScriptInterface (Classes.h line 68) is a bare POD; UE3's (UnScript.h) zero-inits in its default ctor and
+ * has GetInterface() and operator==, and Script.h has no P_GET_INTERFACE. Local stand-ins with UE3's bodies. */
+struct FScriptInterface_ : public FScriptInterface
+{
+	FScriptInterface_() { Object = NULL; Interface = NULL; }
+	FORCEINLINE void* GetInterface() const { return Object ? Interface : NULL; }
+	FORCEINLINE UBOOL operator==(const FScriptInterface_& Other) const
+	{
+		return GetInterface() == Other.GetInterface() && Object == Other.Object;
+	}
+	FORCEINLINE UBOOL operator!=(const FScriptInterface_& Other) const
+	{
+		return GetInterface() != Other.GetInterface() || Object != Other.Object;
+	}
+};
+
+#define P_GET_INTERFACE(v) FScriptInterface_ v; Stack.Step(Stack.Object, &v);
+// @baa 0x005994f0
+void UObject::execEqualEqual_InterfaceInterface(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INTERFACE(A);
+	P_GET_INTERFACE(B);
+	P_FINISH;
+
+	*(UBOOL*)Result = (A == B);
+}
+
+// @baa 0x005995b0
+void UObject::execNotEqual_InterfaceInterface(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_INTERFACE(A);
+	P_GET_INTERFACE(B);
+	P_FINISH;
+
+	*(UBOOL*)Result = (A != B);
 }

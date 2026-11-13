@@ -1,4 +1,4 @@
-// Engine_0640000.cpp (part 1 of 2): 191 functions
+// Engine_0640000.cpp (part 1 of 2): 192 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1579,4 +1579,20 @@ int UDirectionalLightComponent::vf_000(void) { return 1; }
 bool UDirectionalLightComponent::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// A named value descriptor: pairs a wide-string tag with its handler.
+struct FNamedValue_
+{
+	const unsigned char* Handler;
+	const TCHAR* Name;
+	FNamedValue_();
+};
+
+extern const unsigned char g_01ebbe94;
+// @baa 0x0064c040
+FNamedValue_::FNamedValue_()
+{
+	Name = L"VariableKeyLerp";
+	Handler = &g_01ebbe94;
 }

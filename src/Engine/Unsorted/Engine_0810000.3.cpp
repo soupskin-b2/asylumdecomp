@@ -1,7 +1,7 @@
-// Engine_0810000.cpp: 1 function
+// Engine_0810000.cpp: 2 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
-#include "ue3/Core.h"
+#include "ue3/Classes.h"
 
 struct Singleton_026b0d94
 {
@@ -165,4 +165,20 @@ void C_SingletonClient::sub_008136d0()
     {
         g_026b0d94->sub_238(Field_04);
     }
+}
+
+/* Kit gaps: FString::Printf (VarArgs.h; this no-argument instance is out of line, 00604700) and FString's
+ * operator* (UnString.h) aren't declared, nor is the navigation list check (UnPath.cpp, 009cb9d0). */
+struct FString_ : public FString
+{
+	static FString Printf(const TCHAR* Fmt);
+	FORCEINLINE const TCHAR* operator*() const { return Num() ? &(*this)(0) : TEXT(""); }
+};
+
+void VerifyNavList(const TCHAR* DebugTxt, UBOOL bArg);
+// @baa 0x00815340
+	/* 0x009cb9d0 */
+void AWorldInfo::VerifyNavList()
+{
+	::VerifyNavList(*(const FString_&)FString_::Printf(TEXT("From script...")), FALSE);
 }

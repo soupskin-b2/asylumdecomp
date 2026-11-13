@@ -1,4 +1,4 @@
-// Core_0590000.cpp: 22 functions
+// Core_0590000.cpp: 23 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -253,4 +253,13 @@ void UObject::execRound(FFrame& Stack, RESULT_DECL)
     P_GET_FLOAT(A);
     P_FINISH;
     *(INT*)Result = appRound(A);
+}
+
+// @baa 0x00594230
+/* static final function int FCeil(float A) */
+void UObject::execFCeil(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_FLOAT(A);
+	P_FINISH;
+	*(INT*)Result = appTrunc(appCeil(A));
 }

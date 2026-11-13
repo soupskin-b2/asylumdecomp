@@ -1,4 +1,4 @@
-// UnActor.cpp: 12 functions
+// UnActor.cpp: 14 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -121,4 +121,56 @@ void AActor::sub_00777440(UBOOL bNewOnlyOwnerSee)
 {
 	bOnlyOwnerSee = bNewOnlyOwnerSee;
 	MarkComponentsAsDirty(FALSE);
+}
+
+// @baa 0x0068f440
+/* The player controller of the top of the owner chain (UE3: GetTopPlayerController). */
+INT AActor::vf_308()
+{
+	AActor* TopActor = this;
+	while (TopActor->Owner)
+	{
+		TopActor = TopActor->Owner;
+	}
+	return (INT)TopActor->GetAPlayerController();
+}
+
+struct AActor__00784080 : public AActor
+{
+	void SetCollisionFromCollisionType(); /* 0x00780e30 */
+	void EndTouch(AActor* Other, UBOOL NoNotifyOther); /* 0x007691a0 */
+};
+
+// @baa 0x00784080
+/* UnActor.cpp: AActor::SetCollisionType(BYTE NewType) */
+void AActor::sub_00784080(BYTE NewType)
+{
+	bNetDirty = TRUE;
+	const UBOOL bOldCollideActors = bCollideActors;
+
+	CollisionType = NewType;
+	ReplicatedCollisionType = CollisionType;
+	((AActor__00784080*)this)->SetCollisionFromCollisionType();
+
+	if (bCollideActors != bOldCollideActors)
+	{
+		if (bCollideActors)
+		{
+			FindTouchingActors();
+		}
+		else
+		{
+			for (INT i = 0; i < Touching.Num(); )
+			{
+				if (Touching(i) != NULL)
+				{
+					((AActor__00784080*)Touching(i))->EndTouch(this, 0);
+				}
+				else
+				{
+					i++;
+				}
+			}
+		}
+	}
 }

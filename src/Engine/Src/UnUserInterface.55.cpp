@@ -1,4 +1,4 @@
-// UnUserInterface.cpp: 1 function
+// UnUserInterface.cpp: 6 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -78,4 +78,64 @@ struct UObjectThunk {
 void UObjectThunk::sub_00ddd040()
 {
     this->ProcessEvent(this->sub_005d7d10(g_026c5078, g_026c507c, 0), 0, 0);
+}
+
+/* FVector2D's component constructor (UnMath.h), which the kit's plain struct lacks */
+struct FVector2D_ : public FVector2D
+{
+	FVector2D_(FLOAT InX, FLOAT InY) { X = InX; Y = InY; }
+};
+
+// @baa 0x00ddd0f0
+/* The base client has no viewport: reports a zero size and fails. */
+INT UUISceneClient::vf_124(INT ViewportIndex, INT out_ViewportSize)
+{
+	*(FVector2D*)out_ViewportSize = FVector2D_(0.f, 0.f);
+	return 0;
+}
+
+// @baa 0x00ddd130
+/* The base client reports a zero offset. */
+UINT UUISceneClient::vf_12c(UINT ViewportIndex, FLOAT* out_ViewportOffset)
+{
+	*(FVector2D*)out_ViewportOffset = FVector2D_(0.f, 0.f);
+	return 1;
+}
+
+// @baa 0x00dde070
+/* Whether the UI post-process pass should run: enabled, and a scene that wants it is active. */
+INT UUISceneClient::vf_188()
+{
+	return bEnablePostProcess && IsUIActive(0x10);
+}
+
+extern UBOOL g_0266e840;
+// @baa 0x00dde0c0
+/* Switches to NewActiveSkin (unless g_0266e840 is set) and lets the scenes know. */
+INT UGameUISceneClient::ChangeActiveSkin(UUISkin* NewActiveSkin)
+{
+	if (NewActiveSkin != NULL && !g_0266e840)
+	{
+		ActiveSkin = NewActiveSkin;
+		OnActiveSkinChanged();
+	}
+	return FALSE;
+}
+
+/* Kit gap: UGameUISceneClient::GetSceneAtIndex isn't declared. */
+struct UGameUISceneClient_ : public UGameUISceneClient
+{
+	class UUIScene* GetSceneAtIndex(INT SceneIndex) const;
+};
+
+// @baa 0x00de2670
+/* The active scene at this index of the scene stack, or NULL when the index is out of range. */
+UUIScene* UGameUISceneClient_::GetSceneAtIndex(INT SceneIndex) const
+{
+	UUIScene* Result = NULL;
+	if (SceneIndex >= 0 && SceneIndex < ActiveScenes.Num())
+	{
+		Result = ActiveScenes(SceneIndex);
+	}
+	return Result;
 }

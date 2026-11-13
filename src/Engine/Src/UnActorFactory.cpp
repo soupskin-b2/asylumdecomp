@@ -1,4 +1,4 @@
-// UnActorFactory.cpp (part 1 of 2): 228 functions
+// UnActorFactory.cpp (part 1 of 2): 229 functions
 // Placed here by: neighbours 141, file 30, class 18, callers 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -961,4 +961,37 @@ void UPrimitiveComponent_::sub_009ff9a0(FRBCollisionChannelContainer Channels)
 {
     RBCollideWithChannels = Channels;
     vf_20c();
+}
+
+/* Kit gap: UObject::HasAnyFlags/IsTemplate and the RF_ flags (UnObjBas.h); ObjectFlags is an FQWord here. */
+#define RF_ClassDefaultObject ((QWORD)0x0000000000000200)
+#define RF_ArchetypeObject ((QWORD)0x0000000000000400)
+struct UObject_ : public UObject
+{
+	FORCEINLINE UBOOL HasAnyFlags(QWORD Flags) const { return (*(const QWORD*)&ObjectFlags & Flags) != 0; }
+	FORCEINLINE UBOOL IsTemplate(QWORD TemplateTypes = (RF_ArchetypeObject | RF_ClassDefaultObject)) const
+	{
+		for (const UObject* TestOuter = this; TestOuter; TestOuter = TestOuter->Outer)
+		{
+			if (((const UObject_*)TestOuter)->HasAnyFlags(TemplateTypes))
+			{
+				return TRUE;
+			}
+		}
+		return FALSE;
+	}
+};
+
+// @baa 0x00c4cf90
+/* Slot 0x14: on real (non-template) factories, defaults SkeletalMesh to the physics asset's
+ * DefaultSkelMesh. */
+void UActorFactoryPhysicsAsset::vf_014()
+{
+	if (!((UObject_*)this)->IsTemplate())
+	{
+		if (!SkeletalMesh && PhysicsAsset && PhysicsAsset->DefaultSkelMesh)
+		{
+			SkeletalMesh = PhysicsAsset->DefaultSkelMesh;
+		}
+	}
 }

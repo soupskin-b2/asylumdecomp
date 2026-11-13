@@ -1,4 +1,4 @@
-// RCapeComponent.cpp (part 1 of 2): 81 functions
+// RCapeComponent.cpp (part 1 of 2): 82 functions
 // Placed here by: neighbours 22, file 19, class 12, callers 8.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -730,4 +730,30 @@ FLOAT URCapeComponent__016b20a0::sub_016b20a0()
 FLOAT URCapeComponent::sub_016ae830(FName Name)
 {
 	return CapeAnimNode->sub_01562440(Name);
+}
+
+/* The cape's native physics simulation (CapePhysics is an FPointer to it in the kit); its wind getters
+ * are undeclared. */
+class FCapePhysics
+{
+public:
+	FLOAT sub_016b5400(); /* 0x016b5400: the wind strength */
+	FLOAT sub_016bcfa0(); /* 0x016bcfa0: the wind blusteryness */
+};
+
+// @baa 0x016be930
+/* Fills in the wind audio properties from the cape simulation (zero when there is none). */
+void URCapeComponent::sub_016be930(FCapeWindAudioProperties& Properties)
+{
+	FCapePhysics* Physics = (FCapePhysics*)CapePhysics.Dummy;
+	if (Physics)
+	{
+		Properties.WindStrength = Physics->sub_016b5400();
+		Properties.WindBlusteryness = Physics->sub_016bcfa0();
+	}
+	else
+	{
+		Properties.WindStrength = 0.f;
+		Properties.WindBlusteryness = 0.f;
+	}
 }

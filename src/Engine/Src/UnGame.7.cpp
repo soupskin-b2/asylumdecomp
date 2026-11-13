@@ -1,4 +1,4 @@
-// UnGame.cpp: 11 functions
+// UnGame.cpp: 15 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -231,4 +231,99 @@ void APlayerController__009aed00::eventServerNotifyLoadedWorld(FName WorldPackag
 	} Parms;
 	Parms.WorldPackageName = WorldPackageName;
 	ProcessEvent(FindFunctionChecked(g_026c4038), &Parms);
+}
+
+	/* ENGINE_Init */
+/* Kit gap: the generated glue for GameViewportClient's script event Init (EngineClasses.h) isn't declared; this
+ * build keeps it out of line (UGameEngine::Init calls it). */
+struct UGameViewportClient_ : public UGameViewportClient
+{
+	UBOOL eventInit(FString& OutError);
+};
+
+// @baa 0x007e14f0
+UBOOL UGameViewportClient_::eventInit(FString& OutError)
+{
+	struct GameViewportClient_eventInit_Parms
+	{
+		FString OutError;
+		UBOOL ReturnValue;
+	} Parms;
+	Parms.ReturnValue = FALSE;
+	Parms.OutError = OutError;
+	ProcessEvent(FindFunctionChecked(g_026c4e5c), &Parms);
+	OutError = Parms.OutError;
+	return Parms.ReturnValue;
+}
+
+extern FName g_026c3d88;
+	/* ENGINE_GetSeamlessTravelActorList */
+/* Kit gap: the generated glue for PlayerController's script event GetSeamlessTravelActorList (EngineClasses.h) isn't
+ * declared; this build keeps it out of line (FSeamlessTravelHandler::Tick calls it). */
+struct APlayerController__009bd9b0 : public APlayerController
+{
+	void eventGetSeamlessTravelActorList(UBOOL bToEntry, TArray<AActor*>& ActorList);
+};
+
+// @baa 0x009bd9b0
+void APlayerController__009bd9b0::eventGetSeamlessTravelActorList(UBOOL bToEntry, TArray<AActor*>& ActorList)
+{
+	struct PlayerController_eventGetSeamlessTravelActorList_Parms
+	{
+		UBOOL bToEntry;
+		TArray<AActor*> ActorList;
+	} Parms;
+	Parms.bToEntry = bToEntry ? TRUE : FALSE;
+	Parms.ActorList = ActorList;
+	ProcessEvent(FindFunctionChecked(g_026c3d88), &Parms);
+	ActorList = Parms.ActorList;
+}
+
+	/* ENGINE_GetSeamlessTravelActorList */
+/* Kit gap: the generated glue for GameInfo's script event GetSeamlessTravelActorList (EngineClasses.h) isn't
+ * declared; this build keeps it out of line (FSeamlessTravelHandler::Tick calls it). */
+struct AGameInfo__009bda70 : public AGameInfo
+{
+	void eventGetSeamlessTravelActorList(UBOOL bToEntry, TArray<AActor*>& ActorList);
+};
+
+// @baa 0x009bda70
+void AGameInfo__009bda70::eventGetSeamlessTravelActorList(UBOOL bToEntry, TArray<AActor*>& ActorList)
+{
+	struct GameInfo_eventGetSeamlessTravelActorList_Parms
+	{
+		UBOOL bToEntry;
+		TArray<AActor*> ActorList;
+	} Parms;
+	Parms.bToEntry = bToEntry ? TRUE : FALSE;
+	Parms.ActorList = ActorList;
+	ProcessEvent(FindFunctionChecked(g_026c3d88), &Parms);
+	ActorList = Parms.ActorList;
+}
+
+extern FName g_026c3d24;
+	/* ENGINE_GetDefaultGameClassPath */
+/* Kit gap: the generated glue for GameInfo's static script event GetDefaultGameClassPath (EngineClasses.h) isn't
+ * declared; this build keeps it out of line (UGameEngine's map loading calls it on the GameInfo class default
+ * object). */
+struct AGameInfo__007e1320 : public AGameInfo
+{
+	FString eventGetDefaultGameClassPath(const FString& MapName, const FString& Options, const FString& Portal);
+};
+
+// @baa 0x007e1320
+FString AGameInfo__007e1320::eventGetDefaultGameClassPath(const FString& MapName, const FString& Options, const FString& Portal)
+{
+	struct GameInfo_eventGetDefaultGameClassPath_Parms
+	{
+		FString MapName;
+		FString Options;
+		FString Portal;
+		FString ReturnValue;
+	} Parms;
+	Parms.MapName = MapName;
+	Parms.Options = Options;
+	Parms.Portal = Portal;
+	ProcessEvent(FindFunctionChecked(g_026c3d24), &Parms);
+	return Parms.ReturnValue;
 }

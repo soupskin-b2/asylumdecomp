@@ -1,4 +1,4 @@
-// BmGame_0580000.cpp: 2 functions
+// BmGame_0580000.cpp: 4 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -40,4 +40,32 @@ void UObject__0058cce0::eventEndState(FName NextStateName)
 	} Parms;
 	Parms.NextStateName = NextStateName;
 	ProcessEvent(FindFunctionChecked(NAME_EndState), &Parms);
+}
+
+/* Kit gap: Core.h's EName list lacks NAME_PushedState (0x14e, UnNames.h). */
+#define NAME_PushedState ((EName)0x14e)
+struct UObject__0058cd30 : public UObject
+{
+	void eventPushedState();
+};
+
+// @baa 0x0058cd30
+/* The script event's generated glue (CoreClasses.h), out of line here. */
+void UObject__0058cd30::eventPushedState()
+{
+	ProcessEvent(FindFunctionChecked(NAME_PushedState), NULL);
+}
+
+/* Kit gap: Core.h's EName list lacks NAME_PoppedState (0x149, UnNames.h). */
+#define NAME_PoppedState ((EName)0x149)
+struct UObject__0058cd60 : public UObject
+{
+	void eventPoppedState();
+};
+
+// @baa 0x0058cd60
+/* The script event's generated glue (CoreClasses.h), out of line here. */
+void UObject__0058cd60::eventPoppedState()
+{
+	ProcessEvent(FindFunctionChecked(NAME_PoppedState), NULL);
 }

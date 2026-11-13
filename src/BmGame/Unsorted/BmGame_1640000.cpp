@@ -1,4 +1,4 @@
-// BmGame_1640000.cpp (part 1 of 5): 135 functions
+// BmGame_1640000.cpp (part 1 of 5): 136 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -1112,4 +1112,12 @@ void ARGrapplePoint::vf_02c()
 {
 	g_026e1c54.RemoveItem(this);
 	Super::vf_02c();
+}
+
+// @baa 0x01641f20
+ /* the script event's name */
+/* Lets script react to the edit (calls the parameterless script event g_026e35f8). */
+void ARGrapplePointCatchmentArea::PostEditChange(UProperty* PropertyThatChanged)
+{
+	UObject::ProcessEvent(FindFunctionChecked(g_026e35f8), NULL);
 }

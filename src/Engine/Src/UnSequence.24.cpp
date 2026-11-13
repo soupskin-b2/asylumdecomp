@@ -1,4 +1,4 @@
-// UnSequence.cpp: 5 functions
+// UnSequence.cpp: 6 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -87,5 +87,27 @@ UBOOL USeqAct_Latent::eventUpdate(FLOAT DeltaTime)
 	Parms.ReturnValue = FALSE;
 	Parms.DeltaTime = DeltaTime;
 	ProcessEvent(FindFunctionChecked(g_026c45cc), &Parms);
+	return Parms.ReturnValue;
+}
+
+extern FName g_026c4304;
+	/* ENGINE_IsFallThruEnabled */
+/* Kit gap: the generated glue for SeqCond_SwitchBase's script event IsFallThruEnabled (EngineClasses.h) isn't declared; this build keeps it out of line. */
+struct USeqCond_SwitchBase_ : public USeqCond_SwitchBase
+{
+	UBOOL eventIsFallThruEnabled(INT ValueIndex);
+};
+
+// @baa 0x00d1eb70
+UBOOL USeqCond_SwitchBase_::eventIsFallThruEnabled(INT ValueIndex)
+{
+	struct SeqCond_SwitchBase_eventIsFallThruEnabled_Parms
+	{
+		INT ValueIndex;
+		UBOOL ReturnValue;
+	} Parms;
+	Parms.ReturnValue = FALSE;
+	Parms.ValueIndex = ValueIndex;
+	ProcessEvent(FindFunctionChecked(g_026c4304), &Parms);
 	return Parms.ReturnValue;
 }

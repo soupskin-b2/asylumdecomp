@@ -1,4 +1,4 @@
-// RInventoryGadget.cpp (part 1 of 2): 39 functions
+// RInventoryGadget.cpp (part 1 of 2): 40 functions
 // Placed here by: neighbours 18, class 6, file 6, callers 5.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -132,4 +132,34 @@ undefined4 ARInventoryManager::sub_016565e0(byte param_2)
     sub_005c7a70(param_1,0x29c);
   }
   return param_1;
+}
+
+extern FName g_026e3178;
+	/* BMGAME_GetPotentialTargetPositions */
+/* Script event glue (generated, BmGameClasses.h) for GetPotentialTargetPositions, which the
+ * inventory gadget calls on its candidate targets. The declaring class isn't identified (the
+ * kit has no script declaration for it), so it sits on a UObject helper; the first parameter
+ * is a 4-byte value taken from the gadget's target list. */
+struct UObject_GetPotentialTargetPositions_ : public UObject
+{
+	UBOOL eventGetPotentialTargetPositions(INT Param0, const FVector& Origin, TArray<FVector>& Positions); /* 0x016503e0 */
+};
+
+// @baa 0x016503e0
+UBOOL UObject_GetPotentialTargetPositions_::eventGetPotentialTargetPositions(INT Param0, const FVector& Origin, TArray<FVector>& Positions)
+{
+	struct Object_eventGetPotentialTargetPositions_Parms
+	{
+		INT Param0;
+		FVector Origin;
+		TArray<FVector> Positions;
+		UBOOL ReturnValue;
+	} Parms;
+	Parms.ReturnValue = FALSE;
+	Parms.Param0 = Param0;
+	Parms.Origin = Origin;
+	Parms.Positions = Positions;
+	ProcessEvent(FindFunctionChecked(g_026e3178), &Parms);
+	Positions = Parms.Positions;
+	return Parms.ReturnValue;
 }

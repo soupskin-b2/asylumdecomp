@@ -1,4 +1,4 @@
-// IpDrv_0e20000.cpp: 54 functions
+// IpDrv_0e20000.cpp: 62 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -466,4 +466,139 @@ void UPartyBeaconHost_::eventUnregisterParty(FUniqueNetId PartyLeader)
     PartyBeaconHost_eventUnregisterParty_Parms Parms;
     Parms.PartyLeader = PartyLeader;
     ProcessEvent(FindFunctionChecked(g_026cad88), &Parms);
+}
+
+extern FName g_026cadd8;
+	/* OnHostHasCancelled */
+/* Kit gap: the delegate's generated glue isn't declared. */
+struct UPartyBeaconClient_ : public UPartyBeaconClient
+{
+	void delegateOnHostHasCancelled();
+};
+
+// @baa 0x00e293c0
+/* The script delegate's generated glue, out of line here. */
+void UPartyBeaconClient_::delegateOnHostHasCancelled()
+{
+	ProcessDelegate(g_026cadd8, &__OnHostHasCancelled__Delegate, NULL, NULL);
+}
+
+extern FName g_026cad98;
+	/* OnHostIsReady */
+/* Kit gap: the delegate's generated glue isn't declared. */
+struct UPartyBeaconClient__00e293f0 : public UPartyBeaconClient
+{
+	void delegateOnHostIsReady();
+};
+
+// @baa 0x00e293f0
+/* The script delegate's generated glue, out of line here. */
+void UPartyBeaconClient__00e293f0::delegateOnHostIsReady()
+{
+	ProcessDelegate(g_026cad98, &__OnHostIsReady__Delegate, NULL, NULL);
+}
+
+extern FName g_026cae90;
+	/* OnReservationCountUpdated */
+/* Kit gap: the delegate's generated glue isn't declared. */
+struct UPartyBeaconClient__00e294a0 : public UPartyBeaconClient
+{
+	void delegateOnReservationCountUpdated(INT ReservationRemaining);
+};
+
+// @baa 0x00e294a0
+/* The script delegate's generated glue, out of line here. */
+void UPartyBeaconClient__00e294a0::delegateOnReservationCountUpdated(INT ReservationRemaining)
+{
+	struct PartyBeaconClient_eventOnReservationCountUpdated_Parms
+	{
+		INT ReservationRemaining;
+	} Parms;
+	Parms.ReservationRemaining = ReservationRemaining;
+	ProcessDelegate(g_026cae90, &__OnReservationCountUpdated__Delegate, &Parms, NULL);
+}
+
+extern FName g_026caeb4;
+	/* OnCancellationRequestComplete */
+/* Kit gap: the delegate's generated glue isn't declared. */
+struct UPartyBeaconClient__00e294d0 : public UPartyBeaconClient
+{
+	void delegateOnCancellationRequestComplete();
+};
+
+// @baa 0x00e294d0
+/* The script delegate's generated glue, out of line here. */
+void UPartyBeaconClient__00e294d0::delegateOnCancellationRequestComplete()
+{
+	ProcessDelegate(g_026caeb4, &__OnCancellationRequestComplete__Delegate, NULL, NULL);
+}
+
+extern FName g_026cadec;
+	/* OnReservationRequestComplete */
+/* Kit gap: the delegate's generated glue isn't declared. */
+struct UPartyBeaconClient__00e29500 : public UPartyBeaconClient
+{
+	void delegateOnReservationRequestComplete(BYTE ReservationResult);
+};
+
+// @baa 0x00e29500
+/* The script delegate's generated glue, out of line here. */
+void UPartyBeaconClient__00e29500::delegateOnReservationRequestComplete(BYTE ReservationResult)
+{
+	struct PartyBeaconClient_eventOnReservationRequestComplete_Parms
+	{
+		BYTE ReservationResult;
+	} Parms;
+	Parms.ReservationResult = ReservationResult;
+	ProcessDelegate(g_026cadec, &__OnReservationRequestComplete__Delegate, &Parms, NULL);
+}
+
+extern FName g_026cae6c;
+	/* OnClientCancellationReceived */
+/* Kit gap: the delegate's generated glue isn't declared. */
+struct UPartyBeaconHost__00e298c0 : public UPartyBeaconHost
+{
+	void delegateOnClientCancellationReceived(FUniqueNetId PartyLeader);
+};
+
+// @baa 0x00e298c0
+/* The script delegate's generated glue, out of line here. */
+void UPartyBeaconHost__00e298c0::delegateOnClientCancellationReceived(FUniqueNetId PartyLeader)
+{
+	struct PartyBeaconHost_eventOnClientCancellationReceived_Parms
+	{
+		FUniqueNetId PartyLeader;
+	} Parms;
+	Parms.PartyLeader = PartyLeader;
+	ProcessDelegate(g_026cae6c, &__OnClientCancellationReceived__Delegate, &Parms, NULL);
+}
+
+extern FName g_026cad54;
+	/* OnReservationsFull */
+/* Kit gap: the delegate's generated glue isn't declared. */
+struct UPartyBeaconHost__00e29900 : public UPartyBeaconHost
+{
+	void delegateOnReservationsFull();
+};
+
+// @baa 0x00e29900
+/* The script delegate's generated glue, out of line here. */
+void UPartyBeaconHost__00e29900::delegateOnReservationsFull()
+{
+	ProcessDelegate(g_026cad54, &__OnReservationsFull__Delegate, NULL, NULL);
+}
+
+extern FName g_026cade4;
+	/* OnReservationChange */
+/* Kit gap: the delegate's generated glue isn't declared. */
+struct UPartyBeaconHost__00e29930 : public UPartyBeaconHost
+{
+	void delegateOnReservationChange();
+};
+
+// @baa 0x00e29930
+/* The script delegate's generated glue, out of line here. */
+void UPartyBeaconHost__00e29930::delegateOnReservationChange()
+{
+	ProcessDelegate(g_026cade4, &__OnReservationChange__Delegate, NULL, NULL);
 }

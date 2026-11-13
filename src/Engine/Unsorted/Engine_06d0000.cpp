@@ -1,4 +1,4 @@
-// Engine_06d0000.cpp (part 1 of 4): 305 functions
+// Engine_06d0000.cpp (part 1 of 4): 306 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -2436,4 +2436,27 @@ void UMaterialInstanceTimeVarying::PostEditChange(UProperty* PropertyThatChanged
 	InitResources();
 
 	this->UpdateStaticPermutation();
+}
+
+struct UMaterial_ : public UMaterial
+{
+	UBOOL GetUsageByFlag(INT Usage); /* 0x006b56e0 */
+};
+
+// @baa 0x006d72b0
+/* Material.cpp, UE3's SetMaterialUsage as built for the game (no flag setting at runtime): the fallback
+ * material is checked first, then whether this material is already marked for the usage. */
+INT UMaterial::sub_006d72b0(INT* bNeedsRecompile, INT Usage)
+{
+	*bNeedsRecompile = FALSE;
+	UBOOL bFallbackResult = TRUE;
+	if (FallbackMaterial && !bIsFallbackMaterial)
+	{
+		bFallbackResult = FallbackMaterial->sub_006d72b0(bNeedsRecompile, Usage);
+	}
+	if (!((UMaterial_*)this)->GetUsageByFlag(Usage) && !bUsedAsSpecialEngineMaterial)
+	{
+		return FALSE;
+	}
+	return bFallbackResult;
 }

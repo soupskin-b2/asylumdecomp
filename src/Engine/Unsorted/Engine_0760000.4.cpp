@@ -1,4 +1,4 @@
-// Engine_0760000.cpp (part 4 of 5): 2 functions
+// Engine_0760000.cpp (part 4 of 5): 3 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -33,4 +33,16 @@ struct AActor_ : public AActor
 ULevel* AActor_::sub_00769d90() const
 {
     return CastChecked<ULevel>(GetOuterOf(this));
+}
+
+struct AActor__00763700 : public AActor
+{
+	FBox GetComponentsBoundingBox(UBOOL bNonColliding = 0); /* 0x00763530 */
+};
+
+// @baa 0x00763700
+/* Returns the bounding box of the actor's colliding components. */
+void AActor::sub_00763700(FBox& OutBox)
+{
+	OutBox = ((AActor__00763700*)this)->GetComponentsBoundingBox();
 }

@@ -1,4 +1,4 @@
-// UnUIObjects.cpp: 23 functions
+// UnUIObjects.cpp: 25 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -385,5 +385,37 @@ void UUIScene::RequestPrimitiveReview(UBOOL bReinitializePrimitives, UBOOL bRevi
 	if (bReviewPrimitiveUsage)
 	{
 		bUpdatePrimitiveUsage = TRUE;
+	}
+}
+
+// UUIScene: hands an update down to the scene's event sequence.
+struct UUIScene__00da9d90 : public UUIScene
+{
+	void sub_00da9d90(FLOAT DeltaTime); /* 0x00da9d90 */
+};
+
+// @baa 0x00da9d90
+void UUIScene__00da9d90::sub_00da9d90(FLOAT DeltaTime)
+{
+	if (EventProvider != NULL && EventProvider->EventContainer != NULL)
+	{
+		EventProvider->EventContainer->UpdateOp(DeltaTime);
+	}
+}
+
+/* Kit gap: UObject::MarkPackageDirty (the kit has it on UAnimSequence only). */
+struct UObject_ : public UObject
+{
+	void MarkPackageDirty(UBOOL InDirty = TRUE) const; /* 0x005d9570 */
+};
+
+// @baa 0x00daa8b0
+/* PostRename: keeps WidgetTag in step with the object's name. */
+void UUIObject::vf_058()
+{
+	if (WidgetTag != GetFName())
+	{
+		WidgetTag = GetFName();
+		((UObject_*)this)->MarkPackageDirty();
 	}
 }

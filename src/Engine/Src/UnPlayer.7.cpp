@@ -1,4 +1,4 @@
-// UnPlayer.cpp: 4 functions
+// UnPlayer.cpp: 7 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -77,4 +77,92 @@ void UGameViewportClient__00c8cd10::execIsFullScreenViewport(FFrame& Stack, RESU
 {
 	P_FINISH;
 	*(UBOOL*)Result = IsFullScreenViewport();
+}
+
+extern FName g_026c4ce4;
+	/* ENGINE_Tick */
+/* Kit gap: UGameViewportClient::Tick (UnPlayer.cpp; not virtual in this build, UWorld::Tick calls it on
+ * GEngine->GameViewport) isn't declared. */
+struct UGameViewportClient__00892430 : public UGameViewportClient
+{
+	/* GameViewportClient.Tick script event: the generated glue, inlined here (Tick is a probe function). */
+	FORCEINLINE void eventTick(FLOAT DeltaTime)
+	{
+		if (!StateFrame || (StateFrame->ProbeMask & ((QWORD)1 << (NAME_Tick - NAME_PROBEMIN))))
+		{
+			struct GameViewportClient_eventTick_Parms
+			{
+				FLOAT DeltaTime;
+			} Parms;
+			Parms.DeltaTime = DeltaTime;
+			ProcessEvent(FindFunctionChecked(g_026c4ce4), &Parms);
+		}
+	}
+	void Tick(FLOAT DeltaTime);
+};
+
+// @baa 0x00892430
+void UGameViewportClient__00892430::Tick(FLOAT DeltaTime)
+{
+	// first call the unrealscript tick
+	eventTick(DeltaTime);
+
+	// now tick all interactions
+	for (INT i = 0; i < GlobalInteractions.Num(); i++)
+	{
+		UInteraction* Interaction = GlobalInteractions(i);
+		Interaction->Tick(DeltaTime);
+	}
+
+	bDisplayingUIMouseCursor = FALSE;
+}
+
+extern FName g_026c4a1c;
+	/* ENGINE_HandleInputChar */
+/* Kit gap: the generated delegate glue for GameViewportClient.HandleInputChar (EngineClasses.h) isn't declared;
+ * this build keeps it out of line (UGameViewportClient::InputChar calls it). */
+struct UGameViewportClient__00895da0 : public UGameViewportClient
+{
+	UBOOL delegateHandleInputChar(INT ControllerId, const FString& Unicode);
+};
+
+// @baa 0x00895da0
+UBOOL UGameViewportClient__00895da0::delegateHandleInputChar(INT ControllerId, const FString& Unicode)
+{
+	struct GameViewportClient_eventHandleInputChar_Parms
+	{
+		INT ControllerId;
+		FString Unicode;
+		UBOOL ReturnValue;
+	} Parms;
+	Parms.ReturnValue = FALSE;
+	Parms.ControllerId = ControllerId;
+	Parms.Unicode = Unicode;
+	ProcessDelegate(g_026c4a1c, &__HandleInputChar__Delegate, &Parms, NULL);
+	return Parms.ReturnValue;
+}
+
+extern FName g_026c50c8;
+	/* ENGINE_OnReceivedNativeInputChar */
+/* Kit gap: the generated delegate glue for Interaction.OnReceivedNativeInputChar (EngineClasses.h) isn't declared;
+ * this build keeps it out of line (the viewport client's InputChar calls it on each interaction). */
+struct UInteraction_ : public UInteraction
+{
+	UBOOL delegateOnReceivedNativeInputChar(INT ControllerId, const FString& Unicode);
+};
+
+// @baa 0x00895e80
+UBOOL UInteraction_::delegateOnReceivedNativeInputChar(INT ControllerId, const FString& Unicode)
+{
+	struct Interaction_eventOnReceivedNativeInputChar_Parms
+	{
+		INT ControllerId;
+		FString Unicode;
+		UBOOL ReturnValue;
+	} Parms;
+	Parms.ReturnValue = FALSE;
+	Parms.ControllerId = ControllerId;
+	Parms.Unicode = Unicode;
+	ProcessDelegate(g_026c50c8, &__OnReceivedNativeInputChar__Delegate, &Parms, NULL);
+	return Parms.ReturnValue;
 }

@@ -1,4 +1,4 @@
-// UnParticleModules.cpp (part 5 of 5): 20 functions
+// UnParticleModules.cpp (part 5 of 5): 22 functions
 // Placed here by: neighbours 11, class 5.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -101,4 +101,21 @@ INT UParticleModule::vf_158(INT SourceLODIndex)
 		return ((LODValidity & (1 << SourceLODIndex)) != 0);
 	}
 	return FALSE;
+}
+
+// @baa 0x00b3db10
+/* GetBurstCount(Owner, Offset, OldLeftover, DeltaTime, out Number): no burst of its own;
+ * whether the emitter should still process its burst list. */
+INT UParticleModuleSpawnBase::vf_16c(INT Owner, INT Offset, INT OldLeftover, INT DeltaTime, INT Number)
+{
+	*(INT*)Number = 0;
+	return bProcessBurstList;
+}
+
+// @baa 0x00b74bf0
+/* RequiredBytes(Owner): per-particle payload bytes; end point method 2 keeps a 12-byte
+ * vector per particle, the others need none. */
+INT UParticleModuleTypeDataBeam::vf_114(INT Owner)
+{
+	return EndPointMethod == 2 ? 12 : 0;
 }

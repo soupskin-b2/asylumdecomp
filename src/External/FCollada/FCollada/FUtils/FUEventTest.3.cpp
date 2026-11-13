@@ -1,4 +1,4 @@
-// FUEventTest.cpp: 3 functions
+// FUEventTest.cpp: 8 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -58,4 +58,123 @@ FUFunctor2_::FUFunctor2_(long ArgA, long ArgB)
 // @baa 0x01863880
 void FUFunctor2_::operator()(long A, long B)
 {
+}
+
+// FUEvent: a null callback and three false flags, cleared from the last one back.
+struct FListener_
+{
+	void* Callback;
+	BYTE Third;
+	BYTE Second;
+	BYTE First;
+	FListener_();
+};
+
+// @baa 0x01863380
+FListener_::FListener_()
+{
+	Callback = NULL;
+	First = 0;
+	Second = 0;
+	Third = 0;
+}
+
+// FMTailLink: the tail of a circular list, which points back at its anchor.
+struct FMTailLink_
+{
+	void* Anchor;
+	FMTailLink_* Self;
+};
+
+// FMListAnchor: an entry count and a circular link list rooted at the anchor.
+struct FMListAnchor_
+{
+	void* Head;
+	int Count;
+	FMTailLink_ Tail;
+	FMListAnchor_();
+};
+
+// @baa 0x01863760
+FMListAnchor_::FMListAnchor_()
+{
+	Head = NULL;
+	Count = 0;
+	Tail.Anchor = NULL;
+	Tail.Self = &Tail;
+}
+
+// FMTailLink_01863790: the tail of a circular list, which points back at its anchor.
+struct FMTailLink_01863790
+{
+	void* Anchor;
+	FMTailLink_01863790* Self;
+};
+
+// FMListAnchor_01863790: an entry pointer and a circular link list rooted at the anchor.
+struct FMListAnchor_01863790
+{
+	void* Head;
+	int Count;
+	FMTailLink_01863790 Tail;
+	FMListAnchor_01863790();
+};
+
+// @baa 0x01863790
+FMListAnchor_01863790::FMListAnchor_01863790()
+{
+	Head = NULL;
+	Count = 0;
+	Tail.Anchor = NULL;
+	Tail.Self = &Tail;
+}
+
+// FMTailLink_018637c0: the tail of a circular list, which points back at its anchor.
+struct FMTailLink_018637c0
+{
+	void* Anchor;
+	FMTailLink_018637c0* Self;
+};
+
+// FMListAnchor_018637c0: an entry pointer and a circular link list rooted at the anchor.
+struct FMListAnchor_018637c0
+{
+	void* Head;
+	int Count;
+	FMTailLink_018637c0 Tail;
+	FMListAnchor_018637c0();
+};
+
+// @baa 0x018637c0
+FMListAnchor_018637c0::FMListAnchor_018637c0()
+{
+	Head = NULL;
+	Count = 0;
+	Tail.Anchor = NULL;
+	Tail.Self = &Tail;
+}
+
+// FMTailLink_01863ca0: the tail of a circular list, which points back at its anchor.
+struct FMTailLink_01863ca0
+{
+	void* Anchor;
+	FMTailLink_01863ca0* Self;
+};
+
+// FMListAnchor_01863ca0: an entry pointer and a circular link list rooted at the anchor.
+struct FMListAnchor_01863ca0
+{
+	void* Head;
+	int Count;
+	FMTailLink_01863ca0 Tail;
+	FMListAnchor_01863ca0();
+};
+
+// @baa 0x01863ca0
+FMListAnchor_01863ca0::FMListAnchor_01863ca0()
+{
+	Head = NULL;
+	Count = 0;
+	Tail.Anchor = NULL;
+	Tail.Self = &Tail;
 }

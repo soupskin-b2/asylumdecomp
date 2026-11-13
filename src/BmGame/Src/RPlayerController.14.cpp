@@ -1,4 +1,4 @@
-// RPlayerController.cpp: 3 functions
+// RPlayerController.cpp: 5 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -56,4 +56,41 @@ void sub_016d2760(UObject* LinkerRoot, void* CallbackUserData)
 		Movie->CurrentStreamedPicture = Picture;
 		((URGFxMovie_*)Movie)->eventPictureLoaded();
 	}
+}
+
+extern FName g_026e371c;
+	/* BMGAME_GetAnimNames */
+/* The config's script event (generated glue, BmGameClasses.h) */
+struct URIdleConfig_ : public URIdleConfig
+{
+	void eventGetAnimNames(TArray<FName>& AnimNames); /* 0x01624940 */
+};
+
+// @baa 0x01624940
+void URIdleConfig_::eventGetAnimNames(TArray<FName>& AnimNames)
+{
+	struct RIdleConfig_eventGetAnimNames_Parms
+	{
+		TArray<FName> AnimNames;
+	} Parms;
+	Parms.AnimNames = AnimNames;
+	ProcessEvent(FindFunctionChecked(g_026e371c), &Parms);
+	AnimNames = Parms.AnimNames;
+}
+
+extern UBOOL g_026e2528;
+ /* a pending value is waiting */
+extern INT g_026e252c;
+// @baa 0x01718fc0
+   /* the pending value */
+/* Hands out the pending value once, if there is one. */
+INT ARPlayerController::vf_588(INT& out_Value)
+{
+	if (g_026e2528)
+	{
+		g_026e2528 = FALSE;
+		out_Value = g_026e252c;
+		return TRUE;
+	}
+	return FALSE;
 }

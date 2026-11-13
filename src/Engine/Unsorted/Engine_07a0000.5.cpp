@@ -1,4 +1,4 @@
-// Engine_07a0000.cpp: 3 functions
+// Engine_07a0000.cpp: 4 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -51,4 +51,34 @@ void AController_007a0dc0::sub_007a0dc0()
 {
     StateFrame->LatentAction = 0;
     LatentFloat = -1.f;
+}
+
+extern FName g_026c543c;
+	/* ENGINE_LongFall */
+/* Kit gaps: AController::execPollWaitForLanding (the latent poll of WaitForLanding, registered with the natives;
+ * UnController.cpp) and the Controller.LongFall script event's glue (EngineClasses.h, inline) aren't declared. */
+struct AController_ : public AController
+{
+	void execPollWaitForLanding(FFrame& Stack, RESULT_DECL);
+	void eventLongFall()
+	{
+		ProcessEvent(FindFunctionChecked(g_026c543c), NULL);
+	}
+};
+
+// @baa 0x007a0860
+void AController_::execPollWaitForLanding(FFrame& Stack, RESULT_DECL)
+{
+	if (Pawn && (Pawn->Physics != PHYS_Falling))
+	{
+		StateFrame->LatentAction = 0;
+	}
+	else
+	{
+		LatentFloat -= *(FLOAT*)Result;
+		if (LatentFloat <= 0.f)
+		{
+			eventLongFall();
+		}
+	}
 }

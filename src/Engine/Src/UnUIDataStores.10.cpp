@@ -1,4 +1,4 @@
-// UnUIDataStores.cpp: 7 functions
+// UnUIDataStores.cpp: 9 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -139,4 +139,31 @@ UUIDataStore* UDataStoreClient::sub_00da19f0(UClass* DataStoreClass)
 FName UUIDataStore::GetDataStoreID()
 {
 	return Tag;
+}
+
+static inline UBOOL operator!=(const FName& A, EName B) { return A.Index != B || A.Number != 0; }
+
+// @baa 0x00d9da60
+UBOOL UUIDataStore_InputAlias::HasAliasMappingForPlatform(FName DesiredAlias, BYTE DesiredPlatform)
+{
+    const UUIDataStore_InputAlias* This = this;
+    UBOOL bResult = FALSE;
+
+    INT AliasIndex = FindInputAliasIndex(DesiredAlias);
+    if (This->InputAliases.IsValidIndex(AliasIndex) && DesiredPlatform < IPT_MAX)
+    {
+        bResult = This->InputAliases(AliasIndex).PlatformInputKeys[DesiredPlatform].InputKeyData.InputKeyName != NAME_None;
+    }
+
+    return bResult;
+}
+
+// @baa 0x00d97260
+/* ParseDataStoreReference(MarkupString, out_FieldOwner, out_FieldTag, out_ArrayIndex): the store
+ * itself owns every field, and the whole markup string is the tag. */
+INT UUIDataStore_Strings::vf_13c(INT MarkupString, INT out_FieldOwner, INT out_FieldTag, INT out_ArrayIndex)
+{
+	*(UUIDataStore_Strings**)out_FieldOwner = this;
+	*(FString*)out_FieldTag = *(const FString*)MarkupString;
+	return TRUE;
 }

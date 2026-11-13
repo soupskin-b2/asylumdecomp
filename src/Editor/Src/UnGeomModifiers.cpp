@@ -1,4 +1,4 @@
-// UnGeomModifiers.cpp: 107 functions
+// UnGeomModifiers.cpp: 111 functions
 // Placed here by: neighbours 49, callers 12, file 12, class 10.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -409,4 +409,63 @@ bool UGeomModifier_Turn::vf_004()
 bool UGeomModifier_Weld::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+/* Kit gap: the editor geometry selection modes (UnGeom.h) */
+enum EGeomSelectionMode
+{
+	GSM_Object = 0,
+	GSM_Polygon = 1,
+	GSM_Edge = 2,
+	GSM_Vertex = 3,
+};
+
+// @baa 0x00f9db40
+/* Supports(SelectionMode): lathing works on everything except objects, edges and vertices. */
+INT UGeomModifier_Lathe::vf_114(INT InSelectionMode)
+{
+	switch (InSelectionMode)
+	{
+		case GSM_Object:
+		case GSM_Edge:
+		case GSM_Vertex:
+			return FALSE;
+	}
+	return TRUE;
+}
+
+// @baa 0x00f9db90
+/* Supports(SelectionMode): only works on polygons. */
+INT UGeomModifier_Flip::vf_114(INT InSelectionMode)
+{
+	switch (InSelectionMode)
+	{
+		case GSM_Polygon:
+			return TRUE;
+	}
+	return FALSE;
+}
+
+// @baa 0x00f9dbd0
+/* Supports(SelectionMode): only works on polygons. */
+INT UGeomModifier_Triangulate::vf_114(INT InSelectionMode)
+{
+	switch (InSelectionMode)
+	{
+		case GSM_Polygon:
+			return TRUE;
+	}
+	return FALSE;
+}
+
+// @baa 0x00f9dbf0
+/* Supports(SelectionMode): only works on edges. */
+INT UGeomModifier_Turn::vf_114(INT InSelectionMode)
+{
+	switch (InSelectionMode)
+	{
+		case GSM_Edge:
+			return TRUE;
+	}
+	return FALSE;
 }

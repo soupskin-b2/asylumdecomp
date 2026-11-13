@@ -1,4 +1,4 @@
-// PropertyUtils.cpp (part 2 of 3): 31 functions
+// PropertyUtils.cpp (part 2 of 3): 32 functions
 // Placed here by: neighbours 7.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -271,3 +271,14 @@ bool UPropertyInputInteger::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
+
+// @baa 0x01202850
+/* Not supported by this proxy (asserts, PropertyUtils.h). */
+INT UPropertyInputProxy::vf_11c(INT, INT)
+{
+#line 325 "UnrealEd/Inc\\PropertyUtils.h"
+	check(0);
+	return 0;
+}
+
+#line 285 "candidate.cpp"

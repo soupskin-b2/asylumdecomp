@@ -1,4 +1,4 @@
-// MaterialExpressions.cpp: 2 functions
+// MaterialExpressions.cpp: 3 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -21,4 +21,14 @@ FString UMaterialExpressionFontSampleParameter::vf_128()
 FString UMaterialExpressionTextureSampleParameter::vf_128()
 {
 	return FString_::Printf(TEXT("Parm '%s'"), *(const FString_&)ParameterName.ToString());
+}
+
+// @baa 0x00c1d130
+/* Copies the R/G/B properties into Colour. */
+void UMaterialExpressionConstant3Vector::PostLoad()
+{
+	Colour.R = R;
+	Colour.G = G;
+	Colour.B = B;
+	Super::PostLoad();
 }

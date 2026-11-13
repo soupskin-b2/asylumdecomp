@@ -1,4 +1,4 @@
-// UnUIEditor.cpp: 1 function
+// UnUIEditor.cpp: 2 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -20,4 +20,12 @@ undefined4 C_014adba0::sub_014adba0(byte param_2)
     sub_0053dfa0(param_1);
   }
   return param_1;
+}
+
+// @baa 0x0149e850
+/* Clears object flag 0x0008000000000000 after loading. */
+void UUILayer::PostLoad()
+{
+	Super::PostLoad();
+	*(QWORD*)&ObjectFlags &= ~(QWORD)0x0008000000000000;
 }
