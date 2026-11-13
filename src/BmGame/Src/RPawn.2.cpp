@@ -12,13 +12,9 @@ void ARPawnCombat::sub_01673b20(FVector V)
 
 /* Unnamed in the kit: an ARPawnCombat helper that turns the pawn's DestRot towards a world location (the yaw, in
  * radians, of TargetLocation - Location). */
-struct ARPawnCombat_ : public ARPawnCombat
-{
-    void sub_01676b70(FVector TargetLocation);
-};
 
 // @baa 0x01676b70
-void ARPawnCombat_::sub_01676b70(FVector TargetLocation)
+void ARPawnCombat::sub_01676b70(FVector TargetLocation)
 {
     FVector Dir(TargetLocation.X - Location.X, TargetLocation.Y - Location.Y, TargetLocation.Z - Location.Z);
     DestRot = atan2(Dir.Y, Dir.X);

@@ -38,7 +38,6 @@ void ULightComponent::execGetOrigin(FFrame& Stack, RESULT_DECL)
 
 struct ULightComponent__006b4b20 : public ULightComponent
 {
-	void BeginDeferredReattach();
 	void SetEnabled( UBOOL bSetEnabled )
 	{
 		if ( bEnabled != bSetEnabled )
@@ -47,13 +46,12 @@ struct ULightComponent__006b4b20 : public ULightComponent
 			BeginDeferredReattach();
 		}
 	}
-	void execSetEnabled(FFrame& Stack, RESULT_DECL);
 };
 
 // @baa 0x006b4b20
-void ULightComponent__006b4b20::execSetEnabled(FFrame& Stack, RESULT_DECL)
+void ULightComponent::execSetEnabled(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bSetEnabled);
 	P_FINISH;
-	SetEnabled(bSetEnabled);
+	((ULightComponent__006b4b20*)this)->SetEnabled(bSetEnabled);
 }

@@ -60,11 +60,6 @@ void UPrimitiveComponent::execSetOwnerNoSee(FFrame& Stack, RESULT_DECL)
 	SetOwnerNoSee(bOwnerNoSee);
 }
 
-struct UPrimitiveComponent_ : public UPrimitiveComponent
-{
-	void sub_007596c0();
-};
-
 // @baa 0x006dc300
 void UPrimitiveComponent::execSetScale(FFrame& Stack, RESULT_DECL)
 {
@@ -73,7 +68,7 @@ void UPrimitiveComponent::execSetScale(FFrame& Stack, RESULT_DECL)
 	if (NewScale != Scale)
 	{
 		Scale = NewScale;
-		((UPrimitiveComponent_*)this)->sub_007596c0();
+		BeginDeferredUpdateTransform();
 	}
 }
 
@@ -146,12 +141,6 @@ void UPrimitiveComponent::execSetRotation(FFrame& Stack, RESULT_DECL)
     }
 }
 
-struct UActorComponent_ : public UActorComponent
-{
-    /* BeginDeferredReattach; Classes.h doesn't declare it. */
-    void sub_00765d00();
-};
-
 // @baa 0x006dce00
 void UCylinderComponent::execSetCylinderSize(FFrame& Stack, RESULT_DECL)
 {
@@ -161,7 +150,7 @@ void UCylinderComponent::execSetCylinderSize(FFrame& Stack, RESULT_DECL)
 
     CollisionHeight = NewHeight;
     CollisionRadius = NewRadius;
-    ((UActorComponent_*)this)->sub_00765d00();
+    BeginDeferredReattach();
 }
 
 // @baa 0x006dc1c0
@@ -202,12 +191,6 @@ void UPrimitiveComponent::execSetAbsolute(FFrame& Stack, RESULT_DECL)
     BeginDeferredUpdateTransform();
 }
 
-struct AActor_ : public AActor
-{
-    /* FindTouchingActors; Classes.h doesn't declare it. */
-    void sub_007814c0();
-};
-
 // @baa 0x006db7a0
 void UPrimitiveComponent::execSetActorCollision(FFrame& Stack, RESULT_DECL)
 {
@@ -220,10 +203,10 @@ void UPrimitiveComponent::execSetActorCollision(FFrame& Stack, RESULT_DECL)
     if (NewCollideActors != CollideActors)
     {
         CollideActors = NewCollideActors;
-        ((UActorComponent_*)this)->sub_00765d00();
+        BeginDeferredReattach();
         if (CollideActors && AlwaysCheckCollision && Owner)
         {
-            ((AActor_*)Owner)->sub_007814c0();
+            ((AActor*)Owner)->FindTouchingActors();
         }
     }
     BlockActors = NewBlockActors;

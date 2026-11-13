@@ -18468,7 +18468,7 @@
     {
      "va": "01676b70",
      "size": 27,
-     "symbol": "?sub_01676b70@ARPawnCombat_@@QAEXUFVector@@@Z"
+     "symbol": "?sub_01676b70@ARPawnCombat@@QAEXUFVector@@@Z"
     },
     {
      "va": "0167bba0",
@@ -168002,7 +168002,7 @@
     {
      "va": "00c16ee0",
      "size": 344,
-     "symbol": "?DoReduction@UAnimationCompressionAlgorithm_RemoveLinearKeys_@@UAEXPAUUAnimSequence@@PAUUSkeletalMesh@@ABV?$TArray@UFBoneData@@@@@Z"
+     "symbol": "?DoReduction@UAnimationCompressionAlgorithm_RemoveLinearKeys@@UAEXPAUUAnimSequence@@PAUUSkeletalMesh@@ABV?$TArray@UFBoneData@@@@@Z"
     }
    ]
   },
@@ -174434,7 +174434,7 @@
     {
      "va": "006b4b20",
      "size": 137,
-     "symbol": "?execSetEnabled@ULightComponent__006b4b20@@QAEXAAUFFrame@@QAX@Z"
+     "symbol": "?execSetEnabled@ULightComponent@@QAEXAAUFFrame@@QAX@Z"
     }
    ]
   },
@@ -196257,7 +196257,7 @@
     {
      "va": "007596c0",
      "size": 96,
-     "symbol": "?sub_007596c0@UActorComponent_@@QAEXXZ"
+     "symbol": "?BeginDeferredUpdateTransform@UActorComponent@@QAEXXZ"
     }
    ]
   },
@@ -288702,7 +288702,7 @@
     {
      "va": "00758bf0",
      "size": 61,
-     "symbol": "?eventScriptGetTeamNum@AActor__00758bf0@@QAEEXZ"
+     "symbol": "?GetTeamNum@AActor@@UAEEXZ"
     },
     {
      "va": "00753840",

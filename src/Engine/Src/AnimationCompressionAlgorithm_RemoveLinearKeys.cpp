@@ -27,29 +27,24 @@ void AnimationFormat_SetInterfaceLinks( UAnimSequence& Seq );
 UObject* StaticDuplicateObject( UObject* SourceObject, UObject* RootObject, UObject* DestOuter, const TCHAR* DestName, QWORD FlagMask = ~0, UClass* DestClass = NULL, void* InstanceGraph = NULL );
 /* Core's UObject::MarkPackageDirty (0x005d9570), not declared on UObject in Classes.h. */
 
-
 #define TRIVIAL_TRANSLATION_DIFF	0.0001f
 #define TRIVIAL_ROTATION_DIFF		0.0003f
 /* Classes.h declares DoReduction as 'virtual void DoReduction(INT, INT, INT)' (placeholder types);
  * this helper struct carries the real signature and the class's statics. */
 struct UAnimationCompressionAlgorithm_RemoveLinearKeys_ : public UAnimationCompressionAlgorithm_RemoveLinearKeys
 {
-	static void FilterTrivialPositionKeys( TArray<FTranslationTrack>& Track, FLOAT MaxPosDelta );
-	static void FilterTrivialRotationKeys( TArray<FRotationTrack>& InputTracks, FLOAT MaxRotDelta );
 	static void FilterTrivialKeys( TArray<FTranslationTrack>& PositionTracks, TArray<FRotationTrack>& RotationTracks, FLOAT MaxPosDelta, FLOAT MaxRotDelta )
 	{
 		FilterTrivialRotationKeys(RotationTracks, MaxRotDelta);
 		FilterTrivialPositionKeys(PositionTracks, MaxPosDelta);
 	}
-	static void BitwiseCompressAnimationTracks( UAnimSequence* Seq, BYTE TargetTranslationFormat, BYTE TargetRotationFormat, const TArray<FTranslationTrack>& TranslationData, const TArray<FRotationTrack>& RotationData, UBOOL IncludeKeyTable );
 
 	void ProcessAnimationTracks( UAnimSequence* AnimSeq, USkeletalMesh* SkelMesh, const TArray<FBoneData>& BoneData, BYTE TargetTranslationFormat, BYTE TargetRotationFormat, TArray<FTranslationTrack>& PositionTracks, TArray<FRotationTrack>& RotationTracks );
 
-	void DoReduction( UAnimSequence* AnimSeq, USkeletalMesh* SkelMesh, const TArray<FBoneData>& BoneData );
 };
 
 // @baa 0x00c16ee0
-void UAnimationCompressionAlgorithm_RemoveLinearKeys_::DoReduction( UAnimSequence* AnimSeq, USkeletalMesh* SkelMesh, const TArray<FBoneData>& BoneData )
+void UAnimationCompressionAlgorithm_RemoveLinearKeys::DoReduction( UAnimSequence* AnimSeq, USkeletalMesh* SkelMesh, const TArray<FBoneData>& BoneData )
 {
 	// Separate out translation and rotation tracks.
 	TArray<FTranslationTrack> TranslationData;
@@ -57,7 +52,7 @@ void UAnimationCompressionAlgorithm_RemoveLinearKeys_::DoReduction( UAnimSequenc
 	SeparateRawDataIntoTracks( AnimSeq->RawAnimData, AnimSeq->SequenceLength, TranslationData, RotationData );
 
 	// remove obviously redundant keys from the source data
-	FilterTrivialKeys(TranslationData, RotationData, TRIVIAL_TRANSLATION_DIFF, TRIVIAL_ROTATION_DIFF);
+	((UAnimationCompressionAlgorithm_RemoveLinearKeys_*)this)->FilterTrivialKeys(TranslationData, RotationData, TRIVIAL_TRANSLATION_DIFF, TRIVIAL_ROTATION_DIFF);
 
 	// compress this animation without any key-reduction to prime the codec
 	BitwiseCompressAnimationTracks(
@@ -75,7 +70,7 @@ void UAnimationCompressionAlgorithm_RemoveLinearKeys_::DoReduction( UAnimSequenc
 	AnimSeq->MarkPackageDirty();
 
 	// remove the keys we can interpolate
-	ProcessAnimationTracks(
+	((UAnimationCompressionAlgorithm_RemoveLinearKeys_*)this)->ProcessAnimationTracks(
 		AnimSeq,
 		SkelMesh,
 		BoneData,

@@ -53,16 +53,11 @@ INT UActorComponent::vf_08c()
 #define RF_ClassDefaultObject ((QWORD)0x0000000000000200)
 #define RF_ArchetypeObject ((QWORD)0x0000000000000400)
 #define RF_PendingKill ((QWORD)0x2000000000000000)
-/* Unnamed in the kit: UE3's UActorComponent::BeginDeferredUpdateTransform(). */
-struct UActorComponent_ : public UActorComponent
-{
-    void sub_007596c0();
-};
 
 // @baa 0x007596c0
 /* Marks the transform dirty; static owners update their components now (slot 0x314, UE3 ConditionalUpdateComponents),
  * an ownerless attached component updates itself (slot 0x118, UE3 UpdateTransform). */
-void UActorComponent_::sub_007596c0()
+void UActorComponent::BeginDeferredUpdateTransform()
 {
     bNeedsUpdateTransform = TRUE;
     if (Owner)

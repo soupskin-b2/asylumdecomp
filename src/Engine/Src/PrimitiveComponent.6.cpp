@@ -48,12 +48,6 @@ void UMeshComponent::execPrestreamTextures(FFrame& Stack, RESULT_DECL)
     ((UMeshComponent_*)this)->sub_006dc850(Seconds, bPrioritizeCharacterTextures);
 }
 
-struct UActorComponent_ : public UActorComponent
-{
-    /* BeginDeferredReattach; Classes.h doesn't declare it. */
-    void sub_00765d00();
-};
-
 // @baa 0x006e4ba0
 void UPrimitiveComponent::execSetLevelHidden(FFrame& Stack, RESULT_DECL)
 {
@@ -63,6 +57,6 @@ void UPrimitiveComponent::execSetLevelHidden(FFrame& Stack, RESULT_DECL)
     if (bLevelHidden != bNewLevelHidden)
     {
         bLevelHidden = bNewLevelHidden;
-        ((UActorComponent_*)this)->sub_00765d00();
+        BeginDeferredReattach();
     }
 }

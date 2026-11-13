@@ -49,11 +49,6 @@ void UUIObject::execFindStyleSubscriberIndex(FFrame& Stack, RESULT_DECL)
 
 /* UnScript.h has this; ue3/Script.h doesn't. */
 #define P_GET_OBJECT_OPTX_REF(c, v, d) GRuntimeUCFlags &= ~RUC_SkippedOptionalParm; c* v##T = d; GPropAddr = 0; Stack.Step(Stack.Object, &v##T); c*& v = GPropAddr ? *(c**)GPropAddr : v##T;
-struct UUIRoot_ : public UUIRoot
-{
-    /* static UBOOL GetCursorPosition(INT& CursorX, INT& CursorY, const UUIScene* Scene=NULL); Classes.h doesn't declare it. */
-    static UBOOL sub_00da8790(INT& CursorX, INT& CursorY, const UUIScene* Scene);
-};
 
 // @baa 0x00da8af0
 void UUIRoot::execGetCursorPosition(FFrame& Stack, RESULT_DECL)
@@ -62,7 +57,7 @@ void UUIRoot::execGetCursorPosition(FFrame& Stack, RESULT_DECL)
     P_GET_INT_REF(CursorY);
     P_GET_OBJECT_OPTX_REF(UUIScene, Scene, NULL);
     P_FINISH;
-    *(UBOOL*)Result = UUIRoot_::sub_00da8790(CursorX, CursorY, Scene);
+    *(UBOOL*)Result = UUIRoot::GetCursorPosition(CursorX, CursorY, Scene);
 }
 
 // @baa 0x00ca3240

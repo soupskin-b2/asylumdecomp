@@ -50,14 +50,10 @@ BYTE AActor__007537d0::eventScriptGetTeamNum()
 }
 
 	/* ScriptGetTeamNum */
-struct AActor__00758bf0 : public AActor
-{
-	BYTE eventScriptGetTeamNum();
-};
 
 // @baa 0x00758bf0
 /* Actor.ScriptGetTeamNum script event: the generated glue, out of line here. */
-BYTE AActor__00758bf0::eventScriptGetTeamNum()
+BYTE AActor::GetTeamNum()
 {
 	struct Actor_eventScriptGetTeamNum_Parms
 	{
