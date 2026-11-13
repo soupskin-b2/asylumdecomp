@@ -207900,12 +207900,12 @@
     {
      "va": "007a2f60",
      "size": 23,
-     "symbol": "?vf_118@UDistributionFloatUniform@@UAEHHH@Z"
+     "symbol": "?InitializeRawEntry@UDistributionFloatUniform@@UAEHMPAM@Z"
     },
     {
      "va": "007c0f30",
      "size": 37,
-     "symbol": "?vf_11c@UDistributionFloatConstantCurve@@UAEMMM@Z"
+     "symbol": "?GetValue@UDistributionFloatConstantCurve@@UAEMMPAUUObject@@@Z"
     }
    ]
   },
@@ -251005,7 +251005,7 @@
     {
      "va": "00d98fc0",
      "size": 27,
-     "symbol": "?GetScene@UUIScreenObject@@UAEHXZ"
+     "symbol": "?GetScene@UUIScreenObject@@UAEPAUUUIScene@@XZ"
     },
     {
      "va": "00d990f0",

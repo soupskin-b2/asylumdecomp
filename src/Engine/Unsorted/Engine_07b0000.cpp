@@ -1137,13 +1137,5 @@ undefined4 C_007bd180::sub_007bd180(void)
   return param_1;
 }
 
-/* Exchange<FLOAT> (UnTemplate.h), which the kit lacks. */
-template< class T > inline void Exchange( T& A, T& B )
-{
-	const T Temp = A;
-	A = B;
-	B = Temp;
-}
-
 // @baa 0x007b4b00
 template void Exchange<FLOAT>(FLOAT&, FLOAT&);

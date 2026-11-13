@@ -253,7 +253,7 @@ void UUIScene__00dc9730::execForceImmediateSceneUpdate( FFrame& Stack, RESULT_DE
 }
 
 // @baa 0x00d98fc0
-INT UUIScreenObject::GetScene()
+UUIScene* UUIScreenObject::GetScene()
 {
     PURE_VIRTUAL(UUIScreenObject::GetScene, return 0;);
 }

@@ -1978,13 +1978,5 @@ FVector AAIController::vf_3d0()
 	return GetDestinationPosition() - Pawn->Location;
 }
 
-/* Exchange<FLOAT> (UnTemplate.h), which the kit lacks. */
-template< class T > inline void Exchange( T& A, T& B )
-{
-	const T Temp = A;
-	A = B;
-	B = Temp;
-}
-
 // @baa 0x007ab150
 template void Exchange<FLOAT>(FLOAT&, FLOAT&);

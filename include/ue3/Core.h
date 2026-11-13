@@ -222,7 +222,7 @@ protected:
 	UBOOL ArIsSaving;         /* 0x14 */
 };
 
-/* UnTemplate.h: swap, and the quicksort with a compare class (IMPLEMENT_COMPARE_*). Out-of-line Exchange<FLOAT>: 0x0045fea0 */
+/* UnTemplate.h: swap, and the quicksort with a compare class (IMPLEMENT_COMPARE_*). Out-of-line Exchange<FLOAT>: 0x0045fea0, 0x007ab150, 0x007b4b00 */
 template<class T> inline void Exchange(T& A, T& B)
 {
     const T Temp = A;

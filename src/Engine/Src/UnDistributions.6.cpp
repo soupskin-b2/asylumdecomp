@@ -14,7 +14,7 @@ INT UDistributionFloatUniform::InitializeRawEntry(FLOAT Time, FLOAT* Values)
 
 // @baa 0x007c0f30
 /* GetValue(F, Data): the curve evaluated at F (0 outside any keys). */
-FLOAT UDistributionFloatConstantCurve::vf_11c(FLOAT F, FLOAT Data)
+FLOAT UDistributionFloatConstantCurve::GetValue(FLOAT F, UObject* Data)
 {
 	return ConstantCurve.Eval(F, 0.f);
 }
