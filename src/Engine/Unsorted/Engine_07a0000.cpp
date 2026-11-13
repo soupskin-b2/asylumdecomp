@@ -1,4 +1,4 @@
-// Engine_07a0000.cpp (part 1 of 4): 241 functions
+// Engine_07a0000.cpp (part 1 of 4): 242 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1977,3 +1977,14 @@ FVector AAIController::vf_3d0()
 {
 	return GetDestinationPosition() - Pawn->Location;
 }
+
+/* Exchange<FLOAT> (UnTemplate.h), which the kit lacks. */
+template< class T > inline void Exchange( T& A, T& B )
+{
+	const T Temp = A;
+	A = B;
+	B = Temp;
+}
+
+// @baa 0x007ab150
+template void Exchange<FLOAT>(FLOAT&, FLOAT&);

@@ -1,4 +1,4 @@
-// Engine_0790000.cpp (part 1 of 3): 95 functions
+// Engine_0790000.cpp (part 1 of 3): 97 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -849,3 +849,44 @@ int sub_0079feb0(void)
 // @baa 0x0079fff0
 int UCheatManager::vf_000(void) { return 1; }
 
+// The out-of-line TArray<INT>::AddItem the engine calls (sub_0078fb90).
+struct FIntArray_007923f0 : public TArray<INT>
+{
+	INT AddItem(const INT& Item);
+};
+
+// Appends a value to the integer list at +0x4.
+struct FLoader_007923f0
+{
+	BYTE Header[0x4];
+	TArray<INT> List; /* 0x4 */
+
+	INT Add(INT Value);
+};
+
+// @baa 0x007923f0
+INT FLoader_007923f0::Add(INT Value)
+{
+	return ((FIntArray_007923f0*)&List)->AddItem(Value);
+}
+
+// The out-of-line TArray<INT>::AddItem the engine calls (sub_0078fc70).
+struct FIntArray_00792a50 : public TArray<INT>
+{
+	INT AddItem(const INT& Item);
+};
+
+// Appends a value to the integer list at +0x4.
+struct FLoader_00792a50
+{
+	BYTE Header[0x4];
+	TArray<INT> List; /* 0x4 */
+
+	INT Add(INT Value);
+};
+
+// @baa 0x00792a50
+INT FLoader_00792a50::Add(INT Value)
+{
+	return ((FIntArray_00792a50*)&List)->AddItem(Value);
+}

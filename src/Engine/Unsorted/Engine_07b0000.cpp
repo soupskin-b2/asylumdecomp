@@ -1,4 +1,4 @@
-// Engine_07b0000.cpp (part 1 of 3): 101 functions
+// Engine_07b0000.cpp (part 1 of 3): 102 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -1136,3 +1136,14 @@ undefined4 C_007bd180::sub_007bd180(void)
     undefined4 param_1 = (undefined4)this;
   return param_1;
 }
+
+/* Exchange<FLOAT> (UnTemplate.h), which the kit lacks. */
+template< class T > inline void Exchange( T& A, T& B )
+{
+	const T Temp = A;
+	A = B;
+	B = Temp;
+}
+
+// @baa 0x007b4b00
+template void Exchange<FLOAT>(FLOAT&, FLOAT&);

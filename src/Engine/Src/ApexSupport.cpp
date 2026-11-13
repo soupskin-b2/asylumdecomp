@@ -1,4 +1,4 @@
-// ApexSupport.cpp (part 1 of 4): 172 functions
+// ApexSupport.cpp (part 1 of 4): 173 functions
 // Placed here by: neighbours 103, class 30, file 12, callers 10.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1392,4 +1392,18 @@ UMaterialInterface* UApexComponentBase::GetMaterial(INT ElementIndex)
 		return Asset->GetMaterial(ElementIndex);
 	}
 	return NULL;
+}
+
+// AApexDestructibleActor: forwards a scalar update to the fracture/force helper.
+struct AApexDestructibleActor_ : public AApexDestructibleActor
+{
+	void sub_00803810(FLOAT Value);
+
+	virtual void vf_1b4(FLOAT);
+};
+
+// @baa 0x009d7800
+void AApexDestructibleActor_::vf_1b4(FLOAT Value)
+{
+	sub_00803810(Value);
 }

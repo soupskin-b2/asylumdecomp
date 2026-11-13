@@ -1,4 +1,4 @@
-// Engine_0930000.cpp: 25 functions
+// Engine_0930000.cpp: 26 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -337,3 +337,23 @@ int sub_00938da0(void)
   return g_026b5d8c;
 }
 
+// FInit_00936790: a three-word record cleared on construction.
+struct FInit_00936790
+{
+	void* Reserved;
+	void* Reserved2;
+	INT A; /* 0x8 */
+	INT B; /* 0xc */
+	INT C; /* 0x10 */
+
+	FInit_00936790* Init(INT Unused);
+};
+
+// @baa 0x00936790
+FInit_00936790* FInit_00936790::Init(INT Unused)
+{
+	A = 0;
+	B = 0;
+	C = 0;
+	return this;
+}

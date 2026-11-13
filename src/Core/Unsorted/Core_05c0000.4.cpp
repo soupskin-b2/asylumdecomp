@@ -1,4 +1,4 @@
-// Core_05c0000.cpp: 2 functions
+// Core_05c0000.cpp: 5 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -65,3 +65,42 @@ FRotator FVector::Rotation() const
 
 	return R;
 }
+
+// @baa 0x005c8e30
+/* FDist(V1, V2): the distance between two points. */
+FLOAT sub_005c8e30(const FVector& V1, const FVector& V2)
+{
+	return appSqrt(Square(V2.X - V1.X) + Square(V2.Y - V1.Y) + Square(V2.Z - V1.Z));
+}
+
+// @baa 0x005c5f20
+/* PointDistToSegment (UnMath.cpp): the distance from Point to the segment, and the closest point on it. */
+FLOAT sub_005c5f20(const FVector& Point, const FVector& StartPoint, const FVector& EndPoint, FVector& OutClosestPoint)
+{
+	const FVector Segment = EndPoint - StartPoint;
+	const FVector VectToPoint = Point - StartPoint;
+
+	// See if closest point is before StartPoint
+	const FLOAT Dot1 = VectToPoint | Segment;
+	if (Dot1 <= 0)
+	{
+		OutClosestPoint = StartPoint;
+		return VectToPoint.Size();
+	}
+
+	// See if closest point is beyond EndPoint
+	const FLOAT Dot2 = Segment | Segment;
+	if (Dot2 <= Dot1)
+	{
+		OutClosestPoint = EndPoint;
+		return (Point - EndPoint).Size();
+	}
+
+	// Closest Point is within segment
+	OutClosestPoint = StartPoint + Segment * (Dot1 / Dot2);
+	return (Point - OutClosestPoint).Size();
+}
+
+// @baa 0x005c2940
+/* Max<DOUBLE> (UnTemplate.h), out of line. */
+template DOUBLE Max<DOUBLE>(const DOUBLE, const DOUBLE);

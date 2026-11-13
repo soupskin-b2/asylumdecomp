@@ -1,4 +1,4 @@
-// UnUIObjects.cpp: 25 functions
+// UnUIObjects.cpp: 28 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -418,4 +418,47 @@ void UUIObject::vf_058()
 		WidgetTag = GetFName();
 		((UObject_*)this)->MarkPackageDirty();
 	}
+}
+
+#define INVALID_OBJECT ((UObject*)-1)
+/* UnObjBas.h ConstructObject<T> */
+template<class T>
+T* ConstructObject(UClass* Class, UObject* Outer, FName Name, QWORD SetFlags, UObject* Template, UObject* SubobjectRoot, FObjectInstancingGraph* InstanceGraph)
+{
+#line 1317 "e:\\projects\\amadeus\\aa\\game\\unrealengine3\\development\\src\\core\\inc\\UnClass.h"
+    check(Class->IsChildOf(T::StaticClass()));
+    if (Outer == INVALID_OBJECT)
+    {
+        Outer = UObject::GetTransientPackage();
+    }
+    return (T*)UObject::StaticConstructObject(Class, Outer, Name, SetFlags, Template, GError, SubobjectRoot, InstanceGraph);
+}
+
+// @baa 0x00dae3d0
+template UUIState* ConstructObject<UUIState>(UClass*, UObject*, FName, QWORD, UObject*, UObject*, FObjectInstancingGraph*);
+
+#line 441 "candidate.cpp"
+
+// @baa 0x00dae470
+template USceneDataStore* ConstructObject<USceneDataStore>(UClass*, UObject*, FName, QWORD, UObject*, UObject*, FObjectInstancingGraph*);
+
+// FInit_00db2cb0: a three-word record cleared on construction.
+struct FInit_00db2cb0
+{
+	void* Reserved;
+	void* Reserved2;
+	INT A; /* 0x8 */
+	INT B; /* 0xc */
+	INT C; /* 0x10 */
+
+	FInit_00db2cb0* Init(INT Unused);
+};
+
+// @baa 0x00db2cb0
+FInit_00db2cb0* FInit_00db2cb0::Init(INT Unused)
+{
+	A = 0;
+	B = 0;
+	C = 0;
+	return this;
 }

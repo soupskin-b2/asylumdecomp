@@ -1,4 +1,4 @@
-// Engine_0890000.cpp (part 2 of 2): 2 functions
+// Engine_0890000.cpp (part 2 of 2): 4 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -71,4 +71,44 @@ AInfo* AInfo::sub_0089dcb0(void)
     DetachFence = 0;
     *(INT*)this = (INT)g_01f4d798;
     return this;
+}
+
+// FInit_00891f90: a three-word record cleared on construction.
+struct FInit_00891f90
+{
+	void* Reserved;
+	INT A; /* 0x4 */
+	INT B; /* 0x8 */
+	INT C; /* 0xc */
+
+	FInit_00891f90* Init(INT Unused);
+};
+
+// @baa 0x00891f90
+FInit_00891f90* FInit_00891f90::Init(INT Unused)
+{
+	A = 0;
+	B = 0;
+	C = 0;
+	return this;
+}
+
+// FInit_00891fb0: a three-word record cleared on construction.
+struct FInit_00891fb0
+{
+	void* Reserved;
+	INT A; /* 0x4 */
+	INT B; /* 0x8 */
+	INT C; /* 0xc */
+
+	FInit_00891fb0* Init(INT Unused);
+};
+
+// @baa 0x00891fb0
+FInit_00891fb0* FInit_00891fb0::Init(INT Unused)
+{
+	A = 0;
+	B = 0;
+	C = 0;
+	return this;
 }

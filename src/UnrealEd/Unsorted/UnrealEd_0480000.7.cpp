@@ -1,4 +1,4 @@
-// UnrealEd_0480000.cpp: 2 functions
+// UnrealEd_0480000.cpp: 4 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -99,4 +99,34 @@ void sub_0048b8d0()
 	FxCommandManager::UnregisterCommand(FxString("setName"));
 	FxCommandManager::UnregisterCommand(FxString("fgcollapse"));
 	FxCommandManager::UnregisterCommand(FxString("ue3"));
+}
+
+// FGuarded_00488910: runs sub_0040c590 only when the engine object exists.
+struct FGuardTarget_00488910
+{
+	void sub_0040c590();
+};
+
+// @baa 0x00488910
+void sub_00488910()
+{
+	if (g_02663d88 != NULL)
+	{
+		((FGuardTarget_00488910*)g_02663d88)->sub_0040c590();
+	}
+}
+
+// FGuarded_00489190: runs sub_00418f10 only when the engine object exists.
+struct FGuardTarget_00489190
+{
+	void sub_00418f10();
+};
+
+// @baa 0x00489190
+void sub_00489190()
+{
+	if (g_02663d88 != NULL)
+	{
+		((FGuardTarget_00489190*)g_02663d88)->sub_00418f10();
+	}
 }

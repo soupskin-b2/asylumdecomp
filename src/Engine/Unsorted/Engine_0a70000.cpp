@@ -1,4 +1,4 @@
-// Engine_0a70000.cpp: 179 functions
+// Engine_0a70000.cpp: 180 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -2290,4 +2290,25 @@ C_00a75a60* C_00a75a60::sub_00a75a60()
     Value_1c = 0;
     Value_20 = 0;
     return this;
+}
+
+// The out-of-line TArray<INT>::AddItem the engine calls (sub_00545f40).
+struct FIntArray_00a7a000 : public TArray<INT>
+{
+	INT AddItem(const INT& Item);
+};
+
+// Appends a value to the integer list at +0x18.
+struct FLoader_00a7a000
+{
+	BYTE Header[0x18];
+	TArray<INT> List; /* 0x18 */
+
+	INT Add(INT Value);
+};
+
+// @baa 0x00a7a000
+INT FLoader_00a7a000::Add(INT Value)
+{
+	return ((FIntArray_00a7a000*)&List)->AddItem(Value);
 }

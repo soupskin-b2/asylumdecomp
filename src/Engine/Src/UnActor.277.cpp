@@ -1,4 +1,4 @@
-// UnActor.cpp: 14 functions
+// UnActor.cpp: 15 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -171,3 +171,34 @@ void AActor::sub_00784080(BYTE NewType)
 		}
 	}
 }
+
+/* Kit gap: ABrush::CopyPosRotScaleFrom (UnActor.cpp) */
+struct ABrush_ : public ABrush
+{
+	void CopyPosRotScaleFrom(ABrush* Other); /* 0x0075deb0 */
+};
+
+// @baa 0x0075deb0
+/* Copies Other's placement (location, rotation, pre-pivot), rebuilds the bounds and the components. */
+void ABrush_::CopyPosRotScaleFrom(ABrush* Other)
+{
+#line 3052 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp"
+	check(BrushComponent);
+	check(Brush);
+	check(Other);
+	check(Other->BrushComponent);
+	check(Other->Brush);
+
+	Location = Other->Location;
+	Rotation = Other->Rotation;
+	PrePivot = Other->PrePivot;
+
+	Brush->BuildBound();
+	vf_310(FALSE);
+	if (!bDeleteMe && !HasAnyFlags(RF_PendingKill) && !HasAnyFlags(RF_ClassDefaultObject | RF_ArchetypeObject))
+	{
+		vf_314(FALSE);
+	}
+}
+
+#line 205 "candidate.cpp"

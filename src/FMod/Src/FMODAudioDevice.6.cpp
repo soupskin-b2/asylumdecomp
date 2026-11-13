@@ -1,4 +1,4 @@
-// FMODAudioDevice.cpp (part 6 of 6): 6 functions
+// FMODAudioDevice.cpp (part 6 of 6): 7 functions
 // Placed here by: neighbours 1, callers 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -96,4 +96,24 @@ struct C_00e80ac0
 void C_00e80ac0::sub_00e80ac0()
 {
     ((Sub*)((char*)this + 0x2f8))->sub_00e7f750(0);
+}
+
+// FInit_00e72df0: a three-word record cleared on construction.
+struct FInit_00e72df0
+{
+	void* Reserved;
+	INT A; /* 0x4 */
+	INT B; /* 0x8 */
+	INT C; /* 0xc */
+
+	FInit_00e72df0* Init(INT Unused);
+};
+
+// @baa 0x00e72df0
+FInit_00e72df0* FInit_00e72df0::Init(INT Unused)
+{
+	A = 0;
+	B = 0;
+	C = 0;
+	return this;
 }

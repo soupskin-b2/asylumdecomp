@@ -1,4 +1,4 @@
-// UnUserInterface.cpp: 6 functions
+// UnUserInterface.cpp: 12 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -139,3 +139,84 @@ UUIScene* UGameUISceneClient_::GetSceneAtIndex(INT SceneIndex) const
 	}
 	return Result;
 }
+
+#define INVALID_OBJECT ((UObject*)-1)
+/* UnObjBas.h ConstructObject<T> */
+template<class T>
+T* ConstructObject(UClass* Class, UObject* Outer, FName Name, QWORD SetFlags, UObject* Template, UObject* SubobjectRoot, FObjectInstancingGraph* InstanceGraph)
+{
+#line 1317 "e:\\projects\\amadeus\\aa\\game\\unrealengine3\\development\\src\\core\\inc\\UnClass.h"
+    check(Class->IsChildOf(T::StaticClass()));
+    if (Outer == INVALID_OBJECT)
+    {
+        Outer = UObject::GetTransientPackage();
+    }
+    return (T*)UObject::StaticConstructObject(Class, Outer, Name, SetFlags, Template, GError, SubobjectRoot, InstanceGraph);
+}
+
+// @baa 0x00de0f50
+template UDataStoreClient* ConstructObject<UDataStoreClient>(UClass*, UObject*, FName, QWORD, UObject*, UObject*, FObjectInstancingGraph*);
+
+#line 161 "candidate.cpp"
+
+// @baa 0x00de1100
+template UUIScene* ConstructObject<UUIScene>(UClass*, UObject*, FName, QWORD, UObject*, UObject*, FObjectInstancingGraph*);
+
+// @baa 0x00dddda0
+/* The matrix that takes a widget's canvas space to screen space: the widget's own transform (with its
+ * parents') followed by the scene client's canvas-to-screen matrix. */
+FMatrix UUISceneClient::GetCanvasToScreen(UUIObject* Widget)
+{
+	if (Widget != NULL)
+	{
+		return Widget->GenerateTransformMatrix(TRUE) * CanvasToScreen;
+	}
+	return CanvasToScreen;
+}
+
+// @baa 0x00ddddf0
+/* The matrix that takes screen space back to a widget's canvas space: the inverse of GetCanvasToScreen. */
+FMatrix UUISceneClient::GetInverseCanvasToScreen(UUIObject* Widget)
+{
+	if (Widget != NULL)
+	{
+		return (Widget->GenerateTransformMatrix(TRUE) * CanvasToScreen).Inverse();
+	}
+	return InvCanvasToScreen;
+}
+
+// @baa 0x00de5640
+/* The scene above SourceScene in the stack (optionally owned by the same player, optionally skipping
+ * unfocused scenes), or NULL. */
+UUIScene* UGameUISceneClient::GetNextScene(UUIScene* SourceScene, UBOOL bRequireMatchingPlayerOwner, UBOOL bIgnoreUnfocusedScenes)
+{
+	UUIScene* Result = NULL;
+	if (SourceScene != NULL)
+	{
+		INT SceneIndex = FindSceneIndex(SourceScene);
+		if (SceneIndex != INDEX_NONE)
+		{
+			Result = GetNextSceneFromIndex(SceneIndex, bRequireMatchingPlayerOwner ? SourceScene->PlayerOwner : NULL, bIgnoreUnfocusedScenes);
+		}
+	}
+	return Result;
+}
+
+#define NAME_TransientScene ((EName)0x6b)
+/* Kit gap: UGameUISceneClient::GetTransientScene isn't declared (name from the exe's native table). */
+struct UGameUISceneClient__00de6d90 : public UGameUISceneClient
+{
+	class UUIScene* GetTransientScene();
+};
+
+// @baa 0x00de6d90
+/* The scene that holds widgets not placed in any real scene; it always exists. */
+UUIScene* UGameUISceneClient__00de6d90::GetTransientScene()
+{
+	UUIScene* TransientScene = FindSceneByTag(NAME_TransientScene, NULL);
+#line 2220 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnUserInterface.cpp"
+	check(TransientScene);
+	return TransientScene;
+}
+
+#line 223 "candidate.cpp"

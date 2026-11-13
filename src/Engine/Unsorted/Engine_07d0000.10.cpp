@@ -1,4 +1,4 @@
-// Engine_07d0000.cpp: 4 functions
+// Engine_07d0000.cpp: 5 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -68,4 +68,24 @@ void C::sub_007d7120(INT, INT)
 void AActor::NotifyBump(AActor* Other, UPrimitiveComponent* OtherComp, const FVector& HitNormal)
 {
 	this->eventBump(Other, OtherComp, HitNormal);
+}
+
+// FInit_007dcae0: a three-word record cleared on construction.
+struct FInit_007dcae0
+{
+	void* Reserved;
+	INT A; /* 0x4 */
+	INT B; /* 0x8 */
+	INT C; /* 0xc */
+
+	FInit_007dcae0* Init(INT Unused);
+};
+
+// @baa 0x007dcae0
+FInit_007dcae0* FInit_007dcae0::Init(INT Unused)
+{
+	A = 0;
+	B = 0;
+	C = 0;
+	return this;
 }

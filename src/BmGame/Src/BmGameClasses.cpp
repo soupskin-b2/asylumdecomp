@@ -1,4 +1,4 @@
-// BmGameClasses.cpp: 59 functions
+// BmGameClasses.cpp: 60 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -1610,4 +1610,72 @@ FVector ARGatherRootPointBase::vf_350()
     V.Y = Location.Y;
     V.Z = Location.Z + 15.0f;
     return V;
+}
+
+extern FName g_026e3444;
+extern FName g_026e386c;
+extern FName g_026e31bc;
+struct URSeqAct_Music_ : URSeqAct_Music
+{
+    void sub_01583bf0(); /* 0x01583bf0 */
+    void UpdateLinkedParameters(); /* 0x0156bcb0 */
+};
+
+// @baa 0x01583c50
+UBOOL URSeqAct_Music::UpdateOp(FLOAT DeltaTime)
+{
+    if (InputLinks(0).bHasImpulse)
+    {
+        ProcessEvent(FindFunctionChecked(g_026e3444), NULL, NULL);
+    }
+    if (InputLinks(1).bHasImpulse)
+    {
+        if (!AdvanceOnMarker)
+        {
+            ProcessEvent(FindFunctionChecked(g_026e386c), NULL, NULL);
+        }
+        else
+        {
+            ++iAdvance;
+        }
+    }
+    if (InputLinks(2).bHasImpulse)
+    {
+        if (bPlaying)
+        {
+            if (!EndOnMarker)
+            {
+                static_cast<URSeqAct_Music_*>(this)->sub_01583bf0();
+            }
+            else
+            {
+                bStop = TRUE;
+            }
+        }
+        else
+        {
+            sub_008bd720(0);
+        }
+    }
+    if (InputLinks(3).bHasImpulse)
+    {
+        if (!AdvanceOnMarker)
+        {
+            ProcessEvent(FindFunctionChecked(g_026e31bc), NULL, NULL);
+        }
+        else
+        {
+            bReset = TRUE;
+        }
+    }
+    if (ToAdvance > 0.0f)
+    {
+        const FLOAT Amount = AdvanceMultiply * DeltaTime;
+        const FLOAT NextParam = Param + Amount;
+        Param = NextParam;
+        ToAdvance -= Amount;
+        AudioComp->sub_0078dbc0(FName(TEXT("Advance")), NextParam);
+    }
+    static_cast<URSeqAct_Music_*>(this)->UpdateLinkedParameters();
+    return FALSE;
 }

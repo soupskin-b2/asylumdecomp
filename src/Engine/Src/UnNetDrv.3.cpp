@@ -1,4 +1,4 @@
-// UnNetDrv.cpp (part 3 of 3): 9 functions
+// UnNetDrv.cpp (part 3 of 3): 10 functions
 // Placed here by: class 5.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -90,4 +90,25 @@ void S_005aa290::sub_005aa290()
 {
     Ptr = g_01e8bd3c;
     (*(TArrayPtr_005a9030 *)&g_0268d110).RemoveItem(this);
+}
+
+// The out-of-line TArray<INT>::AddItem the engine calls (sub_00dfad80).
+struct FIntArray_00dfdca0 : public TArray<INT>
+{
+	INT AddItem(const INT& Item);
+};
+
+// Appends a value to the integer list at +0x4.
+struct FLoader_00dfdca0
+{
+	BYTE Header[0x4];
+	TArray<INT> List; /* 0x4 */
+
+	INT Add(INT Value);
+};
+
+// @baa 0x00dfdca0
+INT FLoader_00dfdca0::Add(INT Value)
+{
+	return ((FIntArray_00dfdca0*)&List)->AddItem(Value);
 }

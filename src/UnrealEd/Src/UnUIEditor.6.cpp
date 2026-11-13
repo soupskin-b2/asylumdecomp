@@ -1,4 +1,4 @@
-// UnUIEditor.cpp: 2 functions
+// UnUIEditor.cpp: 3 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -29,3 +29,22 @@ void UUILayer::PostLoad()
 	Super::PostLoad();
 	ObjectFlags &= ~(QWORD)0x0008000000000000;
 }
+
+#define INVALID_OBJECT ((UObject*)-1)
+/* UnObjBas.h ConstructObject<T> */
+template<class T>
+T* ConstructObject(UClass* Class, UObject* Outer, FName Name, QWORD SetFlags, UObject* Template, UObject* SubobjectRoot, FObjectInstancingGraph* InstanceGraph)
+{
+#line 1317 "e:\\projects\\amadeus\\aa\\game\\unrealengine3\\development\\src\\core\\inc\\UnClass.h"
+    check(Class->IsChildOf(T::StaticClass()));
+    if (Outer == INVALID_OBJECT)
+    {
+        Outer = UObject::GetTransientPackage();
+    }
+    return (T*)UObject::StaticConstructObject(Class, Outer, Name, SetFlags, Template, GError, SubobjectRoot, InstanceGraph);
+}
+
+// @baa 0x014a6470
+template UEditorUISceneClient* ConstructObject<UEditorUISceneClient>(UClass*, UObject*, FName, QWORD, UObject*, UObject*, FObjectInstancingGraph*);
+
+#line 51 "candidate.cpp"

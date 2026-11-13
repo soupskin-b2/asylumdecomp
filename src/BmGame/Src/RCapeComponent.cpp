@@ -1,4 +1,4 @@
-// RCapeComponent.cpp (part 1 of 2): 82 functions
+// RCapeComponent.cpp (part 1 of 2): 83 functions
 // Placed here by: neighbours 22, file 19, class 12, callers 8.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -755,5 +755,22 @@ void URCapeComponent::sub_016be930(FCapeWindAudioProperties& Properties)
 	{
 		Properties.WindStrength = 0.f;
 		Properties.WindBlusteryness = 0.f;
+	}
+}
+
+// @baa 0x016b1ee0
+/* Switches the cape to a named state; the config's cinematic state name starts a cinematic state instead. */
+void URCapeComponent::ChangeCapeStateGeneral(FName CapeStateName, URCapeStateConfig* CinematicStateTemplate, FName CinematicAnimName, UAnimSet* CinematicStateExtraAnimSet, FLOAT AnimStartTime, FLOAT AnimPlayRate, FName SyncAnimName, FLOAT SyncAnimOffset, BYTE MirroredType)
+{
+	if (CapePhysics.Dummy != 0)
+	{
+		if (CapeStateName == CapeConfig->CinematicCapeStateName)
+		{
+			BeginCinematicState(CinematicAnimName, CinematicStateExtraAnimSet, AnimStartTime, AnimPlayRate, SyncAnimName, SyncAnimOffset, MirroredType, CinematicStateTemplate, FALSE, FALSE);
+		}
+		else
+		{
+			ChangeCapeState(CapeStateName, AnimStartTime, AnimPlayRate, MirroredType);
+		}
 	}
 }

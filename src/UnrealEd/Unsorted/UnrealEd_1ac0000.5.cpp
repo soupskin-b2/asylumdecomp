@@ -1,4 +1,4 @@
-// UnrealEd_1ac0000.cpp: 2 functions
+// UnrealEd_1ac0000.cpp: 3 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Core.h"
@@ -253,4 +253,25 @@ void FxPhonemeMap::sub_01ac9bc0()
 	MapPhonToName(PHON_EXR, "tRoof", 0.5f);
 	MapPhonToName(PHON_TH, "tTeeth", 0.9f);
 	MapPhonToName(PHON_DH, "tTeeth", 0.9f);
+}
+
+// FCollada: initialises the sub-object at +0x10 and reports success.
+struct FCSubObject_
+{
+	void Init(); /* 0x01ad6ba0 */
+};
+
+struct FCObject_
+{
+	BYTE _pad[0x10];
+	FCSubObject_ Sub; /* 0x10 */
+
+	bool Init();
+};
+
+// @baa 0x01acc980
+bool FCObject_::Init()
+{
+	Sub.Init();
+	return 1;
 }

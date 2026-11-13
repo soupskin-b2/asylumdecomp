@@ -1,4 +1,4 @@
-// UnActorComponent.cpp: 3 functions
+// UnActorComponent.cpp: 5 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -53,5 +53,25 @@ void AActor::vf_310(UBOOL bWillReattach)
 			Component->Scene.Dummy = 0;
 			Component->Owner = NULL;
 		}
+	}
+}
+
+// @baa 0x00759430
+/* Calls slot 0x314 for live, non-template actors. */
+void ATerrain::sub_00759430(UBOOL bParam)
+{
+	if (!bDeleteMe && !HasAnyFlags(RF_PendingKill) && !HasAnyFlags(RF_ClassDefaultObject | RF_ArchetypeObject))
+	{
+		vf_314(bParam);
+	}
+}
+
+// @baa 0x00772410
+/* Forwards the first parameter to slot 0x314 for live, non-template actors. */
+void AActor::vf_318(INT A, INT B)
+{
+	if (!bDeleteMe && !HasAnyFlags(RF_PendingKill) && !HasAnyFlags(RF_ClassDefaultObject | RF_ArchetypeObject))
+	{
+		vf_314(A);
 	}
 }

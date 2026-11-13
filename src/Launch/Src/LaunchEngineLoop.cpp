@@ -1,4 +1,4 @@
-// LaunchEngineLoop.cpp (part 1 of 4): 102 functions
+// LaunchEngineLoop.cpp (part 1 of 4): 104 functions
 // Placed here by: neighbours 76, callers 26.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1618,3 +1618,45 @@ struct D_01e27580 { void sub_015035a0(); };
 extern D_01e27580 g_026e0b14;
 // @baa 0x01e27580
 void sub_01e27580() { g_026e0b14.sub_015035a0(); }
+
+// The out-of-line TArray<INT>::AddItem the engine calls (sub_0078be20).
+struct FIntArray_0078f350 : public TArray<INT>
+{
+	INT AddItem(const INT& Item);
+};
+
+// Appends a value to the integer list at +0x4.
+struct FLoader_0078f350
+{
+	BYTE Header[0x4];
+	TArray<INT> List; /* 0x4 */
+
+	INT Add(INT Value);
+};
+
+// @baa 0x0078f350
+INT FLoader_0078f350::Add(INT Value)
+{
+	return ((FIntArray_0078f350*)&List)->AddItem(Value);
+}
+
+// The out-of-line TArray<INT>::AddItem the engine calls (sub_0078bed0).
+struct FIntArray_0078fae0 : public TArray<INT>
+{
+	INT AddItem(const INT& Item);
+};
+
+// Appends a value to the integer list at +0x4.
+struct FLoader_0078fae0
+{
+	BYTE Header[0x4];
+	TArray<INT> List; /* 0x4 */
+
+	INT Add(INT Value);
+};
+
+// @baa 0x0078fae0
+INT FLoader_0078fae0::Add(INT Value)
+{
+	return ((FIntArray_0078fae0*)&List)->AddItem(Value);
+}

@@ -1,4 +1,4 @@
-// UnrealEd_06a0000.cpp (part 1 of 2): 77 functions
+// UnrealEd_06a0000.cpp (part 1 of 2): 81 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -642,4 +642,77 @@ void UMaterial::PreEditChange(UProperty* PropertyAboutToChange)
 
 	// Flush all pending rendering commands.
 	FlushRenderingCommands();
+}
+
+// A flags word packed into a larger object, read as a three-bit field.
+struct FFlagBits_
+{
+	BYTE _pad[0x78];
+	UINT Flags; /* 0x78 */
+
+	UINT GetBits(INT Unused);
+};
+
+// @baa 0x006a95f0
+UINT FFlagBits_::GetBits(INT Unused)
+{
+	return (Flags >> 10) & 7;
+}
+
+// A refcounted pointer holder: drops its reference and disposes the object at zero.
+struct FRefCounted_
+{
+	INT RefCount; /* 0x4 */
+	virtual void Destroy(UBOOL bFree);
+};
+
+struct FRefCountPtr_
+{
+	FRefCounted_* Object;
+	void Release();
+};
+
+// @baa 0x006afe90
+void FRefCountPtr_::Release()
+{
+	FRefCounted_* Target = Object;
+	if (Target != NULL && --Target->RefCount == 0)
+	{
+		Target->Destroy(1);
+	}
+}
+
+// A refcounted pointer holder: copies the referenced object and its reference token.
+struct FRefCountPtr__006aff70
+{
+	void* Object;
+	void* Reference;
+	FRefCountPtr__006aff70* Assign(const FRefCountPtr__006aff70& Other);
+};
+
+// @baa 0x006aff70
+FRefCountPtr__006aff70* FRefCountPtr__006aff70::Assign(const FRefCountPtr__006aff70& Other)
+{
+	Object = *(void**)Other.Object;
+	Reference = Other.Reference;
+	return this;
+}
+
+// A one-element range: the element's value and the index just past it.
+struct FIndexedValue_
+{
+	void* Value;
+	void* Cursor;
+	INT Index;
+
+	FIndexedValue_* Init(const FIndexedValue_& Other);
+};
+
+// @baa 0x006affa0
+FIndexedValue_* FIndexedValue_::Init(const FIndexedValue_& Other)
+{
+	Value = *(void**)Other.Value;
+	Cursor = Other.Cursor;
+	Index = -1;
+	return this;
 }

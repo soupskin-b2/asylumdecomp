@@ -1,4 +1,4 @@
-// BmSpecialMoveClasses.cpp: 69 functions
+// BmSpecialMoveClasses.cpp: 71 functions
 // Placed here by: neighbours 18, file 12, callers 8, class 6.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -264,4 +264,35 @@ void URMatineeSpecialMoveFactoryNew::InitializeIntrinsicPropertyValues()
 UObject* URMatineeSpecialMoveFactoryNew::FactoryCreateNew(UClass* InClass, UObject* InParent, FName InName, QWORD Flags, UObject* Context, FFeedbackContext* Warn)
 {
 	return StaticConstructObject(URSimpleSpecialMoveConfig::StaticClass(), InParent, InName, Flags);
+}
+
+// @baa 0x01613590
+/* Converts the raw stick axes to angles in [0, 360] (degrees, offset by 180); a centred stick reads as a fixed angle. */
+void ARSpecialMoveInstance_ResonateObject::GetLeftAndRightAngles(FLOAT& LeftAngle, FLOAT& RightAngle, FLOAT RawLeftX, FLOAT RawLeftY, FLOAT RawRightX, FLOAT RawRightY)
+{
+	LeftAngle = (FLOAT)appAtan2(RawLeftY, RawLeftX) * (180.f / (FLOAT)PI);
+	RightAngle = (FLOAT)appAtan2(RawRightY, RawRightX) * (180.f / (FLOAT)PI);
+	if (RawRightY == 0.f && RawRightX == 0.f)
+	{
+		RightAngle = 180.f;
+	}
+	if (RawLeftY == 0.f && RawLeftX == 0.f)
+	{
+		LeftAngle = 81.f;
+	}
+	LeftAngle += 180.f;
+	RightAngle += 180.f;
+}
+
+// @baa 0x01616d50
+/* Advances along the swing arc (an angle lerped from TrajectoryStart to TrajectoryEnd over TrajectoryDuration) and
+ * returns the new position on the arc plus the normalized progress. */
+FLOAT ARSpecialMoveInstance_SwingToVantagePoint::UpdateTrajectory(FLOAT DeltaTime, FVector& Position)
+{
+	FLOAT Alpha = Clamp(DeltaTime / TrajectoryDuration + CurrentTrajectoryPosition, 0.f, 1.f);
+	FLOAT Angle = Lerp(TrajectoryStart, TrajectoryEnd, Alpha);
+	CurrentTrajectoryPosition = Alpha;
+	FLOAT SinAngle = appSin(Angle);
+	Position = (FVector(0.f, 0.f, 1.f) * appCos(Angle) + -TrajectoryDir * SinAngle) * TrajectoryRadius + TrajectoryOrigin;
+	return CurrentTrajectoryPosition;
 }

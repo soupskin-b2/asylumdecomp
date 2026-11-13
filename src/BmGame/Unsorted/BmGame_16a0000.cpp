@@ -1,4 +1,4 @@
-// BmGame_16a0000.cpp (part 1 of 2): 139 functions
+// BmGame_16a0000.cpp (part 1 of 2): 143 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -814,4 +814,46 @@ FVector4_* FVector4_::sub_016accb0(const FVector* V, FLOAT WIn)
 void __stdcall sub_016acb40(AActor* A1, FVector V)
 {
     A1->sub_008a7bb0(V);
+}
+
+// @baa 0x016aa6b0
+/* Where the camera should sit while dragging: the drag offset, rotated into the teeth's frame, from the teeth. */
+FVector ARControllableChatteringTeethCamera::CalculateCurrentDragPos()
+{
+	if (TargetTeeth != NULL)
+	{
+		return TargetTeeth->Location + TargetTeeth->Rotation.Quaternion().RotateVector(CameraDragOffset);
+	}
+	return Location;
+}
+
+// @baa 0x016aa760
+/* Where the camera should sit when targeting: the target offset, rotated into the teeth's frame, from the teeth. */
+FVector ARControllableChatteringTeethCamera::CalculateCurrentTargetPos()
+{
+	if (TargetTeeth != NULL)
+	{
+		return TargetTeeth->Location + TargetTeeth->Rotation.Quaternion().RotateVector(CameraTargetOffset);
+	}
+	return Location;
+}
+
+// @baa 0x016aa810
+/* Where the camera should sit when falling back: the fallback offset, rotated into the teeth's frame, from the teeth. */
+FVector ARControllableChatteringTeethCamera::CalculateCurrentFallbackPos()
+{
+	if (TargetTeeth != NULL)
+	{
+		return TargetTeeth->Location + TargetTeeth->Rotation.Quaternion().RotateVector(CameraFallbackOffset);
+	}
+	return Location;
+}
+
+// @baa 0x016ab590
+/* Free-look: adds the scaled look input to the extra camera rotation while springing it back toward zero. */
+void ARSilentPredatorCamera::LookAround(FLOAT DeltaTime, FRotator LookInput)
+{
+	FRotator SpringBack = ExtraCameraRot * DeltaTime * -LookSpringBack;
+	ExtraCameraRot += LookInput * LookModeScale;
+	ExtraCameraRot += SpringBack;
 }

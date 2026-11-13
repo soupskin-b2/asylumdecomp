@@ -1,4 +1,4 @@
-// SpeedTree.cpp: 19 functions
+// SpeedTree.cpp: 21 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Core.h"
@@ -282,4 +282,30 @@ void sub_01a610d0(float* OutA, float* OutB)
 {
     *OutA = g_02604d48;
     *OutB = g_02604d4c;
+}
+
+// Forwards the call to sub_01a73670, which takes the object and a flag.
+void __stdcall sub_sub_01a73670(void* Object, int bFlag);
+struct FForwarder_01a738f0
+{
+	void sub_01a738f0(void* Object);
+};
+
+// @baa 0x01a738f0
+void FForwarder_01a738f0::sub_01a738f0(void* Object)
+{
+	sub_sub_01a73670(Object, 0);
+}
+
+// Forwards the call to sub_01aa1f30, which takes the object and a flag.
+void __stdcall sub_sub_01aa1f30(void* Object, int bFlag);
+struct FForwarder_01aa2f80
+{
+	void sub_01aa2f80(void* Object);
+};
+
+// @baa 0x01aa2f80
+void FForwarder_01aa2f80::sub_01aa2f80(void* Object)
+{
+	sub_sub_01aa1f30(Object, 0);
 }

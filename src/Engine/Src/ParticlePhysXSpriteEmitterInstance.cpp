@@ -1,4 +1,4 @@
-// ParticlePhysXSpriteEmitterInstance.cpp: 5 functions
+// ParticlePhysXSpriteEmitterInstance.cpp: 6 functions
 // Placed here by: file 2, neighbours 2, callers 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -117,4 +117,17 @@ iVar2=sub_0053df70(*param_1,iVar2*0xc,8);
 sub_0053df30((void*)(*param_1+(param_2+param_3)*0xc),(void*)(*param_1+param_2*0xc),
 (iVar1-param_2)*0xc);
 return;
+}
+
+// A free helper: forwards a scalar update to sub_00b467e0.
+struct FObject_00b50390
+{
+	void sub_00b467e0(FLOAT Value);
+	void sub_00b50390(FLOAT Value);
+};
+
+// @baa 0x00b50390
+void FObject_00b50390::sub_00b50390(FLOAT Value)
+{
+	sub_00b467e0(Value);
 }

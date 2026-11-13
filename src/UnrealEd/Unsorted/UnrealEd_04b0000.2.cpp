@@ -1,4 +1,4 @@
-// UnrealEd_04b0000.cpp (part 2 of 2): 11 functions
+// UnrealEd_04b0000.cpp (part 2 of 2): 12 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -637,4 +637,17 @@ void sub_004b88a0()
 	FxCommandManager::RegisterCommand(FxString("setName"), FxSetNameCommand::CreateSyntax(), &FxSetNameCommand::ConstructObject);
 	FxCommandManager::RegisterCommand(FxString("fgcollapse"), FxCollapseFaceGraphCommand::CreateSyntax(), &FxCollapseFaceGraphCommand::ConstructObject);
 	FxCommandManager::RegisterCommand(FxString("ue3"), FxUE3Command::CreateSyntax(), &FxUE3Command::ConstructObject);
+}
+
+// A free helper: forwards a scalar update to sub_00474680.
+struct FObject_004ba8e0
+{
+	void sub_00474680(FLOAT Value);
+	void sub_004ba8e0(FLOAT Value);
+};
+
+// @baa 0x004ba8e0
+void FObject_004ba8e0::sub_004ba8e0(FLOAT Value)
+{
+	sub_00474680(Value);
 }

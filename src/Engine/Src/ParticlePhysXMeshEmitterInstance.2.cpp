@@ -1,4 +1,4 @@
-// ParticlePhysXMeshEmitterInstance.cpp (part 2 of 3): 2 functions
+// ParticlePhysXMeshEmitterInstance.cpp (part 2 of 3): 3 functions
 // Placed here by: callers 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -74,4 +74,17 @@ INT C_00df1a30::sub_00df1a30(INT)
     INT Old = Value;
     Value = 0;
     return Old;
+}
+
+// A free helper: forwards a scalar update to sub_00b467e0.
+struct FObject_00b498b0
+{
+	void sub_00b467e0(FLOAT Value);
+	void sub_00b498b0(FLOAT Value);
+};
+
+// @baa 0x00b498b0
+void FObject_00b498b0::sub_00b498b0(FLOAT Value)
+{
+	sub_00b467e0(Value);
 }

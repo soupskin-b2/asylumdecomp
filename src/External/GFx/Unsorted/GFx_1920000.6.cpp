@@ -1,4 +1,4 @@
-// GFx_1920000.cpp: 12 functions
+// GFx_1920000.cpp: 13 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -250,4 +250,19 @@ GFxKeyedRecord GFxKeyedRecordArray::sub_0192f4a0(unsigned int Key) const
             return Data[i];
     }
     return GFxKeyedRecord();
+}
+
+// A GFx array handle: reports whether the cursor is still inside the range.
+struct FGFxArray_
+{
+	void* Data;
+	void* First;
+	void* Cursor;
+	UBOOL IsInside();
+};
+
+// @baa 0x0192eaa0
+UBOOL FGFxArray_::IsInside()
+{
+	return !(First < Cursor);
 }

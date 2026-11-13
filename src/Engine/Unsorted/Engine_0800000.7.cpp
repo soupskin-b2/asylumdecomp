@@ -1,4 +1,4 @@
-// Engine_0800000.cpp: 15 functions
+// Engine_0800000.cpp: 17 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -418,4 +418,38 @@ void APointLightToggleable_::sub_00803f00()
 {
     ToggleCore();
     LightComponent->UseDirectLightMap = 0;
+}
+
+// A free helper: forwards a scalar update to sub_00a55480.
+struct FObject_00803bf0
+{
+	void sub_00a55480(FLOAT Value);
+	void sub_00803bf0(FLOAT Value);
+};
+
+// @baa 0x00803bf0
+void FObject_00803bf0::sub_00803bf0(FLOAT Value)
+{
+	sub_00a55480(Value);
+}
+
+// The out-of-line TArray<INT>::AddItem the engine calls (sub_007b1b20).
+struct FIntArray_0080c800 : public TArray<INT>
+{
+	INT AddItem(const INT& Item);
+};
+
+// Appends a value to the integer list at +0x4c.
+struct FLoader_0080c800
+{
+	BYTE Header[0x4c];
+	TArray<INT> List; /* 0x4c */
+
+	INT Add(INT Value);
+};
+
+// @baa 0x0080c800
+INT FLoader_0080c800::Add(INT Value)
+{
+	return ((FIntArray_0080c800*)&List)->AddItem(Value);
 }

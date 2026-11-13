@@ -1,4 +1,4 @@
-// UnInterpolation.cpp: 10 functions
+// UnInterpolation.cpp: 13 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -191,4 +191,57 @@ void UInterpTrackFade::vf_13c(FLOAT NewPosition, UInterpTrackInst* TrInst, UBOOL
             PC->PlayerCamera->FadeTimeRemaining = 0.0f;
         }
     }
+}
+
+struct AActor_ : public AActor
+{
+	void eventSetMorphWeight(FName MorphNodeName, FLOAT MorphWeight); /* 0x00ce85f0 */
+};
+
+// @baa 0x00d10b80
+/* UE3's UInterpTrackMorphWeight::UpdateTrack (kit slot vf_13c): pass the curve's weight to the actor's morph node. */
+void UInterpTrackMorphWeight::vf_13c(FLOAT NewPosition, UInterpTrackInst* TrInst, UBOOL bJump)
+{
+	UInterpGroupInst* GrInst = CastChecked<UInterpGroupInst>(TrInst->GetOuter());
+	AActor* Actor = GetGroupActorOf(GrInst);
+	if (Actor)
+	{
+		FLOAT NewFloatValue = FloatTrack.Eval(NewPosition, 0.f);
+		((AActor_*)Actor)->eventSetMorphWeight(MorphNodeName, NewFloatValue);
+	}
+}
+
+struct AActor__00d10d20 : public AActor
+{
+	void eventSetSkelControlScale(FName SkelControlName, FLOAT Scale); /* 0x00ce8590 */
+};
+
+// @baa 0x00d10d20
+/* UE3's UInterpTrackSkelControlScale::UpdateTrack (kit slot vf_13c): pass the curve's scale to the actor's skel control. */
+void UInterpTrackSkelControlScale::vf_13c(FLOAT NewPosition, UInterpTrackInst* TrInst, UBOOL bJump)
+{
+	UInterpGroupInst* GrInst = CastChecked<UInterpGroupInst>(TrInst->GetOuter());
+	AActor* Actor = GetGroupActorOf(GrInst);
+	if (Actor)
+	{
+		FLOAT NewFloatValue = FloatTrack.Eval(NewPosition, 0.f);
+		((AActor__00d10d20*)Actor)->eventSetSkelControlScale(SkelControlName, NewFloatValue);
+	}
+}
+
+struct AActor__00d10c50 : public AActor
+{
+	void eventSetFaceFXRegister(const FString& RegisterName, FLOAT Value, BYTE RegOp); /* 0x00cf8b60 */
+};
+
+// @baa 0x00d10c50
+/* UInterpTrackFaceFXRegister::UpdateTrack (kit slot vf_13c): pass the curve's value to the actor's FaceFX register. */
+void UInterpTrackFaceFXRegister::vf_13c(FLOAT NewPosition, UInterpTrackInst* TrInst, UBOOL bJump)
+{
+	UInterpGroupInst* GrInst = CastChecked<UInterpGroupInst>(TrInst->GetOuter());
+	AActor* Actor = GetGroupActorOf(GrInst);
+	if (Actor)
+	{
+		((AActor__00d10c50*)Actor)->eventSetFaceFXRegister(Register, FloatTrack.Eval(NewPosition, 0.f), Operation);
+	}
 }

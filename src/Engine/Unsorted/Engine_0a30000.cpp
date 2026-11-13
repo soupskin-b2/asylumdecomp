@@ -1,4 +1,4 @@
-// Engine_0a30000.cpp (part 1 of 3): 214 functions
+// Engine_0a30000.cpp (part 1 of 3): 216 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -1967,4 +1967,32 @@ struct A35670State
 void ProbeA35670(A35670State* State, FLOAT Value)
 {
 	State->sub_00a35670(Value);
+}
+
+// ANxTornadoForceFieldCapsule: forwards a scalar update to the fracture/force helper.
+struct ANxTornadoForceFieldCapsule_ : public ANxTornadoForceFieldCapsule
+{
+	void sub_00d6f720(FLOAT Value);
+
+	virtual void vf_1b4(FLOAT);
+};
+
+// @baa 0x00a34f00
+void ANxTornadoForceFieldCapsule_::vf_1b4(FLOAT Value)
+{
+	sub_00d6f720(Value);
+}
+
+// ANxTornadoAngularForceFieldCapsule: forwards a scalar update to the fracture/force helper.
+struct ANxTornadoAngularForceFieldCapsule_ : public ANxTornadoAngularForceFieldCapsule
+{
+	void sub_00d6f720(FLOAT Value);
+
+	virtual void vf_1b4(FLOAT);
+};
+
+// @baa 0x00a35130
+void ANxTornadoAngularForceFieldCapsule_::vf_1b4(FLOAT Value)
+{
+	sub_00d6f720(Value);
 }

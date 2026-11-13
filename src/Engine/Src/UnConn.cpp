@@ -1,4 +1,4 @@
-// UnConn.cpp: 38 functions
+// UnConn.cpp: 43 functions
 // Placed here by: class 12, neighbours 11, callers 6, file 3.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -247,4 +247,74 @@ bool UGuidCache::vf_004()
 bool UChildConnection::vf_004()
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
+}
+
+// UChildConnection: forwards net calls to the server connection it was split from.
+struct UChildConnection_ : public UNetConnection
+{
+	class UNetConnection* ServerConnection; /* 0x4fb8 */
+
+	INT vf_120();
+};
+
+// @baa 0x00e14be0
+INT UChildConnection_::vf_120()
+{
+	return ServerConnection->vf_120();
+}
+
+// UChildConnection: forwards net calls to the server connection it was split from.
+struct UChildConnection__00e14c10 : public UNetConnection
+{
+	class UNetConnection* ServerConnection; /* 0x4fb8 */
+
+	void vf_12c();
+};
+
+// @baa 0x00e14c10
+void UChildConnection__00e14c10::vf_12c()
+{
+	ServerConnection->vf_12c();
+}
+
+// UChildConnection: forwards net calls to the server connection it was split from.
+struct UChildConnection__00e14c20 : public UNetConnection
+{
+	class UNetConnection* ServerConnection; /* 0x4fb8 */
+
+	INT vf_134(INT Arg);
+};
+
+// @baa 0x00e14c20
+INT UChildConnection__00e14c20::vf_134(INT Arg)
+{
+	return ServerConnection->vf_134(Arg);
+}
+
+// UChildConnection: the remote address comes from the server connection it was split from.
+struct UChildConnection__00e14c50 : public UNetConnection
+{
+	class UNetConnection* ServerConnection; /* 0x4fb8 */
+
+	FString LowLevelGetRemoteAddress();
+};
+
+// @baa 0x00e14c50
+FString UChildConnection__00e14c50::LowLevelGetRemoteAddress()
+{
+	return ServerConnection->LowLevelGetRemoteAddress();
+}
+
+// UChildConnection: the description comes from the server connection it was split from.
+struct UChildConnection__00e14c80 : public UNetConnection
+{
+	class UNetConnection* ServerConnection; /* 0x4fb8 */
+
+	FString LowLevelDescribe();
+};
+
+// @baa 0x00e14c80
+FString UChildConnection__00e14c80::LowLevelDescribe()
+{
+	return ServerConnection->LowLevelDescribe();
 }

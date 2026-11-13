@@ -1,4 +1,4 @@
-// OnlineGameInterfaceImpl.cpp (part 5 of 5): 10 functions
+// OnlineGameInterfaceImpl.cpp (part 5 of 5): 11 functions
 // Placed here by: class 8.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -66,4 +66,24 @@ FUniqueNetId UOnlineSubsystemCommonImpl_::eventGetPlayerUniqueNetIdFromIndex(INT
     Parms.UserIndex = UserIndex;
     ProcessEvent(FindFunctionChecked(g_026cad34), &Parms);
     return Parms.ReturnValue;
+}
+
+// FInit_00e30a40: a three-word record cleared on construction.
+struct FInit_00e30a40
+{
+	void* Reserved;
+	INT A; /* 0x4 */
+	INT B; /* 0x8 */
+	INT C; /* 0xc */
+
+	FInit_00e30a40* Init(INT Unused);
+};
+
+// @baa 0x00e30a40
+FInit_00e30a40* FInit_00e30a40::Init(INT Unused)
+{
+	A = 0;
+	B = 0;
+	C = 0;
+	return this;
 }

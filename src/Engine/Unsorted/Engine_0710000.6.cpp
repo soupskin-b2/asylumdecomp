@@ -1,4 +1,4 @@
-// Engine_0710000.cpp (part 6 of 7): 10 functions
+// Engine_0710000.cpp (part 6 of 7): 12 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -141,4 +141,58 @@ extern "C" INT sub_0053d240(INT, INT, INT);
 INT __stdcall sub_00718fc0(INT A, INT B, INT C)
 {
     return sub_0053d240(A, B, C);
+}
+
+// A wrapper whose +4 member is an interface; reports the fixed proxy size.
+struct FInner_00715ac0
+{
+	virtual void vf_000();
+	virtual void vf_004();
+	virtual void vf_008();
+	virtual void vf_00c();
+	virtual void vf_010();
+	virtual void vf_014();
+	virtual void vf_018();
+};
+
+struct FWrapper_00715ac0
+{
+	void* Owner;
+	FInner_00715ac0* Inner; /* 0x4 */
+
+	INT GetSize();
+};
+
+// @baa 0x00715ac0
+INT FWrapper_00715ac0::GetSize()
+{
+	Inner->vf_018();
+	return 8;
+}
+
+// A wrapper whose +4 member is an interface; reports the fixed proxy size.
+struct FInner_00715b30
+{
+	virtual void vf_000();
+	virtual void vf_004();
+	virtual void vf_008();
+	virtual void vf_00c();
+	virtual void vf_010();
+	virtual void vf_014();
+	virtual void vf_018();
+};
+
+struct FWrapper_00715b30
+{
+	void* Owner;
+	FInner_00715b30* Inner; /* 0x4 */
+
+	INT GetSize();
+};
+
+// @baa 0x00715b30
+INT FWrapper_00715b30::GetSize()
+{
+	Inner->vf_018();
+	return 8;
 }

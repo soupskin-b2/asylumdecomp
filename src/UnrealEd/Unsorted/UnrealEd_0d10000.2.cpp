@@ -1,4 +1,4 @@
-// UnrealEd_0d10000.cpp: 1 function
+// UnrealEd_0d10000.cpp: 2 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -48,4 +48,17 @@ void UInterpTrackInstToggle::InitTrackInst(UInterpTrack* Track)
     {
         bSavedActiveState = Actor->bHiddenEd;
     }
+}
+
+// @baa 0x00d10350
+/* UE3's UInterpTrackFloatParticleParam::UpdateTrack (kit slot vf_13c): set the emitter's float parameter from the curve. */
+void UInterpTrackFloatParticleParam::vf_13c(FLOAT NewPosition, UInterpTrackInst* TrInst, UBOOL bJump)
+{
+	UInterpGroupInst* GrInst = CastChecked<UInterpGroupInst>(TrInst->GetOuter());
+	AEmitter* Emitter = Cast<AEmitter>(GetGroupActorOf(GrInst));
+	if (Emitter)
+	{
+		FLOAT NewFloatValue = FloatTrack.Eval(NewPosition, 0.f);
+		Emitter->ParticleSystemComponent->SetFloatParameter(ParamName, NewFloatValue);
+	}
 }

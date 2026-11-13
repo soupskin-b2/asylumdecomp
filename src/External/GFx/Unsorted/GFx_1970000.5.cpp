@@ -1,4 +1,4 @@
-// GFx_1970000.cpp: 17 functions
+// GFx_1970000.cpp: 19 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -360,4 +360,39 @@ void GFxWideArray::sub_019783a0(void* pHeap)
         if (p)
             *p = 0;
     }
+}
+
+// A GFx point: two zeroed 32-bit values and a zeroed WORD identifier.
+struct FGFxPoint_
+{
+	UINT X;
+	UINT Y;
+	WORD Id;
+	FGFxPoint_();
+};
+
+// @baa 0x019799c0
+FGFxPoint_::FGFxPoint_()
+{
+	X = 0;
+	Y = 0;
+	Id = 0;
+}
+
+// A GFx transform record: a cleared range, a 32-bit gap, then a count and identifier.
+struct FGFxTransform_
+{
+	UINT First;
+	UINT Unused;
+	UINT Second;
+	WORD Id;
+	FGFxTransform_();
+};
+
+// @baa 0x01979a30
+FGFxTransform_::FGFxTransform_()
+{
+	First = 0;
+	Second = 0;
+	Id = 0;
 }

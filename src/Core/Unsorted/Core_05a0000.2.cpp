@@ -1,4 +1,4 @@
-// Core_05a0000.cpp: 23 functions
+// Core_05a0000.cpp: 25 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -320,4 +320,42 @@ void UObject::execPathName(FFrame& Stack, RESULT_DECL)
 	P_GET_OBJECT(UObject, CheckObject);
 	P_FINISH;
 	*(FString*)Result = CheckObject ? CheckObject->GetPathName() : FString(TEXT("None"));
+}
+
+/* Kit gap: UObject's cast natives (UnScript.cpp, registered in GCasts at 02688ca0, e.g. CST_StringToName) aren't
+ * declared. Casts read their one operand and don't P_FINISH. */
+struct UObject_ : public UObject
+{
+	void execStringToName(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x005a34f0
+void UObject_::execStringToName(FFrame& Stack, RESULT_DECL)
+{
+	P_GET_STR(Str);
+	*(FName*)Result = FName(*Str);
+}
+
+/* Kit gaps: UObject's bytecode handlers (UnScript.cpp, registered in GNatives by EX_ code) aren't declared, nor
+ * FFrame's inline readers ReadFloat/ReadName/ReadObject (UnScript.h). */
+struct FFrame_ : public FFrame
+{
+	FORCEINLINE FLOAT ReadFloat() { FLOAT F = *(FLOAT*)Code; Code += sizeof(FLOAT); return F; }
+	FORCEINLINE FName ReadName() { FName N = *(FName*)Code; Code += sizeof(FName); return N; }
+	FORCEINLINE UObject* ReadObject() { UObject* Res = *(UObject**)Code; Code += sizeof(UObject*); return Res; }
+};
+
+extern UProperty* g_026667ec;
+	/* GProperty */
+struct UObject__005ab3e0 : public UObject
+{
+	void CallFunction(FFrame& Stack, RESULT_DECL, UFunction* Function);	/* 0x005a6cd0 */
+	void execFinalFunction(FFrame& Stack, RESULT_DECL);
+};
+
+// @baa 0x005ab3e0
+void UObject__005ab3e0::execFinalFunction(FFrame& Stack, RESULT_DECL)
+{
+	// Call the final function.
+	CallFunction(Stack, Result, (UFunction*)((FFrame_&)Stack).ReadObject());
 }

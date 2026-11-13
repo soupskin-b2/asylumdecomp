@@ -1,4 +1,4 @@
-// UnUIDataStores.cpp: 9 functions
+// UnUIDataStores.cpp: 10 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
@@ -166,4 +166,25 @@ INT UUIDataStore_Strings::vf_13c(INT MarkupString, INT out_FieldOwner, INT out_F
 	*(UUIDataStore_Strings**)out_FieldOwner = this;
 	*(FString*)out_FieldTag = *(const FString*)MarkupString;
 	return TRUE;
+}
+
+// FInit_00d92ba0: a three-word record cleared on construction.
+struct FInit_00d92ba0
+{
+	void* Reserved;
+	void* Reserved2;
+	INT A; /* 0x8 */
+	INT B; /* 0xc */
+	INT C; /* 0x10 */
+
+	FInit_00d92ba0* Init(INT Unused);
+};
+
+// @baa 0x00d92ba0
+FInit_00d92ba0* FInit_00d92ba0::Init(INT Unused)
+{
+	A = 0;
+	B = 0;
+	C = 0;
+	return this;
 }

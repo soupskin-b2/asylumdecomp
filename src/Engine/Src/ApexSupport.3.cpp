@@ -1,4 +1,4 @@
-// ApexSupport.cpp (part 3 of 4): 4 functions
+// ApexSupport.cpp (part 3 of 4): 5 functions
 // Placed here by: neighbours 3, callers 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -83,4 +83,17 @@ void C_009e7a60::sub_009e7a60(int param_2)
     }
   }
   return;
+}
+
+// A free helper: forwards a scalar update to sub_009ed520.
+struct FObject_009edb60
+{
+	void sub_009ed520(FLOAT Value);
+	void sub_009edb60(FLOAT Value);
+};
+
+// @baa 0x009edb60
+void FObject_009edb60::sub_009edb60(FLOAT Value)
+{
+	sub_009ed520(Value);
 }

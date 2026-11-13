@@ -1,4 +1,4 @@
-// UnrealEd_1b60000.cpp: 1 function
+// UnrealEd_1b60000.cpp: 2 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Core.h"
@@ -22,4 +22,17 @@ void C_01b601d0::sub_01b601d0()
     Minimum = INDEX_NONE;
     Maximum = INDEX_NONE;
     ValueIndex = INDEX_NONE;
+}
+
+// Forwards the call to sub_01b62540, which takes the object and a flag.
+void __stdcall sub_sub_01b62540(void* Object, int bFlag);
+struct FForwarder_01b62ed0
+{
+	void sub_01b62ed0(void* Object);
+};
+
+// @baa 0x01b62ed0
+void FForwarder_01b62ed0::sub_01b62ed0(void* Object)
+{
+	sub_sub_01b62540(Object, 0);
 }

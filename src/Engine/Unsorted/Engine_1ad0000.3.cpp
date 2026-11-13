@@ -1,4 +1,4 @@
-// Engine_1ad0000.cpp (part 3 of 3): 7 functions
+// Engine_1ad0000.cpp (part 3 of 3): 8 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -74,4 +74,16 @@ short __cdecl sub_01adacb0(void)
     if (g_027ca578 == 0)
         g_027ca578 = sub_01adac00();
     return g_027ca578->sub_01ab5e50();
+}
+
+// Forwards the value to the target object's sub_01ad72b0.
+struct FTarget_01ad7530
+{
+	void sub_01ad72b0(void* Value);
+};
+
+// @baa 0x01ad7530
+void sub_01ad7530(void* Value, FTarget_01ad7530* Target)
+{
+	Target->sub_01ad72b0(Value);
 }

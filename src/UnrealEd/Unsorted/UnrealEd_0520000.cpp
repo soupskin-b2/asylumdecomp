@@ -1,7 +1,7 @@
-// UnrealEd_0520000.cpp (part 1 of 2): 44 functions
+// UnrealEd_0520000.cpp (part 1 of 2): 45 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
-#include "ue3/Core.h"
+#include "ue3/Array.h"
 
 struct C { int sub_00520250(void); };
 
@@ -608,4 +608,25 @@ int C_0052e2a0::sub_0052e2a0(void)
     }
   }
   return 0;
+}
+
+// The out-of-line TArray<INT>::AddItem the engine calls (sub_00521950).
+struct FIntArray_00523d90 : public TArray<INT>
+{
+	INT AddItem(const INT& Item);
+};
+
+// Appends a value to the integer list at +0x8.
+struct FLoader_00523d90
+{
+	BYTE Header[0x8];
+	TArray<INT> List; /* 0x8 */
+
+	INT Add(INT Value);
+};
+
+// @baa 0x00523d90
+INT FLoader_00523d90::Add(INT Value)
+{
+	return ((FIntArray_00523d90*)&List)->AddItem(Value);
 }

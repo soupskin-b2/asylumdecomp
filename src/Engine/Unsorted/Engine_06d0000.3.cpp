@@ -1,4 +1,4 @@
-// Engine_06d0000.cpp (part 3 of 4): 4 functions
+// Engine_06d0000.cpp (part 3 of 4): 5 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
@@ -75,4 +75,32 @@ struct FSource_
 void __stdcall sub_006d9e20(FSource_* Source, FLOAT* Out)
 {
 	*Out = Source->Value;
+}
+
+// A wrapper whose +4 member is an interface; reports the fixed proxy size.
+struct FInner_006db120
+{
+	virtual void vf_000();
+	virtual void vf_004();
+	virtual void vf_008();
+	virtual void vf_00c();
+	virtual void vf_010();
+	virtual void vf_014();
+	virtual void vf_018();
+	virtual void vf_01c();
+};
+
+struct FWrapper_006db120
+{
+	void* Owner;
+	FInner_006db120* Inner; /* 0x4 */
+
+	INT GetSize();
+};
+
+// @baa 0x006db120
+INT FWrapper_006db120::GetSize()
+{
+	Inner->vf_01c();
+	return 8;
 }
