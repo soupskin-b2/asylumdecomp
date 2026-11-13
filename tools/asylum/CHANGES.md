@@ -4,6 +4,7 @@ Newest first, one line each. `update` (and `get`, which updates by itself) print
 to you; `python asylum.pyz changes` prints them all. Add a line here with any change an agent should
 know about: a renamed or retyped declaration, a new header or macro, a new rule.
 
+- 2026-11-13: CI hands a batch back (requeued, checked again on the next run) when a concurrent push changed the same lines, instead of holding it for three hours.
 - 2026-11-13: profile ue3_o1 (FMOD) compiles with /fp:precise, as FMOD was built: no `#pragma float_control(precise, on)` needed.
 - 2026-11-13: FMatrix::Inverse is 0058ea10 (the plain one, 234 callers) and the near-zero-safe 006e1510 is InverseSafe. The checker now pins methods of `struct __declspec(align(16)) X` and multiple-inheritance classes to their header addresses too (FMatrix's were unchecked: a call bound to whatever the original called). New in the headers: SMALL_NUMBER is a double (as in UE3), FDist, PointDistToSegment, ClampLength, FQuat::Exp, FBoxSphereBounds constructors, Exchange, Sort and IMPLEMENT_COMPARE_* (local copies removed from 10 sources), NAME_ property-type names and Begin/End/Pushed/PoppedState.
 - 2026-11-13: submit updates asylum.pyz first (as get does) and checks again with the new headers, so a header change made while you worked fails on your machine, not in CI. Revisions that remove a helper struct (`UCanvas_`) are accepted: the functions defined through it may take the real class's name.

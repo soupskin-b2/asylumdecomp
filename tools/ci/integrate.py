@@ -357,10 +357,17 @@ def apply(inp: Path, batch: Path, push: bool) -> None:
                     git("push", "-q", "origin", "HEAD:main")
                     break
                 except RuntimeError as e:
-                    if k == 4:
-                        raise
                     log("push retry (%s)" % str(e)[:120])
-                    git("-c", "user.name=" + BOT[0], "-c", "user.email=" + BOT[1], "pull", "-q", "--rebase", "origin", "main")
+                    try:
+                        if k == 4:
+                            raise
+                        git("-c", "user.name=" + BOT[0], "-c", "user.email=" + BOT[1], "pull", "-q", "--rebase", "origin", "main")
+                    except RuntimeError as e:
+                        # a push changed the same source lines: hand the batch back; the next run checks it on the new main
+                        log("can't land the batch, requeued (%s)" % str(e)[:300])
+                        subprocess.run(["git", "rebase", "--abort"], cwd=ROOT, capture_output=True)
+                        log("service:", service("POST", "/ci/result", {"results": [{"id": r["id"], "status": "requeue"} for r in res["results"]]}))
+                        return
                     time.sleep(5 * (k + 1))
     log("%d matched, %d revised, %d failed, %d duplicates" % (len(new), len(revised), sum(r["status"] == "failed" for r in res["results"]),
                                                               sum(r["status"] == "duplicate" for r in res["results"])))
