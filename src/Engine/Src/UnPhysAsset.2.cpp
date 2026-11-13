@@ -4,14 +4,8 @@
 #include "ue3/Classes.h"
 #include "ue3/Script.h"
 
-struct URB_BodyInstance_ : public URB_BodyInstance
-{
-	UBOOL IsFixed();
-	void execIsFixed(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c94e90
-void URB_BodyInstance_::execIsFixed( FFrame& Stack, RESULT_DECL )
+void URB_BodyInstance::execIsFixed( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	*(UBOOL*)Result = IsFixed();
@@ -82,17 +76,12 @@ void URB_BodyInstance::execUpdateMassProperties(FFrame& Stack, RESULT_DECL)
 	this->sub_00a0a9c0(Setup);
 }
 
-struct UPhysicsAssetInstance_ : public UPhysicsAssetInstance
-{
-	void sub_00a0bc60(FLOAT);
-};
-
 // @baa 0x00c94d80
 void UPhysicsAssetInstance::execSetDampingRampupProportion(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(NewDampingRampupProportion);
 	P_FINISH;
-	((UPhysicsAssetInstance_*)this)->sub_00a0bc60(NewDampingRampupProportion);
+	sub_00a0bc60(NewDampingRampupProportion);
 }
 
 struct URB_BodyInstance__00c95510 : public URB_BodyInstance

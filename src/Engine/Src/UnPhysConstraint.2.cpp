@@ -4,17 +4,13 @@
 #include "ue3/Classes.h"
 #include "ue3/Script.h"
 
-struct URB_ConstraintInstance_ : public URB_ConstraintInstance {
-    void sub_00a39310(UBOOL bEnableSwingDrive, UBOOL bEnableTwistDrive); /* SetAngularVelocityDrive */
-};
-
 // @baa 0x00c95b10
 void URB_ConstraintInstance::execSetAngularVelocityDrive(FFrame& Stack, RESULT_DECL)
 {
     P_GET_UBOOL(bEnableSwingDrive);
     P_GET_UBOOL(bEnableTwistDrive);
     P_FINISH;
-    ((URB_ConstraintInstance_*)this)->sub_00a39310(bEnableSwingDrive, bEnableTwistDrive);
+    sub_00a39310(bEnableSwingDrive, bEnableTwistDrive);
 }
 
 struct URB_ConstraintInstance__00a400a0 : public URB_ConstraintInstance
@@ -30,14 +26,8 @@ void URB_ConstraintInstance__00a400a0::execTermConstraint( FFrame& Stack, RESULT
 	TermConstraint( 0, 1 );
 }
 
-struct ARB_ConstraintActor_ : public ARB_ConstraintActor
-{
-	void TermConstraint();
-	void execTermConstraint(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c93970
-void ARB_ConstraintActor_::execTermConstraint( FFrame& Stack, RESULT_DECL )
+void ARB_ConstraintActor::execTermConstraint( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	TermConstraint();

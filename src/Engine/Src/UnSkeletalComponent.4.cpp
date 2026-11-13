@@ -11,14 +11,8 @@ void USkeletalMeshComponent::execGetUseSimpleBoxCollision( FFrame& Stack, RESULT
 	*(UBOOL*)Result = vf_250();
 }
 
-struct USkeletalMeshComponent_ : public USkeletalMeshComponent
-{
-	void UpdateSceneProxy();
-	void execUpdateSceneProxy(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x0091faa0
-void USkeletalMeshComponent_::execUpdateSceneProxy( FFrame& Stack, RESULT_DECL )
+void USkeletalMeshComponent::execUpdateSceneProxy( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	UpdateSceneProxy();

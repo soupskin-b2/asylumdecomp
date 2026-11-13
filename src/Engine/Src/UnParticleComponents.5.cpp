@@ -4,14 +4,8 @@
 #include "ue3/Classes.h"
 #include "ue3/Script.h"
 
-struct UParticleSystemComponent_ : public UParticleSystemComponent
-{
-	void DeactivateSystem();
-	void execDeactivateSystem(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c9cea0
-void UParticleSystemComponent_::execDeactivateSystem( FFrame& Stack, RESULT_DECL )
+void UParticleSystemComponent::execDeactivateSystem( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	DeactivateSystem();
@@ -351,7 +345,6 @@ struct UClass_ : public UClass
 struct UObject_ : public UObject
 {
     static UObject* GetTransientPackage();                                    // 005c1d70
-    static UObject* StaticConstructObject(UClass* Class, UObject* InOuter, FName Name, QWORD SetFlags, UObject* Template, FOutputDevice* Error, UObject* SubobjectRoot, FObjectInstancingGraph* InstanceGraph); // 005e44e0
 };
 
 /* UnObjBas.h ConstructObject<T> */
@@ -364,7 +357,7 @@ T* ConstructObject(UClass_* Class, UObject* Outer, FName Name, QWORD SetFlags, U
     {
         Outer = UObject_::GetTransientPackage();
     }
-    return (T*)UObject_::StaticConstructObject(Class, Outer, Name, SetFlags, Template, GError, SubobjectRoot, InstanceGraph);
+    return (T*)UObject::StaticConstructObject(Class, Outer, Name, SetFlags, Template, GError, SubobjectRoot, InstanceGraph);
 }
 
 // @baa 0x00b58990

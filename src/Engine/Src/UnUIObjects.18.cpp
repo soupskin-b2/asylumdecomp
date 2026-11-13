@@ -11,14 +11,8 @@ void UUIScreenObject::execInitializePlayerTracking( FFrame& Stack, RESULT_DECL )
 	vf_114();
 }
 
-struct UUIScreenObject_ : public UUIScreenObject
-{
-	INT GetObjectCount();
-	void execGetObjectCount(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00ca39b0
-void UUIScreenObject_::execGetObjectCount( FFrame& Stack, RESULT_DECL )
+void UUIScreenObject::execGetObjectCount( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	*(INT*)Result = GetObjectCount();
@@ -128,14 +122,8 @@ void UUIScreenObject__00ca4420::execGetBestControllerId( FFrame& Stack, RESULT_D
 	*(INT*)Result = GetBestControllerId();
 }
 
-struct UUIObject_ : public UUIObject
-{
-	void UpdateRotationMatrix();
-	void execUpdateRotationMatrix(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00ca52d0
-void UUIObject_::execUpdateRotationMatrix( FFrame& Stack, RESULT_DECL )
+void UUIObject::execUpdateRotationMatrix( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	UpdateRotationMatrix();
@@ -154,14 +142,8 @@ void UUIObject__00ca5e50::execNeedsActiveCursorUpdates( FFrame& Stack, RESULT_DE
 	*(UBOOL*)Result = NeedsActiveCursorUpdates();
 }
 
-struct UUIScene_ : public UUIScene
-{
-	void RebuildDockingStack();
-	void execRebuildDockingStack(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00ca64b0
-void UUIScene_::execRebuildDockingStack( FFrame& Stack, RESULT_DECL )
+void UUIScene::execRebuildDockingStack( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	RebuildDockingStack();
@@ -562,15 +544,14 @@ struct UUIRoot_ : public UUIRoot
 		}
 		return Result;
 	}
-	void execGetInputPlatformType(FFrame& Stack, RESULT_DECL);
 };
 
 // @baa 0x00da8a50
-void UUIRoot_::execGetInputPlatformType(FFrame& Stack, RESULT_DECL)
+void UUIRoot::execGetInputPlatformType(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT_OPTX(ULocalPlayer, OwningPlayer, NULL);
 	P_FINISH;
-	*(BYTE*)Result = GetInputPlatformType(OwningPlayer);
+	*(BYTE*)Result = ((UUIRoot_*)this)->GetInputPlatformType(OwningPlayer);
 }
 
 struct UUIObject__00ca5180 : public UUIObject
@@ -848,10 +829,6 @@ void UUIObject__00ca5cf0::execSetPrivateBehavior(FFrame& Stack, RESULT_DECL)
 }
 
 extern UEngine* GEngine;
-struct UUIInteraction_ : public UUIInteraction
-{
-	UBOOL PlayUISound( FName SoundCueName, INT PlayerIndex );
-};
 
 struct UUIScreenObject__00da96c0 : public UUIScreenObject
 {
@@ -870,7 +847,7 @@ struct UUIScreenObject__00da96c0 : public UUIScreenObject
 		UUIInteraction* UIController = GetCurrentUIController();
 		if ( UIController != NULL )
 		{
-			bResult = ((UUIInteraction_*)UIController)->PlayUISound(SoundCueName, PlayerIndex);
+			bResult = ((UUIInteraction*)UIController)->PlayUISound(SoundCueName, PlayerIndex);
 		}
 		return bResult;
 	}

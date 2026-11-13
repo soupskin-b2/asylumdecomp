@@ -418,13 +418,9 @@ struct FIntArray : public TArray<INT>
 };
 
 /* slot 0x124 (vf_124) is USkelControlBase::GetAffectedBones */
-struct USkelControlSingleBone_ : public USkelControlSingleBone
-{
-    void GetAffectedBones(INT BoneIndex, USkeletalMeshComponent* SkelComp, TArray<INT>& OutBoneIndices);
-};
 
 // @baa 0x00916440
-void USkelControlSingleBone_::GetAffectedBones(INT BoneIndex, USkeletalMeshComponent* SkelComp, TArray<INT>& OutBoneIndices)
+void USkelControlSingleBone::GetAffectedBones(INT BoneIndex, USkeletalMeshComponent* SkelComp, TArray<INT>& OutBoneIndices)
 {
 #line 378 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSkelControl.cpp"
     check(OutBoneIndices.Num() == 0);
@@ -434,13 +430,9 @@ void USkelControlSingleBone_::GetAffectedBones(INT BoneIndex, USkeletalMeshCompo
 #line 441 "candidate.cpp"
 
 /* slot 0x124 (vf_124) is USkelControlBase::GetAffectedBones */
-struct USkelControlLookAt__00916480 : public USkelControlLookAt
-{
-    void GetAffectedBones(INT BoneIndex, USkeletalMeshComponent* SkelComp, TArray<INT>& OutBoneIndices);
-};
 
 // @baa 0x00916480
-void USkelControlLookAt__00916480::GetAffectedBones(INT BoneIndex, USkeletalMeshComponent* SkelComp, TArray<INT>& OutBoneIndices)
+void USkelControlLookAt::GetAffectedBones(INT BoneIndex, USkeletalMeshComponent* SkelComp, TArray<INT>& OutBoneIndices)
 {
     // only affects the bone if some rotation is allowed
     if (bAllowRotationX || bAllowRotationY || bAllowRotationZ)

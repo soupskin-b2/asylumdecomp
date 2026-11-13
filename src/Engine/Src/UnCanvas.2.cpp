@@ -46,17 +46,16 @@ struct UCanvas_ : public UCanvas
 			GetSceneView()->DeprojectFVector2D(ScreenPos, WorldOrigin, WorldDirection);
 		}
 	}
-	void execDeProject(FFrame& Stack, RESULT_DECL);
 };
 
 // @baa 0x00a589e0
-void UCanvas_::execDeProject(FFrame& Stack, RESULT_DECL)
+void UCanvas::execDeProject(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT(FVector2D, ScreenPos);
 	P_GET_STRUCT_REF(FVector, WorldOrigin);
 	P_GET_STRUCT_REF(FVector, WorldDirection);
 	P_FINISH;
-	DeProject(ScreenPos, WorldOrigin, WorldDirection);
+	((UCanvas_*)this)->DeProject(ScreenPos, WorldOrigin, WorldDirection);
 }
 
 // @baa 0x00a587f0

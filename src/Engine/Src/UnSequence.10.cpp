@@ -76,13 +76,9 @@ void C::sub_008e6260()
 }
 
 /* USeqCond_CompareFloat's Activated (USequenceOp vtable 0x174, declared only as vf_174). */
-struct USeqCond_CompareFloat_ : public USeqCond_CompareFloat
-{
-	void Activated();
-};
 
 // @baa 0x008e7290
-void USeqCond_CompareFloat_::Activated()
+void USeqCond_CompareFloat::Activated()
 {
 	// compare the values and set the matching output impulses
 	if (ValueA <= ValueB)
@@ -107,13 +103,8 @@ void USeqCond_CompareFloat_::Activated()
 	}
 }
 
-struct USeqCond_CompareInt_ : public USeqCond_CompareInt
-{
-    void Activated();
-};
-
 // @baa 0x008e74a0
-void USeqCond_CompareInt_::Activated()
+void USeqCond_CompareInt::Activated()
 {
     // compare the values and set the appropriate output impulses
     if (ValueA <= ValueB)
@@ -138,13 +129,8 @@ void USeqCond_CompareInt_::Activated()
     }
 }
 
-struct USeqCond_Increment_ : public USeqCond_Increment
-{
-    void Activated();
-};
-
 // @baa 0x008e77f0
-void USeqCond_Increment_::Activated()
+void USeqCond_Increment::Activated()
 {
     ValueA += IncrementAmount;
 
@@ -171,13 +157,8 @@ void USeqCond_Increment_::Activated()
     }
 }
 
-struct USeqCond_IncrementFloat_ : public USeqCond_IncrementFloat
-{
-    void Activated();
-};
-
 // @baa 0x008e79f0
-void USeqCond_IncrementFloat_::Activated()
+void USeqCond_IncrementFloat::Activated()
 {
     ValueA += IncrementAmount;
 
@@ -240,23 +221,14 @@ struct FString_ : public FString
 };
 
 /* slot 0x01c (vf_01c) is UObject::PostLoad; USequenceObject's is 0x009086f0 */
-struct USequenceObject_ : public USequenceObject
-{
-    void PostLoad();
-};
-
-struct USeqEvent_Console_ : public USeqEvent_Console
-{
-    void PostLoad();
-};
 
 // @baa 0x00909a50
-void USeqEvent_Console_::PostLoad()
+void USeqEvent_Console::PostLoad()
 {
     // always use the class's default name
     USeqEvent_Console* DefaultObj = (USeqEvent_Console*)GetClass()->GetDefaultObject();
     (FString_&)ObjName = *(FString_&)DefaultObj->ObjName;
-    ((USequenceObject_*)this)->USequenceObject_::PostLoad(); // Super::PostLoad()
+    USequenceObject::PostLoad(); // Super::PostLoad()
 }
 
 /* slot 0x194 (vf_194) is USequenceVariable::GetValueStr */
@@ -299,23 +271,18 @@ struct USeqAct_LevelStreaming_ : public USeqAct_LevelStreaming
 {
     /* 0x008ac0e0: TRUE once the streaming level has finished its pending load/visibility change */
     UBOOL IsLevelStreamingComplete(ULevelStreaming* LevelStreamingObject);
-    UBOOL UpdateOp(FLOAT DeltaTime);
 };
 
 // @baa 0x008ac210
-UBOOL USeqAct_LevelStreaming_::UpdateOp(FLOAT DeltaTime)
+UBOOL USeqAct_LevelStreaming::UpdateOp(FLOAT DeltaTime)
 {
-    return IsLevelStreamingComplete(Level);
+    return ((USeqAct_LevelStreaming_*)this)->IsLevelStreamingComplete(Level);
 }
 
 /* slot 0x174 (vf_174) is USequenceOp::Activated */
-struct USeqAct_SetString_ : public USeqAct_SetString
-{
-    void Activated();
-};
 
 // @baa 0x008e6490
-void USeqAct_SetString_::Activated()
+void USeqAct_SetString::Activated()
 {
     Target = Value;
 }
@@ -351,19 +318,13 @@ void USequenceOp_::CopyPlayerFrom(USequenceOp* Other, INT Unused)
 /* slot 0x04c (vf_04c) is UObject::PostEditChange(UProperty*); UObject's is 0x005c1a10 */
 struct UObject_ : public UObject
 {
-    void PostEditChange(UProperty* PropertyThatChanged);
     void MarkPackageDirty(UBOOL InDirty = TRUE) const; /* 0x005d9570 (declared on UAnimSequence in the kit) */
 };
 
-struct USequenceObject__008abad0 : public USequenceObject
-{
-    void PostEditChange(UProperty* PropertyThatChanged);
-};
-
 // @baa 0x008abad0
-void USequenceObject__008abad0::PostEditChange(UProperty* PropertyThatChanged)
+void USequenceObject::PostEditChange(UProperty* PropertyThatChanged)
 {
-    ((UObject_*)this)->UObject_::PostEditChange(PropertyThatChanged); // Super::PostEditChange()
+    ((UObject_*)this)->UObject::PostEditChange(PropertyThatChanged); // Super::PostEditChange()
     ((UObject_*)this)->MarkPackageDirty(TRUE);
 }
 
@@ -381,13 +342,8 @@ struct FString__008bd7b0 : public FString
     UBOOL operator==(const FString& Other) const;
 };
 
-struct USequenceOp__008bd7b0 : public USequenceOp
-{
-    UBOOL ActivateNamedOutputLink(const FString& LinkDesc);
-};
-
 // @baa 0x008bd7b0
-UBOOL USequenceOp__008bd7b0::ActivateNamedOutputLink(const FString& LinkDesc)
+UBOOL USequenceOp::ActivateNamedOutputLink(const FString& LinkDesc)
 {
     UBOOL bActivated = FALSE;
     for (INT Idx = 0; Idx < OutputLinks.Num(); Idx++)
@@ -518,13 +474,12 @@ struct USequenceOp__008f7e00 : public USequenceOp
 struct USeqAct_ModifyObjectList_ : public USeqAct_ModifyObjectList
 {
     void ActivateAddRemove_Helper(); /* 0x008f6b60: handles the Add/Remove/Empty inputs */
-    void Activated();
 };
 
 // @baa 0x008f7e00
-void USeqAct_ModifyObjectList_::Activated()
+void USeqAct_ModifyObjectList::Activated()
 {
-    ActivateAddRemove_Helper();
+    ((USeqAct_ModifyObjectList_*)this)->ActivateAddRemove_Helper();
 
     // count the entries attached to the list variable
     TArray<UObject**> ObjVars;

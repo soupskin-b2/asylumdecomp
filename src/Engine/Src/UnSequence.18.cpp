@@ -6,21 +6,13 @@
 #include "ue3/Native.h"
 
 /* USeqAct_Latent::DeActivated (0x008bea90) */
-struct USeqAct_Latent_ : public USeqAct_Latent
-{
-    void DeActivated();
-};
 
 /* slot 0x178 (vf_178) is USequenceOp::DeActivated */
-struct USeqAct_PrepareMapChange_ : public USeqAct_PrepareMapChange
-{
-    void DeActivated();
-};
 
 // @baa 0x008c0660
-void USeqAct_PrepareMapChange_::DeActivated()
+void USeqAct_PrepareMapChange::DeActivated()
 {
-    ((USeqAct_Latent_*)this)->USeqAct_Latent_::DeActivated(); // Super::DeActivated()
+    USeqAct_Latent::DeActivated(); // Super::DeActivated()
     if (bIsHighPriority)
     {
         // the high priority load is done
@@ -32,13 +24,9 @@ void USeqAct_PrepareMapChange_::DeActivated()
 }
 
 /* slot 0x174 (vf_174) is USequenceOp::Activated */
-struct USeqAct_Delay_ : public USeqAct_Delay
-{
-    void Activated();
-};
 
 // @baa 0x008abfe0
-void USeqAct_Delay_::Activated()
+void USeqAct_Delay::Activated()
 {
     RemainingTime = Duration;
     LastUpdateTime = GWorld->GetWorldInfo()->TimeSeconds;
@@ -62,13 +50,9 @@ struct UWorld_ : public UWorld
 };
 
 /* slot 0x174 (vf_174) is USequenceOp::Activated */
-struct USeqCond_GetServerType_ : public USeqCond_GetServerType
-{
-    void Activated();
-};
 
 // @baa 0x008c0110
-void USeqCond_GetServerType_::Activated()
+void USeqCond_GetServerType::Activated()
 {
     switch (((UWorld_*)GWorld)->GetNetMode())
     {
@@ -140,17 +124,16 @@ struct USeqAct_MultiLevelStreaming_ : public USeqAct_MultiLevelStreaming
         }
         return FALSE;
     }
-    UBOOL UpdateOp(FLOAT DeltaTime);
 };
 
 // @baa 0x008c0590
-UBOOL USeqAct_MultiLevelStreaming_::UpdateOp(FLOAT DeltaTime)
+UBOOL USeqAct_MultiLevelStreaming::UpdateOp(FLOAT DeltaTime)
 {
     // done once every level is
     UBOOL bAllComplete = TRUE;
     for (INT LevelIdx = 0; LevelIdx < Levels.Num(); LevelIdx++)
     {
-        if (!IsLevelStreamingComplete(Levels(LevelIdx).Level))
+        if (!((USeqAct_MultiLevelStreaming_*)this)->IsLevelStreamingComplete(Levels(LevelIdx).Level))
         {
             bAllComplete = FALSE;
             break;
@@ -165,13 +148,8 @@ struct UWorld__008e6d80 : public UWorld
     FLOAT GetTimeSeconds();
 };
 
-struct USeqAct_Timer_ : public USeqAct_Timer
-{
-    void Activated();
-};
-
 // @baa 0x008e6d80
-void USeqAct_Timer_::Activated()
+void USeqAct_Timer::Activated()
 {
     // start timing from now
     Time = 0.f;
