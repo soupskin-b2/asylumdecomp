@@ -29,7 +29,6 @@ struct UUIStyle_Data_ : public UUIStyle_Data
 	}
 };
 
-
 struct FStyleDataReference_ : public FStyleDataReference
 {
 	FORCEINLINE UBOOL IsCustomStyleDataValid() const

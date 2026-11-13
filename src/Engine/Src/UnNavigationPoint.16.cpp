@@ -30,7 +30,6 @@ extern INT g_026b55f8;
 
 /* Unnamed in the kit (0x00860250, UE3's IsOverlapSlotClaimed). */
 
-
 // @baa 0x008603f0
 /* UE3's ACoverSlotMarker::IsValidClaim: whether ChkClaim may take this marker's slot (enabled, not owned by someone
  * alive, valid by now, no enemy-team claimer, no claimed overlapping slot). While an overlap check is recursing an

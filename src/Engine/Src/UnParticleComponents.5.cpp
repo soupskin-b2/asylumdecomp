@@ -257,7 +257,6 @@ void UParticleSystemComponent__00c9de10::execSetMaterialParameter(FFrame& Stack,
 	SetMaterialParameter(ParameterName, Param);
 }
 
-
 struct UParticleSystemComponent__00c9e300 : public UParticleSystemComponent
 {
 	void ClearParameter(FName ParameterName, BYTE ParameterType);

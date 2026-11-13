@@ -12,7 +12,6 @@ extern template APawn* Cast<APawn>(UObject* Src);
 
 /* slot 0x174 (vf_174) is USequenceOp::Activated; USequenceAction's is 0x008d1890 */
 
-
 // @baa 0x008ea4d0
 void USeqAct_Possess::Activated()
 {

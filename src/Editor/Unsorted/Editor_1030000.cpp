@@ -116,7 +116,7 @@ int URFMODSound::sub_01032600(int param_2)
 // @baa 0x01032c60
 UAnalyzeScriptCommandlet::UAnalyzeScriptCommandlet()
 {
-    if (!(*(QWORD*)&ObjectFlags & 0x200)) AddToRoot();
+    if (!(ObjectFlags & 0x200)) AddToRoot();
 }
 
 // @baa 0x01032cc0
@@ -137,7 +137,7 @@ undefined4 UAnalyzeScriptCommandlet::sub_01032d20(byte param_2)
 // @baa 0x01032d40
 UExportLocCommandlet::UExportLocCommandlet()
 {
-    if (!(*(QWORD*)&ObjectFlags & 0x200)) AddToRoot();
+    if (!(ObjectFlags & 0x200)) AddToRoot();
 }
 
 // @baa 0x01032da0

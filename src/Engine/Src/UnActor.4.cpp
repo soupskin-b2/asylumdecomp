@@ -6,7 +6,6 @@
 #include "ue3/Cast.h"
 
 /* the object flag ActorIsPendingKill tests in this build */
-#define RF_PendingKill ((QWORD)0x2000000000000000)
 
 struct AActor_ : public AActor {
     UBOOL ActorIsPendingKill() { return bDeleteMe || this->HasAnyFlags(RF_PendingKill); }

@@ -73,7 +73,7 @@ TObjectIterator_026d0ed8::TObjectIterator_026d0ed8(UBOOL bOnlyGCedObjects)
     : FObjectIterator(StaticClass_026d0ed8(), bOnlyGCedObjects)
 {
     ExclusionFlags |= 0x200;
-    if (g_026a1ca4.IsValidIndex(Index) && (*(QWORD*)&g_026a1ca4(Index)->ObjectFlags & 0x200))
+    if (g_026a1ca4.IsValidIndex(Index) && (g_026a1ca4(Index)->ObjectFlags & 0x200))
     {
         sub_00410de0();
     }

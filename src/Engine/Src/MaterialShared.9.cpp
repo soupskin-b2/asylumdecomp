@@ -24,8 +24,6 @@ struct MITVVectorParameterMapping
 	static FVectorParameterValueOverTime* FindParameterByName(UMaterialInstanceTimeVarying* Instance, FName Name);
 };
 
-
-
 // @baa 0x006ee400
 /* The named vector parameter: evaluated from its curve at the current time (relative to its start time, wrapped and
  * normalized by its cycle time) once it's active, its constant value if it has no curve, else the parent's value. */

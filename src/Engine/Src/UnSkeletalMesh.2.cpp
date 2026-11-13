@@ -339,13 +339,6 @@ IMPLEMENT_CLASS_AT(ASkeletalMeshActorMAT, "e:\\Projects\\Amadeus\\AA\\Game\\Unre
 // @baa 0x0097fe70
 IMPLEMENT_CLASS_AT(USkeletalMesh, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSkeletalMesh.cpp", 27);
 
-/* FQuatRotationTranslationMatrix (UnMath.h); its constructor is out of line (0x0059d4a0). */
-class FQuatRotationTranslationMatrix : public FMatrix
-{
-public:
-    FQuatRotationTranslationMatrix(const FQuat& Q, const FVector& Origin);
-};
-
 struct USkeletalMesh_ : public USkeletalMesh
 {
     FMatrix GetRefPoseMatrix(INT BoneIndex) const;

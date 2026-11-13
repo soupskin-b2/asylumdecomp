@@ -110,10 +110,6 @@ void USkeletalMesh::Serialize(FArchive& Ar)
     }
 }
 
-/* Kit gaps: UObject::HasAnyFlags/IsTemplate and the RF_ flags (UnObjBas.h); ObjectFlags is an FQWord here. */
-#define RF_ClassDefaultObject ((QWORD)0x0000000000000200)
-#define RF_ArchetypeObject ((QWORD)0x0000000000000400)
-
 /* Kit gap: the mesh's resource setup (0x0097baf0, likely UE3's InitResources) isn't declared. */
 
 /* A global flag (its name isn't known) that suppresses the setup, e.g. while running a commandlet. */

@@ -273,7 +273,7 @@ int C_01062ca0::sub_01062ca0(void)
 // @baa 0x01072970
 UMakeCommandlet::UMakeCommandlet()
 {
-    if (!(*(QWORD*)&ObjectFlags & 0x200)) AddToRoot();
+    if (!(ObjectFlags & 0x200)) AddToRoot();
 }
 
 // @baa 0x010729d0

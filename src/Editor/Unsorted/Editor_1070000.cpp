@@ -6,7 +6,7 @@
 // @baa 0x010727b0
 UTestCompressionCommandlet::UTestCompressionCommandlet()
 {
-    if (!(*(QWORD*)&ObjectFlags & 0x200)) AddToRoot();
+    if (!(ObjectFlags & 0x200)) AddToRoot();
 }
 
 // @baa 0x01072810
@@ -27,7 +27,7 @@ undefined4 UTestCompressionCommandlet::sub_01072870(byte param_2)
 // @baa 0x01072890
 UMergePackagesCommandlet::UMergePackagesCommandlet()
 {
-    if (!(*(QWORD*)&ObjectFlags & 0x200)) AddToRoot();
+    if (!(ObjectFlags & 0x200)) AddToRoot();
 }
 
 // @baa 0x010728f0
@@ -47,7 +47,7 @@ undefined4 UMergePackagesCommandlet::sub_01072950(byte param_2)
 // @baa 0x01072a50
 UCreateDefaultStyleCommandlet::UCreateDefaultStyleCommandlet()
 {
-    if (!(*(QWORD*)&ObjectFlags & 0x200)) AddToRoot();
+    if (!(ObjectFlags & 0x200)) AddToRoot();
 }
 
 // @baa 0x01072ab0
@@ -67,7 +67,7 @@ undefined4 UCreateDefaultStyleCommandlet::sub_01072b10(byte param_2)
 // @baa 0x01072b30
 UExamineOutersCommandlet::UExamineOutersCommandlet()
 {
-    if (!(*(QWORD*)&ObjectFlags & 0x200)) AddToRoot();
+    if (!(ObjectFlags & 0x200)) AddToRoot();
 }
 
 // @baa 0x01072b90
@@ -87,7 +87,7 @@ undefined4 UExamineOutersCommandlet::sub_01072bf0(byte param_2)
 // @baa 0x01072c10
 UFindDuplicateKismetObjectsCommandlet::UFindDuplicateKismetObjectsCommandlet()
 {
-    if (!(*(QWORD*)&ObjectFlags & 0x200)) AddToRoot();
+    if (!(ObjectFlags & 0x200)) AddToRoot();
 }
 
 // @baa 0x01072c70

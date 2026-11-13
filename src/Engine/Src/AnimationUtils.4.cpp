@@ -27,7 +27,6 @@ struct FBoneAtom_
 
 /* Callees Classes.h doesn't declare. */
 
-
 /* FAnimationUtils (AnimationUtils.h) isn't in the kit. */
 class FAnimationUtils
 {

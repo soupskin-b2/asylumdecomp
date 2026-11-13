@@ -57,7 +57,6 @@ void USkeletalMeshComponent::execToggleInstanceVertexWeights(FFrame& Stack, RESU
 	sub_0092e930(bEnable);
 }
 
-
 // @baa 0x0092df60
 void USkeletalMeshComponent::execGetBoneLocation(FFrame& Stack, RESULT_DECL)
 {
@@ -66,7 +65,6 @@ void USkeletalMeshComponent::execGetBoneLocation(FFrame& Stack, RESULT_DECL)
     P_FINISH;
     *(FVector*)Result = this->GetBoneLocation(BoneName, Space);
 }
-
 
 // @baa 0x0092e020
 void USkeletalMeshComponent::execGetBoneAxis(FFrame& Stack, RESULT_DECL)

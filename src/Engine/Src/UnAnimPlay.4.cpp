@@ -86,7 +86,6 @@ struct FName_ : public FName
 	UBOOL operator!=(const FName& Other) const;
 };
 
-
 /* Whether the cached bone atoms can be kept: only for an unrendered mesh, a node that skips ticking at zero
  * weight, and no root motion extraction. */
 UBOOL UAnimNodeSequence::CanUseCachedBoneAtoms()

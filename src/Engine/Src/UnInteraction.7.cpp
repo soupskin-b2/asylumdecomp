@@ -5,7 +5,6 @@
 
 // FName's string constructor (UnName.cpp), missing from the kit's FName.
 
-
 // The UI input alias names (UIKEY_Consume, UIKEY_NextControl, ...), registered once at startup.
 #define DECLARE_UI_KEY(name) extern FName UIKEY_##name;
 DECLARE_UI_KEY(Consume)

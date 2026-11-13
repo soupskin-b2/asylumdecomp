@@ -188,9 +188,9 @@ void UUIScreenObject::PostLoad()
 /* UE3's UUIScreenObject::Initialize(UUIScene* inOwnerScene, UUIObject* inOwner): mark the widget transactional. */
 void UUIScreenObject::Initialize(UUIScene* inOwnerScene, UUIObject* inOwner)
 {
-    if ((*(QWORD*)&ObjectFlags & RF_Bit46_) == 0)
+    if ((ObjectFlags & RF_Bit46_) == 0)
     {
-        *(QWORD*)&ObjectFlags |= RF_Transactional_;
+        ObjectFlags |= RF_Transactional_;
     }
 }
 

@@ -204,7 +204,6 @@ void USeqCond_IncrementFloat_::Activated()
     }
 }
 
-#define RF_PendingKill ((QWORD)0x2000000000000000ULL)
 struct USequence_ : public USequence
 {
     void MarkSequencePendingKill();

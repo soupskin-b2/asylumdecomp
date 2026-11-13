@@ -41,7 +41,6 @@ struct MITVScalarParameterMapping
 	static void GameThread_UpdateParameter(UMaterialInstanceTimeVarying* Instance, const FScalarParameterValueOverTime& Parameter);
 };
 
-
 // @baa 0x007136d0
 /* Starts the named scalar parameter's curve Value seconds from now. If the parameter isn't overridden yet it's added,
  * taking its value from the parent (and its curve, if the parent is time-varying too). */

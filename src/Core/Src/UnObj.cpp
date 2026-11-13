@@ -212,7 +212,7 @@ void sub_005c7ec0(void)
 // @baa 0x005c7f30
 void UObject::AddToRoot()
 {
-    *(QWORD*)&ObjectFlags |= 0x4000;
+    ObjectFlags |= 0x4000;
 }
 
 struct C_005c7f40
@@ -1898,10 +1898,7 @@ extern D_01e22f30 g_026a1e04;
 // @baa 0x01e22f30
 void sub_01e22f30() { g_026a1e04.sub_005cbb00(); }
 
-/* Kit gaps: the RF_/CLASS_ flags, UObject::SetFlags/HasAnyFlags (ObjectFlags is an FQWord here) and
- * UObject::LoadConfig/LoadLocalized (UnObj.cpp) aren't declared. */
-#define RF_DebugPostLoad ((QWORD)0x0000000000000008)
-#define RF_PerObjectConfig ((QWORD)0x0000010000000000)
+/* Kit gaps: the CLASS_ flags and UObject::LoadConfig/LoadLocalized (UnObj.cpp) aren't declared. */
 #define CLASS_Config 0x00000400
 
 // @baa 0x005e59b0

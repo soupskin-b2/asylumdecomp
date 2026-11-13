@@ -390,10 +390,7 @@ UBOOL FWaveModInfo::ReadWaveInfo(BYTE* WaveData, INT WaveDataSize)
 
 #line 397 "candidate.cpp"
 
-/* Kit gaps: UObject::ClearFlags and RF_Transactional aren't declared, and ObjectFlags is declared as the script
- * struct FQWord where the native member is a QWORD (EObjectFlags); AAmbientSoundSimple::SyncUpInstantiatedObjects
- * isn't declared. */
-#define RF_Transactional	((QWORD)0x0000000400000000)
+/* Kit gap: AAmbientSoundSimple::SyncUpInstantiatedObjects isn't declared. */
 
 struct AAmbientSoundSimple_ : public AAmbientSoundSimple
 {
@@ -415,8 +412,8 @@ void AAmbientSoundSimple_::SyncUpInstantiatedObjects()
 #line 3491 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAudio.cpp"
 		check(SoundNodeInstance);
 		check(SoundCueInstance);
-		SoundNodeInstance->ClearFlags(RF_Transactional);
-		SoundCueInstance->ClearFlags(RF_Transactional);
+		SoundNodeInstance->ClearFlags(RF_Public);
+		SoundCueInstance->ClearFlags(RF_Public);
 	}
 }
 

@@ -396,9 +396,6 @@ if((undefined4*)0x0!=puVar1){
 return iVar2;
 }
 
-/* Kit gaps: RF_PendingKill and UObject::HasAnyFlags (ObjectFlags is an FQWord here). */
-#define RF_PendingKill ((QWORD)0x2000000000000000)
-
 // @baa 0x008b1620
 /* A sequence object is pending kill along with the sequence that holds it. */
 UBOOL USequenceObject::IsPendingKill()

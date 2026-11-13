@@ -6,11 +6,6 @@
 
 #define THRESH_QUAT_NORMALIZED 0.02f
 
-struct FQuatRotationTranslationMatrix : public FMatrix
-{
-	FQuatRotationTranslationMatrix(const FQuat& Q, const FVector& Origin);
-};
-
 // @baa 0x0059d4a0
 /* UnMath.h: a rotation (from a unit quaternion) followed by a translation. */
 FQuatRotationTranslationMatrix::FQuatRotationTranslationMatrix(const FQuat& InQ, const FVector& Origin)

@@ -5353,7 +5353,7 @@ undefined4 * C_010e2aa0::sub_010e2aa0(undefined4 * param_2)
 // @baa 0x010e2ae0
 UAnalyzeContentCommandlet::UAnalyzeContentCommandlet()
 {
-    if (!(*(QWORD*)&ObjectFlags & 0x200)) AddToRoot();
+    if (!(ObjectFlags & 0x200)) AddToRoot();
 }
 
 // @baa 0x010e2b40
@@ -5374,7 +5374,7 @@ undefined4 UAnalyzeContentCommandlet::sub_010e2ba0(byte param_2)
 // @baa 0x010e2bc0
 UAnalyzeCookedPackagesCommandlet::UAnalyzeCookedPackagesCommandlet()
 {
-    if (!(*(QWORD*)&ObjectFlags & 0x200)) AddToRoot();
+    if (!(ObjectFlags & 0x200)) AddToRoot();
 }
 
 // @baa 0x010e2c20
@@ -5394,7 +5394,7 @@ undefined4 UAnalyzeCookedPackagesCommandlet::sub_010e2c80(byte param_2)
 // @baa 0x010e2ca0
 UMineCookedPackagesCommandlet::UMineCookedPackagesCommandlet()
 {
-    if (!(*(QWORD*)&ObjectFlags & 0x200)) AddToRoot();
+    if (!(ObjectFlags & 0x200)) AddToRoot();
 }
 
 // @baa 0x010e2d00
@@ -5414,7 +5414,7 @@ undefined4 UMineCookedPackagesCommandlet::sub_010e2d60(byte param_2)
 // @baa 0x010e2d80
 ULoadPackageCommandlet::ULoadPackageCommandlet()
 {
-    if (!(*(QWORD*)&ObjectFlags & 0x200)) AddToRoot();
+    if (!(ObjectFlags & 0x200)) AddToRoot();
 }
 
 // @baa 0x010e2de0
@@ -5434,7 +5434,7 @@ undefined4 ULoadPackageCommandlet::sub_010e2e40(byte param_2)
 // @baa 0x010e2e60
 UFixupRedirectsCommandlet::UFixupRedirectsCommandlet()
 {
-    if (!(*(QWORD*)&ObjectFlags & 0x200)) AddToRoot();
+    if (!(ObjectFlags & 0x200)) AddToRoot();
 }
 
 // @baa 0x010e2ec0
@@ -5454,7 +5454,7 @@ undefined4 UFixupRedirectsCommandlet::sub_010e2f20(byte param_2)
 // @baa 0x010e2f40
 UListPackagesReferencingCommandlet::UListPackagesReferencingCommandlet()
 {
-    if (!(*(QWORD*)&ObjectFlags & 0x200)) AddToRoot();
+    if (!(ObjectFlags & 0x200)) AddToRoot();
 }
 
 // @baa 0x010e2fa0
@@ -5474,7 +5474,7 @@ undefined4 UListPackagesReferencingCommandlet::sub_010e3000(byte param_2)
 // @baa 0x010e3020
 UPkgInfoCommandlet::UPkgInfoCommandlet()
 {
-    if (!(*(QWORD*)&ObjectFlags & 0x200)) AddToRoot();
+    if (!(ObjectFlags & 0x200)) AddToRoot();
 }
 
 // @baa 0x010e3080
@@ -5494,7 +5494,7 @@ undefined4 UPkgInfoCommandlet::sub_010e30e0(byte param_2)
 // @baa 0x010e3100
 UShowObjectCountCommandlet::UShowObjectCountCommandlet()
 {
-    if (!(*(QWORD*)&ObjectFlags & 0x200)) AddToRoot();
+    if (!(ObjectFlags & 0x200)) AddToRoot();
 }
 
 // @baa 0x010e3160
@@ -5514,7 +5514,7 @@ undefined4 UShowObjectCountCommandlet::sub_010e31c0(byte param_2)
 // @baa 0x010e31e0
 UShowStylesCommandlet::UShowStylesCommandlet()
 {
-    if (!(*(QWORD*)&ObjectFlags & 0x200)) AddToRoot();
+    if (!(ObjectFlags & 0x200)) AddToRoot();
 }
 
 // @baa 0x010e3240
@@ -5534,7 +5534,7 @@ undefined4 UShowStylesCommandlet::sub_010e32a0(byte param_2)
 // @baa 0x010e32c0
 UListCorruptedComponentsCommandlet::UListCorruptedComponentsCommandlet()
 {
-    if (!(*(QWORD*)&ObjectFlags & 0x200)) AddToRoot();
+    if (!(ObjectFlags & 0x200)) AddToRoot();
 }
 
 // @baa 0x010e3320
@@ -5554,7 +5554,7 @@ undefined4 UListCorruptedComponentsCommandlet::sub_010e3380(byte param_2)
 // @baa 0x010e33a0
 UFindTexturesWithMissingPhysicalMaterialsCommandlet::UFindTexturesWithMissingPhysicalMaterialsCommandlet()
 {
-    if (!(*(QWORD*)&ObjectFlags & 0x200)) AddToRoot();
+    if (!(ObjectFlags & 0x200)) AddToRoot();
 }
 
 // @baa 0x010e3400
@@ -5574,7 +5574,7 @@ undefined4 UFindTexturesWithMissingPhysicalMaterialsCommandlet::sub_010e3460(byt
 // @baa 0x010e3480
 UFindQuestionableTexturesCommandlet::UFindQuestionableTexturesCommandlet()
 {
-    if (!(*(QWORD*)&ObjectFlags & 0x200)) AddToRoot();
+    if (!(ObjectFlags & 0x200)) AddToRoot();
 }
 
 // @baa 0x010e34e0
@@ -5594,7 +5594,7 @@ undefined4 UFindQuestionableTexturesCommandlet::sub_010e3540(byte param_2)
 // @baa 0x010e3560
 USetTextureLODGroupCommandlet::USetTextureLODGroupCommandlet()
 {
-    if (!(*(QWORD*)&ObjectFlags & 0x200)) AddToRoot();
+    if (!(ObjectFlags & 0x200)) AddToRoot();
 }
 
 // @baa 0x010e35c0
@@ -5614,7 +5614,7 @@ undefined4 USetTextureLODGroupCommandlet::sub_010e3620(byte param_2)
 // @baa 0x010e3640
 UCompressAnimationsCommandlet::UCompressAnimationsCommandlet()
 {
-    if (!(*(QWORD*)&ObjectFlags & 0x200)) AddToRoot();
+    if (!(ObjectFlags & 0x200)) AddToRoot();
 }
 
 // @baa 0x010e36a0
@@ -5634,7 +5634,7 @@ undefined4 UCompressAnimationsCommandlet::sub_010e3700(byte param_2)
 // @baa 0x010e3720
 UDoWithAnimationsCommandlet::UDoWithAnimationsCommandlet()
 {
-    if (!(*(QWORD*)&ObjectFlags & 0x200)) AddToRoot();
+    if (!(ObjectFlags & 0x200)) AddToRoot();
 }
 
 // @baa 0x010e3780
@@ -5654,7 +5654,7 @@ undefined4 UDoWithAnimationsCommandlet::sub_010e37e0(byte param_2)
 // @baa 0x010e3800
 UListScriptReferencedContentCommandlet::UListScriptReferencedContentCommandlet()
 {
-    if (!(*(QWORD*)&ObjectFlags & 0x200)) AddToRoot();
+    if (!(ObjectFlags & 0x200)) AddToRoot();
 }
 
 // @baa 0x010e3860
@@ -5674,7 +5674,7 @@ undefined4 UListScriptReferencedContentCommandlet::sub_010e38c0(byte param_2)
 // @baa 0x010e38e0
 UTestWordWrapCommandlet::UTestWordWrapCommandlet()
 {
-    if (!(*(QWORD*)&ObjectFlags & 0x200)) AddToRoot();
+    if (!(ObjectFlags & 0x200)) AddToRoot();
 }
 
 // @baa 0x010e3940
@@ -5694,7 +5694,7 @@ undefined4 UTestWordWrapCommandlet::sub_010e39a0(byte param_2)
 // @baa 0x010e39c0
 USetPackageFlagsCommandlet::USetPackageFlagsCommandlet()
 {
-    if (!(*(QWORD*)&ObjectFlags & 0x200)) AddToRoot();
+    if (!(ObjectFlags & 0x200)) AddToRoot();
 }
 
 // @baa 0x010e3a20
@@ -5730,7 +5730,7 @@ undefined4 UPerformMapCheckCommandlet::sub_010e3b90(byte param_2)
 // @baa 0x010e3bc0
 UDumpLightmapInfoCommandlet::UDumpLightmapInfoCommandlet()
 {
-    if (!(*(QWORD*)&ObjectFlags & 0x200)) AddToRoot();
+    if (!(ObjectFlags & 0x200)) AddToRoot();
 }
 
 // @baa 0x010e3c20
@@ -5750,7 +5750,7 @@ undefined4 UDumpLightmapInfoCommandlet::sub_010e3c80(byte param_2)
 // @baa 0x010e3ca0
 UPerformTerrainMaterialDumpCommandlet::UPerformTerrainMaterialDumpCommandlet()
 {
-    if (!(*(QWORD*)&ObjectFlags & 0x200)) AddToRoot();
+    if (!(ObjectFlags & 0x200)) AddToRoot();
 }
 
 // @baa 0x010e3d00
@@ -5770,7 +5770,7 @@ undefined4 UPerformTerrainMaterialDumpCommandlet::sub_010e3d60(byte param_2)
 // @baa 0x010e3d80
 UPatchScriptCommandlet::UPatchScriptCommandlet()
 {
-    if (!(*(QWORD*)&ObjectFlags & 0x200)) AddToRoot();
+    if (!(ObjectFlags & 0x200)) AddToRoot();
 }
 
 // @baa 0x010e3de0
@@ -5790,7 +5790,7 @@ undefined4 UPatchScriptCommandlet::sub_010e3e40(byte param_2)
 // @baa 0x010e3e60
 UListPSysFixedBoundSettingCommandlet::UListPSysFixedBoundSettingCommandlet()
 {
-    if (!(*(QWORD*)&ObjectFlags & 0x200)) AddToRoot();
+    if (!(ObjectFlags & 0x200)) AddToRoot();
 }
 
 // @baa 0x010e3ec0
@@ -5810,7 +5810,7 @@ undefined4 UListPSysFixedBoundSettingCommandlet::sub_010e3f20(byte param_2)
 // @baa 0x010e3f40
 UListEmittersUsingModuleCommandlet::UListEmittersUsingModuleCommandlet()
 {
-    if (!(*(QWORD*)&ObjectFlags & 0x200)) AddToRoot();
+    if (!(ObjectFlags & 0x200)) AddToRoot();
 }
 
 // @baa 0x010e3fa0
@@ -5830,7 +5830,7 @@ undefined4 UListEmittersUsingModuleCommandlet::sub_010e4000(byte param_2)
 // @baa 0x010e4020
 UReplaceActorCommandlet::UReplaceActorCommandlet()
 {
-    if (!(*(QWORD*)&ObjectFlags & 0x200)) AddToRoot();
+    if (!(ObjectFlags & 0x200)) AddToRoot();
 }
 
 // @baa 0x010e4080
@@ -5850,7 +5850,7 @@ undefined4 UReplaceActorCommandlet::sub_010e40e0(byte param_2)
 // @baa 0x010e4100
 UListSoundNodeWavesCommandlet::UListSoundNodeWavesCommandlet()
 {
-    if (!(*(QWORD*)&ObjectFlags & 0x200)) AddToRoot();
+    if (!(ObjectFlags & 0x200)) AddToRoot();
 }
 
 // @baa 0x010e4160

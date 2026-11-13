@@ -17,9 +17,7 @@ void UActorComponent::BeginDestroy()
     Super::BeginDestroy();
 }
 
-/* Kit gap: UObject::GetOuter and HasAnyFlags (UnObjBas.h); ObjectFlags is an FQWord here. GetOuter() is a macro
- * so the check text reads as in the original. */
-#define RF_NotForClient ((QWORD)0x0010000000000000)
+/* GetOuter() is a macro here so the check text reads as in the original. */
 
 #define GetOuter() Outer
 // @baa 0x0075e870
@@ -34,9 +32,7 @@ INT UActorComponent::vf_088()
 
 #line 40 "candidate.cpp"
 
-/* Kit gap: UObject::GetOuter and HasAnyFlags (UnObjBas.h); ObjectFlags is an FQWord here. GetOuter() is a macro
- * so the check text reads as in the original. */
-#define RF_NotForServer ((QWORD)0x0020000000000000)
+/* GetOuter() is a macro here so the check text reads as in the original. */
 // @baa 0x0075e8c0
 /* UActorComponent slot 0x08c (kit vf_08c): UE3's UActorComponent::NeedsLoadForServer(): only when the outer loads on
  * the server and the component isn't marked not-for-server. */
@@ -48,11 +44,6 @@ INT UActorComponent::vf_08c()
 }
 
 #line 55 "candidate.cpp"
-
-/* Kit gap: UObject::HasAnyFlags and the RF_ flags (UnObjBas.h); ObjectFlags is an FQWord here. */
-#define RF_ClassDefaultObject ((QWORD)0x0000000000000200)
-#define RF_ArchetypeObject ((QWORD)0x0000000000000400)
-#define RF_PendingKill ((QWORD)0x2000000000000000)
 
 // @baa 0x007596c0
 /* Marks the transform dirty; static owners update their components now (slot 0x314, UE3 ConditionalUpdateComponents),

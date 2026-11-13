@@ -13,7 +13,6 @@ extern FName g_026e2f38;
 	/* DestroyTeeth */
 /* Kit gap: FVector::Rotation (UnMath.cpp) isn't declared. */
 
-
 struct ARControllableChatteringTeethBase_ : public ARControllableChatteringTeethBase
 {
 	/* RControllableChatteringTeethBase script events: the generated glue, inlined here. */

@@ -39,7 +39,6 @@ void UUIDataStore::execOnCommit( FFrame& Stack, RESULT_DECL )
 	vf_140();
 }
 
-
 // @baa 0x00ca2330
 void UUIDataStore_OnlinePlayerData::execOnSettingProviderChanged(FFrame& Stack, RESULT_DECL)
 {

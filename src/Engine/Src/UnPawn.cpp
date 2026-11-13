@@ -1599,12 +1599,9 @@ FLOAT APawn::vf_444()
     return Result;
 }
 
-/* Kit gap: UObject::HasAnyFlags/IsTemplate and the RF_ flags (UnObjBas.h); ObjectFlags is an FQWord here. */
-#define RF_ClassDefaultObject ((QWORD)0x0000000000000200)
-#define RF_ArchetypeObject ((QWORD)0x0000000000000400)
 struct UObject_ : public UObject
 {
-	FORCEINLINE UBOOL HasAnyFlags(QWORD Flags) const { return (*(const QWORD*)&ObjectFlags & Flags) != 0; }
+	FORCEINLINE UBOOL HasAnyFlags(QWORD Flags) const { return (ObjectFlags & Flags) != 0; }
 	FORCEINLINE UBOOL IsTemplate(QWORD TemplateTypes = (RF_ArchetypeObject | RF_ClassDefaultObject)) const
 	{
 		for (const UObject* TestOuter = this; TestOuter; TestOuter = TestOuter->Outer)

@@ -843,7 +843,6 @@ void sub_00c38ac0();
 // @baa 0x0144f4a0
 void sub_0144f4a0(void) { sub_00c38ac0(); }
 
-
 struct Sub_0144eae0_Owner
 {
     unsigned char pad[0x3a0];

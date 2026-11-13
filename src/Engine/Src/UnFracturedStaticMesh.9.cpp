@@ -40,7 +40,6 @@ template<class T> FORCEINLINE INT AddZeroed_(TArray<T>& Array, INT Count)
     return Index;
 }
 
-
 // @baa 0x007c3280
 /* UE3's UFracturedSkinnedMeshComponent::SetFragmentTransform: size the transform array to the fragment count,
  * store the fragment's transform and queue a transform update. */

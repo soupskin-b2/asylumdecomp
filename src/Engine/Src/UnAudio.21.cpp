@@ -4,10 +4,8 @@
 #include "ue3/Classes.h"
 #include "ue3/Native.h"
 
-/* Kit gaps: ObjectFlags is the script struct FQWord where the native member is a QWORD, and RF_PendingKill /
- * UObject::MarkPendingKill (inline in UnObjBas.h) aren't declared; FScriptDelegate::IsCallable (00784f80),
- * UAudioComponent::Cleanup (00799ca0) and the delegateOnAudioFinished glue (out of line, 007850d0) aren't either. */
-#define RF_PendingKill ((QWORD)0x2000000000000000ULL)
+/* Kit gaps: FScriptDelegate::IsCallable (00784f80), UAudioComponent::Cleanup (00799ca0) and the delegateOnAudioFinished
+ * glue (out of line, 007850d0) aren't declared. */
 struct FScriptDelegate_ : public FScriptDelegate
 {
 	UBOOL IsCallable(const UObject* OwningObject) const; /* 0x00784f80 */

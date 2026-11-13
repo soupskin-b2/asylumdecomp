@@ -4,7 +4,6 @@
 #include "ue3/Core.h"
 #include "ue3/Win32.h"
 
-
 // @baa 0x00eb4c30
 /* Platform memory statistics. PC only reports the free and total physical memory; the other four
  * statistics are zero. The original's name and parameter names aren't known. */

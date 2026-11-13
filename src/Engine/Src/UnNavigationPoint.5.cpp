@@ -109,8 +109,6 @@ void ACoverLink::execIsExposedTo(FFrame& Stack, RESULT_DECL)
 	*(UBOOL*)Result = IsExposedTo(SlotIdx, ChkSlot, out_ExposedScale);
 }
 
-
-
 // @baa 0x00c88290
 void ACoverLink::execGetSlotViewPoint(FFrame& Stack, RESULT_DECL)
 {

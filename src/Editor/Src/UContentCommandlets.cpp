@@ -2438,7 +2438,7 @@ TConstSetBitIterator_01071d40& TConstSetBitIterator_01071d40::operator++()
 // @baa 0x01071e10
 UBatchExportCommandlet::UBatchExportCommandlet()
 {
-    if (!(*(QWORD*)&ObjectFlags & 0x200)) AddToRoot();
+    if (!(ObjectFlags & 0x200)) AddToRoot();
 }
 
 // @baa 0x01071e70
@@ -2459,7 +2459,7 @@ undefined4 UBatchExportCommandlet::sub_01071ed0(byte param_2)
 // @baa 0x01071ef0
 UConformCommandlet::UConformCommandlet()
 {
-    if (!(*(QWORD*)&ObjectFlags & 0x200)) AddToRoot();
+    if (!(ObjectFlags & 0x200)) AddToRoot();
 }
 
 // @baa 0x01071f50
@@ -2479,7 +2479,7 @@ undefined4 UConformCommandlet::sub_01071fb0(byte param_2)
 // @baa 0x01071fd0
 UDumpEmittersCommandlet::UDumpEmittersCommandlet()
 {
-    if (!(*(QWORD*)&ObjectFlags & 0x200)) AddToRoot();
+    if (!(ObjectFlags & 0x200)) AddToRoot();
 }
 
 // @baa 0x01072030
@@ -2499,7 +2499,7 @@ undefined4 UDumpEmittersCommandlet::sub_01072090(byte param_2)
 // @baa 0x010720b0
 UFixupEmittersCommandlet::UFixupEmittersCommandlet()
 {
-    if (!(*(QWORD*)&ObjectFlags & 0x200)) AddToRoot();
+    if (!(ObjectFlags & 0x200)) AddToRoot();
 }
 
 // @baa 0x01072110
@@ -2519,7 +2519,7 @@ undefined4 UFixupEmittersCommandlet::sub_01072170(byte param_2)
 // @baa 0x01072190
 UFindEmitterMismatchedLODsCommandlet::UFindEmitterMismatchedLODsCommandlet()
 {
-    if (!(*(QWORD*)&ObjectFlags & 0x200)) AddToRoot();
+    if (!(ObjectFlags & 0x200)) AddToRoot();
 }
 
 // @baa 0x010721f0
@@ -2539,7 +2539,7 @@ undefined4 UFindEmitterMismatchedLODsCommandlet::sub_01072250(byte param_2)
 // @baa 0x01072270
 UFindEmitterModifiedLODsCommandlet::UFindEmitterModifiedLODsCommandlet()
 {
-    if (!(*(QWORD*)&ObjectFlags & 0x200)) AddToRoot();
+    if (!(ObjectFlags & 0x200)) AddToRoot();
 }
 
 // @baa 0x010722d0
@@ -2559,7 +2559,7 @@ undefined4 UFindEmitterModifiedLODsCommandlet::sub_01072330(byte param_2)
 // @baa 0x01072350
 UFindEmitterModuleLODErrorsCommandlet::UFindEmitterModuleLODErrorsCommandlet()
 {
-    if (!(*(QWORD*)&ObjectFlags & 0x200)) AddToRoot();
+    if (!(ObjectFlags & 0x200)) AddToRoot();
 }
 
 // @baa 0x010723b0
@@ -2579,7 +2579,7 @@ undefined4 UFindEmitterModuleLODErrorsCommandlet::sub_01072410(byte param_2)
 // @baa 0x01072430
 UFixupSourceUVsCommandlet::UFixupSourceUVsCommandlet()
 {
-    if (!(*(QWORD*)&ObjectFlags & 0x200)) AddToRoot();
+    if (!(ObjectFlags & 0x200)) AddToRoot();
 }
 
 // @baa 0x01072490
@@ -2599,7 +2599,7 @@ undefined4 UFixupSourceUVsCommandlet::sub_010724f0(byte param_2)
 // @baa 0x01072510
 UCutDownContentCommandlet::UCutDownContentCommandlet()
 {
-    if (!(*(QWORD*)&ObjectFlags & 0x200)) AddToRoot();
+    if (!(ObjectFlags & 0x200)) AddToRoot();
 }
 
 // @baa 0x01072570
@@ -2619,7 +2619,7 @@ undefined4 UCutDownContentCommandlet::sub_010725d0(byte param_2)
 // @baa 0x010725f0
 UScaleAudioVolumeCommandlet::UScaleAudioVolumeCommandlet()
 {
-    if (!(*(QWORD*)&ObjectFlags & 0x200)) AddToRoot();
+    if (!(ObjectFlags & 0x200)) AddToRoot();
 }
 
 // @baa 0x01072650
@@ -2639,7 +2639,7 @@ undefined4 UScaleAudioVolumeCommandlet::sub_010726b0(byte param_2)
 // @baa 0x010726d0
 URebuildMapCommandlet::URebuildMapCommandlet()
 {
-    if (!(*(QWORD*)&ObjectFlags & 0x200)) AddToRoot();
+    if (!(ObjectFlags & 0x200)) AddToRoot();
 }
 
 // @baa 0x01072730
@@ -2659,7 +2659,7 @@ undefined4 URebuildMapCommandlet::sub_01072790(byte param_2)
 // @baa 0x01072cf0
 UWrangleContentCommandlet::UWrangleContentCommandlet()
 {
-    if (!(*(QWORD*)&ObjectFlags & 0x200)) AddToRoot();
+    if (!(ObjectFlags & 0x200)) AddToRoot();
 }
 
 // @baa 0x01072d50
@@ -2679,7 +2679,7 @@ undefined4 UWrangleContentCommandlet::sub_01072db0(byte param_2)
 // @baa 0x01072dd0
 UFixAmbiguousMaterialParametersCommandlet::UFixAmbiguousMaterialParametersCommandlet()
 {
-    if (!(*(QWORD*)&ObjectFlags & 0x200)) AddToRoot();
+    if (!(ObjectFlags & 0x200)) AddToRoot();
 }
 
 // @baa 0x01072e30
@@ -2699,7 +2699,7 @@ undefined4 UFixAmbiguousMaterialParametersCommandlet::sub_01072e90(byte param_2)
 // @baa 0x01072eb0
 UPIEToNormalCommandlet::UPIEToNormalCommandlet()
 {
-    if (!(*(QWORD*)&ObjectFlags & 0x200)) AddToRoot();
+    if (!(ObjectFlags & 0x200)) AddToRoot();
 }
 
 // @baa 0x01072f10
@@ -2719,7 +2719,7 @@ undefined4 UPIEToNormalCommandlet::sub_01072f70(byte param_2)
 // @baa 0x01072f90
 UUT3MapStatsCommandlet::UUT3MapStatsCommandlet()
 {
-    if (!(*(QWORD*)&ObjectFlags & 0x200)) AddToRoot();
+    if (!(ObjectFlags & 0x200)) AddToRoot();
 }
 
 // @baa 0x01072ff0
@@ -2739,7 +2739,7 @@ undefined4 UUT3MapStatsCommandlet::sub_01073050(byte param_2)
 // @baa 0x01073070
 UListLoopingEmittersCommandlet::UListLoopingEmittersCommandlet()
 {
-    if (!(*(QWORD*)&ObjectFlags & 0x200)) AddToRoot();
+    if (!(ObjectFlags & 0x200)) AddToRoot();
 }
 
 // @baa 0x010730d0
@@ -2759,7 +2759,7 @@ undefined4 UListLoopingEmittersCommandlet::sub_01073130(byte param_2)
 // @baa 0x01073150
 USoundGroupInfoCommandlet::USoundGroupInfoCommandlet()
 {
-    if (!(*(QWORD*)&ObjectFlags & 0x200)) AddToRoot();
+    if (!(ObjectFlags & 0x200)) AddToRoot();
 }
 
 // @baa 0x010731b0
@@ -2779,7 +2779,7 @@ undefined4 USoundGroupInfoCommandlet::sub_01073210(byte param_2)
 // @baa 0x01073230
 UListDistanceCrossFadeNodesCommandlet::UListDistanceCrossFadeNodesCommandlet()
 {
-    if (!(*(QWORD*)&ObjectFlags & 0x200)) AddToRoot();
+    if (!(ObjectFlags & 0x200)) AddToRoot();
 }
 
 // @baa 0x01073290
@@ -2799,7 +2799,7 @@ undefined4 UListDistanceCrossFadeNodesCommandlet::sub_010732f0(byte param_2)
 // @baa 0x01073310
 ULocSoundInfoCommandlet::ULocSoundInfoCommandlet()
 {
-    if (!(*(QWORD*)&ObjectFlags & 0x200)) AddToRoot();
+    if (!(ObjectFlags & 0x200)) AddToRoot();
 }
 
 // @baa 0x01073370
@@ -2819,7 +2819,7 @@ undefined4 ULocSoundInfoCommandlet::sub_010733d0(byte param_2)
 // @baa 0x010733f0
 UBuildContentTagIndexCommandlet::UBuildContentTagIndexCommandlet()
 {
-    if (!(*(QWORD*)&ObjectFlags & 0x200)) AddToRoot();
+    if (!(ObjectFlags & 0x200)) AddToRoot();
 }
 
 // @baa 0x01073450
@@ -2949,7 +2949,7 @@ undefined4 UResavePackagesCommandlet::sub_0107a010(byte param_2)
 // @baa 0x0107a040
 UChangePrefabSequenceClassCommandlet::UChangePrefabSequenceClassCommandlet()
 {
-    if (!(*(QWORD*)&ObjectFlags & 0x200)) AddToRoot();
+    if (!(ObjectFlags & 0x200)) AddToRoot();
 }
 
 // @baa 0x0107a0a0

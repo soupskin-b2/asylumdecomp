@@ -842,7 +842,7 @@ int sub_00cccd00(void)
 // @baa 0x00cccd30
 UServerCommandlet::UServerCommandlet()
 {
-    if (!(*(QWORD*)&ObjectFlags & 0x200)) AddToRoot();
+    if (!(ObjectFlags & 0x200)) AddToRoot();
 }
 
 // @baa 0x00cccd90
@@ -863,7 +863,7 @@ undefined4 UServerCommandlet::sub_00cccdf0(byte param_2)
 // @baa 0x00ccce10
 USmokeTestCommandlet::USmokeTestCommandlet()
 {
-    if (!(*(QWORD*)&ObjectFlags & 0x200)) AddToRoot();
+    if (!(ObjectFlags & 0x200)) AddToRoot();
 }
 
 // @baa 0x00ccce70

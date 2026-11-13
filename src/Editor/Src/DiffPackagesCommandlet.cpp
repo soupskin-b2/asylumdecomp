@@ -1279,7 +1279,7 @@ C_010212f0::C_010212f0() : a(0), b(0), c(0) {}
 // @baa 0x01032e20
 UDiffPackagesCommandlet::UDiffPackagesCommandlet()
 {
-    if (!(*(QWORD*)&ObjectFlags & 0x200)) AddToRoot();
+    if (!(ObjectFlags & 0x200)) AddToRoot();
 }
 
 // @baa 0x01032e80

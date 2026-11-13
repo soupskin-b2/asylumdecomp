@@ -4,9 +4,6 @@
 #include "ue3/Classes.h"
 #include "ue3/AppMath.h"
 
-/* Kit gaps: the RF_ flags and UObject::HasAnyFlags (ObjectFlags is an FQWord here). */
-#define RF_Cooked ((QWORD)0x0000800000000000)
-
 // @baa 0x00721030
 void UTexture2D::PostLoad()
 {

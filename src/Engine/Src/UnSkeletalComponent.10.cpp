@@ -40,7 +40,6 @@ template<typename T> struct TArrayReset_ : public TArray<T>
 
 /* USkeletalMesh::MatchRefBone (0x00976be0) isn't declared in Classes.h. */
 
-
 // @baa 0x0092dce0
 /* build the bone -> skel control list lookup from the anim tree */
 void USkeletalMeshComponent::InitSkelControls()

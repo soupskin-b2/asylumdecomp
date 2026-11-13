@@ -9,7 +9,6 @@
  * (0x015d94e0) and UMeshComponent::SetMaterial (0x006ea640) aren't declared. */
 template<class T> T* Cast(UObject* Src);
 
-
 // @baa 0x015fa180
 /* Applies the preset character's meshes, physics asset, x-ray skeleton and override materials to the body,
  * then clears the preset. */

@@ -53,7 +53,6 @@ struct FNameIndexMap
     }
 };
 
-
 // @baa 0x00a2c950
 void UPhysicsAsset::UpdateBodySetupIndexMap()
 {

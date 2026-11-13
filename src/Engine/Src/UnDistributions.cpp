@@ -381,7 +381,7 @@ extern FLinkerMap g_026a1d64;
 struct UDistributionVectorUniform_ : public UDistributionVectorUniform {
     FLinkerVer* GetLinker()
     {
-        if (!(*(QWORD*)&ObjectFlags & 0x4000000))
+        if (!(ObjectFlags & 0x4000000))
             return NULL;
         return g_026a1d64.sub_005d7190(this);
     }

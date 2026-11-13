@@ -11,7 +11,6 @@ class FObjectInstancingGraph;
 template<class T>
 T* ConstructObject(UClass* Class, UObject* Outer, FName Name, QWORD SetFlags, UObject* Template, UObject* SubobjectRoot, FObjectInstancingGraph* InstanceGraph);
 /* UnObjBas.h RF_Transactional (64-bit object flags). */
-#define RF_Transactional ((QWORD)0x0000000100000000)
 /* TArray::AddItem(const T&), which the kit's Array.h lacks; out of line in this build. */
 template<class T> struct TArrayAddItem_ : public TArray<T>
 {

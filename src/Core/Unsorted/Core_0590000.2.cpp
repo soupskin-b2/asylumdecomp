@@ -136,19 +136,13 @@ void UObject::execSubtract_PreVector(FFrame& Stack, RESULT_DECL)
     *(FVector*)Result = Negated;
 }
 
-struct FQuatRotationTranslationMatrix : FMatrix
-{
-    FQuatRotationTranslationMatrix(const FQuat& Rotation, const FVector& Origin);
-    FRotator sub_005c3fc0() const;
-};
-
 // @baa 0x0059ed90
 void UObject::execQuatToRotator(FFrame& Stack, RESULT_DECL)
 {
     P_GET_STRUCT(FQuat, A);
     P_FINISH;
     FVector Origin(0.0f, 0.0f, 0.0f);
-    *(FRotator*)Result = FQuatRotationTranslationMatrix(A, Origin).sub_005c3fc0();
+    *(FRotator*)Result = FQuatRotationTranslationMatrix(A, Origin).Rotator();
 }
 
 // @baa 0x00599970

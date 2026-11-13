@@ -56,44 +56,6 @@ struct FMatrix;
 #define RF_PendingKill          ((QWORD)0x2000000000000000)
 #endif
 
-/* EObjectFlags (UnObjBas.h), the values this build uses (#ifndef: a source's own definition still wins) */
-#ifndef RF_DebugPostLoad
-#define RF_DebugPostLoad        ((QWORD)0x0000000000000008)
-#endif
-#ifndef RF_ClassDefaultObject
-#define RF_ClassDefaultObject   ((QWORD)0x0000000000000200)
-#endif
-#ifndef RF_ArchetypeObject
-#define RF_ArchetypeObject      ((QWORD)0x0000000000000400)
-#endif
-#ifndef RF_Transactional
-#define RF_Transactional        ((QWORD)0x0000000100000000)
-#endif
-#ifndef RF_Public
-#define RF_Public               ((QWORD)0x0000000400000000)
-#endif
-#ifndef RF_PerObjectConfig
-#define RF_PerObjectConfig      ((QWORD)0x0000010000000000)
-#endif
-#ifndef RF_Cooked
-#define RF_Cooked               ((QWORD)0x0000800000000000)
-#endif
-#ifndef RF_Standalone
-#define RF_Standalone           ((QWORD)0x0008000000000000)
-#endif
-#ifndef RF_NotForClient
-#define RF_NotForClient         ((QWORD)0x0010000000000000)
-#endif
-#ifndef RF_NotForServer
-#define RF_NotForServer         ((QWORD)0x0020000000000000)
-#endif
-#ifndef RF_HasStack
-#define RF_HasStack             ((QWORD)0x0200000000000000)
-#endif
-#ifndef RF_PendingKill
-#define RF_PendingKill          ((QWORD)0x2000000000000000)
-#endif
-
 #ifndef BAA_UE3_CLASSES
 #define BAA_UE3_CLASSES
 
@@ -3463,6 +3425,28 @@ struct FQuat {
     void Normalize(); /* 0x0062bb60: UE3's Normalize(SMALL_NUMBER), out of line with the tolerance built in */
     FVector RotateVector(FVector V) const; /* 0x0058e400 */
 };
+/* UnMath.h: the quaternion product (A, then B), in UE3's 8-multiplication form.
+ * Not verified yet: the closest form found for 00841ac0, 015606b0 and 0059ebb0 (execQuatProduct), where the operand copies and register
+ * allocation still differ. A form that matches is welcome (flag it with the function). */
+FORCEINLINE FQuat operator*(FQuat A, const FQuat& B)
+{
+    const FLOAT T0 = (A.Z - A.Y) * (B.Y - B.Z);
+    const FLOAT T1 = (A.W + A.X) * (B.W + B.X);
+    const FLOAT T2 = (A.W - A.X) * (B.Y + B.Z);
+    const FLOAT T3 = (A.Y + A.Z) * (B.W - B.X);
+    const FLOAT T4 = (A.Z - A.X) * (B.X - B.Y);
+    const FLOAT T5 = (A.Z + A.X) * (B.X + B.Y);
+    const FLOAT T6 = (A.W + A.Y) * (B.W - B.Z);
+    const FLOAT T7 = (A.W - A.Y) * (B.W + B.Z);
+    const FLOAT T8 = T5 + T6 + T7;
+    const FLOAT T9 = 0.5f * (T4 + T8);
+    A.X = T1 + T9 - T8;
+    A.Y = T2 + T9 - T7;
+    A.Z = T3 + T9 - T6;
+    A.W = T0 + T9 - T5;
+    return A;
+}
+
 
 struct FIntPoint {
     /* Core.IntPoint */
@@ -3604,6 +3588,10 @@ struct __declspec(align(16)) FMatrix {
 /* UnMath.h: a rotation matrix (the constructor is out of line in this build) */
 struct FRotationMatrix : public FMatrix {
     FRotationMatrix(const FRotator& Rot); /* 0x004029a0 */
+};
+/* UnMath.h: a rotation (from a unit quaternion) followed by a translation (the constructor is out of line) */
+struct FQuatRotationTranslationMatrix : public FMatrix {
+    FQuatRotationTranslationMatrix(const FQuat& Q, const FVector& Origin); /* 0x0059d4a0 */
 };
 
 
@@ -9952,12 +9940,14 @@ struct FRemapSubtitleType {
 /* property flags (UnObjBas.h) */
 #define CPF_Config 0x0000000000004000
 
+template<class T> T* CastChecked(UObject* Src); /* Cast.h */
+
 struct UObject {
     /* Core.Object */
     DECLARE_BASE_CLASS(UObject, UObject, 0x101, 0x0, Core)
     void SaveConfig(QWORD Flags = CPF_Config, const TCHAR* Filename = NULL); /* 0x005df020 */
     INT ObjectInternalInteger; /* 0x4 */
-    FQWord ObjectFlags; /* 0x8 */
+    QWORD ObjectFlags; /* 0x8: EObjectFlags (RF_*) */
     FPointer HashNext; /* 0x10 */
     FPointer HashOuterNext; /* 0x14 */
     struct FStateFrame* StateFrame; /* 0x18 (Script.h declares FStateFrame) */
@@ -9972,10 +9962,11 @@ struct UObject {
     FORCEINLINE FName GetFName() const { return ObjectInternalInteger != INDEX_NONE ? Name : FName(TEXT("<uninitialized>")); }
     UObject* GetOuter() const { return Outer; }
     FORCEINLINE UObject* GetArchetype() const { return ObjectArchetype; }
-    FORCEINLINE UBOOL HasAnyFlags(QWORD FlagsToCheck) const { return (*(const QWORD*)&ObjectFlags & FlagsToCheck) != 0; }
-    FORCEINLINE void SetFlags(QWORD NewFlags) { *(QWORD*)&ObjectFlags |= NewFlags; }
-    FORCEINLINE void ClearFlags(QWORD FlagsToClear) { *(QWORD*)&ObjectFlags &= ~FlagsToClear; }
-    FORCEINLINE void MarkPendingKill() { *(QWORD*)&ObjectFlags |= RF_PendingKill; }
+    template<class T> FORCEINLINE T* GetArchetype() const { return CastChecked<T>(GetArchetype()); }
+    FORCEINLINE UBOOL HasAnyFlags(QWORD FlagsToCheck) const { return (ObjectFlags & FlagsToCheck) != 0; }
+    FORCEINLINE void SetFlags(QWORD NewFlags) { ObjectFlags |= NewFlags; }
+    FORCEINLINE void ClearFlags(QWORD FlagsToClear) { ObjectFlags &= ~FlagsToClear; }
+    FORCEINLINE void MarkPendingKill() { ObjectFlags |= RF_PendingKill; }
     class UPackage* GetOutermost() const; /* 0x005d7350 */
     void MarkPackageDirty(UBOOL InDirty = TRUE) const; /* 0x005d9570 */
     FORCEINLINE UBOOL IsTemplate(QWORD TemplateTypes = (RF_ArchetypeObject | RF_ClassDefaultObject)) const {
@@ -63153,6 +63144,7 @@ struct UClass : public UState {
     /* Core.Class (native only: no script package describes it) */
     DECLARE_CLASS(UClass, UState, 0x10000000, 0x20, Core)
     UObject* GetDefaultObject(UBOOL bForce = FALSE); /* 0x00572b30 */
+    template<class T> FORCEINLINE T* GetDefaultObject(UBOOL bForce = FALSE) { return (T*)GetDefaultObject(bForce); }
     UClass(); /* 0x00587c40 */
     DECLARE_WITHIN(UPackage)
     void StaticConstructor(); /* 0x005683a0 */
@@ -70585,6 +70577,7 @@ struct UXnaForceFeedbackManager : public UForceFeedbackManager {
 FLOAT UnwindHeading(FLOAT A);
 
 /* UnObjBas.h / UnClass.h inlines that need UClass and USkeletalMesh complete */
+template<class T> FORCEINLINE T* GetDefault() { return (T*)T::StaticClass()->GetDefaultObject(); }
 inline UBOOL UObject::IsA(UClass* SomeBase) const
 {
     if (SomeBase == NULL)

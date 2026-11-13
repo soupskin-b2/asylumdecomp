@@ -22,7 +22,6 @@ INT UMaterialInterface::GetStaticSwitchParameterValue(INT, INT, INT, INT)
     PURE_VIRTUAL(UMaterialInterface::GetStaticSwitchParameterValue, return 0;);
 }
 
-
 // @baa 0x006d8f20
 void UMaterialInstanceTimeVarying::SetDuration(FLOAT Value)
 {

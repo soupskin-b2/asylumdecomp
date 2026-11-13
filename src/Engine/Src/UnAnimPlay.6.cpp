@@ -37,7 +37,6 @@ FLOAT UAnimNodeSequence::vf_194()
  * UBOOL bTellChildren) (this build has a third flag), and UActorComponent's "if (bAttached) UpdateTransform()" through
  * slot 0x118. */
 
-
 // @baa 0x00c4aeb0
 /* UE3's UAnimNodeSequence::PostEditChange(UProperty* PropertyThatChanged): pick up a changed AnimSeqName and refresh the
  * mesh's pose. */

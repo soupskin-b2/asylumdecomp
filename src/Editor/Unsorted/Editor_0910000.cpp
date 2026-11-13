@@ -64,9 +64,7 @@ template<class T> struct TArrayAt_ : public TArray<T>
 	}
 };
 
-/* Kit gaps: RF_Standalone and PKG_ContainsMap; UObject::GetOutermost (0x005d7350), HasAnyFlags and ClearFlags
- * aren't declared on UObject, ObjectFlags is the script struct FQWord, and the kit's UPackage leaves its flags opaque. */
-#define RF_Standalone	((QWORD)0x0008000000000000)
+/* Kit gaps: PKG_ContainsMap and UPackage's flags (opaque in the kit). */
 #define PKG_ContainsMap	0x00020000
 struct UPackage_ : public UObject
 {
@@ -75,29 +73,22 @@ struct UPackage_ : public UObject
 	FORCEINLINE UBOOL ContainsMap() const { return (PackageFlags & PKG_ContainsMap) ? TRUE : FALSE; }
 };
 
-struct UObject_ : public UObject
-{
-	UPackage_* GetOutermost() const;
-	FORCEINLINE UBOOL HasAnyFlags(QWORD FlagsToCheck) const { return (*(const QWORD*)&ObjectFlags & FlagsToCheck) != 0; }
-	FORCEINLINE void ClearFlags(QWORD FlagsToClear) { *(QWORD*)&ObjectFlags &= ~FlagsToClear; }
-};
-
 // @baa 0x00918680
 /* AnimSets (and their sequences) inside level packages must not be standalone. */
 void UAnimSet::PostLoad()
 {
 	Super::PostLoad();
 
-	if (((UObject_*)this)->GetOutermost()->ContainsMap() && ((UObject_*)this)->HasAnyFlags(RF_Standalone))
+	if (((UPackage_*)GetOutermost())->ContainsMap() && HasAnyFlags(RF_Standalone))
 	{
-		((UObject_*)this)->ClearFlags(RF_Standalone);
+		ClearFlags(RF_Standalone);
 
 		for (INT i = 0; i < Sequences.Num(); i++)
 		{
 			UAnimSequence* Seq = ((TArrayAt_<UAnimSequence*>&)Sequences).At(i);
 			if (Seq)
 			{
-				((UObject_*)Seq)->ClearFlags(RF_Standalone);
+				Seq->ClearFlags(RF_Standalone);
 			}
 		}
 	}

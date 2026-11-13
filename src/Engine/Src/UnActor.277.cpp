@@ -34,9 +34,6 @@ AActor* AActor_::sub_0068f1e0()
     return Top;
 }
 
-/* Kit gap: UObject::HasAnyFlags and RF_PendingKill (UnObjBas.h); ObjectFlags is an FQWord here. */
-#define RF_PendingKill ((QWORD)0x2000000000000000)
-
 // @baa 0x0068ee40
 /* AActor slot 0x38 (kit vf_038): UE3's AActor::IsPendingKill(): destroyed or marked for killing. */
 UBOOL AActor::IsPendingKill()

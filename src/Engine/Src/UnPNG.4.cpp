@@ -125,7 +125,6 @@ png_handle_sCAL(png_structp png_ptr, png_infop info_ptr, png_uint_32 length)
       return;
    }
 
-
 #ifdef PNG_FLOATING_POINT_SUPPORTED
    png_set_sCAL(png_ptr, info_ptr, buffer[0], width, height);
 #else

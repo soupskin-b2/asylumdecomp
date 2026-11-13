@@ -4,10 +4,6 @@
 #include "ue3/Classes.h"
 #include "ue3/Cast.h"
 
-/* Kit gap: UObject::GetOuter/HasAnyFlags/IsTemplate and the RF_ flags (UnObjBas.h); ObjectFlags is an FQWord here. */
-#define RF_ClassDefaultObject ((QWORD)0x0000000000000200)
-#define RF_ArchetypeObject ((QWORD)0x0000000000000400)
-
 /* GSystemSettings.TextureLODSettings (FSystemSettings/FTextureLODSettings aren't in the kit). */
 class FTextureLODSettings
 {

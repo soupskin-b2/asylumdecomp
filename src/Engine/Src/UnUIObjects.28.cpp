@@ -20,11 +20,7 @@ INT UUIScene::vf_120()
 	return bSupportsNavigation;
 }
 
-/* Kit gaps: UClass::GetDefaultObject<T>() and these UUIRoot statics aren't declared. */
-template<class T> FORCEINLINE T* GetClassDefaultObject(UClass* Class)
-{
-	return (T*)Class->GetDefaultObject();
-}
+/* Kit gap: these UUIRoot statics aren't declared. */
 
 struct UUIRoot_ : public UUIRoot
 {
@@ -40,10 +36,10 @@ UClass* UUIRoot_::GetDefaultUIControllerClass()
 #line 252 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnUIObjects.cpp"
 	check(GameViewportClass);
 
-	UGameViewportClient* DefaultGameViewport = GetClassDefaultObject<UGameViewportClient>(GameViewportClass);
+	UGameViewportClient* DefaultGameViewport = GameViewportClass->GetDefaultObject<UGameViewportClient>();
 	if (DefaultGameViewport == NULL)
 	{
-		DefaultGameViewport = GetClassDefaultObject<UGameViewportClient>(UGameViewportClient::StaticClass());
+		DefaultGameViewport = UGameViewportClient::StaticClass()->GetDefaultObject<UGameViewportClient>();
 #line 261 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnUIObjects.cpp"
 		check(DefaultGameViewport);
 	}
@@ -61,10 +57,10 @@ UUIInteraction* UUIRoot_::GetDefaultUIController()
 #line 275 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnUIObjects.cpp"
 	check(UIControllerClass);
 
-	UUIInteraction* DefaultUIController = GetClassDefaultObject<UUIInteraction>(UIControllerClass);
+	UUIInteraction* DefaultUIController = UIControllerClass->GetDefaultObject<UUIInteraction>();
 	if (DefaultUIController == NULL)
 	{
-		DefaultUIController = GetClassDefaultObject<UUIInteraction>(UUIInteraction::StaticClass());
+		DefaultUIController = UUIInteraction::StaticClass()->GetDefaultObject<UUIInteraction>();
 #line 282 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnUIObjects.cpp"
 		check(DefaultUIController);
 	}

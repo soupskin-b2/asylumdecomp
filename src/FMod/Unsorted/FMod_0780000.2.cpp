@@ -4,7 +4,6 @@
 #include "ue3/Classes.h"
 #include "ue3/Script.h"
 
-
 // @baa 0x0078e680
 void UAudioComponent::execSetSeekSpeed(FFrame& Stack, RESULT_DECL)
 {
@@ -13,7 +12,6 @@ void UAudioComponent::execSetSeekSpeed(FFrame& Stack, RESULT_DECL)
     P_FINISH;
     this->sub_0078ddc0(InName, InFloat);
 }
-
 
 // @baa 0x0078e720
 void UAudioComponent::execSetWaveParameter(FFrame& Stack, RESULT_DECL)

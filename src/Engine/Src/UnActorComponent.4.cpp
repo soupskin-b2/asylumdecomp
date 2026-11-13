@@ -12,14 +12,12 @@ void UActorComponent::execSetTickGroup(FFrame& Stack, RESULT_DECL)
 	SetTickGroup(NewTickGroup);
 }
 
-
 // @baa 0x00c809e0
 void UActorComponent::execDetachFromAny( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	DetachFromAny();
 }
-
 
 // @baa 0x00c9ef60
 void UFogVolumeDensityComponent::execSetEnabled(FFrame& Stack, RESULT_DECL)

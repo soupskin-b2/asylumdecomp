@@ -46,7 +46,6 @@ FLOAT AActor::GetGravityZ()
 	return PhysicsVolume ? PhysicsVolume->GetGravityZ() : GWorld->GetGravityZ();
 }
 
-
 // @baa 0x00865010
 // @baa 0x00865010
 /* APawn slot 0x194: PostScriptDestroyed. */

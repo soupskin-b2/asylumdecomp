@@ -5,15 +5,9 @@
 #include "ue3/Script.h"
 #include "ue3/Cast.h"
 
-#define RF_PendingKill ((QWORD)0x2000000000000000)
 extern FName g_026c4dc8;
 	/* ENGINE_ClearPause */
-/* Kit gaps: UObject::HasAnyFlags (UnObjBas.h; ObjectFlags is an FQWord here) and the GameInfo.ClearPause script
- * event's glue (EngineClasses.h, inline) aren't declared. */
-struct UObject_ : public UObject
-{
-	FORCEINLINE UBOOL HasAnyFlags(QWORD Flags) const { return (*(const QWORD*)&ObjectFlags & Flags) != 0; }
-};
+/* Kit gap: the GameInfo.ClearPause script event's glue (EngineClasses.h, inline) isn't declared. */
 
 struct AGameInfo_ : public AGameInfo
 {
@@ -56,8 +50,8 @@ void AGameInfo::sub_008c7500(AActor* PauseActor)
 				APlayerController* OtherPlayer = Cast<APlayerController>(C);
 				if (OtherPlayer != NULL && OtherPlayer->PlayerReplicationInfo != NULL &&
 					OtherPlayer->PlayerReplicationInfo != PC->PlayerReplicationInfo &&
-					!OtherPlayer->bDeleteMe && !((UObject_*)OtherPlayer)->HasAnyFlags(RF_PendingKill) &&
-					!OtherPlayer->PlayerReplicationInfo->bDeleteMe && !((UObject_*)OtherPlayer->PlayerReplicationInfo)->HasAnyFlags(RF_PendingKill) &&
+					!OtherPlayer->bDeleteMe && !OtherPlayer->HasAnyFlags(RF_PendingKill) &&
+					!OtherPlayer->PlayerReplicationInfo->bDeleteMe && !OtherPlayer->PlayerReplicationInfo->HasAnyFlags(RF_PendingKill) &&
 					!OtherPlayer->bPendingDelete && !OtherPlayer->PlayerReplicationInfo->bPendingDelete)
 				{
 					WorldInfo->Pauser = OtherPlayer->PlayerReplicationInfo;

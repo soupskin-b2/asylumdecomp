@@ -27,5 +27,5 @@ undefined4 C_014adba0::sub_014adba0(byte param_2)
 void UUILayer::PostLoad()
 {
 	Super::PostLoad();
-	*(QWORD*)&ObjectFlags &= ~(QWORD)0x0008000000000000;
+	ObjectFlags &= ~(QWORD)0x0008000000000000;
 }

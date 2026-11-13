@@ -801,8 +801,6 @@ void sub_005adfd0(undefined4 param_1, undefined4 param_2, undefined4 param_3, un
   return;
 }
 
-#define RF_PendingKill ((QWORD)0x2000000000000000)
-
 /* Kit gap: UObject::GetOuter() (inline, returns Outer) isn't declared; the check text needs the call spelled out. */
 #define GetOuter() Outer
 // @baa 0x0059cb30

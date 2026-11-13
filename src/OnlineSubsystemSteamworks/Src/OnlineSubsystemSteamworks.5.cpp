@@ -5,7 +5,6 @@
 
 // FName's string constructor (UnName.cpp), missing from the kit's FName.
 
-
 #define AUTOGENERATE_NAME(name) extern FName ONLINESUBSYSTEMSTEAMWORKS_##name;
 AUTOGENERATE_NAME(OnAddFriendByNameComplete)
 AUTOGENERATE_NAME(OnConnectionStatusChange)

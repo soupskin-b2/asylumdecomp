@@ -3,9 +3,6 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
 
-/* Kit gaps: RF_Public and UObject::SetFlags (ObjectFlags is an FQWord here). */
-#define RF_Public ((QWORD)0x0000000400000000)
-
 // @baa 0x00cf06d0
 /* After loading, make the font's page textures public and put them in the UI texture group. */
 void UFont::PostLoad()

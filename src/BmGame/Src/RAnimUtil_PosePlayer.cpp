@@ -384,7 +384,6 @@ struct FAnimTime_ : public FAnimTime
     }
 };
 
-
 // @baa 0x015c2910
 /* Jump the current (head) stance change to Time, optionally holding its time for a frame. */
 void FPosePlayer::OverrideTransitionTime(FLOAT Time, UBOOL bDisableTimeAdvance)

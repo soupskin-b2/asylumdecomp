@@ -11,7 +11,6 @@ struct FTerrainFilteredMaterialArray : public TArray<FTerrainFilteredMaterial>
     ~FTerrainFilteredMaterialArray();
 };
 
-
 // @baa 0x00cc6a40
 void UTerrainLayerSetup::execSetMaterials(FFrame& Stack, RESULT_DECL)
 {
@@ -28,7 +27,6 @@ struct FUISoundCueArray : public TArray<FUISoundCue>
     ~FUISoundCueArray();
 };
 
-
 // @baa 0x00cc7590
 void UUISkin::execGetSkinSoundCues(FFrame& Stack, RESULT_DECL)
 {
@@ -40,7 +38,6 @@ void UUISkin::execGetSkinSoundCues(FFrame& Stack, RESULT_DECL)
     P_FINISH;
     this->sub_00dced80(out_SoundCues);
 }
-
 
 // @baa 0x00cc0180
 void AWorldInfo::execGetDemoRewindPoints(FFrame& Stack, RESULT_DECL)
@@ -57,7 +54,6 @@ struct FUIStyleArray : public TArray<UUIStyle*>
     ~FUIStyleArray();
 };
 
-
 // @baa 0x00cc7480
 void UUISkin::execGetAvailableStyles(FFrame& Stack, RESULT_DECL)
 {
@@ -70,7 +66,6 @@ void UUISkin::execGetAvailableStyles(FFrame& Stack, RESULT_DECL)
     P_FINISH;
     this->sub_00dd6880(out_Styles, bIncludeInheritedStyles);
 }
-
 
 // @baa 0x00ccbd00
 void UUISkin::execGetStyleGroups(FFrame& Stack, RESULT_DECL)

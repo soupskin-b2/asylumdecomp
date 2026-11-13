@@ -5,7 +5,6 @@
 
 // FName's string constructor (UnName.cpp), missing from the kit's FName.
 
-
 #define AUTOGENERATE_NAME(name) extern FName BMGAME_##name;
 AUTOGENERATE_NAME(Activate1stPersonCamera)
 AUTOGENERATE_NAME(ActivatePP)

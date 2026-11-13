@@ -69,7 +69,7 @@ FDecalValue_0173de30* FDecalValue_0173de30::sub_0173de30(int* Src)
 // @baa 0x0174a9c0
 UThumbnailsCommandlet::UThumbnailsCommandlet()
 {
-    if (!(*(QWORD*)&ObjectFlags & 0x200)) AddToRoot();
+    if (!(ObjectFlags & 0x200)) AddToRoot();
 }
 
 // @baa 0x0174aa20

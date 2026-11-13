@@ -998,7 +998,7 @@ TConstSetBitIterator_0110f3b0& TConstSetBitIterator_0110f3b0::operator++()
 // @baa 0x0110f6a0
 UStripSourceCommandlet::UStripSourceCommandlet()
 {
-    if (!(*(QWORD*)&ObjectFlags & 0x200)) AddToRoot();
+    if (!(ObjectFlags & 0x200)) AddToRoot();
 }
 
 // @baa 0x0110f700
@@ -1018,7 +1018,7 @@ undefined4 UStripSourceCommandlet::sub_0110f760(byte param_2)
 // @baa 0x0110f780
 USetMaterialUsageCommandlet::USetMaterialUsageCommandlet()
 {
-    if (!(*(QWORD*)&ObjectFlags & 0x200)) AddToRoot();
+    if (!(ObjectFlags & 0x200)) AddToRoot();
 }
 
 // @baa 0x0110f7e0

@@ -5,7 +5,6 @@
 
 // FName's string constructor (UnName.cpp), missing from the kit's FName.
 
-
 #define AUTOGENERATE_NAME(name) extern FName COMMONGAME_##name;
 AUTOGENERATE_NAME(ChangeGameSpeedOverTime)
 AUTOGENERATE_NAME(EndConversation)

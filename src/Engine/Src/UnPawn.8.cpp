@@ -24,7 +24,6 @@ public:
     }
 };
 
-
 // @baa 0x00764820
 /* TRUE if the actor has a collision component and it is the only component that collides with actors */
 UBOOL AActor::sub_00764820()

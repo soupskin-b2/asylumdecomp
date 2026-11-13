@@ -7,7 +7,6 @@
 /* Unnamed in the kit: UE3's UpdateLODStatus(), UpdateSkelPose(FLOAT DeltaTime, UBOOL bTickFaceFX) (this build
  * has a third flag) and UActorComponent::ConditionalUpdateTransform(). */
 
-
 // @baa 0x0093c860
 /* UE3's USkeletalMeshComponent::ForceSkelUpdate(): tick the pose once as if just rendered. */
 void USkeletalMeshComponent::ForceSkelUpdate()

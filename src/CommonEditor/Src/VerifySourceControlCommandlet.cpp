@@ -211,7 +211,7 @@ C_0174a8c0 *C_0174a8c0::sub_0174a8c0(int a) { sub_0174a7a0(a); return this; }
 // @baa 0x0174a8e0
 UVerifySourceControlCommandlet::UVerifySourceControlCommandlet()
 {
-    if (!(*(QWORD*)&ObjectFlags & 0x200)) AddToRoot();
+    if (!(ObjectFlags & 0x200)) AddToRoot();
 }
 
 // @baa 0x0174a940

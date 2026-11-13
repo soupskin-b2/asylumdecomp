@@ -10,7 +10,6 @@ extern FName g_026e364c;
  * ANavigationPoint::ClearForPathFinding (non-virtual here, 00856a10) aren't declared, nor is the nervous search's
  * script event glue (BmGameClasses.h; out of line at 0160e030). */
 
-
 struct ARBMRouteRequest_NervousSearch_ : public ARBMRouteRequest_NervousSearch
 {
 	FORCEINLINE void eventAddTransientCosts(FVector CentrePoint)

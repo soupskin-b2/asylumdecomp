@@ -4,7 +4,6 @@
 #include "ue3/Classes.h"
 #include "ue3/Script.h"
 
-
 // @baa 0x00b65c90
 void AEmitter::execSetTemplate(FFrame& Stack, RESULT_DECL)
 {

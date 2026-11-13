@@ -10,7 +10,6 @@ inline UBOOL IsValidStyleID(const FSTYLE_ID& ID)
 	return (ID.A | ID.B | ID.C | ID.D) != 0;
 }
 
-/* Kit gap: UObject::GetOuter (UnObjBas.h) isn't declared. */
 struct UObject_ : public UObject
 {
 	FORCEINLINE UObject* GetOuter() const { return Outer; }
@@ -147,21 +146,8 @@ void FStyleDataReference_::EnableCustomStyleData(UBOOL bEnabled)
 	}
 }
 
-/* Kit gaps: CastChecked<T> (out of line here, 00dd9c10), UObject::GetArchetype<T>, GetDefault<T> and UUIStyle::GetArchetypeStyleForState aren't declared. */
+/* Kit gap: UUIStyle::GetArchetypeStyleForState isn't declared. CastChecked<T> is out of line here (00dd9c10). */
 template<class T> T* CastChecked(UObject* Src);
-struct UObject__00ddb7a0 : public UObject
-{
-	FORCEINLINE UObject* GetArchetype() const { return ObjectArchetype; }
-	template<class T> FORCEINLINE T* GetArchetype() const
-	{
-		return CastChecked<T>(GetArchetype());
-	}
-};
-
-template<class T> FORCEINLINE T* GetDefault()
-{
-	return (T*)T::StaticClass()->GetDefaultObject();
-}
 
 struct UUIStyle_ : public UUIStyle
 {
@@ -174,7 +160,7 @@ UUIStyle_Data* UUIStyle_::GetArchetypeStyleForState(UUIState* StateObject) const
 {
 	UUIStyle_Data* Result = NULL;
 
-	UUIStyle* StyleArchetype = ((UObject__00ddb7a0*)this)->GetArchetype<UUIStyle>();
+	UUIStyle* StyleArchetype = GetArchetype<UUIStyle>();
 	if (StyleArchetype != GetDefault<UUIStyle>())
 	{
 		Result = StyleArchetype->sub_00ddaa80(StateObject);		/* GetStyleForState */

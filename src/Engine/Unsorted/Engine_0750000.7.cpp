@@ -4,17 +4,15 @@
 #include "ue3/Classes.h"
 #include "ue3/Native.h"
 
-/* Kit gaps: UWorld::HasBegunPlay (0x009c8ed0), GIsGarbageCollecting (0x0266e820) and RF_ClassDefaultObject aren't
- * declared, and ObjectFlags is the script struct FQWord where the native member is a QWORD. */
+/* Kit gap: GIsGarbageCollecting (0x0266e820) isn't declared. */
 
 extern UBOOL GIsGarbageCollecting;
  /* 0x0266e820 */
-#define RF_ClassDefaultObject QWORD(0x00000200)
 // @baa 0x00757db0
 /* Actors only run script events once play has begun (or on the class default object), never during GC. */
 void AActor::ProcessEvent(UFunction* Function, void* Parms, void* Result)
 {
-    if (((GWorld && GWorld->HasBegunPlay()) || (*(QWORD*)&ObjectFlags & RF_ClassDefaultObject) != 0) && !GIsGarbageCollecting)
+    if (((GWorld && GWorld->HasBegunPlay()) || (ObjectFlags & RF_ClassDefaultObject) != 0) && !GIsGarbageCollecting)
     {
         Super::ProcessEvent(Function, Parms, Result);
     }

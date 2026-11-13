@@ -5,7 +5,6 @@
 
 // FName's string constructor (UnName.cpp), missing from the kit's FName.
 
-
 #define AUTOGENERATE_NAME(name) extern FName CORE_##name;
 AUTOGENERATE_NAME(Main)
 #undef AUTOGENERATE_NAME

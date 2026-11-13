@@ -14,7 +14,6 @@ struct FUILayerNode
 	class UUILayer* ParentLayer;
 };
 
-
 // @baa 0x0127c0e0
 /* bool InsertNode(const out UILayerNode NodeToInsert, optional int InsertIndex = INDEX_NONE) */
 void UUILayer::execInsertNode(FFrame& Stack, RESULT_DECL)

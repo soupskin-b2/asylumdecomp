@@ -1178,7 +1178,6 @@ struct FString_ : public FString
 	FString_& operator=(const TCHAR* Other); /* 0x006b1140 */
 };
 
-
 // @baa 0x007d9bc0
 /* UnGame.cpp */
 void UGameEngine::SetClientTravel(const TCHAR* NextURL, ETravelType InTravelType)

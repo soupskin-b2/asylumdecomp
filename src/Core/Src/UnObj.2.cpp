@@ -140,8 +140,6 @@ void sub_005e36d0()
     sub_005e35a0(0, g_0266e81c);
 }
 
-#define RF_ClassDefaultObject 0x0000000000000200ui64
-#define RF_HasStack           0x0200000000000000ui64
 /* Script.h's FStateFrame is 0x34 bytes and has no virtual destructor; the engine's is 0x44 bytes,
    derives from FOutputDevice (virtual destructor in slot 0) and is constructed at 005d5510. */
 struct FStateFrame
@@ -154,7 +152,7 @@ struct FStateFrame
 // @baa 0x005d5a00
 void UObject::InitExecution()
 {
-	if (!(*(QWORD*)&ObjectFlags & RF_ClassDefaultObject))
+	if (!(ObjectFlags & RF_ClassDefaultObject))
 	{
 #line 2210 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Core\\Src\\UnObj.cpp"
 		check(GetClass()!=NULL);
@@ -164,7 +162,7 @@ void UObject::InitExecution()
 			delete StateFrame;
 		}
 		StateFrame = new FStateFrame(this);
-		*(QWORD*)&ObjectFlags |= RF_HasStack;
+		ObjectFlags |= RF_HasStack;
 	}
 }
 

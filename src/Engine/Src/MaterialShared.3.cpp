@@ -4,7 +4,6 @@
 #define BAA_OUTLINE_ALLOC
 #include "ue3/Classes.h"
 
-
 // @baa 0x006edf70
 void UMaterialInstanceConstant::ClearParameterValues()
 {

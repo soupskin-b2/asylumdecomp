@@ -16,7 +16,6 @@ struct FIntArray : public TArray<INT> {
     }
 };
 
-
 // @baa 0x00a17a10
 void UPhysicsAsset::UpdateBoundsBodiesArray()
 {

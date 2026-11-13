@@ -548,7 +548,6 @@ void UUIScreenObject::execCanAcceptFocus(FFrame& Stack, RESULT_DECL)
 	*(UBOOL*)Result = CanAcceptFocus(PlayerIndex);
 }
 
-
 struct UUIRoot_ : public UUIRoot
 {
 	static EInputPlatformType GetInputPlatformType( ULocalPlayer* OwningPlayer )
@@ -573,7 +572,6 @@ void UUIRoot_::execGetInputPlatformType(FFrame& Stack, RESULT_DECL)
 	P_FINISH;
 	*(BYTE*)Result = GetInputPlatformType(OwningPlayer);
 }
-
 
 struct UUIObject__00ca5180 : public UUIObject
 {
@@ -739,7 +737,6 @@ void UUIScreenObject__00ca3710::execFindChildUsingID(FFrame& Stack, RESULT_DECL)
 	*(UUIObject**)Result = FindChildUsingID(WidgetID, bRecurse);
 }
 
-
 struct UUIObject__00ca5a50 : public UUIObject
 {
 	UBOOL IsDockedTo(const UUIScreenObject* TargetWidget, BYTE SourceFace, BYTE TargetFace) const;
@@ -786,7 +783,6 @@ void UUIObject__00ca5bb0::execSetForcedNavigationTarget(FFrame& Stack, RESULT_DE
 	P_FINISH;
 	*(UBOOL*)Result = SetForcedNavigationTarget(Face, NavTarget, bIsNullOverride);
 }
-
 
 struct UUIScreenObject__00ca4980 : public UUIScreenObject
 {
@@ -1360,7 +1356,6 @@ void UUIObject__00ca6140::execFindStyleSubscriberIndexById(FFrame& Stack, RESULT
 	P_FINISH;
 	*(INT*)Result = FindStyleSubscriberIndexById(StyleSubscriberId);
 }
-
 
 struct UUIScene__00cb4040 : public UUIScene
 {
