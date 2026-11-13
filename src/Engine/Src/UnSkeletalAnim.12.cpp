@@ -3,9 +3,8 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
 
-/* IMPLEMENT_COMPARE_CONSTREF(FAnimNotifyEvent, UnSkeletalAnim, ...) and its Sort instance (00921a00). */
-class CompareUnSkeletalAnimFAnimNotifyEventConstRef;
-template<class T, class CompareClass> void Sort(T* First, INT Num);
+/* UAnimSequence::Notifies ordered by time; Sort's instance is out of line (00921a00). */
+IMPLEMENT_COMPARE_CONSTREF(FAnimNotifyEvent, UnSkeletalAnim, { if (A.Time > B.Time) return 1; if (A.Time < B.Time) return -1; return 0; })
 struct UAnimSequence_ : public UAnimSequence
 {
 	void SortNotifies();

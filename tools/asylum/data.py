@@ -114,7 +114,7 @@ def header_addresses() -> dict[str, int]:
     (`void Foo(INT); /* 0x005d7d10 */`); names given two addresses are left out. Cached per header state."""
     files = sorted((ROOT / "include" / "ue3").glob("*.h"))
     # hashlib, not hash(): hash() differs per process, so the cache would never hit
-    tag = hashlib.sha256(repr([(f.name, f.stat().st_size, f.stat().st_mtime_ns) for f in files]).encode()).hexdigest()[:12]
+    tag = hashlib.sha256(repr([2] + [(f.name, f.stat().st_size, f.stat().st_mtime_ns) for f in files]).encode()).hexdigest()[:12]
     c = HOME / "cache" / ("header-addresses-%s.json" % tag)
     if c.exists():
         return json.loads(c.read_text(encoding="utf-8"))
@@ -136,7 +136,8 @@ def header_addresses() -> dict[str, int]:
 
 
 def _header_addresses(files) -> dict[str, int]:
-    head = re.compile(r"^(?:struct|class) (\w+)(?: : public \w+)? \{")
+    # `struct __declspec(align(16)) FMatrix {`, `struct UEditorEngine : public UEngine, public FInterface_UEditorEngine {`
+    head = re.compile(r"^(?:struct|class) (?:__declspec\(\w+(?:\(\d+\))?\) )?(\w+)(?: : public \w+(?:, public \w+)*)? \{")
     decl = re.compile(r"(~?\w+)\s*\([^;]*\)[^;/]*;\s*/\*\s*0x([0-9a-f]{8})\s*\*/")
     out: dict[str, int | None] = {}
     for f in files:

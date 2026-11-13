@@ -14,7 +14,7 @@ extern "C" _CRTIMP int __cdecl rand(void);
 #define PI                  (3.1415926535897932)
 #endif
 #ifndef SMALL_NUMBER
-#define SMALL_NUMBER        (1.e-8f)
+#define SMALL_NUMBER        (1.e-8)
 #endif
 #ifndef KINDA_SMALL_NUMBER
 #define KINDA_SMALL_NUMBER  (1.e-4)

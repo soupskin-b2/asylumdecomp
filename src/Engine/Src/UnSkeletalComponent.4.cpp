@@ -356,13 +356,12 @@ void USkeletalMeshComponent::execTransformFromBoneSpace(FFrame& Stack, RESULT_DE
     }
 }
 
-/* FMatrix methods (UnMath.h); the kit's FMatrix has none. operator* (0x0058e560), Rotator (0x005c3fc0) and Inverse
+/* FMatrix methods (UnMath.h); the kit's FMatrix has none. operator* (0x0058e560) and Rotator (0x005c3fc0)
  * are out of line. */
 struct FMatrix__0091e6d0 : public FMatrix
 {
     FMatrix operator*(const FMatrix& Other) const;
     FRotator Rotator() const;
-    FMatrix Inverse() const; /* 0x006e1510 */
     FVector GetOrigin() const
     {
         FVector Result;
@@ -409,7 +408,7 @@ void USkeletalMeshComponent::execTransformToBoneSpace(FFrame& Stack, RESULT_DECL
     {
         FMatrix BoneToWorldTM = GetBoneMatrix(BoneIndex);
         FMatrix WorldTM = FRotationTranslationMatrix_0091e6d0(InRotation, InPosition);
-        FMatrix LocalTM = WorldTM * BoneToWorldTM.Inverse();
+        FMatrix LocalTM = WorldTM * BoneToWorldTM.InverseSafe();
 
         OutPosition = LocalTM.GetOrigin();
         OutRotation = LocalTM.Rotator();

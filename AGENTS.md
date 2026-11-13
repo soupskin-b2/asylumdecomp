@@ -186,7 +186,8 @@ happened; on HTTP 429 or 503 wait as told, don't retry in a loop.
   `FLinearColor`) with `PI`, `SMALL_NUMBER`, `KINDA_SMALL_NUMBER` ..., the `RF_` object flags, and
   `UObject`'s `GetFName`, `GetOuter`, `HasAnyFlags`, `IsA`, `IsTemplate`, `GetName`, `GetArchetype<T>`
   (`ObjectFlags` is a `QWORD`), `GetDefault<T>`, `UClass::GetDefaultObject<T>`; `check`/`checkf`
-  (Core.h); `Cast<T>`, `CastChecked<T>` and `appErrorf` (`#include "ue3/Cast.h"`). `Classes.h`
+  (Core.h), `Exchange`, `Sort<T, CompareClass>` and `IMPLEMENT_COMPARE_*` (Core.h); `FDist`, `PointDistToSegment`,
+  `ClampLength`, `FMatrix::Inverse`/`InverseSafe` (two functions); `Cast<T>`, `CastChecked<T>` and `appErrorf` (`#include "ue3/Cast.h"`). `Classes.h`
   includes `AppMath.h`. Use them; don't write local copies or helper structs that re-implement them.
   If one is missing or its form doesn't match the code (a member called out of line, a different
   body), `flag` it with what the code shows.

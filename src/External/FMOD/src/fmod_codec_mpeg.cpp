@@ -6,9 +6,6 @@
  * dct64.c (Michael Hipp): Byeong Gi Lee's fast cosine transform, five stages of butterflies
  * between two buffers, then the scattered output. FMOD has no headers in the kit. */
 /* The cosine tables of the stages: 16, 8, 4, 2 and 1 values (mpg123's pnts). */
-/* FMOD is built with the precise floating-point model (every assignment is rounded to float),
- * not the fast one of the profile. */
-#pragma float_control(precise, on)
 extern float *g_025f3094[5];
 // @baa 0x017b05de
 void sub_017b05de(float *out0, float *out1, float *samples)

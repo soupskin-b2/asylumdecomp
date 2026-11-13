@@ -92,13 +92,11 @@ void UPointLightComponent__006da950::UpdatePreviewLightRadius()
 }
 
 #define SMALL_NUMBER (1.e-8f)
-/* FMatrix's operator* (0x0058e560), RemoveScaling (0x006a7f30) and Inverse (0x006e1510) (UnMath.h, out of line
- * here); the kit's FMatrix has no methods. */
+/* FMatrix's operator* (0x0058e560) and RemoveScaling (0x006a7f30) (UnMath.h, out of line here). */
 struct FMatrix_ : public FMatrix
 {
     void RemoveScaling(FLOAT Tolerance = SMALL_NUMBER);
     FMatrix operator*(const FMatrix& Other) const;
-    FMatrix Inverse() const;
 };
 
 // @baa 0x006e42d0
@@ -115,7 +113,7 @@ void UPointLightComponent::vf_184()
         FTranslationMatrix(Translation)) *
         CachedParentToWorld;
     ((FMatrix_&)LightToWorld).RemoveScaling();
-    WorldToLight = ((FMatrix_&)LightToWorld).Inverse();
+    WorldToLight = LightToWorld.InverseSafe();
 }
 
 /* UnMath.h inlines the kit's FVector/FMatrix don't declare yet (data-free helpers). */

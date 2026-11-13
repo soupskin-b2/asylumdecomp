@@ -3422,6 +3422,7 @@ struct FQuat {
     FORCEINLINE FLOAT operator|(const FQuat& Q) const { return X * Q.X + Y * Q.Y + Z * Q.Z + W * Q.W; }
     FORCEINLINE FLOAT SizeSquared() const { return X * X + Y * Y + Z * Z + W * W; }
     FORCEINLINE UBOOL IsNormalized() const { return appAbs(1.f - SizeSquared()) <= THRESH_QUAT_NORMALIZED; }
+    FQuat Exp() const; /* 0x005c4800 */
     void Normalize(); /* 0x0062bb60: UE3's Normalize(SMALL_NUMBER), out of line with the tolerance built in */
     FVector RotateVector(FVector V) const; /* 0x0058e400 */
 };
@@ -3533,6 +3534,9 @@ struct FBoxSphereBounds {
     FVector Origin; /* 0x0 */
     FVector BoxExtent; /* 0xc */
     FLOAT SphereRadius; /* 0x18 */
+    FBoxSphereBounds() {}
+    FBoxSphereBounds(const FVector& InOrigin, const FVector& InBoxExtent, FLOAT InSphereRadius) : Origin(InOrigin), BoxExtent(InBoxExtent), SphereRadius(InSphereRadius) {}
+    FBoxSphereBounds(const FBox& Box); /* 0x006497a0 */
 };
 
 struct __declspec(align(16)) FMatrix {
@@ -3581,10 +3585,16 @@ struct __declspec(align(16)) FMatrix {
     FORCEINLINE void SetOrigin(const FVector& NewOrigin) { WPlane.X = NewOrigin.X; WPlane.Y = NewOrigin.Y; WPlane.Z = NewOrigin.Z; }
     void GetAxes(FVector& X, FVector& Y, FVector& Z) const; /* 0x005c3260 */
     FMatrix Transpose() const; /* 0x0058e9a0 */
-    FMatrix Inverse() const; /* 0x006e1510 */
+    FMatrix Inverse() const; /* 0x0058ea10 */
+    FMatrix InverseSafe() const; /* 0x006e1510 */ /* Identity when the rotation part is nearly zero, else Inverse() */
     void RemoveScaling(FLOAT Tolerance = SMALL_NUMBER); /* 0x006a7f30 */
     FRotator Rotator() const; /* 0x005c3fc0 */
 };
+/* UnMath.h / UnMath.cpp free functions */
+FORCEINLINE FLOAT FDist(const FVector& V1, const FVector& V2) { return appSqrt(Square(V2.X - V1.X) + Square(V2.Y - V1.Y) + Square(V2.Z - V1.Z)); } /* out-of-line copy: 0x005c8e30 */
+FLOAT PointDistToSegment(const FVector& Point, const FVector& StartPoint, const FVector& EndPoint, FVector& OutClosestPoint); /* 0x005c5f20 */
+FVector ClampLength(const FVector& V, FLOAT MaxLength); /* 0x005c3940 */
+
 /* UnMath.h: a rotation matrix (the constructor is out of line in this build) */
 struct FRotationMatrix : public FMatrix {
     FRotationMatrix(const FRotator& Rot); /* 0x004029a0 */

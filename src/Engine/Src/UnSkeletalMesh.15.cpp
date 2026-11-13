@@ -10,14 +10,6 @@ enum { PLATFORM_Xenon = 4, PLATFORM_PS3 = 8 };
 enum { VER_USE_GPUSKIN_VERTEX_DATA = 0x1ed };
 inline FArchive& operator<<(FArchive& Ar, UBOOL& B) { Ar.ByteOrderSerialize(&B, sizeof(B)); return Ar; }
 
-/* Exchange (UnTemplate.h) */
-template<class T> inline void Exchange(T& A, T& B)
-{
-    const T Temp = A;
-    A = B;
-    B = Temp;
-}
-
 /* FPackedNormal (UnMath.h): a unit vector packed into 4 bytes. */
 struct FPackedNormal
 {
@@ -247,8 +239,6 @@ FVector FStaticMeshVertexBuffer::VertexTangentY(UINT VertexIndex) const
     return GenerateYAxis(GetVertex(VertexIndex)->TangentX, GetVertex(VertexIndex)->TangentZ);
 }
 
-/* FMatrix::Inverse (UnMath.h); the kit's FMatrix has none (out of line, 0x006e1510) */
-
 struct FPerPolyBoneCollisionData;
 /* FSkelMeshCollisionDataProvider (UnSkeletalMeshCollision.cpp): what the kDOP tree of one bone's
  * per-poly collision needs to test against a skeletal mesh component. Not in the kit. */
@@ -274,5 +264,5 @@ FSkelMeshCollisionDataProvider::FSkelMeshCollisionDataProvider(USkeletalMeshComp
     , BoneIndex(InBoneIndex)
 {
     BoneToWorld = SkelComp->GetBoneMatrix(BoneIndex);
-    WorldToBone = BoneToWorld.Inverse();
+    WorldToBone = BoneToWorld.InverseSafe();
 }
