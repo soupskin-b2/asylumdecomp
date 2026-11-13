@@ -1055,7 +1055,7 @@ bool URB_DistanceJointSetup::vf_004()
 
 // @baa 0x00a45800
 /* TermRBPhys(Scene): tears down the constraint (without firing the broken event). */
-void ARB_ConstraintActor::vf_23c(INT Scene)
+void ARB_ConstraintActor::TermRBPhys(FRBPhysScene* Scene)
 {
 	ConstraintInstance->TermConstraint((FRBPhysScene*)Scene, FALSE);
 }

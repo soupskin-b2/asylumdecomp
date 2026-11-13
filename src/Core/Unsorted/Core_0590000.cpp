@@ -107,7 +107,7 @@ void sub_00598610(void) {  }
 void __stdcall sub_00599e70(int a0, int a1) {  }
 
 // @baa 0x0059a060
-void UObject::vf_0f4(int a0) {  }
+void UObject::ProcessState(FLOAT a0) {  }
 
 // @baa 0x0059a070
 int UObject::vf_0f8(int a0, int a1, int a2) { return 0; }

@@ -6,9 +6,9 @@
 
 // @baa 0x008bc9f0
 /* GetFloatRef: picks a new random value in [Min, Max] each time it's read. */
-char* USeqVar_RandomFloat::vf_174()
+FLOAT* USeqVar_RandomFloat::GetFloatRef()
 {
 	const FLOAT Alpha = appFrand();
 	FloatValue = Min + (Max - Min) * Alpha;
-	return (char*)&FloatValue;
+	return &FloatValue;
 }

@@ -127,7 +127,7 @@ bool UDistributionVectorUniformCurve::vf_004()
 int UDistributionVectorParameterBase::vf_000(void) { return 1; }
 
 // @baa 0x007a2be0
-FLOAT UDistributionFloatConstant::vf_11c(FLOAT a0, FLOAT a1) { return *(float*)((char*)this + 68); }
+FLOAT UDistributionFloatConstant::GetValue(FLOAT a0, UObject* a1) { return *(float*)((char*)this + 68); }
 
 // @baa 0x007a2bf0
 int sub_007a2bf0(void) { return 1; }
@@ -185,17 +185,10 @@ int sub_007a3390(void) { return 1; }
 int __stdcall sub_007a3620(int a0) { return 0; }
 
 // @baa 0x007a37b0
-void UDistributionVectorConstant::vf_124(undefined4 * param_2, undefined4 * param_3)
+void UDistributionVectorConstant::GetOutRange(FVector& MinOut, FVector& MaxOut)
 {
-    int param_1 = (int)this;
-
-  *param_2 = *(undefined4 *)(param_1 + 0x44);
-  param_2[1] = *(undefined4 *)(param_1 + 0x48);
-  param_2[2] = *(undefined4 *)(param_1 + 0x4c);
-  *param_3 = *(undefined4 *)(param_1 + 0x44);
-  param_3[1] = *(undefined4 *)(param_1 + 0x48);
-  param_3[2] = *(undefined4 *)(param_1 + 0x4c);
-  return;
+    MinOut = Constant;
+    MaxOut = Constant;
 }
 
 // @baa 0x007a3d90
@@ -217,17 +210,10 @@ int sub_007a3fe0(void) { return 1; }
 int __stdcall sub_007a43a0(int a0) { return 0; }
 
 // @baa 0x007a4490
-void UDistributionVectorUniform::vf_124(undefined4 * param_2, undefined4 * param_3)
+void UDistributionVectorUniform::GetOutRange(FVector& MinOut, FVector& MaxOut)
 {
-    int param_1 = (int)this;
-
-  *param_2 = *(undefined4 *)(param_1 + 0x50);
-  param_2[1] = *(undefined4 *)(param_1 + 0x54);
-  param_2[2] = *(undefined4 *)(param_1 + 0x58);
-  *param_3 = *(undefined4 *)(param_1 + 0x44);
-  param_3[1] = *(undefined4 *)(param_1 + 0x48);
-  param_3[2] = *(undefined4 *)(param_1 + 0x4c);
-  return;
+    MinOut = Min;
+    MaxOut = Max;
 }
 
 // @baa 0x007a45c0

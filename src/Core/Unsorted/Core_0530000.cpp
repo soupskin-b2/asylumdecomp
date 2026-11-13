@@ -203,7 +203,7 @@ void UDistributionFloat::PostEditChange(UProperty* param_2)
 }
 
 // @baa 0x0053d5e0
-float UDistributionFloat::vf_11c(float a, float b)
+FLOAT UDistributionFloat::GetValue(FLOAT a, UObject* b)
 {
     return 0.0f;
 }

@@ -461,9 +461,9 @@ public:
 
 // @baa 0x00d81c60
 /* Slot 0x23c (unnamed in the kit; UE3's TermRBPhys): frees the kernel along with the field. */
-void ANxCylindricalForceField::vf_23c(INT Scene)
+void ANxCylindricalForceField::TermRBPhys(FRBPhysScene* Scene)
 {
-	Super::vf_23c(Scene);
+	Super::TermRBPhys(Scene);
 	delete (NxForceFieldKernel*)Kernel.Dummy;
 	Kernel.Dummy = 0;
 }
@@ -471,9 +471,9 @@ void ANxCylindricalForceField::vf_23c(INT Scene)
 // @baa 0x00d81c90
 /* Slot 0x23c (unnamed in the kit; UE3's TermRBPhys): frees the kernel along with the field. Calls
  * ANxForceField's directly, skipping the cylinder's own (which does the same). */
-void ANxCylindricalForceFieldCapsule::vf_23c(INT Scene)
+void ANxCylindricalForceFieldCapsule::TermRBPhys(FRBPhysScene* Scene)
 {
-	ANxForceField::vf_23c(Scene);
+	ANxForceField::TermRBPhys(Scene);
 	delete (NxForceFieldKernel*)Kernel.Dummy;
 	Kernel.Dummy = 0;
 }

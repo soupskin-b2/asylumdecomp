@@ -759,7 +759,7 @@ float sub_00663590()
 }
 
 // @baa 0x00663560
-int UMaterialInterface::vf_134(int a0) { return 0; }
+UBOOL UMaterialInterface::IsDependent(UMaterialInterface* a0) { return 0; }
 
 // @baa 0x00663570
 int UMaterialInterface::vf_14c(int a0) { return 0; }

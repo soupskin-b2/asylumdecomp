@@ -1445,7 +1445,7 @@ char* USeqVar_Union::vf_16c(void) { return (char*)this + 144; }
 char* USeqVar_Union::vf_170(void) { return (char*)this + 148; }
 
 // @baa 0x008abed0
-char* USeqVar_Union::vf_174(void) { return (char*)this + 152; }
+FLOAT* USeqVar_Union::GetFloatRef() { return &FloatValue; }
 
 // @baa 0x008abee0
 char* USeqVar_Union::vf_180(void) { return (char*)this + 156; }
@@ -2748,7 +2748,7 @@ char * USequenceVariable::vf_16c() { return 0; }
 char * USequenceVariable::vf_170() { return 0; }
 
 // @baa 0x008bc280
-char * USequenceVariable::vf_174() { return 0; }
+FLOAT* USequenceVariable::GetFloatRef() { return 0; }
 
 // @baa 0x008bc290
 ANSICHAR* USequenceVariable::vf_178() { return 0; }
@@ -2877,7 +2877,7 @@ IMPLEMENT_CLASS_AT(USeqVar_External, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEng
 IMPLEMENT_CLASS_AT(USeqVar_Float, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSequence.cpp", 46);
 
 // @baa 0x008bc890
-char* USeqVar_Float::vf_174(void) { return (char*)this + 128; }
+FLOAT* USeqVar_Float::GetFloatRef() { return &FloatValue; }
 
 // @baa 0x008bc980
 extern undefined * g_01f5f110;

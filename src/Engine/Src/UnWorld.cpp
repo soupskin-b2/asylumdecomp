@@ -405,7 +405,7 @@ int ULevelStreamingDistance::vf_000(void) { return 1; }
 int ULevelStreamingPersistent::vf_000(void) { return 1; }
 
 // @baa 0x009b0d20
-int ULevelStreaming::vf_10c(int a0) { return 1; }
+UBOOL ULevelStreaming::ShouldBeLoaded(const FVector& a0) { return 1; }
 
 struct V_009b0d30 {
     virtual void v0();

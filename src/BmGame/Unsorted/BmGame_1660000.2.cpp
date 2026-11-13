@@ -1907,13 +1907,13 @@ INT ARPawnCharacter::vf_530()
 // @baa 0x0166fea0
 /* ARPawnCharacter slot 0x23c (kit vf_23c, UE3 TermRBPhys(FRBPhysScene* Scene)): refresh the body constraint
  * component (URConstrainingComponent::sub_016d9eb0) before the pawn's physics teardown. */
-void ARPawnCharacter::vf_23c(INT Scene)
+void ARPawnCharacter::TermRBPhys(FRBPhysScene* Scene)
 {
     if (BodyConstrainingComponent)
     {
         BodyConstrainingComponent->sub_016d9eb0(FALSE);
     }
-    Super::vf_23c(Scene);
+    Super::TermRBPhys(Scene);
 }
 
 // @baa 0x0166fe70

@@ -191,10 +191,9 @@ void UDistributionVector_::sub_005423f0(FVector& OutVector, FLOAT A, FLOAT B, FL
 template UBOOL TArray<UObject*>::ContainsItem(UObject* const& Item) const;
 
 // @baa 0x00542410
-/* GetOutRange: the base distribution has no range (both bounds are the zero vector). The kit declares
- * the FVector& out parameters as UINT*. */
-void UDistributionVector::vf_124(UINT* MinOut, UINT* MaxOut)
+/* GetOutRange: the base distribution has no range (both bounds are the zero vector). */
+void UDistributionVector::GetOutRange(FVector& MinOut, FVector& MaxOut)
 {
-	*(FVector*)MinOut = FVector(0.f, 0.f, 0.f);
-	*(FVector*)MaxOut = FVector(0.f, 0.f, 0.f);
+	MinOut = FVector(0.f, 0.f, 0.f);
+	MaxOut = FVector(0.f, 0.f, 0.f);
 }

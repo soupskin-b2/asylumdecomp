@@ -411,10 +411,10 @@ IMPLEMENT_CLASS_AT(ULevelStreamingDistance, "e:\\Projects\\Amadeus\\AA\\Game\\Un
 IMPLEMENT_CLASS_AT(ULevelStreamingKismet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnWorld.cpp", 5469);
 
 // @baa 0x009c1c40
-int ULevelStreamingPersistent::vf_10c(int a0) { return 1; }
+UBOOL ULevelStreamingPersistent::ShouldBeLoaded(const FVector& a0) { return 1; }
 
 // @baa 0x009c1c50
-int ULevelStreamingPersistent::vf_110(int a0) { return 1; }
+UBOOL ULevelStreamingPersistent::ShouldBeVisible(const FVector& a0) { return 1; }
 
 // @baa 0x009c1c60
 IMPLEMENT_CLASS_AT(ULevelStreamingPersistent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnWorld.cpp", 5471);

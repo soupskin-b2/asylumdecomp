@@ -122,14 +122,14 @@ void AActor::sub_00777440(UBOOL bNewOnlyOwnerSee)
 
 // @baa 0x0068f440
 /* The player controller of the top of the owner chain (UE3: GetTopPlayerController). */
-INT AActor::vf_308()
+APlayerController* AActor::GetTopPlayerController()
 {
 	AActor* TopActor = this;
 	while (TopActor->Owner)
 	{
 		TopActor = TopActor->Owner;
 	}
-	return (INT)TopActor->GetAPlayerController();
+	return TopActor->GetAPlayerController();
 }
 
 struct AActor__00784080 : public AActor

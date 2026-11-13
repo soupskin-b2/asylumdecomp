@@ -3385,7 +3385,7 @@
     {
      "va": "01557760",
      "size": 36,
-     "symbol": "?vf_23c@ARCinematicActor@@UAEXH@Z"
+     "symbol": "?TermRBPhys@ARCinematicActor@@UAEXPAUFRBPhysScene@@@Z"
     },
     {
      "va": "0157e7a0",
@@ -46156,7 +46156,7 @@
     {
      "va": "0166fea0",
      "size": 36,
-     "symbol": "?vf_23c@ARPawnCharacter@@UAEXH@Z"
+     "symbol": "?TermRBPhys@ARPawnCharacter@@UAEXPAUFRBPhysScene@@@Z"
     },
     {
      "va": "0166fe70",
@@ -72719,7 +72719,7 @@
     {
      "va": "0053d5e0",
      "size": 5,
-     "symbol": "?vf_11c@UDistributionFloat@@UAEMMM@Z"
+     "symbol": "?GetValue@UDistributionFloat@@UAEMMPAUUObject@@@Z"
     },
     {
      "va": "0053d670",
@@ -77080,7 +77080,7 @@
     {
      "va": "0059a060",
      "size": 3,
-     "symbol": "?vf_0f4@UObject@@UAEXH@Z"
+     "symbol": "?ProcessState@UObject@@UAEXM@Z"
     },
     {
      "va": "0059a070",
@@ -180798,7 +180798,7 @@
     {
      "va": "006635b0",
      "size": 29,
-     "symbol": "?vf_130@UMaterialInterface@@UAEHH@Z"
+     "symbol": "?GetMaterial@UMaterialInterface@@UAEPAUUMaterial@@H@Z"
     },
     {
      "va": "00663670",
@@ -181159,7 +181159,7 @@
     {
      "va": "00663560",
      "size": 5,
-     "symbol": "?vf_134@UMaterialInterface@@UAEHH@Z"
+     "symbol": "?IsDependent@UMaterialInterface@@UAEHPAU1@@Z"
     },
     {
      "va": "00663570",
@@ -192148,12 +192148,12 @@
     {
      "va": "00d81c60",
      "size": 45,
-     "symbol": "?vf_23c@ANxCylindricalForceField@@UAEXH@Z"
+     "symbol": "?TermRBPhys@ANxCylindricalForceField@@UAEXPAUFRBPhysScene@@@Z"
     },
     {
      "va": "00d81c90",
      "size": 45,
-     "symbol": "?vf_23c@ANxCylindricalForceFieldCapsule@@UAEXH@Z"
+     "symbol": "?TermRBPhys@ANxCylindricalForceFieldCapsule@@UAEXPAUFRBPhysScene@@@Z"
     },
     {
      "va": "00d67980",
@@ -194960,7 +194960,7 @@
     {
      "va": "0068f440",
      "size": 38,
-     "symbol": "?vf_308@AActor@@UAEHXZ"
+     "symbol": "?GetTopPlayerController@AActor@@UAEPAUAPlayerController@@XZ"
     },
     {
      "va": "00784080",
@@ -208047,7 +208047,7 @@
     {
      "va": "007a2be0",
      "size": 6,
-     "symbol": "?vf_11c@UDistributionFloatConstant@@UAEMMM@Z"
+     "symbol": "?GetValue@UDistributionFloatConstant@@UAEMMPAUUObject@@@Z"
     },
     {
      "va": "007a2bf0",
@@ -208107,7 +208107,7 @@
     {
      "va": "007a37b0",
      "size": 45,
-     "symbol": "?vf_124@UDistributionVectorConstant@@UAEXPAI0@Z"
+     "symbol": "?GetOutRange@UDistributionVectorConstant@@UAEXAAUFVector@@0@Z"
     },
     {
      "va": "007a3d90",
@@ -208127,7 +208127,7 @@
     {
      "va": "007a4490",
      "size": 45,
-     "symbol": "?vf_124@UDistributionVectorUniform@@UAEXPAI0@Z"
+     "symbol": "?GetOutRange@UDistributionVectorUniform@@UAEXAAUFVector@@0@Z"
     },
     {
      "va": "007a45c0",
@@ -224245,7 +224245,7 @@
     {
      "va": "009e6b60",
      "size": 31,
-     "symbol": "?vf_23c@APawn@@UAEXH@Z"
+     "symbol": "?TermRBPhys@APawn@@UAEXPAUFRBPhysScene@@@Z"
     },
     {
      "va": "009d9b10",
@@ -226630,7 +226630,7 @@
     {
      "va": "00a45800",
      "size": 21,
-     "symbol": "?vf_23c@ARB_ConstraintActor@@UAEXH@Z"
+     "symbol": "?TermRBPhys@ARB_ConstraintActor@@UAEXPAUFRBPhysScene@@@Z"
     }
    ]
   },
@@ -230149,7 +230149,7 @@
     {
      "va": "008bc9f0",
      "size": 61,
-     "symbol": "?vf_174@USeqVar_RandomFloat@@UAEPADXZ"
+     "symbol": "?GetFloatRef@USeqVar_RandomFloat@@UAEPAMXZ"
     }
    ]
   },
@@ -231941,7 +231941,7 @@
     {
      "va": "008abed0",
      "size": 7,
-     "symbol": "?vf_174@USeqVar_Union@@UAEPADXZ"
+     "symbol": "?GetFloatRef@USeqVar_Union@@UAEPAMXZ"
     },
     {
      "va": "008abee0",
@@ -232701,7 +232701,7 @@
     {
      "va": "008bc280",
      "size": 3,
-     "symbol": "?vf_174@USequenceVariable@@UAEPADXZ"
+     "symbol": "?GetFloatRef@USequenceVariable@@UAEPAMXZ"
     },
     {
      "va": "008bc290",
@@ -232861,7 +232861,7 @@
     {
      "va": "008bc890",
      "size": 7,
-     "symbol": "?vf_174@USeqVar_Float@@UAEPADXZ"
+     "symbol": "?GetFloatRef@USeqVar_Float@@UAEPAMXZ"
     },
     {
      "va": "008bc980",
@@ -262170,7 +262170,7 @@
     {
      "va": "009b2d50",
      "size": 71,
-     "symbol": "?vf_10c@ULevelStreamingDistance@@UAEHH@Z"
+     "symbol": "?ShouldBeLoaded@ULevelStreamingDistance@@UAEHABUFVector@@@Z"
     }
    ]
   },
@@ -262513,7 +262513,7 @@
     {
      "va": "009b0d20",
      "size": 8,
-     "symbol": "?vf_10c@ULevelStreaming@@UAEHH@Z"
+     "symbol": "?ShouldBeLoaded@ULevelStreaming@@UAEHABUFVector@@@Z"
     },
     {
      "va": "009b0d30",
@@ -264925,7 +264925,7 @@
     {
      "va": "00542410",
      "size": 92,
-     "symbol": "?vf_124@UDistributionVector@@UAEXPAI0@Z"
+     "symbol": "?GetOutRange@UDistributionVector@@UAEXAAUFVector@@0@Z"
     }
    ]
   },
@@ -318483,12 +318483,12 @@
     {
      "va": "009c1c40",
      "size": 8,
-     "symbol": "?vf_10c@ULevelStreamingPersistent@@UAEHH@Z"
+     "symbol": "?ShouldBeLoaded@ULevelStreamingPersistent@@UAEHABUFVector@@@Z"
     },
     {
      "va": "009c1c50",
      "size": 8,
-     "symbol": "?vf_110@ULevelStreamingPersistent@@UAEHH@Z"
+     "symbol": "?ShouldBeVisible@ULevelStreamingPersistent@@UAEHABUFVector@@@Z"
     },
     {
      "va": "009c1c60",

@@ -21,9 +21,9 @@ void APawn::vf_238()
 // @baa 0x009e6b60
 /* APawn slot 0x23c (kit vf_23c, UE3 TermRBPhys(FRBPhysScene* Scene)): stop pushing rigid bodies once the
  * actor's physics is torn down. */
-void APawn::vf_23c(INT Scene)
+void APawn::TermRBPhys(FRBPhysScene* Scene)
 {
-    Super::vf_23c(Scene);
+    Super::TermRBPhys(Scene);
     SetPushesRigidBodies(FALSE);
 }
 

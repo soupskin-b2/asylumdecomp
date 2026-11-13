@@ -5,7 +5,7 @@
 
 // @baa 0x007a2f60
 /* InitializeRawEntry: the raw lookup-table entry is (Min, Max). */
-INT UDistributionFloatUniform::vf_118(INT Time, INT Values)
+INT UDistributionFloatUniform::InitializeRawEntry(FLOAT Time, FLOAT* Values)
 {
 	((FLOAT*)Values)[0] = Min;
 	((FLOAT*)Values)[1] = Max;

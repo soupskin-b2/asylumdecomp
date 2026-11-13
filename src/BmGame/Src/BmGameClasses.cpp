@@ -1053,12 +1053,12 @@ struct C_Body_7760
 };
 
 // @baa 0x01557760
-void ARCinematicActor::vf_23c(INT A)
+void ARCinematicActor::TermRBPhys(FRBPhysScene* A)
 {
     ARCinematicActor* Self = (ARCinematicActor*)this;
     if (BodyConstrainingComponent != NULL)
         ((C_Body_7760*)BodyConstrainingComponent)->sub_016d9eb0(0);
-    Self->sub_009e5850(A);
+    Super::TermRBPhys(A);
 }
 
 extern FName g_026e27d0;
