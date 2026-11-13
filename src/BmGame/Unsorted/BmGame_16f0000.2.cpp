@@ -8,84 +8,84 @@
 void ARPawn::execTeleportPhysics( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_490();
+	TeleportPhysics();
 }
 
 // @baa 0x016f0440
 void ARPawnCharacter::execModifyPoseNode( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_4ac();
+	ModifyPoseNode();
 }
 
 // @baa 0x016f0480
 void ARPawnCharacter::execBeginChangePose( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_4b0();
+	BeginChangePose();
 }
 
 // @baa 0x016f09a0
 void ARPawnCharacter::execInstantChangePose( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_4d8();
+	InstantChangePose();
 }
 
 // @baa 0x016f4890
 void ARPawnCharacter::execStopMoveTo( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_580();
+	StopMoveTo();
 }
 
 // @baa 0x016f48d0
 void ARPawnCharacter::execInstantStopMoveTo( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_584();
+	InstantStopMoveTo();
 }
 
 // @baa 0x016f4c60
 void ARPawnCharacter::execStopAimAt( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_598();
+	StopAimAt();
 }
 
 // @baa 0x016f4ca0
 void ARPawnCharacter::execStopAllOverlays( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_59c();
+	StopAllOverlays();
 }
 
 // @baa 0x016f4ce0
 void ARPawnCharacter::execSnapAimAt( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_5a0();
+	SnapAimAt();
 }
 
 // @baa 0x016f5050
 void ARPawnCharacter::execStopLookAt( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_5c0();
+	StopLookAt();
 }
 
 // @baa 0x016f5240
 void ARPawnCharacter::execStopFaceAt( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_5d0();
+	StopFaceAt();
 }
 
 // @baa 0x016f5780
 void ARPawnCharacter::execSnapFloorCorrection( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_60c();
+	SnapFloorCorrection();
 }
 
 struct ARPawnCombat_ : public ARPawnCombat
@@ -105,21 +105,21 @@ void ARPawnCombat_::execIsTargetted( FFrame& Stack, RESULT_DECL )
 void ARBMPawnAIAnim::execResetXrayEnvironments( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_640();
+	ResetXrayEnvironments();
 }
 
 // @baa 0x016f6930
 void ARPawnPlayerCombat::execDetectStrikes( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_640();
+	DetectStrikes();
 }
 
 // @baa 0x016f7800
 void ARCombatMove::execClearAllTimers( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_354();
+	ClearAllTimers();
 }
 
 struct ARSpecialMoveInstance_LineLauncher_ : public ARSpecialMoveInstance_LineLauncher
@@ -246,91 +246,91 @@ void ARPawn::execIsSafe(FFrame& Stack, RESULT_DECL)
 void ARPawn::execGetSafePoint(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(AActor**)Result = (AActor*)vf_47c();
+	*(AActor**)Result = (AActor*)GetSafePoint();
 }
 
 // @baa 0x016f0330
 void ARPawn::execIsIncapacitated(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_48c();
+	*(UBOOL*)Result = IsIncapacitated();
 }
 
 // @baa 0x016f3b30
 void ARPawnCharacter::execIsPoseMirrored(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_52c();
+	*(UBOOL*)Result = IsPoseMirrored();
 }
 
 // @baa 0x016f3b70
 void ARPawnCharacter::execIsInWeaponTransition(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_530();
+	*(UBOOL*)Result = IsInWeaponTransition();
 }
 
 // @baa 0x016f46b0
 void ARPawnCharacter::execIsPlayingAnyOverlay(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_570();
+	*(UBOOL*)Result = IsPlayingAnyOverlay();
 }
 
 // @baa 0x016f5610
 void ARPawnCharacter::execIsFalling(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_5f4();
+	*(UBOOL*)Result = IsFalling();
 }
 
 // @baa 0x016f5650
 void ARPawnCharacter::execIsFallingOrLanding(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_5f8();
+	*(UBOOL*)Result = IsFallingOrLanding();
 }
 
 // @baa 0x016f5700
 void ARPawnCharacter::execGetMoveToPhase(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(BYTE*)Result = vf_604();
+	*(BYTE*)Result = GetMoveToPhase();
 }
 
 // @baa 0x016f5740
 void ARPawnCharacter::execGetMoveToPhaseTime(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(FLOAT*)Result = vf_608();
+	*(FLOAT*)Result = GetMoveToPhaseTime();
 }
 
 // @baa 0x016f5af0
 void ARPawnCombat::execGetNormalisedTimeThroughCurrentTransition(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(FLOAT*)Result = vf_618();
+	*(FLOAT*)Result = GetNormalisedTimeThroughCurrentTransition();
 }
 
 // @baa 0x016f5d90
 void ARPawnCombat::execIsUsingCombatPoint(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_624();
+	*(UBOOL*)Result = IsUsingCombatPoint();
 }
 
 // @baa 0x016f5dd0
 void ARPawnCombat::execIsLunatic(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_628();
+	*(UBOOL*)Result = IsLunatic();
 }
 
 // @baa 0x016f61b0
 void ARBMPawnAIAnim::execCanBeSeenByBatsForXray(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_648();
+	*(UBOOL*)Result = CanBeSeenByBatsForXray();
 }
 
 // @baa 0x016f7840
@@ -344,7 +344,7 @@ void ARCombatMove_BatmanStrike::execSetStrikeInfo(FFrame& Stack, RESULT_DECL)
 void ARPlayerControllerCombat::execGetLookAtEnemy(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(ARPawnCombat**)Result = (ARPawnCombat*)vf_6f4();
+	*(ARPawnCombat**)Result = (ARPawnCombat*)GetLookAtEnemy();
 }
 
 // @baa 0x016fc7f0
@@ -372,35 +372,35 @@ void ARBMRouter::execFindStartAnchor(FFrame& Stack, RESULT_DECL)
 void ARBMRouter::execAtGoal(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_388();
+	*(UBOOL*)Result = AtGoal();
 }
 
 // @baa 0x016fdaf0
 void ARBMRouter::execPathNotFound(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_38c();
+	*(UBOOL*)Result = PathNotFound();
 }
 
 // @baa 0x016fdb30
 void ARBMRouter::execSearching(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_390();
+	*(UBOOL*)Result = Searching();
 }
 
 // @baa 0x016fdb70
 void ARBMRouter::execRouting(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_394();
+	*(UBOOL*)Result = Routing();
 }
 
 // @baa 0x016fdbb0
 void ARBMRouter::execHasPath(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_398();
+	*(UBOOL*)Result = HasPath();
 }
 
 // @baa 0x016fdbf0
@@ -414,14 +414,14 @@ void ARBMRouter::execIsInSpecialMove(FFrame& Stack, RESULT_DECL)
 void ARBMRouter::execIsAvoiding(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_3a0();
+	*(UBOOL*)Result = IsAvoiding();
 }
 
 // @baa 0x016fdd70
 void ARBMRouter::execFindFirstActorOnPath(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(AActor**)Result = (AActor*)vf_3ac();
+	*(AActor**)Result = (AActor*)FindFirstActorOnPath();
 }
 
 // @baa 0x016fddb0
@@ -435,7 +435,7 @@ void ARBMRouteRequest::execAtGoal(FFrame& Stack, RESULT_DECL)
 void ARBMRouteRequest::execNearGoal(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_358();
+	*(UBOOL*)Result = NearGoal();
 }
 
 // @baa 0x016fde30
@@ -449,136 +449,133 @@ void ARBMRouteRequest::execPathNotFound(FFrame& Stack, RESULT_DECL)
 void ARBMRouteRequest::execSearching(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_360();
+	*(UBOOL*)Result = Searching();
 }
 
 // @baa 0x016fdeb0
 void ARBMRouteRequest::execRouting(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_364();
+	*(UBOOL*)Result = Routing();
 }
 
 // @baa 0x016fdef0
 void ARBMRouteRequest::execHasPath(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_368();
+	*(UBOOL*)Result = HasPath();
 }
 
 // @baa 0x016fea90
 void URBMRouterPath::execGetNodeNum(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(INT*)Result = vf_114();
+	*(INT*)Result = GetNodeNum();
 }
 
 // @baa 0x016fead0
 void URBMRouterPath::execGetSpecialMoveNode(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(ARBMPathNode_SpecialMove**)Result = (ARBMPathNode_SpecialMove*)vf_118();
+	*(ARBMPathNode_SpecialMove**)Result = (ARBMPathNode_SpecialMove*)GetSpecialMoveNode();
 }
 
 // @baa 0x016ff240
 void URBMRouterPath::execFindFirstActorOnPath(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(AActor**)Result = (AActor*)vf_150();
+	*(AActor**)Result = (AActor*)FindFirstActorOnPath();
 }
 
 // @baa 0x016f04c0
 void ARPawnCharacter::execEndChangePose(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	FTransitionId Transition;
-	*(FTransitionId*)Result = *(FTransitionId*)(INT)vf_4b4((INT)&Transition);
+	*(FTransitionId*)Result = EndChangePose();
 }
 
 // @baa 0x016f0510
 void ARPawnCharacter::execIssueChangePose(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	FTransitionId Transition;
-	*(FTransitionId*)Result = *(FTransitionId*)(INT)vf_4b8((INT)&Transition);
+	*(FTransitionId*)Result = IssueChangePose();
 }
 
 // @baa 0x016f2a80
 void ARPawnCharacter::execCancelSlave(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	FTransitionId Transition;
-	*(FTransitionId*)Result = *(FTransitionId*)(INT)vf_504((INT)&Transition);
+	*(FTransitionId*)Result = CancelSlave();
 }
 
 // @baa 0x016fc870
 void ARAudioPointController::execCancelPackageLoading(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	vf_61c();
+	CancelPackageLoading();
 }
 
 // @baa 0x016fcc20
 void URSeqAct_ConversationDialogue::execActivateNextDialogueEarly(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	vf_1a0();
+	ActivateNextDialogueEarly();
 }
 
 // @baa 0x016fcde0
 void URSeqAct_ConversationDialogue::execReBuildScriptNames(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	vf_1b4();
+	ReBuildScriptNames();
 }
 
 // @baa 0x016fce50
 void URSeqAct_PlaySpeechConversation::execReBuildScriptNames(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	vf_1a0();
+	ReBuildScriptNames();
 }
 
 // @baa 0x016fcf30
 void URSeqAct_SpeechEventManagerBase::execCueFinished(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	vf_1a0();
+	CueFinished();
 }
 
 // @baa 0x016fcf70
 void URSeqAct_SpeechEventManagerBase::execCueAborted(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	vf_1a4();
+	CueAborted();
 }
 
 // @baa 0x016fdf30
 void ARBMRouteRequest::execReRoute(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	vf_36c();
+	ReRoute();
 }
 
 // @baa 0x016fdf70
 void ARBMRouteRequest::execFlush(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	vf_370();
+	Flush();
 }
 
 // @baa 0x016fe910
 void URPathGateComponent::execCloseGate(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	vf_14c();
+	CloseGate();
 }
 
 // @baa 0x016fe950
 void URPathGateComponent::execOpenGate(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	vf_150();
+	OpenGate();
 }
 
 struct ARPawnCombat__016f6000 : public ARPawnCombat
@@ -612,7 +609,7 @@ void ARPawnCombat::execGetAnimLength(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT(FFatAnim, AnimToTest);
 	P_FINISH;
-	*(FLOAT*)Result = vf_614(*(INT*)&AnimToTest);
+	*(FLOAT*)Result = GetAnimLength(AnimToTest);
 }
 
 // @baa 0x016fc9e0
@@ -644,7 +641,7 @@ void ARBMRouteRequest_NervousSearch::execCreateSearchCandidates(FFrame& Stack, R
 {
 	P_GET_INT(TargetIndex);
 	P_FINISH;
-	vf_37c(TargetIndex);
+	CreateSearchCandidates(TargetIndex);
 }
 
 // @baa 0x016fe3d0
@@ -652,7 +649,7 @@ void ARBMRouteRequest_TerrifiedSearch::execCreateSearchCandidates(FFrame& Stack,
 {
 	P_GET_INT(TargetIndex);
 	P_FINISH;
-	vf_378(TargetIndex);
+	CreateSearchCandidates(TargetIndex);
 }
 
 // @baa 0x016fec60
@@ -660,7 +657,7 @@ void URBMRouterPath::execClearNodesFromIndex(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(StartIndex);
 	P_FINISH;
-	vf_128(StartIndex);
+	ClearNodesFromIndex(StartIndex);
 }
 
 // @baa 0x016feef0
@@ -676,7 +673,7 @@ void URBMRouterPath::execAdvanceNodes(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT_OPTX(AdvanceAmount, 1);
 	P_FINISH;
-	vf_124(AdvanceAmount);
+	AdvanceNodes(AdvanceAmount);
 }
 
 // @baa 0x016f4640
@@ -692,7 +689,7 @@ void ARPawnCharacter::execIsInAnyTransition(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_BYTE_OPTX(TestForTransitions, 0);
 	P_FINISH;
-	*(UBOOL*)Result = vf_534(*(INT*)&TestForTransitions);
+	*(UBOOL*)Result = IsInAnyTransition(*(INT*)&TestForTransitions);
 }
 
 // @baa 0x016f3d00
@@ -700,7 +697,7 @@ void ARPawnCharacter::execIsInAnyNonAutomaticTransition(FFrame& Stack, RESULT_DE
 {
 	P_GET_BYTE_OPTX(TestForTransitions, 0);
 	P_FINISH;
-	*(UBOOL*)Result = vf_53c(*(INT*)&TestForTransitions);
+	*(UBOOL*)Result = IsInAnyNonAutomaticTransition(*(INT*)&TestForTransitions);
 }
 
 // @baa 0x016f7eb0
@@ -742,7 +739,7 @@ void ARPawnCharacter::execAddYawVelocity(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(YawVelocity);
 	P_FINISH;
-	vf_5e4(YawVelocity);
+	AddYawVelocity(YawVelocity);
 }
 
 // @baa 0x016f54b0
@@ -750,7 +747,7 @@ void ARPawnCharacter::execAddYaw(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(Yaw);
 	P_FINISH;
-	vf_5e8(Yaw);
+	AddYaw(Yaw);
 }
 
 // @baa 0x016f55a0
@@ -758,7 +755,7 @@ void ARPawnCharacter::execOverrideYawVelocity(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(YawVelocity);
 	P_FINISH;
-	vf_5f0(YawVelocity);
+	OverrideYawVelocity(YawVelocity);
 }
 
 // @baa 0x016f5690
@@ -766,7 +763,7 @@ void ARPawnCharacter::execSetIdleTimeScale(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(NewValue);
 	P_FINISH;
-	vf_5fc(NewValue);
+	SetIdleTimeScale(NewValue);
 }
 
 // @baa 0x016f5a20
@@ -774,7 +771,7 @@ void ARPawnCharacter::execSetYawRadians(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(R);
 	P_FINISH;
-	vf_610(R);
+	SetYawRadians(R);
 }
 
 // @baa 0x016f6140
@@ -782,7 +779,7 @@ void ARBMPawnAIAnim::execUpdateXrayVisibility(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(DeltaTime);
 	P_FINISH;
-	vf_644(DeltaTime);
+	UpdateXrayVisibility(DeltaTime);
 }
 
 // @baa 0x016fc930
@@ -790,7 +787,7 @@ void ARAudioPointController::execSortDistances(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bForceUpdate);
 	P_FINISH;
-	vf_624(bForceUpdate);
+	SortDistances(bForceUpdate);
 }
 
 // @baa 0x016fd430
@@ -798,7 +795,7 @@ void ARBMRouter_DynamicObject::execUpdateRouterObject_Routing(FFrame& Stack, RES
 {
 	P_GET_FLOAT(DeltaTime);
 	P_FINISH;
-	*(UBOOL*)Result = vf_35c(DeltaTime);
+	*(UBOOL*)Result = UpdateRouterObject_Routing(DeltaTime);
 }
 
 // @baa 0x016f0870
@@ -1011,7 +1008,7 @@ void ARPawn::execGetSniperPoint(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(MaxJumps);
 	P_FINISH;
-	*(AActor**)Result = (AActor*)vf_484(MaxJumps);
+	*(AActor**)Result = (AActor*)GetSniperPoint(MaxJumps);
 }
 
 // @baa 0x016feb10
@@ -1019,7 +1016,7 @@ void URBMRouterPath::execIsRPathNode(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(Index);
 	P_FINISH;
-	*(UBOOL*)Result = vf_11c(Index);
+	*(UBOOL*)Result = IsRPathNode(Index);
 }
 
 // @baa 0x016feb80
@@ -1027,7 +1024,7 @@ void URBMRouterPath::execMustGoToNode(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(Index);
 	P_FINISH;
-	*(UBOOL*)Result = vf_120(Index);
+	*(UBOOL*)Result = MustGoToNode(Index);
 }
 
 // @baa 0x016fea20
@@ -1035,7 +1032,7 @@ void URBMRouterPath::execGetNodeOwner(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(Index);
 	P_FINISH;
-	*(AActor**)Result = (AActor*)vf_110(Index);
+	*(AActor**)Result = (AActor*)GetNodeOwner(Index);
 }
 
 // @baa 0x016f03c0
@@ -1114,14 +1111,14 @@ void ARBMRouter::execCanMovePartwayToPos(FFrame& Stack, RESULT_DECL)
 void ARPawnCharacter::execGetMoveToDirection(FFrame& Stack, RESULT_DECL)
 {
     P_FINISH;
-    *(FVector*)Result = vf_588();
+    *(FVector*)Result = GetMoveToDirection();
 }
 
 // @baa 0x016f5280
 void ARPawnCharacter::execGetFaceAtDirection(FFrame& Stack, RESULT_DECL)
 {
     P_FINISH;
-    *(FVector*)Result = vf_5d4();
+    *(FVector*)Result = GetFaceAtDirection();
 }
 
 // @baa 0x016fd320
@@ -1129,7 +1126,7 @@ void ARBMRouter_NoPawn::execGetPos(FFrame& Stack, RESULT_DECL)
 {
     P_FINISH;
 
-    *(FVector*)Result = vf_354();
+    *(FVector*)Result = GetPos();
 }
 
 // @baa 0x016f6060
@@ -1170,7 +1167,7 @@ void ARPawnCharacter::execGetTargetAimAtDirection(FFrame& Stack, RESULT_DECL)
 {
     P_FINISH;
 
-    *(FVector*)Result = vf_5a4();
+    *(FVector*)Result = GetTargetAimAtDirection();
 }
 
 extern FName g_026e2e18;

@@ -4,6 +4,7 @@ Newest first, one line each. `update` (and `get`, which updates by itself) print
 to you; `python asylum.pyz changes` prints them all. Add a line here with any change an agent should
 know about: a renamed or retyped declaration, a new header or macro, a new rule.
 
+- 2026-11-13: 615 more virtual slots have their real names and signatures (from the exec thunks that call them, with the script signatures; struct parameters by value or reference as the implementation's `ret` says).
 - 2026-11-13: headers: UE3's `appStr*` string functions, `MAXINT`, `appStrihash`; FString's out-of-line operations (`+=`, `==`, `!=`, Left/Right/Mid, ToUpper/ToLower, Printf) and `#define BAA_INLINE_FSTRING` for code that builds strings inline; `FMeshBone` as this build has it (`BonePos`, `ParentIndex` at 0x38) with `VJointPos`; `FCheckResult`/`FIteratorActorList` and UWorld's SingleLineCheck, SinglePointCheck, SpawnActor, FarMoveActor, EditorDestroyActor, GetWorldInfo, GetGameInfo, GetDeltaSeconds, GetBrush, GetModel.
 - 2026-11-13: `EName` has every name the engine hardcodes (593, `include/ue3/Names.h`, generated from FName::StaticInit): use `NAME_X`, not `(EName)0x...`. NAME_ScriptWarning was wrong (0x2ff is NAME_Warning).
 - 2026-11-13: the C++ standard library headers (`<string>`, `<vector>`, `<map>`, `<algorithm>` ...) are allowed: the game has std code of its own.

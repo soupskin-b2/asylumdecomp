@@ -84,7 +84,7 @@ extern INT g_026e252c;
 // @baa 0x01718fc0
    /* the pending value */
 /* Hands out the pending value once, if there is one. */
-INT ARPlayerController::vf_588(INT& out_Value)
+UBOOL ARPlayerController::Live_IsNewGame(INT& out_Value)
 {
 	if (g_026e2528)
 	{

@@ -78,7 +78,7 @@ void AActor::vf_1d8()
         ((AActor_*)this)->eventSetInitialState();
         if (!Base && bCollideWorld && bShouldBaseAtStartup && (Physics == PHYS_None || Physics == PHYS_Rotating))
         {
-            vf_124();
+            FindBase();
         }
     }
 }

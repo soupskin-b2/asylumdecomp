@@ -108,7 +108,7 @@ template<class T> struct TArrayAt_ : public TArray<T>
 
 // @baa 0x00b5c640
 /* Slot 0x114 (unnamed in the kit): the distance of LOD level LODLevel, or -1 past the last one. */
-FLOAT UParticleSystem::vf_114(INT LODLevel)
+FLOAT UParticleSystem::GetLODDistance(INT LODLevel)
 {
 	if (LODLevel >= LODDistances.Num())
 	{

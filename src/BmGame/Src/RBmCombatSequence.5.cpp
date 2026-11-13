@@ -31,7 +31,7 @@ UBOOL URSeqAct_CombatProgress::UpdateOp(FLOAT DeltaTime)
 	}
 
 	FLOAT Health = 0.f;
-	if (CombatManager->vf_378() > 0)
+	if (CombatManager->GetNumCombatants() > 0)
 	{
 		for (INT Idx = 0; Idx < CombatManager->PawnList.Num(); Idx++)
 		{

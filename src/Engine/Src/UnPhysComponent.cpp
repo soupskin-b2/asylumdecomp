@@ -9,7 +9,7 @@ void UPrimitiveComponent::execRigidBodyIsAwake(FFrame& Stack, RESULT_DECL)
 {
     P_GET_NAME_OPTX(BoneName, NAME_None);
     P_FINISH;
-    *(UBOOL*)Result = (UBOOL)vf_1bc(BoneName.Index, BoneName.Number);
+    *(UBOOL*)Result = RigidBodyIsAwake(BoneName);
 }
 
 // @baa 0x009fe910
@@ -17,7 +17,7 @@ void UPrimitiveComponent::execRigidBodyIsFullyDynamic(FFrame& Stack, RESULT_DECL
 {
 	P_GET_NAME_OPTX(BoneName, NAME_None);
 	P_FINISH;
-	*(UBOOL*)Result = vf_1b8(BoneName.Index, BoneName.Number);
+	*(UBOOL*)Result = RigidBodyIsFullyDynamic(BoneName);
 }
 
 /* UPrimitiveComponent::AddTorque (0x9ff330) isn't declared in the kit. */
@@ -58,7 +58,7 @@ void UPrimitiveComponent::execRigidBodyIsNearlyStill(FFrame& Stack, RESULT_DECL)
 {
     P_GET_NAME_OPTX(BoneName, NAME_None);
     P_FINISH;
-    *(UBOOL*)Result = vf_1c0(BoneName.Index, BoneName.Number);
+    *(UBOOL*)Result = RigidBodyIsNearlyStill(BoneName);
 }
 
 /* Kit gap: Script.h lacks UE3's P_GET_STRUCT_OPTX (UnScript.h); the struct constructors (UnMath.h) build the defaults. */

@@ -8,5 +8,5 @@
 void UMaterialInstance::execIsInMapOrTransientPackage(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_17c();
+	*(UBOOL*)Result = IsInMapOrTransientPackage();
 }

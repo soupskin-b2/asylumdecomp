@@ -8,7 +8,7 @@
 void UInteraction::execInit( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_10c();
+	Init();
 }
 
 // @baa 0x00ca0ec0
@@ -22,7 +22,7 @@ void UUIInputConfiguration::execLoadInputAliasClasses( FFrame& Stack, RESULT_DEC
 void UUIInputConfiguration::execNotifyGameSessionEnded( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_10c();
+	NotifyGameSessionEnded();
 }
 
 // @baa 0x00ca2130
@@ -36,7 +36,7 @@ void UUIDataProvider_PlayerAchievements::execGetTotalGamerScore( FFrame& Stack, 
 void UUIDataStore::execOnCommit( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_140();
+	OnCommit();
 }
 
 // @baa 0x00ca2330

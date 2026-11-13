@@ -242,14 +242,14 @@ bool ARCrocLineLauncherBlockingVolume::vf_004()
 }
 
 // @baa 0x016acb70
-void ARFracturablePontoonPropBase::vf_394(void) {  }
+void ARFracturablePontoonPropBase::EditorInitPontoonPropMeshes() {  }
 
 struct C_view {
     int sub_009ff950(int);
 };
 
 // @baa 0x016acb80
-void ARFracturablePontoonPropBase::vf_398(void)
+void ARFracturablePontoonPropBase::DoUpdateCollision()
 {
     int param_1 = (int)this;
   if (*(int *)(param_1 + 0x1ac) != 0) {
@@ -749,7 +749,7 @@ URAnimNode_AnimTransform* ARPontoonBase::GetAnimTransformNode(UBOOL bOther)
 
 // @baa 0x016aca60
 /* Slot 0x364 (unnamed in the kit): whether either pontoon animation node is playing. */
-INT ARPontoonBase::vf_364()
+UBOOL ARPontoonBase::AnimationPlaying()
 {
 	return (AnimNode1 && AnimNode1->bPlaying) || (AnimNode2 && AnimNode2->bPlaying);
 }
@@ -762,7 +762,7 @@ struct FRotator_ : public FRotator
 };
 
 // @baa 0x016aca90
-INT ARPontoonBase::vf_36c()
+void ARPontoonBase::UpdatePontoonForces()
 {
 	if (((FRotator_&)Rotation) != TargetRotation)
 	{
@@ -779,9 +779,8 @@ INT ARPontoonBase::vf_36c()
 		}
 		sub_008a7f10(NewRotation);
 	}
-	TargetRotation.Roll = 0;
 	TargetRotation.Pitch = 0;
-	return 0;
+	TargetRotation.Roll = 0;
 }
 
 struct ARCinematicCameraActor_ : public ARCinematicCameraActor

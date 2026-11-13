@@ -128,7 +128,7 @@ undefined4 * UObject::sub_01650330(void)
 
 int sub_0053df70(...);
 // @baa 0x01651fa0
-void ARCombatMove::vf_354(void)
+void ARCombatMove::ClearAllTimers()
 {
     int param_1 = (int)this;
 

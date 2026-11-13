@@ -8,14 +8,14 @@
 void URAnimNode_Cape::execPauseAnim( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_1a0();
+	PauseAnim();
 }
 
 // @baa 0x016ec090
 void URAnimNode_Cape::execResumeAnim( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_1a4();
+	ResumeAnim();
 }
 
 struct URAnimNode_Cape_ : public URAnimNode_Cape

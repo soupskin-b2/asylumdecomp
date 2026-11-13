@@ -19,7 +19,7 @@ void APlayerController::vf_194()
 
 // @baa 0x007a06b0
 /* Slot 0x414 (unnamed in the kit; UE3's SetAllowMatureLanguage). */
-void APlayerController::vf_414(INT bAllowMatureLanguge)
+void APlayerController::SetAllowMatureLanguage(UBOOL bAllowMatureLanguge)
 {
 	GEngine->bAllowMatureLanguage = bAllowMatureLanguge;
 }

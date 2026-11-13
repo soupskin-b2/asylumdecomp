@@ -22,7 +22,7 @@ bool ARWindVolume::vf_004()
 }
 
 // @baa 0x016d0b40
-void ARWindVolume::vf_364(void) {  }
+void ARWindVolume::UpdateEditorComponents() {  }
 
 // @baa 0x016d0ef0
 IMPLEMENT_CLASS_AT(ARMedicalPlasticFlapsBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RMedicalPlasticFlapsBase.cpp", 10);
@@ -113,13 +113,13 @@ int sub_016d1b10(int a0, int a1) { return a1; }
 int URGFxMovieHUD::vf_000(void) { return 1; }
 
 // @baa 0x016d29a0
-void URPersistentOptions::vf_10c(void) {  }
+void URPersistentOptions::ClearPS3LeaderboardCache() {  }
 
 // @baa 0x016d29b0
-void URPersistentOptions::vf_110(void) {  }
+void URPersistentOptions::SavePS3LeaderboardCache() {  }
 
 // @baa 0x016d29c0
-void URPersistentOptions::vf_114(void) {  }
+void URPersistentOptions::RestorePS3LeaderboardCache() {  }
 
 struct C_016d2a40 { int sub_016d2a40(void); };
 
@@ -681,7 +681,7 @@ struct S_016d6d50 { char pad[0x220]; Comp* c; };
 R* sub_015e32f0(AActor*);
 S_016d6d50* sub_016d3440(AActor*);
 // @baa 0x016d6d50
-void ARWindVolume::vf_360(FLOAT dt)
+void ARWindVolume::Tick(FLOAT dt)
 {
     int n = Touching.Num();
     if (n > 0) {

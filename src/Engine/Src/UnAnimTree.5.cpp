@@ -88,7 +88,7 @@ void UAnimNodeAimOffset::execSetActiveProfileByName(FFrame& Stack, RESULT_DECL)
 {
     P_GET_NAME(ProfileName);
     P_FINISH;
-    vf_19c(ProfileName);
+    SetActiveProfileByName(ProfileName);
 }
 
 // @baa 0x00c4b920
@@ -107,7 +107,7 @@ void UAnimNodeAimOffset::execSetActiveProfileByIndex(FFrame& Stack, RESULT_DECL)
 	P_GET_INT(ProfileIndex);
 	P_FINISH;
 
-	vf_1a0(ProfileIndex);
+	SetActiveProfileByIndex(ProfileIndex);
 }
 
 // @baa 0x00c91620

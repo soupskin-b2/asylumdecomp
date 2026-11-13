@@ -46,7 +46,7 @@ void APawn::execSetAnchor(FFrame& Stack, RESULT_DECL)
 void APawn::execForceCrouch( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_380();
+	ForceCrouch();
 }
 
 // @baa 0x00c8b0a0
@@ -67,14 +67,14 @@ void APawn::execIsLocallyControlled( FFrame& Stack, RESULT_DECL )
 void APawn::execClearConstraints( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_3a0();
+	ClearConstraints();
 }
 
 // @baa 0x00c8b510
 void APawn::execClearPathStep( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_3b8();
+	ClearPathStep();
 }
 
 // @baa 0x00c8a810
@@ -82,7 +82,7 @@ void APawn::execIsAliveAndWell(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
 
-	*(UBOOL*)Result = vf_354();
+	*(UBOOL*)Result = IsAliveAndWell();
 }
 
 // @baa 0x00c8b2a0
@@ -98,42 +98,42 @@ void APawn::execAddPathConstraint(FFrame& Stack, RESULT_DECL)
 void APawn::execIsInvisible(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_368();
+	*(UBOOL*)Result = IsInvisible();
 }
 
 // @baa 0x00c8afe0
 void APawn::execReachedDesiredRotation(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_388();
+	*(UBOOL*)Result = ReachedDesiredRotation();
 }
 
 // @baa 0x00c8b020
 void APawn::execInitRagdoll(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_38c();
+	*(UBOOL*)Result = InitRagdoll();
 }
 
 // @baa 0x00c8b060
 void APawn::execTermRagdoll(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_390();
+	*(UBOOL*)Result = TermRagdoll();
 }
 
 // @baa 0x00c8b120
 void APawn::execIsPlayerPawn(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_160();
+	*(UBOOL*)Result = IsPlayerPawn();
 }
 
 // @baa 0x00c8b220
 void APawn::execGetVehicleBase(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(AVehicle**)Result = (AVehicle*)vf_39c();
+	*(AVehicle**)Result = (AVehicle*)GetVehicleBase();
 }
 
 // @baa 0x00c8abe0
@@ -214,7 +214,7 @@ void AActor::execMoveSmooth(FFrame& Stack, RESULT_DECL)
 void APawn::execGetPawnViewLocation(FFrame& Stack, RESULT_DECL)
 {
     P_FINISH;
-    *(FVector*)Result = vf_398();
+    *(FVector*)Result = GetPawnViewLocation();
 }
 
 extern FName g_026c51e8;
@@ -541,7 +541,7 @@ struct UPathGoalEvaluator_ : public UPathGoalEvaluator
 // @baa 0x008a66e0
 /* APawn slot 0x3a0 (kit vf_3a0): UE3's APawn::ClearConstraints(): hand every path constraint and goal evaluator
  * back to script for recycling. */
-void APawn::vf_3a0()
+void APawn::ClearConstraints()
 {
     while (PathConstraintList != NULL)
     {

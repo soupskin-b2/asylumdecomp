@@ -191,7 +191,7 @@ struct C_view {
 
 int sub_0053df70(...);
 // @baa 0x01573430
-void URHUDPrompt::vf_114(void)
+void URHUDPrompt::ResetLines()
 {
     int param_1 = (int)this;
   undefined4 uVar1;

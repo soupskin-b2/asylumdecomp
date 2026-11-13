@@ -431,14 +431,8 @@ FString USeqVar_Object_::GetValueStr()
     return FString__008c84a0::Printf(TEXT("%s"), ObjValue != NULL ? *(const FString__008c84a0&)ObjValue->GetName() : TEXT("???"));
 }
 
-/* slot 0x19c (vf_19c) is USeqAct_Latent::AbortFor */
-struct USeqAct_Latent_ : public USeqAct_Latent
-{
-    void AbortFor(AActor* LatentActor);
-};
-
 // @baa 0x008be9e0
-void USeqAct_Latent_::AbortFor(AActor* LatentActor)
+void USeqAct_Latent::AbortFor(AActor* LatentActor)
 {
 #line 4890 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSequence.cpp"
     check(LatentActor != NULL && "Trying abort Latent action with a NULL actor");

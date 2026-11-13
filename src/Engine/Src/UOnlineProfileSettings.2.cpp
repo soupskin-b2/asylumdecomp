@@ -29,7 +29,7 @@ void UOnlineProfileSettings::execAppendVersionToSettings( FFrame& Stack, RESULT_
 void UOnlineProfileSettings::execSetDefaultVersionNumber( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_164();
+	SetDefaultVersionNumber();
 }
 
 // @baa 0x00c8e4b0

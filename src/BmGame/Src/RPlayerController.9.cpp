@@ -5,9 +5,9 @@
 
 extern UBOOL g_025ef808;
 // @baa 0x01615490
-bool ARPlayerController::vf_4d8(INT A)
+void ARPlayerController::SaveUsingGamePad(UBOOL A)
 {
-    return g_025ef808 = (A != 0);
+    g_025ef808 = (A != 0);
 }
 
 struct C_0171e460

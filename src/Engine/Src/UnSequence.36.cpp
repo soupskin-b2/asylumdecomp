@@ -46,7 +46,7 @@ void USeqAct_ForceMaterialMipsResident::sub_008c09f0(UBOOL bEnable, FLOAT Durati
         UMaterialInterface* Material = ForceMaterials(Idx);
         if (Material != NULL)
         {
-            Material->vf_12c(Duration);
+            Material->SetForceMipLevelsToBeResident(Duration);
             for (AController* C = GWorld->sub_009c8570(); C != NULL; C = C->NextController)
             {
                 APlayerController* PC = Cast<APlayerController>(C);

@@ -20,7 +20,7 @@ IMPLEMENT_CLASS_AT(USpriteComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEng
 
 // @baa 0x0072ee90
 // @baa 0x0072ef00
-DOUBLE UTexture2D::vf_10c() {
+FLOAT UTexture2D::GetSurfaceWidth() {
     int param_1 = (int)this;
 
   return (float10)*(int *)(param_1 + 0xbc);

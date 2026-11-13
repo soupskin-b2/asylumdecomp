@@ -9,7 +9,7 @@ void UPhysicalMaterial::execCalculateImpactStrength(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(ImpactSpeed);
 	P_FINISH;
-	*(FLOAT*)Result = vf_110(ImpactSpeed);
+	*(FLOAT*)Result = CalculateImpactStrength(ImpactSpeed);
 }
 
 // @baa 0x00c94250
@@ -17,5 +17,5 @@ void UPhysicalMaterial::execCalculateSlideStrength(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(SlideSpeed);
 	P_FINISH;
-	*(FLOAT*)Result = vf_114(SlideSpeed);
+	*(FLOAT*)Result = CalculateSlideStrength(SlideSpeed);
 }

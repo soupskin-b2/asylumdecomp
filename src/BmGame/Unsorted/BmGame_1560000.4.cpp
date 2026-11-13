@@ -82,7 +82,7 @@ struct FBoneAtom_ : public FBoneAtom
 
 // @baa 0x0156d990
 /* Slot 0x19c (unnamed in the kit): snapshots the mesh's current local bone atoms. */
-void URAnimNode_AnimCapture::vf_19c(USkeletalMeshComponent* SkelComp)
+void URAnimNode_AnimCapture::Capture(USkeletalMeshComponent* SkelComp)
 {
 	const INT NumAtoms = SkelComp->LocalAtoms.Num();
 	if (SavedAtoms.Num() != NumAtoms)

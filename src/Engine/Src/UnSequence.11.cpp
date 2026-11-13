@@ -8,14 +8,14 @@
 void USequenceOp::execPopulateLinkedVariableValues( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_168();
+	PopulateLinkedVariableValues();
 }
 
 // @baa 0x00c98240
 void USequenceOp::execPublishLinkedVariableValues( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_16c();
+	PublishLinkedVariableValues();
 }
 
 // @baa 0x008e7f80
@@ -36,7 +36,7 @@ void USeqAct_Latent::execAbortFor(FFrame& Stack, RESULT_DECL)
 	P_GET_OBJECT(AActor, latentActor);
 	P_FINISH;
 
-	vf_19c(latentActor);
+	AbortFor(latentActor);
 }
 
 struct USequenceObject_ : public USequenceObject

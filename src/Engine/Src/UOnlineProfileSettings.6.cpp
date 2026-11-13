@@ -61,7 +61,7 @@ struct UOnlineProfileSettings_ : public UOnlineProfileSettings
 
 // @baa 0x00d73b60
 /* Stamps the current VersionNumber into the profile's version setting and tells the NotifySettingValueUpdated delegate. */
-void UOnlineProfileSettings::vf_164()
+void UOnlineProfileSettings::SetDefaultVersionNumber()
 {
 	for (INT Index = 0; Index < ProfileSettings.Num(); Index++)
 	{

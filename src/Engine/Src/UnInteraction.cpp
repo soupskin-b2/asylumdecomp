@@ -67,7 +67,7 @@ bool UUIInputConfiguration::vf_004()
 }
 
 // @baa 0x00d6c030
-void UInteraction::vf_10c(void) {  }
+void UInteraction::Init() {  }
 
 extern char g_020b51fc[];
 struct C { C* sub_00d6c070(void); };

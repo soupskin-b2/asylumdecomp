@@ -371,7 +371,7 @@ int URCapeComponent::sub_016aed50(void)
 }
 
 // @baa 0x016b1fa0
-void URCapeComponent::vf_14c(void)
+void URCapeComponent::OnTeleport()
 {
     int param_1 = (int)this;
 
@@ -388,7 +388,7 @@ void URCapeComponent::vf_14c(void)
 }
 
 // @baa 0x016b1fc0
-void URCapeComponent::vf_150(void)
+void URCapeComponent::DoubleFrameTeleport()
 {
     int param_1 = (int)this;
 

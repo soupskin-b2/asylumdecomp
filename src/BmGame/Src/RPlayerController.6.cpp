@@ -9,14 +9,14 @@ void ARPlayerController::execLive_SetActiveSave(FFrame& Stack, RESULT_DECL)
 {
     P_GET_INT(SaveId);
     P_FINISH;
-    vf_5b8(SaveId);
+    Live_SetActiveSave(SaveId);
 }
 
 // @baa 0x016fa710
 void ARPlayerController::execFE_UnblockInitialNotifies(FFrame& Stack, RESULT_DECL)
 {
     P_FINISH;
-    vf_61c();
+    FE_UnblockInitialNotifies();
 }
 
 // @baa 0x016f7fd0
@@ -30,28 +30,28 @@ void ARPlayerController::execDebugUpdateAmbientTree( FFrame& Stack, RESULT_DECL 
 void ARPlayerController::execToggleMovieRecord( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_490();
+	ToggleMovieRecord();
 }
 
 // @baa 0x016f80d0
 void ARPlayerController::execPlayRiddlerCaptureMovie( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_498();
+	PlayRiddlerCaptureMovie();
 }
 
 // @baa 0x016f8110
 void ARPlayerController::execUpdateDownloadableContent( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_49c();
+	UpdateDownloadableContent();
 }
 
 // @baa 0x016f8150
 void ARPlayerController::execUpdateDownloadableCharacters( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_4a0();
+	UpdateDownloadableCharacters();
 }
 
 struct ARPlayerController_ : public ARPlayerController
@@ -71,28 +71,28 @@ void ARPlayerController_::execNativeBreakPoint( FFrame& Stack, RESULT_DECL )
 void ARPlayerController::execAmbientSoundControl( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_4b4();
+	AmbientSoundControl();
 }
 
 // @baa 0x016f8340
 void ARPlayerController::execStartSavedAmbientSound( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_4b8();
+	StartSavedAmbientSound();
 }
 
 // @baa 0x016f8380
 void ARPlayerController::execStartSavedMixBin( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_4bc();
+	StartSavedMixBin();
 }
 
 // @baa 0x016f8440
 void ARPlayerController::execReloadGame( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_4d0();
+	ReloadGame();
 }
 
 struct ARPlayerController__016f8e40 : public ARPlayerController
@@ -230,7 +230,7 @@ void ARPlayerController::execInitGamePadSettings(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
 
-	vf_4d4();
+	InitGamePadSettings();
 }
 
 // @baa 0x016f8830
@@ -238,7 +238,7 @@ void ARPlayerController::execResetAmbientSound(FFrame& Stack, RESULT_DECL)
 {
     P_GET_OBJECT(USoundCue, Cue);
     P_FINISH;
-    vf_514(Cue);
+    ResetAmbientSound(Cue);
 }
 
 // @baa 0x016f9e40
@@ -246,7 +246,7 @@ void ARPlayerController::execLive_IsNewGame(FFrame& Stack, RESULT_DECL)
 {
     P_GET_INT_REF(Difficulty);
     P_FINISH;
-    *(UBOOL*)Result = vf_588(Difficulty);
+    *(UBOOL*)Result = Live_IsNewGame(Difficulty);
 }
 
 // @baa 0x0171d050
@@ -254,7 +254,7 @@ void ARPlayerController::execSetInfocastMsg(FFrame& Stack, RESULT_DECL)
 {
     P_GET_STR(msg);
     P_FINISH;
-    vf_57c(msg);
+    SetInfocastMsg(msg);
 }
 
 // @baa 0x0171cea0
@@ -262,7 +262,7 @@ void ARPlayerController::execAutoJezLevelShouldBeLoaded(FFrame& Stack, RESULT_DE
 {
     P_GET_STR(LevelName);
     P_FINISH;
-    *(UBOOL*)Result = vf_550(LevelName);
+    *(UBOOL*)Result = AutoJezLevelShouldBeLoaded(LevelName);
 }
 
 // @baa 0x016f8ec0
@@ -270,7 +270,7 @@ void ARPlayerController::execPreProcessInput(FFrame& Stack, RESULT_DECL)
 {
     P_GET_FLOAT(DeltaTime);
     P_FINISH;
-    vf_530(DeltaTime);
+    PreProcessInput(DeltaTime);
 }
 
 // @baa 0x016f9bf0
@@ -278,7 +278,7 @@ void ARPlayerController::execLive_SetLoginStatusError(FFrame& Stack, RESULT_DECL
 {
     P_GET_BYTE(State);
     P_FINISH;
-    vf_568(State);
+    Live_SetLoginStatusError(State);
 }
 
 struct ARPlayerController__016f9330 : public ARPlayerController
@@ -309,7 +309,7 @@ void ARPlayerController::execGetFallingAttackTarget(FFrame& Stack, RESULT_DECL)
 void ARPlayerController::execIsControllerTiltActive(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_41c();
+	*(UBOOL*)Result = IsControllerTiltActive();
 }
 
 struct RPlayerControllerNative : ARPlayerController
@@ -358,98 +358,98 @@ void ARPlayerController::execFindStealthAttackTargetNative(FFrame& Stack, RESULT
 void ARPlayerController::execOwnerIsInEndStateCall(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_480();
+	*(UBOOL*)Result = OwnerIsInEndStateCall();
 }
 
 // @baa 0x016f7f90
 void ARPlayerController::execIsAutoJezActive(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_484();
+	*(UBOOL*)Result = IsAutoJezActive();
 }
 
 // @baa 0x016f8010
 void ARPlayerController::execLoadDebugSphere(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UStaticMesh**)Result = (UStaticMesh*)vf_48c();
+	*(UStaticMesh**)Result = (UStaticMesh*)LoadDebugSphere();
 }
 
 // @baa 0x016f8090
 void ARPlayerController::execIsMovieCapturingInput(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_494();
+	*(UBOOL*)Result = IsMovieCapturingInput();
 }
 
 // @baa 0x016f8190
 void ARPlayerController::execIsJokerDLCPresent(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_4a4();
+	*(UBOOL*)Result = IsJokerDLCPresent();
 }
 
 // @baa 0x016f81d0
 void ARPlayerController::execIsArmouredBatmanDLCPresent(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_4a8();
+	*(UBOOL*)Result = IsArmouredBatmanDLCPresent();
 }
 
 // @baa 0x016f8240
 void ARPlayerController::execGetSelectedMovementState(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(BYTE*)Result = vf_4b0();
+	*(BYTE*)Result = GetSelectedMovementState();
 }
 
 // @baa 0x016f83c0
 void ARPlayerController::execGetSaveGameManager(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(URSaveGameManager**)Result = (URSaveGameManager*)vf_4c0();
+	*(URSaveGameManager**)Result = (URSaveGameManager*)GetSaveGameManager();
 }
 
 // @baa 0x016f8400
 void ARPlayerController::execSaveGameOptionsToMemory(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_4cc();
+	*(UBOOL*)Result = SaveGameOptionsToMemory();
 }
 
 // @baa 0x016f85b0
 void ARPlayerController::execIsMetricsEnabled(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_4dc();
+	*(UBOOL*)Result = IsMetricsEnabled();
 }
 
 // @baa 0x016f8670
 void ARPlayerController::execIsMetricsPopupEnabled(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_4e4();
+	*(UBOOL*)Result = IsMetricsPopupEnabled();
 }
 
 // @baa 0x016f8730
 void ARPlayerController::execIsEidosMetricsEnabled(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_4f4();
+	*(UBOOL*)Result = IsEidosMetricsEnabled();
 }
 
 // @baa 0x016f87b0
 void ARPlayerController::execAmbientGetStartTime(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(FLOAT*)Result = vf_50c();
+	*(FLOAT*)Result = AmbientGetStartTime();
 }
 
 // @baa 0x016f87f0
 void ARPlayerController::execAmbientGetEndTime(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(FLOAT*)Result = vf_510();
+	*(FLOAT*)Result = AmbientGetEndTime();
 }
 
 typedef UBOOL (__thiscall* FSlot)(void*);
@@ -465,28 +465,28 @@ void ARPlayerController::execAutoJezStartupCheck(FFrame& Stack, RESULT_DECL)
 void ARPlayerController::execAutoJezIsRoomLoaded(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_558();
+	*(UBOOL*)Result = AutoJezIsRoomLoaded();
 }
 
 // @baa 0x016f9b30
 void ARPlayerController::execLive_IsRequestOnline(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_560();
+	*(UBOOL*)Result = Live_IsRequestOnline();
 }
 
 // @baa 0x016f9c60
 void ARPlayerController::execLive_IsLoginStatusError(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(BYTE*)Result = vf_56c();
+	*(BYTE*)Result = Live_IsLoginStatusError();
 }
 
 // @baa 0x016f9d20
 void ARPlayerController::execLive_IsStorageSelectPending(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_574();
+	*(UBOOL*)Result = Live_IsStorageSelectPending();
 }
 
 // @baa 0x016f9fd0
@@ -500,119 +500,119 @@ void ARPlayerController::execLive_SlotWasSelected(FFrame& Stack, RESULT_DECL)
 void ARPlayerController::execLive_IsSavingEnabled(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_59c();
+	*(UBOOL*)Result = Live_IsSavingEnabled();
 }
 
 // @baa 0x016fa090
 void ARPlayerController::execGetActiveSaveDevice(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(INT*)Result = vf_5ac();
+	*(INT*)Result = GetActiveSaveDevice();
 }
 
 // @baa 0x016fa1b0
 void ARPlayerController::execLive_GetActiveSaveID(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(INT*)Result = vf_5bc();
+	*(INT*)Result = Live_GetActiveSaveID();
 }
 
 // @baa 0x016fa460
 void ARPlayerController::execLive_IsPS3AndUsingFastLoad(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_5dc();
+	*(UBOOL*)Result = Live_IsPS3AndUsingFastLoad();
 }
 
 // @baa 0x016fa610
 void ARPlayerController::execFE_GetActiveDLCPack(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(INT*)Result = vf_610();
+	*(INT*)Result = FE_GetActiveDLCPack();
 }
 
 // @baa 0x016fa6d0
 void ARPlayerController::execFE_IsBufferDLCRemovalSet(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_618();
+	*(UBOOL*)Result = FE_IsBufferDLCRemovalSet();
 }
 
 // @baa 0x016fa750
 void ARPlayerController::execFE_AreNotifiesBlocked(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_620();
+	*(UBOOL*)Result = FE_AreNotifiesBlocked();
 }
 
 // @baa 0x016fa810
 void ARPlayerController::execFE_IsDLCScanningActive(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_628();
+	*(UBOOL*)Result = FE_IsDLCScanningActive();
 }
 
 // @baa 0x016fa8d0
 void ARPlayerController::execFE_IsDLCScanning(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_630();
+	*(UBOOL*)Result = FE_IsDLCScanning();
 }
 
 // @baa 0x016fa990
 void ARPlayerController::execFE_IsDLCRescanPending(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_638();
+	*(UBOOL*)Result = FE_IsDLCRescanPending();
 }
 
 // @baa 0x016faa50
 void ARPlayerController::execFE_IsFrontendSaveSet(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_640();
+	*(UBOOL*)Result = FE_IsFrontendSaveSet();
 }
 
 // @baa 0x016faa90
 void ARPlayerController::execIsXbox(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_644();
+	*(UBOOL*)Result = IsXbox();
 }
 
 // @baa 0x016faad0
 void ARPlayerController::execIsDebugFrontendAvailable(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_648();
+	*(UBOOL*)Result = IsDebugFrontendAvailable();
 }
 
 // @baa 0x016fab10
 void ARPlayerController::execIsPlayingFullScreenMovie(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_64c();
+	*(UBOOL*)Result = IsPlayingFullScreenMovie();
 }
 
 // @baa 0x016fab50
 void ARPlayerController::execIsLevelLoadSpecified(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_650();
+	*(UBOOL*)Result = IsLevelLoadSpecified();
 }
 
 // @baa 0x016fabd0
 void ARPlayerController::execIsGamepadConnected(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_670();
+	*(UBOOL*)Result = IsGamepadConnected();
 }
 
 // @baa 0x016facd0
 void ARPlayerController::execIsCurrentlyLoadingLevels(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_67c();
+	*(UBOOL*)Result = IsCurrentlyLoadingLevels();
 }
 
 // @baa 0x016fad10
@@ -633,126 +633,126 @@ void ARPlayerController::execIsWritingStats(FFrame& Stack, RESULT_DECL)
 void ARPlayerController::execIsCircleToAccept(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_68c();
+	*(UBOOL*)Result = IsCircleToAccept();
 }
 
 // @baa 0x016fae10
 void ARPlayerController::execIsPS3_4x3(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_690();
+	*(UBOOL*)Result = IsPS3_4x3();
 }
 
 // @baa 0x016fae50
 void ARPlayerController::execIsPS3_480i(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_694();
+	*(UBOOL*)Result = IsPS3_480i();
 }
 
 // @baa 0x016fae90
 void ARPlayerController::execGetSaveGameState(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(INT*)Result = vf_698();
+	*(INT*)Result = GetSaveGameState();
 }
 
 // @baa 0x016faed0
 void ARPlayerController::execFE_GetGamma(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(FLOAT*)Result = vf_6a8();
+	*(FLOAT*)Result = FE_GetGamma();
 }
 
 // @baa 0x016faf80
 void ARPlayerController::execFE_GetRender3D(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(FLOAT*)Result = vf_6b0();
+	*(FLOAT*)Result = FE_GetRender3D();
 }
 
 // @baa 0x016fafc0
 void ARPlayerController::execFE_GetRender3DFromEngine(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_6b4();
+	*(UBOOL*)Result = FE_GetRender3DFromEngine();
 }
 
 // @baa 0x016fb070
 void ARPlayerController::execFE_GetEngineGamma(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(FLOAT*)Result = vf_6bc();
+	*(FLOAT*)Result = FE_GetEngineGamma();
 }
 
 // @baa 0x016fb0b0
 void ARPlayerController::execFE_GetVolumeSFX(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(FLOAT*)Result = vf_6c0();
+	*(FLOAT*)Result = FE_GetVolumeSFX();
 }
 
 // @baa 0x016fb160
 void ARPlayerController::execFE_GetVolumeDialogue(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(FLOAT*)Result = vf_6c8();
+	*(FLOAT*)Result = FE_GetVolumeDialogue();
 }
 
 // @baa 0x016fb210
 void ARPlayerController::execFE_GetVolumeMusic(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(FLOAT*)Result = vf_6d0();
+	*(FLOAT*)Result = FE_GetVolumeMusic();
 }
 
 // @baa 0x016fb380
 void ARPlayerController::execFE_IsBenchmarking(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_6e0();
+	*(UBOOL*)Result = FE_IsBenchmarking();
 }
 
 // @baa 0x016fb3c0
 void ARPlayerController::execFE_GetBenchmarkMin(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(INT*)Result = vf_6e4();
+	*(INT*)Result = FE_GetBenchmarkMin();
 }
 
 // @baa 0x016fb400
 void ARPlayerController::execFE_GetBenchmarkMax(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(INT*)Result = vf_6e8();
+	*(INT*)Result = FE_GetBenchmarkMax();
 }
 
 // @baa 0x016fb440
 void ARPlayerController::execFE_GetBenchmarkAverage(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(INT*)Result = vf_6ec();
+	*(INT*)Result = FE_GetBenchmarkAverage();
 }
 
 // @baa 0x016f8770
 void ARPlayerController::execResetEidosMetricsAchievements(FFrame& Stack, RESULT_DECL)
 {
     P_FINISH;
-    vf_504();
+    ResetEidosMetricsAchievements();
 }
 
 // @baa 0x016f8e80
 void ARPlayerController::execResetCapeGlideWeights(FFrame& Stack, RESULT_DECL)
 {
     P_FINISH;
-    vf_52c();
+    ResetCapeGlideWeights();
 }
 
 // @baa 0x016f9140
 void ARPlayerController::execUpdateGrateCollision(FFrame& Stack, RESULT_DECL)
 {
     P_FINISH;
-    vf_534();
+    UpdateGrateCollision();
 }
 
 struct RPlayerControllerNative_016f9370 : ARPlayerController
@@ -771,14 +771,14 @@ void ARPlayerController::execFindCapeKickCameraRotation(FFrame& Stack, RESULT_DE
 void ARPlayerController::execAutoJezStop(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	vf_53c();
+	AutoJezStop();
 }
 
 // @baa 0x016f99b0
 void ARPlayerController::execAutoJezNextRoom(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	vf_540();
+	AutoJezNextRoom();
 }
 
 struct RPlayerControllerNative_016f9050 : ARPlayerController
@@ -811,42 +811,42 @@ void ARPlayerController::execWalkingPlayerMovement(FFrame& Stack, RESULT_DECL)
 void ARPlayerController::execAutoJezBuildRoomList(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	vf_548();
+	AutoJezBuildRoomList();
 }
 
 // @baa 0x016f9a70
 void ARPlayerController::execAutoJezBeginRoomLoad(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	vf_54c();
+	AutoJezBeginRoomLoad();
 }
 
 // @baa 0x016f9af0
 void ARPlayerController::execAutoJezLogic(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	vf_55c();
+	AutoJezLogic();
 }
 
 // @baa 0x016f9ed0
 void ARPlayerController::execLive_DisableSaving(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	vf_58c();
+	Live_DisableSaving();
 }
 
 // @baa 0x016f9f10
 void ARPlayerController::execLive_EnableSaving(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	vf_590();
+	Live_EnableSaving();
 }
 
 // @baa 0x016fa050
 void ARPlayerController::execLive_InvalidateMemorySave(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	vf_5a0();
+	Live_InvalidateMemorySave();
 }
 
 struct RPlayerControllerNative_016f9770 : ARPlayerController
@@ -892,42 +892,42 @@ void ARPlayerController::execGetDeathCameraLocation(FFrame& Stack, RESULT_DECL)
 void ARPlayerController::execLive_DecompressToPersistentData(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	vf_5d0();
+	Live_DecompressToPersistentData();
 }
 
 // @baa 0x016fa4a0
 void ARPlayerController::execLive_SetInitialAchievementsDisabled(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	vf_5ec();
+	Live_SetInitialAchievementsDisabled();
 }
 
 // @baa 0x016fa4e0
 void ARPlayerController::execTestQueryAll(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	vf_5fc();
+	TestQueryAll();
 }
 
 // @baa 0x016fa520
 void ARPlayerController::execPauseAllGameMovieTextures(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	vf_604();
+	PauseAllGameMovieTextures();
 }
 
 // @baa 0x016fa560
 void ARPlayerController::execRestartAllGameMovieTextures(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	vf_608();
+	RestartAllGameMovieTextures();
 }
 
 // @baa 0x016fab90
 void ARPlayerController::execGarbageCollect(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	vf_66c();
+	GarbageCollect();
 }
 
 struct RPlayerControllerNative_016f8db0 : ARPlayerController
@@ -948,21 +948,21 @@ void ARPlayerController::execCapeGlideMovement(FFrame& Stack, RESULT_DECL)
 void ARPlayerController::execFE_ShowDLCError(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	vf_678();
+	FE_ShowDLCError();
 }
 
 // @baa 0x016fad50
 void ARPlayerController::execResetWritingStatsCount(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	vf_684();
+	ResetWritingStatsCount();
 }
 
 // @baa 0x016fb2c0
 void ARPlayerController::execFE_UpdateMouseLock(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	vf_6d8();
+	FE_UpdateMouseLock();
 }
 
 struct RPlayerControllerNative_016f95f0 : ARPlayerController
@@ -1051,7 +1051,7 @@ void ARPlayerController::execFE_SetActiveDLCPack(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(Id);
 	P_FINISH;
-	vf_60c(Id);
+	FE_SetActiveDLCPack(Id);
 }
 
 // @baa 0x0171d250
@@ -1060,7 +1060,7 @@ void ARPlayerController::execSetActiveSaveDevice(FFrame& Stack, RESULT_DECL)
     P_GET_INT(InDeviceID);
     P_GET_STR(InDeviceName);
     P_FINISH;
-    vf_5a8(InDeviceID, InDeviceName);
+    SetActiveSaveDevice(InDeviceID, InDeviceName);
 }
 
 // @baa 0x0171d800
@@ -1069,7 +1069,7 @@ void ARPlayerController::execLive_SetSaveSlotDate(FFrame& Stack, RESULT_DECL)
     P_GET_INT(Id);
     P_GET_STR(Date);
     P_FINISH;
-    vf_5e8(Id, Date);
+    Live_SetSaveSlotDate(Id, Date);
 }
 
 // @baa 0x0171cf60
@@ -1078,7 +1078,7 @@ void ARPlayerController::execAutoJezSetFlagsForPMap(FFrame& Stack, RESULT_DECL)
     P_GET_STR(MapName);
     P_GET_UBOOL(bSet);
     P_FINISH;
-    vf_554(MapName, bSet);
+    AutoJezSetFlagsForPMap(MapName, bSet);
 }
 
 // @baa 0x0171e760
@@ -1087,7 +1087,7 @@ void URGFxMovieInvestigate::execGetNPCCountString(FFrame& Stack, RESULT_DECL)
     P_GET_INT(Armed);
     P_GET_INT(UnArmed);
     P_FINISH;
-    *(FString*)Result = vf_17c(Armed, UnArmed);
+    *(FString*)Result = GetNPCCountString(Armed, UnArmed);
 }
 
 // @baa 0x0171e660
@@ -1096,7 +1096,7 @@ void URGFxMovie::execSetPicture(FFrame& Stack, RESULT_DECL)
     P_GET_STR(BaseName);
     P_GET_STR(StreamedName);
     P_FINISH;
-    vf_174(BaseName, StreamedName);
+    SetPicture(BaseName, StreamedName);
 }
 
 // @baa 0x0171c4d0
@@ -1106,7 +1106,7 @@ void ARPlayerController::execChopOffFront(FFrame& Stack, RESULT_DECL)
     P_GET_STR(ChopOff);
     P_GET_UBOOL_OPTX(QuoteIt, FALSE);
     P_FINISH;
-    *(FString*)Result = vf_4ec(Data, ChopOff, QuoteIt);
+    *(FString*)Result = ChopOffFront(Data, ChopOff, QuoteIt);
 }
 
 // @baa 0x016f8b80
@@ -1116,7 +1116,7 @@ void ARPlayerController::execProcessViewRotation(FFrame& Stack, RESULT_DECL)
     P_GET_STRUCT_REF(FRotator, out_ViewRotation);
     P_GET_STRUCT(FRotator, DeltaRot);
     P_FINISH;
-    vf_528(DeltaTime, out_ViewRotation, DeltaRot);
+    ProcessViewRotation(DeltaTime, out_ViewRotation, DeltaRot);
 }
 
 struct ARPlayerController__016f9850 : public ARPlayerController
@@ -1208,7 +1208,7 @@ void ARPlayerController::execLive_SetDifficulty(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(Difficulty);
 	P_FINISH;
-	vf_584(Difficulty);
+	Live_SetDifficulty(Difficulty);
 }
 
 // @baa 0x016faf10
@@ -1216,7 +1216,7 @@ void ARPlayerController::execFE_SetGamma(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(Value);
 	P_FINISH;
-	vf_6ac(Value);
+	FE_SetGamma(Value);
 }
 
 // @baa 0x016fb000
@@ -1224,7 +1224,7 @@ void ARPlayerController::execFE_SetRender3D(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(Value);
 	P_FINISH;
-	vf_6b8(Value);
+	FE_SetRender3D(Value);
 }
 
 // @baa 0x016fb0f0
@@ -1232,7 +1232,7 @@ void ARPlayerController::execFE_SetVolumeSFX(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(Value);
 	P_FINISH;
-	vf_6c4(Value);
+	FE_SetVolumeSFX(Value);
 }
 
 // @baa 0x016fb300
@@ -1240,7 +1240,7 @@ void ARPlayerController::execFE_SetBenchmarkingActive(FFrame& Stack, RESULT_DECL
 {
 	P_GET_UBOOL(is_active);
 	P_FINISH;
-	vf_6dc(is_active);
+	FE_SetBenchmarkingActive(is_active);
 }
 
 // @baa 0x016fb1a0
@@ -1248,7 +1248,7 @@ void ARPlayerController::execFE_SetVolumeDialogue(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(Value);
 	P_FINISH;
-	vf_6cc(Value);
+	FE_SetVolumeDialogue(Value);
 }
 
 // @baa 0x016fb250
@@ -1256,7 +1256,7 @@ void ARPlayerController::execFE_SetVolumeMusic(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(Value);
 	P_FINISH;
-	vf_6d4(Value);
+	FE_SetVolumeMusic(Value);
 }
 
 struct ARPlayerController__016f9470 : public ARPlayerController
@@ -1277,7 +1277,7 @@ void ARPlayerController::execLive_IsMemoryCard(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(DeviceID);
 	P_FINISH;
-	*(UBOOL*)Result = vf_578(DeviceID);
+	*(UBOOL*)Result = Live_IsMemoryCard(DeviceID);
 }
 
 // @baa 0x016fa0d0
@@ -1285,7 +1285,7 @@ void ARPlayerController::execCheckActiveSaveDeviceFreeSpace(FFrame& Stack, RESUL
 {
 	P_GET_INT(SizeNeeded);
 	P_FINISH;
-	*(UBOOL*)Result = vf_5b4(SizeNeeded);
+	*(UBOOL*)Result = CheckActiveSaveDeviceFreeSpace(SizeNeeded);
 }
 
 // @baa 0x016fa2d0
@@ -1293,7 +1293,7 @@ void ARPlayerController::execLive_SaveSavedGame(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(Id);
 	P_FINISH;
-	*(UBOOL*)Result = vf_5c8(Id);
+	*(UBOOL*)Result = Live_SaveSavedGame(Id);
 }
 
 // @baa 0x016fa3f0
@@ -1301,7 +1301,7 @@ void ARPlayerController::execLive_DoesSaveExist(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(Id);
 	P_FINISH;
-	*(UBOOL*)Result = vf_5d8(Id);
+	*(UBOOL*)Result = Live_DoesSaveExist(Id);
 }
 
 // @baa 0x00c86e80
@@ -1309,7 +1309,7 @@ void ARPlayerController::execSetControllerTiltDesiredIfAvailable(FFrame& Stack, 
 {
 	P_GET_UBOOL(bActive);
 	P_FINISH;
-	vf_420(bActive);
+	SetControllerTiltDesiredIfAvailable(bActive);
 }
 
 // @baa 0x00c86f00
@@ -1317,7 +1317,7 @@ void ARPlayerController::execSetControllerTiltActive(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bActive);
 	P_FINISH;
-	vf_424(bActive);
+	SetControllerTiltActive(bActive);
 }
 
 // @baa 0x016f84c0
@@ -1325,7 +1325,7 @@ void ARPlayerController::execSaveUsingGamePad(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(SavedUsingGamePad);
 	P_FINISH;
-	vf_4d8(SavedUsingGamePad);
+	SaveUsingGamePad(SavedUsingGamePad);
 }
 
 // @baa 0x016f85f0
@@ -1333,7 +1333,7 @@ void ARPlayerController::execSetMetricsEnabled(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(Enabled);
 	P_FINISH;
-	vf_4e0(Enabled);
+	SetMetricsEnabled(Enabled);
 }
 
 // @baa 0x016f86b0
@@ -1341,7 +1341,7 @@ void ARPlayerController::execSetMetricsPopupEnabled(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(Enabled);
 	P_FINISH;
-	vf_4e8(Enabled);
+	SetMetricsPopupEnabled(Enabled);
 }
 
 // @baa 0x016f9b70
@@ -1349,7 +1349,7 @@ void ARPlayerController::execLive_SetRequestOnline(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(State);
 	P_FINISH;
-	vf_564(State);
+	Live_SetRequestOnline(State);
 }
 
 // @baa 0x016f9ca0
@@ -1357,7 +1357,7 @@ void ARPlayerController::execLive_SetStorageSelectPending(FFrame& Stack, RESULT_
 {
 	P_GET_UBOOL(bState);
 	P_FINISH;
-	vf_570(bState);
+	Live_SetStorageSelectPending(bState);
 }
 
 // @baa 0x016f9f50
@@ -1365,7 +1365,7 @@ void ARPlayerController::execLive_SetSavingEnabledState(FFrame& Stack, RESULT_DE
 {
 	P_GET_UBOOL(bState);
 	P_FINISH;
-	vf_594(bState);
+	Live_SetSavingEnabledState(bState);
 }
 
 // @baa 0x016fa650
@@ -1373,7 +1373,7 @@ void ARPlayerController::execFE_BufferDLCRemoval(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bState);
 	P_FINISH;
-	vf_614(bState);
+	FE_BufferDLCRemoval(bState);
 }
 
 // @baa 0x016fa790
@@ -1381,7 +1381,7 @@ void ARPlayerController::execFE_DLCScanningActive(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bState);
 	P_FINISH;
-	vf_624(bState);
+	FE_DLCScanningActive(bState);
 }
 
 // @baa 0x016fa850
@@ -1389,7 +1389,7 @@ void ARPlayerController::execFE_DLCScanning(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bState);
 	P_FINISH;
-	vf_62c(bState);
+	FE_DLCScanning(bState);
 }
 
 // @baa 0x016fa910
@@ -1397,7 +1397,7 @@ void ARPlayerController::execFE_DLCRescanPending(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bState);
 	P_FINISH;
-	vf_634(bState);
+	FE_DLCRescanPending(bState);
 }
 
 // @baa 0x016fa9d0
@@ -1405,7 +1405,7 @@ void ARPlayerController::execFE_SetNeedsFrontendSave(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bState);
 	P_FINISH;
-	vf_63c(bState);
+	FE_SetNeedsFrontendSave(bState);
 }
 
 // @baa 0x016fac10
@@ -1413,7 +1413,7 @@ void ARPlayerController::execSetDLCLoadingFlag(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bDLC);
 	P_FINISH;
-	vf_674(bDLC);
+	SetDLCLoadingFlag(bDLC);
 }
 
 extern FName g_026e2c4c;

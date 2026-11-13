@@ -48,7 +48,7 @@ void ARSmashableProp__016ff670::execGetHasSubParts( FFrame& Stack, RESULT_DECL )
 void ARSmashableProp::execBreakProp(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	vf_35c();
+	BreakProp();
 }
 
 // @baa 0x016ff6b0

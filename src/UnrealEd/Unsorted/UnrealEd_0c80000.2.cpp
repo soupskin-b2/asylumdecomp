@@ -8,7 +8,7 @@
 void AActor::execFindBase(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	this->vf_124();
+	this->FindBase();
 }
 
 struct AActor_ : public AActor
@@ -28,7 +28,7 @@ void AActor_::execFlushPersistentDebugLines( FFrame& Stack, RESULT_DECL )
 void AActor::execGetTerminalVelocity(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(FLOAT*)Result = vf_11c();
+	*(FLOAT*)Result = GetTerminalVelocity();
 }
 
 // @baa 0x00c81610
@@ -189,7 +189,7 @@ void AActor::execSetExtraStasis(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(NewValue);
 	P_FINISH;
-	vf_110(NewValue);
+	SetExtraStasis(NewValue);
 }
 
 // @baa 0x00c81510

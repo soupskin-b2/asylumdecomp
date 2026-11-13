@@ -560,13 +560,13 @@ bool ARPawn::vf_004()
 int ARPawnCombat::vf_000(void) { return 1; }
 
 // @baa 0x0166d4b0
-UINT ARPawn::vf_48c()
+UBOOL ARPawn::IsIncapacitated()
 {
     return (FLOAT)Health <= 0.0f || bPendingDelete || bDeleteMe;
 }
 
 // @baa 0x0166d5f0
-undefined4 ARPawnCombat::vf_624(void)
+UBOOL ARPawnCombat::IsUsingCombatPoint()
 {
     int param_1 = (int)this;
 
@@ -579,7 +579,7 @@ undefined4 ARPawnCombat::vf_624(void)
 }
 
 // @baa 0x0166d620
-uint ARPawnCombat::vf_628(void)
+UBOOL ARPawnCombat::IsLunatic()
 {
     int param_1 = (int)this;
 
@@ -588,7 +588,7 @@ uint ARPawnCombat::vf_628(void)
 
 int sub_015b19d0(...);
 // @baa 0x0166d6c0
-void ARPawn::vf_490(void)
+void ARPawn::TeleportPhysics()
 {
     int param_1 = (int)this;
 
@@ -608,7 +608,7 @@ uint ARPawnCombat::sub_0166d710(void)
 int ARPawnCharacter::vf_000(void) { return 1; }
 
 // @baa 0x0166d910
-void ARPawnCharacter::vf_4ac(void) {  }
+void ARPawnCharacter::ModifyPoseNode() {  }
 
 // @baa 0x0166dd50
 void ARPawnCharacter::ChangeIdleStanceWithoutTransition(FName Stance)
@@ -625,13 +625,13 @@ void ARPawnCharacter_::sub_0166f640(AActor* Actor, FName Description, FName Acto
 {
     if (Anim)
     {
-        vf_4ac();
+        ModifyPoseNode();
         Anim->vf_210(Actor, Description, ActorBoneName, bAllowTurningToAim);
     }
 }
 
 // @baa 0x0166fd70
-DOUBLE ARPawnCharacter::vf_608() {
+FLOAT ARPawnCharacter::GetMoveToPhaseTime() {
     int param_1 = (int)this;
 
   if (*(int *)(param_1 + 0x440) != 0) {
@@ -849,7 +849,7 @@ struct C_Anim1e0
 };
 
 // @baa 0x0166ee20
-INT ARPawnCharacter::vf_52c()
+UBOOL ARPawnCharacter::IsPoseMirrored()
 {
     if (Anim == NULL)
         return 0;
@@ -1022,7 +1022,7 @@ struct C_Anim280
 };
 
 // @baa 0x0166f3d0
-INT ARPawnCharacter::vf_570()
+UBOOL ARPawnCharacter::IsPlayingAnyOverlay()
 {
     if (Anim == NULL)
         return 0;
@@ -1209,7 +1209,7 @@ struct C_Anim2b8
 };
 
 // @baa 0x0166fcd0
-INT ARPawnCharacter::vf_5f4()
+UBOOL ARPawnCharacter::IsFalling()
 {
     if (Anim == NULL)
         return 0;
@@ -1397,7 +1397,7 @@ struct C_Anim2bc
 };
 
 // @baa 0x0166fcf0
-INT ARPawnCharacter::vf_5f8()
+UBOOL ARPawnCharacter::IsFallingOrLanding()
 {
     if (Anim == NULL)
         return 0;
@@ -1897,7 +1897,7 @@ struct C_Anim1e4
 };
 
 // @baa 0x0166ee40
-INT ARPawnCharacter::vf_530()
+UBOOL ARPawnCharacter::IsInWeaponTransition()
 {
     if (Anim == NULL)
         return 0;
@@ -1931,7 +1931,7 @@ void ARPawnCharacter::vf_238()
 
 // @baa 0x0166ee60
 /* ARPawnCharacter slot 0x534 (kit vf_534): forwards to the pose node (URAnimNode_Pose slot 0x284); FALSE without one. */
-INT ARPawnCharacter::vf_534(INT A)
+UBOOL ARPawnCharacter::IsInAnyTransition(BYTE A)
 {
     if (!Anim)
     {
@@ -1942,7 +1942,7 @@ INT ARPawnCharacter::vf_534(INT A)
 
 // @baa 0x0166eea0
 /* ARPawnCharacter slot 0x53c (kit vf_53c): forwards to the pose node (URAnimNode_Pose slot 0x28c); FALSE without one. */
-INT ARPawnCharacter::vf_53c(INT A)
+UBOOL ARPawnCharacter::IsInAnyNonAutomaticTransition(BYTE A)
 {
     if (!Anim)
     {
@@ -2152,7 +2152,7 @@ UBOOL ARPawnCharacter::IsInTransition(FTransitionId Id, BYTE Fuzziness)
 
 // @baa 0x0166fd50
 /* Slot 0x604 (unnamed in the kit): the phase of the current movement cycle. */
-BYTE ARPawnCharacter::vf_604()
+BYTE ARPawnCharacter::GetMoveToPhase()
 {
 	if (Anim)
 	{

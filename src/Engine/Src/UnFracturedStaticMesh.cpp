@@ -244,7 +244,7 @@ int sub_007a7260(void) { return (int)g_01f258d0; }
 int sub_007a7290(void) { return 0; }
 
 // @baa 0x007a72f0
-void AFracturedStaticMeshPart::vf_384(int a0, int a1, int a2, int a3, int a4, int a5, int a6, int a7, int a8, int a9) {  }
+void AFracturedStaticMeshPart::BreakOffPartsInRadius(FVector Origin, FLOAT Radius, FLOAT RBStrength, UBOOL bWantPhysChunksAndParticles, UBOOL bAllowDamagedEventFiring, FVector BlastOriginOffset) {  }
 
 struct C_007b1240 {
     undefined4 * sub_007b1240(byte);
@@ -1138,7 +1138,7 @@ void UFracturedBaseComponent::vf_294(int param_2, int param_3)
 }
 
 // @baa 0x007ce040
-undefined4 UFracturedStaticMeshComponent::vf_2b0(void)
+INT UFracturedStaticMeshComponent::GetCoreFragmentIndex()
 {
     int param_1 = (int)this;
 

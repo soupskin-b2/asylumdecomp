@@ -10,49 +10,49 @@ void URFlagManager::execGetObjectFlag(FFrame& Stack, RESULT_DECL)
     P_GET_OBJECT(UObject, Obj);
     P_GET_NAME(FlagName);
     P_FINISH;
-    *(UBOOL*)Result = vf_110((INT)Obj, FlagName.Index, FlagName.Number);
+    *(UBOOL*)Result = GetObjectFlag(Obj, FlagName);
 }
 
 // @baa 0x0150b720
 void ARPlayerControllerBase::execFlushPressedKeys( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_46c();
+	FlushPressedKeys();
 }
 
 // @baa 0x0150b760
 void ARPlayerControllerBase::execQuickSave( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_470();
+	QuickSave();
 }
 
 // @baa 0x0150b7a0
 void ARPlayerControllerBase::execToggleMute( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_474();
+	ToggleMute();
 }
 
 // @baa 0x0150b7e0
 void ARPlayerControllerBase::execGPU( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_478();
+	GPU();
 }
 
 // @baa 0x0150b820
 void ARPlayerControllerBase::execToggleGfx( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_47c();
+	ToggleGfx();
 }
 
 // @baa 0x0150b880
 void ARHUDBase::execClearWarningsAndErrors( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_354();
+	ClearWarningsAndErrors();
 }
 
 // @baa 0x0150b8c0
@@ -62,112 +62,112 @@ void ARHUDBase::execDisplayWarningsAndErrors(FFrame& Stack, RESULT_DECL)
     P_GET_UBOOL(Outline);
     P_GET_INT(Max);
     P_FINISH;
-    vf_358(ShowDuplicates, Outline, Max);
+    DisplayWarningsAndErrors(ShowDuplicates, Outline, Max);
 }
 
 // @baa 0x0150bc40
 void ARGameInfoBase::execCacheLevelList( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_398();
+	CacheLevelList();
 }
 
 // @baa 0x0150bd30
 void ARDebugMenu::execDoDebugMenu( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_354();
+	DoDebugMenu();
 }
 
 // @baa 0x0150bd70
 void ARDebugMenu::execDoFPSMenu( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_358();
+	DoFPSMenu();
 }
 
 // @baa 0x0150bdb0
 void ARDebugMenu::execDoSoundMenu( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_35c();
+	DoSoundMenu();
 }
 
 // @baa 0x0150bdf0
 void ARDebugMenu::execDoProfileAndMemoryMenu( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_360();
+	DoProfileAndMemoryMenu();
 }
 
 // @baa 0x0150be30
 void ARDebugMenu::execDoRenderingMenu( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_364();
+	DoRenderingMenu();
 }
 
 // @baa 0x0150be70
 void ARDebugMenu::execDoBrightnessMenu( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_368();
+	DoBrightnessMenu();
 }
 
 // @baa 0x0150beb0
 void ARDebugMenu::execDoViewModeMenu( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_36c();
+	DoViewModeMenu();
 }
 
 // @baa 0x0150bef0
 void ARDebugMenu::execDoFlagsMenu( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_370();
+	DoFlagsMenu();
 }
 
 // @baa 0x0150bf30
 void ARDebugMenu::execDoFrameRateLimitingSetting( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_374();
+	DoFrameRateLimitingSetting();
 }
 
 // @baa 0x0150bf70
 void ARDebugMenu::execDoSecuROMMenu( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_378();
+	DoSecuROMMenu();
 }
 
 // @baa 0x0150c0a0
 void ARDebugMenu::execStopMusic( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_394();
+	StopMusic();
 }
 
 // @baa 0x0150c880
 void URFlagManager::execInitialise( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_10c();
+	Initialise();
 }
 
 // @baa 0x0150cce0
 void URFlockComponent::execPostBeginPlay( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_14c();
+	PostBeginPlay();
 }
 
 // @baa 0x0150cdf0
 void ARRainVolumeBase::execShrinkSplashPoints( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_36c();
+	ShrinkSplashPoints();
 }
 
 // @baa 0x0150c4d0
@@ -183,21 +183,21 @@ void URReachSpec::execAddBlocker(FFrame& Stack, RESULT_DECL)
 void ARGameInfoBase::execGetEngine(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UEngine**)Result = (UEngine*)vf_37c();
+	*(UEngine**)Result = (UEngine*)GetEngine();
 }
 
 // @baa 0x0150bc00
 void ARGIChallenge::execGetChapterNumber(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(INT*)Result = vf_388();
+	*(INT*)Result = GetChapterNumber();
 }
 
 // @baa 0x0150bc80
 void ARGameInfoBase::execDebugSoundEmitters(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_3a8();
+	*(UBOOL*)Result = DebugSoundEmitters();
 }
 
 // @baa 0x0150b9a0
@@ -205,7 +205,7 @@ void ARHUDBase::execDebugAssetSupport(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(Mode);
 	P_FINISH;
-	vf_35c(Mode);
+	DebugAssetSupport(Mode);
 }
 
 // @baa 0x0150c540
@@ -221,7 +221,7 @@ void ARRainVolumeBase::execSetSplashPoints(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(Index);
 	P_FINISH;
-	vf_370(Index);
+	SetSplashPoints(Index);
 }
 
 // @baa 0x0150c030
@@ -229,7 +229,7 @@ void ARDebugMenu::execGetDecibelValue(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(Value);
 	P_FINISH;
-	*(INT*)Result = vf_38c(Value);
+	*(INT*)Result = GetDecibelValue(Value);
 }
 
 // @baa 0x0150bb00
@@ -271,7 +271,7 @@ void ARPathNode::execGetTimeSinceLastSighting(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(Index);
 	P_FINISH;
-	*(FLOAT*)Result = vf_3b8(Index);
+	*(FLOAT*)Result = GetTimeSinceLastSighting(Index);
 }
 
 // @baa 0x0150bfb0
@@ -279,7 +279,7 @@ void ARDebugMenu::execForcePause(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(Pause);
 	P_FINISH;
-	vf_384(Pause);
+	ForcePause(Pause);
 }
 
 // @baa 0x0150cd20
@@ -297,7 +297,7 @@ void ARGameInfoBase::execGetFreeMB(FFrame& Stack, RESULT_DECL)
     P_GET_UBOOL_OPTX(bFreeGPU, 0);
     P_FINISH;
 
-    *(INT*)Result = vf_384(bFreeGPU);
+    *(INT*)Result = GetFreeMB(bFreeGPU);
 }
 
 // @baa 0x0150cad0

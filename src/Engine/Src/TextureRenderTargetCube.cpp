@@ -10,7 +10,7 @@ int UTextureRenderTargetCube::vf_000(void) { return 1; }
 int UTextureRenderTargetCube::GetMaterialType(void) { return 32; }
 
 // @baa 0x007613a0
-DOUBLE UTextureRenderTargetCube::vf_10c() {
+FLOAT UTextureRenderTargetCube::GetSurfaceWidth() {
     int param_1 = (int)this;
 
   return (float10)*(int *)(param_1 + 0xb4);

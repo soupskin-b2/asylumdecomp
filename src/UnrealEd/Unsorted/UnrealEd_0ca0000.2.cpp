@@ -8,56 +8,56 @@
 void AFracturedStaticMeshActor::execResetVisibility( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_390();
+	ResetVisibility();
 }
 
 // @baa 0x00ca02c0
 void AFracturedStaticMeshPart::execInitialize( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_394();
+	Initialize();
 }
 
 // @baa 0x00ca0480
 void AFractureManager::execCreateFSMParts( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_364();
+	CreateFSMParts();
 }
 
 // @baa 0x00ca04c0
 void AFractureManager::execResetPoolVisibility( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_368();
+	ResetPoolVisibility();
 }
 
 // @baa 0x00ca0380
 void AFractureManager::execGetNumFSMPartsScale(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(FLOAT*)Result = vf_354();
+	*(FLOAT*)Result = GetNumFSMPartsScale();
 }
 
 // @baa 0x00ca03c0
 void AFractureManager::execGetFSMDirectSpawnChanceScale(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(FLOAT*)Result = vf_358();
+	*(FLOAT*)Result = GetFSMDirectSpawnChanceScale();
 }
 
 // @baa 0x00ca0400
 void AFractureManager::execGetFSMRadialSpawnChanceScale(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(FLOAT*)Result = vf_35c();
+	*(FLOAT*)Result = GetFSMRadialSpawnChanceScale();
 }
 
 // @baa 0x00ca0440
 void AFractureManager::execGetFSMFractureCullDistanceScale(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(FLOAT*)Result = vf_360();
+	*(FLOAT*)Result = GetFSMFractureCullDistanceScale();
 }
 
 // @baa 0x00ca0300
@@ -65,5 +65,5 @@ void AFracturedStaticMeshPart::execRecyclePart(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bAddToFreePool);
 	P_FINISH;
-	vf_398(bAddToFreePool);
+	RecyclePart(bAddToFreePool);
 }

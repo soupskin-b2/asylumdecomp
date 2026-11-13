@@ -8,14 +8,14 @@
 void UTextureMovie::execPlay( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_130();
+	Play();
 }
 
 // @baa 0x00c8f760
 void UTextureMovie::execPause( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_134();
+	Pause();
 }
 
 // @baa 0x00c8f7a0

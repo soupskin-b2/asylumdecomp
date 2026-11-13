@@ -8,77 +8,77 @@
 void ARGameInfo::execUpdateMusic( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_3c4();
+	UpdateMusic();
 }
 
 // @baa 0x016e89c0
 void ARGameRI::execUnloadAllLevels( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_35c();
+	UnloadAllLevels();
 }
 
 // @baa 0x016e8a00
 void ARGameRI::execUnloadNextLevel( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_360();
+	UnloadNextLevel();
 }
 
 // @baa 0x016e91e0
 void ARGameRI::execDumpFpsChart( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_3b0();
+	DumpFpsChart();
 }
 
 // @baa 0x016e9a60
 void ARJokerTannoy::execCancelBarkSetLoading( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_35c();
+	CancelBarkSetLoading();
 }
 
 // @baa 0x016e9ad0
 void ARPawnSpawnObject::execSpawnPawn( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_354();
+	SpawnPawn();
 }
 
 // @baa 0x016e9cf0
 void ARPontoonBase::execEditorInitPontoonMeshes( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_35c();
+	EditorInitPontoonMeshes();
 }
 
 // @baa 0x016e9e60
 void ARPontoonBase::execUpdatePontoonForces( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_36c();
+	UpdatePontoonForces();
 }
 
 // @baa 0x016e9f00
 void ARChatterBoxBase::execSetBoxCollision( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_354();
+	SetBoxCollision();
 }
 
 // @baa 0x016e9f70
 void ARCinematicActor::execTeleport( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_354();
+	Teleport();
 }
 
 // @baa 0x016ea110
 void ARCinematicActor::execInternalFinishAnimControl( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_360();
+	InternalFinishAnimControl();
 }
 
 // @baa 0x016ea200
@@ -99,140 +99,140 @@ void ARCinematicBatmanBase::execLoadDamageMeshes(FFrame& Stack, RESULT_DECL)
 void ARElectrifiedFloorPanel::execIntialise( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_358();
+	Intialise();
 }
 
 // @baa 0x016ea340
 void ARElectrifiedFloorPanel::execUpdateShockedCharactersEffect( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_35c();
+	UpdateShockedCharactersEffect();
 }
 
 // @baa 0x016ea380
 void ARElectrifiedFloorPanel::execCheckForPawnsOnTile( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_360();
+	CheckForPawnsOnTile();
 }
 
 // @baa 0x016ea3c0
 void ARElectrifiedFloorPanel::execUpdatePawnsOnTile( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_364();
+	UpdatePawnsOnTile();
 }
 
 // @baa 0x016eadb0
 void URHUDPrompt::execResetLines( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_114();
+	ResetLines();
 }
 
 // @baa 0x016eadf0
 void URHUDPrompt::execDrawHUD( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_118();
+	DrawHUD();
 }
 
 // @baa 0x016eb280
 void URSeqAct_ActivateElectrifiedFloorPanels::execGetPlateDistances( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_1a0();
+	GetPlateDistances();
 }
 
 // @baa 0x016eb2c0
 void URSeqAct_ActivateElectrifiedFloorPanels::execGetClosestCurrent( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_1a4();
+	GetClosestCurrent();
 }
 
 // @baa 0x016eb460
 void URSeqAct_FullScreenPlayer::execPlayMovie( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_1a0();
+	PlayMovie();
 }
 
 // @baa 0x016eb4a0
 void URSeqAct_FullScreenPlayer::execStopMovie( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_1a4();
+	StopMovie();
 }
 
 // @baa 0x016ebc40
 void URWeaponConfig::execShrink( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_10c();
+	Shrink();
 }
 
 // @baa 0x016e85b0
 void ARGameInfo::execGetPC(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(ARPlayerController**)Result = (ARPlayerController*)vf_3b0();
+	*(ARPlayerController**)Result = (ARPlayerController*)GetPC();
 }
 
 // @baa 0x016e85f0
 void ARGameInfo::execSecuROMProtectionCheck1(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_3b4();
+	*(UBOOL*)Result = SecuROMProtectionCheck1();
 }
 
 // @baa 0x016e8630
 void ARGameInfo::execSecuROMProtectionCheck2(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_3b8();
+	*(UBOOL*)Result = SecuROMProtectionCheck2();
 }
 
 // @baa 0x016e8670
 void ARGameInfo::execSecuROMProtectionCheck3(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(INT*)Result = vf_3bc();
+	*(INT*)Result = SecuROMProtectionCheck3();
 }
 
 // @baa 0x016e90e0
 void ARGameRI::execIsGlobalLockActive(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_3a4();
+	*(UBOOL*)Result = IsGlobalLockActive();
 }
 
 // @baa 0x016e9120
 void ARGameRI::execIsBatmanInCombat(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_3a8();
+	*(UBOOL*)Result = IsBatmanInCombat();
 }
 
 // @baa 0x016e9220
 void ARGameRI::execGetSkeletalMeshLODScale(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(FLOAT*)Result = vf_3b4();
+	*(FLOAT*)Result = GetSkeletalMeshLODScale();
 }
 
 // @baa 0x016e93a0
 void ARBMWeapon::execCanBeSeenByBatsForXray(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_358();
+	*(UBOOL*)Result = CanBeSeenByBatsForXray();
 }
 
 // @baa 0x016e9970
 void ARFadeManager::execGetVolume(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(FLOAT*)Result = vf_358();
+	*(FLOAT*)Result = GetVolume();
 }
 
 typedef UBOOL (__thiscall* FSlot)(void*);
@@ -255,7 +255,7 @@ void ARJokerTannoy::execInitBarkSet(FFrame& Stack, RESULT_DECL)
 void ARPontoonBase::execAnimationPlaying(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_364();
+	*(UBOOL*)Result = AnimationPlaying();
 }
 
 // @baa 0x016eb4e0
@@ -276,7 +276,7 @@ void URSeqAct_FullScreenPlayer::execIsPaused(FFrame& Stack, RESULT_DECL)
 void URSeqAct_FullScreenPlayer::execCheckForFinish(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_1b0();
+	*(UBOOL*)Result = CheckForFinish();
 }
 
 // @baa 0x016ea290
@@ -284,7 +284,7 @@ void ARElectrifiedFloorPanel::execSetState(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_BYTE(NewState);
 	P_FINISH;
-	vf_354(*(INT*)&NewState);
+	SetState(*(INT*)&NewState);
 }
 
 // @baa 0x016ebd70
@@ -292,7 +292,7 @@ void URAnimNode_AnimCapture::execCapture(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(USkeletalMeshComponent, Mesh);
 	P_FINISH;
-	vf_19c(Mesh);
+	Capture(Mesh);
 }
 
 // @baa 0x016efd20
@@ -308,7 +308,7 @@ void ARGameInfo::execUpdateGlobalWind(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(DeltaTime);
 	P_FINISH;
-	vf_3cc(DeltaTime);
+	UpdateGlobalWind(DeltaTime);
 }
 
 // @baa 0x016e9260
@@ -316,7 +316,7 @@ void ARGameRI::execSetSkeletalMeshLODScale(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(Value);
 	P_FINISH;
-	vf_3b8(Value);
+	SetSkeletalMeshLODScale(Value);
 }
 
 // @baa 0x016e9330
@@ -324,7 +324,7 @@ void ARBMWeapon::execUpdateXrayVisibility(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(DeltaTime);
 	P_FINISH;
-	vf_354(DeltaTime);
+	UpdateXrayVisibility(DeltaTime);
 }
 
 // @baa 0x016e95a0
@@ -332,7 +332,7 @@ void ARCreeperVineBase::execStartAttack(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(DelayDuration);
 	P_FINISH;
-	vf_354(DelayDuration);
+	StartAttack(DelayDuration);
 }
 
 // @baa 0x016e9610
@@ -340,7 +340,7 @@ void ARCreeperVineBase::execTick(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(DeltaSeconds);
 	P_FINISH;
-	vf_358(DeltaSeconds);
+	Tick(DeltaSeconds);
 }
 
 // @baa 0x016e9900
@@ -348,7 +348,7 @@ void ARFadeManager::execSetVolume(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(Vol);
 	P_FINISH;
-	vf_354(Vol);
+	SetVolume(Vol);
 }
 
 // @baa 0x016e9df0
@@ -356,7 +356,7 @@ void ARPontoonBase::execTick(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(DeltaTime);
 	P_FINISH;
-	vf_368(DeltaTime);
+	Tick(DeltaTime);
 }
 
 // @baa 0x016eb300
@@ -364,7 +364,7 @@ void URSeqAct_ActivateElectrifiedFloorPanels::execNativeUpdate(FFrame& Stack, RE
 {
 	P_GET_FLOAT(DeltaTime);
 	P_FINISH;
-	*(UBOOL*)Result = vf_1a8(DeltaTime);
+	*(UBOOL*)Result = NativeUpdate(DeltaTime);
 }
 
 // @baa 0x016e8f00
@@ -424,7 +424,7 @@ void ARCrowdManager::execGetNumAgentsInFlock(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(FlockID);
 	P_FINISH;
-	*(INT*)Result = vf_354(FlockID);
+	*(INT*)Result = GetNumAgentsInFlock(FlockID);
 }
 
 // @baa 0x016e9070
@@ -432,7 +432,7 @@ void ARGameRI::execGetLevelForObject(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(UObject, Obj);
 	P_FINISH;
-	*(ULevelStreaming**)Result = (ULevelStreaming*)vf_3a0((INT)Obj);
+	*(ULevelStreaming**)Result = GetLevelForObject(Obj);
 }
 
 // @baa 0x016e9160
@@ -440,7 +440,7 @@ void ARGameRI::execSetCombatFlag(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bNewValue);
 	P_FINISH;
-	vf_3ac(bNewValue);
+	SetCombatFlag(bNewValue);
 }
 
 // @baa 0x016e8c00

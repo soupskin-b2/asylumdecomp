@@ -16,5 +16,5 @@ extern FLOAT g_0234cf68;
 FLOAT C_0165d110::sub_0165d110()
 {
     URRopeComponent* Owner = sub_0165cf60();
-    return Owner->vf_254() * g_0234cf68;
+    return Owner->GetMinRopeLength() * g_0234cf68;
 }

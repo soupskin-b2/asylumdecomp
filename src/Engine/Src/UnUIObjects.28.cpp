@@ -6,7 +6,7 @@
 
 // @baa 0x00db0b50
 /* Re-evaluates bSupportsNavigation and, when it changes, notifies the game's scene client. */
-INT UUIScene::vf_120()
+UBOOL UUIScene::RebuildNavigationLinks()
 {
 	const UBOOL bOldSupportsNavigation = bSupportsNavigation;
 	bSupportsNavigation = this->sub_00db03a0();

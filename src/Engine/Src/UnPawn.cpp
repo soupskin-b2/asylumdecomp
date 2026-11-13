@@ -652,7 +652,7 @@ bool APawn::vf_004()
 }
 
 // @baa 0x00865050
-undefined4 APawn::vf_160(void)
+UBOOL APawn::IsPlayerPawn()
 {
     int param_1 = (int)this;
 
@@ -664,10 +664,10 @@ undefined4 APawn::vf_160(void)
 }
 
 // @baa 0x008650f0
-int APawn::vf_368(void) { return 0; }
+UBOOL APawn::IsInvisible() { return 0; }
 
 // @baa 0x00865100
-undefined4 APawn::vf_354(void)
+UBOOL APawn::IsAliveAndWell()
 {
     int param_1 = (int)this;
 
@@ -1182,7 +1182,7 @@ void APawn::IncrementPathChild(INT a0, UCanvas* a1) {  }
 void APawn::DrawPathStep(class UCanvas* a0) {  }
 
 // @baa 0x008a6870
-void APawn::vf_3b8(void) {  }
+void APawn::ClearPathStep() {  }
 
 // APawn slot 0x358 (vtable 214): AdjustDestination. Returns a zero vector.
 struct APawn_ : public APawn {
@@ -1231,7 +1231,7 @@ void C_00867a50::sub_00867a50(INT)
 
 // @baa 0x00867e90
 // AActor::GetTerminalVelocity (vtable slot 0x11c)
-FLOAT AActor::vf_11c()
+FLOAT AActor::GetTerminalVelocity()
 {
     return PhysicsVolume ? PhysicsVolume->TerminalVelocity : ((APhysicsVolume*)APhysicsVolume::StaticClass()->GetDefaultObject())->TerminalVelocity;
 }
@@ -1504,7 +1504,7 @@ static FORCEINLINE FVector MakeVector(FLOAT X, FLOAT Y, FLOAT Z)
 
 // @baa 0x00867c30
 /* APawn slot 0x398 (kit vf_398): UE3's APawn::GetPawnViewLocation(): Location + FVector(0,0,1) * BaseEyeHeight. */
-FVector APawn::vf_398()
+FVector APawn::GetPawnViewLocation()
 {
     const FVector EyeOffset = MakeVector(0.f * BaseEyeHeight, 0.f * BaseEyeHeight, 1.f * BaseEyeHeight);
     return MakeVector(Location.X + EyeOffset.X, Location.Y + EyeOffset.Y, Location.Z + EyeOffset.Z);

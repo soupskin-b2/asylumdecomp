@@ -39,21 +39,21 @@ void UAnimNodeSequence::execGetNormalizedPosition(FFrame& Stack, RESULT_DECL)
 void UAnimNodeSequence::execGetGlobalPlayRate(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(FLOAT*)Result = vf_190();
+	*(FLOAT*)Result = GetGlobalPlayRate();
 }
 
 // @baa 0x00c90950
 void UAnimNodeSequence::execGetAnimPlaybackLength(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(FLOAT*)Result = vf_194();
+	*(FLOAT*)Result = GetAnimPlaybackLength();
 }
 
 // @baa 0x00c90990
 void UAnimNodeSequence::execGetTimeLeft(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(FLOAT*)Result = vf_198();
+	*(FLOAT*)Result = GetTimeLeft();
 }
 
 // @baa 0x00c90740

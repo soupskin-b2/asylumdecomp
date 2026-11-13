@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x01610150
-bool ARBMRouteRequest::vf_354(void)
+UBOOL ARBMRouteRequest::AtGoal()
 {
     int param_1 = (int)this;
 
@@ -12,7 +12,7 @@ bool ARBMRouteRequest::vf_354(void)
 }
 
 // @baa 0x01610220
-bool ARBMRouteRequest::vf_35c(void)
+UBOOL ARBMRouteRequest::PathNotFound()
 {
     int param_1 = (int)this;
 
@@ -20,7 +20,7 @@ bool ARBMRouteRequest::vf_35c(void)
 }
 
 // @baa 0x01610260
-UINT ARBMRouteRequest::vf_360()
+UBOOL ARBMRouteRequest::Searching()
 {
     int param_1 = (int)this;
 
@@ -31,7 +31,7 @@ UINT ARBMRouteRequest::vf_360()
 }
 
 // @baa 0x016102b0
-undefined4 ARBMRouteRequest::vf_364(void)
+UBOOL ARBMRouteRequest::Routing()
 {
     int param_1 = (int)this;
   if ((*(char *)(param_1 + 0x1bc) != '\x02') && (*(char *)(param_1 + 0x1bc) != '\x03')) {
@@ -41,7 +41,7 @@ undefined4 ARBMRouteRequest::vf_364(void)
 }
 
 // @baa 0x01610330
-bool ARBMRouter::vf_39c(void)
+UBOOL ARBMRouter::IsInSpecialMove()
 {
     int param_1 = (int)this;
 
@@ -174,7 +174,7 @@ void sub_01612d20(void) {  }
 void URSeqAct_SpeechEventManagerBase::DeActivated() {  }
 
 // @baa 0x01612d40
-void URSeqAct_SpeechEventManagerBase::vf_1a0(void)
+void URSeqAct_SpeechEventManagerBase::CueFinished()
 {
     int param_1 = (int)this;
 
@@ -183,7 +183,7 @@ void URSeqAct_SpeechEventManagerBase::vf_1a0(void)
 }
 
 // @baa 0x01612d50
-void URSeqAct_SpeechEventManagerBase::vf_1a4(void)
+void URSeqAct_SpeechEventManagerBase::CueAborted()
 {
     int param_1 = (int)this;
 

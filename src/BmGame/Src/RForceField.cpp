@@ -77,7 +77,7 @@ bool URForceFieldConfigFactoryNew::vf_004()
 }
 
 // @baa 0x01719560
-UBOOL URForceField::vf_10c() { return *(INT*)((BYTE*)this+0x40) != 0; }
+UBOOL URForceField::GetIsInitialised() { return *(INT*)((BYTE*)this+0x40) != 0; }
 
 extern TCHAR g_023c78b4[];
 struct URForceField_ : public URForceField {
@@ -87,7 +87,7 @@ struct URForceField_ : public URForceField {
 // @baa 0x01719570
 void URForceField_::sub_01719570()
 {
-    if (vf_10c()) {
+    if (GetIsInitialised()) {
         appFailAssert("!GetIsInitialised()",
             "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RForceField.cpp",
             0x18, g_023c78b4);

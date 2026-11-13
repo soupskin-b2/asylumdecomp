@@ -185,7 +185,7 @@ bool URBMRouterPath::vf_004()
 }
 
 // @baa 0x01610600
-int URBMRouterPath::vf_120(int a0) { return 0; }
+UBOOL URBMRouterPath::MustGoToNode(INT a0) { return 0; }
 
 // @baa 0x01610e70
 
@@ -246,12 +246,12 @@ int ARBMRouteRequest_PerimeterBuilderWrapper::vf_000(void) { return 1; }
 void sub_01611580(void) {  }
 
 // @baa 0x01611590
-int ARBMRouteRequest_PerimeterBuilderWrapper::vf_368(void) { return 0; }
+UBOOL ARBMRouteRequest_PerimeterBuilderWrapper::HasPath() { return 0; }
 
 // @baa 0x016115f0
 
 // @baa 0x016166a0
-int URBMRouterPath::vf_114(void) { return *(int*)((char*)this + 52); }
+INT URBMRouterPath::GetNodeNum() { return *(int*)((char*)this + 52); }
 
 struct C_016226d0 {
     void sub_016226d0();

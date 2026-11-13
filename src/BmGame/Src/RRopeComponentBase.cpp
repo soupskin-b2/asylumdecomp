@@ -45,7 +45,7 @@ void URRopeComponentBase::sub_0163f4a0(undefined1 param_2)
 }
 
 // @baa 0x0163f4f0
-DOUBLE URRopeComponentBase::vf_254() {
+FLOAT URRopeComponentBase::GetMinRopeLength() {
   return (float10)0;
 }
 

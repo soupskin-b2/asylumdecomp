@@ -30,7 +30,7 @@ void UMeshComponent::execGetMaterial(FFrame& Stack, RESULT_DECL)
 void UMeshComponent::execGetNumElements( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	*(INT*)Result = vf_258();
+	*(INT*)Result = GetNumElements();
 }
 
 struct UMeshComponent_ : public UMeshComponent

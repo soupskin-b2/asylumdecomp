@@ -8,7 +8,7 @@
 void USurface::execGetSurfaceWidth( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	*(FLOAT*)Result = vf_10c();
+	*(FLOAT*)Result = GetSurfaceWidth();
 }
 
 // @baa 0x00716bf0

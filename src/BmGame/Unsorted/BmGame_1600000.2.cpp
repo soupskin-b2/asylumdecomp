@@ -18,7 +18,7 @@ FVector ARBMRouter_NoPawn_::sub_0160f290()
 }
 
 // @baa 0x0160f230
-FVector ARBMRouter_DynamicObject::vf_354()
+FVector ARBMRouter_DynamicObject::GetPos()
 {
     return HostPawn->Location;
 }

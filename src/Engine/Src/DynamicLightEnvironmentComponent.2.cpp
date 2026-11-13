@@ -8,7 +8,7 @@
 void UDynamicLightEnvironmentComponent::execResetEnvironment( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_150();
+	ResetEnvironment();
 }
 
 #define INVALID_OBJECT ((UObject*)-1)

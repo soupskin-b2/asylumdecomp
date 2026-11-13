@@ -1321,7 +1321,7 @@ extern char g_01eeb23c[];
 int sub_00718030(void) { return (int)g_01eeb23c; }
 
 // @baa 0x00718040
-DOUBLE UTexture2DComposite::vf_10c() {
+FLOAT UTexture2DComposite::GetSurfaceWidth() {
   return (float10)1;
 }
 

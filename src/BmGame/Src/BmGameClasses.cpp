@@ -653,7 +653,7 @@ struct C_Movie_24
 extern C_Movie_24* g_026dfcbc;
 extern DWORD g_022f0fa4;
 // @baa 0x01556980
-INT URSeqAct_FullScreenPlayer::vf_1b0()
+UBOOL URSeqAct_FullScreenPlayer::CheckForFinish()
 {
     return g_026dfcbc->vf24(&g_022f0fa4);
 }

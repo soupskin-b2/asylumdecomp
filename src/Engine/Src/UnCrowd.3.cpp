@@ -16,7 +16,7 @@ void USeqAct_CrowdSpawner::Activated()
     if (InputLinks(0).bHasImpulse)
     {
         bSpawningActive = TRUE;
-        vf_1a0();
+        CacheSpawnerVars();
 
         if (bReduceNumInSplitScreen && GEngine->GamePlayers.Num() > 1 && !bHasReducedNumberDueToSplitScreen)
         {
@@ -29,7 +29,7 @@ void USeqAct_CrowdSpawner::Activated()
     }
     else if (InputLinks(2).bHasImpulse)
     {
-        vf_1a4();
+        KillAgents();
         bSpawningActive = FALSE;
     }
 }

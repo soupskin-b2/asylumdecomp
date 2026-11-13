@@ -86,7 +86,7 @@ void UObjectThunk::sub_007a1d30()
 void __stdcall sub_007a1d60(int a0, int a1, int a2, int a3) {  }
 
 // @baa 0x007a1e70
-int APlayerController::vf_43c(int a0, int a1) { return 0; }
+USoundCue* APlayerController::CreateTTSSoundCue(const FString& a0, APlayerReplicationInfo* a1) { return 0; }
 
 // @baa 0x007ab8f0
 IMPLEMENT_CLASS_AT(UCheatManager, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnController.cpp", 20);

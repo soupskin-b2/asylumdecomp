@@ -8,7 +8,7 @@
 void USoundNodeRandom::execPickNextNodeInAdvance( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_144();
+	PickNextNodeInAdvance();
 }
 
 // Classes.h declares vf_10c as returning void, but the game's function returns FLOAT.

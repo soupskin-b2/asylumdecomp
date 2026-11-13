@@ -42,7 +42,7 @@ void C_006aa980::sub_006aa980(void) { *(int*)((char*)this + 1824) = 1; }
 void UDynamicLightEnvironmentComponent::vf_14c(int a0) {  }
 
 // @baa 0x006aa9a0
-void UDynamicLightEnvironmentComponent::vf_150(void)
+void UDynamicLightEnvironmentComponent::ResetEnvironment()
 {
     int param_1 = (int)this;
 

@@ -859,7 +859,7 @@ bool URCharacterRandom::vf_004()
 
 int sub_0166d4b0(void);
 // @baa 0x015dd070
-undefined4 ARPawnVillain::vf_48c(void)
+UBOOL ARPawnVillain::IsIncapacitated()
 {
     int param_1 = (int)this;
 
@@ -899,10 +899,10 @@ int URBMBehaviour_CombatStunStick::vf_000(void) { return 1; }
 int URBMBehaviour_Venom::vf_000(void) { return 1; }
 
 // @baa 0x015dd340
-int ARBMCombatManager::vf_378(void) { return *(int*)((char*)this + 772); }
+INT ARBMCombatManager::GetNumCombatants() { return *(int*)((char*)this + 772); }
 
 // @baa 0x015dd350
-undefined4 ARBMCombatManager::vf_384(void)
+UBOOL ARBMCombatManager::IsDeepInCombat()
 {
     int param_1 = (int)this;
   if ((2 < *(int *)(param_1 + 0x304)) && (12.0 < *(float *)(param_1 + 0x310))) {
@@ -934,7 +934,7 @@ bool URBMExitCondition::vf_004()
 int URBMExitConditionCombiner::vf_000(void) { return 1; }
 
 // @baa 0x015dedd0
-undefined4 URBMExitCondition::vf_1a0(void)
+UBOOL URBMExitCondition::ShouldShowExitConditionDebug()
 {
     int param_1 = (int)this;
 

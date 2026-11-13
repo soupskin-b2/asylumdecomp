@@ -460,7 +460,7 @@ bool ARGrappleBlockingVolume::vf_004()
 }
 
 // @baa 0x0163a590
-int ARGrappleGun::vf_358(void) { return 0; }
+ARGrapplePoint* ARGrappleGun::FindGrapplePointNoAim() { return 0; }
 
 int sub_016cf150(void);
 int sub_016e3a30(...);

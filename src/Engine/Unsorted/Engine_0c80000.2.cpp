@@ -34,7 +34,7 @@ void AController_::execFinishRotation( FFrame& Stack, RESULT_DECL )
 void AController::execEndClimbLadder( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_370();
+	EndClimbLadder();
 }
 
 struct AController__00c851d0 : public AController
@@ -80,7 +80,7 @@ void ADroppedPickup__00c87880::execRemoveFromNavigation( FFrame& Stack, RESULT_D
 void AInterpActor::execSetShadowParentOnAllAttachedComponents( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_354();
+	SetShadowParentOnAllAttachedComponents();
 }
 
 // @baa 0x00c88fb0
@@ -185,7 +185,7 @@ void UTexture2DComposite__00c8f5c0::execResetSourceRegions( FFrame& Stack, RESUL
 void ACrowdAgent::execPlayDeath( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_354();
+	PlayDeath();
 }
 
 // @baa 0x00c8ff00
@@ -223,7 +223,7 @@ void APortalTeleporter::execCreatePortalTexture(FFrame& Stack, RESULT_DECL)
 void UReachSpec::execIsOneWay(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_110();
+	*(UBOOL*)Result = IsOneWay();
 }
 
 // @baa 0x00c8c4b0
@@ -237,7 +237,7 @@ void UCameraModifier::execIsDisabled(FFrame& Stack, RESULT_DECL)
 void UFont::execGetMaxCharHeight(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(FLOAT*)Result = vf_118();
+	*(FLOAT*)Result = GetMaxCharHeight();
 }
 
 struct AActor_ : public AActor
@@ -733,7 +733,7 @@ void ACoverSlotMarker::execSetSlotEnabled(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bEnable);
 	P_FINISH;
-	vf_3b8(bEnable);
+	SetSlotEnabled(bEnable);
 }
 
 // @baa 0x00c8fbe0
@@ -741,7 +741,7 @@ void ULensFlareComponent::execSetIsActive(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bInIsActive);
 	P_FINISH;
-	vf_254(bInIsActive);
+	SetIsActive(bInIsActive);
 }
 
 // @baa 0x00c8ca00
@@ -749,7 +749,7 @@ void UFont::execGetResolutionPageIndex(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(HeightTest);
 	P_FINISH;
-	*(INT*)Result = vf_10c(HeightTest);
+	*(INT*)Result = GetResolutionPageIndex(HeightTest);
 }
 
 // @baa 0x00c8ca70
@@ -757,7 +757,7 @@ void UFont::execGetScalingFactor(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(HeightTest);
 	P_FINISH;
-	*(FLOAT*)Result = vf_110(HeightTest);
+	*(FLOAT*)Result = GetScalingFactor(HeightTest);
 }
 
 // @baa 0x00c8cae0
@@ -765,7 +765,7 @@ void UFont::execGetAuthoredViewportHeight(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(ViewportHeight);
 	P_FINISH;
-	*(FLOAT*)Result = vf_114(ViewportHeight);
+	*(FLOAT*)Result = GetAuthoredViewportHeight(ViewportHeight);
 }
 
 // @baa 0x00c8cbc0
@@ -773,7 +773,7 @@ void UMultiFont::execGetResolutionTestTableIndex(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(HeightTest);
 	P_FINISH;
-	*(INT*)Result = vf_124(HeightTest);
+	*(INT*)Result = GetResolutionTestTableIndex(HeightTest);
 }
 
 // @baa 0x00c8f2f0
@@ -781,7 +781,7 @@ void UMaterialInterface::execSetForceMipLevelsToBeResident(FFrame& Stack, RESULT
 {
 	P_GET_FLOAT(ForceDuration);
 	P_FINISH;
-	vf_12c(ForceDuration);
+	SetForceMipLevelsToBeResident(ForceDuration);
 }
 
 struct UCameraAnimInst__00c8c210 : public UCameraAnimInst

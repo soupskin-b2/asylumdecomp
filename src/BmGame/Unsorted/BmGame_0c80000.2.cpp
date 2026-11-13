@@ -34,7 +34,7 @@ void AActor__00c834a0::execIsInPersistentLevel( FFrame& Stack, RESULT_DECL )
 void AController::execRouteCache_Empty( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_358();
+	RouteCache_Empty();
 }
 
 struct APlayerController_ : public APlayerController
@@ -54,7 +54,7 @@ void APlayerController_::execAllowConsole( FFrame& Stack, RESULT_DECL )
 void APlayerController::execCleanUpAudioComponents( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_418();
+	CleanUpAudioComponents();
 }
 
 struct APlayerController__00c872f0 : public APlayerController
@@ -87,21 +87,21 @@ void APlayerController__00c87630::execClientFlushLevelStreaming( FFrame& Stack, 
 void AActor::execIsPlayerOwned(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_140();
+	*(UBOOL*)Result = IsPlayerOwned();
 }
 
 // @baa 0x00c83fa0
 void APlayerController::execIsLocalPlayerController(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_354();
+	*(UBOOL*)Result = IsLocalPlayerController();
 }
 
 // @baa 0x00c87080
 void APlayerController::execIsKeyboardAvailable(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_430();
+	*(UBOOL*)Result = IsKeyboardAvailable();
 }
 
 // @baa 0x00c82f90
@@ -122,21 +122,21 @@ void ATeamInfo::execGetTeamNum(FFrame& Stack, RESULT_DECL)
 void APlayerController::execIsMouseAvailable(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_434();
+	*(UBOOL*)Result = IsMouseAvailable();
 }
 
 // @baa 0x00c87430
 void APlayerController::execGetViewTarget(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(AActor**)Result = (AActor*)vf_3b8();
+	*(AActor**)Result = (AActor*)GetViewTarget();
 }
 
 // @baa 0x00c877d0
 void APlayerController::execIsShowingSubtitles(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_448();
+	*(UBOOL*)Result = IsShowingSubtitles();
 }
 
 // @baa 0x00c86c40
@@ -173,7 +173,7 @@ void AController::execRouteCache_AddItem(FFrame& Stack, RESULT_DECL)
 {
     P_GET_OBJECT(ANavigationPoint, Nav);
     P_FINISH;
-    vf_35c(Nav);
+    RouteCache_AddItem(Nav);
 }
 
 struct APlayerController__00c86d20 : public APlayerController
@@ -220,7 +220,7 @@ void AAnimatedCamera::execStopAllCameraAnims(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL_OPTX(bImmediate, 0);
 	P_FINISH;
-	vf_36c(bImmediate);
+	StopAllCameraAnims(bImmediate);
 }
 
 struct APlayerController__00c87660 : public APlayerController
@@ -250,7 +250,7 @@ void APlayerController::execSetAllowMatureLanguage(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bAllowMatureLanguge);
 	P_FINISH;
-	vf_414(bAllowMatureLanguge);
+	SetAllowMatureLanguage(bAllowMatureLanguge);
 }
 
 // @baa 0x00c86f80
@@ -258,7 +258,7 @@ void APlayerController::execSetOnlyUseControllerTiltInput(FFrame& Stack, RESULT_
 {
 	P_GET_UBOOL(bActive);
 	P_FINISH;
-	vf_428(bActive);
+	SetOnlyUseControllerTiltInput(bActive);
 }
 
 // @baa 0x00c87000
@@ -266,7 +266,7 @@ void APlayerController::execSetUseTiltForwardAndBack(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bActive);
 	P_FINISH;
-	vf_42c(bActive);
+	SetUseTiltForwardAndBack(bActive);
 }
 
 // @baa 0x00c87750
@@ -274,7 +274,7 @@ void APlayerController::execSetShowSubtitles(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bValue);
 	P_FINISH;
-	vf_444(bValue);
+	SetShowSubtitles(bValue);
 }
 
 // vf_134 (vtable slot 0x134) is AActor::GetDestination. The header declares it

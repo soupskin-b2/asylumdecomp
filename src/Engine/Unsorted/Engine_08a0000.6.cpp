@@ -347,7 +347,7 @@ void AActor::execSetHardAttach(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL_OPTX(bNewHardAttach, bHardAttach);
 	P_FINISH;
-	vf_19c(bNewHardAttach);
+	SetHardAttach(bNewHardAttach);
 }
 
 /* Kit gap: FStateFrame stops at ProbeMask; UE3's next member is the latent action (WORD LatentAction at 0x34). */

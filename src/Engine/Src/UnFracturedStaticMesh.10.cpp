@@ -94,7 +94,7 @@ INT UFracturedBaseComponent::vf_290(INT ElementIndex, INT FragmentIndex, INT Int
 
 // @baa 0x007b8ac0
 /* UFracturedBaseComponent slot 0x284 (kit vf_284): UE3's GetNumVisibleFragments. */
-INT UFracturedBaseComponent::vf_284()
+INT UFracturedBaseComponent::GetNumVisibleFragments()
 {
     INT NumVisible = 0;
     for (INT i = 0; i < VisibleFragments.Num(); i++)

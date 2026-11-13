@@ -209,7 +209,7 @@ struct VM {
 };
 
 // @baa 0x016d7e60
-int URGFxMovieFrontend::vf_17c()
+INT URGFxMovieFrontend::SendSaveInfoToFlash()
 {
     {
         S_016d7e60 s(L"_root.StaticData.Profile0");

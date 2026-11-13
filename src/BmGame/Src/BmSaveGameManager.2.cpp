@@ -8,14 +8,14 @@
 void URSaveGameManager::execInitialise(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	vf_10c();
+	Initialise();
 }
 
 // @baa 0x0170a670
 void URSaveGameManager::execJoinSaveBuffers(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	vf_118();
+	JoinSaveBuffers();
 }
 
 typedef UBOOL (__thiscall* FSlot)(void*);

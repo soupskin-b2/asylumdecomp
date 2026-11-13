@@ -1452,8 +1452,8 @@ bool USeqAct_CrowdSpawner::vf_004()
 }
 
 // @baa 0x00c9a330
-/* USeqAct_CrowdSpawner slot 0x1a8 (kit vf_1a8): just runs UpdateOp(DeltaTime). */
-INT USeqAct_CrowdSpawner::vf_1a8(FLOAT DeltaTime)
+/* just runs UpdateOp(DeltaTime) */
+void USeqAct_CrowdSpawner::UpdateSpawning(FLOAT DeltaTime)
 {
-    return UpdateOp(DeltaTime);
+    UpdateOp(DeltaTime);
 }

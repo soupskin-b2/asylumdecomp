@@ -105,7 +105,7 @@ void use_it(UTextureCube_ *T, int A)
 }
 
 // @baa 0x00760fb0
-DOUBLE UTextureCube::vf_10c() {
+FLOAT UTextureCube::GetSurfaceWidth() {
     int param_1 = (int)this;
 
   return (float10)*(int *)(param_1 + 0xb0);

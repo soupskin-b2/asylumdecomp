@@ -68,7 +68,7 @@ class URBMRouterPath* ARBMRouter::BuildPathTo(FVector Dest, class ANavigationPoi
 
 // @baa 0x01621e50
 /* Slot 0x124 (unnamed in the kit): drops the first Count nodes of the path. */
-void URBMRouterPath::vf_124(INT Count)
+void URBMRouterPath::AdvanceNodes(INT Count)
 {
 	if (Count <= PathNodes.Num())
 	{
@@ -91,7 +91,7 @@ template<class T> struct TArrayAt_ : public TArray<T>
 
 // @baa 0x0161bb50
 /* Slot 0x11c (unnamed in the kit): whether path node Index is an RPathNode (FALSE for an index out of range). */
-INT URBMRouterPath::vf_11c(INT Index)
+UBOOL URBMRouterPath::IsRPathNode(INT Index)
 {
 	if (Index >= 0 && Index < PathNodes.Num())
 	{

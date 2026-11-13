@@ -222,7 +222,7 @@ struct C_view {
 };
 
 // @baa 0x00cc1200
-void USoundNodeRandom::vf_144(void)
+void USoundNodeRandom::PickNextNodeInAdvance()
 {
     int param_1 = (int)this;
   undefined4 uVar1;

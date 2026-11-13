@@ -39,15 +39,13 @@ USkelControlBase* UAnimTree_::FindSkelControl(FName InControlName)
 	return NULL;
 }
 
-/* UAnimNodeAimOffset::SetActiveProfileByIndex (vtable 0x1a0, declared only as a vf_). */
 struct UAnimNodeAimOffset_ : public UAnimNodeAimOffset
 {
 	void sub_00c62170();				/* UpdateListOfRequiredBones */
-	void SetActiveProfileByIndex(INT ProfileIndex);
 };
 
 // @baa 0x00c627e0
-void UAnimNodeAimOffset_::SetActiveProfileByIndex(INT ProfileIndex)
+void UAnimNodeAimOffset::SetActiveProfileByIndex(INT ProfileIndex)
 {
 	// a node made from a template uses the template's profiles
 	if (TemplateNode)
@@ -66,7 +64,7 @@ void UAnimNodeAimOffset_::SetActiveProfileByIndex(INT ProfileIndex)
 	}
 
 	CurrentProfileIndex = ProfileIndex;
-	sub_00c62170();
+	((UAnimNodeAimOffset_*)this)->sub_00c62170();
 }
 
 /* Callees Classes.h doesn't declare by name. */

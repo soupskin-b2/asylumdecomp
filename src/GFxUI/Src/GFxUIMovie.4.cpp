@@ -9,7 +9,7 @@
 void UGFxMovie::execRefreshDataStoreBindings( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_124();
+	RefreshDataStoreBindings();
 }
 
 // @baa 0x00e41ff0
@@ -62,7 +62,7 @@ void UGFxMovie::execPause(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL_OPTX(pauseplay, 1);
 	P_FINISH;
-	vf_118(pauseplay);
+	Pause(pauseplay);
 }
 
 // @baa 0x00e41e40

@@ -17,7 +17,7 @@ void AController::vf_180(void)
 }
 
 // @baa 0x007a0320
-int AController::vf_354(void) { return 0; }
+UBOOL AController::IsLocalPlayerController() { return 0; }
 
 // @baa 0x007a0390
 int AController::vf_3a4(void) { return 0; }
@@ -55,7 +55,7 @@ void ADroppedPickup::sub_007a06f0(void)
 }
 
 // @baa 0x007a0c40
-void AController::vf_36c(int a0, int a1, int a2, int a3, int a4) {  }
+void AController::SetAdjustLocation(FVector NewLoc, UBOOL bAdjust, UBOOL bOffsetFromBase) {  }
 
 // @baa 0x007a0da0
 bool AController::sub_007a0da0(uint param_2)
@@ -78,7 +78,7 @@ void AController::sub_007a0ec0(void)
 int __stdcall sub_007a0f00(int a0, int a1, int a2, int a3, int a4, int a5) { return 0; }
 
 // @baa 0x007a12c0
-int AController::vf_3b8(void)
+AActor* AController::GetViewTarget()
 {
     int param_1 = (int)this;
 
@@ -88,7 +88,7 @@ int AController::vf_3b8(void)
   if (*(int *)(param_1 + 0x1a8) == 0) {
     iVar1 = param_1;
   }
-  return iVar1;
+  return (AActor*)iVar1;
 }
 
 // @baa 0x007a14f0
@@ -99,30 +99,30 @@ UInterpTrackInstDirector* APlayerController::sub_007a1500() { return *(UInterpTr
 
 extern undefined4 g_026c3cdc;
 // @baa 0x007a1f40
-INT APlayerController::vf_448() {
+UBOOL APlayerController::IsShowingSubtitles() {
   return *(uint *)(g_026c3cdc + 0x1e4) >> 5 & 1;
 }
 
 // @baa 0x007a1f80
-int APlayerController::vf_41c(void) { return 0; }
+UBOOL APlayerController::IsControllerTiltActive() { return 0; }
 
 // @baa 0x007a1f90
-void APlayerController::vf_420(int a0) {  }
+void APlayerController::SetControllerTiltDesiredIfAvailable(UBOOL a0) {  }
 
 // @baa 0x007a1fa0
-void APlayerController::vf_424(int a0) {  }
+void APlayerController::SetControllerTiltActive(UBOOL a0) {  }
 
 // @baa 0x007a1fb0
-void APlayerController::vf_428(int a0) {  }
+void APlayerController::SetOnlyUseControllerTiltInput(UBOOL a0) {  }
 
 // @baa 0x007a1fc0
-void APlayerController::vf_42c(int a0) {  }
+void APlayerController::SetUseTiltForwardAndBack(UBOOL a0) {  }
 
 // @baa 0x007a1fd0
-int APlayerController::vf_430(void) { return 1; }
+UBOOL APlayerController::IsKeyboardAvailable() { return 1; }
 
 // @baa 0x007a1fe0
-int APlayerController::vf_434(void) { return 1; }
+UBOOL APlayerController::IsMouseAvailable() { return 1; }
 
 // @baa 0x007a2020
 undefined1 ATeamInfo::GetTeamNum(void)

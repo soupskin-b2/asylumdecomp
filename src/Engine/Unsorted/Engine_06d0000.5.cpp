@@ -17,7 +17,7 @@ void UPrimitiveComponent::execSetShadowParent(FFrame& Stack, RESULT_DECL)
 	P_GET_OBJECT(UPrimitiveComponent, NewShadowParent);
 	P_FINISH;
 
-	vf_234(NewShadowParent);
+	SetShadowParent(NewShadowParent);
 }
 
 // @baa 0x006dbf60
@@ -33,7 +33,7 @@ void UPrimitiveComponent::execSetLightingChannels(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT(FLightingChannelContainer, NewLightingChannels);
 	P_FINISH;
-	vf_240(*(UINT*)&NewLightingChannels);
+	SetLightingChannels(NewLightingChannels);
 }
 
 // @baa 0x006dc000
@@ -41,7 +41,7 @@ void UPrimitiveComponent::execSetCullDistance(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(NewCullDistance);
 	P_FINISH;
-	vf_23c(NewCullDistance);
+	SetCullDistance(NewCullDistance);
 }
 
 // @baa 0x006dc740
@@ -49,7 +49,7 @@ void USkeletalMeshComponent::execGetPhysicalMaterial(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(BodyIndex);
 	P_FINISH;
-	*(UPhysicalMaterial**)Result = (UPhysicalMaterial*)vf_1ec(BodyIndex);
+	*(UPhysicalMaterial**)Result = (UPhysicalMaterial*)GetPhysicalMaterial(BodyIndex);
 }
 
 // @baa 0x006db8f0
@@ -109,7 +109,7 @@ void UPrimitiveComponent::execSetXrayNoSee(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bXrayNoSee);
 	P_FINISH;
-	vf_228(bXrayNoSee);
+	SetXrayNoSee(bXrayNoSee);
 }
 
 // @baa 0x006dbd20
@@ -117,7 +117,7 @@ void UPrimitiveComponent::execSetOnlyXraySee(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bOnlyXraySee);
 	P_FINISH;
-	vf_22c(bOnlyXraySee);
+	SetOnlyXraySee(bOnlyXraySee);
 }
 
 // @baa 0x006dbdd0

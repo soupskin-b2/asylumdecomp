@@ -2053,7 +2053,7 @@ IMPLEMENT_CLASS_AT(UMeshComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngin
 int sub_00630f20(...);
 extern undefined4 g_026667a8;
 // @baa 0x00689540
-undefined4 UMeshComponent::vf_258(void) {
+INT UMeshComponent::GetNumElements() {
   sub_00630f20(g_026667a8,L"Pure virtual not implemented (%s)",L"UMeshComponent::GetNumElements");
   return 0;
 }
@@ -2560,7 +2560,7 @@ IMPLEMENT_CLASS_AT(AActor, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Deve
 APawn* AActor::GetPlayerPawn() { return 0; }
 
 // @baa 0x0068ea80
-UINT AActor::vf_160() { return 0; }
+UBOOL AActor::IsPlayerPawn() { return 0; }
 
 int sub_005c7a30(void);
 // @baa 0x0068ea90

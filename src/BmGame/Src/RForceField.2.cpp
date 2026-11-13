@@ -8,19 +8,19 @@
 void URForceField::execGetIsInitialised(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_10c();
+	*(UBOOL*)Result = GetIsInitialised();
 }
 
 // @baa 0x017030e0
 void URForceField::execInitialise(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	vf_110();
+	Initialise();
 }
 
 // @baa 0x01703120
 void URForceField::execFinalise(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	vf_114();
+	Finalise();
 }

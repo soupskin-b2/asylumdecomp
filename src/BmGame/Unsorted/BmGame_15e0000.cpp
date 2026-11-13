@@ -1441,23 +1441,23 @@ void sub_015e3410(undefined4 param_1, undefined4 param_2, undefined4 param_3)
 
 int sub_01586200(...);
 // @baa 0x015e6150
-undefined4 ARBMAIController::vf_448(void)
+ARBMAIManager* ARBMAIController::GetAIManager()
 {
     int param_1 = (int)this;
 
   int iVar1;
   
   iVar1 = sub_01586200(*(undefined4 *)(*(int *)(param_1 + 0xb0) + 0x35c));
-  return *(undefined4 *)(iVar1 + 0x3d0);
+  return *(ARBMAIManager**)(iVar1 + 0x3d0);
 }
 
 ARGameInfo* sub_01586200(UObject* Src);
 ARPlayerControllerCombat* sub_015e3450(UObject* Src);
 // @baa 0x015e6260
-INT ARBMCombatManager::vf_354()
+ARPlayerControllerCombat* ARBMCombatManager::GetPlayerController()
 {
     if (sub_01586200(WorldInfo->Game))
-        return (INT)sub_015e3450((UObject*)sub_01586200(WorldInfo->Game)->vf_3b0());
+        return sub_015e3450((UObject*)sub_01586200(WorldInfo->Game)->GetPC());
     return 0;
 }
 

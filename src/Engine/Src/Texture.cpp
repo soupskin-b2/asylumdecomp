@@ -31,7 +31,7 @@ FLOAT UTexture::vf_12c() {
 }
 
 // @baa 0x0071ef60
-DOUBLE UTexture::vf_10c() {
+FLOAT UTexture::GetSurfaceWidth() {
   return (float10)0;
 }
 

@@ -22,7 +22,7 @@ struct URSimpleRopeComponent_ : public URSimpleRopeComponent
 };
 
 // @baa 0x01685d20
-void URSimpleRopeComponent::vf_250()
+void URSimpleRopeComponent::UpdateRope()
 {
     URSimpleRopeComponent_* Self = (URSimpleRopeComponent_*)this;
     Self->sub_0164fb40();
@@ -36,7 +36,7 @@ struct URSimpleRopeComponent_2 : public URSimpleRopeComponent
 };
 
 // @baa 0x01685d70
-void URSimpleRopeComponent::vf_25c()
+void URSimpleRopeComponent::FinaliseRope()
 {
     URSimpleRopeComponent_2* Self = (URSimpleRopeComponent_2*)this;
     if (Self->sub_0163f500() != 0)

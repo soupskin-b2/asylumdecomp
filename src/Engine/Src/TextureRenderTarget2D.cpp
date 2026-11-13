@@ -45,7 +45,7 @@ void UTextureRenderTarget2D::PostLoad(void)
 IMPLEMENT_CLASS_AT(UTextureRenderTarget2D, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\TextureRenderTarget2D.cpp", 12);
 
 // @baa 0x00761310
-DOUBLE UTextureRenderTarget2D::vf_10c() {
+FLOAT UTextureRenderTarget2D::GetSurfaceWidth() {
     int param_1 = (int)this;
 
   return (float10)*(int *)(param_1 + 0xb4);

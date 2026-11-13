@@ -27,14 +27,14 @@ void URGFxMovie::execGetPicture(FFrame& Stack, RESULT_DECL)
 void URGFxMovieFrontend::execSendSaveInfoToFlash(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(INT*)Result = vf_17c();
+	*(INT*)Result = SendSaveInfoToFlash();
 }
 
 // @baa 0x0170b6c0
 void URGFxMovieFrontend::execGetVersionNumber(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(INT*)Result = vf_180();
+	*(INT*)Result = GetVersionNumber();
 }
 
 // @baa 0x0170b3d0

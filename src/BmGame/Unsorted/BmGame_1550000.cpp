@@ -1021,7 +1021,7 @@ void UObjectThunk_01556ac0::sub_01556ac0()
 
 extern undefined4 g_0266e85c;
 // @baa 0x01556b50
-bool ARFadeManager::vf_35c(void) {
+UBOOL ARFadeManager::IsCapturingMovie() {
   return g_0266e85c != 0;
 }
 
@@ -1465,7 +1465,7 @@ struct V_01557590 {
 void V_01557590::sub_01557590(int a0) { g(a0); }
 
 // @baa 0x01557da0
-void ARPontoonBase::vf_35c(void) {  }
+void ARPontoonBase::EditorInitPontoonMeshes() {  }
 
 // @baa 0x01557dd0
 uint ARBMWeaponStunStickBase::sub_01557dd0(void)
@@ -1477,18 +1477,18 @@ uint ARBMWeaponStunStickBase::sub_01557dd0(void)
 
 extern float g_025db4c4;
 // @baa 0x01557f50
-float ARGameRI::vf_3b4(void) {
+FLOAT ARGameRI::GetSkeletalMeshLODScale() {
     return g_025db4c4;
 }
 
 // @baa 0x01558300
-int ARGameInfo::vf_3b4(void) { return 1; }
+UBOOL ARGameInfo::SecuROMProtectionCheck1() { return 1; }
 
 // @baa 0x01558310
-int ARGameInfo::vf_3b8(void) { return 0; }
+UBOOL ARGameInfo::SecuROMProtectionCheck2() { return 0; }
 
 // @baa 0x01558320
-int ARGameInfo::vf_3bc(void) { return 2; }
+INT ARGameInfo::SecuROMProtectionCheck3() { return 2; }
 
 // @baa 0x01558340
 int sub_01558340(int a0, int a1) { return a1; }
@@ -3047,7 +3047,7 @@ int sub_0155e420(int a0) { return a0; }
 
 int sub_009109d0(...);
 // @baa 0x0155ff40
-uint ARLevelTransitionDoorBunkerNativeBase::vf_388(void)
+UBOOL ARLevelTransitionDoorBunkerNativeBase::DoorIsAnimating()
 {
     int param_1 = (int)this;
 

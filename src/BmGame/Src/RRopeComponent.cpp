@@ -19,7 +19,7 @@ bool URRopeEditorRenderingComponent::vf_004()
 }
 
 // @baa 0x0163f010
-DOUBLE URRopeComponent::vf_254() {
+FLOAT URRopeComponent::GetMinRopeLength() {
     int param_1 = (int)this;
 
   return (float10)*(float *)(param_1 + 0x288) + (float10)*(float *)(param_1 + 500);

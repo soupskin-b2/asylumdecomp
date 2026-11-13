@@ -690,7 +690,7 @@ int UUIDataStorePublisher::vf_000(void) { return 1; }
 void sub_00d904c0(void) {  }
 
 // @baa 0x00d90550
-void UUIDataStore::vf_140(void) {  }
+void UUIDataStore::OnCommit() {  }
 
 // @baa 0x00d90560
 int sub_00d90560(void) { return 0; }

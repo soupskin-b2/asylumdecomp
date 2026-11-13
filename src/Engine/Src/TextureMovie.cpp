@@ -200,7 +200,7 @@ int UTextureMovie::sub_00755b50(void)
 INT UTextureMovie::GetMaterialType() { return 16; }
 
 // @baa 0x007610e0
-DOUBLE UTextureMovie::vf_10c() {
+FLOAT UTextureMovie::GetSurfaceWidth() {
     int param_1 = (int)this;
 
   return (float10)*(int *)(param_1 + 0xb0);

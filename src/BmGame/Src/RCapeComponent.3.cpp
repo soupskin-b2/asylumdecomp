@@ -123,14 +123,14 @@ void URCapeComponent__01702e40::execGetIsCinematicMode( FFrame& Stack, RESULT_DE
 void URCapeComponent::execOnTeleport(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	vf_14c();
+	OnTeleport();
 }
 
 // @baa 0x01702b20
 void URCapeComponent::execDoubleFrameTeleport(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	vf_150();
+	DoubleFrameTeleport();
 }
 
 struct URCapeComponent__01702750 : public URCapeComponent

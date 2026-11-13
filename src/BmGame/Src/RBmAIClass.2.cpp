@@ -274,7 +274,7 @@ UBOOL ARBMAIController::IsRunningBehaviour(URBMBehaviour* TestBehaviour)
 
 // @baa 0x015dc010
 /* ARBMAIController slot 0x45c (kit vf_45c): the pawn is in stasis and its slot 0x178 holds. */
-INT ARBMAIController::vf_45c()
+UBOOL ARBMAIController::PawnInStasis()
 {
     return Pawn && Pawn->bStasis && Pawn->vf_178();
 }
@@ -306,7 +306,7 @@ template<class T> struct TArrayAt_ : public TArray<T>
 
 // @baa 0x015ec050
 /* Slot 0x408 (unnamed in the kit): behaviour Index of the list, or NULL past its end. */
-URBMBehaviour* ARBMAIController::vf_408(INT Index)
+URBMBehaviour* ARBMAIController::GetBehaviour(INT Index)
 {
 	if (BehaviourList.Num() > Index)
 	{

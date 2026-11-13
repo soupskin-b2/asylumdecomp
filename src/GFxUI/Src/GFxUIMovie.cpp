@@ -640,7 +640,7 @@ bool UGFxMovieInfo::vf_004()
 }
 
 // @baa 0x00e44fc0
-void UGFxMovie::vf_118(int param_2)
+void UGFxMovie::Pause(UBOOL param_2)
 {
     int param_1 = (int)this;
 

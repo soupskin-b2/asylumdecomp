@@ -20,11 +20,11 @@ void UAnimNodeSequence::BeginDestroy()
 // @baa 0x00c4afa0
 /* UAnimNodeSequence slot 0x194 (kit vf_194, UE3 GetAnimPlaybackLength()): the sequence length at the current global
  * play rate (vf_190, UE3 GetGlobalPlayRate()). */
-FLOAT UAnimNodeSequence::vf_194()
+FLOAT UAnimNodeSequence::GetAnimPlaybackLength()
 {
     if (AnimSeq)
     {
-        const FLOAT Rate = vf_190();
+        const FLOAT Rate = GetGlobalPlayRate();
         if (Rate != 0.f)
         {
             return AnimSeq->SequenceLength / Rate;

@@ -1540,7 +1540,7 @@ undefined4 UTexture2DDynamic::sub_00754ec0(void)
 }
 
 // @baa 0x00754f20
-DOUBLE UTexture2DDynamic::vf_10c() {
+FLOAT UTexture2DDynamic::GetSurfaceWidth() {
     int param_1 = (int)this;
 
   return (float10)*(int *)(param_1 + 0xb0);

@@ -8,7 +8,7 @@
 void UUIScreenObject::execInitializePlayerTracking( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_114();
+	InitializePlayerTracking();
 }
 
 // @baa 0x00ca39b0
@@ -305,14 +305,14 @@ void UUIScene::execGetWorldInfo(FFrame& Stack, RESULT_DECL)
 void UUIScreenObject::execRebuildNavigationLinks(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_120();
+	*(UBOOL*)Result = RebuildNavigationLinks();
 }
 
 // @baa 0x00da9a70
 void UUIScene::execGetScenePostProcessGroup(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(BYTE*)Result = vf_1f8();
+	*(BYTE*)Result = GetScenePostProcessGroup();
 }
 
 // @baa 0x00da8d90
@@ -458,7 +458,7 @@ void UUIScreenObject::execIsHoldingCtrl(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(ControllerId);
 	P_FINISH;
-	*(UBOOL*)Result = vf_128(ControllerId);
+	*(UBOOL*)Result = IsHoldingCtrl(ControllerId);
 }
 
 // @baa 0x00ca3e80
@@ -466,7 +466,7 @@ void UUIScreenObject::execIsHoldingAlt(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(ControllerId);
 	P_FINISH;
-	*(UBOOL*)Result = vf_12c(ControllerId);
+	*(UBOOL*)Result = IsHoldingAlt(ControllerId);
 }
 
 // @baa 0x00ca3ef0
@@ -474,7 +474,7 @@ void UUIScreenObject::execIsHoldingShift(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(ControllerId);
 	P_FINISH;
-	*(UBOOL*)Result = vf_130(ControllerId);
+	*(UBOOL*)Result = IsHoldingShift(ControllerId);
 }
 
 struct UUIScreenObject__00ca31d0 : public UUIScreenObject
@@ -1144,7 +1144,7 @@ void UUIScreenObject__00ca4f10::execGetInverseCanvasToScreen(FFrame& Stack, RESU
 INT UUIScene::AnimGetCurrentPPSettings(INT OutSettings)
 {
 	INT Result = 0;
-	switch (vf_1f8())
+	switch (GetScenePostProcessGroup())
 	{
 	case 1:
 		*(FPostProcessSettings**)(UINT)OutSettings = &CurrentBackgroundSettings;
@@ -1408,7 +1408,7 @@ void UUIObject::execSetActiveCursorUpdate(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bShouldReceiveCursorUpdates);
 	P_FINISH;
-	vf_204(bShouldReceiveCursorUpdates);
+	SetActiveCursorUpdate(bShouldReceiveCursorUpdates);
 }
 
 struct UUIScene__00cb3f40 : public UUIScene

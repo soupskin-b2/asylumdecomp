@@ -92,7 +92,7 @@ struct FName_ : public FName
 
 // @baa 0x0155ab10
 /* Slot 0x3a4 (unnamed in the kit): whether the global door lock applies to the current level. */
-INT ARGameRI::vf_3a4()
+UBOOL ARGameRI::IsGlobalLockActive()
 {
 	if (GlobalDoorLock)
 	{
@@ -113,7 +113,7 @@ struct FName__0155a410 : public FName
 
 // @baa 0x0155a410
 /* Slot 0x368 (unnamed in the kit): whether this transition has two distinct levels to stream between. */
-INT ARLevelTransition::vf_368()
+UBOOL ARLevelTransition::DoesLevelStreaming()
 {
 	return !bDisabledStreaming && !DisableAllStreaming && !(LevelInFront == LevelBehind)
 		&& LevelInFront != NAME_None && LevelBehind != NAME_None;
@@ -127,7 +127,7 @@ struct FName__0155ff60 : public FName
 
 // @baa 0x0155ff60
 /* Slot 0x368 (unnamed in the kit): a transition into other persistent levels only needs one side to be set. */
-INT ARLevelTransitionP::vf_368()
+UBOOL ARLevelTransitionP::DoesLevelStreaming()
 {
 	if (PersistentLevelNames.Num() > 0)
 	{
@@ -137,7 +137,7 @@ INT ARLevelTransitionP::vf_368()
 		}
 		return LevelInFront != NAME_None || LevelBehind != NAME_None;
 	}
-	return Super::vf_368();
+	return Super::DoesLevelStreaming();
 }
 
 struct C_WS_a8f0

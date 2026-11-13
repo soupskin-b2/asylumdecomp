@@ -24,7 +24,7 @@ bool URBMBehaviour::vf_004()
 }
 
 // @baa 0x015dea10
-undefined4 URBMBehaviour::vf_1a0(void)
+UBOOL URBMBehaviour::ShouldShowBehaviourDebug()
 {
     int param_1 = (int)this;
 
@@ -54,7 +54,7 @@ void URBMBehaviour::vf_158(void)
 }
 
 // @baa 0x015deba0
-undefined4 URBMBehaviour::vf_1a4(void)
+UBOOL URBMBehaviour::HasState()
 {
     int param_1 = (int)this;
 
@@ -84,7 +84,7 @@ void URBMBehaviour::sub_015debe0(undefined4 param_2, float * param_3)
 }
 
 // @baa 0x015dec20
-void URBMBehaviour::vf_1ac(UINT param_2)
+void URBMBehaviour::SleepFrame(INT param_2)
 {
     int param_1 = (int)this;
 

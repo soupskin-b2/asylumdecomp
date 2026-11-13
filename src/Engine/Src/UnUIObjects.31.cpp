@@ -195,7 +195,7 @@ INT UUIObject::vf_1fc(INT LeftTarget, INT TopTarget, INT RightTarget, INT Bottom
     {
         if (NavigationTargets.sub_00ddee10(LeftTarget, TopTarget, RightTarget, BottomTarget))
         {
-            vf_164(FALSE, FALSE, TRUE, FALSE);
+            RequestSceneUpdate(FALSE, FALSE, TRUE, FALSE);
         }
     }
     return TRUE;
@@ -244,7 +244,7 @@ INT UUIObject::vf_200(INT LeftTarget, INT TopTarget, INT RightTarget, INT Bottom
         vf_018(FALSE);
         if (NavigationTargets.sub_00ddeeb0(LeftTarget, TopTarget, RightTarget, BottomTarget))
         {
-            vf_164(FALSE, FALSE, TRUE, FALSE);
+            RequestSceneUpdate(FALSE, FALSE, TRUE, FALSE);
         }
         bResult = TRUE;
     }
@@ -267,11 +267,11 @@ void UUIScene::sub_00da9df0(BYTE NewInputMode)
 // @baa 0x00db0850
 /* UUIScene slot 0x10c (kit vf_10c): UUIScreenObject's version, then request a scene input mask update and a position
  * update (slot 0x164). */
-void UUIScene::vf_10c(INT Arg1, INT Arg2)
+void UUIScene::CreatePlayerData(INT Arg1, ULocalPlayer* Arg2)
 {
-    UUIScreenObject::vf_10c(Arg1, Arg2);
+    UUIScreenObject::CreatePlayerData(Arg1, Arg2);
     RequestSceneInputMaskUpdate();
-    vf_164(FALSE, TRUE, TRUE, FALSE);
+    RequestSceneUpdate(FALSE, TRUE, TRUE, FALSE);
 }
 
 /* Unnamed in the kit: whether any of the scene's pending-update requests (the first seven bUpdate/bRefresh/bRecalculate
@@ -289,25 +289,24 @@ UBOOL UUIScene_::sub_00da9d70()
 }
 
 // @baa 0x00dacf60
-/* UUIScene slot 0x1f8 (kit vf_1f8, UE3 GetPostProcessGroup()): with bEnableScenePostProcessing, the configured
- * ScenePostProcessGroup, where the dynamic group (4) resolves to foreground (1) for the topmost active scene, background
- * (2) for an active scene below it, else none. */
-INT UUIScene::vf_1f8()
+/* With bEnableScenePostProcessing, the configured ScenePostProcessGroup, where the dynamic group resolves to
+ * group 1 for the topmost active scene, group 2 for an active scene below it, else none. */
+EUIPostProcessGroup UUIScene::GetScenePostProcessGroup()
 {
     INT Result = 0;
     if (bEnableScenePostProcessing)
     {
         Result = ScenePostProcessGroup;
-        if (Result == 4)
+        if (Result == UIPostProcess_Dynamic)
         {
             if (IsSceneActive(TRUE))
             {
-                return 1;
+                return UIPostProcess_Background;
             }
-            Result = IsSceneActive(FALSE) ? 2 : 0;
+            Result = IsSceneActive(FALSE) ? UIPostProcess_Foreground : UIPostProcess_None;
         }
     }
-    return Result;
+    return (EUIPostProcessGroup)Result;
 }
 
 /* Unnamed in the kit: the lookup of an entry by name in the array at UUIScene+0x18c. */

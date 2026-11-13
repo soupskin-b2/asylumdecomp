@@ -23,7 +23,7 @@ struct ARPawnVillain_ : public ARPawnVillain
 
 // @baa 0x016081a0
 /* Whether any current combatant wants the combat camera forced on. */
-INT ARBMCombatManager::vf_370()
+UBOOL ARBMCombatManager::ShouldForceCombatCamera()
 {
 	if (!NumCombatants)
 	{

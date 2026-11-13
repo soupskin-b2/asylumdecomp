@@ -549,7 +549,7 @@ undefined4 * C_007bf350::sub_007bf350(byte param_2)
 }
 
 // @baa 0x007c0d50
-void AController::vf_358(void)
+void AController::RouteCache_Empty()
 {
     int param_1 = (int)this;
 

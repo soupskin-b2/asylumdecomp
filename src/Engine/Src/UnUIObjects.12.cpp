@@ -19,7 +19,7 @@ bool UUIScreenObject::vf_004()
 }
 
 // @baa 0x00da9090
-void UUIScreenObject::vf_110(int a0, int a1) {  }
+void UUIScreenObject::RemovePlayerData(INT a0, ULocalPlayer* a1) {  }
 
 // @baa 0x00da92f0
 void UUIScreenObject::vf_1c4(void) {  }
@@ -223,7 +223,7 @@ INT UUIScreenObject::GetPlayerOwnerIndex(UBOOL bRequireValidIndex)
  * formatting, then UObject's version. */
 void UUIScreenObject::vf_070()
 {
-    vf_164(TRUE, TRUE, TRUE, TRUE);
+    RequestSceneUpdate(TRUE, TRUE, TRUE, TRUE);
     RequestFormattingUpdate();
     UObject::vf_070();
 }
@@ -290,7 +290,7 @@ void UUIScreenObject::vf_1d8(INT Arg)
 
 // @baa 0x00db06a0
 /* UUIScreenObject slot 0x194 (kit vf_194): when the second argument is set, pass the call on to every child. */
-void UUIScreenObject::vf_194(INT Arg1, INT Arg2, INT Arg3)
+void UUIScreenObject::SetInputMask(BYTE Arg1, UBOOL Arg2, UBOOL Arg3)
 {
     if (Arg2)
     {
@@ -299,7 +299,7 @@ void UUIScreenObject::vf_194(INT Arg1, INT Arg2, INT Arg3)
             UUIObject* Child = Children(ChildIndex);
             if (Child != NULL)
             {
-                Child->vf_194(Arg1, Arg2, Arg3);
+                Child->SetInputMask(Arg1, Arg2, Arg3);
             }
         }
     }

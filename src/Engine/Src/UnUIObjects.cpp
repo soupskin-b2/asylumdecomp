@@ -1476,7 +1476,7 @@ undefined4 UUIObject::vf_230(int param_2, int param_3)
 }
 
 // @baa 0x00daabd0
-void UUIObject::vf_204(uint param_2)
+void UUIObject::SetActiveCursorUpdate(UBOOL param_2)
 {
     int param_1 = (int)this;
 

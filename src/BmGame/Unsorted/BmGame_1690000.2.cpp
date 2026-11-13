@@ -9,7 +9,7 @@
 // @baa 0x01692980
 /* ARGameInfo slot 0x3b0 (kit vf_3b0, a GetPlayerController-style accessor): the first local player's controller,
  * cached in CachedPC; NULL with no local players. */
-AController* ARGameInfo::vf_3b0()
+ARPlayerController* ARGameInfo::GetPC()
 {
     if (GEngine->GamePlayers.Num() > 0)
     {

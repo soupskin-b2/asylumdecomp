@@ -18,7 +18,7 @@ template<class T> struct TArrayAt_ : public TArray<T>
 
 // @baa 0x016d7020
 /* Slot 0x354 (unnamed in the kit): how many agents belong to flock FlockID. */
-INT ARCrowdManager::vf_354(INT FlockID)
+INT ARCrowdManager::GetNumAgentsInFlock(INT FlockID)
 {
 	INT Count = 0;
 	for (INT i = 0; i < Agents.Num(); i++)

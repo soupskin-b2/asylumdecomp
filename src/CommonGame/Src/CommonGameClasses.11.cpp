@@ -72,29 +72,28 @@ bool URScriptConversationFactoryNew::sub_0150f2d0(void)
 
 extern undefined4 g_026c3cdc;
 // @baa 0x0150f350
-INT ARGameInfoBase::vf_37c() {
-  return g_026c3cdc;
+UEngine* ARGameInfoBase::GetEngine() {
+  return (UEngine*)g_026c3cdc;
 }
 
 extern undefined4 g_026cbfb4;
 // @baa 0x0150f3f0
-INT ARGameInfoBase::vf_3a8() {
+UBOOL ARGameInfoBase::DebugSoundEmitters() {
   return g_026cbfb4;
 }
 
 // @baa 0x0150f400
-void ARDebugMenu::vf_360() {  }
+void ARDebugMenu::DoProfileAndMemoryMenu() {  }
 
 extern INT g_026e0b78;
 // @baa 0x0150f470
-INT ARDebugMenu::vf_384(INT Value)
+void ARDebugMenu::ForcePause(UBOOL Value)
 {
     g_026e0b78 = Value;
-    return Value;
 }
 
 // @baa 0x0150f500
-void ARPlayerControllerBase::vf_478(void) {  }
+void ARPlayerControllerBase::GPU() {  }
 
 extern undefined4 g_025da74c;
 // @baa 0x0150f510
@@ -105,7 +104,7 @@ void sub_0150f510(void)
 }
 
 // @baa 0x0150f530
-void ARDebugMenu::vf_378(void) {  }
+void ARDebugMenu::DoSecuROMMenu() {  }
 
 // @baa 0x01537f40
 IMPLEMENT_CLASS_AT(URPlayerInputBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonGame\\Src\\CommonGameClasses.cpp", 25);
@@ -353,9 +352,9 @@ INT ARHUDBase::GetPromptYPosition(INT SizeY, INT ClipY)
 /* The FMOD device's linear volume to decibels conversion (00e70d10, FMODAudioDevice.cpp). */
 FLOAT VolumeToDecibels(FLOAT Volume);
 // @baa 0x0150f480
-/* ARDebugMenu slot 0x38c (a placeholder vf_38c(FLOAT) in the kit): a volume as the attenuation the
+/* ARDebugMenu slot 0x38c (a placeholder GetDecibelValue(FLOAT) in the kit): a volume as the attenuation the
  * debug menu shows (0 at full volume). */
-INT ARDebugMenu::vf_38c(FLOAT Volume)
+INT ARDebugMenu::GetDecibelValue(FLOAT Volume)
 {
     if (Volume == 1.0f)
     {
@@ -369,9 +368,9 @@ INT ARDebugMenu::vf_38c(FLOAT Volume)
  * and parameter names are descriptive. */
 void GetMemoryStats(DWORD& AvailPhysical, DWORD& TotalPhysical, DWORD& Stat3, DWORD& Stat4, DWORD& Stat5, DWORD& Stat6);
 // @baa 0x0150f360
-/* ARGameInfoBase slot 0x384 (a placeholder vf_384(INT) in the kit): free memory in megabytes, the
+/* ARGameInfoBase slot 0x384 (a placeholder GetFreeMB(INT) in the kit): free memory in megabytes, the
  * physical memory or (with the flag set) the third statistic, which PC doesn't report. */
-INT ARGameInfoBase::vf_384(INT bOtherStat)
+INT ARGameInfoBase::GetFreeMB(UBOOL bOtherStat)
 {
     DWORD AvailPhysical, TotalPhysical, Stat3, Stat4, Stat5, Stat6;
     GetMemoryStats(AvailPhysical, TotalPhysical, Stat3, Stat4, Stat5, Stat6);

@@ -29,7 +29,7 @@ void UFracturedBaseComponent::execGetNumFragments(FFrame& Stack, RESULT_DECL)
 void UFracturedBaseComponent::execGetNumVisibleFragments(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(INT*)Result = vf_284();
+	*(INT*)Result = GetNumVisibleFragments();
 }
 
 // @baa 0x00c9f090
@@ -45,7 +45,7 @@ void UStaticMeshComponent::execSetForceStaticDecals(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bForce);
 	P_FINISH;
-	vf_264(bForce);
+	SetForceStaticDecals(bForce);
 }
 
 extern FName g_026c4f18;

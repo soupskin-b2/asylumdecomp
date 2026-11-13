@@ -45,21 +45,21 @@ undefined4 AFracturedStaticMeshPart::vf_178(void)
 
 extern float g_026c0dd4;
 // @baa 0x007a7b30
-float AFractureManager::vf_354(void) { return g_026c0dd4; }
+FLOAT AFractureManager::GetNumFSMPartsScale() { return g_026c0dd4; }
 
 extern float g_026c0dd8;
 // @baa 0x007a7b40
-float AFractureManager::vf_358(void) { return g_026c0dd8; }
+FLOAT AFractureManager::GetFSMDirectSpawnChanceScale() { return g_026c0dd8; }
 
 extern float g_026c0ddc;
 // @baa 0x007a7b50
-float AFractureManager::vf_35c() {
+FLOAT AFractureManager::GetFSMRadialSpawnChanceScale() {
     return g_026c0ddc;
 }
 
 extern float g_026c0de0;
 // @baa 0x007a7b60
-FLOAT AFractureManager::vf_360()
+FLOAT AFractureManager::GetFSMFractureCullDistanceScale()
 {
     return g_026c0de0;
 }

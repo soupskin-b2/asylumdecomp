@@ -73,7 +73,7 @@ void URRopeComponentBase__01700b40::execGetIsRopeInitialised( FFrame& Stack, RES
 void URSimpleRopeComponent::execUpdateRope(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	vf_250();
+	UpdateRope();
 }
 
 // @baa 0x01700b80
@@ -87,7 +87,7 @@ void URSimpleRopeComponent::execInitialiseRope(FFrame& Stack, RESULT_DECL)
 void URSimpleRopeComponent::execFinaliseRope(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	vf_25c();
+	FinaliseRope();
 }
 
 // @baa 0x01700950
@@ -271,14 +271,14 @@ void URRopeComponentBase::execGetNearestPointOnRopeToRay(FFrame& Stack, RESULT_D
 void URRopeComponentBase::execGetMinRopeLength(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(FLOAT*)Result = vf_254();
+	*(FLOAT*)Result = GetMinRopeLength();
 }
 
 // @baa 0x01700ca0
 void URRopeComponentBase::execCalculateDistanceBetweenRopeEnds(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(FLOAT*)Result = vf_264();
+	*(FLOAT*)Result = CalculateDistanceBetweenRopeEnds();
 }
 
 // @baa 0x01700c00

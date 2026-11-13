@@ -15,7 +15,7 @@ struct ARPlayerController_ : ARPlayerController
 };
 
 // @baa 0x01613da0
-void ARPlayerController::vf_4b4()
+void ARPlayerController::AmbientSoundControl()
 {
     if (Pawn)
     {

@@ -147,7 +147,7 @@ void UParticleEmitter::vf_118(INT a0) {  }
 void __stdcall sub_00b51a10(int a0) {  }
 
 // @baa 0x00b51a20
-undefined1 UParticleSystem::vf_10c(void)
+BYTE UParticleSystem::GetCurrentLODMethod()
 {
     int param_1 = (int)this;
 
@@ -155,7 +155,7 @@ undefined1 UParticleSystem::vf_10c(void)
 }
 
 // @baa 0x00b51a30
-void UParticleSystem::vf_118(undefined1 param_2)
+void UParticleSystem::SetCurrentLODMethod(BYTE param_2)
 {
     int param_1 = (int)this;
 
@@ -196,7 +196,7 @@ uint UParticleSystemComponent::sub_00b51c00(void)
 }
 
 // @baa 0x00b57ac0
-int UParticleSystem::vf_110(void) { return *(int*)((char*)this + 116); }
+INT UParticleSystem::GetLODLevelCount() { return *(int*)((char*)this + 116); }
 
 struct S {
     TArray<DWORD> Items; // 0x00

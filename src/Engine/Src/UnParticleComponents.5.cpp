@@ -54,7 +54,7 @@ void UParticleSystemComponent__00c9cfa0::execGetSkipUpdateDynamicDataDuringTick(
 void UParticleSystemComponent::execRewindEmitterInstances( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_25c();
+	RewindEmitterInstances();
 }
 
 struct UParticleSystemComponent__00c9db00 : public UParticleSystemComponent
@@ -114,21 +114,21 @@ void UParticleSystemComponent__00c9e4f0::execResetToDefaults( FFrame& Stack, RES
 void UParticleSystem::execGetCurrentLODMethod(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(BYTE*)Result = vf_10c();
+	*(BYTE*)Result = GetCurrentLODMethod();
 }
 
 // @baa 0x00c9cbc0
 void UParticleSystem::execGetLODLevelCount(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(INT*)Result = vf_110();
+	*(INT*)Result = GetLODLevelCount();
 }
 
 // @baa 0x00c9deb0
 void UParticleSystemComponent::execGetSpawnScale(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(FLOAT*)Result = vf_290();
+	*(FLOAT*)Result = GetSpawnScale();
 }
 
 // @baa 0x00c9d120
@@ -137,7 +137,7 @@ void UParticleSystemComponent::execRewindEmitterInstance(FFrame& Stack, RESULT_D
 	P_GET_INT(EmitterIndex);
 	P_FINISH;
 
-	vf_258(EmitterIndex);
+	RewindEmitterInstance(EmitterIndex);
 }
 
 struct UParticleSystemComponent__00c9cd80 : public UParticleSystemComponent
@@ -210,7 +210,7 @@ void UParticleSystem::execSetCurrentLODMethod(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_BYTE(InMethod);
 	P_FINISH;
-	vf_118(InMethod);
+	SetCurrentLODMethod(InMethod);
 }
 
 // @baa 0x00c9def0
@@ -218,7 +218,7 @@ void UParticleSystemComponent::execSetSpawnScale(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(Value);
 	P_FINISH;
-	vf_294(Value);
+	SetSpawnScale(Value);
 }
 
 struct UParticleSystemComponent__00c9dd70 : public UParticleSystemComponent
@@ -301,7 +301,7 @@ void UParticleSystem::execGetLODDistance(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(LODLevelIndex);
 	P_FINISH;
-	*(FLOAT*)Result = vf_114(LODLevelIndex);
+	*(FLOAT*)Result = GetLODDistance(LODLevelIndex);
 }
 
 struct UParticleSystemComponent__00c9dcd0 : public UParticleSystemComponent

@@ -7,7 +7,7 @@
 // @baa 0x0086ec20
 /* APawn slot 0x388 (kit vf_388): UE3's APawn::ReachedDesiredRotation(): the yaw is within AllowedYawError of the
  * desired yaw (either side of the wrap). */
-INT APawn::vf_388()
+UBOOL APawn::ReachedDesiredRotation()
 {
     INT YawDiff = Abs((DesiredRotation.Yaw & 65535) - (Rotation.Yaw & 65535));
     return (YawDiff < AllowedYawError) || (YawDiff > 65535 - AllowedYawError);

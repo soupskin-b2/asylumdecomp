@@ -130,7 +130,7 @@ undefined4 ULensFlare::sub_00663350(byte param_2)
 int sub_00630f20(...);
 extern undefined4 g_026667a8;
 // @baa 0x006634b0
-DOUBLE USurface::vf_10c() {
+FLOAT USurface::GetSurfaceWidth() {
   sub_00630f20(g_026667a8,L"Pure virtual not implemented (%s)",L"USurface::GetSurfaceWidth");
   return (float10)0;
 }

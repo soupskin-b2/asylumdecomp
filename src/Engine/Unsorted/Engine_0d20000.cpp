@@ -33,7 +33,7 @@ int sub_00d200b0(void)
 }
 
 // @baa 0x00d20120
-void AGameInfo::vf_368(void) {  }
+void AGameInfo::HandlePerLoadedMapAudioStats() {  }
 
 struct V_00d20130 {
     virtual void v0();

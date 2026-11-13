@@ -606,7 +606,7 @@ void UCanvas::DrawTile(UTexture* Tex, FLOAT X, FLOAT Y, FLOAT XL, FLOAT YL, FLOA
     FLOAT h = Y + YL > MyClipY ? MyClipY - Y : YL;
     if (XL > 0.f && YL > 0.f)
     {
-        FLOAT SurfaceWidth = Tex->vf_10c();
+        FLOAT SurfaceWidth = Tex->GetSurfaceWidth();
         FLOAT SurfaceHeight = Tex->GetSurfaceHeight();
         sub_00aa7a60(Canvas, X, Y, w, h, U / SurfaceWidth, V / SurfaceHeight, UL / SurfaceWidth * w / XL, VL / SurfaceHeight * h / YL, Color,
             (const FTexture*)Tex->Resource.Dummy, TRUE);

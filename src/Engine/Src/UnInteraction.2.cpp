@@ -8,7 +8,7 @@
 void UInput::execResetInput( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_120();
+	ResetInput();
 }
 
 #define INVALID_OBJECT ((UObject*)-1)

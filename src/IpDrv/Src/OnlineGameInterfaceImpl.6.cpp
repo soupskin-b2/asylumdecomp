@@ -8,7 +8,7 @@
 void UOnlineGameInterfaceImpl::execCancelFindOnlineGames(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = vf_118();
+	*(UBOOL*)Result = CancelFindOnlineGames();
 }
 
 // @baa 0x00e29bc0

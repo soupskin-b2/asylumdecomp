@@ -21,7 +21,7 @@ template<class T> struct TArrayAt_ : public TArray<T>
 // @baa 0x01566d10
 /* Slot 0x364 (unnamed in the kit): tells each AI pawn standing on (based on) the panel that this was the last
  * floor panel it touched. */
-void ARElectrifiedFloorPanel::vf_364()
+void ARElectrifiedFloorPanel::UpdatePawnsOnTile()
 {
 	for (INT i = 0; i < Attached.Num(); i++)
 	{

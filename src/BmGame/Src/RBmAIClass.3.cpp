@@ -81,14 +81,14 @@ void ARBMPawnAI::vf_494(INT A)
 // @baa 0x01604a40
 /* ARBMAIController slot 0x458 (kit vf_458): whether a silent-predator AI can respond to alerts right now
  * (not stunned, pawn slot 0x48c clear, and the behaviour allows it). */
-INT ARBMAIController::vf_458()
+UBOOL ARBMAIController::ShouldUpdatePathNodeSeenTimes()
 {
     if (bStunned)
     {
         return FALSE;
     }
     ARBMPawnAI* AIPawn = Cast<ARBMPawnAI>(Pawn);
-    if (AIPawn && AIPawn->bSilentPredatorAI && !this->eventIsStunned() && !AIPawn->vf_48c())
+    if (AIPawn && AIPawn->bSilentPredatorAI && !this->eventIsStunned() && !AIPawn->IsIncapacitated())
     {
         return this->eventBehaviourCanRespondToAlerts() ? TRUE : FALSE;
     }

@@ -174,11 +174,11 @@ void UAnimNodeSequence::sub_00c5e2f0(FLOAT MoveDelta, FLOAT DeltaSeconds, UBOOL 
 
 // @baa 0x00c4ffe0
 /* UAnimNodeSequence slot 0x198 (kit vf_198, UE3 GetTimeLeft()): the play time left at the current global play rate. */
-FLOAT UAnimNodeSequence::vf_198()
+FLOAT UAnimNodeSequence::GetTimeLeft()
 {
     if (AnimSeq)
     {
-        const FLOAT Rate = vf_190();
+        const FLOAT Rate = GetGlobalPlayRate();
         if (Rate > 0.f)
         {
             return Max(AnimSeq->SequenceLength - CurrentTime, 0.f) / Rate;

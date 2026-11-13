@@ -124,7 +124,7 @@ bool ARForensicsDevice::vf_004()
 }
 
 // @baa 0x0166c620
-undefined4 ARForensicsDevice::vf_354(void)
+UBOOL ARForensicsDevice::IsUsingFilterView()
 {
     int param_1 = (int)this;
 

@@ -15,7 +15,7 @@ void AGameInfo::execDoSentinelActionPerLoadedMap( FFrame& Stack, RESULT_DECL )
 void AGameInfo::execHandlePerLoadedMapAudioStats( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_368();
+	HandlePerLoadedMapAudioStats();
 }
 
 struct AWorldInfo_ : public AWorldInfo
@@ -113,7 +113,7 @@ void AGameInfo::execEndSentinelRun(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_BYTE(RunResult);
 	P_FINISH;
-	vf_360(*(INT*)&RunResult);
+	EndSentinelRun(*(INT*)&RunResult);
 }
 
 struct APlayerReplicationInfo__00c89650 : public APlayerReplicationInfo

@@ -12,7 +12,7 @@ ARGameRI* ARLevelTransition::GetGameRI()
 }
 
 // @baa 0x0158d0d0
-INT ARPlayerStartInLevel::vf_3b0()
+ARGameRI* ARPlayerStartInLevel::GetGRI()
 {
-    return (INT)Cast<ARGameRI>(WorldInfo->GRI);
+    return Cast<ARGameRI>(WorldInfo->GRI);
 }

@@ -1704,7 +1704,7 @@ void UPrimitiveComponent::SetOnlyOwnerSee(UBOOL param_2)
 }
 
 // @baa 0x006dbcf0
-void UPrimitiveComponent::vf_228(uint param_2)
+void UPrimitiveComponent::SetXrayNoSee(UBOOL param_2)
 {
     int param_1 = (int)this;
 
@@ -1719,7 +1719,7 @@ void UPrimitiveComponent::vf_228(uint param_2)
 }
 
 // @baa 0x006dbda0
-void UPrimitiveComponent::vf_22c(uint param_2)
+void UPrimitiveComponent::SetOnlyXraySee(UBOOL param_2)
 {
     int param_1 = (int)this;
 
@@ -1764,7 +1764,7 @@ void UPrimitiveComponent::sub_006dbe90(uint param_2)
 }
 
 // @baa 0x006dbf40
-void UPrimitiveComponent::vf_234(UPrimitiveComponent* NewShadowParent)
+void UPrimitiveComponent::SetShadowParent(UPrimitiveComponent* NewShadowParent)
 {
     ShadowParent = NewShadowParent;
     sub_00765d00();
@@ -1784,7 +1784,7 @@ void UPrimitiveComponent::SetLightEnvironment(class ULightEnvironmentComponent* 
 }
 
 // @baa 0x006dc070
-void UPrimitiveComponent::vf_23c(float param_2)
+void UPrimitiveComponent::SetCullDistance(FLOAT param_2)
 {
     int param_1 = (int)this;
   if (*(float *)(param_1 + 300) != param_2) {
@@ -1795,11 +1795,11 @@ void UPrimitiveComponent::vf_23c(float param_2)
 }
 
 // @baa 0x006dc100
-void UPrimitiveComponent::vf_240(undefined4 param_2)
+void UPrimitiveComponent::SetLightingChannels(FLightingChannelContainer param_2)
 {
     int param_1 = (int)this;
 
-  *(undefined4 *)(param_1 + 0x18c) = param_2;
+  *(FLightingChannelContainer*)(param_1 + 0x18c) = param_2;
   sub_00765d00();
   return;
 }

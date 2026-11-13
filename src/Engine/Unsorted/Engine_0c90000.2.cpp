@@ -15,28 +15,28 @@ void AKActorSpawnable::execResetComponents( FFrame& Stack, RESULT_DECL )
 void URB_Handle::execReleaseComponent( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_150();
+	ReleaseComponent();
 }
 
 // @baa 0x00c940e0
 void URB_Spring::execClear( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_150();
+	Clear();
 }
 
 // @baa 0x00c98850
 void USeqAct_CrowdSpawner::execCacheSpawnerVars( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_1a0();
+	CacheSpawnerVars();
 }
 
 // @baa 0x00c98890
 void USeqAct_CrowdSpawner::execKillAgents( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_1a4();
+	KillAgents();
 }
 
 // @baa 0x00c9b750
@@ -50,28 +50,28 @@ void UMaterialInstanceTimeVarying::execClearParameterValues( FFrame& Stack, RESU
 void APhysXEmitterSpawnable::execTerm( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_354();
+	Term();
 }
 
 // @baa 0x00c9f450
 void AApexDestructibleActor::execCacheFractureEffects( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_354();
+	CacheFractureEffects();
 }
 
 // @baa 0x00c9f970
 void AFracturedStaticMeshActor::execRecreatePhysState( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_35c();
+	RecreatePhysState();
 }
 
 // @baa 0x00c9faf0
 void AFracturedStaticMeshActor::execResetHealth( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_36c();
+	ResetHealth();
 }
 
 // @baa 0x00c906d0
@@ -92,14 +92,14 @@ void UMaterialInstanceTimeVarying::execGetMaxDurationFromAllParameters(FFrame& S
 void UFracturedStaticMeshComponent::execGetCoreFragmentIndex(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(INT*)Result = vf_2b0();
+	*(INT*)Result = GetCoreFragmentIndex();
 }
 
 // @baa 0x00c9f9b0
 void AFracturedStaticMeshActor::execGetFracturedMeshPhysMaterial(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UPhysicalMaterial**)Result = (UPhysicalMaterial*)vf_360();
+	*(UPhysicalMaterial**)Result = (UPhysicalMaterial*)GetFracturedMeshPhysMaterial();
 }
 
 typedef UBOOL (__thiscall* FSlot)(void*);
@@ -140,14 +140,14 @@ void AFracturedStaticMeshActor::execRemoveDecals(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(IndexToRemoveDecalsFrom);
 	P_FINISH;
-	this->vf_37c(IndexToRemoveDecalsFrom);
+	this->RemoveDecals(IndexToRemoveDecalsFrom);
 }
 
 // @baa 0x00c93ef0
 void URB_Handle::execGetOrientation(FFrame& Stack, RESULT_DECL)
 {
     P_FINISH;
-    *(FQuat*)Result = vf_164();
+    *(FQuat*)Result = GetOrientation();
 }
 
 // @baa 0x00c91b10
@@ -179,7 +179,7 @@ void USeqAct_CrowdSpawner::execUpdateSpawning(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(DeltaSeconds);
 	P_FINISH;
-	vf_1a8(DeltaSeconds);
+	UpdateSpawning(DeltaSeconds);
 }
 
 // @baa 0x00c917d0
@@ -304,7 +304,7 @@ void UFracturedStaticMeshComponent::execIsFragmentDestroyable(FFrame& Stack, RES
 {
 	P_GET_INT(FragmentIndex);
 	P_FINISH;
-	*(UBOOL*)Result = vf_29c(FragmentIndex);
+	*(UBOOL*)Result = IsFragmentDestroyable(FragmentIndex);
 }
 
 // @baa 0x00c9f220
@@ -312,7 +312,7 @@ void UFracturedStaticMeshComponent::execIsRootFragment(FFrame& Stack, RESULT_DEC
 {
 	P_GET_INT(FragmentIndex);
 	P_FINISH;
-	*(UBOOL*)Result = vf_2a0(FragmentIndex);
+	*(UBOOL*)Result = IsRootFragment(FragmentIndex);
 }
 
 // @baa 0x00c9f290
@@ -320,7 +320,7 @@ void UFracturedStaticMeshComponent::execIsNoPhysFragment(FFrame& Stack, RESULT_D
 {
 	P_GET_INT(FragmentIndex);
 	P_FINISH;
-	*(UBOOL*)Result = vf_2a4(FragmentIndex);
+	*(UBOOL*)Result = IsNoPhysFragment(FragmentIndex);
 }
 
 // @baa 0x00c9f9f0
@@ -328,7 +328,7 @@ void AFracturedStaticMeshActor::execSetInXrayModeNative(FFrame& Stack, RESULT_DE
 {
 	P_GET_UBOOL(On);
 	P_FINISH;
-	vf_364(On);
+	SetInXrayModeNative(On);
 }
 
 // @baa 0x00c9fa70
@@ -336,7 +336,7 @@ void AFracturedStaticMeshActor::execUpdateStasis(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(NewValue);
 	P_FINISH;
-	vf_368(NewValue);
+	UpdateStasis(NewValue);
 }
 
 // @baa 0x00c9b880

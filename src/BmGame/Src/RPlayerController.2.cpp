@@ -279,11 +279,11 @@ bool ARPlayerController::vf_004()
 int ARPlayerControllerCombat::vf_000(void) { return 1; }
 
 // @baa 0x01613c30
-void ARPlayerController::vf_490(void) {  }
+void ARPlayerController::ToggleMovieRecord() {  }
 
 extern undefined4 g_026caed4;
 // @baa 0x01613c60
-INT ARPlayerController::vf_494() {
+UBOOL ARPlayerController::IsMovieCapturingInput() {
   if (g_026caed4 != 0) {
     return *(undefined4 *)(g_026caed4 + 0xc0);
   }
@@ -291,14 +291,14 @@ INT ARPlayerController::vf_494() {
 }
 
 // @baa 0x01613c80
-DOUBLE ARPlayerController::vf_50c() {
+FLOAT ARPlayerController::AmbientGetStartTime() {
     int param_1 = (int)this;
 
   return (float10)*(float *)(*(int *)(param_1 + 0xb0) + 0x2dc);
 }
 
 // @baa 0x01613c90
-DOUBLE ARPlayerController::vf_510() {
+FLOAT ARPlayerController::AmbientGetEndTime() {
     int param_1 = (int)this;
 
   return (float10)*(float *)(*(int *)(param_1 + 0xb0) + 0x2dc) + (float10)0.5;
@@ -315,22 +315,22 @@ void sub_01613ff0(void)
 }
 
 // @baa 0x01614aa0
-int ARPlayerController::vf_4dc(void) { return 0; }
+UBOOL ARPlayerController::IsMetricsEnabled() { return 0; }
 
 // @baa 0x01614ab0
-void ARPlayerController::vf_4e0(int a0) {  }
+void ARPlayerController::SetMetricsEnabled(UBOOL a0) {  }
 
 // @baa 0x01614ac0
-int ARPlayerController::vf_4e4(void) { return 0; }
+UBOOL ARPlayerController::IsMetricsPopupEnabled() { return 0; }
 
 // @baa 0x01614ad0
-void ARPlayerController::vf_4e8(int a0) {  }
+void ARPlayerController::SetMetricsPopupEnabled(UBOOL a0) {  }
 
 // @baa 0x01614ae0
 void ARPlayerController::RecordMetrics(const FString& a0, const FString& a1, const FString& a2) {}
 
 // @baa 0x01614af0
-int ARPlayerController::vf_4f4(void) { return 0; }
+UBOOL ARPlayerController::IsEidosMetricsEnabled() { return 0; }
 
 // @baa 0x01614b00
 void ARPlayerController::RecordEidosMetricsFrontend(INT a0, INT a1, INT a2) {  }
@@ -351,7 +351,7 @@ void sub_01614b30(void)
 }
 
 // @baa 0x01614b50
-void ARPlayerController::vf_508(const FString&, INT, const FString&, const FString&) {}
+void ARPlayerController::RecordEidosMetricsLocationAchievement(const FString& MetricName, INT AchievementId, const FString& ParamNames, const FString& Params) {}
 
 // @baa 0x01614b60
 void sub_01614b60(void) {  }
@@ -407,19 +407,19 @@ void sub_01615100(void)
 }
 
 // @baa 0x01615110
-int ARPlayerController::vf_41c(void) { return 0; }
+UBOOL ARPlayerController::IsControllerTiltActive() { return 0; }
 
 // @baa 0x01615120
-void ARPlayerController::vf_420(int a0) {  }
+void ARPlayerController::SetControllerTiltDesiredIfAvailable(UBOOL a0) {  }
 
 // @baa 0x01615130
-void ARPlayerController::vf_424(int a0) {  }
+void ARPlayerController::SetControllerTiltActive(UBOOL a0) {  }
 
 // @baa 0x01615390
-int ARPlayerController::vf_4a4(void) { return 0; }
+UBOOL ARPlayerController::IsJokerDLCPresent() { return 0; }
 
 // @baa 0x016153a0
-int ARPlayerController::vf_4a8(void) { return 0; }
+UBOOL ARPlayerController::IsArmouredBatmanDLCPresent() { return 0; }
 
 // @baa 0x01615440
 void ARPlayerController::sub_01615440(int param_2)
@@ -1252,7 +1252,7 @@ int sub_0097fae0(...);
 int sub_00c58f70(...);
 extern undefined4 g_026b5f14;
 // @baa 0x016232d0
-INT ARPlayerController::vf_48c() {
+UStaticMesh* ARPlayerController::LoadDebugSphere() {
   int iVar1;
   undefined4 uVar2;
   
@@ -1263,7 +1263,7 @@ INT ARPlayerController::vf_48c() {
   iVar1 = sub_005eae70(g_026b5f14,0,L"DEBUG_Lightsphere.DEBUG_Lightsphere",0,0,0,1);
   if (iVar1 != 0) {
     uVar2 = sub_00c58f70(iVar1);
-    return uVar2;
+    return (UStaticMesh*)uVar2;
   }
   return 0;
 }
@@ -1492,39 +1492,39 @@ IMPLEMENT_CLASS_AT(URPlayerInput, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine
 // @baa 0x01634ab0
 extern undefined4 g_026c0568;
 // @baa 0x016d2040
-INT ARPlayerController::vf_6b4() {
+UBOOL ARPlayerController::FE_GetRender3DFromEngine() {
   return g_026c0568;
 }
 
 extern undefined4 g_026c0860;
 // @baa 0x016d20a0
-INT ARPlayerController::vf_6e0() {
+UBOOL ARPlayerController::FE_IsBenchmarking() {
   return g_026c0860;
 }
 
 extern float g_025df1cc;
 // @baa 0x016d20b0
-int ARPlayerController::vf_6e4(void) {
+INT ARPlayerController::FE_GetBenchmarkMin() {
   return (int)g_025df1cc;
 }
 
 extern float g_025df1d0;
 // @baa 0x016d20c0
-int ARPlayerController::vf_6e8(void) {
+INT ARPlayerController::FE_GetBenchmarkMax() {
   return (int)g_025df1d0;
 }
 
 extern float g_025df1d4;
 // @baa 0x016d20d0
-int ARPlayerController::vf_6ec(void) {
+INT ARPlayerController::FE_GetBenchmarkAverage() {
   return (int)g_025df1d4;
 }
 
 // @baa 0x016d2110
-int ARPlayerController::vf_644(void) { return 0; }
+UBOOL ARPlayerController::IsXbox() { return 0; }
 
 // @baa 0x016d2150
-int ARPlayerController::vf_650(void) { return 0; }
+UBOOL ARPlayerController::IsLevelLoadSpecified() { return 0; }
 
 // @baa 0x016d2160
 IMPLEMENT_CLASS_AT(URSeqAct_PlayGfxMovie, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameGFxSupportClasses.cpp", 567);
@@ -1579,18 +1579,18 @@ bool URCharacterBioCueFactoryNew::vf_004()
 
 extern undefined4 g_026e232c;
 // @baa 0x016d27c0
-INT ARPlayerController::vf_560() {
+UBOOL ARPlayerController::Live_IsRequestOnline() {
   return g_026e232c;
 }
 
 extern undefined4 g_025e4ce8;
 // @baa 0x016d27e0
-INT ARPlayerController::vf_670() {
+UBOOL ARPlayerController::IsGamepadConnected() {
   return g_025e4ce8;
 }
 
 // @baa 0x016d27f0
-int ARPlayerController::vf_578(int a0) { return 1; }
+UBOOL ARPlayerController::Live_IsMemoryCard(INT a0) { return 1; }
 
 // @baa 0x016d2800
 UBOOL ARPlayerController::CheckContentExists(const FString& a0) { return 0; }
@@ -1603,96 +1603,96 @@ void __stdcall sub_016d2820(int a0) {  }
 
 extern undefined4 g_026e2334;
 // @baa 0x016d2850
-INT ARPlayerController::vf_610() {
+INT ARPlayerController::FE_GetActiveDLCPack() {
   return g_026e2334;
 }
 
 extern undefined4 g_026e2338;
 // @baa 0x016d2870
-INT ARPlayerController::vf_628() {
+UBOOL ARPlayerController::FE_IsDLCScanningActive() {
   return g_026e2338;
 }
 
 extern undefined4 g_026e233c;
 // @baa 0x016d2890
-INT ARPlayerController::vf_618() {
+UBOOL ARPlayerController::FE_IsBufferDLCRemovalSet() {
   return g_026e233c;
 }
 
 extern undefined4 g_026e2340;
 // @baa 0x016d28b0
-INT ARPlayerController::vf_630() {
+UBOOL ARPlayerController::FE_IsDLCScanning() {
   return g_026e2340;
 }
 
 extern undefined4 g_026e2344;
 // @baa 0x016d28d0
-INT ARPlayerController::vf_638() {
+UBOOL ARPlayerController::FE_IsDLCRescanPending() {
   return g_026e2344;
 }
 
 extern undefined4 g_025ec3e4;
 // @baa 0x016d28e0
-void ARPlayerController::vf_61c(void) {
+void ARPlayerController::FE_UnblockInitialNotifies() {
   g_025ec3e4 = 0;
   return;
 }
 
 // @baa 0x016d28f0
-INT ARPlayerController::vf_620() {
+UBOOL ARPlayerController::FE_AreNotifiesBlocked() {
   return g_025ec3e4;
 }
 
 extern undefined4 g_026e2348;
 // @baa 0x016d2910
-INT ARPlayerController::vf_640() {
+UBOOL ARPlayerController::FE_IsFrontendSaveSet() {
   return g_026e2348;
 }
 
 extern undefined4 g_026e2350;
 // @baa 0x016d29d0
-bool ARPlayerController::vf_688(void) {
+UBOOL ARPlayerController::IsWritingStats() {
   return g_026e2350 != 0;
 }
 
 // @baa 0x016d29e0
-void ARPlayerController::vf_684(void) {
+void ARPlayerController::ResetWritingStatsCount() {
   g_026e2350 = 0;
   return;
 }
 
 // @baa 0x016d29f0
-int ARPlayerController::vf_68c(void) { return 0; }
+UBOOL ARPlayerController::IsCircleToAccept() { return 0; }
 
 // @baa 0x016d2a00
-int ARPlayerController::vf_698(void) { return 1; }
+INT ARPlayerController::GetSaveGameState() { return 1; }
 
 // @baa 0x016d2a10
-int ARPlayerController::vf_690(void) { return 0; }
+UBOOL ARPlayerController::IsPS3_4x3() { return 0; }
 
 // @baa 0x016d2a20
-int ARPlayerController::vf_694(void) { return 0; }
+UBOOL ARPlayerController::IsPS3_480i() { return 0; }
 
 extern undefined4 g_026e249c;
 // @baa 0x01714be0
-INT ARPlayerController::vf_484() {
+UBOOL ARPlayerController::IsAutoJezActive() {
   return g_026e249c;
 }
 
 extern undefined4 g_026e2500;
 // @baa 0x017189a0
-INT ARPlayerController::vf_5ac() {
+INT ARPlayerController::GetActiveSaveDevice() {
   return g_026e2500;
 }
 
 // @baa 0x017189b0
-int ARPlayerController::vf_5b4(int a0) { return 1; }
+UBOOL ARPlayerController::CheckActiveSaveDeviceFreeSpace(INT a0) { return 1; }
 
 extern undefined4 g_025ef808;
 extern undefined4 g_026e2528;
 extern undefined4 g_026e252c;
 // @baa 0x01718ff0
-void ARPlayerController::vf_584(undefined4 param_2)
+void ARPlayerController::Live_SetDifficulty(INT param_2)
 {
     int param_1 = (int)this;
 
@@ -1706,19 +1706,19 @@ void ARPlayerController::vf_584(undefined4 param_2)
 
 extern undefined4 g_026e251c;
 // @baa 0x01719030
-bool ARPlayerController::vf_598(void) {
+UBOOL ARPlayerController::Live_SlotWasSelected() {
   return g_026e251c == 0;
 }
 
 extern undefined4 g_025ef800;
 // @baa 0x01719040
-INT ARPlayerController::vf_59c() {
+UBOOL ARPlayerController::Live_IsSavingEnabled() {
   return g_025ef800;
 }
 
 extern undefined4 g_026e2530;
 // @baa 0x01719050
-INT ARPlayerController::vf_5bc() {
+INT ARPlayerController::Live_GetActiveSaveID() {
   return g_026e2530;
 }
 
@@ -1737,12 +1737,12 @@ undefined1 sub_01719080(void)
 
 extern undefined4 g_026e2538;
 // @baa 0x017190a0
-INT ARPlayerController::vf_574() {
+UBOOL ARPlayerController::Live_IsStorageSelectPending() {
   return g_026e2538;
 }
 
 // @baa 0x017190b0
-int ARPlayerController::vf_5dc(void) { return 0; }
+UBOOL ARPlayerController::Live_IsPS3AndUsingFastLoad() { return 0; }
 
 // @baa 0x017190c0
 bool sub_017190c0(int param_1, int param_2)
@@ -1762,7 +1762,7 @@ bool sub_017190c0(int param_1, int param_2)
 }
 
 // @baa 0x017190f0
-void ARPlayerController::vf_5ec(void) {  }
+void ARPlayerController::Live_SetInitialAchievementsDisabled() {  }
 
 int sub_017189c0(void);
 int sub_0171afe0(...);
@@ -1834,75 +1834,65 @@ FString URSeqVar_DDAIntValue::vf_194()
 void sub_01e27860(void) {  }
 
 // @baa 0x016d27d0
-INT ARPlayerController::vf_564(INT Value)
+void ARPlayerController::Live_SetRequestOnline(UBOOL Value)
 {
     g_026e232c = Value;
-    return Value;
 }
 
 extern INT g_026e2330;
 
 // @baa 0x016d2830
-INT ARPlayerController::vf_674(INT Value)
+void ARPlayerController::SetDLCLoadingFlag(UBOOL Value)
 {
     g_026e2330 = Value;
-    return Value;
 }
 
 // @baa 0x016d2840
-INT ARPlayerController::vf_60c(INT Value)
+void ARPlayerController::FE_SetActiveDLCPack(INT Value)
 {
     g_026e2334 = Value;
-    return Value;
 }
 
 // @baa 0x016d2860
-INT ARPlayerController::vf_624(INT Value)
+void ARPlayerController::FE_DLCScanningActive(UBOOL Value)
 {
     g_026e2338 = Value;
-    return Value;
 }
 
 // @baa 0x016d2880
-INT ARPlayerController::vf_614(INT Value)
+void ARPlayerController::FE_BufferDLCRemoval(UBOOL Value)
 {
     g_026e233c = Value;
-    return Value;
 }
 
 // @baa 0x016d28a0
-INT ARPlayerController::vf_62c(INT Value)
+void ARPlayerController::FE_DLCScanning(UBOOL Value)
 {
     g_026e2340 = Value;
-    return Value;
 }
 
 // @baa 0x016d28c0
-INT ARPlayerController::vf_634(INT Value)
+void ARPlayerController::FE_DLCRescanPending(UBOOL Value)
 {
     g_026e2344 = Value;
-    return Value;
 }
 
 // @baa 0x016d2900
-INT ARPlayerController::vf_63c(INT Value)
+void ARPlayerController::FE_SetNeedsFrontendSave(UBOOL Value)
 {
     g_026e2348 = Value;
-    return Value;
 }
 
 // @baa 0x01719020
-INT ARPlayerController::vf_594(INT Value)
+void ARPlayerController::Live_SetSavingEnabledState(UBOOL Value)
 {
     g_025ef800 = Value;
-    return Value;
 }
 
 // @baa 0x01719090
-INT ARPlayerController::vf_570(INT Value)
+void ARPlayerController::Live_SetStorageSelectPending(UBOOL Value)
 {
     g_026e2538 = Value;
-    return Value;
 }
 
 // @baa 0x01613a10

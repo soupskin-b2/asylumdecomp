@@ -104,7 +104,7 @@ void ARWindVolume::execTick(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(DeltaTime);
 	P_FINISH;
-	vf_360(DeltaTime);
+	Tick(DeltaTime);
 }
 
 // @baa 0x01704d20
@@ -112,7 +112,7 @@ void URBMBehaviour::execSleepFrame(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT_OPTX(Frames, 1);
 	P_FINISH;
-	vf_1ac(Frames);
+	SleepFrame(Frames);
 }
 
 // @baa 0x01706ff0
@@ -136,7 +136,7 @@ void ARTapePlayer::execSetPause(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bPause);
 	P_FINISH;
-	vf_364(bPause);
+	SetPause(bPause);
 }
 
 // @baa 0x017031a0
@@ -144,7 +144,7 @@ void ARBMAIController::execGetBehaviour(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT_OPTX(Index, 0);
 	P_FINISH;
-	*(URBMBehaviour**)Result = (URBMBehaviour*)vf_408(Index);
+	*(URBMBehaviour**)Result = (URBMBehaviour*)GetBehaviour(Index);
 }
 
 // @baa 0x01703be0
@@ -152,7 +152,7 @@ void ARBMAIController::execFindAlertForPlayer(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT_OPTX(AActor, Player, NULL);
 	P_FINISH;
-	*(UAlertInstance**)Result = (UAlertInstance*)vf_460((INT)Player);
+	*(UAlertInstance**)Result = FindAlertForPlayer(Player);
 }
 
 // @baa 0x017013e0
@@ -160,7 +160,7 @@ void ARRagdollWakeupVolume::execTick(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(DeltaTime);
 	P_FINISH;
-	vf_360(DeltaTime);
+	Tick(DeltaTime);
 }
 
 // @baa 0x01701570
@@ -168,7 +168,7 @@ void ARMedicalPlasticFlapsBase::execUpdateFlapMovementSpeed(FFrame& Stack, RESUL
 {
 	P_GET_FLOAT(DeltaTime);
 	P_FINISH;
-	vf_354(DeltaTime);
+	UpdateFlapMovementSpeed(DeltaTime);
 }
 
 // @baa 0x01703a40
@@ -176,7 +176,7 @@ void ARBMAIController::execTickBehaviourState(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(DeltaTime);
 	P_FINISH;
-	vf_44c(DeltaTime);
+	TickBehaviourState(DeltaTime);
 }
 
 // @baa 0x01703e00
@@ -184,7 +184,7 @@ void ARChatteringTeeth::execRandomMoveTick(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(DeltaTime);
 	P_FINISH;
-	vf_474(DeltaTime);
+	RandomMoveTick(DeltaTime);
 }
 
 // @baa 0x01703ef0
@@ -192,7 +192,7 @@ void ARChatteringTeeth::execRouterMoveRouterMove(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(DeltaTime);
 	P_FINISH;
-	*(UBOOL*)Result = vf_480(DeltaTime);
+	*(UBOOL*)Result = RouterMoveRouterMove(DeltaTime);
 }
 
 // @baa 0x017040f0
@@ -200,7 +200,7 @@ void ARBMAIManager::execUpdateBehaviourDeltas(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(DeltaTime);
 	P_FINISH;
-	vf_35c(DeltaTime);
+	UpdateBehaviourDeltas(DeltaTime);
 }
 
 // @baa 0x01704cb0
@@ -208,7 +208,7 @@ void URBMBehaviour::execSleep(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(SleepTime);
 	P_FINISH;
-	vf_1a8(SleepTime);
+	Sleep(SleepTime);
 }
 
 // @baa 0x017056f0
@@ -216,7 +216,7 @@ void URBMBehaviour_CombatAI::execSetRotationAndVelocity(FFrame& Stack, RESULT_DE
 {
 	P_GET_FLOAT(DeltaTime);
 	P_FINISH;
-	vf_1ec(DeltaTime);
+	SetRotationAndVelocity(DeltaTime);
 }
 
 // @baa 0x01705a10
@@ -224,7 +224,7 @@ void URBMBehaviour_MoveToJokerInChair::execUpdateJokerStruggling(FFrame& Stack, 
 {
 	P_GET_FLOAT(DeltaTime);
 	P_FINISH;
-	vf_1bc(DeltaTime);
+	UpdateJokerStruggling(DeltaTime);
 }
 
 // @baa 0x01708190
@@ -232,7 +232,7 @@ void ARBatarangProjectile_Controllable::execUpdateFlightPath(FFrame& Stack, RESU
 {
 	P_GET_FLOAT(DeltaTime);
 	P_FINISH;
-	vf_354(DeltaTime);
+	UpdateFlightPath(DeltaTime);
 }
 
 // @baa 0x01709c80
@@ -240,7 +240,7 @@ void ARControllableChatteringTeethCamera::execUpdateCurrentFollowPose(FFrame& St
 {
 	P_GET_FLOAT(DeltaTime);
 	P_FINISH;
-	vf_354(DeltaTime);
+	UpdateCurrentFollowPose(DeltaTime);
 }
 
 // @baa 0x01709cf0
@@ -248,7 +248,7 @@ void ARControllableChatteringTeethCamera::execUpdateCurrentExplodePose(FFrame& S
 {
 	P_GET_FLOAT(DeltaTime);
 	P_FINISH;
-	vf_358(DeltaTime);
+	UpdateCurrentExplodePose(DeltaTime);
 }
 
 // @baa 0x0170af90
@@ -256,7 +256,7 @@ void ARBatarangTarget::execTick(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(TickTime);
 	P_FINISH;
-	vf_354(TickTime);
+	Tick(TickTime);
 }
 
 // @baa 0x01708ad0
@@ -264,7 +264,7 @@ void ARLevelTransition::execGetLevelVolumeInFront(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(InFront);
 	P_FINISH;
-	*(void**)Result = (void*)vf_36c(InFront);
+	*(void**)Result = (void*)GetLevelVolumeInFront(InFront);
 }
 
 // @baa 0x01703f90
@@ -333,7 +333,7 @@ void URBMPawnSpawnerController::execGetNumberActive(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(Index);
 	P_FINISH;
-	*(INT*)Result = vf_1a4(Index);
+	*(INT*)Result = GetNumberActive(Index);
 }
 
 // @baa 0x01703c60
@@ -349,7 +349,7 @@ void URBMPawnSpawnerController::execGetPawnSpawner(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(Index);
 	P_FINISH;
-	*(URBmPawnSpawner**)Result = (URBmPawnSpawner*)vf_1a8(Index);
+	*(URBmPawnSpawner**)Result = (URBmPawnSpawner*)GetPawnSpawner(Index);
 }
 
 // @baa 0x01708c40
@@ -388,14 +388,10 @@ void URBMBehaviour::execUpdateOp(FFrame& Stack, RESULT_DECL)
 }
 
 // @baa 0x017043d0
-// The base declares vf_35c as "virtual INT vf_35c(INT)". The code shows it is a
-// virtual that fills a caller-supplied FVector (its INT parameter is the buffer
-// address, thiscall's first stack argument) and returns that buffer's pointer.
 void ARBMCombatManager::execGetBatmanLocation(FFrame& Stack, RESULT_DECL)
 {
     P_FINISH;
-    FVector Location;
-    *(FVector*)Result = *(FVector*)vf_35c((INT)&Location);
+    *(FVector*)Result = GetBatmanLocation();
 }
 
 void g_caller()
@@ -409,8 +405,7 @@ void ARBMCombatManager::execGetBatmanRotation(FFrame& Stack, RESULT_DECL)
 {
     P_FINISH;
 
-    FRotator BatmanRotation;
-    *(FRotator*)Result = *(FRotator*)vf_360((INT)&BatmanRotation);
+    *(FRotator*)Result = GetBatmanRotation();
 }
 
 // @baa 0x01705280
@@ -418,8 +413,7 @@ void URBMBehaviour_CombatHeavyObject::execGetMovementForce(FFrame& Stack, RESULT
 {
     P_FINISH;
 
-    FVector MovementForce;
-    *(FVector*)Result = *(FVector*)vf_1d8((INT)&MovementForce);
+    *(FVector*)Result = GetMovementForce();
 }
 
 struct ARBatarangProjectile_ : ARBatarangProjectile
