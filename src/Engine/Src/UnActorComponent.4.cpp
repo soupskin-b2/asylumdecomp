@@ -59,4 +59,4 @@ void UActorComponent::execSetComponentRBFixed(FFrame& Stack, RESULT_DECL)
 
 // @baa 0x006c0c10
 /* Slot 0x14c (unnamed in the kit; UE3's CreateFogVolumeDensityInfo(const FBox&)). */
-INT UFogVolumeDensityComponent::vf_14c(INT) PURE_VIRTUAL(UFogVolumeDensityComponent::CreateFogVolumeDensityInfo, return NULL;);
+struct FFogVolumeDensitySceneInfo* UFogVolumeDensityComponent::CreateFogVolumeDensityInfo(const class UPrimitiveComponent* MeshComponent) const PURE_VIRTUAL(UFogVolumeDensityComponent::CreateFogVolumeDensityInfo, return NULL;);

@@ -1249,7 +1249,7 @@ FString UMaterialExpressionFontSample::vf_128()
 
 // @baa 0x00c2a350
 // @baa 0x00c2a3d0
-UINT UMaterialExpression::vf_110(INT a) { return (UINT)-1; }
+INT UMaterialExpression::Compile(class FMaterialCompiler* a) { return (UINT)-1; }
 
 // @baa 0x00c2a3e0
 int UMaterialExpression::vf_12c(void) { return 0; }

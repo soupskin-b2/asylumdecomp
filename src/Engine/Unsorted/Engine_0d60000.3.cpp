@@ -26,7 +26,7 @@ void ANxCylindricalForceFieldCapsule_::sub_00d6b740()
 {
 	Kernel.Dummy = 0;
 	ForceField.Dummy = 0;
-	vf_238();
+	InitRBPhys();
 }
 
 // @baa 0x00d6b7d0
@@ -34,7 +34,7 @@ void ANxGenericForceFieldBox::DoInitRBPhys()
 {
 	ForceField.Dummy = 0;
 	LinearKernel.Dummy = 0;
-	vf_238();
+	InitRBPhys();
 }
 
 // F00d6cb30: small record that counts a float's arrival, keeping its raw bits.

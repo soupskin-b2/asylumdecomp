@@ -193,13 +193,13 @@ undefined4 * UObject::sub_00c64e00(void)
 }
 
 // @baa 0x00c64e20
-UINT UAnimNodePlayCustomAnim::vf_170() { return 0; }
+INT UAnimNodePlayCustomAnim::GetNumSliders() const { return 0; }
 
 // @baa 0x00c64e30
 IMPLEMENT_CLASS_AT(UAnimNodePlayCustomAnim, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTree.cpp", 29);
 
 // @baa 0x00c64ee0
-UINT UAnimNodeBlendDirectional::vf_170() { return 1; }
+INT UAnimNodeBlendDirectional::GetNumSliders() const { return 1; }
 
 // @baa 0x00c64ef0
 IMPLEMENT_CLASS_AT(UAnimNodeBlendDirectional, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTree.cpp", 18);
@@ -209,7 +209,7 @@ IMPLEMENT_CLASS_AT(UAnimNodeBlendDirectional, "e:\\Projects\\Amadeus\\AA\\Game\\
 IMPLEMENT_CLASS_AT(UAnimNodeBlendList, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTree.cpp", 16);
 
 // @baa 0x00c64ff0
-UINT UAnimNodeBlendList::vf_170() { return 1; }
+INT UAnimNodeBlendList::GetNumSliders() const { return 1; }
 
 // @baa 0x00c65070
 IMPLEMENT_CLASS_AT(UAnimNodeBlendByBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTree.cpp", 22);
@@ -221,7 +221,7 @@ IMPLEMENT_CLASS_AT(UAnimNodeBlendByPhysics, "e:\\Projects\\Amadeus\\AA\\Game\\Un
 IMPLEMENT_CLASS_AT(UAnimNodeBlendByPosture, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTree.cpp", 19);
 
 // @baa 0x00c65280
-UINT UAnimNodeBlendBySpeed::vf_170() { return 1; }
+INT UAnimNodeBlendBySpeed::GetNumSliders() const { return 1; }
 
 // @baa 0x00c65290
 IMPLEMENT_CLASS_AT(UAnimNodeBlendBySpeed, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTree.cpp", 21);

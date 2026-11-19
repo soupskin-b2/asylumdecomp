@@ -12,9 +12,9 @@ bool AKActorSpawnable::vf_004()
 // @baa 0x009e6b30
 /* APawn slot 0x238 (kit vf_238): UE3's APawn::InitRBPhys(): after the actor's physics setup, apply the pawn's
  * rigid-body pushing setting. */
-void APawn::vf_238()
+void APawn::InitRBPhys()
 {
-    Super::vf_238();
+    Super::InitRBPhys();
     SetPushesRigidBodies(bPushesRigidBodies);
 }
 

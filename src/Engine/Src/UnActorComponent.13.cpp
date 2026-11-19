@@ -56,7 +56,7 @@ void UActorComponent::BeginDeferredUpdateTransform()
         if ((Owner->bStatic || Owner->bExtraStasis) && !(Owner->bDeleteMe || Owner->HasAnyFlags(RF_PendingKill))
             && !Owner->HasAnyFlags(RF_ClassDefaultObject | RF_ArchetypeObject))
         {
-            Owner->vf_314(FALSE);
+            Owner->UpdateComponentsInternal(FALSE);
         }
     }
     else if (bAttached)

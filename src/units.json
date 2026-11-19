@@ -7495,7 +7495,7 @@
     {
      "va": "01586b60",
      "size": 6,
-     "symbol": "?vf_170@URAnimNode_Cape@@UAEIXZ"
+     "symbol": "?GetNumSliders@URAnimNode_Cape@@UBEHXZ"
     },
     {
      "va": "015903d0",
@@ -8266,7 +8266,7 @@
     {
      "va": "015962b0",
      "size": 6,
-     "symbol": "?vf_170@URAnimNode_Pose@@UAEIXZ"
+     "symbol": "?GetNumSliders@URAnimNode_Pose@@UBEHXZ"
     },
     {
      "va": "01599c30",
@@ -9061,7 +9061,7 @@
     {
      "va": "015962c0",
      "size": 49,
-     "symbol": "?vf_174@URAnimNode_Pose@@UAEHH@Z"
+     "symbol": "?GetSliderType@URAnimNode_Pose@@UBE?AW4ESliderType@@H@Z"
     }
    ]
   },
@@ -14700,12 +14700,12 @@
     {
      "va": "016cd890",
      "size": 12,
-     "symbol": "?vf_134@URCapeComponent@@UAEXH@Z"
+     "symbol": "?InitComponentRBPhys@URCapeComponent@@UAEXH@Z"
     },
     {
      "va": "016cd8a0",
      "size": 12,
-     "symbol": "?vf_13c@URCapeComponent@@UAEXH@Z"
+     "symbol": "?TermComponentRBPhys@URCapeComponent@@UAEXPAUFRBPhysScene@@@Z"
     },
     {
      "va": "016c6d40",
@@ -20636,7 +20636,7 @@
     {
      "va": "0171e600",
      "size": 33,
-     "symbol": "?vf_194@URSeqVar_DDAIntValue@@UAE?AVFString@@XZ"
+     "symbol": "?GetValueStr@URSeqVar_DDAIntValue@@UAE?AVFString@@XZ"
     },
     {
      "va": "0171e630",
@@ -30205,7 +30205,7 @@
     {
      "va": "0156fc50",
      "size": 33,
-     "symbol": "?vf_194@URSeqVar_Croc@@UAE?AVFString@@XZ"
+     "symbol": "?GetValueStr@URSeqVar_Croc@@UAE?AVFString@@XZ"
     },
     {
      "va": "0156fc80",
@@ -30235,7 +30235,7 @@
     {
      "va": "0156fdc0",
      "size": 33,
-     "symbol": "?vf_194@URSeqVar_Frank@@UAE?AVFString@@XZ"
+     "symbol": "?GetValueStr@URSeqVar_Frank@@UAE?AVFString@@XZ"
     },
     {
      "va": "0156fdf0",
@@ -30265,7 +30265,7 @@
     {
      "va": "0156ff30",
      "size": 33,
-     "symbol": "?vf_194@URSeqVar_Joker@@UAE?AVFString@@XZ"
+     "symbol": "?GetValueStr@URSeqVar_Joker@@UAE?AVFString@@XZ"
     },
     {
      "va": "0156ff60",
@@ -30737,7 +30737,7 @@
     {
      "va": "015700a0",
      "size": 33,
-     "symbol": "?vf_194@URSeqVar_JokerBedPuller@@UAE?AVFString@@XZ"
+     "symbol": "?GetValueStr@URSeqVar_JokerBedPuller@@UAE?AVFString@@XZ"
     },
     {
      "va": "015700d0",
@@ -46173,7 +46173,7 @@
     {
      "va": "0166fe70",
      "size": 47,
-     "symbol": "?vf_238@ARPawnCharacter@@UAEXXZ"
+     "symbol": "?InitRBPhys@ARPawnCharacter@@UAEXXZ"
     },
     {
      "va": "0166ee60",
@@ -60977,7 +60977,7 @@
     {
      "va": "015422d0",
      "size": 97,
-     "symbol": "?vf_194@URSeqVar_RandomVector@@UAE?AVFString@@XZ"
+     "symbol": "?GetValueStr@URSeqVar_RandomVector@@UAE?AVFString@@XZ"
     }
    ]
   },
@@ -61099,12 +61099,12 @@
     {
      "va": "01540790",
      "size": 33,
-     "symbol": "?vf_194@URSeqVar_LocalFlag@@UAE?AVFString@@XZ"
+     "symbol": "?GetValueStr@URSeqVar_LocalFlag@@UAE?AVFString@@XZ"
     },
     {
      "va": "015407c0",
      "size": 33,
-     "symbol": "?vf_194@URSeqVar_GlobalFlag@@UAE?AVFString@@XZ"
+     "symbol": "?GetValueStr@URSeqVar_GlobalFlag@@UAE?AVFString@@XZ"
     },
     {
      "va": "01540870",
@@ -169785,12 +169785,12 @@
     {
      "va": "009d7490",
      "size": 3,
-     "symbol": "?vf_134@UApexComponentBase@@UAEXH@Z"
+     "symbol": "?InitComponentRBPhys@UApexComponentBase@@UAEXH@Z"
     },
     {
      "va": "009d74a0",
      "size": 3,
-     "symbol": "?vf_13c@UApexComponentBase@@UAEXH@Z"
+     "symbol": "?TermComponentRBPhys@UApexComponentBase@@UAEXPAUFRBPhysScene@@@Z"
     },
     {
      "va": "009d74f0",
@@ -176940,7 +176940,7 @@
     {
      "va": "00c2a3d0",
      "size": 6,
-     "symbol": "?vf_110@UMaterialExpression@@UAEIH@Z"
+     "symbol": "?Compile@UMaterialExpression@@UAEHPAVFMaterialCompiler@@@Z"
     },
     {
      "va": "00c2a3e0",
@@ -180169,7 +180169,7 @@
     {
      "va": "006aefd0",
      "size": 3,
-     "symbol": "?vf_174@UMaterialInstance@@UAEXHHHH@Z"
+     "symbol": "?SetFontParameterValue@UMaterialInstance@@UAEXUFName@@PAUUFont@@H@Z"
     },
     {
      "va": "006aefe0",
@@ -183576,7 +183576,7 @@
     {
      "va": "006e42d0",
      "size": 384,
-     "symbol": "?vf_184@UPointLightComponent@@UAEXXZ"
+     "symbol": "?SetTransformedToWorld@UPointLightComponent@@UAEXXZ"
     },
     {
      "va": "006daa30",
@@ -197233,7 +197233,7 @@
     {
      "va": "00765060",
      "size": 117,
-     "symbol": "?vf_310@AActor@@UAEXH@Z"
+     "symbol": "?ClearComponents@AActor@@UAEXH@Z"
     },
     {
      "va": "00759430",
@@ -197243,7 +197243,7 @@
     {
      "va": "00772410",
      "size": 55,
-     "symbol": "?vf_318@AActor@@UAEXHH@Z"
+     "symbol": "?ConditionalUpdateComponents@AActor@@UAEXHH@Z"
     }
    ]
   },
@@ -197371,7 +197371,7 @@
     {
      "va": "006c0c10",
      "size": 29,
-     "symbol": "?vf_14c@UFogVolumeDensityComponent@@UAEHH@Z"
+     "symbol": "?CreateFogVolumeDensityInfo@UFogVolumeDensityComponent@@UBEPAUFFogVolumeDensitySceneInfo@@PBUUPrimitiveComponent@@@Z"
     }
    ]
   },
@@ -197508,7 +197508,7 @@
     {
      "va": "0064b5d0",
      "size": 3,
-     "symbol": "?vf_134@UActorComponent@@UAEXH@Z"
+     "symbol": "?InitComponentRBPhys@UActorComponent@@UAEXH@Z"
     },
     {
      "va": "0064b5e0",
@@ -197518,12 +197518,12 @@
     {
      "va": "0064b5f0",
      "size": 3,
-     "symbol": "?vf_13c@UActorComponent@@UAEXH@Z"
+     "symbol": "?TermComponentRBPhys@UActorComponent@@UAEXPAUFRBPhysScene@@@Z"
     },
     {
      "va": "0064b600",
      "size": 6,
-     "symbol": "?vf_144@UActorComponent@@UAEHXZ"
+     "symbol": "?IsValidComponent@UActorComponent@@UBEHXZ"
     },
     {
      "va": "0064b610",
@@ -200395,7 +200395,7 @@
     {
      "va": "00c64c10",
      "size": 13,
-     "symbol": "?vf_170@UAnimNodeSequence@@UAEIXZ"
+     "symbol": "?GetNumSliders@UAnimNodeSequence@@UBEHXZ"
     },
     {
      "va": "00c64c20",
@@ -200430,12 +200430,12 @@
     {
      "va": "00c64d50",
      "size": 6,
-     "symbol": "?vf_170@UAnimNodeSequenceBlendByAim@@UAEIXZ"
+     "symbol": "?GetNumSliders@UAnimNodeSequenceBlendByAim@@UBEHXZ"
     },
     {
      "va": "00c64d60",
      "size": 8,
-     "symbol": "?vf_174@UAnimNodeSequenceBlendByAim@@UAEHH@Z"
+     "symbol": "?GetSliderType@UAnimNodeSequenceBlendByAim@@UBE?AW4ESliderType@@H@Z"
     },
     {
      "va": "00c64d70",
@@ -201880,12 +201880,12 @@
     {
      "va": "00c64700",
      "size": 3,
-     "symbol": "?vf_170@UAnimNode@@UAEIXZ"
+     "symbol": "?GetNumSliders@UAnimNode@@UBEHXZ"
     },
     {
      "va": "00c64710",
      "size": 5,
-     "symbol": "?vf_174@UAnimNode@@UAEHH@Z"
+     "symbol": "?GetSliderType@UAnimNode@@UBE?AW4ESliderType@@H@Z"
     },
     {
      "va": "00c64720",
@@ -201980,7 +201980,7 @@
     {
      "va": "00c65620",
      "size": 3,
-     "symbol": "?vf_170@UAnimNodeSlot@@UAEIXZ"
+     "symbol": "?GetNumSliders@UAnimNodeSlot@@UBEHXZ"
     },
     {
      "va": "00c65630",
@@ -202380,12 +202380,12 @@
     {
      "va": "00c79010",
      "size": 6,
-     "symbol": "?vf_170@UAnimNodeAimOffset@@UAEIXZ"
+     "symbol": "?GetNumSliders@UAnimNodeAimOffset@@UBEHXZ"
     },
     {
      "va": "00c79020",
      "size": 8,
-     "symbol": "?vf_174@UAnimNodeAimOffset@@UAEHH@Z"
+     "symbol": "?GetSliderType@UAnimNodeAimOffset@@UBE?AW4ESliderType@@H@Z"
     },
     {
      "va": "00c79030",
@@ -202770,7 +202770,7 @@
     {
      "va": "00c64910",
      "size": 6,
-     "symbol": "?vf_170@UAnimNodeBlend@@UAEIXZ"
+     "symbol": "?GetNumSliders@UAnimNodeBlend@@UBEHXZ"
     },
     {
      "va": "00c64920",
@@ -203411,7 +203411,7 @@
     {
      "va": "007861f0",
      "size": 21,
-     "symbol": "?vf_144@UAudioComponent@@UAEHXZ"
+     "symbol": "?IsValidComponent@UAudioComponent@@UBEHXZ"
     },
     {
      "va": "00786280",
@@ -207279,7 +207279,7 @@
     {
      "va": "00c1a190",
      "size": 3,
-     "symbol": "?vf_110@UNetConnection@@UAEPAXXZ"
+     "symbol": "?GetUChildConnection@UNetConnection@@UAEPAUUChildConnection@@XZ"
     },
     {
      "va": "00c1a1a0",
@@ -207374,7 +207374,7 @@
     {
      "va": "00e14bc0",
      "size": 3,
-     "symbol": "?vf_110@UChildConnection@@UAEPAXXZ"
+     "symbol": "?GetUChildConnection@UChildConnection@@UAEPAU1@XZ"
     },
     {
      "va": "00e14bd0",
@@ -209903,7 +209903,7 @@
     {
      "va": "007b8b30",
      "size": 79,
-     "symbol": "?vf_290@UFracturedBaseComponent@@UAEHHHHHH@Z"
+     "symbol": "?IsElementFragmentVisible@UFracturedBaseComponent@@UAEHHHHHH@Z"
     },
     {
      "va": "007b8ac0",
@@ -212716,7 +212716,7 @@
     {
      "va": "00cfa870",
      "size": 45,
-     "symbol": "?vf_194@UInterpData@@UAE?AVFString@@XZ"
+     "symbol": "?GetValueStr@UInterpData@@UAE?AVFString@@XZ"
     }
    ]
   },
@@ -224257,7 +224257,7 @@
     {
      "va": "009e6b30",
      "size": 33,
-     "symbol": "?vf_238@APawn@@UAEXXZ"
+     "symbol": "?InitRBPhys@APawn@@UAEXXZ"
     },
     {
      "va": "009e6b60",
@@ -225652,17 +225652,17 @@
     {
      "va": "00a01dd0",
      "size": 32,
-     "symbol": "?vf_114@URB_RadialImpulseComponent@@UAEXXZ"
+     "symbol": "?Attach@URB_RadialImpulseComponent@@UAEXXZ"
     },
     {
      "va": "00a110c0",
      "size": 256,
-     "symbol": "?vf_1f4@USkeletalMeshComponent@@UAEHH@Z"
+     "symbol": "?GetIndexedNxActor@USkeletalMeshComponent@@UAEPAVNxActor@@H@Z"
     },
     {
      "va": "009ff710",
      "size": 21,
-     "symbol": "?vf_1f4@UPrimitiveComponent@@UAEHH@Z"
+     "symbol": "?GetIndexedNxActor@UPrimitiveComponent@@UAEPAVNxActor@@H@Z"
     }
    ]
   },
@@ -225674,12 +225674,12 @@
     {
      "va": "00a11080",
      "size": 59,
-     "symbol": "?vf_13c@UPrimitiveComponent@@UAEXH@Z"
+     "symbol": "?TermComponentRBPhys@UPrimitiveComponent@@UAEXPAUFRBPhysScene@@@Z"
     },
     {
      "va": "00a14d30",
      "size": 59,
-     "symbol": "?vf_13c@UStaticMeshComponent@@UAEXH@Z"
+     "symbol": "?TermComponentRBPhys@UStaticMeshComponent@@UAEXPAUFRBPhysScene@@@Z"
     }
    ]
   },
@@ -227770,12 +227770,12 @@
     {
      "va": "0088a1c0",
      "size": 134,
-     "symbol": "?vf_310@APostProcessVolume@@UAEXH@Z"
+     "symbol": "?ClearComponents@APostProcessVolume@@UAEXH@Z"
     },
     {
      "va": "0088a250",
      "size": 199,
-     "symbol": "?vf_314@APostProcessVolume@@UAEXH@Z"
+     "symbol": "?UpdateComponentsInternal@APostProcessVolume@@UAEXH@Z"
     }
    ]
   },
@@ -228989,7 +228989,7 @@
     {
      "va": "008a71b0",
      "size": 14,
-     "symbol": "?vf_114@USceneCaptureComponent@@UAEXXZ"
+     "symbol": "?Attach@USceneCaptureComponent@@UAEXXZ"
     },
     {
      "va": "008a72e0",
@@ -229009,7 +229009,7 @@
     {
      "va": "008a7520",
      "size": 14,
-     "symbol": "?vf_114@USceneCaptureReflectComponent@@UAEXXZ"
+     "symbol": "?Attach@USceneCaptureReflectComponent@@UAEXXZ"
     },
     {
      "va": "008a7530",
@@ -229024,7 +229024,7 @@
     {
      "va": "008a7550",
      "size": 14,
-     "symbol": "?vf_114@USceneCapturePortalComponent@@UAEXXZ"
+     "symbol": "?Attach@USceneCapturePortalComponent@@UAEXXZ"
     },
     {
      "va": "008a7560",
@@ -229158,7 +229158,7 @@
     {
      "va": "008c81a0",
      "size": 45,
-     "symbol": "?vf_194@USeqVar_Float@@UAE?AVFString@@XZ"
+     "symbol": "?GetValueStr@USeqVar_Float@@UAE?AVFString@@XZ"
     },
     {
      "va": "008e6260",
@@ -229198,12 +229198,12 @@
     {
      "va": "008bce40",
      "size": 33,
-     "symbol": "?GetValueStr@USeqVar_Name_@@QAE?AVFString@@XZ"
+     "symbol": "?GetValueStr@USeqVar_Name_@@UAE?AVFString@@XZ"
     },
     {
      "va": "008c8a60",
      "size": 33,
-     "symbol": "?GetValueStr@USeqVar_Vector_@@QAE?AVFString@@XZ"
+     "symbol": "?GetValueStr@USeqVar_Vector_@@UAE?AVFString@@XZ"
     },
     {
      "va": "008c1df0",
@@ -229258,12 +229258,12 @@
     {
      "va": "008cb850",
      "size": 225,
-     "symbol": "?GetValueStr@USeqVar_Named_@@QAE?AVFString@@XZ"
+     "symbol": "?GetValueStr@USeqVar_Named_@@UAE?AVFString@@XZ"
     },
     {
      "va": "008c84a0",
      "size": 208,
-     "symbol": "?GetValueStr@USeqVar_Object_@@QAE?AVFString@@XZ"
+     "symbol": "?GetValueStr@USeqVar_Object_@@UAE?AVFString@@XZ"
     },
     {
      "va": "008be9e0",
@@ -231943,12 +231943,12 @@
     {
      "va": "008abea0",
      "size": 7,
-     "symbol": "?vf_168@USeqVar_Union@@UAEPADXZ"
+     "symbol": "?GetIntRef@USeqVar_Union@@UAEPAHXZ"
     },
     {
      "va": "008abeb0",
      "size": 7,
-     "symbol": "?vf_16c@USeqVar_Union@@UAEPADXZ"
+     "symbol": "?GetByteRef@USeqVar_Union@@UAEPAEXZ"
     },
     {
      "va": "008abec0",
@@ -231963,17 +231963,17 @@
     {
      "va": "008abee0",
      "size": 7,
-     "symbol": "?vf_180@USeqVar_Union@@UAEPADXZ"
+     "symbol": "?GetStringRef@USeqVar_Union@@UAEPAVFString@@XZ"
     },
     {
      "va": "008abef0",
      "size": 21,
-     "symbol": "?vf_188@USeqVar_Union@@UAEHH@Z"
+     "symbol": "?GetObjectRef@USeqVar_Union@@UAEPAPAUUObject@@H@Z"
     },
     {
      "va": "008abf10",
      "size": 7,
-     "symbol": "?vf_190@USeqVar_Union@@UAEPADXZ"
+     "symbol": "?GetUniqueNetIdRef@USeqVar_Union@@UAEPAUFUniqueNetId@@XZ"
     },
     {
      "va": "008abf20",
@@ -231983,7 +231983,7 @@
     {
      "va": "008abf30",
      "size": 7,
-     "symbol": "?vf_16c@USeqVar_Byte@@UAEPADXZ"
+     "symbol": "?GetByteRef@USeqVar_Byte@@UAEPAEXZ"
     },
     {
      "va": "008abf80",
@@ -232703,12 +232703,12 @@
     {
      "va": "008bc250",
      "size": 3,
-     "symbol": "?vf_168@USequenceVariable@@UAEPADXZ"
+     "symbol": "?GetIntRef@USequenceVariable@@UAEPAHXZ"
     },
     {
      "va": "008bc260",
      "size": 3,
-     "symbol": "?vf_16c@USequenceVariable@@UAEPADXZ"
+     "symbol": "?GetByteRef@USequenceVariable@@UAEPAEXZ"
     },
     {
      "va": "008bc270",
@@ -232723,7 +232723,7 @@
     {
      "va": "008bc290",
      "size": 3,
-     "symbol": "?vf_178@USequenceVariable@@UAEPADXZ"
+     "symbol": "?GetVectorRef@USequenceVariable@@UAEPAUFVector@@XZ"
     },
     {
      "va": "008bc2a0",
@@ -232733,27 +232733,27 @@
     {
      "va": "008bc2b0",
      "size": 3,
-     "symbol": "?vf_180@USequenceVariable@@UAEPADXZ"
+     "symbol": "?GetStringRef@USequenceVariable@@UAEPAVFString@@XZ"
     },
     {
      "va": "008bc2c0",
      "size": 3,
-     "symbol": "?vf_184@USequenceVariable@@UAEPADXZ"
+     "symbol": "?GetNameRef@USequenceVariable@@UAEPAUFName@@XZ"
     },
     {
      "va": "008bc2d0",
      "size": 5,
-     "symbol": "?vf_188@USequenceVariable@@UAEHH@Z"
+     "symbol": "?GetObjectRef@USequenceVariable@@UAEPAPAUUObject@@H@Z"
     },
     {
      "va": "008bc2e0",
      "size": 3,
-     "symbol": "?vf_18c@USequenceVariable@@UAEPADXZ"
+     "symbol": "?GetColourRef@USequenceVariable@@UAEPAUFLinearColor@@XZ"
     },
     {
      "va": "008bc2f0",
      "size": 3,
-     "symbol": "?vf_190@USequenceVariable@@UAEPADXZ"
+     "symbol": "?GetUniqueNetIdRef@USequenceVariable@@UAEPAUFUniqueNetId@@XZ"
     },
     {
      "va": "008bc300",
@@ -232783,7 +232783,7 @@
     {
      "va": "008bc350",
      "size": 33,
-     "symbol": "?vf_194@USequenceVariable@@UAE?AVFString@@XZ"
+     "symbol": "?GetValueStr@USequenceVariable@@UAE?AVFString@@XZ"
     },
     {
      "va": "008bc380",
@@ -232838,7 +232838,7 @@
     {
      "va": "008bc5e0",
      "size": 7,
-     "symbol": "?vf_18c@USeqVar_Colour@@UAEPADXZ"
+     "symbol": "?GetColourRef@USeqVar_Colour@@UAEPAUFLinearColor@@XZ"
     },
     {
      "va": "008bc6d0",
@@ -232918,7 +232918,7 @@
     {
      "va": "008bcb30",
      "size": 7,
-     "symbol": "?vf_168@USeqVar_Int@@UAEPADXZ"
+     "symbol": "?GetIntRef@USeqVar_Int@@UAEPAHXZ"
     },
     {
      "va": "008bcc20",
@@ -232963,7 +232963,7 @@
     {
      "va": "008bcd80",
      "size": 7,
-     "symbol": "?vf_184@USeqVar_Name@@UAEPADXZ"
+     "symbol": "?GetNameRef@USeqVar_Name@@UAEPAUFName@@XZ"
     },
     {
      "va": "008bcde0",
@@ -233003,7 +233003,7 @@
     {
      "va": "008bcf80",
      "size": 7,
-     "symbol": "?vf_180@USeqVar_String@@UAEPADXZ"
+     "symbol": "?GetStringRef@USeqVar_String@@UAEPAVFString@@XZ"
     },
     {
      "va": "008bcfe0",
@@ -233023,7 +233023,7 @@
     {
      "va": "008bd0f0",
      "size": 7,
-     "symbol": "?vf_178@USeqVar_Vector@@UAEPADXZ"
+     "symbol": "?GetVectorRef@USeqVar_Vector@@UAEPAUFVector@@XZ"
     },
     {
      "va": "008bd100",
@@ -233273,7 +233273,7 @@
     {
      "va": "008c8390",
      "size": 21,
-     "symbol": "?vf_188@USeqVar_Object@@UAEHH@Z"
+     "symbol": "?GetObjectRef@USeqVar_Object@@UAEPAPAUUObject@@H@Z"
     },
     {
      "va": "008c83b0",
@@ -243159,12 +243159,12 @@
     {
      "va": "00986fb0",
      "size": 37,
-     "symbol": "?vf_0e8@UTerrainComponent@@UAEXH@Z"
+     "symbol": "?AddReferencedObjects@UTerrainComponent@@UAEXAAV?$TArray@PAVUObject@@@@@Z"
     },
     {
      "va": "0098bc30",
      "size": 142,
-     "symbol": "?vf_0e8@ATerrain@@UAEXH@Z"
+     "symbol": "?AddReferencedObjects@ATerrain@@UAEXAAV?$TArray@PAVUObject@@@@@Z"
     }
    ]
   },
@@ -274760,12 +274760,12 @@
     {
      "va": "00689390",
      "size": 3,
-     "symbol": "?vf_17c@UPrimitiveComponent@@UAEIXZ"
+     "symbol": "?GetRBBodySetup@UPrimitiveComponent@@UAEPAUURB_BodySetup@@XZ"
     },
     {
      "va": "006893a0",
      "size": 5,
-     "symbol": "?vf_180@UPrimitiveComponent@@UAEHH@Z"
+     "symbol": "?GetElementMaterial@UPrimitiveComponent@@UAEPAUUMaterialInterface@@H@Z"
     },
     {
      "va": "006893d0",
@@ -351176,7 +351176,7 @@
     {
      "va": "00c64e20",
      "size": 3,
-     "symbol": "?vf_170@UAnimNodePlayCustomAnim@@UAEIXZ"
+     "symbol": "?GetNumSliders@UAnimNodePlayCustomAnim@@UBEHXZ"
     },
     {
      "va": "00c64e30",
@@ -351191,7 +351191,7 @@
     {
      "va": "00c64ee0",
      "size": 6,
-     "symbol": "?vf_170@UAnimNodeBlendDirectional@@UAEIXZ"
+     "symbol": "?GetNumSliders@UAnimNodeBlendDirectional@@UBEHXZ"
     },
     {
      "va": "00c64ef0",
@@ -351211,7 +351211,7 @@
     {
      "va": "00c64ff0",
      "size": 6,
-     "symbol": "?vf_170@UAnimNodeBlendList@@UAEIXZ"
+     "symbol": "?GetNumSliders@UAnimNodeBlendList@@UBEHXZ"
     },
     {
      "va": "00c65000",
@@ -351251,7 +351251,7 @@
     {
      "va": "00c65280",
      "size": 6,
-     "symbol": "?vf_170@UAnimNodeBlendBySpeed@@UAEIXZ"
+     "symbol": "?GetNumSliders@UAnimNodeBlendBySpeed@@UBEHXZ"
     },
     {
      "va": "00c65290",

@@ -1998,10 +1998,10 @@ int UPrimitiveComponent::vf_174(int a0, int a1, int a2, int a3) { return 1; }
 int UPrimitiveComponent::vf_178(int a0, int a1, int a2, int a3, int a4) { return 1; }
 
 // @baa 0x00689390
-UINT UPrimitiveComponent::vf_17c() { return 0; }
+class URB_BodySetup* UPrimitiveComponent::GetRBBodySetup() { return 0; }
 
 // @baa 0x006893a0
-int UPrimitiveComponent::vf_180(int a0) { return 0; }
+class UMaterialInterface* UPrimitiveComponent::GetElementMaterial(INT a0) { return 0; }
 
 // @baa 0x006893d0
 void UPrimitiveComponent::vf_1e4(int a0) {  }

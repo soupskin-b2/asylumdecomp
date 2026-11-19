@@ -157,7 +157,7 @@ struct FString_ : public FString
 
 // @baa 0x00cfa870
 /* UInterpData slot 0x194 (kit vf_194, UE3's GetValueStr()): "Matinee Data (<length>s)". */
-FString UInterpData::vf_194()
+FString UInterpData::GetValueStr()
 {
     return FString_::sub_005a9fc0(TEXT("Matinee Data (%3.1fs)"), InterpLength);
 }

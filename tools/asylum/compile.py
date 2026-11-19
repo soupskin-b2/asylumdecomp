@@ -10,6 +10,7 @@ import re
 import shutil
 import subprocess
 import tempfile
+import threading
 import time
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -214,13 +215,16 @@ def _pch(src: str, p: Profile) -> tuple[str, Path, list[int]] | None:
         return hdr, out, idx
     d.mkdir(parents=True, exist_ok=True)
     text = "".join("%s\n" % l for l in prefix) + "".join('#include "%s"\n' % h for h in p.prelude + [header])
-    t = d / ("%s.%d.tmp" % (hdr, os.getpid()))
+    t = d / ("%s.%d.%d.tmp" % (hdr, os.getpid(), threading.get_ident()))  # unique per thread too
     if not (d / hdr).exists():
         t.write_text(text, encoding="utf-8")
         try:
             os.replace(t, d / hdr)
         except OSError:  # another process wrote the same file
-            t.unlink(missing_ok=True)
+            try:
+                t.unlink(missing_ok=True)
+            except OSError:
+                pass
     # one process builds it, the others wait (parallel checks would all build the same one)
     lock = d / ("%s.lock" % tag)
     while True:

@@ -1016,10 +1016,10 @@ void V_00c646e0::sub_00c646e0(int a0) { g(a0); }
 void UAnimNode::vf_164(int a0, int a1, int a2, int a3) {  }
 
 // @baa 0x00c64700
-UINT UAnimNode::vf_170() { return 0; }
+INT UAnimNode::GetNumSliders() const { return 0; }
 
 // @baa 0x00c64710
-int UAnimNode::vf_174(int a0) { return 0; }
+ESliderType UAnimNode::GetSliderType(INT InIndex) const { return ST_1D; }
 
 // @baa 0x00c64720
 FLOAT UAnimNode::GetSliderPosition(INT f, INT g) {
@@ -1102,7 +1102,7 @@ undefined4 * UObject::sub_00c65600(void)
 }
 
 // @baa 0x00c65620
-UINT UAnimNodeSlot::vf_170() { return 0; }
+INT UAnimNodeSlot::GetNumSliders() const { return 0; }
 
 // @baa 0x00c65630
 IMPLEMENT_CLASS_AT(UAnimNodeSlot, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTree.cpp", 30);
@@ -1550,10 +1550,10 @@ C_00c78a10* C_00c78a10::sub_00c78a10(void) { return this; }
 void UAnimNodeAimOffset::vf_1a8(int a0) {  }
 
 // @baa 0x00c79010
-UINT UAnimNodeAimOffset::vf_170() { return 1; }
+INT UAnimNodeAimOffset::GetNumSliders() const { return 1; }
 
 // @baa 0x00c79020
-int UAnimNodeAimOffset::vf_174(int a0) { return 1; }
+ESliderType UAnimNodeAimOffset::GetSliderType(INT InIndex) const { return ST_2D; }
 
 // @baa 0x00c79030
 // @baa 0x00c790c0

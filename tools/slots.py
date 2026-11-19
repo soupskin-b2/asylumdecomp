@@ -33,7 +33,7 @@ HEADER = ROOT / "include" / "ue3" / "Classes.h"
 sys.path.insert(0, str(ROOT / "tools" / "asylum"))
 
 _CLASS = re.compile(r"^(?:struct|class) (?:__declspec\(\w+\(\d+\)\) )?(\w+)(?: : (.*?))?\s*\{\s*$")
-_SLOT = re.compile(r"^(?P<ind>\s*)virtual (?P<body>.*?)\s*/\* 0x(?P<off>[0-9a-f]{3}) \*/\s*$")
+_SLOT = re.compile(r"^(?P<ind>\s*)virtual (?P<body>.*?)\s*/\* 0x(?P<off>[0-9a-f]{3}) \*/(?P<rest>[ \t]*/\*.*\*/)?\s*$")
 
 
 def split_decl(body: str):
@@ -89,7 +89,9 @@ def parse(lines: list[str]):
             continue
         m = _SLOT.match(line)
         if m:
-            cur["decls"].append(Decl(cur["name"], n, m.group("ind"), m.group("body"), int(m.group("off"), 16)))
+            d = Decl(cur["name"], n, m.group("ind"), m.group("body"), int(m.group("off"), 16))
+            d.rest = m.group("rest") or ""
+            cur["decls"].append(d)
     return classes
 
 
@@ -136,6 +138,7 @@ def cmd_set(lines, classes, cls, off, decl, quiet=False):
         raise SystemExit("can't read the declaration: %s" % decl)
     n = 0
     changes = []
+    drop = []
     for k in subtree(classes, intro):
         for d in classes[k]["decls"]:
             if d.off != off or d.name != old.name:
@@ -145,9 +148,21 @@ def cmd_set(lines, classes, cls, off, decl, quiet=False):
             # a covariant return (a pointer to a derived class) stays as the override had it
             if k != intro and old.name == s[1] and ret != s[0] and ret.endswith("*") and s[0].endswith("*"):
                 new = "%s %s(%s)%s" % (ret, s[1], s[2], (" " + s[3]) if s[3] else "")
-            lines[d.lineno] = "%svirtual %s; /* 0x%03x */\n" % (d.ind, new, off)
+            rest = d.rest
+            # a plain (non-virtual) declaration of the same function in this class, usually with the
+            # address of the override: fold it into the slot's line
+            want = [_norm_type(p) for p in split_params(s[2])]
+            for j in range(classes[k]["start"] + 1, classes[k].get("end", classes[k]["start"])):
+                m = re.match(r"\s*(?!virtual\b)[^/(]*?\b%s\((?P<p>[^()]*)\)[^;]*;\s*(?P<va>/\* 0x[0-9a-f]{8} \*/)?" % re.escape(s[1]), lines[j])
+                if m and [_norm_type(p) for p in split_params(m.group("p"))] == want:
+                    drop.append(j)
+                    if m.group("va") and not rest:
+                        rest = " " + m.group("va")
+            lines[d.lineno] = "%svirtual %s; /* 0x%03x */%s\n" % (d.ind, new, off, rest)
             changes.append((k, d.name, split_decl(new)))
             n += 1
+    for j in drop:
+        lines[j] = ""  # keeps line numbers stable for the rest of this run; empty strings vanish on save
     if not quiet:
         print("%s 0x%03x: %d declarations" % (intro, off, n))
     return changes, (old.name, intro, s[1])
@@ -185,6 +200,10 @@ def _param_type(p: str) -> str:
     return p[:p.rfind(n)].strip() if n else p
 
 
+def _norm_type(p: str) -> str:
+    return re.sub(r"\b(?:class|struct|enum)\s+|\s+", "", _param_type(p))
+
+
 def definition_params(old_params: str, new_params: str) -> str:
     """the new types with the definition's own parameter names (no defaults)"""
     olds, news = split_params(old_params), split_params(new_params)
@@ -193,12 +212,13 @@ def definition_params(old_params: str, new_params: str) -> str:
         t = _param_type(np_)
         n = _param_name(olds[i]) if len(olds) == len(news) else None
         n = n or _param_name(np_) or ("Arg%d" % i)
-        out.append(("%s %s" % (t, n)) if not t.endswith(("*", "&")) else "%s%s" % (t, n))
+        out.append("%s %s" % (t, n))
     return ", ".join(out)
 
 
 SRC = ROOT / "src"
 _ERR = re.compile(r"candidate\.cpp\((\d+)\) : error (C\d+): '(~?\w+)' : is not a member of '(\w+)'")
+_ERR_BARE = re.compile(r"candidate\.cpp\((\d+)\) : error C3861: '(\w+)': identifier not found")
 
 
 def rewrite_definitions(changes, files=None):
@@ -243,30 +263,58 @@ def fix_calls(classes, renames, files, rounds=6):
         for intro, new in lst:
             for k in subtree(classes, intro):
                 sub[(old, k)] = new
-    left = {}
-    for f in files:
+    # a bare call inside a member function (C3861) doesn't name the class: fine when the old name has one rename
+    bare = {old: lst[0][1] for old, lst in renames.items() if len({n for _, n in lst}) == 1}
+
+    def one(f):
         rel = f.relative_to(SRC).as_posix()
         u = units.get(rel)
         prof = cc.profile(u["profile"] if u else "ue3")
         for _ in range(rounds):
             src = f.read_text(encoding="utf-8")
-            c = cc.compile(src, prof, check=False)
+            # #line directives would point the diagnostics elsewhere; blank them (same line count)
+            c = cc.compile(re.sub(r"(?m)^[ \t]*#line\b.*$", "//", src), prof, check=False)
             if c.obj is not None:
-                left.pop(rel, None)
-                break
+                return rel, None
             lines = src.split("\n")
             changed = False
-            for m in _ERR.finditer(c.diagnostics):
-                ln, old, k = int(m.group(1)) - 1, m.group(3), m.group(4)
-                new = sub.get((old, k))
+            fixes = [(int(m.group(1)) - 1, m.group(3), sub.get((m.group(3), m.group(4)))) for m in _ERR.finditer(c.diagnostics)]
+            fixes += [(int(m.group(1)) - 1, m.group(2), bare.get(m.group(2))) for m in _ERR_BARE.finditer(c.diagnostics)]
+            for ln, old, new in fixes:
                 if new and 0 <= ln < len(lines) and re.search(r"\b%s\b" % old, lines[ln]):
                     lines[ln] = re.sub(r"\b%s\b" % old, new, lines[ln])
                     changed = True
             if not changed:
-                left[rel] = [e for e in c.errors][:4]
-                break
+                return rel, [e for e in c.errors][:4]
             f.write_text("\n".join(lines), encoding="utf-8", newline="\n")
+        return rel, ["still failing after %d rounds" % rounds]
+
+    import concurrent.futures, os
+    left = {}
+    with concurrent.futures.ThreadPoolExecutor(max(1, (os.cpu_count() or 4) - 1)) as pool:
+        for i, (rel, errs) in enumerate(pool.map(one, files), 1):
+            if errs:
+                left[rel] = errs
+            if i % 100 == 0:
+                print("  %d/%d compiled" % (i, len(files)), flush=True)
     return left
+
+
+def files_using(classes, renames):
+    """src files that may call a renamed slot: they mention the old name other than in definitions of
+    classes outside the slot's tree (vf_ names repeat across unrelated classes)."""
+    trees = {old: set().union(*(subtree(classes, intro) for intro, _ in lst)) for old, lst in renames.items()}
+    out = []
+    for f in SRC.rglob("*.cpp"):
+        t = f.read_text(encoding="utf-8")
+        for old, tree in trees.items():
+            if old not in t:
+                continue
+            s = re.sub(r"\b(\w+)::%s\b" % old, lambda m: m.group(0) if m.group(1) in tree or m.group(1) == "Super" else "", t)
+            if re.search(r"\b%s\s*\(" % old, s):
+                out.append(f)
+                break
+    return out
 
 
 def load():
@@ -416,14 +464,25 @@ def main(argv):
         save(lines)
         print("%d declarations written" % len(allchanges))
         if src_too and allchanges:
+            # the headers must compile and keep every vtable slot first; src is only touched after that
+            if cmd_verify(parse(lines)) != 0:
+                print("not rewriting src: fix the headers (or git checkout include) and run it again")
+                return 1
             olds = {o for _, o, _ in allchanges}
-            files = [f for f in SRC.rglob("*.cpp") if any(o in f.read_text(encoding="utf-8") for o in olds)]
-            touched = rewrite_definitions(allchanges, files)
+            touched = rewrite_definitions(allchanges, [f for f in SRC.rglob("*.cpp") if any(o in f.read_text(encoding="utf-8") for o in olds)])
+            files = sorted(set(files_using(classes, renames)) | touched)
             print("%d source files with definitions rewritten; compiling %d that use the old names" % (len(touched), len(files)))
             left = fix_calls(classes, renames, files)
             for rel, errs in left.items():
                 print("FIX BY HAND %s: %s" % (rel, " | ".join(errs)[:600]))
-            print("then: python tools/slots.py verify; python tools/resymbol.py (and the units)")
+            if files:
+                # matched functions whose mangled names changed: re-record them now
+                import subprocess
+                only = []
+                for f in files:
+                    only += ["--only", f.relative_to(SRC).as_posix()]
+                subprocess.run([sys.executable, str(Path(__file__).with_name("resymbol.py"))] + only)
+            print("then: python tools/slots.py verify, and the units")
         return 0
     print(__doc__)
     return 2

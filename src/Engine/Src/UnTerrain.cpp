@@ -3667,7 +3667,7 @@ undefined4 C_015b0d90::sub_015b0d90(int param_2)
  * ClearComponents) before the object-level BeginDestroy. */
 void AActor::BeginDestroy()
 {
-    vf_310(FALSE);
+    ClearComponents(FALSE);
     Super::BeginDestroy();
 }
 

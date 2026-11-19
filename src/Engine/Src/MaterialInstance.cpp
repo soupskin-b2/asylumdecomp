@@ -76,7 +76,7 @@ void UMaterialInstance::SetScalarParameterValue(FName ParameterName, FLOAT Value
 void UMaterialInstance::SetTextureParameterValue(FName ParameterName, UTexture* Value) {  }
 
 // @baa 0x006aefd0
-void UMaterialInstance::vf_174(int a0, int a1, int a2, int a3) {  }
+void UMaterialInstance::SetFontParameterValue(FName ParameterName, class UFont* FontValue, INT FontPage) {  }
 
 // @baa 0x006aefe0
 void UMaterialInstance::ClearParameterValues() {  }

@@ -108,7 +108,7 @@ void C_00c57340::sub_00c57340() {
 IMPLEMENT_CLASS_AT(UAnimNodeSequence, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimPlay.cpp", 10);
 
 // @baa 0x00c64c10
-uint UAnimNodeSequence::vf_170(void)
+INT UAnimNodeSequence::GetNumSliders() const
 {
     int param_1 = (int)this;
 
@@ -155,10 +155,10 @@ undefined4 * UObject::sub_00c64d30(void)
 }
 
 // @baa 0x00c64d50
-UINT UAnimNodeSequenceBlendByAim::vf_170() { return 1; }
+INT UAnimNodeSequenceBlendByAim::GetNumSliders() const { return 1; }
 
 // @baa 0x00c64d60
-int UAnimNodeSequenceBlendByAim::vf_174(int a0) { return 1; }
+ESliderType UAnimNodeSequenceBlendByAim::GetSliderType(INT InIndex) const { return ST_2D; }
 
 // @baa 0x00c64d70
 IMPLEMENT_CLASS_AT(UAnimNodeSequenceBlendByAim, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimPlay.cpp", 12);

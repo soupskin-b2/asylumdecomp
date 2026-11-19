@@ -102,7 +102,7 @@ struct FMatrix_ : public FMatrix
 // @baa 0x006e42d0
 /* Slot 0x184 (unnamed in the kit; UE3's SetTransformedToWorld): the light's frame is the parent's, translated
  * and with X and Z swapped, without scaling. */
-void UPointLightComponent::vf_184()
+void UPointLightComponent::SetTransformedToWorld()
 {
     LightToWorld = (const FMatrix_&)((const FMatrix_&)FMatrix(
             FPlane(+0, +0, +1, +0),

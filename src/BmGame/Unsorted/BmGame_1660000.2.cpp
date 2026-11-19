@@ -1919,9 +1919,9 @@ void ARPawnCharacter::TermRBPhys(FRBPhysScene* Scene)
 // @baa 0x0166fe70
 /* ARPawnCharacter slot 0x238 (kit vf_238, UE3 InitRBPhys()): after the pawn's physics setup, constrain the mesh
  * through the body constraint component. */
-void ARPawnCharacter::vf_238()
+void ARPawnCharacter::InitRBPhys()
 {
-    Super::vf_238();
+    Super::InitRBPhys();
     if (BodyConstrainingComponent)
     {
         BodyConstrainingComponent->ConstrainedComponent = Mesh;

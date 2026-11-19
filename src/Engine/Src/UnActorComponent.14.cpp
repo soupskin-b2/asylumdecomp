@@ -11,7 +11,7 @@ void AActor::vf_31c(INT bOnlyFiltered)
     for (INT ComponentIndex = 0; ComponentIndex < Components.Num(); ComponentIndex++)
     {
         UActorComponent* Component = Components(ComponentIndex);
-        if (Component && (!bOnlyFiltered || Component->vf_144()))
+        if (Component && (!bOnlyFiltered || Component->IsValidComponent()))
         {
             Component->MarkPendingKill();
         }
@@ -19,7 +19,7 @@ void AActor::vf_31c(INT bOnlyFiltered)
     for (INT ComponentIndex = 0; ComponentIndex < AllComponents.Num(); ComponentIndex++)
     {
         UActorComponent* Component = AllComponents(ComponentIndex);
-        if (Component && (!bOnlyFiltered || Component->vf_144()))
+        if (Component && (!bOnlyFiltered || Component->IsValidComponent()))
         {
             Component->MarkPendingKill();
         }
@@ -39,7 +39,7 @@ void UActorComponent::sub_00759620()
 
 // @baa 0x00765060
 /* ClearComponents: detaches every attached component and clears its scene and owner. */
-void AActor::vf_310(UBOOL bWillReattach)
+void AActor::ClearComponents(UBOOL bWillReattach)
 {
 	for (INT ComponentIndex = 0; ComponentIndex < Components.Num(); ComponentIndex++)
 	{
@@ -62,16 +62,16 @@ void ATerrain::sub_00759430(UBOOL bParam)
 {
 	if (!bDeleteMe && !HasAnyFlags(RF_PendingKill) && !HasAnyFlags(RF_ClassDefaultObject | RF_ArchetypeObject))
 	{
-		vf_314(bParam);
+		UpdateComponentsInternal(bParam);
 	}
 }
 
 // @baa 0x00772410
 /* Forwards the first parameter to slot 0x314 for live, non-template actors. */
-void AActor::vf_318(INT A, INT B)
+void AActor::ConditionalUpdateComponents(UBOOL A, UBOOL B)
 {
 	if (!bDeleteMe && !HasAnyFlags(RF_PendingKill) && !HasAnyFlags(RF_ClassDefaultObject | RF_ArchetypeObject))
 	{
-		vf_314(A);
+		UpdateComponentsInternal(A);
 	}
 }

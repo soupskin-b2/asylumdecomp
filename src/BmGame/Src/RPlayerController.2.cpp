@@ -1824,7 +1824,7 @@ int sub_0171e580(void)
 IMPLEMENT_CLASS_AT(URSeqVar_DDAIntValue, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmSaveGameManager.cpp", 17);
 
 // @baa 0x0171e600
-FString URSeqVar_DDAIntValue::vf_194()
+FString URSeqVar_DDAIntValue::GetValueStr()
 {
     return TEXT("Deaths In Room");
 }

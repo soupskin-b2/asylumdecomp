@@ -24,7 +24,7 @@ void C::sub_00c066b0() {
 }
 
 // @baa 0x00c1a190
-void* UNetConnection::vf_110() { return 0; }
+class UChildConnection* UNetConnection::GetUChildConnection() { return 0; }
 
 // @baa 0x00c1a1a0
 int UNetConnection::vf_13c(void) { return 0; }
@@ -154,7 +154,7 @@ undefined4 * UNetConnection::sub_00e14ba0(void)
 }
 
 // @baa 0x00e14bc0
-void* UChildConnection::vf_110() { return this; }
+class UChildConnection* UChildConnection::GetUChildConnection() { return this; }
 
 // @baa 0x00e14bd0
 void UChildConnection::LowLevelSend(int a0, int a1) {  }

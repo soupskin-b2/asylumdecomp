@@ -5,11 +5,11 @@
 
 // @baa 0x009ff6f0
 /* GetNxActor(BoneName): the physics actor of the component's body instance, if any. */
-INT UPrimitiveComponent::vf_1f0(INT BoneNameIndex, INT BoneNameNumber)
+class NxActor* UPrimitiveComponent::GetNxActor(FName BoneName)
 {
 	if (BodyInstance)
 	{
-		return BodyInstance->BodyData.Dummy;
+		return (NxActor*)BodyInstance->BodyData.Dummy;
 	}
 	return 0;
 }

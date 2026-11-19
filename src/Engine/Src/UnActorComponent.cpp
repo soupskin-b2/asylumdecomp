@@ -28,16 +28,16 @@ void UActorComponent::vf_128(void)
 void UActorComponent::vf_130(void) {  }
 
 // @baa 0x0064b5d0
-void UActorComponent::vf_134(int a0) {  }
+void UActorComponent::InitComponentRBPhys(UBOOL a0) {  }
 
 // @baa 0x0064b5e0
 void UActorComponent::SetComponentRBFixed(int a0) {  }
 
 // @baa 0x0064b5f0
-void UActorComponent::vf_13c(int a0) {  }
+void UActorComponent::TermComponentRBPhys(FRBPhysScene* a0) {  }
 
 // @baa 0x0064b600
-int UActorComponent::vf_144(void) { return 1; }
+UBOOL UActorComponent::IsValidComponent() const { return 1; }
 
 // @baa 0x0064b610
 int UActorComponent::sub_0064b610(void) { return *(int*)((char*)this + 60); }

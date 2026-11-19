@@ -309,7 +309,7 @@ void C_00786080::sub_00786080(void)
 }
 
 // @baa 0x007861f0
-INT UAudioComponent::vf_144() {
+UBOOL UAudioComponent::IsValidComponent() const {
     int param_1 = (int)this;
 
   if ((*(int *)(param_1 + 0x40) != 0) && ((*(byte *)(param_1 + 0x60) & 8) == 0)) {

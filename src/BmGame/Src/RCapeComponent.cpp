@@ -658,13 +658,13 @@ bool URCapeStateConfigFactoryNew::vf_004()
 }
 
 // @baa 0x016cd890
-void URCapeComponent::vf_134(INT)
+void URCapeComponent::InitComponentRBPhys(UBOOL bFixed)
 {
     InitEnable(1, 1);
 }
 
 // @baa 0x016cd8a0
-void URCapeComponent::vf_13c(INT)
+void URCapeComponent::TermComponentRBPhys(FRBPhysScene* InScene)
 {
     InitEnable(1, 0);
 }

@@ -194,10 +194,10 @@ void ABrush_::CopyPosRotScaleFrom(ABrush* Other)
 	PrePivot = Other->PrePivot;
 
 	Brush->BuildBound();
-	vf_310(FALSE);
+	ClearComponents(FALSE);
 	if (!bDeleteMe && !HasAnyFlags(RF_PendingKill) && !HasAnyFlags(RF_ClassDefaultObject | RF_ArchetypeObject))
 	{
-		vf_314(FALSE);
+		UpdateComponentsInternal(FALSE);
 	}
 }
 

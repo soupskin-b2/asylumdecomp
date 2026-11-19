@@ -40,10 +40,10 @@ bool UApexComponentBase::vf_004()
 }
 
 // @baa 0x009d7490
-void UApexComponentBase::vf_134(int a0) {  }
+void UApexComponentBase::InitComponentRBPhys(UBOOL a0) {  }
 
 // @baa 0x009d74a0
-void UApexComponentBase::vf_13c(int a0) {  }
+void UApexComponentBase::TermComponentRBPhys(FRBPhysScene* a0) {  }
 
 // @baa 0x009d74f0
 void __stdcall sub_009d74f0(int a0) {  }

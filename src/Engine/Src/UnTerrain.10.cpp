@@ -199,15 +199,15 @@ struct FLightMap_
 {
     virtual void vf000();
     virtual void vf004();
-    virtual void AddReferencedObjects(INT ObjectArray);
+    virtual void AddReferencedObjects(TArray<UObject*>& ObjectArray);
 };
 
 // @baa 0x00986fb0
 /* UTerrainComponent slot 0xe8 (kit vf_0e8(INT); UE3's AddReferencedObjects(TArray<UObject*>&)): the light map's
  * objects too. */
-void UTerrainComponent::vf_0e8(INT ObjectArray)
+void UTerrainComponent::AddReferencedObjects(TArray<class UObject*>& ObjectArray)
 {
-    Super::vf_0e8(ObjectArray);
+    Super::AddReferencedObjects(ObjectArray);
     FLightMap_* LightMapPtr = (FLightMap_*)LightMap.Reference.Dummy;
     if (LightMapPtr)
     {
@@ -231,13 +231,13 @@ struct FTerrainWeightedMaterial_
 // @baa 0x0098bc30
 /* ATerrain slot 0xe8 (kit vf_0e8(INT); UE3's AddReferencedObjects(TArray<UObject*>&)): the weighted materials'
  * objects too. */
-void ATerrain::vf_0e8(INT ObjectArray)
+void ATerrain::AddReferencedObjects(TArray<class UObject*>& ObjectArray)
 {
-    Super::vf_0e8(ObjectArray);
+    Super::AddReferencedObjects(ObjectArray);
     for (INT i = 0; i < WeightedMaterials.Num(); i++)
     {
         FTerrainWeightedMaterial_& WeightedMaterial = ((TArrayAt_<FTerrainWeightedMaterial_>&)WeightedMaterials).At(i);
-        sub_005ef6f0(ObjectArray, WeightedMaterial.Material);
-        sub_005ef6f0(ObjectArray, WeightedMaterial.Object2C);
+        sub_005ef6f0(&ObjectArray, WeightedMaterial.Material);
+        sub_005ef6f0(&ObjectArray, WeightedMaterial.Object2C);
     }
 }

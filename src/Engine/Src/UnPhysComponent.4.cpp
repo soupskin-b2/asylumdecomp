@@ -50,11 +50,11 @@ void UPrimitiveComponent::sub_009feb00(UBOOL bInDisableAllRigidBody)
     {
         if (bInDisableAllRigidBody)
         {
-            vf_13c(0);
+            TermComponentRBPhys(0);
         }
         else if (bAttached && Owner)
         {
-            vf_134(Owner->Physics != PHYS_RigidBody);
+            InitComponentRBPhys(Owner->Physics != PHYS_RigidBody);
         }
         bDisableAllRigidBody = bInDisableAllRigidBody;
     }
@@ -63,9 +63,9 @@ void UPrimitiveComponent::sub_009feb00(UBOOL bInDisableAllRigidBody)
 // @baa 0x00a01dd0
 /* URB_RadialImpulseComponent slot 0x114 (kit vf_114, UE3's UpdateTransform()): keep the editor preview sphere's
  * radius in step with the impulse radius. */
-void URB_RadialImpulseComponent::vf_114()
+void URB_RadialImpulseComponent::Attach()
 {
-    Super::vf_114();
+    Super::Attach();
     if (PreviewSphere != NULL)
     {
         PreviewSphere->SphereRadius = ImpulseRadius;
@@ -88,7 +88,7 @@ template<class T> struct TArrayAt_ : public TArray<T>
 // @baa 0x00a110c0
 /* Slot 0x1f4 (unnamed in the kit; UE3's GetNxActor): the physics actor of body BodyIndex (the root body for
  * INDEX_NONE), or of the component's single body when there's no physics asset instance. */
-INT USkeletalMeshComponent::vf_1f4(INT BodyIndex)
+class NxActor* USkeletalMeshComponent::GetIndexedNxActor(INT BodyIndex)
 {
 	if (PhysicsAssetInstance)
 	{
@@ -110,11 +110,11 @@ INT USkeletalMeshComponent::vf_1f4(INT BodyIndex)
 		}
 #line 1272 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPhysComponent.cpp"
 		check(BodyInst);
-		return BodyInst->BodyData.Dummy;
+		return (NxActor*)BodyInst->BodyData.Dummy;
 	}
 	else if (BodyInstance)
 	{
-		return BodyInstance->BodyData.Dummy;
+		return (NxActor*)BodyInstance->BodyData.Dummy;
 	}
 	return 0;
 }
@@ -123,11 +123,11 @@ INT USkeletalMeshComponent::vf_1f4(INT BodyIndex)
 
 // @baa 0x009ff710
 /* Slot 0x1f4 (unnamed in the kit; UE3's GetNxActor): the physics actor of the component's body, if any. */
-INT UPrimitiveComponent::vf_1f4(INT BodyIndex)
+class NxActor* UPrimitiveComponent::GetIndexedNxActor(INT BodyIndex)
 {
 	if (BodyInstance)
 	{
-		return BodyInstance->BodyData.Dummy;
+		return (NxActor*)BodyInstance->BodyData.Dummy;
 	}
 	return 0;
 }

@@ -1912,7 +1912,7 @@ void UObjectThunk::sub_0156fbc0()
 UBOOL URSeqVar_Croc::SupportsProperty(UProperty* Property) { return FALSE; }
 
 // @baa 0x0156fc50
-FString URSeqVar_Croc::vf_194()
+FString URSeqVar_Croc::GetValueStr()
 {
     return TEXT("Croc");
 }
@@ -2007,7 +2007,7 @@ void UObjectThunk_0156fd30::sub_0156fd30()
 UBOOL URSeqVar_Frank::SupportsProperty(UProperty* Property) { return FALSE; }
 
 // @baa 0x0156fdc0
-FString URSeqVar_Frank::vf_194()
+FString URSeqVar_Frank::GetValueStr()
 {
     return TEXT("Frank");
 }
@@ -2102,7 +2102,7 @@ void UObjectThunk_0156fea0::sub_0156fea0()
 UBOOL URSeqVar_Joker::SupportsProperty(UProperty* Property) { return FALSE; }
 
 // @baa 0x0156ff30
-FString URSeqVar_Joker::vf_194()
+FString URSeqVar_Joker::GetValueStr()
 {
     return TEXT("Joker");
 }

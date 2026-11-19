@@ -375,7 +375,7 @@ void URAnimNode_Pose::vf_324(void)
 }
 
 // @baa 0x015962b0
-UINT URAnimNode_Pose::vf_170() { return 2; }
+INT URAnimNode_Pose::GetNumSliders() const { return 2; }
 
 // @baa 0x01599c30
 IMPLEMENT_CLASS_AT(URAnimUtil_AnimOutput, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimUtil_AnimOutput.cpp", 14);
@@ -2076,11 +2076,11 @@ void sub_015afc70(int A1, float A2, int A3, int A4, int A5)
 
 // @baa 0x015962c0
 /* The pose node has two sliders (0 and 1); each has a single axis. */
-INT URAnimNode_Pose::vf_174(INT SliderIndex)
+ESliderType URAnimNode_Pose::GetSliderType(INT SliderIndex) const
 {
 #line 2475 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimNode_Pose.cpp"
 	check((SliderIndex == 0) || (SliderIndex == 1));
-	return 1;
+	return ST_2D;
 }
 
 #line 2087 "candidate.cpp"

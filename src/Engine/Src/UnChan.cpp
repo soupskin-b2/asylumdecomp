@@ -211,7 +211,7 @@ struct UControlChannel_ : public UControlChannel {
 void UControlChannel_::sub_00df35f0(UNetConnection* InConnection, INT InChIndex, UBOOL InOpenedLocally)
 {
     FControlChannelData_* Data = (FControlChannelData_*)this;
-    if (InConnection->vf_110())
+    if (InConnection->GetUChildConnection())
     {
         Data->Connection = *(UNetConnection**)((BYTE*)InConnection + 0x4fb8); /* UChildConnection::Parent */
     }

@@ -399,7 +399,7 @@ IMPLEMENT_CLASS_AT(URSeqEvent_ItemInvestigated, "e:\\Projects\\Amadeus\\AA\\Game
 IMPLEMENT_CLASS_AT(URPoseConfig, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameClasses.cpp", 78);
 
 // @baa 0x01586b60
-UINT URAnimNode_Cape::vf_170() { return 1; }
+INT URAnimNode_Cape::GetNumSliders() const { return 1; }
 
 int sub_01563f60(void);
 int sub_01586e60(...);

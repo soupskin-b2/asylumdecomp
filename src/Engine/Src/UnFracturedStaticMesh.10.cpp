@@ -79,7 +79,7 @@ template<class T> struct TArrayAt_ : public TArray<T>
 // @baa 0x007b8b30
 /* UFracturedBaseComponent slot 0x290 (kit vf_290 with five INTs): UE3's IsElementFragmentVisible(ElementIndex,
  * FragmentIndex, InteriorElementIndex, CoreFragmentIndex, bAnyFragmentsHidden); only the fragment's visibility counts. */
-INT UFracturedBaseComponent::vf_290(INT ElementIndex, INT FragmentIndex, INT InteriorElementIndex, INT CoreFragmentIndex, INT bAnyFragmentsHidden)
+UBOOL UFracturedBaseComponent::IsElementFragmentVisible(INT ElementIndex, INT FragmentIndex, INT InteriorElementIndex, INT CoreFragmentIndex, UBOOL bAnyFragmentsHidden)
 {
     return ((const TArrayAt_<BYTE>&)VisibleFragments).At(FragmentIndex) != 0;
 }

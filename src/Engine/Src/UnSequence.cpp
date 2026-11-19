@@ -1436,10 +1436,10 @@ void USequence::SetEnabled(uint param_2)
 }
 
 // @baa 0x008abea0
-char* USeqVar_Union::vf_168(void) { return (char*)this + 140; }
+INT* USeqVar_Union::GetIntRef() { return &IntValue; }
 
 // @baa 0x008abeb0
-char* USeqVar_Union::vf_16c(void) { return (char*)this + 144; }
+BYTE* USeqVar_Union::GetByteRef() { return &ByteValue; }
 
 // @baa 0x008abec0
 UBOOL* USeqVar_Union::GetBoolRef() { return &BoolValue; }
@@ -1448,27 +1448,26 @@ UBOOL* USeqVar_Union::GetBoolRef() { return &BoolValue; }
 FLOAT* USeqVar_Union::GetFloatRef() { return &FloatValue; }
 
 // @baa 0x008abee0
-char* USeqVar_Union::vf_180(void) { return (char*)this + 156; }
+FString* USeqVar_Union::GetStringRef() { return &StringValue; }
 
 // @baa 0x008abef0
-int USeqVar_Union::vf_188(int param_2)
+class UObject** USeqVar_Union::GetObjectRef(INT Idx)
 {
-    int param_1 = (int)this;
-
-  if (param_2 != 0) {
-    return 0;
-  }
-  return param_1 + 0xa8;
+	if (Idx != 0)
+	{
+		return NULL;
+	}
+	return &ObjectValue;
 }
 
 // @baa 0x008abf10
-ANSICHAR * USeqVar_Union::vf_190() { return (char*)this + 172; }
+FUniqueNetId* USeqVar_Union::GetUniqueNetIdRef() { return &NetIdValue; }
 
 // @baa 0x008abf20
 UBOOL USeqVar_Union::SupportsProperty(UProperty* Property) { return FALSE; }
 
 // @baa 0x008abf30
-char* USeqVar_Byte::vf_16c(void) { return (char*)this + 128; }
+BYTE* USeqVar_Byte::GetByteRef() { return &ByteValue; }
 
 // @baa 0x008abf80
 void USeqVar_ObjectList::vf_12c(void) {  }
@@ -2739,10 +2738,10 @@ IMPLEMENT_CLASS_AT(USequenceFrameWrapped, "e:\\Projects\\Amadeus\\AA\\Game\\Unre
 IMPLEMENT_CLASS_AT(USequenceVariable, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSequence.cpp", 41);
 
 // @baa 0x008bc250
-char * USequenceVariable::vf_168() { return 0; }
+INT* USequenceVariable::GetIntRef() { return 0; }
 
 // @baa 0x008bc260
-char * USequenceVariable::vf_16c() { return 0; }
+BYTE* USequenceVariable::GetByteRef() { return 0; }
 
 // @baa 0x008bc270
 UBOOL* USequenceVariable::GetBoolRef() { return NULL; }
@@ -2751,25 +2750,25 @@ UBOOL* USequenceVariable::GetBoolRef() { return NULL; }
 FLOAT* USequenceVariable::GetFloatRef() { return 0; }
 
 // @baa 0x008bc290
-ANSICHAR* USequenceVariable::vf_178() { return 0; }
+FVector* USequenceVariable::GetVectorRef() { return 0; }
 
 // @baa 0x008bc2a0
 int USequenceVariable::vf_17c(void) { return 0; }
 
 // @baa 0x008bc2b0
-char * USequenceVariable::vf_180() { return 0; }
+FString* USequenceVariable::GetStringRef() { return 0; }
 
 // @baa 0x008bc2c0
-ANSICHAR* USequenceVariable::vf_184() { return 0; }
+FName* USequenceVariable::GetNameRef() { return 0; }
 
 // @baa 0x008bc2d0
-int USequenceVariable::vf_188(int a0) { return 0; }
+class UObject** USequenceVariable::GetObjectRef(INT a0) { return 0; }
 
 // @baa 0x008bc2e0
-ANSICHAR* USequenceVariable::vf_18c() { return 0; }
+FLinearColor* USequenceVariable::GetColourRef() { return 0; }
 
 // @baa 0x008bc2f0
-ANSICHAR* USequenceVariable::vf_190() { return 0; }
+FUniqueNetId* USequenceVariable::GetUniqueNetIdRef() { return 0; }
 
 // @baa 0x008bc300
 UBOOL USequenceVariable::SupportsProperty(UProperty* Property) { return FALSE; }
@@ -2787,7 +2786,7 @@ void USequenceVariable::vf_1a4(USequenceOp* Op, FSeqVarLink& VarLink) {  }
 void USequenceVariable::vf_1a8(int a0, int a1) {  }
 
 // @baa 0x008bc350
-FString USequenceVariable::vf_194()
+FString USequenceVariable::GetValueStr()
 {
     return TEXT("Undefined");
 }
@@ -2849,7 +2848,7 @@ undefined4 * UObject::sub_008bc5c0(void)
 }
 
 // @baa 0x008bc5e0
-ANSICHAR * USeqVar_Colour::vf_18c() { return (char*)this + 128; }
+FLinearColor* USeqVar_Colour::GetColourRef() { return &ColourValue; }
 
 // @baa 0x008bc6d0
 IMPLEMENT_CLASS_AT(USeqVar_Colour, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSequence.cpp", 60);
@@ -2913,7 +2912,7 @@ IMPLEMENT_CLASS_AT(USeqVar_RandomFloat, "e:\\Projects\\Amadeus\\AA\\Game\\Unreal
 IMPLEMENT_CLASS_AT(USeqVar_Int, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSequence.cpp", 48);
 
 // @baa 0x008bcb30
-char* USeqVar_Int::vf_168(void) { return (char*)this + 128; }
+INT* USeqVar_Int::GetIntRef() { return &IntValue; }
 
 // @baa 0x008bcc20
 extern undefined * g_01f5f470;
@@ -2975,7 +2974,7 @@ undefined4 * UObject::sub_008bcd60(void)
 }
 
 // @baa 0x008bcd80
-ANSICHAR * USeqVar_Name::vf_184() { return (char*)this + 128; }
+FName* USeqVar_Name::GetNameRef() { return &NameValue; }
 
 // @baa 0x008bcde0
 IMPLEMENT_CLASS_AT(USeqVar_Name, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSequence.cpp", 50);
@@ -3011,7 +3010,7 @@ undefined4 * UObject::sub_008bcf60(void)
 }
 
 // @baa 0x008bcf80
-char* USeqVar_String::vf_180(void) { return (char*)this + 128; }
+FString* USeqVar_String::GetStringRef() { return &StrValue; }
 
 // @baa 0x008bcfe0
 IMPLEMENT_CLASS_AT(USeqVar_String, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSequence.cpp", 58);
@@ -3029,7 +3028,7 @@ undefined4 * UObject::sub_008bd0d0(void)
 }
 
 // @baa 0x008bd0f0
-ANSICHAR * USeqVar_Vector::vf_178() { return (char*)this + 128; }
+FVector* USeqVar_Vector::GetVectorRef() { return &VectValue; }
 
 // @baa 0x008bd100
 IMPLEMENT_CLASS_AT(USeqVar_Vector, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSequence.cpp", 59);
@@ -3341,14 +3340,13 @@ void sub_008c8080(void) { sub_008c2310(); }
 IMPLEMENT_CLASS_AT(USeqVar_Object, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSequence.cpp", 52);
 
 // @baa 0x008c8390
-int USeqVar_Object::vf_188(int param_2)
+class UObject** USeqVar_Object::GetObjectRef(INT Idx)
 {
-    int param_1 = (int)this;
-
-  if (param_2 != 0) {
-    return 0;
-  }
-  return param_1 + 0x80;
+	if (Idx != 0)
+	{
+		return NULL;
+	}
+	return &ObjValue;
 }
 
 // @baa 0x008c83b0

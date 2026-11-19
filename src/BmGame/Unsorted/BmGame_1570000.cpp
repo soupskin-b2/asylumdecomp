@@ -80,7 +80,7 @@ void UObjectThunk::sub_01570010()
 UBOOL URSeqVar_JokerBedPuller::SupportsProperty(UProperty* Property) { return FALSE; }
 
 // @baa 0x015700a0
-FString URSeqVar_JokerBedPuller::vf_194()
+FString URSeqVar_JokerBedPuller::GetValueStr()
 {
     return TEXT("JokerBedPuller");
 }

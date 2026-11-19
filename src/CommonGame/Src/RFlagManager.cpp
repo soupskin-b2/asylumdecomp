@@ -127,7 +127,7 @@ UBOOL URFlagManager::SetGlobalFlag(FName FlagName, UBOOL bValue)
 // @baa 0x01540790
 /* USequenceVariable::GetValueStr (slot 0x194, a placeholder vf_194 in the kit): a local flag
  * variable shows the name of its flag. */
-FString URSeqVar_LocalFlag::vf_194()
+FString URSeqVar_LocalFlag::GetValueStr()
 {
     return FlagName.ToString();
 }
@@ -135,7 +135,7 @@ FString URSeqVar_LocalFlag::vf_194()
 // @baa 0x015407c0
 /* USequenceVariable::GetValueStr (slot 0x194, a placeholder vf_194 in the kit): a global flag
  * variable shows the name of its flag. */
-FString URSeqVar_GlobalFlag::vf_194()
+FString URSeqVar_GlobalFlag::GetValueStr()
 {
     return FlagName.ToString();
 }

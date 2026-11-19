@@ -166,7 +166,7 @@ int APortalTeleporter::vf_000(void) { return 1; }
 
 int sub_007654e0(void);
 // @baa 0x008a71b0
-void USceneCaptureComponent::vf_114(void)
+void USceneCaptureComponent::Attach()
 {
     int param_1 = (int)this;
 
@@ -200,7 +200,7 @@ undefined4 C_008a7480::sub_008a7480(byte param_2)
 void sub_008a7510(void) {  }
 
 // @baa 0x008a7520
-void USceneCaptureReflectComponent::vf_114(void)
+void USceneCaptureReflectComponent::Attach()
 {
     int param_1 = (int)this;
 
@@ -216,7 +216,7 @@ void sub_008a7530(void) {  }
 void sub_008a7540(void) {  }
 
 // @baa 0x008a7550
-void USceneCapturePortalComponent::vf_114(void)
+void USceneCapturePortalComponent::Attach()
 {
     int param_1 = (int)this;
 

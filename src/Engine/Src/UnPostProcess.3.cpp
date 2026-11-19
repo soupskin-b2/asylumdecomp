@@ -6,9 +6,9 @@
 
 // @baa 0x0088a1c0
 /* Slot 0x310 (unnamed in the kit; UE3's ClearComponents): unlinks the volume from the world's priority-sorted list. */
-void APostProcessVolume::vf_310(UBOOL bWillReattach)
+void APostProcessVolume::ClearComponents(UBOOL bWillReattach)
 {
-	Super::vf_310(FALSE);
+	Super::ClearComponents(FALSE);
 	if (GWorld)
 	{
 		APostProcessVolume* CurrentVolume = GWorld->GetWorldInfo()->HighestPriorityPostProcessVolume;
@@ -37,9 +37,9 @@ void APostProcessVolume::vf_310(UBOOL bWillReattach)
 // @baa 0x0088a250
 /* Slot 0x314 (unnamed in the kit; UE3's UpdateComponentsInternal): inserts the volume into the world's
  * priority-sorted list (highest Priority first) unless it's already there. */
-void APostProcessVolume::vf_314(UBOOL bCollisionUpdate)
+void APostProcessVolume::UpdateComponentsInternal(UBOOL bCollisionUpdate)
 {
-	Super::vf_314(bCollisionUpdate);
+	Super::UpdateComponentsInternal(bCollisionUpdate);
 
 	APostProcessVolume* CurrentVolume = GWorld->GetWorldInfo()->HighestPriorityPostProcessVolume;
 	APostProcessVolume* PreviousVolume = NULL;

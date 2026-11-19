@@ -24,5 +24,5 @@ void ANxForceFieldRadial::DoInitRBPhys()
 {
 	Kernel.Dummy = 0;
 	ForceField.Dummy = 0;
-	vf_238();
+	InitRBPhys();
 }

@@ -55,7 +55,7 @@ FString USeqCond_SwitchClass::GetCaseValueString( INT ValueIndex ) const
 /* The float formatter of UnSequence.cpp (005a9fc0): writes Value into Result as the format says. */
 FString sub_005a9fc0(const TCHAR* Format, FLOAT Value);
 // @baa 0x008c81a0
-FString USeqVar_Float::vf_194()
+FString USeqVar_Float::GetValueStr()
 {
 	return sub_005a9fc0(TEXT("%2.3f"), FloatValue);
 }

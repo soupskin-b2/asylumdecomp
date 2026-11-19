@@ -10,7 +10,7 @@ int UAnimNodeBlend::vf_000(void) { return 1; }
 IMPLEMENT_CLASS_AT(UAnimNodeBlend, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTree.cpp", 13);
 
 // @baa 0x00c64910
-UINT UAnimNodeBlend::vf_170() { return 1; }
+INT UAnimNodeBlend::GetNumSliders() const { return 1; }
 
 // @baa 0x00c64920
 // @baa 0x00c6af90
