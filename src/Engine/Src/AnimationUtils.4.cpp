@@ -40,7 +40,7 @@ public:
 void FAnimationUtils::BuildPoseFromRawData(TArray<FBoneAtom>& OutAtoms, UAnimSequence* AnimSeq, const TArray<BYTE>& RequiredBones, USkeletalMesh* SkelMesh, FLOAT Time, UBOOL bLooping)
 {
 	UAnimSet* AnimSet = AnimSeq->sub_009411e0();
-	const INT AnimLinkupIndex = AnimSet->sub_0092b080(SkelMesh);
+	const INT AnimLinkupIndex = AnimSet->GetMeshLinkupIndex(SkelMesh);
 #line 192 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\AnimationUtils.cpp"
 	check(AnimLinkupIndex != INDEX_NONE);
 	check(AnimLinkupIndex < AnimSet->LinkupCache.Num());

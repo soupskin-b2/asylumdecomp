@@ -66,14 +66,9 @@ void USkeletalMeshComponent::SetForceRefPose(UBOOL bNewForceRefPose)
     BeginDeferredReattach();
 }
 
-/* Unnamed in the kit: UE3's USkeletalMeshComponent::FindAnimNode(FName InNodeName): search the anim tree. */
-struct USkeletalMeshComponent__0090eb80 : public USkeletalMeshComponent
-{
-    UAnimNode* sub_0090eb80(FName InNodeName);
-};
-
 // @baa 0x0090eb80
-UAnimNode* USkeletalMeshComponent__0090eb80::sub_0090eb80(FName InNodeName)
+/* searches the anim tree */
+UAnimNode* USkeletalMeshComponent::FindAnimNode(FName InNodeName)
 {
     if (Animations)
     {

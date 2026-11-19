@@ -24176,7 +24176,7 @@
     {
      "va": "0090eb80",
      "size": 33,
-     "symbol": "?sub_0090eb80@USkeletalMeshComponent__0090eb80@@QAEPAUUAnimNode@@UFName@@@Z"
+     "symbol": "?FindAnimNode@USkeletalMeshComponent@@QAEPAUUAnimNode@@UFName@@@Z"
     },
     {
      "va": "0090e8e0",
@@ -155231,7 +155231,7 @@
     {
      "va": "00f68170",
      "size": 1,
-     "symbol": "?vf_300@UEditorEngine@@UAEXXZ"
+     "symbol": "?PostScriptCompile@UEditorEngine@@UAEXXZ"
     },
     {
      "va": "00f68180",

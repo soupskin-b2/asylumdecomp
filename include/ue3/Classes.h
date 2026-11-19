@@ -4252,7 +4252,7 @@ struct FRBCollisionChannelContainer {
     BITFIELD Grate : 1; /* 0x0 */
     BITFIELD Destruction : 1; /* 0x0 */
     /* other member functions */
-    void sub_00a33b40(INT Channel, UBOOL bNewState); /* 0x00a33b40 */
+    void SetChannel(INT Channel, UBOOL bNewState); /* 0x00a33b40 */
 };
 
 struct FLightingChannelContainer {
@@ -18572,7 +18572,7 @@ struct UAnimSet : public UObject {
     /* UnrealScript natives */
     void execFindAnimSequence(FFrame& Stack, RESULT_DECL); /* 0x00c92650 */
     /* other member functions */
-    INT sub_0092b080(USkeletalMesh* SkelMesh); /* 0x0092b080 */
+    INT GetMeshLinkupIndex(USkeletalMesh* SkelMesh); /* 0x0092b080 */
     /* registered size 0x84 */
 };
 
@@ -20897,7 +20897,7 @@ struct USkeletalMeshComponent : public UMeshComponent {
     void eventPlayParticleEffect(class UAnimNotify_PlayParticleEffect* AnimNotifyData); /* 0x0090b470 */
     FLOAT sub_0090e6a0(INT Arg); /* 0x0090e6a0 */
     INT sub_0090e8e0(FName BoneName); /* 0x0090e8e0 (an out-of-line copy of MatchRefBone) */
-    UAnimNode* sub_0090eb80(FName InNodeName); /* 0x0090eb80 */
+    UAnimNode* FindAnimNode(FName InNodeName); /* 0x0090eb80 */
     UBOOL AreRagdollCalmingMeasuresDisabled() const; /* 0x0090f3d0 */
     void SetDisableRagdollCalmingMeasures(UBOOL bDisable); /* 0x0090f440 */
     void sub_0090f4e0(); /* 0x0090f4e0 */
@@ -48479,9 +48479,9 @@ struct ARPawnCombat : public ARPawnCharacter {
     virtual UBOOL IsLunatic(); /* 0x628 */
     virtual FLOAT AngleDiff(FLOAT Angle1, FLOAT Angle2); /* 0x62c */
     virtual FVector GetHeading(); /* 0x630 */
-    virtual void vf_634(); /* 0x634 */
+    virtual void StrikeContact(); /* 0x634 */
     virtual void vf_638(BYTE, BYTE, BYTE, FName); /* 0x638 */
-    virtual INT vf_63c(); /* 0x63c */
+    virtual void TakedownNotify(); /* 0x63c */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -63895,9 +63895,9 @@ struct __declspec(align(16)) UEditorEngine : public UEngine, public FCallbackEve
     virtual void vf_2ec(INT, INT); /* 0x2ec */
     virtual INT vf_2f0(); /* 0x2f0 */
     virtual void vf_2f4(INT); /* 0x2f4 */
-    virtual void vf_2f8(INT, INT, INT, INT); /* 0x2f8 */
-    virtual void vf_2fc(INT, INT, INT, INT); /* 0x2fc */
-    virtual void vf_300(); /* 0x300 */
+    virtual void SetPropertyColorationTarget(const FString& PropertyValue, class UProperty* Property, class UClass* CommonBaseClass, struct FEditPropertyChain* PropertyChain); /* 0x2f8 */
+    virtual void GetPropertyColorationTarget(FString& OutPropertyValue, UProperty*& OutProperty, UClass*& OutCommonBaseClass, struct FEditPropertyChain*& OutPropertyChain); /* 0x2fc */
+    virtual void PostScriptCompile(); /* 0x300 */
     virtual void vf_304(INT, INT, INT); /* 0x304 */
     virtual void vf_308(INT, INT); /* 0x308 */
     virtual void vf_30c(INT, INT, INT); /* 0x30c */

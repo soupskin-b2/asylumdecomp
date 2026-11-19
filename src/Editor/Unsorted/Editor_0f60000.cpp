@@ -559,7 +559,7 @@ int UEditorEngine::vf_2f0(void) { return 0; }
 void UEditorEngine::vf_2f4(int a0) {  }
 
 // @baa 0x00f68170
-void UEditorEngine::vf_300(void) {  }
+void UEditorEngine::PostScriptCompile() {  }
 
 // @baa 0x00f68180
 void UEditorEngine::vf_304(int a0, int a1, int a2) {  }

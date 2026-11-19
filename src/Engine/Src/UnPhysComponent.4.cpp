@@ -36,7 +36,7 @@ void UPrimitiveComponent_::sub_009ff950(BYTE Channel)
  * is UE3's UpdatePhysicsToRBChannels(). */
 void UPrimitiveComponent::sub_009ff970(INT Channel, INT bNewCollides)
 {
-    RBCollideWithChannels.sub_00a33b40(Channel, bNewCollides);
+    RBCollideWithChannels.SetChannel(Channel, bNewCollides);
     SetRBChannel();
 }
 
