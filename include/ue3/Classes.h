@@ -3688,6 +3688,8 @@ struct FIntPoint {
     INT Y; /* 0x4 */
     FIntPoint() {}
     FIntPoint(INT InX, INT InY) : X(InX), Y(InY) {}
+    /* other member functions */
+    INT Size() const; /* 0x01191e40 */
 };
 /* UnMath.h: an integer rectangle (Max is exclusive) */
 struct FIntRect {
@@ -3747,6 +3749,9 @@ struct FLinearColor {
     UBOOL operator==(const FLinearColor& C) const { return R == C.R && G == C.G && B == C.B && A == C.A; }
     UBOOL operator!=(const FLinearColor& C) const { return R != C.R || G != C.G || B != C.B || A != C.A; }
     /* other member functions */
+    BYTE GetRedByte() const; /* 0x0045deb0 */
+    BYTE GetGreenByte() const; /* 0x0045ded0 */
+    BYTE GetBlueByte() const; /* 0x0045def0 */
     void sub_0053d1d0(const FColor* In); /* 0x0053d1d0 */
 };
 
@@ -4520,6 +4525,7 @@ struct FBasedPosition {
     FVector CachedTransPosition; /* 0x28 */
     FBasedPosition() : Base(NULL) { Position = FVector(0.f); }
     /* other member functions */
+    void Set(AActor* InBase, const FVector& InPosition); /* 0x007ab4e0 */
     void sub_007ab4e0(AActor* InBase, const FVector& InPosition); /* 0x007ab4e0 */
 };
 
@@ -5120,6 +5126,9 @@ struct FUIStyleReference {
     class UClass* RequiredStyleClass; /* 0x8 */
     FSTYLE_ID AssignedStyleID; /* 0xc */
     class UUIStyle* ResolvedStyle; /* 0x1c */
+    /* other member functions */
+    UUIStyle_Data* GetStyleDataByState(UUIState* StateObject) const; /* 0x00ddb4e0 */
+    UUIStyle_Data* GetStyleDataByClass(UClass* StateClass) const; /* 0x00ddb500 */
 };
 
 struct FUIScreenValue {
@@ -5726,6 +5735,8 @@ struct FTwistBoneFixer {
     INT TwistBoneIndex; /* 0x4 */
     FLOAT BaseYDotTwistY; /* 0x8 */
     FLOAT BaseYDotTwistZ; /* 0xc */
+    /* other member functions */
+    void Apply(TArray<FMatrix>& SpaceBases); /* 0x0091a110 */
 };
 
 struct FTwistBoneFixers {
@@ -5733,11 +5744,15 @@ struct FTwistBoneFixers {
     BITFIELD Ok : 1; /* 0x0 */
     TArrayNoInit<FTwistBoneFixer> Fixers; /* 0x4 */
     TArrayNoInit<BYTE> DependentBoneIndices; /* 0x10 */
+    /* other member functions */
+    void Init(USkeletalMeshComponent* SkelComp); /* 0x0092ba00 */
 };
 
 struct FParentTwistBoneFixers {
     /* Engine.ParentTwistBoneFixers */
     TArrayNoInit<INT> BoneIndices; /* 0x0 */
+    /* other member functions */
+    void Init(USkeletalMeshComponent* SkelComp); /* 0x0092bd20 */
 };
 
 struct FBreathingFixerState {
@@ -5754,6 +5769,8 @@ struct FBreathingFixer {
     INT Spine1Index; /* 0x4 */
     INT Spine2Index; /* 0x8 */
     INT Spine3Index; /* 0xc */
+    /* other member functions */
+    void Init(USkeletalMeshComponent* SkelComp); /* 0x00913d80 */
 };
 
 struct FActiveMorph {
@@ -7177,6 +7194,10 @@ struct FStyleDataReference {
     class UUIState* SourceState; /* 0x18 */
     class UUIStyle_Data* CustomStyleData; /* 0x1c */
     /* other member functions */
+    void EnableCustomStyleData(UBOOL bEnabled); /* 0x00ddb180 */
+    UBOOL IsCustomStyleDataValid() const; /* 0x00ddb1d0 */
+    UBOOL IsCustomStyleDataEnabled() const; /* 0x00ddb220 */
+    void SetSourceStyle(UUIStyle* Style); /* 0x00ddb2e0 */
     UUIStyle_Data* GetStyleData() const; /* 0x00ddb270 */
 };
 
@@ -8347,6 +8368,8 @@ struct FPosePlayer {
     FMoveToState MoveToState; /* 0x282c */
     FLOAT MoveToYawVelocityAppliedToRelativeTransition; /* 0x2998 */
     /* other member functions */
+    void sub_015c2b50(); /* 0x015c2b50 */
+    INT sub_015c2e90(FTransitionId Transition); /* 0x015c2e90 */
     INT HasPose(USkeletalMeshComponent* SkelComp, FName MovementStance, FName WeaponStance, FName IdleStance); /* 0x015c28b0 */
     void OverrideTransitionTime(FLOAT, INT); /* 0x015c2910 */
     void sub_015c29f0(INT A); /* 0x015c29f0 */
@@ -10571,6 +10594,70 @@ struct UObject {
     void execPopState(FFrame& Stack, RESULT_DECL); /* 0x005aeed0 */
     void execGetPerObjectConfigSections(FFrame& Stack, RESULT_DECL); /* 0x005aef50 */
     /* other member functions */
+    void eventBeginState(FName PreviousStateName); /* 0x0058cc90 */
+    void eventEndState(FName NextStateName); /* 0x0058cce0 */
+    void eventPushedState(); /* 0x0058cd30 */
+    void eventPoppedState(); /* 0x0058cd60 */
+    void execDefaultParmValue(FFrame& Stack, RESULT_DECL); /* 0x00590090 */
+    void execInterfaceToObject(FFrame& Stack, RESULT_DECL); /* 0x00590100 */
+    void execDynArrayLength(FFrame& Stack, RESULT_DECL); /* 0x00590150 */
+    void execEndFunctionParms(FFrame& Stack, RESULT_DECL); /* 0x00590720 */
+    void execConditional(FFrame& Stack, RESULT_DECL); /* 0x005907d0 */
+    void execLetDelegate(FFrame& Stack, RESULT_DECL); /* 0x00590940 */
+    void execEqualEqual_DelegateDelegate(FFrame& Stack, RESULT_DECL); /* 0x005909d0 */
+    void execNotEqual_DelegateDelegate(FFrame& Stack, RESULT_DECL); /* 0x00590ac0 */
+    void execEqualEqual_DelegateFunction(FFrame& Stack, RESULT_DECL); /* 0x00590bb0 */
+    void execNotEqual_DelegateFunction(FFrame& Stack, RESULT_DECL); /* 0x00590ca0 */
+    void execFloatConst(FFrame& Stack, RESULT_DECL); /* 0x00590db0 */
+    void execNameConst(FFrame& Stack, RESULT_DECL); /* 0x00590e20 */
+    void execByteConst(FFrame& Stack, RESULT_DECL); /* 0x00590e40 */
+    void execEmptyDelegate(FFrame& Stack, RESULT_DECL); /* 0x00590eb0 */
+    void execIntConstByte(FFrame& Stack, RESULT_DECL); /* 0x00590ed0 */
+    void execByteToInt(FFrame& Stack, RESULT_DECL); /* 0x00590f30 */
+    void execByteToBool(FFrame& Stack, RESULT_DECL); /* 0x00590f70 */
+    void execByteToFloat(FFrame& Stack, RESULT_DECL); /* 0x00590fb0 */
+    void execIntToByte(FFrame& Stack, RESULT_DECL); /* 0x00590ff0 */
+    void execIntToBool(FFrame& Stack, RESULT_DECL); /* 0x00591030 */
+    void execIntToFloat(FFrame& Stack, RESULT_DECL); /* 0x00591070 */
+    void execBoolToByte(FFrame& Stack, RESULT_DECL); /* 0x005910b0 */
+    void execBoolToInt(FFrame& Stack, RESULT_DECL); /* 0x005910f0 */
+    void execBoolToFloat(FFrame& Stack, RESULT_DECL); /* 0x00591130 */
+    void execFloatToByte(FFrame& Stack, RESULT_DECL); /* 0x00591180 */
+    void execFloatToInt(FFrame& Stack, RESULT_DECL); /* 0x005911c0 */
+    void execFloatToBool(FFrame& Stack, RESULT_DECL); /* 0x00591200 */
+    void execObjectToBool(FFrame& Stack, RESULT_DECL); /* 0x00591260 */
+    void execNameToBool(FFrame& Stack, RESULT_DECL); /* 0x00591340 */
+    void execRotationConst(FFrame& Stack, RESULT_DECL); /* 0x005947f0 */
+    void execVectorConst(FFrame& Stack, RESULT_DECL); /* 0x00594830 */
+    void execVectorToRotator(FFrame& Stack, RESULT_DECL); /* 0x005951a0 */
+    void execRotatorToBool(FFrame& Stack, RESULT_DECL); /* 0x00595200 */
+    void execRotatorToVector(FFrame& Stack, RESULT_DECL); /* 0x00595280 */
+    void sub_00599670(FFrame& Stack, RESULT_DECL); /* 0x00599670 */
+    void sub_005996a0(FFrame& Stack, RESULT_DECL); /* 0x005996a0 */
+    void sub_005996d0(FFrame& Stack, RESULT_DECL); /* 0x005996d0 */
+    void sub_00599700(FFrame& Stack, RESULT_DECL); /* 0x00599700 */
+    void sub_00599730(FFrame& Stack, RESULT_DECL); /* 0x00599730 */
+    void sub_00599760(FFrame& Stack, RESULT_DECL); /* 0x00599760 */
+    void sub_00599790(FFrame& Stack, RESULT_DECL); /* 0x00599790 */
+    void sub_005997c0(FFrame& Stack, RESULT_DECL); /* 0x005997c0 */
+    void sub_005997f0(FFrame& Stack, RESULT_DECL); /* 0x005997f0 */
+    void sub_00599820(FFrame& Stack, RESULT_DECL); /* 0x00599820 */
+    void sub_00599850(FFrame& Stack, RESULT_DECL); /* 0x00599850 */
+    void sub_00599880(FFrame& Stack, RESULT_DECL); /* 0x00599880 */
+    void sub_005998b0(FFrame& Stack, RESULT_DECL); /* 0x005998b0 */
+    void sub_005998e0(FFrame& Stack, RESULT_DECL); /* 0x005998e0 */
+    void sub_00599910(FFrame& Stack, RESULT_DECL); /* 0x00599910 */
+    void sub_00599940(FFrame& Stack, RESULT_DECL); /* 0x00599940 */
+    void execStringToName(FFrame& Stack, RESULT_DECL); /* 0x005a34f0 */
+    void execFinalFunction(FFrame& Stack, RESULT_DECL); /* 0x005ab3e0 */
+    void sub_005c1ab0(UObject* NewArchetype, UBOOL bReinitialize, UBOOL bPreserveSubobjects); /* 0x005c1ab0 */
+    DWORD sub_005c2140(); /* 0x005c2140 */
+    void eventScriptCall(FLOAT Value); /* 0x00803550 */
+    FLOAT sub_008886a0(); /* 0x008886a0 */
+    INT eventScriptCall(INT Value); /* 0x014c7200 */
+    INT eventScriptCall(); /* 0x0154af90 */
+    void sub_01582ef0(); /* 0x01582ef0 */
+    void sub_01612630(BYTE A, INT B, INT C); /* 0x01612630 */
     UBOOL IsInState(FName TestState, UBOOL bTestStateStack); /* 0x0059dc80 */
     void UnhashObject(); /* 0x005c7fa0: out of the name and outer hash chains */
     UBOOL IsProbing(FName ProbeName); /* 0x0058f750 */
@@ -12695,6 +12782,7 @@ struct USubsystem : public UObject, public FExec {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     /* other member functions */
+    UBOOL sub_0059d8a0(); /* 0x0059d8a0 */
     void* sub_0053e930(INT); /* 0x0053e930 */
     void* sub_0053e940(INT); /* 0x0053e940 */
     INT sub_0053ea60(); /* 0x0053ea60 */
@@ -12730,6 +12818,7 @@ struct UCommandlet : public UObject {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     /* other member functions */
+    INT eventMain(const FString& Params); /* 0x005aa890 */
     bool sub_01016070(); /* 0x01016070 */
     /* registered size 0x70 */
 };
@@ -12805,6 +12894,7 @@ struct UDistributionVector : public UComponent, public FCurveEdInterface {
     virtual INT vf_088(); /* 0x088 */
     virtual INT vf_08c(); /* 0x08c */
     /* other member functions */
+    void sub_005423f0(FVector& OutVector, FLOAT A, FLOAT B, FLOAT C); /* 0x005423f0 */
     UINT sub_005403b0(BYTE); /* 0x005403b0 */
     /* registered size 0x44 */
     /* FCurveEdInterface */
@@ -13241,6 +13331,61 @@ struct AActor : public UObject {
     void execGetURLMap(FFrame& Stack, RESULT_DECL); /* 0x00cb5d80 */
     void execSupportsKismetModification(FFrame& Stack, RESULT_DECL); /* 0x00cb5e10 */
     /* other member functions */
+    AActor* sub_0068f1e0(); /* 0x0068f1e0 */
+    void eventPostRenderFor(class APlayerController* PC, class UCanvas* Canvas, FVector CameraPosition, FVector CameraDir); /* 0x00753750 */
+    BYTE eventScriptGetTeamNum(); /* 0x007537d0 */
+    void eventFellOutOfWorld(class UClass* dmgType); /* 0x00753840 */
+    void eventDetach(AActor* Other); /* 0x007538b0 */
+    void sub_00753900(AActor* Other); /* 0x00753900 */
+    void eventBaseChange(); /* 0x00753950 */
+    void eventUnTouch(AActor* Other); /* 0x007539a0 */
+    void eventTouch(AActor* Other, UPrimitiveComponent* OtherComp, FVector HitLocation, FVector HitNormal); /* 0x007539f0 */
+    void eventLostChild(AActor* Other); /* 0x00753a80 */
+    void eventGainedChild(AActor* Other); /* 0x00753ad0 */
+    void UpdateRelativeRotation(); /* 0x00758050 */
+    FVector sub_00758b40(); /* 0x00758b40 */
+    ULevel* sub_00769d90() const; /* 0x00769d90 */
+    void sub_0076cc90(); /* 0x0076cc90 */
+    void eventEndViewTarget(class APlayerController* PC); /* 0x00785150 */
+    void eventBecomeViewTarget(class APlayerController* PC); /* 0x00785190 */
+    AActor* eventSpecialHandling(APawn* Other); /* 0x0079f220 */
+    void eventPostBeginPlay(); /* 0x007d5bb0 */
+    void eventPreBeginPlay(); /* 0x007d5c00 */
+    void eventRanInto(AActor* Other); /* 0x007d5c50 */
+    void eventEncroachedBy(AActor* Other); /* 0x007d5c90 */
+    UBOOL eventEncroachingOn(AActor* Other); /* 0x007d5ce0 */
+    void eventDestroyed(); /* 0x007d5e20 */
+    void eventProcessActorSetVolume(AVolume* V); /* 0x007d5e80 */
+    void eventPostTouch(AActor* Other); /* 0x00802900 */
+    void eventTick(FLOAT DeltaTime); /* 0x00802950 */
+    void eventTakeDamage(INT Damage, AController* EventInstigator, FVector HitLocation, FVector Momentum, UClass* DamageType, FTraceHitInfo HitInfo, AActor* DamageCauser); /* 0x00863e60 */
+    void eventLanded(FVector HitNormal, AActor* FloorActor); /* 0x00863f00 */
+    void eventFalling(); /* 0x00863f70 */
+    void eventHitWall(FVector HitNormal, AActor* Wall, UPrimitiveComponent* WallComp); /* 0x00863fc0 */
+    void eventModifyHearSoundComponent(class UAudioComponent* AC); /* 0x008a4c60 */
+    UBOOL eventOverRotated(FRotator& out_Desired, FRotator& out_Actual); /* 0x008a4ca0 */
+    void eventAnimTreeUpdated(class USkeletalMeshComponent* SkelMesh); /* 0x0090acc0 */
+    void eventPlayParticleEffect(class UAnimNotify_PlayParticleEffect* AnimNotifyData); /* 0x0090ad00 */
+    void eventPostInitAnimTree(class USkeletalMeshComponent* SkelComp); /* 0x0090ad40 */
+    void eventRootMotionModeChanged(class USkeletalMeshComponent* SkelComp); /* 0x0090ae40 */
+    class UAudioComponent* eventGetFaceFXAudioComponent(); /* 0x0090ae80 */
+    void eventNotifySkelControlBeyondLimit(class USkelControlLookAt* LookAt); /* 0x0090aec0 */
+    void eventFaceFXAudioStartedCallback(class UAudioComponent* AC); /* 0x0090af00 */
+    void eventAnimationTriggerCallback(FName TagName, const TArray<FString>& TagParams, UAnimSet* TagAnimSet, FLOAT AtTime); /* 0x00938ac0 */
+    void eventOnRigidBodySpringOverextension(URB_BodyInstance* BodyInstance); /* 0x009f7230 */
+    void eventConstraintBrokenNotify(class AActor* ConOwner, class URB_ConstraintSetup* ConSetup, class URB_ConstraintInstance* ConInstance); /* 0x00a2ff20 */
+    void eventOnAnimPlay(UAnimNodeSequence* SeqNode); /* 0x00c49e40 */
+    void eventOnAnimEnd(class UAnimNodeSequence* SeqNode, FLOAT PlayedTime, FLOAT ExcessTime); /* 0x00c49e80 */
+    void eventInterpolationChanged(USeqAct_Interp* InterpAction); /* 0x00ce8490 */
+    void eventInterpolationFinished(USeqAct_Interp* InterpAction); /* 0x00ce84d0 */
+    void eventInterpolationStarted(USeqAct_Interp* InterpAction); /* 0x00ce8510 */
+    UFaceFXAsset* eventGetActorFaceFXAsset(); /* 0x00ce8550 */
+    void eventSetSkelControlScale(FName SkelControlName, FLOAT Scale); /* 0x00ce8590 */
+    void eventSetMorphWeight(FName MorphNodeName, FLOAT MorphWeight); /* 0x00ce85f0 */
+    void eventSetAnimDirectorBoneName(FName BoneName); /* 0x00ce86b0 */
+    void eventSetAnimPosition(FName SlotName, INT ChannelIndex, FName InAnimSeqName, FLOAT InPosition, UBOOL bFireNotifies, UBOOL bLooping); /* 0x00ce8700 */
+    void eventSetFaceFXRegister(const FString& RegisterName, FLOAT Value, BYTE RegOp); /* 0x00cf8b60 */
+    void eventSetInvestigateHighlighted(class UMaterialInstanceConstant* highMat, UBOOL On); /* 0x0154aae0 */
     void UpdateTimers(FLOAT DeltaSeconds); /* 0x008149b0 */
     UBOOL IsValid(); /* 0x005cb0a0 */
     UBOOL IsBlockedBy(const AActor* Other, const UPrimitiveComponent* Primitive) const; /* 0x00758100 */
@@ -13616,6 +13761,8 @@ struct UPrimitiveComponent : public UActorComponent {
     void execSetRBCollisionChannels(FFrame& Stack, RESULT_DECL); /* 0x009ffb10 */
     void execSetRBChannel(FFrame& Stack, RESULT_DECL); /* 0x009ffb90 */
     /* other member functions */
+    void sub_009ff950(BYTE Channel); /* 0x009ff950 */
+    void sub_009ff9a0(FRBCollisionChannelContainer Channels); /* 0x009ff9a0 */
     void AddForce(FVector Force, FVector Position, FName BoneName); /* 0x009ff110 */
     void AddTorque(FVector Torque, FName BoneName); /* 0x009ff330 */
     void AddTorqueForce(FVector Torgue, FName BoneName); /* 0x009ff470 */
@@ -13692,6 +13839,7 @@ struct USurface : public UObject {
     void execGetSurfaceWidth(FFrame& Stack, RESULT_DECL); /* 0x00716bb0 */
     void execGetSurfaceHeight(FFrame& Stack, RESULT_DECL); /* 0x00716bf0 */
     /* other member functions */
+    void sub_0064bbf0(); /* 0x0064bbf0 */
     void sub_0064bbe0(); /* 0x0064bbe0 */
     void sub_0064bde0(); /* 0x0064bde0 */
     UINT* sub_0064be40(BYTE); /* 0x0064be40 */
@@ -13755,6 +13903,7 @@ struct UTexture : public USurface {
     virtual FLOAT GetSurfaceWidth(); /* 0x10c */
     virtual DOUBLE GetSurfaceHeight(); /* 0x110 */
     /* other member functions */
+    void sub_00d45fb0(); /* 0x00d45fb0 */
     void ReleaseResource(); /* 0x0072a2d0 */
     UINT sub_0071efc0(BYTE); /* 0x0071efc0 */
     UINT* sub_007290b0(); /* 0x007290b0 */
@@ -13819,6 +13968,9 @@ struct UTexture2D : public UTexture {
     void execCreate(FFrame& Stack, RESULT_DECL); /* 0x00737dc0 */
     void execSetForceMipLevelsToBeResident(FFrame& Stack, RESULT_DECL); /* 0x00c8f360 */
     /* other member functions */
+    UBOOL sub_0071d2d0(); /* 0x0071d2d0 */
+    void sub_00733310(FArchive& Ar); /* 0x00733310 */
+    void* sub_014d79d0(void); /* 0x014d79d0 */
     void SetForceMipLevelsToBeResident(FLOAT); /* 0x00717d50 */
     void sub_0053ec70(); /* 0x0053ec70 */
     UINT* sub_005448c0(); /* 0x005448c0 */
@@ -16133,6 +16285,23 @@ struct AController : public AActor {
     void execInLatentExecution(FFrame& Stack, RESULT_DECL); /* 0x00c85160 */
     void execStopLatentExecution(FFrame& Stack, RESULT_DECL); /* 0x00c851d0 */
     /* other member functions */
+    void eventEnemyNotVisible(); /* 0x0079f410 */
+    void eventHearNoise(FLOAT Loudness, class AActor* NoiseMaker, FName NoiseType); /* 0x0079f520 */
+    void execPollWaitForLanding(FFrame& Stack, RESULT_DECL); /* 0x007a0860 */
+    void sub_007ad5d0(FBasedPosition& BP, FVector Pos, AActor* ForcedBase); /* 0x007ad5d0 */
+    void sub_007ad790(FVector FP, UBOOL bOffsetFromBase); /* 0x007ad790 */
+    void sub_007ad9c0(FVector Dest, UBOOL bOffsetFromBase); /* 0x007ad9c0 */
+    void eventGetPlayerViewPoint(FVector& out_Location, FRotator& out_Rotation); /* 0x00802b50 */
+    void eventNotifyFallingHitWall(FVector HitNormal, AActor* Wall); /* 0x00864490 */
+    UBOOL eventNotifyHitWall(FVector HitNormal, AActor* Wall); /* 0x008644f0 */
+    UBOOL eventNotifyLanded(FVector HitNormal, AActor* FloorActor); /* 0x00864570 */
+    void eventMayFall(); /* 0x008645f0 */
+    void eventMoveUnreachable(FVector AttemptedDest, AActor* AttemptedTarget); /* 0x00864640 */
+    UBOOL eventHandlePathObstruction(class AActor* BlockedBy); /* 0x008885b0 */
+    UBOOL eventIsInCombat(); /* 0x008a4de0 */
+    UBOOL eventAllowDetourTo(class ANavigationPoint* N); /* 0x008a4e20 */
+    void eventPossess(APawn* inPawn, UBOOL bVehicleTransition); /* 0x00c49ef0 */
+    UBOOL eventMoverFinished(); /* 0x00ce87d0 */
     void eventSeeMonster(APawn* Seen); /* 0x0079f460 */
     void eventSeePlayer(APawn* Seen); /* 0x0079f4c0 */
     UBOOL BeyondFogDistance(FVector ViewPoint, FVector OtherPoint); /* 0x007a0f00 */
@@ -16395,6 +16564,35 @@ struct APlayerController : public AController {
     void execLogOutBugItGoToLogFile(FFrame& Stack, RESULT_DECL); /* 0x00cb7790 */
     void execLogOutBugItAIGoToLogFile(FFrame& Stack, RESULT_DECL); /* 0x00cb78d0 */
     /* other member functions */
+    void eventClientSetViewTarget(class AActor* A, FViewTargetTransitionParams TransitionParams); /* 0x00785280 */
+    APlayerController* GetPlayerControllerFromNetId(FUniqueNetId PlayerNetId); /* 0x007a1eb0 */
+    void eventSetProgressMessage(BYTE MessageType, const FString& Message, const FString& Title); /* 0x007e1010 */
+    void eventPlayerTick(FLOAT DeltaTime); /* 0x00802c10 */
+    void eventConditionalPause(UBOOL bDesiredPauseState); /* 0x00802c70 */
+    INT sub_00803a80(void* Other, INT B, INT C); /* 0x00803a80 */
+    FLOAT eventGetZoomMagnification(); /* 0x00888660 */
+    void eventClientPrestreamTextures(class AActor* ForcedActor, FLOAT ForceDuration, UBOOL bEnableStreaming); /* 0x008a4f40 */
+    void eventClientSetForceMipLevelsToBeResident(class UMaterialInterface* Material, FLOAT ForceDuration); /* 0x008a4fa0 */
+    void eventClientPrepareMapChange(FName LevelName, UBOOL bFirst, UBOOL bLast); /* 0x008a5020 */
+    void eventCameraLookAtFinished(class USeqAct_CameraLookAt* Action); /* 0x008a50c0 */
+    void eventClientSetCameraFade(UBOOL bEnableFading, FColor FadeColor, FVector2D FadeAlpha, FLOAT FadeTime); /* 0x008a5100 */
+    void eventKismet_ClientStopSound(class USoundCue* ASound, class AActor* SourceActor, FLOAT FadeOutTime); /* 0x008a5170 */
+    void eventKismet_ClientSetParameterSound(class USoundCue* ASound, class AActor* SourceActor, FName nameToSet, FLOAT valueToSet); /* 0x008a51d0 */
+    void eventKismet_ClientKeyOffSound(class USoundCue* ASound, class AActor* SourceActor); /* 0x008a5240 */
+    void eventKismet_ClientPlaySound(class USoundCue* ASound, class AActor* SourceActor, FLOAT VolumeMultiplier, FLOAT PitchMultiplier, FLOAT FadeInTime, UBOOL bSuppressSubtitles, UBOOL bSuppressSpatialization); /* 0x008a5290 */
+    void eventClientHearSound(class USoundCue* ASound, class AActor* SourceActor, FVector SourceLocation, UBOOL bStopWhenOwnerDestroyed, UBOOL bIsOccluded); /* 0x008a5320 */
+    FString sub_008b6e50(); /* 0x008b6e50 */
+    void eventAddDebugText(const FString& DebugText, class AActor* SrcActor, FLOAT Duration, FVector Offset, FVector DesiredOffset, FColor TextColor, UBOOL bSkipOverwriteCheck); /* 0x008c3690 */
+    void eventPreClientTravel(const FString& PendingURL, BYTE TravelType, UBOOL bIsSeamlessTravel); /* 0x008c3780 */
+    void eventClientMessage(const FString& S, FName Type, FLOAT MsgLifeTime); /* 0x008c3830 */
+    void eventClientSpawnCameraLensEffect(UClass* LensEffectEmitterClass); /* 0x0090af60 */
+    void eventPlayRumble(class UAnimNotify_Rumble* TheAnimNotify); /* 0x0090afa0 */
+    void eventServerUpdateLevelVisibility(FName PackageName, UBOOL bIsVisible); /* 0x009aec40 */
+    void eventNotifyLoadedWorld(FName WorldPackageName, UBOOL bFinalDest); /* 0x009aeca0 */
+    void eventServerNotifyLoadedWorld(FName WorldPackageName); /* 0x009aed00 */
+    void eventGetSeamlessTravelActorList(UBOOL bToEntry, TArray<AActor*>& ActorList); /* 0x009bd9b0 */
+    void eventNotifyDirectorControl(UBOOL bNowControlling); /* 0x00ce8820 */
+    class UAudioComponent* eventPlayUICue(class USoundCue* Cue); /* 0x0154ab90 */
     void ClientUpdateLevelStreamingStatus(FName PackageName, UBOOL bNewShouldBeLoaded, UBOOL bNewShouldBeVisible, UBOOL bNewShouldBlockOnLoad); /* 0x007b4f70 */
     void ServerUpdateLevelVisibility(FName PackageName, UBOOL bIsVisible); /* 0x007bf380 */
     void UpdateURL(const FString& NewOption, const FString& NewValue, UBOOL bSave1Default); /* 0x007bf4b0 */
@@ -16508,6 +16706,8 @@ struct AAIController : public AController {
     virtual INT vf_398(INT, INT, INT, INT); /* 0x398 */
     virtual FVector vf_3d0(); /* 0x3d0 */
     /* registered size 0x348 */
+    /* other member functions */
+    void eventSetTeam(INT inTeamIdx); /* 0x00c4a390 */
 };
 
 struct UArrowComponent : public UPrimitiveComponent {
@@ -16652,6 +16852,10 @@ struct ANavigationPoint : public AActor {
     void execIsOnDifferentNetwork(FFrame& Stack, RESULT_DECL); /* 0x00c880a0 */
     void execGetAllNavInRadius(FFrame& Stack, RESULT_DECL); /* 0x00cc55d0 */
     /* other member functions */
+    void sub_0083f3a0(); /* 0x0083f3a0 */
+    void sub_0083fc20(); /* 0x0083fc20 */
+    INT eventSpecialCost(class APawn* Seeker, class UReachSpec* Path); /* 0x00888760 */
+    FLOAT eventDetourWeight(class APawn* Other, FLOAT PathWeight); /* 0x008a53e0 */
     UReachSpec* GetReachSpecTo(class ANavigationPoint* Nav, class UClass* SpecClass); /* 0x0083ef60 */
     void sub_00856a10(); /* 0x00856a10 */
     UINT IsOnDifferentNetwork(INT); /* 0x00835b60 */
@@ -16862,6 +17066,12 @@ struct UAudioComponent : public UActorComponent {
     void execKeyOffOnMarker(FFrame& Stack, RESULT_DECL); /* 0x0079acd0 */
     void execResetToDefaults(FFrame& Stack, RESULT_DECL); /* 0x00c80a10 */
     /* other member functions */
+    void sub_00786210(const FMatrix& ParentToWorld); /* 0x00786210 */
+    void sub_00786260(UBOOL bPaused); /* 0x00786260 */
+    UBOOL sub_0078e280(FName InName, FLOAT& OutValue); /* 0x0078e280 */
+    UBOOL sub_0078e310(FName InName, FLOAT& OutValue); /* 0x0078e310 */
+    UBOOL sub_0078e3a0(FName InName, FLOAT& OutValue); /* 0x0078e3a0 */
+    void sub_00793c40(void); /* 0x00793c40 */
     void delegateOnAudioFinished(UAudioComponent* AC); /* 0x007850d0 */
     void SetFloatParameter(FName InName, FLOAT InFloat); /* 0x0078dbc0 */
     void SetSeekSpeed(FName InName, FLOAT InFloat); /* 0x0078ddc0 */
@@ -16894,6 +17104,7 @@ struct AAmbientSound : public AKeypoint {
     virtual void vf_2b8(); /* 0x2b8 */
     virtual void UpdateComponentsInternal(UBOOL bCollisionUpdate = FALSE); /* 0x314 */
     /* other member functions */
+    void sub_00791ad0(INT Param); /* 0x00791ad0 */
     void sub_0076cd90(INT Param); /* 0x0076cd90 */
     /* registered size 0x1b0 */
 };
@@ -17064,6 +17275,8 @@ struct AAmbientSoundSimple : public AAmbientSound {
     virtual void vf_180(); /* 0x180 */
     virtual void vf_2b8(); /* 0x2b8 */
     /* registered size 0x1bc */
+    /* other member functions */
+    void SyncUpInstantiatedObjects(); /* 0x00786580 */
 };
 
 struct USoundNodeAmbientNonLoop : public USoundNodeAmbient {
@@ -17080,6 +17293,8 @@ struct USoundNodeAmbientNonLoop : public USoundNodeAmbient {
     virtual void vf_120(INT, INT); /* 0x120 */
     virtual void vf_124(INT); /* 0x124 */
     /* registered size 0x11c */
+    /* other member functions */
+    INT PickNewSlot(); /* 0x00cbad20 */
 };
 
 struct AAmbientSoundNonLoop : public AAmbientSoundSimple {
@@ -17146,6 +17361,8 @@ struct ACamera : public AActor {
     /* UnrealScript natives */
     void execCheckViewTarget(FFrame& Stack, RESULT_DECL); /* 0x00c83920 */
     /* registered size 0x35c */
+    /* other member functions */
+    void eventUpdateCamera(FLOAT DeltaTime); /* 0x00802b00 */
 };
 
 struct AAnimatedCamera : public ACamera {
@@ -17189,6 +17406,8 @@ struct UAnimationCompressionAlgorithm : public UObject {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     /* registered size 0x44 */
+    /* other member functions */
+    static void FilterTrivialPositionKeys(TArray<FTranslationTrack>& InputTracks, FLOAT MaxPosDelta); /* 0x00c01c00 */
 };
 
 struct UAnimationCompressionAlgorithm_AutoRemoveLinearKeys : public UAnimationCompressionAlgorithm {
@@ -17360,6 +17579,13 @@ struct UAnimNode : public UAnimObject {
     /* UnrealScript natives */
     void execFindAnimNode(FFrame& Stack, RESULT_DECL); /* 0x00c902e0 */
     /* other member functions */
+    void GetNodesInternal(TArray<UAnimNode*>& Nodes); /* 0x00c52fa0 */
+    INT CountNumParentsTicked(); /* 0x00c53000 */
+    UBOOL IsChildOf(UAnimNode* Node); /* 0x00c53070 */
+    void GetNodesByClass(TArray<UAnimNode*>& Nodes, UClass* BaseClass); /* 0x00c5ed80 */
+    UBOOL GetCachedResults(TArray<FBoneAtom>& OutAtoms, FBoneAtom& OutRootMotionDelta, INT& bOutHasRootMotion); /* 0x00c6c770 */
+    void GetAnimSeqNodes(TArray<UAnimNodeSequence*>& Nodes, FName InSynchGroupName); /* 0x00c7a3d0 */
+    FString GetNodeTitle(); /* 0x00cb91a0 */
     void sub_00c4b530(TArray<UAnimNode*>& Nodes); /* 0x00c4b530 */
     static void sub_00c52e80(TArray<BYTE>& BoneIndices, USkeletalMesh* SkelMesh); /* 0x00c52e80 */
     UBOOL sub_00c53070(UAnimNode* Node); /* 0x00c53070 */
@@ -17395,6 +17621,8 @@ struct UAnimNodeBlendBase : public UAnimNode {
     virtual FIntPoint GetConnectionLocation(INT ConnType, INT ConnIndex); /* 0x16c */
     virtual void GetNodes(TArray<class UAnimNode*>& Nodes); /* 0x184 */
     /* other member functions */
+    FLOAT GetBlendWeight(FLOAT ChildWeight); /* 0x00c50080 */
+    FLOAT GetChildWeightTotal(); /* 0x00c53c40 */
     void sub_00c53100(USkeletalMeshComponent* MeshComp, UAnimNodeBlendBase* Parent); /* 0x00c53100 */
     FLOAT sub_00c53c40(); /* 0x00c53c40 */
     void sub_00c53d10(UAnimNodeSequence* Child, FLOAT PlayedTime, FLOAT ExcessTime); /* 0x00c53d10 */
@@ -17420,6 +17648,7 @@ struct UAnimNodeBlend : public UAnimNodeBlendBase {
     /* UnrealScript natives */
     void execSetBlendTarget(FFrame& Stack, RESULT_DECL); /* 0x00c90580 */
     /* other member functions */
+    void TickAnim(FLOAT DeltaSeconds, FLOAT TotalWeight); /* 0x00c53f20 */
     void sub_00c53f20(FLOAT DeltaSeconds, FLOAT TotalWeight); /* 0x00c53f20 */
     void SetBlendTarget(FLOAT BlendTarget, FLOAT BlendTime); /* 0x00c54040 */
     /* registered size 0xd8 */
@@ -17473,6 +17702,9 @@ struct UAnimNodeAimOffset : public UAnimNodeBlendBase {
     void execSetActiveProfileByName(FFrame& Stack, RESULT_DECL); /* 0x00c90490 */
     void execSetActiveProfileByIndex(FFrame& Stack, RESULT_DECL); /* 0x00c90510 */
     /* other member functions */
+    UBOOL ContainsBone(const FName& BoneName); /* 0x00c560b0 */
+    INT GetComponentIdxFromBoneIdx(INT BoneIndex, UBOOL bCreateIfNotFound); /* 0x00c623d0 */
+    FVector2D sub_00c78fe0(); /* 0x00c78fe0 */
     FAimOffsetProfile* GetCurrentProfile(); /* 0x00c55cc0 */
     void SetBoneAimQuaternion(INT CompIndex, INT AimDir, FQuat InQuat); /* 0x00c56030 */
     void UpdateListOfRequiredBones(); /* 0x00c62170 */
@@ -17566,6 +17798,8 @@ struct UAnimNodeBlendBySpeed : public UAnimNodeBlendList {
     virtual void HandleSliderMove(INT SliderIndex, INT ValueIndex, FLOAT NewSliderValue); /* 0x17c */
     virtual FString GetSliderDrawValue(INT SliderIndex); /* 0x180 */
     /* registered size 0x108 */
+    /* other member functions */
+    FLOAT CalcSpeed(); /* 0x00c4b660 */
 };
 
 struct UAnimNodeBlendDirectional : public UAnimNodeBlendBase {
@@ -17640,6 +17874,7 @@ struct UAnimNodeCrossfader : public UAnimNodeBlend {
     void execGetAnimName(FFrame& Stack, RESULT_DECL); /* 0x00c90680 */
     void execGetActiveChild(FFrame& Stack, RESULT_DECL); /* 0x00c906d0 */
     /* other member functions */
+    void TickAnim(FLOAT DeltaSeconds, FLOAT TotalWeight); /* 0x00c7dfd0 */
     FName GetAnimName(); /* 0x00c7e080 */
     UAnimNodeSequence* GetActiveChild(); /* 0x00c7a590 */
     /* registered size 0xe8 */
@@ -17671,6 +17906,8 @@ struct UAnimNodePlayCustomAnim : public UAnimNodeBlend {
     void execPlayCustomAnimByDuration(FFrame& Stack, RESULT_DECL); /* 0x00c90bd0 */
     void execStopCustomAnim(FFrame& Stack, RESULT_DECL); /* 0x00c90d60 */
     /* other member functions */
+    void TickAnim(FLOAT DeltaSeconds, FLOAT TotalWeight); /* 0x00c7c810 */
+    void PlayAnimByDuration(FName AnimName, FLOAT Duration, FLOAT BlendInTime, FLOAT BlendOutTime, UBOOL bLooping, UBOOL bOverride); /* 0x00c7ca70 */
     FLOAT PlayCustomAnim(FName AnimName, FLOAT Rate, FLOAT BlendInTime, FLOAT BlendOutTime, UBOOL bLooping, UBOOL bOverride); /* 0x00c7c940 */
     void PlayCustomAnimByDuration(FName AnimName, FLOAT Duration, FLOAT BlendInTime, FLOAT BlendOutTime, UBOOL bLooping, UBOOL bOverride); /* 0x00c7ca70 */
     void StopCustomAnim(FLOAT); /* 0x00c4bba0 */
@@ -17797,6 +18034,10 @@ struct UAnimNodeSequence : public UAnimNode {
     void execGetAnimPlaybackLength(FFrame& Stack, RESULT_DECL); /* 0x00c90950 */
     void execGetTimeLeft(FFrame& Stack, RESULT_DECL); /* 0x00c90990 */
     /* other member functions */
+    UBOOL ShouldKeepCachedResult(); /* 0x00c4ad70 */
+    void StopCameraAnim(); /* 0x00c4af30 */
+    void ClearCachedResult(); /* 0x00c5e220 */
+    void sub_00c67d30(FLOAT DeltaSeconds, FLOAT TotalWeight); /* 0x00c67d30 */
     void IssueNotifies(FLOAT DeltaTime); /* 0x00c52860 */
     UBOOL CanUseCachedBoneAtoms(); /* 0x00c4ad70 */
     UBOOL sub_00c4fe50(); /* 0x00c4fe50 */
@@ -17894,6 +18135,9 @@ struct UAnimNodeSlot : public UAnimNodeBlendBase {
     void execSetRootBoneAxisOption(FFrame& Stack, RESULT_DECL); /* 0x00c91550 */
     void execAddToSynchGroup(FFrame& Stack, RESULT_DECL); /* 0x00c91620 */
     /* other member functions */
+    INT GetNextAvailableChild(FName AnimToPlay); /* 0x00c56bb0 */
+    void SetActiveChild(INT ChildIndex, FLOAT BlendTime); /* 0x00c56ca0 */
+    void SetActorAnimEndNotification(UBOOL bNewStatus); /* 0x00c7cbb0 */
     void UpdateWeightsForAdditiveAnimations(); /* 0x00c56870 */
     void sub_00c56ca0(INT ChildIndex, FLOAT BlendTime); /* 0x00c56ca0 */
     FLOAT PlayCustomAnim(FName AnimName, FLOAT Rate, FLOAT BlendInTime, FLOAT BlendOutTime, UBOOL bLooping, UBOOL bOverride); /* 0x00c7ef60 */
@@ -17922,6 +18166,8 @@ struct UAnimNodeSynch : public UAnimNodeBlendBase {
     void execGetRelativePosition(FFrame& Stack, RESULT_DECL); /* 0x00c918f0 */
     void execSetGroupRateScale(FFrame& Stack, RESULT_DECL); /* 0x00c91970 */
     /* other member functions */
+    UAnimNodeSequence* GetMasterNodeOfSynchGroup(FName GroupName); /* 0x00c56530 */
+    void UpdateMasterNodeForGroup(FSynchGroup& SynchGroup); /* 0x00c566c0 */
     void AddNodeToGroup(class UAnimNodeSequence* SeqNode, FName GroupName); /* 0x00c56250 */
     void ForceRelativePosition(FName GroupName, FLOAT RelativePosition); /* 0x00c56300 */
     void SetGroupRateScale(FName GroupName, FLOAT NewRateScale); /* 0x00c565f0 */
@@ -17997,6 +18243,8 @@ struct URB_ForceComponent : public UPrimitiveComponent {
     virtual void Tick(FLOAT DeltaTime); /* 0x124 */
     virtual UBOOL IsValidComponent() const; /* 0x144 */
     /* registered size 0x1d0 */
+    /* other member functions */
+    void eventAttachCloneToActor(class AActor* NewOwner); /* 0x0090d370 */
 };
 
 struct UDrawCylinderComponent : public UPrimitiveComponent {
@@ -18086,6 +18334,8 @@ struct UAnimNotify_Scripted : public UAnimNotify {
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_10c(UINT); /* 0x10c */
     /* registered size 0x34 */
+    /* other member functions */
+    void eventNotify(class AActor* Owner, class USkeletalMeshComponent* AnimSeqInstigator); /* 0x0090c1c0 */
 };
 
 struct UAnimNotify_PlayFaceFXAnim : public UAnimNotify_Scripted {
@@ -18247,6 +18497,9 @@ struct UAnimSequence : public UObject {
     virtual void StripData(UE3::EPlatformType TargetPlatform); /* 0x0b4 */
     virtual INT vf_0d4(); /* 0x0d4 */
     /* other member functions */
+    void SortNotifies(); /* 0x0092a7f0 */
+    UBOOL CropRawAnimData(FLOAT CurrentTime, UBOOL bFromStart); /* 0x0092a830 */
+    void sub_009324a0(); /* 0x009324a0 */
     void sub_00917b80(FBoneAtom& OutAtom, INT TrackIndex, FLOAT Time, UBOOL bLooping, UBOOL bUseRawData); /* 0x00917b80 */
     UAnimSet* sub_009411e0(); /* 0x009411e0 */
     UINT sub_0093f9b0(BYTE); /* 0x0093f9b0 */
@@ -18386,6 +18639,7 @@ struct UMeshComponent : public UPrimitiveComponent {
     void execPrestreamTextures(FFrame& Stack, RESULT_DECL); /* 0x006dc970 */
     void execSetMaterial(FFrame& Stack, RESULT_DECL); /* 0x006ea720 */
     /* other member functions */
+    void sub_006ea640(INT ElementIndex, UMaterialInterface* Material); /* 0x006ea640 */
     void PrestreamTextures(FLOAT Seconds, UBOOL bPrioritizeCharacterTextures); /* 0x006dc850 */
     void SetMaterial(INT ElementIndex, UMaterialInterface* Material); /* 0x006ea640 */
     /* registered size 0x1b0 */
@@ -18498,6 +18752,8 @@ struct UDynamicLightEnvironmentComponent : public ULightEnvironmentComponent {
     /* UnrealScript natives */
     void execResetEnvironment(FFrame& Stack, RESULT_DECL); /* 0x00c8b710 */
     /* registered size 0x100 */
+    /* other member functions */
+    void sub_006cee60(FLOAT DeltaTime); /* 0x006cee60 */
 };
 
 struct UApexStaticComponent : public UApexComponentBase {
@@ -18565,6 +18821,8 @@ struct AApexDestructibleActor : public AActor {
     void execTakeDamage(FFrame& Stack, RESULT_DECL); /* 0x00c9f490 */
     void execTakeRadiusDamage(FFrame& Stack, RESULT_DECL); /* 0x00c9f670 */
     /* registered size 0x248 */
+    /* other member functions */
+    void eventSpawnFractureEmitter(class UParticleSystem* EmitterTemplate, FVector SpawnLocation); /* 0x009d4790 */
 };
 
 struct AApexDestructibleActorSpawnable : public AApexDestructibleActor {
@@ -18790,6 +19048,7 @@ struct UAudioDevice : public USubsystem {
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void AddReferencedObjects(TArray<class UObject*>& ObjectArray); /* 0x0e8 */
     /* other member functions */
+    void sub_00785f10(INT A, INT B); /* 0x00785f10 */
     UINT sub_0079cc20(BYTE); /* 0x0079cc20 */
     /* registered size 0x19c */
     /* FExec */
@@ -18932,6 +19191,8 @@ struct ABrush : public AActor {
     virtual INT vf_2d0(); /* 0x2d0 */
     virtual INT vf_2d4(); /* 0x2d4 */
     /* registered size 0x1cc */
+    /* other member functions */
+    void CopyPosRotScaleFrom(ABrush* Other); /* 0x0075deb0 */
 };
 
 struct AVolume : public ABrush {
@@ -19313,6 +19574,7 @@ struct UCanvas : public UObject {
     void execDrawTextureLine(FFrame& Stack, RESULT_DECL); /* 0x00ab0870 */
     void execDrawTextureDoubleLine(FFrame& Stack, RESULT_DECL); /* 0x00ab0a80 */
     /* other member functions */
+    void sub_00aa9b90(const FString& Text); /* 0x00aa9b90 */
     UBOOL ProjectStaticMeshBounds(UStaticMeshComponent* MeshComponent, FVector2D& Min, FVector2D& Max); /* 0x00a58bc0 */
     void ProjectSphereBounds(FVector Center, FLOAT Radius, FVector2D& Min, FVector2D& Max); /* 0x00a58df0 */
     void DrawMaterialTile( UMaterialInterface* Material, FLOAT X, FLOAT Y, FLOAT XL, FLOAT YL, FLOAT U, FLOAT V, FLOAT UL, FLOAT VL ); /* 0x00a9ee30 */
@@ -19440,6 +19702,7 @@ struct UUIRoot : public UObject {
     void execSetMouseCaptureOverride(FFrame& Stack, RESULT_DECL); /* 0x00da8cf0 */
     void execGetPrimitiveTransform(FFrame& Stack, RESULT_DECL); /* 0x00dc62d0 */
     /* other member functions */
+    static UUIInteraction* GetDefaultUIController(); /* 0x00dacda0 */
     UBOOL SetDataStoreFieldValue(const FString& InDataStoreMarkup, FUIProviderFieldValue& InFieldValue, class UUIScene* OwnerScene, class ULocalPlayer* OwnerPlayer); /* 0x00d9ca20 */
     UBOOL GetDataStoreFieldValue(const FString& InDataStoreMarkup, FUIProviderFieldValue& OutFieldValue, class UUIScene* OwnerScene, class ULocalPlayer* OwnerPlayer); /* 0x00d9cb70 */
     static UClass* GetDefaultUIControllerClass(); /* 0x00dacd00 */
@@ -19467,6 +19730,10 @@ struct UInteraction : public UUIRoot {
     /* UnrealScript natives */
     void execInit(FFrame& Stack, RESULT_DECL); /* 0x00ca09f0 */
     /* other member functions */
+    UBOOL delegateOnReceivedNativeInputAxis(INT ControllerId, FName Key, FLOAT Delta, FLOAT DeltaTime, UBOOL bGamepad); /* 0x00888d90 */
+    UBOOL delegateOnReceivedNativeInputKey(INT ControllerId, FName Key, BYTE EventType, FLOAT AmountDepressed, UBOOL bGamepad); /* 0x00888e10 */
+    void eventTick(FLOAT DeltaTime); /* 0x00888f20 */
+    UBOOL delegateOnReceivedNativeInputChar(INT ControllerId, const FString& Unicode); /* 0x00895e80 */
     UINT sub_00889010(BYTE); /* 0x00889010 */
     UINT* sub_00889040(); /* 0x00889040 */
     /* registered size 0x60 */
@@ -19504,6 +19771,7 @@ struct UConsole : public UInteraction {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     /* other member functions */
+    void eventOutputText(const FString& Text); /* 0x00895f30 */
     UINT sub_00d81430(BYTE); /* 0x00d81430 */
     /* registered size 0x184 */
 };
@@ -19689,6 +19957,18 @@ struct UUIScreenObject : public UUIRoot {
     TArray<UUIObject*> GetChildren(UBOOL bRecurse = FALSE, TArray<UUIObject*>* ExclusionSet = NULL) const; /* 0x00db7140 */
     void execGetDockClients(FFrame& Stack, RESULT_DECL); /* 0x00db7330 */
     /* other member functions */
+    void sub_00d990d0(INT bReinitialize, INT bReviewNow); /* 0x00d990d0 */
+    void eventRemovedFromParent(class UUIScreenObject* WidgetOwner); /* 0x00da6e00 */
+    void eventAddedChild(class UUIScreenObject* WidgetOwner, class UUIObject* NewChild); /* 0x00da6e40 */
+    void delegateOnInitialSceneUpdate(); /* 0x00da6ec0 */
+    void delegateNotifyActiveStateChanged(class UUIScreenObject* Sender, INT PlayerIndex, class UUIState* NewlyActiveState, class UUIState* PreviouslyActiveState); /* 0x00da6ef0 */
+    void delegateNotifyResolutionChanged(const FVector2D& OldViewportsize, const FVector2D& NewViewportSize); /* 0x00da6f40 */
+    void delegateNotifyPositionChanged(class UUIScreenObject* Sender); /* 0x00da6f90 */
+    void delegateNotifyActiveSkinChanged(); /* 0x00da7140 */
+    void sub_00daf880(TArray<UUIObject*>& out_Subscribers) const; /* 0x00daf880 */
+    void sub_00db2e70(TArray<FName>& out_KeyNames); /* 0x00db2e70 */
+    void eventDisablePlayerInput(BYTE PlayerIndex, UBOOL bRecurse); /* 0x014c5730 */
+    void eventEnablePlayerInput(BYTE PlayerIndex, UBOOL bRecurse); /* 0x014c5780 */
     UUIPrefabInstance* InstanceUIPrefab(UUIPrefab* SourcePrefab, FName PrefabInstanceName, const FVector2D* PlacementLocation, INT InsertIndex, UBOOL bRenameExisting); /* 0x00da90a0 */
     INT GetDockClients(FUIObjectArray* out_DockClients, UBOOL bDirectDockClientsOnly, BYTE TargetFace, BYTE SourceFace); /* 0x00db3360 */
     UUIObject* CreateWidget(UUIScreenObject* Owner, UClass* WidgetClass, UObject* WidgetArchetype, FName WidgetName); /* 0x00dc8c40 */
@@ -19875,6 +20155,13 @@ struct UUIObject : public UUIScreenObject {
     void execGetToolTipValue(FFrame& Stack, RESULT_DECL); /* 0x00cbdd20 */
     void execGetDefaultDataStores(FFrame& Stack, RESULT_DECL); /* 0x00cc7770 */
     /* other member functions */
+    void delegateOnValueChanged(class UUIObject* Sender, INT PlayerIndex); /* 0x00da71d0 */
+    void delegateOnPostSceneUpdate(class UUIObject* Sender); /* 0x00da7210 */
+    void delegateOnPreSceneUpdate(class UUIObject* Sender); /* 0x00da7240 */
+    void delegateOnCreate(class UUIObject* CreatedWidget, class UUIScreenObject* CreatorContainer); /* 0x00da7270 */
+    UUISkin* GetActiveSkin() const; /* 0x00daa120 */
+    void sub_00daa410(); /* 0x00daa410 */
+    UBOOL sub_00daab70(INT Face, INT Arg); /* 0x00daab70 */
     void GetDefaultDataStores(FUIDataStoreArray& out_BoundDataStores); /* 0x00db5ac0 */
     FMatrix GetRotationMatrix(UBOOL bIncludeParentRotations); /* 0x00daa260 */
     UBOOL IsDockedTo(const UUIScreenObject* TargetWidget, BYTE SourceFace, BYTE TargetFace) const; /* 0x00daa550 */
@@ -20044,6 +20331,10 @@ struct ACoverLink : public ANavigationPoint {
     void execGetLocationDescription(FFrame& Stack, RESULT_DECL); /* 0x00c88c20 */
     void execGetSlotActions(FFrame& Stack, RESULT_DECL); /* 0x00cbff70 */
     /* other member functions */
+    void eventSetSlotEnabled(INT SlotIdx, UBOOL bEnable); /* 0x00833c40 */
+    void eventSetDisabled(UBOOL bNewDisabled); /* 0x00833c90 */
+    FLOAT GetSlotHeight(INT SlotIdx); /* 0x008417e0 */
+    void sub_0084e9a0(); /* 0x0084e9a0 */
     UBOOL sub_00860250(APawn* ChkClaim, INT SlotIdx, UBOOL bSkipTeamCheck); /* 0x00860250 */
     INT GetSlotIdxToLeft(INT SlotIdx, INT Cnt); /* 0x0083a4c0 */
     INT GetSlotIdxToRight(INT SlotIdx, INT Cnt); /* 0x0083a500 */
@@ -20564,6 +20855,24 @@ struct USkeletalMeshComponent : public UMeshComponent {
     void execSetSoftBodyFrozen(FFrame& Stack, RESULT_DECL); /* 0x00a33a50 */
     void execWakeSoftBody(FFrame& Stack, RESULT_DECL); /* 0x00a33af0 */
     /* other member functions */
+    void eventPlayParticleEffect(class UAnimNotify_PlayParticleEffect* AnimNotifyData); /* 0x0090b470 */
+    FLOAT sub_0090e6a0(INT Arg); /* 0x0090e6a0 */
+    INT sub_0090e8e0(FName BoneName); /* 0x0090e8e0 */
+    UAnimNode* sub_0090eb80(FName InNodeName); /* 0x0090eb80 */
+    FName sub_0090ec40(FName InSocketName); /* 0x0090ec40 */
+    UBOOL AreRagdollCalmingMeasuresDisabled() const; /* 0x0090f3d0 */
+    void SetDisableRagdollCalmingMeasures(UBOOL bDisable); /* 0x0090f440 */
+    void sub_0090f4e0(); /* 0x0090f4e0 */
+    void SetPhysicsAssetInstanceCached(UBOOL bCache); /* 0x0090f550 */
+    void sub_00913f30(UActorComponent* Component); /* 0x00913f30 */
+    USkelControlBase* FindSkelControl(FName InControlName); /* 0x00913fb0 */
+    UMorphNodeBase* FindMorphNode(FName InNodeName); /* 0x00913fe0 */
+    void UpdateChildComponents(); /* 0x0091c910 */
+    void TickSkelControls(FLOAT DeltaSeconds); /* 0x0091cff0 */
+    void SetForceWireframe(UBOOL InForceWireframe); /* 0x0091d830 */
+    UBOOL GetSocketWorldLocationAndRotation(FName InSocketName, FVector& OutLocation, FRotator* OutRotation); /* 0x0091da00 */
+    INT FindInstanceVertexweightBonePair(const FBonePair& Bones) const; /* 0x0091fad0 */
+    void UpdateActiveMorphs(); /* 0x00934a30 */
     FName GetSocketBoneName(FName InSocketName); /* 0x0090ec40 */
     void SetAttachmentOwnerVisibility(UActorComponent* Component); /* 0x00913f30 */
     void SetDepthBias(FLOAT InDepthBias, FExtraDepthBiasData InDepthBiasData); /* 0x00914150 */
@@ -20769,6 +21078,8 @@ struct ACrowdAgent : public AActor {
     /* UnrealScript natives */
     void execPlayDeath(FFrame& Stack, RESULT_DECL); /* 0x00c8fcd0 */
     /* registered size 0x230 */
+    /* other member functions */
+    void eventOverlappedActorEvent(class AActor* A); /* 0x00c8fd10 */
 };
 
 struct ACrowdAttractor : public AActor {
@@ -20851,6 +21162,7 @@ struct UUIDataProvider : public UUIRoot {
     void execGetProviderFieldType(FFrame& Stack, RESULT_DECL); /* 0x00cbd210 */
     void execParseArrayDelimiter(FFrame& Stack, RESULT_DECL); /* 0x00cbd300 */
     /* other member functions */
+    UBOOL eventAllowPublishingToField(const FString& FieldName, INT ArrayIndex); /* 0x00d94c40 */
     UBOOL GetProviderFieldType(const FString& DataTag, BYTE& out_ProviderFieldType); /* 0x00d9d160 */
     /* registered size 0x4c */
 };
@@ -20874,6 +21186,12 @@ struct UUIDataStore : public UUIDataProvider {
     /* UnrealScript natives */
     void execOnCommit(FFrame& Stack, RESULT_DECL); /* 0x00ca21d0 */
     /* registered size 0x6c */
+    /* other member functions */
+    void eventRefreshSubscribers(FName PropertyTag, UBOOL bInvalidateValues, class UUIDataProvider* SourceProvider, INT ArrayIndex); /* 0x00d8f690 */
+    void eventUnregistered(class ULocalPlayer* PlayerOwner); /* 0x00d8f700 */
+    void eventRegistered(class ULocalPlayer* PlayerOwner); /* 0x00d8f740 */
+    void eventSubscriberDetached(const FScriptInterface& Subscriber); /* 0x00dac770 */
+    void eventSubscriberAttached(const FScriptInterface& Subscriber); /* 0x00dcb670 */
 };
 
 struct UUIDataStore_GameState : public UUIDataStore {
@@ -20923,6 +21241,8 @@ struct UUIDynamicDataProvider : public UUIPropertyDataProvider {
     void execBindProviderInstance(FFrame& Stack, RESULT_DECL); /* 0x00ca2c40 */
     void execUnbindProviderInstance(FFrame& Stack, RESULT_DECL); /* 0x00ca2cb0 */
     /* other member functions */
+    void eventProviderInstanceUnbound(class UObject* DataSourceInstance); /* 0x00d8f9c0 */
+    void eventProviderInstanceBound(class UObject* DataSourceInstance); /* 0x00d8fa00 */
     UBOOL BindProviderInstance(UObject*); /* 0x00d90570 */
     UBOOL UnbindProviderInstance(); /* 0x00d90620 */
     /* registered size 0x54 */
@@ -21372,6 +21692,7 @@ struct ADecalManager : public AActor {
     /* UnrealScript natives */
     void execAreDynamicDecalsEnabled(FFrame& Stack, RESULT_DECL); /* 0x00c9eca0 */
     /* other member functions */
+    void eventDecalFinished(class UDecalComponent* Decal); /* 0x0064db90 */
     UBOOL AreDynamicDecalsEnabled(); /* 0x0064ea40 */
     /* registered size 0x1d8 */
 };
@@ -21419,6 +21740,7 @@ struct UMaterialInterface : public USurface {
     void execGetScalarCurveParameterValue(FFrame& Stack, RESULT_DECL); /* 0x00cc86b0 */
     void execGetVectorCurveParameterValue(FFrame& Stack, RESULT_DECL); /* 0x00cc87b0 */
     /* other member functions */
+    void* sub_00703760(int Index); /* 0x00703760 */
     void* sub_006e3e30(int Index); /* 0x006e3e30 */
     INT sub_006d9240(); /* 0x006d9240 */
     /* registered size 0x40 */
@@ -21610,6 +21932,7 @@ struct APhysicsVolume : public AVolume {
     /* UnrealScript natives */
     void execGetZoneVelocityForActor(FFrame& Stack, RESULT_DECL); /* 0x00c83600 */
     /* other member functions */
+    void eventPhysicsChangedFor(class AActor* ChangedActor); /* 0x008643c0 */
     void eventPawnLeavingVolume(APawn* Other); /* 0x007d5f30 */
     void eventPawnEnteredVolume(APawn* Other); /* 0x007d5f80 */
     void eventActorLeavingVolume(AActor* Other); /* 0x007d5fd0 */
@@ -21743,6 +22066,7 @@ struct ULightComponent : public UActorComponent {
     void execUpdateColorAndBrightness(FFrame& Stack, RESULT_DECL); /* 0x006ad450 */
     void execSetEnabled(FFrame& Stack, RESULT_DECL); /* 0x006b4b20 */
     /* other member functions */
+    void sub_006bab80(); /* 0x006bab80 */
     UINT sub_006ad0a0(); /* 0x006ad0a0 */
     UINT sub_006ad0d0(); /* 0x006ad0d0 */
     void sub_006ad1f0(UINT); /* 0x006ad1f0 */
@@ -21782,6 +22106,8 @@ struct ADirectionalLightToggleable : public ADirectionalLight {
     virtual INT vf_35c(); /* 0x35c */
     virtual INT vf_364(); /* 0x364 */
     /* registered size 0x1b8 */
+    /* other member functions */
+    void sub_00803ee0(); /* 0x00803ee0 */
 };
 
 struct UDistributionFloatConstant : public UDistributionFloat {
@@ -22581,6 +22907,11 @@ struct UParticleSystemComponent : public UPrimitiveComponent {
     void execResetToDefaults(FFrame& Stack, RESULT_DECL); /* 0x00c9e4f0 */
     void execSetVectorArrayParameter(FFrame& Stack, RESULT_DECL); /* 0x00cc4260 */
     /* other member functions */
+    void delegateOnSystemFinished(class UParticleSystemComponent* PSystem); /* 0x008a7780 */
+    INT sub_00b5ecb0(FName InName); /* 0x00b5ecb0 */
+    void sub_00b5edb0(FName& InEventName, FLOAT InEmitterTime, FVector& InLocation, FVector& InVelocity); /* 0x00b5edb0 */
+    void sub_00b5ee10(FName& InEventName, FLOAT InEmitterTime, FVector& InLocation, FVector& InVelocity, FLOAT InParticleTime); /* 0x00b5ee10 */
+    UParticleSystemReplay* sub_00b5f140(const INT InClipIDNumber); /* 0x00b5f140 */
     void InitializeSystem(); /* 0x00b5d240 */
     void sub_00b5ef40(FName& InEventName, FLOAT InEmitterTime, FVector& InLocation, FVector& InDirection, FVector& InVelocity, UBOOL bUsePSysCompLocation, FVector& InNormal); /* 0x00b5ef40 */
     void sub_00b644b0(UBOOL bEmptyInstances); /* 0x00b644b0 */
@@ -22638,6 +22969,7 @@ struct AEmitter : public AActor {
     /* UnrealScript natives */
     void execSetTemplate(FFrame& Stack, RESULT_DECL); /* 0x00b65c90 */
     /* other member functions */
+    void eventSetTemplate(UParticleSystem* NewTemplate, UBOOL bDestroyOnFinish); /* 0x00c49f50 */
     void SetTemplate(UParticleSystem* NewTemplate, UBOOL bDestroyOnFinish); /* 0x00b65bf0 */
     /* registered size 0x1b0 */
 };
@@ -22682,6 +23014,7 @@ struct AEmitterPool : public AActor {
     void execGetFreeMatInstConsts(FFrame& Stack, RESULT_DECL); /* 0x00c87ac0 */
     void execGetPooledComponent(FFrame& Stack, RESULT_DECL); /* 0x00c87b40 */
     /* other member functions */
+    class UParticleSystemComponent* eventSpawnEmitter(class UParticleSystem* EmitterTemplate, FVector SpawnLocation, FRotator SpawnRotation, class AActor* AttachToActor); /* 0x0154ac70 */
     void FreeMaterialInstanceConstants(UStaticMeshComponent*); /* 0x008c7120 */
     UParticleSystemComponent* GetPooledComponent(UParticleSystem*); /* 0x008c7290 */
     void FreeStaticMeshComponents(UParticleSystemComponent*); /* 0x008cf8f0 */
@@ -23194,6 +23527,7 @@ struct UFluidSurfaceComponent : public UPrimitiveComponent {
     void execSetDetailPosition(FFrame& Stack, RESULT_DECL); /* 0x00ca7b80 */
     void execSetSimulationPosition(FFrame& Stack, RESULT_DECL); /* 0x00ca7bf0 */
     /* other member functions */
+    void sub_00be48d0(UBOOL bRelease); /* 0x00be48d0 */
     void SetDetailPosition(FVector); /* 0x00be4940 */
     void SetSimulationPosition(FVector); /* 0x00be4bb0 */
     void ApplyForce(FVector WorldPos, FLOAT Strength, FLOAT Radius, UBOOL bImpulse); /* 0x00be6e50 */
@@ -23548,6 +23882,9 @@ struct UForceFieldShape : public UObject {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     /* registered size 0x30 */
+    /* other member functions */
+    void eventFillByCylinder(FLOAT BottomRadius, FLOAT TopRadius, FLOAT Height, FLOAT HeightOffset); /* 0x00a33cd0 */
+    void eventFillByBox(FVector Dimension); /* 0x00a33d40 */
 };
 
 struct UForceFieldShapeBox : public UForceFieldShape {
@@ -23559,6 +23896,8 @@ struct UForceFieldShapeBox : public UForceFieldShape {
     virtual bool vf_004(); /* 0x004 */
     virtual INT vf_10c(); /* 0x10c */
     /* registered size 0x34 */
+    /* other member functions */
+    FVector eventGetRadii(); /* 0x00a33eb0 */
 };
 
 struct UForceFieldShapeCapsule : public UForceFieldShape {
@@ -23570,6 +23909,8 @@ struct UForceFieldShapeCapsule : public UForceFieldShape {
     virtual bool vf_004(); /* 0x004 */
     virtual INT vf_10c(); /* 0x10c */
     /* registered size 0x34 */
+    /* other member functions */
+    FLOAT eventGetHeight(); /* 0x00a34020 */
 };
 
 struct UForceFieldShapeSphere : public UForceFieldShape {
@@ -23629,6 +23970,7 @@ struct UFracturedBaseComponent : public UStaticMeshComponent {
     void execGetNumVisibleFragments(FFrame& Stack, RESULT_DECL); /* 0x00c9f140 */
     void execGetVisibleFragments(FFrame& Stack, RESULT_DECL); /* 0x00cc6af0 */
     /* other member functions */
+    UBOOL sub_007b8070(); /* 0x007b8070 */
     void sub_007bd910(INT); /* 0x007bd910 */
     UINT sub_007c2d30(); /* 0x007c2d30 */
     UINT sub_007c58b0(BYTE); /* 0x007c58b0 */
@@ -23717,6 +24059,7 @@ struct UFracturedStaticMeshComponent : public UFracturedBaseComponent {
     void execGetBoundaryHiddenFragments(FFrame& Stack, RESULT_DECL); /* 0x00cc6b80 */
     void execGetFragmentGroups(FFrame& Stack, RESULT_DECL); /* 0x00cd2470 */
     /* other member functions */
+    void sub_007b1890(); /* 0x007b1890 */
     INT sub_006077b0(); /* 0x006077b0 */
     INT sub_006077d0(); /* 0x006077d0 */
     INT sub_006077f0(); /* 0x006077f0 */
@@ -23947,6 +24290,13 @@ struct AFracturedStaticMeshActor : public AActor {
     void execBreakOffIsolatedIslands(FFrame& Stack, RESULT_DECL); /* 0x00cc6c60 */
     void execBreakOffIsolatedIslandsFromComponent(FFrame& Stack, RESULT_DECL); /* 0x00cc6e60 */
     /* registered size 0x230 */
+    /* other member functions */
+    void eventSetInXrayMode(UBOOL bInXrayMode); /* 0x007a4d70 */
+    void eventReturnPartActor(class AFracturedStaticMeshPart* Part); /* 0x007a4e00 */
+    AFracturedStaticMeshPart* eventSpawnPartActor(INT ChunkIndex, FVector InitialVel, FVector InitialAngVel); /* 0x007a4e40 */
+    void eventSpawnChunkDestroyEffect(UParticleSystem* Effect, FBox ChunkBox, FVector ChunkDir, FLOAT Scale); /* 0x007a4ec0 */
+    void eventBreakOffIsolatedIslands(TArray<BYTE>& FragmentVis, const TArray<INT>& IgnoreFrags, FVector ChunkDir, const TArray<AFracturedStaticMeshPart*>& DisableCollWithPart, UBOOL bWantPhysChunks, UBOOL bArg6); /* 0x007c5680 */
+    void eventBreakOffPartsInRadius(FVector Origin, FLOAT Radius, FLOAT RBStrength, UBOOL bWantPhysChunksAndParticles, UBOOL bAllowDamagedEventFiring, FVector BlastOriginOffset); /* 0x009fd450 */
 };
 
 struct AFracturedStaticMeshPart : public AFracturedStaticMeshActor {
@@ -24264,6 +24614,20 @@ struct AGameInfo : public AInfo {
     void execBeginSentinelRun(FFrame& Stack, RESULT_DECL); /* 0x00cb7d10 */
     void execGetTravelLocations(FFrame& Stack, RESULT_DECL); /* 0x00cc0060 */
     /* other member functions */
+    void eventHandleSeamlessTravelPlayer(class AController*& C); /* 0x0079f6d0 */
+    void eventPostLogin(class APlayerController* NewPlayer); /* 0x007d64a0 */
+    void eventPreCommitMapChange(const FString& PreviousMapName, const FString& NextMapName); /* 0x007e10d0 */
+    void eventBroadcast(AActor* Sender, const FString& Msg, FName Type); /* 0x007e1180 */
+    APlayerController* eventLogin(const FString& Portal, const FString& Options, FString& ErrorMessage); /* 0x007e1230 */
+    FString eventGetDefaultGameClassPath(const FString& MapName, const FString& Options, const FString& Portal); /* 0x007e1320 */
+    void eventServerTravel(const FString& URL, UBOOL bAbsolute, UBOOL bShouldSkipGameNotify); /* 0x007e1430 */
+    void eventKickIdler(class APlayerController* PC); /* 0x00802d20 */
+    void eventPreLogin(const FString& Options, const FString& Address, FString& ErrorMessage); /* 0x009b7db0 */
+    void eventInitGame(const FString& Options, FString& ErrorMessage); /* 0x009b7e90 */
+    UClass* eventSetGameType(const FString& MapName, const FString& Options, const FString& Portal); /* 0x009b7f50 */
+    void eventGetSeamlessTravelActorList(UBOOL bToEntry, TArray<AActor*>& ActorList); /* 0x009bda70 */
+    void eventAddDefaultInventory(APawn* P); /* 0x00c49fb0 */
+    FLOAT eventGetGameTimePlayed(); /* 0x0154abf0 */
     void SwapPlayerControllers(APlayerController* OldPC, APlayerController* NewPC); /* 0x008b0c60 */
     void ForceClearUnpauseDelegates(AActor*); /* 0x008c7500 */
     void sub_008a9420(); /* 0x008a9420 */
@@ -24346,6 +24710,8 @@ struct AGameReplicationInfo : public AReplicationInfo {
     /* UnrealScript natives */
     void execOnSameTeam(FFrame& Stack, RESULT_DECL); /* 0x00c89580 */
     /* registered size 0x23c */
+    /* other member functions */
+    UBOOL eventShouldShowGore(); /* 0x00ce8880 */
 };
 
 struct AGameRules : public AInfo {
@@ -24405,6 +24771,8 @@ struct UUISceneClient : public UUIRoot, public FExec {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     /* other member functions */
+    void execGetCanvasToScreen(FFrame& Stack, RESULT_DECL); /* 0x00ca1a70 */
+    void execGetInverseCanvasToScreen(FFrame& Stack, RESULT_DECL); /* 0x00ca1af0 */
     FMatrix GetCanvasToScreen(class UUIObject* Widget); /* 0x00dddda0 */
     FMatrix GetInverseCanvasToScreen(class UUIObject* Widget); /* 0x00ddddf0 */
     UINT sub_00ddde70(BYTE); /* 0x00ddde70 */
@@ -24496,6 +24864,22 @@ struct UGameUISceneClient : public UUISceneClient {
     virtual INT IsUIActive(DWORD Flags); /* 0x180 */
     virtual UINT IsSceneInitialized(INT); /* 0x184 */
     /* other member functions */
+    void execFindSceneByTag(FFrame& Stack, RESULT_DECL); /* 0x00ca6ca0 */
+    void execFindSceneIndex(FFrame& Stack, RESULT_DECL); /* 0x00ca6d50 */
+    void execGetSceneAtIndex(FFrame& Stack, RESULT_DECL); /* 0x00ca6dc0 */
+    void execFindSceneIndexByTag(FFrame& Stack, RESULT_DECL); /* 0x00ca6e30 */
+    void execGetActiveSceneCount(FFrame& Stack, RESULT_DECL); /* 0x00ca6ee0 */
+    void execGetActiveScene(FFrame& Stack, RESULT_DECL); /* 0x00ca6f90 */
+    void execGetPreviousScene(FFrame& Stack, RESULT_DECL); /* 0x00ca7040 */
+    void execGetPreviousSceneFromIndex(FFrame& Stack, RESULT_DECL); /* 0x00ca7130 */
+    void execGetPreviousInputProcessingScene(FFrame& Stack, RESULT_DECL); /* 0x00ca7210 */
+    void execGetNextScene(FFrame& Stack, RESULT_DECL); /* 0x00ca72c0 */
+    void execGetNextSceneFromIndex(FFrame& Stack, RESULT_DECL); /* 0x00ca73b0 */
+    void execRequestInputProcessingUpdate(FFrame& Stack, RESULT_DECL); /* 0x00ca7490 */
+    void execRequestCursorRenderUpdate(FFrame& Stack, RESULT_DECL); /* 0x00ca74c0 */
+    void execCanUnpauseInternalUI(FFrame& Stack, RESULT_DECL); /* 0x00ca74f0 */
+    void eventPauseGame(UBOOL bDesiredPauseState, INT PlayerIndex); /* 0x00ddd500 */
+    class UUIScene* GetTransientScene(); /* 0x00de6d90 */
     UBOOL CanUnpauseInternalUI(); /* 0x00dde4d0 */
     INT FindSceneIndexByTag(FName SceneTag, class ULocalPlayer* SceneOwner); /* 0x00de25d0 */
     class UUIScene* GetSceneAtIndex(INT SceneIndex) const; /* 0x00de2670 */
@@ -24770,6 +25154,16 @@ struct UGameViewportClient : public UObject, public FViewportClient, public FExe
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     /* other member functions */
+    UBOOL eventInit(FString& OutError); /* 0x007e14f0 */
+    void eventPreRender(class UCanvas* Canvas); /* 0x008886e0 */
+    void eventPostRender(class UCanvas* Canvas); /* 0x00888880 */
+    void eventTick(FLOAT DeltaTime); /* 0x008888c0 */
+    void eventGetSubtitleRegion(FVector2D& MinPos, FVector2D& MaxPos); /* 0x00888920 */
+    UBOOL delegateHandleInputAxis(INT ControllerId, FName Key, FLOAT Delta, FLOAT DeltaTime, UBOOL bGamepad); /* 0x008889d0 */
+    UBOOL delegateHandleInputKey(INT ControllerId, FName Key, BYTE EventType, FLOAT AmountDepressed, UBOOL bGamepad); /* 0x00888a50 */
+    void Tick(FLOAT DeltaTime); /* 0x00892430 */
+    UBOOL delegateHandleInputChar(INT ControllerId, const FString& Unicode); /* 0x00895da0 */
+    void execIsFullScreenViewport(FFrame& Stack, RESULT_DECL); /* 0x00c8cd10 */
     void GetViewportSize(FVector2D& out_ViewportSize); /* 0x00889880 */
     UBOOL IsFullScreenViewport(); /* 0x008898e0 */
     UINT sub_0089f7b0(BYTE); /* 0x0089f7b0 */
@@ -25014,6 +25408,10 @@ struct USequenceObject : public UObject {
     void execGetWorldInfo(FFrame& Stack, RESULT_DECL); /* 0x00c980a0 */
     void execScriptLog(FFrame& Stack, RESULT_DECL); /* 0x00cbc5a0 */
     /* other member functions */
+    INT eventGetObjClassVersion(); /* 0x008aa210 */
+    UBOOL eventIsPastingIntoUISequenceAllowed(); /* 0x00f1a5f0 */
+    UBOOL eventIsPastingIntoLevelSequenceAllowed(); /* 0x00f1a630 */
+    UBOOL eventIsValidLevelSequenceObject(); /* 0x01191f80 */
     void ScriptLog(const FString& OutText, UBOOL bWarning); /* 0x008aba40 */
     AWorldInfo* GetWorldInfo(); /* 0x008aba50 */
     /* registered size 0x78 */
@@ -25069,6 +25467,7 @@ struct UInterpData : public USequenceVariable {
     virtual bool vf_004(); /* 0x004 */
     virtual FString GetValueStr(); /* 0x194 */
     /* other member functions */
+    INT sub_00cf3030(FName GroupName); /* 0x00cf3030 */
     UInterpGroupDirector* FindDirectorGroup(); /* 0x00d132d0 */
     /* registered size 0xc0 */
 };
@@ -25260,6 +25659,7 @@ struct UInterpTrackAnimControl : public UInterpTrackFloatBase {
     virtual void vf_150(INT, INT); /* 0x150 */
     virtual FColor GetKeyframeColor(INT KeyIndex); /* 0x154 */
     /* other member functions */
+    INT sub_00d10210(FLOAT InPosition, UBOOL bCutAreaBeforePosition); /* 0x00d10210 */
     UAnimSequence* sub_00d0fec0(FName InSequenceName); /* 0x00d0fec0 */
     /* registered size 0xb8 */
     /* FInterpEdInputInterface */
@@ -25356,6 +25756,8 @@ struct UInterpTrackColorScale : public UInterpTrackVectorBase {
     virtual INT vf_148(); /* 0x148 */
     virtual void vf_15c(); /* 0x15c */
     /* registered size 0xc8 */
+    /* other member functions */
+    FVector sub_00cfc680(FLOAT Time); /* 0x00cfc680 */
 };
 
 struct UInterpTrackDirector : public UInterpTrack {
@@ -25472,6 +25874,8 @@ struct UInterpTrackFade : public UInterpTrackFloatBase {
     virtual void UpdateTrack(FLOAT NewPosition, class UInterpTrackInst* TrInst, UBOOL bJump); /* 0x13c */
     virtual INT vf_148(); /* 0x148 */
     /* registered size 0x9c */
+    /* other member functions */
+    FLOAT GetFadeAmountAtTime(FLOAT Time); /* 0x00cfbd70 */
 };
 
 struct UInterpTrackFloatMaterialParam : public UInterpTrackFloatBase {
@@ -25964,6 +26368,8 @@ struct UInterpTrackSlomo : public UInterpTrackFloatBase {
     virtual INT vf_148(); /* 0x148 */
     virtual void vf_15c(); /* 0x15c */
     /* registered size 0x98 */
+    /* other member functions */
+    FLOAT sub_00cfbf30(FLOAT Time); /* 0x00cfbf30 */
 };
 
 struct UInterpTrackSound : public UInterpTrackVectorBase {
@@ -25994,6 +26400,8 @@ struct UInterpTrackSound : public UInterpTrackVectorBase {
     virtual void vf_150(INT, INT); /* 0x150 */
     virtual void vf_15c(); /* 0x15c */
     /* registered size 0xd8 */
+    /* other member functions */
+    FSoundTrackKey& sub_00cf63a0(FLOAT InPosition); /* 0x00cf63a0 */
 };
 
 struct UInterpTrackSoundFade : public UInterpTrackFloatBase {
@@ -26010,6 +26418,8 @@ struct UInterpTrackSoundFade : public UInterpTrackFloatBase {
     virtual void UpdateTrack(FLOAT NewPosition, class UInterpTrackInst* TrInst, UBOOL bJump); /* 0x13c */
     virtual INT vf_148(); /* 0x148 */
     /* registered size 0x9c */
+    /* other member functions */
+    FLOAT sub_00cfbe50(FLOAT Time); /* 0x00cfbe50 */
 };
 
 struct UInterpTrackToggle : public UInterpTrack {
@@ -26137,6 +26547,8 @@ struct AInventoryManager : public AActor {
     /* UnrealScript natives */
     void execInventoryActors(FFrame& Stack, RESULT_DECL); /* 0x008bac00 */
     /* registered size 0x1c4 */
+    /* other member functions */
+    AInventory* eventCreateInventory(UClass* NewInventoryItemClass, UBOOL bDoNotActivate); /* 0x00c4a000 */
 };
 
 struct AKActor : public ADynamicSMActor {
@@ -26182,6 +26594,7 @@ struct AKActor : public ADynamicSMActor {
     void execGetKActorPhysMaterial(FFrame& Stack, RESULT_DECL); /* 0x00c936f0 */
     void execResolveRBState(FFrame& Stack, RESULT_DECL); /* 0x00c93730 */
     /* other member functions */
+    void eventSetPhysicalCollisionProperties(); /* 0x01668770 */
     UPhysicalMaterial* GetKActorPhysMaterial(); /* 0x009d9a90 */
     void sub_009d99e0(); /* 0x009d99e0 */
     /* registered size 0x2a0 */
@@ -29081,6 +29494,8 @@ struct ANxCylindricalForceFieldCapsule : public ANxCylindricalForceField {
     virtual void DoInitRBPhys(); /* 0x354 */
     virtual INT vf_35c(); /* 0x35c */
     /* registered size 0x218 */
+    /* other member functions */
+    void sub_00d6b740(); /* 0x00d6b740 */
 };
 
 struct ANxForceFieldGeneric : public ANxForceField {
@@ -29588,6 +30003,7 @@ struct USettings : public UObject {
     void execGetQoSAdvertisedStringSettings(FFrame& Stack, RESULT_DECL); /* 0x00cbfea0 */
     void execGetStringSettingValueNames(FFrame& Stack, RESULT_DECL); /* 0x00cc54e0 */
     /* other member functions */
+    void delegateNotifySettingValueUpdated(FName SettingName); /* 0x00d66fb0 */
     void delegateNotifyPropertyValueUpdated(FName PropertyName); /* 0x00d66f70 */
     void GetSettingsDataDateTime(FSettingsData& Data, INT& OutPart1, INT& OutPart2); /* 0x00d67fe0 */
     void SetSettingsDataString(FSettingsData& Data, const FString& InString); /* 0x00d6e620 */
@@ -29802,6 +30218,7 @@ struct UOnlineProfileSettings : public UObject {
     void execSetProfileSettingValue(FFrame& Stack, RESULT_DECL); /* 0x00cb89e0 */
     void execGetProfileSettingValues(FFrame& Stack, RESULT_DECL); /* 0x00cc0420 */
     /* other member functions */
+    void delegateNotifySettingValueUpdated(FName SettingName); /* 0x00d67120 */
     INT sub_00d72590(INT); /* 0x00d72590 */
     INT sub_00d72610(INT); /* 0x00d72610 */
     INT FindProfileMappingIndexByName(FName ProfileSettingName) const; /* 0x00d72690 */
@@ -29943,6 +30360,16 @@ struct UOnlineSubsystem : public UObject, public FTickableObject {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     /* other member functions */
+    UBOOL eventPostInit(); /* 0x007d6290 */
+    UBOOL eventInit(); /* 0x007d62d0 */
+    void execGetBuildUniqueId(FFrame& Stack, RESULT_DECL); /* 0x00c86b60 */
+    UBOOL eventSetStatsInterface(UObject* NewInterface); /* 0x00e85bf0 */
+    UBOOL eventSetVoiceInterface(UObject* NewInterface); /* 0x00e85c40 */
+    UBOOL eventSetGameInterface(UObject* NewInterface); /* 0x00e85c90 */
+    UBOOL eventSetSystemInterface(UObject* NewInterface); /* 0x00e85ce0 */
+    UBOOL eventSetPlayerInterfaceEx(UObject* NewInterface); /* 0x00e85d30 */
+    UBOOL eventSetPlayerInterface(UObject* NewInterface); /* 0x00e85d80 */
+    UBOOL eventSetAccountInterface(UObject* NewInterface); /* 0x00e85dd0 */
     INT GetBuildUniqueId(); /* 0x00d67980 */
     UINT* sub_00e3f620(); /* 0x00e3f620 */
     UINT* sub_00e995b0(); /* 0x00e995b0 */
@@ -30018,6 +30445,7 @@ struct UParticleEmitter : public UObject {
     virtual void PreEditChange(class UProperty* PropertyAboutToChange); /* 0x044 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     /* other member functions */
+    INT sub_00b519a0(INT); /* 0x00b519a0 */
     void sub_00b519d0(UINT, UINT); /* 0x00b519d0 */
     char* sub_00b519f0(); /* 0x00b519f0 */
     /* registered size 0xd0 */
@@ -31562,6 +31990,8 @@ struct UParticleModuleUberRainDrops : public UParticleModuleUberBase {
     virtual INT vf_168(INT); /* 0x168 */
     virtual INT vf_16c(INT); /* 0x16c */
     /* registered size 0xdc */
+    /* other member functions */
+    void DetermineUnitDirection(FParticleEmitterInstance* Owner, FVector& vUnitDir); /* 0x00b76650 */
 };
 
 struct UParticleModuleUberRainImpacts : public UParticleModuleUberBase {
@@ -31601,6 +32031,8 @@ struct UParticleModuleUberRainImpacts : public UParticleModuleUberBase {
     virtual INT vf_168(INT); /* 0x168 */
     virtual INT vf_16c(INT); /* 0x16c */
     /* registered size 0x174 */
+    /* other member functions */
+    void DetermineUnitDirection(FParticleEmitterInstance* Owner, FVector& vUnitDir); /* 0x00b76960 */
 };
 
 struct UParticleModuleUberRainSplashA : public UParticleModuleUberBase {
@@ -32218,6 +32650,18 @@ struct APawn : public AActor {
     void execDrawPathStep(FFrame& Stack, RESULT_DECL); /* 0x00c8b4a0 */
     void execClearPathStep(FFrame& Stack, RESULT_DECL); /* 0x00c8b510 */
     /* other member functions */
+    void eventSetWalking(UBOOL bNewIsWalking); /* 0x0079f760 */
+    FRotator eventGetViewRotation(); /* 0x00802de0 */
+    void eventStuckOnPawn(APawn* OtherPawn); /* 0x00864830 */
+    void eventStartCrouch(FLOAT HeightAdjust); /* 0x00864870 */
+    void eventEndCrouch(FLOAT HeightAdjust); /* 0x008648b0 */
+    UBOOL sub_00865070(); /* 0x00865070 */
+    UBOOL sub_008650a0(); /* 0x008650a0 */
+    FVector sub_008655c0(AActor* InGoal, FVector InDest); /* 0x008655c0 */
+    void sub_00865610(); /* 0x00865610 */
+    FVector sub_00866050(); /* 0x00866050 */
+    void eventPlayFootStepSound(INT FootDown); /* 0x0090b0a0 */
+    FVector eventGetPawnViewLocation(); /* 0x015d81c0 */
     void SetBasedPosition(FBasedPosition& BP, FVector pos, class AActor* ForcedBase); /* 0x007ad430 */
     void eventHeadVolumeChange(APhysicsVolume* NewHeadVolume); /* 0x007d6550 */
     void eventBreathTimer(); /* 0x00802db0 */
@@ -32325,6 +32769,10 @@ struct UPhysicsAsset : public UObject {
     /* UnrealScript natives */
     void execFindBodyIndex(FFrame& Stack, RESULT_DECL); /* 0x00c94320 */
     /* other member functions */
+    void GetBodyIndicesBelow(TArray<INT>& OutBodyIndices, FName InBoneName, USkeletalMesh* SkelMesh); /* 0x00a09a70 */
+    void UpdateBodyIndices(); /* 0x00a20750 */
+    void ClearShapeCaches(); /* 0x00a2d130 */
+    void DrawConstraints(FPrimitiveDrawInterface* PDI, USkeletalMesh* SkelMesh, const TArray<FMatrix>& SpaceBases, const FMatrix& LocalToWorld, FLOAT Scale); /* 0x00d77740 */
     INT FindConstraintIndex(FName ConstraintName); /* 0x00a09910 */
     FName FindConstraintBoneName(INT ConstraintIndex); /* 0x00a099c0 */
     void UpdateBoundsBodiesArray(); /* 0x00a17a10 */
@@ -32376,6 +32824,7 @@ struct UPhysicsAssetInstance : public UObject {
     void execSetNamedRBBoneSprings(FFrame& Stack, RESULT_DECL); /* 0x00cc19e0 */
     void execSetNamedBodiesBlockRigidBody(FFrame& Stack, RESULT_DECL); /* 0x00cc1b50 */
     /* other member functions */
+    UBOOL TermInstance(FRBPhysScene* Scene); /* 0x00a0ace0 */
     void SetLinearDriveScale(FLOAT InLinearSpringScale, FLOAT InLinearDampingScale, FLOAT InLinearForceLimitScale); /* 0x00a0b190 */
     void SetAngularDriveScale(FLOAT InAngularSpringScale, FLOAT InAngularDampingScale, FLOAT InAngularForceLimitScale); /* 0x00a0b280 */
     void SetAllBodiesFixed(UBOOL); /* 0x00a0b380 */
@@ -32421,6 +32870,8 @@ struct APhysXEmitterSpawnable : public AEmitter {
     /* UnrealScript natives */
     void execTerm(FFrame& Stack, RESULT_DECL); /* 0x00c9cb40 */
     /* registered size 0x1b8 */
+    /* other member functions */
+    void sub_009edd80(); /* 0x009edd80 */
 };
 
 struct UPhysXParticleSystem : public UObject {
@@ -32594,6 +33045,7 @@ struct APlayerReplicationInfo : public AReplicationInfo {
     void execUpdatePing(FFrame& Stack, RESULT_DECL); /* 0x00c896c0 */
     void execGetPlayerAlias(FFrame& Stack, RESULT_DECL); /* 0x00cb7e50 */
     /* other member functions */
+    void eventSetPlayerName(const FString& S); /* 0x00c5a0b0 */
     void UpdatePing(FLOAT); /* 0x007af980 */
     UINT AreUniqueNetIdsEqual(INT); /* 0x00758b80 */
     /* registered size 0x250 */
@@ -32642,6 +33094,8 @@ struct UPointLightComponent : public ULightComponent {
     /* UnrealScript natives */
     void execSetTranslation(FFrame& Stack, RESULT_DECL); /* 0x00c8b5f0 */
     /* other member functions */
+    void sub_006da930(const FMatrix* In); /* 0x006da930 */
+    void UpdatePreviewLightRadius(); /* 0x006da950 */
     void SetTranslation(FVector); /* 0x006e9f10 */
     void sub_006da900(); /* 0x006da900 */
     UINT* sub_006da910(BYTE); /* 0x006da910 */
@@ -32681,6 +33135,7 @@ struct APointLightToggleable : public APointLight {
     virtual INT vf_35c(); /* 0x35c */
     virtual INT vf_364(); /* 0x364 */
     /* other member functions */
+    void sub_00803f00(); /* 0x00803f00 */
     INT ToggleCore(); /* 0x00803d90 */
     /* registered size 0x1b8 */
 };
@@ -33012,6 +33467,8 @@ struct USequenceOp : public USequenceObject {
     void execActivateNamedOutputLink(FFrame& Stack, RESULT_DECL); /* 0x00cbc690 */
     void execGetLinkedObjects(FFrame& Stack, RESULT_DECL); /* 0x00cc3b10 */
     /* other member functions */
+    void eventVersionUpdated(INT OldVersion, INT NewVersion); /* 0x008aa3a0 */
+    void CopyPlayerFrom(USequenceOp* Other, INT Unused); /* 0x008aba80 */
     void GetObjectVars(TArray<UObject**>& outObjVars, const TCHAR* inDesc = NULL); /* 0x008e9100 */
     UBOOL ActivateOutputLink(INT); /* 0x008bd720 */
     UBOOL ActivateNamedOutputLink(const FString& LinkDesc); /* 0x008bd7b0 */
@@ -33065,6 +33522,9 @@ struct USequence : public USequenceOp {
     void execFindSeqObjectsByName(FFrame& Stack, RESULT_DECL); /* 0x00906850 */
     void execSetEnabled(FFrame& Stack, RESULT_DECL); /* 0x00c982e0 */
     /* other member functions */
+    UBOOL IsEnabled() const; /* 0x008abb30 */
+    void MarkSequencePendingKill(); /* 0x008be500 */
+    void FindLinksToSeqOp(USequenceOp* TargetOp, TArray<FSeqOpOutputLink*>& Links); /* 0x008fe500 */
     void FindSeqObjectsByClass( UClass* DesiredClass, TArray<USequenceObject*>& OutputObjects, UBOOL bRecursive ) const; /* 0x009043d0 */
     void FindSeqObjectsByName(const FString& SeqObjName, UBOOL bCheckComment, TArray<USequenceObject*>& OutputObjects, UBOOL bRecursive); /* 0x009045a0 */
     void SetEnabled(UINT); /* 0x008abb60 */
@@ -33219,6 +33679,7 @@ struct URB_BodyInstance : public UObject {
     void execUpdateDampingProperties(FFrame& Stack, RESULT_DECL); /* 0x00c955e0 */
     void execSetDampingRampupProportion(FFrame& Stack, RESULT_DECL); /* 0x00c95610 */
     /* other member functions */
+    void sub_009f9a40(const URB_BodyInstance* FromInst); /* 0x009f9a40 */
     UBOOL IsFixed(); /* 0x009f99d0 */
     void SetBlockRigidBody(UBOOL); /* 0x009f9a10 */
     void EnableCollisionResponse(UBOOL); /* 0x009f9b50 */
@@ -33277,6 +33738,7 @@ struct URB_BodySetup : public UKMeshProps {
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     /* other member functions */
+    void CopyBodyPropertiesFrom(URB_BodySetup* FromSetup); /* 0x00a2d190 */
     void ClearShapeCache(); /* 0x00a2c3b0 */
     /* registered size 0xcc */
 };
@@ -33397,6 +33859,7 @@ struct ARB_ConstraintActor : public AActor {
     void execInitConstraint(FFrame& Stack, RESULT_DECL); /* 0x00c93840 */
     void execTermConstraint(FFrame& Stack, RESULT_DECL); /* 0x00c93970 */
     /* other member functions */
+    INT  sub_00a37f70(INT); /* 0x00a37f70 */
     void InitConstraint(class AActor* Actor1, class AActor* Actor2, FName Actor1Bone, FName Actor2Bone, FLOAT BreakThreshold); /* 0x00a3fdc0 */
     void TermConstraint(); /* 0x00a32180 */
     void SetDisableCollision(UBOOL); /* 0x00a321f0 */
@@ -34232,6 +34695,7 @@ struct UScriptedTexture : public UTextureRenderTarget2D {
     virtual void BeginDestroy(); /* 0x020 */
     virtual void UpdateResource(); /* 0x114 */
     /* other member functions */
+    void delegateRender(class UCanvas* C); /* 0x00754b50 */
     void sub_00755fb0(); /* 0x00755fb0 */
     void sub_00755fc0(); /* 0x00755fc0 */
     void sub_00755fd0(); /* 0x00755fd0 */
@@ -34536,6 +35000,8 @@ struct USeqAct_ChangeCollision : public USequenceAction {
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_140(); /* 0x140 */
     /* registered size 0xdc */
+    /* other member functions */
+    void UpdateObject(); /* 0x00907ca0 */
 };
 
 struct USeqAct_CommitMapChange : public USequenceAction {
@@ -34656,6 +35122,8 @@ struct USeqAct_CrowdSpawner : public USeqAct_Latent {
     void execKillAgents(FFrame& Stack, RESULT_DECL); /* 0x00c98890 */
     void execUpdateSpawning(FFrame& Stack, RESULT_DECL); /* 0x00c988d0 */
     /* registered size 0x2c8 */
+    /* other member functions */
+    class ACrowdAgent* eventSpawnAgent(class AActor* SpawnLoc); /* 0x00c98940 */
 };
 
 struct USeqAct_Delay : public USeqAct_Latent {
@@ -34915,6 +35383,10 @@ struct USeqAct_Interp : public USeqAct_Latent {
     void execStop(FFrame& Stack, RESULT_DECL); /* 0x00c98ae0 */
     void execAddPlayerToDirectorTracks(FFrame& Stack, RESULT_DECL); /* 0x00c98b10 */
     /* other member functions */
+    void sub_00ceb4f0(); /* 0x00ceb4f0 */
+    void NotifyActorsOfChange(); /* 0x00cf3240 */
+    UInterpGroupDirector* sub_00d141c0(); /* 0x00d141c0 */
+    AActor* sub_00d14410(); /* 0x00d14410 */
     UBOOL sub_00cf33e0(APlayerController* PC); /* 0x00cf33e0 */
     UInterpGroupInst* sub_00cf3830(FName InGroupName); /* 0x00cf3830 */
     void sub_00cfa910(); /* 0x00cfa910 */
@@ -34984,6 +35456,8 @@ struct USeqAct_LevelStreamingBase : public USeqAct_Latent {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     /* registered size 0xe8 */
+    /* other member functions */
+    void ActivateLevel(ULevelStreaming* LevelStreamingObject); /* 0x008c0480 */
 };
 
 struct USeqAct_LevelStreaming : public USeqAct_LevelStreamingBase {
@@ -35002,6 +35476,7 @@ struct USeqAct_LevelStreaming : public USeqAct_LevelStreamingBase {
     virtual void Activated(); /* 0x174 */
     virtual void vf_194(INT, INT); /* 0x194 */
     /* other member functions */
+    void UpdateStatus(); /* 0x008cc4a0 */
     UBOOL IsLevelStreamingComplete(ULevelStreaming* LevelStreamingObject); /* 0x008ac0e0 */
     /* registered size 0xf8 */
 };
@@ -35022,6 +35497,8 @@ struct USeqAct_LevelVisibility : public USeqAct_Latent {
     virtual void Activated(); /* 0x174 */
     virtual void vf_194(INT, INT); /* 0x194 */
     /* registered size 0xf4 */
+    /* other member functions */
+    void UpdateStatus(); /* 0x008cc9b0 */
 };
 
 struct USeqAct_Log : public USequenceAction {
@@ -35081,6 +35558,8 @@ struct USeqAct_MultiLevelStreaming : public USeqAct_LevelStreamingBase {
     virtual void Activated(); /* 0x174 */
     virtual void vf_194(INT, INT); /* 0x194 */
     /* registered size 0xf8 */
+    /* other member functions */
+    void UpdateStatus(); /* 0x008cc7c0 */
 };
 
 struct USeqAct_MultiplyFloat : public USeqAct_SetSequenceVariable {
@@ -35216,6 +35695,7 @@ struct USeqAct_PlaySound : public USeqAct_Latent {
     virtual void Activated(); /* 0x174 */
     virtual void DeActivated(); /* 0x178 */
     /* other member functions */
+    void sub_008ec1a0(UINT Value); /* 0x008ec1a0 */
     void sub_008df850(); /* 0x008df850 */
     /* registered size 0x120 */
 };
@@ -35270,6 +35750,7 @@ struct USeqAct_Switch : public USequenceAction {
     virtual void Activated(); /* 0x174 */
     virtual void DeActivated(); /* 0x178 */
     /* other member functions */
+    void UpdateObject(); /* 0x00907d90 */
     UINT sub_008eed30(UINT); /* 0x008eed30 */
     /* registered size 0xec */
 };
@@ -35825,6 +36306,8 @@ struct USeqCond_IsLoggedIn : public USequenceCondition {
     virtual bool vf_004(); /* 0x004 */
     virtual void Activated(); /* 0x174 */
     /* registered size 0xc0 */
+    /* other member functions */
+    UBOOL eventCheckLogins(); /* 0x008e7cd0 */
 };
 
 struct USeqCond_IsSameTeam : public USequenceCondition {
@@ -35852,6 +36335,10 @@ struct USeqCond_SwitchBase : public USequenceCondition {
     virtual void vf_188(); /* 0x188 */
     virtual INT vf_190(INT, INT, INT, INT, INT); /* 0x190 */
     /* registered size 0xbc */
+    /* other member functions */
+    UBOOL eventIsFallThruEnabled(INT ValueIndex); /* 0x00d1eb70 */
+    void eventRemoveValueEntry(INT RemoveIndex); /* 0x01192000 */
+    void eventInsertValueEntry(INT InsertIndex); /* 0x01192040 */
 };
 
 struct USeqCond_SwitchClass : public USeqCond_SwitchBase {
@@ -35933,6 +36420,7 @@ struct USequenceEvent : public USequenceOp {
     /* UnrealScript natives */
     void execCheckActivate(FFrame& Stack, RESULT_DECL); /* 0x008cabb0 */
     /* other member functions */
+    UBOOL sub_008ac050(UBOOL bTest); /* 0x008ac050 */
     UBOOL sub_008abba0(AActor* InOriginator, AActor* InInstigator, UBOOL bTest, TArray<INT>* ActivateIndices, UBOOL bPushTop); /* 0x008abba0 */
     /* registered size 0xf8 */
 };
@@ -36537,6 +37025,8 @@ struct USessionSettingsProvider : public UUISettingsProvider {
     void execBindProviderClient(FFrame& Stack, RESULT_DECL); /* 0x00ca2de0 */
     void execUnbindProviderClient(FFrame& Stack, RESULT_DECL); /* 0x00ca2e50 */
     /* other member functions */
+    void eventProviderClientUnbound(class UClass* DataSourceClass); /* 0x00d8fab0 */
+    void eventProviderClientBound(class UClass* DataSourceClass); /* 0x00d8faf0 */
     UBOOL UnbindProviderClient(); /* 0x00d90670 */
     UBOOL BindProviderClient(UClass*); /* 0x00da32c0 */
     /* registered size 0x60 */
@@ -36987,6 +37477,12 @@ struct USkeletalMesh : public UObject {
     virtual FString GetDetailedDescription(INT InIndex); /* 0x0bc */
     virtual INT vf_0d4(); /* 0x0d4 */
     /* other member functions */
+    void ReleaseResources(); /* 0x0094bca0 */
+    FMatrix GetRefPoseMatrix(INT BoneIndex) const; /* 0x00951c70 */
+    void InitResources(); /* 0x0095bc50 */
+    void ClearShadowVolumeData(); /* 0x0095cba0 */
+    UBOOL IsOnlyClothMesh() const; /* 0x00d49f80 */
+    void InitBoneMirrorInfo(); /* 0x00d4d750 */
     UBOOL IsCPUSkinned() const; /* 0x00951af0 */
     USkeletalMeshSocket* FindSocket(FName InSocketName); /* 0x00951be0 */
     void CalcPerBoneBounds(); /* 0x0095bcd0 */
@@ -37109,6 +37605,7 @@ struct USkeletalMeshSocket : public UObject {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     /* other member functions */
+    INT sub_00567ca0(INT Object, INT Array, INT Index); /* 0x00567ca0 */
     INT sub_00943b60(); /* 0x00943b60 */
     INT sub_00943b70(); /* 0x00943b70 */
     INT sub_00943b80(); /* 0x00943b80 */
@@ -37727,6 +38224,8 @@ struct ASpotLightToggleable : public ASpotLight {
     virtual INT vf_35c(); /* 0x35c */
     virtual INT vf_364(); /* 0x364 */
     /* registered size 0x1b8 */
+    /* other member functions */
+    void sub_00803f20(); /* 0x00803f20 */
 };
 
 struct AStaticLightCollectionActor : public ALight {
@@ -37989,6 +38488,11 @@ struct ATerrain : public AInfo {
     /* UnrealScript natives */
     void execCalcLayerBounds(FFrame& Stack, RESULT_DECL); /* 0x00c9b9e0 */
     /* other member functions */
+    UINT sub_00982810(UINT A, UINT B, UINT Flags); /* 0x00982810 */
+    void sub_00986dc0(); /* 0x00986dc0 */
+    UBOOL IsTerrainComponentVisible(INT InBaseX, INT InBaseY, INT InSizeX, INT InSizeY); /* 0x0098be90 */
+    INT FindSelectedVertexInList(INT X, INT Y, FSelectedTerrainVertex*& OutVertex); /* 0x0098caf0 */
+    void sub_009a98d0(); /* 0x009a98d0 */
     FRenderCommandFence* GetReleaseResourcesFence(); /* 0x00982010: created on first use */
     void sub_00759430(UBOOL); /* 0x00759430 */
     const WORD& Height(INT X, INT Y) const; /* 0x0098b970 */
@@ -38246,6 +38750,7 @@ struct UTextureFlipBook : public UTexture2D, public FTickableObject {
     virtual FLOAT vf_12c(); /* 0x12c */
     virtual void vf_130(); /* 0x130 */
     /* other member functions */
+    void sub_0076ea70(FLOAT *Out); /* 0x0076ea70 */
     UINT sub_0076eb40(BYTE); /* 0x0076eb40 */
     /* registered size 0x140 */
     /* FTickableObject */
@@ -38603,6 +39108,8 @@ struct UUIDataProvider_OnlinePlayerDataBase : public UUIDataProvider {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     /* registered size 0x50 */
+    /* other member functions */
+    void eventOnRegister(class ULocalPlayer* InPlayer); /* 0x00d94f80 */
 };
 
 struct UUIDataProvider_OnlineClanMates : public UUIDataProvider_OnlinePlayerDataBase {
@@ -38826,6 +39333,8 @@ struct UUIDataStore_OnlinePlayerData : public UUIDataStore_Remote {
     /* UnrealScript natives */
     void execOnSettingProviderChanged(FFrame& Stack, RESULT_DECL); /* 0x00ca2330 */
     /* other member functions */
+    void eventOnRegister(class ULocalPlayer* InPlayer); /* 0x00d8f570 */
+    class UOnlineProfileSettings* eventGetCachedPlayerProfile(INT ControllerId); /* 0x00d8f820 */
     void OnSettingProviderChanged(UUIDataProvider* SourceProvider, FName SettingsName); /* 0x00da1c80 */
     /* registered size 0xfc */
 };
@@ -39024,6 +39533,8 @@ struct UUIInteraction : public UInteraction, public FExec, public FGlobalDataSto
     virtual INT vf_118(INT, INT, INT, INT, INT, INT); /* 0x118 */
     virtual UBOOL InputChar(INT ControllerId, TCHAR Character); /* 0x11c */
     /* other member functions */
+    void execPlayUISound(FFrame& Stack, RESULT_DECL); /* 0x00ca0c70 */
+    void execCreateScene(FFrame& Stack, RESULT_DECL); /* 0x00ca0df0 */
     class UUIScene* CreateScene(class UClass* SceneClass, FName SceneTag, class UUIScene* SceneTemplate); /* 0x00d707e0 */
     static INT sub_00d78350(INT ControllerId); /* 0x00d78350 */
     static UDataStoreClient* GetDataStoreClient(); /* 0x00d8dee0 */
@@ -39213,6 +39724,14 @@ struct UUIScene : public UUIScreenObject {
     void execGetScenePostProcessGroup(FFrame& Stack, RESULT_DECL); /* 0x00da9a70 */
     void execForceImmediateSceneUpdate(FFrame& Stack, RESULT_DECL); /* 0x00dc9730 */
     /* other member functions */
+    void eventSceneActivated(UBOOL bInitialActivation); /* 0x00da73e0 */
+    UBOOL delegateShouldModulateBackgroundAlpha(FLOAT& AlphaModulationPercent); /* 0x00da7420 */
+    void delegateOnSceneDeactivated(class UUIScene* DeactivatedScene); /* 0x00da7480 */
+    void delegateOnSceneActivated(class UUIScene* ActivatedScene, UBOOL bInitialActivation); /* 0x00da74b0 */
+    BYTE delegateGetSceneInputModeOverride(); /* 0x00da7560 */
+    UBOOL sub_00da9d70(); /* 0x00da9d70 */
+    void sub_00da9d90(FLOAT DeltaTime); /* 0x00da9d90 */
+    UBOOL delegateOnQueryCloseSceneAllowed(class UUIScene* SceneToDeactivate, UBOOL bCloseChildScenes, UBOOL bForcedClose); /* 0x00ddd490 */
     UBOOL sub_00db03a0(); /* 0x00db03a0 */
     void CreateSceneDataStore(); /* 0x00db0a10 */
     AWorldInfo* GetWorldInfo(); /* 0x00da9a10 */
@@ -39403,6 +39922,8 @@ struct UUIStyle : public UUIRoot {
     void execGetStyleForState(FFrame& Stack, RESULT_DECL); /* 0x00ca1c60 */
     void execGetStyleForStateByClass(FFrame& Stack, RESULT_DECL); /* 0x00ca1cd0 */
     /* other member functions */
+    UUIStyle_Data* eventGetDefaultStyle(); /* 0x00dc9980 */
+    UUIStyle_Data* GetArchetypeStyleForState(UUIState* StateObject) const; /* 0x00ddb7a0 */
     UUIStyle_Data* sub_00dc9980(); /* 0x00dc9980 */
     UUIStyle_Data* GetStyleForState(UUIState*); /* 0x00ddaa80 */
     UUIStyle_Data* GetStyleForStateByClass(UClass*); /* 0x00ddac00 */
@@ -39451,6 +39972,7 @@ struct UUIStyle_Data : public UUIRoot {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     /* other member functions */
+    UUIStyle* GetOwnerStyle() const; /* 0x00ddb0a0 */
     UBOOL delegateMatchesStyleData(UUIStyle_Data* StyleToCompare); /* 0x00dc9a40 */
     /* registered size 0x64 */
 };
@@ -39569,6 +40091,8 @@ struct UUITickableObjectProxy : public UUIRoot, public IUITickableObject {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     /* other member functions */
+    void eventScriptTick(FLOAT DeltaTime); /* 0x00ddd860 */
+    void delegateOnScriptTick(class UUITickableObjectProxy* Sender, FLOAT DeltaTime); /* 0x00ddd8a0 */
     UINT sub_00de02c0(); /* 0x00de02c0 */
     /* registered size 0x40 */
     /* IUITickableObject */
@@ -39676,6 +40200,8 @@ struct AWeapon : public AInventory {
     /* UnrealScript natives */
     void execGetPhysicalFireStartLoc(FFrame& Stack, RESULT_DECL); /* 0x00c8a2d0 */
     /* registered size 0x298 */
+    /* other member functions */
+    FVector eventGetMuzzleLoc(); /* 0x007542b0 */
 };
 
 struct UWindDirectionalSourceComponent : public UActorComponent {
@@ -39890,6 +40416,8 @@ struct AWorldInfo : public AZoneInfo {
     void execGetDemoRewindPoints(FFrame& Stack, RESULT_DECL); /* 0x00cc0180 */
     void execPrepareMapChange(FFrame& Stack, RESULT_DECL); /* 0x00cc57f0 */
     /* other member functions */
+    FWorldFractureSettings sub_009c6dd0() const; /* 0x009c6dd0 */
+    UBOOL sub_009c9b20(); /* 0x009c9b20 */
     APhysicsVolume* GetPhysicsVolume(const FVector& Loc, AActor* A, UBOOL bUseTouch); /* 0x007ddb40 */
     void NotifyMatchStarted(UBOOL bShouldPauseMovies, UBOOL bShouldAllowPausing, UBOOL bShouldSkipMovies); /* 0x007dde10 */
     void UpdateMusicTrack(FMusicTrackStruct NewMusicTrack); /* 0x009b0b80 */
@@ -40022,6 +40550,10 @@ struct UGFxDataStoreSubscriber : public UObject, public IUIDataStorePublisher {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     /* other member functions */
+    INT sub_0196ec00(); /* 0x0196ec00 */
+    UINT sub_01978450(); /* 0x01978450 */
+    void sub_01979710(); /* 0x01979710 */
+    void sub_0197ed10(UINT Count); /* 0x0197ed10 */
     INT sub_0196b020(); /* 0x0196b020 */
     INT sub_0196e740(); /* 0x0196e740 */
     bool sub_01978400(); /* 0x01978400 */
@@ -40294,6 +40826,7 @@ struct UGFxFSCmdHandler : public UObject {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     /* other member functions */
+    UBOOL eventFSCommand(class UGFxMovie* Movie, const FString& cmd, const FString& arg); /* 0x00e58af0 */
     UINT* sub_00e422d0(BYTE); /* 0x00e422d0 */
     void sub_00e48460(); /* 0x00e48460 */
     /* registered size 0x30 */
@@ -40528,6 +41061,8 @@ struct UOnlineEventsInterfaceMcp : public UMCPBase {
     /* registered size 0x5c */
     /* FTickableObject */
     virtual void Tick(FLOAT DeltaTime); /* 0x00e3def0 */
+    /* other member functions */
+    void sub_00e2c7f0(INT, INT); /* 0x00e2c7f0 */
 };
 
 struct UOnlineGameInterfaceImpl : public UObject {
@@ -40648,6 +41183,8 @@ struct UOnlineSubsystemCommonImpl : public UOnlineSubsystem {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     /* registered size 0xd8 */
+    /* other member functions */
+    FUniqueNetId eventGetPlayerUniqueNetIdFromIndex(INT UserIndex); /* 0x00e2a1e0 */
 };
 
 struct UOnlineTitleFileDownloadMcp : public UMCPBase {
@@ -40728,6 +41265,12 @@ struct UPartyBeaconClient : public UPartyBeacon {
     /* registered size 0xc4 */
     /* FTickableObject */
     virtual void Tick(FLOAT DeltaTime); /* 0x00e394b0 */
+    /* other member functions */
+    void delegateOnHostHasCancelled(); /* 0x00e293c0 */
+    void delegateOnHostIsReady(); /* 0x00e293f0 */
+    void delegateOnReservationCountUpdated(INT ReservationRemaining); /* 0x00e294a0 */
+    void delegateOnCancellationRequestComplete(); /* 0x00e294d0 */
+    void delegateOnReservationRequestComplete(BYTE ReservationResult); /* 0x00e29500 */
 };
 
 struct UPartyBeaconHost : public UPartyBeacon {
@@ -40758,6 +41301,10 @@ struct UPartyBeaconHost : public UPartyBeacon {
     virtual bool vf_004(); /* 0x004 */
     virtual void DestroyBeacon(); /* 0x10c */
     /* other member functions */
+    void eventUnregisterParty(FUniqueNetId PartyLeader); /* 0x00e29870 */
+    void delegateOnClientCancellationReceived(FUniqueNetId PartyLeader); /* 0x00e298c0 */
+    void delegateOnReservationsFull(); /* 0x00e29900 */
+    void delegateOnReservationChange(); /* 0x00e29930 */
     void sub_00e2fb60(INT); /* 0x00e2fb60 */
     void sub_00e2fba0(INT); /* 0x00e2fba0 */
     void sub_00e333c0(INT); /* 0x00e333c0 */
@@ -40910,6 +41457,8 @@ struct ARBreakablePropStatic : public ARKActorSpawnable {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     /* registered size 0x2d4 */
+    /* other member functions */
+    void eventInitCollideDamageScale(FLOAT Scale); /* 0x0153bbb0 */
 };
 
 struct ARBreakableProp : public ARBreakablePropStatic {
@@ -41000,6 +41549,9 @@ struct ARDynamicMenu : public AActor {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     /* registered size 0x250 */
+    /* other member functions */
+    void eventItemRO(const FString& Text, BYTE R, BYTE G, BYTE B); /* 0x01516990 */
+    UBOOL eventItemButton(const FString& Text, UBOOL bValue); /* 0x01516bd0 */
 };
 
 struct ARDebugMenu : public ARDynamicMenu {
@@ -41053,6 +41605,9 @@ struct ARDebugMenu : public ARDynamicMenu {
     void execGetSubclasses(FFrame& Stack, RESULT_DECL); /* 0x015271c0 */
     void execGetAllSoundCues(FFrame& Stack, RESULT_DECL); /* 0x01527280 */
     /* other member functions */
+    FLOAT eventRItemF(const FString& Text, FLOAT Value, FLOAT MinValue, FLOAT MaxValue, FLOAT Step); /* 0x01516a40 */
+    UBOOL eventRItemB(const FString& Text, UBOOL bValue); /* 0x01516b20 */
+    UBOOL eventItemFdB(const FString& Text, FLOAT& Value, FLOAT MinValue, FLOAT MaxValue, FLOAT Step); /* 0x01516c80 */
     void BreatherBufferToggle(); /* 0x015109e0 */
     /* registered size 0x270 */
 };
@@ -41304,6 +41859,8 @@ struct ARGameInfoBase : public AGameInfo {
     void execGetSubLevels(FFrame& Stack, RESULT_DECL); /* 0x01516880 */
     void execParseIntoArray(FFrame& Stack, RESULT_DECL); /* 0x01527070 */
     /* registered size 0x3b4 */
+    /* other member functions */
+    void eventChangeGameSpeedOverTime(FLOAT NewDesiredGameSpeed, FLOAT TransitionDuration, FLOAT Duration); /* 0x01591e20 */
 };
 
 struct ARGameReplicationInfoBase : public AGameReplicationInfo {
@@ -41398,6 +41955,8 @@ struct URParticleModuleSpawnDecalOnDeath : public URParticleModuleOnDeathBase {
     virtual bool vf_004(); /* 0x004 */
     virtual INT vf_110(INT, INT, INT); /* 0x110 */
     /* registered size 0x58 */
+    /* other member functions */
+    class UDecalComponent* eventSpawnDecal(class AActor* Owner, FVector Position, FRotator Direction); /* 0x0153b770 */
 };
 
 struct URParticleModuleSpawnOnDeath : public URParticleModuleOnDeathBase {
@@ -41411,6 +41970,8 @@ struct URParticleModuleSpawnOnDeath : public URParticleModuleOnDeathBase {
     virtual bool vf_004(); /* 0x004 */
     virtual INT vf_110(INT, INT, INT); /* 0x110 */
     /* registered size 0x4c */
+    /* other member functions */
+    void eventSpawnParticles(class AActor* OwningActor, FVector Position); /* 0x0153b810 */
 };
 
 struct URParticleModuleWaitForDeath : public URParticleModuleOnDeathBase {
@@ -41621,6 +42182,8 @@ struct URSeqAct_ChangeRain_None : public USeqAct_Latent {
     virtual bool vf_004(); /* 0x004 */
     virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0x108 */
+    /* other member functions */
+    UBOOL eventUpdateOpScript(FLOAT DeltaTime); /* 0x01533870 */
 };
 
 struct URSeqAct_CinematicMode : public USequenceAction {
@@ -41909,6 +42472,7 @@ struct UOnlineGameInterfaceSteamworks : public UOnlineGameInterfaceImpl {
     void execRegisterPlayer(FFrame& Stack, RESULT_DECL); /* 0x00e862d0 */
     void execUnregisterPlayer(FFrame& Stack, RESULT_DECL); /* 0x00e863c0 */
     /* other member functions */
+    INT sub_00e89940(FLOAT Value); /* 0x00e89940 */
     INT sub_00e3a290(FLOAT Value); /* 0x00e3a290 */
     INT sub_00e89720(); /* 0x00e89720 */
     char* sub_00e89730(); /* 0x00e89730 */
@@ -42162,6 +42726,9 @@ struct UAlertInstance : public UObject {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     /* registered size 0x50 */
+    /* other member functions */
+    class ARAlertEventCoordinator* eventGetEventCoordinator(); /* 0x015d92c0 */
+    void eventUpdateAlert(FVector NewLocation, BYTE NewType, FLOAT BackDateTime); /* 0x015d9300 */
 };
 
 struct UComparisonListSharedDataCache : public UObject {
@@ -42192,6 +42759,7 @@ struct URDOFManager : public UObject {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     /* other member functions */
+    void eventSetDof(FPostProcessSettings& PP); /* 0x01686a40 */
     void sub_01686a40(FPostProcessSettings& PPSettings); /* 0x01686a40 */
     /* registered size 0xac */
 };
@@ -42602,6 +43170,12 @@ struct AR3rdPersonCamera : public ACamera {
     void execGetTunnelCameraDirection(FFrame& Stack, RESULT_DECL); /* 0x01709970 */
     void execUpdateCameraPosition(FFrame& Stack, RESULT_DECL); /* 0x017099f0 */
     /* other member functions */
+    void eventResetCamera(FRotator ResetRotation, UBOOL bResetForBlend, UBOOL bResetSmoother); /* 0x01559350 */
+    void eventCancelZoom(); /* 0x01686b90 */
+    void eventSettingsChanged(); /* 0x01686bc0 */
+    void eventUpdateCurrentCamera(FVector DesiredCameraPosition, FRotator DesiredCameraRotation, FLOAT DesiredCameraFOV, FLOAT DeltaTime); /* 0x01686cd0 */
+    FVector* sub_01689560(INT CurrentZoomPointIndex); /* 0x01689560 */
+    FVector sub_01689920(const FVector& Target, FLOAT DeltaTime); /* 0x01689920 */
     void eventApplyModifiers(FLOAT DeltaTime, FTPOV& OutPOV); /* 0x01686bf0 */
     void UpdateCameraSettings(); /* 0x01689170 */
     void BlendToCameraTarget(class AActor* Target, FLOAT BlendTime, UBOOL bResetCam, FRotator ResetRotation, UBOOL BlendBatmanRelativePosition); /* 0x01689c30 */
@@ -42696,6 +43270,9 @@ struct ARAlertEventCoordinator : public AActor {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     /* registered size 0x1b4 */
+    /* other member functions */
+    void eventAlertSeen(class ARBMAIController* Spotter); /* 0x015d8ee0 */
+    void eventAlertSuspected(class ARBMAIController* Suspectee, UBOOL bUpdateAlert); /* 0x015d8f20 */
 };
 
 struct ARAlertEventCoordinator_General : public ARAlertEventCoordinator {
@@ -43007,6 +43584,9 @@ struct ARAnimatedCameraActor : public ARCameraActor {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     /* registered size 0x290 */
+    /* other member functions */
+    void eventSetFOV(FLOAT DesiredValue, FLOAT TimeToChange); /* 0x015952d0 */
+    void eventSetGameSpeed(FLOAT DesiredValue, FLOAT TimeToChange); /* 0x01595330 */
 };
 
 struct URAnimConfig : public UObject {
@@ -43129,6 +43709,13 @@ struct URAnimNode_Cape : public UAnimNodeBlendBase {
     void execGetAnimTreeNodeBlendValue(FFrame& Stack, RESULT_DECL); /* 0x016ec210 */
     void execSetAnimTreeNodeBlendValue(FFrame& Stack, RESULT_DECL); /* 0x016ec290 */
     /* other member functions */
+    UBOOL sub_01569310(INT LookupIndex, INT& ChainIndex, INT& LinkIndex); /* 0x01569310 */
+    INT sub_01569700(INT BoneIndex); /* 0x01569700 */
+    UBOOL sub_015697a0(INT BoneIndex, INT ParentBoneIndex); /* 0x015697a0 */
+    FMatrix sub_01569b90(); /* 0x01569b90 */
+    INT sub_01569c40(INT boneIndex); /* 0x01569c40 */
+    UBOOL sub_01569e10(FName AnimName); /* 0x01569e10 */
+    void sub_0156e6a0(INT boneIndex, FMatrix& OutSpaceBase); /* 0x0156e6a0 */
     void SetAnimTreeNodeBlendValue(FName setNodeName, FLOAT blendValue); /* 0x01562480 */
     INT sub_015691f0(INT ChainIndex, INT LinkIndex); /* 0x015691f0 */
     void sub_0156a030(INT boneIndex, FMatrix& OutSpaceBase); /* 0x0156a030 */
@@ -43317,6 +43904,7 @@ struct URAnimNode_Pose : public UAnimNodeBlendBase, public FTickableObject {
     virtual void HandleSliderMove(INT SliderIndex, INT ValueIndex, FLOAT NewSliderValue); /* 0x17c */
     virtual FString GetSliderDrawValue(INT SliderIndex); /* 0x180 */
     /* other member functions */
+    void sub_01595c40(FLOAT YawVelocity); /* 0x01595c40 */
     UINT sub_015a4270(INT); /* 0x015a4270 */
     void sub_015a7730(INT); /* 0x015a7730 */
     void sub_015a7770(INT); /* 0x015a7770 */
@@ -43693,6 +44281,8 @@ struct URAnimNotify_PlayGadgetAnim : public UAnimNotify {
     virtual void vf_10c(UINT); /* 0x10c */
     virtual FString GetEditorComment(); /* 0x110 */
     /* registered size 0x3c */
+    /* other member functions */
+    void eventTriggerGadgetAnim(class ARPawnPlayer* Player); /* 0x01592110 */
 };
 
 struct URAnimNotify_Rumble : public UAnimNotify {
@@ -43736,6 +44326,8 @@ struct URAnimNotify_SpawnParticleFX : public UAnimNotify {
     virtual void vf_10c(UINT); /* 0x10c */
     virtual FString GetEditorComment(); /* 0x110 */
     /* registered size 0x4c */
+    /* other member functions */
+    void eventSpawnParticleSystem(class AActor* Owner, FVector SpawnLocation, FRotator SpawnRotation, class USkeletalMeshComponent* Skeleton); /* 0x015922c0 */
 };
 
 struct URAnimNotify_SpawnParticleFX_PCOnly : public URAnimNotify_SpawnParticleFX {
@@ -43974,6 +44566,8 @@ struct URBMSpeechManager : public UActorComponent {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     /* registered size 0x7c */
+    /* other member functions */
+    void eventStopAllSpeech(); /* 0x0160e6d0 */
 };
 
 struct ARPawn : public APawn {
@@ -44032,6 +44626,12 @@ struct ARPawn : public APawn {
     void execIsIncapacitated(FFrame& Stack, RESULT_DECL); /* 0x016f0330 */
     void execTeleportPhysics(FFrame& Stack, RESULT_DECL); /* 0x016f0370 */
     /* other member functions */
+    void eventOnFoleyNotify(BYTE Foley); /* 0x01594d70 */
+    void eventOnFootstepNotify(BYTE Foot, BYTE Contact, FVector FootLocation); /* 0x01594db0 */
+    UBOOL delegateIsSniperPointValid(class AActor* A); /* 0x016688e0 */
+    UBOOL delegateIsRoamPointValid(class AActor* A); /* 0x01668920 */
+    UBOOL delegateIsActorSafe(class AActor* A); /* 0x01668960 */
+    void eventFinaliseHeadAndMaterials(); /* 0x01686280 */
     void SetLocationIgnoringCollision(FVector); /* 0x0166d490 */
     /* registered size 0x440 */
 };
@@ -44290,6 +44890,10 @@ struct ARPawnCharacter : public ARPawn {
     void execGetAdditiveAnim(FFrame& Stack, RESULT_DECL); /* 0x0172a4e0 */
     void execGetAnimThoughts(FFrame& Stack, RESULT_DECL); /* 0x0172a6f0 */
     /* other member functions */
+    void eventOnBreatheOut(); /* 0x01594e30 */
+    void eventOnBreatheIn(); /* 0x01594e60 */
+    void eventWeaponSwitchCallback(class AInventory* NewWeapon, class AInventory* PreviousWeapon); /* 0x01594e90 */
+    void sub_0166f640(AActor* Actor, FName Description, FName ActorBoneName, UBOOL bAllowTurningToAim); /* 0x0166f640 */
     UBOOL eventIsGettingUpFromRagdoll(); /* 0x01638310 */
     URWeaponConfig* CombineWeaponConfigs(class URWeaponConfig* Config1, class URWeaponConfig* Config2, class URWeaponConfig* Config3, class URWeaponConfig* Config4, class URWeaponConfig* Config5, class URWeaponConfig* Config6, class URWeaponConfig* Config7, class URWeaponConfig* Config8, class URWeaponConfig* Config9, class URWeaponConfig* Config10, class URWeaponConfig* Config11, class URWeaponConfig* Config12); /* 0x0167bbf0 */
     /* registered size 0x544 */
@@ -44465,6 +45069,7 @@ struct ARInventoryGadget : public AInventory {
     void execGetCorrectedAutoTargetOrigin(FFrame& Stack, RESULT_DECL); /* 0x01706f30 */
     void execFindMultipleTargets(FFrame& Stack, RESULT_DECL); /* 0x01727bd0 */
     /* other member functions */
+    UBOOL eventCheckAutoTarget(class AActor* Target, FVector& TargetPosition, FLOAT& OverridePriority, FLOAT& OverrideMaxRange); /* 0x01638920 */
     FVector GetCorrectedAutoTargetOrigin(FVector& CameraPos, FRotator& AimDirection); /* 0x0163b170 */
     /* registered size 0x2b8 */
 };
@@ -44526,6 +45131,7 @@ struct ARBatarang : public ARInventoryGadget {
     void execUpdateAliveProjectiles(FFrame& Stack, RESULT_DECL); /* 0x01706ff0 */
     void execFindInterceptDirection(FFrame& Stack, RESULT_DECL); /* 0x01707050 */
     /* other member functions */
+    UBOOL eventCheckOverrideTarget(class AActor* BatarangTarget, FVector& BatarangTargetPosition); /* 0x01638a00 */
     FVector FindInterceptDirection(FVector BatarangStartPos, FLOAT BatarangSpeed, FVector BatarangTargetPosition, FVector BatarangTargetVelocity); /* 0x016390a0 */
     void UpdateAliveProjectiles(ARBatarangProjectile*); /* 0x01640960 */
     UINT sub_01655fc0(BYTE); /* 0x01655fc0 */
@@ -44585,6 +45191,8 @@ struct URSpecialMoveConfig : public URConfig {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     /* registered size 0xc0 */
+    /* other member functions */
+    void eventTriggerSpecialMove(class ARPlayerController* Controller, FEnvironmentSpecialMoveLocator MoveLocation); /* 0x01612950 */
 };
 
 struct URSpecialMoveConfigConfigurable : public URSpecialMoveConfig {
@@ -44654,6 +45262,7 @@ struct ARBatarangCamera : public ARCameraActor {
     void execUpdateTrackingPosition(FFrame& Stack, RESULT_DECL); /* 0x01709b40 */
     void execTrackPostImpact(FFrame& Stack, RESULT_DECL); /* 0x01709bb0 */
     /* other member functions */
+    void eventGetTrackingPositionAndRotation(FVector& Out_Position, FRotator& out_Rotation); /* 0x016a9c60 */
     void TrackPostImpact(FVector ActorLocation, FLOAT DeltaTime); /* 0x016aa290 */
     void UpdateTrackingPosition(FLOAT); /* 0x016a9f20 */
     /* registered size 0x384 */
@@ -44994,6 +45603,23 @@ struct ARBMAIController : public AAIController {
     void execFindAlertFor(FFrame& Stack, RESULT_DECL); /* 0x01703c60 */
     void execCheckForNeedToMonitorPawnVelocity(FFrame& Stack, RESULT_DECL); /* 0x01703cd0 */
     /* other member functions */
+    BYTE eventGetAnimationFearLevel(); /* 0x015d89f0 */
+    BYTE eventGetDialogueFearLevel(); /* 0x015d8a30 */
+    UBOOL eventForceTick(); /* 0x015d8ab0 */
+    void eventTickBehaviour(FLOAT DeltaTime); /* 0x015d8af0 */
+    void eventProcessWeaponChange(); /* 0x015d8b30 */
+    FVector eventGetBehaviourCustomEyeLocation(); /* 0x015d8b60 */
+    FVector eventAdjustAnimatedAimDir(FVector AnimatedDir); /* 0x015d8bc0 */
+    void eventDoPlayerLookAt(FLOAT DeltaTime); /* 0x015d8c40 */
+    void eventUpdateNotVisibleAlert(FLOAT DeltaTime, class UAlertInstance* A); /* 0x015d8c80 */
+    BYTE eventCalcVisibilityFor(class AActor* A); /* 0x015d8d10 */
+    void eventTriggerPawnActivatedEvent(); /* 0x015d8d60 */
+    void eventBehaviourStateChanged(FName NewState); /* 0x015d8d90 */
+    void eventRemoveBehaviourFromList(class URBMBehaviour* BehaviourToRemove); /* 0x015d8de0 */
+    FLOAT eventGetCheckSightRange(); /* 0x015d8e20 */
+    UBOOL eventIsInBehaviourControlled(); /* 0x015d8e60 */
+    void eventAddToBehaviourHistory(const FString& BehaviourInfoString); /* 0x015eef10 */
+    INT vf_424(INT A, INT B, INT C, INT D, INT E); /* 0x015f1f50 */
     UBOOL eventIsStunned(); /* 0x015d8a70 */
     UBOOL eventBehaviourCanRespondToAlerts(); /* 0x015d8cd0 */
     FLOAT CanSeeActorInternal(AActor* TestActor, const FVector* TestPos, UBOOL bEarlyOut); /* 0x015ef760 */
@@ -45137,6 +45763,11 @@ struct ARBMAIManager : public AActor {
     void execShouldLockDoors(FFrame& Stack, RESULT_DECL); /* 0x017042a0 */
     void execGetFiringCount(FFrame& Stack, RESULT_DECL); /* 0x017042e0 */
     /* registered size 0x288 */
+    /* other member functions */
+    void eventBatmanSeenEvent(); /* 0x015d8fb0 */
+    void eventBatmanSeenEventUpdateVal(UBOOL Seen); /* 0x015d8fe0 */
+    UBOOL eventCanDoIdleConfigLOSCheck(class ARBMAIController* TestController); /* 0x015fb0e0 */
+    UBOOL eventCanDoPathShortenCheck(class ARBMAIController* TestController); /* 0x0160e680 */
 };
 
 struct ARBMCutsceneBase : public ACameraActor {
@@ -45248,6 +45879,13 @@ struct URBMBehaviour : public USeqAct_Latent {
     void execDeactivatedByController(FFrame& Stack, RESULT_DECL); /* 0x01704e40 */
     void execRemove(FFrame& Stack, RESULT_DECL); /* 0x01704e80 */
     /* other member functions */
+    void eventTriggerExitCondition(); /* 0x015d95c0 */
+    UBOOL eventCanExitConditionExit(); /* 0x015d95f0 */
+    UBOOL eventIsExitConditionTriggered(); /* 0x015d9630 */
+    void eventEndInterrupt(); /* 0x015d9670 */
+    UBOOL eventCanLookAtPlayer(); /* 0x015d96a0 */
+    void eventInterruptedTick(FLOAT DeltaTime); /* 0x015d96e0 */
+    void eventUpdateTimers(FLOAT DeltaTime); /* 0x015d9720 */
     void sub_015debe0(UINT, FLOAT*); /* 0x015debe0 */
     /* registered size 0x18c */
 };
@@ -45381,6 +46019,9 @@ struct URBMBehaviour_Combat : public URBMBehaviour_Controlled {
     void execGetDistsFromLine(FFrame& Stack, RESULT_DECL); /* 0x017053e0 */
     void execIsInFrontOfPawn(FFrame& Stack, RESULT_DECL); /* 0x01705520 */
     /* registered size 0x1b4 */
+    /* other member functions */
+    INT eventGetAttackPriority(); /* 0x015d97b0 */
+    UBOOL eventAttackBatman(UBOOL bForceAttack); /* 0x015d97f0 */
 };
 
 struct URBMBehaviour_CombatAI : public URBMBehaviour_Combat {
@@ -45438,6 +46079,10 @@ struct URBMBehaviour_CombatAI : public URBMBehaviour_Combat {
     /* UnrealScript natives */
     void execSetRotationAndVelocity(FFrame& Stack, RESULT_DECL); /* 0x017056f0 */
     /* registered size 0x28c */
+    /* other member functions */
+    UBOOL eventCanPlayIdleOverlay(); /* 0x015d9890 */
+    void eventPlayTurnStep(FVector TargetHeading, UBOOL bForce); /* 0x015d98d0 */
+    void eventPlayStepInDirection(FVector MoveDir, FVector FrontDir, FLOAT MoveSize); /* 0x015d9930 */
 };
 
 struct URBMBehaviour_CombatHeavyObject : public URBMBehaviour_CombatAI {
@@ -46066,6 +46711,11 @@ struct URBMBehaviour_IdleWithPlannarProp : public URBMBehaviour {
     virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void vf_188(); /* 0x188 */
     /* registered size 0x248 */
+    /* other member functions */
+    void eventTriggerCombat(); /* 0x015fb150 */
+    void eventPlayEvent(INT EventIndex); /* 0x015fb180 */
+    void eventFinishedStalling(); /* 0x015fb1c0 */
+    UBOOL eventHasLOS(); /* 0x015fb1f0 */
 };
 
 struct URBMBehaviour_InvestigateAlert : public URBMBehaviour {
@@ -46231,6 +46881,9 @@ struct URBMBehaviour_MoveToGroup : public URBMBehaviour_MoveTo {
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0x1f8 */
+    /* other member functions */
+    void eventNewMovementPoint(); /* 0x015fb510 */
+    void eventDisableInputLines(); /* 0x015fb540 */
 };
 
 struct URBMBehaviour_MoveToBatmanInChair : public URBMBehaviour_MoveToGroup {
@@ -46267,6 +46920,12 @@ struct URBMBehaviour_MoveToBatmanInChair : public URBMBehaviour_MoveToGroup {
     /* UnrealScript natives */
     void execChaseCallThrough(FFrame& Stack, RESULT_DECL); /* 0x017058b0 */
     /* registered size 0x248 */
+    /* other member functions */
+    void eventDisconnectGuard(INT guardNo); /* 0x015fb650 */
+    void eventPlayBatmanAnim(INT AnimNo); /* 0x015fb690 */
+    void eventPlayHarleyAnim(INT AnimNo); /* 0x015fb6d0 */
+    void eventHideBMHead(); /* 0x015fb710 */
+    void eventCheckAnims(); /* 0x015fb740 */
 };
 
 struct URBMBehaviour_MoveToJokerInChains : public URBMBehaviour_MoveToGroup {
@@ -46327,6 +46986,20 @@ struct URBMBehaviour_MoveToJokerInChair : public URBMBehaviour_MoveToGroup {
     void execUpdateJokerStruggling(FFrame& Stack, RESULT_DECL); /* 0x01705a10 */
     void execChaseCallThrough(FFrame& Stack, RESULT_DECL); /* 0x01705a80 */
     /* registered size 0x274 */
+    /* other member functions */
+    void eventStopMovementOverlay(class ARPawnCharacter* P); /* 0x015d9b60 */
+    UBOOL eventIsPlayingOverlay(class ARPawnCharacter* P, FOverlayId Id); /* 0x015d9ba0 */
+    void eventChangePose(class ARPawnCharacter* P, FName Stand, FName Weap); /* 0x015d9c00 */
+    UBOOL eventJokerIsTalking(); /* 0x015d9c70 */
+    UBOOL eventIsJokerPlayingOverlay(); /* 0x015d9cb0 */
+    void eventJolt(); /* 0x015fb840 */
+    void eventFrankEnd(); /* 0x015fb870 */
+    void eventFrankReact(); /* 0x015fb8a0 */
+    void eventFrankSayQuiet(); /* 0x015fb8d0 */
+    void eventThugsEnd(); /* 0x015fb900 */
+    void eventThugsReact(); /* 0x015fb930 */
+    void eventPlayJokerAnim(INT AnimNum); /* 0x015fb960 */
+    void eventDisconnectGuard(INT guardNo); /* 0x015fb9a0 */
 };
 
 struct URBMBehaviour_NeedsRescue : public URBMBehaviour {
@@ -46817,6 +47490,8 @@ struct URBMBehaviourAutoStringUp : public URBMBehaviour {
     /* UnrealScript natives */
     void execSetRope(FFrame& Stack, RESULT_DECL); /* 0x0171e210 */
     /* registered size 0x1f8 */
+    /* other member functions */
+    void eventUpdateLinks(); /* 0x015fbb60 */
 };
 
 struct URBMBehaviourOverlay : public UObject {
@@ -47155,6 +47830,11 @@ struct ARBMCombatManager : public AActor {
     void execLOSFromPawnToPawn(FFrame& Stack, RESULT_DECL); /* 0x01704780 */
     void execGetAngleFromPawnToPawn(FFrame& Stack, RESULT_DECL); /* 0x01704820 */
     /* registered size 0x37c */
+    /* other member functions */
+    UBOOL eventIsAnyoneAttacking(); /* 0x015d9070 */
+    void eventCombatSuccessTriggered(); /* 0x015d90b0 */
+    UBOOL eventCanDoMoveCheck(class ARPawnCombat* TestPawn); /* 0x015d90e0 */
+    UBOOL eventIsCombatPaused(); /* 0x015d9130 */
 };
 
 struct ARBMCombatPoint_BanePillarBase : public ARBMCombatPoint {
@@ -47403,6 +48083,8 @@ struct ARBMDebugCameraController : public ARDebugCameraController {
     /* UnrealScript natives */
     void execUpdateBatmansCapeInternal(FFrame& Stack, RESULT_DECL); /* 0x016f7eb0 */
     /* registered size 0x5f4 */
+    /* other member functions */
+    void eventDebugUpdateCinematicCapes(); /* 0x016121e0 */
 };
 
 struct ARBMDialogueCoordinator : public AActor {
@@ -47504,6 +48186,8 @@ struct URBMExitConditionCombiner : public URBMExitCondition {
     virtual void Activated(); /* 0x174 */
     virtual void DeActivated(); /* 0x178 */
     /* registered size 0x114 */
+    /* other member functions */
+    void eventTriggerExitConditionCombiner(); /* 0x015d9d90 */
 };
 
 struct URBMIncapacitatedPawnCounter : public USeqAct_Latent {
@@ -47584,6 +48268,8 @@ struct ARBMPathNode_SpecialMove : public ARPathNode {
     virtual void vf_364(INT, INT); /* 0x364 */
     virtual INT vf_394(INT, INT); /* 0x394 */
     /* registered size 0x2d4 */
+    /* other member functions */
+    UBOOL eventIsOnSamePath(class ARPathNode* TestNode); /* 0x0160db90 */
 };
 
 struct ARBMPathNode_DisruptableDoor : public ARBMPathNode_SpecialMove {
@@ -47774,6 +48460,17 @@ struct ARPawnCombat : public ARPawnCharacter {
     void execFacePawn(FFrame& Stack, RESULT_DECL); /* 0x016f6000 */
     void execIsTargetted(FFrame& Stack, RESULT_DECL); /* 0x016f60c0 */
     /* other member functions */
+    UBOOL eventShouldCombatantLockDoors(); /* 0x015d8510 */
+    void eventSetIsCurrentCombatant(); /* 0x015d8550 */
+    UBOOL eventCanNewAttackBeStarted(); /* 0x015d8580 */
+    UBOOL eventCanReceiveAttackFromPawn(class ARPawnCombat* NewAttacker); /* 0x015d85c0 */
+    INT eventGetHealth(); /* 0x016383a0 */
+    BYTE eventGetCounterLimb(); /* 0x016383e0 */
+    UBOOL eventIsAttacking(); /* 0x01638420 */
+    void eventCollisionWithActor(class AActor* OtherActor); /* 0x01638460 */
+    void eventCollisionWith(class ARPawnCombat* OtherPawn); /* 0x016384a0 */
+    FLOAT eventGetTargetPriority(class ARPawnCombat* Attacker, class UClass* dmgType); /* 0x016862d0 */
+    UBOOL eventCanBeHitInCombat(class URDamageType* DamageType); /* 0x01686330 */
     void SetDestRot(FLOAT); /* 0x0166d720 */
     void SetDestHeading(FVector); /* 0x01673b20 */
     void FacePos(FVector); /* 0x01676b70 */
@@ -47832,6 +48529,8 @@ struct ARBMPawnAIAnim : public ARPawnCombat {
     void execUpdateXrayVisibility(FFrame& Stack, RESULT_DECL); /* 0x016f6140 */
     void execCanBeSeenByBatsForXray(FFrame& Stack, RESULT_DECL); /* 0x016f61b0 */
     /* registered size 0x650 */
+    /* other member functions */
+    FLOAT eventGetApproximateMovementSpeed(); /* 0x0160e480 */
 };
 
 struct ARBMPawnAI : public ARBMPawnAIAnim {
@@ -47919,6 +48618,10 @@ struct ARBMPawnAI : public ARBMPawnAIAnim {
     void execCanMoveToPoint(FFrame& Stack, RESULT_DECL); /* 0x016f61f0 */
     void execConstructFootstepSFX(FFrame& Stack, RESULT_DECL); /* 0x016f6420 */
     /* registered size 0x7f0 */
+    /* other member functions */
+    void eventPostLoadXrayCheck(); /* 0x015d8620 */
+    void eventDestroyPawn(); /* 0x015d8650 */
+    UBOOL eventIsAwareOfPlayer(class ARPawnPlayer* PlayerPawn, class UClass* dmgType); /* 0x0160e4d0 */
 };
 
 struct URBmPawnSpawner : public USeqAct_Latent {
@@ -47974,6 +48677,8 @@ struct URBmPawnSpawner : public USeqAct_Latent {
     /* UnrealScript natives */
     void execStaticCreatePawn(FFrame& Stack, RESULT_DECL); /* 0x01705cf0 */
     /* other member functions */
+    void eventRegisterDeadGuyWithRoomInfo(); /* 0x015d9dd0 */
+    void eventDestroyKOPawn(); /* 0x015d9e00 */
     ARBMPawnAI* StaticCreatePawn(FVector Location, FRotator Rotation, class AActor* UseSpawnPoint, class UClass* SpawnPawnClass, class UClass* SpawnCharactersType, UBOOL SnapToGround, FName InitialMovementStance, FName InitialWeaponStance); /* 0x01606a00 */
     /* registered size 0x124 */
 };
@@ -48077,6 +48782,9 @@ struct URBMRoomAIState : public UActorComponent {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     /* registered size 0xd4 */
+    /* other member functions */
+    INT eventGetNavSearchIndex(class ARBMAIController* Searcher); /* 0x015d91e0 */
+    INT eventGetHostileCount(); /* 0x015d9230 */
 };
 
 struct ARBMRouter_DynamicObject : public AActor {
@@ -48181,6 +48889,9 @@ struct ARBMRouter : public ARBMRouter_DynamicObject {
     void execGetDistanceSquaredFromPath(FFrame& Stack, RESULT_DECL); /* 0x016fdcf0 */
     void execFindFirstActorOnPath(FFrame& Stack, RESULT_DECL); /* 0x016fdd70 */
     /* other member functions */
+    void eventUpdateWorldAvoidWeight(FLOAT DeltaTime); /* 0x0160dc50 */
+    FVector eventGetWorldAvoidVector(FLOAT& AvoidWeight); /* 0x0160dc90 */
+    void eventNewPathSet(class ARBMRouteRequest* UpdatedRequest); /* 0x0160dd10 */
     void sub_0161b520(FVector Dest, class URBMRouterPath* Path, class ANavigationPoint* StartAnchor, class ANavigationPoint* EndAnchor); /* 0x0161b520 */
     /* registered size 0x27c */
 };
@@ -48195,6 +48906,8 @@ struct ARBMRouter_NoPawn : public ARBMRouter_DynamicObject {
     /* UnrealScript natives */
     void execGetPos(FFrame& Stack, RESULT_DECL); /* 0x016fd320 */
     /* registered size 0x1bc */
+    /* other member functions */
+    FVector sub_0160f290(); /* 0x0160f290 */
 };
 
 struct ARBMRouter_Passive : public ARBMRouter_DynamicObject {
@@ -48233,6 +48946,8 @@ struct ARBMRouteRequest : public AActor {
     void execReRoute(FFrame& Stack, RESULT_DECL); /* 0x016fdf30 */
     void execFlush(FFrame& Stack, RESULT_DECL); /* 0x016fdf70 */
     /* registered size 0x1c8 */
+    /* other member functions */
+    class URBMRouterPath* eventGetCurrentPath(); /* 0x0160dd90 */
 };
 
 struct ARBMRouteRequest_BuildComparisonList : public ARBMRouteRequest {
@@ -48254,6 +48969,8 @@ struct ARBMRouteRequest_BuildComparisonList : public ARBMRouteRequest {
     /* UnrealScript natives */
     void execSetIndexedGoalList(FFrame& Stack, RESULT_DECL); /* 0x016fdfb0 */
     /* registered size 0x1f4 */
+    /* other member functions */
+    void eventAddTransientCosts(); /* 0x0160dde0 */
 };
 
 struct ARBMRouteRequest_FindShortestPath : public ARBMRouteRequest {
@@ -48321,6 +49038,10 @@ struct ARBMRouteRequest_HideOnCorner : public ARBMRouteRequest {
     virtual void ReRoute(); /* 0x36c */
     virtual INT vf_374(FLOAT DeltaTime); /* 0x374 */
     /* registered size 0x1e8 */
+    /* other member functions */
+    void eventLockDestCorner(); /* 0x0160de60 */
+    void eventUnlockDestCorner(); /* 0x0160de90 */
+    class URBMRouterPath* eventGetPathToWithoutBeingSeenFrom(FVector Dest, FVector HideFromPos); /* 0x0160dec0 */
 };
 
 struct ARBMRouteRequest_NervousSearch : public ARBMRouteRequest {
@@ -48347,6 +49068,11 @@ struct ARBMRouteRequest_NervousSearch : public ARBMRouteRequest {
     void execDoPathBlocking(FFrame& Stack, RESULT_DECL); /* 0x016fe250 */
     void execCreateSearchCandidates(FFrame& Stack, RESULT_DECL); /* 0x016fe2d0 */
     /* registered size 0x20c */
+    /* other member functions */
+    FLOAT eventScorePath(class URBMRouterPath* TestPath, FLOAT LastSeenTime); /* 0x0160df80 */
+    FLOAT eventGetLastSeenTime(class ARPathNode* TestNode); /* 0x0160dfe0 */
+    void eventAddTransientCosts(FVector CentrePoint); /* 0x0160e030 */
+    void eventGetPotentialTargets(); /* 0x0160e090 */
 };
 
 struct ARBMRouteRequest_PerimeterBuilderWrapper : public ARBMRouteRequest {
@@ -48361,6 +49087,8 @@ struct ARBMRouteRequest_PerimeterBuilderWrapper : public ARBMRouteRequest {
     virtual void Flush(); /* 0x370 */
     virtual INT vf_374(FLOAT DeltaTime); /* 0x374 */
     /* registered size 0x1cc */
+    /* other member functions */
+    UBOOL eventProcessBuilderStep(); /* 0x0160e0e0 */
 };
 
 struct ARBMRouteRequest_RunAway : public ARBMRouteRequest {
@@ -48376,6 +49104,10 @@ struct ARBMRouteRequest_RunAway : public ARBMRouteRequest {
     virtual void ReRoute(); /* 0x36c */
     virtual INT vf_374(FLOAT DeltaTime); /* 0x374 */
     /* registered size 0x1e8 */
+    /* other member functions */
+    FLOAT eventScorePath(class URBMRouterPath* TestPath, FLOAT LastSeenTime); /* 0x0160e150 */
+    FLOAT eventGetLastSeenTime(class ARPathNode* TestNode); /* 0x0160e1b0 */
+    void eventGetPotentialTargets(); /* 0x0160e200 */
 };
 
 struct ARBMRouteRequest_TerrifiedSearch : public ARBMRouteRequest {
@@ -48398,6 +49130,11 @@ struct ARBMRouteRequest_TerrifiedSearch : public ARBMRouteRequest {
     /* UnrealScript natives */
     void execCreateSearchCandidates(FFrame& Stack, RESULT_DECL); /* 0x016fe3d0 */
     /* registered size 0x204 */
+    /* other member functions */
+    FLOAT eventScorePath(class URBMRouterPath* TestPath, FLOAT LastSeenTime); /* 0x0160e260 */
+    FLOAT eventGetLastSeenTime(class ARPathNode* TestNode); /* 0x0160e2c0 */
+    void eventGetPotentialTargets(); /* 0x0160e310 */
+    void eventAddTransientCosts(); /* 0x0160e340 */
 };
 
 struct ARBMRouterManager : public AActor {
@@ -48471,6 +49208,8 @@ struct URBMRouterPath : public UObject {
     void execGetDistanceSquaredFromPath(FFrame& Stack, RESULT_DECL); /* 0x016ff190 */
     void execFindFirstActorOnPath(FFrame& Stack, RESULT_DECL); /* 0x016ff240 */
     /* registered size 0x58 */
+    /* other member functions */
+    void eventSmoothEnd(class ARPawn* User, INT& bPathShortened); /* 0x0160e3f0 */
 };
 
 struct ARBMScout : public AScout {
@@ -48511,6 +49250,9 @@ struct URSeqAct_PlaySpeechBase : public USeqAct_Latent {
     virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void Activated(); /* 0x174 */
     /* registered size 0xf0 */
+    /* other member functions */
+    void eventDisableQuitLines(); /* 0x01584c70 */
+    UBOOL eventCheckPlayOnce(); /* 0x01584db0 */
 };
 
 struct URBMSeqAct_PlaySpeech : public URSeqAct_PlaySpeechBase {
@@ -48824,6 +49566,8 @@ struct ARBunkerDoorVillainBlocker : public AActor {
     virtual UINT vf_178(); /* 0x178 */
     virtual UBOOL ShouldTrace(UPrimitiveComponent* Primitive, AActor* SourceActor, DWORD TraceFlags); /* 0x198 */
     /* registered size 0x1b0 */
+    /* other member functions */
+    UBOOL eventIsLocationNear(FVector TestLocation); /* 0x01558ee0 */
 };
 
 struct ARCameraBlockingVolume : public ABlockingVolume {
@@ -48834,6 +49578,8 @@ struct ARCameraBlockingVolume : public ABlockingVolume {
     virtual bool vf_004(); /* 0x004 */
     virtual UBOOL ShouldTrace(UPrimitiveComponent* Primitive, AActor* SourceActor, DWORD TraceFlags); /* 0x198 */
     /* registered size 0x1d8 */
+    /* other member functions */
+    UINT sub_01557320(UINT A, UINT B, UINT Flags); /* 0x01557320 */
 };
 
 struct URCapeCollisionConfig : public UObject {
@@ -48919,6 +49665,10 @@ struct URCapeStateController : public UObject {
     void execSetCapeToCurrentAnimPose(FFrame& Stack, RESULT_DECL); /* 0x01701de0 */
     void execSetCapeToBoneDataReferencePose(FFrame& Stack, RESULT_DECL); /* 0x01701e60 */
     /* other member functions */
+    UINT sub_016ceca0(); /* 0x016ceca0 */
+    void sub_016cece0(float Value); /* 0x016cece0 */
+    void sub_016e68f0(FLOAT DeltaTime, INT Param2, INT Param3); /* 0x016e68f0 */
+    void sub_016e7520(FName StateName); /* 0x016e7520 */
     void sub_016db6c0(UINT BoneIndex, FCapeStateData* pCapeStateData); /* 0x016db6c0 */
     FCapeStateData* sub_016deb60(FName StateName); /* 0x016deb60 */
     void sub_016e7050(UINT BoneIndex, FCapeStateData* pCapeStateData); /* 0x016e7050 */
@@ -49049,6 +49799,17 @@ struct URCapeComponent : public UActorComponent {
     void execGetIsCinematicMode(FFrame& Stack, RESULT_DECL); /* 0x01702e40 */
     void execGetThoughts(FFrame& Stack, RESULT_DECL); /* 0x0172ad90 */
     /* other member functions */
+    void eventCapeSetHiddenGame(UBOOL bNewIsHidden); /* 0x016ad870 */
+    void SetCapeAnimBlendWeights(UBOOL bEnable, FLOAT RootWeight, FLOAT ChildWeight); /* 0x016ae870 */
+    void SetDebugRenderBone(INT ChainNumber, INT LinkNumber); /* 0x016ae900 */
+    void sub_016ae990(); /* 0x016ae990 */
+    UPhysicalMaterial* sub_016ae9f0(); /* 0x016ae9f0 */
+    INT GetNumChainsInCape(); /* 0x016aea10 */
+    FLOAT GetCapeChainWidth(); /* 0x016aea50 */
+    FLOAT GetHorizontalDamping(); /* 0x016aecd0 */
+    FLOAT GetVerticalDamping(); /* 0x016aed10 */
+    FLOAT sub_016b20a0(); /* 0x016b20a0 */
+    INT GetNumSupportConnectorIndexPairs(); /* 0x016b2140 */
     void ChangeCapeState(FName NewCapeStateName, FLOAT AnimStartTime, FLOAT AnimPlayRate, BYTE MirroredType); /* 0x016ae530 */
     void StartCapeInState(FName NewCapeStateName, FLOAT AnimStartTime, FLOAT AnimPlayRate, BYTE MirroredType); /* 0x016ae600 */
     void BeginCinematicState(FName AnimName, class UAnimSet* TemporaryAnimSet, FLOAT AnimStartTime, FLOAT AnimPlayRate, FName SyncAnimName, FLOAT SyncAnimOffset, BYTE MirroredType, class URCapeStateConfig* TemplateStateConfig, UBOOL ClearVelocityOnExit, UBOOL bTeleportToInitialPose); /* 0x016ae6d0 */
@@ -49173,6 +49934,7 @@ struct URCapeRenderingComponent : public UActorComponent {
     /* UnrealScript natives */
     void execHandleDebugLineDrawing(FFrame& Stack, RESULT_DECL); /* 0x01702eb0 */
     /* other member functions */
+    void sub_016d3660(FLOAT DeltaTime); /* 0x016d3660 */
     void HandleDebugLineDrawing(); /* 0x016cdf80 */
     /* registered size 0x5c */
 };
@@ -49191,6 +49953,9 @@ struct URCapeSkeletalMeshComponent : public URDepthBiasSkeletalMeshComponent {
     virtual void Attach(); /* 0x114 */
     virtual void UpdateBounds(); /* 0x160 */
     /* other member functions */
+    void eventUpdateDamageLevel(class UMaterialInstance* NewMat); /* 0x016ad7e0 */
+    void eventSetupMaterialConstants(); /* 0x016cdac0 */
+    UBOOL sub_016d59d0() const; /* 0x016d59d0 */
     void sub_016d5a90(INT); /* 0x016d5a90 */
     /* registered size 0x5d0 */
 };
@@ -49355,6 +50120,8 @@ struct URCharacter : public UObject {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     /* registered size 0x140 */
+    /* other member functions */
+    class UClass* eventGetClassType(); /* 0x0154b6e0 */
 };
 
 struct URCharacter_ThugBase : public URCharacter {
@@ -49633,6 +50400,8 @@ struct ARCinematicCameraActor : public ACameraActor {
     /* UnrealScript natives */
     void execInternalSetAnimPosition(FFrame& Stack, RESULT_DECL); /* 0x0170a4b0 */
     /* registered size 0x274 */
+    /* other member functions */
+    void sub_016aa500(DWORD A1, DWORD A2, DWORD A3, FName InAnimSeqName, FLOAT InPosition, UBOOL bLooping); /* 0x016aa500 */
 };
 
 struct ARCoffinManager : public AActor {
@@ -49717,6 +50486,11 @@ struct ARCombatMove : public AActor {
     /* UnrealScript natives */
     void execClearAllTimers(FFrame& Stack, RESULT_DECL); /* 0x016f7800 */
     /* registered size 0x1ac */
+    /* other member functions */
+    void eventTakedownNotify(); /* 0x0166d250 */
+    void eventCounterHit(BYTE CounterDamageBone, BYTE CounterImpactBone, BYTE HitStrength, FName CapeStateName); /* 0x0166d280 */
+    void eventStrikeContact(); /* 0x0166d2f0 */
+    UBOOL eventCanBeTargettedByPlayer(); /* 0x016869f0 */
 };
 
 struct ARCombatMove_VillainAttack : public ARCombatMove {
@@ -50511,6 +51285,23 @@ struct ARControllableChatteringTeethBase : public APawn {
     virtual UBOOL IgnoreBlockingBy(const class AActor* Other) const; /* 0x164 */
     virtual UBOOL Tick(FLOAT DeltaTime, enum ELevelTick TickType); /* 0x174 */
     /* other member functions */
+    void eventFinishStandSpecialMove(); /* 0x01707c40 */
+    void eventTriggerDropSound(); /* 0x01707c70 */
+    void eventAlertPeopleToExplosion(); /* 0x01707ca0 */
+    void eventDamageNearbyFractureWalls(); /* 0x01707cd0 */
+    void eventDamageNearbyPeople(); /* 0x01707d00 */
+    void eventTriggerExplodeEffects(); /* 0x01707d30 */
+    void eventTriggerExplosionRumble(); /* 0x01707d60 */
+    void eventApplyExplosionCameraShake(); /* 0x01707d90 */
+    void eventDestroyTeethCamera(); /* 0x01707dc0 */
+    void eventDestroyTeeth(); /* 0x01707df0 */
+    void eventRemoveTeethPhysics(); /* 0x01707e20 */
+    void eventPlayPreExplodeAnim(); /* 0x01707e50 */
+    class UAnimNodeCrossfader* eventGetJumpBlenderAnimNode(); /* 0x01707e80 */
+    void sub_01714f10(FLOAT DeltaTime); /* 0x01714f10 */
+    void sub_01714fa0(FLOAT DeltaTime); /* 0x01714fa0 */
+    void sub_0171a4b0(FLOAT DeltaTime); /* 0x0171a4b0 */
+    UBOOL sub_0171f1a0(); /* 0x0171f1a0 */
     void sub_01715120(FLOAT); /* 0x01715120 */
     /* registered size 0x4cc */
 };
@@ -50541,6 +51332,7 @@ struct ARControllableChatteringTeethCamera : public ARCameraActor {
     void execCalculateCurrentTargetPos(FFrame& Stack, RESULT_DECL); /* 0x01709db0 */
     void execCalculateCurrentFallbackPos(FFrame& Stack, RESULT_DECL); /* 0x01709e00 */
     /* other member functions */
+    void eventHandleExplode(); /* 0x01709e50 */
     FVector CalculateCurrentDragPos(); /* 0x016aa6b0 */
     FVector CalculateCurrentTargetPos(); /* 0x016aa760 */
     FVector CalculateCurrentFallbackPos(); /* 0x016aa810 */
@@ -50757,6 +51549,7 @@ struct ARGrapplePoint : public ARSnapToPositionActor {
     /* UnrealScript natives */
     void execRegisterGrapplePoint(FFrame& Stack, RESULT_DECL); /* 0x017011c0 */
     /* other member functions */
+    INT sub_0164ae40(); /* 0x0164ae40 */
     void RegisterGrapplePoint(); /* 0x0164ae40 */
     /* registered size 0x200 */
 };
@@ -50834,6 +51627,10 @@ struct ARCrowdAgent : public AActor {
     /* UnrealScript natives */
     void execCanRespondToAttractor(FFrame& Stack, RESULT_DECL); /* 0x016e96b0 */
     /* registered size 0x21c */
+    /* other member functions */
+    void eventAdvanceFlockStage(INT StageNum); /* 0x016cd970 */
+    void eventDestroyAgent(); /* 0x016cd9b0 */
+    void eventKillAgent(); /* 0x016cd9e0 */
 };
 
 struct ARCrowdAttractor : public AActor {
@@ -50856,6 +51653,8 @@ struct ARCrowdAttractor : public AActor {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     /* registered size 0x1c8 */
+    /* other member functions */
+    void sub_016d1640(FLOAT* Out, INT, INT); /* 0x016d1640 */
 };
 
 struct ARCrowdAttractor_Cylinder : public ARCrowdAttractor {
@@ -51200,6 +51999,8 @@ struct ARDisruptableObjectDoor : public AActor {
     void execCalcCharge(FFrame& Stack, RESULT_DECL); /* 0x01708f30 */
     void execUpdateSound(FFrame& Stack, RESULT_DECL); /* 0x01708ff0 */
     /* other member functions */
+    void sub_01732630(int Param); /* 0x01732630 */
+    void sub_01732650(UINT Param); /* 0x01732650 */
     int sub_00783b70(int Param); /* 0x00783b70 */
     void sub_01732370(); /* 0x01732370 */
     /* registered size 0x1dc */
@@ -51674,6 +52475,12 @@ struct ARElectrifiedFloorPanel : public AStaticMeshActor {
     void execCheckForPawnsOnTile(FFrame& Stack, RESULT_DECL); /* 0x016ea380 */
     void execUpdatePawnsOnTile(FFrame& Stack, RESULT_DECL); /* 0x016ea3c0 */
     /* registered size 0x254 */
+    /* other member functions */
+    void eventCauseElectricDamageToPawn(class ARPawnCharacter* CPawn); /* 0x0154b330 */
+    UBOOL eventIsHitReactionBehav(class URBMBehaviour* behav); /* 0x0154b370 */
+    void eventCauseDamageToPawn(class ARPawnCharacter* CPawn); /* 0x0154b3c0 */
+    void eventTriggerBatmanOnEvent(UBOOL IsOff); /* 0x0154b400 */
+    void eventCreateMaterial(INT Index); /* 0x0154b470 */
 };
 
 struct AREndPointMarker : public AActor {
@@ -51932,6 +52739,10 @@ struct ARExplodableWallBase : public AActor {
     void execGetWallSide(FFrame& Stack, RESULT_DECL); /* 0x0171a180 */
     void execExplodeExtentLine(FFrame& Stack, RESULT_DECL); /* 0x017310f0 */
     /* other member functions */
+    void eventDoWallExplodeAlert(FVector ExplosionCentre, FVector WallNormal); /* 0x016ffc20 */
+    void eventPlayExplosionSound(); /* 0x016ffc90 */
+    UBOOL eventGetBrickSaveRemovedState(class UStaticMeshComponent* brickComponent); /* 0x016ffcc0 */
+    void eventSetBrickSaveRemovedState(class UStaticMeshComponent* brickComponent, UBOOL Removed); /* 0x016ffd10 */
     UBOOL ExplodeExtentLine(BYTE ExplosionType, BYTE ExplodeFromSide, FLOAT FuseTime, FVector StartCheckLocation, FVector EndCheckLocation, FVector CheckExtent); /* 0x0172f010 */
     BYTE GetWallSide(FVector); /* 0x01716aa0 */
     /* registered size 0x254 */
@@ -52076,6 +52887,7 @@ struct URForceField : public UObject {
     void execInitialise(FFrame& Stack, RESULT_DECL); /* 0x017030e0 */
     void execFinalise(FFrame& Stack, RESULT_DECL); /* 0x01703120 */
     /* other member functions */
+    void sub_01719570(); /* 0x01719570 */
     void sub_016d2960(); /* 0x016d2960 */
     UINT* sub_016d2970(BYTE); /* 0x016d2970 */
     /* registered size 0x44 */
@@ -52149,6 +52961,8 @@ struct ARForensicDnaSplatStatic : public AActor, public IREvidenceInterface {
     /* registered size 0x1f0 */
     /* IREvidenceInterface */
     virtual class UObject* GetUObjectInterfaceREvidenceInterface(); /* 0x016833d0 */
+    /* other member functions */
+    void eventInitialiseDna(); /* 0x016833a0 */
 };
 
 struct ARForensicDnaSplatStaticNonScan : public ARForensicDnaSplatStatic {
@@ -52229,6 +53043,9 @@ struct ARForensicsDevice : public AInventory {
     void execEvidenceRegisterVap(FFrame& Stack, RESULT_DECL); /* 0x01706c40 */
     void execEvidenceRegisterDNA(FFrame& Stack, RESULT_DECL); /* 0x01706ce0 */
     /* registered size 0x284 */
+    /* other member functions */
+    void eventAddItemToEvidenceArray(const FScriptInterface& Item); /* 0x01673010 */
+    void eventAddItemToEvidenceDimArray(const FScriptInterface& Item); /* 0x01673060 */
 };
 
 struct URForensicsInvestigator : public UObject {
@@ -52263,6 +53080,14 @@ struct URForensicsInvestigator : public UObject {
     void execDrawHUDNative(FFrame& Stack, RESULT_DECL); /* 0x016ebb20 */
     void execSetInfoCursor(FFrame& Stack, RESULT_DECL); /* 0x0171bf40 */
     /* registered size 0xbc */
+    /* other member functions */
+    void eventUpdateNPCCounts(class ARPlayerController* RPC, INT ArmedNPCs, INT UnarmedNPCs); /* 0x0154c010 */
+    void eventTriggerInvestigateEvent(class ARPlayerController* RPC); /* 0x0154c070 */
+    void eventSetNPCInfoCursor(class ARPlayerController* RPC, INT HeartBeatType, INT WeaponType); /* 0x0154c0b0 */
+    void eventSetBlankInfoCursor(class ARPlayerController* RPC); /* 0x0154c110 */
+    UBOOL eventCheckSetBlankInfoCursor(class ARPlayerController* RPC); /* 0x0154c150 */
+    void eventSortInfoEntryList(class ARPlayerController* RPC); /* 0x0154c1a0 */
+    void eventSpecialCheckForGrates(class ARPlayerController* RPC); /* 0x0154c1e0 */
 };
 
 struct ARFracturablePontoonPropBase : public AFracturedStaticMeshActor {
@@ -52366,6 +53191,14 @@ struct ARFractureWallBase : public AFracturedStaticMeshActor, public IRSpotableI
     virtual FVector vf_350(); /* 0x350 */
     virtual class AFracturedStaticMeshPart* SpawnPartMulti(const TArray<INT>& ChunkIndices, FVector InitialVel, FVector InitialAngVel, FLOAT RelativeScale, UBOOL bExplosion); /* 0x358 */
     /* other member functions */
+    void eventSetDelayedWallPathCheck(); /* 0x016cef30 */
+    void eventExplodeWallSFX(FVector ExplosionCentre, INT NumPiecesRemoved); /* 0x016cef60 */
+    void eventDoFractureWallExplodeAlert(FVector ExplosionCentre, FVector WallNormal); /* 0x016cefc0 */
+    UBOOL eventLoadFragmentRemovedState(INT FragmentIndex); /* 0x016cf030 */
+    void eventSaveFragmentRemovedState(INT FragmentIndex, UBOOL IsRemoved); /* 0x016cf080 */
+    void eventFallOverOnWall(class ARPawnCharacter* PawnIter); /* 0x016cf0d0 */
+    UBOOL eventAreGunThugsAround(); /* 0x016e1070 */
+    void execUpdateWallState(FFrame& Stack, RESULT_DECL); /* 0x01706ac0 */
     void UpdateWallState(); /* 0x016d8e90 */
     /* registered size 0x2d0 */
     /* IRSpotableInterface */
@@ -52404,6 +53237,8 @@ struct URGadgetSelect : public UObject {
     /* UnrealScript natives */
     void execUpdateSelectedGadget(FFrame& Stack, RESULT_DECL); /* 0x01708750 */
     /* other member functions */
+    void eventGadgetSelected(BYTE Row, BYTE Column); /* 0x01638cf0 */
+    void eventGadgetGadgetSelected(); /* 0x01638d40 */
     void UpdateSelectedGadget(FLOAT DeltaTime, UBOOL bCanCycleGadgets); /* 0x016416c0 */
     /* registered size 0x54 */
 };
@@ -52486,6 +53321,9 @@ struct ARGameInfo : public ARGameInfoBase {
     void execSetTrioviz(FFrame& Stack, RESULT_DECL); /* 0x0171ba20 */
     void execGetGameTimePlayedString(FFrame& Stack, RESULT_DECL); /* 0x0171bad0 */
     /* registered size 0x4b8 */
+    /* other member functions */
+    FString sub_0156cff0(); /* 0x0156cff0 */
+    void eventPredatorActivated(); /* 0x015d8340 */
 };
 
 struct ARGameRI : public ARGameReplicationInfoBase {
@@ -52708,6 +53546,8 @@ struct ARGameRI : public ARGameReplicationInfoBase {
     void execIsMapChangeReady(FFrame& Stack, RESULT_DECL); /* 0x01722990 */
     void execCommitMapChange(FFrame& Stack, RESULT_DECL); /* 0x01722a70 */
     /* other member functions */
+    void eventRecordRoomMetrics(FName GoingToLevel); /* 0x0154b040 */
+    void eventSetCurrentLevel(FName Level, class AActor* Originator, UBOOL BlockOnLoad); /* 0x016e92d0 */
     void sub_0155aa00(); /* 0x0155aa00 */
     void sub_0155aa20(); /* 0x0155aa20 */
     UINT* sub_0155aa30(BYTE); /* 0x0155aa30 */
@@ -52782,6 +53622,9 @@ struct ARGatherRootPointBase : public AKActorSpawnable {
     virtual void vf_244(INT, INT, INT); /* 0x244 */
     virtual FVector vf_350(); /* 0x350 */
     /* registered size 0x32c */
+    /* other member functions */
+    void eventHitPontoon(class AActor* P, FVector ContactPos); /* 0x0154aec0 */
+    UBOOL eventContainsRootToGather(); /* 0x016a99f0 */
 };
 
 struct ARGatherRootPointSpawnerBase : public AStaticMeshActor {
@@ -52799,6 +53642,8 @@ struct ARGatherRootPointSpawnerBase : public AStaticMeshActor {
     virtual UBOOL ShouldTrace(UPrimitiveComponent* Primitive, AActor* SourceActor, DWORD TraceFlags); /* 0x198 */
     virtual FVector vf_350(); /* 0x350 */
     /* registered size 0x1c0 */
+    /* other member functions */
+    class ARGatherRootPointBase* eventGetGatherRootPoint(); /* 0x016a9c10 */
 };
 
 struct URGFxFSCmdHandler_PlayMovie : public UGFxFSCmdHandler {
@@ -52849,6 +53694,8 @@ struct URGFxMovie : public UGFxMovie {
     void execGetPicture(FFrame& Stack, RESULT_DECL); /* 0x0170b610 */
     void execSetPicture(FFrame& Stack, RESULT_DECL); /* 0x0171e660 */
     /* registered size 0x9c */
+    /* other member functions */
+    void eventPictureLoaded(); /* 0x016d1ae0 */
 };
 
 struct URGFxMovieBio : public URGFxMovie {
@@ -52937,6 +53784,10 @@ struct URGFxMovieHUD : public URGFxMovie {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     /* registered size 0xc4 */
+    /* other member functions */
+    void eventSetInfoText(const FString& Label, FLOAT TextSize, BYTE Justification); /* 0x0156ad20 */
+    void eventSetMainPrompt(INT Id, const FString& Label, FLOAT Alpha, FLOAT TextAlpha); /* 0x0156add0 */
+    void eventSetPrompt(INT Id, const FString& Label, FLOAT Alpha, FLOAT TextAlpha); /* 0x0156ae90 */
 };
 
 struct URGFxMovieHUDCheckpoint : public URGFxMovie {
@@ -52965,6 +53816,8 @@ struct URGFxMovieInvestigate : public URGFxMovie {
     /* UnrealScript natives */
     void execGetNPCCountString(FFrame& Stack, RESULT_DECL); /* 0x0171e760 */
     /* registered size 0xb4 */
+    /* other member functions */
+    void eventSetInfoCursor(FLOAT X, FLOAT Y, const FString& actorName, const FString& Title, const FString& Message, UBOOL bWarningColour); /* 0x0156af50 */
 };
 
 struct URGFxMovieMap : public URGFxMovie {
@@ -53215,6 +54068,10 @@ struct URRopeComponentBase : public UPrimitiveComponent {
     void execSetCollidesWithChannel(FFrame& Stack, RESULT_DECL); /* 0x01700c00 */
     void execCalculateDistanceBetweenRopeEnds(FFrame& Stack, RESULT_DECL); /* 0x01700ca0 */
     /* other member functions */
+    void eventCallQueueReattach(); /* 0x01638ef0 */
+    UPhysicalMaterial* sub_0163f5c0(); /* 0x0163f5c0 */
+    void sub_01644e00(AActor* Actor, FVector AttachPos, FName AttachBone, UPrimitiveComponent* AttachComponent, FLOAT MaxDistance); /* 0x01644e00 */
+    void sub_01644ea0(AActor* Actor, FVector AttachPos, FName AttachBone, UPrimitiveComponent* AttachComponent, FLOAT MaxDistance); /* 0x01644ea0 */
     FVector GetWorldSpaceEnd1AttachPos(); /* 0x01644d40 */
     FVector GetWorldSpaceEnd2AttachPos(); /* 0x01644da0 */
     void DetachRopeEnd1(); /* 0x0163f3a0 */
@@ -53362,6 +54219,7 @@ struct ARGrapplePointCatchmentArea : public AActor {
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual INT vf_17c(INT); /* 0x17c */
     /* other member functions */
+    void sub_01641ef0(INT Unused); /* 0x01641ef0 */
     void sub_00757e00(UFunction* Function, void* Parms, void* Result); /* 0x00757e00 */
     /* registered size 0x1b8 */
 };
@@ -53522,6 +54380,9 @@ struct ARHidePoint : public AFracturedStaticMeshActor {
     void execLoadDestroyedState(FFrame& Stack, RESULT_DECL); /* 0x016ffaa0 */
     void execGetFragmentSaveName(FFrame& Stack, RESULT_DECL); /* 0x016ffad0 */
     /* other member functions */
+    void eventSetDestroyedHelpText(); /* 0x01638e90 */
+    INT sub_0164ef80(); /* 0x0164ef80 */
+    INT sub_0164efa0(); /* 0x0164efa0 */
     void SaveDestroyedState(); /* 0x01643eb0 */
     void ActivateForGrapple(); /* 0x0164ef80 */
     void DeactivateForGrapple(); /* 0x0164efa0 */
@@ -53623,6 +54484,15 @@ struct ARSmashableProp : public ARKActorSpawnable {
     void execGetDecalData(FFrame& Stack, RESULT_DECL); /* 0x016ff8e0 */
     void execGetDecalMaterialInstance(FFrame& Stack, RESULT_DECL); /* 0x016ff980 */
     /* other member functions */
+    void eventSetupDecalMaterialInstances(); /* 0x01668a50 */
+    void eventDoRBSmashAlert(); /* 0x01668a80 */
+    UBOOL eventGetSaveSmashedState(); /* 0x01668ab0 */
+    void eventSetSaveSmashedState(UBOOL Removed); /* 0x01668af0 */
+    void eventSetInXrayMode(UBOOL On); /* 0x01668b30 */
+    void eventInitXRayMode(); /* 0x01668b70 */
+    class AEmitter* eventSpawnEmitter(class UParticleSystem* ParticleSystem); /* 0x01668ba0 */
+    void eventDestroyProp(class ARSmashableProp* DestroyProp); /* 0x01668bf0 */
+    class ARSmashableProp* eventSpawnProp(class AActor* spawnedObjectOwner, FVector brickPos, FRotator brickRot, class URSmashablePropConfig* brickPropConfig); /* 0x01668c30 */
     UBOOL sub_01668ab0(); /* 0x01668ab0 */
     void sub_01668bf0(AActor* Other); /* 0x01668bf0 */
     void TriggerBreakProp(FVector BreakNormalForce, FLOAT breakTimerVal, class AActor* CollideActor0, class AActor* CollideActor1); /* 0x0166b4d0 */
@@ -53832,6 +54702,8 @@ struct ARHarpoonProjectile : public ARProjectileWithRope {
     virtual UBOOL IgnoreBlockingBy(const class AActor* Other) const; /* 0x164 */
     virtual void vf_1a4(INT, INT); /* 0x1a4 */
     /* registered size 0x25c */
+    /* other member functions */
+    void eventBumpLevel(FVector HitLocation, FVector HitNormal); /* 0x01638c20 */
 };
 
 struct ARHideCamPoint : public AActor {
@@ -53908,6 +54780,10 @@ struct URIdleConfig : public URConfig {
     virtual bool vf_004(); /* 0x004 */
     virtual void PostLoad(); /* 0x01c */
     /* registered size 0x90 */
+    /* other member functions */
+    FName eventGetEventName(INT I); /* 0x0160e730 */
+    INT eventGetNumEvents(); /* 0x0160e790 */
+    void eventGetAnimNames(TArray<FName>& AnimNames); /* 0x01624940 */
 };
 
 struct URSimpleIdleConfig : public URIdleConfig {
@@ -54432,6 +55308,7 @@ struct ARLevelTransition : public AActor {
     void execPlayerUpdateTransform(FFrame& Stack, RESULT_DECL); /* 0x01708ba0 */
     void execGetAllConnectedLevels(FFrame& Stack, RESULT_DECL); /* 0x017232b0 */
     /* other member functions */
+    UBOOL eventIsInFront(class APlayerController* PC); /* 0x01558f60 */
     static void RebuildLevelTransitionList(); /* 0x0158c560 */
     static void RebuildTransitionLinks(); /* 0x0158c5b0 */
     void PlayerUpdateTransform(ARPawnCharacter*); /* 0x0155a090 */
@@ -54535,6 +55412,11 @@ struct ARLevelTransitionDoorBunkerNativeBase : public ARLevelTransition {
     void execDoorIsAnimating(FFrame& Stack, RESULT_DECL); /* 0x01708c00 */
     void execIsInActivationRange(FFrame& Stack, RESULT_DECL); /* 0x01708c40 */
     /* registered size 0x228 */
+    /* other member functions */
+    UBOOL eventAllowedToOpenIfNotAlreadyOpen(class ARPlayerController* PC); /* 0x01559090 */
+    void eventPassedThroughDoor(class ARPlayerController* PC); /* 0x015590e0 */
+    UBOOL eventAttemptToCloseDoor(UBOOL Instantly); /* 0x01559150 */
+    void eventAttemptToOpenDoor(class ARPlayerController* PC); /* 0x015591b0 */
 };
 
 struct ARLevelTransitionPath : public ARLevelTransition {
@@ -54980,6 +55862,11 @@ struct ARPawnVillain : public ARBMPawnAI, public IRSpotableInterface {
     virtual UINT vf_178(); /* 0x178 */
     virtual UBOOL IsIncapacitated(); /* 0x48c */
     /* other member functions */
+    INT eventGetHeartBeatType(); /* 0x0154c6d0 */
+    FName eventGetOverlayAnim(); /* 0x015d86c0 */
+    UBOOL eventShouldCombatantForceCombatCamera(); /* 0x015d8720 */
+    void eventStartMonitoringRagdollVelocity(); /* 0x015d8760 */
+    UBOOL eventJustAboveFloor(); /* 0x01686390 */
     /* registered size 0x8ec */
     /* IRSpotableInterface */
     virtual class UObject* GetUObjectInterfaceRSpotableInterface(); /* 0x015f4490 */
@@ -55036,6 +55923,8 @@ struct ARPawnBossVenomBase : public ARPawnVillain {
     virtual bool vf_004(); /* 0x004 */
     virtual UBOOL IgnoreBlockingBy(const class AActor* Other) const; /* 0x164 */
     /* registered size 0x9fc */
+    /* other member functions */
+    UBOOL eventIsValidForStrike(class ARPawnCombat* TestPawn, class UClass* DamageType); /* 0x0160e540 */
 };
 
 struct ARPawnBossBaneBase : public ARPawnBossVenomBase {
@@ -55226,6 +56115,8 @@ struct ARPawnBossCrocBase : public ARBMPawnAI {
     void execUpdateParticleSystems(FFrame& Stack, RESULT_DECL); /* 0x0170ab10 */
     void execUpdateLineLaunchVolume(FFrame& Stack, RESULT_DECL); /* 0x0170ab50 */
     /* registered size 0xb68 */
+    /* other member functions */
+    void eventDistanceToNearestRootChanged(); /* 0x016ab6e0 */
 };
 
 struct ARPawnBossIvyBase : public ARBMPawnAI {
@@ -55529,6 +56420,8 @@ struct ARPawnPlayerAnim : public ARPawnCombat {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     /* registered size 0x5dc */
+    /* other member functions */
+    void eventHackyFallingCallback(); /* 0x01594f10 */
 };
 
 struct ARPawnPlayerCombat : public ARPawnPlayerAnim {
@@ -55583,6 +56476,10 @@ struct ARPawnPlayerCombat : public ARPawnPlayerAnim {
     void execAssignTargetScores(FFrame& Stack, RESULT_DECL); /* 0x017276e0 */
     void execFindHighestPriorityTarget(FFrame& Stack, RESULT_DECL); /* 0x01727830 */
     /* registered size 0x6bc */
+    /* other member functions */
+    UBOOL eventForceAttack(); /* 0x015d87d0 */
+    UBOOL eventFindClosestPawnForStrike(class UClass* DamageType, FLOAT& ClosestDist, class ARPawnCombat*& ClosestPawn); /* 0x0160e5e0 */
+    FVector eventInputHeading(); /* 0x01686400 */
 };
 
 struct ARPawnPlayer : public ARPawnPlayerCombat, public IRSpotableInterface {
@@ -55712,6 +56609,13 @@ struct ARPawnPlayer : public ARPawnPlayerCombat, public IRSpotableInterface {
     virtual void vf_494(INT); /* 0x494 */
     virtual void MoveInDirection(FVector Direction); /* 0x57c */
     /* other member functions */
+    class ARPawnBossVenomBase* eventGetVenomHenchmanRidden(); /* 0x016864c0 */
+    UBOOL eventIsRidingVenomHenchman(); /* 0x01686500 */
+    FName eventGetPCStateName(); /* 0x01686540 */
+    FVector eventAdjustMovementDirection(FVector MovDir); /* 0x016865a0 */
+    void execForceUnCrouch(FFrame& Stack, RESULT_DECL); /* 0x016f6db0 */
+    void execUpdateGrateExcluder(FFrame& Stack, RESULT_DECL); /* 0x016f6de0 */
+    void execClearOverridableTransition(FFrame& Stack, RESULT_DECL); /* 0x016f6e10 */
     void sub_01688660(); /* 0x01688660 */
     UBOOL sub_01694830(FLOAT Time, INT Flags); /* 0x01694830 */
     void sub_0169bc40(); /* 0x0169bc40 */
@@ -55759,6 +56663,8 @@ struct ARPawnPlayerBm : public ARPawnPlayer {
     virtual void vf_664(INT); /* 0x664 */
     virtual void vf_668(INT); /* 0x668 */
     /* registered size 0xaf4 */
+    /* other member functions */
+    void eventEyeMaterialUpdated(); /* 0x01686660 */
 };
 
 struct ARPawnPlayerChallengeJokerBase : public ARPawnPlayer {
@@ -55997,6 +56903,8 @@ struct URPersistentOptions : public UObject {
     void execSavePS3LeaderboardCache(FFrame& Stack, RESULT_DECL); /* 0x0170a810 */
     void execRestorePS3LeaderboardCache(FFrame& Stack, RESULT_DECL); /* 0x0170a850 */
     /* registered size 0x18c */
+    /* other member functions */
+    void eventDump(); /* 0x0170a890 */
 };
 
 struct ARPhotoScanner : public AActor {
@@ -56041,6 +56949,8 @@ struct ARPhotoScanner : public AActor {
     /* UnrealScript natives */
     void execIsSelectedByCursor(FFrame& Stack, RESULT_DECL); /* 0x01708450 */
     /* registered size 0x254 */
+    /* other member functions */
+    FVector eventTestPos(FVector testPosition, class UCanvas* Canvas); /* 0x01638b70 */
 };
 
 struct URPhotoViewPostProcess : public URViewPostProcess {
@@ -57020,6 +57930,31 @@ struct ARPlayerController : public ARPlayerControllerBase {
     void execGetVisitedPMapsList(FFrame& Stack, RESULT_DECL); /* 0x0172a9a0 */
     void execGetCreditsStrings(FFrame& Stack, RESULT_DECL); /* 0x0172aa70 */
     /* other member functions */
+    UBOOL eventAmIUnderATunnelGrate(); /* 0x0154c930 */
+    UBOOL eventDrawHUDLines(); /* 0x0154c9a0 */
+    void eventPlayForceFeedBack(class UForceFeedbackWaveform* FFWaveform); /* 0x01595270 */
+    void eventGrappleStopCollidingWorld(); /* 0x016122c0 */
+    FVector eventGetGlideKickPosition(class ARPawnVillain* DesiredKickTarget); /* 0x016122f0 */
+    void eventInKickRange(class AActor* DesiredKickTarget, UBOOL CanHitTarget); /* 0x01612360 */
+    void eventModifyPlayerMovement(FVector& MoveDirection, FLOAT DeltaTime); /* 0x016123b0 */
+    UBOOL eventImAboutToFallOffAnEdge(FEnvironmentSpecialMoveLocator Loc); /* 0x01612430 */
+    void eventUpdateControllerRotation(FLOAT DeltaTime, FVector MoveDirection); /* 0x01612490 */
+    void eventGetMovementAxes(FVector& X, FVector& Y, FVector& Z); /* 0x016124f0 */
+    void eventSearchNewAmbientSound(); /* 0x016125c0 */
+    void eventLevelAmbientSound(class USoundCue* NewSound); /* 0x016125f0 */
+    UBOOL eventCanReachItem(class AActor* CheckActor); /* 0x01612690 */
+    UBOOL eventCheckInteractableItem(class AActor* CheckActor, FVector& LocationOffset, FLOAT& HeightRange, FLOAT& Range2D, FLOAT& FOVRange); /* 0x016126e0 */
+    void sub_01614010(const FVector& NewDirection, FLOAT DeltaTime); /* 0x01614010 */
+    void sub_016153e0(class ARSpecialMoveInstance* NewMove); /* 0x016153e0 */
+    UBOOL sub_01618460(INT FeatureTypes, FLOAT MaxDistance, FVector* OutNormal); /* 0x01618460 */
+    UBOOL sub_01618fe0(); /* 0x01618fe0 */
+    UBOOL eventBatarangCanTargetOffscreen(); /* 0x01638500 */
+    FRotator eventGetYawAnchorRotation(); /* 0x016868b0 */
+    FName eventGetPostLandPose(); /* 0x01686910 */
+    void eventClearAmbientSoundStack(); /* 0x016fb510 */
+    void eventTriggerSaveIcon(); /* 0x016fb540 */
+    void eventOnLoadedSaveGame(); /* 0x016fb570 */
+    void eventFE_NewGame(const FString& Difficulty); /* 0x01722dc0 */
     FVector GetLeftRightAxis(FVector& ForwardAxis, INT Side); /* 0x01614b70 */
     UBOOL ShouldIReallyLand(class AActor* HitFloor, FVector& HitNormal); /* 0x016181f0 */
     void SetOcclusion(UBOOL); /* 0x01613570 */
@@ -57127,6 +58062,8 @@ struct ARPlayerControllerCombat : public ARPlayerController {
     void execGetLookAtEnemy(FFrame& Stack, RESULT_DECL); /* 0x016fb5a0 */
     void execFindStrikeTarget(FFrame& Stack, RESULT_DECL); /* 0x016fb5e0 */
     /* other member functions */
+    UBOOL eventIsBatarangPrimed(); /* 0x015d9ee0 */
+    FVector eventInputHeading(UBOOL bCanBeZero); /* 0x016127f0 */
     UINT sub_016324a0(BYTE); /* 0x016324a0 */
     /* registered size 0xe08 */
 };
@@ -57225,6 +58162,7 @@ struct URPlayerInput : public URPlayerInputBase {
     /* UnrealScript natives */
     void execFastPlayerInput(FFrame& Stack, RESULT_DECL); /* 0x016fc620 */
     /* other member functions */
+    void eventMouseInput(FLOAT DeltaTime, FLOAT FOVScale); /* 0x01612b50 */
     void FastPlayerInput(FLOAT DeltaTime, UBOOL bMoveInputIgnored, UBOOL bLookInputIgnored); /* 0x01635210 */
     /* registered size 0x1c4 */
 };
@@ -57272,6 +58210,8 @@ struct ARPlayerStartInLevel : public APlayerStart {
     void execGetGRI(FFrame& Stack, RESULT_DECL); /* 0x01708860 */
     void execGetMyLevelVolume(FFrame& Stack, RESULT_DECL); /* 0x017088a0 */
     /* registered size 0x2a4 */
+    /* other member functions */
+    UBOOL eventFacingSameDirection(FRotator PlayerRot); /* 0x01558e60 */
 };
 
 struct FNativeElem_0156eb90 { FScriptInterface Value; FNativeElem_0156eb90() {} FNativeElem_0156eb90(const FScriptInterface& V) : Value(V) {} operator FScriptInterface&() { return Value; } operator const FScriptInterface&() const { return Value; } };  /* the native element type of the arrays ~TArray at 0x0156eb90 destroys */
@@ -57351,6 +58291,13 @@ struct ARPontoonBase : public AActor {
     void execTick(FFrame& Stack, RESULT_DECL); /* 0x016e9df0 */
     void execUpdatePontoonForces(FFrame& Stack, RESULT_DECL); /* 0x016e9e60 */
     /* registered size 0x2ac */
+    /* other member functions */
+    void eventShakeTimeExpired(); /* 0x016a9a50 */
+    void eventPlayAnim(FName Anim, BYTE LD, FLOAT RateScale, UBOOL bMirrored, FLOAT fStartTime); /* 0x016a9a80 */
+    void eventDoSetEdgeCollisionEnabled(UBOOL bEn, UBOOL bFullEnable); /* 0x016a9b00 */
+    void eventUpdateFractureMesh(); /* 0x016a9b60 */
+    void eventDestroyRippleParticleEmitter(); /* 0x016a9b90 */
+    void eventSpawnRippleParticleEmitter(); /* 0x016a9bc0 */
 };
 
 struct ARPontoonBridgeManager : public AActor {
@@ -57382,6 +58329,8 @@ struct ARPontoonBridgeManager : public AActor {
     void execFindPontoonByPosition(FFrame& Stack, RESULT_DECL); /* 0x016fe800 */
     void execNativeCalculateRoute(FFrame& Stack, RESULT_DECL); /* 0x01727a20 */
     /* registered size 0x1ec */
+    /* other member functions */
+    void eventRegisterPontoon(class ARPontoonBase* NewPontoon); /* 0x016ab800 */
 };
 
 struct URPontoonController : public UObject {
@@ -57665,6 +58614,9 @@ struct ARRemoveableGrate : public ARSpecialMoveEnvironmentObject, public IRSpota
     virtual UBOOL eventDoCustomVisCheck(); /* 0x017318e0 */
     virtual UBOOL eventCheckVisibility(); /* 0x01731930 */
     virtual class ARAlertEventCoordinator* eventGetEventCoordinator(); /* 0x01731980 */
+    /* other member functions */
+    void eventDestroyImpactEffects(); /* 0x01701350 */
+    void eventUpdateImpactEffects(); /* 0x01701380 */
 };
 
 struct ARRescuePoint : public ARGrapplePoint {
@@ -57858,6 +58810,7 @@ struct ARRopeBase : public AActor {
     void execSplitRope(FFrame& Stack, RESULT_DECL); /* 0x01700fe0 */
     void execJoinRope(FFrame& Stack, RESULT_DECL); /* 0x017010c0 */
     /* other member functions */
+    void eventSpawnCutRopeFX(FVector CutPos); /* 0x01638f60 */
     ARRopeBase* SplitRope(FLOAT SplitPos, BYTE MeasurementRopeEnd, BYTE& ThisSplitEnd); /* 0x01668430 */
     void JoinRope(class ARRopeBase* OtherRope, BYTE ThisRopeJoinEnd, BYTE OtherRopeJoinEnd); /* 0x01668660 */
     /* registered size 0x1d4 */
@@ -58314,6 +59267,10 @@ struct URSeqAct_CombatMusic : public USeqAct_Latent {
     virtual bool vf_004(); /* 0x004 */
     virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0x11c */
+    /* other member functions */
+    void eventDoFade(FLOAT Delta); /* 0x01583740 */
+    void eventStopAll(); /* 0x01583780 */
+    void eventStartIntro(); /* 0x015837b0 */
 };
 
 struct URSeqAct_CombatProgress : public USeqAct_Latent {
@@ -58407,6 +59364,12 @@ struct URSeqAct_ConversationDialogue : public URSeqAct_PlaySpeechBase {
     void execCheckName(FFrame& Stack, RESULT_DECL); /* 0x0171e000 */
     void execGetSpeakerFromString(FFrame& Stack, RESULT_DECL); /* 0x0171e0c0 */
     /* other member functions */
+    void eventTaggedLookAt(class ARPawnCharacter* Looker, class ARPawnCharacter* LookerAt); /* 0x01558440 */
+    void eventSetVariableLinkType(INT I); /* 0x01558490 */
+    class ARPawnCharacter* eventGetSpeakingTo(INT Index); /* 0x015584d0 */
+    void eventCheckForNewLine(); /* 0x01585020 */
+    UBOOL eventIsOptionNext(); /* 0x01585050 */
+    void eventChangeDialogueCamera(); /* 0x01585090 */
     void sub_01578e70(); /* 0x01578e70 */
     /* registered size 0x150 */
 };
@@ -58436,6 +59399,7 @@ struct URSeqAct_Credits : public USeqAct_Latent {
     virtual void Activated(); /* 0x174 */
     virtual void DeActivated(); /* 0x178 */
     /* other member functions */
+    void eventInitHUD(); /* 0x015818a0 */
     void eventShutdownHUD(); /* 0x01581870 */
     /* registered size 0x108 */
 };
@@ -58525,6 +59489,9 @@ struct URSeqAct_CrocRelativeAnimCamera : public USequenceAction {
     virtual bool vf_004(); /* 0x004 */
     virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0xfc */
+    /* other member functions */
+    void eventBackToGameCamera(); /* 0x016cc0e0 */
+    void eventUpdateCameraRoot(); /* 0x016cc110 */
 };
 
 struct URSeqAct_CrocTeleportFinalAttackRefPoints : public USequenceAction {
@@ -58648,6 +59615,7 @@ struct URSeqAct_FadeScreen : public USeqAct_Latent {
     virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void DeActivated(); /* 0x178 */
     /* other member functions */
+    void eventSetFadeType(UBOOL FadeIn); /* 0x01581b40 */
     UBOOL eventTickFade(FLOAT DeltaTime); /* 0x01581ae0 */
     /* registered size 0x100 */
 };
@@ -58665,6 +59633,7 @@ struct URSeqAct_FadeSound : public USeqAct_Latent {
     virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void DeActivated(); /* 0x178 */
     /* other member functions */
+    void eventSetFadeType(UBOOL FadeIn); /* 0x01581eb0 */
     UBOOL eventTickFade(FLOAT DeltaTime); /* 0x01581e50 */
     /* registered size 0xf0 */
 };
@@ -58784,6 +59753,8 @@ struct URSeqAct_FullScreenPlayer : public USeqAct_Latent {
     void execIsPaused(FFrame& Stack, RESULT_DECL); /* 0x016eb520 */
     void execCheckForFinish(FFrame& Stack, RESULT_DECL); /* 0x016eb560 */
     /* registered size 0x130 */
+    /* other member functions */
+    void eventUpdateRumble(INT frameNo); /* 0x0154bb30 */
 };
 
 struct URSeqAct_GetCameraStatus : public USequenceAction {
@@ -58941,6 +59912,8 @@ struct URSeqAct_InDialogue : public USeqAct_Latent {
     virtual bool vf_004(); /* 0x004 */
     virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0xe4 */
+    /* other member functions */
+    void eventCheckDialogue(); /* 0x015822a0 */
 };
 
 struct URSeqAct_InfiniteCombatSpawner : public USeqAct_Latent {
@@ -58989,6 +59962,8 @@ struct URSeqAct_IsOnPontoon : public USequenceAction {
     virtual bool vf_004(); /* 0x004 */
     virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0xdc */
+    /* other member functions */
+    UBOOL eventDoCheck(); /* 0x0157f700 */
 };
 
 struct URSeqAct_IsThugAbleToAct : public USequenceAction {
@@ -59079,6 +60054,8 @@ struct URSeqAct_Mixbin : public USeqAct_Latent {
     virtual bool vf_004(); /* 0x004 */
     virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0xec */
+    /* other member functions */
+    void eventStart(); /* 0x015823f0 */
 };
 
 struct URSeqAct_ModifyPostProcess : public USeqAct_Latent {
@@ -59091,6 +60068,8 @@ struct URSeqAct_ModifyPostProcess : public USeqAct_Latent {
     virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void DeActivated(); /* 0x178 */
     /* other member functions */
+    void eventDeactivatePP(class ULocalPlayer* Player); /* 0x0154bc40 */
+    void eventActivatePP(class ULocalPlayer* Player); /* 0x0154bcc0 */
     void eventUpdatePP(class ULocalPlayer* LP); /* 0x0154bc80 */
     /* registered size 0x184 */
 };
@@ -59114,6 +60093,10 @@ struct URSeqAct_MovePlayer : public USeqAct_Latent {
     virtual bool vf_004(); /* 0x004 */
     virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0x100 */
+    /* other member functions */
+    void eventStop(); /* 0x01582630 */
+    void eventUpdateMoveSpeed(); /* 0x01582660 */
+    void eventMove(); /* 0x01582690 */
 };
 
 struct URSeqAct_Music : public USeqAct_Latent {
@@ -59142,6 +60125,12 @@ struct URSeqAct_Music : public USeqAct_Latent {
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* other member functions */
+    void eventMusicSetVariableLinkType(INT I); /* 0x0154c7f0 */
+    void eventAdvanceResetCue(); /* 0x01583b90 */
+    void eventAdvanceCue(); /* 0x01583bc0 */
+    void eventStopCue(); /* 0x01583bf0 */
+    void eventStartCue(); /* 0x01583c20 */
+    void sub_01584a70(UINT Value); /* 0x01584a70 */
     void sub_0157c210(); /* 0x0157c210 */
     /* registered size 0x120 */
 };
@@ -59290,6 +60279,8 @@ struct URSeqAct_PlayerDialogueOptions : public USeqAct_Latent {
     virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void DeActivated(); /* 0x178 */
     /* registered size 0x108 */
+    /* other member functions */
+    INT eventGetOutputLinkForCurrentSelection(); /* 0x01558360 */
 };
 
 struct URSeqAct_PlayGfxMovie : public UGFxAction_OpenMovie {
@@ -59301,6 +60292,8 @@ struct URSeqAct_PlayGfxMovie : public UGFxAction_OpenMovie {
     virtual bool vf_004(); /* 0x004 */
     virtual void Activated(); /* 0x174 */
     /* registered size 0xe0 */
+    /* other member functions */
+    void eventPauseGame(UBOOL Pause); /* 0x016d1ba0 */
 };
 
 struct URSeqAct_PlayPontoonAnim : public USequenceAction {
@@ -59324,6 +60317,11 @@ struct URSeqAct_PlayScaledDistanceSound : public USeqAct_Latent {
     virtual bool vf_004(); /* 0x004 */
     virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0xf8 */
+    /* other member functions */
+    void eventKeyOffSound(); /* 0x01583f30 */
+    void eventStopSound(); /* 0x01583f60 */
+    void eventProcessDistance(); /* 0x01583f90 */
+    void eventStartSound(); /* 0x01583fc0 */
 };
 
 struct URSeqAct_PlaySpeechConversation : public URSeqAct_PlaySpeechBase {
@@ -59357,6 +60355,7 @@ struct URSeqAct_PlaySpeechConversation : public URSeqAct_PlaySpeechBase {
     /* UnrealScript natives */
     void execReBuildScriptNames(FFrame& Stack, RESULT_DECL); /* 0x016fce50 */
     /* other member functions */
+    void eventCheckForNewLine(); /* 0x01585510 */
     void sub_01578f40(); /* 0x01578f40 */
     /* registered size 0x138 */
 };
@@ -59454,6 +60453,8 @@ struct URSeqAct_RandomSwitchForGameOver : public USeqAct_Switch {
     virtual bool vf_004(); /* 0x004 */
     virtual void Activated(); /* 0x174 */
     /* registered size 0xf0 */
+    /* other member functions */
+    void eventCopyInState(); /* 0x01582f20 */
 };
 
 struct URSeqAct_RemoveGrate : public USequenceAction {
@@ -59759,6 +60760,8 @@ struct URSeqAct_SetScarecrowSearch : public USequenceAction {
     virtual bool vf_004(); /* 0x004 */
     virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0xec */
+    /* other member functions */
+    void eventSearch(); /* 0x01580b60 */
 };
 
 struct URSeqAct_SetScarecrowSearchAnims : public USequenceAction {
@@ -59771,6 +60774,8 @@ struct URSeqAct_SetScarecrowSearchAnims : public USequenceAction {
     virtual bool vf_004(); /* 0x004 */
     virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0xdc */
+    /* other member functions */
+    void eventSetAnimNames(); /* 0x01580cc0 */
 };
 
 struct URSeqAct_SetSoundParameter : public USeqAct_Latent {
@@ -59794,6 +60799,8 @@ struct URSeqAct_SetStationary1stPersonCamera : public USeqAct_Latent {
     virtual bool vf_004(); /* 0x004 */
     virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0xf8 */
+    /* other member functions */
+    void eventForceLookDirection(UBOOL Force); /* 0x0154bd30 */
 };
 
 struct URSeqAct_SetThugBarkState : public USequenceAction {
@@ -59813,6 +60820,8 @@ struct URSeqAct_SetTrackingObjectVars : public USequenceAction {
     virtual bool vf_004(); /* 0x004 */
     virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0xec */
+    /* other member functions */
+    void eventSetT(); /* 0x01580e10 */
 };
 
 struct URSeqAct_SetTrackingSpotlightVars : public USequenceAction {
@@ -59826,6 +60835,13 @@ struct URSeqAct_SetTrackingSpotlightVars : public USequenceAction {
     virtual bool vf_004(); /* 0x004 */
     virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0xe8 */
+    /* other member functions */
+    void eventBatmanUse(); /* 0x01580f60 */
+    void eventTurnOnFaked(); /* 0x01580f90 */
+    void eventTurnOn(); /* 0x01580fc0 */
+    void eventTurnOff(); /* 0x01580ff0 */
+    void eventSetS(); /* 0x01581020 */
+    void eventSetT(); /* 0x01581050 */
 };
 
 struct URSeqAct_SetVenomParameters : public USequenceAction {
@@ -59839,6 +60855,8 @@ struct URSeqAct_SetVenomParameters : public USequenceAction {
     virtual bool vf_004(); /* 0x004 */
     virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0xe0 */
+    /* other member functions */
+    void eventSetParameters(); /* 0x01581300 */
 };
 
 struct URSeqAct_SetVisionCone : public USequenceAction {
@@ -59928,6 +60946,7 @@ struct URSeqAct_SmoothCameraTransition : public USeqAct_Latent {
     virtual bool vf_004(); /* 0x004 */
     virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* other member functions */
+    UBOOL eventSetInitialValues(); /* 0x01582ba0 */
     UBOOL eventTick(FLOAT DeltaTime); /* 0x01582b30 */
     /* registered size 0x12c */
 };
@@ -59970,6 +60989,9 @@ struct URSeqAct_SpeechEventManagerBase : public URSeqAct_PlaySpeechBase {
     void execCueFinished(FFrame& Stack, RESULT_DECL); /* 0x016fcf30 */
     void execCueAborted(FFrame& Stack, RESULT_DECL); /* 0x016fcf70 */
     /* registered size 0x118 */
+    /* other member functions */
+    void eventPlayNextLine(); /* 0x01612140 */
+    void eventInputActivated(INT InputID); /* 0x01612170 */
 };
 
 struct URSeqAct_SpeechEventManager : public URSeqAct_SpeechEventManagerBase {
@@ -60097,6 +61119,8 @@ struct URSeqAct_TriggerRunTheGauntlet : public USequenceAction {
     virtual bool vf_004(); /* 0x004 */
     virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0x100 */
+    /* other member functions */
+    void eventTriggerRunTheGauntlet(); /* 0x01581450 */
 };
 
 struct URSeqAct_TriggerSpecialMove : public USequenceAction {
@@ -60132,6 +61156,8 @@ struct URSeqAct_UnlockXrayMode : public USequenceAction {
     virtual bool vf_004(); /* 0x004 */
     virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0xd4 */
+    /* other member functions */
+    void eventUnlock(); /* 0x015815a0 */
 };
 
 struct URSeqAct_UpdateBatmanDamageLevel : public USequenceAction {
@@ -60160,6 +61186,8 @@ struct URSeqAct_VoiceOfArkham : public URSeqAct_PlaySpeechBase {
     virtual bool vf_004(); /* 0x004 */
     virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0xfc */
+    /* other member functions */
+    void eventVoAStartSound(); /* 0x01585830 */
 };
 
 struct URSeqAct_WaitForCutscenesToFinish : public USeqAct_Latent {
@@ -60233,6 +61261,8 @@ struct URSeqEvent_EvidenceFlagSet : public USequenceEvent {
     virtual bool vf_004(); /* 0x004 */
     virtual UBOOL CheckActivate(class AActor* InOriginator, class AActor* InInstigator, UBOOL bTest = FALSE, TArray<INT>* ActivateIndices = NULL, UBOOL bPushTop = FALSE); /* 0x198 */
     /* registered size 0xf8 */
+    /* other member functions */
+    UBOOL eventHandle(class AActor* InOriginator, INT typeNo); /* 0x01583070 */
 };
 
 struct URSeqEvent_EvidenceFound : public USequenceEvent {
@@ -60243,6 +61273,8 @@ struct URSeqEvent_EvidenceFound : public USequenceEvent {
     virtual bool vf_004(); /* 0x004 */
     virtual UBOOL CheckActivate(class AActor* InOriginator, class AActor* InInstigator, UBOOL bTest = FALSE, TArray<INT>* ActivateIndices = NULL, UBOOL bPushTop = FALSE); /* 0x198 */
     /* registered size 0xf8 */
+    /* other member functions */
+    UBOOL eventHandle(class AActor* InOriginator, INT typeNo); /* 0x015831e0 */
 };
 
 struct URSeqEvent_ExitedCombat : public USequenceEvent {
@@ -60301,6 +61333,8 @@ struct URSeqEvent_ItemInvestigated : public USequenceEvent {
     virtual bool vf_004(); /* 0x004 */
     virtual UBOOL CheckActivate(class AActor* InOriginator, class AActor* InInstigator, UBOOL bTest = FALSE, TArray<INT>* ActivateIndices = NULL, UBOOL bPushTop = FALSE); /* 0x198 */
     /* registered size 0xf8 */
+    /* other member functions */
+    UBOOL eventHandle(class AActor* InOriginator, INT typeNo); /* 0x01583450 */
 };
 
 struct URSeqEvent_IvySpawnPods : public USequenceEvent {
@@ -60363,6 +61397,8 @@ struct URSeqEvent_RopeCut : public USequenceEvent {
     virtual bool vf_004(); /* 0x004 */
     virtual UBOOL CheckActivate(class AActor* InOriginator, class AActor* InInstigator, UBOOL bTest = FALSE, TArray<INT>* ActivateIndices = NULL, UBOOL bPushTop = FALSE); /* 0x198 */
     /* registered size 0xf8 */
+    /* other member functions */
+    UBOOL eventHandle(class AActor* InOriginator, INT typeNo); /* 0x015841f0 */
 };
 
 struct URSeqEvent_ScarecrowInject : public USequenceEvent {
@@ -60535,6 +61571,7 @@ struct ARShimmyEdgeMarker : public ARSnapToPositionActor {
     void execSetupEndPoints(FFrame& Stack, RESULT_DECL); /* 0x01701220 */
     void execRegisterShimmyEdgeMarker(FFrame& Stack, RESULT_DECL); /* 0x01701250 */
     /* other member functions */
+    INT sub_01678d20(); /* 0x01678d20 */
     void SetupEndPoints(); /* 0x0166a300 */
     void RegisterShimmyEdgeMarker(); /* 0x01678d20 */
     /* registered size 0x1f4 */
@@ -61145,6 +62182,10 @@ struct ARSpecialMoveInstance_HarpoonYank : public ARSpecialMoveInstance_HarpoonB
     /* UnrealScript natives */
     void execUpdateYankees(FFrame& Stack, RESULT_DECL); /* 0x016fb680 */
     /* other member functions */
+    void eventReleaseTarget(FHarpoonTargetInfo& CurrTarget); /* 0x016385a0 */
+    void eventTripTargetInvisibleCollision(FHarpoonTargetInfo& CurrentTarget); /* 0x01638600 */
+    void eventTripTarget(FHarpoonTargetInfo& CurrentTarget); /* 0x01638660 */
+    void eventYankTarget(FHarpoonTargetInfo& CurrentTarget); /* 0x016386c0 */
     void UpdateYankees(FLOAT DeltaTime, FLOAT PullForce, FLOAT PelvisCheatForce); /* 0x01648e20 */
     /* registered size 0x21c */
 };
@@ -61653,6 +62694,8 @@ struct ARTapePlayer : public AActor {
     void execLoadConversation(FFrame& Stack, RESULT_DECL); /* 0x0171e2f0 */
     void execSetSubtitles(FFrame& Stack, RESULT_DECL); /* 0x0171e3b0 */
     /* registered size 0x22c */
+    /* other member functions */
+    void eventHasLoaded(); /* 0x01638ca0 */
 };
 
 struct ARThrowTarget : public AActor {
@@ -62252,6 +63295,8 @@ struct UAnimNodeEditInfo : public UObject {
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
     /* registered size 0x34 */
+    /* other member functions */
+    void* sub_013377b0(void* Dest); /* 0x013377b0 */
 };
 
 struct UAnimNodeEditInfo_AimOffset : public UAnimNodeEditInfo {
@@ -62629,6 +63674,8 @@ struct UProperty : public UField {
     virtual bool vf_004(); /* 0x004 */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     /* registered size 0x70 */
+    /* other member functions */
+    UBOOL sub_0062ddd0(INT Index, FString& ValueStr, BYTE* Data, BYTE* Delta, UObject* Parent, INT PortFlags); /* 0x0062ddd0 */
 };
 
 struct UArrayProperty : public UProperty {
@@ -62951,6 +63998,7 @@ struct UUnrealEdEngine : public UEditorEngine, public FNotifyHook {
     virtual void vf_30c(INT, INT, INT); /* 0x30c */
     virtual void vf_310(INT, INT, INT, INT); /* 0x310 */
     /* other member functions */
+    FLinearColor* sub_012c0300(FLinearColor* OutColor); /* 0x012c0300 */
     UINT sub_0040f070(BYTE); /* 0x0040f070 */
     INT sub_00551c40(INT); /* 0x00551c40 */
     INT sub_00551c70(INT); /* 0x00551c70 */
@@ -63362,6 +64410,8 @@ struct UByteProperty : public UProperty {
     virtual void ClearValue(BYTE*, DWORD); /* 0x150 */
     virtual UINT vf_168(); /* 0x168 */
     /* registered size 0x74 */
+    /* other member functions */
+    void sub_0062a830(void* Dest, void* Src, UObject*, UObject*, void*); /* 0x0062a830 */
 };
 
 struct UCacheDestructibleScalesCommandlet : public UCommandlet {
@@ -64032,6 +65082,8 @@ struct UClient : public UObject, public FExec {
     /* registered size 0x50 */
     /* FExec */
     virtual UBOOL Exec(const TCHAR* Cmd, FOutputDevice& Ar); /* 0x00cbbd40 */
+    /* other member functions */
+    INT sub_00cb5a80(INT A); /* 0x00cb5a80 */
 };
 
 struct UCodecMovieBink : public UCodecMovie {
@@ -64104,6 +65156,8 @@ struct UComponentProperty : public UObjectProperty {
     virtual FName GetID() const; /* 0x158 */
     virtual void vf_164(INT, INT, INT, INT); /* 0x164 */
     /* registered size 0x74 */
+    /* other member functions */
+    FName sub_0062f570() const; /* 0x0062f570 */
 };
 
 struct UCompressAnimationsCommandlet : public UCommandlet {
@@ -64285,6 +65339,8 @@ struct UControlChannel : public UChannel, public FOutputDevice {
     /* registered size 0x7c */
     /* FOutputDevice */
     virtual void Serialize(const TCHAR* V, EName Event); /* 0x00e0d500 */
+    /* other member functions */
+    void sub_00df35f0(UNetConnection* InConnection, INT InChIndex, UBOOL InOpenedLocally); /* 0x00df35f0 */
 };
 
 struct FNativeDtor_008c2810_c { ~FNativeDtor_008c2810_c(); /* 0x008c2810 */ DWORD _data[3]; };  /* a C++-only member: only its destructor is known; size up to the next member */
@@ -66595,6 +67651,8 @@ struct UInterfaceProperty : public UProperty {
     virtual INT vf_16c(); /* 0x16c */
     virtual void vf_178(INT, INT); /* 0x178 */
     /* registered size 0x74 */
+    /* other member functions */
+    void sub_00630590(BYTE* Data, DWORD PortFlags); /* 0x00630590 */
 };
 
 struct FNativeDtor_012d3660_c { ~FNativeDtor_012d3660_c(); /* 0x012d3660 */ DWORD _data[3]; };  /* a C++-only member: only its destructor is known; size up to the next member */
@@ -68073,6 +69131,8 @@ struct UPackageMap : public UObject {
     virtual void vf_02c(); /* 0x02c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     /* other member functions */
+    FPointer* sub_005ff380(FPointer* Out); /* 0x005ff380 */
+    void* sub_00623550(void* Obj); /* 0x00623550 */
     void* sub_00622120(void* Obj, INT B); /* 0x00622120 */
     INT sub_0053f590(); /* 0x0053f590 */
     INT sub_00547ed0(INT); /* 0x00547ed0 */
@@ -70364,6 +71424,8 @@ struct UTcpipConnection : public UNetConnection {
     virtual INT vf_140(); /* 0x140 */
     virtual void vf_14c(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x14c */
     /* registered size 0x4fd4 */
+    /* other member functions */
+    bool sub_00e2be70(int Second); /* 0x00e2be70 */
 };
 
 struct UTerrainEditOptions : public UObject {
@@ -71318,6 +72380,7 @@ struct UWorld : public UObject, public FNetworkNotify {
     virtual void vf_02c(); /* 0x02c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     /* other member functions */
+    UBOOL sub_007ed180(AActor* ThisActor, UBOOL bShouldModifyLevel); /* 0x007ed180 */
     FLOAT GetGravityZ(); /* 0x009c6c80 */
     class AWorldInfo* GetWorldInfo(UBOOL bCheckStreamingPersistent = FALSE); /* 0x009c6b40 */
     class AGameInfo* GetGameInfo(); /* 0x009c84f0 */
