@@ -2589,7 +2589,7 @@ void AActor::PostScriptDestroyed() {  }
 int AActor::vf_1c0(int a0) { return 0; }
 
 // @baa 0x0068ee80
-void AActor::vf_214(void) {  }
+void AActor::GrowCollision() {  }
 
 // @baa 0x0068ee90
 void AActor::vf_21c(int a0, int a1, int a2) {  }

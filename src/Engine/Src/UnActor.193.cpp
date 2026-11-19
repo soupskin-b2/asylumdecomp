@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00773720
-int AController::vf_3a0(int a0, int a1, int a2, int a3, int a4) { return 0; }
+UBOOL AController::OverridePathTo(ANavigationPoint* a0, AActor* a1, const FVector& a2, UBOOL a3, FLOAT& a4) { return 0; }

@@ -282,7 +282,7 @@ UBOOL ARBMAIController::PawnInStasis()
 // @baa 0x015f47a0
 /* Slot 0x3c4 (unnamed in the kit): the controller faces the way its pawn does. The check is inline in the
  * generated header. */
-void ARBMAIController::vf_3c4()
+void ARBMAIController::UpdatePawnRotation()
 {
 #line 1045 "BmGame/Inc\\BmGameAIClasses.h"
 	check(!Focus && "Controller has Focus set. This is not intended to be used, and will probably break animation based movement.");

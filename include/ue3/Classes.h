@@ -13147,7 +13147,7 @@ struct AActor : public UObject {
     virtual void processHitWall(const FVector& HitNormal, class AActor* HitActor); /* 0x208 */
     virtual void stepUp(const FVector& GravDir, const FVector& DesiredDir, const FVector& Delta, struct FCheckResult &Hit); /* 0x20c */
     virtual UBOOL ShrinkCollision(AActor *HitActor, UPrimitiveComponent* HitComponent, const FVector &StartLocation); /* 0x210 */
-    virtual void vf_214(); /* 0x214 */
+    virtual void GrowCollision(); /* 0x214 */
     virtual UBOOL MoveWithInterpMoveTrack(UInterpTrackMove* MoveTrack, UInterpTrackInstMove* MoveInst, FLOAT CurTime, FLOAT DeltaTime); /* 0x218 */
     virtual void vf_21c(INT, INT, INT); /* 0x21c */
     virtual void physInterpolating(FLOAT DeltaTime); /* 0x220 */
@@ -16226,22 +16226,22 @@ struct AController : public AActor {
     virtual UBOOL ShouldCheckVisibilityOf(class AController* C); /* 0x380 */
     virtual UBOOL SeePawn(class APawn* Other, UBOOL bMaySkipChecks); /* 0x384 */
     virtual DWORD LineOfSightTo(const class AActor* Other, INT bUseLOSFlag = 0, const FVector* chkLocation = NULL, UBOOL bTryAlternateTargetLoc = FALSE); /* 0x388 */
-    virtual void vf_38c(INT, INT, INT, INT); /* 0x38c */
-    virtual INT vf_390(INT); /* 0x390 */
-    virtual INT vf_394(INT, INT); /* 0x394 */
-    virtual INT vf_398(INT, INT, INT, INT); /* 0x398 */
-    virtual void vf_39c(INT, INT, INT); /* 0x39c */
-    virtual INT vf_3a0(INT, INT, INT, INT, INT); /* 0x3a0 */
+    virtual void HearNoise(AActor* NoiseMaker, FLOAT Loudness, FName NoiseType); /* 0x38c */
+    virtual INT AcceptNearbyPath(AActor* goal); /* 0x390 */
+    virtual UReachSpec* PrepareForMove( ANavigationPoint *NavGoal, UReachSpec* Path ); /* 0x394 */
+    virtual void AdjustFromWall(FVector HitNormal, AActor* HitActor); /* 0x398 */
+    virtual void MarkEndPoints(ANavigationPoint* EndAnchor, AActor* Goal, const FVector& GoalLocation); /* 0x39c */
+    virtual UBOOL OverridePathTo(ANavigationPoint* EndAnchor, AActor* Goal, const FVector& GoalLocation, UBOOL bWeightDetours, FLOAT& BestWeight); /* 0x3a0 */
     virtual UBOOL IsLocalController(); /* 0x3a4 */
-    virtual UINT vf_3a8(); /* 0x3a8 */
+    virtual UBOOL WantsLedgeCheck(); /* 0x3a8 */
     virtual UBOOL StopAtLedge(); /* 0x3ac */
     virtual void vf_3b0(); /* 0x3b0 */
     virtual void vf_3b4(); /* 0x3b4 */
     virtual class AActor* GetViewTarget(); /* 0x3b8 */
-    virtual void vf_3bc(INT); /* 0x3bc */
-    virtual INT vf_3c0(INT, INT, INT); /* 0x3c0 */
-    virtual void vf_3c4(); /* 0x3c4 */
-    virtual INT vf_3c8(INT, INT); /* 0x3c8 */
+    virtual void UpdateEnemyInfo(APawn* AcquiredEnemy); /* 0x3bc */
+    virtual void JumpOverWall(FVector WallNormal); /* 0x3c0 */
+    virtual void UpdatePawnRotation(); /* 0x3c4 */
+    virtual UBOOL ForceReached(ANavigationPoint *Nav, const FVector& TestPosition); /* 0x3c8 */
     virtual FRotator SetRotationRate(FLOAT deltaTime); /* 0x3cc */
     virtual FVector vf_3d0(); /* 0x3d0 */
     virtual void vf_3d4(); /* 0x3d4 */
@@ -16533,9 +16533,9 @@ struct APlayerController : public AController {
     virtual class APlayerController* GetAPlayerController(); /* 0x2e0 */
     virtual UBOOL IsLocalPlayerController(); /* 0x354 */
     virtual UBOOL ShouldCheckVisibilityOf(class AController* C); /* 0x380 */
-    virtual void vf_38c(INT, INT, INT, INT); /* 0x38c */
+    virtual void HearNoise(AActor* NoiseMaker, FLOAT Loudness, FName NoiseType); /* 0x38c */
     virtual UBOOL IsLocalController(); /* 0x3a4 */
-    virtual UINT vf_3a8(); /* 0x3a8 */
+    virtual UBOOL WantsLedgeCheck(); /* 0x3a8 */
     virtual UBOOL StopAtLedge(); /* 0x3ac */
     virtual class AActor* GetViewTarget(); /* 0x3b8 */
     /* UnrealScript natives */
@@ -16716,8 +16716,8 @@ struct AAIController : public AController {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void SetAdjustLocation(FVector NewLoc, UBOOL bAdjust, UBOOL bOffsetFromBase = FALSE); /* 0x36c */
-    virtual INT vf_390(INT); /* 0x390 */
-    virtual INT vf_398(INT, INT, INT, INT); /* 0x398 */
+    virtual INT AcceptNearbyPath(AActor* goal); /* 0x390 */
+    virtual void AdjustFromWall(FVector HitNormal, AActor* HitActor); /* 0x398 */
     virtual FVector vf_3d0(); /* 0x3d0 */
     /* registered size 0x348 */
     /* other member functions */
@@ -33604,7 +33604,7 @@ struct AProjectile : public AActor {
     virtual void BoundProjectileVelocity(); /* 0x1e8 */
     virtual void vf_1ec(INT, INT); /* 0x1ec */
     virtual UBOOL ShrinkCollision(AActor *HitActor, UPrimitiveComponent* HitComponent, const FVector &StartLocation); /* 0x210 */
-    virtual void vf_214(); /* 0x214 */
+    virtual void GrowCollision(); /* 0x214 */
     virtual const class AProjectile* GetAProjectile() const; /* 0x2fc */
     virtual class AProjectile* GetAProjectile(); /* 0x300 */
     /* registered size 0x1e4 */
@@ -45581,8 +45581,8 @@ struct ARBMAIController : public AAIController {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual UBOOL Tick(FLOAT DeltaTime, enum ELevelTick TickType); /* 0x174 */
-    virtual UINT vf_3a8(); /* 0x3a8 */
-    virtual void vf_3c4(); /* 0x3c4 */
+    virtual UBOOL WantsLedgeCheck(); /* 0x3a8 */
+    virtual void UpdatePawnRotation(); /* 0x3c4 */
     /* UnrealScript natives */
     void execGetBehaviour(FFrame& Stack, RESULT_DECL); /* 0x017031a0 */
     void execIsRunningBehaviour(FFrame& Stack, RESULT_DECL); /* 0x01703220 */
@@ -57731,7 +57731,7 @@ struct ARPlayerController : public ARPlayerControllerBase {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual UBOOL Tick(FLOAT DeltaTime, enum ELevelTick TickType); /* 0x174 */
-    virtual UINT vf_3a8(); /* 0x3a8 */
+    virtual UBOOL WantsLedgeCheck(); /* 0x3a8 */
     virtual UBOOL StopAtLedge(); /* 0x3ac */
     virtual UBOOL IsControllerTiltActive(); /* 0x41c */
     virtual void SetControllerTiltDesiredIfAvailable(UBOOL bActive); /* 0x420 */

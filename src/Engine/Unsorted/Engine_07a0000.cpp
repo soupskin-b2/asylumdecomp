@@ -23,7 +23,7 @@ UBOOL AController::IsLocalPlayerController() { return 0; }
 UBOOL AController::IsLocalController() { return 0; }
 
 // @baa 0x007a05e0
-undefined4 APlayerController::vf_3a8(void)
+UBOOL APlayerController::WantsLedgeCheck()
 {
     int param_1 = (int)this;
 
@@ -133,7 +133,7 @@ undefined1 ATeamInfo::GetTeamNum(void)
 }
 
 // @baa 0x007a2050
-void APlayerController::vf_38c(int a0, int a1, int a2, int a3) {  }
+void APlayerController::HearNoise(AActor* NoiseMaker, FLOAT Loudness, FName NoiseType) {  }
 
 // @baa 0x007a2640
 UBOOL UDistributionFloatParameterBase::HasUniqueStaticConfigName() const { return 1; }

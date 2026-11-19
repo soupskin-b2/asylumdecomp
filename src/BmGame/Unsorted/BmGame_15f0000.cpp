@@ -926,7 +926,7 @@ undefined4 * AController::sub_015f4780(void)
 }
 
 // @baa 0x015f47f0
-UINT ARBMAIController::vf_3a8() { return 0; }
+UBOOL ARBMAIController::WantsLedgeCheck() { return 0; }
 
 // @baa 0x015f4800
 IMPLEMENT_CLASS_AT(ARBMAIController, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmAIClass.cpp", 18);

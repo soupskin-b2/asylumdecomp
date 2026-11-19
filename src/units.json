@@ -11395,7 +11395,7 @@
     {
      "va": "015f47a0",
      "size": 71,
-     "symbol": "?vf_3c4@ARBMAIController@@UAEXXZ"
+     "symbol": "?UpdatePawnRotation@ARBMAIController@@UAEXXZ"
     },
     {
      "va": "015ec050",
@@ -39791,7 +39791,7 @@
     {
      "va": "015f47f0",
      "size": 3,
-     "symbol": "?vf_3a8@ARBMAIController@@UAEIXZ"
+     "symbol": "?WantsLedgeCheck@ARBMAIController@@UAEHXZ"
     },
     {
      "va": "015f4800",
@@ -207637,12 +207637,12 @@
     {
      "va": "007a16c0",
      "size": 5,
-     "symbol": "?vf_390@AController@@UAEHH@Z"
+     "symbol": "?AcceptNearbyPath@AController@@UAEHPAUAActor@@@Z"
     },
     {
      "va": "007a16d0",
      "size": 5,
-     "symbol": "?vf_3c8@AController@@UAEHHH@Z"
+     "symbol": "?ForceReached@AController@@UAEHPAUANavigationPoint@@ABUFVector@@@Z"
     },
     {
      "va": "007a1d30",
@@ -275130,7 +275130,7 @@
     {
      "va": "0068ee80",
      "size": 1,
-     "symbol": "?vf_214@AActor@@UAEXXZ"
+     "symbol": "?GrowCollision@AActor@@UAEXXZ"
     },
     {
      "va": "0068ee90",
@@ -297055,7 +297055,7 @@
     {
      "va": "007a05e0",
      "size": 28,
-     "symbol": "?vf_3a8@APlayerController@@UAEIXZ"
+     "symbol": "?WantsLedgeCheck@APlayerController@@UAEHXZ"
     },
     {
      "va": "007a0600",
@@ -297155,7 +297155,7 @@
     {
      "va": "007a2050",
      "size": 3,
-     "symbol": "?vf_38c@APlayerController@@UAEXHHHH@Z"
+     "symbol": "?HearNoise@APlayerController@@UAEXPAUAActor@@MUFName@@@Z"
     },
     {
      "va": "007a2640",

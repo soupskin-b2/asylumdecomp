@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00773750
-void AController::vf_3bc(int a0) {  }
+void AController::UpdateEnemyInfo(APawn* a0) {  }

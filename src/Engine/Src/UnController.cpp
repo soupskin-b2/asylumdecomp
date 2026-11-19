@@ -4,10 +4,10 @@
 #include "ue3/Implement.h"
 
 // @baa 0x007a16c0
-int AController::vf_390(int a0) { return 0; }
+INT AController::AcceptNearbyPath(AActor* a0) { return 0; }
 
 // @baa 0x007a16d0
-int AController::vf_3c8(int a0, int a1) { return 0; }
+UBOOL AController::ForceReached(ANavigationPoint * a0, const FVector& a1) { return 0; }
 
 extern "C" int g_026c47e0;
 extern "C" int g_026c47e4;
