@@ -60,7 +60,7 @@ void APawn::vf_418(int a0, int a1) {  }
 int APawn::vf_41c(int a0) { return 1; }
 
 // @baa 0x00776210
-int APawn::vf_44c(int a0, int a1) { return 0; }
+INT APawn::vf_44c(FLOAT a0, INT a1) { return 0; }
 
 // @baa 0x00776220
 int APawn::vf_454(int a0) { return 0; }

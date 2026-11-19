@@ -1578,7 +1578,7 @@ void UAudioDevice::vf_14c(int a0) {  }
 void UAudioDevice::vf_150(int a0) {  }
 
 // @baa 0x0079c910
-void UAudioDevice::vf_154(int a0) {  }
+void UAudioDevice::vf_154(FLOAT a0) {  }
 
 // @baa 0x0079c920
 void UAudioDevice::vf_15c(UINT a0) {  }
@@ -1625,7 +1625,7 @@ void UAudioDevice::vf_184(int a0) {  }
 int UAudioDevice::vf_188(int a0, int a1) { return 1; }
 
 // @baa 0x0079c9f0
-void UAudioDevice::vf_18c(int a0, int a1) {  }
+void UAudioDevice::vf_18c(FLOAT a0, INT a1) {  }
 
 // @baa 0x0079ca00
 void UAudioDevice::vf_190(int a0) {  }

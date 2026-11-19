@@ -204221,7 +204221,7 @@
     {
      "va": "0079c910",
      "size": 3,
-     "symbol": "?vf_154@UAudioDevice@@UAEXH@Z"
+     "symbol": "?vf_154@UAudioDevice@@UAEXM@Z"
     },
     {
      "va": "0079c920",
@@ -204291,7 +204291,7 @@
     {
      "va": "0079c9f0",
      "size": 3,
-     "symbol": "?vf_18c@UAudioDevice@@UAEXHH@Z"
+     "symbol": "?vf_18c@UAudioDevice@@UAEXMH@Z"
     },
     {
      "va": "0079ca00",
@@ -223581,7 +223581,7 @@
     {
      "va": "00776210",
      "size": 5,
-     "symbol": "?vf_44c@APawn@@UAEHHH@Z"
+     "symbol": "?vf_44c@APawn@@UAEHMH@Z"
     },
     {
      "va": "00776220",
@@ -275225,7 +275225,7 @@
     {
      "va": "0068efc0",
      "size": 3,
-     "symbol": "?vf_28c@AActor@@UAEXHHH@Z"
+     "symbol": "?vf_28c@AActor@@UAEXHMH@Z"
     },
     {
      "va": "0068efd0",
@@ -275235,12 +275235,12 @@
     {
      "va": "0068efe0",
      "size": 3,
-     "symbol": "?vf_294@AActor@@UAEXHHH@Z"
+     "symbol": "?vf_294@AActor@@UAEXHHM@Z"
     },
     {
      "va": "0068eff0",
      "size": 3,
-     "symbol": "?vf_298@AActor@@UAEXHHH@Z"
+     "symbol": "?vf_298@AActor@@UAEXHHM@Z"
     },
     {
      "va": "0068f000",

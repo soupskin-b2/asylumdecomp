@@ -67,12 +67,23 @@ def _low_priority():
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("--shard", default="1/1")
-    p.add_argument("--only", action="append", help="a glob of sources; repeat for several")
+    p.add_argument("--only", action="append", help="a glob of sources under src/ (or a part of a file name); repeat for several")
     p.add_argument("--jobs", type=int, default=0, help="files compiled at once (default: per CPU, as free memory allows)")
     a = p.parse_args()
     k, n = map(int, a.shard.split("/"))
     units = json.loads((ROOT / "src" / "units.json").read_text(encoding="utf-8"))["units"]
-    units = [u for i, u in enumerate(units) if i % n == k - 1 and (not a.only or any(fnmatch.fnmatch(u["source"], o) for o in a.only))]
+    # a pattern is a glob of paths under src/ (or third_party/); "src/..." and backslashes are fine, and a
+    # bare name (UnPawn) matches the files whose names contain it
+    only = []
+    for o in a.only or []:
+        o = o.replace("\\", "/")
+        for pre in ("src/", "third_party/"):
+            if o.startswith(pre):
+                o = o[len(pre):]
+        only.append(o if any(c in o for c in "*?[/") else "*%s*" % o)
+    units = [u for i, u in enumerate(units) if i % n == k - 1 and (not only or any(fnmatch.fnmatch(u["source"], o) for o in only))]
+    if only and not units and n == 1:
+        sys.exit("no source matches %s (a glob under src/, e.g. Engine/Src/UnPawn*.cpp)" % " ".join(a.only))
     bad, t0 = [], time.time()
     jobs = a.jobs or default_jobs()
     print("%d jobs" % jobs, flush=True)

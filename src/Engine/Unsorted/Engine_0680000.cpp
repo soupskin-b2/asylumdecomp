@@ -2646,16 +2646,16 @@ int AActor::vf_284(void) { return 0; }
 UINT AActor::vf_288() { return 0; }
 
 // @baa 0x0068efc0
-void AActor::vf_28c(int a0, int a1, int a2) {  }
+void AActor::vf_28c(INT a0, FLOAT a1, INT a2) {  }
 
 // @baa 0x0068efd0
 void AActor::vf_290(void) {  }
 
 // @baa 0x0068efe0
-void AActor::vf_294(int a0, int a1, int a2) {  }
+void AActor::vf_294(INT a0, INT a1, FLOAT a2) {  }
 
 // @baa 0x0068eff0
-void AActor::vf_298(int a0, int a1, int a2) {  }
+void AActor::vf_298(INT a0, INT a1, FLOAT a2) {  }
 
 // @baa 0x0068f000
 int AActor::vf_29c(int a0) { return 0; }

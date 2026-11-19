@@ -13180,7 +13180,7 @@ struct AActor : public UObject {
     virtual void InitRBPhys(); /* 0x238 */
     virtual void TermRBPhys(FRBPhysScene* Scene); /* 0x23c */
     virtual void vf_240(INT, INT, INT, INT, INT); /* 0x240 */
-    virtual void vf_244(INT, INT, INT); /* 0x244 */
+    virtual void vf_244(INT, FLOAT, INT); /* 0x244 */
     virtual INT vf_248(INT, INT); /* 0x248 */
     virtual void vf_24c(); /* 0x24c */
     virtual void vf_250(INT, INT, INT, INT); /* 0x250 */
@@ -13198,10 +13198,10 @@ struct AActor : public UObject {
     virtual void vf_280(); /* 0x280 */
     virtual INT vf_284(); /* 0x284 */
     virtual UINT vf_288(); /* 0x288 */
-    virtual void vf_28c(INT, INT, INT); /* 0x28c */
+    virtual void vf_28c(INT, FLOAT, INT); /* 0x28c */
     virtual void vf_290(); /* 0x290 */
-    virtual void vf_294(INT, INT, INT); /* 0x294 */
-    virtual void vf_298(INT, INT, INT); /* 0x298 */
+    virtual void vf_294(INT, INT, FLOAT); /* 0x294 */
+    virtual void vf_298(INT, INT, FLOAT); /* 0x298 */
     virtual INT vf_29c(INT); /* 0x29c */
     virtual void vf_2a0(); /* 0x2a0 */
     virtual INT vf_2a4(); /* 0x2a4 */
@@ -18139,7 +18139,7 @@ struct UAnimNodeSlot : public UAnimNodeBlendBase {
     FLOAT BlendTimeToGo; /* 0xe4 */
     class UAnimNodeSynch* SynchNode; /* 0xe8 */
     /* virtual functions this class introduces (vtable 0x0205ba58) */
-    virtual INT vf_19c(INT, INT, INT, INT, INT, INT); /* 0x19c */
+    virtual INT vf_19c(INT, FLOAT, INT, INT, INT, INT); /* 0x19c */
     virtual INT vf_1a0(INT); /* 0x1a0 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
@@ -19032,7 +19032,7 @@ struct UAudioDevice : public USubsystem {
     virtual void vf_148(INT); /* 0x148 */
     virtual void vf_14c(INT); /* 0x14c */
     virtual void vf_150(INT); /* 0x150 */
-    virtual void vf_154(INT); /* 0x154 */
+    virtual void vf_154(FLOAT); /* 0x154 */
     virtual bool vf_158(INT); /* 0x158 */
     virtual void vf_15c(UINT); /* 0x15c */
     virtual void vf_160(INT, INT); /* 0x160 */
@@ -19046,9 +19046,9 @@ struct UAudioDevice : public USubsystem {
     virtual void vf_180(INT, INT); /* 0x180 */
     virtual void vf_184(INT); /* 0x184 */
     virtual INT vf_188(INT, INT); /* 0x188 */
-    virtual void vf_18c(INT, INT); /* 0x18c */
+    virtual void vf_18c(FLOAT, INT); /* 0x18c */
     virtual void vf_190(INT); /* 0x190 */
-    virtual INT vf_194(INT, INT); /* 0x194 */
+    virtual INT vf_194(INT, FLOAT); /* 0x194 */
     virtual void vf_198(INT); /* 0x198 */
     virtual void* vf_19c(void*, INT); /* 0x19c */
     virtual INT vf_1a0(INT); /* 0x1a0 */
@@ -19879,7 +19879,7 @@ struct UUIScreenObject : public UUIRoot {
     virtual void vf_1ac(); /* 0x1ac */
     virtual INT vf_1b0(); /* 0x1b0 */
     virtual void vf_1b4(INT); /* 0x1b4 */
-    virtual void vf_1b8(INT, INT); /* 0x1b8 */
+    virtual void vf_1b8(FLOAT, INT); /* 0x1b8 */
     virtual UBOOL ContainsPoint(const FVector2D& Coordinates); /* 0x1bc */
     virtual void InvalidatePositionDependencies(BYTE Face); /* 0x1c0 */
     virtual void vf_1c4(); /* 0x1c4 */
@@ -20142,7 +20142,7 @@ struct UUIObject : public UUIScreenObject {
     virtual void SetInputMask(BYTE NewInputMask, UBOOL bRecurse = FALSE, UBOOL bForcedOverride = FALSE); /* 0x194 */
     virtual UINT GetNumResolvedFaces(); /* 0x19c */
     virtual INT HasPositionBeenResolved(BYTE Face); /* 0x1a0 */
-    virtual void vf_1b8(INT, INT); /* 0x1b8 */
+    virtual void vf_1b8(FLOAT, INT); /* 0x1b8 */
     virtual UBOOL ContainsPoint(const FVector2D& Coordinates); /* 0x1bc */
     virtual void InvalidatePositionDependencies(BYTE Face); /* 0x1c0 */
     virtual INT vf_1e0(INT); /* 0x1e0 */
@@ -20328,7 +20328,7 @@ struct ACoverLink : public ANavigationPoint {
     /* virtual functions this class introduces (vtable 0x01f453f8) */
     virtual UBOOL GetFireLinkTo(INT SlotIdx, const FCoverInfo& ChkCover, BYTE ChkAction, BYTE ChkType, INT& out_FireLinkIdx, TArray<INT>& out_Items); /* 0x3b0 */
     virtual UBOOL HasFireLinkTo(INT SlotIdx, const FCoverInfo& ChkCover, UBOOL bAllowFallbackLinks); /* 0x3b4 */
-    virtual INT vf_3b8(INT, INT); /* 0x3b8 */
+    virtual INT vf_3b8(FLOAT, INT); /* 0x3b8 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -21462,7 +21462,7 @@ struct UInput : public UInteraction {
     virtual INT vf_128(INT, INT); /* 0x128 */
     virtual void vf_12c(); /* 0x12c */
     virtual INT vf_130(INT, INT); /* 0x130 */
-    virtual INT vf_134(INT, INT); /* 0x134 */
+    virtual INT vf_134(INT, FLOAT); /* 0x134 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -21546,7 +21546,7 @@ struct UPlayerInput : public UInput {
     virtual UBOOL InputKey(INT ControllerId,FName Key,EInputEvent Event,FLOAT AmountDepressed=1.f,UBOOL bGamepad=FALSE); /* 0x114 */
     virtual UBOOL InputAxis(INT ControllerId,FName Key,FLOAT Delta,FLOAT DeltaTime, UBOOL bGamepad=FALSE); /* 0x118 */
     virtual void vf_12c(); /* 0x12c */
-    virtual INT vf_134(INT, INT); /* 0x134 */
+    virtual INT vf_134(INT, FLOAT); /* 0x134 */
     /* registered size 0x158 */
 };
 
@@ -22245,7 +22245,7 @@ struct UDistributionFloatUniformCurve : public UDistributionFloat {
     void InitializeIntrinsicPropertyValues(); /* 0x005c19e0 */
     FInterpCurveVector2D ConstantCurve; /* 0x44 */
     /* virtual functions this class introduces (vtable 0x01f29a88) */
-    virtual INT vf_124(INT, INT, INT); /* 0x124 */
+    virtual INT vf_124(INT, FLOAT, INT); /* 0x124 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -22436,7 +22436,7 @@ struct UDistributionVectorUniformCurve : public UDistributionVector {
     BYTE LockedAxes[2]; /* 0x58 */
     BYTE MirrorFlags[3]; /* 0x5a */
     /* virtual functions this class introduces (vtable 0x01f29d80) */
-    virtual INT vf_12c(INT, INT, INT); /* 0x12c */
+    virtual INT vf_12c(INT, FLOAT, INT); /* 0x12c */
     virtual INT vf_130(INT); /* 0x130 */
     virtual INT vf_134(INT); /* 0x134 */
     virtual FLOAT vf_138(INT); /* 0x138 */
@@ -23254,7 +23254,7 @@ struct UEngine : public USubsystem {
     virtual void vf_148(INT, INT, INT, INT, INT, INT); /* 0x148 */
     virtual void vf_14c(INT, INT, INT, INT); /* 0x14c */
     virtual void vf_150(INT, INT, INT, INT, INT, INT); /* 0x150 */
-    virtual void vf_154(INT, INT, INT); /* 0x154 */
+    virtual void vf_154(FLOAT, FLOAT, INT); /* 0x154 */
     virtual void vf_158(INT, INT, INT, INT); /* 0x158 */
     virtual void vf_15c(INT, INT, INT); /* 0x15c */
     virtual void vf_160(INT, INT, INT); /* 0x160 */
@@ -24353,7 +24353,7 @@ struct AFracturedStaticMeshPart : public AFracturedStaticMeshActor {
     virtual FLOAT GetGravityZ(); /* 0x138 */
     virtual UINT vf_178(); /* 0x178 */
     virtual void vf_1b4(FLOAT); /* 0x1b4 */
-    virtual void vf_244(INT, INT, INT); /* 0x244 */
+    virtual void vf_244(INT, FLOAT, INT); /* 0x244 */
     virtual void vf_250(INT, INT, INT, INT); /* 0x250 */
     virtual void vf_254(INT, INT, INT); /* 0x254 */
     virtual void BreakOffPartsInRadius(FVector Origin, FLOAT Radius, FLOAT RBStrength, UBOOL bWantPhysChunksAndParticles, UBOOL bAllowDamagedEventFiring, FVector BlastOriginOffset); /* 0x384 */
@@ -24857,7 +24857,7 @@ struct UGameUISceneClient : public UUISceneClient {
     virtual INT vf_198(); /* 0x198 */
     virtual UBOOL GetCursorSize(FLOAT& CursorX, FLOAT& CursorY); /* 0x19c */
     virtual INT vf_1a0(INT); /* 0x1a0 */
-    virtual INT vf_1a4(INT); /* 0x1a4 */
+    virtual INT vf_1a4(FLOAT); /* 0x1a4 */
     virtual void vf_1a8(INT); /* 0x1a8 */
     virtual void vf_1ac(INT, INT, INT); /* 0x1ac */
     virtual INT vf_1b0(INT, INT, INT); /* 0x1b0 */
@@ -26436,7 +26436,7 @@ struct UInterpTrackSoundFade : public UInterpTrackFloatBase {
     DECLARE_CLASS(UInterpTrackSoundFade, UInterpTrackFloatBase, 0x0, 0x0, Engine)
     BITFIELD ResetVolume : 1; /* 0x98 */
     /* virtual functions this class introduces (vtable 0x0209a788) */
-    virtual INT vf_164(INT, INT); /* 0x164 */
+    virtual INT vf_164(FLOAT, INT); /* 0x164 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -26615,7 +26615,7 @@ struct AKActor : public ADynamicSMActor {
     virtual UBOOL ShouldTrace(UPrimitiveComponent* Primitive, AActor* SourceActor, DWORD TraceFlags); /* 0x198 */
     virtual void vf_1b4(FLOAT); /* 0x1b4 */
     virtual void physRigidBody(FLOAT DeltaTime); /* 0x230 */
-    virtual void vf_244(INT, INT, INT); /* 0x244 */
+    virtual void vf_244(INT, FLOAT, INT); /* 0x244 */
     virtual void vf_2b8(); /* 0x2b8 */
     /* UnrealScript natives */
     void execGetKActorPhysMaterial(FFrame& Stack, RESULT_DECL); /* 0x00c936f0 */
@@ -26661,7 +26661,7 @@ struct AKAsset : public AActor {
     virtual void PostLoad(); /* 0x01c */
     virtual UINT vf_178(); /* 0x178 */
     virtual UBOOL ShouldTrace(UPrimitiveComponent* Primitive, AActor* SourceActor, DWORD TraceFlags); /* 0x198 */
-    virtual void vf_244(INT, INT, INT); /* 0x244 */
+    virtual void vf_244(INT, FLOAT, INT); /* 0x244 */
     virtual void vf_2b8(); /* 0x2b8 */
     /* registered size 0x1c8 */
 };
@@ -27403,9 +27403,9 @@ struct ULineBatchComponent : public UPrimitiveComponent, public FPrimitiveDrawIn
     /* virtual functions this class introduces (vtable 0x01f36b48) */
     virtual INT vf_250(INT); /* 0x250 */
     virtual INT vf_254(); /* 0x254 */
-    virtual INT vf_258(INT, INT, INT, INT, INT); /* 0x258 */
+    virtual INT vf_258(INT, INT, FLOAT, BYTE, INT); /* 0x258 */
     virtual void vf_25c(INT); /* 0x25c */
-    virtual INT vf_260(INT, INT, INT, INT); /* 0x260 */
+    virtual INT vf_260(INT, INT, INT, BYTE); /* 0x260 */
     virtual INT vf_264(INT, INT, INT, INT); /* 0x264 */
     virtual void vf_268(INT, INT, INT, INT, INT); /* 0x268 */
     /* overrides */
@@ -30525,7 +30525,7 @@ struct UParticleModule : public UObject {
     TArrayNoInit<FName> IdenticalIgnoreProperties; /* 0x3c */
     /* virtual functions this class introduces (vtable 0x01fedf88) */
     virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, INT); /* 0x110 */
+    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
     virtual INT vf_118(INT); /* 0x118 */
     virtual INT vf_11c(INT, INT); /* 0x11c */
@@ -30541,7 +30541,7 @@ struct UParticleModule : public UObject {
     virtual INT vf_144(); /* 0x144 */
     virtual INT vf_148(INT); /* 0x148 */
     virtual INT vf_14c(INT); /* 0x14c */
-    virtual void vf_150(INT, INT, INT, INT, INT); /* 0x150 */
+    virtual void vf_150(INT, INT, FLOAT, INT, INT); /* 0x150 */
     virtual INT vf_154(INT, INT, FLOAT); /* 0x154 */
     virtual INT vf_158(INT); /* 0x158 */
     virtual void vf_15c(INT); /* 0x15c */
@@ -30571,7 +30571,7 @@ struct UParticleModuleAcceleration : public UParticleModuleAccelerationBase {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, INT); /* 0x110 */
+    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
     /* registered size 0x68 */
 };
@@ -30583,7 +30583,7 @@ struct UParticleModuleAccelerationOverLifetime : public UParticleModuleAccelerat
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual INT vf_110(INT, INT, INT); /* 0x110 */
+    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
     /* registered size 0x64 */
 };
 
@@ -30606,7 +30606,7 @@ struct UParticleModuleAttractorLine : public UParticleModuleAttractorBase {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual INT vf_110(INT, INT, INT); /* 0x110 */
+    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
     virtual void vf_12c(INT, INT, INT); /* 0x12c */
     /* registered size 0x98 */
 };
@@ -30627,7 +30627,7 @@ struct UParticleModuleAttractorParticle : public UParticleModuleAttractorBase {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, INT); /* 0x110 */
+    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
     /* registered size 0x94 */
 };
@@ -30644,7 +30644,7 @@ struct UParticleModuleAttractorPoint : public UParticleModuleAttractorBase {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual INT vf_110(INT, INT, INT); /* 0x110 */
+    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
     virtual void vf_12c(INT, INT, INT); /* 0x12c */
     /* registered size 0xa0 */
 };
@@ -30677,7 +30677,7 @@ struct UParticleModuleBeamModifier : public UParticleModuleBeamBase {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, INT); /* 0x110 */
+    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
     virtual void vf_124(INT); /* 0x124 */
     virtual void vf_128(INT); /* 0x128 */
@@ -30716,7 +30716,7 @@ struct UParticleModuleBeamNoise : public UParticleModuleBeamBase {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, INT); /* 0x110 */
+    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
     /* registered size 0xf4 */
 };
@@ -30741,7 +30741,7 @@ struct UParticleModuleBeamSource : public UParticleModuleBeamBase {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, INT); /* 0x110 */
+    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
     virtual void vf_134(INT); /* 0x134 */
     virtual void vf_15c(INT); /* 0x15c */
@@ -30769,7 +30769,7 @@ struct UParticleModuleBeamTarget : public UParticleModuleBeamBase {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, INT); /* 0x110 */
+    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
     virtual void vf_134(INT); /* 0x134 */
     virtual void vf_15c(INT); /* 0x15c */
@@ -30807,7 +30807,7 @@ struct UParticleModuleCollision : public UParticleModuleCollisionBase {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, INT); /* 0x110 */
+    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
     virtual void vf_120(INT); /* 0x120 */
     virtual INT vf_138(INT, INT, INT); /* 0x138 */
@@ -30866,7 +30866,7 @@ struct UParticleModuleColorOverLife : public UParticleModuleColorBase {
     virtual void PostLoad(); /* 0x01c */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, INT); /* 0x110 */
+    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
     virtual void vf_120(INT); /* 0x120 */
     virtual void vf_128(INT); /* 0x128 */
     /* registered size 0x84 */
@@ -30881,7 +30881,7 @@ struct UParticleModuleColorScaleOverDensity : public UParticleModuleColorBase {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, INT); /* 0x110 */
+    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
     virtual void vf_120(INT); /* 0x120 */
     /* registered size 0x80 */
 };
@@ -30896,7 +30896,7 @@ struct UParticleModuleColorScaleOverLife : public UParticleModuleColorBase {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, INT); /* 0x110 */
+    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
     virtual void vf_120(INT); /* 0x120 */
     /* registered size 0x84 */
 };
@@ -30925,7 +30925,7 @@ struct UParticleModuleEventGenerator : public UParticleModuleEventBase {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, INT); /* 0x110 */
+    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
     virtual INT vf_118(INT); /* 0x118 */
     virtual INT vf_11c(INT, INT); /* 0x11c */
@@ -30961,7 +30961,7 @@ struct UParticleModuleEventReceiverSpawn : public UParticleModuleEventReceiverBa
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, INT); /* 0x110 */
+    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
     virtual INT vf_118(INT); /* 0x118 */
     virtual INT vf_11c(INT, INT); /* 0x11c */
@@ -30989,7 +30989,7 @@ struct UParticleModuleKillBox : public UParticleModuleKillBase {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual INT vf_110(INT, INT, INT); /* 0x110 */
+    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
     virtual void vf_12c(INT, INT, INT); /* 0x12c */
     /* registered size 0x84 */
 };
@@ -31003,7 +31003,7 @@ struct UParticleModuleKillHeight : public UParticleModuleKillBase {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual INT vf_110(INT, INT, INT); /* 0x110 */
+    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
     virtual void vf_12c(INT, INT, INT); /* 0x12c */
     /* registered size 0x68 */
 };
@@ -31067,7 +31067,7 @@ struct UParticleModuleLocationDirect : public UParticleModuleLocationBase {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, INT); /* 0x110 */
+    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
     /* registered size 0xb8 */
 };
@@ -31097,7 +31097,7 @@ struct UParticleModuleLocationEmitterDirect : public UParticleModuleLocationBase
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, INT); /* 0x110 */
+    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
     /* registered size 0x50 */
 };
 
@@ -31155,7 +31155,7 @@ struct UParticleModuleLocationVertex : public UParticleModuleLocationBase {
     class UStaticMesh* VertexMesh; /* 0x48 */
     BYTE VertexOrder; /* 0x4c */
     /* virtual functions this class introduces (vtable 0x0200d598) */
-    virtual INT vf_168(INT, INT, INT, INT, INT); /* 0x168 */
+    virtual INT vf_168(INT, INT, FLOAT, INT, INT); /* 0x168 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -31181,7 +31181,7 @@ struct UParticleModuleMaterialByParameter : public UParticleModuleMaterialBase {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
-    virtual INT vf_110(INT, INT, INT); /* 0x110 */
+    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
     /* registered size 0x60 */
 };
 
@@ -31247,7 +31247,7 @@ struct UParticleModuleMeshRotationRateMultiplyLife : public UParticleModuleRotat
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, INT); /* 0x110 */
+    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
     virtual void vf_120(INT); /* 0x120 */
     /* registered size 0x64 */
 };
@@ -31276,7 +31276,7 @@ struct UParticleModuleOrbit : public UParticleModuleOrbitBase {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, INT); /* 0x110 */
+    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
     virtual INT vf_118(INT); /* 0x118 */
     /* registered size 0xb0 */
@@ -31302,7 +31302,7 @@ struct UParticleModuleOrientationAxisLock : public UParticleModuleOrientationBas
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, INT); /* 0x110 */
+    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
     /* registered size 0x4c */
 };
 
@@ -31326,7 +31326,7 @@ struct UParticleModuleParameterDynamic : public UParticleModuleParameterBase {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, INT); /* 0x110 */
+    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
     virtual void vf_120(INT); /* 0x120 */
     virtual void vf_124(INT); /* 0x124 */
@@ -31403,7 +31403,7 @@ struct UParticleModuleRequired : public UParticleModule {
     virtual void PostLoad(); /* 0x01c */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, INT); /* 0x110 */
+    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
     virtual void vf_128(INT); /* 0x128 */
     virtual INT vf_130(); /* 0x130 */
     virtual INT vf_138(INT, INT, INT); /* 0x138 */
@@ -31429,7 +31429,7 @@ struct UParticleModuleRotationOverLifetime : public UParticleModuleRotationBase 
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual INT vf_110(INT, INT, INT); /* 0x110 */
+    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
     /* registered size 0x68 */
 };
 
@@ -31453,7 +31453,7 @@ struct UParticleModuleRotationRateMultiplyLife : public UParticleModuleRotationR
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, INT); /* 0x110 */
+    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
     virtual void vf_120(INT); /* 0x120 */
     /* registered size 0x64 */
 };
@@ -31489,7 +31489,7 @@ struct UParticleModuleSizeMultiplyLife : public UParticleModuleSizeBase {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, INT); /* 0x110 */
+    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
     virtual void vf_120(INT); /* 0x120 */
     virtual INT vf_144(); /* 0x144 */
     /* registered size 0x68 */
@@ -31506,7 +31506,7 @@ struct UParticleModuleSizeMultiplyVelocity : public UParticleModuleSizeBase {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, INT); /* 0x110 */
+    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
     virtual void vf_120(INT); /* 0x120 */
     /* registered size 0x68 */
 };
@@ -31521,7 +31521,7 @@ struct UParticleModuleSizeScale : public UParticleModuleSizeBase {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual INT vf_110(INT, INT, INT); /* 0x110 */
+    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
     virtual void vf_120(INT); /* 0x120 */
     /* registered size 0x68 */
 };
@@ -31589,14 +31589,14 @@ struct UParticleModuleSubUV : public UParticleModuleSubUVBase {
     FRawDistributionFloat SubImageIndex; /* 0x48 */
     /* virtual functions this class introduces (vtable 0x02010e08) */
     virtual void vf_168(INT, INT, INT); /* 0x168 */
-    virtual void vf_16c(INT, INT, INT); /* 0x16c */
-    virtual void vf_170(INT, INT, INT); /* 0x170 */
-    virtual void vf_174(INT, INT, INT); /* 0x174 */
+    virtual void vf_16c(INT, FLOAT, INT); /* 0x16c */
+    virtual void vf_170(INT, FLOAT, INT); /* 0x170 */
+    virtual void vf_174(INT, FLOAT, INT); /* 0x174 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, INT); /* 0x110 */
+    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
     virtual void vf_120(INT); /* 0x120 */
     /* registered size 0x64 */
 };
@@ -31612,7 +31612,7 @@ struct UParticleModuleSubUVDirect : public UParticleModuleSubUVBase {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual INT vf_110(INT, INT, INT); /* 0x110 */
+    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
     /* registered size 0x80 */
 };
 
@@ -31626,7 +31626,7 @@ struct UParticleModuleSubUVSelect : public UParticleModuleSubUVBase {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual INT vf_110(INT, INT, INT); /* 0x110 */
+    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
     /* registered size 0x64 */
 };
 
@@ -31658,7 +31658,7 @@ struct UParticleModuleTrailSource : public UParticleModuleTrailBase {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, INT); /* 0x110 */
+    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
     virtual void vf_134(INT); /* 0x134 */
     virtual void vf_15c(INT); /* 0x15c */
@@ -31678,7 +31678,7 @@ struct UParticleModuleTrailSpawn : public UParticleModuleTrailBase {
     virtual void PostLoad(); /* 0x01c */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, INT); /* 0x110 */
+    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
     /* registered size 0x50 */
 };
@@ -31695,7 +31695,7 @@ struct UParticleModuleTrailTaper : public UParticleModuleTrailBase {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, INT); /* 0x110 */
+    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
     /* registered size 0x68 */
 };
@@ -31777,7 +31777,7 @@ struct UParticleModuleTypeDataBeam2 : public UParticleModuleTypeDataBase {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, INT); /* 0x110 */
+    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
     virtual void vf_128(INT); /* 0x128 */
     virtual INT vf_168(INT, INT); /* 0x168 */
@@ -31887,7 +31887,7 @@ struct UParticleModuleTypeDataTrail2 : public UParticleModuleTypeDataBase {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, INT); /* 0x110 */
+    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
     virtual INT vf_168(INT, INT); /* 0x168 */
     virtual void vf_16c(); /* 0x16c */
@@ -31922,7 +31922,7 @@ struct UParticleModuleUberLTISIVCL : public UParticleModuleUberBase {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, INT); /* 0x110 */
+    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
     virtual UBOOL ConvertToUberModule(UParticleEmitter* InputEmitter); /* 0x16c */
     /* other member functions */
     UINT* sub_00b31090(BYTE); /* 0x00b31090 */
@@ -31947,7 +31947,7 @@ struct UParticleModuleUberLTISIVCLIL : public UParticleModuleUberBase {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, INT); /* 0x110 */
+    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
     virtual UBOOL ConvertToUberModule(UParticleEmitter* InputEmitter); /* 0x16c */
     /* registered size 0x118 */
 };
@@ -31972,7 +31972,7 @@ struct UParticleModuleUberLTISIVCLILIRSSBLIRR : public UParticleModuleUberBase {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, INT); /* 0x110 */
+    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
     virtual UBOOL ConvertToUberModule(UParticleEmitter* InputEmitter); /* 0x16c */
     /* registered size 0x170 */
 };
@@ -32012,7 +32012,7 @@ struct UParticleModuleUberRainDrops : public UParticleModuleUberBase {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void PostLoad(); /* 0x01c */
     virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, INT); /* 0x110 */
+    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
     virtual void vf_12c(INT, INT, INT); /* 0x12c */
     virtual UBOOL IsCompatible(UParticleEmitter* InputEmitter); /* 0x168 */
     virtual UBOOL ConvertToUberModule(UParticleEmitter* InputEmitter); /* 0x16c */
@@ -32053,7 +32053,7 @@ struct UParticleModuleUberRainImpacts : public UParticleModuleUberBase {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, INT); /* 0x110 */
+    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
     virtual void vf_12c(INT, INT, INT); /* 0x12c */
     virtual UBOOL IsCompatible(UParticleEmitter* InputEmitter); /* 0x168 */
     virtual UBOOL ConvertToUberModule(UParticleEmitter* InputEmitter); /* 0x16c */
@@ -32079,7 +32079,7 @@ struct UParticleModuleUberRainSplashA : public UParticleModuleUberBase {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, INT); /* 0x110 */
+    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
     virtual UBOOL IsCompatible(UParticleEmitter* InputEmitter); /* 0x168 */
     virtual UBOOL ConvertToUberModule(UParticleEmitter* InputEmitter); /* 0x16c */
     /* registered size 0x100 */
@@ -32101,7 +32101,7 @@ struct UParticleModuleUberRainSplashB : public UParticleModuleUberBase {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, INT); /* 0x110 */
+    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
     virtual UBOOL IsCompatible(UParticleEmitter* InputEmitter); /* 0x168 */
     virtual UBOOL ConvertToUberModule(UParticleEmitter* InputEmitter); /* 0x16c */
     /* registered size 0x100 */
@@ -32148,7 +32148,7 @@ struct UParticleModuleVelocityOverLifetime : public UParticleModuleVelocityBase 
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, INT); /* 0x110 */
+    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
     /* registered size 0x68 */
 };
 
@@ -32572,7 +32572,7 @@ struct APawn : public AActor {
     virtual UBOOL TryJumpUp(FVector Dir, FVector Destination, DWORD TraceFlags, UBOOL bNoVisibility); /* 0x3e8 */
     virtual UBOOL ReachThresholdTest(const FVector &TestPosition, const FVector &Dest, AActor* GoalActor, FLOAT UpThresholdAdjust, FLOAT DownThresholdAdjust, FLOAT ThresholdAdjust); /* 0x3ec */
     virtual UBOOL SetHighJumpFlag(); /* 0x3f0 */
-    virtual INT vf_3f4(INT, INT, INT, INT); /* 0x3f4 */
+    virtual INT vf_3f4(FLOAT, FLOAT, FLOAT, FLOAT); /* 0x3f4 */
     virtual INT vf_3f8(INT, INT, INT, INT); /* 0x3f8 */
     virtual UBOOL HurtByDamageType(class UClass* DamageType); /* 0x3fc */
     virtual void SetMaxLandingVelocity(FLOAT NewLandingVelocity); /* 0x400 */
@@ -32584,24 +32584,24 @@ struct APawn : public AActor {
     virtual void vf_418(INT, INT); /* 0x418 */
     virtual INT vf_41c(INT); /* 0x41c */
     virtual void vf_420(INT, INT); /* 0x420 */
-    virtual INT vf_424(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x424 */
-    virtual void vf_428(INT, INT); /* 0x428 */
+    virtual INT vf_424(INT, INT, INT, INT, INT, INT, INT, INT, FLOAT, INT, INT, INT); /* 0x424 */
+    virtual void vf_428(FLOAT, INT); /* 0x428 */
     virtual INT vf_42c(INT, INT); /* 0x42c */
     virtual INT vf_430(INT, INT); /* 0x430 */
-    virtual INT vf_434(INT, INT, INT, INT); /* 0x434 */
+    virtual INT vf_434(FLOAT, INT, INT, INT); /* 0x434 */
     virtual INT vf_438(INT, INT, INT, INT); /* 0x438 */
     virtual void vf_43c(INT); /* 0x43c */
     virtual void vf_440(INT); /* 0x440 */
     virtual FLOAT vf_444(); /* 0x444 */
     virtual INT vf_448(INT, INT, INT); /* 0x448 */
-    virtual INT vf_44c(INT, INT); /* 0x44c */
+    virtual INT vf_44c(FLOAT, INT); /* 0x44c */
     virtual void vf_450(INT, INT); /* 0x450 */
     virtual INT vf_454(INT); /* 0x454 */
     virtual INT vf_458(INT, INT); /* 0x458 */
     virtual FVector vf_45c(); /* 0x45c */
     virtual void vf_460(INT, INT); /* 0x460 */
-    virtual INT vf_464(INT, INT); /* 0x464 */
-    virtual void vf_468(INT, INT, INT, INT, INT, INT, INT); /* 0x468 */
+    virtual INT vf_464(FLOAT, FLOAT); /* 0x464 */
+    virtual void vf_468(INT, FLOAT, INT, INT, INT, INT, INT); /* 0x468 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -33531,7 +33531,7 @@ struct USequence : public USequenceOp {
     virtual void vf_1b4(INT, INT, INT); /* 0x1b4 */
     virtual INT vf_1b8(INT, INT); /* 0x1b8 */
     virtual INT vf_1bc(); /* 0x1bc */
-    virtual void vf_1c0(INT, INT, INT, INT, INT, INT, INT); /* 0x1c0 */
+    virtual void vf_1c0(INT, INT, INT, INT, INT, FLOAT, INT); /* 0x1c0 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -34408,11 +34408,11 @@ struct URParticleModuleAttractorComponent : public UParticleModuleAttractorBase 
     DECLARE_CLASS(URParticleModuleAttractorComponent, UParticleModuleAttractorBase, 0x0, 0x0, Engine)
     FRChannel8 AttractorChannel; /* 0x48 */
     /* virtual functions this class introduces (vtable 0x0200c8d8) */
-    virtual void vf_168(INT, INT, INT, INT, INT); /* 0x168 */
+    virtual void vf_168(INT, INT, FLOAT, INT, INT); /* 0x168 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual INT vf_110(INT, INT, INT); /* 0x110 */
+    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
     virtual void vf_12c(INT, INT, INT); /* 0x12c */
     /* registered size 0x4c */
 };
@@ -34429,7 +34429,7 @@ struct URParticleModuleLocationSphereSection : public UParticleModuleLocationBas
     BITFIELD Velocity : 1; /* 0xf0 */
     FRawDistributionFloat VelocityScale; /* 0xf4 */
     /* virtual functions this class introduces (vtable 0x0200fbb8) */
-    virtual INT vf_168(INT, INT, INT, INT, INT); /* 0x168 */
+    virtual INT vf_168(INT, INT, FLOAT, INT, INT); /* 0x168 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -37551,7 +37551,7 @@ struct ASkeletalMeshActor : public AActor {
     virtual void ForceUpdateComponents(UBOOL bCollisionUpdate, UBOOL bTransformOnly); /* 0x10c */
     virtual UINT vf_178(); /* 0x178 */
     virtual void vf_1b4(FLOAT); /* 0x1b4 */
-    virtual void vf_244(INT, INT, INT); /* 0x244 */
+    virtual void vf_244(INT, FLOAT, INT); /* 0x244 */
     virtual void vf_264(INT); /* 0x264 */
     virtual void vf_268(INT, INT, INT, INT, INT, FLOAT, INT); /* 0x268 */
     virtual void vf_270(INT); /* 0x270 */
@@ -37596,8 +37596,8 @@ struct ASkeletalMeshActorMAT : public ASkeletalMeshActor {
     virtual void vf_268(INT, INT, INT, INT, INT, FLOAT, INT); /* 0x268 */
     virtual void vf_270(INT); /* 0x270 */
     virtual void vf_274(); /* 0x274 */
-    virtual void vf_294(INT, INT, INT); /* 0x294 */
-    virtual void vf_298(INT, INT, INT); /* 0x298 */
+    virtual void vf_294(INT, INT, FLOAT); /* 0x294 */
+    virtual void vf_298(INT, INT, FLOAT); /* 0x298 */
     virtual void vf_344(INT); /* 0x344 */
     /* UnrealScript natives */
     void execMAT_SetAnimPosition(FFrame& Stack, RESULT_DECL); /* 0x00c8fda0 */
@@ -39727,7 +39727,7 @@ struct UUIScene : public UUIScreenObject {
     virtual UINT GetNumResolvedFaces(); /* 0x19c */
     virtual INT HasPositionBeenResolved(BYTE Face); /* 0x1a0 */
     virtual void vf_1b4(INT); /* 0x1b4 */
-    virtual void vf_1b8(INT, INT); /* 0x1b8 */
+    virtual void vf_1b8(FLOAT, INT); /* 0x1b8 */
     virtual void InvalidatePositionDependencies(BYTE Face); /* 0x1c0 */
     virtual INT vf_1c8(); /* 0x1c8 */
     virtual INT vf_1e0(INT); /* 0x1e0 */
@@ -41146,7 +41146,7 @@ struct UOnlineGameInterfaceImpl : public UObject {
     virtual UBOOL BindPlatformSpecificSessionToSearch(BYTE SearchingPlayerNum, class UOnlineGameSearch* SearchSettings, const BYTE* PlatformSpecificInfo); /* 0x134 */
     virtual INT vf_138(FLOAT); /* 0x138 */
     virtual INT vf_13c(); /* 0x13c */
-    virtual void vf_140(INT); /* 0x140 */
+    virtual void vf_140(FLOAT); /* 0x140 */
     virtual INT vf_144(); /* 0x144 */
     virtual INT vf_148(); /* 0x148 */
     virtual UINT vf_14c(UINT, UINT); /* 0x14c */
@@ -41983,7 +41983,7 @@ struct URParticleModuleSpawnDecalOnDeath : public URParticleModuleOnDeathBase {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual INT vf_110(INT, INT, INT); /* 0x110 */
+    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
     /* registered size 0x58 */
     /* other member functions */
     class UDecalComponent* eventSpawnDecal(class AActor* Owner, FVector Position, FRotator Direction); /* 0x0153b770 */
@@ -41998,7 +41998,7 @@ struct URParticleModuleSpawnOnDeath : public URParticleModuleOnDeathBase {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual INT vf_110(INT, INT, INT); /* 0x110 */
+    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
     /* registered size 0x4c */
     /* other member functions */
     void eventSpawnParticles(class AActor* OwningActor, FVector Position); /* 0x0153b810 */
@@ -42013,7 +42013,7 @@ struct URParticleModuleWaitForDeath : public URParticleModuleOnDeathBase {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual INT vf_110(INT, INT, INT); /* 0x110 */
+    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
     /* registered size 0x4c */
 };
 
@@ -42483,7 +42483,7 @@ struct UOnlineGameInterfaceSteamworks : public UOnlineGameInterfaceImpl {
     virtual UBOOL StartOnlineGame(FName SessionName); /* 0x128 */
     virtual UBOOL EndOnlineGame(FName SessionName); /* 0x12c */
     virtual INT vf_138(FLOAT); /* 0x138 */
-    virtual void vf_140(INT); /* 0x140 */
+    virtual void vf_140(FLOAT); /* 0x140 */
     virtual INT vf_144(); /* 0x144 */
     virtual INT vf_148(); /* 0x148 */
     virtual UINT vf_14c(UINT, UINT); /* 0x14c */
@@ -42634,32 +42634,32 @@ struct UOnlineSubsystemSteamworks : public UOnlineSubsystemCommonImpl {
     virtual void vf_124(INT, INT, INT, INT); /* 0x124 */
     virtual INT vf_128(); /* 0x128 */
     virtual INT vf_12c(INT); /* 0x12c */
-    virtual INT vf_130(INT); /* 0x130 */
+    virtual INT vf_130(BYTE); /* 0x130 */
     virtual BYTE vf_134(INT); /* 0x134 */
     virtual bool vf_138(INT); /* 0x138 */
-    virtual INT vf_13c(INT, INT, INT); /* 0x13c */
+    virtual INT vf_13c(BYTE, INT, INT); /* 0x13c */
     virtual INT vf_140(INT, INT); /* 0x140 */
     virtual INT vf_144(INT, INT); /* 0x144 */
-    virtual void vf_148(INT, INT); /* 0x148 */
-    virtual INT vf_14c(INT, INT, INT); /* 0x14c */
+    virtual void vf_148(BYTE, INT); /* 0x148 */
+    virtual INT vf_14c(BYTE, INT, INT); /* 0x14c */
     virtual INT vf_150(INT, INT, INT, INT); /* 0x150 */
-    virtual INT vf_154(INT); /* 0x154 */
-    virtual INT vf_158(INT); /* 0x158 */
+    virtual INT vf_154(BYTE); /* 0x154 */
+    virtual INT vf_158(BYTE); /* 0x158 */
     virtual INT vf_15c(INT, INT); /* 0x15c */
     virtual bool vf_160(INT, INT); /* 0x160 */
-    virtual INT vf_164(INT); /* 0x164 */
+    virtual INT vf_164(BYTE); /* 0x164 */
     virtual INT vf_168(INT, INT); /* 0x168 */
-    virtual INT vf_16c(INT); /* 0x16c */
+    virtual INT vf_16c(BYTE); /* 0x16c */
     virtual bool vf_170(INT, INT, INT, INT); /* 0x170 */
     virtual bool vf_174(INT, INT, INT); /* 0x174 */
-    virtual bool vf_178(INT, INT, INT); /* 0x178 */
-    virtual INT vf_17c(INT); /* 0x17c */
-    virtual INT vf_180(INT); /* 0x180 */
-    virtual INT vf_184(INT); /* 0x184 */
-    virtual INT vf_188(INT); /* 0x188 */
-    virtual INT vf_18c(INT, INT); /* 0x18c */
-    virtual INT vf_190(INT, INT); /* 0x190 */
-    virtual INT vf_194(INT, INT); /* 0x194 */
+    virtual bool vf_178(BYTE, INT, INT); /* 0x178 */
+    virtual INT vf_17c(BYTE); /* 0x17c */
+    virtual INT vf_180(BYTE); /* 0x180 */
+    virtual INT vf_184(BYTE); /* 0x184 */
+    virtual INT vf_188(BYTE); /* 0x188 */
+    virtual INT vf_18c(BYTE, INT); /* 0x18c */
+    virtual INT vf_190(BYTE, INT); /* 0x190 */
+    virtual INT vf_194(BYTE, INT); /* 0x194 */
     virtual INT vf_198(INT, INT); /* 0x198 */
     virtual void vf_19c(INT, INT); /* 0x19c */
     virtual INT vf_1a0(INT, INT, INT); /* 0x1a0 */
@@ -42669,7 +42669,7 @@ struct UOnlineSubsystemSteamworks : public UOnlineSubsystemCommonImpl {
     virtual INT vf_1b0(INT, INT); /* 0x1b0 */
     virtual INT vf_1b4(INT, INT, INT, INT); /* 0x1b4 */
     virtual INT vf_1b8(); /* 0x1b8 */
-    virtual INT vf_1bc(INT); /* 0x1bc */
+    virtual INT vf_1bc(BYTE); /* 0x1bc */
     virtual INT vf_1c0(INT); /* 0x1c0 */
     virtual bool vf_1c4(); /* 0x1c4 */
     virtual INT vf_1c8(INT); /* 0x1c8 */
@@ -42677,12 +42677,12 @@ struct UOnlineSubsystemSteamworks : public UOnlineSubsystemCommonImpl {
     virtual INT vf_1d0(INT, INT, INT, INT); /* 0x1d0 */
     virtual void vf_1d4(INT, INT, INT, INT); /* 0x1d4 */
     virtual INT vf_1d8(INT, INT, INT, INT, INT, INT, INT); /* 0x1d8 */
-    virtual INT vf_1dc(INT, INT, INT, INT); /* 0x1dc */
+    virtual INT vf_1dc(BYTE, INT, INT, INT); /* 0x1dc */
     virtual INT vf_1e0(INT, INT, INT); /* 0x1e0 */
-    virtual INT vf_1e4(INT, INT, INT); /* 0x1e4 */
+    virtual INT vf_1e4(BYTE, INT, INT); /* 0x1e4 */
     virtual INT vf_1e8(INT, INT, INT); /* 0x1e8 */
     virtual INT vf_1ec(INT, INT, INT); /* 0x1ec */
-    virtual INT vf_1f0(INT, INT, INT, INT); /* 0x1f0 */
+    virtual INT vf_1f0(BYTE, INT, INT, INT); /* 0x1f0 */
     virtual INT vf_1f4(INT, INT, INT, INT); /* 0x1f4 */
     virtual INT vf_1f8(INT, INT, INT); /* 0x1f8 */
     virtual INT vf_1fc(INT, INT, INT); /* 0x1fc */
@@ -42690,9 +42690,9 @@ struct UOnlineSubsystemSteamworks : public UOnlineSubsystemCommonImpl {
     virtual INT vf_204(INT); /* 0x204 */
     virtual void vf_208(void*); /* 0x208 */
     virtual INT vf_20c(INT, INT, INT); /* 0x20c */
-    virtual INT vf_210(INT, INT, INT); /* 0x210 */
-    virtual INT vf_214(INT, INT, INT); /* 0x214 */
-    virtual INT vf_218(INT); /* 0x218 */
+    virtual INT vf_210(BYTE, INT, INT); /* 0x210 */
+    virtual INT vf_214(BYTE, INT, INT); /* 0x214 */
+    virtual INT vf_218(BYTE); /* 0x218 */
     virtual INT vf_21c(INT); /* 0x21c */
     virtual INT vf_220(INT, INT); /* 0x220 */
     virtual INT vf_224(INT, INT, INT); /* 0x224 */
@@ -42700,13 +42700,13 @@ struct UOnlineSubsystemSteamworks : public UOnlineSubsystemCommonImpl {
     virtual INT vf_22c(INT, INT, INT, INT); /* 0x22c */
     virtual INT vf_230(INT, INT); /* 0x230 */
     virtual INT vf_234(INT, INT); /* 0x234 */
-    virtual void vf_238(INT, INT); /* 0x238 */
+    virtual void vf_238(BYTE, INT); /* 0x238 */
     virtual INT vf_23c(INT, INT); /* 0x23c */
-    virtual INT vf_240(INT); /* 0x240 */
-    virtual INT vf_244(INT, INT, INT); /* 0x244 */
-    virtual INT vf_248(INT); /* 0x248 */
-    virtual INT vf_24c(INT, INT, INT, INT); /* 0x24c */
-    virtual bool vf_250(INT, INT, INT); /* 0x250 */
+    virtual INT vf_240(BYTE); /* 0x240 */
+    virtual INT vf_244(BYTE, INT, INT); /* 0x244 */
+    virtual INT vf_248(BYTE); /* 0x248 */
+    virtual INT vf_24c(BYTE, INT, INT, INT); /* 0x24c */
+    virtual bool vf_250(BYTE, INT, INT); /* 0x250 */
     virtual INT vf_254(INT, INT, INT, INT); /* 0x254 */
     virtual INT vf_258(INT, INT, INT, INT, INT); /* 0x258 */
     virtual INT vf_25c(); /* 0x25c */
@@ -43849,7 +43849,7 @@ struct URAnimNode_Pose : public UAnimNodeBlendBase, public FTickableObject {
     virtual FVector vf_200(); /* 0x200 */
     virtual INT vf_204(); /* 0x204 */
     virtual INT vf_208(); /* 0x208 */
-    virtual void vf_20c(INT, INT, INT, INT, INT, INT, INT); /* 0x20c */
+    virtual void vf_20c(INT, INT, INT, INT, INT, BYTE, BYTE); /* 0x20c */
     virtual void vf_210(AActor*, FName, FName, UBOOL); /* 0x210 */
     virtual INT vf_214(); /* 0x214 */
     virtual INT vf_218(); /* 0x218 */
@@ -43869,13 +43869,13 @@ struct URAnimNode_Pose : public UAnimNodeBlendBase, public FTickableObject {
     virtual void vf_250(FLOAT); /* 0x250 */
     virtual void OverrideTranslationVelocity(FVector Velocity); /* 0x254 */
     virtual void vf_258(FLOAT); /* 0x258 */
-    virtual INT vf_25c(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x25c */
+    virtual INT vf_25c(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, FLOAT); /* 0x25c */
     virtual void vf_260(); /* 0x260 */
-    virtual INT vf_264(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x264 */
+    virtual INT vf_264(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, FLOAT); /* 0x264 */
     virtual void vf_268(); /* 0x268 */
-    virtual INT vf_26c(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x26c */
+    virtual INT vf_26c(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, FLOAT); /* 0x26c */
     virtual void vf_270(); /* 0x270 */
-    virtual INT vf_274(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x274 */
+    virtual INT vf_274(INT, INT, INT, INT, INT, INT, INT, BYTE, FLOAT, FLOAT, FLOAT); /* 0x274 */
     virtual void vf_278(); /* 0x278 */
     virtual INT vf_27c(FName); /* 0x27c */
     virtual INT vf_280(); /* 0x280 */
@@ -43890,22 +43890,22 @@ struct URAnimNode_Pose : public UAnimNodeBlendBase, public FTickableObject {
     virtual INT vf_2a4(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x2a4 */
     virtual INT vf_2a8(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x2a8 */
     virtual INT vf_2ac(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x2ac */
-    virtual INT vf_2b0(INT, INT, INT); /* 0x2b0 */
-    virtual INT vf_2b4(INT, INT, INT); /* 0x2b4 */
+    virtual INT vf_2b0(INT, FLOAT, FLOAT); /* 0x2b0 */
+    virtual INT vf_2b4(INT, FLOAT, FLOAT); /* 0x2b4 */
     virtual INT vf_2b8(); /* 0x2b8 */
     virtual INT vf_2bc(); /* 0x2bc */
     virtual void vf_2c0(INT, INT, INT, INT, INT, INT, INT); /* 0x2c0 */
-    virtual void vf_2c4(INT, INT, INT, INT); /* 0x2c4 */
-    virtual void vf_2c8(INT, INT, INT, INT); /* 0x2c8 */
+    virtual void vf_2c4(INT, INT, FLOAT, INT); /* 0x2c4 */
+    virtual void vf_2c8(INT, INT, FLOAT, INT); /* 0x2c8 */
     virtual INT vf_2cc(INT, INT); /* 0x2cc */
     virtual INT vf_2d0(INT, INT); /* 0x2d0 */
     virtual void vf_2d4(); /* 0x2d4 */
     virtual UINT vf_2d8(); /* 0x2d8 */
     virtual INT vf_2dc(); /* 0x2dc */
-    virtual INT vf_2e0(INT, INT, INT, INT); /* 0x2e0 */
-    virtual INT vf_2e4(INT, INT, INT); /* 0x2e4 */
+    virtual INT vf_2e0(FLOAT, FLOAT, INT, INT); /* 0x2e0 */
+    virtual INT vf_2e4(INT, FLOAT, FLOAT); /* 0x2e4 */
     virtual void vf_2e8(INT); /* 0x2e8 */
-    virtual INT vf_2ec(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x2ec */
+    virtual INT vf_2ec(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, FLOAT, FLOAT); /* 0x2ec */
     virtual INT vf_2f0(FName Name); /* 0x2f0 */
     virtual INT vf_2f4(INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x2f4 */
     virtual BYTE vf_2f8(); /* 0x2f8 */
@@ -43913,7 +43913,7 @@ struct URAnimNode_Pose : public UAnimNodeBlendBase, public FTickableObject {
     virtual INT vf_300(); /* 0x300 */
     virtual INT vf_304(INT, INT, INT, INT, INT, INT); /* 0x304 */
     virtual INT vf_308(INT); /* 0x308 */
-    virtual INT vf_30c(INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x30c */
+    virtual INT vf_30c(INT, INT, INT, INT, INT, INT, INT, INT, FLOAT); /* 0x30c */
     virtual INT vf_310(INT); /* 0x310 */
     virtual INT vf_314(); /* 0x314 */
     virtual INT vf_318(FLOAT, INT, INT, INT); /* 0x318 */
@@ -44820,7 +44820,7 @@ struct ARPawnCharacter : public ARPawn {
     virtual UBOOL IgnoreBlockingBy(const class AActor* Other) const; /* 0x164 */
     virtual void InitRBPhys(); /* 0x238 */
     virtual void TermRBPhys(FRBPhysScene* Scene); /* 0x23c */
-    virtual INT vf_44c(INT, INT); /* 0x44c */
+    virtual INT vf_44c(FLOAT, INT); /* 0x44c */
     /* UnrealScript natives */
     void execOverlayExists(FFrame& Stack, RESULT_DECL); /* 0x016f03c0 */
     void execModifyPoseNode(FFrame& Stack, RESULT_DECL); /* 0x016f0440 */
@@ -50371,9 +50371,9 @@ struct ARCinematicActor : public ASkeletalMeshActor {
     virtual void vf_268(INT, INT, INT, INT, INT, FLOAT, INT); /* 0x268 */
     virtual void vf_270(INT); /* 0x270 */
     virtual void vf_274(); /* 0x274 */
-    virtual void vf_28c(INT, INT, INT); /* 0x28c */
+    virtual void vf_28c(INT, FLOAT, INT); /* 0x28c */
     virtual void vf_290(); /* 0x290 */
-    virtual void vf_294(INT, INT, INT); /* 0x294 */
+    virtual void vf_294(INT, INT, FLOAT); /* 0x294 */
     virtual void vf_344(INT); /* 0x344 */
     /* UnrealScript natives */
     void execTeleport(FFrame& Stack, RESULT_DECL); /* 0x016e9f70 */
@@ -51528,7 +51528,7 @@ struct ARSnapToPositionActor : public AActor {
     /* BmGame.RSnapToPositionActor */
     DECLARE_CLASS(ARSnapToPositionActor, AActor, 0x0, 0x0, BmGame)
     /* virtual functions this class introduces (vtable 0x02360438) */
-    virtual bool vf_354(INT, INT, INT, INT, INT); /* 0x354 */
+    virtual bool vf_354(FLOAT, FLOAT, INT, FLOAT, INT); /* 0x354 */
     virtual void vf_358(INT); /* 0x358 */
     virtual void vf_35c(); /* 0x35c */
     /* overrides */
@@ -51871,7 +51871,7 @@ struct ARDeadBodyBase : public ASkeletalMeshActor, public IREvidenceInterface {
     FBreathingState Breathing; /* 0x260 */
     FName HeadBoneName; /* 0x268 */
     /* virtual functions this class introduces (vtable 0x023362d0) */
-    virtual INT vf_354(INT); /* 0x354 */
+    virtual INT vf_354(FLOAT); /* 0x354 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -52757,7 +52757,7 @@ struct ARExplodableWallBase : public AActor {
     virtual UBOOL Tick(FLOAT DeltaTime, enum ELevelTick TickType); /* 0x174 */
     virtual void NotifyBump(class AActor* Other, class UPrimitiveComponent* OtherComp, const FVector& HitNormal); /* 0x1a0 */
     virtual void PostBeginPlay(); /* 0x1d8 */
-    virtual void vf_244(INT, INT, INT); /* 0x244 */
+    virtual void vf_244(INT, FLOAT, INT); /* 0x244 */
     virtual void UpdateComponentsInternal(UBOOL bCollisionUpdate = FALSE); /* 0x314 */
     virtual FVector vf_350(); /* 0x350 */
     /* UnrealScript natives */
@@ -53187,7 +53187,7 @@ struct ARFractureWallBase : public AFracturedStaticMeshActor, public IRSpotableI
     virtual INT vf_398(INT, INT); /* 0x398 */
     virtual INT vf_39c(INT); /* 0x39c */
     virtual INT vf_3a0(INT); /* 0x3a0 */
-    virtual INT vf_3a4(INT, INT, INT, INT); /* 0x3a4 */
+    virtual INT vf_3a4(INT, FLOAT, FLOAT, FLOAT); /* 0x3a4 */
     virtual FVector vf_3a8(); /* 0x3a8 */
     virtual FLOAT vf_3ac(); /* 0x3ac */
     virtual INT vf_3b0(INT); /* 0x3b0 */
@@ -53200,7 +53200,7 @@ struct ARFractureWallBase : public AFracturedStaticMeshActor, public IRSpotableI
     virtual FVector vf_3cc(BYTE Side); /* 0x3cc */
     virtual bool vf_3d0(INT, INT, INT); /* 0x3d0 */
     virtual INT vf_3d4(INT, INT, INT, INT, INT, INT, INT); /* 0x3d4 */
-    virtual INT vf_3d8(INT, INT, INT, INT); /* 0x3d8 */
+    virtual INT vf_3d8(INT, FLOAT, INT, INT); /* 0x3d8 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -53212,7 +53212,7 @@ struct ARFractureWallBase : public AFracturedStaticMeshActor, public IRSpotableI
     virtual void NotifyBump(class AActor* Other, class UPrimitiveComponent* OtherComp, const FVector& HitNormal); /* 0x1a0 */
     virtual void vf_1b4(FLOAT); /* 0x1b4 */
     virtual void PostBeginPlay(); /* 0x1d8 */
-    virtual void vf_244(INT, INT, INT); /* 0x244 */
+    virtual void vf_244(INT, FLOAT, INT); /* 0x244 */
     virtual INT vf_248(INT, INT); /* 0x248 */
     virtual char* vf_34c(); /* 0x34c */
     virtual FVector vf_350(); /* 0x350 */
@@ -53646,7 +53646,7 @@ struct ARGatherRootPointBase : public AKActorSpawnable {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual UBOOL ShouldTrace(UPrimitiveComponent* Primitive, AActor* SourceActor, DWORD TraceFlags); /* 0x198 */
-    virtual void vf_244(INT, INT, INT); /* 0x244 */
+    virtual void vf_244(INT, FLOAT, INT); /* 0x244 */
     virtual FVector vf_350(); /* 0x350 */
     /* registered size 0x32c */
     /* other member functions */
@@ -54494,7 +54494,7 @@ struct ARSmashableProp : public ARKActorSpawnable {
     virtual UBOOL Tick(FLOAT DeltaTime, enum ELevelTick TickType); /* 0x174 */
     virtual void vf_180(); /* 0x180 */
     virtual void PostBeginPlay(); /* 0x1d8 */
-    virtual void vf_244(INT, INT, INT); /* 0x244 */
+    virtual void vf_244(INT, FLOAT, INT); /* 0x244 */
     virtual INT vf_248(INT, INT); /* 0x248 */
     /* UnrealScript natives */
     void execGetHasSubMeshes(FFrame& Stack, RESULT_DECL); /* 0x016ff450 */
@@ -54545,7 +54545,7 @@ struct ARHarpoonDragPhysicsBase : public ARSmashableProp {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual void vf_244(INT, INT, INT); /* 0x244 */
+    virtual void vf_244(INT, FLOAT, INT); /* 0x244 */
     virtual FVector vf_350(); /* 0x350 */
     /* UnrealScript natives */
     void execGetAnchorPointPositionAndRotation(FFrame& Stack, RESULT_DECL); /* 0x01722f10 */
@@ -55938,9 +55938,9 @@ struct ARPawnBossVenomBase : public ARPawnVillain {
     class URInteractionComponent* BatarangOverride; /* 0x9f4 */
     FLOAT BerserkDuration; /* 0x9f8 */
     /* virtual functions this class introduces (vtable 0x02333458) */
-    virtual INT vf_664(INT, INT, INT, INT, INT, INT, INT); /* 0x664 */
+    virtual INT vf_664(INT, FLOAT, FLOAT, FLOAT, FLOAT, INT, INT); /* 0x664 */
     virtual INT vf_668(INT); /* 0x668 */
-    virtual INT vf_66c(INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x66c */
+    virtual INT vf_66c(INT, INT, INT, INT, INT, INT, FLOAT, INT, INT); /* 0x66c */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -56617,8 +56617,8 @@ struct ARPawnPlayer : public ARPawnPlayerCombat, public IRSpotableInterface {
     /* virtual functions this class introduces (vtable 0x0237e890) */
     virtual void vf_664(INT); /* 0x664 */
     virtual void vf_668(INT); /* 0x668 */
-    virtual INT vf_66c(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x66c */
-    virtual INT vf_670(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x670 */
+    virtual INT vf_66c(INT, INT, INT, FLOAT, FLOAT, FLOAT, FLOAT, INT, INT, INT); /* 0x66c */
+    virtual INT vf_670(INT, INT, INT, FLOAT, FLOAT, FLOAT, INT, INT, INT, INT); /* 0x670 */
     virtual void vf_674(INT); /* 0x674 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
@@ -56627,7 +56627,7 @@ struct ARPawnPlayer : public ARPawnPlayerCombat, public IRSpotableInterface {
     virtual UINT vf_178(); /* 0x178 */
     virtual INT performPhysics(FLOAT DeltaSeconds); /* 0x1e0 */
     virtual void TermRBPhys(FRBPhysScene* Scene); /* 0x23c */
-    virtual INT vf_424(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x424 */
+    virtual INT vf_424(INT, INT, INT, INT, INT, INT, INT, INT, FLOAT, INT, INT, INT); /* 0x424 */
     virtual void vf_440(INT); /* 0x440 */
     virtual void vf_494(INT); /* 0x494 */
     virtual void MoveInDirection(FVector Direction); /* 0x57c */
@@ -56682,7 +56682,7 @@ struct ARPawnPlayerBm : public ARPawnPlayer {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual INT vf_44c(INT, INT); /* 0x44c */
+    virtual INT vf_44c(FLOAT, INT); /* 0x44c */
     virtual void vf_664(INT); /* 0x664 */
     virtual void vf_668(INT); /* 0x668 */
     /* registered size 0xaf4 */
@@ -58180,7 +58180,7 @@ struct URPlayerInput : public URPlayerInputBase {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT vf_130(INT, INT); /* 0x130 */
-    virtual INT vf_134(INT, INT); /* 0x134 */
+    virtual INT vf_134(INT, FLOAT); /* 0x134 */
     /* UnrealScript natives */
     void execFastPlayerInput(FFrame& Stack, RESULT_DECL); /* 0x016fc620 */
     /* other member functions */
@@ -58626,7 +58626,7 @@ struct ARRemoveableGrate : public ARSpecialMoveEnvironmentObject, public IRSpota
     virtual INT vf_17c(INT); /* 0x17c */
     virtual void InitRBPhys(); /* 0x238 */
     virtual void TermRBPhys(FRBPhysScene* Scene); /* 0x23c */
-    virtual void vf_244(INT, INT, INT); /* 0x244 */
+    virtual void vf_244(INT, FLOAT, INT); /* 0x244 */
     virtual INT vf_29c(INT); /* 0x29c */
     virtual void vf_2b8(); /* 0x2b8 */
     /* registered size 0x2dc */
@@ -63825,7 +63825,7 @@ struct __declspec(align(16)) UEditorEngine : public UEngine, public FCallbackEve
     virtual INT vf_214(INT); /* 0x214 */
     virtual void vf_218(INT); /* 0x218 */
     virtual void vf_21c(INT); /* 0x21c */
-    virtual INT vf_220(INT); /* 0x220 */
+    virtual INT vf_220(FLOAT); /* 0x220 */
     virtual INT vf_224(INT); /* 0x224 */
     virtual INT vf_228(INT); /* 0x228 */
     virtual INT vf_22c(INT); /* 0x22c */
@@ -63840,7 +63840,7 @@ struct __declspec(align(16)) UEditorEngine : public UEngine, public FCallbackEve
     virtual void vf_250(INT); /* 0x250 */
     virtual void vf_254(INT); /* 0x254 */
     virtual void vf_258(INT, INT, INT, INT); /* 0x258 */
-    virtual void vf_25c(INT, INT, INT, INT, INT, INT); /* 0x25c */
+    virtual void vf_25c(INT, FLOAT, FLOAT, FLOAT, FLOAT, INT); /* 0x25c */
     virtual INT vf_260(INT); /* 0x260 */
     virtual INT vf_264(INT); /* 0x264 */
     virtual INT vf_268(); /* 0x268 */
@@ -63848,7 +63848,7 @@ struct __declspec(align(16)) UEditorEngine : public UEngine, public FCallbackEve
     virtual INT vf_270(); /* 0x270 */
     virtual INT vf_274(); /* 0x274 */
     virtual void vf_278(); /* 0x278 */
-    virtual void vf_27c(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x27c */
+    virtual void vf_27c(INT, INT, INT, BYTE, INT, INT, INT, INT); /* 0x27c */
     virtual INT vf_280(INT, INT); /* 0x280 */
     virtual void vf_284(INT, INT, INT); /* 0x284 */
     virtual INT vf_288(INT); /* 0x288 */
@@ -65764,7 +65764,7 @@ struct UNetDriver : public USubsystem, public FNetObjectNotify {
     virtual INT vf_120(INT, INT, INT); /* 0x120 */
     virtual INT vf_124(INT, INT, INT); /* 0x124 */
     virtual void vf_128(); /* 0x128 */
-    virtual INT vf_12c(INT); /* 0x12c */
+    virtual INT vf_12c(FLOAT); /* 0x12c */
     virtual void vf_130(INT); /* 0x130 */
     virtual void vf_134(INT); /* 0x134 */
     virtual void vf_138(); /* 0x138 */
@@ -65813,7 +65813,7 @@ struct UDemoRecDriver : public UNetDriver {
     virtual INT vf_120(INT, INT, INT); /* 0x120 */
     virtual INT vf_124(INT, INT, INT); /* 0x124 */
     virtual void vf_128(); /* 0x128 */
-    virtual INT vf_12c(INT); /* 0x12c */
+    virtual INT vf_12c(FLOAT); /* 0x12c */
     /* other member functions */
     UINT sub_00c1a7a0(BYTE); /* 0x00c1a7a0 */
     /* registered size 0x214 */
@@ -66104,7 +66104,7 @@ struct UFMODAudioDevice : public UAudioDevice {
     virtual void vf_148(INT); /* 0x148 */
     virtual void vf_14c(INT); /* 0x14c */
     virtual void vf_150(INT); /* 0x150 */
-    virtual void vf_154(INT); /* 0x154 */
+    virtual void vf_154(FLOAT); /* 0x154 */
     virtual bool vf_158(INT); /* 0x158 */
     virtual void vf_15c(UINT); /* 0x15c */
     virtual INT vf_164(INT, INT); /* 0x164 */
@@ -66114,9 +66114,9 @@ struct UFMODAudioDevice : public UAudioDevice {
     virtual FLOAT vf_174(INT); /* 0x174 */
     virtual INT vf_178(INT); /* 0x178 */
     virtual INT vf_17c(INT); /* 0x17c */
-    virtual void vf_18c(INT, INT); /* 0x18c */
+    virtual void vf_18c(FLOAT, INT); /* 0x18c */
     virtual void vf_190(INT); /* 0x190 */
-    virtual INT vf_194(INT, INT); /* 0x194 */
+    virtual INT vf_194(INT, FLOAT); /* 0x194 */
     virtual void vf_198(INT); /* 0x198 */
     virtual void* vf_19c(void*, INT); /* 0x19c */
     virtual INT vf_1a0(INT); /* 0x1a0 */
@@ -71426,7 +71426,7 @@ struct UTcpNetDriver : public UNetDriver {
     virtual FString LowLevelGetNetworkNumber(); /* 0x118 */
     virtual INT vf_120(INT, INT, INT); /* 0x120 */
     virtual INT vf_124(INT, INT, INT); /* 0x124 */
-    virtual INT vf_12c(INT); /* 0x12c */
+    virtual INT vf_12c(FLOAT); /* 0x12c */
     /* other member functions */
     INT sub_00e2b890(); /* 0x00e2b890 */
     /* registered size 0x16c */
