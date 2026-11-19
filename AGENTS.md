@@ -183,13 +183,13 @@ happened; on HTTP 429 or 503 wait as told, don't retry in a loop.
 - The headers carry UE3's inline layer, as the engine's own headers had it: `TArray` (`AddItem`,
   `AddZeroed`, copies, placement `new`), `FString` (`operator*`, `Len`, copies), `FName`
   (`FName(TEXT("X"))`, `==`, `NAME_None`), the math types (`FVector` operators, `|` dot and `^` cross,
-  `Size`, `IsNearlyZero`; `FRotator`, `FQuat`, `FMatrix` transforms, `FBox`, `FColor`,
+  `Size`, `IsNearlyZero`, `SafeNormal`, `SafeNormal2D`, the SSE `appInvSqrt`; `FRotator`, `FQuat`, `FMatrix` transforms, `FBox`, `FColor`,
   `FLinearColor`) with `PI`, `SMALL_NUMBER`, `KINDA_SMALL_NUMBER` ..., the `RF_` object flags, and
   `UObject`'s `GetFName`, `GetOuter`, `HasAnyFlags`, `IsA`, `IsTemplate`, `GetName`, `GetArchetype<T>`
   (`ObjectFlags` is a `QWORD`), `GetDefault<T>`, `UClass::GetDefaultObject<T>`; `check`/`checkf`
   (Core.h), `Exchange`, `Sort<T, CompareClass>` and `IMPLEMENT_COMPARE_*` (Core.h); `FDist`, `PointDistToSegment`,
   `ClampLength`, `FMatrix::Inverse`/`InverseSafe` (two functions); `Cast<T>`, `CastChecked<T>` and `appErrorf` (`#include "ue3/Cast.h"`). `Classes.h`
-  includes `AppMath.h`. Use them; don't write local copies or helper structs that re-implement them.
+  includes `AppMath.h` (and so `<xmmintrin.h>` and `<malloc.h>`: don't redeclare `free` or `malloc`). Script iterators: `PRE_ITERATOR`/`POST_ITERATOR`/`EXIT_ITERATOR`/`SKIP_ITERATOR` (Script.h). Use them; don't write local copies or helper structs that re-implement them.
   If one is missing or its form doesn't match the code (a member called out of line, a different
   body), `flag` it with what the code shows.
 - Write the code the original programmer wrote: named fields and named virtuals from the headers. No
