@@ -64516,7 +64516,8 @@ struct UByteProperty : public UProperty {
     /* Core.ByteProperty (native only: no script package describes it) */
     DECLARE_CLASS(UByteProperty, UProperty, 0x10000000, 0x40, Core)
     void StaticConstructor(); /* 0x0062e020 */
-    BYTE _native[0x4]; /* C++-only members, to the registered size 0x74 */
+    /* UnType.h / UnObjectRedirector.h (the Serialize overrides read them at these offsets) */
+    class UEnum* Enum; /* 0x70 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -65270,7 +65271,8 @@ struct UColladaFactory : public UFactory {
     UColladaFactory() { *(DWORD*)((BYTE*)this + 0x50) |= 0x4; *(DWORD*)((BYTE*)this + 0x64) = 0; }
     void StaticConstructor(); /* 0x00f25070 */
     void InitializeIntrinsicPropertyValues(); /* 0x00f25130 */
-    BYTE _native[0x4]; /* C++-only members, to the registered size 0x68 */
+    /* offsets as the StaticConstructor registers them */
+    UBOOL bImportAsSkeletalMesh; /* 0x64 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -65768,7 +65770,9 @@ struct UDelegateProperty : public UProperty {
     /* Core.DelegateProperty (native only: no script package describes it) */
     DECLARE_CLASS(UDelegateProperty, UProperty, 0x10000000, 0x800000, Core)
     void StaticConstructor(); /* 0x0062e130 */
-    BYTE _native[0x8]; /* C++-only members, to the registered size 0x78 */
+    /* UnType.h / UnObjectRedirector.h (the Serialize overrides read them at these offsets) */
+    class UFunction* Function; /* 0x70 */
+    class UFunction* SourceDelegate; /* 0x74 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -66845,7 +66849,17 @@ struct UFunction : public UStruct {
     /* Core.Function (native only: no script package describes it) */
     DECLARE_CLASS(UFunction, UStruct, 0x10000000, 0x80000, Core)
     DECLARE_WITHIN(UState)
-    BYTE _native[0x20]; /* C++-only members, to the registered size 0xa4 */
+    /* UnClass.h (PC build: FriendlyName, no DLLImportFunctionPtr); offsets as UFunction::Serialize uses them */
+    DWORD FunctionFlags; /* 0x84 */
+    WORD iNative; /* 0x88 */
+    WORD RepOffset; /* 0x8a */
+    FName FriendlyName; /* 0x8c */
+    BYTE OperPrecedence; /* 0x94 */
+    BYTE NumParms; /* 0x95 */
+    WORD ParmsSize; /* 0x96 */
+    WORD ReturnValueOffset; /* 0x98 */
+    class UStructProperty* FirstStructWithDefaults; /* 0x9c */
+    void (UObject::*Func)(FFrame& Stack, RESULT_DECL); /* 0xa0 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -67841,7 +67855,8 @@ struct UInterfaceProperty : public UProperty {
     /* Core.InterfaceProperty (native only: no script package describes it) */
     DECLARE_CLASS(UInterfaceProperty, UProperty, 0x10000000, 0x1000, Core)
     void StaticConstructor(); /* 0x0062e840 */
-    BYTE _native[0x4]; /* C++-only members, to the registered size 0x74 */
+    /* UnType.h / UnObjectRedirector.h (the Serialize overrides read them at these offsets) */
+    class UClass* InterfaceClass; /* 0x70 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -68581,7 +68596,9 @@ struct UMapProperty : public UProperty {
     /* Core.MapProperty (native only: no script package describes it) */
     DECLARE_CLASS(UMapProperty, UProperty, 0x10000000, 0x400000, Core)
     void StaticConstructor(); /* 0x0062ed50 */
-    BYTE _native[0x8]; /* C++-only members, to the registered size 0x78 */
+    /* UnType.h / UnObjectRedirector.h (the Serialize overrides read them at these offsets) */
+    class UProperty* Key; /* 0x70 */
+    class UProperty* Value; /* 0x74 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -69126,7 +69143,8 @@ struct UObjectRedirector : public UObject {
     /* Core.ObjectRedirector (native only: no script package describes it) */
     DECLARE_CLASS(UObjectRedirector, UObject, 0x10000000, 0x0, Core)
     void StaticConstructor(); /* 0x0062da20 */
-    BYTE _native[0x4]; /* C++-only members, to the registered size 0x34 */
+    /* UnType.h / UnObjectRedirector.h (the Serialize overrides read them at these offsets) */
+    UObject* DestinationObject; /* 0x30 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -70876,7 +70894,10 @@ struct USkeletalMeshFactory : public UFactory {
     USkeletalMeshFactory(INT InParam = 0) { *(DWORD*)((BYTE*)this + 0x50) |= 4; *(DWORD*)((BYTE*)this + 0x6c) = InParam; *(DWORD*)((BYTE*)this + 0x64) = 0; *(DWORD*)((BYTE*)this + 0x68) = 0; } /* 0x00fb8890 */
     void StaticConstructor(); /* 0x00fa77f0 */
     void InitializeIntrinsicPropertyValues(); /* 0x00fa7940 */
-    BYTE _native[0xc]; /* C++-only members, to the registered size 0x70 */
+    /* offsets as the StaticConstructor registers them */
+    UBOOL bAssumeMayaCoordinates; /* 0x64 */
+    UBOOL bClothAsset; /* 0x68 */
+    BYTE _native[0x4]; /* C++-only members, to the registered size 0x70 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -70908,7 +70929,10 @@ struct USoundFactory : public UFactory {
     USoundFactory() { *(DWORD*)((BYTE*)this + 0x50) |= 0x4; }
     void StaticConstructor(); /* 0x00f23580 */
     void InitializeIntrinsicPropertyValues(); /* 0x00f23750 */
-    BYTE _native[0xc]; /* C++-only members, to the registered size 0x70 */
+    /* offsets as the StaticConstructor registers them */
+    UBOOL bAutoCreateCue; /* 0x64 */
+    UBOOL bIncludeAttenuationNode; /* 0x68 */
+    FLOAT CueVolume; /* 0x6c */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -70935,7 +70959,11 @@ struct UStaticMeshFactory : public UFactory {
     UStaticMeshFactory(); /* 0x00ffd720 */
     void StaticConstructor(); /* 0x00feecf0 */
     void InitializeIntrinsicPropertyValues(); /* 0x00ff3b30 */
-    BYTE _native[0x10]; /* C++-only members, to the registered size 0x74 */
+    /* offsets as the StaticConstructor registers them */
+    INT Pitch; /* 0x64 */
+    INT Roll; /* 0x68 */
+    INT Yaw; /* 0x6c */
+    UBOOL bOneConvexPerUCXObject; /* 0x70 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -70978,7 +71006,8 @@ struct URenderTargetCubeExporterTGA : public UExporter {
     DECLARE_CLASS(URenderTargetCubeExporterTGA, UExporter, 0x0, 0x0, Editor)
     void StaticConstructor(); /* 0x00f2b690 */
     void InitializeIntrinsicPropertyValues(); /* 0x00f2b7f0 */
-    BYTE _native[0x4]; /* C++-only members, to the registered size 0x5c */
+    /* offsets as the StaticConstructor registers them */
+    BYTE CubeFace; /* 0x58 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -71435,7 +71464,8 @@ struct USoundTTSFactory : public UFactory {
     void InitializeIntrinsicPropertyValues(); /* 0x00f20880 */
     BYTE _native0[0xc];
     FString Native_70; /* 0x70: C++ only (destroyed by its destructor) */
-    BYTE _native[0x4]; /* C++-only members, to the registered size 0x80 */
+    /* offsets as the StaticConstructor registers them */
+    FLOAT CueVolume; /* 0x7c */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -71449,7 +71479,8 @@ struct USpeedTreeFactory : public UFactory {
     USpeedTreeFactory() { *(DWORD*)((BYTE*)this + 0x50) |= 0x4; *(DWORD*)((BYTE*)this + 0x64) = 0x1; }
     void StaticConstructor(); /* 0x00f251d0 */
     void InitializeIntrinsicPropertyValues(); /* 0x00f252a0 */
-    BYTE _native[0x4]; /* C++-only members, to the registered size 0x68 */
+    /* offsets as the StaticConstructor registers them */
+    INT RandomSeed; /* 0x64 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -71563,7 +71594,8 @@ struct UStructProperty : public UProperty {
     /* Core.StructProperty (native only: no script package describes it) */
     DECLARE_CLASS(UStructProperty, UProperty, 0x10000000, 0x100000, Core)
     void StaticConstructor(); /* 0x0062ee10 */
-    BYTE _native[0x4]; /* C++-only members, to the registered size 0x74 */
+    /* UnType.h / UnObjectRedirector.h (the Serialize overrides read them at these offsets) */
+    class UScriptStruct* Struct; /* 0x70 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -72117,7 +72149,7 @@ struct UTextureMovieFactory : public UFactory {
     void StaticConstructor(); /* 0x00f281f0 */
     void InitializeIntrinsicPropertyValues(); /* 0x00f23e50 */
     BYTE MovieStreamSource; /* 0x64 */
-    BYTE _native[0x3]; /* C++-only members, to the registered size 0x68 */
+    /* (the registered size 0x68 is the trailing BYTE rounded up to the class alignment) */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -72132,7 +72164,7 @@ struct UTextureRenderTargetCubeFactoryNew : public UFactory {
     void InitializeIntrinsicPropertyValues(); /* 0x00f20c00 */
     INT Width; /* 0x64 */
     BYTE Format; /* 0x68 */
-    BYTE _native[0x3]; /* C++-only members, to the registered size 0x6c */
+    /* (the registered size 0x6c is the trailing BYTE rounded up to the class alignment) */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -72148,7 +72180,7 @@ struct UTextureRenderTargetFactoryNew : public UFactory {
     INT Width; /* 0x64 */
     INT Height; /* 0x68 */
     BYTE Format; /* 0x6c */
-    BYTE _native[0x3]; /* C++-only members, to the registered size 0x70 */
+    /* (the registered size 0x70 is the trailing BYTE rounded up to the class alignment) */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -72196,7 +72228,8 @@ struct UTrueTypeFontFactory : public UFontFactory {
     DECLARE_CLASS(UTrueTypeFontFactory, UFontFactory, 0x2000, 0x0, Editor)
     void StaticConstructor(); /* 0x00ecd9c0 */
     void InitializeIntrinsicPropertyValues(); /* 0x00ec9c20 */
-    BYTE _native[0x4]; /* C++-only members, to the registered size 0xb4 */
+    /* offsets as the StaticConstructor registers them */
+    class UFontImportOptions* ImportOptions; /* 0xb0 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
