@@ -6,7 +6,7 @@
 int sub_005c7a20(void);
 
 // @baa 0x01540060
-int URSeqVar_RandomVector::vf_198(int a0) { return 0; }
+UBOOL URSeqVar_RandomVector::SupportsProperty(UProperty* Property) { return FALSE; }
 
 // @baa 0x01540070
 IMPLEMENT_CLASS_AT(URSeqVar_RandomVector, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonGame\\Src\\CommonGameSequenceClasses.cpp", 10);
@@ -24,13 +24,13 @@ undefined4 * UObject::sub_01540570(void)
 }
 
 // @baa 0x01540590
-int URSeqVar_GlobalFlag::vf_198(int a0) { return 0; }
+UBOOL URSeqVar_GlobalFlag::SupportsProperty(UProperty* Property) { return FALSE; }
 
 // @baa 0x015405a0
 IMPLEMENT_CLASS_AT(URSeqVar_GlobalFlag, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonGame\\Src\\RFlagManager.cpp", 19);
 
 // @baa 0x01540650
-int URSeqVar_LocalFlag::vf_198(int a0) { return 0; }
+UBOOL URSeqVar_LocalFlag::SupportsProperty(UProperty* Property) { return FALSE; }
 
 // @baa 0x01540660
 IMPLEMENT_CLASS_AT(URSeqVar_LocalFlag, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonGame\\Src\\RFlagManager.cpp", 18);

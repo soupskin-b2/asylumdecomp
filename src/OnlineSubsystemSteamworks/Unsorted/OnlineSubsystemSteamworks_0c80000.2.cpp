@@ -8,7 +8,7 @@
 void AGameInfo::execDoSentinelActionPerLoadedMap( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_364();
+	DoSentinelActionPerLoadedMap();
 }
 
 // @baa 0x00c89350

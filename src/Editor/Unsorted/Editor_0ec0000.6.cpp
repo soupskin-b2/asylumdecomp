@@ -8,7 +8,7 @@
 void UBrushBuilder::execPolyEnd( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_13c();
+	PolyEnd();
 }
 
 // Classes.h declares vf_110 as returning void, but EndBrush returns UBOOL.

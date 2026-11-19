@@ -285,7 +285,7 @@ struct C_00c4c3b0 { int sub_00c4c3b0(void); };
 int C_00c4c3b0::sub_00c4c3b0(void) { return *(int*)((char*)this + 0); }
 
 // @baa 0x00c50070
-bool UAnimNode::vf_14c(void)
+bool UAnimNode::ShouldSaveCachedResults(void)
 {
     int param_1 = (int)this;
 
@@ -904,7 +904,7 @@ int UAnimNode::vf_138(void) { return 1; }
 int UAnimNode::vf_13c(void) { return 1; }
 
 // @baa 0x00c646a0
-void UAnimNode::vf_140(int a0) {  }
+void UAnimNode::BuildTickArray(TArray<UAnimNode*>& OutTickArray) {}
 
 // @baa 0x00c646b0
 void* UAnimNode::vf_158() { return 0; }

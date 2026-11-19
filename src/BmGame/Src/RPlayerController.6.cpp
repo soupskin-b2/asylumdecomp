@@ -23,7 +23,7 @@ void ARPlayerController::execFE_UnblockInitialNotifies(FFrame& Stack, RESULT_DEC
 void ARPlayerController::execDebugUpdateAmbientTree( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_488();
+	DebugUpdateAmbientTree();
 }
 
 // @baa 0x016f8050

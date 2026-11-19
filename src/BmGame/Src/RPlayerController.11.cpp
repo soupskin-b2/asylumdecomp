@@ -18,7 +18,7 @@ void ARPlayerController_::sub_016153e0(class ARSpecialMoveInstance* NewMove)
 		if (NewCurrentSpecialMove != NewMove && !NewCurrentSpecialMove->eventForceNotDestroy())
 		{
 			NewCurrentSpecialMove->eventCancelSpecialMove();
-			GWorld->sub_007e72a0(NewCurrentSpecialMove, FALSE, TRUE);
+			GWorld->DestroyActor(NewCurrentSpecialMove, FALSE, TRUE);
 		}
 	}
 	NewCurrentSpecialMove = NewMove;

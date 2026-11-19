@@ -30,7 +30,7 @@ void ANxCylindricalForceFieldCapsule_::sub_00d6b740()
 }
 
 // @baa 0x00d6b7d0
-void ANxGenericForceFieldBox::vf_354()
+void ANxGenericForceFieldBox::DoInitRBPhys()
 {
 	ForceField.Dummy = 0;
 	LinearKernel.Dummy = 0;

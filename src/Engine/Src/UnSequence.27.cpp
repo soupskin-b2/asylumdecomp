@@ -143,14 +143,14 @@ struct USequenceObject_ : public USequenceObject
 
 // @baa 0x008aa270
 /* USequenceObject slot 0x120 (kit vf_120, UE3's OnCreated()): stamp the object with its class's current version. */
-void USequenceObject::vf_120()
+void USequenceObject::OnCreated()
 {
     ObjInstanceVersion = ((USequenceObject_*)this)->eventGetObjClassVersion();
 }
 
 // @baa 0x008e2270
 /* USequence slot 0x120 (kit vf_120, UE3's OnCreated()): stamp the version, then slot 0x1a4. */
-void USequence::vf_120()
+void USequence::OnCreated()
 {
     ObjInstanceVersion = ((USequenceObject_*)this)->eventGetObjClassVersion();
     vf_1a4();
@@ -158,7 +158,7 @@ void USequence::vf_120()
 
 // @baa 0x008ac570
 /* USeqEvent_ParticleEvent slot 0x120 (kit vf_120, UE3's OnCreated()): stamp the version, then slot 0x1a8 with 0. */
-void USeqEvent_ParticleEvent::vf_120()
+void USeqEvent_ParticleEvent::OnCreated()
 {
     ObjInstanceVersion = ((USequenceObject_*)this)->eventGetObjClassVersion();
     vf_1a8(0);

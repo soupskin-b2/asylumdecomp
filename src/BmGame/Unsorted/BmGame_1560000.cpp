@@ -1909,7 +1909,7 @@ void UObjectThunk::sub_0156fbc0()
 }
 
 // @baa 0x0156fc40
-int URSeqVar_Croc::vf_198(int a0) { return 0; }
+UBOOL URSeqVar_Croc::SupportsProperty(UProperty* Property) { return FALSE; }
 
 // @baa 0x0156fc50
 FString URSeqVar_Croc::vf_194()
@@ -2004,7 +2004,7 @@ void UObjectThunk_0156fd30::sub_0156fd30()
 }
 
 // @baa 0x0156fdb0
-int URSeqVar_Frank::vf_198(int a0) { return 0; }
+UBOOL URSeqVar_Frank::SupportsProperty(UProperty* Property) { return FALSE; }
 
 // @baa 0x0156fdc0
 FString URSeqVar_Frank::vf_194()
@@ -2099,7 +2099,7 @@ void UObjectThunk_0156fea0::sub_0156fea0()
 }
 
 // @baa 0x0156ff20
-int URSeqVar_Joker::vf_198(int a0) { return 0; }
+UBOOL URSeqVar_Joker::SupportsProperty(UProperty* Property) { return FALSE; }
 
 // @baa 0x0156ff30
 FString URSeqVar_Joker::vf_194()

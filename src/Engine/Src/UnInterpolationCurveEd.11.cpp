@@ -73,7 +73,7 @@ void UInterpTrackFloatBase::RemoveKeyframe(INT KeyIndex)
     if (KeyIndex >= 0 && KeyIndex < FloatTrack.Points.Num())
     {
         FloatTrack.Points.Remove(KeyIndex);
-        FloatTrack.sub_007b96a0(CurveTension);
+        FloatTrack.AutoSetTangents(CurveTension);
     }
 }
 

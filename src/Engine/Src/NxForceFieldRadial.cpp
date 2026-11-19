@@ -20,7 +20,7 @@ bool ANxForceFieldRadial::vf_004()
 }
 
 // @baa 0x00a34750
-void ANxForceFieldRadial::vf_354()
+void ANxForceFieldRadial::DoInitRBPhys()
 {
 	Kernel.Dummy = 0;
 	ForceField.Dummy = 0;

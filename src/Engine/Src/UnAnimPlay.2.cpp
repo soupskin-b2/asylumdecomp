@@ -143,7 +143,7 @@ void UAnimNodeSequence::OnAnimEnd(FLOAT PlayedTime, FLOAT ExcessTime)
 
 	if (bForceRefposeWhenNotPlaying && !SkelComponent->bForceRefpose)
 	{
-		SkelComponent->sub_0090eaa0(TRUE);
+		SkelComponent->SetForceRefPose(TRUE);
 	}
 
 	// notify the owning actor

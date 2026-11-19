@@ -10,7 +10,7 @@ void USeqAct_CrowdSpawner::vf_154()
 {
     if (RepActor != NULL)
     {
-        GWorld->sub_007e72a0(RepActor, FALSE, TRUE);
+        GWorld->DestroyActor(RepActor, FALSE, TRUE);
         RepActor = NULL;
     }
 }

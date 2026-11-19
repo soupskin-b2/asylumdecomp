@@ -59,15 +59,11 @@ FLOAT USkeletalMeshComponent_::sub_0090e6a0(INT Arg)
     return 0.f;
 }
 
-int sub_00765d00(void);
 // @baa 0x0090eaa0
-void USkeletalMeshComponent::sub_0090eaa0(undefined4 param_2)
+void USkeletalMeshComponent::SetForceRefPose(UBOOL bNewForceRefPose)
 {
-    int param_1 = (int)this;
-
-  *(undefined4 *)(param_1 + 0x2f0) = param_2;
-  sub_00765d00();
-  return;
+    bForceRefpose = bNewForceRefPose;
+    BeginDeferredReattach();
 }
 
 /* Unnamed in the kit: UE3's USkeletalMeshComponent::FindAnimNode(FName InNodeName): search the anim tree. */

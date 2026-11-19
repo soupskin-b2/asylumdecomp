@@ -234,7 +234,7 @@ struct C_view_00759550 {
     virtual int vf_00c();
     virtual int vf_010();
     virtual int vf_014();
-    virtual int vf_018();
+    virtual int Modify();
     virtual int PostLoad();
     virtual int BeginDestroy();
     virtual int IsReadyForFinishDestroy();

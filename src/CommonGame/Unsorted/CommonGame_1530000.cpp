@@ -746,7 +746,7 @@ undefined4 * UObject::sub_0153ff40(void)
 }
 
 // @baa 0x0153ff60
-int URSeqVar_AnalogControlFloat::vf_198(int a0) { return 0; }
+UBOOL URSeqVar_AnalogControlFloat::SupportsProperty(UProperty* Property) { return FALSE; }
 
 // @baa 0x0153ff70
 IMPLEMENT_CLASS_AT(URSeqVar_AnalogControlFloat, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonGame\\Src\\CommonGameSequenceClasses.cpp", 11);

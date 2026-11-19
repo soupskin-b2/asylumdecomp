@@ -30,7 +30,7 @@ template<typename T> struct TArrayAddUnique_ : public TArray<T>
 /* Kit gap: UUIScene::GetSceneDataStore (00db0a70) is declared returning UINT. */
 struct UUIScene_ : public UUIScene
 {
-	USceneDataStore* sub_00db0a70();	/* GetSceneDataStore */
+	USceneDataStore* GetSceneDataStore();	/* GetSceneDataStore */
 };
 
 // @baa 0x00d95840
@@ -69,7 +69,7 @@ void UDataStoreClient::GetAvailableDataStores(UUIScene* CurrentScene, TArray<UUI
 			}
 		}
 
-		UUIDataStore* SceneDataStore = ((UUIScene_*)CurrentScene)->sub_00db0a70();
+		UUIDataStore* SceneDataStore = ((UUIScene_*)CurrentScene)->GetSceneDataStore();
 		if (SceneDataStore != NULL)
 		{
 			DataStores.AddUniqueItem(SceneDataStore);

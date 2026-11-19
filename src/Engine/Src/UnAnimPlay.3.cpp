@@ -75,7 +75,7 @@ void UAnimNodeSequence::PlayAnim(UBOOL bLoop, FLOAT InRate, FLOAT StartTime)
 	// Playing an animation takes the mesh out of its reference pose.
 	if (bForceRefposeWhenNotPlaying && SkelComponent->bForceRefpose)
 	{
-		SkelComponent->sub_0090eaa0(FALSE);		/* SetForceRefPose */
+		SkelComponent->SetForceRefPose(FALSE);		/* SetForceRefPose */
 	}
 
 	if (bCauseActorAnimPlay && SkelComponent->Owner)

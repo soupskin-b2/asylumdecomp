@@ -17,7 +17,7 @@ struct FBoxSphereBounds_ : public FBoxSphereBounds
 
 // @baa 0x0075ea00
 /* UpdateBounds: the quad's extent, around the component. */
-void UDrawQuadComponent::vf_160()
+void UDrawQuadComponent::UpdateBounds()
 {
 	Bounds = FBoxSphereBounds_(LocalToWorld.TransformFVector(FVector(0, 0, 0)), FVector(16.0f, Width, Height), Max(Width, Height));
 }

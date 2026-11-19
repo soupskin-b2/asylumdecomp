@@ -660,13 +660,13 @@ bool URCapeStateConfigFactoryNew::vf_004()
 // @baa 0x016cd890
 void URCapeComponent::vf_134(INT)
 {
-    sub_016cd7b0(1, 1);
+    InitEnable(1, 1);
 }
 
 // @baa 0x016cd8a0
 void URCapeComponent::vf_13c(INT)
 {
-    sub_016cd7b0(1, 0);
+    InitEnable(1, 0);
 }
 
 // @baa 0x016c6d40

@@ -31,10 +31,10 @@ int C_00ec1640::sub_00ec1640(void)
 }
 
 // @baa 0x00ec1650
-int UBrushBuilder::vf_120(int a0) { return 0; }
+int UBrushBuilder::BadParameters(int a0) { return 0; }
 
 // @baa 0x00ec1660
-void UBrushBuilder::vf_13c(void) {  }
+void UBrushBuilder::PolyEnd(void) {  }
 
 // @baa 0x00ec17b0
 BYTE __stdcall sub_00ec17b0(UINT a1, UINT a2, UINT a3, UINT a4, UINT a5)
@@ -798,10 +798,10 @@ bool UEditorPlayer::vf_004()
 }
 
 // @baa 0x00ec6970
-int UBrushBuilder::vf_114(void) { return *(int*)((char*)this + 76); }
+int UBrushBuilder::GetVertexCount(void) { return *(int*)((char*)this + 76); }
 
 // @baa 0x00ec6980
-int UBrushBuilder::vf_11c(void) { return *(int*)((char*)this + 88); }
+int UBrushBuilder::GetPolyCount(void) { return *(int*)((char*)this + 88); }
 
 // @baa 0x00ec6aa0
 int UBrushBuilder::vf_000(void) { return 1; }

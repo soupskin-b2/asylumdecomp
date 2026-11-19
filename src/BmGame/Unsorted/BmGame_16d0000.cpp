@@ -82,7 +82,7 @@ bool ARCrowdAttractor::vf_004()
 int ARCrowdAttractor_Cylinder::vf_000(void) { return 1; }
 
 // @baa 0x016d1a10
-int ARCrowdAgent::vf_174(int a0, int a1) { return 1; }
+UBOOL ARCrowdAgent::Tick(FLOAT DeltaTime, ELevelTick TickType) { return TRUE; }
 
 // @baa 0x016d1a20
 int sub_016d1a20(int a0, int a1) { return a1; }

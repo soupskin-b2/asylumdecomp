@@ -17,7 +17,7 @@ struct FBoxSphereBounds_ : public FBoxSphereBounds
 
 // @baa 0x0071b1b0
 /* UpdateBounds: a cube the size of the (scaled) sprite, centered on the component. */
-void USpriteComponent::vf_160()
+void USpriteComponent::UpdateBounds()
 {
 	const FLOAT Scale = Owner ? Owner->DrawScale : 1.0f;
 	const FLOAT Size = (Sprite ? (FLOAT)Max(Sprite->SizeX, Sprite->SizeY) : 1.0f) * Scale;

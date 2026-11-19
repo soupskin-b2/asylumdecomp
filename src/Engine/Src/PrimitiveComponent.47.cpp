@@ -17,7 +17,7 @@ struct FBoxSphereBounds_ : public FBoxSphereBounds
 
 // @baa 0x006dcb20
 /* UpdateBounds: a box around the (scaled) cylinder, centered on the component. */
-void UCylinderComponent::vf_160()
+void UCylinderComponent::UpdateBounds()
 {
 	const FVector BoxPoint = FVector(CollisionRadius * AABBScale, CollisionRadius * AABBScale, CollisionHeight);
 	Bounds = FBoxSphereBounds_(LocalToWorld.GetOrigin(), BoxPoint, BoxPoint.Size());
@@ -25,7 +25,7 @@ void UCylinderComponent::vf_160()
 
 // @baa 0x006dee10
 /* UpdateBounds: a fixed 128-unit box around the component. */
-void UCameraConeComponent::vf_160()
+void UCameraConeComponent::UpdateBounds()
 {
 	Bounds = FBoxSphereBounds_(LocalToWorld.GetOrigin(), FVector(128, 128, 128), 128);
 }

@@ -27,7 +27,7 @@ struct FInner_00c96bb0
 	virtual void vf_00c();
 	virtual void vf_010();
 	virtual void vf_014();
-	virtual void vf_018();
+	virtual void Modify();
 	virtual void vf_01c();
 	virtual void vf_020();
 	virtual void vf_024();

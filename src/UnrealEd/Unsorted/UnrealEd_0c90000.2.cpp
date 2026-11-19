@@ -8,7 +8,7 @@
 void ANxGenericForceFieldBox::execDoInitRBPhys( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_354();
+	DoInitRBPhys();
 }
 
 // @baa 0x00c9b410

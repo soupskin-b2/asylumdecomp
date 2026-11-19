@@ -17,7 +17,7 @@ struct FBoxSphereBounds_ : public FBoxSphereBounds
 
 // @baa 0x006aa380
 /* UpdateBounds: a box reaching the far end of the frustum, around the component. */
-void UDrawFrustumComponent::vf_160()
+void UDrawFrustumComponent::UpdateBounds()
 {
 	Bounds = FBoxSphereBounds_(LocalToWorld.TransformFVector(FVector(0, 0, 0)), FVector(FrustumEndDist, FrustumEndDist, FrustumEndDist), FrustumEndDist);
 }

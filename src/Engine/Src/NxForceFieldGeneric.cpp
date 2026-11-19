@@ -95,7 +95,7 @@ bool ANxForceFieldGeneric::vf_004()
 }
 
 // @baa 0x00a34500
-void ANxForceFieldGeneric::vf_354()
+void ANxForceFieldGeneric::DoInitRBPhys()
 {
 	LinearKernel.Dummy = 0;
 	ForceField.Dummy = 0;

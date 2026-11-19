@@ -1052,7 +1052,7 @@ void UInterpTrackFloatBase::PostEditChange(UProperty* PropertyThatChanged)
     if (Randomiser.bUseRandomise) {
         vf_160();
     }
-    ((FInterpCurveFloat&)FloatTrack).sub_007b96a0(CurveTension);
+    ((FInterpCurveFloat&)FloatTrack).AutoSetTangents(CurveTension);
     UInterpTrack::PostEditChange(PropertyThatChanged);
 }
 
@@ -1422,12 +1422,6 @@ INT UInterpTrackSound::DuplicateKeyframe(INT KeyIndex, FLOAT NewKeyTime)
     return i;
 }
 
-/* FInterpCurve<FLOAT> (UnMath.h): AddPoint out of line in the exe (007b95b0), AutoSetTangents is the kit's sub_007b96a0 */
-struct FInterpCurveFloat_ : public FInterpCurveFloat
-{
-    void AutoSetTangents(FLOAT Tension) { sub_007b96a0(Tension); }
-};
-
 // @baa 0x00cfb470
 INT UInterpTrackFloatBase::DuplicateKeyframe(INT KeyIndex, FLOAT NewKeyTime)
 {
@@ -1436,7 +1430,7 @@ INT UInterpTrackFloatBase::DuplicateKeyframe(INT KeyIndex, FLOAT NewKeyTime)
         return INDEX_NONE;
     }
 
-    FInterpCurveFloat_& Curve = (FInterpCurveFloat_&)FloatTrack;
+    FInterpCurveFloat& Curve = FloatTrack;
     TArrayAt_<FInterpCurvePointFloat>& Points = (TArrayAt_<FInterpCurvePointFloat>&)FloatTrack.Points;
 
     FInterpCurvePointFloat FloatPoint = Points.At(KeyIndex);
@@ -1475,10 +1469,10 @@ INT UInterpTrackVectorBase::DuplicateKeyframe(INT KeyIndex, FLOAT NewKeyTime)
 // @baa 0x00cfbcf0
 INT UInterpTrackFade::AddKeyframe(FLOAT Time, UInterpTrackInst* TrInst, BYTE InitInterpMode)
 {
-    INT NewKeyIndex = ((FInterpCurveFloat_&)FloatTrack).AddPoint(Time, 0.f);
+    INT NewKeyIndex = FloatTrack.AddPoint(Time, 0.f);
     ((TArrayAt_<FInterpCurvePointFloat>&)FloatTrack.Points).At(NewKeyIndex).InterpMode = InitInterpMode;
 
-    ((FInterpCurveFloat_&)FloatTrack).AutoSetTangents(CurveTension);
+    FloatTrack.AutoSetTangents(CurveTension);
 
     return NewKeyIndex;
 }
@@ -1486,10 +1480,10 @@ INT UInterpTrackFade::AddKeyframe(FLOAT Time, UInterpTrackInst* TrInst, BYTE Ini
 // @baa 0x00cfbeb0
 INT UInterpTrackSlomo::AddKeyframe(FLOAT Time, UInterpTrackInst* TrInst, BYTE InitInterpMode)
 {
-    INT NewKeyIndex = ((FInterpCurveFloat_&)FloatTrack).AddPoint(Time, 1.f);
+    INT NewKeyIndex = FloatTrack.AddPoint(Time, 1.f);
     ((TArrayAt_<FInterpCurvePointFloat>&)FloatTrack.Points).At(NewKeyIndex).InterpMode = InitInterpMode;
 
-    ((FInterpCurveFloat_&)FloatTrack).AutoSetTangents(CurveTension);
+    FloatTrack.AutoSetTangents(CurveTension);
 
     return NewKeyIndex;
 }

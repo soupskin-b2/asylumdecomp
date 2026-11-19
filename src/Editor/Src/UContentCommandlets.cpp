@@ -641,7 +641,7 @@ void sub_00e70850(void)
 }
 
 // @baa 0x01059980
-int USoundGroupInfoCommandlet::vf_10c(int a0) { return 0; }
+int USoundGroupInfoCommandlet::Main(int a0) { return 0; }
 
 int sub_005e1960(...);
 int sub_00f1bb60(void);

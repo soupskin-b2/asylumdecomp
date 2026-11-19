@@ -241,7 +241,7 @@ INT UUIObject::vf_200(INT LeftTarget, INT TopTarget, INT RightTarget, INT Bottom
     INT bResult = FALSE;
     if (vf_230(0, LeftTarget) && vf_230(1, TopTarget) && vf_230(2, RightTarget) && vf_230(3, BottomTarget))
     {
-        vf_018(FALSE);
+        Modify(FALSE);
         if (NavigationTargets.sub_00ddeeb0(LeftTarget, TopTarget, RightTarget, BottomTarget))
         {
             RequestSceneUpdate(FALSE, FALSE, TRUE, FALSE);

@@ -24,7 +24,7 @@ struct USequenceObject_ : public USequenceObject
 
 // @baa 0x008cb5d0
 /* USeqVar_ObjectList slot 0x120 (kit vf_120, UE3's OnCreated()): stamp the version and start with an empty list. */
-void USeqVar_ObjectList::vf_120()
+void USeqVar_ObjectList::OnCreated()
 {
     ObjInstanceVersion = ((USequenceObject_*)this)->eventGetObjClassVersion();
     ObjList.Empty();

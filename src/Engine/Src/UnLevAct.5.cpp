@@ -21,7 +21,7 @@ UBOOL UWorld_::sub_007ed180(AActor* ThisActor, UBOOL bShouldModifyLevel)
         GetWorldInfo()->bPathsRebuilt = GetWorldInfo()->bPathsRebuilt && FALSE;
     }
 
-    return sub_007e72a0(ThisActor, FALSE, bShouldModifyLevel); // DestroyActor
+    return DestroyActor(ThisActor, FALSE, bShouldModifyLevel); // DestroyActor
 }
 
 #line 32 "candidate.cpp"

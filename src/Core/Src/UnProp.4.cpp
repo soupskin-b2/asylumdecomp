@@ -619,7 +619,7 @@ INT UFloatProperty::HasValue(INT Data, INT PortFlags)
 
 // @baa 0x0062b130
 /* CopyCompleteValue: copies every element of the name array. */
-void UNameProperty::vf_148(void* Dest, void* Src, UObject* SubobjectRoot, UObject* DestOwnerObject, FObjectInstancingGraph* InstanceGraph)
+void UNameProperty::CopyCompleteValue(void* Dest, void* Src, UObject* SubobjectRoot, UObject* DestOwnerObject, FObjectInstancingGraph* InstanceGraph)
 {
 	if (ArrayDim == 1)
 	{

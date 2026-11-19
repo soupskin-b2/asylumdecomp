@@ -64,19 +64,13 @@ INT UInterpTrackVectorMaterialParam::AddKeyframe(FLOAT Time, UInterpTrackInst* T
     return NewKeyIndex;
 }
 
-/* FInterpCurve<FLOAT> (UnMath.h): AddPoint out of line in the exe (007b95b0), AutoSetTangents is the kit's sub_007b96a0 */
-struct FInterpCurveFloat_ : public FInterpCurveFloat
-{
-    void AutoSetTangents(FLOAT Tension) { sub_007b96a0(Tension); }
-};
-
 // @baa 0x00cfc450
 INT UInterpTrackFloatParticleParam::AddKeyframe(FLOAT Time, UInterpTrackInst* TrInst, BYTE InitInterpMode)
 {
-    INT NewKeyIndex = ((FInterpCurveFloat_&)FloatTrack).AddPoint(Time, 0.f);
+    INT NewKeyIndex = FloatTrack.AddPoint(Time, 0.f);
     ((TArrayAt_<FInterpCurvePointFloat>&)FloatTrack.Points).At(NewKeyIndex).InterpMode = InitInterpMode;
 
-    ((FInterpCurveFloat_&)FloatTrack).AutoSetTangents(CurveTension);
+    FloatTrack.AutoSetTangents(CurveTension);
 
     return NewKeyIndex;
 }
@@ -84,10 +78,10 @@ INT UInterpTrackFloatParticleParam::AddKeyframe(FLOAT Time, UInterpTrackInst* Tr
 // @baa 0x00cfc4d0
 INT UInterpTrackFloatMaterialParam::AddKeyframe(FLOAT Time, UInterpTrackInst* TrInst, BYTE InitInterpMode)
 {
-    INT NewKeyIndex = ((FInterpCurveFloat_&)FloatTrack).AddPoint(Time, 0.f);
+    INT NewKeyIndex = FloatTrack.AddPoint(Time, 0.f);
     ((TArrayAt_<FInterpCurvePointFloat>&)FloatTrack.Points).At(NewKeyIndex).InterpMode = InitInterpMode;
 
-    ((FInterpCurveFloat_&)FloatTrack).AutoSetTangents(CurveTension);
+    FloatTrack.AutoSetTangents(CurveTension);
 
     return NewKeyIndex;
 }

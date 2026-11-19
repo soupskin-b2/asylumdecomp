@@ -190,7 +190,7 @@ void UAnimNodeSequence_::sub_00c67d30(FLOAT DeltaSeconds, FLOAT TotalWeight)
         if (bPlaying && AnimSeq)
         {
             const FLOAT MoveDelta = SkelComponent->GlobalAnimRateScale * AnimSeq->RateScale * Rate * DeltaSeconds;
-            sub_00c5e2f0(MoveDelta, DeltaSeconds, !SkelComponent->bUseRawData);
+            AdvanceBy(MoveDelta, DeltaSeconds, !SkelComponent->bUseRawData);
         }
     }
 

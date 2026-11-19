@@ -50,7 +50,7 @@ bool sub_01688ba0(BYTE* P)
 // @baa 0x01688730
 void ARPawnPlayerBm::vf_668(INT P)
 {
-    CapeComponent->sub_016cd7b0(0, 0);
+    CapeComponent->InitEnable(0, 0);
 }
 
 const TCHAR* sub_01686d70();

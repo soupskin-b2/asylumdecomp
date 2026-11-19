@@ -94,13 +94,13 @@ struct C_view {
     virtual void vf_00c();
     virtual void vf_010();
     virtual void vf_014();
-    virtual void vf_018(int);
+    virtual void Modify(int);
 };
 
 // @baa 0x005c1a00
 void UObject::PreEditChange(UProperty* a)
 {
-    vf_018(0);
+    Modify(0);
 }
 
 struct V_005c1a30 {

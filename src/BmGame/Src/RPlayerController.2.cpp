@@ -1806,7 +1806,7 @@ undefined4 * UObject::sub_0171e550(void)
 }
 
 // @baa 0x0171e570
-int URSeqVar_DDAIntValue::vf_198(int a0) { return 0; }
+UBOOL URSeqVar_DDAIntValue::SupportsProperty(UProperty* Property) { return FALSE; }
 
 int sub_008aba50(void);
 int sub_01586200(...);

@@ -373,39 +373,14 @@ UBOOL USeqAct_CameraLookAt::UpdateOp(FLOAT DeltaTime)
     return TRUE;
 }
 
-/* FIntPoint's constructor and FIntRect (UnMath.h); not in the kit's headers. */
-struct FIntPoint_ : public FIntPoint
-{
-    FIntPoint_() {}
-    FIntPoint_(INT InX, INT InY) { X = InX; Y = InY; }
-};
-
-struct FIntRect
-{
-    FIntPoint_ Min, Max;
-    FIntRect() {}
-    FIntRect(INT X0, INT Y0, INT X1, INT Y1) : Min(X0, Y0), Max(X1, Y1) {}
-};
-
-/* slot 0x134 (vf_134) is USequenceObject::GetSeqObjBounds (0x00d201a0 for the base) */
-struct USequenceObject_ : public USequenceObject
-{
-    FIntRect GetSeqObjBounds();
-};
-
-struct USequenceFrame_ : public USequenceFrame
-{
-    FIntRect GetSeqObjBounds();
-};
-
 // @baa 0x008bbe70
-FIntRect USequenceFrame_::GetSeqObjBounds()
+FIntRect USequenceFrame::GetSeqObjBoundingBox()
 {
     if (bDrawBox)
     {
         return FIntRect(ObjPosX, ObjPosY, ObjPosX + SizeX, ObjPosY + SizeY);
     }
-    return ((USequenceObject_*)this)->USequenceObject_::GetSeqObjBounds();
+    return USequenceObject::GetSeqObjBoundingBox();
 }
 
 /* slot 0x194 (vf_194) is USequenceVariable::GetValueStr */

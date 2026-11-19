@@ -105,7 +105,7 @@ UBOOL UAnimNodeSequence::CanUseCachedBoneAtoms()
 // @baa 0x00c5e2f0
 /* AdvanceBy: moves the play position by MoveDelta, firing notifies on the way, and handles reaching either end
  * (wrap when looping, else stop and call OnAnimEnd with the time played and the excess). */
-void UAnimNodeSequence::sub_00c5e2f0(FLOAT MoveDelta, FLOAT DeltaSeconds, UBOOL bFireNotifies)
+void UAnimNodeSequence::AdvanceBy(FLOAT MoveDelta, FLOAT DeltaSeconds, UBOOL bFireNotifies)
 {
 	if (AnimSeq == NULL || MoveDelta == 0.f || DeltaSeconds == 0.f)
 	{

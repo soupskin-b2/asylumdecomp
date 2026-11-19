@@ -266,7 +266,7 @@ BYTE UUIScreenObject::GetInputMask(UBOOL bInheritedMaskOnly, UBOOL bOverrideMask
 
 struct UUIScene__00ca6510 : public UUIScene
 {
-	USceneDataStore* sub_00db0a70();
+	USceneDataStore* GetSceneDataStore();
 	void execGetSceneDataStore(FFrame& Stack, RESULT_DECL);
 };
 
@@ -275,7 +275,7 @@ void UUIScene__00ca6510::execGetSceneDataStore(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
 
-	*(USceneDataStore**)Result = sub_00db0a70();
+	*(USceneDataStore**)Result = GetSceneDataStore();
 }
 
 struct UUIScreenObject__00d990d0 : public UUIScreenObject

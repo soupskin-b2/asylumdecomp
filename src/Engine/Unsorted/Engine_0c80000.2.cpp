@@ -192,7 +192,7 @@ void ACrowdAgent::execPlayDeath( FFrame& Stack, RESULT_DECL )
 void ASkeletalMeshActorMAT::execMAT_FinishAnimControl( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	vf_360();
+	MAT_FinishAnimControl();
 }
 
 struct AController__00c84e30 : public AController

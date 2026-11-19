@@ -3517,7 +3517,7 @@ struct URBMWaveController_ : public URBMWaveController
 
 // @baa 0x015e1e60
 /* Slot 0x120 (UpdateObject): refresh the links, then take the class's current version. */
-void URBMWaveController::vf_120()
+void URBMWaveController::OnCreated()
 {
 	vf_1a4();
 	ObjInstanceVersion = ((URBMWaveController_*)this)->eventGetObjClassVersion();
@@ -3541,7 +3541,7 @@ struct URBMPawnSpawnerController_ : public URBMPawnSpawnerController
 
 // @baa 0x015e1ef0
 /* Slot 0x120 (UpdateObject): refresh the links, then take the class's current version. */
-void URBMPawnSpawnerController::vf_120()
+void URBMPawnSpawnerController::OnCreated()
 {
 	vf_1ac();
 	ObjInstanceVersion = ((URBMPawnSpawnerController_*)this)->eventGetObjClassVersion();
@@ -3565,7 +3565,7 @@ struct URSeqAct_GetNumPawnsInVolume_ : public URSeqAct_GetNumPawnsInVolume
 
 // @baa 0x015e2090
 /* Slot 0x120 (UpdateObject): refresh the links, then take the class's current version. */
-void URSeqAct_GetNumPawnsInVolume::vf_120()
+void URSeqAct_GetNumPawnsInVolume::OnCreated()
 {
 	vf_19c();
 	ObjInstanceVersion = ((URSeqAct_GetNumPawnsInVolume_*)this)->eventGetObjClassVersion();

@@ -206,7 +206,7 @@ struct URBMExitConditionCombiner_ : public URBMExitConditionCombiner
 
 // @baa 0x015dee30
 /* Slot 0x120 (UpdateObject): refresh the links, then take the class's current version. */
-void URBMExitConditionCombiner::vf_120()
+void URBMExitConditionCombiner::OnCreated()
 {
 	vf_1a4();
 	ObjInstanceVersion = ((URBMExitConditionCombiner_*)this)->eventGetObjClassVersion();

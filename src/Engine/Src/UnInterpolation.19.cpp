@@ -21,7 +21,7 @@ void UInterpTrackFloatProp::UpdateKeyframe(INT KeyIndex, UInterpTrackInst* TrIns
 	}
 
 	FloatTrack.Points(KeyIndex).OutVal = *(FLOAT*)PropInst->FloatProp.Dummy;
-	FloatTrack.sub_007b96a0(CurveTension);
+	FloatTrack.AutoSetTangents(CurveTension);
 }
 
 // @baa 0x00d08d40

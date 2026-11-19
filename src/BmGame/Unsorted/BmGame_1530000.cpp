@@ -511,7 +511,7 @@ struct URSeqAct_BoolCounter_ : public URSeqAct_BoolCounter
 
 // @baa 0x0153d1b0
 /* Slot 0x120 (UpdateObject): refresh the links, then take the class's current version. */
-void URSeqAct_BoolCounter::vf_120()
+void URSeqAct_BoolCounter::OnCreated()
 {
 	vf_19c();
 	ObjInstanceVersion = ((URSeqAct_BoolCounter_*)this)->eventGetObjClassVersion();

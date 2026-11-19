@@ -8,7 +8,7 @@
 #define HALF_WORLD_MAX	262144.0
 // @baa 0x006e4950
 /* UPrimitiveComponent slot 0x160 (kit vf_160, UE3 UpdateBounds()): a plain primitive is unbounded. */
-void UPrimitiveComponent::vf_160()
+void UPrimitiveComponent::UpdateBounds()
 {
     Bounds.Origin = FVector(0, 0, 0);
     Bounds.BoxExtent = FVector(HALF_WORLD_MAX, HALF_WORLD_MAX, HALF_WORLD_MAX);

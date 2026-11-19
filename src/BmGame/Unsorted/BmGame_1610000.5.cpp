@@ -227,7 +227,7 @@ struct URSeqAct_SpeechEventManagerBase__01612d90 : public URSeqAct_SpeechEventMa
 
 // @baa 0x01612d90
 /* Slot 0x120 (UpdateObject): refresh the links, then take the class's current version. */
-void URSeqAct_SpeechEventManagerBase::vf_120()
+void URSeqAct_SpeechEventManagerBase::OnCreated()
 {
 	vf_1ac();
 	ObjInstanceVersion = ((URSeqAct_SpeechEventManagerBase__01612d90*)this)->eventGetObjClassVersion();

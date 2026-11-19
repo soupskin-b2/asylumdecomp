@@ -2718,16 +2718,14 @@ C_00dae7a0& C_00dae7a0::sub_00dae7a0(int Arg)
     return *this;
 }
 
-int sub_00db0a10(void);
 // @baa 0x00db0a70
-undefined4 UUIScene::sub_00db0a70(void)
+USceneDataStore* UUIScene::GetSceneDataStore()
 {
-    int param_1 = (int)this;
-
-  if (*(int *)(param_1 + 300) == 0) {
-    sub_00db0a10();
-  }
-  return *(undefined4 *)(param_1 + 300);
+    if (SceneData == NULL)
+    {
+        CreateSceneDataStore();
+    }
+    return SceneData;
 }
 
 struct M_00db0fd0 { void sub_00dad620(); };

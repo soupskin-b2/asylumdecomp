@@ -16,7 +16,7 @@ void USeqAct_Interp::vf_154()
 
     if (ReplicatedActor != NULL)
     {
-        GWorld->sub_007e72a0(ReplicatedActor, FALSE, TRUE);
+        GWorld->DestroyActor(ReplicatedActor, FALSE, TRUE);
     }
 
     for (INT Idx = 0; Idx < LatentActors.Num(); Idx++)

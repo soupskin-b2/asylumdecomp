@@ -26,28 +26,8 @@ void USeqAct_LevelVisibility_::UpdateStatus()
     bStatusIsOk = FindLevel(TheLevel, LevelName) != FALSE;
 }
 
-/* FIntPoint's constructor and FIntRect (UnMath.h); not in the kit's headers. */
-struct FIntPoint_ : public FIntPoint
-{
-    FIntPoint_() {}
-    FIntPoint_(INT InX, INT InY) { X = InX; Y = InY; }
-};
-
-struct FIntRect
-{
-    FIntPoint_ Min, Max;
-    FIntRect() {}
-    FIntRect(INT X0, INT Y0, INT X1, INT Y1) : Min(X0, Y0), Max(X1, Y1) {}
-};
-
-/* slot 0x134 (vf_134) is USequenceObject::GetSeqObjBounds */
-struct USequenceObject_ : public USequenceObject
-{
-    FIntRect GetSeqObjBounds();
-};
-
 // @baa 0x00d201a0
-FIntRect USequenceObject_::GetSeqObjBounds()
+FIntRect USequenceObject::GetSeqObjBoundingBox()
 {
     return FIntRect(ObjPosX, ObjPosY, ObjPosX + DrawWidth, ObjPosY + DrawHeight);
 }

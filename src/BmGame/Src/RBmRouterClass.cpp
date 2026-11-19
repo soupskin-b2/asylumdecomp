@@ -199,7 +199,7 @@ bool ARBMRouteRequest::vf_004()
 }
 
 // @baa 0x01610fd0
-int ARBMRouteRequest::vf_374(int a0) { return 0; }
+INT ARBMRouteRequest::vf_374(FLOAT DeltaTime) { return 0; }
 
 // @baa 0x01610fe0
 void sub_01610fe0(void) {  }
