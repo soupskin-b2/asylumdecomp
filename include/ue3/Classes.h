@@ -137,6 +137,7 @@ public:
     FString& operator=(const FString& Other); /* 0x00547da0 */
     FString& operator+=(const TCHAR* Str); /* out of line: 005a4bb0 and copies */
     FString& operator+=(const FString& Str); /* out of line: 005a4aa0 and copies */
+    FString& operator+=(TCHAR InChar); /* 0x0059cfe0 */
     UBOOL operator==(const TCHAR* Other) const; /* out of line: 00544cf0 */
     UBOOL operator==(const FString& Other) const; /* out of line: 00544d40, 00d6e560 */
     UBOOL operator!=(const FString& Other) const; /* out of line: 00489970 */

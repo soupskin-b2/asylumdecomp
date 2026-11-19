@@ -2018,8 +2018,7 @@ void USkeletalMeshComponent::AttachComponentToSocket(UActorComponent* Component,
 	}
 }
 
-extern FName g_026c4f5c;
-	/* the Actor event told of the new tree (name unknown; called eventAnimTreeChanged here) */
+extern FName g_026c4f5c; /* NAME_AnimTreeUpdated */
 /* Callees Classes.h doesn't declare. */
 
 struct USkeletalMeshComponent__00937e40 : public USkeletalMeshComponent
@@ -2030,8 +2029,8 @@ struct USkeletalMeshComponent__00937e40 : public USkeletalMeshComponent
 struct AActor_ : public AActor
 {
 
-	/* The script event's generated glue (EngineClasses.h). */
-	void eventAnimTreeChanged(USkeletalMeshComponent* SkelComp)
+	/* The script event's generated glue (EngineClasses.h), inlined here; the out-of-line copy is 0x0090acc0. */
+	void eventAnimTreeUpdated(USkeletalMeshComponent* SkelComp)
 	{
 		struct { USkeletalMeshComponent* SkelComp; } Parms;
 		Parms.SkelComp = SkelComp;
@@ -2057,7 +2056,7 @@ void USkeletalMeshComponent::SetAnimTreeTemplate(UAnimTree* NewTemplate)
 
 	if (Owner)
 	{
-		((AActor_*)Owner)->eventAnimTreeChanged(this);
+		((AActor_*)Owner)->eventAnimTreeUpdated(this);
 	}
 }
 
