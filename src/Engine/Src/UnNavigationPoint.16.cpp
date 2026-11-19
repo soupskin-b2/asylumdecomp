@@ -5,25 +5,6 @@
 #include "ue3/Array.h"
 #include "ue3/Native.h"
 
-/* Kit gap (Array.h, issue #39): this build inlines TArray::operator() where the kit's plain-inline one is
- * called out of line; same body, forced inline. */
-template<class T> struct TArrayAt_ : public TArray<T>
-{
-    using TArray<T>::ArrayNum;
-    __forceinline T& At(INT i)
-    {
-#line 560 BAA_ARRAY_FILE
-        check(i>=0 && (i<ArrayNum||(i==0 && ArrayNum==0)));
-        return this->GetTypedData()[i];
-    }
-    __forceinline const T& At(INT i) const
-    {
-#line 566 BAA_ARRAY_FILE
-        check(i>=0 && (i<ArrayNum||(i==0 && ArrayNum==0)));
-        return this->GetTypedData()[i];
-    }
-};
-
 extern INT g_026b55f8;
  /* overlap-claim recursion depth (UnCover.cpp file static) */
 /* Unnamed in the kit (0x009c8f80): UWorld::GetTimeSeconds(). */
@@ -39,22 +20,22 @@ UBOOL ACoverSlotMarker::IsValidClaim(APawn* ChkClaim, UBOOL bSkipTeamCheck, UBOO
     ACoverLink* Link = OwningSlot.Link;
     INT SlotIdx = OwningSlot.SlotIdx;
     if (Link == NULL || !Link->IsEnabled() || ChkClaim == NULL || SlotIdx < 0 || SlotIdx >= Link->Slots.Num() ||
-        !((TArrayAt_<FCoverSlot>&)Link->Slots).At(SlotIdx).bEnabled)
+        !Link->Slots(SlotIdx).bEnabled)
     {
         return (g_026b55f8 > 0);
     }
     UBOOL bResult;
-    APawn* SlotOwner = ((TArrayAt_<FCoverSlot>&)Link->Slots).At(SlotIdx).SlotOwner;
+    APawn* SlotOwner = Link->Slots(SlotIdx).SlotOwner;
     if ((SlotOwner == ChkClaim || SlotOwner == NULL || SlotOwner->bDeleteMe) &&
         (ChkClaim->IsHumanControlled() || !bBlocked) &&
-        GWorld->GetTimeSeconds() >= ((TArrayAt_<FCoverSlot>&)Link->Slots).At(SlotIdx).SlotValidAfterTime)
+        GWorld->GetTimeSeconds() >= Link->Slots(SlotIdx).SlotValidAfterTime)
     {
         bResult = TRUE;
         if (!bSkipTeamCheck)
         {
             for (INT Idx = 0; Idx < Link->Claims.Num(); Idx++)
             {
-                APawn* Claim = ((TArrayAt_<APawn*>&)Link->Claims).At(Idx);
+                APawn* Claim = Link->Claims(Idx);
                 if (Claim == NULL)
                 {
                     Link->Claims.Remove(Idx--, 1);

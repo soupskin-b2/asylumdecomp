@@ -3,24 +3,6 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
 
-/* Kit gap (Array.h, issue #39): this build inlines TArray::operator() where the kit's plain-inline one is
- * called out of line; same body, forced inline. */
-template<class T> struct TArrayAt_ : public TArray<T>
-{
-    __forceinline T& At(INT i)
-    {
-#line 560 BAA_ARRAY_FILE
-        check(i>=0 && (i<this->ArrayNum||(i==0 && this->ArrayNum==0)));
-        return this->GetTypedData()[i];
-    }
-    __forceinline const T& At(INT i) const
-    {
-#line 566 BAA_ARRAY_FILE
-        check(i>=0 && (i<this->ArrayNum||(i==0 && this->ArrayNum==0)));
-        return this->GetTypedData()[i];
-    }
-};
-
 struct FMatrix_ : public FMatrix
 {
     FORCEINLINE FVector GetAxis(INT i) const
@@ -44,8 +26,8 @@ struct FMatrix_ : public FMatrix
 /* name guessed: rebuild the twist bone from its base bone, keeping the twist angle measured at init */
 void FTwistBoneFixer::Apply(TArray<FMatrix>& SpaceBases)
 {
-    FMatrix_& TwistTM = (FMatrix_&)((TArrayAt_<FMatrix>&)SpaceBases).At(TwistBoneIndex);
-    const FMatrix_& BaseTM = (const FMatrix_&)((TArrayAt_<FMatrix>&)SpaceBases).At(BaseBoneIndex);
+    FMatrix_& TwistTM = (FMatrix_&)SpaceBases(TwistBoneIndex);
+    const FMatrix_& BaseTM = (const FMatrix_&)SpaceBases(BaseBoneIndex);
 
     TwistTM.SetAxis(0, BaseTM.GetAxis(0));
     TwistTM.SetAxis(1, BaseTM.GetAxis(1) * BaseYDotTwistY - BaseTM.GetAxis(2) * BaseYDotTwistZ);
@@ -90,13 +72,13 @@ struct USkeletalMeshComponent__0091cdd0 : public USkeletalMeshComponent
 /* the component's override if set, else the mesh's material, else NULL */
 UMaterialInterface* USkeletalMeshComponent__0091cdd0::GetMaterial(INT MaterialIndex) const
 {
-    if (MaterialIndex < Materials.Num() && ((const TArrayAt_<UMaterialInterface*>&)Materials).At(MaterialIndex))
+    if (MaterialIndex < Materials.Num() && Materials(MaterialIndex))
     {
-        return ((const TArrayAt_<UMaterialInterface*>&)Materials).At(MaterialIndex);
+        return Materials(MaterialIndex);
     }
-    else if (SkeletalMesh && MaterialIndex < SkeletalMesh->Materials.Num() && ((TArrayAt_<UMaterialInterface*>&)SkeletalMesh->Materials).At(MaterialIndex))
+    else if (SkeletalMesh && MaterialIndex < SkeletalMesh->Materials.Num() && SkeletalMesh->Materials(MaterialIndex))
     {
-        return ((TArrayAt_<UMaterialInterface*>&)SkeletalMesh->Materials).At(MaterialIndex);
+        return SkeletalMesh->Materials(MaterialIndex);
     }
     else
     {
@@ -117,9 +99,9 @@ UAnimSequence* USkeletalMeshComponent::FindAnimSequence(FName AnimSeqName)
 
     for (INT i = AnimSets.Num() - 1; i >= 0; i--)
     {
-        if (((TArrayAt_<UAnimSet*>&)AnimSets).At(i))
+        if (AnimSets(i))
         {
-            UAnimSequence* Seq = ((TArrayAt_<UAnimSet*>&)AnimSets).At(i)->FindAnimSequence(AnimSeqName);
+            UAnimSequence* Seq = AnimSets(i)->FindAnimSequence(AnimSeqName);
             if (Seq)
             {
                 return Seq;

@@ -134,24 +134,6 @@ undefined4 C_00858f50::sub_00858f50(byte param_2)
   return param_1;
 }
 
-/* Kit gap (Array.h, issue #39): this build inlines TArray::operator() where the kit's plain-inline one is
- * called out of line; same body, forced inline. */
-template<class T> struct TArrayAt_ : public TArray<T>
-{
-    __forceinline T& At(INT i)
-    {
-#line 560 BAA_ARRAY_FILE
-        check(i>=0 && (i<this->ArrayNum||(i==0 && this->ArrayNum==0)));
-        return this->GetTypedData()[i];
-    }
-    __forceinline const T& At(INT i) const
-    {
-#line 566 BAA_ARRAY_FILE
-        check(i>=0 && (i<this->ArrayNum||(i==0 && this->ArrayNum==0)));
-        return this->GetTypedData()[i];
-    }
-};
-
 // @baa 0x00843b80
 UBOOL ACoverLink::IsEnabled()
 {
@@ -162,7 +144,7 @@ UBOOL ACoverLink::IsEnabled()
     // enabled if any slot is enabled
     for (INT SlotIdx = 0; SlotIdx < Slots.Num(); SlotIdx++)
     {
-        if (((TArrayAt_<FCoverSlot>&)Slots).At(SlotIdx).bEnabled)
+        if (Slots(SlotIdx).bEnabled)
         {
             return TRUE;
         }
@@ -175,7 +157,7 @@ UBOOL ACoverLink::IsEnabled()
 // @baa 0x008447a0
 UBOOL ACoverLink::IsValidClaim(APawn* ChkClaim, INT SlotIdx, UBOOL bSkipTeamCheck, UBOOL bSkipOverlapCheck)
 {
-    ACoverSlotMarker* SlotMarker = ((TArrayAt_<FCoverSlot>&)Slots).At(SlotIdx).SlotMarker;
+    ACoverSlotMarker* SlotMarker = Slots(SlotIdx).SlotMarker;
     return SlotMarker && SlotMarker->IsValidClaim(ChkClaim, bSkipTeamCheck, bSkipOverlapCheck);
 }
 
@@ -186,7 +168,7 @@ BYTE ACoverLink::GetLocationDescription(INT SlotIdx)
     if (SlotIdx >= 0 && SlotIdx < Slots.Num())
     {
         // use the slot's description if it has one, otherwise the link's
-        BYTE Desc = ((TArrayAt_<FCoverSlot>&)Slots).At(SlotIdx).LocationDescription;
+        BYTE Desc = Slots(SlotIdx).LocationDescription;
         if (Desc == CoverDesc_None)
         {
             Desc = LocationDescription;

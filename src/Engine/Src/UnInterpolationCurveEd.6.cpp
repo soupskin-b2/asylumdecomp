@@ -9,31 +9,13 @@ UBOOL UInterpTrackSound::HasParentClassChanged() const
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
-/* Kit gap (Array.h, issue #39): this build inlines TArray::operator() where the kit's plain-inline one is
- * called out of line; same body, forced inline. */
-template<class T> struct TArrayAt_ : public TArray<T>
-{
-    __forceinline T& At(INT i)
-    {
-#line 560 BAA_ARRAY_FILE
-        check(i>=0 && (i<this->ArrayNum||(i==0 && this->ArrayNum==0)));
-        return this->GetTypedData()[i];
-    }
-    __forceinline const T& At(INT i) const
-    {
-#line 566 BAA_ARRAY_FILE
-        check(i>=0 && (i<this->ArrayNum||(i==0 && this->ArrayNum==0)));
-        return this->GetTypedData()[i];
-    }
-};
-
 /* FInterpCurve<FVector> (UnMath.h): AddPoint and AutoSetTangents out of line in the exe (007bb100, 007bb200) */
 
 // @baa 0x00cfc5e0
 INT UInterpTrackColorScale::AddKeyframe(FLOAT Time, UInterpTrackInst* TrInst, BYTE InitInterpMode)
 {
     INT NewKeyIndex = VectorTrack.AddPoint(Time, FVector(1.f, 1.f, 1.f));
-    ((TArrayAt_<FInterpCurvePointVector>&)VectorTrack.Points).At(NewKeyIndex).InterpMode = InitInterpMode;
+    VectorTrack.Points(NewKeyIndex).InterpMode = InitInterpMode;
 
     VectorTrack.AutoSetTangents(CurveTension);
 
@@ -46,7 +28,7 @@ INT UInterpTrackColorScale::AddKeyframe(FLOAT Time, UInterpTrackInst* TrInst, BY
 INT UInterpTrackAudioMaster::AddKeyframe(FLOAT Time, UInterpTrackInst* TrInst, BYTE InitInterpMode)
 {
     INT NewKeyIndex = VectorTrack.AddPoint(Time, FVector(1.f, 1.f, 0.f));
-    ((TArrayAt_<FInterpCurvePointVector>&)VectorTrack.Points).At(NewKeyIndex).InterpMode = InitInterpMode;
+    VectorTrack.Points(NewKeyIndex).InterpMode = InitInterpMode;
 
     VectorTrack.AutoSetTangents(CurveTension);
 
@@ -57,7 +39,7 @@ INT UInterpTrackAudioMaster::AddKeyframe(FLOAT Time, UInterpTrackInst* TrInst, B
 INT UInterpTrackVectorMaterialParam::AddKeyframe(FLOAT Time, UInterpTrackInst* TrInst, BYTE InitInterpMode)
 {
     INT NewKeyIndex = VectorTrack.AddPoint(Time, FVector(0.f));
-    ((TArrayAt_<FInterpCurvePointVector>&)VectorTrack.Points).At(NewKeyIndex).InterpMode = InitInterpMode;
+    VectorTrack.Points(NewKeyIndex).InterpMode = InitInterpMode;
 
     VectorTrack.AutoSetTangents(CurveTension);
 
@@ -68,7 +50,7 @@ INT UInterpTrackVectorMaterialParam::AddKeyframe(FLOAT Time, UInterpTrackInst* T
 INT UInterpTrackFloatParticleParam::AddKeyframe(FLOAT Time, UInterpTrackInst* TrInst, BYTE InitInterpMode)
 {
     INT NewKeyIndex = FloatTrack.AddPoint(Time, 0.f);
-    ((TArrayAt_<FInterpCurvePointFloat>&)FloatTrack.Points).At(NewKeyIndex).InterpMode = InitInterpMode;
+    FloatTrack.Points(NewKeyIndex).InterpMode = InitInterpMode;
 
     FloatTrack.AutoSetTangents(CurveTension);
 
@@ -79,7 +61,7 @@ INT UInterpTrackFloatParticleParam::AddKeyframe(FLOAT Time, UInterpTrackInst* Tr
 INT UInterpTrackFloatMaterialParam::AddKeyframe(FLOAT Time, UInterpTrackInst* TrInst, BYTE InitInterpMode)
 {
     INT NewKeyIndex = FloatTrack.AddPoint(Time, 0.f);
-    ((TArrayAt_<FInterpCurvePointFloat>&)FloatTrack.Points).At(NewKeyIndex).InterpMode = InitInterpMode;
+    FloatTrack.Points(NewKeyIndex).InterpMode = InitInterpMode;
 
     FloatTrack.AutoSetTangents(CurveTension);
 

@@ -3,25 +3,6 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
 
-/* Kit gap (Array.h, issue #39): this build inlines TArray::operator() where the kit's plain-inline one is
- * called out of line; same body, forced inline. */
-template<class T> struct TArrayAt_ : public TArray<T>
-{
-    using TArray<T>::ArrayNum;
-    __forceinline T& At(INT i)
-    {
-#line 560 BAA_ARRAY_FILE
-        check(i>=0 && (i<ArrayNum||(i==0 && ArrayNum==0)));
-        return this->GetTypedData()[i];
-    }
-    __forceinline const T& At(INT i) const
-    {
-#line 566 BAA_ARRAY_FILE
-        check(i>=0 && (i<ArrayNum||(i==0 && ArrayNum==0)));
-        return this->GetTypedData()[i];
-    }
-};
-
 
 // @baa 0x01569e10
 UBOOL URAnimNode_Cape::sub_01569e10(FName AnimName)
@@ -29,7 +10,7 @@ UBOOL URAnimNode_Cape::sub_01569e10(FName AnimName)
     const INT NumChildren = Children.Num();
     for (INT ChildIndex = 0; ChildIndex < NumChildren; ChildIndex++)
     {
-        UAnimNode* Child = ((const TArrayAt_<FAnimBlendChild>&)Children).At(ChildIndex).Anim;
+        UAnimNode* Child = ((const TArray<FAnimBlendChild>&)Children)(ChildIndex).Anim;
         if (Child)
         {
             const FName ChildName = Child->NodeName;
@@ -50,26 +31,13 @@ UBOOL URAnimNode_Cape::sub_01569310(INT LookupIndex, INT& ChainIndex, INT& LinkI
 {
 #line 502 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimNode_Cape.cpp"
     check(CapePosLookupTable.Num() > 0);
-    const FLookupCapePos& Lookup = ((const TArrayAt_<FLookupCapePos>&)CapePosLookupTable).At(LookupIndex);
+    const FLookupCapePos& Lookup = ((const TArray<FLookupCapePos>&)CapePosLookupTable)(LookupIndex);
     ChainIndex = Lookup.ChainIndex;
     LinkIndex = Lookup.LinkIndex;
     return ChainIndex != 0 || LinkIndex != 0;
 }
 
 #line 76 "candidate.cpp"
-
-/* Kit gap (Array.h, issue #39): this build inlines TArray::operator() where the kit's plain-inline one is
- * called out of line; same body, forced inline. */
-template<class T> struct TArrayAt__01569700 : public TArray<T>
-{
-    using TArray<T>::ArrayNum;
-    __forceinline T& At(INT i)
-    {
-#line 560 BAA_ARRAY_FILE
-        check(i>=0 && (i<ArrayNum||(i==0 && ArrayNum==0)));
-        return this->GetTypedData()[i];
-    }
-};
 
 
 // @baa 0x01569700
@@ -79,7 +47,7 @@ INT URAnimNode_Cape::sub_01569700(INT BoneIndex)
     check(SkelComponent != NULL);
 #line 568 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimNode_Cape.cpp"
     check(SkelComponent->SkeletalMesh != NULL);
-    return ((TArrayAt__01569700<FMeshBone>&)SkelComponent->SkeletalMesh->RefSkeleton).At(BoneIndex).ParentIndex;
+    return ((TArray<FMeshBone>&)SkelComponent->SkeletalMesh->RefSkeleton)(BoneIndex).ParentIndex;
 }
 
 #line 108 "candidate.cpp"
@@ -94,11 +62,11 @@ FMatrix URAnimNode_Cape::sub_01569b90()
     FMatrix ParentBoneMatrix;
     if (ParentComp->bUsePrePhysicsSpaceBases)
     {
-        ParentBoneMatrix = ((const TArrayAt_<FMatrix>&)ParentComp->PrePhysicsSpaceBases).At(ParentAttachBoneIndex);
+        ParentBoneMatrix = ((const TArray<FMatrix>&)ParentComp->PrePhysicsSpaceBases)(ParentAttachBoneIndex);
     }
     else
     {
-        ParentBoneMatrix = ((const TArrayAt_<FMatrix>&)ParentComp->SpaceBases).At(ParentAttachBoneIndex);
+        ParentBoneMatrix = ((const TArray<FMatrix>&)ParentComp->SpaceBases)(ParentAttachBoneIndex);
     }
     return ParentBoneMatrix;
 }
@@ -122,7 +90,7 @@ INT URAnimNode_Cape__01569c40::sub_01569c40(INT boneIndex)
     USkeletalMesh* pCapeSkeletalMesh = pCapeSkeletalMeshComponent->SkeletalMesh;
 #line 893 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimNode_Cape.cpp"
     check(pCapeSkeletalMesh != NULL);
-    return ((TArrayAt_<FMeshBone>&)pCapeSkeletalMesh->RefSkeleton).At(boneIndex).ParentIndex;
+    return pCapeSkeletalMesh->RefSkeleton(boneIndex).ParentIndex;
 }
 
 #line 155 "candidate.cpp"
@@ -137,12 +105,12 @@ UBOOL URAnimNode_Cape::sub_015697a0(INT BoneIndex, INT ParentBoneIndex)
     check(SkelComponent != NULL);
 #line 578 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimNode_Cape.cpp"
     check(SkelComponent->SkeletalMesh != NULL);
-    TArrayAt_<FMeshBone>& RefSkeleton = (TArrayAt_<FMeshBone>&)SkelComponent->SkeletalMesh->RefSkeleton;
+    TArray<FMeshBone>& RefSkeleton = (TArray<FMeshBone>&)SkelComponent->SkeletalMesh->RefSkeleton;
     INT CurrentBone = BoneIndex;
     while (CurrentBone != ParentBoneIndex)
     {
         const INT ChildBone = CurrentBone;
-        CurrentBone = RefSkeleton.At(CurrentBone).ParentIndex;
+        CurrentBone = RefSkeleton(CurrentBone).ParentIndex;
         if (CurrentBone == ChildBone)
         {
             return FALSE;
@@ -163,7 +131,7 @@ void URAnimNode_Cape::sub_0156e6a0(INT boneIndex, FMatrix& OutSpaceBase)
     {
 #line 1219 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimNode_Cape.cpp"
         check(boneIndex < ParentBoneRefSpaceBaseCache.Num());
-        OutSpaceBase = ((TArrayAt_<FMatrix>&)ParentBoneRefSpaceBaseCache).At(boneIndex);
+        OutSpaceBase = ParentBoneRefSpaceBaseCache(boneIndex);
     }
     else
     {

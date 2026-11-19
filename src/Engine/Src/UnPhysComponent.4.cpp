@@ -68,19 +68,6 @@ void URB_RadialImpulseComponent::Attach()
     }
 }
 
-/* Kit gap (Array.h, issue #39): this build inlines TArray::operator() where the kit's plain-inline one is
- * called out of line; same body, forced inline. */
-template<class T> struct TArrayAt_ : public TArray<T>
-{
-	using TArray<T>::ArrayNum;
-	__forceinline T& At(INT i)
-	{
-#line 560 BAA_ARRAY_FILE
-		check(i>=0 && (i<ArrayNum||(i==0 && ArrayNum==0)));
-		return this->GetTypedData()[i];
-	}
-};
-
 // @baa 0x00a110c0
 /* Slot 0x1f4 (unnamed in the kit; UE3's GetNxActor): the physics actor of body BodyIndex (the root body for
  * INDEX_NONE), or of the component's single body when there's no physics asset instance. */
@@ -98,11 +85,11 @@ class NxActor* USkeletalMeshComponent::GetIndexedNxActor(INT BodyIndex)
 		URB_BodyInstance* BodyInst;
 		if (BodyIndex == INDEX_NONE)
 		{
-			BodyInst = ((TArrayAt_<URB_BodyInstance*>&)PhysicsAssetInstance->Bodies).At(PhysicsAssetInstance->RootBodyIndex);
+			BodyInst = PhysicsAssetInstance->Bodies(PhysicsAssetInstance->RootBodyIndex);
 		}
 		else
 		{
-			BodyInst = ((TArrayAt_<URB_BodyInstance*>&)PhysicsAssetInstance->Bodies).At(BodyIndex);
+			BodyInst = PhysicsAssetInstance->Bodies(BodyIndex);
 		}
 #line 1272 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPhysComponent.cpp"
 		check(BodyInst);

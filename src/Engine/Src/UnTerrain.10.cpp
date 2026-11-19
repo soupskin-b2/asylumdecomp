@@ -131,25 +131,6 @@ UBOOL ATerrain__0098bf00::IsTerrainComponentVisible(UTerrainComponent* InCompone
     return FALSE;
 }
 
-/* Kit gap (Array.h, issue #39): this build inlines TArray::operator() where the kit's plain-inline one is
- * called out of line; same body, forced inline. */
-template<class T> struct TArrayAt_ : public TArray<T>
-{
-    using TArray<T>::ArrayNum;
-    __forceinline T& At(INT i)
-    {
-#line 560 BAA_ARRAY_FILE
-        check(i>=0 && (i<ArrayNum||(i==0 && ArrayNum==0)));
-        return this->GetTypedData()[i];
-    }
-    __forceinline const T& At(INT i) const
-    {
-#line 566 BAA_ARRAY_FILE
-        check(i>=0 && (i<ArrayNum||(i==0 && ArrayNum==0)));
-        return this->GetTypedData()[i];
-    }
-};
-
 
 // @baa 0x0098caf0
 /* The index of the selected vertex at (X, Y), handing back the entry itself; INDEX_NONE when it isn't selected. */
@@ -157,7 +138,7 @@ INT ATerrain::FindSelectedVertexInList(INT X, INT Y, FSelectedTerrainVertex*& Ou
 {
     for (INT Index = 0; Index < SelectedVertices.Num(); Index++)
     {
-        FSelectedTerrainVertex* Vertex = &((TArrayAt_<FSelectedTerrainVertex>&)SelectedVertices).At(Index);
+        FSelectedTerrainVertex* Vertex = &((TArray<FSelectedTerrainVertex>&)SelectedVertices)(Index);
         if (Vertex->X == X && Vertex->Y == Y)
         {
             OutVertex = Vertex;
@@ -220,7 +201,7 @@ void ATerrain::AddReferencedObjects(TArray<class UObject*>& ObjectArray)
     Super::AddReferencedObjects(ObjectArray);
     for (INT i = 0; i < WeightedMaterials.Num(); i++)
     {
-        FTerrainWeightedMaterial_& WeightedMaterial = ((TArrayAt_<FTerrainWeightedMaterial_>&)WeightedMaterials).At(i);
+        FTerrainWeightedMaterial_& WeightedMaterial = ((TArray<FTerrainWeightedMaterial_>&)WeightedMaterials)(i);
         sub_005ef6f0(&ObjectArray, WeightedMaterial.Material);
         sub_005ef6f0(&ObjectArray, WeightedMaterial.Object2C);
     }

@@ -506,32 +506,14 @@ INT FCoverSlotArray::sub_00859db0(const FCoverSlot& Item, INT Index)
     return Index;
 }
 
-/* Kit gap (Array.h, issue #39): this build inlines TArray::operator() where the kit's plain-inline one is
- * called out of line; same body, forced inline. */
-template<class T> struct TArrayAt_ : public TArray<T>
-{
-    __forceinline T& At(INT i)
-    {
-#line 560 BAA_ARRAY_FILE
-        check(i>=0 && (i<this->ArrayNum||(i==0 && this->ArrayNum==0)));
-        return this->GetTypedData()[i];
-    }
-    __forceinline const T& At(INT i) const
-    {
-#line 566 BAA_ARRAY_FILE
-        check(i>=0 && (i<this->ArrayNum||(i==0 && this->ArrayNum==0)));
-        return this->GetTypedData()[i];
-    }
-};
-
 // @baa 0x00843d30
 UBOOL ACoverLink::IsRightEdgeSlot(INT SlotIdx, UBOOL bIgnoreLeans)
 {
     // circular or looped links have no edges; otherwise the last slot, a disabled neighbour,
     // or a neighbour offering lower cover makes this an edge
     return !bCircular && !bLooped &&
-        (SlotIdx == Slots.Num() - 1 || SlotIdx >= Slots.Num() || !((TArrayAt_<FCoverSlot>&)Slots).At(SlotIdx + 1).bEnabled ||
-         (!bIgnoreLeans && ((TArrayAt_<FCoverSlot>&)Slots).At(SlotIdx + 1).CoverType > ((TArrayAt_<FCoverSlot>&)Slots).At(SlotIdx).CoverType));
+        (SlotIdx == Slots.Num() - 1 || SlotIdx >= Slots.Num() || !Slots(SlotIdx + 1).bEnabled ||
+         (!bIgnoreLeans && Slots(SlotIdx + 1).CoverType > Slots(SlotIdx).CoverType));
 }
 
 #line 544 "candidate.cpp"

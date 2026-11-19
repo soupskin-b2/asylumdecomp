@@ -9,34 +9,15 @@ UBOOL UStaticMeshComponent::HasParentClassChanged() const
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
-/* Kit gap (Array.h, issue #39): this build inlines TArray::operator() where the kit's plain-inline one is
- * called out of line; same body, forced inline. */
-template<class T> struct TArrayAt_ : public TArray<T>
-{
-    using TArray<T>::ArrayNum;
-    __forceinline T& At(INT i)
-    {
-#line 560 BAA_ARRAY_FILE
-        check(i>=0 && (i<ArrayNum||(i==0 && ArrayNum==0)));
-        return this->GetTypedData()[i];
-    }
-    __forceinline const T& At(INT i) const
-    {
-#line 566 BAA_ARRAY_FILE
-        check(i>=0 && (i<ArrayNum||(i==0 && ArrayNum==0)));
-        return this->GetTypedData()[i];
-    }
-};
-
 // @baa 0x006ea5a0
 /* The material override for ElementIndex, or NULL when it has none. (UE3's GetMaterial is const, so the array is
  * read through its const accessor.) */
 UMaterialInterface* UMeshComponent::GetMaterial(INT ElementIndex)
 {
-    const TArrayAt_<UMaterialInterface*>& ConstMaterials = (const TArrayAt_<UMaterialInterface*>&)Materials;
-    if (ElementIndex < Materials.Num() && ConstMaterials.At(ElementIndex))
+    const TArray<UMaterialInterface*>& ConstMaterials = (const TArray<UMaterialInterface*>&)Materials;
+    if (ElementIndex < Materials.Num() && ConstMaterials(ElementIndex))
     {
-        return ConstMaterials.At(ElementIndex);
+        return ConstMaterials(ElementIndex);
     }
     return NULL;
 }

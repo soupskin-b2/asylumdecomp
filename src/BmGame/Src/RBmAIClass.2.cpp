@@ -291,26 +291,13 @@ void ARBMAIController::UpdatePawnRotation()
 
 #line 298 "candidate.cpp"
 
-/* Kit gap (Array.h, issue #39): this build inlines TArray::operator() where the kit's plain-inline one is
- * called out of line; same body, forced inline. */
-template<class T> struct TArrayAt_ : public TArray<T>
-{
-	using TArray<T>::ArrayNum;
-	__forceinline T& At(INT i)
-	{
-#line 560 BAA_ARRAY_FILE
-		check(i>=0 && (i<ArrayNum||(i==0 && ArrayNum==0)));
-		return this->GetTypedData()[i];
-	}
-};
-
 // @baa 0x015ec050
 /* Slot 0x408 (unnamed in the kit): behaviour Index of the list, or NULL past its end. */
 URBMBehaviour* ARBMAIController::GetBehaviour(INT Index)
 {
 	if (BehaviourList.Num() > Index)
 	{
-		return ((TArrayAt_<URBMBehaviour*>&)BehaviourList).At(Index);
+		return BehaviourList(Index);
 	}
 	return NULL;
 }

@@ -51,19 +51,6 @@ UAnimSequence* UAnimSet::FindAnimSequence(FName SequenceName)
     return NULL;
 }
 
-/* Kit gap (Array.h, issue #39): this build inlines TArray::operator() where the kit's plain-inline one is
- * called out of line; same body, forced inline. */
-template<class T> struct TArrayAt_ : public TArray<T>
-{
-	using TArray<T>::ArrayNum;
-	__forceinline T& At(INT i)
-	{
-#line 560 BAA_ARRAY_FILE
-		check(i>=0 && (i<ArrayNum||(i==0 && ArrayNum==0)));
-		return this->GetTypedData()[i];
-	}
-};
-
 /* Kit gaps: PKG_ContainsMap and UPackage's flags (opaque in the kit). */
 #define PKG_ContainsMap	0x00020000
 struct UPackage_ : public UObject
@@ -85,7 +72,7 @@ void UAnimSet::PostLoad()
 
 		for (INT i = 0; i < Sequences.Num(); i++)
 		{
-			UAnimSequence* Seq = ((TArrayAt_<UAnimSequence*>&)Sequences).At(i);
+			UAnimSequence* Seq = Sequences(i);
 			if (Seq)
 			{
 				Seq->ClearFlags(RF_Standalone);

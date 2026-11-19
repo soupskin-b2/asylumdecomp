@@ -7,19 +7,6 @@
 
 /* Cast<T> is out of line for this T in the exe (006b0420) */
 extern template USkeletalMeshComponent* Cast<USkeletalMeshComponent>(UObject* Src);
-/* Kit gap (Array.h, issue #39): this build inlines TArray::operator() where the kit's plain-inline one is
- * called out of line; same body, forced inline. */
-template<class T> struct TArrayAt_ : public TArray<T>
-{
-    using TArray<T>::ArrayNum;
-    __forceinline T& At(INT i)
-    {
-#line 560 BAA_ARRAY_FILE
-        check(i>=0 && (i<ArrayNum||(i==0 && ArrayNum==0)));
-        return this->GetTypedData()[i];
-    }
-};
-
 /* File-static helper in UnActorComponent.cpp (00765b90, matched): detaches Component from SkelComp or from any
  * skeletal mesh attached below it. */
 UBOOL DetachComponentFromSkelComp(UActorComponent* Component, USkeletalMeshComponent* SkelComp);
@@ -43,7 +30,7 @@ void UActorComponent::DetachFromAny()
             {
                 for (INT CompIdx = 0; CompIdx < Owner->AllComponents.Num(); CompIdx++)
                 {
-                    USkeletalMeshComponent* SkelComp = Cast<USkeletalMeshComponent>(((TArrayAt_<UActorComponent*>&)Owner->AllComponents).At(CompIdx));
+                    USkeletalMeshComponent* SkelComp = Cast<USkeletalMeshComponent>(Owner->AllComponents(CompIdx));
                     if (SkelComp && DetachComponentFromSkelComp(this, SkelComp))
                     {
                         break;

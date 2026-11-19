@@ -3,25 +3,6 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
 
-/* Kit gap (Array.h, issue #39): this build inlines TArray::operator() where the kit's plain-inline one is
- * called out of line; same body, forced inline. */
-template<class T> struct TArrayAt_ : public TArray<T>
-{
-    using TArray<T>::ArrayNum;
-    __forceinline T& At(INT i)
-    {
-#line 560 BAA_ARRAY_FILE
-        check(i>=0 && (i<ArrayNum||(i==0 && ArrayNum==0)));
-        return this->GetTypedData()[i];
-    }
-    __forceinline const T& At(INT i) const
-    {
-#line 566 BAA_ARRAY_FILE
-        check(i>=0 && (i<ArrayNum||(i==0 && ArrayNum==0)));
-        return this->GetTypedData()[i];
-    }
-};
-
 /* Kit gaps, with UE3's definitions (UnObjBas.h, UnLinkedObjEditor.h): FIntPoint has no constructor, and
  * the linked-object editor's connector types and layout constant aren't defined. */
 struct FIntPoint_ : public FIntPoint
@@ -46,7 +27,7 @@ FIntPoint UAnimNodeBlendBase::GetConnectionLocation(INT ConnType, INT ConnIndex)
 	{
 #line 276 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTreeDraw.cpp"
 		check(ConnIndex >= 0 && ConnIndex < Children.Num());
-		return FIntPoint(NodePosX + DrawWidth + LO_CONNECTOR_LENGTH, ((TArrayAt_<FAnimBlendChild>&)Children).At(ConnIndex).DrawY);
+		return FIntPoint(NodePosX + DrawWidth + LO_CONNECTOR_LENGTH, Children(ConnIndex).DrawY);
 	}
 
 	return FIntPoint(0, 0);
@@ -69,7 +50,7 @@ FIntPoint UAnimTree::GetConnectionLocation(INT ConnType, INT ConnIndex)
 		// the animation tree, the morph nodes, then one connector per skel control list
 		if (ConnIndex == 0)
 		{
-			return FIntPoint(NodePosX + DrawWidth + LO_CONNECTOR_LENGTH, ((TArrayAt_<FAnimBlendChild>&)Children).At(0).DrawY);
+			return FIntPoint(NodePosX + DrawWidth + LO_CONNECTOR_LENGTH, Children(0).DrawY);
 		}
 		else if (ConnIndex == 1)
 		{
@@ -77,7 +58,7 @@ FIntPoint UAnimTree::GetConnectionLocation(INT ConnType, INT ConnIndex)
 		}
 		else
 		{
-			return FIntPoint(NodePosX + DrawWidth + LO_CONNECTOR_LENGTH, ((TArrayAt_<FSkelControlListHead>&)SkelControlLists).At(ConnIndex - 2).DrawY);
+			return FIntPoint(NodePosX + DrawWidth + LO_CONNECTOR_LENGTH, SkelControlLists(ConnIndex - 2).DrawY);
 		}
 	}
 

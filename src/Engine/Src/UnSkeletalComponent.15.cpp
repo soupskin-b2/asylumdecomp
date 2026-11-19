@@ -5,24 +5,6 @@
 #include "ue3/Array.h"
 #include "ue3/Script.h"
 
-/* Kit gap (Array.h, issue #39): this build inlines TArray::operator() where the kit's plain-inline one is
- * called out of line; same body, forced inline. */
-template<class T> struct TArrayAt_ : public TArray<T>
-{
-    __forceinline T& At(INT i)
-    {
-#line 560 BAA_ARRAY_FILE
-        check(i>=0 && (i<this->ArrayNum||(i==0 && this->ArrayNum==0)));
-        return this->GetTypedData()[i];
-    }
-    __forceinline const T& At(INT i) const
-    {
-#line 566 BAA_ARRAY_FILE
-        check(i>=0 && (i<this->ArrayNum||(i==0 && this->ArrayNum==0)));
-        return this->GetTypedData()[i];
-    }
-};
-
 /* USkeletalMesh::MatchRefBone (0x00976be0) isn't declared in Classes.h. */
 
 /* FMatrix::GetOrigin (UnMath.h) */
@@ -45,14 +27,14 @@ FORCEINLINE FVector USkeletalMeshComponent::GetBoneLocation(FName BoneName, INT 
     {
         if (BoneIndex < SpaceBases.Num())
         {
-            return ((const FMatrix_&)((TArrayAt_<FMatrix>&)SpaceBases).At(BoneIndex)).GetOrigin();
+            return ((const FMatrix_&)SpaceBases(BoneIndex)).GetOrigin();
         }
     }
     else if (Space == 2)
     {
         if (BoneIndex < PrePhysicsSpaceBases.Num())
         {
-            return ((const FMatrix_&)((TArrayAt_<FMatrix>&)PrePhysicsSpaceBases).At(BoneIndex)).GetOrigin();
+            return ((const FMatrix_&)PrePhysicsSpaceBases(BoneIndex)).GetOrigin();
         }
     }
     else
@@ -81,10 +63,10 @@ void USkeletalMeshComponent::execGetClosestCollidingBoneLocation(FFrame& Stack, 
     {
         for (INT i = 0; i < PhysicsAsset->BodySetup.Num(); i++)
         {
-            if ((bCheckZeroExtent && ((TArrayAt_<URB_BodySetup*>&)PhysicsAsset->BodySetup).At(i)->bBlockZeroExtent) ||
-                (bCheckNonZeroExtent && ((TArrayAt_<URB_BodySetup*>&)PhysicsAsset->BodySetup).At(i)->bBlockNonZeroExtent))
+            if ((bCheckZeroExtent && PhysicsAsset->BodySetup(i)->bBlockZeroExtent) ||
+                (bCheckNonZeroExtent && PhysicsAsset->BodySetup(i)->bBlockNonZeroExtent))
             {
-                const FVector BoneLoc = this->GetBoneLocation(((TArrayAt_<URB_BodySetup*>&)PhysicsAsset->BodySetup).At(i)->BoneName);
+                const FVector BoneLoc = this->GetBoneLocation(PhysicsAsset->BodySetup(i)->BoneName);
                 const FLOAT Dist = SizeSquared(BoneLoc - TestLocation);
                 if (Dist < CurrentClosestDist)
                 {
@@ -113,9 +95,9 @@ void USkeletalMeshComponent::execFindComponentAttachedToBone(FFrame& Stack, RESU
     {
         for (INT i = 0; i < Attachments.Num(); i++)
         {
-            if (((TArrayAt_<FAttachment>&)Attachments).At(i).BoneName == InBoneName)
+            if (Attachments(i).BoneName == InBoneName)
             {
-                FoundComponent = ((TArrayAt_<FAttachment>&)Attachments).At(i).Component;
+                FoundComponent = Attachments(i).Component;
                 break;
             }
         }

@@ -477,25 +477,6 @@ FName URAnimNode_Cape::GetNewCapeAnimName()
     return NewCapeAnimName;
 }
 
-/* Kit gap (Array.h, issue #39): this build inlines TArray::operator() where the kit's plain-inline one is
- * called out of line; same body, forced inline. */
-template<class T> struct TArrayAt_ : public TArray<T>
-{
-    using TArray<T>::ArrayNum;
-    __forceinline T& At(INT i)
-    {
-#line 560 BAA_ARRAY_FILE
-        check(i>=0 && (i<ArrayNum||(i==0 && ArrayNum==0)));
-        return this->GetTypedData()[i];
-    }
-    __forceinline const T& At(INT i) const
-    {
-#line 566 BAA_ARRAY_FILE
-        check(i>=0 && (i<ArrayNum||(i==0 && ArrayNum==0)));
-        return this->GetTypedData()[i];
-    }
-};
-
 // @baa 0x015690d0
 /* The editor slider picks the child whose node name becomes the new cape animation. */
 void URAnimNode_Cape::HandleSliderMove(INT SliderIndex, INT ValueIndex, FLOAT NewSliderValue)
@@ -505,9 +486,9 @@ void URAnimNode_Cape::HandleSliderMove(INT SliderIndex, INT ValueIndex, FLOAT Ne
     SliderPos = NewSliderValue;
     const FLOAT NumChildren = (FLOAT)Children.Num();
     const INT ChildIndex = (INT)((NewSliderValue - 0.5f / NumChildren) * NumChildren);
-    if (((TArrayAt_<FAnimBlendChild>&)Children).At(ChildIndex).Anim)
+    if (Children(ChildIndex).Anim)
     {
-        NewCapeAnimName = ((TArrayAt_<FAnimBlendChild>&)Children).At(ChildIndex).Anim->NodeName;
+        NewCapeAnimName = Children(ChildIndex).Anim->NodeName;
     }
     else
     {

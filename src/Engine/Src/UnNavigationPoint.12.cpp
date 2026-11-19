@@ -39,25 +39,6 @@ void ACoverGroup::GetActorReferences(TArray<FActorReference*>& ActorRefs, UBOOL 
     }
 }
 
-/* Kit gap (Array.h, issue #39): this build inlines TArray::operator() where the kit's plain-inline one is
- * called out of line; same body, forced inline. */
-template<class T> struct TArrayAt_ : public TArray<T>
-{
-    using TArray<T>::ArrayNum;
-    __forceinline T& At(INT i)
-    {
-#line 560 BAA_ARRAY_FILE
-        check(i>=0 && (i<ArrayNum||(i==0 && ArrayNum==0)));
-        return this->GetTypedData()[i];
-    }
-    __forceinline const T& At(INT i) const
-    {
-#line 566 BAA_ARRAY_FILE
-        check(i>=0 && (i<ArrayNum||(i==0 && ArrayNum==0)));
-        return this->GetTypedData()[i];
-    }
-};
-
 // @baa 0x00841860
 /* UE3's ACoverLink::GetSlotMarker(INT SlotIdx) (kit sub_00841860): the marker placed for a slot, if any. */
 ACoverSlotMarker* ACoverLink::GetSlotMarker(INT SlotIdx)
@@ -65,7 +46,7 @@ ACoverSlotMarker* ACoverLink::GetSlotMarker(INT SlotIdx)
     ACoverSlotMarker* Marker = NULL;
     if (SlotIdx >= 0 && SlotIdx < Slots.Num())
     {
-        Marker = ((TArrayAt_<FCoverSlot>&)Slots).At(SlotIdx).SlotMarker;
+        Marker = Slots(SlotIdx).SlotMarker;
     }
     return Marker;
 }

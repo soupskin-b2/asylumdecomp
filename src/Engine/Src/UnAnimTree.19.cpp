@@ -30,25 +30,6 @@ void UAnimNodePlayCustomAnim_::PlayAnimByDuration(FName AnimName, FLOAT Duration
 	}
 }
 
-/* Kit gap (Array.h, issue #39): this build inlines TArray::operator() where the kit's plain-inline one is
- * called out of line; same body, forced inline. */
-template<class T> struct TArrayAt_ : public TArray<T>
-{
-    using TArray<T>::ArrayNum;
-    __forceinline T& At(INT i)
-    {
-#line 560 BAA_ARRAY_FILE
-        check(i>=0 && (i<ArrayNum||(i==0 && ArrayNum==0)));
-        return this->GetTypedData()[i];
-    }
-    __forceinline const T& At(INT i) const
-    {
-#line 566 BAA_ARRAY_FILE
-        check(i>=0 && (i<ArrayNum||(i==0 && ArrayNum==0)));
-        return this->GetTypedData()[i];
-    }
-};
-
 /* UAnimNodeAimOffset::GetCurrentProfile isn't declared in Classes.h. */
 
 // @baa 0x00c55cc0
@@ -61,12 +42,12 @@ FAimOffsetProfile* UAnimNodeAimOffset::GetCurrentProfile()
 	{
 		if (CurrentProfileIndex < TemplateNode->Profiles.Num())
 		{
-			Profile = &((TArrayAt_<FAimOffsetProfile>&)TemplateNode->Profiles).At(CurrentProfileIndex);
+			Profile = &TemplateNode->Profiles(CurrentProfileIndex);
 		}
 	}
 	else if (CurrentProfileIndex < Profiles.Num())
 	{
-		Profile = &((TArrayAt_<FAimOffsetProfile>&)Profiles).At(CurrentProfileIndex);
+		Profile = &Profiles(CurrentProfileIndex);
 	}
 
 	return Profile;
@@ -108,14 +89,14 @@ INT UAnimNodeAimOffset::GetComponentIdxFromBoneIdx(INT BoneIndex, UBOOL bCreateI
 	}
 
 	// already set up
-	if (BoneIndex < BoneToAimCpnt.Num() && ((TArrayAt_<INT>&)BoneToAimCpnt).At(BoneIndex) != INDEX_NONE)
+	if (BoneIndex < BoneToAimCpnt.Num() && BoneToAimCpnt(BoneIndex) != INDEX_NONE)
 	{
-		return ((TArrayAt_<INT>&)BoneToAimCpnt).At(BoneIndex);
+		return BoneToAimCpnt(BoneIndex);
 	}
 
 	if (bCreateIfNotFound)
 	{
-		const FName BoneName = ((TArrayAt_<FMeshBone>&)SkelComponent->SkeletalMesh->RefSkeleton).At(BoneIndex).Name;
+		const FName BoneName = SkelComponent->SkeletalMesh->RefSkeleton(BoneIndex).Name;
 		if (BoneName == NAME_None)
 		{
 			return INDEX_NONE;
@@ -125,7 +106,7 @@ INT UAnimNodeAimOffset::GetComponentIdxFromBoneIdx(INT BoneIndex, UBOOL bCreateI
 		INT InsertIndex = INDEX_NONE;
 		for (INT i = 0; i < P->AimComponents.Num() && InsertIndex == INDEX_NONE; i++)
 		{
-			const INT AimBoneIndex = SkelComponent->SkeletalMesh->MatchRefBone(((TArrayAt_<FAimComponent>&)P->AimComponents).At(i).BoneName);
+			const INT AimBoneIndex = SkelComponent->SkeletalMesh->MatchRefBone(P->AimComponents(i).BoneName);
 			if (AimBoneIndex != INDEX_NONE && AimBoneIndex > BoneIndex)
 			{
 				InsertIndex = i;
@@ -138,7 +119,7 @@ INT UAnimNodeAimOffset::GetComponentIdxFromBoneIdx(INT BoneIndex, UBOOL bCreateI
 		}
 
 		P->AimComponents.InsertZeroed(InsertIndex, 1);
-		((TArrayAt_<FAimComponent>&)P->AimComponents).At(InsertIndex).BoneName = BoneName;
+		P->AimComponents(InsertIndex).BoneName = BoneName;
 
 		// no rotation in any direction yet
 		SetBoneAimQuaternion(InsertIndex, ANIMAIM_LEFTUP, FQuat_::Identity);

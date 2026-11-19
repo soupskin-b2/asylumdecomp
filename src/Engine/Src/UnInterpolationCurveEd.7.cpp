@@ -3,29 +3,11 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
 
-/* Kit gap (Array.h, issue #39): this build inlines TArray::operator() where the kit's plain-inline one is
- * called out of line; same body, forced inline. */
-template<class T> struct TArrayAt_ : public TArray<T>
-{
-    __forceinline T& At(INT i)
-    {
-#line 560 BAA_ARRAY_FILE
-        check(i>=0 && (i<this->ArrayNum||(i==0 && this->ArrayNum==0)));
-        return this->GetTypedData()[i];
-    }
-    __forceinline const T& At(INT i) const
-    {
-#line 566 BAA_ARRAY_FILE
-        check(i>=0 && (i<this->ArrayNum||(i==0 && this->ArrayNum==0)));
-        return this->GetTypedData()[i];
-    }
-};
-
 // @baa 0x00cfc730
 INT UInterpTrackMorphWeight::AddKeyframe(FLOAT Time, UInterpTrackInst* TrInst, BYTE InitInterpMode)
 {
     INT NewKeyIndex = FloatTrack.AddPoint(Time, 0.f);
-    ((TArrayAt_<FInterpCurvePointFloat>&)FloatTrack.Points).At(NewKeyIndex).InterpMode = InitInterpMode;
+    FloatTrack.Points(NewKeyIndex).InterpMode = InitInterpMode;
 
     FloatTrack.AutoSetTangents(CurveTension);
 
@@ -38,7 +20,7 @@ INT UInterpTrackMorphWeight::AddKeyframe(FLOAT Time, UInterpTrackInst* TrInst, B
 INT UInterpTrackFaceFXRegister::AddKeyframe(FLOAT Time, UInterpTrackInst* TrInst, BYTE InitInterpMode)
 {
     INT NewKeyIndex = FloatTrack.AddPoint(Time, 0.f);
-    ((TArrayAt_<FInterpCurvePointFloat>&)FloatTrack.Points).At(NewKeyIndex).InterpMode = InitInterpMode;
+    FloatTrack.Points(NewKeyIndex).InterpMode = InitInterpMode;
 
     FloatTrack.AutoSetTangents(CurveTension);
 
@@ -49,7 +31,7 @@ INT UInterpTrackFaceFXRegister::AddKeyframe(FLOAT Time, UInterpTrackInst* TrInst
 INT UInterpTrackSkelControlScale::AddKeyframe(FLOAT Time, UInterpTrackInst* TrInst, BYTE InitInterpMode)
 {
     INT NewKeyIndex = FloatTrack.AddPoint(Time, 0.f);
-    ((TArrayAt_<FInterpCurvePointFloat>&)FloatTrack.Points).At(NewKeyIndex).InterpMode = InitInterpMode;
+    FloatTrack.Points(NewKeyIndex).InterpMode = InitInterpMode;
 
     FloatTrack.AutoSetTangents(CurveTension);
 
@@ -71,7 +53,7 @@ INT UInterpTrackFloatBase::SetKeyframeTime(INT KeyIndex, FLOAT NewKeyTime, UBOOL
     }
     else
     {
-        ((TArrayAt_<FInterpCurvePointFloat>&)FloatTrack.Points).At(KeyIndex).InVal = NewKeyTime;
+        FloatTrack.Points(KeyIndex).InVal = NewKeyTime;
     }
 
     FloatTrack.AutoSetTangents(CurveTension);
@@ -96,7 +78,7 @@ INT UInterpTrackVectorBase::SetKeyframeTime(INT KeyIndex, FLOAT NewKeyTime, UBOO
     }
     else
     {
-        ((TArrayAt_<FInterpCurvePointVector>&)VectorTrack.Points).At(KeyIndex).InVal = NewKeyTime;
+        VectorTrack.Points(KeyIndex).InVal = NewKeyTime;
     }
 
     VectorTrack.AutoSetTangents(CurveTension);
@@ -107,7 +89,7 @@ INT UInterpTrackVectorBase::SetKeyframeTime(INT KeyIndex, FLOAT NewKeyTime, UBOO
 /* CastChecked<T> (UnObjBas.h), out of line for this T in the exe (00cfe4e0) */
 template<class T> T* CastChecked(UObject* Src);
 /* TArray<FVisibilityTrackKey>: Insert out of line in the exe (00cec440) */
-struct FVisibilityTrackKeyArray : public TArrayAt_<FVisibilityTrackKey>
+struct FVisibilityTrackKeyArray : public TArray<FVisibilityTrackKey>
 {
     void Insert(INT Index, INT Count = 1);
 };
@@ -119,16 +101,16 @@ INT UInterpTrackVisibility::AddKeyframe(FLOAT Time, UInterpTrackInst* TrInst, BY
 
     // Find the correct index to insert this key.
     INT i = 0;
-    for (i = 0; i < VisibilityTrack.Num() && ((FVisibilityTrackKeyArray&)VisibilityTrack).At(i).Time < Time; i++);
+    for (i = 0; i < VisibilityTrack.Num() && ((FVisibilityTrackKeyArray&)VisibilityTrack)(i).Time < Time; i++);
     VisibilityTrack.Insert(i);
-    ((FVisibilityTrackKeyArray&)VisibilityTrack).At(i).Time = Time;
-    ((FVisibilityTrackKeyArray&)VisibilityTrack).At(i).Action = VisInst->Action;
+    ((FVisibilityTrackKeyArray&)VisibilityTrack)(i).Time = Time;
+    ((FVisibilityTrackKeyArray&)VisibilityTrack)(i).Action = VisInst->Action;
 
     return i;
 }
 
 /* TArray<FVisibilityTrackKey>: Insert out of line in the exe (00cec440), InsertZeroed inlined (Array.h) */
-struct FVisibilityTrackKeyArray_00cf6f20 : public TArrayAt_<FVisibilityTrackKey>
+struct FVisibilityTrackKeyArray_00cf6f20 : public TArray<FVisibilityTrackKey>
 {
     void Insert(INT Index, INT Count = 1);
     void InsertZeroed(INT Index, INT Count = 1)
@@ -146,20 +128,20 @@ INT UInterpTrackVisibility::DuplicateKeyframe(INT KeyIndex, FLOAT NewKeyTime)
         return INDEX_NONE;
     }
 
-    FVisibilityTrackKey VisKey = ((FVisibilityTrackKeyArray_00cf6f20&)VisibilityTrack).At(KeyIndex);
+    FVisibilityTrackKey VisKey = ((FVisibilityTrackKeyArray_00cf6f20&)VisibilityTrack)(KeyIndex);
     VisKey.Time = NewKeyTime;
 
     // Find the correct index to insert this key.
     INT i = 0;
-    for (i = 0; i < VisibilityTrack.Num() && ((FVisibilityTrackKeyArray_00cf6f20&)VisibilityTrack).At(i).Time < NewKeyTime; i++);
+    for (i = 0; i < VisibilityTrack.Num() && ((FVisibilityTrackKeyArray_00cf6f20&)VisibilityTrack)(i).Time < NewKeyTime; i++);
     VisibilityTrack.InsertZeroed(i);
-    ((FVisibilityTrackKeyArray_00cf6f20&)VisibilityTrack).At(i) = VisKey;
+    ((FVisibilityTrackKeyArray_00cf6f20&)VisibilityTrack)(i) = VisKey;
 
     return i;
 }
 
 /* TArray<FVisibilityTrackKey>: Insert and Remove out of line in the exe (00cec440, 00cf8530), InsertZeroed inlined (Array.h) */
-struct FVisibilityTrackKeyArray_00cfcb30 : public TArrayAt_<FVisibilityTrackKey>
+struct FVisibilityTrackKeyArray_00cfcb30 : public TArray<FVisibilityTrackKey>
 {
     void Insert(INT Index, INT Count = 1);
     void Remove(INT Index, INT Count = 1);
@@ -181,7 +163,7 @@ INT UInterpTrackVisibility::SetKeyframeTime(INT KeyIndex, FLOAT NewKeyTime, UBOO
     if (bUpdateOrder)
     {
         // First, remove cut from array.
-        FVisibilityTrackKey MoveKey = ((FVisibilityTrackKeyArray_00cfcb30&)VisibilityTrack).At(KeyIndex);
+        FVisibilityTrackKey MoveKey = ((FVisibilityTrackKeyArray_00cfcb30&)VisibilityTrack)(KeyIndex);
         VisibilityTrack.Remove(KeyIndex);
 
         // Set its time to the new one.
@@ -189,15 +171,15 @@ INT UInterpTrackVisibility::SetKeyframeTime(INT KeyIndex, FLOAT NewKeyTime, UBOO
 
         // Find correct new position and insert.
         INT i = 0;
-        for (i = 0; i < VisibilityTrack.Num() && ((FVisibilityTrackKeyArray_00cfcb30&)VisibilityTrack).At(i).Time < NewKeyTime; i++);
+        for (i = 0; i < VisibilityTrack.Num() && ((FVisibilityTrackKeyArray_00cfcb30&)VisibilityTrack)(i).Time < NewKeyTime; i++);
         VisibilityTrack.InsertZeroed(i);
-        ((FVisibilityTrackKeyArray_00cfcb30&)VisibilityTrack).At(i) = MoveKey;
+        ((FVisibilityTrackKeyArray_00cfcb30&)VisibilityTrack)(i) = MoveKey;
 
         return i;
     }
     else
     {
-        ((FVisibilityTrackKeyArray_00cfcb30&)VisibilityTrack).At(KeyIndex).Time = NewKeyTime;
+        ((FVisibilityTrackKeyArray_00cfcb30&)VisibilityTrack)(KeyIndex).Time = NewKeyTime;
         return KeyIndex;
     }
 }

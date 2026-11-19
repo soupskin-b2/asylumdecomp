@@ -184,24 +184,6 @@ FString USkeletalMesh::GetDetailedDescription(INT InIndex)
     return Description;
 }
 
-/* Kit gap (Array.h, issue #39): this build inlines TArray::operator() where the kit's plain-inline one is
- * called out of line; same body, forced inline. */
-template<class T> struct TArrayAt_ : public TArray<T>
-{
-    __forceinline T& At(INT i)
-    {
-#line 560 BAA_ARRAY_FILE
-        check(i>=0 && (i<this->ArrayNum||(i==0 && this->ArrayNum==0)));
-        return this->GetTypedData()[i];
-    }
-    __forceinline const T& At(INT i) const
-    {
-#line 566 BAA_ARRAY_FILE
-        check(i>=0 && (i<this->ArrayNum||(i==0 && this->ArrayNum==0)));
-        return this->GetTypedData()[i];
-    }
-};
-
 // @baa 0x00d49ed0
 /* whether ParentBoneIndex is an ancestor of ChildBoneIndex */
 UBOOL USkeletalMesh::BoneIsChildOf(INT ChildBoneIndex, INT ParentBoneIndex) const
@@ -212,7 +194,7 @@ UBOOL USkeletalMesh::BoneIsChildOf(INT ChildBoneIndex, INT ParentBoneIndex) cons
         return FALSE;
     }
 
-    INT BoneIndex = ((const TArrayAt_<FMeshBone>&)RefSkeleton).At(ChildBoneIndex).ParentIndex;
+    INT BoneIndex = RefSkeleton(ChildBoneIndex).ParentIndex;
     while (TRUE)
     {
         if (BoneIndex == ParentBoneIndex)
@@ -223,7 +205,7 @@ UBOOL USkeletalMesh::BoneIsChildOf(INT ChildBoneIndex, INT ParentBoneIndex) cons
         {
             return FALSE;
         }
-        BoneIndex = ((const TArrayAt_<FMeshBone>&)RefSkeleton).At(BoneIndex).ParentIndex;
+        BoneIndex = RefSkeleton(BoneIndex).ParentIndex;
     }
 }
 

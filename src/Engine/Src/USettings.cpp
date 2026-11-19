@@ -1034,25 +1034,6 @@ FString USettings::GetPropertyAsStringByName(FName PropertyName)
 /* Kit gaps: FSettingsData's structcpptext (SetData(INT), out of line here at 00d6e2e0), USettings::FindPropertyMetaData, USettings::FindProperty,
  * FScriptDelegate::IsCallable (00784f80) and the delegateNotifyPropertyValueUpdated glue (out of line, 00d66f70)
  * aren't declared. */
-/* Kit gap (Array.h, issue #39): this build inlines TArray::operator() where the kit's plain-inline one is
- * called out of line; same body, forced inline. */
-template<class T> struct TArrayAt_ : public TArray<T>
-{
-    using TArray<T>::ArrayNum;
-    __forceinline T& At(INT i)
-    {
-#line 560 BAA_ARRAY_FILE
-        check(i>=0 && (i<ArrayNum||(i==0 && ArrayNum==0)));
-        return this->GetTypedData()[i];
-    }
-    __forceinline const T& At(INT i) const
-    {
-#line 566 BAA_ARRAY_FILE
-        check(i>=0 && (i<ArrayNum||(i==0 && ArrayNum==0)));
-        return this->GetTypedData()[i];
-    }
-};
-
 
 struct USettings__00d75b50 : public USettings
 {
@@ -1097,7 +1078,7 @@ UBOOL USettings::SetPropertyValueId(INT PropertyId, INT ValueId)
 		{
 			for (INT Index = 0; Index < MetaData->ValueMappings.Num(); Index++)
 			{
-				FIdToStringMapping& Mapping = ((TArrayAt_<FIdToStringMapping>&)MetaData->ValueMappings).At(Index);
+				FIdToStringMapping& Mapping = MetaData->ValueMappings(Index);
 				if (Mapping.Id == ValueId)
 				{
 					Property->Data.SetData(ValueId);

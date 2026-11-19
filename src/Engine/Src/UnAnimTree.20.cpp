@@ -6,25 +6,6 @@
 #include "ue3/Cast.h"
 #include "ue3/AppMath.h"
 
-/* Kit gap (Array.h, issue #39): this build inlines TArray::operator() where the kit's plain-inline one is
- * called out of line; same body, forced inline. */
-template<class T> struct TArrayAt_ : public TArray<T>
-{
-    using TArray<T>::ArrayNum;
-    __forceinline T& At(INT i)
-    {
-#line 560 BAA_ARRAY_FILE
-        check(i>=0 && (i<ArrayNum||(i==0 && ArrayNum==0)));
-        return this->GetTypedData()[i];
-    }
-    __forceinline const T& At(INT i) const
-    {
-#line 566 BAA_ARRAY_FILE
-        check(i>=0 && (i<ArrayNum||(i==0 && ArrayNum==0)));
-        return this->GetTypedData()[i];
-    }
-};
-
 // @baa 0x00c7abf0
 /* Switches to child ChildIndex (the first one if it's out of range), blending over BlendTime seconds: shortened by
  * how far the target child already is blended in, or skipped when the node just became relevant or the mesh isn't
@@ -48,13 +29,13 @@ void UAnimNodeBlendList::SetActiveChild(INT ChildIndex, FLOAT BlendTime)
 		{
 			BlendTime = 0.f;
 		}
-		else if (((TArrayAt_<FAnimBlendChild>&)Children).At(ActiveChildIndex).Anim == ((TArrayAt_<FAnimBlendChild>&)Children).At(ChildIndex).Anim)
+		else if (Children(ActiveChildIndex).Anim == Children(ChildIndex).Anim)
 		{
-			BlendTime *= (1.f - ((TArrayAt_<FAnimBlendChild>&)Children).At(ActiveChildIndex).Weight);
+			BlendTime *= (1.f - Children(ActiveChildIndex).Weight);
 		}
 		else
 		{
-			BlendTime *= (1.f - ((TArrayAt_<FAnimBlendChild>&)Children).At(ChildIndex).Weight);
+			BlendTime *= (1.f - Children(ChildIndex).Weight);
 		}
 	}
 
@@ -67,7 +48,7 @@ void UAnimNodeBlendList::SetActiveChild(INT ChildIndex, FLOAT BlendTime)
 			// If we basically want this straight away - don't wait until a tick to update weights.
 			if (BlendTime == 0.f)
 			{
-				((TArrayAt_<FAnimBlendChild>&)Children).At(i).Weight = 1.f;
+				Children(i).Weight = 1.f;
 			}
 		}
 		else
@@ -76,7 +57,7 @@ void UAnimNodeBlendList::SetActiveChild(INT ChildIndex, FLOAT BlendTime)
 
 			if (BlendTime == 0.f)
 			{
-				((TArrayAt_<FAnimBlendChild>&)Children).At(i).Weight = 0.f;
+				Children(i).Weight = 0.f;
 			}
 		}
 	}
@@ -86,7 +67,7 @@ void UAnimNodeBlendList::SetActiveChild(INT ChildIndex, FLOAT BlendTime)
 
 	if (bPlayActiveChild)
 	{
-		UAnimNodeSequence* AnimSeq = Cast<UAnimNodeSequence>(((TArrayAt_<FAnimBlendChild>&)Children).At(ActiveChildIndex).Anim);
+		UAnimNodeSequence* AnimSeq = Cast<UAnimNodeSequence>(Children(ActiveChildIndex).Anim);
 		if (AnimSeq)
 		{
 			AnimSeq->PlayAnim(AnimSeq->bLooping, AnimSeq->Rate, 0.f);

@@ -5,24 +5,6 @@
 #include "ue3/Array.h"
 #include "ue3/AppMath.h"
 
-/* Kit gap (Array.h, issue #39): this build inlines TArray::operator() where the kit's plain-inline one is
- * called out of line; same body, forced inline. */
-template<class T> struct TArrayAt_ : public TArray<T>
-{
-    __forceinline T& At(INT i)
-    {
-#line 560 BAA_ARRAY_FILE
-        check(i>=0 && (i<this->ArrayNum||(i==0 && this->ArrayNum==0)));
-        return this->GetTypedData()[i];
-    }
-    __forceinline const T& At(INT i) const
-    {
-#line 566 BAA_ARRAY_FILE
-        check(i>=0 && (i<this->ArrayNum||(i==0 && this->ArrayNum==0)));
-        return this->GetTypedData()[i];
-    }
-};
-
 #define BIG_NUMBER (3.4e+38f) /* UnMath.h */
 // @baa 0x00cf7050
 UBOOL UInterpTrackVisibility::GetClosestSnapPosition(FLOAT InPosition, TArray<INT>& IgnoreKeys, FLOAT& OutPosition)
@@ -39,10 +21,10 @@ UBOOL UInterpTrackVisibility::GetClosestSnapPosition(FLOAT InPosition, TArray<IN
     {
         if (!IgnoreKeys.ContainsItem(i))
         {
-            FLOAT Dist = appAbs(((TArrayAt_<FVisibilityTrackKey>&)VisibilityTrack).At(i).Time - InPosition);
+            FLOAT Dist = appAbs(VisibilityTrack(i).Time - InPosition);
             if (Dist < ClosestDist)
             {
-                ClosestSnap = ((TArrayAt_<FVisibilityTrackKey>&)VisibilityTrack).At(i).Time;
+                ClosestSnap = VisibilityTrack(i).Time;
                 ClosestDist = Dist;
                 bFoundSnap = TRUE;
             }

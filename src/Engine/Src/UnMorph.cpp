@@ -241,25 +241,6 @@ undefined4 * UObject::sub_008591b0(void)
 
 // @baa 0x00852b50
 
-/* Kit gap (Array.h, issue #39): this build inlines TArray::operator() where the kit's plain-inline one is
- * called out of line; same body, forced inline. */
-template<class T> struct TArrayAt_ : public TArray<T>
-{
-    using TArray<T>::ArrayNum;
-    __forceinline T& At(INT i)
-    {
-#line 560 BAA_ARRAY_FILE
-        check(i>=0 && (i<ArrayNum||(i==0 && ArrayNum==0)));
-        return this->GetTypedData()[i];
-    }
-    __forceinline const T& At(INT i) const
-    {
-#line 566 BAA_ARRAY_FILE
-        check(i>=0 && (i<ArrayNum||(i==0 && ArrayNum==0)));
-        return this->GetTypedData()[i];
-    }
-};
-
 /* Kit gap: UnMorph.h's connector constants aren't declared. */
 #define LOC_INPUT			0
 #define LOC_OUTPUT			1
@@ -280,7 +261,7 @@ FIntPoint UMorphNodeWeightBase::GetConnectionLocation(INT ConnType, INT ConnInde
 	{
 #line 236 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnMorph.cpp"
 		check(ConnIndex >= 0 && ConnIndex < NodeConns.Num());
-		const FMorphNodeConn& Conn = ((TArrayAt_<FMorphNodeConn>&)NodeConns).At(ConnIndex);
+		const FMorphNodeConn& Conn = NodeConns(ConnIndex);
 		Result.X = NodePosX + DrawWidth + LO_CONNECTOR_LENGTH;
 		Result.Y = Conn.DrawY;
 	}

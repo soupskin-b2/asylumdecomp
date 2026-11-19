@@ -800,19 +800,6 @@ void ARPathNode::UpdateLastSeenTime(INT Idx)
 	LastSeenTime(Idx) = WorldInfo->TimeSeconds;
 }
 
-/* Kit gap (Array.h, issue #39): this build inlines TArray::operator() where the kit's plain-inline one is
- * called out of line; same body, forced inline. */
-template<class T> struct TArrayAt_ : public TArray<T>
-{
-	using TArray<T>::ArrayNum;
-	__forceinline T& At(INT i)
-	{
-#line 560 BAA_ARRAY_FILE
-		check(i>=0 && (i<ArrayNum||(i==0 && ArrayNum==0)));
-		return this->GetTypedData()[i];
-	}
-};
-
 // @baa 0x0153fea0
 /* Slot 0x3b8 (unnamed in the kit): seconds since path user Index last saw this node (a large time for an unknown
  * user). */
@@ -820,7 +807,7 @@ FLOAT ARPathNode::GetTimeSinceLastSighting(INT Index)
 {
 	if (LastSeenTime.Num() > Index)
 	{
-		return WorldInfo->TimeSeconds - ((TArrayAt_<FLOAT>&)LastSeenTime).At(Index);
+		return WorldInfo->TimeSeconds - LastSeenTime(Index);
 	}
 	return 50000.f;
 }

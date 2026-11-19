@@ -140,24 +140,6 @@ UBOOL USkeletalMeshComponent::GetSocketWorldLocationAndRotation(FName InSocketNa
     return FALSE;
 }
 
-/* Kit gap (Array.h, issue #39): this build inlines TArray::operator() where the kit's plain-inline one is
- * called out of line; same body, forced inline. */
-template<class T> struct TArrayAt_ : public TArray<T>
-{
-    __forceinline T& At(INT i)
-    {
-#line 560 BAA_ARRAY_FILE
-        check(i>=0 && (i<this->ArrayNum||(i==0 && this->ArrayNum==0)));
-        return this->GetTypedData()[i];
-    }
-    __forceinline const T& At(INT i) const
-    {
-#line 566 BAA_ARRAY_FILE
-        check(i>=0 && (i<this->ArrayNum||(i==0 && this->ArrayNum==0)));
-        return this->GetTypedData()[i];
-    }
-};
-
 /* FMatrix::operator* (UnMath.h, out of line at 0x0058e560); the kit's FMatrix has no methods. */
 struct FMatrix__0091d2a0 : public FMatrix
 {
@@ -172,10 +154,10 @@ FMatrix USkeletalMeshComponent::GetBoneMatrix(INT BoneIndex)
     {
         if ((UINT)BoneIndex < (UINT)ParentBoneMap.Num())
         {
-            const INT ParentBoneIndex = ((const TArrayAt_<INT>&)ParentBoneMap).At(BoneIndex);
+            const INT ParentBoneIndex = ((const TArray<INT>&)ParentBoneMap)(BoneIndex);
             if (ParentBoneIndex != INDEX_NONE && ParentBoneIndex < ParentAnimComponent->SpaceBases.Num())
             {
-                return (const FMatrix__0091d2a0&)((TArrayAt_<FMatrix>&)ParentAnimComponent->SpaceBases).At(ParentBoneIndex) * LocalToWorld;
+                return (const FMatrix__0091d2a0&)ParentAnimComponent->SpaceBases(ParentBoneIndex) * LocalToWorld;
             }
         }
         return FMatrix::Identity;
@@ -184,7 +166,7 @@ FMatrix USkeletalMeshComponent::GetBoneMatrix(INT BoneIndex)
     {
         if (SpaceBases.Num() != 0 && (UINT)BoneIndex < (UINT)SpaceBases.Num())
         {
-            return (const FMatrix__0091d2a0&)((const TArrayAt_<FMatrix>&)SpaceBases).At(BoneIndex) * LocalToWorld;
+            return (const FMatrix__0091d2a0&)((const TArray<FMatrix>&)SpaceBases)(BoneIndex) * LocalToWorld;
         }
         return FMatrix::Identity;
     }
@@ -214,14 +196,14 @@ FVector USkeletalMeshComponent::GetBoneLocation(FName BoneName, INT Space)
     {
         if (BoneIndex < SpaceBases.Num())
         {
-            return ((const FMatrix__0091e3a0&)((TArrayAt_<FMatrix>&)SpaceBases).At(BoneIndex)).GetOrigin();
+            return ((const FMatrix__0091e3a0&)SpaceBases(BoneIndex)).GetOrigin();
         }
     }
     else if (Space == 2)
     {
         if (BoneIndex < PrePhysicsSpaceBases.Num())
         {
-            return ((const FMatrix__0091e3a0&)((TArrayAt_<FMatrix>&)PrePhysicsSpaceBases).At(BoneIndex)).GetOrigin();
+            return ((const FMatrix__0091e3a0&)PrePhysicsSpaceBases(BoneIndex)).GetOrigin();
         }
     }
     else

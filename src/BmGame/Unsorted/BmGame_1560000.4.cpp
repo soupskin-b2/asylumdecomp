@@ -49,25 +49,6 @@ C_01563940* C_01563940::sub_01563940(INT P)
     return this;
 }
 
-/* Kit gap (Array.h, issue #39): this build inlines TArray::operator() where the kit's plain-inline one is
- * called out of line; same body, forced inline. */
-template<class T> struct TArrayAt_ : public TArray<T>
-{
-	using TArray<T>::ArrayNum;
-	__forceinline T& At(INT i)
-	{
-#line 560 BAA_ARRAY_FILE
-		check(i>=0 && (i<ArrayNum||(i==0 && ArrayNum==0)));
-		return this->GetTypedData()[i];
-	}
-	/* UE3's TArray::InsertZeroed (missing from the kit) */
-	void InsertZeroed(INT Index, INT Count = 1)
-	{
-		this->Insert(Index, Count);
-		appMemzero(this->GetTypedData() + Index, Count * sizeof(T));
-	}
-};
-
 /* Kit gap: FBoneAtom's member-wise operator= (UnSkeletalMesh.h). */
 struct FBoneAtom_ : public FBoneAtom
 {
@@ -88,28 +69,15 @@ void URAnimNode_AnimCapture::Capture(USkeletalMeshComponent* SkelComp)
 	if (SavedAtoms.Num() != NumAtoms)
 	{
 		SavedAtoms.Remove(0, SavedAtoms.Num());
-		((TArrayAt_<FBoneAtom>&)SavedAtoms).InsertZeroed(0, NumAtoms);
+		SavedAtoms.InsertZeroed(0, NumAtoms);
 	}
 	for (INT i = 0; i < NumAtoms; i++)
 	{
-		((TArrayAt_<FBoneAtom_>&)SavedAtoms).At(i) = ((TArrayAt_<FBoneAtom>&)SkelComp->LocalAtoms).At(i);
+		SavedAtoms(i) = SkelComp->LocalAtoms(i);
 	}
 }
 
 #line 100 "candidate.cpp"
-
-/* Kit gap (Array.h, issue #39): this build inlines TArray::operator() where the kit's plain-inline one is
- * called out of line; same body, forced inline. */
-template<class T> struct TArrayAt__0156d880 : public TArray<T>
-{
-	using TArray<T>::ArrayNum;
-	__forceinline T& At(INT i)
-	{
-#line 560 BAA_ARRAY_FILE
-		check(i>=0 && (i<ArrayNum||(i==0 && ArrayNum==0)));
-		return this->GetTypedData()[i];
-	}
-};
 
 /* Kit gap: UAnimNode::FillWithRefPose (UnAnimTree.cpp, 0x00c5eb80) isn't declared. */
 struct UAnimNode_ : public UAnimNode
@@ -126,7 +94,7 @@ void URAnimNode_AnimCapture::GetBoneAtoms(TArray<FBoneAtom>& Atoms, const TArray
 	{
 		for (INT i = 0; i < SavedAtoms.Num() && i < Atoms.Num(); i++)
 		{
-			((TArrayAt__0156d880<FBoneAtom_>&)Atoms).At(i) = ((TArrayAt__0156d880<FBoneAtom>&)SavedAtoms).At(i);
+			((TArray<FBoneAtom_>&)Atoms)(i) = ((TArray<FBoneAtom>&)SavedAtoms)(i);
 		}
 	}
 }

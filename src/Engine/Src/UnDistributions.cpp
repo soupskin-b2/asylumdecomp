@@ -1073,19 +1073,6 @@ void AController::RouteCache_RemoveItem(ANavigationPoint* Nav)
 	}
 }
 
-/* Kit gap (Array.h, issue #39): this build inlines TArray::operator() where the kit's plain-inline one is
- * called out of line; same body, forced inline. */
-template<class T> struct TArrayAt_ : public TArray<T>
-{
-	using TArray<T>::ArrayNum;
-	__forceinline T& At(INT i)
-	{
-#line 560 BAA_ARRAY_FILE
-		check(i>=0 && (i<ArrayNum||(i==0 && ArrayNum==0)));
-		return this->GetTypedData()[i];
-	}
-};
-
 // @baa 0x007b5e20
 /* Slot 0x110 (unnamed in the kit): one sub-curve when the curve is a single key whose min and max agree,
  * otherwise two. */
@@ -1093,7 +1080,7 @@ ERawDistributionOperation UDistributionFloatUniformCurve::GetOperation()
 {
 	if (ConstantCurve.Points.Num() == 1)
 	{
-		FInterpCurvePointVector2D& Point = ((TArrayAt_<FInterpCurvePointVector2D>&)ConstantCurve.Points).At(0);
+		FInterpCurvePointVector2D& Point = ConstantCurve.Points(0);
 		if (Point.OutVal.X == Point.OutVal.Y)
 		{
 			return RDO_None;
@@ -1111,7 +1098,7 @@ ERawDistributionOperation UDistributionVectorUniformCurve::GetOperation()
 {
 	if (ConstantCurve.Points.Num() == 1)
 	{
-		FInterpCurvePointTwoVectors& Point = ((TArrayAt_<FInterpCurvePointTwoVectors>&)ConstantCurve.Points).At(0);
+		FInterpCurvePointTwoVectors& Point = ConstantCurve.Points(0);
 		if (Point.OutVal.v1.X == Point.OutVal.v2.X && Point.OutVal.v1.Y == Point.OutVal.v2.Y && Point.OutVal.v1.Z == Point.OutVal.v2.Z)
 		{
 			return RDO_None;

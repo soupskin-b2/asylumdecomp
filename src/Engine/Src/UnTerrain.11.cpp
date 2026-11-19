@@ -5,25 +5,6 @@
 #include "ue3/Array.h"
 #include "ue3/AppMath.h"
 
-/* Kit gap (Array.h, issue #39): this build inlines TArray::operator() where the kit's plain-inline one is
- * called out of line; same body, forced inline. */
-template<class T> struct TArrayAt_ : public TArray<T>
-{
-    using TArray<T>::ArrayNum;
-    __forceinline T& At(INT i)
-    {
-#line 560 BAA_ARRAY_FILE
-        check(i>=0 && (i<ArrayNum||(i==0 && ArrayNum==0)));
-        return this->GetTypedData()[i];
-    }
-    __forceinline const T& At(INT i) const
-    {
-#line 566 BAA_ARRAY_FILE
-        check(i>=0 && (i<ArrayNum||(i==0 && ArrayNum==0)));
-        return this->GetTypedData()[i];
-    }
-};
-
 /* Kit gap: FTerrainHeight is empty in the kit; in UE3 it is { WORD Value; }. */
 
 // @baa 0x0098b970
@@ -32,7 +13,7 @@ const WORD& ATerrain::Height(INT X, INT Y) const
 {
     X = Clamp(X, 0, NumVerticesX - 1);
     Y = Clamp(Y, 0, NumVerticesY - 1);
-    return ((const TArrayAt_<WORD>&)Heights).At(Y * NumVerticesX + X);
+    return ((const TArray<WORD>&)Heights)(Y * NumVerticesX + X);
 }
 
 #line 43 "candidate.cpp"
@@ -45,7 +26,7 @@ BYTE* ATerrain::GetInfoData(INT X, INT Y)
 {
     X = Clamp(X, 0, NumVerticesX - 1);
     Y = Clamp(Y, 0, NumVerticesY - 1);
-    return &((TArrayAt_<BYTE>&)InfoData).At(Y * NumVerticesX + X);
+    return &((TArray<BYTE>&)InfoData)(Y * NumVerticesX + X);
 }
 
 /* Kit gap: FTerrainInfoData is empty in the kit; in UE3 it is { BYTE Data; } (visibility/flip flags). */
@@ -56,5 +37,5 @@ const BYTE* ATerrain::GetInfoData(INT X, INT Y) const
 {
     X = Clamp(X, 0, NumVerticesX - 1);
     Y = Clamp(Y, 0, NumVerticesY - 1);
-    return &((const TArrayAt_<BYTE>&)InfoData).At(Y * NumVerticesX + X);
+    return &((const TArray<BYTE>&)InfoData)(Y * NumVerticesX + X);
 }

@@ -5,25 +5,6 @@
 #include "ue3/AppMath.h"
 #include "ue3/Array.h"
 
-/* Kit gap (Array.h, issue #39): this build inlines TArray::operator() where the kit's plain-inline one is
- * called out of line; same body, forced inline. */
-template<class T> struct TArrayAt_ : public TArray<T>
-{
-    using TArray<T>::ArrayNum;
-    __forceinline T& At(INT i)
-    {
-#line 560 BAA_ARRAY_FILE
-        check(i>=0 && (i<ArrayNum||(i==0 && ArrayNum==0)));
-        return this->GetTypedData()[i];
-    }
-    __forceinline const T& At(INT i) const
-    {
-#line 566 BAA_ARRAY_FILE
-        check(i>=0 && (i<ArrayNum||(i==0 && ArrayNum==0)));
-        return this->GetTypedData()[i];
-    }
-};
-
 #define ZERO_ANIMWEIGHT_THRESH (0.00001f)
 /* UAnimNodeSlot::SetActiveChild and UpdateWeightsForAdditiveAnimations aren't declared in Classes.h. */
 
@@ -48,11 +29,11 @@ void UAnimNodeSlot::SetActiveChild(INT ChildIndex, FLOAT BlendTime)
 		// scale the blend time by how far the child still has to go
 		if (TargetChildIndex != INDEX_NONE && TargetChildIndex < Children.Num())
 		{
-			BlendTime *= Max(((TArrayAt_<FAnimBlendChild>&)Children).At(TargetChildIndex).Weight, 1.f - ((TArrayAt_<FAnimBlendChild>&)Children).At(ChildIndex).Weight);
+			BlendTime *= Max(Children(TargetChildIndex).Weight, 1.f - Children(ChildIndex).Weight);
 		}
 		else
 		{
-			BlendTime *= 1.f - ((TArrayAt_<FAnimBlendChild>&)Children).At(ChildIndex).Weight;
+			BlendTime *= 1.f - Children(ChildIndex).Weight;
 		}
 
 		if (BlendTime < ZERO_ANIMWEIGHT_THRESH)
@@ -65,21 +46,21 @@ void UAnimNodeSlot::SetActiveChild(INT ChildIndex, FLOAT BlendTime)
 	{
 		if (i == ChildIndex)
 		{
-			((TArrayAt_<FLOAT>&)TargetWeight).At(i) = 1.0f;
+			TargetWeight(i) = 1.0f;
 
 			// wanted straight away: don't wait for a tick to update the weights
 			if (BlendTime == 0.0f)
 			{
-				((TArrayAt_<FAnimBlendChild>&)Children).At(i).Weight = 1.0f;
+				Children(i).Weight = 1.0f;
 			}
 		}
 		else
 		{
-			((TArrayAt_<FLOAT>&)TargetWeight).At(i) = 0.f;
+			TargetWeight(i) = 0.f;
 
 			if (BlendTime == 0.0f)
 			{
-				((TArrayAt_<FAnimBlendChild>&)Children).At(i).Weight = 0.f;
+				Children(i).Weight = 0.f;
 			}
 		}
 	}

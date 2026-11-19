@@ -3,24 +3,6 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
 
-/* Kit gap (Array.h, issue #39): this build inlines TArray::operator() where the kit's plain-inline one is
- * called out of line; same body, forced inline. */
-template<class T> struct TArrayAt_ : public TArray<T>
-{
-    __forceinline T& At(INT i)
-    {
-#line 560 BAA_ARRAY_FILE
-        check(i>=0 && (i<this->ArrayNum||(i==0 && this->ArrayNum==0)));
-        return this->GetTypedData()[i];
-    }
-    __forceinline const T& At(INT i) const
-    {
-#line 566 BAA_ARRAY_FILE
-        check(i>=0 && (i<this->ArrayNum||(i==0 && this->ArrayNum==0)));
-        return this->GetTypedData()[i];
-    }
-};
-
 /* The render classes below aren't in the kit; only the parts these functions touch are spelled out, the
  * rest is kept opaque with the sizes the CPU-skin code uses. */
 /* FRenderResource (RenderResource.h): its virtual functions in slot order */
@@ -134,7 +116,7 @@ void FSkeletalMeshObjectCPUSkin::FSkeletalMeshObjectLOD::RemoveDecalVertexFactor
     {
         if (bResourcesInitialized)
         {
-            FDecalVertexFactoryInfo& DecalInfo = ((TArrayAt_<FDecalVertexFactoryInfo>&)DecalVertexFactories).At(DecalIndex);
+            FDecalVertexFactoryInfo& DecalInfo = DecalVertexFactories(DecalIndex);
             DecalInfo.DecalVertexFactory.ReleaseResource();
         }
         DecalVertexFactories.Remove(DecalIndex);

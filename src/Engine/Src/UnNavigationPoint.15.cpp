@@ -5,25 +5,6 @@
 #include "ue3/Array.h"
 #include "ue3/Cast.h"
 
-/* Kit gap (Array.h, issue #39): this build inlines TArray::operator() where the kit's plain-inline one is
- * called out of line; same body, forced inline. */
-template<class T> struct TArrayAt_ : public TArray<T>
-{
-    using TArray<T>::ArrayNum;
-    __forceinline T& At(INT i)
-    {
-#line 560 BAA_ARRAY_FILE
-        check(i>=0 && (i<ArrayNum||(i==0 && ArrayNum==0)));
-        return this->GetTypedData()[i];
-    }
-    __forceinline const T& At(INT i) const
-    {
-#line 566 BAA_ARRAY_FILE
-        check(i>=0 && (i<ArrayNum||(i==0 && ArrayNum==0)));
-        return this->GetTypedData()[i];
-    }
-};
-
 extern FName g_026c4ba8;
  /* ENGINE_SetDisabled */
 /* EngineClasses.h's inline script-event glue (not in the kit). */
@@ -46,7 +27,7 @@ void ACoverGroup::EnableGroup()
 {
     for (INT Idx = 0; Idx < CoverLinkRefs.Num(); Idx++)
     {
-        ACoverLink* Link = Cast<ACoverLink>(((TArrayAt_<FActorReference>&)CoverLinkRefs).At(Idx).Actor);
+        ACoverLink* Link = Cast<ACoverLink>(CoverLinkRefs(Idx).Actor);
         if (Link != NULL)
         {
             ((ACoverLink_*)Link)->eventSetDisabled(FALSE);
@@ -66,7 +47,7 @@ void ACoverGroup::DisableGroup()
 {
     for (INT Idx = 0; Idx < CoverLinkRefs.Num(); Idx++)
     {
-        ACoverLink* Link = Cast<ACoverLink>(((TArrayAt_<FActorReference>&)CoverLinkRefs).At(Idx).Actor);
+        ACoverLink* Link = Cast<ACoverLink>(CoverLinkRefs(Idx).Actor);
         if (Link != NULL)
         {
             ((ACoverLink_*)Link)->eventSetDisabled(TRUE);
@@ -84,7 +65,7 @@ void ACoverGroup::ToggleGroup()
 {
     for (INT Idx = 0; Idx < CoverLinkRefs.Num(); Idx++)
     {
-        ACoverLink* Link = Cast<ACoverLink>(((TArrayAt_<FActorReference>&)CoverLinkRefs).At(Idx).Actor);
+        ACoverLink* Link = Cast<ACoverLink>(CoverLinkRefs(Idx).Actor);
         if (Link != NULL)
         {
             ((ACoverLink_*)Link)->eventSetDisabled(!Link->bDisabled);
@@ -115,7 +96,7 @@ UClass* ACoverSlotMarker::GetReachSpecClass(ANavigationPoint* Nav, UClass* Reach
         FCoverSlot* Slot = sub_00840460(OwningSlot);
         for (INT Idx = 0; Idx < Slot->TurnTarget.Num(); Idx++)
         {
-            FCoverSlot* TurnSlot = sub_0085d480(((TArrayAt_<FCoverReference>&)Slot->TurnTarget).At(Idx));
+            FCoverSlot* TurnSlot = sub_0085d480(Slot->TurnTarget(Idx));
             if (TurnSlot != NULL && TurnSlot->SlotMarker == Nav)
             {
                 return USwatTurnReachSpec::StaticClass();
@@ -130,6 +111,6 @@ UClass* ACoverSlotMarker::GetReachSpecClass(ANavigationPoint* Nav, UClass* Reach
  * swat-turn reach spec. */
 INT ACoverSlotMarker::vf_374(INT PathIdx)
 {
-    return !ObjectIsA(((TArrayAt_<UReachSpec*>&)PathList).At(PathIdx), USlotToSlotReachSpec::StaticClass()) &&
-           !ObjectIsA(((TArrayAt_<UReachSpec*>&)PathList).At(PathIdx), USwatTurnReachSpec::StaticClass());
+    return !ObjectIsA(PathList(PathIdx), USlotToSlotReachSpec::StaticClass()) &&
+           !ObjectIsA(PathList(PathIdx), USwatTurnReachSpec::StaticClass());
 }

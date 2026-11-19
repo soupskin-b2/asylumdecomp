@@ -63,24 +63,6 @@ void S::sub_00a2c820() {
     sub_005db340();
 }
 
-/* Kit gap (Array.h, issue #39): this build inlines TArray::operator() where the kit's plain-inline one is
- * called out of line; same body, forced inline. */
-template<class T> struct TArrayAt_ : public TArray<T>
-{
-    __forceinline T& At(INT i)
-    {
-#line 560 BAA_ARRAY_FILE
-        check(i>=0 && (i<this->ArrayNum||(i==0 && this->ArrayNum==0)));
-        return this->GetTypedData()[i];
-    }
-    __forceinline const T& At(INT i) const
-    {
-#line 566 BAA_ARRAY_FILE
-        check(i>=0 && (i<this->ArrayNum||(i==0 && this->ArrayNum==0)));
-        return this->GetTypedData()[i];
-    }
-};
-
 // @baa 0x00a0bc60
 /* Sets the damping ramp-up proportion on every body (BAA addition; name unknown) */
 void UPhysicsAssetInstance::SetDampingRampupProportion(FLOAT NewProportion)
@@ -90,7 +72,7 @@ void UPhysicsAssetInstance::SetDampingRampupProportion(FLOAT NewProportion)
         const INT NumBodies = Bodies.Num();
         for (INT i = 0; i < NumBodies; i++)
         {
-            URB_BodyInstance* BodyInst = ((TArrayAt_<URB_BodyInstance*>&)Bodies).At(i);
+            URB_BodyInstance* BodyInst = Bodies(i);
             if (BodyInst && BodyInst->DampingRampupProportion != NewProportion)
             {
                 BodyInst->DampingRampupProportion = NewProportion;

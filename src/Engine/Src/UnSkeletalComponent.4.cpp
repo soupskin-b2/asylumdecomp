@@ -391,24 +391,6 @@ void USkeletalMeshComponent::execTransformToBoneSpace(FFrame& Stack, RESULT_DECL
     }
 }
 
-/* Kit gap (Array.h, issue #39): this build inlines TArray::operator() where the kit's plain-inline one is
- * called out of line; same body, forced inline. */
-template<class T> struct TArrayAt_ : public TArray<T>
-{
-    __forceinline T& At(INT i)
-    {
-#line 560 BAA_ARRAY_FILE
-        check(i>=0 && (i<this->ArrayNum||(i==0 && this->ArrayNum==0)));
-        return this->GetTypedData()[i];
-    }
-    __forceinline const T& At(INT i) const
-    {
-#line 566 BAA_ARRAY_FILE
-        check(i>=0 && (i<this->ArrayNum||(i==0 && this->ArrayNum==0)));
-        return this->GetTypedData()[i];
-    }
-};
-
 /* UObject::IsPendingKill (the kit's vf_038) and IsA (UnObjBas.h) */
 struct UObject_ : public UObject
 {
@@ -442,7 +424,7 @@ void USkeletalMeshComponent::execAttachedComponents(FFrame& Stack, RESULT_DECL)
     if (!BaseClass)
     {
         INT wEndOffset = Stack.ReadWord();
-        Stack.Code = &((TArrayAt_<BYTE>&)Stack.Node->Script).At(wEndOffset + 1);
+        Stack.Code = &Stack.Node->Script(wEndOffset + 1);
         return;
     }
 
@@ -460,7 +442,7 @@ void USkeletalMeshComponent::execAttachedComponents(FFrame& Stack, RESULT_DECL)
         }
         if (OutComponent == NULL)
         {
-            Stack.Code = &((TArrayAt_<BYTE>&)Stack.Node->Script).At(wEndOffset + 1);
+            Stack.Code = &Stack.Node->Script(wEndOffset + 1);
             break;
         }
     POST_ITERATOR;

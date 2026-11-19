@@ -5,24 +5,6 @@
 #include "ue3/Array.h"
 #include "ue3/AppMath.h"
 
-/* Kit gap (Array.h, issue #39): this build inlines TArray::operator() where the kit's plain-inline one is
- * called out of line; same body, forced inline. */
-template<class T> struct TArrayAt_ : public TArray<T>
-{
-    __forceinline T& At(INT i)
-    {
-#line 560 BAA_ARRAY_FILE
-        check(i>=0 && (i<this->ArrayNum||(i==0 && this->ArrayNum==0)));
-        return this->GetTypedData()[i];
-    }
-    __forceinline const T& At(INT i) const
-    {
-#line 566 BAA_ARRAY_FILE
-        check(i>=0 && (i<this->ArrayNum||(i==0 && this->ArrayNum==0)));
-        return this->GetTypedData()[i];
-    }
-};
-
 #define BIG_NUMBER (3.4e+38f) /* UnMath.h */
 // @baa 0x00cf5270
 UBOOL UInterpTrackEvent::GetClosestSnapPosition(FLOAT InPosition, TArray<INT>& IgnoreKeys, FLOAT& OutPosition)
@@ -39,10 +21,10 @@ UBOOL UInterpTrackEvent::GetClosestSnapPosition(FLOAT InPosition, TArray<INT>& I
     {
         if (!IgnoreKeys.ContainsItem(i))
         {
-            FLOAT Dist = appAbs(((TArrayAt_<FEventTrackKey>&)EventTrack).At(i).Time - InPosition);
+            FLOAT Dist = appAbs(EventTrack(i).Time - InPosition);
             if (Dist < ClosestDist)
             {
-                ClosestSnap = ((TArrayAt_<FEventTrackKey>&)EventTrack).At(i).Time;
+                ClosestSnap = EventTrack(i).Time;
                 ClosestDist = Dist;
                 bFoundSnap = TRUE;
             }
@@ -70,10 +52,10 @@ UBOOL UInterpTrackDirector::GetClosestSnapPosition(FLOAT InPosition, TArray<INT>
     {
         if (!IgnoreKeys.ContainsItem(i))
         {
-            FLOAT Dist = appAbs(((TArrayAt_<FDirectorTrackCut>&)CutTrack).At(i).Time - InPosition);
+            FLOAT Dist = appAbs(CutTrack(i).Time - InPosition);
             if (Dist < ClosestDist)
             {
-                ClosestSnap = ((TArrayAt_<FDirectorTrackCut>&)CutTrack).At(i).Time;
+                ClosestSnap = CutTrack(i).Time;
                 ClosestDist = Dist;
                 bFoundSnap = TRUE;
             }
@@ -99,10 +81,10 @@ UBOOL UInterpTrackFloatBase::GetClosestSnapPosition(FLOAT InPosition, TArray<INT
     {
         if (!IgnoreKeys.ContainsItem(i))
         {
-            FLOAT Dist = appAbs(((TArrayAt_<FInterpCurvePointFloat>&)FloatTrack.Points).At(i).InVal - InPosition);
+            FLOAT Dist = appAbs(FloatTrack.Points(i).InVal - InPosition);
             if (Dist < ClosestDist)
             {
-                ClosestSnap = ((TArrayAt_<FInterpCurvePointFloat>&)FloatTrack.Points).At(i).InVal;
+                ClosestSnap = FloatTrack.Points(i).InVal;
                 ClosestDist = Dist;
                 bFoundSnap = TRUE;
             }
@@ -128,10 +110,10 @@ UBOOL UInterpTrackVectorBase::GetClosestSnapPosition(FLOAT InPosition, TArray<IN
     {
         if (!IgnoreKeys.ContainsItem(i))
         {
-            FLOAT Dist = appAbs(((TArrayAt_<FInterpCurvePointVector>&)VectorTrack.Points).At(i).InVal - InPosition);
+            FLOAT Dist = appAbs(VectorTrack.Points(i).InVal - InPosition);
             if (Dist < ClosestDist)
             {
-                ClosestSnap = ((TArrayAt_<FInterpCurvePointVector>&)VectorTrack.Points).At(i).InVal;
+                ClosestSnap = VectorTrack.Points(i).InVal;
                 ClosestDist = Dist;
                 bFoundSnap = TRUE;
             }

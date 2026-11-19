@@ -3,24 +3,6 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
 
-/* Kit gap (Array.h, issue #39): this build inlines TArray::operator() where the kit's plain-inline one is
- * called out of line; same body, forced inline. */
-template<class T> struct TArrayAt_ : public TArray<T>
-{
-    __forceinline T& At(INT i)
-    {
-#line 560 BAA_ARRAY_FILE
-        check(i>=0 && (i<this->ArrayNum||(i==0 && this->ArrayNum==0)));
-        return this->GetTypedData()[i];
-    }
-    __forceinline const T& At(INT i) const
-    {
-#line 566 BAA_ARRAY_FILE
-        check(i>=0 && (i<this->ArrayNum||(i==0 && this->ArrayNum==0)));
-        return this->GetTypedData()[i];
-    }
-};
-
 /* FPackedNormal (UnMath.h): a unit vector packed into 4 bytes. */
 struct FPackedNormal
 {
@@ -77,7 +59,7 @@ struct FSkelMeshChunk
 struct FStaticLODModel
 {
     TArray<FSkelMeshSection> Sections;
-    TArrayAt_<FSkelMeshChunk> Chunks;
+    TArray<FSkelMeshChunk> Chunks;
 };
 
 /* USkeletalMesh::IsOnlyClothMesh isn't declared in Classes.h */
@@ -95,7 +77,7 @@ UBOOL USkeletalMesh::IsOnlyClothMesh() const
     INT NumVertices = 0;
     for (INT ChunkIndex = 0; ChunkIndex < LODModel->Chunks.Num(); ChunkIndex++)
     {
-        NumVertices += LODModel->Chunks.At(ChunkIndex).GetNumVertices();
+        NumVertices += LODModel->Chunks(ChunkIndex).GetNumVertices();
     }
     return NumVertices == NumFreeClothVerts;
 }
@@ -115,7 +97,7 @@ UBOOL USkeletalMesh::IsCPUSkinned() const
     {
         for (INT ChunkIndex = 0; ChunkIndex < ((const TIndirectArray<FStaticLODModel>&)LODModels)(0).Chunks.Num(); ChunkIndex++)
         {
-            if (((const TIndirectArray<FStaticLODModel>&)LODModels)(0).Chunks.At(ChunkIndex).BoneMap.Num() > MAX_GPUSKIN_BONES)
+            if (((const TIndirectArray<FStaticLODModel>&)LODModels)(0).Chunks(ChunkIndex).BoneMap.Num() > MAX_GPUSKIN_BONES)
             {
                 bCPUSkinned = TRUE;
                 break;

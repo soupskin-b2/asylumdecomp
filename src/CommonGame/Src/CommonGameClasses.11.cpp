@@ -361,29 +361,16 @@ void URScriptConversationFactoryNew::InitializeIntrinsicPropertyValues()
     Description = TEXT("Script Conversation");
 }
 
-/* Kit gap (Array.h, issue #39): this build inlines TArray::operator() where the kit's plain-inline one is
- * called out of line; same body, forced inline. */
-template<class T> struct TArrayAt_ : public TArray<T>
-{
-	using TArray<T>::ArrayNum;
-	__forceinline T& At(INT i)
-	{
-#line 560 BAA_ARRAY_FILE
-		check(i>=0 && (i<ArrayNum||(i==0 && ArrayNum==0)));
-		return this->GetTypedData()[i];
-	}
-};
-
 // @baa 0x01513860
 /* Whether every flag type in OtherBase is present here with all of OtherBase's values for it. */
 UBOOL URBarkFlagBase::HasTheseFlags(URBarkFlagBase* OtherBase)
 {
-	for (INT OtherIdx = 0; OtherIdx < ((TArrayAt_<FBarkFlag>&)OtherBase->FlagList).Num(); OtherIdx++)
+	for (INT OtherIdx = 0; OtherIdx < ((TArray<FBarkFlag>&)OtherBase->FlagList).Num(); OtherIdx++)
 	{
 		INT FlagIdx = -1;
-		for (INT MyIdx = 0; MyIdx < ((TArrayAt_<FBarkFlag>&)FlagList).Num(); MyIdx++)
+		for (INT MyIdx = 0; MyIdx < ((TArray<FBarkFlag>&)FlagList).Num(); MyIdx++)
 		{
-			if ((const FString&)((TArrayAt_<FBarkFlag>&)FlagList).At(MyIdx).FlagType == ((TArrayAt_<FBarkFlag>&)OtherBase->FlagList).At(OtherIdx).FlagType)
+			if ((const FString&)FlagList(MyIdx).FlagType == OtherBase->FlagList(OtherIdx).FlagType)
 			{
 				FlagIdx = MyIdx;
 			}
@@ -392,12 +379,12 @@ UBOOL URBarkFlagBase::HasTheseFlags(URBarkFlagBase* OtherBase)
 		{
 			return FALSE;
 		}
-		for (INT ValueIdx = 0; ValueIdx < ((TArrayAt_<FBarkFlag>&)OtherBase->FlagList).At(OtherIdx).FlagValue.Num(); ValueIdx++)
+		for (INT ValueIdx = 0; ValueIdx < OtherBase->FlagList(OtherIdx).FlagValue.Num(); ValueIdx++)
 		{
 			INT FoundIdx = -1;
-			for (INT MyValueIdx = 0; MyValueIdx < ((TArrayAt_<FBarkFlag>&)FlagList).At(FlagIdx).FlagValue.Num(); MyValueIdx++)
+			for (INT MyValueIdx = 0; MyValueIdx < FlagList(FlagIdx).FlagValue.Num(); MyValueIdx++)
 			{
-				if ((const FString&)((TArrayAt_<FString>&)((TArrayAt_<FBarkFlag>&)FlagList).At(FlagIdx).FlagValue).At(MyValueIdx) == ((TArrayAt_<FString>&)((TArrayAt_<FBarkFlag>&)OtherBase->FlagList).At(OtherIdx).FlagValue).At(ValueIdx))
+				if ((const FString&)(((TArray<FBarkFlag>&)FlagList)(FlagIdx).FlagValue)(MyValueIdx) == (((TArray<FBarkFlag>&)OtherBase->FlagList)(OtherIdx).FlagValue)(ValueIdx))
 				{
 					FoundIdx = ValueIdx;
 				}
