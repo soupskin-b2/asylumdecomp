@@ -79,14 +79,10 @@ struct FTerrainInfoData_
     UBOOL IsVisible() const { return !(Data & TID_Visibility_Off); }
 };
 
-struct ATerrain__0098be90 : public ATerrain
-{
-    UBOOL IsTerrainComponentVisible(INT InBaseX, INT InBaseY, INT InSizeX, INT InSizeY); /* 0x0098be90 */
-};
 
 // @baa 0x0098be90
 /* UE3's ATerrain::IsTerrainComponentVisible: whether any vertex in the area is visible. */
-UBOOL ATerrain__0098be90::IsTerrainComponentVisible(INT InBaseX, INT InBaseY, INT InSizeX, INT InSizeY)
+UBOOL ATerrain::IsTerrainComponentVisible(INT InBaseX, INT InBaseY, INT InSizeX, INT InSizeY)
 {
     for (INT Y = InBaseY; Y < InBaseY + InSizeY; Y++)
     {
@@ -103,14 +99,10 @@ UBOOL ATerrain__0098be90::IsTerrainComponentVisible(INT InBaseX, INT InBaseY, IN
 }
 
 #define TERRAIN_ZSCALE (1.0f / 128.0f)
-struct ATerrain__0098bfb0 : public ATerrain
-{
-    FVector GetLocalVertex(INT X, INT Y) const; /* 0x0098bfb0 */
-};
 
 // @baa 0x0098bfb0
 /* UE3's ATerrain::GetLocalVertex: a vertex position in terrain space (height recentred on 32768 and scaled). */
-FVector ATerrain__0098bfb0::GetLocalVertex(INT X, INT Y) const
+FVector ATerrain::GetLocalVertex(INT X, INT Y) const
 {
     return FVector(X, Y, ((FLOAT)Height(X, Y) - 32768.0f) * TERRAIN_ZSCALE);
 }
@@ -158,14 +150,10 @@ template<class T> struct TArrayAt_ : public TArray<T>
     }
 };
 
-struct ATerrain__0098caf0 : public ATerrain
-{
-    INT FindSelectedVertexInList(INT X, INT Y, FSelectedTerrainVertex*& OutVertex); /* 0x0098caf0 */
-};
 
 // @baa 0x0098caf0
 /* The index of the selected vertex at (X, Y), handing back the entry itself; INDEX_NONE when it isn't selected. */
-INT ATerrain__0098caf0::FindSelectedVertexInList(INT X, INT Y, FSelectedTerrainVertex*& OutVertex)
+INT ATerrain::FindSelectedVertexInList(INT X, INT Y, FSelectedTerrainVertex*& OutVertex)
 {
     for (INT Index = 0; Index < SelectedVertices.Num(); Index++)
     {
@@ -181,14 +169,10 @@ INT ATerrain__0098caf0::FindSelectedVertexInList(INT X, INT Y, FSelectedTerrainV
 
 #line 224 "candidate.cpp"
 
-struct ATerrain__0098bb70 : public ATerrain
-{
-    UBOOL IsTerrainQuadVisible(INT X, INT Y) const; /* 0x0098bb70 */
-};
 
 // @baa 0x0098bb70
 /* Whether the vertex (quad) at (X, Y) is visible. */
-UBOOL ATerrain__0098bb70::IsTerrainQuadVisible(INT X, INT Y) const
+UBOOL ATerrain::IsTerrainQuadVisible(INT X, INT Y) const
 {
     return ((const FTerrainInfoData_*)GetInfoData(X, Y))->IsVisible();
 }

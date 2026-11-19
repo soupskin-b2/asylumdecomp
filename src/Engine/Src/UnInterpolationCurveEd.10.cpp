@@ -6,14 +6,10 @@
 
 /* FInterpCurve<FLOAT>::Eval (006eb030, out of line); the kit's FInterpCurveFloat doesn't declare it. */
 
-struct UInterpTrackFade_ : public UInterpTrackFade
-{
-    FLOAT GetFadeAmountAtTime(FLOAT Time);
-};
 
 // @baa 0x00cfbd70
 /* UInterpTrackFade::GetFadeAmountAtTime (UE3 UnInterpolation.cpp; not declared in the kit). */
-FLOAT UInterpTrackFade_::GetFadeAmountAtTime(FLOAT Time)
+FLOAT UInterpTrackFade::GetFadeAmountAtTime(FLOAT Time)
 {
     FLOAT FadeAmount = FloatTrack.Eval(Time, 0.f);
     FadeAmount = Clamp(FadeAmount, 0.f, 1.f);

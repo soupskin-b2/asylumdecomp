@@ -47,13 +47,9 @@ void UPackageMap_::sub_005fb0c0(WORD W)
     g_025d6ac8 = V;
 }
 
-struct UPackageMap__005ff380 : public UPackageMap
-{
-    FPointer* sub_005ff380(FPointer* Out);
-};
 
 // @baa 0x005ff380
-FPointer* UPackageMap__005ff380::sub_005ff380(FPointer* Out)
+FPointer* UPackageMap::sub_005ff380(FPointer* Out)
 {
     *Out = HashOuterNext;
     return Out;

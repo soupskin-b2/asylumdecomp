@@ -81,14 +81,10 @@ struct FStaticLODModel
 };
 
 /* USkeletalMesh::IsOnlyClothMesh isn't declared in Classes.h */
-struct USkeletalMesh_ : public USkeletalMesh
-{
-    UBOOL IsOnlyClothMesh() const;
-};
 
 // @baa 0x00d49f80
 /* whether every vertex of the base LOD is a cloth vertex */
-UBOOL USkeletalMesh_::IsOnlyClothMesh() const
+UBOOL USkeletalMesh::IsOnlyClothMesh() const
 {
     const FStaticLODModel* LODModel = &((const TIndirectArray<FStaticLODModel>&)LODModels)(0);
     if (!LODModel)

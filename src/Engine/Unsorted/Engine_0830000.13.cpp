@@ -10,14 +10,9 @@ UBOOL APortalMarker::CanTeleport(AActor* A)
 	return (MyPortal != NULL && MyPortal->CanTeleport(A));
 }
 
-/* Unnamed ANavigationPoint helper: bubble-sorts PathList by ascending reach spec Distance. */
-struct ANavigationPoint_ : public ANavigationPoint
-{
-	void sub_0083f3a0();
-};
 
 // @baa 0x0083f3a0
-void ANavigationPoint_::sub_0083f3a0()
+void ANavigationPoint::sub_0083f3a0()
 {
 	for (INT i = 0; i < PathList.Num(); i++)
 	{

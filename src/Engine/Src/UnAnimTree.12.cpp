@@ -24,13 +24,9 @@ template<class T> inline INT AddItem(TArray<T>& Array, const T& Item)
 }
 
 /* UAnimNode::GetNodes and GetNodesByClass aren't declared in Classes.h. */
-struct UAnimNode_ : public UAnimNode
-{
-	void GetNodesByClass(TArray<UAnimNode*>& Nodes, UClass* BaseClass);
-};
 
 // @baa 0x00c5ed80
-void UAnimNode_::GetNodesByClass(TArray<UAnimNode*>& Nodes, UClass* BaseClass)
+void UAnimNode::GetNodesByClass(TArray<UAnimNode*>& Nodes, UClass* BaseClass)
 {
 	// every node below this one
 	TArray<UAnimNode*> AllNodes;
@@ -51,13 +47,9 @@ void UAnimNode_::GetNodesByClass(TArray<UAnimNode*>& Nodes, UClass* BaseClass)
 inline UBOOL operator==(const FName& A, EName N) { return A.Index == N && A.Number == 0; }
 
 /* UAnimNode::GetAnimSeqNodes isn't declared in Classes.h. */
-struct UAnimNode__00c7a3d0 : public UAnimNode
-{
-	void GetAnimSeqNodes(TArray<UAnimNodeSequence*>& Nodes, FName InSynchGroupName);
-};
 
 // @baa 0x00c7a3d0
-void UAnimNode__00c7a3d0::GetAnimSeqNodes(TArray<UAnimNodeSequence*>& Nodes, FName InSynchGroupName)
+void UAnimNode::GetAnimSeqNodes(TArray<UAnimNodeSequence*>& Nodes, FName InSynchGroupName)
 {
 	// every node below this one
 	TArray<UAnimNode*> TmpNodes;

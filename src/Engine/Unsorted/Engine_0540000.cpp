@@ -175,13 +175,9 @@ undefined4 * UTexture2D::sub_00546c80(void)
   return param_1;
 }
 
-struct UDistributionVector_ : public UDistributionVector
-{
-    void sub_005423f0(FVector& OutVector, FLOAT A, FLOAT B, FLOAT C);
-};
 
 // @baa 0x005423f0
-void UDistributionVector_::sub_005423f0(FVector& OutVector, FLOAT A, FLOAT B, FLOAT C)
+void UDistributionVector::sub_005423f0(FVector& OutVector, FLOAT A, FLOAT B, FLOAT C)
 {
     OutVector.Z = OutVector.Y = OutVector.X = 0.f;
 }

@@ -24,13 +24,9 @@ struct UAnimNodeSynch_ : public UAnimNodeSynch
 /* Cast<UAnimNodeSynch> is the out-of-line instantiation at 00c7f910. */
 extern template UAnimNodeSynch* Cast<UAnimNodeSynch>(UObject* Src);
 /* UAnimNodeSlot::AddToSynchGroup isn't declared in Classes.h. */
-struct UAnimNodeSlot_ : public UAnimNodeSlot
-{
-	void AddToSynchGroup(FName GroupName);
-};
 
 // @baa 0x00c803f0
-void UAnimNodeSlot_::AddToSynchGroup(FName GroupName)
+void UAnimNodeSlot::AddToSynchGroup(FName GroupName)
 {
 	UAnimNodeSequence* SeqNode = GetCustomAnimNodeSeq();
 

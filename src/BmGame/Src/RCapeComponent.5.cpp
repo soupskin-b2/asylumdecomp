@@ -132,14 +132,10 @@ UBOOL URCapeComponent::GetIsInCinematicsState()
 	return FALSE;
 }
 
-struct URCapeComponent__016aea50 : public URCapeComponent
-{
-    FLOAT GetCapeChainWidth(); /* 0x016aea50 */
-};
 
 // @baa 0x016aea50
 /* The cape config's chain width. */
-FLOAT URCapeComponent__016aea50::GetCapeChainWidth()
+FLOAT URCapeComponent::GetCapeChainWidth()
 {
 #line 1435 "e:\\\\Projects\\\\Amadeus\\\\AA\\\\Game\\\\UnrealEngine3\\\\Development\\\\Src\\\\BmGame\\\\Src\\\\RCapeComponent.cpp"
     check(CapeConfig != NULL);
@@ -148,14 +144,10 @@ FLOAT URCapeComponent__016aea50::GetCapeChainWidth()
 
 #line 172 "candidate.cpp"
 
-struct URCapeComponent__016aecd0 : public URCapeComponent
-{
-    FLOAT GetHorizontalDamping(); /* 0x016aecd0 */
-};
 
 // @baa 0x016aecd0
 /* The cape config's horizontal damping. */
-FLOAT URCapeComponent__016aecd0::GetHorizontalDamping()
+FLOAT URCapeComponent::GetHorizontalDamping()
 {
 #line 1528 "e:\\\\Projects\\\\Amadeus\\\\AA\\\\Game\\\\UnrealEngine3\\\\Development\\\\Src\\\\BmGame\\\\Src\\\\RCapeComponent.cpp"
     check(CapeConfig != NULL);
@@ -164,14 +156,10 @@ FLOAT URCapeComponent__016aecd0::GetHorizontalDamping()
 
 #line 188 "candidate.cpp"
 
-struct URCapeComponent__016b2140 : public URCapeComponent
-{
-    INT GetNumSupportConnectorIndexPairs(); /* 0x016b2140 */
-};
 
 // @baa 0x016b2140
 /* How many support connector index pairs the cape config has. */
-INT URCapeComponent__016b2140::GetNumSupportConnectorIndexPairs()
+INT URCapeComponent::GetNumSupportConnectorIndexPairs()
 {
 #line 1504 "e:\\\\Projects\\\\Amadeus\\\\AA\\\\Game\\\\UnrealEngine3\\\\Development\\\\Src\\\\BmGame\\\\Src\\\\RCapeComponent.cpp"
     check(CapeConfig != NULL);
@@ -180,14 +168,10 @@ INT URCapeComponent__016b2140::GetNumSupportConnectorIndexPairs()
 
 #line 204 "candidate.cpp"
 
-struct URCapeComponent__016aea10 : public URCapeComponent
-{
-    INT GetNumChainsInCape(); /* 0x016aea10 */
-};
 
 // @baa 0x016aea10
 /* How many chains the cape has. */
-INT URCapeComponent__016aea10::GetNumChainsInCape()
+INT URCapeComponent::GetNumChainsInCape()
 {
 #line 1253 "e:\\\\Projects\\\\Amadeus\\\\AA\\\\Game\\\\UnrealEngine3\\\\Development\\\\Src\\\\BmGame\\\\Src\\\\RCapeComponent.cpp"
     check(0 <= CapeConfig->NumChainsInCape);
@@ -233,14 +217,10 @@ void* URCapeComponent::GetAnimStateTreeNode(FName Name)
     return NULL;
 }
 
-struct URCapeComponent__016aed10 : public URCapeComponent
-{
-    FLOAT GetVerticalDamping(); /* 0x016aed10 */
-};
 
 // @baa 0x016aed10
 /* The cape config's vertical damping. */
-FLOAT URCapeComponent__016aed10::GetVerticalDamping()
+FLOAT URCapeComponent::GetVerticalDamping()
 {
 #line 1534 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RCapeComponent.cpp"
     check(CapeConfig != NULL);
@@ -283,14 +263,10 @@ template<class T> struct TArrayAt_ : public TArray<T>
     }
 };
 
-struct URCapeComponent__016ba4a0 : public URCapeComponent
-{
-    UBOOL GetBoneCollisionWithWorld(INT StateIndex, INT BoneIndex) const; /* 0x016ba4a0 */
-};
 
 // @baa 0x016ba4a0
 /* Whether a cape bone collides with the world in a cape state (FALSE when either index is past the config's table). */
-UBOOL URCapeComponent__016ba4a0::GetBoneCollisionWithWorld(INT StateIndex, INT BoneIndex) const
+UBOOL URCapeComponent::GetBoneCollisionWithWorld(INT StateIndex, INT BoneIndex) const
 {
     const TArray<FCapeBoolArrayType>& States = CapeConfig->BoneCollisionWithWorldStates;
     if (StateIndex < States.Num())

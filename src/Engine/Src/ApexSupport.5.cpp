@@ -6,14 +6,10 @@
 
 extern FName g_026c50d4;
 	/* SpawnFractureEmitter */
-struct AApexDestructibleActor_ : public AApexDestructibleActor
-{
-	void eventSpawnFractureEmitter(class UParticleSystem* EmitterTemplate, FVector SpawnLocation);
-};
 
 // @baa 0x009d4790
 /* ApexDestructibleActor.SpawnFractureEmitter script event: the generated glue, out of line here. */
-void AApexDestructibleActor_::eventSpawnFractureEmitter(class UParticleSystem* EmitterTemplate, FVector SpawnLocation)
+void AApexDestructibleActor::eventSpawnFractureEmitter(class UParticleSystem* EmitterTemplate, FVector SpawnLocation)
 {
 	struct ApexDestructibleActor_eventSpawnFractureEmitter_Parms
 	{

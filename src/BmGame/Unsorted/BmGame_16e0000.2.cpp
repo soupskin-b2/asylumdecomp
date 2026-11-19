@@ -489,14 +489,10 @@ void ARPontoonBase::execGetAnimTransformNode(FFrame& Stack, RESULT_DECL)
 
 extern FName g_026e2698;
 	/* SetCurrentLevel */
-struct ARGameRI_ : public ARGameRI
-{
-	void eventSetCurrentLevel(FName Level, class AActor* Originator, UBOOL BlockOnLoad);
-};
 
 // @baa 0x016e92d0
 /* RGameRI.SetCurrentLevel script event: the generated glue, out of line here. */
-void ARGameRI_::eventSetCurrentLevel(FName Level, class AActor* Originator, UBOOL BlockOnLoad)
+void ARGameRI::eventSetCurrentLevel(FName Level, class AActor* Originator, UBOOL BlockOnLoad)
 {
 	struct RGameRI_eventSetCurrentLevel_Parms
 	{

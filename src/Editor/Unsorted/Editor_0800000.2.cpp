@@ -6,14 +6,10 @@
 
 extern FName g_026c4bcc;
 	/* ConditionalPause */
-struct APlayerController_ : public APlayerController
-{
-	void eventConditionalPause(UBOOL bDesiredPauseState);
-};
 
 // @baa 0x00802c70
 /* PlayerController.ConditionalPause script event: the generated glue, out of line here. */
-void APlayerController_::eventConditionalPause(UBOOL bDesiredPauseState)
+void APlayerController::eventConditionalPause(UBOOL bDesiredPauseState)
 {
 	struct PlayerController_eventConditionalPause_Parms
 	{
@@ -25,14 +21,10 @@ void APlayerController_::eventConditionalPause(UBOOL bDesiredPauseState)
 
 extern FName g_026c4dc0;
 	/* KickIdler */
-struct AGameInfo_ : public AGameInfo
-{
-	void eventKickIdler(class APlayerController* PC);
-};
 
 // @baa 0x00802d20
 /* GameInfo.KickIdler script event: the generated glue, out of line here. */
-void AGameInfo_::eventKickIdler(class APlayerController* PC)
+void AGameInfo::eventKickIdler(class APlayerController* PC)
 {
 	struct GameInfo_eventKickIdler_Parms
 	{
@@ -44,14 +36,10 @@ void AGameInfo_::eventKickIdler(class APlayerController* PC)
 
 extern FName g_026c40f0;
 	/* GetViewRotation */
-struct APawn_ : public APawn
-{
-	FRotator eventGetViewRotation();
-};
 
 // @baa 0x00802de0
 /* Pawn.GetViewRotation script event: the generated glue, out of line here. */
-FRotator APawn_::eventGetViewRotation()
+FRotator APawn::eventGetViewRotation()
 {
 	struct Pawn_eventGetViewRotation_Parms
 	{
@@ -64,13 +52,9 @@ FRotator APawn_::eventGetViewRotation()
 
 extern FName g_026c3f94;
 // A one-FLOAT UnrealScript event with no return value: the generated glue, out of line here.
-struct UObject_ : public UObject
-{
-    void eventScriptCall(FLOAT Value);
-};
 
 // @baa 0x00803550
-void UObject_::eventScriptCall(FLOAT Value)
+void UObject::eventScriptCall(FLOAT Value)
 {
     struct ScriptCall_Parms
     {

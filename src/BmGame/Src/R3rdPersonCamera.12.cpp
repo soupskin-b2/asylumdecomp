@@ -110,28 +110,19 @@ struct C_Vft19_4c
     virtual void vf4c(UINT A) = 0;
 };
 
-struct URSeqAct_UpdateBatmanDamageLevel_ : public URSeqAct_UpdateBatmanDamageLevel
-{
-    INT sub_009086f0();
-};
 
 // @baa 0x01688930
 void URSeqAct_UpdateBatmanDamageLevel::PostLoad()
 {
-    URSeqAct_UpdateBatmanDamageLevel_* Self = (URSeqAct_UpdateBatmanDamageLevel_*)this;
+    URSeqAct_UpdateBatmanDamageLevel* Self = (URSeqAct_UpdateBatmanDamageLevel*)this;
     Self->sub_009086f0();
     if (DamageState == NULL)
         reinterpret_cast<C_Vft19_4c*>(Self)->vf4c(0);
 }
 
-/* Unnamed in the kit: the zoom point direction for an index (the tight set when bUseTightFocusPoints). */
-struct AR3rdPersonCamera__01689560 : public AR3rdPersonCamera
-{
-    FVector* sub_01689560(INT CurrentZoomPointIndex);
-};
 
 // @baa 0x01689560
-FVector* AR3rdPersonCamera__01689560::sub_01689560(INT CurrentZoomPointIndex)
+FVector* AR3rdPersonCamera::sub_01689560(INT CurrentZoomPointIndex)
 {
 #line 70 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\R3rdPersonCamera.cpp"
     check(CurrentZoomPointIndex < 9);

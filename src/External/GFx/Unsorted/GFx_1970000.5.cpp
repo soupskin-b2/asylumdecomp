@@ -20,12 +20,9 @@ void GFxWordBuffer::sub_01978380()
     }
 }
 
-struct UGFxDataStoreSubscriber_ : public UGFxDataStoreSubscriber {
-    UINT sub_01978450();
-};
 
 // @baa 0x01978450
-UINT UGFxDataStoreSubscriber_::sub_01978450()
+UINT UGFxDataStoreSubscriber::sub_01978450()
 {
     UINT v = (UINT)ObjectInternalInteger;
 
@@ -173,13 +170,9 @@ void FDataStoreSlot::Release(int InValue)
 }
 
 extern void sub_018f3e30(float Value);
-struct UGFxDataStoreSubscriber__01979710 : public UGFxDataStoreSubscriber
-{
-	void sub_01979710(); /* 0x01979710 */
-};
 
 // @baa 0x01979710
-void UGFxDataStoreSubscriber__01979710::sub_01979710()
+void UGFxDataStoreSubscriber::sub_01979710()
 {
 	// A 16-bit value stored at 0x26 is reinterpreted as a float and passed on.
 	sub_018f3e30((float)*(unsigned short*)((char*)this + 0x26));
@@ -208,12 +201,9 @@ void sub_01975990_owner::sub_01975990(const char* ClassName, void* A, void* B)
     sub_01998aa0(Sub_0x18, "Error: Null or invalid 'this' is used for a method of %s class.\n", ClassName);
 }
 
-struct UGFxDataStoreSubscriber__0197ed10 : public UGFxDataStoreSubscriber {
-    void sub_0197ed10(UINT Count); /* 0x0197ed10 */
-};
 
 // @baa 0x0197ed10
-void UGFxDataStoreSubscriber__0197ed10::sub_0197ed10(UINT Count)
+void UGFxDataStoreSubscriber::sub_0197ed10(UINT Count)
 {
     UINT N = (UINT)ObjectInternalInteger;
     if (Count >= N)
@@ -221,7 +211,7 @@ void UGFxDataStoreSubscriber__0197ed10::sub_0197ed10(UINT Count)
     sub_0197ecd0(N - Count, N);
 }
 
-void sub_0197ed0a(UGFxDataStoreSubscriber__0197ed10& Subscriber, UINT Count)
+void sub_0197ed0a(UGFxDataStoreSubscriber& Subscriber, UINT Count)
 {
     Subscriber.sub_0197ed10(Count);
 }

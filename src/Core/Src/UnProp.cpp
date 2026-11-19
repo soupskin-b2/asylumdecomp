@@ -39,12 +39,9 @@ void C_0062a820::sub_0062a820(unsigned char* a1, unsigned char* a2, int a3, int 
     *a1 = *a2;
 }
 
-struct UByteProperty_ : public UByteProperty {
-    void sub_0062a830(void* Dest, void* Src, UObject*, UObject*, void*);
-};
 
 // @baa 0x0062a830
-void UByteProperty_::sub_0062a830(void* Dest, void* Src, UObject*, UObject*, void*)
+void UByteProperty::sub_0062a830(void* Dest, void* Src, UObject*, UObject*, void*)
 {
     INT ArrayDim = *(INT*)((BYTE*)this + 0x38);
     if (ArrayDim == 1)
@@ -1240,12 +1237,9 @@ undefined4 * UStrProperty::sub_0062f9f0(void)
 IMPLEMENT_CLASS_AT(UDelegateProperty, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Core\\Src\\UnProp.cpp", 1184);
 
 // @baa 0x0062fa80
-struct UInterfaceProperty_ : public UInterfaceProperty {
-    void sub_00630590(BYTE* Data, DWORD PortFlags);
-};
 
 // @baa 0x00630590
-void UInterfaceProperty_::sub_00630590(BYTE* Data, DWORD PortFlags)
+void UInterfaceProperty::sub_00630590(BYTE* Data, DWORD PortFlags)
 {
     if ((PortFlags & 0x80) == 0 || IsLocalized())
     {

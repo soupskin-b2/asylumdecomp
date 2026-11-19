@@ -492,15 +492,11 @@ struct UObject_ : public UObject
 	UPackage_* GetOutermost() const;
 };
 
-struct UOnlineSubsystem_ : public UOnlineSubsystem
-{
-	INT GetBuildUniqueId();
-};
 
 // @baa 0x00d67980
 /* The id matchmaking uses to keep different builds apart: the override when set, else a CRC of the engine
  * package's guid. */
-INT UOnlineSubsystem_::GetBuildUniqueId()
+INT UOnlineSubsystem::GetBuildUniqueId()
 {
 	INT Crc = 0;
 	if (bUseBuildIdOverride == FALSE)
@@ -519,16 +515,10 @@ INT UOnlineSubsystem_::GetBuildUniqueId()
 }
 
 extern FName g_026c47e8;
-	/* NotifyPropertyValueUpdated */
-/* Kit gap: the delegate's generated glue isn't declared. */
-struct USettings__00d66f70 : public USettings
-{
-	void delegateNotifyPropertyValueUpdated(FName PropertyName);
-};
 
 // @baa 0x00d66f70
 /* The script delegate's generated glue, out of line here. */
-void USettings__00d66f70::delegateNotifyPropertyValueUpdated(FName PropertyName)
+void USettings::delegateNotifyPropertyValueUpdated(FName PropertyName)
 {
 	struct Settings_eventNotifyPropertyValueUpdated_Parms
 	{
@@ -539,16 +529,10 @@ void USettings__00d66f70::delegateNotifyPropertyValueUpdated(FName PropertyName)
 }
 
 extern FName g_026c438c;
-	/* NotifySettingValueUpdated */
-/* Kit gap: the delegate's generated glue isn't declared. */
-struct USettings__00d66fb0 : public USettings
-{
-	void delegateNotifySettingValueUpdated(FName SettingName);
-};
 
 // @baa 0x00d66fb0
 /* The script delegate's generated glue, out of line here. */
-void USettings__00d66fb0::delegateNotifySettingValueUpdated(FName SettingName)
+void USettings::delegateNotifySettingValueUpdated(FName SettingName)
 {
 	struct Settings_eventNotifySettingValueUpdated_Parms
 	{

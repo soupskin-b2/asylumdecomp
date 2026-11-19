@@ -105,18 +105,14 @@ struct FStaticLODModel
     FRawStaticIndexBuffer IndexBuffer;               /* 0x30 */
     FSkeletalMeshVertexBuffer VertexBufferGPUSkin;   /* 0x90 */
 
-    void InitResources(class USkeletalMesh_* Parent);
+    void InitResources(class USkeletalMesh* Parent);
 };
 
 /* USkeletalMesh::IsCPUSkinned (0x00951af0) and InitResources aren't declared in Classes.h */
-struct USkeletalMesh_ : public USkeletalMesh
-{
-    void InitResources();
-};
 
 // @baa 0x0095bc50
 /* the LOD's index buffer, and its vertex buffer when it's skinned on the GPU */
-inline void FStaticLODModel::InitResources(USkeletalMesh_* Parent)
+inline void FStaticLODModel::InitResources(USkeletalMesh* Parent)
 {
     BeginInitResource(&IndexBuffer);
     if (!Parent->IsCPUSkinned())
@@ -126,7 +122,7 @@ inline void FStaticLODModel::InitResources(USkeletalMesh_* Parent)
 }
 
 /* start initialising the render resources of every LOD */
-void USkeletalMesh_::InitResources()
+void USkeletalMesh::InitResources()
 {
     for (INT LODIndex = 0; LODIndex < ((TIndirectArray<FStaticLODModel>&)LODModels).Num(); LODIndex++)
     {

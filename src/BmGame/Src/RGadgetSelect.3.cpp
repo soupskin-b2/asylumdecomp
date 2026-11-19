@@ -6,14 +6,10 @@
 
 extern FName g_026e2f40;
 	/* GadgetSelected */
-struct URGadgetSelect_ : public URGadgetSelect
-{
-	void eventGadgetSelected(BYTE Row, BYTE Column);
-};
 
 // @baa 0x01638cf0
 /* RGadgetSelect.GadgetSelected script event: the generated glue, out of line here. */
-void URGadgetSelect_::eventGadgetSelected(BYTE Row, BYTE Column)
+void URGadgetSelect::eventGadgetSelected(BYTE Row, BYTE Column)
 {
 	struct RGadgetSelect_eventGadgetSelected_Parms
 	{
@@ -27,14 +23,10 @@ void URGadgetSelect_::eventGadgetSelected(BYTE Row, BYTE Column)
 
 extern FName g_026e3888;
 	/* SpawnCutRopeFX */
-struct ARRopeBase_ : public ARRopeBase
-{
-	void eventSpawnCutRopeFX(FVector CutPos);
-};
 
 // @baa 0x01638f60
 /* RRopeBase.SpawnCutRopeFX script event: the generated glue, out of line here. */
-void ARRopeBase_::eventSpawnCutRopeFX(FVector CutPos)
+void ARRopeBase::eventSpawnCutRopeFX(FVector CutPos)
 {
 	struct RRopeBase_eventSpawnCutRopeFX_Parms
 	{
@@ -46,42 +38,30 @@ void ARRopeBase_::eventSpawnCutRopeFX(FVector CutPos)
 
 extern FName g_026e3864;
 	/* GadgetGadgetSelected */
-struct URGadgetSelect__01638d40 : public URGadgetSelect
-{
-	void eventGadgetGadgetSelected();
-};
 
 // @baa 0x01638d40
 /* RGadgetSelect.GadgetGadgetSelected script event: the generated glue, out of line here. */
-void URGadgetSelect__01638d40::eventGadgetGadgetSelected()
+void URGadgetSelect::eventGadgetGadgetSelected()
 {
 	ProcessEvent(FindFunctionChecked(g_026e3864), NULL);
 }
 
 extern FName g_026e2614;
 	/* SetDestroyedHelpText */
-struct ARHidePoint_ : public ARHidePoint
-{
-	void eventSetDestroyedHelpText();
-};
 
 // @baa 0x01638e90
 /* RHidePoint.SetDestroyedHelpText script event: the generated glue, out of line here. */
-void ARHidePoint_::eventSetDestroyedHelpText()
+void ARHidePoint::eventSetDestroyedHelpText()
 {
 	ProcessEvent(FindFunctionChecked(g_026e2614), NULL);
 }
 
 extern FName g_026e3060;
 	/* CallQueueReattach */
-struct URRopeComponentBase_ : public URRopeComponentBase
-{
-	void eventCallQueueReattach();
-};
 
 // @baa 0x01638ef0
 /* RRopeComponentBase.CallQueueReattach script event: the generated glue, out of line here. */
-void URRopeComponentBase_::eventCallQueueReattach()
+void URRopeComponentBase::eventCallQueueReattach()
 {
 	ProcessEvent(FindFunctionChecked(g_026e3060), NULL);
 }

@@ -17,40 +17,25 @@ void URRopeComponentBase_::execRequestUpdateRope( FFrame& Stack, RESULT_DECL )
 	RequestUpdateRope();
 }
 
-struct URRopeComponentBase__01700860 : public URRopeComponentBase
-{
-	void DetachRopeEnd1();
-	void execDetachRopeEnd1(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x01700860
-void URRopeComponentBase__01700860::execDetachRopeEnd1( FFrame& Stack, RESULT_DECL )
+void URRopeComponentBase::execDetachRopeEnd1( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	DetachRopeEnd1();
 }
 
-struct URRopeComponentBase__01700890 : public URRopeComponentBase
-{
-	void DetachRopeEnd2();
-	void execDetachRopeEnd2(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x01700890
-void URRopeComponentBase__01700890::execDetachRopeEnd2( FFrame& Stack, RESULT_DECL )
+void URRopeComponentBase::execDetachRopeEnd2( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	DetachRopeEnd2();
 }
 
-struct URRopeComponentBase__01700ad0 : public URRopeComponentBase
-{
-	void StopCurrentRopeLengthChange();
-	void execStopCurrentRopeLengthChange(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x01700ad0
-void URRopeComponentBase__01700ad0::execStopCurrentRopeLengthChange( FFrame& Stack, RESULT_DECL )
+void URRopeComponentBase::execStopCurrentRopeLengthChange( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	StopCurrentRopeLengthChange();

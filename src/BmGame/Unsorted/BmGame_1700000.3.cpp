@@ -457,56 +457,40 @@ void ARBatarangProjectile::execGetFlightPathDeltaTangent(FFrame& Stack, RESULT_D
 
 extern FName g_026e3124;
 	/* DestroyTeethCamera */
-struct ARControllableChatteringTeethBase_ : public ARControllableChatteringTeethBase
-{
-	void eventDestroyTeethCamera();
-};
 
 // @baa 0x01707dc0
 /* RControllableChatteringTeethBase.DestroyTeethCamera script event: the generated glue, out of line here. */
-void ARControllableChatteringTeethBase_::eventDestroyTeethCamera()
+void ARControllableChatteringTeethBase::eventDestroyTeethCamera()
 {
 	ProcessEvent(FindFunctionChecked(g_026e3124), NULL);
 }
 
 extern FName g_026e2de8;
 	/* RemoveTeethPhysics */
-struct ARControllableChatteringTeethBase__01707e20 : public ARControllableChatteringTeethBase
-{
-	void eventRemoveTeethPhysics();
-};
 
 // @baa 0x01707e20
 /* RControllableChatteringTeethBase.RemoveTeethPhysics script event: the generated glue, out of line here. */
-void ARControllableChatteringTeethBase__01707e20::eventRemoveTeethPhysics()
+void ARControllableChatteringTeethBase::eventRemoveTeethPhysics()
 {
 	ProcessEvent(FindFunctionChecked(g_026e2de8), NULL);
 }
 
 extern FName g_026e2a34;
 	/* PlayPreExplodeAnim */
-struct ARControllableChatteringTeethBase__01707e50 : public ARControllableChatteringTeethBase
-{
-	void eventPlayPreExplodeAnim();
-};
 
 // @baa 0x01707e50
 /* RControllableChatteringTeethBase.PlayPreExplodeAnim script event: the generated glue, out of line here. */
-void ARControllableChatteringTeethBase__01707e50::eventPlayPreExplodeAnim()
+void ARControllableChatteringTeethBase::eventPlayPreExplodeAnim()
 {
 	ProcessEvent(FindFunctionChecked(g_026e2a34), NULL);
 }
 
 extern FName g_026e3068;
 	/* GetJumpBlenderAnimNode */
-struct ARControllableChatteringTeethBase__01707e80 : public ARControllableChatteringTeethBase
-{
-	class UAnimNodeCrossfader* eventGetJumpBlenderAnimNode();
-};
 
 // @baa 0x01707e80
 /* RControllableChatteringTeethBase.GetJumpBlenderAnimNode script event: the generated glue, out of line here. */
-class UAnimNodeCrossfader* ARControllableChatteringTeethBase__01707e80::eventGetJumpBlenderAnimNode()
+class UAnimNodeCrossfader* ARControllableChatteringTeethBase::eventGetJumpBlenderAnimNode()
 {
 	struct RControllableChatteringTeethBase_eventGetJumpBlenderAnimNode_Parms
 	{
@@ -546,28 +530,20 @@ void ARControllableChatteringTeethCamera::execCalculateCurrentFallbackPos(FFrame
 
 extern FName g_026e38b0;
 	/* DestroyImpactEffects */
-struct ARRemoveableGrate_ : public ARRemoveableGrate
-{
-	void eventDestroyImpactEffects();
-};
 
 // @baa 0x01701350
 /* RRemoveableGrate.DestroyImpactEffects script event: the generated glue, out of line here. */
-void ARRemoveableGrate_::eventDestroyImpactEffects()
+void ARRemoveableGrate::eventDestroyImpactEffects()
 {
 	ProcessEvent(FindFunctionChecked(g_026e38b0), NULL);
 }
 
 extern FName g_026e3974;
 	/* UpdateImpactEffects */
-struct ARRemoveableGrate__01701380 : public ARRemoveableGrate
-{
-	void eventUpdateImpactEffects();
-};
 
 // @baa 0x01701380
 /* RRemoveableGrate.UpdateImpactEffects script event: the generated glue, out of line here. */
-void ARRemoveableGrate__01701380::eventUpdateImpactEffects()
+void ARRemoveableGrate::eventUpdateImpactEffects()
 {
 	ProcessEvent(FindFunctionChecked(g_026e3974), NULL);
 }
@@ -612,98 +588,70 @@ void ARLineLauncher::execGetLineLaucherTetherPoints(FFrame& Stack, RESULT_DECL)
 
 extern FName g_026e3954;
 	/* FinishStandSpecialMove */
-struct ARControllableChatteringTeethBase__01707c40 : public ARControllableChatteringTeethBase
-{
-	void eventFinishStandSpecialMove();
-};
 
 // @baa 0x01707c40
 /* RControllableChatteringTeethBase.FinishStandSpecialMove script event: the generated glue, out of line here. */
-void ARControllableChatteringTeethBase__01707c40::eventFinishStandSpecialMove()
+void ARControllableChatteringTeethBase::eventFinishStandSpecialMove()
 {
 	ProcessEvent(FindFunctionChecked(g_026e3954), NULL);
 }
 
 extern FName g_026e2a40;
 	/* TriggerDropSound */
-struct ARControllableChatteringTeethBase__01707c70 : public ARControllableChatteringTeethBase
-{
-	void eventTriggerDropSound();
-};
 
 // @baa 0x01707c70
 /* RControllableChatteringTeethBase.TriggerDropSound script event: the generated glue, out of line here. */
-void ARControllableChatteringTeethBase__01707c70::eventTriggerDropSound()
+void ARControllableChatteringTeethBase::eventTriggerDropSound()
 {
 	ProcessEvent(FindFunctionChecked(g_026e2a40), NULL);
 }
 
 extern FName g_026e2a98;
 	/* AlertPeopleToExplosion */
-struct ARControllableChatteringTeethBase__01707ca0 : public ARControllableChatteringTeethBase
-{
-	void eventAlertPeopleToExplosion();
-};
 
 // @baa 0x01707ca0
 /* RControllableChatteringTeethBase.AlertPeopleToExplosion script event: the generated glue, out of line here. */
-void ARControllableChatteringTeethBase__01707ca0::eventAlertPeopleToExplosion()
+void ARControllableChatteringTeethBase::eventAlertPeopleToExplosion()
 {
 	ProcessEvent(FindFunctionChecked(g_026e2a98), NULL);
 }
 
 extern FName g_026e37b4;
 	/* DamageNearbyFractureWalls */
-struct ARControllableChatteringTeethBase__01707cd0 : public ARControllableChatteringTeethBase
-{
-	void eventDamageNearbyFractureWalls();
-};
 
 // @baa 0x01707cd0
 /* RControllableChatteringTeethBase.DamageNearbyFractureWalls script event: the generated glue, out of line here. */
-void ARControllableChatteringTeethBase__01707cd0::eventDamageNearbyFractureWalls()
+void ARControllableChatteringTeethBase::eventDamageNearbyFractureWalls()
 {
 	ProcessEvent(FindFunctionChecked(g_026e37b4), NULL);
 }
 
 extern FName g_026e2ef4;
 	/* TriggerExplodeEffects */
-struct ARControllableChatteringTeethBase__01707d30 : public ARControllableChatteringTeethBase
-{
-	void eventTriggerExplodeEffects();
-};
 
 // @baa 0x01707d30
 /* RControllableChatteringTeethBase.TriggerExplodeEffects script event: the generated glue, out of line here. */
-void ARControllableChatteringTeethBase__01707d30::eventTriggerExplodeEffects()
+void ARControllableChatteringTeethBase::eventTriggerExplodeEffects()
 {
 	ProcessEvent(FindFunctionChecked(g_026e2ef4), NULL);
 }
 
 extern FName g_026e2e98;
 	/* TriggerExplosionRumble */
-struct ARControllableChatteringTeethBase__01707d60 : public ARControllableChatteringTeethBase
-{
-	void eventTriggerExplosionRumble();
-};
 
 // @baa 0x01707d60
 /* RControllableChatteringTeethBase.TriggerExplosionRumble script event: the generated glue, out of line here. */
-void ARControllableChatteringTeethBase__01707d60::eventTriggerExplosionRumble()
+void ARControllableChatteringTeethBase::eventTriggerExplosionRumble()
 {
 	ProcessEvent(FindFunctionChecked(g_026e2e98), NULL);
 }
 
 extern FName g_026e2f84;
 	/* ApplyExplosionCameraShake */
-struct ARControllableChatteringTeethBase__01707d90 : public ARControllableChatteringTeethBase
-{
-	void eventApplyExplosionCameraShake();
-};
 
 // @baa 0x01707d90
 /* RControllableChatteringTeethBase.ApplyExplosionCameraShake script event: the generated glue, out of line here. */
-void ARControllableChatteringTeethBase__01707d90::eventApplyExplosionCameraShake()
+void ARControllableChatteringTeethBase::eventApplyExplosionCameraShake()
 {
 	ProcessEvent(FindFunctionChecked(g_026e2f84), NULL);
 }
@@ -756,14 +704,10 @@ void ARSilentPredatorCamera::execLookAround(FFrame& Stack, RESULT_DECL)
 
 extern FName g_026e2f18;
 	/* Dump */
-struct URPersistentOptions_ : public URPersistentOptions
-{
-	void eventDump();
-};
 
 // @baa 0x0170a890
 /* RPersistentOptions.Dump script event: the generated glue, out of line here. */
-void URPersistentOptions_::eventDump()
+void URPersistentOptions::eventDump()
 {
 	ProcessEvent(FindFunctionChecked(g_026e2f18), NULL);
 }
@@ -1080,14 +1024,10 @@ void ARBMAIController::execGetSilentPredatorStanceName(FFrame& Stack, RESULT_DEC
 
 extern FName g_026e2f38;
 	/* BMGAME_DestroyTeeth */
-struct ARControllableChatteringTeethBase__01707df0 : public ARControllableChatteringTeethBase
-{
-	void eventDestroyTeeth();
-};
 
 // @baa 0x01707df0
 /* The script event's generated glue (BmGameClasses.h), out of line here. */
-void ARControllableChatteringTeethBase__01707df0::eventDestroyTeeth()
+void ARControllableChatteringTeethBase::eventDestroyTeeth()
 {
 	ProcessEvent(FindFunctionChecked(g_026e2f38), NULL);
 }
@@ -1113,15 +1053,9 @@ void ARBatarangProjectile::execCalculateFlightPath(FFrame& Stack, RESULT_DECL)
 }
 
 extern FName g_026e36f4;
-	/* BMGAME_DamageNearbyPeople */
-/* Kit gap: the generated glue for RControllableChatteringTeethBase's script event DamageNearbyPeople (BmGameClasses.h) isn't declared; this build keeps it out of line. */
-struct ARControllableChatteringTeethBase__01707d00 : public ARControllableChatteringTeethBase
-{
-	void eventDamageNearbyPeople();
-};
 
 // @baa 0x01707d00
-void ARControllableChatteringTeethBase__01707d00::eventDamageNearbyPeople()
+void ARControllableChatteringTeethBase::eventDamageNearbyPeople()
 {
 	ProcessEvent(FindFunctionChecked(g_026e36f4), NULL);
 }

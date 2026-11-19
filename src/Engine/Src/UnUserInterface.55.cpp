@@ -122,15 +122,10 @@ INT UGameUISceneClient::ChangeActiveSkin(UUISkin* NewActiveSkin)
 	return FALSE;
 }
 
-/* Kit gap: UGameUISceneClient::GetSceneAtIndex isn't declared. */
-struct UGameUISceneClient_ : public UGameUISceneClient
-{
-	class UUIScene* GetSceneAtIndex(INT SceneIndex) const;
-};
 
 // @baa 0x00de2670
 /* The active scene at this index of the scene stack, or NULL when the index is out of range. */
-UUIScene* UGameUISceneClient_::GetSceneAtIndex(INT SceneIndex) const
+UUIScene* UGameUISceneClient::GetSceneAtIndex(INT SceneIndex) const
 {
 	UUIScene* Result = NULL;
 	if (SceneIndex >= 0 && SceneIndex < ActiveScenes.Num())
@@ -203,15 +198,10 @@ UUIScene* UGameUISceneClient::GetNextScene(UUIScene* SourceScene, UBOOL bRequire
 }
 
 #define NAME_TransientScene (NAME_Transient)
-/* Kit gap: UGameUISceneClient::GetTransientScene isn't declared (name from the exe's native table). */
-struct UGameUISceneClient__00de6d90 : public UGameUISceneClient
-{
-	class UUIScene* GetTransientScene();
-};
 
 // @baa 0x00de6d90
 /* The scene that holds widgets not placed in any real scene; it always exists. */
-UUIScene* UGameUISceneClient__00de6d90::GetTransientScene()
+UUIScene* UGameUISceneClient::GetTransientScene()
 {
 	UUIScene* TransientScene = FindSceneByTag(NAME_TransientScene, NULL);
 #line 2220 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnUserInterface.cpp"

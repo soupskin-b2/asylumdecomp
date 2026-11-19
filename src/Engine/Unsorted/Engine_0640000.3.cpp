@@ -6,14 +6,10 @@
 
 extern FName g_026c4964;
 	/* ENGINE_DecalFinished */
-struct ADecalManager_ : public ADecalManager
-{
-	void eventDecalFinished(class UDecalComponent* Decal);
-};
 
 // @baa 0x0064db90
 /* The script event's generated glue (EngineClasses.h), out of line here. */
-void ADecalManager_::eventDecalFinished(class UDecalComponent* Decal)
+void ADecalManager::eventDecalFinished(class UDecalComponent* Decal)
 {
 	struct DecalManager_eventDecalFinished_Parms
 	{

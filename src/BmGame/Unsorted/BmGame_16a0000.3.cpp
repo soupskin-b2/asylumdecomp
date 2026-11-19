@@ -6,14 +6,10 @@
 
 extern FName g_026e2ab0;
 	/* ContainsRootToGather */
-struct ARGatherRootPointBase_ : public ARGatherRootPointBase
-{
-	UBOOL eventContainsRootToGather();
-};
 
 // @baa 0x016a99f0
 /* RGatherRootPointBase.ContainsRootToGather script event: the generated glue, out of line here. */
-UBOOL ARGatherRootPointBase_::eventContainsRootToGather()
+UBOOL ARGatherRootPointBase::eventContainsRootToGather()
 {
 	struct RGatherRootPointBase_eventContainsRootToGather_Parms
 	{
@@ -26,14 +22,10 @@ UBOOL ARGatherRootPointBase_::eventContainsRootToGather()
 
 extern FName g_026e391c;
 	/* PlayAnim */
-struct ARPontoonBase_ : public ARPontoonBase
-{
-	void eventPlayAnim(FName Anim, BYTE LD, FLOAT RateScale, UBOOL bMirrored, FLOAT fStartTime);
-};
 
 // @baa 0x016a9a80
 /* RPontoonBase.PlayAnim script event: the generated glue, out of line here. */
-void ARPontoonBase_::eventPlayAnim(FName Anim, BYTE LD, FLOAT RateScale, UBOOL bMirrored, FLOAT fStartTime)
+void ARPontoonBase::eventPlayAnim(FName Anim, BYTE LD, FLOAT RateScale, UBOOL bMirrored, FLOAT fStartTime)
 {
 	struct RPontoonBase_eventPlayAnim_Parms
 	{
@@ -53,14 +45,10 @@ void ARPontoonBase_::eventPlayAnim(FName Anim, BYTE LD, FLOAT RateScale, UBOOL b
 
 extern FName g_026e2b40;
 	/* DoSetEdgeCollisionEnabled */
-struct ARPontoonBase__016a9b00 : public ARPontoonBase
-{
-	void eventDoSetEdgeCollisionEnabled(UBOOL bEn, UBOOL bFullEnable);
-};
 
 // @baa 0x016a9b00
 /* RPontoonBase.DoSetEdgeCollisionEnabled script event: the generated glue, out of line here. */
-void ARPontoonBase__016a9b00::eventDoSetEdgeCollisionEnabled(UBOOL bEn, UBOOL bFullEnable)
+void ARPontoonBase::eventDoSetEdgeCollisionEnabled(UBOOL bEn, UBOOL bFullEnable)
 {
 	struct RPontoonBase_eventDoSetEdgeCollisionEnabled_Parms
 	{
@@ -74,14 +62,10 @@ void ARPontoonBase__016a9b00::eventDoSetEdgeCollisionEnabled(UBOOL bEn, UBOOL bF
 
 extern FName g_026e35a0;
 	/* GetGatherRootPoint */
-struct ARGatherRootPointSpawnerBase_ : public ARGatherRootPointSpawnerBase
-{
-	class ARGatherRootPointBase* eventGetGatherRootPoint();
-};
 
 // @baa 0x016a9c10
 /* RGatherRootPointSpawnerBase.GetGatherRootPoint script event: the generated glue, out of line here. */
-class ARGatherRootPointBase* ARGatherRootPointSpawnerBase_::eventGetGatherRootPoint()
+class ARGatherRootPointBase* ARGatherRootPointSpawnerBase::eventGetGatherRootPoint()
 {
 	struct RGatherRootPointSpawnerBase_eventGetGatherRootPoint_Parms
 	{
@@ -94,14 +78,10 @@ class ARGatherRootPointBase* ARGatherRootPointSpawnerBase_::eventGetGatherRootPo
 
 extern FName g_026e2c78;
 	/* GetTrackingPositionAndRotation */
-struct ARBatarangCamera_ : public ARBatarangCamera
-{
-	void eventGetTrackingPositionAndRotation(FVector& Out_Position, FRotator& out_Rotation);
-};
 
 // @baa 0x016a9c60
 /* RBatarangCamera.GetTrackingPositionAndRotation script event: the generated glue, out of line here. */
-void ARBatarangCamera_::eventGetTrackingPositionAndRotation(FVector& Out_Position, FRotator& out_Rotation)
+void ARBatarangCamera::eventGetTrackingPositionAndRotation(FVector& Out_Position, FRotator& out_Rotation)
 {
 	struct RBatarangCamera_eventGetTrackingPositionAndRotation_Parms
 	{
@@ -117,14 +97,10 @@ void ARBatarangCamera_::eventGetTrackingPositionAndRotation(FVector& Out_Positio
 
 extern FName g_026e30bc;
 	/* RegisterPontoon */
-struct ARPontoonBridgeManager_ : public ARPontoonBridgeManager
-{
-	void eventRegisterPontoon(class ARPontoonBase* NewPontoon);
-};
 
 // @baa 0x016ab800
 /* RPontoonBridgeManager.RegisterPontoon script event: the generated glue, out of line here. */
-void ARPontoonBridgeManager_::eventRegisterPontoon(class ARPontoonBase* NewPontoon)
+void ARPontoonBridgeManager::eventRegisterPontoon(class ARPontoonBase* NewPontoon)
 {
 	struct RPontoonBridgeManager_eventRegisterPontoon_Parms
 	{
@@ -136,14 +112,10 @@ void ARPontoonBridgeManager_::eventRegisterPontoon(class ARPontoonBase* NewPonto
 
 extern FName g_026e2d68;
 	/* UpdateDamageLevel */
-struct URCapeSkeletalMeshComponent_ : public URCapeSkeletalMeshComponent
-{
-	void eventUpdateDamageLevel(class UMaterialInstance* NewMat);
-};
 
 // @baa 0x016ad7e0
 /* RCapeSkeletalMeshComponent.UpdateDamageLevel script event: the generated glue, out of line here. */
-void URCapeSkeletalMeshComponent_::eventUpdateDamageLevel(class UMaterialInstance* NewMat)
+void URCapeSkeletalMeshComponent::eventUpdateDamageLevel(class UMaterialInstance* NewMat)
 {
 	struct RCapeSkeletalMeshComponent_eventUpdateDamageLevel_Parms
 	{
@@ -155,14 +127,10 @@ void URCapeSkeletalMeshComponent_::eventUpdateDamageLevel(class UMaterialInstanc
 
 extern FName g_026e33cc;
 	/* CapeSetHiddenGame */
-struct URCapeComponent_ : public URCapeComponent
-{
-	void eventCapeSetHiddenGame(UBOOL bNewIsHidden);
-};
 
 // @baa 0x016ad870
 /* RCapeComponent.CapeSetHiddenGame script event: the generated glue, out of line here. */
-void URCapeComponent_::eventCapeSetHiddenGame(UBOOL bNewIsHidden)
+void URCapeComponent::eventCapeSetHiddenGame(UBOOL bNewIsHidden)
 {
 	struct RCapeComponent_eventCapeSetHiddenGame_Parms
 	{
@@ -174,70 +142,50 @@ void URCapeComponent_::eventCapeSetHiddenGame(UBOOL bNewIsHidden)
 
 extern FName g_026e36a4;
 	/* ShakeTimeExpired */
-struct ARPontoonBase__016a9a50 : public ARPontoonBase
-{
-	void eventShakeTimeExpired();
-};
 
 // @baa 0x016a9a50
 /* RPontoonBase.ShakeTimeExpired script event: the generated glue, out of line here. */
-void ARPontoonBase__016a9a50::eventShakeTimeExpired()
+void ARPontoonBase::eventShakeTimeExpired()
 {
 	ProcessEvent(FindFunctionChecked(g_026e36a4), NULL);
 }
 
 extern FName g_026e2728;
 	/* UpdateFractureMesh */
-struct ARPontoonBase__016a9b60 : public ARPontoonBase
-{
-	void eventUpdateFractureMesh();
-};
 
 // @baa 0x016a9b60
 /* RPontoonBase.UpdateFractureMesh script event: the generated glue, out of line here. */
-void ARPontoonBase__016a9b60::eventUpdateFractureMesh()
+void ARPontoonBase::eventUpdateFractureMesh()
 {
 	ProcessEvent(FindFunctionChecked(g_026e2728), NULL);
 }
 
 extern FName g_026e360c;
 	/* DestroyRippleParticleEmitter */
-struct ARPontoonBase__016a9b90 : public ARPontoonBase
-{
-	void eventDestroyRippleParticleEmitter();
-};
 
 // @baa 0x016a9b90
 /* RPontoonBase.DestroyRippleParticleEmitter script event: the generated glue, out of line here. */
-void ARPontoonBase__016a9b90::eventDestroyRippleParticleEmitter()
+void ARPontoonBase::eventDestroyRippleParticleEmitter()
 {
 	ProcessEvent(FindFunctionChecked(g_026e360c), NULL);
 }
 
 extern FName g_026e2cc8;
 	/* SpawnRippleParticleEmitter */
-struct ARPontoonBase__016a9bc0 : public ARPontoonBase
-{
-	void eventSpawnRippleParticleEmitter();
-};
 
 // @baa 0x016a9bc0
 /* RPontoonBase.SpawnRippleParticleEmitter script event: the generated glue, out of line here. */
-void ARPontoonBase__016a9bc0::eventSpawnRippleParticleEmitter()
+void ARPontoonBase::eventSpawnRippleParticleEmitter()
 {
 	ProcessEvent(FindFunctionChecked(g_026e2cc8), NULL);
 }
 
 extern FName g_026e33f4;
 	/* DistanceToNearestRootChanged */
-struct ARPawnBossCrocBase_ : public ARPawnBossCrocBase
-{
-	void eventDistanceToNearestRootChanged();
-};
 
 // @baa 0x016ab6e0
 /* RPawnBossCrocBase.DistanceToNearestRootChanged script event: the generated glue, out of line here. */
-void ARPawnBossCrocBase_::eventDistanceToNearestRootChanged()
+void ARPawnBossCrocBase::eventDistanceToNearestRootChanged()
 {
 	ProcessEvent(FindFunctionChecked(g_026e33f4), NULL);
 }

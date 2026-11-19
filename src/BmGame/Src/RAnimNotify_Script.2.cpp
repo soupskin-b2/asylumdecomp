@@ -6,14 +6,10 @@
 
 extern FName g_026e2a00;
 	/* TriggerGadgetAnim */
-struct URAnimNotify_PlayGadgetAnim_ : public URAnimNotify_PlayGadgetAnim
-{
-	void eventTriggerGadgetAnim(class ARPawnPlayer* Player);
-};
 
 // @baa 0x01592110
 /* RAnimNotify_PlayGadgetAnim.TriggerGadgetAnim script event: the generated glue, out of line here. */
-void URAnimNotify_PlayGadgetAnim_::eventTriggerGadgetAnim(class ARPawnPlayer* Player)
+void URAnimNotify_PlayGadgetAnim::eventTriggerGadgetAnim(class ARPawnPlayer* Player)
 {
 	struct RAnimNotify_PlayGadgetAnim_eventTriggerGadgetAnim_Parms
 	{

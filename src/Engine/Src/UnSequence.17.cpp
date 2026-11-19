@@ -19,13 +19,9 @@ template<class T> inline INT AddItem(TArray<T>& Array, const T& Item)
 /* FSeqOpOutputLink::HasLinkTo (0x008bbfb0) isn't declared in Classes.h. */
 
 /* USequence::FindLinksToSeqOp isn't declared in Classes.h. */
-struct USequence_ : public USequence
-{
-    void FindLinksToSeqOp(USequenceOp* TargetOp, TArray<FSeqOpOutputLink*>& Links);
-};
 
 // @baa 0x008fe500
-void USequence_::FindLinksToSeqOp(USequenceOp* TargetOp, TArray<FSeqOpOutputLink*>& Links)
+void USequence::FindLinksToSeqOp(USequenceOp* TargetOp, TArray<FSeqOpOutputLink*>& Links)
 {
     if (TargetOp != NULL)
     {

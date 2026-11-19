@@ -137,14 +137,9 @@ void UCanvas__00aa97a0::execDrawTile(FFrame& Stack, RESULT_DECL)
 	CurYL = Max(CurYL, YL);
 }
 
-struct UCanvas__00aa9990 : public UCanvas
-{
-	void DrawTile( UTexture* Tex, FLOAT X, FLOAT Y, FLOAT XL, FLOAT YL, FLOAT U, FLOAT V, FLOAT UL, FLOAT VL, const FLinearColor& Color );
-	void execDrawColorizedTile(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00aa9990
-void UCanvas__00aa9990::execDrawColorizedTile(FFrame& Stack, RESULT_DECL)
+void UCanvas::execDrawColorizedTile(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(UTexture, Tex);
 	P_GET_FLOAT(XL);
@@ -164,14 +159,9 @@ void UCanvas__00aa9990::execDrawColorizedTile(FFrame& Stack, RESULT_DECL)
 	CurYL = Max(CurYL, YL);
 }
 
-struct UCanvas__00a9eea0 : public UCanvas
-{
-	void DrawMaterialTile( UMaterialInterface* Material, FLOAT X, FLOAT Y, FLOAT XL, FLOAT YL, FLOAT U, FLOAT V, FLOAT UL, FLOAT VL );
-	void execDrawMaterialTile(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00a9eea0
-void UCanvas__00a9eea0::execDrawMaterialTile(FFrame& Stack, RESULT_DECL)
+void UCanvas::execDrawMaterialTile(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(UMaterialInterface, Mat);
 	P_GET_FLOAT(XL);
@@ -317,14 +307,9 @@ void UCanvas::execTextSize(FFrame& Stack, RESULT_DECL)
 	YL = YLi;
 }
 
-struct UCanvas__00a9f0a0 : public UCanvas
-{
-	void DrawMaterialTile( UMaterialInterface* Material, FLOAT X, FLOAT Y, FLOAT XL, FLOAT YL, FLOAT U, FLOAT V, FLOAT UL, FLOAT VL );
-	void execDrawMaterialTileClipped(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00a9f0a0
-void UCanvas__00a9f0a0::execDrawMaterialTileClipped(FFrame& Stack, RESULT_DECL)
+void UCanvas::execDrawMaterialTileClipped(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(UMaterialInterface, Mat);
 	P_GET_FLOAT(XL);
@@ -476,14 +461,9 @@ void UCanvas__00ab0870::execDrawTextureLine(FFrame& Stack, RESULT_DECL)
 	DrawTextureLine(StartPoint, EndPoint, Perc, Width, LineColor, LineTexture, U, V, UL, VL);
 }
 
-struct UCanvas__00ab03b0 : public UCanvas
-{
-	void DrawTileStretched(UTexture* Tex, FLOAT Left, FLOAT Top, FLOAT AWidth, FLOAT AHeight, FLOAT U, FLOAT V, FLOAT UL, FLOAT VL, FLinearColor DrawColor, UBOOL bStretchHorizontally, UBOOL bStretchVertically, FLOAT ScalingFactor);
-	void execDrawTileStretched(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00ab03b0
-void UCanvas__00ab03b0::execDrawTileStretched(FFrame& Stack, RESULT_DECL)
+void UCanvas::execDrawTileStretched(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(UTexture, Tex);
 	P_GET_FLOAT(XL);

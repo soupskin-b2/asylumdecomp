@@ -36,14 +36,10 @@ void USkeletalMeshComponent::execSetForceRefPose(FFrame& Stack, RESULT_DECL)
 
 extern FName g_026c45a4;
 	/* AttachCloneToActor */
-struct URB_ForceComponent_ : public URB_ForceComponent
-{
-	void eventAttachCloneToActor(class AActor* NewOwner);
-};
 
 // @baa 0x0090d370
 /* RB_ForceComponent.AttachCloneToActor script event: the generated glue, out of line here. */
-void URB_ForceComponent_::eventAttachCloneToActor(class AActor* NewOwner)
+void URB_ForceComponent::eventAttachCloneToActor(class AActor* NewOwner)
 {
 	struct RB_ForceComponent_eventAttachCloneToActor_Parms
 	{
@@ -100,14 +96,10 @@ void USkeletalMeshComponent::execFindConstraintBoneName(FFrame& Stack, RESULT_DE
 
 extern FName g_026c4a10;
 	/* ENGINE_GetFaceFXAudioComponent */
-struct AActor_ : public AActor
-{
-	class UAudioComponent* eventGetFaceFXAudioComponent();
-};
 
 // @baa 0x0090ae80
 /* The script event's generated glue (EngineClasses.h), out of line here. */
-class UAudioComponent* AActor_::eventGetFaceFXAudioComponent()
+class UAudioComponent* AActor::eventGetFaceFXAudioComponent()
 {
 	struct Actor_eventGetFaceFXAudioComponent_Parms
 	{
@@ -120,14 +112,10 @@ class UAudioComponent* AActor_::eventGetFaceFXAudioComponent()
 
 extern FName g_026c3ea8;
 	/* ENGINE_PlayParticleEffect */
-struct USkeletalMeshComponent__0090b470 : public USkeletalMeshComponent
-{
-	void eventPlayParticleEffect(class UAnimNotify_PlayParticleEffect* AnimNotifyData);
-};
 
 // @baa 0x0090b470
 /* The script event's generated glue (EngineClasses.h), out of line here. */
-void USkeletalMeshComponent__0090b470::eventPlayParticleEffect(class UAnimNotify_PlayParticleEffect* AnimNotifyData)
+void USkeletalMeshComponent::eventPlayParticleEffect(class UAnimNotify_PlayParticleEffect* AnimNotifyData)
 {
 	struct SkeletalMeshComponent_eventPlayParticleEffect_Parms
 	{

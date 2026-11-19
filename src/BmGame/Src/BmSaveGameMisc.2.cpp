@@ -6,14 +6,10 @@
 
 extern FName g_026e3aa0;
 	/* FE_NewGame */
-struct ARPlayerController_ : public ARPlayerController
-{
-	void eventFE_NewGame(const FString& Difficulty);
-};
 
 // @baa 0x01722dc0
 /* RPlayerController.FE_NewGame script event: the generated glue, out of line here. */
-void ARPlayerController_::eventFE_NewGame(const FString& Difficulty)
+void ARPlayerController::eventFE_NewGame(const FString& Difficulty)
 {
 	struct RPlayerController_eventFE_NewGame_Parms
 	{
@@ -31,10 +27,6 @@ void ARLevelTransition::execGetAllConnectedLevels(FFrame& Stack, RESULT_DECL)
 	GetAllConnectedLevels(Out);
 }
 
-struct ARHarpoonDragPhysicsBase_ : public ARHarpoonDragPhysicsBase
-{
-	UBOOL GetAnchorPointPositionAndRotation(INT AnchorIndex, FVector& OutPosition, FRotator* OutRotation); /* 0x0171fb20 */
-};
 
 // @baa 0x01722f10
 /* native function bool GetAnchorPointPositionAndRotation(int AnchorIndex, out vector OutPosition, optional out rotator OutRotation) */
@@ -49,5 +41,5 @@ void ARHarpoonDragPhysicsBase::execGetAnchorPointPositionAndRotation(FFrame& Sta
 		OutRotation = FRotator(0, 0, 0);
 	}
 	P_FINISH;
-	*(UBOOL*)Result = ((ARHarpoonDragPhysicsBase_*)this)->GetAnchorPointPositionAndRotation(AnchorIndex, OutPosition, pOutRotation ? &OutRotation : NULL);
+	*(UBOOL*)Result = ((ARHarpoonDragPhysicsBase*)this)->GetAnchorPointPositionAndRotation(AnchorIndex, OutPosition, pOutRotation ? &OutRotation : NULL);
 }

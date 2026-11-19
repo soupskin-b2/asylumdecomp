@@ -339,13 +339,9 @@ IMPLEMENT_CLASS_AT(ASkeletalMeshActorMAT, "e:\\Projects\\Amadeus\\AA\\Game\\Unre
 // @baa 0x0097fe70
 IMPLEMENT_CLASS_AT(USkeletalMesh, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSkeletalMesh.cpp", 27);
 
-struct USkeletalMesh_ : public USkeletalMesh
-{
-    FMatrix GetRefPoseMatrix(INT BoneIndex) const;
-};
 
 // @baa 0x00951c70
-FMatrix USkeletalMesh_::GetRefPoseMatrix(INT BoneIndex) const
+FMatrix USkeletalMesh::GetRefPoseMatrix(INT BoneIndex) const
 {
 #line 1323 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSkeletalMesh.cpp"
     check(BoneIndex >= 0 && BoneIndex < RefSkeleton.Num());

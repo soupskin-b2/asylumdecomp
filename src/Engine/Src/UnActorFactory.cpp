@@ -951,13 +951,9 @@ UBOOL UActorFactoryCloth::HasParentClassChanged() const
 
 /* Unnamed in the kit: UE3's UPrimitiveComponent::SetRBCollisionChannels(FRBCollisionChannelContainer Channels)
  * (execSetRBCollisionChannels' native); slot 0x20c is UE3's UpdatePhysicsToRBChannels(). */
-struct UPrimitiveComponent_ : public UPrimitiveComponent
-{
-    void sub_009ff9a0(FRBCollisionChannelContainer Channels);
-};
 
 // @baa 0x009ff9a0
-void UPrimitiveComponent_::sub_009ff9a0(FRBCollisionChannelContainer Channels)
+void UPrimitiveComponent::sub_009ff9a0(FRBCollisionChannelContainer Channels)
 {
     RBCollideWithChannels = Channels;
     SetRBChannel();

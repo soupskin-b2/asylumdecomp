@@ -27,13 +27,9 @@ template<class T> struct TArrayAt_ : public TArray<T>
 /* Cast<UAnimNodeSequence> is out of line in this build. */
 extern template UAnimNodeSequence* Cast<UAnimNodeSequence>(UObject* Src);
 /* UAnimNodeSlot::GetCustomAnimNodeSeq isn't declared in Classes.h. */
-struct UAnimNodeSlot_ : public UAnimNodeSlot
-{
-	UAnimNodeSequence* GetCustomAnimNodeSeq();
-};
 
 // @baa 0x00c7ccb0
-UAnimNodeSequence* UAnimNodeSlot_::GetCustomAnimNodeSeq()
+UAnimNodeSequence* UAnimNodeSlot::GetCustomAnimNodeSeq()
 {
 	// child 0 is the normal animation; the custom animation plays on the others
 	if (CustomChildIndex > 0)

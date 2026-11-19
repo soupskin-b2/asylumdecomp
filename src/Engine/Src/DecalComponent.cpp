@@ -321,15 +321,7 @@ void UDecalComponent::UpdateTransform()
 	}
 }
 
-struct UPrimitiveComponent_ : public UPrimitiveComponent
-{
-	void DetachDecal(UDecalComponent* Decal); /* 0x006eff50 */
-};
 
-struct UDecalComponent_ : public UDecalComponent
-{
-	void ReleaseResources(UBOOL bBlockOnRelease, UPrimitiveComponent* Receiver); /* 0x0069a270 */
-};
 
 // @baa 0x0069ba80
 /* DecalComponent.cpp: DetachFromReceivers. Detaches the decal from every receiver, then frees the receiver render data. */
@@ -340,9 +332,9 @@ void UDecalComponent::sub_0069ba80()
 		FDecalReceiver& Receiver = DecalReceivers(ReceiverIndex);
 		if (Receiver.Component)
 		{
-			((UPrimitiveComponent_*)Receiver.Component)->DetachDecal(this);
+			((UPrimitiveComponent*)Receiver.Component)->DetachDecal(this);
 			Receiver.Component = NULL;
 		}
 	}
-	((UDecalComponent_*)this)->ReleaseResources(FALSE, NULL);
+	((UDecalComponent*)this)->ReleaseResources(FALSE, NULL);
 }

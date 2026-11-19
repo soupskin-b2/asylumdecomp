@@ -10,17 +10,13 @@ template void TArray<UAnimSet*>::operator=(const TArray<UAnimSet*>& Other);
 
 template TArray<UAnimSet*>::~TArray();
 
-struct URAnimUtil_ : public URAnimUtil
-{
-	TArray<UAnimSet*> GetAllAnimSets(); /* 0x015b4510 */
-};
 
 // @baa 0x01729dd0
 /* native function array<AnimSet> GetAllAnimSets() */
 void URAnimUtil::execGetAllAnimSets(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(TArray<UAnimSet*>*)Result = ((URAnimUtil_*)this)->GetAllAnimSets();
+	*(TArray<UAnimSet*>*)Result = ((URAnimUtil*)this)->GetAllAnimSets();
 }
 
 /* the out-of-line TArray<UClass*> instances */
@@ -28,10 +24,6 @@ template void TArray<UClass*>::operator=(const TArray<UClass*>& Other);
 
 template TArray<UClass*>::~TArray();
 
-struct URAnimUtil__01729e60 : public URAnimUtil
-{
-	TArray<UClass*> GetAllBmScriptSubclasses(UClass* BaseClass); /* 0x015b4850 */
-};
 
 // @baa 0x01729e60
 /* native function array<class> GetAllBmScriptSubclasses(class BaseClass) */
@@ -39,5 +31,5 @@ void URAnimUtil::execGetAllBmScriptSubclasses(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(UClass, BaseClass);
 	P_FINISH;
-	*(TArray<UClass*>*)Result = ((URAnimUtil__01729e60*)this)->GetAllBmScriptSubclasses(BaseClass);
+	*(TArray<UClass*>*)Result = ((URAnimUtil*)this)->GetAllBmScriptSubclasses(BaseClass);
 }

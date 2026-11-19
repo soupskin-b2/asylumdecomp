@@ -94,14 +94,10 @@ struct UObject_ : public UObject
 
 /* ConvertVolumesToConvexVolumes (LightComponent.cpp); the kit types the convex arrays with a stand-in element. */
 void sub_0079ae50(const TArray<ABrush*>& Volumes, TArray<FNativeElem_00693980>& ConvexVolumes);
-struct ULightComponent_ : public ULightComponent
-{
-    void sub_006bab80();
-};
 
 // @baa 0x006bab80
 /* UpdateVolumes: drop volume references from other levels, then rebuild the convex volumes. */
-void ULightComponent_::sub_006bab80()
+void ULightComponent::sub_006bab80()
 {
     for (INT VolumeIndex = 0; VolumeIndex < ExclusionVolumes.Num(); VolumeIndex++)
     {

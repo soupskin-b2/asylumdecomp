@@ -61,13 +61,9 @@ void sub_016d2760(UObject* LinkerRoot, void* CallbackUserData)
 extern FName g_026e371c;
 	/* BMGAME_GetAnimNames */
 /* The config's script event (generated glue, BmGameClasses.h) */
-struct URIdleConfig_ : public URIdleConfig
-{
-	void eventGetAnimNames(TArray<FName>& AnimNames); /* 0x01624940 */
-};
 
 // @baa 0x01624940
-void URIdleConfig_::eventGetAnimNames(TArray<FName>& AnimNames)
+void URIdleConfig::eventGetAnimNames(TArray<FName>& AnimNames)
 {
 	struct RIdleConfig_eventGetAnimNames_Parms
 	{

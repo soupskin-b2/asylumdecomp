@@ -23,13 +23,10 @@ template<class T> struct TArrayAt_ : public TArray<T>
     }
 };
 
-struct ACoverLink_ : public ACoverLink {
-    void sub_0084e9a0();
-};
 
 // @baa 0x0084e9a0
 /* clears every slot's exposed fire links */
-void ACoverLink_::sub_0084e9a0()
+void ACoverLink::sub_0084e9a0()
 {
     for (INT SlotIdx = 0; SlotIdx < Slots.Num(); SlotIdx++)
     {

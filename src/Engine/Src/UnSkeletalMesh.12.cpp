@@ -54,14 +54,10 @@ struct FMatrix_ : public FMatrix
 /* UnSkeletalMesh.cpp helper (0x00d776d0): world-space matrix of a bone */
 FMatrix GetBoneMatrix(INT BoneIndex, const TArray<FMatrix>& SpaceBases, const FMatrix& LocalToWorld);
 class FPrimitiveDrawInterface;
-struct UPhysicsAsset_ : public UPhysicsAsset
-{
-    void DrawConstraints(FPrimitiveDrawInterface* PDI, USkeletalMesh* SkelMesh, const TArray<FMatrix>& SpaceBases, const FMatrix& LocalToWorld, FLOAT Scale);
-};
 
 // @baa 0x00d77740
 /* the joint frames of each constraint; the drawing itself is compiled out of this build */
-void UPhysicsAsset_::DrawConstraints(FPrimitiveDrawInterface* PDI, USkeletalMesh* SkelMesh, const TArray<FMatrix>& SpaceBases, const FMatrix& LocalToWorld, FLOAT Scale)
+void UPhysicsAsset::DrawConstraints(FPrimitiveDrawInterface* PDI, USkeletalMesh* SkelMesh, const TArray<FMatrix>& SpaceBases, const FMatrix& LocalToWorld, FLOAT Scale)
 {
     for (INT i = 0; i < ConstraintSetup.Num(); i++)
     {

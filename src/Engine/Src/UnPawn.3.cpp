@@ -7,9 +7,6 @@
 // Script event thunk for PhysicsVolume.PhysicsChangedFor (probe event: NAME_PROBEMIN + 59).
 extern FName ENGINE_PhysicsChangedFor;
  // 026c5190
-struct APhysicsVolume_ : public APhysicsVolume {
-    void eventPhysicsChangedFor(class AActor* ChangedActor);
-};
 
 struct PhysicsVolume_eventPhysicsChangedFor_Parms
 {
@@ -17,7 +14,7 @@ struct PhysicsVolume_eventPhysicsChangedFor_Parms
 };
 
 // @baa 0x008643c0
-void APhysicsVolume_::eventPhysicsChangedFor(class AActor* ChangedActor)
+void APhysicsVolume::eventPhysicsChangedFor(class AActor* ChangedActor)
 {
     if (!StateFrame || (StateFrame->ProbeMask & ((QWORD)1 << 59)))
     {
@@ -220,15 +217,11 @@ void APawn::execGetPawnViewLocation(FFrame& Stack, RESULT_DECL)
 extern FName g_026c51e8;
 	/* ENGINE_Landed */
 /* EName entries Core.h doesn't list yet (UnNames.h) */
-struct AActor_ : public AActor
-{
-	void eventLanded(FVector HitNormal, AActor* FloorActor);
-};
 
 // @baa 0x00863f00
 /* The script event's generated glue (EngineClasses.h), out of line here. Landed is a probe
  * function: the glue only calls into script when the current state probes for it. */
-void AActor_::eventLanded(FVector HitNormal, AActor* FloorActor)
+void AActor::eventLanded(FVector HitNormal, AActor* FloorActor)
 {
 	if (!StateFrame || (StateFrame->ProbeMask & ((QWORD)1 << (NAME_Landed - NAME_PROBEMIN))))
 	{
@@ -244,15 +237,11 @@ void AActor_::eventLanded(FVector HitNormal, AActor* FloorActor)
 }
 
 extern FName g_026c4e70;
-struct AActor__00863fc0 : public AActor
-{
-	void eventHitWall(FVector HitNormal, AActor* Wall, UPrimitiveComponent* WallComp);
-};
 
 // @baa 0x00863fc0
 /* The script event's generated glue (EngineClasses.h), out of line here. HitWall is a probe
  * function: the glue only calls into script when the current state probes for it. */
-void AActor__00863fc0::eventHitWall(FVector HitNormal, AActor* Wall, UPrimitiveComponent* WallComp)
+void AActor::eventHitWall(FVector HitNormal, AActor* Wall, UPrimitiveComponent* WallComp)
 {
 	if (!StateFrame || (StateFrame->ProbeMask & ((QWORD)1 << (NAME_HitWall - NAME_PROBEMIN))))
 	{
@@ -270,15 +259,11 @@ void AActor__00863fc0::eventHitWall(FVector HitNormal, AActor* Wall, UPrimitiveC
 }
 
 extern FName g_026c4278;
-struct AController_ : public AController
-{
-	UBOOL eventNotifyHitWall(FVector HitNormal, AActor* Wall);
-};
 
 // @baa 0x008644f0
 /* The script event's generated glue (EngineClasses.h), out of line here. NotifyHitWall is a probe
  * function: the glue only calls into script when the current state probes for it. */
-UBOOL AController_::eventNotifyHitWall(FVector HitNormal, AActor* Wall)
+UBOOL AController::eventNotifyHitWall(FVector HitNormal, AActor* Wall)
 {
 	struct Controller_eventNotifyHitWall_Parms
 	{
@@ -297,15 +282,11 @@ UBOOL AController_::eventNotifyHitWall(FVector HitNormal, AActor* Wall)
 }
 
 extern FName g_026c4150;
-struct AController__00864570 : public AController
-{
-	UBOOL eventNotifyLanded(FVector HitNormal, AActor* FloorActor);
-};
 
 // @baa 0x00864570
 /* The script event's generated glue (EngineClasses.h), out of line here. NotifyLanded is a probe
  * function: the glue only calls into script when the current state probes for it. */
-UBOOL AController__00864570::eventNotifyLanded(FVector HitNormal, AActor* FloorActor)
+UBOOL AController::eventNotifyLanded(FVector HitNormal, AActor* FloorActor)
 {
 	struct Controller_eventNotifyLanded_Parms
 	{
@@ -325,14 +306,10 @@ UBOOL AController__00864570::eventNotifyLanded(FVector HitNormal, AActor* FloorA
 
 extern FName g_026c502c;
 	/* ENGINE_StuckOnPawn */
-struct APawn__00864830 : public APawn
-{
-	void eventStuckOnPawn(APawn* OtherPawn);
-};
 
 // @baa 0x00864830
 /* The script event's generated glue (EngineClasses.h), out of line here. */
-void APawn__00864830::eventStuckOnPawn(APawn* OtherPawn)
+void APawn::eventStuckOnPawn(APawn* OtherPawn)
 {
 	struct Pawn_eventStuckOnPawn_Parms
 	{
@@ -344,14 +321,10 @@ void APawn__00864830::eventStuckOnPawn(APawn* OtherPawn)
 
 extern FName g_026c3e3c;
 	/* ENGINE_SetWalking */
-struct APawn__0079f760 : public APawn
-{
-	void eventSetWalking(UBOOL bNewIsWalking);
-};
 
 // @baa 0x0079f760
 /* The script event's generated glue (EngineClasses.h), out of line here. */
-void APawn__0079f760::eventSetWalking(UBOOL bNewIsWalking)
+void APawn::eventSetWalking(UBOOL bNewIsWalking)
 {
 	struct Pawn_eventSetWalking_Parms
 	{
@@ -363,14 +336,10 @@ void APawn__0079f760::eventSetWalking(UBOOL bNewIsWalking)
 
 extern FName g_026c47f4;
 	/* ENGINE_StartCrouch */
-struct APawn__00864870 : public APawn
-{
-	void eventStartCrouch(FLOAT HeightAdjust);
-};
 
 // @baa 0x00864870
 /* The script event's generated glue (EngineClasses.h), out of line here. */
-void APawn__00864870::eventStartCrouch(FLOAT HeightAdjust)
+void APawn::eventStartCrouch(FLOAT HeightAdjust)
 {
 	struct Pawn_eventStartCrouch_Parms
 	{
@@ -382,14 +351,10 @@ void APawn__00864870::eventStartCrouch(FLOAT HeightAdjust)
 
 extern FName g_026c4ed8;
 	/* ENGINE_EndCrouch */
-struct APawn__008648b0 : public APawn
-{
-	void eventEndCrouch(FLOAT HeightAdjust);
-};
 
 // @baa 0x008648b0
 /* The script event's generated glue (EngineClasses.h), out of line here. */
-void APawn__008648b0::eventEndCrouch(FLOAT HeightAdjust)
+void APawn::eventEndCrouch(FLOAT HeightAdjust)
 {
 	struct Pawn_eventEndCrouch_Parms
 	{
@@ -400,15 +365,11 @@ void APawn__008648b0::eventEndCrouch(FLOAT HeightAdjust)
 }
 
 extern FName g_026c3fac;
-struct AActor__00863f70 : public AActor
-{
-	void eventFalling();
-};
 
 // @baa 0x00863f70
 /* The script event's generated glue (EngineClasses.h), out of line here. Falling is a probe
  * function: the glue only calls into script when the current state probes for it. */
-void AActor__00863f70::eventFalling()
+void AActor::eventFalling()
 {
 	if (!StateFrame || (StateFrame->ProbeMask & ((QWORD)1 << (NAME_Falling - NAME_PROBEMIN))))
 	{
@@ -436,14 +397,10 @@ void APawn::eventHeadVolumeChange(APhysicsVolume* newHeadVolume)
 
 extern FName g_026c4e34;
 	/* ENGINE_NotifyFallingHitWall */
-struct AController__00864490 : public AController
-{
-	void eventNotifyFallingHitWall(FVector HitNormal, AActor* Wall);
-};
 
 // @baa 0x00864490
 /* The script event's generated glue (EngineClasses.h), out of line here. */
-void AController__00864490::eventNotifyFallingHitWall(FVector HitNormal, AActor* Wall)
+void AController::eventNotifyFallingHitWall(FVector HitNormal, AActor* Wall)
 {
 	struct Controller_eventNotifyFallingHitWall_Parms
 	{
@@ -457,14 +414,10 @@ void AController__00864490::eventNotifyFallingHitWall(FVector HitNormal, AActor*
 
 extern FName g_026c46dc;
 	/* ENGINE_MoveUnreachable */
-struct AController__00864640 : public AController
-{
-	void eventMoveUnreachable(FVector AttemptedDest, AActor* AttemptedTarget);
-};
 
 // @baa 0x00864640
 /* The script event's generated glue (EngineClasses.h), out of line here. */
-void AController__00864640::eventMoveUnreachable(FVector AttemptedDest, AActor* AttemptedTarget)
+void AController::eventMoveUnreachable(FVector AttemptedDest, AActor* AttemptedTarget)
 {
 	struct Controller_eventMoveUnreachable_Parms
 	{
@@ -478,14 +431,10 @@ void AController__00864640::eventMoveUnreachable(FVector AttemptedDest, AActor* 
 
 extern FName g_026c4108;
 	/* ENGINE_GetPawnViewLocation */
-struct APawn__015d81c0 : public APawn
-{
-	FVector eventGetPawnViewLocation();
-};
 
 // @baa 0x015d81c0
 /* The script event's generated glue (EngineClasses.h), out of line here. */
-FVector APawn__015d81c0::eventGetPawnViewLocation()
+FVector APawn::eventGetPawnViewLocation()
 {
 	struct Pawn_eventGetPawnViewLocation_Parms
 	{
@@ -497,15 +446,11 @@ FVector APawn__015d81c0::eventGetPawnViewLocation()
 }
 
 extern FName g_026c4b68;
-struct AController__008645f0 : public AController
-{
-	void eventMayFall();
-};
 
 // @baa 0x008645f0
 /* The script event's generated glue (EngineClasses.h), out of line here. MayFall is a probe
  * function: the glue only calls into script when the current state probes for it. */
-void AController__008645f0::eventMayFall()
+void AController::eventMayFall()
 {
 	if (!StateFrame || (StateFrame->ProbeMask & ((QWORD)1 << (NAME_MayFall - NAME_PROBEMIN))))
 	{

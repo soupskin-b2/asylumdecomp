@@ -6,14 +6,10 @@
 
 extern FName g_026e32ac;
 	/* PauseGame */
-struct URSeqAct_PlayGfxMovie_ : public URSeqAct_PlayGfxMovie
-{
-	void eventPauseGame(UBOOL Pause);
-};
 
 // @baa 0x016d1ba0
 /* RSeqAct_PlayGfxMovie.PauseGame script event: the generated glue, out of line here. */
-void URSeqAct_PlayGfxMovie_::eventPauseGame(UBOOL Pause)
+void URSeqAct_PlayGfxMovie::eventPauseGame(UBOOL Pause)
 {
 	struct RSeqAct_PlayGfxMovie_eventPauseGame_Parms
 	{
@@ -25,14 +21,10 @@ void URSeqAct_PlayGfxMovie_::eventPauseGame(UBOOL Pause)
 
 extern FName g_026e37c0;
 	/* BMGAME_PictureLoaded */
-struct URGFxMovie_ : public URGFxMovie
-{
-	void eventPictureLoaded();
-};
 
 // @baa 0x016d1ae0
 /* The script event's generated glue (BmGameClasses.h), out of line here. */
-void URGFxMovie_::eventPictureLoaded()
+void URGFxMovie::eventPictureLoaded()
 {
 	ProcessEvent(FindFunctionChecked(g_026e37c0), NULL);
 }

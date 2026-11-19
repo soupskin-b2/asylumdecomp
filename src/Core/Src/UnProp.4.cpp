@@ -17,12 +17,9 @@ void UNameProperty::SerializeItem( FArchive& Ar, void* Value, INT MaxReadBytes, 
 	Ar << *(FName*)Value;
 }
 
-struct UComponentProperty_ : public UComponentProperty {
-    FName sub_0062f570() const;
-};
 
 // @baa 0x0062f570
-FName UComponentProperty_::sub_0062f570() const
+FName UComponentProperty::sub_0062f570() const
 {
     FName Result(NAME_ObjectProperty); // NAME_ObjectProperty
     return Result;

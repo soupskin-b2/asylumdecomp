@@ -185,14 +185,10 @@ void UObject::execGetEnum(FFrame& Stack, RESULT_DECL)
 
 extern FName g_0268d0bc;
 	/* CORE_Main */
-struct UCommandlet_ : public UCommandlet
-{
-	INT eventMain(const FString& Params);
-};
 
 // @baa 0x005aa890
 /* The script event's generated glue (CoreClasses.h), out of line here. */
-INT UCommandlet_::eventMain(const FString& Params)
+INT UCommandlet::eventMain(const FString& Params)
 {
 	struct Commandlet_eventMain_Parms
 	{
@@ -323,13 +319,9 @@ void UObject::execPathName(FFrame& Stack, RESULT_DECL)
 
 /* Kit gap: UObject's cast natives (UnScript.cpp, registered in GCasts at 02688ca0, e.g. CST_StringToName) aren't
  * declared. Casts read their one operand and don't P_FINISH. */
-struct UObject_ : public UObject
-{
-	void execStringToName(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x005a34f0
-void UObject_::execStringToName(FFrame& Stack, RESULT_DECL)
+void UObject::execStringToName(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STR(Str);
 	*(FName*)Result = FName(*Str);
@@ -346,14 +338,9 @@ struct FFrame_ : public FFrame
 
 extern UProperty* g_026667ec;
 	/* GProperty */
-struct UObject__005ab3e0 : public UObject
-{
-	void CallFunction(FFrame& Stack, RESULT_DECL, UFunction* Function);	/* 0x005a6cd0 */
-	void execFinalFunction(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x005ab3e0
-void UObject__005ab3e0::execFinalFunction(FFrame& Stack, RESULT_DECL)
+void UObject::execFinalFunction(FFrame& Stack, RESULT_DECL)
 {
 	// Call the final function.
 	CallFunction(Stack, Result, (UFunction*)((FFrame_&)Stack).ReadObject());

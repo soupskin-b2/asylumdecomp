@@ -22,14 +22,10 @@ template<class T> struct TArrayAt_ : public TArray<T>
     }
 };
 
-struct ACoverLink_ : public ACoverLink
-{
-    FLOAT GetSlotHeight(INT SlotIdx); /* 0x008417e0 */
-};
 
 // @baa 0x008417e0
 /* ACoverLink::GetSlotHeight (UE3 UnNavigationPoint.cpp; not declared in the kit). */
-FLOAT ACoverLink_::GetSlotHeight(INT SlotIdx)
+FLOAT ACoverLink::GetSlotHeight(INT SlotIdx)
 {
     if (SlotIdx >= 0 && SlotIdx < Slots.Num())
     {

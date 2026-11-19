@@ -566,13 +566,10 @@ struct FName_ : public FName {
     FName_(EName N) { Index = N; Number = 0; }
 };
 
-struct URCapeComponent_ : public URCapeComponent {
-    void sub_016ae990();
-};
 
 // @baa 0x016ae990
 // Clears the forwarded state change request.
-void URCapeComponent_::sub_016ae990()
+void URCapeComponent::sub_016ae990()
 {
     IsStateChangeRequested = FALSE;
     ForwardToStateRestart = FALSE;
@@ -671,14 +668,10 @@ void URCapeComponent::TermComponentRBPhys(FRBPhysScene* InScene)
 
 // @baa 0x016c6d40
 
-struct URCapeSkeletalMeshComponent_ : public URCapeSkeletalMeshComponent
-{
-	UBOOL sub_016d59d0() const;
-};
 
 // @baa 0x016d59d0
 /* Whether the cape's anim sets differ from its core anim sets (and so need resetting to them). */
-UBOOL URCapeSkeletalMeshComponent_::sub_016d59d0() const
+UBOOL URCapeSkeletalMeshComponent::sub_016d59d0() const
 {
 	const INT NumCore = CoreAnimSets.Num();
 	if (AnimSets.Num() != NumCore)

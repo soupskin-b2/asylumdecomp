@@ -7,15 +7,11 @@
 extern FName g_026c4ce4;
 	/* ENGINE_Tick */
 /* EName entries Core.h doesn't list yet (UnNames.h) */
-struct UInteraction_ : public UInteraction
-{
-	void eventTick(FLOAT DeltaTime);
-};
 
 // @baa 0x00888f20
 /* The script event's generated glue (EngineClasses.h), out of line here. Tick is a probe
  * function: the glue only calls into script when the current state probes for it. */
-void UInteraction_::eventTick(FLOAT DeltaTime)
+void UInteraction::eventTick(FLOAT DeltaTime)
 {
 	if (!StateFrame || (StateFrame->ProbeMask & ((QWORD)1 << (NAME_Tick - NAME_PROBEMIN))))
 	{

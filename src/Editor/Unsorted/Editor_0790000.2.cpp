@@ -8,13 +8,9 @@ extern FName g_026c54f8;
 	/* ENGINE_SpecialHandling */
 /* Kit gap: the generated glue for Actor's script event SpecialHandling (EngineClasses.h) isn't declared; this build
  * keeps it out of line (AController::HandleSpecial calls it). */
-struct AActor_ : public AActor
-{
-	AActor* eventSpecialHandling(APawn* Other);
-};
 
 // @baa 0x0079f220
-AActor* AActor_::eventSpecialHandling(APawn* Other)
+AActor* AActor::eventSpecialHandling(APawn* Other)
 {
 	struct Actor_eventSpecialHandling_Parms
 	{

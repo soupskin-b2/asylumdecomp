@@ -32,13 +32,9 @@ void USeqAct_Delay::Activated()
     LastUpdateTime = GWorld->GetWorldInfo()->TimeSeconds;
 }
 
-struct USequenceObject_ : public USequenceObject
-{
-    AWorldInfo* GetWorldInfo();
-};
 
 // @baa 0x008aba50
-AWorldInfo* USequenceObject_::GetWorldInfo()
+AWorldInfo* USequenceObject::GetWorldInfo()
 {
     return GWorld ? GWorld->GetWorldInfo() : NULL;
 }
@@ -68,14 +64,10 @@ void USeqCond_GetServerType::Activated()
     }
 }
 
-struct USeqAct_LevelStreaming_ : public USeqAct_LevelStreaming
-{
-    UBOOL IsLevelStreamingComplete(ULevelStreaming* LevelStreamingObject);
-};
 
 // @baa 0x008ac0e0
 /* TRUE once the streaming level has finished its pending load/unload (and become visible if requested) */
-UBOOL USeqAct_LevelStreaming_::IsLevelStreamingComplete(ULevelStreaming* LevelStreamingObject)
+UBOOL USeqAct_LevelStreaming::IsLevelStreamingComplete(ULevelStreaming* LevelStreamingObject)
 {
     if (LevelStreamingObject == NULL)
     {

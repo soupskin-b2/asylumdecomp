@@ -16,12 +16,9 @@ struct FIntArray : public TArray<INT> {
     }
 };
 
-struct UPhysicsAsset_ : public UPhysicsAsset {
-    void GetBodyIndicesBelow(TArray<INT>& OutBodyIndices, FName InBoneName, USkeletalMesh* SkelMesh); // 00a09a70
-};
 
 // @baa 0x00a09a70
-void UPhysicsAsset_::GetBodyIndicesBelow(TArray<INT>& OutBodyIndices, FName InBoneName, USkeletalMesh* SkelMesh)
+void UPhysicsAsset::GetBodyIndicesBelow(TArray<INT>& OutBodyIndices, FName InBoneName, USkeletalMesh* SkelMesh)
 {
     USkeletalMesh* Mesh = (USkeletalMesh*)SkelMesh;
     INT BaseIndex = Mesh->MatchRefBone(InBoneName);

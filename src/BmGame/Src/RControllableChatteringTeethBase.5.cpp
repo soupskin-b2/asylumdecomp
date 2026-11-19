@@ -12,14 +12,10 @@ struct FVector_ : public FVector
 	FORCEINLINE FLOAT SizeSquared() const { return X * X + Y * Y + Z * Z; }
 };
 
-struct ARControllableChatteringTeethBase_ : public ARControllableChatteringTeethBase
-{
-	UBOOL sub_0171f1a0();
-};
 
 // @baa 0x0171f1a0
 /* Whether any villain in the current room is near enough (feet to feet) for the teeth to explode on their own. */
-UBOOL ARControllableChatteringTeethBase_::sub_0171f1a0()
+UBOOL ARControllableChatteringTeethBase::sub_0171f1a0()
 {
 	if (WorldInfo)
 	{

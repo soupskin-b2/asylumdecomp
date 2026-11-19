@@ -22,14 +22,9 @@ template<class T> struct TArrayAt_ : public TArray<T>
     }
 };
 
-/* Unnamed in the kit: whether one of the children is an anim node with this name. */
-struct URAnimNode_Cape_ : public URAnimNode_Cape
-{
-    UBOOL sub_01569e10(FName AnimName);
-};
 
 // @baa 0x01569e10
-UBOOL URAnimNode_Cape_::sub_01569e10(FName AnimName)
+UBOOL URAnimNode_Cape::sub_01569e10(FName AnimName)
 {
     const INT NumChildren = Children.Num();
     for (INT ChildIndex = 0; ChildIndex < NumChildren; ChildIndex++)
@@ -49,14 +44,9 @@ UBOOL URAnimNode_Cape_::sub_01569e10(FName AnimName)
 
 #line 57 "candidate.cpp"
 
-/* Unnamed in the kit: the cape chain and link for a lookup index; FALSE when both are zero. */
-struct URAnimNode_Cape__01569310 : public URAnimNode_Cape
-{
-    UBOOL sub_01569310(INT LookupIndex, INT& ChainIndex, INT& LinkIndex);
-};
 
 // @baa 0x01569310
-UBOOL URAnimNode_Cape__01569310::sub_01569310(INT LookupIndex, INT& ChainIndex, INT& LinkIndex)
+UBOOL URAnimNode_Cape::sub_01569310(INT LookupIndex, INT& ChainIndex, INT& LinkIndex)
 {
 #line 502 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimNode_Cape.cpp"
     check(CapePosLookupTable.Num() > 0);
@@ -81,14 +71,9 @@ template<class T> struct TArrayAt__01569700 : public TArray<T>
     }
 };
 
-/* Unnamed: a reference-skeleton bone's parent. */
-struct URAnimNode_Cape__01569700 : public URAnimNode_Cape
-{
-    INT sub_01569700(INT BoneIndex);
-};
 
 // @baa 0x01569700
-INT URAnimNode_Cape__01569700::sub_01569700(INT BoneIndex)
+INT URAnimNode_Cape::sub_01569700(INT BoneIndex)
 {
 #line 567 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimNode_Cape.cpp"
     check(SkelComponent != NULL);
@@ -101,13 +86,9 @@ INT URAnimNode_Cape__01569700::sub_01569700(INT BoneIndex)
 
 /* Unnamed in the kit: the parent anim component's space-base matrix for the bone the cape is attached to
  * (pre-physics bases when that component uses them). */
-struct URAnimNode_Cape__01569b90 : public URAnimNode_Cape
-{
-    FMatrix sub_01569b90();
-};
 
 // @baa 0x01569b90
-FMatrix URAnimNode_Cape__01569b90::sub_01569b90()
+FMatrix URAnimNode_Cape::sub_01569b90()
 {
     USkeletalMeshComponent* ParentComp = SkelComponent->ParentAnimComponent;
     FMatrix ParentBoneMatrix;
@@ -148,13 +129,9 @@ INT URAnimNode_Cape__01569c40::sub_01569c40(INT boneIndex)
 
 /* Unnamed in the kit: whether ParentBoneIndex is BoneIndex or one of its ancestors. RefSkeleton(i)+0x38 is the
  * parent index in this build (the kit's FMeshBone calls it Unknown38); the root is its own parent. */
-struct URAnimNode_Cape__015697a0 : public URAnimNode_Cape
-{
-    UBOOL sub_015697a0(INT BoneIndex, INT ParentBoneIndex);
-};
 
 // @baa 0x015697a0
-UBOOL URAnimNode_Cape__015697a0::sub_015697a0(INT BoneIndex, INT ParentBoneIndex)
+UBOOL URAnimNode_Cape::sub_015697a0(INT BoneIndex, INT ParentBoneIndex)
 {
 #line 577 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimNode_Cape.cpp"
     check(SkelComponent != NULL);
@@ -178,13 +155,9 @@ UBOOL URAnimNode_Cape__015697a0::sub_015697a0(INT BoneIndex, INT ParentBoneIndex
 
 /* Unnamed in the kit: a parent bone's reference-pose space base, from the cache when it has been built
  * (otherwise computed by sub_0156a030). */
-struct URAnimNode_Cape__0156e6a0 : public URAnimNode_Cape
-{
-    void sub_0156e6a0(INT boneIndex, FMatrix& OutSpaceBase);
-};
 
 // @baa 0x0156e6a0
-void URAnimNode_Cape__0156e6a0::sub_0156e6a0(INT boneIndex, FMatrix& OutSpaceBase)
+void URAnimNode_Cape::sub_0156e6a0(INT boneIndex, FMatrix& OutSpaceBase)
 {
     if (ParentBoneRefSpaceBaseCache.Num())
     {

@@ -10,13 +10,9 @@ inline UBOOL operator==(const FUniqueNetId& A, const FUniqueNetId& B)
 	return (QWORD&)A.Uid == (QWORD&)B.Uid;
 }
 
-struct APlayerController_ : public APlayerController
-{
-	APlayerController* GetPlayerControllerFromNetId(FUniqueNetId PlayerNetId);
-};
 
 // @baa 0x007a1eb0
-APlayerController* APlayerController_::GetPlayerControllerFromNetId(FUniqueNetId PlayerNetId)
+APlayerController* APlayerController::GetPlayerControllerFromNetId(FUniqueNetId PlayerNetId)
 {
 	AWorldInfo* WorldInfo = GWorld->GetWorldInfo();
 #line 2597 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnController.cpp"

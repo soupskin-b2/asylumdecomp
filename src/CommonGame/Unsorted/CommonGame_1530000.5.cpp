@@ -6,14 +6,10 @@
 
 extern FName g_026e0f08;
 	/* COMMONGAME_SpawnDecal */
-struct URParticleModuleSpawnDecalOnDeath_ : public URParticleModuleSpawnDecalOnDeath
-{
-	class UDecalComponent* eventSpawnDecal(class AActor* Owner, FVector Position, FRotator Direction);
-};
 
 // @baa 0x0153b770
 /* The script event's generated glue (CommonGameClasses.h), out of line here. */
-class UDecalComponent* URParticleModuleSpawnDecalOnDeath_::eventSpawnDecal(class AActor* Owner, FVector Position, FRotator Direction)
+class UDecalComponent* URParticleModuleSpawnDecalOnDeath::eventSpawnDecal(class AActor* Owner, FVector Position, FRotator Direction)
 {
 	struct RParticleModuleSpawnDecalOnDeath_eventSpawnDecal_Parms
 	{
@@ -32,14 +28,10 @@ class UDecalComponent* URParticleModuleSpawnDecalOnDeath_::eventSpawnDecal(class
 
 extern FName g_026e0f20;
 	/* COMMONGAME_SpawnParticles */
-struct URParticleModuleSpawnOnDeath_ : public URParticleModuleSpawnOnDeath
-{
-	void eventSpawnParticles(class AActor* OwningActor, FVector Position);
-};
 
 // @baa 0x0153b810
 /* The script event's generated glue (CommonGameClasses.h), out of line here. */
-void URParticleModuleSpawnOnDeath_::eventSpawnParticles(class AActor* OwningActor, FVector Position)
+void URParticleModuleSpawnOnDeath::eventSpawnParticles(class AActor* OwningActor, FVector Position)
 {
 	struct RParticleModuleSpawnOnDeath_eventSpawnParticles_Parms
 	{

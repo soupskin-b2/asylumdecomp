@@ -6,14 +6,10 @@
 
 extern FName g_026c3ec8;
 	/* ENGINE_PreRender */
-struct UGameViewportClient_ : public UGameViewportClient
-{
-	void eventPreRender(class UCanvas* Canvas);
-};
 
 // @baa 0x008886e0
 /* The script event's generated glue (EngineClasses.h), out of line here. */
-void UGameViewportClient_::eventPreRender(class UCanvas* Canvas)
+void UGameViewportClient::eventPreRender(class UCanvas* Canvas)
 {
 	struct GameViewportClient_eventPreRender_Parms
 	{
@@ -25,14 +21,10 @@ void UGameViewportClient_::eventPreRender(class UCanvas* Canvas)
 
 extern FName g_026c553c;
 	/* SpecialCost */
-struct ANavigationPoint_ : public ANavigationPoint
-{
-	INT eventSpecialCost(class APawn* Seeker, class UReachSpec* Path);
-};
 
 // @baa 0x00888760
 /* NavigationPoint.SpecialCost script event: the generated glue, out of line here. */
-INT ANavigationPoint_::eventSpecialCost(class APawn* Seeker, class UReachSpec* Path)
+INT ANavigationPoint::eventSpecialCost(class APawn* Seeker, class UReachSpec* Path)
 {
 	struct NavigationPoint_eventSpecialCost_Parms
 	{
@@ -49,14 +41,10 @@ INT ANavigationPoint_::eventSpecialCost(class APawn* Seeker, class UReachSpec* P
 
 extern FName g_026c42fc;
 	/* OutputText */
-struct UConsole_ : public UConsole
-{
-	void eventOutputText(const FString& Text);
-};
 
 // @baa 0x00895f30
 /* Console.OutputText script event: the generated glue, out of line here. */
-void UConsole_::eventOutputText(const FString& Text)
+void UConsole::eventOutputText(const FString& Text)
 {
 	struct Console_eventOutputText_Parms
 	{
@@ -66,14 +54,9 @@ void UConsole_::eventOutputText(const FString& Text)
 	ProcessEvent(FindFunctionChecked(g_026c42fc), &Parms);
 }
 
-/* Kit gaps: the native's exec and IsFullScreenViewport (008898e0) aren't declared (name from the exe's native table). */
-struct UGameViewportClient__00c8cd10 : public UGameViewportClient
-{
-	void execIsFullScreenViewport(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00c8cd10
-void UGameViewportClient__00c8cd10::execIsFullScreenViewport(FFrame& Stack, RESULT_DECL)
+void UGameViewportClient::execIsFullScreenViewport(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
 	*(UBOOL*)Result = IsFullScreenViewport();
@@ -121,13 +104,9 @@ extern FName g_026c4a1c;
 	/* ENGINE_HandleInputChar */
 /* Kit gap: the generated delegate glue for GameViewportClient.HandleInputChar (EngineClasses.h) isn't declared;
  * this build keeps it out of line (UGameViewportClient::InputChar calls it). */
-struct UGameViewportClient__00895da0 : public UGameViewportClient
-{
-	UBOOL delegateHandleInputChar(INT ControllerId, const FString& Unicode);
-};
 
 // @baa 0x00895da0
-UBOOL UGameViewportClient__00895da0::delegateHandleInputChar(INT ControllerId, const FString& Unicode)
+UBOOL UGameViewportClient::delegateHandleInputChar(INT ControllerId, const FString& Unicode)
 {
 	struct GameViewportClient_eventHandleInputChar_Parms
 	{
@@ -146,13 +125,9 @@ extern FName g_026c50c8;
 	/* ENGINE_OnReceivedNativeInputChar */
 /* Kit gap: the generated delegate glue for Interaction.OnReceivedNativeInputChar (EngineClasses.h) isn't declared;
  * this build keeps it out of line (the viewport client's InputChar calls it on each interaction). */
-struct UInteraction_ : public UInteraction
-{
-	UBOOL delegateOnReceivedNativeInputChar(INT ControllerId, const FString& Unicode);
-};
 
 // @baa 0x00895e80
-UBOOL UInteraction_::delegateOnReceivedNativeInputChar(INT ControllerId, const FString& Unicode)
+UBOOL UInteraction::delegateOnReceivedNativeInputChar(INT ControllerId, const FString& Unicode)
 {
 	struct Interaction_eventOnReceivedNativeInputChar_Parms
 	{

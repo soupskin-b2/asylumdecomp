@@ -578,11 +578,6 @@ void URPathGateComponent::execOpenGate(FFrame& Stack, RESULT_DECL)
 	OpenGate();
 }
 
-struct ARPawnCombat__016f6000 : public ARPawnCombat
-{
-	void FacePawn(ARPawnCombat*);
-};
-
 // @baa 0x016f6000
 void ARPawnCombat::execFacePawn(FFrame& Stack, RESULT_DECL)
 {
@@ -1172,14 +1167,10 @@ void ARPawnCharacter::execGetTargetAimAtDirection(FFrame& Stack, RESULT_DECL)
 
 extern FName g_026e2e18;
 	/* DoWallExplodeAlert */
-struct ARExplodableWallBase_ : public ARExplodableWallBase
-{
-	void eventDoWallExplodeAlert(FVector ExplosionCentre, FVector WallNormal);
-};
 
 // @baa 0x016ffc20
 /* RExplodableWallBase.DoWallExplodeAlert script event: the generated glue, out of line here. */
-void ARExplodableWallBase_::eventDoWallExplodeAlert(FVector ExplosionCentre, FVector WallNormal)
+void ARExplodableWallBase::eventDoWallExplodeAlert(FVector ExplosionCentre, FVector WallNormal)
 {
 	struct RExplodableWallBase_eventDoWallExplodeAlert_Parms
 	{
@@ -1193,14 +1184,10 @@ void ARExplodableWallBase_::eventDoWallExplodeAlert(FVector ExplosionCentre, FVe
 
 extern FName g_026e35d4;
 	/* GetBrickSaveRemovedState */
-struct ARExplodableWallBase__016ffcc0 : public ARExplodableWallBase
-{
-	UBOOL eventGetBrickSaveRemovedState(class UStaticMeshComponent* brickComponent);
-};
 
 // @baa 0x016ffcc0
 /* RExplodableWallBase.GetBrickSaveRemovedState script event: the generated glue, out of line here. */
-UBOOL ARExplodableWallBase__016ffcc0::eventGetBrickSaveRemovedState(class UStaticMeshComponent* brickComponent)
+UBOOL ARExplodableWallBase::eventGetBrickSaveRemovedState(class UStaticMeshComponent* brickComponent)
 {
 	struct RExplodableWallBase_eventGetBrickSaveRemovedState_Parms
 	{
@@ -1215,14 +1202,10 @@ UBOOL ARExplodableWallBase__016ffcc0::eventGetBrickSaveRemovedState(class UStati
 
 extern FName g_026e3638;
 	/* SetBrickSaveRemovedState */
-struct ARExplodableWallBase__016ffd10 : public ARExplodableWallBase
-{
-	void eventSetBrickSaveRemovedState(class UStaticMeshComponent* brickComponent, UBOOL Removed);
-};
 
 // @baa 0x016ffd10
 /* RExplodableWallBase.SetBrickSaveRemovedState script event: the generated glue, out of line here. */
-void ARExplodableWallBase__016ffd10::eventSetBrickSaveRemovedState(class UStaticMeshComponent* brickComponent, UBOOL Removed)
+void ARExplodableWallBase::eventSetBrickSaveRemovedState(class UStaticMeshComponent* brickComponent, UBOOL Removed)
 {
 	struct RExplodableWallBase_eventSetBrickSaveRemovedState_Parms
 	{
@@ -1250,42 +1233,30 @@ void ARBMRouter::execGetMovementDir(FFrame& Stack, RESULT_DECL)
 
 extern FName g_026e3ac0;
 	/* ClearAmbientSoundStack */
-struct ARPlayerController_ : public ARPlayerController
-{
-	void eventClearAmbientSoundStack();
-};
 
 // @baa 0x016fb510
 /* RPlayerController.ClearAmbientSoundStack script event: the generated glue, out of line here. */
-void ARPlayerController_::eventClearAmbientSoundStack()
+void ARPlayerController::eventClearAmbientSoundStack()
 {
 	ProcessEvent(FindFunctionChecked(g_026e3ac0), NULL);
 }
 
 extern FName g_026e367c;
 	/* TriggerSaveIcon */
-struct ARPlayerController__016fb540 : public ARPlayerController
-{
-	void eventTriggerSaveIcon();
-};
 
 // @baa 0x016fb540
 /* RPlayerController.TriggerSaveIcon script event: the generated glue, out of line here. */
-void ARPlayerController__016fb540::eventTriggerSaveIcon()
+void ARPlayerController::eventTriggerSaveIcon()
 {
 	ProcessEvent(FindFunctionChecked(g_026e367c), NULL);
 }
 
 extern FName g_026e2eec;
 	/* OnLoadedSaveGame */
-struct ARPlayerController__016fb570 : public ARPlayerController
-{
-	void eventOnLoadedSaveGame();
-};
 
 // @baa 0x016fb570
 /* RPlayerController.OnLoadedSaveGame script event: the generated glue, out of line here. */
-void ARPlayerController__016fb570::eventOnLoadedSaveGame()
+void ARPlayerController::eventOnLoadedSaveGame()
 {
 	ProcessEvent(FindFunctionChecked(g_026e2eec), NULL);
 }
@@ -1360,11 +1331,6 @@ void ARSpecialMoveInstance_ResonateObject::execInterpThumb(FFrame& Stack, RESULT
     *(FLOAT*)Result = this->InterpThumb(DesiredPos, CurrentPos, DeltaTime);
 }
 
-/* ARSpecialMoveInstance_ResonateObject::GetLeftAndRightAngles (0x1613590) isn't declared in the kit. */
-struct ARSpecialMoveInstance_ResonateObject__016fbfe0 : public ARSpecialMoveInstance_ResonateObject
-{
-    void GetLeftAndRightAngles(FLOAT& LeftAngle, FLOAT& RightAngle, FLOAT RawLeftX, FLOAT RawLeftY, FLOAT RawRightX, FLOAT RawRightY);
-};
 
 // @baa 0x016fbfe0
 void ARSpecialMoveInstance_ResonateObject::execGetLeftAndRightAngles(FFrame& Stack, RESULT_DECL)
@@ -1415,11 +1381,6 @@ void ARSpecialMoveInstance_SwingToVantagePoint::execSetupTrajectory(FFrame& Stac
     ((ARSpecialMoveInstance_SwingToVantagePoint_*)this)->SetupTrajectory(StartLocation, EndLocation, DefaultDistance, DefaultRadius, AnimationDuration);
 }
 
-/* ARSpecialMoveInstance_SwingToVantagePoint::UpdateTrajectory (0x1616d50) isn't declared in the kit. */
-struct ARSpecialMoveInstance_SwingToVantagePoint__016fc400 : public ARSpecialMoveInstance_SwingToVantagePoint
-{
-    FLOAT UpdateTrajectory(FLOAT DeltaTime, FVector& Position);
-};
 
 // @baa 0x016fc400
 void ARSpecialMoveInstance_SwingToVantagePoint::execUpdateTrajectory(FFrame& Stack, RESULT_DECL)
@@ -1448,14 +1409,10 @@ void URPlayerInput::execFastPlayerInput(FFrame& Stack, RESULT_DECL)
 
 extern FName g_026e25bc;
 	/* PlayExplosionSound */
-struct ARExplodableWallBase__016ffc90 : public ARExplodableWallBase
-{
-	void eventPlayExplosionSound();
-};
 
 // @baa 0x016ffc90
 /* RExplodableWallBase.PlayExplosionSound script event: the generated glue, out of line here. */
-void ARExplodableWallBase__016ffc90::eventPlayExplosionSound()
+void ARExplodableWallBase::eventPlayExplosionSound()
 {
 	ProcessEvent(FindFunctionChecked(g_026e25bc), NULL);
 }
@@ -2041,42 +1998,25 @@ void URSeqAct_ConversationDialogue::execGetSpeaker(FFrame& Stack, RESULT_DECL)
     *(ARPawnCharacter**)Result = GetSpeaker(PC, ScriptName);
 }
 
-/* Kit gap: ARPawnPlayer's native ForceUnCrouch and the unnamed sub_01688660 it wraps aren't declared (the name comes from the class's native table). */
-struct ARPawnPlayer_ : public ARPawnPlayer
-{
-    void execForceUnCrouch(FFrame& Stack, RESULT_DECL);
-    void sub_01688660(); /* 0x01688660 */
-};
 
 // @baa 0x016f6db0
-void ARPawnPlayer_::execForceUnCrouch(FFrame& Stack, RESULT_DECL)
+void ARPawnPlayer::execForceUnCrouch(FFrame& Stack, RESULT_DECL)
 {
     P_FINISH;
     sub_01688660();
 }
 
-/* Kit gap: ARPawnPlayer's native UpdateGrateExcluder and the unnamed sub_0169bc40 it wraps aren't declared (the name comes from the class's native table). */
-struct ARPawnPlayer__016f6de0 : public ARPawnPlayer
-{
-    void execUpdateGrateExcluder(FFrame& Stack, RESULT_DECL);
-    void sub_0169bc40(); /* 0x0169bc40 */
-};
 
 // @baa 0x016f6de0
-void ARPawnPlayer__016f6de0::execUpdateGrateExcluder(FFrame& Stack, RESULT_DECL)
+void ARPawnPlayer::execUpdateGrateExcluder(FFrame& Stack, RESULT_DECL)
 {
     P_FINISH;
     sub_0169bc40();
 }
 
-/* Kit gap: ARPawnPlayer's native ClearOverridableTransition aren't declared (the name comes from the class's native table). */
-struct ARPawnPlayer__016f6e10 : public ARPawnPlayer
-{
-    void execClearOverridableTransition(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x016f6e10
-void ARPawnPlayer__016f6e10::execClearOverridableTransition(FFrame& Stack, RESULT_DECL)
+void ARPawnPlayer::execClearOverridableTransition(FFrame& Stack, RESULT_DECL)
 {
     P_FINISH;
     sub_0168d8b0();
@@ -2106,11 +2046,6 @@ struct FEnvironmentSpecialMoveLocator_ : public FEnvironmentSpecialMoveLocator
 	FEnvironmentSpecialMoveLocator_() { Type = 0; AnimDir = 0; ActorInstance = NULL; }
 };
 
-/* Kit gaps: ShouldIDoLandAnim (016422e0) isn't declared (names from the exe's native table). */
-struct ARSpecialMoveInstance_LineLauncher__016fb880 : public ARSpecialMoveInstance_LineLauncher
-{
-	BYTE ShouldIDoLandAnim(FEnvironmentSpecialMoveLocator& Locator, FLOAT MinLandHeight, FLOAT MaxLandHeight);	/* 0x016422e0 */
-};
 
 // @baa 0x016fb880
 void ARSpecialMoveInstance_LineLauncher::execShouldIDoLandAnim(FFrame& Stack, RESULT_DECL)

@@ -150,13 +150,10 @@ void C_00e3e4f0::sub_00e3e4f0(undefined4 param_2)
 
 // @baa 0x00e3e510
 
-struct UOnlineEventsInterfaceMcp_ : public UOnlineEventsInterfaceMcp {
-    void sub_00e2c7f0(INT, INT);
-};
 
 // @baa 0x00e2c7f0
 // @baa 0x00e2c7f0
-void UOnlineEventsInterfaceMcp_::sub_00e2c7f0(INT A, INT B)
+void UOnlineEventsInterfaceMcp::sub_00e2c7f0(INT A, INT B)
 {
     vf_11c(0, A, B);
 }

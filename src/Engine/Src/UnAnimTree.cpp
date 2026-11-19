@@ -1834,13 +1834,9 @@ void UAnimNodeAimOffset::vf_130(undefined4 param_2)
 #define ZERO_ANIMWEIGHT_THRESH (0.00001f)
 /* UAnimNodeSlot::GetNextAvailableChild isn't declared in Classes.h. PlayCustomAnim (00c7ef60) passes it
  * the animation's name, which this build doesn't use. */
-struct UAnimNodeSlot_ : public UAnimNodeSlot
-{
-	INT GetNextAvailableChild(FName AnimToPlay);
-};
 
 // @baa 0x00c56bb0
-INT UAnimNodeSlot_::GetNextAvailableChild(FName AnimToPlay)
+INT UAnimNodeSlot::GetNextAvailableChild(FName AnimToPlay)
 {
 	INT CurrentBestChildIndex = INDEX_NONE;
 	FLOAT BestWeight = 1.f;
@@ -1882,10 +1878,6 @@ struct USkeletalMeshComponent_ : public USkeletalMeshComponent
 	void sub_009357b0(UBOOL bForce);		/* refresh the preview mesh / anim sets */
 };
 
-struct UObject_ : public UObject
-{
-	void sub_005c1a10(UProperty* PropertyThatChanged);	/* the Super:: PostEditChange */
-};
 
 /* UAnimTree's PostEditChange (vtable 0x4c, declared only as vf_04c). */
 
@@ -1909,7 +1901,7 @@ void UAnimTree::PostEditChange(UProperty* PropertyThatChanged)
 		}
 	}
 
-	((UObject_*)this)->sub_005c1a10(PropertyThatChanged);
+	((UObject*)this)->sub_005c1a10(PropertyThatChanged);
 }
 
 /* Kit gaps, with UE3's definitions (UnName.h): FName has no EName and no comparison operators. */
@@ -1918,13 +1910,9 @@ enum EName_ { NAME_None_ = 0 };
 inline UBOOL operator!=(const FName& A, EName_ N) { return A.Index != N || A.Number != 0; }
 
 /* UAnimTree::GetGroupIndex isn't declared in Classes.h. */
-struct UAnimTree__00c556d0 : public UAnimTree
-{
-	INT GetGroupIndex(FName GroupName);
-};
 
 // @baa 0x00c556d0
-INT UAnimTree__00c556d0::GetGroupIndex(FName GroupName)
+INT UAnimTree::GetGroupIndex(FName GroupName)
 {
 	if (GroupName != NAME_None_)
 	{
@@ -2028,13 +2016,9 @@ FLOAT UAnimNodeBlendBase__00c53c40::GetChildWeightTotal()
 }
 
 /* UAnimNodeSynch::UpdateMasterNodeForGroup isn't declared in Classes.h. */
-struct UAnimNodeSynch__00c566c0 : public UAnimNodeSynch
-{
-	void UpdateMasterNodeForGroup(FSynchGroup& SynchGroup);
-};
 
 // @baa 0x00c566c0
-void UAnimNodeSynch__00c566c0::UpdateMasterNodeForGroup(FSynchGroup& SynchGroup)
+void UAnimNodeSynch::UpdateMasterNodeForGroup(FSynchGroup& SynchGroup)
 {
 	UAnimNodeSequence* MasterNode = SynchGroup.MasterNode;
 	FLOAT HighestWeight = MasterNode ? MasterNode->NodeTotalWeight : 0.f;

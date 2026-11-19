@@ -358,15 +358,11 @@ void URRopeComponentBase::SetCollidesWithChannel(BYTE Channel, UBOOL bValue)
 
 /* Undeclared BmGame helper (cdecl): the primitive component a rope end attaches to on an actor. */
 UPrimitiveComponent* sub_01560ac0(AActor* Actor);
-struct URRopeComponentBase_ : public URRopeComponentBase
-{
-	void sub_01644e00(AActor* Actor, FVector AttachPos, FName AttachBone, UPrimitiveComponent* AttachComponent, FLOAT MaxDistance);
-};
 
 // @baa 0x01644e00
 /* Attaches the rope's first end: to the given component (and its owner) when one is given, else to the actor's
  * attach component, at the given position and bone, allowed to stretch out to MaxDistance (at least 0). */
-void URRopeComponentBase_::sub_01644e00(AActor* Actor, FVector AttachPos, FName AttachBone, UPrimitiveComponent* AttachComponent, FLOAT MaxDistance)
+void URRopeComponentBase::sub_01644e00(AActor* Actor, FVector AttachPos, FName AttachBone, UPrimitiveComponent* AttachComponent, FLOAT MaxDistance)
 {
 	IsRopeEnd1Attached = TRUE;
 	RopeAttachActor1 = Actor;
@@ -388,15 +384,11 @@ void URRopeComponentBase_::sub_01644e00(AActor* Actor, FVector AttachPos, FName 
 	}
 }
 
-struct URRopeComponentBase__01644ea0 : public URRopeComponentBase
-{
-	void sub_01644ea0(AActor* Actor, FVector AttachPos, FName AttachBone, UPrimitiveComponent* AttachComponent, FLOAT MaxDistance);
-};
 
 // @baa 0x01644ea0
 /* Attaches the rope's second end: to the given component (and its owner) when one is given, else to the actor's
  * attach component, at the given position and bone, allowed to stretch out to MaxDistance (at least 0). */
-void URRopeComponentBase__01644ea0::sub_01644ea0(AActor* Actor, FVector AttachPos, FName AttachBone, UPrimitiveComponent* AttachComponent, FLOAT MaxDistance)
+void URRopeComponentBase::sub_01644ea0(AActor* Actor, FVector AttachPos, FName AttachBone, UPrimitiveComponent* AttachComponent, FLOAT MaxDistance)
 {
 	IsRopeEnd2Attached = TRUE;
 	RopeAttachActor2 = Actor;

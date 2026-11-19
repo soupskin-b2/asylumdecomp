@@ -40,12 +40,9 @@ void ARDisruptableObjectDoor_::sub_01732630(int Param)
 
 // Virtual slot 0x04c of ARDisruptableObjectDoor: forwards the parameter to
 // sub_00783b70, then runs sub_01732370.
-struct ARDisruptableObjectDoor__01732650 : public ARDisruptableObjectDoor {
-	void sub_01732650(UINT Param);
-};
 
 // @baa 0x01732650
-void ARDisruptableObjectDoor__01732650::sub_01732650(UINT Param)
+void ARDisruptableObjectDoor::sub_01732650(UINT Param)
 {
 	sub_00783b70(Param);
 	sub_01732370();

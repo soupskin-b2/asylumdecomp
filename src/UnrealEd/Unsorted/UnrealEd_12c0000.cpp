@@ -775,12 +775,9 @@ struct FColorToLinear {
     void sub_0053d1d0(FColor* In);
 };
 
-struct UUnrealEdEngine_ : public UUnrealEdEngine {
-    FLinearColor* sub_012c0300(FLinearColor* OutColor);
-};
 
 // @baa 0x012c0300
-FLinearColor* UUnrealEdEngine_::sub_012c0300(FLinearColor* OutColor)
+FLinearColor* UUnrealEdEngine::sub_012c0300(FLinearColor* OutColor)
 {
     reinterpret_cast<FColorToLinear*>(OutColor)->sub_0053d1d0((FColor*)&PrimitiveProbablyVisibleTime);
     return OutColor;

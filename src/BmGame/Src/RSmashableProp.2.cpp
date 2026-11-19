@@ -96,14 +96,10 @@ void ARSmashableProp::execSetLightEnvironment(FFrame& Stack, RESULT_DECL)
 
 extern FName g_026e27e4;
 	/* GetSaveSmashedState */
-struct ARSmashableProp__01668ab0 : public ARSmashableProp
-{
-	UBOOL eventGetSaveSmashedState();
-};
 
 // @baa 0x01668ab0
 /* RSmashableProp.GetSaveSmashedState script event: the generated glue, out of line here. */
-UBOOL ARSmashableProp__01668ab0::eventGetSaveSmashedState()
+UBOOL ARSmashableProp::eventGetSaveSmashedState()
 {
 	struct RSmashableProp_eventGetSaveSmashedState_Parms
 	{
@@ -116,14 +112,10 @@ UBOOL ARSmashableProp__01668ab0::eventGetSaveSmashedState()
 
 extern FName g_026e26b4;
 	/* SetSaveSmashedState */
-struct ARSmashableProp__01668af0 : public ARSmashableProp
-{
-	void eventSetSaveSmashedState(UBOOL Removed);
-};
 
 // @baa 0x01668af0
 /* RSmashableProp.SetSaveSmashedState script event: the generated glue, out of line here. */
-void ARSmashableProp__01668af0::eventSetSaveSmashedState(UBOOL Removed)
+void ARSmashableProp::eventSetSaveSmashedState(UBOOL Removed)
 {
 	struct RSmashableProp_eventSetSaveSmashedState_Parms
 	{
@@ -135,14 +127,10 @@ void ARSmashableProp__01668af0::eventSetSaveSmashedState(UBOOL Removed)
 
 extern FName g_026e2f30;
 	/* SpawnEmitter */
-struct ARSmashableProp__01668ba0 : public ARSmashableProp
-{
-	class AEmitter* eventSpawnEmitter(class UParticleSystem* ParticleSystem);
-};
 
 // @baa 0x01668ba0
 /* RSmashableProp.SpawnEmitter script event: the generated glue, out of line here. */
-class AEmitter* ARSmashableProp__01668ba0::eventSpawnEmitter(class UParticleSystem* ParticleSystem)
+class AEmitter* ARSmashableProp::eventSpawnEmitter(class UParticleSystem* ParticleSystem)
 {
 	struct RSmashableProp_eventSpawnEmitter_Parms
 	{
@@ -157,14 +145,10 @@ class AEmitter* ARSmashableProp__01668ba0::eventSpawnEmitter(class UParticleSyst
 
 extern FName g_026e2b8c;
 	/* DestroyProp */
-struct ARSmashableProp__01668bf0 : public ARSmashableProp
-{
-	void eventDestroyProp(class ARSmashableProp* DestroyProp);
-};
 
 // @baa 0x01668bf0
 /* RSmashableProp.DestroyProp script event: the generated glue, out of line here. */
-void ARSmashableProp__01668bf0::eventDestroyProp(class ARSmashableProp* DestroyProp)
+void ARSmashableProp::eventDestroyProp(class ARSmashableProp* DestroyProp)
 {
 	struct RSmashableProp_eventDestroyProp_Parms
 	{
@@ -176,14 +160,10 @@ void ARSmashableProp__01668bf0::eventDestroyProp(class ARSmashableProp* DestroyP
 
 extern FName g_026e3a04;
 	/* SpawnProp */
-struct ARSmashableProp__01668c30 : public ARSmashableProp
-{
-	class ARSmashableProp* eventSpawnProp(class AActor* spawnedObjectOwner, FVector brickPos, FRotator brickRot, class URSmashablePropConfig* brickPropConfig);
-};
 
 // @baa 0x01668c30
 /* RSmashableProp.SpawnProp script event: the generated glue, out of line here. */
-class ARSmashableProp* ARSmashableProp__01668c30::eventSpawnProp(class AActor* spawnedObjectOwner, FVector brickPos, FRotator brickRot, class URSmashablePropConfig* brickPropConfig)
+class ARSmashableProp* ARSmashableProp::eventSpawnProp(class AActor* spawnedObjectOwner, FVector brickPos, FRotator brickRot, class URSmashablePropConfig* brickPropConfig)
 {
 	struct RSmashableProp_eventSpawnProp_Parms
 	{
@@ -204,14 +184,10 @@ class ARSmashableProp* ARSmashableProp__01668c30::eventSpawnProp(class AActor* s
 
 extern FName g_026e37cc;
 	/* InitXRayMode */
-struct ARSmashableProp__01668b70 : public ARSmashableProp
-{
-	void eventInitXRayMode();
-};
 
 // @baa 0x01668b70
 /* RSmashableProp.InitXRayMode script event: the generated glue, out of line here. */
-void ARSmashableProp__01668b70::eventInitXRayMode()
+void ARSmashableProp::eventInitXRayMode()
 {
 	ProcessEvent(FindFunctionChecked(g_026e37cc), NULL);
 }
@@ -230,11 +206,6 @@ void ARSmashableProp::execGetDecalData(FFrame& Stack, RESULT_DECL)
     *(FRSmashablePropDecalData*)Result = this->GetDecalData(DecalTypeName);
 }
 
-/* ARSmashableProp::TriggerBreakProp (0x166b4d0) isn't declared in the kit. */
-struct ARSmashableProp__016ff560 : public ARSmashableProp
-{
-    void TriggerBreakProp(FVector BreakNormalForce, FLOAT breakTimerVal, class AActor* CollideActor0, class AActor* CollideActor1);
-};
 
 // @baa 0x016ff560
 void ARSmashableProp::execTriggerBreakProp(FFrame& Stack, RESULT_DECL)
@@ -262,14 +233,9 @@ extern FName g_026e2c1c;
 	/* BMGAME_SetInXrayMode */
 /* Kit gap: FIRST_BITFIELD (UnBuild.h; bitfields start at bit 0 on this platform). */
 #define FIRST_BITFIELD 1
-/* Kit gap: the generated glue for RSmashableProp's script event SetInXrayMode (BmGameClasses.h) isn't declared; this build keeps it out of line. */
-struct ARSmashableProp__01668b30 : public ARSmashableProp
-{
-	void eventSetInXrayMode(UBOOL On);
-};
 
 // @baa 0x01668b30
-void ARSmashableProp__01668b30::eventSetInXrayMode(UBOOL On)
+void ARSmashableProp::eventSetInXrayMode(UBOOL On)
 {
 	struct RSmashableProp_eventSetInXrayMode_Parms
 	{

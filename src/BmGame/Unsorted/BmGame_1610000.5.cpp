@@ -28,15 +28,11 @@ C* C::sub_01612250(INT)
     return this;
 }
 
-struct URSeqAct_SpeechEventManagerBase_ : public URSeqAct_SpeechEventManagerBase
-{
-    void UpdateObject(); /* 0x00902260 */
-};
 
 // @baa 0x01612e00
 void URSeqAct_SpeechEventManagerBase::vf_140()
 {
-    ((URSeqAct_SpeechEventManagerBase_*)this)->UpdateObject();
+    ((URSeqAct_SpeechEventManagerBase*)this)->UpdateObject();
     vf_1ac();
 }
 

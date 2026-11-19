@@ -313,14 +313,10 @@ void URB_ConstraintInstance__00c96480::execMoveKinActorTransform(FFrame& Stack, 
 
 extern FName g_026c4100;
 	/* ConstraintBrokenNotify */
-struct AActor_ : public AActor
-{
-	void eventConstraintBrokenNotify(class AActor* ConOwner, class URB_ConstraintSetup* ConSetup, class URB_ConstraintInstance* ConInstance);
-};
 
 // @baa 0x00a2ff20
 /* Actor.ConstraintBrokenNotify script event: the generated glue, out of line here. */
-void AActor_::eventConstraintBrokenNotify(class AActor* ConOwner, class URB_ConstraintSetup* ConSetup, class URB_ConstraintInstance* ConInstance)
+void AActor::eventConstraintBrokenNotify(class AActor* ConOwner, class URB_ConstraintSetup* ConSetup, class URB_ConstraintInstance* ConInstance)
 {
 	struct Actor_eventConstraintBrokenNotify_Parms
 	{

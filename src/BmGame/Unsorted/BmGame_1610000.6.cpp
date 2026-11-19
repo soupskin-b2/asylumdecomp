@@ -6,14 +6,10 @@
 
 extern FName g_026e314c;
 	/* MouseInput */
-struct URPlayerInput_ : public URPlayerInput
-{
-	void eventMouseInput(FLOAT DeltaTime, FLOAT FOVScale);
-};
 
 // @baa 0x01612b50
 /* RPlayerInput.MouseInput script event: the generated glue, out of line here. */
-void URPlayerInput_::eventMouseInput(FLOAT DeltaTime, FLOAT FOVScale)
+void URPlayerInput::eventMouseInput(FLOAT DeltaTime, FLOAT FOVScale)
 {
 	struct RPlayerInput_eventMouseInput_Parms
 	{
@@ -27,42 +23,30 @@ void URPlayerInput_::eventMouseInput(FLOAT DeltaTime, FLOAT FOVScale)
 
 extern FName g_026e345c;
 	/* DebugUpdateCinematicCapes */
-struct ARBMDebugCameraController_ : public ARBMDebugCameraController
-{
-	void eventDebugUpdateCinematicCapes();
-};
 
 // @baa 0x016121e0
 /* RBMDebugCameraController.DebugUpdateCinematicCapes script event: the generated glue, out of line here. */
-void ARBMDebugCameraController_::eventDebugUpdateCinematicCapes()
+void ARBMDebugCameraController::eventDebugUpdateCinematicCapes()
 {
 	ProcessEvent(FindFunctionChecked(g_026e345c), NULL);
 }
 
 extern FName g_026e2e7c;
 	/* BMGAME_PlayNextLine */
-struct URSeqAct_SpeechEventManagerBase_ : public URSeqAct_SpeechEventManagerBase
-{
-	void eventPlayNextLine();
-};
 
 // @baa 0x01612140
 /* The script event's generated glue (BmGameClasses.h), out of line here. */
-void URSeqAct_SpeechEventManagerBase_::eventPlayNextLine()
+void URSeqAct_SpeechEventManagerBase::eventPlayNextLine()
 {
 	ProcessEvent(FindFunctionChecked(g_026e2e7c), NULL);
 }
 
 extern FName g_026e2ce0;
 	/* BMGAME_InputActivated */
-struct URSeqAct_SpeechEventManagerBase__01612170 : public URSeqAct_SpeechEventManagerBase
-{
-	void eventInputActivated(INT InputID);
-};
 
 // @baa 0x01612170
 /* The script event's generated glue (BmGameClasses.h), out of line here. */
-void URSeqAct_SpeechEventManagerBase__01612170::eventInputActivated(INT InputID)
+void URSeqAct_SpeechEventManagerBase::eventInputActivated(INT InputID)
 {
 	struct RSeqAct_SpeechEventManagerBase_eventInputActivated_Parms
 	{

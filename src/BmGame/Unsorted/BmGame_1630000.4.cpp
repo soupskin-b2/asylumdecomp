@@ -22,14 +22,10 @@ UBOOL ARPawnCharacter::eventIsGettingUpFromRagdoll()
 
 extern FName g_026e2a10;
 	/* CollisionWithActor */
-struct ARPawnCombat_ : public ARPawnCombat
-{
-	void eventCollisionWithActor(class AActor* OtherActor);
-};
 
 // @baa 0x01638460
 /* RPawnCombat.CollisionWithActor script event: the generated glue, out of line here. */
-void ARPawnCombat_::eventCollisionWithActor(class AActor* OtherActor)
+void ARPawnCombat::eventCollisionWithActor(class AActor* OtherActor)
 {
 	struct RPawnCombat_eventCollisionWithActor_Parms
 	{
@@ -41,14 +37,10 @@ void ARPawnCombat_::eventCollisionWithActor(class AActor* OtherActor)
 
 extern FName g_026e26d0;
 	/* BatarangCanTargetOffscreen */
-struct ARPlayerController_ : public ARPlayerController
-{
-	UBOOL eventBatarangCanTargetOffscreen();
-};
 
 // @baa 0x01638500
 /* RPlayerController.BatarangCanTargetOffscreen script event: the generated glue, out of line here. */
-UBOOL ARPlayerController_::eventBatarangCanTargetOffscreen()
+UBOOL ARPlayerController::eventBatarangCanTargetOffscreen()
 {
 	struct RPlayerController_eventBatarangCanTargetOffscreen_Parms
 	{
@@ -61,14 +53,10 @@ UBOOL ARPlayerController_::eventBatarangCanTargetOffscreen()
 
 extern FName g_026e3240;
 	/* TestPos */
-struct ARPhotoScanner_ : public ARPhotoScanner
-{
-	FVector eventTestPos(FVector testPosition, class UCanvas* Canvas);
-};
 
 // @baa 0x01638b70
 /* RPhotoScanner.TestPos script event: the generated glue, out of line here. */
-FVector ARPhotoScanner_::eventTestPos(FVector testPosition, class UCanvas* Canvas)
+FVector ARPhotoScanner::eventTestPos(FVector testPosition, class UCanvas* Canvas)
 {
 	struct RPhotoScanner_eventTestPos_Parms
 	{
@@ -85,28 +73,20 @@ FVector ARPhotoScanner_::eventTestPos(FVector testPosition, class UCanvas* Canva
 
 extern FName g_026e3818;
 	/* HasLoaded */
-struct ARTapePlayer_ : public ARTapePlayer
-{
-	void eventHasLoaded();
-};
 
 // @baa 0x01638ca0
 /* RTapePlayer.HasLoaded script event: the generated glue, out of line here. */
-void ARTapePlayer_::eventHasLoaded()
+void ARTapePlayer::eventHasLoaded()
 {
 	ProcessEvent(FindFunctionChecked(g_026e3818), NULL);
 }
 
 extern FName g_026e38dc;
 	/* BMGAME_GetHealth */
-struct ARPawnCombat__016383a0 : public ARPawnCombat
-{
-	INT eventGetHealth();
-};
 
 // @baa 0x016383a0
 /* The script event's generated glue (BmGameClasses.h), out of line here. */
-INT ARPawnCombat__016383a0::eventGetHealth()
+INT ARPawnCombat::eventGetHealth()
 {
 	struct RPawnCombat_eventGetHealth_Parms
 	{
@@ -119,14 +99,10 @@ INT ARPawnCombat__016383a0::eventGetHealth()
 
 extern FName g_026e2560;
 	/* BMGAME_IsAttacking */
-struct ARPawnCombat__01638420 : public ARPawnCombat
-{
-	UBOOL eventIsAttacking();
-};
 
 // @baa 0x01638420
 /* The script event's generated glue (BmGameClasses.h), out of line here. */
-UBOOL ARPawnCombat__01638420::eventIsAttacking()
+UBOOL ARPawnCombat::eventIsAttacking()
 {
 	struct RPawnCombat_eventIsAttacking_Parms
 	{
@@ -139,14 +115,10 @@ UBOOL ARPawnCombat__01638420::eventIsAttacking()
 
 extern FName g_026e399c;
 	/* BMGAME_CollisionWith */
-struct ARPawnCombat__016384a0 : public ARPawnCombat
-{
-	void eventCollisionWith(class ARPawnCombat* OtherPawn);
-};
 
 // @baa 0x016384a0
 /* The script event's generated glue (BmGameClasses.h), out of line here. */
-void ARPawnCombat__016384a0::eventCollisionWith(class ARPawnCombat* OtherPawn)
+void ARPawnCombat::eventCollisionWith(class ARPawnCombat* OtherPawn)
 {
 	struct RPawnCombat_eventCollisionWith_Parms
 	{
@@ -158,14 +130,10 @@ void ARPawnCombat__016384a0::eventCollisionWith(class ARPawnCombat* OtherPawn)
 
 extern FName g_026e2f7c;
 	/* BMGAME_GetCounterLimb */
-struct ARPawnCombat__016383e0 : public ARPawnCombat
-{
-	BYTE eventGetCounterLimb();
-};
 
 // @baa 0x016383e0
 /* The script event's generated glue (BmGameClasses.h), out of line here. */
-BYTE ARPawnCombat__016383e0::eventGetCounterLimb()
+BYTE ARPawnCombat::eventGetCounterLimb()
 {
 	struct RPawnCombat_eventGetCounterLimb_Parms
 	{

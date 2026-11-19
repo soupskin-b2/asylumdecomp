@@ -33,14 +33,10 @@ void APlayerController::eventLevelStreamingStatusChanged(class ULevelStreaming* 
 
 extern FName g_026c455c;
 	/* ENGINE_VersionUpdated */
-struct USequenceOp_ : public USequenceOp
-{
-	void eventVersionUpdated(INT OldVersion, INT NewVersion);
-};
 
 // @baa 0x008aa3a0
 /* The script event's generated glue (EngineClasses.h), out of line here. */
-void USequenceOp_::eventVersionUpdated(INT OldVersion, INT NewVersion)
+void USequenceOp::eventVersionUpdated(INT OldVersion, INT NewVersion)
 {
 	struct SequenceOp_eventVersionUpdated_Parms
 	{
@@ -54,14 +50,10 @@ void USequenceOp_::eventVersionUpdated(INT OldVersion, INT NewVersion)
 
 extern FName g_026c4db8;
 	/* ENGINE_CheckLogins */
-struct USeqCond_IsLoggedIn_ : public USeqCond_IsLoggedIn
-{
-	UBOOL eventCheckLogins();
-};
 
 // @baa 0x008e7cd0
 /* The script event's generated glue (EngineClasses.h), out of line here. */
-UBOOL USeqCond_IsLoggedIn_::eventCheckLogins()
+UBOOL USeqCond_IsLoggedIn::eventCheckLogins()
 {
 	struct SeqCond_IsLoggedIn_eventCheckLogins_Parms
 	{
@@ -91,15 +83,9 @@ UBOOL USeqAct_Latent::eventUpdate(FLOAT DeltaTime)
 }
 
 extern FName g_026c4304;
-	/* ENGINE_IsFallThruEnabled */
-/* Kit gap: the generated glue for SeqCond_SwitchBase's script event IsFallThruEnabled (EngineClasses.h) isn't declared; this build keeps it out of line. */
-struct USeqCond_SwitchBase_ : public USeqCond_SwitchBase
-{
-	UBOOL eventIsFallThruEnabled(INT ValueIndex);
-};
 
 // @baa 0x00d1eb70
-UBOOL USeqCond_SwitchBase_::eventIsFallThruEnabled(INT ValueIndex)
+UBOOL USeqCond_SwitchBase::eventIsFallThruEnabled(INT ValueIndex)
 {
 	struct SeqCond_SwitchBase_eventIsFallThruEnabled_Parms
 	{

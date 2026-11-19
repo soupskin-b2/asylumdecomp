@@ -783,13 +783,9 @@ void ARPontoonBase::UpdatePontoonForces()
 	TargetRotation.Roll = 0;
 }
 
-struct ARCinematicCameraActor_ : public ARCinematicCameraActor
-{
-    void sub_016aa500(DWORD A1, DWORD A2, DWORD A3, FName InAnimSeqName, FLOAT InPosition, UBOOL bLooping);
-};
 
 // @baa 0x016aa500
-void ARCinematicCameraActor_::sub_016aa500(DWORD A1, DWORD A2, DWORD A3, FName InAnimSeqName, FLOAT InPosition, UBOOL bLooping)
+void ARCinematicCameraActor::sub_016aa500(DWORD A1, DWORD A2, DWORD A3, FName InAnimSeqName, FLOAT InPosition, UBOOL bLooping)
 {
     InternalSetAnimPosition(InAnimSeqName, InPosition, bLooping);
 }

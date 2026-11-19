@@ -5,14 +5,10 @@
 
 extern FName g_026c45f0;
  /* ENGINE_SetStatsInterface */
-struct UOnlineSubsystem_ : public UOnlineSubsystem
-{
-    UBOOL eventSetStatsInterface(UObject* NewInterface);
-};
 
 // @baa 0x00e85bf0
 /* OnlineSubsystem.uc's SetStatsInterface script event, generated glue (EngineClasses.h). */
-UBOOL UOnlineSubsystem_::eventSetStatsInterface(UObject* NewInterface)
+UBOOL UOnlineSubsystem::eventSetStatsInterface(UObject* NewInterface)
 {
     struct OnlineSubsystem_eventSetStatsInterface_Parms
     {

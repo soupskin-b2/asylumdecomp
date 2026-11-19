@@ -89,22 +89,13 @@ FVector AActor_::GetTargetLocation(AActor* RequestedBy, bool bRequestAlternateLo
 }
 
 // AActor slot 0x14c (00758b40): return the actor's Location by value.
-struct AActor__00758b40 : public AActor
-{
-    FVector sub_00758b40();
-};
 
 // @baa 0x00758b40
-FVector AActor__00758b40::sub_00758b40()
+FVector AActor::sub_00758b40()
 {
     return Location;
 }
 
-/* Kit gap: AActor::IsBlockedBy (0x00758100) isn't declared. */
-struct AActor__007585b0 : public AActor
-{
-    UBOOL IsBlockedBy(const AActor* Other, const UPrimitiveComponent* Primitive) const; /* 0x00758100 */
-};
 
 // @baa 0x007585b0
 /* World geometry answers level-geometry traces; other actors answer traces for "others" when they're projectile
@@ -118,11 +109,6 @@ UBOOL AActor::ShouldTrace(UPrimitiveComponent* Primitive, AActor* SourceActor, D
                 : (!(TraceFlags & 0x40) || (SourceActor && SourceActor->IsBlockedBy(this, Primitive)))));
 }
 
-/* Kit gap: AActor::IsBlockedBy (0x00758100) isn't declared. */
-struct AActor__00758680 : public AActor
-{
-    UBOOL IsBlockedBy(const AActor* Other, const UPrimitiveComponent* Primitive) const; /* 0x00758100 */
-};
 
 // @baa 0x00758680
 /* Like AActor::ShouldTrace, but volumes answer volume traces (0x08 TRACE_Volumes) instead of "others".
@@ -137,16 +123,10 @@ UBOOL AVolume::ShouldTrace(UPrimitiveComponent* Primitive, AActor* SourceActor, 
 }
 
 extern FName g_026c40d4;
-	/* Render */
-/* Kit gap: the delegate's generated glue isn't declared. */
-struct UScriptedTexture_ : public UScriptedTexture
-{
-	void delegateRender(class UCanvas* C);
-};
 
 // @baa 0x00754b50
 /* The script delegate's generated glue, out of line here. */
-void UScriptedTexture_::delegateRender(class UCanvas* C)
+void UScriptedTexture::delegateRender(class UCanvas* C)
 {
 	struct ScriptedTexture_eventRender_Parms
 	{
@@ -187,14 +167,10 @@ struct FName_ : public FName
 	FORCEINLINE UBOOL operator!=(const FName& Other) const { return Index != Other.Index || Number != Other.Number; }
 };
 
-struct AActor__00758050 : public AActor
-{
-	void UpdateRelativeRotation(); /* 0x00758050 */
-};
 
 // @baa 0x00758050
 /* UnActor.cpp: RelativeRotation is the rotation relative to the base's rotation. */
-void AActor__00758050::UpdateRelativeRotation()
+void AActor::UpdateRelativeRotation()
 {
 	if (!Base || Base->bWorldGeometry || (BaseBoneName) != NAME_None)
 	{

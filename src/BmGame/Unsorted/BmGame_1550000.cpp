@@ -3078,13 +3078,9 @@ void sub_01556930()
     g_026dfcbc->Stop(0.0f, 1, 0);
 }
 
-struct ARCameraBlockingVolume_ : public ARCameraBlockingVolume
-{
-    UINT sub_01557320(UINT A, UINT B, UINT Flags);
-};
 
 // @baa 0x01557320
-UINT ARCameraBlockingVolume_::sub_01557320(UINT, UINT, UINT Flags)
+UINT ARCameraBlockingVolume::sub_01557320(UINT, UINT, UINT Flags)
 {
     return Flags & 0x400000;
 }

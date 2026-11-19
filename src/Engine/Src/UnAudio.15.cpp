@@ -7,12 +7,9 @@
 
 /* AActor's vtable slot 0x314 (the headers guess `virtual FLOAT vf_314(INT)`; this override
  * returns nothing, so it is declared here as void under its address). */
-struct AAmbientSound_ : public AAmbientSound {
-	void sub_00791ad0(INT Param);
-};
 
 // @baa 0x00791ad0
-void AAmbientSound_::sub_00791ad0(INT Param)
+void AAmbientSound::sub_00791ad0(INT Param)
 {
 	sub_0076cd90(Param);
 	if (bAutoPlay && AudioComponent && !AudioComponent->bWasPlaying)
@@ -46,12 +43,9 @@ void C_00785e80::sub_00785e80(void* Actor, int Flags)
         ActivateTarget->Activate(Actor, Flags);
 }
 
-struct UAudioDevice_ : public UAudioDevice {
-    void sub_00785f10(INT A, INT B);
-};
 
 // @baa 0x00785f10
-void UAudioDevice_::sub_00785f10(INT A, INT B)
+void UAudioDevice::sub_00785f10(INT A, INT B)
 {
     if (Effects.Dummy) {
         /* Effects is an FAudioEffectsManager (undeclared); this calls its vtable slot 0x28 */
@@ -171,13 +165,9 @@ FString UAudioComponent::GetDetailedInfoInternal()
 }
 
 int sub_007654e0(void);
-struct UAudioComponent__00793c40 : public UAudioComponent
-{
-    void sub_00793c40(void);
-};
 
 // @baa 0x00793c40
-void UAudioComponent__00793c40::sub_00793c40(void)
+void UAudioComponent::sub_00793c40(void)
 {
     sub_007654e0();
     if (bAutoPlay)
@@ -379,14 +369,10 @@ UBOOL FWaveModInfo::ReadWaveInfo(BYTE* WaveData, INT WaveDataSize)
 
 /* Kit gap: AAmbientSoundSimple::SyncUpInstantiatedObjects isn't declared. */
 
-struct AAmbientSoundSimple_ : public AAmbientSoundSimple
-{
-	void SyncUpInstantiatedObjects();
-};
 
 // @baa 0x00786580
 /* Propagates the instanced sound cue and node to the audio component, and hides them from the generic browser. */
-void AAmbientSoundSimple_::SyncUpInstantiatedObjects()
+void AAmbientSoundSimple::SyncUpInstantiatedObjects()
 {
 	if (AudioComponent)
 	{

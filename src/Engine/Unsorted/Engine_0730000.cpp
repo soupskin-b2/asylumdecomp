@@ -356,12 +356,9 @@ struct FMipArray : public FIndirectArray_Mirror_0072b900 {
     void sub_0072fe60(FArchive& Ar, UObject* Owner);
 };
 
-struct UTexture2D_ : public UTexture2D {
-    void sub_00733310(FArchive& Ar);
-};
 
 // @baa 0x00733310
-void UTexture2D_::sub_00733310(FArchive& Ar)
+void UTexture2D::sub_00733310(FArchive& Ar)
 {
     ((FMipArray&)Mips).sub_0072fe60(Ar, this);
 }

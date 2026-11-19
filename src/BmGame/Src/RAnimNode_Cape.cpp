@@ -470,12 +470,9 @@ void sub_01590b70(void) { sub_0158c5b0(); }
 
 // @baa 0x01590eb0
 
-struct URAnimNode_Cape_0155cff0 : public URAnimNode_Cape {
-    FName GetNewCapeAnimName();
-};
 
 // @baa 0x0155cff0
-FName URAnimNode_Cape_0155cff0::GetNewCapeAnimName()
+FName URAnimNode_Cape::GetNewCapeAnimName()
 {
     return NewCapeAnimName;
 }

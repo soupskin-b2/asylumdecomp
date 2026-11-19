@@ -4,14 +4,9 @@
 #include "ue3/Classes.h"
 #include "ue3/AppMath.h"
 
-/* Unnamed ANavigationPoint helper (UE3-style UpdateMaxPathSize): recomputes MaxPathSize from the enabled reach specs. */
-struct ANavigationPoint_ : public ANavigationPoint
-{
-	void sub_0083fc20();
-};
 
 // @baa 0x0083fc20
-void ANavigationPoint_::sub_0083fc20()
+void ANavigationPoint::sub_0083fc20()
 {
 	MaxPathSize.Radius = MaxPathSize.Height = 0.f;
 	for (INT Idx = 0; Idx < PathList.Num(); Idx++)

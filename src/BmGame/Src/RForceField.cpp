@@ -80,12 +80,9 @@ UBOOL URForceFieldConfigFactoryNew::HasParentClassChanged() const
 UBOOL URForceField::GetIsInitialised() { return *(INT*)((BYTE*)this+0x40) != 0; }
 
 extern TCHAR g_023c78b4[];
-struct URForceField_ : public URForceField {
-    void sub_01719570();
-};
 
 // @baa 0x01719570
-void URForceField_::sub_01719570()
+void URForceField::sub_01719570()
 {
     if (GetIsInitialised()) {
         appFailAssert("!GetIsInitialised()",

@@ -246,13 +246,9 @@ inline UBOOL operator!=(const FName& A, EName B) { return A.Index != B || A.Numb
 /* UnSequence.cpp's static level lookup (0x008cc3b0): finds the streaming level for LevelName. */
 UBOOL FindLevel(ULevelStreaming*& Level, FName LevelName);
 /* slot 0x1a0 (vf_1a0) */
-struct USeqAct_LevelStreaming_ : public USeqAct_LevelStreaming
-{
-    void UpdateStatus();
-};
 
 // @baa 0x008cc4a0
-void USeqAct_LevelStreaming_::UpdateStatus()
+void USeqAct_LevelStreaming::UpdateStatus()
 {
     // forget the cached level if it no longer matches the name
     if (Level != NULL && LevelName != NAME_None && Level->PackageName != LevelName)
@@ -491,13 +487,9 @@ struct USequenceOp_ : public USequenceOp
     void UpdateObject();
 };
 
-struct USeqAct_ChangeCollision_ : public USeqAct_ChangeCollision
-{
-    void UpdateObject();
-};
 
 // @baa 0x00907ca0
-void USeqAct_ChangeCollision_::UpdateObject()
+void USeqAct_ChangeCollision::UpdateObject()
 {
     ((USequenceOp_*)this)->USequenceOp_::UpdateObject(); // Super::UpdateObject()
     // convert the old collision flags into a CollisionType

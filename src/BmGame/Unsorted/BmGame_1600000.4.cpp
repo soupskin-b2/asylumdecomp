@@ -6,14 +6,10 @@
 
 extern FName g_026e2904;
 	/* CanDoPathShortenCheck */
-struct ARBMAIManager_ : public ARBMAIManager
-{
-	UBOOL eventCanDoPathShortenCheck(class ARBMAIController* TestController);
-};
 
 // @baa 0x0160e680
 /* RBMAIManager.CanDoPathShortenCheck script event: the generated glue, out of line here. */
-UBOOL ARBMAIManager_::eventCanDoPathShortenCheck(class ARBMAIController* TestController)
+UBOOL ARBMAIManager::eventCanDoPathShortenCheck(class ARBMAIController* TestController)
 {
 	struct RBMAIManager_eventCanDoPathShortenCheck_Parms
 	{
@@ -28,28 +24,20 @@ UBOOL ARBMAIManager_::eventCanDoPathShortenCheck(class ARBMAIController* TestCon
 
 extern FName g_026e3048;
 	/* StopAllSpeech */
-struct URBMSpeechManager_ : public URBMSpeechManager
-{
-	void eventStopAllSpeech();
-};
 
 // @baa 0x0160e6d0
 /* RBMSpeechManager.StopAllSpeech script event: the generated glue, out of line here. */
-void URBMSpeechManager_::eventStopAllSpeech()
+void URBMSpeechManager::eventStopAllSpeech()
 {
 	ProcessEvent(FindFunctionChecked(g_026e3048), NULL);
 }
 
 extern FName g_026e3280;
 	/* BMGAME_GetNumEvents */
-struct URIdleConfig_ : public URIdleConfig
-{
-	INT eventGetNumEvents();
-};
 
 // @baa 0x0160e790
 /* The script event's generated glue (BmGameClasses.h), out of line here. */
-INT URIdleConfig_::eventGetNumEvents()
+INT URIdleConfig::eventGetNumEvents()
 {
 	struct RIdleConfig_eventGetNumEvents_Parms
 	{
@@ -62,14 +50,10 @@ INT URIdleConfig_::eventGetNumEvents()
 
 extern FName g_026e2c9c;
 	/* BMGAME_GetEventName */
-struct URIdleConfig__0160e730 : public URIdleConfig
-{
-	FName eventGetEventName(INT I);
-};
 
 // @baa 0x0160e730
 /* The script event's generated glue (BmGameClasses.h), out of line here. */
-FName URIdleConfig__0160e730::eventGetEventName(INT I)
+FName URIdleConfig::eventGetEventName(INT I)
 {
 	struct RIdleConfig_eventGetEventName_Parms
 	{

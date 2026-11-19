@@ -39,14 +39,10 @@ void AActor::execSetZone(FFrame& Stack, RESULT_DECL)
 
 extern FName g_026c5560;
 	/* ModifyHearSoundComponent */
-struct AActor_ : public AActor
-{
-	void eventModifyHearSoundComponent(class UAudioComponent* AC);
-};
 
 // @baa 0x008a4c60
 /* Actor.ModifyHearSoundComponent script event: the generated glue, out of line here. */
-void AActor_::eventModifyHearSoundComponent(class UAudioComponent* AC)
+void AActor::eventModifyHearSoundComponent(class UAudioComponent* AC)
 {
 	struct Actor_eventModifyHearSoundComponent_Parms
 	{
@@ -58,14 +54,10 @@ void AActor_::eventModifyHearSoundComponent(class UAudioComponent* AC)
 
 extern FName g_026c4b04;
 	/* OverRotated */
-struct AActor__008a4ca0 : public AActor
-{
-	UBOOL eventOverRotated(FRotator& out_Desired, FRotator& out_Actual);
-};
 
 // @baa 0x008a4ca0
 /* Actor.OverRotated script event: the generated glue, out of line here. */
-UBOOL AActor__008a4ca0::eventOverRotated(FRotator& out_Desired, FRotator& out_Actual)
+UBOOL AActor::eventOverRotated(FRotator& out_Desired, FRotator& out_Actual)
 {
 	struct Actor_eventOverRotated_Parms
 	{
@@ -84,14 +76,10 @@ UBOOL AActor__008a4ca0::eventOverRotated(FRotator& out_Desired, FRotator& out_Ac
 
 extern FName g_026c40a8;
 	/* AllowDetourTo */
-struct AController_ : public AController
-{
-	UBOOL eventAllowDetourTo(class ANavigationPoint* N);
-};
 
 // @baa 0x008a4e20
 /* Controller.AllowDetourTo script event: the generated glue, out of line here. */
-UBOOL AController_::eventAllowDetourTo(class ANavigationPoint* N)
+UBOOL AController::eventAllowDetourTo(class ANavigationPoint* N)
 {
 	struct Controller_eventAllowDetourTo_Parms
 	{
@@ -106,14 +94,10 @@ UBOOL AController_::eventAllowDetourTo(class ANavigationPoint* N)
 
 extern FName g_026c5518;
 	/* ClientPrestreamTextures */
-struct APlayerController_ : public APlayerController
-{
-	void eventClientPrestreamTextures(class AActor* ForcedActor, FLOAT ForceDuration, UBOOL bEnableStreaming);
-};
 
 // @baa 0x008a4f40
 /* PlayerController.ClientPrestreamTextures script event: the generated glue, out of line here. */
-void APlayerController_::eventClientPrestreamTextures(class AActor* ForcedActor, FLOAT ForceDuration, UBOOL bEnableStreaming)
+void APlayerController::eventClientPrestreamTextures(class AActor* ForcedActor, FLOAT ForceDuration, UBOOL bEnableStreaming)
 {
 	struct PlayerController_eventClientPrestreamTextures_Parms
 	{
@@ -129,14 +113,10 @@ void APlayerController_::eventClientPrestreamTextures(class AActor* ForcedActor,
 
 extern FName g_026c4580;
 	/* ClientSetForceMipLevelsToBeResident */
-struct APlayerController__008a4fa0 : public APlayerController
-{
-	void eventClientSetForceMipLevelsToBeResident(class UMaterialInterface* Material, FLOAT ForceDuration);
-};
 
 // @baa 0x008a4fa0
 /* PlayerController.ClientSetForceMipLevelsToBeResident script event: the generated glue, out of line here. */
-void APlayerController__008a4fa0::eventClientSetForceMipLevelsToBeResident(class UMaterialInterface* Material, FLOAT ForceDuration)
+void APlayerController::eventClientSetForceMipLevelsToBeResident(class UMaterialInterface* Material, FLOAT ForceDuration)
 {
 	struct PlayerController_eventClientSetForceMipLevelsToBeResident_Parms
 	{
@@ -150,14 +130,10 @@ void APlayerController__008a4fa0::eventClientSetForceMipLevelsToBeResident(class
 
 extern FName g_026c5454;
 	/* ClientPrepareMapChange */
-struct APlayerController__008a5020 : public APlayerController
-{
-	void eventClientPrepareMapChange(FName LevelName, UBOOL bFirst, UBOOL bLast);
-};
 
 // @baa 0x008a5020
 /* PlayerController.ClientPrepareMapChange script event: the generated glue, out of line here. */
-void APlayerController__008a5020::eventClientPrepareMapChange(FName LevelName, UBOOL bFirst, UBOOL bLast)
+void APlayerController::eventClientPrepareMapChange(FName LevelName, UBOOL bFirst, UBOOL bLast)
 {
 	struct PlayerController_eventClientPrepareMapChange_Parms
 	{
@@ -173,14 +149,10 @@ void APlayerController__008a5020::eventClientPrepareMapChange(FName LevelName, U
 
 extern FName g_026c52f0;
 	/* CameraLookAtFinished */
-struct APlayerController__008a50c0 : public APlayerController
-{
-	void eventCameraLookAtFinished(class USeqAct_CameraLookAt* Action);
-};
 
 // @baa 0x008a50c0
 /* PlayerController.CameraLookAtFinished script event: the generated glue, out of line here. */
-void APlayerController__008a50c0::eventCameraLookAtFinished(class USeqAct_CameraLookAt* Action)
+void APlayerController::eventCameraLookAtFinished(class USeqAct_CameraLookAt* Action)
 {
 	struct PlayerController_eventCameraLookAtFinished_Parms
 	{
@@ -192,14 +164,10 @@ void APlayerController__008a50c0::eventCameraLookAtFinished(class USeqAct_Camera
 
 extern FName g_026c4cb0;
 	/* ClientSetCameraFade */
-struct APlayerController__008a5100 : public APlayerController
-{
-	void eventClientSetCameraFade(UBOOL bEnableFading, FColor FadeColor, FVector2D FadeAlpha, FLOAT FadeTime);
-};
 
 // @baa 0x008a5100
 /* PlayerController.ClientSetCameraFade script event: the generated glue, out of line here. */
-void APlayerController__008a5100::eventClientSetCameraFade(UBOOL bEnableFading, FColor FadeColor, FVector2D FadeAlpha, FLOAT FadeTime)
+void APlayerController::eventClientSetCameraFade(UBOOL bEnableFading, FColor FadeColor, FVector2D FadeAlpha, FLOAT FadeTime)
 {
 	struct PlayerController_eventClientSetCameraFade_Parms
 	{
@@ -217,14 +185,10 @@ void APlayerController__008a5100::eventClientSetCameraFade(UBOOL bEnableFading, 
 
 extern FName g_026c5170;
 	/* Kismet_ClientStopSound */
-struct APlayerController__008a5170 : public APlayerController
-{
-	void eventKismet_ClientStopSound(class USoundCue* ASound, class AActor* SourceActor, FLOAT FadeOutTime);
-};
 
 // @baa 0x008a5170
 /* PlayerController.Kismet_ClientStopSound script event: the generated glue, out of line here. */
-void APlayerController__008a5170::eventKismet_ClientStopSound(class USoundCue* ASound, class AActor* SourceActor, FLOAT FadeOutTime)
+void APlayerController::eventKismet_ClientStopSound(class USoundCue* ASound, class AActor* SourceActor, FLOAT FadeOutTime)
 {
 	struct PlayerController_eventKismet_ClientStopSound_Parms
 	{
@@ -240,14 +204,10 @@ void APlayerController__008a5170::eventKismet_ClientStopSound(class USoundCue* A
 
 extern FName g_026c5278;
 	/* Kismet_ClientSetParameterSound */
-struct APlayerController__008a51d0 : public APlayerController
-{
-	void eventKismet_ClientSetParameterSound(class USoundCue* ASound, class AActor* SourceActor, FName nameToSet, FLOAT valueToSet);
-};
 
 // @baa 0x008a51d0
 /* PlayerController.Kismet_ClientSetParameterSound script event: the generated glue, out of line here. */
-void APlayerController__008a51d0::eventKismet_ClientSetParameterSound(class USoundCue* ASound, class AActor* SourceActor, FName nameToSet, FLOAT valueToSet)
+void APlayerController::eventKismet_ClientSetParameterSound(class USoundCue* ASound, class AActor* SourceActor, FName nameToSet, FLOAT valueToSet)
 {
 	struct PlayerController_eventKismet_ClientSetParameterSound_Parms
 	{
@@ -265,14 +225,10 @@ void APlayerController__008a51d0::eventKismet_ClientSetParameterSound(class USou
 
 extern FName g_026c5070;
 	/* Kismet_ClientKeyOffSound */
-struct APlayerController__008a5240 : public APlayerController
-{
-	void eventKismet_ClientKeyOffSound(class USoundCue* ASound, class AActor* SourceActor);
-};
 
 // @baa 0x008a5240
 /* PlayerController.Kismet_ClientKeyOffSound script event: the generated glue, out of line here. */
-void APlayerController__008a5240::eventKismet_ClientKeyOffSound(class USoundCue* ASound, class AActor* SourceActor)
+void APlayerController::eventKismet_ClientKeyOffSound(class USoundCue* ASound, class AActor* SourceActor)
 {
 	struct PlayerController_eventKismet_ClientKeyOffSound_Parms
 	{
@@ -286,14 +242,10 @@ void APlayerController__008a5240::eventKismet_ClientKeyOffSound(class USoundCue*
 
 extern FName g_026c4c50;
 	/* Kismet_ClientPlaySound */
-struct APlayerController__008a5290 : public APlayerController
-{
-	void eventKismet_ClientPlaySound(class USoundCue* ASound, class AActor* SourceActor, FLOAT VolumeMultiplier, FLOAT PitchMultiplier, FLOAT FadeInTime, UBOOL bSuppressSubtitles, UBOOL bSuppressSpatialization);
-};
 
 // @baa 0x008a5290
 /* PlayerController.Kismet_ClientPlaySound script event: the generated glue, out of line here. */
-void APlayerController__008a5290::eventKismet_ClientPlaySound(class USoundCue* ASound, class AActor* SourceActor, FLOAT VolumeMultiplier, FLOAT PitchMultiplier, FLOAT FadeInTime, UBOOL bSuppressSubtitles, UBOOL bSuppressSpatialization)
+void APlayerController::eventKismet_ClientPlaySound(class USoundCue* ASound, class AActor* SourceActor, FLOAT VolumeMultiplier, FLOAT PitchMultiplier, FLOAT FadeInTime, UBOOL bSuppressSubtitles, UBOOL bSuppressSpatialization)
 {
 	struct PlayerController_eventKismet_ClientPlaySound_Parms
 	{
@@ -317,14 +269,10 @@ void APlayerController__008a5290::eventKismet_ClientPlaySound(class USoundCue* A
 
 extern FName g_026c4b30;
 	/* ClientHearSound */
-struct APlayerController__008a5320 : public APlayerController
-{
-	void eventClientHearSound(class USoundCue* ASound, class AActor* SourceActor, FVector SourceLocation, UBOOL bStopWhenOwnerDestroyed, UBOOL bIsOccluded);
-};
 
 // @baa 0x008a5320
 /* PlayerController.ClientHearSound script event: the generated glue, out of line here. */
-void APlayerController__008a5320::eventClientHearSound(class USoundCue* ASound, class AActor* SourceActor, FVector SourceLocation, UBOOL bStopWhenOwnerDestroyed, UBOOL bIsOccluded)
+void APlayerController::eventClientHearSound(class USoundCue* ASound, class AActor* SourceActor, FVector SourceLocation, UBOOL bStopWhenOwnerDestroyed, UBOOL bIsOccluded)
 {
 	struct PlayerController_eventClientHearSound_Parms
 	{
@@ -364,14 +312,10 @@ void AActor::Sleep(FLOAT Seconds)
 
 extern FName g_026c490c;
 	/* ENGINE_IsInCombat */
-struct AController__008a4de0 : public AController
-{
-	UBOOL eventIsInCombat();
-};
 
 // @baa 0x008a4de0
 /* The script event's generated glue (EngineClasses.h), out of line here. */
-UBOOL AController__008a4de0::eventIsInCombat()
+UBOOL AController::eventIsInCombat()
 {
 	struct Controller_eventIsInCombat_Parms
 	{
@@ -384,14 +328,10 @@ UBOOL AController__008a4de0::eventIsInCombat()
 
 extern FName g_026c406c;
 	/* ENGINE_DetourWeight */
-struct ANavigationPoint_ : public ANavigationPoint
-{
-	FLOAT eventDetourWeight(class APawn* Other, FLOAT PathWeight);
-};
 
 // @baa 0x008a53e0
 /* The script event's generated glue (EngineClasses.h), out of line here. */
-FLOAT ANavigationPoint_::eventDetourWeight(class APawn* Other, FLOAT PathWeight)
+FLOAT ANavigationPoint::eventDetourWeight(class APawn* Other, FLOAT PathWeight)
 {
 	struct NavigationPoint_eventDetourWeight_Parms
 	{
@@ -408,14 +348,10 @@ FLOAT ANavigationPoint_::eventDetourWeight(class APawn* Other, FLOAT PathWeight)
 
 extern FName g_026c4fcc;
 	/* ENGINE_GetObjClassVersion */
-struct USequenceObject_ : public USequenceObject
-{
-	INT eventGetObjClassVersion();
-};
 
 // @baa 0x008aa210
 /* The script event's generated glue (EngineClasses.h), out of line here. */
-INT USequenceObject_::eventGetObjClassVersion()
+INT USequenceObject::eventGetObjClassVersion()
 {
 	struct SequenceObject_eventGetObjClassVersion_Parms
 	{

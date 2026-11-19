@@ -33,18 +33,13 @@ void UUIScreenObject::execGetWidgetPathName(FFrame& Stack, RESULT_DECL)
 }
 
 class IUIStyleResolver;
-struct UUIObject_ : public UUIObject
-{
-    /* FindStyleSubscriberIndex: StyleSubscribers.FindItemIndex(Subscriber) */
-    INT sub_00db0fd0(const TScriptInterface<IUIStyleResolver>& Subscriber);
-};
 
 // @baa 0x00cb3e00
 void UUIObject::execFindStyleSubscriberIndex(FFrame& Stack, RESULT_DECL)
 {
     P_GET_TINTERFACE_REF(IUIStyleResolver, Subscriber);
     P_FINISH;
-    *(INT*)Result = ((UUIObject_*)this)->sub_00db0fd0(Subscriber);
+    *(INT*)Result = ((UUIObject*)this)->sub_00db0fd0(Subscriber);
 }
 
 /* UnScript.h has this; ue3/Script.h doesn't. */

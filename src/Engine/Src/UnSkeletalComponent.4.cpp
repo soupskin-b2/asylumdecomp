@@ -18,14 +18,9 @@ void USkeletalMeshComponent::execUpdateSceneProxy( FFrame& Stack, RESULT_DECL )
 	UpdateSceneProxy();
 }
 
-struct USkeletalMeshComponent__00935ce0 : public USkeletalMeshComponent
-{
-	void UpdateAnimations();
-	void execUpdateAnimations(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00935ce0
-void USkeletalMeshComponent__00935ce0::execUpdateAnimations( FFrame& Stack, RESULT_DECL )
+void USkeletalMeshComponent::execUpdateAnimations( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	UpdateAnimations();
@@ -243,28 +238,18 @@ void USkeletalMeshComponent__0091f7b0::execSetFaceFXRegisterEx(FFrame& Stack, RE
 	SetFaceFXRegisterEx(RegName, RegOp, FirstValue, FirstInterpDuration, NextValue, NextInterpDuration);
 }
 
-struct USkeletalMeshComponent__0091dbe0 : public USkeletalMeshComponent
-{
-	UMorphTarget* FindMorphTarget(FName MorphTargetName);
-	void execFindMorphTarget(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x0091dbe0
-void USkeletalMeshComponent__0091dbe0::execFindMorphTarget(FFrame& Stack, RESULT_DECL)
+void USkeletalMeshComponent::execFindMorphTarget(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_NAME(MorphTargetName);
 	P_FINISH;
 	*(UMorphTarget**)Result = FindMorphTarget(MorphTargetName);
 }
 
-struct USkeletalMeshComponent__0091d3f0 : public USkeletalMeshComponent
-{
-	FMatrix GetBoneMatrix(INT BoneIndex);
-	void execGetBoneMatrix(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x0091d3f0
-void USkeletalMeshComponent__0091d3f0::execGetBoneMatrix(FFrame& Stack, RESULT_DECL)
+void USkeletalMeshComponent::execGetBoneMatrix(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(BoneIndex);
 	P_FINISH;

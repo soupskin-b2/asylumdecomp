@@ -6,14 +6,10 @@
 
 extern FName g_026c469c;
 	/* IsPastingIntoUISequenceAllowed */
-struct USequenceObject_ : public USequenceObject
-{
-	UBOOL eventIsPastingIntoUISequenceAllowed();
-};
 
 // @baa 0x00f1a5f0
 /* SequenceObject.IsPastingIntoUISequenceAllowed script event: the generated glue, out of line here. */
-UBOOL USequenceObject_::eventIsPastingIntoUISequenceAllowed()
+UBOOL USequenceObject::eventIsPastingIntoUISequenceAllowed()
 {
 	struct SequenceObject_eventIsPastingIntoUISequenceAllowed_Parms
 	{
@@ -26,14 +22,10 @@ UBOOL USequenceObject_::eventIsPastingIntoUISequenceAllowed()
 
 extern FName g_026c5234;
 	/* IsPastingIntoLevelSequenceAllowed */
-struct USequenceObject__00f1a630 : public USequenceObject
-{
-	UBOOL eventIsPastingIntoLevelSequenceAllowed();
-};
 
 // @baa 0x00f1a630
 /* SequenceObject.IsPastingIntoLevelSequenceAllowed script event: the generated glue, out of line here. */
-UBOOL USequenceObject__00f1a630::eventIsPastingIntoLevelSequenceAllowed()
+UBOOL USequenceObject::eventIsPastingIntoLevelSequenceAllowed()
 {
 	struct SequenceObject_eventIsPastingIntoLevelSequenceAllowed_Parms
 	{

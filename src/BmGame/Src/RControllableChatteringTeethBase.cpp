@@ -39,14 +39,10 @@ void ARControllableChatteringTeethBase::sub_01715120(float param_2)
 // @baa 0x01733550
 // @baa 0x017336d0
 
-struct ARControllableChatteringTeethBase_ : public ARControllableChatteringTeethBase
-{
-	void sub_01714f10(FLOAT DeltaTime);
-};
 
 // @baa 0x01714f10
 /* While the teeth wait to explode they stand still; when the delay runs out they explode. */
-void ARControllableChatteringTeethBase_::sub_01714f10(FLOAT DeltaTime)
+void ARControllableChatteringTeethBase::sub_01714f10(FLOAT DeltaTime)
 {
 #line 144 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RControllableChatteringTeethBase.cpp"
 	check(TeethState == CHATTERINGTEETHSTATE_ExplodeDelay);

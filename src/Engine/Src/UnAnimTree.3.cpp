@@ -153,13 +153,9 @@ static inline FLOAT GetNodeRelativePosition(UAnimNodeSequence* SeqNode)
 }
 
 /* UAnimNodeSynch::GetRelativePosition isn't declared in Classes.h. */
-struct UAnimNodeSynch_ : public UAnimNodeSynch
-{
-	FLOAT GetRelativePosition(FName GroupName);
-};
 
 // @baa 0x00c56440
-FLOAT UAnimNodeSynch_::GetRelativePosition(FName GroupName)
+FLOAT UAnimNodeSynch::GetRelativePosition(FName GroupName)
 {
 	for (INT GroupIdx = 0; GroupIdx < Groups.Num(); GroupIdx++)
 	{

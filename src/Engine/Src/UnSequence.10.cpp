@@ -185,13 +185,9 @@ void USeqCond_IncrementFloat::Activated()
     }
 }
 
-struct USequence_ : public USequence
-{
-    void MarkSequencePendingKill();
-};
 
 // @baa 0x008be500
-void USequence_::MarkSequencePendingKill()
+void USequence::MarkSequencePendingKill()
 {
     MarkPendingKill();
 
@@ -207,7 +203,7 @@ void USequence_::MarkSequencePendingKill()
     {
         if (NestedSequences(Idx) != NULL)
         {
-            ((USequence_*)NestedSequences(Idx))->MarkSequencePendingKill();
+            ((USequence*)NestedSequences(Idx))->MarkSequencePendingKill();
         }
     }
 }
@@ -267,16 +263,11 @@ extern template void TArray<USequenceOp*>::Remove(INT Index, INT Count);
 /* the out-of-line TArray<USequenceOp*>::Pop instantiation (unreferenced in the exe) */
 template USequenceOp* TArray<USequenceOp*>::Pop();
 
-struct USeqAct_LevelStreaming_ : public USeqAct_LevelStreaming
-{
-    /* 0x008ac0e0: TRUE once the streaming level has finished its pending load/visibility change */
-    UBOOL IsLevelStreamingComplete(ULevelStreaming* LevelStreamingObject);
-};
 
 // @baa 0x008ac210
 UBOOL USeqAct_LevelStreaming::UpdateOp(FLOAT DeltaTime)
 {
-    return ((USeqAct_LevelStreaming_*)this)->IsLevelStreamingComplete(Level);
+    return ((USeqAct_LevelStreaming*)this)->IsLevelStreamingComplete(Level);
 }
 
 /* slot 0x174 (vf_174) is USequenceOp::Activated */
@@ -287,26 +278,18 @@ void USeqAct_SetString::Activated()
     Target = Value;
 }
 
-struct USequence__008abb30 : public USequence
-{
-    UBOOL IsEnabled() const;
-};
 
 // @baa 0x008abb30
 /* a sequence is only enabled if all of its parents are */
-UBOOL USequence__008abb30::IsEnabled() const
+UBOOL USequence::IsEnabled() const
 {
-    return bEnabled && (ParentSequence == NULL || ((USequence__008abb30*)ParentSequence)->IsEnabled());
+    return bEnabled && (ParentSequence == NULL || ((USequence*)ParentSequence)->IsEnabled());
 }
 
 /* slot 0x180 (vf_180) */
-struct USequenceOp_ : public USequenceOp
-{
-    void CopyPlayerFrom(USequenceOp* Other, INT Unused);
-};
 
 // @baa 0x008aba80
-void USequenceOp_::CopyPlayerFrom(USequenceOp* Other, INT Unused)
+void USequenceOp::CopyPlayerFrom(USequenceOp* Other, INT Unused)
 {
     if (Other != NULL)
     {
@@ -316,16 +299,12 @@ void USequenceOp_::CopyPlayerFrom(USequenceOp* Other, INT Unused)
 }
 
 /* slot 0x04c (vf_04c) is UObject::PostEditChange(UProperty*); UObject's is 0x005c1a10 */
-struct UObject_ : public UObject
-{
-    void MarkPackageDirty(UBOOL InDirty = TRUE) const; /* 0x005d9570 (declared on UAnimSequence in the kit) */
-};
 
 // @baa 0x008abad0
 void USequenceObject::PostEditChange(UProperty* PropertyThatChanged)
 {
-    ((UObject_*)this)->UObject::PostEditChange(PropertyThatChanged); // Super::PostEditChange()
-    ((UObject_*)this)->MarkPackageDirty(TRUE);
+    ((UObject*)this)->UObject::PostEditChange(PropertyThatChanged); // Super::PostEditChange()
+    ((UObject*)this)->MarkPackageDirty(TRUE);
 }
 
 // @baa 0x008c1e40
@@ -357,14 +336,10 @@ UBOOL USequenceOp::ActivateNamedOutputLink(const FString& LinkDesc)
     return bActivated;
 }
 
-struct USeqAct_ParticleEventGenerator_ : public USeqAct_ParticleEventGenerator
-{
-    void HandleEnableInputs();
-};
 
 // @baa 0x008bc130
 /* inputs 1/2/3 ("Enable", "Disable", "Toggle"), called from Activated (0x008bee30) */
-void USeqAct_ParticleEventGenerator_::HandleEnableInputs()
+void USeqAct_ParticleEventGenerator::HandleEnableInputs()
 {
     if (InputLinks(1).bHasImpulse)
     {
@@ -465,15 +440,11 @@ struct USequenceOp__008f7e00 : public USequenceOp
 };
 
 /* slot 0x174 (vf_174) is USequenceOp::Activated */
-struct USeqAct_ModifyObjectList_ : public USeqAct_ModifyObjectList
-{
-    void ActivateAddRemove_Helper(); /* 0x008f6b60: handles the Add/Remove/Empty inputs */
-};
 
 // @baa 0x008f7e00
 void USeqAct_ModifyObjectList::Activated()
 {
-    ((USeqAct_ModifyObjectList_*)this)->ActivateAddRemove_Helper();
+    ((USeqAct_ModifyObjectList*)this)->ActivateAddRemove_Helper();
 
     // count the entries attached to the list variable
     TArray<UObject**> ObjVars;
@@ -522,13 +493,9 @@ struct USequenceOp__00907d90 : public USequenceOp
     void UpdateObject();
 };
 
-struct USeqAct_Switch_ : public USeqAct_Switch
-{
-    void UpdateObject();
-};
 
 // @baa 0x00907d90
-void USeqAct_Switch_::UpdateObject()
+void USeqAct_Switch::UpdateObject()
 {
     // keep the output links, which the switch creates itself
     FSeqOpOutputLinkArray SavedOutputLinks(OutputLinks);

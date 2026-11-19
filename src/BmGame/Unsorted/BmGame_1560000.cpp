@@ -1367,12 +1367,9 @@ struct FString_ {
     static FString sub_005a1b30(const TCHAR* Fmt, ...); /* FString::Printf */
 };
 
-struct ARGameInfo_ : public ARGameInfo {
-    FString sub_0156cff0();
-};
 
 // @baa 0x0156cff0
-FString ARGameInfo_::sub_0156cff0()
+FString ARGameInfo::sub_0156cff0()
 {
     struct { FLOAT ReturnValue; } Parms;
     Parms.ReturnValue = 0.f;

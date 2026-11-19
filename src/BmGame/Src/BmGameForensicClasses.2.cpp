@@ -6,28 +6,18 @@
 
 extern FName g_026e30cc;
 	/* BMGAME_InitialiseDna */
-struct ARForensicDnaSplatStatic_ : public ARForensicDnaSplatStatic
-{
-	void eventInitialiseDna();
-};
 
 // @baa 0x016833a0
 /* The script event's generated glue (BmGameClasses.h), out of line here. */
-void ARForensicDnaSplatStatic_::eventInitialiseDna()
+void ARForensicDnaSplatStatic::eventInitialiseDna()
 {
 	ProcessEvent(FindFunctionChecked(g_026e30cc), NULL);
 }
 
 extern FName g_026e2ddc;
-	/* BMGAME_AddItemToEvidenceArray */
-/* Kit gap: the generated glue for RForensicsDevice's script event AddItemToEvidenceArray (BmGameClasses.h) isn't declared; this build keeps it out of line. */
-struct ARForensicsDevice_ : public ARForensicsDevice
-{
-	void eventAddItemToEvidenceArray(const FScriptInterface& Item);
-};
 
 // @baa 0x01673010
-void ARForensicsDevice_::eventAddItemToEvidenceArray(const FScriptInterface& Item)
+void ARForensicsDevice::eventAddItemToEvidenceArray(const FScriptInterface& Item)
 {
 	struct RForensicsDevice_eventAddItemToEvidenceArray_Parms
 	{

@@ -314,31 +314,19 @@ S00dab9c0* S00dab9c0::sub_00dab9c0(int A, int B, int C)
 }
 
 extern FName g_026c453c;
-	/* OnInitialSceneUpdate */
-/* Kit gap: the delegate's generated glue isn't declared. */
-struct UUIScreenObject_ : public UUIScreenObject
-{
-	void delegateOnInitialSceneUpdate();
-};
 
 // @baa 0x00da6ec0
 /* The script delegate's generated glue, out of line here. */
-void UUIScreenObject_::delegateOnInitialSceneUpdate()
+void UUIScreenObject::delegateOnInitialSceneUpdate()
 {
 	ProcessDelegate(g_026c453c, &__OnInitialSceneUpdate__Delegate, NULL, NULL);
 }
 
 extern FName g_026c3f64;
-	/* NotifyActiveStateChanged */
-/* Kit gap: the delegate's generated glue isn't declared. */
-struct UUIScreenObject__00da6ef0 : public UUIScreenObject
-{
-	void delegateNotifyActiveStateChanged(class UUIScreenObject* Sender, INT PlayerIndex, class UUIState* NewlyActiveState, class UUIState* PreviouslyActiveState);
-};
 
 // @baa 0x00da6ef0
 /* The script delegate's generated glue, out of line here. */
-void UUIScreenObject__00da6ef0::delegateNotifyActiveStateChanged(class UUIScreenObject* Sender, INT PlayerIndex, class UUIState* NewlyActiveState, class UUIState* PreviouslyActiveState)
+void UUIScreenObject::delegateNotifyActiveStateChanged(class UUIScreenObject* Sender, INT PlayerIndex, class UUIState* NewlyActiveState, class UUIState* PreviouslyActiveState)
 {
 	struct UIScreenObject_eventNotifyActiveStateChanged_Parms
 	{
@@ -355,16 +343,10 @@ void UUIScreenObject__00da6ef0::delegateNotifyActiveStateChanged(class UUIScreen
 }
 
 extern FName g_026c5388;
-	/* NotifyPositionChanged */
-/* Kit gap: the delegate's generated glue isn't declared. */
-struct UUIScreenObject__00da6f90 : public UUIScreenObject
-{
-	void delegateNotifyPositionChanged(class UUIScreenObject* Sender);
-};
 
 // @baa 0x00da6f90
 /* The script delegate's generated glue, out of line here. */
-void UUIScreenObject__00da6f90::delegateNotifyPositionChanged(class UUIScreenObject* Sender)
+void UUIScreenObject::delegateNotifyPositionChanged(class UUIScreenObject* Sender)
 {
 	struct UIScreenObject_eventNotifyPositionChanged_Parms
 	{

@@ -137,14 +137,10 @@ void AR3rdPersonCamera::execSaveFreeCameraConfig(FFrame& Stack, RESULT_DECL)
 
 extern FName g_026e25c4;
 	/* InputHeading */
-struct ARPawnPlayerCombat_ : public ARPawnPlayerCombat
-{
-	FVector eventInputHeading();
-};
 
 // @baa 0x01686400
 /* RPawnPlayerCombat.InputHeading script event: the generated glue, out of line here. */
-FVector ARPawnPlayerCombat_::eventInputHeading()
+FVector ARPawnPlayerCombat::eventInputHeading()
 {
 	struct RPawnPlayerCombat_eventInputHeading_Parms
 	{
@@ -157,14 +153,10 @@ FVector ARPawnPlayerCombat_::eventInputHeading()
 
 extern FName g_026e3118;
 	/* SetDof */
-struct URDOFManager_ : public URDOFManager
-{
-	void eventSetDof(FPostProcessSettings& PP);
-};
 
 // @baa 0x01686a40
 /* RDOFManager.SetDof script event: the generated glue, out of line here. */
-void URDOFManager_::eventSetDof(FPostProcessSettings& PP)
+void URDOFManager::eventSetDof(FPostProcessSettings& PP)
 {
 	struct RDOFManager_eventSetDof_Parms
 	{
@@ -177,14 +169,10 @@ void URDOFManager_::eventSetDof(FPostProcessSettings& PP)
 
 extern FName g_026e26e0;
 	/* ApplyModifiers */
-struct AR3rdPersonCamera__01686bf0 : public AR3rdPersonCamera
-{
-	void eventApplyModifiers(FLOAT DeltaTime, FTPOV& OutPOV);
-};
 
 // @baa 0x01686bf0
 /* R3rdPersonCamera.ApplyModifiers script event: the generated glue, out of line here. */
-void AR3rdPersonCamera__01686bf0::eventApplyModifiers(FLOAT DeltaTime, FTPOV& OutPOV)
+void AR3rdPersonCamera::eventApplyModifiers(FLOAT DeltaTime, FTPOV& OutPOV)
 {
 	struct R3rdPersonCamera_eventApplyModifiers_Parms
 	{
@@ -199,14 +187,10 @@ void AR3rdPersonCamera__01686bf0::eventApplyModifiers(FLOAT DeltaTime, FTPOV& Ou
 
 extern FName g_026e3138;
 	/* UpdateCurrentCamera */
-struct AR3rdPersonCamera__01686cd0 : public AR3rdPersonCamera
-{
-	void eventUpdateCurrentCamera(FVector DesiredCameraPosition, FRotator DesiredCameraRotation, FLOAT DesiredCameraFOV, FLOAT DeltaTime);
-};
 
 // @baa 0x01686cd0
 /* R3rdPersonCamera.UpdateCurrentCamera script event: the generated glue, out of line here. */
-void AR3rdPersonCamera__01686cd0::eventUpdateCurrentCamera(FVector DesiredCameraPosition, FRotator DesiredCameraRotation, FLOAT DesiredCameraFOV, FLOAT DeltaTime)
+void AR3rdPersonCamera::eventUpdateCurrentCamera(FVector DesiredCameraPosition, FRotator DesiredCameraRotation, FLOAT DesiredCameraFOV, FLOAT DeltaTime)
 {
 	struct R3rdPersonCamera_eventUpdateCurrentCamera_Parms
 	{
@@ -224,14 +208,10 @@ void AR3rdPersonCamera__01686cd0::eventUpdateCurrentCamera(FVector DesiredCamera
 
 extern FName g_026e38c8;
 	/* ResetCamera */
-struct AR3rdPersonCamera__01559350 : public AR3rdPersonCamera
-{
-	void eventResetCamera(FRotator ResetRotation, UBOOL bResetForBlend, UBOOL bResetSmoother);
-};
 
 // @baa 0x01559350
 /* R3rdPersonCamera.ResetCamera script event: the generated glue, out of line here. */
-void AR3rdPersonCamera__01559350::eventResetCamera(FRotator ResetRotation, UBOOL bResetForBlend, UBOOL bResetSmoother)
+void AR3rdPersonCamera::eventResetCamera(FRotator ResetRotation, UBOOL bResetForBlend, UBOOL bResetSmoother)
 {
 	struct R3rdPersonCamera_eventResetCamera_Parms
 	{
@@ -247,28 +227,20 @@ void AR3rdPersonCamera__01559350::eventResetCamera(FRotator ResetRotation, UBOOL
 
 extern FName g_026e2a80;
 	/* CancelZoom */
-struct AR3rdPersonCamera__01686b90 : public AR3rdPersonCamera
-{
-	void eventCancelZoom();
-};
 
 // @baa 0x01686b90
 /* R3rdPersonCamera.CancelZoom script event: the generated glue, out of line here. */
-void AR3rdPersonCamera__01686b90::eventCancelZoom()
+void AR3rdPersonCamera::eventCancelZoom()
 {
 	ProcessEvent(FindFunctionChecked(g_026e2a80), NULL);
 }
 
 extern FName g_026e25a8;
 	/* SettingsChanged */
-struct AR3rdPersonCamera__01686bc0 : public AR3rdPersonCamera
-{
-	void eventSettingsChanged();
-};
 
 // @baa 0x01686bc0
 /* R3rdPersonCamera.SettingsChanged script event: the generated glue, out of line here. */
-void AR3rdPersonCamera__01686bc0::eventSettingsChanged()
+void AR3rdPersonCamera::eventSettingsChanged()
 {
 	ProcessEvent(FindFunctionChecked(g_026e25a8), NULL);
 }
@@ -344,11 +316,6 @@ struct FRotator_ : public FRotator
 	FRotator_(INT InPitch, INT InYaw, INT InRoll) { Pitch = InPitch; Yaw = InYaw; Roll = InRoll; }
 };
 
-/* Kit gaps: BlendToCameraTarget (01689c30) isn't declared (names from the exe's native table). */
-struct AR3rdPersonCamera__017095a0 : public AR3rdPersonCamera
-{
-	void BlendToCameraTarget(class AActor* Target, FLOAT BlendTime, UBOOL bResetCam, FRotator ResetRotation, UBOOL BlendBatmanRelativePosition);	/* 0x01689c30 */
-};
 
 // @baa 0x017095a0
 void AR3rdPersonCamera::execBlendToCameraTarget(FFrame& Stack, RESULT_DECL)

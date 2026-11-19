@@ -3,14 +3,9 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
 
-/* Unnamed in the kit: UE3's URB_BodyInstance::CopyBodyInstancePropertiesFrom(const URB_BodyInstance* FromInst). */
-struct URB_BodyInstance_ : public URB_BodyInstance
-{
-    void sub_009f9a40(const URB_BodyInstance* FromInst);
-};
 
 // @baa 0x009f9a40
-void URB_BodyInstance_::sub_009f9a40(const URB_BodyInstance* FromInst)
+void URB_BodyInstance::sub_009f9a40(const URB_BodyInstance* FromInst)
 {
     bEnableBoneSpringLinear = FromInst->bEnableBoneSpringLinear;
     bEnableBoneSpringAngular = FromInst->bEnableBoneSpringAngular;
@@ -64,14 +59,10 @@ void UPhysicsAsset::PostLoad()
 	}
 }
 
-struct UPhysicsAssetInstance_ : public UPhysicsAssetInstance
-{
-    void SetAllBodiesFixed(UBOOL bNewFixed); /* 0x00a0b380 */
-};
 
 // @baa 0x00a0b380
 /* UE3's UPhysicsAssetInstance::SetAllBodiesFixed: fix or unfix every body of the instance. */
-void UPhysicsAssetInstance_::SetAllBodiesFixed(UBOOL bNewFixed)
+void UPhysicsAssetInstance::SetAllBodiesFixed(UBOOL bNewFixed)
 {
     for (INT i = 0; i < Bodies.Num(); i++)
     {
@@ -81,14 +72,10 @@ void UPhysicsAssetInstance_::SetAllBodiesFixed(UBOOL bNewFixed)
 
 /* Unnamed in the kit (0x00a2ca60): UE3's UKMeshProps::CopyMeshPropsFrom(UKMeshProps* FromProps). */
 
-struct URB_BodySetup_ : public URB_BodySetup
-{
-    void CopyBodyPropertiesFrom(URB_BodySetup* FromSetup); /* 0x00a2d190 */
-};
 
 // @baa 0x00a2d190
 /* UE3's URB_BodySetup::CopyBodyPropertiesFrom: take over another body's geometry and physical settings. */
-void URB_BodySetup_::CopyBodyPropertiesFrom(URB_BodySetup* FromSetup)
+void URB_BodySetup::CopyBodyPropertiesFrom(URB_BodySetup* FromSetup)
 {
     this->CopyMeshPropsFrom(FromSetup);
     PhysMaterial = FromSetup->PhysMaterial;
@@ -110,14 +97,10 @@ void URB_BodySetup_::CopyBodyPropertiesFrom(URB_BodySetup* FromSetup)
 
 /* Unnamed in the kit (0x00a2c3b0): UE3's URB_BodySetup::ClearShapeCache(). */
 
-struct UPhysicsAsset__00a2d130 : public UPhysicsAsset
-{
-    void ClearShapeCaches(); /* 0x00a2d130 */
-};
 
 // @baa 0x00a2d130
 /* UE3's UPhysicsAsset::ClearShapeCaches: drop every body's cached physics shapes. */
-void UPhysicsAsset__00a2d130::ClearShapeCaches()
+void UPhysicsAsset::ClearShapeCaches()
 {
     for (INT i = 0; i < BodySetup.Num(); i++)
     {

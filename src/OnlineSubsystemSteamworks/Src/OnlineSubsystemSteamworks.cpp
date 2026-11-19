@@ -2484,14 +2484,10 @@ struct X {};
 
 extern FName g_026c4acc;
  /* ENGINE_SetVoiceInterface */
-struct UOnlineSubsystem_ : public UOnlineSubsystem
-{
-    UBOOL eventSetVoiceInterface(UObject* NewInterface);
-};
 
 // @baa 0x00e85c40
 /* OnlineSubsystem.uc's SetVoiceInterface script event, generated glue (EngineClasses.h). */
-UBOOL UOnlineSubsystem_::eventSetVoiceInterface(UObject* NewInterface)
+UBOOL UOnlineSubsystem::eventSetVoiceInterface(UObject* NewInterface)
 {
     struct OnlineSubsystem_eventSetVoiceInterface_Parms
     {
@@ -2507,14 +2503,10 @@ UBOOL UOnlineSubsystem_::eventSetVoiceInterface(UObject* NewInterface)
 
 extern FName g_026c5344;
  /* ENGINE_SetGameInterface */
-struct UOnlineSubsystem__00e85c90 : public UOnlineSubsystem
-{
-    UBOOL eventSetGameInterface(UObject* NewInterface);
-};
 
 // @baa 0x00e85c90
 /* OnlineSubsystem.uc's SetGameInterface script event, generated glue (EngineClasses.h). */
-UBOOL UOnlineSubsystem__00e85c90::eventSetGameInterface(UObject* NewInterface)
+UBOOL UOnlineSubsystem::eventSetGameInterface(UObject* NewInterface)
 {
     struct OnlineSubsystem_eventSetGameInterface_Parms
     {
@@ -2530,14 +2522,10 @@ UBOOL UOnlineSubsystem__00e85c90::eventSetGameInterface(UObject* NewInterface)
 
 extern FName g_026c3eb0;
  /* ENGINE_SetSystemInterface */
-struct UOnlineSubsystem__00e85ce0 : public UOnlineSubsystem
-{
-    UBOOL eventSetSystemInterface(UObject* NewInterface);
-};
 
 // @baa 0x00e85ce0
 /* OnlineSubsystem.uc's SetSystemInterface script event, generated glue (EngineClasses.h). */
-UBOOL UOnlineSubsystem__00e85ce0::eventSetSystemInterface(UObject* NewInterface)
+UBOOL UOnlineSubsystem::eventSetSystemInterface(UObject* NewInterface)
 {
     struct OnlineSubsystem_eventSetSystemInterface_Parms
     {
@@ -2553,14 +2541,10 @@ UBOOL UOnlineSubsystem__00e85ce0::eventSetSystemInterface(UObject* NewInterface)
 
 extern FName g_026c50f4;
  /* ENGINE_SetPlayerInterfaceEx */
-struct UOnlineSubsystem__00e85d30 : public UOnlineSubsystem
-{
-    UBOOL eventSetPlayerInterfaceEx(UObject* NewInterface);
-};
 
 // @baa 0x00e85d30
 /* OnlineSubsystem.uc's SetPlayerInterfaceEx script event, generated glue (EngineClasses.h). */
-UBOOL UOnlineSubsystem__00e85d30::eventSetPlayerInterfaceEx(UObject* NewInterface)
+UBOOL UOnlineSubsystem::eventSetPlayerInterfaceEx(UObject* NewInterface)
 {
     struct OnlineSubsystem_eventSetPlayerInterfaceEx_Parms
     {
@@ -2576,14 +2560,10 @@ UBOOL UOnlineSubsystem__00e85d30::eventSetPlayerInterfaceEx(UObject* NewInterfac
 
 extern FName g_026c3edc;
  /* ENGINE_SetPlayerInterface */
-struct UOnlineSubsystem__00e85d80 : public UOnlineSubsystem
-{
-    UBOOL eventSetPlayerInterface(UObject* NewInterface);
-};
 
 // @baa 0x00e85d80
 /* OnlineSubsystem.uc's SetPlayerInterface script event, generated glue (EngineClasses.h). */
-UBOOL UOnlineSubsystem__00e85d80::eventSetPlayerInterface(UObject* NewInterface)
+UBOOL UOnlineSubsystem::eventSetPlayerInterface(UObject* NewInterface)
 {
     struct OnlineSubsystem_eventSetPlayerInterface_Parms
     {
@@ -2599,14 +2579,10 @@ UBOOL UOnlineSubsystem__00e85d80::eventSetPlayerInterface(UObject* NewInterface)
 
 extern FName g_026c4288;
  /* ENGINE_SetAccountInterface */
-struct UOnlineSubsystem__00e85dd0 : public UOnlineSubsystem
-{
-    UBOOL eventSetAccountInterface(UObject* NewInterface);
-};
 
 // @baa 0x00e85dd0
 /* OnlineSubsystem.uc's SetAccountInterface script event, generated glue (EngineClasses.h). */
-UBOOL UOnlineSubsystem__00e85dd0::eventSetAccountInterface(UObject* NewInterface)
+UBOOL UOnlineSubsystem::eventSetAccountInterface(UObject* NewInterface)
 {
     struct OnlineSubsystem_eventSetAccountInterface_Parms
     {

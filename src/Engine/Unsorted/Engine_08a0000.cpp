@@ -1296,16 +1296,10 @@ void CNode::sub_008aef40()
 }
 
 extern FName g_026c48d4;
-	/* OnSystemFinished */
-/* Kit gap: the delegate's generated glue isn't declared. */
-struct UParticleSystemComponent_ : public UParticleSystemComponent
-{
-	void delegateOnSystemFinished(class UParticleSystemComponent* PSystem);
-};
 
 // @baa 0x008a7780
 /* The script delegate's generated glue, out of line here. */
-void UParticleSystemComponent_::delegateOnSystemFinished(class UParticleSystemComponent* PSystem)
+void UParticleSystemComponent::delegateOnSystemFinished(class UParticleSystemComponent* PSystem)
 {
 	struct ParticleSystemComponent_eventOnSystemFinished_Parms
 	{

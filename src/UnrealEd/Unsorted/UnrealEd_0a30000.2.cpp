@@ -21,14 +21,10 @@ void USkeletalMeshComponent::execSetSoftBodyFrozen(FFrame& Stack, RESULT_DECL)
 
 extern FName g_026c3fe0;
 	/* GetRadii */
-struct UForceFieldShapeBox_ : public UForceFieldShapeBox
-{
-	FVector eventGetRadii();
-};
 
 // @baa 0x00a33eb0
 /* ForceFieldShapeBox.GetRadii script event: the generated glue, out of line here. */
-FVector UForceFieldShapeBox_::eventGetRadii()
+FVector UForceFieldShapeBox::eventGetRadii()
 {
 	struct ForceFieldShapeBox_eventGetRadii_Parms
 	{
@@ -41,14 +37,10 @@ FVector UForceFieldShapeBox_::eventGetRadii()
 
 extern FName g_026c4a08;
 	/* GetHeight */
-struct UForceFieldShapeCapsule_ : public UForceFieldShapeCapsule
-{
-	FLOAT eventGetHeight();
-};
 
 // @baa 0x00a34020
 /* ForceFieldShapeCapsule.GetHeight script event: the generated glue, out of line here. */
-FLOAT UForceFieldShapeCapsule_::eventGetHeight()
+FLOAT UForceFieldShapeCapsule::eventGetHeight()
 {
 	struct ForceFieldShapeCapsule_eventGetHeight_Parms
 	{

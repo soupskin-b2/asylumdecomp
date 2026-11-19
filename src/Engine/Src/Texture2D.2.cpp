@@ -8,13 +8,9 @@
 extern INT GMaxTextureMipCount;
 /* Unnamed in the kit: UE3's UTexture2D::IsFullyStreamedIn() (Mips.Num() is the mirror's ArrayNum, GetCachedLODBias() is
  * CachedCombinedLODBias). */
-struct UTexture2D_ : public UTexture2D
-{
-    UBOOL sub_0071d2d0();
-};
 
 // @baa 0x0071d2d0
-UBOOL UTexture2D_::sub_0071d2d0()
+UBOOL UTexture2D::sub_0071d2d0()
 {
     UBOOL bIsFullyStreamedIn = TRUE;
     if (bIsStreamable)

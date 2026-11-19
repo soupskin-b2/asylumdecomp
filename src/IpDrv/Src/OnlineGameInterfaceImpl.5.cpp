@@ -46,15 +46,11 @@ void Reader::sub_00e2a3b0(Result* Out)
 
 extern FName g_026cad34;
  /* IPDRV_GetPlayerUniqueNetIdFromIndex */
-struct UOnlineSubsystemCommonImpl_ : public UOnlineSubsystemCommonImpl
-{
-    FUniqueNetId eventGetPlayerUniqueNetIdFromIndex(INT UserIndex);
-};
 
 // @baa 0x00e2a1e0
 /* OnlineSubsystemCommonImpl.uc's GetPlayerUniqueNetIdFromIndex script event, generated glue
  * (IpDrvClasses.h). */
-FUniqueNetId UOnlineSubsystemCommonImpl_::eventGetPlayerUniqueNetIdFromIndex(INT UserIndex)
+FUniqueNetId UOnlineSubsystemCommonImpl::eventGetPlayerUniqueNetIdFromIndex(INT UserIndex)
 {
     struct OnlineSubsystemCommonImpl_eventGetPlayerUniqueNetIdFromIndex_Parms
     {

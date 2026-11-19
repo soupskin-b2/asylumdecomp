@@ -210,12 +210,9 @@ struct C_0160e5d0 { C_0160e5d0* sub_0160e5d0(int a0); };
 C_0160e5d0* C_0160e5d0::sub_0160e5d0(int a0) { return this; }
 
 extern FName g_026e39e4;
-struct UObject_ : public UObject {
-    void sub_01612630(BYTE A, INT B, INT C);
-};
 
 // @baa 0x01612630
-void UObject_::sub_01612630(BYTE A, INT B, INT C)
+void UObject::sub_01612630(BYTE A, INT B, INT C)
 {
     struct { BYTE A; INT B; INT C; } Parms;
     Parms.A = A;

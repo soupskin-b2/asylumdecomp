@@ -493,14 +493,10 @@ void UAnimTree::execSetGroupRateScale(FFrame& Stack, RESULT_DECL)
 
 extern FName g_026c5128;
 	/* SpawnAgent */
-struct USeqAct_CrowdSpawner_ : public USeqAct_CrowdSpawner
-{
-	class ACrowdAgent* eventSpawnAgent(class AActor* SpawnLoc);
-};
 
 // @baa 0x00c98940
 /* SeqAct_CrowdSpawner.SpawnAgent script event: the generated glue, out of line here. */
-class ACrowdAgent* USeqAct_CrowdSpawner_::eventSpawnAgent(class AActor* SpawnLoc)
+class ACrowdAgent* USeqAct_CrowdSpawner::eventSpawnAgent(class AActor* SpawnLoc)
 {
 	struct SeqAct_CrowdSpawner_eventSpawnAgent_Parms
 	{

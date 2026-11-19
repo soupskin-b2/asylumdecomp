@@ -6,14 +6,10 @@
 
 extern FName g_026c5224;
 	/* ENGINE_SetFaceFXRegister */
-struct AActor_ : public AActor
-{
-	void eventSetFaceFXRegister(const FString& RegisterName, FLOAT Value, BYTE RegOp);
-};
 
 // @baa 0x00cf8b60
 /* The script event's generated glue (EngineClasses.h), out of line here. */
-void AActor_::eventSetFaceFXRegister(const FString& RegisterName, FLOAT Value, BYTE RegOp)
+void AActor::eventSetFaceFXRegister(const FString& RegisterName, FLOAT Value, BYTE RegOp)
 {
 	struct Actor_eventSetFaceFXRegister_Parms
 	{

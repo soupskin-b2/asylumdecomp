@@ -163,14 +163,10 @@ void ACoverLink::execGetSlotActions(FFrame& Stack, RESULT_DECL)
 
 extern FName g_026c4c18;
 	/* ENGINE_SetSlotEnabled */
-struct ACoverLink_ : public ACoverLink
-{
-	void eventSetSlotEnabled(INT SlotIdx, UBOOL bEnable);
-};
 
 // @baa 0x00833c40
 /* The script event's generated glue (EngineClasses.h), out of line here. */
-void ACoverLink_::eventSetSlotEnabled(INT SlotIdx, UBOOL bEnable)
+void ACoverLink::eventSetSlotEnabled(INT SlotIdx, UBOOL bEnable)
 {
 	struct CoverLink_eventSetSlotEnabled_Parms
 	{

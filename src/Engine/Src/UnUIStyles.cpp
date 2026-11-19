@@ -3796,15 +3796,10 @@ UBOOL UUIStyle_Combo::IsDirty()
 
 /* Kit gaps: FUIStyleReference has no methods; UUIStyle::GetStyleForState is declared,
  * GetStyleForStateByClass is sub_00ddac00. */
-struct FUIStyleReference_ : public FUIStyleReference
-{
-	UUIStyle_Data* GetStyleDataByState(UUIState* StateObject) const;
-	UUIStyle_Data* GetStyleDataByClass(UClass* StateClass) const;
-};
 
 // @baa 0x00ddb4e0
 /* The resolved style's data for StateObject. */
-UUIStyle_Data* FUIStyleReference_::GetStyleDataByState(UUIState* StateObject) const
+UUIStyle_Data* FUIStyleReference::GetStyleDataByState(UUIState* StateObject) const
 {
 	UUIStyle_Data* Result = NULL;
 	if (StateObject != NULL && ResolvedStyle != NULL)
@@ -3816,7 +3811,7 @@ UUIStyle_Data* FUIStyleReference_::GetStyleDataByState(UUIState* StateObject) co
 
 // @baa 0x00ddb500
 /* The resolved style's data for the state of class StateClass. */
-UUIStyle_Data* FUIStyleReference_::GetStyleDataByClass(UClass* StateClass) const
+UUIStyle_Data* FUIStyleReference::GetStyleDataByClass(UClass* StateClass) const
 {
 	UUIStyle_Data* Result = NULL;
 	if (StateClass != NULL && ResolvedStyle != NULL)
@@ -3843,16 +3838,10 @@ void UUIStyle_Combo::vf_114()
 }
 
 extern FName g_026c4374;
-	/* MatchesStyleData */
-/* Kit gap: the delegate's generated glue isn't declared. */
-struct UUIStyle_Data_ : public UUIStyle_Data
-{
-	UBOOL delegateMatchesStyleData(class UUIStyle_Data* OtherStyle);
-};
 
 // @baa 0x00dc9a40
 /* The script delegate's generated glue, out of line here. */
-UBOOL UUIStyle_Data_::delegateMatchesStyleData(class UUIStyle_Data* OtherStyle)
+UBOOL UUIStyle_Data::delegateMatchesStyleData(class UUIStyle_Data* OtherStyle)
 {
 	struct UIStyle_Data_eventMatchesStyleData_Parms
 	{

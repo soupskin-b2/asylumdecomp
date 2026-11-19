@@ -41,10 +41,6 @@ struct FInterpCurveVector_ : public FInterpCurveVector
     void sub_007bb200(FLOAT Tension);
 };
 
-struct FInterpLookupTrack_ : public FInterpLookupTrack
-{
-    INT sub_00cfa320(INT PointIndex, FLOAT NewTime);
-};
 
 // @baa 0x00d03e30
 /* UE3's UInterpTrackMove::SetKeyframeTime(INT KeyIndex, FLOAT NewKeyTime, UBOOL bUpdateOrder): retime the key in all
@@ -64,7 +60,7 @@ INT UInterpTrackMove::SetKeyframeTime(INT KeyIndex, FLOAT NewKeyTime, UBOOL bUpd
     {
         NewKeyIndex = ((FInterpCurveVector_&)PosTrack).sub_007c3d10(KeyIndex, NewKeyTime);
         INT NewEulerKeyIndex = ((FInterpCurveVector_&)EulerTrack).sub_007c3d10(KeyIndex, NewKeyTime);
-        INT NewLookupKeyIndex = ((FInterpLookupTrack_&)LookupTrack).sub_00cfa320(KeyIndex, NewKeyTime);
+        INT NewLookupKeyIndex = ((FInterpLookupTrack&)LookupTrack).sub_00cfa320(KeyIndex, NewKeyTime);
 #line 3165 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnInterpolation.cpp"
         check((NewKeyIndex == NewEulerKeyIndex) && (NewKeyIndex == NewLookupKeyIndex));
     }

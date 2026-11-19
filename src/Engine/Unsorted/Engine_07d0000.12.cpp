@@ -6,14 +6,10 @@
 
 extern FName g_026c50a4;
 	/* ENGINE_PostLogin */
-struct AGameInfo_ : public AGameInfo
-{
-	void eventPostLogin(class APlayerController* NewPlayer);
-};
 
 // @baa 0x007d64a0
 /* The script event's generated glue (EngineClasses.h), out of line here. */
-void AGameInfo_::eventPostLogin(class APlayerController* NewPlayer)
+void AGameInfo::eventPostLogin(class APlayerController* NewPlayer)
 {
 	struct GameInfo_eventPostLogin_Parms
 	{
@@ -83,15 +79,11 @@ void AActor::PostBeginPlay()
     }
 }
 
-struct AActor__007d5bb0 : public AActor
-{
-	void eventPostBeginPlay();
-};
 
 // @baa 0x007d5bb0
 /* The script event's generated glue (EngineClasses.h), out of line here. PostBeginPlay is a probe
  * function: the glue only calls into script when the current state probes for it. */
-void AActor__007d5bb0::eventPostBeginPlay()
+void AActor::eventPostBeginPlay()
 {
 	if (!StateFrame || (StateFrame->ProbeMask & ((QWORD)1 << (NAME_PostBeginPlay - NAME_PROBEMIN))))
 	{
@@ -102,15 +94,11 @@ void AActor__007d5bb0::eventPostBeginPlay()
 extern FName g_026c54b0;
 	/* ENGINE_PreBeginPlay */
 /* EName entries Core.h doesn't list yet (UnNames.h) */
-struct AActor__007d5c00 : public AActor
-{
-	void eventPreBeginPlay();
-};
 
 // @baa 0x007d5c00
 /* The script event's generated glue (EngineClasses.h), out of line here. PreBeginPlay is a probe
  * function: the glue only calls into script when the current state probes for it. */
-void AActor__007d5c00::eventPreBeginPlay()
+void AActor::eventPreBeginPlay()
 {
 	if (!StateFrame || (StateFrame->ProbeMask & ((QWORD)1 << (NAME_PreBeginPlay - NAME_PROBEMIN))))
 	{

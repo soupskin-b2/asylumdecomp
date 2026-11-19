@@ -27,38 +27,26 @@ UMorphTarget* USkeletalMeshComponent::FindMorphTarget(FName MorphTargetName)
     return NULL;
 }
 
-struct USkeletalMeshComponent__0090f3d0 : public USkeletalMeshComponent
-{
-    UBOOL AreRagdollCalmingMeasuresDisabled() const;
-};
 
 // @baa 0x0090f3d0
 /* name guessed: whether the ragdoll calming code is switched off, for real or for debugging */
-UBOOL USkeletalMeshComponent__0090f3d0::AreRagdollCalmingMeasuresDisabled() const
+UBOOL USkeletalMeshComponent::AreRagdollCalmingMeasuresDisabled() const
 {
     return bDisableRagdollCalmingMeasures || bDebugDisableRagdollCalmingMeasures;
 }
 
-struct USkeletalMeshComponent__0090f440 : public USkeletalMeshComponent
-{
-    void SetDisableRagdollCalmingMeasures(UBOOL bDisable);
-};
 
 // @baa 0x0090f440
 /* name guessed from the field it sets */
-void USkeletalMeshComponent__0090f440::SetDisableRagdollCalmingMeasures(UBOOL bDisable)
+void USkeletalMeshComponent::SetDisableRagdollCalmingMeasures(UBOOL bDisable)
 {
     bDisableRagdollCalmingMeasures = bDisable;
 }
 
-struct USkeletalMeshComponent__0090f550 : public USkeletalMeshComponent
-{
-    void SetPhysicsAssetInstanceCached(UBOOL bCache);
-};
 
 // @baa 0x0090f550
 /* name guessed: park the physics asset instance in CachedPhysicsAssetInstance, or bring it back */
-void USkeletalMeshComponent__0090f550::SetPhysicsAssetInstanceCached(UBOOL bCache)
+void USkeletalMeshComponent::SetPhysicsAssetInstanceCached(UBOOL bCache)
 {
 #line 7164 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSkeletalComponent.cpp"
     check( ( PhysicsAssetInstance == NULL ) || ( CachedPhysicsAssetInstance == NULL ) );
@@ -116,13 +104,9 @@ struct FRotator_ : public FRotator
 
 inline UBOOL operator!=(const FName& A, EName B) { return A.Index != B || A.Number != 0; }
 
-struct USkeletalMeshComponent__0091da00 : public USkeletalMeshComponent
-{
-    UBOOL GetSocketWorldLocationAndRotation(FName InSocketName, FVector& OutLocation, FRotator* OutRotation);
-};
 
 // @baa 0x0091da00
-UBOOL USkeletalMeshComponent__0091da00::GetSocketWorldLocationAndRotation(FName InSocketName, FVector& OutLocation, FRotator* OutRotation)
+UBOOL USkeletalMeshComponent::GetSocketWorldLocationAndRotation(FName InSocketName, FVector& OutLocation, FRotator* OutRotation)
 {
     if (SkeletalMesh)
     {

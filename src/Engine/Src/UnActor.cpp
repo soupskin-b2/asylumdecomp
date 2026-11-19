@@ -5,12 +5,9 @@
 
 extern FName g_026c3f6c;
  /* NAME_Attach */
-struct AActor_ : public AActor {
-    void sub_00753900(AActor* Other);
-};
 
 // @baa 0x00753900
-void AActor_::sub_00753900(AActor* Other)
+void AActor::sub_00753900(AActor* Other)
 {
     BYTE* Frame = (BYTE*)StateFrame;
     if (!Frame || (*(QWORD*)(Frame + 0x2c) & 0x80000))

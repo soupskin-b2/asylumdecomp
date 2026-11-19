@@ -113,13 +113,9 @@ void UTexture::PreSave()
 	}
 }
 
-struct UTexture_ : public UTexture
-{
-    void sub_00d45fb0();
-};
 
 // @baa 0x00d45fb0
-void UTexture_::sub_00d45fb0()
+void UTexture::sub_00d45fb0()
 {
     RGBE = (CompressionSettings == 5);
 }

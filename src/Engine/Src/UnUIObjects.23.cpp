@@ -18,14 +18,10 @@ struct TArrayAddItem : public TArray<T>
     }
 };
 
-struct UUIScreenObject_ : public UUIScreenObject
-{
-    void sub_00daf880(TArray<UUIObject*>& out_Subscribers) const;
-};
 
 // @baa 0x00daf880
 /* Gathers every descendant widget that wants scene update notifications. */
-void UUIScreenObject_::sub_00daf880(TArray<UUIObject*>& out_Subscribers) const
+void UUIScreenObject::sub_00daf880(TArray<UUIObject*>& out_Subscribers) const
 {
     for (INT ChildIndex = 0; ChildIndex < Children.Num(); ChildIndex++)
     {
@@ -36,7 +32,7 @@ void UUIScreenObject_::sub_00daf880(TArray<UUIObject*>& out_Subscribers) const
             {
                 ((TArrayAddItem<UUIObject*>&)out_Subscribers).AddItem(Child);
             }
-            ((UUIScreenObject_*)Child)->sub_00daf880(out_Subscribers);
+            ((UUIScreenObject*)Child)->sub_00daf880(out_Subscribers);
         }
     }
 }

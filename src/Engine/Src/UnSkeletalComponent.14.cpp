@@ -5,14 +5,10 @@
 #include "ue3/Cast.h"
 
 extern template UAnimTree* Cast<UAnimTree>(UObject* Src);
-struct USkeletalMeshComponent_ : public USkeletalMeshComponent
-{
-    USkelControlBase* FindSkelControl(FName InControlName);
-};
 
 // @baa 0x00913fb0
 /* find a skel control by name in the anim tree, if there is one */
-USkelControlBase* USkeletalMeshComponent_::FindSkelControl(FName InControlName)
+USkelControlBase* USkeletalMeshComponent::FindSkelControl(FName InControlName)
 {
     UAnimTree* Tree = Cast<UAnimTree>(Animations);
     if (Tree)
@@ -22,14 +18,10 @@ USkelControlBase* USkeletalMeshComponent_::FindSkelControl(FName InControlName)
     return NULL;
 }
 
-struct USkeletalMeshComponent__00913fe0 : public USkeletalMeshComponent
-{
-    UMorphNodeBase* FindMorphNode(FName InNodeName);
-};
 
 // @baa 0x00913fe0
 /* find a morph node by name in the anim tree, if there is one */
-UMorphNodeBase* USkeletalMeshComponent__00913fe0::FindMorphNode(FName InNodeName)
+UMorphNodeBase* USkeletalMeshComponent::FindMorphNode(FName InNodeName)
 {
     UAnimTree* Tree = Cast<UAnimTree>(Animations);
     if (Tree)

@@ -42,12 +42,9 @@ struct FxActorInstance {
 };
 
 void* sub_00bf7480(INT Arg);
-struct USkeletalMeshComponent_ : public USkeletalMeshComponent {
-    FLOAT sub_0090e6a0(INT Arg);
-};
 
 // @baa 0x0090e6a0
-FLOAT USkeletalMeshComponent_::sub_0090e6a0(INT Arg)
+FLOAT USkeletalMeshComponent::sub_0090e6a0(INT Arg)
 {
     FxActorInstance* Instance = *(FxActorInstance**)&FaceFXActorInstance;
     if (Instance)
@@ -86,13 +83,9 @@ struct USkeletalMesh_ : public USkeletalMesh
 /* Kit gap: FName has no comparison operators (UnName.h, inline). */
 /* Unnamed in the kit: UE3's USkeletalMeshComponent::MatchRefBone(FName BoneName): the mesh's bone index, or
  * INDEX_NONE without a name or a mesh. */
-struct USkeletalMeshComponent__0090e8e0 : public USkeletalMeshComponent
-{
-    INT sub_0090e8e0(FName BoneName);
-};
 
 // @baa 0x0090e8e0
-INT USkeletalMeshComponent__0090e8e0::sub_0090e8e0(FName BoneName)
+INT USkeletalMeshComponent::sub_0090e8e0(FName BoneName)
 {
     INT BoneIndex = INDEX_NONE;
     if (BoneName != FName(NAME_None) && SkeletalMesh)

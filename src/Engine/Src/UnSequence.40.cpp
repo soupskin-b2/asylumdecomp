@@ -9,11 +9,6 @@
 #endif
 // The game keeps this instantiation's destructor out of line (0x00665ce0).
 extern template TArray<INT*>::~TArray();
-/* Kit gap: USequenceOp::GetIntVars (UnSequence.cpp) isn't declared. */
-struct USequenceOp_ : public USequenceOp
-{
-    void GetIntVars(TArray<INT*>& outInts, const TCHAR* inDesc = NULL); /* 0x008d6a00 */
-};
 
 // @baa 0x008e39e0
 UBOOL USeqAct_DelaySwitch::UpdateOp(FLOAT DeltaTime)
@@ -29,7 +24,7 @@ UBOOL USeqAct_DelaySwitch::UpdateOp(FLOAT DeltaTime)
 
             // and tell any attached variables which one it was
             TArray<INT*> LinkVars;
-            ((USequenceOp_*)this)->GetIntVars(LinkVars, TEXT("Active Link"));
+            ((USequenceOp*)this)->GetIntVars(LinkVars, TEXT("Active Link"));
             for (INT Idx = 0; Idx < LinkVars.Num(); Idx++)
             {
                 *(LinkVars(Idx)) = CurrentIdx + 1;

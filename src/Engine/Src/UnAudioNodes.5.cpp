@@ -5,13 +5,9 @@
 #include "ue3/AppMath.h"
 
 /* USoundNodeAmbientNonLoop::PickNewSlot isn't declared in Classes.h. */
-struct USoundNodeAmbientNonLoop_ : public USoundNodeAmbientNonLoop
-{
-	INT PickNewSlot();
-};
 
 // @baa 0x00cbad20
-INT USoundNodeAmbientNonLoop_::PickNewSlot()
+INT USoundNodeAmbientNonLoop::PickNewSlot()
 {
 	// Handle case of empty array
 	if( SoundSlots.Num() == 0 )

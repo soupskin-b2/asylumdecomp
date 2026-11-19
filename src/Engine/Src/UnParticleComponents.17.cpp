@@ -27,13 +27,9 @@ UBOOL UParticleSystemComponent::GetColorParameter(FName InName, FColor& OutColor
 
 /* Unnamed in the kit: the PSPT_VectorArray counterpart of GetVectorParameter (a game addition; CommonGameEffectClasses
  * calls it): the VectorArray pointer of the instance parameter InName, or NULL (FPointer is an INT in the kit). */
-struct UParticleSystemComponent_ : public UParticleSystemComponent
-{
-    INT sub_00b5ecb0(FName InName);
-};
 
 // @baa 0x00b5ecb0
-INT UParticleSystemComponent_::sub_00b5ecb0(FName InName)
+INT UParticleSystemComponent::sub_00b5ecb0(FName InName)
 {
     if (InName == NAME_None)
     {

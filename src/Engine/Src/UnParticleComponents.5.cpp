@@ -83,13 +83,9 @@ void UParticleSystemComponent__00c9db40::execGetEditorLODLevel( FFrame& Stack, R
 	*(INT*)Result = GetEditorLODLevel();
 }
 
-struct UParticleSystemComponent__00c9db80 : public UParticleSystemComponent {
-    void SetFloatParameter(FName ParameterName, FLOAT Param);
-    void execSetFloatParameter(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00c9db80
-void UParticleSystemComponent__00c9db80::execSetFloatParameter(FFrame& Stack, RESULT_DECL)
+void UParticleSystemComponent::execSetFloatParameter(FFrame& Stack, RESULT_DECL)
 {
     P_GET_NAME(ParameterName);
     P_GET_FLOAT(Param);
@@ -166,10 +162,6 @@ void UParticleSystemComponent::execSetLODLevel(FFrame& Stack, RESULT_DECL)
 	this->SetLODLevel(InLODLevel);
 }
 
-struct UParticleSystemComponent__00c9daa0 : public UParticleSystemComponent
-{
-	void SetEditorLODLevel(INT);
-};
 
 // @baa 0x00c9daa0
 void UParticleSystemComponent::execSetEditorLODLevel(FFrame& Stack, RESULT_DECL)
@@ -221,14 +213,9 @@ void UParticleSystemComponent::execSetSpawnScale(FFrame& Stack, RESULT_DECL)
 	SetSpawnScale(Value);
 }
 
-struct UParticleSystemComponent__00c9dd70 : public UParticleSystemComponent
-{
-	void SetActorParameter(FName ParameterName, AActor* Param);
-	void execSetActorParameter(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00c9dd70
-void UParticleSystemComponent__00c9dd70::execSetActorParameter(FFrame& Stack, RESULT_DECL)
+void UParticleSystemComponent::execSetActorParameter(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_NAME(ParameterName);
 	P_GET_OBJECT(AActor, Param);
@@ -236,14 +223,9 @@ void UParticleSystemComponent__00c9dd70::execSetActorParameter(FFrame& Stack, RE
 	SetActorParameter(ParameterName, Param);
 }
 
-struct UParticleSystemComponent__00c9de10 : public UParticleSystemComponent
-{
-	void SetMaterialParameter(FName ParameterName, UMaterialInterface* Param);
-	void execSetMaterialParameter(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00c9de10
-void UParticleSystemComponent__00c9de10::execSetMaterialParameter(FFrame& Stack, RESULT_DECL)
+void UParticleSystemComponent::execSetMaterialParameter(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_NAME(ParameterName);
 	P_GET_OBJECT(UMaterialInterface, Param);
@@ -251,14 +233,9 @@ void UParticleSystemComponent__00c9de10::execSetMaterialParameter(FFrame& Stack,
 	SetMaterialParameter(ParameterName, Param);
 }
 
-struct UParticleSystemComponent__00c9e300 : public UParticleSystemComponent
-{
-	void ClearParameter(FName ParameterName, BYTE ParameterType);
-	void execClearParameter(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00c9e300
-void UParticleSystemComponent__00c9e300::execClearParameter(FFrame& Stack, RESULT_DECL)
+void UParticleSystemComponent::execClearParameter(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_NAME(ParameterName);
 	P_GET_BYTE_OPTX(ParameterType, PSPT_None);
@@ -266,14 +243,9 @@ void UParticleSystemComponent__00c9e300::execClearParameter(FFrame& Stack, RESUL
 	ClearParameter(ParameterName, ParameterType);
 }
 
-struct UParticleSystemComponent__00c9dc20 : public UParticleSystemComponent
-{
-	void SetVectorParameter(FName ParameterName, FVector Param);
-	void execSetVectorParameter(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00c9dc20
-void UParticleSystemComponent__00c9dc20::execSetVectorParameter(FFrame& Stack, RESULT_DECL)
+void UParticleSystemComponent::execSetVectorParameter(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_NAME(ParameterName);
 	P_GET_STRUCT(FVector, Param);
@@ -304,14 +276,9 @@ void UParticleSystem::execGetLODDistance(FFrame& Stack, RESULT_DECL)
 	*(FLOAT*)Result = GetLODDistance(LODLevelIndex);
 }
 
-struct UParticleSystemComponent__00c9dcd0 : public UParticleSystemComponent
-{
-	void SetColorParameter(FName ParameterName, FColor Param);
-	void execSetColorParameter(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00c9dcd0
-void UParticleSystemComponent__00c9dcd0::execSetColorParameter(FFrame& Stack, RESULT_DECL)
+void UParticleSystemComponent::execSetColorParameter(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_NAME(ParameterName);
 	P_GET_STRUCT(FColor, Param);

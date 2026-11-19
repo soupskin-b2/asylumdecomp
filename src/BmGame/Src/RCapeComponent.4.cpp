@@ -4,12 +4,9 @@
 #include "ue3/Classes.h"
 #include "ue3/Native.h"
 
-struct URCapeComponent_ : public URCapeComponent {
-    UPhysicalMaterial* sub_016ae9f0();
-};
 
 // @baa 0x016ae9f0
-UPhysicalMaterial* URCapeComponent_::sub_016ae9f0()
+UPhysicalMaterial* URCapeComponent::sub_016ae9f0()
 {
     UPhysicalMaterial* Material = GEngine->DefaultPhysMaterial;
     if (PhysMaterialOverride != NULL)

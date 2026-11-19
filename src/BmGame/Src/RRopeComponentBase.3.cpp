@@ -4,12 +4,9 @@
 #include "ue3/Classes.h"
 #include "ue3/Native.h"
 
-struct URRopeComponentBase_ : public URRopeComponentBase {
-    UPhysicalMaterial* sub_0163f5c0();
-};
 
 // @baa 0x0163f5c0
-UPhysicalMaterial* URRopeComponentBase_::sub_0163f5c0()
+UPhysicalMaterial* URRopeComponentBase::sub_0163f5c0()
 {
     UPhysicalMaterial* Material = GEngine->DefaultPhysMaterial;
     if (PhysMaterialOverride != NULL)

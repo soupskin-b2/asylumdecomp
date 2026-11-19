@@ -6,15 +6,10 @@
 // @baa 0x00ddd070
 int sub_00ddd070(int a0, int a1) { return a1; }
 
-/* Kit gap: FUIRangeData's native methods aren't declared. */
-struct FUIRangeData_ : public FUIRangeData
-{
-	UBOOL HasValue() const;
-};
 
 // @baa 0x00dde670
 /* Whether any of the range's values has been set. */
-UBOOL FUIRangeData_::HasValue() const
+UBOOL FUIRangeData::HasValue() const
 {
 	return CurrentValue != 0.f || MinValue != 0.f || MaxValue != 0.f || NudgeValue != 0.f || bIntRange;
 }
@@ -50,16 +45,10 @@ int s0056()
 }
 
 extern FName g_026c4328;
-	/* OnQueryCloseSceneAllowed */
-/* Kit gap: the delegate's generated glue isn't declared. */
-struct UUIScene_ : public UUIScene
-{
-	UBOOL delegateOnQueryCloseSceneAllowed(class UUIScene* SceneToDeactivate, UBOOL bCloseChildScenes, UBOOL bForcedClose);
-};
 
 // @baa 0x00ddd490
 /* The script delegate's generated glue, out of line here. */
-UBOOL UUIScene_::delegateOnQueryCloseSceneAllowed(class UUIScene* SceneToDeactivate, UBOOL bCloseChildScenes, UBOOL bForcedClose)
+UBOOL UUIScene::delegateOnQueryCloseSceneAllowed(class UUIScene* SceneToDeactivate, UBOOL bCloseChildScenes, UBOOL bForcedClose)
 {
 	struct UIScene_eventOnQueryCloseSceneAllowed_Parms
 	{
@@ -77,16 +66,10 @@ UBOOL UUIScene_::delegateOnQueryCloseSceneAllowed(class UUIScene* SceneToDeactiv
 }
 
 extern FName g_026c4020;
-	/* OnScriptTick */
-/* Kit gap: the delegate's generated glue isn't declared. */
-struct UUITickableObjectProxy_ : public UUITickableObjectProxy
-{
-	void delegateOnScriptTick(class UUITickableObjectProxy* Sender, FLOAT DeltaTime);
-};
 
 // @baa 0x00ddd8a0
 /* The script delegate's generated glue, out of line here. */
-void UUITickableObjectProxy_::delegateOnScriptTick(class UUITickableObjectProxy* Sender, FLOAT DeltaTime)
+void UUITickableObjectProxy::delegateOnScriptTick(class UUITickableObjectProxy* Sender, FLOAT DeltaTime)
 {
 	struct UITickableObjectProxy_eventOnScriptTick_Parms
 	{
@@ -99,16 +82,10 @@ void UUITickableObjectProxy_::delegateOnScriptTick(class UUITickableObjectProxy*
 }
 
 extern FName g_026c45d4;
-	/* NotifyResolutionChanged */
-/* Kit gap: the delegate's generated glue isn't declared. */
-struct UUIScreenObject_ : public UUIScreenObject
-{
-	void delegateNotifyResolutionChanged(const FVector2D& OldViewportsize, const FVector2D& NewViewportSize);
-};
 
 // @baa 0x00da6f40
 /* The script delegate's generated glue, out of line here. */
-void UUIScreenObject_::delegateNotifyResolutionChanged(const FVector2D& OldViewportsize, const FVector2D& NewViewportSize)
+void UUIScreenObject::delegateNotifyResolutionChanged(const FVector2D& OldViewportsize, const FVector2D& NewViewportSize)
 {
 	struct UIScreenObject_eventNotifyResolutionChanged_Parms
 	{

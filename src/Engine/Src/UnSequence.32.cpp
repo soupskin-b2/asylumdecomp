@@ -32,13 +32,9 @@ void USeqAct_ForceGarbageCollection::Activated()
 
 /* Unnamed in the kit (0x008ac050): whether this event may fire now (enabled, right side of the network for
  * bClientSideOnly, trigger count left); unless only testing, it activates with no originator. */
-struct USequenceEvent_ : public USequenceEvent
-{
-    UBOOL sub_008ac050(UBOOL bTest);
-};
 
 // @baa 0x008ac050
-UBOOL USequenceEvent_::sub_008ac050(UBOOL bTest)
+UBOOL USequenceEvent::sub_008ac050(UBOOL bTest)
 {
     if (bEnabled &&
         (bClientSideOnly ? GWorld->GetWorldInfo()->NetMode != NM_DedicatedServer : GWorld->GetWorldInfo()->NetMode != NM_Client) &&

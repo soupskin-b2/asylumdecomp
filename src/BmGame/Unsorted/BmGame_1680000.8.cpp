@@ -6,14 +6,10 @@
 
 extern FName g_026e3928;
 	/* JustAboveFloor */
-struct ARPawnVillain_ : public ARPawnVillain
-{
-	UBOOL eventJustAboveFloor();
-};
 
 // @baa 0x01686390
 /* RPawnVillain.JustAboveFloor script event: the generated glue, out of line here. */
-UBOOL ARPawnVillain_::eventJustAboveFloor()
+UBOOL ARPawnVillain::eventJustAboveFloor()
 {
 	struct RPawnVillain_eventJustAboveFloor_Parms
 	{
@@ -26,14 +22,10 @@ UBOOL ARPawnVillain_::eventJustAboveFloor()
 
 extern FName g_026e2874;
 	/* GetVenomHenchmanRidden */
-struct ARPawnPlayer_ : public ARPawnPlayer
-{
-	class ARPawnBossVenomBase* eventGetVenomHenchmanRidden();
-};
 
 // @baa 0x016864c0
 /* RPawnPlayer.GetVenomHenchmanRidden script event: the generated glue, out of line here. */
-class ARPawnBossVenomBase* ARPawnPlayer_::eventGetVenomHenchmanRidden()
+class ARPawnBossVenomBase* ARPawnPlayer::eventGetVenomHenchmanRidden()
 {
 	struct RPawnPlayer_eventGetVenomHenchmanRidden_Parms
 	{
@@ -46,14 +38,10 @@ class ARPawnBossVenomBase* ARPawnPlayer_::eventGetVenomHenchmanRidden()
 
 extern FName g_026e3654;
 	/* IsRidingVenomHenchman */
-struct ARPawnPlayer__01686500 : public ARPawnPlayer
-{
-	UBOOL eventIsRidingVenomHenchman();
-};
 
 // @baa 0x01686500
 /* RPawnPlayer.IsRidingVenomHenchman script event: the generated glue, out of line here. */
-UBOOL ARPawnPlayer__01686500::eventIsRidingVenomHenchman()
+UBOOL ARPawnPlayer::eventIsRidingVenomHenchman()
 {
 	struct RPawnPlayer_eventIsRidingVenomHenchman_Parms
 	{
@@ -66,14 +54,10 @@ UBOOL ARPawnPlayer__01686500::eventIsRidingVenomHenchman()
 
 extern FName g_026e2df0;
 	/* GetYawAnchorRotation */
-struct ARPlayerController_ : public ARPlayerController
-{
-	FRotator eventGetYawAnchorRotation();
-};
 
 // @baa 0x016868b0
 /* RPlayerController.GetYawAnchorRotation script event: the generated glue, out of line here. */
-FRotator ARPlayerController_::eventGetYawAnchorRotation()
+FRotator ARPlayerController::eventGetYawAnchorRotation()
 {
 	struct RPlayerController_eventGetYawAnchorRotation_Parms
 	{
@@ -86,28 +70,20 @@ FRotator ARPlayerController_::eventGetYawAnchorRotation()
 
 extern FName g_026e2674;
 	/* EyeMaterialUpdated */
-struct ARPawnPlayerBm_ : public ARPawnPlayerBm
-{
-	void eventEyeMaterialUpdated();
-};
 
 // @baa 0x01686660
 /* RPawnPlayerBm.EyeMaterialUpdated script event: the generated glue, out of line here. */
-void ARPawnPlayerBm_::eventEyeMaterialUpdated()
+void ARPawnPlayerBm::eventEyeMaterialUpdated()
 {
 	ProcessEvent(FindFunctionChecked(g_026e2674), NULL);
 }
 
 extern FName g_026e3030;
 	/* GetPCStateName */
-struct ARPawnPlayer__01686540 : public ARPawnPlayer
-{
-	FName eventGetPCStateName();
-};
 
 // @baa 0x01686540
 /* RPawnPlayer.GetPCStateName script event: the generated glue, out of line here. */
-FName ARPawnPlayer__01686540::eventGetPCStateName()
+FName ARPawnPlayer::eventGetPCStateName()
 {
 	struct RPawnPlayer_eventGetPCStateName_Parms
 	{
@@ -120,14 +96,10 @@ FName ARPawnPlayer__01686540::eventGetPCStateName()
 
 extern FName g_026e3418;
 	/* GetPostLandPose */
-struct ARPlayerController__01686910 : public ARPlayerController
-{
-	FName eventGetPostLandPose();
-};
 
 // @baa 0x01686910
 /* RPlayerController.GetPostLandPose script event: the generated glue, out of line here. */
-FName ARPlayerController__01686910::eventGetPostLandPose()
+FName ARPlayerController::eventGetPostLandPose()
 {
 	struct RPlayerController_eventGetPostLandPose_Parms
 	{
@@ -140,28 +112,20 @@ FName ARPlayerController__01686910::eventGetPostLandPose()
 
 extern FName g_026e2bcc;
 	/* BMGAME_FinaliseHeadAndMaterials */
-struct ARPawn_ : public ARPawn
-{
-	void eventFinaliseHeadAndMaterials();
-};
 
 // @baa 0x01686280
 /* The script event's generated glue (BmGameClasses.h), out of line here. */
-void ARPawn_::eventFinaliseHeadAndMaterials()
+void ARPawn::eventFinaliseHeadAndMaterials()
 {
 	ProcessEvent(FindFunctionChecked(g_026e2bcc), NULL);
 }
 
 extern FName g_026e31d0;
 	/* BMGAME_GetTargetPriority */
-struct ARPawnCombat_ : public ARPawnCombat
-{
-	FLOAT eventGetTargetPriority(class ARPawnCombat* Attacker, class UClass* dmgType);
-};
 
 // @baa 0x016862d0
 /* The script event's generated glue (BmGameClasses.h), out of line here. */
-FLOAT ARPawnCombat_::eventGetTargetPriority(class ARPawnCombat* Attacker, class UClass* dmgType)
+FLOAT ARPawnCombat::eventGetTargetPriority(class ARPawnCombat* Attacker, class UClass* dmgType)
 {
 	struct RPawnCombat_eventGetTargetPriority_Parms
 	{
@@ -178,14 +142,10 @@ FLOAT ARPawnCombat_::eventGetTargetPriority(class ARPawnCombat* Attacker, class 
 
 extern FName g_026e354c;
 	/* BMGAME_CanBeHitInCombat */
-struct ARPawnCombat__01686330 : public ARPawnCombat
-{
-	UBOOL eventCanBeHitInCombat(class URDamageType* DamageType);
-};
 
 // @baa 0x01686330
 /* The script event's generated glue (BmGameClasses.h), out of line here. */
-UBOOL ARPawnCombat__01686330::eventCanBeHitInCombat(class URDamageType* DamageType)
+UBOOL ARPawnCombat::eventCanBeHitInCombat(class URDamageType* DamageType)
 {
 	struct RPawnCombat_eventCanBeHitInCombat_Parms
 	{
@@ -200,14 +160,10 @@ UBOOL ARPawnCombat__01686330::eventCanBeHitInCombat(class URDamageType* DamageTy
 
 extern FName g_026e3428;
 	/* BMGAME_CanBeTargettedByPlayer */
-struct ARCombatMove_ : public ARCombatMove
-{
-	UBOOL eventCanBeTargettedByPlayer();
-};
 
 // @baa 0x016869f0
 /* The script event's generated glue (BmGameClasses.h), out of line here. */
-UBOOL ARCombatMove_::eventCanBeTargettedByPlayer()
+UBOOL ARCombatMove::eventCanBeTargettedByPlayer()
 {
 	struct RCombatMove_eventCanBeTargettedByPlayer_Parms
 	{
@@ -219,15 +175,9 @@ UBOOL ARCombatMove_::eventCanBeTargettedByPlayer()
 }
 
 extern FName g_026e296c;
-	/* BMGAME_AdjustMovementDirection */
-/* Kit gap: the generated glue for RPawnPlayer's script event AdjustMovementDirection (BmGameClasses.h) isn't declared; this build keeps it out of line. */
-struct ARPawnPlayer__016865a0 : public ARPawnPlayer
-{
-	FVector eventAdjustMovementDirection(FVector MovDir);
-};
 
 // @baa 0x016865a0
-FVector ARPawnPlayer__016865a0::eventAdjustMovementDirection(FVector MovDir)
+FVector ARPawnPlayer::eventAdjustMovementDirection(FVector MovDir)
 {
 	struct RPawnPlayer_eventAdjustMovementDirection_Parms
 	{

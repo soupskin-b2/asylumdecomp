@@ -34,13 +34,9 @@ extern FName g_026c552c;
 /* Kit gap: the generated glue for the AnimationTriggerCallback script event isn't declared; this build keeps it out
  * of line (USkeletalMeshComponent calls it on its Owner when an FAnimTriggerFaceFXTag fires, passing the tag's
  * fields; the parameter names follow that struct). */
-struct AActor_ : public AActor
-{
-	void eventAnimationTriggerCallback(FName TagName, const TArray<FString>& TagParams, UAnimSet* TagAnimSet, FLOAT AtTime);
-};
 
 // @baa 0x00938ac0
-void AActor_::eventAnimationTriggerCallback(FName TagName, const TArray<FString>& TagParams, UAnimSet* TagAnimSet, FLOAT AtTime)
+void AActor::eventAnimationTriggerCallback(FName TagName, const TArray<FString>& TagParams, UAnimSet* TagAnimSet, FLOAT AtTime)
 {
 	struct Actor_eventAnimationTriggerCallback_Parms
 	{

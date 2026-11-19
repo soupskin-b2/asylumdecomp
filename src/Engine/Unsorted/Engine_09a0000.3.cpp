@@ -6,14 +6,10 @@
 
 extern FName g_026c3d78;
 	/* ServerUpdateLevelVisibility */
-struct APlayerController_ : public APlayerController
-{
-	void eventServerUpdateLevelVisibility(FName PackageName, UBOOL bIsVisible);
-};
 
 // @baa 0x009aec40
 /* PlayerController.ServerUpdateLevelVisibility script event: the generated glue, out of line here. */
-void APlayerController_::eventServerUpdateLevelVisibility(FName PackageName, UBOOL bIsVisible)
+void APlayerController::eventServerUpdateLevelVisibility(FName PackageName, UBOOL bIsVisible)
 {
 	struct PlayerController_eventServerUpdateLevelVisibility_Parms
 	{

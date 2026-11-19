@@ -159,13 +159,9 @@ UBOOL URSeqAct_ChangeRain_None::UpdateOp(FLOAT DeltaTime)
 /* The UpdateOpScript script event's generated glue (CommonGameClasses.h); this is its out-of-line
  * copy (inlined into URSeqAct_ChangeRain_None::UpdateOp at 015338d0, the only other user of the
  * name, so the class is inferred from that). */
-struct URSeqAct_ChangeRain_None__01533870 : public URSeqAct_ChangeRain_None
-{
-    UBOOL eventUpdateOpScript(FLOAT DeltaTime);
-};
 
 // @baa 0x01533870
-UBOOL URSeqAct_ChangeRain_None__01533870::eventUpdateOpScript(FLOAT DeltaTime)
+UBOOL URSeqAct_ChangeRain_None::eventUpdateOpScript(FLOAT DeltaTime)
 {
     struct RSeqAct_ChangeRain_None_eventUpdateOpScript_Parms
     {
@@ -181,15 +177,11 @@ UBOOL URSeqAct_ChangeRain_None__01533870::eventUpdateOpScript(FLOAT DeltaTime)
 
 extern FName g_026e0bb4;
  /* COMMONGAME_ItemRO */
-struct ARDynamicMenu_ : public ARDynamicMenu
-{
-    void eventItemRO(const FString& Text, BYTE R, BYTE G, BYTE B);
-};
 
 // @baa 0x01516990
 /* RDynamicMenu.uc's ItemRO script event (a read-only menu line), generated glue
  * (CommonGameClasses.h). The script parameter names aren't known; these are descriptive. */
-void ARDynamicMenu_::eventItemRO(const FString& Text, BYTE R, BYTE G, BYTE B)
+void ARDynamicMenu::eventItemRO(const FString& Text, BYTE R, BYTE G, BYTE B)
 {
     struct RDynamicMenu_eventItemRO_Parms
     {
@@ -208,15 +200,11 @@ void ARDynamicMenu_::eventItemRO(const FString& Text, BYTE R, BYTE G, BYTE B)
 
 extern FName g_026e0d04;
  /* COMMONGAME_RItemF */
-struct ARDebugMenu_ : public ARDebugMenu
-{
-    FLOAT eventRItemF(const FString& Text, FLOAT Value, FLOAT MinValue, FLOAT MaxValue, FLOAT Step);
-};
 
 // @baa 0x01516a40
 /* RDebugMenu.uc's RItemF script event (a float menu item), generated glue (CommonGameClasses.h).
  * The script parameter names aren't known; these are descriptive. */
-FLOAT ARDebugMenu_::eventRItemF(const FString& Text, FLOAT Value, FLOAT MinValue, FLOAT MaxValue, FLOAT Step)
+FLOAT ARDebugMenu::eventRItemF(const FString& Text, FLOAT Value, FLOAT MinValue, FLOAT MaxValue, FLOAT Step)
 {
     struct RDebugMenu_eventRItemF_Parms
     {
@@ -240,15 +228,11 @@ FLOAT ARDebugMenu_::eventRItemF(const FString& Text, FLOAT Value, FLOAT MinValue
 
 extern FName g_026e0f10;
  /* COMMONGAME_RItemB */
-struct ARDebugMenu__01516b20 : public ARDebugMenu
-{
-    UBOOL eventRItemB(const FString& Text, UBOOL bValue);
-};
 
 // @baa 0x01516b20
 /* RDebugMenu.uc's RItemB script event (a boolean menu item), generated glue (CommonGameClasses.h).
  * The script parameter names aren't known; these are descriptive. */
-UBOOL ARDebugMenu__01516b20::eventRItemB(const FString& Text, UBOOL bValue)
+UBOOL ARDebugMenu::eventRItemB(const FString& Text, UBOOL bValue)
 {
     struct RDebugMenu_eventRItemB_Parms
     {
@@ -266,15 +250,11 @@ UBOOL ARDebugMenu__01516b20::eventRItemB(const FString& Text, UBOOL bValue)
 
 extern FName g_026e0bd0;
  /* COMMONGAME_ItemButton */
-struct ARDynamicMenu__01516bd0 : public ARDynamicMenu
-{
-    UBOOL eventItemButton(const FString& Text, UBOOL bValue);
-};
 
 // @baa 0x01516bd0
 /* RDynamicMenu.uc's ItemButton script event (a boolean menu item), generated glue (CommonGameClasses.h).
  * The script parameter names aren't known; these are descriptive. */
-UBOOL ARDynamicMenu__01516bd0::eventItemButton(const FString& Text, UBOOL bValue)
+UBOOL ARDynamicMenu::eventItemButton(const FString& Text, UBOOL bValue)
 {
     struct RDynamicMenu_eventItemButton_Parms
     {
@@ -292,16 +272,12 @@ UBOOL ARDynamicMenu__01516bd0::eventItemButton(const FString& Text, UBOOL bValue
 
 extern FName g_026e0f60;
  /* COMMONGAME_ItemFdB */
-struct ARDebugMenu__01516c80 : public ARDebugMenu
-{
-    UBOOL eventItemFdB(const FString& Text, FLOAT& Value, FLOAT MinValue, FLOAT MaxValue, FLOAT Step);
-};
 
 // @baa 0x01516c80
 /* RDebugMenu.uc's ItemFdB script event (a float menu item edited in place: Value is an out
  * parameter), generated glue (CommonGameClasses.h). The script parameter names aren't known;
  * these are descriptive. */
-UBOOL ARDebugMenu__01516c80::eventItemFdB(const FString& Text, FLOAT& Value, FLOAT MinValue, FLOAT MaxValue, FLOAT Step)
+UBOOL ARDebugMenu::eventItemFdB(const FString& Text, FLOAT& Value, FLOAT MinValue, FLOAT MaxValue, FLOAT Step)
 {
     struct RDebugMenu_eventItemFdB_Parms
     {

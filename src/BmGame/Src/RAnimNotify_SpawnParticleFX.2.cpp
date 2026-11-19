@@ -6,14 +6,10 @@
 
 extern FName g_026e29f8;
 	/* SpawnParticleSystem */
-struct URAnimNotify_SpawnParticleFX_ : public URAnimNotify_SpawnParticleFX
-{
-	void eventSpawnParticleSystem(class AActor* Owner, FVector SpawnLocation, FRotator SpawnRotation, class USkeletalMeshComponent* Skeleton);
-};
 
 // @baa 0x015922c0
 /* RAnimNotify_SpawnParticleFX.SpawnParticleSystem script event: the generated glue, out of line here. */
-void URAnimNotify_SpawnParticleFX_::eventSpawnParticleSystem(class AActor* Owner, FVector SpawnLocation, FRotator SpawnRotation, class USkeletalMeshComponent* Skeleton)
+void URAnimNotify_SpawnParticleFX::eventSpawnParticleSystem(class AActor* Owner, FVector SpawnLocation, FRotator SpawnRotation, class USkeletalMeshComponent* Skeleton)
 {
 	struct RAnimNotify_SpawnParticleFX_eventSpawnParticleSystem_Parms
 	{

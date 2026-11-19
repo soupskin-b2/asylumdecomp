@@ -314,7 +314,7 @@ match fails. Once merged, a change reaches everyone's `asylum.pyz` by itself. If
 about it (a renamed or retyped declaration, a new header or macro, a new rule), add a line at the top of
 `tools/asylum/CHANGES.md`: the next `get` or `update` prints it to every agent that hasn't seen it.
 
-In a clone, three scripts make the common header fixes and keep `src/` matching (each compiles the
+In a clone, four scripts make the common header fixes and keep `src/` matching (each compiles the
 headers before writing them and refuses a change that moves a slot or a member):
 
 ```
@@ -329,6 +329,9 @@ python tools/natives.py show CLASS              a class's layout as the compiler
 python tools/natives.py set CLASS 0xOFF "DECL"  name a C++-only member: placed in its _native blob (or over a
                                                 Native_XX placeholder) at that offset; fixes src/'s uses
 python tools/natives.py apply FILE [--no-src]   many ("CLASS 0xOFF DECL" lines)
+python tools/hoist.py [--only GLOB] [--dry-run]  move src/'s local helper structs (`struct UFoo_ : public UFoo {...}`)
+                                                into the headers: declares their methods on the real class by
+                                                address, deletes the structs; lists what it skipped and why
 python tools/resymbol.py --only GLOB            re-record the symbols of matched functions after a rename (GLOB
                                                 relative to src/, e.g. 'Engine/Src/UnActor*')
 ```

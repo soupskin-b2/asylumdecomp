@@ -43,13 +43,9 @@ undefined4 * UPointLightComponent::sub_006da910(byte param_2)
   return param_1;
 }
 
-struct UPointLightComponent_ : public UPointLightComponent
-{
-    void sub_006da930(const FMatrix* In);
-};
 
 // @baa 0x006da930
-void UPointLightComponent_::sub_006da930(const FMatrix* In)
+void UPointLightComponent::sub_006da930(const FMatrix* In)
 {
     CachedParentToWorld = *In;
 }
@@ -74,15 +70,10 @@ FVector4 UPointLightComponent::GetPosition() const
     return FVector4(FVector(LightToWorld.WPlane.X, LightToWorld.WPlane.Y, LightToWorld.WPlane.Z), 1.f);
 }
 
-/* Kit gap: UPointLightComponent::UpdatePreviewLightRadius (PointLightComponent.cpp) isn't declared. */
-struct UPointLightComponent__006da950 : public UPointLightComponent
-{
-	void UpdatePreviewLightRadius();
-};
 
 // @baa 0x006da950
 /* Keeps the editor's light radius preview in step with the light. */
-void UPointLightComponent__006da950::UpdatePreviewLightRadius()
+void UPointLightComponent::UpdatePreviewLightRadius()
 {
 	if (PreviewLightRadius)
 	{

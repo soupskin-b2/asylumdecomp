@@ -13,14 +13,10 @@ void UReachSpec::execGetEnd(FFrame& Stack, RESULT_DECL)
 
 extern FName g_026c46e4;
 	/* ENGINE_PostRender */
-struct UGameViewportClient_ : public UGameViewportClient
-{
-	void eventPostRender(class UCanvas* Canvas);
-};
 
 // @baa 0x00888880
 /* The script event's generated glue (EngineClasses.h), out of line here. */
-void UGameViewportClient_::eventPostRender(class UCanvas* Canvas)
+void UGameViewportClient::eventPostRender(class UCanvas* Canvas)
 {
 	struct GameViewportClient_eventPostRender_Parms
 	{
@@ -33,15 +29,11 @@ void UGameViewportClient_::eventPostRender(class UCanvas* Canvas)
 extern FName g_026c4ce4;
 	/* ENGINE_Tick */
 /* EName entries Core.h doesn't list yet (UnNames.h) */
-struct UGameViewportClient__008888c0 : public UGameViewportClient
-{
-	void eventTick(FLOAT DeltaTime);
-};
 
 // @baa 0x008888c0
 /* The script event's generated glue (EngineClasses.h), out of line here. Tick is a probe
  * function: the glue only calls into script when the current state probes for it. */
-void UGameViewportClient__008888c0::eventTick(FLOAT DeltaTime)
+void UGameViewportClient::eventTick(FLOAT DeltaTime)
 {
 	if (!StateFrame || (StateFrame->ProbeMask & ((QWORD)1 << (NAME_Tick - NAME_PROBEMIN))))
 	{
@@ -56,14 +48,10 @@ void UGameViewportClient__008888c0::eventTick(FLOAT DeltaTime)
 
 extern FName g_026c40e8;
 	/* ENGINE_GetSubtitleRegion */
-struct UGameViewportClient__00888920 : public UGameViewportClient
-{
-	void eventGetSubtitleRegion(FVector2D& MinPos, FVector2D& MaxPos);
-};
 
 // @baa 0x00888920
 /* The script event's generated glue (EngineClasses.h), out of line here. */
-void UGameViewportClient__00888920::eventGetSubtitleRegion(FVector2D& MinPos, FVector2D& MaxPos)
+void UGameViewportClient::eventGetSubtitleRegion(FVector2D& MinPos, FVector2D& MaxPos)
 {
 	struct GameViewportClient_eventGetSubtitleRegion_Parms
 	{
@@ -79,14 +67,10 @@ void UGameViewportClient__00888920::eventGetSubtitleRegion(FVector2D& MinPos, FV
 
 extern FName g_026c42b8;
 	/* HandlePathObstruction */
-struct AController_ : public AController
-{
-	UBOOL eventHandlePathObstruction(class AActor* BlockedBy);
-};
 
 // @baa 0x008885b0
 /* Controller.HandlePathObstruction script event: the generated glue, out of line here. */
-UBOOL AController_::eventHandlePathObstruction(class AActor* BlockedBy)
+UBOOL AController::eventHandlePathObstruction(class AActor* BlockedBy)
 {
 	struct Controller_eventHandlePathObstruction_Parms
 	{
@@ -110,14 +94,10 @@ void UReachSpec::execGetDirection(FFrame& Stack, RESULT_DECL)
 
 extern FName g_026c4c3c;
 	/* ENGINE_GetZoomMagnification */
-struct APlayerController_ : public APlayerController
-{
-	FLOAT eventGetZoomMagnification();
-};
 
 // @baa 0x00888660
 /* The script event's generated glue (EngineClasses.h), out of line here. */
-FLOAT APlayerController_::eventGetZoomMagnification()
+FLOAT APlayerController::eventGetZoomMagnification()
 {
 	struct PlayerController_eventGetZoomMagnification_Parms
 	{

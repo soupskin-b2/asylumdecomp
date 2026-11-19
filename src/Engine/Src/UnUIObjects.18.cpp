@@ -264,27 +264,18 @@ BYTE UUIScreenObject::GetInputMask(UBOOL bInheritedMaskOnly, UBOOL bOverrideMask
     PURE_VIRTUAL(UUIScreenObject::GetInputMask, return 0xff;);
 }
 
-struct UUIScene__00ca6510 : public UUIScene
-{
-	USceneDataStore* GetSceneDataStore();
-	void execGetSceneDataStore(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00ca6510
-void UUIScene__00ca6510::execGetSceneDataStore(FFrame& Stack, RESULT_DECL)
+void UUIScene::execGetSceneDataStore(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
 
 	*(USceneDataStore**)Result = GetSceneDataStore();
 }
 
-struct UUIScreenObject__00d990d0 : public UUIScreenObject
-{
-	void sub_00d990d0(INT bReinitialize, INT bReviewNow);
-};
 
 // @baa 0x00d990d0
-void UUIScreenObject__00d990d0::sub_00d990d0(INT bReinitialize, INT bReviewNow)
+void UUIScreenObject::sub_00d990d0(INT bReinitialize, INT bReviewNow)
 {
 	PURE_VIRTUAL(UUIScreenObject::RequestPrimitiveReview,);
 }
@@ -554,14 +545,9 @@ void UUIRoot::execGetInputPlatformType(FFrame& Stack, RESULT_DECL)
 	*(BYTE*)Result = ((UUIRoot_*)this)->GetInputPlatformType(OwningPlayer);
 }
 
-struct UUIObject__00ca5180 : public UUIObject
-{
-	void SetAnchorPosition(FVector NewAnchorPosition, BYTE InputType);
-	void execSetAnchorPosition(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00ca5180
-void UUIObject__00ca5180::execSetAnchorPosition(FFrame& Stack, RESULT_DECL)
+void UUIObject::execSetAnchorPosition(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT(FVector, NewAnchorPosition);
 	P_GET_BYTE_OPTX(InputType, EVALPOS_PixelViewport);
@@ -569,14 +555,9 @@ void UUIObject__00ca5180::execSetAnchorPosition(FFrame& Stack, RESULT_DECL)
 	SetAnchorPosition(NewAnchorPosition, InputType);
 }
 
-struct UUIScreenObject__00ca2fc0 : public UUIScreenObject
-{
-	void SetZDepth(FLOAT NewZDepth, UBOOL bPropagateToChildren);
-	void execSetZDepth(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00ca2fc0
-void UUIScreenObject__00ca2fc0::execSetZDepth(FFrame& Stack, RESULT_DECL)
+void UUIScreenObject::execSetZDepth(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(NewZDepth);
 	P_GET_UBOOL_OPTX(bPropagateToChildren, FALSE);
@@ -599,14 +580,9 @@ void UUIScreenObject__00ca3850::execContainsChild(FFrame& Stack, RESULT_DECL)
 	*(UBOOL*)Result = ContainsChild(Child, bRecurse);
 }
 
-struct UUIScreenObject__00ca3900 : public UUIScreenObject
-{
-	UBOOL ContainsChildOfClass(UClass* SearchClass, UBOOL bRecurse);
-	void execContainsChildOfClass(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00ca3900
-void UUIScreenObject__00ca3900::execContainsChildOfClass(FFrame& Stack, RESULT_DECL)
+void UUIScreenObject::execContainsChildOfClass(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(UClass, SearchClass);
 	P_GET_UBOOL_OPTX(bRecurse, TRUE);
@@ -614,14 +590,9 @@ void UUIScreenObject__00ca3900::execContainsChildOfClass(FFrame& Stack, RESULT_D
 	*(UBOOL*)Result = ContainsChildOfClass(SearchClass, bRecurse);
 }
 
-struct UUIScene__00ca6630 : public UUIScene
-{
-	UUIDataStore* ResolveDataStore(FName DataStoreTag, ULocalPlayer* InPlayerOwner);
-	void execResolveDataStore(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00ca6630
-void UUIScene__00ca6630::execResolveDataStore(FFrame& Stack, RESULT_DECL)
+void UUIScene::execResolveDataStore(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_NAME(DataStoreTag);
 	P_GET_OBJECT_OPTX(ULocalPlayer, InPlayerOwner, NULL);
@@ -644,14 +615,9 @@ void UUIObject__00ca5220::execRotateWidget(FFrame& Stack, RESULT_DECL)
 	RotateWidget(NewRotationAmount, bAccumulateRotation);
 }
 
-struct UUIScreenObject__00ca3650 : public UUIScreenObject
-{
-	UUIObject* FindChild(FName WidgetName, UBOOL bRecurse) const;
-	void execFindChild(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00ca3650
-void UUIScreenObject__00ca3650::execFindChild(FFrame& Stack, RESULT_DECL)
+void UUIScreenObject::execFindChild(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_NAME(WidgetName);
 	P_GET_UBOOL_OPTX(bRecurse, FALSE);
@@ -673,14 +639,9 @@ void UUIObject__00cbdb60::execGetDefaultDataBinding(FFrame& Stack, RESULT_DECL)
 	*(FString*)Result = GetDefaultDataBinding(BindingIndex);
 }
 
-struct UUIScene__00ca66e0 : public UUIScene
-{
-	UUIScene* GetNextScene(UBOOL bRequireMatchingPlayerOwner, UBOOL bIgnoreUnfocusedScenes);
-	void execGetNextScene(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00ca66e0
-void UUIScene__00ca66e0::execGetNextScene(FFrame& Stack, RESULT_DECL)
+void UUIScene::execGetNextScene(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL_OPTX(bRequireMatchingPlayerOwner, TRUE);
 	P_GET_UBOOL_OPTX(bIgnoreUnfocusedScenes, FALSE);
@@ -688,14 +649,9 @@ void UUIScene__00ca66e0::execGetNextScene(FFrame& Stack, RESULT_DECL)
 	*(UUIScene**)Result = GetNextScene(bRequireMatchingPlayerOwner, bIgnoreUnfocusedScenes);
 }
 
-struct UUIScene__00ca67a0 : public UUIScene
-{
-	UUIScene* GetPreviousScene(UBOOL bRequireMatchingPlayerOwner, UBOOL bIgnoreUnfocusedScenes);
-	void execGetPreviousScene(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00ca67a0
-void UUIScene__00ca67a0::execGetPreviousScene(FFrame& Stack, RESULT_DECL)
+void UUIScene::execGetPreviousScene(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL_OPTX(bRequireMatchingPlayerOwner, TRUE);
 	P_GET_UBOOL_OPTX(bIgnoreUnfocusedScenes, FALSE);
@@ -703,14 +659,9 @@ void UUIScene__00ca67a0::execGetPreviousScene(FFrame& Stack, RESULT_DECL)
 	*(UUIScene**)Result = GetPreviousScene(bRequireMatchingPlayerOwner, bIgnoreUnfocusedScenes);
 }
 
-struct UUIScreenObject__00ca3710 : public UUIScreenObject
-{
-	UUIObject* FindChildUsingID(FWIDGET_ID WidgetID, UBOOL bRecurse) const;
-	void execFindChildUsingID(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00ca3710
-void UUIScreenObject__00ca3710::execFindChildUsingID(FFrame& Stack, RESULT_DECL)
+void UUIScreenObject::execFindChildUsingID(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT(FWIDGET_ID, WidgetID);
 	P_GET_UBOOL_OPTX(bRecurse, FALSE);
@@ -765,14 +716,9 @@ void UUIObject__00ca5bb0::execSetForcedNavigationTarget(FFrame& Stack, RESULT_DE
 	*(UBOOL*)Result = SetForcedNavigationTarget(Face, NavTarget, bIsNullOverride);
 }
 
-struct UUIScreenObject__00ca4980 : public UUIScreenObject
-{
-	FLOAT ResolveUIExtent(const FUIScreenValue_Extent& ExtentToResolve, UUIScreenObject* OwnerWidget, BYTE OutputType);
-	void execResolveUIExtent(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00ca4980
-void UUIScreenObject__00ca4980::execResolveUIExtent(FFrame& Stack, RESULT_DECL)
+void UUIScreenObject::execResolveUIExtent(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT_REF(FUIScreenValue_Extent, ExtentToResolve);
 	P_GET_OBJECT(UUIScreenObject, OwnerWidget);
@@ -796,14 +742,9 @@ void UUIObject__00cbda80::execSetDefaultDataBinding(FFrame& Stack, RESULT_DECL)
 	SetDefaultDataBinding(MarkupText, BindingIndex);
 }
 
-struct UUIScreenObject__00ca4810 : public UUIScreenObject
-{
-	FLOAT GetBounds(BYTE Dimension, BYTE OutputType, UBOOL bIgnoreDockPadding);
-	void execGetBounds(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00ca4810
-void UUIScreenObject__00ca4810::execGetBounds(FFrame& Stack, RESULT_DECL)
+void UUIScreenObject::execGetBounds(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_BYTE(Dimension);
 	P_GET_BYTE_OPTX(OutputType, UIEXTENTEVAL_Pixels);
@@ -812,14 +753,9 @@ void UUIScreenObject__00ca4810::execGetBounds(FFrame& Stack, RESULT_DECL)
 	*(FLOAT*)Result = GetBounds(Dimension, OutputType, bIgnoreDockPadding);
 }
 
-struct UUIObject__00ca5cf0 : public UUIObject
-{
-	void SetPrivateBehavior(INT Behavior, UBOOL Value, UBOOL bRecurse);
-	void execSetPrivateBehavior(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00ca5cf0
-void UUIObject__00ca5cf0::execSetPrivateBehavior(FFrame& Stack, RESULT_DECL)
+void UUIObject::execSetPrivateBehavior(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(Behavior);
 	P_GET_UBOOL(Value);
@@ -1222,42 +1158,27 @@ void UUIScreenObject__00ca3bb0::execGetViewportSize(FFrame& Stack, RESULT_DECL)
 	*(UBOOL*)Result = GetViewportSize(out_ViewportSize);
 }
 
-struct UUIScreenObject__00ca2ec0 : public UUIScreenObject
-{
-	UBOOL IsVisible(UBOOL bIncludeParents);
-	void execIsVisible(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00ca2ec0
-void UUIScreenObject__00ca2ec0::execIsVisible(FFrame& Stack, RESULT_DECL)
+void UUIScreenObject::execIsVisible(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL_OPTX(bIncludeParents, FALSE);
 	P_FINISH;
 	*(UBOOL*)Result = IsVisible(bIncludeParents);
 }
 
-struct UUIScreenObject__00ca2f40 : public UUIScreenObject
-{
-	UBOOL IsHidden(UBOOL bIncludeParents);
-	void execIsHidden(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00ca2f40
-void UUIScreenObject__00ca2f40::execIsHidden(FFrame& Stack, RESULT_DECL)
+void UUIScreenObject::execIsHidden(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL_OPTX(bIncludeParents, FALSE);
 	P_FINISH;
 	*(UBOOL*)Result = IsHidden(bIncludeParents);
 }
 
-struct UUIScreenObject__00ca4460 : public UUIScreenObject
-{
-	INT GetPlayerOwnerIndex(UBOOL bRequireValidIndex);
-	void execGetPlayerOwnerIndex(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00ca4460
-void UUIScreenObject__00ca4460::execGetPlayerOwnerIndex(FFrame& Stack, RESULT_DECL)
+void UUIScreenObject::execGetPlayerOwnerIndex(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL_OPTX(bRequireValidIndex, TRUE);
 	P_FINISH;
@@ -1292,14 +1213,9 @@ void UUIScene__00ca6900::execGetSceneInputMode(FFrame& Stack, RESULT_DECL)
 	*(BYTE*)Result = GetSceneInputMode(bMemberValueOnly);
 }
 
-struct UUIScene__00ca6a00 : public UUIScene
-{
-	UBOOL IsSceneActive(UBOOL bTopmostScene);
-	void execIsSceneActive(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00ca6a00
-void UUIScene__00ca6a00::execIsSceneActive(FFrame& Stack, RESULT_DECL)
+void UUIScene::execIsSceneActive(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL_OPTX(bTopmostScene, FALSE);
 	P_FINISH;
@@ -1421,14 +1337,9 @@ void UUIScene::execFindTickableObjectIndex(FFrame& Stack, RESULT_DECL)
 	*(INT*)Result = FindTickableObjectIndex(SearchObj);
 }
 
-struct UUIScreenObject__00ca4af0 : public UUIScreenObject
-{
-	FVector DeProject(const FVector& PixelPosition);
-	void execDeProject(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00ca4af0
-void UUIScreenObject__00ca4af0::execDeProject(FFrame& Stack, RESULT_DECL)
+void UUIScreenObject::execDeProject(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT_REF(FVector, PixelPosition);
 	P_FINISH;
@@ -1492,14 +1403,9 @@ void UUIObject__00ca5b20::execSetNavigationTarget(FFrame& Stack, RESULT_DECL)
 	*(UBOOL*)Result = SetNavigationTarget(Face, NewNavTarget);
 }
 
-struct UUIScreenObject__00ca48f0 : public UUIScreenObject
-{
-	FVector GetPositionVector(UBOOL bIncludeParentPosition);
-	void execGetPositionVector(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00ca48f0
-void UUIScreenObject__00ca48f0::execGetPositionVector(FFrame& Stack, RESULT_DECL)
+void UUIScreenObject::execGetPositionVector(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL_OPTX(bIncludeParentPosition, TRUE);
 	P_FINISH;

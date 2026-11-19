@@ -7,13 +7,9 @@
 
 /* Unnamed in the kit: UE3's UParticleSystemComponent::ReportEventSpawn(FName& InEventName, FLOAT InEmitterTime,
  * FVector& InLocation, FVector& InVelocity) (called by UParticleModuleEventGenerator). */
-struct UParticleSystemComponent_ : public UParticleSystemComponent
-{
-    void sub_00b5edb0(FName& InEventName, FLOAT InEmitterTime, FVector& InLocation, FVector& InVelocity);
-};
 
 // @baa 0x00b5edb0
-void UParticleSystemComponent_::sub_00b5edb0(FName& InEventName, FLOAT InEmitterTime, FVector& InLocation, FVector& InVelocity)
+void UParticleSystemComponent::sub_00b5edb0(FName& InEventName, FLOAT InEmitterTime, FVector& InLocation, FVector& InVelocity)
 {
     FParticleEventSpawnData* SpawnData = new(SpawnEvents) FParticleEventSpawnData;
     SpawnData->Type = EPET_Spawn;
@@ -25,13 +21,9 @@ void UParticleSystemComponent_::sub_00b5edb0(FName& InEventName, FLOAT InEmitter
 
 /* Unnamed in the kit: UE3's UParticleSystemComponent::ReportEventDeath(FName& InEventName, FLOAT InEmitterTime,
  * FVector& InLocation, FVector& InVelocity, FLOAT InParticleTime). */
-struct UParticleSystemComponent__00b5ee10 : public UParticleSystemComponent
-{
-    void sub_00b5ee10(FName& InEventName, FLOAT InEmitterTime, FVector& InLocation, FVector& InVelocity, FLOAT InParticleTime);
-};
 
 // @baa 0x00b5ee10
-void UParticleSystemComponent__00b5ee10::sub_00b5ee10(FName& InEventName, FLOAT InEmitterTime, FVector& InLocation, FVector& InVelocity, FLOAT InParticleTime)
+void UParticleSystemComponent::sub_00b5ee10(FName& InEventName, FLOAT InEmitterTime, FVector& InLocation, FVector& InVelocity, FLOAT InParticleTime)
 {
     FParticleEventDeathData* DeathData = new(DeathEvents) FParticleEventDeathData;
     DeathData->Type = EPET_Death;
@@ -45,14 +37,9 @@ void UParticleSystemComponent__00b5ee10::sub_00b5ee10(FName& InEventName, FLOAT 
 /* Unnamed in the kit: UE3's UParticleSystemComponent::ReportEventCollision(FName& InEventName, FLOAT InEmitterTime,
  * FVector& InLocation, FVector& InDirection, FVector& InVelocity, FLOAT InParticleTime, FVector& InNormal,
  * FLOAT InTime, INT InItem, FName& InBoneName). */
-struct UParticleSystemComponent__00b5ee80 : public UParticleSystemComponent
-{
-    void sub_00b5ee80(FName& InEventName, FLOAT InEmitterTime, FVector& InLocation, FVector& InDirection, FVector& InVelocity,
-        FLOAT InParticleTime, FVector& InNormal, FLOAT InTime, INT InItem, FName& InBoneName);
-};
 
 // @baa 0x00b5ee80
-void UParticleSystemComponent__00b5ee80::sub_00b5ee80(FName& InEventName, FLOAT InEmitterTime, FVector& InLocation, FVector& InDirection, FVector& InVelocity,
+void UParticleSystemComponent::sub_00b5ee80(FName& InEventName, FLOAT InEmitterTime, FVector& InLocation, FVector& InDirection, FVector& InVelocity,
     FLOAT InParticleTime, FVector& InNormal, FLOAT InTime, INT InItem, FName& InBoneName)
 {
     FParticleEventCollideData* CollideData = new(CollisionEvents) FParticleEventCollideData;

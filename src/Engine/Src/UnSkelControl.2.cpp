@@ -23,14 +23,10 @@ void USkelControlBase::execSetSkelControlStrength(FFrame& Stack, RESULT_DECL)
 
 extern FName g_026c4808;
 	/* ENGINE_NotifySkelControlBeyondLimit */
-struct AActor_ : public AActor
-{
-	void eventNotifySkelControlBeyondLimit(class USkelControlLookAt* LookAt);
-};
 
 // @baa 0x0090aec0
 /* The script event's generated glue (EngineClasses.h), out of line here. */
-void AActor_::eventNotifySkelControlBeyondLimit(class USkelControlLookAt* LookAt)
+void AActor::eventNotifySkelControlBeyondLimit(class USkelControlLookAt* LookAt)
 {
 	struct Actor_eventNotifySkelControlBeyondLimit_Parms
 	{

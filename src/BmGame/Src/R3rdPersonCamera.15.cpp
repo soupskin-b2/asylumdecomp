@@ -12,14 +12,9 @@ struct FVector_ : public FVector
     FORCEINLINE FVector_(FLOAT InX, FLOAT InY, FLOAT InZ) { X = InX; Y = InY; Z = InZ; }
 };
 
-/* Unnamed in the kit: exponentially eases ChasePosition toward Target (snaps when smoothing is off). */
-struct AR3rdPersonCamera_ : public AR3rdPersonCamera
-{
-    FVector sub_01689920(const FVector& Target, FLOAT DeltaTime);
-};
 
 // @baa 0x01689920
-FVector AR3rdPersonCamera_::sub_01689920(const FVector& Target, FLOAT DeltaTime)
+FVector AR3rdPersonCamera::sub_01689920(const FVector& Target, FLOAT DeltaTime)
 {
     if (CameraSmoothingCount == 0)
     {

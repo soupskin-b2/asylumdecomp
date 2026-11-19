@@ -6,14 +6,10 @@
 
 extern FName g_026e2e84;
 	/* ReleaseTarget */
-struct ARSpecialMoveInstance_HarpoonYank_ : public ARSpecialMoveInstance_HarpoonYank
-{
-	void eventReleaseTarget(FHarpoonTargetInfo& CurrTarget);
-};
 
 // @baa 0x016385a0
 /* RSpecialMoveInstance_HarpoonYank.ReleaseTarget script event: the generated glue, out of line here. */
-void ARSpecialMoveInstance_HarpoonYank_::eventReleaseTarget(FHarpoonTargetInfo& CurrTarget)
+void ARSpecialMoveInstance_HarpoonYank::eventReleaseTarget(FHarpoonTargetInfo& CurrTarget)
 {
 	struct RSpecialMoveInstance_HarpoonYank_eventReleaseTarget_Parms
 	{
@@ -26,14 +22,10 @@ void ARSpecialMoveInstance_HarpoonYank_::eventReleaseTarget(FHarpoonTargetInfo& 
 
 extern FName g_026e2934;
 	/* TripTargetInvisibleCollision */
-struct ARSpecialMoveInstance_HarpoonYank__01638600 : public ARSpecialMoveInstance_HarpoonYank
-{
-	void eventTripTargetInvisibleCollision(FHarpoonTargetInfo& CurrentTarget);
-};
 
 // @baa 0x01638600
 /* RSpecialMoveInstance_HarpoonYank.TripTargetInvisibleCollision script event: the generated glue, out of line here. */
-void ARSpecialMoveInstance_HarpoonYank__01638600::eventTripTargetInvisibleCollision(FHarpoonTargetInfo& CurrentTarget)
+void ARSpecialMoveInstance_HarpoonYank::eventTripTargetInvisibleCollision(FHarpoonTargetInfo& CurrentTarget)
 {
 	struct RSpecialMoveInstance_HarpoonYank_eventTripTargetInvisibleCollision_Parms
 	{
@@ -46,14 +38,10 @@ void ARSpecialMoveInstance_HarpoonYank__01638600::eventTripTargetInvisibleCollis
 
 extern FName g_026e2774;
 	/* TripTarget */
-struct ARSpecialMoveInstance_HarpoonYank__01638660 : public ARSpecialMoveInstance_HarpoonYank
-{
-	void eventTripTarget(FHarpoonTargetInfo& CurrentTarget);
-};
 
 // @baa 0x01638660
 /* RSpecialMoveInstance_HarpoonYank.TripTarget script event: the generated glue, out of line here. */
-void ARSpecialMoveInstance_HarpoonYank__01638660::eventTripTarget(FHarpoonTargetInfo& CurrentTarget)
+void ARSpecialMoveInstance_HarpoonYank::eventTripTarget(FHarpoonTargetInfo& CurrentTarget)
 {
 	struct RSpecialMoveInstance_HarpoonYank_eventTripTarget_Parms
 	{
@@ -66,14 +54,10 @@ void ARSpecialMoveInstance_HarpoonYank__01638660::eventTripTarget(FHarpoonTarget
 
 extern FName g_026e2bdc;
 	/* YankTarget */
-struct ARSpecialMoveInstance_HarpoonYank__016386c0 : public ARSpecialMoveInstance_HarpoonYank
-{
-	void eventYankTarget(FHarpoonTargetInfo& CurrentTarget);
-};
 
 // @baa 0x016386c0
 /* RSpecialMoveInstance_HarpoonYank.YankTarget script event: the generated glue, out of line here. */
-void ARSpecialMoveInstance_HarpoonYank__016386c0::eventYankTarget(FHarpoonTargetInfo& CurrentTarget)
+void ARSpecialMoveInstance_HarpoonYank::eventYankTarget(FHarpoonTargetInfo& CurrentTarget)
 {
 	struct RSpecialMoveInstance_HarpoonYank_eventYankTarget_Parms
 	{
@@ -86,14 +70,10 @@ void ARSpecialMoveInstance_HarpoonYank__016386c0::eventYankTarget(FHarpoonTarget
 
 extern FName g_026e33ac;
 	/* BumpLevel */
-struct ARHarpoonProjectile_ : public ARHarpoonProjectile
-{
-	void eventBumpLevel(FVector HitLocation, FVector HitNormal);
-};
 
 // @baa 0x01638c20
 /* RHarpoonProjectile.BumpLevel script event: the generated glue, out of line here. */
-void ARHarpoonProjectile_::eventBumpLevel(FVector HitLocation, FVector HitNormal)
+void ARHarpoonProjectile::eventBumpLevel(FVector HitLocation, FVector HitNormal)
 {
 	struct RHarpoonProjectile_eventBumpLevel_Parms
 	{

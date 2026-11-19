@@ -17,14 +17,9 @@ void ARGrapplePoint_::execRegisterGrapplePoint( FFrame& Stack, RESULT_DECL )
 	RegisterGrapplePoint();
 }
 
-struct ARShimmyEdgeMarker_ : public ARShimmyEdgeMarker
-{
-	void SetupEndPoints();
-	void execSetupEndPoints(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x01701220
-void ARShimmyEdgeMarker_::execSetupEndPoints( FFrame& Stack, RESULT_DECL )
+void ARShimmyEdgeMarker::execSetupEndPoints( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	SetupEndPoints();
@@ -82,14 +77,9 @@ void ARGrappleGun_::execDrawGrapplePointDebug( FFrame& Stack, RESULT_DECL )
 	DrawGrapplePointDebug();
 }
 
-struct ARGrappleGun__01707770 : public ARGrappleGun
-{
-	void FindEscapeVantagePoint();
-	void execFindEscapeVantagePoint(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x01707770
-void ARGrappleGun__01707770::execFindEscapeVantagePoint( FFrame& Stack, RESULT_DECL )
+void ARGrappleGun::execFindEscapeVantagePoint( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	FindEscapeVantagePoint();

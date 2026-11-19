@@ -6,14 +6,10 @@
 
 extern FName g_026c3ea0;
 	/* ENGINE_HandleSeamlessTravelPlayer */
-struct AGameInfo_ : public AGameInfo
-{
-	void eventHandleSeamlessTravelPlayer(class AController*& C);
-};
 
 // @baa 0x0079f6d0
 /* The script event's generated glue (EngineClasses.h), out of line here. */
-void AGameInfo_::eventHandleSeamlessTravelPlayer(class AController*& C)
+void AGameInfo::eventHandleSeamlessTravelPlayer(class AController*& C)
 {
 	struct GameInfo_eventHandleSeamlessTravelPlayer_Parms
 	{
@@ -27,15 +23,11 @@ void AGameInfo_::eventHandleSeamlessTravelPlayer(class AController*& C)
 extern FName g_026c4700;
 	/* ENGINE_EnemyNotVisible */
 /* EName entries Core.h doesn't list yet (UnNames.h) */
-struct AController_ : public AController
-{
-	void eventEnemyNotVisible();
-};
 
 // @baa 0x0079f410
 /* The script event's generated glue (EngineClasses.h), out of line here. EnemyNotVisible is a probe
  * function: the glue only calls into script when the current state probes for it. */
-void AController_::eventEnemyNotVisible()
+void AController::eventEnemyNotVisible()
 {
 	if (!StateFrame || (StateFrame->ProbeMask & ((QWORD)1 << (NAME_EnemyNotVisible - NAME_PROBEMIN))))
 	{
@@ -46,15 +38,11 @@ void AController_::eventEnemyNotVisible()
 extern FName g_026c55b4;
 	/* ENGINE_HearNoise */
 /* EName entries Core.h doesn't list yet (UnNames.h) */
-struct AController__0079f520 : public AController
-{
-	void eventHearNoise(FLOAT Loudness, class AActor* NoiseMaker, FName NoiseType);
-};
 
 // @baa 0x0079f520
 /* The script event's generated glue (EngineClasses.h), out of line here. HearNoise is a probe
  * function: the glue only calls into script when the current state probes for it. */
-void AController__0079f520::eventHearNoise(FLOAT Loudness, class AActor* NoiseMaker, FName NoiseType)
+void AController::eventHearNoise(FLOAT Loudness, class AActor* NoiseMaker, FName NoiseType)
 {
 	if (!StateFrame || (StateFrame->ProbeMask & ((QWORD)1 << (NAME_HearNoise - NAME_PROBEMIN))))
 	{

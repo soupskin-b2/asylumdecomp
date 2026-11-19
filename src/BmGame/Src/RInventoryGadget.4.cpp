@@ -24,14 +24,10 @@ void ARInventoryGadget::execGetCorrectedAutoTargetOrigin(FFrame& Stack, RESULT_D
 
 extern FName g_026e25ec;
 	/* BMGAME_CheckAutoTarget */
-struct ARInventoryGadget__01638920 : public ARInventoryGadget
-{
-	UBOOL eventCheckAutoTarget(class AActor* Target, FVector& TargetPosition, FLOAT& OverridePriority, FLOAT& OverrideMaxRange);
-};
 
 // @baa 0x01638920
 /* The script event's generated glue (BmGameClasses.h), out of line here. */
-UBOOL ARInventoryGadget__01638920::eventCheckAutoTarget(class AActor* Target, FVector& TargetPosition, FLOAT& OverridePriority, FLOAT& OverrideMaxRange)
+UBOOL ARInventoryGadget::eventCheckAutoTarget(class AActor* Target, FVector& TargetPosition, FLOAT& OverridePriority, FLOAT& OverrideMaxRange)
 {
 	struct RInventoryGadget_eventCheckAutoTarget_Parms
 	{

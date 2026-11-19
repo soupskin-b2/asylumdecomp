@@ -6,14 +6,10 @@
 
 extern FName g_026e3630;
 	/* CheckPlayOnce */
-struct URSeqAct_PlaySpeechBase_ : public URSeqAct_PlaySpeechBase
-{
-	UBOOL eventCheckPlayOnce();
-};
 
 // @baa 0x01584db0
 /* RSeqAct_PlaySpeechBase.CheckPlayOnce script event: the generated glue, out of line here. */
-UBOOL URSeqAct_PlaySpeechBase_::eventCheckPlayOnce()
+UBOOL URSeqAct_PlaySpeechBase::eventCheckPlayOnce()
 {
 	struct RSeqAct_PlaySpeechBase_eventCheckPlayOnce_Parms
 	{
@@ -26,14 +22,10 @@ UBOOL URSeqAct_PlaySpeechBase_::eventCheckPlayOnce()
 
 extern FName g_026e39c4;
 	/* IsOptionNext */
-struct URSeqAct_ConversationDialogue_ : public URSeqAct_ConversationDialogue
-{
-	UBOOL eventIsOptionNext();
-};
 
 // @baa 0x01585050
 /* RSeqAct_ConversationDialogue.IsOptionNext script event: the generated glue, out of line here. */
-UBOOL URSeqAct_ConversationDialogue_::eventIsOptionNext()
+UBOOL URSeqAct_ConversationDialogue::eventIsOptionNext()
 {
 	struct RSeqAct_ConversationDialogue_eventIsOptionNext_Parms
 	{
@@ -46,69 +38,49 @@ UBOOL URSeqAct_ConversationDialogue_::eventIsOptionNext()
 
 extern FName g_026e377c;
 	/* DisableQuitLines */
-struct URSeqAct_PlaySpeechBase__01584c70 : public URSeqAct_PlaySpeechBase
-{
-	void eventDisableQuitLines();
-};
 
 // @baa 0x01584c70
 /* RSeqAct_PlaySpeechBase.DisableQuitLines script event: the generated glue, out of line here. */
-void URSeqAct_PlaySpeechBase__01584c70::eventDisableQuitLines()
+void URSeqAct_PlaySpeechBase::eventDisableQuitLines()
 {
 	ProcessEvent(FindFunctionChecked(g_026e377c), NULL);
 }
 
 extern FName g_026e25cc;
 	/* ChangeDialogueCamera */
-struct URSeqAct_ConversationDialogue__01585090 : public URSeqAct_ConversationDialogue
-{
-	void eventChangeDialogueCamera();
-};
 
 // @baa 0x01585090
 /* RSeqAct_ConversationDialogue.ChangeDialogueCamera script event: the generated glue, out of line here. */
-void URSeqAct_ConversationDialogue__01585090::eventChangeDialogueCamera()
+void URSeqAct_ConversationDialogue::eventChangeDialogueCamera()
 {
 	ProcessEvent(FindFunctionChecked(g_026e25cc), NULL);
 }
 
 extern FName g_026e328c;
 	/* VoAStartSound */
-struct URSeqAct_VoiceOfArkham_ : public URSeqAct_VoiceOfArkham
-{
-	void eventVoAStartSound();
-};
 
 // @baa 0x01585830
 /* RSeqAct_VoiceOfArkham.VoAStartSound script event: the generated glue, out of line here. */
-void URSeqAct_VoiceOfArkham_::eventVoAStartSound()
+void URSeqAct_VoiceOfArkham::eventVoAStartSound()
 {
 	ProcessEvent(FindFunctionChecked(g_026e328c), NULL);
 }
 
 extern FName g_026e3a70;
 	/* BMGAME_CheckForNewLine */
-struct URSeqAct_ConversationDialogue__01585020 : public URSeqAct_ConversationDialogue
-{
-	void eventCheckForNewLine();
-};
 
 // @baa 0x01585020
 /* The script event's generated glue (BmGameClasses.h), out of line here. */
-void URSeqAct_ConversationDialogue__01585020::eventCheckForNewLine()
+void URSeqAct_ConversationDialogue::eventCheckForNewLine()
 {
 	ProcessEvent(FindFunctionChecked(g_026e3a70), NULL);
 }
 
 	/* BMGAME_CheckForNewLine */
-struct URSeqAct_PlaySpeechConversation_ : public URSeqAct_PlaySpeechConversation
-{
-	void eventCheckForNewLine();
-};
 
 // @baa 0x01585510
 /* The script event's generated glue (BmGameClasses.h), out of line here. */
-void URSeqAct_PlaySpeechConversation_::eventCheckForNewLine()
+void URSeqAct_PlaySpeechConversation::eventCheckForNewLine()
 {
 	ProcessEvent(FindFunctionChecked(g_026e3a70), NULL);
 }

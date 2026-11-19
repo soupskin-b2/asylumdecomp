@@ -52,13 +52,9 @@ INT C::sub_0064aae0()
     return field_02 > 0;
 }
 
-struct USurface_ : public USurface
-{
-    void sub_0064bbf0();
-};
 
 // @baa 0x0064bbf0
-void USurface_::sub_0064bbf0()
+void USurface::sub_0064bbf0()
 {
     if (--*(INT*)((char*)this + 0x14) == 0)
         BeginDestroy();

@@ -5,14 +5,10 @@
 
 /* UAnimSequence::Notifies ordered by time; Sort's instance is out of line (00921a00). */
 IMPLEMENT_COMPARE_CONSTREF(FAnimNotifyEvent, UnSkeletalAnim, { if (A.Time > B.Time) return 1; if (A.Time < B.Time) return -1; return 0; })
-struct UAnimSequence_ : public UAnimSequence
-{
-	void SortNotifies();
-};
 
 // @baa 0x0092a7f0
 /* Puts the notifies in time order. */
-void UAnimSequence_::SortNotifies()
+void UAnimSequence::SortNotifies()
 {
 	Sort<FAnimNotifyEvent, CompareUnSkeletalAnimFAnimNotifyEventConstRef>(&Notifies(0), Notifies.Num());
 }

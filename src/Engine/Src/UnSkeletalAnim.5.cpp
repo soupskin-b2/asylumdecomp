@@ -42,14 +42,10 @@ void USkeletalMeshComponent::execAttachComponentToSocket(FFrame& Stack, RESULT_D
 
 extern FName g_026c430c;
 	/* ENGINE_PlayRumble */
-struct APlayerController_ : public APlayerController
-{
-	void eventPlayRumble(class UAnimNotify_Rumble* TheAnimNotify);
-};
 
 // @baa 0x0090afa0
 /* The script event's generated glue (EngineClasses.h), out of line here. */
-void APlayerController_::eventPlayRumble(class UAnimNotify_Rumble* TheAnimNotify)
+void APlayerController::eventPlayRumble(class UAnimNotify_Rumble* TheAnimNotify)
 {
 	struct PlayerController_eventPlayRumble_Parms
 	{
@@ -61,14 +57,10 @@ void APlayerController_::eventPlayRumble(class UAnimNotify_Rumble* TheAnimNotify
 
 extern FName g_026c4260;
 	/* ENGINE_PlayFootStepSound */
-struct APawn_ : public APawn
-{
-	void eventPlayFootStepSound(INT FootDown);
-};
 
 // @baa 0x0090b0a0
 /* The script event's generated glue (EngineClasses.h), out of line here. */
-void APawn_::eventPlayFootStepSound(INT FootDown)
+void APawn::eventPlayFootStepSound(INT FootDown)
 {
 	struct Pawn_eventPlayFootStepSound_Parms
 	{
@@ -80,14 +72,10 @@ void APawn_::eventPlayFootStepSound(INT FootDown)
 
 extern FName g_026c53a8;
 	/* ENGINE_Notify */
-struct UAnimNotify_Scripted_ : public UAnimNotify_Scripted
-{
-	void eventNotify(class AActor* Owner, class USkeletalMeshComponent* AnimSeqInstigator);
-};
 
 // @baa 0x0090c1c0
 /* The script event's generated glue (EngineClasses.h), out of line here. */
-void UAnimNotify_Scripted_::eventNotify(class AActor* Owner, class USkeletalMeshComponent* AnimSeqInstigator)
+void UAnimNotify_Scripted::eventNotify(class AActor* Owner, class USkeletalMeshComponent* AnimSeqInstigator)
 {
 	struct AnimNotify_Scripted_eventNotify_Parms
 	{
@@ -130,13 +118,9 @@ extern FName g_026c4164;
 	/* ENGINE_ClientSpawnCameraLensEffect */
 /* Kit gap: the generated glue for PlayerController's script event ClientSpawnCameraLensEffect (EngineClasses.h)
  * isn't declared; this build keeps it out of line (UAnimNotify_CameraEffect::Notify calls it). */
-struct APlayerController__0090af60 : public APlayerController
-{
-	void eventClientSpawnCameraLensEffect(UClass* LensEffectEmitterClass);
-};
 
 // @baa 0x0090af60
-void APlayerController__0090af60::eventClientSpawnCameraLensEffect(UClass* LensEffectEmitterClass)
+void APlayerController::eventClientSpawnCameraLensEffect(UClass* LensEffectEmitterClass)
 {
 	struct PlayerController_eventClientSpawnCameraLensEffect_Parms
 	{

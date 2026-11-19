@@ -1259,11 +1259,6 @@ void ARPlayerController::execFE_SetVolumeMusic(FFrame& Stack, RESULT_DECL)
 	FE_SetVolumeMusic(Value);
 }
 
-struct ARPlayerController__016f9470 : public ARPlayerController
-{
-	UBOOL ShouldIKickOffWall(FVector);
-};
-
 // @baa 0x016f9470
 void ARPlayerController::execShouldIKickOffWall(FFrame& Stack, RESULT_DECL)
 {
@@ -1418,14 +1413,10 @@ void ARPlayerController::execSetDLCLoadingFlag(FFrame& Stack, RESULT_DECL)
 
 extern FName g_026e2c4c;
 	/* UpdateWorldAvoidWeight */
-struct ARBMRouter_ : public ARBMRouter
-{
-	void eventUpdateWorldAvoidWeight(FLOAT DeltaTime);
-};
 
 // @baa 0x0160dc50
 /* RBMRouter.UpdateWorldAvoidWeight script event: the generated glue, out of line here. */
-void ARBMRouter_::eventUpdateWorldAvoidWeight(FLOAT DeltaTime)
+void ARBMRouter::eventUpdateWorldAvoidWeight(FLOAT DeltaTime)
 {
 	struct RBMRouter_eventUpdateWorldAvoidWeight_Parms
 	{
@@ -1437,14 +1428,10 @@ void ARBMRouter_::eventUpdateWorldAvoidWeight(FLOAT DeltaTime)
 
 extern FName g_026e2ea8;
 	/* GetWorldAvoidVector */
-struct ARBMRouter__0160dc90 : public ARBMRouter
-{
-	FVector eventGetWorldAvoidVector(FLOAT& AvoidWeight);
-};
 
 // @baa 0x0160dc90
 /* RBMRouter.GetWorldAvoidVector script event: the generated glue, out of line here. */
-FVector ARBMRouter__0160dc90::eventGetWorldAvoidVector(FLOAT& AvoidWeight)
+FVector ARBMRouter::eventGetWorldAvoidVector(FLOAT& AvoidWeight)
 {
 	struct RBMRouter_eventGetWorldAvoidVector_Parms
 	{
@@ -1460,14 +1447,10 @@ FVector ARBMRouter__0160dc90::eventGetWorldAvoidVector(FLOAT& AvoidWeight)
 
 extern FName g_026e26fc;
 	/* NewPathSet */
-struct ARBMRouter__0160dd10 : public ARBMRouter
-{
-	void eventNewPathSet(class ARBMRouteRequest* UpdatedRequest);
-};
 
 // @baa 0x0160dd10
 /* RBMRouter.NewPathSet script event: the generated glue, out of line here. */
-void ARBMRouter__0160dd10::eventNewPathSet(class ARBMRouteRequest* UpdatedRequest)
+void ARBMRouter::eventNewPathSet(class ARBMRouteRequest* UpdatedRequest)
 {
 	struct RBMRouter_eventNewPathSet_Parms
 	{
@@ -1479,14 +1462,10 @@ void ARBMRouter__0160dd10::eventNewPathSet(class ARBMRouteRequest* UpdatedReques
 
 extern FName g_026e28a8;
 	/* GetCurrentPath */
-struct ARBMRouteRequest_ : public ARBMRouteRequest
-{
-	class URBMRouterPath* eventGetCurrentPath();
-};
 
 // @baa 0x0160dd90
 /* RBMRouteRequest.GetCurrentPath script event: the generated glue, out of line here. */
-class URBMRouterPath* ARBMRouteRequest_::eventGetCurrentPath()
+class URBMRouterPath* ARBMRouteRequest::eventGetCurrentPath()
 {
 	struct RBMRouteRequest_eventGetCurrentPath_Parms
 	{
@@ -1499,14 +1478,10 @@ class URBMRouterPath* ARBMRouteRequest_::eventGetCurrentPath()
 
 extern FName g_026e364c;
 	/* AddTransientCosts */
-struct ARBMRouteRequest_NervousSearch_ : public ARBMRouteRequest_NervousSearch
-{
-	void eventAddTransientCosts(FVector CentrePoint);
-};
 
 // @baa 0x0160e030
 /* RBMRouteRequest_NervousSearch.AddTransientCosts script event: the generated glue, out of line here. */
-void ARBMRouteRequest_NervousSearch_::eventAddTransientCosts(FVector CentrePoint)
+void ARBMRouteRequest_NervousSearch::eventAddTransientCosts(FVector CentrePoint)
 {
 	struct RBMRouteRequest_NervousSearch_eventAddTransientCosts_Parms
 	{
@@ -1518,14 +1493,10 @@ void ARBMRouteRequest_NervousSearch_::eventAddTransientCosts(FVector CentrePoint
 
 extern FName g_026e2e8c;
 	/* ProcessBuilderStep */
-struct ARBMRouteRequest_PerimeterBuilderWrapper_ : public ARBMRouteRequest_PerimeterBuilderWrapper
-{
-	UBOOL eventProcessBuilderStep();
-};
 
 // @baa 0x0160e0e0
 /* RBMRouteRequest_PerimeterBuilderWrapper.ProcessBuilderStep script event: the generated glue, out of line here. */
-UBOOL ARBMRouteRequest_PerimeterBuilderWrapper_::eventProcessBuilderStep()
+UBOOL ARBMRouteRequest_PerimeterBuilderWrapper::eventProcessBuilderStep()
 {
 	struct RBMRouteRequest_PerimeterBuilderWrapper_eventProcessBuilderStep_Parms
 	{
@@ -1538,14 +1509,10 @@ UBOOL ARBMRouteRequest_PerimeterBuilderWrapper_::eventProcessBuilderStep()
 
 extern FName g_026e2788;
 	/* SmoothEnd */
-struct URBMRouterPath_ : public URBMRouterPath
-{
-	void eventSmoothEnd(class ARPawn* User, INT& bPathShortened);
-};
 
 // @baa 0x0160e3f0
 /* RBMRouterPath.SmoothEnd script event: the generated glue, out of line here. */
-void URBMRouterPath_::eventSmoothEnd(class ARPawn* User, INT& bPathShortened)
+void URBMRouterPath::eventSmoothEnd(class ARPawn* User, INT& bPathShortened)
 {
 	struct RBMRouterPath_eventSmoothEnd_Parms
 	{
@@ -1560,14 +1527,10 @@ void URBMRouterPath_::eventSmoothEnd(class ARPawn* User, INT& bPathShortened)
 
 extern FName g_026e3354;
 	/* GetApproximateMovementSpeed */
-struct ARBMPawnAIAnim_ : public ARBMPawnAIAnim
-{
-	FLOAT eventGetApproximateMovementSpeed();
-};
 
 // @baa 0x0160e480
 /* RBMPawnAIAnim.GetApproximateMovementSpeed script event: the generated glue, out of line here. */
-FLOAT ARBMPawnAIAnim_::eventGetApproximateMovementSpeed()
+FLOAT ARBMPawnAIAnim::eventGetApproximateMovementSpeed()
 {
 	struct RBMPawnAIAnim_eventGetApproximateMovementSpeed_Parms
 	{
@@ -1580,14 +1543,10 @@ FLOAT ARBMPawnAIAnim_::eventGetApproximateMovementSpeed()
 
 extern FName g_026e3090;
 	/* IsAwareOfPlayer */
-struct ARBMPawnAI_ : public ARBMPawnAI
-{
-	UBOOL eventIsAwareOfPlayer(class ARPawnPlayer* PlayerPawn, class UClass* dmgType);
-};
 
 // @baa 0x0160e4d0
 /* RBMPawnAI.IsAwareOfPlayer script event: the generated glue, out of line here. */
-UBOOL ARBMPawnAI_::eventIsAwareOfPlayer(class ARPawnPlayer* PlayerPawn, class UClass* dmgType)
+UBOOL ARBMPawnAI::eventIsAwareOfPlayer(class ARPawnPlayer* PlayerPawn, class UClass* dmgType)
 {
 	struct RBMPawnAI_eventIsAwareOfPlayer_Parms
 	{
@@ -1604,14 +1563,10 @@ UBOOL ARBMPawnAI_::eventIsAwareOfPlayer(class ARPawnPlayer* PlayerPawn, class UC
 
 extern FName g_026e3024;
 	/* FindClosestPawnForStrike */
-struct ARPawnPlayerCombat_ : public ARPawnPlayerCombat
-{
-	UBOOL eventFindClosestPawnForStrike(class UClass* DamageType, FLOAT& ClosestDist, class ARPawnCombat*& ClosestPawn);
-};
 
 // @baa 0x0160e5e0
 /* RPawnPlayerCombat.FindClosestPawnForStrike script event: the generated glue, out of line here. */
-UBOOL ARPawnPlayerCombat_::eventFindClosestPawnForStrike(class UClass* DamageType, FLOAT& ClosestDist, class ARPawnCombat*& ClosestPawn)
+UBOOL ARPawnPlayerCombat::eventFindClosestPawnForStrike(class UClass* DamageType, FLOAT& ClosestDist, class ARPawnCombat*& ClosestPawn)
 {
 	struct RPawnPlayerCombat_eventFindClosestPawnForStrike_Parms
 	{
@@ -1632,14 +1587,10 @@ UBOOL ARPawnPlayerCombat_::eventFindClosestPawnForStrike(class UClass* DamageTyp
 
 extern FName g_026e2ae8;
 	/* GetGlideKickPosition */
-struct ARPlayerController__016122f0 : public ARPlayerController
-{
-	FVector eventGetGlideKickPosition(class ARPawnVillain* DesiredKickTarget);
-};
 
 // @baa 0x016122f0
 /* RPlayerController.GetGlideKickPosition script event: the generated glue, out of line here. */
-FVector ARPlayerController__016122f0::eventGetGlideKickPosition(class ARPawnVillain* DesiredKickTarget)
+FVector ARPlayerController::eventGetGlideKickPosition(class ARPawnVillain* DesiredKickTarget)
 {
 	struct RPlayerController_eventGetGlideKickPosition_Parms
 	{
@@ -1654,14 +1605,10 @@ FVector ARPlayerController__016122f0::eventGetGlideKickPosition(class ARPawnVill
 
 extern FName g_026e26ec;
 	/* InKickRange */
-struct ARPlayerController__01612360 : public ARPlayerController
-{
-	void eventInKickRange(class AActor* DesiredKickTarget, UBOOL CanHitTarget);
-};
 
 // @baa 0x01612360
 /* RPlayerController.InKickRange script event: the generated glue, out of line here. */
-void ARPlayerController__01612360::eventInKickRange(class AActor* DesiredKickTarget, UBOOL CanHitTarget)
+void ARPlayerController::eventInKickRange(class AActor* DesiredKickTarget, UBOOL CanHitTarget)
 {
 	struct RPlayerController_eventInKickRange_Parms
 	{
@@ -1675,14 +1622,10 @@ void ARPlayerController__01612360::eventInKickRange(class AActor* DesiredKickTar
 
 extern FName g_026e36e8;
 	/* ModifyPlayerMovement */
-struct ARPlayerController__016123b0 : public ARPlayerController
-{
-	void eventModifyPlayerMovement(FVector& MoveDirection, FLOAT DeltaTime);
-};
 
 // @baa 0x016123b0
 /* RPlayerController.ModifyPlayerMovement script event: the generated glue, out of line here. */
-void ARPlayerController__016123b0::eventModifyPlayerMovement(FVector& MoveDirection, FLOAT DeltaTime)
+void ARPlayerController::eventModifyPlayerMovement(FVector& MoveDirection, FLOAT DeltaTime)
 {
 	struct RPlayerController_eventModifyPlayerMovement_Parms
 	{
@@ -1697,14 +1640,10 @@ void ARPlayerController__016123b0::eventModifyPlayerMovement(FVector& MoveDirect
 
 extern FName g_026e3214;
 	/* ImAboutToFallOffAnEdge */
-struct ARPlayerController__01612430 : public ARPlayerController
-{
-	UBOOL eventImAboutToFallOffAnEdge(FEnvironmentSpecialMoveLocator Loc);
-};
 
 // @baa 0x01612430
 /* RPlayerController.ImAboutToFallOffAnEdge script event: the generated glue, out of line here. */
-UBOOL ARPlayerController__01612430::eventImAboutToFallOffAnEdge(FEnvironmentSpecialMoveLocator Loc)
+UBOOL ARPlayerController::eventImAboutToFallOffAnEdge(FEnvironmentSpecialMoveLocator Loc)
 {
 	struct RPlayerController_eventImAboutToFallOffAnEdge_Parms
 	{
@@ -1719,14 +1658,10 @@ UBOOL ARPlayerController__01612430::eventImAboutToFallOffAnEdge(FEnvironmentSpec
 
 extern FName g_026e274c;
 	/* UpdateControllerRotation */
-struct ARPlayerController__01612490 : public ARPlayerController
-{
-	void eventUpdateControllerRotation(FLOAT DeltaTime, FVector MoveDirection);
-};
 
 // @baa 0x01612490
 /* RPlayerController.UpdateControllerRotation script event: the generated glue, out of line here. */
-void ARPlayerController__01612490::eventUpdateControllerRotation(FLOAT DeltaTime, FVector MoveDirection)
+void ARPlayerController::eventUpdateControllerRotation(FLOAT DeltaTime, FVector MoveDirection)
 {
 	struct RPlayerController_eventUpdateControllerRotation_Parms
 	{
@@ -1740,14 +1675,10 @@ void ARPlayerController__01612490::eventUpdateControllerRotation(FLOAT DeltaTime
 
 extern FName g_026e28d0;
 	/* GetMovementAxes */
-struct ARPlayerController__016124f0 : public ARPlayerController
-{
-	void eventGetMovementAxes(FVector& X, FVector& Y, FVector& Z);
-};
 
 // @baa 0x016124f0
 /* RPlayerController.GetMovementAxes script event: the generated glue, out of line here. */
-void ARPlayerController__016124f0::eventGetMovementAxes(FVector& X, FVector& Y, FVector& Z)
+void ARPlayerController::eventGetMovementAxes(FVector& X, FVector& Y, FVector& Z)
 {
 	struct RPlayerController_eventGetMovementAxes_Parms
 	{
@@ -1766,14 +1697,10 @@ void ARPlayerController__016124f0::eventGetMovementAxes(FVector& X, FVector& Y, 
 
 extern FName g_026e2fc4;
 	/* LevelAmbientSound */
-struct ARPlayerController__016125f0 : public ARPlayerController
-{
-	void eventLevelAmbientSound(class USoundCue* NewSound);
-};
 
 // @baa 0x016125f0
 /* RPlayerController.LevelAmbientSound script event: the generated glue, out of line here. */
-void ARPlayerController__016125f0::eventLevelAmbientSound(class USoundCue* NewSound)
+void ARPlayerController::eventLevelAmbientSound(class USoundCue* NewSound)
 {
 	struct RPlayerController_eventLevelAmbientSound_Parms
 	{
@@ -1785,14 +1712,10 @@ void ARPlayerController__016125f0::eventLevelAmbientSound(class USoundCue* NewSo
 
 extern FName g_026e31d8;
 	/* CheckInteractableItem */
-struct ARPlayerController__016126e0 : public ARPlayerController
-{
-	UBOOL eventCheckInteractableItem(class AActor* CheckActor, FVector& LocationOffset, FLOAT& HeightRange, FLOAT& Range2D, FLOAT& FOVRange);
-};
 
 // @baa 0x016126e0
 /* RPlayerController.CheckInteractableItem script event: the generated glue, out of line here. */
-UBOOL ARPlayerController__016126e0::eventCheckInteractableItem(class AActor* CheckActor, FVector& LocationOffset, FLOAT& HeightRange, FLOAT& Range2D, FLOAT& FOVRange)
+UBOOL ARPlayerController::eventCheckInteractableItem(class AActor* CheckActor, FVector& LocationOffset, FLOAT& HeightRange, FLOAT& Range2D, FLOAT& FOVRange)
 {
 	struct RPlayerController_eventCheckInteractableItem_Parms
 	{
@@ -1819,14 +1742,10 @@ UBOOL ARPlayerController__016126e0::eventCheckInteractableItem(class AActor* Che
 
 extern FName g_026e25c4;
 	/* InputHeading */
-struct ARPlayerControllerCombat_ : public ARPlayerControllerCombat
-{
-	FVector eventInputHeading(UBOOL bCanBeZero);
-};
 
 // @baa 0x016127f0
 /* RPlayerControllerCombat.InputHeading script event: the generated glue, out of line here. */
-FVector ARPlayerControllerCombat_::eventInputHeading(UBOOL bCanBeZero)
+FVector ARPlayerControllerCombat::eventInputHeading(UBOOL bCanBeZero)
 {
 	struct RPlayerControllerCombat_eventInputHeading_Parms
 	{

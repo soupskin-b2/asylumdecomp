@@ -753,16 +753,12 @@ IMPLEMENT_CLASS_AT(URSeqVar_AnalogControlFloat, "e:\\Projects\\Amadeus\\AA\\Game
 
 extern FName g_026e0c1c;
  /* COMMONGAME_InitCollideDamageScale */
-struct ARBreakablePropStatic_ : public ARBreakablePropStatic
-{
-    void eventInitCollideDamageScale(FLOAT Scale);
-};
 
 // @baa 0x0153bbb0
 /* The InitCollideDamageScale script event's generated glue (CommonGameClasses.h); called on the
  * spawned ARBreakablePropStatic by URActorFactoryBreakablePropStatic (0154a3a0). The parameter's
  * script name isn't known. */
-void ARBreakablePropStatic_::eventInitCollideDamageScale(FLOAT Scale)
+void ARBreakablePropStatic::eventInitCollideDamageScale(FLOAT Scale)
 {
     struct RBreakablePropStatic_eventInitCollideDamageScale_Parms
     {

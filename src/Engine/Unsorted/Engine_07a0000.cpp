@@ -1729,11 +1729,6 @@ UBOOL AController::CanSee(APawn* Other)
     return SeePawn(Other, FALSE);
 }
 
-/* Unnamed in the kit: UE3's INT APawn::pointReachable(FVector aPoint, INT bKnowVisible = 0). */
-struct APawn_ : public APawn
-{
-    INT sub_00873000(FVector aPoint, INT bKnowVisible);
-};
 
 // @baa 0x007a08d0
 /* UE3's AController::PointReachable(FVector aPoint) (execPointReachable's native). */
@@ -1743,7 +1738,7 @@ UBOOL AController::PickWallAdjust(FVector aPoint)
     {
         return FALSE;
     }
-    return ((APawn_*)Pawn)->sub_00873000(aPoint, 0);
+    return ((APawn*)Pawn)->sub_00873000(aPoint, 0);
 }
 
 /* Unnamed in the kit: UE3's void FBasedPosition::Set(AActor* InBase, const FVector& InPosition). */
@@ -1842,15 +1837,11 @@ static FORCEINLINE UBOOL RotatorsDiffer(const FRotator& A, const FRotator& B)
 	return A.Pitch != B.Pitch || A.Yaw != B.Yaw || A.Roll != B.Roll;
 }
 
-struct AController__007ad610 : public AController
-{
-	FVector GetBasedPosition(FBasedPosition BP); /* 0x007ad610 */
-};
 
 // @baa 0x007ad610
 /* The world position of a based position: Position in its base's frame (cached while the base hasn't moved), or
  * Position itself when there's no base. Same body as APawn::GetBasedPosition. */
-FVector AController__007ad610::GetBasedPosition(FBasedPosition BP)
+FVector AController::GetBasedPosition(FBasedPosition BP)
 {
 	if (BP.Base != NULL)
 	{
@@ -1885,14 +1876,10 @@ struct FBasedPosition__007ad7e0 : public FBasedPosition
 	}
 };
 
-struct AController__007ad7e0 : public AController
-{
-	FVector GetFocalPoint(); /* 0x007ad7e0 */
-};
 
 // @baa 0x007ad7e0
 /* UnController.cpp: the world location the controller is looking at. */
-FVector AController__007ad7e0::GetFocalPoint()
+FVector AController::GetFocalPoint()
 {
 	return *(FBasedPosition__007ad7e0&)FocalPosition;
 }
@@ -1917,14 +1904,10 @@ struct FBasedPosition__007ada10 : public FBasedPosition
 	}
 };
 
-struct AController__007ada10 : public AController
-{
-	FVector GetDestinationPosition(); /* 0x007ada10 */
-};
 
 // @baa 0x007ada10
 /* UnController.cpp: the world location the controller is moving to. */
-FVector AController__007ada10::GetDestinationPosition()
+FVector AController::GetDestinationPosition()
 {
 	return *(FBasedPosition__007ada10&)DestinationPosition;
 }
@@ -1949,14 +1932,10 @@ struct FBasedPosition__007adc50 : public FBasedPosition
 	}
 };
 
-struct AController__007adc50 : public AController
-{
-	FVector GetAdjustLocation(); /* 0x007adc50 */
-};
 
 // @baa 0x007adc50
 /* UnController.cpp: the adjusted world location the controller is moving to. */
-FVector AController__007adc50::GetAdjustLocation()
+FVector AController::GetAdjustLocation()
 {
 	return *(FBasedPosition__007adc50&)AdjustPosition;
 }

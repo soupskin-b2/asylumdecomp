@@ -16,13 +16,9 @@ void UPrimitiveComponent::SetComponentRBFixed(UBOOL bFixed)
 
 /* Unnamed in the kit: UE3's UPrimitiveComponent::SetRBChannel(ERBCollisionChannel Channel) (execSetRBChannel's
  * native); slot 0x20c is UE3's UpdatePhysicsToRBChannels(). */
-struct UPrimitiveComponent_ : public UPrimitiveComponent
-{
-    void sub_009ff950(BYTE Channel);
-};
 
 // @baa 0x009ff950
-void UPrimitiveComponent_::sub_009ff950(BYTE Channel)
+void UPrimitiveComponent::sub_009ff950(BYTE Channel)
 {
     RBChannel = Channel;
     SetRBChannel();

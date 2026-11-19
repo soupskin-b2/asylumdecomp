@@ -944,9 +944,6 @@ undefined4 * UGameViewportClient::sub_016e5820(void)
 
 // The event's FName (an ENGINE_ name; the packet does not say which event, nor the class).
 extern FName g_026c3e5c;
-struct UObject_ : public UObject {
-    FLOAT sub_008886a0();
-};
 
 struct UObject_sub_008886a0_Parms {
     FLOAT ReturnValue;
@@ -954,7 +951,7 @@ struct UObject_sub_008886a0_Parms {
 
 // @baa 0x008886a0
 // A script event returning a float, as UE3's generated code writes it.
-FLOAT UObject_::sub_008886a0()
+FLOAT UObject::sub_008886a0()
 {
     UObject_sub_008886a0_Parms Parms;
     Parms.ReturnValue = 0;
@@ -1012,16 +1009,10 @@ void* UPostProcessChain::FindPostProcessEffect(FName EffectName)
 }
 
 extern FName g_026c51b8;
-	/* HandleInputAxis */
-/* Kit gap: the delegate's generated glue isn't declared. */
-struct UGameViewportClient_ : public UGameViewportClient
-{
-	UBOOL delegateHandleInputAxis(INT ControllerId, FName Key, FLOAT Delta, FLOAT DeltaTime, UBOOL bGamepad);
-};
 
 // @baa 0x008889d0
 /* The script delegate's generated glue, out of line here. */
-UBOOL UGameViewportClient_::delegateHandleInputAxis(INT ControllerId, FName Key, FLOAT Delta, FLOAT DeltaTime, UBOOL bGamepad)
+UBOOL UGameViewportClient::delegateHandleInputAxis(INT ControllerId, FName Key, FLOAT Delta, FLOAT DeltaTime, UBOOL bGamepad)
 {
 	struct GameViewportClient_eventHandleInputAxis_Parms
 	{
@@ -1043,16 +1034,10 @@ UBOOL UGameViewportClient_::delegateHandleInputAxis(INT ControllerId, FName Key,
 }
 
 extern FName g_026c55ac;
-	/* HandleInputKey */
-/* Kit gap: the delegate's generated glue isn't declared. */
-struct UGameViewportClient__00888a50 : public UGameViewportClient
-{
-	UBOOL delegateHandleInputKey(INT ControllerId, FName Key, BYTE EventType, FLOAT AmountDepressed, UBOOL bGamepad);
-};
 
 // @baa 0x00888a50
 /* The script delegate's generated glue, out of line here. */
-UBOOL UGameViewportClient__00888a50::delegateHandleInputKey(INT ControllerId, FName Key, BYTE EventType, FLOAT AmountDepressed, UBOOL bGamepad)
+UBOOL UGameViewportClient::delegateHandleInputKey(INT ControllerId, FName Key, BYTE EventType, FLOAT AmountDepressed, UBOOL bGamepad)
 {
 	struct GameViewportClient_eventHandleInputKey_Parms
 	{
@@ -1074,16 +1059,10 @@ UBOOL UGameViewportClient__00888a50::delegateHandleInputKey(INT ControllerId, FN
 }
 
 extern FName g_026c4064;
-	/* OnReceivedNativeInputAxis */
-/* Kit gap: the delegate's generated glue isn't declared. */
-struct UInteraction_ : public UInteraction
-{
-	UBOOL delegateOnReceivedNativeInputAxis(INT ControllerId, FName Key, FLOAT Delta, FLOAT DeltaTime, UBOOL bGamepad);
-};
 
 // @baa 0x00888d90
 /* The script delegate's generated glue, out of line here. */
-UBOOL UInteraction_::delegateOnReceivedNativeInputAxis(INT ControllerId, FName Key, FLOAT Delta, FLOAT DeltaTime, UBOOL bGamepad)
+UBOOL UInteraction::delegateOnReceivedNativeInputAxis(INT ControllerId, FName Key, FLOAT Delta, FLOAT DeltaTime, UBOOL bGamepad)
 {
 	struct Interaction_eventOnReceivedNativeInputAxis_Parms
 	{
@@ -1105,16 +1084,10 @@ UBOOL UInteraction_::delegateOnReceivedNativeInputAxis(INT ControllerId, FName K
 }
 
 extern FName g_026c3e1c;
-	/* OnReceivedNativeInputKey */
-/* Kit gap: the delegate's generated glue isn't declared. */
-struct UInteraction__00888e10 : public UInteraction
-{
-	UBOOL delegateOnReceivedNativeInputKey(INT ControllerId, FName Key, BYTE EventType, FLOAT AmountDepressed, UBOOL bGamepad);
-};
 
 // @baa 0x00888e10
 /* The script delegate's generated glue, out of line here. */
-UBOOL UInteraction__00888e10::delegateOnReceivedNativeInputKey(INT ControllerId, FName Key, BYTE EventType, FLOAT AmountDepressed, UBOOL bGamepad)
+UBOOL UInteraction::delegateOnReceivedNativeInputKey(INT ControllerId, FName Key, BYTE EventType, FLOAT AmountDepressed, UBOOL bGamepad)
 {
 	struct Interaction_eventOnReceivedNativeInputKey_Parms
 	{

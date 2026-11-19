@@ -17,13 +17,9 @@ undefined4 UObject::sub_009927e0(byte param_2)
   return param_1;
 }
 
-struct ATerrain_ : public ATerrain
-{
-    UINT sub_00982810(UINT A, UINT B, UINT Flags);
-};
 
 // @baa 0x00982810
-UINT ATerrain_::sub_00982810(UINT, UINT, UINT Flags)
+UINT ATerrain::sub_00982810(UINT, UINT, UINT Flags)
 {
     return Flags & 0x2000;
 }
@@ -148,13 +144,9 @@ struct UTerrainComponent_ : public UTerrainComponent
     void sub_00759640(UBOOL);
 };
 
-struct ATerrain__009a98d0 : public ATerrain
-{
-    void sub_009a98d0();
-};
 
 // @baa 0x009a98d0
-void ATerrain__009a98d0::sub_009a98d0()
+void ATerrain::sub_009a98d0()
 {
 #line 3280 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnTerrain.cpp"
     check(IsInGameThread() == TRUE);

@@ -769,13 +769,9 @@ struct GFxFSCmdHandler_eventFSCommand_Parms
     UBOOL ReturnValue;
 };
 
-struct UGFxFSCmdHandler_ : public UGFxFSCmdHandler
-{
-    UBOOL eventFSCommand(class UGFxMovie* Movie, const FString& cmd, const FString& arg);
-};
 
 // @baa 0x00e58af0
-UBOOL UGFxFSCmdHandler_::eventFSCommand(class UGFxMovie* Movie, const FString& cmd, const FString& arg)
+UBOOL UGFxFSCmdHandler::eventFSCommand(class UGFxMovie* Movie, const FString& cmd, const FString& arg)
 {
     GFxFSCmdHandler_eventFSCommand_Parms Parms;
     Parms.ReturnValue = FALSE;

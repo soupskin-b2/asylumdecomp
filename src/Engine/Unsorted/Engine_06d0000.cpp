@@ -2438,10 +2438,6 @@ void UMaterialInstanceTimeVarying::PostEditChange(UProperty* PropertyThatChanged
 	this->UpdateStaticPermutation();
 }
 
-struct UMaterial_ : public UMaterial
-{
-	UBOOL GetUsageByFlag(INT Usage); /* 0x006b56e0 */
-};
 
 // @baa 0x006d72b0
 /* Material.cpp, UE3's SetMaterialUsage as built for the game (no flag setting at runtime): the fallback
@@ -2454,7 +2450,7 @@ INT UMaterial::sub_006d72b0(INT* bNeedsRecompile, INT Usage)
 	{
 		bFallbackResult = FallbackMaterial->sub_006d72b0(bNeedsRecompile, Usage);
 	}
-	if (!((UMaterial_*)this)->GetUsageByFlag(Usage) && !bUsedAsSpecialEngineMaterial)
+	if (!((UMaterial*)this)->GetUsageByFlag(Usage) && !bUsedAsSpecialEngineMaterial)
 	{
 		return FALSE;
 	}

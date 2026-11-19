@@ -286,12 +286,9 @@ undefined4 C_00b6dde0::sub_00b6dde0(byte param_2)
 
 extern int g_026667a8;
 extern int sub_00630f20(int, const wchar_t*);
-struct UParticleEmitter_ : public UParticleEmitter {
-	INT sub_00b519a0(INT);
-};
 
 // @baa 0x00b519a0
-INT UParticleEmitter_::sub_00b519a0(INT)
+INT UParticleEmitter::sub_00b519a0(INT)
 {
 	sub_00630f20(g_026667a8, L"UParticleEmitter::CreateInstance is pure virtual");
 	return 0;
@@ -557,14 +554,9 @@ void UParticleSystemComponent::SetActive(UBOOL bNowActive)
     }
 }
 
-/* Unnamed in the kit: UE3's UParticleSystemComponent::FindReplayClipForIDNumber(const INT InClipIDNumber). */
-struct UParticleSystemComponent__00b5f140 : public UParticleSystemComponent
-{
-    UParticleSystemReplay* sub_00b5f140(const INT InClipIDNumber);
-};
 
 // @baa 0x00b5f140
-UParticleSystemReplay* UParticleSystemComponent__00b5f140::sub_00b5f140(const INT InClipIDNumber)
+UParticleSystemReplay* UParticleSystemComponent::sub_00b5f140(const INT InClipIDNumber)
 {
     for (INT CurClipIndex = 0; CurClipIndex < ReplayClips.Num(); ++CurClipIndex)
     {

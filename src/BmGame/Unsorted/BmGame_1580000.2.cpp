@@ -6,14 +6,10 @@
 
 extern FName g_026e29dc;
 	/* CopyInState */
-struct URSeqAct_RandomSwitchForGameOver_ : public URSeqAct_RandomSwitchForGameOver
-{
-	void eventCopyInState();
-};
 
 // @baa 0x01582f20
 /* RSeqAct_RandomSwitchForGameOver.CopyInState script event: the generated glue, out of line here. */
-void URSeqAct_RandomSwitchForGameOver_::eventCopyInState()
+void URSeqAct_RandomSwitchForGameOver::eventCopyInState()
 {
 	ProcessEvent(FindFunctionChecked(g_026e29dc), NULL);
 }

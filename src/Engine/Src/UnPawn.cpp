@@ -1186,12 +1186,9 @@ void APawn::DrawPathStep(class UCanvas* a0) {  }
 void APawn::ClearPathStep() {  }
 
 // APawn slot 0x358 (vtable 214): AdjustDestination. Returns a zero vector.
-struct APawn_ : public APawn {
-    FVector sub_008655c0(AActor* InGoal, FVector InDest);
-};
 
 // @baa 0x008655c0
-FVector APawn_::sub_008655c0(AActor* InGoal, FVector InDest)
+FVector APawn::sub_008655c0(AActor* InGoal, FVector InDest)
 {
     FVector Result;
     Result.X = 0.0f;
@@ -1239,14 +1236,10 @@ FLOAT AActor::GetTerminalVelocity()
 
 extern FName g_026c54d0;
 	/* ENGINE_TakeDamage */
-struct AActor_ : public AActor
-{
-	void eventTakeDamage(INT Damage, AController* EventInstigator, FVector HitLocation, FVector Momentum, UClass* DamageType, FTraceHitInfo HitInfo, AActor* DamageCauser);
-};
 
 // @baa 0x00863e60
 /* The script event's generated glue (EngineClasses.h), out of line here. */
-void AActor_::eventTakeDamage(INT Damage, AController* EventInstigator, FVector HitLocation, FVector Momentum, UClass* DamageType, FTraceHitInfo HitInfo, AActor* DamageCauser)
+void AActor::eventTakeDamage(INT Damage, AController* EventInstigator, FVector HitLocation, FVector Momentum, UClass* DamageType, FTraceHitInfo HitInfo, AActor* DamageCauser)
 {
 	struct Actor_eventTakeDamage_Parms
 	{
@@ -1480,14 +1473,9 @@ BYTE APawn::GetTeamNum()
     return 255;
 }
 
-/* Unnamed in the kit: UE3's APawn::ClearSerpentine() (called from AController::execMoveTo/execMoveToward). */
-struct APawn__00865610 : public APawn
-{
-    void sub_00865610();
-};
 
 // @baa 0x00865610
-void APawn__00865610::sub_00865610()
+void APawn::sub_00865610()
 {
     SerpentineTime = 999.f;
     SerpentineDist = 0.f;
@@ -1511,14 +1499,9 @@ FVector APawn::GetPawnViewLocation()
     return MakeVector(Location.X + EyeOffset.X, Location.Y + EyeOffset.Y, Location.Z + EyeOffset.Z);
 }
 
-/* Unnamed in the kit: the pawn's gravity direction (spiders fall away from their floor, everyone else down). */
-struct APawn__00866050 : public APawn
-{
-    FVector sub_00866050();
-};
 
 // @baa 0x00866050
-FVector APawn__00866050::sub_00866050()
+FVector APawn::sub_00866050()
 {
     if (Physics == PHYS_Spider)
     {
@@ -1674,21 +1657,13 @@ UBOOL APawn::ReachedDestination(AActor* Goal)
 
 /* Kit gaps: the script event glue AController::eventNotifyBump (007d60f0) and AActor::eventBump (007d5d50) aren't
  * declared. */
-struct AController_ : public AController
-{
-	UBOOL eventNotifyBump(AActor* Other, FVector HitNormal);
-};
 
-struct AActor__007d70c0 : public AActor
-{
-	void eventBump(AActor* Other, UPrimitiveComponent* OtherComp, FVector HitNormal);
-};
 
 // @baa 0x007d70c0
 /* The controller gets the first chance to handle the bump. */
 void APawn::NotifyBump(AActor* Other, UPrimitiveComponent* OtherComp, const FVector& HitNormal)
 {
-	if (!Controller || !((AController_*)Controller)->eventNotifyBump(Other, HitNormal))
+	if (!Controller || !((AController*)Controller)->eventNotifyBump(Other, HitNormal))
 	{
 		this->eventBump(Other, OtherComp, HitNormal);
 	}

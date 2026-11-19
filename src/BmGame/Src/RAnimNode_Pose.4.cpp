@@ -162,14 +162,8 @@ int sub_0159a3b0(int a, int b, float Value)
     return Value >= 0.999f;
 }
 
-// Slot vf_258 passes its argument in xmm0 (movss), so it is a FLOAT even though
-// the header types it as INT.
-struct URAnimNode_Pose_ : public URAnimNode_Pose {
-    void sub_01595c40(FLOAT YawVelocity);
-};
-
 // @baa 0x01595c40
-void URAnimNode_Pose_::sub_01595c40(FLOAT YawVelocity)
+void URAnimNode_Pose::sub_01595c40(FLOAT YawVelocity)
 {
     MovementOutput.ProceduralMovement.OverrideYawVelocityEnabled = 1;
     MovementOutput.ProceduralMovement.OverrideYawVelocity = YawVelocity;
@@ -220,26 +214,16 @@ void URAnimNode_Pose__01595bf0::AddYaw(FLOAT Amount)
     MovementOutput.ProceduralMovement.AddYaw += Amount;
 }
 
-struct FPosePlayer_ : public FPosePlayer
-{
-    INT sub_015c8f40(USkeletalMeshComponent* Mesh);
-};
-
 // @baa 0x01595a80
 INT URAnimNode_Pose::vf_204()
 {
-    return ((FPosePlayer_*)&PosePlayer)->sub_015c8f40(SkelComponent);
+    return ((FPosePlayer*)&PosePlayer)->sub_015c8f40(SkelComponent);
 }
-
-struct FPosePlayer__01595a90 : public FPosePlayer
-{
-    INT sub_015c9010(USkeletalMeshComponent* Mesh);
-};
 
 // @baa 0x01595a90
 INT URAnimNode_Pose::vf_208()
 {
-    return ((FPosePlayer__01595a90*)&PosePlayer)->sub_015c9010(SkelComponent);
+    return ((FPosePlayer*)&PosePlayer)->sub_015c9010(SkelComponent);
 }
 
 struct C_015b7d30
@@ -275,27 +259,17 @@ C_015bcc20* C_015bcc20::sub_015bcc20(INT P)
     return this;
 }
 
-struct FPosePlayer__015956e0 : public FPosePlayer
-{
-    void sub_015c29f0(INT A);
-};
-
 // @baa 0x015956e0
 INT URAnimNode_Pose::vf_1b0(INT A)
 {
-    ((FPosePlayer__015956e0*)&PosePlayer)->sub_015c29f0(A);
+    ((FPosePlayer*)&PosePlayer)->sub_015c29f0(A);
     return A;
 }
-
-struct FPosePlayer__01595710 : public FPosePlayer
-{
-    void sub_015c2a80(INT A);
-};
 
 // @baa 0x01595710
 INT URAnimNode_Pose::vf_1b8(INT A)
 {
-    ((FPosePlayer__01595710*)&PosePlayer)->sub_015c2a80(A);
+    ((FPosePlayer*)&PosePlayer)->sub_015c2a80(A);
     return A;
 }
 
@@ -334,15 +308,10 @@ C_015bcc00* C_015bcc00::sub_015bcc00(INT P)
     return this;
 }
 
-struct FRagdollPlayer_ : public FRagdollPlayer
-{
-    INT sub_015d7a70(USkeletalMeshComponent* Skel, INT A, INT B);
-};
-
 // @baa 0x01596000
 INT URAnimNode_Pose::vf_2d0(INT A, INT B)
 {
-    return ((FRagdollPlayer_*)&RagdollPlayer)->sub_015d7a70(SkelComponent, A, B);
+    return ((FRagdollPlayer*)&RagdollPlayer)->sub_015d7a70(SkelComponent, A, B);
 }
 
 struct C_015bcb00
@@ -667,10 +636,6 @@ INT URAnimNode_Pose::vf_318(FLOAT FloorChange, INT, INT, INT)
 
 /* Kit gap: FPosePlayer's methods aren't declared (the node forwards to the one of the same name; they take the
  * fuzziness as a 32-bit enum). */
-struct FPosePlayer__01595770 : public FPosePlayer
-{
-	INT sub_015c2c00(INT); /* 0x015c2c00 */
-};
 
 // @baa 0x01595770
 /* Slot 0x284 (unnamed in the kit). */
@@ -681,10 +646,6 @@ INT URAnimNode_Pose::vf_284(BYTE Fuzziness)
 
 /* Kit gap: FPosePlayer's methods aren't declared (the node forwards to the one of the same name; they take the
  * fuzziness as a 32-bit enum). */
-struct FPosePlayer__01595790 : public FPosePlayer
-{
-	INT IsInAnyAutomaticTransition(INT Fuzziness, FTransitionId* Transition); /* 0x015c2c70 */
-};
 
 // @baa 0x01595790
 INT URAnimNode_Pose::IsInAnyAutomaticTransition(BYTE Fuzziness, FTransitionId* Transition)
@@ -694,10 +655,6 @@ INT URAnimNode_Pose::IsInAnyAutomaticTransition(BYTE Fuzziness, FTransitionId* T
 
 /* Kit gap: FPosePlayer's methods aren't declared (the node forwards to the one of the same name; they take the
  * fuzziness as a 32-bit enum). */
-struct FPosePlayer__015957b0 : public FPosePlayer
-{
-	INT sub_015c2d00(INT); /* 0x015c2d00 */
-};
 
 // @baa 0x015957b0
 /* Slot 0x28c (unnamed in the kit). */
@@ -708,10 +665,6 @@ INT URAnimNode_Pose::vf_28c(BYTE Fuzziness)
 
 /* Kit gap: FPosePlayer's methods aren't declared (the node forwards to the one of the same name; they take the
  * fuzziness as a 32-bit enum). */
-struct FPosePlayer__015957d0 : public FPosePlayer
-{
-	INT IsInTransition(FTransitionId Transition, INT Fuzziness); /* 0x015c2d70 */
-};
 
 // @baa 0x015957d0
 INT URAnimNode_Pose::IsInTransition(FTransitionId Transition, BYTE Fuzziness)
@@ -721,10 +674,6 @@ INT URAnimNode_Pose::IsInTransition(FTransitionId Transition, BYTE Fuzziness)
 
 /* Kit gap: FPosePlayer's methods aren't declared (the node forwards to the one of the same name; they take the
  * fuzziness as a 32-bit enum). */
-struct FPosePlayer__01595a40 : public FPosePlayer
-{
-	INT sub_015c2ff0(INT); /* 0x015c2ff0 */
-};
 
 // @baa 0x01595a40
 /* Slot 0x1e4 (unnamed in the kit). */
@@ -732,12 +681,6 @@ INT URAnimNode_Pose::vf_1e4(BYTE Fuzziness)
 {
 	return PosePlayer.sub_015c2ff0(Fuzziness);
 }
-
-/* Kit gap: FPosePlayer's methods (RPosePlayer.cpp) aren't declared; the node forwards to the one of the same name. */
-struct FPosePlayer__01595650 : public FPosePlayer
-{
-	void OverrideTransitionTime(FLOAT, INT); /* 0x015c2910 */
-};
 
 // @baa 0x01595650
 void URAnimNode_Pose::OverrideTransitionTime(FLOAT Time, INT Param)
@@ -747,10 +690,6 @@ void URAnimNode_Pose::OverrideTransitionTime(FLOAT Time, INT Param)
 
 /* Kit gap: FPosePlayer's methods aren't declared (the node forwards to the one of the same name; they take the
  * fuzziness as a 32-bit enum). */
-struct FPosePlayer__015959c0 : public FPosePlayer
-{
-	INT IsInMovementStance(FName Stance, INT Fuzziness); /* 0x015c2ec0 */
-};
 
 // @baa 0x015959c0
 INT URAnimNode_Pose::IsInMovementStance(FName Stance, BYTE Fuzziness)
@@ -760,22 +699,12 @@ INT URAnimNode_Pose::IsInMovementStance(FName Stance, BYTE Fuzziness)
 
 /* Kit gap: FPosePlayer's methods aren't declared (the node forwards to the one of the same name; they take the
  * fuzziness as a 32-bit enum). */
-struct FPosePlayer__015959e0 : public FPosePlayer
-{
-	INT IsInWeaponStance(FName Stance, INT Fuzziness); /* 0x015c2f50 */
-};
 
 // @baa 0x015959e0
 INT URAnimNode_Pose::IsInWeaponStance(FName Stance, BYTE Fuzziness)
 {
 	return PosePlayer.IsInWeaponStance(Stance, Fuzziness);
 }
-
-/* Kit gap: FPosePlayer's methods aren't declared (the node forwards to the one of the same name). */
-struct FPosePlayer__01595810 : public FPosePlayer
-{
-	INT WillBeInTransition(FTransitionId Transition, FLOAT Time, INT Fuzziness); /* 0x015c8f00 */
-};
 
 // @baa 0x01595810
 INT URAnimNode_Pose::WillBeInTransition(FTransitionId Transition, FLOAT Time, BYTE Fuzziness)
@@ -796,12 +725,6 @@ INT URAnimNode_Pose::vf_1c0(INT Param, FLOAT Value)
 	return PosePlayer.sub_015c2b90(SkelComponent, Param, Value);
 }
 
-/* Kit gap: FPosePlayer's methods aren't declared (the node forwards to the one of the same name). */
-struct FPosePlayer__01595a00 : public FPosePlayer
-{
-	INT HasPose(USkeletalMeshComponent* SkelComp, FName MovementStance, FName WeaponStance, FName IdleStance); /* 0x015c28b0 */
-};
-
 // @baa 0x01595a00
 INT URAnimNode_Pose::HasPose(FName MovementStance, FName WeaponStance, FName IdleStance)
 {
@@ -815,12 +738,7 @@ struct C_015c8f00
     INT* sub_015c2830(INT TransitionId);
 };
 
-/* Unnamed in the kit (0x015c6460): whether the stance change's transition is over by Time (within Fuzziness). */
-struct FStanceChange_ : public FStanceChange
-{
-    UBOOL sub_015c6460(FLOAT Time, INT Fuzziness);
-};
-
+/* hoist: keep (on FPosePlayer itself MSVC would inline this into URAnimNode_Pose::WillBeInTransition above, 0x01595810) */
 struct FPosePlayer__015c8f00 : public FPosePlayer
 {
     INT WillBeInTransition(FTransitionId Transition, FLOAT Time, INT Fuzziness); /* 0x015c8f00 */
@@ -830,7 +748,7 @@ struct FPosePlayer__015c8f00 : public FPosePlayer
 /* Whether the given transition will still be running at Time. */
 INT FPosePlayer__015c8f00::WillBeInTransition(FTransitionId Transition, FLOAT Time, INT Fuzziness)
 {
-    FStanceChange_* Change = (FStanceChange_*)((C_015c8f00*)this)->sub_015c2830(Transition.Id);
+    FStanceChange* Change = (FStanceChange*)((C_015c8f00*)this)->sub_015c2830(Transition.Id);
     if (Change != NULL && !Change->sub_015c6460(Time, Fuzziness))
     {
         return TRUE;
@@ -844,14 +762,9 @@ struct C_015c2e90
     INT* sub_015c2830(INT TransitionId);
 };
 
-struct FPosePlayer__015c2e90 : public FPosePlayer
-{
-    INT sub_015c2e90(FTransitionId Transition); /* 0x015c2e90 */
-};
-
 // @baa 0x015c2e90
 /* Unnamed in the kit: whether the transition has got past its translation meeting point (or is already gone). */
-INT FPosePlayer__015c2e90::sub_015c2e90(FTransitionId Transition)
+INT FPosePlayer::sub_015c2e90(FTransitionId Transition)
 {
     FStanceChange* Change = (FStanceChange*)((C_015c2e90*)this)->sub_015c2830(Transition.Id);
     if (Change != NULL && !(Change->Time.Current >= Change->Transition.MeetingPointEndTranslation))
@@ -872,14 +785,9 @@ struct FDirectionalAnimState_ : public FDirectionalAnimState
     }
 };
 
-struct FPosePlayer__015c2b50 : public FPosePlayer
-{
-    void sub_015c2b50(); /* 0x015c2b50 */
-};
-
 // @baa 0x015c2b50
 /* Unnamed in the kit: start setting the current (head) stance change's directional weights. */
-void FPosePlayer__015c2b50::sub_015c2b50()
+void FPosePlayer::sub_015c2b50()
 {
     FStanceChange* Head = Changes.Num ? &Changes.Data[0] : NULL;
     if (Head != NULL)

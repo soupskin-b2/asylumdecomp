@@ -1601,13 +1601,10 @@ int sub_0158be70(void)
 
 // The event's FName (a BMGAME_ name; the packet does not say which event).
 extern FName g_026e2624;
-struct UObject_ : public UObject {
-    void sub_01582ef0();
-};
 
 // @baa 0x01582ef0
 // A script event thunk with no parameters, as UE3's generated code writes it.
-void UObject_::sub_01582ef0()
+void UObject::sub_01582ef0()
 {
     ProcessEvent(FindFunctionChecked(g_026e2624), NULL);
 }

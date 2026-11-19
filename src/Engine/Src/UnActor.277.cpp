@@ -20,14 +20,9 @@ void ABrush::PostEditChange(UProperty* PropertyThatChanged)
     Super::PostEditChange(PropertyThatChanged);
 }
 
-/* Unnamed in the kit: UE3's AActor::GetTopOwner() (the last actor up the Owner chain). */
-struct AActor_ : public AActor
-{
-    AActor* sub_0068f1e0();
-};
 
 // @baa 0x0068f1e0
-AActor* AActor_::sub_0068f1e0()
+AActor* AActor::sub_0068f1e0()
 {
     AActor* Top;
     for (Top = this; Top->Owner; Top = Top->Owner);
@@ -132,11 +127,6 @@ APlayerController* AActor::GetTopPlayerController()
 	return TopActor->GetAPlayerController();
 }
 
-struct AActor__00784080 : public AActor
-{
-	void SetCollisionFromCollisionType(); /* 0x00780e30 */
-	void EndTouch(AActor* Other, UBOOL NoNotifyOther); /* 0x007691a0 */
-};
 
 // @baa 0x00784080
 /* UnActor.cpp: AActor::SetCollisionType(BYTE NewType) */
@@ -147,7 +137,7 @@ void AActor::SetCollisionType(BYTE NewType)
 
 	CollisionType = NewType;
 	ReplicatedCollisionType = CollisionType;
-	((AActor__00784080*)this)->SetCollisionFromCollisionType();
+	((AActor*)this)->SetCollisionFromCollisionType();
 
 	if (bCollideActors != bOldCollideActors)
 	{
@@ -161,7 +151,7 @@ void AActor::SetCollisionType(BYTE NewType)
 			{
 				if (Touching(i) != NULL)
 				{
-					((AActor__00784080*)Touching(i))->EndTouch(this, 0);
+					((AActor*)Touching(i))->EndTouch(this, 0);
 				}
 				else
 				{

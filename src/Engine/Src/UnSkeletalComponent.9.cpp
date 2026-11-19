@@ -9,14 +9,10 @@
 extern template UAnimTree* Cast<UAnimTree>(UObject* Src);
 /* UAnimTree::GetTreeActiveMorphs (0x00c55760) isn't declared in Classes.h. */
 
-struct USkeletalMeshComponent_ : public USkeletalMeshComponent
-{
-    void UpdateActiveMorphs();
-};
 
 // @baa 0x00934a30
 /* rebuild the list of morph targets the anim tree currently wants */
-void USkeletalMeshComponent_::UpdateActiveMorphs()
+void USkeletalMeshComponent::UpdateActiveMorphs()
 {
     ActiveMorphs.Empty();
 

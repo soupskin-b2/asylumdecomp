@@ -152,11 +152,6 @@ FCurveEdInterface* sub_00d06e20(const FCurveEdEntry& Entry)
 }
 
 extern template APlayerController* Cast<APlayerController>(UObject* Src);
-/* Unnamed in the kit: UE3's UInterpTrackSoundFade::GetSoundFadeAmountAtTime(FLOAT Time). */
-struct UInterpTrackSoundFade_ : public UInterpTrackSoundFade
-{
-    FLOAT sub_00cfbe50(FLOAT Time);
-};
 
 // @baa 0x00d0fcf0
 /* UE3's UInterpTrackSoundFade::UpdateTrack: set the player camera's sound fade from the curve. */
@@ -166,15 +161,10 @@ void UInterpTrackSoundFade::UpdateTrack(FLOAT NewPosition, UInterpTrackInst* TrI
     APlayerController* PC = Cast<APlayerController>(GetGroupActorOf(GrInst));
     if (PC && PC->PlayerCamera && !PC->PlayerCamera->bDeleteMe)
     {
-        PC->PlayerCamera->SoundFadeAmount = ((UInterpTrackSoundFade_*)this)->sub_00cfbe50(NewPosition);
+        PC->PlayerCamera->SoundFadeAmount = ((UInterpTrackSoundFade*)this)->sub_00cfbe50(NewPosition);
     }
 }
 
-/* UInterpTrackFade::GetFadeAmountAtTime isn't declared in the kit. */
-struct UInterpTrackFade_ : public UInterpTrackFade
-{
-    FLOAT GetFadeAmountAtTime(FLOAT Time); /* 0x00cfbd70 */
-};
 
 // @baa 0x00d0fc60
 /* UE3's UInterpTrackFade::UpdateTrack: drive the player camera's fade from the curve (not when jumping). */
@@ -187,16 +177,12 @@ void UInterpTrackFade::UpdateTrack(FLOAT NewPosition, UInterpTrackInst* TrInst, 
         if (PC && PC->PlayerCamera && !PC->PlayerCamera->bDeleteMe)
         {
             PC->PlayerCamera->bEnableFading = TRUE;
-            PC->PlayerCamera->FadeAmount = ((UInterpTrackFade_*)this)->GetFadeAmountAtTime(NewPosition);
+            PC->PlayerCamera->FadeAmount = ((UInterpTrackFade*)this)->GetFadeAmountAtTime(NewPosition);
             PC->PlayerCamera->FadeTimeRemaining = 0.0f;
         }
     }
 }
 
-struct AActor_ : public AActor
-{
-	void eventSetMorphWeight(FName MorphNodeName, FLOAT MorphWeight); /* 0x00ce85f0 */
-};
 
 // @baa 0x00d10b80
 /* UE3's UInterpTrackMorphWeight::UpdateTrack: pass the curve's weight to the actor's morph node. */
@@ -207,14 +193,10 @@ void UInterpTrackMorphWeight::UpdateTrack(FLOAT NewPosition, UInterpTrackInst* T
 	if (Actor)
 	{
 		FLOAT NewFloatValue = FloatTrack.Eval(NewPosition, 0.f);
-		((AActor_*)Actor)->eventSetMorphWeight(MorphNodeName, NewFloatValue);
+		((AActor*)Actor)->eventSetMorphWeight(MorphNodeName, NewFloatValue);
 	}
 }
 
-struct AActor__00d10d20 : public AActor
-{
-	void eventSetSkelControlScale(FName SkelControlName, FLOAT Scale); /* 0x00ce8590 */
-};
 
 // @baa 0x00d10d20
 /* UE3's UInterpTrackSkelControlScale::UpdateTrack: pass the curve's scale to the actor's skel control. */
@@ -225,14 +207,10 @@ void UInterpTrackSkelControlScale::UpdateTrack(FLOAT NewPosition, UInterpTrackIn
 	if (Actor)
 	{
 		FLOAT NewFloatValue = FloatTrack.Eval(NewPosition, 0.f);
-		((AActor__00d10d20*)Actor)->eventSetSkelControlScale(SkelControlName, NewFloatValue);
+		((AActor*)Actor)->eventSetSkelControlScale(SkelControlName, NewFloatValue);
 	}
 }
 
-struct AActor__00d10c50 : public AActor
-{
-	void eventSetFaceFXRegister(const FString& RegisterName, FLOAT Value, BYTE RegOp); /* 0x00cf8b60 */
-};
 
 // @baa 0x00d10c50
 /* UInterpTrackFaceFXRegister::UpdateTrack: pass the curve's value to the actor's FaceFX register. */
@@ -242,6 +220,6 @@ void UInterpTrackFaceFXRegister::UpdateTrack(FLOAT NewPosition, UInterpTrackInst
 	AActor* Actor = GetGroupActorOf(GrInst);
 	if (Actor)
 	{
-		((AActor__00d10c50*)Actor)->eventSetFaceFXRegister(Register, FloatTrack.Eval(NewPosition, 0.f), Operation);
+		((AActor*)Actor)->eventSetFaceFXRegister(Register, FloatTrack.Eval(NewPosition, 0.f), Operation);
 	}
 }

@@ -26,14 +26,9 @@ void UInterpFilter::FilterData(USeqAct_Interp* InInterp)
     }
 }
 
-/* Unnamed in the kit: UE3's USeqAct_Interp::Pause(): toggle bPaused while playing. */
-struct USeqAct_Interp_ : public USeqAct_Interp
-{
-    void sub_00ceb4f0();
-};
 
 // @baa 0x00ceb4f0
-void USeqAct_Interp_::sub_00ceb4f0()
+void USeqAct_Interp::sub_00ceb4f0()
 {
     if (bIsPlaying)
     {
@@ -46,15 +41,11 @@ void USeqAct_Interp_::sub_00ceb4f0()
  * (as the project binds it, 0x00cf3830); UInterpData::FindDirectorGroup and UInterpGroupDirector::GetDirectorTrack
  * are project stand-ins too (0x00d132d0, 0x00d0eb90). */
 
-struct USeqAct_Interp__00d14410 : public USeqAct_Interp
-{
-    AActor* sub_00d14410();
-};
 
 // @baa 0x00d14410
 /* UE3's USeqAct_Interp::FindViewedActor(): the actor the director track is viewing through at the current position,
  * if it isn't being destroyed. */
-AActor* USeqAct_Interp__00d14410::sub_00d14410()
+AActor* USeqAct_Interp::sub_00d14410()
 {
     UInterpGroupDirector* DirGroup = InterpData->FindDirectorGroup();
     if (DirGroup != NULL)
@@ -77,13 +68,9 @@ AActor* USeqAct_Interp__00d14410::sub_00d14410()
 /* Kit gap: FName has no comparison operator (UnName.h compares Index and Number). */
 /* Unnamed in the kit: UE3's UInterpData::FindGroupByName(FName GroupName): the index of the group named GroupName,
  * INDEX_NONE if none (or for NAME_None). */
-struct UInterpData__00cf3030 : public UInterpData
-{
-    INT sub_00cf3030(FName GroupName);
-};
 
 // @baa 0x00cf3030
-INT UInterpData__00cf3030::sub_00cf3030(FName GroupName)
+INT UInterpData::sub_00cf3030(FName GroupName)
 {
     if (GroupName.Index != 0 || GroupName.Number != 0)
     {

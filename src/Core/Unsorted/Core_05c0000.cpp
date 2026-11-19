@@ -1792,13 +1792,9 @@ int UObject::sub_005cbe00(int param_2)
 
 extern DWORD g_026a1c58;
 extern DWORD g_026a1c5c;
-struct UObject_ : public UObject
-{
-    DWORD sub_005c2140();
-};
 
 // @baa 0x005c2140
-DWORD UObject_::sub_005c2140()
+DWORD UObject::sub_005c2140()
 {
     if (this < (UObject*)g_026a1c58 || this >= (UObject*)g_026a1c5c)
         return 0;

@@ -6,14 +6,10 @@
 
 extern FName g_026e3740;
 	/* GetOutputLinkForCurrentSelection */
-struct URSeqAct_PlayerDialogueOptions_ : public URSeqAct_PlayerDialogueOptions
-{
-	INT eventGetOutputLinkForCurrentSelection();
-};
 
 // @baa 0x01558360
 /* RSeqAct_PlayerDialogueOptions.GetOutputLinkForCurrentSelection script event: the generated glue, out of line here. */
-INT URSeqAct_PlayerDialogueOptions_::eventGetOutputLinkForCurrentSelection()
+INT URSeqAct_PlayerDialogueOptions::eventGetOutputLinkForCurrentSelection()
 {
 	struct RSeqAct_PlayerDialogueOptions_eventGetOutputLinkForCurrentSelection_Parms
 	{
@@ -26,14 +22,10 @@ INT URSeqAct_PlayerDialogueOptions_::eventGetOutputLinkForCurrentSelection()
 
 extern FName g_026e27fc;
 	/* TaggedLookAt */
-struct URSeqAct_ConversationDialogue_ : public URSeqAct_ConversationDialogue
-{
-	void eventTaggedLookAt(class ARPawnCharacter* Looker, class ARPawnCharacter* LookerAt);
-};
 
 // @baa 0x01558440
 /* RSeqAct_ConversationDialogue.TaggedLookAt script event: the generated glue, out of line here. */
-void URSeqAct_ConversationDialogue_::eventTaggedLookAt(class ARPawnCharacter* Looker, class ARPawnCharacter* LookerAt)
+void URSeqAct_ConversationDialogue::eventTaggedLookAt(class ARPawnCharacter* Looker, class ARPawnCharacter* LookerAt)
 {
 	struct RSeqAct_ConversationDialogue_eventTaggedLookAt_Parms
 	{
@@ -47,14 +39,10 @@ void URSeqAct_ConversationDialogue_::eventTaggedLookAt(class ARPawnCharacter* Lo
 
 extern FName g_026e2b7c;
 	/* GetSpeakingTo */
-struct URSeqAct_ConversationDialogue__015584d0 : public URSeqAct_ConversationDialogue
-{
-	class ARPawnCharacter* eventGetSpeakingTo(INT Index);
-};
 
 // @baa 0x015584d0
 /* RSeqAct_ConversationDialogue.GetSpeakingTo script event: the generated glue, out of line here. */
-class ARPawnCharacter* URSeqAct_ConversationDialogue__015584d0::eventGetSpeakingTo(INT Index)
+class ARPawnCharacter* URSeqAct_ConversationDialogue::eventGetSpeakingTo(INT Index)
 {
 	struct RSeqAct_ConversationDialogue_eventGetSpeakingTo_Parms
 	{
@@ -84,14 +72,10 @@ void URSeqAct_PlayerDialogueLine::eventSetSource(class URSeqAct_PlayerDialogueOp
 
 extern FName g_026e335c;
 	/* BMGAME_SetVariableLinkType */
-struct URSeqAct_ConversationDialogue__01558490 : public URSeqAct_ConversationDialogue
-{
-	void eventSetVariableLinkType(INT I);
-};
 
 // @baa 0x01558490
 /* The script event's generated glue (BmGameClasses.h), out of line here. */
-void URSeqAct_ConversationDialogue__01558490::eventSetVariableLinkType(INT I)
+void URSeqAct_ConversationDialogue::eventSetVariableLinkType(INT I)
 {
 	struct RSeqAct_ConversationDialogue_eventSetVariableLinkType_Parms
 	{

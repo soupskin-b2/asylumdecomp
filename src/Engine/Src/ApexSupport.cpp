@@ -1063,12 +1063,9 @@ struct FPhysXVolumeFill_ {
     ~FPhysXVolumeFill_(); /* 0x009e9690 */
 };
 
-struct APhysXEmitterSpawnable_ : public APhysXEmitterSpawnable {
-    void sub_009edd80();
-};
 
 // @baa 0x009edd80
-void APhysXEmitterSpawnable_::sub_009edd80()
+void APhysXEmitterSpawnable::sub_009edd80()
 {
     FPhysXVolumeFill_* Fill = (FPhysXVolumeFill_*)VolumeFill.Dummy;
     if (Fill)

@@ -15,14 +15,10 @@ void UPrimitiveComponent::execSetRBChannel(FFrame& Stack, RESULT_DECL)
 
 extern FName g_026c4340;
 	/* ENGINE_BreakOffPartsInRadius */
-struct AFracturedStaticMeshActor_ : public AFracturedStaticMeshActor
-{
-	void eventBreakOffPartsInRadius(FVector Origin, FLOAT Radius, FLOAT RBStrength, UBOOL bWantPhysChunksAndParticles, UBOOL bAllowDamagedEventFiring, FVector BlastOriginOffset);
-};
 
 // @baa 0x009fd450
 /* The script event's generated glue (EngineClasses.h), out of line here. */
-void AFracturedStaticMeshActor_::eventBreakOffPartsInRadius(FVector Origin, FLOAT Radius, FLOAT RBStrength, UBOOL bWantPhysChunksAndParticles, UBOOL bAllowDamagedEventFiring, FVector BlastOriginOffset)
+void AFracturedStaticMeshActor::eventBreakOffPartsInRadius(FVector Origin, FLOAT Radius, FLOAT RBStrength, UBOOL bWantPhysChunksAndParticles, UBOOL bAllowDamagedEventFiring, FVector BlastOriginOffset)
 {
 	struct FracturedStaticMeshActor_eventBreakOffPartsInRadius_Parms
 	{

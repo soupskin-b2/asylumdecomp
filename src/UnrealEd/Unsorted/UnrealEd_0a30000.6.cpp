@@ -27,13 +27,9 @@ extern FName g_026c3df4;
 	/* ENGINE_FillByCylinder */
 /* Kit gap: the generated glue for ForceFieldShape's script event FillByCylinder (EngineClasses.h) isn't declared;
  * this build keeps it out of line (the tornado force fields call it). */
-struct UForceFieldShape_ : public UForceFieldShape
-{
-	void eventFillByCylinder(FLOAT BottomRadius, FLOAT TopRadius, FLOAT Height, FLOAT HeightOffset);
-};
 
 // @baa 0x00a33cd0
-void UForceFieldShape_::eventFillByCylinder(FLOAT BottomRadius, FLOAT TopRadius, FLOAT Height, FLOAT HeightOffset)
+void UForceFieldShape::eventFillByCylinder(FLOAT BottomRadius, FLOAT TopRadius, FLOAT Height, FLOAT HeightOffset)
 {
 	struct ForceFieldShape_eventFillByCylinder_Parms
 	{
@@ -50,15 +46,9 @@ void UForceFieldShape_::eventFillByCylinder(FLOAT BottomRadius, FLOAT TopRadius,
 }
 
 extern FName g_026c4600;
-	/* ENGINE_FillByBox */
-/* Kit gap: the generated glue for ForceFieldShape's script event FillByBox (EngineClasses.h) isn't declared; this build keeps it out of line. */
-struct UForceFieldShape__00a33d40 : public UForceFieldShape
-{
-	void eventFillByBox(FVector Dimension);
-};
 
 // @baa 0x00a33d40
-void UForceFieldShape__00a33d40::eventFillByBox(FVector Dimension)
+void UForceFieldShape::eventFillByBox(FVector Dimension)
 {
 	struct ForceFieldShape_eventFillByBox_Parms
 	{

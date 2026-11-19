@@ -73,12 +73,9 @@ struct C_00e2bca0 { int sub_00e2bca0(void); };
 int C_00e2bca0::sub_00e2bca0(void) { return *(int*)((char*)this + 280); }
 
 extern int __stdcall sub_018d354a(int First, int Second);
-struct UTcpipConnection_ : public UTcpipConnection {
-    bool sub_00e2be70(int Second);
-};
 
 // @baa 0x00e2be70
-bool UTcpipConnection_::sub_00e2be70(int Second)
+bool UTcpipConnection::sub_00e2be70(int Second)
 {
     int First = *(int*)((char*)this + 8);
     return sub_018d354a(First, Second) == 0;

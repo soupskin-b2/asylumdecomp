@@ -23,14 +23,9 @@ void USkeletalMeshComponent::UpdateAnimations()
     }
 }
 
-/* Unnamed in the kit: resets the ragdoll's sleep tracking (permanent fixing, damping ramp-up). */
-struct USkeletalMeshComponent__0090f4e0 : public USkeletalMeshComponent
-{
-    void sub_0090f4e0();
-};
 
 // @baa 0x0090f4e0
-void USkeletalMeshComponent__0090f4e0::sub_0090f4e0()
+void USkeletalMeshComponent::sub_0090f4e0()
 {
     bHasBeenPermanentlyFixed = FALSE;
     FramesPhysicsAsleep = 0;

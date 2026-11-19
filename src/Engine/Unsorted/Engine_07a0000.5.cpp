@@ -6,15 +6,11 @@
 
 extern FName g_026c4ff0;
 	/* ENGINE_SetInXrayMode */
-struct AFracturedStaticMeshActor_ : public AFracturedStaticMeshActor
-{
-	void eventSetInXrayMode(UBOOL bInXrayMode);
-};
 
 // @baa 0x007a4d70
 /* The script event's generated glue (EngineClasses.h), out of line here. Callers in
  * UnFracturedStaticMesh pass a part actor's x-ray bit. */
-void AFracturedStaticMeshActor_::eventSetInXrayMode(UBOOL bInXrayMode)
+void AFracturedStaticMeshActor::eventSetInXrayMode(UBOOL bInXrayMode)
 {
 	struct FracturedStaticMeshActor_eventSetInXrayMode_Parms
 	{

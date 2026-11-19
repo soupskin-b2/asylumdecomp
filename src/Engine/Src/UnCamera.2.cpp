@@ -6,14 +6,10 @@
 
 extern FName g_026c43ac;
 	/* ClientSetViewTarget */
-struct APlayerController_ : public APlayerController
-{
-	void eventClientSetViewTarget(class AActor* A, FViewTargetTransitionParams TransitionParams);
-};
 
 // @baa 0x00785280
 /* PlayerController.ClientSetViewTarget script event: the generated glue, out of line here. */
-void APlayerController_::eventClientSetViewTarget(class AActor* A, FViewTargetTransitionParams TransitionParams)
+void APlayerController::eventClientSetViewTarget(class AActor* A, FViewTargetTransitionParams TransitionParams)
 {
 	struct PlayerController_eventClientSetViewTarget_Parms
 	{

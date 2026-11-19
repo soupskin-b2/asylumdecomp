@@ -19,11 +19,6 @@ inline AActor* GetGroupActorOf(UInterpGroupInst* GrInst)
     return GrInst->GroupActor;
 }
 
-/* Unnamed in the kit: UE3's UInterpTrackColorScale::GetColorScaleAtTime(FLOAT Time). */
-struct UInterpTrackColorScale_ : public UInterpTrackColorScale
-{
-    FVector sub_00cfc680(FLOAT Time);
-};
 
 // @baa 0x00d10790
 /* UE3's UInterpTrackColorScale::UpdateTrack: set the player camera's color scale from the curve. */
@@ -34,7 +29,7 @@ void UInterpTrackColorScale::UpdateTrack(FLOAT NewPosition, UInterpTrackInst* Tr
     if (PC && PC->PlayerCamera && !PC->PlayerCamera->bDeleteMe)
     {
         PC->PlayerCamera->bEnableColorScaling = TRUE;
-        PC->PlayerCamera->ColorScale = ((UInterpTrackColorScale_*)this)->sub_00cfc680(NewPosition);
+        PC->PlayerCamera->ColorScale = ((UInterpTrackColorScale*)this)->sub_00cfc680(NewPosition);
         PC->PlayerCamera->bEnableColorScaleInterp = FALSE;
     }
 }

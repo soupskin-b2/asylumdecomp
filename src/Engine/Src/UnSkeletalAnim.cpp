@@ -1050,12 +1050,9 @@ extern UBOOL g_02676094;
 INT sub_015d56c0(UAnimSequence* Seq);
 void sub_00921a00(FAnimNotifyEvent* First, INT Num);
  /* Sort<> */
-struct UAnimSequence_ : public UAnimSequence {
-    void sub_009324a0();
-};
 
 // @baa 0x009324a0
-void UAnimSequence_::sub_009324a0()
+void UAnimSequence::sub_009324a0()
 {
     if (g_02676094)
     {
@@ -2112,14 +2109,10 @@ inline INT MatchRefBone(USkeletalMeshComponent* SkelComp, FName BoneName)
 	return BoneIndex;
 }
 
-struct FBreathingFixer_ : public FBreathingFixer
-{
-	void Init(USkeletalMeshComponent* SkelComp);
-};
 
 // @baa 0x00913d80
 /* Finds the three spine bones; the fixer works only if the mesh has all of them. */
-void FBreathingFixer_::Init(USkeletalMeshComponent* SkelComp)
+void FBreathingFixer::Init(USkeletalMeshComponent* SkelComp)
 {
 	Spine1Index = MatchRefBone(SkelComp, FName_(0x61b));
 	Spine2Index = MatchRefBone(SkelComp, FName_(0x61c));

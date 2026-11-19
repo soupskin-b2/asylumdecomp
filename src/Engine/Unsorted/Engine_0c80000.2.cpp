@@ -155,14 +155,9 @@ void UCameraAnimInst::execApplyTransientScaling(FFrame& Stack, RESULT_DECL)
     ((UCameraAnimInst_*)this)->ApplyTransientScaling(Scalar);
 }
 
-struct UTexture2DComposite_ : public UTexture2DComposite
-{
-	UBOOL SourceTexturesFullyStreamedIn();
-	void execSourceTexturesFullyStreamedIn(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00c8f520
-void UTexture2DComposite_::execSourceTexturesFullyStreamedIn( FFrame& Stack, RESULT_DECL )
+void UTexture2DComposite::execSourceTexturesFullyStreamedIn( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	*(UBOOL*)Result = SourceTexturesFullyStreamedIn();
@@ -279,17 +274,13 @@ void AActor::execReattachComponent(FFrame& Stack, RESULT_DECL)
 	((AActor__00c822a0*)this)->ReattachComponent(ComponentToReattach);
 }
 
-struct AActor__00c82300 : public AActor
-{
-	void SetTickGroup(BYTE);
-};
 
 // @baa 0x00c82300
 void AActor::execSetTickGroup(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_BYTE(NewTickGroup);
 	P_FINISH;
-	((AActor__00c82300*)this)->SetTickGroup(NewTickGroup);
+	((AActor*)this)->SetTickGroup(NewTickGroup);
 }
 
 struct AEmitterPool_ : public AEmitterPool
@@ -383,17 +374,13 @@ void ULensFlareComponent::execSetTemplate(FFrame& Stack, RESULT_DECL)
 	((ULensFlareComponent_*)this)->SetTemplate(NewTemplate);
 }
 
-struct USceneCaptureComponent_ : public USceneCaptureComponent
-{
-	void SetFrameRate(FLOAT);
-};
 
 // @baa 0x00c8b750
 void USceneCaptureComponent::execSetFrameRate(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(NewFrameRate);
 	P_FINISH;
-	((USceneCaptureComponent_*)this)->SetFrameRate(NewFrameRate);
+	((USceneCaptureComponent*)this)->SetFrameRate(NewFrameRate);
 }
 
 struct UTexture2D_ : public UTexture2D
@@ -539,17 +526,13 @@ void UPointLightComponent::execSetTranslation(FFrame& Stack, RESULT_DECL)
 	((UPointLightComponent_*)this)->SetTranslation(NewTranslation);
 }
 
-struct AActor__00c825f0 : public AActor
-{
-	void sub_00763700(FBox&);
-};
 
 // @baa 0x00c825f0
 void AActor::execGetComponentsBoundingBox(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT_REF(FBox, ActorBox);
 	P_FINISH;
-	((AActor__00c825f0*)this)->sub_00763700(ActorBox);
+	((AActor*)this)->sub_00763700(ActorBox);
 }
 
 struct UCameraAnimInst__00c8c2b0 : public UCameraAnimInst
@@ -1054,17 +1037,11 @@ void AActor::execFindSpot(FFrame& Stack, RESULT_DECL)
     *(UBOOL*)Result = ((AActor__00c82480*)this)->FindSpot(BoxExtent, SpotLocation, DontEaryOut);
 }
 
-/* AController::GetAdjustLocation (0x7adc50) isn't declared in the kit. */
-struct AController__00c84700 : public AController
-{
-    FVector GetAdjustLocation();
-};
-
 // @baa 0x00c84700
 void AController::execGetAdjustLocation(FFrame& Stack, RESULT_DECL)
 {
     P_FINISH;
-    *(FVector*)Result = ((AController__00c84700*)this)->GetAdjustLocation();
+    *(FVector*)Result = ((AController*)this)->GetAdjustLocation();
 }
 
 /* AController::BeyondFogDistance (0x7a0f00) isn't declared in the kit. */
@@ -1181,11 +1158,6 @@ void ANavigationPoint::execGetReachSpecTo(FFrame& Stack, RESULT_DECL)
     *(UReachSpec**)Result = ((ANavigationPoint__00c87f20*)this)->GetReachSpecTo(Nav, SpecClass);
 }
 
-/* ACoverSlotMarker::IsValidClaim (0x8603f0) isn't declared in the kit. */
-struct ACoverSlotMarker_ : public ACoverSlotMarker
-{
-    UBOOL IsValidClaim(class APawn* ChkClaim, UBOOL bSkipTeamCheck, UBOOL bSkipOverlapCheck);
-};
 
 // @baa 0x00c88dd0
 void ACoverSlotMarker::execIsValidClaim(FFrame& Stack, RESULT_DECL)
@@ -1194,19 +1166,15 @@ void ACoverSlotMarker::execIsValidClaim(FFrame& Stack, RESULT_DECL)
     P_GET_UBOOL_OPTX(bSkipTeamCheck, FALSE);
     P_GET_UBOOL_OPTX(bSkipOverlapCheck, FALSE);
     P_FINISH;
-    *(UBOOL*)Result = ((ACoverSlotMarker_*)this)->IsValidClaim(ChkClaim, bSkipTeamCheck, bSkipOverlapCheck);
+    *(UBOOL*)Result = ((ACoverSlotMarker*)this)->IsValidClaim(ChkClaim, bSkipTeamCheck, bSkipOverlapCheck);
 }
 
 extern FName g_026c4d54;
 	/* OverlappedActorEvent */
-struct ACrowdAgent_ : public ACrowdAgent
-{
-	void eventOverlappedActorEvent(class AActor* A);
-};
 
 // @baa 0x00c8fd10
 /* CrowdAgent.OverlappedActorEvent script event: the generated glue, out of line here. */
-void ACrowdAgent_::eventOverlappedActorEvent(class AActor* A)
+void ACrowdAgent::eventOverlappedActorEvent(class AActor* A)
 {
 	struct CrowdAgent_eventOverlappedActorEvent_Parms
 	{
@@ -1288,15 +1256,9 @@ void UOnlineStatsWrite::execDecrementIntStat(FFrame& Stack, RESULT_DECL)
     DecrementIntStat(StatId, DecBy);
 }
 
-/* Kit gaps: the native's exec and GetBuildUniqueId (00d67980) aren't declared (name from the exe's native table). */
-struct UOnlineSubsystem_ : public UOnlineSubsystem
-{
-	INT GetBuildUniqueId();
-	void execGetBuildUniqueId(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00c86b60
-void UOnlineSubsystem_::execGetBuildUniqueId(FFrame& Stack, RESULT_DECL)
+void UOnlineSubsystem::execGetBuildUniqueId(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
 	*(INT*)Result = GetBuildUniqueId();

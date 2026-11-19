@@ -17,9 +17,6 @@ void URCapeComponent_::execGetIsInitialised( FFrame& Stack, RESULT_DECL )
 	*(UBOOL*)Result = GetIsInitialised();
 }
 
-struct URCapeComponent__01701fa0 : public URCapeComponent {
-    FName GetCurrentCapeStateName(); /* 0x016ae4e0 */
-};
 
 // @baa 0x01701fa0
 void URCapeComponent::execGetCurrentCapeStateName(FFrame& Stack, RESULT_DECL)
@@ -41,14 +38,9 @@ void URCapeComponent__01702430::execForceCapeToAnimPose( FFrame& Stack, RESULT_D
 	ForceCapeToAnimPose();
 }
 
-struct URCapeComponent__01702460 : public URCapeComponent
-{
-	UBOOL GetIsInCinematicsState();
-	void execGetIsInCinematicsState(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x01702460
-void URCapeComponent__01702460::execGetIsInCinematicsState( FFrame& Stack, RESULT_DECL )
+void URCapeComponent::execGetIsInCinematicsState( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	*(UBOOL*)Result = GetIsInCinematicsState();
@@ -297,11 +289,6 @@ void URCapeComponent::execSetAutoCapeAnimBlendWeights(FFrame& Stack, RESULT_DECL
     this->SetAutoCapeAnimBlendWeights(IsBlendWeightSettingEnabled, rootWeight, childWeights);
 }
 
-/* URCapeComponent::ChangeCapeStateGeneral (0x16b1ee0) isn't declared in the kit. */
-struct URCapeComponent__01702110 : public URCapeComponent
-{
-    void ChangeCapeStateGeneral(FName CapeStateName, class URCapeStateConfig* CinematicStateTemplate, FName CinematicAnimName, class UAnimSet* CinematicStateExtraAnimSet, FLOAT AnimStartTime, FLOAT AnimPlayRate, FName SyncAnimName, FLOAT SyncAnimOffset, BYTE MirroredType);
-};
 
 // @baa 0x01702110
 void URCapeComponent::execChangeCapeStateGeneral(FFrame& Stack, RESULT_DECL)
@@ -342,11 +329,6 @@ void URCapeComponent::execBeginCinematicState(FFrame& Stack, RESULT_DECL)
     this->BeginCinematicState(AnimName, TemporaryAnimSet, AnimStartTime, AnimPlayRate, SyncAnimName, SyncAnimOffset, MirroredType, TemplateStateConfig, ClearVelocityOnExit, bTeleportToInitialPose);
 }
 
-/* Kit gaps: ChangeCapeState (016ae530) isn't declared (names from the exe's native table). */
-struct URCapeComponent__01701ff0 : public URCapeComponent
-{
-	void ChangeCapeState(FName NewCapeStateName, FLOAT AnimStartTime, FLOAT AnimPlayRate, BYTE MirroredType);	/* 0x016ae530 */
-};
 
 // @baa 0x01701ff0
 void URCapeComponent::execChangeCapeState(FFrame& Stack, RESULT_DECL)
@@ -359,11 +341,6 @@ void URCapeComponent::execChangeCapeState(FFrame& Stack, RESULT_DECL)
 	this->ChangeCapeState(NewCapeStateName, AnimStartTime, AnimPlayRate, MirroredType);
 }
 
-/* Kit gaps: StartCapeInState (016ae600) isn't declared (names from the exe's native table). */
-struct URCapeComponent__01702310 : public URCapeComponent
-{
-	void StartCapeInState(FName NewCapeStateName, FLOAT AnimStartTime, FLOAT AnimPlayRate, BYTE MirroredType);	/* 0x016ae600 */
-};
 
 // @baa 0x01702310
 void URCapeComponent::execStartCapeInState(FFrame& Stack, RESULT_DECL)
@@ -376,10 +353,6 @@ void URCapeComponent::execStartCapeInState(FFrame& Stack, RESULT_DECL)
 	this->StartCapeInState(NewCapeStateName, AnimStartTime, AnimPlayRate, MirroredType);
 }
 
-struct URCapeComponent__01701f00 : public URCapeComponent
-{
-	void InitEnable(BYTE NewState, UBOOL bEnable); /* 0x016cd7b0 */
-};
 
 // @baa 0x01701f00
 /* native function InitEnable(byte NewState, bool bEnable) */
@@ -388,5 +361,5 @@ void URCapeComponent::execInitEnable(FFrame& Stack, RESULT_DECL)
 	P_GET_BYTE(NewState);
 	P_GET_UBOOL(bEnable);
 	P_FINISH;
-	((URCapeComponent__01701f00*)this)->InitEnable(NewState, bEnable);
+	((URCapeComponent*)this)->InitEnable(NewState, bEnable);
 }

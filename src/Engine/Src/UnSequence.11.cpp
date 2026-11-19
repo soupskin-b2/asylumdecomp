@@ -39,16 +39,12 @@ void USeqAct_Latent::execAbortFor(FFrame& Stack, RESULT_DECL)
 	AbortFor(latentActor);
 }
 
-struct USequenceObject_ : public USequenceObject
-{
-	AWorldInfo* GetWorldInfo();
-};
 
 // @baa 0x00c980a0
 void USequenceObject::execGetWorldInfo(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(AWorldInfo**)Result = ((USequenceObject_*)this)->GetWorldInfo();
+	*(AWorldInfo**)Result = ((USequenceObject*)this)->GetWorldInfo();
 }
 
 struct UPrefabSequence_ : public UPrefabSequence
@@ -115,14 +111,9 @@ void USequence::execSetEnabled(FFrame& Stack, RESULT_DECL)
 	((USequence_*)this)->SetEnabled(bInEnabled);
 }
 
-struct USequenceOp__00cbc690 : public USequenceOp
-{
-	UBOOL ActivateNamedOutputLink(const FString& LinkDesc);
-	void execActivateNamedOutputLink(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00cbc690
-void USequenceOp__00cbc690::execActivateNamedOutputLink(FFrame& Stack, RESULT_DECL)
+void USequenceOp::execActivateNamedOutputLink(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STR(LinkDesc);
 	P_FINISH;
@@ -173,14 +164,9 @@ struct UClass_ : public UClass
 	}
 };
 
-struct USequence__009066d0 : public USequence
-{
-	void FindSeqObjectsByClass( UClass* DesiredClass, TArray<USequenceObject*>& OutputObjects, UBOOL bRecursive ) const;
-	void execFindSeqObjectsByClass( FFrame& Stack, RESULT_DECL );
-};
 
 // @baa 0x009066d0
-void USequence__009066d0::execFindSeqObjectsByClass( FFrame& Stack, RESULT_DECL )
+void USequence::execFindSeqObjectsByClass( FFrame& Stack, RESULT_DECL )
 {
 	P_GET_OBJECT(UClass_, DesiredClass);
 	P_GET_UBOOL(bRecursive);

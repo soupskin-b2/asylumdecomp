@@ -6,14 +6,10 @@
 
 extern FName g_026c45c4;
 	/* ENGINE_RefreshSubscribers */
-struct UUIDataStore_ : public UUIDataStore
-{
-	void eventRefreshSubscribers(FName PropertyTag, UBOOL bInvalidateValues, class UUIDataProvider* SourceProvider, INT ArrayIndex);
-};
 
 // @baa 0x00d8f690
 /* The script event's generated glue (EngineClasses.h), out of line here. */
-void UUIDataStore_::eventRefreshSubscribers(FName PropertyTag, UBOOL bInvalidateValues, class UUIDataProvider* SourceProvider, INT ArrayIndex)
+void UUIDataStore::eventRefreshSubscribers(FName PropertyTag, UBOOL bInvalidateValues, class UUIDataProvider* SourceProvider, INT ArrayIndex)
 {
 	struct UIDataStore_eventRefreshSubscribers_Parms
 	{
@@ -31,14 +27,10 @@ void UUIDataStore_::eventRefreshSubscribers(FName PropertyTag, UBOOL bInvalidate
 
 extern FName g_026c5048;
 	/* ENGINE_Unregistered */
-struct UUIDataStore__00d8f700 : public UUIDataStore
-{
-	void eventUnregistered(class ULocalPlayer* PlayerOwner);
-};
 
 // @baa 0x00d8f700
 /* The script event's generated glue (EngineClasses.h), out of line here. */
-void UUIDataStore__00d8f700::eventUnregistered(class ULocalPlayer* PlayerOwner)
+void UUIDataStore::eventUnregistered(class ULocalPlayer* PlayerOwner)
 {
 	struct UIDataStore_eventUnregistered_Parms
 	{
@@ -50,14 +42,10 @@ void UUIDataStore__00d8f700::eventUnregistered(class ULocalPlayer* PlayerOwner)
 
 extern FName g_026c4f80;
 	/* ENGINE_Registered */
-struct UUIDataStore__00d8f740 : public UUIDataStore
-{
-	void eventRegistered(class ULocalPlayer* PlayerOwner);
-};
 
 // @baa 0x00d8f740
 /* The script event's generated glue (EngineClasses.h), out of line here. */
-void UUIDataStore__00d8f740::eventRegistered(class ULocalPlayer* PlayerOwner)
+void UUIDataStore::eventRegistered(class ULocalPlayer* PlayerOwner)
 {
 	struct UIDataStore_eventRegistered_Parms
 	{
@@ -69,14 +57,10 @@ void UUIDataStore__00d8f740::eventRegistered(class ULocalPlayer* PlayerOwner)
 
 extern FName g_026c53cc;
 	/* ENGINE_GetCachedPlayerProfile */
-struct UUIDataStore_OnlinePlayerData_ : public UUIDataStore_OnlinePlayerData
-{
-	class UOnlineProfileSettings* eventGetCachedPlayerProfile(INT ControllerId);
-};
 
 // @baa 0x00d8f820
 /* The script event's generated glue (EngineClasses.h), out of line here. */
-class UOnlineProfileSettings* UUIDataStore_OnlinePlayerData_::eventGetCachedPlayerProfile(INT ControllerId)
+class UOnlineProfileSettings* UUIDataStore_OnlinePlayerData::eventGetCachedPlayerProfile(INT ControllerId)
 {
 	struct UIDataStore_OnlinePlayerData_eventGetCachedPlayerProfile_Parms
 	{
@@ -91,14 +75,10 @@ class UOnlineProfileSettings* UUIDataStore_OnlinePlayerData_::eventGetCachedPlay
 
 extern FName g_026c3dfc;
 	/* ENGINE_ProviderInstanceUnbound */
-struct UUIDynamicDataProvider_ : public UUIDynamicDataProvider
-{
-	void eventProviderInstanceUnbound(class UObject* DataSourceInstance);
-};
 
 // @baa 0x00d8f9c0
 /* The script event's generated glue (EngineClasses.h), out of line here. */
-void UUIDynamicDataProvider_::eventProviderInstanceUnbound(class UObject* DataSourceInstance)
+void UUIDynamicDataProvider::eventProviderInstanceUnbound(class UObject* DataSourceInstance)
 {
 	struct UIDynamicDataProvider_eventProviderInstanceUnbound_Parms
 	{
@@ -110,14 +90,10 @@ void UUIDynamicDataProvider_::eventProviderInstanceUnbound(class UObject* DataSo
 
 extern FName g_026c450c;
 	/* ENGINE_ProviderInstanceBound */
-struct UUIDynamicDataProvider__00d8fa00 : public UUIDynamicDataProvider
-{
-	void eventProviderInstanceBound(class UObject* DataSourceInstance);
-};
 
 // @baa 0x00d8fa00
 /* The script event's generated glue (EngineClasses.h), out of line here. */
-void UUIDynamicDataProvider__00d8fa00::eventProviderInstanceBound(class UObject* DataSourceInstance)
+void UUIDynamicDataProvider::eventProviderInstanceBound(class UObject* DataSourceInstance)
 {
 	struct UIDynamicDataProvider_eventProviderInstanceBound_Parms
 	{
@@ -129,14 +105,10 @@ void UUIDynamicDataProvider__00d8fa00::eventProviderInstanceBound(class UObject*
 
 extern FName g_026c3db4;
 	/* ENGINE_ProviderClientUnbound */
-struct USessionSettingsProvider_ : public USessionSettingsProvider
-{
-	void eventProviderClientUnbound(class UClass* DataSourceClass);
-};
 
 // @baa 0x00d8fab0
 /* The script event's generated glue (EngineClasses.h), out of line here. */
-void USessionSettingsProvider_::eventProviderClientUnbound(class UClass* DataSourceClass)
+void USessionSettingsProvider::eventProviderClientUnbound(class UClass* DataSourceClass)
 {
 	struct SessionSettingsProvider_eventProviderClientUnbound_Parms
 	{
@@ -148,14 +120,10 @@ void USessionSettingsProvider_::eventProviderClientUnbound(class UClass* DataSou
 
 extern FName g_026c50ec;
 	/* ENGINE_ProviderClientBound */
-struct USessionSettingsProvider__00d8faf0 : public USessionSettingsProvider
-{
-	void eventProviderClientBound(class UClass* DataSourceClass);
-};
 
 // @baa 0x00d8faf0
 /* The script event's generated glue (EngineClasses.h), out of line here. */
-void USessionSettingsProvider__00d8faf0::eventProviderClientBound(class UClass* DataSourceClass)
+void USessionSettingsProvider::eventProviderClientBound(class UClass* DataSourceClass)
 {
 	struct SessionSettingsProvider_eventProviderClientBound_Parms
 	{
@@ -203,14 +171,10 @@ void UUIDataStore__00d90510::eventUnregistered(class ULocalPlayer* PlayerOwner)
 
 extern FName g_026c4c74;
 	/* ENGINE_AllowPublishingToField */
-struct UUIDataProvider_ : public UUIDataProvider
-{
-	UBOOL eventAllowPublishingToField(const FString& FieldName, INT ArrayIndex);
-};
 
 // @baa 0x00d94c40
 /* The script event's generated glue (EngineClasses.h), out of line here. */
-UBOOL UUIDataProvider_::eventAllowPublishingToField(const FString& FieldName, INT ArrayIndex)
+UBOOL UUIDataProvider::eventAllowPublishingToField(const FString& FieldName, INT ArrayIndex)
 {
 	struct UIDataProvider_eventAllowPublishingToField_Parms
 	{
@@ -227,14 +191,10 @@ UBOOL UUIDataProvider_::eventAllowPublishingToField(const FString& FieldName, IN
 
 extern FName g_026c4358;
 	/* ENGINE_OnRegister */
-struct UUIDataStore_OnlinePlayerData__00d8f570 : public UUIDataStore_OnlinePlayerData
-{
-	void eventOnRegister(class ULocalPlayer* InPlayer);
-};
 
 // @baa 0x00d8f570
 /* The script event's generated glue (EngineClasses.h), out of line here. */
-void UUIDataStore_OnlinePlayerData__00d8f570::eventOnRegister(class ULocalPlayer* InPlayer)
+void UUIDataStore_OnlinePlayerData::eventOnRegister(class ULocalPlayer* InPlayer)
 {
 	struct UIDataStore_OnlinePlayerData_eventOnRegister_Parms
 	{
@@ -245,14 +205,10 @@ void UUIDataStore_OnlinePlayerData__00d8f570::eventOnRegister(class ULocalPlayer
 }
 
 	/* ENGINE_OnRegister */
-struct UUIDataProvider_OnlinePlayerDataBase_ : public UUIDataProvider_OnlinePlayerDataBase
-{
-	void eventOnRegister(class ULocalPlayer* InPlayer);
-};
 
 // @baa 0x00d94f80
 /* The script event's generated glue (EngineClasses.h), out of line here. */
-void UUIDataProvider_OnlinePlayerDataBase_::eventOnRegister(class ULocalPlayer* InPlayer)
+void UUIDataProvider_OnlinePlayerDataBase::eventOnRegister(class ULocalPlayer* InPlayer)
 {
 	struct UIDataProvider_OnlinePlayerDataBase_eventOnRegister_Parms
 	{

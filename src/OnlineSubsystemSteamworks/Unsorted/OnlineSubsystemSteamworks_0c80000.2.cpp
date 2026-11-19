@@ -57,27 +57,17 @@ void AWorldInfo__00c89bb0::execIsPlayInEditor( FFrame& Stack, RESULT_DECL )
 	*(UBOOL*)Result = IsPlayInEditor();
 }
 
-struct AWorldInfo__00c89c70 : public AWorldInfo
-{
-	void VerifyNavList();
-	void execVerifyNavList(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00c89c70
-void AWorldInfo__00c89c70::execVerifyNavList( FFrame& Stack, RESULT_DECL )
+void AWorldInfo::execVerifyNavList( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	VerifyNavList();
 }
 
-struct AWorldInfo__00c89da0 : public AWorldInfo
-{
-	UBOOL IsPreparingMapChange();
-	void execIsPreparingMapChange(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00c89da0
-void AWorldInfo__00c89da0::execIsPreparingMapChange( FFrame& Stack, RESULT_DECL )
+void AWorldInfo::execIsPreparingMapChange( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	*(UBOOL*)Result = IsPreparingMapChange();

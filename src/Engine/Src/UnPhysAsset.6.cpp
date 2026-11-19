@@ -23,12 +23,9 @@ INT UPhysicsAsset::FindConstraintIndex(FName ConstraintName)
 
 #line 31 "candidate.cpp"
 
-struct UPhysicsAsset__00a20750 : public UPhysicsAsset {
-    void UpdateBodyIndices();       // 00a20750
-};
 
 // @baa 0x00a20750
-void UPhysicsAsset__00a20750::UpdateBodyIndices()
+void UPhysicsAsset::UpdateBodyIndices()
 {
     for (INT i = 0; i < DefaultInstance->Bodies.Num(); i++)
     {

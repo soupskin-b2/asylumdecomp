@@ -4,12 +4,9 @@
 #include "ue3/Classes.h"
 #include "ue3/Script.h"
 
-struct UObject_ : public UObject {
-    void sub_005996a0(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x005996a0
-void UObject_::sub_005996a0(FFrame& Stack, RESULT_DECL)
+void UObject::sub_005996a0(FFrame& Stack, RESULT_DECL)
 {
     BYTE B = *Stack.Code++;
     (this->*GNatives[0x100 + B])(Stack, Result);  // extended native page 1
@@ -1282,13 +1279,9 @@ void UObject::execVLerp(FFrame& Stack, RESULT_DECL)
 
 /* An unnamed script bytecode handler (registered in the GNatives table, entry at 0x025d6xxx) that just
  * evaluates the next expression into Result. */
-struct UObject__00599670 : public UObject
-{
-	void sub_00599670(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00599670
-void UObject__00599670::sub_00599670(FFrame& Stack, RESULT_DECL)
+void UObject::sub_00599670(FFrame& Stack, RESULT_DECL)
 {
 	BYTE B = *Stack.Code++;
 	(this->*GNatives[B])(Stack, Result);
@@ -1296,13 +1289,9 @@ void UObject__00599670::sub_00599670(FFrame& Stack, RESULT_DECL)
 
 /* Extended native call, page 2 (bytecode EX_ExtendedNative+2): this build splits UE3's execExtendedNative
  * into one handler per page; the native index is page*256 plus the next code byte. */
-struct UObject__005996d0 : public UObject
-{
-	void sub_005996d0(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x005996d0
-void UObject__005996d0::sub_005996d0(FFrame& Stack, RESULT_DECL)
+void UObject::sub_005996d0(FFrame& Stack, RESULT_DECL)
 {
 	BYTE B = *Stack.Code++;
 	(this->*GNatives[0x200 + B])(Stack, Result);
@@ -1310,13 +1299,9 @@ void UObject__005996d0::sub_005996d0(FFrame& Stack, RESULT_DECL)
 
 /* Extended native call, page 3 (bytecode EX_ExtendedNative+3): this build splits UE3's execExtendedNative
  * into one handler per page; the native index is page*256 plus the next code byte. */
-struct UObject__00599700 : public UObject
-{
-	void sub_00599700(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00599700
-void UObject__00599700::sub_00599700(FFrame& Stack, RESULT_DECL)
+void UObject::sub_00599700(FFrame& Stack, RESULT_DECL)
 {
 	BYTE B = *Stack.Code++;
 	(this->*GNatives[0x300 + B])(Stack, Result);
@@ -1324,13 +1309,9 @@ void UObject__00599700::sub_00599700(FFrame& Stack, RESULT_DECL)
 
 /* Extended native call, page 4 (bytecode EX_ExtendedNative+4): this build splits UE3's execExtendedNative
  * into one handler per page; the native index is page*256 plus the next code byte. */
-struct UObject__00599730 : public UObject
-{
-	void sub_00599730(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00599730
-void UObject__00599730::sub_00599730(FFrame& Stack, RESULT_DECL)
+void UObject::sub_00599730(FFrame& Stack, RESULT_DECL)
 {
 	BYTE B = *Stack.Code++;
 	(this->*GNatives[0x400 + B])(Stack, Result);
@@ -1338,13 +1319,9 @@ void UObject__00599730::sub_00599730(FFrame& Stack, RESULT_DECL)
 
 /* Extended native call, page 5 (bytecode EX_ExtendedNative+5): this build splits UE3's execExtendedNative
  * into one handler per page; the native index is page*256 plus the next code byte. */
-struct UObject__00599760 : public UObject
-{
-	void sub_00599760(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00599760
-void UObject__00599760::sub_00599760(FFrame& Stack, RESULT_DECL)
+void UObject::sub_00599760(FFrame& Stack, RESULT_DECL)
 {
 	BYTE B = *Stack.Code++;
 	(this->*GNatives[0x500 + B])(Stack, Result);
@@ -1352,13 +1329,9 @@ void UObject__00599760::sub_00599760(FFrame& Stack, RESULT_DECL)
 
 /* Extended native call, page 6 (bytecode EX_ExtendedNative+6): this build splits UE3's execExtendedNative
  * into one handler per page; the native index is page*256 plus the next code byte. */
-struct UObject__00599790 : public UObject
-{
-	void sub_00599790(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00599790
-void UObject__00599790::sub_00599790(FFrame& Stack, RESULT_DECL)
+void UObject::sub_00599790(FFrame& Stack, RESULT_DECL)
 {
 	BYTE B = *Stack.Code++;
 	(this->*GNatives[0x600 + B])(Stack, Result);
@@ -1366,13 +1339,9 @@ void UObject__00599790::sub_00599790(FFrame& Stack, RESULT_DECL)
 
 /* Extended native call, page 7 (bytecode EX_ExtendedNative+7): this build splits UE3's execExtendedNative
  * into one handler per page; the native index is page*256 plus the next code byte. */
-struct UObject__005997c0 : public UObject
-{
-	void sub_005997c0(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x005997c0
-void UObject__005997c0::sub_005997c0(FFrame& Stack, RESULT_DECL)
+void UObject::sub_005997c0(FFrame& Stack, RESULT_DECL)
 {
 	BYTE B = *Stack.Code++;
 	(this->*GNatives[0x700 + B])(Stack, Result);
@@ -1380,13 +1349,9 @@ void UObject__005997c0::sub_005997c0(FFrame& Stack, RESULT_DECL)
 
 /* Extended native call, page 8 (bytecode EX_ExtendedNative+8): this build splits UE3's execExtendedNative
  * into one handler per page; the native index is page*256 plus the next code byte. */
-struct UObject__005997f0 : public UObject
-{
-	void sub_005997f0(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x005997f0
-void UObject__005997f0::sub_005997f0(FFrame& Stack, RESULT_DECL)
+void UObject::sub_005997f0(FFrame& Stack, RESULT_DECL)
 {
 	BYTE B = *Stack.Code++;
 	(this->*GNatives[0x800 + B])(Stack, Result);
@@ -1394,13 +1359,9 @@ void UObject__005997f0::sub_005997f0(FFrame& Stack, RESULT_DECL)
 
 /* Extended native call, page 9 (bytecode EX_ExtendedNative+9): this build splits UE3's execExtendedNative
  * into one handler per page; the native index is page*256 plus the next code byte. */
-struct UObject__00599820 : public UObject
-{
-	void sub_00599820(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00599820
-void UObject__00599820::sub_00599820(FFrame& Stack, RESULT_DECL)
+void UObject::sub_00599820(FFrame& Stack, RESULT_DECL)
 {
 	BYTE B = *Stack.Code++;
 	(this->*GNatives[0x900 + B])(Stack, Result);
@@ -1408,13 +1369,9 @@ void UObject__00599820::sub_00599820(FFrame& Stack, RESULT_DECL)
 
 /* Extended native call, page 10 (bytecode EX_ExtendedNative+10): this build splits UE3's execExtendedNative
  * into one handler per page; the native index is page*256 plus the next code byte. */
-struct UObject__00599850 : public UObject
-{
-	void sub_00599850(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00599850
-void UObject__00599850::sub_00599850(FFrame& Stack, RESULT_DECL)
+void UObject::sub_00599850(FFrame& Stack, RESULT_DECL)
 {
 	BYTE B = *Stack.Code++;
 	(this->*GNatives[0xa00 + B])(Stack, Result);
@@ -1422,13 +1379,9 @@ void UObject__00599850::sub_00599850(FFrame& Stack, RESULT_DECL)
 
 /* Extended native call, page 11 (bytecode EX_ExtendedNative+11): this build splits UE3's execExtendedNative
  * into one handler per page; the native index is page*256 plus the next code byte. */
-struct UObject__00599880 : public UObject
-{
-	void sub_00599880(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00599880
-void UObject__00599880::sub_00599880(FFrame& Stack, RESULT_DECL)
+void UObject::sub_00599880(FFrame& Stack, RESULT_DECL)
 {
 	BYTE B = *Stack.Code++;
 	(this->*GNatives[0xb00 + B])(Stack, Result);
@@ -1436,13 +1389,9 @@ void UObject__00599880::sub_00599880(FFrame& Stack, RESULT_DECL)
 
 /* Extended native call, page 12 (bytecode EX_ExtendedNative+12): this build splits UE3's execExtendedNative
  * into one handler per page; the native index is page*256 plus the next code byte. */
-struct UObject__005998b0 : public UObject
-{
-	void sub_005998b0(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x005998b0
-void UObject__005998b0::sub_005998b0(FFrame& Stack, RESULT_DECL)
+void UObject::sub_005998b0(FFrame& Stack, RESULT_DECL)
 {
 	BYTE B = *Stack.Code++;
 	(this->*GNatives[0xc00 + B])(Stack, Result);
@@ -1450,13 +1399,9 @@ void UObject__005998b0::sub_005998b0(FFrame& Stack, RESULT_DECL)
 
 /* Extended native call, page 13 (bytecode EX_ExtendedNative+13): this build splits UE3's execExtendedNative
  * into one handler per page; the native index is page*256 plus the next code byte. */
-struct UObject__005998e0 : public UObject
-{
-	void sub_005998e0(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x005998e0
-void UObject__005998e0::sub_005998e0(FFrame& Stack, RESULT_DECL)
+void UObject::sub_005998e0(FFrame& Stack, RESULT_DECL)
 {
 	BYTE B = *Stack.Code++;
 	(this->*GNatives[0xd00 + B])(Stack, Result);
@@ -1464,13 +1409,9 @@ void UObject__005998e0::sub_005998e0(FFrame& Stack, RESULT_DECL)
 
 /* Extended native call, page 14 (bytecode EX_ExtendedNative+14): this build splits UE3's execExtendedNative
  * into one handler per page; the native index is page*256 plus the next code byte. */
-struct UObject__00599910 : public UObject
-{
-	void sub_00599910(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00599910
-void UObject__00599910::sub_00599910(FFrame& Stack, RESULT_DECL)
+void UObject::sub_00599910(FFrame& Stack, RESULT_DECL)
 {
 	BYTE B = *Stack.Code++;
 	(this->*GNatives[0xe00 + B])(Stack, Result);
@@ -1478,13 +1419,9 @@ void UObject__00599910::sub_00599910(FFrame& Stack, RESULT_DECL)
 
 /* Extended native call, page 15 (bytecode EX_ExtendedNative+15): this build splits UE3's execExtendedNative
  * into one handler per page; the native index is page*256 plus the next code byte. */
-struct UObject__00599940 : public UObject
-{
-	void sub_00599940(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00599940
-void UObject__00599940::sub_00599940(FFrame& Stack, RESULT_DECL)
+void UObject::sub_00599940(FFrame& Stack, RESULT_DECL)
 {
 	BYTE B = *Stack.Code++;
 	(this->*GNatives[0xf00 + B])(Stack, Result);
@@ -1542,14 +1479,9 @@ struct FFrame_ : public FFrame
 
 extern UProperty* g_026667ec;
 	/* GProperty */
-struct UObject__00590720 : public UObject
-{
-	void CallFunction(FFrame& Stack, RESULT_DECL, UFunction* Function);	/* 0x005a6cd0 */
-	void execEndFunctionParms(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00590720
-void UObject__00590720::execEndFunctionParms(FFrame& Stack, RESULT_DECL)
+void UObject::execEndFunctionParms(FFrame& Stack, RESULT_DECL)
 {
 	// For skipping over optional function parms without values specified.
 	g_026667ec = NULL;
@@ -1557,79 +1489,49 @@ void UObject__00590720::execEndFunctionParms(FFrame& Stack, RESULT_DECL)
 }
 
 	/* GProperty */
-struct UObject__00590db0 : public UObject
-{
-	void CallFunction(FFrame& Stack, RESULT_DECL, UFunction* Function);	/* 0x005a6cd0 */
-	void execFloatConst(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00590db0
-void UObject__00590db0::execFloatConst(FFrame& Stack, RESULT_DECL)
+void UObject::execFloatConst(FFrame& Stack, RESULT_DECL)
 {
 	*(FLOAT*)Result = ((FFrame_&)Stack).ReadFloat();
 }
 
 	/* GProperty */
-struct UObject__00590e20 : public UObject
-{
-	void CallFunction(FFrame& Stack, RESULT_DECL, UFunction* Function);	/* 0x005a6cd0 */
-	void execNameConst(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00590e20
-void UObject__00590e20::execNameConst(FFrame& Stack, RESULT_DECL)
+void UObject::execNameConst(FFrame& Stack, RESULT_DECL)
 {
 	*(FName*)Result = ((FFrame_&)Stack).ReadName();
 }
 
 	/* GProperty */
-struct UObject__00590e40 : public UObject
-{
-	void CallFunction(FFrame& Stack, RESULT_DECL, UFunction* Function);	/* 0x005a6cd0 */
-	void execByteConst(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00590e40
-void UObject__00590e40::execByteConst(FFrame& Stack, RESULT_DECL)
+void UObject::execByteConst(FFrame& Stack, RESULT_DECL)
 {
 	*(BYTE*)Result = *Stack.Code++;
 }
 
 	/* GProperty */
-struct UObject__00590eb0 : public UObject
-{
-	void CallFunction(FFrame& Stack, RESULT_DECL, UFunction* Function);	/* 0x005a6cd0 */
-	void execEmptyDelegate(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00590eb0
-void UObject__00590eb0::execEmptyDelegate(FFrame& Stack, RESULT_DECL)
+void UObject::execEmptyDelegate(FFrame& Stack, RESULT_DECL)
 {
 	((FScriptDelegate*)Result)->Object = NULL;
 	((FScriptDelegate*)Result)->FunctionName = NAME_None;
 }
 
 	/* GProperty */
-struct UObject__00590ed0 : public UObject
-{
-	void CallFunction(FFrame& Stack, RESULT_DECL, UFunction* Function);	/* 0x005a6cd0 */
-	void execIntConstByte(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00590ed0
-void UObject__00590ed0::execIntConstByte(FFrame& Stack, RESULT_DECL)
+void UObject::execIntConstByte(FFrame& Stack, RESULT_DECL)
 {
 	*(INT*)Result = *Stack.Code++;
 }
 
-/* Kit gap: UObject's bytecode handlers (UnScript.cpp) aren't declared. */
-struct UObject__00590100 : public UObject
-{
-	void execInterfaceToObject(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00590100
-void UObject__00590100::execInterfaceToObject(FFrame& Stack, RESULT_DECL)
+void UObject::execInterfaceToObject(FFrame& Stack, RESULT_DECL)
 {
 	TScriptInterface<UObject> InterfaceValue;
 	Stack.Step(this, &InterfaceValue);
@@ -1645,13 +1547,9 @@ struct FFrame__005907d0 : public FFrame
 	FORCEINLINE INT ReadWord() { INT Result = *(WORD*)Code; Code += sizeof(WORD); return Result; }
 };
 
-struct UObject__005907d0 : public UObject
-{
-	void execConditional(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x005907d0
-void UObject__005907d0::execConditional(FFrame& Stack, RESULT_DECL)
+void UObject::execConditional(FFrame& Stack, RESULT_DECL)
 {
 	// Get test expression.
 	UBOOL CondValue = 0;
@@ -1679,13 +1577,9 @@ void UObject__005907d0::execConditional(FFrame& Stack, RESULT_DECL)
 /* Kit gaps: UObject's bytecode handlers (UnScript.cpp) aren't declared, nor the globals GProperty and GPropObject. */
 extern UProperty* g_026667d0;
 	/* GPropObject */
-struct UObject__00590940 : public UObject
-{
-	void execLetDelegate(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00590940
-void UObject__00590940::execLetDelegate(FFrame& Stack, RESULT_DECL)
+void UObject::execLetDelegate(FFrame& Stack, RESULT_DECL)
 {
 	// Get variable address.
 	GPropAddr = NULL;
@@ -1702,196 +1596,126 @@ void UObject__00590940::execLetDelegate(FFrame& Stack, RESULT_DECL)
 	}
 }
 
-/* Kit gap: UObject's cast natives (UnScript.cpp, registered in GCasts by CST_ code) aren't declared. */
-struct UObject__00590f30 : public UObject
-{
-	void execByteToInt(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00590f30
-void UObject__00590f30::execByteToInt(FFrame& Stack, RESULT_DECL)
+void UObject::execByteToInt(FFrame& Stack, RESULT_DECL)
 {
 	BYTE B = 0;
 	Stack.Step(Stack.Object, &B);
 	*(INT*)Result = B;
 }
 
-/* Kit gap: UObject's cast natives (UnScript.cpp, registered in GCasts by CST_ code) aren't declared. */
-struct UObject__00590f70 : public UObject
-{
-	void execByteToBool(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00590f70
-void UObject__00590f70::execByteToBool(FFrame& Stack, RESULT_DECL)
+void UObject::execByteToBool(FFrame& Stack, RESULT_DECL)
 {
 	BYTE B = 0;
 	Stack.Step(Stack.Object, &B);
 	*(DWORD*)Result = B ? 1 : 0;
 }
 
-/* Kit gap: UObject's cast natives (UnScript.cpp, registered in GCasts by CST_ code) aren't declared. */
-struct UObject__00590fb0 : public UObject
-{
-	void execByteToFloat(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00590fb0
-void UObject__00590fb0::execByteToFloat(FFrame& Stack, RESULT_DECL)
+void UObject::execByteToFloat(FFrame& Stack, RESULT_DECL)
 {
 	BYTE B = 0;
 	Stack.Step(Stack.Object, &B);
 	*(FLOAT*)Result = B;
 }
 
-/* Kit gap: UObject's cast natives (UnScript.cpp, registered in GCasts by CST_ code) aren't declared. */
-struct UObject__00590ff0 : public UObject
-{
-	void execIntToByte(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00590ff0
-void UObject__00590ff0::execIntToByte(FFrame& Stack, RESULT_DECL)
+void UObject::execIntToByte(FFrame& Stack, RESULT_DECL)
 {
 	INT I = 0;
 	Stack.Step(Stack.Object, &I);
 	*(BYTE*)Result = I;
 }
 
-/* Kit gap: UObject's cast natives (UnScript.cpp, registered in GCasts by CST_ code) aren't declared. */
-struct UObject__00591030 : public UObject
-{
-	void execIntToBool(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00591030
-void UObject__00591030::execIntToBool(FFrame& Stack, RESULT_DECL)
+void UObject::execIntToBool(FFrame& Stack, RESULT_DECL)
 {
 	INT I = 0;
 	Stack.Step(Stack.Object, &I);
 	*(DWORD*)Result = I ? 1 : 0;
 }
 
-/* Kit gap: UObject's cast natives (UnScript.cpp, registered in GCasts by CST_ code) aren't declared. */
-struct UObject__00591070 : public UObject
-{
-	void execIntToFloat(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00591070
-void UObject__00591070::execIntToFloat(FFrame& Stack, RESULT_DECL)
+void UObject::execIntToFloat(FFrame& Stack, RESULT_DECL)
 {
 	INT I = 0;
 	Stack.Step(Stack.Object, &I);
 	*(FLOAT*)Result = I;
 }
 
-/* Kit gap: UObject's cast natives (UnScript.cpp, registered in GCasts by CST_ code) aren't declared. */
-struct UObject__005910b0 : public UObject
-{
-	void execBoolToByte(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x005910b0
-void UObject__005910b0::execBoolToByte(FFrame& Stack, RESULT_DECL)
+void UObject::execBoolToByte(FFrame& Stack, RESULT_DECL)
 {
 	UBOOL B = 0;
 	Stack.Step(Stack.Object, &B);
 	*(BYTE*)Result = B & 1;
 }
 
-/* Kit gap: UObject's cast natives (UnScript.cpp, registered in GCasts by CST_ code) aren't declared. */
-struct UObject__005910f0 : public UObject
-{
-	void execBoolToInt(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x005910f0
-void UObject__005910f0::execBoolToInt(FFrame& Stack, RESULT_DECL)
+void UObject::execBoolToInt(FFrame& Stack, RESULT_DECL)
 {
 	UBOOL B = 0;
 	Stack.Step(Stack.Object, &B);
 	*(INT*)Result = B & 1;
 }
 
-/* Kit gap: UObject's cast natives (UnScript.cpp, registered in GCasts by CST_ code) aren't declared. */
-struct UObject__00591130 : public UObject
-{
-	void execBoolToFloat(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00591130
-void UObject__00591130::execBoolToFloat(FFrame& Stack, RESULT_DECL)
+void UObject::execBoolToFloat(FFrame& Stack, RESULT_DECL)
 {
 	DWORD B = 0;
 	Stack.Step(Stack.Object, &B);
 	*(FLOAT*)Result = B & 1;
 }
 
-/* Kit gap: UObject's cast natives (UnScript.cpp, registered in GCasts by CST_ code) aren't declared. */
-struct UObject__00591180 : public UObject
-{
-	void execFloatToByte(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00591180
-void UObject__00591180::execFloatToByte(FFrame& Stack, RESULT_DECL)
+void UObject::execFloatToByte(FFrame& Stack, RESULT_DECL)
 {
 	FLOAT F = 0.f;
 	Stack.Step(Stack.Object, &F);
 	*(BYTE*)Result = (BYTE)appTrunc(F);
 }
 
-/* Kit gap: UObject's cast natives (UnScript.cpp, registered in GCasts by CST_ code) aren't declared. */
-struct UObject__005911c0 : public UObject
-{
-	void execFloatToInt(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x005911c0
-void UObject__005911c0::execFloatToInt(FFrame& Stack, RESULT_DECL)
+void UObject::execFloatToInt(FFrame& Stack, RESULT_DECL)
 {
 	FLOAT F = 0.f;
 	Stack.Step(Stack.Object, &F);
 	*(INT*)Result = appTrunc(F);
 }
 
-/* Kit gap: UObject's cast natives (UnScript.cpp, registered in GCasts by CST_ code) aren't declared. */
-struct UObject__00591200 : public UObject
-{
-	void execFloatToBool(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00591200
-void UObject__00591200::execFloatToBool(FFrame& Stack, RESULT_DECL)
+void UObject::execFloatToBool(FFrame& Stack, RESULT_DECL)
 {
 	FLOAT F = 0.f;
 	Stack.Step(Stack.Object, &F);
 	*(DWORD*)Result = F != 0.f ? 1 : 0;
 }
 
-/* Kit gap: UObject's cast natives (UnScript.cpp, registered in GCasts by CST_ code) aren't declared. */
-struct UObject__00591260 : public UObject
-{
-	void execObjectToBool(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00591260
-void UObject__00591260::execObjectToBool(FFrame& Stack, RESULT_DECL)
+void UObject::execObjectToBool(FFrame& Stack, RESULT_DECL)
 {
 	UObject* Obj = NULL;
 	Stack.Step(Stack.Object, &Obj);
 	*(DWORD*)Result = Obj != NULL;
 }
 
-/* Kit gap: UObject's cast natives (UnScript.cpp, registered in GCasts by CST_ code) aren't declared. */
-struct UObject__00591340 : public UObject
-{
-	void execNameToBool(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00591340
-void UObject__00591340::execNameToBool(FFrame& Stack, RESULT_DECL)
+void UObject::execNameToBool(FFrame& Stack, RESULT_DECL)
 {
 	FName N = NAME_None;
 	Stack.Step(Stack.Object, &N);
@@ -1906,13 +1730,9 @@ struct FScriptDelegate_ : public FScriptDelegate
 };
 
 #define P_GET_DELEGATE(v) FScriptDelegate_ v; Stack.Step(Stack.Object, &v);
-struct UObject__005909d0 : public UObject
-{
-	void execEqualEqual_DelegateDelegate(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x005909d0
-void UObject__005909d0::execEqualEqual_DelegateDelegate(FFrame& Stack, RESULT_DECL)
+void UObject::execEqualEqual_DelegateDelegate(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_DELEGATE(A);
 	P_GET_DELEGATE(B);
@@ -1930,13 +1750,9 @@ void UObject__005909d0::execEqualEqual_DelegateDelegate(FFrame& Stack, RESULT_DE
 	*(UBOOL*)Result = (A.Object == B.Object && A.FunctionName == B.FunctionName);
 }
 
-struct UObject__00590ac0 : public UObject
-{
-	void execNotEqual_DelegateDelegate(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00590ac0
-void UObject__00590ac0::execNotEqual_DelegateDelegate(FFrame& Stack, RESULT_DECL)
+void UObject::execNotEqual_DelegateDelegate(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_DELEGATE(A);
 	P_GET_DELEGATE(B);
@@ -1954,13 +1770,9 @@ void UObject__00590ac0::execNotEqual_DelegateDelegate(FFrame& Stack, RESULT_DECL
 	*(UBOOL*)Result = (A.Object != B.Object || A.FunctionName != B.FunctionName);
 }
 
-struct UObject__00590bb0 : public UObject
-{
-	void execEqualEqual_DelegateFunction(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00590bb0
-void UObject__00590bb0::execEqualEqual_DelegateFunction(FFrame& Stack, RESULT_DECL)
+void UObject::execEqualEqual_DelegateFunction(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_DELEGATE(A);
 	P_GET_DELEGATE(B);
@@ -1978,13 +1790,9 @@ void UObject__00590bb0::execEqualEqual_DelegateFunction(FFrame& Stack, RESULT_DE
 	*(UBOOL*)Result = (A.Object == B.Object && A.FunctionName == B.FunctionName);
 }
 
-struct UObject__00590ca0 : public UObject
-{
-	void execNotEqual_DelegateFunction(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00590ca0
-void UObject__00590ca0::execNotEqual_DelegateFunction(FFrame& Stack, RESULT_DECL)
+void UObject::execNotEqual_DelegateFunction(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_DELEGATE(A);
 	P_GET_DELEGATE(B);
@@ -2008,13 +1816,9 @@ struct FFrame__00594830 : public FFrame
 	FORCEINLINE FLOAT ReadFloat() { FLOAT F = *(FLOAT*)Code; Code += sizeof(FLOAT); return F; }
 };
 
-struct UObject__00594830 : public UObject
-{
-	void execVectorConst(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00594830
-void UObject__00594830::execVectorConst(FFrame& Stack, RESULT_DECL)
+void UObject::execVectorConst(FFrame& Stack, RESULT_DECL)
 {
 	((FVector*)Result)->X = ((FFrame__00594830&)Stack).ReadFloat();
 	((FVector*)Result)->Y = ((FFrame__00594830&)Stack).ReadFloat();
@@ -2027,55 +1831,36 @@ struct FFrame__005947f0 : public FFrame
 	FORCEINLINE INT ReadInt() { INT Result = *(INT*)Code; Code += sizeof(INT); return Result; }
 };
 
-struct UObject__005947f0 : public UObject
-{
-	void execRotationConst(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x005947f0
-void UObject__005947f0::execRotationConst(FFrame& Stack, RESULT_DECL)
+void UObject::execRotationConst(FFrame& Stack, RESULT_DECL)
 {
 	((FRotator*)Result)->Pitch = ((FFrame__005947f0&)Stack).ReadInt();
 	((FRotator*)Result)->Yaw = ((FFrame__005947f0&)Stack).ReadInt();
 	((FRotator*)Result)->Roll = ((FFrame__005947f0&)Stack).ReadInt();
 }
 
-/* Kit gap: UObject's cast natives (UnScript.cpp, registered in GCasts by CST_ code) aren't declared. */
-struct UObject__005951a0 : public UObject
-{
-	void execVectorToRotator(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x005951a0
-void UObject__005951a0::execVectorToRotator(FFrame& Stack, RESULT_DECL)
+void UObject::execVectorToRotator(FFrame& Stack, RESULT_DECL)
 {
 	FVector V(0.f, 0.f, 0.f);
 	Stack.Step(Stack.Object, &V);
 	*(FRotator*)Result = V.Rotation();
 }
 
-/* Kit gap: UObject's cast natives (UnScript.cpp, registered in GCasts by CST_ code) aren't declared. */
-struct UObject__00595200 : public UObject
-{
-	void execRotatorToBool(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00595200
-void UObject__00595200::execRotatorToBool(FFrame& Stack, RESULT_DECL)
+void UObject::execRotatorToBool(FFrame& Stack, RESULT_DECL)
 {
 	FRotator R(0, 0, 0);
 	Stack.Step(Stack.Object, &R);
 	*(DWORD*)Result = !R.IsZero();
 }
 
-/* Kit gap: UObject's cast natives (UnScript.cpp, registered in GCasts by CST_ code) aren't declared. */
-struct UObject__00595280 : public UObject
-{
-	void execRotatorToVector(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00595280
-void UObject__00595280::execRotatorToVector(FFrame& Stack, RESULT_DECL)
+void UObject::execRotatorToVector(FFrame& Stack, RESULT_DECL)
 {
 	FRotator R(0, 0, 0);
 	Stack.Step(Stack.Object, &R);
@@ -2090,13 +1875,9 @@ struct FFrame__00590090 : public FFrame
 };
 
 enum { EX_EndParmValue = 0x15 };
-struct UObject__00590090 : public UObject
-{
-	void execDefaultParmValue(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00590090
-void UObject__00590090::execDefaultParmValue(FFrame& Stack, RESULT_DECL)
+void UObject::execDefaultParmValue(FFrame& Stack, RESULT_DECL)
 {
 	WORD Offset = ((FFrame__00590090&)Stack).ReadWord();
 	if ((GRuntimeUCFlags & RUC_SkippedOptionalParm) == 0)

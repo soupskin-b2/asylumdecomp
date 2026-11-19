@@ -4,14 +4,10 @@
 #include "ue3/Classes.h"
 #include "ue3/Script.h"
 
-struct UObject_ : public UObject
-{
-	void eventBeginState(FName PreviousStateName);
-};
 
 // @baa 0x0058cc90
 /* The script event's generated glue (CoreClasses.h), out of line here. */
-void UObject_::eventBeginState(FName PreviousStateName)
+void UObject::eventBeginState(FName PreviousStateName)
 {
 	struct Object_eventBeginState_Parms
 	{
@@ -21,14 +17,10 @@ void UObject_::eventBeginState(FName PreviousStateName)
 	ProcessEvent(FindFunctionChecked(NAME_BeginState), &Parms);
 }
 
-struct UObject__0058cce0 : public UObject
-{
-	void eventEndState(FName NextStateName);
-};
 
 // @baa 0x0058cce0
 /* The script event's generated glue (CoreClasses.h), out of line here. */
-void UObject__0058cce0::eventEndState(FName NextStateName)
+void UObject::eventEndState(FName NextStateName)
 {
 	struct Object_eventEndState_Parms
 	{
@@ -38,26 +30,18 @@ void UObject__0058cce0::eventEndState(FName NextStateName)
 	ProcessEvent(FindFunctionChecked(NAME_EndState), &Parms);
 }
 
-struct UObject__0058cd30 : public UObject
-{
-	void eventPushedState();
-};
 
 // @baa 0x0058cd30
 /* The script event's generated glue (CoreClasses.h), out of line here. */
-void UObject__0058cd30::eventPushedState()
+void UObject::eventPushedState()
 {
 	ProcessEvent(FindFunctionChecked(NAME_PushedState), NULL);
 }
 
-struct UObject__0058cd60 : public UObject
-{
-	void eventPoppedState();
-};
 
 // @baa 0x0058cd60
 /* The script event's generated glue (CoreClasses.h), out of line here. */
-void UObject__0058cd60::eventPoppedState()
+void UObject::eventPoppedState()
 {
 	ProcessEvent(FindFunctionChecked(NAME_PoppedState), NULL);
 }

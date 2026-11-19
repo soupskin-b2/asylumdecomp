@@ -386,13 +386,9 @@ UBOOL URSeqAct_SetScarecrowParameters::UpdateOp(FLOAT DeltaTime)
 
 extern FName g_026e2568;
  /* Search */
-struct URSeqAct_SetScarecrowSearch_ : public URSeqAct_SetScarecrowSearch
-{
-    void eventSearch();
-};
 
 /* RSeqAct_SetScarecrowSearch.Search script event: the generated glue (no parameters). */
-inline void URSeqAct_SetScarecrowSearch_::eventSearch()
+inline void URSeqAct_SetScarecrowSearch::eventSearch()
 {
     ProcessEvent(FindFunctionChecked(g_026e2568), NULL);
 }
@@ -403,20 +399,16 @@ UBOOL URSeqAct_SetScarecrowSearch::UpdateOp(FLOAT DeltaTime)
 {
     if (InputLinks(0).bHasImpulse)
     {
-        ((URSeqAct_SetScarecrowSearch_*)this)->eventSearch();
+        ((URSeqAct_SetScarecrowSearch*)this)->eventSearch();
     }
     return TRUE;
 }
 
 extern FName g_026e2ab8;
  /* SetAnimNames */
-struct URSeqAct_SetScarecrowSearchAnims_ : public URSeqAct_SetScarecrowSearchAnims
-{
-    void eventSetAnimNames();
-};
 
 /* RSeqAct_SetScarecrowSearchAnims.SetAnimNames script event: the generated glue (no parameters). */
-inline void URSeqAct_SetScarecrowSearchAnims_::eventSetAnimNames()
+inline void URSeqAct_SetScarecrowSearchAnims::eventSetAnimNames()
 {
     ProcessEvent(FindFunctionChecked(g_026e2ab8), NULL);
 }
@@ -427,20 +419,16 @@ UBOOL URSeqAct_SetScarecrowSearchAnims::UpdateOp(FLOAT DeltaTime)
 {
     if (InputLinks(0).bHasImpulse)
     {
-        ((URSeqAct_SetScarecrowSearchAnims_*)this)->eventSetAnimNames();
+        ((URSeqAct_SetScarecrowSearchAnims*)this)->eventSetAnimNames();
     }
     return TRUE;
 }
 
 extern FName g_026e2730;
  /* SetT */
-struct URSeqAct_SetTrackingObjectVars_ : public URSeqAct_SetTrackingObjectVars
-{
-    void eventSetT();
-};
 
 /* RSeqAct_SetTrackingObjectVars.SetT script event: the generated glue (no parameters). */
-inline void URSeqAct_SetTrackingObjectVars_::eventSetT()
+inline void URSeqAct_SetTrackingObjectVars::eventSetT()
 {
     ProcessEvent(FindFunctionChecked(g_026e2730), NULL);
 }
@@ -451,19 +439,15 @@ UBOOL URSeqAct_SetTrackingObjectVars::UpdateOp(FLOAT DeltaTime)
 {
     if (InputLinks(0).bHasImpulse)
     {
-        ((URSeqAct_SetTrackingObjectVars_*)this)->eventSetT();
+        ((URSeqAct_SetTrackingObjectVars*)this)->eventSetT();
     }
     return TRUE;
 }
 
  /* SetParameters */
-struct URSeqAct_SetVenomParameters_ : public URSeqAct_SetVenomParameters
-{
-    void eventSetParameters();
-};
 
 /* RSeqAct_SetVenomParameters.SetParameters script event: the generated glue (no parameters). */
-inline void URSeqAct_SetVenomParameters_::eventSetParameters()
+inline void URSeqAct_SetVenomParameters::eventSetParameters()
 {
     ProcessEvent(FindFunctionChecked(g_026e30f0), NULL);
 }
@@ -474,20 +458,16 @@ UBOOL URSeqAct_SetVenomParameters::UpdateOp(FLOAT DeltaTime)
 {
     if (InputLinks(0).bHasImpulse)
     {
-        ((URSeqAct_SetVenomParameters_*)this)->eventSetParameters();
+        ((URSeqAct_SetVenomParameters*)this)->eventSetParameters();
     }
     return TRUE;
 }
 
 extern FName g_026e2844;
  /* TriggerRunTheGauntlet */
-struct URSeqAct_TriggerRunTheGauntlet_ : public URSeqAct_TriggerRunTheGauntlet
-{
-    void eventTriggerRunTheGauntlet();
-};
 
 /* RSeqAct_TriggerRunTheGauntlet.TriggerRunTheGauntlet script event: the generated glue (no parameters). */
-inline void URSeqAct_TriggerRunTheGauntlet_::eventTriggerRunTheGauntlet()
+inline void URSeqAct_TriggerRunTheGauntlet::eventTriggerRunTheGauntlet()
 {
     ProcessEvent(FindFunctionChecked(g_026e2844), NULL);
 }
@@ -498,20 +478,16 @@ UBOOL URSeqAct_TriggerRunTheGauntlet::UpdateOp(FLOAT DeltaTime)
 {
     if (InputLinks(0).bHasImpulse)
     {
-        ((URSeqAct_TriggerRunTheGauntlet_*)this)->eventTriggerRunTheGauntlet();
+        ((URSeqAct_TriggerRunTheGauntlet*)this)->eventTriggerRunTheGauntlet();
     }
     return TRUE;
 }
 
 extern FName g_026e3558;
  /* Unlock */
-struct URSeqAct_UnlockXrayMode_ : public URSeqAct_UnlockXrayMode
-{
-    void eventUnlock();
-};
 
 /* RSeqAct_UnlockXrayMode.Unlock script event: the generated glue (no parameters). */
-inline void URSeqAct_UnlockXrayMode_::eventUnlock()
+inline void URSeqAct_UnlockXrayMode::eventUnlock()
 {
     ProcessEvent(FindFunctionChecked(g_026e3558), NULL);
 }
@@ -522,20 +498,16 @@ UBOOL URSeqAct_UnlockXrayMode::UpdateOp(FLOAT DeltaTime)
 {
     if (InputLinks(0).bHasImpulse)
     {
-        ((URSeqAct_UnlockXrayMode_*)this)->eventUnlock();
+        ((URSeqAct_UnlockXrayMode*)this)->eventUnlock();
     }
     return TRUE;
 }
 
 extern FName g_026e30b0;
  /* CheckDialogue */
-struct URSeqAct_InDialogue_ : public URSeqAct_InDialogue
-{
-    void eventCheckDialogue();
-};
 
 /* RSeqAct_InDialogue.CheckDialogue script event: the generated glue (no parameters). */
-inline void URSeqAct_InDialogue_::eventCheckDialogue()
+inline void URSeqAct_InDialogue::eventCheckDialogue()
 {
     ProcessEvent(FindFunctionChecked(g_026e30b0), NULL);
 }
@@ -546,7 +518,7 @@ UBOOL URSeqAct_InDialogue::UpdateOp(FLOAT DeltaTime)
 {
     if (InputLinks(0).bHasImpulse)
     {
-        ((URSeqAct_InDialogue_*)this)->eventCheckDialogue();
+        ((URSeqAct_InDialogue*)this)->eventCheckDialogue();
     }
     return TRUE;
 }

@@ -17,13 +17,9 @@ struct URB_BodyInstance_ : public URB_BodyInstance
 };
 
 /* UPhysicsAssetInstance::TermInstance isn't declared in Classes.h. */
-struct UPhysicsAssetInstance_ : public UPhysicsAssetInstance
-{
-	UBOOL TermInstance(FRBPhysScene* Scene);
-};
 
 // @baa 0x00a0ace0
-UBOOL UPhysicsAssetInstance_::TermInstance(FRBPhysScene* Scene)
+UBOOL UPhysicsAssetInstance::TermInstance(FRBPhysScene* Scene)
 {
 	UBOOL bTerminated = FALSE;
 

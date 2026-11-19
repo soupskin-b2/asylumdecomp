@@ -97,10 +97,6 @@ void URB_BodyInstance::execSetContactReportForceThreshold(FFrame& Stack, RESULT_
 	this->SetContactReportForceThreshold(Threshold);
 }
 
-struct URB_BodyInstance__00c95610 : public URB_BodyInstance
-{
-	void SetDampingRampupProportion(FLOAT);
-};
 
 // @baa 0x00c95610
 void URB_BodyInstance::execSetDampingRampupProportion(FFrame& Stack, RESULT_DECL)
@@ -110,10 +106,6 @@ void URB_BodyInstance::execSetDampingRampupProportion(FFrame& Stack, RESULT_DECL
 	this->SetDampingRampupProportion(NewDampingRampupProportion);
 }
 
-struct UPhysicsAssetInstance__00c94600 : public UPhysicsAssetInstance
-{
-	void SetAllBodiesFixed(UBOOL);
-};
 
 // @baa 0x00c94600
 void UPhysicsAssetInstance::execSetAllBodiesFixed(FFrame& Stack, RESULT_DECL)
@@ -177,14 +169,9 @@ void UPhysicsAssetInstance__00c94ae0::execSetFullAnimWeightBlockRigidBody(FFrame
 	SetFullAnimWeightBlockRigidBody(bNewBlockRigidBody, SkelMesh);
 }
 
-struct UPhysicsAssetInstance__00c94b80 : public UPhysicsAssetInstance
-{
-	void SetFullAnimWeightBonesFixed(UBOOL bNewFixed, USkeletalMeshComponent* SkelMesh);
-	void execSetFullAnimWeightBonesFixed(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00c94b80
-void UPhysicsAssetInstance__00c94b80::execSetFullAnimWeightBonesFixed(FFrame& Stack, RESULT_DECL)
+void UPhysicsAssetInstance::execSetFullAnimWeightBonesFixed(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bNewFixed);
 	P_GET_OBJECT(USkeletalMeshComponent, SkelMesh);
@@ -207,14 +194,9 @@ void UPhysicsAssetInstance__00c94c20::execFindBodyInstance(FFrame& Stack, RESULT
 	*(URB_BodyInstance**)Result = FindBodyInstance(BodyName, InAsset);
 }
 
-struct UPhysicsAssetInstance__00c94cd0 : public UPhysicsAssetInstance
-{
-	URB_ConstraintInstance* FindConstraintInstance(FName ConName, UPhysicsAsset* InAsset);
-	void execFindConstraintInstance(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00c94cd0
-void UPhysicsAssetInstance__00c94cd0::execFindConstraintInstance(FFrame& Stack, RESULT_DECL)
+void UPhysicsAssetInstance::execFindConstraintInstance(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_NAME(ConName);
 	P_GET_OBJECT(UPhysicsAsset, InAsset);
@@ -253,14 +235,9 @@ void UPhysicsAssetInstance__00c94540::execGetTotalMassBelowBone(FFrame& Stack, R
 	*(FLOAT*)Result = GetTotalMassBelowBone(InBoneName, InAsset, InSkelMesh);
 }
 
-struct UPhysicsAssetInstance__00c943a0 : public UPhysicsAssetInstance
-{
-	void SetLinearDriveScale(FLOAT InLinearSpringScale, FLOAT InLinearDampingScale, FLOAT InLinearForceLimitScale);
-	void execSetLinearDriveScale(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00c943a0
-void UPhysicsAssetInstance__00c943a0::execSetLinearDriveScale(FFrame& Stack, RESULT_DECL)
+void UPhysicsAssetInstance::execSetLinearDriveScale(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(InLinearSpringScale);
 	P_GET_FLOAT(InLinearDampingScale);
@@ -269,14 +246,9 @@ void UPhysicsAssetInstance__00c943a0::execSetLinearDriveScale(FFrame& Stack, RES
 	SetLinearDriveScale(InLinearSpringScale, InLinearDampingScale, InLinearForceLimitScale);
 }
 
-struct UPhysicsAssetInstance__00c94470 : public UPhysicsAssetInstance
-{
-	void SetAngularDriveScale(FLOAT InAngularSpringScale, FLOAT InAngularDampingScale, FLOAT InAngularForceLimitScale);
-	void execSetAngularDriveScale(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00c94470
-void UPhysicsAssetInstance__00c94470::execSetAngularDriveScale(FFrame& Stack, RESULT_DECL)
+void UPhysicsAssetInstance::execSetAngularDriveScale(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(InAngularSpringScale);
 	P_GET_FLOAT(InAngularDampingScale);
@@ -318,14 +290,9 @@ void URB_BodyInstance__00c95210::execSetBoneSpringParams(FFrame& Stack, RESULT_D
 	SetBoneSpringParams(InLinearSpring, InLinearDamping, InAngularSpring, InAngularDamping);
 }
 
-struct UPhysicsAssetInstance__00c94670 : public UPhysicsAssetInstance
-{
-	void SetGroupBodiesFixed(UBOOL bNewFixed, FName GroupName, USkeletalMeshComponent* SkelMesh, UBOOL bSetOtherBodiesToComplement);
-	void execSetGroupBodiesFixed(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00c94670
-void UPhysicsAssetInstance__00c94670::execSetGroupBodiesFixed(FFrame& Stack, RESULT_DECL)
+void UPhysicsAssetInstance::execSetGroupBodiesFixed(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bNewFixed);
 	P_GET_NAME(GroupName);
@@ -335,14 +302,9 @@ void UPhysicsAssetInstance__00c94670::execSetGroupBodiesFixed(FFrame& Stack, RES
 	SetGroupBodiesFixed(bNewFixed, GroupName, SkelMesh, bSetOtherBodiesToComplement);
 }
 
-struct UPhysicsAssetInstance__00c94890 : public UPhysicsAssetInstance
-{
-	void SetAllMotorsAngularVelocityDrive(UBOOL bEnableSwingDrive, UBOOL bEnableTwistDrive, USkeletalMeshComponent* SkelMeshComp, UBOOL bSkipFullAnimWeightBodies);
-	void execSetAllMotorsAngularVelocityDrive(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00c94890
-void UPhysicsAssetInstance__00c94890::execSetAllMotorsAngularVelocityDrive(FFrame& Stack, RESULT_DECL)
+void UPhysicsAssetInstance::execSetAllMotorsAngularVelocityDrive(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bEnableSwingDrive);
 	P_GET_UBOOL(bEnableTwistDrive);
@@ -352,14 +314,9 @@ void UPhysicsAssetInstance__00c94890::execSetAllMotorsAngularVelocityDrive(FFram
 	SetAllMotorsAngularVelocityDrive(bEnableSwingDrive, bEnableTwistDrive, SkelMeshComp, bSkipFullAnimWeightBodies);
 }
 
-struct UPhysicsAssetInstance__00c94780 : public UPhysicsAssetInstance
-{
-	void SetAllMotorsAngularPositionDrive(UBOOL bEnableSwingDrive, UBOOL bEnableTwistDrive, USkeletalMeshComponent* SkelMesh, UBOOL bSkipFullAnimWeightBodies);
-	void execSetAllMotorsAngularPositionDrive(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00c94780
-void UPhysicsAssetInstance__00c94780::execSetAllMotorsAngularPositionDrive(FFrame& Stack, RESULT_DECL)
+void UPhysicsAssetInstance::execSetAllMotorsAngularPositionDrive(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bEnableSwingDrive);
 	P_GET_UBOOL(bEnableTwistDrive);
@@ -369,14 +326,9 @@ void UPhysicsAssetInstance__00c94780::execSetAllMotorsAngularPositionDrive(FFram
 	SetAllMotorsAngularPositionDrive(bEnableSwingDrive, bEnableTwistDrive, SkelMesh, bSkipFullAnimWeightBodies);
 }
 
-struct UPhysicsAssetInstance__00c949a0 : public UPhysicsAssetInstance
-{
-	void SetAllMotorsAngularDriveParams(FLOAT InSpring, FLOAT InDamping, FLOAT InForceLimit, USkeletalMeshComponent* SkelMesh, UBOOL bSkipFullAnimWeightBodies);
-	void execSetAllMotorsAngularDriveParams(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00c949a0
-void UPhysicsAssetInstance__00c949a0::execSetAllMotorsAngularDriveParams(FFrame& Stack, RESULT_DECL)
+void UPhysicsAssetInstance::execSetAllMotorsAngularDriveParams(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(InSpring);
 	P_GET_FLOAT(InDamping);
@@ -421,14 +373,9 @@ void UPhysicsAssetInstance__00cc19e0::execSetNamedRBBoneSprings(FFrame& Stack, R
 	SetNamedRBBoneSprings(bEnable, BoneNames, InBoneLinearSpring, InBoneAngularSpring, SkelMeshComp);
 }
 
-struct UPhysicsAssetInstance__00cc16e0 : public UPhysicsAssetInstance
-{
-	void SetNamedMotorsAngularPositionDrive(UBOOL bEnableSwingDrive, UBOOL bEnableTwistDrive, const TArray<FName>& BoneNames, USkeletalMeshComponent* SkelMeshComp, UBOOL bSetOtherBodiesToComplement);
-	void execSetNamedMotorsAngularPositionDrive(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00cc16e0
-void UPhysicsAssetInstance__00cc16e0::execSetNamedMotorsAngularPositionDrive(FFrame& Stack, RESULT_DECL)
+void UPhysicsAssetInstance::execSetNamedMotorsAngularPositionDrive(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bEnableSwingDrive);
 	P_GET_UBOOL(bEnableTwistDrive);
@@ -439,14 +386,9 @@ void UPhysicsAssetInstance__00cc16e0::execSetNamedMotorsAngularPositionDrive(FFr
 	SetNamedMotorsAngularPositionDrive(bEnableSwingDrive, bEnableTwistDrive, BoneNames, SkelMeshComp, bSetOtherBodiesToComplement);
 }
 
-struct UPhysicsAssetInstance__00cc1860 : public UPhysicsAssetInstance
-{
-	void SetNamedMotorsAngularVelocityDrive(UBOOL bEnableSwingDrive, UBOOL bEnableTwistDrive, const TArray<FName>& BoneNames, USkeletalMeshComponent* SkelMeshComp, UBOOL bSetOtherBodiesToComplement);
-	void execSetNamedMotorsAngularVelocityDrive(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00cc1860
-void UPhysicsAssetInstance__00cc1860::execSetNamedMotorsAngularVelocityDrive(FFrame& Stack, RESULT_DECL)
+void UPhysicsAssetInstance::execSetNamedMotorsAngularVelocityDrive(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bEnableSwingDrive);
 	P_GET_UBOOL(bEnableTwistDrive);
@@ -457,14 +399,9 @@ void UPhysicsAssetInstance__00cc1860::execSetNamedMotorsAngularVelocityDrive(FFr
 	SetNamedMotorsAngularVelocityDrive(bEnableSwingDrive, bEnableTwistDrive, BoneNames, SkelMeshComp, bSetOtherBodiesToComplement);
 }
 
-struct UPhysicsAssetInstance__00cc1560 : public UPhysicsAssetInstance
-{
-	void SetNamedBodiesFixed(UBOOL bNewFixed, const TArray<FName>& BoneNames, USkeletalMeshComponent* SkelMesh, UBOOL bSetOtherBodiesToComplement, UBOOL bSkipFullAnimWeightBodies);
-	void execSetNamedBodiesFixed(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00cc1560
-void UPhysicsAssetInstance__00cc1560::execSetNamedBodiesFixed(FFrame& Stack, RESULT_DECL)
+void UPhysicsAssetInstance::execSetNamedBodiesFixed(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bNewFixed);
 	P_GET_TARRAY(FName, BoneNames);
@@ -543,14 +480,10 @@ void URB_BodyInstance__00c95090::execGetUnrealWorldVelocityAtPoint(FFrame& Stack
 
 extern FName g_026c4f70;
 	/* ENGINE_OnRigidBodySpringOverextension */
-struct AActor_ : public AActor
-{
-	void eventOnRigidBodySpringOverextension(URB_BodyInstance* BodyInstance);
-};
 
 // @baa 0x009f7230
 /* The script event's generated glue (EngineClasses.h), out of line here. */
-void AActor_::eventOnRigidBodySpringOverextension(URB_BodyInstance* BodyInstance)
+void AActor::eventOnRigidBodySpringOverextension(URB_BodyInstance* BodyInstance)
 {
 	struct Actor_eventOnRigidBodySpringOverextension_Parms
 	{

@@ -4,14 +4,10 @@
 #include "ue3/Classes.h"
 #include "ue3/AppMath.h"
 
-struct ATerrain_ : public ATerrain
-{
-    void ClampVertex(INT& X, INT& Y) const; /* 0x00986e90 */
-};
 
 // @baa 0x00986e90
 /* UE3's ATerrain::ClampVertex: clamp vertex coordinates to the terrain. */
-void ATerrain_::ClampVertex(INT& X, INT& Y) const
+void ATerrain::ClampVertex(INT& X, INT& Y) const
 {
     X = Clamp(X, 0, NumVerticesX - 1);
     Y = Clamp(Y, 0, NumVerticesY - 1);
@@ -66,15 +62,11 @@ void UTerrainComponent::GetLightAndShadowMapMemoryUsage(UINT* Width, UINT* Heigh
     }
 }
 
-struct ATerrain__00986dc0 : public ATerrain
-{
-	void sub_00986dc0();
-};
 
 // @baa 0x00986dc0
 /* Clamps the terrain's patch counts to 1..2048, rounds them up to whole tessellation blocks, and derives the
  * vertex and section counts from them. */
-void ATerrain__00986dc0::sub_00986dc0()
+void ATerrain::sub_00986dc0()
 {
 	NumPatchesX = Clamp(NumPatchesX, 1, 2048);
 	NumPatchesY = Clamp(NumPatchesY, 1, 2048);

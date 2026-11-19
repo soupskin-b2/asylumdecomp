@@ -450,14 +450,10 @@ INT C_00e28a90::sub_00e28a90()
 
 extern FName g_026cad88;
  /* IPDRV_UnregisterParty */
-struct UPartyBeaconHost_ : public UPartyBeaconHost
-{
-    void eventUnregisterParty(FUniqueNetId PartyLeader);
-};
 
 // @baa 0x00e29870
 /* PartyBeaconHost.uc's UnregisterParty script event, generated glue (IpDrvClasses.h). */
-void UPartyBeaconHost_::eventUnregisterParty(FUniqueNetId PartyLeader)
+void UPartyBeaconHost::eventUnregisterParty(FUniqueNetId PartyLeader)
 {
     struct PartyBeaconHost_eventUnregisterParty_Parms
     {
@@ -469,46 +465,28 @@ void UPartyBeaconHost_::eventUnregisterParty(FUniqueNetId PartyLeader)
 }
 
 extern FName g_026cadd8;
-	/* OnHostHasCancelled */
-/* Kit gap: the delegate's generated glue isn't declared. */
-struct UPartyBeaconClient_ : public UPartyBeaconClient
-{
-	void delegateOnHostHasCancelled();
-};
 
 // @baa 0x00e293c0
 /* The script delegate's generated glue, out of line here. */
-void UPartyBeaconClient_::delegateOnHostHasCancelled()
+void UPartyBeaconClient::delegateOnHostHasCancelled()
 {
 	ProcessDelegate(g_026cadd8, &__OnHostHasCancelled__Delegate, NULL, NULL);
 }
 
 extern FName g_026cad98;
-	/* OnHostIsReady */
-/* Kit gap: the delegate's generated glue isn't declared. */
-struct UPartyBeaconClient__00e293f0 : public UPartyBeaconClient
-{
-	void delegateOnHostIsReady();
-};
 
 // @baa 0x00e293f0
 /* The script delegate's generated glue, out of line here. */
-void UPartyBeaconClient__00e293f0::delegateOnHostIsReady()
+void UPartyBeaconClient::delegateOnHostIsReady()
 {
 	ProcessDelegate(g_026cad98, &__OnHostIsReady__Delegate, NULL, NULL);
 }
 
 extern FName g_026cae90;
-	/* OnReservationCountUpdated */
-/* Kit gap: the delegate's generated glue isn't declared. */
-struct UPartyBeaconClient__00e294a0 : public UPartyBeaconClient
-{
-	void delegateOnReservationCountUpdated(INT ReservationRemaining);
-};
 
 // @baa 0x00e294a0
 /* The script delegate's generated glue, out of line here. */
-void UPartyBeaconClient__00e294a0::delegateOnReservationCountUpdated(INT ReservationRemaining)
+void UPartyBeaconClient::delegateOnReservationCountUpdated(INT ReservationRemaining)
 {
 	struct PartyBeaconClient_eventOnReservationCountUpdated_Parms
 	{
@@ -519,31 +497,19 @@ void UPartyBeaconClient__00e294a0::delegateOnReservationCountUpdated(INT Reserva
 }
 
 extern FName g_026caeb4;
-	/* OnCancellationRequestComplete */
-/* Kit gap: the delegate's generated glue isn't declared. */
-struct UPartyBeaconClient__00e294d0 : public UPartyBeaconClient
-{
-	void delegateOnCancellationRequestComplete();
-};
 
 // @baa 0x00e294d0
 /* The script delegate's generated glue, out of line here. */
-void UPartyBeaconClient__00e294d0::delegateOnCancellationRequestComplete()
+void UPartyBeaconClient::delegateOnCancellationRequestComplete()
 {
 	ProcessDelegate(g_026caeb4, &__OnCancellationRequestComplete__Delegate, NULL, NULL);
 }
 
 extern FName g_026cadec;
-	/* OnReservationRequestComplete */
-/* Kit gap: the delegate's generated glue isn't declared. */
-struct UPartyBeaconClient__00e29500 : public UPartyBeaconClient
-{
-	void delegateOnReservationRequestComplete(BYTE ReservationResult);
-};
 
 // @baa 0x00e29500
 /* The script delegate's generated glue, out of line here. */
-void UPartyBeaconClient__00e29500::delegateOnReservationRequestComplete(BYTE ReservationResult)
+void UPartyBeaconClient::delegateOnReservationRequestComplete(BYTE ReservationResult)
 {
 	struct PartyBeaconClient_eventOnReservationRequestComplete_Parms
 	{
@@ -554,16 +520,10 @@ void UPartyBeaconClient__00e29500::delegateOnReservationRequestComplete(BYTE Res
 }
 
 extern FName g_026cae6c;
-	/* OnClientCancellationReceived */
-/* Kit gap: the delegate's generated glue isn't declared. */
-struct UPartyBeaconHost__00e298c0 : public UPartyBeaconHost
-{
-	void delegateOnClientCancellationReceived(FUniqueNetId PartyLeader);
-};
 
 // @baa 0x00e298c0
 /* The script delegate's generated glue, out of line here. */
-void UPartyBeaconHost__00e298c0::delegateOnClientCancellationReceived(FUniqueNetId PartyLeader)
+void UPartyBeaconHost::delegateOnClientCancellationReceived(FUniqueNetId PartyLeader)
 {
 	struct PartyBeaconHost_eventOnClientCancellationReceived_Parms
 	{
@@ -574,31 +534,19 @@ void UPartyBeaconHost__00e298c0::delegateOnClientCancellationReceived(FUniqueNet
 }
 
 extern FName g_026cad54;
-	/* OnReservationsFull */
-/* Kit gap: the delegate's generated glue isn't declared. */
-struct UPartyBeaconHost__00e29900 : public UPartyBeaconHost
-{
-	void delegateOnReservationsFull();
-};
 
 // @baa 0x00e29900
 /* The script delegate's generated glue, out of line here. */
-void UPartyBeaconHost__00e29900::delegateOnReservationsFull()
+void UPartyBeaconHost::delegateOnReservationsFull()
 {
 	ProcessDelegate(g_026cad54, &__OnReservationsFull__Delegate, NULL, NULL);
 }
 
 extern FName g_026cade4;
-	/* OnReservationChange */
-/* Kit gap: the delegate's generated glue isn't declared. */
-struct UPartyBeaconHost__00e29930 : public UPartyBeaconHost
-{
-	void delegateOnReservationChange();
-};
 
 // @baa 0x00e29930
 /* The script delegate's generated glue, out of line here. */
-void UPartyBeaconHost__00e29930::delegateOnReservationChange()
+void UPartyBeaconHost::delegateOnReservationChange()
 {
 	ProcessDelegate(g_026cade4, &__OnReservationChange__Delegate, NULL, NULL);
 }

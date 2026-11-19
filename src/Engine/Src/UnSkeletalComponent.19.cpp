@@ -6,14 +6,10 @@
 
 extern FName g_026c4f5c;
 	/* ENGINE_AnimTreeUpdated */
-struct AActor_ : public AActor
-{
-	void eventAnimTreeUpdated(class USkeletalMeshComponent* SkelMesh);
-};
 
 // @baa 0x0090acc0
 /* The script event's generated glue (EngineClasses.h), out of line here. */
-void AActor_::eventAnimTreeUpdated(class USkeletalMeshComponent* SkelMesh)
+void AActor::eventAnimTreeUpdated(class USkeletalMeshComponent* SkelMesh)
 {
 	struct Actor_eventAnimTreeUpdated_Parms
 	{
@@ -25,14 +21,10 @@ void AActor_::eventAnimTreeUpdated(class USkeletalMeshComponent* SkelMesh)
 
 extern FName g_026c51c0;
 	/* ENGINE_PostInitAnimTree */
-struct AActor__0090ad40 : public AActor
-{
-	void eventPostInitAnimTree(class USkeletalMeshComponent* SkelComp);
-};
 
 // @baa 0x0090ad40
 /* The script event's generated glue (EngineClasses.h), out of line here. */
-void AActor__0090ad40::eventPostInitAnimTree(class USkeletalMeshComponent* SkelComp)
+void AActor::eventPostInitAnimTree(class USkeletalMeshComponent* SkelComp)
 {
 	struct Actor_eventPostInitAnimTree_Parms
 	{
@@ -44,14 +36,10 @@ void AActor__0090ad40::eventPostInitAnimTree(class USkeletalMeshComponent* SkelC
 
 extern FName g_026c4d60;
 	/* ENGINE_RootMotionModeChanged */
-struct AActor__0090ae40 : public AActor
-{
-	void eventRootMotionModeChanged(class USkeletalMeshComponent* SkelComp);
-};
 
 // @baa 0x0090ae40
 /* The script event's generated glue (EngineClasses.h), out of line here. */
-void AActor__0090ae40::eventRootMotionModeChanged(class USkeletalMeshComponent* SkelComp)
+void AActor::eventRootMotionModeChanged(class USkeletalMeshComponent* SkelComp)
 {
 	struct Actor_eventRootMotionModeChanged_Parms
 	{
@@ -63,14 +51,10 @@ void AActor__0090ae40::eventRootMotionModeChanged(class USkeletalMeshComponent* 
 
 extern FName g_026c4ac0;
 	/* ENGINE_FaceFXAudioStartedCallback */
-struct AActor__0090af00 : public AActor
-{
-	void eventFaceFXAudioStartedCallback(class UAudioComponent* AC);
-};
 
 // @baa 0x0090af00
 /* The script event's generated glue (EngineClasses.h), out of line here. */
-void AActor__0090af00::eventFaceFXAudioStartedCallback(class UAudioComponent* AC)
+void AActor::eventFaceFXAudioStartedCallback(class UAudioComponent* AC)
 {
 	struct Actor_eventFaceFXAudioStartedCallback_Parms
 	{
@@ -82,14 +66,10 @@ void AActor__0090af00::eventFaceFXAudioStartedCallback(class UAudioComponent* AC
 
 extern FName g_026c3ea8;
 	/* ENGINE_PlayParticleEffect */
-struct AActor__0090ad00 : public AActor
-{
-	void eventPlayParticleEffect(class UAnimNotify_PlayParticleEffect* AnimNotifyData);
-};
 
 // @baa 0x0090ad00
 /* The script event's generated glue (EngineClasses.h), out of line here. */
-void AActor__0090ad00::eventPlayParticleEffect(class UAnimNotify_PlayParticleEffect* AnimNotifyData)
+void AActor::eventPlayParticleEffect(class UAnimNotify_PlayParticleEffect* AnimNotifyData)
 {
 	struct Actor_eventPlayParticleEffect_Parms
 	{

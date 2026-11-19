@@ -616,12 +616,9 @@ void ARPawnCharacter::ChangeIdleStanceWithoutTransition(FName Stance)
     *(FName*)((BYTE*)this + 0x464) = Stance;
 }
 
-struct ARPawnCharacter_ : public ARPawnCharacter {
-    void sub_0166f640(AActor* Actor, FName Description, FName ActorBoneName, UBOOL bAllowTurningToAim);
-};
 
 // @baa 0x0166f640
-void ARPawnCharacter_::sub_0166f640(AActor* Actor, FName Description, FName ActorBoneName, UBOOL bAllowTurningToAim)
+void ARPawnCharacter::sub_0166f640(AActor* Actor, FName Description, FName ActorBoneName, UBOOL bAllowTurningToAim)
 {
     if (Anim)
     {
@@ -1722,11 +1719,6 @@ INT C_0166da40::sub_0166da40(INT A)
     return A;
 }
 
-/* Kit gap: USkeletalMeshComponent::GetBoneLocation (UnSkeletalComponent.h) isn't declared. */
-struct USkeletalMeshComponent_ : public USkeletalMeshComponent
-{
-	FVector GetBoneLocation(FName BoneName, INT Space = 0); /* 0x0091e3a0 */
-};
 
 // @baa 0x0166fe20
 /* Where field-of-view checks look from: the FOV check bone when there's a mesh, else the pawn's location. */
@@ -1734,7 +1726,7 @@ FVector ARPawnCharacter::GetFOVCheckLocation()
 {
 	if (Mesh)
 	{
-		return ((USkeletalMeshComponent_*)Mesh)->GetBoneLocation(FOVCheckBone);
+		return ((USkeletalMeshComponent*)Mesh)->GetBoneLocation(FOVCheckBone);
 	}
 	return Location;
 }
@@ -1989,16 +1981,10 @@ FLOAT ARPawnCombat::AngleDiff(FLOAT Angle1, FLOAT Angle2)
 }
 
 extern FName g_026e2f20;
-	/* IsSniperPointValid */
-/* Kit gap: the delegate's generated glue isn't declared. */
-struct ARPawn_ : public ARPawn
-{
-	UBOOL delegateIsSniperPointValid(class AActor* A);
-};
 
 // @baa 0x016688e0
 /* The script delegate's generated glue, out of line here. */
-UBOOL ARPawn_::delegateIsSniperPointValid(class AActor* A)
+UBOOL ARPawn::delegateIsSniperPointValid(class AActor* A)
 {
 	struct RPawn_eventIsSniperPointValid_Parms
 	{
@@ -2012,16 +1998,10 @@ UBOOL ARPawn_::delegateIsSniperPointValid(class AActor* A)
 }
 
 extern FName g_026e2b18;
-	/* IsRoamPointValid */
-/* Kit gap: the delegate's generated glue isn't declared. */
-struct ARPawn__01668920 : public ARPawn
-{
-	UBOOL delegateIsRoamPointValid(class AActor* A);
-};
 
 // @baa 0x01668920
 /* The script delegate's generated glue, out of line here. */
-UBOOL ARPawn__01668920::delegateIsRoamPointValid(class AActor* A)
+UBOOL ARPawn::delegateIsRoamPointValid(class AActor* A)
 {
 	struct RPawn_eventIsRoamPointValid_Parms
 	{
@@ -2035,16 +2015,10 @@ UBOOL ARPawn__01668920::delegateIsRoamPointValid(class AActor* A)
 }
 
 extern FName g_026e2b30;
-	/* IsActorSafe */
-/* Kit gap: the delegate's generated glue isn't declared. */
-struct ARPawn__01668960 : public ARPawn
-{
-	UBOOL delegateIsActorSafe(class AActor* A);
-};
 
 // @baa 0x01668960
 /* The script delegate's generated glue, out of line here. */
-UBOOL ARPawn__01668960::delegateIsActorSafe(class AActor* A)
+UBOOL ARPawn::delegateIsActorSafe(class AActor* A)
 {
 	struct RPawn_eventIsActorSafe_Parms
 	{

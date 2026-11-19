@@ -1707,12 +1707,9 @@ struct FFluidSimulation {
     void sub_00be3f20(UBOOL bRelease);
 };
 
-struct UFluidSurfaceComponent_ : public UFluidSurfaceComponent {
-    void sub_00be48d0(UBOOL bRelease);
-};
 
 // @baa 0x00be48d0
-void UFluidSurfaceComponent_::sub_00be48d0(UBOOL bRelease)
+void UFluidSurfaceComponent::sub_00be48d0(UBOOL bRelease)
 {
     FFluidSimulation*& Simulation = *(FFluidSimulation**)&FluidSimulation;
     if (Simulation)

@@ -39,14 +39,10 @@ struct FMatrix_ : public FMatrix
     FORCEINLINE void SetOrigin(const FVector& NewOrigin) { WPlane.X = NewOrigin.X; WPlane.Y = NewOrigin.Y; WPlane.Z = NewOrigin.Z; }
 };
 
-struct FTwistBoneFixer_ : public FTwistBoneFixer
-{
-    void Apply(TArray<FMatrix>& SpaceBases);
-};
 
 // @baa 0x0091a110
 /* name guessed: rebuild the twist bone from its base bone, keeping the twist angle measured at init */
-void FTwistBoneFixer_::Apply(TArray<FMatrix>& SpaceBases)
+void FTwistBoneFixer::Apply(TArray<FMatrix>& SpaceBases)
 {
     FMatrix_& TwistTM = (FMatrix_&)((TArrayAt_<FMatrix>&)SpaceBases).At(TwistBoneIndex);
     const FMatrix_& BaseTM = (const FMatrix_&)((TArrayAt_<FMatrix>&)SpaceBases).At(BaseBoneIndex);
@@ -73,13 +69,9 @@ private:
     AActor* Owner;
 };
 
-struct USkeletalMeshComponent_ : public USkeletalMeshComponent
-{
-    void SetForceWireframe(UBOOL InForceWireframe);
-};
 
 // @baa 0x0091d830
-void USkeletalMeshComponent_::SetForceWireframe(UBOOL InForceWireframe)
+void USkeletalMeshComponent::SetForceWireframe(UBOOL InForceWireframe)
 {
     if (bForceWireframe != InForceWireframe)
     {

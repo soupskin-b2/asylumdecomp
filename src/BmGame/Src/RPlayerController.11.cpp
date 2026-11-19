@@ -4,14 +4,10 @@
 #include "ue3/Classes.h"
 #include "ue3/Native.h"
 
-struct ARPlayerController_ : public ARPlayerController
-{
-	void sub_016153e0(class ARSpecialMoveInstance* NewMove);
-};
 
 // @baa 0x016153e0
 /* Replaces the current special move; the old one is cancelled and destroyed unless it asks to be kept. */
-void ARPlayerController_::sub_016153e0(class ARSpecialMoveInstance* NewMove)
+void ARPlayerController::sub_016153e0(class ARSpecialMoveInstance* NewMove)
 {
 	if (NewCurrentSpecialMove)
 	{

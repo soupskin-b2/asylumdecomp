@@ -64,12 +64,9 @@ extern FName g_026c59bc;
 extern FName g_026c59dc;
 extern FName g_026c5af8;
 extern FName g_026c5ae0;
-struct UUIScreenObject_ : public UUIScreenObject {
-    void sub_00db2e70(TArray<FName>& out_KeyNames);
-};
 
 // @baa 0x00db2e70
-void UUIScreenObject_::sub_00db2e70(TArray<FName>& out_KeyNames)
+void UUIScreenObject::sub_00db2e70(TArray<FName>& out_KeyNames)
 {
     TArrayFName_& KeyNames = (TArrayFName_&)out_KeyNames;
     KeyNames.sub_00547260(g_026c5ac0);
@@ -385,31 +382,19 @@ void UUIScreenObject::vf_1a8()
 }
 
 extern FName g_026c4690;
-	/* NotifyActiveSkinChanged */
-/* Kit gap: the delegate's generated glue isn't declared. */
-struct UUIScreenObject__00da7140 : public UUIScreenObject
-{
-	void delegateNotifyActiveSkinChanged();
-};
 
 // @baa 0x00da7140
 /* The script delegate's generated glue, out of line here. */
-void UUIScreenObject__00da7140::delegateNotifyActiveSkinChanged()
+void UUIScreenObject::delegateNotifyActiveSkinChanged()
 {
 	ProcessDelegate(g_026c4690, &__NotifyActiveSkinChanged__Delegate, NULL, NULL);
 }
 
 extern FName g_026c3dbc;
-	/* OnValueChanged */
-/* Kit gap: the delegate's generated glue isn't declared. */
-struct UUIObject_ : public UUIObject
-{
-	void delegateOnValueChanged(class UUIObject* Sender, INT PlayerIndex);
-};
 
 // @baa 0x00da71d0
 /* The script delegate's generated glue, out of line here. */
-void UUIObject_::delegateOnValueChanged(class UUIObject* Sender, INT PlayerIndex)
+void UUIObject::delegateOnValueChanged(class UUIObject* Sender, INT PlayerIndex)
 {
 	struct UIObject_eventOnValueChanged_Parms
 	{
@@ -422,16 +407,10 @@ void UUIObject_::delegateOnValueChanged(class UUIObject* Sender, INT PlayerIndex
 }
 
 extern FName g_026c5188;
-	/* OnPostSceneUpdate */
-/* Kit gap: the delegate's generated glue isn't declared. */
-struct UUIObject__00da7210 : public UUIObject
-{
-	void delegateOnPostSceneUpdate(class UUIObject* Sender);
-};
 
 // @baa 0x00da7210
 /* The script delegate's generated glue, out of line here. */
-void UUIObject__00da7210::delegateOnPostSceneUpdate(class UUIObject* Sender)
+void UUIObject::delegateOnPostSceneUpdate(class UUIObject* Sender)
 {
 	struct UIObject_eventOnPostSceneUpdate_Parms
 	{
@@ -442,16 +421,10 @@ void UUIObject__00da7210::delegateOnPostSceneUpdate(class UUIObject* Sender)
 }
 
 extern FName g_026c53b0;
-	/* OnPreSceneUpdate */
-/* Kit gap: the delegate's generated glue isn't declared. */
-struct UUIObject__00da7240 : public UUIObject
-{
-	void delegateOnPreSceneUpdate(class UUIObject* Sender);
-};
 
 // @baa 0x00da7240
 /* The script delegate's generated glue, out of line here. */
-void UUIObject__00da7240::delegateOnPreSceneUpdate(class UUIObject* Sender)
+void UUIObject::delegateOnPreSceneUpdate(class UUIObject* Sender)
 {
 	struct UIObject_eventOnPreSceneUpdate_Parms
 	{
@@ -462,16 +435,10 @@ void UUIObject__00da7240::delegateOnPreSceneUpdate(class UUIObject* Sender)
 }
 
 extern FName g_026c4cf8;
-	/* OnCreate */
-/* Kit gap: the delegate's generated glue isn't declared. */
-struct UUIObject__00da7270 : public UUIObject
-{
-	void delegateOnCreate(class UUIObject* CreatedWidget, class UUIScreenObject* CreatorContainer);
-};
 
 // @baa 0x00da7270
 /* The script delegate's generated glue, out of line here. */
-void UUIObject__00da7270::delegateOnCreate(class UUIObject* CreatedWidget, class UUIScreenObject* CreatorContainer)
+void UUIObject::delegateOnCreate(class UUIObject* CreatedWidget, class UUIScreenObject* CreatorContainer)
 {
 	struct UIObject_eventOnCreate_Parms
 	{
@@ -484,16 +451,10 @@ void UUIObject__00da7270::delegateOnCreate(class UUIObject* CreatedWidget, class
 }
 
 extern FName g_026c54d8;
-	/* OnSceneDeactivated */
-/* Kit gap: the delegate's generated glue isn't declared. */
-struct UUIScene__00da7480 : public UUIScene
-{
-	void delegateOnSceneDeactivated(class UUIScene* DeactivatedScene);
-};
 
 // @baa 0x00da7480
 /* The script delegate's generated glue, out of line here. */
-void UUIScene__00da7480::delegateOnSceneDeactivated(class UUIScene* DeactivatedScene)
+void UUIScene::delegateOnSceneDeactivated(class UUIScene* DeactivatedScene)
 {
 	struct UIScene_eventOnSceneDeactivated_Parms
 	{
@@ -504,16 +465,10 @@ void UUIScene__00da7480::delegateOnSceneDeactivated(class UUIScene* DeactivatedS
 }
 
 extern FName g_026c508c;
-	/* OnSceneActivated */
-/* Kit gap: the delegate's generated glue isn't declared. */
-struct UUIScene__00da74b0 : public UUIScene
-{
-	void delegateOnSceneActivated(class UUIScene* ActivatedScene, UBOOL bInitialActivation);
-};
 
 // @baa 0x00da74b0
 /* The script delegate's generated glue, out of line here. */
-void UUIScene__00da74b0::delegateOnSceneActivated(class UUIScene* ActivatedScene, UBOOL bInitialActivation)
+void UUIScene::delegateOnSceneActivated(class UUIScene* ActivatedScene, UBOOL bInitialActivation)
 {
 	struct UIScene_eventOnSceneActivated_Parms
 	{
@@ -526,16 +481,10 @@ void UUIScene__00da74b0::delegateOnSceneActivated(class UUIScene* ActivatedScene
 }
 
 extern FName g_026c5550;
-	/* GetSceneInputModeOverride */
-/* Kit gap: the delegate's generated glue isn't declared. */
-struct UUIScene__00da7560 : public UUIScene
-{
-	BYTE delegateGetSceneInputModeOverride();
-};
 
 // @baa 0x00da7560
 /* The script delegate's generated glue, out of line here. */
-BYTE UUIScene__00da7560::delegateGetSceneInputModeOverride()
+BYTE UUIScene::delegateGetSceneInputModeOverride()
 {
 	struct UIScene_eventGetSceneInputModeOverride_Parms
 	{
@@ -547,16 +496,10 @@ BYTE UUIScene__00da7560::delegateGetSceneInputModeOverride()
 }
 
 extern FName g_026c55c0;
-	/* ShouldModulateBackgroundAlpha */
-/* Kit gap: the delegate's generated glue isn't declared. */
-struct UUIScene__00da7420 : public UUIScene
-{
-	UBOOL delegateShouldModulateBackgroundAlpha(FLOAT& AlphaModulationPercent);
-};
 
 // @baa 0x00da7420
 /* The script delegate's generated glue, out of line here. */
-UBOOL UUIScene__00da7420::delegateShouldModulateBackgroundAlpha(FLOAT& AlphaModulationPercent)
+UBOOL UUIScene::delegateShouldModulateBackgroundAlpha(FLOAT& AlphaModulationPercent)
 {
 	struct UIScene_eventShouldModulateBackgroundAlpha_Parms
 	{

@@ -88,14 +88,10 @@ void UUIScreenObject::execScreenToCanvas(FFrame& Stack, RESULT_DECL)
 
 extern FName g_026c4040;
 	/* ENGINE_RemovedFromParent */
-struct UUIScreenObject__00da6e00 : public UUIScreenObject
-{
-	void eventRemovedFromParent(class UUIScreenObject* WidgetOwner);
-};
 
 // @baa 0x00da6e00
 /* The script event's generated glue (EngineClasses.h), out of line here. */
-void UUIScreenObject__00da6e00::eventRemovedFromParent(class UUIScreenObject* WidgetOwner)
+void UUIScreenObject::eventRemovedFromParent(class UUIScreenObject* WidgetOwner)
 {
 	struct UIScreenObject_eventRemovedFromParent_Parms
 	{
@@ -107,14 +103,10 @@ void UUIScreenObject__00da6e00::eventRemovedFromParent(class UUIScreenObject* Wi
 
 extern FName g_026c5534;
 	/* ENGINE_AddedChild */
-struct UUIScreenObject__00da6e40 : public UUIScreenObject
-{
-	void eventAddedChild(class UUIScreenObject* WidgetOwner, class UUIObject* NewChild);
-};
 
 // @baa 0x00da6e40
 /* The script event's generated glue (EngineClasses.h), out of line here. */
-void UUIScreenObject__00da6e40::eventAddedChild(class UUIScreenObject* WidgetOwner, class UUIObject* NewChild)
+void UUIScreenObject::eventAddedChild(class UUIScreenObject* WidgetOwner, class UUIObject* NewChild)
 {
 	struct UIScreenObject_eventAddedChild_Parms
 	{
@@ -128,14 +120,10 @@ void UUIScreenObject__00da6e40::eventAddedChild(class UUIScreenObject* WidgetOwn
 
 extern FName g_026c4e18;
 	/* ENGINE_SceneActivated */
-struct UUIScene_ : public UUIScene
-{
-	void eventSceneActivated(UBOOL bInitialActivation);
-};
 
 // @baa 0x00da73e0
 /* The script event's generated glue (EngineClasses.h), out of line here. */
-void UUIScene_::eventSceneActivated(UBOOL bInitialActivation)
+void UUIScene::eventSceneActivated(UBOOL bInitialActivation)
 {
 	struct UIScene_eventSceneActivated_Parms
 	{
@@ -179,14 +167,9 @@ void UUIScreenObject::execRequestSceneInputMaskUpdate(FFrame& Stack, RESULT_DECL
 	RequestSceneInputMaskUpdate();
 }
 
-/* Kit gaps: the native's exec and CreateScene (00d707e0) aren't declared (names from the exe's native table). */
-struct UUIInteraction_ : public UUIInteraction
-{
-	void execCreateScene(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00ca0df0
-void UUIInteraction_::execCreateScene(FFrame& Stack, RESULT_DECL)
+void UUIInteraction::execCreateScene(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(UClass, SceneClass);
 	P_GET_NAME_OPTX(SceneTag, NAME_None);

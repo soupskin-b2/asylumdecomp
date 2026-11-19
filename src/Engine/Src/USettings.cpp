@@ -390,16 +390,10 @@ void USettings::SetSettingsDataInt(FSettingsData& Data, INT InInt)
 	Data.Value1 = InInt;
 }
 
-/* Kit gap: USettings' FSettingsData helpers (USettings.h) aren't declared. */
-struct USettings__00d6e700 : public USettings
-{
-	void SetSettingsDataDateTime(FSettingsData& Data, INT InPart1, INT InPart2); /* 0x00d6e700 */
-	void GetSettingsDataDateTime(FSettingsData& Data, INT& OutPart1, INT& OutPart2); /* 0x00d67fe0 */
-};
 
 // @baa 0x00d6e700
 /* Makes a settings value a date/time pair. */
-void USettings__00d6e700::SetSettingsDataDateTime(FSettingsData& Data, INT InPart1, INT InPart2)
+void USettings::SetSettingsDataDateTime(FSettingsData& Data, INT InPart1, INT InPart2)
 {
 	EmptySettingsData(Data);
 	Data.Type = SDT_DateTime;
@@ -407,16 +401,10 @@ void USettings__00d6e700::SetSettingsDataDateTime(FSettingsData& Data, INT InPar
 	Data.Value2.Dummy = InPart2;
 }
 
-/* Kit gap: USettings' FSettingsData helpers (USettings.h) aren't declared. */
-struct USettings__00d67fe0 : public USettings
-{
-	void SetSettingsDataDateTime(FSettingsData& Data, INT InPart1, INT InPart2); /* 0x00d6e700 */
-	void GetSettingsDataDateTime(FSettingsData& Data, INT& OutPart1, INT& OutPart2); /* 0x00d67fe0 */
-};
 
 // @baa 0x00d67fe0
 /* The date/time pair a settings value holds, or zeros when it isn't one. */
-void USettings__00d67fe0::GetSettingsDataDateTime(FSettingsData& Data, INT& OutPart1, INT& OutPart2)
+void USettings::GetSettingsDataDateTime(FSettingsData& Data, INT& OutPart1, INT& OutPart2)
 {
 	if (Data.Type == SDT_DateTime)
 	{
@@ -572,11 +560,6 @@ void USettings__00d74300::SetSettingsData(FSettingsData& Data, FSettingsData& Da
 
 /* Kit gaps: FSettingsData's structcpptext (the SetData/GetData blob overloads) and USettings' blob helpers aren't
  * declared. */
-struct FSettingsData__00d742e0 : public FSettingsData
-{
-	void SetData(DWORD InSize, const BYTE* InData); /* 0x00d6e390 */
-	void GetData(TArray<BYTE>& OutData) const; /* 0x00d79720 */
-};
 
 struct USettings__00d742e0 : public USettings
 {
@@ -599,11 +582,6 @@ void USettings__00d742e0::GetSettingsDataBlob(FSettingsData& Data, TArray<BYTE>&
 
 /* Kit gaps: FSettingsData's structcpptext (the SetData/GetData blob overloads) and USettings' blob helpers aren't
  * declared. */
-struct FSettingsData__00d799d0 : public FSettingsData
-{
-	void SetData(DWORD InSize, const BYTE* InData); /* 0x00d6e390 */
-	void GetData(TArray<BYTE>& OutData) const; /* 0x00d79720 */
-};
 
 struct USettings__00d799d0 : public USettings
 {
@@ -928,11 +906,6 @@ void USettings::SetIntProperty(INT PropertyId, INT Value)
 	}
 }
 
-/* Kit gap: FSettingsData::ToString (structcpptext, out of line at 00d797a0) isn't declared. */
-struct FSettingsData__00d79d10 : public FSettingsData
-{
-	FString ToString() const; /* 0x00d797a0 */
-};
 
 // @baa 0x00d79d10
 /* A property's value as a string; empty when there's no such property. */
@@ -942,7 +915,7 @@ FString USettings::GetPropertyAsString(INT PropertyId)
 	{
 		if (Properties(Index).PropertyId == PropertyId)
 		{
-			return ((const FSettingsData__00d79d10&)Properties(Index).Data).ToString();
+			return ((const FSettingsData&)Properties(Index).Data).ToString();
 		}
 	}
 	return FString();
@@ -1006,10 +979,6 @@ void USettings::SetFloatProperty(INT PropertyId, FLOAT Value)
 	}
 }
 
-struct FSettingsData__00d759f0 : public FSettingsData
-{
-	void SetData(const FString& InString); /* 0x00d6e290 */
-};
 
 struct USettings__00d759f0 : public USettings
 {
@@ -1043,11 +1012,6 @@ void USettings::SetStringProperty(INT PropertyId, const FString& Value)
 	}
 }
 
-/* Kit gap: FSettingsData::ToString (structcpptext, out of line at 00d797a0) isn't declared. */
-struct FSettingsData__00d79de0 : public FSettingsData
-{
-	FString ToString() const; /* 0x00d797a0 */
-};
 
 // @baa 0x00d79de0
 /* The value of the property with this name as a string; empty when there's no such property. */
@@ -1060,7 +1024,7 @@ FString USettings::GetPropertyAsStringByName(FName PropertyName)
 		{
 			if (Properties(Index).PropertyId == PropertyId)
 			{
-				return ((const FSettingsData__00d79de0&)Properties(Index).Data).ToString();
+				return ((const FSettingsData&)Properties(Index).Data).ToString();
 			}
 		}
 	}
@@ -1089,10 +1053,6 @@ template<class T> struct TArrayAt_ : public TArray<T>
     }
 };
 
-struct FSettingsData__00d75b50 : public FSettingsData
-{
-	void SetData(INT InData); /* 0x00d6e2e0 */
-};
 
 struct USettings__00d75b50 : public USettings
 {

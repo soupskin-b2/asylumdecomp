@@ -101,14 +101,10 @@ INT UFracturedBaseComponent::GetNumVisibleFragments()
     return NumVisible;
 }
 
-struct UFracturedBaseComponent_ : public UFracturedBaseComponent
-{
-    UBOOL sub_007b8070(); /* 0x007b8070 */
-};
 
 // @baa 0x007b8070
 /* Unnamed in the kit: whether any fragment is hidden. */
-UBOOL UFracturedBaseComponent_::sub_007b8070()
+UBOOL UFracturedBaseComponent::sub_007b8070()
 {
     UBOOL bHidden = FALSE;
     for (INT i = 0; i < VisibleFragments.Num(); i++)

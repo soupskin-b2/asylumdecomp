@@ -25,14 +25,10 @@ FName UUIScene::GetTag()
 
 extern FName g_026c42b0;
 	/* ENGINE_GetDefaultStyle */
-struct UUIStyle_ : public UUIStyle
-{
-	UUIStyle_Data* eventGetDefaultStyle();
-};
 
 // @baa 0x00dc9980
 /* The GetDefaultStyle script event's generated glue (EngineUIPrivateClasses.h). */
-UUIStyle_Data* UUIStyle_::eventGetDefaultStyle()
+UUIStyle_Data* UUIStyle::eventGetDefaultStyle()
 {
 	struct UIStyle_eventGetDefaultStyle_Parms
 	{

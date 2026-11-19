@@ -7,13 +7,9 @@
 
 /* Unnamed in the kit: the director group of this action's InterpData (UInterpData::FindDirectorGroup inlined, first
  * match). */
-struct USeqAct_Interp_ : public USeqAct_Interp
-{
-    UInterpGroupDirector* sub_00d141c0();
-};
 
 // @baa 0x00d141c0
-UInterpGroupDirector* USeqAct_Interp_::sub_00d141c0()
+UInterpGroupDirector* USeqAct_Interp::sub_00d141c0()
 {
     if (InterpData != NULL)
     {

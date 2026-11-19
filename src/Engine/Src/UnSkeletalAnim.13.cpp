@@ -29,14 +29,10 @@ struct FFloatArray : public TArray<FLOAT>	{ void sub_00920980(INT Index, INT Cou
 	/* Remove */
 template< class T > inline T Max3( const T A, const T B, const T C ) { return Max( Max( A, B ), C ); }
 
-struct UAnimSequence_ : public UAnimSequence
-{
-	UBOOL CropRawAnimData(FLOAT CurrentTime, UBOOL bFromStart);
-};
 
 // @baa 0x0092a830
 /* Cuts the raw keys before (bFromStart) or after CurrentTime, and respaces what's left over the new length. */
-UBOOL UAnimSequence_::CropRawAnimData(FLOAT CurrentTime, UBOOL bFromStart)
+UBOOL UAnimSequence::CropRawAnimData(FLOAT CurrentTime, UBOOL bFromStart)
 {
 	// Can't crop cooked animations.
 	const UPackage_* Package = ((UObject_*)this)->sub_005d7350();

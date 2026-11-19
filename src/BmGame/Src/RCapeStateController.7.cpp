@@ -30,27 +30,17 @@ void URCapeStateController__017016f0::execFinalise( FFrame& Stack, RESULT_DECL )
 	Finalise();
 }
 
-struct URCapeStateController__01701720 : public URCapeStateController
-{
-	void UpdatePauseState();
-	void execUpdatePauseState(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x01701720
-void URCapeStateController__01701720::execUpdatePauseState( FFrame& Stack, RESULT_DECL )
+void URCapeStateController::execUpdatePauseState( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	UpdatePauseState();
 }
 
-struct URCapeStateController__01701d40 : public URCapeStateController
-{
-	UBOOL GetIsPausedOrPendingPaused();
-	void execGetIsPausedOrPendingPaused(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x01701d40
-void URCapeStateController__01701d40::execGetIsPausedOrPendingPaused( FFrame& Stack, RESULT_DECL )
+void URCapeStateController::execGetIsPausedOrPendingPaused( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	*(UBOOL*)Result = GetIsPausedOrPendingPaused();

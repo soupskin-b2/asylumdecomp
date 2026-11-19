@@ -23,26 +23,17 @@ template<class T> T* CastChecked(UObject* Src);
 inline UObject* GetOuterOf(const UObject* Object) { return Object->Outer; }
 
 extern template ULevel* CastChecked<ULevel>(UObject* Src);
-/* Unnamed in the kit: UE3's AActor::GetLevel() (an actor's outer is its level). */
-struct AActor_ : public AActor
-{
-    ULevel* sub_00769d90() const;
-};
 
 // @baa 0x00769d90
-ULevel* AActor_::sub_00769d90() const
+ULevel* AActor::sub_00769d90() const
 {
     return CastChecked<ULevel>(GetOuterOf(this));
 }
 
-struct AActor__00763700 : public AActor
-{
-	FBox GetComponentsBoundingBox(UBOOL bNonColliding = 0); /* 0x00763530 */
-};
 
 // @baa 0x00763700
 /* Returns the bounding box of the actor's colliding components. */
 void AActor::sub_00763700(FBox& OutBox)
 {
-	OutBox = ((AActor__00763700*)this)->GetComponentsBoundingBox();
+	OutBox = ((AActor*)this)->GetComponentsBoundingBox();
 }

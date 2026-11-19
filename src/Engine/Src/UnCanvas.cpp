@@ -574,13 +574,9 @@ static FORCEINLINE const TCHAR* GetText_(const FString& Str)
 
 /* Unnamed in the kit: UE3's UCanvas::DrawText(const FString& Text) (execDrawText's native): print Text in the current
  * font at unit scale, wrapped and centred as bCenter says. */
-struct UCanvas_ : public UCanvas
-{
-    void sub_00aa9b90(const FString& Text);
-};
 
 // @baa 0x00aa9b90
-void UCanvas_::sub_00aa9b90(const FString& Text)
+void UCanvas::sub_00aa9b90(const FString& Text)
 {
     INT XL, YL;
     WrappedPrint(TRUE, XL, YL, Font, 1.f, 1.f, bCenter, GetText_(Text));

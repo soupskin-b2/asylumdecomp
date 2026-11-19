@@ -6,14 +6,10 @@
 
 extern FName g_026c4644;
 	/* ENGINE_OnAnimEnd */
-struct AActor_ : public AActor
-{
-	void eventOnAnimEnd(class UAnimNodeSequence* SeqNode, FLOAT PlayedTime, FLOAT ExcessTime);
-};
 
 // @baa 0x00c49e80
 /* The script event's generated glue (EngineClasses.h), out of line here. */
-void AActor_::eventOnAnimEnd(class UAnimNodeSequence* SeqNode, FLOAT PlayedTime, FLOAT ExcessTime)
+void AActor::eventOnAnimEnd(class UAnimNodeSequence* SeqNode, FLOAT PlayedTime, FLOAT ExcessTime)
 {
 	struct Actor_eventOnAnimEnd_Parms
 	{

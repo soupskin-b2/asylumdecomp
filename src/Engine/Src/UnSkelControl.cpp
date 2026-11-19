@@ -326,13 +326,9 @@ UBOOL USkelControlTrail::HasParentClassChanged() const
 
 // @baa 0x00937c30
 
-struct USkelControlBase_ : public USkelControlBase
-{
-    void SetSkelControlActive(UBOOL bInActive);
-};
 
 // @baa 0x0090cec0
-void USkelControlBase_::SetSkelControlActive(UBOOL bInActive)
+void USkelControlBase::SetSkelControlActive(UBOOL bInActive)
 {
     if (bInActive)
     {
@@ -355,7 +351,7 @@ void USkelControlBase_::SetSkelControlActive(UBOOL bInActive)
     // pass it down the chain
     if (NextControl && bPropagateSetActive)
     {
-        ((USkelControlBase_*)NextControl)->SetSkelControlActive(bInActive);
+        ((USkelControlBase*)NextControl)->SetSkelControlActive(bInActive);
     }
 }
 
@@ -373,13 +369,9 @@ void USkelControlBase__0090cf30::SetSkelControlStrength(FLOAT NewStrength)
 }
 
 #define KINDA_SMALL_NUMBER (1.e-5f)
-struct USkelControlLookAt_ : public USkelControlLookAt
-{
-    void SetTargetLocation(FVector NewTargetLocation);
-};
 
 // @baa 0x0090d0f0
-void USkelControlLookAt_::SetTargetLocation(FVector NewTargetLocation)
+void USkelControlLookAt::SetTargetLocation(FVector NewTargetLocation)
 {
     DesiredTargetLocation = NewTargetLocation;
 
@@ -392,13 +384,9 @@ void USkelControlLookAt_::SetTargetLocation(FVector NewTargetLocation)
 
 /* VInterpTo (UnMath.cpp, 0x005c6d10) */
 FVector VInterpTo(const FVector& Current, const FVector& Target, FLOAT& DeltaTime, FLOAT InterpSpeed);
-struct USkelControlLookAt__0090d0a0 : public USkelControlLookAt
-{
-    void InterpolateTargetLocation(FLOAT DeltaTime);
-};
 
 // @baa 0x0090d0a0
-void USkelControlLookAt__0090d0a0::InterpolateTargetLocation(FLOAT DeltaTime)
+void USkelControlLookAt::InterpolateTargetLocation(FLOAT DeltaTime)
 {
     TargetLocation = VInterpTo(TargetLocation, DesiredTargetLocation, DeltaTime, TargetLocationInterpSpeed);
 }

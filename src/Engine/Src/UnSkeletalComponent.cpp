@@ -606,14 +606,10 @@ UBOOL RemoveAdjacentDuplicates(TArray<BYTE> Array)
     return TRUE;
 }
 
-struct USkeletalMeshComponent__0091fad0 : public USkeletalMeshComponent
-{
-    INT FindInstanceVertexweightBonePair(const FBonePair& Bones) const;
-};
 
 // @baa 0x0091fad0
 /* index of the instanced vertex weight entry for this pair of bones (in either order), or INDEX_NONE */
-INT USkeletalMeshComponent__0091fad0::FindInstanceVertexweightBonePair(const FBonePair& Bones) const
+INT USkeletalMeshComponent::FindInstanceVertexweightBonePair(const FBonePair& Bones) const
 {
     INT Result = INDEX_NONE;
     for (INT i = 0; i < InstanceVertexWeightBones.Num(); i++)

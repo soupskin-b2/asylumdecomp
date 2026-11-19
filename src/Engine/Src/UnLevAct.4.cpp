@@ -74,18 +74,15 @@ void APawn::SetZone(UBOOL bTest, UBOOL bForceRefresh)
     }
 }
 
-struct AActor__0076cc90 : public AActor {
-    void sub_0076cc90();                                    // UnTouchActors
-};
 
 // @baa 0x0076cc90
-void AActor__0076cc90::sub_0076cc90()
+void AActor::sub_0076cc90()
 {
     for (INT i = 0; i < Touching.Num(); )
     {
         if (Touching(i) && !IsOverlapping(Touching(i), 0, 0, 0)) // IsOverlapping(Other, NULL, NULL, NULL)
         {
-            sub_007691a0(Touching(i), 0); // EndTouch
+            EndTouch(Touching(i), 0);
         }
         else
         {

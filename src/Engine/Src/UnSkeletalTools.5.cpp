@@ -97,14 +97,10 @@ struct FBoneMirrorInfoArray : public TArray<FBoneMirrorInfo>
 };
 
 /* USkeletalMesh::InitBoneMirrorInfo isn't declared in Classes.h */
-struct USkeletalMesh_ : public USkeletalMesh
-{
-    void InitBoneMirrorInfo();
-};
 
 // @baa 0x00d4d750
 /* reset the mirror table: one entry per bone, each mirroring itself */
-void USkeletalMesh_::InitBoneMirrorInfo()
+void USkeletalMesh::InitBoneMirrorInfo()
 {
     FBoneMirrorInfoArray& MirrorTable = (FBoneMirrorInfoArray&)SkelMirrorTable;
     MirrorTable.Empty(RefSkeleton.Num());
@@ -168,14 +164,10 @@ struct FStaticLODModel
 };
 
 /* USkeletalMesh::ClearShadowVolumeData isn't declared in Classes.h */
-struct USkeletalMesh__0095cba0 : public USkeletalMesh
-{
-    void ClearShadowVolumeData();
-};
 
 // @baa 0x0095cba0
 /* free the shadow volume data of every LOD (called when shadow volumes aren't used) */
-void USkeletalMesh__0095cba0::ClearShadowVolumeData()
+void USkeletalMesh::ClearShadowVolumeData()
 {
     for (INT LODIndex = 0; LODIndex < ((TIndirectArray<FStaticLODModel>&)LODModels).Num(); LODIndex++)
     {

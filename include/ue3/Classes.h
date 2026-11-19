@@ -5187,6 +5187,8 @@ struct FUIScreenValue_Extent {
     FLOAT Value; /* 0x0 */
     BYTE ScaleType; /* 0x4 */
     BYTE Orientation; /* 0x5 */
+    /* other member functions */
+    FLOAT GetValue(UUIScreenObject* OwnerWidget, EUIExtentEvalType OutputType) const; /* 0x00ddeac0 */
 };
 
 struct FUIScreenValue_Position {
@@ -6370,6 +6372,8 @@ struct FInterpLookupPoint {
 struct FInterpLookupTrack {
     /* Engine.InterpLookupTrack */
     TArrayNoInit<FInterpLookupPoint> Points; /* 0x0 */
+    /* other member functions */
+    INT sub_00cfa320(INT PointIndex, FLOAT NewTime); /* 0x00cfa320 */
 };
 
 struct FRandomGeneratorMove {
@@ -12789,6 +12793,8 @@ struct UObject {
     UINT* sub_0175e340(); /* 0x0175e340 */
     UINT* sub_0175e3e0(); /* 0x0175e3e0 */
     UINT* sub_0175e480(); /* 0x0175e480 */
+    void CallFunction(FFrame& Stack, RESULT_DECL, UFunction* Function); /* 0x005a6cd0 */
+    void sub_005c1a10(UProperty* PropertyThatChanged); /* 0x005c1a10 */
     /* registered size 0x30 */
 };
 
@@ -13443,7 +13449,7 @@ struct AActor : public UObject {
     UBOOL FindSpot(FVector BoxExtent, FVector& SpotLocation, UBOOL DontEaryOut); /* 0x00758bc0 */
     FBox GetComponentsBoundingBox(UBOOL bNonColliding = FALSE); /* 0x00763530 */
     UBOOL sub_00764820(); /* 0x00764820 */
-    void sub_007691a0(AActor* Other, UBOOL bNoNotifyOther); /* 0x007691a0 */
+    void EndTouch(AActor* Other, UBOOL bNoNotifyOther); /* 0x007691a0 */
     void ChartData(const FString& DataName, FLOAT DataValue); /* 0x00769c80 */
     FString GetURLMap(); /* 0x00769e10 */
     void SetForcedInitialReplicatedProperty(class UProperty* PropToReplicate, UBOOL bAdd); /* 0x0077e1a0 */
@@ -13500,6 +13506,7 @@ struct AActor : public UObject {
     UINT sub_0077e510(); /* 0x0077e510 */
     void sub_008a7830(UINT, FLOAT*); /* 0x008a7830 */
     void FinishAnim(UINT); /* 0x00c4afe0 */
+    void SetCollisionFromCollisionType(); /* 0x00780e30 */
     /* registered size 0x1a8 */
     void SetCollisionSize(FLOAT NewRadius, FLOAT NewHeight); /* 0x00781ad0 */
     void FindTouchingActors(); /* 0x007814c0 */
@@ -13873,6 +13880,7 @@ struct UPrimitiveComponent : public UActorComponent {
     UINT sub_01729a40(BYTE); /* 0x01729a40 */
     UINT* sub_0172ac30(); /* 0x0172ac30 */
     UINT* sub_0172ace0(); /* 0x0172ace0 */
+    void DetachDecal(UDecalComponent* Decal); /* 0x006eff50 */
     /* registered size 0x1b0 */
 };
 
@@ -20238,6 +20246,7 @@ struct UUIObject : public UUIScreenObject {
     UINT* sub_00db6dc0(); /* 0x00db6dc0 */
     UINT* sub_00db6e70(); /* 0x00db6e70 */
     void sub_00dc8f90(INT, INT, INT, INT); /* 0x00dc8f90 */
+    INT sub_00db0fd0(const TScriptInterface<IUIStyleResolver>& Subscriber); /* 0x00db0fd0 */
     /* registered size 0x370 */
 };
 
@@ -21905,6 +21914,7 @@ struct UMaterial : public UMaterialInterface {
     UINT sub_00fcb8f0(BYTE); /* 0x00fcb8f0 */
     void sub_011edc60(); /* 0x011edc60 */
     UINT* sub_01449ec0(); /* 0x01449ec0 */
+    UBOOL GetUsageByFlag(INT Usage); /* 0x006b56e0 */
     /* registered size 0x2a4 */
 };
 
@@ -22985,6 +22995,7 @@ struct UParticleSystemComponent : public UPrimitiveComponent {
     INT sub_00b6fee0(); /* 0x00b6fee0 */
     INT sub_00b6fef0(); /* 0x00b6fef0 */
     UINT sub_00b70300(BYTE); /* 0x00b70300 */
+    void sub_00b5ee80(FName& InEventName, FLOAT InEmitterTime, FVector& InLocation, FVector& InDirection, FVector& InVelocity, FLOAT InParticleTime, FVector& InNormal, FLOAT InTime, INT InItem, FName& InBoneName); /* 0x00b5ee80 */
     /* registered size 0x2d0 */
 };
 
@@ -32709,6 +32720,8 @@ struct APawn : public AActor {
     void SetRemoteViewPitch(INT); /* 0x00865220 */
     UBOOL ValidAnchor(); /* 0x008a65e0 */
     UINT sub_008a66c0(); /* 0x008a66c0 */
+    ETestMoveResult sub_008660b0(AActor* GoalActor); /* 0x008660b0 */
+    FLOAT sub_008ce4d0(AActor* goal, FVector GoalLocation, NodeEvaluator NodeEval, FLOAT BestWeight, UBOOL bWeightDetours, INT MaxPathLength, UBOOL bReturnPartial, INT SoftMaxNodes); /* 0x008ce4d0 */
     /* registered size 0x3b8 */
 };
 
@@ -33515,6 +33528,7 @@ struct USequenceOp : public USequenceObject {
     void ForceActivateInput(INT); /* 0x008be490 */
     void GetLinkedObjects(TArray<USequenceObject*>& out_Objects, UClass* ObjectType, UBOOL bRecurse); /* 0x008ca300 */
     UINT sub_008f7e80(); /* 0x008f7e80 */
+    void GetIntVars(TArray<INT*>& outInts, const TCHAR* inDesc = NULL); /* 0x008d6a00 */
     /* registered size 0xbc */
 };
 
@@ -38545,6 +38559,9 @@ struct ATerrain : public AInfo {
     void sub_00982080(); /* 0x00982080 */
     INT sub_009820b0(INT); /* 0x009820b0 */
     UINT sub_009a41f0(BYTE); /* 0x009a41f0 */
+    FVector GetLocalVertex(INT X, INT Y) const; /* 0x0098bfb0 */
+    UBOOL IsTerrainQuadVisible(INT X, INT Y) const; /* 0x0098bb70 */
+    void ClampVertex(INT& X, INT& Y) const; /* 0x00986e90 */
     /* registered size 0x298 */
 };
 
@@ -43768,6 +43785,7 @@ struct URAnimNode_Cape : public UAnimNodeBlendBase {
     UINT sub_0155cf50(); /* 0x0155cf50 */
     UINT sub_01562420(); /* 0x01562420 */
     UINT GetCurrentCapeAnimNode(); /* 0x01579fb0 */
+    FName GetNewCapeAnimName(); /* 0x0155cff0 */
     /* registered size 0x1d0 */
 };
 
@@ -44436,6 +44454,8 @@ struct URAnimUtil : public UObject {
     /* other member functions */
     void SortAnimSets(TArray<UAnimSet*>& Array); /* 0x015aaf80 */
     void SortCharacterClasses(TArray<UClass*>& Array); /* 0x015b1620 */
+    TArray<UAnimSet*> GetAllAnimSets(); /* 0x015b4510 */
+    TArray<UClass*> GetAllBmScriptSubclasses(UClass* BaseClass); /* 0x015b4850 */
     /* registered size 0x30 */
 };
 
@@ -49736,6 +49756,7 @@ struct URCapeStateController : public UObject {
     INT sub_016e01a0(); /* 0x016e01a0 */
     INT sub_016e0200(); /* 0x016e0200 */
     UINT sub_016e6ed0(BYTE); /* 0x016e6ed0 */
+    INT FindBoneStateCacheIndex(URCapeStateBoneConfig* BoneConfig) const; /* 0x016d6050 */
     /* registered size 0x1c0 */
 };
 
@@ -49891,6 +49912,7 @@ struct URCapeComponent : public UActorComponent {
     INT sub_016aed50(); /* 0x016aed50 */
     INT sub_016b20d0(); /* 0x016b20d0 */
     UINT sub_016cd630(BYTE); /* 0x016cd630 */
+    UBOOL GetBoneCollisionWithWorld(INT StateIndex, INT BoneIndex) const; /* 0x016ba4a0 */
     /* registered size 0xf0 */
 };
 
@@ -54538,6 +54560,7 @@ struct ARSmashableProp : public ARKActorSpawnable {
     void* GetDecalMaterialInstance(FName); /* 0x016751c0 */
     UINT sub_01672810(); /* 0x01672810 */
     UINT sub_01672830(); /* 0x01672830 */
+    INT sub_01675050(FName DecalName); /* 0x01675050 */
     /* registered size 0x33c */
 };
 
@@ -54560,6 +54583,8 @@ struct ARHarpoonDragPhysicsBase : public ARSmashableProp {
     virtual FVector vf_350(); /* 0x350 */
     /* UnrealScript natives */
     void execGetAnchorPointPositionAndRotation(FFrame& Stack, RESULT_DECL); /* 0x01722f10 */
+    /* other member functions */
+    UBOOL GetAnchorPointPositionAndRotation(INT AnchorIndex, FVector& OutPosition, FRotator* OutRotation); /* 0x0171fb20 */
     /* registered size 0x380 */
 };
 
@@ -61025,6 +61050,7 @@ struct URSeqAct_SpeechEventManagerBase : public URSeqAct_PlaySpeechBase {
     /* other member functions */
     void eventPlayNextLine(); /* 0x01612140 */
     void eventInputActivated(INT InputID); /* 0x01612170 */
+    void UpdateObject(); /* 0x00902260 */
 };
 
 struct URSeqAct_SpeechEventManager : public URSeqAct_SpeechEventManagerBase {
@@ -61205,6 +61231,8 @@ struct URSeqAct_UpdateBatmanDamageLevel : public USequenceAction {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void PostLoad(); /* 0x01c */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
+    /* other member functions */
+    INT sub_009086f0(); /* 0x009086f0 */
     /* registered size 0xec */
 };
 

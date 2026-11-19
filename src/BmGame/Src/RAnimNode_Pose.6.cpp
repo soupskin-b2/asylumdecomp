@@ -6,14 +6,10 @@
 
 extern FName g_026e280c;
 	/* BMGAME_WeaponSwitchCallback */
-struct ARPawnCharacter_ : public ARPawnCharacter
-{
-	void eventWeaponSwitchCallback(class AInventory* NewWeapon, class AInventory* PreviousWeapon);
-};
 
 // @baa 0x01594e90
 /* The script event's generated glue (BmGameClasses.h), out of line here. */
-void ARPawnCharacter_::eventWeaponSwitchCallback(class AInventory* NewWeapon, class AInventory* PreviousWeapon)
+void ARPawnCharacter::eventWeaponSwitchCallback(class AInventory* NewWeapon, class AInventory* PreviousWeapon)
 {
 	struct RPawnCharacter_eventWeaponSwitchCallback_Parms
 	{
@@ -27,14 +23,10 @@ void ARPawnCharacter_::eventWeaponSwitchCallback(class AInventory* NewWeapon, cl
 
 extern FName g_026e2590;
 	/* BMGAME_HackyFallingCallback */
-struct ARPawnPlayerAnim_ : public ARPawnPlayerAnim
-{
-	void eventHackyFallingCallback();
-};
 
 // @baa 0x01594f10
 /* The script event's generated glue (BmGameClasses.h), out of line here. */
-void ARPawnPlayerAnim_::eventHackyFallingCallback()
+void ARPawnPlayerAnim::eventHackyFallingCallback()
 {
 	ProcessEvent(FindFunctionChecked(g_026e2590), NULL);
 }

@@ -67,14 +67,9 @@ void UParticleModuleLocationPrimitiveBase::DetermineUnitDirection(FParticleEmitt
 	}
 }
 
-/* Kit gap: UParticleModuleUberRainDrops::DetermineUnitDirection (UnParticleModules.cpp) isn't declared. */
-struct UParticleModuleUberRainDrops_ : public UParticleModuleUberRainDrops
-{
-	void DetermineUnitDirection(FParticleEmitterInstance* Owner, FVector& vUnitDir);
-};
 
 // @baa 0x00b76650
-void UParticleModuleUberRainDrops_::DetermineUnitDirection(FParticleEmitterInstance* Owner, FVector& vUnitDir)
+void UParticleModuleUberRainDrops::DetermineUnitDirection(FParticleEmitterInstance* Owner, FVector& vUnitDir)
 {
 	FVector vRand;
 
@@ -136,14 +131,9 @@ void UParticleModuleUberRainDrops_::DetermineUnitDirection(FParticleEmitterInsta
 	}
 }
 
-/* Kit gap: UParticleModuleUberRainImpacts::DetermineUnitDirection (UnParticleModules.cpp) isn't declared. */
-struct UParticleModuleUberRainImpacts_ : public UParticleModuleUberRainImpacts
-{
-	void DetermineUnitDirection(FParticleEmitterInstance* Owner, FVector& vUnitDir);
-};
 
 // @baa 0x00b76960
-void UParticleModuleUberRainImpacts_::DetermineUnitDirection(FParticleEmitterInstance* Owner, FVector& vUnitDir)
+void UParticleModuleUberRainImpacts::DetermineUnitDirection(FParticleEmitterInstance* Owner, FVector& vUnitDir)
 {
 	FVector vRand;
 

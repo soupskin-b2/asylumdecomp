@@ -155,11 +155,6 @@ void URSmashablePropConfigFactoryNew::InitializeIntrinsicPropertyValues()
 	Description = TEXT("SmashablePropConfig");
 }
 
-/* Kit gap: the prop's setup from its config (0x0166b6a0; its name isn't known) isn't declared. */
-struct ARSmashableProp_ : public ARSmashableProp
-{
-	void sub_0166b6a0(); /* 0x0166b6a0 */
-};
 
 // @baa 0x01672e80
 /* Props loaded with the level weren't spawned. */
@@ -169,7 +164,7 @@ void ARSmashableProp::PostLoad()
 	PropWasSpawned = FALSE;
 	if (PropData)
 	{
-		((ARSmashableProp_*)this)->sub_0166b6a0();
+		((ARSmashableProp*)this)->sub_0166b6a0();
 	}
 }
 
@@ -181,7 +176,7 @@ void ARSmashableProp::vf_180()
 	PropWasSpawned = TRUE;
 	if (PropData)
 	{
-		((ARSmashableProp_*)this)->sub_0166b6a0();
+		((ARSmashableProp*)this)->sub_0166b6a0();
 	}
 }
 

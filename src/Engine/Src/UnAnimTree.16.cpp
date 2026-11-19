@@ -59,16 +59,9 @@ void UAnimNodeSlot_::InitAnim(USkeletalMeshComponent* MeshComp, UAnimNodeBlendBa
 	SynchNode = NULL;
 }
 
-/* The kit's FName has no comparison operators (UnName.h). */
-/* UAnimNode's node lookups aren't declared in Classes.h. */
-struct UAnimNode_ : public UAnimNode
-{
-	void sub_00c4b530(TArray<UAnimNode*>& Nodes);		/* GetNodes */
-	UAnimNode* FindAnimNode(FName InNodeName);
-};
 
 // @baa 0x00c5ef30
-UAnimNode* UAnimNode_::FindAnimNode(FName InNodeName)
+UAnimNode* UAnimNode::FindAnimNode(FName InNodeName)
 {
 	// every node from this one down
 	TArray<UAnimNode*> Nodes;

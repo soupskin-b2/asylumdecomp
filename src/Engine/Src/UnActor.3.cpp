@@ -11,13 +11,9 @@ struct Actor_eventDetach_Parms
 };
 
 // The script events aren't declared in Classes.h yet.
-struct AActor_ : public AActor
-{
-	void eventDetach(AActor* Other);
-};
 
 // @baa 0x007538b0
-void AActor_::eventDetach(AActor* Other)
+void AActor::eventDetach(AActor* Other)
 {
 	if (!StateFrame || (StateFrame->ProbeMask & ((QWORD)1 << (NAME_Detach - NAME_PROBEMIN))))
 	{
@@ -30,15 +26,11 @@ void AActor_::eventDetach(AActor* Other)
 extern FName g_026c513c;
 	/* ENGINE_Touch */
 /* EName entries Core.h doesn't list yet (UnNames.h) */
-struct AActor__007539f0 : public AActor
-{
-	void eventTouch(AActor* Other, UPrimitiveComponent* OtherComp, FVector HitLocation, FVector HitNormal);
-};
 
 // @baa 0x007539f0
 /* The script event's generated glue (EngineClasses.h), out of line here. Touch is a probe
  * function: the glue only calls into script when the current state probes for it. */
-void AActor__007539f0::eventTouch(AActor* Other, UPrimitiveComponent* OtherComp, FVector HitLocation, FVector HitNormal)
+void AActor::eventTouch(AActor* Other, UPrimitiveComponent* OtherComp, FVector HitLocation, FVector HitNormal)
 {
 	if (!StateFrame || (StateFrame->ProbeMask & ((QWORD)1 << (NAME_Touch - NAME_PROBEMIN))))
 	{
@@ -58,15 +50,11 @@ void AActor__007539f0::eventTouch(AActor* Other, UPrimitiveComponent* OtherComp,
 }
 
 extern FName g_026c4aa4;
-struct AActor__00753950 : public AActor
-{
-	void eventBaseChange();
-};
 
 // @baa 0x00753950
 /* The script event's generated glue (EngineClasses.h), out of line here. BaseChange is a probe
  * function: the glue only calls into script when the current state probes for it. */
-void AActor__00753950::eventBaseChange()
+void AActor::eventBaseChange()
 {
 	if (!StateFrame || (StateFrame->ProbeMask & ((QWORD)1 << (NAME_BaseChange - NAME_PROBEMIN))))
 	{
@@ -75,15 +63,11 @@ void AActor__00753950::eventBaseChange()
 }
 
 extern FName g_026c4ec4;
-struct AActor__007539a0 : public AActor
-{
-	void eventUnTouch(AActor* Other);
-};
 
 // @baa 0x007539a0
 /* The script event's generated glue (EngineClasses.h), out of line here. UnTouch is a probe
  * function: the glue only calls into script when the current state probes for it. */
-void AActor__007539a0::eventUnTouch(AActor* Other)
+void AActor::eventUnTouch(AActor* Other)
 {
 	struct Actor_eventUnTouch_Parms
 	{
@@ -97,15 +81,11 @@ void AActor__007539a0::eventUnTouch(AActor* Other)
 }
 
 extern FName g_026c3fc0;
-struct AActor__00753a80 : public AActor
-{
-	void eventLostChild(AActor* Other);
-};
 
 // @baa 0x00753a80
 /* The script event's generated glue (EngineClasses.h), out of line here. LostChild is a probe
  * function: the glue only calls into script when the current state probes for it. */
-void AActor__00753a80::eventLostChild(AActor* Other)
+void AActor::eventLostChild(AActor* Other)
 {
 	struct Actor_eventLostChild_Parms
 	{
@@ -119,15 +99,11 @@ void AActor__00753a80::eventLostChild(AActor* Other)
 }
 
 extern FName g_026c43fc;
-struct AActor__00753ad0 : public AActor
-{
-	void eventGainedChild(AActor* Other);
-};
 
 // @baa 0x00753ad0
 /* The script event's generated glue (EngineClasses.h), out of line here. GainedChild is a probe
  * function: the glue only calls into script when the current state probes for it. */
-void AActor__00753ad0::eventGainedChild(AActor* Other)
+void AActor::eventGainedChild(AActor* Other)
 {
 	struct Actor_eventGainedChild_Parms
 	{
@@ -142,14 +118,10 @@ void AActor__00753ad0::eventGainedChild(AActor* Other)
 
 extern FName g_026c4b84;
 	/* GetMuzzleLoc */
-struct AWeapon_ : public AWeapon
-{
-	FVector eventGetMuzzleLoc();
-};
 
 // @baa 0x007542b0
 /* Weapon.GetMuzzleLoc script event: the generated glue, out of line here. */
-FVector AWeapon_::eventGetMuzzleLoc()
+FVector AWeapon::eventGetMuzzleLoc()
 {
 	struct Weapon_eventGetMuzzleLoc_Parms
 	{

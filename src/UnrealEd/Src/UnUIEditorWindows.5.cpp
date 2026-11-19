@@ -6,13 +6,9 @@
 
 extern FName g_026c3e70;
 // A one-INT UnrealScript event that returns an int: the generated glue, out of line here.
-struct UObject_ : public UObject
-{
-    INT eventScriptCall(INT Value);
-};
 
 // @baa 0x014c7200
-INT UObject_::eventScriptCall(INT Value)
+INT UObject::eventScriptCall(INT Value)
 {
     struct ScriptCall_Parms
     {

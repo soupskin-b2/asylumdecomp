@@ -179,12 +179,9 @@ UBOOL ACoverLink::IsValidClaim(APawn* ChkClaim, INT SlotIdx, UBOOL bSkipTeamChec
     return SlotMarker && SlotMarker->IsValidClaim(ChkClaim, bSkipTeamCheck, bSkipOverlapCheck);
 }
 
-struct ACoverLink_ : public ACoverLink {
-    BYTE GetLocationDescription(INT SlotIdx); // 00842180
-};
 
 // @baa 0x00842180
-BYTE ACoverLink_::GetLocationDescription(INT SlotIdx)
+BYTE ACoverLink::GetLocationDescription(INT SlotIdx)
 {
     if (SlotIdx >= 0 && SlotIdx < Slots.Num())
     {

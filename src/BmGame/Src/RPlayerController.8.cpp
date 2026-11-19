@@ -6,14 +6,10 @@
 
 extern FName g_026e3194;
 	/* GetPathToWithoutBeingSeenFrom */
-struct ARBMRouteRequest_HideOnCorner_ : public ARBMRouteRequest_HideOnCorner
-{
-	class URBMRouterPath* eventGetPathToWithoutBeingSeenFrom(FVector Dest, FVector HideFromPos);
-};
 
 // @baa 0x0160dec0
 /* RBMRouteRequest_HideOnCorner.GetPathToWithoutBeingSeenFrom script event: the generated glue, out of line here. */
-class URBMRouterPath* ARBMRouteRequest_HideOnCorner_::eventGetPathToWithoutBeingSeenFrom(FVector Dest, FVector HideFromPos)
+class URBMRouterPath* ARBMRouteRequest_HideOnCorner::eventGetPathToWithoutBeingSeenFrom(FVector Dest, FVector HideFromPos)
 {
 	struct RBMRouteRequest_HideOnCorner_eventGetPathToWithoutBeingSeenFrom_Parms
 	{
@@ -30,56 +26,40 @@ class URBMRouterPath* ARBMRouteRequest_HideOnCorner_::eventGetPathToWithoutBeing
 
 extern FName g_026e3698;
 	/* LockDestCorner */
-struct ARBMRouteRequest_HideOnCorner__0160de60 : public ARBMRouteRequest_HideOnCorner
-{
-	void eventLockDestCorner();
-};
 
 // @baa 0x0160de60
 /* RBMRouteRequest_HideOnCorner.LockDestCorner script event: the generated glue, out of line here. */
-void ARBMRouteRequest_HideOnCorner__0160de60::eventLockDestCorner()
+void ARBMRouteRequest_HideOnCorner::eventLockDestCorner()
 {
 	ProcessEvent(FindFunctionChecked(g_026e3698), NULL);
 }
 
 extern FName g_026e2dc8;
 	/* UnlockDestCorner */
-struct ARBMRouteRequest_HideOnCorner__0160de90 : public ARBMRouteRequest_HideOnCorner
-{
-	void eventUnlockDestCorner();
-};
 
 // @baa 0x0160de90
 /* RBMRouteRequest_HideOnCorner.UnlockDestCorner script event: the generated glue, out of line here. */
-void ARBMRouteRequest_HideOnCorner__0160de90::eventUnlockDestCorner()
+void ARBMRouteRequest_HideOnCorner::eventUnlockDestCorner()
 {
 	ProcessEvent(FindFunctionChecked(g_026e2dc8), NULL);
 }
 
 extern FName g_026e3474;
 	/* GrappleStopCollidingWorld */
-struct ARPlayerController_ : public ARPlayerController
-{
-	void eventGrappleStopCollidingWorld();
-};
 
 // @baa 0x016122c0
 /* RPlayerController.GrappleStopCollidingWorld script event: the generated glue, out of line here. */
-void ARPlayerController_::eventGrappleStopCollidingWorld()
+void ARPlayerController::eventGrappleStopCollidingWorld()
 {
 	ProcessEvent(FindFunctionChecked(g_026e3474), NULL);
 }
 
 extern FName g_026e3a48;
 	/* SearchNewAmbientSound */
-struct ARPlayerController__016125c0 : public ARPlayerController
-{
-	void eventSearchNewAmbientSound();
-};
 
 // @baa 0x016125c0
 /* RPlayerController.SearchNewAmbientSound script event: the generated glue, out of line here. */
-void ARPlayerController__016125c0::eventSearchNewAmbientSound()
+void ARPlayerController::eventSearchNewAmbientSound()
 {
 	ProcessEvent(FindFunctionChecked(g_026e3a48), NULL);
 }
@@ -188,14 +168,10 @@ UBOOL ARBMAIController::eventIsStunned()
 
 extern FName g_026e2708;
 	/* BMGAME_IsOnSamePath */
-struct ARBMPathNode_SpecialMove_ : public ARBMPathNode_SpecialMove
-{
-	UBOOL eventIsOnSamePath(class ARPathNode* TestNode);
-};
 
 // @baa 0x0160db90
 /* The script event's generated glue (BmGameClasses.h), out of line here. */
-UBOOL ARBMPathNode_SpecialMove_::eventIsOnSamePath(class ARPathNode* TestNode)
+UBOOL ARBMPathNode_SpecialMove::eventIsOnSamePath(class ARPathNode* TestNode)
 {
 	struct RBMPathNode_SpecialMove_eventIsOnSamePath_Parms
 	{
@@ -210,14 +186,10 @@ UBOOL ARBMPathNode_SpecialMove_::eventIsOnSamePath(class ARPathNode* TestNode)
 
 extern FName g_026e295c;
 	/* BMGAME_IsValidForStrike */
-struct ARPawnBossVenomBase_ : public ARPawnBossVenomBase
-{
-	UBOOL eventIsValidForStrike(class ARPawnCombat* TestPawn, class UClass* DamageType);
-};
 
 // @baa 0x0160e540
 /* The script event's generated glue (BmGameClasses.h), out of line here. */
-UBOOL ARPawnBossVenomBase_::eventIsValidForStrike(class ARPawnCombat* TestPawn, class UClass* DamageType)
+UBOOL ARPawnBossVenomBase::eventIsValidForStrike(class ARPawnCombat* TestPawn, class UClass* DamageType)
 {
 	struct RPawnBossVenomBase_eventIsValidForStrike_Parms
 	{
@@ -234,14 +206,10 @@ UBOOL ARPawnBossVenomBase_::eventIsValidForStrike(class ARPawnCombat* TestPawn, 
 
 extern FName g_026e3184;
 	/* BMGAME_CanReachItem */
-struct ARPlayerController__01612690 : public ARPlayerController
-{
-	UBOOL eventCanReachItem(class AActor* CheckActor);
-};
 
 // @baa 0x01612690
 /* The script event's generated glue (BmGameClasses.h), out of line here. */
-UBOOL ARPlayerController__01612690::eventCanReachItem(class AActor* CheckActor)
+UBOOL ARPlayerController::eventCanReachItem(class AActor* CheckActor)
 {
 	struct RPlayerController_eventCanReachItem_Parms
 	{
@@ -256,14 +224,10 @@ UBOOL ARPlayerController__01612690::eventCanReachItem(class AActor* CheckActor)
 
 extern FName g_026e2c14;
 	/* BMGAME_TriggerSpecialMove */
-struct URSpecialMoveConfig_ : public URSpecialMoveConfig
-{
-	void eventTriggerSpecialMove(class ARPlayerController* Controller, FEnvironmentSpecialMoveLocator MoveLocation);
-};
 
 // @baa 0x01612950
 /* The script event's generated glue (BmGameClasses.h), out of line here. */
-void URSpecialMoveConfig_::eventTriggerSpecialMove(class ARPlayerController* Controller, FEnvironmentSpecialMoveLocator MoveLocation)
+void URSpecialMoveConfig::eventTriggerSpecialMove(class ARPlayerController* Controller, FEnvironmentSpecialMoveLocator MoveLocation)
 {
 	struct RSpecialMoveConfig_eventTriggerSpecialMove_Parms
 	{
@@ -277,28 +241,20 @@ void URSpecialMoveConfig_::eventTriggerSpecialMove(class ARPlayerController* Con
 
 extern FName g_026e364c;
 	/* BMGAME_AddTransientCosts */
-struct ARBMRouteRequest_BuildComparisonList_ : public ARBMRouteRequest_BuildComparisonList
-{
-	void eventAddTransientCosts();
-};
 
 // @baa 0x0160dde0
 /* The script event's generated glue (BmGameClasses.h), out of line here. */
-void ARBMRouteRequest_BuildComparisonList_::eventAddTransientCosts()
+void ARBMRouteRequest_BuildComparisonList::eventAddTransientCosts()
 {
 	ProcessEvent(FindFunctionChecked(g_026e364c), NULL);
 }
 
 extern FName g_026e25fc;
 	/* BMGAME_ScorePath */
-struct ARBMRouteRequest_NervousSearch_ : public ARBMRouteRequest_NervousSearch
-{
-	FLOAT eventScorePath(class URBMRouterPath* TestPath, FLOAT LastSeenTime);
-};
 
 // @baa 0x0160df80
 /* The script event's generated glue (BmGameClasses.h), out of line here. */
-FLOAT ARBMRouteRequest_NervousSearch_::eventScorePath(class URBMRouterPath* TestPath, FLOAT LastSeenTime)
+FLOAT ARBMRouteRequest_NervousSearch::eventScorePath(class URBMRouterPath* TestPath, FLOAT LastSeenTime)
 {
 	struct RBMRouteRequest_NervousSearch_eventScorePath_Parms
 	{
@@ -315,14 +271,10 @@ FLOAT ARBMRouteRequest_NervousSearch_::eventScorePath(class URBMRouterPath* Test
 
 extern FName g_026e36b8;
 	/* BMGAME_GetLastSeenTime */
-struct ARBMRouteRequest_NervousSearch__0160dfe0 : public ARBMRouteRequest_NervousSearch
-{
-	FLOAT eventGetLastSeenTime(class ARPathNode* TestNode);
-};
 
 // @baa 0x0160dfe0
 /* The script event's generated glue (BmGameClasses.h), out of line here. */
-FLOAT ARBMRouteRequest_NervousSearch__0160dfe0::eventGetLastSeenTime(class ARPathNode* TestNode)
+FLOAT ARBMRouteRequest_NervousSearch::eventGetLastSeenTime(class ARPathNode* TestNode)
 {
 	struct RBMRouteRequest_NervousSearch_eventGetLastSeenTime_Parms
 	{
@@ -336,14 +288,10 @@ FLOAT ARBMRouteRequest_NervousSearch__0160dfe0::eventGetLastSeenTime(class ARPat
 }
 
 	/* BMGAME_ScorePath */
-struct ARBMRouteRequest_RunAway_ : public ARBMRouteRequest_RunAway
-{
-	FLOAT eventScorePath(class URBMRouterPath* TestPath, FLOAT LastSeenTime);
-};
 
 // @baa 0x0160e150
 /* The script event's generated glue (BmGameClasses.h), out of line here. */
-FLOAT ARBMRouteRequest_RunAway_::eventScorePath(class URBMRouterPath* TestPath, FLOAT LastSeenTime)
+FLOAT ARBMRouteRequest_RunAway::eventScorePath(class URBMRouterPath* TestPath, FLOAT LastSeenTime)
 {
 	struct RBMRouteRequest_RunAway_eventScorePath_Parms
 	{
@@ -359,14 +307,10 @@ FLOAT ARBMRouteRequest_RunAway_::eventScorePath(class URBMRouterPath* TestPath, 
 }
 
 	/* BMGAME_GetLastSeenTime */
-struct ARBMRouteRequest_RunAway__0160e1b0 : public ARBMRouteRequest_RunAway
-{
-	FLOAT eventGetLastSeenTime(class ARPathNode* TestNode);
-};
 
 // @baa 0x0160e1b0
 /* The script event's generated glue (BmGameClasses.h), out of line here. */
-FLOAT ARBMRouteRequest_RunAway__0160e1b0::eventGetLastSeenTime(class ARPathNode* TestNode)
+FLOAT ARBMRouteRequest_RunAway::eventGetLastSeenTime(class ARPathNode* TestNode)
 {
 	struct RBMRouteRequest_RunAway_eventGetLastSeenTime_Parms
 	{
@@ -380,14 +324,10 @@ FLOAT ARBMRouteRequest_RunAway__0160e1b0::eventGetLastSeenTime(class ARPathNode*
 }
 
 	/* BMGAME_ScorePath */
-struct ARBMRouteRequest_TerrifiedSearch_ : public ARBMRouteRequest_TerrifiedSearch
-{
-	FLOAT eventScorePath(class URBMRouterPath* TestPath, FLOAT LastSeenTime);
-};
 
 // @baa 0x0160e260
 /* The script event's generated glue (BmGameClasses.h), out of line here. */
-FLOAT ARBMRouteRequest_TerrifiedSearch_::eventScorePath(class URBMRouterPath* TestPath, FLOAT LastSeenTime)
+FLOAT ARBMRouteRequest_TerrifiedSearch::eventScorePath(class URBMRouterPath* TestPath, FLOAT LastSeenTime)
 {
 	struct RBMRouteRequest_TerrifiedSearch_eventScorePath_Parms
 	{
@@ -403,14 +343,10 @@ FLOAT ARBMRouteRequest_TerrifiedSearch_::eventScorePath(class URBMRouterPath* Te
 }
 
 	/* BMGAME_GetLastSeenTime */
-struct ARBMRouteRequest_TerrifiedSearch__0160e2c0 : public ARBMRouteRequest_TerrifiedSearch
-{
-	FLOAT eventGetLastSeenTime(class ARPathNode* TestNode);
-};
 
 // @baa 0x0160e2c0
 /* The script event's generated glue (BmGameClasses.h), out of line here. */
-FLOAT ARBMRouteRequest_TerrifiedSearch__0160e2c0::eventGetLastSeenTime(class ARPathNode* TestNode)
+FLOAT ARBMRouteRequest_TerrifiedSearch::eventGetLastSeenTime(class ARPathNode* TestNode)
 {
 	struct RBMRouteRequest_TerrifiedSearch_eventGetLastSeenTime_Parms
 	{
@@ -424,14 +360,10 @@ FLOAT ARBMRouteRequest_TerrifiedSearch__0160e2c0::eventGetLastSeenTime(class ARP
 }
 
 	/* BMGAME_AddTransientCosts */
-struct ARBMRouteRequest_TerrifiedSearch__0160e340 : public ARBMRouteRequest_TerrifiedSearch
-{
-	void eventAddTransientCosts();
-};
 
 // @baa 0x0160e340
 /* The script event's generated glue (BmGameClasses.h), out of line here. */
-void ARBMRouteRequest_TerrifiedSearch__0160e340::eventAddTransientCosts()
+void ARBMRouteRequest_TerrifiedSearch::eventAddTransientCosts()
 {
 	ProcessEvent(FindFunctionChecked(g_026e364c), NULL);
 }
@@ -570,41 +502,23 @@ void ARPlayerController::execGetVisitedPMapsList(FFrame& Stack, RESULT_DECL)
 }
 
 extern FName g_026e2858;
-	/* BMGAME_GetPotentialTargets */
-/* Kit gap: the generated glue for RBMRouteRequest_NervousSearch's script event GetPotentialTargets (BmGameClasses.h) isn't declared; this build keeps it out of line. */
-struct ARBMRouteRequest_NervousSearch__0160e090 : public ARBMRouteRequest_NervousSearch
-{
-	void eventGetPotentialTargets();
-};
 
 // @baa 0x0160e090
-void ARBMRouteRequest_NervousSearch__0160e090::eventGetPotentialTargets()
+void ARBMRouteRequest_NervousSearch::eventGetPotentialTargets()
 {
 	ProcessEvent(FindFunctionChecked(g_026e2858), NULL);
 }
 
-	/* BMGAME_GetPotentialTargets */
-/* Kit gap: the generated glue for RBMRouteRequest_RunAway's script event GetPotentialTargets (BmGameClasses.h) isn't declared; this build keeps it out of line. */
-struct ARBMRouteRequest_RunAway__0160e200 : public ARBMRouteRequest_RunAway
-{
-	void eventGetPotentialTargets();
-};
 
 // @baa 0x0160e200
-void ARBMRouteRequest_RunAway__0160e200::eventGetPotentialTargets()
+void ARBMRouteRequest_RunAway::eventGetPotentialTargets()
 {
 	ProcessEvent(FindFunctionChecked(g_026e2858), NULL);
 }
 
-	/* BMGAME_GetPotentialTargets */
-/* Kit gap: the generated glue for RBMRouteRequest_TerrifiedSearch's script event GetPotentialTargets (BmGameClasses.h) isn't declared; this build keeps it out of line. */
-struct ARBMRouteRequest_TerrifiedSearch__0160e310 : public ARBMRouteRequest_TerrifiedSearch
-{
-	void eventGetPotentialTargets();
-};
 
 // @baa 0x0160e310
-void ARBMRouteRequest_TerrifiedSearch__0160e310::eventGetPotentialTargets()
+void ARBMRouteRequest_TerrifiedSearch::eventGetPotentialTargets()
 {
 	ProcessEvent(FindFunctionChecked(g_026e2858), NULL);
 }

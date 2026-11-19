@@ -840,15 +840,9 @@ struct FCapePhysics_
 	void sub_016bcf30(float Value);
 };
 
-struct URCapeStateController_ : public URCapeStateController
-{
-	// If the controller is initialised, forward the value to the referenced
-	// cape physics object.
-	void sub_016cece0(float Value);
-};
 
 // @baa 0x016cece0
-void URCapeStateController_::sub_016cece0(float Value)
+void URCapeStateController::sub_016cece0(float Value)
 {
 	if (IsInitialised)
 	{
@@ -906,14 +900,10 @@ struct S_016ceca0
     UINT sub_016af420();
 };
 
-struct URCapeStateController__016ceca0 : public URCapeStateController
-{
-    UINT sub_016ceca0(); /* 0x016ceca0 */
-};
 
 // @baa 0x016ceca0
 /* Unnamed in the kit: forwards to the cape physics object. */
-UINT URCapeStateController__016ceca0::sub_016ceca0()
+UINT URCapeStateController::sub_016ceca0()
 {
 #line 390 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RCapeStateController.cpp"
     check(CapePhysicsRef.Dummy != NULL);
@@ -941,14 +931,10 @@ template<class T> struct TArrayAt_ : public TArray<T>
     }
 };
 
-struct URCapeStateController__016d6050 : public URCapeStateController
-{
-    INT FindBoneStateCacheIndex(URCapeStateBoneConfig* BoneConfig) const; /* 0x016d6050 */
-};
 
 // @baa 0x016d6050
 /* The bone state cache entry for a bone config; the cache size when there is none yet (the slot it would take). */
-INT URCapeStateController__016d6050::FindBoneStateCacheIndex(URCapeStateBoneConfig* BoneConfig) const
+INT URCapeStateController::FindBoneStateCacheIndex(URCapeStateBoneConfig* BoneConfig) const
 {
     INT Num = BoneStateCache.Num();
     for (INT Idx = 0; Idx < Num; Idx++)

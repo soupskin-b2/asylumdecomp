@@ -91,14 +91,10 @@ void UAnimNodeSequence::PlayAnim(UBOOL bLoop, FLOAT InRate, FLOAT StartTime)
 
 extern FName g_026c4190;
 	/* ENGINE_OnAnimPlay */
-struct AActor__00c49e40 : public AActor
-{
-	void eventOnAnimPlay(UAnimNodeSequence* SeqNode);
-};
 
 // @baa 0x00c49e40
 /* The OnAnimPlay script event's generated glue (EngineClasses.h). */
-void AActor__00c49e40::eventOnAnimPlay(UAnimNodeSequence* SeqNode)
+void AActor::eventOnAnimPlay(UAnimNodeSequence* SeqNode)
 {
 	struct Actor_eventOnAnimPlay_Parms
 	{
@@ -109,14 +105,10 @@ void AActor__00c49e40::eventOnAnimPlay(UAnimNodeSequence* SeqNode)
 	ProcessEvent(FindFunctionChecked(g_026c4190), &Parms);
 }
 
-struct UAnimNodeSequence__00c4af30 : public UAnimNodeSequence
-{
-	void StopCameraAnim();
-};
 
 // @baa 0x00c4af30
 /* Stops the camera animation started with this node's animation and lets it release itself. */
-void UAnimNodeSequence__00c4af30::StopCameraAnim()
+void UAnimNodeSequence::StopCameraAnim()
 {
 	if (ActiveCameraAnimInstance)
 	{
@@ -126,14 +118,10 @@ void UAnimNodeSequence__00c4af30::StopCameraAnim()
 	}
 }
 
-struct UAnimNode_ : public UAnimNode
-{
-	UBOOL IsChildOf(UAnimNode* Node);
-};
 
 // @baa 0x00c53070
 /* Whether Node is this node or one of its ancestors in the tree. */
-UBOOL UAnimNode_::IsChildOf(UAnimNode* Node)
+UBOOL UAnimNode::IsChildOf(UAnimNode* Node)
 {
 	if (!Node)
 	{
@@ -147,7 +135,7 @@ UBOOL UAnimNode_::IsChildOf(UAnimNode* Node)
 
 	for (INT i = 0; i < ParentNodes.Num(); i++)
 	{
-		if (((UAnimNode_*)ParentNodes(i))->IsChildOf(Node))
+		if (((UAnimNode*)ParentNodes(i))->IsChildOf(Node))
 		{
 			return TRUE;
 		}

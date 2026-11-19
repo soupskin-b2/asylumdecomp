@@ -43,15 +43,11 @@ struct AActor_ : public AActor
     }
 };
 
-struct USeqAct_Interp_ : public USeqAct_Interp
-{
-    void NotifyActorsOfChange(); /* 0x00cf3240 */
-};
 
 // @baa 0x00cf3240
 /* UE3's USeqAct_Interp::NotifyActorsOfChange(): tell every actor this matinee drives that something changed, and have
  * the replication actor resend its state. */
-void USeqAct_Interp_::NotifyActorsOfChange()
+void USeqAct_Interp::NotifyActorsOfChange()
 {
     for (INT i = 0; i < LatentActors.Num(); i++)
     {

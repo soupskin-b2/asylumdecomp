@@ -14,13 +14,9 @@ FLOAT FInterpEaseInOut(FLOAT A, FLOAT B, FLOAT Alpha, FLOAT Exp);
 						/* 005c7370 */
 extern template FLOAT CubicInterp<FLOAT, FLOAT>(const FLOAT&, const FLOAT&, const FLOAT&, const FLOAT&, const FLOAT&);
 /* UAnimNodeBlendBase::GetBlendWeight isn't declared in Classes.h. */
-struct UAnimNodeBlendBase_ : public UAnimNodeBlendBase
-{
-	FLOAT GetBlendWeight(FLOAT ChildWeight);
-};
 
 // @baa 0x00c50080
-FLOAT UAnimNodeBlendBase_::GetBlendWeight(FLOAT ChildWeight)
+FLOAT UAnimNodeBlendBase::GetBlendWeight(FLOAT ChildWeight)
 {
 	// AlphaToBlendType: the weight through the node's blend curve
 	switch (BlendType)

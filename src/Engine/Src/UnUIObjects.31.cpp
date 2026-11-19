@@ -47,26 +47,18 @@ void UUIObject::PostLoad()
 
 /* Unnamed in the kit: UE3's FUIRotation::SetAnchorLocation(UUIObject* OwnerWidget, const FVector& AnchorPos, BYTE
  * InputType)-style setter for the rotation anchor. */
-struct FUIRotation_ : public FUIRotation
-{
-    void sub_00de3490(UUIObject* OwnerWidget, const FVector& NewAnchorPosition, INT InputType);
-};
 
 // @baa 0x00dc8f60
 /* UE3's UUIObject::SetAnchorPosition(FVector NewAnchorPosition, BYTE InputType): move the rotation anchor and
  * rebuild the rotation matrix. */
 void UUIObject::SetAnchorPosition(FVector NewAnchorPosition, BYTE InputType)
 {
-    ((FUIRotation_&)Rotation).sub_00de3490(this, NewAnchorPosition, InputType);
+    ((FUIRotation&)Rotation).sub_00de3490(this, NewAnchorPosition, InputType);
     UpdateRotationMatrix();
 }
 
 /* Unnamed in the kit: a FUIDataStoreBinding refresh (UE3 FUIDataStoreBinding::ClearSubscriber/RefreshSubscriberValue
  * style, no arguments). */
-struct FUIDataStoreBinding_ : public FUIDataStoreBinding
-{
-    void sub_00dcc550();
-};
 
 // @baa 0x00daa860
 /* UUIObject helper: refresh the tooltip binding (index 100, UCONST_TOOLTIP_BINDING_INDEX) or the context menu binding
@@ -75,11 +67,11 @@ void UUIObject::ClearDefaultDataBinding(INT BindingIndex)
 {
     if (BindingIndex == 100)
     {
-        ((FUIDataStoreBinding_&)ToolTip).sub_00dcc550();
+        ((FUIDataStoreBinding&)ToolTip).sub_00dcc550();
     }
     else if (BindingIndex == 101)
     {
-        ((FUIDataStoreBinding_&)ContextMenuData).sub_00dcc550();
+        ((FUIDataStoreBinding&)ContextMenuData).sub_00dcc550();
     }
 }
 
@@ -143,23 +135,15 @@ INT UUIObject::CanAcceptFocus(INT PlayerIndex)
 
 /* Unnamed in the kit: a FUINavigationData helper taking (Face, Arg), and the UUIObject wrapper that skips
  * UIFACE_MAX (4). */
-struct FUINavigationData_ : public FUINavigationData
-{
-    UBOOL sub_00ddef10(INT Face, INT Arg);
-};
 
-struct UUIObject__00daab70 : public UUIObject
-{
-    UBOOL sub_00daab70(INT Face, INT Arg);
-};
 
 // @baa 0x00daab70
-UBOOL UUIObject__00daab70::sub_00daab70(INT Face, INT Arg)
+UBOOL UUIObject::sub_00daab70(INT Face, INT Arg)
 {
     UBOOL bResult = FALSE;
     if (Face != 4)
     {
-        bResult = ((FUINavigationData_&)NavigationTargets).sub_00ddef10(Face, Arg);
+        bResult = ((FUINavigationData&)NavigationTargets).sub_00ddef10(Face, Arg);
     }
     return bResult;
 }
@@ -180,10 +164,6 @@ UBOOL UUIObject::ContainsPoint(const FVector2D& Coordinates)
 
 /* Unnamed in the kit: UE3's FUINavigationData::SetNavigationTarget(Left, Top, Right, Bottom)-style setter for all
  * four faces; reports whether anything changed. */
-struct FUINavigationData__00daa990 : public FUINavigationData
-{
-    UBOOL sub_00ddee10(INT LeftTarget, INT TopTarget, INT RightTarget, INT BottomTarget);
-};
 
 // @baa 0x00daa990
 /* UUIObject slot 0x1fc (kit vf_1fc, UE3 SetNavigationTarget(LeftTarget, TopTarget, RightTarget, BottomTarget)): when
@@ -227,10 +207,6 @@ INT UUIObject::vf_23c(INT Arg)
 
 /* Unnamed in the kit: UE3's FUINavigationData::SetForcedNavigationTarget(Left, Top, Right, Bottom)-style setter for
  * all four faces; reports whether anything changed. */
-struct FUINavigationData__00daaaa0 : public FUINavigationData
-{
-    UBOOL sub_00ddeeb0(INT LeftTarget, INT TopTarget, INT RightTarget, INT BottomTarget);
-};
 
 // @baa 0x00daaaa0
 /* UUIObject slot 0x200 (kit vf_200, UE3 SetForcedNavigationTarget(LeftTarget, TopTarget, RightTarget, BottomTarget)):
@@ -276,13 +252,9 @@ void UUIScene::CreatePlayerData(INT Arg1, ULocalPlayer* Arg2)
 
 /* Unnamed in the kit: whether any of the scene's pending-update requests (the first seven bUpdate/bRefresh/bRecalculate
  * flags) is set. */
-struct UUIScene_ : public UUIScene
-{
-    UBOOL sub_00da9d70();
-};
 
 // @baa 0x00da9d70
-UBOOL UUIScene_::sub_00da9d70()
+UBOOL UUIScene::sub_00da9d70()
 {
     return bUpdateDockingStack || bUpdateScenePositions || bUpdateNavigationLinks || bUpdatePrimitiveUsage
         || bRefreshWidgetStyles || bRefreshStringFormatting || bRecalculateInputMask;
@@ -380,13 +352,9 @@ void UUIScene::RequestPrimitiveReview(UBOOL bReinitializePrimitives, UBOOL bRevi
 }
 
 // UUIScene: hands an update down to the scene's event sequence.
-struct UUIScene__00da9d90 : public UUIScene
-{
-	void sub_00da9d90(FLOAT DeltaTime); /* 0x00da9d90 */
-};
 
 // @baa 0x00da9d90
-void UUIScene__00da9d90::sub_00da9d90(FLOAT DeltaTime)
+void UUIScene::sub_00da9d90(FLOAT DeltaTime)
 {
 	if (EventProvider != NULL && EventProvider->EventContainer != NULL)
 	{
@@ -394,11 +362,6 @@ void UUIScene__00da9d90::sub_00da9d90(FLOAT DeltaTime)
 	}
 }
 
-/* Kit gap: UObject::MarkPackageDirty (the kit has it on UAnimSequence only). */
-struct UObject_ : public UObject
-{
-	void MarkPackageDirty(UBOOL InDirty = TRUE) const; /* 0x005d9570 */
-};
 
 // @baa 0x00daa8b0
 /* PostRename: keeps WidgetTag in step with the object's name. */
@@ -407,7 +370,7 @@ void UUIObject::PostRename()
 	if (WidgetTag != GetFName())
 	{
 		WidgetTag = GetFName();
-		((UObject_*)this)->MarkPackageDirty();
+		((UObject*)this)->MarkPackageDirty();
 	}
 }
 

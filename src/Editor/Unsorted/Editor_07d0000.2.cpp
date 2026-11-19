@@ -8,13 +8,9 @@ extern FName g_026c4f04;
 	/* ENGINE_NotifyBump */
 /* Kit gap: the generated glue for Controller's script event NotifyBump (EngineClasses.h) isn't declared; this build
  * keeps it out of line (APawn::NotifyBump calls it). */
-struct AController_ : public AController
-{
-	UBOOL eventNotifyBump(AActor* Other, FVector HitNormal);
-};
 
 // @baa 0x007d60f0
-UBOOL AController_::eventNotifyBump(AActor* Other, FVector HitNormal)
+UBOOL AController::eventNotifyBump(AActor* Other, FVector HitNormal)
 {
 	struct Controller_eventNotifyBump_Parms
 	{

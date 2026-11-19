@@ -992,12 +992,9 @@ void caller(TThreeWord* t, unsigned int a, unsigned int b, unsigned int c) {
     t->sub_01968180(a, b, c);
 }
 
-struct UGFxDataStoreSubscriber_ : public UGFxDataStoreSubscriber {
-    INT sub_0196ec00(); // 0x0196ec00
-};
 
 // @baa 0x0196ec00
-INT UGFxDataStoreSubscriber_::sub_0196ec00()
+INT UGFxDataStoreSubscriber::sub_0196ec00()
 {
     INT R = sub_0196e740();
     if (R)

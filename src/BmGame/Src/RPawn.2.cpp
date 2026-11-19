@@ -20,14 +20,9 @@ void ARPawnCombat::FacePos(FVector TargetLocation)
     DestRot = atan2(Dir.Y, Dir.X);
 }
 
-/* Unnamed in the kit: an ARPawnCombat helper that turns the pawn's DestRot towards another pawn's AimAtPos (planar). */
-struct ARPawnCombat__0167bba0 : public ARPawnCombat
-{
-    void FacePawn(ARPawnCombat* Other);
-};
 
 // @baa 0x0167bba0
-void ARPawnCombat__0167bba0::FacePawn(ARPawnCombat* Other)
+void ARPawnCombat::FacePawn(ARPawnCombat* Other)
 {
     if (Other)
     {

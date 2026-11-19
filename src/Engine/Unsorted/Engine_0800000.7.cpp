@@ -44,13 +44,9 @@ void F0080b0b0::sub_0080b0b0(int Offset, int Scale)
     S.sub_008088e0(S.Value * Scale + Offset);
 }
 
-struct APlayerController_ : public APlayerController
-{
-    INT sub_00803a80(void* Other, INT B, INT C);
-};
 
 // @baa 0x00803a80
-INT APlayerController_::sub_00803a80(void* Other, INT, INT)
+INT APlayerController::sub_00803a80(void* Other, INT, INT)
 {
     return this == Other;
 }
@@ -409,12 +405,9 @@ int sub_0080b090_::sub_0080b090(int Param)
 }
 
 // sub_00803d90: a thiscall base method of the same object (0 stack args), called directly.
-struct APointLightToggleable_ : public APointLightToggleable {
-    void sub_00803f00(); /* 00803f00 */
-};
 
 // @baa 0x00803f00
-void APointLightToggleable_::sub_00803f00()
+void APointLightToggleable::sub_00803f00()
 {
     ToggleCore();
     LightComponent->UseDirectLightMap = 0;

@@ -215,13 +215,9 @@ undefined4 UTextureFlipBook::sub_0076eb40(byte param_2)
 // @baa 0x007713c0
 // @baa 0x007713d0
 
-struct UTextureFlipBook_ : public UTextureFlipBook
-{
-	void sub_0076ea70(FLOAT *Out);
-};
 
 // @baa 0x0076ea70
-void UTextureFlipBook_::sub_0076ea70(FLOAT *Out)
+void UTextureFlipBook::sub_0076ea70(FLOAT *Out)
 {
 	FLOAT X = HorizontalScale;
 	*Out = X;

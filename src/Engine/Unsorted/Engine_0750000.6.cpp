@@ -6,14 +6,10 @@
 
 extern FName g_026c4198;
 	/* PostRenderFor */
-struct AActor_ : public AActor
-{
-	void eventPostRenderFor(class APlayerController* PC, class UCanvas* Canvas, FVector CameraPosition, FVector CameraDir);
-};
 
 // @baa 0x00753750
 /* Actor.PostRenderFor script event: the generated glue, out of line here. */
-void AActor_::eventPostRenderFor(class APlayerController* PC, class UCanvas* Canvas, FVector CameraPosition, FVector CameraDir)
+void AActor::eventPostRenderFor(class APlayerController* PC, class UCanvas* Canvas, FVector CameraPosition, FVector CameraDir)
 {
 	struct Actor_eventPostRenderFor_Parms
 	{
@@ -31,14 +27,10 @@ void AActor_::eventPostRenderFor(class APlayerController* PC, class UCanvas* Can
 
 extern FName g_026c52d8;
 	/* ScriptGetTeamNum */
-struct AActor__007537d0 : public AActor
-{
-	BYTE eventScriptGetTeamNum();
-};
 
 // @baa 0x007537d0
 /* Actor.ScriptGetTeamNum script event: the generated glue, out of line here. */
-BYTE AActor__007537d0::eventScriptGetTeamNum()
+BYTE AActor::eventScriptGetTeamNum()
 {
 	struct Actor_eventScriptGetTeamNum_Parms
 	{
@@ -66,14 +58,10 @@ BYTE AActor::GetTeamNum()
 
 extern FName g_026c45ac;
 	/* ENGINE_FellOutOfWorld */
-struct AActor__00753840 : public AActor
-{
-	void eventFellOutOfWorld(class UClass* dmgType);
-};
 
 // @baa 0x00753840
 /* The script event's generated glue (EngineClasses.h), out of line here. */
-void AActor__00753840::eventFellOutOfWorld(class UClass* dmgType)
+void AActor::eventFellOutOfWorld(class UClass* dmgType)
 {
 	struct Actor_eventFellOutOfWorld_Parms
 	{

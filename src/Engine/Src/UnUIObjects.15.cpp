@@ -163,12 +163,9 @@ BYTE UUIScene::GetInputMask(UBOOL a, UBOOL b)
     return PlayerInputMask;
 }
 
-struct UUIObject_ : public UUIObject {
-    void sub_00daa410();
-};
 
 // @baa 0x00daa410
-void UUIObject_::sub_00daa410()
+void UUIObject::sub_00daa410()
 {
     UUIScene* Scene = (UUIScene*)GetScene();
     if (Scene) {
@@ -294,14 +291,10 @@ struct UUIScene_ : public UUIScene
 	}
 };
 
-struct UUIObject__00daa120 : public UUIObject
-{
-	UUISkin* GetActiveSkin() const;
-};
 
 // @baa 0x00daa120
 /* The skin the owning scene's scene client is using. */
-UUISkin* UUIObject__00daa120::GetActiveSkin() const
+UUISkin* UUIObject::GetActiveSkin() const
 {
 #line 8658 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnUIObjects.cpp"
 	check(OwnerScene);

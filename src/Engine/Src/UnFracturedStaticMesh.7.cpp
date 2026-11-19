@@ -50,14 +50,10 @@ void UStaticMeshComponent::execSetForceStaticDecals(FFrame& Stack, RESULT_DECL)
 
 extern FName g_026c4f18;
 	/* ENGINE_ReturnPartActor */
-struct AFracturedStaticMeshActor_ : public AFracturedStaticMeshActor
-{
-	void eventReturnPartActor(class AFracturedStaticMeshPart* Part);
-};
 
 // @baa 0x007a4e00
 /* The script event's generated glue (EngineClasses.h), out of line here. */
-void AFracturedStaticMeshActor_::eventReturnPartActor(class AFracturedStaticMeshPart* Part)
+void AFracturedStaticMeshActor::eventReturnPartActor(class AFracturedStaticMeshPart* Part)
 {
 	struct FracturedStaticMeshActor_eventReturnPartActor_Parms
 	{
@@ -69,14 +65,10 @@ void AFracturedStaticMeshActor_::eventReturnPartActor(class AFracturedStaticMesh
 
 extern FName g_026c45b4;
 	/* ENGINE_SpawnChunkDestroyEffect */
-struct AFracturedStaticMeshActor__007a4ec0 : public AFracturedStaticMeshActor
-{
-	void eventSpawnChunkDestroyEffect(UParticleSystem* Effect, FBox ChunkBox, FVector ChunkDir, FLOAT Scale);
-};
 
 // @baa 0x007a4ec0
 /* The script event's generated glue (EngineClasses.h), out of line here. */
-void AFracturedStaticMeshActor__007a4ec0::eventSpawnChunkDestroyEffect(UParticleSystem* Effect, FBox ChunkBox, FVector ChunkDir, FLOAT Scale)
+void AFracturedStaticMeshActor::eventSpawnChunkDestroyEffect(UParticleSystem* Effect, FBox ChunkBox, FVector ChunkDir, FLOAT Scale)
 {
 	struct FracturedStaticMeshActor_eventSpawnChunkDestroyEffect_Parms
 	{
@@ -94,14 +86,10 @@ void AFracturedStaticMeshActor__007a4ec0::eventSpawnChunkDestroyEffect(UParticle
 
 extern FName g_026c5444;
 	/* ENGINE_SpawnPartActor */
-struct AFracturedStaticMeshActor__007a4e40 : public AFracturedStaticMeshActor
-{
-	AFracturedStaticMeshPart* eventSpawnPartActor(INT ChunkIndex, FVector InitialVel, FVector InitialAngVel);
-};
 
 // @baa 0x007a4e40
 /* The script event's generated glue (EngineClasses.h), out of line here. */
-AFracturedStaticMeshPart* AFracturedStaticMeshActor__007a4e40::eventSpawnPartActor(INT ChunkIndex, FVector InitialVel, FVector InitialAngVel)
+AFracturedStaticMeshPart* AFracturedStaticMeshActor::eventSpawnPartActor(INT ChunkIndex, FVector InitialVel, FVector InitialAngVel)
 {
 	struct FracturedStaticMeshActor_eventSpawnPartActor_Parms
 	{

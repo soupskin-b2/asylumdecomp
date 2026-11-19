@@ -67,11 +67,6 @@ void UAnimNodeAimOffset::SetActiveProfileByIndex(INT ProfileIndex)
 	((UAnimNodeAimOffset_*)this)->sub_00c62170();
 }
 
-/* Callees Classes.h doesn't declare by name. */
-struct UAnimNodeBlendBase_ : public UAnimNodeBlendBase
-{
-	void sub_00c53d10(UAnimNodeSequence* Child, FLOAT PlayedTime, FLOAT ExcessTime);	/* OnChildAnimEnd */
-};
 
 /* UAnimNodeRandom's OnChildAnimEnd override (vtable 0x18c, declared only as a vf_). */
 struct UAnimNodeRandom_ : public UAnimNodeRandom
@@ -83,7 +78,7 @@ struct UAnimNodeRandom_ : public UAnimNodeRandom
 // @baa 0x00c7ef10
 void UAnimNodeRandom_::OnChildAnimEnd(UAnimNodeSequence* Child, FLOAT PlayedTime, FLOAT ExcessTime)
 {
-	((UAnimNodeBlendBase_*)this)->sub_00c53d10(Child, PlayedTime, ExcessTime);
+	((UAnimNodeBlendBase*)this)->sub_00c53d10(Child, PlayedTime, ExcessTime);
 
 	// the playing animation is over: start the next one, carrying the excess time
 	if (Child && Child == PlayingSeqNode)
@@ -260,12 +255,9 @@ UBOOL UAnimNodeBlendDirectional::HasParentClassChanged() const
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
-struct UAnimNodeAimOffset__00c78fe0 : public UAnimNodeAimOffset {
-    FVector2D sub_00c78fe0();
-};
 
 // @baa 0x00c78fe0
-FVector2D UAnimNodeAimOffset__00c78fe0::sub_00c78fe0()
+FVector2D UAnimNodeAimOffset::sub_00c78fe0()
 {
     return Aim;
 }
@@ -395,10 +387,6 @@ struct FBoneAtomArray : public TArray<FBoneAtom>
 	FBoneAtomArray& sub_00c64160(const TArray<FBoneAtom>& Other);	/* operator= */
 };
 
-struct UAnimNodeBlendBase__00c71100 : public UAnimNodeBlendBase
-{
-	void sub_00c6c9a0(TArray<FBoneAtom>& Atoms, const TArray<BYTE>& DesiredBones, FBoneAtom& RootMotionDelta, INT& bHasRootMotion);	/* GetBoneAtoms */
-};
 
 /* UAnimTree's GetBoneAtoms override (its vtable slot is declared only as a vf_). */
 struct UAnimTree__00c71100 : public UAnimTree
@@ -457,14 +445,9 @@ void UAnimNode_::GetNodesInternal(TArray<UAnimNode*>& Nodes)
 #line 462 "candidate.cpp"
 
 /* UAnimTree's anim group accessors (UnAnimTree.cpp) aren't declared in Classes.h. */
-struct UAnimTree__00c613b0 : public UAnimTree
-{
-	INT GetGroupIndex(FName GroupName);		/* GetGroupIndex */
-	FLOAT GetGroupRelativePosition(FName GroupName);
-};
 
 // @baa 0x00c613b0
-FLOAT UAnimTree__00c613b0::GetGroupRelativePosition(FName GroupName)
+FLOAT UAnimTree::GetGroupRelativePosition(FName GroupName)
 {
 	const INT GroupIndex = GetGroupIndex(GroupName);
 	if (GroupIndex != INDEX_NONE)
@@ -514,14 +497,9 @@ UAnimNodeSequence* UAnimTree__00c61490::GetGroupNotifyMaster(FName GroupName)
 }
 
 /* UAnimTree's anim group accessors (UnAnimTree.cpp) aren't declared in Classes.h. */
-struct UAnimTree__00c61570 : public UAnimTree
-{
-	INT GetGroupIndex(FName GroupName);		/* GetGroupIndex */
-	FLOAT GetGroupRateScale(FName GroupName);
-};
 
 // @baa 0x00c61570
-FLOAT UAnimTree__00c61570::GetGroupRateScale(FName GroupName)
+FLOAT UAnimTree::GetGroupRateScale(FName GroupName)
 {
 	const INT GroupIndex = GetGroupIndex(GroupName);
 	if (GroupIndex != INDEX_NONE)
@@ -533,14 +511,9 @@ FLOAT UAnimTree__00c61570::GetGroupRateScale(FName GroupName)
 }
 
 /* UAnimTree's anim group accessors (UnAnimTree.cpp) aren't declared in Classes.h. */
-struct UAnimTree__00c61500 : public UAnimTree
-{
-	INT GetGroupIndex(FName GroupName);		/* GetGroupIndex */
-	void SetGroupRateScale(FName GroupName, FLOAT NewRateScale);
-};
 
 // @baa 0x00c61500
-void UAnimTree__00c61500::SetGroupRateScale(FName GroupName, FLOAT NewRateScale)
+void UAnimTree::SetGroupRateScale(FName GroupName, FLOAT NewRateScale)
 {
 	const INT GroupIndex = GetGroupIndex(GroupName);
 	if (GroupIndex != INDEX_NONE)
@@ -550,13 +523,9 @@ void UAnimTree__00c61500::SetGroupRateScale(FName GroupName, FLOAT NewRateScale)
 }
 
 /* UAnimNode::CountNumParentsTicked isn't declared in Classes.h. */
-struct UAnimNode__00c53000 : public UAnimNode
-{
-	INT CountNumParentsTicked();
-};
 
 // @baa 0x00c53000
-INT UAnimNode__00c53000::CountNumParentsTicked()
+INT UAnimNode::CountNumParentsTicked()
 {
 	// the parents already ticked this frame
 	INT NumParentsTicked = 0;
@@ -597,10 +566,6 @@ FLOAT UAnimNodeAimOffset__00c4ba00::GetSliderPosition(INT SliderIndex, INT Value
 #line 602 "candidate.cpp"
 
 /* The Super:: PostEditChange (UObject's; the classes between don't override it). */
-struct UObject_ : public UObject
-{
-	void sub_005c1a10(UProperty* PropertyThatChanged);
-};
 
 /* UAnimNodeBlendPerBone's PostEditChange (vtable 0x4c, declared only as vf_04c). */
 struct UAnimNodeBlendPerBone_ : public UAnimNodeBlendPerBone
@@ -620,7 +585,7 @@ void UAnimNodeBlendPerBone_::PostEditChange(UProperty* PropertyThatChanged)
 		}
 	}
 
-	((UObject_*)this)->sub_005c1a10(PropertyThatChanged);
+	((UObject*)this)->sub_005c1a10(PropertyThatChanged);
 }
 
 /* UAnimNodeAimOffset's PostEditChange (vtable 0x4c, declared only as vf_04c). */
@@ -633,7 +598,7 @@ struct UAnimNodeAimOffset__00c7ecf0 : public UAnimNodeAimOffset
 // @baa 0x00c7ecf0
 void UAnimNodeAimOffset__00c7ecf0::PostEditChange(UProperty* PropertyThatChanged)
 {
-	((UObject_*)this)->sub_005c1a10(PropertyThatChanged);
+	((UObject*)this)->sub_005c1a10(PropertyThatChanged);
 
 	if (PropertyThatChanged)
 	{

@@ -6,14 +6,10 @@
 
 extern FName g_026e33a0;
 	/* GetDialogueFearLevel */
-struct ARBMAIController_ : public ARBMAIController
-{
-	BYTE eventGetDialogueFearLevel();
-};
 
 // @baa 0x015d8a30
 /* RBMAIController.GetDialogueFearLevel script event: the generated glue, out of line here. */
-BYTE ARBMAIController_::eventGetDialogueFearLevel()
+BYTE ARBMAIController::eventGetDialogueFearLevel()
 {
 	struct RBMAIController_eventGetDialogueFearLevel_Parms
 	{
@@ -26,14 +22,10 @@ BYTE ARBMAIController_::eventGetDialogueFearLevel()
 
 extern FName g_026e2738;
 	/* AdjustAnimatedAimDir */
-struct ARBMAIController__015d8bc0 : public ARBMAIController
-{
-	FVector eventAdjustAnimatedAimDir(FVector AnimatedDir);
-};
 
 // @baa 0x015d8bc0
 /* RBMAIController.AdjustAnimatedAimDir script event: the generated glue, out of line here. */
-FVector ARBMAIController__015d8bc0::eventAdjustAnimatedAimDir(FVector AnimatedDir)
+FVector ARBMAIController::eventAdjustAnimatedAimDir(FVector AnimatedDir)
 {
 	struct RBMAIController_eventAdjustAnimatedAimDir_Parms
 	{
@@ -48,14 +40,10 @@ FVector ARBMAIController__015d8bc0::eventAdjustAnimatedAimDir(FVector AnimatedDi
 
 extern FName g_026e2f74;
 	/* DoPlayerLookAt */
-struct ARBMAIController__015d8c40 : public ARBMAIController
-{
-	void eventDoPlayerLookAt(FLOAT DeltaTime);
-};
 
 // @baa 0x015d8c40
 /* RBMAIController.DoPlayerLookAt script event: the generated glue, out of line here. */
-void ARBMAIController__015d8c40::eventDoPlayerLookAt(FLOAT DeltaTime)
+void ARBMAIController::eventDoPlayerLookAt(FLOAT DeltaTime)
 {
 	struct RBMAIController_eventDoPlayerLookAt_Parms
 	{
@@ -67,14 +55,10 @@ void ARBMAIController__015d8c40::eventDoPlayerLookAt(FLOAT DeltaTime)
 
 extern FName g_026e39ec;
 	/* UpdateNotVisibleAlert */
-struct ARBMAIController__015d8c80 : public ARBMAIController
-{
-	void eventUpdateNotVisibleAlert(FLOAT DeltaTime, class UAlertInstance* A);
-};
 
 // @baa 0x015d8c80
 /* RBMAIController.UpdateNotVisibleAlert script event: the generated glue, out of line here. */
-void ARBMAIController__015d8c80::eventUpdateNotVisibleAlert(FLOAT DeltaTime, class UAlertInstance* A)
+void ARBMAIController::eventUpdateNotVisibleAlert(FLOAT DeltaTime, class UAlertInstance* A)
 {
 	struct RBMAIController_eventUpdateNotVisibleAlert_Parms
 	{
@@ -104,14 +88,10 @@ UBOOL ARBMAIController::eventBehaviourCanRespondToAlerts()
 
 extern FName g_026e3490;
 	/* BehaviourStateChanged */
-struct ARBMAIController__015d8d90 : public ARBMAIController
-{
-	void eventBehaviourStateChanged(FName NewState);
-};
 
 // @baa 0x015d8d90
 /* RBMAIController.BehaviourStateChanged script event: the generated glue, out of line here. */
-void ARBMAIController__015d8d90::eventBehaviourStateChanged(FName NewState)
+void ARBMAIController::eventBehaviourStateChanged(FName NewState)
 {
 	struct RBMAIController_eventBehaviourStateChanged_Parms
 	{
@@ -123,14 +103,10 @@ void ARBMAIController__015d8d90::eventBehaviourStateChanged(FName NewState)
 
 extern FName g_026e36e0;
 	/* RemoveBehaviourFromList */
-struct ARBMAIController__015d8de0 : public ARBMAIController
-{
-	void eventRemoveBehaviourFromList(class URBMBehaviour* BehaviourToRemove);
-};
 
 // @baa 0x015d8de0
 /* RBMAIController.RemoveBehaviourFromList script event: the generated glue, out of line here. */
-void ARBMAIController__015d8de0::eventRemoveBehaviourFromList(class URBMBehaviour* BehaviourToRemove)
+void ARBMAIController::eventRemoveBehaviourFromList(class URBMBehaviour* BehaviourToRemove)
 {
 	struct RBMAIController_eventRemoveBehaviourFromList_Parms
 	{
@@ -142,14 +118,10 @@ void ARBMAIController__015d8de0::eventRemoveBehaviourFromList(class URBMBehaviou
 
 extern FName g_026e2cd8;
 	/* GetCheckSightRange */
-struct ARBMAIController__015d8e20 : public ARBMAIController
-{
-	FLOAT eventGetCheckSightRange();
-};
 
 // @baa 0x015d8e20
 /* RBMAIController.GetCheckSightRange script event: the generated glue, out of line here. */
-FLOAT ARBMAIController__015d8e20::eventGetCheckSightRange()
+FLOAT ARBMAIController::eventGetCheckSightRange()
 {
 	struct RBMAIController_eventGetCheckSightRange_Parms
 	{
@@ -162,14 +134,10 @@ FLOAT ARBMAIController__015d8e20::eventGetCheckSightRange()
 
 extern FName g_026e3874;
 	/* IsInBehaviourControlled */
-struct ARBMAIController__015d8e60 : public ARBMAIController
-{
-	UBOOL eventIsInBehaviourControlled();
-};
 
 // @baa 0x015d8e60
 /* RBMAIController.IsInBehaviourControlled script event: the generated glue, out of line here. */
-UBOOL ARBMAIController__015d8e60::eventIsInBehaviourControlled()
+UBOOL ARBMAIController::eventIsInBehaviourControlled()
 {
 	struct RBMAIController_eventIsInBehaviourControlled_Parms
 	{
@@ -182,14 +150,10 @@ UBOOL ARBMAIController__015d8e60::eventIsInBehaviourControlled()
 
 extern FName g_026e29bc;
 	/* BatmanSeenEventUpdateVal */
-struct ARBMAIManager_ : public ARBMAIManager
-{
-	void eventBatmanSeenEventUpdateVal(UBOOL Seen);
-};
 
 // @baa 0x015d8fe0
 /* RBMAIManager.BatmanSeenEventUpdateVal script event: the generated glue, out of line here. */
-void ARBMAIManager_::eventBatmanSeenEventUpdateVal(UBOOL Seen)
+void ARBMAIManager::eventBatmanSeenEventUpdateVal(UBOOL Seen)
 {
 	struct RBMAIManager_eventBatmanSeenEventUpdateVal_Parms
 	{
@@ -201,14 +165,10 @@ void ARBMAIManager_::eventBatmanSeenEventUpdateVal(UBOOL Seen)
 
 extern FName g_026e27c8;
 	/* IsAnyoneAttacking */
-struct ARBMCombatManager_ : public ARBMCombatManager
-{
-	UBOOL eventIsAnyoneAttacking();
-};
 
 // @baa 0x015d9070
 /* RBMCombatManager.IsAnyoneAttacking script event: the generated glue, out of line here. */
-UBOOL ARBMCombatManager_::eventIsAnyoneAttacking()
+UBOOL ARBMCombatManager::eventIsAnyoneAttacking()
 {
 	struct RBMCombatManager_eventIsAnyoneAttacking_Parms
 	{
@@ -221,14 +181,10 @@ UBOOL ARBMCombatManager_::eventIsAnyoneAttacking()
 
 extern FName g_026e35e0;
 	/* CanDoMoveCheck */
-struct ARBMCombatManager__015d90e0 : public ARBMCombatManager
-{
-	UBOOL eventCanDoMoveCheck(class ARPawnCombat* TestPawn);
-};
 
 // @baa 0x015d90e0
 /* RBMCombatManager.CanDoMoveCheck script event: the generated glue, out of line here. */
-UBOOL ARBMCombatManager__015d90e0::eventCanDoMoveCheck(class ARPawnCombat* TestPawn)
+UBOOL ARBMCombatManager::eventCanDoMoveCheck(class ARPawnCombat* TestPawn)
 {
 	struct RBMCombatManager_eventCanDoMoveCheck_Parms
 	{
@@ -243,14 +199,10 @@ UBOOL ARBMCombatManager__015d90e0::eventCanDoMoveCheck(class ARPawnCombat* TestP
 
 extern FName g_026e3154;
 	/* IsCombatPaused */
-struct ARBMCombatManager__015d9130 : public ARBMCombatManager
-{
-	UBOOL eventIsCombatPaused();
-};
 
 // @baa 0x015d9130
 /* RBMCombatManager.IsCombatPaused script event: the generated glue, out of line here. */
-UBOOL ARBMCombatManager__015d9130::eventIsCombatPaused()
+UBOOL ARBMCombatManager::eventIsCombatPaused()
 {
 	struct RBMCombatManager_eventIsCombatPaused_Parms
 	{
@@ -263,14 +215,10 @@ UBOOL ARBMCombatManager__015d9130::eventIsCombatPaused()
 
 extern FName g_026e2a68;
 	/* GetNavSearchIndex */
-struct URBMRoomAIState_ : public URBMRoomAIState
-{
-	INT eventGetNavSearchIndex(class ARBMAIController* Searcher);
-};
 
 // @baa 0x015d91e0
 /* RBMRoomAIState.GetNavSearchIndex script event: the generated glue, out of line here. */
-INT URBMRoomAIState_::eventGetNavSearchIndex(class ARBMAIController* Searcher)
+INT URBMRoomAIState::eventGetNavSearchIndex(class ARBMAIController* Searcher)
 {
 	struct RBMRoomAIState_eventGetNavSearchIndex_Parms
 	{
@@ -285,14 +233,10 @@ INT URBMRoomAIState_::eventGetNavSearchIndex(class ARBMAIController* Searcher)
 
 extern FName g_026e2dd4;
 	/* GetHostileCount */
-struct URBMRoomAIState__015d9230 : public URBMRoomAIState
-{
-	INT eventGetHostileCount();
-};
 
 // @baa 0x015d9230
 /* RBMRoomAIState.GetHostileCount script event: the generated glue, out of line here. */
-INT URBMRoomAIState__015d9230::eventGetHostileCount()
+INT URBMRoomAIState::eventGetHostileCount()
 {
 	struct RBMRoomAIState_eventGetHostileCount_Parms
 	{
@@ -305,14 +249,10 @@ INT URBMRoomAIState__015d9230::eventGetHostileCount()
 
 extern FName g_026e3384;
 	/* UpdateAlert */
-struct UAlertInstance_ : public UAlertInstance
-{
-	void eventUpdateAlert(FVector NewLocation, BYTE NewType, FLOAT BackDateTime);
-};
 
 // @baa 0x015d9300
 /* AlertInstance.UpdateAlert script event: the generated glue, out of line here. */
-void UAlertInstance_::eventUpdateAlert(FVector NewLocation, BYTE NewType, FLOAT BackDateTime)
+void UAlertInstance::eventUpdateAlert(FVector NewLocation, BYTE NewType, FLOAT BackDateTime)
 {
 	struct AlertInstance_eventUpdateAlert_Parms
 	{
@@ -328,14 +268,10 @@ void UAlertInstance_::eventUpdateAlert(FVector NewLocation, BYTE NewType, FLOAT 
 
 extern FName g_026e382c;
 	/* StopMovementOverlay */
-struct URBMBehaviour_MoveToJokerInChair_ : public URBMBehaviour_MoveToJokerInChair
-{
-	void eventStopMovementOverlay(class ARPawnCharacter* P);
-};
 
 // @baa 0x015d9b60
 /* RBMBehaviour_MoveToJokerInChair.StopMovementOverlay script event: the generated glue, out of line here. */
-void URBMBehaviour_MoveToJokerInChair_::eventStopMovementOverlay(class ARPawnCharacter* P)
+void URBMBehaviour_MoveToJokerInChair::eventStopMovementOverlay(class ARPawnCharacter* P)
 {
 	struct RBMBehaviour_MoveToJokerInChair_eventStopMovementOverlay_Parms
 	{
@@ -347,14 +283,10 @@ void URBMBehaviour_MoveToJokerInChair_::eventStopMovementOverlay(class ARPawnCha
 
 extern FName g_026e37a0;
 	/* PlayEvent */
-struct URBMBehaviour_IdleWithPlannarProp_ : public URBMBehaviour_IdleWithPlannarProp
-{
-	void eventPlayEvent(INT EventIndex);
-};
 
 // @baa 0x015fb180
 /* RBMBehaviour_IdleWithPlannarProp.PlayEvent script event: the generated glue, out of line here. */
-void URBMBehaviour_IdleWithPlannarProp_::eventPlayEvent(INT EventIndex)
+void URBMBehaviour_IdleWithPlannarProp::eventPlayEvent(INT EventIndex)
 {
 	struct RBMBehaviour_IdleWithPlannarProp_eventPlayEvent_Parms
 	{
@@ -366,14 +298,10 @@ void URBMBehaviour_IdleWithPlannarProp_::eventPlayEvent(INT EventIndex)
 
 extern FName g_026e2ca8;
 	/* PlayBatmanAnim */
-struct URBMBehaviour_MoveToBatmanInChair_ : public URBMBehaviour_MoveToBatmanInChair
-{
-	void eventPlayBatmanAnim(INT AnimNo);
-};
 
 // @baa 0x015fb690
 /* RBMBehaviour_MoveToBatmanInChair.PlayBatmanAnim script event: the generated glue, out of line here. */
-void URBMBehaviour_MoveToBatmanInChair_::eventPlayBatmanAnim(INT AnimNo)
+void URBMBehaviour_MoveToBatmanInChair::eventPlayBatmanAnim(INT AnimNo)
 {
 	struct RBMBehaviour_MoveToBatmanInChair_eventPlayBatmanAnim_Parms
 	{
@@ -385,14 +313,10 @@ void URBMBehaviour_MoveToBatmanInChair_::eventPlayBatmanAnim(INT AnimNo)
 
 extern FName g_026e3a64;
 	/* PlayHarleyAnim */
-struct URBMBehaviour_MoveToBatmanInChair__015fb6d0 : public URBMBehaviour_MoveToBatmanInChair
-{
-	void eventPlayHarleyAnim(INT AnimNo);
-};
 
 // @baa 0x015fb6d0
 /* RBMBehaviour_MoveToBatmanInChair.PlayHarleyAnim script event: the generated glue, out of line here. */
-void URBMBehaviour_MoveToBatmanInChair__015fb6d0::eventPlayHarleyAnim(INT AnimNo)
+void URBMBehaviour_MoveToBatmanInChair::eventPlayHarleyAnim(INT AnimNo)
 {
 	struct RBMBehaviour_MoveToBatmanInChair_eventPlayHarleyAnim_Parms
 	{
@@ -404,14 +328,10 @@ void URBMBehaviour_MoveToBatmanInChair__015fb6d0::eventPlayHarleyAnim(INT AnimNo
 
 extern FName g_026e38ec;
 	/* PlayJokerAnim */
-struct URBMBehaviour_MoveToJokerInChair__015fb960 : public URBMBehaviour_MoveToJokerInChair
-{
-	void eventPlayJokerAnim(INT AnimNum);
-};
 
 // @baa 0x015fb960
 /* RBMBehaviour_MoveToJokerInChair.PlayJokerAnim script event: the generated glue, out of line here. */
-void URBMBehaviour_MoveToJokerInChair__015fb960::eventPlayJokerAnim(INT AnimNum)
+void URBMBehaviour_MoveToJokerInChair::eventPlayJokerAnim(INT AnimNum)
 {
 	struct RBMBehaviour_MoveToJokerInChair_eventPlayJokerAnim_Parms
 	{
@@ -423,56 +343,40 @@ void URBMBehaviour_MoveToJokerInChair__015fb960::eventPlayJokerAnim(INT AnimNum)
 
 extern FName g_026e3854;
 	/* TriggerPawnActivatedEvent */
-struct ARBMAIController__015d8d60 : public ARBMAIController
-{
-	void eventTriggerPawnActivatedEvent();
-};
 
 // @baa 0x015d8d60
 /* RBMAIController.TriggerPawnActivatedEvent script event: the generated glue, out of line here. */
-void ARBMAIController__015d8d60::eventTriggerPawnActivatedEvent()
+void ARBMAIController::eventTriggerPawnActivatedEvent()
 {
 	ProcessEvent(FindFunctionChecked(g_026e3854), NULL);
 }
 
 extern FName g_026e3994;
 	/* BatmanSeenEvent */
-struct ARBMAIManager__015d8fb0 : public ARBMAIManager
-{
-	void eventBatmanSeenEvent();
-};
 
 // @baa 0x015d8fb0
 /* RBMAIManager.BatmanSeenEvent script event: the generated glue, out of line here. */
-void ARBMAIManager__015d8fb0::eventBatmanSeenEvent()
+void ARBMAIManager::eventBatmanSeenEvent()
 {
 	ProcessEvent(FindFunctionChecked(g_026e3994), NULL);
 }
 
 extern FName g_026e3770;
 	/* CombatSuccessTriggered */
-struct ARBMCombatManager__015d90b0 : public ARBMCombatManager
-{
-	void eventCombatSuccessTriggered();
-};
 
 // @baa 0x015d90b0
 /* RBMCombatManager.CombatSuccessTriggered script event: the generated glue, out of line here. */
-void ARBMCombatManager__015d90b0::eventCombatSuccessTriggered()
+void ARBMCombatManager::eventCombatSuccessTriggered()
 {
 	ProcessEvent(FindFunctionChecked(g_026e3770), NULL);
 }
 
 extern FName g_026e28c8;
 	/* AddToBehaviourHistory */
-struct ARBMAIController__015eef10 : public ARBMAIController
-{
-	void eventAddToBehaviourHistory(const FString& BehaviourInfoString);
-};
 
 // @baa 0x015eef10
 /* RBMAIController.AddToBehaviourHistory script event: the generated glue, out of line here. */
-void ARBMAIController__015eef10::eventAddToBehaviourHistory(const FString& BehaviourInfoString)
+void ARBMAIController::eventAddToBehaviourHistory(const FString& BehaviourInfoString)
 {
 	struct RBMAIController_eventAddToBehaviourHistory_Parms
 	{
@@ -484,14 +388,10 @@ void ARBMAIController__015eef10::eventAddToBehaviourHistory(const FString& Behav
 
 extern FName g_026e3310;
 	/* CanDoIdleConfigLOSCheck */
-struct ARBMAIManager__015fb0e0 : public ARBMAIManager
-{
-	UBOOL eventCanDoIdleConfigLOSCheck(class ARBMAIController* TestController);
-};
 
 // @baa 0x015fb0e0
 /* RBMAIManager.CanDoIdleConfigLOSCheck script event: the generated glue, out of line here. */
-UBOOL ARBMAIManager__015fb0e0::eventCanDoIdleConfigLOSCheck(class ARBMAIController* TestController)
+UBOOL ARBMAIManager::eventCanDoIdleConfigLOSCheck(class ARBMAIController* TestController)
 {
 	struct RBMAIManager_eventCanDoIdleConfigLOSCheck_Parms
 	{
@@ -506,182 +406,130 @@ UBOOL ARBMAIManager__015fb0e0::eventCanDoIdleConfigLOSCheck(class ARBMAIControll
 
 extern FName g_026e3304;
 	/* FinishedStalling */
-struct URBMBehaviour_IdleWithPlannarProp__015fb1c0 : public URBMBehaviour_IdleWithPlannarProp
-{
-	void eventFinishedStalling();
-};
 
 // @baa 0x015fb1c0
 /* RBMBehaviour_IdleWithPlannarProp.FinishedStalling script event: the generated glue, out of line here. */
-void URBMBehaviour_IdleWithPlannarProp__015fb1c0::eventFinishedStalling()
+void URBMBehaviour_IdleWithPlannarProp::eventFinishedStalling()
 {
 	ProcessEvent(FindFunctionChecked(g_026e3304), NULL);
 }
 
 extern FName g_026e3408;
 	/* NewMovementPoint */
-struct URBMBehaviour_MoveToGroup_ : public URBMBehaviour_MoveToGroup
-{
-	void eventNewMovementPoint();
-};
 
 // @baa 0x015fb510
 /* RBMBehaviour_MoveToGroup.NewMovementPoint script event: the generated glue, out of line here. */
-void URBMBehaviour_MoveToGroup_::eventNewMovementPoint()
+void URBMBehaviour_MoveToGroup::eventNewMovementPoint()
 {
 	ProcessEvent(FindFunctionChecked(g_026e3408), NULL);
 }
 
 extern FName g_026e2eb0;
 	/* DisableInputLines */
-struct URBMBehaviour_MoveToGroup__015fb540 : public URBMBehaviour_MoveToGroup
-{
-	void eventDisableInputLines();
-};
 
 // @baa 0x015fb540
 /* RBMBehaviour_MoveToGroup.DisableInputLines script event: the generated glue, out of line here. */
-void URBMBehaviour_MoveToGroup__015fb540::eventDisableInputLines()
+void URBMBehaviour_MoveToGroup::eventDisableInputLines()
 {
 	ProcessEvent(FindFunctionChecked(g_026e2eb0), NULL);
 }
 
 extern FName g_026e2604;
 	/* HideBMHead */
-struct URBMBehaviour_MoveToBatmanInChair__015fb710 : public URBMBehaviour_MoveToBatmanInChair
-{
-	void eventHideBMHead();
-};
 
 // @baa 0x015fb710
 /* RBMBehaviour_MoveToBatmanInChair.HideBMHead script event: the generated glue, out of line here. */
-void URBMBehaviour_MoveToBatmanInChair__015fb710::eventHideBMHead()
+void URBMBehaviour_MoveToBatmanInChair::eventHideBMHead()
 {
 	ProcessEvent(FindFunctionChecked(g_026e2604), NULL);
 }
 
 extern FName g_026e2af8;
 	/* CheckAnims */
-struct URBMBehaviour_MoveToBatmanInChair__015fb740 : public URBMBehaviour_MoveToBatmanInChair
-{
-	void eventCheckAnims();
-};
 
 // @baa 0x015fb740
 /* RBMBehaviour_MoveToBatmanInChair.CheckAnims script event: the generated glue, out of line here. */
-void URBMBehaviour_MoveToBatmanInChair__015fb740::eventCheckAnims()
+void URBMBehaviour_MoveToBatmanInChair::eventCheckAnims()
 {
 	ProcessEvent(FindFunctionChecked(g_026e2af8), NULL);
 }
 
 extern FName g_026e3908;
 	/* Jolt */
-struct URBMBehaviour_MoveToJokerInChair__015fb840 : public URBMBehaviour_MoveToJokerInChair
-{
-	void eventJolt();
-};
 
 // @baa 0x015fb840
 /* RBMBehaviour_MoveToJokerInChair.Jolt script event: the generated glue, out of line here. */
-void URBMBehaviour_MoveToJokerInChair__015fb840::eventJolt()
+void URBMBehaviour_MoveToJokerInChair::eventJolt()
 {
 	ProcessEvent(FindFunctionChecked(g_026e3908), NULL);
 }
 
 extern FName g_026e3208;
 	/* FrankEnd */
-struct URBMBehaviour_MoveToJokerInChair__015fb870 : public URBMBehaviour_MoveToJokerInChair
-{
-	void eventFrankEnd();
-};
 
 // @baa 0x015fb870
 /* RBMBehaviour_MoveToJokerInChair.FrankEnd script event: the generated glue, out of line here. */
-void URBMBehaviour_MoveToJokerInChair__015fb870::eventFrankEnd()
+void URBMBehaviour_MoveToJokerInChair::eventFrankEnd()
 {
 	ProcessEvent(FindFunctionChecked(g_026e3208), NULL);
 }
 
 extern FName g_026e3988;
 	/* FrankReact */
-struct URBMBehaviour_MoveToJokerInChair__015fb8a0 : public URBMBehaviour_MoveToJokerInChair
-{
-	void eventFrankReact();
-};
 
 // @baa 0x015fb8a0
 /* RBMBehaviour_MoveToJokerInChair.FrankReact script event: the generated glue, out of line here. */
-void URBMBehaviour_MoveToJokerInChair__015fb8a0::eventFrankReact()
+void URBMBehaviour_MoveToJokerInChair::eventFrankReact()
 {
 	ProcessEvent(FindFunctionChecked(g_026e3988), NULL);
 }
 
 extern FName g_026e25b4;
 	/* FrankSayQuiet */
-struct URBMBehaviour_MoveToJokerInChair__015fb8d0 : public URBMBehaviour_MoveToJokerInChair
-{
-	void eventFrankSayQuiet();
-};
 
 // @baa 0x015fb8d0
 /* RBMBehaviour_MoveToJokerInChair.FrankSayQuiet script event: the generated glue, out of line here. */
-void URBMBehaviour_MoveToJokerInChair__015fb8d0::eventFrankSayQuiet()
+void URBMBehaviour_MoveToJokerInChair::eventFrankSayQuiet()
 {
 	ProcessEvent(FindFunctionChecked(g_026e25b4), NULL);
 }
 
 extern FName g_026e39b8;
 	/* ThugsEnd */
-struct URBMBehaviour_MoveToJokerInChair__015fb900 : public URBMBehaviour_MoveToJokerInChair
-{
-	void eventThugsEnd();
-};
 
 // @baa 0x015fb900
 /* RBMBehaviour_MoveToJokerInChair.ThugsEnd script event: the generated glue, out of line here. */
-void URBMBehaviour_MoveToJokerInChair__015fb900::eventThugsEnd()
+void URBMBehaviour_MoveToJokerInChair::eventThugsEnd()
 {
 	ProcessEvent(FindFunctionChecked(g_026e39b8), NULL);
 }
 
 extern FName g_026e2fcc;
 	/* ThugsReact */
-struct URBMBehaviour_MoveToJokerInChair__015fb930 : public URBMBehaviour_MoveToJokerInChair
-{
-	void eventThugsReact();
-};
 
 // @baa 0x015fb930
 /* RBMBehaviour_MoveToJokerInChair.ThugsReact script event: the generated glue, out of line here. */
-void URBMBehaviour_MoveToJokerInChair__015fb930::eventThugsReact()
+void URBMBehaviour_MoveToJokerInChair::eventThugsReact()
 {
 	ProcessEvent(FindFunctionChecked(g_026e2fcc), NULL);
 }
 
 extern FName g_026e2794;
 	/* UpdateLinks */
-struct URBMBehaviourAutoStringUp_ : public URBMBehaviourAutoStringUp
-{
-	void eventUpdateLinks();
-};
 
 // @baa 0x015fbb60
 /* RBMBehaviourAutoStringUp.UpdateLinks script event: the generated glue, out of line here. */
-void URBMBehaviourAutoStringUp_::eventUpdateLinks()
+void URBMBehaviourAutoStringUp::eventUpdateLinks()
 {
 	ProcessEvent(FindFunctionChecked(g_026e2794), NULL);
 }
 
 extern FName g_026e284c;
 	/* BMGAME_CalcVisibilityFor */
-struct ARBMAIController__015d8d10 : public ARBMAIController
-{
-	BYTE eventCalcVisibilityFor(class AActor* A);
-};
 
 // @baa 0x015d8d10
 /* The script event's generated glue (BmGameClasses.h), out of line here. */
-BYTE ARBMAIController__015d8d10::eventCalcVisibilityFor(class AActor* A)
+BYTE ARBMAIController::eventCalcVisibilityFor(class AActor* A)
 {
 	struct RBMAIController_eventCalcVisibilityFor_Parms
 	{
@@ -696,14 +544,10 @@ BYTE ARBMAIController__015d8d10::eventCalcVisibilityFor(class AActor* A)
 
 extern FName g_026e2828;
 	/* BMGAME_AlertSeen */
-struct ARAlertEventCoordinator_ : public ARAlertEventCoordinator
-{
-	void eventAlertSeen(class ARBMAIController* Spotter);
-};
 
 // @baa 0x015d8ee0
 /* The script event's generated glue (BmGameClasses.h), out of line here. */
-void ARAlertEventCoordinator_::eventAlertSeen(class ARBMAIController* Spotter)
+void ARAlertEventCoordinator::eventAlertSeen(class ARBMAIController* Spotter)
 {
 	struct RAlertEventCoordinator_eventAlertSeen_Parms
 	{
@@ -715,14 +559,10 @@ void ARAlertEventCoordinator_::eventAlertSeen(class ARBMAIController* Spotter)
 
 extern FName g_026e3930;
 	/* BMGAME_AlertSuspected */
-struct ARAlertEventCoordinator__015d8f20 : public ARAlertEventCoordinator
-{
-	void eventAlertSuspected(class ARBMAIController* Suspectee, UBOOL bUpdateAlert);
-};
 
 // @baa 0x015d8f20
 /* The script event's generated glue (BmGameClasses.h), out of line here. */
-void ARAlertEventCoordinator__015d8f20::eventAlertSuspected(class ARBMAIController* Suspectee, UBOOL bUpdateAlert)
+void ARAlertEventCoordinator::eventAlertSuspected(class ARBMAIController* Suspectee, UBOOL bUpdateAlert)
 {
 	struct RAlertEventCoordinator_eventAlertSuspected_Parms
 	{
@@ -736,14 +576,10 @@ void ARAlertEventCoordinator__015d8f20::eventAlertSuspected(class ARBMAIControll
 
 extern FName g_026e36fc;
 	/* BMGAME_IsPlayingOverlay */
-struct URBMBehaviour_MoveToJokerInChair__015d9ba0 : public URBMBehaviour_MoveToJokerInChair
-{
-	UBOOL eventIsPlayingOverlay(class ARPawnCharacter* P, FOverlayId Id);
-};
 
 // @baa 0x015d9ba0
 /* The script event's generated glue (BmGameClasses.h), out of line here. */
-UBOOL URBMBehaviour_MoveToJokerInChair__015d9ba0::eventIsPlayingOverlay(class ARPawnCharacter* P, FOverlayId Id)
+UBOOL URBMBehaviour_MoveToJokerInChair::eventIsPlayingOverlay(class ARPawnCharacter* P, FOverlayId Id)
 {
 	struct RBMBehaviour_MoveToJokerInChair_eventIsPlayingOverlay_Parms
 	{
@@ -760,14 +596,10 @@ UBOOL URBMBehaviour_MoveToJokerInChair__015d9ba0::eventIsPlayingOverlay(class AR
 
 extern FName g_026e2dfc;
 	/* BMGAME_ChangePose */
-struct URBMBehaviour_MoveToJokerInChair__015d9c00 : public URBMBehaviour_MoveToJokerInChair
-{
-	void eventChangePose(class ARPawnCharacter* P, FName Stand, FName Weap);
-};
 
 // @baa 0x015d9c00
 /* The script event's generated glue (BmGameClasses.h), out of line here. */
-void URBMBehaviour_MoveToJokerInChair__015d9c00::eventChangePose(class ARPawnCharacter* P, FName Stand, FName Weap)
+void URBMBehaviour_MoveToJokerInChair::eventChangePose(class ARPawnCharacter* P, FName Stand, FName Weap)
 {
 	struct RBMBehaviour_MoveToJokerInChair_eventChangePose_Parms
 	{
@@ -783,14 +615,10 @@ void URBMBehaviour_MoveToJokerInChair__015d9c00::eventChangePose(class ARPawnCha
 
 extern FName g_026e2a90;
 	/* BMGAME_HasLOS */
-struct URBMBehaviour_IdleWithPlannarProp__015fb1f0 : public URBMBehaviour_IdleWithPlannarProp
-{
-	UBOOL eventHasLOS();
-};
 
 // @baa 0x015fb1f0
 /* The script event's generated glue (BmGameClasses.h), out of line here. */
-UBOOL URBMBehaviour_IdleWithPlannarProp__015fb1f0::eventHasLOS()
+UBOOL URBMBehaviour_IdleWithPlannarProp::eventHasLOS()
 {
 	struct RBMBehaviour_IdleWithPlannarProp_eventHasLOS_Parms
 	{
@@ -803,14 +631,10 @@ UBOOL URBMBehaviour_IdleWithPlannarProp__015fb1f0::eventHasLOS()
 
 extern FName g_026e3534;
 	/* BMGAME_GetEventCoordinator */
-struct UAlertInstance__015d92c0 : public UAlertInstance
-{
-	class ARAlertEventCoordinator* eventGetEventCoordinator();
-};
 
 // @baa 0x015d92c0
 /* The script event's generated glue (BmGameClasses.h), out of line here. */
-class ARAlertEventCoordinator* UAlertInstance__015d92c0::eventGetEventCoordinator()
+class ARAlertEventCoordinator* UAlertInstance::eventGetEventCoordinator()
 {
 	struct AlertInstance_eventGetEventCoordinator_Parms
 	{
@@ -823,28 +647,20 @@ class ARAlertEventCoordinator* UAlertInstance__015d92c0::eventGetEventCoordinato
 
 extern FName g_026e3544;
 	/* BMGAME_TriggerCombat */
-struct URBMBehaviour_IdleWithPlannarProp__015fb150 : public URBMBehaviour_IdleWithPlannarProp
-{
-	void eventTriggerCombat();
-};
 
 // @baa 0x015fb150
 /* The script event's generated glue (BmGameClasses.h), out of line here. */
-void URBMBehaviour_IdleWithPlannarProp__015fb150::eventTriggerCombat()
+void URBMBehaviour_IdleWithPlannarProp::eventTriggerCombat()
 {
 	ProcessEvent(FindFunctionChecked(g_026e3544), NULL);
 }
 
 extern FName g_026e28b0;
 	/* BMGAME_DisconnectGuard */
-struct URBMBehaviour_MoveToBatmanInChair__015fb650 : public URBMBehaviour_MoveToBatmanInChair
-{
-	void eventDisconnectGuard(INT guardNo);
-};
 
 // @baa 0x015fb650
 /* The script event's generated glue (BmGameClasses.h), out of line here. */
-void URBMBehaviour_MoveToBatmanInChair__015fb650::eventDisconnectGuard(INT guardNo)
+void URBMBehaviour_MoveToBatmanInChair::eventDisconnectGuard(INT guardNo)
 {
 	struct RBMBehaviour_MoveToBatmanInChair_eventDisconnectGuard_Parms
 	{
@@ -855,14 +671,10 @@ void URBMBehaviour_MoveToBatmanInChair__015fb650::eventDisconnectGuard(INT guard
 }
 
 	/* BMGAME_DisconnectGuard */
-struct URBMBehaviour_MoveToJokerInChair__015fb9a0 : public URBMBehaviour_MoveToJokerInChair
-{
-	void eventDisconnectGuard(INT guardNo);
-};
 
 // @baa 0x015fb9a0
 /* The script event's generated glue (BmGameClasses.h), out of line here. */
-void URBMBehaviour_MoveToJokerInChair__015fb9a0::eventDisconnectGuard(INT guardNo)
+void URBMBehaviour_MoveToJokerInChair::eventDisconnectGuard(INT guardNo)
 {
 	struct RBMBehaviour_MoveToJokerInChair_eventDisconnectGuard_Parms
 	{

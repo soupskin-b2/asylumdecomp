@@ -4,14 +4,9 @@
 #include "ue3/Classes.h"
 #include "ue3/Script.h"
 
-struct AActor_ : public AActor
-{
-	UBOOL PlayerCanSeeMe();
-	void execPlayerCanSeeMe(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00c82ec0
-void AActor_::execPlayerCanSeeMe( FFrame& Stack, RESULT_DECL )
+void AActor::execPlayerCanSeeMe( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	*(UBOOL*)Result = PlayerCanSeeMe();
@@ -70,14 +65,9 @@ void APlayerController__00c872f0::execHasClientLoadedCurrentWorld( FFrame& Stack
 	*(UBOOL*)Result = HasClientLoadedCurrentWorld();
 }
 
-struct APlayerController__00c87630 : public APlayerController
-{
-	void ClientFlushLevelStreaming();
-	void execClientFlushLevelStreaming(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00c87630
-void APlayerController__00c87630::execClientFlushLevelStreaming( FFrame& Stack, RESULT_DECL )
+void APlayerController::execClientFlushLevelStreaming( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	ClientFlushLevelStreaming();
@@ -298,24 +288,12 @@ void g_caller()
     Actor.execGetDestination(*(FFrame*)0, 0);
 }
 
-/* AController::GetFocalPoint (007ad7e0) isn't declared in the kit. */
-struct AController_ : public AController
-{
-    FVector GetFocalPoint();
-};
-
 // @baa 0x00c844c0
 void AController::execGetFocalPoint(FFrame& Stack, RESULT_DECL)
 {
     P_FINISH;
-    *(FVector*)Result = ((AController_*)this)->GetFocalPoint();
+    *(FVector*)Result = ((AController*)this)->GetFocalPoint();
 }
-
-/* AController::GetDestinationPosition (007ada10) isn't declared in the kit. */
-struct AController__00c845c0 : public AController
-{
-    FVector GetDestinationPosition();
-};
 
 // @baa 0x00c845c0
 void AController::execGetDestinationPosition(FFrame& Stack, RESULT_DECL)
@@ -337,12 +315,6 @@ void AActor::execGetPackageGuid(FFrame& Stack, RESULT_DECL)
     P_FINISH;
     *(FGuid*)Result = this->GetPackageGuid(PackageName);
 }
-
-/* AController::GetBasedPosition (0x7ad610) isn't declared in the kit. */
-struct AController__00c84350 : public AController
-{
-    FVector GetBasedPosition(FBasedPosition BP);
-};
 
 // @baa 0x00c84350
 void AController::execGetBasedPosition(FFrame& Stack, RESULT_DECL)
@@ -534,11 +506,6 @@ struct FVector_ : public FVector
 	FVector_(FLOAT InX, FLOAT InY, FLOAT InZ) { X = InX; Y = InY; Z = InZ; }
 };
 
-/* Kit gaps: CreateAudioComponent (008a7ad0) isn't declared (names from the exe's native table). */
-struct AActor__00c82c40 : public AActor
-{
-	class UAudioComponent* CreateAudioComponent(class USoundCue* InSoundCue, UBOOL bPlay, UBOOL bStopWhenOwnerDestroyed, UBOOL bUseLocation, FVector SourceLocation, UBOOL bAttachToSelf);	/* 0x008a7ad0 */
-};
 
 // @baa 0x00c82c40
 void AActor::execCreateAudioComponent(FFrame& Stack, RESULT_DECL)

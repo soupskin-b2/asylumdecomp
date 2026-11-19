@@ -386,15 +386,10 @@ INT UOnlineProfileSettings::GetProfileSettingMappingType(INT ProfileSettingId, B
 
 /* Kit gap: the script natives FindProfileSettingIndex / FindProfileMappingIndex (execs 00c8db10 / 00c8db80) aren't
  * declared. */
-struct UOnlineProfileSettings_ : public UOnlineProfileSettings
-{
-	INT FindProfileSettingIndex(INT ProfileSettingId) const;
-	INT FindProfileMappingIndex(INT ProfileSettingId) const;
-};
 
 // @baa 0x00d72590
 /* The index of a profile setting in ProfileSettings; INDEX_NONE when there's none. */
-INT UOnlineProfileSettings_::FindProfileSettingIndex(INT ProfileSettingId) const
+INT UOnlineProfileSettings::FindProfileSettingIndex(INT ProfileSettingId) const
 {
 	INT Result = INDEX_NONE;
 	for (INT Index = 0; Index < ProfileSettings.Num(); Index++)
@@ -410,7 +405,7 @@ INT UOnlineProfileSettings_::FindProfileSettingIndex(INT ProfileSettingId) const
 
 // @baa 0x00d72610
 /* The index of a profile setting's metadata in ProfileMappings; INDEX_NONE when there's none. */
-INT UOnlineProfileSettings_::FindProfileMappingIndex(INT ProfileSettingId) const
+INT UOnlineProfileSettings::FindProfileMappingIndex(INT ProfileSettingId) const
 {
 	INT Result = INDEX_NONE;
 	for (INT Index = 0; Index < ProfileMappings.Num(); Index++)
@@ -665,16 +660,10 @@ INT UOnlineProfileSettings::SetProfileSettingValueByName(FName ProfileSettingNam
 }
 
 extern FName g_026c438c;
-	/* NotifySettingValueUpdated */
-/* Kit gap: the delegate's generated glue (EngineClasses.h) isn't declared. */
-struct UOnlineProfileSettings__00d67120 : public UOnlineProfileSettings
-{
-	void delegateNotifySettingValueUpdated(FName SettingName);
-};
 
 // @baa 0x00d67120
 /* The script delegate's generated glue, out of line here. */
-void UOnlineProfileSettings__00d67120::delegateNotifySettingValueUpdated(FName SettingName)
+void UOnlineProfileSettings::delegateNotifySettingValueUpdated(FName SettingName)
 {
 	struct OnlineProfileSettings_eventNotifySettingValueUpdated_Parms
 	{

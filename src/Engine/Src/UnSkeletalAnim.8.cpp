@@ -57,15 +57,11 @@ struct FNameE
 
 /* Adds a fixer for a base/twist bone pair if the mesh has both bones (0092b980). */
 void AddTwistBoneFixer(USkeletalMeshComponent* SkelComp, FNameE BaseBoneName, FNameE TwistBoneName, TArray<FTwistBoneFixer>& Fixers);
-struct FTwistBoneFixers_ : public FTwistBoneFixers
-{
-	void Init(USkeletalMeshComponent* SkelComp);
-};
 
 // @baa 0x0092ba00
 /* Finds the arm and leg twist bones (meshes that copy a parent's pose have none of their own) and the
  * bones that follow them. */
-void FTwistBoneFixers_::Init(USkeletalMeshComponent* SkelComp)
+void FTwistBoneFixers::Init(USkeletalMeshComponent* SkelComp)
 {
 	Ok = FALSE;
 	Fixers.Empty();

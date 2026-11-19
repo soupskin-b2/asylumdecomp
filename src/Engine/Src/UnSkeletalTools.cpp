@@ -985,10 +985,6 @@ struct FStaticLODModel
 /* FRenderCommandFence::BeginFence (RenderingThread.cpp, 0x00719c60); the kit has USkeletalMesh::ReleaseResourcesFence as a bare INT */
 
 /* USkeletalMesh::ReleaseResources isn't declared in Classes.h */
-struct USkeletalMesh_ : public USkeletalMesh
-{
-    void ReleaseResources();
-};
 
 // @baa 0x0094bca0
 /* the LOD's index and GPU-skin vertex buffers */
@@ -999,7 +995,7 @@ inline void FStaticLODModel::ReleaseResources()
 }
 
 /* start releasing the render resources of every LOD, with a fence to tell when that is done */
-void USkeletalMesh_::ReleaseResources()
+void USkeletalMesh::ReleaseResources()
 {
     for (INT LODIndex = 0; LODIndex < ((TIndirectArray<FStaticLODModel>&)LODModels).Num(); LODIndex++)
     {

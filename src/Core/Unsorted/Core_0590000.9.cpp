@@ -11,13 +11,9 @@ extern UProperty* g_026667d0;
 extern UObject* g_026667ec;
 	/* GPropObject */
 enum { RUC_ArrayLengthSet = 0x01 };
-struct UObject_ : public UObject
-{
-	void execDynArrayLength(FFrame& Stack, RESULT_DECL);
-};
 
 // @baa 0x00590150
-void UObject_::execDynArrayLength(FFrame& Stack, RESULT_DECL)
+void UObject::execDynArrayLength(FFrame& Stack, RESULT_DECL)
 {
 	g_026667d0 = NULL;
 	Stack.Step(this, NULL);

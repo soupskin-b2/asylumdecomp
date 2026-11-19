@@ -19,15 +19,11 @@ struct FVector_ : public FVector
 /* Kit gap: this grapple-pull helper isn't declared. */
 static FORCEINLINE FVector_ operator*(FLOAT Scale, const FVector_& V) { return FVector_(V.X * Scale, V.Y * Scale, V.Z * Scale); }
 
-struct ARPlayerController_ : public ARPlayerController
-{
-	void sub_01614010(const FVector& NewDirection, FLOAT DeltaTime);
-};
 
 // @baa 0x01614010
 /* Turns GrapplePullDirection towards NewDirection at up to 2 units/s and builds up GrapplePullStrength
  * (10/s per unit of change, capped at 1). */
-void ARPlayerController_::sub_01614010(const FVector& NewDirection, FLOAT DeltaTime)
+void ARPlayerController::sub_01614010(const FVector& NewDirection, FLOAT DeltaTime)
 {
 	FVector_ Delta = (const FVector_&)NewDirection - GrapplePullDirection;
 	FLOAT Dist = Delta.Size();

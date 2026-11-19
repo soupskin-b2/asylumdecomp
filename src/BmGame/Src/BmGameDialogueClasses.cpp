@@ -302,13 +302,9 @@ UBOOL URSeqAct_PlayTVSequenceSingleLine::HasParentClassChanged() const
 
 extern FName g_026e328c;
  /* VoAStartSound */
-struct URSeqAct_VoiceOfArkham_ : public URSeqAct_VoiceOfArkham
-{
-    void eventVoAStartSound();
-};
 
 /* RSeqAct_VoiceOfArkham.VoAStartSound script event: the generated glue (no parameters). */
-inline void URSeqAct_VoiceOfArkham_::eventVoAStartSound()
+inline void URSeqAct_VoiceOfArkham::eventVoAStartSound()
 {
     ProcessEvent(FindFunctionChecked(g_026e328c), NULL);
 }
@@ -319,7 +315,7 @@ UBOOL URSeqAct_VoiceOfArkham::UpdateOp(FLOAT DeltaTime)
 {
     if (InputLinks(0).bHasImpulse)
     {
-        ((URSeqAct_VoiceOfArkham_*)this)->eventVoAStartSound();
+        ((URSeqAct_VoiceOfArkham*)this)->eventVoAStartSound();
     }
     return FALSE;
 }
