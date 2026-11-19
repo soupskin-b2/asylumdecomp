@@ -102,7 +102,7 @@ void C_014fd170::sub_014fd230() {}
 int sub_005c7a70(...);
 int sub_014fd180(void);
 // @baa 0x014fd230
-undefined4 UGenericBrowserType_GFxMovie::sub_014fd230(byte param_2)
+undefined4 UGFxMovieFactory::sub_014fd230(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

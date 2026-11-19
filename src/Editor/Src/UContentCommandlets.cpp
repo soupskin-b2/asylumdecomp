@@ -2713,7 +2713,7 @@ UChangePrefabSequenceClassCommandlet::UChangePrefabSequenceClassCommandlet()
 // @baa 0x0107a0a0
 int sub_0107a0a0(void);
 // @baa 0x0107a100
-undefined4 UResavePackagesCommandlet::sub_0107a100(byte param_2)
+undefined4 UChangePrefabSequenceClassCommandlet::sub_0107a100(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

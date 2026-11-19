@@ -17279,7 +17279,6 @@ struct USoundCue : public UObject {
     void execGetDistanceProperties(FFrame& Stack, RESULT_DECL); /* 0x00c8ee80 */
     /* other member functions */
     UINT sub_00cdbae0(BYTE); /* 0x00cdbae0 */
-    UINT sub_00cdbd90(BYTE); /* 0x00cdbd90 */
     /* registered size 0xd8 */
 };
 
@@ -21542,7 +21541,6 @@ struct UInput : public UInteraction {
     INT sub_00d8bcf0(); /* 0x00d8bcf0 */
     UINT sub_00d8bdf0(BYTE); /* 0x00d8bdf0 */
     UINT* sub_00d8be20(); /* 0x00d8be20 */
-    UINT sub_00d8bfb0(BYTE); /* 0x00d8bfb0 */
     UINT* sub_00e28410(); /* 0x00e28410 */
     UINT* sub_00f962f0(); /* 0x00f962f0 */
     UINT* sub_01422120(); /* 0x01422120 */
@@ -25254,7 +25252,6 @@ struct UGameViewportClient : public UObject, public FViewportClient, public FExe
     void GetViewportSize(FVector2D& out_ViewportSize); /* 0x00889880 */
     UBOOL IsFullScreenViewport(); /* 0x008898e0 */
     UINT sub_0089f7b0(BYTE); /* 0x0089f7b0 */
-    UINT sub_0089f930(BYTE); /* 0x0089f930 */
     UINT* sub_00e67de0(); /* 0x00e67de0 */
     UINT* sub_016e5820(); /* 0x016e5820 */
     /* registered size 0xf8 */
@@ -27542,6 +27539,7 @@ struct ULocalPlayer : public UPlayer {
     /* other member functions */
     void RebuildPlayerPostProcessChain(); /* 0x0089dea0 */
     UINT* sub_00ed7f30(); /* 0x00ed7f30 */
+    UINT sub_0089f930(BYTE); /* 0x0089f930 */
     /* registered size 0x1ec */
     /* FExec */
     virtual UBOOL Exec(const TCHAR* Cmd, FOutputDevice& Ar); /* 0x008a39f0 */
@@ -30106,7 +30104,6 @@ struct USettings : public UObject {
     UINT sub_00d67e00(double); /* 0x00d67e00 */
     INT sub_00d88680(); /* 0x00d88680 */
     void sub_00d88690(); /* 0x00d88690 */
-    UINT sub_00d88980(BYTE); /* 0x00d88980 */
     /* registered size 0x78 */
 };
 
@@ -30458,6 +30455,7 @@ struct UOnlineSubsystem : public UObject, public FTickableObject {
     INT GetBuildUniqueId(); /* 0x00d67980 */
     UINT* sub_00e3f620(); /* 0x00e3f620 */
     UINT* sub_00e995b0(); /* 0x00e995b0 */
+    UINT sub_00d88980(BYTE); /* 0x00d88980 */
     /* registered size 0xc0 */
     /* FTickableObject */
     virtual void Tick(FLOAT DeltaTime); /* 0x00d88660 */
@@ -38014,6 +38012,7 @@ struct USoundNodeWave : public USoundNode {
     void sub_0129d670(INT); /* 0x0129d670 */
     UINT sub_012a23b0(BYTE); /* 0x012a23b0 */
     UINT sub_014c8a10(BYTE); /* 0x014c8a10 */
+    UINT sub_00cdbd90(BYTE); /* 0x00cdbd90 */
     /* registered size 0x1f8 */
 };
 
@@ -38664,7 +38663,6 @@ struct UTerrainLayerSetup : public UObject {
     void SetMaterials(const FTerrainFilteredMaterialArray& NewMaterials); /* 0x009a9810 */
     UINT sub_009861f0(); /* 0x009861f0 */
     INT sub_00989d80(UINT); /* 0x00989d80 */
-    UINT sub_0098f710(UINT, INT); /* 0x0098f710 */
     /* registered size 0x3c */
 };
 
@@ -39615,6 +39613,7 @@ struct UUIInteraction : public UInteraction, public FExec, public FGlobalDataSto
     static INT sub_00d78350(INT ControllerId); /* 0x00d78350 */
     static UDataStoreClient* GetDataStoreClient(); /* 0x00d8dee0 */
     UBOOL PlayUISound( FName SoundCueName, INT PlayerIndex ); /* 0x00d78470 */
+    UINT sub_00d8bfb0(BYTE); /* 0x00d8bfb0 */
     /* registered size 0x1a0 */
     /* FCallbackEventDevice */
     virtual void Send(ECallbackEventType InType, FViewport* InViewport, UINT InMessage); /* 0x00d6c150 */
@@ -43799,6 +43798,7 @@ struct URAnimNode_Cape : public UAnimNodeBlendBase {
     UINT sub_01562420(); /* 0x01562420 */
     UINT GetCurrentCapeAnimNode(); /* 0x01579fb0 */
     FName GetNewCapeAnimName(); /* 0x0155cff0 */
+    UINT sub_01586c20(BYTE); /* 0x01586c20 */
     /* registered size 0x1d0 */
 };
 
@@ -60469,7 +60469,6 @@ struct URSeqAct_PrepareMapChangeFromURL : public USeqAct_Latent {
     virtual void Activated(); /* 0x174 */
     virtual void DeActivated(); /* 0x178 */
     /* other member functions */
-    UINT sub_01586c20(BYTE); /* 0x01586c20 */
     /* registered size 0xf4 */
 };
 
@@ -63481,7 +63480,6 @@ struct UAnimObjectFactory : public UFactory {
     virtual UObject* FactoryCreateText( UClass* InClass, UObject* InParent, FName InName, EObjectFlags Flags, UObject* Context, const TCHAR* Type, const TCHAR*& Buffer, const TCHAR* BufferEnd, FFeedbackContext* Warn ); /* 0x110 */
     /* other member functions */
     void sub_00f33420(); /* 0x00f33420 */
-    UINT sub_00f334d0(BYTE); /* 0x00f334d0 */
     void sub_00f33580(); /* 0x00f33580 */
     /* registered size 0x64 */
 };
@@ -64567,7 +64565,6 @@ struct UResavePackagesCommandlet : public UCommandlet {
     virtual INT Main(INT); /* 0x10c */
     /* other member functions */
     UINT sub_0107a010(BYTE); /* 0x0107a010 */
-    UINT sub_0107a100(BYTE); /* 0x0107a100 */
     /* registered size 0xc0 */
 };
 
@@ -64581,6 +64578,7 @@ struct UChangePrefabSequenceClassCommandlet : public UResavePackagesCommandlet {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT vf_118(INT, INT); /* 0x118 */
     virtual INT vf_11c(INT, INT); /* 0x11c */
+    UINT sub_0107a100(BYTE); /* 0x0107a100 */
     /* registered size 0xc0 */
 };
 
@@ -66827,6 +66825,7 @@ struct UGFxMovieFactory : public UFactory {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual UObject* FactoryCreateBinary( UClass* InClass, UObject* InParent, FName InName, EObjectFlags Flags, UObject* Context, const TCHAR* Type, const BYTE*& Buffer, const BYTE* BufferEnd, FFeedbackContext* Warn ); /* 0x114 */
+    UINT sub_014fd230(BYTE); /* 0x014fd230 */
     /* registered size 0x78 */
 };
 
@@ -67199,7 +67198,6 @@ struct UGenericBrowserType_GFxMovie : public UGenericBrowserType {
     virtual void DoubleClick(); /* 0x12c */
     /* other member functions */
     void sub_014fd170(); /* 0x014fd170 */
-    UINT sub_014fd230(BYTE); /* 0x014fd230 */
     /* registered size 0x4c */
 };
 
@@ -68052,7 +68050,6 @@ struct UKismetBindings : public UObject {
     INT sub_011167c0(); /* 0x011167c0 */
     INT sub_0118fff0(); /* 0x0118fff0 */
     INT sub_011925c0(); /* 0x011925c0 */
-    void sub_01194d40(); /* 0x01194d40 */
     void sub_011ba390(); /* 0x011ba390 */
     void sub_011ba3a0(); /* 0x011ba3a0 */
     void sub_011ba3b0(); /* 0x011ba3b0 */
@@ -68363,6 +68360,7 @@ struct ULinkerSave : public ULinker {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void BeginDestroy(); /* 0x020 */
+    UINT sub_005b3f50(BYTE); /* 0x005b3f50 */
     /* registered size 0x180 */
 };
 
@@ -70121,6 +70119,7 @@ struct UPrecompileShadersCommandlet : public UCommandlet {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
+    UINT sub_0110f570(BYTE); /* 0x0110f570 */
     /* registered size 0x88 */
 };
 
@@ -70582,8 +70581,6 @@ struct URFMODSoundFactory : public UFactory {
     virtual UObject* FactoryCreateBinary( UClass* InClass, UObject* InParent, FName InName, EObjectFlags Flags, UObject* Context, const TCHAR* Type, const BYTE*& Buffer, const BYTE* BufferEnd, FFeedbackContext* Warn ); /* 0x114 */
     /* other member functions */
     void sub_0110ed20(); /* 0x0110ed20 */
-    UINT sub_0110edd0(BYTE); /* 0x0110edd0 */
-    UINT sub_0110f570(BYTE); /* 0x0110f570 */
     /* registered size 0x64 */
 };
 
@@ -70729,6 +70726,7 @@ struct URReimportFMODSoundFactory : public URFMODSoundFactory {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
+    UINT sub_0110edd0(BYTE); /* 0x0110edd0 */
     /* registered size 0x6c */
 };
 
@@ -70851,7 +70849,6 @@ struct UReimportSkeletalMeshFactory : public USkeletalMeshFactory {
     /* other member functions */
     UINT sub_00f33790(BYTE); /* 0x00f33790 */
     void sub_00f33840(); /* 0x00f33840 */
-    UINT sub_00f338f0(BYTE); /* 0x00f338f0 */
     UINT* sub_00fb8890(UINT); /* 0x00fb8890 */
     /* registered size 0x78 */
 };
@@ -70883,6 +70880,7 @@ struct UReimportSoundFactory : public USoundFactory {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
+    UINT sub_00f338f0(BYTE); /* 0x00f338f0 */
     /* registered size 0x78 */
 };
 
@@ -70931,6 +70929,7 @@ struct UReimportTextureFactory : public UTextureFactory {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual UTexture2D* CreateTexture( UClass* Class, UObject* InParent, FName Name, EObjectFlags Flags ); /* 0x128 */
+    UINT sub_00f334d0(BYTE); /* 0x00f334d0 */
     /* registered size 0xb8 */
 };
 
@@ -71898,7 +71897,6 @@ struct UTexAligner : public UObject {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     /* other member functions */
     UINT sub_012a3410(BYTE); /* 0x012a3410 */
-    UINT sub_012abb70(BYTE); /* 0x012abb70 */
     UINT sub_012ac2c0(BYTE); /* 0x012ac2c0 */
     /* registered size 0x50 */
 };
@@ -71954,6 +71952,7 @@ struct UTexAlignerPlanar : public UTexAligner {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT vf_10c(); /* 0x10c */
     virtual void AlignSurf( ETexAlign InTexAlignType, UModel* InModel, FBspSurfIdx* InSurfIdx, FPoly* InPoly, FVector* InNormal ); /* 0x110 */
+    UINT sub_012abb70(BYTE); /* 0x012abb70 */
     /* registered size 0x50 */
 };
 
@@ -72002,7 +72001,6 @@ struct UTextBufferFactory : public UFactory {
     void sub_0059a660(INT); /* 0x0059a660 */
     INT sub_005b3d80(); /* 0x005b3d80 */
     void sub_005b3d90(); /* 0x005b3d90 */
-    UINT sub_005b3f50(BYTE); /* 0x005b3f50 */
     /* registered size 0x64 */
 };
 

@@ -1703,8 +1703,11 @@ struct C_view {
     int sub_0098d2d0(int);
 };
 
+/* A method of a non-UObject class (its vtable is at 0x01f8f0f0; not UTerrainLayerSetup, which is too small for these offsets). */
+struct C_0098f710 { undefined4 sub_0098f710(undefined4 param_2, int param_3); };
+
 // @baa 0x0098f710
-undefined4 UTerrainLayerSetup::sub_0098f710(undefined4 param_2, int param_3)
+undefined4 C_0098f710::sub_0098f710(undefined4 param_2, int param_3)
 {
     int param_1 = (int)this;
   int iVar1;

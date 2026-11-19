@@ -1099,7 +1099,7 @@ const FString USoundNodeWave::GetEdHelperClassName() const
 
 int sub_00cdbc30(void);
 // @baa 0x00cdbd90
-undefined4 USoundCue::sub_00cdbd90(byte param_2)
+undefined4 USoundNodeWave::sub_00cdbd90(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

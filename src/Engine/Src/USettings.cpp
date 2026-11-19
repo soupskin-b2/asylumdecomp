@@ -307,7 +307,7 @@ void C_00d88690::sub_00d88980() {}
 int sub_005c7a70(...);
 int sub_00d888c0(void);
 // @baa 0x00d88980
-undefined4 USettings::sub_00d88980(byte param_2)
+undefined4 UOnlineSubsystem::sub_00d88980(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

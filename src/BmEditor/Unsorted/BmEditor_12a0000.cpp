@@ -17,7 +17,7 @@ DWORD* S::sub_012a1930(INT Index)
 int sub_005c7a70(...);
 int sub_012abb10(void);
 // @baa 0x012abb70
-undefined4 UTexAligner::sub_012abb70(byte param_2)
+undefined4 UTexAlignerPlanar::sub_012abb70(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

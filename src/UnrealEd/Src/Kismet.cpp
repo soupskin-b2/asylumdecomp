@@ -718,8 +718,11 @@ struct C_view {
     int sub_011941c0(int, int, int, int, int);
 };
 
+/* A method of a non-UObject class (in the vtables at 0x021bce84 and 0x021de10c; not UKismetBindings, which is too small for these offsets). */
+struct C_01194d40 { void sub_01194d40(); };
+
 // @baa 0x01194d40
-void UKismetBindings::sub_01194d40(void)
+void C_01194d40::sub_01194d40(void)
 {
     int param_1 = (int)this;
   ((C_view *)((*(char **)((char *)this + 0x154))))->sub_011941c0(param_1 + 0x198, 1, 1, 0, 0);

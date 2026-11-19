@@ -312,7 +312,7 @@ void C_005b3d90::sub_005b3f50() {}
 
 int sub_005b3eb0(void);
 // @baa 0x005b3f50
-undefined4 UTextBufferFactory::sub_005b3f50(byte param_2)
+undefined4 ULinkerSave::sub_005b3f50(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

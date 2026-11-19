@@ -374,7 +374,7 @@ IMPLEMENT_CLASS_AT(UPlayerInput, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3
 // @baa 0x00d8bfa0
 int sub_00d8bed0(void);
 // @baa 0x00d8bfb0
-undefined4 UInput::sub_00d8bfb0(byte param_2)
+undefined4 UUIInteraction::sub_00d8bfb0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

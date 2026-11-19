@@ -707,7 +707,7 @@ void C_0110ed20::sub_0110edd0() {}
 int sub_005c7a70(...);
 int sub_0110ed30(void);
 // @baa 0x0110edd0
-undefined4 URFMODSoundFactory::sub_0110edd0(byte param_2)
+undefined4 URReimportFMODSoundFactory::sub_0110edd0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

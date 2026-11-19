@@ -1388,7 +1388,7 @@ void C_00f33420::sub_00f334d0() {}
 int sub_005c7a70(...);
 int sub_00f33430(void);
 // @baa 0x00f334d0
-undefined4 UAnimObjectFactory::sub_00f334d0(byte param_2)
+undefined4 UReimportTextureFactory::sub_00f334d0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -1460,7 +1460,7 @@ void C_00f33840::sub_00f338f0() {}
 
 int sub_00f33850(void);
 // @baa 0x00f338f0
-undefined4 UReimportSkeletalMeshFactory::sub_00f338f0(byte param_2)
+undefined4 UReimportSoundFactory::sub_00f338f0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

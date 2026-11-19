@@ -827,7 +827,7 @@ void sub_0089f7e0(void) { sub_0089e210(); }
 
 int sub_0089f8b0(void);
 // @baa 0x0089f930
-undefined4 UGameViewportClient::sub_0089f930(byte param_2)
+undefined4 ULocalPlayer::sub_0089f930(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

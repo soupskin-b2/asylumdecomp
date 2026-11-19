@@ -622,7 +622,7 @@ undefined4 * C_01108a40::sub_01108a40(undefined4 * param_2)
 int sub_005c7a70(...);
 int sub_0110f4f0(void);
 // @baa 0x0110f570
-undefined4 URFMODSoundFactory::sub_0110f570(byte param_2)
+undefined4 UPrecompileShadersCommandlet::sub_0110f570(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

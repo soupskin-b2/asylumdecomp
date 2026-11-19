@@ -67792,7 +67792,7 @@
     {
      "va": "005b3f50",
      "size": 35,
-     "symbol": "?sub_005b3f50@UTextBufferFactory@@QAEIE@Z"
+     "symbol": "?sub_005b3f50@ULinkerSave@@QAEIE@Z"
     },
     {
      "va": "005b3f80",
@@ -133201,7 +133201,7 @@
     {
      "va": "00f334d0",
      "size": 35,
-     "symbol": "?sub_00f334d0@UAnimObjectFactory@@QAEIE@Z"
+     "symbol": "?sub_00f334d0@UReimportTextureFactory@@QAEIE@Z"
     },
     {
      "va": "00f33580",
@@ -133231,7 +133231,7 @@
     {
      "va": "00f338f0",
      "size": 32,
-     "symbol": "?sub_00f338f0@UReimportSkeletalMeshFactory@@QAEIE@Z"
+     "symbol": "?sub_00f338f0@UReimportSoundFactory@@QAEIE@Z"
     },
     {
      "va": "00f33910",
@@ -166511,7 +166511,7 @@
     {
      "va": "0110edd0",
      "size": 32,
-     "symbol": "?sub_0110edd0@URFMODSoundFactory@@QAEIE@Z"
+     "symbol": "?sub_0110edd0@URReimportFMODSoundFactory@@QAEIE@Z"
     },
     {
      "va": "0110edf0",
@@ -192524,7 +192524,7 @@
     {
      "va": "00d88980",
      "size": 35,
-     "symbol": "?sub_00d88980@USettings@@QAEIE@Z"
+     "symbol": "?sub_00d88980@UOnlineSubsystem@@QAEIE@Z"
     },
     {
      "va": "00d8ab30",
@@ -212022,7 +212022,7 @@
     {
      "va": "00d8bfb0",
      "size": 35,
-     "symbol": "?sub_00d8bfb0@UInput@@QAEIE@Z"
+     "symbol": "?sub_00d8bfb0@UUIInteraction@@QAEIE@Z"
     },
     {
      "va": "00d8c5a0",
@@ -453529,7 +453529,7 @@
     {
      "va": "014fd230",
      "size": 32,
-     "symbol": "?sub_014fd230@UGenericBrowserType_GFxMovie@@QAEIE@Z"
+     "symbol": "?sub_014fd230@UGFxMovieFactory@@QAEIE@Z"
     },
     {
      "va": "014fd670",
