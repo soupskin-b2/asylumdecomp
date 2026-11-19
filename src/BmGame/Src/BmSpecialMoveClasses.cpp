@@ -233,21 +233,11 @@ void __stdcall SetOcclusion(void* P)
     g_026bb6a8 = (P == NULL);
 }
 
-/* UFactory's flags (UE3: bCreateNew, bEditAfterNew, bEditorImport, bText) are in the kit's
- * _native2 blob at 0x50; this stand-in names them. */
-struct FFactoryFlags
-{
-	BITFIELD bCreateNew : 1;
-	BITFIELD bEditAfterNew : 1;
-	BITFIELD bEditorImport : 1;
-	BITFIELD bText : 1;
-};
-
 // @baa 0x01625fe0
 void URSpecialMoveFactoryNew::InitializeIntrinsicPropertyValues()
 {
 	SupportedClass = URSpecialMoveConfig::StaticClass();
-	((FFactoryFlags*)_native2)->bCreateNew = TRUE;
+	bCreateNew = TRUE;
 	Description = TEXT("Special Move Config");
 }
 
@@ -255,7 +245,7 @@ void URSpecialMoveFactoryNew::InitializeIntrinsicPropertyValues()
 void URMatineeSpecialMoveFactoryNew::InitializeIntrinsicPropertyValues()
 {
 	SupportedClass = URSpecialMoveConfig::StaticClass();
-	((FFactoryFlags*)_native2)->bCreateNew = TRUE;
+	bCreateNew = TRUE;
 	Description = TEXT("Matinee Special Move Config");
 }
 

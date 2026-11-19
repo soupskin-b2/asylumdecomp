@@ -337,21 +337,11 @@ void C_00e00e20Owner::sub_00e00e20(int ValueToRemove)
 	Ints.sub_00dfede0(&ValueToRemove);
 }
 
-/* UFactory's flags (UE3: bCreateNew, bEditAfterNew, bEditorImport, bText) are in the kit's
- * _native2 blob at 0x50; this stand-in names them. */
-struct FFactoryFlags
-{
-	BITFIELD bCreateNew : 1;
-	BITFIELD bEditAfterNew : 1;
-	BITFIELD bEditorImport : 1;
-	BITFIELD bText : 1;
-};
-
 // @baa 0x00f20a60
 void UPhysXParticleSystemFactoryNew::InitializeIntrinsicPropertyValues()
 {
 	SupportedClass = UPhysXParticleSystem::StaticClass();
-	((FFactoryFlags*)_native2)->bCreateNew = TRUE;
-	((FFactoryFlags*)_native2)->bEditAfterNew = TRUE;
+	bCreateNew = TRUE;
+	bEditAfterNew = TRUE;
 	Description = TEXT("PhysXParticleSystem");
 }

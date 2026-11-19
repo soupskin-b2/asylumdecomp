@@ -913,21 +913,11 @@ INT C_01574e00::sub_01574e00(FLOAT F, INT A)
     return sub_0081c2f0(F, A);
 }
 
-/* UFactory's flags (UE3: bCreateNew, bEditAfterNew, bEditorImport, bText) are in the kit's
- * _native2 blob at 0x50; this stand-in names them. */
-struct FFactoryFlags
-{
-	BITFIELD bCreateNew : 1;
-	BITFIELD bEditAfterNew : 1;
-	BITFIELD bEditorImport : 1;
-	BITFIELD bText : 1;
-};
-
 // @baa 0x015640e0
 void URAimingConfigFactoryNew::InitializeIntrinsicPropertyValues()
 {
 	SupportedClass = URAimingConfig::StaticClass();
-	((FFactoryFlags*)_native2)->bCreateNew = TRUE;
+	bCreateNew = TRUE;
 	Description = TEXT("Animation Aiming Config");
 }
 
@@ -935,7 +925,7 @@ void URAimingConfigFactoryNew::InitializeIntrinsicPropertyValues()
 void URCharacterViewerConfigFactoryNew::InitializeIntrinsicPropertyValues()
 {
 	SupportedClass = URCharacterViewerConfig::StaticClass();
-	((FFactoryFlags*)_native2)->bCreateNew = TRUE;
+	bCreateNew = TRUE;
 	Description = TEXT("Character Viewer Config");
 }
 
@@ -943,7 +933,7 @@ void URCharacterViewerConfigFactoryNew::InitializeIntrinsicPropertyValues()
 void URBoneRescaleConfigFactoryNew::InitializeIntrinsicPropertyValues()
 {
 	SupportedClass = URBoneRescaleConfig::StaticClass();
-	((FFactoryFlags*)_native2)->bCreateNew = TRUE;
+	bCreateNew = TRUE;
 	Description = TEXT("Animation Bone Rescale Config");
 }
 
@@ -951,7 +941,7 @@ void URBoneRescaleConfigFactoryNew::InitializeIntrinsicPropertyValues()
 void URMirrorConfigFactoryNew::InitializeIntrinsicPropertyValues()
 {
 	SupportedClass = URMirrorConfig::StaticClass();
-	((FFactoryFlags*)_native2)->bCreateNew = TRUE;
+	bCreateNew = TRUE;
 	Description = TEXT("Animation Mirror Config");
 }
 
@@ -959,7 +949,7 @@ void URMirrorConfigFactoryNew::InitializeIntrinsicPropertyValues()
 void URWeaponConfigFactoryNew::InitializeIntrinsicPropertyValues()
 {
 	SupportedClass = URWeaponConfig::StaticClass();
-	((FFactoryFlags*)_native2)->bCreateNew = TRUE;
+	bCreateNew = TRUE;
 	Description = TEXT("Animation Weapon Config");
 }
 
@@ -967,7 +957,7 @@ void URWeaponConfigFactoryNew::InitializeIntrinsicPropertyValues()
 void URAlternateAnimationAndWeaponConfigFactoryNew::InitializeIntrinsicPropertyValues()
 {
 	SupportedClass = URAlternateAnimationAndWeaponConfig::StaticClass();
-	((FFactoryFlags*)_native2)->bCreateNew = TRUE;
+	bCreateNew = TRUE;
 	Description = TEXT("Alternate Animation Weapon Config");
 }
 

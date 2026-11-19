@@ -21,22 +21,12 @@ undefined4 * C::sub_00f33200(void)
   return param_1;
 }
 
-/* UFactory's flags (UE3: bCreateNew, bEditAfterNew, bEditorImport, bText) are in the kit's
- * _native2 blob at 0x50; this stand-in names them. */
-struct FFactoryFlags
-{
-	BITFIELD bCreateNew : 1;
-	BITFIELD bEditAfterNew : 1;
-	BITFIELD bEditorImport : 1;
-	BITFIELD bText : 1;
-};
-
 // @baa 0x00f206b0
 void UTextureCubeFactoryNew::InitializeIntrinsicPropertyValues()
 {
 	SupportedClass = UTextureCube::StaticClass();
-	((FFactoryFlags*)_native2)->bCreateNew = TRUE;
-	((FFactoryFlags*)_native2)->bEditAfterNew = TRUE;
+	bCreateNew = TRUE;
+	bEditAfterNew = TRUE;
 	Description = TEXT("Cubemap");
 }
 
@@ -44,8 +34,8 @@ void UTextureCubeFactoryNew::InitializeIntrinsicPropertyValues()
 void UMaterialInstanceConstantFactoryNew::InitializeIntrinsicPropertyValues()
 {
 	SupportedClass = UMaterialInstanceConstant::StaticClass();
-	((FFactoryFlags*)_native2)->bCreateNew = TRUE;
-	((FFactoryFlags*)_native2)->bEditAfterNew = TRUE;
+	bCreateNew = TRUE;
+	bEditAfterNew = TRUE;
 	Description = TEXT("MaterialInstanceConstant");
 }
 
@@ -53,8 +43,8 @@ void UMaterialInstanceConstantFactoryNew::InitializeIntrinsicPropertyValues()
 void UMaterialInstanceTimeVaryingFactoryNew::InitializeIntrinsicPropertyValues()
 {
 	SupportedClass = UMaterialInstanceTimeVarying::StaticClass();
-	((FFactoryFlags*)_native2)->bCreateNew = TRUE;
-	((FFactoryFlags*)_native2)->bEditAfterNew = TRUE;
+	bCreateNew = TRUE;
+	bEditAfterNew = TRUE;
 	Description = TEXT("MaterialInstanceTimeVarying(WIP)");
 }
 
@@ -62,8 +52,8 @@ void UMaterialInstanceTimeVaryingFactoryNew::InitializeIntrinsicPropertyValues()
 void UMaterialFactoryNew::InitializeIntrinsicPropertyValues()
 {
 	SupportedClass = UMaterial::StaticClass();
-	((FFactoryFlags*)_native2)->bCreateNew = TRUE;
-	((FFactoryFlags*)_native2)->bEditAfterNew = TRUE;
+	bCreateNew = TRUE;
+	bEditAfterNew = TRUE;
 	Description = TEXT("Material");
 }
 
@@ -71,8 +61,8 @@ void UMaterialFactoryNew::InitializeIntrinsicPropertyValues()
 void UDecalMaterialFactoryNew::InitializeIntrinsicPropertyValues()
 {
 	SupportedClass = UDecalMaterial::StaticClass();
-	((FFactoryFlags*)_native2)->bCreateNew = TRUE;
-	((FFactoryFlags*)_native2)->bEditAfterNew = TRUE;
+	bCreateNew = TRUE;
+	bEditAfterNew = TRUE;
 	Description = TEXT("Decal Material");
 }
 
@@ -81,8 +71,8 @@ void USoundModeFactory::InitializeIntrinsicPropertyValues()
 {
 	SupportedClass = USoundMode::StaticClass();
 	Description = TEXT("SoundMode");
-	((FFactoryFlags*)_native2)->bCreateNew = TRUE;
-	((FFactoryFlags*)_native2)->bEditAfterNew = TRUE;
+	bCreateNew = TRUE;
+	bEditAfterNew = TRUE;
 }
 
 // @baa 0x00f20960
@@ -90,16 +80,16 @@ void UFonixFactory::InitializeIntrinsicPropertyValues()
 {
 	SupportedClass = USpeechRecognition::StaticClass();
 	Description = TEXT("SpeechRecogniser");
-	((FFactoryFlags*)_native2)->bCreateNew = TRUE;
-	((FFactoryFlags*)_native2)->bEditAfterNew = TRUE;
+	bCreateNew = TRUE;
+	bEditAfterNew = TRUE;
 }
 
 // @baa 0x00f209a0
 void ULensFlareFactoryNew::InitializeIntrinsicPropertyValues()
 {
 	SupportedClass = ULensFlare::StaticClass();
-	((FFactoryFlags*)_native2)->bCreateNew = TRUE;
-	((FFactoryFlags*)_native2)->bEditAfterNew = TRUE;
+	bCreateNew = TRUE;
+	bEditAfterNew = TRUE;
 	Description = TEXT("LensFlare");
 }
 
@@ -107,8 +97,8 @@ void ULensFlareFactoryNew::InitializeIntrinsicPropertyValues()
 void UDestructibleDamageParametersFactoryNew::InitializeIntrinsicPropertyValues()
 {
 	SupportedClass = UDestructibleDamageParameters::StaticClass();
-	((FFactoryFlags*)_native2)->bCreateNew = TRUE;
-	((FFactoryFlags*)_native2)->bEditAfterNew = TRUE;
+	bCreateNew = TRUE;
+	bEditAfterNew = TRUE;
 	Description = TEXT("DestructibleDamageParameters");
 }
 
@@ -116,8 +106,8 @@ void UDestructibleDamageParametersFactoryNew::InitializeIntrinsicPropertyValues(
 void UAnimSetFactoryNew::InitializeIntrinsicPropertyValues()
 {
 	SupportedClass = UAnimSet::StaticClass();
-	((FFactoryFlags*)_native2)->bCreateNew = TRUE;
-	((FFactoryFlags*)_native2)->bEditAfterNew = TRUE;
+	bCreateNew = TRUE;
+	bEditAfterNew = TRUE;
 	Description = TEXT("AnimSet");
 }
 
@@ -125,8 +115,8 @@ void UAnimSetFactoryNew::InitializeIntrinsicPropertyValues()
 void UAnimTreeFactoryNew::InitializeIntrinsicPropertyValues()
 {
 	SupportedClass = UAnimTree::StaticClass();
-	((FFactoryFlags*)_native2)->bCreateNew = TRUE;
-	((FFactoryFlags*)_native2)->bEditAfterNew = TRUE;
+	bCreateNew = TRUE;
+	bEditAfterNew = TRUE;
 	Description = TEXT("AnimTree");
 }
 
@@ -134,8 +124,8 @@ void UAnimTreeFactoryNew::InitializeIntrinsicPropertyValues()
 void UPostProcessFactoryNew::InitializeIntrinsicPropertyValues()
 {
 	SupportedClass = UPostProcessChain::StaticClass();
-	((FFactoryFlags*)_native2)->bCreateNew = TRUE;
-	((FFactoryFlags*)_native2)->bEditAfterNew = TRUE;
+	bCreateNew = TRUE;
+	bEditAfterNew = TRUE;
 	Description = TEXT("Post Process Effect");
 }
 
@@ -143,8 +133,8 @@ void UPostProcessFactoryNew::InitializeIntrinsicPropertyValues()
 void UCurveEdPresetCurveFactoryNew::InitializeIntrinsicPropertyValues()
 {
 	SupportedClass = UCurveEdPresetCurve::StaticClass();
-	((FFactoryFlags*)_native2)->bCreateNew = TRUE;
-	((FFactoryFlags*)_native2)->bEditAfterNew = TRUE;
+	bCreateNew = TRUE;
+	bEditAfterNew = TRUE;
 	Description = TEXT("CurveEdPresetCurve");
 }
 
@@ -152,7 +142,7 @@ void UCurveEdPresetCurveFactoryNew::InitializeIntrinsicPropertyValues()
 void UCameraAnimFactory::InitializeIntrinsicPropertyValues()
 {
 	SupportedClass = UCameraAnim::StaticClass();
-	((FFactoryFlags*)_native2)->bCreateNew = TRUE;
+	bCreateNew = TRUE;
 	Description = TEXT("Camera Animation");
 }
 

@@ -368,21 +368,11 @@ sub_009d7df0_Base* sub_009d7df0_Base::sub_009d7df0(int P)
     return this;
 }
 
-/* UFactory's flags (UE3: bCreateNew, bEditAfterNew, bEditorImport, bText) are in the kit's
- * _native2 blob at 0x50; this stand-in names them. */
-struct FFactoryFlags
-{
-	BITFIELD bCreateNew : 1;
-	BITFIELD bEditAfterNew : 1;
-	BITFIELD bEditorImport : 1;
-	BITFIELD bText : 1;
-};
-
 // @baa 0x00f20b60
 void UPhysicalMaterialFactoryNew::InitializeIntrinsicPropertyValues()
 {
 	SupportedClass = UPhysicalMaterial::StaticClass();
-	((FFactoryFlags*)_native2)->bCreateNew = TRUE;
-	((FFactoryFlags*)_native2)->bEditAfterNew = TRUE;
+	bCreateNew = TRUE;
+	bEditAfterNew = TRUE;
 	Description = TEXT("Physical Material");
 }

@@ -857,21 +857,11 @@ void URCapeStateController_::sub_016cece0(float Value)
 	}
 }
 
-/* UFactory's flags (UE3: bCreateNew, bEditAfterNew, bEditorImport, bText) are in the kit's
- * _native2 blob at 0x50; this stand-in names them. */
-struct FFactoryFlags
-{
-	BITFIELD bCreateNew : 1;
-	BITFIELD bEditAfterNew : 1;
-	BITFIELD bEditorImport : 1;
-	BITFIELD bText : 1;
-};
-
 // @baa 0x016dc330
 void URCapeCollisionShapeConfigFactoryNew::InitializeIntrinsicPropertyValues()
 {
 	SupportedClass = URCapeCollisionShapeConfig::StaticClass();
-	((FFactoryFlags*)_native2)->bCreateNew = TRUE;
+	bCreateNew = TRUE;
 	Description = TEXT("CapeCollisionShapeConfig");
 }
 
@@ -879,7 +869,7 @@ void URCapeCollisionShapeConfigFactoryNew::InitializeIntrinsicPropertyValues()
 void URCapeCollisionConfigFactoryNew::InitializeIntrinsicPropertyValues()
 {
 	SupportedClass = URCapeCollisionConfig::StaticClass();
-	((FFactoryFlags*)_native2)->bCreateNew = TRUE;
+	bCreateNew = TRUE;
 	Description = TEXT("CapeCollisionConfig");
 }
 
@@ -887,7 +877,7 @@ void URCapeCollisionConfigFactoryNew::InitializeIntrinsicPropertyValues()
 void URCapeStateBoneConfigFactoryNew::InitializeIntrinsicPropertyValues()
 {
 	SupportedClass = URCapeStateBoneConfig::StaticClass();
-	((FFactoryFlags*)_native2)->bCreateNew = TRUE;
+	bCreateNew = TRUE;
 	Description = TEXT("CapeStateBoneConfig");
 }
 

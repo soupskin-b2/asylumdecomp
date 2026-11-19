@@ -64759,8 +64759,12 @@ struct UState : public UStruct {
     DECLARE_CLASS(UState, UStruct, 0x10000000, 0x40000, Core)
     UState(); /* 0x00587b10 */
     void StaticConstructor(); /* 0x00568380 */
-    BYTE _native0[0x18];
-    FNativeDtor_005828d0_3c Native_9c; /* 0x9c: C++ only (destroyed by its destructor) */
+    QWORD ProbeMask; /* 0x84 */
+    QWORD IgnoreMask; /* 0x8c */
+    DWORD StateFlags; /* 0x94 */
+    WORD LabelTableOffset; /* 0x98 */
+    BYTE _native_9a[0x2];
+    FNativeDtor_005828d0_3c FuncMap; /* 0x9c */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -65436,7 +65440,13 @@ struct UCreateDefaultStyleCommandlet : public UCommandlet {
 struct UCubeBuilder : public UBrushBuilder {
     /* Editor.CubeBuilder (native only: no script package describes it) */
     DECLARE_CLASS(UCubeBuilder, UBrushBuilder, 0x0, 0x0, Editor)
-    BYTE _native[0x1c]; /* C++-only members, to the registered size 0x88 */
+    FLOAT X; /* 0x6c */
+    FLOAT Y; /* 0x70 */
+    FLOAT Z; /* 0x74 */
+    FLOAT WallThickness; /* 0x78 */
+    FName GroupName; /* 0x7c */
+    BITFIELD Hollow:1; /* 0x84 */
+    BITFIELD Tessellated:1;
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -66798,7 +66808,8 @@ struct AGameHUD : public AHUD {
 struct AGamePawn : public APawn {
     /* GameFramework.GamePawn (native only: no script package describes it) */
     DECLARE_CLASS(AGamePawn, APawn, 0x5, 0x0, GameFramework)
-    BYTE _native[0x4]; /* C++-only members, to the registered size 0x3bc */
+    BITFIELD bLastHitWasHeadShot:1; /* 0x3b8 */
+    BITFIELD bRespondToExplosions:1;
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -67625,8 +67636,8 @@ struct UGuidCache : public UObject {
     /* Engine.GuidCache (native only: no script package describes it) */
     DECLARE_CLASS(UGuidCache, UObject, 0x10000000, 0x0, Engine)
     UGuidCache(); /* 0x00e13540 */
-    FNativeDtor_00e11a60_3c Native_30; /* 0x30: C++ only (destroyed by its destructor) */
-    FStringNoInit Native_6c; /* 0x6c: C++ only (destroyed by its destructor) */
+    FNativeDtor_00e11a60_3c PackageGuidMap; /* 0x30 */
+    FStringNoInit Filename; /* 0x6c */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -67975,9 +67986,20 @@ struct ULensFlareEditorOptions : public UObject {
     /* UnrealEd.LensFlareEditorOptions (native only: no script package describes it) */
     DECLARE_CLASS(ULensFlareEditorOptions, UObject, 0x4, 0x0, UnrealEd)
     static const TCHAR* StaticConfigName() { return TEXT("EditorUserSettings"); }
-    BYTE _native0[0x90];
-    FStringNoInit Native_c0; /* 0xc0: C++ only (destroyed by its destructor) */
-    BYTE _native[0x4]; /* C++-only members, to the registered size 0xd0 */
+    FLinearColor LFED_BackgroundColor; /* 0x30 */
+    FLinearColor LFED_Empty_Background; /* 0x40 */
+    FLinearColor LFED_Source_ElementEd_Background; /* 0x50 */
+    FLinearColor LFED_Source_Unselected; /* 0x60 */
+    FLinearColor LFED_Source_Selected; /* 0x70 */
+    FLinearColor LFED_ElementEd_Background; /* 0x80 */
+    FLinearColor LFED_Element_Unselected; /* 0x90 */
+    FLinearColor LFED_Element_Selected; /* 0xa0 */
+    BITFIELD bShowGrid:1; /* 0xb0 */
+    FColor GridColor_Hi; /* 0xb4 */
+    FColor GridColor_Low; /* 0xb8 */
+    FLOAT GridPerspectiveSize; /* 0xbc */
+    FStringNoInit PostProcessChainName; /* 0xc0 */
+    INT ShowPPFlags; /* 0xcc */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -69192,8 +69214,8 @@ struct UPackageMap : public UObject {
     UPackageMap(); /* 0x0061bbe0 */
     void StaticConstructor(); /* 0x005fc100 */
     FNativeDtor_0060ecc0_c Native_30; /* 0x30: C++ only (destroyed by its destructor) */
-    FMap_Mirror Native_3c; /* 0x3c: C++ only (destroyed by its destructor) */
-    FNativeDtor_00617350_3c Native_78; /* 0x78: C++ only (destroyed by its destructor) */
+    FMap_Mirror PackageListMap; /* 0x3c */
+    FNativeDtor_00617350_3c ClassFieldIndices; /* 0x78 */
     /* virtual functions this class introduces (vtable 0x01ea79c8) */
     virtual UBOOL CanSerializeObject( UObject* Obj ); /* 0x10c */
     virtual UBOOL SupportsPackage( UObject* InOuter ); /* 0x110 */

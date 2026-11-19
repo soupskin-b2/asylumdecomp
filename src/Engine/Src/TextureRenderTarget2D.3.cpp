@@ -168,37 +168,17 @@ UBOOL UScriptedTexture::HasParentClassChanged() const
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
-/* UFactory's flags (UE3: bCreateNew, bEditAfterNew, bEditorImport, bText) are in the kit's
- * _native2 blob at 0x50; this stand-in names them. */
-struct FFactoryFlags
-{
-	BITFIELD bCreateNew : 1;
-	BITFIELD bEditAfterNew : 1;
-	BITFIELD bEditorImport : 1;
-	BITFIELD bText : 1;
-};
-
-/* UTextureRenderTargetFactoryNew's members (UE3 UnFactory.h: Width, Height, Format) are the kit's _native blob
- * (from 0x64); this stand-in names them. */
-struct FRenderTargetFactorySettings
-{
-	INT Width;
-	INT Height;
-	BYTE Format;
-};
-
 // @baa 0x00f20ba0
 void UTextureRenderTargetFactoryNew::InitializeIntrinsicPropertyValues()
 {
 	SupportedClass = UTextureRenderTarget2D::StaticClass();
-	((FFactoryFlags*)_native2)->bCreateNew = TRUE;
-	((FFactoryFlags*)_native2)->bEditAfterNew = TRUE;
-	((FFactoryFlags*)_native2)->bEditorImport = FALSE;
+	bCreateNew = TRUE;
+	bEditAfterNew = TRUE;
+	bEditorImport = FALSE;
 	Description = TEXT("RenderToTexture");
-	FRenderTargetFactorySettings* Settings = (FRenderTargetFactorySettings*)_native;
-	Settings->Width = 256;
-	Settings->Height = 256;
-	Settings->Format = 0;
+	Width = 256;
+	Height = 256;
+	Format = 0;
 }
 
 /* UnScriptedTexture.cpp: the list of scripted textures the renderer updates each frame. */

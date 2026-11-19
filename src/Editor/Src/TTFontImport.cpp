@@ -291,24 +291,13 @@ UBOOL UTrueTypeMultiFontFactory::HasParentClassChanged() const
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
-/* UFactory's flags (UE3: bCreateNew, bEditAfterNew, bEditorImport, bText) and AutoPriority are in the kit's
- * _native2 blob at 0x50; this stand-in names them. */
-struct FFactoryFlags
-{
-	BITFIELD bCreateNew : 1;
-	BITFIELD bEditAfterNew : 1;
-	BITFIELD bEditorImport : 1;
-	BITFIELD bText : 1;
-	INT AutoPriority;
-};
-
 // @baa 0x00ec9c20
 void UTrueTypeFontFactory::InitializeIntrinsicPropertyValues()
 {
 	SupportedClass = UFont::StaticClass();
-	((FFactoryFlags*)_native2)->bCreateNew = TRUE;
-	((FFactoryFlags*)_native2)->bEditAfterNew = TRUE;
-	((FFactoryFlags*)_native2)->AutoPriority = INDEX_NONE;
+	bCreateNew = TRUE;
+	bEditAfterNew = TRUE;
+	AutoPriority = INDEX_NONE;
 	Description = TEXT("Font Imported From TrueType");
 }
 
@@ -317,9 +306,9 @@ void UTrueTypeMultiFontFactory::InitializeIntrinsicPropertyValues()
 {
 	/* UTrueTypeFontFactory::InitializeIntrinsicPropertyValues, inlined */
 	SupportedClass = UFont::StaticClass();
-	((FFactoryFlags*)_native2)->bCreateNew = TRUE;
-	((FFactoryFlags*)_native2)->bEditAfterNew = TRUE;
-	((FFactoryFlags*)_native2)->AutoPriority = INDEX_NONE;
+	bCreateNew = TRUE;
+	bEditAfterNew = TRUE;
+	AutoPriority = INDEX_NONE;
 	Description = TEXT("Font Imported From TrueType");
 	SupportedClass = UMultiFont::StaticClass();
 	Description = TEXT("MultiFont Imported From TrueType");
