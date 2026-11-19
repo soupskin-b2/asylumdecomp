@@ -169,7 +169,7 @@ undefined4 * UObject::sub_00df32a0(void)
 }
 
 // @baa 0x00df3310
-void UChannel::vf_110(void)
+void UChannel::SetClosingFlag()
 {
     int param_1 = (int)this;
 
@@ -178,7 +178,7 @@ void UChannel::vf_110(void)
 }
 
 // @baa 0x00df3320
-void UChannel::vf_124(void) {  }
+void UChannel::Tick() {  }
 
 // @baa 0x00df3490
 // @baa 0x00df35a0
@@ -479,7 +479,7 @@ struct C_view {
 int sub_006311e0(...);
 extern undefined4 g_020dca58;
 // @baa 0x00e07000
-void UChannel::vf_120(int param_2)
+void UChannel::ReceivedNak(INT param_2)
 {
     int param_1 = (int)this;
   int iVar1;

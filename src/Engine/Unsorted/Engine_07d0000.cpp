@@ -899,7 +899,7 @@ int sub_007d7040(void)
 void sub_007d7070(void) {  }
 
 // @baa 0x007d7080
-void AActor::vf_1a4(INT a0, INT a1) {  }
+void AActor::NotifyBumpLevel(const FVector & a0, const FVector & a1) {  }
 
 // @baa 0x007d7130
 void AWorldInfo::SetZone(UBOOL a0, UBOOL a1) {  }
@@ -911,7 +911,7 @@ void __stdcall sub_007d7140(int a0) {  }
 void __stdcall sub_007d7150(int a0) {  }
 
 // @baa 0x007d7160
-void AStaticMeshActorBase::vf_1d8(void)
+void AStaticMeshActorBase::PostBeginPlay()
 {
     int param_1 = (int)this;
 

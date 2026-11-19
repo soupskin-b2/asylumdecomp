@@ -16,7 +16,7 @@ UBOOL ARRopeBase::HasParentClassChanged() const
 }
 
 // @baa 0x0163e240
-void ARRopeBase::vf_1d8(void) {  }
+void ARRopeBase::PostBeginPlay() {  }
 
 struct C{
 int sub_01647000(undefined4*);

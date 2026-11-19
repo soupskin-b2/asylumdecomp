@@ -208,7 +208,7 @@ void UAnimNode::PlayAnim(UBOOL bLoop, FLOAT Rate, FLOAT StartTime) {  }
 void sub_00c4b5a0(void) {  }
 
 // @baa 0x00c4b5b0
-void UAnimNode::vf_11c()
+void UAnimNode::OnPaste()
 {
     NodeTotalWeight = 0.0f;
 }
@@ -886,7 +886,7 @@ int C_00c63620::sub_00c63620(int param_2)
 IMPLEMENT_CLASS_AT(UAnimNode, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTree.cpp", 10);
 
 // @baa 0x00c64640
-void* UAnimNode::vf_10c() { return this; }
+UAnimNode * UAnimNode::GetAnimNode() { return this; }
 
 // @baa 0x00c64650
 void UAnimNode::vf_12c(void) {  }
@@ -1030,7 +1030,7 @@ FLOAT UAnimNode::GetSliderPosition(INT f, INT g) {
 void UAnimNode::HandleSliderMove(INT a0, INT a1, FLOAT a2) {  }
 
 // @baa 0x00c64740
-FString UAnimNode::vf_168()
+FString UAnimNode::GetNodeTitle()
 {
     return TEXT("");
 }
@@ -1547,7 +1547,7 @@ struct C_00c78a10 { C_00c78a10* sub_00c78a10(void); };
 C_00c78a10* C_00c78a10::sub_00c78a10(void) { return this; }
 
 // @baa 0x00c79000
-void UAnimNodeAimOffset::vf_1a8(int a0) {  }
+void UAnimNodeAimOffset::PostAimProcessing(FVector2D & a0) {  }
 
 // @baa 0x00c79010
 INT UAnimNodeAimOffset::GetNumSliders() const { return 1; }
@@ -1982,14 +1982,9 @@ struct UAnimNodeBlend_ : public UAnimNodeBlend
 	void sub_00c54040(FLOAT BlendTarget, FLOAT BlendTime);		/* SetBlendTarget */
 };
 
-/* UAnimNodeCrossfader's TickAnim override. */
-struct UAnimNodeCrossfader_ : public UAnimNodeCrossfader
-{
-	void TickAnim(FLOAT DeltaSeconds, FLOAT TotalWeight);
-};
 
 // @baa 0x00c7dfd0
-void UAnimNodeCrossfader_::TickAnim(FLOAT DeltaSeconds, FLOAT TotalWeight)
+void UAnimNodeCrossfader::TickAnim(FLOAT DeltaSeconds, FLOAT TotalWeight)
 {
 	// a one-shot animation blends back out before it is over
 	if (!bDontBlendOutOneShot && PendingBlendOutTimeOneShot > 0.f)

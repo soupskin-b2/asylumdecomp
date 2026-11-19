@@ -47,7 +47,7 @@ void UParticleModuleEventReceiverSpawn::vf_170(void) {  }
 void UParticleModuleEventReceiverSpawn::PostEditChange(UProperty* a0) {  }
 
 // @baa 0x00b33060
-undefined4 UParticleModuleEventReceiverSpawn::vf_168(uint param_2)
+UBOOL UParticleModuleEventReceiverSpawn::WillProcessParticleEvent(EParticleEventType param_2)
 {
     int param_1 = (int)this;
 

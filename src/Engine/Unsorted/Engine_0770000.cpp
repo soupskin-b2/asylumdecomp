@@ -372,7 +372,7 @@ void* ANavigationPoint::vf_384() { return 0; }
 int ANavigationPoint::vf_398(int a0) { return 0; }
 
 // @baa 0x00773d80
-ANSICHAR * ANavigationPoint::vf_32c() { return (char*)this + 600; }
+FGuid* ANavigationPoint::GetGuid() { return (FGuid*)((char*)this + 600); }
 
 // @baa 0x00773d90
 // @baa 0x00773e40
@@ -473,7 +473,7 @@ IMPLEMENT_CLASS_AT(APolyMarker, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\
 IMPLEMENT_CLASS_AT(ALight, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 33);
 
 // @baa 0x00775820
-int ALight::vf_364(void) { return 0; }
+UBOOL ALight::IsToggleable() const { return 0; }
 
 // @baa 0x00775830
 // @baa 0x00775890
@@ -481,7 +481,7 @@ IMPLEMENT_CLASS_AT(ADirectionalLight, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEn
 
 // @baa 0x007758f0
 // @baa 0x00775980
-int ADirectionalLightToggleable::vf_364(void) { return 1; }
+UBOOL ADirectionalLightToggleable::IsToggleable() const { return 1; }
 
 // @baa 0x00775990
 IMPLEMENT_CLASS_AT(ADirectionalLightToggleable, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 35);
@@ -492,14 +492,14 @@ IMPLEMENT_CLASS_AT(APointLight, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\
 
 // @baa 0x00775a80
 // @baa 0x00775b10
-int APointLightMovable::vf_364(void) { return 1; }
+UBOOL APointLightMovable::IsToggleable() const { return 1; }
 
 // @baa 0x00775b20
 IMPLEMENT_CLASS_AT(APointLightMovable, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 37);
 
 // @baa 0x00775b80
 // @baa 0x00775be0
-int APointLightToggleable::vf_364(void) { return 1; }
+UBOOL APointLightToggleable::IsToggleable() const { return 1; }
 
 // @baa 0x00775bf0
 IMPLEMENT_CLASS_AT(APointLightToggleable, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 38);
@@ -510,7 +510,7 @@ IMPLEMENT_CLASS_AT(ASkyLight, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\D
 
 // @baa 0x00775d10
 // @baa 0x00775d70
-int ASkyLightToggleable::vf_364(void) { return 1; }
+UBOOL ASkyLightToggleable::IsToggleable() const { return 1; }
 
 // @baa 0x00775d80
 IMPLEMENT_CLASS_AT(ASkyLightToggleable, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 118);
@@ -525,7 +525,7 @@ IMPLEMENT_CLASS_AT(ASpotLightMovable, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEn
 
 // @baa 0x00775f60
 // @baa 0x00775fc0
-int ASpotLightToggleable::vf_364(void) { return 1; }
+UBOOL ASpotLightToggleable::IsToggleable() const { return 1; }
 
 // @baa 0x00775fd0
 IMPLEMENT_CLASS_AT(ASpotLightToggleable, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 41);
@@ -556,10 +556,10 @@ IMPLEMENT_CLASS_AT(AVehicle, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\De
 
 // @baa 0x00776750
 // @baa 0x007767b0
-void* AProjectile::vf_300() { return this; }
+class AProjectile* AProjectile::GetAProjectile() { return this; }
 
 // @baa 0x007767c0
-void* AProjectile::vf_2fc() { return this; }
+const class AProjectile* AProjectile::GetAProjectile() const { return this; }
 
 // @baa 0x007767d0
 IMPLEMENT_CLASS_AT(AProjectile, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 64);
@@ -1169,7 +1169,7 @@ UBOOL AAIController::HasParentClassChanged() const
 
 // @baa 0x00776440
 /* Keeps the largest landing speed seen (velocities are negative going down). */
-void AScout::vf_400(FLOAT ZVelocity)
+void AScout::SetMaxLandingVelocity(FLOAT ZVelocity)
 {
 	if (-ZVelocity > MaxLandingVelocity)
 	{

@@ -65,10 +65,10 @@ UBOOL UPackageMapLevel::HasParentClassChanged() const
 }
 
 // @baa 0x00df45e0
-int UPackageMapSeekFree::vf_110(int a0) { return 1; }
+UBOOL UPackageMapSeekFree::SupportsPackage(UObject* a0) { return 1; }
 
 // @baa 0x00df45f0
-int UPackageMapSeekFree::vf_114(int a0) { return 1; }
+UBOOL UPackageMapSeekFree::SupportsObject(UObject* a0) { return 1; }
 
 // @baa 0x00df4600
 UBOOL UPackageMapSeekFree::HasUniqueStaticConfigName() const { return 1; }

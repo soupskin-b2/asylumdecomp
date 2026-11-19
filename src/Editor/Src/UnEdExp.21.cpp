@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00eeccc0
-int USoundSurroundExporterWAV::vf_11c(void) { return 8; }
+INT USoundSurroundExporterWAV::GetFileCount() const { return 8; }
 
 // @baa 0x00ef09c0
 UBOOL UTextureExporterT3D::HasUniqueStaticConfigName() const { return 1; }

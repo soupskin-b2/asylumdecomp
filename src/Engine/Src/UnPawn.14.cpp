@@ -45,7 +45,7 @@ struct FVector_ : public FVector
 // @baa 0x0086c1e0
 /* Slot 0x1e8 (unnamed in the kit): caps the velocity at MaxSpeed, dropping the acceleration unless the
  * rotation follows the velocity. */
-void AProjectile::vf_1e8()
+void AProjectile::BoundProjectileVelocity()
 {
     if (((FVector_&)Velocity).SizeSquared() > MaxSpeed * MaxSpeed)
     {

@@ -336,7 +336,7 @@ struct C_00803c80 { int sub_00803c80(void); };
 int C_00803c80::sub_00803c80(void) { return *(int*)((char*)this + 4); }
 
 // @baa 0x00803cf0
-void ALight::vf_354(void) {  }
+void ALight::DetermineAndSetEditorIcon() {  }
 
 int sub_006d8820(void);
 int sub_007116e0(...);

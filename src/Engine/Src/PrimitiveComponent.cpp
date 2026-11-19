@@ -638,7 +638,7 @@ IMPLEMENT_CLASS_AT(AVolume, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Dev
 int AVolume::vf_2d8(void) { return 1; }
 
 // @baa 0x006fc210
-void* AVolume::vf_2f4() { return this; }
+AVolume* AVolume::GetAVolume() { return this; }
 
 // @baa 0x006fc220
 // @baa 0x006fc2b0

@@ -47,7 +47,7 @@ struct C { char* sub_007d6810(void); };
 char* C::sub_007d6810(void) { return (char*)this + 456; }
 
 // @baa 0x007d6850
-void UEngine::vf_114(void) {  }
+void UEngine::PreExit() {  }
 
 // @baa 0x007d6860
 int sub_007d6860(int a0, int a1) { return a1; }

@@ -39,16 +39,16 @@ UBOOL APawn::IgnoreBlockingBy(const AActor* Other) const
 IMPLEMENT_CLASS_AT(APawn, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPawn.cpp", 29);
 
 // @baa 0x007761a0
-void* APawn::vf_2ec() { return this; }
+APawn* APawn::GetAPawn() { return this; }
 
 // @baa 0x007761b0
-void* APawn::vf_2e8() { return this; }
+const APawn* APawn::GetAPawn() const { return this; }
 
 // @baa 0x007761c0
-int APawn::vf_3f0(void) { return 0; }
+UBOOL APawn::SetHighJumpFlag() { return 0; }
 
 // @baa 0x007761d0
-void APawn::vf_400(FLOAT a0) {  }
+void APawn::SetMaxLandingVelocity(FLOAT a0) {  }
 
 // @baa 0x007761e0
 int APawn::vf_414(int a0, int a1) { return 0; }
@@ -991,7 +991,7 @@ float10 C_008655e0::sub_008655e0(void)
 }
 
 // @baa 0x00865630
-undefined4 APawn::vf_3cc(void)
+UBOOL APawn::IsGlider()
 {
     int param_1 = (int)this;
 
@@ -1006,8 +1006,9 @@ undefined4 APawn::vf_3cc(void)
 UBOOL APawn::HurtByDamageType(UClass* a0) { return 1; }
 
 // @baa 0x00867a20
-undefined4 APawn::vf_3d4(int param_2)
+UBOOL APawn::SharingVehicleWith(APawn * P)
 {
+    int param_2 = (int)P;
     int param_1 = (int)this;
 
   if ((param_2 != 0) &&
@@ -1031,7 +1032,7 @@ void sub_00867f50(void)
 void APawn::vf_420(int a0, int a1) {  }
 
 // @baa 0x0086a890
-int AActor::vf_210(int a0, int a1, int a2) { return 0; }
+UBOOL AActor::ShrinkCollision(AActor * a0, UPrimitiveComponent* a1, const FVector & a2) { return 0; }
 
 void sub_004025d0(void*);
 struct D { void* p; ~D(){ if(0) sub_004025d0(p);} };
@@ -1309,7 +1310,7 @@ void sub_0087d820(C_0087d810* Self, T_0087d370* Item) {
 }
 
 // @baa 0x0086b4f0
-void AActor::vf_204(int a0, int a1) {  }
+void AActor::GetNetBuoyancy(FLOAT & a0, FLOAT & a1) {  }
 
 // @baa 0x008a66d0
 void sub_008a66d0(void)
@@ -1319,10 +1320,10 @@ void sub_008a66d0(void)
 }
 
 // @baa 0x008a6880
-void* ANavigationPoint::vf_330(INT a0) { return this; }
+class ANavigationPoint* ANavigationPoint::SpecifyEndAnchor(APawn* a0) { return this; }
 
 // @baa 0x008a6890
-undefined4 AActor::vf_334(void)
+UBOOL AActor::AnchorNeedNotBeReachable()
 {
     int param_1 = (int)this;
 
@@ -1554,7 +1555,7 @@ bool APawn::vf_1b8()
 // @baa 0x00867b30
 /* APawn slot 0x334 (kit vf_334): a falling pawn, or a player's pawn still standing where its last path search
  * failed (APlayerController::FailedPathStart). */
-UINT APawn::vf_334()
+UBOOL APawn::AnchorNeedNotBeReachable()
 {
     if (Physics == PHYS_Falling)
     {
@@ -1743,7 +1744,7 @@ UBOOL APhysicsVolume::WillHurt(APawn* P)
 // @baa 0x008652f0
 /* DampenNoise(NoiseMaker, Loudness, NoiseType): noises the pawn (or something it owns) makes are
  * scaled by its instigator's SoundDampening. */
-FLOAT APawn::vf_3c0(INT NoiseMaker, INT Loudness, INT NoiseTypeIndex, INT NoiseTypeNumber)
+FLOAT APawn::DampenNoise(AActor* NoiseMaker, FLOAT Loudness, FName NoiseType)
 {
 	FLOAT DampeningFactor = 1.f;
 	if ((AActor*)NoiseMaker == this || ((AActor*)NoiseMaker)->Owner == this)

@@ -29,7 +29,7 @@ template<class T> struct TArray_ : public TArray<T>
 
 // @baa 0x01720540
 /* The ladder's related actors: its top and bottom path nodes (those that are set). */
-void ARLadder::vf_340(TArray<AActor*>& Actors)
+void ARLadder::SetAnimWeights(const TArray<struct FAnimSlotInfo>& Actors)
 {
 	if (TopNode)
 	{

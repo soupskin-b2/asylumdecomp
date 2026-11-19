@@ -82,13 +82,13 @@ undefined4 C_00572720::sub_00572720(undefined4 param_2)
 
 extern char g_01e7d81c[];
 // @baa 0x00572980
-int UStruct::vf_130(void) { return (int)g_01e7d81c; }
+const TCHAR* UStruct::GetPrefixCPP() { return (const TCHAR*)g_01e7d81c; }
 
 // @baa 0x00572990
 int UStruct::vf_118(void) { return *(int*)((char*)this + 68); }
 
 // @baa 0x005729a0
-int UStruct::vf_11c(void) { return *(int*)((char*)this + 48); }
+UStruct* UStruct::GetInheritanceSuper() const { return (UStruct*)SuperField; }
 
 // @baa 0x00575450
 IMPLEMENT_CLASS_AT(UStruct, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Core\\Src\\UnClass.cpp", 1196);
@@ -139,7 +139,7 @@ undefined4 * C_00575630::sub_00575630(void)
 int UFunction::vf_110(void) { return 0; }
 
 // @baa 0x00575670
-int UFunction::vf_11c(void) { return 0; }
+UStruct* UFunction::GetInheritanceSuper() const { return 0; }
 
 // @baa 0x00575680
 IMPLEMENT_CLASS_AT(UFunction, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Core\\Src\\UnClass.cpp", 2342);
@@ -245,7 +245,7 @@ int UState::vf_110(void) { return 1; }
 int UState::sub_00587300(void) { return *(int*)((char*)this + 48); }
 
 // @baa 0x00587310
-int UState::vf_11c(void) { return *(int*)((char*)this + 48); }
+UStruct* UState::GetInheritanceSuper() const { return (UStruct*)SuperField; }
 
 struct C_005873d0 { void sub_00583540(int); C_005873d0 *sub_005873d0(int); };
 
@@ -282,7 +282,7 @@ undefined4 UState::sub_00587b90(byte param_2)
 int UClass::vf_110(void) { return 1; }
 
 // @baa 0x00587d90
-int UClass::vf_11c(void) { return *(int*)((char*)this + 48); }
+UStruct* UClass::GetInheritanceSuper() const { return (UStruct*)SuperField; }
 
 int sub_00587dc0(void);
 // @baa 0x00587ec0

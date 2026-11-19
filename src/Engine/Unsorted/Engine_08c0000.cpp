@@ -204,7 +204,7 @@ int UObject::sub_008c2cd0(int param_2)
 IMPLEMENT_CLASS_AT(USceneCaptureComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSceneCapture.cpp", 10);
 
 // @baa 0x008c3960
-int USceneCaptureComponent::vf_14c(void) { return 0; }
+class FSceneCaptureProbe* USceneCaptureComponent::CreateSceneCaptureProbe() { return 0; }
 
 // @baa 0x008c3970
 struct C_008c59e0 {

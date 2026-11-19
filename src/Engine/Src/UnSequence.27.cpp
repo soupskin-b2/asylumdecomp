@@ -79,11 +79,10 @@ void USeqAct_SetMatInstTexParam::Activated()
 }
 
 // @baa 0x008abb80
-/* USequenceEvent slot 0x19c (kit vf_19c, UE3's CheckActivate(InOriginator, InInstigator, bTest) short form): forward to
- * slot 0x1a4 with no activate indices and bPushTop off. */
-INT USequenceEvent::vf_19c(INT InOriginator, INT InInstigator, INT bTest)
+/* Activate the event from the debugger: ActivateEvent with bPushTop and bFromQueued off. */
+void USequenceEvent::DebugActivateEvent(AActor * InOriginator, AActor * InInstigator, TArray<INT> * ActivateIndices)
 {
-    return vf_1a4(InOriginator, InInstigator, bTest, 0, 0);
+    ActivateEvent(InOriginator, InInstigator, ActivateIndices, FALSE, FALSE);
 }
 
 // @baa 0x008c0980
@@ -157,11 +156,11 @@ void USequence::OnCreated()
 }
 
 // @baa 0x008ac570
-/* USeqEvent_ParticleEvent slot 0x120 (kit vf_120, UE3's OnCreated()): stamp the version, then slot 0x1a8 with 0. */
+/* USeqEvent_ParticleEvent slot 0x120 (kit vf_120, UE3's OnCreated()): stamp the version, then SetupOutputLinks(FALSE). */
 void USeqEvent_ParticleEvent::OnCreated()
 {
     ObjInstanceVersion = ((USequenceObject_*)this)->eventGetObjClassVersion();
-    vf_1a8(0);
+    SetupOutputLinks(FALSE);
 }
 
 extern FName g_026c4db8;

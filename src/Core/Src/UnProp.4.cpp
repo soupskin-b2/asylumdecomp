@@ -81,14 +81,10 @@ int UArrayProperty::GetPropertyValue(int a0, int a1)
     return Result;
 }
 
-struct C_0053ea70 {
-    int sub_0053ea70(int a1, int a2);
-};
-
 // @baa 0x0062e100
-int UIntProperty::vf_130(int Obj, int a2, int a3)
+UBOOL UIntProperty::NetSerializeItem(FArchive& Obj, UPackageMap* a2, void* a3) const
 {
-    ((C_0053ea70*)Obj)->sub_0053ea70(a3, 4);
+    Obj.ByteOrderSerialize(a3, 4);
     return 1;
 }
 
@@ -105,16 +101,10 @@ void UDelegateProperty::StaticConstructor()
     ((UClass_*)C)->sub_005f2bf0(0x74);
 }
 
-struct C_0053ea70_0062e600
-{
-	int sub_0053ea70(int Value, int Count);
-};
-
 // @baa 0x0062e600
-int UFloatProperty::vf_130(int Object, int a2, int a3)
+UBOOL UFloatProperty::NetSerializeItem(FArchive& Object, UPackageMap* a2, void* a3) const
 {
-	C_0053ea70_0062e600* This = (C_0053ea70_0062e600*)Object;
-	This->sub_0053ea70(a3, 4);
+	Object.ByteOrderSerialize(a3, 4);
 	return 1;
 }
 
@@ -127,10 +117,10 @@ void UMapProperty::StaticConstructor()
 }
 
 // @baa 0x005ebc90
-int UProperty::vf_16c(void) { return 0; }
+UBOOL UProperty::ContainsObjectReference() const { return 0; }
 
 // @baa 0x005ebd50
-int UMapProperty::vf_16c(void) { return 0; }
+UBOOL UMapProperty::ContainsObjectReference() const { return 0; }
 
 // @baa 0x005ebd70
 void UProperty::vf_178(int a0, int a1) {  }
@@ -139,7 +129,7 @@ void UProperty::vf_178(int a0, int a1) {  }
 void UMapProperty::vf_178(int a0, int a1) {  }
 
 // @baa 0x005fa780
-int UProperty::vf_160(void) { return 0; }
+UBOOL UProperty::RequiresInit() const { return 0; }
 
 struct C_005faab0 { int a, b, c; C_005faab0(); };
 
@@ -202,13 +192,13 @@ int C_00600660::sub_00600660(void)
 
 extern "C" void* sub_01a375f0(void* Dst, const void* Src, DWORD Size);
 // @baa 0x0062a740
-void UProperty::vf_144(INT* InValue, INT* OutValue, INT C, INT D, INT E)
+void UProperty::CopySingleValue(void* InValue, void* OutValue, UObject* C, UObject* D, struct FObjectInstancingGraph* E) const
 {
 	sub_01a375f0(InValue, OutValue, ElementSize);
 }
 
 // @baa 0x0062a7b0
-void UProperty::vf_154(int a0) {  }
+void UProperty::DestroyValue(void* a0) const {  }
 
 // @baa 0x0062a800
 void __stdcall sub_0062a800(int a0, int a1) {  }
@@ -394,7 +384,7 @@ UINT __stdcall sub_0062aff0(UINT* Value, INT* InValue)
 
 // @baa 0x0062a7e0
 /* Whether the property is localized (CPF_Localized). */
-INT UProperty::vf_15c()
+UBOOL UProperty::IsLocalized() const
 {
 	return (PropertyFlags & 0x8000) ? TRUE : FALSE;
 }
@@ -403,7 +393,7 @@ INT UProperty::vf_15c()
 /* Whether the byte is nonzero; with PPF_LocalizedOnly (0x80), only for localized properties. */
 INT UByteProperty::HasValue(INT Data, INT PortFlags)
 {
-	return ((PortFlags & 0x80) == 0 || vf_15c()) ? *(BYTE*)Data != 0 : 0;
+	return ((PortFlags & 0x80) == 0 || IsLocalized()) ? *(BYTE*)Data != 0 : 0;
 }
 
 // @baa 0x0062a970
@@ -416,14 +406,14 @@ UBOOL UIntProperty::Identical(const void* A, const void* B, DWORD PortFlags) con
 /* Whether the int is nonzero; with PPF_LocalizedOnly (0x80), only for localized properties. */
 INT UIntProperty::HasValue(INT Data, INT PortFlags)
 {
-	return ((PortFlags & 0x80) == 0 || vf_15c()) ? *(INT*)Data != 0 : 0;
+	return ((PortFlags & 0x80) == 0 || IsLocalized()) ? *(INT*)Data != 0 : 0;
 }
 
 // @baa 0x0062a9d0
 /* Zeroes the int; with PPF_LocalizedOnly (0x80), only for localized properties. */
 void UIntProperty::ClearValue(BYTE* Data, DWORD PortFlags)
 {
-	if ((PortFlags & 0x80) == 0 || vf_15c())
+	if ((PortFlags & 0x80) == 0 || IsLocalized())
 	{
 		*(INT*)Data = 0;
 	}
@@ -431,7 +421,7 @@ void UIntProperty::ClearValue(BYTE* Data, DWORD PortFlags)
 
 // @baa 0x0062aa50
 /* CopySingleValue: copies the delegate. */
-void UDelegateProperty::vf_144(INT* Dest, INT* Src, INT SubobjectRoot, INT DestOwnerObject, INT InstanceGraph)
+void UDelegateProperty::CopySingleValue(void* Dest, void* Src, UObject* SubobjectRoot, UObject* DestOwnerObject, struct FObjectInstancingGraph* InstanceGraph) const
 {
 	*(FScriptDelegate*)Dest = *(FScriptDelegate*)Src;
 }
@@ -453,7 +443,7 @@ UINT UDelegateProperty::SetPropertyValue(UINT* PropertyValueAddress, INT* Value)
 /* Zeroes the float; with PPF_LocalizedOnly (0x80), only for localized properties. */
 void UFloatProperty::ClearValue(BYTE* Data, DWORD PortFlags)
 {
-	if ((PortFlags & 0x80) == 0 || vf_15c())
+	if ((PortFlags & 0x80) == 0 || IsLocalized())
 	{
 		*(FLOAT*)Data = 0.f;
 	}
@@ -469,14 +459,14 @@ void UObjectProperty::SerializeItem(FArchive& Ar, void* Value, INT MaxReadBytes,
 /* Whether the reference is set; with PPF_LocalizedOnly (0x80), only for localized properties. */
 INT UObjectProperty::HasValue(INT Data, INT PortFlags)
 {
-	return ((PortFlags & 0x80) == 0 || vf_15c()) ? *(UObject**)Data != NULL : 0;
+	return ((PortFlags & 0x80) == 0 || IsLocalized()) ? *(UObject**)Data != NULL : 0;
 }
 
 // @baa 0x0062ae60
 /* Clears the reference; with PPF_LocalizedOnly (0x80), only for localized properties. */
 void UObjectProperty::ClearValue(BYTE* Data, DWORD PortFlags)
 {
-	if ((PortFlags & 0x80) == 0 || vf_15c())
+	if ((PortFlags & 0x80) == 0 || IsLocalized())
 	{
 		*(UObject**)Data = NULL;
 	}
@@ -484,7 +474,7 @@ void UObjectProperty::ClearValue(BYTE* Data, DWORD PortFlags)
 
 // @baa 0x0062b050
 /* CopySingleValue: copies the interface reference. */
-void UInterfaceProperty::vf_144(INT* Dest, INT* Src, INT SubobjectRoot, INT DestOwnerObject, INT InstanceGraph)
+void UInterfaceProperty::CopySingleValue(void* Dest, void* Src, UObject* SubobjectRoot, UObject* DestOwnerObject, struct FObjectInstancingGraph* InstanceGraph) const
 {
 	*(FScriptInterface*)Dest = *(FScriptInterface*)Src;
 }
@@ -504,7 +494,7 @@ UINT UInterfaceProperty::SetPropertyValue(UINT* PropertyValueAddress, INT* Value
 
 // @baa 0x0062b110
 /* CopySingleValue: copies the name. */
-void UNameProperty::vf_144(INT* Dest, INT* Src, INT SubobjectRoot, INT DestOwnerObject, INT InstanceGraph)
+void UNameProperty::CopySingleValue(void* Dest, void* Src, UObject* SubobjectRoot, UObject* DestOwnerObject, struct FObjectInstancingGraph* InstanceGraph) const
 {
 	*(FName*)Dest = *(FName*)Src;
 }
@@ -524,7 +514,7 @@ UINT UNameProperty::SetPropertyValue(UINT* PropertyValueAddress, INT* Value)
 
 // @baa 0x0062b740
 /* Whether the property has flag 0x400000 (CPF_Component). */
-INT UProperty::vf_170()
+UBOOL UProperty::ContainsInstancedObjectProperty() const
 {
 	return (PropertyFlags & 0x400000) ? TRUE : FALSE;
 }
@@ -545,7 +535,7 @@ void UFloatProperty::SerializeItem(FArchive& Ar, void* Value, INT MaxReadBytes, 
 /* Resets the name to NAME_None; with PPF_LocalizedOnly (0x80), only for localized properties. */
 void UNameProperty::ClearValue(BYTE* Data, DWORD PortFlags)
 {
-	if ((PortFlags & 0x80) == 0 || vf_15c())
+	if ((PortFlags & 0x80) == 0 || IsLocalized())
 	{
 		*(FName*)Data = NAME_None;
 	}
@@ -559,9 +549,9 @@ void UDelegateProperty::SerializeItem(FArchive& Ar, void* Value, INT MaxReadByte
 
 // @baa 0x0062e3a0
 /* NetSerializeItem(Ar, Map, Data): the delegate goes over the wire as its object and function name. */
-INT UDelegateProperty::vf_130(INT Ar, INT Map, INT Data)
+UBOOL UDelegateProperty::NetSerializeItem(FArchive& Ar, UPackageMap* Map, void* Data) const
 {
-	*(FArchive*)Ar << ((FScriptDelegate*)Data)->Object << ((FScriptDelegate*)Data)->FunctionName;
+	Ar << ((FScriptDelegate*)Data)->Object << ((FScriptDelegate*)Data)->FunctionName;
 	return 1;
 }
 
@@ -569,7 +559,7 @@ INT UDelegateProperty::vf_130(INT Ar, INT Map, INT Data)
 /* Clears the delegate; with PPF_LocalizedOnly (0x80), only for localized properties. */
 void UDelegateProperty::ClearValue(BYTE* Data, DWORD PortFlags)
 {
-	if ((PortFlags & 0x80) == 0 || vf_15c())
+	if ((PortFlags & 0x80) == 0 || IsLocalized())
 	{
 		((FScriptDelegate*)Data)->Object = NULL;
 		((FScriptDelegate*)Data)->FunctionName = NAME_None;
@@ -578,7 +568,7 @@ void UDelegateProperty::ClearValue(BYTE* Data, DWORD PortFlags)
 
 // @baa 0x00639310
 /* CopySingleValue: copies the string. */
-void UStrProperty::vf_144(INT* Dest, INT* Src, INT SubobjectRoot, INT DestOwnerObject, INT InstanceGraph)
+void UStrProperty::CopySingleValue(void* Dest, void* Src, UObject* SubobjectRoot, UObject* DestOwnerObject, struct FObjectInstancingGraph* InstanceGraph) const
 {
 	*(FString*)Dest = *(FString*)Src;
 }
@@ -598,9 +588,9 @@ UINT UStrProperty::SetPropertyValue(UINT* PropertyValueAddress, INT* Value)
 
 // @baa 0x0062a7c0
 /* NetSerializeItem(Ar, Map, Data): plain serialization. */
-INT UProperty::vf_130(INT Ar, INT Map, INT Data)
+UBOOL UProperty::NetSerializeItem(FArchive& Ar, UPackageMap* Map, void* Data) const
 {
-	SerializeItem(*(FArchive*)Ar, (void*)Data, 0, NULL);
+	SerializeItem(Ar, Data, 0, NULL);
 	return 1;
 }
 
@@ -614,7 +604,7 @@ UBOOL UFloatProperty::Identical(const void* A, const void* B, DWORD PortFlags) c
 /* Whether the float is nonzero; with PPF_LocalizedOnly (0x80), only for localized properties. */
 INT UFloatProperty::HasValue(INT Data, INT PortFlags)
 {
-	return ((PortFlags & 0x80) == 0 || vf_15c()) ? *(FLOAT*)Data != 0.f : 0;
+	return ((PortFlags & 0x80) == 0 || IsLocalized()) ? *(FLOAT*)Data != 0.f : 0;
 }
 
 // @baa 0x0062b130
@@ -655,14 +645,14 @@ UBOOL UInterfaceProperty::Identical(const void* A, const void* B, DWORD PortFlag
 /* Whether an interface is set; with PPF_LocalizedOnly (0x80), only for localized properties. */
 INT UInterfaceProperty::HasValue(INT Data, INT PortFlags)
 {
-	return ((PortFlags & 0x80) == 0 || vf_15c()) ? GetInterface(*(FScriptInterface*)Data) != NULL : 0;
+	return ((PortFlags & 0x80) == 0 || IsLocalized()) ? GetInterface(*(FScriptInterface*)Data) != NULL : 0;
 }
 
 // @baa 0x006305c0
 /* Whether the string is non-empty; with PPF_LocalizedOnly (0x80), only for localized properties. */
 INT UStrProperty::HasValue(INT Data, INT PortFlags)
 {
-	return ((PortFlags & 0x80) == 0 || vf_15c()) ? ((FString*)Data)->Len() > 0 : 0;
+	return ((PortFlags & 0x80) == 0 || IsLocalized()) ? ((FString*)Data)->Len() > 0 : 0;
 }
 
 // @baa 0x006319b0
@@ -671,7 +661,7 @@ void UByteProperty::ClearValue(BYTE* Data, DWORD PortFlags)
 {
 #line 691 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Core\\Src\\UnProp.cpp"
 	check(Data);
-	if ((PortFlags & 0x80) == 0 || vf_15c())
+	if ((PortFlags & 0x80) == 0 || IsLocalized())
 	{
 		*Data = 0;
 	}

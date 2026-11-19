@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00773710
-void* AController::vf_2e4() { return this; }
+AController* AController::GetAController() { return this; }

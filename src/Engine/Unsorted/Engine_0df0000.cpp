@@ -380,7 +380,7 @@ undefined4 * C_00df4180::sub_00df4180(byte param_2)
 }
 
 // @baa 0x00df41c0
-undefined4 UDownload::vf_10c(void)
+UBOOL UDownload::TrySkipFile()
 {
     int param_1 = (int)this;
 
@@ -1484,7 +1484,7 @@ void C_00dfc020::sub_00dfc020(undefined4 param_2, undefined4 param_3)
 
 // @baa 0x00dfcde0
 // @baa 0x00dfce50
-void UDownload::vf_118(void) {  }
+void UDownload::Tick() {  }
 
 // @baa 0x00dfce80
 // @baa 0x00dfd530

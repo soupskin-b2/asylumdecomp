@@ -2379,10 +2379,10 @@ void UExporter::vf_110(int a0) {  }
 void UExporter::vf_114(int a0) {  }
 
 // @baa 0x0060b370
-int UExporter::vf_118(int a0, int a1, int a2, int a3, int a4, int a5) { return 0; }
+UBOOL UExporter::ExportBinary(UObject* a0, const TCHAR* a1, FArchive& a2, FFeedbackContext* a3, INT a4, DWORD a5) { return 0; }
 
 // @baa 0x0060b380
-int UExporter::vf_11c(void) { return 1; }
+INT UExporter::GetFileCount() const { return 1; }
 
 struct C_0060b900 { void sub_00609af0(int); C_0060b900 *sub_0060b900(int); };
 

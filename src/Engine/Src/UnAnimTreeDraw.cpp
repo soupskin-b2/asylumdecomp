@@ -89,14 +89,9 @@ inline UBOOL operator!=(const FName& A, EName N) { return A.Index != N || A.Numb
 
 /* UClass::GetDescription isn't declared in Classes.h. */
 
-/* UAnimNode::GetNodeTitle (editor drawing; its vtable slot is declared only as a vf_). */
-struct UAnimNode_ : public UAnimNode
-{
-	FString GetNodeTitle();
-};
 
 // @baa 0x00cb91a0
-FString UAnimNode_::GetNodeTitle()
+FString UAnimNode::GetNodeTitle()
 {
 	FString NodeTitle;
 	FString NodeDesc = ((UClass*)GetClass())->sub_00572f10();

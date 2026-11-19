@@ -104,7 +104,7 @@ UINT UUISceneClient::vf_12c(UINT ViewportIndex, FLOAT* out_ViewportOffset)
 
 // @baa 0x00dde070
 /* Whether the UI post-process pass should run: enabled, and a scene that wants it is active. */
-INT UUISceneClient::vf_188()
+UBOOL UUISceneClient::UsesPostProcess()
 {
 	return bEnablePostProcess && IsUIActive(0x10);
 }

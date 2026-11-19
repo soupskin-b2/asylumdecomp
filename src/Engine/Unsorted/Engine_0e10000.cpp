@@ -184,17 +184,17 @@ int sub_0061bbe0(void);
 extern undefined * g_020e41b0;
 
 // @baa 0x00e149b0
-void UPackageMapSeekFree::vf_120(void) {  }
+void UPackageMapSeekFree::Compute() {  }
 
 // @baa 0x00e149c0
-void UPackageMapSeekFree::vf_130(int a0) {  }
+void UPackageMapSeekFree::Copy(UPackageMap* a0) {  }
 
 // @baa 0x00e149d0
-void UPackageMapSeekFree::vf_124(void) {  }
+void UPackageMapSeekFree::AddNetPackages() {  }
 
 // @baa 0x00e149e0
-int UPackageMapSeekFree::vf_128(int a) {
-    return a | 0xFFFFFFFF;
+INT UPackageMapSeekFree::AddPackage(UPackage* Package) {
+    return INDEX_NONE;
 }
 
 // @baa 0x00e14a30
@@ -379,7 +379,7 @@ void sub_00e195c0(undefined4 * param_1, undefined4 * param_2)
 extern "C" int sub_00630f20(int, const wchar_t*);
 extern int g_026667a8;
 // @baa 0x00e14a10
-INT UPackageMapSeekFree::vf_138(INT a, INT b)
+UObject* UPackageMapSeekFree::IndexToObject(INT a, UBOOL b)
 {
     sub_00630f20(g_026667a8, L"This should never have been called with UPackageMapSeekFree!");
     return 0;

@@ -10,10 +10,10 @@ UINT UDistributionVector::vf_110() { return 1; }
 UINT UDistributionVector::vf_114(INT a0) { return 0; }
 
 // @baa 0x00540390
-int UDistributionVector::vf_118(void) { return 0; }
+UBOOL UDistributionVector::IsUniformCurve() { return 0; }
 
 // @baa 0x005403a0
-uint UDistributionVector::vf_128(void)
+UBOOL UDistributionVector::CanBeBaked() const
 {
     int param_1 = (int)this;
 

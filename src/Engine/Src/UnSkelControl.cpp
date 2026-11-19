@@ -40,7 +40,7 @@ UBOOL USkelControlTrail::HasUniqueStaticConfigName() const { return 1; }
 UBOOL USkelControl_CCD_IK::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0090cf20
-float USkelControlBase::vf_148(void) { return *(float*)((char*)this + 92); }
+FLOAT USkelControlBase::GetControlAlpha() { return *(float*)((char*)this + 92); }
 
 int sub_005e59b0(void);
 // @baa 0x0090cf50
@@ -75,7 +75,7 @@ void USkelControlBase::Serialize(FArchive& Ar) {
 }
 
 // @baa 0x0090cfc0
-void USkelControlBase::vf_11c(void) {  }
+void USkelControlBase::OnPaste() {  }
 
 // @baa 0x0090cfd0
 INT USkelControlSingleBone::GetNumWidgets()
@@ -86,20 +86,18 @@ INT USkelControlSingleBone::GetNumWidgets()
 }
 
 // @baa 0x0090d050
-FLOAT USkelControlLookAt::vf_148() {
+FLOAT USkelControlLookAt::GetControlAlpha() {
     int param_1 = (int)this;
 
   return (float10)*(float *)(param_1 + 0xe8) * (float10)*(float *)(param_1 + 0x5c);
 }
 
 // @baa 0x0090d1b0
-void USkelControlLookAt::vf_14c(undefined4 * param_2)
+void USkelControlLookAt::SetControlTargetLocation(const FVector& param_2)
 {
     int param_1 = (int)this;
 
-  *(undefined4 *)(param_1 + 0xa8) = *param_2;
-  *(undefined4 *)(param_1 + 0xac) = param_2[1];
-  *(undefined4 *)(param_1 + 0xb0) = param_2[2];
+  TargetLocation = param_2;
   return;
 }
 
@@ -110,19 +108,19 @@ int sub_0090d1e0(void) { return 2; }
 int sub_0090d2e0(void) { return 1; }
 
 // @baa 0x009224f0
-void* USkelControlBase::vf_114() { return this; }
+USkelControlBase * USkelControlBase::GetSkelControlBase() { return this; }
 
 // @baa 0x00922500
 void __stdcall sub_00922500(int a0, int a1, int a2) {  }
 
 // @baa 0x00922510
-void USkelControlBase::vf_128(int a0, int a1, int a2) {  }
+void USkelControlBase::CalculateNewBoneTransforms(INT a0, USkeletalMeshComponent* a1, TArray<FBoneAtom>& a2) {  }
 
 // @baa 0x00922520
-void USkelControlBase::vf_12c(int a0, int a1, int a2) {  }
+void USkelControlBase::CalculateNewBoneScales(INT a0, USkeletalMeshComponent* a1, TArray<FLOAT>& a2) {  }
 
 // @baa 0x00922530
-float USkelControlBase::vf_130(int a0, int a1) { return *(float*)((char*)this + 144); }
+FLOAT USkelControlBase::GetBoneScale(INT a0, USkeletalMeshComponent* a1) { return *(float*)((char*)this + 144); }
 
 // @baa 0x00922560
 int sub_00922560(void) { return 0; }
@@ -131,10 +129,10 @@ int sub_00922560(void) { return 0; }
 void USkelControlBase::HandleWidgetDrag(INT a0, const FVector& a1) {  }
 
 // @baa 0x009225a0
-void USkelControlBase::vf_144(int a0, int a1, int a2, int a3) {  }
+void USkelControlBase::DrawSkelControl3D(const FSceneView* a0, FPrimitiveDrawInterface* a1, USkeletalMeshComponent* a2, INT a3) {  }
 
 // @baa 0x009225b0
-void USkelControlBase::vf_14c(UINT* a0) {  }
+void USkelControlBase::SetControlTargetLocation(const FVector& a0) {  }
 
 void sub_009212c0();
 // @baa 0x009225c0

@@ -616,7 +616,7 @@ int UDistributionFloat::vf_110(void) { return 1; }
 int UDistributionFloat::vf_114(int a0) { return 0; }
 
 // @baa 0x00545c70
-uint UDistributionFloat::vf_120(void)
+UBOOL UDistributionFloat::CanBeBaked() const
 {
     int param_1 = (int)this;
 

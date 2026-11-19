@@ -223,7 +223,7 @@ undefined4 sub_00a33de0(undefined4 param_1, undefined4 param_2)
 IMPLEMENT_CLASS_AT(UForceFieldShape, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\ForceFieldShape.cpp", 13);
 
 // @baa 0x00a33e50
-int UForceFieldShape::vf_10c(void) { return 0; }
+class NxForceFieldShapeDesc * UForceFieldShape::CreateNxDesc() { return 0; }
 
 // @baa 0x00a33e60
 int sub_005c7a20(void);

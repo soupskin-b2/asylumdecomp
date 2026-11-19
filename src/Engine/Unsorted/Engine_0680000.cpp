@@ -1984,7 +1984,7 @@ void UPrimitiveComponent::vf_168(int a0) {  }
 void UPrimitiveComponent::vf_16c(int a0) {  }
 
 // @baa 0x00689360
-undefined1 UPrimitiveComponent::vf_170(void)
+BYTE UPrimitiveComponent::GetStaticDepthPriorityGroup() const
 {
     int param_1 = (int)this;
 
@@ -1992,10 +1992,10 @@ undefined1 UPrimitiveComponent::vf_170(void)
 }
 
 // @baa 0x00689370
-int UPrimitiveComponent::vf_174(int a0, int a1, int a2, int a3) { return 1; }
+UBOOL UPrimitiveComponent::PointCheck(struct FCheckResult& a0, const FVector& a1, const FVector& a2, DWORD a3) { return 1; }
 
 // @baa 0x00689380
-int UPrimitiveComponent::vf_178(int a0, int a1, int a2, int a3, int a4) { return 1; }
+UBOOL UPrimitiveComponent::LineCheck(struct FCheckResult& a0, const FVector& a1, const FVector& a2, const FVector& a3, DWORD a4) { return 1; }
 
 // @baa 0x00689390
 class URB_BodySetup* UPrimitiveComponent::GetRBBodySetup() { return 0; }
@@ -2583,7 +2583,7 @@ void AActor::vf_184(void) {  }
 int AActor::vf_188(void) { return 1; }
 
 // @baa 0x0068ee60
-void AActor::vf_194(void) {  }
+void AActor::PostScriptDestroyed() {  }
 
 // @baa 0x0068ee70
 int AActor::vf_1c0(int a0) { return 0; }
@@ -2595,10 +2595,10 @@ void AActor::vf_214(void) {  }
 void AActor::vf_21c(int a0, int a1, int a2) {  }
 
 // @baa 0x0068eea0
-void AActor::vf_224(int a0) {  }
+void AActor::PushedBy(AActor* a0) {  }
 
 // @baa 0x0068eeb0
-void AActor::vf_228(int a0, int a1) {  }
+void AActor::UpdateBasedRotation(FRotator & a0, const FRotator& a1) {  }
 
 // @baa 0x0068eed0
 void AActor::vf_24c(void) {  }
@@ -2664,10 +2664,10 @@ int AActor::vf_29c(int a0) { return 0; }
 void AActor::vf_2a0(void) {  }
 
 // @baa 0x0068f020
-void AActor::vf_2c0(void) {  }
+void AActor::CheckForErrors() {  }
 
 // @baa 0x0068f030
-void AActor::vf_2c4(void) {  }
+void AActor::CheckForDeprecated() {  }
 
 // @baa 0x0068f040
 int AActor::vf_2cc(void) { return 0; }
@@ -2688,46 +2688,46 @@ int AActor::vf_2dc(void) { return 0; }
 APlayerController* AActor::GetAPlayerController() { return 0; }
 
 // @baa 0x0068f0a0
-void* AActor::vf_2e4() { return 0; }
+AController* AActor::GetAController() { return 0; }
 
 // @baa 0x0068f0b0
-void* AActor::vf_2ec() { return 0; }
+APawn* AActor::GetAPawn() { return 0; }
 
 // @baa 0x0068f0c0
-void* AActor::vf_2e8() { return 0; }
+const APawn* AActor::GetAPawn() const { return 0; }
 
 // @baa 0x0068f0d0
-int AActor::vf_2f0(void) { return 0; }
+class AVehicle* AActor::GetAVehicle() { return 0; }
 
 // @baa 0x0068f0e0
-void* AActor::vf_2f4() { return 0; }
+AVolume* AActor::GetAVolume() { return 0; }
 
 // @baa 0x0068f0f0
-void* AActor::vf_2f8() { return 0; }
+class AFluidSurfaceActor* AActor::GetAFluidSurface() { return 0; }
 
 // @baa 0x0068f100
-void* AActor::vf_300() { return 0; }
+class AProjectile* AActor::GetAProjectile() { return 0; }
 
 // @baa 0x0068f110
-void* AActor::vf_2fc() { return 0; }
+const class AProjectile* AActor::GetAProjectile() const { return 0; }
 
 // @baa 0x0068f120
-void* AActor::vf_304() { return 0; }
+class APortalTeleporter* AActor::GetAPortalTeleporter() { return 0; }
 
 // @baa 0x0068f130
-ANSICHAR* AActor::vf_32c() { return 0; }
+FGuid* AActor::GetGuid() { return 0; }
 
 // @baa 0x0068f140
-void* AActor::vf_330(INT a0) { return 0; }
+class ANavigationPoint* AActor::SpecifyEndAnchor(APawn* a0) { return 0; }
 
 // @baa 0x0068f150
-void AActor::vf_338(int a0, int a1) {  }
+void AActor::NotifyAnchorFindingResult(ANavigationPoint* a0, APawn* a1) {  }
 
 // @baa 0x0068f160
-int AActor::vf_33c(int a0) { return 0; }
+UBOOL AActor::ShouldHideActor(FVector const& a0) { return 0; }
 
 // @baa 0x0068f170
-void AActor::vf_340(TArray<AActor*>& a0) {  }
+void AActor::SetAnimWeights(const TArray<struct FAnimSlotInfo>& a0) {  }
 
 // @baa 0x0068f180
 int AActor::vf_348(int a0, int a1) { return 0; }

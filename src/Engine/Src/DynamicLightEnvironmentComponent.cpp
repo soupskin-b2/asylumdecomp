@@ -39,7 +39,7 @@ struct C_006aa980 { void sub_006aa980(void); };
 void C_006aa980::sub_006aa980(void) { *(int*)((char*)this + 1824) = 1; }
 
 // @baa 0x006aa990
-void UDynamicLightEnvironmentComponent::vf_14c(int a0) {  }
+void UDynamicLightEnvironmentComponent::UpdateLight(const ULightComponent* a0) {  }
 
 // @baa 0x006aa9a0
 void UDynamicLightEnvironmentComponent::ResetEnvironment()
@@ -210,7 +210,7 @@ void __stdcall sub_006c6420(int a0, int a1) {  }
 IMPLEMENT_CLASS_AT(ULightEnvironmentComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\LightEnvironmentComponent.cpp", 8);
 
 // @baa 0x006c6660
-void ULightEnvironmentComponent::vf_14c(int a0) {  }
+void ULightEnvironmentComponent::UpdateLight(const ULightComponent* a0) {  }
 
 // @baa 0x006c6670
 extern undefined * g_01ecf4e8;

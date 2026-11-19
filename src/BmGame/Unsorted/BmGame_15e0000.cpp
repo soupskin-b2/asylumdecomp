@@ -3117,19 +3117,19 @@ IMPLEMENT_CLASS_AT(URBMSpecialMove_ReachSpec, "e:\\Projects\\Amadeus\\AA\\Game\\
 // @baa 0x015ef0c0
 
 // @baa 0x015e1eb0
-void URBMWaveController::vf_110(INT, INT)
+void URBMWaveController::OnConnect(USequenceObject * connObj, INT connIdx)
 {
     vf_1a4();
 }
 
 // @baa 0x015e1f40
-void URBMPawnSpawnerController::vf_110(INT, INT)
+void URBMPawnSpawnerController::OnConnect(USequenceObject * connObj, INT connIdx)
 {
     vf_1ac();
 }
 
 // @baa 0x015e20e0
-void URSeqAct_GetNumPawnsInVolume::vf_110(INT, INT)
+void URSeqAct_GetNumPawnsInVolume::OnConnect(USequenceObject * connObj, INT connIdx)
 {
     vf_19c();
 }

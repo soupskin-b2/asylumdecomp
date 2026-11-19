@@ -79,7 +79,7 @@ int sub_005402b0(void) { return 0; }
 void sub_005402c0(void) {  }
 
 // @baa 0x0058c430
-INT UComponent::vf_10c(UINT a0) { return 1; }
+UBOOL UComponent::AreNativePropertiesIdenticalTo(UComponent* a0) const { return 1; }
 
 int sub_00542090(void);
 int sub_00549b10(...);

@@ -1175,7 +1175,7 @@ struct C_0163fff0 { C_0163fff0* sub_0163fff0(int a0); };
 C_0163fff0* C_0163fff0::sub_0163fff0(int a0) { return this; }
 
 // @baa 0x0163d310
-void URSeqAct_CombatProgress::vf_110(INT, INT)
+void URSeqAct_CombatProgress::OnConnect(USequenceObject * connObj, INT connIdx)
 {
     vf_1a0();
 }

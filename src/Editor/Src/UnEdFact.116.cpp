@@ -10,7 +10,7 @@ int sub_0097fe70(...);
 extern undefined4 g_026b5ef0;
 extern undefined4 g_026b5f14;
 // @baa 0x00f1f410
-int UColladaFactory::vf_10c(void)
+UClass* UColladaFactory::ResolveSupportedClass()
 {
     int param_1 = (int)this;
 
@@ -19,11 +19,11 @@ int UColladaFactory::vf_10c(void)
       g_026b5ef0 = sub_0097fe70(L"Engine");
       sub_009441d0();
     }
-    return g_026b5ef0;
+    return (UClass*)g_026b5ef0;
   }
   if (g_026b5f14 == 0) {
     g_026b5f14 = sub_0097fae0(L"Engine");
     sub_00946350();
   }
-  return g_026b5f14;
+  return (UClass*)g_026b5f14;
 }

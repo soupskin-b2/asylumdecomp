@@ -6,7 +6,7 @@
 // @baa 0x007650e0
 /* AActor slot 0x31c (kit vf_31c): marks the actor's components pending kill, all of them or (bOnlyFiltered) only
  * those whose slot 0x144 says so. */
-void AActor::vf_31c(INT bOnlyFiltered)
+void AActor::MarkComponentsAsPendingKill(UBOOL bOnlyFiltered)
 {
     for (INT ComponentIndex = 0; ComponentIndex < Components.Num(); ComponentIndex++)
     {

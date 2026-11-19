@@ -84,9 +84,9 @@ void AEmitter::vf_180()
 // @baa 0x00b518f0
 /* Slot 0x1d8 (unnamed in the kit): emitters that update late move their component to
  * the post-update tick group. */
-void AEmitter::vf_1d8()
+void AEmitter::PostBeginPlay()
 {
-	Super::vf_1d8();
+	Super::PostBeginPlay();
 	if (ParticleSystemComponent && bPostUpdateTickGroup)
 	{
 		ParticleSystemComponent->SetTickGroup(TG_PostUpdateWork);

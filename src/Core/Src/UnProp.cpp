@@ -18,16 +18,16 @@ undefined4 C::sub_0058f650(int param_2)
 }
 
 // @baa 0x005ebca0
-int UObjectProperty::vf_16c(void) { return 1; }
+UBOOL UObjectProperty::ContainsObjectReference() const { return 1; }
 
 // @baa 0x005ebd60
-int UDelegateProperty::vf_16c(void) { return 1; }
+UBOOL UDelegateProperty::ContainsObjectReference() const { return 1; }
 
 // @baa 0x005fa720
 IMPLEMENT_CLASS_AT(UProperty, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Core\\Src\\UnProp.cpp", 518);
 
 // @baa 0x0062a810
-UINT UByteProperty::vf_168() { return 1; }
+INT UByteProperty::GetMinAlignment() const { return 1; }
 
 struct C_0062a820 {
     void sub_0062a820(unsigned char* a1, unsigned char* a2, int a3, int a4, int a5);
@@ -54,19 +54,19 @@ void UByteProperty_::sub_0062a830(void* Dest, void* Src, UObject*, UObject*, voi
 }
 
 // @baa 0x0062a910
-UINT UIntProperty::vf_168() { return 4; }
+INT UIntProperty::GetMinAlignment() const { return 4; }
 
 // @baa 0x0062a920
-void UIntProperty::vf_144(int* a1, int* a2, int a3, int a4, int a5)
+void UIntProperty::CopySingleValue(void* a1, void* a2, UObject* a3, UObject* a4, struct FObjectInstancingGraph* a5) const
 {
-    *a1 = *a2;
+    *(INT*)a1 = *(INT*)a2;
 }
 
 // @baa 0x0062aa40
-UINT UDelegateProperty::vf_168() { return 4; }
+INT UDelegateProperty::GetMinAlignment() const { return 4; }
 
 // @baa 0x0062aac0
-UINT UBoolProperty::vf_168() { return 4; }
+INT UBoolProperty::GetMinAlignment() const { return 4; }
 
 // @baa 0x0062ac10
 undefined4 UBoolProperty::SetPropertyValue(uint * param_2, int * param_3)
@@ -88,7 +88,7 @@ undefined4 UBoolProperty::SetPropertyValue(uint * param_2, int * param_3)
 }
 
 // @baa 0x0062ac40
-UINT UFloatProperty::vf_168() { return 4; }
+INT UFloatProperty::GetMinAlignment() const { return 4; }
 
 struct C_0062ac50 {
     void sub_0062ac50(float* a1, float* a2, int a3, int a4, int a5);
@@ -101,16 +101,16 @@ void C_0062ac50::sub_0062ac50(float* a1, float* a2, int a3, int a4, int a5)
 }
 
 // @baa 0x0062ad80
-UINT UObjectProperty::vf_168() { return 4; }
+INT UObjectProperty::GetMinAlignment() const { return 4; }
 
 // @baa 0x0062ad90
-void UObjectProperty::vf_144(int* a1, int* a2, int a3, int a4, int a5)
+void UObjectProperty::CopySingleValue(void* a1, void* a2, UObject* a3, UObject* a4, struct FObjectInstancingGraph* a5) const
 {
-    *a1 = *a2;
+    *(UObject**)a1 = *(UObject**)a2;
 }
 
 // @baa 0x0062b010
-int UInterfaceProperty::vf_130(int a0, int a1, int a2) { return 0; }
+UBOOL UInterfaceProperty::NetSerializeItem(FArchive& a0, UPackageMap* a1, void* a2) const { return 0; }
 
 // @baa 0x0062b020
 undefined2 sub_0062b020(undefined2 param_1)
@@ -134,10 +134,10 @@ float10 sub_0062b080(double param_1)
 void sub_0062b090(void) {  }
 
 // @baa 0x0062b0a0
-UINT UInterfaceProperty::vf_168() { return 4; }
+INT UInterfaceProperty::GetMinAlignment() const { return 4; }
 
 // @baa 0x0062b100
-UINT UNameProperty::vf_168() { return 4; }
+INT UNameProperty::GetMinAlignment() const { return 4; }
 
 // @baa 0x0062b1a0
 INT UNameProperty::GetPropertyValue(INT PropertyValueAddress, INT OutValue)
@@ -152,16 +152,16 @@ INT UNameProperty::GetPropertyValue(INT PropertyValueAddress, INT OutValue)
 }
 
 // @baa 0x0062b1f0
-UINT UStrProperty::vf_168() { return 4; }
+INT UStrProperty::GetMinAlignment() const { return 4; }
 
 // @baa 0x0062b220
-UINT UArrayProperty::vf_168() { return 4; }
+INT UArrayProperty::GetMinAlignment() const { return 4; }
 
 // @baa 0x0062b230
-int UArrayProperty::vf_130(int a0, int a1, int a2) { return 1; }
+UBOOL UArrayProperty::NetSerializeItem(FArchive& a0, UPackageMap* a1, void* a2) const { return 1; }
 
 // @baa 0x0062b300
-UINT UMapProperty::vf_168() { return 4; }
+INT UMapProperty::GetMinAlignment() const { return 4; }
 
 // @baa 0x0062b310
 UBOOL UMapProperty::Identical(const void* A, const void* B, DWORD PortFlags) const { return 1; }
@@ -170,7 +170,7 @@ UBOOL UMapProperty::Identical(const void* A, const void* B, DWORD PortFlags) con
 void __stdcall sub_0062b320(int a0, int a1, int a2, int a3) {  }
 
 // @baa 0x0062b330
-int UMapProperty::vf_130(int a0, int a1, int a2) { return 1; }
+UBOOL UMapProperty::NetSerializeItem(FArchive& a0, UPackageMap* a1, void* a2) const { return 1; }
 
 // @baa 0x0062b340
 int UMapProperty::sub_0062b340(void) { return *(int*)((char*)this + 32); }
@@ -182,19 +182,19 @@ void UMapProperty::ExportTextItem(UINT a0, UINT a1, UINT a2, UINT a3, UINT a4) {
 int UMapProperty::ImportText(int a0, int a1, int a2, int a3, int a4) { return a0; }
 
 // @baa 0x0062b370
-void UMapProperty::vf_174(int a0, int a1, int a2, int a3) {  }
+void UMapProperty::InstanceSubobjects(void* a0, void* a1, UObject* a2, struct FObjectInstancingGraph* a3) const {  }
 
 // @baa 0x0062b380
 void __stdcall sub_0062b380(int a0, int a1, int a2, int a3, int a4) {  }
 
 // @baa 0x0062b390
-void UMapProperty::vf_144(INT* a0, INT* a1, INT a2, INT a3, INT a4) {  }
+void UMapProperty::CopySingleValue(void* a0, void* a1, UObject* a2, UObject* a3, struct FObjectInstancingGraph* a4) const {  }
 
 // @baa 0x0062b3a0
-void UMapProperty::vf_154(int a0) {  }
+void UMapProperty::DestroyValue(void* a0) const {  }
 
 // @baa 0x0062b3b0
-int UMapProperty::vf_15c(void) { return 0; }
+UBOOL UMapProperty::IsLocalized() const { return 0; }
 
 // @baa 0x0062b3c0
 int UMapProperty::HasValue(int a0, int a1) { return 0; }
@@ -250,7 +250,7 @@ void C_0062b480::sub_0062b480(void)
 }
 
 // @baa 0x0062b760
-int UMapProperty::vf_170(void) { return 0; }
+UBOOL UMapProperty::ContainsInstancedObjectProperty() const { return 0; }
 
 struct C_0062b770 { int sub_0062b770(void); };
 
@@ -605,7 +605,7 @@ struct UProperty_ : public UProperty {
 // @baa 0x0062ddd0
 UBOOL UProperty_::sub_0062ddd0(INT Index, FString& ValueStr, BYTE* Data, BYTE* Delta, UObject* Parent, INT PortFlags)
 {
-    if ((PortFlags & 0x80) && !vf_15c())
+    if ((PortFlags & 0x80) && !IsLocalized())
     {
         return 0;
     }
@@ -765,7 +765,7 @@ int Obj_0062ee10::sub_0062ee10()
 }
 
 // @baa 0x0062ee20
-undefined4 UStructProperty::vf_168(void)
+INT UStructProperty::GetMinAlignment() const
 {
     int param_1 = (int)this;
 
@@ -1135,7 +1135,7 @@ undefined4 * UStrProperty::sub_0062f680(void)
 IMPLEMENT_CLASS_AT(UInterfaceProperty, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Core\\Src\\UnProp.cpp", 2691);
 
 // @baa 0x0062f710
-int UInterfaceProperty::vf_16c(void) { return 1; }
+UBOOL UInterfaceProperty::ContainsObjectReference() const { return 1; }
 
 // @baa 0x0062f720
 extern undefined * g_01eafb78;
@@ -1188,10 +1188,10 @@ IMPLEMENT_CLASS_AT(UMapProperty, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3
 void __stdcall sub_0062f8b0(int a0, int a1) {  }
 
 // @baa 0x0062f8c0
-void UMapProperty::vf_164(int a0, int a1, int a2, int a3) {  }
+void UMapProperty::InstanceComponents(BYTE* a0, BYTE* a1, UObject* a2, struct FObjectInstancingGraph* a3) {  }
 
 // @baa 0x0062f8d0
-int UMapProperty::vf_160(void) { return 0; }
+UBOOL UMapProperty::RequiresInit() const { return 0; }
 
 // @baa 0x0062f8e0
 int UMapProperty::GetPropertyValue(int a0, int a1) { return 0; }
@@ -1247,7 +1247,7 @@ struct UInterfaceProperty_ : public UInterfaceProperty {
 // @baa 0x00630590
 void UInterfaceProperty_::sub_00630590(BYTE* Data, DWORD PortFlags)
 {
-    if ((PortFlags & 0x80) == 0 || vf_15c())
+    if ((PortFlags & 0x80) == 0 || IsLocalized())
     {
         ((INT*)Data)[0] = 0;
         ((INT*)Data)[1] = 0;

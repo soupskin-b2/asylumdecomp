@@ -959,7 +959,7 @@ undefined4 URB_ConstraintInstance::GetPhysicsAssetInstance(void)
 // @baa 0x00a4d4a0
 // @baa 0x00a4d4c0
 // @baa 0x00a4e310
-void ARB_ConstraintActor::vf_230(int a0) {  }
+void ARB_ConstraintActor::physRigidBody(FLOAT a0) {  }
 
 // @baa 0x00a4e320
 // @baa 0x00a4e380

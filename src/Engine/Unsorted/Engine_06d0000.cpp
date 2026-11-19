@@ -2349,7 +2349,7 @@ void UPrimitiveComponent::SetOwnerNoSee(UBOOL bNewOwnerNoSee)
 // @baa 0x006db240
 /* UPrimitiveComponent slot 0x158 (kit vf_158, UE3 GetLightAndShadowMapMemoryUsage(INT& LightMapMemoryUsage,
  * INT& ShadowMapMemoryUsage) const): a plain primitive has neither. */
-void UPrimitiveComponent::vf_158(UINT* LightMapMemoryUsage, UINT* ShadowMapMemoryUsage)
+void UPrimitiveComponent::GetLightAndShadowMapMemoryUsage(UINT* LightMapMemoryUsage, UINT* ShadowMapMemoryUsage)
 {
     *LightMapMemoryUsage = 0;
     *ShadowMapMemoryUsage = 0;

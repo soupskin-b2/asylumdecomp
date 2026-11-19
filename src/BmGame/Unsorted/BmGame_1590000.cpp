@@ -515,7 +515,7 @@ undefined4 * UObject::sub_01593900(void)
 IMPLEMENT_CLASS_AT(URAnimNotify_FootPassing, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimNotify_Footstep.cpp", 15);
 
 // @baa 0x01593980
-void URAnimNotify_FootPassing::vf_10c(UINT a0) {  }
+void URAnimNotify_FootPassing::Notify(class UAnimNodeSequence* a0) {  }
 
 // @baa 0x01593990
 // @baa 0x015939b0
@@ -528,7 +528,7 @@ undefined4 sub_015939b0(undefined4 param_1, undefined4 param_2)
 IMPLEMENT_CLASS_AT(URAnimNotify_FootSyncIn, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimNotify_Footstep.cpp", 16);
 
 // @baa 0x01593a40
-void URAnimNotify_FootSyncIn::vf_10c(UINT a0) {  }
+void URAnimNotify_FootSyncIn::Notify(class UAnimNodeSequence* a0) {  }
 
 // @baa 0x01593a50
 // @baa 0x01593a70
@@ -541,7 +541,7 @@ undefined4 sub_01593a70(undefined4 param_1, undefined4 param_2)
 IMPLEMENT_CLASS_AT(URAnimNotify_FootSyncOut, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimNotify_Footstep.cpp", 17);
 
 // @baa 0x01593b00
-void URAnimNotify_FootSyncOut::vf_10c(UINT a0) {  }
+void URAnimNotify_FootSyncOut::Notify(class UAnimNodeSequence* a0) {  }
 
 // @baa 0x01593b10
 struct C_01593b30 {
@@ -1280,7 +1280,7 @@ struct UPhysicsAssetInstance_ {
 };
 
 // @baa 0x01597c00
-void URAnimNotify_BeginFixGroup::vf_10c(UINT Context)
+void URAnimNotify_BeginFixGroup::Notify(class UAnimNodeSequence* Context)
 {
     USkeletalMeshComponent* SkelComp = *(USkeletalMeshComponent**)Context;
     if (SkelComp && SkelComp->PhysicsAssetInstance)

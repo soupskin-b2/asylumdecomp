@@ -28,4 +28,4 @@ IMPLEMENT_CLASS_AT(UPackageMap, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\
 // @baa 0x0061e230
 
 // @baa 0x005fc170
-int UPackageMap::vf_134(int a) { return a | -1; }
+INT UPackageMap::ObjectToIndex(UObject* Object) { return INDEX_NONE; }

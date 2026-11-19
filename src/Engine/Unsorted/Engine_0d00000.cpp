@@ -35,7 +35,7 @@ IMPLEMENT_CLASS_AT(UInterpTrackDirector, "e:\\Projects\\Amadeus\\AA\\Game\\Unrea
 
 // @baa 0x00d010d0
 // @baa 0x00d01120
-int UInterpTrackEvent::vf_14c(void) { return 1; }
+UBOOL UInterpTrackEvent::AllowStaticActors() { return 1; }
 
 // @baa 0x00d01130
 IMPLEMENT_CLASS_AT(UInterpTrackEvent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnInterpolation.cpp", 56);
@@ -91,7 +91,7 @@ struct C { C* sub_00d01b10(void); };
 C* C::sub_00d01b10(void) { return this; }
 
 // @baa 0x00d01b50
-int UInterpTrackParticleReplay::vf_14c(void) { return 1; }
+UBOOL UInterpTrackParticleReplay::AllowStaticActors() { return 1; }
 
 // @baa 0x00d01b60
 IMPLEMENT_CLASS_AT(UInterpTrackParticleReplay, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnInterpolation.cpp", 109);

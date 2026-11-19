@@ -87,7 +87,7 @@ int sub_0090bcd0(int a0, int a1) { return a1; }
 IMPLEMENT_CLASS_AT(UAnimNotify, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSkeletalAnim.cpp", 22);
 
 // @baa 0x0090bd40
-void UAnimNotify::vf_10c(UINT a0) {  }
+void UAnimNotify::Notify(class UAnimNodeSequence* a0) {  }
 
 // @baa 0x0090bdc0
 IMPLEMENT_CLASS_AT(UAnimNotify_CameraEffect, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSkeletalAnim.cpp", 2372);

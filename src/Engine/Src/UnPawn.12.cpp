@@ -49,7 +49,7 @@ FLOAT AActor::GetGravityZ()
 // @baa 0x00865010
 // @baa 0x00865010
 /* APawn slot 0x194: PostScriptDestroyed. */
-void APawn::vf_194()
+void APawn::PostScriptDestroyed()
 {
 	GWorld->RemovePawn(this);
 }

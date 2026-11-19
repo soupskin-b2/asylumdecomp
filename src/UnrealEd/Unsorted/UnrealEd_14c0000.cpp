@@ -156,7 +156,7 @@ struct C_014c5eb0 { int sub_014c5eb0(void); };
 int C_014c5eb0::sub_014c5eb0(void) { return *(int*)((char*)this + 340); }
 
 // @baa 0x014c5ee0
-void UUIEvent_MetaObjectHelper::vf_110(int a0) {  }
+void UUIEvent_MetaObjectHelper::ShowContextMenu(class WxKismet* a0) const {  }
 
 // @baa 0x014c72a0
 IMPLEMENT_CLASS_AT(UUIEvent_MetaObjectHelper, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\UnUIEditorWindows.cpp", 78);
@@ -270,7 +270,7 @@ UBOOL USequenceOpHelper_CalloutInputProxy::HasParentClassChanged() const
 }
 
 // @baa 0x014c88d0
-void USequenceOpHelper_CalloutInputProxy::vf_10c(int a0, int a1) {  }
+void USequenceOpHelper_CalloutInputProxy::OnDoubleClick(const class WxKismet* a0, USequenceObject* a1) const {  }
 
 extern "C" void sub_014c9fd0();
 struct CNode {

@@ -692,7 +692,7 @@ void C_009e9200::sub_009e9200() { m.sub_009e84f0(); }
 
 // @baa 0x009e9210
 // @baa 0x009e9280
-int UApexAsset::vf_110(void) { return 0; }
+UINT UApexAsset::GetNumMaterials() const { return 0; }
 
 // @baa 0x009e9290
 UMaterialInterface* UApexAsset::GetMaterial(INT MaterialIndex) const { return NULL; }
@@ -728,7 +728,7 @@ undefined4 * UObject::sub_009e9300(void)
 }
 
 // @baa 0x009e9320
-int UApexDestructibleAsset::vf_110(void) { return *(int*)((char*)this + 72); }
+UINT UApexDestructibleAsset::GetNumMaterials() const { return *(int*)((char*)this + 72); }
 
 // @baa 0x009e9390
 IMPLEMENT_CLASS_AT(UApexDestructibleAsset, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\ApexSupport.cpp", 96);
@@ -949,7 +949,7 @@ TConstSetBitIterator_009ea180& TConstSetBitIterator_009ea180::operator++()
 int UApexComponentBase::vf_260(void) { return 0; }
 
 // @baa 0x009ea350
-void UApexComponentBase::vf_264(int a0) {  }
+void UApexComponentBase::UpdateApexEditorState(UProperty* a0) {  }
 
 extern undefined2 g_01e3f3dc;
 extern undefined2 g_01fa4458;
@@ -961,7 +961,7 @@ void sub_009ea360(void)
 }
 
 // @baa 0x009ea380
-void UApexComponentBase::vf_26c(void) {
+void UApexComponentBase::OnApexAssetReset() {
   sub_006311e0(&g_01fa4458,"Engine/Inc\\EngineMeshClasses.h",0x105,&g_01e3f3dc);
   return;
 }

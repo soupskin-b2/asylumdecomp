@@ -337,7 +337,7 @@ undefined4 * UStrProperty::sub_005fa8d0(undefined4 param_2, undefined4 param_3, 
 }
 
 // @baa 0x005fa900
-int UStrProperty::vf_160(void) { return 1; }
+UBOOL UStrProperty::RequiresInit() const { return 1; }
 
 // @baa 0x005fa910
 int sub_00632550(...);

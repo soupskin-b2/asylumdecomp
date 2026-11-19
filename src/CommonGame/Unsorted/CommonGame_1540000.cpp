@@ -299,7 +299,7 @@ void sub_01543390(void) { sub_01542880(); }
 IMPLEMENT_CLASS_AT(URReachSpec, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonGame\\Src\\CommonGameRouterClasses.cpp", 7);
 
 // @baa 0x01543510
-int URForcedReachSpec::vf_11c(void) { return 1; }
+UBOOL URForcedReachSpec::IsForced() { return 1; }
 
 // @baa 0x01543520
 IMPLEMENT_CLASS_AT(URForcedReachSpec, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonGame\\Src\\CommonGameRouterClasses.cpp", 8);

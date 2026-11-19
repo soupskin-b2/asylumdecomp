@@ -367,7 +367,7 @@ int sub_00834140(void)
 }
 
 // @baa 0x00834170
-void UAnimObject::vf_11c(void) {  }
+void UAnimObject::OnPaste() {  }
 
 // @baa 0x00834180
 int sub_00834180(int a0, int a1) { return a1; }
@@ -593,7 +593,7 @@ struct C_view_00837890 {
 };
 
 // @baa 0x00837890
-void ADoorMarker::vf_2c0(void)
+void ADoorMarker::CheckForErrors()
 {
     int param_1 = (int)this;
   int iVar1;
@@ -2029,13 +2029,13 @@ void sub_0083d5b0(undefined4 * param_1, undefined4 * param_2)
 IMPLEMENT_CLASS_AT(UAnimObject, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTree.cpp", 9);
 
 // @baa 0x0083d640
-void* UAnimObject::vf_10c() { return 0; }
+UAnimNode * UAnimObject::GetAnimNode() { return 0; }
 
 // @baa 0x0083d650
-void* UAnimObject::vf_110() { return 0; }
+UMorphNodeBase * UAnimObject::GetMorphNodeBase() { return 0; }
 
 // @baa 0x0083d660
-void* UAnimObject::vf_114() { return 0; }
+USkelControlBase * UAnimObject::GetSkelControlBase() { return 0; }
 
 // @baa 0x0083d670
 void __stdcall sub_0083d670(int a0, int a1, int a2, int a3) {  }
@@ -2054,7 +2054,7 @@ undefined4 * UObject::sub_0083d6a0(void)
 
 // @baa 0x0083d6c0
 // @baa 0x0083d720
-void* UMorphNodeBase::vf_110() { return this; }
+UMorphNodeBase * UMorphNodeBase::GetMorphNodeBase() { return this; }
 
 // @baa 0x0083d730
 void UMorphNodeBase::GetActiveMorphs(TArray<FActiveMorph>& a0) {  }
@@ -2063,18 +2063,18 @@ void UMorphNodeBase::GetActiveMorphs(TArray<FActiveMorph>& a0) {  }
 void UMorphNodeBase::vf_12c(int a0, int a1, int a2) {  }
 
 // @baa 0x0083d770
-FLOAT UMorphNodeBase::vf_134() {
+FLOAT UMorphNodeBase::GetSliderPosition() {
   return (float10)0;
 }
 
 // @baa 0x0083d780
-void UMorphNodeBase::vf_138(int a0) {  }
+void UMorphNodeBase::HandleSliderMove(FLOAT a0) {  }
 
 // @baa 0x0083d790
-void UMorphNodeBase::vf_13c(int a0, int a1) {  }
+void UMorphNodeBase::Render(const FSceneView* a0, FPrimitiveDrawInterface* a1) {  }
 
 // @baa 0x0083d7a0
-void UMorphNodeBase::vf_140(int a0, int a1, int a2) {  }
+void UMorphNodeBase::Draw(FViewport* a0, FCanvas* a1, const FSceneView* a2) {  }
 
 // @baa 0x0083d810
 IMPLEMENT_CLASS_AT(UMorphNodePose, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnMorph.cpp", 18);

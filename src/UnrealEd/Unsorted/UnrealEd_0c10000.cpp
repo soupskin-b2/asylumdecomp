@@ -4,56 +4,56 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00c1f820
-void UMaterialExpressionLightingSpecularHeidrichSeidel::vf_10c(int param_2, undefined4 param_3)
+void UMaterialExpressionLightingSpecularHeidrichSeidel::SwapReferenceTo(UMaterialExpression* param_2, UMaterialExpression* param_3)
 {
     int param_1 = (int)this;
 
-  if (*(int *)(param_1 + 0x15c) == param_2) {
-    *(undefined4 *)(param_1 + 0x15c) = param_3;
+  if (*(UMaterialExpression **)(param_1 + 0x15c) == param_2) {
+    *(UMaterialExpression **)(param_1 + 0x15c) = param_3;
   }
-  if (*(int *)(param_1 + 0x60) == param_2) {
-    *(undefined4 *)(param_1 + 0x60) = param_3;
+  if (*(UMaterialExpression **)(param_1 + 0x60) == param_2) {
+    *(UMaterialExpression **)(param_1 + 0x60) = param_3;
   }
-  if (*(int *)(param_1 + 0x7c) == param_2) {
-    *(undefined4 *)(param_1 + 0x7c) = param_3;
+  if (*(UMaterialExpression **)(param_1 + 0x7c) == param_2) {
+    *(UMaterialExpression **)(param_1 + 0x7c) = param_3;
   }
-  if (*(int *)(param_1 + 0x98) == param_2) {
-    *(undefined4 *)(param_1 + 0x98) = param_3;
+  if (*(UMaterialExpression **)(param_1 + 0x98) == param_2) {
+    *(UMaterialExpression **)(param_1 + 0x98) = param_3;
   }
-  if (*(int *)(param_1 + 0xb4) == param_2) {
-    *(undefined4 *)(param_1 + 0xb4) = param_3;
+  if (*(UMaterialExpression **)(param_1 + 0xb4) == param_2) {
+    *(UMaterialExpression **)(param_1 + 0xb4) = param_3;
   }
-  if (*(int *)(param_1 + 0xd0) == param_2) {
-    *(undefined4 *)(param_1 + 0xd0) = param_3;
+  if (*(UMaterialExpression **)(param_1 + 0xd0) == param_2) {
+    *(UMaterialExpression **)(param_1 + 0xd0) = param_3;
   }
-  if (*(int *)(param_1 + 0xec) == param_2) {
-    *(undefined4 *)(param_1 + 0xec) = param_3;
+  if (*(UMaterialExpression **)(param_1 + 0xec) == param_2) {
+    *(UMaterialExpression **)(param_1 + 0xec) = param_3;
   }
-  if (*(int *)(param_1 + 0x108) == param_2) {
-    *(undefined4 *)(param_1 + 0x108) = param_3;
+  if (*(UMaterialExpression **)(param_1 + 0x108) == param_2) {
+    *(UMaterialExpression **)(param_1 + 0x108) = param_3;
   }
-  if (*(int *)(param_1 + 0x124) == param_2) {
-    *(undefined4 *)(param_1 + 0x124) = param_3;
+  if (*(UMaterialExpression **)(param_1 + 0x124) == param_2) {
+    *(UMaterialExpression **)(param_1 + 0x124) = param_3;
   }
-  if (*(int *)(param_1 + 0x140) == param_2) {
-    *(undefined4 *)(param_1 + 0x140) = param_3;
+  if (*(UMaterialExpression **)(param_1 + 0x140) == param_2) {
+    *(UMaterialExpression **)(param_1 + 0x140) = param_3;
   }
   return;
 }
 
 // @baa 0x00c1f9f0
-void UMaterialExpressionFluidNormal::vf_10c(INT a0, UINT a1) {  }
+void UMaterialExpressionFluidNormal::SwapReferenceTo(UMaterialExpression* a0, UMaterialExpression* a1) {  }
 
 // @baa 0x00c1fa90
-void UMaterialExpressionDeriveNormalZ::vf_10c(INT a0, UINT a1) {  }
+void UMaterialExpressionDeriveNormalZ::SwapReferenceTo(UMaterialExpression* a0, UMaterialExpression* a1) {  }
 
 // @baa 0x00c1fb20
-void UMaterialExpressionConstantBiasScale::vf_10c(int param_2, undefined4 param_3)
+void UMaterialExpressionConstantBiasScale::SwapReferenceTo(UMaterialExpression* param_2, UMaterialExpression* param_3)
 {
     int param_1 = (int)this;
 
-  if (*(int *)(param_1 + 0x60) == param_2) {
-    *(undefined4 *)(param_1 + 0x60) = param_3;
+  if (*(UMaterialExpression **)(param_1 + 0x60) == param_2) {
+    *(UMaterialExpression **)(param_1 + 0x60) = param_3;
   }
   return;
 }

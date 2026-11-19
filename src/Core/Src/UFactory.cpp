@@ -41,7 +41,7 @@ int UFactory::sub_005fbdd0(void) { return *(int*)((char*)this + 48); }
 int sub_006311e0(...);
 extern undefined4 g_01ea43b0;
 // @baa 0x005fbde0
-INT UFactory::vf_10c() {
+UClass* UFactory::ResolveSupportedClass() {
     int param_1 = (int)this;
 
   if (*(int *)(param_1 + 0x30) == 0) {
@@ -49,7 +49,7 @@ INT UFactory::vf_10c() {
                  "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Core\\Src\\UFactory.cpp"
                  ,0x38,&g_01ea43b0);
   }
-  return *(undefined4 *)(param_1 + 0x30);
+  return SupportedClass;
 }
 
 // @baa 0x005fbe10

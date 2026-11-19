@@ -4,16 +4,16 @@
 #include "ue3/Implement.h"
 
 // @baa 0x005fa790
-void UProperty::vf_164(int a0, int a1, int a2, int a3) {  }
+void UProperty::InstanceComponents(BYTE* a0, BYTE* a1, UObject* a2, struct FObjectInstancingGraph* a3) {  }
 
 // @baa 0x005fa7a0
-UINT UProperty::vf_168() { return 1; }
+INT UProperty::GetMinAlignment() const { return 1; }
 
 // @baa 0x005fa7b0
-int UProperty::vf_170(void) { return 0; }
+UBOOL UProperty::ContainsInstancedObjectProperty() const { return 0; }
 
 // @baa 0x005fa7c0
-void UProperty::vf_174(int a0, int a1, int a2, int a3) {  }
+void UProperty::InstanceSubobjects(void* a0, void* a1, UObject* a2, struct FObjectInstancingGraph* a3) const {  }
 
 // @baa 0x005fa7d0
 IMPLEMENT_CLASS_AT(UProperty, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Core\\Src\\UnProp.cpp", 518);
@@ -36,6 +36,6 @@ undefined4 * UStrProperty::sub_005fa990(undefined4 param_2, undefined4 param_3, 
 IMPLEMENT_CLASS_AT(UArrayProperty, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Core\\Src\\UnProp.cpp", 3466);
 
 // @baa 0x005faa20
-int UArrayProperty::vf_160(void) { return 1; }
+UBOOL UArrayProperty::RequiresInit() const { return 1; }
 
 // @baa 0x005faa30

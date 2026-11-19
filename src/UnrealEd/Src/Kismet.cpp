@@ -299,10 +299,10 @@ undefined4 * UObject::sub_011920f0(void)
 IMPLEMENT_CLASS_AT(USequenceObjectHelper, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\Kismet.cpp", 49);
 
 // @baa 0x01192170
-void USequenceObjectHelper::vf_10c(int a0, int a1) {  }
+void USequenceObjectHelper::OnDoubleClick(const class WxKismet* a0, USequenceObject* a1) const {  }
 
 // @baa 0x01192180
-void USequenceObjectHelper::vf_110(int a0) {  }
+void USequenceObjectHelper::ShowContextMenu(class WxKismet* a0) const {  }
 
 // @baa 0x011921b0
 int sub_0127c3b0(void);

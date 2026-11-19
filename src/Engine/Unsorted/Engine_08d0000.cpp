@@ -236,7 +236,7 @@ IMPLEMENT_CLASS_AT(ASceneCapturePortalActor, "e:\\Projects\\Amadeus\\AA\\Game\\U
 
 // @baa 0x008dd5d0
 // @baa 0x008dd660
-void* APortalTeleporter::vf_304() { return this; }
+class APortalTeleporter* APortalTeleporter::GetAPortalTeleporter() { return this; }
 
 // @baa 0x008dd670
 IMPLEMENT_CLASS_AT(APortalTeleporter, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSceneCapture.cpp", 20);

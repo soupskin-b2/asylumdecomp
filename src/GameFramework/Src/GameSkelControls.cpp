@@ -16,7 +16,7 @@ UBOOL UGameSkelCtrl_Recoil::HasParentClassChanged() const
 }
 
 // @baa 0x00e25ed0
-int UGameSkelCtrl_Recoil::vf_154(int a0) { return 0; }
+UBOOL UGameSkelCtrl_Recoil::IsMirrored(USkeletalMeshComponent* a0) { return 0; }
 
 struct M_00e272a0 { void sub_0040fcc0(); };
 

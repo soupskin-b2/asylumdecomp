@@ -741,10 +741,10 @@ undefined4 * UObject::sub_0079fc50(void)
 IMPLEMENT_CLASS_AT(UForceFeedbackManager, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnForceFeedbackWaveform.cpp", 10);
 
 // @baa 0x0079fcd0
-void UForceFeedbackManager::vf_110(int a0, int a1) {  }
+void UForceFeedbackManager::ApplyForceFeedback(INT a0, FLOAT a1) {  }
 
 // @baa 0x0079fce0
-void UForceFeedbackManager::vf_114(int a0) {  }
+void UForceFeedbackManager::ForceClearWaveformData(INT a0) {  }
 
 // @baa 0x0079fcf0
 struct C_0079fd40 { C_0079fd40* sub_0079fd40(void); };

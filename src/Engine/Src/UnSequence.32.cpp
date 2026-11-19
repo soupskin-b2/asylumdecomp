@@ -46,7 +46,7 @@ UBOOL USequenceEvent_::sub_008ac050(UBOOL bTest)
     {
         if (!bTest)
         {
-            vf_1a4(0, 0, 0, 0, 0);
+            ActivateEvent(NULL, NULL, NULL, FALSE, FALSE);
         }
         return TRUE;
     }
@@ -82,7 +82,7 @@ void USeqAct_CommitMapChange::Activated()
             APlayerController* PC = C->GetAPlayerController();
             if (PC != NULL)
             {
-                if (bHandled || PC->vf_3a4())
+                if (bHandled || PC->IsLocalController())
                 {
                     bHandled = TRUE;
                 }

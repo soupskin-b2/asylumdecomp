@@ -322,7 +322,7 @@ INT USwatTurnReachSpec::CostFor(class APawn* param_2) {
 }
 
 // @baa 0x0088a920
-int UFloorToCeilingReachSpec::vf_114(int a0, int a1, int a2, int a3) { return a3; }
+INT UFloorToCeilingReachSpec::AdjustedCostFor(APawn* a0, const FVector& a1, ANavigationPoint* a2, INT a3) { return a3; }
 
 struct C_0088af90 {
     undefined4 sub_0088af90(byte);

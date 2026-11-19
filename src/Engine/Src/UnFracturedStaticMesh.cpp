@@ -1118,8 +1118,9 @@ int sub_006311e0(...);
 int sub_007cb3b0(...);
 extern undefined4 g_01f246d4;
 // @baa 0x007cc9b0
-void UFracturedBaseComponent::vf_294(int param_2, int param_3)
+void UFracturedBaseComponent::UpdateVisibleFragments(const TArray<BYTE>& NewVisibleFragments, UBOOL param_3)
 {
+    int param_2 = (int)&NewVisibleFragments;
     int param_1 = (int)this;
   int iVar1;
   int iVar2;

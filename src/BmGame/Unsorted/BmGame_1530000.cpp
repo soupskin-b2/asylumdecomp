@@ -370,7 +370,7 @@ UBOOL URSeqVar_LocalFlag::HasParentClassChanged() const
 IMPLEMENT_CLASS_AT(URSeqVar_GlobalFlag, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonGame\\Src\\RFlagManager.cpp", 19);
 
 // @baa 0x0153d200
-void URSeqAct_BoolCounter::vf_110(INT, INT)
+void URSeqAct_BoolCounter::OnConnect(USequenceObject * connObj, INT connIdx)
 {
     vf_19c();
 }

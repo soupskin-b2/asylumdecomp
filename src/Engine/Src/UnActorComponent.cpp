@@ -12,7 +12,7 @@ void __stdcall sub_0064b590(int a0) {  }
 int sub_006311e0(...);
 extern undefined2 g_01e3f3dc;
 // @baa 0x0064b5a0
-void UActorComponent::vf_128(void)
+void UActorComponent::UpdateChildComponents()
 {
     int param_1 = (int)this;
 
@@ -25,7 +25,7 @@ void UActorComponent::vf_128(void)
 }
 
 // @baa 0x0064b5c0
-void UActorComponent::vf_130(void) {  }
+void UActorComponent::InvalidateLightingCache() {  }
 
 // @baa 0x0064b5d0
 void UActorComponent::InitComponentRBPhys(UBOOL a0) {  }

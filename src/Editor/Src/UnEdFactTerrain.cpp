@@ -32,10 +32,10 @@ undefined4 * UObject::sub_00f4cb70(void)
 void sub_00f4cb90(void) {  }
 
 // @baa 0x00f4cba0
-int UTerrainHeightMapFactory::vf_10c(int a0, int a1, int a2, int a3, int a4) { return 0; }
+UBOOL UTerrainHeightMapFactory::ImportHeightDataFromText(ATerrain* a0, const TCHAR*& a1, const TCHAR* a2, FFeedbackContext* a3, UBOOL a4) { return 0; }
 
 // @baa 0x00f4cbb0
-int UTerrainHeightMapFactory::vf_110(int a0, int a1, int a2, int a3, int a4) { return 0; }
+UBOOL UTerrainHeightMapFactory::ImportHeightDataFromBinary(ATerrain* a0, const BYTE*& a1, const BYTE* a2, FFeedbackContext* a3, UBOOL a4) { return 0; }
 
 extern undefined * g_02158920;
 // @baa 0x00f4cbc0

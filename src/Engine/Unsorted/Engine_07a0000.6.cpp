@@ -13,7 +13,7 @@ UBOOL APlayerController::IsLocalPlayerController()
 
 // @baa 0x007a03a0
 /* APlayerController slot 0x3a4 (kit vf_3a4, UE3 IsLocalController()): the player is a local one. */
-INT APlayerController::vf_3a4()
+UBOOL APlayerController::IsLocalController()
 {
     return Player && ObjectIsA(Player, ULocalPlayer::StaticClass());
 }

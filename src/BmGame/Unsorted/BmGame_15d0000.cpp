@@ -21,7 +21,7 @@ undefined4 * UObject::sub_015d4a80(void)
 }
 
 // @baa 0x015d4aa0
-void URAnimNotify_SetFaceFXRegister::vf_10c(UINT a0) {  }
+void URAnimNotify_SetFaceFXRegister::Notify(class UAnimNodeSequence* a0) {  }
 
 // @baa 0x015d4ab0
 IMPLEMENT_CLASS_AT(URAnimNotify_SetFaceFXRegister, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimUtil_Notify.cpp", 32);
@@ -1096,7 +1096,7 @@ C_015d8840* C_015d8840::sub_015d8840()
 }
 
 // @baa 0x015dee80
-void URBMExitConditionCombiner::vf_110(INT, INT)
+void URBMExitConditionCombiner::OnConnect(USequenceObject * connObj, INT connIdx)
 {
     vf_1a4();
 }

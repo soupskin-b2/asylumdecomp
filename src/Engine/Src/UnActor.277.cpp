@@ -172,15 +172,10 @@ void AActor::SetCollisionType(BYTE NewType)
 	}
 }
 
-/* Kit gap: ABrush::CopyPosRotScaleFrom (UnActor.cpp) */
-struct ABrush_ : public ABrush
-{
-	void CopyPosRotScaleFrom(ABrush* Other); /* 0x0075deb0 */
-};
 
 // @baa 0x0075deb0
 /* Copies Other's placement (location, rotation, pre-pivot), rebuilds the bounds and the components. */
-void ABrush_::CopyPosRotScaleFrom(ABrush* Other)
+void ABrush::CopyPosRotScaleFrom(ABrush* Other)
 {
 #line 3052 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp"
 	check(BrushComponent);

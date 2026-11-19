@@ -208,7 +208,7 @@ struct ARForensicDnaSplatStatic_ : public ARForensicDnaSplatStatic
 // @baa 0x01683400
 /* Slot 0x1d8 (the post-BeginPlay route): mark script initialized and let script set the splat up,
  * instead of the usual PostBeginPlay / SetInitialState. */
-void ARForensicDnaSplatStatic::vf_1d8()
+void ARForensicDnaSplatStatic::PostBeginPlay()
 {
 	bScriptInitialized = TRUE;
 	((ARForensicDnaSplatStatic_*)this)->eventInitialiseDna();

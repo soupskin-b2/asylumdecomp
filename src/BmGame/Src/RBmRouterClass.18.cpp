@@ -33,7 +33,7 @@ struct C_A_5ef50
 };
 
 // @baa 0x0161d510
-void ARPontoonBase::vf_340(TArray<AActor*>& Actors)
+void ARPontoonBase::SetAnimWeights(const TArray<struct FAnimSlotInfo>& Actors)
 {
     INT A = (INT)&Actors;
     ARPathNode_Pontoon* P;

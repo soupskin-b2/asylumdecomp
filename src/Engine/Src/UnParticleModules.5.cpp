@@ -106,9 +106,9 @@ INT UParticleModule::vf_158(INT SourceLODIndex)
 // @baa 0x00b3db10
 /* GetBurstCount(Owner, Offset, OldLeftover, DeltaTime, out Number): no burst of its own;
  * whether the emitter should still process its burst list. */
-INT UParticleModuleSpawnBase::vf_16c(INT Owner, INT Offset, INT OldLeftover, INT DeltaTime, INT Number)
+UBOOL UParticleModuleSpawnBase::GetBurstCount(FParticleEmitterInstance* Owner, INT Offset, FLOAT OldLeftover, FLOAT DeltaTime, INT& Number)
 {
-	*(INT*)Number = 0;
+	Number = 0;
 	return bProcessBurstList;
 }
 

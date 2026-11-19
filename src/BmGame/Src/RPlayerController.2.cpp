@@ -1416,7 +1416,7 @@ ARPlayerController::ARPlayerController()
 }
 
 // @baa 0x01632330
-INT ARPlayerController::vf_3ac() {
+UBOOL ARPlayerController::StopAtLedge() {
     int param_1 = (int)this;
 
   return *(uint *)(param_1 + 0x684) >> 1 & 1;

@@ -622,7 +622,7 @@ undefined4 UTexture2D::sub_00c19e70(byte param_2)
 }
 
 // @baa 0x00c1a6d0
-int UDemoRecDriver::vf_144(void) { return 1; }
+UBOOL UDemoRecDriver::IsDemoDriver() { return 1; }
 
 int sub_005c7a70(...);
 int sub_00c1a6f0(void);

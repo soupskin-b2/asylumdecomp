@@ -77,7 +77,7 @@ void UObjectThunk::sub_008a4c30()
 }
 
 // @baa 0x008aa260
-void USequenceObject::vf_110(int a0, int a1) {  }
+void USequenceObject::OnConnect(USequenceObject * a0, INT a1) {  }
 
 // @baa 0x008aa320
 void USequenceObject::vf_154(void) {  }
@@ -2639,10 +2639,10 @@ int C_008b4000::sub_008b4000(int param_2)
 
 // @baa 0x008bbc30
 // @baa 0x008bbcc0
-void USequenceObject::vf_10c(void) {  }
+void USequenceObject::CheckForErrors() {  }
 
 // @baa 0x008bbcd0
-void USequenceObject::vf_114(int a0, int a1, int a2, int a3, int a4, int a5) {  }
+void USequenceObject::DrawSeqObj(FCanvas* a0, UBOOL a1, UBOOL a2, INT a3, INT a4, FLOAT a5) {  }
 
 // @baa 0x008bbce0
 void USequenceObject::vf_118(int a0, int a1, int a2, int a3, int a4, int a5) {  }
@@ -2780,10 +2780,10 @@ void USequenceVariable::PublishValue(USequenceOp* Op, UProperty* Property, FSeqV
 void USequenceVariable::PopulateValue(USequenceOp* Op, UProperty* Property, FSeqVarLink& VarLink) {  }
 
 // @baa 0x008bc330
-void USequenceVariable::vf_1a4(USequenceOp* Op, FSeqVarLink& VarLink) {  }
+void USequenceVariable::PostPopulateValue(USequenceOp* Op, FSeqVarLink& VarLink) {  }
 
 // @baa 0x008bc340
-void USequenceVariable::vf_1a8(int a0, int a1) {  }
+void USequenceVariable::DrawExtraInfo(FCanvas* a0, const FVector& a1) {  }
 
 // @baa 0x008bc350
 FString USequenceVariable::GetValueStr()
@@ -3996,7 +3996,7 @@ IMPLEMENT_CLASS_AT(USequence, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\D
 IMPLEMENT_CLASS_AT(USequenceAction, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSequence.cpp", 34);
 
 // @baa 0x008e2650
-void USequenceAction::vf_198(int a0) {  }
+void USequenceAction::PreActorHandle(AActor * a0) {  }
 
 // @baa 0x008e2660
 extern undefined * g_01f62c18;

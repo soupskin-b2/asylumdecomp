@@ -50,7 +50,7 @@ void UAnimNodeBlendBase::OnChildAnimEnd(UAnimNodeSequence* Child, FLOAT PlayedTi
 // @baa 0x00c535b0
 /* UAnimNodeBlendBase slot 0x134 (kit vf_134, UE3 TickAnim(FLOAT DeltaSeconds, FLOAT TotalWeight)): while relevant,
  * accumulate each connected child's total weight. */
-void UAnimNodeBlendBase::vf_134(FLOAT DeltaSeconds, FLOAT TotalWeight)
+void UAnimNodeBlendBase::TickAnim(FLOAT DeltaSeconds, FLOAT TotalWeight)
 {
     if (bRelevant)
     {

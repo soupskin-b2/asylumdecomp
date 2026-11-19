@@ -159,7 +159,7 @@ struct C_00d45fa0 { void sub_00d45fa0(void); };
 void C_00d45fa0::sub_00d45fa0(void) { *(int*)((char*)this + 0) = (int)g_020afae0; }
 
 // @baa 0x00d460a0
-int AActor::vf_2b4(void) { return 0; }
+UBOOL AActor::BlockedByVehicle() { return 0; }
 
 struct C_00d460b0 {
     INT Unk00; // 0x0

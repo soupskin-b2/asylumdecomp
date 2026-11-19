@@ -282,55 +282,55 @@ INT UInterpTrackFaceFX::GetNumKeyframes() { return *(int*)((char*)this + 96); }
 INT UInterpTrackVisibility::GetNumKeyframes() { return *(int*)((char*)this + 84); }
 
 // @baa 0x00cf4f90
-FString UInterpTrackFloatProp::vf_144()
+const FString UInterpTrackFloatProp::GetEdHelperClassName() const
 {
     return TEXT("UnrealEd.InterpTrackFloatPropHelper");
 }
 
 // @baa 0x00cf4fc0
-FString UInterpTrackVectorProp::vf_144()
+const FString UInterpTrackVectorProp::GetEdHelperClassName() const
 {
     return TEXT("UnrealEd.InterpTrackVectorPropHelper");
 }
 
 // @baa 0x00cf4ff0
-FString UInterpTrackColorProp::vf_144()
+const FString UInterpTrackColorProp::GetEdHelperClassName() const
 {
     return TEXT("UnrealEd.InterpTrackColorPropHelper");
 }
 
 // @baa 0x00cf5480
-FString UInterpTrackEvent::vf_144()
+const FString UInterpTrackEvent::GetEdHelperClassName() const
 {
     return TEXT("UnrealEd.InterpTrackEventHelper");
 }
 
 // @baa 0x00cf5960
-FString UInterpTrackDirector::vf_144()
+const FString UInterpTrackDirector::GetEdHelperClassName() const
 {
     return TEXT("UnrealEd.InterpTrackDirectorHelper");
 }
 
 // @baa 0x00cf5df0
-FString UInterpTrackAnimControl::vf_144()
+const FString UInterpTrackAnimControl::GetEdHelperClassName() const
 {
     return TEXT("UnrealEd.InterpTrackAnimControlHelper");
 }
 
 // @baa 0x00cf6470
-FString UInterpTrackSound::vf_144()
+const FString UInterpTrackSound::GetEdHelperClassName() const
 {
     return TEXT("UnrealEd.InterpTrackSoundHelper");
 }
 
 // @baa 0x00cf6da0
-FString UInterpTrackFaceFX::vf_144()
+const FString UInterpTrackFaceFX::GetEdHelperClassName() const
 {
     return TEXT("UnrealEd.InterpTrackFaceFXHelper");
 }
 
 // @baa 0x00cf7180
-FString UInterpTrackVisibility::vf_144()
+const FString UInterpTrackVisibility::GetEdHelperClassName() const
 {
     return TEXT("UnrealEd.InterpTrackVisibilityHelper");
 }
@@ -386,7 +386,7 @@ IMPLEMENT_CLASS_AT(UInterpTrackColorScale, "e:\\Projects\\Amadeus\\AA\\Game\\Unr
 
 // @baa 0x00d02000
 // @baa 0x00d02060
-int UInterpTrackSound::vf_14c(void) { return 1; }
+UBOOL UInterpTrackSound::AllowStaticActors() { return 1; }
 
 // @baa 0x00d02070
 IMPLEMENT_CLASS_AT(UInterpTrackSound, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnInterpolation.cpp", 71);
@@ -401,7 +401,7 @@ IMPLEMENT_CLASS_AT(UInterpTrackVectorProp, "e:\\Projects\\Amadeus\\AA\\Game\\Unr
 
 // @baa 0x00d02290
 // @baa 0x00d022f0
-int UInterpTrackVisibility::vf_14c(void) { return 1; }
+UBOOL UInterpTrackVisibility::AllowStaticActors() { return 1; }
 
 // @baa 0x00d02300
 IMPLEMENT_CLASS_AT(UInterpTrackVisibility, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnInterpolation.cpp", 106);

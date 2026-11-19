@@ -4,7 +4,7 @@
 #include "ue3/Classes.h"
 
 // @baa 0x01612de0
-void URSeqAct_SpeechEventManagerBase::vf_110(INT, INT)
+void URSeqAct_SpeechEventManagerBase::OnConnect(USequenceObject * connObj, INT connIdx)
 {
     vf_1ac();
 }

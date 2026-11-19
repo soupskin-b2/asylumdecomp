@@ -152,7 +152,7 @@ undefined4 * UObject::sub_015bcf10(void)
 IMPLEMENT_CLASS_AT(URAnimNotify_AddForce, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimUtil_Notify.cpp", 16);
 
 // @baa 0x015bcf90
-void URAnimNotify_AddForce::vf_10c(UINT a0) {  }
+void URAnimNotify_AddForce::Notify(class UAnimNodeSequence* a0) {  }
 
 // @baa 0x015bcfa0
 // @baa 0x015bcfc0
@@ -165,7 +165,7 @@ undefined4 sub_015bcfc0(undefined4 param_1, undefined4 param_2)
 IMPLEMENT_CLASS_AT(URAnimNotify_BeginBoneRescale, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimUtil_Notify.cpp", 17);
 
 // @baa 0x015bd050
-void URAnimNotify_BeginBoneRescale::vf_10c(UINT a0) {  }
+void URAnimNotify_BeginBoneRescale::Notify(class UAnimNodeSequence* a0) {  }
 
 // @baa 0x015bd060
 // @baa 0x015bd080
@@ -178,7 +178,7 @@ undefined4 sub_015bd080(undefined4 param_1, undefined4 param_2)
 IMPLEMENT_CLASS_AT(URAnimNotify_BeginEnd, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimUtil_Notify.cpp", 18);
 
 // @baa 0x015bd0f0
-void URAnimNotify_BeginEnd::vf_10c(UINT a0) {  }
+void URAnimNotify_BeginEnd::Notify(class UAnimNodeSequence* a0) {  }
 
 // @baa 0x015bd170
 IMPLEMENT_CLASS_AT(URAnimNotify_Clip, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimUtil_Notify.cpp", 24);
@@ -234,7 +234,7 @@ undefined4 sub_015bd4b0(undefined4 param_1, undefined4 param_2)
 IMPLEMENT_CLASS_AT(URAnimNotify_BeginFixIK, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimUtil_Notify.cpp", 19);
 
 // @baa 0x015bd540
-void URAnimNotify_BeginFixIK::vf_10c(UINT a0) {  }
+void URAnimNotify_BeginFixIK::Notify(class UAnimNodeSequence* a0) {  }
 
 // @baa 0x015bd550
 // @baa 0x015bd570
@@ -247,7 +247,7 @@ undefined4 sub_015bd570(undefined4 param_1, undefined4 param_2)
 IMPLEMENT_CLASS_AT(URAnimNotify_BeginRagdoll, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimUtil_Notify.cpp", 20);
 
 // @baa 0x015bd600
-void URAnimNotify_BeginRagdoll::vf_10c(UINT a0) {  }
+void URAnimNotify_BeginRagdoll::Notify(class UAnimNodeSequence* a0) {  }
 
 // @baa 0x015bd610
 // @baa 0x015bd640
@@ -257,7 +257,7 @@ int sub_015bd640(int a0, int a1) { return a1; }
 IMPLEMENT_CLASS_AT(URAnimNotify_CanCancelAfterHere, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimUtil_Notify.cpp", 22);
 
 // @baa 0x015bd6d0
-void URAnimNotify_CanCancelAfterHere::vf_10c(UINT a0) {  }
+void URAnimNotify_CanCancelAfterHere::Notify(class UAnimNodeSequence* a0) {  }
 
 // @baa 0x015bd6e0
 // @baa 0x015bd700
@@ -270,7 +270,7 @@ undefined4 sub_015bd700(undefined4 param_1, undefined4 param_2)
 IMPLEMENT_CLASS_AT(URAnimNotify_CanCancelBeforeHere, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimUtil_Notify.cpp", 21);
 
 // @baa 0x015bd790
-void URAnimNotify_CanCancelBeforeHere::vf_10c(UINT a0) {  }
+void URAnimNotify_CanCancelBeforeHere::Notify(class UAnimNodeSequence* a0) {  }
 
 // @baa 0x015bd7a0
 // @baa 0x015bd7c0
@@ -283,7 +283,7 @@ undefined4 sub_015bd7c0(undefined4 param_1, undefined4 param_2)
 IMPLEMENT_CLASS_AT(URAnimNotify_CanCorrectAfterHere, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimUtil_Notify.cpp", 23);
 
 // @baa 0x015bd850
-void URAnimNotify_CanCorrectAfterHere::vf_10c(UINT a0) {  }
+void URAnimNotify_CanCorrectAfterHere::Notify(class UAnimNodeSequence* a0) {  }
 
 // @baa 0x015bd860
 // @baa 0x015bd880
@@ -296,7 +296,7 @@ undefined4 sub_015bd880(undefined4 param_1, undefined4 param_2)
 IMPLEMENT_CLASS_AT(URAnimNotify_EndFixIK, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimUtil_Notify.cpp", 27);
 
 // @baa 0x015bd910
-void URAnimNotify_EndFixIK::vf_10c(UINT a0) {  }
+void URAnimNotify_EndFixIK::Notify(class UAnimNodeSequence* a0) {  }
 
 // @baa 0x015bd920
 // @baa 0x015bd940
@@ -309,13 +309,13 @@ undefined4 sub_015bd940(undefined4 param_1, undefined4 param_2)
 IMPLEMENT_CLASS_AT(URAnimNotify_EndRagdoll, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimUtil_Notify.cpp", 28);
 
 // @baa 0x015bd9d0
-void URAnimNotify_EndRagdoll::vf_10c(UINT a0) {  }
+void URAnimNotify_EndRagdoll::Notify(class UAnimNodeSequence* a0) {  }
 
 // @baa 0x015bdac0
 IMPLEMENT_CLASS_AT(URAnimNotify_MeetingPoint, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimUtil_Notify.cpp", 31);
 
 // @baa 0x015bdb20
-void URAnimNotify_MeetingPoint::vf_10c(UINT a0) {  }
+void URAnimNotify_MeetingPoint::Notify(class UAnimNodeSequence* a0) {  }
 
 // @baa 0x015bdb30
 // @baa 0x015bdb50
@@ -328,7 +328,7 @@ undefined4 sub_015bdb50(undefined4 param_1, undefined4 param_2)
 IMPLEMENT_CLASS_AT(URAnimNotify_WeaponSwitch, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimUtil_Notify.cpp", 33);
 
 // @baa 0x015bdbf0
-void URAnimNotify_WeaponSwitch::vf_10c(UINT a0) {  }
+void URAnimNotify_WeaponSwitch::Notify(class UAnimNodeSequence* a0) {  }
 
 // @baa 0x015bdc00
 struct C_015be0f0 { int a, b; C_015be0f0(int, int); };

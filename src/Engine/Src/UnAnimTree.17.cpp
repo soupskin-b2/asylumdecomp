@@ -41,14 +41,9 @@ static inline FLOAT VSize(const FVector& V) { return appSqrt(V.X * V.X + V.Y * V
 
 /* UActorComponent::GetOwner (UnActorComponent.h), not in the kit. */
 
-/* UAnimNodeBlendBySpeed::CalcSpeed (its vtable slot is declared only as a vf_). */
-struct UAnimNodeBlendBySpeed_ : public UAnimNodeBlendBySpeed
-{
-	FLOAT CalcSpeed();
-};
 
 // @baa 0x00c4b660
-FLOAT UAnimNodeBlendBySpeed_::CalcSpeed()
+FLOAT UAnimNodeBlendBySpeed::CalcSpeed()
 {
 	AActor* Owner = SkelComponent ? SkelComponent->GetOwner() : NULL;
 	if (Owner)

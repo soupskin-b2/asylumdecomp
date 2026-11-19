@@ -227,11 +227,11 @@ struct ARSmashableProp__01680090 : public ARSmashableProp
 // @baa 0x01680090
 /* Slot 0x1d8 (post-BeginPlay): set up decals and x-ray, then either settle a prop that starts
  * static or apply its config. */
-void ARSmashableProp::vf_1d8()
+void ARSmashableProp::PostBeginPlay()
 {
 	((ARSmashableProp__01680090*)this)->eventSetupDecalMaterialInstances();
 	((ARSmashableProp__01680090*)this)->eventInitXRayMode();
-	Super::vf_1d8();
+	Super::PostBeginPlay();
 	if (!PropWasSpawned && PropData && PropData->PropRememberWhenSmashed && this->sub_01668ab0())
 	{
 		this->sub_0167aab0();

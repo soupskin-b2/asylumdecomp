@@ -84,7 +84,7 @@ UBOOL UStaticMeshComponentFactory::HasParentClassChanged() const
 extern UBOOL g_025d6810;
 
 // @baa 0x007651d0
-bool AActor::vf_30c()
+UBOOL AActor::VerifyNoUnreachableReferences()
 {
     UBOOL bPendingKill = FALSE;
     if (g_025d6810)

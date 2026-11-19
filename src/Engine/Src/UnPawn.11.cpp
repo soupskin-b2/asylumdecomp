@@ -27,5 +27,5 @@ UBOOL APawn_::sub_008650a0()
     {
         return TRUE;
     }
-    return Controller->vf_3a4(); /* UE3 AController::IsLocalPlayerController */
+    return Controller->IsLocalController(); /* UE3 AController::IsLocalPlayerController */
 }

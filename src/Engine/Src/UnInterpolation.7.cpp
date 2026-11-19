@@ -68,7 +68,7 @@ void UInterpTrackInstSoundFade::InitTrackInst(UInterpTrack* Track)
 // @baa 0x00d15030
 /* UInterpTrackInstSoundFade slot 0x118 (kit vf_118, UE3 TermTrackInst(UInterpTrack* Track)): with ResetVolume, give the
  * player camera back the sound fade saved at init. */
-void UInterpTrackInstSoundFade::vf_118(UInterpTrack* Track)
+void UInterpTrackInstSoundFade::TermTrackInst(UInterpTrack* Track)
 {
     UInterpTrackSoundFade* SoundFadeTrack = CastChecked<UInterpTrackSoundFade>(Track);
     if (SoundFadeTrack->ResetVolume)
@@ -97,7 +97,7 @@ void UInterpTrackInstFloatMaterialParam::RestoreActorState(UInterpTrack* Track)
 // @baa 0x00d10830
 /* UInterpTrackInstColorScale slot 0x118 (kit vf_118, UE3 TermTrackInst(UInterpTrack* Track)): turn colour scaling off
  * on the player camera and reset the scale. */
-void UInterpTrackInstColorScale::vf_118(UInterpTrack* Track)
+void UInterpTrackInstColorScale::TermTrackInst(UInterpTrack* Track)
 {
     APlayerController* PC = Cast<APlayerController>(CastChecked<UInterpGroupInst>(GetOuterOf(this))->GroupActor);
     if (PC != NULL && PC->PlayerCamera != NULL && !PC->PlayerCamera->bDeleteMe)

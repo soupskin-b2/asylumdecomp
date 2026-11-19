@@ -16,7 +16,7 @@ undefined4 * UStaticMeshComponent::sub_00691790(void)
 }
 
 // @baa 0x006917b0
-void UCoverMeshComponent::vf_278(void) {  }
+void UCoverMeshComponent::UpdateMeshes() {  }
 
 // @baa 0x006917c0
 IMPLEMENT_CLASS_AT(UCoverMeshComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\CoverMeshComponent.cpp", 10);

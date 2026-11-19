@@ -6,7 +6,7 @@
 // @baa 0x00834940
 /* InitMorphNode(SkelComp): remembers the component, then SetMorphTarget(MorphName) (inlined):
  * looks the named morph target up on it. */
-void UMorphNodePose::vf_124(INT InSkelComp)
+void UMorphNodePose::InitMorphNode(USkeletalMeshComponent* InSkelComp)
 {
 	SkelComponent = (USkeletalMeshComponent*)InSkelComp;
 

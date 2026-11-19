@@ -32,9 +32,9 @@ template<class T> struct TArrayAt_ : public TArray<T>
 
 // @baa 0x0083eb20
 /* Slot 0x31c (unnamed in the kit): after the actor handling, kills the node's reach specs unless the flag is set. */
-void ANavigationPoint::vf_31c(UBOOL bFlag)
+void ANavigationPoint::MarkComponentsAsPendingKill(UBOOL bFlag)
 {
-	Super::vf_31c(bFlag);
+	Super::MarkComponentsAsPendingKill(bFlag);
 	if (!bFlag)
 	{
 		for (INT PathIdx = 0; PathIdx < PathList.Num(); PathIdx++)

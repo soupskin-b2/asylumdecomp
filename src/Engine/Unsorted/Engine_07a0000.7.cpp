@@ -10,7 +10,7 @@
 // @baa 0x007af740
 /* APlayerController slot 0x194 (kit vf_194, UE3 PostScriptDestroyed()): drop the input and cheat objects, then the
  * controller's own teardown (inlined): unregister from the world's controller list. */
-void APlayerController::vf_194()
+void APlayerController::PostScriptDestroyed()
 {
     PlayerInput = NULL;
     CheatManager = NULL;

@@ -1693,7 +1693,7 @@ undefined4 * C_00bddb40::sub_00bddb40(byte param_2)
 }
 
 // @baa 0x00bddbf0
-void UFluidSurfaceComponent::vf_158(undefined4 * param_2, undefined4 * param_3)
+void UFluidSurfaceComponent::GetLightAndShadowMapMemoryUsage(UINT* param_2, UINT* param_3)
 {
     int param_1 = (int)this;
 

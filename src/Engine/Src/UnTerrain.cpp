@@ -2268,9 +2268,9 @@ undefined4 * UObject::sub_00995040(void)
 }
 
 // @baa 0x00995060
-float UTerrainLayerSetup::vf_10c(float *p, int a2)
+FLOAT UTerrainLayerSetup::GetMaterialAlpha(const FTerrainFilteredMaterial* Material, const FVector& WorldVertex)
 {
-    return p[19];
+    return Material->Alpha;
 }
 
 // @baa 0x00995070
@@ -3601,7 +3601,7 @@ undefined4 ATerrain::sub_009a41f0(byte param_2)
 // @baa 0x009a4d10
 int sub_009a54b0(...);
 // @baa 0x009a6750
-int UTerrainComponent::vf_250(void)
+UINT UTerrainComponent::GetMaxTriangleCount() const
 {
     int param_1 = (int)this;
 

@@ -3123,7 +3123,7 @@ struct URAnimNode_AnimCapture_ : public URAnimNode_AnimCapture
 };
 
 // @baa 0x0155cad0
-void URAnimNode_AnimCapture::vf_134(FLOAT A, FLOAT B)
+void URAnimNode_AnimCapture::TickAnim(FLOAT A, FLOAT B)
 {
     ((URAnimNode_AnimCapture_*)this)->sub_00c535b0(A, B);
 }

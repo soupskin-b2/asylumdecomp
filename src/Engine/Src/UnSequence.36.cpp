@@ -50,7 +50,7 @@ void USeqAct_ForceMaterialMipsResident::sub_008c09f0(UBOOL bEnable, FLOAT Durati
             for (AController* C = GWorld->sub_009c8570(); C != NULL; C = C->NextController)
             {
                 APlayerController* PC = Cast<APlayerController>(C);
-                if (PC != NULL && !PC->vf_3a4())
+                if (PC != NULL && !PC->IsLocalController())
                 {
                     ((APlayerController_*)PC)->eventClientSetForceMipLevelsToBeResident(Material, Duration);
                 }

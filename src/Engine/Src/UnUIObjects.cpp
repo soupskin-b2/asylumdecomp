@@ -5275,7 +5275,7 @@ int C_00dc9170::sub_00dc9170(void)
 void sub_00dc9190(void) { sub_00dc5220(); }
 
 // @baa 0x00dc9210
-void UUIEvent_ProcessInput::vf_114(int a0, int a1, int a2, int a3, int a4, int a5) {  }
+void UUIEvent_ProcessInput::DrawSeqObj(FCanvas* a0, UBOOL a1, UBOOL a2, INT a3, INT a4, FLOAT a5) {  }
 
 struct C_00dca880 { C_00dca880* sub_00dca880(void); };
 

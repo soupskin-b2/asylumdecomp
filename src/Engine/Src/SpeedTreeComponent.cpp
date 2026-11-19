@@ -23,8 +23,9 @@ IMPLEMENT_CLASS_AT(USpeedTreeComponent, "e:\\Projects\\Amadeus\\AA\\Game\\Unreal
 int __stdcall sub_0058c430(int);
 int sub_00bd4910(...);
 // @baa 0x00bd50a0
-int USpeedTreeComponent::vf_10c(undefined4 param_2)
+UBOOL USpeedTreeComponent::AreNativePropertiesIdenticalTo(UComponent* Other) const
 {
+    int param_2 = (int)Other;
     int param_1 = (int)this;
   int iVar1;
   int iVar2;

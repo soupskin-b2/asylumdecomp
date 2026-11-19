@@ -95,7 +95,7 @@ template<class T> struct TArray_ : public TArray<T>
 
 // @baa 0x015edb20
 /* The traverse node's related actors: its two proxies and two end points (those that are set). */
-void ARBMPathNode_VariablePositionTraverse::vf_340(TArray<AActor*>& Actors)
+void ARBMPathNode_VariablePositionTraverse::SetAnimWeights(const TArray<struct FAnimSlotInfo>& Actors)
 {
 	if (Proxy1)
 	{
@@ -124,7 +124,7 @@ template<class T> struct TArray__015edba0 : public TArray<T>
 
 // @baa 0x015edba0
 /* The corner point's related actors: its wall markers (those that are set). */
-void ARCornerPointBase::vf_340(TArray<AActor*>& Actors)
+void ARCornerPointBase::SetAnimWeights(const TArray<struct FAnimSlotInfo>& Actors)
 {
 	for (INT i = 0; i < 4; i++)
 	{

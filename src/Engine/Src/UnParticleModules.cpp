@@ -105,10 +105,10 @@ void sub_00b3d7f0(void) { sub_00b3c2d0(); }
 IMPLEMENT_CLASS_AT(UParticleModuleEventReceiverBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\ParticleModules_Event.cpp", 301);
 
 // @baa 0x00b3d860
-UINT UParticleModuleEventReceiverBase::vf_168(UINT a0) { return 0; }
+UBOOL UParticleModuleEventReceiverBase::WillProcessParticleEvent(EParticleEventType a0) { return 0; }
 
 // @baa 0x00b3d870
-int UParticleModuleEventReceiverBase::vf_16c(int a0, int a1, int a2) { return 0; }
+UBOOL UParticleModuleEventReceiverBase::ProcessParticleEvent(FParticleEmitterInstance* a0, FParticleEventData& a1, FLOAT a2) { return 0; }
 
 // @baa 0x00b3d880
 extern undefined * g_01fee3c0;
@@ -326,7 +326,7 @@ void __stdcall sub_00b73790(int a0, int a1, int a2) {  }
 void __stdcall sub_00b737a0(int a0, int a1, int a2) {  }
 
 // @baa 0x00b737b0
-void UParticleModuleOrientationAxisLock::vf_168(undefined1 param_2)
+void UParticleModuleOrientationAxisLock::SetLockAxis(EParticleAxisLock param_2)
 {
     int param_1 = (int)this;
 
@@ -484,28 +484,28 @@ void sub_00b74c30(void) { sub_00b4cdd0(); }
 void UParticleModuleTypeDataBeam::vf_16c(void) {  }
 
 // @baa 0x00b74c80
-int UParticleModuleUberBase::vf_168(int a0) { return 0; }
+UBOOL UParticleModuleUberBase::IsCompatible(UParticleEmitter* a0) { return 0; }
 
 // @baa 0x00b74c90
-int UParticleModuleUberBase::vf_16c(int a0) { return 0; }
+UBOOL UParticleModuleUberBase::ConvertToUberModule(UParticleEmitter* a0) { return 0; }
 
 // @baa 0x00b74ca0
 UBOOL UParticleModuleUberLTISIVCL::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b74cb0
-int UParticleModuleUberLTISIVCL::vf_16c(int a0) { return 0; }
+UBOOL UParticleModuleUberLTISIVCL::ConvertToUberModule(UParticleEmitter* a0) { return 0; }
 
 // @baa 0x00b753e0
 UBOOL UParticleModuleUberLTISIVCLIL::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b753f0
-int UParticleModuleUberLTISIVCLIL::vf_16c(int a0) { return 0; }
+UBOOL UParticleModuleUberLTISIVCLIL::ConvertToUberModule(UParticleEmitter* a0) { return 0; }
 
 // @baa 0x00b75c70
 UBOOL UParticleModuleUberLTISIVCLILIRSSBLIRR::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b75c80
-int UParticleModuleUberLTISIVCLILIRSSBLIRR::vf_16c(int a0) { return 0; }
+UBOOL UParticleModuleUberLTISIVCLILIRSSBLIRR::ConvertToUberModule(UParticleEmitter* a0) { return 0; }
 
 // @baa 0x00b76610
 UBOOL UParticleModuleUberRainDrops::HasUniqueStaticConfigName() const { return 1; }
@@ -691,7 +691,7 @@ undefined4 * UObject::sub_00b97450(void)
 IMPLEMENT_CLASS_AT(UParticleModuleKillBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnParticleModules.cpp", 18);
 
 // @baa 0x00b974f0
-FLOAT UParticleModuleLifetimeBase::vf_168() {
+FLOAT UParticleModuleLifetimeBase::GetMaxLifetime() {
   return (float10)0;
 }
 

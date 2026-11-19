@@ -76,7 +76,7 @@ class wxWindowBase {
 };
 
 // @baa 0x01337080
-void UAnimNodeEditInfo_AimOffset::vf_110(void)
+void UAnimNodeEditInfo_AimOffset::OnCloseAnimTreeEditor()
 {
     int param_1 = (int)this;
 
@@ -87,7 +87,7 @@ void UAnimNodeEditInfo_AimOffset::vf_110(void)
 }
 
 // @baa 0x01337090
-undefined4 UAnimNodeEditInfo_AimOffset::vf_118(void)
+UBOOL UAnimNodeEditInfo_AimOffset::IsRotationWidget()
 {
     int param_1 = (int)this;
 
@@ -98,7 +98,7 @@ undefined4 UAnimNodeEditInfo_AimOffset::vf_118(void)
 }
 
 // @baa 0x013370b0
-void UAnimNodeEditInfo_AimOffset::vf_124(int a0, int a1) {  }
+void UAnimNodeEditInfo_AimOffset::Draw3DInfo(const FSceneView* a0, FPrimitiveDrawInterface* a1) {  }
 
 extern char g_025e8efc[];
 // @baa 0x013372d0
@@ -258,22 +258,22 @@ void sub_013376f0(S* p, INT Value)
 IMPLEMENT_CLASS_AT(UAnimNodeEditInfo, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\AnimTreeEditor.cpp", 15);
 
 // @baa 0x01337770
-void UAnimNodeEditInfo::vf_10c(int a0, int a1) {  }
+void UAnimNodeEditInfo::OnDoubleClickNode(UAnimNode* a0, class WxAnimTreeEditor* a1) {  }
 
 // @baa 0x01337780
-void UAnimNodeEditInfo::vf_110(void) {  }
+void UAnimNodeEditInfo::OnCloseAnimTreeEditor() {  }
 
 // @baa 0x01337790
-int UAnimNodeEditInfo::vf_114(void) { return 0; }
+UBOOL UAnimNodeEditInfo::ShouldDrawWidget() { return 0; }
 
 // @baa 0x013377a0
-UINT UAnimNodeEditInfo::vf_118() { return 1; }
+UBOOL UAnimNodeEditInfo::IsRotationWidget() { return 1; }
 
 // @baa 0x013377d0
-void UAnimNodeEditInfo::vf_120(int a0, int a1) {  }
+void UAnimNodeEditInfo::HandleWidgetDrag(const FQuat& a0, const FVector& a1) {  }
 
 // @baa 0x013377e0
-void UAnimNodeEditInfo::vf_124(int a0, int a1) {  }
+void UAnimNodeEditInfo::Draw3DInfo(const FSceneView* a0, FPrimitiveDrawInterface* a1) {  }
 
 // @baa 0x013377f0
 int sub_005c7a20(void);

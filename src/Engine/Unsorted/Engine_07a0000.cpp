@@ -20,7 +20,7 @@ void AController::vf_180(void)
 UBOOL AController::IsLocalPlayerController() { return 0; }
 
 // @baa 0x007a0390
-int AController::vf_3a4(void) { return 0; }
+UBOOL AController::IsLocalController() { return 0; }
 
 // @baa 0x007a05e0
 undefined4 APlayerController::vf_3a8(void)
@@ -35,7 +35,7 @@ undefined4 APlayerController::vf_3a8(void)
 }
 
 // @baa 0x007a0600
-int APlayerController::vf_3ac(void) { return 0; }
+UBOOL APlayerController::StopAtLedge() { return 0; }
 
 // @baa 0x007a06e0
 int sub_007a06e0(void) { return 0; }
@@ -1556,10 +1556,10 @@ void sub_007ab300(void) { sub_00656790(); }
 IMPLEMENT_CLASS_AT(UDistributionFloatParameterBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnDistributions.cpp", 12);
 
 // @baa 0x007ab770
-int UDistributionFloatParameterBase::vf_124(int a0, int a1, int a2, int a3) { return 0; }
+UBOOL UDistributionFloatParameterBase::GetParamValue(UObject* Data, FName ParamName, FLOAT& OutFloat) { return 0; }
 
 // @baa 0x007ab780
-UINT UDistributionFloatParameterBase::vf_120() { return 0; }
+UBOOL UDistributionFloatParameterBase::CanBeBaked() const { return 0; }
 
 // @baa 0x007ab790
 // @baa 0x007ab7d0
@@ -1712,7 +1712,7 @@ void AController::vf_3d4()
 
 // @baa 0x007a0610
 /* AController slot 0x3ac (kit vf_3ac, UE3 StopAtLedge()): stop at a ledge unless the pawn can jump down it. */
-INT AController::vf_3ac()
+UBOOL AController::StopAtLedge()
 {
     if (!Pawn || !Pawn->bCanJump || Pawn->bStopAtLedges)
     {

@@ -16,13 +16,13 @@ UBOOL UMorphNodePose::HasUniqueStaticConfigName() const { return 1; }
 UBOOL UMorphNodeWeightByBoneAngle::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00834850
-void UMorphNodeBase::vf_124(int a0) { *(int*)((char*)this + 80) = a0; }
+void UMorphNodeBase::InitMorphNode(USkeletalMeshComponent* InSkelComp) { SkelComponent = InSkelComp; }
 
 // @baa 0x008348c0
-void UMorphNodeBase::vf_11c(void) {  }
+void UMorphNodeBase::OnPaste() {  }
 
 // @baa 0x008348e0
-float UMorphNodeWeight::vf_134(void) { return *(float*)((char*)this + 108); }
+FLOAT UMorphNodeWeight::GetSliderPosition() { return *(float*)((char*)this + 108); }
 
 // @baa 0x00839fb0
 IMPLEMENT_CLASS_AT(UMorphWeightSequence, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnMorph.cpp", 13);

@@ -13,14 +13,9 @@ struct UAnimNodeBlend_ : public UAnimNodeBlend
 	void sub_00c54040(FLOAT BlendTarget, FLOAT BlendTime);	/* SetBlendTarget */
 };
 
-/* UAnimNodePlayCustomAnim's TickAnim override. */
-struct UAnimNodePlayCustomAnim_ : public UAnimNodePlayCustomAnim
-{
-	void TickAnim(FLOAT DeltaSeconds, FLOAT TotalWeight);
-};
 
 // @baa 0x00c7c810
-void UAnimNodePlayCustomAnim_::TickAnim(FLOAT DeltaSeconds, FLOAT TotalWeight)
+void UAnimNodePlayCustomAnim::TickAnim(FLOAT DeltaSeconds, FLOAT TotalWeight)
 {
 	// a custom animation with a blend out time: blend out before it is over
 	if (bIsPlayingCustomAnim && CustomPendingBlendOutTime >= 0.f)

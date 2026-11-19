@@ -1278,7 +1278,7 @@ undefined4 sub_00754840(undefined4 param_1, undefined4 param_2)
 IMPLEMENT_CLASS_AT(UMapInfo, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 114);
 
 // @baa 0x007548d0
-void UMapInfo::vf_10c(void) {  }
+void UMapInfo::CheckForErrors() {  }
 
 // @baa 0x007548e0
 int sub_00891ff0(void);
@@ -1301,7 +1301,7 @@ int sub_00754930(int a0, int a1) { return a1; }
 IMPLEMENT_CLASS_AT(UPrimitiveComponentFactory, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActorComponent.cpp", 51);
 
 // @baa 0x007549b0
-int UPrimitiveComponentFactory::vf_110(int a0) { return 0; }
+UPrimitiveComponent* UPrimitiveComponentFactory::CreatePrimitiveComponent(UObject* a0) { return 0; }
 
 // @baa 0x007549c0
 extern undefined * g_01efe060;

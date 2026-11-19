@@ -428,7 +428,7 @@ IMPLEMENT_CLASS_AT(AFluidSurfaceActor, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealE
 int AFluidSurfaceActor::vf_2dc(void) { return 1; }
 
 // @baa 0x00be9140
-void* AFluidSurfaceActor::vf_2f8() { return this; }
+class AFluidSurfaceActor* AFluidSurfaceActor::GetAFluidSurface() { return this; }
 
 // @baa 0x00be9150
 // @baa 0x00be91e0

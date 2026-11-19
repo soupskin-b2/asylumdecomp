@@ -523,10 +523,10 @@ struct C_00888f10 { C_00888f10* sub_00888f10(int a0); };
 C_00888f10* C_00888f10::sub_00888f10(int a0) { return this; }
 
 // @baa 0x00888fe0
-int UInteraction::vf_114(int a0, int a1, int a2, int a3, int a4, int a5) { return 0; }
+UBOOL UInteraction::InputKey(INT ControllerId, FName Key, EInputEvent Event, FLOAT AmountDepressed, UBOOL bGamepad) { return 0; }
 
 // @baa 0x00888ff0
-int UInteraction::vf_118(int a0, int a1, int a2, int a3, int a4, int a5) { return 0; }
+UBOOL UInteraction::InputAxis(INT ControllerId, FName Key, FLOAT Delta, FLOAT DeltaTime, UBOOL bGamepad) { return 0; }
 
 // @baa 0x00889000
 UBOOL UInteraction::InputChar(INT a0, TCHAR a1) { return 0; }

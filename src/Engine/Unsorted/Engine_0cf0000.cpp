@@ -125,10 +125,10 @@ void UInterpTrack::PreviewUpdateTrack(FLOAT a0, UInterpTrackInst* a1) {  }
 void UInterpTrack::UpdateTrack(FLOAT a0, UInterpTrackInst* a1, UBOOL a2) {  }
 
 // @baa 0x00cf04f0
-void UInterpTrack::vf_140(int a0) {  }
+void UInterpTrack::PreviewStopPlayback(class UInterpTrackInst* a0) {  }
 
 // @baa 0x00cf0500
-int UInterpTrack::vf_14c(void) { return 0; }
+UBOOL UInterpTrack::AllowStaticActors() { return 0; }
 
 // @baa 0x00cf0510
 void UInterpTrack::vf_158(int a0, int a1, int a2, int a3, int a4, int a5) {  }
@@ -377,7 +377,7 @@ UBOOL UInterpTrackInstParticleReplay::HasParentClassChanged() const
 }
 
 // @baa 0x00cf7540
-FString UInterpTrackParticleReplay::vf_144()
+const FString UInterpTrackParticleReplay::GetEdHelperClassName() const
 {
     return TEXT("UnrealEd.InterpTrackParticleReplayHelper");
 }

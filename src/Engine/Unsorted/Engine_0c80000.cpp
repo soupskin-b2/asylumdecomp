@@ -765,13 +765,13 @@ int sub_00c8c580(int a0, int a1) { return a1; }
 IMPLEMENT_CLASS_AT(UCodecMovie, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnCodecs.cpp", 9);
 
 // @baa 0x00c8c5f0
-int UCodecMovie::vf_10c(void) { return 0; }
+UBOOL UCodecMovie::IsSupported() { return 0; }
 
 // @baa 0x00c8c600
-UINT UCodecMovie::vf_110() { return 0; }
+UINT UCodecMovie::GetSizeX() { return 0; }
 
 // @baa 0x00c8c610
-UINT UCodecMovie::vf_114() { return 0; }
+UINT UCodecMovie::GetSizeY() { return 0; }
 
 // @baa 0x00c8c620
 FLOAT UCodecMovie::GetFrameRate() {
@@ -779,31 +779,31 @@ FLOAT UCodecMovie::GetFrameRate() {
 }
 
 // @baa 0x00c8c630
-int UCodecMovie::vf_124(int a0, int a1, int a2) { return 0; }
+UBOOL UCodecMovie::Open(const FString& a0, DWORD a1, DWORD a2) { return 0; }
 
 // @baa 0x00c8c640
-int UCodecMovie::vf_120(int a0, int a1) { return 0; }
+UBOOL UCodecMovie::Open(void* a0, DWORD a1) { return 0; }
 
 // @baa 0x00c8c650
-void UCodecMovie::vf_128(void) {  }
+void UCodecMovie::Close() {  }
 
 // @baa 0x00c8c660
 void UCodecMovie::ResetStream() {  }
 
 // @baa 0x00c8c670
-void UCodecMovie::vf_130(int a0) {  }
+void UCodecMovie::GetFrame(class FTextureMovieResource* a0) {  }
 
 // @baa 0x00c8c680
 FLOAT UCodecMovie::GetDuration() { return *(float*)((char*)this + 48); }
 
 // @baa 0x00c8c6a0
-void UCodecMovie::vf_13c(int a0) {  }
+void UCodecMovie::Pause(UBOOL a0) {  }
 
 // @baa 0x00c8c6b0
-void UCodecMovie::vf_140(void) {  }
+void UCodecMovie::Stop() {  }
 
 // @baa 0x00c8c6c0
-void UCodecMovie::vf_144(void) {  }
+void UCodecMovie::ReleaseDynamicResources() {  }
 
 // @baa 0x00c8c6d0
 int sub_005c7a20(void);

@@ -35,7 +35,7 @@ int sub_00630f20(...);
 extern INT g_026667a8;
 // @baa 0x00c14910
 // @baa 0x00c14910
-void UPendingLevel::vf_10c(INT DeltaTime)
+void UPendingLevel::Tick(FLOAT DeltaTime)
 {
 	sub_00630f20(g_026667a8, L"Pure virtual not implemented (%s)", L"UPendingLevel::Tick");
 }

@@ -54,7 +54,7 @@ undefined4 C_01471500::sub_01471500(byte param_2)
 }
 
 // @baa 0x0144ec60
-void ULensFlarePreviewComponent::vf_250(int a0, int a1) {  }
+void ULensFlarePreviewComponent::Render(const FSceneView* a0, FPrimitiveDrawInterface* a1) {  }
 
 // @baa 0x014503b0
 

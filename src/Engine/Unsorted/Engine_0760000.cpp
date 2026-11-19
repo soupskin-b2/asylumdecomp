@@ -1959,10 +1959,10 @@ void sub_0076ba80(void) { sub_0076a950(); }
 IMPLEMENT_CLASS_AT(UReachSpec, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 49);
 
 // @baa 0x0076bb00
-int UReachSpec::vf_11c(void) { return 0; }
+UBOOL UReachSpec::IsForced() { return 0; }
 
 // @baa 0x0076bb10
-int UReachSpec::vf_120(void) { return 0; }
+UBOOL UReachSpec::IsProscribed() const { return 0; }
 
 // @baa 0x0076bb20
 UINT UReachSpec::vf_138(INT a0) { return 1; }
@@ -1978,7 +1978,7 @@ IMPLEMENT_CLASS_AT(UCeilingReachSpec, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEn
 IMPLEMENT_CLASS_AT(UForcedReachSpec, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 50);
 
 // @baa 0x0076bda0
-int UForcedReachSpec::vf_11c(void) { return 1; }
+UBOOL UForcedReachSpec::IsForced() { return 1; }
 
 // @baa 0x0076be20
 IMPLEMENT_CLASS_AT(UCoverSlipReachSpec, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 57);
@@ -2002,7 +2002,7 @@ IMPLEMENT_CLASS_AT(UWallTransReachSpec, "e:\\Projects\\Amadeus\\AA\\Game\\Unreal
 IMPLEMENT_CLASS_AT(ULadderReachSpec, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 52);
 
 // @baa 0x0076c350
-int UProscribedReachSpec::vf_120(void) { return 1; }
+UBOOL UProscribedReachSpec::IsProscribed() const { return 1; }
 
 // @baa 0x0076c360
 IMPLEMENT_CLASS_AT(UProscribedReachSpec, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 53);
@@ -2066,7 +2066,7 @@ int sub_0076c540(void)
 
 // @baa 0x0076c570
 // @baa 0x0076c5e0
-int UMeshComponentFactory::vf_110(int a0) { return 0; }
+UPrimitiveComponent* UMeshComponentFactory::CreatePrimitiveComponent(UObject* a0) { return 0; }
 
 // @baa 0x0076c5f0
 int sub_00754d50(void);
@@ -2307,7 +2307,7 @@ undefined4 * UObject::sub_0076e8b0(void)
 }
 
 // @baa 0x0076e8d0
-bool UStaticMeshComponentFactory::vf_10c(void)
+UBOOL UStaticMeshComponentFactory::FactoryIsValid()
 {
     int param_1 = (int)this;
 

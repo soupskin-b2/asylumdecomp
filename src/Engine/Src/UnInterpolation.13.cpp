@@ -25,7 +25,7 @@ void UInterpGroupInst::TermGroupInst(UBOOL bDeleteData)
     for (INT i = 0; i < TrackInst.Num(); i++)
     {
         UInterpTrack* Track = Group->InterpTracks(i);
-        TrackInst(i)->vf_118(Track);
+        TrackInst(i)->TermTrackInst(Track);
     }
     TrackInst.Empty();
 

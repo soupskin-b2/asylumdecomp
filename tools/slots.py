@@ -363,6 +363,26 @@ def files_using(classes, renames):
     return out
 
 
+def order_overloads(lines, classes):
+    """put a class's new virtual overloads in the reverse of their slot order (MSVC lays them out reversed)"""
+    n = 0
+    for c, v in classes.items():
+        groups = {}
+        for d in v["decls"]:
+            if d.off is not None and introducer(classes, c, d.off) == c:
+                groups.setdefault(d.name, []).append(d)
+        for ds in groups.values():
+            if len(ds) < 2:
+                continue
+            pos = sorted(d.lineno for d in ds)
+            want = [lines[d.lineno] for d in sorted(ds, key=lambda d: -d.off)]
+            if [lines[p] for p in pos] != want:
+                for p, l in zip(pos, want):
+                    lines[p] = l
+                n += 1
+    return n
+
+
 def load():
     lines = HEADER.read_text(encoding="utf-8").splitlines(keepends=True)
     return lines, parse(lines)
@@ -438,6 +458,17 @@ def cmd_verify(classes):
             if inh_exe != (k != c):
                 print("%s 0x%03x %s: %s" % (c, 4 * i, f, "the exe inherits it (%08x), the header overrides it" % ex[i] if inh_exe
                                               else "the exe overrides it (%08x), the header inherits %s::%s" % (ex[i], k, f)))
+                bad += 1
+    # the compiler's slot for each declaration is the one its comment says
+    for c, h in sorted(vt.items()):
+        if c not in classes:
+            continue
+        for i, k, f in h:
+            if k != c or f == "{dtor}":
+                continue
+            ds = [d for d in classes[c]["decls"] if d.off == 4 * i]
+            if ds and all(d.name != f for d in ds):
+                print("%s 0x%03x: the comment says %s, the compiler puts %s there" % (c, 4 * i, ds[0].name, f))
                 bad += 1
     # MSVC puts a class's new virtual overloads together, in the reverse of their declaration order: the
     # offsets in the comments must say the same, or calls go to the other overload's slot
@@ -520,6 +551,9 @@ def main(argv):
             if old != new:
                 renames.setdefault(old, []).append((intro, new))
             classes = parse(lines)
+        k = order_overloads(lines, parse(lines))
+        if k:
+            print("%d overload groups put in MSVC's (reversed) order" % k)
         save(lines)
         print("%d declarations written" % len(allchanges))
         if src_too and allchanges:

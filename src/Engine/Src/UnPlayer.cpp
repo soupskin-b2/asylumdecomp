@@ -338,8 +338,9 @@ struct C_view {
 
 int __stdcall sub_00892dc0(int);
 // @baa 0x00893920
-undefined4 UForcedReachSpec::vf_118(int param_2)
+UBOOL UForcedReachSpec::PrepareForMove(AController * C)
 {
+    int param_2 = (int)C;
     int param_1 = (int)this;
   int iVar1;
   iVar1 = sub_00892dc0(param_2);
@@ -983,8 +984,9 @@ UBOOL UPlayer::HasParentClassChanged() const
 }
 
 // @baa 0x00889be0
-void UPlayer::vf_10c(int param_2)
+void UPlayer::SwitchController(class APlayerController* PC)
 {
+    int param_2 = (int)PC;
     int param_1 = (int)this;
 
   if (*(int *)(param_1 + 0x34) != 0) {

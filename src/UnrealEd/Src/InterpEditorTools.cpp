@@ -207,13 +207,13 @@ int sub_012df740(int a0, int a1) { return a1; }
 IMPLEMENT_CLASS_AT(UInterpTrackHelper, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\InterpEditorTools.cpp", 2797);
 
 // @baa 0x012df7b0
-int UInterpTrackHelper::vf_110(int a0, int a1, int a2, int a3) { return 1; }
+UBOOL UInterpTrackHelper::PreCreateTrack(UInterpGroup* a0, const UInterpTrack * a1, UBOOL a2, UBOOL a3) const { return 1; }
 
 // @baa 0x012df7c0
-void UInterpTrackHelper::vf_114(int a0, int a1, int a2) {  }
+void UInterpTrackHelper::PostCreateTrack(UInterpTrack * a0, UBOOL a1, INT a2) const {  }
 
 // @baa 0x012df7d0
-int UInterpTrackHelper::vf_118(int a0, int a1) { return 1; }
+UBOOL UInterpTrackHelper::PreCreateKeyframe(UInterpTrack * a0, FLOAT a1) const { return 1; }
 
 // @baa 0x012df7e0
 void __stdcall sub_012df7e0(int a0, int a1) {  }
@@ -853,7 +853,7 @@ UBOOL UInterpTrackColorPropHelper::HasParentClassChanged() const
 }
 
 // @baa 0x012df4a0
-int UInterpTrackParticleReplayHelper::vf_118(int a0, int a1) { return 1; }
+UBOOL UInterpTrackParticleReplayHelper::PreCreateKeyframe(UInterpTrack * a0, FLOAT a1) const { return 1; }
 
 // @baa 0x012f0540
 

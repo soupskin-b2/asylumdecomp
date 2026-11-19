@@ -756,10 +756,10 @@ void UCodecMovieBink::sub_00c97bc0(void)
 }
 
 // @baa 0x00c97bd0
-int UCodecMovieBink::vf_10c(void) { return 1; }
+UBOOL UCodecMovieBink::IsSupported() { return 1; }
 
 // @baa 0x00c97be0
-undefined4 UCodecMovieBink::vf_110(void)
+UINT UCodecMovieBink::GetSizeX()
 {
     int param_1 = (int)this;
 
@@ -773,7 +773,7 @@ undefined4 UCodecMovieBink::vf_110(void)
 }
 
 // @baa 0x00c97bf0
-undefined4 UCodecMovieBink::vf_114(void)
+UINT UCodecMovieBink::GetSizeY()
 {
     int param_1 = (int)this;
 
@@ -787,7 +787,7 @@ undefined4 UCodecMovieBink::vf_114(void)
 }
 
 // @baa 0x00c97c00
-int UCodecMovieBink::vf_118(void) { return 2; }
+EPixelFormat UCodecMovieBink::GetFormat() { return PF_A8R8G8B8; }
 
 extern int g_020861c8;
 // A small two-dword value struct used by DecalComponent.cpp.
@@ -875,19 +875,19 @@ undefined4 * UCodecMovieBink::sub_00c97f50(byte param_2)
 }
 
 // @baa 0x00c97fa0
-int UCodecMovie::vf_118(void) { return 0; }
+EPixelFormat UCodecMovie::GetFormat() { return PF_Unknown; }
 
 // @baa 0x00c97fb0
-int UCodecMovieFallback::vf_10c(void) { return 1; }
+UBOOL UCodecMovieFallback::IsSupported() { return 1; }
 
 // @baa 0x00c97fc0
-UINT UCodecMovieFallback::vf_110() { return 1; }
+UINT UCodecMovieFallback::GetSizeX() { return 1; }
 
 // @baa 0x00c97fd0
-UINT UCodecMovieFallback::vf_114() { return 1; }
+UINT UCodecMovieFallback::GetSizeY() { return 1; }
 
 // @baa 0x00c97fe0
-int UCodecMovieFallback::vf_118(void) { return 2; }
+EPixelFormat UCodecMovieFallback::GetFormat() { return PF_A8R8G8B8; }
 
 // @baa 0x00c98030
 void UCodecMovieFallback::ResetStream()

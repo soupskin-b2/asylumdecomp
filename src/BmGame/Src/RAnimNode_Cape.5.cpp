@@ -205,10 +205,10 @@ void URAnimNode_Cape__0156e6a0::sub_0156e6a0(INT boneIndex, FMatrix& OutSpaceBas
 // @baa 0x01591bd0
 /* URAnimNode_Cape slot 0x134 (kit vf_134, UE3 TickAnim(FLOAT DeltaSeconds, FLOAT TotalWeight)): the cape's own
  * updates, then the blend node's tick. */
-void URAnimNode_Cape::vf_134(FLOAT DeltaSeconds, FLOAT TotalWeight)
+void URAnimNode_Cape::TickAnim(FLOAT DeltaSeconds, FLOAT TotalWeight)
 {
     this->sub_01590f70();
     this->sub_01579d30();
     this->sub_01590020();
-    Super::vf_134(DeltaSeconds, TotalWeight);
+    Super::TickAnim(DeltaSeconds, TotalWeight);
 }

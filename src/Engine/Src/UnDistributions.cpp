@@ -43,10 +43,10 @@ undefined4 sub_0079f970(undefined4 param_1, undefined4 param_2)
 IMPLEMENT_CLASS_AT(UDistributionVectorParameterBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnDistributions.cpp", 18);
 
 // @baa 0x0079fa10
-int UDistributionVectorParameterBase::vf_12c(int a0, int a1, int a2, int a3) { return 0; }
+UBOOL UDistributionVectorParameterBase::GetParamValue(UObject* Data, FName ParamName, FVector& OutVector) { return 0; }
 
 // @baa 0x0079fa20
-UINT UDistributionVectorParameterBase::vf_128() { return 0; }
+UBOOL UDistributionVectorParameterBase::CanBeBaked() const { return 0; }
 
 // @baa 0x0079fa30
 // @baa 0x0079fa60
@@ -1000,7 +1000,7 @@ IMPLEMENT_CLASS_AT(UDistributionFloatUniformCurve, "e:\\Projects\\Amadeus\\AA\\G
 // @baa 0x007c6a10
 // @baa 0x007c6a80
 // @baa 0x007c6b20
-int UDistributionVectorUniformCurve::vf_118(void) { return 1; }
+UBOOL UDistributionVectorUniformCurve::IsUniformCurve() { return 1; }
 
 // @baa 0x007c6b30
 // @baa 0x007c6ba0

@@ -37,7 +37,7 @@ int sub_006311e0(...);
 extern undefined4 g_0222d790;
 extern undefined4 g_026667b4;
 // @baa 0x012c0430
-void UInterpEdTransBuffer::vf_140(void)
+void UInterpEdTransBuffer::EndSpecial()
 {
     int param_1 = (int)this;
   int *piVar1;

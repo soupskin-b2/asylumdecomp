@@ -163,11 +163,11 @@ struct C_view {
 };
 
 // @baa 0x015aa9c0
-void URAnimNotify_IdleOverlay::vf_10c(undefined4 param_2)
+void URAnimNotify_IdleOverlay::Notify(class UAnimNodeSequence* param_2)
 {
     int param_1 = (int)this;
   *(uint *)(param_1 + 0x3c) = *(uint *)(param_1 + 0x3c) | 1;
-  ((C_view *)(this))->sub_015aa840(param_2);
+  ((C_view *)(this))->sub_015aa840((int)param_2);
   *(uint *)(param_1 + 0x3c) = *(uint *)(param_1 + 0x3c) & 0xfffffffe;
   return;
 }

@@ -42,7 +42,7 @@ INT sub_009a54b0(...);
 /* UTerrainComponent slot 0x158 (kit vf_158(UINT*, UINT*); UE3's GetLightMapResolution(INT& Width, INT& Height)):
  * the light map size, the section plus a DXT-block-sized border per side at the terrain's lighting resolution,
  * aligned to DXT1 blocks. */
-void UTerrainComponent::vf_158(UINT* Width, UINT* Height)
+void UTerrainComponent::GetLightAndShadowMapMemoryUsage(UINT* Width, UINT* Height)
 {
     ATerrain* Terrain = (ATerrain*)sub_009a54b0(Outer);
     if (Terrain)

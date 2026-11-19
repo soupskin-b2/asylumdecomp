@@ -4,4 +4,4 @@
 #include "ue3/Classes.h"
 
 // @baa 0x00f19cc0
-int URenderTargetExporterTGA::vf_118(int a0, int a1, int a2, int a3, int a4, int a5) { return 0; }
+UBOOL URenderTargetExporterTGA::ExportBinary(UObject* a0, const TCHAR* a1, FArchive& a2, FFeedbackContext* a3, INT a4, DWORD a5) { return 0; }

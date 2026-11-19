@@ -145,7 +145,7 @@ undefined4 * UObject::sub_00baafc0(void)
 IMPLEMENT_CLASS_AT(USpeedTreeComponentFactory, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\SpeedTreeComponentFactory.cpp", 9);
 
 // @baa 0x00bab040
-bool USpeedTreeComponentFactory::vf_10c(void)
+UBOOL USpeedTreeComponentFactory::FactoryIsValid()
 {
     int param_1 = (int)this;
 

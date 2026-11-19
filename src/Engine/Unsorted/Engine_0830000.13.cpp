@@ -35,7 +35,7 @@ void ANavigationPoint_::sub_0083f3a0()
 
 // @baa 0x00836b00
 /* The factory this one was ultimately copied from (follows OriginalFactory to the end). */
-void* APickupFactory::vf_330(INT)
+class ANavigationPoint* APickupFactory::SpecifyEndAnchor(APawn* RouteFinder)
 {
 	APickupFactory* Best = this;
 	while (Best->OriginalFactory)
