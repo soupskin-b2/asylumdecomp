@@ -295,54 +295,24 @@ void UParticleSystemComponent::execGetVectorParameter(FFrame& Stack, RESULT_DECL
     *(UBOOL*)Result = GetVectorParameter(InName, OutVector);
 }
 
-#define INVALID_OBJECT ((UObject*)-1)
-class FObjectInstancingGraph;
-/* UStruct::IsChildOf isn't declared in Classes.h; this is UE3's inline body. */
-struct UClass_ : public UClass
-{
-    UBOOL IsChildOf(const UField* SomeBase) const
-    {
-        for (const UField* Struct = this; Struct; Struct = Struct->SuperField)
-            if (Struct == SomeBase)
-                return 1;
-        return 0;
-    }
-};
-
-struct UObject_ : public UObject
-{
-    static UObject* GetTransientPackage();                                    // 005c1d70
-};
-
-/* UnObjBas.h ConstructObject<T> */
-template<class T>
-T* ConstructObject(UClass_* Class, UObject* Outer, FName Name, QWORD SetFlags, UObject* Template, UObject* SubobjectRoot, FObjectInstancingGraph* InstanceGraph)
-{
-#line 1317 "e:\\projects\\amadeus\\aa\\game\\unrealengine3\\development\\src\\core\\inc\\UnClass.h"
-    check(Class->IsChildOf(T::StaticClass()));
-    if (Outer == INVALID_OBJECT)
-    {
-        Outer = UObject_::GetTransientPackage();
-    }
-    return (T*)UObject::StaticConstructObject(Class, Outer, Name, SetFlags, Template, GError, SubobjectRoot, InstanceGraph);
-}
+#include "ue3/ConstructObject.h"
 
 // @baa 0x00b58990
-template UParticleModuleSpawn* ConstructObject<UParticleModuleSpawn>(UClass_*, UObject*, FName, QWORD, UObject*, UObject*, FObjectInstancingGraph*);
+template UParticleModuleSpawn* ConstructObject<UParticleModuleSpawn>(UClass*, UObject*, FName, QWORD, UObject*, UObject*, FObjectInstancingGraph*);
 
 #line 375 "candidate.cpp"
 
 // @baa 0x00b58a30
-template UParticleModuleRequired* ConstructObject<UParticleModuleRequired>(UClass_*, UObject*, FName, QWORD, UObject*, UObject*, FObjectInstancingGraph*);
+template UParticleModuleRequired* ConstructObject<UParticleModuleRequired>(UClass*, UObject*, FName, QWORD, UObject*, UObject*, FObjectInstancingGraph*);
 
 // @baa 0x00b58ad0
-template UParticleModuleLifetime* ConstructObject<UParticleModuleLifetime>(UClass_*, UObject*, FName, QWORD, UObject*, UObject*, FObjectInstancingGraph*);
+template UParticleModuleLifetime* ConstructObject<UParticleModuleLifetime>(UClass*, UObject*, FName, QWORD, UObject*, UObject*, FObjectInstancingGraph*);
 
 // @baa 0x00b58b70
-template UParticleModuleSize* ConstructObject<UParticleModuleSize>(UClass_*, UObject*, FName, QWORD, UObject*, UObject*, FObjectInstancingGraph*);
+template UParticleModuleSize* ConstructObject<UParticleModuleSize>(UClass*, UObject*, FName, QWORD, UObject*, UObject*, FObjectInstancingGraph*);
 
 // @baa 0x00b58c10
-template UParticleModuleVelocity* ConstructObject<UParticleModuleVelocity>(UClass_*, UObject*, FName, QWORD, UObject*, UObject*, FObjectInstancingGraph*);
+template UParticleModuleVelocity* ConstructObject<UParticleModuleVelocity>(UClass*, UObject*, FName, QWORD, UObject*, UObject*, FObjectInstancingGraph*);
 
 // @baa 0x00b713c0
-template UParticleSystemReplay* ConstructObject<UParticleSystemReplay>(UClass_*, UObject*, FName, QWORD, UObject*, UObject*, FObjectInstancingGraph*);
+template UParticleSystemReplay* ConstructObject<UParticleSystemReplay>(UClass*, UObject*, FName, QWORD, UObject*, UObject*, FObjectInstancingGraph*);

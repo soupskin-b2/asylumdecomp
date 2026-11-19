@@ -237,10 +237,7 @@ UObject* UCurveEdPresetCurveFactoryNew::FactoryCreateNew(UClass* InClass, UObjec
 	return StaticConstructObject(InClass, InParent, InName, Flags);
 }
 
-class FObjectInstancingGraph;
 /* UnObjBas.h ConstructObject<T>; its instances are out of line in the exe (USoundCue: 0x0078cfb0). */
-template<class T>
-T* ConstructObject(UClass* Class, UObject* Outer, FName Name, QWORD SetFlags, UObject* Template = NULL, UObject* SubobjectRoot = NULL, FObjectInstancingGraph* InstanceGraph = NULL);
 // @baa 0x00f23910
 /* A new, empty sound cue. */
 UObject* USoundCueFactoryNew::FactoryCreateNew(UClass* InClass, UObject* InParent, FName InName, QWORD Flags, UObject* Context, FFeedbackContext* Warn)

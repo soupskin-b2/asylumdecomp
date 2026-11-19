@@ -136052,7 +136052,7 @@
     {
      "va": "00f9cf80",
      "size": 157,
-     "symbol": "??$ConstructObject@UUEditorViewportInput@@@@YAPAUUEditorViewportInput@@PAUUClass_@@PAUUObject@@UFName@@_K11PAUFObjectInstancingGraph@@@Z"
+     "symbol": "??$ConstructObject@UUEditorViewportInput@@@@YAPAUUEditorViewportInput@@PAUUClass@@PAUUObject@@UFName@@_K11PAUFObjectInstancingGraph@@@Z"
     }
    ]
   },
@@ -217810,32 +217810,32 @@
     {
      "va": "00b58990",
      "size": 157,
-     "symbol": "??$ConstructObject@UUParticleModuleSpawn@@@@YAPAUUParticleModuleSpawn@@PAUUClass_@@PAUUObject@@UFName@@_K11PAUFObjectInstancingGraph@@@Z"
+     "symbol": "??$ConstructObject@UUParticleModuleSpawn@@@@YAPAUUParticleModuleSpawn@@PAUUClass@@PAUUObject@@UFName@@_K11PAUFObjectInstancingGraph@@@Z"
     },
     {
      "va": "00b58a30",
      "size": 157,
-     "symbol": "??$ConstructObject@UUParticleModuleRequired@@@@YAPAUUParticleModuleRequired@@PAUUClass_@@PAUUObject@@UFName@@_K11PAUFObjectInstancingGraph@@@Z"
+     "symbol": "??$ConstructObject@UUParticleModuleRequired@@@@YAPAUUParticleModuleRequired@@PAUUClass@@PAUUObject@@UFName@@_K11PAUFObjectInstancingGraph@@@Z"
     },
     {
      "va": "00b58ad0",
      "size": 157,
-     "symbol": "??$ConstructObject@UUParticleModuleLifetime@@@@YAPAUUParticleModuleLifetime@@PAUUClass_@@PAUUObject@@UFName@@_K11PAUFObjectInstancingGraph@@@Z"
+     "symbol": "??$ConstructObject@UUParticleModuleLifetime@@@@YAPAUUParticleModuleLifetime@@PAUUClass@@PAUUObject@@UFName@@_K11PAUFObjectInstancingGraph@@@Z"
     },
     {
      "va": "00b58b70",
      "size": 157,
-     "symbol": "??$ConstructObject@UUParticleModuleSize@@@@YAPAUUParticleModuleSize@@PAUUClass_@@PAUUObject@@UFName@@_K11PAUFObjectInstancingGraph@@@Z"
+     "symbol": "??$ConstructObject@UUParticleModuleSize@@@@YAPAUUParticleModuleSize@@PAUUClass@@PAUUObject@@UFName@@_K11PAUFObjectInstancingGraph@@@Z"
     },
     {
      "va": "00b58c10",
      "size": 157,
-     "symbol": "??$ConstructObject@UUParticleModuleVelocity@@@@YAPAUUParticleModuleVelocity@@PAUUClass_@@PAUUObject@@UFName@@_K11PAUFObjectInstancingGraph@@@Z"
+     "symbol": "??$ConstructObject@UUParticleModuleVelocity@@@@YAPAUUParticleModuleVelocity@@PAUUClass@@PAUUObject@@UFName@@_K11PAUFObjectInstancingGraph@@@Z"
     },
     {
      "va": "00b713c0",
      "size": 157,
-     "symbol": "??$ConstructObject@UUParticleSystemReplay@@@@YAPAUUParticleSystemReplay@@PAUUClass_@@PAUUObject@@UFName@@_K11PAUFObjectInstancingGraph@@@Z"
+     "symbol": "??$ConstructObject@UUParticleSystemReplay@@@@YAPAUUParticleSystemReplay@@PAUUClass@@PAUUObject@@UFName@@_K11PAUFObjectInstancingGraph@@@Z"
     },
     {
      "va": "00c9cb80",
@@ -354454,7 +354454,7 @@
     {
      "va": "00cb5570",
      "size": 157,
-     "symbol": "??$ConstructObject@UUDistributionFloatUniform@@@@YAPAUUDistributionFloatUniform@@PAUUClass_@@PAUUObject@@UFName@@_K11PAUFObjectInstancingGraph@@@Z"
+     "symbol": "??$ConstructObject@UUDistributionFloatUniform@@@@YAPAUUDistributionFloatUniform@@PAUUClass@@PAUUObject@@UFName@@_K11PAUFObjectInstancingGraph@@@Z"
     },
     {
      "va": "00cb5b60",
@@ -354514,7 +354514,7 @@
     {
      "va": "00cbf6b0",
      "size": 157,
-     "symbol": "??$ConstructObject@UUDebugManager@@@@YAPAUUDebugManager@@PAUUClass_@@PAUUObject@@UFName@@_K11PAUFObjectInstancingGraph@@@Z"
+     "symbol": "??$ConstructObject@UUDebugManager@@@@YAPAUUDebugManager@@PAUUClass@@PAUUObject@@UFName@@_K11PAUFObjectInstancingGraph@@@Z"
     }
    ]
   },

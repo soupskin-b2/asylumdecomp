@@ -4,22 +4,7 @@
 #include "ue3/Classes.h"
 #include "ue3/Script.h"
 
-#define INVALID_OBJECT ((UObject*)-1)
-class FObjectInstancingGraph;
-/* UStruct::IsChildOf isn't declared in Classes.h; this is UE3's inline body. */
-
-/* UnObjBas.h ConstructObject<T> */
-template<class T>
-T* ConstructObject(UClass* Class, UObject* Outer, FName Name, QWORD SetFlags, UObject* Template, UObject* SubobjectRoot, FObjectInstancingGraph* InstanceGraph)
-{
-#line 1317 "e:\\projects\\amadeus\\aa\\game\\unrealengine3\\development\\src\\core\\inc\\UnClass.h"
-    check(Class->IsChildOf(T::StaticClass()));
-    if (Outer == INVALID_OBJECT)
-    {
-        Outer = UObject::GetTransientPackage();
-    }
-    return (T*)UObject::StaticConstructObject(Class, Outer, Name, SetFlags, Template, GError, SubobjectRoot, InstanceGraph);
-}
+#include "ue3/ConstructObject.h"
 
 // @baa 0x00f53f40
 template UCubeBuilder* ConstructObject<UCubeBuilder>(UClass*, UObject*, FName, QWORD, UObject*, UObject*, FObjectInstancingGraph*);

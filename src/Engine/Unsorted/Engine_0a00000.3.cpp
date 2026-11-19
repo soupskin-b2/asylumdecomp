@@ -53,22 +53,7 @@ void USkeletalMeshComponent::execSetHasPhysicsAssetInstance(FFrame& Stack, RESUL
 	SetHasPhysicsAssetInstance(bHasInstance);
 }
 
-#define INVALID_OBJECT ((UObject*)-1)
-class FObjectInstancingGraph;
-/* UStruct::IsChildOf isn't declared in Classes.h; this is UE3's inline body. */
-
-/* UnObjBas.h ConstructObject<T> */
-template<class T>
-T* ConstructObject(UClass* Class, UObject* Outer, FName Name, QWORD SetFlags, UObject* Template, UObject* SubobjectRoot, FObjectInstancingGraph* InstanceGraph)
-{
-#line 1317 "e:\\projects\\amadeus\\aa\\game\\unrealengine3\\development\\src\\core\\inc\\UnClass.h"
-    check(Class->IsChildOf(T::StaticClass()));
-    if (Outer == INVALID_OBJECT)
-    {
-        Outer = UObject::GetTransientPackage();
-    }
-    return (T*)UObject::StaticConstructObject(Class, Outer, Name, SetFlags, Template, GError, SubobjectRoot, InstanceGraph);
-}
+#include "ue3/ConstructObject.h"
 
 // @baa 0x00a07b10
 template URB_ConstraintInstance* ConstructObject<URB_ConstraintInstance>(UClass*, UObject*, FName, QWORD, UObject*, UObject*, FObjectInstancingGraph*);

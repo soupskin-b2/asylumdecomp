@@ -4,12 +4,7 @@
 #include "ue3/Classes.h"
 
 #define STR(S) (*(const FString&)(S))
-#define INVALID_OBJECT ((UObject*)-1)
-class FObjectInstancingGraph;
 
-template<class T>
-T* ConstructObject(UClass* Class, UObject* Outer = INVALID_OBJECT, FName Name = NAME_None, QWORD SetFlags = 0, UObject* Template = NULL,
-    UObject* SubobjectRoot = NULL, FObjectInstancingGraph* InstanceGraph = NULL);
 /* TArray<FNamedInterface>::Add (0x00d6ce30) is out of line in this build; Array.h's body. */
 template<> __declspec(noinline) INT TArray<FNamedInterface>::Add(INT Count)
 {

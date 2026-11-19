@@ -117,10 +117,7 @@ const TCHAR* sub_00d92c70(const TCHAR* Str, TCHAR SearchChar)
 	return NULL;
 }
 
-class FObjectInstancingGraph;
 /* UnObjBas.h ConstructObject<T>; its instances are out of line in the exe (UUIDataStore: 0x00da0cd0). */
-template<class T>
-T* ConstructObject(UClass* Class, UObject* Outer, FName Name = NAME_None, QWORD SetFlags = 0, UObject* Template = NULL, UObject* SubobjectRoot = NULL, FObjectInstancingGraph* InstanceGraph = NULL);
 
 // @baa 0x00da19f0
 /* CreateDataStore: a new, initialized data store of the given class (NULL unless it's a UIDataStore class). */

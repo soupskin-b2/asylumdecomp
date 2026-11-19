@@ -28,10 +28,6 @@ template<typename T> struct TArrayAddUnique_ : public TArray<T>
 	}
 };
 
-class FObjectInstancingGraph;
-struct UClass_;
-template<class T>
-T* ConstructObject(UClass_* Class, UObject* Outer, FName Name = NAME_None, QWORD SetFlags = 0, UObject* Template = NULL, UObject* SubobjectRoot = NULL, FObjectInstancingGraph* InstanceGraph = NULL);
 // @baa 0x00da51b0
 /* Loads the session settings provider classes named in the ini and creates a provider for each. */
 void UUIDataStore_SessionSettings::InitializeDataStore()
@@ -52,7 +48,7 @@ void UUIDataStore_SessionSettings::InitializeDataStore()
 #line 5422 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnUIDataStores.cpp"
 		check(ProviderClass);
 
-		USessionSettingsProvider* Provider = ConstructObject<USessionSettingsProvider>((UClass_*)ProviderClass, this);
+		USessionSettingsProvider* Provider = ConstructObject<USessionSettingsProvider>((UClass*)ProviderClass, this);
 		if (Provider != NULL)
 		{
 			((TArrayAddUnique_<USessionSettingsProvider*>&)SessionSettings).AddItem(Provider);

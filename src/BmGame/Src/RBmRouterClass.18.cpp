@@ -51,11 +51,8 @@ UBOOL ARBMRouter::CanMoveDirectlyToPos(FVector TestPos, UBOOL bKnowVisible)
 	return sub_016163c0(HostPawn, TestPos, bKnowVisible);
 }
 
-/* Kit gaps: UE3's ConstructObject<T> (UnObjBas.h; this instantiation is out of line at 01629710) isn't declared,
- * nor is the router's path-building helper (0161b520). */
-#define INVALID_OBJECT ((UObject*)-1)
-template<class T> T* ConstructObject(UClass* Class, UObject* Outer = INVALID_OBJECT, FName Name = NAME_None,
-	QWORD SetFlags = 0, UObject* Template = NULL, UObject* SubobjectRoot = NULL, struct FObjectInstancingGraph* InstanceGraph = NULL);
+/* ConstructObject<URBMRouterPath> is out of line at 01629710. The router's path-building helper (0161b520) isn't
+ * declared. */
 
 // @baa 0x016298d0
 /* A new path to Dest between two anchors. */

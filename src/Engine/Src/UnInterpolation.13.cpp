@@ -37,10 +37,7 @@ void UInterpGroupInst::TermGroupInst(UBOOL bDeleteData)
 }
 
 /* UnObjBas.h ConstructObject<T>, out of line in this build (UClass as the project's other callers spell it). */
-class FObjectInstancingGraph;
 
-template<class T>
-T* ConstructObject(UClass* Class, UObject* Outer, FName Name, QWORD SetFlags, UObject* Template, UObject* SubobjectRoot, FObjectInstancingGraph* InstanceGraph);
 /* UnObjBas.h RF_Transactional (64-bit object flags). */
 /* TArray::AddItem (Array.h), which the kit's TArray lacks; inline here. */
 template<typename T> struct TArrayAddItem_ : public TArray<T>

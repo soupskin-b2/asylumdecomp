@@ -72768,5 +72768,11 @@ template<class T> inline UClass* LoadClass(UObject* Outer, const TCHAR* Name, co
     return StaticLoadClass(T::StaticClass(), Outer, Name, Filename, LoadFlags, Sandbox);
 }
 
+
+/* UnObjBas.h: constructing an object of class T. The outer INVALID_OBJECT means the transient package. The
+ * body is in ue3/ConstructObject.h: include it where the unit compiles an instance (inline or out of line). */
+#define INVALID_OBJECT ((UObject*)-1)
+template<class T> T* ConstructObject(UClass* Class, UObject* Outer = INVALID_OBJECT, FName Name = NAME_None, QWORD SetFlags = 0,
+    UObject* Template = NULL, UObject* SubobjectRoot = NULL, FObjectInstancingGraph* InstanceGraph = NULL);
 #pragma pack(pop)
 #endif

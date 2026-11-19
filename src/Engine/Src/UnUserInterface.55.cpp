@@ -135,19 +135,7 @@ UUIScene* UGameUISceneClient::GetSceneAtIndex(INT SceneIndex) const
 	return Result;
 }
 
-#define INVALID_OBJECT ((UObject*)-1)
-/* UnObjBas.h ConstructObject<T> */
-template<class T>
-T* ConstructObject(UClass* Class, UObject* Outer, FName Name, QWORD SetFlags, UObject* Template, UObject* SubobjectRoot, FObjectInstancingGraph* InstanceGraph)
-{
-#line 1317 "e:\\projects\\amadeus\\aa\\game\\unrealengine3\\development\\src\\core\\inc\\UnClass.h"
-    check(Class->IsChildOf(T::StaticClass()));
-    if (Outer == INVALID_OBJECT)
-    {
-        Outer = UObject::GetTransientPackage();
-    }
-    return (T*)UObject::StaticConstructObject(Class, Outer, Name, SetFlags, Template, GError, SubobjectRoot, InstanceGraph);
-}
+#include "ue3/ConstructObject.h"
 
 // @baa 0x00de0f50
 template UDataStoreClient* ConstructObject<UDataStoreClient>(UClass*, UObject*, FName, QWORD, UObject*, UObject*, FObjectInstancingGraph*);
