@@ -86,10 +86,10 @@ IMPLEMENT_CLASS_AT(ANxForceFieldGeneric, "e:\\Projects\\Amadeus\\AA\\Game\\Unrea
 // @baa 0x00a505e0
 
 // @baa 0x00a344b0
-int ANxForceFieldGeneric::vf_000(void) { return 1; }
+UBOOL ANxForceFieldGeneric::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00a344c0
-bool ANxForceFieldGeneric::vf_004()
+UBOOL ANxForceFieldGeneric::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

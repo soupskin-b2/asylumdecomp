@@ -7202,40 +7202,40 @@ C_00ddd8f0* C_00ddd8f0::sub_00ddd8f0(void) { *(int*)((char*)this + 0) = (int)g_0
 IMPLEMENT_CLASS_AT(UUIRoot, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnUserInterface.cpp", 23);
 
 // @baa 0x00ddda10
-int UUIRoot::vf_000(void) { return 1; }
+UBOOL UUIRoot::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00ddda20
-bool UUIRoot::vf_004()
+UBOOL UUIRoot::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00ddda60
-int UUISceneClient::vf_000(void) { return 1; }
+UBOOL UUISceneClient::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00ddda90
-int UUITexture::vf_000(void) { return 1; }
+UBOOL UUITexture::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00dddaa0
-int UUIState::vf_000(void) { return 1; }
+UBOOL UUIState::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00dddab0
-int UUIState_Enabled::vf_000(void) { return 1; }
+UBOOL UUIState_Enabled::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00dddac0
-int UUIState_Disabled::vf_000(void) { return 1; }
+UBOOL UUIState_Disabled::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00dddad0
-int UUIState_Active::vf_000(void) { return 1; }
+UBOOL UUIState_Active::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00dddae0
-int UUIState_Focused::vf_000(void) { return 1; }
+UBOOL UUIState_Focused::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00dddaf0
-int UUIState_Pressed::vf_000(void) { return 1; }
+UBOOL UUIState_Pressed::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00dddb00
-int UUILayerBase::vf_000(void) { return 1; }
+UBOOL UUILayerBase::HasUniqueStaticConfigName() const { return 1; }
 
 struct C_view_00dddb10 {
     int sub_00c407b0(int);
@@ -7290,7 +7290,7 @@ void sub_00dddba0(void) { sub_00c38ac0(); }
 char* UUIInputConfiguration::sub_00dddbb0(void) { return (char*)this + 48; }
 
 // @baa 0x00dddc80
-int UUITickableObjectProxy::vf_000(void) { return 1; }
+UBOOL UUITickableObjectProxy::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00dddd20
 void UUISceneClient::vf_10c(int a0, int a1) {  }
@@ -8205,21 +8205,21 @@ void C_00de10a0::sub_00de10a0(undefined4 param_2, undefined4 param_3, undefined4
 // @baa 0x00de1540
 // @baa 0x00de1690
 // @baa 0x00de17a0
-bool UUITexture::vf_004()
+UBOOL UUITexture::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00de17e0
 // @baa 0x00de18f0
-bool UUIState::vf_004()
+UBOOL UUIState::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00de1930
 // @baa 0x00de1a40
-bool UUILayerBase::vf_004()
+UBOOL UUILayerBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -8227,7 +8227,7 @@ bool UUILayerBase::vf_004()
 // @baa 0x00de1b80
 // @baa 0x00de1c40
 // @baa 0x00de1d50
-bool UUITickableObjectProxy::vf_004()
+UBOOL UUITickableObjectProxy::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -8320,35 +8320,35 @@ undefined4 UGameUISceneClient::sub_00de3f80(byte param_2)
 
 // @baa 0x00de4110
 // @baa 0x00de4220
-bool UUIState_Enabled::vf_004()
+UBOOL UUIState_Enabled::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00de4260
 // @baa 0x00de4370
-bool UUIState_Disabled::vf_004()
+UBOOL UUIState_Disabled::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00de43b0
 // @baa 0x00de44c0
-bool UUIState_Active::vf_004()
+UBOOL UUIState_Active::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00de4500
 // @baa 0x00de4610
-bool UUIState_Focused::vf_004()
+UBOOL UUIState_Focused::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00de4650
 // @baa 0x00de4760
-bool UUIState_Pressed::vf_004()
+UBOOL UUIState_Pressed::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

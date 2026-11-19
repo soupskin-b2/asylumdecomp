@@ -59,61 +59,61 @@ IMPLEMENT_CLASS_AT(URSeqAct_UnduckDialogue, "e:\\Projects\\Amadeus\\AA\\Game\\Un
 // @baa 0x01558640
 
 // @baa 0x01558750
-int URSeqAct_PlaySpeechBase::vf_000(void) { return 1; }
+UBOOL URSeqAct_PlaySpeechBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01558760
-bool URSeqAct_PlaySpeechBase::vf_004()
+UBOOL URSeqAct_PlaySpeechBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x015587a0
-int URSeqAct_PlayerDialogueLine::vf_000(void) { return 1; }
+UBOOL URSeqAct_PlayerDialogueLine::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015587b0
 
 // @baa 0x015588c0
-int URSeqAct_PlayerDialogueOptions::vf_000(void) { return 1; }
+UBOOL URSeqAct_PlayerDialogueOptions::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015588d0
-bool URSeqAct_PlayerDialogueOptions::vf_004()
+UBOOL URSeqAct_PlayerDialogueOptions::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01558910
-int URBMSeqAct_PlaySpeech::vf_000(void) { return 1; }
+UBOOL URBMSeqAct_PlaySpeech::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01558920
-int URSeqAct_PlaySpeechConversation::vf_000(void) { return 1; }
+UBOOL URSeqAct_PlaySpeechConversation::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01558930
-int URSeqAct_RadioDialogueLine::vf_000(void) { return 1; }
+UBOOL URSeqAct_RadioDialogueLine::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01558940
-int URSeqAct_VoiceOfArkham::vf_000(void) { return 1; }
+UBOOL URSeqAct_VoiceOfArkham::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01558950
 
 // @baa 0x01558a60
-int ARAudioPoint::vf_000(void) { return 1; }
+UBOOL ARAudioPoint::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01558a70
-bool ARAudioPoint::vf_004()
+UBOOL ARAudioPoint::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01558ab0
-int URSeqAct_PlayTVSequenceBase::vf_000(void) { return 1; }
+UBOOL URSeqAct_PlayTVSequenceBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01558ac0
 
 // @baa 0x01558bd0
-int URSeqAct_DuckDialogue::vf_000(void) { return 1; }
+UBOOL URSeqAct_DuckDialogue::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01558be0
-bool URSeqAct_DuckDialogue::vf_004()
+UBOOL URSeqAct_DuckDialogue::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -271,7 +271,7 @@ undefined4 * UObject::sub_01585960(void)
 // @baa 0x01591610
 
 // @baa 0x01591720
-bool URSeqAct_PlayerDialogueLine::vf_004()
+UBOOL URSeqAct_PlayerDialogueLine::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -279,7 +279,7 @@ bool URSeqAct_PlayerDialogueLine::vf_004()
 // @baa 0x01591760
 
 // @baa 0x01591870
-bool URSeqAct_RadioDialogueLine::vf_004()
+UBOOL URSeqAct_RadioDialogueLine::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -287,7 +287,7 @@ bool URSeqAct_RadioDialogueLine::vf_004()
 // @baa 0x015918b0
 
 // @baa 0x015919c0
-bool URSeqAct_PlayTVSequenceBase::vf_004()
+UBOOL URSeqAct_PlayTVSequenceBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -295,7 +295,7 @@ bool URSeqAct_PlayTVSequenceBase::vf_004()
 // @baa 0x01591a00
 
 // @baa 0x01591b10
-bool URSeqAct_PlayTVSequenceSingleLine::vf_004()
+UBOOL URSeqAct_PlayTVSequenceSingleLine::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

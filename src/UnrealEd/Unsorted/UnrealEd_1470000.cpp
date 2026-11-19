@@ -989,57 +989,57 @@ void UFMODReverbLabelRenderer::sub_01477c20(void)
 
 // @baa 0x01477c40
 // @baa 0x01477d50
-int UFMODReverbLabelRenderer::vf_000(void) { return 1; }
+UBOOL UFMODReverbLabelRenderer::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01477d60
-bool UFMODReverbLabelRenderer::vf_004()
+UBOOL UFMODReverbLabelRenderer::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01477da0
 // @baa 0x01477eb0
-int UFMODSoundLabelRenderer::vf_000(void) { return 1; }
+UBOOL UFMODSoundLabelRenderer::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01477ec0
-bool UFMODSoundLabelRenderer::vf_004()
+UBOOL UFMODSoundLabelRenderer::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01477f00
 // @baa 0x01478010
-int UMixBinLabelRenderer::vf_000(void) { return 1; }
+UBOOL UMixBinLabelRenderer::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01478020
-bool UMixBinLabelRenderer::vf_004()
+UBOOL UMixBinLabelRenderer::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01478170
-int URGenericBrowserType_FMODReverb::vf_000(void) { return 1; }
+UBOOL URGenericBrowserType_FMODReverb::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01478180
-bool URGenericBrowserType_FMODReverb::vf_004()
+UBOOL URGenericBrowserType_FMODReverb::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x014782d0
-int URGenericBrowserType_FMODSound::vf_000(void) { return 1; }
+UBOOL URGenericBrowserType_FMODSound::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x014782e0
-bool URGenericBrowserType_FMODSound::vf_004()
+UBOOL URGenericBrowserType_FMODSound::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01478430
-int URGenericBrowserType_MixBin::vf_000(void) { return 1; }
+UBOOL URGenericBrowserType_MixBin::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01478440
-bool URGenericBrowserType_MixBin::vf_004()
+UBOOL URGenericBrowserType_MixBin::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

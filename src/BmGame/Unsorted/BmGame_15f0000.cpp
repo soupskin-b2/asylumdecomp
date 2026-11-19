@@ -1626,28 +1626,28 @@ int sub_015fc370(void)
 
 // @baa 0x015fc3a0
 // @baa 0x015fc4b0
-bool ARBMPawnAI::vf_004()
+UBOOL ARBMPawnAI::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x015fc4f0
 // @baa 0x015fc600
-bool ARAlertEventCoordinator_General::vf_004()
+UBOOL ARAlertEventCoordinator_General::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x015fcaa0
 // @baa 0x015fcbb0
-bool ARBMPathNode_Ladder::vf_004()
+UBOOL ARBMPathNode_Ladder::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x015fcbf0
 // @baa 0x015fcd00
-bool ARBMPathNode_DisruptableDoor::vf_004()
+UBOOL ARBMPathNode_DisruptableDoor::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1655,21 +1655,21 @@ bool ARBMPathNode_DisruptableDoor::vf_004()
 // @baa 0x015fcd40
 // @baa 0x015fce90
 // @baa 0x015fcfa0
-bool ARBMPathNode_VariablePositionTraverseProxy::vf_004()
+UBOOL ARBMPathNode_VariablePositionTraverseProxy::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x015fcfe0
 // @baa 0x015fd0f0
-bool ARCornerPoint::vf_004()
+UBOOL ARCornerPoint::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x015fd130
 // @baa 0x015fd240
-bool ARCornerWallMarker::vf_004()
+UBOOL ARCornerWallMarker::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1746,21 +1746,21 @@ int sub_015ff020(void)
 
 // @baa 0x015ff050
 // @baa 0x015ff160
-bool ARPawnFriendly::vf_004()
+UBOOL ARPawnFriendly::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x015ff1a0
 // @baa 0x015ff2b0
-bool ARPawnVillain::vf_004()
+UBOOL ARPawnVillain::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x015ff2f0
 // @baa 0x015ff400
-bool ARAlertEventCoordinator_Batman::vf_004()
+UBOOL ARAlertEventCoordinator_Batman::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

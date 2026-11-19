@@ -9,10 +9,10 @@ IMPLEMENT_CLASS_AT(UFMODReverb, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\
 // @baa 0x00bec8c0
 // @baa 0x00becf90
 // @baa 0x00bed0a0
-int UFMODReverb::vf_000(void) { return 1; }
+UBOOL UFMODReverb::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00bed0b0
-bool UFMODReverb::vf_004()
+UBOOL UFMODReverb::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

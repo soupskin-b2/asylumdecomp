@@ -3257,10 +3257,10 @@ void sub_01e28430() { g_027be13d.sub_01aace30(); }
 // @baa 0x00bab190
 
 // @baa 0x00bab2a0
-int ASpeedTreeActor::vf_000(void) { return 1; }
+UBOOL ASpeedTreeActor::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00bab2b0
-bool ASpeedTreeActor::vf_004()
+UBOOL ASpeedTreeActor::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

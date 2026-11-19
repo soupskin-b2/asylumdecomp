@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00756ac0
-int UForcedReachSpec::vf_000(void) { return 1; }
+UBOOL UForcedReachSpec::HasUniqueStaticConfigName() const { return 1; }

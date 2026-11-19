@@ -7,10 +7,10 @@
 IMPLEMENT_CLASS_AT(URRopeComponentBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RRopeComponentBase.cpp", 17);
 
 // @baa 0x0163f340
-int URRopeComponentBase::vf_000(void) { return 1; }
+UBOOL URRopeComponentBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0163f350
-bool URRopeComponentBase::vf_004()
+UBOOL URRopeComponentBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

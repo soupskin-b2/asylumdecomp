@@ -41,7 +41,7 @@ IMPLEMENT_CLASS_AT(URPairedIdleConfig, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealE
 // @baa 0x01626df0
 // @baa 0x01626eb0
 // @baa 0x01626fc0
-bool URSimpleIdleConfig::vf_004()
+UBOOL URSimpleIdleConfig::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -69,33 +69,33 @@ IMPLEMENT_CLASS_AT(URPairedIdleConfigFactoryNew, "e:\\Projects\\Amadeus\\AA\\Gam
 // @baa 0x01611750
 
 // @baa 0x01611860
-int URIdleConfig::vf_000(void) { return 1; }
+UBOOL URIdleConfig::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01611870
-bool URIdleConfig::vf_004()
+UBOOL URIdleConfig::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x016118b0
-int URSimpleIdleConfig::vf_000(void) { return 1; }
+UBOOL URSimpleIdleConfig::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016118c0
-int URIdleTransitionConfig::vf_000(void) { return 1; }
+UBOOL URIdleTransitionConfig::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016118d0
-int URPairedIdleConfig::vf_000(void) { return 1; }
+UBOOL URPairedIdleConfig::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016118e0
-int URIdleWithDeathConfig::vf_000(void) { return 1; }
+UBOOL URIdleWithDeathConfig::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016118f0
 
 // @baa 0x01611a00
-int URSimpleIdleConfigFactoryNew::vf_000(void) { return 1; }
+UBOOL URSimpleIdleConfigFactoryNew::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01611a10
-bool URSimpleIdleConfigFactoryNew::vf_004()
+UBOOL URSimpleIdleConfigFactoryNew::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -103,10 +103,10 @@ bool URSimpleIdleConfigFactoryNew::vf_004()
 // @baa 0x01611a90
 
 // @baa 0x01611ba0
-int URIdleTransitionConfigFactoryNew::vf_000(void) { return 1; }
+UBOOL URIdleTransitionConfigFactoryNew::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01611bb0
-bool URIdleTransitionConfigFactoryNew::vf_004()
+UBOOL URIdleTransitionConfigFactoryNew::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -114,10 +114,10 @@ bool URIdleTransitionConfigFactoryNew::vf_004()
 // @baa 0x01611c30
 
 // @baa 0x01611d40
-int URIdleWithDeathConfigFactoryNew::vf_000(void) { return 1; }
+UBOOL URIdleWithDeathConfigFactoryNew::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01611d50
-bool URIdleWithDeathConfigFactoryNew::vf_004()
+UBOOL URIdleWithDeathConfigFactoryNew::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -125,10 +125,10 @@ bool URIdleWithDeathConfigFactoryNew::vf_004()
 // @baa 0x01611dd0
 
 // @baa 0x01611ee0
-int URPairedIdleConfigFactoryNew::vf_000(void) { return 1; }
+UBOOL URPairedIdleConfigFactoryNew::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01611ef0
-bool URPairedIdleConfigFactoryNew::vf_004()
+UBOOL URPairedIdleConfigFactoryNew::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

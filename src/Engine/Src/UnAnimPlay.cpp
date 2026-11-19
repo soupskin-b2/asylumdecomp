@@ -27,13 +27,13 @@ struct C_00c49e30 { C_00c49e30* sub_00c49e30(int a0); };
 C_00c49e30* C_00c49e30::sub_00c49e30(int a0) { return this; }
 
 // @baa 0x00c4ad40
-int UAnimNodeSequence::vf_000(void) { return 1; }
+UBOOL UAnimNodeSequence::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c4ad50
-int UAnimNodeSequenceBlendBase::vf_000(void) { return 1; }
+UBOOL UAnimNodeSequenceBlendBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c4ad60
-int UAnimNodeSequenceBlendByAim::vf_000(void) { return 1; }
+UBOOL UAnimNodeSequenceBlendByAim::HasUniqueStaticConfigName() const { return 1; }
 
 int sub_006311e0(...);
 extern undefined4 g_0204f6f0;
@@ -219,21 +219,21 @@ void UAnimNodeSequence_::sub_00c67d30(FLOAT DeltaSeconds, FLOAT TotalWeight)
 // @baa 0x00c6b820
 // @baa 0x00c75900
 // @baa 0x00c75a10
-bool UAnimNodeSequence::vf_004()
+UBOOL UAnimNodeSequence::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c77950
 // @baa 0x00c77a60
-bool UAnimNodeSequenceBlendBase::vf_004()
+UBOOL UAnimNodeSequenceBlendBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c79560
 // @baa 0x00c79670
-bool UAnimNodeSequenceBlendByAim::vf_004()
+UBOOL UAnimNodeSequenceBlendByAim::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

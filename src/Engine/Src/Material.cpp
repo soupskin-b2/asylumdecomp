@@ -11,10 +11,10 @@ IMPLEMENT_CLASS_AT(UMaterial, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\D
 // @baa 0x006adc00
 
 // @baa 0x006add10
-int UMaterial::vf_000(void) { return 1; }
+UBOOL UMaterial::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x006add20
-bool UMaterial::vf_004()
+UBOOL UMaterial::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

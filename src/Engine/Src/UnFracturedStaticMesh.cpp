@@ -122,10 +122,10 @@ bool sub_007a5360(float param_1)
 IMPLEMENT_CLASS_AT(UFracturedStaticMesh, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnFracturedStaticMesh.cpp", 21);
 
 // @baa 0x007a5980
-int UFracturedStaticMesh::vf_000(void) { return 1; }
+UBOOL UFracturedStaticMesh::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x007a5990
-bool UFracturedStaticMesh::vf_004()
+UBOOL UFracturedStaticMesh::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -134,40 +134,40 @@ bool UFracturedStaticMesh::vf_004()
 IMPLEMENT_CLASS_AT(UFracturedBaseComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnFracturedStaticMesh.cpp", 22);
 
 // @baa 0x007a5ae0
-int UFracturedBaseComponent::vf_000(void) { return 1; }
+UBOOL UFracturedBaseComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x007a5af0
-bool UFracturedBaseComponent::vf_004()
+UBOOL UFracturedBaseComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x007a5b30
-int UFracturedStaticMeshComponent::vf_000(void) { return 1; }
+UBOOL UFracturedStaticMeshComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x007a5b40
-int UFracturedSkinnedMeshComponent::vf_000(void) { return 1; }
+UBOOL UFracturedSkinnedMeshComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x007a5b50
 IMPLEMENT_CLASS_AT(AFracturedStaticMeshActor, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnFracturedStaticMesh.cpp", 25);
 
 // @baa 0x007a5c60
-int AFracturedStaticMeshActor::vf_000(void) { return 1; }
+UBOOL AFracturedStaticMeshActor::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x007a5c70
-bool AFracturedStaticMeshActor::vf_004()
+UBOOL AFracturedStaticMeshActor::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x007a5cb0
-int AFracturedStaticMeshPart::vf_000(void) { return 1; }
+UBOOL AFracturedStaticMeshPart::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x007a5cc0
 IMPLEMENT_CLASS_AT(AFractureManager, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnFracturedStaticMesh.cpp", 27);
 
 // @baa 0x007a5df0
-bool AFractureManager::vf_004()
+UBOOL AFractureManager::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -990,21 +990,21 @@ int sub_007c9d90(void)
 
 // @baa 0x007c9dc0
 // @baa 0x007c9ed0
-bool UFracturedStaticMeshComponent::vf_004()
+UBOOL UFracturedStaticMeshComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x007c9f10
 // @baa 0x007ca020
-bool UFracturedSkinnedMeshComponent::vf_004()
+UBOOL UFracturedSkinnedMeshComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x007ca060
 // @baa 0x007ca170
-bool AFracturedStaticMeshPart::vf_004()
+UBOOL AFracturedStaticMeshPart::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

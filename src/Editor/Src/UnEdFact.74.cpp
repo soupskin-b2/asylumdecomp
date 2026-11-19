@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00f1d270
-int UApexMeshParticleFactoryAssetFactory::vf_000(void) { return 1; }
+UBOOL UApexMeshParticleFactoryAssetFactory::HasUniqueStaticConfigName() const { return 1; }

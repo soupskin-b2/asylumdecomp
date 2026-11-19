@@ -27,8 +27,8 @@ INT ARShimmyEdgeMarker_::sub_01678d20()
 
 // @baa 0x016748d0
 /* Slot 0x2c (unnamed in the kit): also drops the marker from the list. */
-void ARShimmyEdgeMarker::vf_02c()
+void ARShimmyEdgeMarker::FinishDestroy()
 {
 	g_026e1dd0.RemoveItem(this);
-	Super::vf_02c();
+	Super::FinishDestroy();
 }

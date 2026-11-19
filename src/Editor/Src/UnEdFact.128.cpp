@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00f1f9b0
-bool USpeedTreeFactory::vf_004()
+UBOOL USpeedTreeFactory::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

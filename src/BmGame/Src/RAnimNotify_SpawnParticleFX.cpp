@@ -44,7 +44,7 @@ undefined4 * UObject::sub_01592400(void)
 // @baa 0x015a4680
 
 // @baa 0x015a4790
-bool URAnimNotify_SpawnParticleFX_PCOnly::vf_004()
+UBOOL URAnimNotify_SpawnParticleFX_PCOnly::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

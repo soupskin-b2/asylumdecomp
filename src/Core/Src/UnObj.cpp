@@ -6,12 +6,8 @@
 // @baa 0x0058c420
 void __stdcall sub_0058c420(int a0) {  }
 
-struct UObject_ : public UObject {
-    void sub_005c1ab0(UObject* NewArchetype, UBOOL bReinitialize, UBOOL bPreserveSubobjects);
-};
-
 // @baa 0x005c1ab0
-void UObject_::sub_005c1ab0(UObject* NewArchetype, UBOOL bReinitialize, UBOOL bPreserveSubobjects)
+void UObject::SetArchetype(UObject* NewArchetype, UBOOL bReinitialize, FObjectInstancingGraph* InstanceGraph)
 {
     if (!NewArchetype)
         appFailAssert("NewArchetype", "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Core\\Src\\UnObj.cpp", 3698, TEXT(""));
@@ -20,7 +16,7 @@ void UObject_::sub_005c1ab0(UObject* NewArchetype, UBOOL bReinitialize, UBOOL bP
     ObjectArchetype = NewArchetype;
     if (bReinitialize)
     {
-        vf_0e0(0, bPreserveSubobjects);
+        InitializeProperties(NULL, InstanceGraph);
     }
 }
 
@@ -230,7 +226,7 @@ void C_005c7f40::sub_005c7f40()
 }
 
 // @baa 0x005c81b0
-int UObject::vf_000(void) { return 1; }
+UBOOL UObject::HasUniqueStaticConfigName() const { return 1; }
 
 int sub_0053d240(...);
 undefined4 sub_0053df70(...);
@@ -371,7 +367,7 @@ void sub_00549160();
 void sub_005d1750(void) { sub_00549160(); }
 
 // @baa 0x005d19d0
-bool UObject::vf_004()
+UBOOL UObject::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

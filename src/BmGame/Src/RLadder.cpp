@@ -9,7 +9,7 @@ IMPLEMENT_CLASS_AT(ARLadder, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\De
 // @baa 0x017342d0
 
 // @baa 0x01717b80
-int ARLadder::vf_000(void) { return 1; }
+UBOOL ARLadder::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01717b90
 void ARLadder::vf_184(void)

@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00f1bb20
-bool UDecalMaterialFactoryNew::vf_004()
+UBOOL UDecalMaterialFactoryNew::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

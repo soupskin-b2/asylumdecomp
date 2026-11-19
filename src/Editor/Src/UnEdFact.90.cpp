@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00f1dac0
-bool UPhysicalMaterialFactoryNew::vf_004()
+UBOOL UPhysicalMaterialFactoryNew::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

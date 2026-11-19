@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00f1c4c0
-bool USoundFactory::vf_004()
+UBOOL USoundFactory::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

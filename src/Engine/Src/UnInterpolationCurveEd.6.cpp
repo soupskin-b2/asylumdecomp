@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00d0b740
-bool UInterpTrackSound::vf_004()
+UBOOL UInterpTrackSound::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

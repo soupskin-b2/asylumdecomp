@@ -36,10 +36,10 @@ int sub_0173a4f0(int a0, int a1) { return a1; }
 int sub_0173a500(int a0, int a1) { return a1; }
 
 // @baa 0x0173add0
-int UFindUnusedCommandlet::vf_000(void) { return 1; }
+UBOOL UFindUnusedCommandlet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0173ade0
-bool UFindUnusedCommandlet::vf_004()
+UBOOL UFindUnusedCommandlet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

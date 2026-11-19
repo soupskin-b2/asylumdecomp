@@ -181,13 +181,13 @@ int sub_01685140(void)
 
 // @baa 0x01685170
 // @baa 0x01685280
-bool ARForensicDnaSplatStaticNonScan::vf_004()
+UBOOL ARForensicDnaSplatStaticNonScan::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x016853d0
-bool ARPawnCharacter::vf_004()
+UBOOL ARPawnCharacter::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

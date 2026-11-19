@@ -422,7 +422,7 @@ IMPLEMENT_CLASS_AT(UPhATSimOptions, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngi
 
 // @baa 0x0130f510
 // @baa 0x0130f640
-bool UPhATSimOptions::vf_004()
+UBOOL UPhATSimOptions::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

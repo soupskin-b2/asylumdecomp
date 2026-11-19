@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x009d88e0
-int UKMeshProps::vf_000(void) { return 1; }
+UBOOL UKMeshProps::HasUniqueStaticConfigName() const { return 1; }

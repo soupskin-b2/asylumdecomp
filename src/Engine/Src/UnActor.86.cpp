@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00757310
-int APotentialClimbWatcher::vf_000(void) { return 1; }
+UBOOL APotentialClimbWatcher::HasUniqueStaticConfigName() const { return 1; }

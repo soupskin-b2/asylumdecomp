@@ -526,7 +526,7 @@ undefined4 C_00e07e70::sub_00e07e70(undefined4 param_2, undefined4 param_3)
 }
 
 // @baa 0x00e08a70
-bool UChannelDownload::vf_004()
+UBOOL UChannelDownload::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

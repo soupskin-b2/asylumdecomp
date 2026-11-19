@@ -2603,7 +2603,7 @@ int C_006f9eb0::sub_006f9eb0(int param_2)
 
 // @baa 0x006fd9c0
 // @baa 0x006fdad0
-bool UDrawCapsuleComponent::vf_004()
+UBOOL UDrawCapsuleComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -2870,7 +2870,7 @@ void sub_006fee90(void) { sub_006fdcd0(); }
 
 // @baa 0x006ff0b0
 // @baa 0x006ff1c0
-bool UDrawLightConeComponent::vf_004()
+UBOOL UDrawLightConeComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

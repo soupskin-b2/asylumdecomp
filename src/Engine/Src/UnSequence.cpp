@@ -971,415 +971,415 @@ int sub_008aaea0(void)
 }
 
 // @baa 0x008aaed0
-int USequence::vf_000(void) { return 1; }
+UBOOL USequence::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008aaee0
-int USequenceAction::vf_000(void) { return 1; }
+UBOOL USequenceAction::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008aaef0
-int USequenceCondition::vf_000(void) { return 1; }
+UBOOL USequenceCondition::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008aaf00
-int USequenceEvent::vf_000(void) { return 1; }
+UBOOL USequenceEvent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008aaf10
-int USequenceFrame::vf_000(void) { return 1; }
+UBOOL USequenceFrame::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008aaf20
-int USequenceFrameWrapped::vf_000(void) { return 1; }
+UBOOL USequenceFrameWrapped::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008aaf30
 IMPLEMENT_CLASS_AT(USequenceObject, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSequence.cpp", 39);
 
 // @baa 0x008ab040
-int USequenceObject::vf_000(void) { return 1; }
+UBOOL USequenceObject::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab050
-bool USequenceObject::vf_004()
+UBOOL USequenceObject::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008ab090
-int USequenceOp::vf_000(void) { return 1; }
+UBOOL USequenceOp::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab0a0
-int USequenceVariable::vf_000(void) { return 1; }
+UBOOL USequenceVariable::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab0b0
-int USeqVar_Bool::vf_000(void) { return 1; }
+UBOOL USeqVar_Bool::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab0c0
-int USeqVar_External::vf_000(void) { return 1; }
+UBOOL USeqVar_External::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab0d0
-int USeqVar_Float::vf_000(void) { return 1; }
+UBOOL USeqVar_Float::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab0e0
-int USeqVar_Group::vf_000(void) { return 1; }
+UBOOL USeqVar_Group::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab0f0
-int USeqVar_Int::vf_000(void) { return 1; }
+UBOOL USeqVar_Int::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab100
-int USeqVar_Byte::vf_000(void) { return 1; }
+UBOOL USeqVar_Byte::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab110
-int USeqVar_Name::vf_000(void) { return 1; }
+UBOOL USeqVar_Name::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab120
-int USeqVar_Named::vf_000(void) { return 1; }
+UBOOL USeqVar_Named::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab130
-int USeqVar_Object::vf_000(void) { return 1; }
+UBOOL USeqVar_Object::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab140
-int USeqVar_ObjectList::vf_000(void) { return 1; }
+UBOOL USeqVar_ObjectList::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab150
-int USeqVar_ObjectVolume::vf_000(void) { return 1; }
+UBOOL USeqVar_ObjectVolume::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab160
-int USeqVar_Player::vf_000(void) { return 1; }
+UBOOL USeqVar_Player::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab170
-int USeqVar_RandomFloat::vf_000(void) { return 1; }
+UBOOL USeqVar_RandomFloat::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab180
-int USeqVar_RandomInt::vf_000(void) { return 1; }
+UBOOL USeqVar_RandomInt::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab190
-int USeqVar_String::vf_000(void) { return 1; }
+UBOOL USeqVar_String::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab1a0
-int USeqVar_Vector::vf_000(void) { return 1; }
+UBOOL USeqVar_Vector::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab1b0
-int USeqVar_Colour::vf_000(void) { return 1; }
+UBOOL USeqVar_Colour::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab1c0
-int USeqVar_Union::vf_000(void) { return 1; }
+UBOOL USeqVar_Union::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab1d0
-int USeqCond_CompareBool::vf_000(void) { return 1; }
+UBOOL USeqCond_CompareBool::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab1e0
-int USeqCond_CompareFloat::vf_000(void) { return 1; }
+UBOOL USeqCond_CompareFloat::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab1f0
-int USeqCond_CompareInt::vf_000(void) { return 1; }
+UBOOL USeqCond_CompareInt::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab200
-int USeqCond_CompareObject::vf_000(void) { return 1; }
+UBOOL USeqCond_CompareObject::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab210
-int USeqCond_GetServerType::vf_000(void) { return 1; }
+UBOOL USeqCond_GetServerType::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab220
-int USeqCond_Increment::vf_000(void) { return 1; }
+UBOOL USeqCond_Increment::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab230
-int USeqCond_IncrementFloat::vf_000(void) { return 1; }
+UBOOL USeqCond_IncrementFloat::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab240
-int USeqCond_IsSameTeam::vf_000(void) { return 1; }
+UBOOL USeqCond_IsSameTeam::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab250
-int USeqCond_SwitchClass::vf_000(void) { return 1; }
+UBOOL USeqCond_SwitchClass::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab260
-int USeqCond_IsInCombat::vf_000(void) { return 1; }
+UBOOL USeqCond_IsInCombat::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab270
-int USeqCond_IsLoggedIn::vf_000(void) { return 1; }
+UBOOL USeqCond_IsLoggedIn::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab280
-int USeqCond_SwitchBase::vf_000(void) { return 1; }
+UBOOL USeqCond_SwitchBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab290
-int USeqCond_SwitchName::vf_000(void) { return 1; }
+UBOOL USeqCond_SwitchName::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab2a0
-int USeqCond_SwitchObject::vf_000(void) { return 1; }
+UBOOL USeqCond_SwitchObject::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab2b0
-int USeqEvent_AISeeEnemy::vf_000(void) { return 1; }
+UBOOL USeqEvent_AISeeEnemy::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab2c0
-int USeqEvent_Console::vf_000(void) { return 1; }
+UBOOL USeqEvent_Console::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab2d0
-int USeqEvent_ConstraintBroken::vf_000(void) { return 1; }
+UBOOL USeqEvent_ConstraintBroken::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab2e0
-int USeqEvent_Destroyed::vf_000(void) { return 1; }
+UBOOL USeqEvent_Destroyed::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab2f0
-int USeqEvent_GetInventory::vf_000(void) { return 1; }
+UBOOL USeqEvent_GetInventory::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab300
-int USeqEvent_LevelLoaded::vf_000(void) { return 1; }
+UBOOL USeqEvent_LevelLoaded::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab310
-int USeqEvent_LevelStartup::vf_000(void) { return 1; }
+UBOOL USeqEvent_LevelStartup::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab320
-int USeqEvent_LevelBeginning::vf_000(void) { return 1; }
+UBOOL USeqEvent_LevelBeginning::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab330
-int USeqEvent_Mover::vf_000(void) { return 1; }
+UBOOL USeqEvent_Mover::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab340
-int USeqEvent_ParticleEvent::vf_000(void) { return 1; }
+UBOOL USeqEvent_ParticleEvent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab350
-int USeqEvent_ProjectileLanded::vf_000(void) { return 1; }
+UBOOL USeqEvent_ProjectileLanded::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab360
-int USeqEvent_RemoteEvent::vf_000(void) { return 1; }
+UBOOL USeqEvent_RemoteEvent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab370
-int USeqEvent_RigidBodyCollision::vf_000(void) { return 1; }
+UBOOL USeqEvent_RigidBodyCollision::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab380
-int USeqEvent_SeeDeath::vf_000(void) { return 1; }
+UBOOL USeqEvent_SeeDeath::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab390
-int USeqEvent_SequenceActivated::vf_000(void) { return 1; }
+UBOOL USeqEvent_SequenceActivated::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab3a0
-int USeqEvent_TakeDamage::vf_000(void) { return 1; }
+UBOOL USeqEvent_TakeDamage::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab3b0
-int USeqEvent_Touch::vf_000(void) { return 1; }
+UBOOL USeqEvent_Touch::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab3c0
-int USeqEvent_Used::vf_000(void) { return 1; }
+UBOOL USeqEvent_Used::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab3d0
-int USeqAct_ActivateRemoteEvent::vf_000(void) { return 1; }
+UBOOL USeqAct_ActivateRemoteEvent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab3e0
-int USeqAct_ActorFactory::vf_000(void) { return 1; }
+UBOOL USeqAct_ActorFactory::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab3f0
-int USeqAct_ActorFactoryEx::vf_000(void) { return 1; }
+UBOOL USeqAct_ActorFactoryEx::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab400
-int USeqAct_AIMoveToActor::vf_000(void) { return 1; }
+UBOOL USeqAct_AIMoveToActor::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab410
-int USeqAct_ApplySoundNode::vf_000(void) { return 1; }
+UBOOL USeqAct_ApplySoundNode::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab420
-int USeqAct_AttachToEvent::vf_000(void) { return 1; }
+UBOOL USeqAct_AttachToEvent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab430
-int USeqAct_CauseDamage::vf_000(void) { return 1; }
+UBOOL USeqAct_CauseDamage::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab440
-int USeqAct_CauseDamageRadial::vf_000(void) { return 1; }
+UBOOL USeqAct_CauseDamageRadial::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab450
-int USeqAct_CameraFade::vf_000(void) { return 1; }
+UBOOL USeqAct_CameraFade::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab460
-int USeqAct_CameraLookAt::vf_000(void) { return 1; }
+UBOOL USeqAct_CameraLookAt::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab470
-int USeqAct_ChangeCollision::vf_000(void) { return 1; }
+UBOOL USeqAct_ChangeCollision::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab480
-int USeqAct_CommitMapChange::vf_000(void) { return 1; }
+UBOOL USeqAct_CommitMapChange::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab490
-int USeqAct_Delay::vf_000(void) { return 1; }
+UBOOL USeqAct_Delay::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab4a0
-int USeqAct_InterpolateColour::vf_000(void) { return 1; }
+UBOOL USeqAct_InterpolateColour::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab4b0
-int USeqAct_InterpolateFloat::vf_000(void) { return 1; }
+UBOOL USeqAct_InterpolateFloat::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab4c0
-int USeqAct_DelaySwitch::vf_000(void) { return 1; }
+UBOOL USeqAct_DelaySwitch::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab4d0
-int USeqAct_FinishSequence::vf_000(void) { return 1; }
+UBOOL USeqAct_FinishSequence::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab4e0
-int USeqAct_ForceGarbageCollection::vf_000(void) { return 1; }
+UBOOL USeqAct_ForceGarbageCollection::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab4f0
-int USeqAct_ForceMaterialMipsResident::vf_000(void) { return 1; }
+UBOOL USeqAct_ForceMaterialMipsResident::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab500
-int USeqAct_Gate::vf_000(void) { return 1; }
+UBOOL USeqAct_Gate::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab510
-int USeqAct_GetDistance::vf_000(void) { return 1; }
+UBOOL USeqAct_GetDistance::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab520
-int USeqAct_GetProperty::vf_000(void) { return 1; }
+UBOOL USeqAct_GetProperty::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab530
-int USeqAct_GetVelocity::vf_000(void) { return 1; }
+UBOOL USeqAct_GetVelocity::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab540
-int USeqAct_IsInObjectList::vf_000(void) { return 1; }
+UBOOL USeqAct_IsInObjectList::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab550
-int USeqAct_Latent::vf_000(void) { return 1; }
+UBOOL USeqAct_Latent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab560
-int USeqAct_LevelStreaming::vf_000(void) { return 1; }
+UBOOL USeqAct_LevelStreaming::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab570
-int USeqAct_LevelStreamingBase::vf_000(void) { return 1; }
+UBOOL USeqAct_LevelStreamingBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab580
-int USeqAct_LevelVisibility::vf_000(void) { return 1; }
+UBOOL USeqAct_LevelVisibility::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab590
-int USeqAct_Log::vf_000(void) { return 1; }
+UBOOL USeqAct_Log::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab5a0
-int USeqAct_ModifyObjectList::vf_000(void) { return 1; }
+UBOOL USeqAct_ModifyObjectList::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab5b0
-int USeqAct_MultiLevelStreaming::vf_000(void) { return 1; }
+UBOOL USeqAct_MultiLevelStreaming::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab5c0
-int USeqAct_PlayCameraAnim::vf_000(void) { return 1; }
+UBOOL USeqAct_PlayCameraAnim::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab5d0
-int USeqAct_ParticleEventGenerator::vf_000(void) { return 1; }
+UBOOL USeqAct_ParticleEventGenerator::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab5e0
-int USeqAct_PhysXSwitch::vf_000(void) { return 1; }
+UBOOL USeqAct_PhysXSwitch::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab5f0
-int USeqAct_PlayFaceFXAnim::vf_000(void) { return 1; }
+UBOOL USeqAct_PlayFaceFXAnim::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab600
-int USeqAct_PlaySound::vf_000(void) { return 1; }
+UBOOL USeqAct_PlaySound::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab610
-int USeqAct_Possess::vf_000(void) { return 1; }
+UBOOL USeqAct_Possess::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab620
-int USeqAct_PrepareMapChange::vf_000(void) { return 1; }
+UBOOL USeqAct_PrepareMapChange::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab630
-int USeqAct_RandomSwitch::vf_000(void) { return 1; }
+UBOOL USeqAct_RandomSwitch::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab640
-int USeqAct_RangeSwitch::vf_000(void) { return 1; }
+UBOOL USeqAct_RangeSwitch::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab650
-int USeqAct_SetBlockRigidBody::vf_000(void) { return 1; }
+UBOOL USeqAct_SetBlockRigidBody::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab660
-int USeqAct_SetCameraTarget::vf_000(void) { return 1; }
+UBOOL USeqAct_SetCameraTarget::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab670
-int USeqAct_SetSequenceVariable::vf_000(void) { return 1; }
+UBOOL USeqAct_SetSequenceVariable::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab680
-int USeqAct_SetBool::vf_000(void) { return 1; }
+UBOOL USeqAct_SetBool::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab690
-int USeqAct_SetDOFParams::vf_000(void) { return 1; }
+UBOOL USeqAct_SetDOFParams::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab6a0
-int USeqAct_SetMotionBlurParams::vf_000(void) { return 1; }
+UBOOL USeqAct_SetMotionBlurParams::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab6b0
-int USeqAct_SetFloat::vf_000(void) { return 1; }
+UBOOL USeqAct_SetFloat::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab6c0
-int USeqAct_SetInt::vf_000(void) { return 1; }
+UBOOL USeqAct_SetInt::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab6d0
-int USeqAct_SetMaterial::vf_000(void) { return 1; }
+UBOOL USeqAct_SetMaterial::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab6e0
-int USeqAct_SetMatInstScalarParam::vf_000(void) { return 1; }
+UBOOL USeqAct_SetMatInstScalarParam::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab6f0
-int USeqAct_SetMatInstTexParam::vf_000(void) { return 1; }
+UBOOL USeqAct_SetMatInstTexParam::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab700
-int USeqAct_SetMatInstVectorParam::vf_000(void) { return 1; }
+UBOOL USeqAct_SetMatInstVectorParam::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab710
-int USeqAct_GetMatInstVectorParam::vf_000(void) { return 1; }
+UBOOL USeqAct_GetMatInstVectorParam::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab720
-int USeqAct_SetObject::vf_000(void) { return 1; }
+UBOOL USeqAct_SetObject::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab730
-int USeqAct_SetPhysics::vf_000(void) { return 1; }
+UBOOL USeqAct_SetPhysics::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab740
-int USeqAct_SetRigidBodyIgnoreVehicles::vf_000(void) { return 1; }
+UBOOL USeqAct_SetRigidBodyIgnoreVehicles::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab750
-int USeqAct_SetString::vf_000(void) { return 1; }
+UBOOL USeqAct_SetString::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab760
-int USeqAct_StreamInTextures::vf_000(void) { return 1; }
+UBOOL USeqAct_StreamInTextures::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab770
-int USeqAct_Switch::vf_000(void) { return 1; }
+UBOOL USeqAct_Switch::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab780
-int USeqAct_Timer::vf_000(void) { return 1; }
+UBOOL USeqAct_Timer::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab790
-int USeqAct_Toggle::vf_000(void) { return 1; }
+UBOOL USeqAct_Toggle::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab7a0
-int USeqAct_ToggleDynamicChannel::vf_000(void) { return 1; }
+UBOOL USeqAct_ToggleDynamicChannel::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab7b0
-int USeqAct_Trace::vf_000(void) { return 1; }
+UBOOL USeqAct_Trace::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab7c0
-int USeqAct_WaitForLevelsVisible::vf_000(void) { return 1; }
+UBOOL USeqAct_WaitForLevelsVisible::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab7d0
-int USeqAct_AddInt::vf_000(void) { return 1; }
+UBOOL USeqAct_AddInt::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab7e0
-int USeqAct_SubtractInt::vf_000(void) { return 1; }
+UBOOL USeqAct_SubtractInt::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab7f0
-int USeqAct_MultiplyInt::vf_000(void) { return 1; }
+UBOOL USeqAct_MultiplyInt::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab800
-int USeqAct_DivideInt::vf_000(void) { return 1; }
+UBOOL USeqAct_DivideInt::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab810
-int USeqAct_CastToInt::vf_000(void) { return 1; }
+UBOOL USeqAct_CastToInt::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab820
-int USeqAct_AddFloat::vf_000(void) { return 1; }
+UBOOL USeqAct_AddFloat::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab830
-int USeqAct_SubtractFloat::vf_000(void) { return 1; }
+UBOOL USeqAct_SubtractFloat::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab840
-int USeqAct_MultiplyFloat::vf_000(void) { return 1; }
+UBOOL USeqAct_MultiplyFloat::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab850
-int USeqAct_DivideFloat::vf_000(void) { return 1; }
+UBOOL USeqAct_DivideFloat::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab860
-int USeqAct_CastToFloat::vf_000(void) { return 1; }
+UBOOL USeqAct_CastToFloat::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008ab870
-int USeqAct_SetClothParam::vf_000(void) { return 1; }
+UBOOL USeqAct_SetClothParam::HasUniqueStaticConfigName() const { return 1; }
 
 struct C_008ab980 {
     undefined4 sub_008ab980(int *);
@@ -3545,7 +3545,7 @@ void USeqAct_LevelStreaming::Activated(void)
 // @baa 0x008cfe60
 // @baa 0x008cfe80
 // @baa 0x008cff90
-bool USequenceFrame::vf_004()
+UBOOL USequenceFrame::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -3554,14 +3554,14 @@ bool USequenceFrame::vf_004()
 IMPLEMENT_CLASS_AT(USequenceOp, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSequence.cpp", 40);
 
 // @baa 0x008d00e0
-bool USequenceOp::vf_004()
+UBOOL USequenceOp::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008d0120
 // @baa 0x008d0230
-bool USequenceVariable::vf_004()
+UBOOL USequenceVariable::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -3601,91 +3601,91 @@ int sub_008d3130(void)
 
 // @baa 0x008d3160
 // @baa 0x008d3270
-bool USequenceFrameWrapped::vf_004()
+UBOOL USequenceFrameWrapped::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008d32b0
 // @baa 0x008d33c0
-bool USeqVar_Bool::vf_004()
+UBOOL USeqVar_Bool::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008d3400
 // @baa 0x008d3510
-bool USeqVar_External::vf_004()
+UBOOL USeqVar_External::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008d3550
 // @baa 0x008d3660
-bool USeqVar_Float::vf_004()
+UBOOL USeqVar_Float::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008d36a0
 // @baa 0x008d37b0
-bool USeqVar_Int::vf_004()
+UBOOL USeqVar_Int::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008d37f0
 // @baa 0x008d3900
-bool USeqVar_Byte::vf_004()
+UBOOL USeqVar_Byte::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008d3940
 // @baa 0x008d3a50
-bool USeqVar_Name::vf_004()
+UBOOL USeqVar_Name::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008d3a90
 // @baa 0x008d3ba0
-bool USeqVar_Named::vf_004()
+UBOOL USeqVar_Named::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008d3be0
 // @baa 0x008d3cf0
-bool USeqVar_Object::vf_004()
+UBOOL USeqVar_Object::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008d3d30
 // @baa 0x008d3e40
-bool USeqVar_String::vf_004()
+UBOOL USeqVar_String::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008d3e80
 // @baa 0x008d3f90
-bool USeqVar_Vector::vf_004()
+UBOOL USeqVar_Vector::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008d3fd0
 // @baa 0x008d40e0
-bool USeqVar_Colour::vf_004()
+UBOOL USeqVar_Colour::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008d4120
 // @baa 0x008d4230
-bool USeqVar_Union::vf_004()
+UBOOL USeqVar_Union::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -3904,42 +3904,42 @@ int sub_008d5c40(void)
 
 // @baa 0x008d5c70
 // @baa 0x008d5d80
-bool USeqVar_Group::vf_004()
+UBOOL USeqVar_Group::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008d5dc0
 // @baa 0x008d5ed0
-bool USeqVar_ObjectList::vf_004()
+UBOOL USeqVar_ObjectList::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008d5f10
 // @baa 0x008d6020
-bool USeqVar_ObjectVolume::vf_004()
+UBOOL USeqVar_ObjectVolume::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008d6060
 // @baa 0x008d6170
-bool USeqVar_Player::vf_004()
+UBOOL USeqVar_Player::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008d61b0
 // @baa 0x008d62c0
-bool USeqVar_RandomFloat::vf_004()
+UBOOL USeqVar_RandomFloat::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008d6300
 // @baa 0x008d6410
-bool USeqVar_RandomInt::vf_004()
+UBOOL USeqVar_RandomInt::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -5925,7 +5925,7 @@ int sub_008f7420(void)
 IMPLEMENT_CLASS_AT(ASceneCapturePortalActor, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSceneCapture.cpp", 19);
 
 // @baa 0x008f7560
-bool ASceneCapturePortalActor::vf_004()
+UBOOL ASceneCapturePortalActor::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -5945,28 +5945,28 @@ int sub_008f7890(void)
 
 // @baa 0x008f78c0
 // @baa 0x008f79d0
-bool USequence::vf_004()
+UBOOL USequence::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008f7a10
 // @baa 0x008f7b20
-bool USequenceAction::vf_004()
+UBOOL USequenceAction::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008f7b60
 // @baa 0x008f7c70
-bool USequenceCondition::vf_004()
+UBOOL USequenceCondition::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008f7cb0
 // @baa 0x008f7dc0
-bool USequenceEvent::vf_004()
+UBOOL USequenceEvent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -6013,7 +6013,7 @@ int sub_008f7fe0(void)
 IMPLEMENT_CLASS_AT(APortalTeleporter, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSceneCapture.cpp", 20);
 
 // @baa 0x008f8120
-bool APortalTeleporter::vf_004()
+UBOOL APortalTeleporter::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -6072,70 +6072,70 @@ int sub_008f81f0(void)
 
 // @baa 0x008f8220
 // @baa 0x008f8330
-bool USeqCond_CompareBool::vf_004()
+UBOOL USeqCond_CompareBool::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008f8370
 // @baa 0x008f8480
-bool USeqCond_CompareFloat::vf_004()
+UBOOL USeqCond_CompareFloat::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008f84c0
 // @baa 0x008f85d0
-bool USeqCond_CompareInt::vf_004()
+UBOOL USeqCond_CompareInt::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008f8610
 // @baa 0x008f8720
-bool USeqCond_CompareObject::vf_004()
+UBOOL USeqCond_CompareObject::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008f8760
 // @baa 0x008f8870
-bool USeqCond_GetServerType::vf_004()
+UBOOL USeqCond_GetServerType::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008f88b0
 // @baa 0x008f89c0
-bool USeqCond_Increment::vf_004()
+UBOOL USeqCond_Increment::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008f8a00
 // @baa 0x008f8b10
-bool USeqCond_IncrementFloat::vf_004()
+UBOOL USeqCond_IncrementFloat::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008f8b50
 // @baa 0x008f8c60
-bool USeqCond_IsSameTeam::vf_004()
+UBOOL USeqCond_IsSameTeam::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008f8ca0
 // @baa 0x008f8db0
-bool USeqCond_IsInCombat::vf_004()
+UBOOL USeqCond_IsInCombat::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008f8df0
 // @baa 0x008f8f00
-bool USeqCond_IsLoggedIn::vf_004()
+UBOOL USeqCond_IsLoggedIn::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -6143,390 +6143,390 @@ bool USeqCond_IsLoggedIn::vf_004()
 // @baa 0x008f8f40
 // @baa 0x008f9090
 // @baa 0x008f91a0
-bool USeqEvent_AISeeEnemy::vf_004()
+UBOOL USeqEvent_AISeeEnemy::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008f91e0
 // @baa 0x008f92f0
-bool USeqEvent_Console::vf_004()
+UBOOL USeqEvent_Console::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008f9330
 // @baa 0x008f9440
-bool USeqEvent_ConstraintBroken::vf_004()
+UBOOL USeqEvent_ConstraintBroken::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008f9480
 // @baa 0x008f9590
-bool USeqEvent_Destroyed::vf_004()
+UBOOL USeqEvent_Destroyed::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008f95d0
 // @baa 0x008f96e0
-bool USeqEvent_GetInventory::vf_004()
+UBOOL USeqEvent_GetInventory::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008f9720
 // @baa 0x008f9830
-bool USeqEvent_LevelLoaded::vf_004()
+UBOOL USeqEvent_LevelLoaded::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008f9980
-bool USeqEvent_LevelStartup::vf_004()
+UBOOL USeqEvent_LevelStartup::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008f99c0
 // @baa 0x008f9ad0
-bool USeqEvent_LevelBeginning::vf_004()
+UBOOL USeqEvent_LevelBeginning::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008f9b10
 // @baa 0x008f9c20
-bool USeqEvent_Mover::vf_004()
+UBOOL USeqEvent_Mover::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008f9c60
 // @baa 0x008f9d70
-bool USeqEvent_ParticleEvent::vf_004()
+UBOOL USeqEvent_ParticleEvent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008f9db0
 // @baa 0x008f9ec0
-bool USeqEvent_ProjectileLanded::vf_004()
+UBOOL USeqEvent_ProjectileLanded::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008f9f00
 // @baa 0x008fa010
-bool USeqEvent_RemoteEvent::vf_004()
+UBOOL USeqEvent_RemoteEvent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008fa050
 // @baa 0x008fa160
-bool USeqEvent_RigidBodyCollision::vf_004()
+UBOOL USeqEvent_RigidBodyCollision::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008fa1a0
 // @baa 0x008fa2b0
-bool USeqEvent_SeeDeath::vf_004()
+UBOOL USeqEvent_SeeDeath::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008fa2f0
 // @baa 0x008fa400
-bool USeqEvent_SequenceActivated::vf_004()
+UBOOL USeqEvent_SequenceActivated::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008fa440
 // @baa 0x008fa550
-bool USeqEvent_TakeDamage::vf_004()
+UBOOL USeqEvent_TakeDamage::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008fa590
 // @baa 0x008fa6a0
-bool USeqEvent_Touch::vf_004()
+UBOOL USeqEvent_Touch::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008fa6e0
 // @baa 0x008fa7f0
-bool USeqEvent_Used::vf_004()
+UBOOL USeqEvent_Used::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008fa830
 // @baa 0x008fa940
-bool USeqAct_ActivateRemoteEvent::vf_004()
+UBOOL USeqAct_ActivateRemoteEvent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008fa980
 // @baa 0x008faa90
-bool USeqAct_ApplySoundNode::vf_004()
+UBOOL USeqAct_ApplySoundNode::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008faad0
 // @baa 0x008fabe0
-bool USeqAct_AttachToEvent::vf_004()
+UBOOL USeqAct_AttachToEvent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008fac20
 // @baa 0x008fad30
-bool USeqAct_CauseDamage::vf_004()
+UBOOL USeqAct_CauseDamage::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008fad70
 // @baa 0x008fae80
-bool USeqAct_CauseDamageRadial::vf_004()
+UBOOL USeqAct_CauseDamageRadial::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008faec0
 // @baa 0x008fafd0
-bool USeqAct_CameraFade::vf_004()
+UBOOL USeqAct_CameraFade::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008fb010
 // @baa 0x008fb120
-bool USeqAct_CameraLookAt::vf_004()
+UBOOL USeqAct_CameraLookAt::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008fb160
 // @baa 0x008fb270
-bool USeqAct_ChangeCollision::vf_004()
+UBOOL USeqAct_ChangeCollision::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008fb2b0
 // @baa 0x008fb3c0
-bool USeqAct_CommitMapChange::vf_004()
+UBOOL USeqAct_CommitMapChange::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008fb400
 // @baa 0x008fb510
-bool USeqAct_FinishSequence::vf_004()
+UBOOL USeqAct_FinishSequence::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008fb550
 // @baa 0x008fb660
-bool USeqAct_Gate::vf_004()
+UBOOL USeqAct_Gate::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008fb6a0
 // @baa 0x008fb7b0
-bool USeqAct_GetDistance::vf_004()
+UBOOL USeqAct_GetDistance::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008fb7f0
 // @baa 0x008fb900
-bool USeqAct_GetProperty::vf_004()
+UBOOL USeqAct_GetProperty::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008fb940
 // @baa 0x008fba50
-bool USeqAct_GetVelocity::vf_004()
+UBOOL USeqAct_GetVelocity::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008fba90
 // @baa 0x008fbba0
-bool USeqAct_IsInObjectList::vf_004()
+UBOOL USeqAct_IsInObjectList::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008fbbe0
 // @baa 0x008fbcf0
-bool USeqAct_Latent::vf_004()
+UBOOL USeqAct_Latent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008fbe40
-bool USeqAct_Log::vf_004()
+UBOOL USeqAct_Log::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008fbe80
 // @baa 0x008fbf90
-bool USeqAct_ParticleEventGenerator::vf_004()
+UBOOL USeqAct_ParticleEventGenerator::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008fbfd0
 // @baa 0x008fc0e0
-bool USeqAct_PhysXSwitch::vf_004()
+UBOOL USeqAct_PhysXSwitch::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008fc120
 // @baa 0x008fc230
-bool USeqAct_PlayFaceFXAnim::vf_004()
+UBOOL USeqAct_PlayFaceFXAnim::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008fc270
 // @baa 0x008fc380
-bool USeqAct_Possess::vf_004()
+UBOOL USeqAct_Possess::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008fc3c0
 // @baa 0x008fc4d0
-bool USeqAct_RangeSwitch::vf_004()
+UBOOL USeqAct_RangeSwitch::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008fc510
 // @baa 0x008fc620
-bool USeqAct_SetBlockRigidBody::vf_004()
+UBOOL USeqAct_SetBlockRigidBody::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008fc660
 // @baa 0x008fc770
-bool USeqAct_SetCameraTarget::vf_004()
+UBOOL USeqAct_SetCameraTarget::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008fc7b0
 // @baa 0x008fc8c0
-bool USeqAct_SetSequenceVariable::vf_004()
+UBOOL USeqAct_SetSequenceVariable::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008fc900
 // @baa 0x008fca10
-bool USeqAct_SetMaterial::vf_004()
+UBOOL USeqAct_SetMaterial::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008fca50
 // @baa 0x008fcb60
-bool USeqAct_SetMatInstScalarParam::vf_004()
+UBOOL USeqAct_SetMatInstScalarParam::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008fcba0
 // @baa 0x008fccb0
-bool USeqAct_SetMatInstTexParam::vf_004()
+UBOOL USeqAct_SetMatInstTexParam::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008fccf0
 // @baa 0x008fce00
-bool USeqAct_SetMatInstVectorParam::vf_004()
+UBOOL USeqAct_SetMatInstVectorParam::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008fce40
 // @baa 0x008fcf50
-bool USeqAct_GetMatInstVectorParam::vf_004()
+UBOOL USeqAct_GetMatInstVectorParam::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008fcf90
 // @baa 0x008fd0a0
-bool USeqAct_SetPhysics::vf_004()
+UBOOL USeqAct_SetPhysics::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008fd0e0
 // @baa 0x008fd1f0
-bool USeqAct_SetRigidBodyIgnoreVehicles::vf_004()
+UBOOL USeqAct_SetRigidBodyIgnoreVehicles::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008fd230
 // @baa 0x008fd340
-bool USeqAct_Switch::vf_004()
+UBOOL USeqAct_Switch::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008fd380
 // @baa 0x008fd490
-bool USeqAct_Timer::vf_004()
+UBOOL USeqAct_Timer::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008fd4d0
 // @baa 0x008fd5e0
-bool USeqAct_Toggle::vf_004()
+UBOOL USeqAct_Toggle::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008fd620
 // @baa 0x008fd730
-bool USeqAct_ToggleDynamicChannel::vf_004()
+UBOOL USeqAct_ToggleDynamicChannel::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008fd770
 // @baa 0x008fd880
-bool USeqAct_Trace::vf_004()
+UBOOL USeqAct_Trace::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008fd8c0
 // @baa 0x008fd9d0
-bool USeqAct_SetClothParam::vf_004()
+UBOOL USeqAct_SetClothParam::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -6681,245 +6681,245 @@ int sub_008ff0c0(void)
 // @baa 0x008ff240
 // @baa 0x008ff390
 // @baa 0x008ff4a0
-bool USeqCond_SwitchObject::vf_004()
+UBOOL USeqCond_SwitchObject::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008ff4e0
 // @baa 0x008ff5f0
-bool USeqAct_ActorFactory::vf_004()
+UBOOL USeqAct_ActorFactory::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008ff630
 // @baa 0x008ff740
-bool USeqAct_AIMoveToActor::vf_004()
+UBOOL USeqAct_AIMoveToActor::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008ff780
 // @baa 0x008ff890
-bool USeqAct_Delay::vf_004()
+UBOOL USeqAct_Delay::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008ff8d0
 // @baa 0x008ff9e0
-bool USeqAct_InterpolateColour::vf_004()
+UBOOL USeqAct_InterpolateColour::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008ffa20
 // @baa 0x008ffb30
-bool USeqAct_InterpolateFloat::vf_004()
+UBOOL USeqAct_InterpolateFloat::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008ffb70
 // @baa 0x008ffc80
-bool USeqAct_DelaySwitch::vf_004()
+UBOOL USeqAct_DelaySwitch::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008ffcc0
 // @baa 0x008ffdd0
-bool USeqAct_ForceGarbageCollection::vf_004()
+UBOOL USeqAct_ForceGarbageCollection::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008ffe10
 // @baa 0x008fff20
-bool USeqAct_ForceMaterialMipsResident::vf_004()
+UBOOL USeqAct_ForceMaterialMipsResident::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008fff60
 // @baa 0x00900070
-bool USeqAct_LevelStreamingBase::vf_004()
+UBOOL USeqAct_LevelStreamingBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x009000b0
 // @baa 0x009001c0
-bool USeqAct_LevelVisibility::vf_004()
+UBOOL USeqAct_LevelVisibility::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00900200
 // @baa 0x00900310
-bool USeqAct_ModifyObjectList::vf_004()
+UBOOL USeqAct_ModifyObjectList::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00900350
 // @baa 0x00900460
-bool USeqAct_PlayCameraAnim::vf_004()
+UBOOL USeqAct_PlayCameraAnim::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x009004a0
 // @baa 0x009005b0
-bool USeqAct_PlaySound::vf_004()
+UBOOL USeqAct_PlaySound::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x009005f0
 // @baa 0x00900700
-bool USeqAct_PrepareMapChange::vf_004()
+UBOOL USeqAct_PrepareMapChange::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00900740
 // @baa 0x00900850
-bool USeqAct_RandomSwitch::vf_004()
+UBOOL USeqAct_RandomSwitch::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00900890
 // @baa 0x009009a0
-bool USeqAct_SetBool::vf_004()
+UBOOL USeqAct_SetBool::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x009009e0
 // @baa 0x00900af0
-bool USeqAct_SetDOFParams::vf_004()
+UBOOL USeqAct_SetDOFParams::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00900b30
 // @baa 0x00900c40
-bool USeqAct_SetMotionBlurParams::vf_004()
+UBOOL USeqAct_SetMotionBlurParams::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00900c80
 // @baa 0x00900d90
-bool USeqAct_SetFloat::vf_004()
+UBOOL USeqAct_SetFloat::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00900dd0
 // @baa 0x00900ee0
-bool USeqAct_SetInt::vf_004()
+UBOOL USeqAct_SetInt::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00900f20
 // @baa 0x00901030
-bool USeqAct_SetObject::vf_004()
+UBOOL USeqAct_SetObject::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00901070
 // @baa 0x00901180
-bool USeqAct_SetString::vf_004()
+UBOOL USeqAct_SetString::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x009011c0
 // @baa 0x009012d0
-bool USeqAct_StreamInTextures::vf_004()
+UBOOL USeqAct_StreamInTextures::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00901310
 // @baa 0x00901420
-bool USeqAct_WaitForLevelsVisible::vf_004()
+UBOOL USeqAct_WaitForLevelsVisible::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00901460
 // @baa 0x00901570
-bool USeqAct_AddInt::vf_004()
+UBOOL USeqAct_AddInt::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x009015b0
 // @baa 0x009016c0
-bool USeqAct_SubtractInt::vf_004()
+UBOOL USeqAct_SubtractInt::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00901700
 // @baa 0x00901810
-bool USeqAct_MultiplyInt::vf_004()
+UBOOL USeqAct_MultiplyInt::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00901850
 // @baa 0x00901960
-bool USeqAct_DivideInt::vf_004()
+UBOOL USeqAct_DivideInt::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x009019a0
 // @baa 0x00901ab0
-bool USeqAct_CastToInt::vf_004()
+UBOOL USeqAct_CastToInt::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00901af0
 // @baa 0x00901c00
-bool USeqAct_AddFloat::vf_004()
+UBOOL USeqAct_AddFloat::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00901c40
 // @baa 0x00901d50
-bool USeqAct_SubtractFloat::vf_004()
+UBOOL USeqAct_SubtractFloat::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00901d90
 // @baa 0x00901ea0
-bool USeqAct_MultiplyFloat::vf_004()
+UBOOL USeqAct_MultiplyFloat::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00901ee0
 // @baa 0x00901ff0
-bool USeqAct_DivideFloat::vf_004()
+UBOOL USeqAct_DivideFloat::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00902030
 // @baa 0x00902140
-bool USeqAct_CastToFloat::vf_004()
+UBOOL USeqAct_CastToFloat::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -6994,21 +6994,21 @@ int sub_00907d60(void)
 
 // @baa 0x00907e10
 // @baa 0x00907f20
-bool USeqAct_ActorFactoryEx::vf_004()
+UBOOL USeqAct_ActorFactoryEx::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00907f60
 // @baa 0x00908070
-bool USeqAct_LevelStreaming::vf_004()
+UBOOL USeqAct_LevelStreaming::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x009080b0
 // @baa 0x009081c0
-bool USeqAct_MultiLevelStreaming::vf_004()
+UBOOL USeqAct_MultiLevelStreaming::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

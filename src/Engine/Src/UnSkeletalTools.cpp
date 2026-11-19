@@ -401,10 +401,10 @@ undefined4 * C_00944170::sub_00944170(byte param_2)
 IMPLEMENT_CLASS_AT(USkeletalMesh, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSkeletalMesh.cpp", 27);
 
 // @baa 0x009442e0
-int USkeletalMesh::vf_000(void) { return 1; }
+UBOOL USkeletalMesh::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x009442f0
-bool USkeletalMesh::vf_004()
+UBOOL USkeletalMesh::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -413,10 +413,10 @@ bool USkeletalMesh::vf_004()
 IMPLEMENT_CLASS_AT(USkeletalMeshSocket, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSkeletalMesh.cpp", 28);
 
 // @baa 0x00944440
-int USkeletalMeshSocket::vf_000(void) { return 1; }
+UBOOL USkeletalMeshSocket::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00944450
-bool USkeletalMeshSocket::vf_004()
+UBOOL USkeletalMeshSocket::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -425,19 +425,19 @@ bool USkeletalMeshSocket::vf_004()
 IMPLEMENT_CLASS_AT(ASkeletalMeshActor, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSkeletalMesh.cpp", 29);
 
 // @baa 0x009445a0
-int ASkeletalMeshActor::vf_000(void) { return 1; }
+UBOOL ASkeletalMeshActor::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x009445b0
-bool ASkeletalMeshActor::vf_004()
+UBOOL ASkeletalMeshActor::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x009445f0
-int ASkeletalMeshActorMAT::vf_000(void) { return 1; }
+UBOOL ASkeletalMeshActorMAT::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00944600
-int ASkeletalMeshActorBasedOnExtremeContent::vf_000(void) { return 1; }
+UBOOL ASkeletalMeshActorBasedOnExtremeContent::HasUniqueStaticConfigName() const { return 1; }
 
 struct C_00944650 { void sub_00944650(int a0); };
 

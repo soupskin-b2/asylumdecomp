@@ -7,10 +7,10 @@
 IMPLEMENT_CLASS_AT(UGenericBrowserType_GFxMovie, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\GFxUIEditor\\Src\\GFxUIGenericBrowserTypes.cpp", 277);
 
 // @baa 0x014fa2f0
-int UGenericBrowserType_GFxMovie::vf_000(void) { return 1; }
+UBOOL UGenericBrowserType_GFxMovie::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x014fa300
-bool UGenericBrowserType_GFxMovie::vf_004()
+UBOOL UGenericBrowserType_GFxMovie::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -119,10 +119,10 @@ undefined4 UGenericBrowserType_GFxMovie::sub_014fd230(byte param_2)
 // @baa 0x014fa020
 
 // @baa 0x014fa130
-int UGenericBrowserType_GFxMovieInfo::vf_000(void) { return 1; }
+UBOOL UGenericBrowserType_GFxMovieInfo::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x014fa140
-bool UGenericBrowserType_GFxMovieInfo::vf_004()
+UBOOL UGenericBrowserType_GFxMovieInfo::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

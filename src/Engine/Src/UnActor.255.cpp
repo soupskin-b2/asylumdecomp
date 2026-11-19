@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x007831a0
-bool ATeamInfo::vf_004()
+UBOOL ATeamInfo::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

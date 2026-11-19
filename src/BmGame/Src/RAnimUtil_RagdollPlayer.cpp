@@ -11,10 +11,10 @@ IMPLEMENT_CLASS_AT(URAnimUtil_RagdollPlayer, "e:\\Projects\\Amadeus\\AA\\Game\\U
 // @baa 0x015c3070
 
 // @baa 0x015c3180
-int URAnimUtil_RagdollPlayer::vf_000(void) { return 1; }
+UBOOL URAnimUtil_RagdollPlayer::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015c3190
-bool URAnimUtil_RagdollPlayer::vf_004()
+UBOOL URAnimUtil_RagdollPlayer::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

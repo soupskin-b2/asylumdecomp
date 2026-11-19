@@ -1389,7 +1389,7 @@ IMPLEMENT_CLASS_AT(URSeqEvent_Smashed, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealE
 IMPLEMENT_CLASS_AT(ARGIChallenge, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameClasses.cpp", 44);
 
 // @baa 0x015844f0
-bool ARGIChallenge::vf_004()
+UBOOL ARGIChallenge::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1398,7 +1398,7 @@ bool ARGIChallenge::vf_004()
 IMPLEMENT_CLASS_AT(ARBMWeaponRanged, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameClasses.cpp", 50);
 
 // @baa 0x01584640
-bool ARBMWeaponRanged::vf_004()
+UBOOL ARBMWeaponRanged::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1407,7 +1407,7 @@ bool ARBMWeaponRanged::vf_004()
 IMPLEMENT_CLASS_AT(ARBMWeaponMelee, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameClasses.cpp", 51);
 
 // @baa 0x01584790
-bool ARBMWeaponMelee::vf_004()
+UBOOL ARBMWeaponMelee::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1416,7 +1416,7 @@ bool ARBMWeaponMelee::vf_004()
 IMPLEMENT_CLASS_AT(ARCinematicBatmanBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameClasses.cpp", 55);
 
 // @baa 0x015848e0
-bool ARCinematicBatmanBase::vf_004()
+UBOOL ARCinematicBatmanBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1425,7 +1425,7 @@ bool ARCinematicBatmanBase::vf_004()
 IMPLEMENT_CLASS_AT(ARXrayInteractableItem, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameClasses.cpp", 178);
 
 // @baa 0x01584a30
-bool ARXrayInteractableItem::vf_004()
+UBOOL ARXrayInteractableItem::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1563,7 +1563,7 @@ undefined4 * UObject::sub_01585c00(void)
 IMPLEMENT_CLASS_AT(ARLevelTransitionP, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameLevelTransitionClasses.cpp", 19);
 
 // @baa 0x01585dd0
-bool ARLevelTransitionP::vf_004()
+UBOOL ARLevelTransitionP::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1572,7 +1572,7 @@ bool ARLevelTransitionP::vf_004()
 IMPLEMENT_CLASS_AT(ARLevelTransitionDoorBunkerNativeBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameLevelTransitionClasses.cpp", 21);
 
 // @baa 0x01585f20
-bool ARLevelTransitionDoorBunkerNativeBase::vf_004()
+UBOOL ARLevelTransitionDoorBunkerNativeBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1581,7 +1581,7 @@ bool ARLevelTransitionDoorBunkerNativeBase::vf_004()
 IMPLEMENT_CLASS_AT(ARLevelTransitionPath, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameLevelTransitionClasses.cpp", 22);
 
 // @baa 0x01586070
-bool ARLevelTransitionPath::vf_004()
+UBOOL ARLevelTransitionPath::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

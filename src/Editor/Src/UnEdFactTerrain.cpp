@@ -107,21 +107,21 @@ IMPLEMENT_CLASS_AT(UTerrainHeightMapFactoryG16BMP, "e:\\Projects\\Amadeus\\AA\\G
 // @baa 0x00f4e6f0
 // @baa 0x00f4e7b0
 // @baa 0x00f4e8c0
-int UTerrainHeightMapFactory::vf_000(void) { return 1; }
+UBOOL UTerrainHeightMapFactory::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00f4e8d0
-bool UTerrainHeightMapFactory::vf_004()
+UBOOL UTerrainHeightMapFactory::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00f4e910
 // @baa 0x00f4e9d0
-int UTerrainHeightMapFactoryTextT3D::vf_000(void) { return 1; }
+UBOOL UTerrainHeightMapFactoryTextT3D::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00f4e9e0
 // @baa 0x00f4eaa0
-int UTerrainHeightMapFactoryG16BMP::vf_000(void) { return 1; }
+UBOOL UTerrainHeightMapFactoryG16BMP::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00f4eab0
 void sub_004025d0(void*);
@@ -148,12 +148,12 @@ IMPLEMENT_CLASS_AT(UTerrainFactory, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngi
 int sub_00f4ca80(int a0, int a1) { return a1; }
 
 // @baa 0x00f4eb70
-int UTerrainHeightMapFactoryG16BMPT3D::vf_000(void) { return 1; }
+UBOOL UTerrainHeightMapFactoryG16BMPT3D::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00f55400
 
 // @baa 0x00f55510
-bool UTerrainHeightMapFactoryG16BMPT3D::vf_004()
+UBOOL UTerrainHeightMapFactoryG16BMPT3D::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

@@ -1065,7 +1065,7 @@ int sub_006d31a0(void)
 IMPLEMENT_CLASS_AT(AFogVolumeConstantDensityInfo, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\FogVolumeDensityComponents.cpp", 303);
 
 // @baa 0x006d32e0
-bool AFogVolumeConstantDensityInfo::vf_004()
+UBOOL AFogVolumeConstantDensityInfo::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1074,7 +1074,7 @@ bool AFogVolumeConstantDensityInfo::vf_004()
 IMPLEMENT_CLASS_AT(AFogVolumeLinearHalfspaceDensityInfo, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\FogVolumeDensityComponents.cpp", 323);
 
 // @baa 0x006d3430
-bool AFogVolumeLinearHalfspaceDensityInfo::vf_004()
+UBOOL AFogVolumeLinearHalfspaceDensityInfo::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1083,7 +1083,7 @@ bool AFogVolumeLinearHalfspaceDensityInfo::vf_004()
 IMPLEMENT_CLASS_AT(AFogVolumeSphericalDensityInfo, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\FogVolumeDensityComponents.cpp", 356);
 
 // @baa 0x006d3580
-bool AFogVolumeSphericalDensityInfo::vf_004()
+UBOOL AFogVolumeSphericalDensityInfo::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1092,7 +1092,7 @@ bool AFogVolumeSphericalDensityInfo::vf_004()
 IMPLEMENT_CLASS_AT(AFogVolumeConeDensityInfo, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\FogVolumeDensityComponents.cpp", 394);
 
 // @baa 0x006d36d0
-bool AFogVolumeConeDensityInfo::vf_004()
+UBOOL AFogVolumeConeDensityInfo::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1573,31 +1573,31 @@ undefined4 C_00bdc540::sub_00bdc540(void)
 }
 
 // @baa 0x00bdc630
-int AFluidSurfaceActorMovable::vf_000(void) { return 1; }
+UBOOL AFluidSurfaceActorMovable::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00bdc640
 IMPLEMENT_CLASS_AT(AFluidSurfaceActor, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\FluidSurfaceActor.cpp", 9);
 
 // @baa 0x00bdc750
-int AFluidSurfaceActor::vf_000(void) { return 1; }
+UBOOL AFluidSurfaceActor::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00bdc760
-bool AFluidSurfaceActor::vf_004()
+UBOOL AFluidSurfaceActor::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00bdc7a0
-void AFluidSurfaceActor::vf_09c(void) {  }
+void AFluidSurfaceActor::PostEditImport() {  }
 
 // @baa 0x00bdc7e0
 IMPLEMENT_CLASS_AT(UFluidSurfaceComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\FluidSurfaceComponent.cpp", 11);
 
 // @baa 0x00bdc8f0
-int UFluidSurfaceComponent::vf_000(void) { return 1; }
+UBOOL UFluidSurfaceComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00bdc900
-bool UFluidSurfaceComponent::vf_004()
+UBOOL UFluidSurfaceComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

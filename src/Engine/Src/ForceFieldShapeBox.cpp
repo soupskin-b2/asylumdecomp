@@ -11,7 +11,7 @@ IMPLEMENT_CLASS_AT(UForceFieldShapeBox, "e:\\Projects\\Amadeus\\AA\\Game\\Unreal
 // @baa 0x00a41de0
 
 // @baa 0x00a41ef0
-bool UForceFieldShapeBox::vf_004()
+UBOOL UForceFieldShapeBox::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

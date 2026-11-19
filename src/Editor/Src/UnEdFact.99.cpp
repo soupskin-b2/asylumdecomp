@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00f1dee0
-bool UTextureRenderTargetCubeFactoryNew::vf_004()
+UBOOL UTextureRenderTargetCubeFactoryNew::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

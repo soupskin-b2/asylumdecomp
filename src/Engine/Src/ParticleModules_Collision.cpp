@@ -17,7 +17,7 @@ int sub_00b31180(void)
 }
 
 // @baa 0x00b32cf0
-int UParticleModuleCollision::vf_000(void) { return 1; }
+UBOOL UParticleModuleCollision::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b32d00
 int UParticleModuleCollision::vf_114(int a0) { return 32; }
@@ -67,7 +67,7 @@ IMPLEMENT_CLASS_AT(UParticleModuleCollision, "e:\\Projects\\Amadeus\\AA\\Game\\U
 // @baa 0x00b437f0
 // @baa 0x00b48700
 // @baa 0x00b48810
-bool UParticleModuleCollision::vf_004()
+UBOOL UParticleModuleCollision::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -78,13 +78,13 @@ bool UParticleModuleCollision::vf_004()
 // @baa 0x00b32b90
 
 // @baa 0x00b32ca0
-int UParticleModuleCollisionBase::vf_000(void) { return 1; }
+UBOOL UParticleModuleCollisionBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b32cb0
-bool UParticleModuleCollisionBase::vf_004()
+UBOOL UParticleModuleCollisionBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00b32fe0
-int UParticleModuleEventReceiverSpawn::vf_000(void) { return 1; }
+UBOOL UParticleModuleEventReceiverSpawn::HasUniqueStaticConfigName() const { return 1; }

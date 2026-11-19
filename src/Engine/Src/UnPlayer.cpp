@@ -241,25 +241,25 @@ struct C_00888d80 { C_00888d80* sub_00888d80(int a0); };
 C_00888d80* C_00888d80::sub_00888d80(int a0) { return this; }
 
 // @baa 0x008893d0
-int ULocalPlayer::vf_000(void) { return 1; }
+UBOOL ULocalPlayer::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008893e0
 IMPLEMENT_CLASS_AT(UGameViewportClient, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPlayer.cpp", 97);
 
 // @baa 0x008894f0
-int UGameViewportClient::vf_000(void) { return 1; }
+UBOOL UGameViewportClient::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00889500
-bool UGameViewportClient::vf_004()
+UBOOL UGameViewportClient::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00889540
-int UPlayerManagerInteraction::vf_000(void) { return 1; }
+UBOOL UPlayerManagerInteraction::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00889550
-bool UPlayerManagerInteraction::vf_004()
+UBOOL UPlayerManagerInteraction::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -327,7 +327,7 @@ IMPLEMENT_CLASS_AT(UPlayerManagerInteraction, "e:\\Projects\\Amadeus\\AA\\Game\\
 IMPLEMENT_CLASS_AT(ULocalPlayer, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPlayer.cpp", 40);
 
 // @baa 0x00892100
-bool ULocalPlayer::vf_004()
+UBOOL ULocalPlayer::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -977,7 +977,7 @@ void UGameViewportClient::FViewportClient_vf044(INT Param)
 // @baa 0x00889060
 
 // @baa 0x00889390
-bool UPlayer::vf_004()
+UBOOL UPlayer::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

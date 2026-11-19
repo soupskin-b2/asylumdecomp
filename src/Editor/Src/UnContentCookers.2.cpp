@@ -991,10 +991,10 @@ C_0108ccc0* C_0108ccc0::sub_0108ccc0(void) { return this; }
 IMPLEMENT_CLASS_AT(UCookPackagesCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnContentCookers.cpp", 8187);
 
 // @baa 0x0108cde0
-int UCookPackagesCommandlet::vf_000(void) { return 1; }
+UBOOL UCookPackagesCommandlet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0108cdf0
-bool UCookPackagesCommandlet::vf_004()
+UBOOL UCookPackagesCommandlet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1003,10 +1003,10 @@ bool UCookPackagesCommandlet::vf_004()
 IMPLEMENT_CLASS_AT(UPersistentCookerData, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnContentCookers.cpp", 8606);
 
 // @baa 0x0108cf40
-int UPersistentCookerData::vf_000(void) { return 1; }
+UBOOL UPersistentCookerData::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0108cf50
-bool UPersistentCookerData::vf_004()
+UBOOL UPersistentCookerData::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

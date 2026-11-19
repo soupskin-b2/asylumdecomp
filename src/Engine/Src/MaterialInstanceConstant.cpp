@@ -66,10 +66,10 @@ IMPLEMENT_CLASS_AT(UMaterialInstanceConstant, "e:\\Projects\\Amadeus\\AA\\Game\\
 // @baa 0x006d8820
 
 // @baa 0x006d8930
-int UMaterialInstanceConstant::vf_000(void) { return 1; }
+UBOOL UMaterialInstanceConstant::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x006d8940
-bool UMaterialInstanceConstant::vf_004()
+UBOOL UMaterialInstanceConstant::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

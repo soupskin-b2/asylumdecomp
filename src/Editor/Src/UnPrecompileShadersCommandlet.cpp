@@ -39,10 +39,10 @@ void C_01103b70::sub_01103b70(void)
 IMPLEMENT_CLASS_AT(UPrecompileShadersCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnPrecompileShadersCommandlet.cpp", 626);
 
 // @baa 0x01103d00
-int UPrecompileShadersCommandlet::vf_000(void) { return 1; }
+UBOOL UPrecompileShadersCommandlet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01103d10
-bool UPrecompileShadersCommandlet::vf_004()
+UBOOL UPrecompileShadersCommandlet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -51,10 +51,10 @@ bool UPrecompileShadersCommandlet::vf_004()
 IMPLEMENT_CLASS_AT(UDumpShadersCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnPrecompileShadersCommandlet.cpp", 941);
 
 // @baa 0x01103e60
-int UDumpShadersCommandlet::vf_000(void) { return 1; }
+UBOOL UDumpShadersCommandlet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01103e70
-bool UDumpShadersCommandlet::vf_004()
+UBOOL UDumpShadersCommandlet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -63,10 +63,10 @@ bool UDumpShadersCommandlet::vf_004()
 IMPLEMENT_CLASS_AT(USetMaterialUsageCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\USetMaterialUsageCommandlet.cpp", 568);
 
 // @baa 0x01103fc0
-int USetMaterialUsageCommandlet::vf_000(void) { return 1; }
+UBOOL USetMaterialUsageCommandlet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01103fd0
-bool USetMaterialUsageCommandlet::vf_004()
+UBOOL USetMaterialUsageCommandlet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -75,10 +75,10 @@ bool USetMaterialUsageCommandlet::vf_004()
 IMPLEMENT_CLASS_AT(UStripSourceCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UStripSourceCommandlet.cpp", 68);
 
 // @baa 0x01104120
-int UStripSourceCommandlet::vf_000(void) { return 1; }
+UBOOL UStripSourceCommandlet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01104130
-bool UStripSourceCommandlet::vf_004()
+UBOOL UStripSourceCommandlet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -87,16 +87,16 @@ bool UStripSourceCommandlet::vf_004()
 IMPLEMENT_CLASS_AT(URFMODSoundFactory, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\FMODFact.cpp", 2080);
 
 // @baa 0x01104280
-int URFMODSoundFactory::vf_000(void) { return 1; }
+UBOOL URFMODSoundFactory::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01104290
-bool URFMODSoundFactory::vf_004()
+UBOOL URFMODSoundFactory::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x011042d0
-int URReimportFMODSoundFactory::vf_000(void) { return 1; }
+UBOOL URReimportFMODSoundFactory::HasUniqueStaticConfigName() const { return 1; }
 
 struct C_011042e0 { int a, b, c; C_011042e0(); };
 

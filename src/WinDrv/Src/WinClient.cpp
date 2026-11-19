@@ -10,10 +10,10 @@ void sub_00c97600(void) {  }
 IMPLEMENT_CLASS_AT(UWindowsClient, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\WinDrv\\Src\\WinClient.cpp", 83);
 
 // @baa 0x00eb3700
-int UWindowsClient::vf_000(void) { return 1; }
+UBOOL UWindowsClient::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00eb3710
-bool UWindowsClient::vf_004()
+UBOOL UWindowsClient::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -66,10 +66,10 @@ int C_00eb4720::sub_00eb4720(void)
 IMPLEMENT_CLASS_AT(UXnaForceFeedbackManager, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\WinDrv\\Src\\XnaForceFeedbackManager.cpp", 13);
 
 // @baa 0x00eb49f0
-int UXnaForceFeedbackManager::vf_000(void) { return 1; }
+UBOOL UXnaForceFeedbackManager::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00eb4a00
-bool UXnaForceFeedbackManager::vf_004()
+UBOOL UXnaForceFeedbackManager::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

@@ -9,37 +9,37 @@ struct C { int sub_01714a90(void); };
 int C::sub_01714a90(void) { return *(int*)((char*)this + 4); }
 
 // @baa 0x01714d00
-int ARChatteringTeethGadgetBase::vf_000(void) { return 1; }
+UBOOL ARChatteringTeethGadgetBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01714d10
-bool ARChatteringTeethGadgetBase::vf_004()
+UBOOL ARChatteringTeethGadgetBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01715380
-int ARJokerGlassesGadgetBase::vf_000(void) { return 1; }
+UBOOL ARJokerGlassesGadgetBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01715390
-bool ARJokerGlassesGadgetBase::vf_004()
+UBOOL ARJokerGlassesGadgetBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x017154e0
-int ARJokerGunGadgetBase::vf_000(void) { return 1; }
+UBOOL ARJokerGunGadgetBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x017154f0
-bool ARJokerGunGadgetBase::vf_004()
+UBOOL ARJokerGunGadgetBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01715640
-int ARPhysicsGrabber::vf_000(void) { return 1; }
+UBOOL ARPhysicsGrabber::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01715650
-bool ARPhysicsGrabber::vf_004()
+UBOOL ARPhysicsGrabber::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -50,10 +50,10 @@ struct C_01715690 { C_01715690* sub_01715690(void); };
 C_01715690* C_01715690::sub_01715690(void) { return this; }
 
 // @baa 0x01716170
-int ARSnapToPositionActor::vf_000(void) { return 1; }
+UBOOL ARSnapToPositionActor::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01716180
-bool ARSnapToPositionActor::vf_004()
+UBOOL ARSnapToPositionActor::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -65,22 +65,22 @@ void ARSnapToPositionActor::vf_358(int a0) {  }
 void ARSnapToPositionActor::vf_35c(void) {  }
 
 // @baa 0x01716830
-int ARDisruptableObjectDoor::vf_000(void) { return 1; }
+UBOOL ARDisruptableObjectDoor::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01716840
-bool ARDisruptableObjectDoor::vf_004()
+UBOOL ARDisruptableObjectDoor::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01716c40
-int ARHarpoonDragFloatingPlatformBase::vf_000(void) { return 1; }
+UBOOL ARHarpoonDragFloatingPlatformBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01716d60
-int ARWaterLevelMarker::vf_000(void) { return 1; }
+UBOOL ARWaterLevelMarker::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01716d70
-bool ARWaterLevelMarker::vf_004()
+UBOOL ARWaterLevelMarker::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -89,37 +89,37 @@ bool ARWaterLevelMarker::vf_004()
 void ARHarpoonDragFloatingPlatformBase::SetBase(AActor* NewBase, FVector NewFloor, INT bNotifyActor, USkeletalMeshComponent* SkelComp, FName AttachName) {  }
 
 // @baa 0x01717650
-int ARHarpoonDragTrack::vf_000(void) { return 1; }
+UBOOL ARHarpoonDragTrack::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01717660
-bool ARHarpoonDragTrack::vf_004()
+UBOOL ARHarpoonDragTrack::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01718540
-int ARTunnelFunnel::vf_000(void) { return 1; }
+UBOOL ARTunnelFunnel::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01718550
-bool ARTunnelFunnel::vf_004()
+UBOOL ARTunnelFunnel::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x017188a0
-int ARLevelSelectMenu::vf_000(void) { return 1; }
+UBOOL ARLevelSelectMenu::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x017188b0
-bool ARLevelSelectMenu::vf_004()
+UBOOL ARLevelSelectMenu::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01718f00
-int URSeqVar_DDAIntValue::vf_000(void) { return 1; }
+UBOOL URSeqVar_DDAIntValue::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01718f10
-bool URSeqVar_DDAIntValue::vf_004()
+UBOOL URSeqVar_DDAIntValue::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -149,10 +149,10 @@ void __stdcall sub_017195f0(int a0) {  }
 void __stdcall sub_01719600(int a0) {  }
 
 // @baa 0x01719800
-int ARRandomDelay::vf_000(void) { return 1; }
+UBOOL ARRandomDelay::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01719810
-bool ARRandomDelay::vf_004()
+UBOOL ARRandomDelay::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

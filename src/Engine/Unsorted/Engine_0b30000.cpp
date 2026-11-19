@@ -250,16 +250,16 @@ void C_00b32aa0::sub_00b32aa0(void)
 }
 
 // @baa 0x00b32fd0
-int UParticleModuleEventReceiverBase::vf_000(void) { return 1; }
+UBOOL UParticleModuleEventReceiverBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b333f0
-int UParticleModuleMaterialByParameter::vf_000(void) { return 1; }
+UBOOL UParticleModuleMaterialByParameter::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b33510
-int UParticleModuleOrbitBase::vf_000(void) { return 1; }
+UBOOL UParticleModuleOrbitBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b33520
-bool UParticleModuleOrbitBase::vf_004()
+UBOOL UParticleModuleOrbitBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -305,10 +305,10 @@ void UParticleModuleTypeDataPhysX::vf_16c(void)
 IMPLEMENT_CLASS_AT(UParticleModuleSpawnBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\ParticleModules_Spawn.cpp", 11);
 
 // @baa 0x00b34210
-int UParticleModuleSpawnBase::vf_000(void) { return 1; }
+UBOOL UParticleModuleSpawnBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b34220
-bool UParticleModuleSpawnBase::vf_004()
+UBOOL UParticleModuleSpawnBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

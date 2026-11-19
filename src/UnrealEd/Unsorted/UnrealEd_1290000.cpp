@@ -902,13 +902,13 @@ struct C_0129edb0 { int sub_0129edb0(void); };
 int C_0129edb0::sub_0129edb0(void) { return *(int*)((char*)this + 0); }
 
 // @baa 0x0129f070
-int UTexAlignerPlanar::vf_000(void) { return 1; }
+UBOOL UTexAlignerPlanar::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0129f3e0
-int UTexAlignerDefault::vf_000(void) { return 1; }
+UBOOL UTexAlignerDefault::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0129f560
-int UTexAlignerBox::vf_000(void) { return 1; }
+UBOOL UTexAlignerBox::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0129f690
-int UTexAlignerFit::vf_000(void) { return 1; }
+UBOOL UTexAlignerFit::HasUniqueStaticConfigName() const { return 1; }

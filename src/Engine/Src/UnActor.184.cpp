@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00771a80
-bool ULadderReachSpec::vf_004()
+UBOOL ULadderReachSpec::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

@@ -16,7 +16,7 @@ struct C
 // @baa 0x00990b90
 /* ATerrain slot 0x2c (kit vf_02c; UE3's FinishDestroy): drop the weight maps and weighted materials, free the
  * resource release fence, then finish destroying the actor. */
-void ATerrain::vf_02c()
+void ATerrain::FinishDestroy()
 {
     ((C*)this)->sub_00990ad0(0);
     WeightedTextureMaps.Empty();
@@ -26,5 +26,5 @@ void ATerrain::vf_02c()
         delete ReleaseResourcesFence;
         ReleaseResourcesFence = NULL;
     }
-    Super::vf_02c();
+    Super::FinishDestroy();
 }

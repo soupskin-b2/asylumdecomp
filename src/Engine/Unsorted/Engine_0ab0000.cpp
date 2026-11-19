@@ -658,10 +658,10 @@ void C_00ab2f50::sub_00ab2f50(void)
 
 // @baa 0x00ab2f70
 // @baa 0x00ab3080
-int UScene::vf_000(void) { return 1; }
+UBOOL UScene::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00ab3090
-bool UScene::vf_004()
+UBOOL UScene::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

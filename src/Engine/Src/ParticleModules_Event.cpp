@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00b32f70
-int UParticleModuleEventGenerator::vf_000(void) { return 1; }
+UBOOL UParticleModuleEventGenerator::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b32f80
 void __stdcall sub_00b32f80(int a0, int a1, int a2) {  }
@@ -68,7 +68,7 @@ IMPLEMENT_CLASS_AT(UParticleModuleEventReceiverBase, "e:\\Projects\\Amadeus\\AA\
 // @baa 0x00b48850
 // @baa 0x00b48910
 // @baa 0x00b48a20
-bool UParticleModuleEventGenerator::vf_004()
+UBOOL UParticleModuleEventGenerator::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -81,10 +81,10 @@ IMPLEMENT_CLASS_AT(UParticleModuleEventReceiverSpawn, "e:\\Projects\\Amadeus\\AA
 // @baa 0x00b32e10
 
 // @baa 0x00b32f20
-int UParticleModuleEventBase::vf_000(void) { return 1; }
+UBOOL UParticleModuleEventBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b32f30
-bool UParticleModuleEventBase::vf_004()
+UBOOL UParticleModuleEventBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

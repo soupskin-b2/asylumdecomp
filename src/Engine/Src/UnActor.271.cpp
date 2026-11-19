@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00784a70
-bool AGravityVolume::vf_004()
+UBOOL AGravityVolume::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

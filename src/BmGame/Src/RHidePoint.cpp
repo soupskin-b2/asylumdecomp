@@ -15,10 +15,10 @@ IMPLEMENT_CLASS_AT(ARGargoyleBombBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealE
 // @baa 0x0163dca0
 
 // @baa 0x0163ddb0
-int ARHidePoint::vf_000(void) { return 1; }
+UBOOL ARHidePoint::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0163ddc0
-bool ARHidePoint::vf_004()
+UBOOL ARHidePoint::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -26,10 +26,10 @@ bool ARHidePoint::vf_004()
 // @baa 0x0163de00
 
 // @baa 0x0163df10
-int ARGargoyleBombBase::vf_000(void) { return 1; }
+UBOOL ARGargoyleBombBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0163df20
-bool ARGargoyleBombBase::vf_004()
+UBOOL ARGargoyleBombBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -75,10 +75,10 @@ void ARHidePoint::BeginDestroy()
 
 // @baa 0x01651fe0
 /* Slot 0x2c (unnamed in the kit): also drops the hide point from the list. */
-void ARHidePoint::vf_02c()
+void ARHidePoint::FinishDestroy()
 {
 	g_026e1c70.RemoveItem(this);
-	Super::vf_02c();
+	Super::FinishDestroy();
 }
 
 // @baa 0x0163df60

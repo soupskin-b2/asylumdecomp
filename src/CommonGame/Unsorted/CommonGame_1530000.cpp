@@ -42,19 +42,19 @@ IMPLEMENT_CLASS_AT(URDistributionVectorParticleArrayParameter, "e:\\Projects\\Am
 
 // @baa 0x0153ac90
 // @baa 0x0153ada0
-int URDistributionVectorParticleArrayParameter::vf_000(void) { return 1; }
+UBOOL URDistributionVectorParticleArrayParameter::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0153adb0
-bool URDistributionVectorParticleArrayParameter::vf_004()
+UBOOL URDistributionVectorParticleArrayParameter::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0153b070
-int ARRotateActor::vf_000(void) { return 1; }
+UBOOL ARRotateActor::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0153b080
-bool ARRotateActor::vf_004()
+UBOOL ARRotateActor::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -114,10 +114,10 @@ int sub_0153bc10(int a0, int a1) { return a1; }
 int sub_0153bc20(int a0, int a1) { return a1; }
 
 // @baa 0x0153bc30
-int ARBreakablePropStatic::vf_000(void) { return 1; }
+UBOOL ARBreakablePropStatic::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0153bd50
-int ARKActorSpawnable::vf_000(void) { return 1; }
+UBOOL ARKActorSpawnable::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0153dc40
 int sub_0153dc40(int a0, int a1) { return a1; }

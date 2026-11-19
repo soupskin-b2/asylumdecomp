@@ -32,22 +32,22 @@ void C::sub_00568250(int param_2)
 }
 
 // @baa 0x00568360
-int UStruct::vf_000(void) { return 1; }
+UBOOL UStruct::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00568370
-int UScriptStruct::vf_000(void) { return 1; }
+UBOOL UScriptStruct::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00568380
 void sub_00568380(void) {  }
 
 // @baa 0x00568390
-int UState::vf_000(void) { return 1; }
+UBOOL UState::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x005684b0
-int UClass::vf_000(void) { return 1; }
+UBOOL UClass::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00568530
-int UFunction::vf_000(void) { return 1; }
+UBOOL UFunction::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0056a590
 IMPLEMENT_CLASS_AT(UField, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Core\\Src\\UnClass.cpp", 86);
@@ -468,13 +468,13 @@ FString C_00589060::sub_00589060()
 
 // @baa 0x00589090
 // @baa 0x005891a0
-bool UStruct::vf_004()
+UBOOL UStruct::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x005891e0
-bool UConst::vf_004()
+UBOOL UConst::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -497,27 +497,27 @@ undefined4 C_00589220::sub_00589220(byte param_2)
 }
 
 // @baa 0x005892a0
-bool UScriptStruct::vf_004()
+UBOOL UScriptStruct::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x005892e0
 // @baa 0x005893f0
-bool UState::vf_004()
+UBOOL UState::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00589430
-bool UFunction::vf_004()
+UBOOL UFunction::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00589470
 // @baa 0x00589530
-bool UClass::vf_004()
+UBOOL UClass::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

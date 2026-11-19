@@ -11,10 +11,10 @@ IMPLEMENT_CLASS_AT(UHeightFogComponent, "e:\\Projects\\Amadeus\\AA\\Game\\Unreal
 // @baa 0x006aca20
 
 // @baa 0x006acb30
-int UHeightFogComponent::vf_000(void) { return 1; }
+UBOOL UHeightFogComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x006acb40
-bool UHeightFogComponent::vf_004()
+UBOOL UHeightFogComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

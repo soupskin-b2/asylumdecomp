@@ -249,7 +249,7 @@ void sub_00ee0bc0();
 void sub_00ee3750(void) { sub_00ee0bc0(); }
 
 // @baa 0x00ee4010
-bool UCubeBuilder::vf_004()
+UBOOL UCubeBuilder::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

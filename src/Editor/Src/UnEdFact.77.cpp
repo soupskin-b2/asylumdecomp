@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00f1d3d0
-int UDestructibleDamageParametersFactoryNew::vf_000(void) { return 1; }
+UBOOL UDestructibleDamageParametersFactoryNew::HasUniqueStaticConfigName() const { return 1; }

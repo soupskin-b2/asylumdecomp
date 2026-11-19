@@ -21,7 +21,7 @@ undefined4 UTexture::sub_0071efc0(byte param_2)
 IMPLEMENT_CLASS_AT(UTexture, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\Texture.cpp", 12);
 
 // @baa 0x00720b80
-bool UTexture::vf_004()
+UBOOL UTexture::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -104,7 +104,7 @@ UTexture::UTexture()
 }
 
 // @baa 0x00717400
-void UTexture::vf_014()
+void UTexture::PreSave()
 {
 	if (!CompressionNone && DeferCompression)
 	{

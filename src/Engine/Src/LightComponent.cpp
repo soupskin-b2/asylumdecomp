@@ -12,10 +12,10 @@ IMPLEMENT_CLASS_AT(ULightComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngi
 IMPLEMENT_CLASS_AT(ULightFunction, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\LightComponent.cpp", 9);
 
 // @baa 0x006acf60
-int ULightFunction::vf_000(void) { return 1; }
+UBOOL ULightFunction::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x006acf70
-bool ULightFunction::vf_004()
+UBOOL ULightFunction::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

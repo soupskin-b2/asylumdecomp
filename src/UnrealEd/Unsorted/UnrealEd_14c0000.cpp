@@ -206,10 +206,10 @@ void sub_014c74a0(undefined4 param_1, undefined4 param_2, undefined4 param_3, un
 
 // @baa 0x014c79f0
 // @baa 0x014c7b00
-int UPlayerInputMask_CustomDrawProxy::vf_000(void) { return 1; }
+UBOOL UPlayerInputMask_CustomDrawProxy::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x014c7b10
-bool UPlayerInputMask_CustomDrawProxy::vf_004()
+UBOOL UPlayerInputMask_CustomDrawProxy::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -231,40 +231,40 @@ IMPLEMENT_CLASS_AT(USequenceOpHelper_CalloutInputProxy, "e:\\Projects\\Amadeus\\
 // @baa 0x014c8330
 // @baa 0x014c8350
 // @baa 0x014c8460
-int UUISequenceHelper::vf_000(void) { return 1; }
+UBOOL UUISequenceHelper::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x014c8470
-bool UUISequenceHelper::vf_004()
+UBOOL UUISequenceHelper::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x014c84b0
 // @baa 0x014c85c0
-int UUIEvent_MetaObjectHelper::vf_000(void) { return 1; }
+UBOOL UUIEvent_MetaObjectHelper::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x014c85d0
-bool UUIEvent_MetaObjectHelper::vf_004()
+UBOOL UUIEvent_MetaObjectHelper::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x014c8610
 // @baa 0x014c8720
-int UUISequenceObjectHelper::vf_000(void) { return 1; }
+UBOOL UUISequenceObjectHelper::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x014c8730
-bool UUISequenceObjectHelper::vf_004()
+UBOOL UUISequenceObjectHelper::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x014c8770
 // @baa 0x014c8880
-int USequenceOpHelper_CalloutInputProxy::vf_000(void) { return 1; }
+UBOOL USequenceOpHelper_CalloutInputProxy::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x014c8890
-bool USequenceOpHelper_CalloutInputProxy::vf_004()
+UBOOL USequenceOpHelper_CalloutInputProxy::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

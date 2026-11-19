@@ -11,20 +11,20 @@ IMPLEMENT_CLASS_AT(URB_BodyInstance, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEng
 IMPLEMENT_CLASS_AT(UPhysicsAssetInstance, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPhysAsset.cpp", 18);
 
 // @baa 0x009f91f0
-int UPhysicsAssetInstance::vf_000(void) { return 1; }
+UBOOL UPhysicsAssetInstance::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x009f9200
-bool UPhysicsAssetInstance::vf_004()
+UBOOL UPhysicsAssetInstance::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x009f9240
 // @baa 0x009f9350
-int URB_BodyInstance::vf_000(void) { return 1; }
+UBOOL URB_BodyInstance::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x009f9360
-bool URB_BodyInstance::vf_004()
+UBOOL URB_BodyInstance::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

@@ -185,10 +185,10 @@ undefined4 UTexture2DComposite::sub_00831d80(byte param_2)
 IMPLEMENT_CLASS_AT(UMotionBlurEffect, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnMotionBlurEffect.cpp", 10);
 
 // @baa 0x00834e20
-int UMotionBlurEffect::vf_000(void) { return 1; }
+UBOOL UMotionBlurEffect::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00834e30
-bool UMotionBlurEffect::vf_004()
+UBOOL UMotionBlurEffect::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -197,10 +197,10 @@ bool UMotionBlurEffect::vf_004()
 IMPLEMENT_CLASS_AT(UDOFBloomMotionBlurEffect, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnMotionBlurEffect.cpp", 11);
 
 // @baa 0x00834f80
-int UDOFBloomMotionBlurEffect::vf_000(void) { return 1; }
+UBOOL UDOFBloomMotionBlurEffect::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00834f90
-bool UDOFBloomMotionBlurEffect::vf_004()
+UBOOL UDOFBloomMotionBlurEffect::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

@@ -7,10 +7,10 @@
 IMPLEMENT_CLASS_AT(ARControllableChatteringTeethBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RControllableChatteringTeethBase.cpp", 17);
 
 // @baa 0x01714e60
-int ARControllableChatteringTeethBase::vf_000(void) { return 1; }
+UBOOL ARControllableChatteringTeethBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01714e70
-bool ARControllableChatteringTeethBase::vf_004()
+UBOOL ARControllableChatteringTeethBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

@@ -18,7 +18,7 @@ int sub_01368ee0(void) { return (int)g_02019ce8; }
 IMPLEMENT_CLASS_AT(UBrowserManager, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\BrowserManager.cpp", 21);
 
 // @baa 0x01369390
-bool UBrowserManager::vf_004()
+UBOOL UBrowserManager::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

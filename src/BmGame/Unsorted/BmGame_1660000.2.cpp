@@ -20,7 +20,7 @@ int sub_016625d0(void)
 IMPLEMENT_CLASS_AT(ARBatarangProjectile_Controllable, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBatarang.cpp", 18);
 
 // @baa 0x01662710
-bool ARBatarangProjectile_Controllable::vf_004()
+UBOOL ARBatarangProjectile_Controllable::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -29,7 +29,7 @@ bool ARBatarangProjectile_Controllable::vf_004()
 IMPLEMENT_CLASS_AT(ARBatDistractProjectile, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBatarang.cpp", 19);
 
 // @baa 0x01662860
-bool ARBatDistractProjectile::vf_004()
+UBOOL ARBatDistractProjectile::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -387,10 +387,10 @@ void C_01669d60::sub_01669d60(void) { *(int*)((char*)this + 0) = (int)g_02359c2c
 void sub_01669e10(void) {  }
 
 // @baa 0x0166a2b0
-int ARShimmyEdgeMarker::vf_000(void) { return 1; }
+UBOOL ARShimmyEdgeMarker::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0166a2c0
-bool ARShimmyEdgeMarker::vf_004()
+UBOOL ARShimmyEdgeMarker::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -450,10 +450,10 @@ struct C_0166a820 { int sub_0166a820(void); };
 int C_0166a820::sub_0166a820(void) { return *(int*)((char*)this + 8); }
 
 // @baa 0x0166a940
-int URSimpleRopeComponent::vf_000(void) { return 1; }
+UBOOL URSimpleRopeComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0166a950
-bool URSimpleRopeComponent::vf_004()
+UBOOL URSimpleRopeComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -525,19 +525,19 @@ int sub_0166bb90(int a0, int a1) { return a1; }
 
 // @baa 0x0166cf40
 // @baa 0x0166d050
-int URCrimeSceneAsset::vf_000(void) { return 1; }
+UBOOL URCrimeSceneAsset::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0166d060
-bool URCrimeSceneAsset::vf_004()
+UBOOL URCrimeSceneAsset::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0166d1b0
-int URCrimeSceneAssetFactoryNew::vf_000(void) { return 1; }
+UBOOL URCrimeSceneAssetFactoryNew::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0166d1c0
-bool URCrimeSceneAssetFactoryNew::vf_004()
+UBOOL URCrimeSceneAssetFactoryNew::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -548,16 +548,16 @@ struct C_0166d240 { C_0166d240* sub_0166d240(int a0); };
 C_0166d240* C_0166d240::sub_0166d240(int a0) { return this; }
 
 // @baa 0x0166d430
-int ARPawn::vf_000(void) { return 1; }
+UBOOL ARPawn::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0166d440
-bool ARPawn::vf_004()
+UBOOL ARPawn::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0166d480
-int ARPawnCombat::vf_000(void) { return 1; }
+UBOOL ARPawnCombat::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0166d4b0
 UBOOL ARPawn::IsIncapacitated()
@@ -605,7 +605,7 @@ uint ARPawnCombat::sub_0166d710(void)
 }
 
 // @baa 0x0166d740
-int ARPawnCharacter::vf_000(void) { return 1; }
+UBOOL ARPawnCharacter::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0166d910
 void ARPawnCharacter::ModifyPoseNode() {  }

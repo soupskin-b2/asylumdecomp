@@ -94,10 +94,10 @@ undefined4 UObject::sub_01221f20(byte param_2)
 IMPLEMENT_CLASS_AT(UStaticMeshEditorComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\StaticMeshEditor.cpp", 22);
 
 // @baa 0x01221e70
-int UStaticMeshEditorComponent::vf_000(void) { return 1; }
+UBOOL UStaticMeshEditorComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01221e80
-bool UStaticMeshEditorComponent::vf_004()
+UBOOL UStaticMeshEditorComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

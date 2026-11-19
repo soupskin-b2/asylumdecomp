@@ -624,10 +624,10 @@ undefined4 sub_00f72220(void)
 // @baa 0x00f75a20
 
 // @baa 0x00f75b30
-int UEditorViewportInput::vf_000(void) { return 1; }
+UBOOL UEditorViewportInput::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00f75b40
-bool UEditorViewportInput::vf_004()
+UBOOL UEditorViewportInput::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

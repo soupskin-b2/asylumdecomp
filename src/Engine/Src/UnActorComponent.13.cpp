@@ -23,11 +23,11 @@ void UActorComponent::BeginDestroy()
 // @baa 0x0075e870
 /* UActorComponent slot 0x088 (kit vf_088): UE3's UActorComponent::NeedsLoadForClient(): only when the outer loads on
  * the client and the component isn't marked not-for-client. */
-INT UActorComponent::vf_088()
+UBOOL UActorComponent::NeedsLoadForClient() const
 {
 #line 501 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActorComponent.cpp"
     check(GetOuter());
-    return GetOuter()->vf_088() && !this->HasAnyFlags(RF_NotForClient);
+    return GetOuter()->NeedsLoadForClient() && !this->HasAnyFlags(RF_NotForClient);
 }
 
 #line 40 "candidate.cpp"
@@ -36,11 +36,11 @@ INT UActorComponent::vf_088()
 // @baa 0x0075e8c0
 /* UActorComponent slot 0x08c (kit vf_08c): UE3's UActorComponent::NeedsLoadForServer(): only when the outer loads on
  * the server and the component isn't marked not-for-server. */
-INT UActorComponent::vf_08c()
+UBOOL UActorComponent::NeedsLoadForServer() const
 {
 #line 508 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActorComponent.cpp"
     check(GetOuter());
-    return GetOuter()->vf_08c() && !this->HasAnyFlags(RF_NotForServer);
+    return GetOuter()->NeedsLoadForServer() && !this->HasAnyFlags(RF_NotForServer);
 }
 
 #line 55 "candidate.cpp"

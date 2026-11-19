@@ -96,7 +96,7 @@ IMPLEMENT_CLASS_AT(URDOFManager, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3
 IMPLEMENT_CLASS_AT(URDmgType_Throw, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RPawnPlayer.cpp", 58);
 
 // @baa 0x0169d020
-bool URDmgType_Throw::vf_004()
+UBOOL URDmgType_Throw::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

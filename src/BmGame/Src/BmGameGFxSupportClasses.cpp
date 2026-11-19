@@ -7,10 +7,10 @@
 IMPLEMENT_CLASS_AT(URGFxGameViewportClient, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameGFxSupportClasses.cpp", 38);
 
 // @baa 0x016d1d70
-int URGFxGameViewportClient::vf_000(void) { return 1; }
+UBOOL URGFxGameViewportClient::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016d1d80
-bool URGFxGameViewportClient::vf_004()
+UBOOL URGFxGameViewportClient::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -19,31 +19,31 @@ bool URGFxGameViewportClient::vf_004()
 IMPLEMENT_CLASS_AT(URGFxMovie, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameGFxSupportClasses.cpp", 39);
 
 // @baa 0x016d1ed0
-int URGFxMovie::vf_000(void) { return 1; }
+UBOOL URGFxMovie::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016d1ee0
-bool URGFxMovie::vf_004()
+UBOOL URGFxMovie::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x016d1f20
-int URGFxMovieFrontend::vf_000(void) { return 1; }
+UBOOL URGFxMovieFrontend::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016d1f30
-int URGFxMovieMap::vf_000(void) { return 1; }
+UBOOL URGFxMovieMap::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016d1f40
-int URGFxMovieInvestigate::vf_000(void) { return 1; }
+UBOOL URGFxMovieInvestigate::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016d1f50
-int URGFxMovieUpgrades::vf_000(void) { return 1; }
+UBOOL URGFxMovieUpgrades::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016d1f60
-int URGFxMovieRiddler::vf_000(void) { return 1; }
+UBOOL URGFxMovieRiddler::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016d1f70
-int URGFxMovieBio::vf_000(void) { return 1; }
+UBOOL URGFxMovieBio::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016d1f80
 void URGFxGameViewportClient::vf_14c(void) {  }
@@ -258,7 +258,7 @@ undefined4 * UObject::sub_016e5910(void)
 }
 
 // @baa 0x016e5ad0
-bool URGFxMovieFrontend::vf_004()
+UBOOL URGFxMovieFrontend::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -266,7 +266,7 @@ bool URGFxMovieFrontend::vf_004()
 // @baa 0x016e5b10
 
 // @baa 0x016e5c20
-bool URGFxMovieMap::vf_004()
+UBOOL URGFxMovieMap::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -274,7 +274,7 @@ bool URGFxMovieMap::vf_004()
 // @baa 0x016e5c60
 
 // @baa 0x016e5d70
-bool URGFxMovieInvestigate::vf_004()
+UBOOL URGFxMovieInvestigate::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -282,7 +282,7 @@ bool URGFxMovieInvestigate::vf_004()
 // @baa 0x016e5f00
 
 // @baa 0x016e6010
-bool URGFxMovieRiddler::vf_004()
+UBOOL URGFxMovieRiddler::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -290,7 +290,7 @@ bool URGFxMovieRiddler::vf_004()
 // @baa 0x016e6050
 
 // @baa 0x016e6160
-bool URGFxMovieBio::vf_004()
+UBOOL URGFxMovieBio::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

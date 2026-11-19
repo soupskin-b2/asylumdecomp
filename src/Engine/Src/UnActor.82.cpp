@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x007572d0
-int AWaterVolume::vf_000(void) { return 1; }
+UBOOL AWaterVolume::HasUniqueStaticConfigName() const { return 1; }

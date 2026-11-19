@@ -485,10 +485,10 @@ int C_010bfb20::sub_010bfb20(int param_2)
 IMPLEMENT_CLASS_AT(UFixupRedirectsCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnFixupRedirectsCommandlet.cpp", 707);
 
 // @baa 0x010bfc40
-int UFixupRedirectsCommandlet::vf_000(void) { return 1; }
+UBOOL UFixupRedirectsCommandlet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x010bfc50
-bool UFixupRedirectsCommandlet::vf_004()
+UBOOL UFixupRedirectsCommandlet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -531,10 +531,10 @@ undefined4 * C_010bfcb0::sub_010bfcb0(byte param_2)
 IMPLEMENT_CLASS_AT(ULoadPackageCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnPackageUtilities.cpp", 140);
 
 // @baa 0x010bfde0
-int ULoadPackageCommandlet::vf_000(void) { return 1; }
+UBOOL ULoadPackageCommandlet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x010bfdf0
-bool ULoadPackageCommandlet::vf_004()
+UBOOL ULoadPackageCommandlet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -543,10 +543,10 @@ bool ULoadPackageCommandlet::vf_004()
 IMPLEMENT_CLASS_AT(UShowObjectCountCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnPackageUtilities.cpp", 461);
 
 // @baa 0x010bff40
-int UShowObjectCountCommandlet::vf_000(void) { return 1; }
+UBOOL UShowObjectCountCommandlet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x010bff50
-bool UShowObjectCountCommandlet::vf_004()
+UBOOL UShowObjectCountCommandlet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -555,10 +555,10 @@ bool UShowObjectCountCommandlet::vf_004()
 IMPLEMENT_CLASS_AT(UShowTaggedPropsCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnPackageUtilities.cpp", 911);
 
 // @baa 0x010c00a0
-int UShowTaggedPropsCommandlet::vf_000(void) { return 1; }
+UBOOL UShowTaggedPropsCommandlet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x010c00b0
-bool UShowTaggedPropsCommandlet::vf_004()
+UBOOL UShowTaggedPropsCommandlet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -582,10 +582,10 @@ undefined4 C_010c00f0::sub_010c00f0(int * param_2)
 IMPLEMENT_CLASS_AT(UListPackagesReferencingCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnPackageUtilities.cpp", 1167);
 
 // @baa 0x010c0240
-int UListPackagesReferencingCommandlet::vf_000(void) { return 1; }
+UBOOL UListPackagesReferencingCommandlet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x010c0250
-bool UListPackagesReferencingCommandlet::vf_004()
+UBOOL UListPackagesReferencingCommandlet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -594,10 +594,10 @@ bool UListPackagesReferencingCommandlet::vf_004()
 IMPLEMENT_CLASS_AT(UPkgInfoCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnPackageUtilities.cpp", 1960);
 
 // @baa 0x010c03a0
-int UPkgInfoCommandlet::vf_000(void) { return 1; }
+UBOOL UPkgInfoCommandlet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x010c03b0
-bool UPkgInfoCommandlet::vf_004()
+UBOOL UPkgInfoCommandlet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -606,10 +606,10 @@ bool UPkgInfoCommandlet::vf_004()
 IMPLEMENT_CLASS_AT(UListCorruptedComponentsCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnPackageUtilities.cpp", 2071);
 
 // @baa 0x010c0500
-int UListCorruptedComponentsCommandlet::vf_000(void) { return 1; }
+UBOOL UListCorruptedComponentsCommandlet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x010c0510
-bool UListCorruptedComponentsCommandlet::vf_004()
+UBOOL UListCorruptedComponentsCommandlet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -618,10 +618,10 @@ bool UListCorruptedComponentsCommandlet::vf_004()
 IMPLEMENT_CLASS_AT(UAnalyzeCookedPackagesCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnPackageUtilities.cpp", 2185);
 
 // @baa 0x010c0660
-int UAnalyzeCookedPackagesCommandlet::vf_000(void) { return 1; }
+UBOOL UAnalyzeCookedPackagesCommandlet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x010c0670
-bool UAnalyzeCookedPackagesCommandlet::vf_004()
+UBOOL UAnalyzeCookedPackagesCommandlet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -630,10 +630,10 @@ bool UAnalyzeCookedPackagesCommandlet::vf_004()
 IMPLEMENT_CLASS_AT(UMineCookedPackagesCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnPackageUtilities.cpp", 2414);
 
 // @baa 0x010c07c0
-int UMineCookedPackagesCommandlet::vf_000(void) { return 1; }
+UBOOL UMineCookedPackagesCommandlet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x010c07d0
-bool UMineCookedPackagesCommandlet::vf_004()
+UBOOL UMineCookedPackagesCommandlet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -642,10 +642,10 @@ bool UMineCookedPackagesCommandlet::vf_004()
 IMPLEMENT_CLASS_AT(UFindTexturesWithMissingPhysicalMaterialsCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnPackageUtilities.cpp", 3315);
 
 // @baa 0x010c0920
-int UFindTexturesWithMissingPhysicalMaterialsCommandlet::vf_000(void) { return 1; }
+UBOOL UFindTexturesWithMissingPhysicalMaterialsCommandlet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x010c0930
-bool UFindTexturesWithMissingPhysicalMaterialsCommandlet::vf_004()
+UBOOL UFindTexturesWithMissingPhysicalMaterialsCommandlet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -654,10 +654,10 @@ bool UFindTexturesWithMissingPhysicalMaterialsCommandlet::vf_004()
 IMPLEMENT_CLASS_AT(UFindQuestionableTexturesCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnPackageUtilities.cpp", 3328);
 
 // @baa 0x010c0a80
-int UFindQuestionableTexturesCommandlet::vf_000(void) { return 1; }
+UBOOL UFindQuestionableTexturesCommandlet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x010c0a90
-bool UFindQuestionableTexturesCommandlet::vf_004()
+UBOOL UFindQuestionableTexturesCommandlet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -666,10 +666,10 @@ bool UFindQuestionableTexturesCommandlet::vf_004()
 IMPLEMENT_CLASS_AT(USetTextureLODGroupCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnPackageUtilities.cpp", 3341);
 
 // @baa 0x010c0be0
-int USetTextureLODGroupCommandlet::vf_000(void) { return 1; }
+UBOOL USetTextureLODGroupCommandlet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x010c0bf0
-bool USetTextureLODGroupCommandlet::vf_004()
+UBOOL USetTextureLODGroupCommandlet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -678,10 +678,10 @@ bool USetTextureLODGroupCommandlet::vf_004()
 IMPLEMENT_CLASS_AT(UCompressAnimationsCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnPackageUtilities.cpp", 3398);
 
 // @baa 0x010c0d40
-int UCompressAnimationsCommandlet::vf_000(void) { return 1; }
+UBOOL UCompressAnimationsCommandlet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x010c0d50
-bool UCompressAnimationsCommandlet::vf_004()
+UBOOL UCompressAnimationsCommandlet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -690,10 +690,10 @@ bool UCompressAnimationsCommandlet::vf_004()
 IMPLEMENT_CLASS_AT(UDoWithAnimationsCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnPackageUtilities.cpp", 3469);
 
 // @baa 0x010c0ea0
-int UDoWithAnimationsCommandlet::vf_000(void) { return 1; }
+UBOOL UDoWithAnimationsCommandlet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x010c0eb0
-bool UDoWithAnimationsCommandlet::vf_004()
+UBOOL UDoWithAnimationsCommandlet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -702,10 +702,10 @@ bool UDoWithAnimationsCommandlet::vf_004()
 IMPLEMENT_CLASS_AT(UListScriptReferencedContentCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnPackageUtilities.cpp", 3638);
 
 // @baa 0x010c1000
-int UListScriptReferencedContentCommandlet::vf_000(void) { return 1; }
+UBOOL UListScriptReferencedContentCommandlet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x010c1010
-bool UListScriptReferencedContentCommandlet::vf_004()
+UBOOL UListScriptReferencedContentCommandlet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -714,10 +714,10 @@ bool UListScriptReferencedContentCommandlet::vf_004()
 IMPLEMENT_CLASS_AT(UAnalyzeContentCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnPackageUtilities.cpp", 3955);
 
 // @baa 0x010c1160
-int UAnalyzeContentCommandlet::vf_000(void) { return 1; }
+UBOOL UAnalyzeContentCommandlet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x010c1170
-bool UAnalyzeContentCommandlet::vf_004()
+UBOOL UAnalyzeContentCommandlet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -726,10 +726,10 @@ bool UAnalyzeContentCommandlet::vf_004()
 IMPLEMENT_CLASS_AT(UAnalyzeFallbackMaterialsCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnPackageUtilities.cpp", 4301);
 
 // @baa 0x010c12c0
-int UAnalyzeFallbackMaterialsCommandlet::vf_000(void) { return 1; }
+UBOOL UAnalyzeFallbackMaterialsCommandlet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x010c12d0
-bool UAnalyzeFallbackMaterialsCommandlet::vf_004()
+UBOOL UAnalyzeFallbackMaterialsCommandlet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -738,10 +738,10 @@ bool UAnalyzeFallbackMaterialsCommandlet::vf_004()
 IMPLEMENT_CLASS_AT(UShowStylesCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnPackageUtilities.cpp", 4307);
 
 // @baa 0x010c1420
-int UShowStylesCommandlet::vf_000(void) { return 1; }
+UBOOL UShowStylesCommandlet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x010c1430
-bool UShowStylesCommandlet::vf_004()
+UBOOL UShowStylesCommandlet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -750,10 +750,10 @@ bool UShowStylesCommandlet::vf_004()
 IMPLEMENT_CLASS_AT(UTestWordWrapCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnPackageUtilities.cpp", 4463);
 
 // @baa 0x010c1580
-int UTestWordWrapCommandlet::vf_000(void) { return 1; }
+UBOOL UTestWordWrapCommandlet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x010c1590
-bool UTestWordWrapCommandlet::vf_004()
+UBOOL UTestWordWrapCommandlet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -762,10 +762,10 @@ bool UTestWordWrapCommandlet::vf_004()
 IMPLEMENT_CLASS_AT(USetPackageFlagsCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnPackageUtilities.cpp", 4603);
 
 // @baa 0x010c16e0
-int USetPackageFlagsCommandlet::vf_000(void) { return 1; }
+UBOOL USetPackageFlagsCommandlet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x010c16f0
-bool USetPackageFlagsCommandlet::vf_004()
+UBOOL USetPackageFlagsCommandlet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -774,28 +774,28 @@ bool USetPackageFlagsCommandlet::vf_004()
 IMPLEMENT_CLASS_AT(UPerformMapCheckCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnPackageUtilities.cpp", 4711);
 
 // @baa 0x010c1840
-int UPerformMapCheckCommandlet::vf_000(void) { return 1; }
+UBOOL UPerformMapCheckCommandlet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x010c1850
-bool UPerformMapCheckCommandlet::vf_004()
+UBOOL UPerformMapCheckCommandlet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x010c1890
-int UFindStaticActorsRefsCommandlet::vf_000(void) { return 1; }
+UBOOL UFindStaticActorsRefsCommandlet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x010c18a0
-int UFindRenamedPrefabSequencesCommandlet::vf_000(void) { return 1; }
+UBOOL UFindRenamedPrefabSequencesCommandlet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x010c18b0
 IMPLEMENT_CLASS_AT(UDumpLightmapInfoCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnPackageUtilities.cpp", 5294);
 
 // @baa 0x010c19c0
-int UDumpLightmapInfoCommandlet::vf_000(void) { return 1; }
+UBOOL UDumpLightmapInfoCommandlet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x010c19d0
-bool UDumpLightmapInfoCommandlet::vf_004()
+UBOOL UDumpLightmapInfoCommandlet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -804,10 +804,10 @@ bool UDumpLightmapInfoCommandlet::vf_004()
 IMPLEMENT_CLASS_AT(UPerformTerrainMaterialDumpCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnPackageUtilities.cpp", 5432);
 
 // @baa 0x010c1b20
-int UPerformTerrainMaterialDumpCommandlet::vf_000(void) { return 1; }
+UBOOL UPerformTerrainMaterialDumpCommandlet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x010c1b30
-bool UPerformTerrainMaterialDumpCommandlet::vf_004()
+UBOOL UPerformTerrainMaterialDumpCommandlet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -816,10 +816,10 @@ bool UPerformTerrainMaterialDumpCommandlet::vf_004()
 IMPLEMENT_CLASS_AT(UListPSysFixedBoundSettingCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnPackageUtilities.cpp", 5575);
 
 // @baa 0x010c1c80
-int UListPSysFixedBoundSettingCommandlet::vf_000(void) { return 1; }
+UBOOL UListPSysFixedBoundSettingCommandlet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x010c1c90
-bool UListPSysFixedBoundSettingCommandlet::vf_004()
+UBOOL UListPSysFixedBoundSettingCommandlet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -828,10 +828,10 @@ bool UListPSysFixedBoundSettingCommandlet::vf_004()
 IMPLEMENT_CLASS_AT(UListEmittersUsingModuleCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnPackageUtilities.cpp", 5756);
 
 // @baa 0x010c1de0
-int UListEmittersUsingModuleCommandlet::vf_000(void) { return 1; }
+UBOOL UListEmittersUsingModuleCommandlet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x010c1df0
-bool UListEmittersUsingModuleCommandlet::vf_004()
+UBOOL UListEmittersUsingModuleCommandlet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -840,10 +840,10 @@ bool UListEmittersUsingModuleCommandlet::vf_004()
 IMPLEMENT_CLASS_AT(UReplaceActorCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnPackageUtilities.cpp", 5763);
 
 // @baa 0x010c1f40
-int UReplaceActorCommandlet::vf_000(void) { return 1; }
+UBOOL UReplaceActorCommandlet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x010c1f50
-bool UReplaceActorCommandlet::vf_004()
+UBOOL UReplaceActorCommandlet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -852,10 +852,10 @@ bool UReplaceActorCommandlet::vf_004()
 IMPLEMENT_CLASS_AT(UListSoundNodeWavesCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnPackageUtilities.cpp", 6238);
 
 // @baa 0x010c20a0
-int UListSoundNodeWavesCommandlet::vf_000(void) { return 1; }
+UBOOL UListSoundNodeWavesCommandlet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x010c20b0
-bool UListSoundNodeWavesCommandlet::vf_004()
+UBOOL UListSoundNodeWavesCommandlet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -883,10 +883,10 @@ undefined4 C_010c20f0::sub_010c20f0(void)
 IMPLEMENT_CLASS_AT(UPatchScriptCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnPatchCommandlets.cpp", 1890);
 
 // @baa 0x010c2240
-int UPatchScriptCommandlet::vf_000(void) { return 1; }
+UBOOL UPatchScriptCommandlet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x010c2250
-bool UPatchScriptCommandlet::vf_004()
+UBOOL UPatchScriptCommandlet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -6427,7 +6427,7 @@ void sub_010f2360(void) { sub_010eed60(); }
 IMPLEMENT_CLASS_AT(UFindStaticActorsRefsCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnPackageUtilities.cpp", 4977);
 
 // @baa 0x010f2480
-bool UFindStaticActorsRefsCommandlet::vf_004()
+UBOOL UFindStaticActorsRefsCommandlet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -6436,7 +6436,7 @@ bool UFindStaticActorsRefsCommandlet::vf_004()
 IMPLEMENT_CLASS_AT(UFindRenamedPrefabSequencesCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnPackageUtilities.cpp", 5092);
 
 // @baa 0x010f25d0
-bool UFindRenamedPrefabSequencesCommandlet::vf_004()
+UBOOL UFindRenamedPrefabSequencesCommandlet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00756fa0
-int ADebugCameraController::vf_000(void) { return 1; }
+UBOOL ADebugCameraController::HasUniqueStaticConfigName() const { return 1; }

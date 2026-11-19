@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00756d20
-int AKeypoint::vf_000(void) { return 1; }
+UBOOL AKeypoint::HasUniqueStaticConfigName() const { return 1; }

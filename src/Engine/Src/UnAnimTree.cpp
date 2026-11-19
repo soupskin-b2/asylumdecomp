@@ -17,40 +17,40 @@ int sub_00404d70(void)
 }
 
 // @baa 0x00c4b320
-int UAnimNode::vf_000(void) { return 1; }
+UBOOL UAnimNode::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c4b330
-int UAnimNodeBlendBase::vf_000(void) { return 1; }
+UBOOL UAnimNodeBlendBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c4b3e0
-int UAnimNodeMirror::vf_000(void) { return 1; }
+UBOOL UAnimNodeMirror::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c4b3f0
-int UAnimNodeBlendMultiBone::vf_000(void) { return 1; }
+UBOOL UAnimNodeBlendMultiBone::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c4b400
-int UAnimNodeAimOffset::vf_000(void) { return 1; }
+UBOOL UAnimNodeAimOffset::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c4b410
-int UAnimNodeSynch::vf_000(void) { return 1; }
+UBOOL UAnimNodeSynch::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c4b420
-int UAnimNodeScalePlayRate::vf_000(void) { return 1; }
+UBOOL UAnimNodeScalePlayRate::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c4b430
-int UAnimNodeScaleRateBySpeed::vf_000(void) { return 1; }
+UBOOL UAnimNodeScaleRateBySpeed::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c4b440
-int UAnimNodePlayCustomAnim::vf_000(void) { return 1; }
+UBOOL UAnimNodePlayCustomAnim::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c4b450
-int UAnimNodeSlot::vf_000(void) { return 1; }
+UBOOL UAnimNodeSlot::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c4b460
-int UAnimTree::vf_000(void) { return 1; }
+UBOOL UAnimTree::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c4b470
-int UAnimNodeAdditiveBlending::vf_000(void) { return 1; }
+UBOOL UAnimNodeAdditiveBlending::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c4b480
 void sub_00c4b480(void) {  }
@@ -1110,7 +1110,7 @@ IMPLEMENT_CLASS_AT(UAnimNodeSlot, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine
 // @baa 0x00c656a0
 // @baa 0x00c69780
 // @baa 0x00c69890
-bool UAnimNode::vf_004()
+UBOOL UAnimNode::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1459,7 +1459,7 @@ void C_00c74ed0::sub_00c74ed0(void)
 
 // @baa 0x00c76a10
 // @baa 0x00c76b20
-bool UAnimNodeBlendBase::vf_004()
+UBOOL UAnimNodeBlendBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1471,7 +1471,7 @@ C_00c76b60* C_00c76b60::sub_00c76b60(void) { return this; }
 
 // @baa 0x00c77e90
 // @baa 0x00c77fa0
-bool UAnimNodeMirror::vf_004()
+UBOOL UAnimNodeMirror::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1480,7 +1480,7 @@ bool UAnimNodeMirror::vf_004()
 IMPLEMENT_CLASS_AT(UAnimNodeBlendMultiBone, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTree.cpp", 24);
 
 // @baa 0x00c780f0
-bool UAnimNodeBlendMultiBone::vf_004()
+UBOOL UAnimNodeBlendMultiBone::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1489,7 +1489,7 @@ bool UAnimNodeBlendMultiBone::vf_004()
 IMPLEMENT_CLASS_AT(UAnimNodeAimOffset, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTree.cpp", 25);
 
 // @baa 0x00c78240
-bool UAnimNodeAimOffset::vf_004()
+UBOOL UAnimNodeAimOffset::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1498,21 +1498,21 @@ bool UAnimNodeAimOffset::vf_004()
 IMPLEMENT_CLASS_AT(UAnimNodeSynch, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTree.cpp", 26);
 
 // @baa 0x00c78390
-bool UAnimNodeSynch::vf_004()
+UBOOL UAnimNodeSynch::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c783d0
 // @baa 0x00c784e0
-bool UAnimNodeScalePlayRate::vf_004()
+UBOOL UAnimNodeScalePlayRate::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c78520
 // @baa 0x00c78630
-bool UAnimNodeSlot::vf_004()
+UBOOL UAnimNodeSlot::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1521,7 +1521,7 @@ bool UAnimNodeSlot::vf_004()
 IMPLEMENT_CLASS_AT(UAnimTree, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTree.cpp", 31);
 
 // @baa 0x00c78780
-bool UAnimTree::vf_004()
+UBOOL UAnimTree::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1653,7 +1653,7 @@ void* UAnimTree::vf_158() { return this; }
 // @baa 0x00c79450
 // @baa 0x00c7a280
 // @baa 0x00c7a390
-bool UAnimNodeAdditiveBlending::vf_004()
+UBOOL UAnimNodeAdditiveBlending::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

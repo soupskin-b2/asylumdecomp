@@ -7,10 +7,10 @@
 IMPLEMENT_CLASS_AT(UMakeCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UMakeCommandlet.cpp", 3095);
 
 // @baa 0x0105cfa0
-int UMakeCommandlet::vf_000(void) { return 1; }
+UBOOL UMakeCommandlet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0105cfb0
-bool UMakeCommandlet::vf_004()
+UBOOL UMakeCommandlet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

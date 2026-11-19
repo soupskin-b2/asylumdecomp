@@ -20,10 +20,10 @@ void C::sub_010149e0(void)
 IMPLEMENT_CLASS_AT(UDiffPackagesCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\DiffPackagesCommandlet.cpp", 1607);
 
 // @baa 0x01015da0
-int UDiffPackagesCommandlet::vf_000(void) { return 1; }
+UBOOL UDiffPackagesCommandlet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01015db0
-bool UDiffPackagesCommandlet::vf_004()
+UBOOL UDiffPackagesCommandlet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

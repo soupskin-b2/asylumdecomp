@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00756b40
-int UWallTransReachSpec::vf_000(void) { return 1; }
+UBOOL UWallTransReachSpec::HasUniqueStaticConfigName() const { return 1; }

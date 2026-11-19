@@ -1515,10 +1515,10 @@ bool C_00754ce0::sub_00754ce0(void)
 }
 
 // @baa 0x00754e60
-int UTexture2DDynamic::vf_000(void) { return 1; }
+UBOOL UTexture2DDynamic::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00754e70
-bool UTexture2DDynamic::vf_004()
+UBOOL UTexture2DDynamic::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1688,10 +1688,10 @@ C_00756200* C_00756200::sub_00756200()
 
 // @baa 0x00756210
 // @baa 0x00756320
-int UUberPostProcessEffect::vf_000(void) { return 1; }
+UBOOL UUberPostProcessEffect::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00756330
-bool UUberPostProcessEffect::vf_004()
+UBOOL UUberPostProcessEffect::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1752,50 +1752,50 @@ int sub_007566a0(void)
 
 // @baa 0x00756d90
 // @baa 0x00756ea0
-int USavedMove::vf_000(void) { return 1; }
+UBOOL USavedMove::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00756eb0
-bool USavedMove::vf_004()
+UBOOL USavedMove::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x007574e0
 // @baa 0x007575f0
-int UBookMark::vf_000(void) { return 1; }
+UBOOL UBookMark::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00757600
-bool UBookMark::vf_004()
+UBOOL UBookMark::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00757810
 // @baa 0x00757920
-int UMapInfo::vf_000(void) { return 1; }
+UBOOL UMapInfo::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00757930
-bool UMapInfo::vf_004()
+UBOOL UMapInfo::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x007579c0
 // @baa 0x00757ad0
-int UDestructibleDamageParameters::vf_000(void) { return 1; }
+UBOOL UDestructibleDamageParameters::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00757ae0
-bool UDestructibleDamageParameters::vf_004()
+UBOOL UDestructibleDamageParameters::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00757b30
 // @baa 0x00757c40
-int UMacroReachSpec::vf_000(void) { return 1; }
+UBOOL UMacroReachSpec::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00757c50
-bool UMacroReachSpec::vf_004()
+UBOOL UMacroReachSpec::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1830,7 +1830,7 @@ int ABrush::vf_2d0(void) { return 0; }
 
 int sub_006977f0(...);
 // @baa 0x00758860
-void AVolume::vf_09c(void)
+void AVolume::PostEditImport()
 {
     int param_1 = (int)this;
 

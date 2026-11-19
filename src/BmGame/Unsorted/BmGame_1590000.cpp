@@ -1174,103 +1174,103 @@ struct C_01594e20 { C_01594e20* sub_01594e20(int a0); };
 C_01594e20* C_01594e20::sub_01594e20(int a0) { return this; }
 
 // @baa 0x015967b0
-int URAnimNotify_Foley::vf_000(void) { return 1; }
+UBOOL URAnimNotify_Foley::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015967c0
-bool URAnimNotify_Foley::vf_004()
+UBOOL URAnimNotify_Foley::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01596960
 // @baa 0x01596a70
-int URAnimNotify_FootPassing::vf_000(void) { return 1; }
+UBOOL URAnimNotify_FootPassing::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01596a80
-bool URAnimNotify_FootPassing::vf_004()
+UBOOL URAnimNotify_FootPassing::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01596ac0
 // @baa 0x01596bd0
-int URAnimNotify_FootSyncIn::vf_000(void) { return 1; }
+UBOOL URAnimNotify_FootSyncIn::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01596be0
-bool URAnimNotify_FootSyncIn::vf_004()
+UBOOL URAnimNotify_FootSyncIn::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01596c20
 // @baa 0x01596d30
-int URAnimNotify_FootSyncOut::vf_000(void) { return 1; }
+UBOOL URAnimNotify_FootSyncOut::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01596d40
-bool URAnimNotify_FootSyncOut::vf_004()
+UBOOL URAnimNotify_FootSyncOut::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01596f90
 // @baa 0x015970a0
-int URAnimNotify_StrikeContact::vf_000(void) { return 1; }
+UBOOL URAnimNotify_StrikeContact::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015970b0
-bool URAnimNotify_StrikeContact::vf_004()
+UBOOL URAnimNotify_StrikeContact::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x015973b0
-int URAnimNotify_IdleOverlay::vf_000(void) { return 1; }
+UBOOL URAnimNotify_IdleOverlay::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015973c0
 // @baa 0x015974d0
-int URAnimNotify_Rumble::vf_000(void) { return 1; }
+UBOOL URAnimNotify_Rumble::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015974e0
-bool URAnimNotify_Rumble::vf_004()
+UBOOL URAnimNotify_Rumble::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01597680
 // @baa 0x01597790
-int URAnimNotify_PlayGadgetAnim::vf_000(void) { return 1; }
+UBOOL URAnimNotify_PlayGadgetAnim::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015977a0
-bool URAnimNotify_PlayGadgetAnim::vf_004()
+UBOOL URAnimNotify_PlayGadgetAnim::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x015977e0
 // @baa 0x015978f0
-int URAnimNotify_BeginFixGroup::vf_000(void) { return 1; }
+UBOOL URAnimNotify_BeginFixGroup::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01597900
-bool URAnimNotify_BeginFixGroup::vf_004()
+UBOOL URAnimNotify_BeginFixGroup::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01597940
 // @baa 0x01597a50
-int URAnimNotify_EndFixGroup::vf_000(void) { return 1; }
+UBOOL URAnimNotify_EndFixGroup::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01597a60
-bool URAnimNotify_EndFixGroup::vf_004()
+UBOOL URAnimNotify_EndFixGroup::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01597aa0
 // @baa 0x01597bb0
-int URAnimNotify_Emote::vf_000(void) { return 1; }
+UBOOL URAnimNotify_Emote::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01597bc0
-bool URAnimNotify_Emote::vf_004()
+UBOOL URAnimNotify_Emote::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1291,53 +1291,53 @@ void URAnimNotify_BeginFixGroup::vf_10c(UINT Context)
 
 // @baa 0x01597c60
 // @baa 0x01597d70
-int URAnimNotify_SpawnParticleFX::vf_000(void) { return 1; }
+UBOOL URAnimNotify_SpawnParticleFX::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01597d80
-bool URAnimNotify_SpawnParticleFX::vf_004()
+UBOOL URAnimNotify_SpawnParticleFX::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01597dc0
-int URAnimNotify_SpawnParticleFX_PCOnly::vf_000(void) { return 1; }
+UBOOL URAnimNotify_SpawnParticleFX_PCOnly::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01597dd0
 // @baa 0x01597ee0
-int URAnimUtil::vf_000(void) { return 1; }
+UBOOL URAnimUtil::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01597ef0
-bool URAnimUtil::vf_004()
+UBOOL URAnimUtil::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01599170
 // @baa 0x01599280
-int URAnimUtil_AdditiveAnimOutput::vf_000(void) { return 1; }
+UBOOL URAnimUtil_AdditiveAnimOutput::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01599290
-bool URAnimUtil_AdditiveAnimOutput::vf_004()
+UBOOL URAnimUtil_AdditiveAnimOutput::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x015992d0
 // @baa 0x015993e0
-int URAnimUtil_AimingOutput::vf_000(void) { return 1; }
+UBOOL URAnimUtil_AimingOutput::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015993f0
-bool URAnimUtil_AimingOutput::vf_004()
+UBOOL URAnimUtil_AimingOutput::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01599720
 // @baa 0x01599830
-int URAnimUtil_AnimAccumulator::vf_000(void) { return 1; }
+UBOOL URAnimUtil_AnimAccumulator::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01599840
-bool URAnimUtil_AnimAccumulator::vf_004()
+UBOOL URAnimUtil_AnimAccumulator::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

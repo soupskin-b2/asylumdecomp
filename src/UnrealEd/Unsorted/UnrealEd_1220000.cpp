@@ -275,10 +275,10 @@ void USoundNodeHelper::vf_10c(int a0, int a1) {  }
 
 // @baa 0x01221920
 // @baa 0x01221a30
-int USoundNodeHelper::vf_000(void) { return 1; }
+UBOOL USoundNodeHelper::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01221a40
-bool USoundNodeHelper::vf_004()
+UBOOL USoundNodeHelper::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

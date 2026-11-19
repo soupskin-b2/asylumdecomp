@@ -7,10 +7,10 @@
 IMPLEMENT_CLASS_AT(ARGlideKickCamera, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RGlideKickCamera.cpp", 6);
 
 // @baa 0x016aa9d0
-int ARGlideKickCamera::vf_000(void) { return 1; }
+UBOOL ARGlideKickCamera::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016aa9e0
-bool ARGlideKickCamera::vf_004()
+UBOOL ARGlideKickCamera::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

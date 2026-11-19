@@ -4,10 +4,10 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00d20060
-int USelection::vf_000(void) { return 1; }
+UBOOL USelection::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00d20070
-bool USelection::vf_004()
+UBOOL USelection::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

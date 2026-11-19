@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00756f10
-int APlayerReplicationInfo::vf_000(void) { return 1; }
+UBOOL APlayerReplicationInfo::HasUniqueStaticConfigName() const { return 1; }

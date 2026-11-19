@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x009d88f0
-bool UKMeshProps::vf_004()
+UBOOL UKMeshProps::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

@@ -94,7 +94,7 @@ int sub_013370d0(void) { return (int)g_026d7d44; }
 // @baa 0x01342f70
 
 // @baa 0x01343080
-bool UAnimNodeEditInfo_AimOffset::vf_004()
+UBOOL UAnimNodeEditInfo_AimOffset::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

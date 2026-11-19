@@ -360,10 +360,10 @@ void sub_006a93c0(undefined4 * param_1, undefined4 param_2, undefined4 param_3)
 IMPLEMENT_CLASS_AT(UDrawFrustumComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\DrawFrustumComponent.cpp", 9);
 
 // @baa 0x006a94f0
-int UDrawFrustumComponent::vf_000(void) { return 1; }
+UBOOL UDrawFrustumComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x006a9500
-bool UDrawFrustumComponent::vf_004()
+UBOOL UDrawFrustumComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

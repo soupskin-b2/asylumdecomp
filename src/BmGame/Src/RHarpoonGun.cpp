@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x0163a770
-int ARSpecialMoveInstance_HarpoonYank::vf_000(void) { return 1; }
+UBOOL ARSpecialMoveInstance_HarpoonYank::HasUniqueStaticConfigName() const { return 1; }
 
 void sub_004025d0(void*);
 struct D { void* p; ~D(){ if(0) sub_004025d0(p);} };
@@ -51,21 +51,21 @@ IMPLEMENT_CLASS_AT(ARHarpoonProjectile, "e:\\Projects\\Amadeus\\AA\\Game\\Unreal
 // @baa 0x016594d0
 // @baa 0x0165c110
 // @baa 0x0165c220
-bool ARSpecialMoveInstance_HarpoonYank::vf_004()
+UBOOL ARSpecialMoveInstance_HarpoonYank::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0163a600
-int ARHarpoonGun::vf_000(void) { return 1; }
+UBOOL ARHarpoonGun::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0163a610
 
 // @baa 0x0163a720
-int ARSpecialMoveInstance_HarpoonBase::vf_000(void) { return 1; }
+UBOOL ARSpecialMoveInstance_HarpoonBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0163a730
-bool ARSpecialMoveInstance_HarpoonBase::vf_004()
+UBOOL ARSpecialMoveInstance_HarpoonBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -73,24 +73,24 @@ bool ARSpecialMoveInstance_HarpoonBase::vf_004()
 // @baa 0x0163a780
 
 // @baa 0x0163a890
-int ARProjectileWithRope::vf_000(void) { return 1; }
+UBOOL ARProjectileWithRope::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0163a8a0
-bool ARProjectileWithRope::vf_004()
+UBOOL ARProjectileWithRope::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0163a8e0
-int ARHarpoonProjectile::vf_000(void) { return 1; }
+UBOOL ARHarpoonProjectile::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0163a8f0
 
 // @baa 0x0163aa00
-int ARBatclawBlockingVolume::vf_000(void) { return 1; }
+UBOOL ARBatclawBlockingVolume::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0163aa10
-bool ARBatclawBlockingVolume::vf_004()
+UBOOL ARBatclawBlockingVolume::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

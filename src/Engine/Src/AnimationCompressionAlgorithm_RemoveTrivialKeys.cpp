@@ -11,7 +11,7 @@ IMPLEMENT_CLASS_AT(UAnimationCompressionAlgorithm_RemoveTrivialKeys, "e:\\Projec
 // @baa 0x00c0f020
 
 // @baa 0x00c0f130
-bool UAnimationCompressionAlgorithm_RemoveTrivialKeys::vf_004()
+UBOOL UAnimationCompressionAlgorithm_RemoveTrivialKeys::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

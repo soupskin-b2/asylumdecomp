@@ -108,7 +108,7 @@ int sub_00c4a1e0(void)
 IMPLEMENT_CLASS_AT(UIniLocPatcher, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UIniLocPatcher.cpp", 9);
 
 // @baa 0x00c4a340
-bool UIniLocPatcher::vf_004()
+UBOOL UIniLocPatcher::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -119,79 +119,79 @@ struct C_00c4a380 { C_00c4a380* sub_00c4a380(int a0); };
 C_00c4a380* C_00c4a380::sub_00c4a380(int a0) { return this; }
 
 // @baa 0x00c4a890
-int UActorFactoryApexDestructible::vf_000(void) { return 1; }
+UBOOL UActorFactoryApexDestructible::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c4a8a0
-int UActorFactoryLight::vf_000(void) { return 1; }
+UBOOL UActorFactoryLight::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c4a8b0
-int UActorFactorySpotLight::vf_000(void) { return 1; }
+UBOOL UActorFactorySpotLight::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c4a8c0
-int UActorFactoryTrigger::vf_000(void) { return 1; }
+UBOOL UActorFactoryTrigger::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c4a8d0
-int UActorFactoryPathNode::vf_000(void) { return 1; }
+UBOOL UActorFactoryPathNode::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c4a8e0
-int UActorFactoryPhysicsAsset::vf_000(void) { return 1; }
+UBOOL UActorFactoryPhysicsAsset::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c4a8f0
-int UActorFactoryRigidBody::vf_000(void) { return 1; }
+UBOOL UActorFactoryRigidBody::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c4a900
-int UActorFactoryMover::vf_000(void) { return 1; }
+UBOOL UActorFactoryMover::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c4a910
-int UActorFactoryEmitter::vf_000(void) { return 1; }
+UBOOL UActorFactoryEmitter::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c4a920
-int UActorFactoryAI::vf_000(void) { return 1; }
+UBOOL UActorFactoryAI::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c4a930
-int UActorFactoryVehicle::vf_000(void) { return 1; }
+UBOOL UActorFactoryVehicle::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c4a940
-int UActorFactorySkeletalMesh::vf_000(void) { return 1; }
+UBOOL UActorFactorySkeletalMesh::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c4a950
-int UActorFactoryPlayerStart::vf_000(void) { return 1; }
+UBOOL UActorFactoryPlayerStart::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c4a960
-int UActorFactoryDynamicSM::vf_000(void) { return 1; }
+UBOOL UActorFactoryDynamicSM::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c4a970
-int UActorFactoryAmbientSound::vf_000(void) { return 1; }
+UBOOL UActorFactoryAmbientSound::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c4a980
-int UActorFactoryAmbientSoundMovable::vf_000(void) { return 1; }
+UBOOL UActorFactoryAmbientSoundMovable::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c4a990
-int UActorFactoryAmbientSoundSimple::vf_000(void) { return 1; }
+UBOOL UActorFactoryAmbientSoundSimple::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c4a9a0
-int UActorFactoryDecal::vf_000(void) { return 1; }
+UBOOL UActorFactoryDecal::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c4a9b0
-int UActorFactoryCoverLink::vf_000(void) { return 1; }
+UBOOL UActorFactoryCoverLink::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c4a9c0
-int UActorFactoryArchetype::vf_000(void) { return 1; }
+UBOOL UActorFactoryArchetype::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c4a9d0
-int UActorFactoryLensFlare::vf_000(void) { return 1; }
+UBOOL UActorFactoryLensFlare::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c4a9e0
-int UActorFactoryFogVolumeConstantDensityInfo::vf_000(void) { return 1; }
+UBOOL UActorFactoryFogVolumeConstantDensityInfo::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c4a9f0
-int UActorFactoryFogVolumeLinearHalfspaceDensityInfo::vf_000(void) { return 1; }
+UBOOL UActorFactoryFogVolumeLinearHalfspaceDensityInfo::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c4aa00
-int UActorFactoryFogVolumeSphericalDensityInfo::vf_000(void) { return 1; }
+UBOOL UActorFactoryFogVolumeSphericalDensityInfo::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c4aa10
-int UActorFactoryCloth::vf_000(void) { return 1; }
+UBOOL UActorFactoryCloth::HasUniqueStaticConfigName() const { return 1; }
 
 struct C_view {
     int sub_00572b30(int);
@@ -473,49 +473,49 @@ void sub_00c5a740(void) { sub_00c57600(); }
 IMPLEMENT_CLASS_AT(UActorFactoryApexDestructible, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActorFactory.cpp", 32);
 
 // @baa 0x00c65a80
-bool UActorFactoryApexDestructible::vf_004()
+UBOOL UActorFactoryApexDestructible::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c65ac0
 // @baa 0x00c65bd0
-bool UActorFactoryLight::vf_004()
+UBOOL UActorFactoryLight::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c65c10
 // @baa 0x00c65d20
-bool UActorFactorySpotLight::vf_004()
+UBOOL UActorFactorySpotLight::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c65d60
 // @baa 0x00c65e70
-bool UActorFactoryTrigger::vf_004()
+UBOOL UActorFactoryTrigger::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c65eb0
 // @baa 0x00c65fc0
-bool UActorFactoryPathNode::vf_004()
+UBOOL UActorFactoryPathNode::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c66000
 // @baa 0x00c66110
-bool UActorFactoryPhysicsAsset::vf_004()
+UBOOL UActorFactoryPhysicsAsset::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c66150
 // @baa 0x00c66260
-bool UActorFactoryEmitter::vf_004()
+UBOOL UActorFactoryEmitter::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -523,105 +523,105 @@ bool UActorFactoryEmitter::vf_004()
 // @baa 0x00c662a0
 // @baa 0x00c66360
 // @baa 0x00c66470
-bool UActorFactoryAI::vf_004()
+UBOOL UActorFactoryAI::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c664b0
 // @baa 0x00c665c0
-bool UActorFactoryVehicle::vf_004()
+UBOOL UActorFactoryVehicle::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c66600
 // @baa 0x00c66710
-bool UActorFactorySkeletalMesh::vf_004()
+UBOOL UActorFactorySkeletalMesh::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c66750
 // @baa 0x00c66860
-bool UActorFactoryPlayerStart::vf_004()
+UBOOL UActorFactoryPlayerStart::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c668a0
 // @baa 0x00c669b0
-bool UActorFactoryDynamicSM::vf_004()
+UBOOL UActorFactoryDynamicSM::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c669f0
 // @baa 0x00c66b00
-bool UActorFactoryAmbientSound::vf_004()
+UBOOL UActorFactoryAmbientSound::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c66b40
 // @baa 0x00c66c50
-bool UActorFactoryAmbientSoundMovable::vf_004()
+UBOOL UActorFactoryAmbientSoundMovable::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c66c90
 // @baa 0x00c66da0
-bool UActorFactoryAmbientSoundSimple::vf_004()
+UBOOL UActorFactoryAmbientSoundSimple::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c66de0
 // @baa 0x00c66ef0
-bool UActorFactoryDecal::vf_004()
+UBOOL UActorFactoryDecal::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c66f30
 // @baa 0x00c67040
-bool UActorFactoryCoverLink::vf_004()
+UBOOL UActorFactoryCoverLink::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c67080
 // @baa 0x00c67190
-bool UActorFactoryArchetype::vf_004()
+UBOOL UActorFactoryArchetype::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c671d0
 // @baa 0x00c672e0
-bool UActorFactoryLensFlare::vf_004()
+UBOOL UActorFactoryLensFlare::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c67320
 // @baa 0x00c67430
-bool UActorFactoryFogVolumeConstantDensityInfo::vf_004()
+UBOOL UActorFactoryFogVolumeConstantDensityInfo::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c67470
 // @baa 0x00c67580
-bool UActorFactoryFogVolumeLinearHalfspaceDensityInfo::vf_004()
+UBOOL UActorFactoryFogVolumeLinearHalfspaceDensityInfo::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c675c0
 // @baa 0x00c676d0
-bool UActorFactoryFogVolumeSphericalDensityInfo::vf_004()
+UBOOL UActorFactoryFogVolumeSphericalDensityInfo::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -643,16 +643,16 @@ INT __cdecl sub_00c4ac10(INT Value)
 // @baa 0x00c4a700
 
 // @baa 0x00c4a830
-bool UActorFactory::vf_004()
+UBOOL UActorFactory::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c4a870
-int UActorFactoryStaticMesh::vf_000(void) { return 1; }
+UBOOL UActorFactoryStaticMesh::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c4a880
-int UActorFactoryFracturedStaticMesh::vf_000(void) { return 1; }
+UBOOL UActorFactoryFracturedStaticMesh::HasUniqueStaticConfigName() const { return 1; }
 
 extern undefined * g_02057c20;
 // @baa 0x00c51340
@@ -912,7 +912,7 @@ AActor* UActorFactoryFogVolumeSphericalDensityInfo::CreateActor(const FVector* c
 // @baa 0x00c656d0
 
 // @baa 0x00c657e0
-bool UActorFactoryStaticMesh::vf_004()
+UBOOL UActorFactoryStaticMesh::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -920,7 +920,7 @@ bool UActorFactoryStaticMesh::vf_004()
 // @baa 0x00c65820
 
 // @baa 0x00c65930
-bool UActorFactoryFracturedStaticMesh::vf_004()
+UBOOL UActorFactoryFracturedStaticMesh::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -928,7 +928,7 @@ bool UActorFactoryFracturedStaticMesh::vf_004()
 // @baa 0x00c6b2b0
 
 // @baa 0x00c6b3c0
-bool UActorFactoryRigidBody::vf_004()
+UBOOL UActorFactoryRigidBody::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -936,7 +936,7 @@ bool UActorFactoryRigidBody::vf_004()
 // @baa 0x00c6b400
 
 // @baa 0x00c6b510
-bool UActorFactoryMover::vf_004()
+UBOOL UActorFactoryMover::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -944,7 +944,7 @@ bool UActorFactoryMover::vf_004()
 // @baa 0x00c6b550
 
 // @baa 0x00c6b660
-bool UActorFactoryCloth::vf_004()
+UBOOL UActorFactoryCloth::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -982,7 +982,7 @@ struct UObject_ : public UObject
 // @baa 0x00c4cf90
 /* Slot 0x14: on real (non-template) factories, defaults SkeletalMesh to the physics asset's
  * DefaultSkelMesh. */
-void UActorFactoryPhysicsAsset::vf_014()
+void UActorFactoryPhysicsAsset::PreSave()
 {
 	if (!((UObject_*)this)->IsTemplate())
 	{

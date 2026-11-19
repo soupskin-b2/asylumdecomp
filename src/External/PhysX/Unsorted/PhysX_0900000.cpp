@@ -4,16 +4,16 @@
 #include "ue3/Implement.h"
 
 // @baa 0x0090dac0
-int UWaveFormBase::vf_000(void) { return 1; }
+UBOOL UWaveFormBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0090dad0
-bool UWaveFormBase::vf_004()
+UBOOL UWaveFormBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0090db10
-int UAnimNotify_ForceField::vf_000(void) { return 1; }
+UBOOL UAnimNotify_ForceField::HasUniqueStaticConfigName() const { return 1; }
 
 struct C { C* sub_0090db90(void); };
 
@@ -90,10 +90,10 @@ void C_0090de70::sub_0090de70(void) { *(int*)((char*)this + 0) = (int)g_024088e4
 IMPLEMENT_CLASS_AT(USkeletalMeshComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSkeletalComponent.cpp", 74);
 
 // @baa 0x0090e0e0
-int USkeletalMeshComponent::vf_000(void) { return 1; }
+UBOOL USkeletalMeshComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0090e0f0
-bool USkeletalMeshComponent::vf_004()
+UBOOL USkeletalMeshComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

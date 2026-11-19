@@ -606,10 +606,10 @@ int sub_00864a30(void)
 IMPLEMENT_CLASS_AT(APathBlockingVolume, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPath.cpp", 15);
 
 // @baa 0x00864b70
-int APathBlockingVolume::vf_000(void) { return 1; }
+UBOOL APathBlockingVolume::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00864b80
-bool APathBlockingVolume::vf_004()
+UBOOL APathBlockingVolume::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -618,10 +618,10 @@ bool APathBlockingVolume::vf_004()
 IMPLEMENT_CLASS_AT(ARoute, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPath.cpp", 16);
 
 // @baa 0x00864cd0
-int ARoute::vf_000(void) { return 1; }
+UBOOL ARoute::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00864ce0
-bool ARoute::vf_004()
+UBOOL ARoute::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -646,7 +646,7 @@ void AScout::vf_480(void) {  }
 
 // @baa 0x00864e80
 // @baa 0x00864fb0
-bool APawn::vf_004()
+UBOOL APawn::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

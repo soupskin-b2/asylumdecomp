@@ -41,10 +41,10 @@ void sub_0103d910(S_0103d910 *p) { if (p) p->sub_0103c5e0(); }
 // @baa 0x01015df0
 
 // @baa 0x01015f00
-int UExportLocCommandlet::vf_000(void) { return 1; }
+UBOOL UExportLocCommandlet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01015f10
-bool UExportLocCommandlet::vf_004()
+UBOOL UExportLocCommandlet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

@@ -718,7 +718,7 @@ int sub_006ca170(void)
 }
 
 // @baa 0x006ca6a0
-bool UFogVolumeConeDensityComponent::vf_004()
+UBOOL UFogVolumeConeDensityComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

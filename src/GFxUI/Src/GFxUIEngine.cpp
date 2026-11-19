@@ -795,10 +795,10 @@ void Destroy(GFxFSCmdHandler_eventFSCommand_Parms* Parms)
 // @baa 0x00e43460
 
 // @baa 0x00e43570
-int UGFxEngine::vf_000(void) { return 1; }
+UBOOL UGFxEngine::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00e43580
-bool UGFxEngine::vf_004()
+UBOOL UGFxEngine::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

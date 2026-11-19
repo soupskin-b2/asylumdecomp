@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x007717e0
-bool UForcedReachSpec::vf_004()
+UBOOL UForcedReachSpec::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

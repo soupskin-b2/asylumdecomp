@@ -624,7 +624,7 @@ UBOOL URSeqAct_SetNeedsRescue::UpdateOp(FLOAT DeltaTime)
 const TCHAR* sub_0154b870();
 const TCHAR* sub_0053f6c0();
 // @baa 0x0154da90
-INT URHUDPrompt::vf_000()
+UBOOL URHUDPrompt::HasUniqueStaticConfigName() const
 {
     return sub_0154b870 == sub_0053f6c0;
 }

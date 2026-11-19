@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x007577d0
-int ADynamicBlockingVolume::vf_000(void) { return 1; }
+UBOOL ADynamicBlockingVolume::HasUniqueStaticConfigName() const { return 1; }

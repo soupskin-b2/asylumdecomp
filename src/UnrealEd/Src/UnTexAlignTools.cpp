@@ -63,10 +63,10 @@ void UTexAligner::vf_110(int a0, int a1, int a2, int a3, int a4) {  }
 // @baa 0x0129ee00
 
 // @baa 0x0129ef10
-int UTexAligner::vf_000(void) { return 1; }
+UBOOL UTexAligner::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0129ef20
-bool UTexAligner::vf_004()
+UBOOL UTexAligner::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00783050
-bool AAutoLadder::vf_004()
+UBOOL AAutoLadder::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

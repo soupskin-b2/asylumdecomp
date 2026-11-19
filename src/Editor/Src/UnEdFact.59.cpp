@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00f1cb90
-int ULensFlareFactoryNew::vf_000(void) { return 1; }
+UBOOL ULensFlareFactoryNew::HasUniqueStaticConfigName() const { return 1; }

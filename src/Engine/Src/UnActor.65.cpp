@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00756f20
-int AInternetInfo::vf_000(void) { return 1; }
+UBOOL AInternetInfo::HasUniqueStaticConfigName() const { return 1; }

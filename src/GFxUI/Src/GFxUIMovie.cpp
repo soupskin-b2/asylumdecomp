@@ -587,10 +587,10 @@ void C_00e43050::sub_00e43050(undefined4 param_2)
 
 // @baa 0x00e43100
 // @baa 0x00e43210
-int UGFxDataStoreSubscriber::vf_000(void) { return 1; }
+UBOOL UGFxDataStoreSubscriber::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00e43220
-bool UGFxDataStoreSubscriber::vf_004()
+UBOOL UGFxDataStoreSubscriber::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -603,10 +603,10 @@ UGFxMovie::UGFxMovie()
 
 IMPLEMENT_CLASS_AT(UGFxMovie, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\GFxUI\\Src\\GFxUIMovie.cpp", 40);
 // @baa 0x00e44c50
-int UGFxMovie::vf_000(void) { return 1; }
+UBOOL UGFxMovie::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00e44c60
-bool UGFxMovie::vf_004()
+UBOOL UGFxMovie::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -615,10 +615,10 @@ bool UGFxMovie::vf_004()
 IMPLEMENT_CLASS_AT(UGFxFSCmdHandler, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\GFxUI\\Src\\GFxUIMovie.cpp", 41);
 
 // @baa 0x00e44db0
-int UGFxFSCmdHandler::vf_000(void) { return 1; }
+UBOOL UGFxFSCmdHandler::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00e44dc0
-bool UGFxFSCmdHandler::vf_004()
+UBOOL UGFxFSCmdHandler::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -627,10 +627,10 @@ bool UGFxFSCmdHandler::vf_004()
 IMPLEMENT_CLASS_AT(UGFxMovieInfo, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\GFxUI\\Src\\GFxUIMovie.cpp", 42);
 
 // @baa 0x00e44f10
-int UGFxMovieInfo::vf_000(void) { return 1; }
+UBOOL UGFxMovieInfo::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00e44f20
-bool UGFxMovieInfo::vf_004()
+UBOOL UGFxMovieInfo::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

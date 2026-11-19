@@ -2221,7 +2221,7 @@ undefined4 C_0111a300::sub_0111a300(byte param_2)
 
 // @baa 0x0111a940
 // @baa 0x0111aa70
-bool UCurveEdOptions::vf_004()
+UBOOL UCurveEdOptions::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -2277,28 +2277,28 @@ void C_0111b190::sub_0111d8f0() {}
 
 // @baa 0x0111b1e0
 // @baa 0x0111b2f0
-int UCurveEdPresetBase::vf_000(void) { return 1; }
+UBOOL UCurveEdPresetBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0111b300
-bool UCurveEdPresetBase::vf_004()
+UBOOL UCurveEdPresetBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0111b340
-int UCurveEdPreset_CosWave::vf_000(void) { return 1; }
+UBOOL UCurveEdPreset_CosWave::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0111b350
-int UCurveEdPreset_LinearDecay::vf_000(void) { return 1; }
+UBOOL UCurveEdPreset_LinearDecay::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0111b360
-int UCurveEdPreset_Nothing::vf_000(void) { return 1; }
+UBOOL UCurveEdPreset_Nothing::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0111b370
-int UCurveEdPreset_SineWave::vf_000(void) { return 1; }
+UBOOL UCurveEdPreset_SineWave::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0111b380
-int UCurveEdPreset_UserSet::vf_000(void) { return 1; }
+UBOOL UCurveEdPreset_UserSet::HasUniqueStaticConfigName() const { return 1; }
 
 struct C_0111b390 {
     undefined4 sub_0111b390(byte);

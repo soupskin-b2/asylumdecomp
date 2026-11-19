@@ -1870,7 +1870,7 @@ void __stdcall sub_011c2a70(wxEvent* Event)
 }
 
 // @baa 0x011c4880
-bool UCustomPropertyItemBindings::vf_004()
+UBOOL UCustomPropertyItemBindings::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

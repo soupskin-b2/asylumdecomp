@@ -20,7 +20,7 @@ static __forceinline FDecalRenderData*& GetRenderData(FDecalReceiver& Receiver)
 
 // @baa 0x006986e0
 /* FinishDestroy */
-void UDecalComponent::vf_02c()
+void UDecalComponent::FinishDestroy()
 {
     // Free any decal receivers.
     for (INT ReceiverIndex = 0; ReceiverIndex < DecalReceivers.Num(); ReceiverIndex++)
@@ -37,5 +37,5 @@ void UDecalComponent::vf_02c()
     delete ReleaseResourcesFence;
     ReleaseResourcesFence = NULL;
 
-    Super::vf_02c();
+    Super::FinishDestroy();
 }

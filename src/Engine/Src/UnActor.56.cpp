@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00756d10
-int APlayerStart::vf_000(void) { return 1; }
+UBOOL APlayerStart::HasUniqueStaticConfigName() const { return 1; }

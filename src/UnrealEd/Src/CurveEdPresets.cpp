@@ -98,7 +98,7 @@ undefined4 * UObject::sub_011198b0(void)
 // @baa 0x01126470
 
 // @baa 0x01126580
-bool UCurveEdPreset_CosWave::vf_004()
+UBOOL UCurveEdPreset_CosWave::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -106,13 +106,13 @@ bool UCurveEdPreset_CosWave::vf_004()
 // @baa 0x011265c0
 
 // @baa 0x011266d0
-bool UCurveEdPreset_LinearDecay::vf_004()
+UBOOL UCurveEdPreset_LinearDecay::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01126820
-bool UCurveEdPreset_Nothing::vf_004()
+UBOOL UCurveEdPreset_Nothing::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -120,7 +120,7 @@ bool UCurveEdPreset_Nothing::vf_004()
 // @baa 0x01126860
 
 // @baa 0x01126970
-bool UCurveEdPreset_SineWave::vf_004()
+UBOOL UCurveEdPreset_SineWave::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -128,7 +128,7 @@ bool UCurveEdPreset_SineWave::vf_004()
 // @baa 0x011269b0
 
 // @baa 0x01126ac0
-bool UCurveEdPreset_UserSet::vf_004()
+UBOOL UCurveEdPreset_UserSet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

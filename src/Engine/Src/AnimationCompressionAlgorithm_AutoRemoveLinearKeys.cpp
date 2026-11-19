@@ -4,13 +4,13 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00bf8290
-int UAnimationCompressionAlgorithm_AutoRemoveLinearKeys::vf_000(void) { return 1; }
+UBOOL UAnimationCompressionAlgorithm_AutoRemoveLinearKeys::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c0adf0
 IMPLEMENT_CLASS_AT(UAnimationCompressionAlgorithm_AutoRemoveLinearKeys, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\AnimationCompressionAlgorithm_AutoRemoveLinearKeys.cpp", 13);
 
 // @baa 0x00c0af00
-bool UAnimationCompressionAlgorithm_AutoRemoveLinearKeys::vf_004()
+UBOOL UAnimationCompressionAlgorithm_AutoRemoveLinearKeys::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

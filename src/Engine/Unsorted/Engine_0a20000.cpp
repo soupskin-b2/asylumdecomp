@@ -242,14 +242,14 @@ int sub_00a27850(void)
 
 // @baa 0x00a29820
 // @baa 0x00a29930
-bool URB_ForceComponentCylindrical::vf_004()
+UBOOL URB_ForceComponentCylindrical::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00a29970
 // @baa 0x00a29a80
-bool URB_ForceComponentRadial::vf_004()
+UBOOL URB_ForceComponentRadial::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

@@ -7,10 +7,10 @@
 IMPLEMENT_CLASS_AT(UFaceFXAsset, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnFaceFXAsset.cpp", 15);
 
 // @baa 0x00becd70
-int UFaceFXAsset::vf_000(void) { return 1; }
+UBOOL UFaceFXAsset::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00becd80
-bool UFaceFXAsset::vf_004()
+UBOOL UFaceFXAsset::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

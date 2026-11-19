@@ -7,10 +7,10 @@
 IMPLEMENT_CLASS_AT(UTextureMovie, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\TextureMovie.cpp", 12);
 
 // @baa 0x00755730
-int UTextureMovie::vf_000(void) { return 1; }
+UBOOL UTextureMovie::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00755740
-bool UTextureMovie::vf_004()
+UBOOL UTextureMovie::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

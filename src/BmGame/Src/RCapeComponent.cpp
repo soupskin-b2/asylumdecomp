@@ -11,10 +11,10 @@ int sub_016ad8c0(void) { return (int)g_01ebc268; }
 IMPLEMENT_CLASS_AT(ARRagdollWakeupVolume, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RRagdollWakeupVolume.cpp", 8);
 
 // @baa 0x016ad9e0
-int ARRagdollWakeupVolume::vf_000(void) { return 1; }
+UBOOL ARRagdollWakeupVolume::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016ad9f0
-bool ARRagdollWakeupVolume::vf_004()
+UBOOL ARRagdollWakeupVolume::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -118,7 +118,7 @@ float C_016adc30::sub_016adc30(void) { return *(float*)((char*)this + 48); }
 IMPLEMENT_CLASS_AT(URCapeComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RCapeComponent.cpp", 18);
 
 // @baa 0x016ade90
-bool URCapeComponent::vf_004()
+UBOOL URCapeComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -627,10 +627,10 @@ INT C_016ae7f0::sub_016ae7f0()
 // @baa 0x016ae030
 
 // @baa 0x016ae140
-int URCapeStateConfig::vf_000(void) { return 1; }
+UBOOL URCapeStateConfig::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016ae150
-bool URCapeStateConfig::vf_004()
+UBOOL URCapeStateConfig::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -638,10 +638,10 @@ bool URCapeStateConfig::vf_004()
 // @baa 0x016ae190
 
 // @baa 0x016ae2a0
-int URCapeConfigFactoryNew::vf_000(void) { return 1; }
+UBOOL URCapeConfigFactoryNew::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016ae2b0
-bool URCapeConfigFactoryNew::vf_004()
+UBOOL URCapeConfigFactoryNew::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -649,10 +649,10 @@ bool URCapeConfigFactoryNew::vf_004()
 // @baa 0x016ae330
 
 // @baa 0x016ae440
-int URCapeStateConfigFactoryNew::vf_000(void) { return 1; }
+UBOOL URCapeStateConfigFactoryNew::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016ae450
-bool URCapeStateConfigFactoryNew::vf_004()
+UBOOL URCapeStateConfigFactoryNew::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

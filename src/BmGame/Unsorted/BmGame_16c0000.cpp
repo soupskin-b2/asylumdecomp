@@ -781,16 +781,16 @@ undefined4 * UObject::sub_016cdd70(void)
 
 // @baa 0x016cde10
 // @baa 0x016cdf40
-bool URCapeRenderingComponent::vf_004()
+UBOOL URCapeRenderingComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x016ce0d0
-int URCapeSkeletalMeshComponent::vf_000(void) { return 1; }
+UBOOL URCapeSkeletalMeshComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016ce0e0
-bool URCapeSkeletalMeshComponent::vf_004()
+UBOOL URCapeSkeletalMeshComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

@@ -903,10 +903,10 @@ void sub_006efb40();
 void sub_006aa300(void) { sub_006efb40(); }
 
 // @baa 0x006aa570
-int UDrawLightRadiusComponent::vf_000(void) { return 1; }
+UBOOL UDrawLightRadiusComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x006aa580
-bool UDrawLightRadiusComponent::vf_004()
+UBOOL UDrawLightRadiusComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1143,10 +1143,10 @@ int sub_006ab1f0(void)
 int sub_006ab220(int a0, int a1) { return a1; }
 
 // @baa 0x006ab340
-int AFogVolumeDensityInfo::vf_000(void) { return 1; }
+UBOOL AFogVolumeDensityInfo::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x006ab350
-bool AFogVolumeDensityInfo::vf_004()
+UBOOL AFogVolumeDensityInfo::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1185,28 +1185,28 @@ int C_006ab550::sub_006ab550(void)
 }
 
 // @baa 0x006ab560
-int AFogVolumeConstantDensityInfo::vf_000(void) { return 1; }
+UBOOL AFogVolumeConstantDensityInfo::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x006ab570
-int UFogVolumeConstantDensityComponent::vf_000(void) { return 1; }
+UBOOL UFogVolumeConstantDensityComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x006ab630
-int AFogVolumeLinearHalfspaceDensityInfo::vf_000(void) { return 1; }
+UBOOL AFogVolumeLinearHalfspaceDensityInfo::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x006ab640
-int UFogVolumeLinearHalfspaceDensityComponent::vf_000(void) { return 1; }
+UBOOL UFogVolumeLinearHalfspaceDensityComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x006ab7d0
-int AFogVolumeSphericalDensityInfo::vf_000(void) { return 1; }
+UBOOL AFogVolumeSphericalDensityInfo::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x006ab7e0
-int UFogVolumeSphericalDensityComponent::vf_000(void) { return 1; }
+UBOOL UFogVolumeSphericalDensityComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x006ab8f0
-int AFogVolumeConeDensityInfo::vf_000(void) { return 1; }
+UBOOL AFogVolumeConeDensityInfo::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x006ab900
-int UFogVolumeConeDensityComponent::vf_000(void) { return 1; }
+UBOOL UFogVolumeConeDensityComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x006abaa0
 int UFogVolumeConeDensityComponent::sub_006abaa0(void) { return *(int*)((char*)this + 8); }
@@ -1711,10 +1711,10 @@ uint sub_006accb0(int param_1)
 }
 
 // @baa 0x006ad6d0
-int ULightEnvironmentComponent::vf_000(void) { return 1; }
+UBOOL ULightEnvironmentComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x006ad6e0
-bool ULightEnvironmentComponent::vf_004()
+UBOOL ULightEnvironmentComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

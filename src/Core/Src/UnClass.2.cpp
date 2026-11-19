@@ -101,16 +101,16 @@ int UField::vf_110(void) { return 1; }
 IMPLEMENT_CLASS_AT(UField, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Core\\Src\\UnClass.cpp", 86);
 
 // @baa 0x00568120
-int UField::vf_000(void) { return 1; }
+UBOOL UField::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00568130
-bool UField::vf_004()
+UBOOL UField::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00568580
-int UConst::vf_000(void) { return 1; }
+UBOOL UConst::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0058aa40
 IMPLEMENT_CLASS_AT(UConst, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Core\\Src\\UnClass.cpp", 2357);

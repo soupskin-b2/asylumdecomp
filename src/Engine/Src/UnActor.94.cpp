@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x007574c0
-int ALiftCenter::vf_000(void) { return 1; }
+UBOOL ALiftCenter::HasUniqueStaticConfigName() const { return 1; }

@@ -96,10 +96,10 @@ IMPLEMENT_CLASS_AT(UEngine, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Dev
 // @baa 0x00cafe30
 
 // @baa 0x00caff40
-int UDebugManager::vf_000(void) { return 1; }
+UBOOL UDebugManager::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00caff50
-bool UDebugManager::vf_004()
+UBOOL UDebugManager::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -109,10 +109,10 @@ bool UDebugManager::vf_004()
 // @baa 0x00cb00f0
 
 // @baa 0x00cb0200
-int UObjectReferencer::vf_000(void) { return 1; }
+UBOOL UObjectReferencer::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00cb0210
-bool UObjectReferencer::vf_004()
+UBOOL UObjectReferencer::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

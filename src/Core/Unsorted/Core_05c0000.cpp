@@ -85,7 +85,7 @@ void sub_005c19d0(void) {  }
 void sub_005c19e0(void) {  }
 
 // @baa 0x005c19f0
-void UObject::vf_03c(void) {  }
+void UObject::ShutdownAfterError() {  }
 
 struct C_view {
     virtual void vf_000();

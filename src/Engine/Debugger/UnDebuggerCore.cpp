@@ -1355,7 +1355,7 @@ void sub_007f69d0(void) { sub_007f6030(); }
 UBOOL UNetPendingLevel::NotifySendingFile(class UNetConnection* Connection, const FGuid& GUID) { return FALSE; }
 
 // @baa 0x00e17500
-int UNetPendingLevel::vf_000(void) { return 1; }
+UBOOL UNetPendingLevel::HasUniqueStaticConfigName() const { return 1; }
 
 extern undefined4 g_0266e840;
 // @baa 0x00e17600
@@ -2896,7 +2896,7 @@ int UNetPendingLevel::sub_00e1f4b0(void)
 
 // @baa 0x00e200f0
 // @baa 0x00e20200
-bool UNetPendingLevel::vf_004()
+UBOOL UNetPendingLevel::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

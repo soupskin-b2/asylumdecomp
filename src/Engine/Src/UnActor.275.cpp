@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00784d10
-bool ALadderVolume::vf_004()
+UBOOL ALadderVolume::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

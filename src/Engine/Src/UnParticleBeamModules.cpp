@@ -7,10 +7,10 @@
 IMPLEMENT_CLASS_AT(UParticleModuleBeamBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnParticleBeamModules.cpp", 15);
 
 // @baa 0x00b50b30
-int UParticleModuleBeamBase::vf_000(void) { return 1; }
+UBOOL UParticleModuleBeamBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b50b40
-bool UParticleModuleBeamBase::vf_004()
+UBOOL UParticleModuleBeamBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -19,10 +19,10 @@ bool UParticleModuleBeamBase::vf_004()
 IMPLEMENT_CLASS_AT(UParticleModuleTypeDataBeam2, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnParticleBeamModules.cpp", 20);
 
 // @baa 0x00b50c90
-int UParticleModuleTypeDataBeam2::vf_000(void) { return 1; }
+UBOOL UParticleModuleTypeDataBeam2::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b50ca0
-bool UParticleModuleTypeDataBeam2::vf_004()
+UBOOL UParticleModuleTypeDataBeam2::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -34,7 +34,7 @@ void UParticleModuleTypeDataBeam2::vf_174(int a0, int a1, int a2) {  }
 void UParticleModuleTypeDataBeam2::vf_16c(void) {  }
 
 // @baa 0x00b50e10
-int UParticleModuleBeamModifier::vf_000(void) { return 1; }
+UBOOL UParticleModuleBeamModifier::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b50e20
 int UParticleModuleBeamModifier::vf_114(int a0) { return 32; }
@@ -52,7 +52,7 @@ void UParticleModuleBeamModifier::vf_134(int a0) {  }
 void UParticleModuleBeamModifier::vf_15c(int a0) {  }
 
 // @baa 0x00b50e70
-int UParticleModuleBeamNoise::vf_000(void) { return 1; }
+UBOOL UParticleModuleBeamNoise::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b50e80
 int UParticleModuleBeamNoise::vf_114(int a0) { return 0; }
@@ -143,7 +143,7 @@ undefined4 * UObject::sub_00b66ab0(void)
 // @baa 0x00b69dc0
 // @baa 0x00b69e80
 // @baa 0x00b69f90
-bool UParticleModuleBeamModifier::vf_004()
+UBOOL UParticleModuleBeamModifier::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -151,7 +151,7 @@ bool UParticleModuleBeamModifier::vf_004()
 // @baa 0x00b69fd0
 // @baa 0x00b6a090
 // @baa 0x00b6a1a0
-bool UParticleModuleBeamNoise::vf_004()
+UBOOL UParticleModuleBeamNoise::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -159,7 +159,7 @@ bool UParticleModuleBeamNoise::vf_004()
 // @baa 0x00b6a1e0
 // @baa 0x00b6a2a0
 // @baa 0x00b6a3b0
-bool UParticleModuleBeamSource::vf_004()
+UBOOL UParticleModuleBeamSource::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -167,13 +167,13 @@ bool UParticleModuleBeamSource::vf_004()
 // @baa 0x00b6a3f0
 
 // @baa 0x00b50f00
-int UParticleModuleBeamSource::vf_000(void) { return 1; }
+UBOOL UParticleModuleBeamSource::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b50f10
 void UParticleModuleBeamSource::vf_168(void) {  }
 
 // @baa 0x00b50fd0
-int UParticleModuleBeamTarget::vf_000(void) { return 1; }
+UBOOL UParticleModuleBeamTarget::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b50fe0
 int UParticleModuleBeamTarget::vf_114(int a0) { return 0; }
@@ -189,7 +189,7 @@ int UParticleModuleBeamBase::vf_130(void) { return 2; }
 // @baa 0x00b6a4b0
 
 // @baa 0x00b6a5c0
-bool UParticleModuleBeamTarget::vf_004()
+UBOOL UParticleModuleBeamTarget::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

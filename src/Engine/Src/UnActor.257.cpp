@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x007832f0
-bool ATriggerVolume::vf_004()
+UBOOL ATriggerVolume::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

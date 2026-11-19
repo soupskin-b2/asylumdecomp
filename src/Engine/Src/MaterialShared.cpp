@@ -796,10 +796,10 @@ void sub_006d8f50(S* p, INT Value)
 // @baa 0x006d8f70
 
 // @baa 0x006d9080
-int UMaterialInterface::vf_000(void) { return 1; }
+UBOOL UMaterialInterface::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x006d9090
-bool UMaterialInterface::vf_004()
+UBOOL UMaterialInterface::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -807,10 +807,10 @@ bool UMaterialInterface::vf_004()
 // @baa 0x006d90d0
 
 // @baa 0x006d91e0
-int AMaterialInstanceActor::vf_000(void) { return 1; }
+UBOOL AMaterialInstanceActor::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x006d91f0
-bool AMaterialInstanceActor::vf_004()
+UBOOL AMaterialInstanceActor::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

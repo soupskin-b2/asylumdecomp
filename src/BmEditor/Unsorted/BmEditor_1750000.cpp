@@ -4,19 +4,19 @@
 #include "ue3/Implement.h"
 
 // @baa 0x01758be0
-int UCheckMapsCommandlet::vf_000(void) { return 1; }
+UBOOL UCheckMapsCommandlet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01758bf0
-bool UCheckMapsCommandlet::vf_004()
+UBOOL UCheckMapsCommandlet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01758ea0
-int UChangeDashesToUnderscoresCommandlet::vf_000(void) { return 1; }
+UBOOL UChangeDashesToUnderscoresCommandlet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01758eb0
-bool UChangeDashesToUnderscoresCommandlet::vf_004()
+UBOOL UChangeDashesToUnderscoresCommandlet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -28,10 +28,10 @@ int URLevelTransitionRenderingComponent::vf_200(void) { return 1; }
 int URPlayerStartInLevelRenderingComponent::vf_200(void) { return 1; }
 
 // @baa 0x017592e0
-int URActorFactorySmashableProp::vf_000(void) { return 1; }
+UBOOL URActorFactorySmashableProp::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x017592f0
-bool URActorFactorySmashableProp::vf_004()
+UBOOL URActorFactorySmashableProp::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

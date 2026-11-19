@@ -7,10 +7,10 @@
 IMPLEMENT_CLASS_AT(ARSmashableProp, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RSmashableProp.cpp", 17);
 
 // @baa 0x0166aee0
-int ARSmashableProp::vf_000(void) { return 1; }
+UBOOL ARSmashableProp::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0166aef0
-bool ARSmashableProp::vf_004()
+UBOOL ARSmashableProp::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -19,10 +19,10 @@ bool ARSmashableProp::vf_004()
 IMPLEMENT_CLASS_AT(URSmashablePropConfig, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RSmashableProp.cpp", 18);
 
 // @baa 0x0166b040
-int URSmashablePropConfig::vf_000(void) { return 1; }
+UBOOL URSmashablePropConfig::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0166b050
-bool URSmashablePropConfig::vf_004()
+UBOOL URSmashablePropConfig::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -31,10 +31,10 @@ bool URSmashablePropConfig::vf_004()
 IMPLEMENT_CLASS_AT(URSmashablePropConfigFactoryNew, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RSmashableProp.cpp", 19);
 
 // @baa 0x0166b1a0
-int URSmashablePropConfigFactoryNew::vf_000(void) { return 1; }
+UBOOL URSmashablePropConfigFactoryNew::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0166b1b0
-bool URSmashablePropConfigFactoryNew::vf_004()
+UBOOL URSmashablePropConfigFactoryNew::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x007577c0
-int ADoorMarker::vf_000(void) { return 1; }
+UBOOL ADoorMarker::HasUniqueStaticConfigName() const { return 1; }

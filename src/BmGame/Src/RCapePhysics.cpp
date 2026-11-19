@@ -7,10 +7,10 @@
 IMPLEMENT_CLASS_AT(URCapeConfig, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RCapeComponent.cpp", 20);
 
 // @baa 0x016adfe0
-int URCapeConfig::vf_000(void) { return 1; }
+UBOOL URCapeConfig::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016adff0
-bool URCapeConfig::vf_004()
+UBOOL URCapeConfig::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

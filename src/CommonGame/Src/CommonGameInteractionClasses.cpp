@@ -7,10 +7,10 @@
 IMPLEMENT_CLASS_AT(URInteractionManager, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonGame\\Src\\CommonGameInteractionClasses.cpp", 6);
 
 // @baa 0x0153b5a0
-int URInteractionManager::vf_000(void) { return 1; }
+UBOOL URInteractionManager::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0153b5b0
-bool URInteractionManager::vf_004()
+UBOOL URInteractionManager::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

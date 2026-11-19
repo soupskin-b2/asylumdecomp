@@ -184,7 +184,7 @@ int C_0053d5b0::v32() { return 0; }
 
 int C_0053d5b0::v33() { return 0; }
 
-INT UDistributionFloat::vf_08c() { return 0; }
+UBOOL UDistributionFloat::NeedsLoadForServer() const { return 0; }
 
 // @baa 0x0053d5b0
 int C_0053d5b0::sub_0053d5b0() { return sub_00546de0(); }
@@ -315,7 +315,7 @@ int C_0053d670::v32() { return 0; }
 
 int C_0053d670::v33() { return 0; }
 
-INT UDistributionVector::vf_08c() { return 0; }
+UBOOL UDistributionVector::NeedsLoadForServer() const { return 0; }
 
 // @baa 0x0053d670
 int C_0053d670::sub_0053d670() { return sub_00546de0(); }

@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00782c60
-bool ADebugCameraController::vf_004()
+UBOOL ADebugCameraController::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

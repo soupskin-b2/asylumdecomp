@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00f1f250
-int UReimportStaticMeshFactory::vf_000(void) { return 1; }
+UBOOL UReimportStaticMeshFactory::HasUniqueStaticConfigName() const { return 1; }

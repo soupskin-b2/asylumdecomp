@@ -8,37 +8,37 @@ IMPLEMENT_CLASS_AT(UStaticMeshComponent, "e:\\Projects\\Amadeus\\AA\\Game\\Unrea
 
 // @baa 0x006dadc0
 // @baa 0x006dae80
-int UStaticMeshComponent::vf_000(void) { return 1; }
+UBOOL UStaticMeshComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x006dae90
-int UCylinderComponent::vf_000(void) { return 1; }
+UBOOL UCylinderComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x006daea0
-int UArrowComponent::vf_000(void) { return 1; }
+UBOOL UArrowComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x006daeb0
-int UDrawSphereComponent::vf_000(void) { return 1; }
+UBOOL UDrawSphereComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x006daec0
-int UDrawConeComponent::vf_000(void) { return 1; }
+UBOOL UDrawConeComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x006daed0
-int UDrawLightConeComponent::vf_000(void) { return 1; }
+UBOOL UDrawLightConeComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x006daee0
-int UCameraConeComponent::vf_000(void) { return 1; }
+UBOOL UCameraConeComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x006daef0
-int UDrawQuadComponent::vf_000(void) { return 1; }
+UBOOL UDrawQuadComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x006daf00
-int UDrawCylinderComponent::vf_000(void) { return 1; }
+UBOOL UDrawCylinderComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x006daf10
-int UDrawBoxComponent::vf_000(void) { return 1; }
+UBOOL UDrawBoxComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x006daf20
-int UDrawCapsuleComponent::vf_000(void) { return 1; }
+UBOOL UDrawCapsuleComponent::HasUniqueStaticConfigName() const { return 1; }
 
 struct C {
     undefined4 sub_006daf30(byte);
@@ -692,7 +692,7 @@ undefined4 C_006fc590::sub_006fc590(byte param_2)
 // @baa 0x006fc5b0
 // @baa 0x006fc670
 // @baa 0x006fc780
-bool UMeshComponent::vf_004()
+UBOOL UMeshComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -700,7 +700,7 @@ bool UMeshComponent::vf_004()
 // @baa 0x006fc7c0
 // @baa 0x006fc880
 // @baa 0x006fc990
-bool UCylinderComponent::vf_004()
+UBOOL UCylinderComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -708,7 +708,7 @@ bool UCylinderComponent::vf_004()
 // @baa 0x006fc9d0
 // @baa 0x006fca90
 // @baa 0x006fcba0
-bool UArrowComponent::vf_004()
+UBOOL UArrowComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -716,7 +716,7 @@ bool UArrowComponent::vf_004()
 // @baa 0x006fcbe0
 // @baa 0x006fcca0
 // @baa 0x006fcdb0
-bool UDrawSphereComponent::vf_004()
+UBOOL UDrawSphereComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -724,7 +724,7 @@ bool UDrawSphereComponent::vf_004()
 // @baa 0x006fcdf0
 // @baa 0x006fceb0
 // @baa 0x006fcfc0
-bool UDrawConeComponent::vf_004()
+UBOOL UDrawConeComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -733,7 +733,7 @@ bool UDrawConeComponent::vf_004()
 // @baa 0x006fd0c0
 // @baa 0x006fd180
 // @baa 0x006fd290
-bool UCameraConeComponent::vf_004()
+UBOOL UCameraConeComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -741,7 +741,7 @@ bool UCameraConeComponent::vf_004()
 // @baa 0x006fd2d0
 // @baa 0x006fd390
 // @baa 0x006fd4a0
-bool UDrawQuadComponent::vf_004()
+UBOOL UDrawQuadComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -749,7 +749,7 @@ bool UDrawQuadComponent::vf_004()
 // @baa 0x006fd4e0
 // @baa 0x006fd5a0
 // @baa 0x006fd6b0
-bool UDrawCylinderComponent::vf_004()
+UBOOL UDrawCylinderComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -757,7 +757,7 @@ bool UDrawCylinderComponent::vf_004()
 // @baa 0x006fd6f0
 // @baa 0x006fd7b0
 // @baa 0x006fd8c0
-bool UDrawBoxComponent::vf_004()
+UBOOL UDrawBoxComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

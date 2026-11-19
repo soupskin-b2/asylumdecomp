@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00f1f9a0
-int USpeedTreeFactory::vf_000(void) { return 1; }
+UBOOL USpeedTreeFactory::HasUniqueStaticConfigName() const { return 1; }

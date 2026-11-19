@@ -13,10 +13,10 @@ IMPLEMENT_CLASS_AT(UForceFeedbackWaveform, "e:\\Projects\\Amadeus\\AA\\Game\\Unr
 // @baa 0x007a4b50
 
 // @baa 0x007a4c60
-int UForceFeedbackManager::vf_000(void) { return 1; }
+UBOOL UForceFeedbackManager::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x007a4c70
-bool UForceFeedbackManager::vf_004()
+UBOOL UForceFeedbackManager::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

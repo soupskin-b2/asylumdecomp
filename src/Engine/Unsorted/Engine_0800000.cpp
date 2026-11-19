@@ -353,10 +353,10 @@ int sub_00804280(void)
 
 // @baa 0x008042b0
 // @baa 0x008043c0
-int UMaterialEffect::vf_000(void) { return 1; }
+UBOOL UMaterialEffect::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008043d0
-bool UMaterialEffect::vf_004()
+UBOOL UMaterialEffect::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -410,10 +410,10 @@ void sub_00804b50(void) {  }
 void sub_00804e60(void) {  }
 
 // @baa 0x00804f80
-int UModelComponent::vf_000(void) { return 1; }
+UBOOL UModelComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00804f90
-bool UModelComponent::vf_004()
+UBOOL UModelComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -2753,7 +2753,7 @@ undefined4 ULensFlare::sub_0080ad10(byte param_2)
 }
 
 // @baa 0x0080c7f0
-void APointLight::vf_09c(void) {  }
+void APointLight::PostEditImport() {  }
 
 struct C_0080cac0 { int sub_0080cac0(void); };
 

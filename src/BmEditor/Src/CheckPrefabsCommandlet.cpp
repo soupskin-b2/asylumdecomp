@@ -7,10 +7,10 @@
 IMPLEMENT_CLASS_AT(UCheckPrefabsCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmEditor\\Src\\CheckPrefabsCommandlet.cpp", 17);
 
 // @baa 0x01758d40
-int UCheckPrefabsCommandlet::vf_000(void) { return 1; }
+UBOOL UCheckPrefabsCommandlet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01758d50
-bool UCheckPrefabsCommandlet::vf_004()
+UBOOL UCheckPrefabsCommandlet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

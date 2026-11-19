@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00f1ca30
-int UFonixFactory::vf_000(void) { return 1; }
+UBOOL UFonixFactory::HasUniqueStaticConfigName() const { return 1; }

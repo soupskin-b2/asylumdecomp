@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00756b10
-int UMantleReachSpec::vf_000(void) { return 1; }
+UBOOL UMantleReachSpec::HasUniqueStaticConfigName() const { return 1; }

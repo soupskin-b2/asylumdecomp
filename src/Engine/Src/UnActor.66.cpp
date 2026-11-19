@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00756f50
-int ADroppedPickup::vf_000(void) { return 1; }
+UBOOL ADroppedPickup::HasUniqueStaticConfigName() const { return 1; }

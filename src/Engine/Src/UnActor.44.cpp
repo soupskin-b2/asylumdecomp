@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00756b20
-int USwatTurnReachSpec::vf_000(void) { return 1; }
+UBOOL USwatTurnReachSpec::HasUniqueStaticConfigName() const { return 1; }

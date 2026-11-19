@@ -41,10 +41,10 @@ undefined4 * UObject::sub_01534ca0(void)
 IMPLEMENT_CLASS_AT(URScriptConversationFactoryNew, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonGame\\Src\\CommonGameClasses.cpp", 40);
 
 // @baa 0x0150f120
-int URScriptConversationFactoryNew::vf_000(void) { return 1; }
+UBOOL URScriptConversationFactoryNew::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0150f130
-bool URScriptConversationFactoryNew::vf_004()
+UBOOL URScriptConversationFactoryNew::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

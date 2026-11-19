@@ -191,7 +191,7 @@ C_00cf11d0* C_00cf11d0::sub_00cf11d0(void) { return this; }
 IMPLEMENT_CLASS_AT(UInterpTrackInstProperty, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnInterpolation.cpp", 36);
 
 // @baa 0x00cf13e0
-bool UInterpTrackInstProperty::vf_004()
+UBOOL UInterpTrackInstProperty::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -200,7 +200,7 @@ bool UInterpTrackInstProperty::vf_004()
 IMPLEMENT_CLASS_AT(UInterpTrackInstMove, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnInterpolation.cpp", 39);
 
 // @baa 0x00cf1530
-bool UInterpTrackInstMove::vf_004()
+UBOOL UInterpTrackInstMove::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -209,7 +209,7 @@ bool UInterpTrackInstMove::vf_004()
 IMPLEMENT_CLASS_AT(UInterpTrackInstToggle, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnInterpolation.cpp", 42);
 
 // @baa 0x00cf1680
-bool UInterpTrackInstToggle::vf_004()
+UBOOL UInterpTrackInstToggle::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -218,7 +218,7 @@ bool UInterpTrackInstToggle::vf_004()
 IMPLEMENT_CLASS_AT(UInterpTrackInstEvent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnInterpolation.cpp", 57);
 
 // @baa 0x00cf17d0
-bool UInterpTrackInstEvent::vf_004()
+UBOOL UInterpTrackInstEvent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -227,7 +227,7 @@ bool UInterpTrackInstEvent::vf_004()
 IMPLEMENT_CLASS_AT(UInterpTrackInstDirector, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnInterpolation.cpp", 60);
 
 // @baa 0x00cf1920
-bool UInterpTrackInstDirector::vf_004()
+UBOOL UInterpTrackInstDirector::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -236,7 +236,7 @@ bool UInterpTrackInstDirector::vf_004()
 IMPLEMENT_CLASS_AT(UInterpTrackInstFade, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnInterpolation.cpp", 63);
 
 // @baa 0x00cf1a70
-bool UInterpTrackInstFade::vf_004()
+UBOOL UInterpTrackInstFade::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -245,7 +245,7 @@ bool UInterpTrackInstFade::vf_004()
 IMPLEMENT_CLASS_AT(UInterpTrackInstSlomo, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnInterpolation.cpp", 66);
 
 // @baa 0x00cf1bc0
-bool UInterpTrackInstSlomo::vf_004()
+UBOOL UInterpTrackInstSlomo::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -254,7 +254,7 @@ bool UInterpTrackInstSlomo::vf_004()
 IMPLEMENT_CLASS_AT(UInterpTrackInstAnimControl, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnInterpolation.cpp", 69);
 
 // @baa 0x00cf1d10
-bool UInterpTrackInstAnimControl::vf_004()
+UBOOL UInterpTrackInstAnimControl::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -263,7 +263,7 @@ bool UInterpTrackInstAnimControl::vf_004()
 IMPLEMENT_CLASS_AT(UInterpTrackInstSound, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnInterpolation.cpp", 72);
 
 // @baa 0x00cf1e60
-bool UInterpTrackInstSound::vf_004()
+UBOOL UInterpTrackInstSound::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -272,7 +272,7 @@ bool UInterpTrackInstSound::vf_004()
 IMPLEMENT_CLASS_AT(UInterpTrackInstFloatParticleParam, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnInterpolation.cpp", 75);
 
 // @baa 0x00cf1fb0
-bool UInterpTrackInstFloatParticleParam::vf_004()
+UBOOL UInterpTrackInstFloatParticleParam::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -281,7 +281,7 @@ bool UInterpTrackInstFloatParticleParam::vf_004()
 IMPLEMENT_CLASS_AT(UInterpTrackInstFloatMaterialParam, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnInterpolation.cpp", 78);
 
 // @baa 0x00cf2100
-bool UInterpTrackInstFloatMaterialParam::vf_004()
+UBOOL UInterpTrackInstFloatMaterialParam::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -290,7 +290,7 @@ bool UInterpTrackInstFloatMaterialParam::vf_004()
 IMPLEMENT_CLASS_AT(UInterpTrackInstVectorMaterialParam, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnInterpolation.cpp", 81);
 
 // @baa 0x00cf2250
-bool UInterpTrackInstVectorMaterialParam::vf_004()
+UBOOL UInterpTrackInstVectorMaterialParam::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -299,7 +299,7 @@ bool UInterpTrackInstVectorMaterialParam::vf_004()
 IMPLEMENT_CLASS_AT(UInterpTrackInstColorScale, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnInterpolation.cpp", 84);
 
 // @baa 0x00cf23a0
-bool UInterpTrackInstColorScale::vf_004()
+UBOOL UInterpTrackInstColorScale::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -308,7 +308,7 @@ bool UInterpTrackInstColorScale::vf_004()
 IMPLEMENT_CLASS_AT(UInterpTrackInstFaceFX, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnInterpolation.cpp", 87);
 
 // @baa 0x00cf24f0
-bool UInterpTrackInstFaceFX::vf_004()
+UBOOL UInterpTrackInstFaceFX::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -317,7 +317,7 @@ bool UInterpTrackInstFaceFX::vf_004()
 IMPLEMENT_CLASS_AT(UInterpTrackInstFaceFXRegister, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnInterpolation.cpp", 91);
 
 // @baa 0x00cf2640
-bool UInterpTrackInstFaceFXRegister::vf_004()
+UBOOL UInterpTrackInstFaceFXRegister::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -326,7 +326,7 @@ bool UInterpTrackInstFaceFXRegister::vf_004()
 IMPLEMENT_CLASS_AT(UInterpTrackInstMorphWeight, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnInterpolation.cpp", 94);
 
 // @baa 0x00cf2790
-bool UInterpTrackInstMorphWeight::vf_004()
+UBOOL UInterpTrackInstMorphWeight::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -335,7 +335,7 @@ bool UInterpTrackInstMorphWeight::vf_004()
 IMPLEMENT_CLASS_AT(UInterpTrackInstSkelControlScale, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnInterpolation.cpp", 97);
 
 // @baa 0x00cf28e0
-bool UInterpTrackInstSkelControlScale::vf_004()
+UBOOL UInterpTrackInstSkelControlScale::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -344,7 +344,7 @@ bool UInterpTrackInstSkelControlScale::vf_004()
 IMPLEMENT_CLASS_AT(UInterpTrackInstSoundFade, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnInterpolation.cpp", 101);
 
 // @baa 0x00cf2a30
-bool UInterpTrackInstSoundFade::vf_004()
+UBOOL UInterpTrackInstSoundFade::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -353,7 +353,7 @@ bool UInterpTrackInstSoundFade::vf_004()
 IMPLEMENT_CLASS_AT(UInterpTrackInstAudioMaster, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnInterpolation.cpp", 104);
 
 // @baa 0x00cf2b80
-bool UInterpTrackInstAudioMaster::vf_004()
+UBOOL UInterpTrackInstAudioMaster::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -362,7 +362,7 @@ bool UInterpTrackInstAudioMaster::vf_004()
 IMPLEMENT_CLASS_AT(UInterpTrackInstVisibility, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnInterpolation.cpp", 107);
 
 // @baa 0x00cf2cd0
-bool UInterpTrackInstVisibility::vf_004()
+UBOOL UInterpTrackInstVisibility::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -371,7 +371,7 @@ bool UInterpTrackInstVisibility::vf_004()
 IMPLEMENT_CLASS_AT(UInterpTrackInstParticleReplay, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnInterpolation.cpp", 110);
 
 // @baa 0x00cf2e20
-bool UInterpTrackInstParticleReplay::vf_004()
+UBOOL UInterpTrackInstParticleReplay::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -480,7 +480,7 @@ void sub_00cf8e00(void) { sub_00cf7900(); }
 IMPLEMENT_CLASS_AT(UInterpTrackInstFloatProp, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnInterpolation.cpp", 48);
 
 // @baa 0x00cfa590
-bool UInterpTrackInstFloatProp::vf_004()
+UBOOL UInterpTrackInstFloatProp::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -489,7 +489,7 @@ bool UInterpTrackInstFloatProp::vf_004()
 IMPLEMENT_CLASS_AT(UInterpTrackInstVectorProp, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnInterpolation.cpp", 51);
 
 // @baa 0x00cfa6e0
-bool UInterpTrackInstVectorProp::vf_004()
+UBOOL UInterpTrackInstVectorProp::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -498,7 +498,7 @@ bool UInterpTrackInstVectorProp::vf_004()
 IMPLEMENT_CLASS_AT(UInterpTrackInstColorProp, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnInterpolation.cpp", 54);
 
 // @baa 0x00cfa830
-bool UInterpTrackInstColorProp::vf_004()
+UBOOL UInterpTrackInstColorProp::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

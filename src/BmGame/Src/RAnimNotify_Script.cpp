@@ -109,10 +109,10 @@ undefined4 * UObject::sub_01593850(void)
 // @baa 0x01596e30
 
 // @baa 0x01596f40
-int URAnimNotify_Script::vf_000(void) { return 1; }
+UBOOL URAnimNotify_Script::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01596f50
-bool URAnimNotify_Script::vf_004()
+UBOOL URAnimNotify_Script::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -120,10 +120,10 @@ bool URAnimNotify_Script::vf_004()
 // @baa 0x015970f0
 
 // @baa 0x01597200
-int URAnimNotify_CounterHit::vf_000(void) { return 1; }
+UBOOL URAnimNotify_CounterHit::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01597210
-bool URAnimNotify_CounterHit::vf_004()
+UBOOL URAnimNotify_CounterHit::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -131,10 +131,10 @@ bool URAnimNotify_CounterHit::vf_004()
 // @baa 0x01597250
 
 // @baa 0x01597360
-int URAnimNotify_Takedown::vf_000(void) { return 1; }
+UBOOL URAnimNotify_Takedown::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01597370
-bool URAnimNotify_Takedown::vf_004()
+UBOOL URAnimNotify_Takedown::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -142,10 +142,10 @@ bool URAnimNotify_Takedown::vf_004()
 // @baa 0x01597520
 
 // @baa 0x01597630
-int URAnimNotify_Camera::vf_000(void) { return 1; }
+UBOOL URAnimNotify_Camera::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01597640
-bool URAnimNotify_Camera::vf_004()
+UBOOL URAnimNotify_Camera::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -153,7 +153,7 @@ bool URAnimNotify_Camera::vf_004()
 // @baa 0x015a42a0
 
 // @baa 0x015a43b0
-bool URAnimNotify_IdleOverlay::vf_004()
+UBOOL URAnimNotify_IdleOverlay::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

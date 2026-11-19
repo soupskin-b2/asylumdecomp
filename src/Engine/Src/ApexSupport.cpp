@@ -7,34 +7,34 @@
 IMPLEMENT_CLASS_AT(UApexAsset, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\ApexSupport.cpp", 44);
 
 // @baa 0x009d7150
-int UApexAsset::vf_000(void) { return 1; }
+UBOOL UApexAsset::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x009d7160
-bool UApexAsset::vf_004()
+UBOOL UApexAsset::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x009d71b0
-int UApexDestructibleAsset::vf_000(void) { return 1; }
+UBOOL UApexDestructibleAsset::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x009d7210
-int UApexRenderMeshAsset::vf_000(void) { return 1; }
+UBOOL UApexRenderMeshAsset::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x009d7240
-int UApexParticleSystemAsset::vf_000(void) { return 1; }
+UBOOL UApexParticleSystemAsset::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x009d7290
-int UApexMeshParticleFactoryAsset::vf_000(void) { return 1; }
+UBOOL UApexMeshParticleFactoryAsset::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x009d72e0
 IMPLEMENT_CLASS_AT(UApexComponentBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\ApexSupport.cpp", 1218);
 
 // @baa 0x009d73f0
-int UApexComponentBase::vf_000(void) { return 1; }
+UBOOL UApexComponentBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x009d7400
-bool UApexComponentBase::vf_004()
+UBOOL UApexComponentBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -49,13 +49,13 @@ void UApexComponentBase::TermComponentRBPhys(FRBPhysScene* a0) {  }
 void __stdcall sub_009d74f0(int a0) {  }
 
 // @baa 0x009d7530
-int UApexStaticComponent::vf_000(void) { return 1; }
+UBOOL UApexStaticComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x009d7560
-int UApexDynamicComponent::vf_000(void) { return 1; }
+UBOOL UApexDynamicComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x009d7570
-int UApexStaticDestructibleComponent::vf_000(void) { return 1; }
+UBOOL UApexStaticDestructibleComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x009d7580
 void sub_009d7580(void) {  }
@@ -1080,28 +1080,28 @@ void APhysXEmitterSpawnable_::sub_009edd80()
 
 // @baa 0x009eddb0
 // @baa 0x009edec0
-bool UApexDestructibleAsset::vf_004()
+UBOOL UApexDestructibleAsset::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x009ee310
 // @baa 0x009ee420
-bool UApexRenderMeshAsset::vf_004()
+UBOOL UApexRenderMeshAsset::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x009ee5a0
 // @baa 0x009ee6b0
-bool UApexParticleSystemAsset::vf_004()
+UBOOL UApexParticleSystemAsset::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x009ee820
 // @baa 0x009ee930
-bool UApexMeshParticleFactoryAsset::vf_004()
+UBOOL UApexMeshParticleFactoryAsset::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1119,7 +1119,7 @@ IMPLEMENT_CLASS_AT(APhysXEmitterSpawnable, "e:\\Projects\\Amadeus\\AA\\Game\\Unr
 // @baa 0x009f1cc0
 // @baa 0x009f2390
 // @baa 0x009f24a0
-bool UApexStaticDestructibleComponent::vf_004()
+UBOOL UApexStaticDestructibleComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1129,10 +1129,10 @@ bool UApexStaticDestructibleComponent::vf_004()
 // @baa 0x009d6ee0
 
 // @baa 0x009d6ff0
-int APhysXEmitterSpawnable::vf_000(void) { return 1; }
+UBOOL APhysXEmitterSpawnable::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x009d7000
-bool APhysXEmitterSpawnable::vf_004()
+UBOOL APhysXEmitterSpawnable::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1301,10 +1301,10 @@ void V_009d7690::sub_009d7690() { g(0); }
 // @baa 0x009d76a0
 
 // @baa 0x009d77b0
-int AApexDestructibleActor::vf_000(void) { return 1; }
+UBOOL AApexDestructibleActor::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x009d77c0
-bool AApexDestructibleActor::vf_004()
+UBOOL AApexDestructibleActor::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1341,7 +1341,7 @@ undefined4 * ULensFlare::sub_009dd100(byte param_2)
 }
 
 // @baa 0x009f08c0
-bool UApexStaticComponent::vf_004()
+UBOOL UApexStaticComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1349,7 +1349,7 @@ bool UApexStaticComponent::vf_004()
 // @baa 0x009f0900
 
 // @baa 0x009f0a10
-bool UApexDynamicComponent::vf_004()
+UBOOL UApexDynamicComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

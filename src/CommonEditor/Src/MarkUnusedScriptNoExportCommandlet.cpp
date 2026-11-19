@@ -11,10 +11,10 @@ IMPLEMENT_CLASS_AT(UMarkUnusedScriptNoExportCommandlet, "e:\\Projects\\Amadeus\\
 // @baa 0x0173d9c0
 
 // @baa 0x0173dad0
-int UMarkUnusedScriptNoExportCommandlet::vf_000(void) { return 1; }
+UBOOL UMarkUnusedScriptNoExportCommandlet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0173dae0
-bool UMarkUnusedScriptNoExportCommandlet::vf_004()
+UBOOL UMarkUnusedScriptNoExportCommandlet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

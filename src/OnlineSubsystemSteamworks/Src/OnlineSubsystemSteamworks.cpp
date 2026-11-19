@@ -269,10 +269,10 @@ INT UOnlineSubsystemSteamworks::vf_234(INT a0, INT a1) { return 0; }
 IMPLEMENT_CLASS_AT(UOnlineSubsystemSteamworks, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\OnlineSubsystemSteamworks\\Src\\OnlineSubsystemSteamworksPackage.cpp", 72);
 
 // @baa 0x00e89560
-int UOnlineSubsystemSteamworks::vf_000(void) { return 1; }
+UBOOL UOnlineSubsystemSteamworks::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00e89570
-bool UOnlineSubsystemSteamworks::vf_004()
+UBOOL UOnlineSubsystemSteamworks::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

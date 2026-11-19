@@ -136,7 +136,7 @@ undefined1 ATeamInfo::GetTeamNum(void)
 void APlayerController::vf_38c(int a0, int a1, int a2, int a3) {  }
 
 // @baa 0x007a2640
-int UDistributionFloatParameterBase::vf_000(void) { return 1; }
+UBOOL UDistributionFloatParameterBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x007a4cb0
 int sub_007a4cb0(int a0, int a1) { return a1; }

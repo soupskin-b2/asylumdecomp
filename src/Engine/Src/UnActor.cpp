@@ -386,7 +386,7 @@ IMPLEMENT_CLASS_AT(ADebugCameraController, "e:\\Projects\\Amadeus\\AA\\Game\\Unr
 // @baa 0x0077fb90
 // @baa 0x0077fc50
 // @baa 0x0077fd60
-bool APlayerController::vf_004()
+UBOOL APlayerController::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -394,77 +394,77 @@ bool APlayerController::vf_004()
 // @baa 0x0077fda0
 // @baa 0x0077fe60
 // @baa 0x0077ff70
-bool AMutator::vf_004()
+UBOOL AMutator::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0077ffb0
 // @baa 0x007800c0
-bool ALadder::vf_004()
+UBOOL ALadder::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00780100
 // @baa 0x00780210
-bool AVolume::vf_004()
+UBOOL AVolume::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00780250
 // @baa 0x00780360
-bool APotentialClimbWatcher::vf_004()
+UBOOL APotentialClimbWatcher::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x007803a0
 // @baa 0x007804b0
-bool AObjective::vf_004()
+UBOOL AObjective::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x007804f0
 // @baa 0x00780600
-bool ALiftCenter::vf_004()
+UBOOL ALiftCenter::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00780640
 // @baa 0x00780750
-bool ALiftExit::vf_004()
+UBOOL ALiftExit::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00780790
 // @baa 0x007808a0
-bool ADoorMarker::vf_004()
+UBOOL ADoorMarker::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x007808e0
 // @baa 0x007809f0
-bool APortalMarker::vf_004()
+UBOOL APortalMarker::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00780a30
 // @baa 0x00780b40
-bool ASkyLight::vf_004()
+UBOOL ASkyLight::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00780b80
 // @baa 0x00780c90
-bool AMacroReachSpecInfo::vf_004()
+UBOOL AMacroReachSpecInfo::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -596,35 +596,35 @@ int sub_00781fe0(void)
 
 // @baa 0x00782010
 // @baa 0x00782120
-bool ADirectionalLightToggleable::vf_004()
+UBOOL ADirectionalLightToggleable::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00782160
 // @baa 0x00782270
-bool APointLightMovable::vf_004()
+UBOOL APointLightMovable::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x007822b0
 // @baa 0x007823c0
-bool APointLightToggleable::vf_004()
+UBOOL APointLightToggleable::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00782400
 // @baa 0x00782510
-bool ASpotLightMovable::vf_004()
+UBOOL ASpotLightMovable::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00782550
 // @baa 0x00782660
-bool ASpotLightToggleable::vf_004()
+UBOOL ASpotLightToggleable::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

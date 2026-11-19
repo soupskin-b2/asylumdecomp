@@ -7,10 +7,10 @@
 IMPLEMENT_CLASS_AT(UGameSkelCtrl_Recoil, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\GameFramework\\Src\\GameSkelControls.cpp", 9);
 
 // @baa 0x00e25e60
-int UGameSkelCtrl_Recoil::vf_000(void) { return 1; }
+UBOOL UGameSkelCtrl_Recoil::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00e25e70
-bool UGameSkelCtrl_Recoil::vf_004()
+UBOOL UGameSkelCtrl_Recoil::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

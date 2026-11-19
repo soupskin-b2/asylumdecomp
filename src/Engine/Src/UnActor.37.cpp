@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00756a80
-bool UReachSpec::vf_004()
+UBOOL UReachSpec::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

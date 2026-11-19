@@ -55,10 +55,10 @@ FLensFlareSceneProxy* ULensFlareComponent_::sub_00bdb270()
 // @baa 0x00bac8d0
 
 // @baa 0x00bac9e0
-int ULensFlare::vf_000(void) { return 1; }
+UBOOL ULensFlare::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00bac9f0
-bool ULensFlare::vf_004()
+UBOOL ULensFlare::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -66,10 +66,10 @@ bool ULensFlare::vf_004()
 // @baa 0x00baca30
 
 // @baa 0x00bacb40
-int ULensFlareComponent::vf_000(void) { return 1; }
+UBOOL ULensFlareComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00bacb50
-bool ULensFlareComponent::vf_004()
+UBOOL ULensFlareComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -77,10 +77,10 @@ bool ULensFlareComponent::vf_004()
 // @baa 0x00bacb90
 
 // @baa 0x00bacca0
-int ALensFlareSource::vf_000(void) { return 1; }
+UBOOL ALensFlareSource::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00baccb0
-bool ALensFlareSource::vf_004()
+UBOOL ALensFlareSource::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

@@ -29,10 +29,10 @@ undefined4 UObject::sub_00642fe0(byte param_2)
 }
 
 // @baa 0x0062d990
-int USystem::vf_000(void) { return 1; }
+UBOOL USystem::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0062d9a0
-bool USystem::vf_004()
+UBOOL USystem::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

@@ -39,10 +39,10 @@ undefined4 URFlagManager::sub_0154a7b0(byte param_2)
 // @baa 0x0154a7d0
 
 // @baa 0x0153d7a0
-int URSeqVar_GlobalFlag::vf_000(void) { return 1; }
+UBOOL URSeqVar_GlobalFlag::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0153d7b0
-bool URSeqVar_GlobalFlag::vf_004()
+UBOOL URSeqVar_GlobalFlag::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -50,10 +50,10 @@ bool URSeqVar_GlobalFlag::vf_004()
 // @baa 0x0153d7f0
 
 // @baa 0x0153d900
-int URFlagManager::vf_000(void) { return 1; }
+UBOOL URFlagManager::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0153d910
-bool URFlagManager::vf_004()
+UBOOL URFlagManager::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

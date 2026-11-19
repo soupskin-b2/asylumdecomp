@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00757970
-int ACullDistanceVolume::vf_000(void) { return 1; }
+UBOOL ACullDistanceVolume::HasUniqueStaticConfigName() const { return 1; }

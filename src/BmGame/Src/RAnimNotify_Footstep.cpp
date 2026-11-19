@@ -46,10 +46,10 @@ undefined4 * UObject::sub_01593a80(void)
 // @baa 0x01596800
 
 // @baa 0x01596910
-int URAnimNotify_Footstep::vf_000(void) { return 1; }
+UBOOL URAnimNotify_Footstep::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01596920
-bool URAnimNotify_Footstep::vf_004()
+UBOOL URAnimNotify_Footstep::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

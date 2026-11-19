@@ -620,10 +620,10 @@ UBOOL UProperty_::sub_0062ddd0(INT Index, FString& ValueStr, BYTE* Data, BYTE* D
 
 // @baa 0x0062dec0
 // @baa 0x0062dfd0
-int UProperty::vf_000(void) { return 1; }
+UBOOL UProperty::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0062dfe0
-bool UProperty::vf_004()
+UBOOL UProperty::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -645,19 +645,19 @@ int Obj::sub_0062e020()
 }
 
 // @baa 0x0062e090
-int UByteProperty::vf_000(void) { return 1; }
+UBOOL UByteProperty::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0062e120
-int UIntProperty::vf_000(void) { return 1; }
+UBOOL UIntProperty::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0062e470
-int UDelegateProperty::vf_000(void) { return 1; }
+UBOOL UDelegateProperty::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0062e590
-int UBoolProperty::vf_000(void) { return 1; }
+UBOOL UBoolProperty::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0062e620
-int UFloatProperty::vf_000(void) { return 1; }
+UBOOL UFloatProperty::HasUniqueStaticConfigName() const { return 1; }
 
 struct Obj_0062e630 {
   char pad[0x28];
@@ -672,7 +672,7 @@ int Obj_0062e630::sub_0062e630()
 }
 
 // @baa 0x0062e6d0
-int UObjectProperty::vf_000(void) { return 1; }
+UBOOL UObjectProperty::HasUniqueStaticConfigName() const { return 1; }
 
 struct C_0062e6e0 {
     int sub_005f2bf0(int a1);
@@ -691,10 +691,10 @@ int Outer::sub_0062e6e0()
 }
 
 // @baa 0x0062e6f0
-int UClassProperty::vf_000(void) { return 1; }
+UBOOL UClassProperty::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0062e700
-int UComponentProperty::vf_000(void) { return 1; }
+UBOOL UComponentProperty::HasUniqueStaticConfigName() const { return 1; }
 
 struct Obj_0062e840 {
   char pad[0x28];
@@ -709,13 +709,13 @@ int Obj_0062e840::sub_0062e840()
 }
 
 // @baa 0x0062e870
-int UInterfaceProperty::vf_000(void) { return 1; }
+UBOOL UInterfaceProperty::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0062e970
-int UNameProperty::vf_000(void) { return 1; }
+UBOOL UNameProperty::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0062e9f0
-int UStrProperty::vf_000(void) { return 1; }
+UBOOL UStrProperty::HasUniqueStaticConfigName() const { return 1; }
 
 struct Obj_0062ea00 {
   char pad[0x28];
@@ -747,10 +747,10 @@ int * UArrayProperty::sub_0062ec40(byte param_2)
 }
 
 // @baa 0x0062ed40
-int UArrayProperty::vf_000(void) { return 1; }
+UBOOL UArrayProperty::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0062ee00
-int UMapProperty::vf_000(void) { return 1; }
+UBOOL UMapProperty::HasUniqueStaticConfigName() const { return 1; }
 
 struct Obj_0062ee10 {
   char pad[0x28];
@@ -773,7 +773,7 @@ undefined4 UStructProperty::vf_168(void)
 }
 
 // @baa 0x0062eee0
-int UStructProperty::vf_000(void) { return 1; }
+UBOOL UStructProperty::HasUniqueStaticConfigName() const { return 1; }
 
 struct C_0062eef0 {
     void sub_0062eef0(int *);
@@ -1359,77 +1359,77 @@ void UArrayProperty::AddCppProperty(int param_2)
 // @baa 0x006326d0
 // @baa 0x00633360
 // @baa 0x00633470
-bool UByteProperty::vf_004()
+UBOOL UByteProperty::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x006334b0
 // @baa 0x006335c0
-bool UIntProperty::vf_004()
+UBOOL UIntProperty::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00633600
 // @baa 0x00633710
-bool UDelegateProperty::vf_004()
+UBOOL UDelegateProperty::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00633750
 // @baa 0x00633860
-bool UBoolProperty::vf_004()
+UBOOL UBoolProperty::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x006338a0
 // @baa 0x006339b0
-bool UFloatProperty::vf_004()
+UBOOL UFloatProperty::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x006339f0
 // @baa 0x00633b00
-bool UObjectProperty::vf_004()
+UBOOL UObjectProperty::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00633b40
 // @baa 0x00633c50
-bool UInterfaceProperty::vf_004()
+UBOOL UInterfaceProperty::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00633c90
 // @baa 0x00633da0
-bool UNameProperty::vf_004()
+UBOOL UNameProperty::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00633de0
 // @baa 0x00633ef0
-bool UStrProperty::vf_004()
+UBOOL UStrProperty::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00634160
 // @baa 0x00634270
-bool UArrayProperty::vf_004()
+UBOOL UArrayProperty::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x006342b0
 // @baa 0x006343c0
-bool UMapProperty::vf_004()
+UBOOL UMapProperty::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1441,7 +1441,7 @@ C_00634400 *C_00634400::sub_00634400(int a) { sub_0059cfe0(a); return this; }
 
 // @baa 0x00634470
 // @baa 0x00634580
-bool UStructProperty::vf_004()
+UBOOL UStructProperty::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1550,14 +1550,14 @@ void __stdcall sub_00634a50(int a0, int a1) {  }
 
 // @baa 0x00636210
 // @baa 0x00636320
-bool UClassProperty::vf_004()
+UBOOL UClassProperty::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00636360
 // @baa 0x00636470
-bool UComponentProperty::vf_004()
+UBOOL UComponentProperty::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00783590
-bool ALevelStreamingVolume::vf_004()
+UBOOL ALevelStreamingVolume::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

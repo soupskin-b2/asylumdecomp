@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00f1c090
-int UPolysFactory::vf_000(void) { return 1; }
+UBOOL UPolysFactory::HasUniqueStaticConfigName() const { return 1; }

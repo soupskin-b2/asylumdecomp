@@ -7,10 +7,10 @@
 IMPLEMENT_CLASS_AT(URebuildMapFullCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonEditor\\Src\\RebuildMapFullCommandlet.cpp", 6);
 
 // @baa 0x0173dc30
-int URebuildMapFullCommandlet::vf_000(void) { return 1; }
+UBOOL URebuildMapFullCommandlet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0173dc40
-bool URebuildMapFullCommandlet::vf_004()
+UBOOL URebuildMapFullCommandlet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

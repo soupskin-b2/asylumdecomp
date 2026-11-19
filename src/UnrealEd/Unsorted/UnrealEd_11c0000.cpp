@@ -1109,10 +1109,10 @@ IMPLEMENT_CLASS_AT(USceneRenderTarget, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealE
 
 // @baa 0x011c3fc0
 // @baa 0x011c40f0
-int USceneRenderTarget::vf_000(void) { return 1; }
+UBOOL USceneRenderTarget::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x011c4100
-bool USceneRenderTarget::vf_004()
+UBOOL USceneRenderTarget::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

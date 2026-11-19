@@ -882,10 +882,10 @@ undefined4 * C_00715b60::sub_00715b60(byte param_2)
 }
 
 // @baa 0x00715c90
-int AReverbVolume::vf_000(void) { return 1; }
+UBOOL AReverbVolume::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00715ca0
-bool AReverbVolume::vf_004()
+UBOOL AReverbVolume::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -902,10 +902,10 @@ struct C_00715ec0 { C_00715ec0* sub_00715ec0(void); };
 C_00715ec0* C_00715ec0::sub_00715ec0(void) { return this; }
 
 // @baa 0x007165a0
-int USphericalHarmonicLightComponent::vf_000(void) { return 1; }
+UBOOL USphericalHarmonicLightComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x007165b0
-bool USphericalHarmonicLightComponent::vf_004()
+UBOOL USphericalHarmonicLightComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -920,10 +920,10 @@ int sub_00716600(void) { return 0; }
 int USphericalHarmonicLightComponent::GetLightType(void) { return 1; }
 
 // @baa 0x00716760
-int USpotLightComponent::vf_000(void) { return 1; }
+UBOOL USpotLightComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00716770
-bool USpotLightComponent::vf_004()
+UBOOL USpotLightComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -932,10 +932,10 @@ bool USpotLightComponent::vf_004()
 int sub_007167b0(void) { return 1; }
 
 // @baa 0x00716990
-int USpriteComponent::vf_000(void) { return 1; }
+UBOOL USpriteComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x007169a0
-bool USpriteComponent::vf_004()
+UBOOL USpriteComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1104,7 +1104,7 @@ undefined4 C_00717b80::sub_00717b80(int param_2)
 }
 
 // @baa 0x00717bb0
-int UTexture2D::vf_000(void) { return 1; }
+UBOOL UTexture2D::HasUniqueStaticConfigName() const { return 1; }
 
 struct C_view_00717bc0 {
     int sub_00542bd0(int);
@@ -1314,7 +1314,7 @@ undefined4 * C_00717f50::sub_00717f50(byte param_2)
 }
 
 // @baa 0x00718020
-int UTexture2DComposite::vf_000(void) { return 1; }
+UBOOL UTexture2DComposite::HasUniqueStaticConfigName() const { return 1; }
 
 extern char g_01eeb23c[];
 // @baa 0x00718030

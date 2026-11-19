@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00f1cfb0
-int UApexRenderMeshAssetFactory::vf_000(void) { return 1; }
+UBOOL UApexRenderMeshAssetFactory::HasUniqueStaticConfigName() const { return 1; }

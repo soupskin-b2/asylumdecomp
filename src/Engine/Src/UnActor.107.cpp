@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x007579a0
-int ASkyLight::vf_000(void) { return 1; }
+UBOOL ASkyLight::HasUniqueStaticConfigName() const { return 1; }

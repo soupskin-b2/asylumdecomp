@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x006dad60
-int UPrimitiveComponent::vf_000(void) { return 1; }
+UBOOL UPrimitiveComponent::HasUniqueStaticConfigName() const { return 1; }

@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00756ae0
-int ULadderReachSpec::vf_000(void) { return 1; }
+UBOOL ULadderReachSpec::HasUniqueStaticConfigName() const { return 1; }

@@ -201,13 +201,13 @@ void sub_00e39d80();
 void sub_00e3a530(void) { sub_00e39d80(); }
 
 // @baa 0x00e3a650
-bool UOnlineNewsInterfaceMcp::vf_004()
+UBOOL UOnlineNewsInterfaceMcp::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00e3a7a0
-bool UOnlineTitleFileDownloadMcp::vf_004()
+UBOOL UOnlineTitleFileDownloadMcp::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

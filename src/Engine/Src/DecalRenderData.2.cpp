@@ -25,10 +25,10 @@ IMPLEMENT_CLASS_AT(UDecalMaterial, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngin
 // @baa 0x0064ea50
 
 // @baa 0x0064eb60
-int UDecalMaterial::vf_000(void) { return 1; }
+UBOOL UDecalMaterial::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0064eb70
-bool UDecalMaterial::vf_004()
+UBOOL UDecalMaterial::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

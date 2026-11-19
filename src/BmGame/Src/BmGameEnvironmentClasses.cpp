@@ -39,10 +39,10 @@ IMPLEMENT_CLASS_AT(ARTunnelGrateBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEn
 // @baa 0x017156a0
 
 // @baa 0x017157b0
-int URHidePointRenderingComponent::vf_000(void) { return 1; }
+UBOOL URHidePointRenderingComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x017157c0
-bool URHidePointRenderingComponent::vf_004()
+UBOOL URHidePointRenderingComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -50,10 +50,10 @@ bool URHidePointRenderingComponent::vf_004()
 // @baa 0x01715800
 
 // @baa 0x01715910
-int ARPatrolPoint::vf_000(void) { return 1; }
+UBOOL ARPatrolPoint::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01715920
-bool ARPatrolPoint::vf_004()
+UBOOL ARPatrolPoint::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -61,10 +61,10 @@ bool ARPatrolPoint::vf_004()
 // @baa 0x01715960
 
 // @baa 0x01715a70
-int URPatrolPointRenderingComponent::vf_000(void) { return 1; }
+UBOOL URPatrolPointRenderingComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01715a80
-bool URPatrolPointRenderingComponent::vf_004()
+UBOOL URPatrolPointRenderingComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -72,24 +72,24 @@ bool URPatrolPointRenderingComponent::vf_004()
 // @baa 0x01715ac0
 
 // @baa 0x01715bd0
-int ARSpecialMoveEnvironmentObject::vf_000(void) { return 1; }
+UBOOL ARSpecialMoveEnvironmentObject::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01715be0
-bool ARSpecialMoveEnvironmentObject::vf_004()
+UBOOL ARSpecialMoveEnvironmentObject::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01715c20
-int ARTunnelGrateBase::vf_000(void) { return 1; }
+UBOOL ARTunnelGrateBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01715c30
 
 // @baa 0x01715d40
-int ARHarpoonDragBase::vf_000(void) { return 1; }
+UBOOL ARHarpoonDragBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01715d50
-bool ARHarpoonDragBase::vf_004()
+UBOOL ARHarpoonDragBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -97,10 +97,10 @@ bool ARHarpoonDragBase::vf_004()
 // @baa 0x01715d90
 
 // @baa 0x01715ea0
-int ARHarpoonDragPhysicsBase::vf_000(void) { return 1; }
+UBOOL ARHarpoonDragPhysicsBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01715eb0
-bool ARHarpoonDragPhysicsBase::vf_004()
+UBOOL ARHarpoonDragPhysicsBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

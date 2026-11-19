@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00756900
-int ANote::vf_000(void) { return 1; }
+UBOOL ANote::HasUniqueStaticConfigName() const { return 1; }

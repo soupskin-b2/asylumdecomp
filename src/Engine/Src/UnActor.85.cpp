@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00757300
-int ALadderVolume::vf_000(void) { return 1; }
+UBOOL ALadderVolume::HasUniqueStaticConfigName() const { return 1; }

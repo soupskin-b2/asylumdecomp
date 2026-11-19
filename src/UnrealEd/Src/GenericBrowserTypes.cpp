@@ -917,160 +917,160 @@ wxMenu * C_0115ce40::sub_0115ce40(void)
 IMPLEMENT_CLASS_AT(UGenericBrowserType, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\GenericBrowserTypes.cpp", 59);
 
 // @baa 0x0115d000
-int UGenericBrowserType::vf_000(void) { return 1; }
+UBOOL UGenericBrowserType::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0115d010
-bool UGenericBrowserType::vf_004()
+UBOOL UGenericBrowserType::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0115d050
-int UGenericBrowserType_All::vf_000(void) { return 1; }
+UBOOL UGenericBrowserType_All::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0115d060
-int UGenericBrowserType_AnimTree::vf_000(void) { return 1; }
+UBOOL UGenericBrowserType_AnimTree::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0115d070
-int UGenericBrowserType_Animation::vf_000(void) { return 1; }
+UBOOL UGenericBrowserType_Animation::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0115d080
-int UGenericBrowserType_Archetype::vf_000(void) { return 1; }
+UBOOL UGenericBrowserType_Archetype::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0115d090
-int UGenericBrowserType_CameraAnim::vf_000(void) { return 1; }
+UBOOL UGenericBrowserType_CameraAnim::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0115d0a0
-int UGenericBrowserType_CurveEdPresetCurve::vf_000(void) { return 1; }
+UBOOL UGenericBrowserType_CurveEdPresetCurve::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0115d0b0
-int UGenericBrowserType_Custom::vf_000(void) { return 1; }
+UBOOL UGenericBrowserType_Custom::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0115d0c0
-int UGenericBrowserType_DecalMaterial::vf_000(void) { return 1; }
+UBOOL UGenericBrowserType_DecalMaterial::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0115d0d0
-int UGenericBrowserType_FaceFXAnimSet::vf_000(void) { return 1; }
+UBOOL UGenericBrowserType_FaceFXAnimSet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0115d0e0
-int UGenericBrowserType_FaceFXAsset::vf_000(void) { return 1; }
+UBOOL UGenericBrowserType_FaceFXAsset::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0115d0f0
-int UGenericBrowserType_Font::vf_000(void) { return 1; }
+UBOOL UGenericBrowserType_Font::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0115d100
-int UGenericBrowserType_FracturedStaticMesh::vf_000(void) { return 1; }
+UBOOL UGenericBrowserType_FracturedStaticMesh::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0115d110
-int UGenericBrowserType_LensFlare::vf_000(void) { return 1; }
+UBOOL UGenericBrowserType_LensFlare::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0115d120
-int UGenericBrowserType_Material::vf_000(void) { return 1; }
+UBOOL UGenericBrowserType_Material::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0115d130
-int UGenericBrowserType_MaterialInstanceConstant::vf_000(void) { return 1; }
+UBOOL UGenericBrowserType_MaterialInstanceConstant::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0115d140
-int UGenericBrowserType_MaterialInstanceTimeVarying::vf_000(void) { return 1; }
+UBOOL UGenericBrowserType_MaterialInstanceTimeVarying::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0115d150
-int UGenericBrowserType_MaterialLackingPhysMat::vf_000(void) { return 1; }
+UBOOL UGenericBrowserType_MaterialLackingPhysMat::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0115d160
-int UGenericBrowserType_MorphTargetSet::vf_000(void) { return 1; }
+UBOOL UGenericBrowserType_MorphTargetSet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0115d170
-int UGenericBrowserType_MorphWeightSequence::vf_000(void) { return 1; }
+UBOOL UGenericBrowserType_MorphWeightSequence::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0115d180
-int UGenericBrowserType_ParticleSystem::vf_000(void) { return 1; }
+UBOOL UGenericBrowserType_ParticleSystem::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0115d190
-int UGenericBrowserType_PhysicalMaterial::vf_000(void) { return 1; }
+UBOOL UGenericBrowserType_PhysicalMaterial::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0115d1a0
-int UGenericBrowserType_PhysXParticleSystem::vf_000(void) { return 1; }
+UBOOL UGenericBrowserType_PhysXParticleSystem::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0115d1b0
-int UGenericBrowserType_ApexDestructibleAsset::vf_000(void) { return 1; }
+UBOOL UGenericBrowserType_ApexDestructibleAsset::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0115d1c0
-int UGenericBrowserType_ApexRenderMeshAsset::vf_000(void) { return 1; }
+UBOOL UGenericBrowserType_ApexRenderMeshAsset::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0115d1d0
-int UGenericBrowserType_ApexParticleSystemAsset::vf_000(void) { return 1; }
+UBOOL UGenericBrowserType_ApexParticleSystemAsset::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0115d1e0
-int UGenericBrowserType_ApexMeshParticleFactoryAsset::vf_000(void) { return 1; }
+UBOOL UGenericBrowserType_ApexMeshParticleFactoryAsset::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0115d1f0
-int UGenericBrowserType_DestructibleDamageParameters::vf_000(void) { return 1; }
+UBOOL UGenericBrowserType_DestructibleDamageParameters::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0115d200
-int UGenericBrowserType_PhysicsAsset::vf_000(void) { return 1; }
+UBOOL UGenericBrowserType_PhysicsAsset::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0115d210
-int UGenericBrowserType_PostProcess::vf_000(void) { return 1; }
+UBOOL UGenericBrowserType_PostProcess::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0115d220
-int UGenericBrowserType_Prefab::vf_000(void) { return 1; }
+UBOOL UGenericBrowserType_Prefab::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0115d230
-int UGenericBrowserType_RenderTexture::vf_000(void) { return 1; }
+UBOOL UGenericBrowserType_RenderTexture::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0115d240
-int UGenericBrowserType_Sequence::vf_000(void) { return 1; }
+UBOOL UGenericBrowserType_Sequence::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0115d250
-int UGenericBrowserType_SkeletalMesh::vf_000(void) { return 1; }
+UBOOL UGenericBrowserType_SkeletalMesh::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0115d260
-int UGenericBrowserType_SoundCue::vf_000(void) { return 1; }
+UBOOL UGenericBrowserType_SoundCue::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0115d270
-int UGenericBrowserType_SoundMode::vf_000(void) { return 1; }
+UBOOL UGenericBrowserType_SoundMode::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0115d280
-int UGenericBrowserType_SoundWave::vf_000(void) { return 1; }
+UBOOL UGenericBrowserType_SoundWave::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0115d290
-int UGenericBrowserType_Sounds::vf_000(void) { return 1; }
+UBOOL UGenericBrowserType_Sounds::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0115d2a0
-int UGenericBrowserType_SpeechRecognition::vf_000(void) { return 1; }
+UBOOL UGenericBrowserType_SpeechRecognition::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0115d2b0
-int UGenericBrowserType_StaticMesh::vf_000(void) { return 1; }
+UBOOL UGenericBrowserType_StaticMesh::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0115d2c0
-int UGenericBrowserType_TerrainLayer::vf_000(void) { return 1; }
+UBOOL UGenericBrowserType_TerrainLayer::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0115d2d0
-int UGenericBrowserType_TerrainMaterial::vf_000(void) { return 1; }
+UBOOL UGenericBrowserType_TerrainMaterial::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0115d2e0
-int UGenericBrowserType_Texture::vf_000(void) { return 1; }
+UBOOL UGenericBrowserType_Texture::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0115d2f0
-int UGenericBrowserType_TextureWithAlpha::vf_000(void) { return 1; }
+UBOOL UGenericBrowserType_TextureWithAlpha::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0115d300
-int UGenericBrowserType_UIArchetype::vf_000(void) { return 1; }
+UBOOL UGenericBrowserType_UIArchetype::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0115d310
-int UGenericBrowserType_UIScene::vf_000(void) { return 1; }
+UBOOL UGenericBrowserType_UIScene::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0115d320
-int UGenericBrowserType_UISkin::vf_000(void) { return 1; }
+UBOOL UGenericBrowserType_UISkin::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0115d990
 IMPLEMENT_CLASS_AT(UOptionsProxy, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\GenericDlgOptions.cpp", 15);
 
 // @baa 0x0115daa0
-int UOptionsProxy::vf_000(void) { return 1; }
+UBOOL UOptionsProxy::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0115dab0
-bool UOptionsProxy::vf_004()
+UBOOL UOptionsProxy::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1088,7 +1088,7 @@ undefined4 * UObject::sub_0115daf0(void)
 }
 
 // @baa 0x0115dbb0
-int UOptions2DShaper::vf_000(void) { return 1; }
+UBOOL UOptions2DShaper::HasUniqueStaticConfigName() const { return 1; }
 
 extern undefined * g_021d0160;
 // @baa 0x0115dbc0
@@ -1117,7 +1117,7 @@ void UOptions2DShaperSheet::vf_10c(void)
 }
 
 // @baa 0x0115dc70
-int UOptions2DShaperSheet::vf_000(void) { return 1; }
+UBOOL UOptions2DShaperSheet::HasUniqueStaticConfigName() const { return 1; }
 
 extern undefined * g_021d0270;
 // @baa 0x0115dc80
@@ -1135,7 +1135,7 @@ IMPLEMENT_CLASS_AT(UOptions2DShaperExtrude, "e:\\Projects\\Amadeus\\AA\\Game\\Un
 
 // @baa 0x0115dd00
 // @baa 0x0115ddc0
-int UOptions2DShaperExtrude::vf_000(void) { return 1; }
+UBOOL UOptions2DShaperExtrude::HasUniqueStaticConfigName() const { return 1; }
 
 extern undefined * g_021d0380;
 // @baa 0x0115ddd0
@@ -1153,7 +1153,7 @@ IMPLEMENT_CLASS_AT(UOptions2DShaperExtrudeToPoint, "e:\\Projects\\Amadeus\\AA\\G
 
 // @baa 0x0115de50
 // @baa 0x0115df10
-int UOptions2DShaperExtrudeToPoint::vf_000(void) { return 1; }
+UBOOL UOptions2DShaperExtrudeToPoint::HasUniqueStaticConfigName() const { return 1; }
 
 extern undefined * g_021d0490;
 // @baa 0x0115df20
@@ -1171,7 +1171,7 @@ IMPLEMENT_CLASS_AT(UOptions2DShaperExtrudeToBevel, "e:\\Projects\\Amadeus\\AA\\G
 
 // @baa 0x0115dfa0
 // @baa 0x0115e0f0
-int UOptions2DShaperExtrudeToBevel::vf_000(void) { return 1; }
+UBOOL UOptions2DShaperExtrudeToBevel::HasUniqueStaticConfigName() const { return 1; }
 
 extern undefined * g_021d05a0;
 // @baa 0x0115e100
@@ -1189,7 +1189,7 @@ IMPLEMENT_CLASS_AT(UOptions2DShaperRevolve, "e:\\Projects\\Amadeus\\AA\\Game\\Un
 
 // @baa 0x0115e180
 // @baa 0x0115e2d0
-int UOptions2DShaperRevolve::vf_000(void) { return 1; }
+UBOOL UOptions2DShaperRevolve::HasUniqueStaticConfigName() const { return 1; }
 
 extern undefined * g_021d06b0;
 // @baa 0x0115e2e0
@@ -1207,13 +1207,13 @@ IMPLEMENT_CLASS_AT(UOptions2DShaperBezierDetail, "e:\\Projects\\Amadeus\\AA\\Gam
 
 // @baa 0x0115e360
 // @baa 0x0115e410
-int UOptions2DShaperBezierDetail::vf_000(void) { return 1; }
+UBOOL UOptions2DShaperBezierDetail::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0115e420
-int UOptionsDupObject::vf_000(void) { return 1; }
+UBOOL UOptionsDupObject::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0115e540
-int UOptionsNewClassFromSel::vf_000(void) { return 1; }
+UBOOL UOptionsNewClassFromSel::HasUniqueStaticConfigName() const { return 1; }
 
 struct C_0115ed00 {
     undefined4 sub_0115ed00();
@@ -1765,14 +1765,14 @@ undefined4 sub_0116f6c0(int param_1)
 IMPLEMENT_CLASS_AT(UOptions2DShaper, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\GenericDlgOptions.cpp", 48);
 
 // @baa 0x01170f00
-bool UOptions2DShaper::vf_004()
+UBOOL UOptions2DShaper::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01170f40
 // @baa 0x01171050
-bool UOptions2DShaperBezierDetail::vf_004()
+UBOOL UOptions2DShaperBezierDetail::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1783,7 +1783,7 @@ IMPLEMENT_CLASS_AT(UOptionsDupObject, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEn
 // @baa 0x01171140
 // @baa 0x011712a0
 // @baa 0x011713b0
-bool UOptionsDupObject::vf_004()
+UBOOL UOptionsDupObject::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1794,7 +1794,7 @@ IMPLEMENT_CLASS_AT(UOptionsNewClassFromSel, "e:\\Projects\\Amadeus\\AA\\Game\\Un
 // @baa 0x011714a0
 // @baa 0x011714c0
 // @baa 0x011715d0
-bool UOptionsNewClassFromSel::vf_004()
+UBOOL UOptionsNewClassFromSel::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1945,35 +1945,35 @@ C_0117b420* C_0117b420::sub_0117b420(void) { return this; }
 
 // @baa 0x0117b690
 // @baa 0x0117b7a0
-bool UOptions2DShaperSheet::vf_004()
+UBOOL UOptions2DShaperSheet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0117b7e0
 // @baa 0x0117b8f0
-bool UOptions2DShaperExtrude::vf_004()
+UBOOL UOptions2DShaperExtrude::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0117b930
 // @baa 0x0117ba40
-bool UOptions2DShaperExtrudeToPoint::vf_004()
+UBOOL UOptions2DShaperExtrudeToPoint::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0117ba80
 // @baa 0x0117bb90
-bool UOptions2DShaperExtrudeToBevel::vf_004()
+UBOOL UOptions2DShaperExtrudeToBevel::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0117bbd0
 // @baa 0x0117bce0
-bool UOptions2DShaperRevolve::vf_004()
+UBOOL UOptions2DShaperRevolve::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -2995,21 +2995,21 @@ int sub_01184e40(void)
 
 // @baa 0x01184e70
 // @baa 0x01184f80
-bool UGenericBrowserType_AnimTree::vf_004()
+UBOOL UGenericBrowserType_AnimTree::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01184fc0
 // @baa 0x011850d0
-bool UGenericBrowserType_Animation::vf_004()
+UBOOL UGenericBrowserType_Animation::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01185110
 // @baa 0x01185220
-bool UGenericBrowserType_Archetype::vf_004()
+UBOOL UGenericBrowserType_Archetype::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -3017,245 +3017,245 @@ bool UGenericBrowserType_Archetype::vf_004()
 // @baa 0x01185260
 // @baa 0x011853b0
 // @baa 0x011854c0
-bool UGenericBrowserType_CurveEdPresetCurve::vf_004()
+UBOOL UGenericBrowserType_CurveEdPresetCurve::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01185500
 // @baa 0x01185610
-bool UGenericBrowserType_Custom::vf_004()
+UBOOL UGenericBrowserType_Custom::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01185650
 // @baa 0x01185760
-bool UGenericBrowserType_DecalMaterial::vf_004()
+UBOOL UGenericBrowserType_DecalMaterial::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x011857a0
 // @baa 0x011858b0
-bool UGenericBrowserType_FaceFXAnimSet::vf_004()
+UBOOL UGenericBrowserType_FaceFXAnimSet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x011858f0
 // @baa 0x01185a00
-bool UGenericBrowserType_FaceFXAsset::vf_004()
+UBOOL UGenericBrowserType_FaceFXAsset::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01185a40
 // @baa 0x01185b50
-bool UGenericBrowserType_Font::vf_004()
+UBOOL UGenericBrowserType_Font::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01185b90
 // @baa 0x01185ca0
-bool UGenericBrowserType_LensFlare::vf_004()
+UBOOL UGenericBrowserType_LensFlare::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01185ce0
 // @baa 0x01185df0
-bool UGenericBrowserType_Material::vf_004()
+UBOOL UGenericBrowserType_Material::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01185e30
 // @baa 0x01185f40
-bool UGenericBrowserType_MaterialInstanceConstant::vf_004()
+UBOOL UGenericBrowserType_MaterialInstanceConstant::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01185f80
 // @baa 0x01186090
-bool UGenericBrowserType_MaterialInstanceTimeVarying::vf_004()
+UBOOL UGenericBrowserType_MaterialInstanceTimeVarying::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x011860d0
 // @baa 0x011861e0
-bool UGenericBrowserType_MaterialLackingPhysMat::vf_004()
+UBOOL UGenericBrowserType_MaterialLackingPhysMat::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01186220
 // @baa 0x01186330
-bool UGenericBrowserType_MorphTargetSet::vf_004()
+UBOOL UGenericBrowserType_MorphTargetSet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01186370
 // @baa 0x01186480
-bool UGenericBrowserType_MorphWeightSequence::vf_004()
+UBOOL UGenericBrowserType_MorphWeightSequence::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x011864c0
 // @baa 0x011865d0
-bool UGenericBrowserType_ParticleSystem::vf_004()
+UBOOL UGenericBrowserType_ParticleSystem::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01186610
 // @baa 0x01186720
-bool UGenericBrowserType_PhysicalMaterial::vf_004()
+UBOOL UGenericBrowserType_PhysicalMaterial::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01186760
 // @baa 0x01186870
-bool UGenericBrowserType_PhysXParticleSystem::vf_004()
+UBOOL UGenericBrowserType_PhysXParticleSystem::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x011868b0
 // @baa 0x011869c0
-bool UGenericBrowserType_ApexDestructibleAsset::vf_004()
+UBOOL UGenericBrowserType_ApexDestructibleAsset::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01186a00
 // @baa 0x01186b10
-bool UGenericBrowserType_ApexRenderMeshAsset::vf_004()
+UBOOL UGenericBrowserType_ApexRenderMeshAsset::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01186b50
 // @baa 0x01186c60
-bool UGenericBrowserType_ApexParticleSystemAsset::vf_004()
+UBOOL UGenericBrowserType_ApexParticleSystemAsset::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01186ca0
 // @baa 0x01186db0
-bool UGenericBrowserType_ApexMeshParticleFactoryAsset::vf_004()
+UBOOL UGenericBrowserType_ApexMeshParticleFactoryAsset::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01186df0
 // @baa 0x01186f00
-bool UGenericBrowserType_DestructibleDamageParameters::vf_004()
+UBOOL UGenericBrowserType_DestructibleDamageParameters::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01186f40
 // @baa 0x01187050
-bool UGenericBrowserType_PhysicsAsset::vf_004()
+UBOOL UGenericBrowserType_PhysicsAsset::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01187090
 // @baa 0x011871a0
-bool UGenericBrowserType_PostProcess::vf_004()
+UBOOL UGenericBrowserType_PostProcess::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x011871e0
 // @baa 0x011872f0
-bool UGenericBrowserType_Prefab::vf_004()
+UBOOL UGenericBrowserType_Prefab::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01187330
 // @baa 0x01187440
-bool UGenericBrowserType_Sequence::vf_004()
+UBOOL UGenericBrowserType_Sequence::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01187480
 // @baa 0x01187590
-bool UGenericBrowserType_SkeletalMesh::vf_004()
+UBOOL UGenericBrowserType_SkeletalMesh::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x011875d0
 // @baa 0x011876e0
-bool UGenericBrowserType_SoundMode::vf_004()
+UBOOL UGenericBrowserType_SoundMode::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01187720
 // @baa 0x01187830
-bool UGenericBrowserType_Sounds::vf_004()
+UBOOL UGenericBrowserType_Sounds::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01187870
 // @baa 0x01187980
-bool UGenericBrowserType_SpeechRecognition::vf_004()
+UBOOL UGenericBrowserType_SpeechRecognition::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x011879c0
 // @baa 0x01187ad0
-bool UGenericBrowserType_StaticMesh::vf_004()
+UBOOL UGenericBrowserType_StaticMesh::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01187b10
 // @baa 0x01187c20
-bool UGenericBrowserType_TerrainLayer::vf_004()
+UBOOL UGenericBrowserType_TerrainLayer::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01187c60
 // @baa 0x01187d70
-bool UGenericBrowserType_TerrainMaterial::vf_004()
+UBOOL UGenericBrowserType_TerrainMaterial::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01187db0
 // @baa 0x01187ec0
-bool UGenericBrowserType_Texture::vf_004()
+UBOOL UGenericBrowserType_Texture::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01187f00
 // @baa 0x01188010
-bool UGenericBrowserType_UIScene::vf_004()
+UBOOL UGenericBrowserType_UIScene::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01188050
 // @baa 0x01188160
-bool UGenericBrowserType_UISkin::vf_004()
+UBOOL UGenericBrowserType_UISkin::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -3360,49 +3360,49 @@ void sub_01189dd0(void) { sub_01189a20(); }
 
 // @baa 0x01189de0
 // @baa 0x01189ef0
-bool UGenericBrowserType_All::vf_004()
+UBOOL UGenericBrowserType_All::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01189f30
 // @baa 0x0118a040
-bool UGenericBrowserType_FracturedStaticMesh::vf_004()
+UBOOL UGenericBrowserType_FracturedStaticMesh::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0118a080
 // @baa 0x0118a190
-bool UGenericBrowserType_RenderTexture::vf_004()
+UBOOL UGenericBrowserType_RenderTexture::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0118a1d0
 // @baa 0x0118a2e0
-bool UGenericBrowserType_SoundCue::vf_004()
+UBOOL UGenericBrowserType_SoundCue::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0118a320
 // @baa 0x0118a430
-bool UGenericBrowserType_SoundWave::vf_004()
+UBOOL UGenericBrowserType_SoundWave::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0118a470
 // @baa 0x0118a580
-bool UGenericBrowserType_TextureWithAlpha::vf_004()
+UBOOL UGenericBrowserType_TextureWithAlpha::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0118a5c0
 // @baa 0x0118a6d0
-bool UGenericBrowserType_UIArchetype::vf_004()
+UBOOL UGenericBrowserType_UIArchetype::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

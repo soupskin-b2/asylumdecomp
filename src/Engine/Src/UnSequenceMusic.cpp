@@ -15,10 +15,10 @@ IMPLEMENT_CLASS_AT(USeqAct_PlayMusicTrack, "e:\\Projects\\Amadeus\\AA\\Game\\Unr
 // @baa 0x0090b4c0
 
 // @baa 0x0090b5d0
-int UMusicTrackDataStructures::vf_000(void) { return 1; }
+UBOOL UMusicTrackDataStructures::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0090b5e0
-bool UMusicTrackDataStructures::vf_004()
+UBOOL UMusicTrackDataStructures::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

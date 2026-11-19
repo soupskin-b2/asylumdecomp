@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00771d20
-bool UCeilingReachSpec::vf_004()
+UBOOL UCeilingReachSpec::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

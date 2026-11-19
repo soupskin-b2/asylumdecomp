@@ -7,10 +7,10 @@
 IMPLEMENT_CLASS_AT(UTcpipConnection, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\IpDrv\\Src\\TcpNetDriver.cpp", 143);
 
 // @baa 0x00e2b810
-int UTcpipConnection::vf_000(void) { return 1; }
+UBOOL UTcpipConnection::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00e2b820
-bool UTcpipConnection::vf_004()
+UBOOL UTcpipConnection::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -54,10 +54,10 @@ IMPLEMENT_CLASS_AT(UTcpNetDriver, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine
 // @baa 0x00e2b9d0
 
 // @baa 0x00e2bae0
-int UTcpNetDriver::vf_000(void) { return 1; }
+UBOOL UTcpNetDriver::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00e2baf0
-bool UTcpNetDriver::vf_004()
+UBOOL UTcpNetDriver::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

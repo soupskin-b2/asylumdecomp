@@ -77,10 +77,10 @@ int sub_00c1fb90(int a0, int a1) { return a1; }
 IMPLEMENT_CLASS_AT(UPathRenderingComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\PathRenderingComponent.cpp", 86);
 
 // @baa 0x00c1fcb0
-int UPathRenderingComponent::vf_000(void) { return 1; }
+UBOOL UPathRenderingComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1fcc0
-bool UPathRenderingComponent::vf_004()
+UBOOL UPathRenderingComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -101,10 +101,10 @@ float10 C_00c1fdb0::sub_00c1fdb0(void)
 IMPLEMENT_CLASS_AT(URouteRenderingComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\RouteRenderingComponent.cpp", 12);
 
 // @baa 0x00c1ff50
-int URouteRenderingComponent::vf_000(void) { return 1; }
+UBOOL URouteRenderingComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1ff60
-bool URouteRenderingComponent::vf_004()
+UBOOL URouteRenderingComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

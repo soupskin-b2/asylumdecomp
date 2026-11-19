@@ -7,10 +7,10 @@
 IMPLEMENT_CLASS_AT(ARRopeBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RRope.cpp", 15);
 
 // @baa 0x0163e1f0
-int ARRopeBase::vf_000(void) { return 1; }
+UBOOL ARRopeBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0163e200
-bool ARRopeBase::vf_004()
+UBOOL ARRopeBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

@@ -688,10 +688,10 @@ int C_0150db40::sub_0150db40(void) { return *(int*)((char*)this + 696); }
 IMPLEMENT_CLASS_AT(ARGameInfoBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonGame\\Src\\CommonGameClasses.cpp", 21);
 
 // @baa 0x0150dc60
-int ARGameInfoBase::vf_000(void) { return 1; }
+UBOOL ARGameInfoBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0150dc70
-bool ARGameInfoBase::vf_004()
+UBOOL ARGameInfoBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -700,10 +700,10 @@ bool ARGameInfoBase::vf_004()
 IMPLEMENT_CLASS_AT(ARHUDBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonGame\\Src\\CommonGameClasses.cpp", 22);
 
 // @baa 0x0150ddc0
-int ARHUDBase::vf_000(void) { return 1; }
+UBOOL ARHUDBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0150ddd0
-bool ARHUDBase::vf_004()
+UBOOL ARHUDBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -712,10 +712,10 @@ bool ARHUDBase::vf_004()
 IMPLEMENT_CLASS_AT(ARDynamicMenu, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonGame\\Src\\CommonGameClasses.cpp", 23);
 
 // @baa 0x0150df20
-int ARDynamicMenu::vf_000(void) { return 1; }
+UBOOL ARDynamicMenu::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0150df30
-bool ARDynamicMenu::vf_004()
+UBOOL ARDynamicMenu::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -724,10 +724,10 @@ bool ARDynamicMenu::vf_004()
 IMPLEMENT_CLASS_AT(URPlayerInputBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonGame\\Src\\CommonGameClasses.cpp", 25);
 
 // @baa 0x0150e0a0
-int URPlayerInputBase::vf_000(void) { return 1; }
+UBOOL URPlayerInputBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0150e0b0
-bool URPlayerInputBase::vf_004()
+UBOOL URPlayerInputBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -736,10 +736,10 @@ bool URPlayerInputBase::vf_004()
 IMPLEMENT_CLASS_AT(ARPlayerControllerBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonGame\\Src\\CommonGameClasses.cpp", 26);
 
 // @baa 0x0150e200
-int ARPlayerControllerBase::vf_000(void) { return 1; }
+UBOOL ARPlayerControllerBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0150e210
-bool ARPlayerControllerBase::vf_004()
+UBOOL ARPlayerControllerBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -748,10 +748,10 @@ bool ARPlayerControllerBase::vf_004()
 IMPLEMENT_CLASS_AT(AREmitter, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonGame\\Src\\CommonGameClasses.cpp", 27);
 
 // @baa 0x0150e360
-int AREmitter::vf_000(void) { return 1; }
+UBOOL AREmitter::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0150e370
-bool AREmitter::vf_004()
+UBOOL AREmitter::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -760,10 +760,10 @@ bool AREmitter::vf_004()
 IMPLEMENT_CLASS_AT(ARGameReplicationInfoBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonGame\\Src\\CommonGameClasses.cpp", 28);
 
 // @baa 0x0150e4c0
-int ARGameReplicationInfoBase::vf_000(void) { return 1; }
+UBOOL ARGameReplicationInfoBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0150e4d0
-bool ARGameReplicationInfoBase::vf_004()
+UBOOL ARGameReplicationInfoBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -772,10 +772,10 @@ bool ARGameReplicationInfoBase::vf_004()
 IMPLEMENT_CLASS_AT(ARAutoJezNode, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonGame\\Src\\CommonGameClasses.cpp", 29);
 
 // @baa 0x0150e620
-int ARAutoJezNode::vf_000(void) { return 1; }
+UBOOL ARAutoJezNode::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0150e630
-bool ARAutoJezNode::vf_004()
+UBOOL ARAutoJezNode::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -784,10 +784,10 @@ bool ARAutoJezNode::vf_004()
 IMPLEMENT_CLASS_AT(URSeqAct_ChangeRain_None, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonGame\\Src\\CommonGameClasses.cpp", 30);
 
 // @baa 0x0150e780
-int URSeqAct_ChangeRain_None::vf_000(void) { return 1; }
+UBOOL URSeqAct_ChangeRain_None::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0150e790
-bool URSeqAct_ChangeRain_None::vf_004()
+UBOOL URSeqAct_ChangeRain_None::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -796,10 +796,10 @@ bool URSeqAct_ChangeRain_None::vf_004()
 IMPLEMENT_CLASS_AT(ARPointSource, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonGame\\Src\\CommonGameClasses.cpp", 31);
 
 // @baa 0x0150e8e0
-int ARPointSource::vf_000(void) { return 1; }
+UBOOL ARPointSource::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0150e8f0
-bool ARPointSource::vf_004()
+UBOOL ARPointSource::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -808,10 +808,10 @@ bool ARPointSource::vf_004()
 IMPLEMENT_CLASS_AT(ARRandomTimedSoundEmitter, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonGame\\Src\\CommonGameClasses.cpp", 32);
 
 // @baa 0x0150ea40
-int ARRandomTimedSoundEmitter::vf_000(void) { return 1; }
+UBOOL ARRandomTimedSoundEmitter::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0150ea50
-bool ARRandomTimedSoundEmitter::vf_004()
+UBOOL ARRandomTimedSoundEmitter::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -820,10 +820,10 @@ bool ARRandomTimedSoundEmitter::vf_004()
 IMPLEMENT_CLASS_AT(URScriptConversation, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonGame\\Src\\CommonGameClasses.cpp", 34);
 
 // @baa 0x0150eba0
-int URScriptConversation::vf_000(void) { return 1; }
+UBOOL URScriptConversation::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0150ebb0
-bool URScriptConversation::vf_004()
+UBOOL URScriptConversation::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -832,10 +832,10 @@ bool URScriptConversation::vf_004()
 IMPLEMENT_CLASS_AT(URBarkFlagBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonGame\\Src\\CommonGameClasses.cpp", 35);
 
 // @baa 0x0150ed00
-int URBarkFlagBase::vf_000(void) { return 1; }
+UBOOL URBarkFlagBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0150ed10
-bool URBarkFlagBase::vf_004()
+UBOOL URBarkFlagBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -844,10 +844,10 @@ bool URBarkFlagBase::vf_004()
 IMPLEMENT_CLASS_AT(URBarkSet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonGame\\Src\\CommonGameClasses.cpp", 36);
 
 // @baa 0x0150ee60
-int URBarkSet::vf_000(void) { return 1; }
+UBOOL URBarkSet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0150ee70
-bool URBarkSet::vf_004()
+UBOOL URBarkSet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

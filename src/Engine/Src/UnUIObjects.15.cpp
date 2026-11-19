@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00da80c0
-int UConsoleEntry::vf_000(void) { return 1; }
+UBOOL UConsoleEntry::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00db6bd0
 IMPLEMENT_CLASS_AT(UConsoleEntry, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnUIObjects.cpp", 50);

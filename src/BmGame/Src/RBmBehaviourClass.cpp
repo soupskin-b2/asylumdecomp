@@ -15,10 +15,10 @@ IMPLEMENT_CLASS_AT(URBMBehaviour, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine
 // @baa 0x015de750
 
 // @baa 0x015de860
-int URBMBehaviour::vf_000(void) { return 1; }
+UBOOL URBMBehaviour::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015de870
-bool URBMBehaviour::vf_004()
+UBOOL URBMBehaviour::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

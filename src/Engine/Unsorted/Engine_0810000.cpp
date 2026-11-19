@@ -765,7 +765,7 @@ void sub_00812720();
 void sub_00814740(void) { sub_00812720(); }
 
 // @baa 0x00815420
-void ASpotLight::vf_09c(void) {  }
+void ASpotLight::PostEditImport() {  }
 
 struct C_00815bf0 {
     undefined4 sub_00815bf0(byte);

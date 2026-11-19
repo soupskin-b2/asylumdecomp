@@ -38,10 +38,10 @@ IMPLEMENT_CLASS_AT(UPlayerInputMask_CustomDrawProxy, "e:\\Projects\\Amadeus\\AA\
 IMPLEMENT_CLASS_AT(UUITexture_CustomInputProxy, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\UnUIEditorProperties.cpp", 18);
 
 // @baa 0x014c76c0
-int UUITexture_CustomInputProxy::vf_000(void) { return 1; }
+UBOOL UUITexture_CustomInputProxy::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x014c76d0
-bool UUITexture_CustomInputProxy::vf_004()
+UBOOL UUITexture_CustomInputProxy::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -49,10 +49,10 @@ bool UUITexture_CustomInputProxy::vf_004()
 // @baa 0x014c7710
 // @baa 0x014c77d0
 // @baa 0x014c78e0
-int UUITexture_CustomDrawProxy::vf_000(void) { return 1; }
+UBOOL UUITexture_CustomDrawProxy::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x014c78f0
-bool UUITexture_CustomDrawProxy::vf_004()
+UBOOL UUITexture_CustomDrawProxy::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -198,10 +198,10 @@ int sub_014c5c80(void) { return (int)g_026dde8c; }
 // @baa 0x014c7b50
 
 // @baa 0x014c7c60
-int UPlayerInputMask_CustomInputProxy::vf_000(void) { return 1; }
+UBOOL UPlayerInputMask_CustomInputProxy::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x014c7c70
-bool UPlayerInputMask_CustomInputProxy::vf_004()
+UBOOL UPlayerInputMask_CustomInputProxy::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -209,10 +209,10 @@ bool UPlayerInputMask_CustomInputProxy::vf_004()
 // @baa 0x014c7cb0
 
 // @baa 0x014c7dc0
-int UUIState_CustomInputProxy::vf_000(void) { return 1; }
+UBOOL UUIState_CustomInputProxy::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x014c7dd0
-bool UUIState_CustomInputProxy::vf_004()
+UBOOL UUIState_CustomInputProxy::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -220,10 +220,10 @@ bool UUIState_CustomInputProxy::vf_004()
 // @baa 0x014c7e10
 
 // @baa 0x014c7f20
-int UUIStateClass_CustomInputProxy::vf_000(void) { return 1; }
+UBOOL UUIStateClass_CustomInputProxy::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x014c7f30
-bool UUIStateClass_CustomInputProxy::vf_004()
+UBOOL UUIStateClass_CustomInputProxy::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -231,10 +231,10 @@ bool UUIStateClass_CustomInputProxy::vf_004()
 // @baa 0x014c7f70
 
 // @baa 0x014c8080
-int UCustomInputProxy_Base::vf_000(void) { return 1; }
+UBOOL UCustomInputProxy_Base::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x014c8090
-bool UCustomInputProxy_Base::vf_004()
+UBOOL UCustomInputProxy_Base::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

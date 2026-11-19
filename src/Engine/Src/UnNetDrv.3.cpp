@@ -24,10 +24,10 @@ void UNetDriver::vf_11c(void) {  }
 IMPLEMENT_CLASS_AT(UNetDriver, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnNetDrv.cpp", 807);
 
 // @baa 0x00df4f90
-int UNetDriver::vf_000(void) { return 1; }
+UBOOL UNetDriver::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00df4fa0
-bool UNetDriver::vf_004()
+UBOOL UNetDriver::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

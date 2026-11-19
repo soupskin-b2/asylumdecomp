@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00757240
-int UDamageType::vf_000(void) { return 1; }
+UBOOL UDamageType::HasUniqueStaticConfigName() const { return 1; }

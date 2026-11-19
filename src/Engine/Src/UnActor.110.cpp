@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00757c90
-int AMacroReachSpecInfo::vf_000(void) { return 1; }
+UBOOL AMacroReachSpecInfo::HasUniqueStaticConfigName() const { return 1; }

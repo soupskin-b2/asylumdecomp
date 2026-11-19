@@ -112,19 +112,19 @@ int sub_016a9d80(void)
 int sub_016a9db0(int a0, int a1) { return a1; }
 
 // @baa 0x016a9ed0
-int ARBatarangCamera::vf_000(void) { return 1; }
+UBOOL ARBatarangCamera::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016a9ee0
-bool ARBatarangCamera::vf_004()
+UBOOL ARBatarangCamera::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x016aa4b0
-int ARCinematicCameraActor::vf_000(void) { return 1; }
+UBOOL ARCinematicCameraActor::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016aa4c0
-bool ARCinematicCameraActor::vf_004()
+UBOOL ARCinematicCameraActor::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -140,37 +140,37 @@ void ARCinematicCameraActor::vf_26c(undefined4 param_2, undefined4 param_3)
 }
 
 // @baa 0x016aa660
-int ARControllableChatteringTeethCamera::vf_000(void) { return 1; }
+UBOOL ARControllableChatteringTeethCamera::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016aa670
-bool ARControllableChatteringTeethCamera::vf_004()
+UBOOL ARControllableChatteringTeethCamera::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x016aace0
-int ARLineLauncherDirectorCamera::vf_000(void) { return 1; }
+UBOOL ARLineLauncherDirectorCamera::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016aacf0
-bool ARLineLauncherDirectorCamera::vf_004()
+UBOOL ARLineLauncherDirectorCamera::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x016ab1e0
-int ARMultiTargetCamera::vf_000(void) { return 1; }
+UBOOL ARMultiTargetCamera::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016ab1f0
-bool ARMultiTargetCamera::vf_004()
+UBOOL ARMultiTargetCamera::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x016ab540
-int ARSilentPredatorCamera::vf_000(void) { return 1; }
+UBOOL ARSilentPredatorCamera::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016ab550
-bool ARSilentPredatorCamera::vf_004()
+UBOOL ARSilentPredatorCamera::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -233,10 +233,10 @@ struct C_016ab7f0 { C_016ab7f0* sub_016ab7f0(int a0); };
 C_016ab7f0* C_016ab7f0::sub_016ab7f0(int a0) { return this; }
 
 // @baa 0x016ac5b0
-int ARCrocLineLauncherBlockingVolume::vf_000(void) { return 1; }
+UBOOL ARCrocLineLauncherBlockingVolume::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016ac5c0
-bool ARCrocLineLauncherBlockingVolume::vf_004()
+UBOOL ARCrocLineLauncherBlockingVolume::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -295,19 +295,19 @@ struct V_016accf0 {
 void V_016accf0::sub_016accf0() { g(6); }
 
 // @baa 0x016acf70
-int ARPlantPod::vf_000(void) { return 1; }
+UBOOL ARPlantPod::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016acf80
-bool ARPlantPod::vf_004()
+UBOOL ARPlantPod::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x016ad680
-int URSeqAct_SetScarecrowPositionOnPath::vf_000(void) { return 1; }
+UBOOL URSeqAct_SetScarecrowPositionOnPath::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016ad690
-bool URSeqAct_SetScarecrowPositionOnPath::vf_004()
+UBOOL URSeqAct_SetScarecrowPositionOnPath::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

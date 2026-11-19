@@ -54,7 +54,7 @@ IMPLEMENT_CLASS_AT(AFogVolumeSphericalDensityInfo, "e:\\Projects\\Amadeus\\AA\\G
 // @baa 0x006ca1a0
 
 // @baa 0x006ca2b0
-bool UFogVolumeConstantDensityComponent::vf_004()
+UBOOL UFogVolumeConstantDensityComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -62,7 +62,7 @@ bool UFogVolumeConstantDensityComponent::vf_004()
 // @baa 0x006ca2f0
 
 // @baa 0x006ca400
-bool UFogVolumeLinearHalfspaceDensityComponent::vf_004()
+UBOOL UFogVolumeLinearHalfspaceDensityComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -70,7 +70,7 @@ bool UFogVolumeLinearHalfspaceDensityComponent::vf_004()
 // @baa 0x006ca440
 
 // @baa 0x006ca550
-bool UFogVolumeSphericalDensityComponent::vf_004()
+UBOOL UFogVolumeSphericalDensityComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

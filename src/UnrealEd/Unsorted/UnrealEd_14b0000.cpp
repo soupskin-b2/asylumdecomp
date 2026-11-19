@@ -304,7 +304,7 @@ int UTexture2D::sub_014bb0f0(void)
 }
 
 // @baa 0x014bb370
-bool UUISceneFactoryText::vf_004()
+UBOOL UUISceneFactoryText::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

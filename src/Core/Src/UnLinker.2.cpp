@@ -130,4 +130,4 @@ C_005a9ee0* C_005a9ee0::sub_005a9ee0()
 }
 
 // @baa 0x0059a7e0
-int ULinkerSave::vf_000(void) { return 1; }
+UBOOL ULinkerSave::HasUniqueStaticConfigName() const { return 1; }

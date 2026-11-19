@@ -11,7 +11,7 @@ IMPLEMENT_CLASS_AT(UAnimationCompressionAlgorithm_RemoveEverySecondKey, "e:\\Pro
 // @baa 0x00c0d250
 
 // @baa 0x00c0d360
-bool UAnimationCompressionAlgorithm_RemoveEverySecondKey::vf_004()
+UBOOL UAnimationCompressionAlgorithm_RemoveEverySecondKey::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

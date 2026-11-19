@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00f1ded0
-int UTextureRenderTargetCubeFactoryNew::vf_000(void) { return 1; }
+UBOOL UTextureRenderTargetCubeFactoryNew::HasUniqueStaticConfigName() const { return 1; }

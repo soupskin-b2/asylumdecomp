@@ -186,7 +186,7 @@ undefined4 C_012053a0::sub_012053a0(byte param_2)
 IMPLEMENT_CLASS_AT(UPropertyInputArray, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\PropertyUtils.cpp", 3448);
 
 // @baa 0x0120fbc0
-bool UPropertyInputArray::vf_004()
+UBOOL UPropertyInputArray::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -195,7 +195,7 @@ bool UPropertyInputArray::vf_004()
 IMPLEMENT_CLASS_AT(UPropertyInputArrayItemBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\PropertyUtils.cpp", 3449);
 
 // @baa 0x0120fd10
-bool UPropertyInputArrayItemBase::vf_004()
+UBOOL UPropertyInputArrayItemBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -204,7 +204,7 @@ bool UPropertyInputArrayItemBase::vf_004()
 IMPLEMENT_CLASS_AT(UPropertyInputColor, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\PropertyUtils.cpp", 3450);
 
 // @baa 0x01211c40
-bool UPropertyInputColor::vf_004()
+UBOOL UPropertyInputColor::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -213,7 +213,7 @@ bool UPropertyInputColor::vf_004()
 IMPLEMENT_CLASS_AT(UPropertyInputBool, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\PropertyUtils.cpp", 3451);
 
 // @baa 0x01211d90
-bool UPropertyInputBool::vf_004()
+UBOOL UPropertyInputBool::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -222,7 +222,7 @@ bool UPropertyInputBool::vf_004()
 IMPLEMENT_CLASS_AT(UPropertyInputArrayItem, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\PropertyUtils.cpp", 3452);
 
 // @baa 0x01211ee0
-bool UPropertyInputArrayItem::vf_004()
+UBOOL UPropertyInputArrayItem::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -231,7 +231,7 @@ bool UPropertyInputArrayItem::vf_004()
 IMPLEMENT_CLASS_AT(UPropertyInputText, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\PropertyUtils.cpp", 3454);
 
 // @baa 0x01212030
-bool UPropertyInputText::vf_004()
+UBOOL UPropertyInputText::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -240,7 +240,7 @@ bool UPropertyInputText::vf_004()
 IMPLEMENT_CLASS_AT(UPropertyInputEditInline, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\PropertyUtils.cpp", 3457);
 
 // @baa 0x01212180
-bool UPropertyInputEditInline::vf_004()
+UBOOL UPropertyInputEditInline::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -249,7 +249,7 @@ bool UPropertyInputEditInline::vf_004()
 IMPLEMENT_CLASS_AT(UPropertyInputNumeric, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\PropertyUtils.cpp", 3453);
 
 // @baa 0x012131a0
-bool UPropertyInputNumeric::vf_004()
+UBOOL UPropertyInputNumeric::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -258,7 +258,7 @@ bool UPropertyInputNumeric::vf_004()
 IMPLEMENT_CLASS_AT(UPropertyInputRotation, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\PropertyUtils.cpp", 3455);
 
 // @baa 0x01214470
-bool UPropertyInputRotation::vf_004()
+UBOOL UPropertyInputRotation::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -267,7 +267,7 @@ bool UPropertyInputRotation::vf_004()
 IMPLEMENT_CLASS_AT(UPropertyInputInteger, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\PropertyUtils.cpp", 3456);
 
 // @baa 0x012145c0
-bool UPropertyInputInteger::vf_004()
+UBOOL UPropertyInputInteger::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

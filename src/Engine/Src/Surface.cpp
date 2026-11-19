@@ -11,10 +11,10 @@ IMPLEMENT_CLASS_AT(USurface, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\De
 // @baa 0x00716a50
 
 // @baa 0x00716b60
-int USurface::vf_000(void) { return 1; }
+UBOOL USurface::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00716b70
-bool USurface::vf_004()
+UBOOL USurface::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

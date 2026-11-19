@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x007577b0
-int AVolumePathNode::vf_000(void) { return 1; }
+UBOOL AVolumePathNode::HasUniqueStaticConfigName() const { return 1; }

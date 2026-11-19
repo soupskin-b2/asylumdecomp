@@ -577,51 +577,51 @@ C_00a31b60* C_00a31b60::sub_00a31b60(void) { *(int*)((char*)this + 0) = (int)g_0
 IMPLEMENT_CLASS_AT(ARB_ConstraintActor, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPhysConstraint.cpp", 13);
 
 // @baa 0x00a31ca0
-int ARB_ConstraintActor::vf_000(void) { return 1; }
+UBOOL ARB_ConstraintActor::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00a31cb0
-bool ARB_ConstraintActor::vf_004()
+UBOOL ARB_ConstraintActor::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00a31cf0
 // @baa 0x00a31e00
-int URB_ConstraintSetup::vf_000(void) { return 1; }
+UBOOL URB_ConstraintSetup::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00a31e10
-bool URB_ConstraintSetup::vf_004()
+UBOOL URB_ConstraintSetup::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00a31e50
-int URB_BSJointSetup::vf_000(void) { return 1; }
+UBOOL URB_BSJointSetup::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00a31e60
-int URB_HingeSetup::vf_000(void) { return 1; }
+UBOOL URB_HingeSetup::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00a31e70
-int URB_PrismaticSetup::vf_000(void) { return 1; }
+UBOOL URB_PrismaticSetup::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00a31e80
-int URB_SkelJointSetup::vf_000(void) { return 1; }
+UBOOL URB_SkelJointSetup::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00a31e90
-int URB_PulleyJointSetup::vf_000(void) { return 1; }
+UBOOL URB_PulleyJointSetup::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00a31ea0
-int URB_StayUprightSetup::vf_000(void) { return 1; }
+UBOOL URB_StayUprightSetup::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00a31eb0
-int URB_DistanceJointSetup::vf_000(void) { return 1; }
+UBOOL URB_DistanceJointSetup::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00a31ec0
 // @baa 0x00a31fd0
-int URB_ConstraintInstance::vf_000(void) { return 1; }
+UBOOL URB_ConstraintInstance::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00a31fe0
-bool URB_ConstraintInstance::vf_004()
+UBOOL URB_ConstraintInstance::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -630,10 +630,10 @@ bool URB_ConstraintInstance::vf_004()
 IMPLEMENT_CLASS_AT(URB_ConstraintDrawComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPhysConstraint.cpp", 26);
 
 // @baa 0x00a32130
-int URB_ConstraintDrawComponent::vf_000(void) { return 1; }
+UBOOL URB_ConstraintDrawComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00a32140
-bool URB_ConstraintDrawComponent::vf_004()
+UBOOL URB_ConstraintDrawComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1000,7 +1000,7 @@ void C_00a306b0::sub_00a306b0(void* a, void* b, void* c, void* d, void* e)
 // @baa 0x00a3f300
 
 // @baa 0x00a3f410
-bool URB_BSJointSetup::vf_004()
+UBOOL URB_BSJointSetup::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1008,7 +1008,7 @@ bool URB_BSJointSetup::vf_004()
 // @baa 0x00a3f450
 
 // @baa 0x00a3f560
-bool URB_HingeSetup::vf_004()
+UBOOL URB_HingeSetup::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1016,7 +1016,7 @@ bool URB_HingeSetup::vf_004()
 // @baa 0x00a3f5a0
 
 // @baa 0x00a3f6b0
-bool URB_PrismaticSetup::vf_004()
+UBOOL URB_PrismaticSetup::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1024,7 +1024,7 @@ bool URB_PrismaticSetup::vf_004()
 // @baa 0x00a3f6f0
 
 // @baa 0x00a3f800
-bool URB_SkelJointSetup::vf_004()
+UBOOL URB_SkelJointSetup::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1032,7 +1032,7 @@ bool URB_SkelJointSetup::vf_004()
 // @baa 0x00a3f840
 
 // @baa 0x00a3f950
-bool URB_PulleyJointSetup::vf_004()
+UBOOL URB_PulleyJointSetup::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1040,7 +1040,7 @@ bool URB_PulleyJointSetup::vf_004()
 // @baa 0x00a3f990
 
 // @baa 0x00a3faa0
-bool URB_StayUprightSetup::vf_004()
+UBOOL URB_StayUprightSetup::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1048,7 +1048,7 @@ bool URB_StayUprightSetup::vf_004()
 // @baa 0x00a3fae0
 
 // @baa 0x00a3fbf0
-bool URB_DistanceJointSetup::vf_004()
+UBOOL URB_DistanceJointSetup::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

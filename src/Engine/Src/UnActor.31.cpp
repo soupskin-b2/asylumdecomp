@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x007568c0
-int AClipMarker::vf_000(void) { return 1; }
+UBOOL AClipMarker::HasUniqueStaticConfigName() const { return 1; }

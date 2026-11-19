@@ -49,10 +49,10 @@ UBOOL ARBMRouter::IsInSpecialMove()
 }
 
 // @baa 0x01611700
-int ARPathNode_Pontoon::vf_000(void) { return 1; }
+UBOOL ARPathNode_Pontoon::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01611710
-bool ARPathNode_Pontoon::vf_004()
+UBOOL ARPathNode_Pontoon::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -69,7 +69,7 @@ int sub_016121b0(int a0, int a1) { return a1; }
 int sub_016121c0(int a0, int a1) { return a1; }
 
 // @baa 0x016121d0
-int URSeqAct_SpeechEventManager::vf_000(void) { return 1; }
+UBOOL URSeqAct_SpeechEventManager::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01612210
 int sub_01612210(int a0, int a1) { return a1; }
@@ -159,10 +159,10 @@ DWORD C_01612b40::sub_01612b40(DWORD)
 int sub_01612bb0(int a0, int a1) { return a1; }
 
 // @baa 0x01612cd0
-int URSeqAct_SpeechEventManagerBase::vf_000(void) { return 1; }
+UBOOL URSeqAct_SpeechEventManagerBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01612ce0
-bool URSeqAct_SpeechEventManagerBase::vf_004()
+UBOOL URSeqAct_SpeechEventManagerBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -311,25 +311,25 @@ void V_01612df0::sub_01612df0() { g(); }
 
 // @baa 0x01612e20
 // @baa 0x01612f30
-int UREnvironmentSpecialMoveWrapper::vf_000(void) { return 1; }
+UBOOL UREnvironmentSpecialMoveWrapper::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01612f40
-bool UREnvironmentSpecialMoveWrapper::vf_004()
+UBOOL UREnvironmentSpecialMoveWrapper::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01612f80
-int UREnvironmentSpecialMoveWrapperFalling::vf_000(void) { return 1; }
+UBOOL UREnvironmentSpecialMoveWrapperFalling::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01612f90
 IMPLEMENT_CLASS_AT(URSpecialMoveConfig, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmSpecialMoveClasses.cpp", 13);
 
 // @baa 0x016130a0
-int URSpecialMoveConfig::vf_000(void) { return 1; }
+UBOOL URSpecialMoveConfig::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016130b0
-bool URSpecialMoveConfig::vf_004()
+UBOOL URSpecialMoveConfig::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1105,7 +1105,7 @@ QWORD* S_0161af30::sub_0161af30(INT Index)
 
 // @baa 0x0161dcd0
 // @baa 0x0161dde0
-bool UREnvironmentSpecialMoveWrapperFalling::vf_004()
+UBOOL UREnvironmentSpecialMoveWrapperFalling::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

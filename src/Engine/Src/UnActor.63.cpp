@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00756f00
-int AReplicationInfo::vf_000(void) { return 1; }
+UBOOL AReplicationInfo::HasUniqueStaticConfigName() const { return 1; }

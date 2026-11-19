@@ -79,10 +79,10 @@ int sub_00e25420(int a0, int a1) { return a1; }
 IMPLEMENT_CLASS_AT(AGamePlayerController, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\GameFramework\\Src\\GameController.cpp", 9);
 
 // @baa 0x00e25540
-int AGamePlayerController::vf_000(void) { return 1; }
+UBOOL AGamePlayerController::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00e25550
-bool AGamePlayerController::vf_004()
+UBOOL AGamePlayerController::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -102,10 +102,10 @@ int sub_00e255b0(int a0, int a1) { return a1; }
 
 // @baa 0x00e25610
 // @baa 0x00e25720
-int UGameTypes::vf_000(void) { return 1; }
+UBOOL UGameTypes::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00e25730
-bool UGameTypes::vf_004()
+UBOOL UGameTypes::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

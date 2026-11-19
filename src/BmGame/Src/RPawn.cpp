@@ -17,7 +17,7 @@ IMPLEMENT_CLASS_AT(ARPawnCombat, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3
 // @baa 0x01685a00
 
 // @baa 0x01685b10
-bool ARPawnCombat::vf_004()
+UBOOL ARPawnCombat::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

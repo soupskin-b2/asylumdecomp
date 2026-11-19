@@ -6,7 +6,7 @@
 const TCHAR* sub_015d9030();
 const TCHAR* sub_0053f6c0();
 // @baa 0x015dabf0
-INT ARBMAIManager::vf_000()
+UBOOL ARBMAIManager::HasUniqueStaticConfigName() const
 {
     return sub_015d9030 == sub_0053f6c0;
 }

@@ -11,7 +11,7 @@ IMPLEMENT_CLASS_AT(UForceFieldShapeSphere, "e:\\Projects\\Amadeus\\AA\\Game\\Unr
 // @baa 0x00a42080
 
 // @baa 0x00a42190
-bool UForceFieldShapeSphere::vf_004()
+UBOOL UForceFieldShapeSphere::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

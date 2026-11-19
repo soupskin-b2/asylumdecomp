@@ -110,7 +110,7 @@ void __stdcall sub_00599e70(int a0, int a1) {  }
 void UObject::ProcessState(FLOAT a0) {  }
 
 // @baa 0x0059a070
-int UObject::vf_0f8(int a0, int a1, int a2) { return 0; }
+UBOOL UObject::ProcessRemoteFunction(UFunction* a0, void* a1, struct FFrame* a2) { return 0; }
 
 // @baa 0x0059a080
 uint sub_0059a080(int * param_1)

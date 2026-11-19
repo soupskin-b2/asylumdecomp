@@ -19,10 +19,10 @@ IMPLEMENT_CLASS_AT(ARLineLauncher, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngin
 // @baa 0x0163ba10
 
 // @baa 0x0163bb20
-int ARSpecialMoveInstance_LineLauncher::vf_000(void) { return 1; }
+UBOOL ARSpecialMoveInstance_LineLauncher::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0163bb30
-bool ARSpecialMoveInstance_LineLauncher::vf_004()
+UBOOL ARSpecialMoveInstance_LineLauncher::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

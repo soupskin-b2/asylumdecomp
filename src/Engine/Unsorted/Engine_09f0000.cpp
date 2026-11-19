@@ -478,10 +478,10 @@ int sub_009f8e10(int a0, int a1) { return a1; }
 
 // @baa 0x009f9500
 // @baa 0x009f9610
-int UPhysicalMaterialPropertyBase::vf_000(void) { return 1; }
+UBOOL UPhysicalMaterialPropertyBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x009f9620
-bool UPhysicalMaterialPropertyBase::vf_004()
+UBOOL UPhysicalMaterialPropertyBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -601,20 +601,20 @@ int S::sub_009fd600(int a) { return f1->v1(a); }
 IMPLEMENT_CLASS_AT(URB_RadialImpulseComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPhysComponent.cpp", 26);
 
 // @baa 0x009fd720
-int URB_RadialImpulseComponent::vf_000(void) { return 1; }
+UBOOL URB_RadialImpulseComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x009fd730
-bool URB_RadialImpulseComponent::vf_004()
+UBOOL URB_RadialImpulseComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x009fd770
 // @baa 0x009fd880
-int URB_Handle::vf_000(void) { return 1; }
+UBOOL URB_Handle::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x009fd890
-bool URB_Handle::vf_004()
+UBOOL URB_Handle::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -623,10 +623,10 @@ bool URB_Handle::vf_004()
 IMPLEMENT_CLASS_AT(URB_Spring, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPhysComponent.cpp", 28);
 
 // @baa 0x009fd9e0
-int URB_Spring::vf_000(void) { return 1; }
+UBOOL URB_Spring::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x009fd9f0
-bool URB_Spring::vf_004()
+UBOOL URB_Spring::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -635,16 +635,16 @@ bool URB_Spring::vf_004()
 IMPLEMENT_CLASS_AT(URB_ForceComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPhysComponent.cpp", 31);
 
 // @baa 0x009fdb40
-int URB_ForceComponent::vf_000(void) { return 1; }
+UBOOL URB_ForceComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x009fdb50
-bool URB_ForceComponent::vf_004()
+UBOOL URB_ForceComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x009fdb90
-int URB_ForceComponentCylindrical::vf_000(void) { return 1; }
+UBOOL URB_ForceComponentCylindrical::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x009fdba0
-int URB_ForceComponentRadial::vf_000(void) { return 1; }
+UBOOL URB_ForceComponentRadial::HasUniqueStaticConfigName() const { return 1; }

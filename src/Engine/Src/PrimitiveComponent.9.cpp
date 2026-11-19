@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x006dad70
-bool UPrimitiveComponent::vf_004()
+UBOOL UPrimitiveComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

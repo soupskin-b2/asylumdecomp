@@ -31,10 +31,10 @@ int sub_009f7510(int a0, int a1) { return a1; }
 IMPLEMENT_CLASS_AT(UPhysicsAsset, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPhysAsset.cpp", 15);
 
 // @baa 0x009f8f30
-int UPhysicsAsset::vf_000(void) { return 1; }
+UBOOL UPhysicsAsset::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x009f8f40
-bool UPhysicsAsset::vf_004()
+UBOOL UPhysicsAsset::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -43,10 +43,10 @@ bool UPhysicsAsset::vf_004()
 IMPLEMENT_CLASS_AT(URB_BodySetup, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPhysAsset.cpp", 16);
 
 // @baa 0x009f9090
-int URB_BodySetup::vf_000(void) { return 1; }
+UBOOL URB_BodySetup::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x009f90a0
-bool URB_BodySetup::vf_004()
+UBOOL URB_BodySetup::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

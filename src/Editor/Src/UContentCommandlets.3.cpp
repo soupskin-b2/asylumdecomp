@@ -21,10 +21,10 @@ undefined4 UObject::sub_01060700(byte param_2)
 IMPLEMENT_CLASS_AT(UUT3MapStatsCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UContentCommandlets.cpp", 4861);
 
 // @baa 0x0105c3c0
-int UUT3MapStatsCommandlet::vf_000(void) { return 1; }
+UBOOL UUT3MapStatsCommandlet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0105c3d0
-bool UUT3MapStatsCommandlet::vf_004()
+UBOOL UUT3MapStatsCommandlet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -33,10 +33,10 @@ bool UUT3MapStatsCommandlet::vf_004()
 IMPLEMENT_CLASS_AT(UListLoopingEmittersCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UContentCommandlets.cpp", 4902);
 
 // @baa 0x0105c520
-int UListLoopingEmittersCommandlet::vf_000(void) { return 1; }
+UBOOL UListLoopingEmittersCommandlet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0105c530
-bool UListLoopingEmittersCommandlet::vf_004()
+UBOOL UListLoopingEmittersCommandlet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -45,10 +45,10 @@ bool UListLoopingEmittersCommandlet::vf_004()
 IMPLEMENT_CLASS_AT(USoundGroupInfoCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UContentCommandlets.cpp", 5077);
 
 // @baa 0x0105c680
-int USoundGroupInfoCommandlet::vf_000(void) { return 1; }
+UBOOL USoundGroupInfoCommandlet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0105c690
-bool USoundGroupInfoCommandlet::vf_004()
+UBOOL USoundGroupInfoCommandlet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -57,10 +57,10 @@ bool USoundGroupInfoCommandlet::vf_004()
 IMPLEMENT_CLASS_AT(UListDistanceCrossFadeNodesCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UContentCommandlets.cpp", 5136);
 
 // @baa 0x0105c7e0
-int UListDistanceCrossFadeNodesCommandlet::vf_000(void) { return 1; }
+UBOOL UListDistanceCrossFadeNodesCommandlet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0105c7f0
-bool UListDistanceCrossFadeNodesCommandlet::vf_004()
+UBOOL UListDistanceCrossFadeNodesCommandlet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -69,10 +69,10 @@ bool UListDistanceCrossFadeNodesCommandlet::vf_004()
 IMPLEMENT_CLASS_AT(ULocSoundInfoCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UContentCommandlets.cpp", 5242);
 
 // @baa 0x0105c940
-int ULocSoundInfoCommandlet::vf_000(void) { return 1; }
+UBOOL ULocSoundInfoCommandlet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0105c950
-bool ULocSoundInfoCommandlet::vf_004()
+UBOOL ULocSoundInfoCommandlet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -81,7 +81,7 @@ bool ULocSoundInfoCommandlet::vf_004()
 IMPLEMENT_CLASS_AT(UContentTagIndex, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UContentCommandlets.cpp", 5359);
 
 // @baa 0x0105cac0
-bool UContentTagIndex::vf_004()
+UBOOL UContentTagIndex::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -90,10 +90,10 @@ bool UContentTagIndex::vf_004()
 IMPLEMENT_CLASS_AT(UBuildContentTagIndexCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UContentCommandlets.cpp", 5360);
 
 // @baa 0x0105cc10
-int UBuildContentTagIndexCommandlet::vf_000(void) { return 1; }
+UBOOL UBuildContentTagIndexCommandlet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0105cc20
-bool UBuildContentTagIndexCommandlet::vf_004()
+UBOOL UBuildContentTagIndexCommandlet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1061,7 +1061,7 @@ int UContentTagIndex::sub_0107ed80(void)
 IMPLEMENT_CLASS_AT(UChangePrefabSequenceClassCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UContentCommandlets.cpp", 952);
 
 // @baa 0x01084070
-bool UChangePrefabSequenceClassCommandlet::vf_004()
+UBOOL UChangePrefabSequenceClassCommandlet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

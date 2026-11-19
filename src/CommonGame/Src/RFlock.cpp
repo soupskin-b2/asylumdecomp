@@ -15,10 +15,10 @@ IMPLEMENT_CLASS_AT(ARFlockActor, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3
 // @baa 0x0153dc60
 
 // @baa 0x0153dd70
-int ARFlockActor::vf_000(void) { return 1; }
+UBOOL ARFlockActor::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0153dd80
-bool ARFlockActor::vf_004()
+UBOOL ARFlockActor::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -26,10 +26,10 @@ bool ARFlockActor::vf_004()
 // @baa 0x0153ddc0
 
 // @baa 0x0153ded0
-int URFlockComponent::vf_000(void) { return 1; }
+UBOOL URFlockComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0153dee0
-bool URFlockComponent::vf_004()
+UBOOL URFlockComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

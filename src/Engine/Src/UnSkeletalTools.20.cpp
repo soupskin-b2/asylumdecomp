@@ -109,7 +109,7 @@ void USkeletalMesh::Serialize(FArchive& Ar)
 extern INT g_02676094;
 // @baa 0x0097dae0
 /* Slot 0x14 (unnamed in the kit). */
-void USkeletalMesh::vf_014()
+void USkeletalMesh::PreSave()
 {
 	if (!this->IsTemplate() && !g_02676094)
 	{

@@ -43,16 +43,16 @@ int sub_00ca0b00(void)
 }
 
 // @baa 0x00d6b930
-int UPlayerInput::vf_000(void) { return 1; }
+UBOOL UPlayerInput::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00d6bce0
 IMPLEMENT_CLASS_AT(UInteraction, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnInteraction.cpp", 13);
 
 // @baa 0x00d6bdf0
-int UInteraction::vf_000(void) { return 1; }
+UBOOL UInteraction::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00d6be00
-bool UInteraction::vf_004()
+UBOOL UInteraction::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -61,7 +61,7 @@ bool UInteraction::vf_004()
 IMPLEMENT_CLASS_AT(UUIInputConfiguration, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnInteraction.cpp", 15);
 
 // @baa 0x00d6bf90
-bool UUIInputConfiguration::vf_004()
+UBOOL UUIInputConfiguration::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -217,7 +217,7 @@ void C_00d707a0::sub_00d707a0(void)
 IMPLEMENT_CLASS_AT(UInput, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnIn.cpp", 10);
 
 // @baa 0x00d77ba0
-bool UInput::vf_004()
+UBOOL UInput::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -226,7 +226,7 @@ bool UInput::vf_004()
 IMPLEMENT_CLASS_AT(UConsole, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnInteraction.cpp", 12);
 
 // @baa 0x00d781c0
-bool UConsole::vf_004()
+UBOOL UConsole::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -235,7 +235,7 @@ bool UConsole::vf_004()
 IMPLEMENT_CLASS_AT(UUIInteraction, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnInteraction.cpp", 14);
 
 // @baa 0x00d78310
-bool UUIInteraction::vf_004()
+UBOOL UUIInteraction::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -557,7 +557,7 @@ void sub_00d7f7f0();
 void sub_00d81310(void) { sub_00d7f7f0(); }
 
 // @baa 0x00d8cfa0
-bool UPlayerInput::vf_004()
+UBOOL UPlayerInput::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

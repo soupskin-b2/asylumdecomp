@@ -85,10 +85,10 @@ int sub_01277f60(void)
 IMPLEMENT_CLASS_AT(UUnrealEdEngine, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\UnrealEd.cpp", 75);
 
 // @baa 0x0127c4c0
-int UUnrealEdEngine::vf_000(void) { return 1; }
+UBOOL UUnrealEdEngine::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0127c4d0
-bool UUnrealEdEngine::vf_004()
+UBOOL UUnrealEdEngine::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -120,7 +120,7 @@ void sub_0127c5f0(void)
 IMPLEMENT_CLASS_AT(UUnrealEdOptions, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\UnrealEdEngine.cpp", 1048);
 
 // @baa 0x0127cba0
-bool UUnrealEdOptions::vf_004()
+UBOOL UUnrealEdOptions::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

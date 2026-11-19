@@ -837,7 +837,7 @@ int sub_0085a100(void)
 
 // @baa 0x0085a280
 // @baa 0x0085a390
-bool UMorphNodeWeightByBoneAngle::vf_004()
+UBOOL UMorphNodeWeightByBoneAngle::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

@@ -64,10 +64,10 @@ int C_00e86070::sub_00e86070(void) { return *(int*)((char*)this + 4); }
 IMPLEMENT_CLASS_AT(UOnlineGameInterfaceSteamworks, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\OnlineSubsystemSteamworks\\Src\\OnlineSubsystemSteamworksPackage.cpp", 73);
 
 // @baa 0x00e896c0
-int UOnlineGameInterfaceSteamworks::vf_000(void) { return 1; }
+UBOOL UOnlineGameInterfaceSteamworks::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00e896d0
-bool UOnlineGameInterfaceSteamworks::vf_004()
+UBOOL UOnlineGameInterfaceSteamworks::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00756cb0
-bool AScout::vf_004()
+UBOOL AScout::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

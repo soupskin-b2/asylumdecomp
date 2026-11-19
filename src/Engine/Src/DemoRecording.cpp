@@ -23,10 +23,10 @@ void UDemoRecConnection::vf_12c(void)
 IMPLEMENT_CLASS_AT(UDemoRecConnection, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\DemoRecording.cpp", 88);
 
 // @baa 0x00bf9580
-int UDemoRecConnection::vf_000(void) { return 1; }
+UBOOL UDemoRecConnection::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00bf9590
-bool UDemoRecConnection::vf_004()
+UBOOL UDemoRecConnection::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -35,10 +35,10 @@ bool UDemoRecConnection::vf_004()
 IMPLEMENT_CLASS_AT(UDemoRecDriver, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\DemoRecording.cpp", 1099);
 
 // @baa 0x00bf9970
-int UDemoRecDriver::vf_000(void) { return 1; }
+UBOOL UDemoRecDriver::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00bf9980
-bool UDemoRecDriver::vf_004()
+UBOOL UDemoRecDriver::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -50,10 +50,10 @@ int UDemoPlayPendingLevel::GetDriver(void) { return *(int*)((char*)this + 140); 
 IMPLEMENT_CLASS_AT(UDemoPlayPendingLevel, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\DemoRecording.cpp", 1283);
 
 // @baa 0x00bf9b50
-int UDemoPlayPendingLevel::vf_000(void) { return 1; }
+UBOOL UDemoPlayPendingLevel::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00bf9b60
-bool UDemoPlayPendingLevel::vf_004()
+UBOOL UDemoPlayPendingLevel::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

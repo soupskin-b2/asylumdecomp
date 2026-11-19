@@ -33,10 +33,10 @@ return iVar2;
 }
 
 // @baa 0x00fef070
-int UStaticMeshFactory::vf_000(void) { return 1; }
+UBOOL UStaticMeshFactory::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00fef080
-bool UStaticMeshFactory::vf_004()
+UBOOL UStaticMeshFactory::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

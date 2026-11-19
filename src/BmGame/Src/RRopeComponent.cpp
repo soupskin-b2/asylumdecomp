@@ -4,16 +4,16 @@
 #include "ue3/Implement.h"
 
 // @baa 0x0163eea0
-int URRopeComponent::vf_000(void) { return 1; }
+UBOOL URRopeComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0163eeb0
 IMPLEMENT_CLASS_AT(URRopeEditorRenderingComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RRopeComponent.cpp", 21);
 
 // @baa 0x0163efc0
-int URRopeEditorRenderingComponent::vf_000(void) { return 1; }
+UBOOL URRopeEditorRenderingComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0163efd0
-bool URRopeEditorRenderingComponent::vf_004()
+UBOOL URRopeEditorRenderingComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -238,7 +238,7 @@ void sub_016553a0(void) { sub_01655150(); }
 // @baa 0x01655470
 // @baa 0x016582f0
 // @baa 0x01658400
-bool URRopeComponent::vf_004()
+UBOOL URRopeComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

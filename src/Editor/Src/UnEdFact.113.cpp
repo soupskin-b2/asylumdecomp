@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00f1f3b0
-int UReimportSkeletalMeshFactory::vf_000(void) { return 1; }
+UBOOL UReimportSkeletalMeshFactory::HasUniqueStaticConfigName() const { return 1; }

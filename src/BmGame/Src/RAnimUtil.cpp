@@ -215,10 +215,10 @@ IMPLEMENT_CLASS_AT(URSkelControlFootPlacement, "e:\\Projects\\Amadeus\\AA\\Game\
 // @baa 0x01597f30
 
 // @baa 0x01598040
-int URSkelControlFootPlacement::vf_000(void) { return 1; }
+UBOOL URSkelControlFootPlacement::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01598050
-bool URSkelControlFootPlacement::vf_004()
+UBOOL URSkelControlFootPlacement::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

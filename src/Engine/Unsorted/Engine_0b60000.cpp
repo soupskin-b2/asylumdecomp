@@ -256,7 +256,7 @@ void sub_00b6b380(void) { sub_00b6ad50(); }
 
 // @baa 0x00b6b590
 // @baa 0x00b6b6a0
-bool UParticleSpriteEmitter::vf_004()
+UBOOL UParticleSpriteEmitter::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

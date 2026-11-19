@@ -145,39 +145,39 @@ void C_00a53370::sub_00a53370(Sub* Object)
 // @baa 0x00d6b1c0
 
 // @baa 0x00d6b2d0
-int ANxForceField::vf_000(void) { return 1; }
+UBOOL ANxForceField::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00d6b2e0
-bool ANxForceField::vf_004()
+UBOOL ANxForceField::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00d6b320
-int ANxRadialForceField::vf_000(void) { return 1; }
+UBOOL ANxRadialForceField::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00d6b330
-int ANxCylindricalForceField::vf_000(void) { return 1; }
+UBOOL ANxCylindricalForceField::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00d6b340
-int ANxCylindricalForceFieldCapsule::vf_000(void) { return 1; }
+UBOOL ANxCylindricalForceFieldCapsule::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00d6b350
-int ANxGenericForceField::vf_000(void) { return 1; }
+UBOOL ANxGenericForceField::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00d6b360
-int ANxGenericForceFieldBox::vf_000(void) { return 1; }
+UBOOL ANxGenericForceFieldBox::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00d6b370
-int ANxGenericForceFieldCapsule::vf_000(void) { return 1; }
+UBOOL ANxGenericForceFieldCapsule::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00d6b380
 
 // @baa 0x00d6b490
-int ANxGenericForceFieldBrush::vf_000(void) { return 1; }
+UBOOL ANxGenericForceFieldBrush::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00d6b4a0
-bool ANxGenericForceFieldBrush::vf_004()
+UBOOL ANxGenericForceFieldBrush::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -187,7 +187,7 @@ bool ANxGenericForceFieldBrush::vf_004()
 // @baa 0x00d88cb0
 
 // @baa 0x00d88dc0
-bool ANxRadialForceField::vf_004()
+UBOOL ANxRadialForceField::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -195,7 +195,7 @@ bool ANxRadialForceField::vf_004()
 // @baa 0x00d88e00
 
 // @baa 0x00d88f10
-bool ANxCylindricalForceField::vf_004()
+UBOOL ANxCylindricalForceField::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -203,7 +203,7 @@ bool ANxCylindricalForceField::vf_004()
 // @baa 0x00d88f50
 
 // @baa 0x00d89060
-bool ANxGenericForceField::vf_004()
+UBOOL ANxGenericForceField::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -211,7 +211,7 @@ bool ANxGenericForceField::vf_004()
 // @baa 0x00d8b050
 
 // @baa 0x00d8b160
-bool ANxCylindricalForceFieldCapsule::vf_004()
+UBOOL ANxCylindricalForceFieldCapsule::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -219,7 +219,7 @@ bool ANxCylindricalForceFieldCapsule::vf_004()
 // @baa 0x00d8b1a0
 
 // @baa 0x00d8b2b0
-bool ANxGenericForceFieldBox::vf_004()
+UBOOL ANxGenericForceFieldBox::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -227,7 +227,7 @@ bool ANxGenericForceFieldBox::vf_004()
 // @baa 0x00d8b2f0
 
 // @baa 0x00d8b400
-bool ANxGenericForceFieldCapsule::vf_004()
+UBOOL ANxGenericForceFieldCapsule::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

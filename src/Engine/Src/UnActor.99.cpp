@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x007577a0
-int ATriggerVolume::vf_000(void) { return 1; }
+UBOOL ATriggerVolume::HasUniqueStaticConfigName() const { return 1; }

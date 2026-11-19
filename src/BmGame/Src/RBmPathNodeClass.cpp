@@ -96,10 +96,10 @@ IMPLEMENT_CLASS_AT(ARCornerWallMarker, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealE
 // @baa 0x015deea0
 
 // @baa 0x015defb0
-int ARBMPathNode_CrossLevel::vf_000(void) { return 1; }
+UBOOL ARBMPathNode_CrossLevel::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015defc0
-bool ARBMPathNode_CrossLevel::vf_004()
+UBOOL ARBMPathNode_CrossLevel::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -107,10 +107,10 @@ bool ARBMPathNode_CrossLevel::vf_004()
 // @baa 0x015df000
 
 // @baa 0x015df110
-int ARBMPathNode_SpecialMove::vf_000(void) { return 1; }
+UBOOL ARBMPathNode_SpecialMove::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015df120
-bool ARBMPathNode_SpecialMove::vf_004()
+UBOOL ARBMPathNode_SpecialMove::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -118,45 +118,45 @@ bool ARBMPathNode_SpecialMove::vf_004()
 // @baa 0x015df160
 
 // @baa 0x015df270
-int URBMSpecialMove_ReachSpec::vf_000(void) { return 1; }
+UBOOL URBMSpecialMove_ReachSpec::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015df280
-bool URBMSpecialMove_ReachSpec::vf_004()
+UBOOL URBMSpecialMove_ReachSpec::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x015df2c0
-int ARBMPathNode_Ladder::vf_000(void) { return 1; }
+UBOOL ARBMPathNode_Ladder::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015df2d0
-int ARBMPathNode_DisruptableDoor::vf_000(void) { return 1; }
+UBOOL ARBMPathNode_DisruptableDoor::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015df2e0
-int ARBMPathNode_VariablePositionTraverse::vf_000(void) { return 1; }
+UBOOL ARBMPathNode_VariablePositionTraverse::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015df2f0
-int ARBMPathNode_VariablePositionTraverseProxy::vf_000(void) { return 1; }
+UBOOL ARBMPathNode_VariablePositionTraverseProxy::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015df300
-int ARBMPathNode_FenceJump::vf_000(void) { return 1; }
+UBOOL ARBMPathNode_FenceJump::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015df310
-int ARBMPathNode_FenceJumpProxy::vf_000(void) { return 1; }
+UBOOL ARBMPathNode_FenceJumpProxy::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015df320
-int ARBMPathNode_GapJump::vf_000(void) { return 1; }
+UBOOL ARBMPathNode_GapJump::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015df330
-int ARBMPathNode_GapJumpProxy::vf_000(void) { return 1; }
+UBOOL ARBMPathNode_GapJumpProxy::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015df340
 
 // @baa 0x015df450
-int AREndPointMarker::vf_000(void) { return 1; }
+UBOOL AREndPointMarker::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015df460
-bool AREndPointMarker::vf_004()
+UBOOL AREndPointMarker::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -164,24 +164,24 @@ bool AREndPointMarker::vf_004()
 // @baa 0x015df4a0
 
 // @baa 0x015df5b0
-int ARCornerPointBase::vf_000(void) { return 1; }
+UBOOL ARCornerPointBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015df5c0
-bool ARCornerPointBase::vf_004()
+UBOOL ARCornerPointBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x015df600
-int ARCornerPoint::vf_000(void) { return 1; }
+UBOOL ARCornerPoint::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015df610
 
 // @baa 0x015df720
-int URPairedCornerRenderingComponent::vf_000(void) { return 1; }
+UBOOL URPairedCornerRenderingComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015df730
-bool URPairedCornerRenderingComponent::vf_004()
+UBOOL URPairedCornerRenderingComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -189,16 +189,16 @@ bool URPairedCornerRenderingComponent::vf_004()
 // @baa 0x015df770
 
 // @baa 0x015df880
-int ARCornerWallMarkerBase::vf_000(void) { return 1; }
+UBOOL ARCornerWallMarkerBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015df890
-bool ARCornerWallMarkerBase::vf_004()
+UBOOL ARCornerWallMarkerBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x015df8d0
-int ARCornerWallMarker::vf_000(void) { return 1; }
+UBOOL ARCornerWallMarker::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015df920
 int ARBMPathNode_VariablePositionTraverse::vf_3bc(int a0) { return 0; }
@@ -258,7 +258,7 @@ undefined4 ULensFlare::sub_01605db0(byte param_2)
 // @baa 0x016013c0
 
 // @baa 0x016014d0
-bool ARBMPathNode_FenceJump::vf_004()
+UBOOL ARBMPathNode_FenceJump::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -266,7 +266,7 @@ bool ARBMPathNode_FenceJump::vf_004()
 // @baa 0x01601510
 
 // @baa 0x01601620
-bool ARBMPathNode_FenceJumpProxy::vf_004()
+UBOOL ARBMPathNode_FenceJumpProxy::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -274,7 +274,7 @@ bool ARBMPathNode_FenceJumpProxy::vf_004()
 // @baa 0x01601660
 
 // @baa 0x01601770
-bool ARBMPathNode_GapJump::vf_004()
+UBOOL ARBMPathNode_GapJump::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -282,7 +282,7 @@ bool ARBMPathNode_GapJump::vf_004()
 // @baa 0x016017b0
 
 // @baa 0x016018c0
-bool ARBMPathNode_GapJumpProxy::vf_004()
+UBOOL ARBMPathNode_GapJumpProxy::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

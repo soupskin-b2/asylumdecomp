@@ -20,10 +20,10 @@ void C::sub_0173a470(void)
 IMPLEMENT_CLASS_AT(UVerifySourceControlCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonEditor\\Src\\VerifySourceControlCommandlet.cpp", 6);
 
 // @baa 0x0173e020
-int UVerifySourceControlCommandlet::vf_000(void) { return 1; }
+UBOOL UVerifySourceControlCommandlet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0173e030
-bool UVerifySourceControlCommandlet::vf_004()
+UBOOL UVerifySourceControlCommandlet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

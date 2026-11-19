@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00757b20
-int AAirNode::vf_000(void) { return 1; }
+UBOOL AAirNode::HasUniqueStaticConfigName() const { return 1; }

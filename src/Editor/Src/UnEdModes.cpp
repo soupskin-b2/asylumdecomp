@@ -1154,10 +1154,10 @@ int C_00f4e500::sub_00f4e500(void) { return *(int*)((char*)this + 0); }
 IMPLEMENT_CLASS_AT(UTerrainFactory, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnEdFactTerrain.cpp", 1466);
 
 // @baa 0x00f4e6a0
-int UTerrainFactory::vf_000(void) { return 1; }
+UBOOL UTerrainFactory::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00f4e6b0
-bool UTerrainFactory::vf_004()
+UBOOL UTerrainFactory::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1187,27 +1187,27 @@ bool UTerrainFactory::sub_00f4eca0(void)
 IMPLEMENT_CLASS_AT(UEditorEngine, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnEditor.cpp", 76);
 
 // @baa 0x00f4ef10
-int UEditorEngine::vf_000(void) { return 1; }
+UBOOL UEditorEngine::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00f4ef20
-bool UEditorEngine::vf_004()
+UBOOL UEditorEngine::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00f4ef60
 // @baa 0x00f4f070
-int ULightingChannelsObject::vf_000(void) { return 1; }
+UBOOL ULightingChannelsObject::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00f4f080
-bool ULightingChannelsObject::vf_004()
+UBOOL ULightingChannelsObject::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00f4f0c0
 // @baa 0x00f4f1f0
-bool UEditorUserSettings::vf_004()
+UBOOL UEditorUserSettings::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

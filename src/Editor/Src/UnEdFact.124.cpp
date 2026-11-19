@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00f1f840
-int UCameraAnimFactory::vf_000(void) { return 1; }
+UBOOL UCameraAnimFactory::HasUniqueStaticConfigName() const { return 1; }

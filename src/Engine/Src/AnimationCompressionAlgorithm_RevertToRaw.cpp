@@ -11,7 +11,7 @@ IMPLEMENT_CLASS_AT(UAnimationCompressionAlgorithm_RevertToRaw, "e:\\Projects\\Am
 // @baa 0x00c0f170
 
 // @baa 0x00c0f280
-bool UAnimationCompressionAlgorithm_RevertToRaw::vf_004()
+UBOOL UAnimationCompressionAlgorithm_RevertToRaw::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

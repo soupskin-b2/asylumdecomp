@@ -1465,10 +1465,10 @@ int C_01014e80::sub_01014e80(int param_2)
 IMPLEMENT_CLASS_AT(UAnalyzeCookedContentCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\AnalyzeCookedContentCommandlet.cpp", 16);
 
 // @baa 0x01015a80
-int UAnalyzeCookedContentCommandlet::vf_000(void) { return 1; }
+UBOOL UAnalyzeCookedContentCommandlet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01015a90
-bool UAnalyzeCookedContentCommandlet::vf_004()
+UBOOL UAnalyzeCookedContentCommandlet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1532,10 +1532,10 @@ void C_01015b20::sub_01015b20() {
 IMPLEMENT_CLASS_AT(UAnalyzeReferencedContentCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\AnalyzeReferencedContent.cpp", 15);
 
 // @baa 0x01015c40
-int UAnalyzeReferencedContentCommandlet::vf_000(void) { return 1; }
+UBOOL UAnalyzeReferencedContentCommandlet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01015c50
-bool UAnalyzeReferencedContentCommandlet::vf_004()
+UBOOL UAnalyzeReferencedContentCommandlet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

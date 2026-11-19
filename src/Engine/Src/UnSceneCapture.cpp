@@ -70,7 +70,7 @@ IMPLEMENT_CLASS_AT(USceneCaptureReflectComponent, "e:\\Projects\\Amadeus\\AA\\Ga
 // @baa 0x008d2610
 // @baa 0x008d26d0
 // @baa 0x008d27e0
-bool USceneCapture2DComponent::vf_004()
+UBOOL USceneCapture2DComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -78,7 +78,7 @@ bool USceneCapture2DComponent::vf_004()
 // @baa 0x008d2820
 // @baa 0x008d28e0
 // @baa 0x008d29f0
-bool USceneCaptureCubeMapComponent::vf_004()
+UBOOL USceneCaptureCubeMapComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -86,7 +86,7 @@ bool USceneCaptureCubeMapComponent::vf_004()
 // @baa 0x008d2a30
 // @baa 0x008d2af0
 // @baa 0x008d2c00
-bool USceneCaptureReflectComponent::vf_004()
+UBOOL USceneCaptureReflectComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -118,51 +118,51 @@ IMPLEMENT_CLASS_AT(APortalTeleporter, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEn
 // @baa 0x008e0950
 
 // @baa 0x008a6f70
-int USceneCaptureComponent::vf_000(void) { return 1; }
+UBOOL USceneCaptureComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008a6f80
-bool USceneCaptureComponent::vf_004()
+UBOOL USceneCaptureComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008a6fc0
-int USceneCapture2DComponent::vf_000(void) { return 1; }
+UBOOL USceneCapture2DComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008a6fd0
-int USceneCaptureCubeMapComponent::vf_000(void) { return 1; }
+UBOOL USceneCaptureCubeMapComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008a6fe0
-int USceneCaptureReflectComponent::vf_000(void) { return 1; }
+UBOOL USceneCaptureReflectComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008a6ff0
-int USceneCapturePortalComponent::vf_000(void) { return 1; }
+UBOOL USceneCapturePortalComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008a7000
 
 // @baa 0x008a7110
-int ASceneCaptureActor::vf_000(void) { return 1; }
+UBOOL ASceneCaptureActor::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008a7120
-bool ASceneCaptureActor::vf_004()
+UBOOL ASceneCaptureActor::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008a7160
-int ASceneCapture2DActor::vf_000(void) { return 1; }
+UBOOL ASceneCapture2DActor::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008a7170
-int ASceneCaptureCubeMapActor::vf_000(void) { return 1; }
+UBOOL ASceneCaptureCubeMapActor::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008a7180
-int ASceneCaptureReflectActor::vf_000(void) { return 1; }
+UBOOL ASceneCaptureReflectActor::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008a7190
-int ASceneCapturePortalActor::vf_000(void) { return 1; }
+UBOOL ASceneCapturePortalActor::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008a71a0
-int APortalTeleporter::vf_000(void) { return 1; }
+UBOOL APortalTeleporter::HasUniqueStaticConfigName() const { return 1; }
 
 int sub_007654e0(void);
 // @baa 0x008a71b0
@@ -177,7 +177,7 @@ void USceneCaptureComponent::Attach()
 
 void sub_005db340();
 // @baa 0x008a72e0
-void USceneCaptureComponent::vf_02c(void) { sub_005db340(); }
+void USceneCaptureComponent::FinishDestroy() { sub_005db340(); }
 
 struct C_008a7480 {
     undefined4 sub_008a7480(byte);
@@ -305,7 +305,7 @@ undefined4 * C_008ce420::sub_008ce420(void)
 // @baa 0x008d2d00
 
 // @baa 0x008d2e10
-bool USceneCapturePortalComponent::vf_004()
+UBOOL USceneCapturePortalComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -313,7 +313,7 @@ bool USceneCapturePortalComponent::vf_004()
 // @baa 0x008eede0
 
 // @baa 0x008eeef0
-bool ASceneCapture2DActor::vf_004()
+UBOOL ASceneCapture2DActor::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -321,7 +321,7 @@ bool ASceneCapture2DActor::vf_004()
 // @baa 0x008eef30
 
 // @baa 0x008ef040
-bool ASceneCaptureCubeMapActor::vf_004()
+UBOOL ASceneCaptureCubeMapActor::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -329,7 +329,7 @@ bool ASceneCaptureCubeMapActor::vf_004()
 // @baa 0x008ef080
 
 // @baa 0x008ef190
-bool ASceneCaptureReflectActor::vf_004()
+UBOOL ASceneCaptureReflectActor::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

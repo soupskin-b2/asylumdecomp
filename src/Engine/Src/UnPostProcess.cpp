@@ -12,10 +12,10 @@ int UPostProcessEffect::vf_10c(int a0) { return 0; }
 // @baa 0x0064b860
 // @baa 0x00889cf0
 // @baa 0x00889e00
-int UPostProcessEffect::vf_000(void) { return 1; }
+UBOOL UPostProcessEffect::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00889e10
-bool UPostProcessEffect::vf_004()
+UBOOL UPostProcessEffect::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -24,10 +24,10 @@ bool UPostProcessEffect::vf_004()
 IMPLEMENT_CLASS_AT(UPostProcessChain, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPostProcess.cpp", 8);
 
 // @baa 0x00889f60
-int UPostProcessChain::vf_000(void) { return 1; }
+UBOOL UPostProcessChain::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00889f70
-bool UPostProcessChain::vf_004()
+UBOOL UPostProcessChain::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -36,10 +36,10 @@ bool UPostProcessChain::vf_004()
 IMPLEMENT_CLASS_AT(APostProcessVolume, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPostProcess.cpp", 9);
 
 // @baa 0x0088a0c0
-int APostProcessVolume::vf_000(void) { return 1; }
+UBOOL APostProcessVolume::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0088a0d0
-bool APostProcessVolume::vf_004()
+UBOOL APostProcessVolume::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

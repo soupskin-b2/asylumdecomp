@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00f1ec40
-bool URenderTargetCubeExporterTGA::vf_004()
+UBOOL URenderTargetCubeExporterTGA::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

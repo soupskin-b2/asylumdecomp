@@ -50,10 +50,10 @@ IMPLEMENT_CLASS_AT(URCrimeSceneAssetFactoryNew, "e:\\Projects\\Amadeus\\AA\\Game
 // @baa 0x0166c960
 
 // @baa 0x0166ca70
-int UREvidence::vf_000(void) { return 1; }
+UBOOL UREvidence::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0166ca80
-bool UREvidence::vf_004()
+UBOOL UREvidence::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -61,10 +61,10 @@ bool UREvidence::vf_004()
 // @baa 0x0166cac0
 
 // @baa 0x0166cbd0
-int UREvidenceFactoryNew::vf_000(void) { return 1; }
+UBOOL UREvidenceFactoryNew::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0166cbe0
-bool UREvidenceFactoryNew::vf_004()
+UBOOL UREvidenceFactoryNew::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -72,10 +72,10 @@ bool UREvidenceFactoryNew::vf_004()
 // @baa 0x0166cc40
 
 // @baa 0x0166cd50
-int URDummyEvidenceConfig::vf_000(void) { return 1; }
+UBOOL URDummyEvidenceConfig::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0166cd60
-bool URDummyEvidenceConfig::vf_004()
+UBOOL URDummyEvidenceConfig::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -83,10 +83,10 @@ bool URDummyEvidenceConfig::vf_004()
 // @baa 0x0166cda0
 
 // @baa 0x0166ceb0
-int URDummyEvidenceConfigFactoryNew::vf_000(void) { return 1; }
+UBOOL URDummyEvidenceConfigFactoryNew::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0166cec0
-bool URDummyEvidenceConfigFactoryNew::vf_004()
+UBOOL URDummyEvidenceConfigFactoryNew::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

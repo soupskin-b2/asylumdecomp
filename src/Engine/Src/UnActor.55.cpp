@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00756d00
-int ATeleporter::vf_000(void) { return 1; }
+UBOOL ATeleporter::HasUniqueStaticConfigName() const { return 1; }

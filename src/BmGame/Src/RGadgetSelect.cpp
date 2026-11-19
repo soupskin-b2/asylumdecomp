@@ -117,23 +117,23 @@ int sub_01639030(void)
 }
 
 // @baa 0x01639060
-int ARBatarang::vf_000(void) { return 1; }
+UBOOL ARBatarang::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01639070
-int ARBatarangProjectile::vf_000(void) { return 1; }
+UBOOL ARBatarangProjectile::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01639080
-int ARBatarangProjectile_Controllable::vf_000(void) { return 1; }
+UBOOL ARBatarangProjectile_Controllable::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01639090
-int ARBatDistractProjectile::vf_000(void) { return 1; }
+UBOOL ARBatDistractProjectile::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01639b30
 // @baa 0x01639c40
-int URGadgetSelect::vf_000(void) { return 1; }
+UBOOL URGadgetSelect::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01639c50
-bool URGadgetSelect::vf_004()
+UBOOL URGadgetSelect::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

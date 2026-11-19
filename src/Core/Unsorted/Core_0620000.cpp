@@ -287,10 +287,10 @@ int C_0062c290::sub_0062c290(void) { return *(int*)((char*)this + 0); }
 
 // @baa 0x0062daa0
 // @baa 0x0062dbb0
-int UObjectRedirector::vf_000(void) { return 1; }
+UBOOL UObjectRedirector::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0062dbc0
-bool UObjectRedirector::vf_004()
+UBOOL UObjectRedirector::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

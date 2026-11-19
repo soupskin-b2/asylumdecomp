@@ -7,10 +7,10 @@
 IMPLEMENT_CLASS_AT(URConstrainingComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RConstrainingComponent.cpp", 9);
 
 // @baa 0x016d0d40
-int URConstrainingComponent::vf_000(void) { return 1; }
+UBOOL URConstrainingComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016d0d50
-bool URConstrainingComponent::vf_004()
+UBOOL URConstrainingComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -62,10 +62,10 @@ void URConstrainingComponent::sub_016d9e80(void)
 // @baa 0x016d0d90
 
 // @baa 0x016d0ea0
-int URB_ActualDistanceConstraintSetup::vf_000(void) { return 1; }
+UBOOL URB_ActualDistanceConstraintSetup::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016d0eb0
-bool URB_ActualDistanceConstraintSetup::vf_004()
+UBOOL URB_ActualDistanceConstraintSetup::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

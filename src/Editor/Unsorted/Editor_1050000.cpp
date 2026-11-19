@@ -824,10 +824,10 @@ undefined4 UTexture2D::sub_01054f80(byte param_2)
 }
 
 // @baa 0x0105cd70
-int UFixAmbiguousMaterialParametersCommandlet::vf_000(void) { return 1; }
+UBOOL UFixAmbiguousMaterialParametersCommandlet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0105cd80
-bool UFixAmbiguousMaterialParametersCommandlet::vf_004()
+UBOOL UFixAmbiguousMaterialParametersCommandlet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

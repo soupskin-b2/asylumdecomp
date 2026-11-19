@@ -40,19 +40,19 @@ C_00c97660* C_00c97660::sub_00c97660(void) { *(int*)((char*)this + 0) = 0; retur
 IMPLEMENT_CLASS_AT(UCodecMovie, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnCodecs.cpp", 9);
 
 // @baa 0x00c97780
-int UCodecMovie::vf_000(void) { return 1; }
+UBOOL UCodecMovie::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c97790
-bool UCodecMovie::vf_004()
+UBOOL UCodecMovie::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c977d0
-int UCodecMovieFallback::vf_000(void) { return 1; }
+UBOOL UCodecMovieFallback::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c977e0
-int UCodecMovieBink::vf_000(void) { return 1; }
+UBOOL UCodecMovieBink::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c97960
 undefined4 sub_00c97960(void)

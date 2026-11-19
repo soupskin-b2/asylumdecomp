@@ -343,14 +343,14 @@ void sub_0097e8e0(void) { sub_0097d2c0(); }
 
 // @baa 0x0097e8f0
 // @baa 0x0097ea00
-bool ASkeletalMeshActorMAT::vf_004()
+UBOOL ASkeletalMeshActorMAT::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0097ea40
 // @baa 0x0097eb50
-bool ASkeletalMeshActorBasedOnExtremeContent::vf_004()
+UBOOL ASkeletalMeshActorBasedOnExtremeContent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -374,14 +374,14 @@ undefined4 C_0097ec40::sub_0097ec40(byte param_2)
 
 // @baa 0x0097ec60
 // @baa 0x0097ed70
-bool AStaticMeshActor::vf_004()
+UBOOL AStaticMeshActor::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0097edb0
 // @baa 0x0097eec0
-bool AStaticMeshCollectionActor::vf_004()
+UBOOL AStaticMeshCollectionActor::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

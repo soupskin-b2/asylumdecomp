@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00756d60
-int ATrigger::vf_000(void) { return 1; }
+UBOOL ATrigger::HasUniqueStaticConfigName() const { return 1; }

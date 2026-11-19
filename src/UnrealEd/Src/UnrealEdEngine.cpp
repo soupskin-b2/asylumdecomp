@@ -80,7 +80,7 @@ return;
 }
 
 // @baa 0x0127cd10
-bool UUnrealEdKeyBindings::vf_004()
+UBOOL UUnrealEdKeyBindings::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

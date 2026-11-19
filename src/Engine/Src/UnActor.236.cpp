@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x0077df30
-bool ABrush::vf_004()
+UBOOL ABrush::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

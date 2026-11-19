@@ -61,7 +61,7 @@ int C_006d15a0::sub_006d15a0(void)
 }
 
 // @baa 0x006d55d0
-void UMaterial::vf_05c(void)
+void UMaterial::PostDuplicate()
 {
     int param_1 = (int)this;
 
@@ -577,10 +577,10 @@ undefined4 * UMaterialInstanceConstant::sub_006d8b70(byte param_2)
 }
 
 // @baa 0x006d8d30
-int UMaterialInstanceTimeVarying::vf_000(void) { return 1; }
+UBOOL UMaterialInstanceTimeVarying::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x006d8d40
-bool UMaterialInstanceTimeVarying::vf_004()
+UBOOL UMaterialInstanceTimeVarying::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1550,10 +1550,10 @@ struct C_006da680 { C_006da680* sub_006da680(void); };
 C_006da680* C_006da680::sub_006da680(void) { return this; }
 
 // @baa 0x006dac00
-int APortalVolume::vf_000(void) { return 1; }
+UBOOL APortalVolume::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x006dac10
-bool APortalVolume::vf_004()
+UBOOL APortalVolume::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -2358,11 +2358,11 @@ void UPrimitiveComponent::vf_158(UINT* LightMapMemoryUsage, UINT* ShadowMapMemor
 // @baa 0x006db670
 /* UPrimitiveComponent slot 0x88 (kit vf_088, UE3 NeedsLoadForClient()): hidden primitives only load on clients
  * when they collide or are marked AlwaysLoadOnClient. */
-INT UPrimitiveComponent::vf_088()
+UBOOL UPrimitiveComponent::NeedsLoadForClient() const
 {
     if (!HiddenGame || (CollideActors && (!Owner || Owner->bCollideActors)) || AlwaysLoadOnClient)
     {
-        return UActorComponent::vf_088();
+        return UActorComponent::NeedsLoadForClient();
     }
     return FALSE;
 }
@@ -2370,9 +2370,9 @@ INT UPrimitiveComponent::vf_088()
 // @baa 0x006db6b0
 /* UPrimitiveComponent slot 0x8c (kit vf_08c, UE3 NeedsLoadForServer()): load on servers when colliding or marked
  * AlwaysLoadOnServer. */
-INT UPrimitiveComponent::vf_08c()
+UBOOL UPrimitiveComponent::NeedsLoadForServer() const
 {
-    return ((CollideActors && (!Owner || Owner->bCollideActors)) || AlwaysLoadOnServer) ? UActorComponent::vf_08c() : FALSE;
+    return ((CollideActors && (!Owner || Owner->bCollideActors)) || AlwaysLoadOnServer) ? UActorComponent::NeedsLoadForServer() : FALSE;
 }
 
 // @baa 0x006dc5f0

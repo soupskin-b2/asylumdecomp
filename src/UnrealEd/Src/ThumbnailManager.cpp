@@ -114,7 +114,7 @@ IMPLEMENT_CLASS_AT(UUISceneThumbnailRenderer, "e:\\Projects\\Amadeus\\AA\\Game\\
 // @baa 0x0125e2e0
 // @baa 0x0125e3a0
 // @baa 0x0125e4b0
-bool UFracturedStaticMeshLabelRenderer::vf_004()
+UBOOL UFracturedStaticMeshLabelRenderer::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -123,7 +123,7 @@ bool UFracturedStaticMeshLabelRenderer::vf_004()
 // @baa 0x0125e5b0
 // @baa 0x0125e670
 // @baa 0x0125e780
-bool UFontThumbnailRenderer::vf_004()
+UBOOL UFontThumbnailRenderer::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -477,7 +477,7 @@ undefined4 * UObject::sub_01253660(void)
 // @baa 0x01259910
 
 // @baa 0x01259a20
-bool UTextureThumbnailRenderer::vf_004()
+UBOOL UTextureThumbnailRenderer::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -485,7 +485,7 @@ bool UTextureThumbnailRenderer::vf_004()
 // @baa 0x01259a60
 
 // @baa 0x01259b70
-bool UDefaultSizedThumbnailRenderer::vf_004()
+UBOOL UDefaultSizedThumbnailRenderer::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -493,7 +493,7 @@ bool UDefaultSizedThumbnailRenderer::vf_004()
 // @baa 0x01259d00
 
 // @baa 0x01259e10
-bool UMemCountThumbnailLabelRenderer::vf_004()
+UBOOL UMemCountThumbnailLabelRenderer::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -501,7 +501,7 @@ bool UMemCountThumbnailLabelRenderer::vf_004()
 // @baa 0x01259e50
 
 // @baa 0x01259f60
-bool UAnimSetLabelRenderer::vf_004()
+UBOOL UAnimSetLabelRenderer::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -509,7 +509,7 @@ bool UAnimSetLabelRenderer::vf_004()
 // @baa 0x01259fa0
 
 // @baa 0x0125a0b0
-bool UAnimTreeLabelRenderer::vf_004()
+UBOOL UAnimTreeLabelRenderer::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -517,7 +517,7 @@ bool UAnimTreeLabelRenderer::vf_004()
 // @baa 0x0125a0f0
 
 // @baa 0x0125a200
-bool UGenericThumbnailLabelRenderer::vf_004()
+UBOOL UGenericThumbnailLabelRenderer::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -525,7 +525,7 @@ bool UGenericThumbnailLabelRenderer::vf_004()
 // @baa 0x0125a240
 
 // @baa 0x0125a350
-bool UPhysicsAssetLabelRenderer::vf_004()
+UBOOL UPhysicsAssetLabelRenderer::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -533,7 +533,7 @@ bool UPhysicsAssetLabelRenderer::vf_004()
 // @baa 0x0125a390
 
 // @baa 0x0125a4a0
-bool UApexDestructibleAssetLabelRenderer::vf_004()
+UBOOL UApexDestructibleAssetLabelRenderer::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -541,7 +541,7 @@ bool UApexDestructibleAssetLabelRenderer::vf_004()
 // @baa 0x0125a4e0
 
 // @baa 0x0125a5f0
-bool USkeletalMeshLabelRenderer::vf_004()
+UBOOL USkeletalMeshLabelRenderer::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -549,7 +549,7 @@ bool USkeletalMeshLabelRenderer::vf_004()
 // @baa 0x0125a630
 
 // @baa 0x0125a740
-bool UStaticMeshLabelRenderer::vf_004()
+UBOOL UStaticMeshLabelRenderer::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -557,7 +557,7 @@ bool UStaticMeshLabelRenderer::vf_004()
 // @baa 0x0125a780
 
 // @baa 0x0125a890
-bool UPostProcessLabelRenderer::vf_004()
+UBOOL UPostProcessLabelRenderer::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -565,7 +565,7 @@ bool UPostProcessLabelRenderer::vf_004()
 // @baa 0x0125a8d0
 
 // @baa 0x0125a9e0
-bool USoundLabelRenderer::vf_004()
+UBOOL USoundLabelRenderer::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -573,7 +573,7 @@ bool USoundLabelRenderer::vf_004()
 // @baa 0x0125aa20
 
 // @baa 0x0125ab30
-bool UMaterialInstanceLabelRenderer::vf_004()
+UBOOL UMaterialInstanceLabelRenderer::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -583,7 +583,7 @@ bool UMaterialInstanceLabelRenderer::vf_004()
 // @baa 0x0125dc50
 
 // @baa 0x0125dd60
-bool UTextureCubeThumbnailRenderer::vf_004()
+UBOOL UTextureCubeThumbnailRenderer::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -591,7 +591,7 @@ bool UTextureCubeThumbnailRenderer::vf_004()
 // @baa 0x0125dda0
 
 // @baa 0x0125deb0
-bool UMaterialInstanceThumbnailRenderer::vf_004()
+UBOOL UMaterialInstanceThumbnailRenderer::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -599,7 +599,7 @@ bool UMaterialInstanceThumbnailRenderer::vf_004()
 // @baa 0x0125def0
 
 // @baa 0x0125e000
-bool UParticleSystemThumbnailRenderer::vf_004()
+UBOOL UParticleSystemThumbnailRenderer::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -607,7 +607,7 @@ bool UParticleSystemThumbnailRenderer::vf_004()
 // @baa 0x0125e040
 
 // @baa 0x0125e150
-bool USkeletalMeshThumbnailRenderer::vf_004()
+UBOOL USkeletalMeshThumbnailRenderer::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -615,7 +615,7 @@ bool USkeletalMeshThumbnailRenderer::vf_004()
 // @baa 0x0125e190
 
 // @baa 0x0125e2a0
-bool UStaticMeshThumbnailRenderer::vf_004()
+UBOOL UStaticMeshThumbnailRenderer::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -625,7 +625,7 @@ bool UStaticMeshThumbnailRenderer::vf_004()
 // @baa 0x012603a0
 
 // @baa 0x012604b0
-bool UArchetypeThumbnailRenderer::vf_004()
+UBOOL UArchetypeThumbnailRenderer::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -633,7 +633,7 @@ bool UArchetypeThumbnailRenderer::vf_004()
 // @baa 0x012604f0
 
 // @baa 0x01260600
-bool UPrefabThumbnailRenderer::vf_004()
+UBOOL UPrefabThumbnailRenderer::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -641,7 +641,7 @@ bool UPrefabThumbnailRenderer::vf_004()
 // @baa 0x01260640
 
 // @baa 0x01260750
-bool UUISceneThumbnailRenderer::vf_004()
+UBOOL UUISceneThumbnailRenderer::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

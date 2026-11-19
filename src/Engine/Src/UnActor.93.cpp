@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00757480
-bool UEdCoordSystem::vf_004()
+UBOOL UEdCoordSystem::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

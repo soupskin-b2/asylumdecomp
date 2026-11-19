@@ -214,7 +214,7 @@ undefined4 * UPackageMapSeekFree::sub_00e14a90(undefined4 param_2)
 // @baa 0x00e14ab0
 // @baa 0x00e16840
 // @baa 0x00e16950
-bool UPackageMapSeekFree::vf_004()
+UBOOL UPackageMapSeekFree::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -346,10 +346,10 @@ int sub_00e17260(int a0, int a1) { return a1; }
 int sub_00e17270(int a0, int a1) { return a1; }
 
 // @baa 0x00e17390
-int UPendingLevel::vf_000(void) { return 1; }
+UBOOL UPendingLevel::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00e173a0
-bool UPendingLevel::vf_004()
+UBOOL UPendingLevel::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

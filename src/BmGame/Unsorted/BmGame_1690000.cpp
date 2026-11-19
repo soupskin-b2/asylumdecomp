@@ -438,48 +438,48 @@ void sub_0169b6f0(void) { sub_0169b600(); }
 
 // @baa 0x0169b700
 // @baa 0x0169b810
-bool URDmgType_Strike::vf_004()
+UBOOL URDmgType_Strike::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0169b850
 // @baa 0x0169b960
-bool URDmgType_IntoThrow::vf_004()
+UBOOL URDmgType_IntoThrow::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0169b9a0
 // @baa 0x0169bab0
-bool URDmgType_CombatTakedown::vf_004()
+UBOOL URDmgType_CombatTakedown::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0169baf0
 // @baa 0x0169bc00
-bool URDmgType_Takedown::vf_004()
+UBOOL URDmgType_Takedown::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0169d170
-bool URDmgType_Counter::vf_004()
+UBOOL URDmgType_Counter::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0169d1b0
 // @baa 0x0169d2c0
-bool URDmgType_Takedown_Floor::vf_004()
+UBOOL URDmgType_Takedown_Floor::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0169d300
 // @baa 0x0169d410
-bool URDmgType_Redirect::vf_004()
+UBOOL URDmgType_Redirect::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

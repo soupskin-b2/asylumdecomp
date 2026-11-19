@@ -26,10 +26,10 @@ IMPLEMENT_CLASS_AT(UCanvas, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Dev
 // @baa 0x00a56f90
 // @baa 0x00a57be0
 // @baa 0x00a57cf0
-int UCanvas::vf_000(void) { return 1; }
+UBOOL UCanvas::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00a57d00
-bool UCanvas::vf_004()
+UBOOL UCanvas::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

@@ -7,10 +7,10 @@
 IMPLEMENT_CLASS_AT(UDecalComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\DecalComponent.cpp", 12);
 
 // @baa 0x0064df40
-int UDecalComponent::vf_000(void) { return 1; }
+UBOOL UDecalComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0064df50
-bool UDecalComponent::vf_004()
+UBOOL UDecalComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

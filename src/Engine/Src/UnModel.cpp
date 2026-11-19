@@ -62,10 +62,10 @@ void UFracturedStaticMeshComponent::sub_00672ef0(int param_2)
 IMPLEMENT_CLASS_AT(UModel, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnModel.cpp", 335);
 
 // @baa 0x00804840
-int UModel::vf_000(void) { return 1; }
+UBOOL UModel::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00804850
-bool UModel::vf_004()
+UBOOL UModel::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -148,7 +148,7 @@ void C_00812720::sub_00812720() {
 int sub_005eac10(...);
 int sub_00813ec0(...);
 // @baa 0x00815c10
-void UModel::vf_05c(void)
+void UModel::PostDuplicate()
 {
     int param_1 = (int)this;
 

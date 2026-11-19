@@ -87,7 +87,7 @@ void UMultiFont::Serialize(FArchive& Ar) {
 }
 
 // @baa 0x00d19910
-bool UMultiFont::vf_004()
+UBOOL UMultiFont::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -424,19 +424,19 @@ void sub_00d1f270(void)
 }
 
 // @baa 0x00d1f880
-int UOnlineStats::vf_000(void) { return 1; }
+UBOOL UOnlineStats::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00d1f890
-bool UOnlineStats::vf_004()
+UBOOL UOnlineStats::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00d1f8d0
-int UOnlineStatsRead::vf_000(void) { return 1; }
+UBOOL UOnlineStatsRead::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00d1f8e0
-int UOnlineStatsWrite::vf_000(void) { return 1; }
+UBOOL UOnlineStatsWrite::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00d1f900
 int sub_00d1f900(int a0, int a1) { return a1; }
@@ -445,10 +445,10 @@ int sub_00d1f900(int a0, int a1) { return a1; }
 int sub_00d1f910(int a0, int a1) { return a1; }
 
 // @baa 0x00d1fee0
-int UPrefabSequence::vf_000(void) { return 1; }
+UBOOL UPrefabSequence::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00d1fef0
-bool UPrefabSequence::vf_004()
+UBOOL UPrefabSequence::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

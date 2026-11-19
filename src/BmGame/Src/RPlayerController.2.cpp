@@ -267,16 +267,16 @@ int sub_01612930(int a0, int a1) { return a1; }
 IMPLEMENT_CLASS_AT(ARPlayerController, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RPlayerController.cpp", 34);
 
 // @baa 0x01613b70
-int ARPlayerController::vf_000(void) { return 1; }
+UBOOL ARPlayerController::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01613b80
-bool ARPlayerController::vf_004()
+UBOOL ARPlayerController::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01613bc0
-int ARPlayerControllerCombat::vf_000(void) { return 1; }
+UBOOL ARPlayerControllerCombat::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01613c30
 void ARPlayerController::ToggleMovieRecord() {  }
@@ -387,16 +387,16 @@ void sub_01614f50(void)
 IMPLEMENT_CLASS_AT(ARDebugCameraController, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RPlayerController.cpp", 3880);
 
 // @baa 0x01615070
-int ARDebugCameraController::vf_000(void) { return 1; }
+UBOOL ARDebugCameraController::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01615080
-bool ARDebugCameraController::vf_004()
+UBOOL ARDebugCameraController::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x016150c0
-int ARBMDebugCameraController::vf_000(void) { return 1; }
+UBOOL ARBMDebugCameraController::HasUniqueStaticConfigName() const { return 1; }
 
 extern undefined4 g_026b5890;
 // @baa 0x01615100
@@ -1468,7 +1468,7 @@ int sub_01634110(void)
 IMPLEMENT_CLASS_AT(URSeqAct_SpeechEventManager, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RSeqAct_SpeechEventManager.cpp", 4);
 
 // @baa 0x01634250
-bool URSeqAct_SpeechEventManager::vf_004()
+UBOOL URSeqAct_SpeechEventManager::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1481,7 +1481,7 @@ IMPLEMENT_CLASS_AT(ARPlayerControllerCombat, "e:\\Projects\\Amadeus\\AA\\Game\\U
 // @baa 0x01634420
 // @baa 0x016344e0
 // @baa 0x016345f0
-bool ARBMDebugCameraController::vf_004()
+UBOOL ARBMDebugCameraController::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1530,10 +1530,10 @@ UBOOL ARPlayerController::IsLevelLoadSpecified() { return 0; }
 IMPLEMENT_CLASS_AT(URSeqAct_PlayGfxMovie, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameGFxSupportClasses.cpp", 567);
 
 // @baa 0x016d2270
-int URSeqAct_PlayGfxMovie::vf_000(void) { return 1; }
+UBOOL URSeqAct_PlayGfxMovie::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016d2280
-bool URSeqAct_PlayGfxMovie::vf_004()
+UBOOL URSeqAct_PlayGfxMovie::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1542,10 +1542,10 @@ bool URSeqAct_PlayGfxMovie::vf_004()
 IMPLEMENT_CLASS_AT(URGFxFSCmdHandler_PlayMovie, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameGFxSupportClasses.cpp", 568);
 
 // @baa 0x016d23d0
-int URGFxFSCmdHandler_PlayMovie::vf_000(void) { return 1; }
+UBOOL URGFxFSCmdHandler_PlayMovie::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016d23e0
-bool URGFxFSCmdHandler_PlayMovie::vf_004()
+UBOOL URGFxFSCmdHandler_PlayMovie::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1557,10 +1557,10 @@ int URGFxFSCmdHandler_PlayMovie::GetPlayMovieAction(void) { return *(int*)((char
 IMPLEMENT_CLASS_AT(URCharacterBioCue, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameGFxSupportClasses.cpp", 627);
 
 // @baa 0x016d2540
-int URCharacterBioCue::vf_000(void) { return 1; }
+UBOOL URCharacterBioCue::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016d2550
-bool URCharacterBioCue::vf_004()
+UBOOL URCharacterBioCue::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1569,10 +1569,10 @@ bool URCharacterBioCue::vf_004()
 IMPLEMENT_CLASS_AT(URCharacterBioCueFactoryNew, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameGFxSupportClasses.cpp", 628);
 
 // @baa 0x016d26a0
-int URCharacterBioCueFactoryNew::vf_000(void) { return 1; }
+UBOOL URCharacterBioCueFactoryNew::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016d26b0
-bool URCharacterBioCueFactoryNew::vf_004()
+UBOOL URCharacterBioCueFactoryNew::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1896,10 +1896,10 @@ void ARPlayerController::Live_SetStorageSelectPending(UBOOL Value)
 }
 
 // @baa 0x01613a10
-int URPlayerInput::vf_000(void) { return 1; }
+UBOOL URPlayerInput::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01613a20
-bool URPlayerInput::vf_004()
+UBOOL URPlayerInput::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1945,7 +1945,7 @@ ARPlayerControllerCombat::ARPlayerControllerCombat()
 }
 
 // @baa 0x01634d90
-bool ARPlayerControllerCombat::vf_004()
+UBOOL ARPlayerControllerCombat::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

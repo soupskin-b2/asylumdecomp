@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00f1d950
-int UPostProcessFactoryNew::vf_000(void) { return 1; }
+UBOOL UPostProcessFactoryNew::HasUniqueStaticConfigName() const { return 1; }

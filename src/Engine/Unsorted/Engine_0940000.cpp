@@ -936,25 +936,25 @@ int sub_00946050(void) { return 0; }
 IMPLEMENT_CLASS_AT(AStaticMeshActorBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnStaticMesh.cpp", 10);
 
 // @baa 0x00946170
-int AStaticMeshActorBase::vf_000(void) { return 1; }
+UBOOL AStaticMeshActorBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00946180
-bool AStaticMeshActorBase::vf_004()
+UBOOL AStaticMeshActorBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x009461c0
-int AStaticMeshActor::vf_000(void) { return 1; }
+UBOOL AStaticMeshActor::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x009461f0
 IMPLEMENT_CLASS_AT(ADynamicSMActor, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnStaticMesh.cpp", 13);
 
 // @baa 0x00946300
-int ADynamicSMActor::vf_000(void) { return 1; }
+UBOOL ADynamicSMActor::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00946310
-bool ADynamicSMActor::vf_004()
+UBOOL ADynamicSMActor::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -963,10 +963,10 @@ bool ADynamicSMActor::vf_004()
 IMPLEMENT_CLASS_AT(UStaticMesh, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnStaticMesh.cpp", 14);
 
 // @baa 0x00946460
-int UStaticMesh::vf_000(void) { return 1; }
+UBOOL UStaticMesh::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00946470
-bool UStaticMesh::vf_004()
+UBOOL UStaticMesh::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -975,10 +975,10 @@ bool UStaticMesh::vf_004()
 IMPLEMENT_CLASS_AT(AStaticMeshActorBasedOnExtremeContent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnStaticMesh.cpp", 15);
 
 // @baa 0x009465c0
-int AStaticMeshActorBasedOnExtremeContent::vf_000(void) { return 1; }
+UBOOL AStaticMeshActorBasedOnExtremeContent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x009465d0
-bool AStaticMeshActorBasedOnExtremeContent::vf_004()
+UBOOL AStaticMeshActorBasedOnExtremeContent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1066,7 +1066,7 @@ void C_00946fe0::sub_00946fe0(void)
 }
 
 // @baa 0x009470b0
-void UStaticMesh::vf_05c(void) {  }
+void UStaticMesh::PostDuplicate() {  }
 
 // @baa 0x00947340
 uint AStaticMeshActor::vf_178(void)

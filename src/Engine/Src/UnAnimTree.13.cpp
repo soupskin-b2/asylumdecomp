@@ -96,40 +96,40 @@ void UAnimNodeRandom_::OnChildAnimEnd(UAnimNodeSequence* Child, FLOAT PlayedTime
 IMPLEMENT_CLASS_AT(UAnimObject, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTree.cpp", 9);
 
 // @baa 0x00c4b2d0
-int UAnimObject::vf_000(void) { return 1; }
+UBOOL UAnimObject::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c4b2e0
-bool UAnimObject::vf_004()
+UBOOL UAnimObject::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c4b350
-int UAnimNodeCrossfader::vf_000(void) { return 1; }
+UBOOL UAnimNodeCrossfader::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c4b360
-int UAnimNodeBlendPerBone::vf_000(void) { return 1; }
+UBOOL UAnimNodeBlendPerBone::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c4b370
-int UAnimNodeBlendList::vf_000(void) { return 1; }
+UBOOL UAnimNodeBlendList::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c4b380
-int UAnimNodeRandom::vf_000(void) { return 1; }
+UBOOL UAnimNodeRandom::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c4b390
-int UAnimNodeBlendDirectional::vf_000(void) { return 1; }
+UBOOL UAnimNodeBlendDirectional::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c4b3a0
-int UAnimNodeBlendByPosture::vf_000(void) { return 1; }
+UBOOL UAnimNodeBlendByPosture::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c4b3b0
-int UAnimNodeBlendByPhysics::vf_000(void) { return 1; }
+UBOOL UAnimNodeBlendByPhysics::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c4b3c0
-int UAnimNodeBlendBySpeed::vf_000(void) { return 1; }
+UBOOL UAnimNodeBlendBySpeed::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c4b3d0
-int UAnimNodeBlendByBase::vf_000(void) { return 1; }
+UBOOL UAnimNodeBlendByBase::HasUniqueStaticConfigName() const { return 1; }
 
 int sub_005c7a20(void);
 extern undefined * g_0205a040;
@@ -246,7 +246,7 @@ undefined4 * UObject::sub_00c653f0(void)
 IMPLEMENT_CLASS_AT(UAnimNodeBlendList, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTree.cpp", 16);
 
 // @baa 0x00c77d00
-bool UAnimNodeBlendList::vf_004()
+UBOOL UAnimNodeBlendList::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -255,7 +255,7 @@ bool UAnimNodeBlendList::vf_004()
 IMPLEMENT_CLASS_AT(UAnimNodeBlendDirectional, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTree.cpp", 18);
 
 // @baa 0x00c77e50
-bool UAnimNodeBlendDirectional::vf_004()
+UBOOL UAnimNodeBlendDirectional::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -274,7 +274,7 @@ FVector2D UAnimNodeAimOffset__00c78fe0::sub_00c78fe0()
 IMPLEMENT_CLASS_AT(UAnimNodeCrossfader, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTree.cpp", 14);
 
 // @baa 0x00c797c0
-bool UAnimNodeCrossfader::vf_004()
+UBOOL UAnimNodeCrossfader::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -283,7 +283,7 @@ bool UAnimNodeCrossfader::vf_004()
 IMPLEMENT_CLASS_AT(UAnimNodeBlendPerBone, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTree.cpp", 15);
 
 // @baa 0x00c79910
-bool UAnimNodeBlendPerBone::vf_004()
+UBOOL UAnimNodeBlendPerBone::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -292,7 +292,7 @@ bool UAnimNodeBlendPerBone::vf_004()
 IMPLEMENT_CLASS_AT(UAnimNodeRandom, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTree.cpp", 17);
 
 // @baa 0x00c79a60
-bool UAnimNodeRandom::vf_004()
+UBOOL UAnimNodeRandom::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -301,7 +301,7 @@ bool UAnimNodeRandom::vf_004()
 IMPLEMENT_CLASS_AT(UAnimNodeBlendByPosture, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTree.cpp", 19);
 
 // @baa 0x00c79bb0
-bool UAnimNodeBlendByPosture::vf_004()
+UBOOL UAnimNodeBlendByPosture::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -310,7 +310,7 @@ bool UAnimNodeBlendByPosture::vf_004()
 IMPLEMENT_CLASS_AT(UAnimNodeBlendByPhysics, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTree.cpp", 20);
 
 // @baa 0x00c79d00
-bool UAnimNodeBlendByPhysics::vf_004()
+UBOOL UAnimNodeBlendByPhysics::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -319,7 +319,7 @@ bool UAnimNodeBlendByPhysics::vf_004()
 IMPLEMENT_CLASS_AT(UAnimNodeBlendBySpeed, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTree.cpp", 21);
 
 // @baa 0x00c79e50
-bool UAnimNodeBlendBySpeed::vf_004()
+UBOOL UAnimNodeBlendBySpeed::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -328,7 +328,7 @@ bool UAnimNodeBlendBySpeed::vf_004()
 IMPLEMENT_CLASS_AT(UAnimNodeBlendByBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTree.cpp", 22);
 
 // @baa 0x00c79fa0
-bool UAnimNodeBlendByBase::vf_004()
+UBOOL UAnimNodeBlendByBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -337,7 +337,7 @@ bool UAnimNodeBlendByBase::vf_004()
 IMPLEMENT_CLASS_AT(UAnimNodeScaleRateBySpeed, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTree.cpp", 28);
 
 // @baa 0x00c7a0f0
-bool UAnimNodeScaleRateBySpeed::vf_004()
+UBOOL UAnimNodeScaleRateBySpeed::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -346,7 +346,7 @@ bool UAnimNodeScaleRateBySpeed::vf_004()
 IMPLEMENT_CLASS_AT(UAnimNodePlayCustomAnim, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTree.cpp", 29);
 
 // @baa 0x00c7a240
-bool UAnimNodePlayCustomAnim::vf_004()
+UBOOL UAnimNodePlayCustomAnim::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

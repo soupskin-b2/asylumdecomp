@@ -190,7 +190,7 @@ UPendingLevel::UPendingLevel()
 
 int sub_005db340(void);
 // @baa 0x00c148e0
-void UPendingLevel::vf_02c(void)
+void UPendingLevel::FinishDestroy()
 {
     int param_1 = (int)this;
 
@@ -691,10 +691,10 @@ int __stdcall sub_00c1b580(int a0, int a1, int a2) { return 0; }
 int __stdcall sub_00c1b590(int a0, int a1) { return 0; }
 
 // @baa 0x00c1b6b0
-int USpeechRecognition::vf_000(void) { return 1; }
+UBOOL USpeechRecognition::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1b6c0
-bool USpeechRecognition::vf_004()
+UBOOL USpeechRecognition::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

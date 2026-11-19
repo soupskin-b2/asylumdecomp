@@ -10,10 +10,10 @@ int __stdcall sub_00f19ce0(int a0, int a1, int a2, int a3, int a4, int a5) { ret
 IMPLEMENT_CLASS_AT(UTerrainHeightMapExporter, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnEdExpTerrain.cpp", 691);
 
 // @baa 0x00f1b1c0
-int UTerrainHeightMapExporter::vf_000(void) { return 1; }
+UBOOL UTerrainHeightMapExporter::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00f1b1d0
-bool UTerrainHeightMapExporter::vf_004()
+UBOOL UTerrainHeightMapExporter::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -22,10 +22,10 @@ bool UTerrainHeightMapExporter::vf_004()
 IMPLEMENT_CLASS_AT(UTextureExporterBMP, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnEdFact.cpp", 6870);
 
 // @baa 0x00f1e6b0
-int UTextureExporterBMP::vf_000(void) { return 1; }
+UBOOL UTextureExporterBMP::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00f1e6c0
-bool UTextureExporterBMP::vf_004()
+UBOOL UTextureExporterBMP::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -34,10 +34,10 @@ bool UTextureExporterBMP::vf_004()
 IMPLEMENT_CLASS_AT(UTextureExporterTGA, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnEdFact.cpp", 6919);
 
 // @baa 0x00f1e810
-int UTextureExporterTGA::vf_000(void) { return 1; }
+UBOOL UTextureExporterTGA::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00f1e820
-bool UTextureExporterTGA::vf_004()
+UBOOL UTextureExporterTGA::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -46,10 +46,10 @@ bool UTextureExporterTGA::vf_004()
 IMPLEMENT_CLASS_AT(URenderTargetExporterTGA, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnEdFact.cpp", 6987);
 
 // @baa 0x00f1e970
-int URenderTargetExporterTGA::vf_000(void) { return 1; }
+UBOOL URenderTargetExporterTGA::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00f1e980
-bool URenderTargetExporterTGA::vf_004()
+UBOOL URenderTargetExporterTGA::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -164,16 +164,16 @@ UBOOL UTerrainHeightMapExporterTextT3D::ExportLayerDataToFile(class ATerrain* a0
 // @baa 0x00f1af50
 
 // @baa 0x00f1b060
-int UTerrainExporterT3D::vf_000(void) { return 1; }
+UBOOL UTerrainExporterT3D::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00f1b070
-bool UTerrainExporterT3D::vf_004()
+UBOOL UTerrainExporterT3D::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00f1b210
-int UTerrainHeightMapExporterTextT3D::vf_000(void) { return 1; }
+UBOOL UTerrainHeightMapExporterTextT3D::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00f1b220
-int UTerrainHeightMapExporterG16BMPT3D::vf_000(void) { return 1; }
+UBOOL UTerrainHeightMapExporterG16BMPT3D::HasUniqueStaticConfigName() const { return 1; }

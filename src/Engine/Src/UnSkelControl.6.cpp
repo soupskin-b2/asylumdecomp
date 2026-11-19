@@ -7,7 +7,7 @@
 IMPLEMENT_CLASS_AT(USkelControl_CCD_IK, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSkelControl.cpp", 17);
 
 // @baa 0x00937e00
-bool USkelControl_CCD_IK::vf_004()
+UBOOL USkelControl_CCD_IK::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -16,7 +16,7 @@ bool USkelControl_CCD_IK::vf_004()
 IMPLEMENT_CLASS_AT(USkelControlFootPlacement, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSkelControl.cpp", 14);
 
 // @baa 0x00938ee0
-bool USkelControlFootPlacement::vf_004()
+UBOOL USkelControlFootPlacement::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -25,7 +25,7 @@ bool USkelControlFootPlacement::vf_004()
 IMPLEMENT_CLASS_AT(USkelControlWheel, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSkelControl.cpp", 15);
 
 // @baa 0x00939030
-bool USkelControlWheel::vf_004()
+UBOOL USkelControlWheel::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

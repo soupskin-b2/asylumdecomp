@@ -374,10 +374,10 @@ void C_0130ec40::sub_0130ec40()
 // @baa 0x01310360
 
 // @baa 0x01310470
-int UASVSkelComponent::vf_000(void) { return 1; }
+UBOOL UASVSkelComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01310480
-bool UASVSkelComponent::vf_004()
+UBOOL UASVSkelComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

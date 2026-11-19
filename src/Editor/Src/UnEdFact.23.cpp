@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00f1bb10
-int UDecalMaterialFactoryNew::vf_000(void) { return 1; }
+UBOOL UDecalMaterialFactoryNew::HasUniqueStaticConfigName() const { return 1; }

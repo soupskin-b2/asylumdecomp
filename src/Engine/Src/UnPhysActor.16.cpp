@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x009f4c80
-bool AKActorSpawnable::vf_004()
+UBOOL AKActorSpawnable::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

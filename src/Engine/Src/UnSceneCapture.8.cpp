@@ -5,7 +5,7 @@
 
 // @baa 0x008b6990
 /* FinishDestroy */
-void ASceneCaptureCubeMapActor::vf_02c()
+void ASceneCaptureCubeMapActor::FinishDestroy()
 {
     if (StaticMesh)
     {
@@ -20,12 +20,12 @@ void ASceneCaptureCubeMapActor::vf_02c()
     }
     CubeMaterialInst = NULL;
 
-    Super::vf_02c();
+    Super::FinishDestroy();
 }
 
 // @baa 0x008b6b70
 /* FinishDestroy */
-void ASceneCaptureReflectActor::vf_02c()
+void ASceneCaptureReflectActor::FinishDestroy()
 {
     if (StaticMesh)
     {
@@ -40,7 +40,7 @@ void ASceneCaptureReflectActor::vf_02c()
     }
     ReflectMaterialInst = NULL;
 
-    Super::vf_02c();
+    Super::FinishDestroy();
 }
 
 // @baa 0x008a75e0

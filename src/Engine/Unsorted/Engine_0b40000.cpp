@@ -380,28 +380,28 @@ IMPLEMENT_CLASS_AT(UParticleModuleSpawnPerUnit, "e:\\Projects\\Amadeus\\AA\\Game
 IMPLEMENT_CLASS_AT(UParticleModuleEventReceiverBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\ParticleModules_Event.cpp", 301);
 
 // @baa 0x00b48b70
-bool UParticleModuleEventReceiverBase::vf_004()
+UBOOL UParticleModuleEventReceiverBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00b48e80
 // @baa 0x00b48f90
-bool UParticleModuleMaterialByParameter::vf_004()
+UBOOL UParticleModuleMaterialByParameter::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00b49270
 // @baa 0x00b49380
-bool UParticleModuleSpawn::vf_004()
+UBOOL UParticleModuleSpawn::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00b493c0
 // @baa 0x00b494d0
-bool UParticleModuleSpawnPerUnit::vf_004()
+UBOOL UParticleModuleSpawnPerUnit::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -421,7 +421,7 @@ int sub_00b4a850(void)
 
 // @baa 0x00b4b1f0
 // @baa 0x00b4b300
-bool UParticleModuleEventReceiverSpawn::vf_004()
+UBOOL UParticleModuleEventReceiverSpawn::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

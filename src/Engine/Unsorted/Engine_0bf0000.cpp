@@ -310,10 +310,10 @@ int sub_00bf7c70(int a0) { return a0; }
 IMPLEMENT_CLASS_AT(UAnimationCompressionAlgorithm, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\AnimationCompressionAlgorithm.cpp", 13);
 
 // @baa 0x00bf81a0
-int UAnimationCompressionAlgorithm::vf_000(void) { return 1; }
+UBOOL UAnimationCompressionAlgorithm::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00bf81b0
-bool UAnimationCompressionAlgorithm::vf_004()
+UBOOL UAnimationCompressionAlgorithm::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -329,16 +329,16 @@ uint sub_00bf8270(void)
 }
 
 // @baa 0x00bf8670
-int UAnimationCompressionAlgorithm_BitwiseCompressOnly::vf_000(void) { return 1; }
+UBOOL UAnimationCompressionAlgorithm_BitwiseCompressOnly::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00bf8680
-int UAnimationCompressionAlgorithm_RemoveEverySecondKey::vf_000(void) { return 1; }
+UBOOL UAnimationCompressionAlgorithm_RemoveEverySecondKey::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00bf89c0
-int UAnimationCompressionAlgorithm_RemoveTrivialKeys::vf_000(void) { return 1; }
+UBOOL UAnimationCompressionAlgorithm_RemoveTrivialKeys::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00bf89d0
-int UAnimationCompressionAlgorithm_RevertToRaw::vf_000(void) { return 1; }
+UBOOL UAnimationCompressionAlgorithm_RevertToRaw::HasUniqueStaticConfigName() const { return 1; }
 
 int sub_00629c10(...);
 int sub_0062d5a0(...);

@@ -152,10 +152,10 @@ int __stdcall sub_00541c40(int a1, int a2, int a3, int a4)
 DWORD __stdcall sub_00541c50(DWORD a1, DWORD a2) { return 0xFFFFFFFF; }
 
 // @baa 0x00542300
-int UDistributionVector::vf_000(void) { return 1; }
+UBOOL UDistributionVector::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00542310
-bool UDistributionVector::vf_004()
+UBOOL UDistributionVector::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

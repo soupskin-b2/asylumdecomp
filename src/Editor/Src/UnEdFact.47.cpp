@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00f1c610
-int USoundSurroundFactory::vf_000(void) { return 1; }
+UBOOL USoundSurroundFactory::HasUniqueStaticConfigName() const { return 1; }

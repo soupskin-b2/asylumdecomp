@@ -34,7 +34,7 @@ QWORD* S::sub_00d8ee10(INT Index)
 IMPLEMENT_CLASS_AT(UUIComp_Event, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnUIComponents.cpp", 20);
 
 // @baa 0x00d8ef70
-bool UUIComp_Event::vf_004()
+UBOOL UUIComp_Event::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -97,7 +97,7 @@ undefined4 * UObject::sub_00d8eb30(void)
 }
 
 // @baa 0x00d8ece0
-int UUIComp_Event::vf_000(void) { return 1; }
+UBOOL UUIComp_Event::HasUniqueStaticConfigName() const { return 1; }
 
 struct C_00d8ecf0 { C_00d8ecf0* sub_00d8ecf0(int a0); };
 

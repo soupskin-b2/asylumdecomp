@@ -88,13 +88,13 @@ void S_00785ef0::sub_00785ef0(void* A, void* B)
 }
 
 // @baa 0x00764c60
-bool UAudioComponent::vf_004()
+UBOOL UAudioComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x007879b0
-int AAnimatedCamera::vf_000(void) { return 1; }
+UBOOL AAnimatedCamera::HasUniqueStaticConfigName() const { return 1; }
 
 struct C_00789e10 {
     int sub_00789e10();
@@ -185,7 +185,7 @@ void UAudioComponent__00793c40::sub_00793c40(void)
 }
 
 // @baa 0x0079b340
-bool AAnimatedCamera::vf_004()
+UBOOL AAnimatedCamera::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

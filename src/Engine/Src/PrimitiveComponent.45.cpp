@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x006ff070
-bool UStaticMeshComponent::vf_004()
+UBOOL UStaticMeshComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

@@ -847,7 +847,7 @@ int sub_0079feb0(void)
 
 // @baa 0x0079fee0
 // @baa 0x0079fff0
-int UCheatManager::vf_000(void) { return 1; }
+UBOOL UCheatManager::HasUniqueStaticConfigName() const { return 1; }
 
 // The out-of-line TArray<INT>::AddItem the engine calls (sub_0078fb90).
 struct FIntArray_007923f0 : public TArray<INT>

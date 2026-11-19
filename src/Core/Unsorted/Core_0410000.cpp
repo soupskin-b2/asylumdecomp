@@ -330,10 +330,10 @@ undefined4 C_00417620::sub_00417620(byte param_2)
 }
 
 // @baa 0x00417cb0
-int UObject::vf_00c(int a0, int a1) { return 1; }
+UBOOL UObject::PreSaveRoot(const TCHAR* a0, TArray<FString>& a1) { return 1; }
 
 // @baa 0x00417cc0
-void UObject::vf_010(int a0) {  }
+void UObject::PostSaveRoot(UBOOL a0) {  }
 
 // @baa 0x00417cd0
 void sub_00417cd0(void) {  }
@@ -342,16 +342,16 @@ void sub_00417cd0(void) {  }
 UBOOL UObject::IsReadyForFinishDestroy() { return 1; }
 
 // @baa 0x00417cf0
-void UObject::vf_058(void) {  }
+void UObject::PostRename() {  }
 
 // @baa 0x00417d00
-void UObject::vf_05c(void) {  }
+void UObject::PostDuplicate() {  }
 
 // @baa 0x00417d10
-int UObject::vf_098(void) { return 0; }
+struct FObjectInstancingGraph* UObject::GetCustomPostLoadInstanceGraph() { return 0; }
 
 // @baa 0x00417d20
-void UObject::vf_09c(void) {  }
+void UObject::PostEditImport() {  }
 
 // @baa 0x00417d30
 void UObject::vf_0b0(int a0) {  }
@@ -363,10 +363,10 @@ void __stdcall sub_00417d40(int a0) {  }
 int UObject::vf_0c0(int a0, int a1) { return 0; }
 
 // @baa 0x00417d60
-void UObject::vf_0d0(void) {  }
+void UObject::OnAddToPrefab() {  }
 
 // @baa 0x00417d70
-int UObject::vf_0d4(void) { return 0; }
+INT UObject::GetResourceSize() { return 0; }
 
 // @baa 0x00417e30
 int UObject::sub_00417e30(void) { return *(int*)((char*)this + 0); }

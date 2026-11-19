@@ -15,10 +15,10 @@ IMPLEMENT_CLASS_AT(AFluidInfluenceActor, "e:\\Projects\\Amadeus\\AA\\Game\\Unrea
 // @baa 0x00df2170
 
 // @baa 0x00df2280
-int AFluidInfluenceActor::vf_000(void) { return 1; }
+UBOOL AFluidInfluenceActor::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00df2290
-bool AFluidInfluenceActor::vf_004()
+UBOOL AFluidInfluenceActor::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

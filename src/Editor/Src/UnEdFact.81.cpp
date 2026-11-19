@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00f1d540
-bool UPhysXParticleSystemFactoryNew::vf_004()
+UBOOL UPhysXParticleSystemFactoryNew::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

@@ -7,7 +7,7 @@
 IMPLEMENT_CLASS_AT(UTextureRenderTargetCube, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\TextureRenderTargetCube.cpp", 12);
 
 // @baa 0x0076c8d0
-bool UTextureRenderTargetCube::vf_004()
+UBOOL UTextureRenderTargetCube::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

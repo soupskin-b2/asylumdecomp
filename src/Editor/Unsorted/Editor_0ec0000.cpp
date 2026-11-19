@@ -789,10 +789,10 @@ undefined4 * C_00ec6410::sub_00ec6410(byte param_2)
 }
 
 // @baa 0x00ec6540
-int UEditorPlayer::vf_000(void) { return 1; }
+UBOOL UEditorPlayer::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00ec6550
-bool UEditorPlayer::vf_004()
+UBOOL UEditorPlayer::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -804,16 +804,16 @@ int UBrushBuilder::GetVertexCount(void) { return *(int*)((char*)this + 76); }
 int UBrushBuilder::GetPolyCount(void) { return *(int*)((char*)this + 88); }
 
 // @baa 0x00ec6aa0
-int UBrushBuilder::vf_000(void) { return 1; }
+UBOOL UBrushBuilder::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00ec6ab0
-bool UBrushBuilder::vf_004()
+UBOOL UBrushBuilder::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00ec6af0
-int UCubeBuilder::vf_000(void) { return 1; }
+UBOOL UCubeBuilder::HasUniqueStaticConfigName() const { return 1; }
 
 struct C_00ec6b30 { int sub_00ec6b30(void); };
 

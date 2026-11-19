@@ -7,16 +7,16 @@
 IMPLEMENT_CLASS_AT(UParticleModuleTrailBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnParticleTrailModules.cpp", 13);
 
 // @baa 0x00baab20
-int UParticleModuleTrailBase::vf_000(void) { return 1; }
+UBOOL UParticleModuleTrailBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00baab30
-bool UParticleModuleTrailBase::vf_004()
+UBOOL UParticleModuleTrailBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00baab70
-int UParticleModuleTrailSource::vf_000(void) { return 1; }
+UBOOL UParticleModuleTrailSource::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00baab80
 void __stdcall sub_00baab80(int a0, int a1, int a2) {  }
@@ -41,7 +41,7 @@ void C::sub_00baabe0(undefined4 param_2, undefined4 param_3, undefined4 * param_
 }
 
 // @baa 0x00baac00
-int UParticleModuleTrailSpawn::vf_000(void) { return 1; }
+UBOOL UParticleModuleTrailSpawn::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00baac10
 void __stdcall sub_00baac10(int a0, int a1, int a2) {  }
@@ -56,7 +56,7 @@ int UParticleModuleTrailSpawn::vf_114(int a0) { return 0; }
 void UParticleModuleTrailSpawn::vf_168(void) {  }
 
 // @baa 0x00baac60
-int UParticleModuleTrailTaper::vf_000(void) { return 1; }
+UBOOL UParticleModuleTrailTaper::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00baac70
 void __stdcall sub_00baac70(int a0, int a1, int a2) {  }
@@ -71,10 +71,10 @@ void UParticleModuleTrailTaper::vf_168(void) {  }
 IMPLEMENT_CLASS_AT(UParticleModuleTypeDataTrail2, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnParticleTrailModules.cpp", 477);
 
 // @baa 0x00baadc0
-int UParticleModuleTypeDataTrail2::vf_000(void) { return 1; }
+UBOOL UParticleModuleTypeDataTrail2::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00baadd0
-bool UParticleModuleTypeDataTrail2::vf_004()
+UBOOL UParticleModuleTypeDataTrail2::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -146,14 +146,14 @@ IMPLEMENT_CLASS_AT(UParticleModuleTrailTaper, "e:\\Projects\\Amadeus\\AA\\Game\\
 // @baa 0x00bd1550
 // @baa 0x00bd1610
 // @baa 0x00bd1720
-bool UParticleModuleTrailSource::vf_004()
+UBOOL UParticleModuleTrailSource::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00bd1760
 // @baa 0x00bd1870
-bool UParticleModuleTrailSpawn::vf_004()
+UBOOL UParticleModuleTrailSpawn::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -208,7 +208,7 @@ undefined4 * UObject::sub_00bc8ff0(void)
 // @baa 0x00bd1970
 
 // @baa 0x00bd1a80
-bool UParticleModuleTrailTaper::vf_004()
+UBOOL UParticleModuleTrailTaper::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

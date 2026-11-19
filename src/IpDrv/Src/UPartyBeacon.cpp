@@ -7,16 +7,16 @@
 IMPLEMENT_CLASS_AT(UPartyBeacon, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\IpDrv\\Src\\UPartyBeacon.cpp", 7);
 
 // @baa 0x00e2caf0
-bool UPartyBeacon::vf_004()
+UBOOL UPartyBeacon::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00e2cb30
-int UPartyBeaconHost::vf_000(void) { return 1; }
+UBOOL UPartyBeaconHost::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00e2cb40
-int UPartyBeaconClient::vf_000(void) { return 1; }
+UBOOL UPartyBeaconClient::HasUniqueStaticConfigName() const { return 1; }
 
 struct C { int sub_00e2cda0(void); };
 
@@ -1341,7 +1341,7 @@ IMPLEMENT_CLASS_AT(UPartyBeaconClient, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealE
 IMPLEMENT_CLASS_AT(UPartyBeaconHost, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\IpDrv\\Src\\UPartyBeacon.cpp", 8);
 
 // @baa 0x00e3a900
-bool UPartyBeaconHost::vf_004()
+UBOOL UPartyBeaconHost::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1349,7 +1349,7 @@ bool UPartyBeaconHost::vf_004()
 // @baa 0x00e3a940
 // @baa 0x00e3aa00
 // @baa 0x00e3ab10
-bool UPartyBeaconClient::vf_004()
+UBOOL UPartyBeaconClient::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

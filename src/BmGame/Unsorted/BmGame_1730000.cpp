@@ -358,21 +358,21 @@ int sub_01734920(void)
 
 // @baa 0x01734950
 // @baa 0x01734a60
-bool ARTunnelGrateBase::vf_004()
+UBOOL ARTunnelGrateBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01734aa0
 // @baa 0x01734bb0
-bool ARHarpoonDragFloatingPlatformBase::vf_004()
+UBOOL ARHarpoonDragFloatingPlatformBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01734bf0
 // @baa 0x01734d00
-bool ARLadder::vf_004()
+UBOOL ARLadder::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

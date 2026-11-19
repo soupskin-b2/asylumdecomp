@@ -7,7 +7,7 @@
 IMPLEMENT_CLASS_AT(UAnimNotify_Sound, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSkeletalAnim.cpp", 2258);
 
 // @baa 0x00918af0
-bool UAnimNotify_Sound::vf_004()
+UBOOL UAnimNotify_Sound::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -16,7 +16,7 @@ bool UAnimNotify_Sound::vf_004()
 IMPLEMENT_CLASS_AT(UAnimNotify_Script, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSkeletalAnim.cpp", 2294);
 
 // @baa 0x00918c40
-bool UAnimNotify_Script::vf_004()
+UBOOL UAnimNotify_Script::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -25,7 +25,7 @@ bool UAnimNotify_Script::vf_004()
 IMPLEMENT_CLASS_AT(UAnimNotify_Scripted, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSkeletalAnim.cpp", 2316);
 
 // @baa 0x00918d90
-bool UAnimNotify_Scripted::vf_004()
+UBOOL UAnimNotify_Scripted::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00783830
-bool ASkyLightToggleable::vf_004()
+UBOOL ASkyLightToggleable::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

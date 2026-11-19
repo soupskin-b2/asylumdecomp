@@ -7,10 +7,10 @@
 IMPLEMENT_CLASS_AT(ARInGameCinematicCam, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RInGameCinematicCam.cpp", 6);
 
 // @baa 0x016aab30
-int ARInGameCinematicCam::vf_000(void) { return 1; }
+UBOOL ARInGameCinematicCam::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016aab40
-bool ARInGameCinematicCam::vf_004()
+UBOOL ARInGameCinematicCam::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

@@ -60,10 +60,10 @@ int sub_005fbe10(int param_1, int param_2)
 
 // @baa 0x005fbe20
 // @baa 0x005fbf30
-int UFactory::vf_000(void) { return 1; }
+UBOOL UFactory::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x005fbf40
-bool UFactory::vf_004()
+UBOOL UFactory::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00f1c1f0
-int UModelFactory::vf_000(void) { return 1; }
+UBOOL UModelFactory::HasUniqueStaticConfigName() const { return 1; }

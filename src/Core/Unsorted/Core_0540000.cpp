@@ -126,10 +126,10 @@ void C_00542070::sub_00542070(void)
 }
 
 // @baa 0x005421a0
-int UDistributionFloat::vf_000(void) { return 1; }
+UBOOL UDistributionFloat::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x005421b0
-bool UDistributionFloat::vf_004()
+UBOOL UDistributionFloat::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

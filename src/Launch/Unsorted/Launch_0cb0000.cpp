@@ -7,10 +7,10 @@
 int UEngine::vf_180(int a0, int a1) { return 0; }
 
 // @baa 0x00cb0790
-int UServerCommandlet::vf_000(void) { return 1; }
+UBOOL UServerCommandlet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00cb07a0
-bool UServerCommandlet::vf_004()
+UBOOL UServerCommandlet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -19,10 +19,10 @@ bool UServerCommandlet::vf_004()
 IMPLEMENT_CLASS_AT(USmokeTestCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnEngine.cpp", 2233);
 
 // @baa 0x00cb08f0
-int USmokeTestCommandlet::vf_000(void) { return 1; }
+UBOOL USmokeTestCommandlet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00cb0900
-bool USmokeTestCommandlet::vf_004()
+UBOOL USmokeTestCommandlet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

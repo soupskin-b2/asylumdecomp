@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00756ef0
-int AInfo::vf_000(void) { return 1; }
+UBOOL AInfo::HasUniqueStaticConfigName() const { return 1; }

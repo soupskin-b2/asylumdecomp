@@ -36,7 +36,7 @@ void S_0168de00::sub_0168de00() {
 }
 
 // @baa 0x016a0da0
-bool ARPawnPlayerChallengeJokerBase::vf_004()
+UBOOL ARPawnPlayerChallengeJokerBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -56,7 +56,7 @@ void ARPawnPlayerBm::vf_668(INT P)
 const TCHAR* sub_01686d70();
 const TCHAR* sub_0053f6c0();
 // @baa 0x01688e40
-INT AR3rdPersonCamera::vf_000()
+UBOOL AR3rdPersonCamera::HasUniqueStaticConfigName() const
 {
     return sub_01686d70 == sub_0053f6c0;
 }

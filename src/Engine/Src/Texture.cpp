@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x007173d0
-int UTexture::vf_000(void) { return 1; }
+UBOOL UTexture::HasUniqueStaticConfigName() const { return 1; }
 
 struct SubB { int __thiscall sub_0056bfe0(void); };
 

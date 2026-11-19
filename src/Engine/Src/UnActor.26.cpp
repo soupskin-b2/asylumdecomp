@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00756870
-int APointLightMovable::vf_000(void) { return 1; }
+UBOOL APointLightMovable::HasUniqueStaticConfigName() const { return 1; }

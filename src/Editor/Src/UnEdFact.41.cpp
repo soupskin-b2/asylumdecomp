@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00f1c350
-int USoundTTSFactory::vf_000(void) { return 1; }
+UBOOL USoundTTSFactory::HasUniqueStaticConfigName() const { return 1; }

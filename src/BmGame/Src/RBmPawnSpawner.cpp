@@ -49,7 +49,7 @@ IMPLEMENT_CLASS_AT(ARPawnBossIvyBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEn
 // @baa 0x01602e10
 // @baa 0x01602ed0
 // @baa 0x01602fe0
-bool ARPawnBossIvyBase::vf_004()
+UBOOL ARPawnBossIvyBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -57,10 +57,10 @@ bool ARPawnBossIvyBase::vf_004()
 // @baa 0x015e10e0
 
 // @baa 0x015e11f0
-int ARPawnSpawnObject::vf_000(void) { return 1; }
+UBOOL ARPawnSpawnObject::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015e1200
-bool ARPawnSpawnObject::vf_004()
+UBOOL ARPawnSpawnObject::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -68,10 +68,10 @@ bool ARPawnSpawnObject::vf_004()
 // @baa 0x015e1240
 
 // @baa 0x015e1350
-int ARDeadBodyBase::vf_000(void) { return 1; }
+UBOOL ARDeadBodyBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015e1360
-bool ARDeadBodyBase::vf_004()
+UBOOL ARDeadBodyBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -79,10 +79,10 @@ bool ARDeadBodyBase::vf_004()
 // @baa 0x015e13a0
 
 // @baa 0x015e14b0
-int URBmPawnSpawner::vf_000(void) { return 1; }
+UBOOL URBmPawnSpawner::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015e14c0
-bool URBmPawnSpawner::vf_004()
+UBOOL URBmPawnSpawner::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -90,10 +90,10 @@ bool URBmPawnSpawner::vf_004()
 // @baa 0x015e1500
 
 // @baa 0x015e1610
-int URBMWaveController::vf_000(void) { return 1; }
+UBOOL URBMWaveController::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015e1620
-bool URBMWaveController::vf_004()
+UBOOL URBMWaveController::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -101,10 +101,10 @@ bool URBMWaveController::vf_004()
 // @baa 0x015e1660
 
 // @baa 0x015e1770
-int URBMIncapacitatedPawnCounter::vf_000(void) { return 1; }
+UBOOL URBMIncapacitatedPawnCounter::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015e1780
-bool URBMIncapacitatedPawnCounter::vf_004()
+UBOOL URBMIncapacitatedPawnCounter::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -112,10 +112,10 @@ bool URBMIncapacitatedPawnCounter::vf_004()
 // @baa 0x015e17c0
 
 // @baa 0x015e18d0
-int URBMPawnSpawnerController::vf_000(void) { return 1; }
+UBOOL URBMPawnSpawnerController::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015e18e0
-bool URBMPawnSpawnerController::vf_004()
+UBOOL URBMPawnSpawnerController::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -123,10 +123,10 @@ bool URBMPawnSpawnerController::vf_004()
 // @baa 0x015e1920
 
 // @baa 0x015e1a30
-int URSeqAct_GetNumPawnsInVolume::vf_000(void) { return 1; }
+UBOOL URSeqAct_GetNumPawnsInVolume::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015e1a40
-bool URSeqAct_GetNumPawnsInVolume::vf_004()
+UBOOL URSeqAct_GetNumPawnsInVolume::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -134,16 +134,16 @@ bool URSeqAct_GetNumPawnsInVolume::vf_004()
 // @baa 0x015e1a80
 
 // @baa 0x015e1b90
-int URSeqAct_ChallengeAction::vf_000(void) { return 1; }
+UBOOL URSeqAct_ChallengeAction::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015e1ba0
-bool URSeqAct_ChallengeAction::vf_004()
+UBOOL URSeqAct_ChallengeAction::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x015e1be0
-int URSeqAct_CombatChallengeSpawner::vf_000(void) { return 1; }
+UBOOL URSeqAct_CombatChallengeSpawner::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015e1bf0
 
@@ -265,7 +265,7 @@ undefined4 ARPawnBossIvyBase::sub_015fe9a0(byte param_2)
 // @baa 0x01605ff0
 
 // @baa 0x01606100
-bool URSeqAct_CombatChallengeSpawner::vf_004()
+UBOOL URSeqAct_CombatChallengeSpawner::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

@@ -82,13 +82,13 @@ undefined4 UMaterialExpressionWorldPosition::sub_012598f0(byte param_2)
 
 // @baa 0x01259bb0
 // @baa 0x01259cc0
-bool UIconThumbnailRenderer::vf_004()
+UBOOL UIconThumbnailRenderer::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0125ac80
-bool UParticleSystemLabelRenderer::vf_004()
+UBOOL UParticleSystemLabelRenderer::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -276,7 +276,7 @@ undefined4 UMaterialExpressionWorldPosition::sub_0125dc30(byte param_2)
 }
 
 // @baa 0x0125e990
-bool ULensFlareThumbnailRenderer::vf_004()
+UBOOL ULensFlareThumbnailRenderer::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

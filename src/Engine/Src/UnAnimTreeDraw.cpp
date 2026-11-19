@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00c4b340
-int UAnimNodeBlend::vf_000(void) { return 1; }
+UBOOL UAnimNodeBlend::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c648b0
 IMPLEMENT_CLASS_AT(UAnimNodeBlend, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTree.cpp", 13);
@@ -16,7 +16,7 @@ INT UAnimNodeBlend::GetNumSliders() const { return 1; }
 // @baa 0x00c6af90
 // @baa 0x00c77aa0
 // @baa 0x00c77bb0
-bool UAnimNodeBlend::vf_004()
+UBOOL UAnimNodeBlend::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

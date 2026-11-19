@@ -1084,16 +1084,16 @@ C_00eee6b0* C_00eee6b0::sub_00eee6b0(void) { return this; }
 void sub_00eee6c0(void) {  }
 
 // @baa 0x00eeeb10
-int UEdModeComponent::vf_000(void) { return 1; }
+UBOOL UEdModeComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00eeeb20
 IMPLEMENT_CLASS_AT(UEditorComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnEdComponents.cpp", 11);
 
 // @baa 0x00eeec30
-int UEditorComponent::vf_000(void) { return 1; }
+UBOOL UEditorComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00eeec40
-bool UEditorComponent::vf_004()
+UBOOL UEditorComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1102,10 +1102,10 @@ bool UEditorComponent::vf_004()
 IMPLEMENT_CLASS_AT(UTextBufferExporterTXT, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnEdExp.cpp", 47);
 
 // @baa 0x00eef610
-int UTextBufferExporterTXT::vf_000(void) { return 1; }
+UBOOL UTextBufferExporterTXT::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00eef620
-bool UTextBufferExporterTXT::vf_004()
+UBOOL UTextBufferExporterTXT::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1114,10 +1114,10 @@ bool UTextBufferExporterTXT::vf_004()
 IMPLEMENT_CLASS_AT(USoundExporterWAV, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnEdExp.cpp", 73);
 
 // @baa 0x00eef770
-int USoundExporterWAV::vf_000(void) { return 1; }
+UBOOL USoundExporterWAV::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00eef780
-bool USoundExporterWAV::vf_004()
+UBOOL USoundExporterWAV::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1126,10 +1126,10 @@ bool USoundExporterWAV::vf_004()
 IMPLEMENT_CLASS_AT(USoundSurroundExporterWAV, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnEdExp.cpp", 164);
 
 // @baa 0x00eef8d0
-int USoundSurroundExporterWAV::vf_000(void) { return 1; }
+UBOOL USoundSurroundExporterWAV::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00eef8e0
-bool USoundSurroundExporterWAV::vf_004()
+UBOOL USoundSurroundExporterWAV::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1138,10 +1138,10 @@ bool USoundSurroundExporterWAV::vf_004()
 IMPLEMENT_CLASS_AT(UClassExporterUC, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnEdExp.cpp", 226);
 
 // @baa 0x00eefa30
-int UClassExporterUC::vf_000(void) { return 1; }
+UBOOL UClassExporterUC::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00eefa40
-bool UClassExporterUC::vf_004()
+UBOOL UClassExporterUC::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1150,10 +1150,10 @@ bool UClassExporterUC::vf_004()
 IMPLEMENT_CLASS_AT(UObjectExporterT3D, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnEdExp.cpp", 255);
 
 // @baa 0x00eefb90
-int UObjectExporterT3D::vf_000(void) { return 1; }
+UBOOL UObjectExporterT3D::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00eefba0
-bool UObjectExporterT3D::vf_004()
+UBOOL UObjectExporterT3D::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1162,10 +1162,10 @@ bool UObjectExporterT3D::vf_004()
 IMPLEMENT_CLASS_AT(UPolysExporterT3D, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnEdExp.cpp", 317);
 
 // @baa 0x00eefcf0
-int UPolysExporterT3D::vf_000(void) { return 1; }
+UBOOL UPolysExporterT3D::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00eefd00
-bool UPolysExporterT3D::vf_004()
+UBOOL UPolysExporterT3D::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1174,10 +1174,10 @@ bool UPolysExporterT3D::vf_004()
 IMPLEMENT_CLASS_AT(UModelExporterT3D, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnEdExp.cpp", 345);
 
 // @baa 0x00eefe50
-int UModelExporterT3D::vf_000(void) { return 1; }
+UBOOL UModelExporterT3D::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00eefe60
-bool UModelExporterT3D::vf_004()
+UBOOL UModelExporterT3D::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1186,10 +1186,10 @@ bool UModelExporterT3D::vf_004()
 IMPLEMENT_CLASS_AT(ULevelExporterT3D, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnEdExp.cpp", 567);
 
 // @baa 0x00eeffb0
-int ULevelExporterT3D::vf_000(void) { return 1; }
+UBOOL ULevelExporterT3D::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00eeffc0
-bool ULevelExporterT3D::vf_004()
+UBOOL ULevelExporterT3D::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1198,10 +1198,10 @@ bool ULevelExporterT3D::vf_004()
 IMPLEMENT_CLASS_AT(ULevelExporterSTL, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnEdExp.cpp", 703);
 
 // @baa 0x00ef0110
-int ULevelExporterSTL::vf_000(void) { return 1; }
+UBOOL ULevelExporterSTL::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00ef0120
-bool ULevelExporterSTL::vf_004()
+UBOOL ULevelExporterSTL::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1210,10 +1210,10 @@ bool ULevelExporterSTL::vf_004()
 IMPLEMENT_CLASS_AT(ULevelExporterOBJ, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnEdExp.cpp", 1103);
 
 // @baa 0x00ef0270
-int ULevelExporterOBJ::vf_000(void) { return 1; }
+UBOOL ULevelExporterOBJ::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00ef0280
-bool ULevelExporterOBJ::vf_004()
+UBOOL ULevelExporterOBJ::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1222,10 +1222,10 @@ bool ULevelExporterOBJ::vf_004()
 IMPLEMENT_CLASS_AT(UPackageExporterT3D, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnEdExp.cpp", 1368);
 
 // @baa 0x00ef03d0
-int UPackageExporterT3D::vf_000(void) { return 1; }
+UBOOL UPackageExporterT3D::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00ef03e0
-bool UPackageExporterT3D::vf_004()
+UBOOL UPackageExporterT3D::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1255,10 +1255,10 @@ bool UExporter::sub_00ef0540(void)
 IMPLEMENT_CLASS_AT(USequenceExporterT3D, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnEdExp.cpp", 1451);
 
 // @baa 0x00ef0690
-int USequenceExporterT3D::vf_000(void) { return 1; }
+UBOOL USequenceExporterT3D::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00ef06a0
-bool USequenceExporterT3D::vf_004()
+UBOOL USequenceExporterT3D::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1267,10 +1267,10 @@ bool USequenceExporterT3D::vf_004()
 IMPLEMENT_CLASS_AT(UStaticMeshExporterOBJ, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnEdExp.cpp", 1584);
 
 // @baa 0x00ef07f0
-int UStaticMeshExporterOBJ::vf_000(void) { return 1; }
+UBOOL UStaticMeshExporterOBJ::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00ef0800
-bool UStaticMeshExporterOBJ::vf_004()
+UBOOL UStaticMeshExporterOBJ::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1279,19 +1279,19 @@ bool UStaticMeshExporterOBJ::vf_004()
 IMPLEMENT_CLASS_AT(UExporterT3DX, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnEdExp.cpp", 1589);
 
 // @baa 0x00ef0950
-int UExporterT3DX::vf_000(void) { return 1; }
+UBOOL UExporterT3DX::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00ef0960
-bool UExporterT3DX::vf_004()
+UBOOL UExporterT3DX::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00ef09a0
-int UMaterialExporterT3D::vf_000(void) { return 1; }
+UBOOL UMaterialExporterT3D::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00ef09b0
-int UStaticMeshExporterT3D::vf_000(void) { return 1; }
+UBOOL UStaticMeshExporterT3D::HasUniqueStaticConfigName() const { return 1; }
 
 struct C_00ef9570 { int a, b, c; C_00ef9570(); };
 
@@ -1697,21 +1697,21 @@ void sub_00f127f0(undefined4 param_1, undefined4 param_2, undefined4 param_3, un
 
 // @baa 0x00f13820
 // @baa 0x00f13930
-bool UEdModeComponent::vf_004()
+UBOOL UEdModeComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00f145f0
 // @baa 0x00f14700
-bool UMaterialExporterT3D::vf_004()
+UBOOL UMaterialExporterT3D::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00f14740
 // @baa 0x00f14850
-bool UStaticMeshExporterT3D::vf_004()
+UBOOL UStaticMeshExporterT3D::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

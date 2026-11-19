@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x007570d0
-int AVehicle::vf_000(void) { return 1; }
+UBOOL AVehicle::HasUniqueStaticConfigName() const { return 1; }

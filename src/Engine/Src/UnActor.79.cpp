@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x007572a0
-int ABrush::vf_000(void) { return 1; }
+UBOOL ABrush::HasUniqueStaticConfigName() const { return 1; }

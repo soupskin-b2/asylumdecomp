@@ -25,23 +25,23 @@ IMPLEMENT_CLASS_AT(ARRotateActor, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine
 // @baa 0x0153adf0
 
 // @baa 0x0153af00
-int AREffectVolume::vf_000(void) { return 1; }
+UBOOL AREffectVolume::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0153af10
-bool AREffectVolume::vf_004()
+UBOOL AREffectVolume::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0153af50
-int ARRainVolumeBase::vf_000(void) { return 1; }
+UBOOL ARRainVolumeBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0153af60
 
 // @baa 0x01546a20
 
 // @baa 0x01546b30
-bool ARRainVolumeBase::vf_004()
+UBOOL ARRainVolumeBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

@@ -4,7 +4,7 @@
 #include "ue3/Classes.h"
 
 // @baa 0x00f149a0
-bool UTextureExporterT3D::vf_004()
+UBOOL UTextureExporterT3D::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

@@ -798,10 +798,10 @@ int sub_0150cf60(void)
 }
 
 // @baa 0x0150efc0
-int URObjectPool::vf_000(void) { return 1; }
+UBOOL URObjectPool::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0150efd0
-bool URObjectPool::vf_004()
+UBOOL URObjectPool::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

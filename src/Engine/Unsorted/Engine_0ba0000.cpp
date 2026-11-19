@@ -193,10 +193,10 @@ undefined4 * USpeedTree::sub_00bab170(byte param_2)
 
 // @baa 0x00bab2f0
 // @baa 0x00bab400
-int USpeedTree::vf_000(void) { return 1; }
+UBOOL USpeedTree::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00bab410
-bool USpeedTree::vf_004()
+UBOOL USpeedTree::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -289,19 +289,19 @@ undefined4 USpeedTree::sub_00bab860(void)
 }
 
 // @baa 0x00bab9a0
-int USpeedTreeActorFactory::vf_000(void) { return 1; }
+UBOOL USpeedTreeActorFactory::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00bab9b0
-bool USpeedTreeActorFactory::vf_004()
+UBOOL USpeedTreeActorFactory::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00babb00
-int USpeedTreeComponent::vf_000(void) { return 1; }
+UBOOL USpeedTreeComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00babb10
-bool USpeedTreeComponent::vf_004()
+UBOOL USpeedTreeComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -311,10 +311,10 @@ void sub_00babc40(void) {  }
 
 // @baa 0x00babd90
 // @baa 0x00babea0
-int USpeedTreeComponentFactory::vf_000(void) { return 1; }
+UBOOL USpeedTreeComponentFactory::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00babeb0
-bool USpeedTreeComponentFactory::vf_004()
+UBOOL USpeedTreeComponentFactory::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -384,10 +384,10 @@ int sub_00bac110(int a0, int a1) { return a1; }
 int sub_00bac120(int a0, int a1) { return a1; }
 
 // @baa 0x00bac270
-int UFoliageComponent::vf_000(void) { return 1; }
+UBOOL UFoliageComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00bac280
-bool UFoliageComponent::vf_004()
+UBOOL UFoliageComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -437,10 +437,10 @@ struct C_00bac3f0 { void sub_00bac3f0(void); };
 void C_00bac3f0::sub_00bac3f0(void) { *(int*)((char*)this + 0) = (int)g_02019f6c; }
 
 // @baa 0x00bac510
-int AFoliageFactory::vf_000(void) { return 1; }
+UBOOL AFoliageFactory::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00bac520
-bool AFoliageFactory::vf_004()
+UBOOL AFoliageFactory::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

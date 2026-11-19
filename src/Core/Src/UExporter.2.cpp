@@ -18,10 +18,10 @@ undefined4 UPackageMap::sub_0061bbb0(byte param_2)
 }
 
 // @baa 0x005fbb90
-int UExporter::vf_000(void) { return 1; }
+UBOOL UExporter::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x005fbba0
-bool UExporter::vf_004()
+UBOOL UExporter::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

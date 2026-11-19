@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x007568d0
-int APolyMarker::vf_000(void) { return 1; }
+UBOOL APolyMarker::HasUniqueStaticConfigName() const { return 1; }

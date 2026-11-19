@@ -1245,83 +1245,83 @@ void C_011f4600::sub_011f4610() {}
 
 // @baa 0x011f4be0
 // @baa 0x011f4ca0
-int UPropertyDrawArrayHeader::vf_000(void) { return 1; }
+UBOOL UPropertyDrawArrayHeader::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x011f4cb0
 // @baa 0x011f4d70
 // @baa 0x011f4e80
-int UPropertyDrawProxy::vf_000(void) { return 1; }
+UBOOL UPropertyDrawProxy::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x011f4e90
-bool UPropertyDrawProxy::vf_004()
+UBOOL UPropertyDrawProxy::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x011f4ed0
 // @baa 0x011f4f90
-int UPropertyDrawNumeric::vf_000(void) { return 1; }
+UBOOL UPropertyDrawNumeric::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x011f4fa0
 // @baa 0x011f5060
-int UPropertyDrawColor::vf_000(void) { return 1; }
+UBOOL UPropertyDrawColor::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x011f5070
 // @baa 0x011f5130
-int UPropertyDrawRotation::vf_000(void) { return 1; }
+UBOOL UPropertyDrawRotation::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x011f5140
 // @baa 0x011f5200
-int UPropertyDrawRotationHeader::vf_000(void) { return 1; }
+UBOOL UPropertyDrawRotationHeader::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x011f5210
 // @baa 0x011f52d0
-int UPropertyDrawBool::vf_000(void) { return 1; }
+UBOOL UPropertyDrawBool::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x011f52e0
 IMPLEMENT_CLASS_AT(UPropertyInputProxy, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\PropertyUtils.cpp", 3447);
 
 // @baa 0x011f53f0
-int UPropertyInputProxy::vf_000(void) { return 1; }
+UBOOL UPropertyInputProxy::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x011f5400
-bool UPropertyInputProxy::vf_004()
+UBOOL UPropertyInputProxy::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x011f5440
-int UPropertyInputArray::vf_000(void) { return 1; }
+UBOOL UPropertyInputArray::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x011f5450
-int UPropertyInputArrayItemBase::vf_000(void) { return 1; }
+UBOOL UPropertyInputArrayItemBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x011f5460
-int UPropertyInputColor::vf_000(void) { return 1; }
+UBOOL UPropertyInputColor::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x011f5470
-int UPropertyInputBool::vf_000(void) { return 1; }
+UBOOL UPropertyInputBool::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x011f5480
-int UPropertyInputArrayItem::vf_000(void) { return 1; }
+UBOOL UPropertyInputArrayItem::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x011f5490
-int UPropertyInputNumeric::vf_000(void) { return 1; }
+UBOOL UPropertyInputNumeric::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x011f54a0
-int UPropertyInputText::vf_000(void) { return 1; }
+UBOOL UPropertyInputText::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x011f54b0
-int UPropertyInputRotation::vf_000(void) { return 1; }
+UBOOL UPropertyInputRotation::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x011f54c0
-int UPropertyInputInteger::vf_000(void) { return 1; }
+UBOOL UPropertyInputInteger::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x011f54d0
-int UPropertyInputEditInline::vf_000(void) { return 1; }
+UBOOL UPropertyInputEditInline::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x011f54e0
-int UPropertyInputCombo::vf_000(void) { return 1; }
+UBOOL UPropertyInputCombo::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x011f54f0
 IMPLEMENT_CLASS_AT(UPropertyWindowManager, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\PropertyWindowManager.cpp", 10);
@@ -1344,42 +1344,42 @@ void CNode::sub_011f85a0()
 
 // @baa 0x011f8cb0
 // @baa 0x011f8dc0
-bool UPropertyDrawArrayHeader::vf_004()
+UBOOL UPropertyDrawArrayHeader::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x011f8e00
 // @baa 0x011f8f10
-bool UPropertyDrawNumeric::vf_004()
+UBOOL UPropertyDrawNumeric::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x011f8f50
 // @baa 0x011f9060
-bool UPropertyDrawColor::vf_004()
+UBOOL UPropertyDrawColor::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x011f90a0
 // @baa 0x011f91b0
-bool UPropertyDrawRotation::vf_004()
+UBOOL UPropertyDrawRotation::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x011f91f0
 // @baa 0x011f9300
-bool UPropertyDrawRotationHeader::vf_004()
+UBOOL UPropertyDrawRotationHeader::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x011f9340
 // @baa 0x011f9450
-bool UPropertyDrawBool::vf_004()
+UBOOL UPropertyDrawBool::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -2675,7 +2675,7 @@ void sub_0120e8c0(undefined4 param_1, undefined4 param_2, undefined4 param_3, un
 
 // @baa 0x012121c0
 // @baa 0x012122d0
-bool UPropertyInputCombo::vf_004()
+UBOOL UPropertyInputCombo::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

@@ -59,10 +59,10 @@ undefined4 APrefabInstance::sub_00d42290(byte param_2)
 // @baa 0x00d1f920
 
 // @baa 0x00d1fa30
-int UPrefab::vf_000(void) { return 1; }
+UBOOL UPrefab::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00d1fa40
-bool UPrefab::vf_004()
+UBOOL UPrefab::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -70,10 +70,10 @@ bool UPrefab::vf_004()
 // @baa 0x00d1fa80
 
 // @baa 0x00d1fb90
-int APrefabInstance::vf_000(void) { return 1; }
+UBOOL APrefabInstance::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00d1fba0
-bool APrefabInstance::vf_004()
+UBOOL APrefabInstance::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -81,10 +81,10 @@ bool APrefabInstance::vf_004()
 // @baa 0x00d1fc70
 
 // @baa 0x00d1fd80
-int UPrefabSequenceContainer::vf_000(void) { return 1; }
+UBOOL UPrefabSequenceContainer::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00d1fd90
-bool UPrefabSequenceContainer::vf_004()
+UBOOL UPrefabSequenceContainer::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

@@ -133,7 +133,7 @@ TConstSetBitIterator_00c38040& TConstSetBitIterator_00c38040::operator++()
 IMPLEMENT_CLASS_AT(UMaterialExpressionTextureSampleParameter2D, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\MaterialExpressions.cpp", 55);
 
 // @baa 0x00c43ab0
-bool UMaterialExpressionTextureSampleParameter2D::vf_004()
+UBOOL UMaterialExpressionTextureSampleParameter2D::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -142,7 +142,7 @@ bool UMaterialExpressionTextureSampleParameter2D::vf_004()
 IMPLEMENT_CLASS_AT(UMaterialExpressionTextureSampleParameterCube, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\MaterialExpressions.cpp", 56);
 
 // @baa 0x00c43c00
-bool UMaterialExpressionTextureSampleParameterCube::vf_004()
+UBOOL UMaterialExpressionTextureSampleParameterCube::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -151,7 +151,7 @@ bool UMaterialExpressionTextureSampleParameterCube::vf_004()
 IMPLEMENT_CLASS_AT(UMaterialExpressionTextureSampleParameterMovie, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\MaterialExpressions.cpp", 57);
 
 // @baa 0x00c43d50
-bool UMaterialExpressionTextureSampleParameterMovie::vf_004()
+UBOOL UMaterialExpressionTextureSampleParameterMovie::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -224,7 +224,7 @@ void sub_00c44460(void) { sub_00c43e60(); }
 IMPLEMENT_CLASS_AT(UMaterialExpressionTextureSampleParameterSubUV, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\MaterialExpressions.cpp", 58);
 
 // @baa 0x00c447f0
-bool UMaterialExpressionTextureSampleParameterSubUV::vf_004()
+UBOOL UMaterialExpressionTextureSampleParameterSubUV::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

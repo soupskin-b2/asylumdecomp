@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00776f00
-bool UCoverSlipReachSpec::vf_004()
+UBOOL UCoverSlipReachSpec::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

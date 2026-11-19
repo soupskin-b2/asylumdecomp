@@ -36,10 +36,10 @@ void __thiscall S_005fa090::sub_005fa090() {
 
 // @baa 0x0062c2a0
 // @baa 0x0062c3b0
-int UObjectSerializer::vf_000(void) { return 1; }
+UBOOL UObjectSerializer::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0062c3c0
-bool UObjectSerializer::vf_004()
+UBOOL UObjectSerializer::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

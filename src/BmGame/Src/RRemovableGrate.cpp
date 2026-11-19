@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x01717ba0
-int ARRemoveableGrate::vf_000(void) { return 1; }
+UBOOL ARRemoveableGrate::HasUniqueStaticConfigName() const { return 1; }
 
 struct C_view {
     int sub_00a3fe50(int, int);
@@ -35,7 +35,7 @@ IMPLEMENT_CLASS_AT(ARRemoveableGrate, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEn
 // @baa 0x01734390
 // @baa 0x01734d40
 // @baa 0x01734e50
-bool ARRemoveableGrate::vf_004()
+UBOOL ARRemoveableGrate::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

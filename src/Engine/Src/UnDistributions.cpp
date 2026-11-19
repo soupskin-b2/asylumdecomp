@@ -81,10 +81,10 @@ undefined4 UDistributionVectorUniform::vf_114(int param_2)
 // @baa 0x0079fb60
 // @baa 0x007a2650
 // @baa 0x007a2760
-int UDistributionVectorConstant::vf_000(void) { return 1; }
+UBOOL UDistributionVectorConstant::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x007a2770
-bool UDistributionVectorConstant::vf_004()
+UBOOL UDistributionVectorConstant::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -93,20 +93,20 @@ bool UDistributionVectorConstant::vf_004()
 IMPLEMENT_CLASS_AT(UDistributionVectorConstantCurve, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnDistributions.cpp", 15);
 
 // @baa 0x007a28c0
-int UDistributionVectorConstantCurve::vf_000(void) { return 1; }
+UBOOL UDistributionVectorConstantCurve::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x007a28d0
-bool UDistributionVectorConstantCurve::vf_004()
+UBOOL UDistributionVectorConstantCurve::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x007a2910
 // @baa 0x007a2a20
-int UDistributionVectorUniform::vf_000(void) { return 1; }
+UBOOL UDistributionVectorUniform::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x007a2a30
-bool UDistributionVectorUniform::vf_004()
+UBOOL UDistributionVectorUniform::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -115,16 +115,16 @@ bool UDistributionVectorUniform::vf_004()
 IMPLEMENT_CLASS_AT(UDistributionVectorUniformCurve, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnDistributions.cpp", 17);
 
 // @baa 0x007a2b80
-int UDistributionVectorUniformCurve::vf_000(void) { return 1; }
+UBOOL UDistributionVectorUniformCurve::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x007a2b90
-bool UDistributionVectorUniformCurve::vf_004()
+UBOOL UDistributionVectorUniformCurve::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x007a2bd0
-int UDistributionVectorParameterBase::vf_000(void) { return 1; }
+UBOOL UDistributionVectorParameterBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x007a2be0
 FLOAT UDistributionFloatConstant::GetValue(FLOAT a0, UObject* a1) { return *(float*)((char*)this + 68); }
@@ -210,10 +210,10 @@ INT UDistributionVectorUniformCurve::GetNumSubCurves() { return 6; }
 IMPLEMENT_CLASS_AT(UBloomEffect, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnDOFEffect.cpp", 10);
 
 // @baa 0x007a4800
-int UBloomEffect::vf_000(void) { return 1; }
+UBOOL UBloomEffect::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x007a4810
-bool UBloomEffect::vf_004()
+UBOOL UBloomEffect::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -222,10 +222,10 @@ bool UBloomEffect::vf_004()
 IMPLEMENT_CLASS_AT(UDOFEffect, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnDOFEffect.cpp", 11);
 
 // @baa 0x007a4960
-int UDOFEffect::vf_000(void) { return 1; }
+UBOOL UDOFEffect::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x007a4970
-bool UDOFEffect::vf_004()
+UBOOL UDOFEffect::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -237,10 +237,10 @@ int UDOFEffect::vf_10c(int a0) { return 0; }
 IMPLEMENT_CLASS_AT(UForceFeedbackWaveform, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnForceFeedbackWaveform.cpp", 9);
 
 // @baa 0x007a4b00
-int UForceFeedbackWaveform::vf_000(void) { return 1; }
+UBOOL UForceFeedbackWaveform::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x007a4b10
-bool UForceFeedbackWaveform::vf_004()
+UBOOL UForceFeedbackWaveform::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -360,7 +360,7 @@ IMPLEMENT_CLASS_AT(UDistributionFloatUniform, "e:\\Projects\\Amadeus\\AA\\Game\\
 // @baa 0x007b5800
 // @baa 0x007b58c0
 // @baa 0x007b59d0
-bool UDistributionVectorParameterBase::vf_004()
+UBOOL UDistributionVectorParameterBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -496,7 +496,7 @@ void AController::RouteCache_Empty()
 
 // @baa 0x007c0de0
 // @baa 0x007c0ef0
-bool UDistributionFloatParameterBase::vf_004()
+UBOOL UDistributionFloatParameterBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1028,10 +1028,10 @@ int sub_0079f8b0(int a0, int a1) { return a1; }
 // @baa 0x007a20c0
 
 // @baa 0x007a25f0
-int UDistributionFloatUniformCurve::vf_000(void) { return 1; }
+UBOOL UDistributionFloatUniformCurve::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x007a2600
-bool UDistributionFloatUniformCurve::vf_004()
+UBOOL UDistributionFloatUniformCurve::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

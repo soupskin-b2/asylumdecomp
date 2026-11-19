@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00f1e1f0
-int UTextureFactory::vf_000(void) { return 1; }
+UBOOL UTextureFactory::HasUniqueStaticConfigName() const { return 1; }

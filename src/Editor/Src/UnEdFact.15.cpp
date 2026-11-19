@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00f1b700
-bool UMaterialInstanceTimeVaryingFactoryNew::vf_004()
+UBOOL UMaterialInstanceTimeVaryingFactoryNew::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

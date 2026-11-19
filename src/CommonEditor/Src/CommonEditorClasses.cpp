@@ -15,10 +15,10 @@ IMPLEMENT_CLASS_AT(URGenericBrowserType, "e:\\Projects\\Amadeus\\AA\\Game\\Unrea
 // @baa 0x0173aa00
 
 // @baa 0x0173ab10
-int URGenericBrowserType::vf_000(void) { return 1; }
+UBOOL URGenericBrowserType::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0173ab20
-bool URGenericBrowserType::vf_004()
+UBOOL URGenericBrowserType::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

@@ -53,10 +53,10 @@ void UActorComponent::GetActorReferences(TArray<FActorReference*>& a0, UBOOL a1)
 IMPLEMENT_CLASS_AT(UFogVolumeDensityComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\FogVolumeDensityComponents.cpp", 49);
 
 // @baa 0x006ab4d0
-int UFogVolumeDensityComponent::vf_000(void) { return 1; }
+UBOOL UFogVolumeDensityComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x006ab4e0
-bool UFogVolumeDensityComponent::vf_004()
+UBOOL UFogVolumeDensityComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -195,37 +195,37 @@ void sub_006d43b0(void) { sub_006d2a30(); }
 
 // @baa 0x007590e0
 // @baa 0x007591f0
-int UActorComponent::vf_000(void) { return 1; }
+UBOOL UActorComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00759200
-bool UActorComponent::vf_004()
+UBOOL UActorComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00759240
-int UAudioComponent::vf_000(void) { return 1; }
+UBOOL UAudioComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00759250
-int UWindDirectionalSourceComponent::vf_000(void) { return 1; }
+UBOOL UWindDirectionalSourceComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00759260
 IMPLEMENT_CLASS_AT(UPrimitiveComponentFactory, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActorComponent.cpp", 51);
 
 // @baa 0x00759370
-int UPrimitiveComponentFactory::vf_000(void) { return 1; }
+UBOOL UPrimitiveComponentFactory::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00759380
-bool UPrimitiveComponentFactory::vf_004()
+UBOOL UPrimitiveComponentFactory::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x007593c0
-int UMeshComponentFactory::vf_000(void) { return 1; }
+UBOOL UMeshComponentFactory::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x007593d0
-int UStaticMeshComponentFactory::vf_000(void) { return 1; }
+UBOOL UStaticMeshComponentFactory::HasUniqueStaticConfigName() const { return 1; }
 
 struct C_view_00759550 {
     virtual int vf_000();

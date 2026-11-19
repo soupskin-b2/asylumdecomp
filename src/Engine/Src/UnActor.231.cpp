@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x0077d9f0
-bool AHUD::vf_004()
+UBOOL AHUD::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

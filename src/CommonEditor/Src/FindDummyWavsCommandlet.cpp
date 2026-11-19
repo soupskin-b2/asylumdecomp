@@ -7,10 +7,10 @@
 IMPLEMENT_CLASS_AT(UFindDummyWavsCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonEditor\\Src\\FindDummyWavsCommandlet.cpp", 7);
 
 // @baa 0x0173ac70
-int UFindDummyWavsCommandlet::vf_000(void) { return 1; }
+UBOOL UFindDummyWavsCommandlet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0173ac80
-bool UFindDummyWavsCommandlet::vf_004()
+UBOOL UFindDummyWavsCommandlet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

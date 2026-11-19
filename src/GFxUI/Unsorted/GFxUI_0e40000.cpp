@@ -427,7 +427,7 @@ undefined1 sub_00e43ac0(void)
 }
 
 // @baa 0x00e43c00
-bool UGFxGameViewportClient::vf_004()
+UBOOL UGFxGameViewportClient::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -439,10 +439,10 @@ int UGFxGameViewportClient::vf_144(void) { return 0; }
 void UGFxGameViewportClient::vf_148(int a0) {  }
 
 // @baa 0x00e44a20
-int UGFxEvent_FsCommand::vf_000(void) { return 1; }
+UBOOL UGFxEvent_FsCommand::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00e44a30
-bool UGFxEvent_FsCommand::vf_004()
+UBOOL UGFxEvent_FsCommand::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

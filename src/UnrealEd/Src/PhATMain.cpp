@@ -540,10 +540,10 @@ C_0130f3a0* C_0130f3a0::sub_0130f3a0(void) { return this; }
 // @baa 0x0130f3b0
 
 // @baa 0x0130f4c0
-int UPhATSkeletalMeshComponent::vf_000(void) { return 1; }
+UBOOL UPhATSkeletalMeshComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0130f4d0
-bool UPhATSkeletalMeshComponent::vf_004()
+UBOOL UPhATSkeletalMeshComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

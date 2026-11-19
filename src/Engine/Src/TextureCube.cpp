@@ -35,10 +35,10 @@ IMPLEMENT_CLASS_AT(UTextureCube, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3
 // @baa 0x00754f50
 
 // @baa 0x00755060
-int UTextureCube::vf_000(void) { return 1; }
+UBOOL UTextureCube::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00755070
-bool UTextureCube::vf_004()
+UBOOL UTextureCube::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

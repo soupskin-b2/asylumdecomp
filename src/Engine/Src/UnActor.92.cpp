@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00757470
-int UEdCoordSystem::vf_000(void) { return 1; }
+UBOOL UEdCoordSystem::HasUniqueStaticConfigName() const { return 1; }

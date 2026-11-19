@@ -7,10 +7,10 @@
 IMPLEMENT_CLASS_AT(URAnimNode_Cape, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimNode_Cape.cpp", 17);
 
 // @baa 0x0155cf00
-int URAnimNode_Cape::vf_000(void) { return 1; }
+UBOOL URAnimNode_Cape::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0155cf10
-bool URAnimNode_Cape::vf_004()
+UBOOL URAnimNode_Cape::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -432,7 +432,7 @@ int sub_01590450(void)
 IMPLEMENT_CLASS_AT(URSeqAct_ConversationDialogue, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameDialogueClasses.cpp", 8);
 
 // @baa 0x01590590
-bool URSeqAct_ConversationDialogue::vf_004()
+UBOOL URSeqAct_ConversationDialogue::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -441,7 +441,7 @@ bool URSeqAct_ConversationDialogue::vf_004()
 IMPLEMENT_CLASS_AT(URBMSeqAct_PlaySpeech, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameDialogueClasses.cpp", 12);
 
 // @baa 0x015906e0
-bool URBMSeqAct_PlaySpeech::vf_004()
+UBOOL URBMSeqAct_PlaySpeech::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -450,7 +450,7 @@ bool URBMSeqAct_PlaySpeech::vf_004()
 IMPLEMENT_CLASS_AT(URSeqAct_PlaySpeechConversation, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameDialogueClasses.cpp", 13);
 
 // @baa 0x01590830
-bool URSeqAct_PlaySpeechConversation::vf_004()
+UBOOL URSeqAct_PlaySpeechConversation::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -459,7 +459,7 @@ bool URSeqAct_PlaySpeechConversation::vf_004()
 IMPLEMENT_CLASS_AT(URSeqAct_VoiceOfArkham, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameDialogueClasses.cpp", 15);
 
 // @baa 0x01590980
-bool URSeqAct_VoiceOfArkham::vf_004()
+UBOOL URSeqAct_VoiceOfArkham::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

@@ -52,7 +52,7 @@ int C_00d3c700::sub_00d3c700(undefined4 param_2, undefined4 param_3)
 IMPLEMENT_CLASS_AT(UOnlineStatsRead, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnOnlineStats.cpp", 8);
 
 // @baa 0x00d3c850
-bool UOnlineStatsRead::vf_004()
+UBOOL UOnlineStatsRead::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -61,7 +61,7 @@ bool UOnlineStatsRead::vf_004()
 IMPLEMENT_CLASS_AT(UOnlineStatsWrite, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnOnlineStats.cpp", 9);
 
 // @baa 0x00d3c9a0
-bool UOnlineStatsWrite::vf_004()
+UBOOL UOnlineStatsWrite::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -256,10 +256,10 @@ IMPLEMENT_CLASS_AT(UPrefabSequenceContainer, "e:\\Projects\\Amadeus\\AA\\Game\\U
 // @baa 0x00d1f2f0
 
 // @baa 0x00d1f400
-int ULightMapTexture2D::vf_000(void) { return 1; }
+UBOOL ULightMapTexture2D::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00d1f410
-bool ULightMapTexture2D::vf_004()
+UBOOL ULightMapTexture2D::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

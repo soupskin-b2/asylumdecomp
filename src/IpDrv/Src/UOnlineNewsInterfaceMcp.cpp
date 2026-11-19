@@ -13,7 +13,7 @@ IMPLEMENT_CLASS_AT(UOnlineNewsInterfaceMcp, "e:\\Projects\\Amadeus\\AA\\Game\\Un
 // @baa 0x00e2c830
 
 // @baa 0x00e2c960
-bool UMCPBase::vf_004()
+UBOOL UMCPBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

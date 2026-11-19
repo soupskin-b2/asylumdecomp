@@ -9,10 +9,10 @@ IMPLEMENT_CLASS_AT(UPhysXParticleSystem, "e:\\Projects\\Amadeus\\AA\\Game\\Unrea
 // @baa 0x00df0420
 // @baa 0x00df1aa0
 // @baa 0x00df1bb0
-int UPhysXParticleSystem::vf_000(void) { return 1; }
+UBOOL UPhysXParticleSystem::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00df1bc0
-bool UPhysXParticleSystem::vf_004()
+UBOOL UPhysXParticleSystem::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

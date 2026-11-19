@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x007567e0
-int AActor::vf_000(void) { return 1; }
+UBOOL AActor::HasUniqueStaticConfigName() const { return 1; }

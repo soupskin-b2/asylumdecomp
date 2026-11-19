@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00777050
-bool UWallTransReachSpec::vf_004()
+UBOOL UWallTransReachSpec::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

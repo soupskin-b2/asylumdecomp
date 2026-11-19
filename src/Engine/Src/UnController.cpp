@@ -124,7 +124,7 @@ UBOOL AController::ShouldCheckVisibilityOf(AController* C)
 }
 
 // @baa 0x007a0000
-bool UCheatManager::vf_004()
+UBOOL UCheatManager::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

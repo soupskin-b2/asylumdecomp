@@ -20,10 +20,10 @@ int sub_0165aeb0(void)
 IMPLEMENT_CLASS_AT(ARRopeTest, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RRopeTest.cpp", 13);
 
 // @baa 0x01669f30
-int ARRopeTest::vf_000(void) { return 1; }
+UBOOL ARRopeTest::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01669f40
-bool ARRopeTest::vf_004()
+UBOOL ARRopeTest::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

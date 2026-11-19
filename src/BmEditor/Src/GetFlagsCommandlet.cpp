@@ -234,10 +234,10 @@ C_012ba0c0* C_012ba0c0::sub_012ba0c0(void) { return this; }
 IMPLEMENT_CLASS_AT(UGetFlagsCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmEditor\\Src\\GetFlagsCommandlet.cpp", 15);
 
 // @baa 0x01759160
-int UGetFlagsCommandlet::vf_000(void) { return 1; }
+UBOOL UGetFlagsCommandlet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01759170
-bool UGetFlagsCommandlet::vf_004()
+UBOOL UGetFlagsCommandlet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

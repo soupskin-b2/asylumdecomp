@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00756850
-int ADirectionalLightToggleable::vf_000(void) { return 1; }
+UBOOL ADirectionalLightToggleable::HasUniqueStaticConfigName() const { return 1; }

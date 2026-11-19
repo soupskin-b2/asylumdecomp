@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x007574d0
-int ALiftExit::vf_000(void) { return 1; }
+UBOOL ALiftExit::HasUniqueStaticConfigName() const { return 1; }

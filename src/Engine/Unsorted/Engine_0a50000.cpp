@@ -753,10 +753,10 @@ void C_00a597a0::sub_00a597a0(void) { *(int*)((char*)this + 0) = (int)g_01ebbe1c
 
 // @baa 0x00a597b0
 // @baa 0x00a598c0
-int UAmbientOcclusionEffect::vf_000(void) { return 1; }
+UBOOL UAmbientOcclusionEffect::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00a598d0
-bool UAmbientOcclusionEffect::vf_004()
+UBOOL UAmbientOcclusionEffect::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

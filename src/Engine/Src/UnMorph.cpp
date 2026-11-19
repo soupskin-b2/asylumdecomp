@@ -4,16 +4,16 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00834810
-int UMorphNodeWeightBase::vf_000(void) { return 1; }
+UBOOL UMorphNodeWeightBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00834820
-int UMorphNodeWeight::vf_000(void) { return 1; }
+UBOOL UMorphNodeWeight::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00834830
-int UMorphNodePose::vf_000(void) { return 1; }
+UBOOL UMorphNodePose::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00834840
-int UMorphNodeWeightByBoneAngle::vf_000(void) { return 1; }
+UBOOL UMorphNodeWeightByBoneAngle::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00834850
 void UMorphNodeBase::vf_124(int a0) { *(int*)((char*)this + 80) = a0; }
@@ -82,7 +82,7 @@ void sub_0084ad80(void) { sub_00849c70(); }
 IMPLEMENT_CLASS_AT(UMorphNodeWeightBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnMorph.cpp", 16);
 
 // @baa 0x00852b10
-bool UMorphNodeWeightBase::vf_004()
+UBOOL UMorphNodeWeightBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -138,7 +138,7 @@ IMPLEMENT_CLASS_AT(UMorphNodeWeightByBoneAngle, "e:\\Projects\\Amadeus\\AA\\Game
 // @baa 0x008598c0
 // @baa 0x0085a130
 // @baa 0x0085a240
-bool UMorphNodeWeight::vf_004()
+UBOOL UMorphNodeWeight::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -185,10 +185,10 @@ FString UMorphTargetSet::GetDesc()
 }
 
 // @baa 0x008343a0
-int UMorphTarget::vf_000(void) { return 1; }
+UBOOL UMorphTarget::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008343b0
-bool UMorphTarget::vf_004()
+UBOOL UMorphTarget::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -196,10 +196,10 @@ bool UMorphTarget::vf_004()
 // @baa 0x008343f0
 
 // @baa 0x00834500
-int UMorphTargetSet::vf_000(void) { return 1; }
+UBOOL UMorphTargetSet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00834510
-bool UMorphTargetSet::vf_004()
+UBOOL UMorphTargetSet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

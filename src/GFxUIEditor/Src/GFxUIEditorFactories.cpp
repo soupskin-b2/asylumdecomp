@@ -32,10 +32,10 @@ void sub_00f19cb0(void)
 IMPLEMENT_CLASS_AT(UGFxMovieFactory, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\GFxUIEditor\\Src\\GFxUIEditorFactories.cpp", 27);
 
 // @baa 0x014f9f70
-int UGFxMovieFactory::vf_000(void) { return 1; }
+UBOOL UGFxMovieFactory::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x014f9f80
-bool UGFxMovieFactory::vf_004()
+UBOOL UGFxMovieFactory::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -56,10 +56,10 @@ byte * C_014fa5a0::sub_014fa5a0(void)
 IMPLEMENT_CLASS_AT(UGFxReimportCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\GFxUIEditor\\Src\\GFxUIMovieCustomImporter.cpp", 504);
 
 // @baa 0x014fa6d0
-int UGFxReimportCommandlet::vf_000(void) { return 1; }
+UBOOL UGFxReimportCommandlet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x014fa6e0
-bool UGFxReimportCommandlet::vf_004()
+UBOOL UGFxReimportCommandlet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -68,10 +68,10 @@ bool UGFxReimportCommandlet::vf_004()
 IMPLEMENT_CLASS_AT(UGFxMovieThumbnailRenderer, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\GFxUIEditor\\Src\\GFxUIMovieThumbnailRenderer.cpp", 27);
 
 // @baa 0x014fa830
-int UGFxMovieThumbnailRenderer::vf_000(void) { return 1; }
+UBOOL UGFxMovieThumbnailRenderer::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x014fa840
-bool UGFxMovieThumbnailRenderer::vf_004()
+UBOOL UGFxMovieThumbnailRenderer::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

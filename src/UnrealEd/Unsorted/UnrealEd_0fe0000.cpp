@@ -7,10 +7,10 @@
 IMPLEMENT_CLASS_AT(UTerrainMaterialFactoryNew, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnTerrainEdit.cpp", 2769);
 
 // @baa 0x00fefcf0
-int UTerrainMaterialFactoryNew::vf_000(void) { return 1; }
+UBOOL UTerrainMaterialFactoryNew::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00fefd00
-bool UTerrainMaterialFactoryNew::vf_004()
+UBOOL UTerrainMaterialFactoryNew::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -19,10 +19,10 @@ bool UTerrainMaterialFactoryNew::vf_004()
 IMPLEMENT_CLASS_AT(UTerrainLayerSetupFactoryNew, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnTerrainEdit.cpp", 2808);
 
 // @baa 0x00fefe50
-int UTerrainLayerSetupFactoryNew::vf_000(void) { return 1; }
+UBOOL UTerrainLayerSetupFactoryNew::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00fefe60
-bool UTerrainLayerSetupFactoryNew::vf_004()
+UBOOL UTerrainLayerSetupFactoryNew::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

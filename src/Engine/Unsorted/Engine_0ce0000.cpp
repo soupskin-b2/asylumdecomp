@@ -37,16 +37,16 @@ struct C { C* sub_00ce8370(void); };
 C* C::sub_00ce8370(void) { *(int*)((char*)this + 0) = (int)g_020969ec; return this; }
 
 // @baa 0x00ceb130
-int UInterpTrackInstToggle::vf_000(void) { return 1; }
+UBOOL UInterpTrackInstToggle::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00ceb3d0
-int UInterpTrackInstVisibility::vf_000(void) { return 1; }
+UBOOL UInterpTrackInstVisibility::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00ceb3e0
-int UInterpTrackParticleReplay::vf_000(void) { return 1; }
+UBOOL UInterpTrackParticleReplay::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00ceb3f0
-int UInterpTrackInstParticleReplay::vf_000(void) { return 1; }
+UBOOL UInterpTrackInstParticleReplay::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00cef3f0
 INT UInterpTrackParticleReplay::GetNumKeyframes() { return *(int*)((char*)this + 84); }

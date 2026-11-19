@@ -105,7 +105,7 @@ int sub_00d672a0(void) { return (int)g_020b5204; }
 
 // @baa 0x00d672b0
 // @baa 0x00d673e0
-bool UOnlinePlaylistManager::vf_004()
+UBOOL UOnlinePlaylistManager::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -114,10 +114,10 @@ bool UOnlinePlaylistManager::vf_004()
 IMPLEMENT_CLASS_AT(UOnlineProfileSettings, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UOnlineProfileSettings.cpp", 7);
 
 // @baa 0x00d67530
-int UOnlineProfileSettings::vf_000(void) { return 1; }
+UBOOL UOnlineProfileSettings::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00d67540
-bool UOnlineProfileSettings::vf_004()
+UBOOL UOnlineProfileSettings::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

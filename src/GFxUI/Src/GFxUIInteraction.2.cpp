@@ -75,10 +75,10 @@ undefined4 UGFxFSCmdHandler_Kismet::sub_00e6beb0(byte param_2)
 // @baa 0x00e43e00
 
 // @baa 0x00e43f10
-int UGFxAction_CloseMovie::vf_000(void) { return 1; }
+UBOOL UGFxAction_CloseMovie::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00e43f20
-bool UGFxAction_CloseMovie::vf_004()
+UBOOL UGFxAction_CloseMovie::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -86,10 +86,10 @@ bool UGFxAction_CloseMovie::vf_004()
 // @baa 0x00e43f60
 
 // @baa 0x00e44070
-int UGFxAction_GetVariable::vf_000(void) { return 1; }
+UBOOL UGFxAction_GetVariable::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00e44080
-bool UGFxAction_GetVariable::vf_004()
+UBOOL UGFxAction_GetVariable::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -97,10 +97,10 @@ bool UGFxAction_GetVariable::vf_004()
 // @baa 0x00e440c0
 
 // @baa 0x00e441d0
-int UGFxAction_Invoke::vf_000(void) { return 1; }
+UBOOL UGFxAction_Invoke::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00e441e0
-bool UGFxAction_Invoke::vf_004()
+UBOOL UGFxAction_Invoke::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -108,10 +108,10 @@ bool UGFxAction_Invoke::vf_004()
 // @baa 0x00e44220
 
 // @baa 0x00e44330
-int UGFxAction_OpenMovie::vf_000(void) { return 1; }
+UBOOL UGFxAction_OpenMovie::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00e44340
-bool UGFxAction_OpenMovie::vf_004()
+UBOOL UGFxAction_OpenMovie::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -119,10 +119,10 @@ bool UGFxAction_OpenMovie::vf_004()
 // @baa 0x00e44380
 
 // @baa 0x00e44490
-int UGFxAction_SetCaptureKeys::vf_000(void) { return 1; }
+UBOOL UGFxAction_SetCaptureKeys::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00e444a0
-bool UGFxAction_SetCaptureKeys::vf_004()
+UBOOL UGFxAction_SetCaptureKeys::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -130,10 +130,10 @@ bool UGFxAction_SetCaptureKeys::vf_004()
 // @baa 0x00e444e0
 
 // @baa 0x00e445f0
-int UGFxAction_SetFocus::vf_000(void) { return 1; }
+UBOOL UGFxAction_SetFocus::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00e44600
-bool UGFxAction_SetFocus::vf_004()
+UBOOL UGFxAction_SetFocus::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -141,24 +141,24 @@ bool UGFxAction_SetFocus::vf_004()
 // @baa 0x00e44640
 
 // @baa 0x00e44750
-int UGFxAction_SetVariable::vf_000(void) { return 1; }
+UBOOL UGFxAction_SetVariable::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00e44760
-bool UGFxAction_SetVariable::vf_004()
+UBOOL UGFxAction_SetVariable::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00e447a0
-int UGFxFSCmdHandler_Kismet::vf_000(void) { return 1; }
+UBOOL UGFxFSCmdHandler_Kismet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00e447b0
 
 // @baa 0x00e448c0
-int UGFxInteraction::vf_000(void) { return 1; }
+UBOOL UGFxInteraction::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00e448d0
-bool UGFxInteraction::vf_004()
+UBOOL UGFxInteraction::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -168,7 +168,7 @@ bool UGFxInteraction::vf_004()
 // @baa 0x00e53710
 
 // @baa 0x00e53820
-bool UGFxFSCmdHandler_Kismet::vf_004()
+UBOOL UGFxFSCmdHandler_Kismet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

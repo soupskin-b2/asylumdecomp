@@ -182,10 +182,10 @@ void UChannel::vf_124(void) {  }
 
 // @baa 0x00df3490
 // @baa 0x00df35a0
-int UChannel::vf_000(void) { return 1; }
+UBOOL UChannel::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00df35b0
-bool UChannel::vf_004()
+UBOOL UChannel::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -230,7 +230,7 @@ void UControlChannel_::sub_00df35f0(UNetConnection* InConnection, INT InChIndex,
 }
 
 // @baa 0x00df36f0
-int UControlChannel::vf_000(void) { return 1; }
+UBOOL UControlChannel::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00df3770
 void sub_00df3770(void) {  }
@@ -239,7 +239,7 @@ void sub_00df3770(void) {  }
 void sub_00df3780(void) {  }
 
 // @baa 0x00df3790
-int UActorChannel::vf_000(void) { return 1; }
+UBOOL UActorChannel::HasUniqueStaticConfigName() const { return 1; }
 
 struct C_00df37a0 {
     undefined4 * sub_00df37a0();
@@ -262,7 +262,7 @@ IMPLEMENT_CLASS_AT(UFileChannel, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3
 
 // @baa 0x00df3820
 // @baa 0x00df38a0
-int UFileChannel::vf_000(void) { return 1; }
+UBOOL UFileChannel::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00df96a0
 // @baa 0x00df96c0
@@ -272,7 +272,7 @@ int UFileChannel::vf_000(void) { return 1; }
 IMPLEMENT_CLASS_AT(UControlChannel, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnChan.cpp", 749);
 
 // @baa 0x00dfd1a0
-bool UControlChannel::vf_004()
+UBOOL UControlChannel::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -281,14 +281,14 @@ bool UControlChannel::vf_004()
 IMPLEMENT_CLASS_AT(UActorChannel, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnChan.cpp", 1677);
 
 // @baa 0x00dfd3a0
-bool UActorChannel::vf_004()
+UBOOL UActorChannel::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00dfd3e0
 // @baa 0x00dfd4f0
-bool UFileChannel::vf_004()
+UBOOL UFileChannel::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -740,10 +740,10 @@ INT UChannel_::sub_00df3450(INT InChannelIndex)
 }
 
 // @baa 0x00df38b0
-int UVoiceChannel::vf_000(void) { return 1; }
+UBOOL UVoiceChannel::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00dfd640
-bool UVoiceChannel::vf_004()
+UBOOL UVoiceChannel::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

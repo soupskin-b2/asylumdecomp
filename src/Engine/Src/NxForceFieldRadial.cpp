@@ -11,10 +11,10 @@ IMPLEMENT_CLASS_AT(ANxForceFieldRadial, "e:\\Projects\\Amadeus\\AA\\Game\\Unreal
 // @baa 0x00a345d0
 
 // @baa 0x00a346e0
-int ANxForceFieldRadial::vf_000(void) { return 1; }
+UBOOL ANxForceFieldRadial::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00a346f0
-bool ANxForceFieldRadial::vf_004()
+UBOOL ANxForceFieldRadial::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

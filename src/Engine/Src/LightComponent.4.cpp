@@ -4,10 +4,10 @@
 #include "ue3/Implement.h"
 
 // @baa 0x006ace00
-int ULightComponent::vf_000(void) { return 1; }
+UBOOL ULightComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x006ace10
-bool ULightComponent::vf_004()
+UBOOL ULightComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -74,13 +74,13 @@ void ULightComponent::Serialize(FArchive& Ar)
 }
 
 // @baa 0x006ad1d0
-void ULightComponent::vf_09c() {
+void ULightComponent::PostEditImport() {
     vf_16c();
     bHasLightEverBeenBuiltIntoLightMap = 0;
 }
 
 // @baa 0x006ad1b0
-void ULightComponent::vf_05c()
+void ULightComponent::PostDuplicate()
 {
 	vf_16c();
 	bHasLightEverBeenBuiltIntoLightMap = 0;

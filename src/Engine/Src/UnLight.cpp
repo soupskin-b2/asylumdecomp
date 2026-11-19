@@ -37,10 +37,10 @@ void sub_01e23ae0(void) {  }
 // @baa 0x00803f40
 
 // @baa 0x00804050
-int ALightVolume::vf_000(void) { return 1; }
+UBOOL ALightVolume::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00804060
-bool ALightVolume::vf_004()
+UBOOL ALightVolume::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -48,7 +48,7 @@ bool ALightVolume::vf_004()
 // @baa 0x008040a0
 
 // @baa 0x008041d0
-bool AStaticLightCollectionActor::vf_004()
+UBOOL AStaticLightCollectionActor::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

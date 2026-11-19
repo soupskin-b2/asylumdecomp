@@ -11,10 +11,10 @@ IMPLEMENT_CLASS_AT(UPointLightComponent, "e:\\Projects\\Amadeus\\AA\\Game\\Unrea
 // @baa 0x006da6e0
 
 // @baa 0x006da7f0
-int UPointLightComponent::vf_000(void) { return 1; }
+UBOOL UPointLightComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x006da800
-bool UPointLightComponent::vf_004()
+UBOOL UPointLightComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00756090
-int UTextureRenderTargetCube::vf_000(void) { return 1; }
+UBOOL UTextureRenderTargetCube::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00756150
 int UTextureRenderTargetCube::GetMaterialType(void) { return 32; }

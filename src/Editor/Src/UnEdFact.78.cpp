@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00f1d3e0
-bool UDestructibleDamageParametersFactoryNew::vf_004()
+UBOOL UDestructibleDamageParametersFactoryNew::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

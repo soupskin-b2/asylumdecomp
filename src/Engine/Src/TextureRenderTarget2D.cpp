@@ -19,7 +19,7 @@ undefined4 C::sub_00753060(float * param_2)
 }
 
 // @baa 0x00755d90
-int UTextureRenderTarget2D::vf_000(void) { return 1; }
+UBOOL UTextureRenderTarget2D::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00755da0
 int UTextureRenderTarget2D::GetMaterialType(void) { return 16; }

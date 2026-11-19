@@ -457,34 +457,34 @@ struct C_00a347e0 { C_00a347e0* sub_00a347e0(void); };
 C_00a347e0* C_00a347e0::sub_00a347e0(void) { return this; }
 
 // @baa 0x00a34900
-int ANxForceFieldTornado::vf_000(void) { return 1; }
+UBOOL ANxForceFieldTornado::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00a34910
-bool ANxForceFieldTornado::vf_004()
+UBOOL ANxForceFieldTornado::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00a34ce0
-int ANxRadialCustomForceField::vf_000(void) { return 1; }
+UBOOL ANxRadialCustomForceField::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00a34cf0
-bool ANxRadialCustomForceField::vf_004()
+UBOOL ANxRadialCustomForceField::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00a34e70
-int ANxTornadoAngularForceField::vf_000(void) { return 1; }
+UBOOL ANxTornadoAngularForceField::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00a34e80
-bool ANxTornadoAngularForceField::vf_004()
+UBOOL ANxTornadoAngularForceField::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00a34ef0
-int ANxTornadoForceFieldCapsule::vf_000(void) { return 1; }
+UBOOL ANxTornadoForceFieldCapsule::HasUniqueStaticConfigName() const { return 1; }
 
 struct C_00a34f50 { C_00a34f50* sub_00a34f50(void); };
 
@@ -492,16 +492,16 @@ struct C_00a34f50 { C_00a34f50* sub_00a34f50(void); };
 C_00a34f50* C_00a34f50::sub_00a34f50(void) { return this; }
 
 // @baa 0x00a35070
-int ANxTornadoForceField::vf_000(void) { return 1; }
+UBOOL ANxTornadoForceField::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00a35080
-bool ANxTornadoForceField::vf_004()
+UBOOL ANxTornadoForceField::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00a350f0
-int ANxTornadoAngularForceFieldCapsule::vf_000(void) { return 1; }
+UBOOL ANxTornadoAngularForceFieldCapsule::HasUniqueStaticConfigName() const { return 1; }
 
 struct C_00a35150 { char* sub_00a35150(void); };
 

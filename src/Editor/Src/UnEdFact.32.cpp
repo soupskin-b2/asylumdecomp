@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00f1bf30
-int UPackageFactory::vf_000(void) { return 1; }
+UBOOL UPackageFactory::HasUniqueStaticConfigName() const { return 1; }

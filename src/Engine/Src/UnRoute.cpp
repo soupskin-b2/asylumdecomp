@@ -300,60 +300,60 @@ void UGoal_Null::NotifyExceededMaxPathVisits(ANavigationPoint* a0) {  }
 IMPLEMENT_CLASS_AT(ADynamicAnchor, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnRoute.cpp", 10);
 
 // @baa 0x008a5f40
-int ADynamicAnchor::vf_000(void) { return 1; }
+UBOOL ADynamicAnchor::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008a5f50
-bool ADynamicAnchor::vf_004()
+UBOOL ADynamicAnchor::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008a5f90
 // @baa 0x008a60a0
-int UPathConstraint::vf_000(void) { return 1; }
+UBOOL UPathConstraint::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008a60b0
-bool UPathConstraint::vf_004()
+UBOOL UPathConstraint::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008a60f0
-int UPath_TowardGoal::vf_000(void) { return 1; }
+UBOOL UPath_TowardGoal::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008a6100
-int UPath_TowardPoint::vf_000(void) { return 1; }
+UBOOL UPath_TowardPoint::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008a6110
-int UPath_AlongLine::vf_000(void) { return 1; }
+UBOOL UPath_AlongLine::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008a6120
-int UPath_WithinTraversalDist::vf_000(void) { return 1; }
+UBOOL UPath_WithinTraversalDist::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008a6130
-int UPath_WithinDistanceEnvelope::vf_000(void) { return 1; }
+UBOOL UPath_WithinDistanceEnvelope::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008a6140
-int UPath_MinDistBetweenSpecsOfType::vf_000(void) { return 1; }
+UBOOL UPath_MinDistBetweenSpecsOfType::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008a6150
-int UPath_AvoidInEscapableNodes::vf_000(void) { return 1; }
+UBOOL UPath_AvoidInEscapableNodes::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008a6160
 // @baa 0x008a6270
-int UPathGoalEvaluator::vf_000(void) { return 1; }
+UBOOL UPathGoalEvaluator::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008a6280
-bool UPathGoalEvaluator::vf_004()
+UBOOL UPathGoalEvaluator::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008a62c0
-int UGoal_AtActor::vf_000(void) { return 1; }
+UBOOL UGoal_AtActor::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008a62d0
-int UGoal_Null::vf_000(void) { return 1; }
+UBOOL UGoal_Null::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008aef50
 // @baa 0x008aef70
@@ -379,28 +379,28 @@ int UGoal_Null::vf_000(void) { return 1; }
 // @baa 0x008af830
 // @baa 0x008b4cd0
 // @baa 0x008b4de0
-bool UPath_MinDistBetweenSpecsOfType::vf_004()
+UBOOL UPath_MinDistBetweenSpecsOfType::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008b4e20
 // @baa 0x008b4f30
-bool UPath_AvoidInEscapableNodes::vf_004()
+UBOOL UPath_AvoidInEscapableNodes::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008b4f70
 // @baa 0x008b5080
-bool UGoal_AtActor::vf_004()
+UBOOL UGoal_AtActor::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008b50c0
 // @baa 0x008b51d0
-bool UGoal_Null::vf_004()
+UBOOL UGoal_Null::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -445,7 +445,7 @@ void UGoal_AtActor::NotifyExceededMaxPathVisits(ANavigationPoint* param_2) {
 // @baa 0x008b4640
 
 // @baa 0x008b4750
-bool UPath_TowardGoal::vf_004()
+UBOOL UPath_TowardGoal::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -453,7 +453,7 @@ bool UPath_TowardGoal::vf_004()
 // @baa 0x008b4790
 
 // @baa 0x008b48a0
-bool UPath_TowardPoint::vf_004()
+UBOOL UPath_TowardPoint::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -461,7 +461,7 @@ bool UPath_TowardPoint::vf_004()
 // @baa 0x008b48e0
 
 // @baa 0x008b49f0
-bool UPath_AlongLine::vf_004()
+UBOOL UPath_AlongLine::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -469,7 +469,7 @@ bool UPath_AlongLine::vf_004()
 // @baa 0x008b4a30
 
 // @baa 0x008b4b40
-bool UPath_WithinTraversalDist::vf_004()
+UBOOL UPath_WithinTraversalDist::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -477,7 +477,7 @@ bool UPath_WithinTraversalDist::vf_004()
 // @baa 0x008b4b80
 
 // @baa 0x008b4c90
-bool UPath_WithinDistanceEnvelope::vf_004()
+UBOOL UPath_WithinDistanceEnvelope::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

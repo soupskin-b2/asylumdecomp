@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00756950
-int AZoneInfo::vf_000(void) { return 1; }
+UBOOL AZoneInfo::HasUniqueStaticConfigName() const { return 1; }

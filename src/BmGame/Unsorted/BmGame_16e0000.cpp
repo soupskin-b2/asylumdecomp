@@ -94,13 +94,13 @@ IMPLEMENT_CLASS_AT(URGFxMovieFrontend, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealE
 
 // @baa 0x016e5db0
 // @baa 0x016e5ec0
-bool URGFxMovieUpgrades::vf_004()
+UBOOL URGFxMovieUpgrades::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x016e62b0
-bool URGFxMovieHUD::vf_004()
+UBOOL URGFxMovieHUD::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

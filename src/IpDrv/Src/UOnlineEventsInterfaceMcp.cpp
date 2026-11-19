@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00e2c7e0
-int UOnlineEventsInterfaceMcp::vf_000(void) { return 1; }
+UBOOL UOnlineEventsInterfaceMcp::HasUniqueStaticConfigName() const { return 1; }
 
 struct C {
     undefined4 * sub_00e2e640(byte);
@@ -61,7 +61,7 @@ int C_00e323e0::sub_00e323e0(undefined4 param_2)
 IMPLEMENT_CLASS_AT(UOnlineEventsInterfaceMcp, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\IpDrv\\Src\\UOnlineEventsInterfaceMcp.cpp", 9);
 
 // @baa 0x00e3a4f0
-bool UOnlineEventsInterfaceMcp::vf_004()
+UBOOL UOnlineEventsInterfaceMcp::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

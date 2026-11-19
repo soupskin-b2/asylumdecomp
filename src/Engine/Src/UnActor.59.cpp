@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00756d40
-int AInventoryManager::vf_000(void) { return 1; }
+UBOOL AInventoryManager::HasUniqueStaticConfigName() const { return 1; }

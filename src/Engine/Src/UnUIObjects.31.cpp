@@ -402,7 +402,7 @@ struct UObject_ : public UObject
 
 // @baa 0x00daa8b0
 /* PostRename: keeps WidgetTag in step with the object's name. */
-void UUIObject::vf_058()
+void UUIObject::PostRename()
 {
 	if (WidgetTag != GetFName())
 	{

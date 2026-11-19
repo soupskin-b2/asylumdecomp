@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00f1ec30
-int URenderTargetCubeExporterTGA::vf_000(void) { return 1; }
+UBOOL URenderTargetCubeExporterTGA::HasUniqueStaticConfigName() const { return 1; }

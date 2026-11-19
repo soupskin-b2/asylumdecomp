@@ -7,10 +7,10 @@
 IMPLEMENT_CLASS_AT(UParticleModuleTypeDataMeshPhysX, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\ParticleModules_PhysX.cpp", 13);
 
 // @baa 0x00b33d40
-int UParticleModuleTypeDataMeshPhysX::vf_000(void) { return 1; }
+UBOOL UParticleModuleTypeDataMeshPhysX::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b33d50
-bool UParticleModuleTypeDataMeshPhysX::vf_004()
+UBOOL UParticleModuleTypeDataMeshPhysX::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -57,10 +57,10 @@ void UParticleModuleTypeDataMeshPhysX::vf_16c(void)
 IMPLEMENT_CLASS_AT(UParticleModuleTypeDataPhysX, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\ParticleModules_PhysX.cpp", 127);
 
 // @baa 0x00b33f30
-int UParticleModuleTypeDataPhysX::vf_000(void) { return 1; }
+UBOOL UParticleModuleTypeDataPhysX::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b33f40
-bool UParticleModuleTypeDataPhysX::vf_004()
+UBOOL UParticleModuleTypeDataPhysX::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00782db0
-bool APhysicsVolume::vf_004()
+UBOOL APhysicsVolume::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

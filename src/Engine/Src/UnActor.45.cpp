@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00756b30
-int UCoverSlipReachSpec::vf_000(void) { return 1; }
+UBOOL UCoverSlipReachSpec::HasUniqueStaticConfigName() const { return 1; }

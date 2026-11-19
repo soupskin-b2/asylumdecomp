@@ -31,7 +31,7 @@ undefined2 sub_006a8950(void)
 }
 
 // @baa 0x006aa970
-int UDynamicLightEnvironmentComponent::vf_000(void) { return 1; }
+UBOOL UDynamicLightEnvironmentComponent::HasUniqueStaticConfigName() const { return 1; }
 
 struct C_006aa980 { void sub_006aa980(void); };
 
@@ -268,7 +268,7 @@ void sub_006c9bf0(void) { sub_006c4cf0(); }
 // @baa 0x006ca060
 // @baa 0x006cc830
 // @baa 0x006cc940
-bool UDynamicLightEnvironmentComponent::vf_004()
+UBOOL UDynamicLightEnvironmentComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

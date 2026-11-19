@@ -16,10 +16,10 @@ int sub_00c92f20(int a0, int a1) { return a1; }
 IMPLEMENT_CLASS_AT(USoundNode, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAudioNodes.cpp", 343);
 
 // @baa 0x00c93080
-int USoundNode::vf_000(void) { return 1; }
+UBOOL USoundNode::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c93090
-bool USoundNode::vf_004()
+UBOOL USoundNode::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -30,10 +30,10 @@ struct C { C* sub_00c930d0(void); };
 C* C::sub_00c930d0(void) { return this; }
 
 // @baa 0x00c930e0
-int USoundNodeMixer::vf_000(void) { return 1; }
+UBOOL USoundNodeMixer::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c930f0
-int USoundNodeDistanceCrossFade::vf_000(void) { return 1; }
+UBOOL USoundNodeDistanceCrossFade::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c931a0
 int __stdcall sub_00c931a0(int a0) { return 0; }
@@ -68,10 +68,10 @@ void S::sub_00c932b0() {
 float USoundNodeWave::vf_114(void) { return *(float*)((char*)this + 116); }
 
 // @baa 0x00c932d0
-int USoundNodeWave::vf_000(void) { return 1; }
+UBOOL USoundNodeWave::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c932e0
-int USoundNodeAttenuation::vf_000(void) { return 1; }
+UBOOL USoundNodeAttenuation::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c932f0
 uint USoundNodeLooping::vf_118(void)
@@ -82,22 +82,22 @@ uint USoundNodeLooping::vf_118(void)
 }
 
 // @baa 0x00c93300
-int USoundNodeLooping::vf_000(void) { return 1; }
+UBOOL USoundNodeLooping::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c93310
-int USoundNodeOscillator::vf_000(void) { return 1; }
+UBOOL USoundNodeOscillator::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c93320
-int USoundNodeModulator::vf_000(void) { return 1; }
+UBOOL USoundNodeModulator::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c93330
-int USoundNodeModulatorContinuous::vf_000(void) { return 1; }
+UBOOL USoundNodeModulatorContinuous::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c93360
-int USoundNodeAmbient::vf_000(void) { return 1; }
+UBOOL USoundNodeAmbient::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c93370
-int USoundNodeAmbientNonLoop::vf_000(void) { return 1; }
+UBOOL USoundNodeAmbientNonLoop::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c93380
 FLOAT USoundNodeWaveParam::vf_114() {
@@ -105,16 +105,16 @@ FLOAT USoundNodeWaveParam::vf_114() {
 }
 
 // @baa 0x00c93390
-int USoundNodeWaveParam::vf_000(void) { return 1; }
+UBOOL USoundNodeWaveParam::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c933a0
-int USoundNodeRandom::vf_000(void) { return 1; }
+UBOOL USoundNodeRandom::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c933b0
-int USoundNodeDelay::vf_000(void) { return 1; }
+UBOOL USoundNodeDelay::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c933c0
-int USoundNodeConcatenator::vf_000(void) { return 1; }
+UBOOL USoundNodeConcatenator::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c933d0
 void sub_00c933d0(void) {  }
@@ -129,10 +129,10 @@ int __stdcall sub_00c933f0(int a0) { return 1; }
 IMPLEMENT_CLASS_AT(USoundCue, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAudioNodes.cpp", 2585);
 
 // @baa 0x00c93510
-int USoundCue::vf_000(void) { return 1; }
+UBOOL USoundCue::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c93520
-bool USoundCue::vf_004()
+UBOOL USoundCue::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -668,7 +668,7 @@ void sub_00ccd8f0(void) { sub_00ccbf20(); }
 
 // @baa 0x00ccd900
 // @baa 0x00ccda10
-bool USoundNodeMixer::vf_004()
+UBOOL USoundNodeMixer::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -677,7 +677,7 @@ bool USoundNodeMixer::vf_004()
 IMPLEMENT_CLASS_AT(USoundNodeDistanceCrossFade, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAudioNodes.cpp", 533);
 
 // @baa 0x00ccdb60
-bool USoundNodeDistanceCrossFade::vf_004()
+UBOOL USoundNodeDistanceCrossFade::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -686,7 +686,7 @@ bool USoundNodeDistanceCrossFade::vf_004()
 IMPLEMENT_CLASS_AT(USoundNodeWave, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAudioNodes.cpp", 1249);
 
 // @baa 0x00ccdcb0
-bool USoundNodeWave::vf_004()
+UBOOL USoundNodeWave::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -694,7 +694,7 @@ bool USoundNodeWave::vf_004()
 // @baa 0x00ccdcf0
 // @baa 0x00ccddb0
 // @baa 0x00ccdec0
-bool USoundNodeAttenuation::vf_004()
+UBOOL USoundNodeAttenuation::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -702,7 +702,7 @@ bool USoundNodeAttenuation::vf_004()
 // @baa 0x00ccdf00
 // @baa 0x00ccdfc0
 // @baa 0x00cce0d0
-bool USoundNodeLooping::vf_004()
+UBOOL USoundNodeLooping::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -710,7 +710,7 @@ bool USoundNodeLooping::vf_004()
 // @baa 0x00cce110
 // @baa 0x00cce1d0
 // @baa 0x00cce2e0
-bool USoundNodeOscillator::vf_004()
+UBOOL USoundNodeOscillator::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -718,7 +718,7 @@ bool USoundNodeOscillator::vf_004()
 // @baa 0x00cce320
 // @baa 0x00cce3e0
 // @baa 0x00cce4f0
-bool USoundNodeModulator::vf_004()
+UBOOL USoundNodeModulator::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -726,7 +726,7 @@ bool USoundNodeModulator::vf_004()
 // @baa 0x00cce530
 // @baa 0x00cce5f0
 // @baa 0x00cce700
-bool USoundNodeModulatorContinuous::vf_004()
+UBOOL USoundNodeModulatorContinuous::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -734,7 +734,7 @@ bool USoundNodeModulatorContinuous::vf_004()
 // @baa 0x00cce740
 // @baa 0x00cce800
 // @baa 0x00cce910
-bool USoundNodeAmbient::vf_004()
+UBOOL USoundNodeAmbient::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -742,14 +742,14 @@ bool USoundNodeAmbient::vf_004()
 // @baa 0x00cce950
 // @baa 0x00ccea10
 // @baa 0x00cceb20
-bool USoundNodeWaveParam::vf_004()
+UBOOL USoundNodeWaveParam::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00cceb60
 // @baa 0x00ccec70
-bool USoundNodeRandom::vf_004()
+UBOOL USoundNodeRandom::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -757,21 +757,21 @@ bool USoundNodeRandom::vf_004()
 // @baa 0x00ccecb0
 // @baa 0x00cced70
 // @baa 0x00ccee80
-bool USoundNodeDelay::vf_004()
+UBOOL USoundNodeDelay::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00cceec0
 // @baa 0x00ccefd0
-bool USoundNodeConcatenator::vf_004()
+UBOOL USoundNodeConcatenator::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00ccf010
 // @baa 0x00ccf120
-bool USoundNodeMature::vf_004()
+UBOOL USoundNodeMature::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1212,7 +1212,7 @@ int sub_00cdbe80(void)
 IMPLEMENT_CLASS_AT(UGameEngine, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnEngine.cpp", 236);
 
 // @baa 0x00cdc000
-bool UGameEngine::vf_004()
+UBOOL UGameEngine::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1267,10 +1267,10 @@ void USoundCue::Serialize(FArchive& Ar)
 // @baa 0x00c93560
 
 // @baa 0x00c93670
-int UDistributionFloatSoundParameter::vf_000(void) { return 1; }
+UBOOL UDistributionFloatSoundParameter::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c93680
-bool UDistributionFloatSoundParameter::vf_004()
+UBOOL UDistributionFloatSoundParameter::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1281,12 +1281,12 @@ INT USoundNodeMature::vf_128() {
 }
 
 // @baa 0x00c936d0
-int USoundNodeMature::vf_000(void) { return 1; }
+UBOOL USoundNodeMature::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00cd06a0
 
 // @baa 0x00cd07b0
-bool USoundNodeAmbientNonLoop::vf_004()
+UBOOL USoundNodeAmbientNonLoop::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

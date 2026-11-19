@@ -1144,7 +1144,7 @@ void sub_007f5930();
 void sub_007f7370(void) { sub_007f5930(); }
 
 // @baa 0x00cafe20
-int UGameEngine::vf_000(void) { return 1; }
+UBOOL UGameEngine::HasUniqueStaticConfigName() const { return 1; }
 
 // The Win driver viewport client (WinDrv). UGameViewportClient stores the
 // pointer to it right after its script header (0x38, the script field

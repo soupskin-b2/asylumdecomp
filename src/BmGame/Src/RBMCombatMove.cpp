@@ -29,7 +29,7 @@ IMPLEMENT_CLASS_AT(ARCombatMove_BatmanCounter, "e:\\Projects\\Amadeus\\AA\\Game\
 // @baa 0x01666470
 
 // @baa 0x01666580
-bool ARCombatMove_BatmanCounter::vf_004()
+UBOOL ARCombatMove_BatmanCounter::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00f1e360
-bool UTextureExporterPCX::vf_004()
+UBOOL UTextureExporterPCX::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

@@ -15,10 +15,10 @@ IMPLEMENT_CLASS_AT(ARDisruptableObjectDoor, "e:\\Projects\\Amadeus\\AA\\Game\\Un
 // @baa 0x017165c0
 
 // @baa 0x017166d0
-int ARDisruptableObjectBase::vf_000(void) { return 1; }
+UBOOL ARDisruptableObjectBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x017166e0
-bool ARDisruptableObjectBase::vf_004()
+UBOOL ARDisruptableObjectBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00784920
-bool AWaterVolume::vf_004()
+UBOOL AWaterVolume::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

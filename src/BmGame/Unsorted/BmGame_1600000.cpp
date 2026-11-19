@@ -85,7 +85,7 @@ int sub_016032d0(void)
 IMPLEMENT_CLASS_AT(ARPawnBossVenomBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmAIClass.cpp", 25);
 
 // @baa 0x01603410
-bool ARPawnBossVenomBase::vf_004()
+UBOOL ARPawnBossVenomBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -94,7 +94,7 @@ bool ARPawnBossVenomBase::vf_004()
 IMPLEMENT_CLASS_AT(URBMBehaviour_AttachToEvents, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmAIClass.cpp", 38);
 
 // @baa 0x01603560
-bool URBMBehaviour_AttachToEvents::vf_004()
+UBOOL URBMBehaviour_AttachToEvents::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -103,7 +103,7 @@ bool URBMBehaviour_AttachToEvents::vf_004()
 IMPLEMENT_CLASS_AT(URBMBehaviourAutoStringUp, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmAIClass.cpp", 39);
 
 // @baa 0x016036b0
-bool URBMBehaviourAutoStringUp::vf_004()
+UBOOL URBMBehaviourAutoStringUp::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -112,7 +112,7 @@ bool URBMBehaviourAutoStringUp::vf_004()
 IMPLEMENT_CLASS_AT(URBMBehaviour_IdleWithPlannarProp, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmAIClass.cpp", 40);
 
 // @baa 0x01603800
-bool URBMBehaviour_IdleWithPlannarProp::vf_004()
+UBOOL URBMBehaviour_IdleWithPlannarProp::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -121,7 +121,7 @@ bool URBMBehaviour_IdleWithPlannarProp::vf_004()
 IMPLEMENT_CLASS_AT(URBMBehaviour_MiniCutscene, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmAIClass.cpp", 41);
 
 // @baa 0x01603950
-bool URBMBehaviour_MiniCutscene::vf_004()
+UBOOL URBMBehaviour_MiniCutscene::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -130,7 +130,7 @@ bool URBMBehaviour_MiniCutscene::vf_004()
 IMPLEMENT_CLASS_AT(URBMBehaviour_MoveTo, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmAIClass.cpp", 42);
 
 // @baa 0x01603aa0
-bool URBMBehaviour_MoveTo::vf_004()
+UBOOL URBMBehaviour_MoveTo::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -139,7 +139,7 @@ bool URBMBehaviour_MoveTo::vf_004()
 IMPLEMENT_CLASS_AT(URBMBehaviour_Controlled, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmAIClass.cpp", 46);
 
 // @baa 0x01603bf0
-bool URBMBehaviour_Controlled::vf_004()
+UBOOL URBMBehaviour_Controlled::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -148,7 +148,7 @@ bool URBMBehaviour_Controlled::vf_004()
 IMPLEMENT_CLASS_AT(URBMBehaviour_Sniper, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmAIClass.cpp", 49);
 
 // @baa 0x01603d40
-bool URBMBehaviour_Sniper::vf_004()
+UBOOL URBMBehaviour_Sniper::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -157,7 +157,7 @@ bool URBMBehaviour_Sniper::vf_004()
 IMPLEMENT_CLASS_AT(URBMSeqEvent_BMSpotted, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmAIClass.cpp", 51);
 
 // @baa 0x01603e90
-bool URBMSeqEvent_BMSpotted::vf_004()
+UBOOL URBMSeqEvent_BMSpotted::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -166,7 +166,7 @@ bool URBMSeqEvent_BMSpotted::vf_004()
 IMPLEMENT_CLASS_AT(URBMSeqEvent_ControllerActivated, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmAIClass.cpp", 53);
 
 // @baa 0x01603fe0
-bool URBMSeqEvent_ControllerActivated::vf_004()
+UBOOL URBMSeqEvent_ControllerActivated::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -240,7 +240,7 @@ int sub_01607060(void)
 IMPLEMENT_CLASS_AT(ARPawnBossVenomJokerBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmAIClass.cpp", 26);
 
 // @baa 0x016071a0
-bool ARPawnBossVenomJokerBase::vf_004()
+UBOOL ARPawnBossVenomJokerBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -249,7 +249,7 @@ bool ARPawnBossVenomJokerBase::vf_004()
 IMPLEMENT_CLASS_AT(URBMBehaviour_MoveToGroup, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmAIClass.cpp", 43);
 
 // @baa 0x016072f0
-bool URBMBehaviour_MoveToGroup::vf_004()
+UBOOL URBMBehaviour_MoveToGroup::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -258,7 +258,7 @@ bool URBMBehaviour_MoveToGroup::vf_004()
 IMPLEMENT_CLASS_AT(URBMBehaviour_Conversation, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmAIClass.cpp", 47);
 
 // @baa 0x01607440
-bool URBMBehaviour_Conversation::vf_004()
+UBOOL URBMBehaviour_Conversation::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -306,7 +306,7 @@ int sub_0160bd20(void)
 IMPLEMENT_CLASS_AT(URBMBehaviour_MoveToBatmanInChair, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmAIClass.cpp", 44);
 
 // @baa 0x0160cb90
-bool URBMBehaviour_MoveToBatmanInChair::vf_004()
+UBOOL URBMBehaviour_MoveToBatmanInChair::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -315,7 +315,7 @@ bool URBMBehaviour_MoveToBatmanInChair::vf_004()
 IMPLEMENT_CLASS_AT(URBMBehaviour_MoveToJokerInChair, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmAIClass.cpp", 45);
 
 // @baa 0x0160cce0
-bool URBMBehaviour_MoveToJokerInChair::vf_004()
+UBOOL URBMBehaviour_MoveToJokerInChair::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -324,7 +324,7 @@ bool URBMBehaviour_MoveToJokerInChair::vf_004()
 IMPLEMENT_CLASS_AT(URBMBehaviour_StartConversation, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmAIClass.cpp", 48);
 
 // @baa 0x0160ce30
-bool URBMBehaviour_StartConversation::vf_004()
+UBOOL URBMBehaviour_StartConversation::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -470,10 +470,10 @@ int sub_0160e860(void)
 }
 
 // @baa 0x0160f1e0
-int ARBMRouter_DynamicObject::vf_000(void) { return 1; }
+UBOOL ARBMRouter_DynamicObject::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0160f1f0
-bool ARBMRouter_DynamicObject::vf_004()
+UBOOL ARBMRouter_DynamicObject::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -485,7 +485,7 @@ UBOOL ARBMRouter_DynamicObject::UpdateRouterObject_Searching(FLOAT a0, INT& a1) 
 UBOOL ARBMRouter_DynamicObject::UpdateRouterObject_Routing(FLOAT DeltaTime) { return 1; }
 
 // @baa 0x0160f280
-int ARBMRouter_NoPawn::vf_000(void) { return 1; }
+UBOOL ARBMRouter_NoPawn::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0160f2b0
-int ARBMRouter::vf_000(void) { return 1; }
+UBOOL ARBMRouter::HasUniqueStaticConfigName() const { return 1; }

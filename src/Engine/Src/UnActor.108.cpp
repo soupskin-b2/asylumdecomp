@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x007579b0
-int ASkyLightToggleable::vf_000(void) { return 1; }
+UBOOL ASkyLightToggleable::HasUniqueStaticConfigName() const { return 1; }

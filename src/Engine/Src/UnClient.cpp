@@ -370,10 +370,10 @@ undefined4 C_00cc22f0::sub_00cc22f0(byte param_2)
 // @baa 0x00c96790
 
 // @baa 0x00c968a0
-int UClient::vf_000(void) { return 1; }
+UBOOL UClient::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c968b0
-bool UClient::vf_004()
+UBOOL UClient::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

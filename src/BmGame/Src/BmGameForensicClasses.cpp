@@ -43,24 +43,24 @@ IMPLEMENT_CLASS_AT(ARForensicDnaSplatStaticNonScan, "e:\\Projects\\Amadeus\\AA\\
 // @baa 0x0166bba0
 
 // @baa 0x0166bcb0
-int ARForensicDnaSplatStatic::vf_000(void) { return 1; }
+UBOOL ARForensicDnaSplatStatic::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0166bcc0
-bool ARForensicDnaSplatStatic::vf_004()
+UBOOL ARForensicDnaSplatStatic::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0166bd00
-int ARForensicDnaSplatStaticNonScan::vf_000(void) { return 1; }
+UBOOL ARForensicDnaSplatStaticNonScan::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0166bd10
 
 // @baa 0x0166be20
-int ARForensicDnaSplat::vf_000(void) { return 1; }
+UBOOL ARForensicDnaSplat::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0166be30
-bool ARForensicDnaSplat::vf_004()
+UBOOL ARForensicDnaSplat::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -68,24 +68,24 @@ bool ARForensicDnaSplat::vf_004()
 // @baa 0x0166be70
 
 // @baa 0x0166bf80
-int URActorFactoryForensicsDna::vf_000(void) { return 1; }
+UBOOL URActorFactoryForensicsDna::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0166bf90
-bool URActorFactoryForensicsDna::vf_004()
+UBOOL URActorFactoryForensicsDna::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0166bfd0
-int URActorFactoryForensicsDnaNonScan::vf_000(void) { return 1; }
+UBOOL URActorFactoryForensicsDnaNonScan::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0166bfe0
 
 // @baa 0x0166c0f0
-int URActorFactoryXrayMesh::vf_000(void) { return 1; }
+UBOOL URActorFactoryXrayMesh::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0166c100
-bool URActorFactoryXrayMesh::vf_004()
+UBOOL URActorFactoryXrayMesh::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -93,10 +93,10 @@ bool URActorFactoryXrayMesh::vf_004()
 // @baa 0x0166c140
 
 // @baa 0x0166c250
-int URActorFactoryXrayWire::vf_000(void) { return 1; }
+UBOOL URActorFactoryXrayWire::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0166c260
-bool URActorFactoryXrayWire::vf_004()
+UBOOL URActorFactoryXrayWire::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -104,10 +104,10 @@ bool URActorFactoryXrayWire::vf_004()
 // @baa 0x0166c2a0
 
 // @baa 0x0166c3b0
-int URActorFactoryXrayInterItem::vf_000(void) { return 1; }
+UBOOL URActorFactoryXrayInterItem::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0166c3c0
-bool URActorFactoryXrayInterItem::vf_004()
+UBOOL URActorFactoryXrayInterItem::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -115,10 +115,10 @@ bool URActorFactoryXrayInterItem::vf_004()
 // @baa 0x0166c400
 
 // @baa 0x0166c510
-int ARForensicsDevice::vf_000(void) { return 1; }
+UBOOL ARForensicsDevice::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0166c520
-bool ARForensicsDevice::vf_004()
+UBOOL ARForensicsDevice::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -185,7 +185,7 @@ undefined4 * UObject::sub_016754d0(void)
 // @baa 0x01680180
 
 // @baa 0x01680290
-bool URActorFactoryForensicsDnaNonScan::vf_004()
+UBOOL URActorFactoryForensicsDnaNonScan::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

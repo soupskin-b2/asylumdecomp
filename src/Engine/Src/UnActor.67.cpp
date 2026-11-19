@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00756f60
-int AController::vf_000(void) { return 1; }
+UBOOL AController::HasUniqueStaticConfigName() const { return 1; }

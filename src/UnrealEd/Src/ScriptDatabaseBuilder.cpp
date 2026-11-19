@@ -64,10 +64,10 @@ IMPLEMENT_CLASS_AT(UScriptDataBaseCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\
 // @baa 0x01478800
 
 // @baa 0x01478910
-int UScriptDataBaseCommandlet::vf_000(void) { return 1; }
+UBOOL UScriptDataBaseCommandlet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01478920
-bool UScriptDataBaseCommandlet::vf_004()
+UBOOL UScriptDataBaseCommandlet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

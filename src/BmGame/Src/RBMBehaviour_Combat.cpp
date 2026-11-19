@@ -104,7 +104,7 @@ undefined4 * UObject::sub_015fae50(void)
 // @baa 0x01607bb0
 
 // @baa 0x01607cc0
-bool URBMBehaviour_Combat::vf_004()
+UBOOL URBMBehaviour_Combat::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -112,7 +112,7 @@ bool URBMBehaviour_Combat::vf_004()
 // @baa 0x0160ce80
 
 // @baa 0x0160cf90
-bool URBMBehaviour_CombatAI::vf_004()
+UBOOL URBMBehaviour_CombatAI::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -120,7 +120,7 @@ bool URBMBehaviour_CombatAI::vf_004()
 // @baa 0x0160cfd0
 
 // @baa 0x0160d0e0
-bool URBMBehaviour_Venom::vf_004()
+UBOOL URBMBehaviour_Venom::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -128,7 +128,7 @@ bool URBMBehaviour_Venom::vf_004()
 // @baa 0x0160d6a0
 
 // @baa 0x0160d7b0
-bool URBMBehaviour_CombatHeavyObject::vf_004()
+UBOOL URBMBehaviour_CombatHeavyObject::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -136,7 +136,7 @@ bool URBMBehaviour_CombatHeavyObject::vf_004()
 // @baa 0x0160d7f0
 
 // @baa 0x0160d900
-bool URBMBehaviour_CombatRifle::vf_004()
+UBOOL URBMBehaviour_CombatRifle::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -144,7 +144,7 @@ bool URBMBehaviour_CombatRifle::vf_004()
 // @baa 0x0160d940
 
 // @baa 0x0160da50
-bool URBMBehaviour_CombatStunStick::vf_004()
+UBOOL URBMBehaviour_CombatStunStick::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

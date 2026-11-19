@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00f1b9b0
-int UMaterialFactoryNew::vf_000(void) { return 1; }
+UBOOL UMaterialFactoryNew::HasUniqueStaticConfigName() const { return 1; }

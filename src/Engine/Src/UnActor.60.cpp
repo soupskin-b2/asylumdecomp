@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00756d50
-int APickupFactory::vf_000(void) { return 1; }
+UBOOL APickupFactory::HasUniqueStaticConfigName() const { return 1; }

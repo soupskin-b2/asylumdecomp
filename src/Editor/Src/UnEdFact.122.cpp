@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00f1f6f0
-bool UCurveEdPresetCurveFactoryNew::vf_004()
+UBOOL UCurveEdPresetCurveFactoryNew::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

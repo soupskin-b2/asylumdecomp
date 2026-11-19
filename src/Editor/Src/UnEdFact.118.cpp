@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00f1f580
-int UColladaFactory::vf_000(void) { return 1; }
+UBOOL UColladaFactory::HasUniqueStaticConfigName() const { return 1; }

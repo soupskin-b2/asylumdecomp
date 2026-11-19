@@ -7,10 +7,10 @@
 IMPLEMENT_CLASS_AT(UTextureFlipBook, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\TextureFlipbook.cpp", 8);
 
 // @baa 0x007552f0
-int UTextureFlipBook::vf_000(void) { return 1; }
+UBOOL UTextureFlipBook::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00755300
-bool UTextureFlipBook::vf_004()
+UBOOL UTextureFlipBook::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

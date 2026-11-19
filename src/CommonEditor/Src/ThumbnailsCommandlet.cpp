@@ -20,10 +20,10 @@ void C::sub_0173a490(void)
 IMPLEMENT_CLASS_AT(UThumbnailsCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonEditor\\Src\\ThumbnailsCommandlet.cpp", 6);
 
 // @baa 0x0173ddb0
-int UThumbnailsCommandlet::vf_000(void) { return 1; }
+UBOOL UThumbnailsCommandlet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0173ddc0
-bool UThumbnailsCommandlet::vf_004()
+UBOOL UThumbnailsCommandlet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

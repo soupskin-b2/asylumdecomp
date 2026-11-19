@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00f1ccf0
-int UParticleSystemFactoryNew::vf_000(void) { return 1; }
+UBOOL UParticleSystemFactoryNew::HasUniqueStaticConfigName() const { return 1; }

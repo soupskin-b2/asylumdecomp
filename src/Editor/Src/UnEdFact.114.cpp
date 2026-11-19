@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00f1f3c0
-bool UReimportSkeletalMeshFactory::vf_004()
+UBOOL UReimportSkeletalMeshFactory::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

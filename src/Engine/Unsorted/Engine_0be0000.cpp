@@ -450,7 +450,7 @@ int sub_00bebad0(void)
 
 // @baa 0x00bebd90
 // @baa 0x00bebea0
-bool AFluidSurfaceActorMovable::vf_004()
+UBOOL AFluidSurfaceActorMovable::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -499,19 +499,19 @@ IMPLEMENT_CLASS_AT(UDwTriovizEffect, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEng
 // @baa 0x00bec970
 // @baa 0x00bec990
 // @baa 0x00becaa0
-int UDwTriovizEffect::vf_000(void) { return 1; }
+UBOOL UDwTriovizEffect::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00becab0
-bool UDwTriovizEffect::vf_004()
+UBOOL UDwTriovizEffect::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00becc00
-int UFaceFXAnimSet::vf_000(void) { return 1; }
+UBOOL UFaceFXAnimSet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00becc10
-bool UFaceFXAnimSet::vf_004()
+UBOOL UFaceFXAnimSet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -530,7 +530,7 @@ int C_00becdc0::sub_00becdc0(void) { return *(int*)((char*)this + 52); }
 void sub_00becf70(void) {  }
 
 // @baa 0x00bee520
-int URFMODSound::vf_0d4(void)
+INT URFMODSound::GetResourceSize()
 {
     int param_1 = (int)this;
 

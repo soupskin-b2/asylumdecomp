@@ -60,10 +60,10 @@ void UInterpEdTransBuffer::vf_140(void)
 IMPLEMENT_CLASS_AT(UInterpEdTransBuffer, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\InterpEditor.cpp", 88);
 
 // @baa 0x012c2970
-int UInterpEdTransBuffer::vf_000(void) { return 1; }
+UBOOL UInterpEdTransBuffer::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x012c2980
-bool UInterpEdTransBuffer::vf_004()
+UBOOL UInterpEdTransBuffer::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -397,7 +397,7 @@ void sub_012db930(undefined4 param_1, undefined4 param_2, undefined4 param_3, un
 // @baa 0x012c26f0
 
 // @baa 0x012c2820
-bool UInterpEdOptions::vf_004()
+UBOOL UInterpEdOptions::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

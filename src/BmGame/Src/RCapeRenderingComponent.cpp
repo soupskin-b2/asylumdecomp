@@ -11,7 +11,7 @@ IMPLEMENT_CLASS_AT(URCapeRenderingComponent, "e:\\Projects\\Amadeus\\AA\\Game\\U
 const TCHAR* sub_016cdb40();
 const TCHAR* sub_0053f6c0();
 // @baa 0x016cdf20
-INT URCapeRenderingComponent::vf_000()
+UBOOL URCapeRenderingComponent::HasUniqueStaticConfigName() const
 {
     return sub_016cdb40 == sub_0053f6c0;
 }

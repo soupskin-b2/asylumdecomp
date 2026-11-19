@@ -458,46 +458,46 @@ IMPLEMENT_CLASS_AT(UInterpTrackVisibilityHelper, "e:\\Projects\\Amadeus\\AA\\Gam
 // @baa 0x012dffa0
 // @baa 0x012e1a20
 // @baa 0x012e1b30
-int UInterpTrackHelper::vf_000(void) { return 1; }
+UBOOL UInterpTrackHelper::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x012e1b40
-bool UInterpTrackHelper::vf_004()
+UBOOL UInterpTrackHelper::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x012e1bf0
-int UInterpTrackAnimControlHelper::vf_000(void) { return 1; }
+UBOOL UInterpTrackAnimControlHelper::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x012e1c00
-int UInterpTrackDirectorHelper::vf_000(void) { return 1; }
+UBOOL UInterpTrackDirectorHelper::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x012e1c10
-int UInterpTrackEventHelper::vf_000(void) { return 1; }
+UBOOL UInterpTrackEventHelper::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x012e1c20
-int UInterpTrackSoundHelper::vf_000(void) { return 1; }
+UBOOL UInterpTrackSoundHelper::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x012e1c30
-int UInterpTrackFloatPropHelper::vf_000(void) { return 1; }
+UBOOL UInterpTrackFloatPropHelper::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x012e1c40
-int UInterpTrackToggleHelper::vf_000(void) { return 1; }
+UBOOL UInterpTrackToggleHelper::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x012e1c50
-int UInterpTrackVectorPropHelper::vf_000(void) { return 1; }
+UBOOL UInterpTrackVectorPropHelper::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x012e1c60
-int UInterpTrackColorPropHelper::vf_000(void) { return 1; }
+UBOOL UInterpTrackColorPropHelper::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x012e1c70
-int UInterpTrackFaceFXHelper::vf_000(void) { return 1; }
+UBOOL UInterpTrackFaceFXHelper::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x012e1c80
-int UInterpTrackVisibilityHelper::vf_000(void) { return 1; }
+UBOOL UInterpTrackVisibilityHelper::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x012e1c90
-int UInterpTrackParticleReplayHelper::vf_000(void) { return 1; }
+UBOOL UInterpTrackParticleReplayHelper::HasUniqueStaticConfigName() const { return 1; }
 
 struct C_012e1ca0 { int a, b, c; C_012e1ca0(); };
 
@@ -748,56 +748,56 @@ Next:;
 // @baa 0x012e5280
 // @baa 0x012f0990
 // @baa 0x012f0aa0
-bool UInterpTrackEventHelper::vf_004()
+UBOOL UInterpTrackEventHelper::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x012f0ae0
 // @baa 0x012f0bf0
-bool UInterpTrackSoundHelper::vf_004()
+UBOOL UInterpTrackSoundHelper::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x012f0c30
 // @baa 0x012f0d40
-bool UInterpTrackFloatPropHelper::vf_004()
+UBOOL UInterpTrackFloatPropHelper::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x012f0d80
 // @baa 0x012f0e90
-bool UInterpTrackToggleHelper::vf_004()
+UBOOL UInterpTrackToggleHelper::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x012f0ed0
 // @baa 0x012f0fe0
-bool UInterpTrackVectorPropHelper::vf_004()
+UBOOL UInterpTrackVectorPropHelper::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x012f1020
 // @baa 0x012f1130
-bool UInterpTrackFaceFXHelper::vf_004()
+UBOOL UInterpTrackFaceFXHelper::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x012f1170
 // @baa 0x012f1280
-bool UInterpTrackVisibilityHelper::vf_004()
+UBOOL UInterpTrackVisibilityHelper::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x012f12c0
 // @baa 0x012f13d0
-bool UInterpTrackParticleReplayHelper::vf_004()
+UBOOL UInterpTrackParticleReplayHelper::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -847,7 +847,7 @@ void C_013006d0::sub_013006d0()
 
 // @baa 0x01300ce0
 // @baa 0x01300df0
-bool UInterpTrackColorPropHelper::vf_004()
+UBOOL UInterpTrackColorPropHelper::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -858,7 +858,7 @@ int UInterpTrackParticleReplayHelper::vf_118(int a0, int a1) { return 1; }
 // @baa 0x012f0540
 
 // @baa 0x012f0650
-bool UInterpTrackAnimControlHelper::vf_004()
+UBOOL UInterpTrackAnimControlHelper::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -866,7 +866,7 @@ bool UInterpTrackAnimControlHelper::vf_004()
 // @baa 0x012f0690
 
 // @baa 0x012f07a0
-bool UInterpTrackDirectorHelper::vf_004()
+UBOOL UInterpTrackDirectorHelper::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

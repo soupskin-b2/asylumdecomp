@@ -7,8 +7,8 @@
 
 // @baa 0x00572a50
 /* Slot 0x2c (unnamed in the kit; UE3's FinishDestroy): frees the bytecode. Native_48 is UStruct::Script. */
-void UStruct::vf_02c()
+void UStruct::FinishDestroy()
 {
 	Script.Empty();
-	Super::vf_02c();
+	Super::FinishDestroy();
 }

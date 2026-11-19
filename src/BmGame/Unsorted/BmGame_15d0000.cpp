@@ -635,10 +635,10 @@ int sub_015da970(int a0, int a1) { return a1; }
 IMPLEMENT_CLASS_AT(ARBMAIController, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmAIClass.cpp", 18);
 
 // @baa 0x015daa90
-int ARBMAIController::vf_000(void) { return 1; }
+UBOOL ARBMAIController::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015daaa0
-bool ARBMAIController::vf_004()
+UBOOL ARBMAIController::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -647,58 +647,58 @@ bool ARBMAIController::vf_004()
 IMPLEMENT_CLASS_AT(ARBMAIManager, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmAIClass.cpp", 19);
 
 // @baa 0x015dac10
-bool ARBMAIManager::vf_004()
+UBOOL ARBMAIManager::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x015dac50
-int ARBMPawnAI::vf_000(void) { return 1; }
+UBOOL ARBMPawnAI::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015dac60
 IMPLEMENT_CLASS_AT(ARBMPawnAIAnim, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmAIClass.cpp", 21);
 
 // @baa 0x015dad70
-int ARBMPawnAIAnim::vf_000(void) { return 1; }
+UBOOL ARBMPawnAIAnim::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015dad80
-bool ARBMPawnAIAnim::vf_004()
+UBOOL ARBMPawnAIAnim::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x015dadc0
-int ARPawnFriendly::vf_000(void) { return 1; }
+UBOOL ARPawnFriendly::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015dadd0
 IMPLEMENT_CLASS_AT(ARChatteringTeeth, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmAIClass.cpp", 23);
 
 // @baa 0x015daee0
-int ARChatteringTeeth::vf_000(void) { return 1; }
+UBOOL ARChatteringTeeth::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015daef0
-bool ARChatteringTeeth::vf_004()
+UBOOL ARChatteringTeeth::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x015daf30
-int ARPawnVillain::vf_000(void) { return 1; }
+UBOOL ARPawnVillain::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015daf40
-int ARPawnBossVenomBase::vf_000(void) { return 1; }
+UBOOL ARPawnBossVenomBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015daf50
-int ARPawnBossVenomJokerBase::vf_000(void) { return 1; }
+UBOOL ARPawnBossVenomJokerBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015daf60
 IMPLEMENT_CLASS_AT(ARShockNoise_AlertProxy, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmAIClass.cpp", 27);
 
 // @baa 0x015db070
-int ARShockNoise_AlertProxy::vf_000(void) { return 1; }
+UBOOL ARShockNoise_AlertProxy::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015db080
-bool ARShockNoise_AlertProxy::vf_004()
+UBOOL ARShockNoise_AlertProxy::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -707,38 +707,38 @@ bool ARShockNoise_AlertProxy::vf_004()
 IMPLEMENT_CLASS_AT(ARAlertEventCoordinator, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmAIClass.cpp", 29);
 
 // @baa 0x015db1d0
-int ARAlertEventCoordinator::vf_000(void) { return 1; }
+UBOOL ARAlertEventCoordinator::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015db1e0
-bool ARAlertEventCoordinator::vf_004()
+UBOOL ARAlertEventCoordinator::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x015db220
-int ARAlertEventCoordinator_General::vf_000(void) { return 1; }
+UBOOL ARAlertEventCoordinator_General::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015db230
-int ARAlertEventCoordinator_Batman::vf_000(void) { return 1; }
+UBOOL ARAlertEventCoordinator_Batman::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015db240
 IMPLEMENT_CLASS_AT(URSpotableInterface, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmAIClass.cpp", 33);
 
 // @baa 0x015db350
-int URSpotableInterface::vf_000(void) { return 1; }
+UBOOL URSpotableInterface::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015db360
-bool URSpotableInterface::vf_004()
+UBOOL URSpotableInterface::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x015db3a0
 // @baa 0x015db4b0
-int UAlertInstance::vf_000(void) { return 1; }
+UBOOL UAlertInstance::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015db4c0
-bool UAlertInstance::vf_004()
+UBOOL UAlertInstance::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -747,88 +747,88 @@ bool UAlertInstance::vf_004()
 IMPLEMENT_CLASS_AT(ARBMDialogueCoordinator, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmAIClass.cpp", 36);
 
 // @baa 0x015db610
-int ARBMDialogueCoordinator::vf_000(void) { return 1; }
+UBOOL ARBMDialogueCoordinator::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015db620
-bool ARBMDialogueCoordinator::vf_004()
+UBOOL ARBMDialogueCoordinator::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x015db660
-int URBMBehaviour_AttachToEvents::vf_000(void) { return 1; }
+UBOOL URBMBehaviour_AttachToEvents::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015db670
-int URBMBehaviourAutoStringUp::vf_000(void) { return 1; }
+UBOOL URBMBehaviourAutoStringUp::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015db680
-int URBMBehaviour_IdleWithPlannarProp::vf_000(void) { return 1; }
+UBOOL URBMBehaviour_IdleWithPlannarProp::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015db690
-int URBMBehaviour_MiniCutscene::vf_000(void) { return 1; }
+UBOOL URBMBehaviour_MiniCutscene::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015db6a0
-int URBMBehaviour_MoveTo::vf_000(void) { return 1; }
+UBOOL URBMBehaviour_MoveTo::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015db6b0
-int URBMBehaviour_MoveToGroup::vf_000(void) { return 1; }
+UBOOL URBMBehaviour_MoveToGroup::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015db6c0
-int URBMBehaviour_MoveToBatmanInChair::vf_000(void) { return 1; }
+UBOOL URBMBehaviour_MoveToBatmanInChair::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015db6d0
-int URBMBehaviour_MoveToJokerInChair::vf_000(void) { return 1; }
+UBOOL URBMBehaviour_MoveToJokerInChair::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015db6e0
-int URBMBehaviour_Controlled::vf_000(void) { return 1; }
+UBOOL URBMBehaviour_Controlled::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015db6f0
-int URBMBehaviour_Conversation::vf_000(void) { return 1; }
+UBOOL URBMBehaviour_Conversation::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015db700
-int URBMBehaviour_StartConversation::vf_000(void) { return 1; }
+UBOOL URBMBehaviour_StartConversation::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015db710
-int URBMBehaviour_Sniper::vf_000(void) { return 1; }
+UBOOL URBMBehaviour_Sniper::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015db720
 IMPLEMENT_CLASS_AT(URBMRadioManager, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmAIClass.cpp", 50);
 
 // @baa 0x015db830
-int URBMRadioManager::vf_000(void) { return 1; }
+UBOOL URBMRadioManager::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015db840
-bool URBMRadioManager::vf_004()
+UBOOL URBMRadioManager::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x015db880
-int URBMSeqEvent_BMSpotted::vf_000(void) { return 1; }
+UBOOL URBMSeqEvent_BMSpotted::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015db890
 IMPLEMENT_CLASS_AT(URBMSeqEvent_BehaviourRoot, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmAIClass.cpp", 52);
 
 // @baa 0x015db9a0
-int URBMSeqEvent_BehaviourRoot::vf_000(void) { return 1; }
+UBOOL URBMSeqEvent_BehaviourRoot::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015db9b0
-bool URBMSeqEvent_BehaviourRoot::vf_004()
+UBOOL URBMSeqEvent_BehaviourRoot::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x015db9f0
-int URBMSeqEvent_ControllerActivated::vf_000(void) { return 1; }
+UBOOL URBMSeqEvent_ControllerActivated::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015dba00
 IMPLEMENT_CLASS_AT(URBMSpeechManager, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmAIClass.cpp", 54);
 
 // @baa 0x015dbb10
-int URBMSpeechManager::vf_000(void) { return 1; }
+UBOOL URBMSpeechManager::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015dbb20
-bool URBMSpeechManager::vf_004()
+UBOOL URBMSpeechManager::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -837,10 +837,10 @@ bool URBMSpeechManager::vf_004()
 IMPLEMENT_CLASS_AT(URBMRoomAIState, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmAIClass.cpp", 56);
 
 // @baa 0x015dbc70
-int URBMRoomAIState::vf_000(void) { return 1; }
+UBOOL URBMRoomAIState::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015dbc80
-bool URBMRoomAIState::vf_004()
+UBOOL URBMRoomAIState::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -849,10 +849,10 @@ bool URBMRoomAIState::vf_004()
 IMPLEMENT_CLASS_AT(URCharacterRandom, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmAIClass.cpp", 58);
 
 // @baa 0x015dbdd0
-int URCharacterRandom::vf_000(void) { return 1; }
+UBOOL URCharacterRandom::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015dbde0
-bool URCharacterRandom::vf_004()
+UBOOL URCharacterRandom::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -875,28 +875,28 @@ UBOOL ARPawnVillain::IsIncapacitated()
 }
 
 // @baa 0x015dd1c0
-bool ARBMCombatManager::vf_004()
+UBOOL ARBMCombatManager::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x015dd200
-int URBMBehaviour_Combat::vf_000(void) { return 1; }
+UBOOL URBMBehaviour_Combat::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015dd210
-int URBMBehaviour_CombatAI::vf_000(void) { return 1; }
+UBOOL URBMBehaviour_CombatAI::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015dd220
-int URBMBehaviour_CombatHeavyObject::vf_000(void) { return 1; }
+UBOOL URBMBehaviour_CombatHeavyObject::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015dd230
-int URBMBehaviour_CombatRifle::vf_000(void) { return 1; }
+UBOOL URBMBehaviour_CombatRifle::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015dd240
-int URBMBehaviour_CombatStunStick::vf_000(void) { return 1; }
+UBOOL URBMBehaviour_CombatStunStick::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015dd250
-int URBMBehaviour_Venom::vf_000(void) { return 1; }
+UBOOL URBMBehaviour_Venom::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015dd340
 INT ARBMCombatManager::GetNumCombatants() { return *(int*)((char*)this + 772); }
@@ -913,25 +913,25 @@ UBOOL ARBMCombatManager::IsDeepInCombat()
 
 // @baa 0x015de8b0
 // @baa 0x015de9c0
-int URBMBehaviourOverlay::vf_000(void) { return 1; }
+UBOOL URBMBehaviourOverlay::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015de9d0
-bool URBMBehaviourOverlay::vf_004()
+UBOOL URBMBehaviourOverlay::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x015ded70
-int URBMExitCondition::vf_000(void) { return 1; }
+UBOOL URBMExitCondition::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015ded80
-bool URBMExitCondition::vf_004()
+UBOOL URBMExitCondition::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x015dedc0
-int URBMExitConditionCombiner::vf_000(void) { return 1; }
+UBOOL URBMExitConditionCombiner::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015dedd0
 UBOOL URBMExitCondition::ShouldShowExitConditionDebug()

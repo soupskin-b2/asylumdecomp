@@ -1326,10 +1326,10 @@ undefined4 * C_01409250::sub_01409250(byte param_2)
 IMPLEMENT_CLASS_AT(UObjectEditorViewportInput, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\UnObjectEditor.cpp", 11);
 
 // @baa 0x014095d0
-int UObjectEditorViewportInput::vf_000(void) { return 1; }
+UBOOL UObjectEditorViewportInput::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x014095e0
-bool UObjectEditorViewportInput::vf_004()
+UBOOL UObjectEditorViewportInput::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1373,10 +1373,10 @@ undefined4 C_01409f30::sub_01409f30(byte param_2)
 IMPLEMENT_CLASS_AT(UFaceFXStudioSkelComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\FaceFXStudioSkeletalComponent.cpp", 67);
 
 // @baa 0x0140a1e0
-int UFaceFXStudioSkelComponent::vf_000(void) { return 1; }
+UBOOL UFaceFXStudioSkelComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0140a1f0
-bool UFaceFXStudioSkelComponent::vf_004()
+UBOOL UFaceFXStudioSkelComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1397,10 +1397,10 @@ undefined4 C_0140a410::sub_0140a410(void)
 IMPLEMENT_CLASS_AT(UMaterialEditorMeshComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\MaterialEditorPreviewScene.cpp", 198);
 
 // @baa 0x0140a8d0
-int UMaterialEditorMeshComponent::vf_000(void) { return 1; }
+UBOOL UMaterialEditorMeshComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0140a8e0
-bool UMaterialEditorMeshComponent::vf_004()
+UBOOL UMaterialEditorMeshComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1409,10 +1409,10 @@ bool UMaterialEditorMeshComponent::vf_004()
 IMPLEMENT_CLASS_AT(UMaterialEditorSkeletalMeshComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\MaterialEditorPreviewScene.cpp", 232);
 
 // @baa 0x0140aa30
-int UMaterialEditorSkeletalMeshComponent::vf_000(void) { return 1; }
+UBOOL UMaterialEditorSkeletalMeshComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0140aa40
-bool UMaterialEditorSkeletalMeshComponent::vf_004()
+UBOOL UMaterialEditorSkeletalMeshComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1421,10 +1421,10 @@ bool UMaterialEditorSkeletalMeshComponent::vf_004()
 IMPLEMENT_CLASS_AT(UMaterialEditorInstanceConstant, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\MaterialInstanceConstantEditor.cpp", 22);
 
 // @baa 0x0140ac80
-int UMaterialEditorInstanceConstant::vf_000(void) { return 1; }
+UBOOL UMaterialEditorInstanceConstant::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0140ac90
-bool UMaterialEditorInstanceConstant::vf_004()
+UBOOL UMaterialEditorInstanceConstant::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00784e60
-bool ADynamicBlockingVolume::vf_004()
+UBOOL ADynamicBlockingVolume::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -46,7 +46,7 @@ UBOOL AActor::IsPendingKill()
 INT sub_00754150();
 INT sub_0053f6c0();
 // @baa 0x00756930
-INT AGameInfo::vf_000()
+UBOOL AGameInfo::HasUniqueStaticConfigName() const
 {
     return sub_00754150 == sub_0053f6c0;
 }

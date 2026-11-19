@@ -312,10 +312,10 @@ void UObjectThunk_009b04c0::sub_009b04c0()
 IMPLEMENT_CLASS_AT(UWorld, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnWorld.cpp", 27);
 
 // @baa 0x009b0600
-int UWorld::vf_000(void) { return 1; }
+UBOOL UWorld::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x009b0610
-bool UWorld::vf_004()
+UBOOL UWorld::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -387,22 +387,22 @@ void __stdcall UpdateMusicTrack(int a0, int a1, int a2, int a3, int a4, int a5) 
 IMPLEMENT_CLASS_AT(ULevelStreaming, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnWorld.cpp", 5468);
 
 // @baa 0x009b0ca0
-int ULevelStreaming::vf_000(void) { return 1; }
+UBOOL ULevelStreaming::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x009b0cb0
-bool ULevelStreaming::vf_004()
+UBOOL ULevelStreaming::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x009b0cf0
-int ULevelStreamingKismet::vf_000(void) { return 1; }
+UBOOL ULevelStreamingKismet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x009b0d00
-int ULevelStreamingDistance::vf_000(void) { return 1; }
+UBOOL ULevelStreamingDistance::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x009b0d10
-int ULevelStreamingPersistent::vf_000(void) { return 1; }
+UBOOL ULevelStreamingPersistent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x009b0d20
 UBOOL ULevelStreaming::ShouldBeLoaded(const FVector& a0) { return 1; }
@@ -4026,21 +4026,21 @@ void sub_009c4100(void) { sub_009c2fc0(); }
 
 // @baa 0x009c5ad0
 // @baa 0x009c5be0
-bool ULevelStreamingKismet::vf_004()
+UBOOL ULevelStreamingKismet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x009c5c20
 // @baa 0x009c5d30
-bool ULevelStreamingDistance::vf_004()
+UBOOL ULevelStreamingDistance::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x009c5d70
 // @baa 0x009c5e80
-bool ULevelStreamingPersistent::vf_004()
+UBOOL ULevelStreamingPersistent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

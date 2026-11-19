@@ -4,10 +4,10 @@
 #include "ue3/Implement.h"
 
 // @baa 0x007a21d0
-int UDistributionFloatConstant::vf_000(void) { return 1; }
+UBOOL UDistributionFloatConstant::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x007a21e0
-bool UDistributionFloatConstant::vf_004()
+UBOOL UDistributionFloatConstant::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -16,10 +16,10 @@ bool UDistributionFloatConstant::vf_004()
 IMPLEMENT_CLASS_AT(UDistributionFloatConstantCurve, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnDistributions.cpp", 9);
 
 // @baa 0x007a2330
-int UDistributionFloatConstantCurve::vf_000(void) { return 1; }
+UBOOL UDistributionFloatConstantCurve::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x007a2340
-bool UDistributionFloatConstantCurve::vf_004()
+UBOOL UDistributionFloatConstantCurve::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -28,10 +28,10 @@ bool UDistributionFloatConstantCurve::vf_004()
 IMPLEMENT_CLASS_AT(UDistributionFloatUniform, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnDistributions.cpp", 10);
 
 // @baa 0x007a2490
-int UDistributionFloatUniform::vf_000(void) { return 1; }
+UBOOL UDistributionFloatUniform::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x007a24a0
-bool UDistributionFloatUniform::vf_004()
+UBOOL UDistributionFloatUniform::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

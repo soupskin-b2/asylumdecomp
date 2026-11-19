@@ -7,7 +7,7 @@
 IMPLEMENT_CLASS_AT(ARCrowdAttractor_Cylinder, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RCrowd.cpp", 16);
 
 // @baa 0x016e57e0
-bool ARCrowdAttractor_Cylinder::vf_004()
+UBOOL ARCrowdAttractor_Cylinder::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

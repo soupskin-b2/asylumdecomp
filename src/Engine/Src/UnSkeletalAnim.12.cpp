@@ -197,7 +197,7 @@ int sub_00916350(void)
 IMPLEMENT_CLASS_AT(UAnimNotify_Footstep, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSkeletalAnim.cpp", 2346);
 
 // @baa 0x00918ee0
-bool UAnimNotify_Footstep::vf_004()
+UBOOL UAnimNotify_Footstep::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -206,7 +206,7 @@ bool UAnimNotify_Footstep::vf_004()
 IMPLEMENT_CLASS_AT(UAnimNotify_CameraEffect, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSkeletalAnim.cpp", 2372);
 
 // @baa 0x00919030
-bool UAnimNotify_CameraEffect::vf_004()
+UBOOL UAnimNotify_CameraEffect::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -215,7 +215,7 @@ bool UAnimNotify_CameraEffect::vf_004()
 IMPLEMENT_CLASS_AT(UAnimNotify_PlayParticleEffect, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSkeletalAnim.cpp", 2408);
 
 // @baa 0x00919180
-bool UAnimNotify_PlayParticleEffect::vf_004()
+UBOOL UAnimNotify_PlayParticleEffect::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -224,7 +224,7 @@ bool UAnimNotify_PlayParticleEffect::vf_004()
 IMPLEMENT_CLASS_AT(UAnimNotify_Rumble, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSkeletalAnim.cpp", 2434);
 
 // @baa 0x009192d0
-bool UAnimNotify_Rumble::vf_004()
+UBOOL UAnimNotify_Rumble::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -233,7 +233,7 @@ bool UAnimNotify_Rumble::vf_004()
 IMPLEMENT_CLASS_AT(UAnimNotify_ForceField, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSkeletalAnim.cpp", 2438);
 
 // @baa 0x00919420
-bool UAnimNotify_ForceField::vf_004()
+UBOOL UAnimNotify_ForceField::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

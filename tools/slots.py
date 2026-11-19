@@ -237,8 +237,12 @@ def rewrite_definitions(changes, files=None):
         for old, lst in by_old.items():
             if old not in t:
                 continue
+            # the classes this file qualifies the old name with (one scan, not one regex per class)
+            quals = set(re.findall(r"\b(\w+)\s*::\s*%s\b" % re.escape(old), t))
             for k, (ret, name, params, tail) in lst:
-                rx = re.compile(r"(?m)^(?P<lead>[ \t]*)(?P<ret>(?:[\w:]+[\s\*&]+)*?)%s::%s\s*\((?P<params>[^()]*(?:\([^()]*\)[^()]*)*)\)(?P<tail>[ \t]*const\b)?"
+                if k not in quals:
+                    continue
+                rx = re.compile(r"(?m)^(?P<lead>[ \t]*)(?P<ret>(?:(?!return\b|else\b|case\b|delete\b|throw\b)[\w:]+[\s\*&]+)*?)%s::%s\s*\((?P<params>[^()]*(?:\([^()]*\)[^()]*)*)\)(?P<tail>[ \t]*const\b)?"
                                 % (re.escape(k), re.escape(old)))
 
                 def sub(m):
@@ -313,8 +317,12 @@ def unshadow(changes, files):
     touched = set()
     for f in files:
         t0 = t = f.read_text(encoding="utf-8")
-        for k, ns in names.items():
-            for n in ns:
+        # only the classes this file has helper structs for
+        here = {m.group(2) for m in re.finditer(r"struct (\w+?)_+ : public (\w+)", t) if m.group(1) == m.group(2)}
+        for k in here & set(names):
+            for n in names[k]:
+                if not re.search(r"\b%s\s*\(" % re.escape(n), t):
+                    continue
                 pat = re.compile(r"(?P<cmt>[ \t]*/\*[^\n]*\*/\n)?struct (?P<sh>%s_+) : public %s\s*\{(?P<body>[^{}]*)\};\n" % (re.escape(k), re.escape(k)))
                 for m in list(pat.finditer(t)):
                     body = m.group("body")
@@ -520,7 +528,9 @@ def main(argv):
                 print("not rewriting src: fix the headers (or git checkout include) and run it again")
                 return 1
             olds = {o for _, o, _ in allchanges}
-            touched = rewrite_definitions(allchanges, [f for f in SRC.rglob("*.cpp") if any(o in f.read_text(encoding="utf-8") for o in olds)])
+            print("rewriting definitions...", flush=True)
+            olds_rx = re.compile(r"\b(?:%s)\b" % "|".join(sorted(map(re.escape, olds))))
+            touched = rewrite_definitions(allchanges, [f for f in SRC.rglob("*.cpp") if olds_rx.search(f.read_text(encoding="utf-8"))])
             # files that already use a new name on a class of the slot's tree: a plain declaration that became
             # virtual changes their mangled names (QAE -> UAE), and local shadow structs may now clash
             news = {}
@@ -536,6 +546,7 @@ def main(argv):
                 toks = {re.sub(r"(?:__[0-9a-f]{8}|_+)$", "", w) for w in set(re.findall(r"\b[AUF][A-Z]\w*", t))}
                 if any(news[n] & toks for n in hit):
                     also.add(f)
+            print("%d more files use the new names; dropping redundant helper-struct declarations..." % len(also), flush=True)
             touched |= unshadow(allchanges, also)
             files = sorted(set(files_using(classes, renames)) | touched | also)
             print("%d source files with definitions rewritten; compiling %d that use the old or new names" % (len(touched), len(files)))

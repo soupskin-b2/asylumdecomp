@@ -924,7 +924,7 @@ int sub_00ca7de0(void)
 }
 
 // @baa 0x00cafde0
-bool UEngine::vf_004()
+UBOOL UEngine::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

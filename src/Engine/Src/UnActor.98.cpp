@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00757760
-bool UClipPadEntry::vf_004()
+UBOOL UClipPadEntry::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

@@ -754,10 +754,10 @@ C_011f40c0::C_011f40c0() {}
 void C_011f40c0::sub_011f7760() {}
 
 // @baa 0x011f5600
-int UPropertyWindowManager::vf_000(void) { return 1; }
+UBOOL UPropertyWindowManager::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x011f5610
-bool UPropertyWindowManager::vf_004()
+UBOOL UPropertyWindowManager::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

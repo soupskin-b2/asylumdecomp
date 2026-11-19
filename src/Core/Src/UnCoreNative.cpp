@@ -98,10 +98,10 @@ int sub_0058f3b0(void)
 IMPLEMENT_CLASS_AT(UTextBufferFactory, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Core\\Src\\UnCoreNative.cpp", 97);
 
 // @baa 0x0059c2b0
-int UTextBufferFactory::vf_000(void) { return 1; }
+UBOOL UTextBufferFactory::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0059c2c0
-bool UTextBufferFactory::vf_004()
+UBOOL UTextBufferFactory::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -110,10 +110,10 @@ bool UTextBufferFactory::vf_004()
 IMPLEMENT_CLASS_AT(UTextBuffer, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Core\\Src\\UnCoreNative.cpp", 116);
 
 // @baa 0x0059c450
-int UTextBuffer::vf_000(void) { return 1; }
+UBOOL UTextBuffer::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0059c460
-bool UTextBuffer::vf_004()
+UBOOL UTextBuffer::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -122,10 +122,10 @@ bool UTextBuffer::vf_004()
 IMPLEMENT_CLASS_AT(UMetaData, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Core\\Src\\UnCoreNative.cpp", 460);
 
 // @baa 0x0059c5b0
-int UMetaData::vf_000(void) { return 1; }
+UBOOL UMetaData::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0059c5c0
-bool UMetaData::vf_004()
+UBOOL UMetaData::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -134,10 +134,10 @@ bool UMetaData::vf_004()
 IMPLEMENT_CLASS_AT(UEnum, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Core\\Src\\UnCoreNative.cpp", 664);
 
 // @baa 0x0059c710
-int UEnum::vf_000(void) { return 1; }
+UBOOL UEnum::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0059c720
-bool UEnum::vf_004()
+UBOOL UEnum::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -146,10 +146,10 @@ bool UEnum::vf_004()
 IMPLEMENT_CLASS_AT(UCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Core\\Src\\UnCoreNative.cpp", 674);
 
 // @baa 0x0059c870
-int UCommandlet::vf_000(void) { return 1; }
+UBOOL UCommandlet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0059c880
-bool UCommandlet::vf_004()
+UBOOL UCommandlet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -172,10 +172,10 @@ int A::sub_0059c8c0()
 
 // @baa 0x0059cb80
 // @baa 0x0059cc90
-int UComponent::vf_000(void) { return 1; }
+UBOOL UComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0059cca0
-bool UComponent::vf_004()
+UBOOL UComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -184,10 +184,10 @@ bool UComponent::vf_004()
 IMPLEMENT_CLASS_AT(USubsystem, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Core\\Src\\UnCoreNative.cpp", 1858);
 
 // @baa 0x0059cdf0
-int USubsystem::vf_000(void) { return 1; }
+UBOOL USubsystem::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0059ce00
-bool USubsystem::vf_004()
+UBOOL USubsystem::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -196,10 +196,10 @@ bool USubsystem::vf_004()
 IMPLEMENT_CLASS_AT(UInterface, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Core\\Src\\UnCoreNative.cpp", 1859);
 
 // @baa 0x0059cf50
-int UInterface::vf_000(void) { return 1; }
+UBOOL UInterface::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0059cf60
-bool UInterface::vf_004()
+UBOOL UInterface::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -754,10 +754,10 @@ undefined4 * UObject::sub_0058f420(void)
 // @baa 0x0059c990
 
 // @baa 0x0059caa0
-int UPackage::vf_000(void) { return 1; }
+UBOOL UPackage::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0059cab0
-bool UPackage::vf_004()
+UBOOL UPackage::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

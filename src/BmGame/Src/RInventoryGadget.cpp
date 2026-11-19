@@ -7,10 +7,10 @@
 IMPLEMENT_CLASS_AT(ARInventoryGadget, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RInventoryGadget.cpp", 23);
 
 // @baa 0x0163ad40
-int ARInventoryGadget::vf_000(void) { return 1; }
+UBOOL ARInventoryGadget::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0163ad50
-bool ARInventoryGadget::vf_004()
+UBOOL ARInventoryGadget::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -19,31 +19,31 @@ bool ARInventoryGadget::vf_004()
 IMPLEMENT_CLASS_AT(ARProjectile, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RInventoryGadget.cpp", 24);
 
 // @baa 0x0163aea0
-int ARProjectile::vf_000(void) { return 1; }
+UBOOL ARProjectile::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0163aeb0
-bool ARProjectile::vf_004()
+UBOOL ARProjectile::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0163aef0
-int ARGooSpray::vf_000(void) { return 1; }
+UBOOL ARGooSpray::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0163af00
 IMPLEMENT_CLASS_AT(ARExplosiveGooMine, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RInventoryGadget.cpp", 26);
 
 // @baa 0x0163b010
-int ARExplosiveGooMine::vf_000(void) { return 1; }
+UBOOL ARExplosiveGooMine::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0163b020
-bool ARExplosiveGooMine::vf_004()
+UBOOL ARExplosiveGooMine::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0163b060
-int ARResonatorTuner::vf_000(void) { return 1; }
+UBOOL ARResonatorTuner::HasUniqueStaticConfigName() const { return 1; }
 
 struct C { C* sub_0163b070(void); };
 
@@ -112,10 +112,10 @@ IMPLEMENT_CLASS_AT(ARInventoryManager, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealE
 // @baa 0x0163aad0
 
 // @baa 0x0163abe0
-int ARInventoryManager::vf_000(void) { return 1; }
+UBOOL ARInventoryManager::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0163abf0
-bool ARInventoryManager::vf_004()
+UBOOL ARInventoryManager::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

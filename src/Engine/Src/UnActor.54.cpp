@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00756cf0
-int AProjectile::vf_000(void) { return 1; }
+UBOOL AProjectile::HasUniqueStaticConfigName() const { return 1; }

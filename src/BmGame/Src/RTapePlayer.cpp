@@ -11,10 +11,10 @@ IMPLEMENT_CLASS_AT(ARTapePlayer, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3
 // @baa 0x0163c130
 
 // @baa 0x0163c240
-int ARTapePlayer::vf_000(void) { return 1; }
+UBOOL ARTapePlayer::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0163c250
-bool ARTapePlayer::vf_004()
+UBOOL ARTapePlayer::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

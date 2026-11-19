@@ -11,10 +11,10 @@ IMPLEMENT_CLASS_AT(URAnimUtil_PhysicsOutput, "e:\\Projects\\Amadeus\\AA\\Game\\U
 // @baa 0x015c1670
 
 // @baa 0x015c1780
-int URAnimUtil_PhysicsOutput::vf_000(void) { return 1; }
+UBOOL URAnimUtil_PhysicsOutput::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015c1790
-bool URAnimUtil_PhysicsOutput::vf_004()
+UBOOL URAnimUtil_PhysicsOutput::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

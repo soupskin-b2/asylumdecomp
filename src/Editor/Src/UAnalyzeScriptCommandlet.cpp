@@ -24,10 +24,10 @@ IMPLEMENT_CLASS_AT(UAnalyzeScriptCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\U
 // @baa 0x010160f0
 
 // @baa 0x01016200
-int UAnalyzeScriptCommandlet::vf_000(void) { return 1; }
+UBOOL UAnalyzeScriptCommandlet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01016210
-bool UAnalyzeScriptCommandlet::vf_004()
+UBOOL UAnalyzeScriptCommandlet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

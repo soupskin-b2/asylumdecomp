@@ -58,10 +58,10 @@ int C_00b39570::sub_00b39570(int param_2)
 IMPLEMENT_CLASS_AT(UParticleSystem, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnParticleComponents.cpp", 20);
 
 // @baa 0x00b512b0
-int UParticleSystem::vf_000(void) { return 1; }
+UBOOL UParticleSystem::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b512c0
-bool UParticleSystem::vf_004()
+UBOOL UParticleSystem::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -70,25 +70,25 @@ bool UParticleSystem::vf_004()
 IMPLEMENT_CLASS_AT(UParticleEmitter, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnParticleComponents.cpp", 21);
 
 // @baa 0x00b51410
-int UParticleEmitter::vf_000(void) { return 1; }
+UBOOL UParticleEmitter::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b51420
-bool UParticleEmitter::vf_004()
+UBOOL UParticleEmitter::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00b51460
-int UParticleSpriteEmitter::vf_000(void) { return 1; }
+UBOOL UParticleSpriteEmitter::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b51470
 IMPLEMENT_CLASS_AT(UParticleSystemComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnParticleComponents.cpp", 23);
 
 // @baa 0x00b51580
-int UParticleSystemComponent::vf_000(void) { return 1; }
+UBOOL UParticleSystemComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b51590
-bool UParticleSystemComponent::vf_004()
+UBOOL UParticleSystemComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -97,10 +97,10 @@ bool UParticleSystemComponent::vf_004()
 IMPLEMENT_CLASS_AT(UParticleLODLevel, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnParticleComponents.cpp", 24);
 
 // @baa 0x00b516e0
-int UParticleLODLevel::vf_000(void) { return 1; }
+UBOOL UParticleLODLevel::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b516f0
-bool UParticleLODLevel::vf_004()
+UBOOL UParticleLODLevel::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -109,16 +109,16 @@ bool UParticleLODLevel::vf_004()
 IMPLEMENT_CLASS_AT(UParticleSystemReplay, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnParticleComponents.cpp", 25);
 
 // @baa 0x00b51840
-int UParticleSystemReplay::vf_000(void) { return 1; }
+UBOOL UParticleSystemReplay::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b51850
-bool UParticleSystemReplay::vf_004()
+UBOOL UParticleSystemReplay::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00b51890
-int UPhysXParticleSystemComponent::vf_000(void) { return 1; }
+UBOOL UPhysXParticleSystemComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b51920
 UINT AEmitter::vf_178()
@@ -1931,7 +1931,7 @@ int C_00b6ddc0::sub_00b6ddc0(void)
 
 // @baa 0x00b6e050
 // @baa 0x00b6e160
-bool AEmitterCameraLensEffectBase::vf_004()
+UBOOL AEmitterCameraLensEffectBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

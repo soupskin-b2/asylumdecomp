@@ -170,10 +170,10 @@ int sub_00dc9b40(int a0, int a1) { return a1; }
 IMPLEMENT_CLASS_AT(UUIPrefab, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnUIPrefab.cpp", 16);
 
 // @baa 0x00dc9c60
-int UUIPrefab::vf_000(void) { return 1; }
+UBOOL UUIPrefab::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00dc9c70
-bool UUIPrefab::vf_004()
+UBOOL UUIPrefab::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -182,10 +182,10 @@ bool UUIPrefab::vf_004()
 IMPLEMENT_CLASS_AT(UUIPrefabInstance, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnUIPrefab.cpp", 17);
 
 // @baa 0x00dc9dc0
-int UUIPrefabInstance::vf_000(void) { return 1; }
+UBOOL UUIPrefabInstance::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00dc9dd0
-bool UUIPrefabInstance::vf_004()
+UBOOL UUIPrefabInstance::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -194,10 +194,10 @@ bool UUIPrefabInstance::vf_004()
 IMPLEMENT_CLASS_AT(UUIPrefabScene, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnUIPrefab.cpp", 18);
 
 // @baa 0x00dc9f20
-int UUIPrefabScene::vf_000(void) { return 1; }
+UBOOL UUIPrefabScene::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00dc9f30
-bool UUIPrefabScene::vf_004()
+UBOOL UUIPrefabScene::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -210,10 +210,10 @@ void sub_00dc9f70(void) { sub_005c1dd0(); }
 IMPLEMENT_CLASS_AT(UUIString, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnUIStrings.cpp", 23);
 
 // @baa 0x00dca090
-int UUIString::vf_000(void) { return 1; }
+UBOOL UUIString::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00dca0a0
-bool UUIString::vf_004()
+UBOOL UUIString::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -231,10 +231,10 @@ void C_00dca1c0::sub_00dca1c0(void)
 }
 
 // @baa 0x00dca1d0
-int UUIStyle::vf_000(void) { return 1; }
+UBOOL UUIStyle::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00dca1e0
-bool UUIStyle::vf_004()
+UBOOL UUIStyle::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -243,31 +243,31 @@ bool UUIStyle::vf_004()
 IMPLEMENT_CLASS_AT(UUIStyle_Data, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnUIStyles.cpp", 14);
 
 // @baa 0x00dca330
-int UUIStyle_Data::vf_000(void) { return 1; }
+UBOOL UUIStyle_Data::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00dca340
-bool UUIStyle_Data::vf_004()
+UBOOL UUIStyle_Data::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00dca380
-int UUIStyle_Image::vf_000(void) { return 1; }
+UBOOL UUIStyle_Image::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00dca390
-int UUIStyle_Text::vf_000(void) { return 1; }
+UBOOL UUIStyle_Text::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00dca3a0
-int UUIStyle_Combo::vf_000(void) { return 1; }
+UBOOL UUIStyle_Combo::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00dca3b0
 IMPLEMENT_CLASS_AT(UUISkin, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnUIStyles.cpp", 19);
 
 // @baa 0x00dca4c0
-int UUISkin::vf_000(void) { return 1; }
+UBOOL UUISkin::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00dca4d0
-bool UUISkin::vf_004()
+UBOOL UUISkin::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1743,21 +1743,21 @@ TConstSetBitIterator_00dce940& TConstSetBitIterator_00dce940::operator++()
 
 // @baa 0x00dce990
 // @baa 0x00dceaa0
-bool UUIStyle_Image::vf_004()
+UBOOL UUIStyle_Image::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00dceae0
 // @baa 0x00dcebf0
-bool UUIStyle_Text::vf_004()
+UBOOL UUIStyle_Text::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00dcec30
 // @baa 0x00dced40
-bool UUIStyle_Combo::vf_004()
+UBOOL UUIStyle_Combo::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

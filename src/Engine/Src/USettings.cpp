@@ -37,25 +37,25 @@ extern char g_01e3f3e0[];
 int sub_00d67010(void) { return (int)g_01e3f3e0; }
 
 // @baa 0x00d67750
-bool UOnlineSubsystem::vf_004()
+UBOOL UOnlineSubsystem::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00d67790
-int UOnlineGameSettings::vf_000(void) { return 1; }
+UBOOL UOnlineGameSettings::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00d677a0
-int UOnlineGameSearch::vf_000(void) { return 1; }
+UBOOL UOnlineGameSearch::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00d677b0
 IMPLEMENT_CLASS_AT(UOnlineGameplayEvents, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UOnlineSubsystem.cpp", 12);
 
 // @baa 0x00d678c0
-int UOnlineGameplayEvents::vf_000(void) { return 1; }
+UBOOL UOnlineGameplayEvents::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00d678d0
-bool UOnlineGameplayEvents::vf_004()
+UBOOL UOnlineGameplayEvents::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -73,10 +73,10 @@ undefined4 sub_00d67950(int * param_1, int * param_2)
 IMPLEMENT_CLASS_AT(USettings, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\USettings.cpp", 7);
 
 // @baa 0x00d67af0
-int USettings::vf_000(void) { return 1; }
+UBOOL USettings::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00d67b00
-bool USettings::vf_004()
+UBOOL USettings::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

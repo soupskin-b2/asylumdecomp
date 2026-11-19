@@ -5,7 +5,7 @@
 #include "ue3/Script.h"
 
 // @baa 0x00de1650
-bool UUISceneClient::vf_004()
+UBOOL UUISceneClient::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -14,7 +14,7 @@ bool UUISceneClient::vf_004()
 IMPLEMENT_CLASS_AT(UGameUISceneClient, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnUserInterface.cpp", 25);
 
 // @baa 0x00de40d0
-bool UGameUISceneClient::vf_004()
+UBOOL UGameUISceneClient::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

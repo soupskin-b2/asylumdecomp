@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x0153bd60
-bool ARKActorSpawnable::vf_004()
+UBOOL ARKActorSpawnable::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -13,10 +13,10 @@ bool ARKActorSpawnable::vf_004()
 IMPLEMENT_CLASS_AT(URActorFactoryBreakablePropStatic, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonGame\\Src\\CommonGamePropClasses.cpp", 6);
 
 // @baa 0x0153beb0
-int URActorFactoryBreakablePropStatic::vf_000(void) { return 1; }
+UBOOL URActorFactoryBreakablePropStatic::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0153bec0
-bool URActorFactoryBreakablePropStatic::vf_004()
+UBOOL URActorFactoryBreakablePropStatic::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -25,10 +25,10 @@ bool URActorFactoryBreakablePropStatic::vf_004()
 IMPLEMENT_CLASS_AT(URActorFactoryRigidBody, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonGame\\Src\\CommonGamePropClasses.cpp", 7);
 
 // @baa 0x0153c010
-int URActorFactoryRigidBody::vf_000(void) { return 1; }
+UBOOL URActorFactoryRigidBody::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0153c020
-bool URActorFactoryRigidBody::vf_004()
+UBOOL URActorFactoryRigidBody::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -37,10 +37,10 @@ bool URActorFactoryRigidBody::vf_004()
 IMPLEMENT_CLASS_AT(URActorFactoryMoverNoCL, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonGame\\Src\\CommonGamePropClasses.cpp", 8);
 
 // @baa 0x0153c170
-int URActorFactoryMoverNoCL::vf_000(void) { return 1; }
+UBOOL URActorFactoryMoverNoCL::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0153c180
-bool URActorFactoryMoverNoCL::vf_004()
+UBOOL URActorFactoryMoverNoCL::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -58,10 +58,10 @@ int sub_0153c1e0(int a0, int a1) { return a1; }
 IMPLEMENT_CLASS_AT(ARPathNode, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonGame\\Src\\CommonGameRouterClasses.cpp", 6);
 
 // @baa 0x0153c300
-int ARPathNode::vf_000(void) { return 1; }
+UBOOL ARPathNode::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0153c310
-bool ARPathNode::vf_004()
+UBOOL ARPathNode::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -70,16 +70,16 @@ bool ARPathNode::vf_004()
 IMPLEMENT_CLASS_AT(URReachSpec, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonGame\\Src\\CommonGameRouterClasses.cpp", 7);
 
 // @baa 0x0153c460
-int URReachSpec::vf_000(void) { return 1; }
+UBOOL URReachSpec::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0153c470
-bool URReachSpec::vf_004()
+UBOOL URReachSpec::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0153c4b0
-int URForcedReachSpec::vf_000(void) { return 1; }
+UBOOL URForcedReachSpec::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0153c5c0
 int sub_0153c5c0(int a0, int a1) { return a1; }
@@ -109,10 +109,10 @@ int sub_0153c630(int a0, int a1) { return a1; }
 IMPLEMENT_CLASS_AT(URSeqAct_SetFarCullDistance, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonGame\\Src\\CommonGameSequenceClasses.cpp", 5);
 
 // @baa 0x0153c750
-int URSeqAct_SetFarCullDistance::vf_000(void) { return 1; }
+UBOOL URSeqAct_SetFarCullDistance::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0153c760
-bool URSeqAct_SetFarCullDistance::vf_004()
+UBOOL URSeqAct_SetFarCullDistance::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -121,10 +121,10 @@ bool URSeqAct_SetFarCullDistance::vf_004()
 IMPLEMENT_CLASS_AT(URSeqAct_EventSequence, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonGame\\Src\\CommonGameSequenceClasses.cpp", 6);
 
 // @baa 0x0153c8b0
-int URSeqAct_EventSequence::vf_000(void) { return 1; }
+UBOOL URSeqAct_EventSequence::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0153c8c0
-bool URSeqAct_EventSequence::vf_004()
+UBOOL URSeqAct_EventSequence::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -133,10 +133,10 @@ bool URSeqAct_EventSequence::vf_004()
 IMPLEMENT_CLASS_AT(URSeqAct_WaitForAllInputs, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonGame\\Src\\CommonGameSequenceClasses.cpp", 7);
 
 // @baa 0x0153ca10
-int URSeqAct_WaitForAllInputs::vf_000(void) { return 1; }
+UBOOL URSeqAct_WaitForAllInputs::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0153ca20
-bool URSeqAct_WaitForAllInputs::vf_004()
+UBOOL URSeqAct_WaitForAllInputs::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -145,10 +145,10 @@ bool URSeqAct_WaitForAllInputs::vf_004()
 IMPLEMENT_CLASS_AT(URSeqAct_WaitForBool, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonGame\\Src\\CommonGameSequenceClasses.cpp", 8);
 
 // @baa 0x0153cb70
-int URSeqAct_WaitForBool::vf_000(void) { return 1; }
+UBOOL URSeqAct_WaitForBool::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0153cb80
-bool URSeqAct_WaitForBool::vf_004()
+UBOOL URSeqAct_WaitForBool::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -157,10 +157,10 @@ bool URSeqAct_WaitForBool::vf_004()
 IMPLEMENT_CLASS_AT(URSeqCond_VisibleLastFrame, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonGame\\Src\\CommonGameSequenceClasses.cpp", 9);
 
 // @baa 0x0153ccd0
-int URSeqCond_VisibleLastFrame::vf_000(void) { return 1; }
+UBOOL URSeqCond_VisibleLastFrame::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0153cce0
-bool URSeqCond_VisibleLastFrame::vf_004()
+UBOOL URSeqCond_VisibleLastFrame::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -169,10 +169,10 @@ bool URSeqCond_VisibleLastFrame::vf_004()
 IMPLEMENT_CLASS_AT(URSeqVar_RandomVector, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonGame\\Src\\CommonGameSequenceClasses.cpp", 10);
 
 // @baa 0x0153ce30
-int URSeqVar_RandomVector::vf_000(void) { return 1; }
+UBOOL URSeqVar_RandomVector::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0153ce40
-bool URSeqVar_RandomVector::vf_004()
+UBOOL URSeqVar_RandomVector::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -181,10 +181,10 @@ bool URSeqVar_RandomVector::vf_004()
 IMPLEMENT_CLASS_AT(URSeqVar_AnalogControlFloat, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonGame\\Src\\CommonGameSequenceClasses.cpp", 11);
 
 // @baa 0x0153cf90
-int URSeqVar_AnalogControlFloat::vf_000(void) { return 1; }
+UBOOL URSeqVar_AnalogControlFloat::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0153cfa0
-bool URSeqVar_AnalogControlFloat::vf_004()
+UBOOL URSeqVar_AnalogControlFloat::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -193,10 +193,10 @@ bool URSeqVar_AnalogControlFloat::vf_004()
 IMPLEMENT_CLASS_AT(URSeqAct_BoolCounter, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonGame\\Src\\CommonGameSequenceClasses.cpp", 12);
 
 // @baa 0x0153d0f0
-int URSeqAct_BoolCounter::vf_000(void) { return 1; }
+UBOOL URSeqAct_BoolCounter::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0153d100
-bool URSeqAct_BoolCounter::vf_004()
+UBOOL URSeqAct_BoolCounter::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -334,10 +334,10 @@ int sub_0153d260(int a0, int a1) { return a1; }
 IMPLEMENT_CLASS_AT(URSeqAct_SetBoolEx, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonGame\\Src\\RFlagManager.cpp", 16);
 
 // @baa 0x0153d380
-int URSeqAct_SetBoolEx::vf_000(void) { return 1; }
+UBOOL URSeqAct_SetBoolEx::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0153d390
-bool URSeqAct_SetBoolEx::vf_004()
+UBOOL URSeqAct_SetBoolEx::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -346,10 +346,10 @@ bool URSeqAct_SetBoolEx::vf_004()
 IMPLEMENT_CLASS_AT(URSeqAct_SwitchFlags, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonGame\\Src\\RFlagManager.cpp", 17);
 
 // @baa 0x0153d4e0
-int URSeqAct_SwitchFlags::vf_000(void) { return 1; }
+UBOOL URSeqAct_SwitchFlags::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0153d4f0
-bool URSeqAct_SwitchFlags::vf_004()
+UBOOL URSeqAct_SwitchFlags::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -358,10 +358,10 @@ bool URSeqAct_SwitchFlags::vf_004()
 IMPLEMENT_CLASS_AT(URSeqVar_LocalFlag, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonGame\\Src\\RFlagManager.cpp", 18);
 
 // @baa 0x0153d640
-int URSeqVar_LocalFlag::vf_000(void) { return 1; }
+UBOOL URSeqVar_LocalFlag::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0153d650
-bool URSeqVar_LocalFlag::vf_004()
+UBOOL URSeqVar_LocalFlag::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

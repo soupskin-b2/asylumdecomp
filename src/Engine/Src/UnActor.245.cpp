@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00782b10
-bool AGameReplicationInfo::vf_004()
+UBOOL AGameReplicationInfo::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

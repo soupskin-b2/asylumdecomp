@@ -7,7 +7,7 @@
 IMPLEMENT_CLASS_AT(UScriptedTexture, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\TextureRenderTarget2D.cpp", 382);
 
 // @baa 0x0076c780
-bool UTextureRenderTarget2D::vf_004()
+UBOOL UTextureRenderTarget2D::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -37,7 +37,7 @@ undefined4 C_00755ee0::sub_00755ee0(void)
 }
 
 // @baa 0x00755ef0
-int UScriptedTexture::vf_000(void) { return 1; }
+UBOOL UScriptedTexture::HasUniqueStaticConfigName() const { return 1; }
 
 int sub_0073cbc0(void);
 // @baa 0x00755f00
@@ -163,7 +163,7 @@ undefined4 * UScriptedTexture::sub_00756020(byte param_2)
 // @baa 0x0076ee00
 
 // @baa 0x0076ef10
-bool UScriptedTexture::vf_004()
+UBOOL UScriptedTexture::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

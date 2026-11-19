@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00f1dab0
-int UPhysicalMaterialFactoryNew::vf_000(void) { return 1; }
+UBOOL UPhysicalMaterialFactoryNew::HasUniqueStaticConfigName() const { return 1; }

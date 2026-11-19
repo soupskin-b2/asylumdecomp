@@ -13,10 +13,10 @@ int sub_016d09d0(void) { return 1; }
 IMPLEMENT_CLASS_AT(ARWindVolume, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RWindVolume.cpp", 13);
 
 // @baa 0x016d0af0
-int ARWindVolume::vf_000(void) { return 1; }
+UBOOL ARWindVolume::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016d0b00
-bool ARWindVolume::vf_004()
+UBOOL ARWindVolume::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -28,16 +28,16 @@ void ARWindVolume::UpdateEditorComponents() {  }
 IMPLEMENT_CLASS_AT(ARMedicalPlasticFlapsBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RMedicalPlasticFlapsBase.cpp", 10);
 
 // @baa 0x016d1000
-int ARMedicalPlasticFlapsBase::vf_000(void) { return 1; }
+UBOOL ARMedicalPlasticFlapsBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016d1050
 IMPLEMENT_CLASS_AT(ARCrowdManager, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RCrowd.cpp", 12);
 
 // @baa 0x016d1160
-int ARCrowdManager::vf_000(void) { return 1; }
+UBOOL ARCrowdManager::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016d1170
-bool ARCrowdManager::vf_004()
+UBOOL ARCrowdManager::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -46,10 +46,10 @@ bool ARCrowdManager::vf_004()
 IMPLEMENT_CLASS_AT(ARCrowdAgent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RCrowd.cpp", 13);
 
 // @baa 0x016d12c0
-int ARCrowdAgent::vf_000(void) { return 1; }
+UBOOL ARCrowdAgent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016d12d0
-bool ARCrowdAgent::vf_004()
+UBOOL ARCrowdAgent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -58,10 +58,10 @@ bool ARCrowdAgent::vf_004()
 IMPLEMENT_CLASS_AT(ARCrowdSequence, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RCrowd.cpp", 14);
 
 // @baa 0x016d1420
-int ARCrowdSequence::vf_000(void) { return 1; }
+UBOOL ARCrowdSequence::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016d1430
-bool ARCrowdSequence::vf_004()
+UBOOL ARCrowdSequence::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -70,16 +70,16 @@ bool ARCrowdSequence::vf_004()
 IMPLEMENT_CLASS_AT(ARCrowdAttractor, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RCrowd.cpp", 15);
 
 // @baa 0x016d1580
-int ARCrowdAttractor::vf_000(void) { return 1; }
+UBOOL ARCrowdAttractor::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016d1590
-bool ARCrowdAttractor::vf_004()
+UBOOL ARCrowdAttractor::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x016d15d0
-int ARCrowdAttractor_Cylinder::vf_000(void) { return 1; }
+UBOOL ARCrowdAttractor_Cylinder::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016d1a10
 UBOOL ARCrowdAgent::Tick(FLOAT DeltaTime, ELevelTick TickType) { return TRUE; }
@@ -110,7 +110,7 @@ IMPLEMENT_CLASS_AT(URGFxFSCmdHandler_PlayMovie, "e:\\Projects\\Amadeus\\AA\\Game
 int sub_016d1b10(int a0, int a1) { return a1; }
 
 // @baa 0x016d1fd0
-int URGFxMovieHUD::vf_000(void) { return 1; }
+UBOOL URGFxMovieHUD::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016d29a0
 void URPersistentOptions::ClearPS3LeaderboardCache() {  }

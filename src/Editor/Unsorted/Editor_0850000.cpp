@@ -4,7 +4,7 @@
 #include "ue3/Classes.h"
 
 // @baa 0x00852c60
-bool UMorphNodePose::vf_004()
+UBOOL UMorphNodePose::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

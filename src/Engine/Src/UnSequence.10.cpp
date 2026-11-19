@@ -13,19 +13,19 @@ IMPLEMENT_CLASS_AT(USeqCond_SwitchName, "e:\\Projects\\Amadeus\\AA\\Game\\Unreal
 IMPLEMENT_CLASS_AT(USeqCond_SwitchObject, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSequence.cpp", 77);
 
 // @baa 0x008f9050
-bool USeqCond_SwitchBase::vf_004()
+UBOOL USeqCond_SwitchBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008ff200
-bool USeqCond_SwitchClass::vf_004()
+UBOOL USeqCond_SwitchClass::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x008ff350
-bool USeqCond_SwitchName::vf_004()
+UBOOL USeqCond_SwitchName::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

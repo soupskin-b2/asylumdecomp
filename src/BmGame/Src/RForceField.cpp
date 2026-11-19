@@ -44,10 +44,10 @@ undefined4 * URForceField::sub_016d2970(byte param_2)
 
 // @baa 0x01719100
 // @baa 0x01719210
-int URForceField::vf_000(void) { return 1; }
+UBOOL URForceField::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01719220
-bool URForceField::vf_004()
+UBOOL URForceField::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -56,10 +56,10 @@ bool URForceField::vf_004()
 IMPLEMENT_CLASS_AT(URForceFieldConfig, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RForceField.cpp", 11);
 
 // @baa 0x01719370
-int URForceFieldConfig::vf_000(void) { return 1; }
+UBOOL URForceFieldConfig::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01719380
-bool URForceFieldConfig::vf_004()
+UBOOL URForceFieldConfig::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -68,10 +68,10 @@ bool URForceFieldConfig::vf_004()
 IMPLEMENT_CLASS_AT(URForceFieldConfigFactoryNew, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RForceField.cpp", 12);
 
 // @baa 0x017194d0
-int URForceFieldConfigFactoryNew::vf_000(void) { return 1; }
+UBOOL URForceFieldConfigFactoryNew::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x017194e0
-bool URForceFieldConfigFactoryNew::vf_004()
+UBOOL URForceFieldConfigFactoryNew::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

@@ -40,7 +40,7 @@ undefined4 * UObject::sub_015fbd60(void)
 // @baa 0x01605690
 
 // @baa 0x016057a0
-bool URBMExitConditionCombiner::vf_004()
+UBOOL URBMExitConditionCombiner::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

@@ -23,10 +23,10 @@ IMPLEMENT_CLASS_AT(URSeqAct_SetScarecrowPositionOnPath, "e:\\Projects\\Amadeus\\
 // @baa 0x016ad150
 
 // @baa 0x016ad260
-int ARBMBossManager::vf_000(void) { return 1; }
+UBOOL ARBMBossManager::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016ad270
-bool ARBMBossManager::vf_004()
+UBOOL ARBMBossManager::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -34,10 +34,10 @@ bool ARBMBossManager::vf_004()
 // @baa 0x016ad2b0
 
 // @baa 0x016ad3c0
-int ARPawnBossScarecrowBase::vf_000(void) { return 1; }
+UBOOL ARPawnBossScarecrowBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016ad3d0
-bool ARPawnBossScarecrowBase::vf_004()
+UBOOL ARPawnBossScarecrowBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -45,10 +45,10 @@ bool ARPawnBossScarecrowBase::vf_004()
 // @baa 0x016ad410
 
 // @baa 0x016ad520
-int URSeqAct_SetScarecrowCamera::vf_000(void) { return 1; }
+UBOOL URSeqAct_SetScarecrowCamera::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016ad530
-bool URSeqAct_SetScarecrowCamera::vf_004()
+UBOOL URSeqAct_SetScarecrowCamera::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

@@ -2133,10 +2133,10 @@ undefined4 sub_00e708a0(int param_1)
 IMPLEMENT_CLASS_AT(UFMODAudioDevice, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\FMod\\Src\\FMODAudioDevice.cpp", 309);
 
 // @baa 0x00e709d0
-int UFMODAudioDevice::vf_000(void) { return 1; }
+UBOOL UFMODAudioDevice::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00e709e0
-bool UFMODAudioDevice::vf_004()
+UBOOL UFMODAudioDevice::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -2522,7 +2522,7 @@ return param_2;
 
 int __stdcall sub_01763f46(int, int);
 // @baa 0x00e717d0
-INT UFMODAudioDevice::vf_0d4() {
+INT UFMODAudioDevice::GetResourceSize() {
   undefined4 local_8;
   undefined1 local_4 [4];
   sub_01763f46((int)(&local_8), (int)(local_4));

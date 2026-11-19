@@ -211,10 +211,10 @@ bool C_01595470::sub_01595470(void)
 IMPLEMENT_CLASS_AT(URAnimNode_Pose, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimNode_Pose.cpp", 17);
 
 // @baa 0x01595590
-int URAnimNode_Pose::vf_000(void) { return 1; }
+UBOOL URAnimNode_Pose::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015955a0
-bool URAnimNode_Pose::vf_004()
+UBOOL URAnimNode_Pose::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -381,10 +381,10 @@ INT URAnimNode_Pose::GetNumSliders() const { return 2; }
 IMPLEMENT_CLASS_AT(URAnimUtil_AnimOutput, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimUtil_AnimOutput.cpp", 14);
 
 // @baa 0x01599d40
-int URAnimUtil_AnimOutput::vf_000(void) { return 1; }
+UBOOL URAnimUtil_AnimOutput::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01599d50
-bool URAnimUtil_AnimOutput::vf_004()
+UBOOL URAnimUtil_AnimOutput::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -396,10 +396,10 @@ void __stdcall sub_01599e60(int a0, int a1, int a2) {  }
 IMPLEMENT_CLASS_AT(URAnimUtil_FaceFXOutput, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimUtil_FaceFXOutput.cpp", 19);
 
 // @baa 0x01599f80
-int URAnimUtil_FaceFXOutput::vf_000(void) { return 1; }
+UBOOL URAnimUtil_FaceFXOutput::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01599f90
-bool URAnimUtil_FaceFXOutput::vf_004()
+UBOOL URAnimUtil_FaceFXOutput::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -428,10 +428,10 @@ int * sub_01599fd0(int * param_1, int param_2, int param_3)
 IMPLEMENT_CLASS_AT(URAnimUtil_IKOutput, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimUtil_IKOutput.cpp", 14);
 
 // @baa 0x0159a300
-int URAnimUtil_IKOutput::vf_000(void) { return 1; }
+UBOOL URAnimUtil_IKOutput::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0159a310
-bool URAnimUtil_IKOutput::vf_004()
+UBOOL URAnimUtil_IKOutput::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1481,10 +1481,10 @@ C_015bcbf0& C_015bcbf0::sub_015bcbf0(int Arg)
 IMPLEMENT_CLASS_AT(URAnimUtil_MovementOutput, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimUtil_MovementOutput.cpp", 14);
 
 // @baa 0x015beb60
-int URAnimUtil_MovementOutput::vf_000(void) { return 1; }
+UBOOL URAnimUtil_MovementOutput::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015beb70
-bool URAnimUtil_MovementOutput::vf_004()
+UBOOL URAnimUtil_MovementOutput::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1511,10 +1511,10 @@ S16* S16::sub_015bebb0()
 IMPLEMENT_CLASS_AT(URAnimUtil_OverlayPlayer, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimUtil_OverlayPlayer.cpp", 14);
 
 // @baa 0x015c0e20
-int URAnimUtil_OverlayPlayer::vf_000(void) { return 1; }
+UBOOL URAnimUtil_OverlayPlayer::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015c0e30
-bool URAnimUtil_OverlayPlayer::vf_004()
+UBOOL URAnimUtil_OverlayPlayer::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1608,10 +1608,10 @@ C_015c18d0* C_015c18d0::sub_015c18d0(void) { return this; }
 IMPLEMENT_CLASS_AT(URAnimUtil_PosePlayer, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimUtil_PosePlayer.cpp", 16);
 
 // @baa 0x015c19f0
-int URAnimUtil_PosePlayer::vf_000(void) { return 1; }
+UBOOL URAnimUtil_PosePlayer::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015c1a00
-bool URAnimUtil_PosePlayer::vf_004()
+UBOOL URAnimUtil_PosePlayer::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

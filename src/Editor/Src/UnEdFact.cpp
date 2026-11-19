@@ -518,10 +518,10 @@ void sub_00f1a490(undefined4 param_1, undefined4 param_2, undefined4 param_3, un
 IMPLEMENT_CLASS_AT(UAnimSetFactoryNew, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnEdFact.cpp", 4428);
 
 // @baa 0x00f1d690
-int UAnimSetFactoryNew::vf_000(void) { return 1; }
+UBOOL UAnimSetFactoryNew::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00f1d6a0
-bool UAnimSetFactoryNew::vf_004()
+UBOOL UAnimSetFactoryNew::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -548,16 +548,16 @@ void UFont::sub_00f1ec80(void)
 }
 
 // @baa 0x00f1ecc0
-int UFontFactory::vf_000(void) { return 1; }
+UBOOL UFontFactory::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00f1ecd0
 IMPLEMENT_CLASS_AT(USequenceFactory, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnEdFact.cpp", 7610);
 
 // @baa 0x00f1ede0
-int USequenceFactory::vf_000(void) { return 1; }
+UBOOL USequenceFactory::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00f1edf0
-bool USequenceFactory::vf_004()
+UBOOL USequenceFactory::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -566,16 +566,16 @@ bool USequenceFactory::vf_004()
 IMPLEMENT_CLASS_AT(UAnimObjectFactory, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnEdFact.cpp", 7771);
 
 // @baa 0x00f1ef40
-int UAnimObjectFactory::vf_000(void) { return 1; }
+UBOOL UAnimObjectFactory::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00f1ef50
-bool UAnimObjectFactory::vf_004()
+UBOOL UAnimObjectFactory::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00f1ef90
-int UReimportTextureFactory::vf_000(void) { return 1; }
+UBOOL UReimportTextureFactory::HasUniqueStaticConfigName() const { return 1; }
 
 extern undefined4 g_026acbd8;
 extern undefined1 g_01eaf278;
@@ -2145,7 +2145,7 @@ int C_00f392d0::sub_00f392d0(void)
 IMPLEMENT_CLASS_AT(UTerrainHeightMapExporterTextT3D, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnEdExpTerrain.cpp", 767);
 
 // @baa 0x00f395a0
-bool UTerrainHeightMapExporterTextT3D::vf_004()
+UBOOL UTerrainHeightMapExporterTextT3D::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -2154,7 +2154,7 @@ bool UTerrainHeightMapExporterTextT3D::vf_004()
 IMPLEMENT_CLASS_AT(UTerrainHeightMapExporterG16BMPT3D, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnEdExpTerrain.cpp", 921);
 
 // @baa 0x00f396f0
-bool UTerrainHeightMapExporterG16BMPT3D::vf_004()
+UBOOL UTerrainHeightMapExporterG16BMPT3D::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -2231,21 +2231,21 @@ void sub_00f39910(undefined4 param_1, undefined4 param_2, undefined4 param_3, un
 
 // @baa 0x00f3c6c0
 // @baa 0x00f3c7d0
-bool UFontFactory::vf_004()
+UBOOL UFontFactory::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00f3c810
 // @baa 0x00f3c920
-bool UReimportTextureFactory::vf_004()
+UBOOL UReimportTextureFactory::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00f3c960
 // @baa 0x00f3ca70
-bool UReimportSoundFactory::vf_004()
+UBOOL UReimportSoundFactory::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

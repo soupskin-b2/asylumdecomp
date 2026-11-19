@@ -209,10 +209,10 @@ int sub_01758790(int a0, int a1) { return a1; }
 IMPLEMENT_CLASS_AT(UBmEdEngine, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmEditor\\Src\\BmEdEngine.cpp", 18);
 
 // @baa 0x017588b0
-int UBmEdEngine::vf_000(void) { return 1; }
+UBOOL UBmEdEngine::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x017588c0
-bool UBmEdEngine::vf_004()
+UBOOL UBmEdEngine::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

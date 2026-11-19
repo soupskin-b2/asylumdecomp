@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00f1cfc0
-bool UApexRenderMeshAssetFactory::vf_004()
+UBOOL UApexRenderMeshAssetFactory::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

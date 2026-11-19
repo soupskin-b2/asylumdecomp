@@ -7,7 +7,7 @@
 int USoundSurroundExporterWAV::vf_11c(void) { return 8; }
 
 // @baa 0x00ef09c0
-int UTextureExporterT3D::vf_000(void) { return 1; }
+UBOOL UTextureExporterT3D::HasUniqueStaticConfigName() const { return 1; }
 
 struct C_00ef8c20 {
     undefined4 * sub_00ef8c20();

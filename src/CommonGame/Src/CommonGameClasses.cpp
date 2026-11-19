@@ -705,7 +705,7 @@ IMPLEMENT_CLASS_AT(URSeqAct_ChangeRain_None, "e:\\Projects\\Amadeus\\AA\\Game\\U
 // @baa 0x015339d0
 // @baa 0x01533a00
 // @baa 0x01533b10
-bool ARDebugMenu::vf_004()
+UBOOL ARDebugMenu::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

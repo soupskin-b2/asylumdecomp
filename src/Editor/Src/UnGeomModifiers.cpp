@@ -36,46 +36,46 @@ int sub_00f9daf0(void) { return (int)g_026cdc94; }
 IMPLEMENT_CLASS_AT(UGeomModifier, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnGeomModifiers.cpp", 9);
 
 // @baa 0x00f9f550
-int UGeomModifier::vf_000(void) { return 1; }
+UBOOL UGeomModifier::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00f9f560
-bool UGeomModifier::vf_004()
+UBOOL UGeomModifier::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00f9f5a0
-int UGeomModifier_Edit::vf_000(void) { return 1; }
+UBOOL UGeomModifier_Edit::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00f9f5b0
-int UGeomModifier_Extrude::vf_000(void) { return 1; }
+UBOOL UGeomModifier_Extrude::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00f9f5c0
-int UGeomModifier_Clip::vf_000(void) { return 1; }
+UBOOL UGeomModifier_Clip::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00f9f5d0
-int UGeomModifier_Lathe::vf_000(void) { return 1; }
+UBOOL UGeomModifier_Lathe::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00f9f5e0
-int UGeomModifier_Delete::vf_000(void) { return 1; }
+UBOOL UGeomModifier_Delete::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00f9f5f0
-int UGeomModifier_Create::vf_000(void) { return 1; }
+UBOOL UGeomModifier_Create::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00f9f600
-int UGeomModifier_Flip::vf_000(void) { return 1; }
+UBOOL UGeomModifier_Flip::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00f9f610
-int UGeomModifier_Split::vf_000(void) { return 1; }
+UBOOL UGeomModifier_Split::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00f9f620
-int UGeomModifier_Triangulate::vf_000(void) { return 1; }
+UBOOL UGeomModifier_Triangulate::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00f9f630
-int UGeomModifier_Turn::vf_000(void) { return 1; }
+UBOOL UGeomModifier_Turn::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00f9f640
-int UGeomModifier_Weld::vf_000(void) { return 1; }
+UBOOL UGeomModifier_Weld::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00fa4f40
 // @baa 0x00fa4fb0
@@ -326,7 +326,7 @@ INT __stdcall sub_00f9dc10(INT Value)
 // @baa 0x00fb47a0
 
 // @baa 0x00fb48b0
-bool UGeomModifier_Edit::vf_004()
+UBOOL UGeomModifier_Edit::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -334,7 +334,7 @@ bool UGeomModifier_Edit::vf_004()
 // @baa 0x00fb7b70
 
 // @baa 0x00fb7c80
-bool UGeomModifier_Extrude::vf_004()
+UBOOL UGeomModifier_Extrude::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -342,7 +342,7 @@ bool UGeomModifier_Extrude::vf_004()
 // @baa 0x00fb7cc0
 
 // @baa 0x00fb7dd0
-bool UGeomModifier_Clip::vf_004()
+UBOOL UGeomModifier_Clip::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -350,7 +350,7 @@ bool UGeomModifier_Clip::vf_004()
 // @baa 0x00fb7e10
 
 // @baa 0x00fb7f20
-bool UGeomModifier_Lathe::vf_004()
+UBOOL UGeomModifier_Lathe::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -358,7 +358,7 @@ bool UGeomModifier_Lathe::vf_004()
 // @baa 0x00fb7f60
 
 // @baa 0x00fb8070
-bool UGeomModifier_Delete::vf_004()
+UBOOL UGeomModifier_Delete::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -366,7 +366,7 @@ bool UGeomModifier_Delete::vf_004()
 // @baa 0x00fb80b0
 
 // @baa 0x00fb81c0
-bool UGeomModifier_Create::vf_004()
+UBOOL UGeomModifier_Create::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -374,7 +374,7 @@ bool UGeomModifier_Create::vf_004()
 // @baa 0x00fb8200
 
 // @baa 0x00fb8310
-bool UGeomModifier_Flip::vf_004()
+UBOOL UGeomModifier_Flip::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -382,7 +382,7 @@ bool UGeomModifier_Flip::vf_004()
 // @baa 0x00fb8350
 
 // @baa 0x00fb8460
-bool UGeomModifier_Split::vf_004()
+UBOOL UGeomModifier_Split::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -390,7 +390,7 @@ bool UGeomModifier_Split::vf_004()
 // @baa 0x00fb84a0
 
 // @baa 0x00fb85b0
-bool UGeomModifier_Triangulate::vf_004()
+UBOOL UGeomModifier_Triangulate::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -398,7 +398,7 @@ bool UGeomModifier_Triangulate::vf_004()
 // @baa 0x00fb85f0
 
 // @baa 0x00fb8700
-bool UGeomModifier_Turn::vf_004()
+UBOOL UGeomModifier_Turn::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -406,7 +406,7 @@ bool UGeomModifier_Turn::vf_004()
 // @baa 0x00fb8740
 
 // @baa 0x00fb8850
-bool UGeomModifier_Weld::vf_004()
+UBOOL UGeomModifier_Weld::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

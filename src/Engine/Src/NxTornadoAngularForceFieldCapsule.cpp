@@ -11,7 +11,7 @@ IMPLEMENT_CLASS_AT(ANxTornadoForceFieldCapsule, "e:\\Projects\\Amadeus\\AA\\Game
 // @baa 0x00a51c10
 
 // @baa 0x00a51d20
-bool ANxTornadoForceFieldCapsule::vf_004()
+UBOOL ANxTornadoForceFieldCapsule::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

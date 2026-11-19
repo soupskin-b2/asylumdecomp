@@ -59,10 +59,10 @@ undefined4 C_0090b440::sub_0090b440(void)
 int sub_0090b4b0(int a0, int a1) { return a1; }
 
 // @baa 0x0090b730
-int USeqAct_PlayMusicTrack::vf_000(void) { return 1; }
+UBOOL USeqAct_PlayMusicTrack::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0090b740
-bool USeqAct_PlayMusicTrack::vf_004()
+UBOOL USeqAct_PlayMusicTrack::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -231,25 +231,25 @@ struct C_0090d360 { C_0090d360* sub_0090d360(int a0); };
 C_0090d360* C_0090d360::sub_0090d360(int a0) { return this; }
 
 // @baa 0x0090d860
-int UAnimNotify_Sound::vf_000(void) { return 1; }
+UBOOL UAnimNotify_Sound::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0090d870
-int UAnimNotify_Script::vf_000(void) { return 1; }
+UBOOL UAnimNotify_Script::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0090d8b0
-int UAnimNotify_Scripted::vf_000(void) { return 1; }
+UBOOL UAnimNotify_Scripted::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0090d920
-int UAnimNotify_Footstep::vf_000(void) { return 1; }
+UBOOL UAnimNotify_Footstep::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0090d930
-int UAnimNotify_CameraEffect::vf_000(void) { return 1; }
+UBOOL UAnimNotify_CameraEffect::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0090d990
-int UAnimNotify_PlayParticleEffect::vf_000(void) { return 1; }
+UBOOL UAnimNotify_PlayParticleEffect::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0090d9a0
-int UAnimNotify_Rumble::vf_000(void) { return 1; }
+UBOOL UAnimNotify_Rumble::HasUniqueStaticConfigName() const { return 1; }
 
 struct C_0090f170 { C_0090f170* sub_0090f170(void); };
 

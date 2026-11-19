@@ -1108,10 +1108,10 @@ C_01644160* C_01644160::sub_01644160()
 extern TArray<ARGrapplePoint*> g_026e1c54;
 // @baa 0x01647dc0
 /* Slot 0x2c (unnamed in the kit): also drops the grapple point from the list. */
-void ARGrapplePoint::vf_02c()
+void ARGrapplePoint::FinishDestroy()
 {
 	g_026e1c54.RemoveItem(this);
-	Super::vf_02c();
+	Super::FinishDestroy();
 }
 
 // @baa 0x01641f20

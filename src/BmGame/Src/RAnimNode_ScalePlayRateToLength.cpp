@@ -7,10 +7,10 @@
 IMPLEMENT_CLASS_AT(URAnimNode_ScalePlayRateToLength, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimNode_ScalePlayRateToLength.cpp", 6);
 
 // @baa 0x015965c0
-int URAnimNode_ScalePlayRateToLength::vf_000(void) { return 1; }
+UBOOL URAnimNode_ScalePlayRateToLength::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015965d0
-bool URAnimNode_ScalePlayRateToLength::vf_004()
+UBOOL URAnimNode_ScalePlayRateToLength::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

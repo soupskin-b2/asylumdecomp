@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00776db0
-bool USwatTurnReachSpec::vf_004()
+UBOOL USwatTurnReachSpec::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

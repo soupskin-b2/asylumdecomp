@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00756b50
-int UFloorToCeilingReachSpec::vf_000(void) { return 1; }
+UBOOL UFloorToCeilingReachSpec::HasUniqueStaticConfigName() const { return 1; }

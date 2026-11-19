@@ -380,21 +380,21 @@ int sub_016298a0(void)
 
 // @baa 0x0162ac80
 // @baa 0x0162ad90
-bool URIdleTransitionConfig::vf_004()
+UBOOL URIdleTransitionConfig::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0162add0
 // @baa 0x0162aee0
-bool URPairedIdleConfig::vf_004()
+UBOOL URPairedIdleConfig::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0162af20
 // @baa 0x0162b030
-bool URIdleWithDeathConfig::vf_004()
+UBOOL URIdleWithDeathConfig::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

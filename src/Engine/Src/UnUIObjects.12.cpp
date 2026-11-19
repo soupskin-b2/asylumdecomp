@@ -13,7 +13,7 @@ IMPLEMENT_CLASS_AT(UUICalloutButtonPanel, "e:\\Projects\\Amadeus\\AA\\Game\\Unre
 IMPLEMENT_CLASS_AT(UUITabPage, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnUIContainers.cpp", 36);
 
 // @baa 0x00da8030
-bool UUIScreenObject::vf_004()
+UBOOL UUIScreenObject::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -25,7 +25,7 @@ void UUIScreenObject::RemovePlayerData(INT a0, ULocalPlayer* a1) {  }
 void UUIScreenObject::vf_1c4(void) {  }
 
 // @baa 0x00da9310
-void UUIScreenObject::vf_09c(void) {  }
+void UUIScreenObject::PostEditImport() {  }
 
 // @baa 0x00da97a0
 int UUIScreenObject::vf_1dc(int a0) { return 0; }
@@ -153,7 +153,7 @@ UBOOL UUIScene::RegisterTickableObject(const TScriptInterface<IUITickableObject>
 INT sub_00d8fb40();
 INT sub_0053f6c0();
 // @baa 0x00da8010
-INT UUIScreenObject::vf_000()
+UBOOL UUIScreenObject::HasUniqueStaticConfigName() const
 {
     return sub_00d8fb40 == sub_0053f6c0;
 }
@@ -206,11 +206,11 @@ INT UUIScreenObject::GetPlayerOwnerIndex(UBOOL bRequireValidIndex)
 // @baa 0x00da9320
 /* UUIScreenObject slot 0x70 (kit vf_070, UE3 PostEditUndo()): refresh positions (slot 0x164, all four flags) and
  * formatting, then UObject's version. */
-void UUIScreenObject::vf_070()
+void UUIScreenObject::PostSerializeFromPropagationArchive()
 {
     RequestSceneUpdate(TRUE, TRUE, TRUE, TRUE);
     RequestFormattingUpdate();
-    UObject::vf_070();
+    UObject::PostSerializeFromPropagationArchive();
 }
 
 // @baa 0x00da99e0

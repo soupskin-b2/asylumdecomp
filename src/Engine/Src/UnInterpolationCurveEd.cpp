@@ -77,127 +77,127 @@ void UObjectThunk::sub_00ce8790()
 }
 
 // @baa 0x00ceb140
-int UInterpTrackFloatBase::vf_000(void) { return 1; }
+UBOOL UInterpTrackFloatBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00ceb150
-int UInterpTrackVectorBase::vf_000(void) { return 1; }
+UBOOL UInterpTrackVectorBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00ceb160
-int UInterpTrackFloatProp::vf_000(void) { return 1; }
+UBOOL UInterpTrackFloatProp::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00ceb170
-int UInterpTrackInstFloatProp::vf_000(void) { return 1; }
+UBOOL UInterpTrackInstFloatProp::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00ceb180
-int UInterpTrackVectorProp::vf_000(void) { return 1; }
+UBOOL UInterpTrackVectorProp::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00ceb190
-int UInterpTrackInstVectorProp::vf_000(void) { return 1; }
+UBOOL UInterpTrackInstVectorProp::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00ceb1a0
-int UInterpTrackColorProp::vf_000(void) { return 1; }
+UBOOL UInterpTrackColorProp::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00ceb1b0
-int UInterpTrackInstColorProp::vf_000(void) { return 1; }
+UBOOL UInterpTrackInstColorProp::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00ceb1c0
-int UInterpTrackEvent::vf_000(void) { return 1; }
+UBOOL UInterpTrackEvent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00ceb1d0
-int UInterpTrackInstEvent::vf_000(void) { return 1; }
+UBOOL UInterpTrackInstEvent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00ceb1e0
-int UInterpTrackDirector::vf_000(void) { return 1; }
+UBOOL UInterpTrackDirector::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00ceb1f0
-int UInterpTrackInstDirector::vf_000(void) { return 1; }
+UBOOL UInterpTrackInstDirector::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00ceb200
-int UInterpTrackFade::vf_000(void) { return 1; }
+UBOOL UInterpTrackFade::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00ceb210
-int UInterpTrackInstFade::vf_000(void) { return 1; }
+UBOOL UInterpTrackInstFade::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00ceb220
-int UInterpTrackSlomo::vf_000(void) { return 1; }
+UBOOL UInterpTrackSlomo::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00ceb230
-int UInterpTrackInstSlomo::vf_000(void) { return 1; }
+UBOOL UInterpTrackInstSlomo::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00ceb240
-int UInterpTrackAnimControl::vf_000(void) { return 1; }
+UBOOL UInterpTrackAnimControl::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00ceb250
-int UInterpTrackInstAnimControl::vf_000(void) { return 1; }
+UBOOL UInterpTrackInstAnimControl::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00ceb260
-int UInterpTrackSound::vf_000(void) { return 1; }
+UBOOL UInterpTrackSound::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00ceb270
-int UInterpTrackInstSound::vf_000(void) { return 1; }
+UBOOL UInterpTrackInstSound::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00ceb280
-int UInterpTrackFloatParticleParam::vf_000(void) { return 1; }
+UBOOL UInterpTrackFloatParticleParam::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00ceb290
-int UInterpTrackInstFloatParticleParam::vf_000(void) { return 1; }
+UBOOL UInterpTrackInstFloatParticleParam::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00ceb2a0
-int UInterpTrackFloatMaterialParam::vf_000(void) { return 1; }
+UBOOL UInterpTrackFloatMaterialParam::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00ceb2b0
-int UInterpTrackInstFloatMaterialParam::vf_000(void) { return 1; }
+UBOOL UInterpTrackInstFloatMaterialParam::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00ceb2c0
-int UInterpTrackVectorMaterialParam::vf_000(void) { return 1; }
+UBOOL UInterpTrackVectorMaterialParam::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00ceb2d0
-int UInterpTrackInstVectorMaterialParam::vf_000(void) { return 1; }
+UBOOL UInterpTrackInstVectorMaterialParam::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00ceb2e0
-int UInterpTrackColorScale::vf_000(void) { return 1; }
+UBOOL UInterpTrackColorScale::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00ceb2f0
-int UInterpTrackInstColorScale::vf_000(void) { return 1; }
+UBOOL UInterpTrackInstColorScale::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00ceb300
-int UInterpTrackFaceFX::vf_000(void) { return 1; }
+UBOOL UInterpTrackFaceFX::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00ceb310
-int UInterpTrackInstFaceFX::vf_000(void) { return 1; }
+UBOOL UInterpTrackInstFaceFX::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00ceb320
-int UInterpTrackFaceFXRegister::vf_000(void) { return 1; }
+UBOOL UInterpTrackFaceFXRegister::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00ceb330
-int UInterpTrackInstFaceFXRegister::vf_000(void) { return 1; }
+UBOOL UInterpTrackInstFaceFXRegister::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00ceb340
-int UInterpTrackMorphWeight::vf_000(void) { return 1; }
+UBOOL UInterpTrackMorphWeight::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00ceb350
-int UInterpTrackInstMorphWeight::vf_000(void) { return 1; }
+UBOOL UInterpTrackInstMorphWeight::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00ceb360
-int UInterpTrackSkelControlScale::vf_000(void) { return 1; }
+UBOOL UInterpTrackSkelControlScale::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00ceb370
-int UInterpTrackInstSkelControlScale::vf_000(void) { return 1; }
+UBOOL UInterpTrackInstSkelControlScale::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00ceb380
-int UInterpTrackSoundFade::vf_000(void) { return 1; }
+UBOOL UInterpTrackSoundFade::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00ceb390
-int UInterpTrackInstSoundFade::vf_000(void) { return 1; }
+UBOOL UInterpTrackInstSoundFade::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00ceb3a0
-int UInterpTrackAudioMaster::vf_000(void) { return 1; }
+UBOOL UInterpTrackAudioMaster::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00ceb3b0
-int UInterpTrackInstAudioMaster::vf_000(void) { return 1; }
+UBOOL UInterpTrackInstAudioMaster::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00ceb3c0
-int UInterpTrackVisibility::vf_000(void) { return 1; }
+UBOOL UInterpTrackVisibility::HasUniqueStaticConfigName() const { return 1; }
 
 typedef uint size_t;
 
@@ -409,14 +409,14 @@ IMPLEMENT_CLASS_AT(UInterpTrackVisibility, "e:\\Projects\\Amadeus\\AA\\Game\\Unr
 // @baa 0x00d02380
 // @baa 0x00d02640
 // @baa 0x00d02750
-bool UInterpTrackFloatBase::vf_004()
+UBOOL UInterpTrackFloatBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00d02790
 // @baa 0x00d028a0
-bool UInterpTrackVectorBase::vf_004()
+UBOOL UInterpTrackVectorBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -425,7 +425,7 @@ bool UInterpTrackVectorBase::vf_004()
 IMPLEMENT_CLASS_AT(UInterpTrackEvent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnInterpolation.cpp", 56);
 
 // @baa 0x00d029f0
-bool UInterpTrackEvent::vf_004()
+UBOOL UInterpTrackEvent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -434,7 +434,7 @@ bool UInterpTrackEvent::vf_004()
 IMPLEMENT_CLASS_AT(UInterpTrackDirector, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnInterpolation.cpp", 59);
 
 // @baa 0x00d02b40
-bool UInterpTrackDirector::vf_004()
+UBOOL UInterpTrackDirector::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -443,14 +443,14 @@ bool UInterpTrackDirector::vf_004()
 IMPLEMENT_CLASS_AT(UInterpTrackFaceFX, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnInterpolation.cpp", 86);
 
 // @baa 0x00d02c90
-bool UInterpTrackFaceFX::vf_004()
+UBOOL UInterpTrackFaceFX::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00d02cd0
 // @baa 0x00d02de0
-bool UInterpTrackVisibility::vf_004()
+UBOOL UInterpTrackVisibility::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

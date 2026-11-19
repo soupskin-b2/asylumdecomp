@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x007567f0
-bool AActor::vf_004()
+UBOOL AActor::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

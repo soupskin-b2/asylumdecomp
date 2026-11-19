@@ -7,10 +7,10 @@
 IMPLEMENT_CLASS_AT(ARExplodableWallBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RExplodableWallBase.cpp", 12);
 
 // @baa 0x01716a00
-int ARExplodableWallBase::vf_000(void) { return 1; }
+UBOOL ARExplodableWallBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01716a10
-bool ARExplodableWallBase::vf_004()
+UBOOL ARExplodableWallBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

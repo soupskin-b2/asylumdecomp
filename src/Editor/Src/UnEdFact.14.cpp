@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00f1b6f0
-int UMaterialInstanceTimeVaryingFactoryNew::vf_000(void) { return 1; }
+UBOOL UMaterialInstanceTimeVaryingFactoryNew::HasUniqueStaticConfigName() const { return 1; }

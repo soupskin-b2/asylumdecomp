@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x007572c0
-int APhysicsVolume::vf_000(void) { return 1; }
+UBOOL APhysicsVolume::HasUniqueStaticConfigName() const { return 1; }

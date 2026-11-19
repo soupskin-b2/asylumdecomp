@@ -107,7 +107,7 @@ undefined4 C_01338180::sub_01338180(void)
 }
 
 // @baa 0x01338190
-int UAnimNodeEditInfo_AimOffset::vf_000(void) { return 1; }
+UBOOL UAnimNodeEditInfo_AimOffset::HasUniqueStaticConfigName() const { return 1; }
 
 int sub_0053dfa0(...);
 int sub_01284da0(void);
@@ -131,10 +131,10 @@ undefined4 * UUnrealEdEngine::sub_013381a0(byte param_2)
 IMPLEMENT_CLASS_AT(UAnimTreeEdSkelComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\AnimTreeEditor.cpp", 14);
 
 // @baa 0x01338540
-int UAnimTreeEdSkelComponent::vf_000(void) { return 1; }
+UBOOL UAnimTreeEdSkelComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01338550
-bool UAnimTreeEdSkelComponent::vf_004()
+UBOOL UAnimTreeEdSkelComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -143,10 +143,10 @@ bool UAnimTreeEdSkelComponent::vf_004()
 IMPLEMENT_CLASS_AT(UAnimNodeEditInfo, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\AnimTreeEditor.cpp", 15);
 
 // @baa 0x013386a0
-int UAnimNodeEditInfo::vf_000(void) { return 1; }
+UBOOL UAnimNodeEditInfo::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x013386b0
-bool UAnimNodeEditInfo::vf_004()
+UBOOL UAnimNodeEditInfo::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

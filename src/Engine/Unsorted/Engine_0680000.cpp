@@ -2563,7 +2563,7 @@ UBOOL AActor::IsPlayerPawn() { return 0; }
 
 int sub_005c7a30(void);
 // @baa 0x0068ea90
-undefined4 AActor::vf_0c4(void)
+UBOOL AActor::IsSelected() const
 {
     int param_1 = (int)this;
 

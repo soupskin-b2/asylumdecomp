@@ -410,10 +410,10 @@ IMPLEMENT_CLASS_AT(UMorphTarget, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3
 
 // @baa 0x00834550
 // @baa 0x00834660
-int UMorphWeightSequence::vf_000(void) { return 1; }
+UBOOL UMorphWeightSequence::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00834670
-bool UMorphWeightSequence::vf_004()
+UBOOL UMorphWeightSequence::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -422,10 +422,10 @@ bool UMorphWeightSequence::vf_004()
 IMPLEMENT_CLASS_AT(UMorphNodeBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnMorph.cpp", 15);
 
 // @baa 0x008347c0
-int UMorphNodeBase::vf_000(void) { return 1; }
+UBOOL UMorphNodeBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008347d0
-bool UMorphNodeBase::vf_004()
+UBOOL UMorphNodeBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

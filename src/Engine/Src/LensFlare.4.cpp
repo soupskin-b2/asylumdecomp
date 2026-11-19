@@ -7,12 +7,12 @@
 // @baa 0x00bace80
 /* Slot 0x2c (unnamed in the kit; UE3's FinishDestroy): frees the fence. FRenderCommandFence has no
  * destructor, so delete is just the free. */
-void ULensFlareComponent::vf_02c()
+void ULensFlareComponent::FinishDestroy()
 {
 	if (ReleaseResourcesFence)
 	{
 		delete ReleaseResourcesFence;
 		ReleaseResourcesFence = NULL;
 	}
-	Super::vf_02c();
+	Super::FinishDestroy();
 }

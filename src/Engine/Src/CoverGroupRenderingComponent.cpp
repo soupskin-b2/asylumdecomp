@@ -11,10 +11,10 @@ IMPLEMENT_CLASS_AT(UCoverGroupRenderingComponent, "e:\\Projects\\Amadeus\\AA\\Ga
 // @baa 0x00bf8e30
 
 // @baa 0x00bf8f40
-int UCoverGroupRenderingComponent::vf_000(void) { return 1; }
+UBOOL UCoverGroupRenderingComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00bf8f50
-bool UCoverGroupRenderingComponent::vf_004()
+UBOOL UCoverGroupRenderingComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

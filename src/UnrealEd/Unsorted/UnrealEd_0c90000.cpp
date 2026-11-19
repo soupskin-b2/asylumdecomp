@@ -664,10 +664,10 @@ int sub_00c99890(void)
 IMPLEMENT_CLASS_AT(ACrowdAgent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnCrowd.cpp", 9);
 
 // @baa 0x00c999d0
-int ACrowdAgent::vf_000(void) { return 1; }
+UBOOL ACrowdAgent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c999e0
-bool ACrowdAgent::vf_004()
+UBOOL ACrowdAgent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -676,10 +676,10 @@ bool ACrowdAgent::vf_004()
 IMPLEMENT_CLASS_AT(ACrowdAttractor, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnCrowd.cpp", 10);
 
 // @baa 0x00c99b30
-int ACrowdAttractor::vf_000(void) { return 1; }
+UBOOL ACrowdAttractor::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c99b40
-bool ACrowdAttractor::vf_004()
+UBOOL ACrowdAttractor::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -688,16 +688,16 @@ bool ACrowdAttractor::vf_004()
 IMPLEMENT_CLASS_AT(USeqAct_CrowdSpawner, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnCrowd.cpp", 11);
 
 // @baa 0x00c99c90
-int USeqAct_CrowdSpawner::vf_000(void) { return 1; }
+UBOOL USeqAct_CrowdSpawner::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c99ce0
 IMPLEMENT_CLASS_AT(ACrowdReplicationActor, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnCrowd.cpp", 12);
 
 // @baa 0x00c99df0
-int ACrowdReplicationActor::vf_000(void) { return 1; }
+UBOOL ACrowdReplicationActor::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c99e00
-bool ACrowdReplicationActor::vf_004()
+UBOOL ACrowdReplicationActor::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -733,10 +733,10 @@ void C::sub_00c9a260(char param_2)
 IMPLEMENT_CLASS_AT(UCurveEdPresetCurve, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnCurveEdPresetCurve.cpp", 11);
 
 // @baa 0x00c9a6a0
-int UCurveEdPresetCurve::vf_000(void) { return 1; }
+UBOOL UCurveEdPresetCurve::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c9a6b0
-bool UCurveEdPresetCurve::vf_004()
+UBOOL UCurveEdPresetCurve::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1446,7 +1446,7 @@ int sub_00c9c960(void)
 // @baa 0x00c99ca0
 // The class-feature check UE3 generates for every native class: is this class's superclass the one
 // its Super typedef names? (The engine uses it while registering the class.)
-bool USeqAct_CrowdSpawner::vf_004()
+UBOOL USeqAct_CrowdSpawner::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

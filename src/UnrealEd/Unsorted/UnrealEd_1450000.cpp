@@ -7,7 +7,7 @@
 IMPLEMENT_CLASS_AT(ULensFlareEditorOptions, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\LensFlareEditor.cpp", 16);
 
 // @baa 0x01450370
-bool ULensFlareEditorOptions::vf_004()
+UBOOL ULensFlareEditorOptions::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

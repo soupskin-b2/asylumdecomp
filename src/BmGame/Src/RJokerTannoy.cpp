@@ -11,10 +11,10 @@ IMPLEMENT_CLASS_AT(ARJokerTannoy, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine
 // @baa 0x01611fa0
 
 // @baa 0x016120b0
-int ARJokerTannoy::vf_000(void) { return 1; }
+UBOOL ARJokerTannoy::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016120c0
-bool ARJokerTannoy::vf_004()
+UBOOL ARJokerTannoy::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

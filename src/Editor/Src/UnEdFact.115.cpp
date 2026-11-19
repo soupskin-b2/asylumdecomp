@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00f1f400
-int UReimportSoundFactory::vf_000(void) { return 1; }
+UBOOL UReimportSoundFactory::HasUniqueStaticConfigName() const { return 1; }

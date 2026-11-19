@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x007572e0
-int AGravityVolume::vf_000(void) { return 1; }
+UBOOL AGravityVolume::HasUniqueStaticConfigName() const { return 1; }

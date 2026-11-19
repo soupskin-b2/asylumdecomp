@@ -258,10 +258,10 @@ INT UEditorUISceneClient::InputChar(INT ControllerId, TCHAR Character) { return 
 IMPLEMENT_CLASS_AT(UEditorUISceneClient, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\UnUIEditor.cpp", 28);
 
 // @baa 0x0149cfb0
-int UEditorUISceneClient::vf_000(void) { return 1; }
+UBOOL UEditorUISceneClient::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0149cfc0
-bool UEditorUISceneClient::vf_004()
+UBOOL UEditorUISceneClient::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -270,7 +270,7 @@ bool UEditorUISceneClient::vf_004()
 IMPLEMENT_CLASS_AT(UUIEditorOptions, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\UnUIEditor.cpp", 29);
 
 // @baa 0x0149d130
-bool UUIEditorOptions::vf_004()
+UBOOL UUIEditorOptions::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -279,10 +279,10 @@ bool UUIEditorOptions::vf_004()
 IMPLEMENT_CLASS_AT(UUIPreviewString, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\UnUIEditor.cpp", 30);
 
 // @baa 0x0149d280
-int UUIPreviewString::vf_000(void) { return 1; }
+UBOOL UUIPreviewString::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0149d290
-bool UUIPreviewString::vf_004()
+UBOOL UUIPreviewString::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -291,28 +291,28 @@ bool UUIPreviewString::vf_004()
 IMPLEMENT_CLASS_AT(UUISceneFactory, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\UnUIEditor.cpp", 32);
 
 // @baa 0x0149d3e0
-int UUISceneFactory::vf_000(void) { return 1; }
+UBOOL UUISceneFactory::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0149d3f0
-bool UUISceneFactory::vf_004()
+UBOOL UUISceneFactory::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0149d430
-int UUISceneFactoryNew::vf_000(void) { return 1; }
+UBOOL UUISceneFactoryNew::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0149d440
-int UUISceneFactoryText::vf_000(void) { return 1; }
+UBOOL UUISceneFactoryText::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0149d450
 IMPLEMENT_CLASS_AT(UUISceneExporter, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\UnUIEditor.cpp", 36);
 
 // @baa 0x0149d560
-int UUISceneExporter::vf_000(void) { return 1; }
+UBOOL UUISceneExporter::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0149d570
-bool UUISceneExporter::vf_004()
+UBOOL UUISceneExporter::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -321,16 +321,16 @@ bool UUISceneExporter::vf_004()
 IMPLEMENT_CLASS_AT(UUILayer, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\UnUIEditor.cpp", 37);
 
 // @baa 0x0149d6c0
-int UUILayer::vf_000(void) { return 1; }
+UBOOL UUILayer::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0149d6d0
-bool UUILayer::vf_004()
+UBOOL UUILayer::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0149d710
-int UUILayerRoot::vf_000(void) { return 1; }
+UBOOL UUILayerRoot::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0149d840
 // @baa 0x0149d8c0
@@ -2049,7 +2049,7 @@ void C_014dc1a0::sub_014dc1a0(void)
 }
 
 // @baa 0x0149ce60
-bool UUISceneManager::vf_004()
+UBOOL UUISceneManager::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -2128,7 +2128,7 @@ undefined4 * C_014adc20::sub_014adc20(undefined4 param_2)
 // @baa 0x014ba650
 
 // @baa 0x014ba760
-bool UUILayerRoot::vf_004()
+UBOOL UUILayerRoot::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -2136,7 +2136,7 @@ bool UUILayerRoot::vf_004()
 // @baa 0x014bb110
 
 // @baa 0x014bb220
-bool UUISceneFactoryNew::vf_004()
+UBOOL UUISceneFactoryNew::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

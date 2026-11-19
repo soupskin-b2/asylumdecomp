@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00756b80
-int ANavigationPoint::vf_000(void) { return 1; }
+UBOOL ANavigationPoint::HasUniqueStaticConfigName() const { return 1; }

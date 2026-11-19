@@ -19,10 +19,10 @@ IMPLEMENT_CLASS_AT(AGameWeapon, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\
 // @baa 0x00e26040
 
 // @baa 0x00e26150
-int UGameExplosion::vf_000(void) { return 1; }
+UBOOL UGameExplosion::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00e26160
-bool UGameExplosion::vf_004()
+UBOOL UGameExplosion::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

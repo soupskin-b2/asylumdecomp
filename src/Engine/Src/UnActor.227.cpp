@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x007771a0
-bool UFloorToCeilingReachSpec::vf_004()
+UBOOL UFloorToCeilingReachSpec::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

@@ -18,7 +18,7 @@ bool UTexture2D::sub_00567900(void)
 }
 
 // @baa 0x0071d0b0
-void UTexture2D::vf_05c(void) {  }
+void UTexture2D::PostDuplicate() {  }
 
 int sub_0056bf90(void);
 extern undefined * g_01eee3d0;

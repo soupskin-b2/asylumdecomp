@@ -9,10 +9,10 @@ IMPLEMENT_CLASS_AT(UMixBin, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Dev
 // @baa 0x00bec810
 // @baa 0x00bed180
 // @baa 0x00bed290
-int UMixBin::vf_000(void) { return 1; }
+UBOOL UMixBin::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00bed2a0
-bool UMixBin::vf_004()
+UBOOL UMixBin::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -24,10 +24,10 @@ int sub_00bed2e0(int a0, int a1) { return a1; }
 IMPLEMENT_CLASS_AT(URDepthBiasSkeletalMeshComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\RDepthBiasSkeletalMeshComponent.cpp", 4);
 
 // @baa 0x00bed400
-int URDepthBiasSkeletalMeshComponent::vf_000(void) { return 1; }
+UBOOL URDepthBiasSkeletalMeshComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00bed410
-bool URDepthBiasSkeletalMeshComponent::vf_004()
+UBOOL URDepthBiasSkeletalMeshComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -36,16 +36,16 @@ bool URDepthBiasSkeletalMeshComponent::vf_004()
 IMPLEMENT_CLASS_AT(URFMODSound, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\RFMODSound.cpp", 11);
 
 // @baa 0x00bed560
-int URFMODSound::vf_000(void) { return 1; }
+UBOOL URFMODSound::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00bed570
-bool URFMODSound::vf_004()
+UBOOL URFMODSound::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00bed5b0
-INT URFMODSound::vf_0dc() {
+UBOOL URFMODSound::IsLocalizedResource() {
     int param_1 = (int)this;
 
   return *(uint *)(param_1 + 0x120) & 0x1000;
@@ -86,10 +86,10 @@ IMPLEMENT_CLASS_AT(URPhysOnContactHandler, "e:\\Projects\\Amadeus\\AA\\Game\\Unr
 // @baa 0x00bed780
 // @baa 0x00bed7a0
 // @baa 0x00bed8b0
-int URPhysOnContactHandler::vf_000(void) { return 1; }
+UBOOL URPhysOnContactHandler::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00bed8c0
-bool URPhysOnContactHandler::vf_004()
+UBOOL URPhysOnContactHandler::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -174,10 +174,10 @@ int sub_00bed930(int a0, int a1) { return a1; }
 IMPLEMENT_CLASS_AT(URSeqAct_SetMaterialInstance, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\RSeqAct_SetMaterialInstance.cpp", 4);
 
 // @baa 0x00beda50
-int URSeqAct_SetMaterialInstance::vf_000(void) { return 1; }
+UBOOL URSeqAct_SetMaterialInstance::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00beda60
-bool URSeqAct_SetMaterialInstance::vf_004()
+UBOOL URSeqAct_SetMaterialInstance::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

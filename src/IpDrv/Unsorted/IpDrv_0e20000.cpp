@@ -340,10 +340,10 @@ int sub_00e29a90(int a0, int a1) { return a1; }
 int sub_00e29ae0(int a0, int a1) { return a1; }
 
 // @baa 0x00e2b6b0
-int UOnlineSubsystemCommonImpl::vf_000(void) { return 1; }
+UBOOL UOnlineSubsystemCommonImpl::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00e2b6c0
-bool UOnlineSubsystemCommonImpl::vf_004()
+UBOOL UOnlineSubsystemCommonImpl::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -359,10 +359,10 @@ struct C_00e2c820 { void sub_00e2c820(int a0); };
 void C_00e2c820::sub_00e2c820(int a0) { *(int*)((char*)this + 12) = a0; }
 
 // @baa 0x00e2c9a0
-int UOnlineNewsInterfaceMcp::vf_000(void) { return 1; }
+UBOOL UOnlineNewsInterfaceMcp::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00e2c9b0
-int UOnlineTitleFileDownloadMcp::vf_000(void) { return 1; }
+UBOOL UOnlineTitleFileDownloadMcp::HasUniqueStaticConfigName() const { return 1; }
 
 struct S_00e2da70 {
     TArray<BYTE> Items; // 0x00

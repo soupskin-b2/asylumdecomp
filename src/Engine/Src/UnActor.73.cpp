@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x007570e0
-bool AVehicle::vf_004()
+UBOOL AVehicle::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

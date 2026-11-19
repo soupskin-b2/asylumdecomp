@@ -386,14 +386,14 @@ int sub_006983f0(void)
 
 // @baa 0x00698420
 // @baa 0x00698530
-bool ADecalActor::vf_004()
+UBOOL ADecalActor::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00698570
 // @baa 0x00698680
-bool ADecalActorMovable::vf_004()
+UBOOL ADecalActorMovable::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

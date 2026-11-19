@@ -13,10 +13,10 @@ int sub_00835e80(int param_1, int param_2)
 IMPLEMENT_CLASS_AT(ACoverLink, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnNavigationPoint.cpp", 1635);
 
 // @baa 0x00835fa0
-int ACoverLink::vf_000(void) { return 1; }
+UBOOL ACoverLink::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00835fb0
-bool ACoverLink::vf_004()
+UBOOL ACoverLink::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -25,10 +25,10 @@ bool ACoverLink::vf_004()
 IMPLEMENT_CLASS_AT(ACoverGroup, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnNavigationPoint.cpp", 1636);
 
 // @baa 0x00836100
-int ACoverGroup::vf_000(void) { return 1; }
+UBOOL ACoverGroup::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00836110
-bool ACoverGroup::vf_004()
+UBOOL ACoverGroup::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -37,10 +37,10 @@ bool ACoverGroup::vf_004()
 IMPLEMENT_CLASS_AT(ACoverSlotMarker, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnNavigationPoint.cpp", 1637);
 
 // @baa 0x00836260
-int ACoverSlotMarker::vf_000(void) { return 1; }
+UBOOL ACoverSlotMarker::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00836270
-bool ACoverSlotMarker::vf_004()
+UBOOL ACoverSlotMarker::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -49,10 +49,10 @@ bool ACoverSlotMarker::vf_004()
 IMPLEMENT_CLASS_AT(AMantleMarker, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnNavigationPoint.cpp", 1638);
 
 // @baa 0x008363c0
-int AMantleMarker::vf_000(void) { return 1; }
+UBOOL AMantleMarker::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x008363d0
-bool AMantleMarker::vf_004()
+UBOOL AMantleMarker::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

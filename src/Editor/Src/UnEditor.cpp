@@ -277,7 +277,7 @@ DWORD* S_00f51eb0::sub_00f51eb0(INT Index)
 IMPLEMENT_CLASS_AT(UTerrainHeightMapFactoryTextT3D, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnEdFactTerrain.cpp", 1558);
 
 // @baa 0x00f52010
-bool UTerrainHeightMapFactoryTextT3D::vf_004()
+UBOOL UTerrainHeightMapFactoryTextT3D::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -286,7 +286,7 @@ bool UTerrainHeightMapFactoryTextT3D::vf_004()
 IMPLEMENT_CLASS_AT(UTerrainHeightMapFactoryG16BMP, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnEdFactTerrain.cpp", 1813);
 
 // @baa 0x00f52160
-bool UTerrainHeightMapFactoryG16BMP::vf_004()
+UBOOL UTerrainHeightMapFactoryG16BMP::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

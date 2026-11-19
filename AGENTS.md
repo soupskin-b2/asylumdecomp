@@ -290,7 +290,7 @@ Parts of `src/` still read like decompiler output (`param_1`, offset casts, `sub
   try one or two more parameters.
 - An exception-handling frame (`push -1; push ...; mov eax, fs:[0]`) comes from local objects with
   destructors alive across calls. Write ordinary C++ with those objects; the frame is generated.
-- UObject: `ObjectFlags` (an `FQWord` at 0x8; test it as `*(QWORD*)&ObjectFlags & 0x200`), `Outer` at
+- UObject: `ObjectFlags` (a QWORD at 0x8; test it as `ObjectFlags & RF_ClassDefaultObject`), `Outer` at
   0x1c, `Name` at 0x20, `Class` at 0x28.
 
 ## Improving matched functions
@@ -313,6 +313,31 @@ headers). On a pull request CI compiles and verifies every file of `src/` again;
 match fails. Once merged, a change reaches everyone's `asylum.pyz` by itself. If agents should know
 about it (a renamed or retyped declaration, a new header or macro, a new rule), add a line at the top of
 `tools/asylum/CHANGES.md`: the next `get` or `update` prints it to every agent that hasn't seen it.
+
+In a clone, three scripts make the common header fixes and keep `src/` matching (each compiles the
+headers before writing them and refuses a change that moves a slot or a member):
+
+```
+python tools/slots.py show CLASS [0xOFF]        a class's virtual slots: name, signature, who overrides each
+python tools/slots.py set CLASS 0xOFF "DECL"    name and type one slot, e.g. "void TickAnim(FLOAT DeltaSeconds, FLOAT TotalWeight)"
+python tools/slots.py apply FILE [--no-src]     many ("CLASS 0xOFF DECL" lines): renames the slot in every class
+                                                that declares it, rewrites src/'s definitions and calls, drops
+                                                helper structs made redundant, records the new symbols
+python tools/slots.py verify                    every class's vtable against the exe's (run before a pull request)
+python tools/slots.py todo [--class C]          slots still named vf_XXX, with their implementations
+python tools/natives.py show CLASS              a class's layout as the compiler sees it
+python tools/natives.py set CLASS 0xOFF "DECL"  name a C++-only member: placed in its _native blob (or over a
+                                                Native_XX placeholder) at that offset; fixes src/'s uses
+python tools/natives.py apply FILE [--no-src]   many ("CLASS 0xOFF DECL" lines)
+python tools/resymbol.py --only GLOB            re-record the symbols of matched functions after a rename (GLOB
+                                                relative to src/, e.g. 'Engine/Src/UnActor*')
+```
+
+Slot facts: MSVC lays out a class's new virtual overloads together in the reverse of their declaration
+order (`verify` checks it), a struct returned by value through a hidden pointer means that struct has a
+constructor, and making a plain declaration virtual changes the mangled names of its definitions (`apply`
+re-records them). Run the units (`python tools/ci/units.py --only GLOB`) on what a script names before
+committing.
 
 ## Commands
 

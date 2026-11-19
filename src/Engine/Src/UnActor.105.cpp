@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00757800
-int ALevelStreamingVolume::vf_000(void) { return 1; }
+UBOOL ALevelStreamingVolume::HasUniqueStaticConfigName() const { return 1; }

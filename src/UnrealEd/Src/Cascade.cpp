@@ -86,7 +86,7 @@ int sub_012b19c0(void)
 IMPLEMENT_CLASS_AT(UTexAlignerPlanar, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\UnTexAlignTools.cpp", 168);
 
 // @baa 0x012b1f40
-bool UTexAlignerPlanar::vf_004()
+UBOOL UTexAlignerPlanar::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -95,7 +95,7 @@ bool UTexAlignerPlanar::vf_004()
 IMPLEMENT_CLASS_AT(UTexAlignerDefault, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\UnTexAlignTools.cpp", 233);
 
 // @baa 0x012b2090
-bool UTexAlignerDefault::vf_004()
+UBOOL UTexAlignerDefault::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -104,7 +104,7 @@ bool UTexAlignerDefault::vf_004()
 IMPLEMENT_CLASS_AT(UTexAlignerBox, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\UnTexAlignTools.cpp", 268);
 
 // @baa 0x012b21e0
-bool UTexAlignerBox::vf_004()
+UBOOL UTexAlignerBox::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -113,7 +113,7 @@ bool UTexAlignerBox::vf_004()
 IMPLEMENT_CLASS_AT(UTexAlignerFit, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\UnTexAlignTools.cpp", 305);
 
 // @baa 0x012b2330
-bool UTexAlignerFit::vf_004()
+UBOOL UTexAlignerFit::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -321,7 +321,7 @@ void __stdcall sub_012b9700(INT Value)
 // @baa 0x012a09c0
 
 // @baa 0x012a0af0
-bool UCascadeOptions::vf_004()
+UBOOL UCascadeOptions::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -329,10 +329,10 @@ bool UCascadeOptions::vf_004()
 // @baa 0x012a0b30
 
 // @baa 0x012a0c40
-int UCascadePreviewComponent::vf_000(void) { return 1; }
+UBOOL UCascadePreviewComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x012a0c50
-bool UCascadePreviewComponent::vf_004()
+UBOOL UCascadePreviewComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -340,10 +340,10 @@ bool UCascadePreviewComponent::vf_004()
 // @baa 0x012a0c90
 
 // @baa 0x012a0da0
-int UCascadeParticleSystemComponent::vf_000(void) { return 1; }
+UBOOL UCascadeParticleSystemComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x012a0db0
-bool UCascadeParticleSystemComponent::vf_004()
+UBOOL UCascadeParticleSystemComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

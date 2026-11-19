@@ -23,7 +23,7 @@ IMPLEMENT_CLASS_AT(AFileLog, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\De
 // @baa 0x00697690
 
 // @baa 0x006977a0
-bool AFileLog::vf_004()
+UBOOL AFileLog::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

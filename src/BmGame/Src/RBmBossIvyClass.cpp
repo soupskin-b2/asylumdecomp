@@ -15,10 +15,10 @@ IMPLEMENT_CLASS_AT(ARSoftBodyProjectile, "e:\\Projects\\Amadeus\\AA\\Game\\Unrea
 // @baa 0x016acd00
 
 // @baa 0x016ace10
-int ARSoftBodyProjectile::vf_000(void) { return 1; }
+UBOOL ARSoftBodyProjectile::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016ace20
-bool ARSoftBodyProjectile::vf_004()
+UBOOL ARSoftBodyProjectile::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

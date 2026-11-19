@@ -23,16 +23,16 @@ void sub_00ec2f00(undefined4 param_1, undefined4 param_2, undefined4 param_3, un
 IMPLEMENT_CLASS_AT(UTrueTypeFontFactory, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\TTFontImport.cpp", 9);
 
 // @baa 0x00ec6910
-int UTrueTypeFontFactory::vf_000(void) { return 1; }
+UBOOL UTrueTypeFontFactory::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00ec6920
-bool UTrueTypeFontFactory::vf_004()
+UBOOL UTrueTypeFontFactory::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00ec6960
-int UTrueTypeMultiFontFactory::vf_000(void) { return 1; }
+UBOOL UTrueTypeMultiFontFactory::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00ed81e0
 // @baa 0x00ed8240
@@ -286,7 +286,7 @@ int sub_00ee01d0(void)
 
 // @baa 0x00ee0610
 // @baa 0x00ee0720
-bool UTrueTypeMultiFontFactory::vf_004()
+UBOOL UTrueTypeMultiFontFactory::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

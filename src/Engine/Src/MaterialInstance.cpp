@@ -7,10 +7,10 @@
 IMPLEMENT_CLASS_AT(UMaterialInstance, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\MaterialInstance.cpp", 10);
 
 // @baa 0x006aeaa0
-int UMaterialInstance::vf_000(void) { return 1; }
+UBOOL UMaterialInstance::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x006aeab0
-bool UMaterialInstance::vf_004()
+UBOOL UMaterialInstance::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

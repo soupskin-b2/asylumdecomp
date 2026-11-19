@@ -4,10 +4,10 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00cb00a0
-int USaveGameSummary::vf_000(void) { return 1; }
+UBOOL USaveGameSummary::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00cb00b0
-bool USaveGameSummary::vf_004()
+UBOOL USaveGameSummary::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

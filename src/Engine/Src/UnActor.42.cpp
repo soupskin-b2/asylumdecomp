@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00756b00
-int USlotToSlotReachSpec::vf_000(void) { return 1; }
+UBOOL USlotToSlotReachSpec::HasUniqueStaticConfigName() const { return 1; }

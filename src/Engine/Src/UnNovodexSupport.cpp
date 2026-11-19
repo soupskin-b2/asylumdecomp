@@ -103,10 +103,10 @@ undefined1 sub_009f8920(void)
 
 // @baa 0x009f93a0
 // @baa 0x009f94b0
-int UPhysicalMaterial::vf_000(void) { return 1; }
+UBOOL UPhysicalMaterial::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x009f94c0
-bool UPhysicalMaterial::vf_004()
+UBOOL UPhysicalMaterial::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

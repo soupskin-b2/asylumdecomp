@@ -16,7 +16,7 @@ IMPLEMENT_CLASS_AT(UParticleModuleMeshMaterial, "e:\\Projects\\Amadeus\\AA\\Game
 // @baa 0x00b48bb0
 // @baa 0x00b48c70
 // @baa 0x00b48d80
-bool UParticleModuleMeshMaterial::vf_004()
+UBOOL UParticleModuleMeshMaterial::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -26,16 +26,16 @@ bool UParticleModuleMeshMaterial::vf_004()
 // @baa 0x00b33270
 
 // @baa 0x00b33380
-int UParticleModuleMaterialBase::vf_000(void) { return 1; }
+UBOOL UParticleModuleMaterialBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b33390
-bool UParticleModuleMaterialBase::vf_004()
+UBOOL UParticleModuleMaterialBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00b333d0
-int UParticleModuleMeshMaterial::vf_000(void) { return 1; }
+UBOOL UParticleModuleMeshMaterial::HasUniqueStaticConfigName() const { return 1; }
 
 int sub_005c7a20(void);
 extern undefined * g_01fef368;

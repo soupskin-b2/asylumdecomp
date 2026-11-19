@@ -1028,138 +1028,138 @@ int sub_00da7640(int a0, int a1) { return a1; }
 IMPLEMENT_CLASS_AT(UUISequence, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnUIEventSystem.cpp", 16);
 
 // @baa 0x00da7760
-int UUISequence::vf_000(void) { return 1; }
+UBOOL UUISequence::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00da7770
-bool UUISequence::vf_004()
+UBOOL UUISequence::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00da77b0
-int UUIStateSequence::vf_000(void) { return 1; }
+UBOOL UUIStateSequence::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00da77c0
 IMPLEMENT_CLASS_AT(UUIAction, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnUIEventSystem.cpp", 19);
 
 // @baa 0x00da78d0
-int UUIAction::vf_000(void) { return 1; }
+UBOOL UUIAction::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00da78e0
-bool UUIAction::vf_004()
+UBOOL UUIAction::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00da7920
-int UUIAction_Scene::vf_000(void) { return 1; }
+UBOOL UUIAction_Scene::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00da7930
-int UUIAction_OpenScene::vf_000(void) { return 1; }
+UBOOL UUIAction_OpenScene::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00da7940
 IMPLEMENT_CLASS_AT(UUIEvent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnUIEventSystem.cpp", 58);
 
 // @baa 0x00da7a50
-int UUIEvent::vf_000(void) { return 1; }
+UBOOL UUIEvent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00da7a60
-bool UUIEvent::vf_004()
+UBOOL UUIEvent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00da7aa0
-int UUIEvent_MetaObject::vf_000(void) { return 1; }
+UBOOL UUIEvent_MetaObject::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00da7ab0
-int UUIEvent_CalloutButtonInputProxy::vf_000(void) { return 1; }
+UBOOL UUIEvent_CalloutButtonInputProxy::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00da7ac0
-int UUIEvent_ProcessInput::vf_000(void) { return 1; }
+UBOOL UUIEvent_ProcessInput::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00da7ad0
 // @baa 0x00da7be0
-int UUIEventContainer::vf_000(void) { return 1; }
+UBOOL UUIEventContainer::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00da7bf0
-bool UUIEventContainer::vf_004()
+UBOOL UUIEventContainer::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00da7c30
-int UUIList::vf_000(void) { return 1; }
+UBOOL UUIList::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00da7c40
 // @baa 0x00da7d50
-int UUIListElementProvider::vf_000(void) { return 1; }
+UBOOL UUIListElementProvider::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00da7d60
-bool UUIListElementProvider::vf_004()
+UBOOL UUIListElementProvider::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00da7da0
 // @baa 0x00da7eb0
-int UUIListElementCellProvider::vf_000(void) { return 1; }
+UBOOL UUIListElementCellProvider::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00da7ec0
-bool UUIListElementCellProvider::vf_004()
+UBOOL UUIListElementCellProvider::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00da7f00
 // @baa 0x00da8070
-int UUIObject::vf_000(void) { return 1; }
+UBOOL UUIObject::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00da8080
-int UUIButton::vf_000(void) { return 1; }
+UBOOL UUIButton::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00da8090
-int UUILabelButton::vf_000(void) { return 1; }
+UBOOL UUILabelButton::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00da80d0
-int UUIScene::vf_000(void) { return 1; }
+UBOOL UUIScene::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00da80e0
 // @baa 0x00da81f0
-int UUIStringRenderer::vf_000(void) { return 1; }
+UBOOL UUIStringRenderer::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00da8200
-bool UUIStringRenderer::vf_004()
+UBOOL UUIStringRenderer::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00da8240
 // @baa 0x00da8350
-int UUIStyleResolver::vf_000(void) { return 1; }
+UBOOL UUIStyleResolver::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00da8360
-bool UUIStyleResolver::vf_004()
+UBOOL UUIStyleResolver::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00da83a0
 // @baa 0x00da84b0
-int UCustomPropertyItemHandler::vf_000(void) { return 1; }
+UBOOL UCustomPropertyItemHandler::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00da84c0
-bool UCustomPropertyItemHandler::vf_004()
+UBOOL UCustomPropertyItemHandler::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00da8500
 // @baa 0x00da8610
-int UUITickableObject::vf_000(void) { return 1; }
+UBOOL UUITickableObject::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00da8620
-bool UUITickableObject::vf_004()
+UBOOL UUITickableObject::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1459,7 +1459,7 @@ void C_00daa7d0::sub_00daa7d0() { m.sub_00de34d0(); }
 void UUIObject::vf_218(int a0, int a1, int a2, int a3) {  }
 
 // @baa 0x00daa8a0
-void UUIObject::vf_09c(void) {  }
+void UUIObject::PostEditImport() {  }
 
 // @baa 0x00daab90
 undefined4 UUIObject::vf_230(int param_2, int param_3)
@@ -4046,7 +4046,7 @@ TConstSetBitIterator_00dbb610& TConstSetBitIterator_00dbb610::operator++()
 
 // @baa 0x00dbb810
 // @baa 0x00dbb920
-bool UUIObject::vf_004()
+UBOOL UUIObject::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -4055,7 +4055,7 @@ bool UUIObject::vf_004()
 IMPLEMENT_CLASS_AT(UUIScene, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnUIObjects.cpp", 52);
 
 // @baa 0x00dbba70
-bool UUIScene::vf_004()
+UBOOL UUIScene::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -4328,21 +4328,21 @@ sub_00dbcd6f:
 
 // @baa 0x00dbce40
 // @baa 0x00dbcf50
-bool UUIList::vf_004()
+UBOOL UUIList::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00dbcf90
 // @baa 0x00dbd0a0
-bool UUIButton::vf_004()
+UBOOL UUIButton::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00dbd0e0
 // @baa 0x00dbd1f0
-bool UConsoleEntry::vf_004()
+UBOOL UConsoleEntry::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -4605,7 +4605,7 @@ void sub_00dbdf30(void) { sub_00dbd2b0(); }
 
 // @baa 0x00dbdf40
 // @baa 0x00dbe050
-bool UUILabelButton::vf_004()
+UBOOL UUILabelButton::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -5008,7 +5008,7 @@ IMPLEMENT_CLASS_AT(UUIEvent_MetaObject, "e:\\Projects\\Amadeus\\AA\\Game\\Unreal
 // @baa 0x00dc08b0
 // @baa 0x00dc0a40
 // @baa 0x00dc0b50
-bool UUICalloutButton::vf_004()
+UBOOL UUICalloutButton::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -5175,28 +5175,28 @@ void sub_00dc53a0(void) { sub_00dc5220(); }
 
 // @baa 0x00dc53b0
 // @baa 0x00dc54c0
-bool UUIStateSequence::vf_004()
+UBOOL UUIStateSequence::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00dc5500
 // @baa 0x00dc5610
-bool UUIAction_Scene::vf_004()
+UBOOL UUIAction_Scene::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00dc5650
 // @baa 0x00dc5760
-bool UUIEvent_MetaObject::vf_004()
+UBOOL UUIEvent_MetaObject::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00dc57a0
 // @baa 0x00dc58b0
-bool UUIEvent_CalloutButtonInputProxy::vf_004()
+UBOOL UUIEvent_CalloutButtonInputProxy::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -5205,7 +5205,7 @@ bool UUIEvent_CalloutButtonInputProxy::vf_004()
 IMPLEMENT_CLASS_AT(UUIEvent_ProcessInput, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnUIEventSystem.cpp", 83);
 
 // @baa 0x00dc5a00
-bool UUIEvent_ProcessInput::vf_004()
+UBOOL UUIEvent_ProcessInput::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -5231,7 +5231,7 @@ void sub_00dc8ae0(void) { sub_00dc5220(); }
 
 // @baa 0x00dc8af0
 // @baa 0x00dc8c00
-bool UUIAction_OpenScene::vf_004()
+UBOOL UUIAction_OpenScene::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

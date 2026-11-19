@@ -24,10 +24,10 @@ void C::sub_016bdd40() {
 IMPLEMENT_CLASS_AT(URCapeStateController, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RCapeStateController.cpp", 15);
 
 // @baa 0x016ce2a0
-int URCapeStateController::vf_000(void) { return 1; }
+UBOOL URCapeStateController::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016ce2b0
-bool URCapeStateController::vf_004()
+UBOOL URCapeStateController::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -36,10 +36,10 @@ bool URCapeStateController::vf_004()
 IMPLEMENT_CLASS_AT(URCapeCollisionConfig, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RCapeStateController.cpp", 16);
 
 // @baa 0x016ce400
-int URCapeCollisionConfig::vf_000(void) { return 1; }
+UBOOL URCapeCollisionConfig::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016ce410
-bool URCapeCollisionConfig::vf_004()
+UBOOL URCapeCollisionConfig::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -48,10 +48,10 @@ bool URCapeCollisionConfig::vf_004()
 IMPLEMENT_CLASS_AT(URCapeCollisionConfigFactoryNew, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RCapeStateController.cpp", 17);
 
 // @baa 0x016ce560
-int URCapeCollisionConfigFactoryNew::vf_000(void) { return 1; }
+UBOOL URCapeCollisionConfigFactoryNew::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016ce570
-bool URCapeCollisionConfigFactoryNew::vf_004()
+UBOOL URCapeCollisionConfigFactoryNew::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -60,10 +60,10 @@ bool URCapeCollisionConfigFactoryNew::vf_004()
 IMPLEMENT_CLASS_AT(URCapeStateBoneConfig, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RCapeStateController.cpp", 18);
 
 // @baa 0x016ce700
-int URCapeStateBoneConfig::vf_000(void) { return 1; }
+UBOOL URCapeStateBoneConfig::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016ce710
-bool URCapeStateBoneConfig::vf_004()
+UBOOL URCapeStateBoneConfig::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -72,10 +72,10 @@ bool URCapeStateBoneConfig::vf_004()
 IMPLEMENT_CLASS_AT(URCapeStateBoneConfigFactoryNew, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RCapeStateController.cpp", 19);
 
 // @baa 0x016ce860
-int URCapeStateBoneConfigFactoryNew::vf_000(void) { return 1; }
+UBOOL URCapeStateBoneConfigFactoryNew::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016ce870
-bool URCapeStateBoneConfigFactoryNew::vf_004()
+UBOOL URCapeStateBoneConfigFactoryNew::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -84,10 +84,10 @@ bool URCapeStateBoneConfigFactoryNew::vf_004()
 IMPLEMENT_CLASS_AT(URCapeCollisionShapeConfig, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RCapeStateController.cpp", 20);
 
 // @baa 0x016cea00
-int URCapeCollisionShapeConfig::vf_000(void) { return 1; }
+UBOOL URCapeCollisionShapeConfig::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016cea10
-bool URCapeCollisionShapeConfig::vf_004()
+UBOOL URCapeCollisionShapeConfig::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -96,10 +96,10 @@ bool URCapeCollisionShapeConfig::vf_004()
 IMPLEMENT_CLASS_AT(URCapeCollisionShapeConfigFactoryNew, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RCapeStateController.cpp", 21);
 
 // @baa 0x016ceb60
-int URCapeCollisionShapeConfigFactoryNew::vf_000(void) { return 1; }
+UBOOL URCapeCollisionShapeConfigFactoryNew::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016ceb70
-bool URCapeCollisionShapeConfigFactoryNew::vf_004()
+UBOOL URCapeCollisionShapeConfigFactoryNew::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

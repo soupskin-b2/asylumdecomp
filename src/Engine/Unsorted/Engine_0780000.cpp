@@ -356,10 +356,10 @@ struct C_00787100 { void sub_00787100(int a0); };
 void C_00787100::sub_00787100(int a0) { *(int*)((char*)this + 12) = a0; }
 
 // @baa 0x00787590
-int UBrushComponent::vf_000(void) { return 1; }
+UBOOL UBrushComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x007875a0
-bool UBrushComponent::vf_004()
+UBOOL UBrushComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -402,23 +402,23 @@ undefined4 UBrushComponent::vf_12c(void)
 }
 
 // @baa 0x00787950
-int ACameraActor::vf_000(void) { return 1; }
+UBOOL ACameraActor::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00787960
-bool ACameraActor::vf_004()
+UBOOL ACameraActor::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x007879a0
-int ADynamicCameraActor::vf_000(void) { return 1; }
+UBOOL ADynamicCameraActor::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00787c80
 // @baa 0x00787d90
-int UCameraModifier::vf_000(void) { return 1; }
+UBOOL UCameraModifier::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00787da0
-bool UCameraModifier::vf_004()
+UBOOL UCameraModifier::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

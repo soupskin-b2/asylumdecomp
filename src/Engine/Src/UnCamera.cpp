@@ -30,10 +30,10 @@ IMPLEMENT_CLASS_AT(AAnimatedCamera, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngi
 // @baa 0x007876e0
 
 // @baa 0x007877f0
-int ACamera::vf_000(void) { return 1; }
+UBOOL ACamera::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00787800
-bool ACamera::vf_004()
+UBOOL ACamera::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -43,10 +43,10 @@ bool ACamera::vf_004()
 // @baa 0x007879c0
 
 // @baa 0x00787ad0
-int UCameraAnim::vf_000(void) { return 1; }
+UBOOL UCameraAnim::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00787ae0
-bool UCameraAnim::vf_004()
+UBOOL UCameraAnim::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -54,10 +54,10 @@ bool UCameraAnim::vf_004()
 // @baa 0x00787b20
 
 // @baa 0x00787c30
-int UCameraAnimInst::vf_000(void) { return 1; }
+UBOOL UCameraAnimInst::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00787c40
-bool UCameraAnimInst::vf_004()
+UBOOL UCameraAnimInst::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -73,7 +73,7 @@ bool ACamera::vf_1b8(void)
 // @baa 0x0079b0e0
 
 // @baa 0x0079b1f0
-bool ADynamicCameraActor::vf_004()
+UBOOL ADynamicCameraActor::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

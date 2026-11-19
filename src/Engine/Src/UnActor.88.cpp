@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00757330
-int AAutoLadder::vf_000(void) { return 1; }
+UBOOL AAutoLadder::HasUniqueStaticConfigName() const { return 1; }

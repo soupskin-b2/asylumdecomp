@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x006dadb0
-int UMeshComponent::vf_000(void) { return 1; }
+UBOOL UMeshComponent::HasUniqueStaticConfigName() const { return 1; }

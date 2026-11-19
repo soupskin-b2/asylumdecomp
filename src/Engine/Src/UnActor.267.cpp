@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00783980
-bool AAirNode::vf_004()
+UBOOL AAirNode::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

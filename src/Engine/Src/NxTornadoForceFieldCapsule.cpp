@@ -11,7 +11,7 @@ IMPLEMENT_CLASS_AT(ANxTornadoAngularForceFieldCapsule, "e:\\Projects\\Amadeus\\A
 // @baa 0x00a51d60
 
 // @baa 0x00a51e70
-bool ANxTornadoAngularForceFieldCapsule::vf_004()
+UBOOL ANxTornadoAngularForceFieldCapsule::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

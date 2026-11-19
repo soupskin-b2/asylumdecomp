@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00756a70
-int UReachSpec::vf_000(void) { return 1; }
+UBOOL UReachSpec::HasUniqueStaticConfigName() const { return 1; }

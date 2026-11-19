@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00757120
-int ALadder::vf_000(void) { return 1; }
+UBOOL ALadder::HasUniqueStaticConfigName() const { return 1; }

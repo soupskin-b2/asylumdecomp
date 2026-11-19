@@ -517,60 +517,60 @@ bool C_015be810::sub_015be810(void)
 
 // @baa 0x015be840
 // @baa 0x015be950
-int URAnimUtil_Layers::vf_000(void) { return 1; }
+UBOOL URAnimUtil_Layers::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015be960
-bool URAnimUtil_Layers::vf_004()
+UBOOL URAnimUtil_Layers::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x015bf450
 // @baa 0x015bf560
-int URAnimUtil_MovementPlayer::vf_000(void) { return 1; }
+UBOOL URAnimUtil_MovementPlayer::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015bf570
-bool URAnimUtil_MovementPlayer::vf_004()
+UBOOL URAnimUtil_MovementPlayer::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x015bf9a0
 // @baa 0x015bfab0
-int URAnimNotify_AddForce::vf_000(void) { return 1; }
+UBOOL URAnimNotify_AddForce::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015bfac0
-bool URAnimNotify_AddForce::vf_004()
+UBOOL URAnimNotify_AddForce::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x015bfb00
 // @baa 0x015bfc10
-int URAnimNotify_BeginBoneRescale::vf_000(void) { return 1; }
+UBOOL URAnimNotify_BeginBoneRescale::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015bfc20
-bool URAnimNotify_BeginBoneRescale::vf_004()
+UBOOL URAnimNotify_BeginBoneRescale::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x015bfc60
 // @baa 0x015bfd70
-int URAnimNotify_BeginEnd::vf_000(void) { return 1; }
+UBOOL URAnimNotify_BeginEnd::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015bfd80
-bool URAnimNotify_BeginEnd::vf_004()
+UBOOL URAnimNotify_BeginEnd::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x015bfdc0
 // @baa 0x015bfed0
-int URAnimNotify_BeginFixIK::vf_000(void) { return 1; }
+UBOOL URAnimNotify_BeginFixIK::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015bfee0
-bool URAnimNotify_BeginFixIK::vf_004()
+UBOOL URAnimNotify_BeginFixIK::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

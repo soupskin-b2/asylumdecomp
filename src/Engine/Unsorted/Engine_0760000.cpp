@@ -563,7 +563,7 @@ IMPLEMENT_CLASS_AT(UTextureRenderTarget, "e:\\Projects\\Amadeus\\AA\\Game\\Unrea
 IMPLEMENT_CLASS_AT(UMeshComponentFactory, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActorComponent.cpp", 52);
 
 // @baa 0x00764f00
-bool UMeshComponentFactory::vf_004()
+UBOOL UMeshComponentFactory::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -2097,7 +2097,7 @@ int sub_0076c640(void)
 
 // @baa 0x0076cb40
 // @baa 0x0076cc50
-bool UKillZDamageType::vf_004()
+UBOOL UKillZDamageType::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

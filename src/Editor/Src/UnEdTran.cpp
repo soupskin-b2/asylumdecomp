@@ -28,14 +28,14 @@ void UTransBuffer::sub_00f734e0(void)
 }
 
 // @baa 0x00f73530
-int UTransBuffer::vf_000(void) { return 1; }
+UBOOL UTransBuffer::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00f73540
 // @baa 0x00f77440
 IMPLEMENT_CLASS_AT(UTransBuffer, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnEdTran.cpp", 630);
 
 // @baa 0x00f77550
-bool UTransBuffer::vf_004()
+UBOOL UTransBuffer::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -834,10 +834,10 @@ void UTransactor::Cancel(INT StartIndex)
 // @baa 0x00f73600
 
 // @baa 0x00f73710
-int UTransactor::vf_000(void) { return 1; }
+UBOOL UTransactor::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00f73720
-bool UTransactor::vf_004()
+UBOOL UTransactor::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

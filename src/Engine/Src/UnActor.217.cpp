@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00776b10
-bool USlotToSlotReachSpec::vf_004()
+UBOOL USlotToSlotReachSpec::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

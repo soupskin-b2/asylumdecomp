@@ -10,271 +10,271 @@ void UMaterialExpression::vf_10c(INT a0, UINT a1) {  }
 IMPLEMENT_CLASS_AT(UMaterialExpression, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\MaterialExpressions.cpp", 9);
 
 // @baa 0x00c1c360
-int UMaterialExpression::vf_000(void) { return 1; }
+UBOOL UMaterialExpression::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c370
-bool UMaterialExpression::vf_004()
+UBOOL UMaterialExpression::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c1c3b0
-int UMaterialExpressionTextureSample::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionTextureSample::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c3c0
-int UMaterialExpressionMeshEmitterVertexColor::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionMeshEmitterVertexColor::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c3d0
-int UMaterialExpressionMultiply::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionMultiply::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c3e0
-int UMaterialExpressionDivide::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionDivide::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c3f0
-int UMaterialExpressionSubtract::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionSubtract::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c400
-int UMaterialExpressionLinearInterpolate::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionLinearInterpolate::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c410
-int UMaterialExpressionAdd::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionAdd::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c420
-int UMaterialExpressionTextureCoordinate::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionTextureCoordinate::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c430
-int UMaterialExpressionStaticComponentMaskParameter::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionStaticComponentMaskParameter::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c440
-int UMaterialExpressionComponentMask::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionComponentMask::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c450
-int UMaterialExpressionDotProduct::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionDotProduct::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c460
-int UMaterialExpressionCrossProduct::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionCrossProduct::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c470
-int UMaterialExpressionConstantClamp::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionConstantClamp::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c480
-int UMaterialExpressionClamp::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionClamp::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c490
-int UMaterialExpressionConstant::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionConstant::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c4a0
-int UMaterialExpressionConstant2Vector::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionConstant2Vector::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c4b0
-int UMaterialExpressionConstant3Vector::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionConstant3Vector::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c4c0
-int UMaterialExpressionConstant4Vector::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionConstant4Vector::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c4d0
-int UMaterialExpressionTime::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionTime::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c4e0
-int UMaterialExpressionCameraVector::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionCameraVector::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c4f0
-int UMaterialExpressionCameraWorldPosition::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionCameraWorldPosition::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c500
-int UMaterialExpressionReflectionVector::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionReflectionVector::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c510
-int UMaterialExpressionPanner::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionPanner::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c520
-int UMaterialExpressionRotator::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionRotator::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c530
-int UMaterialExpressionSine::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionSine::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c540
-int UMaterialExpressionCosine::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionCosine::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c550
-int UMaterialExpressionBumpOffset::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionBumpOffset::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c560
-int UMaterialExpressionAppendVector::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionAppendVector::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c570
-int UMaterialExpressionFloor::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionFloor::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c580
-int UMaterialExpressionCeil::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionCeil::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c590
-int UMaterialExpressionFrac::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionFrac::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c5a0
-int UMaterialExpressionAbs::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionAbs::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c5b0
-int UMaterialExpressionDepthBiasBlend::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionDepthBiasBlend::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c5c0
-int UMaterialExpressionDepthBiasedAlpha::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionDepthBiasedAlpha::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c5d0
-int UMaterialExpressionDepthBiasedBlend::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionDepthBiasedBlend::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c5e0
-int UMaterialExpressionDesaturation::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionDesaturation::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c5f0
-int UMaterialExpressionParameter::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionParameter::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c600
-int UMaterialExpressionVectorParameter::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionVectorParameter::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c610
-int UMaterialExpressionScalarParameter::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionScalarParameter::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c620
-int UMaterialExpressionStaticSwitchParameter::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionStaticSwitchParameter::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c630
-int UMaterialExpressionNormalize::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionNormalize::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c640
-int UMaterialExpressionVertexColor::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionVertexColor::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c650
-int UMaterialExpressionParticleSubUV::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionParticleSubUV::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c660
-int UMaterialExpressionMeshSubUV::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionMeshSubUV::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c670
-int UMaterialExpressionTextureSampleParameter::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionTextureSampleParameter::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c680
-int UMaterialExpressionTextureSampleParameter2D::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionTextureSampleParameter2D::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c690
-int UMaterialExpressionTextureSampleParameterCube::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionTextureSampleParameterCube::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c6a0
-int UMaterialExpressionTextureSampleParameterMovie::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionTextureSampleParameterMovie::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c6b0
-int UMaterialExpressionTextureSampleParameterSubUV::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionTextureSampleParameterSubUV::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c6c0
-int UMaterialExpressionFlipBookSample::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionFlipBookSample::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c6d0
-int UMaterialExpressionLensFlareIntensity::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionLensFlareIntensity::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c6e0
-int UMaterialExpressionLensFlareOcclusion::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionLensFlareOcclusion::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c6f0
-int UMaterialExpressionLensFlareRadialDistance::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionLensFlareRadialDistance::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c700
-int UMaterialExpressionLensFlareRayDistance::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionLensFlareRayDistance::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c710
-int UMaterialExpressionLensFlareSourceDistance::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionLensFlareSourceDistance::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c720
-int UMaterialExpressionLightVector::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionLightVector::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c730
-int UMaterialExpressionScreenPosition::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionScreenPosition::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c740
-int UMaterialExpressionPixelDepth::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionPixelDepth::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c750
-int UMaterialExpressionDestColor::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionDestColor::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c760
-int UMaterialExpressionDestDepth::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionDestDepth::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c770
-int UMaterialExpressionPower::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionPower::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c780
-int UMaterialExpressionSquareRoot::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionSquareRoot::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c790
-int UMaterialExpressionIf::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionIf::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c7a0
-int UMaterialExpressionOneMinus::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionOneMinus::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c7b0
-int UMaterialExpressionSceneTexture::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionSceneTexture::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c7c0
-int UMaterialExpressionSceneDepth::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionSceneDepth::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c7d0
-int UMaterialExpressionTransform::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionTransform::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c7e0
-int UMaterialExpressionTransformPosition::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionTransformPosition::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c7f0
-int UMaterialExpressionComment::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionComment::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c800
-int UMaterialExpressionCompound::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionCompound::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c810
-int UMaterialExpressionFresnel::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionFresnel::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c820
-int UMaterialExpressionFontSample::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionFontSample::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c830
-int UMaterialExpressionFontSampleParameter::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionFontSampleParameter::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c840
-int UMaterialExpressionWorldPosition::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionWorldPosition::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c850
-int UMaterialExpressionNormal::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionNormal::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c860
-int UMaterialExpressionFluidNormal::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionFluidNormal::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c870
-int UMaterialExpressionDeriveNormalZ::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionDeriveNormalZ::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c880
-int UMaterialExpressionConstantBiasScale::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionConstantBiasScale::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c890
-int UMaterialExpressionDynamicParameter::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionDynamicParameter::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c8a0
-int UMaterialExpressionAddNormalMap::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionAddNormalMap::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c8b0
-int UMaterialExpressionLightingDiffuseLambert::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionLightingDiffuseLambert::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c8c0
-int UMaterialExpressionLightingSpecularPhong::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionLightingSpecularPhong::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c8d0
-int UMaterialExpressionLightingSpecularBlinnPhong::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionLightingSpecularBlinnPhong::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c8e0
-int UMaterialExpressionLightingSpecularHeidrichSeidel::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionLightingSpecularHeidrichSeidel::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c8f0
-int UMaterialExpressionMax::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionMax::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c900
-int UMaterialExpressionMin::vf_000(void) { return 1; }
+UBOOL UMaterialExpressionMin::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c960
 int UMaterialExpression::vf_118(void) { return 112; }
@@ -371,10 +371,10 @@ void UMaterialExpressionTextureSampleParameter::vf_13c(void) {  }
 void __stdcall sub_00c1ca80(int a0) {  }
 
 // @baa 0x00c1caa0
-void UMaterialExpressionTextureSampleParameter::vf_05c(void) {  }
+void UMaterialExpressionTextureSampleParameter::PostDuplicate() {  }
 
 // @baa 0x00c1cab0
-void UMaterialExpressionTextureSampleParameter::vf_09c(void) {  }
+void UMaterialExpressionTextureSampleParameter::PostEditImport() {  }
 
 extern char g_0203a664[];
 // @baa 0x00c1cb50
@@ -711,10 +711,10 @@ void UMaterialExpressionDesaturation::vf_10c(int param_2, undefined4 param_3)
 }
 
 // @baa 0x00c1e2e0
-void UMaterialExpressionParameter::vf_05c(void) {  }
+void UMaterialExpressionParameter::PostDuplicate() {  }
 
 // @baa 0x00c1e2f0
-void UMaterialExpressionParameter::vf_09c(void) {  }
+void UMaterialExpressionParameter::PostEditImport() {  }
 
 // @baa 0x00c1e390
 void UMaterialExpressionStaticSwitchParameter::vf_10c(int param_2, undefined4 param_3)
@@ -2669,392 +2669,392 @@ IMPLEMENT_CLASS_AT(UMaterialExpressionDynamicParameter, "e:\\Projects\\Amadeus\\
 // @baa 0x00c38cb0
 // @baa 0x00c38cd0
 // @baa 0x00c38de0
-bool UMaterialExpressionTextureSample::vf_004()
+UBOOL UMaterialExpressionTextureSample::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c38e20
 // @baa 0x00c38f30
-bool UMaterialExpressionMeshEmitterVertexColor::vf_004()
+UBOOL UMaterialExpressionMeshEmitterVertexColor::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c38f70
 // @baa 0x00c39080
-bool UMaterialExpressionMultiply::vf_004()
+UBOOL UMaterialExpressionMultiply::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c390c0
 // @baa 0x00c391d0
-bool UMaterialExpressionDivide::vf_004()
+UBOOL UMaterialExpressionDivide::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c39210
 // @baa 0x00c39320
-bool UMaterialExpressionSubtract::vf_004()
+UBOOL UMaterialExpressionSubtract::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c39360
 // @baa 0x00c39470
-bool UMaterialExpressionLinearInterpolate::vf_004()
+UBOOL UMaterialExpressionLinearInterpolate::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c394b0
 // @baa 0x00c395c0
-bool UMaterialExpressionAdd::vf_004()
+UBOOL UMaterialExpressionAdd::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c39600
 // @baa 0x00c39710
-bool UMaterialExpressionTextureCoordinate::vf_004()
+UBOOL UMaterialExpressionTextureCoordinate::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c39750
 // @baa 0x00c39860
-bool UMaterialExpressionComponentMask::vf_004()
+UBOOL UMaterialExpressionComponentMask::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c398a0
 // @baa 0x00c399b0
-bool UMaterialExpressionDotProduct::vf_004()
+UBOOL UMaterialExpressionDotProduct::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c399f0
 // @baa 0x00c39b00
-bool UMaterialExpressionCrossProduct::vf_004()
+UBOOL UMaterialExpressionCrossProduct::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c39b40
 // @baa 0x00c39c50
-bool UMaterialExpressionConstantClamp::vf_004()
+UBOOL UMaterialExpressionConstantClamp::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c39c90
 // @baa 0x00c39da0
-bool UMaterialExpressionClamp::vf_004()
+UBOOL UMaterialExpressionClamp::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c39de0
 // @baa 0x00c39ef0
-bool UMaterialExpressionConstant::vf_004()
+UBOOL UMaterialExpressionConstant::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c39f30
 // @baa 0x00c3a040
-bool UMaterialExpressionConstant2Vector::vf_004()
+UBOOL UMaterialExpressionConstant2Vector::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c3a080
 // @baa 0x00c3a190
-bool UMaterialExpressionConstant3Vector::vf_004()
+UBOOL UMaterialExpressionConstant3Vector::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c3a1d0
 // @baa 0x00c3a2e0
-bool UMaterialExpressionConstant4Vector::vf_004()
+UBOOL UMaterialExpressionConstant4Vector::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c3a320
 // @baa 0x00c3a430
-bool UMaterialExpressionTime::vf_004()
+UBOOL UMaterialExpressionTime::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c3a470
 // @baa 0x00c3a580
-bool UMaterialExpressionCameraVector::vf_004()
+UBOOL UMaterialExpressionCameraVector::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c3a5c0
 // @baa 0x00c3a6d0
-bool UMaterialExpressionCameraWorldPosition::vf_004()
+UBOOL UMaterialExpressionCameraWorldPosition::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c3a710
 // @baa 0x00c3a820
-bool UMaterialExpressionReflectionVector::vf_004()
+UBOOL UMaterialExpressionReflectionVector::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c3a860
 // @baa 0x00c3a970
-bool UMaterialExpressionPanner::vf_004()
+UBOOL UMaterialExpressionPanner::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c3a9b0
 // @baa 0x00c3aac0
-bool UMaterialExpressionRotator::vf_004()
+UBOOL UMaterialExpressionRotator::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c3ab00
 // @baa 0x00c3ac10
-bool UMaterialExpressionSine::vf_004()
+UBOOL UMaterialExpressionSine::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c3ac50
 // @baa 0x00c3ad60
-bool UMaterialExpressionCosine::vf_004()
+UBOOL UMaterialExpressionCosine::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c3ada0
 // @baa 0x00c3aeb0
-bool UMaterialExpressionBumpOffset::vf_004()
+UBOOL UMaterialExpressionBumpOffset::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c3aef0
 // @baa 0x00c3b000
-bool UMaterialExpressionAppendVector::vf_004()
+UBOOL UMaterialExpressionAppendVector::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c3b040
 // @baa 0x00c3b150
-bool UMaterialExpressionFloor::vf_004()
+UBOOL UMaterialExpressionFloor::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c3b190
 // @baa 0x00c3b2a0
-bool UMaterialExpressionCeil::vf_004()
+UBOOL UMaterialExpressionCeil::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c3b2e0
 // @baa 0x00c3b3f0
-bool UMaterialExpressionFrac::vf_004()
+UBOOL UMaterialExpressionFrac::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c3b430
 // @baa 0x00c3b540
-bool UMaterialExpressionAbs::vf_004()
+UBOOL UMaterialExpressionAbs::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c3b580
 // @baa 0x00c3b690
-bool UMaterialExpressionDepthBiasedAlpha::vf_004()
+UBOOL UMaterialExpressionDepthBiasedAlpha::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c3b6d0
 // @baa 0x00c3b7e0
-bool UMaterialExpressionDepthBiasedBlend::vf_004()
+UBOOL UMaterialExpressionDepthBiasedBlend::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c3b820
 // @baa 0x00c3b930
-bool UMaterialExpressionDesaturation::vf_004()
+UBOOL UMaterialExpressionDesaturation::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c3b970
 // @baa 0x00c3ba80
-bool UMaterialExpressionParameter::vf_004()
+UBOOL UMaterialExpressionParameter::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c3bac0
 // @baa 0x00c3bbd0
-bool UMaterialExpressionNormalize::vf_004()
+UBOOL UMaterialExpressionNormalize::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c3bc10
 // @baa 0x00c3bd20
-bool UMaterialExpressionVertexColor::vf_004()
+UBOOL UMaterialExpressionVertexColor::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c3bd60
 // @baa 0x00c3be70
-bool UMaterialExpressionLensFlareIntensity::vf_004()
+UBOOL UMaterialExpressionLensFlareIntensity::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c3beb0
 // @baa 0x00c3bfc0
-bool UMaterialExpressionLensFlareOcclusion::vf_004()
+UBOOL UMaterialExpressionLensFlareOcclusion::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c3c000
 // @baa 0x00c3c110
-bool UMaterialExpressionLensFlareRadialDistance::vf_004()
+UBOOL UMaterialExpressionLensFlareRadialDistance::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c3c150
 // @baa 0x00c3c260
-bool UMaterialExpressionLensFlareRayDistance::vf_004()
+UBOOL UMaterialExpressionLensFlareRayDistance::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c3c2a0
 // @baa 0x00c3c3b0
-bool UMaterialExpressionLensFlareSourceDistance::vf_004()
+UBOOL UMaterialExpressionLensFlareSourceDistance::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c3c3f0
 // @baa 0x00c3c500
-bool UMaterialExpressionLightVector::vf_004()
+UBOOL UMaterialExpressionLightVector::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c3c540
 // @baa 0x00c3c650
-bool UMaterialExpressionScreenPosition::vf_004()
+UBOOL UMaterialExpressionScreenPosition::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c3c690
 // @baa 0x00c3c7a0
-bool UMaterialExpressionPixelDepth::vf_004()
+UBOOL UMaterialExpressionPixelDepth::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c3c7e0
 // @baa 0x00c3c8f0
-bool UMaterialExpressionDestColor::vf_004()
+UBOOL UMaterialExpressionDestColor::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c3c930
 // @baa 0x00c3ca40
-bool UMaterialExpressionDestDepth::vf_004()
+UBOOL UMaterialExpressionDestDepth::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c3ca80
 // @baa 0x00c3cb90
-bool UMaterialExpressionPower::vf_004()
+UBOOL UMaterialExpressionPower::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c3cbd0
 // @baa 0x00c3cce0
-bool UMaterialExpressionSquareRoot::vf_004()
+UBOOL UMaterialExpressionSquareRoot::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c3cd20
 // @baa 0x00c3ce30
-bool UMaterialExpressionIf::vf_004()
+UBOOL UMaterialExpressionIf::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c3ce70
 // @baa 0x00c3cf80
-bool UMaterialExpressionOneMinus::vf_004()
+UBOOL UMaterialExpressionOneMinus::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c3cfc0
 // @baa 0x00c3d0d0
-bool UMaterialExpressionSceneTexture::vf_004()
+UBOOL UMaterialExpressionSceneTexture::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c3d110
 // @baa 0x00c3d220
-bool UMaterialExpressionSceneDepth::vf_004()
+UBOOL UMaterialExpressionSceneDepth::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c3d260
 // @baa 0x00c3d370
-bool UMaterialExpressionTransform::vf_004()
+UBOOL UMaterialExpressionTransform::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c3d3b0
 // @baa 0x00c3d4c0
-bool UMaterialExpressionTransformPosition::vf_004()
+UBOOL UMaterialExpressionTransformPosition::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c3d500
 // @baa 0x00c3d610
-bool UMaterialExpressionComment::vf_004()
+UBOOL UMaterialExpressionComment::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -3062,63 +3062,63 @@ bool UMaterialExpressionComment::vf_004()
 // @baa 0x00c3d650
 // @baa 0x00c3d710
 // @baa 0x00c3d820
-bool UMaterialExpressionCompound::vf_004()
+UBOOL UMaterialExpressionCompound::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c3d860
 // @baa 0x00c3d970
-bool UMaterialExpressionFresnel::vf_004()
+UBOOL UMaterialExpressionFresnel::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c3d9b0
 // @baa 0x00c3dac0
-bool UMaterialExpressionFontSample::vf_004()
+UBOOL UMaterialExpressionFontSample::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c3db00
 // @baa 0x00c3dc10
-bool UMaterialExpressionWorldPosition::vf_004()
+UBOOL UMaterialExpressionWorldPosition::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c3dc50
 // @baa 0x00c3dd60
-bool UMaterialExpressionNormal::vf_004()
+UBOOL UMaterialExpressionNormal::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c3dda0
 // @baa 0x00c3deb0
-bool UMaterialExpressionFluidNormal::vf_004()
+UBOOL UMaterialExpressionFluidNormal::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c3def0
 // @baa 0x00c3e000
-bool UMaterialExpressionDeriveNormalZ::vf_004()
+UBOOL UMaterialExpressionDeriveNormalZ::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c3e040
 // @baa 0x00c3e150
-bool UMaterialExpressionConstantBiasScale::vf_004()
+UBOOL UMaterialExpressionConstantBiasScale::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c3e190
 // @baa 0x00c3e2a0
-bool UMaterialExpressionDynamicParameter::vf_004()
+UBOOL UMaterialExpressionDynamicParameter::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -3139,70 +3139,70 @@ int sub_00c40f00(void)
 
 // @baa 0x00c40f30
 // @baa 0x00c41040
-bool UMaterialExpressionStaticComponentMaskParameter::vf_004()
+UBOOL UMaterialExpressionStaticComponentMaskParameter::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c41080
 // @baa 0x00c41190
-bool UMaterialExpressionDepthBiasBlend::vf_004()
+UBOOL UMaterialExpressionDepthBiasBlend::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c411d0
 // @baa 0x00c412e0
-bool UMaterialExpressionVectorParameter::vf_004()
+UBOOL UMaterialExpressionVectorParameter::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c41320
 // @baa 0x00c41430
-bool UMaterialExpressionScalarParameter::vf_004()
+UBOOL UMaterialExpressionScalarParameter::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c41470
 // @baa 0x00c41580
-bool UMaterialExpressionStaticSwitchParameter::vf_004()
+UBOOL UMaterialExpressionStaticSwitchParameter::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c415c0
 // @baa 0x00c416d0
-bool UMaterialExpressionParticleSubUV::vf_004()
+UBOOL UMaterialExpressionParticleSubUV::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c41710
 // @baa 0x00c41820
-bool UMaterialExpressionMeshSubUV::vf_004()
+UBOOL UMaterialExpressionMeshSubUV::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c41860
 // @baa 0x00c41970
-bool UMaterialExpressionTextureSampleParameter::vf_004()
+UBOOL UMaterialExpressionTextureSampleParameter::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c419b0
 // @baa 0x00c41ac0
-bool UMaterialExpressionFlipBookSample::vf_004()
+UBOOL UMaterialExpressionFlipBookSample::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00c41b00
 // @baa 0x00c41c10
-bool UMaterialExpressionFontSampleParameter::vf_004()
+UBOOL UMaterialExpressionFontSampleParameter::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -3224,10 +3224,10 @@ void sub_00c1ee70(void)
 void __stdcall sub_00c1ee80(int a0) {  }
 
 // @baa 0x00c1eea0
-void UMaterialExpressionFontSampleParameter::vf_05c(void) {  }
+void UMaterialExpressionFontSampleParameter::PostDuplicate() {  }
 
 // @baa 0x00c1eeb0
-void UMaterialExpressionFontSampleParameter::vf_09c(void) {  }
+void UMaterialExpressionFontSampleParameter::PostEditImport() {  }
 
 // @baa 0x00c1eed0
 void UMaterialExpressionWorldPosition::vf_10c(INT a0, UINT a1) {  }
@@ -3596,7 +3596,7 @@ undefined4 * UObject::sub_00c2c390(void)
 // @baa 0x00c3e2e0
 
 // @baa 0x00c3e3f0
-bool UMaterialExpressionAddNormalMap::vf_004()
+UBOOL UMaterialExpressionAddNormalMap::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -3604,7 +3604,7 @@ bool UMaterialExpressionAddNormalMap::vf_004()
 // @baa 0x00c3e430
 
 // @baa 0x00c3e540
-bool UMaterialExpressionLightingDiffuseLambert::vf_004()
+UBOOL UMaterialExpressionLightingDiffuseLambert::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -3612,7 +3612,7 @@ bool UMaterialExpressionLightingDiffuseLambert::vf_004()
 // @baa 0x00c3e580
 
 // @baa 0x00c3e690
-bool UMaterialExpressionLightingSpecularPhong::vf_004()
+UBOOL UMaterialExpressionLightingSpecularPhong::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -3620,7 +3620,7 @@ bool UMaterialExpressionLightingSpecularPhong::vf_004()
 // @baa 0x00c3e6d0
 
 // @baa 0x00c3e7e0
-bool UMaterialExpressionLightingSpecularBlinnPhong::vf_004()
+UBOOL UMaterialExpressionLightingSpecularBlinnPhong::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -3628,7 +3628,7 @@ bool UMaterialExpressionLightingSpecularBlinnPhong::vf_004()
 // @baa 0x00c3e820
 
 // @baa 0x00c3e930
-bool UMaterialExpressionLightingSpecularHeidrichSeidel::vf_004()
+UBOOL UMaterialExpressionLightingSpecularHeidrichSeidel::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -3636,7 +3636,7 @@ bool UMaterialExpressionLightingSpecularHeidrichSeidel::vf_004()
 // @baa 0x00c3e970
 
 // @baa 0x00c3ea80
-bool UMaterialExpressionMax::vf_004()
+UBOOL UMaterialExpressionMax::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -3644,7 +3644,7 @@ bool UMaterialExpressionMax::vf_004()
 // @baa 0x00c3eac0
 
 // @baa 0x00c3ebd0
-bool UMaterialExpressionMin::vf_004()
+UBOOL UMaterialExpressionMin::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

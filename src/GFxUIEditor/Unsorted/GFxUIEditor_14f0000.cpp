@@ -4,10 +4,10 @@
 #include "ue3/Implement.h"
 
 // @baa 0x014f9d70
-int UGFxEditor::vf_000(void) { return 1; }
+UBOOL UGFxEditor::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x014f9d80
-bool UGFxEditor::vf_004()
+UBOOL UGFxEditor::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

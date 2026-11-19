@@ -21,24 +21,24 @@ IMPLEMENT_CLASS_AT(URParticleModuleWaitForDeath, "e:\\Projects\\Amadeus\\AA\\Gam
 // @baa 0x015432d0
 
 // @baa 0x0153b890
-int URParticleModuleSpawnDecalOnDeath::vf_000(void) { return 1; }
+UBOOL URParticleModuleSpawnDecalOnDeath::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0153b8a0
 
 // @baa 0x0153b9b0
-int URParticleModuleOnDeathBase::vf_000(void) { return 1; }
+UBOOL URParticleModuleOnDeathBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0153b9c0
-bool URParticleModuleOnDeathBase::vf_004()
+UBOOL URParticleModuleOnDeathBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0153ba00
-int URParticleModuleSpawnOnDeath::vf_000(void) { return 1; }
+UBOOL URParticleModuleSpawnOnDeath::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0153ba10
-int URParticleModuleWaitForDeath::vf_000(void) { return 1; }
+UBOOL URParticleModuleWaitForDeath::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0153ba20
 void URParticleModuleSpawnDecalOnDeath::vf_168(int a0, int a1, int a2, int a3, int a4) {  }

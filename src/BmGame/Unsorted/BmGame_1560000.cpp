@@ -1070,7 +1070,7 @@ void C_01563970::sub_01563970() { m.sub_0040fcc0(); }
 IMPLEMENT_CLASS_AT(URBoneRescaleConfig, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameClasses.cpp", 69);
 
 // @baa 0x01563b30
-bool URBoneRescaleConfig::vf_004()
+UBOOL URBoneRescaleConfig::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1079,7 +1079,7 @@ bool URBoneRescaleConfig::vf_004()
 IMPLEMENT_CLASS_AT(URCharacterViewerConfig, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameClasses.cpp", 70);
 
 // @baa 0x01563c80
-bool URCharacterViewerConfig::vf_004()
+UBOOL URCharacterViewerConfig::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1088,7 +1088,7 @@ bool URCharacterViewerConfig::vf_004()
 IMPLEMENT_CLASS_AT(URDirectionalAnimConfig, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameClasses.cpp", 74);
 
 // @baa 0x01563dd0
-bool URDirectionalAnimConfig::vf_004()
+UBOOL URDirectionalAnimConfig::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1097,7 +1097,7 @@ bool URDirectionalAnimConfig::vf_004()
 IMPLEMENT_CLASS_AT(URMirrorConfig, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameClasses.cpp", 77);
 
 // @baa 0x01563f20
-bool URMirrorConfig::vf_004()
+UBOOL URMirrorConfig::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1106,7 +1106,7 @@ bool URMirrorConfig::vf_004()
 IMPLEMENT_CLASS_AT(URPoseConfig, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameClasses.cpp", 78);
 
 // @baa 0x01564070
-bool URPoseConfig::vf_004()
+UBOOL URPoseConfig::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1115,7 +1115,7 @@ bool URPoseConfig::vf_004()
 IMPLEMENT_CLASS_AT(URWeaponConfig, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameClasses.cpp", 147);
 
 // @baa 0x01564350
-bool URWeaponConfig::vf_004()
+UBOOL URWeaponConfig::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1124,7 +1124,7 @@ bool URWeaponConfig::vf_004()
 IMPLEMENT_CLASS_AT(URAlternateAnimationAndWeaponConfig, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameClasses.cpp", 148);
 
 // @baa 0x015644a0
-bool URAlternateAnimationAndWeaponConfig::vf_004()
+UBOOL URAlternateAnimationAndWeaponConfig::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

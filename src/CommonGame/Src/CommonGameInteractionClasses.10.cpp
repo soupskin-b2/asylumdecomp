@@ -7,10 +7,10 @@
 IMPLEMENT_CLASS_AT(URInteractionClass, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonGame\\Src\\CommonGameInteractionClasses.cpp", 5);
 
 // @baa 0x0153b440
-int URInteractionClass::vf_000(void) { return 1; }
+UBOOL URInteractionClass::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0153b450
-bool URInteractionClass::vf_004()
+UBOOL URInteractionClass::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -19,10 +19,10 @@ bool URInteractionClass::vf_004()
 IMPLEMENT_CLASS_AT(URInteractionComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonGame\\Src\\CommonGameInteractionClasses.cpp", 7);
 
 // @baa 0x0153b700
-int URInteractionComponent::vf_000(void) { return 1; }
+UBOOL URInteractionComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0153b710
-bool URInteractionComponent::vf_004()
+UBOOL URInteractionComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

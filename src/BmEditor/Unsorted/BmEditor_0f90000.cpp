@@ -65,10 +65,10 @@ extern char g_021625b0[];
 int sub_00f946a0(void) { return (int)g_021625b0; }
 
 // @baa 0x00f9f830
-int USkeletalMeshFactory::vf_000(void) { return 1; }
+UBOOL USkeletalMeshFactory::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00f9f840
-bool USkeletalMeshFactory::vf_004()
+UBOOL USkeletalMeshFactory::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

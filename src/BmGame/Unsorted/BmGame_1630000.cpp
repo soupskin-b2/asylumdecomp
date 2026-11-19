@@ -418,31 +418,31 @@ struct C_01638ce0 { C_01638ce0* sub_01638ce0(int a0); };
 C_01638ce0* C_01638ce0::sub_01638ce0(int a0) { return this; }
 
 // @baa 0x01639cf0
-int ARGrappleGun::vf_000(void) { return 1; }
+UBOOL ARGrappleGun::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01639d00
 IMPLEMENT_CLASS_AT(ARGrapplePoint, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RGrapplePoint.cpp", 21);
 
 // @baa 0x01639e10
-int ARGrapplePoint::vf_000(void) { return 1; }
+UBOOL ARGrapplePoint::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01639e20
-bool ARGrapplePoint::vf_004()
+UBOOL ARGrapplePoint::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01639e60
-int ARRescuePoint::vf_000(void) { return 1; }
+UBOOL ARRescuePoint::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01639e70
 IMPLEMENT_CLASS_AT(ARGrapplePointCatchmentArea, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RGrapplePoint.cpp", 23);
 
 // @baa 0x01639f80
-int ARGrapplePointCatchmentArea::vf_000(void) { return 1; }
+UBOOL ARGrapplePointCatchmentArea::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01639f90
-bool ARGrapplePointCatchmentArea::vf_004()
+UBOOL ARGrapplePointCatchmentArea::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -451,10 +451,10 @@ bool ARGrapplePointCatchmentArea::vf_004()
 IMPLEMENT_CLASS_AT(ARGrappleBlockingVolume, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RGrapplePoint.cpp", 24);
 
 // @baa 0x0163a0e0
-int ARGrappleBlockingVolume::vf_000(void) { return 1; }
+UBOOL ARGrappleBlockingVolume::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0163a0f0
-bool ARGrappleBlockingVolume::vf_004()
+UBOOL ARGrappleBlockingVolume::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -494,22 +494,22 @@ int sub_0163aaa0(void)
 }
 
 // @baa 0x0163ba00
-int ARLineLauncher::vf_000(void) { return 1; }
+UBOOL ARLineLauncher::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0163bc80
-int ARLineLauncherBlockingVolume::vf_000(void) { return 1; }
+UBOOL ARLineLauncherBlockingVolume::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0163bc90
-bool ARLineLauncherBlockingVolume::vf_004()
+UBOOL ARLineLauncherBlockingVolume::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0163be40
-int ARPhotoScanner::vf_000(void) { return 1; }
+UBOOL ARPhotoScanner::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0163be50
-bool ARPhotoScanner::vf_004()
+UBOOL ARPhotoScanner::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -545,31 +545,31 @@ int sub_0163c440(int a0, int a1) { return a1; }
 int sub_0163c450(int a0, int a1) { return a1; }
 
 // @baa 0x0163c570
-int ARCombatMove::vf_000(void) { return 1; }
+UBOOL ARCombatMove::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0163c580
-bool ARCombatMove::vf_004()
+UBOOL ARCombatMove::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0163c5c0
-int ARCombatMove_BatmanAttack::vf_000(void) { return 1; }
+UBOOL ARCombatMove_BatmanAttack::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0163c5d0
-int ARCombatMove_BatmanWeaponAttack::vf_000(void) { return 1; }
+UBOOL ARCombatMove_BatmanWeaponAttack::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0163c5e0
-int ARCombatMove_BatmanStrike::vf_000(void) { return 1; }
+UBOOL ARCombatMove_BatmanStrike::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0163c5f0
-int ARCombatMove_BatmanCounter::vf_000(void) { return 1; }
+UBOOL ARCombatMove_BatmanCounter::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0163d150
-int URSeqAct_CombatProgress::vf_000(void) { return 1; }
+UBOOL URSeqAct_CombatProgress::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0163d160
-bool URSeqAct_CombatProgress::vf_004()
+UBOOL URSeqAct_CombatProgress::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

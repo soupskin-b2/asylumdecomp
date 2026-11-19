@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00757750
-int UClipPadEntry::vf_000(void) { return 1; }
+UBOOL UClipPadEntry::HasUniqueStaticConfigName() const { return 1; }

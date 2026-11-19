@@ -322,10 +322,10 @@ undefined4 * UObject::sub_015bdb70(void)
 }
 
 // @baa 0x015c0030
-int URAnimNotify_BeginRagdoll::vf_000(void) { return 1; }
+UBOOL URAnimNotify_BeginRagdoll::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015c0040
-bool URAnimNotify_BeginRagdoll::vf_004()
+UBOOL URAnimNotify_BeginRagdoll::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -333,10 +333,10 @@ bool URAnimNotify_BeginRagdoll::vf_004()
 // @baa 0x015c0080
 
 // @baa 0x015c0190
-int URAnimNotify_CanCancelBeforeHere::vf_000(void) { return 1; }
+UBOOL URAnimNotify_CanCancelBeforeHere::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015c01a0
-bool URAnimNotify_CanCancelBeforeHere::vf_004()
+UBOOL URAnimNotify_CanCancelBeforeHere::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -344,10 +344,10 @@ bool URAnimNotify_CanCancelBeforeHere::vf_004()
 // @baa 0x015c01e0
 
 // @baa 0x015c02f0
-int URAnimNotify_CanCancelAfterHere::vf_000(void) { return 1; }
+UBOOL URAnimNotify_CanCancelAfterHere::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015c0300
-bool URAnimNotify_CanCancelAfterHere::vf_004()
+UBOOL URAnimNotify_CanCancelAfterHere::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -355,30 +355,30 @@ bool URAnimNotify_CanCancelAfterHere::vf_004()
 // @baa 0x015c0340
 
 // @baa 0x015c0450
-int URAnimNotify_CanCorrectAfterHere::vf_000(void) { return 1; }
+UBOOL URAnimNotify_CanCorrectAfterHere::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015c0460
-bool URAnimNotify_CanCorrectAfterHere::vf_004()
+UBOOL URAnimNotify_CanCorrectAfterHere::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x015c04a0
-int URAnimNotify_Clip::vf_000(void) { return 1; }
+UBOOL URAnimNotify_Clip::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015c04b0
-int URAnimNotify_ClipRootMotion::vf_000(void) { return 1; }
+UBOOL URAnimNotify_ClipRootMotion::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015c04c0
-int URAnimNotify_CollisionOptions::vf_000(void) { return 1; }
+UBOOL URAnimNotify_CollisionOptions::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015c04d0
 
 // @baa 0x015c05e0
-int URAnimNotify_EndFixIK::vf_000(void) { return 1; }
+UBOOL URAnimNotify_EndFixIK::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015c05f0
-bool URAnimNotify_EndFixIK::vf_004()
+UBOOL URAnimNotify_EndFixIK::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -386,27 +386,27 @@ bool URAnimNotify_EndFixIK::vf_004()
 // @baa 0x015c0630
 
 // @baa 0x015c0740
-int URAnimNotify_EndRagdoll::vf_000(void) { return 1; }
+UBOOL URAnimNotify_EndRagdoll::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015c0750
-bool URAnimNotify_EndRagdoll::vf_004()
+UBOOL URAnimNotify_EndRagdoll::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x015c0790
-int URAnimNotify_FloorHeight::vf_000(void) { return 1; }
+UBOOL URAnimNotify_FloorHeight::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015c07a0
-int URAnimNotify_ForwardYaw::vf_000(void) { return 1; }
+UBOOL URAnimNotify_ForwardYaw::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015c07b0
 
 // @baa 0x015c08c0
-int URAnimNotify_MeetingPoint::vf_000(void) { return 1; }
+UBOOL URAnimNotify_MeetingPoint::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015c08d0
-bool URAnimNotify_MeetingPoint::vf_004()
+UBOOL URAnimNotify_MeetingPoint::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -414,10 +414,10 @@ bool URAnimNotify_MeetingPoint::vf_004()
 // @baa 0x015c0910
 
 // @baa 0x015c0a20
-int URAnimNotify_SetFaceFXRegister::vf_000(void) { return 1; }
+UBOOL URAnimNotify_SetFaceFXRegister::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015c0a30
-bool URAnimNotify_SetFaceFXRegister::vf_004()
+UBOOL URAnimNotify_SetFaceFXRegister::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -425,10 +425,10 @@ bool URAnimNotify_SetFaceFXRegister::vf_004()
 // @baa 0x015c0a70
 
 // @baa 0x015c0b80
-int URAnimNotify_WeaponSwitch::vf_000(void) { return 1; }
+UBOOL URAnimNotify_WeaponSwitch::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015c0b90
-bool URAnimNotify_WeaponSwitch::vf_004()
+UBOOL URAnimNotify_WeaponSwitch::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -436,7 +436,7 @@ bool URAnimNotify_WeaponSwitch::vf_004()
 // @baa 0x015cb6b0
 
 // @baa 0x015cb7c0
-bool URAnimNotify_Clip::vf_004()
+UBOOL URAnimNotify_Clip::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -444,7 +444,7 @@ bool URAnimNotify_Clip::vf_004()
 // @baa 0x015cb800
 
 // @baa 0x015cb910
-bool URAnimNotify_ClipRootMotion::vf_004()
+UBOOL URAnimNotify_ClipRootMotion::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -452,7 +452,7 @@ bool URAnimNotify_ClipRootMotion::vf_004()
 // @baa 0x015cb950
 
 // @baa 0x015cba60
-bool URAnimNotify_CollisionOptions::vf_004()
+UBOOL URAnimNotify_CollisionOptions::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -460,7 +460,7 @@ bool URAnimNotify_CollisionOptions::vf_004()
 // @baa 0x015cbaa0
 
 // @baa 0x015cbbb0
-bool URAnimNotify_FloorHeight::vf_004()
+UBOOL URAnimNotify_FloorHeight::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -468,7 +468,7 @@ bool URAnimNotify_FloorHeight::vf_004()
 // @baa 0x015cbbf0
 
 // @baa 0x015cbd00
-bool URAnimNotify_ForwardYaw::vf_004()
+UBOOL URAnimNotify_ForwardYaw::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

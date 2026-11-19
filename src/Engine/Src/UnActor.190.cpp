@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00771e70
-bool UTeleportReachSpec::vf_004()
+UBOOL UTeleportReachSpec::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

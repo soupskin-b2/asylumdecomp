@@ -82,10 +82,10 @@ void __stdcall sub_00df3e20(int a0) {  }
 IMPLEMENT_CLASS_AT(UNetConnection, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnConn.cpp", 791);
 
 // @baa 0x00df3f40
-int UNetConnection::vf_000(void) { return 1; }
+UBOOL UNetConnection::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00df3f50
-bool UNetConnection::vf_004()
+UBOOL UNetConnection::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -94,7 +94,7 @@ bool UNetConnection::vf_004()
 IMPLEMENT_CLASS_AT(UChildConnection, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnConn.cpp", 792);
 
 // @baa 0x00df40a0
-int UChildConnection::vf_000(void) { return 1; }
+UBOOL UChildConnection::HasUniqueStaticConfigName() const { return 1; }
 
 struct T_00dff3c0;
 // @baa 0x00dff3c0
@@ -235,16 +235,16 @@ void C_00e14c30::sub_00e14c30()
 // @baa 0x00df3930
 
 // @baa 0x00df3a40
-int UGuidCache::vf_000(void) { return 1; }
+UBOOL UGuidCache::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00df3a50
-bool UGuidCache::vf_004()
+UBOOL UGuidCache::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00e16fe0
-bool UChildConnection::vf_004()
+UBOOL UChildConnection::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

@@ -349,21 +349,21 @@ TConstSetBitIterator_01543ae0& TConstSetBitIterator_01543ae0::operator++()
 
 // @baa 0x01543c10
 // @baa 0x01543d20
-bool URParticleModuleSpawnDecalOnDeath::vf_004()
+UBOOL URParticleModuleSpawnDecalOnDeath::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01543d60
 // @baa 0x01543e70
-bool URParticleModuleSpawnOnDeath::vf_004()
+UBOOL URParticleModuleSpawnOnDeath::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01543eb0
 // @baa 0x01543fc0
-bool URParticleModuleWaitForDeath::vf_004()
+UBOOL URParticleModuleWaitForDeath::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -429,7 +429,7 @@ undefined4 C_015444e0::sub_015444e0(byte param_2)
 
 // @baa 0x015447a0
 // @baa 0x015448b0
-bool URForcedReachSpec::vf_004()
+UBOOL URForcedReachSpec::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -514,7 +514,7 @@ IMPLEMENT_CLASS_AT(URActorFactoryBreakablePropStatic, "e:\\Projects\\Amadeus\\AA
 IMPLEMENT_CLASS_AT(ARBreakablePropStatic, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonGame\\Src\\CommonGamePropClasses.cpp", 4);
 
 // @baa 0x01546e40
-bool ARBreakablePropStatic::vf_004()
+UBOOL ARBreakablePropStatic::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

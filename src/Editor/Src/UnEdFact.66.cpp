@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00f1ce60
-bool UApexDestructibleAssetFactory::vf_004()
+UBOOL UApexDestructibleAssetFactory::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

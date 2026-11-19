@@ -357,17 +357,17 @@ int C_01192260::sub_01192260(void) { return *(int*)((char*)this + 0); }
 IMPLEMENT_CLASS_AT(UKismetBindings, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\Kismet.cpp", 48);
 
 // @baa 0x011923a0
-bool UKismetBindings::vf_004()
+UBOOL UKismetBindings::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x011923e0
 // @baa 0x011924f0
-int USequenceObjectHelper::vf_000(void) { return 1; }
+UBOOL USequenceObjectHelper::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01192500
-bool USequenceObjectHelper::vf_004()
+UBOOL USequenceObjectHelper::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

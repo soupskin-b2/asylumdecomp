@@ -1423,14 +1423,14 @@ C_0072a520::C_0072a520() : a(0), b(0), c(0) {}
 IMPLEMENT_CLASS_AT(UTexture2D, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\Texture2D.cpp", 25);
 
 // @baa 0x0072a640
-bool UTexture2D::vf_004()
+UBOOL UTexture2D::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0072b0e0
 // @baa 0x0072b1f0
-bool UTexture2DComposite::vf_004()
+UBOOL UTexture2DComposite::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

@@ -419,16 +419,16 @@ void UParticleSystemComponent::ClearParameter(FName ParameterName, BYTE Paramete
 IMPLEMENT_CLASS_AT(AEmitter, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnParticleComponents.cpp", 17);
 
 // @baa 0x00b51140
-int AEmitter::vf_000(void) { return 1; }
+UBOOL AEmitter::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b51150
-bool AEmitter::vf_004()
+UBOOL AEmitter::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00b51190
-int AEmitterCameraLensEffectBase::vf_000(void) { return 1; }
+UBOOL AEmitterCameraLensEffectBase::HasUniqueStaticConfigName() const { return 1; }
 
 int sub_005c7a20(void);
 extern undefined * g_01ff98d0;
@@ -489,7 +489,7 @@ int C_00b6b200::sub_00b6b200(void)
 IMPLEMENT_CLASS_AT(UPhysXParticleSystemComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnParticleComponents.cpp", 27);
 
 // @baa 0x00b6b7f0
-bool UPhysXParticleSystemComponent::vf_004()
+UBOOL UPhysXParticleSystemComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

@@ -7,16 +7,16 @@
 int sub_015e10d0(int a0, int a1) { return a1; }
 
 // @baa 0x015e1d00
-int URSeqAct_InfiniteCombatSpawner::vf_000(void) { return 1; }
+UBOOL URSeqAct_InfiniteCombatSpawner::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015e1d10
-bool URSeqAct_InfiniteCombatSpawner::vf_004()
+UBOOL URSeqAct_InfiniteCombatSpawner::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x015e1d50
-int ARPawnBossIvyBase::vf_000(void) { return 1; }
+UBOOL ARPawnBossIvyBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x015e1e10
 UINT URBmPawnSpawner::vf_1a4()

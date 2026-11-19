@@ -21,7 +21,7 @@ void C::sub_007b9350() {
 }
 
 // @baa 0x00b33b40
-int UParticleModuleParameterDynamic::vf_000(void) { return 1; }
+UBOOL UParticleModuleParameterDynamic::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b33b50
 int UParticleModuleParameterDynamic::vf_114(int a0) { return 16; }
@@ -558,7 +558,7 @@ TConstSetBitIterator_00b43120& TConstSetBitIterator_00b43120::operator++()
 IMPLEMENT_CLASS_AT(UParticleModuleParameterDynamic, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\ParticleModules_Parameter.cpp", 20);
 
 // @baa 0x00b49230
-bool UParticleModuleParameterDynamic::vf_004()
+UBOOL UParticleModuleParameterDynamic::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -994,10 +994,10 @@ void C_00b4bbc0::sub_00b4bbc0(int A)
 // @baa 0x00b339e0
 
 // @baa 0x00b33af0
-int UParticleModuleParameterBase::vf_000(void) { return 1; }
+UBOOL UParticleModuleParameterBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b33b00
-bool UParticleModuleParameterBase::vf_004()
+UBOOL UParticleModuleParameterBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

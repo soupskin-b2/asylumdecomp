@@ -764,10 +764,10 @@ int C_01427e30::sub_01427e30(void)
 }
 
 // @baa 0x01427fe0
-int UGenericBrowserType_SpeedTree::vf_000(void) { return 1; }
+UBOOL UGenericBrowserType_SpeedTree::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01427ff0
-bool UGenericBrowserType_SpeedTree::vf_004()
+UBOOL UGenericBrowserType_SpeedTree::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

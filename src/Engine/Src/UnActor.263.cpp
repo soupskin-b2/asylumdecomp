@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x007836e0
-bool ACullDistanceVolume::vf_004()
+UBOOL ACullDistanceVolume::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

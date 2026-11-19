@@ -11,7 +11,7 @@ IMPLEMENT_CLASS_AT(UAnimationCompressionAlgorithm_BitwiseCompressOnly, "e:\\Proj
 // @baa 0x00c0d100
 
 // @baa 0x00c0d210
-bool UAnimationCompressionAlgorithm_BitwiseCompressOnly::vf_004()
+UBOOL UAnimationCompressionAlgorithm_BitwiseCompressOnly::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

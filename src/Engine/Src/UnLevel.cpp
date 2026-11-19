@@ -22,16 +22,16 @@ int C_0062da20::sub_007d7590() {
 IMPLEMENT_CLASS_AT(ULevelBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnLevel.cpp", 47);
 
 // @baa 0x007d76b0
-int ULevelBase::vf_000(void) { return 1; }
+UBOOL ULevelBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x007d76c0
-bool ULevelBase::vf_004()
+UBOOL ULevelBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x007d7700
-int ULevel::vf_000(void) { return 1; }
+UBOOL ULevel::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x007f07e0
 IMPLEMENT_CLASS_AT(ULineBatchComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnLevel.cpp", 18);
@@ -66,7 +66,7 @@ IMPLEMENT_CLASS_AT(ULevel, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Deve
 // @baa 0x007f5440
 
 // @baa 0x007f5550
-bool ULevel::vf_004()
+UBOOL ULevel::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

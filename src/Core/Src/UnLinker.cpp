@@ -178,16 +178,16 @@ void O_0059a660::sub_0059a660(int a0) { p->g(a0); }
 IMPLEMENT_CLASS_AT(ULinker, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Core\\Src\\UnLinker.cpp", 4461);
 
 // @baa 0x0059a780
-int ULinker::vf_000(void) { return 1; }
+UBOOL ULinker::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0059a790
-bool ULinker::vf_004()
+UBOOL ULinker::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0059a7d0
-int ULinkerLoad::vf_000(void) { return 1; }
+UBOOL ULinkerLoad::HasUniqueStaticConfigName() const { return 1; }
 
 typedef uint size_t;
 
@@ -3252,14 +3252,14 @@ void sub_005b7c90(void) { sub_005b6c00(); }
 IMPLEMENT_CLASS_AT(ULinkerLoad, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Core\\Src\\UnLinker.cpp", 4462);
 
 // @baa 0x005b7f30
-bool ULinkerLoad::vf_004()
+UBOOL ULinkerLoad::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x005b7f70
 // @baa 0x005b8080
-bool ULinkerSave::vf_004()
+UBOOL ULinkerSave::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

@@ -59,10 +59,10 @@ void ULensFlarePreviewComponent::vf_250(int a0, int a1) {  }
 // @baa 0x014503b0
 
 // @baa 0x014504c0
-int ULensFlarePreviewComponent::vf_000(void) { return 1; }
+UBOOL ULensFlarePreviewComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x014504d0
-bool ULensFlarePreviewComponent::vf_004()
+UBOOL ULensFlarePreviewComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -70,10 +70,10 @@ bool ULensFlarePreviewComponent::vf_004()
 // @baa 0x01450510
 
 // @baa 0x01450620
-int ULensFlareEditorPropertyWrapper::vf_000(void) { return 1; }
+UBOOL ULensFlareEditorPropertyWrapper::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01450630
-bool ULensFlareEditorPropertyWrapper::vf_004()
+UBOOL ULensFlareEditorPropertyWrapper::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

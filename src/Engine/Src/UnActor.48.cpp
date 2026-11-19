@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00756b60
-int UCeilingReachSpec::vf_000(void) { return 1; }
+UBOOL UCeilingReachSpec::HasUniqueStaticConfigName() const { return 1; }

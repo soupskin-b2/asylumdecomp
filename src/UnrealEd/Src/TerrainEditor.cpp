@@ -1134,7 +1134,7 @@ undefined * sub_0124d560(void)
 
 // @baa 0x0124d5e0
 // @baa 0x0124d710
-bool UTerrainEditOptions::vf_004()
+UBOOL UTerrainEditOptions::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1428,93 +1428,93 @@ undefined4 UUnrealEdEngine::sub_0124d8f0(void)
 IMPLEMENT_CLASS_AT(UThumbnailManager, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\ThumbnailManager.cpp", 21);
 
 // @baa 0x0124fb90
-bool UThumbnailManager::vf_004()
+UBOOL UThumbnailManager::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0124fbd0
 // @baa 0x0124fce0
-int UThumbnailRenderer::vf_000(void) { return 1; }
+UBOOL UThumbnailRenderer::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0124fcf0
-bool UThumbnailRenderer::vf_004()
+UBOOL UThumbnailRenderer::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0124fd30
 // @baa 0x0124fe40
-int UThumbnailLabelRenderer::vf_000(void) { return 1; }
+UBOOL UThumbnailLabelRenderer::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0124fe50
-bool UThumbnailLabelRenderer::vf_004()
+UBOOL UThumbnailLabelRenderer::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0124fe90
-int UTextureThumbnailRenderer::vf_000(void) { return 1; }
+UBOOL UTextureThumbnailRenderer::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0124fea0
-int UTextureCubeThumbnailRenderer::vf_000(void) { return 1; }
+UBOOL UTextureCubeThumbnailRenderer::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0124fed0
-int UMaterialInstanceThumbnailRenderer::vf_000(void) { return 1; }
+UBOOL UMaterialInstanceThumbnailRenderer::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0124ff00
-int USkeletalMeshThumbnailRenderer::vf_000(void) { return 1; }
+UBOOL USkeletalMeshThumbnailRenderer::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0124ff10
-int UStaticMeshThumbnailRenderer::vf_000(void) { return 1; }
+UBOOL UStaticMeshThumbnailRenderer::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0124ff20
-int UIconThumbnailRenderer::vf_000(void) { return 1; }
+UBOOL UIconThumbnailRenderer::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0124ff30
-int UMemCountThumbnailLabelRenderer::vf_000(void) { return 1; }
+UBOOL UMemCountThumbnailLabelRenderer::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0124ff40
-int UAnimSetLabelRenderer::vf_000(void) { return 1; }
+UBOOL UAnimSetLabelRenderer::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0124ff50
-int UAnimTreeLabelRenderer::vf_000(void) { return 1; }
+UBOOL UAnimTreeLabelRenderer::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0124ff60
-int UGenericThumbnailLabelRenderer::vf_000(void) { return 1; }
+UBOOL UGenericThumbnailLabelRenderer::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0124ff70
-int UPhysicsAssetLabelRenderer::vf_000(void) { return 1; }
+UBOOL UPhysicsAssetLabelRenderer::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0124ff80
-int UApexDestructibleAssetLabelRenderer::vf_000(void) { return 1; }
+UBOOL UApexDestructibleAssetLabelRenderer::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0124ff90
-int USkeletalMeshLabelRenderer::vf_000(void) { return 1; }
+UBOOL USkeletalMeshLabelRenderer::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0124ffa0
-int UStaticMeshLabelRenderer::vf_000(void) { return 1; }
+UBOOL UStaticMeshLabelRenderer::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0124ffb0
-int UFracturedStaticMeshLabelRenderer::vf_000(void) { return 1; }
+UBOOL UFracturedStaticMeshLabelRenderer::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0124ffc0
-int UPostProcessLabelRenderer::vf_000(void) { return 1; }
+UBOOL UPostProcessLabelRenderer::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0124ffd0
-int USoundLabelRenderer::vf_000(void) { return 1; }
+UBOOL USoundLabelRenderer::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0124ffe0
-int UArchetypeThumbnailRenderer::vf_000(void) { return 1; }
+UBOOL UArchetypeThumbnailRenderer::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01250010
-int UFontThumbnailRenderer::vf_000(void) { return 1; }
+UBOOL UFontThumbnailRenderer::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01250040
-int UMaterialInstanceLabelRenderer::vf_000(void) { return 1; }
+UBOOL UMaterialInstanceLabelRenderer::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01250070
-int UParticleSystemLabelRenderer::vf_000(void) { return 1; }
+UBOOL UParticleSystemLabelRenderer::HasUniqueStaticConfigName() const { return 1; }
 
 struct C_01250140 { int a, b, c; C_01250140(); };
 

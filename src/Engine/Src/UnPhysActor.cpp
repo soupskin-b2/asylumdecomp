@@ -7,25 +7,25 @@
 IMPLEMENT_CLASS_AT(AKActor, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPhysActor.cpp", 31);
 
 // @baa 0x009d8a40
-int AKActor::vf_000(void) { return 1; }
+UBOOL AKActor::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x009d8a50
-bool AKActor::vf_004()
+UBOOL AKActor::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x009d8a90
-int AKActorSpawnable::vf_000(void) { return 1; }
+UBOOL AKActorSpawnable::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x009d8aa0
 IMPLEMENT_CLASS_AT(AKAsset, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPhysActor.cpp", 33);
 
 // @baa 0x009d8bb0
-int AKAsset::vf_000(void) { return 1; }
+UBOOL AKAsset::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x009d8bc0
-bool AKAsset::vf_004()
+UBOOL AKAsset::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -34,10 +34,10 @@ bool AKAsset::vf_004()
 IMPLEMENT_CLASS_AT(ARB_Thruster, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPhysActor.cpp", 34);
 
 // @baa 0x009d8d10
-int ARB_Thruster::vf_000(void) { return 1; }
+UBOOL ARB_Thruster::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x009d8d20
-bool ARB_Thruster::vf_004()
+UBOOL ARB_Thruster::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -46,10 +46,10 @@ bool ARB_Thruster::vf_004()
 IMPLEMENT_CLASS_AT(ARB_LineImpulseActor, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPhysActor.cpp", 35);
 
 // @baa 0x009d8e70
-int ARB_LineImpulseActor::vf_000(void) { return 1; }
+UBOOL ARB_LineImpulseActor::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x009d8e80
-bool ARB_LineImpulseActor::vf_004()
+UBOOL ARB_LineImpulseActor::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -58,10 +58,10 @@ bool ARB_LineImpulseActor::vf_004()
 IMPLEMENT_CLASS_AT(ARB_RadialImpulseActor, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPhysActor.cpp", 36);
 
 // @baa 0x009d8fd0
-int ARB_RadialImpulseActor::vf_000(void) { return 1; }
+UBOOL ARB_RadialImpulseActor::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x009d8fe0
-bool ARB_RadialImpulseActor::vf_004()
+UBOOL ARB_RadialImpulseActor::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -70,10 +70,10 @@ bool ARB_RadialImpulseActor::vf_004()
 IMPLEMENT_CLASS_AT(ARB_RadialForceActor, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPhysActor.cpp", 37);
 
 // @baa 0x009d9130
-int ARB_RadialForceActor::vf_000(void) { return 1; }
+UBOOL ARB_RadialForceActor::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x009d9140
-bool ARB_RadialForceActor::vf_004()
+UBOOL ARB_RadialForceActor::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -82,10 +82,10 @@ bool ARB_RadialForceActor::vf_004()
 IMPLEMENT_CLASS_AT(ARB_CylindricalForceActor, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPhysActor.cpp", 39);
 
 // @baa 0x009d9290
-int ARB_CylindricalForceActor::vf_000(void) { return 1; }
+UBOOL ARB_CylindricalForceActor::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x009d92a0
-bool ARB_CylindricalForceActor::vf_004()
+UBOOL ARB_CylindricalForceActor::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

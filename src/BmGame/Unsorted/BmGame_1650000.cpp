@@ -620,63 +620,63 @@ int sub_0165aee0(void)
 IMPLEMENT_CLASS_AT(ARBatarang, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBatarang.cpp", 16);
 
 // @baa 0x0165b020
-bool ARBatarang::vf_004()
+UBOOL ARBatarang::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0165b060
 // @baa 0x0165b170
-bool ARBatarangProjectile::vf_004()
+UBOOL ARBatarangProjectile::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0165b540
 // @baa 0x0165b650
-bool ARGrappleGun::vf_004()
+UBOOL ARGrappleGun::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0165b690
 // @baa 0x0165b7a0
-bool ARRescuePoint::vf_004()
+UBOOL ARRescuePoint::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0165bfc0
 // @baa 0x0165c0d0
-bool ARHarpoonGun::vf_004()
+UBOOL ARHarpoonGun::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0165c260
 // @baa 0x0165c370
-bool ARHarpoonProjectile::vf_004()
+UBOOL ARHarpoonProjectile::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0165c500
 // @baa 0x0165c610
-bool ARGooSpray::vf_004()
+UBOOL ARGooSpray::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0165c650
 // @baa 0x0165c760
-bool ARResonatorTuner::vf_004()
+UBOOL ARResonatorTuner::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0165c7a0
 // @baa 0x0165c8b0
-bool ARLineLauncher::vf_004()
+UBOOL ARLineLauncher::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -737,7 +737,7 @@ IMPLEMENT_CLASS_AT(URSeqAct_CombatProgress, "e:\\Projects\\Amadeus\\AA\\Game\\Un
 // @baa 0x0165ca10
 // @baa 0x0165ca40
 // @baa 0x0165cb50
-bool ARCombatMove_BatmanAttack::vf_004()
+UBOOL ARCombatMove_BatmanAttack::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -757,14 +757,14 @@ int sub_0165cc90(void)
 
 // @baa 0x0165ccc0
 // @baa 0x0165cdd0
-bool ARStealthTakeDownStage_GrabOnFloor::vf_004()
+UBOOL ARStealthTakeDownStage_GrabOnFloor::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0165ce10
 // @baa 0x0165cf20
-bool ARStealthTakeDownStageFearBase::vf_004()
+UBOOL ARStealthTakeDownStageFearBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

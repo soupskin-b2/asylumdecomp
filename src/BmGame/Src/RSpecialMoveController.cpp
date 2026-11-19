@@ -7,10 +7,10 @@
 IMPLEMENT_CLASS_AT(URSpecialMoveController, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RSpecialMoveController.cpp", 9);
 
 // @baa 0x01638890
-int URSpecialMoveController::vf_000(void) { return 1; }
+UBOOL URSpecialMoveController::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016388a0
-bool URSpecialMoveController::vf_004()
+UBOOL URSpecialMoveController::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

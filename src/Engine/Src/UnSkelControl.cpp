@@ -7,37 +7,37 @@
 IMPLEMENT_CLASS_AT(USkelControlBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSkelControl.cpp", 9);
 
 // @baa 0x0090c600
-int USkelControlBase::vf_000(void) { return 1; }
+UBOOL USkelControlBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0090c610
-bool USkelControlBase::vf_004()
+UBOOL USkelControlBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0090c650
-int USkelControlSingleBone::vf_000(void) { return 1; }
+UBOOL USkelControlSingleBone::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0090c660
-int USkelControlLookAt::vf_000(void) { return 1; }
+UBOOL USkelControlLookAt::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0090c670
-int USkelControlSpline::vf_000(void) { return 1; }
+UBOOL USkelControlSpline::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0090c680
-int USkelControlLimb::vf_000(void) { return 1; }
+UBOOL USkelControlLimb::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0090c690
-int USkelControlFootPlacement::vf_000(void) { return 1; }
+UBOOL USkelControlFootPlacement::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0090c6a0
-int USkelControlWheel::vf_000(void) { return 1; }
+UBOOL USkelControlWheel::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0090c6b0
-int USkelControlTrail::vf_000(void) { return 1; }
+UBOOL USkelControlTrail::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0090c6c0
-int USkelControl_CCD_IK::vf_000(void) { return 1; }
+UBOOL USkelControl_CCD_IK::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0090cf20
 float USkelControlBase::vf_148(void) { return *(float*)((char*)this + 92); }
@@ -287,7 +287,7 @@ IMPLEMENT_CLASS_AT(USkelControlTrail, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEn
 // @baa 0x00937060
 // @baa 0x00937120
 // @baa 0x00937230
-bool USkelControlSingleBone::vf_004()
+UBOOL USkelControlSingleBone::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -295,7 +295,7 @@ bool USkelControlSingleBone::vf_004()
 // @baa 0x00937270
 // @baa 0x00937330
 // @baa 0x00937440
-bool USkelControlLookAt::vf_004()
+UBOOL USkelControlLookAt::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -303,7 +303,7 @@ bool USkelControlLookAt::vf_004()
 // @baa 0x00937480
 // @baa 0x00937540
 // @baa 0x00937650
-bool USkelControlSpline::vf_004()
+UBOOL USkelControlSpline::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -311,7 +311,7 @@ bool USkelControlSpline::vf_004()
 // @baa 0x00937690
 // @baa 0x00937750
 // @baa 0x00937860
-bool USkelControlLimb::vf_004()
+UBOOL USkelControlLimb::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -321,7 +321,7 @@ bool USkelControlLimb::vf_004()
 // @baa 0x00937a20
 // @baa 0x00937ae0
 // @baa 0x00937bf0
-bool USkelControlTrail::vf_004()
+UBOOL USkelControlTrail::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

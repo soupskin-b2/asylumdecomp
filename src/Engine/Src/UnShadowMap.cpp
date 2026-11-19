@@ -19,10 +19,10 @@ IMPLEMENT_CLASS_AT(UShadowMap1D, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3
 // @baa 0x0090b7d0
 
 // @baa 0x0090b8e0
-int UShadowMapTexture2D::vf_000(void) { return 1; }
+UBOOL UShadowMapTexture2D::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0090b8f0
-bool UShadowMapTexture2D::vf_004()
+UBOOL UShadowMapTexture2D::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -30,10 +30,10 @@ bool UShadowMapTexture2D::vf_004()
 // @baa 0x0090b930
 
 // @baa 0x0090ba40
-int UShadowMap2D::vf_000(void) { return 1; }
+UBOOL UShadowMap2D::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0090ba50
-bool UShadowMap2D::vf_004()
+UBOOL UShadowMap2D::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -41,10 +41,10 @@ bool UShadowMap2D::vf_004()
 // @baa 0x0090ba90
 
 // @baa 0x0090bba0
-int UShadowMap1D::vf_000(void) { return 1; }
+UBOOL UShadowMap1D::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0090bbb0
-bool UShadowMap1D::vf_004()
+UBOOL UShadowMap1D::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

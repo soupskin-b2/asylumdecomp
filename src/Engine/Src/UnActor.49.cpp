@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00756b70
-int APathNode::vf_000(void) { return 1; }
+UBOOL APathNode::HasUniqueStaticConfigName() const { return 1; }

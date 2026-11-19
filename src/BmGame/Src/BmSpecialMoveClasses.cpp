@@ -4,19 +4,19 @@
 #include "ue3/Implement.h"
 
 // @baa 0x01613290
-int ARSpecialMoveInstance_RelativeAnimMove::vf_000(void) { return 1; }
+UBOOL ARSpecialMoveInstance_RelativeAnimMove::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016132a0
-int ARSpecialMoveInstance_CatchLedge::vf_000(void) { return 1; }
+UBOOL ARSpecialMoveInstance_CatchLedge::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016132b0
 IMPLEMENT_CLASS_AT(URSpecialMoveFactoryNew, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmSpecialMoveClasses.cpp", 23);
 
 // @baa 0x016133c0
-int URSpecialMoveFactoryNew::vf_000(void) { return 1; }
+UBOOL URSpecialMoveFactoryNew::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016133d0
-bool URSpecialMoveFactoryNew::vf_004()
+UBOOL URSpecialMoveFactoryNew::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -25,10 +25,10 @@ bool URSpecialMoveFactoryNew::vf_004()
 IMPLEMENT_CLASS_AT(URMatineeSpecialMoveFactoryNew, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmSpecialMoveClasses.cpp", 24);
 
 // @baa 0x01613520
-int URMatineeSpecialMoveFactoryNew::vf_000(void) { return 1; }
+UBOOL URMatineeSpecialMoveFactoryNew::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01613530
-bool URMatineeSpecialMoveFactoryNew::vf_004()
+UBOOL URMatineeSpecialMoveFactoryNew::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -81,7 +81,7 @@ IMPLEMENT_CLASS_AT(URSimpleSpecialMoveConfig, "e:\\Projects\\Amadeus\\AA\\Game\\
 // @baa 0x01625c30
 // @baa 0x01625cf0
 // @baa 0x01625e00
-bool URSpecialMoveConfig_RelativeAnimMove::vf_004()
+UBOOL URSpecialMoveConfig_RelativeAnimMove::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -115,7 +115,7 @@ IMPLEMENT_CLASS_AT(ARSpecialMoveInstance_SwingToVantagePoint, "e:\\Projects\\Ama
 // @baa 0x01630130
 // @baa 0x016318c0
 // @baa 0x016319d0
-bool ARSpecialMoveInstance_RelativeAnimMove::vf_004()
+UBOOL ARSpecialMoveInstance_RelativeAnimMove::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -143,27 +143,27 @@ undefined4 * UObject::sub_01612aa0(void)
 }
 
 // @baa 0x016130f0
-int URSpecialMoveConfig_RelativeAnimMove::vf_000(void) { return 1; }
+UBOOL URSpecialMoveConfig_RelativeAnimMove::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01613100
-int URSimpleSpecialMoveConfig::vf_000(void) { return 1; }
+UBOOL URSimpleSpecialMoveConfig::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01613110
 
 // @baa 0x01613220
-int ARSpecialMoveInstance::vf_000(void) { return 1; }
+UBOOL ARSpecialMoveInstance::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01613230
-bool ARSpecialMoveInstance::vf_004()
+UBOOL ARSpecialMoveInstance::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01613270
-int ARSpecialMoveInstance_ResonateObject::vf_000(void) { return 1; }
+UBOOL ARSpecialMoveInstance_ResonateObject::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01613280
-int ARSpecialMoveInstance_SwingToVantagePoint::vf_000(void) { return 1; }
+UBOOL ARSpecialMoveInstance_SwingToVantagePoint::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01613710
 void sub_01613710(void) {  }
@@ -197,7 +197,7 @@ int sub_0161dab0(void)
 // @baa 0x016290e0
 
 // @baa 0x016291f0
-bool URSimpleSpecialMoveConfig::vf_004()
+UBOOL URSimpleSpecialMoveConfig::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -205,7 +205,7 @@ bool URSimpleSpecialMoveConfig::vf_004()
 // @baa 0x01631620
 
 // @baa 0x01631730
-bool ARSpecialMoveInstance_ResonateObject::vf_004()
+UBOOL ARSpecialMoveInstance_ResonateObject::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -213,7 +213,7 @@ bool ARSpecialMoveInstance_ResonateObject::vf_004()
 // @baa 0x01631770
 
 // @baa 0x01631880
-bool ARSpecialMoveInstance_SwingToVantagePoint::vf_004()
+UBOOL ARSpecialMoveInstance_SwingToVantagePoint::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -221,7 +221,7 @@ bool ARSpecialMoveInstance_SwingToVantagePoint::vf_004()
 // @baa 0x016325c0
 
 // @baa 0x016326d0
-bool ARSpecialMoveInstance_CatchLedge::vf_004()
+UBOOL ARSpecialMoveInstance_CatchLedge::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

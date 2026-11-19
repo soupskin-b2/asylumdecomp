@@ -23,10 +23,10 @@ int sub_016cf120(void)
 IMPLEMENT_CLASS_AT(ARFractureWallBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RFractureWall.cpp", 27);
 
 // @baa 0x016cf260
-int ARFractureWallBase::vf_000(void) { return 1; }
+UBOOL ARFractureWallBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016cf270
-bool ARFractureWallBase::vf_004()
+UBOOL ARFractureWallBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

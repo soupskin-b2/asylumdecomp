@@ -11,10 +11,10 @@ IMPLEMENT_CLASS_AT(UDOFAndBloomEffect, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealE
 // @baa 0x00650310
 
 // @baa 0x00650420
-int UDOFAndBloomEffect::vf_000(void) { return 1; }
+UBOOL UDOFAndBloomEffect::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00650430
-bool UDOFAndBloomEffect::vf_004()
+UBOOL UDOFAndBloomEffect::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

@@ -47,10 +47,10 @@ IMPLEMENT_CLASS_AT(URSeqAct_CrocTeleportFinalAttackRefPoints, "e:\\Projects\\Ama
 // @baa 0x016ab840
 
 // @baa 0x016ab950
-int ARPawnBossCrocBase::vf_000(void) { return 1; }
+UBOOL ARPawnBossCrocBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016ab960
-bool ARPawnBossCrocBase::vf_004()
+UBOOL ARPawnBossCrocBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -58,10 +58,10 @@ bool ARPawnBossCrocBase::vf_004()
 // @baa 0x016ab9a0
 
 // @baa 0x016abab0
-int ARPontoonEdgeBlockerBase::vf_000(void) { return 1; }
+UBOOL ARPontoonEdgeBlockerBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016abac0
-bool ARPontoonEdgeBlockerBase::vf_004()
+UBOOL ARPontoonEdgeBlockerBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -69,10 +69,10 @@ bool ARPontoonEdgeBlockerBase::vf_004()
 // @baa 0x016abb00
 
 // @baa 0x016abc10
-int ARSpecialMoveInstance_HoleGrab::vf_000(void) { return 1; }
+UBOOL ARSpecialMoveInstance_HoleGrab::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016abc20
-bool ARSpecialMoveInstance_HoleGrab::vf_004()
+UBOOL ARSpecialMoveInstance_HoleGrab::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -80,10 +80,10 @@ bool ARSpecialMoveInstance_HoleGrab::vf_004()
 // @baa 0x016abc60
 
 // @baa 0x016abd70
-int URSeqAct_CrocTeleportFinalAttackRefPoints::vf_000(void) { return 1; }
+UBOOL URSeqAct_CrocTeleportFinalAttackRefPoints::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016abd80
-bool URSeqAct_CrocTeleportFinalAttackRefPoints::vf_004()
+UBOOL URSeqAct_CrocTeleportFinalAttackRefPoints::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -91,10 +91,10 @@ bool URSeqAct_CrocTeleportFinalAttackRefPoints::vf_004()
 // @baa 0x016abdc0
 
 // @baa 0x016abed0
-int URGuardRemovalController::vf_000(void) { return 1; }
+UBOOL URGuardRemovalController::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016abee0
-bool URGuardRemovalController::vf_004()
+UBOOL URGuardRemovalController::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -102,10 +102,10 @@ bool URGuardRemovalController::vf_004()
 // @baa 0x016abf20
 
 // @baa 0x016ac030
-int URSeqAct_CrocRelativeAnimCamera::vf_000(void) { return 1; }
+UBOOL URSeqAct_CrocRelativeAnimCamera::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016ac040
-bool URSeqAct_CrocRelativeAnimCamera::vf_004()
+UBOOL URSeqAct_CrocRelativeAnimCamera::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -113,10 +113,10 @@ bool URSeqAct_CrocRelativeAnimCamera::vf_004()
 // @baa 0x016ac080
 
 // @baa 0x016ac190
-int ARFracturablePontoonPropBase::vf_000(void) { return 1; }
+UBOOL ARFracturablePontoonPropBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016ac1a0
-bool ARFracturablePontoonPropBase::vf_004()
+UBOOL ARFracturablePontoonPropBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -124,10 +124,10 @@ bool ARFracturablePontoonPropBase::vf_004()
 // @baa 0x016ac1e0
 
 // @baa 0x016ac2f0
-int ARPontoonGateBase::vf_000(void) { return 1; }
+UBOOL ARPontoonGateBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016ac300
-bool ARPontoonGateBase::vf_004()
+UBOOL ARPontoonGateBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -135,10 +135,10 @@ bool ARPontoonGateBase::vf_004()
 // @baa 0x016ac340
 
 // @baa 0x016ac450
-int ARBatarangTarget::vf_000(void) { return 1; }
+UBOOL ARBatarangTarget::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016ac460
-bool ARBatarangTarget::vf_004()
+UBOOL ARBatarangTarget::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00f1d7f0
-int UAnimTreeFactoryNew::vf_000(void) { return 1; }
+UBOOL UAnimTreeFactoryNew::HasUniqueStaticConfigName() const { return 1; }

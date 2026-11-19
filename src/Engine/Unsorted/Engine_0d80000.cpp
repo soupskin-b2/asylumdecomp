@@ -737,14 +737,14 @@ void sub_00d8ba90(void) { sub_00d866b0(); }
 
 // @baa 0x00d8bfe0
 // @baa 0x00d8c0f0
-bool UOnlineGameSettings::vf_004()
+UBOOL UOnlineGameSettings::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00d8c130
 // @baa 0x00d8c240
-bool UOnlineGameSearch::vf_004()
+UBOOL UOnlineGameSearch::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -795,10 +795,10 @@ undefined4 sub_00d8eb70(undefined4 param_1, undefined4 param_2)
 
 // @baa 0x00d8eb80
 // @baa 0x00d8ec90
-int UUIComponent::vf_000(void) { return 1; }
+UBOOL UUIComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00d8eca0
-bool UUIComponent::vf_004()
+UBOOL UUIComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

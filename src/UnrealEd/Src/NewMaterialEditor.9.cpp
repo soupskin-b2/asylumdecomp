@@ -21,7 +21,7 @@ void sub_00739720()
 IMPLEMENT_CLASS_AT(UMaterialEditorOptions, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\NewMaterialEditor.cpp", 19);
 
 // @baa 0x01427820
-bool UMaterialEditorOptions::vf_004()
+UBOOL UMaterialEditorOptions::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -30,10 +30,10 @@ bool UMaterialEditorOptions::vf_004()
 IMPLEMENT_CLASS_AT(UPreviewMaterial, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\NewMaterialEditor.cpp", 341);
 
 // @baa 0x01427990
-int UPreviewMaterial::vf_000(void) { return 1; }
+UBOOL UPreviewMaterial::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x014279a0
-bool UPreviewMaterial::vf_004()
+UBOOL UPreviewMaterial::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

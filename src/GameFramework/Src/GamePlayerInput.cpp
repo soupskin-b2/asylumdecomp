@@ -9,10 +9,10 @@ IMPLEMENT_CLASS_AT(UGamePlayerInput, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEng
 // @baa 0x00e285f0
 
 // @baa 0x00e25a30
-int UGamePlayerInput::vf_000(void) { return 1; }
+UBOOL UGamePlayerInput::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00e25a40
-bool UGamePlayerInput::vf_004()
+UBOOL UGamePlayerInput::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

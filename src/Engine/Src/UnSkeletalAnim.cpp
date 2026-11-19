@@ -111,10 +111,10 @@ C_0090b300* C_0090b300::sub_0090b300(void) { return this; }
 IMPLEMENT_CLASS_AT(UAnimSequence, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSkeletalAnim.cpp", 20);
 
 // @baa 0x0090d4c0
-int UAnimSequence::vf_000(void) { return 1; }
+UBOOL UAnimSequence::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0090d4d0
-bool UAnimSequence::vf_004()
+UBOOL UAnimSequence::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -123,10 +123,10 @@ bool UAnimSequence::vf_004()
 IMPLEMENT_CLASS_AT(UAnimSet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSkeletalAnim.cpp", 21);
 
 // @baa 0x0090d620
-int UAnimSet::vf_000(void) { return 1; }
+UBOOL UAnimSet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0090d630
-bool UAnimSet::vf_004()
+UBOOL UAnimSet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -135,10 +135,10 @@ bool UAnimSet::vf_004()
 IMPLEMENT_CLASS_AT(UAnimNotify, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSkeletalAnim.cpp", 22);
 
 // @baa 0x0090d780
-int UAnimNotify::vf_000(void) { return 1; }
+UBOOL UAnimNotify::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0090d790
-bool UAnimNotify::vf_004()
+UBOOL UAnimNotify::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1032,7 +1032,7 @@ int USkeletalMeshComponent::sub_009218f0(void)
 
 int sub_00917b10(void);
 // @baa 0x0092a4f0
-int UAnimSequence::vf_0d4(void)
+INT UAnimSequence::GetResourceSize()
 {
     int param_1 = (int)this;
 

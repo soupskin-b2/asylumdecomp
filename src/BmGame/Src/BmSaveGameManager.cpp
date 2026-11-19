@@ -36,10 +36,10 @@ IMPLEMENT_CLASS_AT(URSaveGameManager, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEn
 // @baa 0x0170a750
 // @baa 0x017189c0
 // @baa 0x01718ad0
-int URSaveGameManager::vf_000(void) { return 1; }
+UBOOL URSaveGameManager::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01718ae0
-bool URSaveGameManager::vf_004()
+UBOOL URSaveGameManager::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -62,10 +62,10 @@ IMPLEMENT_CLASS_AT(URPersistentOptions, "e:\\Projects\\Amadeus\\AA\\Game\\Unreal
 // @baa 0x01718b20
 
 // @baa 0x01718c30
-int URPersistentData::vf_000(void) { return 1; }
+UBOOL URPersistentData::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01718c40
-bool URPersistentData::vf_004()
+UBOOL URPersistentData::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -73,7 +73,7 @@ bool URPersistentData::vf_004()
 // @baa 0x01718c80
 
 // @baa 0x01718db0
-bool URPersistentOptions::vf_004()
+UBOOL URPersistentOptions::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -109,7 +109,7 @@ undefined4 * UObject::sub_0172b3c0(void)
 const TCHAR* sub_0170a8d0();
 const TCHAR* sub_0053f6c0();
 // @baa 0x01718d90
-INT URPersistentOptions::vf_000()
+UBOOL URPersistentOptions::HasUniqueStaticConfigName() const
 {
     return sub_0170a8d0 == sub_0053f6c0;
 }

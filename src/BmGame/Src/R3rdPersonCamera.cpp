@@ -130,37 +130,37 @@ int sub_01686e00(void)
 IMPLEMENT_CLASS_AT(ARPawnPlayerAnim, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RPawnPlayer.cpp", 44);
 
 // @baa 0x01686f40
-int ARPawnPlayerAnim::vf_000(void) { return 1; }
+UBOOL ARPawnPlayerAnim::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01686f50
-bool ARPawnPlayerAnim::vf_004()
+UBOOL ARPawnPlayerAnim::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01686f90
-int ARPawnPlayerCombat::vf_000(void) { return 1; }
+UBOOL ARPawnPlayerCombat::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01686fa0
-int ARPawnPlayer::vf_000(void) { return 1; }
+UBOOL ARPawnPlayer::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01686fb0
-int ARPawnPlayerBm::vf_000(void) { return 1; }
+UBOOL ARPawnPlayerBm::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01686fc0
-int ARPawnPlayerJokerBase::vf_000(void) { return 1; }
+UBOOL ARPawnPlayerJokerBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01686fd0
-int ARPawnPlayerChallengeJokerBase::vf_000(void) { return 1; }
+UBOOL ARPawnPlayerChallengeJokerBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01686fe0
 IMPLEMENT_CLASS_AT(URBatmanDamageState, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RPawnPlayer.cpp", 50);
 
 // @baa 0x016870f0
-int URBatmanDamageState::vf_000(void) { return 1; }
+UBOOL URBatmanDamageState::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01687100
-bool URBatmanDamageState::vf_004()
+UBOOL URBatmanDamageState::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -169,10 +169,10 @@ bool URBatmanDamageState::vf_004()
 IMPLEMENT_CLASS_AT(URBatmanDamageStateFactoryNew, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RPawnPlayer.cpp", 51);
 
 // @baa 0x01687250
-int URBatmanDamageStateFactoryNew::vf_000(void) { return 1; }
+UBOOL URBatmanDamageStateFactoryNew::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01687260
-bool URBatmanDamageStateFactoryNew::vf_004()
+UBOOL URBatmanDamageStateFactoryNew::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -181,10 +181,10 @@ bool URBatmanDamageStateFactoryNew::vf_004()
 IMPLEMENT_CLASS_AT(URSeqAct_UpdateBatmanDamageLevel, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RPawnPlayer.cpp", 52);
 
 // @baa 0x016873b0
-int URSeqAct_UpdateBatmanDamageLevel::vf_000(void) { return 1; }
+UBOOL URSeqAct_UpdateBatmanDamageLevel::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016873c0
-bool URSeqAct_UpdateBatmanDamageLevel::vf_004()
+UBOOL URSeqAct_UpdateBatmanDamageLevel::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -193,10 +193,10 @@ bool URSeqAct_UpdateBatmanDamageLevel::vf_004()
 IMPLEMENT_CLASS_AT(UREnvironmentCheckTicker, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RPawnPlayer.cpp", 54);
 
 // @baa 0x01687510
-int UREnvironmentCheckTicker::vf_000(void) { return 1; }
+UBOOL UREnvironmentCheckTicker::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01687520
-bool UREnvironmentCheckTicker::vf_004()
+UBOOL UREnvironmentCheckTicker::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -205,37 +205,37 @@ bool UREnvironmentCheckTicker::vf_004()
 IMPLEMENT_CLASS_AT(URDamageType, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RPawnPlayer.cpp", 56);
 
 // @baa 0x01687670
-int URDamageType::vf_000(void) { return 1; }
+UBOOL URDamageType::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01687680
-bool URDamageType::vf_004()
+UBOOL URDamageType::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x016876c0
-int URDmgType_Strike::vf_000(void) { return 1; }
+UBOOL URDmgType_Strike::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016876d0
-int URDmgType_Throw::vf_000(void) { return 1; }
+UBOOL URDmgType_Throw::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016876e0
-int URDmgType_IntoThrow::vf_000(void) { return 1; }
+UBOOL URDmgType_IntoThrow::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016876f0
-int URDmgType_Counter::vf_000(void) { return 1; }
+UBOOL URDmgType_Counter::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01687700
-int URDmgType_CombatTakedown::vf_000(void) { return 1; }
+UBOOL URDmgType_CombatTakedown::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01687710
-int URDmgType_Takedown::vf_000(void) { return 1; }
+UBOOL URDmgType_Takedown::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01687720
-int URDmgType_Takedown_Floor::vf_000(void) { return 1; }
+UBOOL URDmgType_Takedown_Floor::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01687730
-int URDmgType_Redirect::vf_000(void) { return 1; }
+UBOOL URDmgType_Redirect::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01688690
 void ARPawnPlayer::vf_664(int a0) {  }
@@ -349,25 +349,25 @@ void sub_01688b80(char * param_1)
 IMPLEMENT_CLASS_AT(ARCameraActor, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\R3rdPersonCamera.cpp", 14);
 
 // @baa 0x01688cc0
-int ARCameraActor::vf_000(void) { return 1; }
+UBOOL ARCameraActor::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01688cd0
-bool ARCameraActor::vf_004()
+UBOOL ARCameraActor::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01688d10
-int ARScarecrowCamera::vf_000(void) { return 1; }
+UBOOL ARScarecrowCamera::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01688d20
-int ARAnimatedCameraActor::vf_000(void) { return 1; }
+UBOOL ARAnimatedCameraActor::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01688d30
 IMPLEMENT_CLASS_AT(AR3rdPersonCamera, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\R3rdPersonCamera.cpp", 17);
 
 // @baa 0x01688e60
-bool AR3rdPersonCamera::vf_004()
+UBOOL AR3rdPersonCamera::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -376,25 +376,25 @@ bool AR3rdPersonCamera::vf_004()
 IMPLEMENT_CLASS_AT(ARBMCutsceneBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\R3rdPersonCamera.cpp", 19);
 
 // @baa 0x01688fb0
-int ARBMCutsceneBase::vf_000(void) { return 1; }
+UBOOL ARBMCutsceneBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01688fc0
-bool ARBMCutsceneBase::vf_004()
+UBOOL ARBMCutsceneBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01689000
-int ARBmBatmanCutscene::vf_000(void) { return 1; }
+UBOOL ARBmBatmanCutscene::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01689010
 IMPLEMENT_CLASS_AT(URDOFManager, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\R3rdPersonCamera.cpp", 22);
 
 // @baa 0x01689120
-int URDOFManager::vf_000(void) { return 1; }
+UBOOL URDOFManager::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01689130
-bool URDOFManager::vf_004()
+UBOOL URDOFManager::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -820,28 +820,28 @@ int sub_0169fb60(void)
 
 // @baa 0x0169fb90
 // @baa 0x0169fca0
-bool ARPawnPlayerCombat::vf_004()
+UBOOL ARPawnPlayerCombat::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0169fce0
 // @baa 0x0169fdf0
-bool ARScarecrowCamera::vf_004()
+UBOOL ARScarecrowCamera::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0169fe30
 // @baa 0x0169ff40
-bool ARAnimatedCameraActor::vf_004()
+UBOOL ARAnimatedCameraActor::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0169ff80
 // @baa 0x016a0090
-bool ARBmBatmanCutscene::vf_004()
+UBOOL ARBmBatmanCutscene::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

@@ -198,7 +198,7 @@ int sub_00785810(void)
 IMPLEMENT_CLASS_AT(UAudioDevice, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAudio.cpp", 17);
 
 // @baa 0x00785970
-bool UAudioDevice::vf_004()
+UBOOL UAudioDevice::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -207,10 +207,10 @@ bool UAudioDevice::vf_004()
 IMPLEMENT_CLASS_AT(USoundMode, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAudio.cpp", 18);
 
 // @baa 0x00785ac0
-int USoundMode::vf_000(void) { return 1; }
+UBOOL USoundMode::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00785ad0
-bool USoundMode::vf_004()
+UBOOL USoundMode::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -219,31 +219,31 @@ bool USoundMode::vf_004()
 IMPLEMENT_CLASS_AT(AAmbientSound, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAudio.cpp", 19);
 
 // @baa 0x00785c20
-int AAmbientSound::vf_000(void) { return 1; }
+UBOOL AAmbientSound::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00785c30
-bool AAmbientSound::vf_004()
+UBOOL AAmbientSound::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00785c70
-int AAmbientSoundSimple::vf_000(void) { return 1; }
+UBOOL AAmbientSoundSimple::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00785c80
-int AAmbientSoundNonLoop::vf_000(void) { return 1; }
+UBOOL AAmbientSoundNonLoop::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00785c90
-int AAmbientSoundMovable::vf_000(void) { return 1; }
+UBOOL AAmbientSoundMovable::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00785ca0
 IMPLEMENT_CLASS_AT(UDrawSoundRadiusComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAudio.cpp", 23);
 
 // @baa 0x00785db0
-int UDrawSoundRadiusComponent::vf_000(void) { return 1; }
+UBOOL UDrawSoundRadiusComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00785dc0
-bool UDrawSoundRadiusComponent::vf_004()
+UBOOL UDrawSoundRadiusComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1476,14 +1476,14 @@ void sub_00798c60(void) { sub_007985d0(); }
 // @baa 0x00798f70
 // @baa 0x007997d0
 // @baa 0x007998e0
-bool AAmbientSoundSimple::vf_004()
+UBOOL AAmbientSoundSimple::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00799920
 // @baa 0x00799a30
-bool AAmbientSoundMovable::vf_004()
+UBOOL AAmbientSoundMovable::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1519,7 +1519,7 @@ int sub_0079be90(void)
 
 // @baa 0x0079bec0
 // @baa 0x0079bfd0
-bool AAmbientSoundNonLoop::vf_004()
+UBOOL AAmbientSoundNonLoop::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

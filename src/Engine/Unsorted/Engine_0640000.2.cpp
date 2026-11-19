@@ -6,7 +6,7 @@
 INT sub_0064dbe0(void);
 INT sub_0053f6c0(void);
 // @baa 0x0064e9e0
-INT ADecalManager::vf_000()
+UBOOL ADecalManager::HasUniqueStaticConfigName() const
 {
 	return sub_0064dbe0 == sub_0053f6c0;
 }

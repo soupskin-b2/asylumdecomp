@@ -108,10 +108,10 @@ IMPLEMENT_CLASS_AT(ARPontoonBridgeManager, "e:\\Projects\\Amadeus\\AA\\Game\\Unr
 // @baa 0x0160e890
 
 // @baa 0x0160e9a0
-int ARBMScout::vf_000(void) { return 1; }
+UBOOL ARBMScout::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0160e9b0
-bool ARBMScout::vf_004()
+UBOOL ARBMScout::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -119,10 +119,10 @@ bool ARBMScout::vf_004()
 // @baa 0x0160e9f0
 
 // @baa 0x0160eb00
-int URPathGateComponent::vf_000(void) { return 1; }
+UBOOL URPathGateComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0160eb10
-bool URPathGateComponent::vf_004()
+UBOOL URPathGateComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -130,10 +130,10 @@ bool URPathGateComponent::vf_004()
 // @baa 0x0160eb50
 
 // @baa 0x0160ec60
-int URBMReachSpec::vf_000(void) { return 1; }
+UBOOL URBMReachSpec::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0160ec70
-bool URBMReachSpec::vf_004()
+UBOOL URBMReachSpec::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -141,10 +141,10 @@ bool URBMReachSpec::vf_004()
 // @baa 0x0160ecb0
 
 // @baa 0x0160edc0
-int ARPathNode_DynamicFractureWall::vf_000(void) { return 1; }
+UBOOL ARPathNode_DynamicFractureWall::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0160edd0
-bool ARPathNode_DynamicFractureWall::vf_004()
+UBOOL ARPathNode_DynamicFractureWall::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -152,10 +152,10 @@ bool ARPathNode_DynamicFractureWall::vf_004()
 // @baa 0x0160ee10
 
 // @baa 0x0160ef20
-int ARBMRouterManager::vf_000(void) { return 1; }
+UBOOL ARBMRouterManager::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0160ef30
-bool ARBMRouterManager::vf_004()
+UBOOL ARBMRouterManager::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -163,10 +163,10 @@ bool ARBMRouterManager::vf_004()
 // @baa 0x0160ef70
 
 // @baa 0x0160f080
-int ARPontoonBridgeManager::vf_000(void) { return 1; }
+UBOOL ARPontoonBridgeManager::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0160f090
-bool ARPontoonBridgeManager::vf_004()
+UBOOL ARPontoonBridgeManager::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -176,10 +176,10 @@ bool ARPontoonBridgeManager::vf_004()
 // @baa 0x016104a0
 
 // @baa 0x016105b0
-int URBMRouterPath::vf_000(void) { return 1; }
+UBOOL URBMRouterPath::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016105c0
-bool URBMRouterPath::vf_004()
+UBOOL URBMRouterPath::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -190,10 +190,10 @@ UBOOL URBMRouterPath::MustGoToNode(INT a0) { return 0; }
 // @baa 0x01610e70
 
 // @baa 0x01610f80
-int ARBMRouteRequest::vf_000(void) { return 1; }
+UBOOL ARBMRouteRequest::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01610f90
-bool ARBMRouteRequest::vf_004()
+UBOOL ARBMRouteRequest::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -205,42 +205,42 @@ INT ARBMRouteRequest::vf_374(FLOAT DeltaTime) { return 0; }
 void sub_01610fe0(void) {  }
 
 // @baa 0x01611030
-int ARBMRouteRequest_FindSinglePath::vf_000(void) { return 1; }
+UBOOL ARBMRouteRequest_FindSinglePath::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016111f0
-int ARBMRouteRequest_FindShortestPath::vf_000(void) { return 1; }
+UBOOL ARBMRouteRequest_FindShortestPath::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01611200
-int ARBMRouteRequest_FindShortestPathAvoidingLadder::vf_000(void) { return 1; }
+UBOOL ARBMRouteRequest_FindShortestPathAvoidingLadder::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01611210
 
 // @baa 0x01611320
-int UComparisonListSharedDataCache::vf_000(void) { return 1; }
+UBOOL UComparisonListSharedDataCache::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01611330
-bool UComparisonListSharedDataCache::vf_004()
+UBOOL UComparisonListSharedDataCache::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x01611370
-int ARBMRouteRequest_BuildComparisonList::vf_000(void) { return 1; }
+UBOOL ARBMRouteRequest_BuildComparisonList::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01611380
-int ARBMRouteRequest_HideOnCorner::vf_000(void) { return 1; }
+UBOOL ARBMRouteRequest_HideOnCorner::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01611390
-int ARBMRouteRequest_NervousSearch::vf_000(void) { return 1; }
+UBOOL ARBMRouteRequest_NervousSearch::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x016114f0
-int ARBMRouteRequest_TerrifiedSearch::vf_000(void) { return 1; }
+UBOOL ARBMRouteRequest_TerrifiedSearch::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01611500
-int ARBMRouteRequest_RunAway::vf_000(void) { return 1; }
+UBOOL ARBMRouteRequest_RunAway::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01611510
-int ARBMRouteRequest_PerimeterBuilderWrapper::vf_000(void) { return 1; }
+UBOOL ARBMRouteRequest_PerimeterBuilderWrapper::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01611580
 void sub_01611580(void) {  }
@@ -347,7 +347,7 @@ int sub_0162c7f0(void)
 // @baa 0x016304d0
 
 // @baa 0x016305e0
-bool ARBMRouter_NoPawn::vf_004()
+UBOOL ARBMRouter_NoPawn::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -355,7 +355,7 @@ bool ARBMRouter_NoPawn::vf_004()
 // @baa 0x01630620
 
 // @baa 0x01630730
-bool ARBMRouter::vf_004()
+UBOOL ARBMRouter::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -363,7 +363,7 @@ bool ARBMRouter::vf_004()
 // @baa 0x01630770
 
 // @baa 0x01630880
-bool ARBMRouteRequest_FindSinglePath::vf_004()
+UBOOL ARBMRouteRequest_FindSinglePath::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -371,7 +371,7 @@ bool ARBMRouteRequest_FindSinglePath::vf_004()
 // @baa 0x016308c0
 
 // @baa 0x016309d0
-bool ARBMRouteRequest_FindShortestPath::vf_004()
+UBOOL ARBMRouteRequest_FindShortestPath::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -379,7 +379,7 @@ bool ARBMRouteRequest_FindShortestPath::vf_004()
 // @baa 0x01630a10
 
 // @baa 0x01630b20
-bool ARBMRouteRequest_BuildComparisonList::vf_004()
+UBOOL ARBMRouteRequest_BuildComparisonList::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -387,7 +387,7 @@ bool ARBMRouteRequest_BuildComparisonList::vf_004()
 // @baa 0x01630b60
 
 // @baa 0x01630c70
-bool ARBMRouteRequest_HideOnCorner::vf_004()
+UBOOL ARBMRouteRequest_HideOnCorner::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -395,7 +395,7 @@ bool ARBMRouteRequest_HideOnCorner::vf_004()
 // @baa 0x01630cb0
 
 // @baa 0x01630dc0
-bool ARBMRouteRequest_NervousSearch::vf_004()
+UBOOL ARBMRouteRequest_NervousSearch::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -403,7 +403,7 @@ bool ARBMRouteRequest_NervousSearch::vf_004()
 // @baa 0x01630e00
 
 // @baa 0x01630f10
-bool ARBMRouteRequest_TerrifiedSearch::vf_004()
+UBOOL ARBMRouteRequest_TerrifiedSearch::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -411,7 +411,7 @@ bool ARBMRouteRequest_TerrifiedSearch::vf_004()
 // @baa 0x01630f50
 
 // @baa 0x01631060
-bool ARBMRouteRequest_RunAway::vf_004()
+UBOOL ARBMRouteRequest_RunAway::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -419,7 +419,7 @@ bool ARBMRouteRequest_RunAway::vf_004()
 // @baa 0x016310a0
 
 // @baa 0x016311b0
-bool ARBMRouteRequest_PerimeterBuilderWrapper::vf_004()
+UBOOL ARBMRouteRequest_PerimeterBuilderWrapper::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -427,7 +427,7 @@ bool ARBMRouteRequest_PerimeterBuilderWrapper::vf_004()
 // @baa 0x01631b40
 
 // @baa 0x01631c50
-bool ARBMRouteRequest_FindShortestPathAvoidingLadder::vf_004()
+UBOOL ARBMRouteRequest_FindShortestPathAvoidingLadder::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

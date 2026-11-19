@@ -968,10 +968,10 @@ IMPLEMENT_CLASS_AT(UExporter, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\D
 IMPLEMENT_CLASS_AT(UHelpCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Core\\Src\\UHelpCommandlet.cpp", 208);
 
 // @baa 0x005fc090
-int UHelpCommandlet::vf_000(void) { return 1; }
+UBOOL UHelpCommandlet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x005fc0a0
-bool UHelpCommandlet::vf_004()
+UBOOL UHelpCommandlet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -980,10 +980,10 @@ bool UHelpCommandlet::vf_004()
 IMPLEMENT_CLASS_AT(UPackageMap, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Core\\Src\\UnCoreNet.cpp", 525);
 
 // @baa 0x005fc2b0
-int UPackageMap::vf_000(void) { return 1; }
+UBOOL UPackageMap::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x005fc2c0
-bool UPackageMap::vf_004()
+UBOOL UPackageMap::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

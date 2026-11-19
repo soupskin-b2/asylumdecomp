@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00f1d120
-bool UApexParticleSystemAssetFactory::vf_004()
+UBOOL UApexParticleSystemAssetFactory::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

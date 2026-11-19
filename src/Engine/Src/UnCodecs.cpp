@@ -130,7 +130,7 @@ undefined4 ULensFlare::sub_00cb31e0(byte param_2)
 // @baa 0x00cbbec0
 
 // @baa 0x00cbbfd0
-bool UCodecMovieFallback::vf_004()
+UBOOL UCodecMovieFallback::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -138,7 +138,7 @@ bool UCodecMovieFallback::vf_004()
 // @baa 0x00cbc010
 
 // @baa 0x00cbc120
-bool UCodecMovieBink::vf_004()
+UBOOL UCodecMovieBink::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

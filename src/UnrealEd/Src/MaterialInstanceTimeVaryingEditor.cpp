@@ -7,10 +7,10 @@
 IMPLEMENT_CLASS_AT(UMaterialEditorInstanceTimeVarying, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\MaterialInstanceTimeVaryingEditor.cpp", 22);
 
 // @baa 0x0140aeb0
-int UMaterialEditorInstanceTimeVarying::vf_000(void) { return 1; }
+UBOOL UMaterialEditorInstanceTimeVarying::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0140aec0
-bool UMaterialEditorInstanceTimeVarying::vf_004()
+UBOOL UMaterialEditorInstanceTimeVarying::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

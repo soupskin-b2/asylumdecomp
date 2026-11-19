@@ -6,7 +6,7 @@
 const TCHAR* sub_015d9180();
 const TCHAR* sub_0053f6c0();
 // @baa 0x015dd1a0
-INT ARBMCombatManager::vf_000()
+UBOOL ARBMCombatManager::HasUniqueStaticConfigName() const
 {
     return sub_015d9180 == sub_0053f6c0;
 }

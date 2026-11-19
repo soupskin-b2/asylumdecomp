@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00f1f6e0
-int UCurveEdPresetCurveFactoryNew::vf_000(void) { return 1; }
+UBOOL UCurveEdPresetCurveFactoryNew::HasUniqueStaticConfigName() const { return 1; }

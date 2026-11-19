@@ -4,10 +4,10 @@
 #include "ue3/Classes.h"
 
 // @baa 0x00755cb0
-int UTextureRenderTarget::vf_000(void) { return 1; }
+UBOOL UTextureRenderTarget::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00755cc0
-bool UTextureRenderTarget::vf_004()
+UBOOL UTextureRenderTarget::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

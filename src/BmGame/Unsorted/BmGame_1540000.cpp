@@ -2775,25 +2775,25 @@ int sub_0154cca0(void)
 IMPLEMENT_CLASS_AT(ARGameInfo, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameClasses.cpp", 43);
 
 // @baa 0x0154cde0
-int ARGameInfo::vf_000(void) { return 1; }
+UBOOL ARGameInfo::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0154cdf0
-bool ARGameInfo::vf_004()
+UBOOL ARGameInfo::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0154ce30
-int ARGIChallenge::vf_000(void) { return 1; }
+UBOOL ARGIChallenge::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0154ce40
 IMPLEMENT_CLASS_AT(ARGameRI, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameClasses.cpp", 45);
 
 // @baa 0x0154cf50
-int ARGameRI::vf_000(void) { return 1; }
+UBOOL ARGameRI::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0154cf60
-bool ARGameRI::vf_004()
+UBOOL ARGameRI::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -2802,10 +2802,10 @@ bool ARGameRI::vf_004()
 IMPLEMENT_CLASS_AT(ARAltitudeVolume, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameClasses.cpp", 47);
 
 // @baa 0x0154d0b0
-int ARAltitudeVolume::vf_000(void) { return 1; }
+UBOOL ARAltitudeVolume::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0154d0c0
-bool ARAltitudeVolume::vf_004()
+UBOOL ARAltitudeVolume::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -2814,10 +2814,10 @@ bool ARAltitudeVolume::vf_004()
 IMPLEMENT_CLASS_AT(ARBMCameraEmitter, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameClasses.cpp", 48);
 
 // @baa 0x0154d210
-int ARBMCameraEmitter::vf_000(void) { return 1; }
+UBOOL ARBMCameraEmitter::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0154d220
-bool ARBMCameraEmitter::vf_004()
+UBOOL ARBMCameraEmitter::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -2826,31 +2826,31 @@ bool ARBMCameraEmitter::vf_004()
 IMPLEMENT_CLASS_AT(ARBMWeapon, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameClasses.cpp", 49);
 
 // @baa 0x0154d370
-int ARBMWeapon::vf_000(void) { return 1; }
+UBOOL ARBMWeapon::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0154d380
-bool ARBMWeapon::vf_004()
+UBOOL ARBMWeapon::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0154d3c0
-int ARBMWeaponRanged::vf_000(void) { return 1; }
+UBOOL ARBMWeaponRanged::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0154d3d0
-int ARBMWeaponMelee::vf_000(void) { return 1; }
+UBOOL ARBMWeaponMelee::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0154d3e0
-int ARBMWeaponStunStickBase::vf_000(void) { return 1; }
+UBOOL ARBMWeaponStunStickBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0154d3f0
 IMPLEMENT_CLASS_AT(ARCameraBlockingVolume, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameClasses.cpp", 53);
 
 // @baa 0x0154d500
-int ARCameraBlockingVolume::vf_000(void) { return 1; }
+UBOOL ARCameraBlockingVolume::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0154d510
-bool ARCameraBlockingVolume::vf_004()
+UBOOL ARCameraBlockingVolume::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -2859,25 +2859,25 @@ bool ARCameraBlockingVolume::vf_004()
 IMPLEMENT_CLASS_AT(ARCinematicActor, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameClasses.cpp", 54);
 
 // @baa 0x0154d660
-int ARCinematicActor::vf_000(void) { return 1; }
+UBOOL ARCinematicActor::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0154d670
-bool ARCinematicActor::vf_004()
+UBOOL ARCinematicActor::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0154d6b0
-int ARCinematicBatmanBase::vf_000(void) { return 1; }
+UBOOL ARCinematicBatmanBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0154d6c0
 IMPLEMENT_CLASS_AT(ARElectrifiedFloorPanel, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameClasses.cpp", 56);
 
 // @baa 0x0154d7d0
-int ARElectrifiedFloorPanel::vf_000(void) { return 1; }
+UBOOL ARElectrifiedFloorPanel::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0154d7e0
-bool ARElectrifiedFloorPanel::vf_004()
+UBOOL ARElectrifiedFloorPanel::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -2886,10 +2886,10 @@ bool ARElectrifiedFloorPanel::vf_004()
 IMPLEMENT_CLASS_AT(ARFadeManager, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameClasses.cpp", 57);
 
 // @baa 0x0154d930
-int ARFadeManager::vf_000(void) { return 1; }
+UBOOL ARFadeManager::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0154d940
-bool ARFadeManager::vf_004()
+UBOOL ARFadeManager::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -2898,7 +2898,7 @@ bool ARFadeManager::vf_004()
 IMPLEMENT_CLASS_AT(URHUDPrompt, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameClasses.cpp", 58);
 
 // @baa 0x0154dab0
-bool URHUDPrompt::vf_004()
+UBOOL URHUDPrompt::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -2907,10 +2907,10 @@ bool URHUDPrompt::vf_004()
 IMPLEMENT_CLASS_AT(ARPlayerBlockingVolume, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameClasses.cpp", 59);
 
 // @baa 0x0154dc00
-int ARPlayerBlockingVolume::vf_000(void) { return 1; }
+UBOOL ARPlayerBlockingVolume::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0154dc10
-bool ARPlayerBlockingVolume::vf_004()
+UBOOL ARPlayerBlockingVolume::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -2919,10 +2919,10 @@ bool ARPlayerBlockingVolume::vf_004()
 IMPLEMENT_CLASS_AT(ARGrappleSmoothingVolume, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameClasses.cpp", 60);
 
 // @baa 0x0154dd60
-int ARGrappleSmoothingVolume::vf_000(void) { return 1; }
+UBOOL ARGrappleSmoothingVolume::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0154dd70
-bool ARGrappleSmoothingVolume::vf_004()
+UBOOL ARGrappleSmoothingVolume::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -2931,10 +2931,10 @@ bool ARGrappleSmoothingVolume::vf_004()
 IMPLEMENT_CLASS_AT(ARVaporVolumeBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameClasses.cpp", 61);
 
 // @baa 0x0154dec0
-int ARVaporVolumeBase::vf_000(void) { return 1; }
+UBOOL ARVaporVolumeBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0154ded0
-bool ARVaporVolumeBase::vf_004()
+UBOOL ARVaporVolumeBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -2943,10 +2943,10 @@ bool ARVaporVolumeBase::vf_004()
 IMPLEMENT_CLASS_AT(ARXrayInterpActor, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameClasses.cpp", 62);
 
 // @baa 0x0154e020
-int ARXrayInterpActor::vf_000(void) { return 1; }
+UBOOL ARXrayInterpActor::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0154e030
-bool ARXrayInterpActor::vf_004()
+UBOOL ARXrayInterpActor::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -2955,40 +2955,40 @@ bool ARXrayInterpActor::vf_004()
 IMPLEMENT_CLASS_AT(ARInvestigateStaticMeshActor, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameClasses.cpp", 63);
 
 // @baa 0x0154e180
-int ARInvestigateStaticMeshActor::vf_000(void) { return 1; }
+UBOOL ARInvestigateStaticMeshActor::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0154e190
-bool ARInvestigateStaticMeshActor::vf_004()
+UBOOL ARInvestigateStaticMeshActor::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0154e1d0
 // @baa 0x0154e2e0
-int URAimingConfig::vf_000(void) { return 1; }
+UBOOL URAimingConfig::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0154e2f0
-bool URAimingConfig::vf_004()
+UBOOL URAimingConfig::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0154e330
 // @baa 0x0154e440
-int URAnimConfig::vf_000(void) { return 1; }
+UBOOL URAnimConfig::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0154e450
-bool URAnimConfig::vf_004()
+UBOOL URAnimConfig::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0154e490
 // @baa 0x0154e5a0
-int URBMRagdollBoneFollower::vf_000(void) { return 1; }
+UBOOL URBMRagdollBoneFollower::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0154e5b0
-bool URBMRagdollBoneFollower::vf_004()
+UBOOL URBMRagdollBoneFollower::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -2997,56 +2997,56 @@ bool URBMRagdollBoneFollower::vf_004()
 IMPLEMENT_CLASS_AT(URBMScreenShakeModifier, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameClasses.cpp", 68);
 
 // @baa 0x0154e700
-int URBMScreenShakeModifier::vf_000(void) { return 1; }
+UBOOL URBMScreenShakeModifier::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0154e710
-bool URBMScreenShakeModifier::vf_004()
+UBOOL URBMScreenShakeModifier::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0154e750
-int URBoneRescaleConfig::vf_000(void) { return 1; }
+UBOOL URBoneRescaleConfig::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0154e760
-int URCharacterViewerConfig::vf_000(void) { return 1; }
+UBOOL URCharacterViewerConfig::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0154e770
 IMPLEMENT_CLASS_AT(URCharacter, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameClasses.cpp", 71);
 
 // @baa 0x0154e880
-int URCharacter::vf_000(void) { return 1; }
+UBOOL URCharacter::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0154e890
-bool URCharacter::vf_004()
+UBOOL URCharacter::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0154e8d0
-int URCharacter_ThugBase::vf_000(void) { return 1; }
+UBOOL URCharacter_ThugBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0154e8e0
 // @baa 0x0154e9f0
-int URConfig::vf_000(void) { return 1; }
+UBOOL URConfig::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0154ea00
-bool URConfig::vf_004()
+UBOOL URConfig::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0154ea40
-int URDirectionalAnimConfig::vf_000(void) { return 1; }
+UBOOL URDirectionalAnimConfig::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0154ea50
 IMPLEMENT_CLASS_AT(UREvidenceLog, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameClasses.cpp", 75);
 
 // @baa 0x0154eb60
-int UREvidenceLog::vf_000(void) { return 1; }
+UBOOL UREvidenceLog::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0154eb70
-bool UREvidenceLog::vf_004()
+UBOOL UREvidenceLog::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -3055,26 +3055,26 @@ bool UREvidenceLog::vf_004()
 IMPLEMENT_CLASS_AT(URForensicsInvestigator, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameClasses.cpp", 76);
 
 // @baa 0x0154ecc0
-int URForensicsInvestigator::vf_000(void) { return 1; }
+UBOOL URForensicsInvestigator::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0154ecd0
-bool URForensicsInvestigator::vf_004()
+UBOOL URForensicsInvestigator::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0154ed10
-int URMirrorConfig::vf_000(void) { return 1; }
+UBOOL URMirrorConfig::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0154ed20
-int URPoseConfig::vf_000(void) { return 1; }
+UBOOL URPoseConfig::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0154ed30
 // @baa 0x0154ee40
-int UREvidenceInterface::vf_000(void) { return 1; }
+UBOOL UREvidenceInterface::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0154ee50
-bool UREvidenceInterface::vf_004()
+UBOOL UREvidenceInterface::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -3083,10 +3083,10 @@ bool UREvidenceInterface::vf_004()
 IMPLEMENT_CLASS_AT(ARPlantPodHomingSmallBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameClasses.cpp", 81);
 
 // @baa 0x0154efa0
-int ARPlantPodHomingSmallBase::vf_000(void) { return 1; }
+UBOOL ARPlantPodHomingSmallBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0154efb0
-bool ARPlantPodHomingSmallBase::vf_004()
+UBOOL ARPlantPodHomingSmallBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -3095,10 +3095,10 @@ bool ARPlantPodHomingSmallBase::vf_004()
 IMPLEMENT_CLASS_AT(ARPickupBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameClasses.cpp", 82);
 
 // @baa 0x0154f100
-int ARPickupBase::vf_000(void) { return 1; }
+UBOOL ARPickupBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0154f110
-bool ARPickupBase::vf_004()
+UBOOL ARPickupBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -3107,10 +3107,10 @@ bool ARPickupBase::vf_004()
 IMPLEMENT_CLASS_AT(URAimingConfigFactoryNew, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameClasses.cpp", 84);
 
 // @baa 0x0154f260
-int URAimingConfigFactoryNew::vf_000(void) { return 1; }
+UBOOL URAimingConfigFactoryNew::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0154f270
-bool URAimingConfigFactoryNew::vf_004()
+UBOOL URAimingConfigFactoryNew::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -3119,10 +3119,10 @@ bool URAimingConfigFactoryNew::vf_004()
 IMPLEMENT_CLASS_AT(URBoneRescaleConfigFactoryNew, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameClasses.cpp", 85);
 
 // @baa 0x0154f400
-int URBoneRescaleConfigFactoryNew::vf_000(void) { return 1; }
+UBOOL URBoneRescaleConfigFactoryNew::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0154f410
-bool URBoneRescaleConfigFactoryNew::vf_004()
+UBOOL URBoneRescaleConfigFactoryNew::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -3131,10 +3131,10 @@ bool URBoneRescaleConfigFactoryNew::vf_004()
 IMPLEMENT_CLASS_AT(URCharacterViewerConfigFactoryNew, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameClasses.cpp", 86);
 
 // @baa 0x0154f5a0
-int URCharacterViewerConfigFactoryNew::vf_000(void) { return 1; }
+UBOOL URCharacterViewerConfigFactoryNew::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0154f5b0
-bool URCharacterViewerConfigFactoryNew::vf_004()
+UBOOL URCharacterViewerConfigFactoryNew::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -3143,10 +3143,10 @@ bool URCharacterViewerConfigFactoryNew::vf_004()
 IMPLEMENT_CLASS_AT(URMirrorConfigFactoryNew, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameClasses.cpp", 87);
 
 // @baa 0x0154f740
-int URMirrorConfigFactoryNew::vf_000(void) { return 1; }
+UBOOL URMirrorConfigFactoryNew::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0154f750
-bool URMirrorConfigFactoryNew::vf_004()
+UBOOL URMirrorConfigFactoryNew::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -3155,10 +3155,10 @@ bool URMirrorConfigFactoryNew::vf_004()
 IMPLEMENT_CLASS_AT(URPoseConfigFactoryNew, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameClasses.cpp", 88);
 
 // @baa 0x0154f8e0
-int URPoseConfigFactoryNew::vf_000(void) { return 1; }
+UBOOL URPoseConfigFactoryNew::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0154f8f0
-bool URPoseConfigFactoryNew::vf_004()
+UBOOL URPoseConfigFactoryNew::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -3167,10 +3167,10 @@ bool URPoseConfigFactoryNew::vf_004()
 IMPLEMENT_CLASS_AT(URWeaponConfigFactoryNew, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameClasses.cpp", 89);
 
 // @baa 0x0154fa80
-int URWeaponConfigFactoryNew::vf_000(void) { return 1; }
+UBOOL URWeaponConfigFactoryNew::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0154fa90
-bool URWeaponConfigFactoryNew::vf_004()
+UBOOL URWeaponConfigFactoryNew::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -3179,10 +3179,10 @@ bool URWeaponConfigFactoryNew::vf_004()
 IMPLEMENT_CLASS_AT(URAlternateAnimationAndWeaponConfigFactoryNew, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameClasses.cpp", 90);
 
 // @baa 0x0154fc20
-int URAlternateAnimationAndWeaponConfigFactoryNew::vf_000(void) { return 1; }
+UBOOL URAlternateAnimationAndWeaponConfigFactoryNew::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0154fc30
-bool URAlternateAnimationAndWeaponConfigFactoryNew::vf_004()
+UBOOL URAlternateAnimationAndWeaponConfigFactoryNew::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -3191,10 +3191,10 @@ bool URAlternateAnimationAndWeaponConfigFactoryNew::vf_004()
 IMPLEMENT_CLASS_AT(URSeqAct_ActivateElectrifiedFloorPanels, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameClasses.cpp", 92);
 
 // @baa 0x0154fdc0
-int URSeqAct_ActivateElectrifiedFloorPanels::vf_000(void) { return 1; }
+UBOOL URSeqAct_ActivateElectrifiedFloorPanels::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0154fdd0
-bool URSeqAct_ActivateElectrifiedFloorPanels::vf_004()
+UBOOL URSeqAct_ActivateElectrifiedFloorPanels::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -3203,10 +3203,10 @@ bool URSeqAct_ActivateElectrifiedFloorPanels::vf_004()
 IMPLEMENT_CLASS_AT(URSeqAct_ActivateScarecrow, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameClasses.cpp", 93);
 
 // @baa 0x0154ff20
-int URSeqAct_ActivateScarecrow::vf_000(void) { return 1; }
+UBOOL URSeqAct_ActivateScarecrow::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0154ff30
-bool URSeqAct_ActivateScarecrow::vf_004()
+UBOOL URSeqAct_ActivateScarecrow::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

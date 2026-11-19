@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00f1ce50
-int UApexDestructibleAssetFactory::vf_000(void) { return 1; }
+UBOOL UApexDestructibleAssetFactory::HasUniqueStaticConfigName() const { return 1; }

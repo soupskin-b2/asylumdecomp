@@ -30,7 +30,7 @@ IMPLEMENT_CLASS_AT(URSeqAct_CombatProgress, "e:\\Projects\\Amadeus\\AA\\Game\\Un
 IMPLEMENT_CLASS_AT(ARCombatMove_BatmanWeaponAttack, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBMCombatMove.cpp", 11);
 
 // @baa 0x01664970
-bool ARCombatMove_BatmanWeaponAttack::vf_004()
+UBOOL ARCombatMove_BatmanWeaponAttack::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -39,7 +39,7 @@ bool ARCombatMove_BatmanWeaponAttack::vf_004()
 IMPLEMENT_CLASS_AT(ARCombatMove_BatmanStrike, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBMCombatMove.cpp", 12);
 
 // @baa 0x01664ac0
-bool ARCombatMove_BatmanStrike::vf_004()
+UBOOL ARCombatMove_BatmanStrike::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -49,10 +49,10 @@ bool ARCombatMove_BatmanStrike::vf_004()
 // @baa 0x0163c960
 
 // @baa 0x0163ca70
-int ARBMCombatDangerZone::vf_000(void) { return 1; }
+UBOOL ARBMCombatDangerZone::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0163ca80
-bool ARBMCombatDangerZone::vf_004()
+UBOOL ARBMCombatDangerZone::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -60,10 +60,10 @@ bool ARBMCombatDangerZone::vf_004()
 // @baa 0x0163cac0
 
 // @baa 0x0163cbd0
-int ARBMCombatCollisionProxy::vf_000(void) { return 1; }
+UBOOL ARBMCombatCollisionProxy::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0163cbe0
-bool ARBMCombatCollisionProxy::vf_004()
+UBOOL ARBMCombatCollisionProxy::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -71,10 +71,10 @@ bool ARBMCombatCollisionProxy::vf_004()
 // @baa 0x0163cc20
 
 // @baa 0x0163cd30
-int ARBMCombatDamageProxy::vf_000(void) { return 1; }
+UBOOL ARBMCombatDamageProxy::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0163cd40
-bool ARBMCombatDamageProxy::vf_004()
+UBOOL ARBMCombatDamageProxy::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -82,10 +82,10 @@ bool ARBMCombatDamageProxy::vf_004()
 // @baa 0x0163cd80
 
 // @baa 0x0163ce90
-int ARCombatArea::vf_000(void) { return 1; }
+UBOOL ARCombatArea::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0163cea0
-bool ARCombatArea::vf_004()
+UBOOL ARCombatArea::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -93,10 +93,10 @@ bool ARCombatArea::vf_004()
 // @baa 0x0163cee0
 
 // @baa 0x0163cff0
-int ARBMCombatPoint::vf_000(void) { return 1; }
+UBOOL ARBMCombatPoint::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0163d000
-bool ARBMCombatPoint::vf_004()
+UBOOL ARBMCombatPoint::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

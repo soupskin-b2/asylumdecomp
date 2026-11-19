@@ -942,10 +942,10 @@ int sub_007d7400(void)
 IMPLEMENT_CLASS_AT(ULineBatchComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnLevel.cpp", 18);
 
 // @baa 0x007d7540
-int ULineBatchComponent::vf_000(void) { return 1; }
+UBOOL ULineBatchComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x007d7550
-bool ULineBatchComponent::vf_004()
+UBOOL ULineBatchComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

@@ -7,10 +7,10 @@
 IMPLEMENT_CLASS_AT(UREvidenceThumbnailRenderer, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmEditor\\Src\\EvidenceThumbnailRenderer.cpp", 5);
 
 // @baa 0x01759000
-int UREvidenceThumbnailRenderer::vf_000(void) { return 1; }
+UBOOL UREvidenceThumbnailRenderer::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x01759010
-bool UREvidenceThumbnailRenderer::vf_004()
+UBOOL UREvidenceThumbnailRenderer::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

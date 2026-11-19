@@ -324,22 +324,22 @@ IMPLEMENT_CLASS_AT(UForceFieldShapeSphere, "e:\\Projects\\Amadeus\\AA\\Game\\Unr
 // @baa 0x00a341f0
 // @baa 0x00a34210
 // @baa 0x00a34320
-int UForceFieldShape::vf_000(void) { return 1; }
+UBOOL UForceFieldShape::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00a34330
-bool UForceFieldShape::vf_004()
+UBOOL UForceFieldShape::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00a34370
-int UForceFieldShapeBox::vf_000(void) { return 1; }
+UBOOL UForceFieldShapeBox::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00a34380
-int UForceFieldShapeCapsule::vf_000(void) { return 1; }
+UBOOL UForceFieldShapeCapsule::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00a34390
-int UForceFieldShapeSphere::vf_000(void) { return 1; }
+UBOOL UForceFieldShapeSphere::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00a343a0
 IMPLEMENT_CLASS_AT(ANxForceFieldGeneric, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\NxForceFieldGeneric.cpp", 14);

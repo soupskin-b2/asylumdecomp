@@ -56,10 +56,10 @@ int A::sub_00df4470()
 IMPLEMENT_CLASS_AT(UPackageMapLevel, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnNetDrv.cpp", 195);
 
 // @baa 0x00df4590
-int UPackageMapLevel::vf_000(void) { return 1; }
+UBOOL UPackageMapLevel::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00df45a0
-bool UPackageMapLevel::vf_004()
+UBOOL UPackageMapLevel::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -71,7 +71,7 @@ int UPackageMapSeekFree::vf_110(int a0) { return 1; }
 int UPackageMapSeekFree::vf_114(int a0) { return 1; }
 
 // @baa 0x00df4600
-int UPackageMapSeekFree::vf_000(void) { return 1; }
+UBOOL UPackageMapSeekFree::HasUniqueStaticConfigName() const { return 1; }
 
 extern char g_01e8bd3c[];
 struct C_00df4610 { C_00df4610* sub_00df4610(void); };

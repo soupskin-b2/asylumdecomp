@@ -255,7 +255,7 @@ undefined4 C_00df19c0::sub_00df19c0(void)
 
 // @baa 0x00df1fd0
 // @baa 0x00df2100
-bool UPhysicsLODVerticalEmitter::vf_004()
+UBOOL UPhysicsLODVerticalEmitter::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -272,10 +272,10 @@ int sub_00df2150(int a0, int a1) { return a1; }
 int sub_00df2160(int a0, int a1) { return a1; }
 
 // @baa 0x00df23e0
-int UFluidInfluenceComponent::vf_000(void) { return 1; }
+UBOOL UFluidInfluenceComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00df23f0
-bool UFluidInfluenceComponent::vf_004()
+UBOOL UFluidInfluenceComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -397,17 +397,17 @@ struct C_00df41e0 { C_00df41e0* sub_00df41e0(void); };
 IMPLEMENT_CLASS_AT(UDownload, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnDownload.cpp", 315);
 
 // @baa 0x00df43b0
-int UDownload::vf_000(void) { return 1; }
+UBOOL UDownload::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00df43c0
-bool UDownload::vf_004()
+UBOOL UDownload::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 int sub_00df4240(void);
 // @baa 0x00df4440
-void UChannelDownload::vf_02c(void)
+void UChannelDownload::FinishDestroy()
 {
     int param_1 = (int)this;
 
@@ -423,7 +423,7 @@ void UChannelDownload::vf_02c(void)
 }
 
 // @baa 0x00df4460
-int UChannelDownload::vf_000(void) { return 1; }
+UBOOL UChannelDownload::HasUniqueStaticConfigName() const { return 1; }
 
 struct C_00df4fe0 {
     uint sub_00df4fe0();

@@ -128,10 +128,10 @@ void sub_00982120(S* p, INT Value)
 IMPLEMENT_CLASS_AT(ATerrain, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnTerrain.cpp", 14);
 
 // @baa 0x00982250
-int ATerrain::vf_000(void) { return 1; }
+UBOOL ATerrain::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00982260
-bool ATerrain::vf_004()
+UBOOL ATerrain::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -140,10 +140,10 @@ bool ATerrain::vf_004()
 IMPLEMENT_CLASS_AT(UTerrainComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnTerrain.cpp", 15);
 
 // @baa 0x009823b0
-int UTerrainComponent::vf_000(void) { return 1; }
+UBOOL UTerrainComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x009823c0
-bool UTerrainComponent::vf_004()
+UBOOL UTerrainComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -152,10 +152,10 @@ bool UTerrainComponent::vf_004()
 IMPLEMENT_CLASS_AT(UTerrainMaterial, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnTerrain.cpp", 16);
 
 // @baa 0x00982510
-int UTerrainMaterial::vf_000(void) { return 1; }
+UBOOL UTerrainMaterial::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00982520
-bool UTerrainMaterial::vf_004()
+UBOOL UTerrainMaterial::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -164,10 +164,10 @@ bool UTerrainMaterial::vf_004()
 IMPLEMENT_CLASS_AT(UTerrainLayerSetup, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnTerrain.cpp", 17);
 
 // @baa 0x00982670
-int UTerrainLayerSetup::vf_000(void) { return 1; }
+UBOOL UTerrainLayerSetup::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00982680
-bool UTerrainLayerSetup::vf_004()
+UBOOL UTerrainLayerSetup::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -179,10 +179,10 @@ void __stdcall sub_00982830(int a0) {  }
 IMPLEMENT_CLASS_AT(UTerrainWeightMapTexture, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnTerrain.cpp", 5863);
 
 // @baa 0x00983700
-int UTerrainWeightMapTexture::vf_000(void) { return 1; }
+UBOOL UTerrainWeightMapTexture::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00983710
-bool UTerrainWeightMapTexture::vf_004()
+UBOOL UTerrainWeightMapTexture::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

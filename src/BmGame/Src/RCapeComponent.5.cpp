@@ -6,7 +6,7 @@
 const TCHAR* sub_016ad8c0();
 const TCHAR* sub_0053f6c0();
 // @baa 0x016ade70
-INT URCapeComponent::vf_000()
+UBOOL URCapeComponent::HasUniqueStaticConfigName() const
 {
     return sub_016ad8c0 == sub_0053f6c0;
 }

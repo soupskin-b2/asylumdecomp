@@ -187,10 +187,10 @@ struct C_00d6b1b0 {
 void C_00d6b1b0::sub_00d6b1b0() { b->v5(); }
 
 // @baa 0x00d6b5f0
-int ARB_ForceFieldExcludeVolume::vf_000(void) { return 1; }
+UBOOL ARB_ForceFieldExcludeVolume::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00d6b600
-bool ARB_ForceFieldExcludeVolume::vf_004()
+UBOOL ARB_ForceFieldExcludeVolume::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

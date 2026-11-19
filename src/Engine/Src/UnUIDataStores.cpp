@@ -570,22 +570,22 @@ int sub_00d8fbd0(void) { return (int)g_020b5210; }
 IMPLEMENT_CLASS_AT(UUIContainer, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnUIContainers.cpp", 28);
 
 // @baa 0x00d8fcf0
-int UUIContainer::vf_000(void) { return 1; }
+UBOOL UUIContainer::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00d8fd00
-bool UUIContainer::vf_004()
+UBOOL UUIContainer::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00d8fd60
-int UUITabPage::vf_000(void) { return 1; }
+UBOOL UUITabPage::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00d8fd70
 IMPLEMENT_CLASS_AT(UUITabControl, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnUIContainers.cpp", 38);
 
 // @baa 0x00d8fea0
-bool UUITabControl::vf_004()
+UBOOL UUITabControl::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -599,7 +599,7 @@ char* C_00d8fee0::sub_00d8fee0(void) { return (char*)this + 4; }
 IMPLEMENT_CLASS_AT(UDataStoreClient, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnUIDataStores.cpp", 15);
 
 // @baa 0x00d90020
-bool UDataStoreClient::vf_004()
+UBOOL UDataStoreClient::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -608,83 +608,83 @@ bool UDataStoreClient::vf_004()
 IMPLEMENT_CLASS_AT(UUIDataProvider, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnUIDataStores.cpp", 16);
 
 // @baa 0x00d90170
-int UUIDataProvider::vf_000(void) { return 1; }
+UBOOL UUIDataProvider::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00d90180
-bool UUIDataProvider::vf_004()
+UBOOL UUIDataProvider::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00d901c0
-int UUIConfigProvider::vf_000(void) { return 1; }
+UBOOL UUIConfigProvider::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00d901d0
-int UUIConfigFileProvider::vf_000(void) { return 1; }
+UBOOL UUIConfigFileProvider::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00d901e0
-int UUIConfigSectionProvider::vf_000(void) { return 1; }
+UBOOL UUIConfigSectionProvider::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00d901f0
-int UUIDataStore::vf_000(void) { return 1; }
+UBOOL UUIDataStore::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00d90220
-int UUIDataStore_SessionSettings::vf_000(void) { return 1; }
+UBOOL UUIDataStore_SessionSettings::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00d90230
-int UUIDataStore_GameState::vf_000(void) { return 1; }
+UBOOL UUIDataStore_GameState::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00d90240
-int UCurrentGameDataStore::vf_000(void) { return 1; }
+UBOOL UCurrentGameDataStore::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00d90250
-int UPlayerOwnerDataStore::vf_000(void) { return 1; }
+UBOOL UPlayerOwnerDataStore::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00d90260
-int UUIDataStore_Strings::vf_000(void) { return 1; }
+UBOOL UUIDataStore_Strings::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00d90270
-int USceneDataStore::vf_000(void) { return 1; }
+UBOOL USceneDataStore::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00d90280
-int UUIDataStore_Remote::vf_000(void) { return 1; }
+UBOOL UUIDataStore_Remote::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00d90290
-int UUIDataStore_StringBase::vf_000(void) { return 1; }
+UBOOL UUIDataStore_StringBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00d902c0
-int UUIPropertyDataProvider::vf_000(void) { return 1; }
+UBOOL UUIPropertyDataProvider::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00d902d0
-int UUIDynamicDataProvider::vf_000(void) { return 1; }
+UBOOL UUIDynamicDataProvider::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00d902e0
-int UGameInfoDataProvider::vf_000(void) { return 1; }
+UBOOL UGameInfoDataProvider::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00d902f0
-int UPlayerDataProvider::vf_000(void) { return 1; }
+UBOOL UPlayerDataProvider::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00d90300
-int UPlayerOwnerDataProvider::vf_000(void) { return 1; }
+UBOOL UPlayerOwnerDataProvider::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00d90310
-int UUISettingsProvider::vf_000(void) { return 1; }
+UBOOL UUISettingsProvider::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00d90320
-int USessionSettingsProvider::vf_000(void) { return 1; }
+UBOOL USessionSettingsProvider::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00d90350
 // @baa 0x00d90460
-int UUIDataStoreSubscriber::vf_000(void) { return 1; }
+UBOOL UUIDataStoreSubscriber::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00d90470
-bool UUIDataStoreSubscriber::vf_004()
+UBOOL UUIDataStoreSubscriber::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00d904b0
-int UUIDataStorePublisher::vf_000(void) { return 1; }
+UBOOL UUIDataStorePublisher::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00d904c0
 void sub_00d904c0(void) {  }
@@ -696,25 +696,25 @@ void UUIDataStore::OnCommit() {  }
 int sub_00d90560(void) { return 0; }
 
 // @baa 0x00d906c0
-int UUIDataProvider_OnlinePlayerDataBase::vf_000(void) { return 1; }
+UBOOL UUIDataProvider_OnlinePlayerDataBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00d906d0
-int UUIDataProvider_OnlineFriends::vf_000(void) { return 1; }
+UBOOL UUIDataProvider_OnlineFriends::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00d906e0
-int UUIDataProvider_OnlineFriendMessages::vf_000(void) { return 1; }
+UBOOL UUIDataProvider_OnlineFriendMessages::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00d906f0
-int UUIDataProvider_PlayerAchievements::vf_000(void) { return 1; }
+UBOOL UUIDataProvider_PlayerAchievements::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00d90890
-int UUIDataProvider_OnlineProfileSettingsArray::vf_000(void) { return 1; }
+UBOOL UUIDataProvider_OnlineProfileSettingsArray::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00d908a0
-int UUIDataProvider_OnlinePlayers::vf_000(void) { return 1; }
+UBOOL UUIDataProvider_OnlinePlayers::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00d908b0
-int UUIDataProvider_OnlineClanMates::vf_000(void) { return 1; }
+UBOOL UUIDataProvider_OnlineClanMates::HasUniqueStaticConfigName() const { return 1; }
 
 struct C_00d908c0 { int sub_00d908c0(void); };
 
@@ -2239,7 +2239,7 @@ undefined4 * C_00d92e10::sub_00d92e10(byte param_2)
 
 // @baa 0x00d92e60
 // @baa 0x00d92f70
-bool UUIDataStorePublisher::vf_004()
+UBOOL UUIDataStorePublisher::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -4198,14 +4198,14 @@ void sub_00d9bce0(void) { sub_00d9add0(); }
 // @baa 0x00d9bd30
 // @baa 0x00d9c0e0
 // @baa 0x00d9c1f0
-bool UUIConfigProvider::vf_004()
+UBOOL UUIConfigProvider::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00d9c230
 // @baa 0x00d9c340
-bool UUIDataStore::vf_004()
+UBOOL UUIDataStore::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -4215,28 +4215,28 @@ bool UUIDataStore::vf_004()
 // @baa 0x00d9c500
 // @baa 0x00d9c5c0
 // @baa 0x00d9c6d0
-bool UUIPropertyDataProvider::vf_004()
+UBOOL UUIPropertyDataProvider::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00d9c710
 // @baa 0x00d9c820
-bool UUIDynamicFieldProvider::vf_004()
+UBOOL UUIDynamicFieldProvider::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00d9db00
 // @baa 0x00d9dc10
-bool UUIDataProvider_OnlinePlayerDataBase::vf_004()
+UBOOL UUIDataProvider_OnlinePlayerDataBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00d9dd00
 // @baa 0x00d9de10
-bool UUIDataProvider_OnlineProfileSettingsArray::vf_004()
+UBOOL UUIDataProvider_OnlineProfileSettingsArray::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -4344,7 +4344,7 @@ IMPLEMENT_CLASS_AT(UUIDataProvider_PlayerAchievements, "e:\\Projects\\Amadeus\\A
 IMPLEMENT_CLASS_AT(UUICalloutButtonPanel, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnUIContainers.cpp", 29);
 
 // @baa 0x00d9ea50
-bool UUICalloutButtonPanel::vf_004()
+UBOOL UUICalloutButtonPanel::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -4353,69 +4353,69 @@ bool UUICalloutButtonPanel::vf_004()
 IMPLEMENT_CLASS_AT(UUITabPage, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnUIContainers.cpp", 36);
 
 // @baa 0x00d9eba0
-bool UUITabPage::vf_004()
+UBOOL UUITabPage::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00d9ebe0
 // @baa 0x00d9ecf0
-bool UUIConfigFileProvider::vf_004()
+UBOOL UUIConfigFileProvider::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00d9ed30
-bool UUIConfigSectionProvider::vf_004()
+UBOOL UUIConfigSectionProvider::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00d9ed70
 // @baa 0x00d9ee80
-bool UUIDataStore_Settings::vf_004()
+UBOOL UUIDataStore_Settings::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00d9eec0
 // @baa 0x00d9efd0
-bool UUIDataStore_GameState::vf_004()
+UBOOL UUIDataStore_GameState::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00d9f010
 // @baa 0x00d9f120
-bool USceneDataStore::vf_004()
+UBOOL USceneDataStore::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00d9f160
 // @baa 0x00d9f270
-bool UUIDataStore_Remote::vf_004()
+UBOOL UUIDataStore_Remote::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00d9f2b0
 // @baa 0x00d9f3c0
-bool UUIDataStore_StringBase::vf_004()
+UBOOL UUIDataStore_StringBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00d9f400
 // @baa 0x00d9f510
-bool UUIDynamicDataProvider::vf_004()
+UBOOL UUIDynamicDataProvider::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00d9f550
 // @baa 0x00d9f660
-bool UUISettingsProvider::vf_004()
+UBOOL UUISettingsProvider::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -4423,42 +4423,42 @@ bool UUISettingsProvider::vf_004()
 // @baa 0x00d9ff50
 // @baa 0x00da0010
 // @baa 0x00da0120
-bool UUIDataProvider_OnlineFriends::vf_004()
+UBOOL UUIDataProvider_OnlineFriends::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00da0160
 // @baa 0x00da0270
-bool UUIDataProvider_OnlineFriendMessages::vf_004()
+UBOOL UUIDataProvider_OnlineFriendMessages::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00da02b0
 // @baa 0x00da03c0
-bool UUIDataProvider_PlayerAchievements::vf_004()
+UBOOL UUIDataProvider_PlayerAchievements::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00da0400
 // @baa 0x00da0510
-bool UUIDataProvider_OnlineProfileSettings::vf_004()
+UBOOL UUIDataProvider_OnlineProfileSettings::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00da0550
 // @baa 0x00da0660
-bool UUIDataProvider_OnlinePlayers::vf_004()
+UBOOL UUIDataProvider_OnlinePlayers::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00da06a0
 // @baa 0x00da07b0
-bool UUIDataProvider_OnlineClanMates::vf_004()
+UBOOL UUIDataProvider_OnlineClanMates::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -4558,28 +4558,28 @@ void sub_00da0c80(undefined4 param_1, undefined4 param_2, undefined4 param_3, un
 // @baa 0x00da0f70
 // @baa 0x00da1080
 // @baa 0x00da1190
-bool UUIDataStore_SessionSettings::vf_004()
+UBOOL UUIDataStore_SessionSettings::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00da11d0
 // @baa 0x00da12e0
-bool UCurrentGameDataStore::vf_004()
+UBOOL UCurrentGameDataStore::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00da1320
 // @baa 0x00da1430
-bool UPlayerOwnerDataStore::vf_004()
+UBOOL UPlayerOwnerDataStore::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00da1470
 // @baa 0x00da1580
-bool UUIDataStore_Strings::vf_004()
+UBOOL UUIDataStore_Strings::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -4588,27 +4588,27 @@ bool UUIDataStore_Strings::vf_004()
 IMPLEMENT_CLASS_AT(UUIDataStore_InputAlias, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnUIDataStores.cpp", 67);
 
 // @baa 0x00da16d0
-bool UUIDataStore_InputAlias::vf_004()
+UBOOL UUIDataStore_InputAlias::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00da1710
 // @baa 0x00da1820
-bool UGameInfoDataProvider::vf_004()
+UBOOL UGameInfoDataProvider::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00da1860
 // @baa 0x00da1970
-bool UPlayerDataProvider::vf_004()
+UBOOL UPlayerDataProvider::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00da19b0
-bool USessionSettingsProvider::vf_004()
+UBOOL USessionSettingsProvider::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -4616,7 +4616,7 @@ bool USessionSettingsProvider::vf_004()
 // @baa 0x00da1a70
 // @baa 0x00da1b30
 // @baa 0x00da1c40
-bool UUIDataStore_OnlinePlayerData::vf_004()
+UBOOL UUIDataStore_OnlinePlayerData::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -4750,7 +4750,7 @@ void sub_00da2460(undefined4 param_1, undefined4 param_2, undefined4 param_3, un
 
 // @baa 0x00da2d40
 // @baa 0x00da2e50
-bool UPlayerOwnerDataProvider::vf_004()
+UBOOL UPlayerOwnerDataProvider::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

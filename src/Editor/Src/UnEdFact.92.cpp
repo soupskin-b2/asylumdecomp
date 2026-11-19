@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00f1dc10
-int UTextureMovieFactory::vf_000(void) { return 1; }
+UBOOL UTextureMovieFactory::HasUniqueStaticConfigName() const { return 1; }

@@ -15,7 +15,7 @@ IMPLEMENT_CLASS_AT(URReimportFMODSoundFactory, "e:\\Projects\\Amadeus\\AA\\Game\
 // @baa 0x01110260
 
 // @baa 0x01110370
-bool URReimportFMODSoundFactory::vf_004()
+UBOOL URReimportFMODSoundFactory::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

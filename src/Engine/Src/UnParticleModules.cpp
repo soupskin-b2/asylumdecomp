@@ -196,55 +196,55 @@ int sub_00b4fcf0(void)
 }
 
 // @baa 0x00b72210
-int UParticleModuleAccelerationBase::vf_000(void) { return 1; }
+UBOOL UParticleModuleAccelerationBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b72220
-int UParticleModuleAttractorBase::vf_000(void) { return 1; }
+UBOOL UParticleModuleAttractorBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b72230
-int UParticleModuleColorBase::vf_000(void) { return 1; }
+UBOOL UParticleModuleColorBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b72240
-int UParticleModuleKillBase::vf_000(void) { return 1; }
+UBOOL UParticleModuleKillBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b72250
-int UParticleModuleLifetimeBase::vf_000(void) { return 1; }
+UBOOL UParticleModuleLifetimeBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b72260
-int UParticleModuleLocationBase::vf_000(void) { return 1; }
+UBOOL UParticleModuleLocationBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b72270
-int UParticleModuleOrientationBase::vf_000(void) { return 1; }
+UBOOL UParticleModuleOrientationBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b72280
-int UParticleModuleRotationBase::vf_000(void) { return 1; }
+UBOOL UParticleModuleRotationBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b72290
-int UParticleModuleRotationRateBase::vf_000(void) { return 1; }
+UBOOL UParticleModuleRotationRateBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b722a0
-int UParticleModuleSizeBase::vf_000(void) { return 1; }
+UBOOL UParticleModuleSizeBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b722b0
-int UParticleModuleSubUVBase::vf_000(void) { return 1; }
+UBOOL UParticleModuleSubUVBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b722c0
-int UParticleModuleTypeDataBase::vf_000(void) { return 1; }
+UBOOL UParticleModuleTypeDataBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b722d0
-int UParticleModuleUberBase::vf_000(void) { return 1; }
+UBOOL UParticleModuleUberBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b722e0
-int UParticleModuleVelocityBase::vf_000(void) { return 1; }
+UBOOL UParticleModuleVelocityBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b722f0
 IMPLEMENT_CLASS_AT(UDistributionFloatParticleParameter, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnParticleModules.cpp", 30);
 
 // @baa 0x00b72400
-int UDistributionFloatParticleParameter::vf_000(void) { return 1; }
+UBOOL UDistributionFloatParticleParameter::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b72410
-bool UDistributionFloatParticleParameter::vf_004()
+UBOOL UDistributionFloatParticleParameter::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -253,20 +253,20 @@ bool UDistributionFloatParticleParameter::vf_004()
 IMPLEMENT_CLASS_AT(UDistributionVectorParticleParameter, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnParticleModules.cpp", 31);
 
 // @baa 0x00b72560
-int UDistributionVectorParticleParameter::vf_000(void) { return 1; }
+UBOOL UDistributionVectorParticleParameter::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b72570
-bool UDistributionVectorParticleParameter::vf_004()
+UBOOL UDistributionVectorParticleParameter::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00b725d0
 // @baa 0x00b726e0
-int UParticleModule::vf_000(void) { return 1; }
+UBOOL UParticleModule::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b726f0
-bool UParticleModule::vf_004()
+UBOOL UParticleModule::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -284,10 +284,10 @@ int UParticleModule::vf_114(int a0) { return 0; }
 int UParticleModule::vf_118(int a0) { return 0; }
 
 // @baa 0x00b728d0
-int UParticleModuleLocation::vf_000(void) { return 1; }
+UBOOL UParticleModuleLocation::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b72a80
-int UParticleModuleLocationDirect::vf_000(void) { return 1; }
+UBOOL UParticleModuleLocationDirect::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b72ef0
 int UParticleModuleLocationDirect::vf_114(int a0) { return 12; }
@@ -296,28 +296,28 @@ int UParticleModuleLocationDirect::vf_114(int a0) { return 12; }
 void UParticleModuleLocationDirect::vf_168(void) {  }
 
 // @baa 0x00b72f20
-int UParticleModuleLocationEmitter::vf_000(void) { return 1; }
+UBOOL UParticleModuleLocationEmitter::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b72f30
 INT UParticleModuleLocationEmitter::vf_118(INT a0) { return 4; }
 
 // @baa 0x00b72f40
-int UParticleModuleLocationEmitterDirect::vf_000(void) { return 1; }
+UBOOL UParticleModuleLocationEmitterDirect::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b72f50
-int UParticleModuleLocationPrimitiveBase::vf_000(void) { return 1; }
+UBOOL UParticleModuleLocationPrimitiveBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b730f0
-int UParticleModuleLocationPrimitiveCylinder::vf_000(void) { return 1; }
+UBOOL UParticleModuleLocationPrimitiveCylinder::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b73100
-int UParticleModuleLocationPrimitiveSphere::vf_000(void) { return 1; }
+UBOOL UParticleModuleLocationPrimitiveSphere::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b73110
-int URParticleModuleLocationSphereSection::vf_000(void) { return 1; }
+UBOOL URParticleModuleLocationSphereSection::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b73780
-int UParticleModuleOrientationAxisLock::vf_000(void) { return 1; }
+UBOOL UParticleModuleOrientationAxisLock::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b73790
 void __stdcall sub_00b73790(int a0, int a1, int a2) {  }
@@ -335,7 +335,7 @@ void UParticleModuleOrientationAxisLock::vf_168(undefined1 param_2)
 }
 
 // @baa 0x00b737c0
-int UParticleModuleRequired::vf_000(void) { return 1; }
+UBOOL UParticleModuleRequired::HasUniqueStaticConfigName() const { return 1; }
 
 int sub_005e59b0(void);
 // @baa 0x00b73870
@@ -360,55 +360,55 @@ void __stdcall sub_00b738a0(int a0, int a1, int a2) {  }
 void __stdcall sub_00b738b0(int a0, int a1, int a2) {  }
 
 // @baa 0x00b738c0
-int UParticleModuleMeshRotation::vf_000(void) { return 1; }
+UBOOL UParticleModuleMeshRotation::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b738d0
-int UParticleModuleMeshRotationRate::vf_000(void) { return 1; }
+UBOOL UParticleModuleMeshRotationRate::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b738e0
-int UParticleModuleMeshRotationRateMultiplyLife::vf_000(void) { return 1; }
+UBOOL UParticleModuleMeshRotationRateMultiplyLife::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b738f0
-int UParticleModuleRotation::vf_000(void) { return 1; }
+UBOOL UParticleModuleRotation::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b73950
-int UParticleModuleRotationRate::vf_000(void) { return 1; }
+UBOOL UParticleModuleRotationRate::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b739b0
-int UParticleModuleRotationOverLifetime::vf_000(void) { return 1; }
+UBOOL UParticleModuleRotationOverLifetime::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b73aa0
-int UParticleModuleSize::vf_000(void) { return 1; }
+UBOOL UParticleModuleSize::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b73b60
-int UParticleModuleSizeMultiplyVelocity::vf_000(void) { return 1; }
+UBOOL UParticleModuleSizeMultiplyVelocity::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b73d50
-int UParticleModuleSizeMultiplyLife::vf_000(void) { return 1; }
+UBOOL UParticleModuleSizeMultiplyLife::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b73df0
-int UParticleModuleSizeScale::vf_000(void) { return 1; }
+UBOOL UParticleModuleSizeScale::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b73ec0
-int UParticleModuleSubUV::vf_000(void) { return 1; }
+UBOOL UParticleModuleSubUV::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b73ed0
-int UParticleModuleSubUVSelect::vf_000(void) { return 1; }
+UBOOL UParticleModuleSubUVSelect::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b740d0
-int UParticleModuleSubUVDirect::vf_000(void) { return 1; }
+UBOOL UParticleModuleSubUVDirect::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b74270
-int UParticleModuleRotationRateMultiplyLife::vf_000(void) { return 1; }
+UBOOL UParticleModuleRotationRateMultiplyLife::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b74340
-int UParticleModuleAcceleration::vf_000(void) { return 1; }
+UBOOL UParticleModuleAcceleration::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b748b0
 int UParticleModuleAcceleration::vf_114(int a0) { return 12; }
 
 // @baa 0x00b748c0
-int UParticleModuleAccelerationOverLifetime::vf_000(void) { return 1; }
+UBOOL UParticleModuleAccelerationOverLifetime::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b749c0
 int UParticleModuleTypeDataBase::vf_168(int a0, int a1) { return 0; }
@@ -417,7 +417,7 @@ int UParticleModuleTypeDataBase::vf_168(int a0, int a1) { return 0; }
 void UParticleModuleTypeDataBase::vf_16c(void) {  }
 
 // @baa 0x00b749e0
-int UParticleModuleTypeDataMesh::vf_000(void) { return 1; }
+UBOOL UParticleModuleTypeDataMesh::HasUniqueStaticConfigName() const { return 1; }
 
 int sub_005eae70(...);
 int sub_00946350(void);
@@ -442,7 +442,7 @@ void UParticleModuleTypeDataMesh::vf_16c(void)
 }
 
 // @baa 0x00b74af0
-int UParticleModuleTypeDataTrail::vf_000(void) { return 1; }
+UBOOL UParticleModuleTypeDataTrail::HasUniqueStaticConfigName() const { return 1; }
 
 int sub_00b4e270(void);
 extern undefined4 g_0200c158;
@@ -464,7 +464,7 @@ void sub_00b74b20(void) { sub_00b4cdd0(); }
 void UParticleModuleTypeDataTrail::vf_16c(void) {  }
 
 // @baa 0x00b74b50
-int UParticleModuleTypeDataBeam::vf_000(void) { return 1; }
+UBOOL UParticleModuleTypeDataBeam::HasUniqueStaticConfigName() const { return 1; }
 
 extern undefined4 g_0200c1f8;
 // @baa 0x00b74c10
@@ -490,25 +490,25 @@ int UParticleModuleUberBase::vf_168(int a0) { return 0; }
 int UParticleModuleUberBase::vf_16c(int a0) { return 0; }
 
 // @baa 0x00b74ca0
-int UParticleModuleUberLTISIVCL::vf_000(void) { return 1; }
+UBOOL UParticleModuleUberLTISIVCL::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b74cb0
 int UParticleModuleUberLTISIVCL::vf_16c(int a0) { return 0; }
 
 // @baa 0x00b753e0
-int UParticleModuleUberLTISIVCLIL::vf_000(void) { return 1; }
+UBOOL UParticleModuleUberLTISIVCLIL::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b753f0
 int UParticleModuleUberLTISIVCLIL::vf_16c(int a0) { return 0; }
 
 // @baa 0x00b75c70
-int UParticleModuleUberLTISIVCLILIRSSBLIRR::vf_000(void) { return 1; }
+UBOOL UParticleModuleUberLTISIVCLILIRSSBLIRR::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b75c80
 int UParticleModuleUberLTISIVCLILIRSSBLIRR::vf_16c(int a0) { return 0; }
 
 // @baa 0x00b76610
-int UParticleModuleUberRainDrops::vf_000(void) { return 1; }
+UBOOL UParticleModuleUberRainDrops::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b76630
 void __stdcall sub_00b76630(int a0, int a1, int a2) {  }
@@ -517,73 +517,73 @@ void __stdcall sub_00b76630(int a0, int a1, int a2) {  }
 void UParticleModuleUberRainDrops::vf_12c(int a0, int a1, int a2) {  }
 
 // @baa 0x00b767f0
-int UParticleModuleUberRainImpacts::vf_000(void) { return 1; }
+UBOOL UParticleModuleUberRainImpacts::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b76950
 void UParticleModuleUberRainImpacts::vf_12c(int a0, int a1, int a2) {  }
 
 // @baa 0x00b76b10
-int UParticleModuleUberRainSplashA::vf_000(void) { return 1; }
+UBOOL UParticleModuleUberRainSplashA::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b76c70
-int UParticleModuleUberRainSplashB::vf_000(void) { return 1; }
+UBOOL UParticleModuleUberRainSplashB::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b77000
-int UParticleModuleVelocity::vf_000(void) { return 1; }
+UBOOL UParticleModuleVelocity::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b774d0
-int UParticleModuleVelocityInheritParent::vf_000(void) { return 1; }
+UBOOL UParticleModuleVelocityInheritParent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b774e0
-int UParticleModuleVelocityOverLifetime::vf_000(void) { return 1; }
+UBOOL UParticleModuleVelocityOverLifetime::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b777f0
-int UParticleModuleColor::vf_000(void) { return 1; }
+UBOOL UParticleModuleColor::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b778c0
-int UParticleModuleColorByParameter::vf_000(void) { return 1; }
+UBOOL UParticleModuleColorByParameter::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b778d0
-int UParticleModuleColorOverLife::vf_000(void) { return 1; }
+UBOOL UParticleModuleColorOverLife::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b779a0
-int UParticleModuleColorScaleOverLife::vf_000(void) { return 1; }
+UBOOL UParticleModuleColorScaleOverLife::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b77a90
-int UParticleModuleColorScaleOverDensity::vf_000(void) { return 1; }
+UBOOL UParticleModuleColorScaleOverDensity::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b77b50
-int UParticleModuleKillBox::vf_000(void) { return 1; }
+UBOOL UParticleModuleKillBox::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b77f80
-int UParticleModuleKillHeight::vf_000(void) { return 1; }
+UBOOL UParticleModuleKillHeight::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b782f0
-int UParticleModuleLifetime::vf_000(void) { return 1; }
+UBOOL UParticleModuleLifetime::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b783b0
-int UParticleModuleAttractorLine::vf_000(void) { return 1; }
+UBOOL UParticleModuleAttractorLine::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b78900
-int UParticleModuleAttractorParticle::vf_000(void) { return 1; }
+UBOOL UParticleModuleAttractorParticle::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b78910
 int UParticleModuleAttractorParticle::vf_114(int a0) { return 20; }
 
 // @baa 0x00b78920
-int UParticleModuleAttractorPoint::vf_000(void) { return 1; }
+UBOOL UParticleModuleAttractorPoint::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b78ff0
-int URParticleModuleAttractorComponent::vf_000(void) { return 1; }
+UBOOL URParticleModuleAttractorComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b79000
 IMPLEMENT_CLASS_AT(URParticleAttractorComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnParticleModules.cpp", 6471);
 
 // @baa 0x00b79110
-int URParticleAttractorComponent::vf_000(void) { return 1; }
+UBOOL URParticleAttractorComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b79120
-bool URParticleAttractorComponent::vf_004()
+UBOOL URParticleAttractorComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -592,7 +592,7 @@ bool URParticleAttractorComponent::vf_004()
 void URParticleModuleAttractorComponent::vf_12c(int a0, int a1, int a2) {  }
 
 // @baa 0x00b79170
-int UParticleModuleLocationVertex::vf_000(void) { return 1; }
+UBOOL UParticleModuleLocationVertex::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b7a1a0
 // @baa 0x00b7a1d0
@@ -1664,98 +1664,98 @@ IMPLEMENT_CLASS_AT(UParticleModuleVelocityOverLifetime, "e:\\Projects\\Amadeus\\
 // @baa 0x00b9ed00
 // @baa 0x00b9ed20
 // @baa 0x00b9ee30
-bool UParticleModuleAccelerationBase::vf_004()
+UBOOL UParticleModuleAccelerationBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00b9ee70
 // @baa 0x00b9ef80
-bool UParticleModuleAttractorBase::vf_004()
+UBOOL UParticleModuleAttractorBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00b9efc0
 // @baa 0x00b9f0d0
-bool UParticleModuleColorBase::vf_004()
+UBOOL UParticleModuleColorBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00b9f110
 // @baa 0x00b9f220
-bool UParticleModuleKillBase::vf_004()
+UBOOL UParticleModuleKillBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00b9f260
 // @baa 0x00b9f370
-bool UParticleModuleLifetimeBase::vf_004()
+UBOOL UParticleModuleLifetimeBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00b9f3b0
 // @baa 0x00b9f4c0
-bool UParticleModuleLocationBase::vf_004()
+UBOOL UParticleModuleLocationBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00b9f500
 // @baa 0x00b9f610
-bool UParticleModuleOrientationBase::vf_004()
+UBOOL UParticleModuleOrientationBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00b9f650
 // @baa 0x00b9f760
-bool UParticleModuleRotationBase::vf_004()
+UBOOL UParticleModuleRotationBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00b9f7a0
 // @baa 0x00b9f8b0
-bool UParticleModuleRotationRateBase::vf_004()
+UBOOL UParticleModuleRotationRateBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00b9f8f0
 // @baa 0x00b9fa00
-bool UParticleModuleSizeBase::vf_004()
+UBOOL UParticleModuleSizeBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00b9fa40
 // @baa 0x00b9fb50
-bool UParticleModuleSubUVBase::vf_004()
+UBOOL UParticleModuleSubUVBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00b9fb90
 // @baa 0x00b9fca0
-bool UParticleModuleTypeDataBase::vf_004()
+UBOOL UParticleModuleTypeDataBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00b9fce0
 // @baa 0x00b9fdf0
-bool UParticleModuleUberBase::vf_004()
+UBOOL UParticleModuleUberBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00b9fe30
 // @baa 0x00b9ff40
-bool UParticleModuleVelocityBase::vf_004()
+UBOOL UParticleModuleVelocityBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1769,7 +1769,7 @@ bool UParticleModuleVelocityBase::vf_004()
 // @baa 0x00ba0930
 // @baa 0x00ba09f0
 // @baa 0x00ba0b00
-bool UParticleModuleRequired::vf_004()
+UBOOL UParticleModuleRequired::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1989,343 +1989,343 @@ int sub_00ba2e00(void)
 
 // @baa 0x00ba2f50
 // @baa 0x00ba3060
-bool UParticleModuleLocation::vf_004()
+UBOOL UParticleModuleLocation::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00ba30a0
 // @baa 0x00ba31b0
-bool UParticleModuleLocationDirect::vf_004()
+UBOOL UParticleModuleLocationDirect::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00ba31f0
 // @baa 0x00ba3300
-bool UParticleModuleLocationEmitter::vf_004()
+UBOOL UParticleModuleLocationEmitter::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00ba3340
 // @baa 0x00ba3450
-bool UParticleModuleLocationEmitterDirect::vf_004()
+UBOOL UParticleModuleLocationEmitterDirect::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00ba3490
 // @baa 0x00ba35a0
-bool UParticleModuleLocationPrimitiveBase::vf_004()
+UBOOL UParticleModuleLocationPrimitiveBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00ba35e0
 // @baa 0x00ba36f0
-bool URParticleModuleLocationSphereSection::vf_004()
+UBOOL URParticleModuleLocationSphereSection::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00ba3730
 // @baa 0x00ba3840
-bool UParticleModuleOrientationAxisLock::vf_004()
+UBOOL UParticleModuleOrientationAxisLock::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00ba3880
 // @baa 0x00ba3990
-bool UParticleModuleMeshRotation::vf_004()
+UBOOL UParticleModuleMeshRotation::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00ba39d0
 // @baa 0x00ba3ae0
-bool UParticleModuleMeshRotationRate::vf_004()
+UBOOL UParticleModuleMeshRotationRate::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00ba3b20
 // @baa 0x00ba3c30
-bool UParticleModuleMeshRotationRateMultiplyLife::vf_004()
+UBOOL UParticleModuleMeshRotationRateMultiplyLife::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00ba3c70
 // @baa 0x00ba3d80
-bool UParticleModuleRotation::vf_004()
+UBOOL UParticleModuleRotation::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00ba3dc0
 // @baa 0x00ba3ed0
-bool UParticleModuleRotationRate::vf_004()
+UBOOL UParticleModuleRotationRate::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00ba3f10
 // @baa 0x00ba4020
-bool UParticleModuleRotationOverLifetime::vf_004()
+UBOOL UParticleModuleRotationOverLifetime::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00ba4060
 // @baa 0x00ba4170
-bool UParticleModuleSize::vf_004()
+UBOOL UParticleModuleSize::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00ba41b0
 // @baa 0x00ba42c0
-bool UParticleModuleSizeMultiplyVelocity::vf_004()
+UBOOL UParticleModuleSizeMultiplyVelocity::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00ba4300
 // @baa 0x00ba4410
-bool UParticleModuleSizeMultiplyLife::vf_004()
+UBOOL UParticleModuleSizeMultiplyLife::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00ba4450
 // @baa 0x00ba4560
-bool UParticleModuleSizeScale::vf_004()
+UBOOL UParticleModuleSizeScale::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00ba45a0
 // @baa 0x00ba46b0
-bool UParticleModuleSubUV::vf_004()
+UBOOL UParticleModuleSubUV::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00ba46f0
 // @baa 0x00ba4800
-bool UParticleModuleSubUVSelect::vf_004()
+UBOOL UParticleModuleSubUVSelect::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00ba4840
 // @baa 0x00ba4950
-bool UParticleModuleSubUVDirect::vf_004()
+UBOOL UParticleModuleSubUVDirect::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00ba4990
 // @baa 0x00ba4aa0
-bool UParticleModuleRotationRateMultiplyLife::vf_004()
+UBOOL UParticleModuleRotationRateMultiplyLife::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00ba4ae0
 // @baa 0x00ba4bf0
-bool UParticleModuleAcceleration::vf_004()
+UBOOL UParticleModuleAcceleration::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00ba4c30
 // @baa 0x00ba4d40
-bool UParticleModuleAccelerationOverLifetime::vf_004()
+UBOOL UParticleModuleAccelerationOverLifetime::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00ba4d80
 // @baa 0x00ba4e90
-bool UParticleModuleTypeDataMesh::vf_004()
+UBOOL UParticleModuleTypeDataMesh::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00ba4ed0
 // @baa 0x00ba4fe0
-bool UParticleModuleTypeDataTrail::vf_004()
+UBOOL UParticleModuleTypeDataTrail::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00ba5020
 // @baa 0x00ba5130
-bool UParticleModuleTypeDataBeam::vf_004()
+UBOOL UParticleModuleTypeDataBeam::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00ba5170
 // @baa 0x00ba5280
-bool UParticleModuleUberLTISIVCL::vf_004()
+UBOOL UParticleModuleUberLTISIVCL::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00ba52c0
 // @baa 0x00ba53d0
-bool UParticleModuleUberLTISIVCLIL::vf_004()
+UBOOL UParticleModuleUberLTISIVCLIL::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00ba5410
 // @baa 0x00ba5520
-bool UParticleModuleUberLTISIVCLILIRSSBLIRR::vf_004()
+UBOOL UParticleModuleUberLTISIVCLILIRSSBLIRR::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00ba5560
 // @baa 0x00ba5670
-bool UParticleModuleUberRainDrops::vf_004()
+UBOOL UParticleModuleUberRainDrops::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00ba56b0
 // @baa 0x00ba57c0
-bool UParticleModuleUberRainImpacts::vf_004()
+UBOOL UParticleModuleUberRainImpacts::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00ba5800
 // @baa 0x00ba5910
-bool UParticleModuleUberRainSplashA::vf_004()
+UBOOL UParticleModuleUberRainSplashA::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00ba5950
 // @baa 0x00ba5a60
-bool UParticleModuleUberRainSplashB::vf_004()
+UBOOL UParticleModuleUberRainSplashB::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00ba5aa0
 // @baa 0x00ba5bb0
-bool UParticleModuleVelocity::vf_004()
+UBOOL UParticleModuleVelocity::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00ba5bf0
 // @baa 0x00ba5d00
-bool UParticleModuleVelocityInheritParent::vf_004()
+UBOOL UParticleModuleVelocityInheritParent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00ba5d40
 // @baa 0x00ba5e50
-bool UParticleModuleVelocityOverLifetime::vf_004()
+UBOOL UParticleModuleVelocityOverLifetime::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00ba5e90
 // @baa 0x00ba5fa0
-bool UParticleModuleColor::vf_004()
+UBOOL UParticleModuleColor::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00ba5fe0
 // @baa 0x00ba60f0
-bool UParticleModuleColorByParameter::vf_004()
+UBOOL UParticleModuleColorByParameter::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00ba6130
 // @baa 0x00ba6240
-bool UParticleModuleColorOverLife::vf_004()
+UBOOL UParticleModuleColorOverLife::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00ba6280
 // @baa 0x00ba6390
-bool UParticleModuleColorScaleOverLife::vf_004()
+UBOOL UParticleModuleColorScaleOverLife::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00ba63d0
 // @baa 0x00ba64e0
-bool UParticleModuleColorScaleOverDensity::vf_004()
+UBOOL UParticleModuleColorScaleOverDensity::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00ba6520
 // @baa 0x00ba6630
-bool UParticleModuleKillBox::vf_004()
+UBOOL UParticleModuleKillBox::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00ba6670
 // @baa 0x00ba6780
-bool UParticleModuleKillHeight::vf_004()
+UBOOL UParticleModuleKillHeight::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00ba67c0
 // @baa 0x00ba68d0
-bool UParticleModuleLifetime::vf_004()
+UBOOL UParticleModuleLifetime::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00ba6910
 // @baa 0x00ba6a20
-bool UParticleModuleAttractorLine::vf_004()
+UBOOL UParticleModuleAttractorLine::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00ba6a60
 // @baa 0x00ba6b70
-bool UParticleModuleAttractorParticle::vf_004()
+UBOOL UParticleModuleAttractorParticle::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00ba6bb0
 // @baa 0x00ba6cc0
-bool UParticleModuleAttractorPoint::vf_004()
+UBOOL UParticleModuleAttractorPoint::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00ba6d00
 // @baa 0x00ba6e10
-bool URParticleModuleAttractorComponent::vf_004()
+UBOOL URParticleModuleAttractorComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00ba6e50
 // @baa 0x00ba6f60
-bool UParticleModuleLocationVertex::vf_004()
+UBOOL UParticleModuleLocationVertex::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -2462,14 +2462,14 @@ int sub_00ba71a0(void)
 
 // @baa 0x00ba71d0
 // @baa 0x00ba72e0
-bool UParticleModuleLocationPrimitiveCylinder::vf_004()
+UBOOL UParticleModuleLocationPrimitiveCylinder::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00ba7320
 // @baa 0x00ba7430
-bool UParticleModuleLocationPrimitiveSphere::vf_004()
+UBOOL UParticleModuleLocationPrimitiveSphere::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

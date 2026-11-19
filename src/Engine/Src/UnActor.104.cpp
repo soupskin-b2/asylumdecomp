@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x007577f0
-int UTeleportReachSpec::vf_000(void) { return 1; }
+UBOOL UTeleportReachSpec::HasUniqueStaticConfigName() const { return 1; }

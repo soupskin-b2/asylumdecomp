@@ -817,16 +817,16 @@ undefined4 * USurface::sub_0064be40(byte param_2)
 }
 
 // @baa 0x0064bf70
-int AFileWriter::vf_000(void) { return 1; }
+UBOOL AFileWriter::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0064bf80
-bool AFileWriter::vf_004()
+UBOOL AFileWriter::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0064bfc0
-int AFileLog::vf_000(void) { return 1; }
+UBOOL AFileLog::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0064bfd0
 int __stdcall sub_0064bfd0(int a0, int a1, int a2, int a3, int a4) { return 0; }
@@ -1318,10 +1318,10 @@ void Outer::sub_0064d320()
 int sub_0064d850(int a0, int a1) { return a1; }
 
 // @baa 0x0064dab0
-int UCoverMeshComponent::vf_000(void) { return 1; }
+UBOOL UCoverMeshComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0064dac0
-bool UCoverMeshComponent::vf_004()
+UBOOL UCoverMeshComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1362,22 +1362,22 @@ int sub_0064dc00(int a0, int a1) { return a1; }
 int sub_0064dc10(int a0, int a1) { return a1; }
 
 // @baa 0x0064dd30
-int ADecalActorBase::vf_000(void) { return 1; }
+UBOOL ADecalActorBase::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0064dd40
-bool ADecalActorBase::vf_004()
+UBOOL ADecalActorBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x0064dd80
-int ADecalActor::vf_000(void) { return 1; }
+UBOOL ADecalActor::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0064dd90
-int ADecalActorMovable::vf_000(void) { return 1; }
+UBOOL ADecalActorMovable::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0064dda0
-void ADecalActorBase::vf_09c(void) {  }
+void ADecalActorBase::PostEditImport() {  }
 
 int sub_009822a0(void);
 int sub_0099b3c0(...);
@@ -1398,7 +1398,7 @@ struct C_0064e8c0 { C_0064e8c0* sub_0064e8c0(void); };
 C_0064e8c0* C_0064e8c0::sub_0064e8c0(void) { return this; }
 
 // @baa 0x0064ea00
-bool ADecalManager::vf_004()
+UBOOL ADecalManager::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -1573,10 +1573,10 @@ int sub_0064fdd0(void) { return 1; }
 void sub_0064fde0(void) {  }
 
 // @baa 0x0064ffd0
-int UDirectionalLightComponent::vf_000(void) { return 1; }
+UBOOL UDirectionalLightComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0064ffe0
-bool UDirectionalLightComponent::vf_004()
+UBOOL UDirectionalLightComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

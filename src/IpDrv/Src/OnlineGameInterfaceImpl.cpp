@@ -170,16 +170,16 @@ void UHTTPDownload::Serialize(FArchive& Ar)
 IMPLEMENT_CLASS_AT(UHTTPDownload, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\IpDrv\\Src\\HTTPDownload.cpp", 841);
 
 // @baa 0x00e2ab50
-int UHTTPDownload::vf_000(void) { return 1; }
+UBOOL UHTTPDownload::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00e2ab60
-bool UHTTPDownload::vf_004()
+UBOOL UHTTPDownload::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
 // @baa 0x00e2b530
-bool UOnlineGameInterfaceImpl::vf_004()
+UBOOL UOnlineGameInterfaceImpl::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

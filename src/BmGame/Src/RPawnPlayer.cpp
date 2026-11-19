@@ -90,7 +90,7 @@ IMPLEMENT_CLASS_AT(URSeqAct_UpdateBatmanDamageLevel, "e:\\Projects\\Amadeus\\AA\
 
 // @baa 0x016a0150
 // @baa 0x016a0260
-bool ARPawnPlayer::vf_004()
+UBOOL ARPawnPlayer::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -211,7 +211,7 @@ undefined4 * UObject::sub_01691520(void)
 // @baa 0x016a09f0
 
 // @baa 0x016a0b00
-bool ARPawnPlayerBm::vf_004()
+UBOOL ARPawnPlayerBm::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -219,7 +219,7 @@ bool ARPawnPlayerBm::vf_004()
 // @baa 0x016a0b40
 
 // @baa 0x016a0c50
-bool ARPawnPlayerJokerBase::vf_004()
+UBOOL ARPawnPlayerJokerBase::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

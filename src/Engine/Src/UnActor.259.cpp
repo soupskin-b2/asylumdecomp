@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00783440
-bool AVolumePathNode::vf_004()
+UBOOL AVolumePathNode::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

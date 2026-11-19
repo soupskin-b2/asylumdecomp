@@ -17,10 +17,10 @@ int sub_01735700(void)
 }
 
 // @baa 0x0173a620
-int UCacheDestructibleScalesCommandlet::vf_000(void) { return 1; }
+UBOOL UCacheDestructibleScalesCommandlet::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0173a630
-bool UCacheDestructibleScalesCommandlet::vf_004()
+UBOOL UCacheDestructibleScalesCommandlet::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -58,10 +58,10 @@ undefined4 * C_0173a690::sub_0173a690(byte param_2)
 IMPLEMENT_CLASS_AT(URActorFactoryStaticMeshNoCL, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\CommonEditor\\Src\\CommonEditorClasses.cpp", 5);
 
 // @baa 0x0173a9b0
-int URActorFactoryStaticMeshNoCL::vf_000(void) { return 1; }
+UBOOL URActorFactoryStaticMeshNoCL::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x0173a9c0
-bool URActorFactoryStaticMeshNoCL::vf_004()
+UBOOL URActorFactoryStaticMeshNoCL::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }

@@ -4,10 +4,10 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00715fe0
-int UShaderCache::vf_000(void) { return 1; }
+UBOOL UShaderCache::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00715ff0
-bool UShaderCache::vf_004()
+UBOOL UShaderCache::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
@@ -57,10 +57,10 @@ void C_007162b0::sub_007162b0(void)
 IMPLEMENT_CLASS_AT(USkyLightComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\SkyLightComponent.cpp", 9);
 
 // @baa 0x007163e0
-int USkyLightComponent::vf_000(void) { return 1; }
+UBOOL USkyLightComponent::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x007163f0
-bool USkyLightComponent::vf_004()
+UBOOL USkyLightComponent::HasParentClassChanged() const
 {
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
