@@ -48,16 +48,16 @@ undefined4 * UMaterialInstance::sub_006aeb40(byte param_2)
 int sub_006311e0(...);
 extern undefined4 g_01ecb624;
 // @baa 0x006aed10
-undefined4 UMaterialInstance::GetRenderProxy(int param_2)
+class FMaterialRenderProxy* UMaterialInstance::GetRenderProxy(UBOOL Selected) const
 {
-    int param_1 = (int)this;
-
-  if (param_2 != 0) {
-    sub_006311e0("!Selected || GIsEditor",
-                 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\MaterialInstance.cpp"
-                 ,0x146,&g_01ecb624);
-  }
-  return *(undefined4 *)(param_1 + 0x5c + param_2 * 4);
+	/* check(!Selected || GIsEditor), with GIsEditor a constant FALSE in this build */
+	if (Selected)
+	{
+		sub_006311e0("!Selected || GIsEditor",
+		             "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\MaterialInstance.cpp",
+		             0x146, &g_01ecb624);
+	}
+	return (FMaterialRenderProxy*)Resources[Selected].Dummy;
 }
 
 // @baa 0x006aef80

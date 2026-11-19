@@ -156,10 +156,10 @@ IMPLEMENT_CLASS_AT(UTerrainExporterT3D, "e:\\Projects\\Amadeus\\AA\\Game\\Unreal
 // @baa 0x00f354c0
 
 // @baa 0x00f18f60
-int UTerrainHeightMapExporterTextT3D::vf_128(int a0, int a1, int a2, int a3) { return 0; }
+UBOOL UTerrainHeightMapExporterTextT3D::ExportHeightDataToFile(class ATerrain* a0, const TCHAR* a1, FFeedbackContext* a2, DWORD a3) { return 0; }
 
 // @baa 0x00f18f70
-int UTerrainHeightMapExporterTextT3D::vf_12c(int a0, int a1, int a2, int a3, int a4) { return 0; }
+UBOOL UTerrainHeightMapExporterTextT3D::ExportLayerDataToFile(class ATerrain* a0, FTerrainLayer* a1, const TCHAR* a2, FFeedbackContext* a3, DWORD a4) { return 0; }
 
 // @baa 0x00f1af50
 

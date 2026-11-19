@@ -383,14 +383,9 @@ FIntRect USequenceFrame::GetSeqObjBoundingBox()
     return USequenceObject::GetSeqObjBoundingBox();
 }
 
-/* slot 0x194 (vf_194) is USequenceVariable::GetValueStr */
-struct USeqVar_Bool_ : public USeqVar_Bool
-{
-    FString GetValueStr();
-};
 
 // @baa 0x008bc4b0
-FString USeqVar_Bool_::GetValueStr()
+FString USeqVar_Bool::GetValueStr()
 {
     return FString(bValue == TRUE ? TEXT("True") : TEXT("False"));
 }
@@ -401,14 +396,9 @@ struct FString_ : public FString
     static FString Printf(const TCHAR* Fmt, ...);
 };
 
-/* slot 0x194 (vf_194) is USequenceVariable::GetValueStr */
-struct USeqVar_Int_ : public USeqVar_Int
-{
-    FString GetValueStr();
-};
 
 // @baa 0x008c8250
-FString USeqVar_Int_::GetValueStr()
+FString USeqVar_Int::GetValueStr()
 {
     return FString_::Printf(TEXT("%d"), IntValue);
 }
@@ -420,14 +410,9 @@ struct FString__008cb160 : public FString
     static FString Printf(const TCHAR* Fmt, BYTE Value);
 };
 
-/* slot 0x194 (vf_194) is USequenceVariable::GetValueStr */
-struct USeqVar_Byte_ : public USeqVar_Byte
-{
-    FString GetValueStr();
-};
 
 // @baa 0x008cb160
-FString USeqVar_Byte_::GetValueStr()
+FString USeqVar_Byte::GetValueStr()
 {
     return FString__008cb160::Printf(TEXT("%u"), ByteValue);
 }
@@ -439,14 +424,9 @@ struct FString__008c82a0 : public FString
     static FString Printf(const TCHAR* Fmt, INT A, INT B);
 };
 
-/* slot 0x194 (vf_194) is USequenceVariable::GetValueStr */
-struct USeqVar_RandomInt_ : public USeqVar_RandomInt
-{
-    FString GetValueStr();
-};
 
 // @baa 0x008c82a0
-FString USeqVar_RandomInt_::GetValueStr()
+FString USeqVar_RandomInt::GetValueStr()
 {
     return FString__008c82a0::Printf(TEXT("%d..%d"), Min, Max);
 }
@@ -458,14 +438,9 @@ struct FString__008c81f0 : public FString
     static FString Printf(const TCHAR* Fmt, FLOAT A, FLOAT B);
 };
 
-/* slot 0x194 (vf_194) is USequenceVariable::GetValueStr */
-struct USeqVar_RandomFloat_ : public USeqVar_RandomFloat
-{
-    FString GetValueStr();
-};
 
 // @baa 0x008c81f0
-FString USeqVar_RandomFloat_::GetValueStr()
+FString USeqVar_RandomFloat::GetValueStr()
 {
     return FString__008c81f0::Printf(TEXT("%2.2f..%2.2f"), Min, Max);
 }
@@ -477,26 +452,16 @@ struct FString__008c8110 : public FString
     static FString Printf(const TCHAR* Fmt, FLOAT R, FLOAT G, FLOAT B, FLOAT A);
 };
 
-/* slot 0x194 (vf_194) is USequenceVariable::GetValueStr */
-struct USeqVar_Colour_ : public USeqVar_Colour
-{
-    FString GetValueStr();
-};
 
 // @baa 0x008c8110
-FString USeqVar_Colour_::GetValueStr()
+FString USeqVar_Colour::GetValueStr()
 {
     return FString__008c8110::Printf(TEXT("R=%2.1f G=%2.1f B=%2.1f A=%2.1f"), ColourValue.R, ColourValue.G, ColourValue.B, ColourValue.A);
 }
 
-/* slot 0x194 (vf_194) is USequenceVariable::GetValueStr */
-struct USeqVar_Player_ : public USeqVar_Player
-{
-    FString GetValueStr();
-};
 
 // @baa 0x008c88d0
-FString USeqVar_Player_::GetValueStr()
+FString USeqVar_Player::GetValueStr()
 {
     if (!bAllPlayers)
     {
@@ -508,14 +473,9 @@ FString USeqVar_Player_::GetValueStr()
 /* FName == NAME_None (UnName.h); the kit's FName has no operators. */
 inline UBOOL operator==(const FName& A, EName B) { return A.Index == B && A.Number == 0; }
 
-/* slot 0x194 (vf_194) is USequenceVariable::GetValueStr */
-struct USeqVar_Group_ : public USeqVar_Group
-{
-    FString GetValueStr();
-};
 
 // @baa 0x008bec90
-FString USeqVar_Group_::GetValueStr()
+FString USeqVar_Group::GetValueStr()
 {
     if (GroupName == NAME_None)
     {

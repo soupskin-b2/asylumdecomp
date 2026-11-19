@@ -31,7 +31,7 @@ UBOOL UTexture2DComposite::SourceTexturesFullyStreamedIn()
     {
         if (SourceRegions(SrcIdx).Texture2D)
         {
-            SourceRegions(SrcIdx).Texture2D->vf_124();
+            SourceRegions(SrcIdx).Texture2D->UpdateStreamingStatus();
             if (!((UTexture2D_*)SourceRegions(SrcIdx).Texture2D)->IsFullyStreamedIn())
             {
                 return FALSE;

@@ -7643,6 +7643,7 @@ struct FAnimConstants {
 struct FFatAnim {
     /* BmGame.FatAnim */
     class UAnimSequence* Sequence; /* 0x0 */
+    FFatAnim() {} /* native: returned through a hidden pointer (GetTransitionAnimFromCurrent), so not POD */
 };
 
 struct FAutomaticTransitionInstance {
@@ -7673,12 +7674,14 @@ struct FAutomaticTransitionInstance {
 struct FTransitionId {
     /* BmGame.TransitionId */
     INT Id; /* 0x0 */
+    FTransitionId() {} /* native: returned through a hidden pointer (StartAbsoluteTransition...), so not POD */
 };
 
 struct FOverlayId {
     /* BmGame.OverlayId */
     INT PlayerID; /* 0x0 */
     INT AnimId; /* 0x4 */
+    FOverlayId() {} /* native: returned through a hidden pointer (PlayWeaponOverlay...), so not POD */
 };
 
 struct FEnvironmentSpecialMoveTypesContainer {
@@ -7800,6 +7803,9 @@ struct FCustomAnimConfig {
 struct FWeight {
     /* BmGame.Weight */
     FLOAT Value; /* 0x0 */
+    /* native constructors (the exe returns FWeight through a hidden pointer, so it isn't POD) */
+    FWeight() {}
+    FWeight(FLOAT InValue) : Value(InValue) {}
 };
 
 struct FAdditiveAnimConfig {
@@ -13730,7 +13736,7 @@ struct UTexture : public USurface {
     virtual class FTextureResource* CreateResource(); /* 0x118 */
     virtual INT vf_11c(); /* 0x11c */
     virtual INT GetMaterialType(); /* 0x120 */
-    virtual INT vf_124(); /* 0x124 */
+    virtual UBOOL UpdateStreamingStatus(); /* 0x124 */
     virtual BYTE vf_128(); /* 0x128 */
     virtual FLOAT vf_12c(); /* 0x12c */
     /* overrides */
@@ -13808,7 +13814,7 @@ struct UTexture2D : public UTexture {
     virtual class FTextureResource* CreateResource(); /* 0x118 */
     virtual INT vf_11c(); /* 0x11c */
     virtual INT GetMaterialType(); /* 0x120 */
-    virtual INT vf_124(); /* 0x124 */
+    virtual UBOOL UpdateStreamingStatus(); /* 0x124 */
     /* UnrealScript natives */
     void execCreate(FFrame& Stack, RESULT_DECL); /* 0x00737dc0 */
     void execSetForceMipLevelsToBeResident(FFrame& Stack, RESULT_DECL); /* 0x00c8f360 */
@@ -16322,7 +16328,7 @@ struct APlayerController : public AController {
     virtual UBOOL IsMouseAvailable(); /* 0x434 */
     virtual class UAudioComponent* GetPooledAudioComponent(class USoundCue* ASound, class AActor* SourceActor, UBOOL bStopWhenOwnerDestroyed, UBOOL bUseLocation, FVector SourceLocation); /* 0x438 */
     virtual class USoundCue* CreateTTSSoundCue(const FString& StrToSpeak, class APlayerReplicationInfo* PRI); /* 0x43c */
-    virtual INT vf_440(INT, INT, INT, INT, INT); /* 0x440 */
+    virtual void SetViewTarget(class AActor* NewViewTarget, FViewTargetTransitionParams TransitionParams); /* 0x440 */
     virtual void SetShowSubtitles(UBOOL bValue); /* 0x444 */
     virtual UBOOL IsShowingSubtitles(); /* 0x448 */
     virtual FVector GetFVectorFromString(const FString& InStr); /* 0x44c */
@@ -17131,7 +17137,7 @@ struct ACamera : public AActor {
     /* virtual functions this class introduces (vtable 0x01f16638) */
     virtual void ApplyCameraModifiers(FLOAT DeltaTime, FTPOV& OutPOV); /* 0x354 */
     virtual void CheckViewTarget(FTViewTarget& VT); /* 0x358 */
-    virtual void vf_35c(INT, INT, INT, INT, INT); /* 0x35c */
+    virtual void SetViewTarget(class AActor* NewViewTarget, FViewTargetTransitionParams TransitionParams); /* 0x35c */
     virtual void vf_360(FPostProcessSettings& PPSettings); /* 0x360 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
@@ -18542,7 +18548,7 @@ struct AApexDestructibleActor : public AActor {
     TArrayNoInit<FLOAT> FractureReFireDelays; /* 0x23c */
     /* virtual functions this class introduces (vtable 0x01fa5998) */
     virtual void CacheFractureEffects(); /* 0x354 */
-    virtual INT vf_358(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x358 */
+    virtual void TakeDamage(INT Damage, class AController* EventInstigator, FVector HitLocation, FVector Momentum, class UClass* DamageType, FTraceHitInfo HitInfo, class AActor* DamageCauser); /* 0x358 */
     virtual void TakeRadiusDamage(class AController* InstigatedBy, FLOAT BaseDamage, FLOAT DamageRadius, UClass* DamageType, FLOAT Momentum, FVector HurtOrigin, UBOOL bFullDamage, class AActor* DamageCauser); /* 0x35c */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
@@ -21385,15 +21391,15 @@ struct UMaterialInterface : public USurface {
     virtual void SetForceMipLevelsToBeResident(FLOAT ForceDuration); /* 0x12c */
     virtual class UMaterial* GetMaterial(INT Platform = 0); /* 0x130 */
     virtual UBOOL IsDependent(class UMaterialInterface* TestDependency); /* 0x134 */
-    virtual UINT GetRenderProxy(INT); /* 0x138 */
+    virtual class FMaterialRenderProxy* GetRenderProxy(UBOOL Selected) const; /* 0x138 */
     virtual class UPhysicalMaterial* GetPhysicalMaterial(); /* 0x13c */
     virtual void GetTextures(TArray<UTexture*>& OutTextures, UBOOL bOnlyAddOnce = TRUE); /* 0x140 */
     virtual INT CheckMaterialUsage(INT); /* 0x144 */
-    virtual UINT AllocateResource(); /* 0x148 */
+    virtual class FMaterialResource* AllocateResource(); /* 0x148 */
     virtual INT vf_14c(INT); /* 0x14c */
     virtual INT CompileStaticPermutation(INT, INT, INT, INT, INT, INT); /* 0x150 */
-    virtual INT GetStaticSwitchParameterValue(INT, INT, INT, INT); /* 0x154 */
-    virtual INT GetStaticComponentMaskParameterValue(INT, INT, INT, INT, INT, INT, INT); /* 0x158 */
+    virtual UBOOL GetStaticSwitchParameterValue(FName ParameterName, UBOOL& OutValue, FGuid& OutExpressionGuid); /* 0x154 */
+    virtual UBOOL GetStaticComponentMaskParameterValue(FName ParameterName, UBOOL& R, UBOOL& G, UBOOL& B, UBOOL& A, FGuid& OutExpressionGuid); /* 0x158 */
     virtual UINT vf_15c(); /* 0x15c */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
@@ -21520,15 +21526,15 @@ struct UMaterial : public UMaterialInterface {
     virtual UBOOL GetTextureParameterValue(FName ParameterName, class UTexture*& OutValue); /* 0x120 */
     virtual UBOOL GetVectorParameterValue(FName ParameterName, FLinearColor& OutValue); /* 0x124 */
     virtual class UMaterial* GetMaterial(INT Platform = 0); /* 0x130 */
-    virtual UINT GetRenderProxy(INT); /* 0x138 */
+    virtual class FMaterialRenderProxy* GetRenderProxy(UBOOL Selected) const; /* 0x138 */
     virtual class UPhysicalMaterial* GetPhysicalMaterial(); /* 0x13c */
     virtual void GetTextures(TArray<UTexture*>& OutTextures, UBOOL bOnlyAddOnce = TRUE); /* 0x140 */
     virtual INT CheckMaterialUsage(INT); /* 0x144 */
-    virtual UINT AllocateResource(); /* 0x148 */
+    virtual class FMaterialResource* AllocateResource(); /* 0x148 */
     virtual INT vf_14c(INT); /* 0x14c */
     virtual INT CompileStaticPermutation(INT, INT, INT, INT, INT, INT); /* 0x150 */
-    virtual INT GetStaticSwitchParameterValue(INT, INT, INT, INT); /* 0x154 */
-    virtual INT GetStaticComponentMaskParameterValue(INT, INT, INT, INT, INT, INT, INT); /* 0x158 */
+    virtual UBOOL GetStaticSwitchParameterValue(FName ParameterName, UBOOL& OutValue, FGuid& OutExpressionGuid); /* 0x154 */
+    virtual UBOOL GetStaticComponentMaskParameterValue(FName ParameterName, UBOOL& R, UBOOL& G, UBOOL& B, UBOOL& A, FGuid& OutExpressionGuid); /* 0x158 */
     virtual UINT vf_15c(); /* 0x15c */
     /* other member functions */
     INT sub_006d72b0(INT* bInUse, INT Usage); /* 0x006d72b0 */
@@ -21554,7 +21560,7 @@ struct UDecalMaterial : public UMaterial {
     virtual void PostLoad(); /* 0x01c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
-    virtual UINT AllocateResource(); /* 0x148 */
+    virtual class FMaterialResource* AllocateResource(); /* 0x148 */
     /* registered size 0x2a4 */
 };
 
@@ -28512,15 +28518,15 @@ struct UMaterialInstance : public UMaterialInterface {
     virtual DOUBLE GetSurfaceHeight(); /* 0x110 */
     virtual class UMaterial* GetMaterial(INT Platform = 0); /* 0x130 */
     virtual UBOOL IsDependent(class UMaterialInterface* TestDependency); /* 0x134 */
-    virtual UINT GetRenderProxy(INT); /* 0x138 */
+    virtual class FMaterialRenderProxy* GetRenderProxy(UBOOL Selected) const; /* 0x138 */
     virtual class UPhysicalMaterial* GetPhysicalMaterial(); /* 0x13c */
     virtual void GetTextures(TArray<UTexture*>& OutTextures, UBOOL bOnlyAddOnce = TRUE); /* 0x140 */
     virtual INT CheckMaterialUsage(INT); /* 0x144 */
-    virtual UINT AllocateResource(); /* 0x148 */
+    virtual class FMaterialResource* AllocateResource(); /* 0x148 */
     virtual INT vf_14c(INT); /* 0x14c */
     virtual INT CompileStaticPermutation(INT, INT, INT, INT, INT, INT); /* 0x150 */
-    virtual INT GetStaticSwitchParameterValue(INT, INT, INT, INT); /* 0x154 */
-    virtual INT GetStaticComponentMaskParameterValue(INT, INT, INT, INT, INT, INT, INT); /* 0x158 */
+    virtual UBOOL GetStaticSwitchParameterValue(FName ParameterName, UBOOL& OutValue, FGuid& OutExpressionGuid); /* 0x154 */
+    virtual UBOOL GetStaticComponentMaskParameterValue(FName ParameterName, UBOOL& R, UBOOL& G, UBOOL& B, UBOOL& A, FGuid& OutExpressionGuid); /* 0x158 */
     /* UnrealScript natives */
     void execIsInMapOrTransientPackage(FFrame& Stack, RESULT_DECL); /* 0x00c9b790 */
     /* other member functions */
@@ -42574,7 +42580,7 @@ struct AR3rdPersonCamera : public ACamera {
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void vf_1d8(); /* 0x1d8 */
     virtual void ApplyCameraModifiers(FLOAT DeltaTime, FTPOV& OutPOV); /* 0x354 */
-    virtual void vf_35c(INT, INT, INT, INT, INT); /* 0x35c */
+    virtual void SetViewTarget(class AActor* NewViewTarget, FViewTargetTransitionParams TransitionParams); /* 0x35c */
     virtual void vf_360(FPostProcessSettings& PPSettings); /* 0x360 */
     /* UnrealScript natives */
     void execApplyCameraModifiers(FFrame& Stack, RESULT_DECL); /* 0x00c83870 */
@@ -43098,7 +43104,7 @@ struct URAnimNode_Cape : public UAnimNodeBlendBase {
     class USkeletalMeshComponent* PreviousSkelComponent; /* 0x190 */
     FMap_Mirror AnimStatesMap; /* 0x194 */
     /* virtual functions this class introduces (vtable 0x023105e0) */
-    virtual FLOAT vf_19c(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x19c */
+    virtual void ChangeAnim(FName NewAnimName, FName NewAnimNodeName, UBOOL NewIsMirrored, UBOOL isBlendOldAnim, FLOAT BlendDuration, FLOAT AnimStartTime, FLOAT AnimPlayRate, FName SetParentTimeSyncAnimName, FLOAT SetParentTimeSyncAnimOffset); /* 0x19c */
     virtual void PauseAnim(); /* 0x1a0 */
     virtual void ResumeAnim(); /* 0x1a4 */
     /* overrides */
@@ -44099,22 +44105,22 @@ struct ARPawnCharacter : public ARPawn {
     virtual void ChangeIdleStanceWithoutTransition(FName Stance); /* 0x4d0 */
     virtual UBOOL IsInPose(FName MovementStance, FName WeaponStance); /* 0x4d4 */
     virtual void InstantChangePose(); /* 0x4d8 */
-    virtual INT vf_4dc(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x4dc */
-    virtual INT vf_4e0(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x4e0 */
-    virtual INT vf_4e4(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x4e4 */
-    virtual INT vf_4e8(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x4e8 */
-    virtual INT vf_4ec(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x4ec */
-    virtual INT vf_4f0(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x4f0 */
-    virtual INT vf_4f4(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x4f4 */
-    virtual INT vf_4f8(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x4f8 */
-    virtual INT vf_4fc(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x4fc */
-    virtual INT vf_500(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x500 */
+    virtual FTransitionId StartAbsoluteTransition(FName MovementStance, FName WeaponStance, FVector TransitionTargetPosition, INT TransitionTargetYaw, FName TransitionName, UBOOL Mirrored, FCustomTransitionConfig CustomTransition, FCustomIdleConfig CustomIdle, BYTE TransitionMirrored, FLOAT TransitionDuration); /* 0x4dc */
+    virtual FTransitionId StartAbsoluteTransitionRotationOnly(FName MovementStance, FName WeaponStance, INT TransitionTargetYaw, FName TransitionName, UBOOL Mirrored, FCustomTransitionConfig CustomTransition, FCustomIdleConfig CustomIdle, BYTE TransitionMirrored, FLOAT TransitionDuration); /* 0x4e0 */
+    virtual FTransitionId StartRelativeTransition(FName MovementStance, FName WeaponStance, FVector TransitionTargetPosition, INT TransitionTargetYaw, FLOAT TransitionMeetingPoint, FName TransitionName, UBOOL Mirrored, FCustomTransitionConfig CustomTransition, FCustomIdleConfig CustomIdle, BYTE TransitionMirrored, FLOAT TransitionDurationScale); /* 0x4e4 */
+    virtual FTransitionId StartRelativeTransitionRollPitch(FName MovementStance, FName WeaponStance, FVector TransitionTargetPosition, FRotator TransitionTargetRotation, FLOAT TransitionMeetingPoint, FName TransitionName, UBOOL Mirrored, FCustomTransitionConfig CustomTransition, FCustomIdleConfig CustomIdle, BYTE TransitionMirrored, FLOAT TransitionDurationScale); /* 0x4e8 */
+    virtual FTransitionId StartRelativeTransitionRotationOnly(FName MovementStance, FName WeaponStance, INT TransitionTargetYaw, FLOAT TransitionMeetingPoint, FName TransitionName, UBOOL Mirrored, FCustomTransitionConfig CustomTransition, FCustomIdleConfig CustomIdle, BYTE TransitionMirrored, FLOAT TransitionDurationScale); /* 0x4ec */
+    virtual FTransitionId StartWeaponRelativeTransition(FName MovementStance, FName WeaponStance, class AInventory* NewWeapon, class AInventory* NewTransitionWeapon, FVector TransitionTargetPosition, INT TransitionTargetYaw, FLOAT TransitionMeetingPoint, FName TransitionName, UBOOL Mirrored, FCustomTransitionConfig CustomTransition, FCustomIdleConfig CustomIdle, BYTE TransitionMirrored); /* 0x4f0 */
+    virtual FTransitionId StartPairedWeaponRelativeTransition(FName MovementStance, FName WeaponStance, class AActor* PairedActor, FTransitionId PairedId, class AInventory* NewWeapon, class AInventory* NewTransitionWeapon, FVector TransitionTargetPosition, INT TransitionTargetYaw, FLOAT TransitionMeetingPoint, FName TransitionName, UBOOL Mirrored, FCustomTransitionConfig CustomTransition, FCustomIdleConfig CustomIdle, BYTE TransitionMirrored); /* 0x4f4 */
+    virtual FTransitionId StartPairedRelativeTransition(FName MovementStance, FName WeaponStance, class AActor* PairedActor, FTransitionId PairedId, FVector TransitionTargetPosition, INT TransitionTargetYaw, FLOAT TransitionMeetingPoint, FName TransitionName, UBOOL Mirrored, FCustomTransitionConfig CustomTransition, FCustomIdleConfig CustomIdle, BYTE TransitionMirrored, FLOAT TransitionDurationScale); /* 0x4f8 */
+    virtual FTransitionId StartErrorTrackingRelativeTransition(FName MovementStance, FName WeaponStance, class AActor* ErrorTrackingActor, FVector TransitionTargetPosition, INT TransitionTargetYaw, FLOAT TransitionMeetingPoint, FName TransitionName, UBOOL Mirrored, FCustomTransitionConfig CustomTransition, FCustomIdleConfig CustomIdle, BYTE TransitionMirrored); /* 0x4fc */
+    virtual FTransitionId StartErrorTrackingRelativeTransitionRollPitch(FName MovementStance, FName WeaponStance, class AActor* ErrorTrackingActor, FVector TransitionTargetPosition, FRotator TransitionTargetRotation, FLOAT TransitionMeetingPoint, FName TransitionName, UBOOL Mirrored, FCustomTransitionConfig CustomTransition, FCustomIdleConfig CustomIdle, BYTE TransitionMirrored, FLOAT TransitionDurationScale); /* 0x500 */
     virtual FTransitionId CancelSlave(); /* 0x504 */
-    virtual INT vf_508(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x508 */
-    virtual INT vf_50c(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x50c */
-    virtual INT vf_510(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x510 */
-    virtual INT vf_514(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x514 */
-    virtual INT vf_518(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x518 */
+    virtual FTransitionId ChangePose(FName MovementStance, FName WeaponStance, FName TransitionName, UBOOL bMirrored, FCustomTransitionConfig CustomTransition, FCustomIdleConfig CustomIdle, BYTE TransitionMirrored, FLOAT TransitionDurationScale); /* 0x508 */
+    virtual FTransitionId ChangePoseMaster(class AActor* Master, FName MovementStance, FName WeaponStance, FName TransitionName, UBOOL bMirrored, FCustomTransitionConfig CustomTransition, FCustomIdleConfig CustomIdle, BYTE TransitionMirrored); /* 0x50c */
+    virtual FTransitionId ForceChangePose(FName MovementStance, FName WeaponStance, FName TransitionName, UBOOL bMirrored, FCustomTransitionConfig CustomTransition, FCustomIdleConfig CustomIdle, BYTE TransitionMirrored, FLOAT TransitionDuration); /* 0x510 */
+    virtual FTransitionId ChangePoseWeapon(FName MovementStance, FName WeaponStance, class AInventory* NewWeapon, class AInventory* NewTransitionWeapon, FName TransitionName, UBOOL bMirrored, FCustomTransitionConfig CustomTransition, FCustomIdleConfig CustomIdle, BYTE TransitionMirrored); /* 0x514 */
+    virtual FTransitionId ChangePoseNoDataWeightIfNotHead(FName MovementStance, FName WeaponStance, FName TransitionName, UBOOL bMirrored, FCustomTransitionConfig CustomTransition, FCustomIdleConfig CustomIdle, BYTE TransitionMirrored, FLOAT TransitionDurationScale); /* 0x518 */
     virtual FTransitionId ChangeWeapon(class AInventory* NewWeapon, class AInventory* NewTransitionWeapon, UBOOL bForce); /* 0x51c */
     virtual FTransitionId ChangePoseOverTime(FName MovementStance, FName WeaponStance, FLOAT Time, UBOOL bMirrored); /* 0x520 */
     virtual void OverrideTransitionTime(FLOAT Time, INT DisableTimeAdvanceForNumFrames); /* 0x524 */
@@ -63858,7 +63864,7 @@ struct UExporter : public UObject {
     BITFIELD bSelectedOnly : 1; /* 0x54: cleared by the constructor */
     BITFIELD bForceFileOperations : 1; /* 0x54 */
     /* virtual functions this class introduces (vtable 0x01ea76f0) */
-    virtual INT vf_10c(INT, INT, INT, INT, INT, INT); /* 0x10c */
+    virtual UBOOL ExportText(const struct FExportObjectInnerContext* Context, class UObject* Object, const TCHAR* Type, FOutputDevice& Ar, FFeedbackContext* Warn, DWORD PortFlags = 0); /* 0x10c */
     virtual void vf_110(INT); /* 0x110 */
     virtual void vf_114(INT); /* 0x114 */
     virtual INT vf_118(INT, INT, INT, INT, INT, INT); /* 0x118 */
@@ -63910,7 +63916,7 @@ struct UClassExporterUC : public UExporter {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(INT, INT, INT, INT, INT, INT); /* 0x10c */
+    virtual UBOOL ExportText(const struct FExportObjectInnerContext* Context, class UObject* Object, const TCHAR* Type, FOutputDevice& Ar, FFeedbackContext* Warn, DWORD PortFlags = 0); /* 0x10c */
     /* registered size 0x58 */
 };
 
@@ -64938,7 +64944,7 @@ struct UExporterT3DX : public UExporter {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(INT, INT, INT, INT, INT, INT); /* 0x10c */
+    virtual UBOOL ExportText(const struct FExportObjectInnerContext* Context, class UObject* Object, const TCHAR* Type, FOutputDevice& Ar, FFeedbackContext* Warn, DWORD PortFlags = 0); /* 0x10c */
     /* registered size 0x58 */
 };
 
@@ -66917,7 +66923,7 @@ struct ULevelExporterOBJ : public UExporter {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(INT, INT, INT, INT, INT, INT); /* 0x10c */
+    virtual UBOOL ExportText(const struct FExportObjectInnerContext* Context, class UObject* Object, const TCHAR* Type, FOutputDevice& Ar, FFeedbackContext* Warn, DWORD PortFlags = 0); /* 0x10c */
     /* registered size 0x58 */
 };
 
@@ -66928,7 +66934,7 @@ struct ULevelExporterSTL : public UExporter {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(INT, INT, INT, INT, INT, INT); /* 0x10c */
+    virtual UBOOL ExportText(const struct FExportObjectInnerContext* Context, class UObject* Object, const TCHAR* Type, FOutputDevice& Ar, FFeedbackContext* Warn, DWORD PortFlags = 0); /* 0x10c */
     /* registered size 0x58 */
 };
 
@@ -66939,7 +66945,7 @@ struct ULevelExporterT3D : public UExporter {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(INT, INT, INT, INT, INT, INT); /* 0x10c */
+    virtual UBOOL ExportText(const struct FExportObjectInnerContext* Context, class UObject* Object, const TCHAR* Type, FOutputDevice& Ar, FFeedbackContext* Warn, DWORD PortFlags = 0); /* 0x10c */
     virtual void vf_110(INT); /* 0x110 */
     virtual void vf_114(INT); /* 0x114 */
     /* registered size 0x58 */
@@ -67393,7 +67399,7 @@ struct UMaterialExporterT3D : public UExporterT3DX {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(INT, INT, INT, INT, INT, INT); /* 0x10c */
+    virtual UBOOL ExportText(const struct FExportObjectInnerContext* Context, class UObject* Object, const TCHAR* Type, FOutputDevice& Ar, FFeedbackContext* Warn, DWORD PortFlags = 0); /* 0x10c */
     /* registered size 0x58 */
 };
 
@@ -67590,7 +67596,7 @@ struct UModelExporterT3D : public UExporter {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(INT, INT, INT, INT, INT, INT); /* 0x10c */
+    virtual UBOOL ExportText(const struct FExportObjectInnerContext* Context, class UObject* Object, const TCHAR* Type, FOutputDevice& Ar, FFeedbackContext* Warn, DWORD PortFlags = 0); /* 0x10c */
     /* registered size 0x58 */
 };
 
@@ -67780,7 +67786,7 @@ struct UObjectExporterT3D : public UExporter {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(INT, INT, INT, INT, INT, INT); /* 0x10c */
+    virtual UBOOL ExportText(const struct FExportObjectInnerContext* Context, class UObject* Object, const TCHAR* Type, FOutputDevice& Ar, FFeedbackContext* Warn, DWORD PortFlags = 0); /* 0x10c */
     /* registered size 0x58 */
 };
 
@@ -67982,7 +67988,7 @@ struct UPackageExporterT3D : public UExporter {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(INT, INT, INT, INT, INT, INT); /* 0x10c */
+    virtual UBOOL ExportText(const struct FExportObjectInnerContext* Context, class UObject* Object, const TCHAR* Type, FOutputDevice& Ar, FFeedbackContext* Warn, DWORD PortFlags = 0); /* 0x10c */
     virtual void vf_110(INT); /* 0x110 */
     virtual void vf_114(INT); /* 0x114 */
     /* registered size 0x58 */
@@ -68779,7 +68785,7 @@ struct UPolysExporterT3D : public UExporter {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(INT, INT, INT, INT, INT, INT); /* 0x10c */
+    virtual UBOOL ExportText(const struct FExportObjectInnerContext* Context, class UObject* Object, const TCHAR* Type, FOutputDevice& Ar, FFeedbackContext* Warn, DWORD PortFlags = 0); /* 0x10c */
     /* registered size 0x58 */
 };
 
@@ -68847,7 +68853,7 @@ struct UPreviewMaterial : public UMaterial {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual UINT AllocateResource(); /* 0x148 */
+    virtual class FMaterialResource* AllocateResource(); /* 0x148 */
     /* other member functions */
     void sub_01449fc0(); /* 0x01449fc0 */
     /* registered size 0x2a4 */
@@ -69758,7 +69764,7 @@ struct USequenceExporterT3D : public UExporter {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(INT, INT, INT, INT, INT, INT); /* 0x10c */
+    virtual UBOOL ExportText(const struct FExportObjectInnerContext* Context, class UObject* Object, const TCHAR* Type, FOutputDevice& Ar, FFeedbackContext* Warn, DWORD PortFlags = 0); /* 0x10c */
     /* registered size 0x58 */
 };
 
@@ -70131,7 +70137,7 @@ struct UStaticMeshExporterOBJ : public UExporter {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(INT, INT, INT, INT, INT, INT); /* 0x10c */
+    virtual UBOOL ExportText(const struct FExportObjectInnerContext* Context, class UObject* Object, const TCHAR* Type, FOutputDevice& Ar, FFeedbackContext* Warn, DWORD PortFlags = 0); /* 0x10c */
     /* registered size 0x58 */
 };
 
@@ -70142,7 +70148,7 @@ struct UStaticMeshExporterT3D : public UExporterT3DX {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(INT, INT, INT, INT, INT, INT); /* 0x10c */
+    virtual UBOOL ExportText(const struct FExportObjectInnerContext* Context, class UObject* Object, const TCHAR* Type, FOutputDevice& Ar, FFeedbackContext* Warn, DWORD PortFlags = 0); /* 0x10c */
     /* registered size 0x58 */
 };
 
@@ -70341,7 +70347,7 @@ struct UTerrainExporterT3D : public UExporter {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(INT, INT, INT, INT, INT, INT); /* 0x10c */
+    virtual UBOOL ExportText(const struct FExportObjectInnerContext* Context, class UObject* Object, const TCHAR* Type, FOutputDevice& Ar, FFeedbackContext* Warn, DWORD PortFlags = 0); /* 0x10c */
     /* registered size 0x60 */
 };
 
@@ -70379,13 +70385,13 @@ struct UTerrainHeightMapExporter : public UExporter {
     DECLARE_CLASS(UTerrainHeightMapExporter, UExporter, 0x0, 0x0, Editor)
     void InitializeIntrinsicPropertyValues(); /* 0x00f279c0 */
     /* virtual functions this class introduces (vtable 0x0214cbe8) */
-    virtual INT vf_124(INT, INT, INT, INT); /* 0x124 */
-    virtual INT vf_128(INT, INT, INT, INT); /* 0x128 */
-    virtual INT vf_12c(INT, INT, INT, INT, INT); /* 0x12c */
+    virtual UBOOL ExportHeightData(class ATerrain* Terrain, FArchive& Ar, FFeedbackContext* Warn, DWORD PortFlags = 0); /* 0x124 */
+    virtual UBOOL ExportHeightDataToFile(class ATerrain* Terrain, const TCHAR* Directory, FFeedbackContext* Warn, DWORD PortFlags = 0); /* 0x128 */
+    virtual UBOOL ExportLayerDataToFile(class ATerrain* Terrain, FTerrainLayer* Layer, const TCHAR* Directory, FFeedbackContext* Warn, DWORD PortFlags = 0); /* 0x12c */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(INT, INT, INT, INT, INT, INT); /* 0x10c */
+    virtual UBOOL ExportText(const struct FExportObjectInnerContext* Context, class UObject* Object, const TCHAR* Type, FOutputDevice& Ar, FFeedbackContext* Warn, DWORD PortFlags = 0); /* 0x10c */
     /* other member functions */
     bool sub_00f1eae0(); /* 0x00f1eae0 */
     UINT sub_00f31b80(BYTE); /* 0x00f31b80 */
@@ -70399,10 +70405,10 @@ struct UTerrainHeightMapExporterG16BMPT3D : public UTerrainHeightMapExporter {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(INT, INT, INT, INT, INT, INT); /* 0x10c */
-    virtual INT vf_124(INT, INT, INT, INT); /* 0x124 */
-    virtual INT vf_128(INT, INT, INT, INT); /* 0x128 */
-    virtual INT vf_12c(INT, INT, INT, INT, INT); /* 0x12c */
+    virtual UBOOL ExportText(const struct FExportObjectInnerContext* Context, class UObject* Object, const TCHAR* Type, FOutputDevice& Ar, FFeedbackContext* Warn, DWORD PortFlags = 0); /* 0x10c */
+    virtual UBOOL ExportHeightData(class ATerrain* Terrain, FArchive& Ar, FFeedbackContext* Warn, DWORD PortFlags = 0); /* 0x124 */
+    virtual UBOOL ExportHeightDataToFile(class ATerrain* Terrain, const TCHAR* Directory, FFeedbackContext* Warn, DWORD PortFlags = 0); /* 0x128 */
+    virtual UBOOL ExportLayerDataToFile(class ATerrain* Terrain, FTerrainLayer* Layer, const TCHAR* Directory, FFeedbackContext* Warn, DWORD PortFlags = 0); /* 0x12c */
     /* registered size 0x58 */
 };
 
@@ -70413,10 +70419,10 @@ struct UTerrainHeightMapExporterTextT3D : public UTerrainHeightMapExporter {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(INT, INT, INT, INT, INT, INT); /* 0x10c */
-    virtual INT vf_124(INT, INT, INT, INT); /* 0x124 */
-    virtual INT vf_128(INT, INT, INT, INT); /* 0x128 */
-    virtual INT vf_12c(INT, INT, INT, INT, INT); /* 0x12c */
+    virtual UBOOL ExportText(const struct FExportObjectInnerContext* Context, class UObject* Object, const TCHAR* Type, FOutputDevice& Ar, FFeedbackContext* Warn, DWORD PortFlags = 0); /* 0x10c */
+    virtual UBOOL ExportHeightData(class ATerrain* Terrain, FArchive& Ar, FFeedbackContext* Warn, DWORD PortFlags = 0); /* 0x124 */
+    virtual UBOOL ExportHeightDataToFile(class ATerrain* Terrain, const TCHAR* Directory, FFeedbackContext* Warn, DWORD PortFlags = 0); /* 0x128 */
+    virtual UBOOL ExportLayerDataToFile(class ATerrain* Terrain, FTerrainLayer* Layer, const TCHAR* Directory, FFeedbackContext* Warn, DWORD PortFlags = 0); /* 0x12c */
     /* registered size 0x58 */
 };
 
@@ -70621,7 +70627,7 @@ struct UTextBufferExporterTXT : public UExporter {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(INT, INT, INT, INT, INT, INT); /* 0x10c */
+    virtual UBOOL ExportText(const struct FExportObjectInnerContext* Context, class UObject* Object, const TCHAR* Type, FOutputDevice& Ar, FFeedbackContext* Warn, DWORD PortFlags = 0); /* 0x10c */
     /* registered size 0x58 */
 };
 
@@ -70697,7 +70703,7 @@ struct UTextureExporterT3D : public UExporterT3DX {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(INT, INT, INT, INT, INT, INT); /* 0x10c */
+    virtual UBOOL ExportText(const struct FExportObjectInnerContext* Context, class UObject* Object, const TCHAR* Type, FOutputDevice& Ar, FFeedbackContext* Warn, DWORD PortFlags = 0); /* 0x10c */
     /* other member functions */
     void sub_00f04ce0(UINT, UINT, UINT, UINT); /* 0x00f04ce0 */
     /* registered size 0x58 */
@@ -70907,7 +70913,7 @@ struct UUISceneExporter : public UExporter {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT vf_10c(INT, INT, INT, INT, INT, INT); /* 0x10c */
+    virtual UBOOL ExportText(const struct FExportObjectInnerContext* Context, class UObject* Object, const TCHAR* Type, FOutputDevice& Ar, FFeedbackContext* Warn, DWORD PortFlags = 0); /* 0x10c */
     /* other member functions */
     void sub_014bdd40(); /* 0x014bdd40 */
     void sub_014bdd50(); /* 0x014bdd50 */

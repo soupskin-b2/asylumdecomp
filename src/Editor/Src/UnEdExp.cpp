@@ -1572,7 +1572,7 @@ undefined4 * UExporter::sub_00f0b750(void)
 // @baa 0x00f0b7d0
 // @baa 0x00f0b7f0
 // @baa 0x00f0b850
-int UExporterT3DX::vf_10c(int a0, int a1, int a2, int a3, int a4, int a5) { return 0; }
+UBOOL UExporterT3DX::ExportText(const struct FExportObjectInnerContext* a0, class UObject* a1, const TCHAR* a2, FOutputDevice& a3, FFeedbackContext* a4, DWORD a5) { return 0; }
 
 // @baa 0x00f0b860
 extern undefined * g_0213c958;

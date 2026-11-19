@@ -65,11 +65,6 @@ struct FFontParameterValueOverTime_ : public FFontParameterValueOverTime
 	}
 };
 
-/* UMaterialInstanceTimeVarying::SetFontParameterValue isn't declared (MIC's is, non-virtual). */
-struct UMaterialInstanceTimeVarying_ : public UMaterialInstanceTimeVarying
-{
-	void SetFontParameterValue(FName ParameterName, UFont* FontValue, INT FontPage);
-};
 
 struct MITVFontParameterMapping
 {
@@ -80,7 +75,7 @@ struct MITVFontParameterMapping
 // @baa 0x00702dc0
 /* Sets the named font parameter, adding it (with default timing) if it isn't overridden yet, and passes it to
  * the rendering thread. */
-void UMaterialInstanceTimeVarying_::SetFontParameterValue(FName ParameterName, UFont* FontValue, INT FontPage)
+void UMaterialInstanceTimeVarying::SetFontParameterValue(FName ParameterName, UFont* FontValue, INT FontPage)
 {
 	sub_006c47c0(TEXT("MITV::SetFontParameterValue"));
 

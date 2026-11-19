@@ -15,7 +15,7 @@ void UTexture::StripData(UE3::EPlatformType arg)
 }
 
 // @baa 0x0071ef30
-int UTexture::vf_124(void) { return 0; }
+UBOOL UTexture::UpdateStreamingStatus() { return 0; }
 
 // @baa 0x0071ef40
 byte UTexture::vf_128(void)

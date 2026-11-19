@@ -5,7 +5,7 @@
 #include "ue3/Script.h"
 
 // @baa 0x006635d0
-UINT UMaterialInterface::GetRenderProxy(INT)
+class FMaterialRenderProxy* UMaterialInterface::GetRenderProxy(UBOOL Selected) const
 {
     PURE_VIRTUAL(UMaterialInterface::GetRenderProxy, return 0;);
 }
@@ -17,7 +17,7 @@ void UMaterialInterface::GetTextures(TArray<UTexture*>& OutTextures, UBOOL bOnly
 }
 
 // @baa 0x00663690
-INT UMaterialInterface::GetStaticSwitchParameterValue(INT, INT, INT, INT)
+UBOOL UMaterialInterface::GetStaticSwitchParameterValue(FName ParameterName, UBOOL& OutValue, FGuid& OutExpressionGuid)
 {
     PURE_VIRTUAL(UMaterialInterface::GetStaticSwitchParameterValue, return 0;);
 }

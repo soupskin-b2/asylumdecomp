@@ -11,7 +11,7 @@ INT UMaterialInterface::CheckMaterialUsage(INT Usage)
 }
 
 // @baa 0x006636b0
-INT UMaterialInterface::GetStaticComponentMaskParameterValue(INT MaterialIndex, INT ParamIndex, INT ComponentMask, INT Component1, INT Component2, INT Component3, INT Component4)
+UBOOL UMaterialInterface::GetStaticComponentMaskParameterValue(FName ParameterName, UBOOL& R, UBOOL& G, UBOOL& B, UBOOL& A, FGuid& OutExpressionGuid)
 PURE_VIRTUAL(UMaterialInterface::GetStaticComponentMaskParameterValue, return 0;);
 
 // AnimationEncodingFormat::GetPoseTranslations is an out-of-line pure virtual body

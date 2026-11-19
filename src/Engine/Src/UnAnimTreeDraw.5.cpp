@@ -32,66 +32,56 @@ struct FIntPoint_ : public FIntPoint
 enum EConnectorHitProxyType { LOC_INPUT, LOC_OUTPUT, LOC_VARIABLE, LOC_EVENT };
 
 #define LO_CONNECTOR_LENGTH (10)
-/* UAnimNodeBlendBase::GetConnectionLocation (editor drawing) isn't declared in Classes.h. */
-struct UAnimNodeBlendBase_ : public UAnimNodeBlendBase
-{
-	FIntPoint_ GetConnectionLocation(INT ConnType, INT ConnIndex);
-};
 
 // @baa 0x00cb9260
-FIntPoint_ UAnimNodeBlendBase_::GetConnectionLocation(INT ConnType, INT ConnIndex)
+FIntPoint UAnimNodeBlendBase::GetConnectionLocation(INT ConnType, INT ConnIndex)
 {
 	if (ConnType == LOC_INPUT)
 	{
 #line 271 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTreeDraw.cpp"
 		check(ConnIndex == 0);
-		return FIntPoint_(NodePosX - LO_CONNECTOR_LENGTH, OutDrawY);
+		return FIntPoint(NodePosX - LO_CONNECTOR_LENGTH, OutDrawY);
 	}
 	else if (ConnType == LOC_OUTPUT)
 	{
 #line 276 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTreeDraw.cpp"
 		check(ConnIndex >= 0 && ConnIndex < Children.Num());
-		return FIntPoint_(NodePosX + DrawWidth + LO_CONNECTOR_LENGTH, ((TArrayAt_<FAnimBlendChild>&)Children).At(ConnIndex).DrawY);
+		return FIntPoint(NodePosX + DrawWidth + LO_CONNECTOR_LENGTH, ((TArrayAt_<FAnimBlendChild>&)Children).At(ConnIndex).DrawY);
 	}
 
-	return FIntPoint_(0, 0);
+	return FIntPoint(0, 0);
 }
 
 #line 61 "candidate.cpp"
 
-/* UAnimTree::GetConnectionLocation (editor drawing) isn't declared in Classes.h. */
-struct UAnimTree_ : public UAnimTree
-{
-	FIntPoint_ GetConnectionLocation(INT ConnType, INT ConnIndex);
-};
 
 // @baa 0x00cb9070
-FIntPoint_ UAnimTree_::GetConnectionLocation(INT ConnType, INT ConnIndex)
+FIntPoint UAnimTree::GetConnectionLocation(INT ConnType, INT ConnIndex)
 {
 	if (ConnType == LOC_INPUT)
 	{
 #line 32 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTreeDraw.cpp"
 		check(ConnIndex == 0);
-		return FIntPoint_(NodePosX - LO_CONNECTOR_LENGTH, OutDrawY);
+		return FIntPoint(NodePosX - LO_CONNECTOR_LENGTH, OutDrawY);
 	}
 	else if (ConnType == LOC_OUTPUT)
 	{
 		// the animation tree, the morph nodes, then one connector per skel control list
 		if (ConnIndex == 0)
 		{
-			return FIntPoint_(NodePosX + DrawWidth + LO_CONNECTOR_LENGTH, ((TArrayAt_<FAnimBlendChild>&)Children).At(0).DrawY);
+			return FIntPoint(NodePosX + DrawWidth + LO_CONNECTOR_LENGTH, ((TArrayAt_<FAnimBlendChild>&)Children).At(0).DrawY);
 		}
 		else if (ConnIndex == 1)
 		{
-			return FIntPoint_(NodePosX + DrawWidth + LO_CONNECTOR_LENGTH, MorphConnDrawY);
+			return FIntPoint(NodePosX + DrawWidth + LO_CONNECTOR_LENGTH, MorphConnDrawY);
 		}
 		else
 		{
-			return FIntPoint_(NodePosX + DrawWidth + LO_CONNECTOR_LENGTH, ((TArrayAt_<FSkelControlListHead>&)SkelControlLists).At(ConnIndex - 2).DrawY);
+			return FIntPoint(NodePosX + DrawWidth + LO_CONNECTOR_LENGTH, ((TArrayAt_<FSkelControlListHead>&)SkelControlLists).At(ConnIndex - 2).DrawY);
 		}
 	}
 
-	return FIntPoint_(0, 0);
+	return FIntPoint(0, 0);
 }
 
 #line 98 "candidate.cpp"

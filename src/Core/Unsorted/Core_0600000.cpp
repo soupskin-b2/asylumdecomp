@@ -2370,7 +2370,7 @@ UExporter::UExporter()
 }
 
 // @baa 0x0060b340
-int UExporter::vf_10c(int a0, int a1, int a2, int a3, int a4, int a5) { return 0; }
+UBOOL UExporter::ExportText(const struct FExportObjectInnerContext* a0, class UObject* a1, const TCHAR* a2, FOutputDevice& a3, FFeedbackContext* a4, DWORD a5) { return 0; }
 
 // @baa 0x0060b350
 void UExporter::vf_110(int a0) {  }

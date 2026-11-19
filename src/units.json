@@ -83727,7 +83727,7 @@
     {
      "va": "0060b340",
      "size": 5,
-     "symbol": "?vf_10c@UExporter@@UAEHHHHHHH@Z"
+     "symbol": "?ExportText@UExporter@@UAEHPBUFExportObjectInnerContext@@PAUUObject@@PB_WAAUFOutputDevice@@PAUFFeedbackContext@@K@Z"
     },
     {
      "va": "0060b350",
@@ -129077,7 +129077,7 @@
     {
      "va": "00f0b850",
      "size": 5,
-     "symbol": "?vf_10c@UExporterT3DX@@UAEHHHHHHH@Z"
+     "symbol": "?ExportText@UExporterT3DX@@UAEHPBUFExportObjectInnerContext@@PAUUObject@@PB_WAAUFOutputDevice@@PAUFFeedbackContext@@K@Z"
     },
     {
      "va": "00f0b860",
@@ -129548,12 +129548,12 @@
     {
      "va": "00f18f60",
      "size": 5,
-     "symbol": "?vf_128@UTerrainHeightMapExporterTextT3D@@UAEHHHHH@Z"
+     "symbol": "?ExportHeightDataToFile@UTerrainHeightMapExporterTextT3D@@UAEHPAUATerrain@@PB_WPAUFFeedbackContext@@K@Z"
     },
     {
      "va": "00f18f70",
      "size": 5,
-     "symbol": "?vf_12c@UTerrainHeightMapExporterTextT3D@@UAEHHHHHH@Z"
+     "symbol": "?ExportLayerDataToFile@UTerrainHeightMapExporterTextT3D@@UAEHPAUATerrain@@PAUFTerrainLayer@@PB_WPAUFFeedbackContext@@K@Z"
     },
     {
      "va": "00f1af50",
@@ -180139,7 +180139,7 @@
     {
      "va": "006aed10",
      "size": 49,
-     "symbol": "?GetRenderProxy@UMaterialInstance@@UAEIH@Z"
+     "symbol": "?GetRenderProxy@UMaterialInstance@@UBEPAVFMaterialRenderProxy@@H@Z"
     },
     {
      "va": "006aef80",
@@ -180780,7 +180780,7 @@
     {
      "va": "006635d0",
      "size": 29,
-     "symbol": "?GetRenderProxy@UMaterialInterface@@UAEIH@Z"
+     "symbol": "?GetRenderProxy@UMaterialInterface@@UBEPAVFMaterialRenderProxy@@H@Z"
     },
     {
      "va": "00663610",
@@ -180790,7 +180790,7 @@
     {
      "va": "00663690",
      "size": 29,
-     "symbol": "?GetStaticSwitchParameterValue@UMaterialInterface@@UAEHHHHH@Z"
+     "symbol": "?GetStaticSwitchParameterValue@UMaterialInterface@@UAEHUFName@@AAHAAUFGuid@@@Z"
     },
     {
      "va": "006d8f20",
@@ -180832,7 +180832,7 @@
     {
      "va": "00702dc0",
      "size": 144,
-     "symbol": "?SetFontParameterValue@UMaterialInstanceTimeVarying_@@QAEXUFName@@PAUUFont@@H@Z"
+     "symbol": "?SetFontParameterValue@UMaterialInstanceTimeVarying@@UAEXUFName@@PAUUFont@@H@Z"
     },
     {
      "va": "00708ef0",
@@ -189827,7 +189827,7 @@
     {
      "va": "0071ef30",
      "size": 3,
-     "symbol": "?vf_124@UTexture@@UAEHXZ"
+     "symbol": "?UpdateStreamingStatus@UTexture@@UAEHXZ"
     },
     {
      "va": "0071ef40",
@@ -202721,7 +202721,7 @@
     {
      "va": "00c92a90",
      "size": 88,
-     "symbol": "?GetConnectionLocation@UAnimNode_@@QAE?AUFIntPoint_@@HH@Z"
+     "symbol": "?GetConnectionLocation@UAnimNode@@UAE?AUFIntPoint@@HH@Z"
     },
     {
      "va": "00c92b80",
@@ -202743,12 +202743,12 @@
     {
      "va": "00cb9260",
      "size": 233,
-     "symbol": "?GetConnectionLocation@UAnimNodeBlendBase_@@QAE?AUFIntPoint_@@HH@Z"
+     "symbol": "?GetConnectionLocation@UAnimNodeBlendBase@@UAE?AUFIntPoint@@HH@Z"
     },
     {
      "va": "00cb9070",
      "size": 299,
-     "symbol": "?GetConnectionLocation@UAnimTree_@@QAE?AUFIntPoint_@@HH@Z"
+     "symbol": "?GetConnectionLocation@UAnimTree@@UAE?AUFIntPoint@@HH@Z"
     }
    ]
   },
@@ -230379,42 +230379,42 @@
     {
      "va": "008bc4b0",
      "size": 47,
-     "symbol": "?GetValueStr@USeqVar_Bool_@@QAE?AVFString@@XZ"
+     "symbol": "?GetValueStr@USeqVar_Bool@@UAE?AVFString@@XZ"
     },
     {
      "va": "008c8250",
      "size": 42,
-     "symbol": "?GetValueStr@USeqVar_Int_@@QAE?AVFString@@XZ"
+     "symbol": "?GetValueStr@USeqVar_Int@@UAE?AVFString@@XZ"
     },
     {
      "va": "008cb160",
      "size": 43,
-     "symbol": "?GetValueStr@USeqVar_Byte_@@QAE?AVFString@@XZ"
+     "symbol": "?GetValueStr@USeqVar_Byte@@UAE?AVFString@@XZ"
     },
     {
      "va": "008c82a0",
      "size": 49,
-     "symbol": "?GetValueStr@USeqVar_RandomInt_@@QAE?AVFString@@XZ"
+     "symbol": "?GetValueStr@USeqVar_RandomInt@@UAE?AVFString@@XZ"
     },
     {
      "va": "008c81f0",
      "size": 57,
-     "symbol": "?GetValueStr@USeqVar_RandomFloat_@@QAE?AVFString@@XZ"
+     "symbol": "?GetValueStr@USeqVar_RandomFloat@@UAE?AVFString@@XZ"
     },
     {
      "va": "008c8110",
      "size": 77,
-     "symbol": "?GetValueStr@USeqVar_Colour_@@QAE?AVFString@@XZ"
+     "symbol": "?GetValueStr@USeqVar_Colour@@UAE?AVFString@@XZ"
     },
     {
      "va": "008c88d0",
      "size": 70,
-     "symbol": "?GetValueStr@USeqVar_Player_@@QAE?AVFString@@XZ"
+     "symbol": "?GetValueStr@USeqVar_Player@@UAE?AVFString@@XZ"
     },
     {
      "va": "008bec90",
      "size": 67,
-     "symbol": "?GetValueStr@USeqVar_Group_@@QAE?AVFString@@XZ"
+     "symbol": "?GetValueStr@USeqVar_Group@@UAE?AVFString@@XZ"
     },
     {
      "va": "00907ca0",
@@ -272621,7 +272621,7 @@
     {
      "va": "006636b0",
      "size": 29,
-     "symbol": "?GetStaticComponentMaskParameterValue@UMaterialInterface@@UAEHHHHHHHH@Z"
+     "symbol": "?GetStaticComponentMaskParameterValue@UMaterialInterface@@UAEHUFName@@AAH111AAUFGuid@@@Z"
     },
     {
      "va": "00663750",
@@ -284250,7 +284250,7 @@
     {
      "va": "00702820",
      "size": 109,
-     "symbol": "?SetFontParameterValue@UMaterialInstanceConstant@@QAEXUFName@@PAUUFont@@H@Z"
+     "symbol": "?SetFontParameterValue@UMaterialInstanceConstant@@UAEXUFName@@PAUUFont@@H@Z"
     }
    ]
   },

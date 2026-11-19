@@ -153,7 +153,9 @@ def cmd_set(lines, classes, cls, off, decl, quiet=False):
             # address of the override: fold it into the slot's line
             want = [_norm_type(p) for p in split_params(s[2])]
             for j in range(classes[k]["start"] + 1, classes[k].get("end", classes[k]["start"])):
-                m = re.match(r"\s*(?!virtual\b)[^/(]*?\b%s\((?P<p>[^()]*)\)[^;]*;\s*(?P<va>/\* 0x[0-9a-f]{8} \*/)?" % re.escape(s[1]), lines[j])
+                if j == d.lineno or _SLOT.match(lines[j]) or re.match(r"[ \t]*virtual\b", lines[j]):
+                    continue
+                m = re.match(r"[ \t]*[^/(]*?\b%s\((?P<p>[^()]*)\)[^;]*;\s*(?P<va>/\* 0x[0-9a-f]{8} \*/)?" % re.escape(s[1]), lines[j])
                 if m and [_norm_type(p) for p in split_params(m.group("p"))] == want:
                     drop.append(j)
                     if m.group("va") and not rest:
@@ -298,6 +300,42 @@ def fix_calls(classes, renames, files, rounds=6):
             if i % 100 == 0:
                 print("  %d/%d compiled" % (i, len(files)), flush=True)
     return left
+
+
+def unshadow(changes, files):
+    """Local helper structs (`struct UFoo_ : public UFoo { R Name(...); };`, the old workaround for a method the
+    headers lacked) that declare a function now named in a slot: drop the declaration (and the struct when it is
+    left empty, with its one-line comment) and define the function on the real class."""
+    names, rets = {}, {}
+    for k, _, s in changes:
+        names.setdefault(k, set()).add(s[1])
+        rets[(k, s[1])] = s[0]
+    touched = set()
+    for f in files:
+        t0 = t = f.read_text(encoding="utf-8")
+        for k, ns in names.items():
+            for n in ns:
+                pat = re.compile(r"(?P<cmt>[ \t]*/\*[^\n]*\*/\n)?struct (?P<sh>%s_+) : public %s\s*\{(?P<body>[^{}]*)\};\n" % (re.escape(k), re.escape(k)))
+                for m in list(pat.finditer(t)):
+                    body = m.group("body")
+                    decl = re.search(r"^[ \t]*(?!virtual\b)[^\n;(]*\b%s\s*\([^\n]*;[^\n]*\n" % re.escape(n), body, re.M)
+                    if not decl:
+                        continue
+                    rest = body.replace(decl.group(0), "")
+                    sh = m.group("sh")
+                    if rest.strip():
+                        new = m.group(0).replace(decl.group(0), "")
+                    else:
+                        new = ""
+                    t = t.replace(m.group(0), new, 1)
+                    t = re.sub(r"\b%s::%s\s*\(" % (re.escape(sh), re.escape(n)), "%s::%s(" % (k, n), t)
+                    r = rets.get((k, n))
+                    if r:  # the definition's return type follows the header (a helper type may have stood in)
+                        t = re.sub(r"(?m)^[^\n/(#]*?(?=\b%s::%s\()" % (re.escape(k), re.escape(n)), r + " ", t)
+        if t != t0:
+            f.write_text(t, encoding="utf-8", newline="\n")
+            touched.add(f)
+    return touched
 
 
 def files_using(classes, renames):
@@ -470,8 +508,21 @@ def main(argv):
                 return 1
             olds = {o for _, o, _ in allchanges}
             touched = rewrite_definitions(allchanges, [f for f in SRC.rglob("*.cpp") if any(o in f.read_text(encoding="utf-8") for o in olds)])
-            files = sorted(set(files_using(classes, renames)) | touched)
-            print("%d source files with definitions rewritten; compiling %d that use the old names" % (len(touched), len(files)))
+            # files that already use a new name on a class of the slot's tree: a plain declaration that became
+            # virtual changes their mangled names (QAE -> UAE), and local shadow structs may now clash
+            news = {}
+            for k, _, s in allchanges:
+                news.setdefault(s[1], set()).add(k.rstrip("_"))
+            also = set()
+            for f in SRC.rglob("*.cpp"):
+                t = f.read_text(encoding="utf-8")
+                for n, ks in news.items():
+                    if re.search(r"\b%s\s*\(" % n, t) and any(re.search(r"\b%s_*(?:__\w+)?\b" % k, t) for k in ks):
+                        also.add(f)
+                        break
+            touched |= unshadow(allchanges, also)
+            files = sorted(set(files_using(classes, renames)) | touched | also)
+            print("%d source files with definitions rewritten; compiling %d that use the old or new names" % (len(touched), len(files)))
             left = fix_calls(classes, renames, files)
             for rel, errs in left.items():
                 print("FIX BY HAND %s: %s" % (rel, " | ".join(errs)[:600]))

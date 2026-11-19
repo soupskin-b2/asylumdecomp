@@ -29,6 +29,10 @@ def _cls(sym: str) -> str | None:
     return m.group(1) if m else None
 
 
+def _norm(cls: str | None) -> str | None:
+    return re.sub(r"(?:__[0-9a-f]{8}|_+)$", "", cls) if cls else cls
+
+
 def one(u: dict):
     import check
     import compile as cl
@@ -54,8 +58,11 @@ def one(u: dict):
     found, still = {}, []
     for va, f in bad.items():
         old = next((x["symbol"] for x in u["functions"] if x["va"] == va), None)
-        cls = _cls(old)
-        cands = [s for s in obj.functions() if s.name not in claimed and (cls is None or _cls(s.name) == cls)]
+        cls = _norm(_cls(old))
+        free = [s for s in obj.functions() if s.name not in claimed]
+        # same class first (a local helper struct `UFoo_` / `UFoo__00123456` counts as UFoo), then any
+        cands = [s for s in free if cls is None or _norm(_cls(s.name)) == cls]
+        cands += [s for s in free if s not in cands]
         hit = None
         fp = data.fingerprint(int(va, 16))
         for s in cands:

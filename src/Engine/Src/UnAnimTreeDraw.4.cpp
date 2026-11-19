@@ -56,23 +56,18 @@ struct FIntPoint_ : public FIntPoint
 enum EConnectorHitProxyType { LOC_INPUT, LOC_OUTPUT, LOC_VARIABLE, LOC_EVENT };
 
 #define LO_CONNECTOR_LENGTH (10)
-/* UAnimNode::GetConnectionLocation (editor drawing) isn't declared in Classes.h. */
-struct UAnimNode_ : public UAnimNode
-{
-	FIntPoint_ GetConnectionLocation(INT ConnType, INT ConnIndex);
-};
 
 // @baa 0x00c92a90
-FIntPoint_ UAnimNode_::GetConnectionLocation(INT ConnType, INT ConnIndex)
+FIntPoint UAnimNode::GetConnectionLocation(INT ConnType, INT ConnIndex)
 {
 	if (ConnType == LOC_INPUT)
 	{
 #line 143 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTreeDraw.cpp"
 		check(ConnIndex == 0);
-		return FIntPoint_(NodePosX - LO_CONNECTOR_LENGTH, OutDrawY);
+		return FIntPoint(NodePosX - LO_CONNECTOR_LENGTH, OutDrawY);
 	}
 
-	return FIntPoint_(0, 0);
+	return FIntPoint(0, 0);
 }
 
 #line 91 "candidate.cpp"

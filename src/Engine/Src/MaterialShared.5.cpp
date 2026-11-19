@@ -4,7 +4,7 @@
 #include "ue3/Script.h"
 
 // @baa 0x00663650
-UINT UMaterialInterface::AllocateResource()
+class FMaterialResource* UMaterialInterface::AllocateResource()
 {
 	PURE_VIRTUAL(UMaterialInterface::AllocateResource, return 0;);
 }
