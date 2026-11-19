@@ -29,13 +29,6 @@ struct UAnimNodeSequence__00c5e220 : public UAnimNodeSequence
 	void ClearCachedResult();
 };
 
-/* Kit gap (Array.h): this build's TArray::Reset() is just 'DestructItems(0, ArrayNum); ArrayNum = 0;'; the
- * kit's Reset(NewSize) adds an Empty branch (flagged on 00c5e520). */
-template<class T> struct TArrayReset : public TArray<T>
-{
-	void Reset() { this->ArrayNum = 0; }
-};
-
 /* The cached pose may only be reused while the mesh isn't being rendered, the node skips ticks at zero
  * weight, and nothing extracts root motion from the animation. */
 UBOOL UAnimNodeSequence__00c5e220::ShouldKeepCachedResult()
@@ -56,7 +49,7 @@ void UAnimNodeSequence__00c5e220::ClearCachedResult()
 {
 	if (CachedBoneAtoms.Num() > 0 && !ShouldKeepCachedResult())
 	{
-		((TArrayReset<FBoneAtom>&)CachedBoneAtoms).Reset();
+		CachedBoneAtoms.Reset();
 	}
 }
 

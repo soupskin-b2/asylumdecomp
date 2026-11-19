@@ -5,26 +5,12 @@
 #include "ue3/Classes.h"
 #include "ue3/AppMath.h"
 
-/* Kit gaps, with UE3's definitions (Array.h, UnMath.h): TArray has no Shrink; FVector no operator- or
- * Size. TArray::Remove is out of line here (00667a40 for FVector, 00920980 for FLOAT). */
-template<class T> struct TArrayHelpers : public TArray<T>
-{
-	void Shrink()
-	{
-		if (ArrayMax != ArrayNum)
-		{
-			ArrayMax = ArrayNum;
-			AllocatorInstance.ResizeAllocation(ArrayNum, ArrayMax, sizeof(T));
-		}
-	}
-};
-
-struct FVectorArray : public TArrayHelpers<FVector>
+struct FVectorArray : public TArray<FVector>
 {
 	void sub_00667a40(INT Index, INT Count);	/* Remove */
 };
 
-struct FFloatArray : public TArrayHelpers<FLOAT>
+struct FFloatArray : public TArray<FLOAT>
 {
 	void sub_00920980(INT Index, INT Count);	/* Remove */
 };

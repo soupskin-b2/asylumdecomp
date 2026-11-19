@@ -57,23 +57,6 @@ INT FSkelControlArray::AddUniqueItem(USkelControlBase* const& Item)
 	return AddItem(Item);
 }
 
-/* Kit gaps, with UE3's definitions (Array.h, UnName.h): TArray has no Reset and no AddItem, FName no
- * comparison operators. */
-template<class T> struct TArrayHelpers : public TArray<T>
-{
-	void Reset()
-	{
-		DestructItems(0, ArrayNum);
-		ArrayNum = 0;
-	}
-	INT AddItem(const T& Item)
-	{
-		const INT Index = Add(1);
-		new(GetTypedData() + Index) T(Item);
-		return Index;
-	}
-};
-
 /* Callees Classes.h doesn't declare. */
 struct FIntArray : public TArray<INT>
 {
@@ -90,8 +73,8 @@ struct UAnimNode_ : public UAnimNode
 // @baa 0x00c62170
 void UAnimNodeAimOffset::UpdateListOfRequiredBones()
 {
-	((TArrayHelpers<BYTE>&)RequiredBones).Reset();
-	((TArrayHelpers<INT>&)BoneToAimCpnt).Reset();
+	RequiredBones.Reset();
+	BoneToAimCpnt.Reset();
 
 	FAimOffsetProfile* P = GetCurrentProfile();
 	if (!P || !SkelComponent)
@@ -123,7 +106,7 @@ void UAnimNodeAimOffset::UpdateListOfRequiredBones()
 		BoneToAimCpnt(i) = AimCompIndex;
 		if (AimCompIndex != INDEX_NONE)
 		{
-			((TArrayHelpers<BYTE>&)RequiredBones).AddItem((BYTE)i);
+			RequiredBones.AddItem((BYTE)i);
 		}
 	}
 

@@ -23,17 +23,6 @@ void URBMRouterPath::AddNode_Pos(FVector NewPathNode)
 	((TArrayAddItem_<FPathNodeInfo>&)PathNodes).AddItem(NewNode);
 }
 
-/* Kit gap: TArray::InsertItem isn't declared (Array.h). */
-template<class T> struct TArrayInsertItem_ : public TArray<T>
-{
-	FORCEINLINE INT InsertItem(const T& Item, INT Index)
-	{
-		this->Insert(Index, 1);
-		new(this->GetTypedData() + Index) T(Item);
-		return Index;
-	}
-};
-
 // @baa 0x0161bc90
 /* Inserts a node at a position (no owner) before node Index. */
 void URBMRouterPath::InsertNode_Pos(FVector NewPathNode, INT Index)
@@ -42,5 +31,5 @@ void URBMRouterPath::InsertNode_Pos(FVector NewPathNode, INT Index)
 	NewNode.pos = NewPathNode;
 	NewNode.Owner = NULL;
 	NewNode.bIsRPathNode = FALSE;
-	((TArrayInsertItem_<FPathNodeInfo>&)PathNodes).InsertItem(NewNode, Index);
+	PathNodes.InsertItem(NewNode, Index);
 }

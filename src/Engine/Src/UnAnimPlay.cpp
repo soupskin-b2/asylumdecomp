@@ -317,13 +317,6 @@ UBOOL UAnimNode::GetCachedResults(TArray<FBoneAtom>& OutAtoms, FBoneAtom& OutRoo
 
 /* Kit gaps: FName comparisons, USkeletalMeshComponent::FindAnimSequence (0091d860) and
  * UAnimNodeSequence::ShouldKeepCachedResult (00c4ad70) aren't declared. */
-/* Kit gap (Array.h): this build's TArray::Reset() is just 'DestructItems(0, ArrayNum); ArrayNum = 0;' (see
- * 00c5e220); the kit's Reset(NewSize) adds an Empty branch that VC8 can't fold. */
-template<class T> struct TArrayReset : public TArray<T>
-{
-	void Reset() { this->ArrayNum = 0; }
-};
-
 struct UAnimNodeSequence__00c5e520 : public UAnimNodeSequence
 {
 	UBOOL sub_00c4ad70();					/* ShouldKeepCachedResult */
@@ -333,7 +326,7 @@ struct UAnimNodeSequence__00c5e520 : public UAnimNodeSequence
 	{
 		if (CachedBoneAtoms.Num() > 0 && !sub_00c4ad70())
 		{
-			((TArrayReset<FBoneAtom>&)CachedBoneAtoms).Reset();
+			CachedBoneAtoms.Reset();
 		}
 	}
 };

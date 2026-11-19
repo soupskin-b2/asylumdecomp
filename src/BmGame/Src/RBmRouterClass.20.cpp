@@ -31,17 +31,6 @@ INT URBMRouterPath::AddNode_Actor(class AActor* NewPathNode)
 	return ((TArrayAddItem_<FPathNodeInfo>&)PathNodes).AddItem(NewNode);
 }
 
-/* Kit gap: TArray::InsertItem isn't declared (Array.h). */
-template<class T> struct TArrayInsertItem_ : public TArray<T>
-{
-	FORCEINLINE INT InsertItem(const T& Item, INT Index)
-	{
-		this->Insert(Index, 1);
-		new(this->GetTypedData() + Index) T(Item);
-		return Index;
-	}
-};
-
 // @baa 0x0161bcf0
 /* Inserts a node at an actor's location, owned by it, before node Index. */
 void URBMRouterPath::InsertNode_Actor(class AActor* NewPathNode, INT Index)
@@ -57,5 +46,5 @@ void URBMRouterPath::InsertNode_Actor(class AActor* NewPathNode, INT Index)
 	{
 		NewNode.bIsRPathNode = FALSE;
 	}
-	((TArrayInsertItem_<FPathNodeInfo>&)PathNodes).InsertItem(NewNode, Index);
+	PathNodes.InsertItem(NewNode, Index);
 }

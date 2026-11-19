@@ -6,17 +6,6 @@
 #include "ue3/Classes.h"
 #include "ue3/Array.h"
 
-/* Kit gap: TArray::AddItem (Array.h) isn't declared. */
-template<class T> struct TArrayAddItem_ : public TArray<T>
-{
-	FORCEINLINE INT AddItem(const T& Item)
-	{
-		const INT Index = this->Add(1);
-		new(this->GetTypedData() + Index) T(Item);
-		return Index;
-	}
-};
-
 // @baa 0x00d728f0
 /* The names of an id-mapped profile setting's values, added to Values; FALSE when the setting isn't id mapped. */
 INT UOnlineProfileSettings::GetProfileSettingValues(INT ProfileSettingId, TArray<FName>& Values)
@@ -30,7 +19,7 @@ INT UOnlineProfileSettings::GetProfileSettingValues(INT ProfileSettingId, TArray
 			{
 				for (INT ValueIdx = 0; ValueIdx < MetaData.ValueMappings.Num(); ValueIdx++)
 				{
-					((TArrayAddItem_<FName>&)Values).AddItem(MetaData.ValueMappings(ValueIdx).Name);
+					Values.AddItem(MetaData.ValueMappings(ValueIdx).Name);
 				}
 				return TRUE;
 			}

@@ -17,13 +17,6 @@ FLOAT UAnimNodeSequence::GetNormalizedPosition()
 }
 
 #define KINDA_SMALL_NUMBER	(1.e-4)
-/* Kit gaps: UAnimNodeSequence::IssueNotifies (00c52860) and ShouldKeepCachedResult (00c4ad70) aren't
- * declared; TArray::Reset() is the simple 'ArrayNum = 0' form in this build (flagged on 00c5e520). */
-template<class T> struct TArrayReset : public TArray<T>
-{
-	void Reset() { this->ArrayNum = 0; }
-};
-
 struct UAnimNodeSequence_ : public UAnimNodeSequence
 {
 	void sub_00c52860(FLOAT DeltaTime);			/* IssueNotifies */
@@ -34,7 +27,7 @@ struct UAnimNodeSequence_ : public UAnimNodeSequence
 	{
 		if (CachedBoneAtoms.Num() > 0 && !sub_00c4ad70())
 		{
-			((TArrayReset<FBoneAtom>&)CachedBoneAtoms).Reset();
+			CachedBoneAtoms.Reset();
 		}
 	}
 };
