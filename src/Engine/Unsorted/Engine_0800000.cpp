@@ -390,7 +390,7 @@ undefined4 * C_00804940::sub_00804940(byte param_2)
 
 extern undefined4 g_025e30f8;
 // @baa 0x00804990
-undefined4 UModelComponent::vf_24c(void)
+UBOOL UModelComponent::GetShadowIndirectOnly() const
 {
     int param_1 = (int)this;
 

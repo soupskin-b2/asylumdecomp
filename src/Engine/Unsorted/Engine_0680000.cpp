@@ -2030,7 +2030,7 @@ int UPrimitiveComponent::vf_210(void) { return 1; }
 void UPrimitiveComponent::vf_248(int a0) {  }
 
 // @baa 0x00689440
-UINT UPrimitiveComponent::vf_24c() { return 0; }
+UBOOL UPrimitiveComponent::GetShadowIndirectOnly() const { return 0; }
 
 int sub_005c7a70(...);
 int sub_006892a0(void);
@@ -2601,10 +2601,10 @@ void AActor::PushedBy(AActor* a0) {  }
 void AActor::UpdateBasedRotation(FRotator & a0, const FRotator& a1) {  }
 
 // @baa 0x0068eed0
-void AActor::vf_24c(void) {  }
+void AActor::UpdatePushBody() {  }
 
 // @baa 0x0068eee0
-void AActor::vf_250(int a0, int a1, int a2, int a3) {  }
+void AActor::ModifyNxActorDesc(NxActorDesc& a0, UPrimitiveComponent* a1, const class NxGroupsMask& a2, UINT a3) {  }
 
 // @baa 0x0068eef0
 void AActor::PostInitRigidBody(NxActor* a0, NxActorDesc& a1, UPrimitiveComponent* a2) {  }
@@ -2631,31 +2631,31 @@ void AActor::vf_270(int a0) {  }
 void AActor::vf_274(void) {  }
 
 // @baa 0x0068ef70
-void AActor::vf_278(int a0, int a1, int a2, int a3) {  }
+void AActor::PreviewUpdateFaceFX(UBOOL a0, const FString& a1, const FString& a2, FLOAT a3) {  }
 
 // @baa 0x0068ef80
-void AActor::vf_27c(int a0, int a1, int a2) {  }
+void AActor::PreviewActorPlayFaceFX(const FString& a0, const FString& a1, USoundCue* a2) {  }
 
 // @baa 0x0068ef90
-void AActor::vf_280(void) {  }
+void AActor::PreviewActorStopFaceFX() {  }
 
 // @baa 0x0068efa0
-int AActor::vf_284(void) { return 0; }
+UAudioComponent* AActor::PreviewGetFaceFXAudioComponent() { return 0; }
 
 // @baa 0x0068efb0
-UINT AActor::vf_288() { return 0; }
+class UFaceFXAsset* AActor::PreviewGetActorFaceFXAsset() { return 0; }
 
 // @baa 0x0068efc0
-void AActor::vf_28c(INT a0, FLOAT a1, INT a2) {  }
+void AActor::PreviewSetMorphWeight(FName MorphNodeName, FLOAT MorphWeight) {  }
 
 // @baa 0x0068efd0
 void AActor::vf_290(void) {  }
 
 // @baa 0x0068efe0
-void AActor::vf_294(INT a0, INT a1, FLOAT a2) {  }
+void AActor::PreviewSetSkelControlScale(FName SkelControlName, FLOAT Scale) {  }
 
 // @baa 0x0068eff0
-void AActor::vf_298(INT a0, INT a1, FLOAT a2) {  }
+void AActor::SetSkelControlStrength(FName SkelControlName, FLOAT ControlStrength) {  }
 
 // @baa 0x0068f000
 INT AActor::AddMyMarker(AActor * a0) { return 0; }

@@ -1090,19 +1090,19 @@ FLOAT UEngine::GetMaxTickRate(FLOAT a, UBOOL b) {
 }
 
 // @baa 0x007f7250
-void UEngine::vf_164(void) {  }
+void UEngine::SpawnServerActors() {  }
 
 // @baa 0x007f7260
-int UEngine::vf_16c(int a0) { return 1; }
+UBOOL UEngine::ShouldDrawBrushWireframe(class AActor* a0) { return 1; }
 
 // @baa 0x007f7270
 int UEngine::vf_170(int a0, int a1) { return 1; }
 
 // @baa 0x007f7280
-void UEngine::vf_174(void) {  }
+void UEngine::IssueDecalUpdateRequest() {  }
 
 // @baa 0x007f7290
-int UEngine::vf_178(void) { return 0; }
+UBOOL UEngine::GetMapBuildCancelled() const { return 0; }
 
 // @baa 0x007f72a0
 void __stdcall sub_007f72a0(int a0) {  }

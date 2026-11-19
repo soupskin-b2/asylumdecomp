@@ -265,7 +265,7 @@ UBOOL UPlayerManagerInteraction::HasParentClassChanged() const
 }
 
 // @baa 0x008895f0
-int UGameViewportClient::vf_118(int a0) { return 0; }
+class UClass* UGameViewportClient::GetCustomInteractionClass(INT a0) { return 0; }
 
 // @baa 0x00889600
 void UGameViewportClient::vf_11c(int a0, int a1) {  }

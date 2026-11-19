@@ -553,14 +553,15 @@ def cmd_verify(classes):
                 if d.off is None or c not in X or introducer(classes, c, d.off) != c:
                     continue
                 want = return_kind(d.ret)
-                if want == "struct":
-                    continue
                 for k in subtree(classes, c):
                     if k in X and d.off // 4 < len(X[k]):
                         va = X[k][d.off // 4]
                         if va not in seen:
                             seen[va] = stub_return(img, va, sizes.get(va))
                         got = seen[va]
+                        if want == "struct":
+                            # a class-type result: the hidden pointer comes back in eax, so never a bare ret
+                            got = "nothing" if got == "void" else None
                         if got and got != want and not (want == "value" and got == "void" and d.name.startswith("vf_") is False and False):
                             print("%s 0x%03x %s: returns %s, but %s's implementation %08x returns %s"
                                   % (c, d.off, d.name, d.ret.replace("virtual", "").strip(), k, va, got))

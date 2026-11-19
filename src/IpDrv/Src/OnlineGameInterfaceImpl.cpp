@@ -229,20 +229,20 @@ struct C_00e30c00 { char pad[8]; M_00e30c00 m; void sub_00e30c00(); };
 void C_00e30c00::sub_00e30c00() { m.sub_0040fcc0(); }
 
 // @baa 0x00e38320
-INT UOnlineGameInterfaceImpl::vf_144() {
+DWORD UOnlineGameInterfaceImpl::FindInternetGames() {
   return 0xffffffff;
 }
 
 // @baa 0x00e38330
-INT UOnlineGameInterfaceImpl::vf_148() {
+DWORD UOnlineGameInterfaceImpl::CancelFindInternetGames() {
   return 0xffffffff;
 }
 
 // @baa 0x00e38340
-UINT UOnlineGameInterfaceImpl::vf_14c(UINT a, UINT b) { return 0xFFFFFFFF; }
+DWORD UOnlineGameInterfaceImpl::ReadPlatformSpecificInternetSessionInfo(const FOnlineGameSearchResult& a, BYTE* b) { return 0xFFFFFFFF; }
 
 // @baa 0x00e38350
-INT UOnlineGameInterfaceImpl::vf_150(INT a, INT b, INT c) { return 0xFFFFFFFF; }
+DWORD UOnlineGameInterfaceImpl::BindPlatformSpecificSessionToInternetSearch(BYTE a, UOnlineGameSearch* b, BYTE* c) { return 0xFFFFFFFF; }
 
 struct C_00e38360 : UOnlineGameInterfaceImpl {
     virtual UINT sub_00e38360(UINT a);

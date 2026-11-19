@@ -32,7 +32,7 @@ struct ARLevelTransition_ : public ARLevelTransition
 };
 
 // @baa 0x01590a30
-INT ARLevelTransition::vf_17c(INT A)
+void ARLevelTransition::PostEditMove(UBOOL A)
 {
     ARLevelTransition_* Self = (ARLevelTransition_*)this;
     if (A != 0)
@@ -40,5 +40,5 @@ INT ARLevelTransition::vf_17c(INT A)
         sub_0158c5b0();
         sub_0158c560();
     }
-    return Self->sub_007771e0(A);
+    Super::PostEditMove(A);
 }

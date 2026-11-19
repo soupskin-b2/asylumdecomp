@@ -361,7 +361,7 @@ int sub_00bf8a60(void)
 }
 
 // @baa 0x00bf8b70
-void UEngine::vf_13c(void) {  }
+void UEngine::DumpDistanceFactorChart() {  }
 
 // @baa 0x00bf8e10
 void UEngine::DumpMemoryChartToLog(FLOAT a0, FLOAT a1, INT a2) {  }

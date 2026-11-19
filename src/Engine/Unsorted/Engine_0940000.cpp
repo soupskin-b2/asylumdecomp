@@ -253,10 +253,10 @@ undefined4 ASkeletalMeshActor::vf_178(void)
 void ASkeletalMeshActor::vf_270(int a0) {  }
 
 // @baa 0x00944ab0
-int ASkeletalMeshActor::vf_284(void) { return *(int*)((char*)this + 436); }
+UAudioComponent* ASkeletalMeshActor::PreviewGetFaceFXAudioComponent() { return *(UAudioComponent**)((char*)this + 436); }
 
 // @baa 0x00944ac0
-undefined4 ASkeletalMeshActor::vf_288(void)
+class UFaceFXAsset* ASkeletalMeshActor::PreviewGetActorFaceFXAsset()
 {
     int param_1 = (int)this;
 
@@ -264,7 +264,7 @@ undefined4 ASkeletalMeshActor::vf_288(void)
   
   if ((*(int *)(param_1 + 0x1e4) != 0) &&
      (iVar1 = *(int *)(*(int *)(param_1 + 0x1e4) + 0x1b0), iVar1 != 0)) {
-    return *(undefined4 *)(iVar1 + 0x134);
+    return *(class UFaceFXAsset **)(iVar1 + 0x134);
   }
   return 0;
 }
@@ -564,7 +564,7 @@ C_00945390* C_00945390::sub_00945390(void) { return this; }
 
 extern undefined4 g_025e30f8;
 // @baa 0x009453a0
-undefined4 USkeletalMeshComponent::vf_24c(void)
+UBOOL USkeletalMeshComponent::GetShadowIndirectOnly() const
 {
     int param_1 = (int)this;
 
@@ -1077,7 +1077,7 @@ uint AStaticMeshActor::vf_178(void)
 }
 
 // @baa 0x009473e0
-undefined4 UStaticMeshComponent::vf_24c(void)
+UBOOL UStaticMeshComponent::GetShadowIndirectOnly() const
 {
     int param_1 = (int)this;
 

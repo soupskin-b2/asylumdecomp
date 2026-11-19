@@ -43,6 +43,6 @@ UBOOL ARRemoveableGrate::HasParentClassChanged() const
 // @baa 0x01717f10
 INT ARRemoveableGrate::AddMyMarker(AActor * P)
 {
-    vf_17c(1);
+    PostEditMove(TRUE);
     return 0;
 }

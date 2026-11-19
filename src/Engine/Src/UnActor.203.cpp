@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x007737c0
-int AController::vf_3fc(void) { return 1; }
+UBOOL AController::ShouldOffsetCorners() { return 1; }

@@ -3883,12 +3883,12 @@
     {
      "va": "01578f20",
      "size": 21,
-     "symbol": "?vf_188@URSeqAct_ConversationDialogue@@UAEXXZ"
+     "symbol": "?UpdateDynamicLinks@URSeqAct_ConversationDialogue@@UAEXXZ"
     },
     {
      "va": "0157cfd0",
      "size": 21,
-     "symbol": "?vf_188@URSeqAct_PlaySpeechConversation@@UAEXXZ"
+     "symbol": "?UpdateDynamicLinks@URSeqAct_PlaySpeechConversation@@UAEXXZ"
     },
     {
      "va": "01584b60",
@@ -4878,7 +4878,7 @@
     {
      "va": "01591bb0",
      "size": 30,
-     "symbol": "?vf_17c@ARLevelVolume@@UAEHH@Z"
+     "symbol": "?PostEditMove@ARLevelVolume@@UAEXH@Z"
     },
     {
      "va": "01557f60",
@@ -7066,7 +7066,7 @@
     {
      "va": "01590a30",
      "size": 35,
-     "symbol": "?vf_17c@ARLevelTransition@@UAEHH@Z"
+     "symbol": "?PostEditMove@ARLevelTransition@@UAEXH@Z"
     }
    ]
   },
@@ -11360,7 +11360,7 @@
     {
      "va": "015dbff0",
      "size": 29,
-     "symbol": "?vf_188@URBMBehaviour_IdleWithPlannarProp@@UAEXXZ"
+     "symbol": "?UpdateDynamicLinks@URBMBehaviour_IdleWithPlannarProp@@UAEXXZ"
     },
     {
      "va": "015dc830",
@@ -128847,7 +128847,7 @@
     {
      "va": "00f0ae20",
      "size": 3,
-     "symbol": "?vf_254@UEditorComponent@@UAEHXZ"
+     "symbol": "?GetViewport@UEditorComponent@@UAEPAUFViewport@@XZ"
     },
     {
      "va": "00f0ae30",
@@ -136827,7 +136827,7 @@
     {
      "va": "00f4cec0",
      "size": 8,
-     "symbol": "?vf_174@UEditorEngine@@UAEXXZ"
+     "symbol": "?IssueDecalUpdateRequest@UEditorEngine@@UAEXXZ"
     },
     {
      "va": "00f4ced0",
@@ -137078,7 +137078,7 @@
     {
      "va": "00f9daa0",
      "size": 3,
-     "symbol": "?vf_11c@UGeomModifier@@UAEHXZ"
+     "symbol": "?OnApply@UGeomModifier@@UAEHXZ"
     },
     {
      "va": "00f9dab0",
@@ -151954,12 +151954,12 @@
     {
      "va": "00eecc60",
      "size": 3,
-     "symbol": "?vf_218@UEditorEngine@@UAEXH@Z"
+     "symbol": "?polySelectMatchingGroups@UEditorEngine@@UAEXPAUUModel@@@Z"
     },
     {
      "va": "00eecc70",
      "size": 3,
-     "symbol": "?vf_21c@UEditorEngine@@UAEXH@Z"
+     "symbol": "?polySelectMatchingItems@UEditorEngine@@UAEXPAUUModel@@@Z"
     }
    ]
   },
@@ -155076,7 +155076,7 @@
     {
      "va": "00f67f10",
      "size": 3,
-     "symbol": "?vf_178@UEditorEngine@@UAEHXZ"
+     "symbol": "?GetMapBuildCancelled@UEditorEngine@@UBEHXZ"
     },
     {
      "va": "00f67f20",
@@ -155136,7 +155136,7 @@
     {
      "va": "00f68000",
      "size": 3,
-     "symbol": "?vf_1cc@UEditorEngine@@UAEXHHH@Z"
+     "symbol": "?edactCopySelected@UEditorEngine@@UAEXHHPAVFString@@@Z"
     },
     {
      "va": "00f68010",
@@ -155176,12 +155176,12 @@
     {
      "va": "00f68080",
      "size": 3,
-     "symbol": "?vf_208@UEditorEngine@@UAEXHHHHH@Z"
+     "symbol": "?SelectActor@UEditorEngine@@UAEXPAUAActor@@HPAUFViewportClient@@HH@Z"
     },
     {
      "va": "00f68090",
      "size": 3,
-     "symbol": "?vf_20c@UEditorEngine@@UAEXHHHH@Z"
+     "symbol": "?SelectBSPSurf@UEditorEngine@@UAEXPAUUModel@@HHH@Z"
     },
     {
      "va": "00f680a0",
@@ -155261,17 +155261,17 @@
     {
      "va": "00f68190",
      "size": 3,
-     "symbol": "?vf_308@UEditorEngine@@UAEXHH@Z"
+     "symbol": "?SentinelStatRender3D@UEditorEngine@@UAEXPBUFSceneView@@PAUFPrimitiveDrawInterface@@@Z"
     },
     {
      "va": "00f681a0",
      "size": 3,
-     "symbol": "?vf_30c@UEditorEngine@@UAEXHHH@Z"
+     "symbol": "?SentinelMouseMove@UEditorEngine@@UAEXPAUFEditorLevelViewportClient@@HH@Z"
     },
     {
      "va": "00f681b0",
      "size": 3,
-     "symbol": "?vf_310@UEditorEngine@@UAEXHHHH@Z"
+     "symbol": "?SentinelInputKey@UEditorEngine@@UAEXPAUFEditorLevelViewportClient@@UFName@@W4EInputEvent@@@Z"
     },
     {
      "va": "00f681c0",
@@ -175245,12 +175245,12 @@
     {
      "va": "006ad110",
      "size": 62,
-     "symbol": "?vf_174@ULightComponent@@UAEHXZ"
+     "symbol": "?IsLACDynamicAffecting@ULightComponent@@UAEHXZ"
     },
     {
      "va": "006ad150",
      "size": 62,
-     "symbol": "?vf_17c@ULightComponent@@UAEHXZ"
+     "symbol": "?IsLACDynamicAndStaticAffecting@ULightComponent@@UAEHXZ"
     },
     {
      "va": "006ad1b0",
@@ -176305,17 +176305,17 @@
     {
      "va": "00c1c960",
      "size": 6,
-     "symbol": "?vf_118@UMaterialExpression@@UAEHXZ"
+     "symbol": "?GetWidth@UMaterialExpression@@UBEHXZ"
     },
     {
      "va": "00c1c970",
      "size": 3,
-     "symbol": "?vf_120@UMaterialExpression@@UAEHXZ"
+     "symbol": "?UsesLeftGutter@UMaterialExpression@@UBEHXZ"
     },
     {
      "va": "00c1c980",
      "size": 3,
-     "symbol": "?vf_124@UMaterialExpression@@UAEHXZ"
+     "symbol": "?UsesRightGutter@UMaterialExpression@@UBEHXZ"
     },
     {
      "va": "00c1c990",
@@ -176325,7 +176325,7 @@
     {
      "va": "00c1c9c0",
      "size": 6,
-     "symbol": "?vf_118@UMaterialExpressionTextureSample@@UAEHXZ"
+     "symbol": "?GetWidth@UMaterialExpressionTextureSample@@UBEHXZ"
     },
     {
      "va": "00c1c9d0",
@@ -176495,7 +176495,7 @@
     {
      "va": "00c1dfa0",
      "size": 6,
-     "symbol": "?vf_118@UMaterialExpressionDepthBiasBlend@@UAEHXZ"
+     "symbol": "?GetWidth@UMaterialExpressionDepthBiasBlend@@UBEHXZ"
     },
     {
      "va": "00c1dfb0",
@@ -176505,7 +176505,7 @@
     {
      "va": "00c1e090",
      "size": 6,
-     "symbol": "?vf_118@UMaterialExpressionDepthBiasedAlpha@@UAEHXZ"
+     "symbol": "?GetWidth@UMaterialExpressionDepthBiasedAlpha@@UBEHXZ"
     },
     {
      "va": "00c1e0a0",
@@ -176515,7 +176515,7 @@
     {
      "va": "00c1e1d0",
      "size": 6,
-     "symbol": "?vf_118@UMaterialExpressionDepthBiasedBlend@@UAEHXZ"
+     "symbol": "?GetWidth@UMaterialExpressionDepthBiasedBlend@@UBEHXZ"
     },
     {
      "va": "00c1e1e0",
@@ -176555,42 +176555,42 @@
     {
      "va": "00c1e4e0",
      "size": 6,
-     "symbol": "?vf_118@UMaterialExpressionDynamicParameter@@UAEHXZ"
+     "symbol": "?GetWidth@UMaterialExpressionDynamicParameter@@UBEHXZ"
     },
     {
      "va": "00c1e700",
      "size": 6,
-     "symbol": "?vf_118@UMaterialExpressionParticleSubUV@@UAEHXZ"
+     "symbol": "?GetWidth@UMaterialExpressionParticleSubUV@@UBEHXZ"
     },
     {
      "va": "00c1e710",
      "size": 6,
-     "symbol": "?vf_118@UMaterialExpressionMeshSubUV@@UAEHXZ"
+     "symbol": "?GetWidth@UMaterialExpressionMeshSubUV@@UBEHXZ"
     },
     {
      "va": "00c1e740",
      "size": 6,
-     "symbol": "?vf_118@UMaterialExpressionLensFlareIntensity@@UAEHXZ"
+     "symbol": "?GetWidth@UMaterialExpressionLensFlareIntensity@@UBEHXZ"
     },
     {
      "va": "00c1e770",
      "size": 6,
-     "symbol": "?vf_118@UMaterialExpressionLensFlareOcclusion@@UAEHXZ"
+     "symbol": "?GetWidth@UMaterialExpressionLensFlareOcclusion@@UBEHXZ"
     },
     {
      "va": "00c1e7a0",
      "size": 6,
-     "symbol": "?vf_118@UMaterialExpressionLensFlareRadialDistance@@UAEHXZ"
+     "symbol": "?GetWidth@UMaterialExpressionLensFlareRadialDistance@@UBEHXZ"
     },
     {
      "va": "00c1e7d0",
      "size": 6,
-     "symbol": "?vf_118@UMaterialExpressionLensFlareRayDistance@@UAEHXZ"
+     "symbol": "?GetWidth@UMaterialExpressionLensFlareRayDistance@@UBEHXZ"
     },
     {
      "va": "00c1e800",
      "size": 6,
-     "symbol": "?vf_118@UMaterialExpressionLensFlareSourceDistance@@UAEHXZ"
+     "symbol": "?GetWidth@UMaterialExpressionLensFlareSourceDistance@@UBEHXZ"
     },
     {
      "va": "00c1e880",
@@ -176650,7 +176650,7 @@
     {
      "va": "00c1ee60",
      "size": 6,
-     "symbol": "?vf_118@UMaterialExpressionFontSample@@UAEHXZ"
+     "symbol": "?GetWidth@UMaterialExpressionFontSample@@UBEHXZ"
     },
     {
      "va": "00c1ee70",
@@ -176685,7 +176685,7 @@
     {
      "va": "00c1ef10",
      "size": 6,
-     "symbol": "?vf_118@UMaterialExpressionAddNormalMap@@UAEHXZ"
+     "symbol": "?GetWidth@UMaterialExpressionAddNormalMap@@UBEHXZ"
     },
     {
      "va": "00c1ef20",
@@ -182457,7 +182457,7 @@
     {
      "va": "00b33b80",
      "size": 3,
-     "symbol": "?vf_15c@UParticleModuleParameterDynamic@@UAEXH@Z"
+     "symbol": "?GetParticleSysParamsUtilized@UParticleModuleParameterDynamic@@UAEXAAV?$TArray@VFString@@@@@Z"
     },
     {
      "va": "00b33b90",
@@ -182757,7 +182757,7 @@
     {
      "va": "00b4c540",
      "size": 8,
-     "symbol": "?vf_154@UParticleModuleParameterDynamic@@UAEHHHM@Z"
+     "symbol": "?WillGeneratedModuleBeIdentical@UParticleModuleParameterDynamic@@UAEHPAUUParticleLODLevel@@0M@Z"
     },
     {
      "va": "00b4c550",
@@ -190142,17 +190142,17 @@
     {
      "va": "00755340",
      "size": 8,
-     "symbol": "?vf_134@UTextureFlipBook@@UAEXXZ"
+     "symbol": "?Play@UTextureFlipBook@@UAEXXZ"
     },
     {
      "va": "00755350",
      "size": 8,
-     "symbol": "?vf_138@UTextureFlipBook@@UAEXXZ"
+     "symbol": "?Pause@UTextureFlipBook@@UAEXXZ"
     },
     {
      "va": "00755360",
      "size": 39,
-     "symbol": "?vf_140@UTextureFlipBook@@UAEXHH@Z"
+     "symbol": "?SetCurrentFrame@UTextureFlipBook@@UAEXHH@Z"
     },
     {
      "va": "00755390",
@@ -190187,7 +190187,7 @@
     {
      "va": "0076ea40",
      "size": 48,
-     "symbol": "?vf_148@UTextureFlipBook@@UAEXPAM@Z"
+     "symbol": "?GetFlipBookOffset@UTextureFlipBook@@UAEXAAUFVector@@@Z"
     },
     {
      "va": "0076ea70",
@@ -201890,7 +201890,7 @@
     {
      "va": "00c64660",
      "size": 3,
-     "symbol": "?vf_130@UAnimNode@@UAEXI@Z"
+     "symbol": "?ResetAnimNodeToSource@UAnimNode@@UAEXPAU1@@Z"
     },
     {
      "va": "00c64670",
@@ -201900,12 +201900,12 @@
     {
      "va": "00c64680",
      "size": 6,
-     "symbol": "?vf_138@UAnimNode@@UAEHXZ"
+     "symbol": "?CanBlendOutFrom@UAnimNode@@UAEHXZ"
     },
     {
      "va": "00c64690",
      "size": 6,
-     "symbol": "?vf_13c@UAnimNode@@UAEHXZ"
+     "symbol": "?CanBlendTo@UAnimNode@@UAEHXZ"
     },
     {
      "va": "00c646a0",
@@ -201915,7 +201915,7 @@
     {
      "va": "00c646b0",
      "size": 3,
-     "symbol": "?vf_158@UAnimNode@@UAEPAXXZ"
+     "symbol": "?GetAnimTree@UAnimNode@@UAEPAUUAnimTree@@XZ"
     },
     {
      "va": "00c646c0",
@@ -202520,7 +202520,7 @@
     {
      "va": "00c79360",
      "size": 3,
-     "symbol": "?vf_158@UAnimTree@@UAEPAXXZ"
+     "symbol": "?GetAnimTree@UAnimTree@@UAEPAU1@XZ"
     },
     {
      "va": "00c79370",
@@ -202675,7 +202675,7 @@
     {
      "va": "00c803c0",
      "size": 39,
-     "symbol": "?vf_130@UAnimNodeAimOffset@@UAEXI@Z"
+     "symbol": "?ResetAnimNodeToSource@UAnimNodeAimOffset@@UAEXPAUUAnimNode@@@Z"
     }
    ]
   },
@@ -204639,7 +204639,7 @@
     {
      "va": "00c932c0",
      "size": 4,
-     "symbol": "?vf_114@USoundNodeWave@@UAEMXZ"
+     "symbol": "?GetDuration@USoundNodeWave@@UAEMXZ"
     },
     {
      "va": "00c932d0",
@@ -204654,7 +204654,7 @@
     {
      "va": "00c932f0",
      "size": 7,
-     "symbol": "?vf_118@USoundNodeLooping@@UAEIXZ"
+     "symbol": "?IsLoopingIndefinitely@USoundNodeLooping@@UAEHXZ"
     },
     {
      "va": "00c93300",
@@ -204689,7 +204689,7 @@
     {
      "va": "00c93380",
      "size": 3,
-     "symbol": "?vf_114@USoundNodeWaveParam@@UAEMXZ"
+     "symbol": "?GetDuration@USoundNodeWaveParam@@UAEMXZ"
     },
     {
      "va": "00c93390",
@@ -204759,7 +204759,7 @@
     {
      "va": "00c936c0",
      "size": 4,
-     "symbol": "?vf_128@USoundNodeMature@@UAEHXZ"
+     "symbol": "?GetMaxChildNodes@USoundNodeMature@@UAEHXZ"
     },
     {
      "va": "00c936d0",
@@ -204814,17 +204814,17 @@
     {
      "va": "00cc5ba0",
      "size": 3,
-     "symbol": "?vf_118@USoundNode@@UAEIXZ"
+     "symbol": "?IsLoopingIndefinitely@USoundNode@@UAEHXZ"
     },
     {
      "va": "00cc5bb0",
      "size": 6,
-     "symbol": "?vf_128@USoundNode@@UAEHXZ"
+     "symbol": "?GetMaxChildNodes@USoundNode@@UAEHXZ"
     },
     {
      "va": "00cc5bc0",
      "size": 33,
-     "symbol": "?vf_134@USoundNode@@UAE?AVFString@@XZ"
+     "symbol": "?GetEdHelperClassName@USoundNode@@UBE?BVFString@@XZ"
     },
     {
      "va": "00cc5bf0",
@@ -204844,7 +204844,7 @@
     {
      "va": "00cc5cf0",
      "size": 3,
-     "symbol": "?vf_128@USoundNodeAmbient@@UAEHXZ"
+     "symbol": "?GetMaxChildNodes@USoundNodeAmbient@@UAEHXZ"
     },
     {
      "va": "00cc5d00",
@@ -204854,7 +204854,7 @@
     {
      "va": "00cc5d10",
      "size": 7,
-     "symbol": "?vf_114@USoundNodeAmbient@@UAEMXZ"
+     "symbol": "?GetDuration@USoundNodeAmbient@@UAEMXZ"
     },
     {
      "va": "00cc5d20",
@@ -204869,7 +204869,7 @@
     {
      "va": "00cc5d70",
      "size": 4,
-     "symbol": "?vf_128@USoundNodeConcatenator@@UAEHXZ"
+     "symbol": "?GetMaxChildNodes@USoundNodeConcatenator@@UAEHXZ"
     },
     {
      "va": "00cc5d80",
@@ -204904,7 +204904,7 @@
     {
      "va": "00cc5ed0",
      "size": 4,
-     "symbol": "?vf_128@USoundNodeMixer@@UAEHXZ"
+     "symbol": "?GetMaxChildNodes@USoundNodeMixer@@UAEHXZ"
     },
     {
      "va": "00cc5ee0",
@@ -204924,7 +204924,7 @@
     {
      "va": "00cc5f90",
      "size": 4,
-     "symbol": "?vf_128@USoundNodeRandom@@UAEHXZ"
+     "symbol": "?GetMaxChildNodes@USoundNodeRandom@@UAEHXZ"
     },
     {
      "va": "00cc5fa0",
@@ -204944,7 +204944,7 @@
     {
      "va": "00cc6060",
      "size": 6,
-     "symbol": "?vf_128@USoundNodeWaveParam@@UAEHXZ"
+     "symbol": "?GetMaxChildNodes@USoundNodeWaveParam@@UAEHXZ"
     },
     {
      "va": "00cc6070",
@@ -205074,7 +205074,7 @@
     {
      "va": "00cca4a0",
      "size": 7,
-     "symbol": "?vf_114@USoundNodeAmbientNonLoop@@UAEMXZ"
+     "symbol": "?GetDuration@USoundNodeAmbientNonLoop@@UAEMXZ"
     },
     {
      "va": "00cca4b0",
@@ -205599,7 +205599,7 @@
     {
      "va": "00cd29c0",
      "size": 4,
-     "symbol": "?vf_128@USoundNodeDistanceCrossFade@@UAEHXZ"
+     "symbol": "?GetMaxChildNodes@USoundNodeDistanceCrossFade@@UAEHXZ"
     },
     {
      "va": "00cd29d0",
@@ -205669,12 +205669,12 @@
     {
      "va": "00cdbbf0",
      "size": 3,
-     "symbol": "?vf_128@USoundNodeWave@@UAEHXZ"
+     "symbol": "?GetMaxChildNodes@USoundNodeWave@@UAEHXZ"
     },
     {
      "va": "00cdbc00",
      "size": 33,
-     "symbol": "?vf_134@USoundNodeWave@@UAE?AVFString@@XZ"
+     "symbol": "?GetEdHelperClassName@USoundNodeWave@@UBE?BVFString@@XZ"
     },
     {
      "va": "00cdbd90",
@@ -205837,7 +205837,7 @@
     {
      "va": "00787ed0",
      "size": 12,
-     "symbol": "?vf_1b8@ACamera@@UAE_NXZ"
+     "symbol": "?PlayerControlled@ACamera@@UAEHXZ"
     },
     {
      "va": "00787fd0",
@@ -211539,12 +211539,12 @@
     {
      "va": "007f7250",
      "size": 1,
-     "symbol": "?vf_164@UEngine@@UAEXXZ"
+     "symbol": "?SpawnServerActors@UEngine@@UAEXXZ"
     },
     {
      "va": "007f7260",
      "size": 8,
-     "symbol": "?vf_16c@UEngine@@UAEHH@Z"
+     "symbol": "?ShouldDrawBrushWireframe@UEngine@@UAEHPAUAActor@@@Z"
     },
     {
      "va": "007f7270",
@@ -211554,12 +211554,12 @@
     {
      "va": "007f7280",
      "size": 1,
-     "symbol": "?vf_174@UEngine@@UAEXXZ"
+     "symbol": "?IssueDecalUpdateRequest@UEngine@@UAEXXZ"
     },
     {
      "va": "007f7290",
      "size": 3,
-     "symbol": "?vf_178@UEngine@@UAEHXZ"
+     "symbol": "?GetMapBuildCancelled@UEngine@@UBEHXZ"
     },
     {
      "va": "007f72a0",
@@ -214493,7 +214493,7 @@
     {
      "va": "00d3f750",
      "size": 6,
-     "symbol": "?vf_1bc@UPrefabSequenceContainer@@UAEHXZ"
+     "symbol": "?IsPrefabSequenceContainer@UPrefabSequenceContainer@@UBEHXZ"
     },
     {
      "va": "00d3f760",
@@ -216994,7 +216994,7 @@
     {
      "va": "00b50e60",
      "size": 3,
-     "symbol": "?vf_15c@UParticleModuleBeamModifier@@UAEXH@Z"
+     "symbol": "?GetParticleSysParamsUtilized@UParticleModuleBeamModifier@@UAEXAAV?$TArray@VFString@@@@@Z"
     },
     {
      "va": "00b50e70",
@@ -219373,12 +219373,12 @@
     {
      "va": "00b72890",
      "size": 42,
-     "symbol": "?vf_158@UParticleModule@@UAEHH@Z"
+     "symbol": "?IsUsedInLODLevel@UParticleModule@@UBEHH@Z"
     },
     {
      "va": "00b728c0",
      "size": 3,
-     "symbol": "?vf_15c@UParticleModule@@UAEXH@Z"
+     "symbol": "?GetParticleSysParamsUtilized@UParticleModule@@UAEXAAV?$TArray@VFString@@@@@Z"
     },
     {
      "va": "00b74bf0",
@@ -219566,12 +219566,12 @@
     {
      "va": "00b3d610",
      "size": 3,
-     "symbol": "?vf_144@UParticleModule@@UAEHXZ"
+     "symbol": "?IsSizeMultiplyLife@UParticleModule@@UAEHXZ"
     },
     {
      "va": "00b3d650",
      "size": 3,
-     "symbol": "?vf_164@UParticleModule@@UAEXHHH@Z"
+     "symbol": "?RefreshModule@UParticleModule@@UAEXPAUUInterpCurveEdSetup@@PAUUParticleEmitter@@H@Z"
     },
     {
      "va": "00b3d660",
@@ -221041,7 +221041,7 @@
     {
      "va": "00b9c300",
      "size": 6,
-     "symbol": "?vf_144@UParticleModuleSizeMultiplyLife@@UAEHXZ"
+     "symbol": "?IsSizeMultiplyLife@UParticleModuleSizeMultiplyLife@@UAEHXZ"
     },
     {
      "va": "00b9c310",
@@ -222912,7 +222912,7 @@
     {
      "va": "00baae10",
      "size": 3,
-     "symbol": "?vf_170@UParticleModuleTypeDataTrail2@@UAEXHH@Z"
+     "symbol": "?PreSpawn@UParticleModuleTypeDataTrail2@@UAEXPAUFParticleEmitterInstance@@PAUFBaseParticle@@@Z"
     },
     {
      "va": "00baae20",
@@ -223666,7 +223666,7 @@
     {
      "va": "008038b0",
      "size": 52,
-     "symbol": "?vf_1b8@APawn@@UAE_NXZ"
+     "symbol": "?PlayerControlled@APawn@@UAEHXZ"
     },
     {
      "va": "0084e020",
@@ -223866,7 +223866,7 @@
     {
      "va": "00864e50",
      "size": 1,
-     "symbol": "?vf_480@AScout@@UAEXXZ"
+     "symbol": "?SetPrototype@AScout@@UAEXXZ"
     },
     {
      "va": "00864e60",
@@ -224031,12 +224031,12 @@
     {
      "va": "00868d90",
      "size": 3,
-     "symbol": "?vf_420@APawn@@UAEXHH@Z"
+     "symbol": "?PostProcessPhysics@APawn@@UAEXMABUFVector@@@Z"
     },
     {
      "va": "00869310",
      "size": 133,
-     "symbol": "?vf_444@APawn@@UAEMXZ"
+     "symbol": "?MaxSpeedModifier@APawn@@UAEMXZ"
     },
     {
      "va": "0086a890",
@@ -227371,7 +227371,7 @@
     {
      "va": "008895f0",
      "size": 5,
-     "symbol": "?vf_118@UGameViewportClient@@UAEHH@Z"
+     "symbol": "?GetCustomInteractionClass@UGameViewportClient@@UAEPAUUClass@@H@Z"
     },
     {
      "va": "00889600",
@@ -230553,7 +230553,7 @@
     {
      "va": "008aa490",
      "size": 1,
-     "symbol": "?vf_188@USequenceOp@@UAEXXZ"
+     "symbol": "?UpdateDynamicLinks@USequenceOp@@UAEXXZ"
     },
     {
      "va": "008aa4a0",
@@ -231963,7 +231963,7 @@
     {
      "va": "008abaf0",
      "size": 1,
-     "symbol": "?vf_1ac@USequence@@UAEXXZ"
+     "symbol": "?CreateKismetLog@USequence@@UAEXXZ"
     },
     {
      "va": "008abb60",
@@ -233938,7 +233938,7 @@
     {
      "va": "008e22c0",
      "size": 3,
-     "symbol": "?vf_1bc@USequence@@UAEHXZ"
+     "symbol": "?IsPrefabSequenceContainer@USequence@@UBEHXZ"
     },
     {
      "va": "008e22d0",
@@ -259857,7 +259857,7 @@
     {
      "va": "00ddd160",
      "size": 5,
-     "symbol": "?vf_138@UUISceneClient@@UAEHH@Z"
+     "symbol": "?GetSimulatedPlatformInputType@UUISceneClient@@UBEHAAE@Z"
     },
     {
      "va": "00ddd170",
@@ -274835,7 +274835,7 @@
     {
      "va": "00689440",
      "size": 3,
-     "symbol": "?vf_24c@UPrimitiveComponent@@UAEIXZ"
+     "symbol": "?GetShadowIndirectOnly@UPrimitiveComponent@@UBEHXZ"
     },
     {
      "va": "006894a0",
@@ -275180,12 +275180,12 @@
     {
      "va": "0068eed0",
      "size": 1,
-     "symbol": "?vf_24c@AActor@@UAEXXZ"
+     "symbol": "?UpdatePushBody@AActor@@UAEXXZ"
     },
     {
      "va": "0068eee0",
      "size": 3,
-     "symbol": "?vf_250@AActor@@UAEXHHHH@Z"
+     "symbol": "?ModifyNxActorDesc@AActor@@UAEXAAVNxActorDesc@@PAUUPrimitiveComponent@@ABVNxGroupsMask@@I@Z"
     },
     {
      "va": "0068eef0",
@@ -275230,32 +275230,32 @@
     {
      "va": "0068ef70",
      "size": 3,
-     "symbol": "?vf_278@AActor@@UAEXHHHH@Z"
+     "symbol": "?PreviewUpdateFaceFX@AActor@@UAEXHABVFString@@0M@Z"
     },
     {
      "va": "0068ef80",
      "size": 3,
-     "symbol": "?vf_27c@AActor@@UAEXHHH@Z"
+     "symbol": "?PreviewActorPlayFaceFX@AActor@@UAEXABVFString@@0PAUUSoundCue@@@Z"
     },
     {
      "va": "0068ef90",
      "size": 1,
-     "symbol": "?vf_280@AActor@@UAEXXZ"
+     "symbol": "?PreviewActorStopFaceFX@AActor@@UAEXXZ"
     },
     {
      "va": "0068efa0",
      "size": 3,
-     "symbol": "?vf_284@AActor@@UAEHXZ"
+     "symbol": "?PreviewGetFaceFXAudioComponent@AActor@@UAEPAUUAudioComponent@@XZ"
     },
     {
      "va": "0068efb0",
      "size": 3,
-     "symbol": "?vf_288@AActor@@UAEIXZ"
+     "symbol": "?PreviewGetActorFaceFXAsset@AActor@@UAEPAUUFaceFXAsset@@XZ"
     },
     {
      "va": "0068efc0",
      "size": 3,
-     "symbol": "?vf_28c@AActor@@UAEXHMH@Z"
+     "symbol": "?PreviewSetMorphWeight@AActor@@UAEXUFName@@M@Z"
     },
     {
      "va": "0068efd0",
@@ -275265,12 +275265,12 @@
     {
      "va": "0068efe0",
      "size": 3,
-     "symbol": "?vf_294@AActor@@UAEXHHM@Z"
+     "symbol": "?PreviewSetSkelControlScale@AActor@@UAEXUFName@@M@Z"
     },
     {
      "va": "0068eff0",
      "size": 3,
-     "symbol": "?vf_298@AActor@@UAEXHHM@Z"
+     "symbol": "?SetSkelControlStrength@AActor@@UAEXUFName@@M@Z"
     },
     {
      "va": "0068f000",
@@ -293956,7 +293956,7 @@
     {
      "va": "00773d70",
      "size": 5,
-     "symbol": "?vf_398@ANavigationPoint@@UAEHH@Z"
+     "symbol": "?GetUpDir@ANavigationPoint@@UAEHAAUFVector@@@Z"
     },
     {
      "va": "00773d80",
@@ -294351,7 +294351,7 @@
     {
      "va": "00776470",
      "size": 7,
-     "symbol": "?vf_484@AScout@@UAEHXZ"
+     "symbol": "?GetDefaultReachSpecClass@AScout@@UAEPAUUClass@@XZ"
     },
     {
      "va": "00776480",
@@ -301754,12 +301754,12 @@
     {
      "va": "007ec7f0",
      "size": 6,
-     "symbol": "?vf_264@ULineBatchComponent@@UAEHHHHH@Z"
+     "symbol": "?AddVertex@ULineBatchComponent@@UAEHABUFVector4@@ABUFVector2D@@ABUFLinearColor@@E@Z"
     },
     {
      "va": "007ec800",
      "size": 3,
-     "symbol": "?vf_268@ULineBatchComponent@@UAEXHHHHH@Z"
+     "symbol": "?DrawTriangle@ULineBatchComponent@@UAEXHHHPBVFMaterialRenderProxy@@E@Z"
     },
     {
      "va": "007ec870",
@@ -302565,7 +302565,7 @@
     {
      "va": "00804990",
      "size": 33,
-     "symbol": "?vf_24c@UModelComponent@@UAEIXZ"
+     "symbol": "?GetShadowIndirectOnly@UModelComponent@@UBEHXZ"
     },
     {
      "va": "00804b40",
@@ -305958,7 +305958,7 @@
     {
      "va": "008379c0",
      "size": 1,
-     "symbol": "?vf_3ac@ANavigationPoint@@UAEXXZ"
+     "symbol": "?RemoveFromNavigationOctree@ANavigationPoint@@UAEXXZ"
     },
     {
      "va": "008379d0",
@@ -312783,7 +312783,7 @@
     {
      "va": "00944aa0",
      "size": 16,
-     "symbol": "?vf_280@ASkeletalMeshActor@@UAEXXZ"
+     "symbol": "?PreviewActorStopFaceFX@ASkeletalMeshActor@@UAEXXZ"
     },
     {
      "va": "00949d60",
@@ -313181,12 +313181,12 @@
     {
      "va": "00944ab0",
      "size": 7,
-     "symbol": "?vf_284@ASkeletalMeshActor@@UAEHXZ"
+     "symbol": "?PreviewGetFaceFXAudioComponent@ASkeletalMeshActor@@UAEPAUUAudioComponent@@XZ"
     },
     {
      "va": "00944ac0",
      "size": 30,
-     "symbol": "?vf_288@ASkeletalMeshActor@@UAEIXZ"
+     "symbol": "?PreviewGetActorFaceFXAsset@ASkeletalMeshActor@@UAEPAUUFaceFXAsset@@XZ"
     },
     {
      "va": "00944ae0",
@@ -313251,7 +313251,7 @@
     {
      "va": "009453a0",
      "size": 33,
-     "symbol": "?vf_24c@USkeletalMeshComponent@@UAEIXZ"
+     "symbol": "?GetShadowIndirectOnly@USkeletalMeshComponent@@UBEHXZ"
     },
     {
      "va": "00945730",
@@ -313571,7 +313571,7 @@
     {
      "va": "009473e0",
      "size": 33,
-     "symbol": "?vf_24c@UStaticMeshComponent@@UAEIXZ"
+     "symbol": "?GetShadowIndirectOnly@UStaticMeshComponent@@UBEHXZ"
     },
     {
      "va": "00947480",
@@ -340737,7 +340737,7 @@
     {
      "va": "00b3dbe0",
      "size": 3,
-     "symbol": "?vf_170@UParticleModuleTypeDataBase@@UAEXHH@Z"
+     "symbol": "?PreSpawn@UParticleModuleTypeDataBase@@UAEXPAUFParticleEmitterInstance@@PAUFBaseParticle@@@Z"
     },
     {
      "va": "00b3dbf0",
@@ -347022,7 +347022,7 @@
     {
      "va": "00bf8b70",
      "size": 1,
-     "symbol": "?vf_13c@UEngine@@UAEXXZ"
+     "symbol": "?DumpDistanceFactorChart@UEngine@@UAEXXZ"
     },
     {
      "va": "00bf8e10",
@@ -356580,12 +356580,12 @@
     {
      "va": "00cf0510",
      "size": 3,
-     "symbol": "?vf_158@UInterpTrack@@UAEXHHHHHH@Z"
+     "symbol": "?Render3DTrack@UInterpTrack@@UAEXPAUUInterpTrackInst@@PBUFSceneView@@PAUFPrimitiveDrawInterface@@HABUFColor@@AAV?$TArray@UFInterpEdSelKey@@@@@Z"
     },
     {
      "va": "00cf0520",
      "size": 1,
-     "symbol": "?vf_15c@UInterpTrack@@UAEXXZ"
+     "symbol": "?SetTrackToSensibleDefault@UInterpTrack@@UAEXXZ"
     },
     {
      "va": "00cf0530",
@@ -453424,7 +453424,7 @@
     {
      "va": "014fa1d0",
      "size": 1,
-     "symbol": "?vf_12c@UGenericBrowserType_GFxMovieInfo@@UAEXXZ"
+     "symbol": "?DoubleClick@UGenericBrowserType_GFxMovieInfo@@UAEXXZ"
     },
     {
      "va": "014fa1e0",
@@ -453459,7 +453459,7 @@
     {
      "va": "014fa370",
      "size": 1,
-     "symbol": "?vf_12c@UGenericBrowserType_GFxMovie@@UAEXXZ"
+     "symbol": "?DoubleClick@UGenericBrowserType_GFxMovie@@UAEXXZ"
     },
     {
      "va": "014fb080",
@@ -454641,22 +454641,22 @@
     {
      "va": "00e38320",
      "size": 4,
-     "symbol": "?vf_144@UOnlineGameInterfaceImpl@@UAEHXZ"
+     "symbol": "?FindInternetGames@UOnlineGameInterfaceImpl@@UAEKXZ"
     },
     {
      "va": "00e38330",
      "size": 4,
-     "symbol": "?vf_148@UOnlineGameInterfaceImpl@@UAEHXZ"
+     "symbol": "?CancelFindInternetGames@UOnlineGameInterfaceImpl@@UAEKXZ"
     },
     {
      "va": "00e38340",
      "size": 6,
-     "symbol": "?vf_14c@UOnlineGameInterfaceImpl@@UAEIII@Z"
+     "symbol": "?ReadPlatformSpecificInternetSessionInfo@UOnlineGameInterfaceImpl@@UAEKABUFOnlineGameSearchResult@@PAE@Z"
     },
     {
      "va": "00e38350",
      "size": 6,
-     "symbol": "?vf_150@UOnlineGameInterfaceImpl@@UAEHHHH@Z"
+     "symbol": "?BindPlatformSpecificSessionToInternetSearch@UOnlineGameInterfaceImpl@@UAEKEPAUUOnlineGameSearch@@PAE@Z"
     },
     {
      "va": "00e38360",
@@ -459038,7 +459038,7 @@
     {
      "va": "00cb0510",
      "size": 5,
-     "symbol": "?vf_180@UEngine@@UAEHHH@Z"
+     "symbol": "?GetPropertyColorationColor@UEngine@@UAEHPAUUObject@@AAUFColor@@@Z"
     },
     {
      "va": "00cb0790",
@@ -482884,12 +482884,12 @@
     {
      "va": "0117d3e0",
      "size": 8,
-     "symbol": "?vf_130@UGenericBrowserType@@UAEHHH@Z"
+     "symbol": "?IsSavePackageAllowed@UGenericBrowserType@@UAEHPAUUPackage@@AAV?$TArray@PAVUObject@@@@@Z"
     },
     {
      "va": "0117d3f0",
      "size": 8,
-     "symbol": "?vf_138@UGenericBrowserType@@UAEHH@Z"
+     "symbol": "?NotifyPreDeleteObject@UGenericBrowserType@@UAEHPAUUObject@@@Z"
     },
     {
      "va": "0117d400",
@@ -492147,7 +492147,7 @@
     {
      "va": "01202850",
      "size": 33,
-     "symbol": "?vf_11c@UPropertyInputProxy@@UAEHHH@Z"
+     "symbol": "?Supports@UPropertyInputProxy@@UBEHPBVFPropertyNode@@H@Z"
     },
     {
      "va": "012053a0",
@@ -492305,12 +492305,12 @@
     {
      "va": "011f18d0",
      "size": 6,
-     "symbol": "?vf_10c@UPropertyDrawProxy@@UAEHXZ"
+     "symbol": "?LetPropertyExpand@UPropertyDrawProxy@@UBEHXZ"
     },
     {
      "va": "011f18e0",
      "size": 5,
-     "symbol": "?vf_114@UPropertyDrawProxy@@UAEHHH@Z"
+     "symbol": "?Supports@UPropertyDrawProxy@@UBEHPBVFPropertyNode@@H@Z"
     },
     {
      "va": "011f18f0",
@@ -492535,7 +492535,7 @@
     {
      "va": "011f1e70",
      "size": 6,
-     "symbol": "?vf_110@UPropertyDrawProxy@@UAEHXZ"
+     "symbol": "?GetProxyHeight@UPropertyDrawProxy@@UBEHXZ"
     },
     {
      "va": "011f1f40",
@@ -493355,17 +493355,17 @@
     {
      "va": "01202880",
      "size": 3,
-     "symbol": "?vf_120@UPropertyInputProxy@@UAEXH@Z"
+     "symbol": "?OnSetFocus@UPropertyInputProxy@@UAEXPAVWxPropertyControl@@@Z"
     },
     {
      "va": "01202890",
      "size": 3,
-     "symbol": "?vf_124@UPropertyInputProxy@@UAEXH@Z"
+     "symbol": "?OnKillFocus@UPropertyInputProxy@@UAEXPAVWxPropertyControl@@@Z"
     },
     {
      "va": "012028a0",
      "size": 3,
-     "symbol": "?vf_128@UPropertyInputProxy@@UAEXHHHH@Z"
+     "symbol": "?DoubleClick@UPropertyInputProxy@@UAEXPAVWxPropertyControl@@ABV?$TArray@VFObjectBaseAddress@@@@PB_WH@Z"
     },
     {
      "va": "012028b0",
@@ -498417,7 +498417,7 @@
     {
      "va": "0129ce30",
      "size": 3,
-     "symbol": "?vf_110@UTexAligner@@UAEXHHHHH@Z"
+     "symbol": "?AlignSurf@UTexAligner@@UAEXW4ETexAlign@@PAUUModel@@PAVFBspSurfIdx@@PAVFPoly@@PAUFVector@@@Z"
     },
     {
      "va": "0129ee00",
@@ -528108,7 +528108,7 @@
     {
      "va": "012781a0",
      "size": 12,
-     "symbol": "?vf_178@UUnrealEdEngine@@UAEHXZ"
+     "symbol": "?GetMapBuildCancelled@UUnrealEdEngine@@UBEHXZ"
     },
     {
      "va": "012781d0",

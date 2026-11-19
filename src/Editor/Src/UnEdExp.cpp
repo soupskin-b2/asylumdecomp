@@ -1345,7 +1345,7 @@ void UTextureExporterT3D::sub_00f04ce0(undefined4 param_2, undefined4 param_3, u
 
 // @baa 0x00f0adc0
 // @baa 0x00f0ae20
-int UEditorComponent::vf_254(void) { return 0; }
+FViewport* UEditorComponent::GetViewport() { return 0; }
 
 // @baa 0x00f0ae30
 int sub_006f7810(void);

@@ -46,10 +46,10 @@ void UParticleModule::Render3DPreview(FParticleEmitterInstance* a0, const FScene
 EModuleType UParticleModule::GetModuleType() const { return EPMT_General; }
 
 // @baa 0x00b3d610
-int UParticleModule::vf_144(void) { return 0; }
+UBOOL UParticleModule::IsSizeMultiplyLife() { return 0; }
 
 // @baa 0x00b3d650
-void UParticleModule::vf_164(int a0, int a1, int a2) {  }
+void UParticleModule::RefreshModule(UInterpCurveEdSetup* a0, UParticleEmitter* a1, INT a2) {  }
 
 // @baa 0x00b3d660
 int sub_005c7a20(void);
@@ -1338,7 +1338,7 @@ undefined4 * UObject::sub_00b9c2e0(void)
 }
 
 // @baa 0x00b9c300
-int UParticleModuleSizeMultiplyLife::vf_144(void) { return 1; }
+UBOOL UParticleModuleSizeMultiplyLife::IsSizeMultiplyLife() { return 1; }
 
 // @baa 0x00b9c310
 IMPLEMENT_CLASS_AT(UParticleModuleSizeMultiplyLife, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnParticleModules.cpp", 1806);

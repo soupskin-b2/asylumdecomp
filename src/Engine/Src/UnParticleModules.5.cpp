@@ -10,7 +10,7 @@ void UParticleModule::SetToSensibleDefaults(UParticleEmitter* a0) {  }
 UBOOL UParticleModule::GenerateLODModuleValues(UParticleModule* a0, FLOAT a1, UParticleLODLevel* a2) { return 1; }
 
 // @baa 0x00b728c0
-void UParticleModule::vf_15c(int a0) {  }
+void UParticleModule::GetParticleSysParamsUtilized(TArray<FString>& a0) {  }
 
 // @baa 0x00b970d0
 IMPLEMENT_CLASS_AT(UParticleModuleAccelerationBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnParticleModules.cpp", 15);
@@ -94,7 +94,7 @@ undefined4 * UObject::sub_00b3dc50(void)
 
 // @baa 0x00b72890
 /* Slot 0x158 (unnamed in the kit; UE3's IsUsedInLODLevel): whether this module is valid in the given LOD (0..7). */
-INT UParticleModule::vf_158(INT SourceLODIndex)
+UBOOL UParticleModule::IsUsedInLODLevel(INT SourceLODIndex) const
 {
 	if (SourceLODIndex >= 0 && SourceLODIndex <= 7)
 	{

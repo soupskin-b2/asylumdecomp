@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00f4cec0
-void UEditorEngine::vf_174(void)
+void UEditorEngine::IssueDecalUpdateRequest()
 {
     int param_1 = (int)this;
 

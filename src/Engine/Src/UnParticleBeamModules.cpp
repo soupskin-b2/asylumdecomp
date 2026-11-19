@@ -49,7 +49,7 @@ void UParticleModuleBeamModifier::PostEditChange(UProperty* a0) {  }
 void UParticleModuleBeamModifier::AutoPopulateInstanceProperties(UParticleSystemComponent* a0) {  }
 
 // @baa 0x00b50e60
-void UParticleModuleBeamModifier::vf_15c(int a0) {  }
+void UParticleModuleBeamModifier::GetParticleSysParamsUtilized(TArray<FString>& a0) {  }
 
 // @baa 0x00b50e70
 UBOOL UParticleModuleBeamNoise::HasUniqueStaticConfigName() const { return 1; }

@@ -7,10 +7,10 @@
 IMPLEMENT_CLASS_AT(UPropertyDrawProxy, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\PropertyUtils.cpp", 3440);
 
 // @baa 0x011f18d0
-int UPropertyDrawProxy::vf_10c(void) { return 1; }
+UBOOL UPropertyDrawProxy::LetPropertyExpand() const { return 1; }
 
 // @baa 0x011f18e0
-int UPropertyDrawProxy::vf_114(int a0, int a1) { return 0; }
+UBOOL UPropertyDrawProxy::Supports(const FPropertyNode* a0, INT a1) const { return 0; }
 
 // @baa 0x011f18f0
 int sub_005c7a20(void);
@@ -212,7 +212,7 @@ int sub_011f1e50(int a0, int a1) { return a1; }
 int sub_011f1e60(void) { return 15; }
 
 // @baa 0x011f1e70
-int UPropertyDrawProxy::vf_110(void) { return 20; }
+INT UPropertyDrawProxy::GetProxyHeight() const { return 20; }
 
 extern char g_026d2aa0[];
 // @baa 0x011f1f40
@@ -2362,13 +2362,13 @@ undefined4 * UObject::sub_01202680(undefined4 * param_2)
 UBOOL UPropertyInputProxy::LetPropertyExpand() const { return 1; }
 
 // @baa 0x01202880
-void UPropertyInputProxy::vf_120(int a0) {  }
+void UPropertyInputProxy::OnSetFocus(WxPropertyControl* a0) {  }
 
 // @baa 0x01202890
-void UPropertyInputProxy::vf_124(int a0) {  }
+void UPropertyInputProxy::OnKillFocus(WxPropertyControl* a0) {  }
 
 // @baa 0x012028a0
-void UPropertyInputProxy::vf_128(int a0, int a1, int a2, int a3) {  }
+void UPropertyInputProxy::DoubleClick(WxPropertyControl* a0, const TArray<FObjectBaseAddress>& a1, const TCHAR* a2, UBOOL a3) {  }
 
 // @baa 0x012028b0
 int UPropertyInputProxy::vf_12c(int a0, int a1, int a2) { return 0; }

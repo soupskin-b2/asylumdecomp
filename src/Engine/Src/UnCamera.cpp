@@ -63,7 +63,7 @@ UBOOL UCameraAnimInst::HasParentClassChanged() const
 }
 
 // @baa 0x00787ed0
-bool ACamera::vf_1b8(void)
+UBOOL ACamera::PlayerControlled()
 {
     int param_1 = (int)this;
 

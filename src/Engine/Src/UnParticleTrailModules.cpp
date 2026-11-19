@@ -80,7 +80,7 @@ UBOOL UParticleModuleTypeDataTrail2::HasParentClassChanged() const
 }
 
 // @baa 0x00baae10
-void UParticleModuleTypeDataTrail2::vf_170(int a0, int a1) {  }
+void UParticleModuleTypeDataTrail2::PreSpawn(FParticleEmitterInstance* a0, FBaseParticle* a1) {  }
 
 // @baa 0x00baae20
 void __stdcall sub_00baae20(int a0, int a1, int a2) {  }

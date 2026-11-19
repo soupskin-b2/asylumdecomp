@@ -246,7 +246,7 @@ undefined4 * UObject::sub_00d3f720(void)
 UINT UPrefabSequenceContainer::vf_14c() { return 1; }
 
 // @baa 0x00d3f750
-int UPrefabSequenceContainer::vf_1bc(void) { return 1; }
+UBOOL UPrefabSequenceContainer::IsPrefabSequenceContainer() const { return 1; }
 
 // @baa 0x00d3f760
 IMPLEMENT_CLASS_AT(UPrefabSequenceContainer, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPrefab.cpp", 1180);

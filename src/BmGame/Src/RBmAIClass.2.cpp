@@ -93,7 +93,7 @@ struct C_Idle114
 };
 
 // @baa 0x015dbff0
-void URBMBehaviour_IdleWithPlannarProp::vf_188()
+void URBMBehaviour_IdleWithPlannarProp::UpdateDynamicLinks()
 {
     if (IdleConfig != NULL)
         reinterpret_cast<C_Idle114*>(IdleConfig)->vf114(this);

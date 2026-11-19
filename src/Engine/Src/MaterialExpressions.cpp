@@ -277,13 +277,13 @@ UBOOL UMaterialExpressionMax::HasUniqueStaticConfigName() const { return 1; }
 UBOOL UMaterialExpressionMin::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c1c960
-int UMaterialExpression::vf_118(void) { return 112; }
+INT UMaterialExpression::GetWidth() const { return 112; }
 
 // @baa 0x00c1c970
-int UMaterialExpression::vf_120(void) { return 0; }
+UBOOL UMaterialExpression::UsesLeftGutter() const { return 0; }
 
 // @baa 0x00c1c980
-int UMaterialExpression::vf_124(void) { return 0; }
+UBOOL UMaterialExpression::UsesRightGutter() const { return 0; }
 
 struct C_view {
     int sub_005dfd20(int);
@@ -302,7 +302,7 @@ void UMaterialExpression::Serialize(FArchive& Ar) {
 }
 
 // @baa 0x00c1c9c0
-int UMaterialExpressionTextureSample::vf_118(void) { return 112; }
+INT UMaterialExpressionTextureSample::GetWidth() const { return 112; }
 
 // @baa 0x00c1c9d0
 void UMaterialExpressionTextureSample::SwapReferenceTo(UMaterialExpression* param_2, UMaterialExpression* param_3)
@@ -640,7 +640,7 @@ void UMaterialExpressionFrac::SwapReferenceTo(UMaterialExpression* param_2, UMat
 }
 
 // @baa 0x00c1dfa0
-int UMaterialExpressionDepthBiasBlend::vf_118(void) { return 112; }
+INT UMaterialExpressionDepthBiasBlend::GetWidth() const { return 112; }
 
 // @baa 0x00c1dfb0
 void UMaterialExpressionDepthBiasBlend::SwapReferenceTo(UMaterialExpression* param_2, UMaterialExpression* param_3)
@@ -660,7 +660,7 @@ void UMaterialExpressionDepthBiasBlend::SwapReferenceTo(UMaterialExpression* par
 }
 
 // @baa 0x00c1e090
-int UMaterialExpressionDepthBiasedAlpha::vf_118(void) { return 112; }
+INT UMaterialExpressionDepthBiasedAlpha::GetWidth() const { return 112; }
 
 // @baa 0x00c1e0a0
 void UMaterialExpressionDepthBiasedAlpha::SwapReferenceTo(UMaterialExpression* param_2, UMaterialExpression* param_3)
@@ -677,7 +677,7 @@ void UMaterialExpressionDepthBiasedAlpha::SwapReferenceTo(UMaterialExpression* p
 }
 
 // @baa 0x00c1e1d0
-int UMaterialExpressionDepthBiasedBlend::vf_118(void) { return 112; }
+INT UMaterialExpressionDepthBiasedBlend::GetWidth() const { return 112; }
 
 // @baa 0x00c1e1e0
 void UMaterialExpressionDepthBiasedBlend::SwapReferenceTo(UMaterialExpression* param_2, UMaterialExpression* param_3)
@@ -745,28 +745,28 @@ void UMaterialExpressionNormalize::SwapReferenceTo(UMaterialExpression* param_2,
 void UMaterialExpressionDynamicParameter::SwapReferenceTo(UMaterialExpression* a0, UMaterialExpression* a1) {  }
 
 // @baa 0x00c1e4e0
-int UMaterialExpressionDynamicParameter::vf_118(void) { return 112; }
+INT UMaterialExpressionDynamicParameter::GetWidth() const { return 112; }
 
 // @baa 0x00c1e700
-int UMaterialExpressionParticleSubUV::vf_118(void) { return 112; }
+INT UMaterialExpressionParticleSubUV::GetWidth() const { return 112; }
 
 // @baa 0x00c1e710
-int UMaterialExpressionMeshSubUV::vf_118(void) { return 112; }
+INT UMaterialExpressionMeshSubUV::GetWidth() const { return 112; }
 
 // @baa 0x00c1e740
-int UMaterialExpressionLensFlareIntensity::vf_118(void) { return 112; }
+INT UMaterialExpressionLensFlareIntensity::GetWidth() const { return 112; }
 
 // @baa 0x00c1e770
-int UMaterialExpressionLensFlareOcclusion::vf_118(void) { return 112; }
+INT UMaterialExpressionLensFlareOcclusion::GetWidth() const { return 112; }
 
 // @baa 0x00c1e7a0
-int UMaterialExpressionLensFlareRadialDistance::vf_118(void) { return 112; }
+INT UMaterialExpressionLensFlareRadialDistance::GetWidth() const { return 112; }
 
 // @baa 0x00c1e7d0
-int UMaterialExpressionLensFlareRayDistance::vf_118(void) { return 112; }
+INT UMaterialExpressionLensFlareRayDistance::GetWidth() const { return 112; }
 
 // @baa 0x00c1e800
-int UMaterialExpressionLensFlareSourceDistance::vf_118(void) { return 112; }
+INT UMaterialExpressionLensFlareSourceDistance::GetWidth() const { return 112; }
 
 // @baa 0x00c1e880
 void UMaterialExpressionSquareRoot::SwapReferenceTo(UMaterialExpression* param_2, UMaterialExpression* param_3)
@@ -897,7 +897,7 @@ void UMaterialExpressionFresnel::SwapReferenceTo(UMaterialExpression* param_2, U
 }
 
 // @baa 0x00c1ee60
-int UMaterialExpressionFontSample::vf_118(void) { return 112; }
+INT UMaterialExpressionFontSample::GetWidth() const { return 112; }
 
 // @baa 0x00c266b0
 FString UMaterialExpression::GetCaption() const
@@ -3236,7 +3236,7 @@ void UMaterialExpressionWorldPosition::SwapReferenceTo(UMaterialExpression* a0, 
 void UMaterialExpressionNormal::SwapReferenceTo(UMaterialExpression* a0, UMaterialExpression* a1) {  }
 
 // @baa 0x00c1ef10
-int UMaterialExpressionAddNormalMap::vf_118(void) { return 112; }
+INT UMaterialExpressionAddNormalMap::GetWidth() const { return 112; }
 
 // @baa 0x00c1ef20
 void UMaterialExpressionAddNormalMap::SwapReferenceTo(UMaterialExpression* param_2, UMaterialExpression* param_3)

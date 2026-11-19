@@ -447,7 +447,7 @@ void sub_00f67e40(void) { sub_00f66360(); }
 void UEditorEngine::SetClientTravel(const TCHAR* a0, ETravelType a1) {  }
 
 // @baa 0x00f67f10
-int UEditorEngine::vf_178(void) { return 0; }
+UBOOL UEditorEngine::GetMapBuildCancelled() const { return 0; }
 
 // @baa 0x00f67f20
 void __stdcall sub_00f67f20(int a0) {  }
@@ -490,7 +490,7 @@ void UEditorEngine::NoteActorMovement() {
 void UEditorEngine::vf_1c8(int a0, int a1) {  }
 
 // @baa 0x00f68000
-void UEditorEngine::vf_1cc(int a0, int a1, int a2) {  }
+void UEditorEngine::edactCopySelected(UBOOL a0, UBOOL a1, FString* a2) {  }
 
 // @baa 0x00f68010
 void UEditorEngine::edactDuplicateSelected(UBOOL a0) {  }
@@ -514,10 +514,10 @@ void UEditorEngine::edactAddPrefab() {  }
 void UEditorEngine::edactSelectPrefabActors() {  }
 
 // @baa 0x00f68080
-void UEditorEngine::vf_208(int a0, int a1, int a2, int a3, int a4) {  }
+void UEditorEngine::SelectActor(AActor* a0, UBOOL a1, FViewportClient* a2, UBOOL a3, UBOOL a4) {  }
 
 // @baa 0x00f68090
-void UEditorEngine::vf_20c(int a0, int a1, int a2, int a3) {  }
+void UEditorEngine::SelectBSPSurf(UModel* a0, INT a1, UBOOL a2, UBOOL a3) {  }
 
 // @baa 0x00f680a0
 void UEditorEngine::vf_210(int a0, int a1) {  }
@@ -565,13 +565,13 @@ void UEditorEngine::PostScriptCompile() {  }
 void UEditorEngine::vf_304(int a0, int a1, int a2) {  }
 
 // @baa 0x00f68190
-void UEditorEngine::vf_308(int a0, int a1) {  }
+void UEditorEngine::SentinelStatRender3D(const FSceneView* a0, class FPrimitiveDrawInterface* a1) {  }
 
 // @baa 0x00f681a0
-void UEditorEngine::vf_30c(int a0, int a1, int a2) {  }
+void UEditorEngine::SentinelMouseMove(FEditorLevelViewportClient* a0, INT a1, INT a2) {  }
 
 // @baa 0x00f681b0
-void UEditorEngine::vf_310(int a0, int a1, int a2, int a3) {  }
+void UEditorEngine::SentinelInputKey(FEditorLevelViewportClient* ViewportClient, FName Key, EInputEvent Event) {  }
 
 struct A_00f681c0 { virtual void sub_00f683a0(); char pad[1064]; };
 

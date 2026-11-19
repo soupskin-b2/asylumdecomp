@@ -611,7 +611,7 @@ void ADoorMarker::CheckForErrors()
 }
 
 // @baa 0x008379c0
-void ANavigationPoint::vf_3ac(void) {  }
+void ANavigationPoint::RemoveFromNavigationOctree() {  }
 
 // @baa 0x008379d0
 UBOOL ANavigationPoint::CanTeleport(class AActor* a0) { return 0; }

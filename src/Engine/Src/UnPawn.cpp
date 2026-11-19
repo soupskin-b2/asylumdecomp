@@ -642,7 +642,7 @@ void APathBlockingVolume::SetCollisionForPathBuilding(UBOOL param_2)
 INT ANavigationPoint::AddMyMarker(AActor * a0) { return 1; }
 
 // @baa 0x00864e50
-void AScout::vf_480(void) {  }
+void AScout::SetPrototype() {  }
 
 // @baa 0x00864e80
 // @baa 0x00864fb0
@@ -1029,7 +1029,7 @@ void sub_00867f50(void)
 }
 
 // @baa 0x00868d90
-void APawn::vf_420(int a0, int a1) {  }
+void APawn::PostProcessPhysics(FLOAT a0, const FVector& a1) {  }
 
 // @baa 0x0086a890
 UBOOL AActor::ShrinkCollision(AActor * a0, UPrimitiveComponent* a1, const FVector & a2) { return 0; }
@@ -1530,7 +1530,7 @@ struct APawn__008038b0 : public APawn
 
 // @baa 0x008038b0
 /* APawn slot 0x1b8 (kit vf_1b8): UE3's IsLocalPlayerControlled(): locally controlled by a player controller. */
-bool APawn::vf_1b8()
+UBOOL APawn::PlayerControlled()
 {
     return ((APawn__008038b0*)this)->sub_008650a0() && Controller && Controller->GetAPlayerController();
 }
@@ -1565,7 +1565,7 @@ struct APawn__00869310 : public APawn
 // @baa 0x00869310
 /* APawn slot 0x444 (kit vf_444): UE3's APawn::MaxSpeedModifier(): AI pawns move at DesiredSpeed, crouching and
  * walking scale it down. */
-FLOAT APawn::vf_444()
+FLOAT APawn::MaxSpeedModifier()
 {
     FLOAT Result = 1.f;
     if (!((APawn__00869310*)this)->IsHumanControlled())

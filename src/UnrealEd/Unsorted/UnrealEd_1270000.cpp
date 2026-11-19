@@ -319,7 +319,7 @@ void sub_012780f0(void) {  }
 
 extern undefined4 g_026d4e00;
 // @baa 0x012781a0
-INT UUnrealEdEngine::vf_178() {
+UBOOL UUnrealEdEngine::GetMapBuildCancelled() const {
   return *(undefined4 *)(g_026d4e00 + 0x1d4);
 }
 

@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00cb0510
-int UEngine::vf_180(int a0, int a1) { return 0; }
+UBOOL UEngine::GetPropertyColorationColor(class UObject* a0, FColor& a1) { return 0; }
 
 // @baa 0x00cb0790
 UBOOL UServerCommandlet::HasUniqueStaticConfigName() const { return 1; }

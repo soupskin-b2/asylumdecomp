@@ -6977,7 +6977,7 @@ float UUISceneClient::vf_128(int param1)
 }
 
 // @baa 0x00ddd160
-int UUISceneClient::vf_138(int a0) { return 0; }
+UBOOL UUISceneClient::GetSimulatedPlatformInputType(BYTE& a0) const { return 0; }
 
 // @baa 0x00ddd170
 int UUISceneClient::vf_14c(int a0, int a1, int a2, int a3) { return 0; }

@@ -2134,10 +2134,10 @@ void UGenericBrowserType::vf_10c(void) {  }
 void UGenericBrowserType::vf_120(int a0, int a1) {  }
 
 // @baa 0x0117d3e0
-int UGenericBrowserType::vf_130(int a0, int a1) { return 1; }
+UBOOL UGenericBrowserType::IsSavePackageAllowed(UPackage* a0, TArray<UObject*>& a1) { return 1; }
 
 // @baa 0x0117d3f0
-int UGenericBrowserType::vf_138(int a0) { return 1; }
+UBOOL UGenericBrowserType::NotifyPreDeleteObject(UObject* a0) { return 1; }
 
 // @baa 0x0117d400
 void UGenericBrowserType::vf_13c(int a0, int a1) {  }

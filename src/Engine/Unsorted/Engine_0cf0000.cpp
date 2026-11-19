@@ -131,10 +131,10 @@ void UInterpTrack::PreviewStopPlayback(class UInterpTrackInst* a0) {  }
 UBOOL UInterpTrack::AllowStaticActors() { return 0; }
 
 // @baa 0x00cf0510
-void UInterpTrack::vf_158(int a0, int a1, int a2, int a3, int a4, int a5) {  }
+void UInterpTrack::Render3DTrack(class UInterpTrackInst* a0, const FSceneView* a1, FPrimitiveDrawInterface* a2, INT a3, const FColor& a4, TArray<class FInterpEdSelKey>& a5) {  }
 
 // @baa 0x00cf0520
-void UInterpTrack::vf_15c(void) {  }
+void UInterpTrack::SetTrackToSensibleDefault() {  }
 
 // @baa 0x00cf0530
 class UObject* UInterpTrack::GetUObject() { return this; }

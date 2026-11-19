@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x007737d0
-int AController::vf_400(void) { return 1; }
+UBOOL AController::ShouldUsePathLanes() { return 1; }

@@ -25,7 +25,7 @@ int sub_014fa350(void) { return 0; }
 void UGenericBrowserType_GFxMovie::vf_120(int a0, int a1) {  }
 
 // @baa 0x014fa370
-void UGenericBrowserType_GFxMovie::vf_12c(void) {  }
+void UGenericBrowserType_GFxMovie::DoubleClick() {  }
 
 int sub_014f9c60(void);
 int sub_014faaa0(...);
@@ -155,4 +155,4 @@ int UGenericBrowserType_GFxMovieInfo::vf_110(void) { return 0; }
 int sub_014fa1c0(void) { return 0; }
 
 // @baa 0x014fa1d0
-void UGenericBrowserType_GFxMovieInfo::vf_12c(void) {  }
+void UGenericBrowserType_GFxMovieInfo::DoubleClick() {  }

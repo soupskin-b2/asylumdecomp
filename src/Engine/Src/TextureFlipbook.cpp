@@ -16,7 +16,7 @@ UBOOL UTextureFlipBook::HasParentClassChanged() const
 }
 
 // @baa 0x00755340
-void UTextureFlipBook::vf_134(void)
+void UTextureFlipBook::Play()
 {
     int param_1 = (int)this;
 
@@ -25,7 +25,7 @@ void UTextureFlipBook::vf_134(void)
 }
 
 // @baa 0x00755350
-void UTextureFlipBook::vf_138(void)
+void UTextureFlipBook::Pause()
 {
     int param_1 = (int)this;
 
@@ -34,7 +34,7 @@ void UTextureFlipBook::vf_138(void)
 }
 
 // @baa 0x00755360
-void UTextureFlipBook::vf_140(int param_2, int param_3)
+void UTextureFlipBook::SetCurrentFrame(INT param_2, INT param_3)
 {
     int param_1 = (int)this;
 
@@ -179,12 +179,10 @@ void UTextureFlipBook::PostEditChange(UProperty* param_2)
 int UTextureFlipBook::vf_144(void) { return 1; }
 
 // @baa 0x0076ea40
-void UTextureFlipBook::vf_148(float * param_2)
+void UTextureFlipBook::GetFlipBookOffset(FVector& Offset)
 {
-    int param_1 = (int)this;
-  *param_2 = (float)*(int *)(param_1 + 0x130) * *(float *)(param_1 + 0x10c);
-  param_2[1] = (float)*(int *)(param_1 + 300) * *(float *)(param_1 + 0x110);
-  return;
+	Offset.X = CurrentColumn * HorizontalScale;
+	Offset.Y = CurrentRow * VerticalScale;
 }
 
 struct A_0076ea90 { virtual void sub_0076eb40(); char pad[252]; };

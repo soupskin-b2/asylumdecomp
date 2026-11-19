@@ -65,7 +65,7 @@ void S::sub_00c932b0() {
 }
 
 // @baa 0x00c932c0
-float USoundNodeWave::vf_114(void) { return *(float*)((char*)this + 116); }
+FLOAT USoundNodeWave::GetDuration() { return *(float*)((char*)this + 116); }
 
 // @baa 0x00c932d0
 UBOOL USoundNodeWave::HasUniqueStaticConfigName() const { return 1; }
@@ -74,7 +74,7 @@ UBOOL USoundNodeWave::HasUniqueStaticConfigName() const { return 1; }
 UBOOL USoundNodeAttenuation::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c932f0
-uint USoundNodeLooping::vf_118(void)
+UBOOL USoundNodeLooping::IsLoopingIndefinitely()
 {
     int param_1 = (int)this;
 
@@ -100,7 +100,7 @@ UBOOL USoundNodeAmbient::HasUniqueStaticConfigName() const { return 1; }
 UBOOL USoundNodeAmbientNonLoop::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00c93380
-FLOAT USoundNodeWaveParam::vf_114() {
+FLOAT USoundNodeWaveParam::GetDuration() {
   return (float10)0;
 }
 
@@ -265,13 +265,13 @@ void __stdcall sub_00cc5b80(int a0) {  }
 int USoundNode::vf_110(int a0) { return 1; }
 
 // @baa 0x00cc5ba0
-UINT USoundNode::vf_118() { return 0; }
+UBOOL USoundNode::IsLoopingIndefinitely() { return 0; }
 
 // @baa 0x00cc5bb0
-int USoundNode::vf_128(void) { return 1; }
+INT USoundNode::GetMaxChildNodes() { return 1; }
 
 // @baa 0x00cc5bc0
-FString USoundNode::vf_134()
+const FString USoundNode::GetEdHelperClassName() const
 {
     return TEXT("UnrealEd.SoundNodeHelper");
 }
@@ -293,13 +293,13 @@ undefined4 * UObject::sub_00cc5c10(void)
 IMPLEMENT_CLASS_AT(USoundNodeAmbient, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAudioNodes.cpp", 1734);
 
 // @baa 0x00cc5cf0
-int USoundNodeAmbient::vf_128(void) { return 0; }
+INT USoundNodeAmbient::GetMaxChildNodes() { return 0; }
 
 // @baa 0x00cc5d00
 int USoundNodeAmbient::vf_110(int a0) { return 0; }
 
 // @baa 0x00cc5d10
-float USoundNodeAmbient::vf_114() {
+FLOAT USoundNodeAmbient::GetDuration() {
     return 10000.0f;
 }
 
@@ -316,7 +316,7 @@ undefined4 * UObject::sub_00cc5d50(void)
 }
 
 // @baa 0x00cc5d70
-INT USoundNodeConcatenator::vf_128() {
+INT USoundNodeConcatenator::GetMaxChildNodes() {
   return 0xffffffff;
 }
 
@@ -351,7 +351,7 @@ undefined4 * UObject::sub_00cc5eb0(void)
 }
 
 // @baa 0x00cc5ed0
-INT USoundNodeMixer::vf_128() {
+INT USoundNodeMixer::GetMaxChildNodes() {
   return 0xffffffff;
 }
 
@@ -371,7 +371,7 @@ undefined4 * UObject::sub_00cc5f70(void)
 }
 
 // @baa 0x00cc5f90
-INT USoundNodeRandom::vf_128() {
+INT USoundNodeRandom::GetMaxChildNodes() {
   return 0xffffffff;
 }
 
@@ -391,7 +391,7 @@ undefined4 * UObject::sub_00cc6040(void)
 }
 
 // @baa 0x00cc6060
-int USoundNodeWaveParam::vf_128(void) { return 1; }
+INT USoundNodeWaveParam::GetMaxChildNodes() { return 1; }
 
 // @baa 0x00cc6070
 IMPLEMENT_CLASS_AT(USoundNodeWaveParam, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAudioNodes.cpp", 1984);
@@ -560,7 +560,7 @@ undefined4 * UObject::sub_00cca480(void)
 extern float g_01e52d38;
 // @baa 0x00cca4a0
  // 10000.0f in .rdata
-float USoundNodeAmbientNonLoop::vf_114(void) {
+FLOAT USoundNodeAmbientNonLoop::GetDuration() {
     return g_01e52d38;
 }
 
@@ -1110,7 +1110,7 @@ undefined4 * UObject::sub_00cd29a0(void)
 }
 
 // @baa 0x00cd29c0
-INT USoundNodeDistanceCrossFade::vf_128() {
+INT USoundNodeDistanceCrossFade::GetMaxChildNodes() {
   return 0xffffffff;
 }
 
@@ -1173,10 +1173,10 @@ int sub_00cdbb10(void)
 }
 
 // @baa 0x00cdbbf0
-int USoundNodeWave::vf_128(void) { return 0; }
+INT USoundNodeWave::GetMaxChildNodes() { return 0; }
 
 // @baa 0x00cdbc00
-FString USoundNodeWave::vf_134()
+const FString USoundNodeWave::GetEdHelperClassName() const
 {
     return TEXT("UnrealEd.SoundNodeWaveHelper");
 }
@@ -1276,7 +1276,7 @@ UBOOL UDistributionFloatSoundParameter::HasParentClassChanged() const
 }
 
 // @baa 0x00c936c0
-INT USoundNodeMature::vf_128() {
+INT USoundNodeMature::GetMaxChildNodes() {
   return 0xffffffff;
 }
 

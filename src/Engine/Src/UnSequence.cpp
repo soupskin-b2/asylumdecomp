@@ -297,7 +297,7 @@ void sub_008aa460(S* p, INT Value)
 void USequenceOp::InitializeLinkedVariableValues() {  }
 
 // @baa 0x008aa490
-void USequenceOp::vf_188(void) {  }
+void USequenceOp::UpdateDynamicLinks() {  }
 
 // @baa 0x008aa4a0
 int sub_008aa4a0(int a0, int a1) { return a1; }
@@ -1424,7 +1424,7 @@ UBOOL USequenceOp::UpdateOp(FLOAT DeltaTime) { return TRUE; }
 void USequenceOp::Activated(void) {  }
 
 // @baa 0x008abaf0
-void USequence::vf_1ac() {  }
+void USequence::CreateKismetLog() {  }
 
 // @baa 0x008abb60
 void USequence::SetEnabled(uint param_2)
@@ -3983,7 +3983,7 @@ undefined4 * UObject::sub_008e2240(void)
 void USequence::UpdateObject() {  }
 
 // @baa 0x008e22c0
-INT USequence::vf_1bc() { return 0; }
+UBOOL USequence::IsPrefabSequenceContainer() const { return 0; }
 
 // @baa 0x008e22d0
 int USequence::vf_150(void) { return 1; }

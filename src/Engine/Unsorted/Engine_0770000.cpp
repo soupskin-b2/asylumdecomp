@@ -369,7 +369,7 @@ int ANavigationPoint::vf_374(int a0) { return 1; }
 void* ANavigationPoint::vf_384() { return 0; }
 
 // @baa 0x00773d70
-int ANavigationPoint::vf_398(int a0) { return 0; }
+UBOOL ANavigationPoint::GetUpDir(FVector & a0) { return 0; }
 
 // @baa 0x00773d80
 FGuid* ANavigationPoint::GetGuid() { return (FGuid*)((char*)this + 600); }
@@ -536,10 +536,10 @@ IMPLEMENT_CLASS_AT(ANote, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Devel
 
 // @baa 0x00776100
 // @baa 0x00776430
-void AScout::vf_47c(int a0, int a1) {  }
+void AScout::vf_47c(INT Arg0, INT Arg1) {  }
 
 // @baa 0x00776470
-int AScout::vf_484(void) { return *(int*)((char*)this + 988); }
+UClass* AScout::GetDefaultReachSpecClass() { return *(UClass**)((char*)this + 988); }
 
 // @baa 0x00776480
 INT AScout::SecondPassPrunePathsForNav(ANavigationPoint* a0) { return 0; }

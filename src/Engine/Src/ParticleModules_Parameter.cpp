@@ -33,7 +33,7 @@ void UParticleModuleParameterDynamic::SetToSensibleDefaults(UParticleEmitter* a0
 void UParticleModuleParameterDynamic::PostEditChange(UProperty* a0) {  }
 
 // @baa 0x00b33b80
-void UParticleModuleParameterDynamic::vf_15c(int a0) {  }
+void UParticleModuleParameterDynamic::GetParticleSysParamsUtilized(TArray<FString>& a0) {  }
 
 // @baa 0x00b33b90
 void UParticleModuleParameterDynamic::GetParticleParametersUtilized(TArray<FString>& a0) {  }
@@ -854,7 +854,7 @@ undefined4 * UObject::sub_00b4c520(void)
 }
 
 // @baa 0x00b4c540
-INT UParticleModuleParameterDynamic::vf_154(INT a0, INT a1, FLOAT a2) { return 1; }
+UBOOL UParticleModuleParameterDynamic::WillGeneratedModuleBeIdentical(UParticleLODLevel* a0, UParticleLODLevel* a1, FLOAT a2) { return 1; }
 
 // @baa 0x00b4c550
 // @baa 0x00b4c5c0

@@ -1583,7 +1583,7 @@ int sub_005c7a20(void);
 IMPLEMENT_CLASS_AT(UParticleModuleTypeDataBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnParticleModules.cpp", 26);
 
 // @baa 0x00b3dbe0
-void UParticleModuleTypeDataBase::vf_170(int a0, int a1) {  }
+void UParticleModuleTypeDataBase::PreSpawn(FParticleEmitterInstance* a0, FBaseParticle* a1) {  }
 
 // @baa 0x00b3dbf0
 void UParticleModuleTypeDataBase::PreUpdate(FParticleEmitterInstance* a0, INT a1, FLOAT a2) {  }

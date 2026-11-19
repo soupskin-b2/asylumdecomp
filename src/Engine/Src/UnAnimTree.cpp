@@ -892,22 +892,22 @@ UAnimNode * UAnimNode::GetAnimNode() { return this; }
 void UAnimNode::AnimSetsUpdated() {  }
 
 // @baa 0x00c64660
-void UAnimNode::vf_130(UINT a0) {  }
+void UAnimNode::ResetAnimNodeToSource(UAnimNode * a0) {  }
 
 // @baa 0x00c64670
 void __stdcall sub_00c64670(int a0, int a1) {  }
 
 // @baa 0x00c64680
-int UAnimNode::vf_138(void) { return 1; }
+UBOOL UAnimNode::CanBlendOutFrom() { return 1; }
 
 // @baa 0x00c64690
-int UAnimNode::vf_13c(void) { return 1; }
+UBOOL UAnimNode::CanBlendTo() { return 1; }
 
 // @baa 0x00c646a0
 void UAnimNode::BuildTickArray(TArray<UAnimNode*>& OutTickArray) {}
 
 // @baa 0x00c646b0
-void* UAnimNode::vf_158() { return 0; }
+UAnimTree* UAnimNode::GetAnimTree() { return 0; }
 
 // @baa 0x00c646c0
 void UAnimNode::SetAnim(FName Sequence) {  }
@@ -1647,7 +1647,7 @@ undefined4 * UObject::sub_00c79340(void)
 }
 
 // @baa 0x00c79360
-void* UAnimTree::vf_158() { return this; }
+UAnimTree* UAnimTree::GetAnimTree() { return this; }
 
 // @baa 0x00c79370
 // @baa 0x00c79450
@@ -1821,7 +1821,7 @@ struct C_view {
 
 int sub_00c7f740(...);
 // @baa 0x00c803c0
-void UAnimNodeAimOffset::vf_130(undefined4 param_2)
+void UAnimNodeAimOffset::ResetAnimNodeToSource(UAnimNode * param_2)
 {
     int param_1 = (int)this;
   undefined4 uVar1;

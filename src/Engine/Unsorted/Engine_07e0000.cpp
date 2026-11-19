@@ -2003,12 +2003,12 @@ void ULineBatchComponent::DrawSprite(const FVector& Position, FLOAT SizeX, FLOAT
 void ULineBatchComponent::DrawPoint(const FVector& Position, const FLinearColor& Color, FLOAT PointSize, BYTE DepthPriorityGroup) {}
 
 // @baa 0x007ec7f0
-INT ULineBatchComponent::vf_264(INT a, INT b, INT c, INT d) {
+INT ULineBatchComponent::AddVertex(const FVector4& a, const FVector2D& b, const FLinearColor& c, BYTE d) {
     return 0xFFFFFFFF | 0xFFFFFFFF;
 }
 
 // @baa 0x007ec800
-void ULineBatchComponent::vf_268(INT a0, INT a1, INT a2, INT a3, INT a4) {  }
+void ULineBatchComponent::DrawTriangle(INT a0, INT a1, INT a2, const FMaterialRenderProxy* a3, BYTE a4) {  }
 
 // @baa 0x007ec870
 ULineBatchComponent::ULineBatchComponent()

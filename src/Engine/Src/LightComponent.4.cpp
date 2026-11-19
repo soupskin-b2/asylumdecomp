@@ -122,7 +122,7 @@ void ULightComponent::sub_006bab80()
 
 // @baa 0x006ad110
 /* Slot 0x174 (unnamed in the kit): a light that only casts dynamic shadows onto dynamic primitives. */
-INT ULightComponent::vf_174()
+UBOOL ULightComponent::IsLACDynamicAffecting()
 {
 	UBOOL bResult = FALSE;
 	if (CastShadows && !CastStaticShadows && CastDynamicShadows && !bForceDynamicLight && !UseDirectLightMap
@@ -135,7 +135,7 @@ INT ULightComponent::vf_174()
 
 // @baa 0x006ad150
 /* Slot 0x17c (unnamed in the kit): a fully shadow-casting light that affects BSP, static and dynamic primitives. */
-INT ULightComponent::vf_17c()
+UBOOL ULightComponent::IsLACDynamicAndStaticAffecting()
 {
 	UBOOL bResult = FALSE;
 	if (CastShadows && CastStaticShadows && CastDynamicShadows && !bForceDynamicLight && !UseDirectLightMap

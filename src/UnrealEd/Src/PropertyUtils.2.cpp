@@ -274,7 +274,7 @@ UBOOL UPropertyInputInteger::HasParentClassChanged() const
 
 // @baa 0x01202850
 /* Not supported by this proxy (asserts, PropertyUtils.h). */
-INT UPropertyInputProxy::vf_11c(INT, INT)
+UBOOL UPropertyInputProxy::Supports(const FPropertyNode* InTreeNode, INT InArrayIdx) const
 {
 #line 325 "UnrealEd/Inc\\PropertyUtils.h"
 	check(0);

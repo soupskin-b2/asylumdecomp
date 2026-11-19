@@ -28,11 +28,10 @@ void USeqAct_MultiLevelStreaming::UpdateStatus()
 }
 
 // @baa 0x00d201d0
-/* UE3's USequenceOp::PostEditChange(UProperty* PropertyThatChanged): fix up the links first (slot 0x188, UE3
- * CleanupConnections()). */
+/* UE3's USequenceOp::PostEditChange(UProperty* PropertyThatChanged): update the dynamic links first. */
 void USequenceOp::PostEditChange(UProperty* PropertyThatChanged)
 {
-    vf_188();
+    UpdateDynamicLinks();
     Super::PostEditChange(PropertyThatChanged);
 }
 
@@ -148,7 +147,7 @@ void USequenceObject::OnCreated()
 void USequence::OnCreated()
 {
     ObjInstanceVersion = ((USequenceObject_*)this)->eventGetObjClassVersion();
-    vf_1a4();
+    UpdateConnectors();
 }
 
 // @baa 0x008ac570

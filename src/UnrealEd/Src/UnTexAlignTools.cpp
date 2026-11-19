@@ -58,7 +58,7 @@ IMPLEMENT_CLASS_AT(UTexAlignerFit, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngin
 // @baa 0x012afe00
 
 // @baa 0x0129ce30
-void UTexAligner::vf_110(int a0, int a1, int a2, int a3, int a4) {  }
+void UTexAligner::AlignSurf(ETexAlign a0, UModel* a1, FBspSurfIdx* a2, FPoly* a3, FVector* a4) {  }
 
 // @baa 0x0129ee00
 

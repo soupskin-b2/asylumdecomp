@@ -465,10 +465,10 @@ bool C_00eecbb0::sub_00eecbb0(void)
 }
 
 // @baa 0x00eecc60
-void UEditorEngine::vf_218(int a0) {  }
+void UEditorEngine::polySelectMatchingGroups(UModel* a0) {  }
 
 // @baa 0x00eecc70
-void UEditorEngine::vf_21c(int a0) {  }
+void UEditorEngine::polySelectMatchingItems(UModel* a0) {  }
 
 struct FVector3 {
     float X;

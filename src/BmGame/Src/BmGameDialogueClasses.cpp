@@ -321,14 +321,14 @@ UBOOL URSeqAct_VoiceOfArkham::UpdateOp(FLOAT DeltaTime)
 }
 
 // @baa 0x01578f20
-void URSeqAct_ConversationDialogue::vf_188()
+void URSeqAct_ConversationDialogue::UpdateDynamicLinks()
 {
     this->sub_01578e70();
     vf_1b8();
 }
 
 // @baa 0x0157cfd0
-void URSeqAct_PlaySpeechConversation::vf_188()
+void URSeqAct_PlaySpeechConversation::UpdateDynamicLinks()
 {
     this->sub_01578f40();
     vf_1a4();

@@ -10,11 +10,11 @@ struct ARLevelVolume_ : public ARLevelVolume
 };
 
 // @baa 0x01591bb0
-INT ARLevelVolume::vf_17c(INT A)
+void ARLevelVolume::PostEditMove(UBOOL A)
 {
     if (A != 0)
         ((ARLevelVolume_*)this)->sub_0158c5b0();
-    return ((ARLevelVolume_*)this)->sub_007771e0(A);
+    Super::PostEditMove(A);
 }
 
 extern float g_025db4c4;
