@@ -72499,15 +72499,15 @@ struct FCheckResult : public FIteratorActorList
     class UMaterialInterface* Material;      /* 0x28 */
     class UPhysicalMaterial* PhysMaterial;   /* 0x2c */
     class UPrimitiveComponent* Component;    /* 0x30 */
-    INT Unknown34;                           /* 0x34: zeroed by the constructor */
+    class UPrimitiveComponent* SourceComponent; /* 0x34: the tracing actor's component that hit Component */
     FName BoneName;                          /* 0x38 */
     class ULevel* Level;                     /* 0x40 */
     INT LevelIndex;                          /* 0x44 */
-    FLOAT Unknown48;                         /* 0x48: zeroed by the constructor */
+    FLOAT Unknown48;                         /* 0x48: not in UE3; zeroed by the constructor */
     UBOOL bStartPenetrating;                 /* 0x4c */
     FCheckResult(FLOAT InTime = 1.f, FCheckResult* InNext = NULL)
         : FIteratorActorList(InNext, NULL), Location(0, 0, 0), Normal(0, 0, 0), Time(InTime), Item(INDEX_NONE),
-          Material(NULL), PhysMaterial(NULL), Component(NULL), Unknown34(0), BoneName(NAME_None), Level(NULL),
+          Material(NULL), PhysMaterial(NULL), Component(NULL), SourceComponent(NULL), BoneName(NAME_None), Level(NULL),
           LevelIndex(INDEX_NONE), Unknown48(0.f), bStartPenetrating(FALSE) {}
     FCheckResult* GetNext() const { return (FCheckResult*)Next; }
 };
@@ -72568,6 +72568,10 @@ struct UWorld : public UObject, public FNetworkNotify {
     UBOOL FarMoveActor(AActor* Actor, const FVector& DestLocation, UBOOL bTest = FALSE, UBOOL bNoCheck = FALSE, UBOOL bAttachedMove = FALSE); /* 0x007eda90 */
     UBOOL SingleLineCheck(FCheckResult& Hit, AActor* SourceActor, const FVector& End, const FVector& Start, DWORD TraceFlags, const FVector& Extent = FVector(0, 0, 0), class ULightComponent* SourceLight = NULL); /* 0x007e9a10 */
     UBOOL SinglePointCheck(FCheckResult& Hit, const FVector& Location, const FVector& Extent, DWORD TraceFlags); /* 0x007e96a0 */
+    /* results come from Mem (GMem): hold an FMemMark while you use them */
+    FCheckResult* MultiLineCheck(FMemStack& Mem, const FVector& End, const FVector& Start, const FVector& Extent, DWORD TraceFlags, AActor* SourceActor, class ULightComponent* SourceLight = NULL); /* 0x007e26f0 */
+    FCheckResult* MultiPointCheck(FMemStack& Mem, const FVector& Location, const FVector& Extent, DWORD TraceFlags); /* 0x007e2470 */
+    UBOOL EncroachingWorldGeometry(FCheckResult& Hit, const FVector& Location, const FVector& Extent, UBOOL bUseComplexCollision = FALSE); /* 0x007e9910 */
     class ANavigationPoint* sub_009c8530(); /* 0x009c8530 */
     void sub_009c8cc0(AController* Controller); /* 0x009c8cc0 */
     void sub_009c8d50(AController* Controller); /* 0x009c8d50 */

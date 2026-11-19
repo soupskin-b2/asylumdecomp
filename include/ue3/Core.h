@@ -319,6 +319,143 @@ template<class T, class CompareClass> void Sort(T* First, INT Num)
     }
 }
 
+/* UnMem.h: FMemStack, the linear allocator for temporary memory (collision results, render
+ * temporaries), and FMemMark, which frees what was pushed after it. This build has the older UE3 form:
+ * no thread checks, PushBytes bumps Top before comparing it with End, and the stack is 0x1c bytes.
+ * FMemMark's members are inline as in UE3: MSVC inlines Pop() in most callers and calls its
+ * out-of-line copy (0x0064a760; the destructor's is 0x006561c0) in the rest, as the game does. */
+#ifndef checkAt
+/* check() as the engine's header had it at File(Line) */
+#define checkAt(expr, File, Line) { if (!(expr)) appFailAssert(#expr, File, Line, TEXT("")); }
+#endif
+#define BAA_UNMEM_FILE "e:\\projects\\amadeus\\aa\\game\\unrealengine3\\development\\src\\core\\inc\\UnMem.h"
+
+enum EMemZeroed { MEM_Zeroed = 1 };
+enum EMemOned   { MEM_Oned   = 1 };
+
+class FMemStack
+{
+public:
+    FMemStack(INT DefaultChunkSize); /* 0x005c17d0 */
+    ~FMemStack(); /* 0x005c7560 */
+
+    FORCEINLINE BYTE* PushBytes(INT AllocSize, INT Align)
+    {
+        BYTE* Result = (BYTE*)(((INT)Top + (Align - 1)) & ~(Align - 1));
+        Top = Result + AllocSize;
+        if (Top > End)
+        {
+            AllocateNewChunk(AllocSize + Align);
+            Result = (BYTE*)(((INT)Top + (Align - 1)) & ~(Align - 1));
+            Top = Result + AllocSize;
+        }
+        return Result;
+    }
+
+    INT GetByteCount() const; /* 0x005c1810 */
+    INT GetUnusedByteCount() const; /* 0x005c1840 */
+
+    struct FTaggedMemory
+    {
+        FTaggedMemory* Next;
+        INT DataSize;
+        BYTE Data[1];
+    };
+
+    /* UE3 keeps these private (FMemMark and the operator news are friends) */
+    BYTE* Top;                    /* 0x00: top of the current chunk (Top <= End) */
+    BYTE* End;                    /* 0x04: end of the current chunk */
+    INT DefaultChunkSize;         /* 0x08 */
+    FTaggedMemory* TopChunk;      /* 0x0c */
+    class FMemMark* TopMark;      /* 0x10 */
+    FTaggedMemory* UnusedChunks;  /* 0x14 */
+    INT NumMarks;                 /* 0x18 */
+
+    BYTE* AllocateNewChunk(INT MinSize); /* 0x005c75e0 */
+    void FreeChunks(FTaggedMemory* NewTopChunk); /* 0x005c1860 */
+};
+
+/* the game thread's stack (UE3's GMem; later engines call it GMainThreadMemStack) */
+extern FMemStack GMem; /* 0x0267618c */
+
+template <class T> inline T* New(FMemStack& Mem, INT Count = 1, INT Align = DEFAULT_ALIGNMENT)
+{
+    return (T*)Mem.PushBytes(Count * sizeof(T), Align);
+}
+template <class T> inline T* NewZeroed(FMemStack& Mem, INT Count = 1, INT Align = DEFAULT_ALIGNMENT)
+{
+    BYTE* Result = Mem.PushBytes(Count * sizeof(T), Align);
+    appMemzero(Result, Count * sizeof(T));
+    return (T*)Result;
+}
+template <class T> inline T* NewOned(FMemStack& Mem, INT Count = 1, INT Align = DEFAULT_ALIGNMENT)
+{
+    BYTE* Result = Mem.PushBytes(Count * sizeof(T), Align);
+    memset(Result, 0xff, Count * sizeof(T));
+    return (T*)Result;
+}
+
+inline void* operator new(size_t Size, FMemStack& Mem, INT Count = 1, INT Align = DEFAULT_ALIGNMENT)
+{
+    return Mem.PushBytes(Size * Count, Align);
+}
+inline void* operator new(size_t Size, FMemStack& Mem, EMemZeroed Tag, INT Count = 1, INT Align = DEFAULT_ALIGNMENT)
+{
+    BYTE* Result = Mem.PushBytes(Size * Count, Align);
+    appMemzero(Result, Size * Count);
+    return Result;
+}
+inline void* operator new(size_t Size, FMemStack& Mem, EMemOned Tag, INT Count = 1, INT Align = DEFAULT_ALIGNMENT)
+{
+    BYTE* Result = Mem.PushBytes(Size * Count, Align);
+    memset(Result, 0xff, Size * Count);
+    return Result;
+}
+inline void* operator new[](size_t Size, FMemStack& Mem, INT Count = 1, INT Align = DEFAULT_ALIGNMENT)
+{
+    return Mem.PushBytes(Size * Count, Align);
+}
+inline void* operator new[](size_t Size, FMemStack& Mem, EMemZeroed Tag, INT Count = 1, INT Align = DEFAULT_ALIGNMENT)
+{
+    BYTE* Result = Mem.PushBytes(Size * Count, Align);
+    appMemzero(Result, Size * Count);
+    return Result;
+}
+
+/* Marks the top of a memory stack; Pop() (or the destructor) frees everything pushed since. */
+class FMemMark
+{
+public:
+    FMemMark(FMemStack& InMem)
+        : Mem(InMem), Top(InMem.Top), SavedChunk(InMem.TopChunk), bPopped(FALSE), NextTopmostMark(InMem.TopMark)
+    {
+        Mem.TopMark = this;
+        Mem.NumMarks++;
+    }
+    ~FMemMark() { Pop(); }
+
+    void Pop()
+    {
+        if (!bPopped)
+        {
+            checkAt(Mem.TopMark == this, BAA_UNMEM_FILE, 271);
+            bPopped = TRUE;
+            --Mem.NumMarks;
+            if (SavedChunk != Mem.TopChunk)
+                Mem.FreeChunks(SavedChunk);
+            Mem.Top = Top;
+            Mem.TopMark = NextTopmostMark;
+            Top = NULL;
+        }
+    }
+
+    FMemStack& Mem;                          /* 0x00 */
+    BYTE* Top;                               /* 0x04 */
+    FMemStack::FTaggedMemory* SavedChunk;    /* 0x08 */
+    UBOOL bPopped;                           /* 0x0c */
+    FMemMark* NextTopmostMark;               /* 0x10 */
+};
+
 /* UnOutputDevices.h: where log lines go (GLog, GError, an FFrame's script warnings) */
 struct FOutputDevice {
     UBOOL bAllowSuppression;          /* 0x4 */
