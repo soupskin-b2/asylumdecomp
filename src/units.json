@@ -200966,7 +200966,7 @@
     {
      "va": "00c4bb40",
      "size": 82,
-     "symbol": "?GetScaleValue@UAnimNodeScaleRateBySpeed_@@QAEMXZ"
+     "symbol": "?GetScaleValue@UAnimNodeScaleRateBySpeed_@@UAEMXZ"
     },
     {
      "va": "00c50350",
@@ -201520,7 +201520,7 @@
     {
      "va": "00c4bb30",
      "size": 7,
-     "symbol": "?vf_19c@UAnimNodeScalePlayRate@@UAEMXZ"
+     "symbol": "?GetScaleValue@UAnimNodeScalePlayRate@@UAEMXZ"
     },
     {
      "va": "00c4c2f0",
