@@ -13137,14 +13137,14 @@ struct AActor : public UObject {
     virtual INT performPhysics(FLOAT DeltaSeconds); /* 0x1e0 */
     virtual void physProjectile(FLOAT deltaTime, INT Iterations); /* 0x1e4 */
     virtual void BoundProjectileVelocity(); /* 0x1e8 */
-    virtual void vf_1ec(INT, INT); /* 0x1ec */
+    virtual void processHitWall(const struct FCheckResult& Hit, FLOAT TimeSlice = 0.f); /* 0x1ec */
     virtual void processLanded(FVector const& HitNormal, AActor *HitActor, FLOAT remainingTime, INT Iterations); /* 0x1f0 */
     virtual void physFalling(FLOAT deltaTime, INT Iterations); /* 0x1f4 */
     virtual void physWalking(FLOAT deltaTime, INT Iterations); /* 0x1f8 */
     virtual void physicsRotation(FLOAT deltaTime); /* 0x1fc */
     virtual FRotator FindSlopeRotation(const FVector& FloorNormal, const FRotator& NewRotation); /* 0x200 */
     virtual void GetNetBuoyancy(FLOAT &NetBuoyancy, FLOAT &NetFluidFriction); /* 0x204 */
-    virtual void processHitWall(const FVector& HitNormal, class AActor* HitActor); /* 0x208 */
+    virtual void SmoothHitWall(const FVector& HitNormal, class AActor* HitActor); /* 0x208 */
     virtual void stepUp(const FVector& GravDir, const FVector& DesiredDir, const FVector& Delta, struct FCheckResult &Hit); /* 0x20c */
     virtual UBOOL ShrinkCollision(AActor *HitActor, UPrimitiveComponent* HitComponent, const FVector &StartLocation); /* 0x210 */
     virtual void GrowCollision(); /* 0x214 */
@@ -32538,7 +32538,7 @@ struct APawn : public AActor {
     virtual void ClearPathStep(); /* 0x3b8 */
     virtual void CheckNoiseHearing(class AActor* NoiseMaker, FLOAT Loudness, FName NoiseType = NAME_None); /* 0x3bc */
     virtual FLOAT DampenNoise(AActor* NoiseMaker, FLOAT Loudness, FName NoiseType=NAME_None ); /* 0x3c0 */
-    virtual void SetMoveTimer(FVector MoveDir); /* 0x3c4 */
+    virtual void setMoveTimer(FVector MoveDir); /* 0x3c4 */
     virtual UBOOL moveToward(const FVector &Dest, AActor *GoalActor); /* 0x3c8 */
     virtual UBOOL IsGlider(); /* 0x3cc */
     virtual void rotateToward(FVector FocalPoint); /* 0x3d0 */
@@ -32601,12 +32601,12 @@ struct APawn : public AActor {
     virtual void SetZone(UBOOL bTest, UBOOL bForceRefresh); /* 0x1c8 */
     virtual void PostBeginPlay(); /* 0x1d8 */
     virtual INT performPhysics(FLOAT DeltaSeconds); /* 0x1e0 */
-    virtual void vf_1ec(INT, INT); /* 0x1ec */
+    virtual void processHitWall(const struct FCheckResult& Hit, FLOAT TimeSlice = 0.f); /* 0x1ec */
     virtual void processLanded(FVector const& HitNormal, AActor *HitActor, FLOAT remainingTime, INT Iterations); /* 0x1f0 */
     virtual void physFalling(FLOAT deltaTime, INT Iterations); /* 0x1f4 */
     virtual void physWalking(FLOAT deltaTime, INT Iterations); /* 0x1f8 */
     virtual void GetNetBuoyancy(FLOAT &NetBuoyancy, FLOAT &NetFluidFriction); /* 0x204 */
-    virtual void processHitWall(const FVector& HitNormal, class AActor* HitActor); /* 0x208 */
+    virtual void SmoothHitWall(const FVector& HitNormal, class AActor* HitActor); /* 0x208 */
     virtual void stepUp(const FVector& GravDir, const FVector& DesiredDir, const FVector& Delta, struct FCheckResult &Hit); /* 0x20c */
     virtual void PushedBy(AActor* Other); /* 0x224 */
     virtual void UpdateBasedRotation(FRotator &FinalRotation, const FRotator& ReducedRotation); /* 0x228 */
@@ -33602,7 +33602,7 @@ struct AProjectile : public AActor {
     virtual INT vf_1bc(INT, INT, INT); /* 0x1bc */
     virtual void physProjectile(FLOAT deltaTime, INT Iterations); /* 0x1e4 */
     virtual void BoundProjectileVelocity(); /* 0x1e8 */
-    virtual void vf_1ec(INT, INT); /* 0x1ec */
+    virtual void processHitWall(const struct FCheckResult& Hit, FLOAT TimeSlice = 0.f); /* 0x1ec */
     virtual UBOOL ShrinkCollision(AActor *HitActor, UPrimitiveComponent* HitComponent, const FVector &StartLocation); /* 0x210 */
     virtual void GrowCollision(); /* 0x214 */
     virtual const class AProjectile* GetAProjectile() const; /* 0x2fc */
