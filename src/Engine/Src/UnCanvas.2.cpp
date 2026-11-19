@@ -243,11 +243,6 @@ void UCanvas__00aaa040::execDrawTileClipped(FFrame& Stack, RESULT_DECL)
 
 /* Script.h's FOutputDevice only declares Logf(const TCHAR*, ...); the engine also has the
  * Logf(EName Type, const TCHAR* Fmt, ...) overload (0x00630ea0). */
-struct FFrame_ : public FFrame
-{
-	void Logf(EName Type, const TCHAR* Fmt, ...);
-};
-
 /* FString has no operator*; this is UE3's body for it (const, so it uses the const operator()). */
 static inline const TCHAR* StrPtr( const FString& S )
 {
@@ -271,7 +266,7 @@ void UCanvas__00aa9c00::execDrawText(FFrame& Stack, RESULT_DECL)
 
 	if ( !Font )
 	{
-		((FFrame_&)Stack).Logf(NAME_Warning, TEXT("DrawText: No font"));
+		Stack.Logf(NAME_Warning, TEXT("DrawText: No font"));
 		return;
 	}
 	INT XL = 0, YL = 0;

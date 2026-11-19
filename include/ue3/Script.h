@@ -3,7 +3,8 @@
 //
 // Verified against the exe: Stack.Object is at +0x14, Stack.Code at +0x18, GNatives at 0x026888a0
 // (4-byte member function pointers, indexed by the byte at Stack.Code), EX_DebugInfo is 0x41.
-// A native is a member of its class (derive a struct when the header doesn't declare it):
+// A native is a member of its class (check include/ for its address first; a local struct deriving
+// from the class is the fallback when the header doesn't declare it):
 //     struct CExec : UObject { void* sub_007ac800(void*, float*, float*, FVector, FVector, float);
 //                              void sub_00c84960(FFrame& Stack, RESULT_DECL); };
 //     void CExec::sub_00c84960(FFrame& Stack, RESULT_DECL) {      // matches, 400 bytes
@@ -46,6 +47,11 @@ struct FFrame : public FOutputDevice {
         Code += sizeof(WORD);
         return Result;
     }
+    // UnScript.h's other inline readers (constants and references in the bytecode)
+    FORCEINLINE INT ReadInt() { INT Result = *(INT*)Code; Code += sizeof(INT); return Result; }
+    FORCEINLINE FLOAT ReadFloat() { FLOAT Result = *(FLOAT*)Code; Code += sizeof(FLOAT); return Result; }
+    FORCEINLINE FName ReadName() { FName Result = *(FName*)Code; Code += sizeof(FName); return Result; }
+    FORCEINLINE UObject* ReadObject() { UObject* Result = *(UObject**)Code; Code += sizeof(UObject*); return Result; }
 };
 
 // Iterator natives (UnScriptMacros.h): the native's loop body runs between PRE_ITERATOR and
@@ -99,6 +105,7 @@ struct FStateFrame : public FFrame {
 // RUC_SkippedOptionalParm in GRuntimeUCFlags when the caller left one out (the default stays).
 // Verified: GPropAddr 0x026667e8, GRuntimeUCFlags 0x026667f0, GNativeLookupFuncs 0x0268c8a0 (after GNatives' 16 pages of 256).
 extern BYTE* GPropAddr;
+extern class UProperty* GProperty; /* 0x026667ec: the property the last Step read (0 when none, e.g. execEndFunctionParms) */
 extern DWORD GRuntimeUCFlags;
 typedef Native (*NativeLookup)(const TCHAR* Name);
 extern NativeLookup GNativeLookupFuncs[500]; /* each package's name -> native table (InitializeRegistrantsAndRegisterNames) */

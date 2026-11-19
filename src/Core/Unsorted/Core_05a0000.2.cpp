@@ -329,19 +329,10 @@ void UObject::execStringToName(FFrame& Stack, RESULT_DECL)
 
 /* Kit gaps: UObject's bytecode handlers (UnScript.cpp, registered in GNatives by EX_ code) aren't declared, nor
  * FFrame's inline readers ReadFloat/ReadName/ReadObject (UnScript.h). */
-struct FFrame_ : public FFrame
-{
-	FORCEINLINE FLOAT ReadFloat() { FLOAT F = *(FLOAT*)Code; Code += sizeof(FLOAT); return F; }
-	FORCEINLINE FName ReadName() { FName N = *(FName*)Code; Code += sizeof(FName); return N; }
-	FORCEINLINE UObject* ReadObject() { UObject* Res = *(UObject**)Code; Code += sizeof(UObject*); return Res; }
-};
-
-extern UProperty* g_026667ec;
-	/* GProperty */
 
 // @baa 0x005ab3e0
 void UObject::execFinalFunction(FFrame& Stack, RESULT_DECL)
 {
 	// Call the final function.
-	CallFunction(Stack, Result, (UFunction*)((FFrame_&)Stack).ReadObject());
+	CallFunction(Stack, Result, (UFunction*)Stack.ReadObject());
 }

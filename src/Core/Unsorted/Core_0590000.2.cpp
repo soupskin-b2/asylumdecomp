@@ -1470,21 +1470,12 @@ void UObject::execNotEqual_InterfaceInterface(FFrame& Stack, RESULT_DECL)
 
 /* Kit gaps: UObject's bytecode handlers (UnScript.cpp, registered in GNatives by EX_ code) aren't declared, nor
  * FFrame's inline readers ReadFloat/ReadName/ReadObject (UnScript.h). */
-struct FFrame_ : public FFrame
-{
-	FORCEINLINE FLOAT ReadFloat() { FLOAT F = *(FLOAT*)Code; Code += sizeof(FLOAT); return F; }
-	FORCEINLINE FName ReadName() { FName N = *(FName*)Code; Code += sizeof(FName); return N; }
-	FORCEINLINE UObject* ReadObject() { UObject* Res = *(UObject**)Code; Code += sizeof(UObject*); return Res; }
-};
-
-extern UProperty* g_026667ec;
-	/* GProperty */
 
 // @baa 0x00590720
 void UObject::execEndFunctionParms(FFrame& Stack, RESULT_DECL)
 {
 	// For skipping over optional function parms without values specified.
-	g_026667ec = NULL;
+	GProperty = NULL;
 	Stack.Code--;
 }
 
@@ -1493,7 +1484,7 @@ void UObject::execEndFunctionParms(FFrame& Stack, RESULT_DECL)
 // @baa 0x00590db0
 void UObject::execFloatConst(FFrame& Stack, RESULT_DECL)
 {
-	*(FLOAT*)Result = ((FFrame_&)Stack).ReadFloat();
+	*(FLOAT*)Result = Stack.ReadFloat();
 }
 
 	/* GProperty */
@@ -1501,7 +1492,7 @@ void UObject::execFloatConst(FFrame& Stack, RESULT_DECL)
 // @baa 0x00590e20
 void UObject::execNameConst(FFrame& Stack, RESULT_DECL)
 {
-	*(FName*)Result = ((FFrame_&)Stack).ReadName();
+	*(FName*)Result = Stack.ReadName();
 }
 
 	/* GProperty */
@@ -1541,12 +1532,6 @@ void UObject::execInterfaceToObject(FFrame& Stack, RESULT_DECL)
 	}
 }
 
-/* Kit gaps: UObject's bytecode handlers (UnScript.cpp) aren't declared, nor FFrame's inline ReadWord (UnScript.h). */
-struct FFrame__005907d0 : public FFrame
-{
-	FORCEINLINE INT ReadWord() { INT Result = *(WORD*)Code; Code += sizeof(WORD); return Result; }
-};
-
 
 // @baa 0x005907d0
 void UObject::execConditional(FFrame& Stack, RESULT_DECL)
@@ -1556,7 +1541,7 @@ void UObject::execConditional(FFrame& Stack, RESULT_DECL)
 	Stack.Step(Stack.Object, &CondValue);
 
 	// Get first skip offset.
-	INT SkipOffset = ((FFrame__005907d0&)Stack).ReadWord();
+	INT SkipOffset = Stack.ReadWord();
 
 	// Skip ahead if false.
 	if (!CondValue)
@@ -1570,7 +1555,7 @@ void UObject::execConditional(FFrame& Stack, RESULT_DECL)
 	// Skip second expression if first was chosen.
 	if (CondValue)
 	{
-		Stack.Code += ((FFrame__005907d0&)Stack).ReadWord();
+		Stack.Code += Stack.ReadWord();
 	}
 }
 
@@ -1584,7 +1569,7 @@ void UObject::execLetDelegate(FFrame& Stack, RESULT_DECL)
 	// Get variable address.
 	GPropAddr = NULL;
 	g_026667d0 = NULL;
-	g_026667ec = NULL;
+	GProperty = NULL;
 	Stack.Step(Stack.Object, NULL);	// Evaluate variable.
 	FScriptDelegate* DelegateAddr = (FScriptDelegate*)GPropAddr;
 	FScriptDelegate Delegate;
@@ -1810,34 +1795,22 @@ void UObject::execNotEqual_DelegateFunction(FFrame& Stack, RESULT_DECL)
 	*(UBOOL*)Result = (A.Object != B.Object || A.FunctionName != B.FunctionName);
 }
 
-/* Kit gaps: UObject's bytecode handlers (UnScript.cpp) aren't declared, nor FFrame's inline ReadFloat (UnScript.h). */
-struct FFrame__00594830 : public FFrame
-{
-	FORCEINLINE FLOAT ReadFloat() { FLOAT F = *(FLOAT*)Code; Code += sizeof(FLOAT); return F; }
-};
-
 
 // @baa 0x00594830
 void UObject::execVectorConst(FFrame& Stack, RESULT_DECL)
 {
-	((FVector*)Result)->X = ((FFrame__00594830&)Stack).ReadFloat();
-	((FVector*)Result)->Y = ((FFrame__00594830&)Stack).ReadFloat();
-	((FVector*)Result)->Z = ((FFrame__00594830&)Stack).ReadFloat();
+	((FVector*)Result)->X = Stack.ReadFloat();
+	((FVector*)Result)->Y = Stack.ReadFloat();
+	((FVector*)Result)->Z = Stack.ReadFloat();
 }
-
-/* Kit gaps: UObject's bytecode handlers (UnScript.cpp) aren't declared, nor FFrame's inline ReadInt (UnScript.h). */
-struct FFrame__005947f0 : public FFrame
-{
-	FORCEINLINE INT ReadInt() { INT Result = *(INT*)Code; Code += sizeof(INT); return Result; }
-};
 
 
 // @baa 0x005947f0
 void UObject::execRotationConst(FFrame& Stack, RESULT_DECL)
 {
-	((FRotator*)Result)->Pitch = ((FFrame__005947f0&)Stack).ReadInt();
-	((FRotator*)Result)->Yaw = ((FFrame__005947f0&)Stack).ReadInt();
-	((FRotator*)Result)->Roll = ((FFrame__005947f0&)Stack).ReadInt();
+	((FRotator*)Result)->Pitch = Stack.ReadInt();
+	((FRotator*)Result)->Yaw = Stack.ReadInt();
+	((FRotator*)Result)->Roll = Stack.ReadInt();
 }
 
 
@@ -1869,17 +1842,12 @@ void UObject::execRotatorToVector(FFrame& Stack, RESULT_DECL)
 
 /* Kit gaps: UObject's bytecode handlers (UnScript.cpp) aren't declared, nor FFrame's inline ReadWord (UnScript.h)
  * or the EX_EndParmValue opcode (Script.h's enum has only EX_DebugInfo). */
-struct FFrame__00590090 : public FFrame
-{
-	FORCEINLINE INT ReadWord() { INT Result = *(WORD*)Code; Code += sizeof(WORD); return Result; }
-};
-
 enum { EX_EndParmValue = 0x15 };
 
 // @baa 0x00590090
 void UObject::execDefaultParmValue(FFrame& Stack, RESULT_DECL)
 {
-	WORD Offset = ((FFrame__00590090&)Stack).ReadWord();
+	WORD Offset = Stack.ReadWord();
 	if ((GRuntimeUCFlags & RUC_SkippedOptionalParm) == 0)
 	{
 		// skip over the default value expression
