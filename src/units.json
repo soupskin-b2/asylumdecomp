@@ -208307,6 +208307,11 @@
      "symbol": "?SetKeyOut@UDistributionFloatUniform@@UAEXHHM@Z"
     },
     {
+     "va": "007b0190",
+     "size": 90,
+     "symbol": "?PostLoad@UDistributionFloatUniformCurve@@UAEXXZ"
+    },
+    {
      "va": "007b01f0",
      "size": 4,
      "symbol": "?GetNumKeys@UDistributionFloatUniformCurve@@UAEHXZ"
@@ -208330,6 +208335,11 @@
      "va": "007b04a0",
      "size": 166,
      "symbol": "?PostLoad@UDistributionVectorUniform@@UAEXXZ"
+    },
+    {
+     "va": "007b0920",
+     "size": 172,
+     "symbol": "?PostLoad@UDistributionVectorUniformCurve@@UAEXXZ"
     },
     {
      "va": "007b09d0",

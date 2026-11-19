@@ -272,6 +272,17 @@ void UDistributionFloatUniform::SetKeyOut(INT SubIndex, INT KeyIndex, FLOAT NewO
     bIsDirty = TRUE;
 }
 
+// @baa 0x007b0190
+void UDistributionFloatUniformCurve::PostLoad()
+{
+    if (GetLinker() && GetLinker()->Ver() < 0x217)
+    {
+        bIsDirty = TRUE;
+        MarkPackageDirty();
+    }
+    Super::PostLoad();
+}
+
 // @baa 0x007b01f0
 INT UDistributionFloatUniformCurve::GetNumKeys() { return ConstantCurve.Points.Num(); }
 
@@ -284,40 +295,37 @@ INT UDistributionVectorConstantCurve::GetNumKeys() { return ConstantCurve.Points
 // @baa 0x007b0490
 UBOOL UDistributionVectorConstantCurve::UsingLegacyInterpMethod() const { return ConstantCurve.InterpMethod != IMT_UseFixedTangentEvalAndNewAutoTangents; }
 
-struct FLinkerVer {
-    BYTE _pad[0xec];
-    INT Ver;
-};
-
-struct FLinkerMap {
-    FLinkerVer* sub_005d7190(UObject* Object);
-};
-
-extern FLinkerMap g_026a1d64;
-struct UDistributionVectorUniform_ : public UDistributionVectorUniform {
-    FLinkerVer* GetLinker()
-    {
-        if (!(ObjectFlags & 0x4000000))
-            return NULL;
-        return g_026a1d64.sub_005d7190(this);
-    }
-    void sub_005d9570(UBOOL bDirty);
-};
-
 // @baa 0x007b04a0
 void UDistributionVectorUniform::PostLoad()
 {
-    UDistributionVectorUniform_* This = (UDistributionVectorUniform_*)this;
-    if (This->GetLinker() && This->GetLinker()->Ver < 0x217)
+    if (GetLinker() && GetLinker()->Ver() < 0x217)
     {
         bIsDirty = 1;
-        This->sub_005d9570(1);
+        MarkPackageDirty();
     }
-    if (This->GetLinker() && This->GetLinker()->Ver < 0x220 && LockedAxes)
+    if (GetLinker() && GetLinker()->Ver() < 0x220 && LockedAxes)
     {
         bIsDirty = 1;
     }
-    This->sub_005e59b0();
+    Super::PostLoad();
+}
+
+// @baa 0x007b0920
+void UDistributionVectorUniformCurve::PostLoad()
+{
+    if (GetLinker() && GetLinker()->Ver() < 0x217)
+    {
+        bIsDirty = TRUE;
+        MarkPackageDirty();
+    }
+    if (GetLinker() && GetLinker()->Ver() < 0x220)
+    {
+        if (LockedAxes[0] != 0 || LockedAxes[1] != 0)
+        {
+            bIsDirty = TRUE;
+        }
+    }
+    Super::PostLoad();
 }
 
 // @baa 0x007b09d0

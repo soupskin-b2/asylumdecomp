@@ -4,6 +4,7 @@ Newest first, one line each. `update` (and `get`, which updates by itself) print
 to you; `python asylum.pyz changes` prints them all. Add a line here with any change an agent should
 know about: a renamed or retyped declaration, a new header or macro, a new rule.
 
+- 2026-11-19: `UObject::GetLinker()` (this build keeps linkers in a side map: `RF_HasLinker` 0x4000000, `GObjectLinkers` 0x026a1d64, `FObjectLinkerMap::FindLinker` 0x005d7190) and `ULinkerLoad::Ver()` (its FArchive base at 0xe8: `ArVer` 0xec). UDistributionFloatUniformCurve/VectorUniformCurve::PostLoad matched with them; UDistributionVectorUniform::PostLoad's stand-in replaced. `tools/resymbol.py --new` prints the D1 command that marks the new matches done.
 - 2026-11-19: AGENTS.md: raw x87 fcos/fsin come from `#pragma float_control(precise, off)` + `#pragma intrinsic(cos, sin)` (0166d6d0 matches so); the checker already allows these pragmas.
 - 2026-11-19: `FString& FString::operator+=(TCHAR)` declared (0x0059cfe0). src: the inlined Actor event in SetAnimTreeTemplate is `eventAnimTreeUpdated` (was a guessed name).
 - 2026-11-19: packets: a native parameter the script signature doesn't mark optional, but whose read the code precedes with `GRuntimeUCFlags &= ~RUC_SkippedOptionalParm`, is given as `P_GET_*_OPTX` with its default. AGENTS.md: the `lea eax, [esp + 4]; push eax; call X; ret 4` idiom.

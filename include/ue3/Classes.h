@@ -10289,6 +10289,17 @@ struct FRemapSubtitleType {
 
 template<class T> T* CastChecked(UObject* Src); /* Cast.h */
 
+/* This build keeps each loaded object's linker in a side map instead of UE3's UObject::_Linker: objects
+ * with this flag have an entry (UObject::GetLinker below). The flag's and the map's real names are unknown. */
+#ifndef RF_HasLinker
+#define RF_HasLinker            ((QWORD)0x0000000004000000)
+#endif
+struct FObjectLinkerMap
+{
+    class ULinkerLoad* FindLinker(const class UObject* Object); /* 0x005d7190: the entry's linker (the object must have one) */
+};
+extern FObjectLinkerMap GObjectLinkers; /* 0x026a1d64 */
+
 struct UObject {
     /* Core.Object */
     DECLARE_BASE_CLASS(UObject, UObject, 0x101, 0x0, Core)
@@ -10311,6 +10322,7 @@ struct UObject {
     FORCEINLINE UObject* GetArchetype() const { return ObjectArchetype; }
     template<class T> FORCEINLINE T* GetArchetype() const { return CastChecked<T>(GetArchetype()); }
     FORCEINLINE UBOOL HasAnyFlags(QWORD FlagsToCheck) const { return (ObjectFlags & FlagsToCheck) != 0; }
+    FORCEINLINE class ULinkerLoad* GetLinker() const { return !(ObjectFlags & RF_HasLinker) ? NULL : GObjectLinkers.FindLinker(this); }
     FORCEINLINE void SetFlags(QWORD NewFlags) { ObjectFlags |= NewFlags; }
     FORCEINLINE void ClearFlags(QWORD FlagsToClear) { ObjectFlags &= ~FlagsToClear; }
     FORCEINLINE void MarkPendingKill() { ObjectFlags |= RF_PendingKill; }
@@ -68278,7 +68290,10 @@ struct ULinkerLoad : public ULinker {
     /* Core.LinkerLoad (native only: no script package describes it) */
     DECLARE_CLASS(ULinkerLoad, ULinker, 0x10000008, 0x0, Core)
     ULinkerLoad(); /* 0x005bb260 */
-    BYTE _native0[0x484];
+    /* 0xe8: the FArchive base (UE3: class ULinkerLoad : public ULinker, public FArchive), its first fields */
+    void* ArchiveVtable; /* 0xe8 */
+    INT ArVer; /* 0xec: the package's version */
+    BYTE _native0[0x47c];
     FNativeDtor_005ab010_70 Native_56c; /* 0x56c: C++ only (destroyed by its destructor) */
     FNativeDtor_005b7aa0_3c Native_5dc; /* 0x5dc: C++ only (destroyed by its destructor) */
     FNativeDtor_005b7b10_3c Native_618; /* 0x618: C++ only (destroyed by its destructor) */
@@ -68290,6 +68305,7 @@ struct ULinkerLoad : public ULinker {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void BeginDestroy(); /* 0x020 */
+    INT Ver() const { return ArVer; } /* FArchive::Ver */
     /* other member functions */
     void sub_0059a560(); /* 0x0059a560 */
     INT sub_005a06a0(INT); /* 0x005a06a0 */

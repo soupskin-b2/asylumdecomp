@@ -177,6 +177,10 @@ def main():
         import stats
         stats.write(ROOT)
         print("%d new functions recorded as matched" % len(added))
+        # the service only learns of matches from CI's verdicts: without this, `list` keeps offering them
+        print("after pushing, mark them done in the service (maintainers, from the backend checkout):\n"
+              "  npx wrangler d1 execute asylumdecomp --remote --command \"update functions set done=1 where va in (%s)\""
+              % ",".join(str(int(va, 16) if isinstance(va, str) else va) for va in sorted(added)))
     print("recorded")
     return 1 if fails else 0
 
