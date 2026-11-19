@@ -115,7 +115,7 @@ void UTexture::PreSave()
 
 
 // @baa 0x00d45fb0
-void UTexture::sub_00d45fb0()
+void UTexture::vf_11c()
 {
     RGBE = (CompressionSettings == 5);
 }

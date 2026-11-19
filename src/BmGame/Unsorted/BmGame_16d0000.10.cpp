@@ -5,12 +5,9 @@
 
 
 // @baa 0x016d1640
-void ARCrowdAttractor::sub_016d1640(FLOAT* Out, INT, INT)
+FVector ARCrowdAttractor::GetAttractionForce(ARCrowdAgent* Agent, FLOAT DeltaTime)
 {
-    FLOAT Zero = 0.0f;
-    Out[0] = Zero;
-    Out[1] = Zero;
-    Out[2] = Zero;
+    return FVector(0.f, 0.f, 0.f);
 }
 
 struct C

@@ -19,7 +19,7 @@ void UNameProperty::SerializeItem( FArchive& Ar, void* Value, INT MaxReadBytes, 
 
 
 // @baa 0x0062f570
-FName UComponentProperty::sub_0062f570() const
+FName UComponentProperty::GetID() const
 {
     FName Result(NAME_ObjectProperty); // NAME_ObjectProperty
     return Result;

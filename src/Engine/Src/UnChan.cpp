@@ -205,7 +205,7 @@ struct FControlChannelData_ {
 
 
 // @baa 0x00df35f0
-void UControlChannel::sub_00df35f0(UNetConnection* InConnection, INT InChIndex, UBOOL InOpenedLocally)
+void UControlChannel::Init(UNetConnection* InConnection, INT InChIndex, UBOOL InOpenedLocally)
 {
     FControlChannelData_* Data = (FControlChannelData_*)this;
     if (InConnection->GetUChildConnection())

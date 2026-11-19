@@ -115,7 +115,7 @@ struct C_Vft19_4c
 void URSeqAct_UpdateBatmanDamageLevel::PostLoad()
 {
     URSeqAct_UpdateBatmanDamageLevel* Self = (URSeqAct_UpdateBatmanDamageLevel*)this;
-    Self->sub_009086f0();
+    Self->USequenceOp::PostLoad();
     if (DamageState == NULL)
         reinterpret_cast<C_Vft19_4c*>(Self)->vf4c(0);
 }

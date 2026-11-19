@@ -42,7 +42,7 @@ void C_0062a820::sub_0062a820(unsigned char* a1, unsigned char* a2, int a3, int 
 
 
 // @baa 0x0062a830
-void UByteProperty::sub_0062a830(void* Dest, void* Src, UObject*, UObject*, void*)
+void UByteProperty::CopyCompleteValue(void* Dest, void* Src, UObject* SubobjectRoot, UObject* DestOwnerObject, FObjectInstancingGraph* InstanceGraph)
 {
     INT ArrayDim = *(INT*)((BYTE*)this + 0x38);
     if (ArrayDim == 1)
@@ -1240,7 +1240,7 @@ IMPLEMENT_CLASS_AT(UDelegateProperty, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEn
 // @baa 0x0062fa80
 
 // @baa 0x00630590
-void UInterfaceProperty::sub_00630590(BYTE* Data, DWORD PortFlags)
+void UInterfaceProperty::ClearValue(BYTE* Data, DWORD PortFlags)
 {
     if ((PortFlags & 0x80) == 0 || IsLocalized())
     {

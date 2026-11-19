@@ -14,7 +14,7 @@ void UAudioComponent::sub_00786260(UBOOL bPaused)
  * (FMatrix::GetOrigin inlined). */
 
 // @baa 0x00786210
-void UAudioComponent::sub_00786210(const FMatrix& ParentToWorld)
+void UAudioComponent::SetParentToWorld(const FMatrix& ParentToWorld)
 {
     FVector Origin;
     Origin.X = ParentToWorld.WPlane.X;

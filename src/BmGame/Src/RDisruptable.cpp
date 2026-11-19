@@ -25,16 +25,10 @@ UBOOL ARDisruptableObjectBase::HasParentClassChanged() const
 
 // @baa 0x01716720
 
-struct ARDisruptableObjectDoor_ : public ARDisruptableObjectDoor
-{
-	void sub_007771e0(int Param);
-	void sub_01732630(int Param);
-};
-
 // @baa 0x01732630
-void ARDisruptableObjectDoor_::sub_01732630(int Param)
+void ARDisruptableObjectDoor::PostEditMove(UBOOL bFinished)
 {
-	sub_007771e0(Param);
+	AActor::PostEditMove(bFinished);
 	sub_01732370();
 }
 
@@ -42,9 +36,9 @@ void ARDisruptableObjectDoor_::sub_01732630(int Param)
 // sub_00783b70, then runs sub_01732370.
 
 // @baa 0x01732650
-void ARDisruptableObjectDoor::sub_01732650(UINT Param)
+void ARDisruptableObjectDoor::PostEditChange(UProperty* PropertyThatChanged)
 {
-	sub_00783b70(Param);
+	AActor::PostEditChange(PropertyThatChanged);
 	sub_01732370();
 }
 

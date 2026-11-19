@@ -177,9 +177,9 @@ undefined4 * UTexture2D::sub_00546c80(void)
 
 
 // @baa 0x005423f0
-void UDistributionVector::sub_005423f0(FVector& OutVector, FLOAT A, FLOAT B, FLOAT C)
+FVector UDistributionVector::GetValue(FLOAT F, UObject* Data, INT LastExtreme)
 {
-    OutVector.Z = OutVector.Y = OutVector.X = 0.f;
+    return FVector(0.f, 0.f, 0.f);
 }
 
 // @baa 0x00547740

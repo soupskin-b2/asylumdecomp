@@ -19,7 +19,7 @@ undefined4 ULensFlare::sub_00d6ed10(byte param_2)
 
 
 // @baa 0x00d6b740
-void ANxCylindricalForceFieldCapsule::sub_00d6b740()
+void ANxCylindricalForceFieldCapsule::DoInitRBPhys()
 {
 	Kernel.Dummy = 0;
 	ForceField.Dummy = 0;

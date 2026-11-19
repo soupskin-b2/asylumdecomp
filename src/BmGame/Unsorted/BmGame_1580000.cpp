@@ -1609,15 +1609,9 @@ void UObject::sub_01582ef0()
     ProcessEvent(FindFunctionChecked(g_026e2624), NULL);
 }
 
-struct URSeqAct_Music_ : public URSeqAct_Music
-{
-    INT sub_00d201d0(INT Value);
-    void sub_01584a70(UINT Value);
-};
-
 // @baa 0x01584a70
-void URSeqAct_Music_::sub_01584a70(UINT Value)
+void URSeqAct_Music::PostEditChange(UProperty* PropertyThatChanged)
 {
     sub_0157c210();
-    sub_00d201d0(Value);
+    USequenceOp::PostEditChange(PropertyThatChanged);
 }

@@ -785,7 +785,7 @@ void ARPontoonBase::UpdatePontoonForces()
 
 
 // @baa 0x016aa500
-void ARCinematicCameraActor::sub_016aa500(DWORD A1, DWORD A2, DWORD A3, FName InAnimSeqName, FLOAT InPosition, UBOOL bLooping)
+void ARCinematicCameraActor::PreviewSetAnimPosition(FName SlotName, INT ChannelIndex, FName InAnimSeqName, FLOAT InPosition, UBOOL bLooping)
 {
     InternalSetAnimPosition(InAnimSeqName, InPosition, bLooping);
 }

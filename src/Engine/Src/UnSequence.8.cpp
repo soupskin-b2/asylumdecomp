@@ -175,17 +175,11 @@ struct C_008dcbc0 { void sub_008d5060(int); C_008dcbc0 *sub_008dcbc0(int); };
 // @baa 0x008dcbc0
 C_008dcbc0 *C_008dcbc0::sub_008dcbc0(int a) { sub_008d5060(a); return this; }
 
-struct USeqAct_PlaySound_ : public USeqAct_PlaySound
-{
-    INT sub_00d201d0(INT Value);
-    void sub_008ec1a0(UINT Value);
-};
-
 // @baa 0x008ec1a0
-void USeqAct_PlaySound_::sub_008ec1a0(UINT Value)
+void USeqAct_PlaySound::PostEditChange(UProperty* PropertyThatChanged)
 {
     sub_008df850();
-    sub_00d201d0(Value);
+    USequenceOp::PostEditChange(PropertyThatChanged);
 }
 
 int sub_008eb9b0(void);

@@ -48,7 +48,7 @@ UBOOL USeqEvent_Touch_::CheckActivate(AActor* InOriginator, AActor* InInstigator
 			// only test here: the touch itself activates the event
 			if (bPassed)
 			{
-				bPassed = this->sub_008abba0(InOriginator, InInstigator, TRUE, ActivateIndices, bPushTop);
+				bPassed = USequenceEvent::CheckActivate(InOriginator, InInstigator, TRUE, ActivateIndices, bPushTop);
 			}
 		}
 	}

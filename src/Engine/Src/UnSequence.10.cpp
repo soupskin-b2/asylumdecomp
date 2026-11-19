@@ -283,12 +283,12 @@ UBOOL USequence::IsEnabled() const
 /* slot 0x180 (vf_180) */
 
 // @baa 0x008aba80
-void USequenceOp::CopyPlayerFrom(USequenceOp* Other, INT Unused)
+void USequenceOp::OnReceivedImpulse(USequenceOp* ActivatorOp, INT InputLinkIndex)
 {
-    if (Other != NULL)
+    if (ActivatorOp != NULL)
     {
-        PlayerIndex = Other->PlayerIndex;
-        GamepadID = Other->GamepadID;
+        PlayerIndex = ActivatorOp->PlayerIndex;
+        GamepadID = ActivatorOp->GamepadID;
     }
 }
 

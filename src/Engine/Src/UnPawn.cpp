@@ -1188,7 +1188,7 @@ void APawn::ClearPathStep() {  }
 // APawn slot 0x358 (vtable 214): AdjustDestination. Returns a zero vector.
 
 // @baa 0x008655c0
-FVector APawn::sub_008655c0(AActor* InGoal, FVector InDest)
+FVector APawn::AdjustDestination(AActor* GoalActor, FVector Dest)
 {
     FVector Result;
     Result.X = 0.0f;

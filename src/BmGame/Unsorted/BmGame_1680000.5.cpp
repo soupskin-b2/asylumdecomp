@@ -25,7 +25,7 @@ struct URSimpleRopeComponent_ : public URSimpleRopeComponent
 void URSimpleRopeComponent::UpdateRope()
 {
     URSimpleRopeComponent_* Self = (URSimpleRopeComponent_*)this;
-    Self->sub_0164fb40();
+    Self->URRopeComponentBase::UpdateRope();
     if (Self->sub_0163f500() != 0)
         Self->sub_01685860();
 }
@@ -42,7 +42,7 @@ void URSimpleRopeComponent::FinaliseRope()
     if (Self->sub_0163f500() != 0)
     {
         Self->sub_016857b0();
-        Self->sub_0163f550();
+        Self->URRopeComponentBase::FinaliseRope();
     }
 }
 
@@ -60,7 +60,7 @@ INT URSimpleRopeComponent::InitialiseRope()
     if (R == 0)
     {
         Self->PreviousSpoolArraySize = 0;
-        Self->sub_01666110();
+        Self->URRopeComponentBase::InitialiseRope();
         return Self->sub_01685860();
     }
     return R;

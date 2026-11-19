@@ -45,9 +45,9 @@ undefined4 * UPointLightComponent::sub_006da910(byte param_2)
 
 
 // @baa 0x006da930
-void UPointLightComponent::sub_006da930(const FMatrix* In)
+void UPointLightComponent::SetParentToWorld(const FMatrix& ParentToWorld)
 {
-    CachedParentToWorld = *In;
+    CachedParentToWorld = ParentToWorld;
 }
 
 struct FPointLightSceneProxy

@@ -3080,9 +3080,9 @@ void sub_01556930()
 
 
 // @baa 0x01557320
-UINT ARCameraBlockingVolume::sub_01557320(UINT, UINT, UINT Flags)
+UBOOL ARCameraBlockingVolume::ShouldTrace(UPrimitiveComponent* Primitive, AActor* SourceActor, DWORD TraceFlags)
 {
-    return Flags & 0x400000;
+    return TraceFlags & 0x400000;
 }
 
 // @baa 0x01558330

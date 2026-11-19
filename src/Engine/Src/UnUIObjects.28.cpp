@@ -9,7 +9,7 @@
 UBOOL UUIScene::RebuildNavigationLinks()
 {
 	const UBOOL bOldSupportsNavigation = bSupportsNavigation;
-	bSupportsNavigation = this->sub_00db03a0();
+	bSupportsNavigation = UUIScreenObject::RebuildNavigationLinks();
 	if (bOldSupportsNavigation != bSupportsNavigation
 	&&	GEngine != NULL && GEngine->GameViewport != NULL
 	&&	GEngine->GameViewport->UIController != NULL

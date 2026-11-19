@@ -7691,7 +7691,7 @@
     {
      "va": "01595c40",
      "size": 24,
-     "symbol": "?sub_01595c40@URAnimNode_Pose_@@QAEXM@Z"
+     "symbol": "?vf_258@URAnimNode_Pose@@UAEXM@Z"
     },
     {
      "va": "015c2be0",
@@ -12265,7 +12265,7 @@
     {
      "va": "015f1f50",
      "size": 23,
-     "symbol": "?vf_424@ARBMAIController_@@QAEHHHHHH@Z"
+     "symbol": "?CanSeeActorFromPos@ARBMAIController@@UAEMPAUAActor@@UFVector@@H@Z"
     },
     {
      "va": "015f1f30",
@@ -16356,12 +16356,12 @@
     {
      "va": "01732630",
      "size": 24,
-     "symbol": "?sub_01732630@ARDisruptableObjectDoor_@@QAEXH@Z"
+     "symbol": "?PostEditMove@ARDisruptableObjectDoor@@UAEXH@Z"
     },
     {
      "va": "01732650",
      "size": 24,
-     "symbol": "?sub_01732650@ARDisruptableObjectDoor__01732650@@QAEXI@Z"
+     "symbol": "?PostEditChange@ARDisruptableObjectDoor@@UAEXPAUUProperty@@@Z"
     },
     {
      "va": "01732670",
@@ -16774,7 +16774,7 @@
     {
      "va": "01719570",
      "size": 40,
-     "symbol": "?sub_01719570@URForceField_@@QAEXXZ"
+     "symbol": "?Initialise@URForceField@@UAEXXZ"
     },
     {
      "va": "0171a360",
@@ -29120,7 +29120,7 @@
     {
      "va": "01557320",
      "size": 12,
-     "symbol": "?sub_01557320@ARCameraBlockingVolume_@@QAEIIII@Z"
+     "symbol": "?ShouldTrace@ARCameraBlockingVolume@@UAEHPAUUPrimitiveComponent@@PAUAActor@@K@Z"
     },
     {
      "va": "01558330",
@@ -29975,7 +29975,7 @@
     {
      "va": "0156cff0",
      "size": 161,
-     "symbol": "?sub_0156cff0@ARGameInfo_@@QAE?AVFString@@XZ"
+     "symbol": "?GetGameTimePlayedString@ARGameInfo@@UAE?AVFString@@XZ"
     },
     {
      "va": "0156ea70",
@@ -32791,7 +32791,7 @@
     {
      "va": "01584a70",
      "size": 24,
-     "symbol": "?sub_01584a70@URSeqAct_Music_@@QAEXI@Z"
+     "symbol": "?PostEditChange@URSeqAct_Music@@UAEXPAUUProperty@@@Z"
     }
    ]
   },
@@ -40768,7 +40768,7 @@
     {
      "va": "0160f290",
      "size": 24,
-     "symbol": "?sub_0160f290@ARBMRouter_NoPawn_@@QAE?AUFVector@@XZ"
+     "symbol": "?GetPos@ARBMRouter_NoPawn@@UAE?AUFVector@@XZ"
     },
     {
      "va": "0160f230",
@@ -44106,7 +44106,7 @@
     {
      "va": "01641ef0",
      "size": 41,
-     "symbol": "?sub_01641ef0@ARGrapplePointCatchmentArea_@@QAEXH@Z"
+     "symbol": "?PostEditMove@ARGrapplePointCatchmentArea@@UAEXH@Z"
     },
     {
      "va": "01643640",
@@ -46063,7 +46063,7 @@
     {
      "va": "0166f640",
      "size": 72,
-     "symbol": "?sub_0166f640@ARPawnCharacter_@@QAEXPAUAActor@@UFName@@1H@Z"
+     "symbol": "?AimAtActor@ARPawnCharacter@@UAEXPAUAActor@@UFName@@1E@Z"
     },
     {
      "va": "0166fd70",
@@ -48993,7 +48993,7 @@
     {
      "va": "016aa500",
      "size": 36,
-     "symbol": "?sub_016aa500@ARCinematicCameraActor_@@QAEXKKKUFName@@MH@Z"
+     "symbol": "?PreviewSetAnimPosition@ARCinematicCameraActor@@UAEXUFName@@H0MH@Z"
     },
     {
      "va": "016accb0",
@@ -50772,7 +50772,7 @@
     {
      "va": "016d1640",
      "size": 24,
-     "symbol": "?sub_016d1640@ARCrowdAttractor_@@QAEXPAMHH@Z"
+     "symbol": "?GetAttractionForce@ARCrowdAttractor@@UAE?AUFVector@@PAUARCrowdAgent@@M@Z"
     },
     {
      "va": "016db4b0",
@@ -51099,7 +51099,7 @@
     {
      "va": "016d3660",
      "size": 80,
-     "symbol": "?sub_016d3660@URCapeRenderingComponent_@@QAEXM@Z"
+     "symbol": "?Tick@URCapeRenderingComponent@@UAEXM@Z"
     },
     {
      "va": "016d4f70",
@@ -70622,7 +70622,7 @@
     {
      "va": "0062f570",
      "size": 20,
-     "symbol": "?sub_0062f570@UComponentProperty_@@QBE?AUFName@@XZ"
+     "symbol": "?GetID@UComponentProperty@@UBE?AUFName@@XZ"
     },
     {
      "va": "0062b200",
@@ -71024,7 +71024,7 @@
     {
      "va": "0062a830",
      "size": 45,
-     "symbol": "?sub_0062a830@UByteProperty_@@QAEXPAX0PAUUObject@@10@Z"
+     "symbol": "?CopyCompleteValue@UByteProperty@@UAEXPAX0PAUUObject@@1PAUFObjectInstancingGraph@@@Z"
     },
     {
      "va": "0062a910",
@@ -71939,7 +71939,7 @@
     {
      "va": "00630590",
      "size": 41,
-     "symbol": "?sub_00630590@UInterfaceProperty_@@QAEXPAEK@Z"
+     "symbol": "?ClearValue@UInterfaceProperty@@UAEXPAEK@Z"
     },
     {
      "va": "006307f0",
@@ -170500,7 +170500,7 @@
     {
      "va": "009edd80",
      "size": 43,
-     "symbol": "?sub_009edd80@APhysXEmitterSpawnable_@@QAEXXZ"
+     "symbol": "?Term@APhysXEmitterSpawnable@@UAEXXZ"
     },
     {
      "va": "009eddb0",
@@ -172128,7 +172128,7 @@
     {
      "va": "006cee60",
      "size": 100,
-     "symbol": "?sub_006cee60@UDynamicLightEnvironmentComponent_@@QAEXM@Z"
+     "symbol": "?Tick@UDynamicLightEnvironmentComponent@@UAEXM@Z"
     }
    ]
   },
@@ -183556,7 +183556,7 @@
     {
      "va": "006da930",
      "size": 24,
-     "symbol": "?sub_006da930@UPointLightComponent_@@QAEXPBUFMatrix@@@Z"
+     "symbol": "?SetParentToWorld@UPointLightComponent@@UAEXABUFMatrix@@@Z"
     },
     {
      "va": "006da950",
@@ -189791,7 +189791,7 @@
     {
      "va": "00d45fb0",
      "size": 24,
-     "symbol": "?sub_00d45fb0@UTexture_@@QAEXXZ"
+     "symbol": "?vf_11c@UTexture@@UAEXXZ"
     }
    ]
   },
@@ -190192,7 +190192,7 @@
     {
      "va": "0076ea70",
      "size": 24,
-     "symbol": "?sub_0076ea70@UTextureFlipBook_@@QAEXPAM@Z"
+     "symbol": "?GetFlipBookScale@UTextureFlipBook@@UAEXAAUFVector@@@Z"
     },
     {
      "va": "0076ea90",
@@ -200475,7 +200475,7 @@
     {
      "va": "00c67d30",
      "size": 264,
-     "symbol": "?sub_00c67d30@UAnimNodeSequence_@@QAEXMM@Z"
+     "symbol": "?TickAnim@UAnimNodeSequence@@UAEXMM@Z"
     },
     {
      "va": "00c6b010",
@@ -200783,7 +200783,7 @@
     {
      "va": "00c78fe0",
      "size": 24,
-     "symbol": "?sub_00c78fe0@UAnimNodeAimOffset__00c78fe0@@QAE?AUFVector2D@@XZ"
+     "symbol": "?GetAim@UAnimNodeAimOffset@@UAE?AUFVector2D@@XZ"
     },
     {
      "va": "00c796b0",
@@ -202947,12 +202947,12 @@
     {
      "va": "00791ad0",
      "size": 54,
-     "symbol": "?sub_00791ad0@AAmbientSound_@@QAEXH@Z"
+     "symbol": "?UpdateComponentsInternal@AAmbientSound@@UAEXH@Z"
     },
     {
      "va": "00793c40",
      "size": 24,
-     "symbol": "?sub_00793c40@UAudioComponent__00793c40@@QAEXXZ"
+     "symbol": "?Attach@UAudioComponent@@UAEXXZ"
     },
     {
      "va": "0079b340",
@@ -203093,7 +203093,7 @@
     {
      "va": "00786210",
      "size": 74,
-     "symbol": "?sub_00786210@UAudioComponent__00786210@@QAEXABUFMatrix@@@Z"
+     "symbol": "?SetParentToWorld@UAudioComponent@@UAEXABUFMatrix@@@Z"
     },
     {
      "va": "00786260",
@@ -206531,7 +206531,7 @@
     {
      "va": "00df35f0",
      "size": 84,
-     "symbol": "?sub_00df35f0@UControlChannel_@@QAEXPAUUNetConnection@@HH@Z"
+     "symbol": "?Init@UControlChannel@@UAEXPAUUNetConnection@@HH@Z"
     },
     {
      "va": "00df36f0",
@@ -207084,7 +207084,7 @@
     {
      "va": "00cb5a80",
      "size": 27,
-     "symbol": "?sub_00cb5a80@UClient_@@QAEHH@Z"
+     "symbol": "?Tick@UClient@@UAEXM@Z"
     },
     {
      "va": "00cb5aa0",
@@ -217633,7 +217633,7 @@
     {
      "va": "00b519a0",
      "size": 24,
-     "symbol": "?sub_00b519a0@UParticleEmitter_@@QAEHH@Z"
+     "symbol": "?CreateInstance@UParticleEmitter@@UAEPAUFParticleEmitterInstance@@PAUUParticleSystemComponent@@@Z"
     },
     {
      "va": "00b51be0",
@@ -223931,7 +223931,7 @@
     {
      "va": "008655c0",
      "size": 24,
-     "symbol": "?sub_008655c0@APawn_@@QAE?AUFVector@@PAUAActor@@U2@@Z"
+     "symbol": "?AdjustDestination@APawn@@UAE?AUFVector@@PAUAActor@@U2@@Z"
     },
     {
      "va": "008655e0",
@@ -226562,7 +226562,7 @@
     {
      "va": "00a37f70",
      "size": 24,
-     "symbol": "?sub_00a37f70@ARB_ConstraintActor_@@QAEHH@Z"
+     "symbol": "?PostEditMove@ARB_ConstraintActor@@UAEXH@Z"
     },
     {
      "va": "00a385d0",
@@ -229148,7 +229148,7 @@
     {
      "va": "008aba80",
      "size": 35,
-     "symbol": "?CopyPlayerFrom@USequenceOp@@QAEXPAU1@H@Z"
+     "symbol": "?OnReceivedImpulse@USequenceOp@@UAEXPAU1@H@Z"
     },
     {
      "va": "008abad0",
@@ -229797,7 +229797,7 @@
     {
      "va": "008cc9b0",
      "size": 126,
-     "symbol": "?UpdateStatus@USeqAct_LevelVisibility@@QAEXXZ"
+     "symbol": "?UpdateStatus@USeqAct_LevelVisibility@@UAEXXZ"
     },
     {
      "va": "00d201a0",
@@ -229869,7 +229869,7 @@
     {
      "va": "008cc7c0",
      "size": 231,
-     "symbol": "?UpdateStatus@USeqAct_MultiLevelStreaming@@QAEXXZ"
+     "symbol": "?UpdateStatus@USeqAct_MultiLevelStreaming@@UAEXXZ"
     },
     {
      "va": "008e2270",
@@ -230409,7 +230409,7 @@
     {
      "va": "008cc4a0",
      "size": 126,
-     "symbol": "?UpdateStatus@USeqAct_LevelStreaming@@QAEXXZ"
+     "symbol": "?UpdateStatus@USeqAct_LevelStreaming@@UAEXXZ"
     },
     {
      "va": "008d1d20",
@@ -230434,7 +230434,7 @@
     {
      "va": "008ec1a0",
      "size": 24,
-     "symbol": "?sub_008ec1a0@USeqAct_PlaySound_@@QAEXI@Z"
+     "symbol": "?PostEditChange@USeqAct_PlaySound@@UAEXPAUUProperty@@@Z"
     },
     {
      "va": "008ec1c0",
@@ -240003,7 +240003,7 @@
     {
      "va": "009324a0",
      "size": 84,
-     "symbol": "?sub_009324a0@UAnimSequence_@@QAEXXZ"
+     "symbol": "?PreSave@UAnimSequence@@UAEXXZ"
     },
     {
      "va": "00936370",
@@ -243420,7 +243420,7 @@
     {
      "va": "00982810",
      "size": 12,
-     "symbol": "?sub_00982810@ATerrain_@@QAEIIII@Z"
+     "symbol": "?ShouldTrace@ATerrain@@UAEHPAUUPrimitiveComponent@@PAUAActor@@K@Z"
     },
     {
      "va": "00989b00",
@@ -246268,7 +246268,7 @@
     {
      "va": "00d94f80",
      "size": 59,
-     "symbol": "?eventOnRegister@UUIDataProvider_OnlinePlayerDataBase@@QAEXPAUULocalPlayer@@@Z"
+     "symbol": "?OnRegister@UUIDataProvider_OnlinePlayerDataBase@@UAEXPAUULocalPlayer@@@Z"
     }
    ]
   },
@@ -250670,7 +250670,7 @@
     {
      "va": "00db2e70",
      "size": 105,
-     "symbol": "?sub_00db2e70@UUIScreenObject_@@QAEXAAV?$TArray@UFName@@@@@Z"
+     "symbol": "?GetSupportedUIActionKeyNames@UUIScreenObject@@UAEXAAV?$TArray@UFName@@@@@Z"
     },
     {
      "va": "00db3580",
@@ -251432,7 +251432,7 @@
     {
      "va": "00d990d0",
      "size": 27,
-     "symbol": "?sub_00d990d0@UUIScreenObject__00d990d0@@QAEXHH@Z"
+     "symbol": "?RequestPrimitiveReview@UUIScreenObject@@UAEXHH@Z"
     },
     {
      "va": "00d990f0",
@@ -264957,7 +264957,7 @@
     {
      "va": "005423f0",
      "size": 24,
-     "symbol": "?sub_005423f0@UDistributionVector_@@QAEXAAUFVector@@MMM@Z"
+     "symbol": "?GetValue@UDistributionVector@@UAE?AUFVector@@MPAUUObject@@H@Z"
     },
     {
      "va": "00542410",
@@ -275210,7 +275210,7 @@
     {
      "va": "0068ef30",
      "size": 3,
-     "symbol": "?vf_268@AActor@@UAEXHHHHHMH@Z"
+     "symbol": "?PreviewSetAnimPosition@AActor@@UAEXUFName@@H0MH@Z"
     },
     {
      "va": "0068ef40",
@@ -290351,7 +290351,7 @@
     {
      "va": "00758b40",
      "size": 24,
-     "symbol": "?sub_00758b40@AActor__00758b40@@QAE?AUFVector@@XZ"
+     "symbol": "?GetFOVCheckLocation@AActor@@UAE?AUFVector@@XZ"
     },
     {
      "va": "0075d4f0",
@@ -302204,7 +302204,7 @@
     {
      "va": "00803a80",
      "size": 12,
-     "symbol": "?sub_00803a80@APlayerController_@@QAEHPAXHH@Z"
+     "symbol": "?IsNetRelevantFor@APlayerController@@UAEHPAU1@PAUAActor@@ABUFVector@@@Z"
     },
     {
      "va": "00803bf0",
@@ -302219,17 +302219,17 @@
     {
      "va": "00803ee0",
      "size": 26,
-     "symbol": "?sub_00803ee0@ADirectionalLightToggleable_@@QAEXXZ"
+     "symbol": "?SetValuesForLight_StaticAffecting@ADirectionalLightToggleable@@UAEXXZ"
     },
     {
      "va": "00803f00",
      "size": 26,
-     "symbol": "?sub_00803f00@APointLightToggleable_@@QAEXXZ"
+     "symbol": "?SetValuesForLight_StaticAffecting@APointLightToggleable@@UAEXXZ"
     },
     {
      "va": "00803f20",
      "size": 26,
-     "symbol": "?sub_00803f20@ASpotLightToggleable_@@QAEXXZ"
+     "symbol": "?SetValuesForLight_StaticAffecting@ASpotLightToggleable@@UAEXXZ"
     },
     {
      "va": "008065e0",
@@ -359785,7 +359785,7 @@
     {
      "va": "00d6b740",
      "size": 24,
-     "symbol": "?sub_00d6b740@ANxCylindricalForceFieldCapsule_@@QAEXXZ"
+     "symbol": "?DoInitRBPhys@ANxCylindricalForceFieldCapsule@@UAEXXZ"
     },
     {
      "va": "00d6b7d0",
@@ -465492,7 +465492,7 @@
     {
      "va": "00e89940",
      "size": 16,
-     "symbol": "?sub_00e89940@UOnlineGameInterfaceSteamworks_@@QAEHM@Z"
+     "symbol": "?TickLanTasks@UOnlineGameInterfaceSteamworks@@UAEXM@Z"
     },
     {
      "va": "00e89950",

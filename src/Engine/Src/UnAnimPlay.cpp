@@ -175,11 +175,10 @@ struct UAnimNodeSequence_ : public UAnimNodeSequence {
             ActiveCameraAnimInstance = NULL;
         }
     }
-    void sub_00c67d30(FLOAT DeltaSeconds, FLOAT TotalWeight);
 };
 
 // @baa 0x00c67d30
-void UAnimNodeSequence_::sub_00c67d30(FLOAT DeltaSeconds, FLOAT TotalWeight)
+void UAnimNodeSequence::TickAnim(FLOAT DeltaSeconds, FLOAT TotalWeight)
 {
     if (SynchGroupName.Index == 0 && SynchGroupName.Number == 0)
     {
@@ -197,9 +196,11 @@ void UAnimNodeSequence_::sub_00c67d30(FLOAT DeltaSeconds, FLOAT TotalWeight)
         {
             ((UCameraAnimInst*)ActiveCameraAnimInstance)->ApplyTransientScaling(NodeTotalWeight);
         }
-        else
+        else if (ActiveCameraAnimInstance)   /* UE3's StopCameraAnim(), inlined */
         {
-            StopCameraAnim();
+            ((UCameraAnimInst*)ActiveCameraAnimInstance)->Stop(1);
+            ActiveCameraAnimInstance->bAutoReleaseWhenFinished = 1;
+            ActiveCameraAnimInstance = NULL;
         }
     }
     else if (CameraAnim && bPlaying && bLoopCameraAnim && bRelevant)

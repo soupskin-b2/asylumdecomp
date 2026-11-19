@@ -46,9 +46,9 @@ void F0080b0b0::sub_0080b0b0(int Offset, int Scale)
 
 
 // @baa 0x00803a80
-INT APlayerController::sub_00803a80(void* Other, INT, INT)
+UBOOL APlayerController::IsNetRelevantFor(APlayerController* RealViewer, AActor* Viewer, const FVector& SrcLocation)
 {
-    return this == Other;
+    return this == RealViewer;
 }
 
 struct FFlagsWord {
@@ -259,15 +259,10 @@ S008065e0& S008065e0::sub_008065e0(const S008065e0& Src)
 	return *this;
 }
 
-struct ADirectionalLightToggleable_ : public ADirectionalLightToggleable {
-    void sub_00803d90(); /* 0x00803d90 */
-    void sub_00803ee0(); /* 0x00803ee0 */
-};
-
 // @baa 0x00803ee0
-void ADirectionalLightToggleable_::sub_00803ee0()
+void ADirectionalLightToggleable::SetValuesForLight_StaticAffecting()
 {
-    sub_00803d90();
+    ALight::SetValuesForLight_StaticAffecting();
     LightComponent->UseDirectLightMap = 0;
 }
 
@@ -310,18 +305,10 @@ S00806700& S00806700::sub_00806700(const S00806700& Src)
 	return *this;
 }
 
-struct ASpotLightToggleable_ : public ASpotLightToggleable {
-    void sub_00803f20(); /* 0x00803f20 */
-    void sub_00803d90(); /* 0x00803d90 */
-};
-
 // @baa 0x00803f20
-// 0x00803f20  ASpotLightToggleable vtable slot 215
-// Calls the sibling that (re)configures the light component, then clears the
-// cast-shadows flag on the component.
-void ASpotLightToggleable_::sub_00803f20()
+void ASpotLightToggleable::SetValuesForLight_StaticAffecting()
 {
-    sub_00803d90();
+    ALight::SetValuesForLight_StaticAffecting();
     LightComponent->UseDirectLightMap = 0;
 }
 
@@ -404,12 +391,11 @@ int sub_0080b090_::sub_0080b090(int Param)
     return Result != -1;
 }
 
-// sub_00803d90: a thiscall base method of the same object (0 stack args), called directly.
 
 // @baa 0x00803f00
-void APointLightToggleable::sub_00803f00()
+void APointLightToggleable::SetValuesForLight_StaticAffecting()
 {
-    ToggleCore();
+    ALight::SetValuesForLight_StaticAffecting();
     LightComponent->UseDirectLightMap = 0;
 }
 

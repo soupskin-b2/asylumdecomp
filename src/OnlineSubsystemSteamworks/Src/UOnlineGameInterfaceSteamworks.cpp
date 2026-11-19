@@ -345,12 +345,11 @@ C_00e86020* C_00e86020::sub_00e86020()
     return this;
 }
 
-// vf_138 (vtable slot 78): forwards the value to sub_00e3a290 on the same object.
 
 // @baa 0x00e89940
-INT UOnlineGameInterfaceSteamworks::sub_00e89940(FLOAT Value)
+void UOnlineGameInterfaceSteamworks::TickLanTasks(FLOAT DeltaTime)
 {
-    return sub_00e3a290(Value);
+    UOnlineGameInterfaceImpl::TickLanTasks(DeltaTime);
 }
 
 struct Object

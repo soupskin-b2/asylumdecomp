@@ -506,12 +506,6 @@ struct FStringM_ : public FString
 	}
 };
 
-struct FSettingsData__00d6e620 : public FSettingsData
-{
-	void SetData(const TCHAR* InString); /* 0x00d6e1f0 */
-	FSettingsData__00d6e620& operator=(const FSettingsData__00d6e620& Other); /* 0x00d74260 */
-};
-
 // @baa 0x00d6e620
 /* Makes a settings value a string. */
 void USettings::SetSettingsDataString(FSettingsData& Data, const FString& InString)

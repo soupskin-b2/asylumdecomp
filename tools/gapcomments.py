@@ -201,8 +201,10 @@ for f in sorted(glob.glob(ROOT + "/src/**/*.cpp", recursive=True)):
         nt = "".join(out) + t[pos:]
         if WRITE:
             open(f, "w", encoding="utf-8", newline="").write(nt.replace("\n", nl))
-rep = sys.argv[sys.argv.index("--report") + 1] if "--report" in sys.argv else "gapcomments.txt"
-open(rep, "w", encoding="utf-8").write("\n".join(report) + "\n")
+if "--report" in sys.argv:
+    open(sys.argv[sys.argv.index("--report") + 1], "w", encoding="utf-8").write("\n".join(report) + "\n")
+elif not WRITE:
+    print("\n".join(report))
 if "--helpers" in sys.argv:
     open(sys.argv[sys.argv.index("--helpers") + 1], "w", encoding="utf-8").write("\n".join(helpers) + "\n")
 print(len(helpers), "gap comments above local helpers (left alone; --helpers FILE lists them)")

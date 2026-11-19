@@ -1369,7 +1369,7 @@ struct FString_ {
 
 
 // @baa 0x0156cff0
-FString ARGameInfo::sub_0156cff0()
+FString ARGameInfo::GetGameTimePlayedString()
 {
     struct { FLOAT ReturnValue; } Parms;
     Parms.ReturnValue = 0.f;

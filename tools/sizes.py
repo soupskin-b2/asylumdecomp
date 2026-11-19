@@ -22,7 +22,7 @@ def main():
     sizes, offs = [], []
     cls, depth = None, 0
     for l in lines:
-        m = re.match(r"(?:struct|class) (\w+)(?: : public \w+)? \{$", l)
+        m = re.match(r"(?:struct|class) (?:__declspec\(align\(\d+\)\) )?(\w+)(?: : public \w+(?:, public \w+)*)? \{$", l)
         if m:
             cls = m.group(1)
             continue
@@ -36,7 +36,7 @@ def main():
             sizes.append((cls, int(m.group(1), 16)))
             continue
         # a plain data member with its offset: "    TYPE Name; /* 0x.. */" (not bitfields, not arrays of unknown size)
-        m = re.match(r"    (?!virtual|static|typedef|enum|friend|BITFIELD|/\*)[^;(){}]*?\b(\w+)(\[[^\]]*\])?; /\* (0x[0-9a-f]+) \*/$", l)
+        m = re.match(r"    (?!virtual|static|typedef|enum|friend|BITFIELD|/\*)[^;(){}]*?\b(\w+)(\[[^\]]*\])?; /\* (0x[0-9a-f]+)(?:: [^*]*)? \*/$", l)
         if m and m.group(1) not in ("_native",):
             offs.append((cls, m.group(1), int(m.group(3), 16)))
     src = ['#include "ue3/Classes.h"',

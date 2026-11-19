@@ -9,9 +9,9 @@
  * returns nothing, so it is declared here as void under its address). */
 
 // @baa 0x00791ad0
-void AAmbientSound::sub_00791ad0(INT Param)
+void AAmbientSound::UpdateComponentsInternal(UBOOL bCollisionUpdate)
 {
-	sub_0076cd90(Param);
+	AActor::UpdateComponentsInternal(bCollisionUpdate);
 	if (bAutoPlay && AudioComponent && !AudioComponent->bWasPlaying)
 	{
 		AudioComponent->Play();
@@ -167,7 +167,7 @@ FString UAudioComponent::GetDetailedInfoInternal()
 int sub_007654e0(void);
 
 // @baa 0x00793c40
-void UAudioComponent::sub_00793c40(void)
+void UAudioComponent::Attach()
 {
     sub_007654e0();
     if (bAutoPlay)

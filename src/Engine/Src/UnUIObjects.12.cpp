@@ -66,7 +66,7 @@ extern FName g_026c5af8;
 extern FName g_026c5ae0;
 
 // @baa 0x00db2e70
-void UUIScreenObject::sub_00db2e70(TArray<FName>& out_KeyNames)
+void UUIScreenObject::GetSupportedUIActionKeyNames(TArray<FName>& out_KeyNames)
 {
     TArrayFName_& KeyNames = (TArrayFName_&)out_KeyNames;
     KeyNames.sub_00547260(g_026c5ac0);

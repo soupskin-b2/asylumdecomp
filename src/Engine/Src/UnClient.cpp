@@ -382,9 +382,9 @@ extern int g_026667a8;
 int __cdecl sub_00630f20(int Value, const wchar_t* Format, const wchar_t* Name);
 
 // @baa 0x00cb5a80
-INT UClient::sub_00cb5a80(INT A)
+void UClient::Tick(FLOAT DeltaTime)
 {
-    return sub_00630f20(g_026667a8, L"Pure virtual not implemented (%s)", L"UClient::Tick");
+    sub_00630f20(g_026667a8, L"Pure virtual not implemented (%s)", L"UClient::Tick");
 }
 
 int sub_00630f20(...);

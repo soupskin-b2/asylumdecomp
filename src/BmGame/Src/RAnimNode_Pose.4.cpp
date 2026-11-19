@@ -163,7 +163,7 @@ int sub_0159a3b0(int a, int b, float Value)
 }
 
 // @baa 0x01595c40
-void URAnimNode_Pose::sub_01595c40(FLOAT YawVelocity)
+void URAnimNode_Pose::vf_258(FLOAT YawVelocity)
 {
     MovementOutput.ProceduralMovement.OverrideYawVelocityEnabled = 1;
     MovementOutput.ProceduralMovement.OverrideYawVelocity = YawVelocity;

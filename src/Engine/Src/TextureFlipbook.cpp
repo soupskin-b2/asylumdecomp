@@ -215,12 +215,10 @@ undefined4 UTextureFlipBook::sub_0076eb40(byte param_2)
 
 
 // @baa 0x0076ea70
-void UTextureFlipBook::sub_0076ea70(FLOAT *Out)
+void UTextureFlipBook::GetFlipBookScale(FVector& Scale)
 {
-	FLOAT X = HorizontalScale;
-	*Out = X;
-	FLOAT Y = VerticalScale;
-	Out[1] = Y;
+	Scale.X = HorizontalScale;
+	Scale.Y = VerticalScale;
 }
 
 // @baa 0x00755390

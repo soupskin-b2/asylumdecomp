@@ -1052,7 +1052,7 @@ void sub_00921a00(FAnimNotifyEvent* First, INT Num);
  /* Sort<> */
 
 // @baa 0x009324a0
-void UAnimSequence::sub_009324a0()
+void UAnimSequence::PreSave()
 {
     if (g_02676094)
     {
@@ -2050,7 +2050,7 @@ void USkeletalMeshComponent::SetAnimTreeTemplate(UAnimTree* NewTemplate)
 /* UpdateTransform also builds the anim tree if it hasn't been yet, and moves the attachments. */
 void USkeletalMeshComponent::UpdateTransform()
 {
-	this->sub_00759590();
+	UActorComponent::UpdateTransform();
 
 	if (!Animations && AnimTreeTemplate)
 	{

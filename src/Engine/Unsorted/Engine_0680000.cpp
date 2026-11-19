@@ -2273,7 +2273,7 @@ void AActor::GetAnimControlSlotDesc(TArray<struct FAnimSlotDesc>& a0) {  }
 void AActor::vf_264(int a0) {  }
 
 // @baa 0x0068ef30
-void AActor::vf_268(INT a0, INT a1, INT a2, INT a3, INT a4, FLOAT a5, INT a6) {  }
+void AActor::PreviewSetAnimPosition(FName SlotName, INT ChannelIndex, FName InAnimSeqName, FLOAT InPosition, UBOOL bLooping) {  }
 
 // @baa 0x0068ef40
 void AActor::vf_26c(UINT a0, UINT a1) {  }

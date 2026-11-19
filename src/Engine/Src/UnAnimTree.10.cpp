@@ -46,5 +46,5 @@ void UAnimNodePlayCustomAnim::TickAnim(FLOAT DeltaSeconds, FLOAT TotalWeight)
 		((UAnimNodeBlend*)this)->SetBlendTarget(DesiredChild2Weight, BlendInTime);
 	}
 
-	((UAnimNodeBlend*)this)->sub_00c53f20(DeltaSeconds, TotalWeight);
+	UAnimNodeBlend::TickAnim(DeltaSeconds, TotalWeight);
 }

@@ -7,8 +7,7 @@
 extern char g_025d67c0[];
 
 // @baa 0x013377b0
-void* UAnimNodeEditInfo::sub_013377b0(void* Dest)
+FMatrix UAnimNodeEditInfo::GetWidgetTM()
 {
-	memcpy(Dest, g_025d67c0, 64);
-	return Dest;
+	return *(const FMatrix*)g_025d67c0;   /* FMatrix::Identity */
 }

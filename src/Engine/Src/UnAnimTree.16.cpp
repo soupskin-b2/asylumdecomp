@@ -28,7 +28,7 @@ struct UAnimNodeSlot_ : public UAnimNodeSlot
 // @baa 0x00c62f70
 void UAnimNodeSlot_::InitAnim(USkeletalMeshComponent* MeshComp, UAnimNodeBlendBase* Parent)
 {
-	((UAnimNodeBlendBase*)this)->sub_00c53100(MeshComp, Parent);
+	UAnimNodeBlendBase::InitAnim(MeshComp, Parent);
 
 	// one target weight per child, all on the first one
 	if (TargetWeight.Num() != Children.Num())

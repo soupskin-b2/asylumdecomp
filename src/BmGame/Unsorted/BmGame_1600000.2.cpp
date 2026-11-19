@@ -5,7 +5,7 @@
 
 
 // @baa 0x0160f290
-FVector ARBMRouter_NoPawn::sub_0160f290()
+FVector ARBMRouter_NoPawn::GetPos()
 {
     return Location;
 }

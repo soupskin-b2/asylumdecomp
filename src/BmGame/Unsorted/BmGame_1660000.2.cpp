@@ -618,12 +618,12 @@ void ARPawnCharacter::ChangeIdleStanceWithoutTransition(FName Stance)
 
 
 // @baa 0x0166f640
-void ARPawnCharacter::sub_0166f640(AActor* Actor, FName Description, FName ActorBoneName, UBOOL bAllowTurningToAim)
+void ARPawnCharacter::AimAtActor(AActor* Actor, FName Description, FName ActorBoneName, BYTE AllowTurningToAim)
 {
     if (Anim)
     {
         ModifyPoseNode();
-        Anim->vf_210(Actor, Description, ActorBoneName, bAllowTurningToAim);
+        Anim->vf_210(Actor, Description, ActorBoneName, AllowTurningToAim);
     }
 }
 

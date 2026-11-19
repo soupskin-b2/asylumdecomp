@@ -381,9 +381,9 @@ struct FDynamicLightEnvironmentState_ {
 /* vf_124 is declared `INT vf_124(FLOAT)`, but this override returns nothing (void Tick(FLOAT)). */
 
 // @baa 0x006cee60
-void UDynamicLightEnvironmentComponent::sub_006cee60(FLOAT DeltaTime)
+void UDynamicLightEnvironmentComponent::Tick(FLOAT DeltaTime)
 {
-    this->sub_007595c0(DeltaTime);
+    UActorComponent::Tick(DeltaTime);
     if (bEnabled) {
         if (bRequiresNonLatentUpdates && TickGroup != 4) {
             this->SetTickGroup(4);

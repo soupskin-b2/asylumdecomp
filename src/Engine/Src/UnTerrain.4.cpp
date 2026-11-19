@@ -19,9 +19,9 @@ undefined4 UObject::sub_009927e0(byte param_2)
 
 
 // @baa 0x00982810
-UINT ATerrain::sub_00982810(UINT, UINT, UINT Flags)
+UBOOL ATerrain::ShouldTrace(UPrimitiveComponent* Primitive, AActor* SourceActor, DWORD TraceFlags)
 {
-    return Flags & 0x2000;
+    return TraceFlags & 0x2000;
 }
 
 // Engine_0980000.cpp (part 6 of 6): 5 functions

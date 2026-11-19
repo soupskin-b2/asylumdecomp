@@ -196,7 +196,7 @@ struct URCapeComponent_ : public URCapeComponent {
 };
 
 // @baa 0x016d3660
-void URCapeRenderingComponent::sub_016d3660(FLOAT DeltaTime)
+void URCapeRenderingComponent::Tick(FLOAT DeltaTime)
 {
     if (CapeComponent && ((URCapeComponent_*)CapeComponent)->sub_016ae4d0())
     {

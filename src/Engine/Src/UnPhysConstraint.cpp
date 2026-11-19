@@ -970,17 +970,11 @@ void ARB_ConstraintActor::physRigidBody(FLOAT a0) {  }
 // The body first invokes a no-argument helper on this, then a one-int helper
 // on this and returns its result.  Both helpers take this in ecx, so the
 // compiler keeps `this` in esi across the two calls (calls clobber ecx).
-struct ARB_ConstraintActor_ : public ARB_ConstraintActor
-{
-    INT  sub_007771e0(INT);
-    INT  sub_00a37f70(INT);
-};
-
 // @baa 0x00a37f70
-INT ARB_ConstraintActor_::sub_00a37f70(INT param)
+void ARB_ConstraintActor::PostEditMove(UBOOL bFinished)
 {
     sub_00a37880();
-    return sub_007771e0(param);
+    AActor::PostEditMove(bFinished);
 }
 
 class C_00a306b0

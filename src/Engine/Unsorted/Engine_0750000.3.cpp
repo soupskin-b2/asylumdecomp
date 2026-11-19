@@ -91,7 +91,7 @@ FVector AActor_::GetTargetLocation(AActor* RequestedBy, bool bRequestAlternateLo
 // AActor slot 0x14c (00758b40): return the actor's Location by value.
 
 // @baa 0x00758b40
-FVector AActor::sub_00758b40()
+FVector AActor::GetFOVCheckLocation()
 {
     return Location;
 }

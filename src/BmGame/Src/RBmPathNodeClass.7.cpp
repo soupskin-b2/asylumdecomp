@@ -30,20 +30,13 @@ void ARBMPathNode_GapJump::Spawned()
 {
     Proxy1 = NULL;
     Proxy2 = NULL;
-    this->sub_0083f0c0();
+    ANavigationPoint::Spawned();
 }
 
-/* hoist: keep (the slot-0x424 wrapper passes CanSeeActorInternal's arguments as raw dwords and returns its result as an INT) */
-struct ARBMAIController_ : public ARBMAIController
-{
-    INT sub_015ef760(INT A, INT* B, INT C);
-    INT vf_424(INT A, INT B, INT C, INT D, INT E);
-};
-
 // @baa 0x015f1f50
-INT ARBMAIController_::vf_424(INT A, INT B, INT C, INT D, INT E)
+FLOAT ARBMAIController::CanSeeActorFromPos(AActor* TestActor, FVector TestPos, UBOOL bEarlyOut)
 {
-    return sub_015ef760(A, &B, E);
+    return CanSeeActorInternal(TestActor, &TestPos, bEarlyOut);
 }
 
 // @baa 0x015f1f30

@@ -264,7 +264,7 @@ struct FRandomAnimInfoArray : public TArray<FRandomAnimInfo>
 // @baa 0x00c7ed80
 void UAnimNodeRandom::InitAnim(USkeletalMeshComponent* MeshComp, UAnimNodeBlendBase* Parent)
 {
-	sub_00c60e40(MeshComp, Parent);
+	UAnimNodeBlendList::InitAnim(MeshComp, Parent);
 
 	// keep RandomInfo in sync with the children
 	if (RandomInfo.Num() != Children.Num())

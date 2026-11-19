@@ -288,10 +288,10 @@ extern int g_026667a8;
 extern int sub_00630f20(int, const wchar_t*);
 
 // @baa 0x00b519a0
-INT UParticleEmitter::sub_00b519a0(INT)
+FParticleEmitterInstance* UParticleEmitter::CreateInstance(UParticleSystemComponent* InComponent)
 {
 	sub_00630f20(g_026667a8, L"UParticleEmitter::CreateInstance is pure virtual");
-	return 0;
+	return NULL;
 }
 
 extern int g_01ff9340;

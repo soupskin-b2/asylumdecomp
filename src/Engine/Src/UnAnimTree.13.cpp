@@ -67,7 +67,7 @@ struct UAnimNodeRandom_ : public UAnimNodeRandom
 // @baa 0x00c7ef10
 void UAnimNodeRandom_::OnChildAnimEnd(UAnimNodeSequence* Child, FLOAT PlayedTime, FLOAT ExcessTime)
 {
-	((UAnimNodeBlendBase*)this)->sub_00c53d10(Child, PlayedTime, ExcessTime);
+	UAnimNodeBlendBase::OnChildAnimEnd(Child, PlayedTime, ExcessTime);
 
 	// the playing animation is over: start the next one, carrying the excess time
 	if (Child && Child == PlayingSeqNode)
@@ -246,7 +246,7 @@ UBOOL UAnimNodeBlendDirectional::HasParentClassChanged() const
 
 
 // @baa 0x00c78fe0
-FVector2D UAnimNodeAimOffset::sub_00c78fe0()
+FVector2D UAnimNodeAimOffset::GetAim()
 {
     return Aim;
 }
@@ -397,7 +397,7 @@ void UAnimTree__00c71100::GetBoneAtoms(TArray<FBoneAtom>& Atoms, const TArray<BY
 		return;
 	}
 
-	this->sub_00c6c9a0(Atoms, DesiredBones, RootMotionDelta, bHasRootMotion);
+	UAnimNodeBlendBase::GetBoneAtoms(Atoms, DesiredBones, RootMotionDelta, bHasRootMotion);
 }
 
 #line 431 "candidate.cpp"
@@ -572,7 +572,7 @@ void UAnimNodeBlendPerBone_::PostEditChange(UProperty* PropertyThatChanged)
 		}
 	}
 
-	((UObject*)this)->sub_005c1a10(PropertyThatChanged);
+	UObject::PostEditChange(PropertyThatChanged);
 }
 
 /* UAnimNodeAimOffset's PostEditChange (vtable 0x4c, declared only as vf_04c). */
@@ -585,7 +585,7 @@ struct UAnimNodeAimOffset__00c7ecf0 : public UAnimNodeAimOffset
 // @baa 0x00c7ecf0
 void UAnimNodeAimOffset__00c7ecf0::PostEditChange(UProperty* PropertyThatChanged)
 {
-	((UObject*)this)->sub_005c1a10(PropertyThatChanged);
+	UObject::PostEditChange(PropertyThatChanged);
 
 	if (PropertyThatChanged)
 	{

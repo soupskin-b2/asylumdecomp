@@ -207,8 +207,8 @@ void UUIDataStore_OnlinePlayerData::eventOnRegister(class ULocalPlayer* InPlayer
 	/* ENGINE_OnRegister */
 
 // @baa 0x00d94f80
-/* The script event's generated glue (EngineClasses.h), out of line here. */
-void UUIDataProvider_OnlinePlayerDataBase::eventOnRegister(class ULocalPlayer* InPlayer)
+/* UE3 makes the script event OnRegister the native virtual's body: it calls the event (its glue, inlined). */
+void UUIDataProvider_OnlinePlayerDataBase::OnRegister(ULocalPlayer* InPlayer)
 {
 	struct UIDataProvider_OnlinePlayerDataBase_eventOnRegister_Parms
 	{

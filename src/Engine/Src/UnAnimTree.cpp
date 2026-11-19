@@ -1805,7 +1805,7 @@ void UAnimTree::PostEditChange(UProperty* PropertyThatChanged)
 		}
 	}
 
-	((UObject*)this)->sub_005c1a10(PropertyThatChanged);
+	UObject::PostEditChange(PropertyThatChanged);
 }
 
 /* Kit gaps, with UE3's definitions (UnName.h): FName has no EName and no comparison operators. */
@@ -1881,7 +1881,7 @@ void UAnimNodeCrossfader::TickAnim(FLOAT DeltaSeconds, FLOAT TotalWeight)
 		}
 	}
 
-	((UAnimNodeBlend*)this)->sub_00c53f20(DeltaSeconds, TotalWeight);
+	UAnimNodeBlend::TickAnim(DeltaSeconds, TotalWeight);
 }
 
 // @baa 0x00c53c40

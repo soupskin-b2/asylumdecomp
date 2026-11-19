@@ -203,7 +203,7 @@ void UUIScene::execGetSceneDataStore(FFrame& Stack, RESULT_DECL)
 
 
 // @baa 0x00d990d0
-void UUIScreenObject::sub_00d990d0(INT bReinitialize, INT bReviewNow)
+void UUIScreenObject::RequestPrimitiveReview(UBOOL bReinitializePrimitives, UBOOL bReviewPrimitiveUsage)
 {
 	PURE_VIRTUAL(UUIScreenObject::RequestPrimitiveReview,);
 }

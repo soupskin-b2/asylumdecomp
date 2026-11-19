@@ -82,7 +82,7 @@ UBOOL URForceField::GetIsInitialised() { return *(INT*)((BYTE*)this+0x40) != 0; 
 extern TCHAR g_023c78b4[];
 
 // @baa 0x01719570
-void URForceField::sub_01719570()
+void URForceField::Initialise()
 {
     if (GetIsInitialised()) {
         appFailAssert("!GetIsInitialised()",
