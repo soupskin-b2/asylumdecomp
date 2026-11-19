@@ -252,7 +252,7 @@ void UAnimNodeAimOffset::HandleSliderMove(INT param_2, INT param_3, FLOAT param_
 }
 
 // @baa 0x00c4bb30
-float UAnimNodeScalePlayRate::vf_19c(void) { return *(float*)((char*)this + 200); }
+FLOAT UAnimNodeScalePlayRate::GetScaleValue() { return *(float*)((char*)this + 200); }
 
 struct C { C* sub_00c4c2f0(int a0); };
 

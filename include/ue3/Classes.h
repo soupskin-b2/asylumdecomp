@@ -17697,7 +17697,7 @@ struct UAnimNodeScalePlayRate : public UAnimNodeBlendBase {
     DECLARE_CLASS(UAnimNodeScalePlayRate, UAnimNodeBlendBase, 0x0, 0x0, Engine)
     FLOAT ScaleByValue; /* 0xc8 */
     /* virtual functions this class introduces (vtable 0x0205b718) */
-    virtual FLOAT vf_19c(); /* 0x19c */
+    virtual FLOAT GetScaleValue(); /* 0x19c */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -17712,7 +17712,7 @@ struct UAnimNodeScaleRateBySpeed : public UAnimNodeScalePlayRate {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual FLOAT vf_19c(); /* 0x19c */
+    virtual FLOAT GetScaleValue(); /* 0x19c */
     /* registered size 0xd0 */
 };
 
@@ -18350,7 +18350,7 @@ struct UApexAsset : public UObject {
     /* virtual functions this class introduces (vtable 0x01fa45a0) */
     virtual void vf_10c(void*); /* 0x10c */
     virtual INT vf_110(); /* 0x110 */
-    virtual class UMaterialInterface* GetMaterial(INT MaterialIndex); /* 0x114 */
+    virtual class UMaterialInterface* GetMaterial(INT MaterialIndex) const; /* 0x114 */
     virtual void vf_118(); /* 0x118 */
     virtual void vf_11c(); /* 0x11c */
     /* overrides */
@@ -18575,6 +18575,8 @@ struct UApexDestructibleAsset : public UApexAsset {
     class UApexMeshParticleFactoryAsset* DustMeshParticleFactory; /* 0x60 */
     TArrayNoInit<class UPhysicalMaterial*> FractureEffects; /* 0x64 */
     /* virtual functions this class introduces (vtable 0x01fa46c0) */
+    /* not an override of UApexAsset's const slot 0x114: a slot of its own (destructible assets keep
+       the base's NULL there) */
     virtual class UMaterialInterface* GetMaterial(INT MaterialIndex); /* 0x120 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
@@ -55703,7 +55705,7 @@ struct ARPawnPlayer : public ARPawnPlayerCombat, public IRSpotableInterface {
     virtual INT vf_424(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x424 */
     virtual void vf_440(INT); /* 0x440 */
     virtual void vf_494(INT); /* 0x494 */
-    virtual INT vf_57c(INT, INT, INT); /* 0x57c */
+    virtual void MoveInDirection(FVector Direction); /* 0x57c */
     /* other member functions */
     void sub_01688660(); /* 0x01688660 */
     UBOOL sub_01694830(FLOAT Time, INT Flags); /* 0x01694830 */
@@ -62807,7 +62809,7 @@ struct __declspec(align(16)) UEditorEngine : public UEngine, public FCallbackEve
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_02c(); /* 0x02c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
-    virtual void vf_04c(UINT); /* 0x04c */
+    virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void Tick(FLOAT DeltaSeconds); /* 0x10c */
     virtual void vf_110(); /* 0x110 */
     virtual void SetClientTravel(const TCHAR* NextURL, ETravelType InTravelType); /* 0x118 */
