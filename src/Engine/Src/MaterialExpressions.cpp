@@ -1252,7 +1252,7 @@ FString UMaterialExpressionFontSample::GetCaption() const
 INT UMaterialExpression::Compile(class FMaterialCompiler* a) { return (UINT)-1; }
 
 // @baa 0x00c2a3e0
-int UMaterialExpression::vf_12c(void) { return 0; }
+int UMaterialExpression::GetLabelPadding() { return 0; }
 
 // @baa 0x00c2a3f0
 // @baa 0x00c2c3b0
@@ -1347,7 +1347,7 @@ undefined4 * UObject::sub_00c2c790(void)
 }
 
 // @baa 0x00c2c7b0
-int UMaterialExpressionDepthBiasedAlpha::vf_12c(void) { return 8; }
+int UMaterialExpressionDepthBiasedAlpha::GetLabelPadding() { return 8; }
 
 // @baa 0x00c2c7c0
 IMPLEMENT_CLASS_AT(UMaterialExpressionDepthBiasedAlpha, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\MaterialExpressions.cpp", 43);
@@ -1365,7 +1365,7 @@ undefined4 * UObject::sub_00c2c850(void)
 }
 
 // @baa 0x00c2c870
-int UMaterialExpressionDepthBiasedBlend::vf_12c(void) { return 8; }
+int UMaterialExpressionDepthBiasedBlend::GetLabelPadding() { return 8; }
 
 // @baa 0x00c2c880
 IMPLEMENT_CLASS_AT(UMaterialExpressionDepthBiasedBlend, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\MaterialExpressions.cpp", 44);
@@ -1501,7 +1501,7 @@ IMPLEMENT_CLASS_AT(UMaterialExpressionFluidNormal, "e:\\Projects\\Amadeus\\AA\\G
 IMPLEMENT_CLASS_AT(UMaterialExpressionFontSample, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\MaterialExpressions.cpp", 81);
 
 // @baa 0x00c2ced0
-int UMaterialExpressionFontSample::vf_12c(void) { return 8; }
+int UMaterialExpressionFontSample::GetLabelPadding() { return 8; }
 
 // @baa 0x00c2cee0
 extern undefined * g_02047028;
@@ -1598,7 +1598,7 @@ undefined4 * UObject::sub_00c2d1f0(void)
 }
 
 // @baa 0x00c2d210
-int UMaterialExpressionLensFlareIntensity::vf_12c(void) { return 8; }
+int UMaterialExpressionLensFlareIntensity::GetLabelPadding() { return 8; }
 
 // @baa 0x00c2d220
 IMPLEMENT_CLASS_AT(UMaterialExpressionLensFlareIntensity, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\MaterialExpressions.cpp", 60);
@@ -1616,7 +1616,7 @@ undefined4 * UObject::sub_00c2d2a0(void)
 }
 
 // @baa 0x00c2d2c0
-int UMaterialExpressionLensFlareOcclusion::vf_12c(void) { return 8; }
+int UMaterialExpressionLensFlareOcclusion::GetLabelPadding() { return 8; }
 
 // @baa 0x00c2d2d0
 IMPLEMENT_CLASS_AT(UMaterialExpressionLensFlareOcclusion, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\MaterialExpressions.cpp", 61);
@@ -1634,7 +1634,7 @@ undefined4 * UObject::sub_00c2d350(void)
 }
 
 // @baa 0x00c2d370
-int UMaterialExpressionLensFlareRadialDistance::vf_12c(void) { return 8; }
+int UMaterialExpressionLensFlareRadialDistance::GetLabelPadding() { return 8; }
 
 // @baa 0x00c2d380
 IMPLEMENT_CLASS_AT(UMaterialExpressionLensFlareRadialDistance, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\MaterialExpressions.cpp", 62);
@@ -1652,7 +1652,7 @@ undefined4 * UObject::sub_00c2d400(void)
 }
 
 // @baa 0x00c2d420
-int UMaterialExpressionLensFlareRayDistance::vf_12c(void) { return 8; }
+int UMaterialExpressionLensFlareRayDistance::GetLabelPadding() { return 8; }
 
 // @baa 0x00c2d430
 IMPLEMENT_CLASS_AT(UMaterialExpressionLensFlareRayDistance, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\MaterialExpressions.cpp", 63);
@@ -1670,7 +1670,7 @@ undefined4 * UObject::sub_00c2d4b0(void)
 }
 
 // @baa 0x00c2d4d0
-int UMaterialExpressionLensFlareSourceDistance::vf_12c(void) { return 8; }
+int UMaterialExpressionLensFlareSourceDistance::GetLabelPadding() { return 8; }
 
 // @baa 0x00c2d4e0
 IMPLEMENT_CLASS_AT(UMaterialExpressionLensFlareSourceDistance, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\MaterialExpressions.cpp", 64);
@@ -2161,7 +2161,7 @@ IMPLEMENT_CLASS_AT(UMaterialExpressionTextureCoordinate, "e:\\Projects\\Amadeus\
 IMPLEMENT_CLASS_AT(UMaterialExpressionTextureSample, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\MaterialExpressions.cpp", 10);
 
 // @baa 0x00c2e9c0
-int UMaterialExpressionTextureSample::vf_12c(void) { return 8; }
+int UMaterialExpressionTextureSample::GetLabelPadding() { return 8; }
 
 // @baa 0x00c2e9d0
 extern undefined * g_0204a108;
@@ -2187,7 +2187,7 @@ undefined4 * UObject::sub_00c2ea20(void)
 }
 
 // @baa 0x00c2ea40
-int UMaterialExpressionDepthBiasBlend::vf_12c(void) { return 8; }
+int UMaterialExpressionDepthBiasBlend::GetLabelPadding() { return 8; }
 
 // @baa 0x00c2ea50
 IMPLEMENT_CLASS_AT(UMaterialExpressionDepthBiasBlend, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\MaterialExpressions.cpp", 42);
@@ -2220,7 +2220,7 @@ undefined4 * UObject::sub_00c2eb90(void)
 }
 
 // @baa 0x00c2ebb0
-int UMaterialExpressionMeshSubUV::vf_12c(void) { return 8; }
+int UMaterialExpressionMeshSubUV::GetLabelPadding() { return 8; }
 
 // @baa 0x00c2ebc0
 IMPLEMENT_CLASS_AT(UMaterialExpressionMeshSubUV, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\MaterialExpressions.cpp", 53);
@@ -2238,7 +2238,7 @@ undefined4 * UObject::sub_00c2ec50(void)
 }
 
 // @baa 0x00c2ec70
-int UMaterialExpressionParticleSubUV::vf_12c(void) { return 8; }
+int UMaterialExpressionParticleSubUV::GetLabelPadding() { return 8; }
 
 // @baa 0x00c2ec80
 IMPLEMENT_CLASS_AT(UMaterialExpressionParticleSubUV, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\MaterialExpressions.cpp", 52);
@@ -2661,7 +2661,7 @@ undefined4 * UObject::sub_00c38c10(void)
 }
 
 // @baa 0x00c38c30
-int UMaterialExpressionDynamicParameter::vf_12c(void) { return 8; }
+int UMaterialExpressionDynamicParameter::GetLabelPadding() { return 8; }
 
 // @baa 0x00c38c40
 IMPLEMENT_CLASS_AT(UMaterialExpressionDynamicParameter, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\MaterialExpressions.cpp", 88);

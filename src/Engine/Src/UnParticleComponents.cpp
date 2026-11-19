@@ -142,7 +142,7 @@ void UParticleEmitter::sub_00b519d0(undefined4 param_2, undefined4 param_3)
 char* UParticleEmitter::sub_00b519f0(void) { return (char*)this + 48; }
 
 // @baa 0x00b51a00
-void UParticleEmitter::vf_118(INT a0) {  }
+void UParticleEmitter::SetLODCount(INT a0) {  }
 
 // @baa 0x00b51a10
 void __stdcall sub_00b51a10(int a0) {  }
@@ -1579,7 +1579,7 @@ undefined4 * UObject::sub_00b65480(void)
 // @baa 0x00b65550
 // @baa 0x00b65580
 // @baa 0x00b65640
-void UParticleEmitter::vf_110(void) {  }
+void UParticleEmitter::SetToSensibleDefaults() {  }
 
 // @baa 0x00b65650
 struct C_00b65fd0 { C_00b65fd0* sub_00b65fd0(void); };

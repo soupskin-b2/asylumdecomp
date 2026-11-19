@@ -13,7 +13,7 @@ void __stdcall sub_00b32f80(int a0, int a1, int a2) {  }
 void __stdcall sub_00b32f90(int a0, int a1, int a2) {  }
 
 // @baa 0x00b32fa0
-int UParticleModuleEventGenerator::vf_114(int a0) { return 0; }
+UINT UParticleModuleEventGenerator::RequiredBytes(FParticleEmitterInstance* a0) { return 0; }
 
 // @baa 0x00b32fb0
 UINT UParticleModuleEventGenerator::RequiredBytesPerInstance(FParticleEmitterInstance* a0) { return 24; }

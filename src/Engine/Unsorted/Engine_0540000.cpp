@@ -4,10 +4,10 @@
 #include "ue3/Classes.h"
 
 // @baa 0x00540370
-UINT UDistributionVector::vf_110() { return 1; }
+ERawDistributionOperation UDistributionVector::GetOperation() { return RDO_None; }
 
 // @baa 0x00540380
-UINT UDistributionVector::vf_114(INT a0) { return 0; }
+ERawDistributionLockFlags UDistributionVector::GetLockFlags(INT a0) { return RDL_None; }
 
 // @baa 0x00540390
 UBOOL UDistributionVector::IsUniformCurve() { return 0; }

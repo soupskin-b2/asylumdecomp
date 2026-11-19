@@ -1574,7 +1574,7 @@ void sub_00b3c270();
 void sub_00b3d570(void) { sub_00b3c270(); }
 
 // @baa 0x00b3db30
-int UParticleModuleSpawnBase::vf_130(void) { return 4; }
+EModuleType UParticleModuleSpawnBase::GetModuleType() const { return EPMT_Spawn; }
 
 // @baa 0x00b3db40
 int sub_005c7a20(void);
@@ -1589,10 +1589,10 @@ void UParticleModuleTypeDataBase::vf_170(int a0, int a1) {  }
 void UParticleModuleTypeDataBase::PreUpdate(FParticleEmitterInstance* a0, INT a1, FLOAT a2) {  }
 
 // @baa 0x00b3dc00
-void UParticleModuleTypeDataBase::vf_178(int a0, int a1, int a2) {  }
+void UParticleModuleTypeDataBase::PostUpdate(FParticleEmitterInstance* a0, INT a1, FLOAT a2) {  }
 
 // @baa 0x00b3dc10
-int UParticleModuleTypeDataBase::vf_130(void) { return 1; }
+EModuleType UParticleModuleTypeDataBase::GetModuleType() const { return EPMT_TypeData; }
 
 // @baa 0x00b3dc20
 UBOOL UParticleModuleTypeDataBase::IsAMeshEmitter() const { return 0; }

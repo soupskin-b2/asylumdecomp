@@ -24,10 +24,10 @@ void C::sub_007b9350() {
 UBOOL UParticleModuleParameterDynamic::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b33b50
-int UParticleModuleParameterDynamic::vf_114(int a0) { return 16; }
+UINT UParticleModuleParameterDynamic::RequiredBytes(FParticleEmitterInstance* a0) { return 16; }
 
 // @baa 0x00b33b60
-void UParticleModuleParameterDynamic::vf_120(int a0) {  }
+void UParticleModuleParameterDynamic::SetToSensibleDefaults(UParticleEmitter* a0) {  }
 
 // @baa 0x00b33b70
 void UParticleModuleParameterDynamic::PostEditChange(UProperty* a0) {  }

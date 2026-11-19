@@ -2610,7 +2610,7 @@ void AActor::vf_250(int a0, int a1, int a2, int a3) {  }
 void AActor::PostInitRigidBody(NxActor* a0, NxActorDesc& a1, UPrimitiveComponent* a2) {  }
 
 // @baa 0x0068ef00
-void AActor::vf_258(int a0) {  }
+void AActor::PreTermRigidBody(NxActor* a0) {  }
 
 // @baa 0x0068ef10
 void AActor::GetAnimControlSlotDesc(TArray<struct FAnimSlotDesc>& a0) {  }

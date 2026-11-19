@@ -7,7 +7,7 @@
 void ULevelExporterT3D::ExportPackageObject(FExportPackageParams& a0) {  }
 
 // @baa 0x00eecce0
-void ULevelExporterT3D::vf_114(int a0) {  }
+void ULevelExporterT3D::ExportPackageInners(FExportPackageParams& a0) {  }
 
 struct C { int sub_00eeccf0(void); };
 

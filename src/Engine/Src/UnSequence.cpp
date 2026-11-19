@@ -3951,7 +3951,7 @@ C_008dc1d0* C_008dc1d0::sub_008dc1d0(void) { return this; }
 
 // @baa 0x008e2130
 // @baa 0x008e21d0
-void USequenceOp::vf_17c(void) {  }
+void USequenceOp::PostDeActivated() {  }
 
 // @baa 0x008e21e0
 void USequenceOp::vf_194(int a0, int a1) {  }

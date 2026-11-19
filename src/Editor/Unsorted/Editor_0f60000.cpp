@@ -459,13 +459,13 @@ void UEditorEngine::vf_194(int a0, int a1, int a2) {  }
 void UEditorEngine::vf_198(void) {  }
 
 // @baa 0x00f67f70
-void UEditorEngine::vf_1a4(int a0, int a1, int a2, int a3, int a4, int a5) {  }
+void UEditorEngine::SetPivot(FVector NewPivot, UBOOL bSnapPivotToGrid, UBOOL bIgnoreAxis, UBOOL bAssignPivot) {  }
 
 // @baa 0x00f67f80
-void UEditorEngine::vf_1a8(void) {  }
+void UEditorEngine::ResetPivot() {  }
 
 // @baa 0x00f67f90
-void UEditorEngine::vf_1b0(void) {  }
+void UEditorEngine::FinishAllSnaps() {  }
 
 // @baa 0x00f67fa0
 void __stdcall sub_00f67fa0(int a0) {  }
@@ -493,7 +493,7 @@ void UEditorEngine::vf_1c8(int a0, int a1) {  }
 void UEditorEngine::vf_1cc(int a0, int a1, int a2) {  }
 
 // @baa 0x00f68010
-void UEditorEngine::vf_1d0(int a0) {  }
+void UEditorEngine::edactDuplicateSelected(UBOOL a0) {  }
 
 // @baa 0x00f68020
 UBOOL UEditorEngine::edactDeleteSelected(UBOOL a0, UBOOL a1) { return 1; }
@@ -511,7 +511,7 @@ void UEditorEngine::vf_1e0(void) {  }
 void UEditorEngine::edactAddPrefab() {  }
 
 // @baa 0x00f68070
-void UEditorEngine::vf_1e8(void) {  }
+void UEditorEngine::edactSelectPrefabActors() {  }
 
 // @baa 0x00f68080
 void UEditorEngine::vf_208(int a0, int a1, int a2, int a3, int a4) {  }
@@ -538,25 +538,25 @@ void sub_00f680e0(void) {  }
 void sub_00f680f0(void) {  }
 
 // @baa 0x00f68100
-void UEditorEngine::vf_2dc(void) {  }
+void UEditorEngine::CloseEditor() {  }
 
 // @baa 0x00f68110
-void UEditorEngine::vf_2e0(void) {  }
+void UEditorEngine::ShowUnrealEdContextMenu() {  }
 
 // @baa 0x00f68120
-void UEditorEngine::vf_2e4(void) {  }
+void UEditorEngine::ShowUnrealEdContextSurfaceMenu() {  }
 
 // @baa 0x00f68130
-void UEditorEngine::vf_2e8(int a0, int a1) {  }
+void UEditorEngine::ShowUnrealEdContextCoverSlotMenu(class ACoverLink * a0, FCoverSlot & a1) {  }
 
 // @baa 0x00f68140
-void UEditorEngine::vf_2ec(int a0, int a1) {  }
+void UEditorEngine::GetPackageList(TArray<UPackage*>* a0, UClass* a1) {  }
 
 // @baa 0x00f68150
-int UEditorEngine::vf_2f0(void) { return 0; }
+UBOOL UEditorEngine::GetPSysRealTimeFlag() { return 0; }
 
 // @baa 0x00f68160
-void UEditorEngine::vf_2f4(int a0) {  }
+void UEditorEngine::SetPSysRealTimeFlag(UBOOL a0) {  }
 
 // @baa 0x00f68170
 void UEditorEngine::PostScriptCompile() {  }

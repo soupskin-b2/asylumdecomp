@@ -7,7 +7,7 @@
 UBOOL UParticleModuleOrbit::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b339c0
-int UParticleModuleOrbit::vf_114(int a0) { return 72; }
+UINT UParticleModuleOrbit::RequiredBytes(FParticleEmitterInstance* a0) { return 72; }
 
 // @baa 0x00b339d0
 UINT UParticleModuleOrbit::RequiredBytesPerInstance(FParticleEmitterInstance* a0) { return 0; }

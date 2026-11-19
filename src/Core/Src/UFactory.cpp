@@ -20,7 +20,7 @@ UObject* UFactory::FactoryCreateBinary(UClass* a0, UObject* a1, FName a2, EObjec
 UObject* UFactory::FactoryCreateNew(UClass* InClass, UObject* InParent, FName InName, QWORD Flags, UObject* Context, FFeedbackContext* Warn) { return 0; }
 
 // @baa 0x005b1610
-int UFactory::vf_11c(int a0) { return 0; }
+UBOOL UFactory::FactoryCanImport(const FFilename& a0) { return 0; }
 
 // @baa 0x005b1620
 int sub_0060b3d0(void);

@@ -249,7 +249,7 @@ def rewrite_definitions(changes, files=None):
     """changes: [(class, old name, (ret, name, params, tail))]. Rewrites `RET Class::Old(PARAMS)` in src/."""
     by_old = {}
     for k, old, new in changes:
-        if old == new[1]:
+        if old == new[1] and not old.startswith("vf_"):
             continue  # an overload added beside an existing name: the existing definitions keep theirs
         by_old.setdefault(old, []).append((k, new))
     touched = set()
@@ -453,6 +453,48 @@ def exe_vtables():
     return out
 
 
+_SETS_EAX = re.compile(r"^(mov|movzx|movsx|xor|or|and|sete|setne|setg|setl|setge|setle|seta|setb|setae|setbe|lea|sbb|neg|"
+                       r"add|sub|inc|dec|imul|shr|shl|sar)$")
+
+
+def stub_return(img, va, size):
+    """What a tiny implementation (at most 4 instructions, no calls or jumps) returns: "void", "value" (eax set
+    just before ret), "float" (fld just before ret), or None when it isn't tiny enough to be sure."""
+    import x86
+    try:
+        ins = list(x86.disasm(img.data[img.off(va):img.off(va) + min(size or 32, 32)], va))
+    except Exception:  # noqa: BLE001
+        return None
+    end = next((k for k, i in enumerate(ins) if i.mnemonic == "ret"), None)
+    if end is None or end > 3 or any(i.mnemonic.startswith(("call", "j", "push")) for i in ins[:end]):
+        return None
+    if end == 0:
+        return "void"
+    last = ins[end - 1]
+    ops = last.text.split(None, 1)[1] if " " in last.text else ""
+    if last.mnemonic.startswith("f") and last.mnemonic not in ("fstp", "fst", "fistp", "fist", "fnstsw", "fstsw"):
+        return "float"  # fld, fild, fmul ...: the result is on the x87 stack
+    if any(i.mnemonic.startswith("f") for i in ins[:end]):
+        return None
+    if _SETS_EAX.match(last.mnemonic) and re.match(r"(eax|al|ax)\b", ops):
+        return "value"
+    if all(not re.search(r"\b(eax|al|ax)\b", (i.text.split(None, 1) + [""])[1].split(",")[0]) for i in ins[:end]):
+        return "void"
+    return None
+
+
+def return_kind(ret):
+    """void / float / struct (returned through a hidden pointer) / value (eax)"""
+    r = re.sub(r"\b(virtual|const|static|class|struct|enum|FORCEINLINE)\b", "", ret).strip()
+    if r == "void":
+        return "void"
+    if r in ("FLOAT", "float", "DOUBLE", "double"):
+        return "float"
+    if r.endswith(("*", "&")) or re.fullmatch(r"(INT|UINT|UBOOL|BYTE|DWORD|WORD|SWORD|SBYTE|int|bool|char|TCHAR|ANSICHAR|QWORD|E\w+|[\w:]+\s*\*)", r):
+        return "value"
+    return "struct"
+
+
 def cmd_verify(classes):
     vt, errs = compiled_vtables()
     if errs:
@@ -496,6 +538,34 @@ def cmd_verify(classes):
             if ds and all(d.name != f for d in ds):
                 print("%s 0x%03x: the comment says %s, the compiler puts %s there" % (c, 4 * i, ds[0].name, f))
                 bad += 1
+    # a slot's return type must fit what its tiny implementations do (`mov eax, 1; ret` isn't void,
+    # a bare `ret` isn't a UBOOL, `fld1; ret` is a FLOAT)
+    try:
+        import data as _data, paths as _paths, pe as _pe
+        img = _pe.Image(_paths.settings()["game_exe"])
+        sizes = {va: f.get("size") for va, f in _data.functions().items()}
+    except Exception:  # noqa: BLE001
+        img = None
+    if img is not None:
+        seen = {}
+        for c, v in sorted(classes.items()):
+            for d in v["decls"]:
+                if d.off is None or c not in X or introducer(classes, c, d.off) != c:
+                    continue
+                want = return_kind(d.ret)
+                if want == "struct":
+                    continue
+                for k in subtree(classes, c):
+                    if k in X and d.off // 4 < len(X[k]):
+                        va = X[k][d.off // 4]
+                        if va not in seen:
+                            seen[va] = stub_return(img, va, sizes.get(va))
+                        got = seen[va]
+                        if got and got != want and not (want == "value" and got == "void" and d.name.startswith("vf_") is False and False):
+                            print("%s 0x%03x %s: returns %s, but %s's implementation %08x returns %s"
+                                  % (c, d.off, d.name, d.ret.replace("virtual", "").strip(), k, va, got))
+                            bad += 1
+                            break
     # an override's address comment (`virtual ...; /* 0x140 */ /* 0x00902260 */`) must be the exe's entry
     for c, v in sorted(classes.items()):
         for d in v["decls"]:

@@ -2113,7 +2113,7 @@ IMPLEMENT_CLASS_AT(UMaterialExpressionAbs, "e:\\Projects\\Amadeus\\AA\\Game\\Unr
 IMPLEMENT_CLASS_AT(UMaterialExpressionAdd, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\MaterialExpressions.cpp", 16);
 
 // @baa 0x00c2bc60
-int UMaterialExpressionAddNormalMap::vf_12c(void) { return 8; }
+int UMaterialExpressionAddNormalMap::GetLabelPadding() { return 8; }
 
 // @baa 0x00c2bc70
 IMPLEMENT_CLASS_AT(UMaterialExpressionAddNormalMap, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\MaterialExpressions.cpp", 91);

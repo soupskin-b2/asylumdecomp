@@ -59,23 +59,23 @@ int sub_0079fa70(int a0, int a1) { return a1; }
 IMPLEMENT_CLASS_AT(UDistributionVectorUniform, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnDistributions.cpp", 16);
 
 // @baa 0x0079fb10
-undefined4 UDistributionVectorUniform::vf_114(int param_2)
+ERawDistributionLockFlags UDistributionVectorUniform::GetLockFlags(INT param_2)
 {
     int param_1 = (int)this;
 
   if (param_2 == 0) {
     switch(*(undefined1 *)(param_1 + 0x60)) {
     case 1:
-      return 1;
+      return RDL_XY;
     case 2:
-      return 2;
+      return RDL_XZ;
     case 3:
-      return 3;
+      return RDL_YZ;
     case 4:
-      return 4;
+      return RDL_XYZ;
     }
   }
-  return 0;
+  return RDL_None;
 }
 
 // @baa 0x0079fb60
@@ -179,15 +179,15 @@ void UDistributionVectorConstant::GetOutRange(FVector& MinOut, FVector& MaxOut)
 }
 
 // @baa 0x007a3d90
-uint UDistributionVectorUniform::vf_110(void)
+ERawDistributionOperation UDistributionVectorUniform::GetOperation()
 {
     int param_1 = (int)this;
   if (((*(float *)(param_1 + 0x50) == *(float *)(param_1 + 0x44)) &&
       (*(float *)(param_1 + 0x54) == *(float *)(param_1 + 0x48))) &&
      (*(float *)(param_1 + 0x58) == *(float *)(param_1 + 0x4c))) {
-    return 1;
+    return RDO_None;
   }
-  return (*(uint *)(param_1 + 0x5c) & 2 | 4) >> 1;
+  return (ERawDistributionOperation)((*(uint *)(param_1 + 0x5c) & 2 | 4) >> 1);
 }
 
 // @baa 0x007a3fe0
@@ -1059,9 +1059,9 @@ void AController::RouteCache_RemoveIndex(INT InIndex, INT Count)
 
 // @baa 0x007a2f40
 // 0x007a2f40
-INT UDistributionFloatUniform::vf_110()
+ERawDistributionOperation UDistributionFloatUniform::GetOperation()
 {
-    return (Min == Max) ? 1 : 2;
+    return (Min == Max) ? RDO_None : RDO_Random;
 }
 
 // @baa 0x007c0d90
@@ -1089,17 +1089,17 @@ template<class T> struct TArrayAt_ : public TArray<T>
 // @baa 0x007b5e20
 /* Slot 0x110 (unnamed in the kit): one sub-curve when the curve is a single key whose min and max agree,
  * otherwise two. */
-INT UDistributionFloatUniformCurve::vf_110()
+ERawDistributionOperation UDistributionFloatUniformCurve::GetOperation()
 {
 	if (ConstantCurve.Points.Num() == 1)
 	{
 		FInterpCurvePointVector2D& Point = ((TArrayAt_<FInterpCurvePointVector2D>&)ConstantCurve.Points).At(0);
 		if (Point.OutVal.X == Point.OutVal.Y)
 		{
-			return 1;
+			return RDO_None;
 		}
 	}
-	return 2;
+	return RDO_Random;
 }
 
 #line 1195 "candidate.cpp"
@@ -1107,37 +1107,36 @@ INT UDistributionFloatUniformCurve::vf_110()
 // @baa 0x007b6bb0
 /* Slot 0x110 (unnamed in the kit): one sub-curve when the curve is a single key whose two vectors agree,
  * otherwise two, or three with extremes. (The kit has no FVector operator==; it is spelled out.) */
-UINT UDistributionVectorUniformCurve::vf_110()
+ERawDistributionOperation UDistributionVectorUniformCurve::GetOperation()
 {
 	if (ConstantCurve.Points.Num() == 1)
 	{
 		FInterpCurvePointTwoVectors& Point = ((TArrayAt_<FInterpCurvePointTwoVectors>&)ConstantCurve.Points).At(0);
 		if (Point.OutVal.v1.X == Point.OutVal.v2.X && Point.OutVal.v1.Y == Point.OutVal.v2.Y && Point.OutVal.v1.Z == Point.OutVal.v2.Z)
 		{
-			return 1;
+			return RDO_None;
 		}
 	}
-	return bUseExtremes ? 3 : 2;
+	return (ERawDistributionOperation)(bUseExtremes ? 3 : 2);
 }
 
 // @baa 0x007c6ac0
-/* Slot 0x114 (unnamed in the kit): the lock flags of sub-curve SubIndex (0 = min, 1 = max), as the matching
- * EDistributionVectorLockFlags value, or 0 (none) for any other index. */
-UINT UDistributionVectorUniformCurve::vf_114(INT SubIndex)
+/* the lock flags of sub-curve SubIndex (0 = min, 1 = max), or RDL_None for any other index */
+ERawDistributionLockFlags UDistributionVectorUniformCurve::GetLockFlags(INT SubIndex)
 {
 	if (SubIndex >= 0 && SubIndex <= 1)
 	{
 		switch (LockedAxes[SubIndex])
 		{
 		case EDVLF_XY:
-			return EDVLF_XY;
+			return RDL_XY;
 		case EDVLF_XZ:
-			return EDVLF_XZ;
+			return RDL_XZ;
 		case EDVLF_YZ:
-			return EDVLF_YZ;
+			return RDL_YZ;
 		case EDVLF_XYZ:
-			return EDVLF_XYZ;
+			return RDL_XYZ;
 		}
 	}
-	return EDVLF_None;
+	return (ERawDistributionLockFlags)(EDVLF_None);
 }

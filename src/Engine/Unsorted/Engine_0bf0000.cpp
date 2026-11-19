@@ -364,7 +364,7 @@ int sub_00bf8a60(void)
 void UEngine::vf_13c(void) {  }
 
 // @baa 0x00bf8e10
-void UEngine::vf_15c(int a0, int a1, int a2) {  }
+void UEngine::DumpMemoryChartToLog(FLOAT a0, FLOAT a1, INT a2) {  }
 
 // @baa 0x00bf8e20
 int sub_00bf8e20(int a0, int a1) { return a1; }

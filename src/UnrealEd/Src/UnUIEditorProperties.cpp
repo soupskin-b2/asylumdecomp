@@ -139,7 +139,7 @@ undefined4 * C_014d4e00::sub_014d4e00(void)
 }
 
 // @baa 0x014d4e20
-int UCustomInputProxy_Base::vf_110(void) { return 0; }
+UBOOL UCustomInputProxy_Base::LetPropertyExpand() const { return 0; }
 
 // @baa 0x014d4e30
 IMPLEMENT_CLASS_AT(UCustomInputProxy_Base, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\UnUIEditorProperties.cpp", 25);

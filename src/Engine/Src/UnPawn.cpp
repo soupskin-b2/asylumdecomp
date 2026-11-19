@@ -63,10 +63,10 @@ UBOOL APawn::IsValidAnchor(ANavigationPoint* a0) { return 1; }
 INT APawn::vf_44c(FLOAT a0, INT a1) { return 0; }
 
 // @baa 0x00776220
-int APawn::vf_454(int a0) { return 0; }
+UBOOL APawn::HasAudibleAmbientSound(const FVector& a0) { return 0; }
 
 // @baa 0x00776230
-int APawn::vf_458(int a0, int a1) { return 0; }
+UBOOL APawn::HasReached(ANavigationPoint * a0, UBOOL& a1) { return 0; }
 
 // @baa 0x00776270
 // @baa 0x007a0780
@@ -1678,7 +1678,7 @@ void APawn::SetBase(AActor* NewBase, FVector NewFloor, INT bNotifyActor, USkelet
 
 // @baa 0x00776240
 /* Slot 0x45c (unnamed in the kit; UE3's GetPawnViewLocation): the eye position. */
-FVector APawn::vf_45c()
+FVector APawn::GetIdealCameraOrigin()
 {
 	return FVector(Location.X, Location.Y, Location.Z + BaseEyeHeight);
 }

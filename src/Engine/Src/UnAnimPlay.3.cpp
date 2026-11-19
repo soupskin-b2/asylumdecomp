@@ -146,7 +146,7 @@ UBOOL UAnimNode::IsChildOf(UAnimNode* Node)
 
 // @baa 0x00c4af10
 // @baa 0x00c4af10
-void UAnimNodeSequence::vf_12c()
+void UAnimNodeSequence::AnimSetsUpdated()
 {
 	SetAnim(AnimSeqName);
 }

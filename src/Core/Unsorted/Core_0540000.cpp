@@ -610,10 +610,10 @@ void sub_00545a60(undefined4 * param_1, undefined4 * param_2)
 }
 
 // @baa 0x00545c50
-int UDistributionFloat::vf_110(void) { return 1; }
+ERawDistributionOperation UDistributionFloat::GetOperation() { return RDO_None; }
 
 // @baa 0x00545c60
-int UDistributionFloat::vf_114(int a0) { return 0; }
+ERawDistributionLockFlags UDistributionFloat::GetLockFlags(INT a0) { return RDL_None; }
 
 // @baa 0x00545c70
 UBOOL UDistributionFloat::CanBeBaked() const

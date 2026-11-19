@@ -95,7 +95,7 @@ void UField::Serialize( FArchive& Ar )
 int UField::vf_118(void) { return 0; }
 
 // @baa 0x00567fc0
-int UField::vf_110(void) { return 1; }
+UBOOL UField::MergeBools() { return 1; }
 
 // @baa 0x00568010
 IMPLEMENT_CLASS_AT(UField, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Core\\Src\\UnClass.cpp", 86);

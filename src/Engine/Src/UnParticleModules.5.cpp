@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00b72780
-void UParticleModule::vf_120(int a0) {  }
+void UParticleModule::SetToSensibleDefaults(UParticleEmitter* a0) {  }
 
 // @baa 0x00b72790
 UBOOL UParticleModule::GenerateLODModuleValues(UParticleModule* a0, FLOAT a1, UParticleLODLevel* a2) { return 1; }
@@ -115,7 +115,7 @@ UBOOL UParticleModuleSpawnBase::GetBurstCount(FParticleEmitterInstance* Owner, I
 // @baa 0x00b74bf0
 /* RequiredBytes(Owner): per-particle payload bytes; end point method 2 keeps a 12-byte
  * vector per particle, the others need none. */
-INT UParticleModuleTypeDataBeam::vf_114(INT Owner)
+UINT UParticleModuleTypeDataBeam::RequiredBytes(FParticleEmitterInstance* Owner)
 {
 	return EndPointMethod == 2 ? 12 : 0;
 }

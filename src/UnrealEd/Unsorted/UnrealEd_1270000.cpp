@@ -137,7 +137,7 @@ void sub_01277520(S* p, INT Value)
 
 int sub_00ec5970(void);
 // @baa 0x012777d0
-void UUnrealEdEngine::vf_1a8(void) {
+void UUnrealEdEngine::ResetPivot() {
   int iVar1;
   
   iVar1 = sub_00ec5970();
@@ -331,7 +331,7 @@ class wxWindowBase {
 };
 
 // @baa 0x012781d0
-void UUnrealEdEngine::vf_2dc(void) {
+void UUnrealEdEngine::CloseEditor() {
   ((wxWindowBase *)(*(wxWindowBase **)(g_026d4e00 + 0x58)))->wxWindowBase::Close(false);
   return;
 }

@@ -1307,7 +1307,7 @@ UBOOL AApexDestructibleActor::HasParentClassChanged() const
 }
 
 // @baa 0x009d7810
-void AApexDestructibleActor::vf_25c(void) {  }
+void AApexDestructibleActor::SyncActorToRBPhysics() {  }
 
 int sub_006efb40(void);
 extern undefined * g_01fa3f70;

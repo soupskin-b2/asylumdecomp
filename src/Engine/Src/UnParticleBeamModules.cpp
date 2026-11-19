@@ -37,7 +37,7 @@ void UParticleModuleTypeDataBeam2::vf_16c(void) {  }
 UBOOL UParticleModuleBeamModifier::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b50e20
-int UParticleModuleBeamModifier::vf_114(int a0) { return 32; }
+UINT UParticleModuleBeamModifier::RequiredBytes(FParticleEmitterInstance* a0) { return 32; }
 
 // @baa 0x00b50e30
 void UParticleModuleBeamModifier::vf_168(void) {  }
@@ -46,7 +46,7 @@ void UParticleModuleBeamModifier::vf_168(void) {  }
 void UParticleModuleBeamModifier::PostEditChange(UProperty* a0) {  }
 
 // @baa 0x00b50e50
-void UParticleModuleBeamModifier::vf_134(int a0) {  }
+void UParticleModuleBeamModifier::AutoPopulateInstanceProperties(UParticleSystemComponent* a0) {  }
 
 // @baa 0x00b50e60
 void UParticleModuleBeamModifier::vf_15c(int a0) {  }
@@ -55,7 +55,7 @@ void UParticleModuleBeamModifier::vf_15c(int a0) {  }
 UBOOL UParticleModuleBeamNoise::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b50e80
-int UParticleModuleBeamNoise::vf_114(int a0) { return 0; }
+UINT UParticleModuleBeamNoise::RequiredBytes(FParticleEmitterInstance* a0) { return 0; }
 
 // @baa 0x00b65680
 // @baa 0x00b666f0
@@ -176,13 +176,13 @@ void UParticleModuleBeamSource::vf_168(void) {  }
 UBOOL UParticleModuleBeamTarget::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b50fe0
-int UParticleModuleBeamTarget::vf_114(int a0) { return 0; }
+UINT UParticleModuleBeamTarget::RequiredBytes(FParticleEmitterInstance* a0) { return 0; }
 
 // @baa 0x00b50ff0
 void UParticleModuleBeamTarget::vf_168(void) {  }
 
 // @baa 0x00b656e0
-int UParticleModuleBeamBase::vf_130(void) { return 2; }
+EModuleType UParticleModuleBeamBase::GetModuleType() const { return EPMT_Beam; }
 
 // @baa 0x00b656f0
 

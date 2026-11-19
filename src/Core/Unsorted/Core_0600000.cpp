@@ -2376,7 +2376,7 @@ UBOOL UExporter::ExportText(const struct FExportObjectInnerContext* a0, class UO
 void UExporter::ExportPackageObject(FExportPackageParams& a0) {  }
 
 // @baa 0x0060b360
-void UExporter::vf_114(int a0) {  }
+void UExporter::ExportPackageInners(FExportPackageParams& a0) {  }
 
 // @baa 0x0060b370
 UBOOL UExporter::ExportBinary(UObject* a0, const TCHAR* a1, FArchive& a2, FFeedbackContext* a3, INT a4, DWORD a5) { return 0; }

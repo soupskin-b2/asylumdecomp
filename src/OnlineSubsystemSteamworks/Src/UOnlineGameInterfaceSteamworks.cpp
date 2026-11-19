@@ -118,7 +118,7 @@ undefined4 UOnlineGameInterfaceSteamworks::sub_00e89880(void)
 }
 
 // @baa 0x00e89950
-void UOnlineGameInterfaceSteamworks::vf_168(int a0) {  }
+void UOnlineGameInterfaceSteamworks::TickInternetTasks(FLOAT a0) {  }
 
 void sub_004025d0(void*);
 struct D { void* p; ~D(){ if(0) sub_004025d0(p);} };

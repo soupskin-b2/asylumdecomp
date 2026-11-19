@@ -40,10 +40,10 @@ int UParticleModuleUberLTISIVCL::sub_00b310e0(void) { return *(int*)((char*)this
 IMPLEMENT_CLASS_AT(UParticleModule, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnParticleModules.cpp", 52);
 
 // @baa 0x00b3d5f0
-void UParticleModule::vf_12c(int a0, int a1, int a2) {  }
+void UParticleModule::Render3DPreview(FParticleEmitterInstance* a0, const FSceneView* a1, FPrimitiveDrawInterface* a2) {  }
 
 // @baa 0x00b3d600
-int UParticleModule::vf_130(void) { return 0; }
+EModuleType UParticleModule::GetModuleType() const { return EPMT_General; }
 
 // @baa 0x00b3d610
 int UParticleModule::vf_144(void) { return 0; }
@@ -83,7 +83,7 @@ undefined4 * UObject::sub_00b3d700(void)
 IMPLEMENT_CLASS_AT(UParticleModuleEventBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\ParticleModules_Event.cpp", 11);
 
 // @baa 0x00b3d7a0
-int UParticleModuleEventBase::vf_130(void) { return 6; }
+EModuleType UParticleModuleEventBase::GetModuleType() const { return EPMT_Event; }
 
 // @baa 0x00b3d7b0
 extern undefined * g_01fee258;
@@ -278,7 +278,7 @@ void __stdcall sub_00b72730(int a0, int a1, int a2) {  }
 void __stdcall sub_00b72740(int a0, int a1, int a2) {  }
 
 // @baa 0x00b72750
-int UParticleModule::vf_114(int a0) { return 0; }
+UINT UParticleModule::RequiredBytes(FParticleEmitterInstance* a0) { return 0; }
 
 // @baa 0x00b72760
 UINT UParticleModule::RequiredBytesPerInstance(FParticleEmitterInstance* a0) { return 0; }
@@ -290,7 +290,7 @@ UBOOL UParticleModuleLocation::HasUniqueStaticConfigName() const { return 1; }
 UBOOL UParticleModuleLocationDirect::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b72ef0
-int UParticleModuleLocationDirect::vf_114(int a0) { return 12; }
+UINT UParticleModuleLocationDirect::RequiredBytes(FParticleEmitterInstance* a0) { return 12; }
 
 // @baa 0x00b72f00
 void UParticleModuleLocationDirect::vf_168(void) {  }
@@ -405,7 +405,7 @@ UBOOL UParticleModuleRotationRateMultiplyLife::HasUniqueStaticConfigName() const
 UBOOL UParticleModuleAcceleration::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b748b0
-int UParticleModuleAcceleration::vf_114(int a0) { return 12; }
+UINT UParticleModuleAcceleration::RequiredBytes(FParticleEmitterInstance* a0) { return 12; }
 
 // @baa 0x00b748c0
 UBOOL UParticleModuleAccelerationOverLifetime::HasUniqueStaticConfigName() const { return 1; }
@@ -514,13 +514,13 @@ UBOOL UParticleModuleUberRainDrops::HasUniqueStaticConfigName() const { return 1
 void __stdcall sub_00b76630(int a0, int a1, int a2) {  }
 
 // @baa 0x00b76640
-void UParticleModuleUberRainDrops::vf_12c(int a0, int a1, int a2) {  }
+void UParticleModuleUberRainDrops::Render3DPreview(FParticleEmitterInstance* a0, const FSceneView* a1, FPrimitiveDrawInterface* a2) {  }
 
 // @baa 0x00b767f0
 UBOOL UParticleModuleUberRainImpacts::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b76950
-void UParticleModuleUberRainImpacts::vf_12c(int a0, int a1, int a2) {  }
+void UParticleModuleUberRainImpacts::Render3DPreview(FParticleEmitterInstance* a0, const FSceneView* a1, FPrimitiveDrawInterface* a2) {  }
 
 // @baa 0x00b76b10
 UBOOL UParticleModuleUberRainSplashA::HasUniqueStaticConfigName() const { return 1; }
@@ -568,7 +568,7 @@ UBOOL UParticleModuleAttractorLine::HasUniqueStaticConfigName() const { return 1
 UBOOL UParticleModuleAttractorParticle::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b78910
-int UParticleModuleAttractorParticle::vf_114(int a0) { return 20; }
+UINT UParticleModuleAttractorParticle::RequiredBytes(FParticleEmitterInstance* a0) { return 20; }
 
 // @baa 0x00b78920
 UBOOL UParticleModuleAttractorPoint::HasUniqueStaticConfigName() const { return 1; }
@@ -589,7 +589,7 @@ UBOOL URParticleAttractorComponent::HasParentClassChanged() const
 }
 
 // @baa 0x00b79160
-void URParticleModuleAttractorComponent::vf_12c(int a0, int a1, int a2) {  }
+void URParticleModuleAttractorComponent::Render3DPreview(FParticleEmitterInstance* a0, const FSceneView* a1, FPrimitiveDrawInterface* a2) {  }
 
 // @baa 0x00b79170
 UBOOL UParticleModuleLocationVertex::HasUniqueStaticConfigName() const { return 1; }
@@ -1197,7 +1197,7 @@ undefined4 * UObject::sub_00b9bc00(void)
 void UParticleModuleRequired::AddModuleCurvesToEditor(UInterpCurveEdSetup* a0) {  }
 
 // @baa 0x00b9bc30
-int UParticleModuleRequired::vf_130(void) { return 5; }
+EModuleType UParticleModuleRequired::GetModuleType() const { return EPMT_Required; }
 
 // @baa 0x00b9bc40
 IMPLEMENT_CLASS_AT(UParticleModuleRequired, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnParticleModules.cpp", 1454);

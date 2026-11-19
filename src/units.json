@@ -65590,7 +65590,7 @@
     {
      "va": "005b1610",
      "size": 5,
-     "symbol": "?vf_11c@UFactory@@UAEHH@Z"
+     "symbol": "?FactoryCanImport@UFactory@@UAEHABVFFilename@@@Z"
     },
     {
      "va": "005b1620",
@@ -66884,7 +66884,7 @@
     {
      "va": "00567fc0",
      "size": 6,
-     "symbol": "?vf_110@UField@@UAEHXZ"
+     "symbol": "?MergeBools@UField@@UAEHXZ"
     },
     {
      "va": "00568010",
@@ -67060,7 +67060,7 @@
     {
      "va": "00575660",
      "size": 3,
-     "symbol": "?vf_110@UFunction@@UAEHXZ"
+     "symbol": "?MergeBools@UFunction@@UAEHXZ"
     },
     {
      "va": "00575670",
@@ -67160,7 +67160,7 @@
     {
      "va": "005872f0",
      "size": 6,
-     "symbol": "?vf_110@UState@@UAEHXZ"
+     "symbol": "?MergeBools@UState@@UAEHXZ"
     },
     {
      "va": "00587300",
@@ -67190,7 +67190,7 @@
     {
      "va": "00587d80",
      "size": 6,
-     "symbol": "?vf_110@UClass@@UAEHXZ"
+     "symbol": "?MergeBools@UClass@@UAEHXZ"
     },
     {
      "va": "00587d90",
@@ -73289,12 +73289,12 @@
     {
      "va": "00545c50",
      "size": 6,
-     "symbol": "?vf_110@UDistributionFloat@@UAEHXZ"
+     "symbol": "?GetOperation@UDistributionFloat@@UAE?AW4ERawDistributionOperation@@XZ"
     },
     {
      "va": "00545c60",
      "size": 5,
-     "symbol": "?vf_114@UDistributionFloat@@UAEHH@Z"
+     "symbol": "?GetLockFlags@UDistributionFloat@@UAE?AW4ERawDistributionLockFlags@@H@Z"
     },
     {
      "va": "00545c70",
@@ -83747,7 +83747,7 @@
     {
      "va": "0060b360",
      "size": 3,
-     "symbol": "?vf_114@UExporter@@UAEXH@Z"
+     "symbol": "?ExportPackageInners@UExporter@@UAEXAAUFExportPackageParams@1@@Z"
     },
     {
      "va": "0060b370",
@@ -127837,7 +127837,7 @@
     {
      "va": "00eecce0",
      "size": 3,
-     "symbol": "?vf_114@ULevelExporterT3D@@UAEXH@Z"
+     "symbol": "?ExportPackageInners@ULevelExporterT3D@@UAEXAAUFExportPackageParams@UExporter@@@Z"
     },
     {
      "va": "00eeccf0",
@@ -155101,17 +155101,17 @@
     {
      "va": "00f67f70",
      "size": 3,
-     "symbol": "?vf_1a4@UEditorEngine@@UAEXHHHHHH@Z"
+     "symbol": "?SetPivot@UEditorEngine@@UAEXUFVector@@HHH@Z"
     },
     {
      "va": "00f67f80",
      "size": 1,
-     "symbol": "?vf_1a8@UEditorEngine@@UAEXXZ"
+     "symbol": "?ResetPivot@UEditorEngine@@UAEXXZ"
     },
     {
      "va": "00f67f90",
      "size": 1,
-     "symbol": "?vf_1b0@UEditorEngine@@UAEXXZ"
+     "symbol": "?FinishAllSnaps@UEditorEngine@@UAEXXZ"
     },
     {
      "va": "00f67fa0",
@@ -155141,7 +155141,7 @@
     {
      "va": "00f68010",
      "size": 3,
-     "symbol": "?vf_1d0@UEditorEngine@@UAEXH@Z"
+     "symbol": "?edactDuplicateSelected@UEditorEngine@@UAEXH@Z"
     },
     {
      "va": "00f68020",
@@ -155171,7 +155171,7 @@
     {
      "va": "00f68070",
      "size": 1,
-     "symbol": "?vf_1e8@UEditorEngine@@UAEXXZ"
+     "symbol": "?edactSelectPrefabActors@UEditorEngine@@UAEXXZ"
     },
     {
      "va": "00f68080",
@@ -155216,37 +155216,37 @@
     {
      "va": "00f68100",
      "size": 1,
-     "symbol": "?vf_2dc@UEditorEngine@@UAEXXZ"
+     "symbol": "?CloseEditor@UEditorEngine@@UAEXXZ"
     },
     {
      "va": "00f68110",
      "size": 1,
-     "symbol": "?vf_2e0@UEditorEngine@@UAEXXZ"
+     "symbol": "?ShowUnrealEdContextMenu@UEditorEngine@@UAEXXZ"
     },
     {
      "va": "00f68120",
      "size": 1,
-     "symbol": "?vf_2e4@UEditorEngine@@UAEXXZ"
+     "symbol": "?ShowUnrealEdContextSurfaceMenu@UEditorEngine@@UAEXXZ"
     },
     {
      "va": "00f68130",
      "size": 3,
-     "symbol": "?vf_2e8@UEditorEngine@@UAEXHH@Z"
+     "symbol": "?ShowUnrealEdContextCoverSlotMenu@UEditorEngine@@UAEXPAUACoverLink@@AAUFCoverSlot@@@Z"
     },
     {
      "va": "00f68140",
      "size": 3,
-     "symbol": "?vf_2ec@UEditorEngine@@UAEXHH@Z"
+     "symbol": "?GetPackageList@UEditorEngine@@UAEXPAV?$TArray@PAVUPackage@@@@PAUUClass@@@Z"
     },
     {
      "va": "00f68150",
      "size": 3,
-     "symbol": "?vf_2f0@UEditorEngine@@UAEHXZ"
+     "symbol": "?GetPSysRealTimeFlag@UEditorEngine@@UAEHXZ"
     },
     {
      "va": "00f68160",
      "size": 3,
-     "symbol": "?vf_2f4@UEditorEngine@@UAEXH@Z"
+     "symbol": "?SetPSysRealTimeFlag@UEditorEngine@@UAEXH@Z"
     },
     {
      "va": "00f68170",
@@ -169900,7 +169900,7 @@
     {
      "va": "009d7810",
      "size": 1,
-     "symbol": "?vf_25c@AApexDestructibleActor@@UAEXXZ"
+     "symbol": "?SyncActorToRBPhysics@AApexDestructibleActor@@UAEXXZ"
     },
     {
      "va": "009d7820",
@@ -177070,7 +177070,7 @@
     {
      "va": "00c2a3e0",
      "size": 3,
-     "symbol": "?vf_12c@UMaterialExpression@@UAEHXZ"
+     "symbol": "?GetLabelPadding@UMaterialExpression@@UAEHXZ"
     },
     {
      "va": "00c2a3f0",
@@ -177235,7 +177235,7 @@
     {
      "va": "00c2c7b0",
      "size": 6,
-     "symbol": "?vf_12c@UMaterialExpressionDepthBiasedAlpha@@UAEHXZ"
+     "symbol": "?GetLabelPadding@UMaterialExpressionDepthBiasedAlpha@@UAEHXZ"
     },
     {
      "va": "00c2c7c0",
@@ -177255,7 +177255,7 @@
     {
      "va": "00c2c870",
      "size": 6,
-     "symbol": "?vf_12c@UMaterialExpressionDepthBiasedBlend@@UAEHXZ"
+     "symbol": "?GetLabelPadding@UMaterialExpressionDepthBiasedBlend@@UAEHXZ"
     },
     {
      "va": "00c2c880",
@@ -177400,7 +177400,7 @@
     {
      "va": "00c2ced0",
      "size": 6,
-     "symbol": "?vf_12c@UMaterialExpressionFontSample@@UAEHXZ"
+     "symbol": "?GetLabelPadding@UMaterialExpressionFontSample@@UAEHXZ"
     },
     {
      "va": "00c2cee0",
@@ -177485,7 +177485,7 @@
     {
      "va": "00c2d210",
      "size": 6,
-     "symbol": "?vf_12c@UMaterialExpressionLensFlareIntensity@@UAEHXZ"
+     "symbol": "?GetLabelPadding@UMaterialExpressionLensFlareIntensity@@UAEHXZ"
     },
     {
      "va": "00c2d220",
@@ -177505,7 +177505,7 @@
     {
      "va": "00c2d2c0",
      "size": 6,
-     "symbol": "?vf_12c@UMaterialExpressionLensFlareOcclusion@@UAEHXZ"
+     "symbol": "?GetLabelPadding@UMaterialExpressionLensFlareOcclusion@@UAEHXZ"
     },
     {
      "va": "00c2d2d0",
@@ -177525,7 +177525,7 @@
     {
      "va": "00c2d370",
      "size": 6,
-     "symbol": "?vf_12c@UMaterialExpressionLensFlareRadialDistance@@UAEHXZ"
+     "symbol": "?GetLabelPadding@UMaterialExpressionLensFlareRadialDistance@@UAEHXZ"
     },
     {
      "va": "00c2d380",
@@ -177545,7 +177545,7 @@
     {
      "va": "00c2d420",
      "size": 6,
-     "symbol": "?vf_12c@UMaterialExpressionLensFlareRayDistance@@UAEHXZ"
+     "symbol": "?GetLabelPadding@UMaterialExpressionLensFlareRayDistance@@UAEHXZ"
     },
     {
      "va": "00c2d430",
@@ -177565,7 +177565,7 @@
     {
      "va": "00c2d4d0",
      "size": 6,
-     "symbol": "?vf_12c@UMaterialExpressionLensFlareSourceDistance@@UAEHXZ"
+     "symbol": "?GetLabelPadding@UMaterialExpressionLensFlareSourceDistance@@UAEHXZ"
     },
     {
      "va": "00c2d4e0",
@@ -178040,7 +178040,7 @@
     {
      "va": "00c2e9c0",
      "size": 6,
-     "symbol": "?vf_12c@UMaterialExpressionTextureSample@@UAEHXZ"
+     "symbol": "?GetLabelPadding@UMaterialExpressionTextureSample@@UAEHXZ"
     },
     {
      "va": "00c2e9d0",
@@ -178060,7 +178060,7 @@
     {
      "va": "00c2ea40",
      "size": 6,
-     "symbol": "?vf_12c@UMaterialExpressionDepthBiasBlend@@UAEHXZ"
+     "symbol": "?GetLabelPadding@UMaterialExpressionDepthBiasBlend@@UAEHXZ"
     },
     {
      "va": "00c2ea50",
@@ -178095,7 +178095,7 @@
     {
      "va": "00c2ebb0",
      "size": 6,
-     "symbol": "?vf_12c@UMaterialExpressionMeshSubUV@@UAEHXZ"
+     "symbol": "?GetLabelPadding@UMaterialExpressionMeshSubUV@@UAEHXZ"
     },
     {
      "va": "00c2ebc0",
@@ -178115,7 +178115,7 @@
     {
      "va": "00c2ec70",
      "size": 6,
-     "symbol": "?vf_12c@UMaterialExpressionParticleSubUV@@UAEHXZ"
+     "symbol": "?GetLabelPadding@UMaterialExpressionParticleSubUV@@UAEHXZ"
     },
     {
      "va": "00c2ec80",
@@ -179160,7 +179160,7 @@
     {
      "va": "00c38c30",
      "size": 6,
-     "symbol": "?vf_12c@UMaterialExpressionDynamicParameter@@UAEHXZ"
+     "symbol": "?GetLabelPadding@UMaterialExpressionDynamicParameter@@UAEHXZ"
     },
     {
      "va": "00c38c40",
@@ -182040,7 +182040,7 @@
     {
      "va": "00b32d00",
      "size": 8,
-     "symbol": "?vf_114@UParticleModuleCollision@@UAEHH@Z"
+     "symbol": "?RequiredBytes@UParticleModuleCollision@@UAEIPAUFParticleEmitterInstance@@@Z"
     },
     {
      "va": "00b32e00",
@@ -182065,7 +182065,7 @@
     {
      "va": "00b33010",
      "size": 5,
-     "symbol": "?vf_114@UParticleModuleEventReceiverSpawn@@UAEHH@Z"
+     "symbol": "?RequiredBytes@UParticleModuleEventReceiverSpawn@@UAEIPAUFParticleEmitterInstance@@@Z"
     },
     {
      "va": "00b33020",
@@ -182075,7 +182075,7 @@
     {
      "va": "00b33030",
      "size": 5,
-     "symbol": "?vf_11c@UParticleModuleEventReceiverSpawn@@UAEHHH@Z"
+     "symbol": "?PrepPerInstanceBlock@UParticleModuleEventReceiverSpawn@@UAEIPAUFParticleEmitterInstance@@PAX@Z"
     },
     {
      "va": "00b33040",
@@ -182172,7 +182172,7 @@
     {
      "va": "00b32fa0",
      "size": 5,
-     "symbol": "?vf_114@UParticleModuleEventGenerator@@UAEHH@Z"
+     "symbol": "?RequiredBytes@UParticleModuleEventGenerator@@UAEIPAUFParticleEmitterInstance@@@Z"
     },
     {
      "va": "00b32fb0",
@@ -182442,12 +182442,12 @@
     {
      "va": "00b33b50",
      "size": 8,
-     "symbol": "?vf_114@UParticleModuleParameterDynamic@@UAEHH@Z"
+     "symbol": "?RequiredBytes@UParticleModuleParameterDynamic@@UAEIPAUFParticleEmitterInstance@@@Z"
     },
     {
      "va": "00b33b60",
      "size": 3,
-     "symbol": "?vf_120@UParticleModuleParameterDynamic@@UAEXH@Z"
+     "symbol": "?SetToSensibleDefaults@UParticleModuleParameterDynamic@@UAEXPAUUParticleEmitter@@@Z"
     },
     {
      "va": "00b33b70",
@@ -182986,7 +182986,7 @@
     {
      "va": "00b339c0",
      "size": 8,
-     "symbol": "?vf_114@UParticleModuleOrbit@@UAEHH@Z"
+     "symbol": "?RequiredBytes@UParticleModuleOrbit@@UAEIPAUFParticleEmitterInstance@@@Z"
     },
     {
      "va": "00b339d0",
@@ -200210,7 +200210,7 @@
     {
      "va": "00c4af10",
      "size": 25,
-     "symbol": "?vf_12c@UAnimNodeSequence@@UAEXXZ"
+     "symbol": "?AnimSetsUpdated@UAnimNodeSequence@@UAEXXZ"
     },
     {
      "va": "00c4af30",
@@ -201885,7 +201885,7 @@
     {
      "va": "00c64650",
      "size": 1,
-     "symbol": "?vf_12c@UAnimNode@@UAEXXZ"
+     "symbol": "?AnimSetsUpdated@UAnimNode@@UAEXXZ"
     },
     {
      "va": "00c64660",
@@ -208029,7 +208029,7 @@
     {
      "va": "0079fb10",
      "size": 80,
-     "symbol": "?vf_114@UDistributionVectorUniform@@UAEIH@Z"
+     "symbol": "?GetLockFlags@UDistributionVectorUniform@@UAE?AW4ERawDistributionLockFlags@@H@Z"
     },
     {
      "va": "0079fb60",
@@ -208149,7 +208149,7 @@
     {
      "va": "007a2f40",
      "size": 26,
-     "symbol": "?vf_110@UDistributionFloatUniform@@UAEHXZ"
+     "symbol": "?GetOperation@UDistributionFloatUniform@@UAE?AW4ERawDistributionOperation@@XZ"
     },
     {
      "va": "007a2f80",
@@ -208189,7 +208189,7 @@
     {
      "va": "007a3d90",
      "size": 63,
-     "symbol": "?vf_110@UDistributionVectorUniform@@UAEIXZ"
+     "symbol": "?GetOperation@UDistributionVectorUniform@@UAE?AW4ERawDistributionOperation@@XZ"
     },
     {
      "va": "007a3fe0",
@@ -208399,12 +208399,12 @@
     {
      "va": "007b5e20",
      "size": 76,
-     "symbol": "?vf_110@UDistributionFloatUniformCurve@@UAEHXZ"
+     "symbol": "?GetOperation@UDistributionFloatUniformCurve@@UAE?AW4ERawDistributionOperation@@XZ"
     },
     {
      "va": "007b6bb0",
      "size": 115,
-     "symbol": "?vf_110@UDistributionVectorUniformCurve@@UAEIXZ"
+     "symbol": "?GetOperation@UDistributionVectorUniformCurve@@UAE?AW4ERawDistributionOperation@@XZ"
     },
     {
      "va": "007b93b0",
@@ -208729,7 +208729,7 @@
     {
      "va": "007c6ac0",
      "size": 84,
-     "symbol": "?vf_114@UDistributionVectorUniformCurve@@UAEIH@Z"
+     "symbol": "?GetLockFlags@UDistributionVectorUniformCurve@@UAE?AW4ERawDistributionLockFlags@@H@Z"
     },
     {
      "va": "007c6b20",
@@ -216974,7 +216974,7 @@
     {
      "va": "00b50e20",
      "size": 8,
-     "symbol": "?vf_114@UParticleModuleBeamModifier@@UAEHH@Z"
+     "symbol": "?RequiredBytes@UParticleModuleBeamModifier@@UAEIPAUFParticleEmitterInstance@@@Z"
     },
     {
      "va": "00b50e30",
@@ -216989,7 +216989,7 @@
     {
      "va": "00b50e50",
      "size": 3,
-     "symbol": "?vf_134@UParticleModuleBeamModifier@@UAEXH@Z"
+     "symbol": "?AutoPopulateInstanceProperties@UParticleModuleBeamModifier@@UAEXPAUUParticleSystemComponent@@@Z"
     },
     {
      "va": "00b50e60",
@@ -217004,7 +217004,7 @@
     {
      "va": "00b50e80",
      "size": 5,
-     "symbol": "?vf_114@UParticleModuleBeamNoise@@UAEHH@Z"
+     "symbol": "?RequiredBytes@UParticleModuleBeamNoise@@UAEIPAUFParticleEmitterInstance@@@Z"
     },
     {
      "va": "00b50e90",
@@ -217029,7 +217029,7 @@
     {
      "va": "00b50fe0",
      "size": 5,
-     "symbol": "?vf_114@UParticleModuleBeamTarget@@UAEHH@Z"
+     "symbol": "?RequiredBytes@UParticleModuleBeamTarget@@UAEIPAUFParticleEmitterInstance@@@Z"
     },
     {
      "va": "00b50ff0",
@@ -217044,7 +217044,7 @@
     {
      "va": "00b656e0",
      "size": 6,
-     "symbol": "?vf_130@UParticleModuleBeamBase@@UAEHXZ"
+     "symbol": "?GetModuleType@UParticleModuleBeamBase@@UBE?AW4EModuleType@@XZ"
     },
     {
      "va": "00b656f0",
@@ -218150,7 +218150,7 @@
     {
      "va": "00b51a00",
      "size": 3,
-     "symbol": "?vf_118@UParticleEmitter@@UAEXH@Z"
+     "symbol": "?SetLODCount@UParticleEmitter@@UAEXH@Z"
     },
     {
      "va": "00b51a10",
@@ -218835,7 +218835,7 @@
     {
      "va": "00b65640",
      "size": 1,
-     "symbol": "?vf_110@UParticleEmitter@@UAEXXZ"
+     "symbol": "?SetToSensibleDefaults@UParticleEmitter@@UAEXXZ"
     },
     {
      "va": "00b65650",
@@ -219363,7 +219363,7 @@
     {
      "va": "00b72780",
      "size": 3,
-     "symbol": "?vf_120@UParticleModule@@UAEXH@Z"
+     "symbol": "?SetToSensibleDefaults@UParticleModule@@UAEXPAUUParticleEmitter@@@Z"
     },
     {
      "va": "00b72790",
@@ -219383,7 +219383,7 @@
     {
      "va": "00b74bf0",
      "size": 18,
-     "symbol": "?vf_114@UParticleModuleTypeDataBeam@@UAEHH@Z"
+     "symbol": "?RequiredBytes@UParticleModuleTypeDataBeam@@UAEIPAUFParticleEmitterInstance@@@Z"
     },
     {
      "va": "00b970d0",
@@ -219556,12 +219556,12 @@
     {
      "va": "00b3d5f0",
      "size": 3,
-     "symbol": "?vf_12c@UParticleModule@@UAEXHHH@Z"
+     "symbol": "?Render3DPreview@UParticleModule@@UAEXPAUFParticleEmitterInstance@@PBUFSceneView@@PAUFPrimitiveDrawInterface@@@Z"
     },
     {
      "va": "00b3d600",
      "size": 3,
-     "symbol": "?vf_130@UParticleModule@@UAEHXZ"
+     "symbol": "?GetModuleType@UParticleModule@@UBE?AW4EModuleType@@XZ"
     },
     {
      "va": "00b3d610",
@@ -219606,7 +219606,7 @@
     {
      "va": "00b3d7a0",
      "size": 6,
-     "symbol": "?vf_130@UParticleModuleEventBase@@UAEHXZ"
+     "symbol": "?GetModuleType@UParticleModuleEventBase@@UBE?AW4EModuleType@@XZ"
     },
     {
      "va": "00b3d7b0",
@@ -219836,7 +219836,7 @@
     {
      "va": "00b72750",
      "size": 5,
-     "symbol": "?vf_114@UParticleModule@@UAEHH@Z"
+     "symbol": "?RequiredBytes@UParticleModule@@UAEIPAUFParticleEmitterInstance@@@Z"
     },
     {
      "va": "00b72760",
@@ -219856,7 +219856,7 @@
     {
      "va": "00b72ef0",
      "size": 8,
-     "symbol": "?vf_114@UParticleModuleLocationDirect@@UAEHH@Z"
+     "symbol": "?RequiredBytes@UParticleModuleLocationDirect@@UAEIPAUFParticleEmitterInstance@@@Z"
     },
     {
      "va": "00b72f00",
@@ -220016,7 +220016,7 @@
     {
      "va": "00b748b0",
      "size": 8,
-     "symbol": "?vf_114@UParticleModuleAcceleration@@UAEHH@Z"
+     "symbol": "?RequiredBytes@UParticleModuleAcceleration@@UAEIPAUFParticleEmitterInstance@@@Z"
     },
     {
      "va": "00b748c0",
@@ -220136,7 +220136,7 @@
     {
      "va": "00b76640",
      "size": 3,
-     "symbol": "?vf_12c@UParticleModuleUberRainDrops@@UAEXHHH@Z"
+     "symbol": "?Render3DPreview@UParticleModuleUberRainDrops@@UAEXPAUFParticleEmitterInstance@@PBUFSceneView@@PAUFPrimitiveDrawInterface@@@Z"
     },
     {
      "va": "00b767f0",
@@ -220146,7 +220146,7 @@
     {
      "va": "00b76950",
      "size": 3,
-     "symbol": "?vf_12c@UParticleModuleUberRainImpacts@@UAEXHHH@Z"
+     "symbol": "?Render3DPreview@UParticleModuleUberRainImpacts@@UAEXPAUFParticleEmitterInstance@@PBUFSceneView@@PAUFPrimitiveDrawInterface@@@Z"
     },
     {
      "va": "00b76b10",
@@ -220226,7 +220226,7 @@
     {
      "va": "00b78910",
      "size": 8,
-     "symbol": "?vf_114@UParticleModuleAttractorParticle@@UAEHH@Z"
+     "symbol": "?RequiredBytes@UParticleModuleAttractorParticle@@UAEIPAUFParticleEmitterInstance@@@Z"
     },
     {
      "va": "00b78920",
@@ -220256,7 +220256,7 @@
     {
      "va": "00b79160",
      "size": 3,
-     "symbol": "?vf_12c@URParticleModuleAttractorComponent@@UAEXHHH@Z"
+     "symbol": "?Render3DPreview@URParticleModuleAttractorComponent@@UAEXPAUFParticleEmitterInstance@@PBUFSceneView@@PAUFPrimitiveDrawInterface@@@Z"
     },
     {
      "va": "00b79170",
@@ -220886,7 +220886,7 @@
     {
      "va": "00b9bc30",
      "size": 6,
-     "symbol": "?vf_130@UParticleModuleRequired@@UAEHXZ"
+     "symbol": "?GetModuleType@UParticleModuleRequired@@UBE?AW4EModuleType@@XZ"
     },
     {
      "va": "00b9bc40",
@@ -222837,7 +222837,7 @@
     {
      "va": "00baab90",
      "size": 17,
-     "symbol": "?vf_114@UParticleModuleTrailSource@@UAEHH@Z"
+     "symbol": "?RequiredBytes@UParticleModuleTrailSource@@UAEIPAUFParticleEmitterInstance@@@Z"
     },
     {
      "va": "00baabb0",
@@ -222867,7 +222867,7 @@
     {
      "va": "00baac30",
      "size": 5,
-     "symbol": "?vf_114@UParticleModuleTrailSpawn@@UAEHH@Z"
+     "symbol": "?RequiredBytes@UParticleModuleTrailSpawn@@UAEIPAUFParticleEmitterInstance@@@Z"
     },
     {
      "va": "00baac40",
@@ -222932,7 +222932,7 @@
     {
      "va": "00baae50",
      "size": 8,
-     "symbol": "?vf_114@UParticleModuleTypeDataTrail2@@UAEHH@Z"
+     "symbol": "?RequiredBytes@UParticleModuleTypeDataTrail2@@UAEIPAUFParticleEmitterInstance@@@Z"
     },
     {
      "va": "00baae60",
@@ -222957,7 +222957,7 @@
     {
      "va": "00bc8f00",
      "size": 6,
-     "symbol": "?vf_130@UParticleModuleTrailBase@@UAEHXZ"
+     "symbol": "?GetModuleType@UParticleModuleTrailBase@@UBE?AW4EModuleType@@XZ"
     },
     {
      "va": "00bc8f10",
@@ -223621,17 +223621,17 @@
     {
      "va": "00776220",
      "size": 5,
-     "symbol": "?vf_454@APawn@@UAEHH@Z"
+     "symbol": "?HasAudibleAmbientSound@APawn@@UAEHABUFVector@@@Z"
     },
     {
      "va": "00776230",
      "size": 5,
-     "symbol": "?vf_458@APawn@@UAEHHH@Z"
+     "symbol": "?HasReached@APawn@@UAEHPAUANavigationPoint@@AAH@Z"
     },
     {
      "va": "00776240",
      "size": 36,
-     "symbol": "?vf_45c@APawn@@UAE?AUFVector@@XZ"
+     "symbol": "?GetIdealCameraOrigin@APawn@@UAE?AUFVector@@XZ"
     },
     {
      "va": "00776270",
@@ -233908,7 +233908,7 @@
     {
      "va": "008e21d0",
      "size": 1,
-     "symbol": "?vf_17c@USequenceOp@@UAEXXZ"
+     "symbol": "?PostDeActivated@USequenceOp@@UAEXXZ"
     },
     {
      "va": "008e21e0",
@@ -264812,12 +264812,12 @@
     {
      "va": "00540370",
      "size": 6,
-     "symbol": "?vf_110@UDistributionVector@@UAEIXZ"
+     "symbol": "?GetOperation@UDistributionVector@@UAE?AW4ERawDistributionOperation@@XZ"
     },
     {
      "va": "00540380",
      "size": 5,
-     "symbol": "?vf_114@UDistributionVector@@UAEIH@Z"
+     "symbol": "?GetLockFlags@UDistributionVector@@UAE?AW4ERawDistributionLockFlags@@H@Z"
     },
     {
      "va": "00540390",
@@ -275195,7 +275195,7 @@
     {
      "va": "0068ef00",
      "size": 3,
-     "symbol": "?vf_258@AActor@@UAEXH@Z"
+     "symbol": "?PreTermRigidBody@AActor@@UAEXPAVNxActor@@@Z"
     },
     {
      "va": "0068ef10",
@@ -294356,7 +294356,7 @@
     {
      "va": "00776480",
      "size": 5,
-     "symbol": "?vf_4a8@AScout@@UAEHH@Z"
+     "symbol": "?SecondPassPrunePathsForNav@AScout@@UAEHPAUANavigationPoint@@@Z"
     },
     {
      "va": "00776490",
@@ -340722,7 +340722,7 @@
     {
      "va": "00b3db30",
      "size": 6,
-     "symbol": "?vf_130@UParticleModuleSpawnBase@@UAEHXZ"
+     "symbol": "?GetModuleType@UParticleModuleSpawnBase@@UBE?AW4EModuleType@@XZ"
     },
     {
      "va": "00b3db40",
@@ -340747,12 +340747,12 @@
     {
      "va": "00b3dc00",
      "size": 3,
-     "symbol": "?vf_178@UParticleModuleTypeDataBase@@UAEXHHH@Z"
+     "symbol": "?PostUpdate@UParticleModuleTypeDataBase@@UAEXPAUFParticleEmitterInstance@@HM@Z"
     },
     {
      "va": "00b3dc10",
      "size": 6,
-     "symbol": "?vf_130@UParticleModuleTypeDataBase@@UAEHXZ"
+     "symbol": "?GetModuleType@UParticleModuleTypeDataBase@@UBE?AW4EModuleType@@XZ"
     },
     {
      "va": "00b3dc20",
@@ -347027,7 +347027,7 @@
     {
      "va": "00bf8e10",
      "size": 3,
-     "symbol": "?vf_15c@UEngine@@UAEXHHH@Z"
+     "symbol": "?DumpMemoryChartToLog@UEngine@@UAEXMMH@Z"
     },
     {
      "va": "00bf8e20",
@@ -349604,7 +349604,7 @@
     {
      "va": "00c2bc60",
      "size": 6,
-     "symbol": "?vf_12c@UMaterialExpressionAddNormalMap@@UAEHXZ"
+     "symbol": "?GetLabelPadding@UMaterialExpressionAddNormalMap@@UAEHXZ"
     },
     {
      "va": "00c2bc70",
@@ -454385,37 +454385,37 @@
     {
      "va": "00e38380",
      "size": 4,
-     "symbol": "?vf_15c@UOnlineGameInterfaceImpl@@UAEHXZ"
+     "symbol": "?StartInternetGame@UOnlineGameInterfaceImpl@@UAEKXZ"
     },
     {
      "va": "00e38390",
      "size": 4,
-     "symbol": "?vf_160@UOnlineGameInterfaceImpl@@UAEHXZ"
+     "symbol": "?EndInternetGame@UOnlineGameInterfaceImpl@@UAEKXZ"
     },
     {
      "va": "00e383a0",
      "size": 4,
-     "symbol": "?vf_164@UOnlineGameInterfaceImpl@@UAEHXZ"
+     "symbol": "?DestroyInternetGame@UOnlineGameInterfaceImpl@@UAEKXZ"
     },
     {
      "va": "00e383b0",
      "size": 3,
-     "symbol": "?vf_168@UOnlineGameInterfaceImpl@@UAEXH@Z"
+     "symbol": "?TickInternetTasks@UOnlineGameInterfaceImpl@@UAEXM@Z"
     },
     {
      "va": "00e383c0",
      "size": 1,
-     "symbol": "?vf_16c@UOnlineGameInterfaceImpl@@UAEXXZ"
+     "symbol": "?RegisterLocalTalkers@UOnlineGameInterfaceImpl@@UAEXXZ"
     },
     {
      "va": "00e383d0",
      "size": 1,
-     "symbol": "?vf_170@UOnlineGameInterfaceImpl@@UAEXXZ"
+     "symbol": "?UnregisterLocalTalkers@UOnlineGameInterfaceImpl@@UAEXXZ"
     },
     {
      "va": "00e383e0",
      "size": 1,
-     "symbol": "?vf_174@UOnlineGameInterfaceImpl@@UAEXXZ"
+     "symbol": "?RemoveAllRemoteTalkers@UOnlineGameInterfaceImpl@@UAEXXZ"
     },
     {
      "va": "00e383f0",
@@ -465497,7 +465497,7 @@
     {
      "va": "00e89950",
      "size": 3,
-     "symbol": "?vf_168@UOnlineGameInterfaceSteamworks@@UAEXH@Z"
+     "symbol": "?TickInternetTasks@UOnlineGameInterfaceSteamworks@@UAEXM@Z"
     },
     {
      "va": "00e8ecb0",
@@ -492565,7 +492565,7 @@
     {
      "va": "011f1ff0",
      "size": 6,
-     "symbol": "?vf_10c@UPropertyInputProxy@@UAEHXZ"
+     "symbol": "?GetProxyHeight@UPropertyInputProxy@@UBEHXZ"
     },
     {
      "va": "011f2000",
@@ -493350,7 +493350,7 @@
     {
      "va": "01202840",
      "size": 6,
-     "symbol": "?vf_110@UPropertyInputProxy@@UAEHXZ"
+     "symbol": "?LetPropertyExpand@UPropertyInputProxy@@UBEHXZ"
     },
     {
      "va": "01202880",
@@ -500341,7 +500341,7 @@
     {
      "va": "014d4e20",
      "size": 3,
-     "symbol": "?vf_110@UCustomInputProxy_Base@@UAEHXZ"
+     "symbol": "?LetPropertyExpand@UCustomInputProxy_Base@@UBEHXZ"
     },
     {
      "va": "014d4e30",
@@ -528008,7 +528008,7 @@
     {
      "va": "012777d0",
      "size": 25,
-     "symbol": "?vf_1a8@UUnrealEdEngine@@UAEXXZ"
+     "symbol": "?ResetPivot@UUnrealEdEngine@@UAEXXZ"
     },
     {
      "va": "012777f0",
@@ -528113,7 +528113,7 @@
     {
      "va": "012781d0",
      "size": 17,
-     "symbol": "?vf_2dc@UUnrealEdEngine@@UAEXXZ"
+     "symbol": "?CloseEditor@UUnrealEdEngine@@UAEXXZ"
     },
     {
      "va": "012781f0",

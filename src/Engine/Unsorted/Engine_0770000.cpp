@@ -542,7 +542,7 @@ void AScout::vf_47c(int a0, int a1) {  }
 int AScout::vf_484(void) { return *(int*)((char*)this + 988); }
 
 // @baa 0x00776480
-int AScout::vf_4a8(int a0) { return 0; }
+INT AScout::SecondPassPrunePathsForNav(ANavigationPoint* a0) { return 0; }
 
 // @baa 0x00776490
 int AScout::sub_00776490(void) { return *(int*)((char*)this + 4); }

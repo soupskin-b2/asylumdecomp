@@ -4,31 +4,31 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00e38380
-INT UOnlineGameInterfaceImpl::vf_15c() {
+DWORD UOnlineGameInterfaceImpl::StartInternetGame() {
   return 0xffffffff;
 }
 
 // @baa 0x00e38390
-INT UOnlineGameInterfaceImpl::vf_160() {
+DWORD UOnlineGameInterfaceImpl::EndInternetGame() {
   return 0xffffffff;
 }
 
 // @baa 0x00e383a0
-INT UOnlineGameInterfaceImpl::vf_164() {
+DWORD UOnlineGameInterfaceImpl::DestroyInternetGame() {
   return 0xffffffff;
 }
 
 // @baa 0x00e383b0
-void UOnlineGameInterfaceImpl::vf_168(int a0) {  }
+void UOnlineGameInterfaceImpl::TickInternetTasks(FLOAT a0) {  }
 
 // @baa 0x00e383c0
-void UOnlineGameInterfaceImpl::vf_16c(void) {  }
+void UOnlineGameInterfaceImpl::RegisterLocalTalkers() {  }
 
 // @baa 0x00e383d0
-void UOnlineGameInterfaceImpl::vf_170(void) {  }
+void UOnlineGameInterfaceImpl::UnregisterLocalTalkers() {  }
 
 // @baa 0x00e383e0
-void UOnlineGameInterfaceImpl::vf_174(void) {  }
+void UOnlineGameInterfaceImpl::RemoveAllRemoteTalkers() {  }
 
 // @baa 0x00e383f0
 IMPLEMENT_CLASS_AT(UOnlineGameInterfaceImpl, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\IpDrv\\Src\\OnlineGameInterfaceImpl.cpp", 9);

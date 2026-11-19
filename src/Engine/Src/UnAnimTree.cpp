@@ -889,7 +889,7 @@ IMPLEMENT_CLASS_AT(UAnimNode, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\D
 UAnimNode * UAnimNode::GetAnimNode() { return this; }
 
 // @baa 0x00c64650
-void UAnimNode::vf_12c(void) {  }
+void UAnimNode::AnimSetsUpdated() {  }
 
 // @baa 0x00c64660
 void UAnimNode::vf_130(UINT a0) {  }

@@ -252,7 +252,7 @@ wxBitmapButton * C_011f1f70::sub_011f1f70(void)
 void __stdcall sub_011f1fe0(int a0) {  }
 
 // @baa 0x011f1ff0
-int UPropertyInputProxy::vf_10c(void) { return 20; }
+INT UPropertyInputProxy::GetProxyHeight() const { return 20; }
 
 extern char g_025e8714[];
 // @baa 0x011f2000
@@ -2359,7 +2359,7 @@ undefined4 * UObject::sub_01202680(undefined4 * param_2)
 
 // @baa 0x012027d0
 // @baa 0x01202840
-int UPropertyInputProxy::vf_110(void) { return 1; }
+UBOOL UPropertyInputProxy::LetPropertyExpand() const { return 1; }
 
 // @baa 0x01202880
 void UPropertyInputProxy::vf_120(int a0) {  }

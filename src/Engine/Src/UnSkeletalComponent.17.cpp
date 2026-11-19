@@ -18,7 +18,7 @@ void USkeletalMeshComponent::UpdateAnimations()
         const INT NumNodes = AnimTickArray.Num();
         for (INT i = 0; i < NumNodes; i++)
         {
-            AnimTickArray(i)->vf_12c();
+            AnimTickArray(i)->AnimSetsUpdated();
         }
     }
 }

@@ -50,7 +50,7 @@ void __stdcall sub_00baac10(int a0, int a1, int a2) {  }
 void __stdcall sub_00baac20(int a0, int a1, int a2) {  }
 
 // @baa 0x00baac30
-int UParticleModuleTrailSpawn::vf_114(int a0) { return 0; }
+UINT UParticleModuleTrailSpawn::RequiredBytes(FParticleEmitterInstance* a0) { return 0; }
 
 // @baa 0x00baac40
 void UParticleModuleTrailSpawn::vf_168(void) {  }
@@ -92,14 +92,14 @@ void __stdcall sub_00baae30(int a0, int a1, int a2) {  }
 void UParticleModuleTypeDataTrail2::PreUpdate(FParticleEmitterInstance* a0, INT a1, FLOAT a2) {  }
 
 // @baa 0x00baae50
-int UParticleModuleTypeDataTrail2::vf_114(int a0) { return 36; }
+UINT UParticleModuleTypeDataTrail2::RequiredBytes(FParticleEmitterInstance* a0) { return 36; }
 
 // @baa 0x00baae60
 void UParticleModuleTypeDataTrail2::vf_16c(void) {  }
 
 // @baa 0x00bc8ea0
 // @baa 0x00bc8f00
-int UParticleModuleTrailBase::vf_130(void) { return 3; }
+EModuleType UParticleModuleTrailBase::GetModuleType() const { return EPMT_Trail; }
 
 // @baa 0x00bc8f10
 // @baa 0x00bcd770
@@ -250,7 +250,7 @@ void UParticleModuleTrailSource::PostEditChange(UProperty* PropertyThatChanged)
 
 // @baa 0x00baab90
 /* Slot 0x114 (unnamed in the kit; UE3's RequiredBytes): particle-sourced trails store the source index per particle. */
-INT UParticleModuleTrailSource::vf_114(INT)
+UINT UParticleModuleTrailSource::RequiredBytes(FParticleEmitterInstance* Owner)
 {
 	INT Size = 0;
 	switch (SourceMethod)
