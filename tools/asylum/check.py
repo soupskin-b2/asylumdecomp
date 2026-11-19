@@ -64,6 +64,11 @@ def check(va: int, src: str, function: str | None = None, whole: bool = False) -
         if other and int(other.group(1), 16) != va:  # a source written for another function
             return Result("extract_error", ["the source's function is %s, named for %s, not %08x"
                                             % (sym.name, other.group(1), va)])
+        at = data.symbols().get(sym.name)
+        if at is not None and at != va and not other:  # a real name the project knows at another address
+            return Result("extract_error", ["the source's function is %s, which is %08x's, not %08x (if the "
+                                            "project's name is wrong, pass --function %s and flag it)"
+                                            % (sym.name, at, va, sym.name)])
     status, problems, bound = fingerprint.verify(obj, w, va, fp, k, data.imports())
     if status != "match" and not whole and cl.instantiates(src):
         return check(va, src, function, whole=True)  # the instantiation may be in the precompiled header's object

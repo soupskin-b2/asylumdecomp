@@ -4,6 +4,7 @@ Newest first, one line each. `update` (and `get`, which updates by itself) print
 to you; `python asylum.pyz changes` prints them all. Add a line here with any change an agent should
 know about: a renamed or retyped declaration, a new header or macro, a new rule.
 
+- 2026-11-19: `check`/`submit` refuse a source whose function has a name the project already places at another address (e.g. `execJump` checked against execJumpIfNot's VA), as they did for `sub_` names; pass `--function` if the project's name is the wrong one (and flag it).
 - 2026-11-19: listings (packets, `asm`) label what the project has named since the analysis (header-pinned methods, real globals: `GNatives`, `GRuntimeUCFlags`, `GDebugger` instead of g_XXXXXXXX); `asm VA --brief` folds a native's inlined Stack.Step and P_FINISH sequences into one line each.
 - 2026-11-19: checker: `ASYLUM_INCLUDE=DIR` makes `check` read headers from DIR (e.g. DIR/ue3/Classes.h) before the kit's, to try a header fix from asylum.pyz without a clone.
 - 2026-11-19: packets: a native's optional parameters now show their default (read from the stores before each Step, e.g. `P_GET_UBOOL_OPTX(bShortestPath, TRUE)`) instead of `<default>`; `get` on a native also writes a starting `work/VA.cpp` (signature, P_GET_* reads, P_FINISH) when there is none.

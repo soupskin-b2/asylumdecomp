@@ -282,6 +282,9 @@ Parts of `src/` still read like decompiler output (`param_1`, offset casts, `sub
 
 - `mov eax, ecx; ...; ret`: the method returns `this`.
 - `add ecx, N; jmp/call X`: a call on a member subobject at offset N, not pointer arithmetic.
+- A function that reads `ecx` on entry and ends `ret N` is a member function taking N/4 stack
+  arguments (unused ones too), not an exotic convention: `mov eax, [ecx + 0x1a0]; push 1; push eax;
+  call X; add esp, 8; ret 4` is `void C::F(void* Unused) { X(Field1a0, 1); }`.
 - `neg; sbb; neg; sub 1` (or `neg; sbb; inc`): a comparison turned into a value, e.g. `x ? 0 : -1`.
 - `push ecx` at the start that is never read as an argument: room for one 4-byte local.
 - `ret N` pops N bytes of stack arguments (`ret 0x10`: 16 bytes, e.g. a pointer, a bool and a QWORD);
