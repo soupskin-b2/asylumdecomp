@@ -17568,7 +17568,7 @@ struct UAnimNode : public UAnimObject {
     virtual INT vf_13c(); /* 0x13c */
     virtual void BuildTickArray(TArray<class UAnimNode*>& OutTickArray); /* 0x140 */
     virtual void GetBoneAtoms(TArray<FBoneAtom>& Atoms, const TArray<BYTE>& DesiredBones, FBoneAtom& RootMotionDelta, INT& bHasRootMotion); /* 0x144 */
-    virtual INT vf_148(INT, INT, INT); /* 0x148 */
+    virtual UBOOL GetCachedResults(TArray<FBoneAtom>& OutAtoms, FBoneAtom& OutRootMotionDelta, INT& bOutHasRootMotion); /* 0x148 */ /* 0x00c6c770 */
     virtual bool ShouldSaveCachedResults(); /* 0x14c */
     virtual void vf_150(); /* 0x150 */
     virtual void vf_154(); /* 0x154 */
@@ -17597,7 +17597,6 @@ struct UAnimNode : public UAnimObject {
     INT CountNumParentsTicked(); /* 0x00c53000 */
     UBOOL IsChildOf(UAnimNode* Node); /* 0x00c53070 */
     void GetNodesByClass(TArray<UAnimNode*>& Nodes, UClass* BaseClass); /* 0x00c5ed80 */
-    UBOOL GetCachedResults(TArray<FBoneAtom>& OutAtoms, FBoneAtom& OutRootMotionDelta, INT& bOutHasRootMotion); /* 0x00c6c770 */
     void GetAnimSeqNodes(TArray<UAnimNodeSequence*>& Nodes, FName InSynchGroupName); /* 0x00c7a3d0 */
     void sub_00c4b530(TArray<UAnimNode*>& Nodes); /* 0x00c4b530 */
     static void sub_00c52e80(TArray<BYTE>& BoneIndices, USkeletalMesh* SkelMesh); /* 0x00c52e80 */
@@ -18020,7 +18019,7 @@ struct UAnimNodeSequence : public UAnimNode {
     virtual void vf_12c(); /* 0x12c */
     virtual void TickAnim(FLOAT DeltaSeconds, FLOAT TotalWeight); /* 0x134 */
     virtual void GetBoneAtoms(TArray<FBoneAtom>& Atoms, const TArray<BYTE>& DesiredBones, FBoneAtom& RootMotionDelta, INT& bHasRootMotion); /* 0x144 */
-    virtual INT vf_148(INT, INT, INT); /* 0x148 */
+    virtual UBOOL GetCachedResults(TArray<FBoneAtom>& OutAtoms, FBoneAtom& OutRootMotionDelta, INT& bOutHasRootMotion); /* 0x148 */
     virtual bool ShouldSaveCachedResults(); /* 0x14c */
     virtual void SetAnim(FName Sequence); /* 0x15c */
     virtual void SetPosition(FLOAT NewTime, UBOOL bFireNotifies); /* 0x160 */
@@ -65772,10 +65771,14 @@ struct UDemoRecDriver : public UNetDriver {
     UDemoRecDriver(); /* 0x00c1a630 */
     void StaticConstructor(); /* 0x00bf9600 */
     BYTE _native0[0x1c];
-    FStringNoInit Native_16c; /* 0x16c: C++ only (destroyed by its destructor) */
-    FStringNoInit Native_178; /* 0x178: C++ only (destroyed by its destructor) */
-    BYTE _native2[0x1c];
-    FURL Native_1a0; /* 0x1a0: C++ only (destroyed by its destructor) */
+    FStringNoInit DemoFilename; /* 0x16c */
+    FStringNoInit DemoSpectatorClass; /* 0x178 */
+    FArchive* FileAr; /* 0x184 */
+    DOUBLE PlaybackStartTime; /* 0x188 */
+    DOUBLE LastFrameTime; /* 0x190 */
+    INT FrameNum; /* 0x198 */
+    FLOAT LastDeltaTime; /* 0x19c */
+    FURL LoopURL; /* 0x1a0 */
     BYTE _native3[0x10];
     FNativeDtor_00c13850_20 Native_1f4; /* 0x1f4: C++ only (destroyed by its destructor) */
     /* virtual functions this class introduces (vtable 0x020320c8) */

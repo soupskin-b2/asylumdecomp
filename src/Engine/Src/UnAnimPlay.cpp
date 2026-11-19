@@ -281,15 +281,10 @@ struct FBoneAtomArray : public TArray<FBoneAtom>
 	void sub_00c64160(const TArray<FBoneAtom>& Other);	/* operator= */
 };
 
-/* UAnimNode::GetCachedResults is vtable slot 0x148 (declared only as vf_148, flagged). */
-struct UAnimNode_ : public UAnimNode
-{
-	UBOOL GetCachedResults(FBoneAtomArray& OutAtoms, FBoneAtom& OutRootMotionDelta, INT& bOutHasRootMotion);
-};
 
 // @baa 0x00c6b8e0
 /* Hands back this node's cached pose (and root motion, if it was cached this tick) when it fits OutAtoms. */
-UBOOL UAnimNode_::GetCachedResults(FBoneAtomArray& OutAtoms, FBoneAtom& OutRootMotionDelta, INT& bOutHasRootMotion)
+UBOOL UAnimNode::GetCachedResults(TArray<FBoneAtom>& OutAtoms, FBoneAtom& OutRootMotionDelta, INT& bOutHasRootMotion)
 {
 #line 17 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimPlay.cpp"
 	check(SkelComponent);
@@ -297,7 +292,7 @@ UBOOL UAnimNode_::GetCachedResults(FBoneAtomArray& OutAtoms, FBoneAtom& OutRootM
 	// See if the cached array is the same size as the target array.
 	if (CachedBoneAtoms.Num() == OutAtoms.Num())
 	{
-		OutAtoms.sub_00c64160(CachedBoneAtoms);
+		((FBoneAtomArray&)OutAtoms).sub_00c64160(CachedBoneAtoms);
 
 		// The root motion is only valid if it was cached this frame.
 		if (NodeCachedAtomsTag == SkelComponent->CachedAtomsTag)

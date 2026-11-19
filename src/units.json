@@ -200525,7 +200525,7 @@
     {
      "va": "00c6b8e0",
      "size": 272,
-     "symbol": "?GetCachedResults@UAnimNode_@@QAEHAAUFBoneAtomArray@@AAUFBoneAtom@@AAH@Z"
+     "symbol": "?GetCachedResults@UAnimNode@@UAEHAAV?$TArray@UFBoneAtom@@@@AAUFBoneAtom@@AAH@Z"
     },
     {
      "va": "00c5e520",
@@ -202655,7 +202655,7 @@
     {
      "va": "00c6c770",
      "size": 177,
-     "symbol": "?GetCachedResults@UAnimNode_@@QAEHAAV?$TArray@UFBoneAtom@@@@AAUFBoneAtom@@AAH@Z"
+     "symbol": "?GetCachedResults@UAnimNode@@UAEHAAV?$TArray@UFBoneAtom@@@@AAUFBoneAtom@@AAH@Z"
     },
     {
      "va": "00c5ecc0",

@@ -2065,14 +2065,9 @@ struct FBoneAtomArray : public TArray<FBoneAtom>
 	FBoneAtomArray& sub_00c64160(const TArray<FBoneAtom>& Other);	/* operator= */
 };
 
-/* UAnimNode::GetCachedResults isn't declared in Classes.h. */
-struct UAnimNode_ : public UAnimNode
-{
-	UBOOL GetCachedResults(TArray<FBoneAtom>& OutAtoms, FBoneAtom& OutRootMotionDelta, INT& bOutHasRootMotion);
-};
 
 // @baa 0x00c6c770
-UBOOL UAnimNode_::GetCachedResults(TArray<FBoneAtom>& OutAtoms, FBoneAtom& OutRootMotionDelta, INT& bOutHasRootMotion)
+UBOOL UAnimNode::GetCachedResults(TArray<FBoneAtom>& OutAtoms, FBoneAtom& OutRootMotionDelta, INT& bOutHasRootMotion)
 {
 #line 279 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTree.cpp"
 	check(SkelComponent);
