@@ -4,11 +4,11 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00bf9400
-int UDemoRecConnection::vf_134(int a0) { return 1; }
+INT UDemoRecConnection::IsNetReady(UBOOL a0) { return 1; }
 
 int sub_00e0ddf0(void);
 // @baa 0x00bf9410
-void UDemoRecConnection::vf_12c(void)
+void UDemoRecConnection::FlushNet()
 {
     int param_1 = (int)this;
 

@@ -333,7 +333,8 @@ python tools/hoist.py [--only GLOB] [--dry-run]  move src/'s local helper struct
                                                 into the headers: declares their methods on the real class by
                                                 address, deletes the structs; lists what it skipped and why
 python tools/resymbol.py --only GLOB            re-record the symbols of matched functions after a rename (GLOB
-                                                relative to src/, e.g. 'Engine/Src/UnActor*')
+                                                relative to src/, e.g. 'Engine/Src/UnActor*'); with --new also records
+                                                `// @baa` functions written straight into src/ (maintainers)
 ```
 
 Slot facts: MSVC lays out a class's new virtual overloads together in the reverse of their declaration

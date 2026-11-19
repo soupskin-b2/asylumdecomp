@@ -27,10 +27,10 @@ void C::sub_00c066b0() {
 class UChildConnection* UNetConnection::GetUChildConnection() { return 0; }
 
 // @baa 0x00c1a1a0
-int UNetConnection::vf_13c(void) { return 0; }
+INT UNetConnection::GetAddrAsInt() { return 0; }
 
 // @baa 0x00c1a1b0
-int UNetConnection::vf_140(void) { return 0; }
+INT UNetConnection::GetAddrPort() { return 0; }
 
 struct A_00c1a1c0 { virtual void sub_00c1a270(); char pad[80]; };
 
@@ -157,7 +157,7 @@ undefined4 * UNetConnection::sub_00e14ba0(void)
 class UChildConnection* UChildConnection::GetUChildConnection() { return this; }
 
 // @baa 0x00e14bd0
-void UChildConnection::LowLevelSend(int a0, int a1) {  }
+void UChildConnection::LowLevelSend(void* a0, INT a1) {  }
 
 struct A_00e14c40 { virtual void sub_00e14d20(); char pad[80]; };
 
@@ -206,30 +206,14 @@ void sub_00e16b70(undefined4 param_1, undefined4 param_2, undefined4 param_3, un
 
 int sub_00630f20(...);
 // @baa 0x00c1a250
-void UNetConnection::LowLevelSend(INT ChannelIndex, INT BunchSize) {
+void UNetConnection::LowLevelSend(void* Data, INT Count) {
   sub_00630f20(g_026667a8, L"Pure virtual not implemented (%s)", L"UNetConnection::LowLevelSend");
 }
 
-struct Inner
-{
-    char pad_00[0x68];
-    INT Value;
-};
-
-struct C_00e14c30
-{
-    char pad_00[0x68];
-    INT Value;
-    char pad_6c[0x4f4c];
-    Inner* Source;
-
-    void sub_00e14c30();
-};
-
 // @baa 0x00e14c30
-void C_00e14c30::sub_00e14c30()
+void UChildConnection::Tick()
 {
-    Value = Source->Value;
+    State = Parent->State;
 }
 
 // @baa 0x00df3930
@@ -249,72 +233,50 @@ UBOOL UChildConnection::HasParentClassChanged() const
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
-// UChildConnection: forwards net calls to the server connection it was split from.
-struct UChildConnection_ : public UNetConnection
-{
-	class UNetConnection* ServerConnection; /* 0x4fb8 */
-
-	INT vf_120();
-};
+// UChildConnection: forwards net calls to the connection it was split from (Parent).
 
 // @baa 0x00e14be0
-INT UChildConnection_::vf_120()
+void UChildConnection::InitOut()
 {
-	return ServerConnection->vf_120();
+	Parent->InitOut();
 }
-
-// UChildConnection: forwards net calls to the server connection it was split from.
-struct UChildConnection__00e14c10 : public UNetConnection
-{
-	class UNetConnection* ServerConnection; /* 0x4fb8 */
-
-	void vf_12c();
-};
 
 // @baa 0x00e14c10
-void UChildConnection__00e14c10::vf_12c()
+void UChildConnection::FlushNet()
 {
-	ServerConnection->vf_12c();
+	Parent->FlushNet();
 }
-
-// UChildConnection: forwards net calls to the server connection it was split from.
-struct UChildConnection__00e14c20 : public UNetConnection
-{
-	class UNetConnection* ServerConnection; /* 0x4fb8 */
-
-	INT vf_134(INT Arg);
-};
 
 // @baa 0x00e14c20
-INT UChildConnection__00e14c20::vf_134(INT Arg)
+INT UChildConnection::IsNetReady(UBOOL Saturate)
 {
-	return ServerConnection->vf_134(Arg);
+	return Parent->IsNetReady(Saturate);
 }
-
-// UChildConnection: the remote address comes from the server connection it was split from.
-struct UChildConnection__00e14c50 : public UNetConnection
-{
-	class UNetConnection* ServerConnection; /* 0x4fb8 */
-
-	FString LowLevelGetRemoteAddress();
-};
 
 // @baa 0x00e14c50
-FString UChildConnection__00e14c50::LowLevelGetRemoteAddress()
+FString UChildConnection::LowLevelGetRemoteAddress()
 {
-	return ServerConnection->LowLevelGetRemoteAddress();
+	return Parent->LowLevelGetRemoteAddress();
 }
 
-// UChildConnection: the description comes from the server connection it was split from.
-struct UChildConnection__00e14c80 : public UNetConnection
-{
-	class UNetConnection* ServerConnection; /* 0x4fb8 */
-
-	FString LowLevelDescribe();
-};
-
 // @baa 0x00e14c80
-FString UChildConnection__00e14c80::LowLevelDescribe()
+FString UChildConnection::LowLevelDescribe()
 {
-	return ServerConnection->LowLevelDescribe();
+	return Parent->LowLevelDescribe();
+}
+
+// @baa 0x00e14bf0
+void UChildConnection::AssertValid()
+{
+	Parent->AssertValid();
+}
+
+// @baa 0x00df3cd0
+/* last in the file: the checks carry the engine's file and lines */
+void UNetConnection::AssertValid()
+{
+#line 493 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnConn.cpp"
+	check(ProtocolVersion>=MIN_PROTOCOL_VERSION);
+	check(ProtocolVersion<=MAX_PROTOCOL_VERSION);
+	check(State==USOCK_Closed || State==USOCK_Pending || State==USOCK_Open);
 }

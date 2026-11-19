@@ -64669,13 +64669,19 @@ struct FNativeDtor_00572130_fc { ~FNativeDtor_00572130_fc(); /* 0x00572130 */ DW
 struct UNetConnection : public UPlayer, public FOutputDevice {
     /* Engine.NetConnection (native only: no script package describes it) */
     DECLARE_CLASS(UNetConnection, UPlayer, 0x1000000d, 0x0, Engine)
+    enum { MIN_PROTOCOL_VERSION = 1, MAX_PROTOCOL_VERSION = 1 }; /* AssertValid checks ProtocolVersion against them */
     UNetConnection(); /* 0x00e135b0 */
     void StaticConstructor(); /* 0x00e165e0 */
-    BYTE _native0[0x8];
+    class UNetDriver* Driver; /* 0x64 */
+    EConnectionState State; /* 0x68 */
     FURL Native_6c; /* 0x6c: C++ only (destroyed by its destructor) */
-    BYTE _native1[0x1c];
-    FStringNoInit Native_cc; /* 0xcc: C++ only (destroyed by its destructor) */
-    FStringNoInit Native_d8; /* 0xd8: C++ only (destroyed by its destructor) */
+    BYTE _native1[0xc];
+    INT ProtocolVersion; /* 0xbc */
+    INT MaxPacket; /* 0xc0 */
+    INT PacketOverhead; /* 0xc4 */
+    UBOOL InternalAck; /* 0xc8 */
+    FStringNoInit Challenge; /* 0xcc */
+    FStringNoInit ClientResponse; /* 0xd8 */
     BYTE _native3[0xc];
     FStringNoInit Native_f0; /* 0xf0: C++ only (destroyed by its destructor) */
     FStringNoInit Native_fc; /* 0xfc: C++ only (destroyed by its destructor) */
@@ -64698,17 +64704,17 @@ struct UNetConnection : public UPlayer, public FOutputDevice {
     virtual class UChildConnection* GetUChildConnection(); /* 0x110 */
     virtual FString LowLevelGetRemoteAddress(); /* 0x114 */
     virtual FString LowLevelDescribe(); /* 0x118 */
-    virtual void LowLevelSend(INT, INT); /* 0x11c */
-    virtual INT vf_120(); /* 0x120 */
-    virtual INT vf_124(); /* 0x124 */
-    virtual void vf_128(INT, INT); /* 0x128 */
-    virtual void vf_12c(); /* 0x12c */
-    virtual INT vf_130(); /* 0x130 */
-    virtual INT vf_134(INT); /* 0x134 */
-    virtual void vf_138(INT); /* 0x138 */
-    virtual INT vf_13c(); /* 0x13c */
-    virtual INT vf_140(); /* 0x140 */
-    virtual void vf_144(); /* 0x144 */
+    virtual void LowLevelSend(void* Data, INT Count); /* 0x11c */
+    virtual void InitOut(); /* 0x120 */
+    virtual void AssertValid(); /* 0x124 */
+    virtual void SendAck(INT PacketId, UBOOL FirstTime = 1); /* 0x128 */
+    virtual void FlushNet(); /* 0x12c */
+    virtual void Tick(); /* 0x130 */
+    virtual INT IsNetReady(UBOOL Saturate); /* 0x134 */
+    virtual void HandleClientPlayer(class APlayerController* PC); /* 0x138 */
+    virtual INT GetAddrAsInt(); /* 0x13c */
+    virtual INT GetAddrPort(); /* 0x140 */
+    virtual void CleanUp(); /* 0x144 */
     virtual void vf_148(INT, INT, INT, INT); /* 0x148 */
     virtual void vf_14c(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x14c */
     virtual INT vf_150(INT); /* 0x150 */
@@ -64733,22 +64739,22 @@ struct UChildConnection : public UNetConnection {
     /* Engine.ChildConnection (native only: no script package describes it) */
     DECLARE_CLASS(UChildConnection, UNetConnection, 0x1000000c, 0x0, Engine)
     void StaticConstructor(); /* 0x00df3a90 */
-    BYTE _native[0x4]; /* C++-only members, to the registered size 0x4fbc */
+    class UNetConnection* Parent; /* 0x4fb8 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual class UChildConnection* GetUChildConnection(); /* 0x110 */
     virtual FString LowLevelGetRemoteAddress(); /* 0x114 */
     virtual FString LowLevelDescribe(); /* 0x118 */
-    virtual void LowLevelSend(INT, INT); /* 0x11c */
-    virtual INT vf_120(); /* 0x120 */
-    virtual INT vf_124(); /* 0x124 */
-    virtual void vf_128(INT, INT); /* 0x128 */
-    virtual void vf_12c(); /* 0x12c */
-    virtual INT vf_130(); /* 0x130 */
-    virtual INT vf_134(INT); /* 0x134 */
-    virtual void vf_138(INT); /* 0x138 */
-    virtual void vf_144(); /* 0x144 */
+    virtual void LowLevelSend(void* Data, INT Count); /* 0x11c */
+    virtual void InitOut(); /* 0x120 */
+    virtual void AssertValid(); /* 0x124 */
+    virtual void SendAck(INT PacketId, UBOOL FirstTime = 1); /* 0x128 */
+    virtual void FlushNet(); /* 0x12c */
+    virtual void Tick(); /* 0x130 */
+    virtual INT IsNetReady(UBOOL Saturate); /* 0x134 */
+    virtual void HandleClientPlayer(class APlayerController* PC); /* 0x138 */
+    virtual void CleanUp(); /* 0x144 */
     /* registered size 0x4fbc */
 };
 
@@ -65801,10 +65807,10 @@ struct UDemoRecConnection : public UNetConnection {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual FString LowLevelGetRemoteAddress(); /* 0x114 */
     virtual FString LowLevelDescribe(); /* 0x118 */
-    virtual void LowLevelSend(INT, INT); /* 0x11c */
-    virtual void vf_12c(); /* 0x12c */
-    virtual INT vf_134(INT); /* 0x134 */
-    virtual void vf_138(INT); /* 0x138 */
+    virtual void LowLevelSend(void* Data, INT Count); /* 0x11c */
+    virtual void FlushNet(); /* 0x12c */
+    virtual INT IsNetReady(UBOOL Saturate); /* 0x134 */
+    virtual void HandleClientPlayer(class APlayerController* PC); /* 0x138 */
     virtual void vf_148(INT, INT, INT, INT); /* 0x148 */
     virtual INT vf_150(INT); /* 0x150 */
     /* other member functions */
@@ -71563,9 +71569,9 @@ struct UTcpipConnection : public UNetConnection {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual FString LowLevelGetRemoteAddress(); /* 0x114 */
     virtual FString LowLevelDescribe(); /* 0x118 */
-    virtual void LowLevelSend(INT, INT); /* 0x11c */
-    virtual INT vf_13c(); /* 0x13c */
-    virtual INT vf_140(); /* 0x140 */
+    virtual void LowLevelSend(void* Data, INT Count); /* 0x11c */
+    virtual INT GetAddrAsInt(); /* 0x13c */
+    virtual INT GetAddrPort(); /* 0x140 */
     virtual void vf_14c(INT, INT, INT, INT, INT, INT, INT, INT); /* 0x14c */
     /* registered size 0x4fd4 */
     /* other member functions */

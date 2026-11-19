@@ -210,7 +210,7 @@ void UControlChannel::sub_00df35f0(UNetConnection* InConnection, INT InChIndex, 
     FControlChannelData_* Data = (FControlChannelData_*)this;
     if (InConnection->GetUChildConnection())
     {
-        Data->Connection = *(UNetConnection**)((BYTE*)InConnection + 0x4fb8); /* UChildConnection::Parent */
+        Data->Connection = ((UChildConnection*)InConnection)->Parent;
     }
     else
     {
@@ -733,7 +733,7 @@ INT UChannel_::sub_00df3450(INT InChannelIndex)
 {
     if (ChannelIndex >= 0x7f)
         return 0;
-    return Connection->vf_134(InChannelIndex);
+    return Connection->IsNetReady(InChannelIndex);
 }
 
 // @baa 0x00df38b0
