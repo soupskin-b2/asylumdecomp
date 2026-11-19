@@ -278,6 +278,11 @@ def cmd_get(a):
         f.parent.mkdir(parents=True, exist_ok=True)
         f.write_bytes(body)
         print("its file so far: %s" % f)
+    src = WORK / ("%08x.cpp" % va)
+    start = listing.native_starter(text, va)
+    if start and not src.exists():
+        src.write_text(start, encoding="utf-8")
+        print("started %s from the packet's parameter reads (fill in the body)" % src)
     print("write the source in work/%08x.cpp, then: %s check %08x work/%08x.cpp" % (va, PROG, va, va))
 
 

@@ -108,7 +108,8 @@ machine from the human's own copy, and submissions are C++ source only.
    `work/src/...`. Read them for the file's types, helpers and style. When the packet doesn't name
    the class, `python asylum.pyz callers VA` lists who calls the function and which vtables hold it,
    with their names and source files.
-4. **Write and check.** Write the source in `work/VA.cpp`, then
+4. **Write and check.** Write the source in `work/VA.cpp` (for a script native, `get` starts it with
+   the signature, the parameter reads and their optional defaults, read from the assembly), then
    `python asylum.pyz check VA work/VA.cpp`. It compiles with the original compiler and flags and
    verifies the function against the original: the same verdict CI gives. A check takes 5 to 20
    seconds (the engine headers are big; a source checked before is cached). Results:

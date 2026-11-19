@@ -143,10 +143,136 @@ def listing(img: Image, va: int, size: int, names: dict[int, str], slots: dict[i
     return "\n".join(lines)
 
 
+GNATIVES = 0x026888a0
+_MEM = re.compile(r"(byte|word|dword) ptr \[(esp|ebp)(?: ([+-]) (0x[0-9a-f]+|\d+))?\]")
+
+
+def _disp(m: re.Match) -> int:
+    d = int(m.group(4), 0) if m.group(4) else 0
+    return -d if m.group(3) == "-" else d
+
+
+def step_defaults(img: Image, va: int, size: int) -> list[tuple[str, int] | None]:
+    """For each inlined Stack.Step of a native, in order: what the code stored in the variable it reads
+    into (the OPTX default) as ("int", bits) / ("float", bits) / ("name", index), or None if unclear."""
+    try:
+        insns = disasm(img.read(va, size), va)
+    except Exception:  # noqa: BLE001
+        return []
+    esp, ebp = 0, None       # esp relative to the entry; ebp's value in the same terms
+    regs, xmm = {}, {}       # known constants
+    stores = {}              # slot -> [(kind, value)] in order
+    out, natreg, pending = [], None, None
+    for i in insns:
+        m, o = i.mnemonic, i.ops
+        if m == "push":
+            esp -= 4
+        elif m == "pop":
+            esp += 4
+            regs.pop(o, None)
+        elif m in ("sub", "add") and o.startswith("esp, "):
+            try:
+                n = int(o[5:], 0)
+                esp += n if m == "add" else -n
+            except ValueError:
+                pass
+        elif m == "and" and o.startswith("esp, "):
+            esp = None if ebp is None else esp      # aligned: only ebp-relative slots stay known
+        elif m == "mov" and o == "ebp, esp":
+            ebp = esp
+        elif m == "xor" and re.fullmatch(r"(e\w\w), \1", o):
+            regs[o.split(",")[0]] = 0
+        elif m in ("xorps", "pxor") and re.fullmatch(r"(xmm\d), \1", o):
+            xmm[o.split(",")[0]] = 0
+        elif m == "movss" and re.match(r"xmm\d, dword ptr \[0x[0-9a-f]+\]$", o):
+            a = int(re.search(r"\[(0x[0-9a-f]+)\]", o).group(1), 16)
+            try:
+                xmm[o[:4]] = struct.unpack("<I", img.read(a, 4))[0]
+            except Exception:  # noqa: BLE001
+                xmm.pop(o[:4], None)
+        elif m == "mov" and re.fullmatch(r"(e\w\w), (0x[0-9a-f]+|\d+)", o):
+            regs[o[:3]] = int(o[5:], 0)
+        elif m == "mov" and re.match(r"(e\w\w), dword ptr \[\w+\*4 \+ 0x([0-9a-f]+)\]$", o) and \
+                int(re.search(r"0x([0-9a-f]+)\]$", o).group(1), 16) == GNATIVES:
+            natreg = o[:3]
+        elif m == "call" and natreg and o == natreg:
+            # the Step: its pushes were (Stack, &Var); &Var came from the last lea before them
+            out.append((stores.get(pending) or [None])[-1] if pending is not None else None)
+            esp = None if esp is None else esp + 8
+            natreg = None
+            continue
+        if m == "lea" and re.match(r"e\w\w, \[", o):
+            mm = _MEM.search("dword ptr " + o[5:])
+            if mm:
+                base = esp if mm.group(2) == "esp" else ebp
+                pending = None if base is None else base + _disp(mm)
+        if m in ("mov", "movss") and o.split(",")[0].endswith("]"):
+            mm = _MEM.match(o)
+            if mm:
+                base = esp if mm.group(2) == "esp" else ebp
+                if base is not None:
+                    slot = base + _disp(mm)
+                    src = o.split(", ")[-1]
+                    v = None
+                    if m == "movss":
+                        v = ("float", xmm[src]) if src in xmm else None
+                    elif re.fullmatch(r"0x[0-9a-f]+|\d+", src):
+                        v = ("int", int(src, 0))
+                    elif src in regs:
+                        v = ("int", regs[src])
+                    stores.setdefault(slot, []).append(v)
+                    if mm.group(1) == "dword":
+                        stores.setdefault(slot + 4, [])   # a later NAME's Number half stays apart
+        if m.startswith("call"):
+            regs.clear()
+    return out
+
+
+def _default_text(d: tuple[str, int] | None, macro: str) -> str | None:
+    if d is None:
+        return None
+    kind, v = d
+    if macro.startswith("P_GET_FLOAT"):
+        f = struct.unpack("<f", struct.pack("<I", v & 0xFFFFFFFF))[0] if kind == "float" else float(v)
+        return ("%r" % f).rstrip("0").rstrip(".") + (".f" if float(f).is_integer() else "f") if f else "0.f"
+    if kind != "int":
+        return None
+    if macro.startswith("P_GET_NAME"):
+        return "NAME_None" if v == 0 else None
+    if macro.startswith("P_GET_UBOOL"):
+        return "TRUE" if v else "FALSE"
+    return str(v if v < 1 << 31 else v - (1 << 32))
+
+
+def fill_defaults(head: str, img: Image, va: int, size: int) -> str:
+    """Packets leave OPTX defaults as <default>: read them from the code."""
+    if "<default>" not in head:
+        return head
+    k = head.find("Its script parameters, in the order it reads them:")
+    if k < 0:
+        return head
+    defaults = step_defaults(img, va, size)
+    lines = head[k:].split("\n")
+    n = 0
+    for j, line in enumerate(lines[1:], 1):
+        if not line.startswith("- ") or line.startswith("- then P_FINISH"):
+            if line.startswith("- then"):
+                break
+            continue
+        mm = re.search(r"-> (P_GET_\w+)\(\w+, <default>\);", line)
+        if mm and n < len(defaults):
+            txt = _default_text(defaults[n], mm.group(1))
+            if txt:
+                lines[j] = line.replace("(<default>: the value the assembly stores before its Step call)",
+                                        "(default %s, read from the assembly: check it)" % txt).replace("<default>", txt)
+        n += 1
+    return head[:k] + "\n".join(lines)
+
+
 def packet(img: Image, va: int, size: int, record: dict, names: dict[int, str]) -> str:
     """A packet's text: the record's head and tail around the listing."""
     slots = {int(k): v for k, v in (record.get("slots") or {}).items()}
-    head = record["head"]
+    head = fill_defaults(record["head"], img, va, size)
     try:
         from paths import ROOT
         head = refresh_head(head, va, (ROOT / "include/ue3/Classes.h").read_text(encoding="utf-8"))
@@ -214,3 +340,32 @@ def refresh_head(head: str, va: int, header: str) -> str:
     if names:
         head = _MEMBERS_LINE.sub(lambda _: "Other members it declares: " + ", ".join(names[:60]) + (" ..." if len(names) > 60 else ""), head)
     return head
+
+
+def native_starter(head: str, va: int) -> str | None:
+    """A starting work/VA.cpp for a script native: its signature and the packet's parameter reads."""
+    n = re.search(r"`void (\w+)::(exec\w+)\(FFrame& Stack, RESULT_DECL\)`", head)
+    k = head.find("Its script parameters, in the order it reads them:")
+    if not n or k < 0:
+        return None
+    cls, helper = n.group(1), "as a member of a struct deriving from" in head
+    body = []
+    for line in head[k:].split("\n")[1:]:
+        if line.startswith("- then P_FINISH"):
+            break
+        if not line.startswith("- "):
+            continue
+        if " -> " in line:
+            body.append("\t" + line.split(" -> ", 1)[1].strip().replace(
+                "<default>", "0 /* TODO default: the value the assembly stores before this Step */"))
+        else:
+            body.append("\t/* %s: no P_GET_ macro for it; read it with Stack.Step */" % line[2:].strip())
+    body.append("\tP_FINISH;")
+    r = re.search(r"It returns (\w+): `\*\(\w+\*\)Result = \.\.\.;`", head)
+    body.append("\t/* *(%s*)Result = ...; */" % r.group(1) if r else "\t/* ... */")
+    decl = ""
+    if helper:  # the headers don't declare it: a helper struct does (AGENTS.md)
+        decl = "struct %s_ : public %s\n{\n\tvoid %s(FFrame& Stack, RESULT_DECL);\n};\n\n" % (cls, cls, n.group(2))
+        cls += "_"
+    return ('#include "ue3/Classes.h"\n#include "ue3/Script.h"\n\n%s// @baa 0x%08x\nvoid %s::%s(FFrame& Stack, RESULT_DECL)\n{\n%s\n}\n'
+            % (decl, va, cls, n.group(2), "\n".join(body)))
