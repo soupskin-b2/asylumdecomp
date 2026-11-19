@@ -279,7 +279,7 @@ void UActorComponent::UpdateTransform()
 }
 
 // @baa 0x007596b0
-void UActorComponent::sub_007596b0(undefined1 param_2)
+void UActorComponent::SetTickGroup(undefined1 param_2)
 {
     int param_1 = (int)this;
 

@@ -116,7 +116,7 @@ FWorldFractureSettings AWorldInfo_::sub_009c6dd0() const
         StreamingLevels(0)->LoadedLevel &&
         StreamingLevels(0)->sub_00402b40(sub_007d5ec0()))
     {
-        Info = ((ULevel*)StreamingLevels(0)->LoadedLevel)->sub_007de2b0();
+        Info = ((ULevel*)StreamingLevels(0)->LoadedLevel)->GetWorldInfo();
     }
 
     FWorldFractureSettings Settings;

@@ -426,7 +426,7 @@ void UDynamicLightEnvironmentComponent_::sub_006cee60(FLOAT DeltaTime)
     this->sub_007595c0(DeltaTime);
     if (bEnabled) {
         if (bRequiresNonLatentUpdates && TickGroup != 4) {
-            this->sub_007596b0(4);
+            this->SetTickGroup(4);
         }
 #line 1025 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\DynamicLightEnvironmentComponent.cpp"
         if (!*(void**)&State) appFailAssert("State", __FILE__, __LINE__, TEXT(""));

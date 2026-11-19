@@ -80,7 +80,7 @@ void UAnimNodeSequence::PlayAnim(UBOOL bLoop, FLOAT InRate, FLOAT StartTime)
 
 	if (bCauseActorAnimPlay && SkelComponent->Owner)
 	{
-		SkelComponent->Owner->sub_00c49e40(this);
+		SkelComponent->Owner->eventOnAnimPlay(this);
 	}
 
 	if (CameraAnim && !bLooping)

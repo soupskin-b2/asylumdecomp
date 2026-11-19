@@ -197738,7 +197738,7 @@
     {
      "va": "007596b0",
      "size": 10,
-     "symbol": "?sub_007596b0@UActorComponent@@QAEXE@Z"
+     "symbol": "?SetTickGroup@UActorComponent@@QAEXE@Z"
     },
     {
      "va": "00759920",
@@ -280169,7 +280169,7 @@
     {
      "va": "006db280",
      "size": 10,
-     "symbol": "?sub_006db280@UPrimitiveComponent@@QAEIXZ"
+     "symbol": "?HasStaticShadowing@UPrimitiveComponent@@QBEHXZ"
     },
     {
      "va": "006db290",

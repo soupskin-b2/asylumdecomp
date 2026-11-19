@@ -1653,7 +1653,7 @@ void sub_006db170(void) {  }
 int UPrimitiveComponent::vf_154(void) { return 0; }
 
 // @baa 0x006db280
-uint UPrimitiveComponent::sub_006db280(void)
+UBOOL UPrimitiveComponent::HasStaticShadowing() const
 {
     int param_1 = (int)this;
 

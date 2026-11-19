@@ -11,7 +11,7 @@ void AR3rdPersonCamera::vf_360(FPostProcessSettings& PPSettings)
 {
 	if (bCamOverrideDof)
 	{
-		DOFManager->sub_01686a40(PPSettings);
+		DOFManager->eventSetDof(PPSettings);
 	}
 	if (MotionBlurEffect)
 	{

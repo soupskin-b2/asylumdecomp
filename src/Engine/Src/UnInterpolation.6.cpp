@@ -57,7 +57,7 @@ void UInterpTrackInstFaceFX::InitTrackInst(UInterpTrack* Track)
     AActor* Actor = GetGroupActorOf(CastChecked<UInterpGroupInst>(GetOuterOf(this)));
     if (Actor != NULL)
     {
-        UFaceFXAsset* Asset = Actor->sub_00ce8550();
+        UFaceFXAsset* Asset = Actor->eventGetActorFaceFXAsset();
         if (Asset != NULL)
         {
             for (INT i = 0; i < FaceFXTrack->FaceFXAnimSets.Num(); i++)

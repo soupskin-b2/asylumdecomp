@@ -44,7 +44,7 @@ void UOnlineProfileSettings::execFindProfileSettingIndex(FFrame& Stack, RESULT_D
 {
 	P_GET_INT(ProfileSettingId);
 	P_FINISH;
-	*(INT*)Result = sub_00d72590(ProfileSettingId);
+	*(INT*)Result = FindProfileSettingIndex(ProfileSettingId);
 }
 
 // @baa 0x00c8db80
@@ -52,7 +52,7 @@ void UOnlineProfileSettings::execFindProfileMappingIndex(FFrame& Stack, RESULT_D
 {
 	P_GET_INT(ProfileSettingId);
 	P_FINISH;
-	*(INT*)Result = sub_00d72610(ProfileSettingId);
+	*(INT*)Result = FindProfileMappingIndex(ProfileSettingId);
 }
 
 // @baa 0x00c8da90

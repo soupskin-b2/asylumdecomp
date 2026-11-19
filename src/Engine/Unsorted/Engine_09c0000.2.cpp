@@ -13,7 +13,7 @@ UMapInfo* AWorldInfo::GetMapInfo()
 {
     if (StreamingLevels.Num() > 0 && StreamingLevels(0)->LoadedLevel && Cast<ULevelStreamingPersistent>(StreamingLevels(0)))
     {
-        return ((ULevel*)StreamingLevels(0)->LoadedLevel)->sub_007de2b0()->MyMapInfo;
+        return ((ULevel*)StreamingLevels(0)->LoadedLevel)->GetWorldInfo()->MyMapInfo;
     }
     return MyMapInfo;
 }
@@ -26,7 +26,7 @@ void AWorldInfo::SetMapInfo(UMapInfo* NewMapInfo)
     AWorldInfo* CurrentWorldInfo = this;
     if (StreamingLevels.Num() > 0 && StreamingLevels(0)->LoadedLevel && Cast<ULevelStreamingPersistent>(StreamingLevels(0)))
     {
-        CurrentWorldInfo = ((ULevel*)StreamingLevels(0)->LoadedLevel)->sub_007de2b0();
+        CurrentWorldInfo = ((ULevel*)StreamingLevels(0)->LoadedLevel)->GetWorldInfo();
     }
     CurrentWorldInfo->MyMapInfo = NewMapInfo;
 }

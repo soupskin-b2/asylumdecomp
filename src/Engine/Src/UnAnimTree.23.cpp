@@ -290,7 +290,7 @@ void UAnimNodeRandom::InitAnim(USkeletalMeshComponent* MeshComp, UAnimNodeBlendB
 	if (ActiveChildIndex >= 0 && ActiveChildIndex < Children.Num() &&
 		Children(ActiveChildIndex).Anim &&
 		PlayingSeqNode &&
-		PlayingSeqNode->sub_00c53070(Children(ActiveChildIndex).Anim))
+		PlayingSeqNode->IsChildOf(Children(ActiveChildIndex).Anim))
 	{
 		const FRandomAnimInfo& Info = RandomInfo(ActiveChildIndex);
 		if (PlayingSeqNode->bPlaying || Info.bStillFrame)

@@ -232,10 +232,10 @@ void ARSmashableProp::PostBeginPlay()
 	((ARSmashableProp__01680090*)this)->eventSetupDecalMaterialInstances();
 	((ARSmashableProp__01680090*)this)->eventInitXRayMode();
 	Super::PostBeginPlay();
-	if (!PropWasSpawned && PropData && PropData->PropRememberWhenSmashed && this->sub_01668ab0())
+	if (!PropWasSpawned && PropData && PropData->PropRememberWhenSmashed && this->eventGetSaveSmashedState())
 	{
 		this->sub_0167aab0();
-		this->sub_01668bf0(this);
+		this->eventDestroyProp(this);
 	}
 	else if (PropData)
 	{

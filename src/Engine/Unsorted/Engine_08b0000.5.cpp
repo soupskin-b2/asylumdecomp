@@ -10,5 +10,5 @@
 /* UE3's AWorldInfo::GetLocalURL(): the current world's URL as a string (UWorld::URL is the kit's Native_cc). */
 FString AWorldInfo::GetLocalURL()
 {
-    return ((FURL&)GWorld->URL).sub_00d51a10(FALSE);
+    return ((FURL&)GWorld->URL).String(FALSE);
 }
