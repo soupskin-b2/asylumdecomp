@@ -1306,7 +1306,7 @@ struct C_00d77a60 {
     void sub_00d77a60();
 };
 
-extern "C" __declspec(dllimport) int free(...);
+#include <malloc.h>  /* free (the CRT import) */
 // @baa 0x00d77a60
 void C_00d77a60::sub_00d77a60(void)
 {

@@ -176,7 +176,7 @@ struct C_00a169b0 {
 };
 
 int sub_0053dfa0(...);
-extern "C" __declspec(dllimport) int free(...);
+#include <malloc.h>  /* free (the CRT import) */
 // @baa 0x00a169b0
 int C_00a169b0::sub_00a169b0(byte param_2)
 {

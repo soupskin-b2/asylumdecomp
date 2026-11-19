@@ -103,7 +103,7 @@ struct C_00dfed40 {
     void sub_00dfed40();
 };
 
-extern "C" __declspec(dllimport) int free(...);
+#include <malloc.h>  /* free (the CRT import) */
 // @baa 0x00dfed40
 void C_00dfed40::sub_00dfed40(void)
 {

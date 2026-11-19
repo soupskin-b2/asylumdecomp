@@ -1187,7 +1187,7 @@ struct C_009df850 {
     void sub_009df850();
 };
 
-extern "C" __declspec(dllimport) int free(...);
+#include <malloc.h>  /* free (the CRT import) */
 // @baa 0x009df850
 void C_009df850::sub_009df850(void)
 {

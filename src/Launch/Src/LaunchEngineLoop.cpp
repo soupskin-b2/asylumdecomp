@@ -1595,7 +1595,7 @@ struct C_01af0160 {
 };
 
 int sub_00402660(...);
-extern "C" __declspec(dllimport) int free(...);
+#include <malloc.h>  /* free (the CRT import) */
 // @baa 0x01af0160
 int C_01af0160::sub_01af0160(byte param_2)
 {

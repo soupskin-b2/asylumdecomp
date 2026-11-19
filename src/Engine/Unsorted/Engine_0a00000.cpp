@@ -480,7 +480,7 @@ struct C_00a07320 {
     void sub_00a07320();
 };
 
-extern "C" __declspec(dllimport) int free(...);
+#include <malloc.h>  /* free (the CRT import) */
 // @baa 0x00a07320
 void C_00a07320::sub_00a07320(void)
 {
