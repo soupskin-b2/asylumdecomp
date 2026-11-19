@@ -2,6 +2,7 @@
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
+#include "ue3/Map.h"
 
 int sub_0053dfa0(...);
 
@@ -144,57 +145,19 @@ undefined4 C_00d3b320::sub_00d3b320(byte param_2)
   return param_1;
 }
 
-struct TBitArray {
-    int* AllocatorData;
-    int NumBits;
-    int MaxBits;
-    int InlineData[4];
-};
+/* Out-of-line copies of TSparseArray<T>::TConstIterator's constructor and operator++ (one per element type; the code doesn't
+ * depend on it, so INT stands in for the unknown T). */
 
-struct FBitIterator {
-    int WordIndex;
-    int Mask;
-    const int* WordData;
-    int UnvisitedMask;
-    int CurrentIndex;
-    int BaseIndex;
 
-    FBitIterator(const TBitArray& Array, int StartIndex)
-        : WordIndex(StartIndex >> 5)
-        , Mask(1 << (StartIndex & 31))
-        , WordData(Array.InlineData)
-        , UnvisitedMask(~0 << (StartIndex & 31))
-        , CurrentIndex(StartIndex)
-        , BaseIndex(StartIndex & ~31)
-    {
-    }
-    void FindFirstSetBit();
-    void Advance()
-    {
-        UnvisitedMask &= ~Mask;
-        FindFirstSetBit();
-    }
-};
-
-struct TConstSetBitIterator_00d3c5d0 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_00d3c5d0(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_00d3c5d0& operator++();
-};
-
-TConstSetBitIterator_00d3c5d0::TConstSetBitIterator_00d3c5d0(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
+struct FSparseArrayConstIt_00d3c5d0 : public TSparseArray<INT>::TConstIterator
 {
-    It.FindFirstSetBit();
-}
+    FSparseArrayConstIt_00d3c5d0(const TSparseArray<INT>& InArray, INT StartIndex);
+};
 
 // @baa 0x00d3c5d0
-TConstSetBitIterator_00d3c5d0& TConstSetBitIterator_00d3c5d0::operator++()
+FSparseArrayConstIt_00d3c5d0::FSparseArrayConstIt_00d3c5d0(const TSparseArray<INT>& InArray, INT StartIndex)
+    : TConstIterator(InArray, StartIndex)
 {
-    It.Advance();
-    return *this;
 }
 
 void sub_00d3c1c0();

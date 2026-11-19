@@ -2,6 +2,7 @@
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
+#include "ue3/Map.h"
 
 struct C { void sub_0095a7c0(int); C *sub_00963890(int); };
 
@@ -1027,78 +1028,31 @@ struct C_00967210 { void sub_0095ac50(int); C_00967210 *sub_00967210(int); };
 // @baa 0x00967210
 C_00967210 *C_00967210::sub_00967210(int a) { sub_0095ac50(a); return this; }
 
-struct TBitArray {
-    int* AllocatorData;
-    int NumBits;
-    int MaxBits;
-    int InlineData[4];
-};
+/* Out-of-line copies of TSparseArray<T>::TConstIterator's constructor and operator++ (one per element type; the code doesn't
+ * depend on it, so INT stands in for the unknown T). */
 
-struct FBitIterator {
-    int WordIndex;
-    int Mask;
-    const int* WordData;
-    int UnvisitedMask;
-    int CurrentIndex;
-    int BaseIndex;
 
-    FBitIterator(const TBitArray& Array, int StartIndex)
-        : WordIndex(StartIndex >> 5)
-        , Mask(1 << (StartIndex & 31))
-        , WordData(Array.InlineData)
-        , UnvisitedMask(~0 << (StartIndex & 31))
-        , CurrentIndex(StartIndex)
-        , BaseIndex(StartIndex & ~31)
-    {
-    }
-    void FindFirstSetBit();
-    void Advance()
-    {
-        UnvisitedMask &= ~Mask;
-        FindFirstSetBit();
-    }
-};
-
-struct TConstSetBitIterator_00967230 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_00967230(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_00967230& operator++();
-};
-
-TConstSetBitIterator_00967230::TConstSetBitIterator_00967230(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
+struct FSparseArrayConstIt_00967230 : public TSparseArray<INT>::TConstIterator
 {
-    It.FindFirstSetBit();
-}
+    FSparseArrayConstIt_00967230& operator++();
+};
 
 // @baa 0x00967230
-TConstSetBitIterator_00967230& TConstSetBitIterator_00967230::operator++()
+FSparseArrayConstIt_00967230& FSparseArrayConstIt_00967230::operator++()
 {
-    It.Advance();
+    TConstIterator::operator++();
     return *this;
 }
 
-struct TConstSetBitIterator_009672b0 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_009672b0(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_009672b0& operator++();
+struct FSparseArrayConstIt_009672b0 : public TSparseArray<INT>::TConstIterator
+{
+    FSparseArrayConstIt_009672b0(const TSparseArray<INT>& InArray, INT StartIndex);
 };
 
-TConstSetBitIterator_009672b0::TConstSetBitIterator_009672b0(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
-{
-    It.FindFirstSetBit();
-}
-
 // @baa 0x009672b0
-TConstSetBitIterator_009672b0& TConstSetBitIterator_009672b0::operator++()
+FSparseArrayConstIt_009672b0::FSparseArrayConstIt_009672b0(const TSparseArray<INT>& InArray, INT StartIndex)
+    : TConstIterator(InArray, StartIndex)
 {
-    It.Advance();
-    return *this;
 }
 
 struct C_00967420 { void sub_0095b230(int); C_00967420 *sub_00967420(int); };
@@ -1883,25 +1837,15 @@ undefined4 C_0096e3a0::sub_0096e3a0(byte param_2)
   return param_1;
 }
 
-struct TConstSetBitIterator_0096e4b0 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_0096e4b0(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_0096e4b0& operator++();
+struct FSparseArrayConstIt_0096e4b0 : public TSparseArray<INT>::TConstIterator
+{
+    FSparseArrayConstIt_0096e4b0(const TSparseArray<INT>& InArray, INT StartIndex);
 };
 
-TConstSetBitIterator_0096e4b0::TConstSetBitIterator_0096e4b0(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
-{
-    It.FindFirstSetBit();
-}
-
 // @baa 0x0096e4b0
-TConstSetBitIterator_0096e4b0& TConstSetBitIterator_0096e4b0::operator++()
+FSparseArrayConstIt_0096e4b0::FSparseArrayConstIt_0096e4b0(const TSparseArray<INT>& InArray, INT StartIndex)
+    : TConstIterator(InArray, StartIndex)
 {
-    It.Advance();
-    return *this;
 }
 
 struct C_0096e500 { void sub_009673c0(int); C_0096e500 *sub_0096e500(int); };

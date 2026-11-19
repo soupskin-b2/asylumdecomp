@@ -2,6 +2,7 @@
 // Placed here by: neighbours 360, class 89, callers 17, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
+#include "ue3/Map.h"
 
 struct T_0053f500 { BYTE b[32]; };
 
@@ -225,435 +226,218 @@ undefined4 * UObject::sub_00551fa0(undefined4 * param_2)
   return param_1;
 }
 
-struct TBitArray {
-    int* AllocatorData;
-    int NumBits;
-    int MaxBits;
-    int InlineData[4];
-};
+/* Out-of-line copies of TSparseArray<T>::TConstIterator's constructor and operator++ (one per element type; the code doesn't
+ * depend on it, so INT stands in for the unknown T). */
 
-struct FBitIterator {
-    int WordIndex;
-    int Mask;
-    const int* WordData;
-    int UnvisitedMask;
-    int CurrentIndex;
-    int BaseIndex;
 
-    FBitIterator(const TBitArray& Array, int StartIndex)
-        : WordIndex(StartIndex >> 5)
-        , Mask(1 << (StartIndex & 31))
-        , WordData(Array.InlineData)
-        , UnvisitedMask(~0 << (StartIndex & 31))
-        , CurrentIndex(StartIndex)
-        , BaseIndex(StartIndex & ~31)
-    {
-    }
-    void FindFirstSetBit();
-    void Advance()
-    {
-        UnvisitedMask &= ~Mask;
-        FindFirstSetBit();
-    }
-};
-
-struct TConstSetBitIterator {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator& operator++();
-};
-
-TConstSetBitIterator::TConstSetBitIterator(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
+struct FSparseArrayConstIt_00552b90 : public TSparseArray<INT>::TConstIterator
 {
-    It.FindFirstSetBit();
-}
+    FSparseArrayConstIt_00552b90& operator++();
+};
 
 // @baa 0x00552b90
-TConstSetBitIterator& TConstSetBitIterator::operator++()
+FSparseArrayConstIt_00552b90& FSparseArrayConstIt_00552b90::operator++()
 {
-    It.Advance();
+    TConstIterator::operator++();
     return *this;
 }
 
-struct TConstSetBitIterator_00552be0 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_00552be0(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_00552be0& operator++();
-};
-
-TConstSetBitIterator_00552be0::TConstSetBitIterator_00552be0(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
+struct FSparseArrayConstIt_00552be0 : public TSparseArray<INT>::TConstIterator
 {
-    It.FindFirstSetBit();
-}
+    FSparseArrayConstIt_00552be0(const TSparseArray<INT>& InArray, INT StartIndex);
+};
 
 // @baa 0x00552be0
-TConstSetBitIterator_00552be0& TConstSetBitIterator_00552be0::operator++()
+FSparseArrayConstIt_00552be0::FSparseArrayConstIt_00552be0(const TSparseArray<INT>& InArray, INT StartIndex)
+    : TConstIterator(InArray, StartIndex)
 {
-    It.Advance();
-    return *this;
 }
 
-struct TConstSetBitIterator_00552c30 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_00552c30(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_00552c30& operator++();
+struct FSparseArrayConstIt_00552c30 : public TSparseArray<INT>::TConstIterator
+{
+    FSparseArrayConstIt_00552c30(const TSparseArray<INT>& InArray, INT StartIndex);
 };
-
-TConstSetBitIterator_00552c30::TConstSetBitIterator_00552c30(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
-{
-    It.FindFirstSetBit();
-}
 
 // @baa 0x00552c30
-TConstSetBitIterator_00552c30& TConstSetBitIterator_00552c30::operator++()
+FSparseArrayConstIt_00552c30::FSparseArrayConstIt_00552c30(const TSparseArray<INT>& InArray, INT StartIndex)
+    : TConstIterator(InArray, StartIndex)
 {
-    It.Advance();
-    return *this;
 }
 
-struct TConstSetBitIterator_00552c80 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_00552c80(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_00552c80& operator++();
+struct FSparseArrayConstIt_00552c80 : public TSparseArray<INT>::TConstIterator
+{
+    FSparseArrayConstIt_00552c80(const TSparseArray<INT>& InArray, INT StartIndex);
 };
-
-TConstSetBitIterator_00552c80::TConstSetBitIterator_00552c80(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
-{
-    It.FindFirstSetBit();
-}
 
 // @baa 0x00552c80
-TConstSetBitIterator_00552c80& TConstSetBitIterator_00552c80::operator++()
+FSparseArrayConstIt_00552c80::FSparseArrayConstIt_00552c80(const TSparseArray<INT>& InArray, INT StartIndex)
+    : TConstIterator(InArray, StartIndex)
 {
-    It.Advance();
-    return *this;
 }
 
-struct TConstSetBitIterator_00552cd0 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_00552cd0(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_00552cd0& operator++();
+struct FSparseArrayConstIt_00552cd0 : public TSparseArray<INT>::TConstIterator
+{
+    FSparseArrayConstIt_00552cd0(const TSparseArray<INT>& InArray, INT StartIndex);
 };
-
-TConstSetBitIterator_00552cd0::TConstSetBitIterator_00552cd0(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
-{
-    It.FindFirstSetBit();
-}
 
 // @baa 0x00552cd0
-TConstSetBitIterator_00552cd0& TConstSetBitIterator_00552cd0::operator++()
+FSparseArrayConstIt_00552cd0::FSparseArrayConstIt_00552cd0(const TSparseArray<INT>& InArray, INT StartIndex)
+    : TConstIterator(InArray, StartIndex)
 {
-    It.Advance();
-    return *this;
 }
 
-struct TConstSetBitIterator_00552d20 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_00552d20(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_00552d20& operator++();
+struct FSparseArrayConstIt_00552d20 : public TSparseArray<INT>::TConstIterator
+{
+    FSparseArrayConstIt_00552d20(const TSparseArray<INT>& InArray, INT StartIndex);
 };
-
-TConstSetBitIterator_00552d20::TConstSetBitIterator_00552d20(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
-{
-    It.FindFirstSetBit();
-}
 
 // @baa 0x00552d20
-TConstSetBitIterator_00552d20& TConstSetBitIterator_00552d20::operator++()
+FSparseArrayConstIt_00552d20::FSparseArrayConstIt_00552d20(const TSparseArray<INT>& InArray, INT StartIndex)
+    : TConstIterator(InArray, StartIndex)
 {
-    It.Advance();
-    return *this;
 }
 
-struct TConstSetBitIterator_00552d70 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_00552d70(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_00552d70& operator++();
+struct FSparseArrayConstIt_00552d70 : public TSparseArray<INT>::TConstIterator
+{
+    FSparseArrayConstIt_00552d70(const TSparseArray<INT>& InArray, INT StartIndex);
 };
-
-TConstSetBitIterator_00552d70::TConstSetBitIterator_00552d70(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
-{
-    It.FindFirstSetBit();
-}
 
 // @baa 0x00552d70
-TConstSetBitIterator_00552d70& TConstSetBitIterator_00552d70::operator++()
+FSparseArrayConstIt_00552d70::FSparseArrayConstIt_00552d70(const TSparseArray<INT>& InArray, INT StartIndex)
+    : TConstIterator(InArray, StartIndex)
 {
-    It.Advance();
-    return *this;
 }
 
-struct TConstSetBitIterator_00552dc0 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_00552dc0(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_00552dc0& operator++();
+struct FSparseArrayConstIt_00552dc0 : public TSparseArray<INT>::TConstIterator
+{
+    FSparseArrayConstIt_00552dc0(const TSparseArray<INT>& InArray, INT StartIndex);
 };
-
-TConstSetBitIterator_00552dc0::TConstSetBitIterator_00552dc0(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
-{
-    It.FindFirstSetBit();
-}
 
 // @baa 0x00552dc0
-TConstSetBitIterator_00552dc0& TConstSetBitIterator_00552dc0::operator++()
+FSparseArrayConstIt_00552dc0::FSparseArrayConstIt_00552dc0(const TSparseArray<INT>& InArray, INT StartIndex)
+    : TConstIterator(InArray, StartIndex)
 {
-    It.Advance();
-    return *this;
 }
 
-struct TConstSetBitIterator_00552e10 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_00552e10(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_00552e10& operator++();
+struct FSparseArrayConstIt_00552e10 : public TSparseArray<INT>::TConstIterator
+{
+    FSparseArrayConstIt_00552e10(const TSparseArray<INT>& InArray, INT StartIndex);
 };
-
-TConstSetBitIterator_00552e10::TConstSetBitIterator_00552e10(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
-{
-    It.FindFirstSetBit();
-}
 
 // @baa 0x00552e10
-TConstSetBitIterator_00552e10& TConstSetBitIterator_00552e10::operator++()
+FSparseArrayConstIt_00552e10::FSparseArrayConstIt_00552e10(const TSparseArray<INT>& InArray, INT StartIndex)
+    : TConstIterator(InArray, StartIndex)
 {
-    It.Advance();
-    return *this;
 }
 
-struct TConstSetBitIterator_00552e60 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_00552e60(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_00552e60& operator++();
+struct FSparseArrayConstIt_00552e60 : public TSparseArray<INT>::TConstIterator
+{
+    FSparseArrayConstIt_00552e60(const TSparseArray<INT>& InArray, INT StartIndex);
 };
-
-TConstSetBitIterator_00552e60::TConstSetBitIterator_00552e60(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
-{
-    It.FindFirstSetBit();
-}
 
 // @baa 0x00552e60
-TConstSetBitIterator_00552e60& TConstSetBitIterator_00552e60::operator++()
+FSparseArrayConstIt_00552e60::FSparseArrayConstIt_00552e60(const TSparseArray<INT>& InArray, INT StartIndex)
+    : TConstIterator(InArray, StartIndex)
 {
-    It.Advance();
-    return *this;
 }
 
-struct TConstSetBitIterator_00552eb0 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_00552eb0(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_00552eb0& operator++();
+struct FSparseArrayConstIt_00552eb0 : public TSparseArray<INT>::TConstIterator
+{
+    FSparseArrayConstIt_00552eb0(const TSparseArray<INT>& InArray, INT StartIndex);
 };
-
-TConstSetBitIterator_00552eb0::TConstSetBitIterator_00552eb0(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
-{
-    It.FindFirstSetBit();
-}
 
 // @baa 0x00552eb0
-TConstSetBitIterator_00552eb0& TConstSetBitIterator_00552eb0::operator++()
+FSparseArrayConstIt_00552eb0::FSparseArrayConstIt_00552eb0(const TSparseArray<INT>& InArray, INT StartIndex)
+    : TConstIterator(InArray, StartIndex)
 {
-    It.Advance();
-    return *this;
 }
 
-struct TConstSetBitIterator_00552f00 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_00552f00(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_00552f00& operator++();
+struct FSparseArrayConstIt_00552f00 : public TSparseArray<INT>::TConstIterator
+{
+    FSparseArrayConstIt_00552f00(const TSparseArray<INT>& InArray, INT StartIndex);
 };
-
-TConstSetBitIterator_00552f00::TConstSetBitIterator_00552f00(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
-{
-    It.FindFirstSetBit();
-}
 
 // @baa 0x00552f00
-TConstSetBitIterator_00552f00& TConstSetBitIterator_00552f00::operator++()
+FSparseArrayConstIt_00552f00::FSparseArrayConstIt_00552f00(const TSparseArray<INT>& InArray, INT StartIndex)
+    : TConstIterator(InArray, StartIndex)
 {
-    It.Advance();
-    return *this;
 }
 
-struct TConstSetBitIterator_00552f50 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_00552f50(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_00552f50& operator++();
+struct FSparseArrayConstIt_00552f50 : public TSparseArray<INT>::TConstIterator
+{
+    FSparseArrayConstIt_00552f50(const TSparseArray<INT>& InArray, INT StartIndex);
 };
-
-TConstSetBitIterator_00552f50::TConstSetBitIterator_00552f50(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
-{
-    It.FindFirstSetBit();
-}
 
 // @baa 0x00552f50
-TConstSetBitIterator_00552f50& TConstSetBitIterator_00552f50::operator++()
+FSparseArrayConstIt_00552f50::FSparseArrayConstIt_00552f50(const TSparseArray<INT>& InArray, INT StartIndex)
+    : TConstIterator(InArray, StartIndex)
 {
-    It.Advance();
-    return *this;
 }
 
-struct TConstSetBitIterator_00552fa0 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_00552fa0(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_00552fa0& operator++();
+struct FSparseArrayConstIt_00552fa0 : public TSparseArray<INT>::TConstIterator
+{
+    FSparseArrayConstIt_00552fa0(const TSparseArray<INT>& InArray, INT StartIndex);
 };
-
-TConstSetBitIterator_00552fa0::TConstSetBitIterator_00552fa0(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
-{
-    It.FindFirstSetBit();
-}
 
 // @baa 0x00552fa0
-TConstSetBitIterator_00552fa0& TConstSetBitIterator_00552fa0::operator++()
+FSparseArrayConstIt_00552fa0::FSparseArrayConstIt_00552fa0(const TSparseArray<INT>& InArray, INT StartIndex)
+    : TConstIterator(InArray, StartIndex)
 {
-    It.Advance();
-    return *this;
 }
 
-struct TConstSetBitIterator_00552ff0 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_00552ff0(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_00552ff0& operator++();
+struct FSparseArrayConstIt_00552ff0 : public TSparseArray<INT>::TConstIterator
+{
+    FSparseArrayConstIt_00552ff0(const TSparseArray<INT>& InArray, INT StartIndex);
 };
-
-TConstSetBitIterator_00552ff0::TConstSetBitIterator_00552ff0(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
-{
-    It.FindFirstSetBit();
-}
 
 // @baa 0x00552ff0
-TConstSetBitIterator_00552ff0& TConstSetBitIterator_00552ff0::operator++()
+FSparseArrayConstIt_00552ff0::FSparseArrayConstIt_00552ff0(const TSparseArray<INT>& InArray, INT StartIndex)
+    : TConstIterator(InArray, StartIndex)
 {
-    It.Advance();
-    return *this;
 }
 
-struct TConstSetBitIterator_00553040 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_00553040(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_00553040& operator++();
+struct FSparseArrayConstIt_00553040 : public TSparseArray<INT>::TConstIterator
+{
+    FSparseArrayConstIt_00553040(const TSparseArray<INT>& InArray, INT StartIndex);
 };
-
-TConstSetBitIterator_00553040::TConstSetBitIterator_00553040(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
-{
-    It.FindFirstSetBit();
-}
 
 // @baa 0x00553040
-TConstSetBitIterator_00553040& TConstSetBitIterator_00553040::operator++()
+FSparseArrayConstIt_00553040::FSparseArrayConstIt_00553040(const TSparseArray<INT>& InArray, INT StartIndex)
+    : TConstIterator(InArray, StartIndex)
 {
-    It.Advance();
-    return *this;
 }
 
-struct TConstSetBitIterator_00553090 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_00553090(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_00553090& operator++();
+struct FSparseArrayConstIt_00553090 : public TSparseArray<INT>::TConstIterator
+{
+    FSparseArrayConstIt_00553090(const TSparseArray<INT>& InArray, INT StartIndex);
 };
-
-TConstSetBitIterator_00553090::TConstSetBitIterator_00553090(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
-{
-    It.FindFirstSetBit();
-}
 
 // @baa 0x00553090
-TConstSetBitIterator_00553090& TConstSetBitIterator_00553090::operator++()
+FSparseArrayConstIt_00553090::FSparseArrayConstIt_00553090(const TSparseArray<INT>& InArray, INT StartIndex)
+    : TConstIterator(InArray, StartIndex)
 {
-    It.Advance();
-    return *this;
 }
 
-struct TConstSetBitIterator_005530e0 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_005530e0(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_005530e0& operator++();
+struct FSparseArrayConstIt_005530e0 : public TSparseArray<INT>::TConstIterator
+{
+    FSparseArrayConstIt_005530e0(const TSparseArray<INT>& InArray, INT StartIndex);
 };
-
-TConstSetBitIterator_005530e0::TConstSetBitIterator_005530e0(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
-{
-    It.FindFirstSetBit();
-}
 
 // @baa 0x005530e0
-TConstSetBitIterator_005530e0& TConstSetBitIterator_005530e0::operator++()
+FSparseArrayConstIt_005530e0::FSparseArrayConstIt_005530e0(const TSparseArray<INT>& InArray, INT StartIndex)
+    : TConstIterator(InArray, StartIndex)
 {
-    It.Advance();
-    return *this;
 }
 
-struct TConstSetBitIterator_00553130 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_00553130(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_00553130& operator++();
+struct FSparseArrayConstIt_00553130 : public TSparseArray<INT>::TConstIterator
+{
+    FSparseArrayConstIt_00553130(const TSparseArray<INT>& InArray, INT StartIndex);
 };
 
-TConstSetBitIterator_00553130::TConstSetBitIterator_00553130(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
-{
-    It.FindFirstSetBit();
-}
-
 // @baa 0x00553130
-TConstSetBitIterator_00553130& TConstSetBitIterator_00553130::operator++()
+FSparseArrayConstIt_00553130::FSparseArrayConstIt_00553130(const TSparseArray<INT>& InArray, INT StartIndex)
+    : TConstIterator(InArray, StartIndex)
 {
-    It.Advance();
-    return *this;
 }
 
 struct C_view_005555b0 {
@@ -730,403 +514,222 @@ int C_00555650::sub_00555650(int param_2)
   return 0;
 }
 
-struct TConstSetBitIterator_005556f0 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_005556f0(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_005556f0& operator++();
-};
-
-TConstSetBitIterator_005556f0::TConstSetBitIterator_005556f0(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
+struct FSparseArrayConstIt_005556f0 : public TSparseArray<INT>::TConstIterator
 {
-    It.FindFirstSetBit();
-}
+    FSparseArrayConstIt_005556f0& operator++();
+};
 
 // @baa 0x005556f0
-TConstSetBitIterator_005556f0& TConstSetBitIterator_005556f0::operator++()
+FSparseArrayConstIt_005556f0& FSparseArrayConstIt_005556f0::operator++()
 {
-    It.Advance();
+    TConstIterator::operator++();
     return *this;
 }
 
-struct TConstSetBitIterator_00555c00 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_00555c00(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_00555c00& operator++();
-};
-
-TConstSetBitIterator_00555c00::TConstSetBitIterator_00555c00(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
+struct FSparseArrayConstIt_00555c00 : public TSparseArray<INT>::TConstIterator
 {
-    It.FindFirstSetBit();
-}
+    FSparseArrayConstIt_00555c00& operator++();
+};
 
 // @baa 0x00555c00
-TConstSetBitIterator_00555c00& TConstSetBitIterator_00555c00::operator++()
+FSparseArrayConstIt_00555c00& FSparseArrayConstIt_00555c00::operator++()
 {
-    It.Advance();
+    TConstIterator::operator++();
     return *this;
 }
 
-struct TConstSetBitIterator_00555e30 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_00555e30(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_00555e30& operator++();
-};
-
-TConstSetBitIterator_00555e30::TConstSetBitIterator_00555e30(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
+struct FSparseArrayConstIt_00555e30 : public TSparseArray<INT>::TConstIterator
 {
-    It.FindFirstSetBit();
-}
+    FSparseArrayConstIt_00555e30& operator++();
+};
 
 // @baa 0x00555e30
-TConstSetBitIterator_00555e30& TConstSetBitIterator_00555e30::operator++()
+FSparseArrayConstIt_00555e30& FSparseArrayConstIt_00555e30::operator++()
 {
-    It.Advance();
+    TConstIterator::operator++();
     return *this;
 }
 
-struct TConstSetBitIterator_005563c0 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_005563c0(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_005563c0& operator++();
-};
-
-TConstSetBitIterator_005563c0::TConstSetBitIterator_005563c0(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
+struct FSparseArrayConstIt_005563c0 : public TSparseArray<INT>::TConstIterator
 {
-    It.FindFirstSetBit();
-}
+    FSparseArrayConstIt_005563c0(const TSparseArray<INT>& InArray, INT StartIndex);
+};
 
 // @baa 0x005563c0
-TConstSetBitIterator_005563c0& TConstSetBitIterator_005563c0::operator++()
+FSparseArrayConstIt_005563c0::FSparseArrayConstIt_005563c0(const TSparseArray<INT>& InArray, INT StartIndex)
+    : TConstIterator(InArray, StartIndex)
 {
-    It.Advance();
-    return *this;
 }
 
-struct TConstSetBitIterator_00556540 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_00556540(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_00556540& operator++();
+struct FSparseArrayConstIt_00556540 : public TSparseArray<INT>::TConstIterator
+{
+    FSparseArrayConstIt_00556540(const TSparseArray<INT>& InArray, INT StartIndex);
 };
-
-TConstSetBitIterator_00556540::TConstSetBitIterator_00556540(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
-{
-    It.FindFirstSetBit();
-}
 
 // @baa 0x00556540
-TConstSetBitIterator_00556540& TConstSetBitIterator_00556540::operator++()
+FSparseArrayConstIt_00556540::FSparseArrayConstIt_00556540(const TSparseArray<INT>& InArray, INT StartIndex)
+    : TConstIterator(InArray, StartIndex)
 {
-    It.Advance();
-    return *this;
 }
 
-struct TConstSetBitIterator_00556590 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_00556590(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_00556590& operator++();
+struct FSparseArrayConstIt_00556590 : public TSparseArray<INT>::TConstIterator
+{
+    FSparseArrayConstIt_00556590(const TSparseArray<INT>& InArray, INT StartIndex);
 };
-
-TConstSetBitIterator_00556590::TConstSetBitIterator_00556590(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
-{
-    It.FindFirstSetBit();
-}
 
 // @baa 0x00556590
-TConstSetBitIterator_00556590& TConstSetBitIterator_00556590::operator++()
+FSparseArrayConstIt_00556590::FSparseArrayConstIt_00556590(const TSparseArray<INT>& InArray, INT StartIndex)
+    : TConstIterator(InArray, StartIndex)
 {
-    It.Advance();
-    return *this;
 }
 
-struct TConstSetBitIterator_005565e0 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_005565e0(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_005565e0& operator++();
+struct FSparseArrayConstIt_005565e0 : public TSparseArray<INT>::TConstIterator
+{
+    FSparseArrayConstIt_005565e0& operator++();
 };
-
-TConstSetBitIterator_005565e0::TConstSetBitIterator_005565e0(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
-{
-    It.FindFirstSetBit();
-}
 
 // @baa 0x005565e0
-TConstSetBitIterator_005565e0& TConstSetBitIterator_005565e0::operator++()
+FSparseArrayConstIt_005565e0& FSparseArrayConstIt_005565e0::operator++()
 {
-    It.Advance();
+    TConstIterator::operator++();
     return *this;
 }
 
-struct TConstSetBitIterator_00556600 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_00556600(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_00556600& operator++();
-};
-
-TConstSetBitIterator_00556600::TConstSetBitIterator_00556600(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
+struct FSparseArrayConstIt_00556600 : public TSparseArray<INT>::TConstIterator
 {
-    It.FindFirstSetBit();
-}
+    FSparseArrayConstIt_00556600(const TSparseArray<INT>& InArray, INT StartIndex);
+};
 
 // @baa 0x00556600
-TConstSetBitIterator_00556600& TConstSetBitIterator_00556600::operator++()
+FSparseArrayConstIt_00556600::FSparseArrayConstIt_00556600(const TSparseArray<INT>& InArray, INT StartIndex)
+    : TConstIterator(InArray, StartIndex)
 {
-    It.Advance();
-    return *this;
 }
 
-struct TConstSetBitIterator_00556650 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_00556650(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_00556650& operator++();
+struct FSparseArrayConstIt_00556650 : public TSparseArray<INT>::TConstIterator
+{
+    FSparseArrayConstIt_00556650& operator++();
 };
-
-TConstSetBitIterator_00556650::TConstSetBitIterator_00556650(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
-{
-    It.FindFirstSetBit();
-}
 
 // @baa 0x00556650
-TConstSetBitIterator_00556650& TConstSetBitIterator_00556650::operator++()
+FSparseArrayConstIt_00556650& FSparseArrayConstIt_00556650::operator++()
 {
-    It.Advance();
+    TConstIterator::operator++();
     return *this;
 }
 
-struct TConstSetBitIterator_00556670 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_00556670(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_00556670& operator++();
-};
-
-TConstSetBitIterator_00556670::TConstSetBitIterator_00556670(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
+struct FSparseArrayConstIt_00556670 : public TSparseArray<INT>::TConstIterator
 {
-    It.FindFirstSetBit();
-}
+    FSparseArrayConstIt_00556670(const TSparseArray<INT>& InArray, INT StartIndex);
+};
 
 // @baa 0x00556670
-TConstSetBitIterator_00556670& TConstSetBitIterator_00556670::operator++()
+FSparseArrayConstIt_00556670::FSparseArrayConstIt_00556670(const TSparseArray<INT>& InArray, INT StartIndex)
+    : TConstIterator(InArray, StartIndex)
 {
-    It.Advance();
-    return *this;
 }
 
-struct TConstSetBitIterator_005566c0 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_005566c0(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_005566c0& operator++();
+struct FSparseArrayConstIt_005566c0 : public TSparseArray<INT>::TConstIterator
+{
+    FSparseArrayConstIt_005566c0& operator++();
 };
-
-TConstSetBitIterator_005566c0::TConstSetBitIterator_005566c0(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
-{
-    It.FindFirstSetBit();
-}
 
 // @baa 0x005566c0
-TConstSetBitIterator_005566c0& TConstSetBitIterator_005566c0::operator++()
+FSparseArrayConstIt_005566c0& FSparseArrayConstIt_005566c0::operator++()
 {
-    It.Advance();
+    TConstIterator::operator++();
     return *this;
 }
 
-struct TConstSetBitIterator_005566e0 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_005566e0(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_005566e0& operator++();
-};
-
-TConstSetBitIterator_005566e0::TConstSetBitIterator_005566e0(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
+struct FSparseArrayConstIt_005566e0 : public TSparseArray<INT>::TConstIterator
 {
-    It.FindFirstSetBit();
-}
+    FSparseArrayConstIt_005566e0(const TSparseArray<INT>& InArray, INT StartIndex);
+};
 
 // @baa 0x005566e0
-TConstSetBitIterator_005566e0& TConstSetBitIterator_005566e0::operator++()
+FSparseArrayConstIt_005566e0::FSparseArrayConstIt_005566e0(const TSparseArray<INT>& InArray, INT StartIndex)
+    : TConstIterator(InArray, StartIndex)
 {
-    It.Advance();
-    return *this;
 }
 
-struct TConstSetBitIterator_00556730 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_00556730(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_00556730& operator++();
+struct FSparseArrayConstIt_00556730 : public TSparseArray<INT>::TConstIterator
+{
+    FSparseArrayConstIt_00556730& operator++();
 };
-
-TConstSetBitIterator_00556730::TConstSetBitIterator_00556730(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
-{
-    It.FindFirstSetBit();
-}
 
 // @baa 0x00556730
-TConstSetBitIterator_00556730& TConstSetBitIterator_00556730::operator++()
+FSparseArrayConstIt_00556730& FSparseArrayConstIt_00556730::operator++()
 {
-    It.Advance();
+    TConstIterator::operator++();
     return *this;
 }
 
-struct TConstSetBitIterator_00556750 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_00556750(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_00556750& operator++();
-};
-
-TConstSetBitIterator_00556750::TConstSetBitIterator_00556750(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
+struct FSparseArrayConstIt_00556750 : public TSparseArray<INT>::TConstIterator
 {
-    It.FindFirstSetBit();
-}
+    FSparseArrayConstIt_00556750(const TSparseArray<INT>& InArray, INT StartIndex);
+};
 
 // @baa 0x00556750
-TConstSetBitIterator_00556750& TConstSetBitIterator_00556750::operator++()
+FSparseArrayConstIt_00556750::FSparseArrayConstIt_00556750(const TSparseArray<INT>& InArray, INT StartIndex)
+    : TConstIterator(InArray, StartIndex)
 {
-    It.Advance();
-    return *this;
 }
 
-struct TConstSetBitIterator_005567a0 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_005567a0(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_005567a0& operator++();
+struct FSparseArrayConstIt_005567a0 : public TSparseArray<INT>::TConstIterator
+{
+    FSparseArrayConstIt_005567a0& operator++();
 };
-
-TConstSetBitIterator_005567a0::TConstSetBitIterator_005567a0(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
-{
-    It.FindFirstSetBit();
-}
 
 // @baa 0x005567a0
-TConstSetBitIterator_005567a0& TConstSetBitIterator_005567a0::operator++()
+FSparseArrayConstIt_005567a0& FSparseArrayConstIt_005567a0::operator++()
 {
-    It.Advance();
+    TConstIterator::operator++();
     return *this;
 }
 
-struct TConstSetBitIterator_005567c0 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_005567c0(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_005567c0& operator++();
-};
-
-TConstSetBitIterator_005567c0::TConstSetBitIterator_005567c0(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
+struct FSparseArrayConstIt_005567c0 : public TSparseArray<INT>::TConstIterator
 {
-    It.FindFirstSetBit();
-}
+    FSparseArrayConstIt_005567c0(const TSparseArray<INT>& InArray, INT StartIndex);
+};
 
 // @baa 0x005567c0
-TConstSetBitIterator_005567c0& TConstSetBitIterator_005567c0::operator++()
+FSparseArrayConstIt_005567c0::FSparseArrayConstIt_005567c0(const TSparseArray<INT>& InArray, INT StartIndex)
+    : TConstIterator(InArray, StartIndex)
 {
-    It.Advance();
-    return *this;
 }
 
-struct TConstSetBitIterator_00556810 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_00556810(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_00556810& operator++();
+struct FSparseArrayConstIt_00556810 : public TSparseArray<INT>::TConstIterator
+{
+    FSparseArrayConstIt_00556810& operator++();
 };
-
-TConstSetBitIterator_00556810::TConstSetBitIterator_00556810(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
-{
-    It.FindFirstSetBit();
-}
 
 // @baa 0x00556810
-TConstSetBitIterator_00556810& TConstSetBitIterator_00556810::operator++()
+FSparseArrayConstIt_00556810& FSparseArrayConstIt_00556810::operator++()
 {
-    It.Advance();
+    TConstIterator::operator++();
     return *this;
 }
 
-struct TConstSetBitIterator_005593e0 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_005593e0(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_005593e0& operator++();
-};
-
-TConstSetBitIterator_005593e0::TConstSetBitIterator_005593e0(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
+struct FSparseArrayConstIt_005593e0 : public TSparseArray<INT>::TConstIterator
 {
-    It.FindFirstSetBit();
-}
+    FSparseArrayConstIt_005593e0(const TSparseArray<INT>& InArray, INT StartIndex);
+};
 
 // @baa 0x005593e0
-TConstSetBitIterator_005593e0& TConstSetBitIterator_005593e0::operator++()
+FSparseArrayConstIt_005593e0::FSparseArrayConstIt_005593e0(const TSparseArray<INT>& InArray, INT StartIndex)
+    : TConstIterator(InArray, StartIndex)
 {
-    It.Advance();
-    return *this;
 }
 
-struct TConstSetBitIterator_00559710 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_00559710(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_00559710& operator++();
+struct FSparseArrayConstIt_00559710 : public TSparseArray<INT>::TConstIterator
+{
+    FSparseArrayConstIt_00559710(const TSparseArray<INT>& InArray, INT StartIndex);
 };
 
-TConstSetBitIterator_00559710::TConstSetBitIterator_00559710(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
-{
-    It.FindFirstSetBit();
-}
-
 // @baa 0x00559710
-TConstSetBitIterator_00559710& TConstSetBitIterator_00559710::operator++()
+FSparseArrayConstIt_00559710::FSparseArrayConstIt_00559710(const TSparseArray<INT>& InArray, INT StartIndex)
+    : TConstIterator(InArray, StartIndex)
 {
-    It.Advance();
-    return *this;
 }
 
 void sub_00557100();
@@ -1137,24 +740,15 @@ void sub_00558010();
 // @baa 0x00559d40
 void sub_00559d40(void) { sub_00558010(); }
 
-struct TConstSetBitIterator_00559d50 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_00559d50(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_00559d50& operator++();
+struct FSparseArrayConstIt_00559d50 : public TSparseArray<INT>::TConstIterator
+{
+    FSparseArrayConstIt_00559d50& operator++();
 };
 
-TConstSetBitIterator_00559d50::TConstSetBitIterator_00559d50(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
-{
-    It.FindFirstSetBit();
-}
-
 // @baa 0x00559d50
-TConstSetBitIterator_00559d50& TConstSetBitIterator_00559d50::operator++()
+FSparseArrayConstIt_00559d50& FSparseArrayConstIt_00559d50::operator++()
 {
-    It.Advance();
+    TConstIterator::operator++();
     return *this;
 }
 
@@ -1162,24 +756,15 @@ void sub_005580b0();
 // @baa 0x00559d70
 void sub_00559d70(void) { sub_005580b0(); }
 
-struct TConstSetBitIterator_00559d80 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_00559d80(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_00559d80& operator++();
+struct FSparseArrayConstIt_00559d80 : public TSparseArray<INT>::TConstIterator
+{
+    FSparseArrayConstIt_00559d80& operator++();
 };
 
-TConstSetBitIterator_00559d80::TConstSetBitIterator_00559d80(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
-{
-    It.FindFirstSetBit();
-}
-
 // @baa 0x00559d80
-TConstSetBitIterator_00559d80& TConstSetBitIterator_00559d80::operator++()
+FSparseArrayConstIt_00559d80& FSparseArrayConstIt_00559d80::operator++()
 {
-    It.Advance();
+    TConstIterator::operator++();
     return *this;
 }
 
@@ -1904,25 +1489,15 @@ int C_0055d180::sub_0055d180(void)
   return *(int *)*param_1 + param_1[5] * 0xc;
 }
 
-struct TConstSetBitIterator_0055d200 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_0055d200(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_0055d200& operator++();
+struct FSparseArrayConstIt_0055d200 : public TSparseArray<INT>::TConstIterator
+{
+    FSparseArrayConstIt_0055d200(const TSparseArray<INT>& InArray, INT StartIndex);
 };
 
-TConstSetBitIterator_0055d200::TConstSetBitIterator_0055d200(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
-{
-    It.FindFirstSetBit();
-}
-
 // @baa 0x0055d200
-TConstSetBitIterator_0055d200& TConstSetBitIterator_0055d200::operator++()
+FSparseArrayConstIt_0055d200::FSparseArrayConstIt_0055d200(const TSparseArray<INT>& InArray, INT StartIndex)
+    : TConstIterator(InArray, StartIndex)
 {
-    It.Advance();
-    return *this;
 }
 
 struct C_0055d250 {
@@ -1941,45 +1516,26 @@ int C_0055d250::sub_0055d250(int param_2)
   return 0;
 }
 
-struct TConstSetBitIterator_0055d280 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_0055d280(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_0055d280& operator++();
-};
-
-TConstSetBitIterator_0055d280::TConstSetBitIterator_0055d280(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
+struct FSparseArrayConstIt_0055d280 : public TSparseArray<INT>::TConstIterator
 {
-    It.FindFirstSetBit();
-}
+    FSparseArrayConstIt_0055d280(const TSparseArray<INT>& InArray, INT StartIndex);
+};
 
 // @baa 0x0055d280
-TConstSetBitIterator_0055d280& TConstSetBitIterator_0055d280::operator++()
+FSparseArrayConstIt_0055d280::FSparseArrayConstIt_0055d280(const TSparseArray<INT>& InArray, INT StartIndex)
+    : TConstIterator(InArray, StartIndex)
 {
-    It.Advance();
-    return *this;
 }
 
-struct TConstSetBitIterator_0055d2d0 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_0055d2d0(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_0055d2d0& operator++();
+struct FSparseArrayConstIt_0055d2d0 : public TSparseArray<INT>::TConstIterator
+{
+    FSparseArrayConstIt_0055d2d0& operator++();
 };
 
-TConstSetBitIterator_0055d2d0::TConstSetBitIterator_0055d2d0(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
-{
-    It.FindFirstSetBit();
-}
-
 // @baa 0x0055d2d0
-TConstSetBitIterator_0055d2d0& TConstSetBitIterator_0055d2d0::operator++()
+FSparseArrayConstIt_0055d2d0& FSparseArrayConstIt_0055d2d0::operator++()
 {
-    It.Advance();
+    TConstIterator::operator++();
     return *this;
 }
 
@@ -3410,256 +2966,142 @@ int UFMODAudioDevice::sub_00e75690(int param_2)
   return param_2 * 0x10 + *param_1;
 }
 
-struct TConstSetBitIterator_00e75a00 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_00e75a00(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_00e75a00& operator++();
-};
-
-TConstSetBitIterator_00e75a00::TConstSetBitIterator_00e75a00(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
+struct FSparseArrayConstIt_00e75a00 : public TSparseArray<INT>::TConstIterator
 {
-    It.FindFirstSetBit();
-}
+    FSparseArrayConstIt_00e75a00& operator++();
+};
 
 // @baa 0x00e75a00
-TConstSetBitIterator_00e75a00& TConstSetBitIterator_00e75a00::operator++()
+FSparseArrayConstIt_00e75a00& FSparseArrayConstIt_00e75a00::operator++()
 {
-    It.Advance();
+    TConstIterator::operator++();
     return *this;
 }
 
-struct TConstSetBitIterator_00e75a20 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_00e75a20(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_00e75a20& operator++();
-};
-
-TConstSetBitIterator_00e75a20::TConstSetBitIterator_00e75a20(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
+struct FSparseArrayConstIt_00e75a20 : public TSparseArray<INT>::TConstIterator
 {
-    It.FindFirstSetBit();
-}
+    FSparseArrayConstIt_00e75a20& operator++();
+};
 
 // @baa 0x00e75a20
-TConstSetBitIterator_00e75a20& TConstSetBitIterator_00e75a20::operator++()
+FSparseArrayConstIt_00e75a20& FSparseArrayConstIt_00e75a20::operator++()
 {
-    It.Advance();
+    TConstIterator::operator++();
     return *this;
 }
 
-struct TConstSetBitIterator_00e75a40 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_00e75a40(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_00e75a40& operator++();
-};
-
-TConstSetBitIterator_00e75a40::TConstSetBitIterator_00e75a40(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
+struct FSparseArrayConstIt_00e75a40 : public TSparseArray<INT>::TConstIterator
 {
-    It.FindFirstSetBit();
-}
+    FSparseArrayConstIt_00e75a40& operator++();
+};
 
 // @baa 0x00e75a40
-TConstSetBitIterator_00e75a40& TConstSetBitIterator_00e75a40::operator++()
+FSparseArrayConstIt_00e75a40& FSparseArrayConstIt_00e75a40::operator++()
 {
-    It.Advance();
+    TConstIterator::operator++();
     return *this;
 }
 
-struct TConstSetBitIterator_00e75a60 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_00e75a60(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_00e75a60& operator++();
-};
-
-TConstSetBitIterator_00e75a60::TConstSetBitIterator_00e75a60(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
+struct FSparseArrayConstIt_00e75a60 : public TSparseArray<INT>::TConstIterator
 {
-    It.FindFirstSetBit();
-}
+    FSparseArrayConstIt_00e75a60(const TSparseArray<INT>& InArray, INT StartIndex);
+};
 
 // @baa 0x00e75a60
-TConstSetBitIterator_00e75a60& TConstSetBitIterator_00e75a60::operator++()
+FSparseArrayConstIt_00e75a60::FSparseArrayConstIt_00e75a60(const TSparseArray<INT>& InArray, INT StartIndex)
+    : TConstIterator(InArray, StartIndex)
 {
-    It.Advance();
-    return *this;
 }
 
-struct TConstSetBitIterator_00e75ab0 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_00e75ab0(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_00e75ab0& operator++();
+struct FSparseArrayConstIt_00e75ab0 : public TSparseArray<INT>::TConstIterator
+{
+    FSparseArrayConstIt_00e75ab0(const TSparseArray<INT>& InArray, INT StartIndex);
 };
-
-TConstSetBitIterator_00e75ab0::TConstSetBitIterator_00e75ab0(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
-{
-    It.FindFirstSetBit();
-}
 
 // @baa 0x00e75ab0
-TConstSetBitIterator_00e75ab0& TConstSetBitIterator_00e75ab0::operator++()
+FSparseArrayConstIt_00e75ab0::FSparseArrayConstIt_00e75ab0(const TSparseArray<INT>& InArray, INT StartIndex)
+    : TConstIterator(InArray, StartIndex)
 {
-    It.Advance();
-    return *this;
 }
 
-struct TConstSetBitIterator_00e75b00 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_00e75b00(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_00e75b00& operator++();
+struct FSparseArrayConstIt_00e75b00 : public TSparseArray<INT>::TConstIterator
+{
+    FSparseArrayConstIt_00e75b00(const TSparseArray<INT>& InArray, INT StartIndex);
 };
-
-TConstSetBitIterator_00e75b00::TConstSetBitIterator_00e75b00(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
-{
-    It.FindFirstSetBit();
-}
 
 // @baa 0x00e75b00
-TConstSetBitIterator_00e75b00& TConstSetBitIterator_00e75b00::operator++()
+FSparseArrayConstIt_00e75b00::FSparseArrayConstIt_00e75b00(const TSparseArray<INT>& InArray, INT StartIndex)
+    : TConstIterator(InArray, StartIndex)
 {
-    It.Advance();
-    return *this;
 }
 
-struct TConstSetBitIterator_00e75b50 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_00e75b50(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_00e75b50& operator++();
+struct FSparseArrayConstIt_00e75b50 : public TSparseArray<INT>::TConstIterator
+{
+    FSparseArrayConstIt_00e75b50& operator++();
 };
-
-TConstSetBitIterator_00e75b50::TConstSetBitIterator_00e75b50(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
-{
-    It.FindFirstSetBit();
-}
 
 // @baa 0x00e75b50
-TConstSetBitIterator_00e75b50& TConstSetBitIterator_00e75b50::operator++()
+FSparseArrayConstIt_00e75b50& FSparseArrayConstIt_00e75b50::operator++()
 {
-    It.Advance();
+    TConstIterator::operator++();
     return *this;
 }
 
-struct TConstSetBitIterator_00e75b70 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_00e75b70(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_00e75b70& operator++();
-};
-
-TConstSetBitIterator_00e75b70::TConstSetBitIterator_00e75b70(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
+struct FSparseArrayConstIt_00e75b70 : public TSparseArray<INT>::TConstIterator
 {
-    It.FindFirstSetBit();
-}
+    FSparseArrayConstIt_00e75b70& operator++();
+};
 
 // @baa 0x00e75b70
-TConstSetBitIterator_00e75b70& TConstSetBitIterator_00e75b70::operator++()
+FSparseArrayConstIt_00e75b70& FSparseArrayConstIt_00e75b70::operator++()
 {
-    It.Advance();
+    TConstIterator::operator++();
     return *this;
 }
 
-struct TConstSetBitIterator_00e75b90 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_00e75b90(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_00e75b90& operator++();
-};
-
-TConstSetBitIterator_00e75b90::TConstSetBitIterator_00e75b90(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
+struct FSparseArrayConstIt_00e75b90 : public TSparseArray<INT>::TConstIterator
 {
-    It.FindFirstSetBit();
-}
+    FSparseArrayConstIt_00e75b90& operator++();
+};
 
 // @baa 0x00e75b90
-TConstSetBitIterator_00e75b90& TConstSetBitIterator_00e75b90::operator++()
+FSparseArrayConstIt_00e75b90& FSparseArrayConstIt_00e75b90::operator++()
 {
-    It.Advance();
+    TConstIterator::operator++();
     return *this;
 }
 
-struct TConstSetBitIterator_00e75bb0 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_00e75bb0(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_00e75bb0& operator++();
-};
-
-TConstSetBitIterator_00e75bb0::TConstSetBitIterator_00e75bb0(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
+struct FSparseArrayConstIt_00e75bb0 : public TSparseArray<INT>::TConstIterator
 {
-    It.FindFirstSetBit();
-}
+    FSparseArrayConstIt_00e75bb0(const TSparseArray<INT>& InArray, INT StartIndex);
+};
 
 // @baa 0x00e75bb0
-TConstSetBitIterator_00e75bb0& TConstSetBitIterator_00e75bb0::operator++()
+FSparseArrayConstIt_00e75bb0::FSparseArrayConstIt_00e75bb0(const TSparseArray<INT>& InArray, INT StartIndex)
+    : TConstIterator(InArray, StartIndex)
 {
-    It.Advance();
-    return *this;
 }
 
-struct TConstSetBitIterator_00e75c00 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_00e75c00(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_00e75c00& operator++();
+struct FSparseArrayConstIt_00e75c00 : public TSparseArray<INT>::TConstIterator
+{
+    FSparseArrayConstIt_00e75c00(const TSparseArray<INT>& InArray, INT StartIndex);
 };
-
-TConstSetBitIterator_00e75c00::TConstSetBitIterator_00e75c00(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
-{
-    It.FindFirstSetBit();
-}
 
 // @baa 0x00e75c00
-TConstSetBitIterator_00e75c00& TConstSetBitIterator_00e75c00::operator++()
+FSparseArrayConstIt_00e75c00::FSparseArrayConstIt_00e75c00(const TSparseArray<INT>& InArray, INT StartIndex)
+    : TConstIterator(InArray, StartIndex)
 {
-    It.Advance();
-    return *this;
 }
 
-struct TConstSetBitIterator_00e75c50 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_00e75c50(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_00e75c50& operator++();
+struct FSparseArrayConstIt_00e75c50 : public TSparseArray<INT>::TConstIterator
+{
+    FSparseArrayConstIt_00e75c50(const TSparseArray<INT>& InArray, INT StartIndex);
 };
 
-TConstSetBitIterator_00e75c50::TConstSetBitIterator_00e75c50(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
-{
-    It.FindFirstSetBit();
-}
-
 // @baa 0x00e75c50
-TConstSetBitIterator_00e75c50& TConstSetBitIterator_00e75c50::operator++()
+FSparseArrayConstIt_00e75c50::FSparseArrayConstIt_00e75c50(const TSparseArray<INT>& InArray, INT StartIndex)
+    : TConstIterator(InArray, StartIndex)
 {
-    It.Advance();
-    return *this;
 }
 
 struct C_00e7ae90 {
@@ -3773,130 +3215,70 @@ int UFMODAudioDevice::sub_00e7af90(int param_2)
   return 0;
 }
 
-struct TConstSetBitIterator_00e7b200 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_00e7b200(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_00e7b200& operator++();
-};
-
-TConstSetBitIterator_00e7b200::TConstSetBitIterator_00e7b200(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
+struct FSparseArrayConstIt_00e7b200 : public TSparseArray<INT>::TConstIterator
 {
-    It.FindFirstSetBit();
-}
+    FSparseArrayConstIt_00e7b200(const TSparseArray<INT>& InArray, INT StartIndex);
+};
 
 // @baa 0x00e7b200
-TConstSetBitIterator_00e7b200& TConstSetBitIterator_00e7b200::operator++()
+FSparseArrayConstIt_00e7b200::FSparseArrayConstIt_00e7b200(const TSparseArray<INT>& InArray, INT StartIndex)
+    : TConstIterator(InArray, StartIndex)
 {
-    It.Advance();
-    return *this;
 }
 
-struct TConstSetBitIterator_00e7b250 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_00e7b250(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_00e7b250& operator++();
+struct FSparseArrayConstIt_00e7b250 : public TSparseArray<INT>::TConstIterator
+{
+    FSparseArrayConstIt_00e7b250(const TSparseArray<INT>& InArray, INT StartIndex);
 };
-
-TConstSetBitIterator_00e7b250::TConstSetBitIterator_00e7b250(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
-{
-    It.FindFirstSetBit();
-}
 
 // @baa 0x00e7b250
-TConstSetBitIterator_00e7b250& TConstSetBitIterator_00e7b250::operator++()
+FSparseArrayConstIt_00e7b250::FSparseArrayConstIt_00e7b250(const TSparseArray<INT>& InArray, INT StartIndex)
+    : TConstIterator(InArray, StartIndex)
 {
-    It.Advance();
-    return *this;
 }
 
-struct TConstSetBitIterator_00e7b2a0 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_00e7b2a0(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_00e7b2a0& operator++();
+struct FSparseArrayConstIt_00e7b2a0 : public TSparseArray<INT>::TConstIterator
+{
+    FSparseArrayConstIt_00e7b2a0(const TSparseArray<INT>& InArray, INT StartIndex);
 };
-
-TConstSetBitIterator_00e7b2a0::TConstSetBitIterator_00e7b2a0(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
-{
-    It.FindFirstSetBit();
-}
 
 // @baa 0x00e7b2a0
-TConstSetBitIterator_00e7b2a0& TConstSetBitIterator_00e7b2a0::operator++()
+FSparseArrayConstIt_00e7b2a0::FSparseArrayConstIt_00e7b2a0(const TSparseArray<INT>& InArray, INT StartIndex)
+    : TConstIterator(InArray, StartIndex)
 {
-    It.Advance();
-    return *this;
 }
 
-struct TConstSetBitIterator_00e7b410 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_00e7b410(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_00e7b410& operator++();
+struct FSparseArrayConstIt_00e7b410 : public TSparseArray<INT>::TConstIterator
+{
+    FSparseArrayConstIt_00e7b410(const TSparseArray<INT>& InArray, INT StartIndex);
 };
-
-TConstSetBitIterator_00e7b410::TConstSetBitIterator_00e7b410(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
-{
-    It.FindFirstSetBit();
-}
 
 // @baa 0x00e7b410
-TConstSetBitIterator_00e7b410& TConstSetBitIterator_00e7b410::operator++()
+FSparseArrayConstIt_00e7b410::FSparseArrayConstIt_00e7b410(const TSparseArray<INT>& InArray, INT StartIndex)
+    : TConstIterator(InArray, StartIndex)
 {
-    It.Advance();
-    return *this;
 }
 
-struct TConstSetBitIterator_00e7b460 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_00e7b460(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_00e7b460& operator++();
+struct FSparseArrayConstIt_00e7b460 : public TSparseArray<INT>::TConstIterator
+{
+    FSparseArrayConstIt_00e7b460(const TSparseArray<INT>& InArray, INT StartIndex);
 };
-
-TConstSetBitIterator_00e7b460::TConstSetBitIterator_00e7b460(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
-{
-    It.FindFirstSetBit();
-}
 
 // @baa 0x00e7b460
-TConstSetBitIterator_00e7b460& TConstSetBitIterator_00e7b460::operator++()
+FSparseArrayConstIt_00e7b460::FSparseArrayConstIt_00e7b460(const TSparseArray<INT>& InArray, INT StartIndex)
+    : TConstIterator(InArray, StartIndex)
 {
-    It.Advance();
-    return *this;
 }
 
-struct TConstSetBitIterator_00e7b4b0 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_00e7b4b0(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_00e7b4b0& operator++();
+struct FSparseArrayConstIt_00e7b4b0 : public TSparseArray<INT>::TConstIterator
+{
+    FSparseArrayConstIt_00e7b4b0(const TSparseArray<INT>& InArray, INT StartIndex);
 };
 
-TConstSetBitIterator_00e7b4b0::TConstSetBitIterator_00e7b4b0(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
-{
-    It.FindFirstSetBit();
-}
-
 // @baa 0x00e7b4b0
-TConstSetBitIterator_00e7b4b0& TConstSetBitIterator_00e7b4b0::operator++()
+FSparseArrayConstIt_00e7b4b0::FSparseArrayConstIt_00e7b4b0(const TSparseArray<INT>& InArray, INT StartIndex)
+    : TConstIterator(InArray, StartIndex)
 {
-    It.Advance();
-    return *this;
 }
 
 struct C_view_00e7c020 {
@@ -3915,24 +3297,15 @@ undefined4 UFMODAudioDevice::sub_00e7c020(int param_2)
   return 0;
 }
 
-struct TConstSetBitIterator_00e7c1e0 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_00e7c1e0(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_00e7c1e0& operator++();
+struct FSparseArrayConstIt_00e7c1e0 : public TSparseArray<INT>::TConstIterator
+{
+    FSparseArrayConstIt_00e7c1e0& operator++();
 };
 
-TConstSetBitIterator_00e7c1e0::TConstSetBitIterator_00e7c1e0(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
-{
-    It.FindFirstSetBit();
-}
-
 // @baa 0x00e7c1e0
-TConstSetBitIterator_00e7c1e0& TConstSetBitIterator_00e7c1e0::operator++()
+FSparseArrayConstIt_00e7c1e0& FSparseArrayConstIt_00e7c1e0::operator++()
 {
-    It.Advance();
+    TConstIterator::operator++();
     return *this;
 }
 
@@ -3975,25 +3348,15 @@ void UFMODAudioDevice::sub_00e7c240(void)
   return;
 }
 
-struct TConstSetBitIterator_00e7c9e0 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_00e7c9e0(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_00e7c9e0& operator++();
+struct FSparseArrayConstIt_00e7c9e0 : public TSparseArray<INT>::TConstIterator
+{
+    FSparseArrayConstIt_00e7c9e0(const TSparseArray<INT>& InArray, INT StartIndex);
 };
 
-TConstSetBitIterator_00e7c9e0::TConstSetBitIterator_00e7c9e0(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
-{
-    It.FindFirstSetBit();
-}
-
 // @baa 0x00e7c9e0
-TConstSetBitIterator_00e7c9e0& TConstSetBitIterator_00e7c9e0::operator++()
+FSparseArrayConstIt_00e7c9e0::FSparseArrayConstIt_00e7c9e0(const TSparseArray<INT>& InArray, INT StartIndex)
+    : TConstIterator(InArray, StartIndex)
 {
-    It.Advance();
-    return *this;
 }
 
 void sub_00e7c060();
@@ -4008,24 +3371,15 @@ void sub_00e7c160();
 // @baa 0x00e7dec0
 void sub_00e7dec0(void) { sub_00e7c160(); }
 
-struct TConstSetBitIterator_00e7ded0 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_00e7ded0(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_00e7ded0& operator++();
+struct FSparseArrayConstIt_00e7ded0 : public TSparseArray<INT>::TConstIterator
+{
+    FSparseArrayConstIt_00e7ded0& operator++();
 };
 
-TConstSetBitIterator_00e7ded0::TConstSetBitIterator_00e7ded0(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
-{
-    It.FindFirstSetBit();
-}
-
 // @baa 0x00e7ded0
-TConstSetBitIterator_00e7ded0& TConstSetBitIterator_00e7ded0::operator++()
+FSparseArrayConstIt_00e7ded0& FSparseArrayConstIt_00e7ded0::operator++()
 {
-    It.Advance();
+    TConstIterator::operator++();
     return *this;
 }
 
@@ -4560,46 +3914,26 @@ void sub_00e85a50(undefined4 param_1, undefined4 param_2, undefined4 param_3)
   return;
 }
 
-struct TConstSetBitIterator_01031840 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_01031840(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_01031840& operator++();
-};
-
-TConstSetBitIterator_01031840::TConstSetBitIterator_01031840(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
+struct FSparseArrayConstIt_01031840 : public TSparseArray<INT>::TConstIterator
 {
-    It.FindFirstSetBit();
-}
+    FSparseArrayConstIt_01031840(const TSparseArray<INT>& InArray, INT StartIndex);
+};
 
 // @baa 0x01031840
-TConstSetBitIterator_01031840& TConstSetBitIterator_01031840::operator++()
+FSparseArrayConstIt_01031840::FSparseArrayConstIt_01031840(const TSparseArray<INT>& InArray, INT StartIndex)
+    : TConstIterator(InArray, StartIndex)
 {
-    It.Advance();
-    return *this;
 }
 
-struct TConstSetBitIterator_01031890 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_01031890(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_01031890& operator++();
+struct FSparseArrayConstIt_01031890 : public TSparseArray<INT>::TConstIterator
+{
+    FSparseArrayConstIt_01031890(const TSparseArray<INT>& InArray, INT StartIndex);
 };
 
-TConstSetBitIterator_01031890::TConstSetBitIterator_01031890(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
-{
-    It.FindFirstSetBit();
-}
-
 // @baa 0x01031890
-TConstSetBitIterator_01031890& TConstSetBitIterator_01031890::operator++()
+FSparseArrayConstIt_01031890::FSparseArrayConstIt_01031890(const TSparseArray<INT>& InArray, INT StartIndex)
+    : TConstIterator(InArray, StartIndex)
 {
-    It.Advance();
-    return *this;
 }
 
 struct C_01038060 {
@@ -4915,361 +4249,191 @@ int C_01038410::sub_01038410(void)
   return param_1;
 }
 
-struct TConstSetBitIterator_01038550 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_01038550(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_01038550& operator++();
-};
-
-TConstSetBitIterator_01038550::TConstSetBitIterator_01038550(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
+struct FSparseArrayConstIt_01038550 : public TSparseArray<INT>::TConstIterator
 {
-    It.FindFirstSetBit();
-}
+    FSparseArrayConstIt_01038550(const TSparseArray<INT>& InArray, INT StartIndex);
+};
 
 // @baa 0x01038550
-TConstSetBitIterator_01038550& TConstSetBitIterator_01038550::operator++()
+FSparseArrayConstIt_01038550::FSparseArrayConstIt_01038550(const TSparseArray<INT>& InArray, INT StartIndex)
+    : TConstIterator(InArray, StartIndex)
 {
-    It.Advance();
-    return *this;
 }
 
-struct TConstSetBitIterator_010385a0 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_010385a0(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_010385a0& operator++();
+struct FSparseArrayConstIt_010385a0 : public TSparseArray<INT>::TConstIterator
+{
+    FSparseArrayConstIt_010385a0(const TSparseArray<INT>& InArray, INT StartIndex);
 };
-
-TConstSetBitIterator_010385a0::TConstSetBitIterator_010385a0(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
-{
-    It.FindFirstSetBit();
-}
 
 // @baa 0x010385a0
-TConstSetBitIterator_010385a0& TConstSetBitIterator_010385a0::operator++()
+FSparseArrayConstIt_010385a0::FSparseArrayConstIt_010385a0(const TSparseArray<INT>& InArray, INT StartIndex)
+    : TConstIterator(InArray, StartIndex)
 {
-    It.Advance();
-    return *this;
 }
 
-struct TConstSetBitIterator_010385f0 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_010385f0(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_010385f0& operator++();
+struct FSparseArrayConstIt_010385f0 : public TSparseArray<INT>::TConstIterator
+{
+    FSparseArrayConstIt_010385f0(const TSparseArray<INT>& InArray, INT StartIndex);
 };
-
-TConstSetBitIterator_010385f0::TConstSetBitIterator_010385f0(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
-{
-    It.FindFirstSetBit();
-}
 
 // @baa 0x010385f0
-TConstSetBitIterator_010385f0& TConstSetBitIterator_010385f0::operator++()
+FSparseArrayConstIt_010385f0::FSparseArrayConstIt_010385f0(const TSparseArray<INT>& InArray, INT StartIndex)
+    : TConstIterator(InArray, StartIndex)
 {
-    It.Advance();
-    return *this;
 }
 
-struct TConstSetBitIterator_01038640 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_01038640(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_01038640& operator++();
+struct FSparseArrayConstIt_01038640 : public TSparseArray<INT>::TConstIterator
+{
+    FSparseArrayConstIt_01038640(const TSparseArray<INT>& InArray, INT StartIndex);
 };
-
-TConstSetBitIterator_01038640::TConstSetBitIterator_01038640(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
-{
-    It.FindFirstSetBit();
-}
 
 // @baa 0x01038640
-TConstSetBitIterator_01038640& TConstSetBitIterator_01038640::operator++()
+FSparseArrayConstIt_01038640::FSparseArrayConstIt_01038640(const TSparseArray<INT>& InArray, INT StartIndex)
+    : TConstIterator(InArray, StartIndex)
 {
-    It.Advance();
-    return *this;
 }
 
-struct TConstSetBitIterator_01038690 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_01038690(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_01038690& operator++();
+struct FSparseArrayConstIt_01038690 : public TSparseArray<INT>::TConstIterator
+{
+    FSparseArrayConstIt_01038690(const TSparseArray<INT>& InArray, INT StartIndex);
 };
-
-TConstSetBitIterator_01038690::TConstSetBitIterator_01038690(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
-{
-    It.FindFirstSetBit();
-}
 
 // @baa 0x01038690
-TConstSetBitIterator_01038690& TConstSetBitIterator_01038690::operator++()
+FSparseArrayConstIt_01038690::FSparseArrayConstIt_01038690(const TSparseArray<INT>& InArray, INT StartIndex)
+    : TConstIterator(InArray, StartIndex)
 {
-    It.Advance();
-    return *this;
 }
 
-struct TConstSetBitIterator_010386e0 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_010386e0(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_010386e0& operator++();
+struct FSparseArrayConstIt_010386e0 : public TSparseArray<INT>::TConstIterator
+{
+    FSparseArrayConstIt_010386e0(const TSparseArray<INT>& InArray, INT StartIndex);
 };
-
-TConstSetBitIterator_010386e0::TConstSetBitIterator_010386e0(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
-{
-    It.FindFirstSetBit();
-}
 
 // @baa 0x010386e0
-TConstSetBitIterator_010386e0& TConstSetBitIterator_010386e0::operator++()
+FSparseArrayConstIt_010386e0::FSparseArrayConstIt_010386e0(const TSparseArray<INT>& InArray, INT StartIndex)
+    : TConstIterator(InArray, StartIndex)
 {
-    It.Advance();
-    return *this;
 }
 
-struct TConstSetBitIterator_01038730 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_01038730(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_01038730& operator++();
+struct FSparseArrayConstIt_01038730 : public TSparseArray<INT>::TConstIterator
+{
+    FSparseArrayConstIt_01038730(const TSparseArray<INT>& InArray, INT StartIndex);
 };
-
-TConstSetBitIterator_01038730::TConstSetBitIterator_01038730(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
-{
-    It.FindFirstSetBit();
-}
 
 // @baa 0x01038730
-TConstSetBitIterator_01038730& TConstSetBitIterator_01038730::operator++()
+FSparseArrayConstIt_01038730::FSparseArrayConstIt_01038730(const TSparseArray<INT>& InArray, INT StartIndex)
+    : TConstIterator(InArray, StartIndex)
 {
-    It.Advance();
-    return *this;
 }
 
-struct TConstSetBitIterator_01038780 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_01038780(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_01038780& operator++();
+struct FSparseArrayConstIt_01038780 : public TSparseArray<INT>::TConstIterator
+{
+    FSparseArrayConstIt_01038780(const TSparseArray<INT>& InArray, INT StartIndex);
 };
-
-TConstSetBitIterator_01038780::TConstSetBitIterator_01038780(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
-{
-    It.FindFirstSetBit();
-}
 
 // @baa 0x01038780
-TConstSetBitIterator_01038780& TConstSetBitIterator_01038780::operator++()
+FSparseArrayConstIt_01038780::FSparseArrayConstIt_01038780(const TSparseArray<INT>& InArray, INT StartIndex)
+    : TConstIterator(InArray, StartIndex)
 {
-    It.Advance();
-    return *this;
 }
 
-struct TConstSetBitIterator_010387d0 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_010387d0(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_010387d0& operator++();
+struct FSparseArrayConstIt_010387d0 : public TSparseArray<INT>::TConstIterator
+{
+    FSparseArrayConstIt_010387d0(const TSparseArray<INT>& InArray, INT StartIndex);
 };
-
-TConstSetBitIterator_010387d0::TConstSetBitIterator_010387d0(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
-{
-    It.FindFirstSetBit();
-}
 
 // @baa 0x010387d0
-TConstSetBitIterator_010387d0& TConstSetBitIterator_010387d0::operator++()
+FSparseArrayConstIt_010387d0::FSparseArrayConstIt_010387d0(const TSparseArray<INT>& InArray, INT StartIndex)
+    : TConstIterator(InArray, StartIndex)
 {
-    It.Advance();
-    return *this;
 }
 
-struct TConstSetBitIterator_01038820 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_01038820(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_01038820& operator++();
+struct FSparseArrayConstIt_01038820 : public TSparseArray<INT>::TConstIterator
+{
+    FSparseArrayConstIt_01038820(const TSparseArray<INT>& InArray, INT StartIndex);
 };
-
-TConstSetBitIterator_01038820::TConstSetBitIterator_01038820(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
-{
-    It.FindFirstSetBit();
-}
 
 // @baa 0x01038820
-TConstSetBitIterator_01038820& TConstSetBitIterator_01038820::operator++()
+FSparseArrayConstIt_01038820::FSparseArrayConstIt_01038820(const TSparseArray<INT>& InArray, INT StartIndex)
+    : TConstIterator(InArray, StartIndex)
 {
-    It.Advance();
-    return *this;
 }
 
-struct TConstSetBitIterator_01038870 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_01038870(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_01038870& operator++();
+struct FSparseArrayConstIt_01038870 : public TSparseArray<INT>::TConstIterator
+{
+    FSparseArrayConstIt_01038870(const TSparseArray<INT>& InArray, INT StartIndex);
 };
-
-TConstSetBitIterator_01038870::TConstSetBitIterator_01038870(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
-{
-    It.FindFirstSetBit();
-}
 
 // @baa 0x01038870
-TConstSetBitIterator_01038870& TConstSetBitIterator_01038870::operator++()
+FSparseArrayConstIt_01038870::FSparseArrayConstIt_01038870(const TSparseArray<INT>& InArray, INT StartIndex)
+    : TConstIterator(InArray, StartIndex)
 {
-    It.Advance();
-    return *this;
 }
 
-struct TConstSetBitIterator_010388c0 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_010388c0(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_010388c0& operator++();
+struct FSparseArrayConstIt_010388c0 : public TSparseArray<INT>::TConstIterator
+{
+    FSparseArrayConstIt_010388c0(const TSparseArray<INT>& InArray, INT StartIndex);
 };
-
-TConstSetBitIterator_010388c0::TConstSetBitIterator_010388c0(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
-{
-    It.FindFirstSetBit();
-}
 
 // @baa 0x010388c0
-TConstSetBitIterator_010388c0& TConstSetBitIterator_010388c0::operator++()
+FSparseArrayConstIt_010388c0::FSparseArrayConstIt_010388c0(const TSparseArray<INT>& InArray, INT StartIndex)
+    : TConstIterator(InArray, StartIndex)
 {
-    It.Advance();
-    return *this;
 }
 
-struct TConstSetBitIterator_01038910 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_01038910(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_01038910& operator++();
+struct FSparseArrayConstIt_01038910 : public TSparseArray<INT>::TConstIterator
+{
+    FSparseArrayConstIt_01038910(const TSparseArray<INT>& InArray, INT StartIndex);
 };
-
-TConstSetBitIterator_01038910::TConstSetBitIterator_01038910(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
-{
-    It.FindFirstSetBit();
-}
 
 // @baa 0x01038910
-TConstSetBitIterator_01038910& TConstSetBitIterator_01038910::operator++()
+FSparseArrayConstIt_01038910::FSparseArrayConstIt_01038910(const TSparseArray<INT>& InArray, INT StartIndex)
+    : TConstIterator(InArray, StartIndex)
 {
-    It.Advance();
-    return *this;
 }
 
-struct TConstSetBitIterator_01038960 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_01038960(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_01038960& operator++();
+struct FSparseArrayConstIt_01038960 : public TSparseArray<INT>::TConstIterator
+{
+    FSparseArrayConstIt_01038960(const TSparseArray<INT>& InArray, INT StartIndex);
 };
-
-TConstSetBitIterator_01038960::TConstSetBitIterator_01038960(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
-{
-    It.FindFirstSetBit();
-}
 
 // @baa 0x01038960
-TConstSetBitIterator_01038960& TConstSetBitIterator_01038960::operator++()
+FSparseArrayConstIt_01038960::FSparseArrayConstIt_01038960(const TSparseArray<INT>& InArray, INT StartIndex)
+    : TConstIterator(InArray, StartIndex)
 {
-    It.Advance();
-    return *this;
 }
 
-struct TConstSetBitIterator_010389b0 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_010389b0(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_010389b0& operator++();
+struct FSparseArrayConstIt_010389b0 : public TSparseArray<INT>::TConstIterator
+{
+    FSparseArrayConstIt_010389b0(const TSparseArray<INT>& InArray, INT StartIndex);
 };
-
-TConstSetBitIterator_010389b0::TConstSetBitIterator_010389b0(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
-{
-    It.FindFirstSetBit();
-}
 
 // @baa 0x010389b0
-TConstSetBitIterator_010389b0& TConstSetBitIterator_010389b0::operator++()
+FSparseArrayConstIt_010389b0::FSparseArrayConstIt_010389b0(const TSparseArray<INT>& InArray, INT StartIndex)
+    : TConstIterator(InArray, StartIndex)
 {
-    It.Advance();
-    return *this;
 }
 
-struct TConstSetBitIterator_01038a00 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_01038a00(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_01038a00& operator++();
+struct FSparseArrayConstIt_01038a00 : public TSparseArray<INT>::TConstIterator
+{
+    FSparseArrayConstIt_01038a00(const TSparseArray<INT>& InArray, INT StartIndex);
 };
-
-TConstSetBitIterator_01038a00::TConstSetBitIterator_01038a00(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
-{
-    It.FindFirstSetBit();
-}
 
 // @baa 0x01038a00
-TConstSetBitIterator_01038a00& TConstSetBitIterator_01038a00::operator++()
+FSparseArrayConstIt_01038a00::FSparseArrayConstIt_01038a00(const TSparseArray<INT>& InArray, INT StartIndex)
+    : TConstIterator(InArray, StartIndex)
 {
-    It.Advance();
-    return *this;
 }
 
-struct TConstSetBitIterator_01038a50 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_01038a50(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_01038a50& operator++();
+struct FSparseArrayConstIt_01038a50 : public TSparseArray<INT>::TConstIterator
+{
+    FSparseArrayConstIt_01038a50(const TSparseArray<INT>& InArray, INT StartIndex);
 };
 
-TConstSetBitIterator_01038a50::TConstSetBitIterator_01038a50(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
-{
-    It.FindFirstSetBit();
-}
-
 // @baa 0x01038a50
-TConstSetBitIterator_01038a50& TConstSetBitIterator_01038a50::operator++()
+FSparseArrayConstIt_01038a50::FSparseArrayConstIt_01038a50(const TSparseArray<INT>& InArray, INT StartIndex)
+    : TConstIterator(InArray, StartIndex)
 {
-    It.Advance();
-    return *this;
 }
 
 struct C_view_01038aa0 {
@@ -5390,25 +4554,15 @@ void sub_01037b20();
 // @baa 0x01038d70
 void sub_01038d70(void) { sub_01037b20(); }
 
-struct TConstSetBitIterator_01038e00 {
-    const TBitArray& Array;
-    FBitIterator It;
-    TConstSetBitIterator_01038e00(const TBitArray& InArray, int StartIndex);
-    TConstSetBitIterator_01038e00& operator++();
+struct FSparseArrayConstIt_01038e00 : public TSparseArray<INT>::TConstIterator
+{
+    FSparseArrayConstIt_01038e00(const TSparseArray<INT>& InArray, INT StartIndex);
 };
 
-TConstSetBitIterator_01038e00::TConstSetBitIterator_01038e00(const TBitArray& InArray, int StartIndex)
-    : Array(InArray)
-    , It(InArray, StartIndex)
-{
-    It.FindFirstSetBit();
-}
-
 // @baa 0x01038e00
-TConstSetBitIterator_01038e00& TConstSetBitIterator_01038e00::operator++()
+FSparseArrayConstIt_01038e00::FSparseArrayConstIt_01038e00(const TSparseArray<INT>& InArray, INT StartIndex)
+    : TConstIterator(InArray, StartIndex)
 {
-    It.Advance();
-    return *this;
 }
 
 struct C_01038e50 {
