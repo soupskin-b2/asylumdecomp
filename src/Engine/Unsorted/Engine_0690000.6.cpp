@@ -21,19 +21,12 @@ undefined4 * C::sub_006975d0(void)
   return param_1;
 }
 
-struct UDecalComponent_ : public UDecalComponent
-{
-    void sub_0069bb90(UINT Param)
-    {
-        sub_0069ba80();
-        sub_006f3bf0(Param);
-    }
-};
-
-typedef void (UDecalComponent_::*Method)(UINT);
-
 // @baa 0x0069bb90
-static Method g_0069bb90 = &UDecalComponent_::sub_0069bb90;
+void UDecalComponent::Detach(UBOOL bWillReattach)
+{
+    sub_0069ba80();
+    UPrimitiveComponent::Detach(bWillReattach);
+}
 
 struct F3_0069be30 { float X; float Y; float Z; };
 

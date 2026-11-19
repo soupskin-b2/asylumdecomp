@@ -496,9 +496,6 @@ void UChannel::ReceivedNak(INT param_2)
 // @baa 0x00e07070
 UActorChannel::UActorChannel()
 {
-    *(DWORD*)((BYTE*)this + 0xb4) = 0;
-    *(DWORD*)((BYTE*)this + 0xb8) = 0;
-    *(DWORD*)((BYTE*)this + 0xbc) = 0;
 }
 
 // @baa 0x00e070e0

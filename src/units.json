@@ -190059,7 +190059,7 @@
     {
      "va": "00761800",
      "size": 24,
-     "symbol": "?sub_00761800@UTextureCube_@@QAEXH@Z"
+     "symbol": "?PostEditChange@UTextureCube@@UAEXPAUUProperty@@@Z"
     },
     {
      "va": "00761820",
@@ -275474,7 +275474,7 @@
     {
      "va": "0069bb90",
      "size": 24,
-     "symbol": "?sub_0069bb90@UDecalComponent_@@QAEXI@Z"
+     "symbol": "?Detach@UDecalComponent@@UAEXH@Z"
     },
     {
      "va": "0069bc50",

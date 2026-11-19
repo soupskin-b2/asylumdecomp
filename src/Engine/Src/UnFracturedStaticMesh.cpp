@@ -964,33 +964,9 @@ UBOOL AFracturedStaticMeshPart::HasParentClassChanged() const
 }
 
 // @baa 0x007ca3e0
+/* 0x007ca3e0 is ~UStaticMesh (DECLARE_CLASS's inline destructor): defining the constructor here makes this file emit it. */
 UStaticMesh::UStaticMesh()
 {
-    *(DWORD*)((BYTE*)this + 0x3c) = 0;
-    *(DWORD*)((BYTE*)this + 0x40) = 0;
-    *(DWORD*)((BYTE*)this + 0x44) = 0;
-    *(DWORD*)((BYTE*)this + 0x68) = 0;
-    *(DWORD*)((BYTE*)this + 0x6c) = 0;
-    *(DWORD*)((BYTE*)this + 0x70) = 0;
-    *(DWORD*)((BYTE*)this + 0x74) = 0;
-    *(DWORD*)((BYTE*)this + 0x78) = 0;
-    *(DWORD*)((BYTE*)this + 0x7c) = 0;
-    *(DWORD*)((BYTE*)this + 0xa0) = 0;
-    *(DWORD*)((BYTE*)this + 0xa4) = 0;
-    *(DWORD*)((BYTE*)this + 0xa8) = 0;
-    *(DWORD*)((BYTE*)this + 0xac) = 0;
-    *(DWORD*)((BYTE*)this + 0xb0) = 0;
-    *(DWORD*)((BYTE*)this + 0xb4) = 0;
-    *(DWORD*)((BYTE*)this + 0xd8) = 0;
-    *(DWORD*)((BYTE*)this + 0xdc) = 0;
-    *(DWORD*)((BYTE*)this + 0xe0) = 0;
-    *(DWORD*)((BYTE*)this + 0x104) = 0;
-    *(DWORD*)((BYTE*)this + 0x108) = 0;
-    *(DWORD*)((BYTE*)this + 0x10c) = 0;
-    *(DWORD*)((BYTE*)this + 0x110) = 0;
-    *(DWORD*)((BYTE*)this + 0x114) = 0;
-    *(DWORD*)((BYTE*)this + 0x118) = 0;
-    *(DWORD*)((BYTE*)this + 0x11c) = 0;
 }
 
 int sub_005c7a70(...);

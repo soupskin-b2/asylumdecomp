@@ -4,14 +4,9 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00642e60
+/* 0x00642e60 is ~USystem (DECLARE_CLASS's inline destructor): defining the constructor here makes this file emit it. */
 USystem::USystem()
 {
-    *(DWORD*)((BYTE*)this + 0x84) = 0;
-    *(DWORD*)((BYTE*)this + 0x88) = 0;
-    *(DWORD*)((BYTE*)this + 0x8c) = 0;
-    *(DWORD*)((BYTE*)this + 0xcc) = 0;
-    *(DWORD*)((BYTE*)this + 0xd0) = 0;
-    *(DWORD*)((BYTE*)this + 0xd4) = 0;
 }
 
 int sub_0053dfa0(...);

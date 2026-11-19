@@ -528,18 +528,9 @@ C_00f681c0::C_00f681c0() {}
 void C_00f681c0::sub_00f683a0() {}
 
 // @baa 0x00f68250
+/* 0x00f68250 is ~UEditorEngine (DECLARE_CLASS's inline destructor): defining the constructor here makes this file emit it. */
 UEditorEngine::UEditorEngine()
 {
-    *(DWORD*)((BYTE*)this + 0x4bc) = 0;
-    *(DWORD*)((BYTE*)this + 0x4c0) = 0;
-    *(DWORD*)((BYTE*)this + 0x4c4) = 0;
-    *(DWORD*)((BYTE*)this + 0x580) = 0;
-    *(DWORD*)((BYTE*)this + 0x584) = 0;
-    *(DWORD*)((BYTE*)this + 0x588) = 0;
-    *(DWORD*)((BYTE*)this + 0x58c) = 0;
-    *(DWORD*)((BYTE*)this + 0x590) = 0;
-    *(DWORD*)((BYTE*)this + 0x594) = 0;
-    *(DWORD*)((BYTE*)this + 0x5f0) = 0;
 }
 
 int sub_005c7a70(...);

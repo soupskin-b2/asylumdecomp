@@ -136,19 +136,9 @@ IMPLEMENT_CLASS_AT(UCoverGroupRenderingComponent, "e:\\Projects\\Amadeus\\AA\\Ga
 
 // @baa 0x00c14820
 // @baa 0x00c14850
+/* 0x00c14850 is ~UPendingLevel (DECLARE_CLASS's inline destructor): defining the constructor here makes this file emit it. */
 UPendingLevel::UPendingLevel()
 {
-    *(DWORD*)((BYTE*)this + 0x88) = 0;
-    *(DWORD*)((BYTE*)this + 0x8c) = 0;
-    *(DWORD*)((BYTE*)this + 0x90) = 0;
-    *(DWORD*)((BYTE*)this + 0x94) = 0;
-    *(DWORD*)((BYTE*)this + 0x98) = 0;
-    *(DWORD*)((BYTE*)this + 0x9c) = 0;
-    *(DWORD*)((BYTE*)this + 0xa0) = 0;
-    *(DWORD*)((BYTE*)this + 0xa4) = 0;
-    *(DWORD*)((BYTE*)this + 0xa8) = 0;
-    *(DWORD*)((BYTE*)this + 0xac) = 0;
-    *(DWORD*)((BYTE*)this + 0xb0) = 0;
 }
 
 int sub_005db340(void);

@@ -63133,7 +63133,7 @@ struct UActorChannel : public UChannel {
     TArray<BYTE> Native_90; /* 0x90: C++ only (destroyed by its destructor) */
     TArray<INT> Native_9c; /* 0x9c: C++ only (destroyed by its destructor) */
     TArray<FNativeElem_00e04dc0> Native_a8; /* 0xa8: C++ only (destroyed by its destructor) */
-    TArrayNoInit<FNativeElem_00dff480> Native_b4; /* 0xb4: C++ only (destroyed by its destructor) */
+    TArray<FNativeElem_00dff480> Native_b4; /* 0xb4: C++ only (destroyed by its destructor) */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -63305,7 +63305,7 @@ struct UAnalyzeReferencedContentCommandlet : public UCommandlet {
     UAnalyzeReferencedContentCommandlet(); /* 0x010595d0 */
     void InitializeIntrinsicPropertyValues(); /* 0x010148d0 */
     FNativeDtor_01054d20_2d4 Native_70; /* 0x70: C++ only (destroyed by its destructor) */
-    TArrayNoInit<FString> Native_344; /* 0x344: C++ only (destroyed by its destructor) */
+    TArray<FString> Native_344; /* 0x344: C++ only (destroyed by its destructor) */
     FNativeDtor_01059430_154 Native_350; /* 0x350: C++ only (destroyed by its destructor) */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
@@ -63807,7 +63807,7 @@ struct __declspec(align(16)) UEditorEngine : public UEngine, public FCallbackEve
     BYTE _native0[0xc];
     TArray<FNativeElem_00cc4be0> Native_43c; /* 0x43c: C++ only (destroyed by its destructor) */
     BYTE _native1[0x74];
-    TArrayNoInit<FNativeElem_00f59f60> Native_4bc; /* 0x4bc: C++ only (destroyed by its destructor) */
+    TArray<FNativeElem_00f59f60> Native_4bc; /* 0x4bc: C++ only (destroyed by its destructor) */
     BYTE _native2[0x8];
     FEditorPolyMember_4d0 Native_4d0; /* 0x4d0: C++ only (destroyed by its destructor) */
     BYTE _native3[0x5c];
@@ -63819,8 +63819,8 @@ struct __declspec(align(16)) UEditorEngine : public UEngine, public FCallbackEve
     FStringNoInit Native_564; /* 0x564: C++ only (destroyed by its destructor) */
     FStringNoInit Native_570; /* 0x570: C++ only (destroyed by its destructor) */
     BYTE _native9[0x4];
-    FStringNoInit Native_580; /* 0x580: C++ only (destroyed by its destructor) */
-    TArrayNoInit<FNativeElem_00f59fc0> Native_58c; /* 0x58c: C++ only (destroyed by its destructor) */
+    FString Native_580; /* 0x580: C++ only (destroyed by its destructor) */
+    TArray<FNativeElem_00f59fc0> Native_58c; /* 0x58c: C++ only (destroyed by its destructor) */
     FStringNoInit Native_598; /* 0x598: C++ only (destroyed by its destructor) */
     FStringNoInit Native_5a4; /* 0x5a4: C++ only (destroyed by its destructor) */
     BYTE _native13[0x44];
@@ -63973,10 +63973,10 @@ struct UUnrealEdEngine : public UEditorEngine, public FNotifyHook {
     FStringNoInit Native_634; /* 0x634: C++ only (destroyed by its destructor) */
     BYTE _native2[0x14];
     TArray<FNativeElem_01284a50> Native_654; /* 0x654: C++ only (destroyed by its destructor) */
-    TArrayNoInit<FNativeElem_01284ab0> Native_660; /* 0x660: C++ only (destroyed by its destructor) */
+    TArray<FNativeElem_01284ab0> Native_660; /* 0x660: C++ only (destroyed by its destructor) */
     TArrayNoInit<FString> Native_66c; /* 0x66c: C++ only (destroyed by its destructor) */
-    TArrayNoInit<FName> Native_678; /* 0x678: C++ only (destroyed by its destructor) */
-    TArrayNoInit<FNativeElem_012902a0> Native_684; /* 0x684: C++ only (destroyed by its destructor) */
+    TArray<FName> Native_678; /* 0x678: C++ only (destroyed by its destructor) */
+    TArray<FNativeElem_012902a0> Native_684; /* 0x684: C++ only (destroyed by its destructor) */
     /* virtual functions this class introduces (vtable 0x022190b8) */
     virtual void UpdatePropertyWindows(); /* 0x318 */
     virtual AActor* ReplaceActor( AActor* CurrentActor, UClass* NewActorClass, UObject* Archetype, UBOOL bNoteSelectionChange ); /* 0x31c */
@@ -64677,20 +64677,20 @@ struct UNetConnection : public UPlayer, public FOutputDevice {
     FStringNoInit ClientResponse; /* 0xd8 */
     BYTE _native3[0xc];
     FStringNoInit Native_f0; /* 0xf0: C++ only (destroyed by its destructor) */
-    FStringNoInit Native_fc; /* 0xfc: C++ only (destroyed by its destructor) */
-    FStringNoInit Native_108; /* 0x108: C++ only (destroyed by its destructor) */
+    FString Native_fc; /* 0xfc: C++ only (destroyed by its destructor) */
+    FString Native_108; /* 0x108: C++ only (destroyed by its destructor) */
     BYTE _native6[0x3c];
     FNativeDtor_00572130_fc Native_150; /* 0x150: C++ only (destroyed by its destructor) */
     FNativeDtor_00572130_4c8c Native_24c; /* 0x24c: C++ only (destroyed by its destructor) */
-    TArrayNoInit<INT> Native_4ed8; /* 0x4ed8: C++ only (destroyed by its destructor) */
-    TArrayNoInit<INT> Native_4ee4; /* 0x4ee4: C++ only (destroyed by its destructor) */
+    TArray<INT> Native_4ed8; /* 0x4ed8: C++ only (destroyed by its destructor) */
+    TArray<INT> Native_4ee4; /* 0x4ee4: C++ only (destroyed by its destructor) */
     FNativeDtor_00c00410_c Native_4ef0; /* 0x4ef0: C++ only (destroyed by its destructor) */
-    TArrayNoInit<class AActor*> Native_4efc; /* 0x4efc: C++ only (destroyed by its destructor) */
+    TArray<class AActor*> Native_4efc; /* 0x4efc: C++ only (destroyed by its destructor) */
     FNativeDtor_00c17130_40 Native_4f08; /* 0x4f08: C++ only (destroyed by its destructor) */
     FNativeDtor_00c14cd0_c Native_4f48; /* 0x4f48: C++ only (destroyed by its destructor) */
     FNativeDtor_0060ecc0_14 Native_4f54; /* 0x4f54: C++ only (destroyed by its destructor) */
-    TArrayNoInit<FName> Native_4f68; /* 0x4f68: C++ only (destroyed by its destructor) */
-    TArrayNoInit<FGuid> Native_4f74; /* 0x4f74: C++ only (destroyed by its destructor) */
+    TArray<FName> Native_4f68; /* 0x4f68: C++ only (destroyed by its destructor) */
+    TArray<FGuid> Native_4f74; /* 0x4f74: C++ only (destroyed by its destructor) */
     FNativeDtor_00c066b0_2c Native_4f80; /* 0x4f80: C++ only (destroyed by its destructor) */
     FNativeDtor_00c13780_c Native_4fac; /* 0x4fac: C++ only (destroyed by its destructor) */
     /* virtual functions this class introduces (vtable 0x02031b30) */
@@ -64947,17 +64947,17 @@ struct UClass : public UState {
     class UClass* ClassWithin; /* 0xe4 */
     FName ClassConfigName; /* 0xe8 */
     TArrayNoInit<FName> HideCategories; /* 0xf0 */
-    TArrayNoInit<FName> Native_fc; /* 0xfc: C++ only (destroyed by its destructor) */
-    TArrayNoInit<FName> Native_108; /* 0x108: C++ only (destroyed by its destructor) */
-    TArrayNoInit<FName> Native_114; /* 0x114: C++ only (destroyed by its destructor) */
-    FStringNoInit Native_120; /* 0x120: C++ only (destroyed by its destructor) */
+    TArray<FName> Native_fc; /* 0xfc: C++ only (destroyed by its destructor) */
+    TArray<FName> Native_108; /* 0x108: C++ only (destroyed by its destructor) */
+    TArray<FName> Native_114; /* 0x114: C++ only (destroyed by its destructor) */
+    FString Native_120; /* 0x120: C++ only (destroyed by its destructor) */
     class UObject* ClassDefaultObject; /* 0x12c */
     void (*ClassConstructor)(void*); /* 0x130 */
     void (UObject::*ClassStaticConstructor)(); /* 0x134 */
     void (UObject::*ClassStaticInitializer)(); /* 0x138 */
     FNativeDtor_00582940_3c Native_13c; /* 0x13c: C++ only (destroyed by its destructor) */
     FNativeDtor_005829b0_3c Native_178; /* 0x178: C++ only (destroyed by its destructor) */
-    FStringNoInit Native_1b4; /* 0x1b4: C++ only (destroyed by its destructor) */
+    FString Native_1b4; /* 0x1b4: C++ only (destroyed by its destructor) */
     BYTE _native8[0x4];
     FNativeDtor_00570ff0_c Native_1c4; /* 0x1c4: C++ only (destroyed by its destructor) */
     FNativeDtor_00570ff0_c Native_1d0; /* 0x1d0: C++ only (destroyed by its destructor) */
@@ -65425,21 +65425,21 @@ struct UCookPackagesCommandlet : public UCommandlet {
     UCookPackagesCommandlet(); /* 0x010b5a40 */
     void InitializeIntrinsicPropertyValues(); /* 0x0108ca70 */
     BYTE _native0[0x1c];
-    TArrayNoInit<FString> Native_8c; /* 0x8c: C++ only (destroyed by its destructor) */
-    TArrayNoInit<FString> Native_98; /* 0x98: C++ only (destroyed by its destructor) */
-    FStringNoInit Native_a4; /* 0xa4: C++ only (destroyed by its destructor) */
+    TArray<FString> Native_8c; /* 0x8c: C++ only (destroyed by its destructor) */
+    TArray<FString> Native_98; /* 0x98: C++ only (destroyed by its destructor) */
+    FString Native_a4; /* 0xa4: C++ only (destroyed by its destructor) */
     BYTE _native3[0x58];
-    TArrayNoInit<FString> Native_108; /* 0x108: C++ only (destroyed by its destructor) */
+    TArray<FString> Native_108; /* 0x108: C++ only (destroyed by its destructor) */
     BYTE _native4[0x4];
     FNativeDtor_010a4c50_3c Native_118; /* 0x118: C++ only (destroyed by its destructor) */
     FNativeDtor_005b5c80_3c Native_154; /* 0x154: C++ only (destroyed by its destructor) */
-    FStringNoInit Native_190; /* 0x190: C++ only (destroyed by its destructor) */
+    FString Native_190; /* 0x190: C++ only (destroyed by its destructor) */
     FNativeDtor_0055bb00_3c Native_19c; /* 0x19c: C++ only (destroyed by its destructor) */
-    TArrayNoInit<FString> Native_1d8; /* 0x1d8: C++ only (destroyed by its destructor) */
+    TArray<FString> Native_1d8; /* 0x1d8: C++ only (destroyed by its destructor) */
     BYTE _native9[0x1ac];
     FNativeDtor_010a4ce0_3c Native_390; /* 0x390: C++ only (destroyed by its destructor) */
     FNativeDtor_010a4ce0_3c Native_3cc; /* 0x3cc: C++ only (destroyed by its destructor) */
-    TArrayNoInit<FString> Native_408; /* 0x408: C++ only (destroyed by its destructor) */
+    TArray<FString> Native_408; /* 0x408: C++ only (destroyed by its destructor) */
     BYTE _native12[0x800];
     FNativeDtor_0055bb00_3c Native_c14; /* 0xc14: C++ only (destroyed by its destructor) */
     FNativeDtor_010a4d50_3c Native_c50; /* 0xc50: C++ only (destroyed by its destructor) */
@@ -65752,7 +65752,7 @@ struct UPendingLevel : public ULevelBase, public FNetworkNotify {
     UBOOL bSentJoinRequest; /* 0x94 */
     INT FilesNeeded; /* 0x98 */
     FStringNoInit ConnectionError; /* 0x9c */
-    TArrayNoInit<FNativeElem_00c06710> Native_a8; /* 0xa8: C++ only (destroyed by its destructor) */
+    TArray<FNativeElem_00c06710> Native_a8; /* 0xa8: C++ only (destroyed by its destructor) */
     /* virtual functions this class introduces (vtable 0x02031638) */
     virtual void Tick( FLOAT DeltaTime ); /* 0x10c */
     virtual INT GetDriver(); /* 0x110 */
@@ -66672,7 +66672,15 @@ struct UFontThumbnailRenderer : public UTextureThumbnailRenderer {
     /* registered size 0x30 */
 };
 
-struct FNativeElem_007c5180 { DWORD Value; FNativeElem_007c5180() {} FNativeElem_007c5180(const DWORD& V) : Value(V) {} operator DWORD&() { return Value; } operator const DWORD&() const { return Value; } };  /* the native element type of the arrays ~TArray at 0x007c5180 destroys */
+struct FNativeElem_007c41c0 { DWORD Value; FNativeElem_007c41c0() {} FNativeElem_007c41c0(const DWORD& V) : Value(V) {} operator DWORD&() { return Value; } operator const DWORD&() const { return Value; } };  /* the native element type of the arrays ~TArray at 0x007c41c0 destroys */
+struct FNativeElem_007c4130 { DWORD Value; FNativeElem_007c4130() {} FNativeElem_007c4130(const DWORD& V) : Value(V) {} operator DWORD&() { return Value; } operator const DWORD&() const { return Value; } };  /* the native element type of the arrays ~TArray at 0x007c4130 destroys */
+/* UE3's TkDOPTree<FStaticMeshCollisionDataProvider,WORD> (UnkDOP.h): the static mesh's collision tree, its nodes then
+ * its triangles. The element types (TkDOPNode, FkDOPCollisionTriangle<WORD>) aren't recovered yet. */
+struct FStaticMeshkDOPTree {
+    TArray<FNativeElem_007c41c0> Nodes; /* 0x0 */
+    TArray<FNativeElem_007c4130> Triangles; /* 0xc */
+    ~FStaticMeshkDOPTree(); /* 0x007c5180 */
+};
 struct FNativeElem_007c81e0 { DWORD Value; FNativeElem_007c81e0() {} FNativeElem_007c81e0(const DWORD& V) : Value(V) {} operator DWORD&() { return Value; } operator const DWORD&() const { return Value; } };  /* the native element type of the arrays ~TArray at 0x007c81e0 destroys */
 struct FNativeElem_007ca1b0 { DWORD Value; FNativeElem_007ca1b0() {} FNativeElem_007ca1b0(const DWORD& V) : Value(V) {} operator DWORD&() { return Value; } operator const DWORD&() const { return Value; } };  /* the native element type of the arrays ~TArray at 0x007ca1b0 destroys */
 struct UStaticMesh : public UObject {
@@ -66682,23 +66690,22 @@ struct UStaticMesh : public UObject {
     void StaticConstructor(); /* 0x00956010 */
     void InitializeIntrinsicPropertyValues(); /* 0x0094d4b0 */
     TArray<FNativeElem_007ca1b0> Native_30; /* 0x30: C++ only (destroyed by its destructor) */
-    TArrayNoInit<FNativeElem_007c81e0> Native_3c; /* 0x3c: C++ only (destroyed by its destructor) */
+    TArray<FNativeElem_007c81e0> Native_3c; /* 0x3c: C++ only (destroyed by its destructor) */
     BYTE _native2[0x20];
-    TArrayNoInit<FNativeElem_007c5180> Native_68; /* 0x68: C++ only (destroyed by its destructor) */
-    BYTE _native3[0xc];
+    FStaticMeshkDOPTree kDOPTree; /* 0x68 */
     class URB_BodySetup* BodySetup; /* 0x80 */
     BYTE _native_84[0x1c];
-    TArrayNoInit<FPointer> Native_a0; /* 0xa0: C++ only (destroyed by its destructor) */
-    TArrayNoInit<FVector> Native_ac; /* 0xac: C++ only (destroyed by its destructor) */
+    TArray<FPointer> Native_a0; /* 0xa0: C++ only (destroyed by its destructor) */
+    TArray<FVector> Native_ac; /* 0xac: C++ only (destroyed by its destructor) */
     BYTE _native5[0x20];
-    TArrayNoInit<FName> Native_d8; /* 0xd8: C++ only (destroyed by its destructor) */
+    TArray<FName> Native_d8; /* 0xd8: C++ only (destroyed by its destructor) */
     BYTE _native6[0x4];
     FStringNoInit Native_e8; /* 0xe8: C++ only (destroyed by its destructor) */
     FStringNoInit Native_f4; /* 0xf4: C++ only (destroyed by its destructor) */
     BYTE _native8[0x4];
-    TArrayNoInit<FLOAT> Native_104; /* 0x104: C++ only (destroyed by its destructor) */
-    BYTE _native9[0x4];
-    FStringNoInit Native_114; /* 0x114: C++ only (destroyed by its destructor) */
+    TArray<FLOAT> CachedStreamingTextureFactors; /* 0x104 */
+    FRenderCommandFence ReleaseResourcesFence; /* 0x110 */
+    FString HighResSourceMeshName; /* 0x114 */
     BYTE _native[0x8]; /* C++-only members, to the registered size 0x128 */
     /* virtual functions this class introduces (vtable 0x01f2b160) */
     virtual INT vf_10c(); /* 0x10c */
@@ -68147,17 +68154,17 @@ struct ULevel : public ULevelBase {
     TArrayNoInit<class USequence*> GameSequences; /* 0x94 */
     FNativeDtor_007f57e0_3c Native_a0; /* 0xa0: C++ only (destroyed by its destructor) */
     FNativeDtor_007f5850_50 Native_dc; /* 0xdc: C++ only (destroyed by its destructor) */
-    TArrayNoInit<BYTE> Native_12c; /* 0x12c: C++ only (destroyed by its destructor) */
+    TArray<BYTE> Native_12c; /* 0x12c: C++ only (destroyed by its destructor) */
     BYTE _native5[0x4];
     FNativeDtor_007f58c0_40 Native_13c; /* 0x13c: C++ only (destroyed by its destructor) */
-    TArrayNoInit<FKCachedConvexData> Native_17c; /* 0x17c: C++ only (destroyed by its destructor) */
+    TArray<FKCachedConvexData> Native_17c; /* 0x17c: C++ only (destroyed by its destructor) */
     FNativeDtor_007f5930_3c Native_188; /* 0x188: C++ only (destroyed by its destructor) */
     FNativeDtor_007ee6e0_1c Native_1c4; /* 0x1c4: C++ only (destroyed by its destructor) */
     class ANavigationPoint* NavListStart; /* 0x1d0 */
     class ANavigationPoint* NavListEnd; /* 0x1d4 */
     class ACoverLink* CoverListStart; /* 0x1d8 */
     class ACoverLink* CoverListEnd; /* 0x1dc */
-    TArrayNoInit<class AActor*> Native_1e0; /* 0x1e0: C++ only (destroyed by its destructor) */
+    TArray<class AActor*> Native_1e0; /* 0x1e0: C++ only (destroyed by its destructor) */
     BYTE _native[0x38]; /* C++-only members, to the registered size 0x224 */
     /* virtual functions this class introduces (vtable 0x01f372c8) */
     virtual void vf_10c(INT); /* 0x10c */
@@ -68268,11 +68275,11 @@ struct ULinker : public UObject {
     void StaticConstructor(); /* 0x0059a3e0 */
     BYTE _native0[0x4];
     FNativeDtor_00557180_70 Native_34; /* 0x34: C++ only (destroyed by its destructor) */
-    TArrayNoInit<FName> Native_a4; /* 0xa4: C++ only (destroyed by its destructor) */
+    TArray<FName> Native_a4; /* 0xa4: C++ only (destroyed by its destructor) */
     FNativeDtor_0054f060_c Native_b0; /* 0xb0: C++ only (destroyed by its destructor) */
     FNativeDtor_00557200_c Native_bc; /* 0xbc: C++ only (destroyed by its destructor) */
     FNativeDtor_005ae120_c Native_c8; /* 0xc8: C++ only (destroyed by its destructor) */
-    FStringNoInit Native_d4; /* 0xd4: C++ only (destroyed by its destructor) */
+    FString Native_d4; /* 0xd4: C++ only (destroyed by its destructor) */
     BYTE _native[0x8]; /* C++-only members, to the registered size 0xe8 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
@@ -68347,8 +68354,8 @@ struct ULinkerSave : public ULinker {
     DECLARE_CLASS(ULinkerSave, ULinker, 0x10000008, 0x0, Core)
     ULinkerSave(); /* 0x005b3d20 */
     BYTE _native0[0x80];
-    TArrayNoInit<INT> Native_168; /* 0x168: C++ only (destroyed by its destructor) */
-    TArrayNoInit<INT> Native_174; /* 0x174: C++ only (destroyed by its destructor) */
+    TArray<INT> Native_168; /* 0x168: C++ only (destroyed by its destructor) */
+    TArray<INT> Native_174; /* 0x174: C++ only (destroyed by its destructor) */
     /* virtual functions this class introduces (vtable 0x01e8c560) */
     virtual INT MapName( const FName* Name ) const; /* 0x10c */
     virtual INT MapObject( const UObject* Object ) const; /* 0x110 */
@@ -68828,20 +68835,20 @@ struct UModel : public UObject {
     BYTE _native0[0x4];
     FNativeDtor_00812640_10 Native_34; /* 0x34: C++ only (destroyed by its destructor) */
     FNativeDtor_008126a0_10 Native_44; /* 0x44: C++ only (destroyed by its destructor) */
-    TArrayNoInit<FVector> Native_54; /* 0x54: C++ only (destroyed by its destructor) */
+    TArray<FVector> Native_54; /* 0x54: C++ only (destroyed by its destructor) */
     BYTE _native3[0x4];
-    TArrayNoInit<FVector> Native_64; /* 0x64: C++ only (destroyed by its destructor) */
+    TArray<FVector> Native_64; /* 0x64: C++ only (destroyed by its destructor) */
     BYTE _native4[0x4];
     FNativeDtor_00812720_10 Native_74; /* 0x74: C++ only (destroyed by its destructor) */
-    TArrayNoInit<INT> Native_84; /* 0x84: C++ only (destroyed by its destructor) */
+    TArray<INT> Native_84; /* 0x84: C++ only (destroyed by its destructor) */
     FNativeDtor_008182f0_c Native_90; /* 0x90: C++ only (destroyed by its destructor) */
-    TArrayNoInit<INT> Native_9c; /* 0x9c: C++ only (destroyed by its destructor) */
+    TArray<INT> Native_9c; /* 0x9c: C++ only (destroyed by its destructor) */
     FNativeDtor_008258a0_3c Native_a8; /* 0xa8: C++ only (destroyed by its destructor) */
     FNativeDtor_00820dc0_30 Native_e4; /* 0xe4: C++ only (destroyed by its destructor) */
     FNativeDtor_00656790_240 Native_114; /* 0x114: C++ only (destroyed by its destructor) */
     FNativeDtor_007c4070_c Native_354; /* 0x354: C++ only (destroyed by its destructor) */
     FNativeDtor_00807930_83c Native_360; /* 0x360: C++ only (destroyed by its destructor) */
-    TArrayNoInit<INT> Native_b9c; /* 0xb9c: C++ only (destroyed by its destructor) */
+    TArray<INT> Native_b9c; /* 0xb9c: C++ only (destroyed by its destructor) */
     FNativeDtor_00821b60_10 Native_ba8; /* 0xba8: C++ only (destroyed by its destructor) */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
@@ -69246,7 +69253,7 @@ struct UPackage : public UObject {
     UPackage(); /* 0x005aa2f0 */
     void StaticConstructor(); /* 0x0059c8c0 */
     BYTE _native0[0x30];
-    TArrayNoInit<INT> Native_60; /* 0x60: C++ only (destroyed by its destructor) */
+    TArray<INT> Native_60; /* 0x60: C++ only (destroyed by its destructor) */
     BYTE _native_6c[0x8];
     DWORD PackageFlags; /* 0x74 */
     BYTE _native[0x4]; /* C++-only members, to the registered size 0x7c */
@@ -69890,7 +69897,7 @@ struct UPersistentCookerData : public UObject {
     FNativeDtor_010a4b70_3c Native_6c; /* 0x6c: C++ only (destroyed by its destructor) */
     FNativeDtor_010a4be0_3c Native_a8; /* 0xa8: C++ only (destroyed by its destructor) */
     FNativeDtor_0055bb00_44 Native_e4; /* 0xe4: C++ only (destroyed by its destructor) */
-    FStringNoInit Native_128; /* 0x128: C++ only (destroyed by its destructor) */
+    FString Native_128; /* 0x128: C++ only (destroyed by its destructor) */
     BYTE _native[0x8]; /* C++-only members, to the registered size 0x13c */
     /* virtual functions this class introduces (vtable 0x0219a910) */
     virtual INT vf_10c(); /* 0x10c */
@@ -70108,7 +70115,7 @@ struct UPrecompileShadersCommandlet : public UCommandlet {
     DECLARE_CLASS(UPrecompileShadersCommandlet, UCommandlet, 0x10000008, 0x0, Editor)
     UPrecompileShadersCommandlet(); /* 0x0110f470 */
     void InitializeIntrinsicPropertyValues(); /* 0x01103b50 */
-    FStringNoInit Native_70; /* 0x70: C++ only (destroyed by its destructor) */
+    FString Native_70; /* 0x70: C++ only (destroyed by its destructor) */
     FNativeDtor_01105580_c Native_7c; /* 0x7c: C++ only (destroyed by its destructor) */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
@@ -72506,7 +72513,7 @@ struct UWindowsClient : public UClient {
     UWindowsClient(); /* 0x00ebec30 */
     void StaticConstructor(); /* 0x00eb3750 */
     BYTE _native0[0x4];
-    FStringNoInit Native_54; /* 0x54: C++ only (destroyed by its destructor) */
+    FString Native_54; /* 0x54: C++ only (destroyed by its destructor) */
     FNativeDtor_00ebcdf0_3c Native_60; /* 0x60: C++ only (destroyed by its destructor) */
     FNativeDtor_00ebce60_128 Native_9c; /* 0x9c: C++ only (destroyed by its destructor) */
     FNativeDtor_00eb78e0_c Native_1c4; /* 0x1c4: C++ only (destroyed by its destructor) */
@@ -72606,7 +72613,7 @@ struct UWorld : public UObject, public FNetworkNotify {
     FURL URL; /* 0xcc */
     class UDemoRecDriver* DemoRecDriver; /* 0x110 */
     BYTE _native_114[0x10];
-    TArrayNoInit<class AActor*> Native_124; /* 0x124: C++ only (destroyed by its destructor) */
+    TArray<class AActor*> Native_124; /* 0x124: C++ only (destroyed by its destructor) */
     BYTE _native3[0x1c];
     class ULineBatchComponent* PersistentLineBatcher; /* 0x14c */
     UBOOL bShowLineChecks; /* 0x150 */
@@ -72623,7 +72630,7 @@ struct UWorld : public UObject, public FNetworkNotify {
     FNativeDtor_009c5f90_30 Native_1c8; /* 0x1c8: C++ only (destroyed by its destructor) */
     FNativeDtor_009c5f90_30 Native_1f8; /* 0x1f8: C++ only (destroyed by its destructor) */
     FNativeDtor_006d0eb0_3c Native_228; /* 0x228: C++ only (destroyed by its destructor) */
-    TArrayNoInit<class UObject*> Native_264; /* 0x264: C++ only (destroyed by its destructor) */
+    TArray<class UObject*> Native_264; /* 0x264: C++ only (destroyed by its destructor) */
     BYTE _native[0x8]; /* C++-only members, to the registered size 0x278 */
     /* virtual functions this class introduces (vtable 0x01f9a9a0) */
     virtual bool vf_10c(); /* 0x10c */

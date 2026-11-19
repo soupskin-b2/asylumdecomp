@@ -4,14 +4,9 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00575580
+/* 0x00575580 is ~UScriptStruct (DECLARE_CLASS's inline destructor): defining the constructor here makes this file emit it. */
 UScriptStruct::UScriptStruct()
 {
-    *(DWORD*)((BYTE*)this + 0x84) = 0;
-    *(DWORD*)((BYTE*)this + 0x88) = 0;
-    *(DWORD*)((BYTE*)this + 0x8c) = 0;
-    *(DWORD*)((BYTE*)this + 0x94) = 0;
-    *(DWORD*)((BYTE*)this + 0x98) = 0;
-    *(DWORD*)((BYTE*)this + 0x9c) = 0;
 }
 
 struct C {

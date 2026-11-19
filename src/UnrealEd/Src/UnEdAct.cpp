@@ -215,15 +215,6 @@ int UUnrealEdEngine::sub_01292800(void)
 // @baa 0x01292820
 UUnrealEdEngine::UUnrealEdEngine()
 {
-    *(DWORD*)((BYTE*)this + 0x660) = 0;
-    *(DWORD*)((BYTE*)this + 0x664) = 0;
-    *(DWORD*)((BYTE*)this + 0x668) = 0;
-    *(DWORD*)((BYTE*)this + 0x678) = 0;
-    *(DWORD*)((BYTE*)this + 0x67c) = 0;
-    *(DWORD*)((BYTE*)this + 0x680) = 0;
-    *(DWORD*)((BYTE*)this + 0x684) = 0;
-    *(DWORD*)((BYTE*)this + 0x688) = 0;
-    *(DWORD*)((BYTE*)this + 0x68c) = 0;
 }
 
 struct A_012928b0 { virtual void sub_012929b0(); char pad[1064]; };

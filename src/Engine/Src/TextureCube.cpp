@@ -88,20 +88,11 @@ if(0!=iVar1){
 return;
 }
 
-struct UTextureCube_ : public UTextureCube
-{
-
-	void sub_00761800(int InArg)
-	{
-		sub_0075b630();
-		sub_00720bc0(InArg);
-	}
-};
-
 // @baa 0x00761800
-void use_it(UTextureCube_ *T, int A)
+void UTextureCube::PostEditChange(UProperty* PropertyThatChanged)
 {
-	T->sub_00761800(A);
+	sub_0075b630();
+	UTexture::PostEditChange(PropertyThatChanged);
 }
 
 // @baa 0x00760fb0
