@@ -199,14 +199,8 @@ void USkeletalMeshComponent::execSetDepthBias(FFrame& Stack, RESULT_DECL)
     static_cast<SkeletalMeshNative_0091f940*>(this)->sub_00914150(NewDepthBias, NewDepthBiasData);
 }
 
-struct USkeletalMeshComponent__0092da90 : public USkeletalMeshComponent
-{
-	FLOAT GetTimeOfScriptNotify(FName NotifyName, INT InstanceNum);
-	void execGetTimeOfScriptNotify(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x0092da90
-void USkeletalMeshComponent__0092da90::execGetTimeOfScriptNotify(FFrame& Stack, RESULT_DECL)
+void USkeletalMeshComponent::execGetTimeOfScriptNotify(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_NAME(NotifyName);
 	P_GET_INT_OPTX(InstanceNum, 1);
@@ -214,14 +208,8 @@ void USkeletalMeshComponent__0092da90::execGetTimeOfScriptNotify(FFrame& Stack, 
 	*(FLOAT*)Result = GetTimeOfScriptNotify(NotifyName, InstanceNum);
 }
 
-struct USkeletalMeshComponent__0091f7b0 : public USkeletalMeshComponent
-{
-	void SetFaceFXRegisterEx(const FString& RegName, BYTE RegOp, FLOAT FirstValue, FLOAT FirstInterpDuration, FLOAT NextValue, FLOAT NextInterpDuration);
-	void execSetFaceFXRegisterEx(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x0091f7b0
-void USkeletalMeshComponent__0091f7b0::execSetFaceFXRegisterEx(FFrame& Stack, RESULT_DECL)
+void USkeletalMeshComponent::execSetFaceFXRegisterEx(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STR(RegName);
 	P_GET_BYTE(RegOp);

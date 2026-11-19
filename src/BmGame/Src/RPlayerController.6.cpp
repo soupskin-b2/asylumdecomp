@@ -54,14 +54,8 @@ void ARPlayerController::execUpdateDownloadableCharacters( FFrame& Stack, RESULT
 	UpdateDownloadableCharacters();
 }
 
-struct ARPlayerController_ : public ARPlayerController
-{
-	void NativeBreakPoint();
-	void execNativeBreakPoint(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x016f8210
-void ARPlayerController_::execNativeBreakPoint( FFrame& Stack, RESULT_DECL )
+void ARPlayerController::execNativeBreakPoint( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	NativeBreakPoint();
@@ -108,27 +102,15 @@ void ARPlayerController__016f8e40::execIsInExternalCamera( FFrame& Stack, RESULT
 	*(UBOOL*)Result = IsInExternalCamera();
 }
 
-struct ARPlayerController__016f8ff0 : public ARPlayerController
-{
-	void TurnOnObstructionDebugging();
-	void execTurnOnObstructionDebugging(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x016f8ff0
-void ARPlayerController__016f8ff0::execTurnOnObstructionDebugging( FFrame& Stack, RESULT_DECL )
+void ARPlayerController::execTurnOnObstructionDebugging( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	TurnOnObstructionDebugging();
 }
 
-struct ARPlayerController__016f9020 : public ARPlayerController
-{
-	void TurnOnInteractDebugging();
-	void execTurnOnInteractDebugging(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x016f9020
-void ARPlayerController__016f9020::execTurnOnInteractDebugging( FFrame& Stack, RESULT_DECL )
+void ARPlayerController::execTurnOnInteractDebugging( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	TurnOnInteractDebugging();
@@ -147,40 +129,22 @@ void ARPlayerController__016f9110::execPlayerWtfNative( FFrame& Stack, RESULT_DE
 	PlayerWtfNative();
 }
 
-struct ARPlayerController__016f9290 : public ARPlayerController
-{
-	void CheckForGlassAttackTarget();
-	void execCheckForGlassAttackTarget(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x016f9290
-void ARPlayerController__016f9290::execCheckForGlassAttackTarget( FFrame& Stack, RESULT_DECL )
+void ARPlayerController::execCheckForGlassAttackTarget( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	CheckForGlassAttackTarget();
 }
 
-struct ARPlayerController__016f94f0 : public ARPlayerController
-{
-	UBOOL WillIHitCapeGlideTarget();
-	void execWillIHitCapeGlideTarget(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x016f94f0
-void ARPlayerController__016f94f0::execWillIHitCapeGlideTarget( FFrame& Stack, RESULT_DECL )
+void ARPlayerController::execWillIHitCapeGlideTarget( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	*(UBOOL*)Result = WillIHitCapeGlideTarget();
 }
 
-struct ARPlayerController__016f9530 : public ARPlayerController
-{
-	FLOAT CalculateCapeGlideAltitude();
-	void execCalculateCapeGlideAltitude(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x016f9530
-void ARPlayerController__016f9530::execCalculateCapeGlideAltitude( FFrame& Stack, RESULT_DECL )
+void ARPlayerController::execCalculateCapeGlideAltitude( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	*(FLOAT*)Result = CalculateCapeGlideAltitude();
@@ -193,27 +157,15 @@ void ARPlayerController::execHaveRoomToCapeGlide( FFrame& Stack, RESULT_DECL )
 	*(UBOOL*)Result = HaveRoomToCapeGlide();
 }
 
-struct ARPlayerController__016f9700 : public ARPlayerController
-{
-	void NativeStartGrappleMovement();
-	void execNativeStartGrappleMovement(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x016f9700
-void ARPlayerController__016f9700::execNativeStartGrappleMovement( FFrame& Stack, RESULT_DECL )
+void ARPlayerController::execNativeStartGrappleMovement( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	NativeStartGrappleMovement();
 }
 
-struct ARPlayerController__016f9730 : public ARPlayerController
-{
-	UBOOL CheckSpaceToJump();
-	void execCheckSpaceToJump(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x016f9730
-void ARPlayerController__016f9730::execCheckSpaceToJump( FFrame& Stack, RESULT_DECL )
+void ARPlayerController::execCheckSpaceToJump( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	*(UBOOL*)Result = CheckSpaceToJump();
@@ -1117,17 +1069,12 @@ void ARPlayerController::execSetOcclusion(FFrame& Stack, RESULT_DECL)
 	this->SetOcclusion(bOcclusionOn);
 }
 
-struct ARTunnelGrateBase_ : public ARTunnelGrateBase
-{
-	void SetDisableCapeCollision(UBOOL);
-};
-
 // @baa 0x0171e1a0
 void ARTunnelGrateBase::execSetDisableCapeCollision(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bDisabled);
 	P_FINISH;
-	((ARTunnelGrateBase_*)this)->SetDisableCapeCollision(bDisabled);
+	((ARTunnelGrateBase*)this)->SetDisableCapeCollision(bDisabled);
 }
 
 // @baa 0x016f88a0

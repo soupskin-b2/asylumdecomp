@@ -198,6 +198,13 @@ def scan_file(f: Path, text: str) -> list[Helper]:
                 if len(found) == 1:
                     addr = next(iter(found))
             if addr is None:
+                # the headers declare a method of that name, with an address, on the class or a base (just one)
+                found = set()
+                for k in BYNAME_CHAIN.get(hp.cls, ()):
+                    found |= BYNAME.get((k, name), set())
+                if len(found) == 1:
+                    addr = next(iter(found))
+            if addr is None:
                 hp.why = "no address for %s" % name
                 break
             hp.methods.append(((("static " if static else "") + d), ret, name, params, tail, addr))
@@ -234,8 +241,35 @@ def header_addresses() -> dict[int, list[tuple[str, str, int]]]:
     return out
 
 
+def drop_duplicate_definitions(t: str, classes_: set[str]) -> str:
+    """two helpers renamed onto one method leave two definitions of it in the file: when they are the same
+    code, the one without an @baa marker (a copy kept for inlining) goes, with the comment above it"""
+    defs = collections.defaultdict(list)
+    for m in re.finditer(r"(?m)^(?P<pre>(?:/\*(?:(?!\*/).)*\*/\n)?)(?P<head>[^\n;{}#/]*\b(?P<cls>\w+)::(?P<fn>~?\w+)\s*\([^;{]*\)[^;{]*)\n\{\n", t, re.S):
+        if m.group("cls") not in classes_:
+            continue
+        d, i = 1, m.end()
+        while d and i < len(t):
+            d += {"{": 1, "}": -1}.get(t[i], 0)
+            i += 1
+        body = re.sub(r"\s+", " ", re.sub(r"/\*.*?\*/|//[^\n]*", "", t[m.start("head"):i], flags=re.S)).strip()
+        marked = re.search(r"//\s*@baa\s+0x[0-9a-f]{8}[ \t]*\n$", t[max(0, m.start() - 40):m.start()]) is not None
+        defs[(m.group("cls"), m.group("fn"))].append((m.start(), i, body, marked))
+    cut = []
+    for k, ds in defs.items():
+        if len(ds) > 1 and len({d[2] for d in ds}) == 1 and any(d[3] for d in ds):
+            cut += [(s, e) for s, e, _, mk in ds if not mk]
+    for s, e in sorted(cut, reverse=True):
+        e += 1 if t[e:e + 1] == "\n" else 0
+        e += 1 if t[e:e + 1] == "\n" else 0
+        t = t[:s] + t[e:]
+    return t
+
+
 HEADER_TEXT: set[str] = set()
 LOOSE = False
+BYNAME: dict[tuple[str, str], set[int]] = {}      # (class, method) -> addresses the headers give it
+BYNAME_CHAIN: dict[str, list[str]] = {}
 
 
 def main():
@@ -256,6 +290,11 @@ def main():
     load_symbols()
     above = classes_h_types()
     haddr = header_addresses()
+    for addr, decls in haddr.items():
+        for hc, hn, _ in decls:
+            BYNAME.setdefault((hc, hn), set()).add(addr)
+    for c in classes:
+        BYNAME_CHAIN[c] = slots.chain(classes, c)
 
     files = sorted(SRC.rglob("*.cpp"))
     if a.only:
@@ -416,6 +455,7 @@ def main():
                 p = plan[(hp.cls, m[5])]
                 if p[0] == "have" and p[1] != m[2]:
                     t = re.sub(r"\b%s\b" % re.escape(m[2]), p[1], t)
+        t = drop_duplicate_definitions(t, {hp.cls for hp in hps})
         if t != texts[f]:
             changed.add(f)
             if not a.dry_run:

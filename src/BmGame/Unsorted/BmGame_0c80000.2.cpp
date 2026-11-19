@@ -32,14 +32,8 @@ void AController::execRouteCache_Empty( FFrame& Stack, RESULT_DECL )
 	RouteCache_Empty();
 }
 
-struct APlayerController_ : public APlayerController
-{
-	UBOOL AllowConsole();
-	void execAllowConsole(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c86c00
-void APlayerController_::execAllowConsole( FFrame& Stack, RESULT_DECL )
+void APlayerController::execAllowConsole( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	*(UBOOL*)Result = AllowConsole();
@@ -52,14 +46,8 @@ void APlayerController::execCleanUpAudioComponents( FFrame& Stack, RESULT_DECL )
 	CleanUpAudioComponents();
 }
 
-struct APlayerController__00c872f0 : public APlayerController
-{
-	UBOOL HasClientLoadedCurrentWorld();
-	void execHasClientLoadedCurrentWorld(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c872f0
-void APlayerController__00c872f0::execHasClientLoadedCurrentWorld( FFrame& Stack, RESULT_DECL )
+void APlayerController::execHasClientLoadedCurrentWorld( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	*(UBOOL*)Result = HasClientLoadedCurrentWorld();

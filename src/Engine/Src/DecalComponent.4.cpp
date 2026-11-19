@@ -4,14 +4,8 @@
 #include "ue3/Classes.h"
 #include "ue3/Script.h"
 
-struct UDecalComponent_ : public UDecalComponent
-{
-	void ResetToDefaults();
-	void execResetToDefaults(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c9ed40
-void UDecalComponent_::execResetToDefaults( FFrame& Stack, RESULT_DECL )
+void UDecalComponent::execResetToDefaults( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	ResetToDefaults();

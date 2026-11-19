@@ -11,11 +11,6 @@ struct USkeletalMeshComponent_ : public USkeletalMeshComponent
 	INT MatchRefBone(FName BoneName) const;
 };
 
-struct USkeletalMesh_ : public USkeletalMesh
-{
-	UBOOL BoneIsChildOf(INT ChildBoneIndex, INT ParentBoneIndex) const;
-};
-
 // @baa 0x00a1ca60
 /* After constraints break, frees everything below each broken joint: unfixes the bodies, turns off their bone springs
  * and switches off the drives of their constraints. */
@@ -42,7 +37,7 @@ void USkeletalMeshComponent::UpdateMeshForBrokenConstraints()
 					URB_BodySetup* BodySetup = PhysicsAsset->BodySetup(BodyIdx);
 					const INT BoneIndex = ((USkeletalMeshComponent_*)this)->MatchRefBone(BodySetup->BoneName);
 					if (BoneIndex != INDEX_NONE &&
-						(BoneIndex == ConstrainedBoneIdx || ((USkeletalMesh_*)SkeletalMesh)->BoneIsChildOf(BoneIndex, ConstrainedBoneIdx)))
+						(BoneIndex == ConstrainedBoneIdx || ((USkeletalMesh*)SkeletalMesh)->BoneIsChildOf(BoneIndex, ConstrainedBoneIdx)))
 					{
 						URB_BodyInstance* BodyInst = PhysicsAssetInstance->Bodies(BodyIdx);
 						if (BodyInst)

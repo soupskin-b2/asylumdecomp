@@ -25,14 +25,8 @@ void URCapeComponent::execGetCurrentCapeStateName(FFrame& Stack, RESULT_DECL)
     *(FName*)Result = this->GetCurrentCapeStateName();
 }
 
-struct URCapeComponent__01702430 : public URCapeComponent
-{
-	void ForceCapeToAnimPose();
-	void execForceCapeToAnimPose(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x01702430
-void URCapeComponent__01702430::execForceCapeToAnimPose( FFrame& Stack, RESULT_DECL )
+void URCapeComponent::execForceCapeToAnimPose( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	ForceCapeToAnimPose();
@@ -92,14 +86,8 @@ void URCapeComponent__01702e00::execUpdateSkeletalMeshDepthBias( FFrame& Stack, 
 	*(UBOOL*)Result = UpdateSkeletalMeshDepthBias();
 }
 
-struct URCapeComponent__01702e40 : public URCapeComponent
-{
-	UBOOL GetIsCinematicMode();
-	void execGetIsCinematicMode(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x01702e40
-void URCapeComponent__01702e40::execGetIsCinematicMode( FFrame& Stack, RESULT_DECL )
+void URCapeComponent::execGetIsCinematicMode( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	*(UBOOL*)Result = GetIsCinematicMode();

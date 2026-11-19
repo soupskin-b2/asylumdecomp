@@ -59,17 +59,12 @@ void UPrefabSequence::execGetOwnerPrefab(FFrame& Stack, RESULT_DECL)
 	*(APrefabInstance**)Result = ((UPrefabSequence_*)this)->GetOwnerPrefab();
 }
 
-struct USequenceOp_ : public USequenceOp
-{
-	void ForceActivateInput(INT);
-};
-
 // @baa 0x00c98280
 void USequenceOp::execForceActivateInput(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(InputIdx);
 	P_FINISH;
-	((USequenceOp_*)this)->ForceActivateInput(InputIdx);
+	((USequenceOp*)this)->ForceActivateInput(InputIdx);
 }
 
 struct UPrefabSequence__00c98350 : public UPrefabSequence
@@ -115,14 +110,8 @@ void USequenceOp::execActivateNamedOutputLink(FFrame& Stack, RESULT_DECL)
 	*(UBOOL*)Result = ActivateNamedOutputLink(LinkDesc);
 }
 
-struct USequenceObject__00cbc5a0 : public USequenceObject
-{
-	void ScriptLog(const FString& OutText, UBOOL bWarning);
-	void execScriptLog(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00cbc5a0
-void USequenceObject__00cbc5a0::execScriptLog(FFrame& Stack, RESULT_DECL)
+void USequenceObject::execScriptLog(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STR(LogText);
 	P_GET_UBOOL_OPTX(bWarning, TRUE);
@@ -130,14 +119,8 @@ void USequenceObject__00cbc5a0::execScriptLog(FFrame& Stack, RESULT_DECL)
 	ScriptLog(LogText, bWarning);
 }
 
-struct USequence__00906850 : public USequence
-{
-	void FindSeqObjectsByName(const FString& SeqObjName, UBOOL bCheckComment, TArray<USequenceObject*>& OutputObjects, UBOOL bRecursive);
-	void execFindSeqObjectsByName(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00906850
-void USequence__00906850::execFindSeqObjectsByName(FFrame& Stack, RESULT_DECL)
+void USequence::execFindSeqObjectsByName(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STR(SeqObjName);
 	P_GET_UBOOL(bCheckComment);

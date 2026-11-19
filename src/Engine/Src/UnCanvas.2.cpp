@@ -72,14 +72,8 @@ void UCanvas::execSetDrawColor(FFrame& Stack, RESULT_DECL)
 	DrawColor.A = A;
 }
 
-struct UCanvas__00a65400 : public UCanvas
-{
-	UBOOL ProjectStaticMeshBounds(UStaticMeshComponent* MeshComponent, FVector2D& Min, FVector2D& Max);
-	void execProjectStaticMeshBounds(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00a65400
-void UCanvas__00a65400::execProjectStaticMeshBounds(FFrame& Stack, RESULT_DECL)
+void UCanvas::execProjectStaticMeshBounds(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(UStaticMeshComponent, MeshComponent);
 	P_GET_STRUCT_REF(FVector2D, Min);
@@ -88,14 +82,8 @@ void UCanvas__00a65400::execProjectStaticMeshBounds(FFrame& Stack, RESULT_DECL)
 	*(UBOOL*)Result = ProjectStaticMeshBounds(MeshComponent, Min, Max);
 }
 
-struct UCanvas__00a654f0 : public UCanvas
-{
-	void ProjectSphereBounds(FVector Center, FLOAT Radius, FVector2D& Min, FVector2D& Max);
-	void execProjectSphereBounds(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00a654f0
-void UCanvas__00a654f0::execProjectSphereBounds(FFrame& Stack, RESULT_DECL)
+void UCanvas::execProjectSphereBounds(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT(FVector, Center);
 	P_GET_FLOAT(Radius);
@@ -249,14 +237,8 @@ static inline const TCHAR* StrPtr( const FString& S )
 	return S.Num() ? &S(0) : TEXT("");
 }
 
-struct UCanvas__00aa9c00 : public UCanvas
-{
-	void WrappedPrint( UBOOL Draw, INT& out_XL, INT& out_YL, UFont* Font, FLOAT ScaleX, FLOAT ScaleY, UBOOL bCenter, const TCHAR* Text );
-	void execDrawText(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00aa9c00
-void UCanvas__00aa9c00::execDrawText(FFrame& Stack, RESULT_DECL)
+void UCanvas::execDrawText(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STR(Text);
 	P_GET_UBOOL_OPTX(CR, TRUE);
@@ -354,14 +336,8 @@ void UCanvas::execDrawMaterialTileClipped(FFrame& Stack, RESULT_DECL)
 	CurYL = Max(CurYL, YL);
 }
 
-struct UCanvas__00ab0640 : public UCanvas
-{
-	void DrawRotatedTile(UTexture* Tex, FRotator Rotation, FLOAT XL, FLOAT YL, FLOAT U, FLOAT V, FLOAT UL, FLOAT VL, FLOAT AnchorX, FLOAT AnchorY);
-	void execDrawRotatedTile(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00ab0640
-void UCanvas__00ab0640::execDrawRotatedTile(FFrame& Stack, RESULT_DECL)
+void UCanvas::execDrawRotatedTile(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(UTexture, Tex);
 	P_GET_STRUCT(FRotator, Rotation);
@@ -377,14 +353,8 @@ void UCanvas__00ab0640::execDrawRotatedTile(FFrame& Stack, RESULT_DECL)
 	DrawRotatedTile(Tex, Rotation, XL, YL, U, V, UL, VL, AnchorX, AnchorY);
 }
 
-struct UCanvas__00aaa970 : public UCanvas
-{
-	void DrawRotatedMaterialTile(UMaterialInterface* Mat, FRotator Rotation, FLOAT XL, FLOAT YL, FLOAT U, FLOAT V, FLOAT UL, FLOAT VL, FLOAT AnchorX, FLOAT AnchorY);
-	void execDrawRotatedMaterialTile(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00aaa970
-void UCanvas__00aaa970::execDrawRotatedMaterialTile(FFrame& Stack, RESULT_DECL)
+void UCanvas::execDrawRotatedMaterialTile(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(UMaterialInterface, Mat);
 	P_GET_STRUCT(FRotator, Rotation);
@@ -433,14 +403,8 @@ void UCanvas__00aaabc0::execDraw2DLine(FFrame& Stack, RESULT_DECL)
 	DrawLine2D(GetCanvas(), FVector2D_(X1, Y1), FVector2D_(X2, Y2), LineColor);
 }
 
-struct UCanvas__00ab0870 : public UCanvas
-{
-	void DrawTextureLine(FVector StartPoint, FVector EndPoint, FLOAT Perc, FLOAT Width, FColor LineColor, UTexture* LineTexture, FLOAT U, FLOAT V, FLOAT UL, FLOAT VL);
-	void execDrawTextureLine(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00ab0870
-void UCanvas__00ab0870::execDrawTextureLine(FFrame& Stack, RESULT_DECL)
+void UCanvas::execDrawTextureLine(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT(FVector, StartPoint);
 	P_GET_STRUCT(FVector, EndPoint);
@@ -475,14 +439,8 @@ void UCanvas::execDrawTileStretched(FFrame& Stack, RESULT_DECL)
 	DrawTileStretched(Tex, CurX, CurY, XL, YL, U, V, UL, VL, LColor, bStretchHorizontally, bStretchVertically, ScalingFactor);
 }
 
-struct UCanvas__00ab0a80 : public UCanvas
-{
-	void DrawTextureDoubleLine(FVector StartPoint, FVector EndPoint, FLOAT Perc, FLOAT Spacing, FLOAT Width, FColor LineColor, FColor AltLineColor, UTexture* Tex, FLOAT U, FLOAT V, FLOAT UL, FLOAT VL);
-	void execDrawTextureDoubleLine(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00ab0a80
-void UCanvas__00ab0a80::execDrawTextureDoubleLine(FFrame& Stack, RESULT_DECL)
+void UCanvas::execDrawTextureDoubleLine(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT(FVector, StartPoint);
 	P_GET_STRUCT(FVector, EndPoint);

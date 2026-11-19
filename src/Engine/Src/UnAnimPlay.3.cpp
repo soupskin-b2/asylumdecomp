@@ -3,35 +3,10 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
 
-struct UAnimNodeSequence_ : public UAnimNodeSequence
-{
-	UBOOL ShouldKeepCachedResult();
-};
-
 // @baa 0x00c4ad70
 /* The cached pose may only be reused while the mesh isn't being rendered, the node skips ticks at zero
  * weight, and nothing extracts root motion from the animation. */
-UBOOL UAnimNodeSequence_::ShouldKeepCachedResult()
-{
-	if (SkelComponent->bRecentlyRendered || !bSkipTickWhenZeroWeight)
-	{
-		return FALSE;
-	}
-
-	const UBOOL bRootBoneMotion = RootBoneOption[0] != RBA_Default || RootBoneOption[1] != RBA_Default || RootBoneOption[2] != RBA_Default;
-	const UBOOL bRootRotation = RootRotationOption[0] != RRO_Default || RootRotationOption[1] != RRO_Default || RootRotationOption[2] != RRO_Default;
-	return !bRootBoneMotion && !bRootRotation;
-}
-
-struct UAnimNodeSequence__00c5e220 : public UAnimNodeSequence
-{
-	UBOOL ShouldKeepCachedResult();
-	void ClearCachedResult();
-};
-
-/* The cached pose may only be reused while the mesh isn't being rendered, the node skips ticks at zero
- * weight, and nothing extracts root motion from the animation. */
-UBOOL UAnimNodeSequence__00c5e220::ShouldKeepCachedResult()
+UBOOL UAnimNodeSequence::ShouldKeepCachedResult()
 {
 	if (SkelComponent->bRecentlyRendered || !bSkipTickWhenZeroWeight)
 	{
@@ -45,7 +20,7 @@ UBOOL UAnimNodeSequence__00c5e220::ShouldKeepCachedResult()
 
 // @baa 0x00c5e220
 /* Drops the cached pose unless it may be kept. */
-void UAnimNodeSequence__00c5e220::ClearCachedResult()
+void UAnimNodeSequence::ClearCachedResult()
 {
 	if (CachedBoneAtoms.Num() > 0 && !ShouldKeepCachedResult())
 	{

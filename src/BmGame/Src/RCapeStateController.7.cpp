@@ -17,14 +17,8 @@ void URCapeStateController_::execGetIsInitialised( FFrame& Stack, RESULT_DECL )
 	*(UBOOL*)Result = GetIsInitialised();
 }
 
-struct URCapeStateController__017016f0 : public URCapeStateController
-{
-	void Finalise();
-	void execFinalise(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x017016f0
-void URCapeStateController__017016f0::execFinalise( FFrame& Stack, RESULT_DECL )
+void URCapeStateController::execFinalise( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	Finalise();
@@ -72,14 +66,8 @@ void URCapeStateController__01701db0::execResumeCape( FFrame& Stack, RESULT_DECL
 	ResumeCape();
 }
 
-struct URCapeStateController__01701e60 : public URCapeStateController
-{
-	void SetCapeToBoneDataReferencePose();
-	void execSetCapeToBoneDataReferencePose(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x01701e60
-void URCapeStateController__01701e60::execSetCapeToBoneDataReferencePose( FFrame& Stack, RESULT_DECL )
+void URCapeStateController::execSetCapeToBoneDataReferencePose( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	SetCapeToBoneDataReferencePose();

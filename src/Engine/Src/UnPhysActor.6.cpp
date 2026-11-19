@@ -17,14 +17,8 @@ void AKActor_::execResolveRBState( FFrame& Stack, RESULT_DECL )
 	ResolveRBState();
 }
 
-struct ARB_LineImpulseActor_ : public ARB_LineImpulseActor
-{
-	void FireLineImpulse();
-	void execFireLineImpulse(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c939a0
-void ARB_LineImpulseActor_::execFireLineImpulse( FFrame& Stack, RESULT_DECL )
+void ARB_LineImpulseActor::execFireLineImpulse( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	FireLineImpulse();

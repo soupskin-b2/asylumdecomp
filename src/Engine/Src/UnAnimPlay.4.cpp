@@ -81,7 +81,7 @@ struct FName_ : public FName
 
 /* Whether the cached bone atoms can be kept: only for an unrendered mesh, a node that skips ticking at zero
  * weight, and no root motion extraction. */
-UBOOL UAnimNodeSequence::CanUseCachedBoneAtoms()
+UBOOL UAnimNodeSequence::ShouldKeepCachedResult()
 {
 	if (!SkelComponent->bRecentlyRendered && bSkipTickWhenZeroWeight)
 	{
@@ -105,7 +105,7 @@ void UAnimNodeSequence::AdvanceBy(FLOAT MoveDelta, FLOAT DeltaSeconds, UBOOL bFi
 		return;
 	}
 
-	if (AnimSeq->NumFrames > 1 && CachedBoneAtoms.Num() > 0 && !this->CanUseCachedBoneAtoms())
+	if (AnimSeq->NumFrames > 1 && CachedBoneAtoms.Num() > 0 && !this->ShouldKeepCachedResult())
 	{
 		CachedBoneAtoms.Reset();
 	}

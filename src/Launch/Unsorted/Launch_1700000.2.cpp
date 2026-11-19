@@ -46,12 +46,7 @@ void URSeqAct_SetScarecrowCamera::execGetPercDistAlongPath(FFrame& Stack, RESULT
     *(FLOAT*)Result = GetPercDistAlongPath(TimeDelta);
 }
 
-/* ARStealthTakeDownStage::FindSpotForTakeDown (0163d500) isn't declared in the kit. The script
- * signature isn't known; parameter names are descriptive guesses (a vector in, a vector out). */
-struct ARStealthTakeDownStage_ : public ARStealthTakeDownStage
-{
-    UBOOL FindSpotForTakeDown(FVector Start, FVector& out_Spot);
-};
+/* The script signature isn't known; parameter names are descriptive guesses (a vector in, a vector out). */
 
 // @baa 0x0170b850
 void ARStealthTakeDownStage::execFindSpotForTakeDown(FFrame& Stack, RESULT_DECL)
@@ -59,15 +54,10 @@ void ARStealthTakeDownStage::execFindSpotForTakeDown(FFrame& Stack, RESULT_DECL)
     P_GET_VECTOR(Start);
     P_GET_STRUCT_REF(FVector, out_Spot);
     P_FINISH;
-    *(UBOOL*)Result = ((ARStealthTakeDownStage_*)this)->FindSpotForTakeDown(Start, out_Spot);
+    *(UBOOL*)Result = ((ARStealthTakeDownStage*)this)->FindSpotForTakeDown(Start, out_Spot);
 }
 
-/* ARStealthTakeDownStage_RailingAttack::CheckSpaceOnEithSide (01643c70) isn't declared in the
- * kit. Its two parameters are 4-byte out values; the names are descriptive guesses. */
-struct ARStealthTakeDownStage_RailingAttack_ : public ARStealthTakeDownStage_RailingAttack
-{
-    void CheckSpaceOnEithSide(UBOOL& bSpaceOnLeft, UBOOL& bSpaceOnRight);
-};
+/* Its two parameters are 4-byte out values; the names are descriptive guesses. */
 
 // @baa 0x0170ba10
 void ARStealthTakeDownStage_RailingAttack::execCheckSpaceOnEithSide(FFrame& Stack, RESULT_DECL)
@@ -75,5 +65,5 @@ void ARStealthTakeDownStage_RailingAttack::execCheckSpaceOnEithSide(FFrame& Stac
     P_GET_UBOOL_REF(bSpaceOnLeft);
     P_GET_UBOOL_REF(bSpaceOnRight);
     P_FINISH;
-    ((ARStealthTakeDownStage_RailingAttack_*)this)->CheckSpaceOnEithSide(bSpaceOnLeft, bSpaceOnRight);
+    ((ARStealthTakeDownStage_RailingAttack*)this)->CheckSpaceOnEithSide(bSpaceOnLeft, bSpaceOnRight);
 }

@@ -17,14 +17,8 @@ void ARSmashableProp_::execGetHasSubMeshes( FFrame& Stack, RESULT_DECL )
 	*(UBOOL*)Result = GetHasSubMeshes();
 }
 
-struct ARSmashableProp__016ff490 : public ARSmashableProp
-{
-    void SetBreakableType(BYTE breakableType);
-    void execSetBreakableType(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x016ff490
-void ARSmashableProp__016ff490::execSetBreakableType(FFrame& Stack, RESULT_DECL)
+void ARSmashableProp::execSetBreakableType(FFrame& Stack, RESULT_DECL)
 {
     P_GET_BYTE(breakableType);
     P_FINISH;

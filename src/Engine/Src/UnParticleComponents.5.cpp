@@ -11,27 +11,15 @@ void UParticleSystemComponent::execDeactivateSystem( FFrame& Stack, RESULT_DECL 
 	DeactivateSystem();
 }
 
-struct UParticleSystemComponent__00c9ced0 : public UParticleSystemComponent
-{
-	void KillParticlesForced();
-	void execKillParticlesForced(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c9ced0
-void UParticleSystemComponent__00c9ced0::execKillParticlesForced( FFrame& Stack, RESULT_DECL )
+void UParticleSystemComponent::execKillParticlesForced( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	KillParticlesForced();
 }
 
-struct UParticleSystemComponent__00c9cf00 : public UParticleSystemComponent
-{
-	void ForceKillParticlesWithEvents();
-	void execForceKillParticlesWithEvents(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c9cf00
-void UParticleSystemComponent__00c9cf00::execForceKillParticlesWithEvents( FFrame& Stack, RESULT_DECL )
+void UParticleSystemComponent::execForceKillParticlesWithEvents( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	ForceKillParticlesWithEvents();
@@ -93,14 +81,8 @@ void UParticleSystemComponent::execSetFloatParameter(FFrame& Stack, RESULT_DECL)
     SetFloatParameter(ParameterName, Param);
 }
 
-struct UParticleSystemComponent__00c9e4f0 : public UParticleSystemComponent
-{
-	void ResetToDefaults();
-	void execResetToDefaults(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c9e4f0
-void UParticleSystemComponent__00c9e4f0::execResetToDefaults( FFrame& Stack, RESULT_DECL )
+void UParticleSystemComponent::execResetToDefaults( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	ResetToDefaults();
@@ -233,14 +215,8 @@ void UParticleSystemComponent::execSetVectorParameter(FFrame& Stack, RESULT_DECL
 	SetVectorParameter(ParameterName, Param);
 }
 
-struct UParticleSystemComponent__00c9cde0 : public UParticleSystemComponent
-{
-	void ActivateSystem(UBOOL bFlagAsJustAttached, UBOOL DontUpdateTransform);
-	void execActivateSystem(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c9cde0
-void UParticleSystemComponent__00c9cde0::execActivateSystem(FFrame& Stack, RESULT_DECL)
+void UParticleSystemComponent::execActivateSystem(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL_OPTX(bFlagAsJustAttached, FALSE);
 	P_GET_UBOOL_OPTX(DontUpdateTransform, FALSE);

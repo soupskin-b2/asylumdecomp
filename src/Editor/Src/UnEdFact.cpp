@@ -527,25 +527,15 @@ UBOOL UAnimSetFactoryNew::HasParentClassChanged() const
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
-int sub_00ce8aa0(void);
-int sub_00d194e0(...);
-extern undefined4 g_026c5640;
 // @baa 0x00f1ec80
-void UFont::sub_00f1ec80(void)
+void UFontFactory::InitializeIntrinsicPropertyValues()
 {
-    int param_1 = (int)this;
+    SupportedClass = UFont::StaticClass();
 
-  int iVar1;
-  
-  if (g_026c5640 == 0) {
-    g_026c5640 = sub_00d194e0(L"Engine");
-    sub_00ce8aa0();
-  }
-  iVar1 = g_026c5640;
-  *(uint *)(param_1 + 0x50) = *(uint *)(param_1 + 0x50) & 0xfffffffb;
-  *(int *)(param_1 + 0x30) = iVar1;
-  *(undefined1 *)(param_1 + 0x96) = 0x13;
-  return;
+    bEditorImport = 0;
+
+    // Default font textures to use the 'UI' LOD group
+    LODGroup = TEXTUREGROUP_UI;
 }
 
 // @baa 0x00f1ecc0

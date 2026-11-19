@@ -4,14 +4,8 @@
 #include "ue3/Classes.h"
 #include "ue3/Script.h"
 
-struct UAudioComponent_ : public UAudioComponent
-{
-	void ResetToDefaults();
-	void execResetToDefaults(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c80a10
-void UAudioComponent_::execResetToDefaults( FFrame& Stack, RESULT_DECL )
+void UAudioComponent::execResetToDefaults( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	ResetToDefaults();
@@ -44,14 +38,8 @@ void AController::execStopLatentExecution( FFrame& Stack, RESULT_DECL )
 	StopLatentExecution();
 }
 
-struct ADroppedPickup_ : public ADroppedPickup
-{
-	void AddToNavigation();
-	void execAddToNavigation(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c87850
-void ADroppedPickup_::execAddToNavigation( FFrame& Stack, RESULT_DECL )
+void ADroppedPickup::execAddToNavigation( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	AddToNavigation();
@@ -98,14 +86,8 @@ void ACoverGroup::execToggleGroup( FFrame& Stack, RESULT_DECL )
 	ToggleGroup();
 }
 
-struct AFileWriter_ : public AFileWriter
-{
-	void CloseFile();
-	void execCloseFile(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c89070
-void AFileWriter_::execCloseFile( FFrame& Stack, RESULT_DECL )
+void AFileWriter::execCloseFile( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	CloseFile();
@@ -180,28 +162,18 @@ void ASkeletalMeshActorMAT::execMAT_FinishAnimControl( FFrame& Stack, RESULT_DEC
 	MAT_FinishAnimControl();
 }
 
-struct AController__00c84e30 : public AController
-{
-	ANavigationPoint* FindRandomDest();
-};
-
 // @baa 0x00c84e30
 void AController::execFindRandomDest(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(ANavigationPoint**)Result = ((AController__00c84e30*)this)->FindRandomDest();
+	*(ANavigationPoint**)Result = ((AController*)this)->FindRandomDest();
 }
-
-struct APortalTeleporter_ : public APortalTeleporter
-{
-	UTextureRenderTarget2D* CreatePortalTexture();
-};
 
 // @baa 0x00c8ba90
 void APortalTeleporter::execCreatePortalTexture(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UTextureRenderTarget2D**)Result = ((APortalTeleporter_*)this)->CreatePortalTexture();
+	*(UTextureRenderTarget2D**)Result = ((APortalTeleporter*)this)->CreatePortalTexture();
 }
 
 // @baa 0x00c87e50
@@ -225,43 +197,28 @@ void UFont::execGetMaxCharHeight(FFrame& Stack, RESULT_DECL)
 	*(FLOAT*)Result = GetMaxCharHeight();
 }
 
-struct AActor_ : public AActor
-{
-	void AttachComponent(UActorComponent*);
-};
-
 // @baa 0x00c821e0
 void AActor::execAttachComponent(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(UActorComponent, NewComponent);
 	P_FINISH;
-	((AActor_*)this)->AttachComponent(NewComponent);
+	((AActor*)this)->AttachComponent(NewComponent);
 }
-
-struct AActor__00c82240 : public AActor
-{
-	void DetachComponent(UActorComponent*);
-};
 
 // @baa 0x00c82240
 void AActor::execDetachComponent(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(UActorComponent, ExComponent);
 	P_FINISH;
-	((AActor__00c82240*)this)->DetachComponent(ExComponent);
+	((AActor*)this)->DetachComponent(ExComponent);
 }
-
-struct AActor__00c822a0 : public AActor
-{
-	void ReattachComponent(UActorComponent*);
-};
 
 // @baa 0x00c822a0
 void AActor::execReattachComponent(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(UActorComponent, ComponentToReattach);
 	P_FINISH;
-	((AActor__00c822a0*)this)->ReattachComponent(ComponentToReattach);
+	((AActor*)this)->ReattachComponent(ComponentToReattach);
 }
 
 
@@ -273,95 +230,60 @@ void AActor::execSetTickGroup(FFrame& Stack, RESULT_DECL)
 	((AActor*)this)->SetTickGroup(NewTickGroup);
 }
 
-struct AEmitterPool_ : public AEmitterPool
-{
-	void ReturnToPool(UParticleSystemComponent*);
-};
-
 // @baa 0x00c87920
 void AEmitterPool::execReturnToPool(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(UParticleSystemComponent, PSC);
 	P_FINISH;
-	((AEmitterPool_*)this)->ReturnToPool(PSC);
+	((AEmitterPool*)this)->ReturnToPool(PSC);
 }
-
-struct AEmitterPool__00c87980 : public AEmitterPool
-{
-	void FreeStaticMeshComponents(UParticleSystemComponent*);
-};
 
 // @baa 0x00c87980
 void AEmitterPool::execFreeStaticMeshComponents(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(UParticleSystemComponent, PSC);
 	P_FINISH;
-	((AEmitterPool__00c87980*)this)->FreeStaticMeshComponents(PSC);
+	((AEmitterPool*)this)->FreeStaticMeshComponents(PSC);
 }
-
-struct AEmitterPool__00c87a60 : public AEmitterPool
-{
-	void FreeMaterialInstanceConstants(UStaticMeshComponent*);
-};
 
 // @baa 0x00c87a60
 void AEmitterPool::execFreeMaterialInstanceConstants(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(UStaticMeshComponent, SMC);
 	P_FINISH;
-	((AEmitterPool__00c87a60*)this)->FreeMaterialInstanceConstants(SMC);
+	((AEmitterPool*)this)->FreeMaterialInstanceConstants(SMC);
 }
-
-struct AGameInfo__00c89100 : public AGameInfo
-{
-	void ForceClearUnpauseDelegates(AActor*);
-};
 
 // @baa 0x00c89100
 void AGameInfo::execForceClearUnpauseDelegates(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(AActor, PauseActor);
 	P_FINISH;
-	((AGameInfo__00c89100*)this)->ForceClearUnpauseDelegates(PauseActor);
+	((AGameInfo*)this)->ForceClearUnpauseDelegates(PauseActor);
 }
-
-struct UTexture2DComposite__00c8f560 : public UTexture2DComposite
-{
-	void UpdateCompositeTexture(INT);
-};
 
 // @baa 0x00c8f560
 void UTexture2DComposite::execUpdateCompositeTexture(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(NumMipsToGenerate);
 	P_FINISH;
-	((UTexture2DComposite__00c8f560*)this)->UpdateCompositeTexture(NumMipsToGenerate);
+	((UTexture2DComposite*)this)->UpdateCompositeTexture(NumMipsToGenerate);
 }
-
-struct ALensFlareSource_ : public ALensFlareSource
-{
-	void SetTemplate(ULensFlare*);
-};
 
 // @baa 0x00c8faa0
 void ALensFlareSource::execSetTemplate(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(ULensFlare, NewTemplate);
 	P_FINISH;
-	((ALensFlareSource_*)this)->SetTemplate(NewTemplate);
+	((ALensFlareSource*)this)->SetTemplate(NewTemplate);
 }
-
-struct ULensFlareComponent_ : public ULensFlareComponent
-{
-	void SetTemplate(ULensFlare*);
-};
 
 // @baa 0x00c8fb00
 void ULensFlareComponent::execSetTemplate(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(ULensFlare, NewTemplate);
 	P_FINISH;
-	((ULensFlareComponent_*)this)->SetTemplate(NewTemplate);
+	((ULensFlareComponent*)this)->SetTemplate(NewTemplate);
 }
 
 
@@ -373,43 +295,28 @@ void USceneCaptureComponent::execSetFrameRate(FFrame& Stack, RESULT_DECL)
 	((USceneCaptureComponent*)this)->SetFrameRate(NewFrameRate);
 }
 
-struct UTexture2D_ : public UTexture2D
-{
-	void SetForceMipLevelsToBeResident(FLOAT);
-};
-
 // @baa 0x00c8f360
 void UTexture2D::execSetForceMipLevelsToBeResident(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(Seconds);
 	P_FINISH;
-	((UTexture2D_*)this)->SetForceMipLevelsToBeResident(Seconds);
+	((UTexture2D*)this)->SetForceMipLevelsToBeResident(Seconds);
 }
-
-struct AController__00c84800 : public AController
-{
-	UBOOL CanSee(APawn*);
-};
 
 // @baa 0x00c84800
 void AController::execCanSee(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(APawn, Other);
 	P_FINISH;
-	*(UBOOL*)Result = ((AController__00c84800*)this)->CanSee(Other);
+	*(UBOOL*)Result = ((AController*)this)->CanSee(Other);
 }
-
-struct AController__00c85030 : public AController
-{
-	UBOOL ActorReachable(AActor*);
-};
 
 // @baa 0x00c85030
 void AController::execActorReachable(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(AActor, anActor);
 	P_FINISH;
-	*(UBOOL*)Result = ((AController__00c85030*)this)->ActorReachable(anActor);
+	*(UBOOL*)Result = ((AController*)this)->ActorReachable(anActor);
 }
 
 struct AController__00c85160 : public AController
@@ -425,17 +332,12 @@ void AController::execInLatentExecution(FFrame& Stack, RESULT_DECL)
 	*(UBOOL*)Result = ((AController__00c85160*)this)->InLatentExecution(LatentActionNumber);
 }
 
-struct AEmitterPool__00c87b40 : public AEmitterPool
-{
-	UParticleSystemComponent* GetPooledComponent(UParticleSystem*);
-};
-
 // @baa 0x00c87b40
 void AEmitterPool::execGetPooledComponent(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(UParticleSystem, EmitterTemplate);
 	P_FINISH;
-	*(UParticleSystemComponent**)Result = ((AEmitterPool__00c87b40*)this)->GetPooledComponent(EmitterTemplate);
+	*(UParticleSystemComponent**)Result = ((AEmitterPool*)this)->GetPooledComponent(EmitterTemplate);
 }
 
 struct ANavigationPoint_ : public ANavigationPoint
@@ -451,30 +353,20 @@ void ANavigationPoint::execIsOnDifferentNetwork(FFrame& Stack, RESULT_DECL)
 	*(UBOOL*)Result = ((ANavigationPoint_*)this)->IsOnDifferentNetwork(Nav);
 }
 
-struct APortalTeleporter__00c8b900 : public APortalTeleporter
-{
-	UBOOL TransformActor(AActor*);
-};
-
 // @baa 0x00c8b900
 void APortalTeleporter::execTransformActor(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(AActor, A);
 	P_FINISH;
-	*(UBOOL*)Result = ((APortalTeleporter__00c8b900*)this)->TransformActor(A);
+	*(UBOOL*)Result = ((APortalTeleporter*)this)->TransformActor(A);
 }
-
-struct AActor__00c82070 : public AActor
-{
-	void SetOnlyOwnerSee(UBOOL);
-};
 
 // @baa 0x00c82070
 void AActor::execSetOnlyOwnerSee(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bNewOnlyOwnerSee);
 	P_FINISH;
-	((AActor__00c82070*)this)->SetOnlyOwnerSee(bNewOnlyOwnerSee);
+	((AActor*)this)->SetOnlyOwnerSee(bNewOnlyOwnerSee);
 }
 
 struct UHeightFogComponent_ : public UHeightFogComponent
@@ -490,30 +382,20 @@ void UHeightFogComponent::execSetEnabled(FFrame& Stack, RESULT_DECL)
 	((UHeightFogComponent_*)this)->SetEnabled(bSetEnabled);
 }
 
-struct ULightEnvironmentComponent__00c8b660 : public ULightEnvironmentComponent
-{
-	void SetEnabled(UBOOL);
-};
-
 // @baa 0x00c8b660
 void ULightEnvironmentComponent::execSetEnabled(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bNewEnabled);
 	P_FINISH;
-	((ULightEnvironmentComponent__00c8b660*)this)->SetEnabled(bNewEnabled);
+	((ULightEnvironmentComponent*)this)->SetEnabled(bNewEnabled);
 }
-
-struct UPointLightComponent_ : public UPointLightComponent
-{
-	void SetTranslation(FVector);
-};
 
 // @baa 0x00c8b5f0
 void UPointLightComponent::execSetTranslation(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT(FVector, NewTranslation);
 	P_FINISH;
-	((UPointLightComponent_*)this)->SetTranslation(NewTranslation);
+	((UPointLightComponent*)this)->SetTranslation(NewTranslation);
 }
 
 
@@ -525,121 +407,76 @@ void AActor::execGetComponentsBoundingBox(FFrame& Stack, RESULT_DECL)
 	((AActor*)this)->sub_00763700(ActorBox);
 }
 
-struct UCameraAnimInst__00c8c2b0 : public UCameraAnimInst
-{
-	void Stop(UBOOL);
-};
-
 // @baa 0x00c8c2b0
 void UCameraAnimInst::execStop(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL_OPTX(bImmediate, 0);
 	P_FINISH;
-	((UCameraAnimInst__00c8c2b0*)this)->Stop(bImmediate);
+	((UCameraAnimInst*)this)->Stop(bImmediate);
 }
-
-struct AActor__00c82570 : public AActor
-{
-	UBOOL ContainsPoint(FVector);
-};
 
 // @baa 0x00c82570
 void AActor::execContainsPoint(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT(FVector, Spot);
 	P_FINISH;
-	*(UBOOL*)Result = ((AActor__00c82570*)this)->ContainsPoint(Spot);
+	*(UBOOL*)Result = ((AActor*)this)->ContainsPoint(Spot);
 }
-
-struct AController__00c84fb0 : public AController
-{
-	UBOOL PointReachable(FVector);
-};
 
 // @baa 0x00c84fb0
 void AController::execPointReachable(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT(FVector, aPoint);
 	P_FINISH;
-	*(UBOOL*)Result = ((AController__00c84fb0*)this)->PointReachable(aPoint);
+	*(UBOOL*)Result = ((AController*)this)->PointReachable(aPoint);
 }
-
-struct AController__00c850a0 : public AController
-{
-	UBOOL PickWallAdjust(FVector);
-};
 
 // @baa 0x00c850a0
 void AController::execPickWallAdjust(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT(FVector, HitNormal);
 	P_FINISH;
-	*(UBOOL*)Result = ((AController__00c850a0*)this)->PickWallAdjust(HitNormal);
+	*(UBOOL*)Result = ((AController*)this)->PickWallAdjust(HitNormal);
 }
-
-struct AActor__00c820e0 : public AActor
-{
-	void Clock(FLOAT&);
-};
 
 // @baa 0x00c820e0
 void AActor::execClock(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT_REF(Time);
 	P_FINISH;
-	((AActor__00c820e0*)this)->Clock(Time);
+	((AActor*)this)->Clock(Time);
 }
-
-struct AActor__00c82160 : public AActor
-{
-	void UnClock(FLOAT&);
-};
 
 // @baa 0x00c82160
 void AActor::execUnClock(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT_REF(Time);
 	P_FINISH;
-	((AActor__00c82160*)this)->UnClock(Time);
+	((AActor*)this)->UnClock(Time);
 }
-
-struct AEmitterPool__00c879e0 : public AEmitterPool
-{
-	UParticleSystemComponent* GetFreeStaticMeshComponent(UBOOL);
-};
 
 // @baa 0x00c879e0
 void AEmitterPool::execGetFreeStaticMeshComponent(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL_OPTX(bCreateNewObject, 1);
 	P_FINISH;
-	*(UParticleSystemComponent**)Result = ((AEmitterPool__00c879e0*)this)->GetFreeStaticMeshComponent(bCreateNewObject);
+	*(UParticleSystemComponent**)Result = ((AEmitterPool*)this)->GetFreeStaticMeshComponent(bCreateNewObject);
 }
-
-struct AEmitterPool__00c87ac0 : public AEmitterPool
-{
-	UMaterialInstanceConstant* GetFreeMatInstConsts(UBOOL);
-};
 
 // @baa 0x00c87ac0
 void AEmitterPool::execGetFreeMatInstConsts(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL_OPTX(bCreateNewObject, 1);
 	P_FINISH;
-	*(UMaterialInstanceConstant**)Result = ((AEmitterPool__00c87ac0*)this)->GetFreeMatInstConsts(bCreateNewObject);
+	*(UMaterialInstanceConstant**)Result = ((AEmitterPool*)this)->GetFreeMatInstConsts(bCreateNewObject);
 }
-
-struct UPostProcessChain_ : public UPostProcessChain
-{
-	void* FindPostProcessEffect(FName);
-};
 
 // @baa 0x00c8ed10
 void UPostProcessChain::execFindPostProcessEffect(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_NAME(EffectName);
 	P_FINISH;
-	*(void**)Result = ((UPostProcessChain_*)this)->FindPostProcessEffect(EffectName);
+	*(void**)Result = ((UPostProcessChain*)this)->FindPostProcessEffect(EffectName);
 }
 
 // @baa 0x00c8cf20
@@ -915,12 +752,6 @@ void UMaterialInterface::execGetTextureParameterValue(FFrame& Stack, RESULT_DECL
     *(UBOOL*)Result = GetTextureParameterValue(ParameterName, OutValue);
 }
 
-/* AActor::DrawDebugCoordinateSystem (0x8a9e40) isn't declared in the kit. */
-struct AActor__00c819e0 : public AActor
-{
-    void DrawDebugCoordinateSystem(FVector AxisLoc, FRotator AxisRot, FLOAT Scale, UBOOL bPersistentLines);
-};
-
 // @baa 0x00c819e0
 void AActor::execDrawDebugCoordinateSystem(FFrame& Stack, RESULT_DECL)
 {
@@ -929,14 +760,8 @@ void AActor::execDrawDebugCoordinateSystem(FFrame& Stack, RESULT_DECL)
     P_GET_FLOAT(Scale);
     P_GET_UBOOL_OPTX(bPersistentLines, FALSE);
     P_FINISH;
-    ((AActor__00c819e0*)this)->DrawDebugCoordinateSystem(AxisLoc, AxisRot, Scale, bPersistentLines);
+    ((AActor*)this)->DrawDebugCoordinateSystem(AxisLoc, AxisRot, Scale, bPersistentLines);
 }
-
-/* AActor::DrawDebugSphere (0x8b0cf0) isn't declared in the kit. */
-struct AActor__00c81b00 : public AActor
-{
-    void DrawDebugSphere(FVector Center, FLOAT Radius, INT Segments, BYTE R, BYTE G, BYTE B, UBOOL bPersistentLines);
-};
 
 // @baa 0x00c81b00
 void AActor::execDrawDebugSphere(FFrame& Stack, RESULT_DECL)
@@ -949,14 +774,8 @@ void AActor::execDrawDebugSphere(FFrame& Stack, RESULT_DECL)
     P_GET_BYTE(B);
     P_GET_UBOOL_OPTX(bPersistentLines, FALSE);
     P_FINISH;
-    ((AActor__00c81b00*)this)->DrawDebugSphere(Center, Radius, Segments, R, G, B, bPersistentLines);
+    ((AActor*)this)->DrawDebugSphere(Center, Radius, Segments, R, G, B, bPersistentLines);
 }
-
-/* AActor::DrawDebugCylinder (0x8b1060) isn't declared in the kit. */
-struct AActor__00c81c80 : public AActor
-{
-    void DrawDebugCylinder(FVector Start, FVector End, FLOAT Radius, INT Segments, BYTE R, BYTE G, BYTE B, UBOOL bPersistentLines);
-};
 
 // @baa 0x00c81c80
 void AActor::execDrawDebugCylinder(FFrame& Stack, RESULT_DECL)
@@ -970,14 +789,8 @@ void AActor::execDrawDebugCylinder(FFrame& Stack, RESULT_DECL)
     P_GET_BYTE(B);
     P_GET_UBOOL_OPTX(bPersistentLines, FALSE);
     P_FINISH;
-    ((AActor__00c81c80*)this)->DrawDebugCylinder(Start, End, Radius, Segments, R, G, B, bPersistentLines);
+    ((AActor*)this)->DrawDebugCylinder(Start, End, Radius, Segments, R, G, B, bPersistentLines);
 }
-
-/* AActor::DrawDebugCone (0x8c76a0) isn't declared in the kit. */
-struct AActor__00c81e30 : public AActor
-{
-    void DrawDebugCone(FVector Origin, FVector Direction, FLOAT Length, FLOAT AngleWidth, FLOAT AngleHeight, INT NumSides, FColor DrawColor, UBOOL bPersistentLines);
-};
 
 // @baa 0x00c81e30
 void AActor::execDrawDebugCone(FFrame& Stack, RESULT_DECL)
@@ -991,14 +804,8 @@ void AActor::execDrawDebugCone(FFrame& Stack, RESULT_DECL)
     P_GET_STRUCT(FColor, DrawColor);
     P_GET_UBOOL_OPTX(bPersistentLines, FALSE);
     P_FINISH;
-    ((AActor__00c81e30*)this)->DrawDebugCone(Origin, Direction, Length, AngleWidth, AngleHeight, NumSides, DrawColor, bPersistentLines);
+    ((AActor*)this)->DrawDebugCone(Origin, Direction, Length, AngleWidth, AngleHeight, NumSides, DrawColor, bPersistentLines);
 }
-
-/* AActor::ClampRotation (0x8b14b0) isn't declared in the kit. */
-struct AActor__00c82360 : public AActor
-{
-    UBOOL ClampRotation(FRotator& out_Rot, FRotator rBase, FRotator rUpperLimits, FRotator rLowerLimits);
-};
 
 // @baa 0x00c82360
 void AActor::execClampRotation(FFrame& Stack, RESULT_DECL)
@@ -1008,14 +815,8 @@ void AActor::execClampRotation(FFrame& Stack, RESULT_DECL)
     P_GET_STRUCT(FRotator, rUpperLimits);
     P_GET_STRUCT(FRotator, rLowerLimits);
     P_FINISH;
-    *(UBOOL*)Result = ((AActor__00c82360*)this)->ClampRotation(out_Rot, rBase, rUpperLimits, rLowerLimits);
+    *(UBOOL*)Result = ((AActor*)this)->ClampRotation(out_Rot, rBase, rUpperLimits, rLowerLimits);
 }
-
-/* AActor::FindSpot (0x758bc0) isn't declared in the kit. */
-struct AActor__00c82480 : public AActor
-{
-    UBOOL FindSpot(FVector BoxExtent, FVector& SpotLocation, UBOOL DontEaryOut);
-};
 
 // @baa 0x00c82480
 void AActor::execFindSpot(FFrame& Stack, RESULT_DECL)
@@ -1024,7 +825,7 @@ void AActor::execFindSpot(FFrame& Stack, RESULT_DECL)
     P_GET_STRUCT_REF(FVector, SpotLocation);
     P_GET_UBOOL_OPTX(DontEaryOut, FALSE);
     P_FINISH;
-    *(UBOOL*)Result = ((AActor__00c82480*)this)->FindSpot(BoxExtent, SpotLocation, DontEaryOut);
+    *(UBOOL*)Result = ((AActor*)this)->FindSpot(BoxExtent, SpotLocation, DontEaryOut);
 }
 
 // @baa 0x00c84700
@@ -1034,26 +835,14 @@ void AController::execGetAdjustLocation(FFrame& Stack, RESULT_DECL)
     *(FVector*)Result = ((AController*)this)->GetAdjustLocation();
 }
 
-/* AController::BeyondFogDistance (0x7a0f00) isn't declared in the kit. */
-struct AController__00c84750 : public AController
-{
-    UBOOL BeyondFogDistance(FVector ViewPoint, FVector OtherPoint);
-};
-
 // @baa 0x00c84750
 void AController::execBeyondFogDistance(FFrame& Stack, RESULT_DECL)
 {
     P_GET_STRUCT(FVector, ViewPoint);
     P_GET_STRUCT(FVector, OtherPoint);
     P_FINISH;
-    *(UBOOL*)Result = ((AController__00c84750*)this)->BeyondFogDistance(ViewPoint, OtherPoint);
+    *(UBOOL*)Result = ((AController*)this)->BeyondFogDistance(ViewPoint, OtherPoint);
 }
-
-/* AController::CanSeeByPoints (0x7ac5c0) isn't declared in the kit. */
-struct AController__00c84870 : public AController
-{
-    UBOOL CanSeeByPoints(FVector ViewLocation, FVector TestLocation, FRotator ViewRotation);
-};
 
 // @baa 0x00c84870
 void AController::execCanSeeByPoints(FFrame& Stack, RESULT_DECL)
@@ -1062,14 +851,8 @@ void AController::execCanSeeByPoints(FFrame& Stack, RESULT_DECL)
     P_GET_STRUCT(FVector, TestLocation);
     P_GET_STRUCT(FRotator, ViewRotation);
     P_FINISH;
-    *(UBOOL*)Result = ((AController__00c84870*)this)->CanSeeByPoints(ViewLocation, TestLocation, ViewRotation);
+    *(UBOOL*)Result = ((AController*)this)->CanSeeByPoints(ViewLocation, TestLocation, ViewRotation);
 }
-
-/* AController::FindPathTo (0x7bfca0) isn't declared in the kit. */
-struct AController__00c84b20 : public AController
-{
-    AActor* FindPathTo(FVector aPoint, INT MaxPathLength, UBOOL bReturnPartial);
-};
 
 // @baa 0x00c84b20
 void AController::execFindPathTo(FFrame& Stack, RESULT_DECL)
@@ -1078,14 +861,8 @@ void AController::execFindPathTo(FFrame& Stack, RESULT_DECL)
     P_GET_INT_OPTX(MaxPathLength, 0);
     P_GET_UBOOL_OPTX(bReturnPartial, FALSE);
     P_FINISH;
-    *(AActor**)Result = ((AController__00c84b20*)this)->FindPathTo(aPoint, MaxPathLength, bReturnPartial);
+    *(AActor**)Result = ((AController*)this)->FindPathTo(aPoint, MaxPathLength, bReturnPartial);
 }
-
-/* AController::FindPathToward (0x7bfcc0) isn't declared in the kit. */
-struct AController__00c84c10 : public AController
-{
-    AActor* FindPathToward(class AActor* anActor, UBOOL bWeightDetours, INT MaxPathLength, UBOOL bReturnPartial);
-};
 
 // @baa 0x00c84c10
 void AController::execFindPathToward(FFrame& Stack, RESULT_DECL)
@@ -1095,14 +872,8 @@ void AController::execFindPathToward(FFrame& Stack, RESULT_DECL)
     P_GET_INT_OPTX(MaxPathLength, 0);
     P_GET_UBOOL_OPTX(bReturnPartial, FALSE);
     P_FINISH;
-    *(AActor**)Result = ((AController__00c84c10*)this)->FindPathToward(anActor, bWeightDetours, MaxPathLength, bReturnPartial);
+    *(AActor**)Result = ((AController*)this)->FindPathToward(anActor, bWeightDetours, MaxPathLength, bReturnPartial);
 }
-
-/* AController::FindPathTowardNearest (0x7c0030) isn't declared in the kit. */
-struct AController__00c84d20 : public AController
-{
-    AActor* FindPathTowardNearest(class UClass* GoalClass, UBOOL bWeightDetours, INT MaxPathLength, UBOOL bReturnPartial);
-};
 
 // @baa 0x00c84d20
 void AController::execFindPathTowardNearest(FFrame& Stack, RESULT_DECL)
@@ -1112,14 +883,8 @@ void AController::execFindPathTowardNearest(FFrame& Stack, RESULT_DECL)
     P_GET_INT_OPTX(MaxPathLength, 0);
     P_GET_UBOOL_OPTX(bReturnPartial, FALSE);
     P_FINISH;
-    *(AActor**)Result = ((AController__00c84d20*)this)->FindPathTowardNearest(GoalClass, bWeightDetours, MaxPathLength, bReturnPartial);
+    *(AActor**)Result = ((AController*)this)->FindPathTowardNearest(GoalClass, bWeightDetours, MaxPathLength, bReturnPartial);
 }
-
-/* AController::FindPathToIntercept (0x7bfd10) isn't declared in the kit. */
-struct AController__00c84e70 : public AController
-{
-    AActor* FindPathToIntercept(class APawn* P, class AActor* InRouteGoal, UBOOL bWeightDetours, INT MaxPathLength, UBOOL bReturnPartial);
-};
 
 // @baa 0x00c84e70
 void AController::execFindPathToIntercept(FFrame& Stack, RESULT_DECL)
@@ -1130,14 +895,8 @@ void AController::execFindPathToIntercept(FFrame& Stack, RESULT_DECL)
     P_GET_INT_OPTX(MaxPathLength, 0);
     P_GET_UBOOL_OPTX(bReturnPartial, FALSE);
     P_FINISH;
-    *(AActor**)Result = ((AController__00c84e70*)this)->FindPathToIntercept(P, InRouteGoal, bWeightDetours, MaxPathLength, bReturnPartial);
+    *(AActor**)Result = ((AController*)this)->FindPathToIntercept(P, InRouteGoal, bWeightDetours, MaxPathLength, bReturnPartial);
 }
-
-/* ANavigationPoint::GetReachSpecTo (0x83ef60) isn't declared in the kit. */
-struct ANavigationPoint__00c87f20 : public ANavigationPoint
-{
-    UReachSpec* GetReachSpecTo(class ANavigationPoint* Nav, class UClass* SpecClass);
-};
 
 // @baa 0x00c87f20
 void ANavigationPoint::execGetReachSpecTo(FFrame& Stack, RESULT_DECL)
@@ -1145,7 +904,7 @@ void ANavigationPoint::execGetReachSpecTo(FFrame& Stack, RESULT_DECL)
     P_GET_OBJECT(ANavigationPoint, Nav);
     P_GET_OBJECT_OPTX(UClass, SpecClass, NULL);
     P_FINISH;
-    *(UReachSpec**)Result = ((ANavigationPoint__00c87f20*)this)->GetReachSpecTo(Nav, SpecClass);
+    *(UReachSpec**)Result = ((ANavigationPoint*)this)->GetReachSpecTo(Nav, SpecClass);
 }
 
 

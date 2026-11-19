@@ -20,16 +20,12 @@ URB_ConstraintInstance* UPhysicsAssetInstance::FindConstraintInstance(FName ConN
 
 #line 48 "candidate.cpp"
 
-struct UPhysicsAsset__00a23610 : public UPhysicsAsset {
-    INT FindBodyIndex(FName BodyName); // 00a231b0
-};
-
 // @baa 0x00a23610
 URB_BodyInstance* UPhysicsAssetInstance::FindBodyInstance(FName BodyName, UPhysicsAsset* InAsset)
 {
     if (InAsset && InAsset->BodySetup.Num() == Bodies.Num())
     {
-        INT BodyIndex = ((UPhysicsAsset__00a23610*)InAsset)->FindBodyIndex(BodyName);
+        INT BodyIndex = ((UPhysicsAsset*)InAsset)->FindBodyIndex(BodyName);
         if (BodyIndex != INDEX_NONE)
         {
             return Bodies(BodyIndex);

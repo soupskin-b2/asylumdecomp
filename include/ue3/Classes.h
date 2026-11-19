@@ -3379,9 +3379,6 @@ struct FShadowMapVertexBufferBase {
     virtual void VertexBuffer_vf004(); virtual void VertexBuffer_vf008(); virtual void VertexBuffer_vf00c();
     DWORD _pad4, Word8, Wordc, Flags, Handle;
     FShadowMapVertexBufferBase() { Word8 = 0; Wordc = 0; Flags &= ~1u; Handle = 0; }
-    /* other member functions */
-    UBOOL IsCallable(const UObject* OwningObject) const; /* 0x00784f80 */
-    void sub_005d5620(const TCHAR* Name, INT FindType, UBOOL bSplitName); /* 0x005d5620 */
 };
 /* UnTickable.h. Its vtable (0x01eceb54): the destructor (out of line: leaves the tickable list), then Tick and
  * IsTickable (pure), then three that return FALSE (0x006be4a0, 0x006be4b0, 0x006be4c0). */
@@ -18025,7 +18022,6 @@ struct UAnimNodePlayCustomAnim : public UAnimNodeBlend {
     void execPlayCustomAnimByDuration(FFrame& Stack, RESULT_DECL); /* 0x00c90bd0 */
     void execStopCustomAnim(FFrame& Stack, RESULT_DECL); /* 0x00c90d60 */
     /* other member functions */
-    void PlayAnimByDuration(FName AnimName, FLOAT Duration, FLOAT BlendInTime, FLOAT BlendOutTime, UBOOL bLooping, UBOOL bOverride); /* 0x00c7ca70 */
     FLOAT PlayCustomAnim(FName AnimName, FLOAT Rate, FLOAT BlendInTime, FLOAT BlendOutTime, UBOOL bLooping, UBOOL bOverride); /* 0x00c7c940 */
     void PlayCustomAnimByDuration(FName AnimName, FLOAT Duration, FLOAT BlendInTime, FLOAT BlendOutTime, UBOOL bLooping, UBOOL bOverride); /* 0x00c7ca70 */
     void StopCustomAnim(FLOAT); /* 0x00c4bba0 */
@@ -18157,7 +18153,6 @@ struct UAnimNodeSequence : public UAnimNode {
     void ClearCachedResult(); /* 0x00c5e220 */
     void sub_00c67d30(FLOAT DeltaSeconds, FLOAT TotalWeight); /* 0x00c67d30 */
     void IssueNotifies(FLOAT DeltaTime); /* 0x00c52860 */
-    UBOOL CanUseCachedBoneAtoms(); /* 0x00c4ad70 */
     UBOOL sub_00c4fe50(); /* 0x00c4fe50 */
     void sub_00c4fee0(); /* 0x00c4fee0 */
     void AdvanceBy(FLOAT MoveDelta, FLOAT DeltaSeconds, UBOOL bFireNotifies); /* 0x00c5e2f0 */
@@ -18283,7 +18278,6 @@ struct UAnimNodeSynch : public UAnimNodeBlendBase {
     void execGetRelativePosition(FFrame& Stack, RESULT_DECL); /* 0x00c918f0 */
     void execSetGroupRateScale(FFrame& Stack, RESULT_DECL); /* 0x00c91970 */
     /* other member functions */
-    UAnimNodeSequence* GetMasterNodeOfSynchGroup(FName GroupName); /* 0x00c56530 */
     void UpdateMasterNodeForGroup(FSynchGroup& SynchGroup); /* 0x00c566c0 */
     void AddNodeToGroup(class UAnimNodeSequence* SeqNode, FName GroupName); /* 0x00c56250 */
     void ForceRelativePosition(FName GroupName, FLOAT RelativePosition); /* 0x00c56300 */
@@ -18291,7 +18285,7 @@ struct UAnimNodeSynch : public UAnimNodeBlendBase {
     void RemoveNodeFromGroup(class UAnimNodeSequence* SeqNode, FName GroupName); /* 0x00c62830 */
     void UpdateAnimSeqNodes(); /* 0x00c7bda0 */
     FLOAT GetRelativePosition(FName); /* 0x00c56440 */
-    void* GetMasterNodeOfGroup(FName); /* 0x00c56530 */
+    UAnimNodeSequence* GetMasterNodeOfGroup(FName GroupName); /* 0x00c56530 */
     /* registered size 0xd4 */
 };
 
@@ -19635,7 +19629,6 @@ struct UFont : public UObject {
     /* other member functions */
     UINT sub_00d192e0(BYTE); /* 0x00d192e0 */
     UINT* sub_00d19310(); /* 0x00d19310 */
-    void sub_00f1ec80(); /* 0x00f1ec80 */
     /* registered size 0x124 */
 };
 
@@ -20090,7 +20083,6 @@ struct UUIScreenObject : public UUIRoot {
     INT GetDockClients(FUIObjectArray* out_DockClients, UBOOL bDirectDockClientsOnly, BYTE TargetFace, BYTE SourceFace); /* 0x00db3360 */
     UUIObject* CreateWidget(UUIScreenObject* Owner, UClass* WidgetClass, UObject* WidgetArchetype, FName WidgetName); /* 0x00dc8c40 */
     INT GetBestPlayerIndex() const; /* 0x00db02b0 */
-    UObject* IsRuntimeInstance(); /* 0x005d7350 */
     FLOAT GetViewportWidth(); /* 0x00da90b0 */
     FLOAT GetViewportHeight(); /* 0x00da9150 */
     FLOAT GetAspectRatio(); /* 0x00da91f0 */
@@ -49930,8 +49922,6 @@ struct URCapeComponent : public UActorComponent {
     void execGetThoughts(FFrame& Stack, RESULT_DECL); /* 0x0172ad90 */
     /* other member functions */
     void eventCapeSetHiddenGame(UBOOL bNewIsHidden); /* 0x016ad870 */
-    void SetCapeAnimBlendWeights(UBOOL bEnable, FLOAT RootWeight, FLOAT ChildWeight); /* 0x016ae870 */
-    void SetDebugRenderBone(INT ChainNumber, INT LinkNumber); /* 0x016ae900 */
     void sub_016ae990(); /* 0x016ae990 */
     UPhysicalMaterial* sub_016ae9f0(); /* 0x016ae9f0 */
     INT GetNumChainsInCape(); /* 0x016aea10 */
@@ -49982,6 +49972,9 @@ struct URCapeComponent : public UActorComponent {
     INT sub_016b20d0(); /* 0x016b20d0 */
     UINT sub_016cd630(BYTE); /* 0x016cd630 */
     UBOOL GetBoneCollisionWithWorld(INT StateIndex, INT BoneIndex) const; /* 0x016ba4a0 */
+    UBOOL sub_016b21c0(); /* 0x016b21c0 */
+    UBOOL sub_016b2200(); /* 0x016b2200 */
+    void sub_016c65e0(FLOAT); /* 0x016c65e0 */
     /* registered size 0xf0 */
 };
 
@@ -55904,8 +55897,6 @@ struct ARPatrolPoint : public AActor {
     virtual INT AddMyMarker(AActor *S); /* 0x29c */
     /* UnrealScript natives */
     void execUpdateDisplayLines(FFrame& Stack, RESULT_DECL); /* 0x0171a200 */
-    /* other member functions */
-    void UpdateDisplayLines(INT bHide); /* 0x00772150 */
     /* registered size 0x1c0 */
 };
 
@@ -66680,10 +66671,31 @@ struct UFonixFactory : public UFactory {
 struct UTextureFactory : public UFactory {
     /* Editor.TextureFactory (native only: no script package describes it) */
     DECLARE_CLASS(UTextureFactory, UFactory, 0x2000, 0x0, Editor)
-    UTextureFactory() { *(DWORD*)((BYTE*)this + 0x50) |= 0x4; *(DWORD*)((BYTE*)this + 0x98) = 0; }
+    UTextureFactory() { bEditorImport = TRUE; bFlipBook = 0; }
     void StaticConstructor(); /* 0x00f28dd0 */
     void InitializeIntrinsicPropertyValues(); /* 0x00f23ea0 */
-    BYTE _native[0x4c]; /* C++-only members, to the registered size 0xb0 */
+    /* Factories.h; offsets as the StaticConstructor registers them (UE3's bLightMap isn't in this build) */
+    UBOOL NoCompression; /* 0x64 */
+    UBOOL NoAlpha; /* 0x68 */
+    UBOOL bDeferCompression; /* 0x6c */
+    BYTE CompressionSettings; /* 0x70 */
+    UBOOL bCreateMaterial; /* 0x74 */
+    UBOOL bRGBToDiffuse; /* 0x78 */
+    UBOOL bRGBToEmissive; /* 0x7c */
+    UBOOL bAlphaToSpecular; /* 0x80 */
+    UBOOL bAlphaToEmissive; /* 0x84 */
+    UBOOL bAlphaToOpacity; /* 0x88 */
+    UBOOL bAlphaToOpacityMask; /* 0x8c */
+    UBOOL bTwoSided; /* 0x90 */
+    BYTE Blending; /* 0x94 */
+    BYTE LightingModel; /* 0x95 */
+    BYTE LODGroup; /* 0x96 */
+    UBOOL bFlipBook; /* 0x98 */
+    UBOOL bDitherMipMapAlpha; /* 0x9c */
+    UBOOL bPreserveBorderR; /* 0xa0 */
+    UBOOL bPreserveBorderG; /* 0xa4 */
+    UBOOL bPreserveBorderB; /* 0xa8 */
+    UBOOL bPreserveBorderA; /* 0xac */
     /* virtual functions this class introduces (vtable 0x021324a0) */
     virtual UTexture2D* CreateTexture( UClass* Class, UObject* InParent, FName Name, EObjectFlags Flags ); /* 0x128 */
     /* overrides */
@@ -71510,7 +71522,6 @@ struct UStrProperty : public UProperty {
     virtual UBOOL RequiresInit() const; /* 0x160 */
     virtual INT GetMinAlignment() const; /* 0x168 */
     /* other member functions */
-    UINT* sub_00567f10(UINT); /* 0x00567f10 */
     UINT* sub_005fa850(); /* 0x005fa850 */
     UINT* sub_005fa8d0(UINT, UINT, UINT, UINT, UINT); /* 0x005fa8d0 */
     UINT* sub_005fa990(UINT, UINT, UINT, UINT, UINT); /* 0x005fa990 */

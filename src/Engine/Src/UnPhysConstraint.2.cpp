@@ -85,14 +85,8 @@ void URB_ConstraintInstance::execSetAngularVelocityTarget(FFrame& Stack, RESULT_
 	this->SetAngularVelocityTarget(InVelTarget);
 }
 
-struct URB_ConstraintInstance__00c95a60 : public URB_ConstraintInstance
-{
-	void SetAngularPositionDrive(UBOOL bEnableSwingDrive, UBOOL bEnableTwistDrive);
-	void execSetAngularPositionDrive(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c95a60
-void URB_ConstraintInstance__00c95a60::execSetAngularPositionDrive(FFrame& Stack, RESULT_DECL)
+void URB_ConstraintInstance::execSetAngularPositionDrive(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bEnableSwingDrive);
 	P_GET_UBOOL(bEnableTwistDrive);
@@ -100,14 +94,8 @@ void URB_ConstraintInstance__00c95a60::execSetAngularPositionDrive(FFrame& Stack
 	SetAngularPositionDrive(bEnableSwingDrive, bEnableTwistDrive);
 }
 
-struct URB_ConstraintInstance__00c95ca0 : public URB_ConstraintInstance
-{
-	void SetLinearDriveParams(FLOAT InSpring, FLOAT InDamping, FLOAT InForceLimit);
-	void execSetLinearDriveParams(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c95ca0
-void URB_ConstraintInstance__00c95ca0::execSetLinearDriveParams(FFrame& Stack, RESULT_DECL)
+void URB_ConstraintInstance::execSetLinearDriveParams(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(InSpring);
 	P_GET_FLOAT(InDamping);
@@ -116,14 +104,8 @@ void URB_ConstraintInstance__00c95ca0::execSetLinearDriveParams(FFrame& Stack, R
 	SetLinearDriveParams(InSpring, InDamping, InForceLimit);
 }
 
-struct URB_ConstraintInstance__00c95e60 : public URB_ConstraintInstance
-{
-	void SetAngularDriveParams(FLOAT InSpring, FLOAT InDamping, FLOAT InForceLimit);
-	void execSetAngularDriveParams(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c95e60
-void URB_ConstraintInstance__00c95e60::execSetAngularDriveParams(FFrame& Stack, RESULT_DECL)
+void URB_ConstraintInstance::execSetAngularDriveParams(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(InSpring);
 	P_GET_FLOAT(InDamping);
@@ -132,14 +114,8 @@ void URB_ConstraintInstance__00c95e60::execSetAngularDriveParams(FFrame& Stack, 
 	SetAngularDriveParams(InSpring, InDamping, InForceLimit);
 }
 
-struct URB_ConstraintInstance__00c958a0 : public URB_ConstraintInstance
-{
-	void SetLinearPositionDrive(UBOOL bEnableXDrive, UBOOL bEnableYDrive, UBOOL bEnableZDrive);
-	void execSetLinearPositionDrive(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c958a0
-void URB_ConstraintInstance__00c958a0::execSetLinearPositionDrive(FFrame& Stack, RESULT_DECL)
+void URB_ConstraintInstance::execSetLinearPositionDrive(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bEnableXDrive);
 	P_GET_UBOOL(bEnableYDrive);
@@ -148,14 +124,8 @@ void URB_ConstraintInstance__00c958a0::execSetLinearPositionDrive(FFrame& Stack,
 	SetLinearPositionDrive(bEnableXDrive, bEnableYDrive, bEnableZDrive);
 }
 
-struct URB_ConstraintInstance__00c95980 : public URB_ConstraintInstance
-{
-	void SetLinearVelocityDrive(UBOOL bEnableXDrive, UBOOL bEnableYDrive, UBOOL bEnableZDrive);
-	void execSetLinearVelocityDrive(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c95980
-void URB_ConstraintInstance__00c95980::execSetLinearVelocityDrive(FFrame& Stack, RESULT_DECL)
+void URB_ConstraintInstance::execSetLinearVelocityDrive(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bEnableXDrive);
 	P_GET_UBOOL(bEnableYDrive);
@@ -164,14 +134,8 @@ void URB_ConstraintInstance__00c95980::execSetLinearVelocityDrive(FFrame& Stack,
 	SetLinearVelocityDrive(bEnableXDrive, bEnableYDrive, bEnableZDrive);
 }
 
-struct URB_ConstraintInstance__00c95f30 : public URB_ConstraintInstance
-{
-	void SetAngularDOFLimitScale(FLOAT InSwing1LimitScale, FLOAT InSwing2LimitScale, FLOAT InTwistLimitScale, URB_ConstraintSetup* InSetup);
-	void execSetAngularDOFLimitScale(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c95f30
-void URB_ConstraintInstance__00c95f30::execSetAngularDOFLimitScale(FFrame& Stack, RESULT_DECL)
+void URB_ConstraintInstance::execSetAngularDOFLimitScale(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(InSwing1LimitScale);
 	P_GET_FLOAT(InSwing2LimitScale);
@@ -181,14 +145,8 @@ void URB_ConstraintInstance__00c95f30::execSetAngularDOFLimitScale(FFrame& Stack
 	SetAngularDOFLimitScale(InSwing1LimitScale, InSwing2LimitScale, InTwistLimitScale, InSetup);
 }
 
-struct URB_ConstraintInstance__00c961b0 : public URB_ConstraintInstance
-{
-	void SetAngularLimited(UBOOL SwingLimited, FLOAT Swing1LimitAngle, FLOAT Swing2LimitAngle, UBOOL SwingLimitSoft, FLOAT SwingLimitStiffness, FLOAT SwingLimitDamping, UBOOL TwistLimited, FLOAT TwistLimitAngle, UBOOL TwistLimitSoft, FLOAT TwistLimitStiffness, FLOAT TwistLimitDamping);
-	void execSetAngularLimited(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c961b0
-void URB_ConstraintInstance__00c961b0::execSetAngularLimited(FFrame& Stack, RESULT_DECL)
+void URB_ConstraintInstance::execSetAngularLimited(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(SwingLimited);
 	P_GET_FLOAT(Swing1LimitAngle);
@@ -205,14 +163,8 @@ void URB_ConstraintInstance__00c961b0::execSetAngularLimited(FFrame& Stack, RESU
 	SetAngularLimited(SwingLimited, Swing1LimitAngle, Swing2LimitAngle, SwingLimitSoft, SwingLimitStiffness, SwingLimitDamping, TwistLimited, TwistLimitAngle, TwistLimitSoft, TwistLimitStiffness, TwistLimitDamping);
 }
 
-struct URB_ConstraintInstance__00c96030 : public URB_ConstraintInstance
-{
-	void SetLimits(FVector FirstNormal, FVector FirstAxis, FVector SecondNormal, FVector SecondAxis, FLOAT Swing1Limit, FLOAT Swing2Limit);
-	void execSetLimits(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c96030
-void URB_ConstraintInstance__00c96030::execSetLimits(FFrame& Stack, RESULT_DECL)
+void URB_ConstraintInstance::execSetLimits(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT(FVector, FirstNormal);
 	P_GET_STRUCT(FVector, FirstAxis);
@@ -224,14 +176,8 @@ void URB_ConstraintInstance__00c96030::execSetLimits(FFrame& Stack, RESULT_DECL)
 	SetLimits(FirstNormal, FirstAxis, SecondNormal, SecondAxis, Swing1Limit, Swing2Limit);
 }
 
-struct URB_ConstraintInstance__00c95680 : public URB_ConstraintInstance
-{
-	void InitConstraint(UPrimitiveComponent* PrimComp1, UPrimitiveComponent* PrimComp2, URB_ConstraintSetup* Setup, FLOAT Scale, AActor* InOwner, UPrimitiveComponent* InPrimComp, UBOOL bMakeKinForBody1, UPhysicsAssetInstance* PhysicsAssetInstance);
-	void execInitConstraint(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c95680
-void URB_ConstraintInstance__00c95680::execInitConstraint(FFrame& Stack, RESULT_DECL)
+void URB_ConstraintInstance::execInitConstraint(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(UPrimitiveComponent, PrimComp1);
 	P_GET_OBJECT(UPrimitiveComponent, PrimComp2);
@@ -245,41 +191,23 @@ void URB_ConstraintInstance__00c95680::execInitConstraint(FFrame& Stack, RESULT_
 	InitConstraint(PrimComp1, PrimComp2, Setup, Scale, InOwner, InPrimComp, bMakeKinForBody1, PhysicsAssetInstance);
 }
 
-struct URB_ConstraintInstance__00c95850 : public URB_ConstraintInstance
-{
-	FVector GetConstraintLocation();
-	void execGetConstraintLocation(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c95850
-void URB_ConstraintInstance__00c95850::execGetConstraintLocation(FFrame& Stack, RESULT_DECL)
+void URB_ConstraintInstance::execGetConstraintLocation(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
 	*(FVector*)Result = GetConstraintLocation();
 }
 
-struct URB_ConstraintInstance__00c95d70 : public URB_ConstraintInstance
-{
-	void SetAngularPositionTarget(FQuat InPosTarget);
-	void execSetAngularPositionTarget(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c95d70
-void URB_ConstraintInstance__00c95d70::execSetAngularPositionTarget(FFrame& Stack, RESULT_DECL)
+void URB_ConstraintInstance::execSetAngularPositionTarget(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT(FQuat, InPosTarget);
 	P_FINISH;
 	SetAngularPositionTarget(InPosTarget);
 }
 
-struct URB_ConstraintInstance__00c96480 : public URB_ConstraintInstance
-{
-	void MoveKinActorTransform(FMatrix& NewTM);
-	void execMoveKinActorTransform(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c96480
-void URB_ConstraintInstance__00c96480::execMoveKinActorTransform(FFrame& Stack, RESULT_DECL)
+void URB_ConstraintInstance::execMoveKinActorTransform(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT_REF(FMatrix, NewTM);
 	P_FINISH;

@@ -1830,14 +1830,8 @@ INT UAnimTree::GetGroupIndex(FName GroupName)
 	return INDEX_NONE;
 }
 
-/* UAnimNodeSynch::GetMasterNodeOfSynchGroup isn't declared in Classes.h. */
-struct UAnimNodeSynch_ : public UAnimNodeSynch
-{
-	UAnimNodeSequence* GetMasterNodeOfSynchGroup(FName GroupName);
-};
-
 // @baa 0x00c56530
-UAnimNodeSequence* UAnimNodeSynch_::GetMasterNodeOfSynchGroup(FName GroupName)
+UAnimNodeSequence* UAnimNodeSynch::GetMasterNodeOfGroup(FName GroupName)
 {
 	for (INT GroupIdx = 0; GroupIdx < Groups.Num(); GroupIdx++)
 	{

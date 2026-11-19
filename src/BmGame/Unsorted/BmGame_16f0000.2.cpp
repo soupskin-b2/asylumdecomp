@@ -122,105 +122,57 @@ void ARCombatMove::execClearAllTimers( FFrame& Stack, RESULT_DECL )
 	ClearAllTimers();
 }
 
-struct ARSpecialMoveInstance_LineLauncher_ : public ARSpecialMoveInstance_LineLauncher
-{
-	void CheckForRailingComingUp();
-	void execCheckForRailingComingUp(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x016fbb10
-void ARSpecialMoveInstance_LineLauncher_::execCheckForRailingComingUp( FFrame& Stack, RESULT_DECL )
+void ARSpecialMoveInstance_LineLauncher::execCheckForRailingComingUp( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	CheckForRailingComingUp();
 }
 
-struct ARSpecialMoveInstance_ResonateObject_ : public ARSpecialMoveInstance_ResonateObject
-{
-	void AlignCamera();
-	void execAlignCamera(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x016fbfb0
-void ARSpecialMoveInstance_ResonateObject_::execAlignCamera( FFrame& Stack, RESULT_DECL )
+void ARSpecialMoveInstance_ResonateObject::execAlignCamera( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	AlignCamera();
 }
 
-struct ARCornerPoint_ : public ARCornerPoint
-{
-	void UpdateDisplayLines();
-	void execUpdateDisplayLines(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x016fe4a0
-void ARCornerPoint_::execUpdateDisplayLines( FFrame& Stack, RESULT_DECL )
+void ARCornerPoint::execUpdateDisplayLines( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	UpdateDisplayLines();
 }
 
-struct ARHidePoint_ : public ARHidePoint
-{
-	void ActivateForGrapple();
-	void execActivateForGrapple(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x016ffa10
-void ARHidePoint_::execActivateForGrapple( FFrame& Stack, RESULT_DECL )
+void ARHidePoint::execActivateForGrapple( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	ActivateForGrapple();
 }
 
-struct ARHidePoint__016ffa40 : public ARHidePoint
-{
-	void DeactivateForGrapple();
-	void execDeactivateForGrapple(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x016ffa40
-void ARHidePoint__016ffa40::execDeactivateForGrapple( FFrame& Stack, RESULT_DECL )
+void ARHidePoint::execDeactivateForGrapple( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	DeactivateForGrapple();
 }
 
-struct ARHidePoint__016ffa70 : public ARHidePoint
-{
-	void SaveDestroyedState();
-	void execSaveDestroyedState(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x016ffa70
-void ARHidePoint__016ffa70::execSaveDestroyedState( FFrame& Stack, RESULT_DECL )
+void ARHidePoint::execSaveDestroyedState( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	SaveDestroyedState();
 }
 
-struct ARHidePoint__016ffaa0 : public ARHidePoint
-{
-	void LoadDestroyedState();
-	void execLoadDestroyedState(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x016ffaa0
-void ARHidePoint__016ffaa0::execLoadDestroyedState( FFrame& Stack, RESULT_DECL )
+void ARHidePoint::execLoadDestroyedState( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	LoadDestroyedState();
 }
 
-struct ARGargoyleBombBase_ : public ARGargoyleBombBase
-{
-	void ActivateBomb();
-	void execActivateBomb(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x016ffd70
-void ARGargoyleBombBase_::execActivateBomb( FFrame& Stack, RESULT_DECL )
+void ARGargoyleBombBase::execActivateBomb( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	ActivateBomb();
@@ -1271,12 +1223,6 @@ void ARSpecialMoveInstance_LineLauncher::execGetKickTarget(FFrame& Stack, RESULT
     *(ARPawnVillain**)Result = this->GetKickTarget(KickTime, LeftKickTime, RightKickTime, MinOffsetForFwdKick, MaxSpeed, LineLauncherAccel, KickDir);
 }
 
-/* ARSpecialMoveInstance_CatchLedge::CorrectLedgeCatchVelocity (0x1616e90) isn't declared in the kit. */
-struct ARSpecialMoveInstance_CatchLedge_ : public ARSpecialMoveInstance_CatchLedge
-{
-    void CorrectLedgeCatchVelocity(class APawn* Player, FVector& DesiredPosition, FLOAT Max2DAccel, FLOAT DeltaTime);
-};
-
 // @baa 0x016fbdb0
 void ARSpecialMoveInstance_CatchLedge::execCorrectLedgeCatchVelocity(FFrame& Stack, RESULT_DECL)
 {
@@ -1285,7 +1231,7 @@ void ARSpecialMoveInstance_CatchLedge::execCorrectLedgeCatchVelocity(FFrame& Sta
     P_GET_FLOAT(Max2DAccel);
     P_GET_FLOAT(DeltaTime);
     P_FINISH;
-    ((ARSpecialMoveInstance_CatchLedge_*)this)->CorrectLedgeCatchVelocity(Player, DesiredPosition, Max2DAccel, DeltaTime);
+    ((ARSpecialMoveInstance_CatchLedge*)this)->CorrectLedgeCatchVelocity(Player, DesiredPosition, Max2DAccel, DeltaTime);
 }
 
 // @baa 0x016fbee0
@@ -1324,12 +1270,6 @@ void ARSpecialMoveInstance_ResonateObject::execUpdatePCResonatorPos(FFrame& Stac
     this->UpdatePCResonatorPos(Input, DeltaTime, TurnSpeed, Accel, Decel);
 }
 
-/* ARSpecialMoveInstance_SwingToVantagePoint::SetupTrajectory (0x1616a70) isn't declared in the kit. */
-struct ARSpecialMoveInstance_SwingToVantagePoint_ : public ARSpecialMoveInstance_SwingToVantagePoint
-{
-    void SetupTrajectory(FVector StartLocation, FVector EndLocation, FLOAT DefaultDistance, FLOAT DefaultRadius, FLOAT AnimationDuration);
-};
-
 // @baa 0x016fc2c0
 void ARSpecialMoveInstance_SwingToVantagePoint::execSetupTrajectory(FFrame& Stack, RESULT_DECL)
 {
@@ -1339,7 +1279,7 @@ void ARSpecialMoveInstance_SwingToVantagePoint::execSetupTrajectory(FFrame& Stac
     P_GET_FLOAT(DefaultRadius);
     P_GET_FLOAT(AnimationDuration);
     P_FINISH;
-    ((ARSpecialMoveInstance_SwingToVantagePoint_*)this)->SetupTrajectory(StartLocation, EndLocation, DefaultDistance, DefaultRadius, AnimationDuration);
+    ((ARSpecialMoveInstance_SwingToVantagePoint*)this)->SetupTrajectory(StartLocation, EndLocation, DefaultDistance, DefaultRadius, AnimationDuration);
 }
 
 
@@ -1352,12 +1292,6 @@ void ARSpecialMoveInstance_SwingToVantagePoint::execUpdateTrajectory(FFrame& Sta
     *(FLOAT*)Result = this->UpdateTrajectory(DeltaTime, Position);
 }
 
-/* URPlayerInput::FastPlayerInput (0x1635210) isn't declared in the kit. */
-struct URPlayerInput_ : public URPlayerInput
-{
-    void FastPlayerInput(FLOAT DeltaTime, UBOOL bMoveInputIgnored, UBOOL bLookInputIgnored);
-};
-
 // @baa 0x016fc620
 void URPlayerInput::execFastPlayerInput(FFrame& Stack, RESULT_DECL)
 {
@@ -1365,7 +1299,7 @@ void URPlayerInput::execFastPlayerInput(FFrame& Stack, RESULT_DECL)
     P_GET_UBOOL(bMoveInputIgnored);
     P_GET_UBOOL(bLookInputIgnored);
     P_FINISH;
-    ((URPlayerInput_*)this)->FastPlayerInput(DeltaTime, bMoveInputIgnored, bLookInputIgnored);
+    ((URPlayerInput*)this)->FastPlayerInput(DeltaTime, bMoveInputIgnored, bLookInputIgnored);
 }
 
 extern FName g_026e25bc;
@@ -1377,12 +1311,6 @@ void ARExplodableWallBase::eventPlayExplosionSound()
 {
 	ProcessEvent(FindFunctionChecked(g_026e25bc), NULL);
 }
-
-/* ARPawnCharacter::CombineWeaponConfigs (0x167bbf0) isn't declared in the kit. */
-struct ARPawnCharacter_ : public ARPawnCharacter
-{
-    URWeaponConfig* CombineWeaponConfigs(class URWeaponConfig* Config1, class URWeaponConfig* Config2, class URWeaponConfig* Config3, class URWeaponConfig* Config4, class URWeaponConfig* Config5, class URWeaponConfig* Config6, class URWeaponConfig* Config7, class URWeaponConfig* Config8, class URWeaponConfig* Config9, class URWeaponConfig* Config10, class URWeaponConfig* Config11, class URWeaponConfig* Config12);
-};
 
 // @baa 0x016f57c0
 void ARPawnCharacter::execCombineWeaponConfigs(FFrame& Stack, RESULT_DECL)
@@ -1400,7 +1328,7 @@ void ARPawnCharacter::execCombineWeaponConfigs(FFrame& Stack, RESULT_DECL)
     P_GET_OBJECT_OPTX(URWeaponConfig, Config11, NULL);
     P_GET_OBJECT_OPTX(URWeaponConfig, Config12, NULL);
     P_FINISH;
-    *(URWeaponConfig**)Result = ((ARPawnCharacter_*)this)->CombineWeaponConfigs(Config1, Config2, Config3, Config4, Config5, Config6, Config7, Config8, Config9, Config10, Config11, Config12);
+    *(URWeaponConfig**)Result = ((ARPawnCharacter*)this)->CombineWeaponConfigs(Config1, Config2, Config3, Config4, Config5, Config6, Config7, Config8, Config9, Config10, Config11, Config12);
 }
 
 // @baa 0x016f4190

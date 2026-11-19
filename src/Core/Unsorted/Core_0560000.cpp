@@ -573,16 +573,10 @@ undefined4 * UState::sub_00567ed0(undefined4 param_2, undefined4 param_3, undefi
   return param_1;
 }
 
-int sub_005c7a20(void);
 // @baa 0x00567f10
-undefined4 * UStrProperty::sub_00567f10(undefined4 param_2)
+UField::UField(UField* InSuperField)
+:	SuperField(InSuperField)
 {
-    undefined4 * param_1 = (undefined4 *)this;
-
-  sub_005c7a20();
-  param_1[0xc] = param_2;
-  *param_1 = (undefined4)(&g_01e7cf70);
-  return param_1;
 }
 
 struct C_005685c0 { int sub_005685c0(void); };

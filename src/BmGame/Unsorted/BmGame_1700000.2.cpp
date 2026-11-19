@@ -4,14 +4,8 @@
 #include "ue3/Classes.h"
 #include "ue3/Script.h"
 
-struct ARGrapplePoint_ : public ARGrapplePoint
-{
-	void RegisterGrapplePoint();
-	void execRegisterGrapplePoint(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x017011c0
-void ARGrapplePoint_::execRegisterGrapplePoint( FFrame& Stack, RESULT_DECL )
+void ARGrapplePoint::execRegisterGrapplePoint( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	RegisterGrapplePoint();
@@ -25,14 +19,8 @@ void ARShimmyEdgeMarker::execSetupEndPoints( FFrame& Stack, RESULT_DECL )
 	SetupEndPoints();
 }
 
-struct ARShimmyEdgeMarker__01701250 : public ARShimmyEdgeMarker
-{
-	void RegisterShimmyEdgeMarker();
-	void execRegisterShimmyEdgeMarker(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x01701250
-void ARShimmyEdgeMarker__01701250::execRegisterShimmyEdgeMarker( FFrame& Stack, RESULT_DECL )
+void ARShimmyEdgeMarker::execRegisterShimmyEdgeMarker( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	RegisterShimmyEdgeMarker();
@@ -58,14 +46,8 @@ void ARBMWeaponStunStickBase_::execIsOn( FFrame& Stack, RESULT_DECL )
 	*(UBOOL*)Result = IsOn();
 }
 
-struct ARGrappleGun_ : public ARGrappleGun
-{
-	void DrawGrapplePointDebug();
-	void execDrawGrapplePointDebug(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x01707740
-void ARGrappleGun_::execDrawGrapplePointDebug( FFrame& Stack, RESULT_DECL )
+void ARGrappleGun::execDrawGrapplePointDebug( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	DrawGrapplePointDebug();
@@ -79,66 +61,36 @@ void ARGrappleGun::execFindEscapeVantagePoint( FFrame& Stack, RESULT_DECL )
 	FindEscapeVantagePoint();
 }
 
-struct ARGrappleGun__017077a0 : public ARGrappleGun
-{
-	INT GetNumAvailableGrapplePoints();
-	void execGetNumAvailableGrapplePoints(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x017077a0
-void ARGrappleGun__017077a0::execGetNumAvailableGrapplePoints( FFrame& Stack, RESULT_DECL )
+void ARGrappleGun::execGetNumAvailableGrapplePoints( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	*(INT*)Result = GetNumAvailableGrapplePoints();
 }
 
-struct ARHarpoonGun_ : public ARHarpoonGun
-{
-	void HarpoonFired();
-	void execHarpoonFired(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x017077e0
-void ARHarpoonGun_::execHarpoonFired( FFrame& Stack, RESULT_DECL )
+void ARHarpoonGun::execHarpoonFired( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	HarpoonFired();
 }
 
-struct ARBatarangProjectile_ : public ARBatarangProjectile
-{
-	void StartedFlightPath();
-	void execStartedFlightPath(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x01708160
-void ARBatarangProjectile_::execStartedFlightPath( FFrame& Stack, RESULT_DECL )
+void ARBatarangProjectile::execStartedFlightPath( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	StartedFlightPath();
 }
 
-struct ARBatarangProjectile_Controllable_ : public ARBatarangProjectile_Controllable
-{
-	void ExtraHitCheck();
-	void execExtraHitCheck(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x01708200
-void ARBatarangProjectile_Controllable_::execExtraHitCheck( FFrame& Stack, RESULT_DECL )
+void ARBatarangProjectile_Controllable::execExtraHitCheck( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	ExtraHitCheck();
 }
 
-struct ARSilentPredatorCamera_ : public ARSilentPredatorCamera
-{
-	UBOOL OutOfPredatorView();
-	void execOutOfPredatorView(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x0170a3a0
-void ARSilentPredatorCamera_::execOutOfPredatorView( FFrame& Stack, RESULT_DECL )
+void ARSilentPredatorCamera::execOutOfPredatorView( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	*(UBOOL*)Result = OutOfPredatorView();

@@ -4,13 +4,6 @@
 #include "ue3/Classes.h"
 #include "ue3/AppMath.h"
 
-/* Kit gaps: FScriptDelegate::IsCallable (00784f80) and UUIStyle_Data::delegateMatchesStyleData (00dc9a40, script
- * delegate glue) aren't declared. */
-struct FScriptDelegate_ : public FScriptDelegate
-{
-	UBOOL IsCallable(const UObject* OwnerObject) const;
-};
-
 // @baa 0x00dca6d0
 /* Whether StyleToCompare has the same color and padding as this style (and the script delegate agrees). */
 UBOOL UUIStyle_Data::MatchesStyleData(UUIStyle_Data* StyleToCompare)
@@ -26,5 +19,5 @@ UBOOL UUIStyle_Data::MatchesStyleData(UUIStyle_Data* StyleToCompare)
 	return StyleColor == StyleToCompare->StyleColor
 		&&	appAbs(StylePadding[0] - StyleToCompare->StylePadding[0]) < DELTA
 		&&	appAbs(StylePadding[1] - StyleToCompare->StylePadding[1]) < DELTA
-		&&	(!((FScriptDelegate_&)__MatchesStyleData__Delegate).IsCallable(this) || this->delegateMatchesStyleData(StyleToCompare));
+		&&	(!((FScriptDelegate&)__MatchesStyleData__Delegate).IsCallable(this) || this->delegateMatchesStyleData(StyleToCompare));
 }

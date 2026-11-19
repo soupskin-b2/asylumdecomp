@@ -6,15 +6,8 @@
 /* Kit gap, with UE3's definition (UnName.h): FName has no comparison operators. */
 inline UBOOL operator==(const FName& A, EName N) { return A.Index == N && A.Number == 0; }
 
-/* UAnimNodePlayCustomAnim::PlayAnimByDuration isn't declared in Classes.h. */
-struct UAnimNodePlayCustomAnim_ : public UAnimNodePlayCustomAnim
-{
-	FLOAT sub_00c7c940(FName AnimName, FLOAT Rate, FLOAT BlendInTime, FLOAT BlendOutTime, UBOOL bLooping, UBOOL bOverride);	/* PlayAnim */
-	void PlayAnimByDuration(FName AnimName, FLOAT Duration, FLOAT BlendInTime, FLOAT BlendOutTime, UBOOL bLooping, UBOOL bOverride);
-};
-
 // @baa 0x00c7ca70
-void UAnimNodePlayCustomAnim_::PlayAnimByDuration(FName AnimName, FLOAT Duration, FLOAT BlendInTime, FLOAT BlendOutTime, UBOOL bLooping, UBOOL bOverride)
+void UAnimNodePlayCustomAnim::PlayCustomAnimByDuration(FName AnimName, FLOAT Duration, FLOAT BlendInTime, FLOAT BlendOutTime, UBOOL bLooping, UBOOL bOverride)
 {
 	if (AnimName == NAME_None || Duration <= 0.f)
 	{
@@ -26,7 +19,7 @@ void UAnimNodePlayCustomAnim_::PlayAnimByDuration(FName AnimName, FLOAT Duration
 	{
 		// the play rate that makes the animation last Duration
 		const FLOAT NewRate = AnimSeq->SequenceLength / Duration;
-		sub_00c7c940(AnimName, NewRate, BlendInTime, BlendOutTime, bLooping, bOverride);
+		PlayCustomAnim(AnimName, NewRate, BlendInTime, BlendOutTime, bLooping, bOverride);
 	}
 }
 

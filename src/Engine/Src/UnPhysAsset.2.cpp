@@ -11,14 +11,8 @@ void URB_BodyInstance::execIsFixed( FFrame& Stack, RESULT_DECL )
 	*(UBOOL*)Result = IsFixed();
 }
 
-struct URB_BodyInstance__00c94ed0 : public URB_BodyInstance
-{
-	UBOOL IsValidBodyInstance();
-	void execIsValidBodyInstance(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c94ed0
-void URB_BodyInstance__00c94ed0::execIsValidBodyInstance( FFrame& Stack, RESULT_DECL )
+void URB_BodyInstance::execIsValidBodyInstance( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	*(UBOOL*)Result = IsValidBodyInstance();
@@ -38,14 +32,8 @@ void URB_BodyInstance__00c95440::execSetPhysMaterialOverride(FFrame& Stack, RESU
 	SetPhysMaterialOverride(NewPhysMaterial);
 }
 
-struct URB_BodyInstance__00c955e0 : public URB_BodyInstance
-{
-	void UpdateDampingProperties();
-	void execUpdateDampingProperties(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c955e0
-void URB_BodyInstance__00c955e0::execUpdateDampingProperties( FFrame& Stack, RESULT_DECL )
+void URB_BodyInstance::execUpdateDampingProperties( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	UpdateDampingProperties();
@@ -129,14 +117,8 @@ void URB_BodyInstance::execEnableCollisionResponse(FFrame& Stack, RESULT_DECL)
 	this->EnableCollisionResponse(bEnableResponse);
 }
 
-struct UPhysicsAssetInstance__00c94ae0 : public UPhysicsAssetInstance
-{
-	void SetFullAnimWeightBlockRigidBody(UBOOL bNewBlockRigidBody, USkeletalMeshComponent* SkelMesh);
-	void execSetFullAnimWeightBlockRigidBody(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c94ae0
-void UPhysicsAssetInstance__00c94ae0::execSetFullAnimWeightBlockRigidBody(FFrame& Stack, RESULT_DECL)
+void UPhysicsAssetInstance::execSetFullAnimWeightBlockRigidBody(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bNewBlockRigidBody);
 	P_GET_OBJECT(USkeletalMeshComponent, SkelMesh);
@@ -154,14 +136,8 @@ void UPhysicsAssetInstance::execSetFullAnimWeightBonesFixed(FFrame& Stack, RESUL
 	SetFullAnimWeightBonesFixed(bNewFixed, SkelMesh);
 }
 
-struct UPhysicsAssetInstance__00c94c20 : public UPhysicsAssetInstance
-{
-	URB_BodyInstance* FindBodyInstance(FName BodyName, UPhysicsAsset* InAsset);
-	void execFindBodyInstance(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c94c20
-void UPhysicsAssetInstance__00c94c20::execFindBodyInstance(FFrame& Stack, RESULT_DECL)
+void UPhysicsAssetInstance::execFindBodyInstance(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_NAME(BodyName);
 	P_GET_OBJECT(UPhysicsAsset, InAsset);
@@ -179,14 +155,8 @@ void UPhysicsAssetInstance::execFindConstraintInstance(FFrame& Stack, RESULT_DEC
 	*(URB_ConstraintInstance**)Result = FindConstraintInstance(ConName, InAsset);
 }
 
-struct URB_BodyInstance__00c95310 : public URB_BodyInstance
-{
-	void SetBoneSpringTarget(const FMatrix& InBoneTarget, UBOOL bTeleport);
-	void execSetBoneSpringTarget(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c95310
-void URB_BodyInstance__00c95310::execSetBoneSpringTarget(FFrame& Stack, RESULT_DECL)
+void URB_BodyInstance::execSetBoneSpringTarget(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT_REF(FMatrix, InBoneTarget);
 	P_GET_UBOOL(bTeleport);
@@ -194,14 +164,8 @@ void URB_BodyInstance__00c95310::execSetBoneSpringTarget(FFrame& Stack, RESULT_D
 	SetBoneSpringTarget(InBoneTarget, bTeleport);
 }
 
-struct UPhysicsAssetInstance__00c94540 : public UPhysicsAssetInstance
-{
-	FLOAT GetTotalMassBelowBone(FName InBoneName, UPhysicsAsset* InAsset, USkeletalMesh* InSkelMesh);
-	void execGetTotalMassBelowBone(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c94540
-void UPhysicsAssetInstance__00c94540::execGetTotalMassBelowBone(FFrame& Stack, RESULT_DECL)
+void UPhysicsAssetInstance::execGetTotalMassBelowBone(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_NAME(InBoneName);
 	P_GET_OBJECT(UPhysicsAsset, InAsset);
@@ -232,14 +196,8 @@ void UPhysicsAssetInstance::execSetAngularDriveScale(FFrame& Stack, RESULT_DECL)
 	SetAngularDriveScale(InAngularSpringScale, InAngularDampingScale, InAngularForceLimitScale);
 }
 
-struct URB_BodyInstance__00c95120 : public URB_BodyInstance
-{
-	void EnableBoneSpring(UBOOL bInEnableLinear, UBOOL bInEnableAngular, const FMatrix& InBoneTarget);
-	void execEnableBoneSpring(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c95120
-void URB_BodyInstance__00c95120::execEnableBoneSpring(FFrame& Stack, RESULT_DECL)
+void URB_BodyInstance::execEnableBoneSpring(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bInEnableLinear);
 	P_GET_UBOOL(bInEnableAngular);
@@ -248,14 +206,8 @@ void URB_BodyInstance__00c95120::execEnableBoneSpring(FFrame& Stack, RESULT_DECL
 	EnableBoneSpring(bInEnableLinear, bInEnableAngular, InBoneTarget);
 }
 
-struct URB_BodyInstance__00c95210 : public URB_BodyInstance
-{
-	void SetBoneSpringParams(FLOAT InLinearSpring, FLOAT InLinearDamping, FLOAT InAngularSpring, FLOAT InAngularDamping);
-	void execSetBoneSpringParams(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c95210
-void URB_BodyInstance__00c95210::execSetBoneSpringParams(FFrame& Stack, RESULT_DECL)
+void URB_BodyInstance::execSetBoneSpringParams(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(InLinearSpring);
 	P_GET_FLOAT(InLinearDamping);
@@ -314,14 +266,8 @@ void UPhysicsAssetInstance::execSetAllMotorsAngularDriveParams(FFrame& Stack, RE
 	SetAllMotorsAngularDriveParams(InSpring, InDamping, InForceLimit, SkelMesh, bSkipFullAnimWeightBodies);
 }
 
-struct UPhysicsAssetInstance__00cc1b50 : public UPhysicsAssetInstance
-{
-	void SetNamedBodiesBlockRigidBody(UBOOL bNewBlockRigidBody, const TArray<FName>& BoneNames, USkeletalMeshComponent* SkelMesh);
-	void execSetNamedBodiesBlockRigidBody(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00cc1b50
-void UPhysicsAssetInstance__00cc1b50::execSetNamedBodiesBlockRigidBody(FFrame& Stack, RESULT_DECL)
+void UPhysicsAssetInstance::execSetNamedBodiesBlockRigidBody(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bNewBlockRigidBody);
 	P_GET_TARRAY(FName, BoneNames);
@@ -330,14 +276,8 @@ void UPhysicsAssetInstance__00cc1b50::execSetNamedBodiesBlockRigidBody(FFrame& S
 	SetNamedBodiesBlockRigidBody(bNewBlockRigidBody, BoneNames, SkelMesh);
 }
 
-struct UPhysicsAssetInstance__00cc19e0 : public UPhysicsAssetInstance
-{
-	void SetNamedRBBoneSprings(UBOOL bEnable, const TArray<FName>& BoneNames, FLOAT InBoneLinearSpring, FLOAT InBoneAngularSpring, USkeletalMeshComponent* SkelMeshComp);
-	void execSetNamedRBBoneSprings(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00cc19e0
-void UPhysicsAssetInstance__00cc19e0::execSetNamedRBBoneSprings(FFrame& Stack, RESULT_DECL)
+void UPhysicsAssetInstance::execSetNamedRBBoneSprings(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bEnable);
 	P_GET_TARRAY(FName, BoneNames);
@@ -387,66 +327,36 @@ void UPhysicsAssetInstance::execSetNamedBodiesFixed(FFrame& Stack, RESULT_DECL)
 	SetNamedBodiesFixed(bNewFixed, BoneNames, SkelMesh, bSetOtherBodiesToComplement, bSkipFullAnimWeightBodies);
 }
 
-struct URB_BodyInstance__00c94f50 : public URB_BodyInstance
-{
-	FMatrix GetUnrealWorldTM();
-	void execGetUnrealWorldTM(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c94f50
-void URB_BodyInstance__00c94f50::execGetUnrealWorldTM(FFrame& Stack, RESULT_DECL)
+void URB_BodyInstance::execGetUnrealWorldTM(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
 	*(FMatrix*)Result = GetUnrealWorldTM();
 }
 
-struct URB_BodyInstance__00c94fa0 : public URB_BodyInstance
-{
-	FVector GetUnrealWorldVelocity();
-	void execGetUnrealWorldVelocity(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c94fa0
-void URB_BodyInstance__00c94fa0::execGetUnrealWorldVelocity(FFrame& Stack, RESULT_DECL)
+void URB_BodyInstance::execGetUnrealWorldVelocity(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
 	*(FVector*)Result = GetUnrealWorldVelocity();
 }
 
-struct URB_BodyInstance__00c94ff0 : public URB_BodyInstance
-{
-	FVector GetUnrealWorldAngularVelocity();
-	void execGetUnrealWorldAngularVelocity(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c94ff0
-void URB_BodyInstance__00c94ff0::execGetUnrealWorldAngularVelocity(FFrame& Stack, RESULT_DECL)
+void URB_BodyInstance::execGetUnrealWorldAngularVelocity(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
 	*(FVector*)Result = GetUnrealWorldAngularVelocity();
 }
 
-struct URB_BodyInstance__00c95040 : public URB_BodyInstance
-{
-	FVector GetUnrealWorldPosition();
-	void execGetUnrealWorldPosition(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c95040
-void URB_BodyInstance__00c95040::execGetUnrealWorldPosition(FFrame& Stack, RESULT_DECL)
+void URB_BodyInstance::execGetUnrealWorldPosition(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
 	*(FVector*)Result = GetUnrealWorldPosition();
 }
 
-struct URB_BodyInstance__00c95090 : public URB_BodyInstance
-{
-	FVector GetUnrealWorldVelocityAtPoint(FVector Point);
-	void execGetUnrealWorldVelocityAtPoint(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c95090
-void URB_BodyInstance__00c95090::execGetUnrealWorldVelocityAtPoint(FFrame& Stack, RESULT_DECL)
+void URB_BodyInstance::execGetUnrealWorldVelocityAtPoint(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT(FVector, Point);
 	P_FINISH;

@@ -8,7 +8,7 @@
 void ARPatrolPoint::execUpdateDisplayLines( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
-	UpdateDisplayLines( 0 );
+	MarkComponentsAsDirty(FALSE);
 }
 
 // @baa 0x0171a240

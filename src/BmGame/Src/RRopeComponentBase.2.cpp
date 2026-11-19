@@ -41,14 +41,8 @@ void URRopeComponentBase::execStopCurrentRopeLengthChange( FFrame& Stack, RESULT
 	StopCurrentRopeLengthChange();
 }
 
-struct URRopeComponentBase__01700b40 : public URRopeComponentBase
-{
-	UBOOL GetIsRopeInitialised();
-	void execGetIsRopeInitialised(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x01700b40
-void URRopeComponentBase__01700b40::execGetIsRopeInitialised( FFrame& Stack, RESULT_DECL )
+void URRopeComponentBase::execGetIsRopeInitialised( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	*(UBOOL*)Result = GetIsRopeInitialised();

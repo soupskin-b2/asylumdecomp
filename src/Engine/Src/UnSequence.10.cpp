@@ -239,12 +239,6 @@ FString USeqVar_Name_::GetValueStr()
     return NameValue.ToString();
 }
 
-/* FVector::ToString (UnMath.h, 0x008c3650); the kit's FVector has no methods. */
-struct FVector_ : public FVector
-{
-    FString ToString() const;
-};
-
 /* slot 0x194 (vf_194) is USequenceVariable::GetValueStr */
 struct USeqVar_Vector_ : public USeqVar_Vector
 {
@@ -254,7 +248,7 @@ struct USeqVar_Vector_ : public USeqVar_Vector
 // @baa 0x008c8a60
 FString USeqVar_Vector_::GetValueStr()
 {
-    return ((const FVector_&)VectValue).ToString();
+    return ((const FVector&)VectValue).ToString();
 }
 
 // The game keeps TArray<USequenceOp*>::Remove out of line (0x008b3a80).
@@ -441,15 +435,8 @@ void USeqAct_ModifyObjectList::Activated()
     ListEntriesCount = ObjVars.Num();
 }
 
-struct USeqAct_ModifyObjectList__008f6b60 : public USeqAct_ModifyObjectList
-{
-    /* 0x008e9c30: adds (0), removes (1) or empties (2) the attached object lists */
-    void ModifyList(INT InputIdx);
-    void ActivateAddRemove_Helper();
-};
-
 // @baa 0x008f6b60
-void USeqAct_ModifyObjectList__008f6b60::ActivateAddRemove_Helper()
+void USeqAct_ModifyObjectList::ActivateAddRemove_Helper()
 {
     if (InputLinks(0).bHasImpulse)
     {

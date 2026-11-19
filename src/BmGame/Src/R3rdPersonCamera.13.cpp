@@ -4,14 +4,8 @@
 #include "ue3/Classes.h"
 #include "ue3/Script.h"
 
-struct AR3rdPersonCamera_ : public AR3rdPersonCamera
-{
-	void ResetSmoother();
-	void execResetSmoother(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x01709110
-void AR3rdPersonCamera_::execResetSmoother( FFrame& Stack, RESULT_DECL )
+void AR3rdPersonCamera::execResetSmoother( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	ResetSmoother();

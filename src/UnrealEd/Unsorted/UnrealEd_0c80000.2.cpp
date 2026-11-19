@@ -11,14 +11,8 @@ void AActor::execFindBase(FFrame& Stack, RESULT_DECL)
 	this->FindBase();
 }
 
-struct AActor_ : public AActor
-{
-	void FlushPersistentDebugLines();
-	void execFlushPersistentDebugLines(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c816f0
-void AActor_::execFlushPersistentDebugLines( FFrame& Stack, RESULT_DECL )
+void AActor::execFlushPersistentDebugLines( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	FlushPersistentDebugLines();

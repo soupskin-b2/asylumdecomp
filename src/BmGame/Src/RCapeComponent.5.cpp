@@ -182,14 +182,9 @@ INT URCapeComponent::GetNumChainsInCape()
 
 /* Unnamed in the kit (0x015691f0): the skeleton bone index for a cape chain link. */
 
-struct URCapeComponent__016ae900 : public URCapeComponent
-{
-    void SetDebugRenderBone(INT ChainNumber, INT LinkNumber); /* 0x016ae900 */
-};
-
 // @baa 0x016ae900
 /* Pick the cape bone the state controller debug-renders (1-based chain number and link; 0 turns it off). */
-void URCapeComponent__016ae900::SetDebugRenderBone(INT ChainNumber, INT LinkNumber)
+void URCapeComponent::SetCapeDebugRenderBone(INT ChainNumber, INT LinkNumber)
 {
     if (ChainNumber != 0 && LinkNumber != 0)
     {
@@ -229,14 +224,9 @@ FLOAT URCapeComponent::GetVerticalDamping()
 
 #line 282 "candidate.cpp"
 
-struct URCapeComponent__016ae870 : public URCapeComponent
-{
-    void SetCapeAnimBlendWeights(UBOOL bEnable, FLOAT RootWeight, FLOAT ChildWeight); /* 0x016ae870 */
-};
-
 // @baa 0x016ae870
 /* Switch manual blend-weight setting on the cape anim node and set the root weight and both child weights. */
-void URCapeComponent__016ae870::SetCapeAnimBlendWeights(UBOOL bEnable, FLOAT RootWeight, FLOAT ChildWeight)
+void URCapeComponent::SetAutoCapeAnimBlendWeights(UBOOL bEnable, FLOAT RootWeight, FLOAT ChildWeight)
 {
     CapeAnimNode->IsBlendWeightSettingEnabled = bEnable;
     CapeAnimNode->RootBlendWeight = RootWeight;

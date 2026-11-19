@@ -18,40 +18,22 @@ void AGameInfo::execHandlePerLoadedMapAudioStats( FFrame& Stack, RESULT_DECL )
 	HandlePerLoadedMapAudioStats();
 }
 
-struct AWorldInfo_ : public AWorldInfo
-{
-	UBOOL IsDemoBuild();
-	void execIsDemoBuild(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c89ac0
-void AWorldInfo_::execIsDemoBuild( FFrame& Stack, RESULT_DECL )
+void AWorldInfo::execIsDemoBuild( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	*(UBOOL*)Result = IsDemoBuild();
 }
 
-struct AWorldInfo__00c89b70 : public AWorldInfo
-{
-	UBOOL IsShippingBuild();
-	void execIsShippingBuild(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c89b70
-void AWorldInfo__00c89b70::execIsShippingBuild( FFrame& Stack, RESULT_DECL )
+void AWorldInfo::execIsShippingBuild( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	*(UBOOL*)Result = IsShippingBuild();
 }
 
-struct AWorldInfo__00c89bb0 : public AWorldInfo
-{
-	UBOOL IsPlayInEditor();
-	void execIsPlayInEditor(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c89bb0
-void AWorldInfo__00c89bb0::execIsPlayInEditor( FFrame& Stack, RESULT_DECL )
+void AWorldInfo::execIsPlayInEditor( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	*(UBOOL*)Result = IsPlayInEditor();
@@ -80,17 +62,12 @@ void AWorldInfo::execGetGameSequence(FFrame& Stack, RESULT_DECL)
 	*(USequence**)Result = this->GetGameSequence();
 }
 
-struct APlayerReplicationInfo_ : public APlayerReplicationInfo
-{
-	void UpdatePing(FLOAT);
-};
-
 // @baa 0x00c896c0
 void APlayerReplicationInfo::execUpdatePing(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT(TimeStamp);
 	P_FINISH;
-	((APlayerReplicationInfo_*)this)->UpdatePing(TimeStamp);
+	((APlayerReplicationInfo*)this)->UpdatePing(TimeStamp);
 }
 
 // @baa 0x00c892a0
@@ -146,26 +123,14 @@ void AWorldInfo::execUpdateMusicTrack(FFrame& Stack, RESULT_DECL)
     this->UpdateMusicTrack(NewMusicTrack);
 }
 
-/* AGameInfo::SwapPlayerControllers (008b0c60) isn't declared in the kit. */
-struct AGameInfo_ : public AGameInfo
-{
-    void SwapPlayerControllers(APlayerController* OldPC, APlayerController* NewPC);
-};
-
 // @baa 0x00c89160
 void AGameInfo::execSwapPlayerControllers(FFrame& Stack, RESULT_DECL)
 {
     P_GET_OBJECT(APlayerController, OldPC);
     P_GET_OBJECT(APlayerController, NewPC);
     P_FINISH;
-    ((AGameInfo_*)this)->SwapPlayerControllers(OldPC, NewPC);
+    ((AGameInfo*)this)->SwapPlayerControllers(OldPC, NewPC);
 }
-
-/* ARoute::ResolveRouteIndex (0086eba0) isn't declared in the kit. */
-struct ARoute_ : public ARoute
-{
-    INT ResolveRouteIndex(INT Idx, BYTE RouteDirection, BYTE& out_bComplete, BYTE& out_bReverse);
-};
 
 // @baa 0x00c89760
 void ARoute::execResolveRouteIndex(FFrame& Stack, RESULT_DECL)
@@ -175,7 +140,7 @@ void ARoute::execResolveRouteIndex(FFrame& Stack, RESULT_DECL)
     P_GET_BYTE_REF(out_bComplete);
     P_GET_BYTE_REF(out_bReverse);
     P_FINISH;
-    *(INT*)Result = ((ARoute_*)this)->ResolveRouteIndex(Idx, RouteDirection, out_bComplete, out_bReverse);
+    *(INT*)Result = ((ARoute*)this)->ResolveRouteIndex(Idx, RouteDirection, out_bComplete, out_bReverse);
 }
 
 // @baa 0x00c89870
