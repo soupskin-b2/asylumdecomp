@@ -163,6 +163,7 @@ def step_defaults(img: Image, va: int, size: int) -> list[tuple[str, int] | None
     regs, xmm = {}, {}       # known constants
     stores = {}              # slot -> [(kind, value)] in order
     out, natreg, pending = [], None, None
+    opt, optional = False, []   # GRuntimeUCFlags &= ~RUC_SkippedOptionalParm since the last Step: an OPTX read
     for i in insns:
         m, o = i.mnemonic, i.ops
         if m == "push":
@@ -198,9 +199,13 @@ def step_defaults(img: Image, va: int, size: int) -> list[tuple[str, int] | None
         elif m == "call" and natreg and o == natreg:
             # the Step: its pushes were (Stack, &Var); &Var came from the last lea before them
             out.append((stores.get(pending) or [None])[-1] if pending is not None else None)
+            optional.append(opt)
+            opt = False
             esp = None if esp is None else esp + 8
             natreg = None
             continue
+        if m == "and" and re.fullmatch(r"dword ptr \[0x[0-9a-f]+\], 0xfffffffd", o):
+            opt = True
         if m == "lea" and re.match(r"e\w\w, \[", o):
             mm = _MEM.search("dword ptr " + o[5:])
             if mm:
@@ -225,7 +230,12 @@ def step_defaults(img: Image, va: int, size: int) -> list[tuple[str, int] | None
                         stores.setdefault(slot + 4, [])   # a later NAME's Number half stays apart
         if m.startswith("call"):
             regs.clear()
+    _OPTIONAL[va] = optional
     return out
+
+
+_OPTIONAL: dict[int, list[bool]] = {}
+_OPTX = ("P_GET_INT", "P_GET_FLOAT", "P_GET_BYTE", "P_GET_UBOOL", "P_GET_NAME", "P_GET_STR", "P_GET_OBJECT")
 
 
 def _default_text(d: tuple[str, int] | None, macro: str) -> str | None:
@@ -246,12 +256,11 @@ def _default_text(d: tuple[str, int] | None, macro: str) -> str | None:
 
 def fill_defaults(head: str, img: Image, va: int, size: int) -> str:
     """Packets leave OPTX defaults as <default>: read them from the code."""
-    if "<default>" not in head:
-        return head
     k = head.find("Its script parameters, in the order it reads them:")
     if k < 0:
         return head
     defaults = step_defaults(img, va, size)
+    optional = _OPTIONAL.get(va, [])
     lines = head[k:].split("\n")
     n = 0
     for j, line in enumerate(lines[1:], 1):
@@ -259,6 +268,15 @@ def fill_defaults(head: str, img: Image, va: int, size: int) -> str:
             if line.startswith("- then"):
                 break
             continue
+        po = re.search(r"-> (P_GET_\w+)\(((?:\w+, )?)(\w+)\);$", line)
+        if po and po.group(1) in _OPTX and n < len(optional) and optional[n]:
+            # the script signature doesn't say optional, but the code clears RUC_SkippedOptionalParm first
+            txt = _default_text(defaults[n], po.group(1) + "_OPTX") if po.group(1) not in ("P_GET_STR", "P_GET_OBJECT") \
+                else ("NULL" if po.group(1) == "P_GET_OBJECT" else "TEXT(\"\")")
+            note = ", optional (the code clears RUC_SkippedOptionalParm before this Step%s) " % (
+                "" if txt else "; <default> is the value it stores before the Step")
+            line = lines[j] = line[:po.start()].rstrip() + note + "-> %s_OPTX(%s%s, %s);" % (
+                po.group(1), po.group(2), po.group(3), txt or "<default>")
         mm = re.search(r"-> (P_GET_\w+)\(\w+, <default>\);", line)
         if mm and n < len(defaults):
             txt = _default_text(defaults[n], mm.group(1))
