@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x007737a0
-void AController::vf_3e8(int a0) {  }
+void AController::PostPhysSpider(FLOAT a0) {  }

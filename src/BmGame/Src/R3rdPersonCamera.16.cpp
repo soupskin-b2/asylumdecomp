@@ -7,7 +7,7 @@
 
 // @baa 0x01689860
 /* Slot 0x360 (unnamed in the kit): the camera's post-process overrides (DOF, motion blur, bloom). */
-void AR3rdPersonCamera::vf_360(FPostProcessSettings& PPSettings)
+void AR3rdPersonCamera::ModifyPostProcessSettings(FPostProcessSettings& PPSettings) const
 {
 	if (bCamOverrideDof)
 	{

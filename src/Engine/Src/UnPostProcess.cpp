@@ -7,7 +7,7 @@
 IMPLEMENT_CLASS_AT(UPostProcessEffect, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPostProcess.cpp", 7);
 
 // @baa 0x0064b850
-int UPostProcessEffect::vf_10c(int a0) { return 0; }
+class FPostProcessSceneProxy* UPostProcessEffect::CreateSceneProxy(const FPostProcessSettings* a0) { return 0; }
 
 // @baa 0x0064b860
 // @baa 0x00889cf0

@@ -131,7 +131,7 @@ UBOOL UCheatManager::HasParentClassChanged() const
 
 // @baa 0x007a1e80
 /* The controlled pawn's velocity. */
-FVector AController::vf_3d0()
+FVector AController::DesiredDirection()
 {
 	return Pawn->Velocity;
 }

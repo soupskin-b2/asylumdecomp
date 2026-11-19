@@ -18,7 +18,7 @@ undefined4 UNetDriver::sub_00c1a5d0(byte param_2)
 }
 
 // @baa 0x00df4e30
-void UNetDriver::vf_11c(void) {  }
+void UNetDriver::AssertValid() {  }
 
 // @baa 0x00df4e80
 IMPLEMENT_CLASS_AT(UNetDriver, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnNetDrv.cpp", 807);

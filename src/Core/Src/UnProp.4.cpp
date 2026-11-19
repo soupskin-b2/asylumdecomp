@@ -123,10 +123,10 @@ UBOOL UProperty::ContainsObjectReference() const { return 0; }
 UBOOL UMapProperty::ContainsObjectReference() const { return 0; }
 
 // @baa 0x005ebd70
-void UProperty::vf_178(int a0, int a1) {  }
+void UProperty::EmitReferenceInfo(struct FGCReferenceTokenStream* a0, INT a1) {  }
 
 // @baa 0x005ebd80
-void UMapProperty::vf_178(int a0, int a1) {  }
+void UMapProperty::EmitReferenceInfo(struct FGCReferenceTokenStream* a0, INT a1) {  }
 
 // @baa 0x005fa780
 UBOOL UProperty::RequiresInit() const { return 0; }

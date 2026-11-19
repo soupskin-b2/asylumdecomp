@@ -788,12 +788,12 @@ void USkeletalMeshComponent::SetHasPhysicsAssetInstance(UBOOL bHasInstance)
     {
         if (!bHasPhysicsAssetInstance)
         {
-            vf_260(bSkelCompFixed);
+            InitArticulated(bSkelCompFixed);
         }
     }
     else if (bHasPhysicsAssetInstance)
     {
-        vf_264(0);
+        TermArticulated(0);
         bHasBeenPermanentlyFixed = FALSE;
     }
     bHasPhysicsAssetInstance = bHasInstance;

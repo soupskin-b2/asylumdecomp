@@ -18,8 +18,6 @@ UBOOL APlayerController::IsLocalController()
     return Player && ObjectIsA(Player, ULocalPlayer::StaticClass());
 }
 
-/* UE3's path-search node evaluator (UnPath.h's NodeEvaluator). */
-typedef FLOAT (*NodeEvaluator)(ANavigationPoint*, APawn*, FLOAT);
 
 /* Unnamed in the kit: UE3's static FLOAT FindRandomPath(ANavigationPoint* CurrentNode, APawn* seeker, FLOAT bestWeight)
  * (UnController.cpp's evaluator for FindRandomDest). */

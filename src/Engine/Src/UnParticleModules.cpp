@@ -411,7 +411,7 @@ int UParticleModuleAcceleration::vf_114(int a0) { return 12; }
 UBOOL UParticleModuleAccelerationOverLifetime::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b749c0
-int UParticleModuleTypeDataBase::vf_168(int a0, int a1) { return 0; }
+FParticleEmitterInstance* UParticleModuleTypeDataBase::CreateInstance(UParticleEmitter* a0, UParticleSystemComponent* a1) { return 0; }
 
 // @baa 0x00b749d0
 void UParticleModuleTypeDataBase::vf_16c(void) {  }

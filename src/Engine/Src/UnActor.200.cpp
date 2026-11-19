@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00773790
-void AController::vf_3e4(int a0) {  }
+void AController::PostPhysWalking(FLOAT a0) {  }

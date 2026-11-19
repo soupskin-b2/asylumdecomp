@@ -1595,13 +1595,13 @@ void UParticleModuleTypeDataBase::vf_178(int a0, int a1, int a2) {  }
 int UParticleModuleTypeDataBase::vf_130(void) { return 1; }
 
 // @baa 0x00b3dc20
-int UParticleModuleTypeDataBase::vf_17c(void) { return 0; }
+UBOOL UParticleModuleTypeDataBase::IsAMeshEmitter() const { return 0; }
 
 // @baa 0x00b3dc70
 IMPLEMENT_CLASS_AT(UParticleModuleTypeDataMesh, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnParticleModules.cpp", 2815);
 
 // @baa 0x00b3dcd0
-int UParticleModuleTypeDataMesh::vf_17c(void) { return 1; }
+UBOOL UParticleModuleTypeDataMesh::IsAMeshEmitter() const { return 1; }
 
 // @baa 0x00b3dce0
 extern undefined * g_01feec58;

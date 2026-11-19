@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00773770
-void AController::vf_3dc(int a0) {  }
+void AController::PostAirSteering(FLOAT a0) {  }

@@ -13,4 +13,4 @@ IMPLEMENT_CLASS_AT(UMotionBlurEffect, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEn
 // @baa 0x0083a1b0
 
 // @baa 0x00835460
-int UDOFBloomMotionBlurEffect::vf_10c(int a0) { return 0; }
+class FPostProcessSceneProxy* UDOFBloomMotionBlurEffect::CreateSceneProxy(const FPostProcessSettings* a0) { return 0; }

@@ -4,4 +4,4 @@
 #include "ue3/Implement.h"
 
 // @baa 0x007737b0
-int AController::vf_3ec(int a0, int a1) { return 0; }
+UBOOL AController::AirControlFromWall(float a0, FVector& a1) { return 0; }

@@ -360,7 +360,7 @@ void UObject::vf_0b0(int a0) {  }
 void __stdcall sub_00417d40(int a0) {  }
 
 // @baa 0x00417d50
-int UObject::vf_0c0(int a0, int a1) { return 0; }
+UBOOL UObject::GetNativePropertyValues(TMap<FString,FString>& a0, DWORD a1) const { return 0; }
 
 // @baa 0x00417d60
 void UObject::OnAddToPrefab() {  }

@@ -51,13 +51,13 @@ UBOOL APawn::SetHighJumpFlag() { return 0; }
 void APawn::SetMaxLandingVelocity(FLOAT a0) {  }
 
 // @baa 0x007761e0
-int APawn::vf_414(int a0, int a1) { return 0; }
+INT APawn::ModifyCostForReachSpec(UReachSpec* a0, INT a1) { return 0; }
 
 // @baa 0x007761f0
-void APawn::vf_418(int a0, int a1) {  }
+void APawn::InitForPathfinding(AActor* a0, ANavigationPoint* a1) {  }
 
 // @baa 0x00776200
-int APawn::vf_41c(int a0) { return 1; }
+UBOOL APawn::IsValidAnchor(ANavigationPoint* a0) { return 1; }
 
 // @baa 0x00776210
 INT APawn::vf_44c(FLOAT a0, INT a1) { return 0; }

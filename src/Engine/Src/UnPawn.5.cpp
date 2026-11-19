@@ -4,8 +4,6 @@
 #include "ue3/Classes.h"
 #include "ue3/Cast.h"
 
-/* ETestMoveResult (UnPath.h) */
-enum ETestMoveResult { TESTMOVE_Stopped = 0, TESTMOVE_Moved = 1, TESTMOVE_Fell = 2, TESTMOVE_HitGoal = 5 };
 
 struct APawn_ : public APawn {
     ETestMoveResult sub_008660b0(AActor* GoalActor); // HitGoal

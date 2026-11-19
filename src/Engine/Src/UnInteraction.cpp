@@ -242,7 +242,7 @@ UBOOL UUIInteraction::HasParentClassChanged() const
 
 int sub_0053df70(...);
 // @baa 0x00d79560
-void UInput::vf_12c(void)
+void UInput::FlushPressedKeys()
 {
     int param_1 = (int)this;
 

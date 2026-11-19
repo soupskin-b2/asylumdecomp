@@ -1975,13 +1975,13 @@ UPrimitiveComponent::UPrimitiveComponent()
 }
 
 // @baa 0x00689330
-void UPrimitiveComponent::vf_164(int a0, int a1, int a2) {  }
+void UPrimitiveComponent::GetStaticLightingInfo(struct FStaticLightingPrimitiveInfo& a0, const TArray<ULightComponent*>& a1, const struct FLightingBuildOptions& a2) {  }
 
 // @baa 0x00689340
-void UPrimitiveComponent::vf_168(int a0) {  }
+void UPrimitiveComponent::GetStaticTriangles(struct FPrimitiveTriangleDefinitionInterface* a0) const {  }
 
 // @baa 0x00689350
-void UPrimitiveComponent::vf_16c(int a0) {  }
+void UPrimitiveComponent::GetStreamingTextureInfo(TArray<struct FStreamingTexturePrimitiveInfo>& a0) const {  }
 
 // @baa 0x00689360
 BYTE UPrimitiveComponent::GetStaticDepthPriorityGroup() const

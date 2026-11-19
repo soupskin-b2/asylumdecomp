@@ -231,7 +231,7 @@ UBOOL UDOFEffect::HasParentClassChanged() const
 }
 
 // @baa 0x007a49b0
-int UDOFEffect::vf_10c(int a0) { return 0; }
+class FPostProcessSceneProxy* UDOFEffect::CreateSceneProxy(const FPostProcessSettings* a0) { return 0; }
 
 // @baa 0x007a49f0
 IMPLEMENT_CLASS_AT(UForceFeedbackWaveform, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnForceFeedbackWaveform.cpp", 9);

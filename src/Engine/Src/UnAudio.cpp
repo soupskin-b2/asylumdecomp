@@ -1365,7 +1365,7 @@ void sub_00797de0(void) { sub_00797750(); }
 IMPLEMENT_CLASS_AT(ACamera, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnCamera.cpp", 11);
 
 // @baa 0x00797ee0
-void ACamera::vf_360(FPostProcessSettings& a0) {  }
+void ACamera::ModifyPostProcessSettings(FPostProcessSettings& a0) const {  }
 
 // @baa 0x00797ef0
 // @baa 0x00797f80

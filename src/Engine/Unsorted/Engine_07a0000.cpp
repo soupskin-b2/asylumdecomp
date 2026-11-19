@@ -1705,7 +1705,7 @@ UBOOL AGameReplicationInfo::OnSameTeam(AActor* A, AActor* B)
 // @baa 0x007a0650
 /* AController slot 0x3d4 (kit vf_3d4): fails the current move (UE3 does this inline as MoveTimer = -1.f, e.g. in
  * StopAtLedge, which this build routes through the slot). */
-void AController::vf_3d4()
+void AController::FailMove()
 {
     MoveTimer = -1.f;
 }
@@ -1716,7 +1716,7 @@ UBOOL AController::StopAtLedge()
 {
     if (!Pawn || !Pawn->bCanJump || Pawn->bStopAtLedges)
     {
-        vf_3d4();
+        FailMove();
         return TRUE;
     }
     return FALSE;
@@ -1963,17 +1963,17 @@ FVector AController__007adc50::GetAdjustLocation()
 
 // @baa 0x007a1f60
 /* ModifyPostProcessSettings: lets the camera adjust the post-process settings. */
-void APlayerController::vf_460(INT PPSettings)
+void APlayerController::ModifyPostProcessSettings(FPostProcessSettings& PPSettings) const
 {
 	if (PlayerCamera)
 	{
-		PlayerCamera->vf_360(*(FPostProcessSettings*)PPSettings);
+		PlayerCamera->ModifyPostProcessSettings(PPSettings);
 	}
 }
 
 // @baa 0x007afa70
 /* The offset from the pawn to where the AI is heading. */
-FVector AAIController::vf_3d0()
+FVector AAIController::DesiredDirection()
 {
 	return GetDestinationPosition() - Pawn->Location;
 }

@@ -7,7 +7,7 @@
 
 // @baa 0x0088aa40
 /* Mantle specs are unusable when the height difference exceeds the pawn's MaxStepHeight. */
-UINT UMantleReachSpec::vf_138(INT P)
+UBOOL UMantleReachSpec::CanBeSkipped(APawn* P)
 {
 	if (Start && End.Actor && fabsf(Start->Location.Z - End.Actor->Location.Z) > ((APawn*)P)->MaxStepHeight)
 	{

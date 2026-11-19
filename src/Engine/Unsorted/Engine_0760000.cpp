@@ -1965,7 +1965,7 @@ UBOOL UReachSpec::IsForced() { return 0; }
 UBOOL UReachSpec::IsProscribed() const { return 0; }
 
 // @baa 0x0076bb20
-UINT UReachSpec::vf_138(INT a0) { return 1; }
+UBOOL UReachSpec::CanBeSkipped(APawn* a0) { return 1; }
 
 // @baa 0x0076bbd0
 IMPLEMENT_CLASS_AT(UAdvancedReachSpec, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 51);

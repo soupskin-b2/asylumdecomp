@@ -295,11 +295,11 @@ INT ULadderReachSpec::CostFor(class APawn* P)
 INT UProscribedReachSpec::CostFor(class APawn* a0) { return 10000000; }
 
 // @baa 0x0088a830
-undefined4 USlotToSlotReachSpec::vf_138(int param_2)
+UBOOL USlotToSlotReachSpec::CanBeSkipped(APawn* param_2)
 {
     int param_1 = (int)this;
 
-  if ((*(int *)(param_2 + 0x1b4) != 0) && (*(int *)(*(int *)(param_2 + 0x1b4) + 0x28c) == param_1))
+  if ((*(int *)((int)param_2 + 0x1b4) != 0) && (*(int *)(*(int *)((int)param_2 + 0x1b4) + 0x28c) == param_1))
   {
     return 0;
   }

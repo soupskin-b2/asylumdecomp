@@ -199,7 +199,7 @@ struct C_view {
 };
 
 // @baa 0x00a1c310
-void USkeletalMeshComponent::vf_264(undefined4 param_2)
+void USkeletalMeshComponent::TermArticulated(FRBPhysScene* param_2)
 {
     int param_1 = (int)this;
   undefined4 uVar1;
@@ -221,7 +221,7 @@ void USkeletalMeshComponent::vf_264(undefined4 param_2)
         *(undefined4 *)(param_1 + 0x548) = uVar1;
       }
     }
-    iVar2 = ((C_view *)((*(char **)((char *)this + 0x1dc))))->sub_00a0ace0(param_2);
+    iVar2 = ((C_view *)((*(char **)((char *)this + 0x1dc))))->sub_00a0ace0((int)param_2);
     if (iVar2 != 0) {
       *(undefined4 *)(param_1 + 0x1dc) = 0;
     }

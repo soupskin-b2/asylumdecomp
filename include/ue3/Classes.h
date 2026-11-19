@@ -906,6 +906,17 @@ class UPath_WithinTraversalDist;
 class APathBlockingVolume;
 class APathNode_Dynamic;
 class APawn;
+/* UnPath.h: the route finder's node weighting (APawn::findPathToward, SecondRouteAttempt) */
+typedef FLOAT (*NodeEvaluator)(class ANavigationPoint*, APawn*, FLOAT);
+/* UnPath.h */
+enum ETestMoveResult { TESTMOVE_Stopped = 0, TESTMOVE_Moved = 1, TESTMOVE_Fell = 2, TESTMOVE_HitGoal = 5 };
+/* UnObjBas.h / UnShowFlags.h: both are QWORDs of flags */
+typedef QWORD EObjectFlags;
+typedef QWORD EShowFlags;
+/* UnConn.h */
+enum EConnectionState { USOCK_Invalid = 0, USOCK_Closed = 1, USOCK_Pending = 2, USOCK_Open = 3 };
+/* ue3/Map.h defines it (#include it to use one) */
+template<typename KeyType, typename ValueType> class TMap;
 class UPhysicalMaterial;
 class UPhysicalMaterialPropertyBase;
 class UPhysicsAsset;
@@ -10369,7 +10380,7 @@ struct UObject {
     virtual void StripData(UE3::EPlatformType TargetPlatform); /* 0x0b4 */
     virtual FString GetDesc(); /* 0x0b8 */
     virtual FString GetDetailedDescription(INT InIndex); /* 0x0bc */
-    virtual INT vf_0c0(INT, INT); /* 0x0c0 */
+    virtual UBOOL GetNativePropertyValues( TMap<FString,FString>& out_PropertyValues, DWORD ExportFlags=0 ) const; /* 0x0c0 */
     virtual UBOOL IsSelected() const; /* 0x0c4 */
     virtual UObject* CreateArchetype(const TCHAR* ArchetypeName, UObject* ArchetypeOuter, UObject* AlternateArchetype = NULL, struct FObjectInstancingGraph* InstanceGraph = NULL); /* 0x0c8 */
     virtual void UpdateArchetype(); /* 0x0cc */
@@ -12792,7 +12803,7 @@ struct UComponent : public UObject {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual UBOOL IsPendingKill(); /* 0x038 */
-    virtual INT vf_0c0(INT, INT); /* 0x0c0 */
+    virtual UBOOL GetNativePropertyValues( TMap<FString,FString>& out_PropertyValues, DWORD ExportFlags=0 ) const; /* 0x0c0 */
     /* other member functions */
     UINT* sub_005400a0(); /* 0x005400a0 */
     FLOAT sub_00540130(INT, INT); /* 0x00540130 */
@@ -13670,9 +13681,9 @@ struct UPrimitiveComponent : public UActorComponent {
     virtual void GetLightAndShadowMapMemoryUsage(UINT* LightMapMemoryUsage, UINT* ShadowMapMemoryUsage); /* 0x158 */
     virtual INT vf_15c(INT, INT); /* 0x15c */
     virtual void UpdateBounds(); /* 0x160 */
-    virtual void vf_164(INT, INT, INT); /* 0x164 */
-    virtual void vf_168(INT); /* 0x168 */
-    virtual void vf_16c(INT); /* 0x16c */
+    virtual void GetStaticLightingInfo(struct FStaticLightingPrimitiveInfo& OutPrimitiveInfo,const TArray<ULightComponent*>& InRelevantLights,const struct FLightingBuildOptions& Options); /* 0x164 */
+    virtual void GetStaticTriangles(struct FPrimitiveTriangleDefinitionInterface* PTDI) const; /* 0x168 */
+    virtual void GetStreamingTextureInfo(TArray<struct FStreamingTexturePrimitiveInfo>& OutStreamingTextures) const; /* 0x16c */
     virtual BYTE GetStaticDepthPriorityGroup() const; /* 0x170 */
     virtual UBOOL PointCheck(struct FCheckResult& Result,const FVector& Location,const FVector& Extent,DWORD TraceFlags); /* 0x174 */
     virtual UBOOL LineCheck(struct FCheckResult& Result,const FVector& End,const FVector& Start,const FVector& Extent,DWORD TraceFlags); /* 0x178 */
@@ -16265,16 +16276,16 @@ struct AController : public AActor {
     virtual void UpdatePawnRotation(); /* 0x3c4 */
     virtual UBOOL ForceReached(ANavigationPoint *Nav, const FVector& TestPosition); /* 0x3c8 */
     virtual FRotator SetRotationRate(FLOAT deltaTime); /* 0x3cc */
-    virtual FVector vf_3d0(); /* 0x3d0 */
-    virtual void vf_3d4(); /* 0x3d4 */
-    virtual void vf_3d8(INT); /* 0x3d8 */
-    virtual void vf_3dc(INT); /* 0x3dc */
-    virtual void vf_3e0(INT); /* 0x3e0 */
-    virtual void vf_3e4(INT); /* 0x3e4 */
-    virtual void vf_3e8(INT); /* 0x3e8 */
-    virtual INT vf_3ec(INT, INT); /* 0x3ec */
-    virtual void vf_3f0(); /* 0x3f0 */
-    virtual INT vf_3f4(INT); /* 0x3f4 */
+    virtual FVector DesiredDirection(); /* 0x3d0 */
+    virtual void FailMove(); /* 0x3d4 */
+    virtual void PreAirSteering(FLOAT DeltaTime); /* 0x3d8 */
+    virtual void PostAirSteering(FLOAT DeltaTime); /* 0x3dc */
+    virtual void PostPhysFalling(FLOAT DeltaTime); /* 0x3e0 */
+    virtual void PostPhysWalking(FLOAT DeltaTime); /* 0x3e4 */
+    virtual void PostPhysSpider(FLOAT DeltaTime); /* 0x3e8 */
+    virtual UBOOL AirControlFromWall(float DeltaTime, FVector& RealAcceleration); /* 0x3ec */
+    virtual void NotifyJumpApex(); /* 0x3f0 */
+    virtual void ClearCrossLevelPaths(ULevel *Level); /* 0x3f4 */
     virtual void vf_3f8(INT, INT); /* 0x3f8 */
     virtual INT vf_3fc(); /* 0x3fc */
     virtual INT vf_400(); /* 0x400 */
@@ -16541,8 +16552,8 @@ struct APlayerController : public AController {
     virtual void LogOutBugItGoToLogFile(const FString& InScreenShotDesc, const FString& InGoString, const FString& InLocString); /* 0x454 */
     virtual void LogOutBugItAIGoToLogFile(const FString& InScreenShotDesc, const FString& InGoString, const FString& InLocString); /* 0x458 */
     virtual void SmoothTargetViewRotation(class APawn* TargetPawn, FLOAT DeltaSeconds); /* 0x45c */
-    virtual void vf_460(INT); /* 0x460 */
-    virtual INT vf_464(INT, INT, INT, INT); /* 0x464 */
+    virtual void ModifyPostProcessSettings(FPostProcessSettings& PPSettings) const; /* 0x460 */
+    virtual UBOOL HearSound(USoundCue* InSoundCue, AActor* SoundPlayer, const FVector& SoundLocation, UBOOL bStopWhenOwnerDestroyed); /* 0x464 */
     virtual void vf_468(INT, INT, INT); /* 0x468 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
@@ -16694,10 +16705,10 @@ struct UReachSpec : public UObject {
     virtual UBOOL IsProscribed() const; /* 0x120 */
     virtual INT defineFor (class ANavigationPoint *begin, class ANavigationPoint * dest, class APawn * Scout); /* 0x124 */
     virtual FLinearColor PathColor(); /* 0x128 */
-    virtual INT vf_12c(INT); /* 0x12c */
+    virtual void AddToDebugRenderProxy(class FDebugRenderSceneProxy* DRSP); /* 0x12c */
     virtual INT vf_130(INT); /* 0x130 */
-    virtual INT vf_134(INT, INT, INT, INT); /* 0x134 */
-    virtual UINT vf_138(INT); /* 0x138 */
+    virtual FVector GetForcedPathSize( class ANavigationPoint* Start, class ANavigationPoint* End, class AScout* Scout ); /* 0x134 */
+    virtual UBOOL CanBeSkipped( APawn* P ); /* 0x138 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -16740,7 +16751,7 @@ struct AAIController : public AController {
     virtual void SetAdjustLocation(FVector NewLoc, UBOOL bAdjust, UBOOL bOffsetFromBase = FALSE); /* 0x36c */
     virtual INT AcceptNearbyPath(AActor* goal); /* 0x390 */
     virtual void AdjustFromWall(FVector HitNormal, AActor* HitActor); /* 0x398 */
-    virtual FVector vf_3d0(); /* 0x3d0 */
+    virtual FVector DesiredDirection(); /* 0x3d0 */
     /* registered size 0x348 */
     /* other member functions */
     void eventSetTeam(INT inTeamIdx); /* 0x00c4a390 */
@@ -16936,8 +16947,8 @@ struct UPostProcessEffect : public UObject {
     INT InDrawY; /* 0x50 */
     BYTE SceneDPG; /* 0x54 */
     /* virtual functions this class introduces (vtable 0x01ebb9c0) */
-    virtual INT vf_10c(INT); /* 0x10c */
-    virtual INT vf_110(INT); /* 0x110 */
+    virtual class FPostProcessSceneProxy* CreateSceneProxy(const FPostProcessSettings* WorldSettings); /* 0x10c */
+    virtual UBOOL IsShown(const FSceneView* View) const; /* 0x110 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -16970,8 +16981,8 @@ struct UAmbientOcclusionEffect : public UPostProcessEffect {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
-    virtual INT vf_10c(INT); /* 0x10c */
-    virtual INT vf_110(INT); /* 0x110 */
+    virtual class FPostProcessSceneProxy* CreateSceneProxy(const FPostProcessSettings* WorldSettings); /* 0x10c */
+    virtual UBOOL IsShown(const FSceneView* View) const; /* 0x110 */
     /* registered size 0xb0 */
 };
 
@@ -17389,7 +17400,7 @@ struct ACamera : public AActor {
     virtual void ApplyCameraModifiers(FLOAT DeltaTime, FTPOV& OutPOV); /* 0x354 */
     virtual void CheckViewTarget(FTViewTarget& VT); /* 0x358 */
     virtual void SetViewTarget(class AActor* NewViewTarget, FViewTargetTransitionParams TransitionParams); /* 0x35c */
-    virtual void vf_360(FPostProcessSettings& PPSettings); /* 0x360 */
+    virtual void ModifyPostProcessSettings(FPostProcessSettings& PPSettings) const; /* 0x360 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -17419,7 +17430,7 @@ struct AAnimatedCamera : public ACamera {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void ApplyCameraModifiers(FLOAT DeltaTime, FTPOV& OutPOV); /* 0x354 */
-    virtual void vf_360(FPostProcessSettings& PPSettings); /* 0x360 */
+    virtual void ModifyPostProcessSettings(FPostProcessSettings& PPSettings) const; /* 0x360 */
     /* UnrealScript natives */
     void execApplyCameraModifiersNative(FFrame& Stack, RESULT_DECL); /* 0x00c83aa0 */
     void execPlayCameraAnim(FFrame& Stack, RESULT_DECL); /* 0x00c83b50 */
@@ -19329,9 +19340,9 @@ struct UStaticMeshComponent : public UMeshComponent {
     virtual void GetLightAndShadowMapMemoryUsage(UINT* LightMapMemoryUsage, UINT* ShadowMapMemoryUsage); /* 0x158 */
     virtual INT vf_15c(INT, INT); /* 0x15c */
     virtual void UpdateBounds(); /* 0x160 */
-    virtual void vf_164(INT, INT, INT); /* 0x164 */
-    virtual void vf_168(INT); /* 0x168 */
-    virtual void vf_16c(INT); /* 0x16c */
+    virtual void GetStaticLightingInfo(struct FStaticLightingPrimitiveInfo& OutPrimitiveInfo,const TArray<ULightComponent*>& InRelevantLights,const struct FLightingBuildOptions& Options); /* 0x164 */
+    virtual void GetStaticTriangles(struct FPrimitiveTriangleDefinitionInterface* PTDI) const; /* 0x168 */
+    virtual void GetStreamingTextureInfo(TArray<struct FStreamingTexturePrimitiveInfo>& OutStreamingTextures) const; /* 0x16c */
     virtual UBOOL PointCheck(struct FCheckResult& Result,const FVector& Location,const FVector& Extent,DWORD TraceFlags); /* 0x174 */
     virtual UBOOL LineCheck(struct FCheckResult& Result,const FVector& End,const FVector& Start,const FVector& Extent,DWORD TraceFlags); /* 0x178 */
     virtual class URB_BodySetup* GetRBBodySetup(); /* 0x17c */
@@ -20427,7 +20438,7 @@ struct UCoverSlipReachSpec : public UForcedReachSpec {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT CostFor(class APawn* P); /* 0x10c */
-    virtual INT vf_134(INT, INT, INT, INT); /* 0x134 */
+    virtual FVector GetForcedPathSize( class ANavigationPoint* Start, class ANavigationPoint* End, class AScout* Scout ); /* 0x134 */
     /* registered size 0x94 */
 };
 
@@ -20666,8 +20677,8 @@ struct USkeletalMeshComponent : public UMeshComponent {
     FBreathingFixerState BreathingFixerState; /* 0x588 */
     FBreathingFixer BreathingFixer; /* 0x598 */
     /* virtual functions this class introduces (vtable 0x01f79508) */
-    virtual void vf_260(INT); /* 0x260 */
-    virtual void vf_264(UINT); /* 0x264 */
+    virtual void InitArticulated(UBOOL bFixed); /* 0x260 */
+    virtual void TermArticulated(FRBPhysScene* Scene); /* 0x264 */
     virtual INT vf_268(INT, INT, INT, INT); /* 0x268 */
     virtual INT vf_26c(INT, INT, INT, INT); /* 0x26c */
     /* overrides */
@@ -20689,7 +20700,7 @@ struct USkeletalMeshComponent : public UMeshComponent {
     virtual INT vf_14c(INT); /* 0x14c */
     virtual INT vf_150(INT); /* 0x150 */
     virtual void UpdateBounds(); /* 0x160 */
-    virtual void vf_16c(INT); /* 0x16c */
+    virtual void GetStreamingTextureInfo(TArray<struct FStreamingTexturePrimitiveInfo>& OutStreamingTextures) const; /* 0x16c */
     virtual UBOOL PointCheck(struct FCheckResult& Result,const FVector& Location,const FVector& Extent,DWORD TraceFlags); /* 0x174 */
     virtual UBOOL LineCheck(struct FCheckResult& Result,const FVector& End,const FVector& Start,const FVector& Extent,DWORD TraceFlags); /* 0x178 */
     virtual class URB_BodySetup* GetRBBodySetup(); /* 0x17c */
@@ -21459,9 +21470,9 @@ struct UInput : public UInteraction {
     /* virtual functions this class introduces (vtable 0x020b75d8) */
     virtual void ResetInput(); /* 0x120 */
     virtual FString GetBind(FName Key); /* 0x124 */
-    virtual INT vf_128(INT, INT); /* 0x128 */
-    virtual void vf_12c(); /* 0x12c */
-    virtual INT vf_130(INT, INT); /* 0x130 */
+    virtual UBOOL Exec(const TCHAR* Cmd,FOutputDevice& Ar); /* 0x128 */
+    virtual void FlushPressedKeys(); /* 0x12c */
+    virtual void UpdateAxisValue( FLOAT* Axis, FLOAT Delta ); /* 0x130 */
     virtual INT vf_134(INT, FLOAT); /* 0x134 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
@@ -21545,7 +21556,7 @@ struct UPlayerInput : public UInput {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual UBOOL InputKey(INT ControllerId,FName Key,EInputEvent Event,FLOAT AmountDepressed=1.f,UBOOL bGamepad=FALSE); /* 0x114 */
     virtual UBOOL InputAxis(INT ControllerId,FName Key,FLOAT Delta,FLOAT DeltaTime, UBOOL bGamepad=FALSE); /* 0x118 */
-    virtual void vf_12c(); /* 0x12c */
+    virtual void FlushPressedKeys(); /* 0x12c */
     virtual INT vf_134(INT, FLOAT); /* 0x134 */
     /* registered size 0x158 */
 };
@@ -21631,7 +21642,7 @@ struct UDecalComponent : public UPrimitiveComponent {
     FVector OriginalParentRelativeLocation; /* 0x29c */
     FVector OriginalParentRelativeOrientationVec; /* 0x2a8 */
     /* virtual functions this class introduces (vtable 0x01ebe598) */
-    virtual INT vf_250(INT); /* 0x250 */
+    virtual FVector2D CalcDecalDotProductBlendRange() const; /* 0x250 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -21649,7 +21660,7 @@ struct UDecalComponent : public UPrimitiveComponent {
     virtual UINT vf_12c(); /* 0x12c */
     virtual void CheckForErrors(); /* 0x140 */
     virtual void UpdateBounds(); /* 0x160 */
-    virtual void vf_16c(INT); /* 0x16c */
+    virtual void GetStreamingTextureInfo(TArray<struct FStreamingTexturePrimitiveInfo>& OutStreamingTextures) const; /* 0x16c */
     virtual INT vf_1fc(); /* 0x1fc */
     virtual INT vf_200(); /* 0x200 */
     /* UnrealScript natives */
@@ -22061,7 +22072,7 @@ struct ULightComponent : public UActorComponent {
     virtual FBox GetBoundingBox() const; /* 0x158 */
     virtual FVector4 GetPosition() const; /* 0x15c */
     virtual INT GetLightType(); /* 0x160 */
-    virtual INT vf_164(INT, INT); /* 0x164 */
+    virtual FLinearColor GetDirectIntensity(const FVector& Point) const; /* 0x164 */
     virtual INT vf_168(INT, INT); /* 0x168 */
     virtual INT vf_16c(); /* 0x16c */
     virtual INT vf_170(); /* 0x170 */
@@ -22245,7 +22256,7 @@ struct UDistributionFloatUniformCurve : public UDistributionFloat {
     void InitializeIntrinsicPropertyValues(); /* 0x005c19e0 */
     FInterpCurveVector2D ConstantCurve; /* 0x44 */
     /* virtual functions this class introduces (vtable 0x01f29a88) */
-    virtual INT vf_124(INT, FLOAT, INT); /* 0x124 */
+    virtual FVector2D GetMinMaxValue(FLOAT F = 0.f, UObject* Data = NULL); /* 0x124 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -22389,8 +22400,8 @@ struct UDistributionVectorUniform : public UDistributionVector {
     BYTE LockedAxes; /* 0x60 */
     BYTE MirrorFlags[3]; /* 0x61 */
     /* virtual functions this class introduces (vtable 0x01f29030) */
-    virtual INT vf_12c(INT); /* 0x12c */
-    virtual INT vf_130(INT); /* 0x130 */
+    virtual FVector GetMinValue(); /* 0x12c */
+    virtual FVector GetMaxValue(); /* 0x130 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -22436,9 +22447,9 @@ struct UDistributionVectorUniformCurve : public UDistributionVector {
     BYTE LockedAxes[2]; /* 0x58 */
     BYTE MirrorFlags[3]; /* 0x5a */
     /* virtual functions this class introduces (vtable 0x01f29d80) */
-    virtual INT vf_12c(INT, FLOAT, INT); /* 0x12c */
-    virtual INT vf_130(INT); /* 0x130 */
-    virtual INT vf_134(INT); /* 0x134 */
+    virtual FTwoVectors GetMinMaxValue(FLOAT F = 0.f, UObject* Data = NULL); /* 0x12c */
+    virtual FVector GetMinValue(); /* 0x130 */
+    virtual FVector GetMaxValue(); /* 0x134 */
     virtual FLOAT vf_138(INT); /* 0x138 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
@@ -22514,8 +22525,8 @@ struct UDOFEffect : public UPostProcessEffect {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
-    virtual INT vf_10c(INT); /* 0x10c */
-    virtual INT vf_110(INT); /* 0x110 */
+    virtual class FPostProcessSceneProxy* CreateSceneProxy(const FPostProcessSettings* WorldSettings); /* 0x10c */
+    virtual UBOOL IsShown(const FSceneView* View) const; /* 0x110 */
     /* registered size 0x84 */
 };
 
@@ -22527,8 +22538,8 @@ struct UDOFAndBloomEffect : public UDOFEffect {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual INT vf_10c(INT); /* 0x10c */
-    virtual INT vf_110(INT); /* 0x110 */
+    virtual class FPostProcessSceneProxy* CreateSceneProxy(const FPostProcessSettings* WorldSettings); /* 0x10c */
+    virtual UBOOL IsShown(const FSceneView* View) const; /* 0x110 */
     /* registered size 0x8c */
 };
 
@@ -22543,8 +22554,8 @@ struct UDOFBloomMotionBlurEffect : public UDOFAndBloomEffect {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual INT vf_10c(INT); /* 0x10c */
-    virtual INT vf_110(INT); /* 0x110 */
+    virtual class FPostProcessSceneProxy* CreateSceneProxy(const FPostProcessSettings* WorldSettings); /* 0x10c */
+    virtual UBOOL IsShown(const FSceneView* View) const; /* 0x110 */
     /* registered size 0xa0 */
 };
 
@@ -23544,8 +23555,8 @@ struct UFluidSurfaceComponent : public UPrimitiveComponent {
     virtual void GetLightAndShadowMapMemoryUsage(UINT* LightMapMemoryUsage, UINT* ShadowMapMemoryUsage); /* 0x158 */
     virtual INT vf_15c(INT, INT); /* 0x15c */
     virtual void UpdateBounds(); /* 0x160 */
-    virtual void vf_164(INT, INT, INT); /* 0x164 */
-    virtual void vf_16c(INT); /* 0x16c */
+    virtual void GetStaticLightingInfo(struct FStaticLightingPrimitiveInfo& OutPrimitiveInfo,const TArray<ULightComponent*>& InRelevantLights,const struct FLightingBuildOptions& Options); /* 0x164 */
+    virtual void GetStreamingTextureInfo(TArray<struct FStreamingTexturePrimitiveInfo>& OutStreamingTextures) const; /* 0x16c */
     virtual UBOOL PointCheck(struct FCheckResult& Result,const FVector& Location,const FVector& Extent,DWORD TraceFlags); /* 0x174 */
     virtual UBOOL LineCheck(struct FCheckResult& Result,const FVector& End,const FVector& Start,const FVector& Extent,DWORD TraceFlags); /* 0x178 */
     virtual INT vf_1fc(); /* 0x1fc */
@@ -23827,7 +23838,7 @@ struct UFoliageComponent : public UPrimitiveComponent {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void InvalidateLightingCache(); /* 0x130 */
     virtual void UpdateBounds(); /* 0x160 */
-    virtual void vf_164(INT, INT, INT); /* 0x164 */
+    virtual void GetStaticLightingInfo(struct FStaticLightingPrimitiveInfo& OutPrimitiveInfo,const TArray<ULightComponent*>& InRelevantLights,const struct FLightingBuildOptions& Options); /* 0x164 */
     virtual INT vf_1fc(); /* 0x1fc */
     /* registered size 0x210 */
 };
@@ -27529,8 +27540,8 @@ struct UMantleReachSpec : public UForcedReachSpec {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT CostFor(class APawn* P); /* 0x10c */
-    virtual INT vf_134(INT, INT, INT, INT); /* 0x134 */
-    virtual UINT vf_138(INT); /* 0x138 */
+    virtual FVector GetForcedPathSize( class ANavigationPoint* Start, class ANavigationPoint* End, class AScout* Scout ); /* 0x134 */
+    virtual UBOOL CanBeSkipped( APawn* P ); /* 0x138 */
     /* registered size 0x94 */
 };
 
@@ -27552,7 +27563,7 @@ struct UMaterialEffect : public UPostProcessEffect {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual INT vf_10c(INT); /* 0x10c */
+    virtual class FPostProcessSceneProxy* CreateSceneProxy(const FPostProcessSettings* WorldSettings); /* 0x10c */
     /* other member functions */
     INT sub_00807cb0(); /* 0x00807cb0 */
     INT sub_00807cc0(); /* 0x00807cc0 */
@@ -29173,9 +29184,9 @@ struct UModelComponent : public UPrimitiveComponent {
     virtual void GetLightAndShadowMapMemoryUsage(UINT* LightMapMemoryUsage, UINT* ShadowMapMemoryUsage); /* 0x158 */
     virtual INT vf_15c(INT, INT); /* 0x15c */
     virtual void UpdateBounds(); /* 0x160 */
-    virtual void vf_164(INT, INT, INT); /* 0x164 */
-    virtual void vf_168(INT); /* 0x168 */
-    virtual void vf_16c(INT); /* 0x16c */
+    virtual void GetStaticLightingInfo(struct FStaticLightingPrimitiveInfo& OutPrimitiveInfo,const TArray<ULightComponent*>& InRelevantLights,const struct FLightingBuildOptions& Options); /* 0x164 */
+    virtual void GetStaticTriangles(struct FPrimitiveTriangleDefinitionInterface* PTDI) const; /* 0x168 */
+    virtual void GetStreamingTextureInfo(TArray<struct FStreamingTexturePrimitiveInfo>& OutStreamingTextures) const; /* 0x16c */
     virtual INT vf_1fc(); /* 0x1fc */
     virtual INT vf_200(); /* 0x200 */
     virtual UINT vf_24c(); /* 0x24c */
@@ -29397,8 +29408,8 @@ struct UMotionBlurEffect : public UPostProcessEffect {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual INT vf_10c(INT); /* 0x10c */
-    virtual INT vf_110(INT); /* 0x110 */
+    virtual class FPostProcessSceneProxy* CreateSceneProxy(const FPostProcessSettings* WorldSettings); /* 0x10c */
+    virtual UBOOL IsShown(const FSceneView* View) const; /* 0x110 */
     /* other member functions */
     UINT* sub_00833de0(BYTE); /* 0x00833de0 */
     /* registered size 0x6c */
@@ -30524,8 +30535,8 @@ struct UParticleModule : public UObject {
     BYTE LODValidity; /* 0x38 */
     TArrayNoInit<FName> IdenticalIgnoreProperties; /* 0x3c */
     /* virtual functions this class introduces (vtable 0x01fedf88) */
-    virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
+    virtual void Spawn(FParticleEmitterInstance* Owner, INT Offset, FLOAT SpawnTime); /* 0x10c */
+    virtual void Update(FParticleEmitterInstance* Owner, INT Offset, FLOAT DeltaTime); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
     virtual INT vf_118(INT); /* 0x118 */
     virtual INT vf_11c(INT, INT); /* 0x11c */
@@ -30570,8 +30581,8 @@ struct UParticleModuleAcceleration : public UParticleModuleAccelerationBase {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
+    virtual void Spawn(FParticleEmitterInstance* Owner, INT Offset, FLOAT SpawnTime); /* 0x10c */
+    virtual void Update(FParticleEmitterInstance* Owner, INT Offset, FLOAT DeltaTime); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
     /* registered size 0x68 */
 };
@@ -30583,7 +30594,7 @@ struct UParticleModuleAccelerationOverLifetime : public UParticleModuleAccelerat
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
+    virtual void Update(FParticleEmitterInstance* Owner, INT Offset, FLOAT DeltaTime); /* 0x110 */
     /* registered size 0x64 */
 };
 
@@ -30606,7 +30617,7 @@ struct UParticleModuleAttractorLine : public UParticleModuleAttractorBase {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
+    virtual void Update(FParticleEmitterInstance* Owner, INT Offset, FLOAT DeltaTime); /* 0x110 */
     virtual void vf_12c(INT, INT, INT); /* 0x12c */
     /* registered size 0x98 */
 };
@@ -30626,8 +30637,8 @@ struct UParticleModuleAttractorParticle : public UParticleModuleAttractorBase {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
+    virtual void Spawn(FParticleEmitterInstance* Owner, INT Offset, FLOAT SpawnTime); /* 0x10c */
+    virtual void Update(FParticleEmitterInstance* Owner, INT Offset, FLOAT DeltaTime); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
     /* registered size 0x94 */
 };
@@ -30644,7 +30655,7 @@ struct UParticleModuleAttractorPoint : public UParticleModuleAttractorBase {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
+    virtual void Update(FParticleEmitterInstance* Owner, INT Offset, FLOAT DeltaTime); /* 0x110 */
     virtual void vf_12c(INT, INT, INT); /* 0x12c */
     /* registered size 0xa0 */
 };
@@ -30676,8 +30687,8 @@ struct UParticleModuleBeamModifier : public UParticleModuleBeamBase {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
-    virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
+    virtual void Spawn(FParticleEmitterInstance* Owner, INT Offset, FLOAT SpawnTime); /* 0x10c */
+    virtual void Update(FParticleEmitterInstance* Owner, INT Offset, FLOAT DeltaTime); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
     virtual void vf_124(INT); /* 0x124 */
     virtual void vf_128(INT); /* 0x128 */
@@ -30715,8 +30726,8 @@ struct UParticleModuleBeamNoise : public UParticleModuleBeamBase {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
-    virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
+    virtual void Spawn(FParticleEmitterInstance* Owner, INT Offset, FLOAT SpawnTime); /* 0x10c */
+    virtual void Update(FParticleEmitterInstance* Owner, INT Offset, FLOAT DeltaTime); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
     /* registered size 0xf4 */
 };
@@ -30740,8 +30751,8 @@ struct UParticleModuleBeamSource : public UParticleModuleBeamBase {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
-    virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
+    virtual void Spawn(FParticleEmitterInstance* Owner, INT Offset, FLOAT SpawnTime); /* 0x10c */
+    virtual void Update(FParticleEmitterInstance* Owner, INT Offset, FLOAT DeltaTime); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
     virtual void vf_134(INT); /* 0x134 */
     virtual void vf_15c(INT); /* 0x15c */
@@ -30768,8 +30779,8 @@ struct UParticleModuleBeamTarget : public UParticleModuleBeamBase {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
-    virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
+    virtual void Spawn(FParticleEmitterInstance* Owner, INT Offset, FLOAT SpawnTime); /* 0x10c */
+    virtual void Update(FParticleEmitterInstance* Owner, INT Offset, FLOAT DeltaTime); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
     virtual void vf_134(INT); /* 0x134 */
     virtual void vf_15c(INT); /* 0x15c */
@@ -30806,8 +30817,8 @@ struct UParticleModuleCollision : public UParticleModuleCollisionBase {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
+    virtual void Spawn(FParticleEmitterInstance* Owner, INT Offset, FLOAT SpawnTime); /* 0x10c */
+    virtual void Update(FParticleEmitterInstance* Owner, INT Offset, FLOAT DeltaTime); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
     virtual void vf_120(INT); /* 0x120 */
     virtual INT vf_138(INT, INT, INT); /* 0x138 */
@@ -30834,7 +30845,7 @@ struct UParticleModuleColor : public UParticleModuleColorBase {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void PostLoad(); /* 0x01c */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
-    virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
+    virtual void Spawn(FParticleEmitterInstance* Owner, INT Offset, FLOAT SpawnTime); /* 0x10c */
     virtual void vf_120(INT); /* 0x120 */
     virtual void vf_128(INT); /* 0x128 */
     /* registered size 0x84 */
@@ -30848,7 +30859,7 @@ struct UParticleModuleColorByParameter : public UParticleModuleColorBase {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
+    virtual void Spawn(FParticleEmitterInstance* Owner, INT Offset, FLOAT SpawnTime); /* 0x10c */
     virtual void vf_134(INT); /* 0x134 */
     virtual void vf_15c(INT); /* 0x15c */
     /* registered size 0x54 */
@@ -30865,8 +30876,8 @@ struct UParticleModuleColorOverLife : public UParticleModuleColorBase {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void PostLoad(); /* 0x01c */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
-    virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
+    virtual void Spawn(FParticleEmitterInstance* Owner, INT Offset, FLOAT SpawnTime); /* 0x10c */
+    virtual void Update(FParticleEmitterInstance* Owner, INT Offset, FLOAT DeltaTime); /* 0x110 */
     virtual void vf_120(INT); /* 0x120 */
     virtual void vf_128(INT); /* 0x128 */
     /* registered size 0x84 */
@@ -30880,8 +30891,8 @@ struct UParticleModuleColorScaleOverDensity : public UParticleModuleColorBase {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
+    virtual void Spawn(FParticleEmitterInstance* Owner, INT Offset, FLOAT SpawnTime); /* 0x10c */
+    virtual void Update(FParticleEmitterInstance* Owner, INT Offset, FLOAT DeltaTime); /* 0x110 */
     virtual void vf_120(INT); /* 0x120 */
     /* registered size 0x80 */
 };
@@ -30895,8 +30906,8 @@ struct UParticleModuleColorScaleOverLife : public UParticleModuleColorBase {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
+    virtual void Spawn(FParticleEmitterInstance* Owner, INT Offset, FLOAT SpawnTime); /* 0x10c */
+    virtual void Update(FParticleEmitterInstance* Owner, INT Offset, FLOAT DeltaTime); /* 0x110 */
     virtual void vf_120(INT); /* 0x120 */
     /* registered size 0x84 */
 };
@@ -30917,15 +30928,15 @@ struct UParticleModuleEventGenerator : public UParticleModuleEventBase {
     TArrayNoInit<FParticleEvent_GenerateInfo> Events; /* 0x48 */
     /* virtual functions this class introduces (vtable 0x01fef1f0) */
     virtual void vf_168(); /* 0x168 */
-    virtual INT vf_16c(INT, INT, INT); /* 0x16c */
+    virtual UBOOL HandleParticleKilled(FParticleEmitterInstance* Owner, struct FParticleEventInstancePayload* EventPayload, struct FBaseParticle* DeadParticle); /* 0x16c */
     virtual INT vf_170(INT, INT, INT); /* 0x170 */
-    virtual INT vf_174(INT, INT, INT, INT, INT, INT); /* 0x174 */
+    virtual UBOOL HandleParticleAttractorCollision(FParticleEmitterInstance* Owner, struct FParticleEventInstancePayload* EventPayload, struct FParticleCollisionPayload* CollidePayload, FCheckResult* Hit, struct FBaseParticle* CollideParticle, FVector& CollideDirection); /* 0x174 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
-    virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
+    virtual void Spawn(FParticleEmitterInstance* Owner, INT Offset, FLOAT SpawnTime); /* 0x10c */
+    virtual void Update(FParticleEmitterInstance* Owner, INT Offset, FLOAT DeltaTime); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
     virtual INT vf_118(INT); /* 0x118 */
     virtual INT vf_11c(INT, INT); /* 0x11c */
@@ -30960,8 +30971,8 @@ struct UParticleModuleEventReceiverSpawn : public UParticleModuleEventReceiverBa
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
-    virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
+    virtual void Spawn(FParticleEmitterInstance* Owner, INT Offset, FLOAT SpawnTime); /* 0x10c */
+    virtual void Update(FParticleEmitterInstance* Owner, INT Offset, FLOAT DeltaTime); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
     virtual INT vf_118(INT); /* 0x118 */
     virtual INT vf_11c(INT, INT); /* 0x11c */
@@ -30989,7 +31000,7 @@ struct UParticleModuleKillBox : public UParticleModuleKillBase {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
+    virtual void Update(FParticleEmitterInstance* Owner, INT Offset, FLOAT DeltaTime); /* 0x110 */
     virtual void vf_12c(INT, INT, INT); /* 0x12c */
     /* registered size 0x84 */
 };
@@ -31003,7 +31014,7 @@ struct UParticleModuleKillHeight : public UParticleModuleKillBase {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
+    virtual void Update(FParticleEmitterInstance* Owner, INT Offset, FLOAT DeltaTime); /* 0x110 */
     virtual void vf_12c(INT, INT, INT); /* 0x12c */
     /* registered size 0x68 */
 };
@@ -31026,7 +31037,7 @@ struct UParticleModuleLifetime : public UParticleModuleLifetimeBase {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
+    virtual void Spawn(FParticleEmitterInstance* Owner, INT Offset, FLOAT SpawnTime); /* 0x10c */
     virtual void vf_120(INT); /* 0x120 */
     virtual FLOAT GetMaxLifetime(); /* 0x168 */
     /* registered size 0x64 */
@@ -31048,7 +31059,7 @@ struct UParticleModuleLocation : public UParticleModuleLocationBase {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
+    virtual void Spawn(FParticleEmitterInstance* Owner, INT Offset, FLOAT SpawnTime); /* 0x10c */
     virtual void vf_12c(INT, INT, INT); /* 0x12c */
     /* registered size 0x64 */
 };
@@ -31066,8 +31077,8 @@ struct UParticleModuleLocationDirect : public UParticleModuleLocationBase {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
-    virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
+    virtual void Spawn(FParticleEmitterInstance* Owner, INT Offset, FLOAT SpawnTime); /* 0x10c */
+    virtual void Update(FParticleEmitterInstance* Owner, INT Offset, FLOAT DeltaTime); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
     /* registered size 0xb8 */
 };
@@ -31084,7 +31095,7 @@ struct UParticleModuleLocationEmitter : public UParticleModuleLocationBase {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
+    virtual void Spawn(FParticleEmitterInstance* Owner, INT Offset, FLOAT SpawnTime); /* 0x10c */
     virtual INT vf_118(INT); /* 0x118 */
     /* registered size 0x60 */
 };
@@ -31096,8 +31107,8 @@ struct UParticleModuleLocationEmitterDirect : public UParticleModuleLocationBase
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
+    virtual void Spawn(FParticleEmitterInstance* Owner, INT Offset, FLOAT SpawnTime); /* 0x10c */
+    virtual void Update(FParticleEmitterInstance* Owner, INT Offset, FLOAT DeltaTime); /* 0x110 */
     /* registered size 0x50 */
 };
 
@@ -31132,7 +31143,7 @@ struct UParticleModuleLocationPrimitiveCylinder : public UParticleModuleLocation
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
+    virtual void Spawn(FParticleEmitterInstance* Owner, INT Offset, FLOAT SpawnTime); /* 0x10c */
     virtual void vf_12c(INT, INT, INT); /* 0x12c */
     /* registered size 0xc4 */
 };
@@ -31144,7 +31155,7 @@ struct UParticleModuleLocationPrimitiveSphere : public UParticleModuleLocationPr
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
+    virtual void Spawn(FParticleEmitterInstance* Owner, INT Offset, FLOAT SpawnTime); /* 0x10c */
     virtual void vf_12c(INT, INT, INT); /* 0x12c */
     /* registered size 0xa0 */
 };
@@ -31159,7 +31170,7 @@ struct UParticleModuleLocationVertex : public UParticleModuleLocationBase {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
+    virtual void Spawn(FParticleEmitterInstance* Owner, INT Offset, FLOAT SpawnTime); /* 0x10c */
     /* registered size 0x50 */
 };
 
@@ -31181,7 +31192,7 @@ struct UParticleModuleMaterialByParameter : public UParticleModuleMaterialBase {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
-    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
+    virtual void Update(FParticleEmitterInstance* Owner, INT Offset, FLOAT DeltaTime); /* 0x110 */
     /* registered size 0x60 */
 };
 
@@ -31192,7 +31203,7 @@ struct UParticleModuleMeshMaterial : public UParticleModuleMaterialBase {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
+    virtual void Spawn(FParticleEmitterInstance* Owner, INT Offset, FLOAT SpawnTime); /* 0x10c */
     virtual INT vf_118(INT); /* 0x118 */
     /* registered size 0x54 */
 };
@@ -31214,7 +31225,7 @@ struct UParticleModuleMeshRotation : public UParticleModuleRotationBase {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
+    virtual void Spawn(FParticleEmitterInstance* Owner, INT Offset, FLOAT SpawnTime); /* 0x10c */
     /* registered size 0x68 */
 };
 
@@ -31234,7 +31245,7 @@ struct UParticleModuleMeshRotationRate : public UParticleModuleRotationRateBase 
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
+    virtual void Spawn(FParticleEmitterInstance* Owner, INT Offset, FLOAT SpawnTime); /* 0x10c */
     virtual void vf_120(INT); /* 0x120 */
     /* registered size 0x64 */
 };
@@ -31246,8 +31257,8 @@ struct UParticleModuleMeshRotationRateMultiplyLife : public UParticleModuleRotat
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
+    virtual void Spawn(FParticleEmitterInstance* Owner, INT Offset, FLOAT SpawnTime); /* 0x10c */
+    virtual void Update(FParticleEmitterInstance* Owner, INT Offset, FLOAT DeltaTime); /* 0x110 */
     virtual void vf_120(INT); /* 0x120 */
     /* registered size 0x64 */
 };
@@ -31275,8 +31286,8 @@ struct UParticleModuleOrbit : public UParticleModuleOrbitBase {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
+    virtual void Spawn(FParticleEmitterInstance* Owner, INT Offset, FLOAT SpawnTime); /* 0x10c */
+    virtual void Update(FParticleEmitterInstance* Owner, INT Offset, FLOAT DeltaTime); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
     virtual INT vf_118(INT); /* 0x118 */
     /* registered size 0xb0 */
@@ -31301,8 +31312,8 @@ struct UParticleModuleOrientationAxisLock : public UParticleModuleOrientationBas
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
-    virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
+    virtual void Spawn(FParticleEmitterInstance* Owner, INT Offset, FLOAT SpawnTime); /* 0x10c */
+    virtual void Update(FParticleEmitterInstance* Owner, INT Offset, FLOAT DeltaTime); /* 0x110 */
     /* registered size 0x4c */
 };
 
@@ -31325,8 +31336,8 @@ struct UParticleModuleParameterDynamic : public UParticleModuleParameterBase {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
-    virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
+    virtual void Spawn(FParticleEmitterInstance* Owner, INT Offset, FLOAT SpawnTime); /* 0x10c */
+    virtual void Update(FParticleEmitterInstance* Owner, INT Offset, FLOAT DeltaTime); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
     virtual void vf_120(INT); /* 0x120 */
     virtual void vf_124(INT); /* 0x124 */
@@ -31402,8 +31413,8 @@ struct UParticleModuleRequired : public UParticleModule {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void PostLoad(); /* 0x01c */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
-    virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
+    virtual void Spawn(FParticleEmitterInstance* Owner, INT Offset, FLOAT SpawnTime); /* 0x10c */
+    virtual void Update(FParticleEmitterInstance* Owner, INT Offset, FLOAT DeltaTime); /* 0x110 */
     virtual void vf_128(INT); /* 0x128 */
     virtual INT vf_130(); /* 0x130 */
     virtual INT vf_138(INT, INT, INT); /* 0x138 */
@@ -31417,7 +31428,7 @@ struct UParticleModuleRotation : public UParticleModuleRotationBase {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
+    virtual void Spawn(FParticleEmitterInstance* Owner, INT Offset, FLOAT SpawnTime); /* 0x10c */
     /* registered size 0x64 */
 };
 
@@ -31429,7 +31440,7 @@ struct UParticleModuleRotationOverLifetime : public UParticleModuleRotationBase 
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
+    virtual void Update(FParticleEmitterInstance* Owner, INT Offset, FLOAT DeltaTime); /* 0x110 */
     /* registered size 0x68 */
 };
 
@@ -31440,7 +31451,7 @@ struct UParticleModuleRotationRate : public UParticleModuleRotationRateBase {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
+    virtual void Spawn(FParticleEmitterInstance* Owner, INT Offset, FLOAT SpawnTime); /* 0x10c */
     virtual void vf_120(INT); /* 0x120 */
     /* registered size 0x64 */
 };
@@ -31452,8 +31463,8 @@ struct UParticleModuleRotationRateMultiplyLife : public UParticleModuleRotationR
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
+    virtual void Spawn(FParticleEmitterInstance* Owner, INT Offset, FLOAT SpawnTime); /* 0x10c */
+    virtual void Update(FParticleEmitterInstance* Owner, INT Offset, FLOAT DeltaTime); /* 0x110 */
     virtual void vf_120(INT); /* 0x120 */
     /* registered size 0x64 */
 };
@@ -31474,7 +31485,7 @@ struct UParticleModuleSize : public UParticleModuleSizeBase {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
+    virtual void Spawn(FParticleEmitterInstance* Owner, INT Offset, FLOAT SpawnTime); /* 0x10c */
     /* registered size 0x64 */
 };
 
@@ -31488,8 +31499,8 @@ struct UParticleModuleSizeMultiplyLife : public UParticleModuleSizeBase {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
+    virtual void Spawn(FParticleEmitterInstance* Owner, INT Offset, FLOAT SpawnTime); /* 0x10c */
+    virtual void Update(FParticleEmitterInstance* Owner, INT Offset, FLOAT DeltaTime); /* 0x110 */
     virtual void vf_120(INT); /* 0x120 */
     virtual INT vf_144(); /* 0x144 */
     /* registered size 0x68 */
@@ -31505,8 +31516,8 @@ struct UParticleModuleSizeMultiplyVelocity : public UParticleModuleSizeBase {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
+    virtual void Spawn(FParticleEmitterInstance* Owner, INT Offset, FLOAT SpawnTime); /* 0x10c */
+    virtual void Update(FParticleEmitterInstance* Owner, INT Offset, FLOAT DeltaTime); /* 0x110 */
     virtual void vf_120(INT); /* 0x120 */
     /* registered size 0x68 */
 };
@@ -31521,7 +31532,7 @@ struct UParticleModuleSizeScale : public UParticleModuleSizeBase {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
+    virtual void Update(FParticleEmitterInstance* Owner, INT Offset, FLOAT DeltaTime); /* 0x110 */
     virtual void vf_120(INT); /* 0x120 */
     /* registered size 0x68 */
 };
@@ -31568,7 +31579,7 @@ struct UParticleModuleSpawnPerUnit : public UParticleModuleSpawnBase {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
+    virtual void Spawn(FParticleEmitterInstance* Owner, INT Offset, FLOAT SpawnTime); /* 0x10c */
     virtual INT vf_118(INT); /* 0x118 */
     virtual UBOOL GetSpawnAmount(FParticleEmitterInstance* Owner, INT Offset, FLOAT OldLeftover, FLOAT DeltaTime, INT& Number, FLOAT& Rate); /* 0x168 */
     /* registered size 0x74 */
@@ -31595,8 +31606,8 @@ struct UParticleModuleSubUV : public UParticleModuleSubUVBase {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
+    virtual void Spawn(FParticleEmitterInstance* Owner, INT Offset, FLOAT SpawnTime); /* 0x10c */
+    virtual void Update(FParticleEmitterInstance* Owner, INT Offset, FLOAT DeltaTime); /* 0x110 */
     virtual void vf_120(INT); /* 0x120 */
     /* registered size 0x64 */
 };
@@ -31612,7 +31623,7 @@ struct UParticleModuleSubUVDirect : public UParticleModuleSubUVBase {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
+    virtual void Update(FParticleEmitterInstance* Owner, INT Offset, FLOAT DeltaTime); /* 0x110 */
     /* registered size 0x80 */
 };
 
@@ -31626,7 +31637,7 @@ struct UParticleModuleSubUVSelect : public UParticleModuleSubUVBase {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
+    virtual void Update(FParticleEmitterInstance* Owner, INT Offset, FLOAT DeltaTime); /* 0x110 */
     /* registered size 0x64 */
 };
 
@@ -31657,8 +31668,8 @@ struct UParticleModuleTrailSource : public UParticleModuleTrailBase {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
-    virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
+    virtual void Spawn(FParticleEmitterInstance* Owner, INT Offset, FLOAT SpawnTime); /* 0x10c */
+    virtual void Update(FParticleEmitterInstance* Owner, INT Offset, FLOAT DeltaTime); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
     virtual void vf_134(INT); /* 0x134 */
     virtual void vf_15c(INT); /* 0x15c */
@@ -31677,8 +31688,8 @@ struct UParticleModuleTrailSpawn : public UParticleModuleTrailBase {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void PostLoad(); /* 0x01c */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
-    virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
+    virtual void Spawn(FParticleEmitterInstance* Owner, INT Offset, FLOAT SpawnTime); /* 0x10c */
+    virtual void Update(FParticleEmitterInstance* Owner, INT Offset, FLOAT DeltaTime); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
     /* registered size 0x50 */
 };
@@ -31694,8 +31705,8 @@ struct UParticleModuleTrailTaper : public UParticleModuleTrailBase {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
-    virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
+    virtual void Spawn(FParticleEmitterInstance* Owner, INT Offset, FLOAT SpawnTime); /* 0x10c */
+    virtual void Update(FParticleEmitterInstance* Owner, INT Offset, FLOAT DeltaTime); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
     /* registered size 0x68 */
 };
@@ -31704,12 +31715,12 @@ struct UParticleModuleTypeDataBase : public UParticleModule {
     /* Engine.ParticleModuleTypeDataBase */
     DECLARE_CLASS(UParticleModuleTypeDataBase, UParticleModule, 0x1, 0x0, Engine)
     /* virtual functions this class introduces (vtable 0x01feead8) */
-    virtual INT vf_168(INT, INT); /* 0x168 */
+    virtual FParticleEmitterInstance* CreateInstance(UParticleEmitter* InEmitterParent, UParticleSystemComponent* InComponent); /* 0x168 */
     virtual void vf_16c(); /* 0x16c */
     virtual void vf_170(INT, INT); /* 0x170 */
     virtual void vf_174(INT, INT, INT); /* 0x174 */
     virtual void vf_178(INT, INT, INT); /* 0x178 */
-    virtual INT vf_17c(); /* 0x17c */
+    virtual UBOOL IsAMeshEmitter() const; /* 0x17c */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -31737,9 +31748,9 @@ struct UParticleModuleTypeDataBeam : public UParticleModuleTypeDataBase {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
-    virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
+    virtual void Spawn(FParticleEmitterInstance* Owner, INT Offset, FLOAT SpawnTime); /* 0x10c */
     virtual INT vf_114(INT); /* 0x114 */
-    virtual INT vf_168(INT, INT); /* 0x168 */
+    virtual FParticleEmitterInstance* CreateInstance(UParticleEmitter* InEmitterParent, UParticleSystemComponent* InComponent); /* 0x168 */
     virtual void vf_16c(); /* 0x16c */
     virtual void vf_174(INT, INT, INT); /* 0x174 */
     /* other member functions */
@@ -31770,17 +31781,17 @@ struct UParticleModuleTypeDataBeam2 : public UParticleModuleTypeDataBase {
     FRawDistributionFloat TaperScale; /* 0xac */
     TArrayNoInit<FBonePair> BonePairs; /* 0xc8 */
     /* virtual functions this class introduces (vtable 0x01ffa800) */
-    virtual INT vf_180(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x180 */
+    virtual void GetDataPointers(FParticleEmitterInstance* Owner, const BYTE* ParticleBase, INT& CurrentOffset, struct FBeam2TypeDataPayload*& BeamData, FVector*& InterpolatedPoints, FLOAT*& NoiseRate, FLOAT*& NoiseDeltaTime, FVector*& TargetNoisePoints, FVector*& NextNoisePoints, FLOAT*& TaperValues, FLOAT*& NoiseDistanceScale, struct FBeamParticleModifierPayloadData*& SourceModifier, struct FBeamParticleModifierPayloadData*& TargetModifier); /* 0x180 */
     virtual void GetDataPointerOffsets(FParticleEmitterInstance* Owner, const BYTE* ParticleBase, INT& CurrentOffset, INT& BeamDataOffset, INT& InterpolatedPointsOffset, INT& NoiseRateOffset, INT& NoiseDeltaTimeOffset, INT& TargetNoisePointsOffset, INT& NextNoisePointsOffset, INT& TaperCount, INT& TaperValuesOffset, INT& NoiseDistanceScaleOffset); /* 0x184 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
-    virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
+    virtual void Spawn(FParticleEmitterInstance* Owner, INT Offset, FLOAT SpawnTime); /* 0x10c */
+    virtual void Update(FParticleEmitterInstance* Owner, INT Offset, FLOAT DeltaTime); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
     virtual void vf_128(INT); /* 0x128 */
-    virtual INT vf_168(INT, INT); /* 0x168 */
+    virtual FParticleEmitterInstance* CreateInstance(UParticleEmitter* InEmitterParent, UParticleSystemComponent* InComponent); /* 0x168 */
     virtual void vf_16c(); /* 0x16c */
     virtual void vf_174(INT, INT, INT); /* 0x174 */
     /* other member functions */
@@ -31800,9 +31811,9 @@ struct UParticleModuleTypeDataMesh : public UParticleModuleTypeDataBase {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
-    virtual INT vf_168(INT, INT); /* 0x168 */
+    virtual FParticleEmitterInstance* CreateInstance(UParticleEmitter* InEmitterParent, UParticleSystemComponent* InComponent); /* 0x168 */
     virtual void vf_16c(); /* 0x16c */
-    virtual INT vf_17c(); /* 0x17c */
+    virtual UBOOL IsAMeshEmitter() const; /* 0x17c */
     /* registered size 0x54 */
 };
 
@@ -31820,7 +31831,7 @@ struct UParticleModuleTypeDataMeshPhysX : public UParticleModuleTypeDataMesh {
     virtual void FinishDestroy(); /* 0x02c */
     virtual void PreEditChange(class UProperty* PropertyAboutToChange); /* 0x044 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
-    virtual INT vf_168(INT, INT); /* 0x168 */
+    virtual FParticleEmitterInstance* CreateInstance(UParticleEmitter* InEmitterParent, UParticleSystemComponent* InComponent); /* 0x168 */
     virtual void vf_16c(); /* 0x16c */
     /* other member functions */
     UINT sub_00b33d90(BYTE); /* 0x00b33d90 */
@@ -31838,7 +31849,7 @@ struct UParticleModuleTypeDataPhysX : public UParticleModuleTypeDataBase {
     virtual void FinishDestroy(); /* 0x02c */
     virtual void PreEditChange(class UProperty* PropertyAboutToChange); /* 0x044 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
-    virtual INT vf_168(INT, INT); /* 0x168 */
+    virtual FParticleEmitterInstance* CreateInstance(UParticleEmitter* InEmitterParent, UParticleSystemComponent* InComponent); /* 0x168 */
     virtual void vf_16c(); /* 0x16c */
     /* registered size 0x5c */
 };
@@ -31858,7 +31869,7 @@ struct UParticleModuleTypeDataTrail : public UParticleModuleTypeDataBase {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
-    virtual INT vf_168(INT, INT); /* 0x168 */
+    virtual FParticleEmitterInstance* CreateInstance(UParticleEmitter* InEmitterParent, UParticleSystemComponent* InComponent); /* 0x168 */
     virtual void vf_16c(); /* 0x16c */
     /* other member functions */
     UINT* sub_00b74b00(); /* 0x00b74b00 */
@@ -31880,16 +31891,16 @@ struct UParticleModuleTypeDataTrail2 : public UParticleModuleTypeDataBase {
     BITFIELD RenderLines : 1; /* 0x64 */
     BITFIELD RenderTessellation : 1; /* 0x64 */
     /* virtual functions this class introduces (vtable 0x0201ab38) */
-    virtual INT vf_180(INT, INT, INT, INT, INT); /* 0x180 */
+    virtual void GetDataPointers(FParticleEmitterInstance* Owner, const BYTE* ParticleBase, INT& CurrentOffset, struct FTrail2TypeDataPayload*& TrailData, FLOAT*& TaperValues); /* 0x180 */
     virtual void GetDataPointerOffsets(FParticleEmitterInstance* Owner, const BYTE* ParticleBase, INT& CurrentOffset, INT& TrailDataOffset, INT& TaperValuesOffset); /* 0x184 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
-    virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
+    virtual void Spawn(FParticleEmitterInstance* Owner, INT Offset, FLOAT SpawnTime); /* 0x10c */
+    virtual void Update(FParticleEmitterInstance* Owner, INT Offset, FLOAT DeltaTime); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
-    virtual INT vf_168(INT, INT); /* 0x168 */
+    virtual FParticleEmitterInstance* CreateInstance(UParticleEmitter* InEmitterParent, UParticleSystemComponent* InComponent); /* 0x168 */
     virtual void vf_16c(); /* 0x16c */
     virtual void vf_170(INT, INT); /* 0x170 */
     virtual void vf_174(INT, INT, INT); /* 0x174 */
@@ -31921,8 +31932,8 @@ struct UParticleModuleUberLTISIVCL : public UParticleModuleUberBase {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
+    virtual void Spawn(FParticleEmitterInstance* Owner, INT Offset, FLOAT SpawnTime); /* 0x10c */
+    virtual void Update(FParticleEmitterInstance* Owner, INT Offset, FLOAT DeltaTime); /* 0x110 */
     virtual UBOOL ConvertToUberModule(UParticleEmitter* InputEmitter); /* 0x16c */
     /* other member functions */
     UINT* sub_00b31090(BYTE); /* 0x00b31090 */
@@ -31946,8 +31957,8 @@ struct UParticleModuleUberLTISIVCLIL : public UParticleModuleUberBase {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
+    virtual void Spawn(FParticleEmitterInstance* Owner, INT Offset, FLOAT SpawnTime); /* 0x10c */
+    virtual void Update(FParticleEmitterInstance* Owner, INT Offset, FLOAT DeltaTime); /* 0x110 */
     virtual UBOOL ConvertToUberModule(UParticleEmitter* InputEmitter); /* 0x16c */
     /* registered size 0x118 */
 };
@@ -31971,8 +31982,8 @@ struct UParticleModuleUberLTISIVCLILIRSSBLIRR : public UParticleModuleUberBase {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
+    virtual void Spawn(FParticleEmitterInstance* Owner, INT Offset, FLOAT SpawnTime); /* 0x10c */
+    virtual void Update(FParticleEmitterInstance* Owner, INT Offset, FLOAT DeltaTime); /* 0x110 */
     virtual UBOOL ConvertToUberModule(UParticleEmitter* InputEmitter); /* 0x16c */
     /* registered size 0x170 */
 };
@@ -32011,8 +32022,8 @@ struct UParticleModuleUberRainDrops : public UParticleModuleUberBase {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void PostLoad(); /* 0x01c */
-    virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
+    virtual void Spawn(FParticleEmitterInstance* Owner, INT Offset, FLOAT SpawnTime); /* 0x10c */
+    virtual void Update(FParticleEmitterInstance* Owner, INT Offset, FLOAT DeltaTime); /* 0x110 */
     virtual void vf_12c(INT, INT, INT); /* 0x12c */
     virtual UBOOL IsCompatible(UParticleEmitter* InputEmitter); /* 0x168 */
     virtual UBOOL ConvertToUberModule(UParticleEmitter* InputEmitter); /* 0x16c */
@@ -32052,8 +32063,8 @@ struct UParticleModuleUberRainImpacts : public UParticleModuleUberBase {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
+    virtual void Spawn(FParticleEmitterInstance* Owner, INT Offset, FLOAT SpawnTime); /* 0x10c */
+    virtual void Update(FParticleEmitterInstance* Owner, INT Offset, FLOAT DeltaTime); /* 0x110 */
     virtual void vf_12c(INT, INT, INT); /* 0x12c */
     virtual UBOOL IsCompatible(UParticleEmitter* InputEmitter); /* 0x168 */
     virtual UBOOL ConvertToUberModule(UParticleEmitter* InputEmitter); /* 0x16c */
@@ -32078,8 +32089,8 @@ struct UParticleModuleUberRainSplashA : public UParticleModuleUberBase {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
+    virtual void Spawn(FParticleEmitterInstance* Owner, INT Offset, FLOAT SpawnTime); /* 0x10c */
+    virtual void Update(FParticleEmitterInstance* Owner, INT Offset, FLOAT DeltaTime); /* 0x110 */
     virtual UBOOL IsCompatible(UParticleEmitter* InputEmitter); /* 0x168 */
     virtual UBOOL ConvertToUberModule(UParticleEmitter* InputEmitter); /* 0x16c */
     /* registered size 0x100 */
@@ -32100,8 +32111,8 @@ struct UParticleModuleUberRainSplashB : public UParticleModuleUberBase {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
+    virtual void Spawn(FParticleEmitterInstance* Owner, INT Offset, FLOAT SpawnTime); /* 0x10c */
+    virtual void Update(FParticleEmitterInstance* Owner, INT Offset, FLOAT DeltaTime); /* 0x110 */
     virtual UBOOL IsCompatible(UParticleEmitter* InputEmitter); /* 0x168 */
     virtual UBOOL ConvertToUberModule(UParticleEmitter* InputEmitter); /* 0x16c */
     /* registered size 0x100 */
@@ -32124,7 +32135,7 @@ struct UParticleModuleVelocity : public UParticleModuleVelocityBase {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
+    virtual void Spawn(FParticleEmitterInstance* Owner, INT Offset, FLOAT SpawnTime); /* 0x10c */
     /* registered size 0x80 */
 };
 
@@ -32135,7 +32146,7 @@ struct UParticleModuleVelocityInheritParent : public UParticleModuleVelocityBase
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
+    virtual void Spawn(FParticleEmitterInstance* Owner, INT Offset, FLOAT SpawnTime); /* 0x10c */
     /* registered size 0x64 */
 };
 
@@ -32147,8 +32158,8 @@ struct UParticleModuleVelocityOverLifetime : public UParticleModuleVelocityBase 
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
+    virtual void Spawn(FParticleEmitterInstance* Owner, INT Offset, FLOAT SpawnTime); /* 0x10c */
+    virtual void Update(FParticleEmitterInstance* Owner, INT Offset, FLOAT DeltaTime); /* 0x110 */
     /* registered size 0x68 */
 };
 
@@ -32572,17 +32583,17 @@ struct APawn : public AActor {
     virtual UBOOL TryJumpUp(FVector Dir, FVector Destination, DWORD TraceFlags, UBOOL bNoVisibility); /* 0x3e8 */
     virtual UBOOL ReachThresholdTest(const FVector &TestPosition, const FVector &Dest, AActor* GoalActor, FLOAT UpThresholdAdjust, FLOAT DownThresholdAdjust, FLOAT ThresholdAdjust); /* 0x3ec */
     virtual UBOOL SetHighJumpFlag(); /* 0x3f0 */
-    virtual INT vf_3f4(FLOAT, FLOAT, FLOAT, FLOAT); /* 0x3f4 */
-    virtual INT vf_3f8(INT, INT, INT, INT); /* 0x3f8 */
+    virtual ETestMoveResult FindBestJump(FVector Dest, FVector &CurrentPosition); /* 0x3f4 */
+    virtual ETestMoveResult FindJumpUp(FVector Direction, FVector &CurrentPosition); /* 0x3f8 */
     virtual UBOOL HurtByDamageType(class UClass* DamageType); /* 0x3fc */
     virtual void SetMaxLandingVelocity(FLOAT NewLandingVelocity); /* 0x400 */
     virtual ANavigationPoint* CheckDetour(ANavigationPoint* BestDest, ANavigationPoint* Start, UBOOL bWeightDetours); /* 0x404 */
     virtual INT calcMoveFlags(); /* 0x408 */
     virtual void MarkEndPoints(class ANavigationPoint* EndAnchor, class AActor* Goal, const FVector& GoalLocation); /* 0x40c */
-    virtual FLOAT vf_410(INT, INT, INT, INT, INT, INT, INT, INT, INT, INT); /* 0x410 */
-    virtual INT vf_414(INT, INT); /* 0x414 */
-    virtual void vf_418(INT, INT); /* 0x418 */
-    virtual INT vf_41c(INT); /* 0x41c */
+    virtual FLOAT SecondRouteAttempt(ANavigationPoint* Anchor, ANavigationPoint* EndAnchor, NodeEvaluator NodeEval, FLOAT BestWeight, AActor *goal, const FVector& GoalLocation, FLOAT StartDist, FLOAT EndDist, INT MaxPathLength, INT SoftMaxNodes); /* 0x410 */
+    virtual INT ModifyCostForReachSpec( UReachSpec* Spec, INT Cost ); /* 0x414 */
+    virtual void InitForPathfinding( AActor* Goal, ANavigationPoint* EndAnchor ); /* 0x418 */
+    virtual UBOOL IsValidAnchor( ANavigationPoint* AnchorCandidate ); /* 0x41c */
     virtual void vf_420(INT, INT); /* 0x420 */
     virtual INT vf_424(INT, INT, INT, INT, INT, INT, INT, INT, FLOAT, INT, INT, INT); /* 0x424 */
     virtual void vf_428(FLOAT, INT); /* 0x428 */
@@ -32600,7 +32611,7 @@ struct APawn : public AActor {
     virtual INT vf_458(INT, INT); /* 0x458 */
     virtual FVector vf_45c(); /* 0x45c */
     virtual void vf_460(INT, INT); /* 0x460 */
-    virtual INT vf_464(FLOAT, FLOAT); /* 0x464 */
+    virtual void ApplyVelocityBraking(FLOAT DeltaTime, FLOAT Friction); /* 0x464 */
     virtual void vf_468(INT, FLOAT, INT, INT, INT, INT, INT); /* 0x468 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
@@ -33117,7 +33128,7 @@ struct UPointLightComponent : public ULightComponent {
     virtual FBox GetBoundingBox() const; /* 0x158 */
     virtual FVector4 GetPosition() const; /* 0x15c */
     virtual INT GetLightType(); /* 0x160 */
-    virtual INT vf_164(INT, INT); /* 0x164 */
+    virtual FLinearColor GetDirectIntensity(const FVector& Point) const; /* 0x164 */
     /* UnrealScript natives */
     void execSetTranslation(FFrame& Stack, RESULT_DECL); /* 0x00c8b5f0 */
     /* other member functions */
@@ -33226,7 +33237,7 @@ struct USceneCaptureComponent : public UActorComponent {
     FPointer ViewState; /* 0x7c */
     /* virtual functions this class introduces (vtable 0x01f5fed0) */
     virtual class FSceneCaptureProbe* CreateSceneCaptureProbe(); /* 0x14c */
-    virtual INT vf_150(); /* 0x150 */
+    virtual EShowFlags GetSceneShowFlags(); /* 0x150 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -34412,7 +34423,7 @@ struct URParticleModuleAttractorComponent : public UParticleModuleAttractorBase 
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
+    virtual void Update(FParticleEmitterInstance* Owner, INT Offset, FLOAT DeltaTime); /* 0x110 */
     virtual void vf_12c(INT, INT, INT); /* 0x12c */
     /* registered size 0x4c */
 };
@@ -34433,7 +34444,7 @@ struct URParticleModuleLocationSphereSection : public UParticleModuleLocationBas
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual FLOAT vf_10c(INT, INT, INT); /* 0x10c */
+    virtual void Spawn(FParticleEmitterInstance* Owner, INT Offset, FLOAT SpawnTime); /* 0x10c */
     virtual void vf_12c(INT, INT, INT); /* 0x12c */
     /* registered size 0x110 */
 };
@@ -37691,7 +37702,7 @@ struct USlotToSlotReachSpec : public UForcedReachSpec {
     virtual INT CostFor(class APawn* P); /* 0x10c */
     virtual UBOOL PrepareForMove( AController * C ); /* 0x118 */
     virtual INT defineFor (class ANavigationPoint *begin, class ANavigationPoint * dest, class APawn * Scout); /* 0x124 */
-    virtual UINT vf_138(INT); /* 0x138 */
+    virtual UBOOL CanBeSkipped( APawn* P ); /* 0x138 */
     /* registered size 0x94 */
 };
 
@@ -38139,8 +38150,8 @@ struct USpeedTreeComponent : public UPrimitiveComponent {
     virtual void InvalidateLightingCache(); /* 0x130 */
     virtual void InitComponentRBPhys(UBOOL bFixed); /* 0x134 */
     virtual void UpdateBounds(); /* 0x160 */
-    virtual void vf_164(INT, INT, INT); /* 0x164 */
-    virtual void vf_16c(INT); /* 0x16c */
+    virtual void GetStaticLightingInfo(struct FStaticLightingPrimitiveInfo& OutPrimitiveInfo,const TArray<ULightComponent*>& InRelevantLights,const struct FLightingBuildOptions& Options); /* 0x164 */
+    virtual void GetStreamingTextureInfo(TArray<struct FStreamingTexturePrimitiveInfo>& OutStreamingTextures) const; /* 0x16c */
     virtual UBOOL PointCheck(struct FCheckResult& Result,const FVector& Location,const FVector& Extent,DWORD TraceFlags); /* 0x174 */
     virtual UBOOL LineCheck(struct FCheckResult& Result,const FVector& End,const FVector& Start,const FVector& Extent,DWORD TraceFlags); /* 0x178 */
     virtual INT vf_1fc(); /* 0x1fc */
@@ -38217,7 +38228,7 @@ struct USpotLightComponent : public UPointLightComponent {
     virtual UINT CreateSceneInfo(); /* 0x14c */
     virtual INT vf_154(INT); /* 0x154 */
     virtual INT GetLightType(); /* 0x160 */
-    virtual INT vf_164(INT, INT); /* 0x164 */
+    virtual FLinearColor GetDirectIntensity(const FVector& Point) const; /* 0x164 */
     /* registered size 0x1e0 */
 };
 
@@ -38374,7 +38385,7 @@ struct USwatTurnReachSpec : public UForcedReachSpec {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT CostFor(class APawn* P); /* 0x10c */
     virtual INT defineFor (class ANavigationPoint *begin, class ANavigationPoint * dest, class APawn * Scout); /* 0x124 */
-    virtual INT vf_134(INT, INT, INT, INT); /* 0x134 */
+    virtual FVector GetForcedPathSize( class ANavigationPoint* Start, class ANavigationPoint* End, class AScout* Scout ); /* 0x134 */
     /* registered size 0x94 */
 };
 
@@ -38586,9 +38597,9 @@ struct UTerrainComponent : public UPrimitiveComponent {
     virtual void GetLightAndShadowMapMemoryUsage(UINT* LightMapMemoryUsage, UINT* ShadowMapMemoryUsage); /* 0x158 */
     virtual INT vf_15c(INT, INT); /* 0x15c */
     virtual void UpdateBounds(); /* 0x160 */
-    virtual void vf_164(INT, INT, INT); /* 0x164 */
-    virtual void vf_168(INT); /* 0x168 */
-    virtual void vf_16c(INT); /* 0x16c */
+    virtual void GetStaticLightingInfo(struct FStaticLightingPrimitiveInfo& OutPrimitiveInfo,const TArray<ULightComponent*>& InRelevantLights,const struct FLightingBuildOptions& Options); /* 0x164 */
+    virtual void GetStaticTriangles(struct FPrimitiveTriangleDefinitionInterface* PTDI) const; /* 0x168 */
+    virtual void GetStreamingTextureInfo(TArray<struct FStreamingTexturePrimitiveInfo>& OutStreamingTextures) const; /* 0x16c */
     virtual UBOOL PointCheck(struct FCheckResult& Result,const FVector& Location,const FVector& Extent,DWORD TraceFlags); /* 0x174 */
     virtual UBOOL LineCheck(struct FCheckResult& Result,const FVector& End,const FVector& Start,const FVector& Extent,DWORD TraceFlags); /* 0x178 */
     virtual INT vf_1fc(); /* 0x1fc */
@@ -38922,7 +38933,7 @@ struct UUberPostProcessEffect : public UDOFBloomMotionBlurEffect {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void PostLoad(); /* 0x01c */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
-    virtual INT vf_10c(INT); /* 0x10c */
+    virtual class FPostProcessSceneProxy* CreateSceneProxy(const FPostProcessSettings* WorldSettings); /* 0x10c */
     /* registered size 0xe8 */
 };
 
@@ -39086,7 +39097,7 @@ struct UUISkin : public UUIDataStore {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void PostLoad(); /* 0x01c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
-    virtual INT vf_0c0(INT, INT); /* 0x0c0 */
+    virtual UBOOL GetNativePropertyValues( TMap<FString,FString>& out_PropertyValues, DWORD ExportFlags=0 ) const; /* 0x0c0 */
     virtual void AddReferencedObjects(TArray<class UObject*>& ObjectArray); /* 0x0e8 */
     virtual INT vf_124(INT, INT); /* 0x124 */
     virtual INT vf_12c(INT, INT); /* 0x12c */
@@ -39557,7 +39568,7 @@ struct UUIInteraction : public UInteraction, public FExec, public FGlobalDataSto
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void FinishDestroy(); /* 0x02c */
-    virtual INT vf_0c0(INT, INT); /* 0x0c0 */
+    virtual UBOOL GetNativePropertyValues( TMap<FString,FString>& out_PropertyValues, DWORD ExportFlags=0 ) const; /* 0x0c0 */
     virtual void Init(); /* 0x10c */
     virtual void Tick(FLOAT DeltaTime); /* 0x110 */
     virtual UBOOL InputKey(INT ControllerId,FName Key,EInputEvent Event,FLOAT AmountDepressed=1.f,UBOOL bGamepad=FALSE); /* 0x114 */
@@ -39702,7 +39713,7 @@ struct UUIScene : public UUIScreenObject {
     virtual void PostRename(); /* 0x058 */
     virtual void PostDuplicate(); /* 0x05c */
     virtual void PostEditImport(); /* 0x09c */
-    virtual INT vf_0c0(INT, INT); /* 0x0c0 */
+    virtual UBOOL GetNativePropertyValues( TMap<FString,FString>& out_PropertyValues, DWORD ExportFlags=0 ) const; /* 0x0c0 */
     virtual void CreatePlayerData(INT PlayerIndex, class ULocalPlayer* AddedPlayer); /* 0x10c */
     virtual void RemovePlayerData(INT PlayerIndex, class ULocalPlayer* RemovedPlayer); /* 0x110 */
     virtual void InitializePlayerTracking(); /* 0x114 */
@@ -39947,7 +39958,7 @@ struct UUIStyle : public UUIRoot {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void PostLoad(); /* 0x01c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
-    virtual INT vf_0c0(INT, INT); /* 0x0c0 */
+    virtual UBOOL GetNativePropertyValues( TMap<FString,FString>& out_PropertyValues, DWORD ExportFlags=0 ) const; /* 0x0c0 */
     virtual void AddReferencedObjects(TArray<class UObject*>& ObjectArray); /* 0x0e8 */
     /* UnrealScript natives */
     void execGetStyleForState(FFrame& Stack, RESULT_DECL); /* 0x00ca1c60 */
@@ -41983,7 +41994,7 @@ struct URParticleModuleSpawnDecalOnDeath : public URParticleModuleOnDeathBase {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
+    virtual void Update(FParticleEmitterInstance* Owner, INT Offset, FLOAT DeltaTime); /* 0x110 */
     /* registered size 0x58 */
     /* other member functions */
     class UDecalComponent* eventSpawnDecal(class AActor* Owner, FVector Position, FRotator Direction); /* 0x0153b770 */
@@ -41998,7 +42009,7 @@ struct URParticleModuleSpawnOnDeath : public URParticleModuleOnDeathBase {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
+    virtual void Update(FParticleEmitterInstance* Owner, INT Offset, FLOAT DeltaTime); /* 0x110 */
     /* registered size 0x4c */
     /* other member functions */
     void eventSpawnParticles(class AActor* OwningActor, FVector Position); /* 0x0153b810 */
@@ -42013,7 +42024,7 @@ struct URParticleModuleWaitForDeath : public URParticleModuleOnDeathBase {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual INT vf_110(INT, INT, FLOAT); /* 0x110 */
+    virtual void Update(FParticleEmitterInstance* Owner, INT Offset, FLOAT DeltaTime); /* 0x110 */
     /* registered size 0x4c */
 };
 
@@ -43178,7 +43189,7 @@ struct AR3rdPersonCamera : public ACamera {
     virtual void PostBeginPlay(); /* 0x1d8 */
     virtual void ApplyCameraModifiers(FLOAT DeltaTime, FTPOV& OutPOV); /* 0x354 */
     virtual void SetViewTarget(class AActor* NewViewTarget, FViewTargetTransitionParams TransitionParams); /* 0x35c */
-    virtual void vf_360(FPostProcessSettings& PPSettings); /* 0x360 */
+    virtual void ModifyPostProcessSettings(FPostProcessSettings& PPSettings) const; /* 0x360 */
     /* UnrealScript natives */
     void execApplyCameraModifiers(FFrame& Stack, RESULT_DECL); /* 0x00c83870 */
     void execSetViewTarget(FFrame& Stack, RESULT_DECL); /* 0x00c839a0 */
@@ -58179,7 +58190,7 @@ struct URPlayerInput : public URPlayerInputBase {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual INT vf_130(INT, INT); /* 0x130 */
+    virtual void UpdateAxisValue( FLOAT* Axis, FLOAT Delta ); /* 0x130 */
     virtual INT vf_134(INT, FLOAT); /* 0x134 */
     /* UnrealScript natives */
     void execFastPlayerInput(FFrame& Stack, RESULT_DECL); /* 0x016fc620 */
@@ -63694,7 +63705,7 @@ struct UProperty : public UField {
     virtual UBOOL ContainsObjectReference() const; /* 0x16c */
     virtual UBOOL ContainsInstancedObjectProperty() const; /* 0x170 */
     virtual void InstanceSubobjects( void* Value, void* DefaultValue, UObject* OwnerObject, struct FObjectInstancingGraph* InstanceGraph=NULL ) const; /* 0x174 */
-    virtual void vf_178(INT, INT); /* 0x178 */
+    virtual void EmitReferenceInfo( struct FGCReferenceTokenStream* ReferenceTokenStream, INT BaseOffset ); /* 0x178 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -63735,7 +63746,7 @@ struct UArrayProperty : public UProperty {
     virtual UBOOL ContainsObjectReference() const; /* 0x16c */
     virtual UBOOL ContainsInstancedObjectProperty() const; /* 0x170 */
     virtual void InstanceSubobjects( void* Value, void* DefaultValue, UObject* OwnerObject, struct FObjectInstancingGraph* InstanceGraph=NULL ) const; /* 0x174 */
-    virtual void vf_178(INT, INT); /* 0x178 */
+    virtual void EmitReferenceInfo( struct FGCReferenceTokenStream* ReferenceTokenStream, INT BaseOffset ); /* 0x178 */
     /* other member functions */
     INT sub_005faa80(); /* 0x005faa80 */
     INT sub_005faaa0(); /* 0x005faaa0 */
@@ -64738,7 +64749,7 @@ struct UStruct : public UField {
     virtual UStruct* GetInheritanceSuper() const; /* 0x11c */
     virtual void Link( FArchive& Ar, UBOOL Props ); /* 0x120 */
     virtual void SerializeBin( FArchive& Ar, BYTE* Data, INT MaxReadBytes ) const; /* 0x124 */
-    virtual INT vf_128(INT, INT); /* 0x128 */
+    virtual INT SerializeExpr( INT& iCode, FArchive& Ar ); /* 0x128 */
     virtual void PropagateStructDefaults(); /* 0x12c */
     virtual const TCHAR* GetPrefixCPP(); /* 0x130 */
     /* overrides */
@@ -65062,7 +65073,7 @@ struct UObjectProperty : public UProperty {
     virtual UBOOL ContainsObjectReference() const; /* 0x16c */
     virtual UBOOL ContainsInstancedObjectProperty() const; /* 0x170 */
     virtual void InstanceSubobjects( void* Value, void* DefaultValue, UObject* OwnerObject, struct FObjectInstancingGraph* InstanceGraph=NULL ) const; /* 0x174 */
-    virtual void vf_178(INT, INT); /* 0x178 */
+    virtual void EmitReferenceInfo( struct FGCReferenceTokenStream* ReferenceTokenStream, INT BaseOffset ); /* 0x178 */
     /* other member functions */
     UINT* sub_0062c130(BYTE); /* 0x0062c130 */
     /* registered size 0x74 */
@@ -65680,7 +65691,7 @@ struct UDelegateProperty : public UProperty {
     virtual void ClearValue(BYTE*, DWORD); /* 0x150 */
     virtual INT GetMinAlignment() const; /* 0x168 */
     virtual UBOOL ContainsObjectReference() const; /* 0x16c */
-    virtual void vf_178(INT, INT); /* 0x178 */
+    virtual void EmitReferenceInfo( struct FGCReferenceTokenStream* ReferenceTokenStream, INT BaseOffset ); /* 0x178 */
     /* registered size 0x78 */
 };
 
@@ -65803,9 +65814,9 @@ struct UNetDriver : public USubsystem, public FNetObjectNotify {
     virtual bool vf_110(); /* 0x110 */
     virtual void LowLevelDestroy(); /* 0x114 */
     virtual FString LowLevelGetNetworkNumber(); /* 0x118 */
-    virtual void vf_11c(); /* 0x11c */
-    virtual INT vf_120(INT, INT, INT); /* 0x120 */
-    virtual INT vf_124(INT, INT, INT); /* 0x124 */
+    virtual void AssertValid(); /* 0x11c */
+    virtual UBOOL InitConnect( FNetworkNotify* InNotify, const FURL& ConnectURL, FString& Error ); /* 0x120 */
+    virtual UBOOL InitListen( FNetworkNotify* InNotify, FURL& ListenURL, FString& Error ); /* 0x124 */
     virtual void vf_128(); /* 0x128 */
     virtual INT vf_12c(FLOAT); /* 0x12c */
     virtual void vf_130(INT); /* 0x130 */
@@ -65853,8 +65864,8 @@ struct UDemoRecDriver : public UNetDriver {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void LowLevelDestroy(); /* 0x114 */
     virtual FString LowLevelGetNetworkNumber(); /* 0x118 */
-    virtual INT vf_120(INT, INT, INT); /* 0x120 */
-    virtual INT vf_124(INT, INT, INT); /* 0x124 */
+    virtual UBOOL InitConnect( FNetworkNotify* InNotify, const FURL& ConnectURL, FString& Error ); /* 0x120 */
+    virtual UBOOL InitListen( FNetworkNotify* InNotify, FURL& ListenURL, FString& Error ); /* 0x124 */
     virtual void vf_128(); /* 0x128 */
     virtual INT vf_12c(FLOAT); /* 0x12c */
     /* other member functions */
@@ -66055,7 +66066,7 @@ struct UEditorViewportInput : public UInput {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual INT vf_128(INT, INT); /* 0x128 */
+    virtual UBOOL Exec(const TCHAR* Cmd,FOutputDevice& Ar); /* 0x128 */
     /* registered size 0xd0 */
 };
 
@@ -66567,7 +66578,7 @@ struct UTextureFactory : public UFactory {
     void InitializeIntrinsicPropertyValues(); /* 0x00f23ea0 */
     BYTE _native[0x4c]; /* C++-only members, to the registered size 0xb0 */
     /* virtual functions this class introduces (vtable 0x021324a0) */
-    virtual void vf_128(UINT, UINT, UINT, UINT, UINT, UINT); /* 0x128 */
+    virtual UTexture2D* CreateTexture( UClass* Class, UObject* InParent, FName Name, EObjectFlags Flags ); /* 0x128 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -67480,8 +67491,8 @@ struct UGeomModifier : public UObject {
     FStringNoInit Native_30; /* 0x30: C++ only (destroyed by its destructor) */
     BYTE _native[0x4]; /* C++-only members, to the registered size 0x40 */
     /* virtual functions this class introduces (vtable 0x021773f8) */
-    virtual INT vf_10c(INT, INT, INT, INT, INT); /* 0x10c */
-    virtual INT vf_110(INT, INT, INT, INT, INT); /* 0x110 */
+    virtual UBOOL InputKey(struct FEditorLevelViewportClient* ViewportClient,FViewport* Viewport,FName Key,EInputEvent Event); /* 0x10c */
+    virtual UBOOL InputDelta(struct FEditorLevelViewportClient* InViewportClient,FViewport* InViewport,FVector& InDrag,FRotator& InRot,FVector& InScale); /* 0x110 */
     virtual INT vf_114(INT); /* 0x114 */
     virtual void vf_118(); /* 0x118 */
     virtual INT vf_11c(); /* 0x11c */
@@ -67497,7 +67508,7 @@ struct UGeomModifier_Edit : public UGeomModifier {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual INT vf_110(INT, INT, INT, INT, INT); /* 0x110 */
+    virtual UBOOL InputDelta(struct FEditorLevelViewportClient* InViewportClient,FViewport* InViewport,FVector& InDrag,FRotator& InRot,FVector& InScale); /* 0x110 */
     /* registered size 0x40 */
 };
 
@@ -67508,7 +67519,7 @@ struct UGeomModifier_Clip : public UGeomModifier_Edit {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual INT vf_10c(INT, INT, INT, INT, INT); /* 0x10c */
+    virtual UBOOL InputKey(struct FEditorLevelViewportClient* ViewportClient,FViewport* Viewport,FName Key,EInputEvent Event); /* 0x10c */
     virtual INT vf_114(INT); /* 0x114 */
     virtual INT vf_11c(); /* 0x11c */
     /* registered size 0x44 */
@@ -67732,7 +67743,7 @@ struct UInterfaceProperty : public UProperty {
     virtual void ClearValue(BYTE*, DWORD); /* 0x150 */
     virtual INT GetMinAlignment() const; /* 0x168 */
     virtual UBOOL ContainsObjectReference() const; /* 0x16c */
-    virtual void vf_178(INT, INT); /* 0x178 */
+    virtual void EmitReferenceInfo( struct FGCReferenceTokenStream* ReferenceTokenStream, INT BaseOffset ); /* 0x178 */
     /* registered size 0x74 */
     /* other member functions */
     void sub_00630590(BYTE* Data, DWORD PortFlags); /* 0x00630590 */
@@ -68475,7 +68486,7 @@ struct UMapProperty : public UProperty {
     virtual UBOOL ContainsObjectReference() const; /* 0x16c */
     virtual UBOOL ContainsInstancedObjectProperty() const; /* 0x170 */
     virtual void InstanceSubobjects( void* Value, void* DefaultValue, UObject* OwnerObject, struct FObjectInstancingGraph* InstanceGraph=NULL ) const; /* 0x174 */
-    virtual void vf_178(INT, INT); /* 0x178 */
+    virtual void EmitReferenceInfo( struct FGCReferenceTokenStream* ReferenceTokenStream, INT BaseOffset ); /* 0x178 */
     /* other member functions */
     INT sub_0062b340(); /* 0x0062b340 */
     /* registered size 0x78 */
@@ -68973,7 +68984,7 @@ struct UObjectEditorViewportInput : public UEditorViewportInput {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual INT vf_128(INT, INT); /* 0x128 */
+    virtual UBOOL Exec(const TCHAR* Cmd,FOutputDevice& Ar); /* 0x128 */
     /* registered size 0xd0 */
 };
 
@@ -68998,7 +69009,7 @@ struct UObjectRedirector : public UObject {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void PreSave(); /* 0x014 */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
-    virtual INT vf_0c0(INT, INT); /* 0x0c0 */
+    virtual UBOOL GetNativePropertyValues( TMap<FString,FString>& out_PropertyValues, DWORD ExportFlags=0 ) const; /* 0x0c0 */
     /* registered size 0x34 */
 };
 
@@ -69932,7 +69943,7 @@ struct UPropertyInputArrayItemBase : public UPropertyInputProxy {
     /* UnrealEd.PropertyInputArrayItemBase (native only: no script package describes it) */
     DECLARE_CLASS(UPropertyInputArrayItemBase, UPropertyInputProxy, 0x0, 0x0, UnrealEd)
     /* virtual functions this class introduces (vtable 0x021f7868) */
-    virtual INT vf_144(INT, INT, INT); /* 0x144 */
+    virtual UBOOL IsClassAllowed( struct WxPropertyControl* InItem, UClass* CheckClass, UBOOL bAllowAbstract ) const; /* 0x144 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -70185,7 +70196,7 @@ struct UPropertyInputEditInline : public UPropertyInputArrayItemBase {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT vf_11c(INT, INT); /* 0x11c */
     virtual void vf_13c(INT, INT); /* 0x13c */
-    virtual INT vf_144(INT, INT, INT); /* 0x144 */
+    virtual UBOOL IsClassAllowed( struct WxPropertyControl* InItem, UClass* CheckClass, UBOOL bAllowAbstract ) const; /* 0x144 */
     /* registered size 0x40 */
 };
 
@@ -70219,9 +70230,9 @@ struct UPropertyInputNumeric : public UPropertyInputText {
     BYTE _native[0x4]; /* C++-only members, to the registered size 0x5c */
     /* virtual functions this class introduces (vtable 0x021f7ed0) */
     virtual FLOAT GetValue(); /* 0x148 */
-    virtual INT vf_14c(INT, INT); /* 0x14c */
-    virtual void vf_150(INT, INT); /* 0x150 */
-    virtual void vf_154(INT, INT); /* 0x154 */
+    virtual void GetValues(struct WxPropertyControl* InItem, TArray<FLOAT> &Values); /* 0x14c */
+    virtual void SetValue(FLOAT NewValue, struct WxPropertyControl* InItem); /* 0x150 */
+    virtual void SetValues(const TArray<FLOAT>& NewValues, struct WxPropertyControl* InItem); /* 0x154 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -70242,8 +70253,8 @@ struct UPropertyInputInteger : public UPropertyInputNumeric {
     virtual INT vf_11c(INT, INT); /* 0x11c */
     virtual void vf_134(INT); /* 0x134 */
     virtual FLOAT GetValue(); /* 0x148 */
-    virtual void vf_150(INT, INT); /* 0x150 */
-    virtual void vf_154(INT, INT); /* 0x154 */
+    virtual void SetValue(FLOAT NewValue, struct WxPropertyControl* InItem); /* 0x150 */
+    virtual void SetValues(const TArray<FLOAT>& NewValues, struct WxPropertyControl* InItem); /* 0x154 */
     /* registered size 0x5c */
 };
 
@@ -70257,9 +70268,9 @@ struct UPropertyInputRotation : public UPropertyInputNumeric {
     virtual INT vf_11c(INT, INT); /* 0x11c */
     virtual void vf_134(INT); /* 0x134 */
     virtual FLOAT GetValue(); /* 0x148 */
-    virtual INT vf_14c(INT, INT); /* 0x14c */
-    virtual void vf_150(INT, INT); /* 0x150 */
-    virtual void vf_154(INT, INT); /* 0x154 */
+    virtual void GetValues(struct WxPropertyControl* InItem, TArray<FLOAT> &Values); /* 0x14c */
+    virtual void SetValue(FLOAT NewValue, struct WxPropertyControl* InItem); /* 0x150 */
+    virtual void SetValues(const TArray<FLOAT>& NewValues, struct WxPropertyControl* InItem); /* 0x154 */
     /* registered size 0x5c */
 };
 
@@ -70835,7 +70846,7 @@ struct UReimportTextureFactory : public UTextureFactory {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual void vf_128(UINT, UINT, UINT, UINT, UINT, UINT); /* 0x128 */
+    virtual UTexture2D* CreateTexture( UClass* Class, UObject* InParent, FName Name, EObjectFlags Flags ); /* 0x128 */
     /* registered size 0xb8 */
 };
 
@@ -71456,7 +71467,7 @@ struct UStructProperty : public UProperty {
     virtual UBOOL ContainsObjectReference() const; /* 0x16c */
     virtual UBOOL ContainsInstancedObjectProperty() const; /* 0x170 */
     virtual void InstanceSubobjects( void* Value, void* DefaultValue, UObject* OwnerObject, struct FObjectInstancingGraph* InstanceGraph=NULL ) const; /* 0x174 */
-    virtual void vf_178(INT, INT); /* 0x178 */
+    virtual void EmitReferenceInfo( struct FGCReferenceTokenStream* ReferenceTokenStream, INT BaseOffset ); /* 0x178 */
     /* registered size 0x74 */
 };
 
@@ -71504,8 +71515,8 @@ struct UTcpNetDriver : public UNetDriver {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void LowLevelDestroy(); /* 0x114 */
     virtual FString LowLevelGetNetworkNumber(); /* 0x118 */
-    virtual INT vf_120(INT, INT, INT); /* 0x120 */
-    virtual INT vf_124(INT, INT, INT); /* 0x124 */
+    virtual UBOOL InitConnect( FNetworkNotify* InNotify, const FURL& ConnectURL, FString& Error ); /* 0x120 */
+    virtual UBOOL InitListen( FNetworkNotify* InNotify, FURL& ListenURL, FString& Error ); /* 0x124 */
     virtual INT vf_12c(FLOAT); /* 0x12c */
     /* other member functions */
     INT sub_00e2b890(); /* 0x00e2b890 */
@@ -72289,7 +72300,7 @@ struct UUIStateClass_CustomInputProxy : public UPropertyInputCombo {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT vf_11c(INT, INT); /* 0x11c */
-    virtual INT vf_144(INT, INT, INT); /* 0x144 */
+    virtual UBOOL IsClassAllowed( struct WxPropertyControl* InItem, UClass* CheckClass, UBOOL bAllowAbstract ) const; /* 0x144 */
     /* registered size 0x44 */
 };
 
@@ -72300,7 +72311,7 @@ struct UUIState_CustomInputProxy : public UPropertyInputEditInline {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT vf_11c(INT, INT); /* 0x11c */
-    virtual INT vf_144(INT, INT, INT); /* 0x144 */
+    virtual UBOOL IsClassAllowed( struct WxPropertyControl* InItem, UClass* CheckClass, UBOOL bAllowAbstract ) const; /* 0x144 */
     /* registered size 0x40 */
 };
 

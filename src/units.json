@@ -5874,7 +5874,7 @@
     {
      "va": "01689860",
      "size": 126,
-     "symbol": "?vf_360@AR3rdPersonCamera@@UAEXAAUFPostProcessSettings@@@Z"
+     "symbol": "?ModifyPostProcessSettings@AR3rdPersonCamera@@UBEXAAUFPostProcessSettings@@@Z"
     },
     {
      "va": "01686b30",
@@ -70677,12 +70677,12 @@
     {
      "va": "005ebd70",
      "size": 3,
-     "symbol": "?vf_178@UProperty@@UAEXHH@Z"
+     "symbol": "?EmitReferenceInfo@UProperty@@UAEXPAUFGCReferenceTokenStream@@H@Z"
     },
     {
      "va": "005ebd80",
      "size": 3,
-     "symbol": "?vf_178@UMapProperty@@UAEXHH@Z"
+     "symbol": "?EmitReferenceInfo@UMapProperty@@UAEXPAUFGCReferenceTokenStream@@H@Z"
     },
     {
      "va": "005fa780",
@@ -72610,7 +72610,7 @@
     {
      "va": "00417d50",
      "size": 5,
-     "symbol": "?vf_0c0@UObject@@UAEHHH@Z"
+     "symbol": "?GetNativePropertyValues@UObject@@UBEHAAV?$TMap@VFString@@V1@@@K@Z"
     },
     {
      "va": "00417d60",
@@ -133056,7 +133056,7 @@
     {
      "va": "00f29f80",
      "size": 161,
-     "symbol": "?vf_128@UTextureFactory@@UAEXIIIIII@Z"
+     "symbol": "?CreateTexture@UTextureFactory@@UAEPAUUTexture2D@@PAUUClass@@PAUUObject@@UFName@@_K@Z"
     },
     {
      "va": "00f2fc20",
@@ -137063,7 +137063,7 @@
     {
      "va": "00f9da90",
      "size": 5,
-     "symbol": "?vf_10c@UGeomModifier@@UAEHHHHHH@Z"
+     "symbol": "?InputKey@UGeomModifier@@UAEHPAUFEditorLevelViewportClient@@PAUFViewport@@UFName@@W4EInputEvent@@@Z"
     },
     {
      "va": "00f9daa0",
@@ -203946,7 +203946,7 @@
     {
      "va": "00797ee0",
      "size": 3,
-     "symbol": "?vf_360@ACamera@@UAEXAAUFPostProcessSettings@@@Z"
+     "symbol": "?ModifyPostProcessSettings@ACamera@@UBEXAAUFPostProcessSettings@@@Z"
     },
     {
      "va": "00797ef0",
@@ -207682,7 +207682,7 @@
     {
      "va": "007a1e80",
      "size": 39,
-     "symbol": "?vf_3d0@AController@@UAE?AUFVector@@XZ"
+     "symbol": "?DesiredDirection@AController@@UAE?AUFVector@@XZ"
     }
    ]
   },
@@ -208184,7 +208184,7 @@
     {
      "va": "007a49b0",
      "size": 5,
-     "symbol": "?vf_10c@UDOFEffect@@UAEHH@Z"
+     "symbol": "?CreateSceneProxy@UDOFEffect@@UAEPAVFPostProcessSceneProxy@@PBUFPostProcessSettings@@@Z"
     },
     {
      "va": "007a49f0",
@@ -211857,7 +211857,7 @@
     {
      "va": "00d79560",
      "size": 40,
-     "symbol": "?vf_12c@UInput@@UAEXXZ"
+     "symbol": "?FlushPressedKeys@UInput@@UAEXXZ"
     },
     {
      "va": "00d839b0",
@@ -215349,7 +215349,7 @@
     {
      "va": "00835460",
      "size": 5,
-     "symbol": "?vf_10c@UDOFBloomMotionBlurEffect@@UAEHH@Z"
+     "symbol": "?CreateSceneProxy@UDOFBloomMotionBlurEffect@@UAEPAVFPostProcessSceneProxy@@PBUFPostProcessSettings@@@Z"
     }
    ]
   },
@@ -216082,7 +216082,7 @@
     {
      "va": "00df4e30",
      "size": 1,
-     "symbol": "?vf_11c@UNetDriver@@UAEXXZ"
+     "symbol": "?AssertValid@UNetDriver@@UAEXXZ"
     },
     {
      "va": "00df4e80",
@@ -219996,7 +219996,7 @@
     {
      "va": "00b749c0",
      "size": 5,
-     "symbol": "?vf_168@UParticleModuleTypeDataBase@@UAEHHH@Z"
+     "symbol": "?CreateInstance@UParticleModuleTypeDataBase@@UAEPAUFParticleEmitterInstance@@PAUUParticleEmitter@@PAUUParticleSystemComponent@@@Z"
     },
     {
      "va": "00b749d0",
@@ -223566,17 +223566,17 @@
     {
      "va": "007761e0",
      "size": 5,
-     "symbol": "?vf_414@APawn@@UAEHHH@Z"
+     "symbol": "?ModifyCostForReachSpec@APawn@@UAEHPAUUReachSpec@@H@Z"
     },
     {
      "va": "007761f0",
      "size": 3,
-     "symbol": "?vf_418@APawn@@UAEXHH@Z"
+     "symbol": "?InitForPathfinding@APawn@@UAEXPAUAActor@@PAUANavigationPoint@@@Z"
     },
     {
      "va": "00776200",
      "size": 8,
-     "symbol": "?vf_41c@APawn@@UAEHH@Z"
+     "symbol": "?IsValidAnchor@APawn@@UAEHPAUANavigationPoint@@@Z"
     },
     {
      "va": "00776210",
@@ -227792,7 +227792,7 @@
     {
      "va": "0064b850",
      "size": 5,
-     "symbol": "?vf_10c@UPostProcessEffect@@UAEHH@Z"
+     "symbol": "?CreateSceneProxy@UPostProcessEffect@@UAEPAVFPostProcessSceneProxy@@PBUFPostProcessSettings@@@Z"
     },
     {
      "va": "0064b860",
@@ -274730,17 +274730,17 @@
     {
      "va": "00689330",
      "size": 3,
-     "symbol": "?vf_164@UPrimitiveComponent@@UAEXHHH@Z"
+     "symbol": "?GetStaticLightingInfo@UPrimitiveComponent@@UAEXAAUFStaticLightingPrimitiveInfo@@ABV?$TArray@PAVULightComponent@@@@ABUFLightingBuildOptions@@@Z"
     },
     {
      "va": "00689340",
      "size": 3,
-     "symbol": "?vf_168@UPrimitiveComponent@@UAEXH@Z"
+     "symbol": "?GetStaticTriangles@UPrimitiveComponent@@UBEXPAUFPrimitiveTriangleDefinitionInterface@@@Z"
     },
     {
      "va": "00689350",
      "size": 3,
-     "symbol": "?vf_16c@UPrimitiveComponent@@UAEXH@Z"
+     "symbol": "?GetStreamingTextureInfo@UPrimitiveComponent@@UBEXAAV?$TArray@UFStreamingTexturePrimitiveInfo@@@@@Z"
     },
     {
      "va": "00689360",
@@ -293242,7 +293242,7 @@
     {
      "va": "0076bb20",
      "size": 8,
-     "symbol": "?vf_138@UReachSpec@@UAEIH@Z"
+     "symbol": "?CanBeSkipped@UReachSpec@@UAEHPAUAPawn@@@Z"
     },
     {
      "va": "0076bb30",
@@ -298175,7 +298175,7 @@
     {
      "va": "007a0650",
      "size": 17,
-     "symbol": "?vf_3d4@AController@@UAEXXZ"
+     "symbol": "?FailMove@AController@@UAEXXZ"
     },
     {
      "va": "007a0610",
@@ -298235,12 +298235,12 @@
     {
      "va": "007a1f60",
      "size": 28,
-     "symbol": "?vf_460@APlayerController@@UAEXH@Z"
+     "symbol": "?ModifyPostProcessSettings@APlayerController@@UBEXAAUFPostProcessSettings@@@Z"
     },
     {
      "va": "007afa70",
      "size": 78,
-     "symbol": "?vf_3d0@AAIController@@UAE?AUFVector@@XZ"
+     "symbol": "?DesiredDirection@AAIController@@UAE?AUFVector@@XZ"
     },
     {
      "va": "007ab150",
@@ -308101,7 +308101,7 @@
     {
      "va": "0088a830",
      "size": 35,
-     "symbol": "?vf_138@USlotToSlotReachSpec@@UAEIH@Z"
+     "symbol": "?CanBeSkipped@USlotToSlotReachSpec@@UAEHPAUAPawn@@@Z"
     },
     {
      "va": "0088a860",
@@ -321141,7 +321141,7 @@
     {
      "va": "00a1c310",
      "size": 141,
-     "symbol": "?vf_264@USkeletalMeshComponent@@UAEXI@Z"
+     "symbol": "?TermArticulated@USkeletalMeshComponent@@UAEXPAUFRBPhysScene@@@Z"
     },
     {
      "va": "00a1f1e0",
@@ -340727,7 +340727,7 @@
     {
      "va": "00b3dc20",
      "size": 3,
-     "symbol": "?vf_17c@UParticleModuleTypeDataBase@@UAEHXZ"
+     "symbol": "?IsAMeshEmitter@UParticleModuleTypeDataBase@@UBEHXZ"
     },
     {
      "va": "00b3dc30",
@@ -340742,7 +340742,7 @@
     {
      "va": "00b3dcd0",
      "size": 6,
-     "symbol": "?vf_17c@UParticleModuleTypeDataMesh@@UAEHXZ"
+     "symbol": "?IsAMeshEmitter@UParticleModuleTypeDataMesh@@UBEHXZ"
     },
     {
      "va": "00b3dce0",

@@ -1101,24 +1101,17 @@ int sub_007551e0(void);
 int sub_007713d0(...);
 extern undefined4 g_026b3b38;
 // @baa 0x00f29f80
-void UTextureFactory::vf_128(undefined4 param_2, undefined4 param_3, undefined4 param_4, undefined4 param_5, undefined4 param_6, undefined4 param_7)
+UTexture2D* UTextureFactory::CreateTexture(UClass* Class, UObject* InParent, FName Name, EObjectFlags Flags)
 {
-    int param_1 = (int)this;
-
-  undefined4 uVar1;
-  
-  if (*(int *)(param_1 + 0x98) != 0) {
+  /* the DWORD at 0x98 (unnamed C++-only member) picks the engine's own texture class over Class */
+  if (*(int *)((BYTE *)this + 0x98) != 0) {
     if (g_026b3b38 == 0) {
       g_026b3b38 = sub_007713d0(L"Engine");
       sub_007551e0();
     }
-    uVar1 = sub_005e44e0(g_026b3b38,param_3,param_4,param_5,param_6,param_7,0,g_026667a8,0,0);
-    sub_00737960(uVar1);
-    return;
+    return (UTexture2D *)sub_00737960(sub_005e44e0(g_026b3b38,InParent,Name,Flags,0,g_026667a8,0,0));
   }
-  uVar1 = sub_005e44e0(param_2,param_3,param_4,param_5,param_6,param_7,0,g_026667a8,0,0);
-  sub_00737960(uVar1);
-  return;
+  return (UTexture2D *)sub_00737960(sub_005e44e0(Class,InParent,Name,Flags,0,g_026667a8,0,0));
 }
 
 struct C_00f2fc20 {

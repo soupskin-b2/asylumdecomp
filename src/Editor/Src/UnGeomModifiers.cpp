@@ -7,7 +7,7 @@
 void UGeomModifier::vf_118(void) {  }
 
 // @baa 0x00f9da90
-int UGeomModifier::vf_10c(int a0, int a1, int a2, int a3, int a4) { return 0; }
+UBOOL UGeomModifier::InputKey(struct FEditorLevelViewportClient* ViewportClient, FViewport* Viewport, FName Key, EInputEvent Event) { return 0; }
 
 // @baa 0x00f9daa0
 int UGeomModifier::vf_11c(void) { return 0; }
