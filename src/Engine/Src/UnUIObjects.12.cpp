@@ -183,11 +183,6 @@ struct UUIInteraction__00db0370 : public UUIInteraction
     static INT sub_00d78350(INT ControllerId);
 };
 
-struct UUIScreenObject__00db0370 : public UUIScreenObject
-{
-    INT sub_00db02b0();
-};
-
 // @baa 0x00db0370
 /* UE3's UUIScreenObject::GetPlayerOwnerIndex(UBOOL bRequireValidIndex). */
 INT UUIScreenObject::GetPlayerOwnerIndex(UBOOL bRequireValidIndex)
@@ -195,7 +190,7 @@ INT UUIScreenObject::GetPlayerOwnerIndex(UBOOL bRequireValidIndex)
     INT PlayerIndex = UUIInteraction__00db0370::sub_00d78350(GetBestControllerId());
     if (PlayerIndex == INDEX_NONE && bRequireValidIndex)
     {
-        PlayerIndex = ((UUIScreenObject__00db0370*)this)->sub_00db02b0();
+        PlayerIndex = ((UUIScreenObject*)this)->GetBestPlayerIndex();
     }
     return PlayerIndex;
 }

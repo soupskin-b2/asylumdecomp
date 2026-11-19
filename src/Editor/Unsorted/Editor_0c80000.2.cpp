@@ -99,8 +99,6 @@ void AWorldInfo::execSetSeamlessTravelMidpointPause(FFrame& Stack, RESULT_DECL)
 	SetSeamlessTravelMidpointPause(bNowPaused);
 }
 
-/* AWorldInfo::GetWorldFractureSettings (0x9c6dd0) isn't declared in the kit. */
-
 // @baa 0x00c8a280
 void AWorldInfo::execGetWorldFractureSettings(FFrame& Stack, RESULT_DECL)
 {

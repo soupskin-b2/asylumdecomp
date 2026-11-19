@@ -293,10 +293,6 @@ public:
 };
 
 /* USkeletalMesh::MatchRefBone (0x00976be0) isn't declared in Classes.h. */
-struct USkeletalMesh_ : public USkeletalMesh
-{
-    INT MatchRefBone(FName BoneName) const;
-};
 
 inline UBOOL operator!=(const FName& A, EName B) { return A.Index != B || A.Number != 0; }
 
@@ -307,7 +303,7 @@ struct USkeletalMeshComponent__0091e8d0 : public USkeletalMeshComponent
         INT BoneIndex = INDEX_NONE;
         if (BoneName != NAME_None && SkeletalMesh)
         {
-            BoneIndex = ((USkeletalMesh_*)SkeletalMesh)->MatchRefBone(BoneName);
+            BoneIndex = ((USkeletalMesh*)SkeletalMesh)->MatchRefBone(BoneName);
         }
         return BoneIndex;
     }
@@ -366,7 +362,7 @@ struct USkeletalMeshComponent__0091e6d0 : public USkeletalMeshComponent
         INT BoneIndex = INDEX_NONE;
         if (BoneName != NAME_None && SkeletalMesh)
         {
-            BoneIndex = ((USkeletalMesh_*)SkeletalMesh)->MatchRefBone(BoneName);
+            BoneIndex = ((USkeletalMesh*)SkeletalMesh)->MatchRefBone(BoneName);
         }
         return BoneIndex;
     }

@@ -533,13 +533,6 @@ int __stdcall sub_0090fc30(int A, int B, int C)
     return sub_0053d240(A, B, C);
 }
 
-/* Kit gap: USkeletalMesh::FindSocket and MatchRefBone (UnSkeletalMesh.cpp) aren't declared. */
-struct USkeletalMesh_ : public USkeletalMesh
-{
-    USkeletalMeshSocket* sub_00951be0(FName InSocketName);	/* FindSocket */
-    INT sub_00976be0(FName BoneName);	/* MatchRefBone */
-};
-
 /* Kit gap: FName has no comparison operators (UnName.h, inline). */
 /* Unnamed in the kit: UE3's USkeletalMeshComponent::GetSocketBoneName(FName InSocketName): the bone a socket is
  * on, the name itself when it's a bone, otherwise NAME_None. */
@@ -551,7 +544,7 @@ FName USkeletalMeshComponent::GetSocketBoneName(FName InSocketName)
     {
         return NAME_None;
     }
-    USkeletalMeshSocket* TmpSocket = ((USkeletalMesh_*)SkeletalMesh)->sub_00951be0(InSocketName);
+    USkeletalMeshSocket* TmpSocket = ((USkeletalMesh*)SkeletalMesh)->FindSocket(InSocketName);
     if (TmpSocket)
     {
         return TmpSocket->BoneName;

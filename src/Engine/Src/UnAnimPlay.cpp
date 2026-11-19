@@ -164,16 +164,13 @@ ESliderType UAnimNodeSequenceBlendByAim::GetSliderType(INT InIndex) const { retu
 IMPLEMENT_CLASS_AT(UAnimNodeSequenceBlendByAim, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimPlay.cpp", 12);
 
 // @baa 0x00c64dd0
-struct UCameraAnimInst_ : public UCameraAnimInst {
-    void sub_00788120(FLOAT NewWeight);    /* ApplyWeight */
-};
 
 struct UAnimNodeSequence_ : public UAnimNodeSequence {
     void StopCameraAnim()
     {
         if (ActiveCameraAnimInstance)
         {
-            ((UCameraAnimInst_*)ActiveCameraAnimInstance)->Stop(1);
+            ((UCameraAnimInst*)ActiveCameraAnimInstance)->Stop(1);
             ActiveCameraAnimInstance->bAutoReleaseWhenFinished = 1;
             ActiveCameraAnimInstance = NULL;
         }
@@ -198,7 +195,7 @@ void UAnimNodeSequence_::sub_00c67d30(FLOAT DeltaSeconds, FLOAT TotalWeight)
     {
         if (sub_00c4fe50() && bPlaying && bRelevant)
         {
-            ((UCameraAnimInst_*)ActiveCameraAnimInstance)->sub_00788120(NodeTotalWeight);
+            ((UCameraAnimInst*)ActiveCameraAnimInstance)->ApplyTransientScaling(NodeTotalWeight);
         }
         else
         {
@@ -327,11 +324,6 @@ template<class T> struct TArrayReset : public TArray<T>
 	void Reset() { this->ArrayNum = 0; }
 };
 
-struct USkeletalMeshComponent_ : public USkeletalMeshComponent
-{
-	UAnimSequence* sub_0091d860(FName AnimSeqName);		/* FindAnimSequence */
-};
-
 struct UAnimNodeSequence__00c5e520 : public UAnimNodeSequence
 {
 	UBOOL sub_00c4ad70();					/* ShouldKeepCachedResult */
@@ -362,6 +354,6 @@ void UAnimNodeSequence::SetAnim(FName InSequenceName)
 
 	if (InSequenceName != FName(NAME_None) && SkelComponent && SkelComponent->SkeletalMesh)
 	{
-		AnimSeq = ((USkeletalMeshComponent_*)SkelComponent)->sub_0091d860(AnimSeqName);
+		AnimSeq = ((USkeletalMeshComponent*)SkelComponent)->FindAnimSequence(AnimSeqName);
 	}
 }

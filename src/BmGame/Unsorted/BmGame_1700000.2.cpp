@@ -38,14 +38,8 @@ void ARShimmyEdgeMarker__01701250::execRegisterShimmyEdgeMarker( FFrame& Stack, 
 	RegisterShimmyEdgeMarker();
 }
 
-struct URCapeRenderingComponent_ : public URCapeRenderingComponent
-{
-	void HandleDebugLineDrawing();
-	void execHandleDebugLineDrawing(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x01702eb0
-void URCapeRenderingComponent_::execHandleDebugLineDrawing( FFrame& Stack, RESULT_DECL )
+void URCapeRenderingComponent::execHandleDebugLineDrawing( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	HandleDebugLineDrawing();

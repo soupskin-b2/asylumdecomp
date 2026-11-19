@@ -507,15 +507,10 @@ void UUIScreenObject::execGetAspectRatioAutoScaleFactor(FFrame& Stack, RESULT_DE
 	*(FLOAT*)Result = this->GetAspectRatioAutoScaleFactor(PlayerIndex);
 }
 
-struct UUIScreenObject__00ca3fa0 : public UUIScreenObject
-{
-	INT sub_00db02b0();
-};
-
 // @baa 0x00ca3fa0
 void UUIScreenObject::execCanAcceptFocus(FFrame& Stack, RESULT_DECL)
 {
-	INT DefaultPlayerIndex = ((UUIScreenObject__00ca3fa0*)this)->sub_00db02b0();
+	INT DefaultPlayerIndex = ((UUIScreenObject*)this)->GetBestPlayerIndex();
 	P_GET_INT_OPTX(PlayerIndex, DefaultPlayerIndex);
 	P_FINISH;
 	*(UBOOL*)Result = CanAcceptFocus(PlayerIndex);

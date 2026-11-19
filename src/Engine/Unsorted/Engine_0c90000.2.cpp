@@ -198,30 +198,20 @@ void UAnimNodeSynch::execGetRelativePosition(FFrame& Stack, RESULT_DECL)
 	*(FLOAT*)Result = this->GetRelativePosition(GroupName);
 }
 
-struct UAnimTree__00c91a10 : public UAnimTree
-{
-	void* sub_00c55810(FName);
-};
-
 // @baa 0x00c91a10
 void UAnimTree::execFindSkelControl(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_NAME(InControlName);
 	P_FINISH;
-	*(void**)Result = ((UAnimTree__00c91a10*)this)->sub_00c55810(InControlName);
+	*(void**)Result = ((UAnimTree*)this)->FindSkelControl(InControlName);
 }
-
-struct UAnimTree__00c91a90 : public UAnimTree
-{
-	void* sub_00c61880(FName);
-};
 
 // @baa 0x00c91a90
 void UAnimTree::execFindMorphNode(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_NAME(InNodeName);
 	P_FINISH;
-	*(void**)Result = ((UAnimTree__00c91a90*)this)->sub_00c61880(InNodeName);
+	*(void**)Result = ((UAnimTree*)this)->FindMorphNode(InNodeName);
 }
 
 // @baa 0x00c91c60

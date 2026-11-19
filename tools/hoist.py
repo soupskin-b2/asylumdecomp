@@ -235,17 +235,22 @@ def header_addresses() -> dict[int, list[tuple[str, str, int]]]:
 
 
 HEADER_TEXT: set[str] = set()
+LOOSE = False
 
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--only", action="append", default=[], help="src files to take helpers from (glob under src/)")
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--loose", action="store_true",
+                    help="also drop helpers that alias a header-declared method with other types (the helper's types "
+                         "were guesses): compile the files it changes and `git checkout` the ones that fail")
     ap.add_argument("--report", default=None, help="write what was hoisted and skipped here")
     a = ap.parse_args()
 
     lines, classes = slots.load()
-    global HEADER_TEXT
+    global HEADER_TEXT, LOOSE
+    LOOSE = a.loose
     HEADER_TEXT = set(re.findall(r"\w+", "".join(lines)))
     known = known_types()
     load_symbols()
@@ -282,6 +287,16 @@ def main():
     for (c, addr), uses in sorted(groups.items()):
         names = collections.Counter(m[2] for _, m in uses)
         keys = collections.Counter(sig_key(m[1], m[3], m[4]) for _, m in uses)
+        have = haddr.get(addr, [])
+        if len(have) == 1 and not have[0][1].startswith("sub_") and have[0][0] in slots.chain(classes, c) \
+                and (len(names) > 1 or len(keys) > 1):
+            # helpers that name it differently: fine when the headers name it and every helper's types agree
+            hc, hn, hl = have[0]
+            hdecl = slots.split_decl(re.sub(r"\s*/\*.*$", "", lines[hl]).strip().rstrip(";"))
+            if hdecl and (LOOSE or {re.sub(r"const$", "", k) for k in keys} == {re.sub(r"const$", "", sig_key(hdecl[0], hdecl[2], hdecl[3]))}) \
+                    and all(n == hn or n.startswith("sub_") or n not in HEADER_TEXT for n in names):
+                plan[(c, addr)] = ("have", hn)
+                continue
         if len(names) > 1 or len(keys) > 1:
             verdict[(c, addr)] = "helpers disagree: %s" % ", ".join(sorted("%s %s" % (m[2], sig_key(m[1], m[3], m[4])) for _, m in uses))
             continue
@@ -295,7 +310,7 @@ def main():
                 # the headers already name it (on the class or a base): the helper is a stale alias, so its
                 # calls take the header's name, as long as the types agree
                 hdecl = slots.split_decl(re.sub(r"\s*/\*.*$", "", lines[hl]).strip().rstrip(";"))
-                if hdecl and sig_key(hdecl[0], hdecl[2], hdecl[3]) == key:
+                if hdecl and (LOOSE or sig_key(hdecl[0], hdecl[2], hdecl[3]) == key):
                     plan[(c, addr)] = ("have", hn)
                 else:
                     verdict[(c, addr)] = "the headers call 0x%08x %s::%s, with other types" % (addr, hc, hn)

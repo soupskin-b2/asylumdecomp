@@ -149,16 +149,11 @@ void UObject::execStoreConfig(FFrame& Stack, RESULT_DECL)
 	this->StoreConfig(0x4000, 0, 0);
 }
 
-struct UObject__005999b0 : public UObject
-{
-	void sub_005df020(INT, INT, INT);
-};
-
 // @baa 0x005999b0
 void UObject::execSaveConfig(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	((UObject__005999b0*)this)->sub_005df020(0x4000, 0, 0);
+	SaveConfig();
 }
 
 int sub_00630ea0(FFrame&, INT, const TCHAR*);

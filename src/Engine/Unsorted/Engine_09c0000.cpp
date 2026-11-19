@@ -705,19 +705,11 @@ INT C_009c1d10::sub_009c1d10()
     return 8;
 }
 
-/* Unnamed in the kit: UE3's FWorldFractureSettings AWorldInfo::GetWorldFractureSettings() (the persistent level's
- * settings when streaming). */
-struct AWorldInfo_ : public AWorldInfo
-{
-    FWorldFractureSettings sub_009c6dd0();
-    UBOOL sub_009c9b20();
-};
-
 // @baa 0x009c9b20
 /* UE3's AWorldInfo::CanSpawnMoreFracturedChunksThisFrame() (the fractured-mesh code spawns chunks while it holds);
  * this build compares with <=, not UE3's <. */
-UBOOL AWorldInfo_::sub_009c9b20()
+UBOOL AWorldInfo::sub_009c9b20()
 {
-    FWorldFractureSettings Settings = sub_009c6dd0();
+    FWorldFractureSettings Settings = GetWorldFractureSettings();
     return (NumFacturedChunksSpawnedThisFrame <= Settings.MaxNumFacturedChunksToSpawnInAFrame);
 }

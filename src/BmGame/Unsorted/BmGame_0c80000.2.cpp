@@ -356,12 +356,6 @@ void APlayerController::execServerUpdateLevelVisibility(FFrame& Stack, RESULT_DE
     this->ServerUpdateLevelVisibility(PackageName, bIsVisible);
 }
 
-/* AController::SetBasedPosition (0x7ad5d0) isn't declared in the kit. */
-struct AController__00c84240 : public AController
-{
-    void SetBasedPosition(FBasedPosition& BP, FVector pos, class AActor* ForcedBase);
-};
-
 // @baa 0x00c84240
 void AController::execSetBasedPosition(FFrame& Stack, RESULT_DECL)
 {
@@ -372,12 +366,6 @@ void AController::execSetBasedPosition(FFrame& Stack, RESULT_DECL)
     this->SetBasedPosition(BP, pos, ForcedBase);
 }
 
-/* AController::SetFocalPoint (0x7ad790) isn't declared in the kit. */
-struct AController__00c84410 : public AController
-{
-    void SetFocalPoint(FVector FP, UBOOL bOffsetFromBase);
-};
-
 // @baa 0x00c84410
 void AController::execSetFocalPoint(FFrame& Stack, RESULT_DECL)
 {
@@ -386,12 +374,6 @@ void AController::execSetFocalPoint(FFrame& Stack, RESULT_DECL)
     P_FINISH;
     this->SetFocalPoint(FP, bOffsetFromBase);
 }
-
-/* AController::SetDestinationPosition (0x7ad9c0) isn't declared in the kit. */
-struct AController__00c84510 : public AController
-{
-    void SetDestinationPosition(FVector Dest, UBOOL bOffsetFromBase);
-};
 
 // @baa 0x00c84510
 void AController::execSetDestinationPosition(FFrame& Stack, RESULT_DECL)

@@ -59,14 +59,9 @@ struct FMatrix_ : public FMatrix
 	}
 };
 
-struct FBasedPosition_ : public FBasedPosition
-{
-	void Set(AActor* InBase, const FVector& InPosition); /* 0x007ab4e0 */
-};
-
 // @baa 0x007ab4e0
 /* UnActor.cpp: stores InPosition relative to InBase (static bases count as none). */
-void FBasedPosition_::Set(AActor* InBase, const FVector& InPosition)
+void FBasedPosition::Set(AActor* InBase, const FVector& InPosition)
 {
 	if (((const FVector_&)InPosition).IsNearlyZero())
 	{

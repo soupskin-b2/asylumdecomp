@@ -100,6 +100,8 @@ inline void appFree(void* Original) {
 static __forceinline void appMemzero( void* Dest, INT Count ) { memset( Dest, 0, Count ); }
 #define appMemcpy memcpy /* as UE3's UnFile.h */
 #define ARRAY_COUNT( array ) ( sizeof(array) / sizeof((array)[0]) )
+/* UnTemplate.h: a member's byte offset (what the GC token stream and property checks are given) */
+#define STRUCT_OFFSET( struc, member ) ( (INT)&((struc*)NULL)->member )
 
 #ifndef FORCEINLINE
 #define FORCEINLINE __forceinline

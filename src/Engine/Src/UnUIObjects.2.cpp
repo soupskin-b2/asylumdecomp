@@ -107,6 +107,7 @@ struct FUIObjectArray : public TArray<UUIObject*>
     FUIObjectArray& operator=(const FUIObjectArray& Other);
 };
 
+/* hoist: keep (GetChildren returns FUIObjectArray here: the original calls TArray's out-of-line copy and destructor) */
 struct UUIScreenObject__00db71b0 : public UUIScreenObject
 {
     /* TArray<UUIObject*> GetChildren(UBOOL bRecurse=FALSE, TArray<UUIObject*>* ExclusionSet=NULL) const */

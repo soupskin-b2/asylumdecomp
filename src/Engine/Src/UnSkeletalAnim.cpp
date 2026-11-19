@@ -2010,11 +2010,6 @@ void USkeletalMeshComponent::AttachComponentToSocket(UActorComponent* Component,
 extern FName g_026c4f5c; /* NAME_AnimTreeUpdated */
 /* Callees Classes.h doesn't declare. */
 
-struct USkeletalMeshComponent__00937e40 : public USkeletalMeshComponent
-{
-	UBOOL sub_009357b0(UBOOL bForceReinit);		/* InitAnimTree */
-};
-
 struct AActor_ : public AActor
 {
 
@@ -2035,7 +2030,7 @@ void USkeletalMeshComponent::SetAnimTreeTemplate(UAnimTree* NewTemplate)
 
 	if (NewTemplate && (Animations = NewTemplate->sub_00c7fc80(this)) != NULL)
 	{
-		((USkeletalMeshComponent__00937e40*)this)->sub_009357b0(TRUE);
+		((USkeletalMeshComponent*)this)->UpdateSkelPose(TRUE);
 		AnimTreeTemplate = NewTemplate;
 	}
 	else
@@ -2081,18 +2076,13 @@ struct FName_ : public FName
 	FName_(INT N) { Index = N; Number = 0; }
 };
 
-struct USkeletalMesh__00913d80 : public USkeletalMesh
-{
-	INT sub_00976be0(FName BoneName);	/* MatchRefBone */
-};
-
 /* USkeletalMeshComponent::MatchRefBone (UnSkeletalMesh.h), inline. */
 inline INT MatchRefBone(USkeletalMeshComponent* SkelComp, FName BoneName)
 {
 	INT BoneIndex = INDEX_NONE;
 	if (SkelComp->SkeletalMesh)
 	{
-		BoneIndex = ((USkeletalMesh__00913d80*)SkelComp->SkeletalMesh)->sub_00976be0(BoneName);
+		BoneIndex = ((USkeletalMesh*)SkelComp->SkeletalMesh)->MatchRefBone(BoneName);
 	}
 	return BoneIndex;
 }

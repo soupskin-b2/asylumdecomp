@@ -101,14 +101,9 @@ undefined4 * UObject::sub_009c1c20(void)
 UClass* sub_007d5ec0();
                  /* ULevelStreamingPersistent::StaticClass, out of line */
 
-struct AWorldInfo_ : public AWorldInfo
-{
-    FWorldFractureSettings sub_009c6dd0() const;
-};
-
 // @baa 0x009c6dd0
 /* GetWorldFractureSettings: the settings come from the persistent level's WorldInfo when streaming. */
-FWorldFractureSettings AWorldInfo_::sub_009c6dd0() const
+FWorldFractureSettings AWorldInfo::GetWorldFractureSettings() const
 {
     const AWorldInfo* Info = this;
     if (StreamingLevels.Num() > 0 &&

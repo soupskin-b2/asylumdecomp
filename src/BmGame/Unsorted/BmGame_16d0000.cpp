@@ -194,13 +194,8 @@ struct URCapeComponent_ : public URCapeComponent {
     void sub_016b8cd0();
 };
 
-struct URCapeRenderingComponent_ : public URCapeRenderingComponent {
-    void sub_016cdf80();
-    void sub_016d3660(FLOAT DeltaTime);
-};
-
 // @baa 0x016d3660
-void URCapeRenderingComponent_::sub_016d3660(FLOAT DeltaTime)
+void URCapeRenderingComponent::sub_016d3660(FLOAT DeltaTime)
 {
     if (CapeComponent && ((URCapeComponent_*)CapeComponent)->sub_016ae4d0())
     {
@@ -210,7 +205,7 @@ void URCapeRenderingComponent_::sub_016d3660(FLOAT DeltaTime)
         }
         ((URCapeComponent_*)CapeComponent)->sub_016b93f0();
         ((URCapeComponent_*)CapeComponent)->sub_016b8cd0();
-        sub_016cdf80();
+        HandleDebugLineDrawing();
     }
 }
 

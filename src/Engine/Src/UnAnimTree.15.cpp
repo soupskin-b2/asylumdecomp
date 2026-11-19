@@ -86,19 +86,14 @@ struct UAnimNode_ : public UAnimNode
 };
 
 /* UAnimNodeAimOffset::UpdateListOfRequiredBones isn't declared in Classes.h. */
-struct UAnimNodeAimOffset_ : public UAnimNodeAimOffset
-{
-	FAimOffsetProfile* sub_00c55cc0();		/* GetCurrentProfile */
-	void UpdateListOfRequiredBones();
-};
 
 // @baa 0x00c62170
-void UAnimNodeAimOffset_::UpdateListOfRequiredBones()
+void UAnimNodeAimOffset::UpdateListOfRequiredBones()
 {
 	((TArrayHelpers<BYTE>&)RequiredBones).Reset();
 	((TArrayHelpers<INT>&)BoneToAimCpnt).Reset();
 
-	FAimOffsetProfile* P = sub_00c55cc0();
+	FAimOffsetProfile* P = GetCurrentProfile();
 	if (!P || !SkelComponent)
 	{
 		return;

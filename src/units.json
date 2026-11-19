@@ -14092,7 +14092,7 @@
     {
      "va": "01702dc0",
      "size": 54,
-     "symbol": "?execCalculateAngularVelocity@URCapeComponent__01702dc0@@QAEXAAUFFrame@@QAX@Z"
+     "symbol": "?execCalculateAngularVelocity@URCapeComponent@@QAEXAAUFFrame@@QAX@Z"
     },
     {
      "va": "01702e00",
@@ -17222,7 +17222,7 @@
     {
      "va": "0164ae40",
      "size": 20,
-     "symbol": "?sub_0164ae40@ARGrapplePoint_@@QAEHXZ"
+     "symbol": "?RegisterGrapplePoint@ARGrapplePoint@@QAEXXZ"
     },
     {
      "va": "0164d8a0",
@@ -17607,12 +17607,12 @@
     {
      "va": "0164ef80",
      "size": 20,
-     "symbol": "?sub_0164ef80@ARHidePoint_@@QAEHXZ"
+     "symbol": "?ActivateForGrapple@ARHidePoint@@QAEXXZ"
     },
     {
      "va": "0164efa0",
      "size": 20,
-     "symbol": "?sub_0164efa0@ARHidePoint__0164efa0@@QAEHXZ"
+     "symbol": "?DeactivateForGrapple@ARHidePoint@@QAEXXZ"
     },
     {
      "va": "01652010",
@@ -20949,7 +20949,7 @@
     {
      "va": "016f95b0",
      "size": 54,
-     "symbol": "?execHaveRoomToCapeGlide@ARPlayerController__016f95b0@@QAEXAAUFFrame@@QAX@Z"
+     "symbol": "?execHaveRoomToCapeGlide@ARPlayerController@@QAEXAAUFFrame@@QAX@Z"
     },
     {
      "va": "016f9700",
@@ -23041,7 +23041,7 @@
     {
      "va": "01678d20",
      "size": 20,
-     "symbol": "?sub_01678d20@ARShimmyEdgeMarker_@@QAEHXZ"
+     "symbol": "?RegisterShimmyEdgeMarker@ARShimmyEdgeMarker@@QAEXXZ"
     },
     {
      "va": "016748d0",
@@ -54404,7 +54404,7 @@
     {
      "va": "01702eb0",
      "size": 48,
-     "symbol": "?execHandleDebugLineDrawing@URCapeRenderingComponent_@@QAEXAAUFFrame@@QAX@Z"
+     "symbol": "?execHandleDebugLineDrawing@URCapeRenderingComponent@@QAEXAAUFFrame@@QAX@Z"
     },
     {
      "va": "01703d10",
@@ -200668,7 +200668,7 @@
     {
      "va": "00c55810",
      "size": 152,
-     "symbol": "?FindSkelControl@UAnimTree_@@QAEPAUUSkelControlBase@@UFName@@@Z"
+     "symbol": "?FindSkelControl@UAnimTree@@QAEPAUUSkelControlBase@@UFName@@@Z"
     },
     {
      "va": "00c613b0",
@@ -200932,7 +200932,7 @@
     {
      "va": "00c62170",
      "size": 503,
-     "symbol": "?UpdateListOfRequiredBones@UAnimNodeAimOffset_@@QAEXXZ"
+     "symbol": "?UpdateListOfRequiredBones@UAnimNodeAimOffset@@QAEXXZ"
     }
    ]
   },
@@ -201670,7 +201670,7 @@
     {
      "va": "00c53c40",
      "size": 204,
-     "symbol": "?GetChildWeightTotal@UAnimNodeBlendBase__00c53c40@@QAEMXZ"
+     "symbol": "?GetChildWeightTotal@UAnimNodeBlendBase@@QAEMXZ"
     },
     {
      "va": "00c556d0",
@@ -240441,7 +240441,7 @@
     {
      "va": "0091d860",
      "size": 203,
-     "symbol": "?FindAnimSequence@USkeletalMeshComponent__0091d860@@QAEPAUUAnimSequence@@UFName@@@Z"
+     "symbol": "?FindAnimSequence@USkeletalMeshComponent@@QAEPAUUAnimSequence@@UFName@@@Z"
     }
    ]
   },
@@ -262374,7 +262374,7 @@
     {
      "va": "009c6dd0",
      "size": 334,
-     "symbol": "?sub_009c6dd0@AWorldInfo_@@QBE?AUFWorldFractureSettings@@XZ"
+     "symbol": "?GetWorldFractureSettings@AWorldInfo@@QBE?AUFWorldFractureSettings@@XZ"
     }
    ]
   },
@@ -297053,7 +297053,7 @@
     {
      "va": "007ab4e0",
      "size": 474,
-     "symbol": "?Set@FBasedPosition_@@QAEXPAUAActor@@ABUFVector@@@Z"
+     "symbol": "?Set@FBasedPosition@@QAEXPAUAActor@@ABUFVector@@@Z"
     },
     {
      "va": "007afc20",
@@ -351604,7 +351604,7 @@
     {
      "va": "00c851d0",
      "size": 48,
-     "symbol": "?execStopLatentExecution@AController__00c851d0@@QAEXAAUFFrame@@QAX@Z"
+     "symbol": "?execStopLatentExecution@AController@@QAEXAAUFFrame@@QAX@Z"
     },
     {
      "va": "00c86b60",

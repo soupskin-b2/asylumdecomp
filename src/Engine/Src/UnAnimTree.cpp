@@ -1872,12 +1872,6 @@ void UAnimNodeBlendBase::SetChildrenTotalWeightAccumulator(const INT Index)
 	Children(Index).Anim->TotalWeightAccumulator += Children(Index).TotalWeight;
 }
 
-/* Callees Classes.h doesn't declare. */
-struct USkeletalMeshComponent_ : public USkeletalMeshComponent
-{
-	void sub_009357b0(UBOOL bForce);		/* refresh the preview mesh / anim sets */
-};
-
 
 /* UAnimTree's PostEditChange (vtable 0x4c, declared only as vf_04c). */
 
@@ -1889,7 +1883,7 @@ void UAnimTree::PostEditChange(UProperty* PropertyThatChanged)
 		// rebuild the priority list from the new branches
 		if (PropertyThatChanged->GetFName() == FName(TEXT("PrioritizedSkelBranches")) && SkelComponent)
 		{
-			((USkeletalMeshComponent_*)SkelComponent)->sub_0092c310(PriorityList);
+			((USkeletalMeshComponent*)SkelComponent)->sub_0092c310(PriorityList);
 		}
 
 		// a new preview mesh or anim set: refresh the preview
@@ -1897,7 +1891,7 @@ void UAnimTree::PostEditChange(UProperty* PropertyThatChanged)
 			PropertyThatChanged->GetFName() == FName(TEXT("PreviewSkelMesh")) ||
 			PropertyThatChanged->GetFName() == FName(TEXT("PreviewAnimSets"))) && SkelComponent)
 		{
-			((USkeletalMeshComponent_*)SkelComponent)->sub_009357b0(TRUE);
+			((USkeletalMeshComponent*)SkelComponent)->UpdateSkelPose(TRUE);
 		}
 	}
 
@@ -1991,13 +1985,9 @@ void UAnimNodeCrossfader::TickAnim(FLOAT DeltaSeconds, FLOAT TotalWeight)
 }
 
 /* UAnimNodeBlendBase::GetChildWeightTotal isn't declared in Classes.h. */
-struct UAnimNodeBlendBase__00c53c40 : public UAnimNodeBlendBase
-{
-	FLOAT GetChildWeightTotal();
-};
 
 // @baa 0x00c53c40
-FLOAT UAnimNodeBlendBase__00c53c40::GetChildWeightTotal()
+FLOAT UAnimNodeBlendBase::GetChildWeightTotal()
 {
 	// the weight of the children that aren't additive
 	FLOAT TotalWeight = 0.f;

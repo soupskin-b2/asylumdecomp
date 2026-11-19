@@ -186,14 +186,8 @@ void ARPlayerController__016f9530::execCalculateCapeGlideAltitude( FFrame& Stack
 	*(FLOAT*)Result = CalculateCapeGlideAltitude();
 }
 
-struct ARPlayerController__016f95b0 : public ARPlayerController
-{
-	UBOOL HaveRoomToCapeGlide();
-	void execHaveRoomToCapeGlide(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x016f95b0
-void ARPlayerController__016f95b0::execHaveRoomToCapeGlide( FFrame& Stack, RESULT_DECL )
+void ARPlayerController::execHaveRoomToCapeGlide( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	*(UBOOL*)Result = HaveRoomToCapeGlide();

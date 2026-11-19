@@ -6,12 +6,6 @@
 /* Kit gap, with UE3's definition (UnName.h): FName has no comparison operators. */
 inline UBOOL operator==(const FName& A, EName N) { return A.Index == N && A.Number == 0; }
 
-/* Callees Classes.h doesn't declare. */
-struct USkeletalMeshComponent_ : public USkeletalMeshComponent
-{
-	UAnimSequence* sub_0091d860(FName AnimSeqName);		/* FindAnimSequence */
-};
-
 /* UAnimNodePlayCustomAnim::PlayAnimByDuration isn't declared in Classes.h. */
 struct UAnimNodePlayCustomAnim_ : public UAnimNodePlayCustomAnim
 {
@@ -27,7 +21,7 @@ void UAnimNodePlayCustomAnim_::PlayAnimByDuration(FName AnimName, FLOAT Duration
 		return;
 	}
 
-	UAnimSequence* AnimSeq = ((USkeletalMeshComponent_*)SkelComponent)->sub_0091d860(AnimName);
+	UAnimSequence* AnimSeq = ((USkeletalMeshComponent*)SkelComponent)->FindAnimSequence(AnimName);
 	if (AnimSeq)
 	{
 		// the play rate that makes the animation last Duration

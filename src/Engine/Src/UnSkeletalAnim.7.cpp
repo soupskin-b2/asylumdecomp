@@ -18,18 +18,13 @@ struct FIntArray : public TArray<INT>
 	INT sub_00545f40(const INT& Item);	/* AddItem */
 };
 
-struct USkeletalMesh_ : public USkeletalMesh
-{
-	INT sub_00976be0(FName BoneName);	/* MatchRefBone */
-};
-
 /* USkeletalMeshComponent::MatchRefBone (UnSkeletalMesh.h), inline. */
 inline INT MatchRefBone(USkeletalMeshComponent* SkelComp, FName BoneName)
 {
 	INT BoneIndex = INDEX_NONE;
 	if (BoneName != NAME_None && SkelComp->SkeletalMesh)
 	{
-		BoneIndex = ((USkeletalMesh_*)SkelComp->SkeletalMesh)->sub_00976be0(BoneName);
+		BoneIndex = ((USkeletalMesh*)SkelComp->SkeletalMesh)->MatchRefBone(BoneName);
 	}
 	return BoneIndex;
 }

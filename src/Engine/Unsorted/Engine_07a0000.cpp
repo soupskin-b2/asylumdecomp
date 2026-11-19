@@ -1741,22 +1741,16 @@ UBOOL AController::PickWallAdjust(FVector aPoint)
     return ((APawn*)Pawn)->sub_00873000(aPoint, 0);
 }
 
-/* Unnamed in the kit: UE3's void FBasedPosition::Set(AActor* InBase, const FVector& InPosition). */
-struct FBasedPosition_ : public FBasedPosition
-{
-    void sub_007ab4e0(AActor* InBase, const FVector& InPosition);
-};
-
 // @baa 0x007ad790
 void AController::SetFocalPoint(FVector FP, UBOOL bOffsetFromBase)
 {
-    ((FBasedPosition_&)FocalPosition).sub_007ab4e0((bOffsetFromBase && Pawn) ? Pawn->Base : NULL, FP);
+    ((FBasedPosition&)FocalPosition).Set((bOffsetFromBase && Pawn) ? Pawn->Base : NULL, FP);
 }
 
 // @baa 0x007ad9c0
 void AController::SetDestinationPosition(FVector Dest, UBOOL bOffsetFromBase)
 {
-    ((FBasedPosition_&)DestinationPosition).sub_007ab4e0((bOffsetFromBase && Pawn) ? Pawn->Base : NULL, Dest);
+    ((FBasedPosition&)DestinationPosition).Set((bOffsetFromBase && Pawn) ? Pawn->Base : NULL, Dest);
 }
 
 /* Unnamed in the kit: UE3's AController::SetBasedPosition(FBasedPosition& BP, FVector Pos, AActor* ForcedBase):
@@ -1769,7 +1763,7 @@ void AController::SetBasedPosition(FBasedPosition& BP, FVector Pos, AActor* Forc
     {
         ForcedBase = Pawn ? Pawn->Base : NULL;
     }
-    ((FBasedPosition_&)BP).sub_007ab4e0(ForcedBase, Pos);
+    ((FBasedPosition&)BP).Set(ForcedBase, Pos);
 }
 
 /* UnPlayerController.cpp's file-local BlendRot (007afc20); not in Classes.h. */

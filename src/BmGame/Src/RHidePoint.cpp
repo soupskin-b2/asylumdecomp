@@ -44,26 +44,17 @@ struct ARHidePointArray : public TArray<ARHidePoint*>
 };
 
 extern ARHidePointArray g_026e1c70;
-struct ARHidePoint_ : public ARHidePoint
-{
-    INT sub_0164ef80();
-};
 
 // @baa 0x0164ef80
-INT ARHidePoint_::sub_0164ef80()
+void ARHidePoint::ActivateForGrapple()
 {
-    return g_026e1c70.AddUniqueItem(this);
+    g_026e1c70.AddUniqueItem(this);
 }
 
-struct ARHidePoint__0164efa0 : public ARHidePoint
-{
-    INT sub_0164efa0();
-};
-
 // @baa 0x0164efa0
-INT ARHidePoint__0164efa0::sub_0164efa0()
+void ARHidePoint::DeactivateForGrapple()
 {
-    return g_026e1c70.RemoveItem(this);
+    g_026e1c70.RemoveItem(this);
 }
 
 // @baa 0x01652010

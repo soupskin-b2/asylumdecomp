@@ -9,13 +9,9 @@ enum EName_ { NAME_None_ = 0 };
 inline UBOOL operator==(const FName& A, EName_ N) { return A.Index == N && A.Number == 0; }
 
 /* UAnimTree::FindSkelControl isn't declared in Classes.h. */
-struct UAnimTree_ : public UAnimTree
-{
-	USkelControlBase* FindSkelControl(FName InControlName);
-};
 
 // @baa 0x00c55810
-USkelControlBase* UAnimTree_::FindSkelControl(FName InControlName)
+USkelControlBase* UAnimTree::FindSkelControl(FName InControlName)
 {
 	if (InControlName == NAME_None_)
 	{
@@ -39,11 +35,6 @@ USkelControlBase* UAnimTree_::FindSkelControl(FName InControlName)
 	return NULL;
 }
 
-struct UAnimNodeAimOffset_ : public UAnimNodeAimOffset
-{
-	void sub_00c62170();				/* UpdateListOfRequiredBones */
-};
-
 // @baa 0x00c627e0
 void UAnimNodeAimOffset::SetActiveProfileByIndex(INT ProfileIndex)
 {
@@ -64,7 +55,7 @@ void UAnimNodeAimOffset::SetActiveProfileByIndex(INT ProfileIndex)
 	}
 
 	CurrentProfileIndex = ProfileIndex;
-	((UAnimNodeAimOffset_*)this)->sub_00c62170();
+	((UAnimNodeAimOffset*)this)->UpdateListOfRequiredBones();
 }
 
 

@@ -72,14 +72,8 @@ void URCapeComponent__01702ab0::execResumeCape( FFrame& Stack, RESULT_DECL )
 	ResumeCape();
 }
 
-struct URCapeComponent__01702dc0 : public URCapeComponent
-{
-	FLOAT CalculateAngularVelocity();
-	void execCalculateAngularVelocity(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x01702dc0
-void URCapeComponent__01702dc0::execCalculateAngularVelocity( FFrame& Stack, RESULT_DECL )
+void URCapeComponent::execCalculateAngularVelocity( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	*(FLOAT*)Result = CalculateAngularVelocity();

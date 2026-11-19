@@ -68,17 +68,12 @@ struct C_00567f30 {
     undefined4 sub_00565c50();
 };
 
-struct UClass_ : public UClass
-{
-    void sub_005f2bf0(UField* UField::* Field);
-};
-
 // @baa 0x00567f30
 void UField::StaticConstructor()
 {
-    UClass* C_00567f30 = Class;
-    ((UClass_*)C_00567f30)->sub_005f2bf0(&UField::SuperField);
-    ((UClass_*)C_00567f30)->sub_005f2bf0(&UField::Next);
+    UClass* TheClass = GetClass();
+    TheClass->EmitObjectReference(STRUCT_OFFSET(UField, SuperField));
+    TheClass->EmitObjectReference(STRUCT_OFFSET(UField, Next));
 }
 
 // @baa 0x00567f50

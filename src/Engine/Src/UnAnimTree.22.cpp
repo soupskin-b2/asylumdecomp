@@ -26,13 +26,9 @@ template<class T> struct TArrayAt_ : public TArray<T>
 
 #define ZERO_ANIMWEIGHT_THRESH (0.00001f)
 /* UAnimNodeSlot::SetActiveChild and UpdateWeightsForAdditiveAnimations aren't declared in Classes.h. */
-struct UAnimNodeSlot_ : public UAnimNodeSlot
-{
-	void SetActiveChild(INT ChildIndex, FLOAT BlendTime);
-};
 
 // @baa 0x00c56ca0
-void UAnimNodeSlot_::SetActiveChild(INT ChildIndex, FLOAT BlendTime)
+void UAnimNodeSlot::SetActiveChild(INT ChildIndex, FLOAT BlendTime)
 {
 #line 6113 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTree.cpp"
 	check(Children.Num() == TargetWeight.Num());

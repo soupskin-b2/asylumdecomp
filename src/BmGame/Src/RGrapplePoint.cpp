@@ -9,15 +9,11 @@ struct ARGrapplePointArray : public TArray<ARGrapplePoint*>
 };
 
 extern ARGrapplePointArray g_026e1c54;
-struct ARGrapplePoint_ : public ARGrapplePoint
-{
-    INT sub_0164ae40();
-};
 
 // @baa 0x0164ae40
-INT ARGrapplePoint_::sub_0164ae40()
+void ARGrapplePoint::RegisterGrapplePoint()
 {
-    return g_026e1c54.AddUniqueItem(this);
+    g_026e1c54.AddUniqueItem(this);
 }
 
 // @baa 0x0164d8a0

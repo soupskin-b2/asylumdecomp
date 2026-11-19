@@ -14,15 +14,11 @@ struct ARShimmyEdgeMarkerArray : public TArray<ARShimmyEdgeMarker*>
 };
 
 extern ARShimmyEdgeMarkerArray g_026e1dd0;
-struct ARShimmyEdgeMarker_ : public ARShimmyEdgeMarker
-{
-    INT sub_01678d20();
-};
 
 // @baa 0x01678d20
-INT ARShimmyEdgeMarker_::sub_01678d20()
+void ARShimmyEdgeMarker::RegisterShimmyEdgeMarker()
 {
-    return g_026e1dd0.AddUniqueItem(this);
+    g_026e1dd0.AddUniqueItem(this);
 }
 
 // @baa 0x016748d0

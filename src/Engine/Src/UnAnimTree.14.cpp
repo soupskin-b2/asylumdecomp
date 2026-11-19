@@ -8,12 +8,6 @@ enum EName_ { NAME_None_ = 0 };
 
 inline UBOOL operator==(const FName& A, EName_ N) { return A.Index == N && A.Number == 0; }
 
-/* Callees Classes.h doesn't declare. */
-struct USkeletalMeshComponent_ : public USkeletalMeshComponent
-{
-	UAnimSequence* sub_0091d860(FName AnimSeqName);		/* FindAnimSequence */
-};
-
 /* UAnimNodeSlot::PlayCustomAnimByDuration isn't declared in Classes.h. */
 
 // @baa 0x00c7f120
@@ -24,7 +18,7 @@ void UAnimNodeSlot::PlayCustomAnimByDuration(FName AnimName, FLOAT Duration, FLO
 		return;
 	}
 
-	UAnimSequence* AnimSeq = ((USkeletalMeshComponent_*)SkelComponent)->sub_0091d860(AnimName);
+	UAnimSequence* AnimSeq = ((USkeletalMeshComponent*)SkelComponent)->FindAnimSequence(AnimName);
 	if (AnimSeq)
 	{
 		// the play rate that makes the animation last Duration

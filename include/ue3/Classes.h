@@ -40548,7 +40548,7 @@ struct AWorldInfo : public AZoneInfo {
     APhysicsVolume* GetPhysicsVolume(const FVector& Loc, AActor* A, UBOOL bUseTouch); /* 0x007ddb40 */
     void NotifyMatchStarted(UBOOL bShouldPauseMovies, UBOOL bShouldAllowPausing, UBOOL bShouldSkipMovies); /* 0x007dde10 */
     void UpdateMusicTrack(FMusicTrackStruct NewMusicTrack); /* 0x009b0b80 */
-    FWorldFractureSettings GetWorldFractureSettings(); /* 0x009c6dd0 */
+    FWorldFractureSettings GetWorldFractureSettings() const; /* 0x009c6dd0 */
     FString GetMapName(UBOOL bIncludePrefix); /* 0x009c97c0 */
     void AddOnScreenDebugMessage(INT Key, FLOAT TimeToDisplay, FColor DisplayColor, const FString& DebugMessage); /* 0x009cc8d0 */
     void SeamlessTravel(const FString& URL, UBOOL bAbsolute, FGuid MapPackageGuid); /* 0x009ce970 */

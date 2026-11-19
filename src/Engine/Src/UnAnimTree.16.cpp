@@ -17,13 +17,6 @@ template<class T> inline INT AddZeroed(TArray<T>& Array, INT Count)
 	return Index;
 }
 
-/* Callees Classes.h doesn't declare by name. */
-struct UAnimNodeBlendBase_ : public UAnimNodeBlendBase
-{
-	void sub_00c53100(USkeletalMeshComponent* MeshComp, UAnimNodeBlendBase* Parent);	/* InitAnim */
-	FLOAT sub_00c53c40();							/* GetChildWeightTotal */
-};
-
 /* UAnimNodeSlot's InitAnim override (UAnimNode vtable 0x128, declared only as vf_128). */
 struct UAnimNodeSlot_ : public UAnimNodeSlot
 {
@@ -35,7 +28,7 @@ struct UAnimNodeSlot_ : public UAnimNodeSlot
 // @baa 0x00c62f70
 void UAnimNodeSlot_::InitAnim(USkeletalMeshComponent* MeshComp, UAnimNodeBlendBase* Parent)
 {
-	((UAnimNodeBlendBase_*)this)->sub_00c53100(MeshComp, Parent);
+	((UAnimNodeBlendBase*)this)->sub_00c53100(MeshComp, Parent);
 
 	// one target weight per child, all on the first one
 	if (TargetWeight.Num() != Children.Num())
@@ -51,7 +44,7 @@ void UAnimNodeSlot_::InitAnim(USkeletalMeshComponent* MeshComp, UAnimNodeBlendBa
 	sub_00c56870();
 
 	// no weight at all: snap to the target child
-	if (((UAnimNodeBlendBase_*)this)->sub_00c53c40() <= ZERO_ANIMWEIGHT_THRESH)
+	if (((UAnimNodeBlendBase*)this)->GetChildWeightTotal() <= ZERO_ANIMWEIGHT_THRESH)
 	{
 		sub_00c56ca0(TargetChildIndex, 0.f);
 	}

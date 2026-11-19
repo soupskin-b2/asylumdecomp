@@ -85,17 +85,12 @@ UBOOL UIntProperty::NetSerializeItem(FArchive& Obj, UPackageMap* a2, void* a3) c
     return 1;
 }
 
-struct UClass_ : public UClass
-{
-    void sub_005f2bf0(int Offset);
-};
-
 // @baa 0x0062e130
 void UDelegateProperty::StaticConstructor()
 {
     UClass* C = Class;
-    ((UClass_*)C)->sub_005f2bf0(0x70);
-    ((UClass_*)C)->sub_005f2bf0(0x74);
+    ((UClass*)C)->EmitObjectReference(0x70);
+    ((UClass*)C)->EmitObjectReference(0x74);
 }
 
 // @baa 0x0062e600
@@ -109,8 +104,8 @@ UBOOL UFloatProperty::NetSerializeItem(FArchive& Object, UPackageMap* a2, void* 
 void UMapProperty::StaticConstructor()
 {
     UClass* C = Class;
-    ((UClass_*)C)->sub_005f2bf0(0x70);
-    ((UClass_*)C)->sub_005f2bf0(0x74);
+    ((UClass*)C)->EmitObjectReference(0x70);
+    ((UClass*)C)->EmitObjectReference(0x74);
 }
 
 // @baa 0x005ebc90

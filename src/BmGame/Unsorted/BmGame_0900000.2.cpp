@@ -23,12 +23,6 @@ void USkeletalMeshComponent::execGetSocketByName(FFrame& Stack, RESULT_DECL)
     *(USkeletalMeshSocket**)Result = S;
 }
 
-/* Kit gap: USkeletalMesh::MatchRefBone and BoneIsChildOf (UnSkeletalMesh.cpp) aren't declared. */
-struct USkeletalMesh__0090e9c0 : public USkeletalMesh
-{
-	INT sub_00976be0(FName BoneName);	/* MatchRefBone */
-};
-
 // @baa 0x0090e9c0
 void USkeletalMeshComponent::execBoneIsChildOf(FFrame& Stack, RESULT_DECL)
 {
@@ -38,12 +32,12 @@ void USkeletalMeshComponent::execBoneIsChildOf(FFrame& Stack, RESULT_DECL)
 	*(UBOOL*)Result = FALSE;
 	if (SkeletalMesh)
 	{
-		INT BoneIndex = ((USkeletalMesh__0090e9c0*)SkeletalMesh)->sub_00976be0(BoneName);
+		INT BoneIndex = ((USkeletalMesh*)SkeletalMesh)->MatchRefBone(BoneName);
 		if (BoneIndex == INDEX_NONE)
 		{
 			return;
 		}
-		INT ParentBoneIndex = ((USkeletalMesh__0090e9c0*)SkeletalMesh)->sub_00976be0(ParentBoneName);
+		INT ParentBoneIndex = ((USkeletalMesh*)SkeletalMesh)->MatchRefBone(ParentBoneName);
 		if (ParentBoneIndex == INDEX_NONE)
 		{
 			return;

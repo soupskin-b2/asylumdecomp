@@ -27,11 +27,6 @@ template<class T> struct TArrayHelpers : public TArray<T>
 	}
 };
 
-struct USkeletalMesh_ : public USkeletalMesh
-{
-	INT sub_00976be0(FName BoneName);	/* MatchRefBone */
-};
-
 /* USkeletalMeshComponent::MatchRefBone (UnSkeletalMesh.h), inline. */
 inline INT MatchRefBone(USkeletalMeshComponent* SkelComp, FName BoneName)
 {
@@ -39,7 +34,7 @@ inline INT MatchRefBone(USkeletalMeshComponent* SkelComp, FName BoneName)
 	const FName None(NAME_None);
 	if (BoneName != None && SkelComp->SkeletalMesh)
 	{
-		BoneIndex = ((USkeletalMesh_*)SkelComp->SkeletalMesh)->sub_00976be0(BoneName);
+		BoneIndex = ((USkeletalMesh*)SkelComp->SkeletalMesh)->MatchRefBone(BoneName);
 	}
 	return BoneIndex;
 }

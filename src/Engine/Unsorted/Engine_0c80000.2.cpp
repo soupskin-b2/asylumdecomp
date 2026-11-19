@@ -37,14 +37,8 @@ void AController::execEndClimbLadder( FFrame& Stack, RESULT_DECL )
 	EndClimbLadder();
 }
 
-struct AController__00c851d0 : public AController
-{
-	void StopLatentExecution();
-	void execStopLatentExecution(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c851d0
-void AController__00c851d0::execStopLatentExecution( FFrame& Stack, RESULT_DECL )
+void AController::execStopLatentExecution( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	StopLatentExecution();
@@ -143,16 +137,12 @@ void ULightEnvironmentComponent_::execIsEnabled( FFrame& Stack, RESULT_DECL )
 	*(UBOOL*)Result = IsEnabled();
 }
 
-struct UCameraAnimInst_ : public UCameraAnimInst {
-    void ApplyTransientScaling(FLOAT Scalar); /* 0x00788120 */
-};
-
 // @baa 0x00c8c330
 void UCameraAnimInst::execApplyTransientScaling(FFrame& Stack, RESULT_DECL)
 {
     P_GET_FLOAT(Scalar);
     P_FINISH;
-    ((UCameraAnimInst_*)this)->ApplyTransientScaling(Scalar);
+    ((UCameraAnimInst*)this)->ApplyTransientScaling(Scalar);
 }
 
 

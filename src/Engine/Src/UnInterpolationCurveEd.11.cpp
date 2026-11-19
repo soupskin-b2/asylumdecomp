@@ -77,17 +77,11 @@ void UInterpTrackFloatBase::RemoveKeyframe(INT KeyIndex)
     }
 }
 
-/* Unnamed in the kit: UE3's FInterpCurveVector::Eval(const FLOAT InVal, const FVector& Default, INT* PtIdx). */
-struct FInterpCurveVector__00cfc680 : public FInterpCurveVector
-{
-    FVector sub_006eb670(FLOAT InVal, const FVector& Default, INT* PtIdx);
-};
-
 
 // @baa 0x00cfc680
 FVector UInterpTrackColorScale::sub_00cfc680(FLOAT Time)
 {
-    return ((FInterpCurveVector__00cfc680&)VectorTrack).sub_006eb670(Time, FVector(1.f, 1.f, 1.f), NULL);
+    return ((FInterpCurveVector&)VectorTrack).Eval(Time, FVector(1.f, 1.f, 1.f), NULL);
 }
 
 /* Unnamed in the kit: UE3's UFaceFXAsset::MountFaceFXAnimSet(UFaceFXAnimSet* AnimSet). */

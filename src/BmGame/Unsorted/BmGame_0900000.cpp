@@ -74,12 +74,6 @@ UAnimNode* USkeletalMeshComponent::FindAnimNode(FName InNodeName)
     return NULL;
 }
 
-/* Kit gap: USkeletalMesh::MatchRefBone (UnSkeletalMesh.cpp) isn't declared. */
-struct USkeletalMesh_ : public USkeletalMesh
-{
-	INT sub_00976be0(FName BoneName);	/* MatchRefBone */
-};
-
 /* Kit gap: FName has no comparison operators (UnName.h, inline). */
 /* Unnamed in the kit: UE3's USkeletalMeshComponent::MatchRefBone(FName BoneName): the mesh's bone index, or
  * INDEX_NONE without a name or a mesh. */
@@ -90,7 +84,7 @@ INT USkeletalMeshComponent::sub_0090e8e0(FName BoneName)
     INT BoneIndex = INDEX_NONE;
     if (BoneName != FName(NAME_None) && SkeletalMesh)
     {
-        BoneIndex = ((USkeletalMesh_*)SkeletalMesh)->sub_00976be0(BoneName);
+        BoneIndex = ((USkeletalMesh*)SkeletalMesh)->MatchRefBone(BoneName);
     }
     return BoneIndex;
 }

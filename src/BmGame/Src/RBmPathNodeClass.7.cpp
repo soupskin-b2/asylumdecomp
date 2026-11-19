@@ -33,6 +33,7 @@ void ARBMPathNode_GapJump::Spawned()
     this->sub_0083f0c0();
 }
 
+/* hoist: keep (the slot-0x424 wrapper passes CanSeeActorInternal's arguments as raw dwords and returns its result as an INT) */
 struct ARBMAIController_ : public ARBMAIController
 {
     INT sub_015ef760(INT A, INT* B, INT C);
