@@ -208,7 +208,7 @@ happened; on HTTP 429 or 503 wait as told, don't retry in a loop.
   original uses there. Make sure each is the function or global you meant.
 - A method the headers don't declare at all (search them for its address first: `grep -rn 00733310
   include/ue3`; hundreds of helper declarations have moved in): derive a struct and declare it there, under its real name
-  when you can tell it, with its address in a comment (the maintainers move these declarations into
+  when you can tell it (else as `sub_XXXXXXXX`: an unnamed callee never blocks a submission), with its address in a comment (`tools/hoist.py` moves these declarations into
   the headers by that address). The struct's name doesn't matter:
   `struct UTexture2D_ : public UTexture2D { void SerializeMips(FArchive& Ar); /* 0x00733310 */ };`
   Only for methods the headers lack: never redeclare or override one they declare (see below).
@@ -222,6 +222,13 @@ happened; on HTTP 429 or 503 wait as told, don't retry in a loop.
   header (below). Look at the declaration in the class itself first (the packet quotes it): a
   derived class can declare a slot differently from its base.
 - `#line` may reproduce an assertion's `__FILE__` and `__LINE__`.
+- A function that falls off its end without returning a value (the original's `eax` is whatever was
+  left in it): MSVC rejects that with error C4716 even at /W0; put `#pragma warning(disable: 4716)`
+  above it rather than adding a `return` (which changes the bytes).
+- The checker compiles a source that starts with `#include "ue3/...h"` through a precompiled header.
+  Through it VC8 calls some imported inline members (wxWidgets' `wxString` ones) instead of inlining
+  them: right for UnrealEd, wrong for FaceFX Studio (0040xxxx-0053xxxx). If yours should be inlined,
+  put `#define BAA_NO_PCH` before the include.
 - A callee that takes an argument in a register (the packet notes it) is written as a `static`
   function in the same file; check the caller with `--function`.
 - If the code calls the out-of-line `appRealloc` (0053df70) or `appFree` (0053dfa0) instead of inlining

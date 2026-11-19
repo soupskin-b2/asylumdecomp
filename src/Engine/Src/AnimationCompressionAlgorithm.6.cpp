@@ -11,12 +11,11 @@ template void TArray<FQuat>::Remove(INT Index, INT Count);
 
 template void TArray<FLOAT>::Remove(INT Index, INT Count);
 
-/* The CRT call here binds where execAcos's does (0x01a37a44, see work/00593cd0.cpp, which matched with asin). */
 /* AnimationCompressionAlgorithm.cpp: the angle between two rotations, in units of PI. */
 static FORCEINLINE FLOAT FQuatError(const FQuat& Q1, const FQuat& Q2)
 {
 	const FLOAT cosom = Q1.X * Q2.X + Q1.Y * Q2.Y + Q1.Z * Q2.Z + Q1.W * Q2.W;
-	return (appAbs(cosom) < 0.9999999f) ? asin(Clamp(cosom, -1.f, 1.f)) * (1.f / PI) : 0.0f;
+	return (appAbs(cosom) < 0.9999999f) ? acos(Clamp(cosom, -1.f, 1.f)) * (1.f / PI) : 0.0f;
 }
 
 // @baa 0x00c01df0

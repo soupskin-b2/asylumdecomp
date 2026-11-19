@@ -32,13 +32,24 @@ def account_key() -> str | None:
     return settings().get("key")
 
 
+def folder_key() -> Path | None:
+    """This folder's .asylum/key, or the nearest parent folder's (like git: a scratch subfolder of a
+    worker's folder uses that worker's key instead of getting a new one, and new claims)."""
+    here = Path.cwd().resolve()
+    for d in (here, *here.parents):
+        if (d / FOLDER_KEY).is_file():
+            return d / FOLDER_KEY
+    return None
+
+
 def key(create: bool = True) -> str | None:
     """This agent's key: ASYLUM_KEY, else this folder's (.asylum/key). A folder without one gets its own,
     made with the account's key, so agents in separate folders keep their claims apart by themselves."""
     if os.environ.get("ASYLUM_KEY"):
         return os.environ["ASYLUM_KEY"].strip()
-    if FOLDER_KEY.is_file():
-        return FOLDER_KEY.read_text(encoding="utf-8").strip()
+    found = folder_key()
+    if found:
+        return found.read_text(encoding="utf-8").strip()
     if not create or not account_key():
         return None
     here = Path.cwd().resolve()

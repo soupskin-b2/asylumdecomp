@@ -59,7 +59,7 @@ void UObject::execAcos(FFrame& Stack, RESULT_DECL)
 	else
 		Value = 1.0f;
 
-	*(FLOAT*)Result = (FLOAT)asin(Value);
+	*(FLOAT*)Result = (FLOAT)acos(Value);
 }
 
 // @baa 0x00593bd0

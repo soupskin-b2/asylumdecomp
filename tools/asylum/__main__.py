@@ -97,7 +97,8 @@ def _setting(field, state):
     if state:
         r = api.call("POST", "/settings", {field: state == "on"})
     else:
-        r = api.call("GET", "/status")
+        r = api.call("GET", "/status", query={"va": "%08x" % a.va if getattr(a, "va", None) else None,
+                                             "limit": getattr(a, "limit", None)})
     v = r.get(field)
     print("%s for %s: %s" % ("contribution identity" if field == "identity" else label, r["login"],
                              on if v else off if v is False else "not chosen yet (%s on|off)" % cmd))
@@ -147,8 +148,9 @@ def cmd_status(a):
             todo.append("signup")
         r = None
     else:
-        r = api.call("GET", "/status")
-        print("signed in      %s (key %s%s)" % (r["login"], r["key_name"], ", this folder's" if api.FOLDER_KEY.is_file() and not os.environ.get("ASYLUM_KEY") else ""))
+        r = api.call("GET", "/status", query={"va": "%08x" % a.va if getattr(a, "va", None) else None,
+                                             "limit": getattr(a, "limit", None)})
+        print("signed in      %s (key %s%s)" % (r["login"], r["key_name"], (", this folder's" if api.FOLDER_KEY.is_file() else ", from %s" % api.folder_key().parent.parent) if api.folder_key() and not os.environ.get("ASYLUM_KEY") else ""))
         for field, (label, cmd, on, off, question) in SETTINGS.items():
             v = r.get(field)
             print("%-14s %s" % (label, "on" if v else "off" if v is False else "not chosen"))
@@ -159,6 +161,10 @@ def cmd_status(a):
             print("  claimed %s  %5d bytes  %3d min left%s" % (c["va"], c["size"], c["minutes_left"], "" if c["this_key"] else "  (another agent's key)"))
         for x in r["submissions"]:
             print("  submitted %s  %s%s" % (x["va"], x["status"], (": " + x["detail"]) if x.get("detail") else ""))
+        if getattr(a, "va", None) and not r["submissions"]:
+            print("  no submissions of %08x from this account" % a.va)
+        elif not getattr(a, "va", None) and len(r["submissions"]) >= (getattr(a, "limit", None) or 30):
+            print("  (the latest %d of the last week; `status --limit N` shows more, `status VA` one function's)" % len(r["submissions"]))
         stale = [k for k in r.get("keys", []) if k["stale"] and not k["this_key"]]
         if stale:
             print("stale keys     %s (unused for a week or more; `%s key NAME --delete` removes one)" % (
@@ -176,16 +182,21 @@ def _filters(a) -> dict:
             "named": 1 if a.named else None}
 
 
+LIST_MAX = 200  # the service's cap on one /list
+
+
 def cmd_list(a):
     if a.matched:
         return _list_matched(a)
-    r = api.call("GET", "/list", query={**_filters(a), "limit": a.limit})
+    limit = min(a.limit, LIST_MAX)
+    r = api.call("GET", "/list", query={**_filters(a), "limit": limit})
     fs = r["functions"]
     if not fs:
         print("no open functions fit these filters")
     else:
+        more = ("; --limit shows more" if limit < LIST_MAX else "; the service lists at most %d: narrow with --min-size/--unit/--class/--name" % LIST_MAX)
         print("the first %d open functions that fit (fewest give-ups first, then smallest)%s"
-              % (len(fs), "; --limit shows more" if len(fs) >= a.limit else ", all there are"))
+              % (len(fs), more if len(fs) >= limit else ", all there are"))
     for f in r["functions"]:
         tries = " (given up %dx)" % f["tries"] if f.get("tries") else ""
         print("%s %5d  %s%s" % (f["va"], f["size"], "  ".join(x for x in (f.get("unit"), f.get("class"), f.get("name")) if x), tries))
@@ -517,7 +528,9 @@ def main(argv=None):
     s = sub.add_parser("key")
     s.add_argument("name")
     s.add_argument("--delete", action="store_true")
-    sub.add_parser("status")
+    s = sub.add_parser("status")
+    s.add_argument("va", type=va_arg, nargs="?", help="every submission of this function (any age)")
+    s.add_argument("--limit", type=int, default=None, help="how many of the latest submissions (default 30, at most 500)")
     s = sub.add_parser("list")
     filters(s)
     s.add_argument("--limit", type=int, default=30)

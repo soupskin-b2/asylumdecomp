@@ -193,8 +193,8 @@ def _head(src: str) -> tuple[list[str], str, list[int]] | None:
         m = re.fullmatch(r'#\s*include\s*"(ue3/\w+\.h)"', l)
         if m:
             return prefix, m.group(1), idx + [k]
-        if not re.match(r"#\s*(define\s|include\s*<)", l):
-            return None
+        if not re.match(r"#\s*(define\s|include\s*<)", l) or re.fullmatch(r"#\s*define\s+BAA_NO_PCH\b.*", l):
+            return None  # BAA_NO_PCH: compile the header with the source (VC8 inlines differently through a PCH)
         prefix.append(re.sub(r"\s+", " ", l))
         idx.append(k)
     return None
