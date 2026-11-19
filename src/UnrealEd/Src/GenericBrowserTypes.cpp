@@ -1107,7 +1107,7 @@ IMPLEMENT_CLASS_AT(UOptions2DShaperSheet, "e:\\Projects\\Amadeus\\AA\\Game\\Unre
 // @baa 0x0115dc40
 int sub_0115db10(void);
 // @baa 0x0115dc60
-void UOptions2DShaperSheet::vf_10c(void)
+void UOptions2DShaperSheet::InitFields()
 {
     int param_1 = (int)this;
 

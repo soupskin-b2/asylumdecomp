@@ -58,9 +58,9 @@ void UParticleSystemFactoryNew::InitializeIntrinsicPropertyValues()
 // @baa 0x00b518c0
 /* Slot 0x180 (unnamed in the kit; called for actors spawned at run time): emitters that update late move their component to
  * the post-update tick group. */
-void AEmitter::vf_180()
+void AEmitter::Spawned()
 {
-	Super::vf_180();
+	Super::Spawned();
 	if (ParticleSystemComponent && bPostUpdateTickGroup)
 	{
 		ParticleSystemComponent->SetTickGroup(TG_PostUpdateWork);

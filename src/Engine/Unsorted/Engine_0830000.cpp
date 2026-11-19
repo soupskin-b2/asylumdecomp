@@ -572,7 +572,7 @@ UBOOL ANavigationPoint::TouchReachSucceeded(APawn* P, const FVector& TestPositio
 UINT AVolumePathNode::vf_378() { return 0; }
 
 // @baa 0x008376d0
-void AVolumePathNode::vf_37c(int a0) {  }
+void AVolumePathNode::ReviewPath(APawn* a0) {  }
 
 // @baa 0x00837860
 int ADoorMarker::vf_2a4(void) { return *(int*)((char*)this + 640); }

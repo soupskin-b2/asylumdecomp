@@ -232,44 +232,21 @@ UBOOL ANxGenericForceFieldCapsule::HasParentClassChanged() const
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
-// ANxRadialForceField: forwards a scalar update to the fracture/force helper.
-struct ANxRadialForceField_ : public ANxRadialForceField
-{
-	void sub_00d6f720(FLOAT Value);
-
-	virtual void vf_1b4(FLOAT);
-};
-
 // @baa 0x00d77910
-void ANxRadialForceField_::vf_1b4(FLOAT Value)
+void ANxRadialForceField::TickSpecial(FLOAT DeltaSeconds)
 {
-	sub_00d6f720(Value);
+	Super::TickSpecial(DeltaSeconds);
 }
-
-// ANxGenericForceField: forwards a scalar update to the fracture/force helper.
-struct ANxGenericForceField_ : public ANxGenericForceField
-{
-	void sub_00d6f720(FLOAT Value);
-
-	virtual void vf_1b4(FLOAT);
-};
 
 // @baa 0x00d6fca0
-void ANxGenericForceField_::vf_1b4(FLOAT Value)
+void ANxGenericForceField::TickSpecial(FLOAT DeltaSeconds)
 {
-	sub_00d6f720(Value);
+	Super::TickSpecial(DeltaSeconds);
 }
 
-// ANxGenericForceFieldBox: forwards a scalar update to the fracture/force helper.
-struct ANxGenericForceFieldBox_ : public ANxGenericForceFieldBox
-{
-	void sub_00d6f720(FLOAT Value);
-
-	virtual void vf_1b4(FLOAT);
-};
-
 // @baa 0x00d6ff60
-void ANxGenericForceFieldBox_::vf_1b4(FLOAT Value)
+/* skips ANxGenericForceField's own TickSpecial */
+void ANxGenericForceFieldBox::TickSpecial(FLOAT DeltaSeconds)
 {
-	sub_00d6f720(Value);
+	ANxForceField::TickSpecial(DeltaSeconds);
 }

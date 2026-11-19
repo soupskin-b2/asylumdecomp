@@ -2377,10 +2377,10 @@ int UPropertyInputProxy::vf_12c(int a0, int a1, int a2) { return 0; }
 int UPropertyInputProxy::vf_130(int a0, int a1, int a2) { return 0; }
 
 // @baa 0x012028d0
-void UPropertyInputProxy::vf_134(int a0) {  }
+void UPropertyInputProxy::SendToObjects(WxPropertyControl* a0) {  }
 
 // @baa 0x012028e0
-void UPropertyInputProxy::vf_140(int a0, int a1) {  }
+void UPropertyInputProxy::RefreshControlValue(UProperty* a0, BYTE* a1) {  }
 
 // @baa 0x01202910
 struct C_01202930 {

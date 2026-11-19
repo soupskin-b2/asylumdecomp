@@ -2373,7 +2373,7 @@ UExporter::UExporter()
 UBOOL UExporter::ExportText(const struct FExportObjectInnerContext* a0, class UObject* a1, const TCHAR* a2, FOutputDevice& a3, FFeedbackContext* a4, DWORD a5) { return 0; }
 
 // @baa 0x0060b350
-void UExporter::vf_110(int a0) {  }
+void UExporter::ExportPackageObject(FExportPackageParams& a0) {  }
 
 // @baa 0x0060b360
 void UExporter::vf_114(int a0) {  }

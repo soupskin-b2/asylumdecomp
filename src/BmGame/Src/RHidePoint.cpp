@@ -82,7 +82,7 @@ void ARHidePoint::FinishDestroy()
 }
 
 // @baa 0x0163df60
-INT ARHidePoint::vf_29c(INT A)
+INT ARHidePoint::AddMyMarker(AActor * A)
 {
     vf_398(1);
     vf_39c();

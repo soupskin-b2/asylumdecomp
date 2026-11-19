@@ -2007,7 +2007,7 @@ class UMaterialInterface* UPrimitiveComponent::GetElementMaterial(INT a0) { retu
 void UPrimitiveComponent::vf_1e4(int a0) {  }
 
 // @baa 0x006893e0
-int UPrimitiveComponent::vf_1fc(void) { return 0; }
+FPrimitiveSceneProxy* UPrimitiveComponent::CreateSceneProxy() { return 0; }
 
 // @baa 0x006893f0
 int UPrimitiveComponent::vf_200(void) { return 0; }
@@ -2607,13 +2607,13 @@ void AActor::vf_24c(void) {  }
 void AActor::vf_250(int a0, int a1, int a2, int a3) {  }
 
 // @baa 0x0068eef0
-void AActor::vf_254(int a0, int a1, int a2) {  }
+void AActor::PostInitRigidBody(NxActor* a0, NxActorDesc& a1, UPrimitiveComponent* a2) {  }
 
 // @baa 0x0068ef00
 void AActor::vf_258(int a0) {  }
 
 // @baa 0x0068ef10
-void AActor::vf_260(int a0) {  }
+void AActor::GetAnimControlSlotDesc(TArray<struct FAnimSlotDesc>& a0) {  }
 
 // @baa 0x0068ef20
 void AActor::vf_264(int a0) {  }
@@ -2658,7 +2658,7 @@ void AActor::vf_294(INT a0, INT a1, FLOAT a2) {  }
 void AActor::vf_298(INT a0, INT a1, FLOAT a2) {  }
 
 // @baa 0x0068f000
-int AActor::vf_29c(int a0) { return 0; }
+INT AActor::AddMyMarker(AActor * a0) { return 0; }
 
 // @baa 0x0068f010
 void AActor::vf_2a0(void) {  }

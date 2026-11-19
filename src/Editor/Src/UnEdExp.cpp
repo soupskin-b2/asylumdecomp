@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00eeccd0
-void ULevelExporterT3D::vf_110(int a0) {  }
+void ULevelExporterT3D::ExportPackageObject(FExportPackageParams& a0) {  }
 
 // @baa 0x00eecce0
 void ULevelExporterT3D::vf_114(int a0) {  }

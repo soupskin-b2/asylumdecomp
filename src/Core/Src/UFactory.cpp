@@ -11,10 +11,10 @@ UFactory::UFactory()
 
 IMPLEMENT_CLASS_AT(UFactory, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Core\\Src\\UFactory.cpp", 329);
 // @baa 0x005b15e0
-int UFactory::vf_110(int a0, int a1, int a2, int a3, int a4, int a5, int a6, int a7, int a8, int a9, int a10) { return 0; }
+UObject* UFactory::FactoryCreateText(UClass* a0, UObject* a1, FName a2, EObjectFlags a3, UObject* a4, const TCHAR* a5, const TCHAR*& a6, const TCHAR* a7, FFeedbackContext* a8) { return 0; }
 
 // @baa 0x005b15f0
-int UFactory::vf_114(int a0, int a1, int a2, int a3, int a4, int a5, int a6, int a7, int a8, int a9, int a10) { return 0; }
+UObject* UFactory::FactoryCreateBinary(UClass* a0, UObject* a1, FName a2, EObjectFlags a3, UObject* a4, const TCHAR* a5, const BYTE*& a6, const BYTE* a7, FFeedbackContext* a8) { return 0; }
 
 // @baa 0x005b1600
 UObject* UFactory::FactoryCreateNew(UClass* InClass, UObject* InParent, FName InName, QWORD Flags, UObject* Context, FFeedbackContext* Warn) { return 0; }

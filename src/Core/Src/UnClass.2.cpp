@@ -82,7 +82,7 @@ void UField::StaticConstructor()
 }
 
 // @baa 0x00567f50
-void UField::vf_114(void) {  }
+void UField::Bind() {  }
 
 // @baa 0x00567f80
 void UField::Serialize( FArchive& Ar )

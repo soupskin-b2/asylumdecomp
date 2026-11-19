@@ -7,7 +7,7 @@
 void UParticleModule::vf_120(int a0) {  }
 
 // @baa 0x00b72790
-int UParticleModule::vf_138(int a0, int a1, int a2) { return 1; }
+UBOOL UParticleModule::GenerateLODModuleValues(UParticleModule* a0, FLOAT a1, UParticleLODLevel* a2) { return 1; }
 
 // @baa 0x00b728c0
 void UParticleModule::vf_15c(int a0) {  }

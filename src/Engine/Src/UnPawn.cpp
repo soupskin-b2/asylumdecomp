@@ -639,7 +639,7 @@ void APathBlockingVolume::SetCollisionForPathBuilding(UBOOL param_2)
 }
 
 // @baa 0x00864e10
-int ANavigationPoint::vf_29c(int a0) { return 1; }
+INT ANavigationPoint::AddMyMarker(AActor * a0) { return 1; }
 
 // @baa 0x00864e50
 void AScout::vf_480(void) {  }

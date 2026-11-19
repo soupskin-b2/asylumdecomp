@@ -170,9 +170,9 @@ void ARSmashableProp::PostLoad()
 
 // @baa 0x01672ed0
 /* Slot 0x180 (unnamed in the kit; called for actors spawned at run time). */
-void ARSmashableProp::vf_180()
+void ARSmashableProp::Spawned()
 {
-	Super::vf_180();
+	Super::Spawned();
 	PropWasSpawned = TRUE;
 	if (PropData)
 	{

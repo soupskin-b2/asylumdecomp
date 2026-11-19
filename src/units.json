@@ -17627,7 +17627,7 @@
     {
      "va": "0163df60",
      "size": 33,
-     "symbol": "?vf_29c@ARHidePoint@@UAEHH@Z"
+     "symbol": "?AddMyMarker@ARHidePoint@@UAEHPAUAActor@@@Z"
     }
    ]
   },
@@ -22198,7 +22198,7 @@
     {
      "va": "01717f10",
      "size": 17,
-     "symbol": "?vf_29c@ARRemoveableGrate@@UAEHH@Z"
+     "symbol": "?AddMyMarker@ARRemoveableGrate@@UAEHPAUAActor@@@Z"
     }
    ]
   },
@@ -23436,7 +23436,7 @@
     {
      "va": "01672ed0",
      "size": 34,
-     "symbol": "?vf_180@ARSmashableProp@@UAEXXZ"
+     "symbol": "?Spawned@ARSmashableProp@@UAEXXZ"
     },
     {
      "va": "0166b1f0",
@@ -56593,7 +56593,7 @@
     {
      "va": "017176a0",
      "size": 27,
-     "symbol": "?vf_180@ARHarpoonDragTrack@@UAEXXZ"
+     "symbol": "?Spawned@ARHarpoonDragTrack@@UAEXXZ"
     },
     {
      "va": "0171f3d0",
@@ -56603,7 +56603,7 @@
     {
      "va": "017161c0",
      "size": 33,
-     "symbol": "?vf_29c@ARSnapToPositionActor@@UAEHH@Z"
+     "symbol": "?AddMyMarker@ARSnapToPositionActor@@UAEHPAUAActor@@@Z"
     }
    ]
   },
@@ -65575,12 +65575,12 @@
     {
      "va": "005b15e0",
      "size": 5,
-     "symbol": "?vf_110@UFactory@@UAEHHHHHHHHHHHH@Z"
+     "symbol": "?FactoryCreateText@UFactory@@UAEPAUUObject@@PAUUClass@@PAU2@UFName@@_K1PB_WAAPB_W4PAUFFeedbackContext@@@Z"
     },
     {
      "va": "005b15f0",
      "size": 5,
-     "symbol": "?vf_114@UFactory@@UAEHHHHHHHHHHHH@Z"
+     "symbol": "?FactoryCreateBinary@UFactory@@UAEPAUUObject@@PAUUClass@@PAU2@UFName@@_K1PB_WAAPBEPBEPAUFFeedbackContext@@@Z"
     },
     {
      "va": "005b1600",
@@ -66869,7 +66869,7 @@
     {
      "va": "00567f50",
      "size": 1,
-     "symbol": "?vf_114@UField@@UAEXXZ"
+     "symbol": "?Bind@UField@@UAEXXZ"
     },
     {
      "va": "00567f80",
@@ -83742,7 +83742,7 @@
     {
      "va": "0060b350",
      "size": 3,
-     "symbol": "?vf_110@UExporter@@UAEXH@Z"
+     "symbol": "?ExportPackageObject@UExporter@@UAEXAAUFExportPackageParams@1@@Z"
     },
     {
      "va": "0060b360",
@@ -127832,7 +127832,7 @@
     {
      "va": "00eeccd0",
      "size": 3,
-     "symbol": "?vf_110@ULevelExporterT3D@@UAEXH@Z"
+     "symbol": "?ExportPackageObject@ULevelExporterT3D@@UAEXAAUFExportPackageParams@UExporter@@@Z"
     },
     {
      "va": "00eecce0",
@@ -132536,7 +132536,7 @@
     {
      "va": "00f19420",
      "size": 5,
-     "symbol": "?vf_110@UMaterialFactory@@UAEHHHHHHHHHHHH@Z"
+     "symbol": "?FactoryCreateText@UMaterialFactory@@UAEPAUUObject@@PAUUClass@@PAU2@UFName@@_K1PB_WAAPB_W4PAUFFeedbackContext@@@Z"
     },
     {
      "va": "00f19570",
@@ -155071,7 +155071,7 @@
     {
      "va": "00f67ef0",
      "size": 31,
-     "symbol": "?vf_190@UEditorEngine@@UAEXHH@Z"
+     "symbol": "?UpdateMousePositionText@UEditorEngine@@UAEXW4EMousePositionType@1@ABUFVector@@@Z"
     },
     {
      "va": "00f67f10",
@@ -155126,7 +155126,7 @@
     {
      "va": "00f67fd0",
      "size": 29,
-     "symbol": "?vf_1c0@UEditorEngine@@UAEXXZ"
+     "symbol": "?NoteActorMovement@UEditorEngine@@UAEXXZ"
     },
     {
      "va": "00f67ff0",
@@ -155146,17 +155146,17 @@
     {
      "va": "00f68020",
      "size": 8,
-     "symbol": "?vf_1d4@UEditorEngine@@UAEHHH@Z"
+     "symbol": "?edactDeleteSelected@UEditorEngine@@UAEHHH@Z"
     },
     {
      "va": "00f68030",
      "size": 5,
-     "symbol": "?vf_1d8@UEditorEngine@@UAEHH@Z"
+     "symbol": "?ShouldAbortActorDeletion@UEditorEngine@@UBEHAAH@Z"
     },
     {
      "va": "00f68040",
      "size": 1,
-     "symbol": "?vf_1dc@UEditorEngine@@UAEXXZ"
+     "symbol": "?edactArchetypeSelected@UEditorEngine@@UAEXXZ"
     },
     {
      "va": "00f68050",
@@ -155166,7 +155166,7 @@
     {
      "va": "00f68060",
      "size": 1,
-     "symbol": "?vf_1e4@UEditorEngine@@UAEXXZ"
+     "symbol": "?edactAddPrefab@UEditorEngine@@UAEXXZ"
     },
     {
      "va": "00f68070",
@@ -155191,7 +155191,7 @@
     {
      "va": "00f680b0",
      "size": 1,
-     "symbol": "?vf_2a8@UEditorEngine@@UAEXXZ"
+     "symbol": "?PasteClipboardIntoClipPad@UEditorEngine@@UAEXXZ"
     },
     {
      "va": "00f680c0",
@@ -175838,12 +175838,12 @@
     {
      "va": "00c2f3c0",
      "size": 182,
-     "symbol": "?vf_128@UMaterialExpressionTextureSampleParameter@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionTextureSampleParameter@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c30250",
      "size": 179,
-     "symbol": "?vf_128@UMaterialExpressionFontSampleParameter@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionFontSampleParameter@@UBE?AVFString@@XZ"
     }
    ]
   },
@@ -176720,342 +176720,342 @@
     {
      "va": "00c266b0",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpression@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpression@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c268d0",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionTextureSample@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionTextureSample@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c26d20",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionTextureSampleParameterSubUV@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionTextureSampleParameterSubUV@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c26d50",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionFlipBookSample@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionFlipBookSample@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c26d80",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionAdd@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionAdd@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c26db0",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionMax@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionMax@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c26de0",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionMin@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionMin@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c26e10",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionMeshEmitterVertexColor@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionMeshEmitterVertexColor@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c26f20",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionMultiply@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionMultiply@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c27030",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionDestColor@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionDestColor@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c270a0",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionDestDepth@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionDestDepth@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c270d0",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionDivide@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionDivide@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c27100",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionSubtract@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionSubtract@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c27130",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionLinearInterpolate@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionLinearInterpolate@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c27160",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionConstantClamp@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionConstantClamp@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c27190",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionClamp@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionClamp@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c271c0",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionTextureCoordinate@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionTextureCoordinate@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c271f0",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionDotProduct@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionDotProduct@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c27220",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionCrossProduct@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionCrossProduct@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c27340",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionTime@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionTime@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c27370",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionCameraVector@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionCameraVector@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c273a0",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionCameraWorldPosition@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionCameraWorldPosition@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c273d0",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionReflectionVector@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionReflectionVector@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c27400",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionPanner@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionPanner@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c27430",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionRotator@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionRotator@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c27460",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionSine@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionSine@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c27490",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionCosine@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionCosine@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c274c0",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionBumpOffset@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionBumpOffset@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c274f0",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionAppendVector@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionAppendVector@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c27520",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionFloor@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionFloor@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c27550",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionCeil@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionCeil@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c27580",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionFrac@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionFrac@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c27660",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionDepthBiasBlend@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionDepthBiasBlend@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c27690",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionDepthBiasedAlpha@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionDepthBiasedAlpha@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c277a0",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionDepthBiasedBlend@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionDepthBiasedBlend@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c27990",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionVertexColor@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionVertexColor@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c27c90",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionDynamicParameter@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionDynamicParameter@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c27da0",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionParticleSubUV@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionParticleSubUV@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c280f0",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionMeshSubUV@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionMeshSubUV@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c28160",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionLensFlareIntensity@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionLensFlareIntensity@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c281d0",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionLensFlareOcclusion@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionLensFlareOcclusion@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c28240",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionLensFlareRadialDistance@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionLensFlareRadialDistance@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c282b0",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionLensFlareRayDistance@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionLensFlareRayDistance@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c28320",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionLensFlareSourceDistance@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionLensFlareSourceDistance@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c28350",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionLightVector@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionLightVector@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c28380",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionScreenPosition@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionScreenPosition@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c283b0",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionSquareRoot@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionSquareRoot@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c28420",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionPixelDepth@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionPixelDepth@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c28450",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionPower@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionPower@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c28480",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionIf@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionIf@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c284b0",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionOneMinus@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionOneMinus@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c284e0",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionAbs@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionAbs@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c285f0",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionSceneTexture@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionSceneTexture@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c28660",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionSceneDepth@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionSceneDepth@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c28690",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionTransform@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionTransform@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c286c0",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionTransformPosition@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionTransformPosition@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c286f0",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionComment@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionComment@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c28720",
      "size": 133,
-     "symbol": "?vf_128@UMaterialExpressionCompound@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionCompound@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c28890",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionFontSample@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionFontSample@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c288c0",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionWorldPosition@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionWorldPosition@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c288f0",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionNormal@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionNormal@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c28990",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionLightingDiffuseLambert@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionLightingDiffuseLambert@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c289c0",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionLightingSpecularPhong@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionLightingSpecularPhong@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c289f0",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionLightingSpecularBlinnPhong@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionLightingSpecularBlinnPhong@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c28a20",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionLightingSpecularHeidrichSeidel@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionLightingSpecularHeidrichSeidel@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c28a50",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionFluidNormal@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionFluidNormal@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c28a80",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionDeriveNormalZ@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionDeriveNormalZ@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c28ab0",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionConstantBiasScale@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionConstantBiasScale@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c2a350",
@@ -177290,7 +177290,7 @@
     {
      "va": "00c2c9d0",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionDesaturation@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionDesaturation@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c2ca00",
@@ -177450,7 +177450,7 @@
     {
      "va": "00c2d080",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionFresnel@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionFresnel@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c2d0b0",
@@ -177750,7 +177750,7 @@
     {
      "va": "00c2dce0",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionNormalize@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionNormalize@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c2dd10",
@@ -182177,7 +182177,7 @@
     {
      "va": "00b32fb0",
      "size": 8,
-     "symbol": "?vf_118@UParticleModuleEventGenerator@@UAEHH@Z"
+     "symbol": "?RequiredBytesPerInstance@UParticleModuleEventGenerator@@UAEIPAUFParticleEmitterInstance@@@Z"
     },
     {
      "va": "00b32fc0",
@@ -182991,7 +182991,7 @@
     {
      "va": "00b339d0",
      "size": 5,
-     "symbol": "?vf_118@UParticleModuleOrbit@@UAEHH@Z"
+     "symbol": "?RequiredBytesPerInstance@UParticleModuleOrbit@@UAEIPAUFParticleEmitterInstance@@@Z"
     },
     {
      "va": "00b34260",
@@ -183006,7 +183006,7 @@
     {
      "va": "00b342e0",
      "size": 8,
-     "symbol": "?vf_118@UParticleModuleSpawnPerUnit@@UAEHH@Z"
+     "symbol": "?RequiredBytesPerInstance@UParticleModuleSpawnPerUnit@@UAEIPAUFParticleEmitterInstance@@@Z"
     },
     {
      "va": "00b40fc0",
@@ -209989,7 +209989,7 @@
     {
      "va": "007a7b20",
      "size": 16,
-     "symbol": "?vf_1b4@AFractureManager_@@UAEXM@Z"
+     "symbol": "?TickSpecial@AFractureManager@@UAEXM@Z"
     },
     {
      "va": "007c5a10",
@@ -217455,7 +217455,7 @@
     {
      "va": "00b518c0",
      "size": 36,
-     "symbol": "?vf_180@AEmitter@@UAEXXZ"
+     "symbol": "?Spawned@AEmitter@@UAEXXZ"
     },
     {
      "va": "00b518f0",
@@ -219368,7 +219368,7 @@
     {
      "va": "00b72790",
      "size": 8,
-     "symbol": "?vf_138@UParticleModule@@UAEHHHH@Z"
+     "symbol": "?GenerateLODModuleValues@UParticleModule@@UAEHPAU1@MPAUUParticleLODLevel@@@Z"
     },
     {
      "va": "00b72890",
@@ -223861,7 +223861,7 @@
     {
      "va": "00864e10",
      "size": 8,
-     "symbol": "?vf_29c@ANavigationPoint@@UAEHH@Z"
+     "symbol": "?AddMyMarker@ANavigationPoint@@UAEHPAUAActor@@@Z"
     },
     {
      "va": "00864e50",
@@ -224737,17 +224737,17 @@
     {
      "va": "00d6fca0",
      "size": 16,
-     "symbol": "?vf_1b4@ANxGenericForceField_@@UAEXM@Z"
+     "symbol": "?TickSpecial@ANxGenericForceField@@UAEXM@Z"
     },
     {
      "va": "00d6ff60",
      "size": 16,
-     "symbol": "?vf_1b4@ANxGenericForceFieldBox_@@UAEXM@Z"
+     "symbol": "?TickSpecial@ANxGenericForceFieldBox@@UAEXM@Z"
     },
     {
      "va": "00d77910",
      "size": 16,
-     "symbol": "?vf_1b4@ANxRadialForceField_@@UAEXM@Z"
+     "symbol": "?TickSpecial@ANxRadialForceField@@UAEXM@Z"
     },
     {
      "va": "00d87430",
@@ -230548,7 +230548,7 @@
     {
      "va": "008aa480",
      "size": 1,
-     "symbol": "?vf_184@USequenceOp@@UAEXXZ"
+     "symbol": "?InitializeLinkedVariableValues@USequenceOp@@UAEXXZ"
     },
     {
      "va": "008aa490",
@@ -274805,7 +274805,7 @@
     {
      "va": "006893e0",
      "size": 3,
-     "symbol": "?vf_1fc@UPrimitiveComponent@@UAEHXZ"
+     "symbol": "?CreateSceneProxy@UPrimitiveComponent@@UAEPAVFPrimitiveSceneProxy@@XZ"
     },
     {
      "va": "006893f0",
@@ -275190,7 +275190,7 @@
     {
      "va": "0068eef0",
      "size": 3,
-     "symbol": "?vf_254@AActor@@UAEXHHH@Z"
+     "symbol": "?PostInitRigidBody@AActor@@UAEXPAVNxActor@@AAVNxActorDesc@@PAUUPrimitiveComponent@@@Z"
     },
     {
      "va": "0068ef00",
@@ -275200,7 +275200,7 @@
     {
      "va": "0068ef10",
      "size": 3,
-     "symbol": "?vf_260@AActor@@UAEXH@Z"
+     "symbol": "?GetAnimControlSlotDesc@AActor@@UAEXAAV?$TArray@UFAnimSlotDesc@@@@@Z"
     },
     {
      "va": "0068ef20",
@@ -275275,7 +275275,7 @@
     {
      "va": "0068f000",
      "size": 5,
-     "symbol": "?vf_29c@AActor@@UAEHH@Z"
+     "symbol": "?AddMyMarker@AActor@@UAEHPAU1@@Z"
     },
     {
      "va": "0068f010",
@@ -297070,7 +297070,7 @@
     {
      "va": "007a02f0",
      "size": 39,
-     "symbol": "?vf_180@AController@@UAEXXZ"
+     "symbol": "?Spawned@AController@@UAEXXZ"
     },
     {
      "va": "007a0320",
@@ -305938,7 +305938,7 @@
     {
      "va": "008376d0",
      "size": 3,
-     "symbol": "?vf_37c@AVolumePathNode@@UAEXH@Z"
+     "symbol": "?ReviewPath@AVolumePathNode@@UAEXPAUAPawn@@@Z"
     },
     {
      "va": "00837860",
@@ -321958,7 +321958,7 @@
     {
      "va": "00a34f00",
      "size": 16,
-     "symbol": "?vf_1b4@ANxTornadoForceFieldCapsule_@@UAEXM@Z"
+     "symbol": "?TickSpecial@ANxTornadoForceFieldCapsule@@UAEXM@Z"
     },
     {
      "va": "00a34f50",
@@ -321983,7 +321983,7 @@
     {
      "va": "00a35130",
      "size": 16,
-     "symbol": "?vf_1b4@ANxTornadoAngularForceFieldCapsule_@@UAEXM@Z"
+     "symbol": "?TickSpecial@ANxTornadoAngularForceFieldCapsule@@UAEXM@Z"
     },
     {
      "va": "00a35150",
@@ -340742,7 +340742,7 @@
     {
      "va": "00b3dbf0",
      "size": 3,
-     "symbol": "?vf_174@UParticleModuleTypeDataBase@@UAEXHHH@Z"
+     "symbol": "?PreUpdate@UParticleModuleTypeDataBase@@UAEXPAUFParticleEmitterInstance@@HM@Z"
     },
     {
      "va": "00b3dc00",
@@ -349454,7 +349454,7 @@
     {
      "va": "00c28960",
      "size": 33,
-     "symbol": "?vf_128@UMaterialExpressionAddNormalMap@@UAE?AVFString@@XZ"
+     "symbol": "?GetCaption@UMaterialExpressionAddNormalMap@@UBE?AVFString@@XZ"
     },
     {
      "va": "00c290c0",
@@ -481254,7 +481254,7 @@
     {
      "va": "0115b4d0",
      "size": 8,
-     "symbol": "?vf_114@UGenericBrowserType_MorphWeightSequence@@UAEHH@Z"
+     "symbol": "?ShowObjectEditor@UGenericBrowserType_MorphWeightSequence@@UAEHPAUUObject@@@Z"
     },
     {
      "va": "01167970",
@@ -482154,7 +482154,7 @@
     {
      "va": "0115dc60",
      "size": 14,
-     "symbol": "?vf_10c@UOptions2DShaperSheet@@UAEXXZ"
+     "symbol": "?InitFields@UOptions2DShaperSheet@@UAEXXZ"
     },
     {
      "va": "0115dc70",
@@ -493380,12 +493380,12 @@
     {
      "va": "012028d0",
      "size": 3,
-     "symbol": "?vf_134@UPropertyInputProxy@@UAEXH@Z"
+     "symbol": "?SendToObjects@UPropertyInputProxy@@UAEXPAVWxPropertyControl@@@Z"
     },
     {
      "va": "012028e0",
      "size": 3,
-     "symbol": "?vf_140@UPropertyInputProxy@@UAEXHH@Z"
+     "symbol": "?RefreshControlValue@UPropertyInputProxy@@UAEXPAUUProperty@@PAE@Z"
     },
     {
      "va": "01202910",
@@ -521832,7 +521832,7 @@
     {
      "va": "0115b4e0",
      "size": 1,
-     "symbol": "?vf_10c@UOptionsProxy@@UAEXXZ"
+     "symbol": "?InitFields@UOptionsProxy@@UAEXXZ"
     },
     {
      "va": "0115b560",

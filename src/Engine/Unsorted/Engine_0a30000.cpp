@@ -1969,30 +1969,14 @@ void ProbeA35670(A35670State* State, FLOAT Value)
 	State->sub_00a35670(Value);
 }
 
-// ANxTornadoForceFieldCapsule: forwards a scalar update to the fracture/force helper.
-struct ANxTornadoForceFieldCapsule_ : public ANxTornadoForceFieldCapsule
-{
-	void sub_00d6f720(FLOAT Value);
-
-	virtual void vf_1b4(FLOAT);
-};
-
 // @baa 0x00a34f00
-void ANxTornadoForceFieldCapsule_::vf_1b4(FLOAT Value)
+void ANxTornadoForceFieldCapsule::TickSpecial(FLOAT DeltaSeconds)
 {
-	sub_00d6f720(Value);
+	Super::TickSpecial(DeltaSeconds);
 }
 
-// ANxTornadoAngularForceFieldCapsule: forwards a scalar update to the fracture/force helper.
-struct ANxTornadoAngularForceFieldCapsule_ : public ANxTornadoAngularForceFieldCapsule
-{
-	void sub_00d6f720(FLOAT Value);
-
-	virtual void vf_1b4(FLOAT);
-};
-
 // @baa 0x00a35130
-void ANxTornadoAngularForceFieldCapsule_::vf_1b4(FLOAT Value)
+void ANxTornadoAngularForceFieldCapsule::TickSpecial(FLOAT DeltaSeconds)
 {
-	sub_00d6f720(Value);
+	Super::TickSpecial(DeltaSeconds);
 }

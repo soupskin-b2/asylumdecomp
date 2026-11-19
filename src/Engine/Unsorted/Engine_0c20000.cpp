@@ -1850,7 +1850,7 @@ return;
 }
 
 // @baa 0x00c28960
-FString UMaterialExpressionAddNormalMap::vf_128()
+FString UMaterialExpressionAddNormalMap::GetCaption() const
 {
     return TEXT("Add Normal Map");
 }

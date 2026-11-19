@@ -34,16 +34,8 @@ INT FRing_::Wrap(WORD Index)
 	return (WORD)Index % Count;
 }
 
-// AFractureManager: forwards a scalar update to the fracture/force helper.
-struct AFractureManager_ : public AFractureManager
-{
-	void sub_00803810(FLOAT Value);
-
-	virtual void vf_1b4(FLOAT);
-};
-
 // @baa 0x007a7b20
-void AFractureManager_::vf_1b4(FLOAT Value)
+void AFractureManager::TickSpecial(FLOAT DeltaSeconds)
 {
-	sub_00803810(Value);
+	Super::TickSpecial(DeltaSeconds);
 }

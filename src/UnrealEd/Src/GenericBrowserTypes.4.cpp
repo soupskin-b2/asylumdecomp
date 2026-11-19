@@ -292,7 +292,7 @@ void T2_00530ae0::sub_00530ae0(int Item)
 void UGenericBrowserType_FracturedStaticMesh::vf_120(int a0, int a1) {  }
 
 // @baa 0x0115b4d0
-int UGenericBrowserType_MorphWeightSequence::vf_114(int a0) { return 1; }
+UBOOL UGenericBrowserType_MorphWeightSequence::ShowObjectEditor(UObject* a0) { return 1; }
 
 class wxWindowBase;
 class wxWindowBase {

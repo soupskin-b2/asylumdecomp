@@ -151,6 +151,17 @@ public:
      * takes a FLOAT): a call to one of those is declared with its own parameters in a local struct FString_ */
     static FString Printf(const TCHAR* Fmt, ...); /* 0x005488a0 */
 };
+/* UnString.h: a file path (an FString with path helpers; add the helpers' addresses as they turn up) */
+class FFilename : public FString
+{
+public:
+    FFilename() {}
+    FFilename(const FString& Other) : FString(Other) {}
+    FFilename(const TCHAR* In) : FString(In) {}
+};
+/* UnMath.h: what a distribution's raw lookup table holds */
+enum ERawDistributionOperation { RDO_Uninitialized, RDO_None, RDO_Random, RDO_Extreme, RDO_RandomRange };
+enum ERawDistributionLockFlags { RDL_None, RDL_XY, RDL_XZ, RDL_YZ, RDL_XYZ };
 class FStringNoInit : public FString { public: FStringNoInit() : FString(E_NoInit) {} FStringNoInit& operator=(const FString& Other); /* 0x004899f0 */ };
 struct FScriptDelegate {
     class UObject* Object;

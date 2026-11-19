@@ -10,5 +10,5 @@
 // @baa 0x00c4b5d0
 INT UAnimNodeBlendBase::vf_194(INT)
 {
-    vf_198();
+    RenameChildConnectors();
 }

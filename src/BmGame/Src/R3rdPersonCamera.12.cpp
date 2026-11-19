@@ -19,7 +19,7 @@ undefined4 * UObject::sub_0169fa70(void)
 void ARPawnPlayer::sub_01688660()
 {
     if (bIsCrouched)
-        vf_440(0);
+        UnCrouch(0);
     bWantsToCrouch = FALSE;
 }
 

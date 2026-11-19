@@ -10,7 +10,7 @@ UBOOL UParticleModuleOrbit::HasUniqueStaticConfigName() const { return 1; }
 int UParticleModuleOrbit::vf_114(int a0) { return 72; }
 
 // @baa 0x00b339d0
-int UParticleModuleOrbit::vf_118(int a0) { return 0; }
+UINT UParticleModuleOrbit::RequiredBytesPerInstance(FParticleEmitterInstance* a0) { return 0; }
 
 // @baa 0x00b342a0
 UBOOL UParticleModuleSpawnPerUnit::HasUniqueStaticConfigName() const { return 1; }
@@ -44,7 +44,7 @@ IMPLEMENT_CLASS_AT(UParticleModuleSpawnPerUnit, "e:\\Projects\\Amadeus\\AA\\Game
 UBOOL UParticleModuleSpawn::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b342e0
-int UParticleModuleSpawnPerUnit::vf_118(int a0) { return 4; }
+UINT UParticleModuleSpawnPerUnit::RequiredBytesPerInstance(FParticleEmitterInstance* a0) { return 4; }
 
 int sub_00b339e0(void);
 int sub_00b41c30(...);

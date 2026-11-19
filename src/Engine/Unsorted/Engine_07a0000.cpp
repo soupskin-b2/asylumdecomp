@@ -6,7 +6,7 @@
 int sub_007814b0(void);
 extern undefined4 g_026b62b8;
 // @baa 0x007a02f0
-void AController::vf_180(void)
+void AController::Spawned()
 {
     int param_1 = (int)this;
 

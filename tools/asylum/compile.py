@@ -336,8 +336,10 @@ def compile(src: str, p: Profile, check: bool = True, whole: bool = False) -> Co
     cache = HOME / "cache" / "obj"
     co, ce = cache / (key + ".obj"), cache / (key + ".err")
     if co.exists():
-        _used(co)
-        return Compiled(co.read_bytes())
+        data = co.read_bytes()
+        if data:  # (an empty file: a writer from before writes were atomic was cut short; compile again)
+            _used(co)
+            return Compiled(data)
     if ce.exists():
         d = ce.read_text(encoding="utf-8")
         if not _transient(d):
@@ -359,14 +361,24 @@ def compile(src: str, p: Profile, check: bool = True, whole: bool = False) -> Co
         cache.mkdir(parents=True, exist_ok=True)
         if code == 0 and (work / "tu.obj").exists():
             data = (work / "tu.obj").read_bytes()
-            co.write_bytes(data)
+            _atomic_write(co, data)  # parallel checks of one source read this file while it's written
             return Compiled(data, text)
         if (code != 2 and "error" not in text) or _transient(text):
             raise RuntimeError("the compiler failed (exit %d): %s" % (code, text[-2000:]))
-        ce.write_text(text, encoding="utf-8")
+        _atomic_write(ce, text.encode("utf-8"))
         return Compiled(None, text, errors(text))
     finally:
         shutil.rmtree(work, ignore_errors=True)
+
+
+def _atomic_write(path: Path, data: bytes) -> None:
+    """Write via a temporary file and a rename, so a reader sees the whole file or none."""
+    tmp = path.with_name("%s.%d.%d.tmp" % (path.name, os.getpid(), threading.get_ident()))
+    tmp.write_bytes(data)
+    try:
+        os.replace(tmp, path)
+    except OSError:  # Windows: another process renamed the same result in first (or holds it open)
+        tmp.unlink(missing_ok=True)
 
 
 _ERR = re.compile(r"^(?P<file>[^()]+)\((?P<line>\d+)\) : (?P<kind>fatal error|error|warning) (?P<code>C\d+): (?P<msg>.*)$")

@@ -900,349 +900,349 @@ void UMaterialExpressionFresnel::SwapReferenceTo(UMaterialExpression* param_2, U
 int UMaterialExpressionFontSample::vf_118(void) { return 112; }
 
 // @baa 0x00c266b0
-FString UMaterialExpression::vf_128()
+FString UMaterialExpression::GetCaption() const
 {
     return TEXT("Expression");
 }
 
 // @baa 0x00c268d0
-FString UMaterialExpressionTextureSample::vf_128()
+FString UMaterialExpressionTextureSample::GetCaption() const
 {
     return TEXT("Texture Sample");
 }
 
 // @baa 0x00c26d20
-FString UMaterialExpressionTextureSampleParameterSubUV::vf_128()
+FString UMaterialExpressionTextureSampleParameterSubUV::GetCaption() const
 {
     return TEXT("Parameter SubUV");
 }
 
 // @baa 0x00c26d50
-FString UMaterialExpressionFlipBookSample::vf_128()
+FString UMaterialExpressionFlipBookSample::GetCaption() const
 {
     return TEXT("FlipBook");
 }
 
 // @baa 0x00c26d80
-FString UMaterialExpressionAdd::vf_128()
+FString UMaterialExpressionAdd::GetCaption() const
 {
     return TEXT("Add");
 }
 
 // @baa 0x00c26db0
-FString UMaterialExpressionMax::vf_128()
+FString UMaterialExpressionMax::GetCaption() const
 {
     return TEXT("Max");
 }
 
 // @baa 0x00c26de0
-FString UMaterialExpressionMin::vf_128()
+FString UMaterialExpressionMin::GetCaption() const
 {
     return TEXT("Min");
 }
 
 // @baa 0x00c26e10
-FString UMaterialExpressionMeshEmitterVertexColor::vf_128()
+FString UMaterialExpressionMeshEmitterVertexColor::GetCaption() const
 {
     return TEXT("MeshEmit VertColor");
 }
 
 // @baa 0x00c26f20
-FString UMaterialExpressionMultiply::vf_128()
+FString UMaterialExpressionMultiply::GetCaption() const
 {
     return TEXT("Multiply");
 }
 
 // @baa 0x00c27030
-FString UMaterialExpressionDestColor::vf_128()
+FString UMaterialExpressionDestColor::GetCaption() const
 {
     return TEXT("DestColor");
 }
 
 // @baa 0x00c270a0
-FString UMaterialExpressionDestDepth::vf_128()
+FString UMaterialExpressionDestDepth::GetCaption() const
 {
     return TEXT("DestDepth");
 }
 
 // @baa 0x00c270d0
-FString UMaterialExpressionDivide::vf_128()
+FString UMaterialExpressionDivide::GetCaption() const
 {
     return TEXT("Divide");
 }
 
 // @baa 0x00c27100
-FString UMaterialExpressionSubtract::vf_128()
+FString UMaterialExpressionSubtract::GetCaption() const
 {
     return TEXT("Subtract");
 }
 
 // @baa 0x00c27130
-FString UMaterialExpressionLinearInterpolate::vf_128()
+FString UMaterialExpressionLinearInterpolate::GetCaption() const
 {
     return TEXT("Lerp");
 }
 
 // @baa 0x00c27160
-FString UMaterialExpressionConstantClamp::vf_128()
+FString UMaterialExpressionConstantClamp::GetCaption() const
 {
     return TEXT("Constant Clamp");
 }
 
 // @baa 0x00c27190
-FString UMaterialExpressionClamp::vf_128()
+FString UMaterialExpressionClamp::GetCaption() const
 {
     return TEXT("Clamp");
 }
 
 // @baa 0x00c271c0
-FString UMaterialExpressionTextureCoordinate::vf_128()
+FString UMaterialExpressionTextureCoordinate::GetCaption() const
 {
     return TEXT("TexCoord");
 }
 
 // @baa 0x00c271f0
-FString UMaterialExpressionDotProduct::vf_128()
+FString UMaterialExpressionDotProduct::GetCaption() const
 {
     return TEXT("Dot");
 }
 
 // @baa 0x00c27220
-FString UMaterialExpressionCrossProduct::vf_128()
+FString UMaterialExpressionCrossProduct::GetCaption() const
 {
     return TEXT("Cross");
 }
 
 // @baa 0x00c27340
-FString UMaterialExpressionTime::vf_128()
+FString UMaterialExpressionTime::GetCaption() const
 {
     return TEXT("Time");
 }
 
 // @baa 0x00c27370
-FString UMaterialExpressionCameraVector::vf_128()
+FString UMaterialExpressionCameraVector::GetCaption() const
 {
     return TEXT("Camera Vector");
 }
 
 // @baa 0x00c273a0
-FString UMaterialExpressionCameraWorldPosition::vf_128()
+FString UMaterialExpressionCameraWorldPosition::GetCaption() const
 {
     return TEXT("Camera World Position");
 }
 
 // @baa 0x00c273d0
-FString UMaterialExpressionReflectionVector::vf_128()
+FString UMaterialExpressionReflectionVector::GetCaption() const
 {
     return TEXT("Reflection Vector");
 }
 
 // @baa 0x00c27400
-FString UMaterialExpressionPanner::vf_128()
+FString UMaterialExpressionPanner::GetCaption() const
 {
     return TEXT("Panner");
 }
 
 // @baa 0x00c27430
-FString UMaterialExpressionRotator::vf_128()
+FString UMaterialExpressionRotator::GetCaption() const
 {
     return TEXT("Rotator");
 }
 
 // @baa 0x00c27460
-FString UMaterialExpressionSine::vf_128()
+FString UMaterialExpressionSine::GetCaption() const
 {
     return TEXT("Sine");
 }
 
 // @baa 0x00c27490
-FString UMaterialExpressionCosine::vf_128()
+FString UMaterialExpressionCosine::GetCaption() const
 {
     return TEXT("Cosine");
 }
 
 // @baa 0x00c274c0
-FString UMaterialExpressionBumpOffset::vf_128()
+FString UMaterialExpressionBumpOffset::GetCaption() const
 {
     return TEXT("BumpOffset");
 }
 
 // @baa 0x00c274f0
-FString UMaterialExpressionAppendVector::vf_128()
+FString UMaterialExpressionAppendVector::GetCaption() const
 {
     return TEXT("Append");
 }
 
 // @baa 0x00c27520
-FString UMaterialExpressionFloor::vf_128()
+FString UMaterialExpressionFloor::GetCaption() const
 {
     return TEXT("Floor");
 }
 
 // @baa 0x00c27550
-FString UMaterialExpressionCeil::vf_128()
+FString UMaterialExpressionCeil::GetCaption() const
 {
     return TEXT("Ceil");
 }
 
 // @baa 0x00c27580
-FString UMaterialExpressionFrac::vf_128()
+FString UMaterialExpressionFrac::GetCaption() const
 {
     return TEXT("Frac");
 }
 
 // @baa 0x00c27660
-FString UMaterialExpressionDepthBiasBlend::vf_128()
+FString UMaterialExpressionDepthBiasBlend::GetCaption() const
 {
     return TEXT("DepthBiasBlend");
 }
 
 // @baa 0x00c27690
-FString UMaterialExpressionDepthBiasedAlpha::vf_128()
+FString UMaterialExpressionDepthBiasedAlpha::GetCaption() const
 {
     return TEXT("DepthBiasedAlpha");
 }
 
 // @baa 0x00c277a0
-FString UMaterialExpressionDepthBiasedBlend::vf_128()
+FString UMaterialExpressionDepthBiasedBlend::GetCaption() const
 {
     return TEXT("DepthBiasedBlend");
 }
 
 // @baa 0x00c27990
-FString UMaterialExpressionVertexColor::vf_128()
+FString UMaterialExpressionVertexColor::GetCaption() const
 {
     return TEXT("Vertex Color");
 }
 
 // @baa 0x00c27c90
-FString UMaterialExpressionDynamicParameter::vf_128()
+FString UMaterialExpressionDynamicParameter::GetCaption() const
 {
     return TEXT("Dynamic Parameter");
 }
 
 // @baa 0x00c27da0
-FString UMaterialExpressionParticleSubUV::vf_128()
+FString UMaterialExpressionParticleSubUV::GetCaption() const
 {
     return TEXT("Particle SubUV");
 }
 
 // @baa 0x00c280f0
-FString UMaterialExpressionMeshSubUV::vf_128()
+FString UMaterialExpressionMeshSubUV::GetCaption() const
 {
     return TEXT("Mesh SubUV");
 }
 
 // @baa 0x00c28160
-FString UMaterialExpressionLensFlareIntensity::vf_128()
+FString UMaterialExpressionLensFlareIntensity::GetCaption() const
 {
     return TEXT("LensFlare Intensity");
 }
 
 // @baa 0x00c281d0
-FString UMaterialExpressionLensFlareOcclusion::vf_128()
+FString UMaterialExpressionLensFlareOcclusion::GetCaption() const
 {
     return TEXT("LensFlare Occlusion");
 }
 
 // @baa 0x00c28240
-FString UMaterialExpressionLensFlareRadialDistance::vf_128()
+FString UMaterialExpressionLensFlareRadialDistance::GetCaption() const
 {
     return TEXT("LensFlare RadialDist");
 }
 
 // @baa 0x00c282b0
-FString UMaterialExpressionLensFlareRayDistance::vf_128()
+FString UMaterialExpressionLensFlareRayDistance::GetCaption() const
 {
     return TEXT("LensFlare RayDist");
 }
 
 // @baa 0x00c28320
-FString UMaterialExpressionLensFlareSourceDistance::vf_128()
+FString UMaterialExpressionLensFlareSourceDistance::GetCaption() const
 {
     return TEXT("LensFlare SourceDist");
 }
 
 // @baa 0x00c28350
-FString UMaterialExpressionLightVector::vf_128()
+FString UMaterialExpressionLightVector::GetCaption() const
 {
     return TEXT("Light Vector");
 }
 
 // @baa 0x00c28380
-FString UMaterialExpressionScreenPosition::vf_128()
+FString UMaterialExpressionScreenPosition::GetCaption() const
 {
     return TEXT("ScreenPos");
 }
 
 // @baa 0x00c283b0
-FString UMaterialExpressionSquareRoot::vf_128()
+FString UMaterialExpressionSquareRoot::GetCaption() const
 {
     return TEXT("Sqrt");
 }
 
 // @baa 0x00c28420
-FString UMaterialExpressionPixelDepth::vf_128()
+FString UMaterialExpressionPixelDepth::GetCaption() const
 {
     return TEXT("PixelDepth");
 }
 
 // @baa 0x00c28450
-FString UMaterialExpressionPower::vf_128()
+FString UMaterialExpressionPower::GetCaption() const
 {
     return TEXT("Power");
 }
 
 // @baa 0x00c28480
-FString UMaterialExpressionIf::vf_128()
+FString UMaterialExpressionIf::GetCaption() const
 {
     return TEXT("If");
 }
 
 // @baa 0x00c284b0
-FString UMaterialExpressionOneMinus::vf_128()
+FString UMaterialExpressionOneMinus::GetCaption() const
 {
     return TEXT("1-x");
 }
 
 // @baa 0x00c284e0
-FString UMaterialExpressionAbs::vf_128()
+FString UMaterialExpressionAbs::GetCaption() const
 {
     return TEXT("Abs");
 }
 
 // @baa 0x00c285f0
-FString UMaterialExpressionSceneTexture::vf_128()
+FString UMaterialExpressionSceneTexture::GetCaption() const
 {
     return TEXT("Scene Texture Sample");
 }
 
 // @baa 0x00c28660
-FString UMaterialExpressionSceneDepth::vf_128()
+FString UMaterialExpressionSceneDepth::GetCaption() const
 {
     return TEXT("Scene Depth");
 }
 
 // @baa 0x00c28690
-FString UMaterialExpressionTransform::vf_128()
+FString UMaterialExpressionTransform::GetCaption() const
 {
     return TEXT("Vector Transform");
 }
 
 // @baa 0x00c286c0
-FString UMaterialExpressionTransformPosition::vf_128()
+FString UMaterialExpressionTransformPosition::GetCaption() const
 {
     return TEXT("Position Transform");
 }
 
 // @baa 0x00c286f0
-FString UMaterialExpressionComment::vf_128()
+FString UMaterialExpressionComment::GetCaption() const
 {
     return TEXT("Comment");
 }
 
 // @baa 0x00c28890
-FString UMaterialExpressionFontSample::vf_128()
+FString UMaterialExpressionFontSample::GetCaption() const
 {
     return TEXT("Font Sample");
 }
@@ -1398,7 +1398,7 @@ undefined4 * UObject::sub_00c2c9b0(void)
 }
 
 // @baa 0x00c2c9d0
-FString UMaterialExpressionDesaturation::vf_128()
+FString UMaterialExpressionDesaturation::GetCaption() const
 {
     return TEXT("Desaturation");
 }
@@ -1562,7 +1562,7 @@ undefined4 * UObject::sub_00c2d060(void)
 }
 
 // @baa 0x00c2d080
-FString UMaterialExpressionFresnel::vf_128()
+FString UMaterialExpressionFresnel::GetCaption() const
 {
     return TEXT("Fresnel");
 }
@@ -1853,7 +1853,7 @@ undefined4 * UObject::sub_00c2dcc0(void)
 }
 
 // @baa 0x00c2dce0
-FString UMaterialExpressionNormalize::vf_128()
+FString UMaterialExpressionNormalize::GetCaption() const
 {
     return TEXT("Normalize");
 }
@@ -3397,55 +3397,55 @@ void UMaterialExpressionTextureSampleParameterCube::SetDefaultTexture()
 }
 
 // @baa 0x00c288c0
-FString UMaterialExpressionWorldPosition::vf_128()
+FString UMaterialExpressionWorldPosition::GetCaption() const
 {
     return TEXT("World Position");
 }
 
 // @baa 0x00c288f0
-FString UMaterialExpressionNormal::vf_128()
+FString UMaterialExpressionNormal::GetCaption() const
 {
     return TEXT("Normal Vector");
 }
 
 // @baa 0x00c28990
-FString UMaterialExpressionLightingDiffuseLambert::vf_128()
+FString UMaterialExpressionLightingDiffuseLambert::GetCaption() const
 {
     return TEXT("Lighting Diffuse Lambert");
 }
 
 // @baa 0x00c289c0
-FString UMaterialExpressionLightingSpecularPhong::vf_128()
+FString UMaterialExpressionLightingSpecularPhong::GetCaption() const
 {
     return TEXT("Lighting Specular Phong");
 }
 
 // @baa 0x00c289f0
-FString UMaterialExpressionLightingSpecularBlinnPhong::vf_128()
+FString UMaterialExpressionLightingSpecularBlinnPhong::GetCaption() const
 {
     return TEXT("Lighting Specular Blinn-Phong");
 }
 
 // @baa 0x00c28a20
-FString UMaterialExpressionLightingSpecularHeidrichSeidel::vf_128()
+FString UMaterialExpressionLightingSpecularHeidrichSeidel::GetCaption() const
 {
     return TEXT("Lighting Specular Heidrich-Seidel");
 }
 
 // @baa 0x00c28a50
-FString UMaterialExpressionFluidNormal::vf_128()
+FString UMaterialExpressionFluidNormal::GetCaption() const
 {
     return TEXT("Fluid Normal");
 }
 
 // @baa 0x00c28a80
-FString UMaterialExpressionDeriveNormalZ::vf_128()
+FString UMaterialExpressionDeriveNormalZ::GetCaption() const
 {
     return TEXT("DeriveNormalZ");
 }
 
 // @baa 0x00c28ab0
-FString UMaterialExpressionConstantBiasScale::vf_128()
+FString UMaterialExpressionConstantBiasScale::GetCaption() const
 {
     return TEXT("ConstantBiasScale");
 }
@@ -3670,7 +3670,7 @@ template<class T> struct TArrayAt_ : public TArray<T>
 
 // @baa 0x00c28720
 /* Slot 0x128 (unnamed in the kit; UE3's GetCaption): the user caption, or a generic name. */
-FString UMaterialExpressionCompound::vf_128()
+FString UMaterialExpressionCompound::GetCaption() const
 {
 	return Caption.Len() > 0 ? *Caption : TEXT("Compound Expression");
 }

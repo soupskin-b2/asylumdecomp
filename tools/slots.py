@@ -588,12 +588,16 @@ def main(argv):
         k = order_overloads(lines, parse(lines))
         if k:
             print("%d overload groups put in MSVC's (reversed) order" % k)
+        before = HEADER.read_bytes()
         save(lines)
         print("%d declarations written" % len(allchanges))
         if src_too and allchanges:
             # the headers must compile and keep every vtable slot first; src is only touched after that
             if cmd_verify(parse(lines)) != 0:
-                print("not rewriting src: fix the headers (or git checkout include) and run it again")
+                # put the header back: a second run would find the slots named already and rewrite no src
+                HEADER.write_bytes(before)
+                print("Classes.h left as it was, src not rewritten: fix the batch (or the headers it needs) "
+                      "and run it again")
                 return 1
             olds = {o for _, o, _ in allchanges}
             print("rewriting definitions...", flush=True)

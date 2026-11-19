@@ -834,7 +834,7 @@ C_0171c180& C_0171c180::sub_0171c180(int Arg)
 }
 
 // @baa 0x017176a0
-void ARHarpoonDragTrack::vf_180()
+void ARHarpoonDragTrack::Spawned()
 {
     CurrentLocation = Location;
 }
@@ -859,7 +859,7 @@ INT ARJokerGunGadgetBase::GetShouldKnockHelmetOff(FName BoneName)
 }
 
 // @baa 0x017161c0
-INT ARSnapToPositionActor::vf_29c(INT A)
+INT ARSnapToPositionActor::AddMyMarker(AActor * A)
 {
     vf_358(1);
     vf_35c();

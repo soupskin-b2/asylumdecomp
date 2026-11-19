@@ -1586,7 +1586,7 @@ IMPLEMENT_CLASS_AT(UParticleModuleTypeDataBase, "e:\\Projects\\Amadeus\\AA\\Game
 void UParticleModuleTypeDataBase::vf_170(int a0, int a1) {  }
 
 // @baa 0x00b3dbf0
-void UParticleModuleTypeDataBase::vf_174(int a0, int a1, int a2) {  }
+void UParticleModuleTypeDataBase::PreUpdate(FParticleEmitterInstance* a0, INT a1, FLOAT a2) {  }
 
 // @baa 0x00b3dc00
 void UParticleModuleTypeDataBase::vf_178(int a0, int a1, int a2) {  }

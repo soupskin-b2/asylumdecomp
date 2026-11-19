@@ -589,7 +589,7 @@ undefined4 sub_0115b460(void)
 }
 
 // @baa 0x0115b4e0
-void UOptionsProxy::vf_10c(void) {  }
+void UOptionsProxy::InitFields() {  }
 
 // @baa 0x0115b560
 void sub_0115b560(void) {  }

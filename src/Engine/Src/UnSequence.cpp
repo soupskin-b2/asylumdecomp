@@ -294,7 +294,7 @@ void sub_008aa460(S* p, INT Value)
 }
 
 // @baa 0x008aa480
-void USequenceOp::vf_184(void) {  }
+void USequenceOp::InitializeLinkedVariableValues() {  }
 
 // @baa 0x008aa490
 void USequenceOp::vf_188(void) {  }

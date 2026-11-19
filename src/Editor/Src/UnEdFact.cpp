@@ -155,7 +155,7 @@ void sub_00f19300(undefined4 param_1, undefined4 param_2, undefined4 param_3, un
 }
 
 // @baa 0x00f19420
-int UMaterialFactory::vf_110(int a0, int a1, int a2, int a3, int a4, int a5, int a6, int a7, int a8, int a9, int a10) { return 0; }
+UObject* UMaterialFactory::FactoryCreateText(UClass* a0, UObject* a1, FName a2, EObjectFlags a3, UObject* a4, const TCHAR* a5, const TCHAR*& a6, const TCHAR* a7, FFeedbackContext* a8) { return 0; }
 
 // @baa 0x00f19570
 UObject* USoundModeFactory::FactoryCreateNew(UClass* InClass, UObject* InParent, FName InName, QWORD Flags, UObject* Context, FFeedbackContext* Warn) { return 0; }

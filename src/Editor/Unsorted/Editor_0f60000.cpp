@@ -481,7 +481,7 @@ void sub_00f67fb0(void)
 }
 
 // @baa 0x00f67fd0
-void UEditorEngine::vf_1c0(void) {
+void UEditorEngine::NoteActorMovement() {
   sub_006311e0(&g_01fa4458,"Editor/Inc\\Editor.h",0x2b4,&g_01e3f3dc);
   return;
 }
@@ -496,19 +496,19 @@ void UEditorEngine::vf_1cc(int a0, int a1, int a2) {  }
 void UEditorEngine::vf_1d0(int a0) {  }
 
 // @baa 0x00f68020
-int UEditorEngine::vf_1d4(int a0, int a1) { return 1; }
+UBOOL UEditorEngine::edactDeleteSelected(UBOOL a0, UBOOL a1) { return 1; }
 
 // @baa 0x00f68030
-int UEditorEngine::vf_1d8(int a0) { return 0; }
+UBOOL UEditorEngine::ShouldAbortActorDeletion(UBOOL& a0) const { return 0; }
 
 // @baa 0x00f68040
-void UEditorEngine::vf_1dc(void) {  }
+void UEditorEngine::edactArchetypeSelected() {  }
 
 // @baa 0x00f68050
 void UEditorEngine::vf_1e0(void) {  }
 
 // @baa 0x00f68060
-void UEditorEngine::vf_1e4(void) {  }
+void UEditorEngine::edactAddPrefab() {  }
 
 // @baa 0x00f68070
 void UEditorEngine::vf_1e8(void) {  }
@@ -523,7 +523,7 @@ void UEditorEngine::vf_20c(int a0, int a1, int a2, int a3) {  }
 void UEditorEngine::vf_210(int a0, int a1) {  }
 
 // @baa 0x00f680b0
-void UEditorEngine::vf_2a8(void) {  }
+void UEditorEngine::PasteClipboardIntoClipPad() {  }
 
 // @baa 0x00f680c0
 int UEditorEngine::vf_2cc(int a0, int a1) { return 0; }
@@ -760,7 +760,7 @@ void __stdcall sub_00f67f50(float* P)
 
 // @baa 0x00f67ef0
 /* Not supported by the editor engine (asserts, Editor.h). */
-void UEditorEngine::vf_190(INT, INT)
+void UEditorEngine::UpdateMousePositionText(EMousePositionType PositionType, const FVector & Position)
 {
 #line 509 "Editor/Inc\\Editor.h"
 	check(0);
