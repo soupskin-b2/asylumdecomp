@@ -825,7 +825,7 @@ C_00f79c20* C_00f79c20::sub_00f79c20()
 extern int g_026667a8;
 extern "C" int sub_00630f20(int IsCritical, const wchar_t* Msg, const wchar_t* FuncName);
 // @baa 0x00f73100
-void UTransactor::Cancel(INT)
+void UTransactor::Cancel(INT StartIndex)
 {
 	// Pure virtual not implemented: concrete transactors override this.
 	sub_00630f20(g_026667a8, L"Pure virtual not implemented (%s)", L"UTransactor::Cancel");

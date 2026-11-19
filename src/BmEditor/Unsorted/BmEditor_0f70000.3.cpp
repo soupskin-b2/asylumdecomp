@@ -5,11 +5,11 @@
 int sub_00630f20(...);
 extern undefined4 g_026667a8;
 struct UTransactor {
-    undefined4 Redo();
+    UBOOL Redo();
 };
 
 // @baa 0x00f731c0
-undefined4 UTransactor::Redo()
+UBOOL UTransactor::Redo()
 {
   sub_00630f20(g_026667a8,L"Pure virtual not implemented (%s)",L"UTransactor::Redo");
   return 0;

@@ -136037,7 +136037,7 @@
     {
      "va": "00f79430",
      "size": 57,
-     "symbol": "?GetRedoDesc@UTransactor__00f79430@@QAE?AVFString@@XZ"
+     "symbol": "?GetRedoDesc@UTransactor__00f79430@@UAE?AVFString@@XZ"
     },
     {
      "va": "00f9cf80",
@@ -155400,12 +155400,12 @@
     {
      "va": "00f73120",
      "size": 27,
-     "symbol": "?Reset@UTransactor@@UAEXH@Z"
+     "symbol": "?Reset@UTransactor@@UAEXPB_W@Z"
     },
     {
      "va": "00f730c0",
      "size": 29,
-     "symbol": "?Begin@UTransactor@@UAEHH@Z"
+     "symbol": "?Begin@UTransactor@@UAEHPB_W@Z"
     },
     {
      "va": "00f73160",
@@ -354424,7 +354424,7 @@
     {
      "va": "00cb5b60",
      "size": 44,
-     "symbol": "?GetVirtualKey@UClient_@@QAEXAAUFName@@H@Z"
+     "symbol": "?GetVirtualKey@UClient@@UAE?AUFName@@H@Z"
     },
     {
      "va": "00cbd5c0",
@@ -485008,12 +485008,12 @@
     {
      "va": "012db690",
      "size": 5,
-     "symbol": "?Begin@UInterpEdTransBuffer@@UAEHH@Z"
+     "symbol": "?Begin@UInterpEdTransBuffer@@UAEHPB_W@Z"
     },
     {
      "va": "012db6a0",
      "size": 6,
-     "symbol": "?End@UInterpEdTransBuffer@@UAEIXZ"
+     "symbol": "?End@UInterpEdTransBuffer@@UAEHXZ"
     },
     {
      "va": "012db6b0",

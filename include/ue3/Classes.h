@@ -4449,7 +4449,16 @@ struct FSettingsData {
     void SetData(const FString& InString); /* 0x00d6e290 */
     void SetData(INT InData); /* 0x00d6e2e0 */
     void SetData(DWORD InSize, const BYTE* InData); /* 0x00d6e390 */
+    void SetData(const TArray<BYTE>& InData); /* 0x00d6e3f0 (copies at 00d6e430, 00d742c0) */
+    void SetData(FLOAT InData);
+    void SetData(DOUBLE InData); /* 0x00d6e320 (copy at 00d6e350) */
+    void SetData(QWORD InData);
     UBOOL FromString(const FString& NewValue); /* 0x00d6e4a0 */
+    void GetData(INT& OutData) const;
+    void GetData(FLOAT& OutData) const; /* 0x00d67b90 (copies at 00d67c30, 00d6e470) */
+    void GetData(DOUBLE& OutData) const;
+    void GetData(QWORD& OutData) const;
+    void GetData(FString& OutData) const;
     void GetData(TArray<BYTE>& OutData) const; /* 0x00d79720 */
     FString ToString() const; /* 0x00d797a0 */
 };
@@ -65075,7 +65084,7 @@ struct UClient : public UObject, public FExec {
     virtual INT CloseViewport(INT); /* 0x120 */
     virtual class UAudioDevice* GetAudioDevice(); /* 0x124 */
     virtual void ForceClearForceFeedback(); /* 0x128 */
-    virtual INT GetVirtualKey(INT, INT); /* 0x12c */
+    virtual FName GetVirtualKey(INT KeyCode); /* 0x12c */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -67671,17 +67680,17 @@ struct UTransactor : public UObject {
     /* Editor.Transactor (native only: no script package describes it) */
     DECLARE_CLASS(UTransactor, UObject, 0x10000009, 0x0, Editor)
     /* virtual functions this class introduces (vtable 0x02162020) */
-    virtual INT Begin(INT); /* 0x10c */
-    virtual UINT End(); /* 0x110 */
-    virtual void Cancel(INT); /* 0x114 */
-    virtual void Reset(INT); /* 0x118 */
+    virtual INT Begin(const TCHAR* SessionName); /* 0x10c */
+    virtual INT End(); /* 0x110 */
+    virtual void Cancel(INT StartIndex = 0); /* 0x114 */
+    virtual void Reset(const TCHAR* Action); /* 0x118 */
     virtual bool IsActive(); /* 0x11c */
     virtual UBOOL CanUndo(FString* Str); /* 0x120 */
     virtual UBOOL CanRedo(FString* Str); /* 0x124 */
     virtual FString GetUndoDesc(UBOOL bCheckWhetherUndoPossible = TRUE); /* 0x128 */
-    virtual INT GetRedoDesc(INT); /* 0x12c */
-    virtual UINT Undo(); /* 0x130 */
-    virtual UINT Redo(); /* 0x134 */
+    virtual FString GetRedoDesc(); /* 0x12c */
+    virtual UBOOL Undo(); /* 0x130 */
+    virtual UBOOL Redo(); /* 0x134 */
     virtual UINT CreateInternalTransaction(); /* 0x138 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
@@ -67703,17 +67712,17 @@ struct UTransBuffer : public UTransactor {
     virtual bool vf_004(); /* 0x004 */
     virtual void vf_02c(); /* 0x02c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
-    virtual INT Begin(INT); /* 0x10c */
-    virtual UINT End(); /* 0x110 */
-    virtual void Cancel(INT); /* 0x114 */
-    virtual void Reset(INT); /* 0x118 */
+    virtual INT Begin(const TCHAR* SessionName); /* 0x10c */
+    virtual INT End(); /* 0x110 */
+    virtual void Cancel(INT StartIndex = 0); /* 0x114 */
+    virtual void Reset(const TCHAR* Action); /* 0x118 */
     virtual bool IsActive(); /* 0x11c */
     virtual UBOOL CanUndo(FString* Str); /* 0x120 */
     virtual UBOOL CanRedo(FString* Str); /* 0x124 */
     virtual FString GetUndoDesc(UBOOL bCheckWhetherUndoPossible = TRUE); /* 0x128 */
-    virtual INT GetRedoDesc(INT); /* 0x12c */
-    virtual UINT Undo(); /* 0x130 */
-    virtual UINT Redo(); /* 0x134 */
+    virtual FString GetRedoDesc(); /* 0x12c */
+    virtual UBOOL Undo(); /* 0x130 */
+    virtual UBOOL Redo(); /* 0x134 */
     virtual UINT CreateInternalTransaction(); /* 0x138 */
     /* other member functions */
     void sub_00f734e0(); /* 0x00f734e0 */
@@ -67730,9 +67739,9 @@ struct UInterpEdTransBuffer : public UTransBuffer {
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
-    virtual INT Begin(INT); /* 0x10c */
-    virtual UINT End(); /* 0x110 */
-    virtual void Cancel(INT); /* 0x114 */
+    virtual INT Begin(const TCHAR* SessionName); /* 0x10c */
+    virtual INT End(); /* 0x110 */
+    virtual void Cancel(INT StartIndex = 0); /* 0x114 */
     /* registered size 0x54 */
 };
 
@@ -72269,7 +72278,7 @@ struct UWindowsClient : public UClient {
     virtual INT CloseViewport(INT); /* 0x120 */
     virtual class UAudioDevice* GetAudioDevice(); /* 0x124 */
     virtual void ForceClearForceFeedback(); /* 0x128 */
-    virtual INT GetVirtualKey(INT, INT); /* 0x12c */
+    virtual FName GetVirtualKey(INT KeyCode); /* 0x12c */
     /* other member functions */
     UINT sub_00eb6b90(BYTE); /* 0x00eb6b90 */
     INT sub_00eb7a80(INT); /* 0x00eb7a80 */

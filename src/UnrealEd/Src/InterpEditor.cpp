@@ -356,13 +356,13 @@ undefined4 * C_012db660::sub_012db660(void)
 }
 
 // @baa 0x012db690
-int UInterpEdTransBuffer::Begin(int a0) { return 0; }
+INT UInterpEdTransBuffer::Begin(const TCHAR* a0) { return 0; }
 
 // @baa 0x012db6a0
-UINT UInterpEdTransBuffer::End() { return 1; }
+INT UInterpEdTransBuffer::End() { return 1; }
 
 // @baa 0x012db6b0
-void UInterpEdTransBuffer::Cancel(int a0) {  }
+void UInterpEdTransBuffer::Cancel(INT a0) {  }
 
 // @baa 0x012db6c0
 // @baa 0x012db740
