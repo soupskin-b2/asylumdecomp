@@ -285,6 +285,10 @@ Parts of `src/` still read like decompiler output (`param_1`, offset casts, `sub
 - `lea eax, [esp + 4]; push eax; (add ecx, N;) call X; ret 4` (no tail jump) is a by-value 4-byte
   parameter passed on by reference: `INT C::F(DWORD V) { return Member.X(V); }` with
   `X(const DWORD&)`. Taking a parameter's address is what stops MSVC's tail call.
+- Raw x87 `fcos`/`fsin`/`fsqrt` comes from code built without precise floating point (float math
+  reassociated as under `/fp:fast` may too; try it): `#pragma float_control(except, off)`, `#pragma float_control(precise, off)`
+  and `#pragma intrinsic(cos, sin)` before the function, then `(FLOAT)cos(X)`. With precise on, `cos`
+  calls the `__CIcos` thunk instead.
 - A function that reads `ecx` on entry and ends `ret N` is a member function taking N/4 stack
   arguments (unused ones too), not an exotic convention: `mov eax, [ecx + 0x1a0]; push 1; push eax;
   call X; add esp, 8; ret 4` is `void C::F(void* Unused) { X(Field1a0, 1); }`.
