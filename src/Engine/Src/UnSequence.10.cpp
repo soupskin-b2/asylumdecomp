@@ -487,11 +487,6 @@ struct FSeqOpOutputLinkArray : public TArray<FSeqOpOutputLink>
     TArray<FSeqOpOutputLink>& operator+=(const TArray<FSeqOpOutputLink>& Other);
 };
 
-/* slot 0x140 (vf_140) is USequenceObject::UpdateObject; USequenceOp's is 0x00902260 */
-struct USequenceOp__00907d90 : public USequenceOp
-{
-    void UpdateObject();
-};
 
 
 // @baa 0x00907d90
@@ -499,7 +494,7 @@ void USeqAct_Switch::UpdateObject()
 {
     // keep the output links, which the switch creates itself
     FSeqOpOutputLinkArray SavedOutputLinks(OutputLinks);
-    ((USequenceOp__00907d90*)this)->USequenceOp__00907d90::UpdateObject(); // Super::UpdateObject()
+    Super::UpdateObject();
     OutputLinks.Empty();
     ((FSeqOpOutputLinkArray&)OutputLinks) += SavedOutputLinks;
 }

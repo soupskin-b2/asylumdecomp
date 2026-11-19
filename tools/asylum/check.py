@@ -25,6 +25,14 @@ def want(va: int, function: str | None = None) -> list[str]:
     """The names the source's function may have, best first."""
     f = data.functions().get(va, {})
     w = [x for x in (function, f.get("symbol"), "sub_%08x" % va) if x]
+    m = re.match(r"\?(\w+)@(\w+)@@", f.get("symbol") or "")
+    t = re.match(r"\?(\w+)@\?\$(\w+)@", f.get("symbol") or "")
+    if m:  # the same method on a helper struct (UFoo_ / UFoo__XXXXXXXX), as src/ files often define it
+        i = w.index(f["symbol"]) + 1
+        w[i:i] = [f["symbol"].replace("@%s@@" % m.group(2), "@%s_@@" % m.group(2), 1), "?%s@%s_" % (m.group(1), m.group(2))]
+    elif t:  # a template's (TArray_<T>)
+        i = w.index(f["symbol"]) + 1
+        w[i:i] = [f["symbol"].replace("@?$%s@" % t.group(2), "@?$%s_@" % t.group(2), 1)]
     n = data.names().get(va) or f.get("name")
     if n:
         method = n.rsplit("::", 1)[-1]
@@ -33,6 +41,34 @@ def want(va: int, function: str | None = None) -> list[str]:
             if "::" not in n:
                 w.append("_" + method)
     return w
+
+
+def from_source(src: str, va: int) -> list[str]:
+    """Name parts for the function the source marks `// @baa 0xVA`: its definition follows the marker."""
+    m = re.search(r"//\s*@baa\s+0x0*%x\b[^\n]*\n" % va, src, re.I)
+    if not m:
+        return []
+    rest = re.sub(r"/\*.*?\*/|//[^\n]*", " ", src[m.end():m.end() + 4000], flags=re.S).lstrip()
+    m = re.match(r"([^(;{}]*)\(", rest)
+    q = m and re.search(r"((?:\w+\s*(?:<[^()]*?>)?\s*::\s*)*~?\w+)\s*$", m.group(1))
+    if not q or re.fullmatch(r"[A-Z_]+", q.group(1)):  # nothing, or a macro (BEGIN_EVENT_TABLE ...)
+        return []
+    if "%08x" % va in q.group(1) and "sub_%08x" % va not in q.group(1):
+        return []  # a wrapper named for the address (g_KeepAlive_XXXXXXXX), not the function
+    parts = [re.sub(r"\s+", "", p) for p in q.group(1).split("::")]
+    name = parts[-1]
+    if not re.fullmatch(r"~?\w+", name):
+        return []
+    if len(parts) == 1:
+        return ["?%s@@" % name, "_%s@" % name, "_%s" % name]
+    cls = parts[-2]
+    tm = re.fullmatch(r"(\w+)<.*>", cls)
+    owner = "?$%s@" % tm.group(1) if tm else "%s@" % cls
+    if name.startswith("~"):
+        return ["??1%s" % owner]
+    if name == cls:
+        return ["??0%s" % owner]
+    return ["?%s@%s" % (name, owner)]
 
 
 _pinned: dict | None = None
@@ -57,6 +93,9 @@ def check(va: int, src: str, function: str | None = None, whole: bool = False) -
         return Result("rejected" if c.rejected else "compile_error", c.errors or [c.diagnostics])
     obj = Coff(c.obj)
     w = want(va, function)
+    if not function:  # the name the source defines after its marker, after the data's own names
+        k = w.index("sub_%08x" % va) + 1
+        w[k:k] = [x for x in from_source(src, va) if x not in w]
     k = known(obj)
     sym = obj.find_function(w)
     if sym is not None and sym.name not in w and not function:
@@ -65,7 +104,9 @@ def check(va: int, src: str, function: str | None = None, whole: bool = False) -
             return Result("extract_error", ["the source's function is %s, named for %s, not %08x"
                                             % (sym.name, other.group(1), va)])
         at = data.symbols().get(sym.name)
-        if at is not None and at != va and not other:  # a real name the project knows at another address
+        # a real name the project knows at another address (not templates, operators, ctors or dtors:
+        # those are often instantiated more than once in the exe)
+        if at is not None and at != va and not other and "?$" not in sym.name and not sym.name.startswith("??"):
             return Result("extract_error", ["the source's function is %s, which is %08x's, not %08x (if the "
                                             "project's name is wrong, pass --function %s and flag it)"
                                             % (sym.name, at, va, sym.name)])

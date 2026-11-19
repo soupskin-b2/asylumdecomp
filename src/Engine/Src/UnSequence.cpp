@@ -3980,7 +3980,7 @@ undefined4 * UObject::sub_008e2240(void)
 }
 
 // @baa 0x008e2260
-void USequence::vf_140(void) {  }
+void USequence::UpdateObject() {  }
 
 // @baa 0x008e22c0
 INT USequence::vf_1bc() { return 0; }
@@ -6926,7 +6926,7 @@ UBOOL USeqAct_CastToFloat::HasParentClassChanged() const
 
 int sub_00902260(void);
 // @baa 0x009076e0
-void USeqAct_CameraLookAt::vf_140(void)
+void USeqAct_CameraLookAt::UpdateObject()
 {
     int param_1 = (int)this;
 

@@ -1085,7 +1085,7 @@ void UEngine::vf_11c(INT a, INT b) {
 }
 
 // @baa 0x007f7240
-FLOAT UEngine::vf_120(INT a, INT b) {
+FLOAT UEngine::GetMaxTickRate(FLOAT a, UBOOL b) {
 	return 0.0f;
 }
 

@@ -41277,7 +41277,7 @@
     {
      "va": "01612e00",
      "size": 21,
-     "symbol": "?vf_140@URSeqAct_SpeechEventManagerBase@@UAEXXZ"
+     "symbol": "?UpdateObject@URSeqAct_SpeechEventManagerBase@@UAEXXZ"
     },
     {
      "va": "01612d70",
@@ -202810,7 +202810,7 @@
     {
      "va": "00cb91a0",
      "size": 191,
-     "symbol": "?GetNodeTitle@UAnimNode@@UAE?AVFString@@XZ"
+     "symbol": "?GetNodeTitle@UAnimNodeBlendBase@@UAE?AVFString@@XZ"
     },
     {
      "va": "00cc0730",
@@ -211524,7 +211524,7 @@
     {
      "va": "007f7240",
      "size": 5,
-     "symbol": "?vf_120@UEngine@@UAEMHH@Z"
+     "symbol": "?GetMaxTickRate@UEngine@@UAEMMH@Z"
     },
     {
      "va": "007f7250",
@@ -229298,7 +229298,7 @@
     {
      "va": "00907d90",
      "size": 126,
-     "symbol": "?UpdateObject@USeqAct_Switch@@QAEXXZ"
+     "symbol": "?UpdateObject@USeqAct_Switch@@UAEXXZ"
     },
     {
      "va": "00909a50",
@@ -230434,7 +230434,7 @@
     {
      "va": "00907ca0",
      "size": 45,
-     "symbol": "?UpdateObject@USeqAct_ChangeCollision@@QAEXXZ"
+     "symbol": "?UpdateObject@USeqAct_ChangeCollision@@UAEXXZ"
     },
     {
      "va": "00d20240",
@@ -233923,7 +233923,7 @@
     {
      "va": "008e2260",
      "size": 1,
-     "symbol": "?vf_140@USequence@@UAEXXZ"
+     "symbol": "?UpdateObject@USequence@@UAEXXZ"
     },
     {
      "va": "008e22c0",
@@ -237918,7 +237918,7 @@
     {
      "va": "009076e0",
      "size": 35,
-     "symbol": "?vf_140@USeqAct_CameraLookAt@@UAEXXZ"
+     "symbol": "?UpdateObject@USeqAct_CameraLookAt@@UAEXXZ"
     },
     {
      "va": "00907cd0",

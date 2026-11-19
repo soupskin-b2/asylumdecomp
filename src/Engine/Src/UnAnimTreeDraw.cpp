@@ -91,7 +91,7 @@ inline UBOOL operator!=(const FName& A, EName N) { return A.Index != N || A.Numb
 
 
 // @baa 0x00cb91a0
-FString UAnimNode::GetNodeTitle()
+FString UAnimNodeBlendBase::GetNodeTitle()
 {
 	FString NodeTitle;
 	FString NodeDesc = ((UClass*)GetClass())->sub_00572f10();

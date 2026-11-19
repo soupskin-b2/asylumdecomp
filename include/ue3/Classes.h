@@ -17631,7 +17631,7 @@ struct UAnimNode : public UAnimObject {
     virtual void SetAnim(FName Sequence); /* 0x15c */
     virtual void SetPosition(FLOAT NewTime, UBOOL bFireNotifies); /* 0x160 */
     virtual void DrawAnimNode(class FCanvas* Canvas, UBOOL bSelected, UBOOL bShowWeight, UBOOL bCurves); /* 0x164 */
-    virtual FString GetNodeTitle(); /* 0x168 */ /* 0x00cb91a0 */
+    virtual FString GetNodeTitle(); /* 0x168 */ /* 0x00c64740 */
     virtual FIntPoint GetConnectionLocation(INT ConnType, INT ConnIndex); /* 0x16c */
     virtual INT GetNumSliders() const; /* 0x170 */
     virtual ESliderType GetSliderType(INT InIndex) const; /* 0x174 */
@@ -17683,7 +17683,7 @@ struct UAnimNodeBlendBase : public UAnimNode {
     virtual void GetBoneAtoms(TArray<FBoneAtom>& Atoms, const TArray<BYTE>& DesiredBones, FBoneAtom& RootMotionDelta, INT& bHasRootMotion); /* 0x144 */
     virtual void vf_154(); /* 0x154 */
     virtual void DrawAnimNode(class FCanvas* Canvas, UBOOL bSelected, UBOOL bShowWeight, UBOOL bCurves); /* 0x164 */
-    virtual FString GetNodeTitle(); /* 0x168 */
+    virtual FString GetNodeTitle(); /* 0x168 */ /* 0x00cb91a0 */
     virtual FIntPoint GetConnectionLocation(INT ConnType, INT ConnIndex); /* 0x16c */
     virtual void GetNodes(TArray<class UAnimNode*>& Nodes); /* 0x184 */
     /* other member functions */
@@ -23277,7 +23277,7 @@ struct UEngine : public USubsystem {
     virtual void PreExit(); /* 0x114 */
     virtual void SetClientTravel(const TCHAR* NextURL, ETravelType InTravelType); /* 0x118 */
     virtual void vf_11c(INT, INT); /* 0x11c */
-    virtual FLOAT vf_120(INT, INT); /* 0x120 */
+    virtual FLOAT GetMaxTickRate(FLOAT DeltaTime, UBOOL bAllowFrameRateSmoothing = TRUE); /* 0x120 */
     virtual void SetProgress(BYTE MessageType, const FString& Title, const FString& Message); /* 0x124 */
     virtual void vf_128(INT); /* 0x128 */
     virtual void vf_12c(INT); /* 0x12c */
@@ -24482,7 +24482,7 @@ struct UGameEngine : public UEngine {
     virtual void PreExit(); /* 0x114 */
     virtual void SetClientTravel(const TCHAR* NextURL, ETravelType InTravelType); /* 0x118 */
     virtual void vf_11c(INT, INT); /* 0x11c */
-    virtual FLOAT vf_120(INT, INT); /* 0x120 */
+    virtual FLOAT GetMaxTickRate(FLOAT DeltaTime, UBOOL bAllowFrameRateSmoothing = TRUE); /* 0x120 */
     virtual void SetProgress(BYTE MessageType, const FString& Title, const FString& Message); /* 0x124 */
     virtual void vf_164(); /* 0x164 */
     virtual void vf_188(); /* 0x188 */
@@ -25446,7 +25446,7 @@ struct USequenceObject : public UObject {
     virtual FIntRect GetSeqObjBoundingBox(); /* 0x134 */
     virtual INT vf_138(INT); /* 0x138 */
     virtual void vf_13c(INT, INT, INT, INT, INT); /* 0x13c */
-    virtual void vf_140(); /* 0x140 */
+    virtual void UpdateObject(); /* 0x140 */ /* 0x008aa2c0 */
     virtual void vf_144(INT, INT, INT); /* 0x144 */
     virtual FString vf_148(); /* 0x148 */
     virtual UINT vf_14c(); /* 0x14c */
@@ -33516,7 +33516,7 @@ struct USequenceOp : public USequenceObject {
     virtual void DrawSeqObj(FCanvas* Canvas, UBOOL bSelected, UBOOL bMouseOver, INT MouseOverConnType, INT MouseOverConnIndex, FLOAT MouseOverTime); /* 0x114 */
     virtual void vf_118(INT, INT, INT, INT, INT, INT); /* 0x118 */
     virtual void vf_11c(INT, INT, INT, INT, INT, INT); /* 0x11c */
-    virtual void vf_140(); /* 0x140 */
+    virtual void UpdateObject(); /* 0x140 */ /* 0x00902260 */
     /* UnrealScript natives */
     void execLinkedVariables(FFrame& Stack, RESULT_DECL); /* 0x008bd2e0 */
     void execGetVectorVars(FFrame& Stack, RESULT_DECL); /* 0x008d7d00 */
@@ -33579,7 +33579,7 @@ struct USequence : public USequenceOp {
     virtual void CheckForErrors(); /* 0x10c */
     virtual void OnCreated(); /* 0x120 */
     virtual void vf_12c(); /* 0x12c */
-    virtual void vf_140(); /* 0x140 */
+    virtual void UpdateObject(); /* 0x140 */
     virtual INT vf_150(); /* 0x150 */
     virtual void vf_154(); /* 0x154 */
     virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
@@ -34995,7 +34995,7 @@ struct USeqAct_CameraLookAt : public USequenceAction {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual void vf_140(); /* 0x140 */
+    virtual void UpdateObject(); /* 0x140 */
     virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void Activated(); /* 0x174 */
     virtual void DeActivated(); /* 0x178 */
@@ -35066,10 +35066,9 @@ struct USeqAct_ChangeCollision : public USequenceAction {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual void vf_140(); /* 0x140 */
+    virtual void UpdateObject(); /* 0x140 */ /* 0x00907ca0 */
     /* registered size 0xdc */
     /* other member functions */
-    void UpdateObject(); /* 0x00907ca0 */
 };
 
 struct USeqAct_CommitMapChange : public USequenceAction {
@@ -35440,7 +35439,7 @@ struct USeqAct_Interp : public USeqAct_Latent {
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void OnCreated(); /* 0x120 */
     virtual void vf_124(); /* 0x124 */
-    virtual void vf_140(); /* 0x140 */
+    virtual void UpdateObject(); /* 0x140 */
     virtual void vf_154(); /* 0x154 */
     virtual void PublishLinkedVariableValues(); /* 0x16c */
     virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
@@ -35814,11 +35813,10 @@ struct USeqAct_Switch : public USequenceAction {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
-    virtual void vf_140(); /* 0x140 */
+    virtual void UpdateObject(); /* 0x140 */ /* 0x00907d90 */
     virtual void Activated(); /* 0x174 */
     virtual void DeActivated(); /* 0x178 */
     /* other member functions */
-    void UpdateObject(); /* 0x00907d90 */
     UINT sub_008eed30(UINT); /* 0x008eed30 */
     /* registered size 0xec */
 };
@@ -38529,7 +38527,7 @@ struct ATerrain : public AInfo {
     TArrayNoInit<FSelectedTerrainVertex> SelectedVertices; /* 0x288 */
     FColor WireframeColor; /* 0x294 */
     /* virtual functions this class introduces (vtable 0x01f8f560) */
-    virtual INT vf_354(); /* 0x354 */
+    virtual void ClearWeightMaps(); /* 0x354 */
     virtual void vf_358(); /* 0x358 */
     virtual void vf_35c(INT, INT, INT, INT); /* 0x35c */
     /* overrides */
@@ -42232,7 +42230,7 @@ struct URSeqAct_BoolCounter : public USequenceAction {
     virtual void OnConnect(USequenceObject *connObj,INT connIdx); /* 0x110 */
     virtual void OnCreated(); /* 0x120 */
     virtual void vf_128(); /* 0x128 */
-    virtual void vf_140(); /* 0x140 */
+    virtual void UpdateObject(); /* 0x140 */
     virtual void Activated(); /* 0x174 */
     /* registered size 0xd4 */
 };
@@ -49445,7 +49443,7 @@ struct URBMWaveController : public USeqAct_Latent {
     virtual void OnConnect(USequenceObject *connObj,INT connIdx); /* 0x110 */
     virtual void OnCreated(); /* 0x120 */
     virtual void vf_128(); /* 0x128 */
-    virtual void vf_140(); /* 0x140 */
+    virtual void UpdateObject(); /* 0x140 */
     virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void Activated(); /* 0x174 */
     virtual void DeActivated(); /* 0x178 */
@@ -60347,7 +60345,7 @@ struct URSeqAct_PlayerDialogueOptions : public USeqAct_Latent {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
-    virtual void vf_140(); /* 0x140 */
+    virtual void UpdateObject(); /* 0x140 */
     virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void DeActivated(); /* 0x178 */
     /* registered size 0x108 */
@@ -61053,7 +61051,7 @@ struct URSeqAct_SpeechEventManagerBase : public URSeqAct_PlaySpeechBase {
     virtual void OnConnect(USequenceObject *connObj,INT connIdx); /* 0x110 */
     virtual void OnCreated(); /* 0x120 */
     virtual void vf_128(); /* 0x128 */
-    virtual void vf_140(); /* 0x140 */
+    virtual void UpdateObject(); /* 0x140 */ /* 0x01612e00 */
     virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void Activated(); /* 0x174 */
     virtual void DeActivated(); /* 0x178 */
@@ -61064,7 +61062,6 @@ struct URSeqAct_SpeechEventManagerBase : public URSeqAct_PlaySpeechBase {
     /* other member functions */
     void eventPlayNextLine(); /* 0x01612140 */
     void eventInputActivated(INT InputID); /* 0x01612170 */
-    void UpdateObject(); /* 0x00902260 */
 };
 
 struct URSeqAct_SpeechEventManager : public URSeqAct_SpeechEventManagerBase {

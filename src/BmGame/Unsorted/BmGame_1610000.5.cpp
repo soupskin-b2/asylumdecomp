@@ -30,9 +30,9 @@ C* C::sub_01612250(INT)
 
 
 // @baa 0x01612e00
-void URSeqAct_SpeechEventManagerBase::vf_140()
+void URSeqAct_SpeechEventManagerBase::UpdateObject()
 {
-    ((URSeqAct_SpeechEventManagerBase*)this)->UpdateObject();
+    Super::UpdateObject();
     vf_1ac();
 }
 

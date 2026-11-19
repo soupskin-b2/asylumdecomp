@@ -480,18 +480,12 @@ FString USeqVar_Group::GetValueStr()
     return GroupName.ToString();
 }
 
-/* slot 0x140 (vf_140) is USequenceObject::UpdateObject; USequenceOp's (0x00902260) refreshes the
- * links from the class defaults. */
-struct USequenceOp_ : public USequenceOp
-{
-    void UpdateObject();
-};
 
 
 // @baa 0x00907ca0
 void USeqAct_ChangeCollision::UpdateObject()
 {
-    ((USequenceOp_*)this)->USequenceOp_::UpdateObject(); // Super::UpdateObject()
+    Super::UpdateObject();
     // convert the old collision flags into a CollisionType
     if (bBlockActors)
     {

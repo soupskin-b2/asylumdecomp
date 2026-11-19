@@ -126,6 +126,21 @@ def subtree(classes, root):
     return out
 
 
+_EXE_VT = None
+
+
+def _slot_entry(cls, off):
+    """The function in cls's vtable (in the exe) at byte offset off, or None if unknown."""
+    global _EXE_VT
+    if _EXE_VT is None:
+        try:
+            _EXE_VT = exe_vtables()
+        except Exception:  # noqa: BLE001  (no game configured: fold as before)
+            _EXE_VT = {}
+    v = _EXE_VT.get(cls)
+    return v[off // 4] if v and off // 4 < len(v) else None
+
+
 def cmd_set(lines, classes, cls, off, decl, quiet=False):
     intro = introducer(classes, cls, off)
     if intro is None:
@@ -158,7 +173,14 @@ def cmd_set(lines, classes, cls, off, decl, quiet=False):
                 m = re.match(r"[ \t]*[^/(]*?\b%s\((?P<p>[^()]*)\)[^;]*;\s*(?P<va>/\* 0x[0-9a-f]{8} \*/)?" % re.escape(s[1]), lines[j])
                 if m and [_norm_type(p) for p in split_params(m.group("p"))] == want:
                     drop.append(j)
-                    if m.group("va") and not rest:
+                    va = int(m.group("va")[5:13], 16) if m.group("va") else None
+                    entry = _slot_entry(k, off)
+                    if va is not None and entry is not None and entry != va:
+                        # a helper's declaration hoisted onto the wrong class: its address isn't this
+                        # class's override, so it mustn't pin the slot here (the virtual replaces it)
+                        print("WARNING %s::%s was pinned to 0x%08x, but %s's slot 0x%03x holds 0x%08x: pin dropped; "
+                              "check what calls 0x%08x by this name" % (k, s[1], va, k, off, entry, va))
+                    elif m.group("va") and not rest:
                         rest = " " + m.group("va")
             lines[d.lineno] = "%svirtual %s; /* 0x%03x */%s\n" % (d.ind, new, off, rest)
             changes.append((k, d.name, split_decl(new)))
@@ -469,6 +491,14 @@ def cmd_verify(classes):
             ds = [d for d in classes[c]["decls"] if d.off == 4 * i]
             if ds and all(d.name != f for d in ds):
                 print("%s 0x%03x: the comment says %s, the compiler puts %s there" % (c, 4 * i, ds[0].name, f))
+                bad += 1
+    # an override's address comment (`virtual ...; /* 0x140 */ /* 0x00902260 */`) must be the exe's entry
+    for c, v in sorted(classes.items()):
+        for d in v["decls"]:
+            m = re.search(r"/\* 0x([0-9a-f]{8}) \*/", d.rest) if d.off is not None else None
+            if m and c in X and d.off // 4 < len(X[c]) and X[c][d.off // 4] != int(m.group(1), 16):
+                print("%s 0x%03x %s: pinned to 0x%s, but the exe's vtable has %08x there"
+                      % (c, d.off, d.name, m.group(1), X[c][d.off // 4]))
                 bad += 1
     # MSVC puts a class's new virtual overloads together, in the reverse of their declaration order: the
     # offsets in the comments must say the same, or calls go to the other overload's slot
