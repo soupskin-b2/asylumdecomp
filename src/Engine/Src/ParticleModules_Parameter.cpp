@@ -36,7 +36,7 @@ void UParticleModuleParameterDynamic::PostEditChange(UProperty* a0) {  }
 void UParticleModuleParameterDynamic::vf_15c(int a0) {  }
 
 // @baa 0x00b33b90
-void UParticleModuleParameterDynamic::vf_160(int a0) {  }
+void UParticleModuleParameterDynamic::GetParticleParametersUtilized(TArray<FString>& a0) {  }
 
 struct C_00b35700 {
     undefined4 sub_00b35700(byte);

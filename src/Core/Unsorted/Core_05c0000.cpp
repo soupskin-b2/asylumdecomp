@@ -98,7 +98,7 @@ struct C_view {
 };
 
 // @baa 0x005c1a00
-void UObject::PreEditChange(UProperty* a)
+void UObject::PreEditChange(FEditPropertyChain& a)
 {
     Modify(0);
 }

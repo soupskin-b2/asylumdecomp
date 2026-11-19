@@ -474,5 +474,7 @@ struct FOutputDevice {
 
 // The error device: GError->Logf reports a fatal error (appErrorf in other builds). Verified: 0x026667a8.
 extern FOutputDevice* GError;
+// The log: GLog->Logf(TEXT(...)), and Exec's default output device (FOutputDevice& Ar = *GLog). 0x025d53e8.
+extern FOutputDevice* GLog;
 
 #endif

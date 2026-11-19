@@ -28,7 +28,7 @@ UBOOL UParticleModuleTypeDataBeam2::HasParentClassChanged() const
 }
 
 // @baa 0x00b50ce0
-void UParticleModuleTypeDataBeam2::vf_174(int a0, int a1, int a2) {  }
+void UParticleModuleTypeDataBeam2::PreUpdate(FParticleEmitterInstance* a0, INT a1, FLOAT a2) {  }
 
 // @baa 0x00b50cf0
 void UParticleModuleTypeDataBeam2::vf_16c(void) {  }

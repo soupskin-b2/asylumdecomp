@@ -249,6 +249,8 @@ def rewrite_definitions(changes, files=None):
     """changes: [(class, old name, (ret, name, params, tail))]. Rewrites `RET Class::Old(PARAMS)` in src/."""
     by_old = {}
     for k, old, new in changes:
+        if old == new[1]:
+            continue  # an overload added beside an existing name: the existing definitions keep theirs
         by_old.setdefault(old, []).append((k, new))
     touched = set()
     for f in files or SRC.rglob("*.cpp"):
@@ -270,6 +272,8 @@ def rewrite_definitions(changes, files=None):
                 def sub(m):
                     nt = (" " + tail) if tail.startswith("const") else ""
                     r = m.group("ret").strip()
+                    if not r and re.match(r"\s*;", m.string[m.end():]):
+                        return m.group(0)  # a qualified call on a line of its own (Super::Old(P);), not a definition
                     newret = (ret.replace("virtual ", "").strip() + " ") if r else ""
                     return "%s%s%s::%s(%s)%s" % (m.group("lead"), newret, k, name, definition_params(m.group("params"), params), nt)
                 t = rx.sub(sub, t)

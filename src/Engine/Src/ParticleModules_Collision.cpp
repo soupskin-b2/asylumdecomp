@@ -23,7 +23,7 @@ UBOOL UParticleModuleCollision::HasUniqueStaticConfigName() const { return 1; }
 int UParticleModuleCollision::vf_114(int a0) { return 32; }
 
 // @baa 0x00b32e00
-int UParticleModuleCollision::vf_138(int a0, int a1, int a2) { return 1; }
+UBOOL UParticleModuleCollision::GenerateLODModuleValues(UParticleModule* a0, FLOAT a1, UParticleLODLevel* a2) { return 1; }
 
 // @baa 0x00b32ff0
 void __stdcall sub_00b32ff0(int a0, int a1, int a2) {  }
@@ -35,7 +35,7 @@ void __stdcall sub_00b33000(int a0, int a1, int a2) {  }
 int UParticleModuleEventReceiverSpawn::vf_114(int a0) { return 0; }
 
 // @baa 0x00b33020
-int UParticleModuleEventReceiverSpawn::vf_118(int a0) { return 0; }
+UINT UParticleModuleEventReceiverSpawn::RequiredBytesPerInstance(FParticleEmitterInstance* a0) { return 0; }
 
 // @baa 0x00b33030
 int UParticleModuleEventReceiverSpawn::vf_11c(int a0, int a1) { return 0; }

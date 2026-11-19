@@ -89,7 +89,7 @@ void __stdcall sub_00baae20(int a0, int a1, int a2) {  }
 void __stdcall sub_00baae30(int a0, int a1, int a2) {  }
 
 // @baa 0x00baae40
-void UParticleModuleTypeDataTrail2::vf_174(int a0, int a1, int a2) {  }
+void UParticleModuleTypeDataTrail2::PreUpdate(FParticleEmitterInstance* a0, INT a1, FLOAT a2) {  }
 
 // @baa 0x00baae50
 int UParticleModuleTypeDataTrail2::vf_114(int a0) { return 36; }

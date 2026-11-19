@@ -63,7 +63,7 @@ void sub_009d7580(void) {  }
 int sub_006311e0(...);
 extern undefined4 g_01f9ec14;
 // @baa 0x009d7590
-int UApexStaticDestructibleComponent::vf_260(void)
+physx::apex::NxApexRenderable * UApexStaticDestructibleComponent::GetApexRenderable() const
 {
     int param_1 = (int)this;
 
@@ -73,10 +73,10 @@ int UApexStaticDestructibleComponent::vf_260(void)
                  ,0x59f,&g_01f9ec14);
   }
   if (*(int *)(param_1 + 0x1c8) != 0) {
-    return *(int *)(param_1 + 0x1c8) + 8;
+    return (physx::apex::NxApexRenderable *)(*(int *)(param_1 + 0x1c8) + 8);
   }
   if (*(int *)(param_1 + 0x1c4) != 0) {
-    return *(int *)(param_1 + 0x1c4) + 0xc;
+    return (physx::apex::NxApexRenderable *)(*(int *)(param_1 + 0x1c4) + 0xc);
   }
   return 0;
 }
@@ -701,7 +701,7 @@ UMaterialInterface* UApexAsset::GetMaterial(INT MaterialIndex) const { return NU
 void UApexAsset::vf_118(void) {  }
 
 // @baa 0x009e92b0
-void UApexAsset::vf_11c(void) {  }
+void UApexAsset::OnApexAssetReset() {  }
 
 // @baa 0x009e92c0
 int sub_005c7a20(void);
@@ -946,7 +946,7 @@ TConstSetBitIterator_009ea180& TConstSetBitIterator_009ea180::operator++()
 // @baa 0x009ea2c0
 // @baa 0x009ea2e0
 // @baa 0x009ea340
-int UApexComponentBase::vf_260(void) { return 0; }
+physx::apex::NxApexRenderable * UApexComponentBase::GetApexRenderable() const { return 0; }
 
 // @baa 0x009ea350
 void UApexComponentBase::UpdateApexEditorState(UProperty* a0) {  }
@@ -1385,16 +1385,8 @@ UMaterialInterface* UApexComponentBase::GetMaterial(INT ElementIndex)
 	return NULL;
 }
 
-// AApexDestructibleActor: forwards a scalar update to the fracture/force helper.
-struct AApexDestructibleActor_ : public AApexDestructibleActor
-{
-	void sub_00803810(FLOAT Value);
-
-	virtual void vf_1b4(FLOAT);
-};
-
 // @baa 0x009d7800
-void AApexDestructibleActor_::vf_1b4(FLOAT Value)
+void AApexDestructibleActor::TickSpecial(FLOAT DeltaSeconds)
 {
-	sub_00803810(Value);
+	Super::TickSpecial(DeltaSeconds);
 }

@@ -12245,22 +12245,22 @@
     {
      "va": "015dfb70",
      "size": 18,
-     "symbol": "?vf_29c@ARBMPathNode_FenceJump@@UAEHH@Z"
+     "symbol": "?AddMyMarker@ARBMPathNode_FenceJump@@UAEHPAUAActor@@@Z"
     },
     {
      "va": "015e00f0",
      "size": 18,
-     "symbol": "?vf_29c@ARBMPathNode_GapJump@@UAEHH@Z"
+     "symbol": "?AddMyMarker@ARBMPathNode_GapJump@@UAEHPAUAActor@@@Z"
     },
     {
      "va": "015e0a20",
      "size": 18,
-     "symbol": "?vf_29c@ARCornerPointBase@@UAEHH@Z"
+     "symbol": "?AddMyMarker@ARCornerPointBase@@UAEHPAUAActor@@@Z"
     },
     {
      "va": "015e0110",
      "size": 19,
-     "symbol": "?vf_180@ARBMPathNode_GapJump@@UAEXXZ"
+     "symbol": "?Spawned@ARBMPathNode_GapJump@@UAEXXZ"
     },
     {
      "va": "015f1f50",
@@ -12280,7 +12280,7 @@
     {
      "va": "015dfb90",
      "size": 40,
-     "symbol": "?vf_180@ARBMPathNode_FenceJump@@UAEXXZ"
+     "symbol": "?Spawned@ARBMPathNode_FenceJump@@UAEXXZ"
     },
     {
      "va": "015e1030",
@@ -78763,7 +78763,7 @@
     {
      "va": "005c1a00",
      "size": 15,
-     "symbol": "?PreEditChange@UObject@@UAEXPAUUProperty@@@Z"
+     "symbol": "?PreEditChange@UObject@@UAEXAAUFEditPropertyChain@@@Z"
     },
     {
      "va": "005c1a30",
@@ -148470,12 +148470,12 @@
     {
      "va": "00803810",
      "size": 3,
-     "symbol": "?vf_1b4@AActor@@UAEXM@Z"
+     "symbol": "?TickSpecial@AActor@@UAEXM@Z"
     },
     {
      "va": "00803820",
      "size": 113,
-     "symbol": "?vf_1b4@APawn@@UAEXM@Z"
+     "symbol": "?TickSpecial@APawn@@UAEXM@Z"
     }
    ]
   },
@@ -169855,7 +169855,7 @@
     {
      "va": "009d7590",
      "size": 83,
-     "symbol": "?vf_260@UApexStaticDestructibleComponent@@UAEHXZ"
+     "symbol": "?GetApexRenderable@UApexStaticDestructibleComponent@@UBEPAVNxApexRenderable@apex@physx@@XZ"
     },
     {
      "va": "009d7620",
@@ -169895,7 +169895,7 @@
     {
      "va": "009d7800",
      "size": 16,
-     "symbol": "?vf_1b4@AApexDestructibleActor_@@UAEXM@Z"
+     "symbol": "?TickSpecial@AApexDestructibleActor@@UAEXM@Z"
     },
     {
      "va": "009d7810",
@@ -170195,7 +170195,7 @@
     {
      "va": "009e92b0",
      "size": 1,
-     "symbol": "?vf_11c@UApexAsset@@UAEXXZ"
+     "symbol": "?OnApexAssetReset@UApexAsset@@UAEXXZ"
     },
     {
      "va": "009e92c0",
@@ -170375,7 +170375,7 @@
     {
      "va": "009ea340",
      "size": 3,
-     "symbol": "?vf_260@UApexComponentBase@@UAEHXZ"
+     "symbol": "?GetApexRenderable@UApexComponentBase@@UBEPAVNxApexRenderable@apex@physx@@XZ"
     },
     {
      "va": "009ea350",
@@ -182045,7 +182045,7 @@
     {
      "va": "00b32e00",
      "size": 8,
-     "symbol": "?vf_138@UParticleModuleCollision@@UAEHHHH@Z"
+     "symbol": "?GenerateLODModuleValues@UParticleModuleCollision@@UAEHPAUUParticleModule@@MPAUUParticleLODLevel@@@Z"
     },
     {
      "va": "00b32fe0",
@@ -182070,7 +182070,7 @@
     {
      "va": "00b33020",
      "size": 5,
-     "symbol": "?vf_118@UParticleModuleEventReceiverSpawn@@UAEHH@Z"
+     "symbol": "?RequiredBytesPerInstance@UParticleModuleEventReceiverSpawn@@UAEIPAUFParticleEmitterInstance@@@Z"
     },
     {
      "va": "00b33030",
@@ -182462,7 +182462,7 @@
     {
      "va": "00b33b90",
      "size": 3,
-     "symbol": "?vf_160@UParticleModuleParameterDynamic@@UAEXH@Z"
+     "symbol": "?GetParticleParametersUtilized@UParticleModuleParameterDynamic@@UAEXAAV?$TArray@VFString@@@@@Z"
     },
     {
      "va": "00b35700",
@@ -216959,7 +216959,7 @@
     {
      "va": "00b50ce0",
      "size": 3,
-     "symbol": "?vf_174@UParticleModuleTypeDataBeam2@@UAEXHHH@Z"
+     "symbol": "?PreUpdate@UParticleModuleTypeDataBeam2@@UAEXPAUFParticleEmitterInstance@@HM@Z"
     },
     {
      "va": "00b50cf0",
@@ -219841,7 +219841,7 @@
     {
      "va": "00b72760",
      "size": 5,
-     "symbol": "?vf_118@UParticleModule@@UAEHH@Z"
+     "symbol": "?RequiredBytesPerInstance@UParticleModule@@UAEIPAUFParticleEmitterInstance@@@Z"
     },
     {
      "va": "00b728d0",
@@ -219871,7 +219871,7 @@
     {
      "va": "00b72f30",
      "size": 8,
-     "symbol": "?vf_118@UParticleModuleLocationEmitter@@UAEHH@Z"
+     "symbol": "?RequiredBytesPerInstance@UParticleModuleLocationEmitter@@UAEIPAUFParticleEmitterInstance@@@Z"
     },
     {
      "va": "00b72f40",
@@ -220881,7 +220881,7 @@
     {
      "va": "00b9bc20",
      "size": 3,
-     "symbol": "?vf_128@UParticleModuleRequired@@UAEXH@Z"
+     "symbol": "?AddModuleCurvesToEditor@UParticleModuleRequired@@UAEXPAUUInterpCurveEdSetup@@@Z"
     },
     {
      "va": "00b9bc30",
@@ -222927,7 +222927,7 @@
     {
      "va": "00baae40",
      "size": 3,
-     "symbol": "?vf_174@UParticleModuleTypeDataTrail2@@UAEXHHH@Z"
+     "symbol": "?PreUpdate@UParticleModuleTypeDataTrail2@@UAEXPAUFParticleEmitterInstance@@HM@Z"
     },
     {
      "va": "00baae50",

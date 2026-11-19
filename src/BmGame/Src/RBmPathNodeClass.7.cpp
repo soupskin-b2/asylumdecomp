@@ -8,25 +8,25 @@ void sub_006837e0();
 void sub_01605da0(void) { sub_006837e0(); }
 
 // @baa 0x015dfb70
-INT ARBMPathNode_FenceJump::vf_29c(INT P)
+INT ARBMPathNode_FenceJump::AddMyMarker(AActor * P)
 {
     return vf_3bc(1);
 }
 
 // @baa 0x015e00f0
-INT ARBMPathNode_GapJump::vf_29c(INT P)
+INT ARBMPathNode_GapJump::AddMyMarker(AActor * P)
 {
     return vf_3bc(1);
 }
 
 // @baa 0x015e0a20
-INT ARCornerPointBase::vf_29c(INT P)
+INT ARCornerPointBase::AddMyMarker(AActor * P)
 {
     return vf_358(1);
 }
 
 // @baa 0x015e0110
-void ARBMPathNode_GapJump::vf_180()
+void ARBMPathNode_GapJump::Spawned()
 {
     Proxy1 = NULL;
     Proxy2 = NULL;
@@ -61,13 +61,13 @@ void ARCornerWallMarkerBase::GetBatmanCornerPositionAndRotation(FLOAT CollisionR
 }
 
 // @baa 0x015dfb90
-/* Slot 0x180 (unnamed in the kit; called for actors spawned at run time): fence jumps always face along X. */
-void ARBMPathNode_FenceJump::vf_180()
+/* Spawned (for actors spawned at run time): fence jumps always face along X. */
+void ARBMPathNode_FenceJump::Spawned()
 {
 	JumpNormal.X = 1.f;
 	JumpNormal.Y = 0.f;
 	JumpNormal.Z = 0.f;
-	Super::vf_180();
+	Super::Spawned();
 }
 
 // @baa 0x015e1030

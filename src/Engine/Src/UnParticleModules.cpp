@@ -281,7 +281,7 @@ void __stdcall sub_00b72740(int a0, int a1, int a2) {  }
 int UParticleModule::vf_114(int a0) { return 0; }
 
 // @baa 0x00b72760
-int UParticleModule::vf_118(int a0) { return 0; }
+UINT UParticleModule::RequiredBytesPerInstance(FParticleEmitterInstance* a0) { return 0; }
 
 // @baa 0x00b728d0
 UBOOL UParticleModuleLocation::HasUniqueStaticConfigName() const { return 1; }
@@ -299,7 +299,7 @@ void UParticleModuleLocationDirect::vf_168(void) {  }
 UBOOL UParticleModuleLocationEmitter::HasUniqueStaticConfigName() const { return 1; }
 
 // @baa 0x00b72f30
-INT UParticleModuleLocationEmitter::vf_118(INT a0) { return 4; }
+UINT UParticleModuleLocationEmitter::RequiredBytesPerInstance(FParticleEmitterInstance* a0) { return 4; }
 
 // @baa 0x00b72f40
 UBOOL UParticleModuleLocationEmitterDirect::HasUniqueStaticConfigName() const { return 1; }
@@ -1194,7 +1194,7 @@ undefined4 * UObject::sub_00b9bc00(void)
 }
 
 // @baa 0x00b9bc20
-void UParticleModuleRequired::vf_128(int a0) {  }
+void UParticleModuleRequired::AddModuleCurvesToEditor(UInterpCurveEdSetup* a0) {  }
 
 // @baa 0x00b9bc30
 int UParticleModuleRequired::vf_130(void) { return 5; }

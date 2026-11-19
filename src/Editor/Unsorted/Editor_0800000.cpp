@@ -360,7 +360,7 @@ struct C_00803540 { C_00803540* sub_00803540(int a0); };
 C_00803540* C_00803540::sub_00803540(int a0) { return this; }
 
 // @baa 0x00803810
-void AActor::vf_1b4(FLOAT a0) {  }
+void AActor::TickSpecial(FLOAT a0) {  }
 
 // @baa 0x00803510
 INT __stdcall sub_00803510(void* Object)
@@ -373,7 +373,7 @@ INT __stdcall sub_00803510(void* Object)
 // @baa 0x00803820
 /* APawn slot 0x1b4 (kit vf_1b4): UE3's APawn::TickSpecial(FLOAT DeltaSeconds): the authority counts down
  * BreathTime (firing BreathTimer when it runs out); a pawn without physics counts down its controller's MoveTimer. */
-void APawn::vf_1b4(FLOAT DeltaSeconds)
+void APawn::TickSpecial(FLOAT DeltaSeconds)
 {
     if (Role == ROLE_Authority && BreathTime > 0.f)
     {
