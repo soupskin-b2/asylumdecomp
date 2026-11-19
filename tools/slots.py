@@ -431,6 +431,19 @@ def cmd_verify(classes):
                 print("%s 0x%03x %s: %s" % (c, 4 * i, f, "the exe inherits it (%08x), the header overrides it" % ex[i] if inh_exe
                                               else "the exe overrides it (%08x), the header inherits %s::%s" % (ex[i], k, f)))
                 bad += 1
+    # MSVC puts a class's new virtual overloads together, in the reverse of their declaration order: the
+    # offsets in the comments must say the same, or calls go to the other overload's slot
+    for c, v in sorted(classes.items()):
+        groups = {}
+        for d in v["decls"]:
+            if d.off is not None and introducer(classes, c, d.off) == c:
+                groups.setdefault(d.name, []).append(d)
+        for n, ds in groups.items():
+            offs = [d.off for d in sorted(ds, key=lambda d: d.lineno)]
+            if len(offs) > 1 and offs != sorted(offs, reverse=True):
+                print("%s::%s: overloads declared at %s; MSVC lays them out in reverse declaration order"
+                      % (c, n, ", ".join("0x%03x" % o for o in offs)))
+                bad += 1
     print("%d classes checked, %d problems" % (len(X), bad))
     return 1 if bad else 0
 
@@ -514,12 +527,15 @@ def main(argv):
             for k, _, s in allchanges:
                 news.setdefault(s[1], set()).update(subtree(classes, k))  # classes that inherit it too
             also = set()
+            callre = {n: re.compile(r"\b%s\s*\(" % re.escape(n)) for n in news}
             for f in SRC.rglob("*.cpp"):
                 t = f.read_text(encoding="utf-8")
-                for n, ks in news.items():
-                    if re.search(r"\b%s\s*\(" % n, t) and any(re.search(r"\b%s_*(?:__\w+)?\b" % k, t) for k in ks):
-                        also.add(f)
-                        break
+                hit = [n for n, r in callre.items() if r.search(t)]
+                if not hit:
+                    continue
+                toks = {re.sub(r"(?:__[0-9a-f]{8}|_+)$", "", w) for w in set(re.findall(r"\b[AUF][A-Z]\w*", t))}
+                if any(news[n] & toks for n in hit):
+                    also.add(f)
             touched |= unshadow(allchanges, also)
             files = sorted(set(files_using(classes, renames)) | touched | also)
             print("%d source files with definitions rewritten; compiling %d that use the old or new names" % (len(touched), len(files)))
