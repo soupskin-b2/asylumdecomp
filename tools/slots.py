@@ -512,7 +512,7 @@ def main(argv):
             # virtual changes their mangled names (QAE -> UAE), and local shadow structs may now clash
             news = {}
             for k, _, s in allchanges:
-                news.setdefault(s[1], set()).add(k.rstrip("_"))
+                news.setdefault(s[1], set()).update(subtree(classes, k))  # classes that inherit it too
             also = set()
             for f in SRC.rglob("*.cpp"):
                 t = f.read_text(encoding="utf-8")

@@ -7,13 +7,9 @@
 /* FName has no comparison operator in Classes.h; this is UE3's FName::operator== body. */
 /* Classes.h declares this as 'virtual INT GetStaticComponentMaskParameterValue(INT, INT, INT, INT, INT, INT, INT)'
  * (placeholder types); this helper carries the real signature. */
-struct UDecalMaterial_ : public UDecalMaterial
-{
-	UBOOL GetStaticComponentMaskParameterValue( FName ParameterName, UBOOL& OutR, UBOOL& OutG, UBOOL& OutB, UBOOL& OutA, FGuid& OutExpressionGuid );
-};
 
 // @baa 0x006bb680
-UBOOL UDecalMaterial_::GetStaticComponentMaskParameterValue( FName ParameterName, UBOOL& OutR, UBOOL& OutG, UBOOL& OutB, UBOOL& OutA, FGuid& OutExpressionGuid )
+UBOOL UMaterial::GetStaticComponentMaskParameterValue( FName ParameterName, UBOOL& OutR, UBOOL& OutG, UBOOL& OutB, UBOOL& OutA, FGuid& OutExpressionGuid )
 {
 	UBOOL bSuccess = FALSE;
 	for ( INT ExpressionIndex = 0; ExpressionIndex < Expressions.Num(); ExpressionIndex++ )
@@ -37,13 +33,9 @@ UBOOL UDecalMaterial_::GetStaticComponentMaskParameterValue( FName ParameterName
 
 /* Classes.h declares this as 'virtual INT GetStaticSwitchParameterValue(INT, INT, INT, INT)'
  * (placeholder types); this helper carries the real signature. */
-struct UDecalMaterial__006bb590 : public UDecalMaterial
-{
-	UBOOL GetStaticSwitchParameterValue( FName ParameterName, UBOOL& OutValue, FGuid& OutExpressionGuid );
-};
 
 // @baa 0x006bb590
-UBOOL UDecalMaterial__006bb590::GetStaticSwitchParameterValue( FName ParameterName, UBOOL& OutValue, FGuid& OutExpressionGuid )
+UBOOL UMaterial::GetStaticSwitchParameterValue( FName ParameterName, UBOOL& OutValue, FGuid& OutExpressionGuid )
 {
 	UBOOL bSuccess = FALSE;
 	for ( INT ExpressionIndex = 0; ExpressionIndex < Expressions.Num(); ExpressionIndex++ )

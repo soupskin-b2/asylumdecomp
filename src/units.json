@@ -175586,12 +175586,12 @@
     {
      "va": "006bb680",
      "size": 285,
-     "symbol": "?GetStaticComponentMaskParameterValue@UDecalMaterial_@@QAEHUFName@@AAH111AAUFGuid@@@Z"
+     "symbol": "?GetStaticComponentMaskParameterValue@UMaterial@@UAEHUFName@@AAH111AAUFGuid@@@Z"
     },
     {
      "va": "006bb590",
      "size": 229,
-     "symbol": "?GetStaticSwitchParameterValue@UDecalMaterial__006bb590@@QAEHUFName@@AAHAAUFGuid@@@Z"
+     "symbol": "?GetStaticSwitchParameterValue@UMaterial@@UAEHUFName@@AAHAAUFGuid@@@Z"
     }
    ]
   },
