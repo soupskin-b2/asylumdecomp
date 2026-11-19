@@ -63303,7 +63303,7 @@ struct UAnalyzeScriptCommandlet : public UCommandlet {
 struct UAnimNodeEditInfo : public UObject {
     /* UnrealEd.AnimNodeEditInfo (native only: no script package describes it) */
     DECLARE_CLASS(UAnimNodeEditInfo, UObject, 0x1, 0x0, UnrealEd)
-    BYTE _native[0x4]; /* C++-only members, to the registered size 0x34 */
+    UClass* AnimNodeClass; /* 0x30 */
     /* virtual functions this class introduces (vtable 0x02257470) */
     virtual void OnDoubleClickNode(UAnimNode* InNode, class WxAnimTreeEditor* InEditor); /* 0x10c */
     virtual void OnCloseAnimTreeEditor(); /* 0x110 */
@@ -63323,7 +63323,8 @@ struct UAnimNodeEditInfo : public UObject {
 struct UAnimNodeEditInfo_AimOffset : public UAnimNodeEditInfo {
     /* UnrealEd.AnimNodeEditInfo_AimOffset (native only: no script package describes it) */
     DECLARE_CLASS(UAnimNodeEditInfo_AimOffset, UAnimNodeEditInfo, 0x0, 0x0, UnrealEd)
-    BYTE _native[0x8]; /* C++-only members, to the registered size 0x3c */
+    struct WxAnimAimOffsetEditor* EditWindow; /* 0x34 */
+    UAnimNodeAimOffset* EditNode; /* 0x38 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -63346,7 +63347,11 @@ struct UFactory : public UObject {
     class UClass* ContextClass; /* 0x34 */
     FString Description; /* 0x38 */
     TArrayNoInit<FString> Formats; /* 0x44 */
-    BYTE _native2[0x8];
+    BITFIELD bCreateNew:1; /* 0x50 */
+    BITFIELD bEditAfterNew:1;
+    BITFIELD bEditorImport:1;
+    BITFIELD bText:1;
+    INT AutoPriority; /* 0x54 */
     TArray<FString> ValidGameNames; /* 0x58 */
     /* virtual functions this class introduces (vtable 0x01e8c198) */
     virtual UClass* ResolveSupportedClass(); /* 0x10c */
@@ -63600,8 +63605,8 @@ struct UThumbnailRenderer : public UObject {
 struct UIconThumbnailRenderer : public UThumbnailRenderer {
     /* UnrealEd.IconThumbnailRenderer (native only: no script package describes it) */
     DECLARE_CLASS(UIconThumbnailRenderer, UThumbnailRenderer, 0x0, 0x0, UnrealEd)
-    FStringNoInit Native_30; /* 0x30: C++ only (destroyed by its destructor) */
-    BYTE _native[0x4]; /* C++-only members, to the registered size 0x40 */
+    FStringNoInit IconName; /* 0x30 */
+    UTexture2D* Icon; /* 0x3c */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -64578,7 +64583,7 @@ struct UChannelDownload : public UDownload {
     UChannelDownload() { *(DWORD*)((BYTE*)this + 0xa60) = 0x1; }
     void StaticConstructor(); /* 0x00df4400 */
     void InitializeIntrinsicPropertyValues(); /* 0x00dfa3e0 */
-    BYTE _native[0x4]; /* C++-only members, to the registered size 0xa68 */
+    UFileChannel* Ch; /* 0xa64 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -65348,8 +65353,8 @@ struct UControlChannel : public UChannel, public FOutputDevice {
     DECLARE_CLASS(UControlChannel, UChannel, 0x8, 0x0, Engine)
     UControlChannel() { *(DWORD*)((BYTE*)this + 0x70) = 0; *(DWORD*)((BYTE*)this + 0x74) = 0; *(DWORD*)((BYTE*)this + 0x78) = 0; }
     void InitializeIntrinsicPropertyValues(); /* 0x00df30d0 */
-    BYTE _native0[0x4];
-    TArrayNoInit<FString> Native_70; /* 0x70: C++ only (destroyed by its destructor) */
+    UBOOL bNeedsEndianInspection; /* 0x6c */
+    TArrayNoInit<FString> QueuedMessages; /* 0x70 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -65442,7 +65447,15 @@ struct UCurveEdOptions : public UObject {
     /* UnrealEd.CurveEdOptions (native only: no script package describes it) */
     DECLARE_CLASS(UCurveEdOptions, UObject, 0x4, 0x0, UnrealEd)
     static const TCHAR* StaticConfigName() { return TEXT("EditorUserSettings"); }
-    BYTE _native[0x78]; /* C++-only members, to the registered size 0xa8 */
+    FLOAT MinViewRange; /* 0x30 */
+    FLOAT MaxViewRange; /* 0x34 */
+    FLinearColor BackgroundColor; /* 0x38 */
+    FLinearColor LabelColor; /* 0x48 */
+    FLinearColor SelectedLabelColor; /* 0x58 */
+    FLinearColor GridColor; /* 0x68 */
+    FLinearColor GridTextColor; /* 0x78 */
+    FLinearColor LabelBlockBkgColor; /* 0x88 */
+    FLinearColor SelectedKeyColor; /* 0x98 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -65473,7 +65486,9 @@ struct UCurveEdPresetCurveFactoryNew : public UFactory {
 struct UCurveEdPreset_CosWave : public UCurveEdPresetBase {
     /* UnrealEd.CurveEdPreset_CosWave (native only: no script package describes it) */
     DECLARE_CLASS(UCurveEdPreset_CosWave, UCurveEdPresetBase, 0x0, 0x0, UnrealEd)
-    BYTE _native[0xc]; /* C++-only members, to the registered size 0x3c */
+    FLOAT Frequency; /* 0x30 */
+    FLOAT Scale; /* 0x34 */
+    FLOAT Offset; /* 0x38 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -65483,7 +65498,10 @@ struct UCurveEdPreset_CosWave : public UCurveEdPresetBase {
 struct UCurveEdPreset_LinearDecay : public UCurveEdPresetBase {
     /* UnrealEd.CurveEdPreset_LinearDecay (native only: no script package describes it) */
     DECLARE_CLASS(UCurveEdPreset_LinearDecay, UCurveEdPresetBase, 0x0, 0x0, UnrealEd)
-    BYTE _native[0x10]; /* C++-only members, to the registered size 0x40 */
+    FLOAT StartDecay; /* 0x30 */
+    FLOAT StartValue; /* 0x34 */
+    FLOAT EndDecay; /* 0x38 */
+    FLOAT EndValue; /* 0x3c */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -65502,7 +65520,9 @@ struct UCurveEdPreset_Nothing : public UCurveEdPresetBase {
 struct UCurveEdPreset_SineWave : public UCurveEdPresetBase {
     /* UnrealEd.CurveEdPreset_SineWave (native only: no script package describes it) */
     DECLARE_CLASS(UCurveEdPreset_SineWave, UCurveEdPresetBase, 0x0, 0x0, UnrealEd)
-    BYTE _native[0xc]; /* C++-only members, to the registered size 0x3c */
+    FLOAT Frequency; /* 0x30 */
+    FLOAT Scale; /* 0x34 */
+    FLOAT Offset; /* 0x38 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -65512,7 +65532,7 @@ struct UCurveEdPreset_SineWave : public UCurveEdPresetBase {
 struct UCurveEdPreset_UserSet : public UCurveEdPresetBase {
     /* UnrealEd.CurveEdPreset_UserSet (native only: no script package describes it) */
     DECLARE_CLASS(UCurveEdPreset_UserSet, UCurveEdPresetBase, 0x0, 0x0, UnrealEd)
-    BYTE _native[0x4]; /* C++-only members, to the registered size 0x34 */
+    UCurveEdPresetCurve* UserCurve; /* 0x30 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -65616,7 +65636,8 @@ struct UDefaultSizedThumbnailRenderer : public UThumbnailRenderer {
     /* UnrealEd.DefaultSizedThumbnailRenderer (native only: no script package describes it) */
     DECLARE_CLASS(UDefaultSizedThumbnailRenderer, UThumbnailRenderer, 0x5, 0x0, UnrealEd)
     static const TCHAR* StaticConfigName() { return TEXT("Editor"); }
-    BYTE _native[0x8]; /* C++-only members, to the registered size 0x38 */
+    INT DefaultSizeX; /* 0x30 */
+    INT DefaultSizeY; /* 0x34 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -65675,8 +65696,12 @@ struct UPendingLevel : public ULevelBase, public FNetworkNotify {
     DECLARE_CLASS(UPendingLevel, ULevelBase, 0x9, 0x0, Engine)
     UPendingLevel(); /* 0x00c14990 */
     void StaticConstructor(); /* 0x00bf9330 */
-    BYTE _native0[0x14];
-    FStringNoInit Native_9c; /* 0x9c: C++ only (destroyed by its destructor) */
+    UDemoRecDriver* DemoRecDriver; /* 0x88 */
+    UNetDriver* PeerNetDriver; /* 0x8c */
+    UBOOL bSuccessfullyConnected; /* 0x90 */
+    UBOOL bSentJoinRequest; /* 0x94 */
+    INT FilesNeeded; /* 0x98 */
+    FStringNoInit ConnectionError; /* 0x9c */
     TArrayNoInit<FNativeElem_00c06710> Native_a8; /* 0xa8: C++ only (destroyed by its destructor) */
     /* virtual functions this class introduces (vtable 0x02031638) */
     virtual void Tick( FLOAT DeltaTime ); /* 0x10c */
@@ -65748,7 +65773,15 @@ struct UNetDriver : public USubsystem, public FNetObjectNotify {
     void InitializeIntrinsicPropertyValues(); /* 0x00df4e20 */
     FNativeDtor_00c003b0_60 ClientConnections; /* 0x38 */
     class UNetConnection* ServerConnection; /* 0x44 */
-    BYTE _native_48[0x24];
+    FNetworkNotify* Notify; /* 0x48 */
+    UPackageMap* MasterMap; /* 0x4c */
+    FLOAT Time; /* 0x50 */
+    FLOAT ConnectionTimeout; /* 0x54 */
+    FLOAT InitialConnectTimeout; /* 0x58 */
+    FLOAT KeepAliveTime; /* 0x5c */
+    FLOAT RelevantTimeout; /* 0x60 */
+    FLOAT SpawnPrioritySeconds; /* 0x64 */
+    FLOAT ServerTravelPause; /* 0x68 */
     INT MaxClientRate; /* 0x6c */
     BYTE _native_70[0x28];
     TArrayNoInit<FString> Native_98; /* 0x98: C++ only (destroyed by its destructor) */
@@ -65912,7 +65945,17 @@ struct UEditorComponent : public UPrimitiveComponent {
     /* Editor.EditorComponent (native only: no script package describes it) */
     DECLARE_CLASS(UEditorComponent, UPrimitiveComponent, 0x100, 0x0, Editor)
     void StaticConstructor(); /* 0x00eecb50 */
-    BYTE _native[0x2c]; /* C++-only members, to the registered size 0x1d0 */
+    UBOOL bDrawGrid; /* 0x1a4 */
+    UBOOL bDrawPivot; /* 0x1a8 */
+    UBOOL bDrawBaseInfo; /* 0x1ac */
+    FColor GridColorHi; /* 0x1b0 */
+    FColor GridColorLo; /* 0x1b4 */
+    FLOAT PerspectiveGridSize; /* 0x1b8 */
+    UBOOL bDrawWorldBox; /* 0x1bc */
+    UBOOL bDrawColoredOrigin; /* 0x1c0 */
+    FColor PivotColor; /* 0x1c4 */
+    FLOAT PivotSize; /* 0x1c8 */
+    FColor BaseBoxColor; /* 0x1cc */
     /* virtual functions this class introduces (vtable 0x0213b478) */
     virtual INT vf_250(INT, INT); /* 0x250 */
     virtual INT vf_254(); /* 0x254 */
@@ -65998,7 +66041,7 @@ struct UEditorUserSettings : public UObject {
 struct UEditorViewportInput : public UInput {
     /* Editor.EditorViewportInput (native only: no script package describes it) */
     DECLARE_CLASS(UEditorViewportInput, UInput, 0xc, 0x0, Editor)
-    BYTE _native[0x4]; /* C++-only members, to the registered size 0xd0 */
+    UEditorEngine* Editor; /* 0xcc */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -66227,7 +66270,11 @@ struct UFileChannel : public UChannel {
     DECLARE_CLASS(UFileChannel, UChannel, 0x8, 0x0, Engine)
     UFileChannel() { *(DWORD*)((BYTE*)this + 0x5c) = 0; }
     void InitializeIntrinsicPropertyValues(); /* 0x00df3170 */
-    BYTE _native[0x210]; /* C++-only members, to the registered size 0x26c */
+    UChannelDownload* Download; /* 0x5c */
+    FArchive* SendFileAr; /* 0x60 */
+    TCHAR SrcFilename[256]; /* 0x64 */
+    FGuid PackageGUID; /* 0x264 */
+    INT SentData; /* 0x268 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -67940,8 +67987,9 @@ struct ULensFlareEditorOptions : public UObject {
 struct ULensFlareEditorPropertyWrapper : public UObject {
     /* UnrealEd.LensFlareEditorPropertyWrapper (native only: no script package describes it) */
     DECLARE_CLASS(ULensFlareEditorPropertyWrapper, UObject, 0x0, 0x0, UnrealEd)
-    FLensFlareElement Native_30; /* 0x30: C++ only (destroyed by its destructor) */
-    BYTE _native[0x8]; /* C++-only members, to the registered size 0x178 */
+    FLensFlareElement Element; /* 0x30 */
+    ULensFlare* SourceLensFlare; /* 0x170 */
+    INT ElementIndex; /* 0x174 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -67980,7 +68028,8 @@ struct ULensFlareThumbnailRenderer : public UTextureThumbnailRenderer {
     /* UnrealEd.LensFlareThumbnailRenderer (native only: no script package describes it) */
     DECLARE_CLASS(ULensFlareThumbnailRenderer, UTextureThumbnailRenderer, 0x0, 0x0, UnrealEd)
     static const TCHAR* StaticConfigName() { return TEXT("Editor"); }
-    BYTE _native[0x8]; /* C++-only members, to the registered size 0x38 */
+    UTexture2D* NoImage; /* 0x30 */
+    UTexture2D* OutOfDate; /* 0x34 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -68001,7 +68050,7 @@ struct ULevel : public ULevelBase {
     ULevel(); /* 0x007f89f0 */
     void StaticConstructor(); /* 0x007d7710 */
     class UModel* Model; /* 0x84 */
-    FNativeDtor_007df800_c Native_88; /* 0x88: C++ only (destroyed by its destructor) */
+    FNativeDtor_007df800_c ModelComponents; /* 0x88 */
     TArrayNoInit<class USequence*> GameSequences; /* 0x94 */
     FNativeDtor_007f57e0_3c Native_a0; /* 0xa0: C++ only (destroyed by its destructor) */
     FNativeDtor_007f5850_50 Native_dc; /* 0xdc: C++ only (destroyed by its destructor) */
@@ -68101,7 +68150,7 @@ struct ULightMapTexture2D : public UTexture2D {
 struct ULightingChannelsObject : public UObject {
     /* Editor.LightingChannelsObject (native only: no script package describes it) */
     DECLARE_CLASS(ULightingChannelsObject, UObject, 0x0, 0x0, Editor)
-    BYTE _native[0x4]; /* C++-only members, to the registered size 0x34 */
+    FLightingChannelContainer LightingChannels; /* 0x30 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -68490,8 +68539,16 @@ struct UMaterialEditorOptions : public UObject {
     /* UnrealEd.MaterialEditorOptions (native only: no script package describes it) */
     DECLARE_CLASS(UMaterialEditorOptions, UObject, 0x4, 0x0, UnrealEd)
     static const TCHAR* StaticConfigName() { return TEXT("EditorUserSettings"); }
-    BYTE _native0[0x4];
-    TArrayNoInit<FString> Native_34; /* 0x34: C++ only (destroyed by its destructor) */
+    BITFIELD bShowGrid:1; /* 0x30 */
+    BITFIELD bShowBackground:1;
+    BITFIELD bHideUnusedConnectors:1;
+    BITFIELD bDrawCurves_DEPRECATED:1;
+    BITFIELD bRealtimeMaterialViewport:1;
+    BITFIELD bRealtimeExpressionViewport:1;
+    BITFIELD bAlwaysRefreshAllPreviews:1;
+    BITFIELD bUseSortedMenus_DEPRECATED:1;
+    BITFIELD bUseUnsortedMenus:1;
+    TArrayNoInit<FString> FavoriteExpressions; /* 0x34 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -68592,7 +68649,7 @@ struct UMaterialInstanceTimeVaryingFactoryNew : public UFactory {
 struct UMemCountThumbnailLabelRenderer : public UThumbnailLabelRenderer {
     /* UnrealEd.MemCountThumbnailLabelRenderer (native only: no script package describes it) */
     DECLARE_CLASS(UMemCountThumbnailLabelRenderer, UThumbnailLabelRenderer, 0x0, 0x0, UnrealEd)
-    BYTE _native[0x4]; /* C++-only members, to the registered size 0x34 */
+    UThumbnailLabelRenderer* AggregatedLabelRenderer; /* 0x30 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -68928,7 +68985,7 @@ struct UObjectSerializer : public UObject {
     /* Core.ObjectSerializer (native only: no script package describes it) */
     DECLARE_CLASS(UObjectSerializer, UObject, 0x10000008, 0x0, Core)
     UObjectSerializer() {  }
-    TArray<FNativeElem_004162b0> Native_30; /* 0x30: C++ only (destroyed by its destructor) */
+    TArray<FNativeElem_004162b0> SerializableObjects; /* 0x30 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -69626,7 +69683,7 @@ struct UPackageMapLevel : public UPackageMap {
     /* Engine.PackageMapLevel (native only: no script package describes it) */
     DECLARE_CLASS(UPackageMapLevel, UPackageMap, 0x8, 0x0, Engine)
     void StaticConstructor(); /* 0x00df4470 */
-    BYTE _native[0x4]; /* C++-only members, to the registered size 0xb8 */
+    UNetConnection* Connection; /* 0xb4 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -69682,7 +69739,8 @@ struct UParticleSystemThumbnailRenderer : public UTextureThumbnailRenderer {
     /* UnrealEd.ParticleSystemThumbnailRenderer (native only: no script package describes it) */
     DECLARE_CLASS(UParticleSystemThumbnailRenderer, UTextureThumbnailRenderer, 0x0, 0x0, UnrealEd)
     static const TCHAR* StaticConfigName() { return TEXT("Editor"); }
-    BYTE _native[0x8]; /* C++-only members, to the registered size 0x38 */
+    UTexture2D* NoImage; /* 0x30 */
+    UTexture2D* OutOfDate; /* 0x34 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -70835,9 +70893,9 @@ struct UScriptStruct : public UStruct {
     /* Core.ScriptStruct (native only: no script package describes it) */
     DECLARE_CLASS(UScriptStruct, UStruct, 0x10000000, 0x10, Core)
     UScriptStruct(); /* 0x00575530 */
-    FString Native_84; /* 0x84: C++ only (destroyed by its destructor) */
-    BYTE _native1[0x4];
-    TArray<BYTE> Native_94; /* 0x94: C++ only (destroyed by its destructor) */
+    FString DefaultStructPropText; /* 0x84 */
+    DWORD StructFlags; /* 0x90 */
+    TArray<BYTE> StructDefaults; /* 0x94 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -71204,7 +71262,7 @@ struct USoundSurroundFactory : public UFactory {
     USoundSurroundFactory() { *(DWORD*)((BYTE*)this + 0x50) |= 0x4; }
     void StaticConstructor(); /* 0x00f237c0 */
     void InitializeIntrinsicPropertyValues(); /* 0x00f23880 */
-    BYTE _native[0x4]; /* C++-only members, to the registered size 0x68 */
+    FLOAT CueVolume; /* 0x64 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -71457,7 +71515,58 @@ struct UTerrainEditOptions : public UObject {
     /* UnrealEd.TerrainEditOptions (native only: no script package describes it) */
     DECLARE_CLASS(UTerrainEditOptions, UObject, 0x4, 0x0, UnrealEd)
     static const TCHAR* StaticConfigName() { return TEXT("EditorUserSettings"); }
-    BYTE _native[0xc8]; /* C++-only members, to the registered size 0xf8 */
+    INT Solid1_Strength; /* 0x30 */
+    INT Solid1_Radius; /* 0x34 */
+    INT Solid1_Falloff; /* 0x38 */
+    INT Solid2_Strength; /* 0x3c */
+    INT Solid2_Radius; /* 0x40 */
+    INT Solid2_Falloff; /* 0x44 */
+    INT Solid3_Strength; /* 0x48 */
+    INT Solid3_Radius; /* 0x4c */
+    INT Solid3_Falloff; /* 0x50 */
+    INT Solid4_Strength; /* 0x54 */
+    INT Solid4_Radius; /* 0x58 */
+    INT Solid4_Falloff; /* 0x5c */
+    INT Solid5_Strength; /* 0x60 */
+    INT Solid5_Radius; /* 0x64 */
+    INT Solid5_Falloff; /* 0x68 */
+    INT Noisy1_Strength; /* 0x6c */
+    INT Noisy1_Radius; /* 0x70 */
+    INT Noisy1_Falloff; /* 0x74 */
+    INT Noisy2_Strength; /* 0x78 */
+    INT Noisy2_Radius; /* 0x7c */
+    INT Noisy2_Falloff; /* 0x80 */
+    INT Noisy3_Strength; /* 0x84 */
+    INT Noisy3_Radius; /* 0x88 */
+    INT Noisy3_Falloff; /* 0x8c */
+    INT Noisy4_Strength; /* 0x90 */
+    INT Noisy4_Radius; /* 0x94 */
+    INT Noisy4_Falloff; /* 0x98 */
+    INT Noisy5_Strength; /* 0x9c */
+    INT Noisy5_Radius; /* 0xa0 */
+    INT Noisy5_Falloff; /* 0xa4 */
+    INT Current_Tool; /* 0xa8 */
+    INT Current_Brush; /* 0xac */
+    INT Current_Strength; /* 0xb0 */
+    INT Current_Radius; /* 0xb4 */
+    INT Current_Falloff; /* 0xb8 */
+    BITFIELD bSoftSelectEnabled:1; /* 0xbc */
+    BITFIELD bConstrainedEditing:1;
+    BITFIELD bShowDecoarationMeshes:1;
+    INT Current_MirrorFlag; /* 0xc0 */
+    INT SliderRange_Low_Strength; /* 0xc4 */
+    INT SliderRange_High_Strength; /* 0xc8 */
+    INT SliderRange_Low_Radius; /* 0xcc */
+    INT SliderRange_High_Radius; /* 0xd0 */
+    INT SliderRange_Low_Falloff; /* 0xd4 */
+    INT SliderRange_High_Falloff; /* 0xd8 */
+    FColor TerrainLayerBrowser_BackgroundColor; /* 0xdc */
+    FColor TerrainLayerBrowser_BackgroundColor2; /* 0xe0 */
+    FColor TerrainLayerBrowser_BackgroundColor3; /* 0xe4 */
+    FColor TerrainLayerBrowser_SelectedColor; /* 0xe8 */
+    FColor TerrainLayerBrowser_SelectedColor2; /* 0xec */
+    FColor TerrainLayerBrowser_SelectedColor3; /* 0xf0 */
+    FColor TerrainLayerBrowser_BorderColor; /* 0xf4 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -71468,7 +71577,8 @@ struct UTerrainExporterT3D : public UExporter {
     /* Editor.TerrainExporterT3D (native only: no script package describes it) */
     DECLARE_CLASS(UTerrainExporterT3D, UExporter, 0x0, 0x0, Editor)
     void InitializeIntrinsicPropertyValues(); /* 0x00f27480 */
-    BYTE _native[0x8]; /* C++-only members, to the registered size 0x60 */
+    UObjectExporterT3D* ObjectExporter; /* 0x58 */
+    UBOOL bExportingTerrainOnly; /* 0x5c */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -71481,7 +71591,7 @@ struct UTerrainFactory : public UFactory {
     DECLARE_CLASS(UTerrainFactory, UFactory, 0x0, 0x0, Editor)
     UTerrainFactory() { *(DWORD*)((BYTE*)this + 0x50) |= 0x4; }
     void InitializeIntrinsicPropertyValues(); /* 0x00f547a0 */
-    BYTE _native[0x4]; /* C++-only members, to the registered size 0x68 */
+    void* ActorMap; /* 0x64 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -71851,7 +71961,8 @@ struct UTextureMovieFactory : public UFactory {
     UTextureMovieFactory() { *(DWORD*)((BYTE*)this + 0x50) |= 0x4; }
     void StaticConstructor(); /* 0x00f281f0 */
     void InitializeIntrinsicPropertyValues(); /* 0x00f23e50 */
-    BYTE _native[0x4]; /* C++-only members, to the registered size 0x68 */
+    BYTE MovieStreamSource; /* 0x64 */
+    BYTE _native[0x3]; /* C++-only members, to the registered size 0x68 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -71864,7 +71975,9 @@ struct UTextureRenderTargetCubeFactoryNew : public UFactory {
     DECLARE_CLASS(UTextureRenderTargetCubeFactoryNew, UFactory, 0x0, 0x0, Editor)
     void StaticConstructor(); /* 0x00f28990 */
     void InitializeIntrinsicPropertyValues(); /* 0x00f20c00 */
-    BYTE _native[0x8]; /* C++-only members, to the registered size 0x6c */
+    INT Width; /* 0x64 */
+    BYTE Format; /* 0x68 */
+    BYTE _native[0x3]; /* C++-only members, to the registered size 0x6c */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -71877,7 +71990,10 @@ struct UTextureRenderTargetFactoryNew : public UFactory {
     DECLARE_CLASS(UTextureRenderTargetFactoryNew, UFactory, 0x0, 0x0, Editor)
     void StaticConstructor(); /* 0x00f284d0 */
     void InitializeIntrinsicPropertyValues(); /* 0x00f20ba0 */
-    BYTE _native[0xc]; /* C++-only members, to the registered size 0x70 */
+    INT Width; /* 0x64 */
+    INT Height; /* 0x68 */
+    BYTE Format; /* 0x6c */
+    BYTE _native[0x3]; /* C++-only members, to the registered size 0x70 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -72379,9 +72495,11 @@ struct UWorld : public UObject, public FNetworkNotify {
     TArrayNoInit<class AActor*> Native_124; /* 0x124: C++ only (destroyed by its destructor) */
     BYTE _native3[0x1c];
     class ULineBatchComponent* PersistentLineBatcher; /* 0x14c */
-    BYTE _native_150[0xc];
+    UBOOL bShowLineChecks; /* 0x150 */
+    UBOOL bShowExtentLineChecks; /* 0x154 */
+    UBOOL bShowPointChecks; /* 0x158 */
     FRBPhysScene* RBPhysScene; /* 0x15c */
-    BYTE _native_160[0x4];
+    struct FNxDebugRenderer* DebugRenderer; /* 0x160 */
     TArrayNoInit<class URB_BodyInstance*> BodyInstancePool; /* 0x164 */
     TArrayNoInit<class URB_ConstraintInstance*> ConstraintInstancePool; /* 0x170 */
     FLOAT TimeSinceLastPendingKillPurge; /* 0x17c */

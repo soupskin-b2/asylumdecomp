@@ -5,8 +5,12 @@
     python tools/natives.py set CLASS 0xOFF "DECL"      one member, e.g. "class ULevel* PersistentLevel"
     python tools/natives.py apply FILE [--no-src]       many: lines "CLASS 0xOFF DECL" (# comments)
 
+A DECL of bitfields, "BITFIELD bA:1, bB:1, bC:1", places them as one DWORD at the offset (the first
+bit is the lowest, as MSVC packs them).
+
 A member goes where the offset says: into a blob (split around it) or over a member that starts there
-with the same size (a Native_XX placeholder, renamed and retyped). The headers are compiled before
+with the same size (a Native_XX placeholder: renamed, its type kept, since it comes from the game's
+constructor or destructor). The headers are compiled before
 and after; every placed member must land on its offset and no class may change size, or nothing is
 written. Then src/ code that used the old names (Native_XX) is fixed where the compiler points at them;
 what can't be fixed that way is listed. Run the units on the files it names before committing.
@@ -57,7 +61,17 @@ def layouts(out: str):
     return res
 
 
+def _bits(decl: str):
+    """[(name, nbits)] for a "BITFIELD a:1, b:1" declaration, else None"""
+    m = re.fullmatch(r"\s*BITFIELD\s+(\w+\s*:\s*\d+(?:\s*,\s*\w+\s*:\s*\d+)*)\s*;?\s*", decl)
+    if not m:
+        return None
+    return [(n, int(b)) for n, b in re.findall(r"(\w+)\s*:\s*(\d+)", m.group(1))]
+
+
 def _type_and_name(decl: str):
+    if _bits(decl):
+        return "DWORD", _bits(decl)[0][0], ""
     m = re.match(r"^(.*?)\s*\b(\w+)\s*(\[[^\]]+\])?\s*;?\s*$", decl.strip())
     if not m:
         raise SystemExit("can't read the declaration %r" % decl)
@@ -109,6 +123,9 @@ def place(lines, lay, reqs):
         ind = re.match(r"\s*", lines[ln]).group(0)
         blob = re.match(r"\s*BYTE (_native\w*)\[(0x[0-9a-f]+|\d+)\];(.*)$", lines[ln].rstrip("\n"))
         new = "%s%s %s%s; /* 0x%x */\n" % (ind, t, n, arr, off)
+        if _bits(decl):
+            new = "".join("%sBITFIELD %s:%d;%s\n" % (ind, bn, nb, " /* 0x%x */" % off if k == 0 else "")
+                          for k, (bn, nb) in enumerate(_bits(decl)))
         if blob:
             bsize = int(blob.group(2), 0)
             if off + size > o + bsize:
@@ -130,6 +147,12 @@ def place(lines, lay, reqs):
         else:
             if o != off or end - o < size:
                 raise SystemExit("%s 0x%x: lands inside %s (0x%x..0x%x), not on a blob" % (cls, off, name, o, end))
+            old = re.match(r"\s*(.*?)\s*\b%s\b\s*(\[[^\]]*\])?\s*;" % re.escape(name), lines[ln])
+            if old and re.match(r"Native_[0-9a-f]+$", name) and old.group(1) != t:
+                # a Native_XX placeholder's type comes from the game's code (its destructor or
+                # constructor): it stays, and only the name changes
+                print("%s 0x%x: keeping %s's type %s (not %s)" % (cls, off, name, old.group(1), t))
+                new = "%s%s %s%s; /* 0x%x */\n" % (ind, old.group(1), n, old.group(2) or "", off)
             lines[ln] = new
             if name != n:
                 renames.append((cls, name, n))
@@ -138,8 +161,9 @@ def place(lines, lay, reqs):
 
 def check(reqs):
     """compile, and compare every placed member's offset and every class's size with before"""
+    # (a bitfield has no offsetof: the class size and the members after it keep it honest)
     probe = "".join("typedef char __natoff%d[(offsetof(%s, %s) == 0x%x) ? 1 : -1];\n" % (i, c, _type_and_name(d)[1], off)
-                    for i, (c, off, d, _) in enumerate(reqs))
+                    for i, (c, off, d, _) in enumerate(reqs) if not _bits(d))
     return _compile("#include <stddef.h>\n" + probe)
 
 
