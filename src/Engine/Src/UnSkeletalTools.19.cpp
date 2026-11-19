@@ -10,9 +10,7 @@
 enum { VER_AA_SHADOW_EDGES_WORDS = 5 };
 /* the package version that added the influence index pairs (name assumed) */
 enum { VER_AA_LOD_INFLUENCE_PAIRS = 0x216 };
-inline FArchive& operator<<(FArchive& Ar, INT& I) { Ar.ByteOrderSerialize(&I, sizeof(I)); return Ar; }
 
-inline FArchive& operator<<(FArchive& Ar, DWORD& D) { Ar.ByteOrderSerialize(&D, sizeof(D)); return Ar; }
 
 /* IsLoading is restated as this build compiles it (the flag normalized to 0/1), which the kit's inline doesn't do. */
 class FArchive_ : public FArchive

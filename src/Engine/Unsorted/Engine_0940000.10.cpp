@@ -1,6 +1,7 @@
 // Engine_0940000.cpp: 3 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
+#define BAA_NO_ARCHIVE_OPERATORS /* this file inlines ByteOrderSerialize: its own operator<< below */
 #include "ue3/Classes.h"
 
 /* ByteOrderSerialize is restated as UnArc.h has it

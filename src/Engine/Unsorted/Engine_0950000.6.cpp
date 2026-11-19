@@ -6,9 +6,7 @@
 #include "ue3/Classes.h"
 #include "ue3/Array.h"
 
-inline FArchive& operator<<(FArchive& Ar, INT& I) { Ar.ByteOrderSerialize(&I, sizeof(I)); return Ar; }
 
-inline FArchive& operator<<(FArchive& Ar, WORD& W) { Ar.ByteOrderSerialize(&W, sizeof(W)); return Ar; }
 
 /* FkDOPCollisionTriangle (UnkDOP.h): a triangle of a kDOP tree. Not in the kit. */
 struct FkDOPCollisionTriangle

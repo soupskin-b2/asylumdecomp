@@ -3,11 +3,9 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
 
-inline FArchive& operator<<(FArchive& Ar, FLOAT& F) { Ar.ByteOrderSerialize(&F, sizeof(F)); return Ar; }
 
 inline FArchive& operator<<(FArchive& Ar, FVector& V) { return Ar << V.X << V.Y << V.Z; }
 
-inline FArchive& operator<<(FArchive& Ar, BYTE& B) { Ar.Serialize(&B, 1); return Ar; }
 
 /* FPackedNormal (UnMath.h): a unit vector packed into 4 bytes. */
 struct FPackedNormal

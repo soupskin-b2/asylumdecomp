@@ -81,7 +81,6 @@ void OuterClass::sub_00948000()
 	Inner = NULL;
 }
 
-inline FArchive& operator<<(FArchive& Ar, INT& I) { Ar.ByteOrderSerialize(&I, sizeof(I)); return Ar; }
 
 FArchive& operator<<(FArchive& Ar, FSimpleBox& Box);
 // @baa 0x00943a30

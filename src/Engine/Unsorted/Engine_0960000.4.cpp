@@ -6,7 +6,6 @@
 #include "ue3/Classes.h"
 #include "ue3/Array.h"
 
-inline FArchive& operator<<(FArchive& Ar, INT& I) { Ar.ByteOrderSerialize(&I, sizeof(I)); return Ar; }
 
 /* FNativeElem_007b9350 is the kit's stand-in for UBOOL elements (the kit types UBOOL as int, which would
  * make this TArray<INT>'s serializer, a different function at 0x0054cc70). */

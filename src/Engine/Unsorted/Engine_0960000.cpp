@@ -2039,7 +2039,6 @@ S009652b0* sub_009652b0_probe()
 /* the package versions this build writes (UnObjVer.h); the kit doesn't declare them */
 extern INT GPackageFileVersion;
 extern INT GPackageFileLicenseeVersion;
-inline FArchive& operator<<(FArchive& Ar, INT& I) { Ar.ByteOrderSerialize(&I, sizeof(I)); return Ar; }
 
 /* FkDOPNode (UnkDOP.h): a node of a kDOP tree (0x20 bytes). Not in the kit. */
 struct FkDOPNode

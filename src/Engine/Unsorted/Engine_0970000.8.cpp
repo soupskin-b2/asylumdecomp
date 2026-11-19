@@ -6,7 +6,6 @@
 #include "ue3/Classes.h"
 #include "ue3/Array.h"
 
-inline FArchive& operator<<(FArchive& Ar, INT& I) { Ar.ByteOrderSerialize(&I, sizeof(I)); return Ar; }
 
 /* one index pair of a LOD's influence data (UnSkeletalMesh.h; names assumed). Not in the kit. */
 struct FInfluenceIndexPair

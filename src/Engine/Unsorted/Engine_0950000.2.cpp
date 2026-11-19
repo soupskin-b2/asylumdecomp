@@ -64,9 +64,7 @@ struct FSkelMeshChunk
 /* the out-of-line new(TArray<FSkelMeshChunk>&) instance (Array.h line 1275) */
 template void* operator new<FSkelMeshChunk>(size_t Size, TArray<FSkelMeshChunk>& Array);
 
-inline FArchive& operator<<(FArchive& Ar, INT& I) { Ar.ByteOrderSerialize(&I, sizeof(I)); return Ar; }
 
-inline FArchive& operator<<(FArchive& Ar, WORD& W) { Ar.ByteOrderSerialize(&W, sizeof(W)); return Ar; }
 
 /* UnkDOP.h */
 #define MAX_FLT 3.402823466e+38F

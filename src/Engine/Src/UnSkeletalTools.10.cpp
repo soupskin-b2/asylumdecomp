@@ -6,7 +6,6 @@
 #include "ue3/Classes.h"
 #include "ue3/Array.h"
 
-inline FArchive& operator<<(FArchive& Ar, INT& I) { Ar.ByteOrderSerialize(&I, sizeof(I)); return Ar; }
 
 FArchive& operator<<(FArchive& Ar, FMatrix& M);
 // @baa 0x0094ff60

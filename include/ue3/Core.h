@@ -202,6 +202,23 @@ protected:
 	DWORD ArState4c[12];      /* 0x4c */
 };
 
+/* UnArc.h's operator<< for the basic types (bytes go straight to Serialize, the rest through the
+ * out-of-line ByteOrderSerialize). A file whose original inlines ByteOrderSerialize writes its own:
+ * #define BAA_NO_ARCHIVE_OPERATORS before the #include. */
+#ifndef BAA_NO_ARCHIVE_OPERATORS
+inline FArchive& operator<<(FArchive& Ar, ANSICHAR& C) { Ar.Serialize(&C, 1); return Ar; }
+inline FArchive& operator<<(FArchive& Ar, BYTE& B)     { Ar.Serialize(&B, 1); return Ar; }
+inline FArchive& operator<<(FArchive& Ar, SBYTE& B)    { Ar.Serialize(&B, 1); return Ar; }
+inline FArchive& operator<<(FArchive& Ar, WORD& W)     { Ar.ByteOrderSerialize(&W, sizeof(W)); return Ar; }
+inline FArchive& operator<<(FArchive& Ar, SWORD& S)    { Ar.ByteOrderSerialize(&S, sizeof(S)); return Ar; }
+inline FArchive& operator<<(FArchive& Ar, INT& I)      { Ar.ByteOrderSerialize(&I, sizeof(I)); return Ar; } /* UBOOL too */
+inline FArchive& operator<<(FArchive& Ar, DWORD& D)    { Ar.ByteOrderSerialize(&D, sizeof(D)); return Ar; }
+inline FArchive& operator<<(FArchive& Ar, FLOAT& F)    { Ar.ByteOrderSerialize(&F, sizeof(F)); return Ar; }
+inline FArchive& operator<<(FArchive& Ar, DOUBLE& F)   { Ar.ByteOrderSerialize(&F, sizeof(F)); return Ar; }
+inline FArchive& operator<<(FArchive& Ar, QWORD& Q)    { Ar.ByteOrderSerialize(&Q, sizeof(Q)); return Ar; }
+inline FArchive& operator<<(FArchive& Ar, SQWORD& S)   { Ar.ByteOrderSerialize(&S, sizeof(S)); return Ar; }
+#endif
+
 /* UnTemplate.h: swap, and the quicksort with a compare class (IMPLEMENT_COMPARE_*). Out-of-line Exchange<FLOAT>: 0x0045fea0, 0x007ab150, 0x007b4b00 */
 template<class T> inline void Exchange(T& A, T& B)
 {

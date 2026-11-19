@@ -8,7 +8,6 @@ extern DWORD GCookingTarget;
 enum { PLATFORM_Xenon = 4, PLATFORM_PS3 = 8 };
 /* the package version that moved skeletal meshes to GPU-skin vertex data (UnObjVer.h; name assumed) */
 enum { VER_USE_GPUSKIN_VERTEX_DATA = 0x1ed };
-inline FArchive& operator<<(FArchive& Ar, UBOOL& B) { Ar.ByteOrderSerialize(&B, sizeof(B)); return Ar; }
 
 /* FPackedNormal (UnMath.h): a unit vector packed into 4 bytes. */
 struct FPackedNormal

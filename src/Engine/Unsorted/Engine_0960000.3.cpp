@@ -6,7 +6,6 @@
 #include "ue3/Classes.h"
 #include "ue3/Array.h"
 
-inline FArchive& operator<<(FArchive& Ar, INT& I) { Ar.ByteOrderSerialize(&I, sizeof(I)); return Ar; }
 
 // @baa 0x00963790
 /* TArray<UMaterialInterface*>'s operator<< (Array.h): count, then each reference (USkeletalMesh::Materials). */

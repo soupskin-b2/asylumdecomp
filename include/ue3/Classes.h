@@ -113,7 +113,7 @@ enum EThumbnailPrimType
 };
 
 enum EFindName { FNAME_Find, FNAME_Add };
-struct FName { INT Index; INT Number; FName() {} FName(EName N) : Index(N), Number(0) {} explicit FName(const TCHAR* Name, EFindName FindType = FNAME_Add, UBOOL bSplitName = TRUE); /* 0x005d5620 */ UBOOL operator==(const FName& Other) const { return Index == Other.Index && Number == Other.Number; } UBOOL operator!=(const FName& Other) const { return Index != Other.Index || Number != Other.Number; } void sub_005d5620(const TCHAR* Name, INT FindType, UBOOL bSplitName); FString ToString() const; /* 0x005d5690 */ };
+struct FName { INT Index; INT Number; FName() {} INT GetIndex() const { return Index; } FName(EName N) : Index(N), Number(0) {} explicit FName(const TCHAR* Name, EFindName FindType = FNAME_Add, UBOOL bSplitName = TRUE); /* 0x005d5620 */ UBOOL operator==(const FName& Other) const { return Index == Other.Index && Number == Other.Number; } UBOOL operator!=(const FName& Other) const { return Index != Other.Index || Number != Other.Number; } void sub_005d5620(const TCHAR* Name, INT FindType, UBOOL bSplitName); FString ToString() const; /* 0x005d5690 */ };
 template<> TArray<TCHAR>::TArray(INT InNum); /* 0x00417dc0, out of line */
 class FString : public TArray<TCHAR>
 {

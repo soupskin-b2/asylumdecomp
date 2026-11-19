@@ -37,12 +37,8 @@ public:
 // @baa 0x00d4c850
 template void Sort<FSkeletalMeshVertIndexAndZ, CompareUnSkeletalToolsFSkeletalMeshVertIndexAndZConstRef>(FSkeletalMeshVertIndexAndZ* First, INT Num);
 
-/* UE3's FArchive operators for plain values (UnArc.h): byte-order serialization of the value. */
-inline FArchive& operator<<(FArchive& Ar, FLOAT& F) { Ar.ByteOrderSerialize(&F, sizeof(F)); return Ar; }
 
-inline FArchive& operator<<(FArchive& Ar, INT& I) { Ar.ByteOrderSerialize(&I, sizeof(I)); return Ar; }
 
-inline FArchive& operator<<(FArchive& Ar, DWORD& D) { Ar.ByteOrderSerialize(&D, sizeof(D)); return Ar; }
 
 inline FArchive& operator<<(FArchive& Ar, FVector& V) { return Ar << V.X << V.Y << V.Z; }
 

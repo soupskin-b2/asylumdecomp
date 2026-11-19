@@ -731,12 +731,8 @@ undefined4 * C_00d5e810::sub_00d5e810(undefined4 param_2, undefined4 param_3, un
   return param_1;
 }
 
-/* UE3's FArchive operators for plain values (UnArc.h): byte-order serialization of the value. */
-inline FArchive& operator<<(FArchive& Ar, FLOAT& F) { Ar.ByteOrderSerialize(&F, sizeof(F)); return Ar; }
 
-inline FArchive& operator<<(FArchive& Ar, INT& I) { Ar.ByteOrderSerialize(&I, sizeof(I)); return Ar; }
 
-inline FArchive& operator<<(FArchive& Ar, DWORD& D) { Ar.ByteOrderSerialize(&D, sizeof(D)); return Ar; }
 
 inline FArchive& operator<<(FArchive& Ar, FVector& V) { return Ar << V.X << V.Y << V.Z; }
 

@@ -8,7 +8,6 @@
 /* the package versions this build writes (UnObjVer.h); the kit doesn't declare them */
 extern INT GPackageFileVersion;
 extern INT GPackageFileLicenseeVersion;
-inline FArchive& operator<<(FArchive& Ar, INT& I) { Ar.ByteOrderSerialize(&I, sizeof(I)); return Ar; }
 
 /* FPackedNormal (UnMath.h): a unit vector packed into 4 bytes. */
 struct FPackedNormal
