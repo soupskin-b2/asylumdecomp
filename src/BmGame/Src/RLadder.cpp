@@ -21,22 +21,19 @@ void ARLadder::vf_184(void)
   return;
 }
 
-/* Kit gap: TArray::AddItem isn't declared; this build calls it out of line (TArray<AActor*>::AddItem, 0x0075ef50). */
-template<class T> struct TArray_ : public TArray<T>
-{
-	INT AddItem(const T& Item);
-};
+/* out of line in the exe (0075ef50) */
+extern template INT TArray<AActor*>::AddItem(AActor* const& Item);
 
 // @baa 0x01720540
 /* The ladder's related actors: its top and bottom path nodes (those that are set). */
-void ARLadder::SetAnimWeights(const TArray<struct FAnimSlotInfo>& Actors)
+void ARLadder::vf_340(TArray<AActor*>& Actors)
 {
 	if (TopNode)
 	{
-		((TArray_<AActor*>&)Actors).AddItem((AActor*)TopNode);
+		Actors.AddItem((AActor*)TopNode);
 	}
 	if (BottomNode)
 	{
-		((TArray_<AActor*>&)Actors).AddItem((AActor*)BottomNode);
+		Actors.AddItem((AActor*)BottomNode);
 	}
 }

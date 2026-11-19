@@ -390,7 +390,6 @@ void USettings::SetSettingsDataInt(FSettingsData& Data, INT InInt)
 	Data.Value1 = InInt;
 }
 
-
 // @baa 0x00d6e700
 /* Makes a settings value a date/time pair. */
 void USettings::SetSettingsDataDateTime(FSettingsData& Data, INT InPart1, INT InPart2)
@@ -400,7 +399,6 @@ void USettings::SetSettingsDataDateTime(FSettingsData& Data, INT InPart1, INT In
 	Data.Value1 = InPart1;
 	Data.Value2.Dummy = InPart2;
 }
-
 
 // @baa 0x00d67fe0
 /* The date/time pair a settings value holds, or zeros when it isn't one. */
@@ -737,11 +735,9 @@ UBOOL USettings::GetFloatProperty(INT PropertyId, FLOAT& Value)
 	return bFound;
 }
 
-/* Kit gap: TArray::AddItem isn't declared; this element type's copy is out of line (00d70990). */
-template<class T> struct TArrayAddItem_ : public TArray<T>
-{
-	INT AddItem(const T& Item);
-};
+/* out of line in the exe (00d70990) */
+extern template INT TArray<FLocalizedStringSetting>::AddItem(const FLocalizedStringSetting& Item);
+extern template INT TArray<FSettingsProperty>::AddItem(const FSettingsProperty& Item);
 
 // @baa 0x00d76540
 /* Adds the string settings advertised through QoS to QoSSettings. */
@@ -752,7 +748,7 @@ void USettings::GetQoSAdvertisedStringSettings(TArray<FLocalizedStringSetting>& 
 		if (LocalizedSettings(Index).AdvertisementType == ODAT_QoS ||
 			LocalizedSettings(Index).AdvertisementType == ODAT_OnlineServiceAndQoS)
 		{
-			((TArrayAddItem_<FLocalizedStringSetting>&)QoSSettings).AddItem(LocalizedSettings(Index));
+			QoSSettings.AddItem(LocalizedSettings(Index));
 		}
 	}
 }
@@ -766,7 +762,7 @@ void USettings::GetQoSAdvertisedProperties(TArray<FSettingsProperty>& QoSProps)
 		if (Properties(Index).AdvertisementType == ODAT_QoS ||
 			Properties(Index).AdvertisementType == ODAT_OnlineServiceAndQoS)
 		{
-			((TArrayAddItem_<FSettingsProperty>&)QoSProps).AddItem(Properties(Index));
+			QoSProps.AddItem(Properties(Index));
 		}
 	}
 }
@@ -906,7 +902,6 @@ void USettings::SetIntProperty(INT PropertyId, INT Value)
 	}
 }
 
-
 // @baa 0x00d79d10
 /* A property's value as a string; empty when there's no such property. */
 FString USettings::GetPropertyAsString(INT PropertyId)
@@ -979,7 +974,6 @@ void USettings::SetFloatProperty(INT PropertyId, FLOAT Value)
 	}
 }
 
-
 struct USettings__00d759f0 : public USettings
 {
 	FORCEINLINE FSettingsProperty* FindProperty(INT PropertyId)
@@ -1011,7 +1005,6 @@ void USettings::SetStringProperty(INT PropertyId, const FString& Value)
 		}
 	}
 }
-
 
 // @baa 0x00d79de0
 /* The value of the property with this name as a string; empty when there's no such property. */

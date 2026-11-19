@@ -13331,8 +13331,8 @@ struct AActor : public UObject {
     virtual UBOOL AnchorNeedNotBeReachable(); /* 0x334 */
     virtual void NotifyAnchorFindingResult(ANavigationPoint* EndAnchor, APawn* RouteFinder); /* 0x338 */
     virtual UBOOL ShouldHideActor(FVector const& CameraLocation); /* 0x33c */
-    virtual void SetAnimWeights( const TArray<struct FAnimSlotInfo>& SlotInfos ); /* 0x340 */
-    virtual void vf_344(INT); /* 0x344 */
+    virtual void vf_340(TArray<AActor*>& Actors); /* 0x340 */
+    virtual void SetAnimWeights(const TArray<struct FAnimSlotInfo>& SlotInfos); /* 0x344 */
     virtual INT vf_348(INT, INT); /* 0x348 */
     virtual char* vf_34c(); /* 0x34c */
     virtual FVector vf_350(); /* 0x350 */
@@ -37656,7 +37656,7 @@ struct ASkeletalMeshActor : public AActor {
     virtual UAudioComponent* PreviewGetFaceFXAudioComponent(); /* 0x284 */
     virtual class UFaceFXAsset* PreviewGetActorFaceFXAsset(); /* 0x288 */
     virtual void vf_2b8(); /* 0x2b8 */
-    virtual void vf_344(INT); /* 0x344 */
+    virtual void SetAnimWeights(const TArray<struct FAnimSlotInfo>& SlotInfos); /* 0x344 */
     /* registered size 0x1e8 */
 };
 
@@ -37692,7 +37692,7 @@ struct ASkeletalMeshActorMAT : public ASkeletalMeshActor {
     virtual void vf_274(); /* 0x274 */
     virtual void PreviewSetSkelControlScale(FName SkelControlName, FLOAT Scale); /* 0x294 */
     virtual void SetSkelControlStrength(FName SkelControlName, FLOAT ControlStrength); /* 0x298 */
-    virtual void vf_344(INT); /* 0x344 */
+    virtual void SetAnimWeights(const TArray<struct FAnimSlotInfo>& SlotInfos); /* 0x344 */
     /* UnrealScript natives */
     void execMAT_SetAnimPosition(FFrame& Stack, RESULT_DECL); /* 0x00c8fda0 */
     void execMAT_FinishAnimControl(FFrame& Stack, RESULT_DECL); /* 0x00c8ff00 */
@@ -48429,7 +48429,7 @@ struct ARBMPathNode_VariablePositionTraverse : public ARBMPathNode_SpecialMove {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual void SetAnimWeights( const TArray<struct FAnimSlotInfo>& SlotInfos ); /* 0x340 */
+    virtual void vf_340(TArray<AActor*>& Actors); /* 0x340 */
     /* registered size 0x30c */
 };
 
@@ -50476,7 +50476,7 @@ struct ARCinematicActor : public ASkeletalMeshActor {
     virtual void PreviewSetMorphWeight(FName MorphNodeName, FLOAT MorphWeight); /* 0x28c */
     virtual void vf_290(); /* 0x290 */
     virtual void PreviewSetSkelControlScale(FName SkelControlName, FLOAT Scale); /* 0x294 */
-    virtual void vf_344(INT); /* 0x344 */
+    virtual void SetAnimWeights(const TArray<struct FAnimSlotInfo>& SlotInfos); /* 0x344 */
     /* UnrealScript natives */
     void execTeleport(FFrame& Stack, RESULT_DECL); /* 0x016e9f70 */
     void execInternalSetAnimPosition(FFrame& Stack, RESULT_DECL); /* 0x016e9fb0 */
@@ -51486,7 +51486,7 @@ struct ARCornerPointBase : public AActor {
     virtual void vf_184(); /* 0x184 */
     virtual INT AddMyMarker(AActor *S); /* 0x29c */
     virtual void vf_2b8(); /* 0x2b8 */
-    virtual void SetAnimWeights( const TArray<struct FAnimSlotInfo>& SlotInfos ); /* 0x340 */
+    virtual void vf_340(TArray<AActor*>& Actors); /* 0x340 */
     /* registered size 0x1c8 */
 };
 
@@ -55345,7 +55345,7 @@ struct ARLadder : public ARSpecialMoveEnvironmentObject {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void vf_184(); /* 0x184 */
     virtual INT AddMyMarker(AActor *S); /* 0x29c */
-    virtual void SetAnimWeights( const TArray<struct FAnimSlotInfo>& SlotInfos ); /* 0x340 */
+    virtual void vf_340(TArray<AActor*>& Actors); /* 0x340 */
     /* registered size 0x208 */
 };
 
@@ -58407,7 +58407,7 @@ struct ARPontoonBase : public AActor {
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual UBOOL ShouldTrace(UPrimitiveComponent* Primitive, AActor* SourceActor, DWORD TraceFlags); /* 0x198 */
     virtual INT AddMyMarker(AActor *S); /* 0x29c */
-    virtual void SetAnimWeights( const TArray<struct FAnimSlotInfo>& SlotInfos ); /* 0x340 */
+    virtual void vf_340(TArray<AActor*>& Actors); /* 0x340 */
     virtual FVector vf_350(); /* 0x350 */
     /* UnrealScript natives */
     void execBoundsCheck(FFrame& Stack, RESULT_DECL); /* 0x016e9b70 */

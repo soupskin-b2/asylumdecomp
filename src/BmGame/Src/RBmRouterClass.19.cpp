@@ -6,11 +6,8 @@
 #include "ue3/Classes.h"
 #include "ue3/Array.h"
 
-/* Kit gap: TArray::AddItem isn't declared (Array.h); this file calls TArray<FPathNodeInfo>::AddItem out of line. */
-template<class T> struct TArrayAddItem_ : public TArray<T>
-{
-	INT AddItem(const T& Item);
-};
+/* out of line in the exe */
+extern template INT TArray<FPathNodeInfo>::AddItem(const FPathNodeInfo& Item);
 
 // @baa 0x0161bbb0
 /* Appends a node at a position (no owner). */
@@ -20,7 +17,7 @@ void URBMRouterPath::AddNode_Pos(FVector NewPathNode)
 	NewNode.pos = NewPathNode;
 	NewNode.Owner = NULL;
 	NewNode.bIsRPathNode = FALSE;
-	((TArrayAddItem_<FPathNodeInfo>&)PathNodes).AddItem(NewNode);
+	PathNodes.AddItem(NewNode);
 }
 
 // @baa 0x0161bc90

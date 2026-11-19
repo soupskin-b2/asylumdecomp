@@ -10,11 +10,8 @@ extern FName g_026c42d8;
 	/* ENGINE_FillBySphere */
 extern FName g_026c3df4;
 	/* ENGINE_FillByCylinder */
-/* Kit gap: TArray::AddItem isn't declared; this build calls TArray<UActorComponent*>::AddItem out of line (0x0075eeb0). */
-template<class T> struct TArray_ : public TArray<T>
-{
-	INT AddItem(const T& Item);
-};
+/* out of line in the exe (0075eeb0) */
+extern template INT TArray<UActorComponent*>::AddItem(UActorComponent* const& Item);
 
 /* UForceFieldShape's script events (generated glue, EngineClasses.h) */
 struct UForceFieldShape_ : public UForceFieldShape
@@ -66,7 +63,7 @@ void ANxForceFieldRadial::PostLoad()
 		((UForceFieldShape_*)Shape)->eventFillBySphere(ForceRadius);
 		if (DrawComponent)
 		{
-			((TArray_<UActorComponent*>&)Components).AddItem(DrawComponent);
+			Components.AddItem(DrawComponent);
 		}
 	}
 }

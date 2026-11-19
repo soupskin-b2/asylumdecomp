@@ -2727,7 +2727,7 @@ void AActor::NotifyAnchorFindingResult(ANavigationPoint* a0, APawn* a1) {  }
 UBOOL AActor::ShouldHideActor(FVector const& a0) { return 0; }
 
 // @baa 0x0068f170
-void AActor::SetAnimWeights(const TArray<struct FAnimSlotInfo>& a0) {  }
+void AActor::vf_340(TArray<AActor*>& Actors) {  }
 
 // @baa 0x0068f180
 int AActor::vf_348(int a0, int a1) { return 0; }

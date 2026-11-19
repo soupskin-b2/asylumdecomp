@@ -989,12 +989,8 @@ UObject* URAlternateAnimationAndWeaponConfigFactoryNew::FactoryCreateNew(UClass*
 	return StaticConstructObject(InClass, InParent, InName, Flags);
 }
 
-/* Kit gap: TArray::Remove isn't declared; this build calls TArray<FBMScreenShakeStruct>::Remove out of line
- * (0x0156a3d0). */
-template<class T> struct TArray_ : public TArray<T>
-{
-	void Remove(INT Index, INT Count = 1);
-};
+/* out of line in the exe */
+extern template void TArray<FBMScreenShakeStruct>::Remove(INT Index, INT Count);
 
 // @baa 0x0156b630
 /* Updates every active shake (newest first), dropping those that have finished. */
@@ -1004,7 +1000,7 @@ void URBMScreenShakeModifier::UpdateFast(FLOAT DeltaTime, FVector& Loc, FRotator
 	{
 		if (UpdateShake(DeltaTime, Shakes(i), Loc, Rot, FOV))
 		{
-			((TArray_<FBMScreenShakeStruct>&)Shakes).Remove(i, 1);
+			Shakes.Remove(i, 1);
 		}
 	}
 }

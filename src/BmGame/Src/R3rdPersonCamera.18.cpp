@@ -4,11 +4,8 @@
 #include "ue3/Classes.h"
 #include "ue3/Cast.h"
 
-/* Kit gap: TArray::AddItem isn't declared; this build calls it out of line (TArray<FLOAT>::AddItem, 0x00547220). */
-template<class T> struct TArray_ : public TArray<T>
-{
-	INT AddItem(const T& Item);
-};
+/* out of line in the exe (00547220) */
+extern template INT TArray<FLOAT>::AddItem(const FLOAT& Item);
 
 // @baa 0x01694e50
 /* Counts the counter-hit notifies in a strike animation and collects the times of those that should go to slow
@@ -26,7 +23,7 @@ INT ARPawnPlayerCombat::GetNumberOfCounterHits(UAnimSequence* StrikeAnimSequence
 			{
 				if (CounterHit->CounterInfo.HitStrength != 2)
 				{
-					((TArray_<FLOAT>&)SlowMoHitTimes).AddItem(Event.Time);
+					SlowMoHitTimes.AddItem(Event.Time);
 				}
 				NumHits++;
 			}

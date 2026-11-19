@@ -1818,7 +1818,7 @@ bool AActor::sub_00758300(int param_2)
 }
 
 // @baa 0x00758310
-void AActor::vf_344(int a0) {  }
+void AActor::SetAnimWeights(const TArray<struct FAnimSlotInfo>& SlotInfos) {  }
 
 struct C_00758320 { C_00758320* sub_00758320(void); };
 

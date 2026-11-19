@@ -270,7 +270,7 @@ class UFaceFXAsset* ASkeletalMeshActor::PreviewGetActorFaceFXAsset()
 }
 
 // @baa 0x00944ae0
-void ASkeletalMeshActor::vf_344(int a0) {  }
+void ASkeletalMeshActor::SetAnimWeights(const TArray<struct FAnimSlotInfo>& SlotInfos) {  }
 
 struct V_00944af0 {
     virtual void v0();

@@ -8,11 +8,8 @@
 /* UnObjBas.h ConstructObject<T>, out of line in this build (UClass as the project's other callers spell it). */
 
 /* UnObjBas.h RF_Transactional (64-bit object flags). */
-/* TArray::AddItem(const T&), which the kit's Array.h lacks; out of line in this build. */
-template<class T> struct TArrayAddItem_ : public TArray<T>
-{
-    INT AddItem(const T& Item);
-};
+/* out of line in the exe */
+extern template INT TArray<UInterpGroupInst*>::AddItem(UInterpGroupInst* const& Item);
 
 /* Unnamed in the kit: UE3's USeqAct_Interp::AddPlayerToDirectorTracks(APlayerController* PC) (0x00d14240) and the
  * player filter it uses (0x00cf33e0). */
@@ -39,7 +36,7 @@ void USeqAct_Interp::sub_00d14240(APlayerController* PC)
                 {
                     UInterpGroupInstDirector* NewGroupInstDir = ConstructObject<UInterpGroupInstDirector>(
                         (UClass*)UInterpGroupInstDirector::StaticClass(), this, NAME_None, RF_Transactional, NULL, NULL, NULL);
-                    ((TArrayAddItem_<UInterpGroupInst*>&)GroupInst).AddItem(NewGroupInstDir);
+                    GroupInst.AddItem(NewGroupInstDir);
                     NewGroupInstDir->InitGroupInst(DirGroup, PC);
                 }
             }

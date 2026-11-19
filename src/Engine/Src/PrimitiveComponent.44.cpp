@@ -14,18 +14,7 @@ void UCylinderComponent::SetCylinderSize(FLOAT NewRadius, FLOAT NewHeight)
 	BeginDeferredReattach();
 }
 
-/* Kit gap: TArray::AddZeroed isn't declared; this build calls TArray<UMaterialInterface*>::Add out of line
- * (0x006dfb00) and inlines the zeroing (UE3 Array.h AddZeroed). */
-template<class T> struct TArray_ : public TArray<T>
-{
-	INT Add(INT Count);
-	INT AddZeroed(INT Count)
-	{
-		const INT Index = Add(Count);
-		appMemzero((BYTE*)this->GetData() + Index * sizeof(T), Count * sizeof(T));
-		return Index;
-	}
-};
+/* out of line in the exe (006dfb00) */
 
 // @baa 0x006ea640
 /* UMeshComponent::SetMaterial: overrides the element's material (growing the override list as needed) and
@@ -36,7 +25,7 @@ void UMeshComponent::SetMaterial(INT ElementIndex, UMaterialInterface* Material)
 	{
 		if (Materials.Num() <= ElementIndex)
 		{
-			((TArray_<UMaterialInterface*>&)Materials).AddZeroed(ElementIndex + 1 - Materials.Num());
+			Materials.AddZeroed(ElementIndex + 1 - Materials.Num());
 		}
 		Materials(ElementIndex) = Material;
 		BeginDeferredReattach();

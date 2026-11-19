@@ -12290,12 +12290,12 @@
     {
      "va": "015edb20",
      "size": 117,
-     "symbol": "?SetAnimWeights@ARBMPathNode_VariablePositionTraverse@@UAEXABV?$TArray@UFAnimSlotInfo@@@@@Z"
+     "symbol": "?vf_340@ARBMPathNode_VariablePositionTraverse@@UAEXAAV?$TArray@PAVAActor@@@@@Z"
     },
     {
      "va": "015edba0",
      "size": 54,
-     "symbol": "?SetAnimWeights@ARCornerPointBase@@UAEXABV?$TArray@UFAnimSlotInfo@@@@@Z"
+     "symbol": "?vf_340@ARCornerPointBase@@UAEXAAV?$TArray@PAVAActor@@@@@Z"
     },
     {
      "va": "015ef030",
@@ -13248,7 +13248,7 @@
     {
      "va": "0161d510",
      "size": 31,
-     "symbol": "?SetAnimWeights@ARPontoonBase@@UAEXABV?$TArray@UFAnimSlotInfo@@@@@Z"
+     "symbol": "?vf_340@ARPontoonBase@@UAEXAAV?$TArray@PAVAActor@@@@@Z"
     },
     {
      "va": "01616470",
@@ -18361,7 +18361,7 @@
     {
      "va": "01720540",
      "size": 65,
-     "symbol": "?SetAnimWeights@ARLadder@@UAEXABV?$TArray@UFAnimSlotInfo@@@@@Z"
+     "symbol": "?vf_340@ARLadder@@UAEXAAV?$TArray@PAVAActor@@@@@Z"
     }
    ]
   },
@@ -275390,7 +275390,7 @@
     {
      "va": "0068f170",
      "size": 3,
-     "symbol": "?SetAnimWeights@AActor@@UAEXABV?$TArray@UFAnimSlotInfo@@@@@Z"
+     "symbol": "?vf_340@AActor@@UAEXAAV?$TArray@PAVAActor@@@@@Z"
     },
     {
      "va": "0068f180",
@@ -291783,7 +291783,7 @@
     {
      "va": "00758310",
      "size": 3,
-     "symbol": "?vf_344@AActor@@UAEXH@Z"
+     "symbol": "?SetAnimWeights@AActor@@UAEXABV?$TArray@UFAnimSlotInfo@@@@@Z"
     },
     {
      "va": "00758320",
@@ -313191,7 +313191,7 @@
     {
      "va": "00944ae0",
      "size": 3,
-     "symbol": "?vf_344@ASkeletalMeshActor@@UAEXH@Z"
+     "symbol": "?SetAnimWeights@ASkeletalMeshActor@@UAEXABV?$TArray@UFAnimSlotInfo@@@@@Z"
     },
     {
      "va": "00944af0",

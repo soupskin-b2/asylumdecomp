@@ -88,31 +88,28 @@ void ARCornerWallMarkerBase::PostEditChange(UProperty* PropertyThatChanged)
 	Super::PostEditChange(PropertyThatChanged);
 }
 
-/* Kit gap: TArray::AddItem isn't declared; this build calls it out of line (TArray<AActor*>::AddItem, 0x0075ef50). */
-template<class T> struct TArray_ : public TArray<T>
-{
-	INT AddItem(const T& Item);
-};
+/* out of line in the exe (0075ef50) */
+extern template INT TArray<AActor*>::AddItem(AActor* const& Item);
 
 // @baa 0x015edb20
 /* The traverse node's related actors: its two proxies and two end points (those that are set). */
-void ARBMPathNode_VariablePositionTraverse::SetAnimWeights(const TArray<struct FAnimSlotInfo>& Actors)
+void ARBMPathNode_VariablePositionTraverse::vf_340(TArray<AActor*>& Actors)
 {
 	if (Proxy1)
 	{
-		((TArray_<AActor*>&)Actors).AddItem((AActor*)Proxy1);
+		Actors.AddItem((AActor*)Proxy1);
 	}
 	if (Proxy2)
 	{
-		((TArray_<AActor*>&)Actors).AddItem((AActor*)Proxy2);
+		Actors.AddItem((AActor*)Proxy2);
 	}
 	if (EndPoint1)
 	{
-		((TArray_<AActor*>&)Actors).AddItem((AActor*)EndPoint1);
+		Actors.AddItem((AActor*)EndPoint1);
 	}
 	if (EndPoint2)
 	{
-		((TArray_<AActor*>&)Actors).AddItem((AActor*)EndPoint2);
+		Actors.AddItem((AActor*)EndPoint2);
 	}
 }
 
@@ -125,7 +122,7 @@ template<class T> struct TArray__015edba0 : public TArray<T>
 
 // @baa 0x015edba0
 /* The corner point's related actors: its wall markers (those that are set). */
-void ARCornerPointBase::SetAnimWeights(const TArray<struct FAnimSlotInfo>& Actors)
+void ARCornerPointBase::vf_340(TArray<AActor*>& Actors)
 {
 	for (INT i = 0; i < 4; i++)
 	{

@@ -7,11 +7,8 @@
 #include "ue3/Array.h"
 #include "ue3/Cast.h"
 
-/* Kit gap: TArray::AddItem isn't declared (Array.h); this file calls TArray<FPathNodeInfo>::AddItem out of line. */
-template<class T> struct TArrayAddItem_ : public TArray<T>
-{
-	INT AddItem(const T& Item);
-};
+/* out of line in the exe */
+extern template INT TArray<FPathNodeInfo>::AddItem(const FPathNodeInfo& Item);
 
 // @baa 0x0161bbf0
 /* Appends a node at an actor's location, owned by it. */
@@ -28,7 +25,7 @@ INT URBMRouterPath::AddNode_Actor(class AActor* NewPathNode)
 	{
 		NewNode.bIsRPathNode = FALSE;
 	}
-	return ((TArrayAddItem_<FPathNodeInfo>&)PathNodes).AddItem(NewNode);
+	return PathNodes.AddItem(NewNode);
 }
 
 // @baa 0x0161bcf0
