@@ -27,6 +27,22 @@ extern UEngine* g_026c3cdc;
 extern TArray<UObject*> g_026a1ca4;
 #define GObjObjects g_026a1ca4
 
+/* UnRHI's pixel format table (0x24 bytes an entry, indexed by EPixelFormat); matched in
+ * TextureRenderTarget2D.3.cpp */
+struct FPixelFormatInfo {
+    const TCHAR* Name;
+    INT BlockSizeX;
+    INT BlockSizeY;
+    INT BlockSizeZ;
+    INT BlockBytes;
+    INT NumComponents;
+    DWORD PlatformFormat;
+    DWORD Flags;
+    UBOOL Supported;
+};
+extern FPixelFormatInfo g_025da760[];
+#define GPixelFormats g_025da760
+
 /* Recovered from 01189a90 and the iterator constructor/increment functions. */
 class FObjectIterator {
 public:

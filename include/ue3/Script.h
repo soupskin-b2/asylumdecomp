@@ -40,7 +40,36 @@ struct FFrame : public FOutputDevice {
         INT B = *Code++;
         (Context->*GNatives[B])(*this, Result);
     }
+    // Reads a code-skip offset (a WORD) from the bytecode.
+    INT ReadWord() {
+        INT Result = *(WORD*)Code;
+        Code += sizeof(WORD);
+        return Result;
+    }
 };
+
+// Iterator natives (UnScriptMacros.h): the native's loop body runs between PRE_ITERATOR and
+// POST_ITERATOR, once per element; EX_IteratorPop / EX_IteratorNext end each pass.
+enum { EX_IteratorPop = 0x30, EX_IteratorNext = 0x31 };
+#define MAX_SIMPLE_RETURN_VALUE_SIZE 64
+#define PRE_ITERATOR \
+	INT wEndOffset = Stack.ReadWord(); \
+	BYTE B=0, Buffer[MAX_SIMPLE_RETURN_VALUE_SIZE]; \
+	BYTE *StartCode = Stack.Code; \
+	do {
+#define POST_ITERATOR \
+		while( (B=*Stack.Code)!=EX_IteratorPop && B!=EX_IteratorNext ) \
+			Stack.Step( Stack.Object, Buffer ); \
+		if( *Stack.Code++==EX_IteratorNext ) \
+			Stack.Code = StartCode; \
+	} while( B != EX_IteratorPop );
+// Leaves an iterator from inside PRE/POST_ITERATOR (the script's loop end is at wEndOffset)
+#define EXIT_ITERATOR \
+	Stack.Code = &Stack.Node->Script(wEndOffset + 1);
+// Skips the iterator without running it
+#define SKIP_ITERATOR \
+	INT wEndOffset = Stack.ReadWord(); \
+	Stack.Code = &Stack.Node->Script(wEndOffset + 1);
 
 // An object's script state (UObject::StateFrame). Verified: ProbeMask at +0x2c (bit N is probe
 // function NAME_PROBEMIN + N; a clear bit means the object ignores that event). StateNode at +0x28

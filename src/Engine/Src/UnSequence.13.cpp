@@ -61,7 +61,7 @@ UBOOL USeqAct_Delay::UpdateOp(FLOAT DeltaTime)
 		{
 			if (GEngine->bOnScreenKismetWarnings && bOutputObjCommentToScreen)
 			{
-				for (AController* Controller = GWorld->sub_009c8570(); Controller != NULL; Controller = Controller->NextController)
+				for (AController* Controller = GWorld->GetFirstController(); Controller != NULL; Controller = Controller->NextController)
 				{
 					if (Controller->sub_00402b40(sub_00781c50()))
 					{

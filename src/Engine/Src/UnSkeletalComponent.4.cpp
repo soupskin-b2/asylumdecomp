@@ -433,28 +433,6 @@ template<class T> struct TArrayAt_ : public TArray<T>
     }
 };
 
-/* UnScript.h / UnStack.h iterator support, not in the kit */
-enum { EX_IteratorPop = 0x30, EX_IteratorNext = 0x31 };
-enum { MAX_SIMPLE_RETURN_VALUE_SIZE = 64 };
-/* FFrame::ReadWord (UnStack.h) */
-inline INT ReadWord(FFrame& Stack)
-{
-    INT Result = *(WORD*)Stack.Code;
-    Stack.Code += sizeof(WORD);
-    return Result;
-}
-
-#define PRE_ITERATOR \
-    INT wEndOffset = ReadWord(Stack); \
-    BYTE B = 0, Buffer[MAX_SIMPLE_RETURN_VALUE_SIZE]; \
-    BYTE* StartCode = Stack.Code; \
-    do {
-#define POST_ITERATOR \
-        while ((B = *Stack.Code) != EX_IteratorPop && B != EX_IteratorNext) \
-            Stack.Step(Stack.Object, Buffer); \
-        if (*Stack.Code++ == EX_IteratorNext) \
-            Stack.Code = StartCode; \
-    } while (B != EX_IteratorPop);
 /* UObject::IsPendingKill (the kit's vf_038) and IsA (UnObjBas.h) */
 struct UObject_ : public UObject
 {
@@ -487,7 +465,7 @@ void USkeletalMeshComponent::execAttachedComponents(FFrame& Stack, RESULT_DECL)
 
     if (!BaseClass)
     {
-        INT wEndOffset = ReadWord(Stack);
+        INT wEndOffset = Stack.ReadWord();
         Stack.Code = &((TArrayAt_<BYTE>&)Stack.Node->Script).At(wEndOffset + 1);
         return;
     }

@@ -150,7 +150,11 @@ public:
     static FString Printf(const TCHAR* Fmt, ...); /* 0x005488a0 */
 };
 class FStringNoInit : public FString { public: FStringNoInit() : FString(E_NoInit) {} FStringNoInit& operator=(const FString& Other); /* 0x004899f0 */ };
-struct FScriptDelegate { class UObject* Object; FName FunctionName; };
+struct FScriptDelegate {
+    class UObject* Object;
+    FName FunctionName;
+    UBOOL IsCallable(const class UObject* OwnerObject) const; /* 0x00784f80: bound (to Object, or to OwnerObject when Object is NULL) and not pending kill */
+};
 struct FScriptInterface {
     class UObject* Object;
     void* Interface;
@@ -3557,6 +3561,22 @@ struct FVector {
     FORCEINLINE UBOOL IsNearlyZero(FLOAT Tolerance = KINDA_SMALL_NUMBER) const { return appAbs(X) < Tolerance && appAbs(Y) < Tolerance && appAbs(Z) < Tolerance; }
     UBOOL IsZero() const { return X == 0.f && Y == 0.f && Z == 0.f; }
     UBOOL Normalize(FLOAT Tolerance = 1.e-8f); /* 0x005c27d0: SMALL_NUMBER; FALSE (unchanged) if too short */
+    FORCEINLINE FVector SafeNormal(FLOAT Tolerance = SMALL_NUMBER) const
+    {
+        const FLOAT SquareSum = X * X + Y * Y + Z * Z;
+        if (SquareSum == 1.f) return *this;
+        else if (SquareSum < Tolerance) return FVector(0.f);
+        const FLOAT Scale = appInvSqrt(SquareSum);
+        return FVector(X * Scale, Y * Scale, Z * Scale);
+    }
+    FORCEINLINE FVector SafeNormal2D(FLOAT Tolerance = SMALL_NUMBER) const
+    {
+        const FLOAT SquareSum = X * X + Y * Y;
+        if (SquareSum == 1.f) { if (Z == 0.f) return *this; else return FVector(X, Y, 0.f); }
+        else if (SquareSum < Tolerance) return FVector(0.f);
+        const FLOAT Scale = appInvSqrt(SquareSum);
+        return FVector(X * Scale, Y * Scale, 0.f);
+    }
     struct FRotator Rotation() const; /* 0x005c3540 */
     /* other member functions */
     FString ToString() const; /* 0x008c3650 */
@@ -4179,7 +4199,7 @@ struct FBoneAtom {
     FLOAT Scale; /* 0x1c */
     FBoneAtom() {}
     FORCEINLINE FBoneAtom(const FQuat& InRotation, const FVector& InTranslation, FLOAT InScale = 1.f) { Rotation = InRotation; Translation = InTranslation; Scale = InScale; }
-    FORCEINLINE FBoneAtom& operator=(const FBoneAtom& Other) { Rotation = Other.Rotation; Translation = Other.Translation; Scale = Other.Scale; return *this; }
+    FORCEINLINE FBoneAtom& operator=(const FBoneAtom& Other) { Rotation = Other.Rotation; Translation = Other.Translation; Scale = Other.Scale; return *this; }    static const FBoneAtom Identity; /* 0x025df358: identity rotation, zero translation, scale 1 */
 };
 
 struct FMaterialViewRelevance {
@@ -10611,6 +10631,7 @@ struct UObject {
     void execPopState(FFrame& Stack, RESULT_DECL); /* 0x005aeed0 */
     void execGetPerObjectConfigSections(FFrame& Stack, RESULT_DECL); /* 0x005aef50 */
     /* other member functions */
+    UBOOL IsValid(); /* 0x005cb0a0 */
     static UBOOL IsAsyncLoading(); /* 0x005ebc70 */
     void eventBeginState(FName PreviousStateName); /* 0x0058cc90 */
     void eventEndState(FName NextStateName); /* 0x0058cce0 */
@@ -13489,6 +13510,7 @@ struct UActorComponent : public UComponent {
     BITFIELD bEnableUpdateChildComponents : 1; /* 0x44 */
     BYTE TickGroup; /* 0x48 */
     void BeginDeferredReattach(); /* 0x00765d00 */
+    UBOOL IsAttached() const { return bAttached; }
     /* virtual functions this class introduces (vtable 0x01ebb7f8) */
     virtual void SetParentToWorld(const FMatrix& ParentToWorld); /* 0x110 */
     virtual void Attach(); /* 0x114 */
@@ -72404,7 +72426,7 @@ struct UWorld : public UObject, public FNetworkNotify {
     FLOAT GetRealTimeSeconds(); /* 0x009c8fc0 */
     void sub_009d0be0(FSceneViewFamily* ViewFamily); /* 0x009d0be0 */
     ENetMode GetNetMode() const; /* 0x009c84b0 */
-    AController* sub_009c8570(); /* 0x009c8570 */
+    AController* GetFirstController(); /* 0x009c8570 */
     void sub_00a47a10(URB_BodyInstance* Body); /* 0x00a47a10 */
     void sub_00a47a90(URB_ConstraintInstance* Constraint); /* 0x00a47a90 */
     UBOOL DestroyActor(AActor* Actor, UBOOL bNetForce = FALSE, UBOOL bShouldModifyLevel = TRUE); /* 0x007e72a0 */

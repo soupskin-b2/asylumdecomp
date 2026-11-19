@@ -3,6 +3,7 @@
 #pragma once
 #include "Core.h"
 #include <math.h>
+#include <xmmintrin.h>
 /* <stdlib.h>'s rand, declared as it does (not the whole header: some sources declare its functions themselves) */
 extern "C" _CRTIMP int __cdecl rand(void);
 #ifndef RAND_MAX
@@ -49,10 +50,27 @@ inline DOUBLE appAtan( DOUBLE Value )            { return atan(Value); }
 inline FLOAT  appAtan2( FLOAT Y, FLOAT X )       { return atan2f(Y, X); }
 inline DOUBLE appPow( DOUBLE A, DOUBLE B )       { return pow(A, B); }
 inline FLOAT  appSqrt( FLOAT Value )             { return sqrtf(Value); }
-inline FLOAT  appInvSqrt( FLOAT F )              { return 1.0f / sqrtf(F); }
+/* UnVcWin32.h's SSE appInvSqrt: rsqrtss and one Newton-Raphson step (matched in UnPawn.14.cpp and
+ * BmGame_15d0000.4.cpp); the constants are function-local statics, as the engine's are */
+FORCEINLINE FLOAT appInvSqrt( FLOAT F )
+{
+	static const __m128 fThree = _mm_set_ss( 3.0f );
+	static const __m128 fOneHalf = _mm_set_ss( 0.5f );
+	__m128 Y0, X0, Temp;
+	FLOAT temp;
+	Y0 = _mm_set_ss( F );
+	X0 = _mm_rsqrt_ss( Y0 );	// 1/sqrt estimate (12 bits)
+	Temp = _mm_mul_ss( _mm_mul_ss( Y0, X0 ), X0 );	// (Y*X0)*X0
+	Temp = _mm_sub_ss( fThree, Temp );	// 3-(Y*X0)*X0
+	Temp = _mm_mul_ss( X0, Temp );	// X0*(3-(Y*X0)*X0)
+	Temp = _mm_mul_ss( fOneHalf, Temp );	// 0.5*X0*(3-(Y*X0)*X0)
+	_mm_store_ss( &temp, Temp );
+	return temp;
+}
 inline FLOAT  appFloor( FLOAT F )                { return floorf(F); }
 inline FLOAT  appCeil( FLOAT F )                 { return ceilf(F); }
 inline FLOAT  appAbs( FLOAT F )                  { return fabsf(F); }
+inline FLOAT  appFabs( FLOAT F )                 { return fabsf(F); }
 
 // UnVcWin32.h: on x86 appTrunc and appRound are inline assembly, so the float goes through memory
 // (`movss [esp+N], xmm0; cvttss2si eax, [esp+N]`), unlike a plain (INT) cast or an SSE intrinsic.

@@ -20,7 +20,7 @@ void AController::ShowSelf()
 		return;
 	}
 
-	for (AController* C = GWorld->sub_009c8570(); C; C = C->NextController)
+	for (AController* C = GWorld->GetFirstController(); C; C = C->NextController)
 	{
 		if (C != this && C->ShouldCheckVisibilityOf(this) && C->SeePawn(Pawn, TRUE))
 		{
