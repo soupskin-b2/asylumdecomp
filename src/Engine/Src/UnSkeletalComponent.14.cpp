@@ -31,9 +31,9 @@ UMorphNodeBase* USkeletalMeshComponent::FindMorphNode(FName InNodeName)
     return NULL;
 }
 
-/* Unnamed in the kit: UE3's USkeletalMeshComponent::SetAttachmentOwnerVisibility(UActorComponent* Component):
- * attached primitives take this component's owner-visibility settings. The third flag is UE3's
- * bIgnoreOwnerHidden; this build reads bit 7 of 0x194, which the kit names DontDrawThisFrame. */
+/* UE3's USkeletalMeshComponent::SetAttachmentOwnerVisibility(UActorComponent* Component): attached primitives take
+ * this component's owner-visibility settings. The third flag is UE3's bIgnoreOwnerHidden; this build reads bit 7 of
+ * 0x194, which the kit names DontDrawThisFrame. */
 
 // @baa 0x00913f30
 void USkeletalMeshComponent::SetAttachmentOwnerVisibility(UActorComponent* Component)

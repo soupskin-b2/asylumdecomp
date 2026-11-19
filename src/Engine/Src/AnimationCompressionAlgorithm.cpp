@@ -27,8 +27,6 @@ FQuatIntervalFixed32NoW::FQuatIntervalFixed32NoW(const FQuat& Quat, const FLOAT*
 	FromQuat(Quat, Mins, Ranges);
 }
 
-/* FQuat::Normalize (UnMath.h; out of line here), not in the kit. */
-
 /* AnimationCompression.h's quantisation constants. */
 #define Quant10BitDiv		(511.f)
 #define Quant10BitOffs		(511)

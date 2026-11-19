@@ -273,15 +273,14 @@ UBOOL ARBMAIController::IsRunningBehaviour(URBMBehaviour* TestBehaviour)
 }
 
 // @baa 0x015dc010
-/* ARBMAIController slot 0x45c (kit vf_45c): the pawn is in stasis and its slot 0x178 holds. */
+/* ARBMAIController slot 0x45c: the pawn is in stasis and its slot 0x178 holds. */
 UBOOL ARBMAIController::PawnInStasis()
 {
     return Pawn && Pawn->bStasis && Pawn->vf_178();
 }
 
 // @baa 0x015f47a0
-/* Slot 0x3c4 (unnamed in the kit): the controller faces the way its pawn does. The check is inline in the
- * generated header. */
+/* Slot 0x3c4: the controller faces the way its pawn does. The check is inline in the generated header. */
 void ARBMAIController::UpdatePawnRotation()
 {
 #line 1045 "BmGame/Inc\\BmGameAIClasses.h"
@@ -292,7 +291,7 @@ void ARBMAIController::UpdatePawnRotation()
 #line 298 "candidate.cpp"
 
 // @baa 0x015ec050
-/* Slot 0x408 (unnamed in the kit): behaviour Index of the list, or NULL past its end. */
+/* Slot 0x408: behaviour Index of the list, or NULL past its end. */
 URBMBehaviour* ARBMAIController::GetBehaviour(INT Index)
 {
 	if (BehaviourList.Num() > Index)

@@ -17,7 +17,6 @@ struct FAnimNodeArray : public TArray<UAnimNode*>
 
 /* Cast<UAnimNodeSynch> is the out-of-line instantiation at 00c7f910. */
 extern template UAnimNodeSynch* Cast<UAnimNodeSynch>(UObject* Src);
-/* UAnimNodeSlot::AddToSynchGroup isn't declared in Classes.h. */
 
 // @baa 0x00c803f0
 void UAnimNodeSlot::AddToSynchGroup(FName GroupName)

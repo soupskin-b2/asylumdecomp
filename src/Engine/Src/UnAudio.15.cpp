@@ -367,8 +367,6 @@ UBOOL FWaveModInfo::ReadWaveInfo(BYTE* WaveData, INT WaveDataSize)
 
 #line 397 "candidate.cpp"
 
-/* Kit gap: AAmbientSoundSimple::SyncUpInstantiatedObjects isn't declared. */
-
 
 // @baa 0x00786580
 /* Propagates the instanced sound cue and node to the audio component, and hides them from the generic browser. */

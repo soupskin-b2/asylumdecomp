@@ -75,7 +75,7 @@ extern "C" void g_KeepAlive_0094c800() {
 }
 
 // @baa 0x00944aa0
-/* Slot 0x280 (unnamed in the kit): stops any FaceFX animation on the head mesh. */
+/* Slot 0x280: stops any FaceFX animation on the head mesh. */
 void ASkeletalMeshActor::PreviewActorStopFaceFX()
 {
 	if (HeadMesh)

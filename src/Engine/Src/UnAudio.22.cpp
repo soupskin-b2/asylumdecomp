@@ -10,8 +10,8 @@ void UAudioComponent::sub_00786260(UBOOL bPaused)
     bIsPaused = bPaused;
 }
 
-/* Unnamed in the kit: UE3's UAudioComponent::SetParentToWorld(const FMatrix& ParentToWorld): remember the component's
- * world location (FMatrix::GetOrigin inlined). */
+/* UE3's UAudioComponent::SetParentToWorld(const FMatrix& ParentToWorld): remember the component's world location
+ * (FMatrix::GetOrigin inlined). */
 
 // @baa 0x00786210
 void UAudioComponent::sub_00786210(const FMatrix& ParentToWorld)

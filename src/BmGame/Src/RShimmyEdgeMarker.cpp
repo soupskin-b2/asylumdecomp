@@ -22,7 +22,7 @@ void ARShimmyEdgeMarker::RegisterShimmyEdgeMarker()
 }
 
 // @baa 0x016748d0
-/* Slot 0x2c (unnamed in the kit): also drops the marker from the list. */
+/* Slot 0x2c: also drops the marker from the list. */
 void ARShimmyEdgeMarker::FinishDestroy()
 {
 	g_026e1dd0.RemoveItem(this);

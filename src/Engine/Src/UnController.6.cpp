@@ -7,7 +7,7 @@
 /* Unnamed in the kit: UE3's UWorld::AddController(AController* Controller). */
 
 // @baa 0x007a1d70
-/* AController slot 0x1d8 (kit vf_1d8, UE3 PostBeginPlay()): register with the world's controller list. */
+/* AController slot 0x1d8 (UE3 PostBeginPlay()): register with the world's controller list. */
 void AController::PostBeginPlay()
 {
     AActor::PostBeginPlay();

@@ -5,7 +5,7 @@
 #include "ue3/AppMath.h"
 
 // @baa 0x015e6170
-/* ARBMAIController slot 0x42c (kit vf_42c): the longest of the controller's sight ranges. */
+/* ARBMAIController slot 0x42c: the longest of the controller's sight ranges. */
 FLOAT ARBMAIController::GetMaxSightRange()
 {
     return Max(ExtendedSightRange, Max(PeripheralSightRange, FocusedSightRange));

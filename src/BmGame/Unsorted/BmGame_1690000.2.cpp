@@ -7,8 +7,8 @@
 #include "ue3/Native.h"
 
 // @baa 0x01692980
-/* ARGameInfo slot 0x3b0 (kit vf_3b0, a GetPlayerController-style accessor): the first local player's controller,
- * cached in CachedPC; NULL with no local players. */
+/* ARGameInfo slot 0x3b0 (a GetPlayerController-style accessor): the first local player's controller, cached in
+ * CachedPC; NULL with no local players. */
 ARPlayerController* ARGameInfo::GetPC()
 {
     if (GEngine->GamePlayers.Num() > 0)

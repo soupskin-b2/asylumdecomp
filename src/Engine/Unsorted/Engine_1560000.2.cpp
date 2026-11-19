@@ -6,8 +6,7 @@
 #include "ue3/Cast.h"
 
 // @baa 0x01566d10
-/* Slot 0x364 (unnamed in the kit): tells each AI pawn standing on (based on) the panel that this was the last
- * floor panel it touched. */
+/* Slot 0x364: tells each AI pawn standing on (based on) the panel that this was the last floor panel it touched. */
 void ARElectrifiedFloorPanel::UpdatePawnsOnTile()
 {
 	for (INT i = 0; i < Attached.Num(); i++)

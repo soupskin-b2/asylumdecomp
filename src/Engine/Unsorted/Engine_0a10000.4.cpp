@@ -4,8 +4,6 @@
 #include "ue3/Classes.h"
 #include "ue3/Script.h"
 
-/* Kit gap: USkeletalMeshComponent::UpdateRBBonesFromSpaceBases (UnPhysAsset.cpp) isn't declared. */
-
 // @baa 0x00a162a0
 void USkeletalMeshComponent::execUpdateRBBonesFromSpaceBases(FFrame& Stack, RESULT_DECL)
 {

@@ -96,8 +96,6 @@ struct FBoneMirrorInfoArray : public TArray<FBoneMirrorInfo>
     }
 };
 
-/* USkeletalMesh::InitBoneMirrorInfo isn't declared in Classes.h */
-
 // @baa 0x00d4d750
 /* reset the mirror table: one entry per bone, each mirroring itself */
 void USkeletalMesh::InitBoneMirrorInfo()
@@ -162,8 +160,6 @@ struct FStaticLODModel
     TArray<FMeshEdge> Edges;               /* 0x70 */
     TArray<BYTE> ShadowTriangleDoubleSided; /* 0x7c */
 };
-
-/* USkeletalMesh::ClearShadowVolumeData isn't declared in Classes.h */
 
 // @baa 0x0095cba0
 /* free the shadow volume data of every LOD (called when shadow volumes aren't used) */

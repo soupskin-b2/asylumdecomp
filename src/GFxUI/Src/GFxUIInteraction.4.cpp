@@ -7,8 +7,6 @@
 #include "ue3/Cast.h"
 #include "ue3/Native.h"
 
-/* USequenceOp::GetObjectVars (0x008e9100) isn't declared in Classes.h. */
-
 /* FSeqOpOutputLink::ActivateOutputLink, inline in UE3's header (not in the kit); its
  * out-of-line copy is 008aa370. */
 struct FSeqOpOutputLink_ : public FSeqOpOutputLink

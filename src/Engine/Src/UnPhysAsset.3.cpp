@@ -11,8 +11,6 @@ struct URB_BodyInstance_ : public URB_BodyInstance
 	UBOOL sub_00a09b60(FRBPhysScene* Scene);	/* TermBody */
 };
 
-/* UPhysicsAssetInstance::TermInstance isn't declared in Classes.h. */
-
 // @baa 0x00a0ace0
 UBOOL UPhysicsAssetInstance::TermInstance(FRBPhysScene* Scene)
 {

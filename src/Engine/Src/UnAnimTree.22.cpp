@@ -6,7 +6,6 @@
 #include "ue3/Array.h"
 
 #define ZERO_ANIMWEIGHT_THRESH (0.00001f)
-/* UAnimNodeSlot::SetActiveChild and UpdateWeightsForAdditiveAnimations aren't declared in Classes.h. */
 
 // @baa 0x00c56ca0
 void UAnimNodeSlot::SetActiveChild(INT ChildIndex, FLOAT BlendTime)

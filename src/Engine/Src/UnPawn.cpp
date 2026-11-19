@@ -1492,7 +1492,7 @@ static FORCEINLINE FVector MakeVector(FLOAT X, FLOAT Y, FLOAT Z)
 }
 
 // @baa 0x00867c30
-/* APawn slot 0x398 (kit vf_398): UE3's APawn::GetPawnViewLocation(): Location + FVector(0,0,1) * BaseEyeHeight. */
+/* APawn slot 0x398: UE3's APawn::GetPawnViewLocation(): Location + FVector(0,0,1) * BaseEyeHeight. */
 FVector APawn::GetPawnViewLocation()
 {
     const FVector EyeOffset = MakeVector(0.f * BaseEyeHeight, 0.f * BaseEyeHeight, 1.f * BaseEyeHeight);
@@ -1517,15 +1517,15 @@ UBOOL APawn::IsHumanControlled()
 }
 
 // @baa 0x008038b0
-/* APawn slot 0x1b8 (kit vf_1b8): UE3's IsLocalPlayerControlled(): locally controlled by a player controller. */
+/* APawn slot 0x1b8: UE3's IsLocalPlayerControlled(): locally controlled by a player controller. */
 UBOOL APawn::PlayerControlled()
 {
     return ((APawn*)this)->IsLocallyControlled() && Controller && Controller->GetAPlayerController();
 }
 
 // @baa 0x00867b30
-/* APawn slot 0x334 (kit vf_334): a falling pawn, or a player's pawn still standing where its last path search
- * failed (APlayerController::FailedPathStart). */
+/* APawn slot 0x334: a falling pawn, or a player's pawn still standing where its last path search failed
+ * (APlayerController::FailedPathStart). */
 UBOOL APawn::AnchorNeedNotBeReachable()
 {
     if (Physics == PHYS_Falling)
@@ -1551,8 +1551,8 @@ struct APawn__00869310 : public APawn
 };
 
 // @baa 0x00869310
-/* APawn slot 0x444 (kit vf_444): UE3's APawn::MaxSpeedModifier(): AI pawns move at DesiredSpeed, crouching and
- * walking scale it down. */
+/* APawn slot 0x444: UE3's APawn::MaxSpeedModifier(): AI pawns move at DesiredSpeed, crouching and walking scale it
+ * down. */
 FLOAT APawn::MaxSpeedModifier()
 {
     FLOAT Result = 1.f;
@@ -1643,9 +1643,6 @@ UBOOL APawn::ReachedDestination(AActor* Goal)
 	return FALSE;
 }
 
-/* Kit gaps: the script event glue AController::eventNotifyBump (007d60f0) and AActor::eventBump (007d5d50) aren't
- * declared. */
-
 
 // @baa 0x007d70c0
 /* The controller gets the first chance to handle the bump. */
@@ -1665,7 +1662,7 @@ void APawn::SetBase(AActor* NewBase, FVector NewFloor, INT bNotifyActor, USkelet
 }
 
 // @baa 0x00776240
-/* Slot 0x45c (unnamed in the kit; UE3's GetPawnViewLocation): the eye position. */
+/* Slot 0x45c (UE3's GetPawnViewLocation): the eye position. */
 FVector APawn::GetIdealCameraOrigin()
 {
 	return FVector(Location.X, Location.Y, Location.Z + BaseEyeHeight);

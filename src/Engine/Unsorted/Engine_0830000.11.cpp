@@ -18,7 +18,7 @@ void ANavigationPoint::GetBoundingCylinder(FLOAT& CollisionRadius, FLOAT& Collis
 }
 
 // @baa 0x0083eb20
-/* Slot 0x31c (unnamed in the kit): after the actor handling, kills the node's reach specs unless the flag is set. */
+/* Slot 0x31c: after the actor handling, kills the node's reach specs unless the flag is set. */
 void ANavigationPoint::MarkComponentsAsPendingKill(UBOOL bFlag)
 {
 	Super::MarkComponentsAsPendingKill(bFlag);

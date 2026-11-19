@@ -83,8 +83,6 @@ UBOOL AController::eventHandlePathObstruction(class AActor* BlockedBy)
 	return Parms.ReturnValue;
 }
 
-/* UReachSpec::GetDirection (0x88a550) isn't declared in the kit. */
-
 // @baa 0x0088a6f0
 void UReachSpec::execGetDirection(FFrame& Stack, RESULT_DECL)
 {

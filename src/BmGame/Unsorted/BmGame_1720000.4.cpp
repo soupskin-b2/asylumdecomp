@@ -30,8 +30,6 @@ void ARCinematicActor::execInternalBeginAnimControl(FFrame& Stack, RESULT_DECL)
 	InternalBeginAnimControl(InAnimSets);
 }
 
-/* Kit gap: URAnimUtil::SortCharacterClasses (0x015b1620) isn't declared. */
-
 // @baa 0x01726e20
 void URAnimUtil::execSortCharacterClasses(FFrame& Stack, RESULT_DECL)
 {
@@ -39,8 +37,6 @@ void URAnimUtil::execSortCharacterClasses(FFrame& Stack, RESULT_DECL)
 	P_FINISH;
 	this->SortCharacterClasses(Array);
 }
-
-/* Kit gap: URAnimUtil::SortAnimSets (0x015aaf80) isn't declared. */
 
 // @baa 0x01726ee0
 void URAnimUtil::execSortAnimSets(FFrame& Stack, RESULT_DECL)

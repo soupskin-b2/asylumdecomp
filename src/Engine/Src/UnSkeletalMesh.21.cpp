@@ -184,7 +184,6 @@ public:
 
 /* starts initialising a resource on the rendering thread (RenderResource.cpp, 0x0073be30) */
 void BeginInitResource(FRenderResource* Resource);
-/* USkeletalMesh::IsCPUSkinned (0x00951af0) isn't declared in Classes.h */
 
 /* FStaticLODModel (UnSkeletalMesh.h): one LOD of a skeletal mesh. Not in the kit. */
 class FStaticLODModel

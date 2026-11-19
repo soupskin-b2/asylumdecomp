@@ -62,8 +62,6 @@ void C::sub_007d7120(INT, INT)
         Pointer = this;
 }
 
-/* Kit gap: the script event glue AActor::eventBump (007d5d50) isn't declared. */
-
 // @baa 0x007d7090
 void AActor::NotifyBump(AActor* Other, UPrimitiveComponent* OtherComp, const FVector& HitNormal)
 {

@@ -202,8 +202,8 @@ void URCapeComponent__016ae900::SetDebugRenderBone(INT ChainNumber, INT LinkNumb
 }
 
 // @baa 0x016ae800
-/* Unnamed in the kit: look the name up through the cape anim node (URAnimNode_Cape::GetStateAnimNode), once both the
- * anim node and the state controller exist. */
+/* look the name up through the cape anim node (URAnimNode_Cape::GetStateAnimNode), once both the anim node and the
+ * state controller exist. */
 void* URCapeComponent::GetAnimStateTreeNode(FName Name)
 {
     if (CapeAnimNode != NULL && CapeStateController != NULL)

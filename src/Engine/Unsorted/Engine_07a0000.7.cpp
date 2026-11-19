@@ -8,8 +8,8 @@
  * 007a1d90, calls it too). */
 
 // @baa 0x007af740
-/* APlayerController slot 0x194 (kit vf_194, UE3 PostScriptDestroyed()): drop the input and cheat objects, then the
- * controller's own teardown (inlined): unregister from the world's controller list. */
+/* APlayerController slot 0x194 (UE3 PostScriptDestroyed()): drop the input and cheat objects, then the controller's
+ * own teardown (inlined): unregister from the world's controller list. */
 void APlayerController::PostScriptDestroyed()
 {
     PlayerInput = NULL;
@@ -18,7 +18,6 @@ void APlayerController::PostScriptDestroyed()
 }
 
 // @baa 0x007a06b0
-/* Slot 0x414 (unnamed in the kit; UE3's SetAllowMatureLanguage). */
 void APlayerController::SetAllowMatureLanguage(UBOOL bAllowMatureLanguge)
 {
 	GEngine->bAllowMatureLanguage = bAllowMatureLanguge;

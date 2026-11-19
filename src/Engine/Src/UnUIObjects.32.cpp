@@ -4,7 +4,7 @@
 #include "ue3/Classes.h"
 #include "ue3/Native.h"
 
-/* Unnamed in the kit: UE3's UGameUISceneClient::GetNextScene/GetPreviousScene(const UUIScene* CurrentScene, UBOOL
+/* UE3's UGameUISceneClient::GetNextScene/GetPreviousScene(const UUIScene* CurrentScene, UBOOL
  * bRequireMatchingPlayerOwner, UBOOL bIgnoreUnfocusedScenes). */
 
 // @baa 0x00da9b60
@@ -22,7 +22,7 @@ UUIScene* UUIScene::GetNextScene(UBOOL bRequireMatchingPlayerOwner, UBOOL bIgnor
     return Result;
 }
 
-/* Unnamed in the kit: UE3's UGameUISceneClient::GetNextScene/GetPreviousScene(const UUIScene* CurrentScene, UBOOL
+/* UE3's UGameUISceneClient::GetNextScene/GetPreviousScene(const UUIScene* CurrentScene, UBOOL
  * bRequireMatchingPlayerOwner, UBOOL bIgnoreUnfocusedScenes). */
 
 // @baa 0x00da9ba0

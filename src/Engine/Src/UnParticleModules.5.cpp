@@ -93,7 +93,7 @@ undefined4 * UObject::sub_00b3dc50(void)
 }
 
 // @baa 0x00b72890
-/* Slot 0x158 (unnamed in the kit; UE3's IsUsedInLODLevel): whether this module is valid in the given LOD (0..7). */
+/* Slot 0x158 (UE3's IsUsedInLODLevel): whether this module is valid in the given LOD (0..7). */
 UBOOL UParticleModule::IsUsedInLODLevel(INT SourceLODIndex) const
 {
 	if (SourceLODIndex >= 0 && SourceLODIndex <= 7)

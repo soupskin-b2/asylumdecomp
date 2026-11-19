@@ -12,8 +12,6 @@ struct FSequenceObjectArray : public TArray<USequenceObject*>
 	INT AddItem(USequenceObject* const& Item) { return sub_008b2850(Item); }
 };
 
-/* USequence::FindSeqObjectsByClass isn't declared in Classes.h. */
-
 // @baa 0x009043d0
 void USequence::FindSeqObjectsByClass(UClass* DesiredClass, TArray<USequenceObject*>& OutputObjects, UBOOL bRecursive) const
 {

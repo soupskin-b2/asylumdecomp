@@ -63,8 +63,8 @@ struct AActor_ : public AActor
 };
 
 // @baa 0x007d7170
-/* AActor slot 0x1d8 (kit vf_1d8): UE3's AActor::PostBeginPlay(): script PostBeginPlay, then the initial state and
- * a base for actors that should start on one (slot 0x124, UE3 FindBase). */
+/* AActor slot 0x1d8: UE3's AActor::PostBeginPlay(): script PostBeginPlay, then the initial state and a base for
+ * actors that should start on one (slot 0x124, UE3 FindBase). */
 void AActor::PostBeginPlay()
 {
     ((AActor_*)this)->eventPostBeginPlay();

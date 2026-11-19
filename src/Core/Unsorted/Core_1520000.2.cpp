@@ -4,8 +4,6 @@
 #include "ue3/Classes.h"
 #include "ue3/Script.h"
 
-/* Kit gap: URFlagManager::SetFlagList (0x01548200) isn't declared. */
-
 // @baa 0x0152c660
 void URFlagManager::execSetFlagList(FFrame& Stack, RESULT_DECL)
 {
@@ -13,8 +11,6 @@ void URFlagManager::execSetFlagList(FFrame& Stack, RESULT_DECL)
 	P_FINISH;
 	this->SetFlagList(flagsList);
 }
-
-/* Kit gap: URFlagManager::SetFlagListForChallengeMode (0x015483c0) isn't declared. */
 
 // @baa 0x0152c720
 void URFlagManager::execSetFlagListForChallengeMode(FFrame& Stack, RESULT_DECL)

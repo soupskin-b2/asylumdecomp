@@ -13,7 +13,6 @@ template<class T, class U> T CubicInterp(const T& P0, const T& T0, const T& P1, 
 FLOAT FInterpEaseInOut(FLOAT A, FLOAT B, FLOAT Alpha, FLOAT Exp);
 						/* 005c7370 */
 extern template FLOAT CubicInterp<FLOAT, FLOAT>(const FLOAT&, const FLOAT&, const FLOAT&, const FLOAT&, const FLOAT&);
-/* UAnimNodeBlendBase::GetBlendWeight isn't declared in Classes.h. */
 
 // @baa 0x00c50080
 FLOAT UAnimNodeBlendBase::GetBlendWeight(FLOAT ChildWeight)
@@ -34,8 +33,6 @@ FLOAT UAnimNodeBlendBase::GetBlendWeight(FLOAT ChildWeight)
 
 /* FVector::Size (UnMath.h), not in the kit. */
 static inline FLOAT VSize(const FVector& V) { return appSqrt(V.X * V.X + V.Y * V.Y + V.Z * V.Z); }
-
-/* UActorComponent::GetOwner (UnActorComponent.h), not in the kit. */
 
 
 // @baa 0x00c4b660
@@ -73,7 +70,7 @@ FLOAT UAnimNodeScaleRateBySpeed_::GetScaleValue()
 	AActor* Owner = SkelComponent ? SkelComponent->GetOwner() : NULL;
 	if (Owner && BaseSpeed > KINDA_SMALL_NUMBER)
 	{
-		// FVector::Size (not in the kit)
+		// FVector::Size
 		const FVector& V = Owner->Velocity;
 		return appSqrt(V.X * V.X + V.Y * V.Y + V.Z * V.Z) / BaseSpeed;
 	}

@@ -11,8 +11,6 @@ void ARInventoryGadget::execGetAutoTargetRotation(FFrame& Stack, RESULT_DECL)
     *(FRotator*)Result = GetAutoTargetRotation();
 }
 
-/* ARInventoryGadget::GetCorrectedAutoTargetOrigin (0x163b170) isn't declared in the kit. */
-
 // @baa 0x01706f30
 void ARInventoryGadget::execGetCorrectedAutoTargetOrigin(FFrame& Stack, RESULT_DECL)
 {

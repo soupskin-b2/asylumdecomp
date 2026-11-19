@@ -7,7 +7,6 @@
 #include "ue3/Cast.h"
 
 extern template APlayerController* Cast<APlayerController>(UObject* Src);
-/* APlayerController::eventLevelStreamingStatusChanged (script event thunk, 0x007d6380) isn't declared in Classes.h. */
 
 
 // @baa 0x008c0480

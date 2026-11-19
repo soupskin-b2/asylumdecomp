@@ -75,8 +75,8 @@ UAnimNode* USkeletalMeshComponent::FindAnimNode(FName InNodeName)
 }
 
 /* Kit gap: FName has no comparison operators (UnName.h, inline). */
-/* Unnamed in the kit: UE3's USkeletalMeshComponent::MatchRefBone(FName BoneName): the mesh's bone index, or
- * INDEX_NONE without a name or a mesh. */
+/* UE3's USkeletalMeshComponent::MatchRefBone(FName BoneName): the mesh's bone index, or INDEX_NONE without a name or
+ * a mesh. */
 
 // @baa 0x0090e8e0
 INT USkeletalMeshComponent::sub_0090e8e0(FName BoneName)

@@ -4,8 +4,6 @@
 #include "ue3/Classes.h"
 #include "ue3/AppMath.h"
 
-/* USoundNodeAmbientNonLoop::PickNewSlot isn't declared in Classes.h. */
-
 // @baa 0x00cbad20
 INT USoundNodeAmbientNonLoop::PickNewSlot()
 {

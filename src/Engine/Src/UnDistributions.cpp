@@ -989,8 +989,7 @@ void AController::RouteCache_RemoveItem(ANavigationPoint* Nav)
 }
 
 // @baa 0x007b5e20
-/* Slot 0x110 (unnamed in the kit): one sub-curve when the curve is a single key whose min and max agree,
- * otherwise two. */
+/* Slot 0x110: one sub-curve when the curve is a single key whose min and max agree, otherwise two. */
 ERawDistributionOperation UDistributionFloatUniformCurve::GetOperation()
 {
 	if (ConstantCurve.Points.Num() == 1)
@@ -1007,8 +1006,8 @@ ERawDistributionOperation UDistributionFloatUniformCurve::GetOperation()
 #line 1195 "candidate.cpp"
 
 // @baa 0x007b6bb0
-/* Slot 0x110 (unnamed in the kit): one sub-curve when the curve is a single key whose two vectors agree,
- * otherwise two, or three with extremes. (The kit has no FVector operator==; it is spelled out.) */
+/* Slot 0x110: one sub-curve when the curve is a single key whose two vectors agree, otherwise two, or three with
+ * extremes. (The kit has no FVector operator==; it is spelled out.) */
 ERawDistributionOperation UDistributionVectorUniformCurve::GetOperation()
 {
 	if (ConstantCurve.Points.Num() == 1)

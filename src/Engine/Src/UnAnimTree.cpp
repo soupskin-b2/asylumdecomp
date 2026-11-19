@@ -1745,8 +1745,7 @@ void UAnimNodeAimOffset::ResetAnimNodeToSource(UAnimNode * param_2)
 }
 
 #define ZERO_ANIMWEIGHT_THRESH (0.00001f)
-/* UAnimNodeSlot::GetNextAvailableChild isn't declared in Classes.h. PlayCustomAnim (00c7ef60) passes it
- * the animation's name, which this build doesn't use. */
+/* PlayCustomAnim (00c7ef60) passes it the animation's name, which this build doesn't use. */
 
 // @baa 0x00c56bb0
 INT UAnimNodeSlot::GetNextAvailableChild(FName AnimToPlay)
@@ -1772,8 +1771,6 @@ INT UAnimNodeSlot::GetNextAvailableChild(FName AnimToPlay)
 
 	return CurrentBestChildIndex;
 }
-
-/* UAnimNodeBlendBase::SetChildrenTotalWeightAccumulator (vtable 0x188) isn't declared by name in Classes.h. */
 
 // @baa 0x00c533f0
 void UAnimNodeBlendBase::SetChildrenTotalWeightAccumulator(const INT Index)
@@ -1816,8 +1813,6 @@ enum EName_ { NAME_None_ = 0 };
 
 inline UBOOL operator!=(const FName& A, EName_ N) { return A.Index != N || A.Number != 0; }
 
-/* UAnimTree::GetGroupIndex isn't declared in Classes.h. */
-
 // @baa 0x00c556d0
 INT UAnimTree::GetGroupIndex(FName GroupName)
 {
@@ -1854,8 +1849,6 @@ UAnimNodeSequence* UAnimNodeSynch_::GetMasterNodeOfSynchGroup(FName GroupName)
 
 	return NULL;
 }
-
-/* UAnimNodeSynch::SetGroupRateScale isn't declared in Classes.h. */
 
 // @baa 0x00c565f0
 void UAnimNodeSynch::SetGroupRateScale(FName GroupName, FLOAT NewRateScale)
@@ -1897,8 +1890,6 @@ void UAnimNodeCrossfader::TickAnim(FLOAT DeltaSeconds, FLOAT TotalWeight)
 	((UAnimNodeBlend*)this)->sub_00c53f20(DeltaSeconds, TotalWeight);
 }
 
-/* UAnimNodeBlendBase::GetChildWeightTotal isn't declared in Classes.h. */
-
 // @baa 0x00c53c40
 FLOAT UAnimNodeBlendBase::GetChildWeightTotal()
 {
@@ -1913,8 +1904,6 @@ FLOAT UAnimNodeBlendBase::GetChildWeightTotal()
 	}
 	return TotalWeight;
 }
-
-/* UAnimNodeSynch::UpdateMasterNodeForGroup isn't declared in Classes.h. */
 
 // @baa 0x00c566c0
 void UAnimNodeSynch::UpdateMasterNodeForGroup(FSynchGroup& SynchGroup)
@@ -1980,7 +1969,6 @@ struct FBoneAtom_ : public FBoneAtom
 
 void sub_00c5eb80(TArray<FBoneAtom>& OutAtoms, const TArray<BYTE>& DesiredBones, const TArray<FMeshBone>& RefSkel);
 	/* FillWithRefPose */
-/* UAnimNode::GetBoneAtoms (vtable slot declared only as vf_) isn't declared by name in Classes.h. */
 
 // @baa 0x00c5ecc0
 void UAnimNode::GetBoneAtoms(TArray<FBoneAtom>& Atoms, const TArray<BYTE>& DesiredBones, FBoneAtom& RootMotionDelta, INT& bHasRootMotion)

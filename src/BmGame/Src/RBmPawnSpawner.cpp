@@ -271,8 +271,8 @@ UBOOL URSeqAct_CombatChallengeSpawner::HasParentClassChanged() const
 }
 
 // @baa 0x015ede00
-/* Slot 0x178 is USequenceOp::DeActivated (unnamed in the kit). Once the pawns have been spawned, the second
- * output fires (USequenceOp::ActivateOutputLink(1), inlined); then the wave state resets. */
+/* Slot 0x178 is USequenceOp::DeActivated. Once the pawns have been spawned, the second output fires
+ * (USequenceOp::ActivateOutputLink(1), inlined); then the wave state resets. */
 void URBMWaveController::DeActivated()
 {
 	if (bPawnsSpawned)

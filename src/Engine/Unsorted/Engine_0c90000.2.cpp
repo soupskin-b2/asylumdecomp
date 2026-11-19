@@ -364,16 +364,12 @@ void UAnimNodeBlendList::execSetActiveChild(FFrame& Stack, RESULT_DECL)
     SetActiveChild(ChildIndex, BlendTime);
 }
 
-/* UAnimNodeCrossfader::GetAnimName (0xc7e080) isn't declared in the kit. */
-
 // @baa 0x00c90680
 void UAnimNodeCrossfader::execGetAnimName(FFrame& Stack, RESULT_DECL)
 {
     P_FINISH;
     *(FName*)Result = this->GetAnimName();
 }
-
-/* UAnimNodePlayCustomAnim::PlayCustomAnim (0xc7c940) isn't declared in the kit. */
 
 // @baa 0x00c90a40
 void UAnimNodePlayCustomAnim::execPlayCustomAnim(FFrame& Stack, RESULT_DECL)
@@ -388,8 +384,6 @@ void UAnimNodePlayCustomAnim::execPlayCustomAnim(FFrame& Stack, RESULT_DECL)
     *(FLOAT*)Result = this->PlayCustomAnim(AnimName, Rate, BlendInTime, BlendOutTime, bLooping, bOverride);
 }
 
-/* UAnimNodePlayCustomAnim::PlayCustomAnimByDuration (0xc7ca70) isn't declared in the kit. */
-
 // @baa 0x00c90bd0
 void UAnimNodePlayCustomAnim::execPlayCustomAnimByDuration(FFrame& Stack, RESULT_DECL)
 {
@@ -403,8 +397,6 @@ void UAnimNodePlayCustomAnim::execPlayCustomAnimByDuration(FFrame& Stack, RESULT
     this->PlayCustomAnimByDuration(AnimName, Duration, BlendInTime, BlendOutTime, bLooping, bOverride);
 }
 
-/* UAnimNodeSynch::AddNodeToGroup (0xc56250) isn't declared in the kit. */
-
 // @baa 0x00c91690
 void UAnimNodeSynch::execAddNodeToGroup(FFrame& Stack, RESULT_DECL)
 {
@@ -413,8 +405,6 @@ void UAnimNodeSynch::execAddNodeToGroup(FFrame& Stack, RESULT_DECL)
     P_FINISH;
     this->AddNodeToGroup(SeqNode, GroupName);
 }
-
-/* UAnimNodeSynch::RemoveNodeFromGroup (0xc62830) isn't declared in the kit. */
 
 // @baa 0x00c91730
 void UAnimNodeSynch::execRemoveNodeFromGroup(FFrame& Stack, RESULT_DECL)
@@ -425,8 +415,6 @@ void UAnimNodeSynch::execRemoveNodeFromGroup(FFrame& Stack, RESULT_DECL)
     this->RemoveNodeFromGroup(SeqNode, GroupName);
 }
 
-/* UAnimNodeSynch::ForceRelativePosition (0xc56300) isn't declared in the kit. */
-
 // @baa 0x00c91850
 void UAnimNodeSynch::execForceRelativePosition(FFrame& Stack, RESULT_DECL)
 {
@@ -436,8 +424,6 @@ void UAnimNodeSynch::execForceRelativePosition(FFrame& Stack, RESULT_DECL)
     this->ForceRelativePosition(GroupName, RelativePosition);
 }
 
-/* UAnimNodeSynch::SetGroupRateScale (0xc565f0) isn't declared in the kit. */
-
 // @baa 0x00c91970
 void UAnimNodeSynch::execSetGroupRateScale(FFrame& Stack, RESULT_DECL)
 {
@@ -446,8 +432,6 @@ void UAnimNodeSynch::execSetGroupRateScale(FFrame& Stack, RESULT_DECL)
     P_FINISH;
     this->SetGroupRateScale(GroupName, NewRateScale);
 }
-
-/* UAnimTree::SetAnimGroupForNode (0xc61170) isn't declared in the kit. */
 
 // @baa 0x00c91b80
 void UAnimTree::execSetAnimGroupForNode(FFrame& Stack, RESULT_DECL)
@@ -459,8 +443,6 @@ void UAnimTree::execSetAnimGroupForNode(FFrame& Stack, RESULT_DECL)
     *(UBOOL*)Result = this->SetAnimGroupForNode(SeqNode, GroupName, bCreateIfNotFound);
 }
 
-/* UAnimTree::ForceGroupRelativePosition (0xc55580) isn't declared in the kit. */
-
 // @baa 0x00c91d60
 void UAnimTree::execForceGroupRelativePosition(FFrame& Stack, RESULT_DECL)
 {
@@ -469,8 +451,6 @@ void UAnimTree::execForceGroupRelativePosition(FFrame& Stack, RESULT_DECL)
     P_FINISH;
     this->ForceGroupRelativePosition(GroupName, RelativePosition);
 }
-
-/* UAnimTree::SetGroupRateScale (0xc61500) isn't declared in the kit. */
 
 // @baa 0x00c91e80
 void UAnimTree::execSetGroupRateScale(FFrame& Stack, RESULT_DECL)
@@ -543,8 +523,6 @@ void UMaterialInstanceTimeVarying::execSetVectorStartTime(FFrame& Stack, RESULT_
     SetVectorStartTime(ParameterName, Value);
 }
 
-/* USkelControlLookAt::CanLookAtPoint (0x922d70) isn't declared in the kit. */
-
 // @baa 0x00c92450
 void USkelControlLookAt::execCanLookAtPoint(FFrame& Stack, RESULT_DECL)
 {
@@ -555,8 +533,6 @@ void USkelControlLookAt::execCanLookAtPoint(FFrame& Stack, RESULT_DECL)
     P_FINISH;
     *(UBOOL*)Result = this->CanLookAtPoint(PointLoc, bDrawDebugInfo, bDebugUsePersistentLines, bDebugFlushLinesFirst);
 }
-
-/* USkelControlLookAt::SetLookAtAlpha (0x90d060) isn't declared in the kit. */
 
 // @baa 0x00c923b0
 void USkelControlLookAt::execSetLookAtAlpha(FFrame& Stack, RESULT_DECL)

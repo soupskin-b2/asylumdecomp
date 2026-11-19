@@ -249,7 +249,7 @@ void UParticleModuleTrailSource::PostEditChange(UProperty* PropertyThatChanged)
 }
 
 // @baa 0x00baab90
-/* Slot 0x114 (unnamed in the kit; UE3's RequiredBytes): particle-sourced trails store the source index per particle. */
+/* Slot 0x114 (UE3's RequiredBytes): particle-sourced trails store the source index per particle. */
 UINT UParticleModuleTrailSource::RequiredBytes(FParticleEmitterInstance* Owner)
 {
 	INT Size = 0;

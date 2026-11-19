@@ -26,8 +26,6 @@ FLOAT USkeletalMeshComponent::GetTimeOfScriptNotifyInAnimSequence(UAnimSequence*
     return -1.f;
 }
 
-/* USkeletalMeshComponent::TickSkelControls isn't declared in Classes.h */
-
 // @baa 0x0091cff0
 /* tick every SkelControl of the AnimTree once per component tick (TickTag guards controls shared between lists) */
 void USkeletalMeshComponent::TickSkelControls(FLOAT DeltaSeconds)

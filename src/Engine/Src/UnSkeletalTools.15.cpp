@@ -62,8 +62,6 @@ struct FStaticLODModel
     TArray<FSkelMeshChunk> Chunks;
 };
 
-/* USkeletalMesh::IsOnlyClothMesh isn't declared in Classes.h */
-
 // @baa 0x00d49f80
 /* whether every vertex of the base LOD is a cloth vertex */
 UBOOL USkeletalMesh::IsOnlyClothMesh() const
@@ -86,7 +84,6 @@ UBOOL USkeletalMesh::IsOnlyClothMesh() const
 
 /* the most bones a chunk can have for GPU skinning (UnSkeletalRender.h) */
 #define MAX_GPUSKIN_BONES 75
-/* USkeletalMesh::IsCPUSkinned isn't declared in Classes.h */
 
 // @baa 0x00951af0
 /* whether the mesh must be skinned on the CPU: forced, or a chunk has too many bones for the GPU path */

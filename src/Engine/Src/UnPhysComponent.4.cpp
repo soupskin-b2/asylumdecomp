@@ -14,8 +14,8 @@ void UPrimitiveComponent::SetComponentRBFixed(UBOOL bFixed)
     }
 }
 
-/* Unnamed in the kit: UE3's UPrimitiveComponent::SetRBChannel(ERBCollisionChannel Channel) (execSetRBChannel's
- * native); slot 0x20c is UE3's UpdatePhysicsToRBChannels(). */
+/* UE3's UPrimitiveComponent::SetRBChannel(ERBCollisionChannel Channel) (execSetRBChannel's native); slot 0x20c is
+ * UE3's UpdatePhysicsToRBChannels(). */
 
 // @baa 0x009ff950
 void UPrimitiveComponent::sub_009ff950(BYTE Channel)
@@ -24,8 +24,7 @@ void UPrimitiveComponent::sub_009ff950(BYTE Channel)
     SetRBChannel();
 }
 
-/* Unnamed in the kit: UE3's FRBCollisionChannelContainer::SetChannel(ERBCollisionChannel Channel, UBOOL bNewState)
- * (UnPhysPublic.h). */
+/* UE3's FRBCollisionChannelContainer::SetChannel(ERBCollisionChannel Channel, UBOOL bNewState) (UnPhysPublic.h). */
 
 // @baa 0x009ff970
 /* UE3's UPrimitiveComponent::SetRBCollidesWithChannel(ERBCollisionChannel Channel, UBOOL bNewCollides); slot 0x20c
@@ -57,8 +56,8 @@ void UPrimitiveComponent::sub_009feb00(UBOOL bInDisableAllRigidBody)
 }
 
 // @baa 0x00a01dd0
-/* URB_RadialImpulseComponent slot 0x114 (kit vf_114, UE3's UpdateTransform()): keep the editor preview sphere's
- * radius in step with the impulse radius. */
+/* URB_RadialImpulseComponent slot 0x114 (UE3's UpdateTransform()): keep the editor preview sphere's radius in step
+ * with the impulse radius. */
 void URB_RadialImpulseComponent::Attach()
 {
     Super::Attach();

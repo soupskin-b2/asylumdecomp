@@ -1104,7 +1104,7 @@ C_01644160* C_01644160::sub_01644160()
 /* The game's list of grapple points (its name isn't known); they add themselves to it. */
 extern TArray<ARGrapplePoint*> g_026e1c54;
 // @baa 0x01647dc0
-/* Slot 0x2c (unnamed in the kit): also drops the grapple point from the list. */
+/* Slot 0x2c: also drops the grapple point from the list. */
 void ARGrapplePoint::FinishDestroy()
 {
 	g_026e1c54.RemoveItem(this);

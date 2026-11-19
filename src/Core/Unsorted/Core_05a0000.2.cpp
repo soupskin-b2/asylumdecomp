@@ -12,8 +12,6 @@ void UObject::execPopState(FFrame& Stack, RESULT_DECL)
 	PopState(Stack, bPopAll);
 }
 
-/* UObject::PushState (0x5a61f0) isn't declared in the kit. */
-
 // @baa 0x005a6470
 void UObject::execPushState(FFrame& Stack, RESULT_DECL)
 {

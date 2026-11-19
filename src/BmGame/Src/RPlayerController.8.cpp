@@ -64,8 +64,6 @@ void ARPlayerController::eventSearchNewAmbientSound()
 	ProcessEvent(FindFunctionChecked(g_026e3a48), NULL);
 }
 
-/* ARPlayerController::ShouldIReallyLand (0x16181f0) isn't declared in the kit. */
-
 // @baa 0x016f93c0
 void ARPlayerController::execShouldIReallyLand(FFrame& Stack, RESULT_DECL)
 {

@@ -20,8 +20,6 @@ void UPrimitiveComponent::execRigidBodyIsFullyDynamic(FFrame& Stack, RESULT_DECL
 	*(UBOOL*)Result = RigidBodyIsFullyDynamic(BoneName);
 }
 
-/* UPrimitiveComponent::AddTorque (0x9ff330) isn't declared in the kit. */
-
 // @baa 0x009ff3c0
 void UPrimitiveComponent::execAddTorque(FFrame& Stack, RESULT_DECL)
 {
@@ -31,8 +29,6 @@ void UPrimitiveComponent::execAddTorque(FFrame& Stack, RESULT_DECL)
     this->AddTorque(Torque, BoneName);
 }
 
-/* UPrimitiveComponent::AddTorqueForce (0x9ff470) isn't declared in the kit. */
-
 // @baa 0x009ff500
 void UPrimitiveComponent::execAddTorqueForce(FFrame& Stack, RESULT_DECL)
 {
@@ -41,8 +37,6 @@ void UPrimitiveComponent::execAddTorqueForce(FFrame& Stack, RESULT_DECL)
     P_FINISH;
     this->AddTorqueForce(Torgue, BoneName);
 }
-
-/* UPrimitiveComponent::AddTorqueImpulse (0x9ff5b0) isn't declared in the kit. */
 
 // @baa 0x009ff640
 void UPrimitiveComponent::execAddTorqueImpulse(FFrame& Stack, RESULT_DECL)

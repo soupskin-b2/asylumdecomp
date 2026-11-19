@@ -300,8 +300,6 @@ UBOOL ARDebugMenu::eventItemFdB(const FString& Text, FLOAT& Value, FLOAT MinValu
     return Parms.ReturnValue;
 }
 
-/* UObject::MarkPackageDirty (005d9570) isn't declared in the kit. */
-
 // @baa 0x01533790
 /* UObject::PostEditChange(UProperty* PropertyThatChanged) (slot 0x4c, a placeholder vf_04c taking
  * UINT in the kit): editing a bark set marks its package dirty. */

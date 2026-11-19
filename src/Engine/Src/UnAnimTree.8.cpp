@@ -4,8 +4,6 @@
 #include "ue3/Classes.h"
 #include "ue3/Cast.h"
 
-/* UAnimNodeSlot::SetActorAnimEndNotification isn't declared in Classes.h. */
-
 // @baa 0x00c7cbb0
 void UAnimNodeSlot::SetActorAnimEndNotification(UBOOL bNewStatus)
 {

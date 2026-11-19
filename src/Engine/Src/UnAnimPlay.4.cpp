@@ -166,7 +166,7 @@ void UAnimNodeSequence::AdvanceBy(FLOAT MoveDelta, FLOAT DeltaSeconds, UBOOL bFi
 }
 
 // @baa 0x00c4ffe0
-/* UAnimNodeSequence slot 0x198 (kit vf_198, UE3 GetTimeLeft()): the play time left at the current global play rate. */
+/* UAnimNodeSequence slot 0x198 (UE3 GetTimeLeft()): the play time left at the current global play rate. */
 FLOAT UAnimNodeSequence::GetTimeLeft()
 {
     if (AnimSeq)

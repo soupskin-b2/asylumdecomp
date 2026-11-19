@@ -18,8 +18,6 @@ void USkeletalMeshComponent::execStopFaceFXAnim( FFrame& Stack, RESULT_DECL )
 	StopFaceFXAnim();
 }
 
-/* USkeletalMeshComponent::SetPhysicsAsset (0x93c640) isn't declared in the kit. */
-
 // @baa 0x0093c7c0
 void USkeletalMeshComponent::execSetPhysicsAsset(FFrame& Stack, RESULT_DECL)
 {

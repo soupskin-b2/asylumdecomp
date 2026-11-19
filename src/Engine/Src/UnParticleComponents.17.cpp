@@ -56,8 +56,8 @@ void UParticleSystemFactoryNew::InitializeIntrinsicPropertyValues()
 }
 
 // @baa 0x00b518c0
-/* Slot 0x180 (unnamed in the kit; called for actors spawned at run time): emitters that update late move their component to
- * the post-update tick group. */
+/* Slot 0x180 (called for actors spawned at run time): emitters that update late move their component to the
+ * post-update tick group. */
 void AEmitter::Spawned()
 {
 	Super::Spawned();
@@ -68,8 +68,7 @@ void AEmitter::Spawned()
 }
 
 // @baa 0x00b518f0
-/* Slot 0x1d8 (unnamed in the kit): emitters that update late move their component to
- * the post-update tick group. */
+/* Slot 0x1d8: emitters that update late move their component to the post-update tick group. */
 void AEmitter::PostBeginPlay()
 {
 	Super::PostBeginPlay();
@@ -80,7 +79,7 @@ void AEmitter::PostBeginPlay()
 }
 
 // @baa 0x00b5c640
-/* Slot 0x114 (unnamed in the kit): the distance of LOD level LODLevel, or -1 past the last one. */
+/* Slot 0x114: the distance of LOD level LODLevel, or -1 past the last one. */
 FLOAT UParticleSystem::GetLODDistance(INT LODLevel)
 {
 	if (LODLevel >= LODDistances.Num())

@@ -23,8 +23,6 @@ void ARTunnelGrateBase::execUpdateCapeCollision(FFrame& Stack, RESULT_DECL)
 	}
 }
 
-/* ARTunnelGrateBase::GetFinalGrateRotAndTrans (0x1716310) isn't declared in the kit. */
-
 // @baa 0x0171a2b0
 void ARTunnelGrateBase::execGetFinalGrateRotAndTrans(FFrame& Stack, RESULT_DECL)
 {

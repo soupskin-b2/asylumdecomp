@@ -68,8 +68,6 @@ struct UAnimNode_ : public UAnimNode
 	static void sub_00c52e80(TArray<BYTE>& BoneIndices, USkeletalMesh* SkelMesh);	/* EnsureParentsPresent */
 };
 
-/* UAnimNodeAimOffset::UpdateListOfRequiredBones isn't declared in Classes.h. */
-
 // @baa 0x00c62170
 void UAnimNodeAimOffset::UpdateListOfRequiredBones()
 {

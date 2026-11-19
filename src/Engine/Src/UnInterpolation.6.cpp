@@ -5,8 +5,7 @@
 #include "ue3/Classes.h"
 #include "ue3/Cast.h"
 
-/* Unnamed in the kit: the director group of this action's InterpData (UInterpData::FindDirectorGroup inlined, first
- * match). */
+/* the director group of this action's InterpData (UInterpData::FindDirectorGroup inlined, first match). */
 
 // @baa 0x00d141c0
 UInterpGroupDirector* USeqAct_Interp::sub_00d141c0()

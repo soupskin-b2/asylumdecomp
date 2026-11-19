@@ -90,8 +90,6 @@ struct FStaticLODModel
     void InitResources(class USkeletalMesh* Parent);
 };
 
-/* USkeletalMesh::IsCPUSkinned (0x00951af0) and InitResources aren't declared in Classes.h */
-
 // @baa 0x0095bc50
 /* the LOD's index buffer, and its vertex buffer when it's skinned on the GPU */
 inline void FStaticLODModel::InitResources(USkeletalMesh* Parent)

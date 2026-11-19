@@ -368,11 +368,9 @@ INT __stdcall sub_00803510(void* Object)
     return *(INT*)((char*)Object + 0x11c);
 }
 
-/* Kit gap: APawn::eventBreathTimer (the script-event glue, 0x00802db0) isn't declared. */
-
 // @baa 0x00803820
-/* APawn slot 0x1b4 (kit vf_1b4): UE3's APawn::TickSpecial(FLOAT DeltaSeconds): the authority counts down
- * BreathTime (firing BreathTimer when it runs out); a pawn without physics counts down its controller's MoveTimer. */
+/* APawn slot 0x1b4: UE3's APawn::TickSpecial(FLOAT DeltaSeconds): the authority counts down BreathTime (firing
+ * BreathTimer when it runs out); a pawn without physics counts down its controller's MoveTimer. */
 void APawn::TickSpecial(FLOAT DeltaSeconds)
 {
     if (Role == ROLE_Authority && BreathTime > 0.f)

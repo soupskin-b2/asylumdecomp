@@ -10,8 +10,8 @@ UBOOL AKActorSpawnable::HasParentClassChanged() const
 }
 
 // @baa 0x009e6b30
-/* APawn slot 0x238 (kit vf_238): UE3's APawn::InitRBPhys(): after the actor's physics setup, apply the pawn's
- * rigid-body pushing setting. */
+/* APawn slot 0x238: UE3's APawn::InitRBPhys(): after the actor's physics setup, apply the pawn's rigid-body pushing
+ * setting. */
 void APawn::InitRBPhys()
 {
     Super::InitRBPhys();
@@ -19,8 +19,8 @@ void APawn::InitRBPhys()
 }
 
 // @baa 0x009e6b60
-/* APawn slot 0x23c (kit vf_23c, UE3 TermRBPhys(FRBPhysScene* Scene)): stop pushing rigid bodies once the
- * actor's physics is torn down. */
+/* APawn slot 0x23c (UE3 TermRBPhys(FRBPhysScene* Scene)): stop pushing rigid bodies once the actor's physics is torn
+ * down. */
 void APawn::TermRBPhys(FRBPhysScene* Scene)
 {
     Super::TermRBPhys(Scene);

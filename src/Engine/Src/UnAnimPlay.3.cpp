@@ -53,8 +53,6 @@ void UAnimNodeSequence__00c5e220::ClearCachedResult()
 	}
 }
 
-/* AActor::eventOnAnimPlay (out of line here, 00c49e40) isn't declared. */
-
 // @baa 0x00c52af0
 /* Starts the animation from StartTime. */
 void UAnimNodeSequence::PlayAnim(UBOOL bLoop, FLOAT InRate, FLOAT StartTime)

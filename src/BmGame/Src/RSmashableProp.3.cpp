@@ -5,8 +5,7 @@
 #include "ue3/Native.h"
 
 // @baa 0x01675020
-/* The new factory's class hides the Object category in the editor. UClass::HideCategories is the
- * kit's Native_f0 (UE3's UClass member at 0xf0, unnamed in the kit). */
+/* The new factory's class hides the Object category in the editor. */
 void URSmashablePropConfigFactoryNew::StaticConstructor()
 {
 	new((FNameArray&)GetClass()->HideCategories) FNameText(TEXT("Object"));

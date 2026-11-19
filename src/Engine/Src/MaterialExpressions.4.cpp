@@ -10,14 +10,12 @@ struct FString_ : public FString
 };
 
 // @baa 0x00c30250
-/* Slot 0x128 (unnamed in the kit; UE3's GetCaption). */
 FString UMaterialExpressionFontSampleParameter::GetCaption() const
 {
 	return FString_::Printf(TEXT("FontParam '%s'"), *(const FString_&)ParameterName.ToString());
 }
 
 // @baa 0x00c2f3c0
-/* Slot 0x128 (unnamed in the kit; UE3's GetCaption). */
 FString UMaterialExpressionTextureSampleParameter::GetCaption() const
 {
 	return FString_::Printf(TEXT("Parm '%s'"), *(const FString_&)ParameterName.ToString());

@@ -84,7 +84,7 @@ FVector UInterpTrackColorScale::sub_00cfc680(FLOAT Time)
     return ((FInterpCurveVector&)VectorTrack).Eval(Time, FVector(1.f, 1.f, 1.f), NULL);
 }
 
-/* Unnamed in the kit: UE3's UFaceFXAsset::MountFaceFXAnimSet(UFaceFXAnimSet* AnimSet). */
+/* UE3's UFaceFXAsset::MountFaceFXAnimSet(UFaceFXAnimSet* AnimSet). */
 
 // @baa 0x00cf6dd0
 /* UE3's UInterpTrackFaceFX::PostEditChange(UProperty* PropertyThatChanged): mount every anim set on the cached asset. */
@@ -141,7 +141,7 @@ struct FString_ : public FString
 };
 
 // @baa 0x00cfa870
-/* UInterpData slot 0x194 (kit vf_194, UE3's GetValueStr()): "Matinee Data (<length>s)". */
+/* UInterpData slot 0x194 (UE3's GetValueStr()): "Matinee Data (<length>s)". */
 FString UInterpData::GetValueStr()
 {
     return FString_::sub_005a9fc0(TEXT("Matinee Data (%3.1fs)"), InterpLength);

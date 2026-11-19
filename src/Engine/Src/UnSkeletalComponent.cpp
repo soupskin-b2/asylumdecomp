@@ -649,10 +649,6 @@ public:
     FScaleRotationTranslationMatrix(const FVector& Scale, const FRotator& Rot, const FVector& Origin);
 };
 
-/* UActorComponent::UpdateComponent (0x0076a330) isn't declared in Classes.h. */
-
-/* USkeletalMesh::MatchRefBone (0x00976be0) isn't declared in Classes.h. */
-
 /* FVector(X,Y,Z) and IsZero (UnMath.h) */
 struct FVector_ : public FVector
 {

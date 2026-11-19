@@ -5,7 +5,7 @@
 #include "ue3/Native.h"
 
 // @baa 0x0088a1c0
-/* Slot 0x310 (unnamed in the kit; UE3's ClearComponents): unlinks the volume from the world's priority-sorted list. */
+/* Slot 0x310 (UE3's ClearComponents): unlinks the volume from the world's priority-sorted list. */
 void APostProcessVolume::ClearComponents(UBOOL bWillReattach)
 {
 	Super::ClearComponents(FALSE);
@@ -35,8 +35,8 @@ void APostProcessVolume::ClearComponents(UBOOL bWillReattach)
 }
 
 // @baa 0x0088a250
-/* Slot 0x314 (unnamed in the kit; UE3's UpdateComponentsInternal): inserts the volume into the world's
- * priority-sorted list (highest Priority first) unless it's already there. */
+/* Slot 0x314 (UE3's UpdateComponentsInternal): inserts the volume into the world's priority-sorted list (highest
+ * Priority first) unless it's already there. */
 void APostProcessVolume::UpdateComponentsInternal(UBOOL bCollisionUpdate)
 {
 	Super::UpdateComponentsInternal(bCollisionUpdate);

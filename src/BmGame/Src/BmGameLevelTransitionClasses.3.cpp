@@ -91,7 +91,7 @@ struct FName_ : public FName
 };
 
 // @baa 0x0155ab10
-/* Slot 0x3a4 (unnamed in the kit): whether the global door lock applies to the current level. */
+/* Slot 0x3a4: whether the global door lock applies to the current level. */
 UBOOL ARGameRI::IsGlobalLockActive()
 {
 	if (GlobalDoorLock)
@@ -112,7 +112,7 @@ struct FName__0155a410 : public FName
 };
 
 // @baa 0x0155a410
-/* Slot 0x368 (unnamed in the kit): whether this transition has two distinct levels to stream between. */
+/* Slot 0x368: whether this transition has two distinct levels to stream between. */
 UBOOL ARLevelTransition::DoesLevelStreaming()
 {
 	return !bDisabledStreaming && !DisableAllStreaming && !(LevelInFront == LevelBehind)
@@ -126,7 +126,7 @@ struct FName__0155ff60 : public FName
 };
 
 // @baa 0x0155ff60
-/* Slot 0x368 (unnamed in the kit): a transition into other persistent levels only needs one side to be set. */
+/* Slot 0x368: a transition into other persistent levels only needs one side to be set. */
 UBOOL ARLevelTransitionP::DoesLevelStreaming()
 {
 	if (PersistentLevelNames.Num() > 0)

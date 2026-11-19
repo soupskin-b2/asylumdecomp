@@ -168,8 +168,7 @@ struct FLightMap_
 };
 
 // @baa 0x00986fb0
-/* UTerrainComponent slot 0xe8 (kit vf_0e8(INT); UE3's AddReferencedObjects(TArray<UObject*>&)): the light map's
- * objects too. */
+/* UTerrainComponent slot 0xe8 (UE3's AddReferencedObjects(TArray<UObject*>&)): the light map's objects too. */
 void UTerrainComponent::AddReferencedObjects(TArray<class UObject*>& ObjectArray)
 {
     Super::AddReferencedObjects(ObjectArray);
@@ -194,8 +193,7 @@ struct FTerrainWeightedMaterial_
 };
 
 // @baa 0x0098bc30
-/* ATerrain slot 0xe8 (kit vf_0e8(INT); UE3's AddReferencedObjects(TArray<UObject*>&)): the weighted materials'
- * objects too. */
+/* ATerrain slot 0xe8 (UE3's AddReferencedObjects(TArray<UObject*>&)): the weighted materials' objects too. */
 void ATerrain::AddReferencedObjects(TArray<class UObject*>& ObjectArray)
 {
     Super::AddReferencedObjects(ObjectArray);

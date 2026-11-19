@@ -748,7 +748,7 @@ URAnimNode_AnimTransform* ARPontoonBase::GetAnimTransformNode(UBOOL bOther)
 }
 
 // @baa 0x016aca60
-/* Slot 0x364 (unnamed in the kit): whether either pontoon animation node is playing. */
+/* Slot 0x364: whether either pontoon animation node is playing. */
 UBOOL ARPontoonBase::AnimationPlaying()
 {
 	return (AnimNode1 && AnimNode1->bPlaying) || (AnimNode2 && AnimNode2->bPlaying);

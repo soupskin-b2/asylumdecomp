@@ -241,8 +241,8 @@ void UUIScene::SetSceneInputMode(BYTE NewInputMode)
 }
 
 // @baa 0x00db0850
-/* UUIScene slot 0x10c (kit vf_10c): UUIScreenObject's version, then request a scene input mask update and a position
- * update (slot 0x164). */
+/* UUIScene slot 0x10c: UUIScreenObject's version, then request a scene input mask update and a position update (slot
+ * 0x164). */
 void UUIScene::CreatePlayerData(INT Arg1, ULocalPlayer* Arg2)
 {
     UUIScreenObject::CreatePlayerData(Arg1, Arg2);

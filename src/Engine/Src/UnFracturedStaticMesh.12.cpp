@@ -6,7 +6,7 @@
 #include "ue3/Cast.h"
 
 // @baa 0x007b8990
-/* Slot 0x37c (unnamed in the kit; UE3's RemoveDecals): resets the decals attached to fragment IndexToRemove. */
+/* Slot 0x37c (UE3's RemoveDecals): resets the decals attached to fragment IndexToRemove. */
 void AFracturedStaticMeshActor::RemoveDecals(INT IndexToRemove)
 {
 	for (INT i = 0; i < Components.Num(); i++)

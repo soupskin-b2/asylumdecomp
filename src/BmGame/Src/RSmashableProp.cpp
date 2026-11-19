@@ -169,7 +169,7 @@ void ARSmashableProp::PostLoad()
 }
 
 // @baa 0x01672ed0
-/* Slot 0x180 (unnamed in the kit; called for actors spawned at run time). */
+/* Slot 0x180 (called for actors spawned at run time). */
 void ARSmashableProp::Spawned()
 {
 	Super::Spawned();

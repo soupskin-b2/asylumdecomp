@@ -5,8 +5,6 @@
 #include "ue3/Cast.h"
 #include "ue3/AppMath.h"
 
-/* Kit gap: UGameViewportClient::GetViewportSize (0x00889880, UnPlayer.cpp) isn't declared. */
-
 // @baa 0x01690760
 /* Writes the live free-camera tuning back into ConfigToSave; with separate 4:3 settings, only when the aspect ratio
  * hasn't changed since loading, and into the 4:3 offsets when the screen is nearer 4:3 than 16:9. */

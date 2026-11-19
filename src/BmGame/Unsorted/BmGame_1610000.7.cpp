@@ -5,7 +5,7 @@
 #include "ue3/AppMath.h"
 
 // @baa 0x01610340
-/* Slot 0x3a0 (unnamed in the kit): whether any of the router's steering vectors is non-trivial. */
+/* Slot 0x3a0: whether any of the router's steering vectors is non-trivial. */
 UBOOL ARBMRouter::IsAvoiding()
 {
 	return AvoidPawnVec.Size() > 0.1

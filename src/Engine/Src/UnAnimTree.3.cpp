@@ -116,8 +116,6 @@ undefined4 C_00c6aa30::sub_00c6aa30(byte param_2)
   return param_1;
 }
 
-/* UAnimNodeSlot::UpdateWeightsForAdditiveAnimations isn't declared in Classes.h. */
-
 // @baa 0x00c56870
 void UAnimNodeSlot::UpdateWeightsForAdditiveAnimations()
 {
@@ -151,8 +149,6 @@ static inline FLOAT GetNodeRelativePosition(UAnimNodeSequence* SeqNode)
 	}
 	return 0.f;
 }
-
-/* UAnimNodeSynch::GetRelativePosition isn't declared in Classes.h. */
 
 // @baa 0x00c56440
 FLOAT UAnimNodeSynch::GetRelativePosition(FName GroupName)

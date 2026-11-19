@@ -213,8 +213,6 @@ UBOOL USkeletalMesh::BoneIsChildOf(INT ChildBoneIndex, INT ParentBoneIndex) cons
 
 inline UBOOL operator==(const FName& A, EName B) { return A.Index == B && A.Number == 0; }
 
-/* USkeletalMesh::FindSocket isn't declared in Classes.h */
-
 // @baa 0x00951be0
 /* the socket with the given name, NULL if there is none */
 USkeletalMeshSocket* USkeletalMesh::FindSocket(FName InSocketName)
@@ -270,8 +268,6 @@ struct FNameIndexMap
         Add(FNameIndexPairInitializer(InKey, InValue));
     }
 };
-
-/* USkeletalMesh::InitNameIndexMap isn't declared in Classes.h */
 
 // @baa 0x0097eb90
 /* rebuild the bone name to RefSkeleton index map */

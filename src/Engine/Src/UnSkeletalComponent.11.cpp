@@ -6,7 +6,6 @@
 #include "ue3/Array.h"
 
 extern template INT TArray<INT>::Add(INT Count);
-/* USkeletalMesh::MatchRefBone (0x00976be0) isn't declared in Classes.h. */
 
 // @baa 0x0092db40
 /* map each of our bones to the matching bone of ParentAnimComponent's mesh */

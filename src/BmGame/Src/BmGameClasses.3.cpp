@@ -27,56 +27,49 @@ void URSeqAct_HUDTimer::Activated()
 }
 
 // @baa 0x015640b0
-/* The new factory's class hides the Object category in the editor. UClass::HideCategories is the
- * kit's Native_f0 (UE3's UClass member at 0xf0, unnamed in the kit). */
+/* The new factory's class hides the Object category in the editor. */
 void URAimingConfigFactoryNew::StaticConstructor()
 {
 	new((FNameArray&)GetClass()->HideCategories) FNameText(TEXT("Object"));
 }
 
 // @baa 0x01564120
-/* The new factory's class hides the Object category in the editor. UClass::HideCategories is the
- * kit's Native_f0 (UE3's UClass member at 0xf0, unnamed in the kit). */
+/* The new factory's class hides the Object category in the editor. */
 void URBoneRescaleConfigFactoryNew::StaticConstructor()
 {
 	new((FNameArray&)GetClass()->HideCategories) FNameText(TEXT("Object"));
 }
 
 // @baa 0x01564150
-/* The new factory's class hides the Object category in the editor. UClass::HideCategories is the
- * kit's Native_f0 (UE3's UClass member at 0xf0, unnamed in the kit). */
+/* The new factory's class hides the Object category in the editor. */
 void URCharacterViewerConfigFactoryNew::StaticConstructor()
 {
 	new((FNameArray&)GetClass()->HideCategories) FNameText(TEXT("Object"));
 }
 
 // @baa 0x01564180
-/* The new factory's class hides the Object category in the editor. UClass::HideCategories is the
- * kit's Native_f0 (UE3's UClass member at 0xf0, unnamed in the kit). */
+/* The new factory's class hides the Object category in the editor. */
 void URMirrorConfigFactoryNew::StaticConstructor()
 {
 	new((FNameArray&)GetClass()->HideCategories) FNameText(TEXT("Object"));
 }
 
 // @baa 0x015641b0
-/* The new factory's class hides the Object category in the editor. UClass::HideCategories is the
- * kit's Native_f0 (UE3's UClass member at 0xf0, unnamed in the kit). */
+/* The new factory's class hides the Object category in the editor. */
 void URPoseConfigFactoryNew::StaticConstructor()
 {
 	new((FNameArray&)GetClass()->HideCategories) FNameText(TEXT("Object"));
 }
 
 // @baa 0x015641e0
-/* The new factory's class hides the Object category in the editor. UClass::HideCategories is the
- * kit's Native_f0 (UE3's UClass member at 0xf0, unnamed in the kit). */
+/* The new factory's class hides the Object category in the editor. */
 void URWeaponConfigFactoryNew::StaticConstructor()
 {
 	new((FNameArray&)GetClass()->HideCategories) FNameText(TEXT("Object"));
 }
 
 // @baa 0x01564210
-/* The new factory's class hides the Object category in the editor. UClass::HideCategories is the
- * kit's Native_f0 (UE3's UClass member at 0xf0, unnamed in the kit). */
+/* The new factory's class hides the Object category in the editor. */
 void URAlternateAnimationAndWeaponConfigFactoryNew::StaticConstructor()
 {
 	new((FNameArray&)GetClass()->HideCategories) FNameText(TEXT("Object"));

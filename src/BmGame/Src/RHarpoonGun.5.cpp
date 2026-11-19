@@ -85,8 +85,6 @@ void ARHarpoonProjectile::eventBumpLevel(FVector HitLocation, FVector HitNormal)
 	ProcessEvent(FindFunctionChecked(g_026e33ac), &Parms);
 }
 
-/* ARSpecialMoveInstance_HarpoonYank::UpdateYankees (0x1648e20) isn't declared in the kit. */
-
 // @baa 0x016fb680
 void ARSpecialMoveInstance_HarpoonYank::execUpdateYankees(FFrame& Stack, RESULT_DECL)
 {

@@ -59,8 +59,6 @@ return iVar2;
 // @baa 0x0163e530
 int sub_0163e530(void) { return 0; }
 
-/* Kit gap: AActor::IsBlockedBy (0x00758100) isn't declared. */
-
 // @baa 0x0163e540
 /* Ropes answer only pawn traces (0x2 TRACE_Pawns), then like any other actor: projectile targets or blockers for
  * projectile-actor traces (0x20), blockers of the source for blocking traces (0x40). */

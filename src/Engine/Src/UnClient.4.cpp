@@ -19,5 +19,4 @@ INT UClient::CreateWindowChildViewport(INT, INT, INT, INT, INT, INT)
 }
 
 // @baa 0x00cb5a60
-/* Slot 0x10c (unnamed in the kit; UE3's Init(UEngine*)). */
 void UClient::Init(UEngine* InEngine) PURE_VIRTUAL(UClient::Init, );

@@ -24,8 +24,8 @@ struct URSeqAct_PlayerDialogueOptions_ : public URSeqAct_PlayerDialogueOptions
 };
 
 // @baa 0x01591ca0
-/* Slot 0x178 is USequenceOp::DeActivated (unnamed in the kit). Unless aborted, the output for the selected option
- * fires (USequenceOp::ActivateOutputLink, inlined), and the dialogue line it leads to learns where it came from. */
+/* Slot 0x178 is USequenceOp::DeActivated. Unless aborted, the output for the selected option fires
+ * (USequenceOp::ActivateOutputLink, inlined), and the dialogue line it leads to learns where it came from. */
 void URSeqAct_PlayerDialogueOptions::DeActivated()
 {
 	if (!bAborted)

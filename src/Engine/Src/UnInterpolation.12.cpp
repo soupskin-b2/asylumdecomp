@@ -15,8 +15,8 @@ struct AMatineeActor_ : public AMatineeActor
 };
 
 // @baa 0x00ceb450
-/* USeqAct_Interp slot 0x16c (kit vf_16c, UE3's PopulateLinkedVariableValues()): pull the linked variables in and, when
- * the play rate changed, have the replication actor resend its state. */
+/* USeqAct_Interp slot 0x16c (UE3's PopulateLinkedVariableValues()): pull the linked variables in and, when the play
+ * rate changed, have the replication actor resend its state. */
 void USeqAct_Interp::PublishLinkedVariableValues()
 {
     FLOAT OldPlayRate = PlayRate;

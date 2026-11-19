@@ -501,8 +501,6 @@ class UAnimNodeCrossfader* ARControllableChatteringTeethBase::eventGetJumpBlende
 	return Parms.ReturnValue;
 }
 
-/* ARControllableChatteringTeethCamera::CalculateCurrentDragPos (016aa6b0) isn't declared in the kit. */
-
 // @baa 0x01709d60
 void ARControllableChatteringTeethCamera::execCalculateCurrentDragPos(FFrame& Stack, RESULT_DECL)
 {
@@ -510,16 +508,12 @@ void ARControllableChatteringTeethCamera::execCalculateCurrentDragPos(FFrame& St
     *(FVector*)Result = this->CalculateCurrentDragPos();
 }
 
-/* ARControllableChatteringTeethCamera::CalculateCurrentTargetPos (016aa760) isn't declared in the kit. */
-
 // @baa 0x01709db0
 void ARControllableChatteringTeethCamera::execCalculateCurrentTargetPos(FFrame& Stack, RESULT_DECL)
 {
     P_FINISH;
     *(FVector*)Result = this->CalculateCurrentTargetPos();
 }
-
-/* ARControllableChatteringTeethCamera::CalculateCurrentFallbackPos (016aa810) isn't declared in the kit. */
 
 // @baa 0x01709e00
 void ARControllableChatteringTeethCamera::execCalculateCurrentFallbackPos(FFrame& Stack, RESULT_DECL)
@@ -548,8 +542,6 @@ void ARRemoveableGrate::eventUpdateImpactEffects()
 	ProcessEvent(FindFunctionChecked(g_026e3974), NULL);
 }
 
-/* ARBatarang::FindInterceptDirection (0x16390a0) isn't declared in the kit. */
-
 // @baa 0x01707050
 void ARBatarang::execFindInterceptDirection(FFrame& Stack, RESULT_DECL)
 {
@@ -561,8 +553,6 @@ void ARBatarang::execFindInterceptDirection(FFrame& Stack, RESULT_DECL)
     *(FVector*)Result = this->FindInterceptDirection(BatarangStartPos, BatarangSpeed, BatarangTargetPosition, BatarangTargetVelocity);
 }
 
-/* ARGrappleGun::CheckGrapplePoint (0x1641970) isn't declared in the kit. */
-
 // @baa 0x01707510
 void ARGrappleGun::execCheckGrapplePoint(FFrame& Stack, RESULT_DECL)
 {
@@ -572,8 +562,6 @@ void ARGrappleGun::execCheckGrapplePoint(FFrame& Stack, RESULT_DECL)
     P_FINISH;
     *(UBOOL*)Result = this->CheckGrapplePoint(PointToCheck, GrapplePos, CheckIndex);
 }
-
-/* ARLineLauncher::GetLineLaucherTetherPoints (0x1663980) isn't declared in the kit. */
 
 // @baa 0x01707940
 void ARLineLauncher::execGetLineLaucherTetherPoints(FFrame& Stack, RESULT_DECL)
@@ -656,8 +644,6 @@ void ARControllableChatteringTeethBase::eventApplyExplosionCameraShake()
 	ProcessEvent(FindFunctionChecked(g_026e2f84), NULL);
 }
 
-/* ARExplosiveGooMine::ComplexTrace (0x163b2d0) isn't declared in the kit. */
-
 // @baa 0x01708290
 void ARExplosiveGooMine::execComplexTrace(FFrame& Stack, RESULT_DECL)
 {
@@ -669,8 +655,6 @@ void ARExplosiveGooMine::execComplexTrace(FFrame& Stack, RESULT_DECL)
     *(AActor**)Result = this->ComplexTrace(MyOwner, HitLocation, End, Start);
 }
 
-/* ARBatarangCamera::TrackPostImpact (0x16aa290) isn't declared in the kit. */
-
 // @baa 0x01709bb0
 void ARBatarangCamera::execTrackPostImpact(FFrame& Stack, RESULT_DECL)
 {
@@ -680,8 +664,6 @@ void ARBatarangCamera::execTrackPostImpact(FFrame& Stack, RESULT_DECL)
     this->TrackPostImpact(ActorLocation, DeltaTime);
 }
 
-/* ARLineLauncherDirectorCamera::FindBestCentrePoint (0x16aad30) isn't declared in the kit. */
-
 // @baa 0x0170a1f0
 void ARLineLauncherDirectorCamera::execFindBestCentrePoint(FFrame& Stack, RESULT_DECL)
 {
@@ -690,8 +672,6 @@ void ARLineLauncherDirectorCamera::execFindBestCentrePoint(FFrame& Stack, RESULT
     P_FINISH;
     this->FindBestCentrePoint(StartPoint, EndPoint);
 }
-
-/* ARSilentPredatorCamera::LookAround (0x16ab590) isn't declared in the kit. */
 
 // @baa 0x0170a3e0
 void ARSilentPredatorCamera::execLookAround(FFrame& Stack, RESULT_DECL)
@@ -711,8 +691,6 @@ void URPersistentOptions::eventDump()
 {
 	ProcessEvent(FindFunctionChecked(g_026e2f18), NULL);
 }
-
-/* ARGrappleGun::FindClosestValidGrapplePosition (0x1647df0) isn't declared in the kit. */
 
 // @baa 0x017071c0
 void ARGrappleGun::execFindClosestValidGrapplePosition(FFrame& Stack, RESULT_DECL)
@@ -734,8 +712,6 @@ void ARGrappleGun::execFindClosestValidGrapplePosition(FFrame& Stack, RESULT_DEC
     P_FINISH;
     *(FLOAT*)Result = this->FindClosestValidGrapplePosition(PointToCheck, CheckLocation, AimDirection, AimRight, AimUp, MaxRadiusSqr, MaxAngle, OutPosition, PlayerLocation, CheckIndex, TanAngle, IntersectDirection, BonusAngle, bZoomed);
 }
-
-/* URBmPawnSpawner::StaticCreatePawn (0x1606a00) isn't declared in the kit. */
 
 // @baa 0x01705cf0
 void URBmPawnSpawner::execStaticCreatePawn(FFrame& Stack, RESULT_DECL)

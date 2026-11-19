@@ -12,8 +12,8 @@ struct URB_BodyInstance_ : public URB_BodyInstance
 };
 
 // @baa 0x00a11080
-/* UPrimitiveComponent slot 0x13c (kit vf_13c(INT), UE3's TermComponentRBPhys(FRBPhysScene* InScene)): shut down the body and hand
- * it back to the world once it has let go of its physics. */
+/* UPrimitiveComponent slot 0x13c (UE3's TermComponentRBPhys(FRBPhysScene* InScene)): shut down the body and hand it
+ * back to the world once it has let go of its physics. */
 void UPrimitiveComponent::TermComponentRBPhys(FRBPhysScene* InScene)
 {
     if (BodyInstance != NULL && ((URB_BodyInstance_*)BodyInstance)->sub_00a09b60((INT)InScene))
@@ -24,8 +24,8 @@ void UPrimitiveComponent::TermComponentRBPhys(FRBPhysScene* InScene)
 }
 
 // @baa 0x00a14d30
-/* UStaticMeshComponent slot 0x13c (kit vf_13c(INT), UE3's TermComponentRBPhys(FRBPhysScene* InScene)): shut down the body and hand
- * it back to the world once it has let go of its physics. */
+/* UStaticMeshComponent slot 0x13c (UE3's TermComponentRBPhys(FRBPhysScene* InScene)): shut down the body and hand it
+ * back to the world once it has let go of its physics. */
 void UStaticMeshComponent::TermComponentRBPhys(FRBPhysScene* InScene)
 {
     if (BodyInstance != NULL && ((URB_BodyInstance_*)BodyInstance)->sub_00a09b60((INT)InScene))

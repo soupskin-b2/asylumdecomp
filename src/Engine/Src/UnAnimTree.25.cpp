@@ -6,9 +6,6 @@
 #include "ue3/Script.h"
 #include "ue3/Cast.h"
 
-/* Kit gaps: UAnimNodeBlend::SetBlendTarget (00c54040), USkeletalMeshComponent::FindAnimSequence (0091d860) and
- * aren't declared. */
-
 // @baa 0x00c7a980
 void UAnimNodeCrossfader::execBlendToLoopingAnim(FFrame& Stack, RESULT_DECL)
 {

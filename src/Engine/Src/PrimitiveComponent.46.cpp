@@ -7,7 +7,7 @@
 /* Kit gap: UnMath.h's HALF_WORLD_MAX (WORLD_MAX * 0.5, a double). */
 #define HALF_WORLD_MAX	262144.0
 // @baa 0x006e4950
-/* UPrimitiveComponent slot 0x160 (kit vf_160, UE3 UpdateBounds()): a plain primitive is unbounded. */
+/* UPrimitiveComponent slot 0x160 (UE3 UpdateBounds()): a plain primitive is unbounded. */
 void UPrimitiveComponent::UpdateBounds()
 {
     Bounds.Origin = FVector(0, 0, 0);

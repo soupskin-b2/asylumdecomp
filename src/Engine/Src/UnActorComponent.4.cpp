@@ -27,9 +27,6 @@ void UFogVolumeDensityComponent::execSetEnabled(FFrame& Stack, RESULT_DECL)
 	this->SetEnabled(bSetEnabled);
 }
 
-/* UActorComponent::BeginDeferredUpdateTransform (007596c0) and BeginDeferredReattach (00765d00)
- * aren't declared in Classes.h. */
-
 // @baa 0x0076a290
 void UActorComponent::execQueueReattach(FFrame& Stack, RESULT_DECL)
 {

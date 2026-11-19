@@ -534,8 +534,8 @@ int __stdcall sub_0090fc30(int A, int B, int C)
 }
 
 /* Kit gap: FName has no comparison operators (UnName.h, inline). */
-/* Unnamed in the kit: UE3's USkeletalMeshComponent::GetSocketBoneName(FName InSocketName): the bone a socket is
- * on, the name itself when it's a bone, otherwise NAME_None. */
+/* UE3's USkeletalMeshComponent::GetSocketBoneName(FName InSocketName): the bone a socket is on, the name itself when
+ * it's a bone, otherwise NAME_None. */
 
 // @baa 0x0090ec40
 FName USkeletalMeshComponent::GetSocketBoneName(FName InSocketName)

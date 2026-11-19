@@ -790,8 +790,7 @@ void ARPathNode::UpdateLastSeenTime(INT Idx)
 }
 
 // @baa 0x0153fea0
-/* Slot 0x3b8 (unnamed in the kit): seconds since path user Index last saw this node (a large time for an unknown
- * user). */
+/* Slot 0x3b8: seconds since path user Index last saw this node (a large time for an unknown user). */
 FLOAT ARPathNode::GetTimeSinceLastSighting(INT Index)
 {
 	if (LastSeenTime.Num() > Index)

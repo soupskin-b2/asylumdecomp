@@ -4,7 +4,7 @@
 #include "ue3/Classes.h"
 
 // @baa 0x016d7020
-/* Slot 0x354 (unnamed in the kit): how many agents belong to flock FlockID. */
+/* Slot 0x354: how many agents belong to flock FlockID. */
 INT ARCrowdManager::GetNumAgentsInFlock(INT FlockID)
 {
 	INT Count = 0;

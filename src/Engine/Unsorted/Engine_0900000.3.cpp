@@ -44,8 +44,6 @@ void URB_ForceComponent::eventAttachCloneToActor(class AActor* NewOwner)
 	ProcessEvent(FindFunctionChecked(g_026c45a4), &Parms);
 }
 
-/* USkeletalMeshComponent::GetSocketBoneName (0x90ec40) isn't declared in the kit. */
-
 // @baa 0x0090ecd0
 void USkeletalMeshComponent::execGetSocketBoneName(FFrame& Stack, RESULT_DECL)
 {
@@ -53,8 +51,6 @@ void USkeletalMeshComponent::execGetSocketBoneName(FFrame& Stack, RESULT_DECL)
     P_FINISH;
     *(FName*)Result = this->GetSocketBoneName(InSocketName);
 }
-
-/* USkeletalMeshComponent::HideBone (0xa1c8f0) isn't declared in the kit. */
 
 // @baa 0x0090f000
 void USkeletalMeshComponent::execHideBone(FFrame& Stack, RESULT_DECL)

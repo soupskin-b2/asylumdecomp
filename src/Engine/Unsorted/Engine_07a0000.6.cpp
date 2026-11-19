@@ -5,14 +5,14 @@
 #include "ue3/Cast.h"
 
 // @baa 0x007a0330
-/* APlayerController slot 0x354 (kit vf_354, UE3 IsLocalPlayerController()): the player is a local one. */
+/* APlayerController slot 0x354 (UE3 IsLocalPlayerController()): the player is a local one. */
 UBOOL APlayerController::IsLocalPlayerController()
 {
     return Player && ObjectIsA(Player, ULocalPlayer::StaticClass());
 }
 
 // @baa 0x007a03a0
-/* APlayerController slot 0x3a4 (kit vf_3a4, UE3 IsLocalController()): the player is a local one. */
+/* APlayerController slot 0x3a4 (UE3 IsLocalController()): the player is a local one. */
 UBOOL APlayerController::IsLocalController()
 {
     return Player && ObjectIsA(Player, ULocalPlayer::StaticClass());

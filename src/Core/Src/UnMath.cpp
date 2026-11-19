@@ -5,8 +5,6 @@
 #include "ue3/AppMath.h"
 #include <math.h>
 
-/* Kit gap: FQuat::Exp (UnMath.cpp) */
-
 // @baa 0x005c4800
 /* Exp: the quaternion exponential (assumes W == 0). */
 FQuat FQuat::Exp() const

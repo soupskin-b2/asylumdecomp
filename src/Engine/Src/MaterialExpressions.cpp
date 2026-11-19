@@ -3650,7 +3650,7 @@ UBOOL UMaterialExpressionMin::HasParentClassChanged() const
 }
 
 // @baa 0x00c28720
-/* Slot 0x128 (unnamed in the kit; UE3's GetCaption): the user caption, or a generic name. */
+/* Slot 0x128 (UE3's GetCaption): the user caption, or a generic name. */
 FString UMaterialExpressionCompound::GetCaption() const
 {
 	return Caption.Len() > 0 ? *Caption : TEXT("Compound Expression");

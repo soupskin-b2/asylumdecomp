@@ -4,8 +4,8 @@
 #include "ue3/Classes.h"
 
 // @baa 0x0075e840
-/* UActorComponent slot 0x20 (kit vf_020): UE3's UActorComponent::BeginDestroy(): detach if still attached and
- * forget the scene and owner before the object-level BeginDestroy. */
+/* UActorComponent slot 0x20: UE3's UActorComponent::BeginDestroy(): detach if still attached and forget the scene
+ * and owner before the object-level BeginDestroy. */
 void UActorComponent::BeginDestroy()
 {
     if (bAttached)
@@ -21,8 +21,8 @@ void UActorComponent::BeginDestroy()
 
 #define GetOuter() Outer
 // @baa 0x0075e870
-/* UActorComponent slot 0x088 (kit vf_088): UE3's UActorComponent::NeedsLoadForClient(): only when the outer loads on
- * the client and the component isn't marked not-for-client. */
+/* UActorComponent slot 0x088: UE3's UActorComponent::NeedsLoadForClient(): only when the outer loads on the client
+ * and the component isn't marked not-for-client. */
 UBOOL UActorComponent::NeedsLoadForClient() const
 {
 #line 501 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActorComponent.cpp"
@@ -34,8 +34,8 @@ UBOOL UActorComponent::NeedsLoadForClient() const
 
 /* GetOuter() is a macro here so the check text reads as in the original. */
 // @baa 0x0075e8c0
-/* UActorComponent slot 0x08c (kit vf_08c): UE3's UActorComponent::NeedsLoadForServer(): only when the outer loads on
- * the server and the component isn't marked not-for-server. */
+/* UActorComponent slot 0x08c: UE3's UActorComponent::NeedsLoadForServer(): only when the outer loads on the server
+ * and the component isn't marked not-for-server. */
 UBOOL UActorComponent::NeedsLoadForServer() const
 {
 #line 508 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActorComponent.cpp"

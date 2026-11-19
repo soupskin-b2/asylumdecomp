@@ -4,8 +4,8 @@
 #include "ue3/Classes.h"
 #include "ue3/Cast.h"
 
-/* Unnamed in the kit: UE3's APlayerController::GetPlayerNetworkAddress() (execGetPlayerNetworkAddress's native):
- * the remote address of a network player, or an empty string. */
+/* UE3's APlayerController::GetPlayerNetworkAddress() (execGetPlayerNetworkAddress's native): the remote address of a
+ * network player, or an empty string. */
 
 // @baa 0x008b6e50
 FString APlayerController::GetPlayerNetworkAddress()

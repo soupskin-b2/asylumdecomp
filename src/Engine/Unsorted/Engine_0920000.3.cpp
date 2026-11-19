@@ -75,8 +75,6 @@ void USkeletalMeshComponent::execGetBoneAxis(FFrame& Stack, RESULT_DECL)
     *(FVector*)Result = this->GetBoneAxis(BoneName, Axis);
 }
 
-/* USkeletalMeshComponent::GetBoneQuaternion (0x91e2a0) isn't declared in the kit. */
-
 // @baa 0x0092de90
 void USkeletalMeshComponent::execGetBoneQuaternion(FFrame& Stack, RESULT_DECL)
 {
@@ -85,8 +83,6 @@ void USkeletalMeshComponent::execGetBoneQuaternion(FFrame& Stack, RESULT_DECL)
     P_FINISH;
     *(FQuat*)Result = this->GetBoneQuaternion(BoneName, Space);
 }
-
-/* Kit gap: USkeletalMeshComponent::AddInstanceVertexWeightBoneParented (UnSkeletalComponent.cpp) isn't declared. */
 
 // @baa 0x0092e7a0
 void USkeletalMeshComponent::execAddInstanceVertexWeightBoneParented(FFrame& Stack, RESULT_DECL)

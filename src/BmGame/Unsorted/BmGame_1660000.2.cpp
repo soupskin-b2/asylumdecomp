@@ -1897,8 +1897,8 @@ UBOOL ARPawnCharacter::IsInWeaponTransition()
 }
 
 // @baa 0x0166fea0
-/* ARPawnCharacter slot 0x23c (kit vf_23c, UE3 TermRBPhys(FRBPhysScene* Scene)): refresh the body constraint
- * component (URConstrainingComponent::UpdateRBConstraints) before the pawn's physics teardown. */
+/* ARPawnCharacter slot 0x23c (UE3 TermRBPhys(FRBPhysScene* Scene)): refresh the body constraint component
+ * (URConstrainingComponent::UpdateRBConstraints) before the pawn's physics teardown. */
 void ARPawnCharacter::TermRBPhys(FRBPhysScene* Scene)
 {
     if (BodyConstrainingComponent)
@@ -1909,8 +1909,8 @@ void ARPawnCharacter::TermRBPhys(FRBPhysScene* Scene)
 }
 
 // @baa 0x0166fe70
-/* ARPawnCharacter slot 0x238 (kit vf_238, UE3 InitRBPhys()): after the pawn's physics setup, constrain the mesh
- * through the body constraint component. */
+/* ARPawnCharacter slot 0x238 (UE3 InitRBPhys()): after the pawn's physics setup, constrain the mesh through the body
+ * constraint component. */
 void ARPawnCharacter::InitRBPhys()
 {
     Super::InitRBPhys();
@@ -1922,7 +1922,7 @@ void ARPawnCharacter::InitRBPhys()
 }
 
 // @baa 0x0166ee60
-/* ARPawnCharacter slot 0x534 (kit vf_534): forwards to the pose node (URAnimNode_Pose slot 0x284); FALSE without one. */
+/* ARPawnCharacter slot 0x534: forwards to the pose node (URAnimNode_Pose slot 0x284); FALSE without one. */
 UBOOL ARPawnCharacter::IsInAnyTransition(BYTE A)
 {
     if (!Anim)
@@ -1933,7 +1933,7 @@ UBOOL ARPawnCharacter::IsInAnyTransition(BYTE A)
 }
 
 // @baa 0x0166eea0
-/* ARPawnCharacter slot 0x53c (kit vf_53c): forwards to the pose node (URAnimNode_Pose slot 0x28c); FALSE without one. */
+/* ARPawnCharacter slot 0x53c: forwards to the pose node (URAnimNode_Pose slot 0x28c); FALSE without one. */
 UBOOL ARPawnCharacter::IsInAnyNonAutomaticTransition(BYTE A)
 {
     if (!Anim)
@@ -2125,7 +2125,7 @@ UBOOL ARPawnCharacter::IsInTransition(FTransitionId Id, BYTE Fuzziness)
 }
 
 // @baa 0x0166fd50
-/* Slot 0x604 (unnamed in the kit): the phase of the current movement cycle. */
+/* Slot 0x604: the phase of the current movement cycle. */
 BYTE ARPawnCharacter::GetMoveToPhase()
 {
 	if (Anim)

@@ -19,8 +19,6 @@ void ARExplodableWallBase::execGetFOVCheckLocation(FFrame& Stack, RESULT_DECL)
 	*(FVector*)Result = GetFOVCheckLocation();
 }
 
-/* ARExplodableWallBase::ExplodeExtentLine (0x172f010) isn't declared in the kit. */
-
 // @baa 0x017310f0
 void ARExplodableWallBase::execExplodeExtentLine(FFrame& Stack, RESULT_DECL)
 {

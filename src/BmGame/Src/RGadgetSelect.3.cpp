@@ -66,8 +66,6 @@ void URRopeComponentBase::eventCallQueueReattach()
 	ProcessEvent(FindFunctionChecked(g_026e3060), NULL);
 }
 
-/* URGadgetSelect::UpdateSelectedGadget (0x16416c0) isn't declared in the kit. */
-
 // @baa 0x01708750
 void URGadgetSelect::execUpdateSelectedGadget(FFrame& Stack, RESULT_DECL)
 {

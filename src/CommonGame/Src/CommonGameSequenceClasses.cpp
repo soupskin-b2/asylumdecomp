@@ -332,7 +332,7 @@ struct FString_ : public FString
 };
 
 // @baa 0x015422d0
-/* Slot 0x194 is USequenceVariable::GetValueStr (unnamed in the kit): the range the random vector is drawn from. */
+/* Slot 0x194 is USequenceVariable::GetValueStr: the range the random vector is drawn from. */
 FString URSeqVar_RandomVector::GetValueStr()
 {
 	return FString_::Printf(TEXT("(%2.1f,%2.1f,%2.1f)..(%2.1f,%2.1f,%2.1f)"), Min.X, Min.Y, Min.Z, Max.X, Max.Y, Max.Z);

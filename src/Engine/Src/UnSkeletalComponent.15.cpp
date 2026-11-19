@@ -5,8 +5,6 @@
 #include "ue3/Array.h"
 #include "ue3/Script.h"
 
-/* USkeletalMesh::MatchRefBone (0x00976be0) isn't declared in Classes.h. */
-
 /* FMatrix::GetOrigin (UnMath.h) */
 struct FMatrix_ : public FMatrix
 {

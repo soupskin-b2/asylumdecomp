@@ -106,7 +106,6 @@ void USkeletalMesh::Serialize(FArchive& Ar)
 /* A global flag (its name isn't known) that suppresses the setup, e.g. while running a commandlet. */
 extern INT g_02676094;
 // @baa 0x0097dae0
-/* Slot 0x14 (unnamed in the kit). */
 void USkeletalMesh::PreSave()
 {
 	if (!this->IsTemplate() && !g_02676094)

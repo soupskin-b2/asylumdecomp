@@ -48,8 +48,8 @@ void UAnimNodeBlendBase::OnChildAnimEnd(UAnimNodeSequence* Child, FLOAT PlayedTi
 }
 
 // @baa 0x00c535b0
-/* UAnimNodeBlendBase slot 0x134 (kit vf_134, UE3 TickAnim(FLOAT DeltaSeconds, FLOAT TotalWeight)): while relevant,
- * accumulate each connected child's total weight. */
+/* UAnimNodeBlendBase slot 0x134 (UE3 TickAnim(FLOAT DeltaSeconds, FLOAT TotalWeight)): while relevant, accumulate
+ * each connected child's total weight. */
 void UAnimNodeBlendBase::TickAnim(FLOAT DeltaSeconds, FLOAT TotalWeight)
 {
     if (bRelevant)
@@ -79,8 +79,6 @@ void UAnimNodeCrossfader::InitAnim(USkeletalMeshComponent* MeshComp, UAnimNodeBl
 	}
 }
 
-/* Kit gap: UAnimNodeBlendPerBone::BuildWeightList isn't declared in Classes.h. */
-
 // @baa 0x00c60e20
 void UAnimNodeBlendPerBone::InitAnim(USkeletalMeshComponent* MeshComp, UAnimNodeBlendBase* Parent)
 {
@@ -101,8 +99,6 @@ void UAnimTree::InitAnim(USkeletalMeshComponent* MeshComp, UAnimNodeBlendBase* P
 	}
 	this->InitTreeSynchGroups();
 }
-
-/* Kit gap: UAnimNodeSynch::UpdateAnimSeqNodes isn't declared in Classes.h. */
 
 // @baa 0x00c7ed60
 void UAnimNodeSynch::InitAnim(USkeletalMeshComponent* MeshComp, UAnimNodeBlendBase* Parent)
@@ -128,8 +124,6 @@ void UAnimNode::InitAnim(USkeletalMeshComponent* MeshComp, UAnimNodeBlendBase* P
 	SkelComponent = MeshComp;
 	((UAnimNode_*)this)->eventOnInit();
 }
-
-/* Kit gap: UAnimNodeAimOffset::UpdateListOfRequiredBones isn't declared in Classes.h. */
 
 // @baa 0x00c69940
 void UAnimNodeAimOffset::InitAnim(USkeletalMeshComponent* MeshComp, UAnimNodeBlendBase* Parent)

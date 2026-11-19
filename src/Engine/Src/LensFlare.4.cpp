@@ -5,8 +5,8 @@
 #include "ue3/Classes.h"
 
 // @baa 0x00bace80
-/* Slot 0x2c (unnamed in the kit; UE3's FinishDestroy): frees the fence. FRenderCommandFence has no
- * destructor, so delete is just the free. */
+/* Slot 0x2c (UE3's FinishDestroy): frees the fence. FRenderCommandFence has no destructor, so delete is just the
+ * free. */
 void ULensFlareComponent::FinishDestroy()
 {
 	if (ReleaseResourcesFence)

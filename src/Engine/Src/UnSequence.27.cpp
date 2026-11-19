@@ -36,8 +36,7 @@ void USequenceOp::PostEditChange(UProperty* PropertyThatChanged)
 }
 
 // @baa 0x008bdf20
-/* USequenceOp slot 0x178 (kit vf_178, UE3 DeActivated()): fire every enabled output link when
- * bAutoActivateOutputLinks is set. */
+/* USequenceOp slot 0x178 (UE3 DeActivated()): fire every enabled output link when bAutoActivateOutputLinks is set. */
 void USequenceOp::DeActivated()
 {
     if (bAutoActivateOutputLinks)
@@ -136,14 +135,14 @@ struct USequenceObject_ : public USequenceObject
 };
 
 // @baa 0x008aa270
-/* USequenceObject slot 0x120 (kit vf_120, UE3's OnCreated()): stamp the object with its class's current version. */
+/* USequenceObject slot 0x120 (UE3's OnCreated()): stamp the object with its class's current version. */
 void USequenceObject::OnCreated()
 {
     ObjInstanceVersion = ((USequenceObject_*)this)->eventGetObjClassVersion();
 }
 
 // @baa 0x008e2270
-/* USequence slot 0x120 (kit vf_120, UE3's OnCreated()): stamp the version, then slot 0x1a4. */
+/* USequence slot 0x120 (UE3's OnCreated()): stamp the version, then slot 0x1a4. */
 void USequence::OnCreated()
 {
     ObjInstanceVersion = ((USequenceObject_*)this)->eventGetObjClassVersion();
@@ -151,7 +150,7 @@ void USequence::OnCreated()
 }
 
 // @baa 0x008ac570
-/* USeqEvent_ParticleEvent slot 0x120 (kit vf_120, UE3's OnCreated()): stamp the version, then SetupOutputLinks(FALSE). */
+/* USeqEvent_ParticleEvent slot 0x120 (UE3's OnCreated()): stamp the version, then SetupOutputLinks(FALSE). */
 void USeqEvent_ParticleEvent::OnCreated()
 {
     ObjInstanceVersion = ((USequenceObject_*)this)->eventGetObjClassVersion();

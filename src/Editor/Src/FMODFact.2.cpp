@@ -5,16 +5,14 @@
 #include "ue3/Native.h"
 
 // @baa 0x01104cd0
-/* The factory's class hides the Object category in the editor. UClass::HideCategories is the
- * kit's Native_f0 (UE3's UClass member at 0xf0, unnamed in the kit). */
+/* The factory's class hides the Object category in the editor. */
 void URFMODSoundFactory::StaticConstructor()
 {
     new((FNameArray&)GetClass()->HideCategories) FNameText(TEXT("Object"));
 }
 
 // @baa 0x01104d90
-/* The factory's class hides the Object category in the editor. UClass::HideCategories is the
- * kit's Native_f0 (UE3's UClass member at 0xf0, unnamed in the kit). */
+/* The factory's class hides the Object category in the editor. */
 void URReimportFMODSoundFactory::StaticConstructor()
 {
     new((FNameArray&)GetClass()->HideCategories) FNameText(TEXT("Object"));

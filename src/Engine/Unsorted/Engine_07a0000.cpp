@@ -1703,15 +1703,15 @@ UBOOL AGameReplicationInfo::OnSameTeam(AActor* A, AActor* B)
 }
 
 // @baa 0x007a0650
-/* AController slot 0x3d4 (kit vf_3d4): fails the current move (UE3 does this inline as MoveTimer = -1.f, e.g. in
- * StopAtLedge, which this build routes through the slot). */
+/* AController slot 0x3d4: fails the current move (UE3 does this inline as MoveTimer = -1.f, e.g. in StopAtLedge,
+ * which this build routes through the slot). */
 void AController::FailMove()
 {
     MoveTimer = -1.f;
 }
 
 // @baa 0x007a0610
-/* AController slot 0x3ac (kit vf_3ac, UE3 StopAtLedge()): stop at a ledge unless the pawn can jump down it. */
+/* AController slot 0x3ac (UE3 StopAtLedge()): stop at a ledge unless the pawn can jump down it. */
 UBOOL AController::StopAtLedge()
 {
     if (!Pawn || !Pawn->bCanJump || Pawn->bStopAtLedges)
@@ -1753,8 +1753,8 @@ void AController::SetDestinationPosition(FVector Dest, UBOOL bOffsetFromBase)
     ((FBasedPosition&)DestinationPosition).Set((bOffsetFromBase && Pawn) ? Pawn->Base : NULL, Dest);
 }
 
-/* Unnamed in the kit: UE3's AController::SetBasedPosition(FBasedPosition& BP, FVector Pos, AActor* ForcedBase):
- * base the position on ForcedBase, else on the pawn's base. */
+/* UE3's AController::SetBasedPosition(FBasedPosition& BP, FVector Pos, AActor* ForcedBase): base the position on
+ * ForcedBase, else on the pawn's base. */
 
 // @baa 0x007ad5d0
 void AController::SetBasedPosition(FBasedPosition& BP, FVector Pos, AActor* ForcedBase)

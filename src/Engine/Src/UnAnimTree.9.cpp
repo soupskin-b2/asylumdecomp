@@ -6,7 +6,6 @@
 
 /* Cast<UAnimNodeSequence> is the out-of-line instantiation at 009109d0. */
 extern template UAnimNodeSequence* Cast<UAnimNodeSequence>(UObject* Src);
-/* UAnimNodeCrossfader::GetActiveChild isn't declared in Classes.h. */
 
 // @baa 0x00c7a590
 UAnimNodeSequence* UAnimNodeCrossfader::GetActiveChild()

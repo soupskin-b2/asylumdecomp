@@ -7,7 +7,6 @@
 #include "ue3/Cast.h"
 
 extern template UAnimTree* Cast<UAnimTree>(UObject* Src);
-/* UAnimTree::GetTreeActiveMorphs (0x00c55760) isn't declared in Classes.h. */
 
 
 // @baa 0x00934a30

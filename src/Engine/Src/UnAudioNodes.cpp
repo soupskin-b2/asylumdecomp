@@ -1207,8 +1207,6 @@ UBOOL USoundNodeAmbientNonLoop::HasParentClassChanged() const
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
-/* Kit gap: UObject::MarkPackageDirty (0x005d9570) is only declared on UAnimSequence. */
-
 // @baa 0x00c92f30
 /* Editing a property marks the package dirty. */
 void USoundCue::PostEditChange(UProperty* PropertyThatChanged)

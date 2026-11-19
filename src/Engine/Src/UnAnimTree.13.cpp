@@ -8,8 +8,6 @@ enum EName_ { NAME_None_ = 0 };
 
 inline UBOOL operator==(const FName& A, EName_ N) { return A.Index == N && A.Number == 0; }
 
-/* UAnimTree::FindSkelControl isn't declared in Classes.h. */
-
 // @baa 0x00c55810
 USkelControlBase* UAnimTree::FindSkelControl(FName InControlName)
 {
@@ -512,8 +510,6 @@ void UAnimTree::SetGroupRateScale(FName GroupName, FLOAT NewRateScale)
 		AnimGroups(GroupIndex).RateScale = NewRateScale;
 	}
 }
-
-/* UAnimNode::CountNumParentsTicked isn't declared in Classes.h. */
 
 // @baa 0x00c53000
 INT UAnimNode::CountNumParentsTicked()

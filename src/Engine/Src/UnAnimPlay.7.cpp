@@ -15,8 +15,8 @@ static FORCEINLINE FAnimGroup& GetAnimGroup_(TArray<FAnimGroup>& Groups, INT i)
 }
 
 // @baa 0x00c7fb90
-/* UAnimNodeSequence slot 0x190 (kit vf_190, UE3 GetGlobalPlayRate()): this node's rate scaled by the mesh's global rate,
- * the sequence's RateScale and its synch group's RateScale. */
+/* UAnimNodeSequence slot 0x190 (UE3 GetGlobalPlayRate()): this node's rate scaled by the mesh's global rate, the
+ * sequence's RateScale and its synch group's RateScale. */
 FLOAT UAnimNodeSequence::GetGlobalPlayRate()
 {
     FLOAT GlobalRate = Rate * SkelComponent->GlobalAnimRateScale;

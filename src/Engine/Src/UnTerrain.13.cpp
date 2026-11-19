@@ -35,9 +35,8 @@ extern FPixelFormatInfo g_025da760[];
  * takes the component's outer and returns the ATerrain). */
 INT sub_009a54b0(...);
 // @baa 0x009a6780
-/* UTerrainComponent slot 0x158 (kit vf_158(UINT*, UINT*); UE3's GetLightMapResolution(INT& Width, INT& Height)):
- * the light map size, the section plus a DXT-block-sized border per side at the terrain's lighting resolution,
- * aligned to DXT1 blocks. */
+/* UTerrainComponent slot 0x158 (UE3's GetLightMapResolution(INT& Width, INT& Height)): the light map size, the
+ * section plus a DXT-block-sized border per side at the terrain's lighting resolution, aligned to DXT1 blocks. */
 void UTerrainComponent::GetLightAndShadowMapMemoryUsage(UINT* Width, UINT* Height)
 {
     ATerrain* Terrain = (ATerrain*)sub_009a54b0(Outer);

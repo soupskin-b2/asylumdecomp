@@ -30,8 +30,6 @@ void UAnimNodePlayCustomAnim_::PlayAnimByDuration(FName AnimName, FLOAT Duration
 	}
 }
 
-/* UAnimNodeAimOffset::GetCurrentProfile isn't declared in Classes.h. */
-
 // @baa 0x00c55cc0
 FAimOffsetProfile* UAnimNodeAimOffset::GetCurrentProfile()
 {
@@ -71,8 +69,6 @@ struct FAimComponentArray : public TArray<FAimComponent>
 };
 
 /* Callees Classes.h doesn't declare. */
-
-/* UAnimNodeAimOffset::GetComponentIdxFromBoneIdx isn't declared in Classes.h. */
 
 // @baa 0x00c623d0
 INT UAnimNodeAimOffset::GetComponentIdxFromBoneIdx(INT BoneIndex, UBOOL bCreateIfNotFound)

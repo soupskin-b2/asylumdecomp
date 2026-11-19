@@ -156,7 +156,7 @@ UBOOL UUIScreenObject::HasUniqueStaticConfigName() const
 }
 
 // @baa 0x00db3580
-/* UUIScreenObject slot 0x1c (kit vf_01c, UE3 PostLoad()): drop any NULL entries from Children. */
+/* UUIScreenObject slot 0x1c (UE3 PostLoad()): drop any NULL entries from Children. */
 void UUIScreenObject::PostLoad()
 {
     UObject::PostLoad();
@@ -196,8 +196,8 @@ INT UUIScreenObject::GetPlayerOwnerIndex(UBOOL bRequireValidIndex)
 }
 
 // @baa 0x00da9320
-/* UUIScreenObject slot 0x70 (kit vf_070, UE3 PostEditUndo()): refresh positions (slot 0x164, all four flags) and
- * formatting, then UObject's version. */
+/* UUIScreenObject slot 0x70 (UE3 PostEditUndo()): refresh positions (slot 0x164, all four flags) and formatting,
+ * then UObject's version. */
 void UUIScreenObject::PostSerializeFromPropagationArchive()
 {
     RequestSceneUpdate(TRUE, TRUE, TRUE, TRUE);
@@ -221,8 +221,8 @@ UBOOL UUIScreenObject::AcceptsPlayerInput(INT PlayerIndex)
  * check). */
 
 // @baa 0x00da94c0
-/* Unnamed in the kit: UE3's UUIScreenObject::InvalidatePosition(BYTE Face): mark Face for re-resolve and invalidate
- * the faces that depend on it. */
+/* UE3's UUIScreenObject::InvalidatePosition(BYTE Face): mark Face for re-resolve and invalidate the faces that
+ * depend on it. */
 void UUIScreenObject::InvalidatePosition(BYTE Face)
 {
     UBOOL bChanged = Position.sub_00de0600(0, Face);
@@ -244,7 +244,7 @@ FVector UUIScreenObject::GetPositionVector(UBOOL bIncludeParentPosition)
 }
 
 // @baa 0x00db0160
-/* UUIScreenObject slot 0x1d0 (kit vf_1d0): pass the notification on to every child. */
+/* UUIScreenObject slot 0x1d0: pass the notification on to every child. */
 void UUIScreenObject::InitializePrimitives(FCanvas* Canvas)
 {
     for (INT ChildIndex = 0; ChildIndex < Children.Num(); ChildIndex++)
@@ -266,7 +266,7 @@ void UUIScreenObject::vf_1d8(INT Arg)
 }
 
 // @baa 0x00db06a0
-/* UUIScreenObject slot 0x194 (kit vf_194): when the second argument is set, pass the call on to every child. */
+/* UUIScreenObject slot 0x194: when the second argument is set, pass the call on to every child. */
 void UUIScreenObject::SetInputMask(BYTE Arg1, UBOOL Arg2, UBOOL Arg3)
 {
     if (Arg2)

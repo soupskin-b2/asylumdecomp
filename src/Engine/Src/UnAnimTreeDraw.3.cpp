@@ -4,8 +4,6 @@
 #include "ue3/Classes.h"
 #include "ue3/AppMath.h"
 
-/* UAnimNodeBlend::SetBlendTarget (not virtual in this build) isn't declared in Classes.h. */
-
 // @baa 0x00c54040
 void UAnimNodeBlend::SetBlendTarget(FLOAT BlendTarget, FLOAT BlendTime)
 {

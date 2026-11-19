@@ -3377,19 +3377,17 @@ undefined4 C_015b0d90::sub_015b0d90(int param_2)
 }
 
 // @baa 0x00757d70
-/* AActor slot 0x20 (kit vf_020): UE3's AActor::BeginDestroy(): detach the components (slot 0x310, UE3
- * ClearComponents) before the object-level BeginDestroy. */
+/* AActor slot 0x20: UE3's AActor::BeginDestroy(): detach the components (slot 0x310, UE3 ClearComponents) before the
+ * object-level BeginDestroy. */
 void AActor::BeginDestroy()
 {
     ClearComponents(FALSE);
     Super::BeginDestroy();
 }
 
-/* Kit gap: FRenderCommandFence::GetNumPendingFences (0x0071f7e0) isn't declared. */
-
 // @baa 0x00757d90
-/* AActor slot 0x24 (kit vf_024): UE3's AActor::IsReadyForFinishDestroy(): the render thread is done with the
- * components detached in BeginDestroy. */
+/* AActor slot 0x24: UE3's AActor::IsReadyForFinishDestroy(): the render thread is done with the components detached
+ * in BeginDestroy. */
 UBOOL AActor::IsReadyForFinishDestroy()
 {
     return DetachFence.GetNumPendingFences() == 0;
@@ -3439,8 +3437,6 @@ void C_00984660::sub_00984660(C_00984660_Target* Other)
 {
     Other->vf_014(_f04, _f08);
 }
-
-/* Kit gap: UObject::ConditionalPostLoad isn't declared in Classes.h. */
 
 // @baa 0x009918f0
 void UTerrainLayerSetup::PostLoad()

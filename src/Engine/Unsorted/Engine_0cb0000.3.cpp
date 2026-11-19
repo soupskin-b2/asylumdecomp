@@ -4,16 +4,12 @@
 #include "ue3/Classes.h"
 #include "ue3/Script.h"
 
-/* Kit gap: APlayerController::GetPlayerNetworkAddress (UnPlayer.cpp) isn't declared. */
-
 // @baa 0x00cb6db0
 void APlayerController::execGetPlayerNetworkAddress(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
 	*(FString*)Result = this->GetPlayerNetworkAddress();
 }
-
-/* Kit gap: AFileWriter::Logf (UnActor.cpp) isn't declared. */
 
 // @baa 0x00cb7bd0
 void AFileWriter::execLogf(FFrame& Stack, RESULT_DECL)
@@ -23,16 +19,12 @@ void AFileWriter::execLogf(FFrame& Stack, RESULT_DECL)
 	this->Logf(LogString);
 }
 
-/* Kit gap: AActor::GetURLMap isn't declared. */
-
 // @baa 0x00cb5d80
 void AActor::execGetURLMap(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
 	*(FString*)Result = this->GetURLMap();
 }
-
-/* Kit gap: APlayerController::GetServerNetworkAddress isn't declared. */
 
 // @baa 0x00cb6e40
 void APlayerController::execGetServerNetworkAddress(FFrame& Stack, RESULT_DECL)
@@ -69,8 +61,6 @@ void AWorldInfo::execGetAddressURL(FFrame& Stack, RESULT_DECL)
 	*(FString*)Result = GetAddressURL();
 }
 
-/* Kit gap: APlayerController::ClientConvolve (UnPlayer.cpp; an empty stub in this build) isn't declared. */
-
 // @baa 0x00cb7350
 void APlayerController::execClientConvolve(FFrame& Stack, RESULT_DECL)
 {
@@ -79,8 +69,6 @@ void APlayerController::execClientConvolve(FFrame& Stack, RESULT_DECL)
 	P_FINISH;
 	this->ClientConvolve(C, H);
 }
-
-/* Kit gap: APlayerController::ServerProcessConvolve (UnPlayer.cpp; an empty stub in this build) isn't declared. */
 
 // @baa 0x00cb7430
 void APlayerController::execServerProcessConvolve(FFrame& Stack, RESULT_DECL)
@@ -91,8 +79,6 @@ void APlayerController::execServerProcessConvolve(FFrame& Stack, RESULT_DECL)
 	this->ServerProcessConvolve(C, H);
 }
 
-/* Kit gap: APlayerController::GetDefaultURL (UnPlayer.cpp) isn't declared. */
-
 // @baa 0x00cb7140
 void APlayerController::execGetDefaultURL(FFrame& Stack, RESULT_DECL)
 {
@@ -100,8 +86,6 @@ void APlayerController::execGetDefaultURL(FFrame& Stack, RESULT_DECL)
 	P_FINISH;
 	*(FString*)Result = this->GetDefaultURL(Option);
 }
-
-/* Kit gap: AActor::ChartData (UnActor.cpp) isn't declared. */
 
 // @baa 0x00cb5ca0
 void AActor::execChartData(FFrame& Stack, RESULT_DECL)

@@ -4,8 +4,6 @@
 #include "ue3/Classes.h"
 #include "ue3/Native.h"
 
-/* Kit gap: UWorld::GetTimeSeconds (009c8f80) isn't declared. */
-
 // @baa 0x00865160
 void APawn::SetAnchor(ANavigationPoint* NewAnchor)
 {
@@ -28,8 +26,6 @@ void APawn::SetAnchor(ANavigationPoint* NewAnchor)
 		}
 	}
 }
-
-/* Kit gap: UWorld::GetGravityZ (009c6c80) isn't declared. */
 
 // @baa 0x00867f90
 /* Rigid bodies use the volume's rigid body gravity, scaled by the world's physics gravity scaling. */

@@ -47,10 +47,6 @@ struct FMatrix_ : public FMatrix
     FMatrix operator*(const FMatrix& Other) const;      /* 0x0058e560 */
 };
 
-/* USkeletalMesh::MatchRefBone (0x00976be0) isn't declared in Classes.h */
-
-/* URB_ConstraintSetup::GetRefFrameMatrix (UnPhysConstraint.cpp, 0x00a322d0) isn't declared in Classes.h */
-
 /* UnSkeletalMesh.cpp helper (0x00d776d0): world-space matrix of a bone */
 FMatrix GetBoneMatrix(INT BoneIndex, const TArray<FMatrix>& SpaceBases, const FMatrix& LocalToWorld);
 class FPrimitiveDrawInterface;

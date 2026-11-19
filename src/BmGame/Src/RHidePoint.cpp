@@ -65,7 +65,7 @@ void ARHidePoint::BeginDestroy()
 }
 
 // @baa 0x01651fe0
-/* Slot 0x2c (unnamed in the kit): also drops the hide point from the list. */
+/* Slot 0x2c: also drops the hide point from the list. */
 void ARHidePoint::FinishDestroy()
 {
 	g_026e1c70.RemoveItem(this);

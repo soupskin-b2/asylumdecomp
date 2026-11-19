@@ -8,7 +8,6 @@
 // The game keeps these out of line: ~TArray<UObject**> (0x008c26a0), Cast<APawn> (0x007d94d0).
 extern template TArray<UObject**>::~TArray();
 extern template APawn* Cast<APawn>(UObject* Src);
-/* USequenceOp::GetObjectVars (0x008e9100) isn't declared in Classes.h. */
 
 /* slot 0x174 (vf_174) is USequenceOp::Activated; USequenceAction's is 0x008d1890 */
 

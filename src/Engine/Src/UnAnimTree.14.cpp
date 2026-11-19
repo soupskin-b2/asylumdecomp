@@ -8,8 +8,6 @@ enum EName_ { NAME_None_ = 0 };
 
 inline UBOOL operator==(const FName& A, EName_ N) { return A.Index == N && A.Number == 0; }
 
-/* UAnimNodeSlot::PlayCustomAnimByDuration isn't declared in Classes.h. */
-
 // @baa 0x00c7f120
 void UAnimNodeSlot::PlayCustomAnimByDuration(FName AnimName, FLOAT Duration, FLOAT BlendInTime, FLOAT BlendOutTime, UBOOL bLooping, UBOOL bOverride)
 {

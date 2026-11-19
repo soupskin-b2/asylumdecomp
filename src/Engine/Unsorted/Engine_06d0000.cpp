@@ -2347,8 +2347,8 @@ void UPrimitiveComponent::SetOwnerNoSee(UBOOL bNewOwnerNoSee)
 }
 
 // @baa 0x006db240
-/* UPrimitiveComponent slot 0x158 (kit vf_158, UE3 GetLightAndShadowMapMemoryUsage(INT& LightMapMemoryUsage,
- * INT& ShadowMapMemoryUsage) const): a plain primitive has neither. */
+/* UPrimitiveComponent slot 0x158 (UE3 GetLightAndShadowMapMemoryUsage(INT& LightMapMemoryUsage, INT&
+ * ShadowMapMemoryUsage) const): a plain primitive has neither. */
 void UPrimitiveComponent::GetLightAndShadowMapMemoryUsage(UINT* LightMapMemoryUsage, UINT* ShadowMapMemoryUsage)
 {
     *LightMapMemoryUsage = 0;
@@ -2356,8 +2356,8 @@ void UPrimitiveComponent::GetLightAndShadowMapMemoryUsage(UINT* LightMapMemoryUs
 }
 
 // @baa 0x006db670
-/* UPrimitiveComponent slot 0x88 (kit vf_088, UE3 NeedsLoadForClient()): hidden primitives only load on clients
- * when they collide or are marked AlwaysLoadOnClient. */
+/* UPrimitiveComponent slot 0x88 (UE3 NeedsLoadForClient()): hidden primitives only load on clients when they collide
+ * or are marked AlwaysLoadOnClient. */
 UBOOL UPrimitiveComponent::NeedsLoadForClient() const
 {
     if (!HiddenGame || (CollideActors && (!Owner || Owner->bCollideActors)) || AlwaysLoadOnClient)
@@ -2368,7 +2368,7 @@ UBOOL UPrimitiveComponent::NeedsLoadForClient() const
 }
 
 // @baa 0x006db6b0
-/* UPrimitiveComponent slot 0x8c (kit vf_08c, UE3 NeedsLoadForServer()): load on servers when colliding or marked
+/* UPrimitiveComponent slot 0x8c (UE3 NeedsLoadForServer()): load on servers when colliding or marked
  * AlwaysLoadOnServer. */
 UBOOL UPrimitiveComponent::NeedsLoadForServer() const
 {

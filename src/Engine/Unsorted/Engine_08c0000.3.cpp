@@ -17,8 +17,6 @@ undefined4 UObject::sub_008cdab0(byte param_2)
   return param_1;
 }
 
-/* Kit gap: UActorComponent::ConditionalDetach (UnActorComponent.cpp; 0x00759640) isn't declared. */
-
 // @baa 0x008c7f00
 /* UE3's AActor::DetachComponent: drop the component from Components and detach it if it was there. */
 void AActor::DetachComponent(UActorComponent* ExComponent)

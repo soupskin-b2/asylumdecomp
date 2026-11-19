@@ -144,8 +144,8 @@ void URAnimNode_Cape::sub_0156e6a0(INT boneIndex, FMatrix& OutSpaceBase)
 /* Unnamed in the kit: the cape node's per-tick update steps. */
 
 // @baa 0x01591bd0
-/* URAnimNode_Cape slot 0x134 (kit vf_134, UE3 TickAnim(FLOAT DeltaSeconds, FLOAT TotalWeight)): the cape's own
- * updates, then the blend node's tick. */
+/* URAnimNode_Cape slot 0x134 (UE3 TickAnim(FLOAT DeltaSeconds, FLOAT TotalWeight)): the cape's own updates, then the
+ * blend node's tick. */
 void URAnimNode_Cape::TickAnim(FLOAT DeltaSeconds, FLOAT TotalWeight)
 {
     this->sub_01590f70();

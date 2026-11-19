@@ -458,8 +458,6 @@ void AController::eventMayFall()
 	}
 }
 
-/* APawn::SetBasedPosition (0x7ad430) isn't declared in the kit. */
-
 // @baa 0x00c8a640
 void APawn::execSetBasedPosition(FFrame& Stack, RESULT_DECL)
 {
@@ -484,8 +482,8 @@ struct UPathGoalEvaluator_ : public UPathGoalEvaluator
 };
 
 // @baa 0x008a66e0
-/* APawn slot 0x3a0 (kit vf_3a0): UE3's APawn::ClearConstraints(): hand every path constraint and goal evaluator
- * back to script for recycling. */
+/* APawn slot 0x3a0: UE3's APawn::ClearConstraints(): hand every path constraint and goal evaluator back to script
+ * for recycling. */
 void APawn::ClearConstraints()
 {
     while (PathConstraintList != NULL)

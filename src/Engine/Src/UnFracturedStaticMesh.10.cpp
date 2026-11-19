@@ -68,7 +68,7 @@ UBOOL UFracturedBaseComponent::IsElementFragmentVisible(INT ElementIndex, INT Fr
 #line 94 "candidate.cpp"
 
 // @baa 0x007b8ac0
-/* UFracturedBaseComponent slot 0x284 (kit vf_284): UE3's GetNumVisibleFragments. */
+/* UFracturedBaseComponent slot 0x284: UE3's GetNumVisibleFragments. */
 INT UFracturedBaseComponent::GetNumVisibleFragments()
 {
     INT NumVisible = 0;

@@ -5,7 +5,7 @@
 #include "ue3/Cast.h"
 #include "ue3/Array.h"
 
-/* Unnamed in the kit: UE3's AWorldInfo* ULevel::GetWorldInfo() const. */
+/* UE3's AWorldInfo* ULevel::GetWorldInfo() const. */
 
 // @baa 0x009c9950
 /* UE3's AWorldInfo::GetMapInfo(): the persistent level's MyMapInfo when streaming levels are in use. */

@@ -30,7 +30,7 @@ AActor* AActor::sub_0068f1e0()
 }
 
 // @baa 0x0068ee40
-/* AActor slot 0x38 (kit vf_038): UE3's AActor::IsPendingKill(): destroyed or marked for killing. */
+/* AActor slot 0x38: UE3's AActor::IsPendingKill(): destroyed or marked for killing. */
 UBOOL AActor::IsPendingKill()
 {
     return bDeleteMe || this->HasAnyFlags(RF_PendingKill);

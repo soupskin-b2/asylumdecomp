@@ -737,8 +737,6 @@ void UObject::execLessEqual_IntInt(FFrame& Stack, RESULT_DECL)
 	*(INT*)Result = A <= B;
 }
 
-/* UObject::IsInState (0x59dc80) isn't declared in the kit. */
-
 // @baa 0x0059ef90
 void UObject::execIsInState(FFrame& Stack, RESULT_DECL)
 {
@@ -1421,8 +1419,6 @@ void UObject::sub_00599940(FFrame& Stack, RESULT_DECL)
 	BYTE B = *Stack.Code++;
 	(this->*GNatives[0xf00 + B])(Stack, Result);
 }
-
-/* FQuat::RotateVector (UnMath.h) isn't declared in the kit. */
 
 // @baa 0x005989d0
 void UObject::execQuatRotateVector(FFrame& Stack, RESULT_DECL)

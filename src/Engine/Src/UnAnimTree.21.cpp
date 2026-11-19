@@ -7,7 +7,6 @@
 
 /* Cast<UAnimNodeSequence> is out of line in this build. */
 extern template UAnimNodeSequence* Cast<UAnimNodeSequence>(UObject* Src);
-/* UAnimNodeSlot::GetCustomAnimNodeSeq isn't declared in Classes.h. */
 
 // @baa 0x00c7ccb0
 UAnimNodeSequence* UAnimNodeSlot::GetCustomAnimNodeSeq()

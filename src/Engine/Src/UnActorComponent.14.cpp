@@ -4,8 +4,8 @@
 #include "ue3/Classes.h"
 
 // @baa 0x007650e0
-/* AActor slot 0x31c (kit vf_31c): marks the actor's components pending kill, all of them or (bOnlyFiltered) only
- * those whose slot 0x144 says so. */
+/* AActor slot 0x31c: marks the actor's components pending kill, all of them or (bOnlyFiltered) only those whose slot
+ * 0x144 says so. */
 void AActor::MarkComponentsAsPendingKill(UBOOL bOnlyFiltered)
 {
     for (INT ComponentIndex = 0; ComponentIndex < Components.Num(); ComponentIndex++)

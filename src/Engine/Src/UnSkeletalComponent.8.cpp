@@ -94,8 +94,6 @@ public:
     FRotationTranslationMatrix(const FRotator& Rot, const FVector& Origin);
 };
 
-/* USkeletalMesh::FindSocket (0x00951be0) and MatchRefBone (0x00976be0) aren't declared in Classes.h. */
-
 /* FRotator(INT,INT,INT) (UnMath.h) */
 struct FRotator_ : public FRotator
 {
@@ -173,8 +171,6 @@ FMatrix USkeletalMeshComponent::GetBoneMatrix(INT BoneIndex)
 }
 
 #line 229 "candidate.cpp"
-
-/* USkeletalMesh::MatchRefBone (0x00976be0) isn't declared in Classes.h. */
 
 /* FMatrix::GetOrigin (UnMath.h) */
 struct FMatrix__0091e3a0 : public FMatrix

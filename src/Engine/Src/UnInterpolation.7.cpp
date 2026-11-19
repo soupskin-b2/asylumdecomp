@@ -19,8 +19,8 @@ inline AActor* GetGroupActorOf(UInterpGroupInst* GrInst)
 }
 
 // @baa 0x00d16230
-/* UInterpTrackInstFloatParticleParam slot 0x110 (kit vf_110, UE3 RestoreActorState(UInterpTrack* Track)): put the
- * saved value back into the emitter's particle parameter. */
+/* UInterpTrackInstFloatParticleParam slot 0x110 (UE3 RestoreActorState(UInterpTrack* Track)): put the saved value
+ * back into the emitter's particle parameter. */
 void UInterpTrackInstFloatParticleParam::RestoreActorState(UInterpTrack* Track)
 {
     UInterpTrackFloatParticleParam* ParamTrack = CastChecked<UInterpTrackFloatParticleParam>(Track);
@@ -32,8 +32,8 @@ void UInterpTrackInstFloatParticleParam::RestoreActorState(UInterpTrack* Track)
 }
 
 // @baa 0x00d10d80
-/* UInterpTrackInstParticleReplay slot 0x110 (kit vf_110, UE3 RestoreActorState(UInterpTrack* Track)): take the
- * emitter's particle system out of replay mode (PRS_Disabled, clip and frame 0). */
+/* UInterpTrackInstParticleReplay slot 0x110 (UE3 RestoreActorState(UInterpTrack* Track)): take the emitter's
+ * particle system out of replay mode (PRS_Disabled, clip and frame 0). */
 void UInterpTrackInstParticleReplay::RestoreActorState(UInterpTrack* Track)
 {
     AActor* Actor = GetGroupActorOf(CastChecked<UInterpGroupInst>(GetOuterOf(this)));
@@ -66,8 +66,8 @@ void UInterpTrackInstSoundFade::InitTrackInst(UInterpTrack* Track)
 }
 
 // @baa 0x00d15030
-/* UInterpTrackInstSoundFade slot 0x118 (kit vf_118, UE3 TermTrackInst(UInterpTrack* Track)): with ResetVolume, give the
- * player camera back the sound fade saved at init. */
+/* UInterpTrackInstSoundFade slot 0x118 (UE3 TermTrackInst(UInterpTrack* Track)): with ResetVolume, give the player
+ * camera back the sound fade saved at init. */
 void UInterpTrackInstSoundFade::TermTrackInst(UInterpTrack* Track)
 {
     UInterpTrackSoundFade* SoundFadeTrack = CastChecked<UInterpTrackSoundFade>(Track);
@@ -82,8 +82,8 @@ void UInterpTrackInstSoundFade::TermTrackInst(UInterpTrack* Track)
 }
 
 // @baa 0x00d16310
-/* UInterpTrackInstFloatMaterialParam slot 0x110 (kit vf_110, UE3 RestoreActorState(UInterpTrack* Track)): put the
- * saved scalar back on the material instance actor's material. */
+/* UInterpTrackInstFloatMaterialParam slot 0x110 (UE3 RestoreActorState(UInterpTrack* Track)): put the saved scalar
+ * back on the material instance actor's material. */
 void UInterpTrackInstFloatMaterialParam::RestoreActorState(UInterpTrack* Track)
 {
     UInterpTrackFloatMaterialParam* ParamTrack = CastChecked<UInterpTrackFloatMaterialParam>(Track);
@@ -95,8 +95,8 @@ void UInterpTrackInstFloatMaterialParam::RestoreActorState(UInterpTrack* Track)
 }
 
 // @baa 0x00d10830
-/* UInterpTrackInstColorScale slot 0x118 (kit vf_118, UE3 TermTrackInst(UInterpTrack* Track)): turn colour scaling off
- * on the player camera and reset the scale. */
+/* UInterpTrackInstColorScale slot 0x118 (UE3 TermTrackInst(UInterpTrack* Track)): turn colour scaling off on the
+ * player camera and reset the scale. */
 void UInterpTrackInstColorScale::TermTrackInst(UInterpTrack* Track)
 {
     APlayerController* PC = Cast<APlayerController>(CastChecked<UInterpGroupInst>(GetOuterOf(this))->GroupActor);
@@ -108,8 +108,8 @@ void UInterpTrackInstColorScale::TermTrackInst(UInterpTrack* Track)
 }
 
 // @baa 0x00d16440
-/* UInterpTrackInstVectorMaterialParam slot 0x110 (kit vf_110, UE3 RestoreActorState(UInterpTrack* Track)): put the
- * saved vector (alpha 1) back on the material instance actor's material. */
+/* UInterpTrackInstVectorMaterialParam slot 0x110 (UE3 RestoreActorState(UInterpTrack* Track)): put the saved vector
+ * (alpha 1) back on the material instance actor's material. */
 void UInterpTrackInstVectorMaterialParam::RestoreActorState(UInterpTrack* Track)
 {
     UInterpTrackVectorMaterialParam* ParamTrack = CastChecked<UInterpTrackVectorMaterialParam>(Track);
