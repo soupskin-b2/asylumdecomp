@@ -88,9 +88,9 @@ struct FVector2D_ : public FVector2D
 
 // @baa 0x00ddd0f0
 /* The base client has no viewport: reports a zero size and fails. */
-INT UUISceneClient::vf_124(INT ViewportIndex, INT out_ViewportSize)
+UBOOL UUISceneClient::GetViewportSize(const UUIScene* Scene, FVector2D& out_ViewportSize)
 {
-	*(FVector2D*)out_ViewportSize = FVector2D_(0.f, 0.f);
+	out_ViewportSize = FVector2D_(0.f, 0.f);
 	return 0;
 }
 

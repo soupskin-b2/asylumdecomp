@@ -2060,7 +2060,7 @@ UMorphNodeBase * UMorphNodeBase::GetMorphNodeBase() { return this; }
 void UMorphNodeBase::GetActiveMorphs(TArray<FActiveMorph>& a0) {  }
 
 // @baa 0x0083d760
-void UMorphNodeBase::vf_12c(int a0, int a1, int a2) {  }
+void UMorphNodeBase::DrawMorphNode(class FCanvas* a0, UBOOL a1, UBOOL a2) {  }
 
 // @baa 0x0083d770
 FLOAT UMorphNodeBase::GetSliderPosition() {

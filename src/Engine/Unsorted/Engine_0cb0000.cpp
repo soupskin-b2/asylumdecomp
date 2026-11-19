@@ -31,7 +31,7 @@ undefined4 C::sub_00cb0260(byte param_2)
 }
 
 // @baa 0x00cb0280
-void UEngine::vf_124(int a0, int a1, int a2) {  }
+void UEngine::SetProgress(BYTE a0, const FString& a1, const FString& a2) {  }
 
 // @baa 0x00cb0290
 undefined4 UEngine::vf_168(void)

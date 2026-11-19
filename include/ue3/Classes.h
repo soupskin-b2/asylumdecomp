@@ -10663,6 +10663,20 @@ struct UObject {
     void execEqualEqual_DelegateFunction(FFrame& Stack, RESULT_DECL); /* 0x00590bb0 */
     void execNotEqual_DelegateFunction(FFrame& Stack, RESULT_DECL); /* 0x00590ca0 */
     void execFloatConst(FFrame& Stack, RESULT_DECL); /* 0x00590db0 */
+    void execJump(FFrame& Stack, RESULT_DECL); /* 0x0059e1a0 */
+    void execJumpIfNot(FFrame& Stack, RESULT_DECL); /* 0x0059e240 */
+    void execStringConst(FFrame& Stack, RESULT_DECL); /* 0x005a3210 */
+    void execUnicodeStringConst(FFrame& Stack, RESULT_DECL); /* 0x005a32c0 */
+    void execDynamicCast(FFrame& Stack, RESULT_DECL); /* 0x005b91f0 */
+    void execMetaCast(FFrame& Stack, RESULT_DECL); /* 0x0059e5e0 */
+    void execPrimitiveCast(FFrame& Stack, RESULT_DECL); /* 0x00590ef0 */
+    void execByteToString(FFrame& Stack, RESULT_DECL); /* 0x005ab590 */
+    void execIntToString(FFrame& Stack, RESULT_DECL); /* 0x005ab680 */
+    void execNameToString(FFrame& Stack, RESULT_DECL); /* 0x005913b0 */
+    void execStringToByte(FFrame& Stack, RESULT_DECL); /* 0x005a35c0 */
+    void execStringToInt(FFrame& Stack, RESULT_DECL); /* 0x005a3680 */
+    void execStringToBool(FFrame& Stack, RESULT_DECL); /* 0x005a3740 */
+    void execStringToFloat(FFrame& Stack, RESULT_DECL); /* 0x005a3940 */
     void execNameConst(FFrame& Stack, RESULT_DECL); /* 0x00590e20 */
     void execByteConst(FFrame& Stack, RESULT_DECL); /* 0x00590e40 */
     void execEmptyDelegate(FFrame& Stack, RESULT_DECL); /* 0x00590eb0 */
@@ -13718,7 +13732,7 @@ struct UPrimitiveComponent : public UActorComponent {
     virtual void SetRBDominanceGroup(BYTE InDomGroup); /* 0x1d0 */
     virtual void SetPhysMaterialOverride(class UPhysicalMaterial* NewPhysMaterial); /* 0x1d4 */
     virtual class URB_BodyInstance* GetRootBodyInstance(); /* 0x1d8 */
-    virtual void vf_1dc(); /* 0x1dc */
+    virtual void UpdateRBKinematicData(); /* 0x1dc */
     virtual void vf_1e0(); /* 0x1e0 */
     virtual void vf_1e4(INT); /* 0x1e4 */
     virtual INT vf_1e8(); /* 0x1e8 */
@@ -17572,7 +17586,7 @@ struct UAnimObject : public UObject {
     virtual UAnimNode * GetAnimNode(); /* 0x10c */
     virtual UMorphNodeBase * GetMorphNodeBase(); /* 0x110 */
     virtual USkelControlBase * GetSkelControlBase(); /* 0x114 */
-    virtual void vf_118(INT, INT, INT, INT); /* 0x118 */
+    virtual void DrawNode(class FCanvas* Canvas, UBOOL bSelected, UBOOL bShowWeight, UBOOL bCurves); /* 0x118 */
     virtual void OnPaste(); /* 0x11c */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
@@ -17616,7 +17630,7 @@ struct UAnimNode : public UAnimObject {
     virtual void* vf_158(); /* 0x158 */
     virtual void SetAnim(FName Sequence); /* 0x15c */
     virtual void SetPosition(FLOAT NewTime, UBOOL bFireNotifies); /* 0x160 */
-    virtual void vf_164(INT, INT, INT, INT); /* 0x164 */
+    virtual void DrawAnimNode(class FCanvas* Canvas, UBOOL bSelected, UBOOL bShowWeight, UBOOL bCurves); /* 0x164 */
     virtual FString GetNodeTitle(); /* 0x168 */ /* 0x00cb91a0 */
     virtual FIntPoint GetConnectionLocation(INT ConnType, INT ConnIndex); /* 0x16c */
     virtual INT GetNumSliders() const; /* 0x170 */
@@ -17629,7 +17643,7 @@ struct UAnimNode : public UAnimObject {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual UAnimNode * GetAnimNode(); /* 0x10c */
-    virtual void vf_118(INT, INT, INT, INT); /* 0x118 */
+    virtual void DrawNode(class FCanvas* Canvas, UBOOL bSelected, UBOOL bShowWeight, UBOOL bCurves); /* 0x118 */
     virtual void OnPaste(); /* 0x11c */
     /* UnrealScript natives */
     void execFindAnimNode(FFrame& Stack, RESULT_DECL); /* 0x00c902e0 */
@@ -17668,7 +17682,7 @@ struct UAnimNodeBlendBase : public UAnimNode {
     virtual void BuildTickArray(TArray<class UAnimNode*>& OutTickArray); /* 0x140 */
     virtual void GetBoneAtoms(TArray<FBoneAtom>& Atoms, const TArray<BYTE>& DesiredBones, FBoneAtom& RootMotionDelta, INT& bHasRootMotion); /* 0x144 */
     virtual void vf_154(); /* 0x154 */
-    virtual void vf_164(INT, INT, INT, INT); /* 0x164 */
+    virtual void DrawAnimNode(class FCanvas* Canvas, UBOOL bSelected, UBOOL bShowWeight, UBOOL bCurves); /* 0x164 */
     virtual FString GetNodeTitle(); /* 0x168 */
     virtual FIntPoint GetConnectionLocation(INT ConnType, INT ConnIndex); /* 0x16c */
     virtual void GetNodes(TArray<class UAnimNode*>& Nodes); /* 0x184 */
@@ -18064,7 +18078,7 @@ struct UAnimNodeSequence : public UAnimNode {
     virtual bool ShouldSaveCachedResults(); /* 0x14c */
     virtual void SetAnim(FName Sequence); /* 0x15c */
     virtual void SetPosition(FLOAT NewTime, UBOOL bFireNotifies); /* 0x160 */
-    virtual void vf_164(INT, INT, INT, INT); /* 0x164 */
+    virtual void DrawAnimNode(class FCanvas* Canvas, UBOOL bSelected, UBOOL bShowWeight, UBOOL bCurves); /* 0x164 */
     virtual FString GetNodeTitle(); /* 0x168 */
     virtual INT GetNumSliders() const; /* 0x170 */
     virtual FLOAT GetSliderPosition(INT SliderIndex, INT ValueIndex); /* 0x178 */
@@ -18616,7 +18630,7 @@ struct UAnimTree : public UAnimNodeBlendBase {
     virtual void InitAnim(class USkeletalMeshComponent* MeshComp, class UAnimNodeBlendBase* Parent); /* 0x128 */
     virtual void GetBoneAtoms(TArray<FBoneAtom>& Atoms, const TArray<BYTE>& DesiredBones, FBoneAtom& RootMotionDelta, INT& bHasRootMotion); /* 0x144 */
     virtual void* vf_158(); /* 0x158 */
-    virtual void vf_164(INT, INT, INT, INT); /* 0x164 */
+    virtual void DrawAnimNode(class FCanvas* Canvas, UBOOL bSelected, UBOOL bShowWeight, UBOOL bCurves); /* 0x164 */
     virtual FIntPoint GetConnectionLocation(INT ConnType, INT ConnIndex); /* 0x16c */
     /* UnrealScript natives */
     void execFindSkelControl(FFrame& Stack, RESULT_DECL); /* 0x00c91a10 */ class USkelControlBase* FindSkelControl(FName InControlName); /* 0x00c55810 */
@@ -19059,7 +19073,7 @@ struct UAudioDevice : public USubsystem {
     virtual INT vf_168(INT, INT); /* 0x168 */
     virtual INT vf_16c(INT, INT, INT); /* 0x16c */
     virtual INT vf_170(INT, INT, INT, INT, INT); /* 0x170 */
-    virtual FLOAT vf_174(INT); /* 0x174 */
+    virtual FLOAT GetAverageVolume(class UAudioComponent* AudioComponent); /* 0x174 */
     virtual INT vf_178(INT); /* 0x178 */
     virtual INT vf_17c(INT); /* 0x17c */
     virtual void vf_180(INT, INT); /* 0x180 */
@@ -20733,7 +20747,7 @@ struct USkeletalMeshComponent : public UMeshComponent {
     virtual void SetRBDominanceGroup(BYTE InDomGroup); /* 0x1d0 */
     virtual void SetPhysMaterialOverride(class UPhysicalMaterial* NewPhysMaterial); /* 0x1d4 */
     virtual class URB_BodyInstance* GetRootBodyInstance(); /* 0x1d8 */
-    virtual void vf_1dc(); /* 0x1dc */
+    virtual void UpdateRBKinematicData(); /* 0x1dc */
     virtual void vf_1e0(); /* 0x1e0 */
     virtual class UPhysicalMaterial* GetPhysicalMaterial(INT BodyIndex = 0); /* 0x1ec */
     virtual class NxActor* GetNxActor(FName BoneName = NAME_None); /* 0x1f0 */
@@ -21198,7 +21212,7 @@ struct UUIDataProvider : public UUIRoot {
     virtual INT vf_12c(INT, INT); /* 0x12c */
     virtual void* vf_130(); /* 0x130 */
     virtual INT vf_134(INT, INT); /* 0x134 */
-    virtual FString vf_138(INT); /* 0x138 */
+    virtual FString GenerateFillerData(const FString& DataTag); /* 0x138 */
     virtual INT vf_13c(INT, INT, INT, INT); /* 0x13c */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
@@ -23264,7 +23278,7 @@ struct UEngine : public USubsystem {
     virtual void SetClientTravel(const TCHAR* NextURL, ETravelType InTravelType); /* 0x118 */
     virtual void vf_11c(INT, INT); /* 0x11c */
     virtual FLOAT vf_120(INT, INT); /* 0x120 */
-    virtual void vf_124(INT, INT, INT); /* 0x124 */
+    virtual void SetProgress(BYTE MessageType, const FString& Title, const FString& Message); /* 0x124 */
     virtual void vf_128(INT); /* 0x128 */
     virtual void vf_12c(INT); /* 0x12c */
     virtual INT vf_130(INT); /* 0x130 */
@@ -24469,7 +24483,7 @@ struct UGameEngine : public UEngine {
     virtual void SetClientTravel(const TCHAR* NextURL, ETravelType InTravelType); /* 0x118 */
     virtual void vf_11c(INT, INT); /* 0x11c */
     virtual FLOAT vf_120(INT, INT); /* 0x120 */
-    virtual void vf_124(INT, INT, INT); /* 0x124 */
+    virtual void SetProgress(BYTE MessageType, const FString& Title, const FString& Message); /* 0x124 */
     virtual void vf_164(); /* 0x164 */
     virtual void vf_188(); /* 0x188 */
     virtual void vf_18c(); /* 0x18c */
@@ -24790,7 +24804,7 @@ struct UUISceneClient : public UUIRoot, public FExec {
     virtual INT vf_118(INT); /* 0x118 */
     virtual INT ChangeActiveSkin(class UUISkin* NewActiveSkin); /* 0x11c */
     virtual void OnActiveSkinChanged(); /* 0x120 */
-    virtual INT vf_124(INT, INT); /* 0x124 */
+    virtual UBOOL GetViewportSize(const class UUIScene* Scene, struct FVector2D& out_ViewportSize); /* 0x124 */
     virtual FLOAT vf_128(INT); /* 0x128 */
     virtual UINT vf_12c(UINT, FLOAT*); /* 0x12c */
     virtual INT vf_130(INT, INT); /* 0x130 */
@@ -29219,7 +29233,7 @@ struct UMorphNodeBase : public UAnimObject {
     virtual void GetActiveMorphs(TArray<FActiveMorph>& OutMorphs); /* 0x120 */
     virtual void InitMorphNode(USkeletalMeshComponent* InSkelComp); /* 0x124 */
     virtual void GetNodes(TArray<UMorphNodeBase*>& OutNodes); /* 0x128 */
-    virtual void vf_12c(INT, INT, INT); /* 0x12c */
+    virtual void DrawMorphNode(class FCanvas* Canvas, UBOOL bSelected, UBOOL bCurves); /* 0x12c */
     virtual FIntPoint GetConnectionLocation(INT ConnType, INT ConnIndex); /* 0x130 */
     virtual FLOAT GetSliderPosition(); /* 0x134 */
     virtual void HandleSliderMove(FLOAT NewSliderValue); /* 0x138 */
@@ -29229,7 +29243,7 @@ struct UMorphNodeBase : public UAnimObject {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual UMorphNodeBase * GetMorphNodeBase(); /* 0x110 */
-    virtual void vf_118(INT, INT, INT, INT); /* 0x118 */
+    virtual void DrawNode(class FCanvas* Canvas, UBOOL bSelected, UBOOL bShowWeight, UBOOL bCurves); /* 0x118 */
     virtual void OnPaste(); /* 0x11c */
     /* registered size 0x60 */
 };
@@ -29246,7 +29260,7 @@ struct UMorphNodePose : public UMorphNodeBase {
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void GetActiveMorphs(TArray<FActiveMorph>& OutMorphs); /* 0x120 */
     virtual void InitMorphNode(USkeletalMeshComponent* InSkelComp); /* 0x124 */
-    virtual void vf_12c(INT, INT, INT); /* 0x12c */
+    virtual void DrawMorphNode(class FCanvas* Canvas, UBOOL bSelected, UBOOL bCurves); /* 0x12c */
     /* UnrealScript natives */
     void execSetMorphTarget(FFrame& Stack, RESULT_DECL); /* 0x00c92020 */
     /* other member functions */
@@ -29262,7 +29276,7 @@ struct UMorphNodeWeightBase : public UMorphNodeBase {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void GetNodes(TArray<UMorphNodeBase*>& OutNodes); /* 0x128 */
-    virtual void vf_12c(INT, INT, INT); /* 0x12c */
+    virtual void DrawMorphNode(class FCanvas* Canvas, UBOOL bSelected, UBOOL bCurves); /* 0x12c */
     virtual FIntPoint GetConnectionLocation(INT ConnType, INT ConnIndex); /* 0x130 */
     /* registered size 0x6c */
 };
@@ -33491,7 +33505,7 @@ struct USequenceOp : public USequenceObject {
     virtual void vf_184(); /* 0x184 */
     virtual void vf_188(); /* 0x188 */
     virtual INT vf_18c(INT, INT, INT); /* 0x18c */
-    virtual INT vf_190(INT, INT, INT, INT, INT); /* 0x190 */
+    virtual FColor GetConnectionColor(INT ConnType, INT ConnIndex, INT MouseOverConnType, INT MouseOverConnIndex); /* 0x190 */
     virtual void vf_194(INT, INT); /* 0x194 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
@@ -36387,7 +36401,7 @@ struct USeqCond_SwitchBase : public USequenceCondition {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void Activated(); /* 0x174 */
     virtual void vf_188(); /* 0x188 */
-    virtual INT vf_190(INT, INT, INT, INT, INT); /* 0x190 */
+    virtual FColor GetConnectionColor(INT ConnType, INT ConnIndex, INT MouseOverConnType, INT MouseOverConnIndex); /* 0x190 */
     /* registered size 0xbc */
     /* other member functions */
     UBOOL eventIsFallThruEnabled(INT ValueIndex); /* 0x00d1eb70 */
@@ -37148,7 +37162,7 @@ struct USkelControlBase : public UAnimObject {
     virtual void CalculateNewBoneTransforms(INT BoneIndex, USkeletalMeshComponent* SkelComp, TArray<FBoneAtom>& OutBoneTransforms); /* 0x128 */
     virtual void CalculateNewBoneScales(INT BoneIndex, USkeletalMeshComponent* SkelComp, TArray<FLOAT>& OutBoneScales); /* 0x12c */
     virtual FLOAT GetBoneScale(INT BoneIndex, USkeletalMeshComponent* SkelComp); /* 0x130 */
-    virtual void vf_134(INT, INT, INT); /* 0x134 */
+    virtual void DrawSkelControl(class FCanvas* Canvas, UBOOL bSelected, UBOOL bCurves); /* 0x134 */
     virtual INT GetNumWidgets(); /* 0x138 */
     virtual FMatrix GetWidgetTM(INT WidgetIndex, class USkeletalMeshComponent* SkelComp, INT BoneIndex); /* 0x13c */
     virtual void HandleWidgetDrag(INT WidgetIndex, const FVector& DragVec); /* 0x140 */
@@ -37161,7 +37175,7 @@ struct USkelControlBase : public UAnimObject {
     virtual void PostLoad(); /* 0x01c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual USkelControlBase * GetSkelControlBase(); /* 0x114 */
-    virtual void vf_118(INT, INT, INT, INT); /* 0x118 */
+    virtual void DrawNode(class FCanvas* Canvas, UBOOL bSelected, UBOOL bShowWeight, UBOOL bCurves); /* 0x118 */
     virtual void OnPaste(); /* 0x11c */
     /* UnrealScript natives */
     void execSetSkelControlActive(FFrame& Stack, RESULT_DECL); /* 0x00c92160 */
@@ -39118,7 +39132,7 @@ struct UUISkin : public UUIDataStore {
     virtual void AddReferencedObjects(TArray<class UObject*>& ObjectArray); /* 0x0e8 */
     virtual INT vf_124(INT, INT); /* 0x124 */
     virtual INT vf_12c(INT, INT); /* 0x12c */
-    virtual FString vf_138(INT); /* 0x138 */
+    virtual FString GenerateFillerData(const FString& DataTag); /* 0x138 */
     virtual FName GetDataStoreID(); /* 0x154 */
     /* UnrealScript natives */
     void execGetCursorResource(FFrame& Stack, RESULT_DECL); /* 0x00ca2950 */
@@ -39426,7 +39440,7 @@ struct UUIDataStore_Strings : public UUIDataStore_StringBase {
     virtual INT vf_118(INT, INT, INT); /* 0x118 */
     virtual void vf_120(INT); /* 0x120 */
     virtual INT vf_124(INT, INT); /* 0x124 */
-    virtual FString vf_138(INT); /* 0x138 */
+    virtual FString GenerateFillerData(const FString& DataTag); /* 0x138 */
     virtual INT vf_13c(INT, INT, INT, INT); /* 0x13c */
     virtual void InitializeDataStore(); /* 0x148 */
     /* registered size 0x78 */
@@ -64803,6 +64817,7 @@ struct UState : public UStruct {
     /* Core.State (native only: no script package describes it) */
     DECLARE_CLASS(UState, UStruct, 0x10000000, 0x40000, Core)
     UState(); /* 0x00587b10 */
+    UState* GetSuperState() const { return (UState*)SuperField; }
     void StaticConstructor(); /* 0x00568380 */
     QWORD ProbeMask; /* 0x84 */
     QWORD IgnoreMask; /* 0x8c */
@@ -66058,7 +66073,7 @@ struct UEditorUISceneClient : public UUISceneClient, public FCallbackEventDevice
     virtual void FinishDestroy(); /* 0x02c */
     virtual INT ChangeActiveSkin(class UUISkin* NewActiveSkin); /* 0x11c */
     virtual void OnActiveSkinChanged(); /* 0x120 */
-    virtual INT vf_124(INT, INT); /* 0x124 */
+    virtual UBOOL GetViewportSize(const class UUIScene* Scene, struct FVector2D& out_ViewportSize); /* 0x124 */
     virtual FLOAT vf_128(INT); /* 0x128 */
     virtual UINT vf_12c(UINT, FLOAT*); /* 0x12c */
     virtual INT vf_130(INT, INT); /* 0x130 */
@@ -66209,7 +66224,7 @@ struct UFMODAudioDevice : public UAudioDevice {
     virtual INT vf_168(INT, INT); /* 0x168 */
     virtual INT vf_16c(INT, INT, INT); /* 0x16c */
     virtual INT vf_170(INT, INT, INT, INT, INT); /* 0x170 */
-    virtual FLOAT vf_174(INT); /* 0x174 */
+    virtual FLOAT GetAverageVolume(class UAudioComponent* AudioComponent); /* 0x174 */
     virtual INT vf_178(INT); /* 0x178 */
     virtual INT vf_17c(INT); /* 0x17c */
     virtual void vf_18c(FLOAT, INT); /* 0x18c */

@@ -1527,3 +1527,23 @@ int C_0059dc60::sub_0059dc60(int param_2)
   return *param_1 + param_2 * 0x1c;
 }
 
+#include "ue3/Script.h"
+
+// @baa 0x0059e1a0
+void UObject::execJump(FFrame& Stack, RESULT_DECL)
+{
+	CHECK_RUNAWAY;
+	INT Offset = Stack.ReadWord();
+	Stack.Code = &Stack.Node->Script(Offset);
+}
+
+// @baa 0x0059e240
+void UObject::execJumpIfNot(FFrame& Stack, RESULT_DECL)
+{
+	CHECK_RUNAWAY;
+	INT Offset = Stack.ReadWord();
+	UBOOL Value = 0;
+	Stack.Step(Stack.Object, &Value);
+	if (!Value)
+		Stack.Code = &Stack.Node->Script(Offset);
+}

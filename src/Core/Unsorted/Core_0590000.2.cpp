@@ -1468,9 +1468,6 @@ void UObject::execNotEqual_InterfaceInterface(FFrame& Stack, RESULT_DECL)
 	*(UBOOL*)Result = (A != B);
 }
 
-/* Kit gaps: UObject's bytecode handlers (UnScript.cpp, registered in GNatives by EX_ code) aren't declared, nor
- * FFrame's inline readers ReadFloat/ReadName/ReadObject (UnScript.h). */
-
 // @baa 0x00590720
 void UObject::execEndFunctionParms(FFrame& Stack, RESULT_DECL)
 {
@@ -1479,7 +1476,6 @@ void UObject::execEndFunctionParms(FFrame& Stack, RESULT_DECL)
 	Stack.Code--;
 }
 
-	/* GProperty */
 
 // @baa 0x00590db0
 void UObject::execFloatConst(FFrame& Stack, RESULT_DECL)
@@ -1487,7 +1483,6 @@ void UObject::execFloatConst(FFrame& Stack, RESULT_DECL)
 	*(FLOAT*)Result = Stack.ReadFloat();
 }
 
-	/* GProperty */
 
 // @baa 0x00590e20
 void UObject::execNameConst(FFrame& Stack, RESULT_DECL)
@@ -1495,7 +1490,6 @@ void UObject::execNameConst(FFrame& Stack, RESULT_DECL)
 	*(FName*)Result = Stack.ReadName();
 }
 
-	/* GProperty */
 
 // @baa 0x00590e40
 void UObject::execByteConst(FFrame& Stack, RESULT_DECL)
@@ -1503,7 +1497,6 @@ void UObject::execByteConst(FFrame& Stack, RESULT_DECL)
 	*(BYTE*)Result = *Stack.Code++;
 }
 
-	/* GProperty */
 
 // @baa 0x00590eb0
 void UObject::execEmptyDelegate(FFrame& Stack, RESULT_DECL)
@@ -1512,7 +1505,6 @@ void UObject::execEmptyDelegate(FFrame& Stack, RESULT_DECL)
 	((FScriptDelegate*)Result)->FunctionName = NAME_None;
 }
 
-	/* GProperty */
 
 // @baa 0x00590ed0
 void UObject::execIntConstByte(FFrame& Stack, RESULT_DECL)
@@ -1559,7 +1551,7 @@ void UObject::execConditional(FFrame& Stack, RESULT_DECL)
 	}
 }
 
-/* Kit gaps: UObject's bytecode handlers (UnScript.cpp) aren't declared, nor the globals GProperty and GPropObject. */
+/* GPropObject (0x026667d0) isn't in Script.h yet. */
 extern UProperty* g_026667d0;
 	/* GPropObject */
 

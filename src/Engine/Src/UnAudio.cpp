@@ -1604,7 +1604,7 @@ int UAudioDevice::vf_16c(int a0, int a1, int a2) { return 0; }
 int UAudioDevice::vf_170(int a0, int a1, int a2, int a3, int a4) { return 0; }
 
 // @baa 0x0079c990
-float UAudioDevice::vf_174(int param) {
+FLOAT UAudioDevice::GetAverageVolume(class UAudioComponent* param) {
     (void)param;
     return 0.0f;
 }

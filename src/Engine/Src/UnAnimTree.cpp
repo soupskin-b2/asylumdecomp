@@ -1013,7 +1013,7 @@ struct V_00c646e0 {
 void V_00c646e0::sub_00c646e0(int a0) { g(a0); }
 
 // @baa 0x00c646f0
-void UAnimNode::vf_164(int a0, int a1, int a2, int a3) {  }
+void UAnimNode::DrawAnimNode(class FCanvas* a0, UBOOL a1, UBOOL a2, UBOOL a3) {  }
 
 // @baa 0x00c64700
 INT UAnimNode::GetNumSliders() const { return 0; }

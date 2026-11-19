@@ -2,11 +2,11 @@
  "updated": "2026-11-19",
  "functions": {
   "total": 174166,
-  "matched": 104814
+  "matched": 104816
  },
  "bytes": {
   "total": 24308116,
-  "matched": 4868551
+  "matched": 4868913
  },
  "areas": [
   {
@@ -41,8 +41,8 @@
    "name": "Core",
    "functions": 12072,
    "bytes": 1275961,
-   "matched": 8751,
-   "matched_bytes": 408523
+   "matched": 8753,
+   "matched_bytes": 408885
   },
   {
    "name": "CommonGame",

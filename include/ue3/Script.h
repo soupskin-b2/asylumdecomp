@@ -81,10 +81,16 @@ enum { EX_IteratorPop = 0x30, EX_IteratorNext = 0x31 };
 // function NAME_PROBEMIN + N; a clear bit means the object ignores that event). StateNode at +0x28
 // is UE3's layout, not checked against the exe.
 #pragma pack(push, 4)
+struct FPushedState {                 /* a PushState entry (12 bytes) */
+    class UState* State;
+    class UStruct* Node;
+    BYTE* Code;
+};
 struct FStateFrame : public FFrame {
     class UState* StateNode;          /* 0x28 */
     QWORD ProbeMask;                  /* 0x2c */
     WORD LatentAction;                /* 0x34: the latent native running (e.g. EPOLL_MoveToward), 0 if none */
+    TArrayNoInit<FPushedState> StateStack; /* 0x38: PushState's stack (IsInState 0x0059dc80 walks it) */
 };
 #pragma pack(pop)
 
@@ -104,6 +110,24 @@ struct FStateFrame : public FFrame {
 // argument isn't a variable); the native writes through it. Optional parameters: Step sets
 // RUC_SkippedOptionalParm in GRuntimeUCFlags when the caller left one out (the default stays).
 // Verified: GPropAddr 0x026667e8, GRuntimeUCFlags 0x026667f0, GNativeLookupFuncs 0x0268c8a0 (after GNatives' 16 pages of 256).
+// The script debugger's interface (Core.h) and the runaway-loop guard the jump bytecodes run first.
+class UDebugger {
+public:
+    virtual ~UDebugger() {}
+    virtual void DebugInfo(const UObject* Debugee, const FFrame* Stack, BYTE OpCode, INT LineNumber, INT InputPos) = 0;
+    virtual void NotifyBeginTick() = 0;
+    virtual void NotifyGC() = 0;
+    virtual void NotifyAccessedNone() = 0;
+    virtual UBOOL NotifyAssertionFailed(const INT LineNumber) = 0;
+    virtual UBOOL NotifyInfiniteLoop() = 0;             /* 0x18 */
+    virtual void Close(UBOOL bUnbindInterfaceImmediately = FALSE) = 0;
+};
+extern UDebugger* GDebugger;   /* 0x0266e848 */
+extern INT GRunaway;           /* 0x0268d09c */
+#define MAX_RUNAWAY 5000000
+#define CHECK_RUNAWAY { if (++GRunaway > MAX_RUNAWAY) { if (!GDebugger || !GDebugger->NotifyInfiniteLoop()) \
+    Stack.Logf(NAME_Critical, TEXT("Runaway loop detected (over %i iterations)"), MAX_RUNAWAY); GRunaway = 0; } }
+
 extern BYTE* GPropAddr;
 extern class UProperty* GProperty; /* 0x026667ec: the property the last Step read (0 when none, e.g. execEndFunctionParms) */
 extern DWORD GRuntimeUCFlags;

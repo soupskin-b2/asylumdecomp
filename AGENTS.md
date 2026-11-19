@@ -212,6 +212,8 @@ happened; on HTTP 429 or 503 wait as told, don't retry in a loop.
   the headers by that address). The struct's name doesn't matter:
   `struct UTexture2D_ : public UTexture2D { void SerializeMips(FArchive& Ar); /* 0x00733310 */ };`
   Only for methods the headers lack: never redeclare or override one they declare (see below).
+  `Kit gap:` comments in src/ record what the headers lacked when that function matched; many are
+  stale since. Check include/ before copying a local stand-in from one.
 - A class the headers don't have: define it in your file under its real name when you know it
   (`FNetworkNotify`, say), with its fields by name and its virtual functions declared
   `virtual` (not a hand-written vtable pointer). CI renames a type that clashes with one already in
