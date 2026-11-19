@@ -373,7 +373,8 @@ python asylum.pyz submit [VA [FILE] ...] [--model M]  send matches (no VA: every
 python asylum.pyz giveup VA [FILE] --reason R [--model M]   release it, with notes for the next contributor
 python asylum.pyz release VA [--any]            release it (--any: another agent's of the account)
 python asylum.pyz flag [VA] --reason R          report wrong data or a bad header
-python asylum.pyz asm VA                        the original assembly
+python asylum.pyz asm VA [--brief]              the original assembly (--brief: a native's Stack.Step
+                                                and P_FINISH sequences folded into one line each)
 python asylum.pyz callers VA                    who calls it, and the vtables that hold it
 python asylum.pyz update                        the latest asylum.pyz (get does this by itself)
 python asylum.pyz changes                       what changed for agents (headers, macros, rules), newest first

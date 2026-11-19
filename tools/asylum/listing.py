@@ -369,3 +369,61 @@ def native_starter(head: str, va: int) -> str | None:
         cls += "_"
     return ('#include "ue3/Classes.h"\n#include "ue3/Script.h"\n\n%s// @baa 0x%08x\nvoid %s::%s(FFrame& Stack, RESULT_DECL)\n{\n%s\n}\n'
             % (decl, va, cls, n.group(2), "\n".join(body)))
+
+
+_LINE = re.compile(r"^(\s*[0-9a-f]+\s+)(\S.*)$")
+
+
+def brief(text: str) -> str:
+    """A native's listing with each inlined Stack.Step folded into one line (`Step -> &[esp + 8]`): the
+    loads of Stack.Code, the opcode fetch, the GNatives call and its pushes go; everything else stays
+    (so the stores of optional defaults and the interleaved code remain visible)."""
+    lines = text.split("\n")
+    drop, repl = set(), {}
+    for k, line in enumerate(lines):
+        if "+ GNatives]" not in line:
+            continue
+        reg = re.search(r"mov (e\w\w), dword ptr \[\w+\*4 \+ GNatives\]", line)
+        if not reg:
+            continue
+        reg = reg.group(1)
+        # back: the opcode fetch (movzx, add 1, store to [S + 0x18], the load of [S + 0x18])
+        mine = {k}
+        for j in range(k - 1, max(k - 9, -1), -1):
+            s = _LINE.match(lines[j])
+            ins = s.group(2) if s else ""
+            if re.match(r"movzx %s, byte ptr \[e\w\w\]$" % reg, ins) or re.match(r"add e\w\w, 1$", ins) or \
+                    re.match(r"mov dword ptr \[e\w\w \+ 0x18\], e\w\w$", ins) or re.match(r"mov e\w\w, dword ptr \[e\w\w \+ 0x18\]$", ins) or \
+                    re.match(r"mov ecx, dword ptr \[e\w\w \+ 0x14\]$", ins):
+                mine.add(j)
+        # forward: lea target, the two pushes, Stack.Object into ecx, the call
+        target = None
+        for j in range(k + 1, min(k + 10, len(lines))):
+            s = _LINE.match(lines[j])
+            ins = s.group(2) if s else ""
+            m = re.match(r"lea e\w\w, (\[.*\])$", ins)
+            if m and target is None:
+                target = m.group(1)
+                mine.add(j)
+            elif re.match(r"push e\w\w$", ins) or re.match(r"mov ecx, dword ptr \[e\w\w \+ 0x14\]$", ins):
+                mine.add(j)
+            elif ins == "call %s" % reg:
+                repl[j] = _LINE.match(lines[j]).group(1) + "Step -> &%s" % (target or "?")
+                drop |= mine
+                break
+    # P_FINISH: Code++, and a following EX_DebugInfo runs through GNatives[0x41]
+    for k, line in enumerate(lines):
+        if "call dword ptr [%s]" % _DEBUGINFO not in line and "call dword ptr [g_%08x]" % (GNATIVES + 0x41 * 4) not in line:
+            continue
+        for j in range(k - 1, max(k - 10, -1), -1):
+            s = _LINE.match(lines[j])
+            if s and re.match(r"add dword ptr \[e\w\w \+ 0x18\], 1$", s.group(2)):
+                if any(re.search(r"cmp byte ptr \[e\w\w\], 0x41$", x) for x in lines[j:k]) and \
+                        not any(x.endswith(":") for x in lines[j:k]):
+                    drop |= set(range(j, k))
+                    repl[k] = s.group(1) + "P_FINISH (Code++; an EX_DebugInfo after it runs through GNatives[0x41])"
+                break
+    return "\n".join(repl.get(k, l) for k, l in enumerate(lines) if k not in drop)
+
+
+_DEBUGINFO = "GNatives[0x41]"

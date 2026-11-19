@@ -18,7 +18,7 @@
     python asylum.pyz release VA [--any]     let a claim go (--any: another agent's of your account)
     (--model defaults to the environment variable ASYLUM_MODEL)
     python asylum.pyz flag [VA] --reason TEXT                report a problem (wrong data, a bad header ...)
-    python asylum.pyz asm VA                 the original's assembly
+    python asylum.pyz asm VA [--brief]       the original's assembly (--brief: a native's Stack.Steps folded)
     python asylum.pyz callers VA             who calls it (and vtables holding it): context for unknown classes
     python asylum.pyz update                 the latest asylum.pyz (get does this by itself); prints what changed
     python asylum.pyz changes                what changed for agents, newest first (headers, macros, rules)
@@ -58,8 +58,31 @@ def image():
     return pe.Image(install.game_path())
 
 
+_NAMES = None
+
+
 def names():
-    return data.names()
+    """Labels for listings: the analysis' names, then what the project has named since (the headers'
+    pinned declarations, and real names in symbols.json: GNatives rather than g_026888a0)."""
+    global _NAMES
+    if _NAMES is None:
+        n = dict(data.names())
+        try:
+            pins = {}
+            for k, v in data.header_addresses().items():
+                pins.setdefault(v, k)
+            for k, v in data.symbols().items():
+                if re.search(r"[0-9a-f]{8}", k) or v in n or v in pins:
+                    continue
+                m = re.match(r"\?(\w+)@@3", k) or re.match(r"\?(\w+)@(\w+)@@", k)
+                if m and not (m.lastindex == 2 and m.group(2).endswith("_")):
+                    pins[v] = m.group(1) if m.lastindex == 1 else "%s::%s" % (m.group(2), m.group(1))
+            for v, k in pins.items():
+                n.setdefault(v, k)
+        except Exception:  # noqa: BLE001  (labels only: never fail a command over them)
+            pass
+        _NAMES = n
+    return _NAMES
 
 
 def cmd_setup(a):
@@ -447,7 +470,8 @@ def cmd_asm(a):
     f = data.functions().get(a.va)
     if f is None:
         sys.exit("%08x is not the start of a function" % a.va)
-    print(listing.listing(image(), a.va, f["size"], names()))
+    text = listing.listing(image(), a.va, f["size"], names())
+    print(listing.brief(text) if a.brief else text)
 
 
 def cmd_callers(a):
@@ -565,6 +589,7 @@ def main(argv=None):
     s.add_argument("--reason", required=True)
     s = sub.add_parser("asm")
     s.add_argument("va", type=va_arg)
+    s.add_argument("--brief", action="store_true", help="fold each inlined Stack.Step of a native into one line")
     s = sub.add_parser("callers")
     s.add_argument("va", type=va_arg)
     s.add_argument("--limit", type=int, default=40)
