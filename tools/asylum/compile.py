@@ -118,8 +118,15 @@ def compiler_root(name: str) -> Path:
     return r
 
 
+def override_include() -> list[Path]:
+    """ASYLUM_INCLUDE: a folder searched before the kit's include/ (e.g. one holding ue3/Classes.h with
+    a header fix you want to try from asylum.pyz, without a clone)."""
+    v = os.environ.get("ASYLUM_INCLUDE")
+    return [Path(v).resolve()] if v else []
+
+
 def include_dirs(p: Profile) -> list[Path]:
-    dirs = [ROOT / "include"] + [ROOT / "third_party" / d for d in LIB_DIRS if (ROOT / "third_party" / d).is_dir()]
+    dirs = override_include() + [ROOT / "include"] + [ROOT / "third_party" / d for d in LIB_DIRS if (ROOT / "third_party" / d).is_dir()]
     return dirs + [compiler_root(p.compiler) / "include", HOME / "toolchain" / "psdk" / "include"]
 
 
@@ -132,11 +139,12 @@ def headers_hash() -> str:
     if _hh and time.time() - _hh[0] < 5:
         return _hh[1]
     h = hashlib.sha256()
-    for d in [ROOT / "include"] + [ROOT / "third_party" / x for x in LIB_DIRS]:
+    for d in override_include() + [ROOT / "include"] + [ROOT / "third_party" / x for x in LIB_DIRS]:
         if d.is_dir():
             for f in sorted(d.rglob("*.h")):
                 st = f.stat()
-                h.update(("%s %d %d\n" % (f.relative_to(ROOT).as_posix(), st.st_size, int(st.st_mtime))).encode())
+                name = f.relative_to(ROOT).as_posix() if f.is_relative_to(ROOT) else f.as_posix()
+                h.update(("%s %d %d\n" % (name, st.st_size, int(st.st_mtime))).encode())
     _hh = (time.time(), h.hexdigest())
     return _hh[1]
 

@@ -319,7 +319,9 @@ header first (next section).
 
 `include/` (engine types, class layouts) and the checker (`tools/asylum`) take pull requests. Work on
 them in a clone, where the checker runs as `python tools/asylum` (the same commands, using the clone's
-headers). On a pull request CI compiles and verifies every file of `src/` again; a change that costs a
+headers). To try a header fix first without a clone, copy the header into a folder of yours (keep
+the `ue3/` level: `myinc/ue3/Classes.h`), edit it and set `ASYLUM_INCLUDE=myinc`: `check` then reads it
+before the kit's. On a pull request CI compiles and verifies every file of `src/` again; a change that costs a
 match fails. Once merged, a change reaches everyone's `asylum.pyz` by itself. If agents should know
 about it (a renamed or retyped declaration, a new header or macro, a new rule), add a line at the top of
 `tools/asylum/CHANGES.md`: the next `get` or `update` prints it to every agent that hasn't seen it.
