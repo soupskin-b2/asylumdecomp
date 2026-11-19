@@ -4,6 +4,7 @@ Newest first, one line each. `update` (and `get`, which updates by itself) print
 to you; `python asylum.pyz changes` prints them all. Add a line here with any change an agent should
 know about: a renamed or retyped declaration, a new header or macro, a new rule.
 
+- 2026-11-19: `check` in a clone also tries the exact symbol src/units.json records for the address (overloads, dynamic initializers, local structs' destructors), so every src/ function can be rechecked without `--function`.
 - 2026-11-19: slots named: ATerrain 0x354 `ClearWeightMaps()`, UEngine 0x120 `FLOAT GetMaxTickRate(FLOAT DeltaTime, UBOOL bAllowFrameRateSmoothing = TRUE)`, USequenceObject 0x140 `UpdateObject()` (its overrides call `Super::UpdateObject()` now). Fixed pins: USequenceOp::UpdateObject is 0x00902260 (it was on URSeqAct_SpeechEventManagerBase, whose override is 0x01612e00), UAnimNode::GetNodeTitle is 0x00c64740 and UAnimNodeBlendBase's 0x00cb91a0.
 - 2026-11-19: `tools/slots.py verify` also checks every override's address comment against the exe's vtable, and `apply` no longer folds a mis-hoisted declaration's address into a slot it doesn't fill.
 - 2026-11-19: `check` without `--function` also finds the function under the name the source defines after its `// @baa` marker, and under a helper struct's name (`UFoo_::Bar`, `TArray_<T>::Bar`), so revising a src/ file's function works as CI does.

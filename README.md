@@ -62,8 +62,11 @@ third_party/      zlib 1.2.3, libpng 1.2.8 and libjpeg 6b, as released
 data/             functions, names, symbols, imports, fingerprints, and contributions
 tools/asylum/     the checker and client
 tools/build.py    builds asylum.pyz (the checker with the headers and data it reads)
+tools/slots.py    names/types virtual slots in Classes.h and keeps src/ matching (also resymbol.py,
+                  hoist.py, natives.py: the header-fix scripts AGENTS.md describes)
 tools/ci/         what CI runs: integrate.py (submissions into src/), units.py (all of src/ again)
-.github/          workflows: integrate (every 30 minutes), units (pull requests), checker (the release)
+.github/          workflows: integrate (every 30 minutes), units (header/checker changes and pull
+                  requests), checker (the release)
 site/             the charts on this page
 ```
 

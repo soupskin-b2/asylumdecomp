@@ -21,10 +21,34 @@ class Result:
     new: dict = field(default_factory=dict)     # bound names the project didn't know yet
 
 
+_UNIT_SYMBOLS: dict | None = None
+
+
+def unit_symbol(va: int) -> str | None:
+    """In a clone: the exact symbol src/units.json records for a matched function (overloads, local
+    structs' destructors and dynamic initializers have no other source for it)."""
+    global _UNIT_SYMBOLS
+    if _UNIT_SYMBOLS is None:
+        _UNIT_SYMBOLS = {}
+        try:
+            import json
+            from paths import ROOT
+            p = ROOT / "src" / "units.json"
+            if p.is_file():
+                for u in json.loads(p.read_text(encoding="utf-8"))["units"]:
+                    for g in u["functions"]:
+                        if g.get("symbol"):
+                            _UNIT_SYMBOLS[int(g["va"], 16)] = g["symbol"]
+        except Exception:  # noqa: BLE001  (a hint only)
+            pass
+    return _UNIT_SYMBOLS.get(va)
+
+
 def want(va: int, function: str | None = None) -> list[str]:
     """The names the source's function may have, best first."""
     f = data.functions().get(va, {})
-    w = [x for x in (function, f.get("symbol"), "sub_%08x" % va) if x]
+    w = [x for x in (function, unit_symbol(va) if not function else None, f.get("symbol"), "sub_%08x" % va) if x]
+    w = list(dict.fromkeys(w))
     m = re.match(r"\?(\w+)@(\w+)@@", f.get("symbol") or "")
     t = re.match(r"\?(\w+)@\?\$(\w+)@", f.get("symbol") or "")
     if m:  # the same method on a helper struct (UFoo_ / UFoo__XXXXXXXX), as src/ files often define it
