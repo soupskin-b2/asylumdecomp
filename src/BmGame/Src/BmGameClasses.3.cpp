@@ -31,7 +31,7 @@ void URSeqAct_HUDTimer::Activated()
  * kit's Native_f0 (UE3's UClass member at 0xf0, unnamed in the kit). */
 void URAimingConfigFactoryNew::StaticConstructor()
 {
-	new((FNameArray&)GetClass()->Native_f0) FNameText(TEXT("Object"));
+	new((FNameArray&)GetClass()->HideCategories) FNameText(TEXT("Object"));
 }
 
 // @baa 0x01564120
@@ -39,7 +39,7 @@ void URAimingConfigFactoryNew::StaticConstructor()
  * kit's Native_f0 (UE3's UClass member at 0xf0, unnamed in the kit). */
 void URBoneRescaleConfigFactoryNew::StaticConstructor()
 {
-	new((FNameArray&)GetClass()->Native_f0) FNameText(TEXT("Object"));
+	new((FNameArray&)GetClass()->HideCategories) FNameText(TEXT("Object"));
 }
 
 // @baa 0x01564150
@@ -47,7 +47,7 @@ void URBoneRescaleConfigFactoryNew::StaticConstructor()
  * kit's Native_f0 (UE3's UClass member at 0xf0, unnamed in the kit). */
 void URCharacterViewerConfigFactoryNew::StaticConstructor()
 {
-	new((FNameArray&)GetClass()->Native_f0) FNameText(TEXT("Object"));
+	new((FNameArray&)GetClass()->HideCategories) FNameText(TEXT("Object"));
 }
 
 // @baa 0x01564180
@@ -55,7 +55,7 @@ void URCharacterViewerConfigFactoryNew::StaticConstructor()
  * kit's Native_f0 (UE3's UClass member at 0xf0, unnamed in the kit). */
 void URMirrorConfigFactoryNew::StaticConstructor()
 {
-	new((FNameArray&)GetClass()->Native_f0) FNameText(TEXT("Object"));
+	new((FNameArray&)GetClass()->HideCategories) FNameText(TEXT("Object"));
 }
 
 // @baa 0x015641b0
@@ -63,7 +63,7 @@ void URMirrorConfigFactoryNew::StaticConstructor()
  * kit's Native_f0 (UE3's UClass member at 0xf0, unnamed in the kit). */
 void URPoseConfigFactoryNew::StaticConstructor()
 {
-	new((FNameArray&)GetClass()->Native_f0) FNameText(TEXT("Object"));
+	new((FNameArray&)GetClass()->HideCategories) FNameText(TEXT("Object"));
 }
 
 // @baa 0x015641e0
@@ -71,7 +71,7 @@ void URPoseConfigFactoryNew::StaticConstructor()
  * kit's Native_f0 (UE3's UClass member at 0xf0, unnamed in the kit). */
 void URWeaponConfigFactoryNew::StaticConstructor()
 {
-	new((FNameArray&)GetClass()->Native_f0) FNameText(TEXT("Object"));
+	new((FNameArray&)GetClass()->HideCategories) FNameText(TEXT("Object"));
 }
 
 // @baa 0x01564210
@@ -79,7 +79,7 @@ void URWeaponConfigFactoryNew::StaticConstructor()
  * kit's Native_f0 (UE3's UClass member at 0xf0, unnamed in the kit). */
 void URAlternateAnimationAndWeaponConfigFactoryNew::StaticConstructor()
 {
-	new((FNameArray&)GetClass()->Native_f0) FNameText(TEXT("Object"));
+	new((FNameArray&)GetClass()->HideCategories) FNameText(TEXT("Object"));
 }
 
 extern FName g_026e3438;

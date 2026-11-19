@@ -22,7 +22,7 @@ UPhysicalMaterial* URCapeComponent_::sub_016ae9f0()
  * kit's Native_f0 (UE3's UClass member at 0xf0, unnamed in the kit). */
 void URCapeConfigFactoryNew::StaticConstructor()
 {
-	new((FNameArray&)GetClass()->Native_f0) FNameText(TEXT("Object"));
+	new((FNameArray&)GetClass()->HideCategories) FNameText(TEXT("Object"));
 }
 
 // @baa 0x016b8ca0
@@ -30,5 +30,5 @@ void URCapeConfigFactoryNew::StaticConstructor()
  * kit's Native_f0 (UE3's UClass member at 0xf0, unnamed in the kit). */
 void URCapeStateConfigFactoryNew::StaticConstructor()
 {
-	new((FNameArray&)GetClass()->Native_f0) FNameText(TEXT("Object"));
+	new((FNameArray&)GetClass()->HideCategories) FNameText(TEXT("Object"));
 }

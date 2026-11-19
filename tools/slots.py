@@ -219,8 +219,8 @@ def definition_params(old_params: str, new_params: str) -> str:
 
 
 SRC = ROOT / "src"
-_ERR = re.compile(r"candidate\.cpp\((\d+)\) : error (C\d+): '(~?\w+)' : is not a member of '(\w+)'")
-_ERR_BARE = re.compile(r"candidate\.cpp\((\d+)\) : error C3861: '(\w+)': identifier not found")
+_ERR = re.compile(r"candidate\.cpp\((\d+)\)\s?: error (C\d+)\s?: '(~?\w+)'\s?: is not a member of '(\w+)'")
+_ERR_BARE = re.compile(r"candidate\.cpp\((\d+)\)\s?: error (?:C3861: '(\w+)'\s?: identifier not found|C2065: '(\w+)'\s?: undeclared identifier)")
 
 
 def rewrite_definitions(changes, files=None):
@@ -281,7 +281,7 @@ def fix_calls(classes, renames, files, rounds=6):
             lines = src.split("\n")
             changed = False
             fixes = [(int(m.group(1)) - 1, m.group(3), sub.get((m.group(3), m.group(4)))) for m in _ERR.finditer(c.diagnostics)]
-            fixes += [(int(m.group(1)) - 1, m.group(2), bare.get(m.group(2))) for m in _ERR_BARE.finditer(c.diagnostics)]
+            fixes += [(int(m.group(1)) - 1, m.group(2) or m.group(3), bare.get(m.group(2) or m.group(3))) for m in _ERR_BARE.finditer(c.diagnostics)]
             for ln, old, new in fixes:
                 if new and 0 <= ln < len(lines) and re.search(r"\b%s\b" % old, lines[ln]):
                     lines[ln] = re.sub(r"\b%s\b" % old, new, lines[ln])

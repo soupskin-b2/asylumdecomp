@@ -9,7 +9,7 @@
  * kit's Native_f0 (UE3's UClass member at 0xf0, unnamed in the kit). */
 void URSimpleIdleConfigFactoryNew::StaticConstructor()
 {
-    new((FNameArray&)GetClass()->Native_f0) FNameText(TEXT("Object"));
+    new((FNameArray&)GetClass()->HideCategories) FNameText(TEXT("Object"));
 }
 
 // @baa 0x0161d750
@@ -17,7 +17,7 @@ void URSimpleIdleConfigFactoryNew::StaticConstructor()
  * kit's Native_f0 (UE3's UClass member at 0xf0, unnamed in the kit). */
 void URIdleWithDeathConfigFactoryNew::StaticConstructor()
 {
-    new((FNameArray&)GetClass()->Native_f0) FNameText(TEXT("Object"));
+    new((FNameArray&)GetClass()->HideCategories) FNameText(TEXT("Object"));
 }
 
 // @baa 0x0161d780
@@ -25,5 +25,5 @@ void URIdleWithDeathConfigFactoryNew::StaticConstructor()
  * kit's Native_f0 (UE3's UClass member at 0xf0, unnamed in the kit). */
 void URPairedIdleConfigFactoryNew::StaticConstructor()
 {
-    new((FNameArray&)GetClass()->Native_f0) FNameText(TEXT("Object"));
+    new((FNameArray&)GetClass()->HideCategories) FNameText(TEXT("Object"));
 }

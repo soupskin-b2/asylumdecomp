@@ -9,5 +9,5 @@
  * kit's Native_f0 (UE3's UClass member at 0xf0, unnamed in the kit). */
 void URSmashablePropConfigFactoryNew::StaticConstructor()
 {
-	new((FNameArray&)GetClass()->Native_f0) FNameText(TEXT("Object"));
+	new((FNameArray&)GetClass()->HideCategories) FNameText(TEXT("Object"));
 }

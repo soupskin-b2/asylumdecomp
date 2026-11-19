@@ -9,7 +9,7 @@
  * kit's Native_f0 (UE3's UClass member at 0xf0, unnamed in the kit). */
 void UREvidenceFactoryNew::StaticConstructor()
 {
-    new((FNameArray&)GetClass()->Native_f0) FNameText(TEXT("Object"));
+    new((FNameArray&)GetClass()->HideCategories) FNameText(TEXT("Object"));
 }
 
 // @baa 0x016757b0
@@ -17,5 +17,5 @@ void UREvidenceFactoryNew::StaticConstructor()
  * kit's Native_f0 (UE3's UClass member at 0xf0, unnamed in the kit). */
 void URDummyEvidenceConfigFactoryNew::StaticConstructor()
 {
-    new((FNameArray&)GetClass()->Native_f0) FNameText(TEXT("Object"));
+    new((FNameArray&)GetClass()->HideCategories) FNameText(TEXT("Object"));
 }

@@ -9,7 +9,7 @@
  * kit's Native_f0 (UE3's UClass member at 0xf0, unnamed in the kit). */
 void URCapeCollisionConfigFactoryNew::StaticConstructor()
 {
-	new((FNameArray&)GetClass()->Native_f0) FNameText(TEXT("Object"));
+	new((FNameArray&)GetClass()->HideCategories) FNameText(TEXT("Object"));
 }
 
 // @baa 0x016d5e90
@@ -17,7 +17,7 @@ void URCapeCollisionConfigFactoryNew::StaticConstructor()
  * kit's Native_f0 (UE3's UClass member at 0xf0, unnamed in the kit). */
 void URCapeStateBoneConfigFactoryNew::StaticConstructor()
 {
-	new((FNameArray&)GetClass()->Native_f0) FNameText(TEXT("Object"));
+	new((FNameArray&)GetClass()->HideCategories) FNameText(TEXT("Object"));
 }
 
 // @baa 0x016d5ec0
@@ -25,5 +25,5 @@ void URCapeStateBoneConfigFactoryNew::StaticConstructor()
  * kit's Native_f0 (UE3's UClass member at 0xf0, unnamed in the kit). */
 void URCapeCollisionShapeConfigFactoryNew::StaticConstructor()
 {
-	new((FNameArray&)GetClass()->Native_f0) FNameText(TEXT("Object"));
+	new((FNameArray&)GetClass()->HideCategories) FNameText(TEXT("Object"));
 }

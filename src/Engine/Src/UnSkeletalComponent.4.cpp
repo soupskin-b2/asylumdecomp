@@ -444,8 +444,6 @@ inline INT ReadWord(FFrame& Stack)
     return Result;
 }
 
-/* UStruct::Script, the bytecode, is the kit's Native_48 */
-#define Script Native_48
 #define PRE_ITERATOR \
     INT wEndOffset = ReadWord(Stack); \
     BYTE B = 0, Buffer[MAX_SIMPLE_RETURN_VALUE_SIZE]; \

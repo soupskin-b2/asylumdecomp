@@ -62585,10 +62585,20 @@ struct UProperty : public UField {
     UProperty() : UField(NULL) { *(DWORD*)((BYTE*)this + 0x38) = 0x1; *(DWORD*)((BYTE*)this + 0x50) = 0; *(DWORD*)((BYTE*)this + 0x64) = 0; }
     DECLARE_WITHIN(UField)
     void StaticConstructor(); /* 0x0062dd00 */
-    union {
-        BYTE _native[0x38]; /* compatibility view */
-        struct { INT ArrayDim; INT ElementSize; QWORD PropertyFlags; BYTE _property_tail[0x28]; };
-    };
+    INT ArrayDim; /* 0x38 */
+    INT ElementSize; /* 0x3c */
+    QWORD PropertyFlags; /* 0x40 */
+    FName Category; /* 0x48 */
+    class UEnum* ArraySizeEnum; /* 0x50 */
+    INT Offset; /* 0x54: where the value sits in its owner (UStruct::Link 00579a60) */
+    /* the link chains UStruct::Link builds (UStruct's PropertyLink, ConfigLink, ConstructorLink, RefLink,
+       ComponentPropertyLink, TransientPropertyLink) */
+    class UProperty* PropertyLinkNext; /* 0x58 */
+    class UProperty* ConfigLinkNext; /* 0x5c */
+    class UProperty* ConstructorLinkNext; /* 0x60 */
+    class UProperty* NextRef; /* 0x64 */
+    class UProperty* ComponentPropertyLinkNext; /* 0x68 */
+    class UProperty* TransientPropertyLinkNext; /* 0x6c */
     /* virtual functions this class introduces (vtable 0x01ea6c00) */
     virtual FString GetCPPMacroType(FString& ExtendedTypeText) const; /* 0x11c */
     virtual FString GetCPPType(FString* ExtendedTypeText = NULL, DWORD CPPExportFlags = 0) const; /* 0x120 */
@@ -62625,7 +62635,7 @@ struct UArrayProperty : public UProperty {
     /* Core.ArrayProperty (native only: no script package describes it) */
     DECLARE_CLASS(UArrayProperty, UProperty, 0x10000000, 0x200000, Core)
     void StaticConstructor(); /* 0x0062ea00 */
-    BYTE _native[0x4]; /* C++-only members, to the registered size 0x74 */
+    class UProperty* Inner; /* 0x70 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -63235,7 +63245,7 @@ struct UBmEdEngine : public UUnrealEdEngine {
 struct UBoolProperty : public UProperty {
     /* Core.BoolProperty (native only: no script package describes it) */
     DECLARE_CLASS(UBoolProperty, UProperty, 0x10000000, 0x20000, Core)
-    BYTE _native[0x4]; /* C++-only members, to the registered size 0x74 */
+    BITFIELD BitMask; /* 0x70 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -63633,10 +63643,21 @@ struct UStruct : public UField {
     UStruct() {  }
     UBOOL IsChildOf(const UField* SomeBase) const { for (const UField* Struct = this; Struct; Struct = Struct->SuperField) if (Struct == SomeBase) return 1; return 0; }
     void StaticConstructor(); /* 0x00568170 */
-    BYTE _native0[0x10];
-    TArray<BYTE> Native_48; /* 0x48: C++ only (destroyed by its destructor) */
-    BYTE _native1[0x24];
-    TArray<UObject*> Native_78; /* 0x78: C++ only (destroyed by its destructor) */
+    class UTextBuffer* ScriptText; /* 0x38 */
+    class UTextBuffer* CppText; /* 0x3c */
+    class UField* Children; /* 0x40 */
+    INT PropertiesSize; /* 0x44 */
+    TArray<BYTE> Script; /* 0x48 */
+    INT TextPos; /* 0x54 */
+    INT Line; /* 0x58 */
+    INT MinAlignment; /* 0x5c */
+    class UProperty* RefLink; /* 0x60 */
+    class UProperty* PropertyLink; /* 0x64 */
+    class UProperty* ConfigLink; /* 0x68 */
+    class UProperty* ConstructorLink; /* 0x6c */
+    class UProperty* ComponentPropertyLink; /* 0x70 */
+    class UProperty* TransientPropertyLink; /* 0x74 */
+    TArray<UObject*> ScriptObjectReferences; /* 0x78 */
     /* virtual functions this class introduces (vtable 0x01e7d6e8) */
     virtual INT vf_11c(); /* 0x11c */
     virtual INT vf_120(INT, INT); /* 0x120 */
@@ -63805,13 +63826,16 @@ struct UClass : public UState {
     INT ClassCastFlags; /* 0xdc */
     INT ClassUnique; /* 0xe0 */
     class UClass* ClassWithin; /* 0xe4 */
-    BYTE _native0[0x8];
-    TArrayNoInit<FName> Native_f0; /* 0xf0: C++ only (destroyed by its destructor) */
+    FName ClassConfigName; /* 0xe8 */
+    TArrayNoInit<FName> HideCategories; /* 0xf0 */
     TArrayNoInit<FName> Native_fc; /* 0xfc: C++ only (destroyed by its destructor) */
     TArrayNoInit<FName> Native_108; /* 0x108: C++ only (destroyed by its destructor) */
     TArrayNoInit<FName> Native_114; /* 0x114: C++ only (destroyed by its destructor) */
     FStringNoInit Native_120; /* 0x120: C++ only (destroyed by its destructor) */
-    BYTE _native5[0x10];
+    class UObject* ClassDefaultObject; /* 0x12c */
+    void (*ClassConstructor)(void*); /* 0x130 */
+    void (UObject::*ClassStaticConstructor)(); /* 0x134 */
+    void (UObject::*ClassStaticInitializer)(); /* 0x138 */
     FNativeDtor_00582940_3c Native_13c; /* 0x13c: C++ only (destroyed by its destructor) */
     FNativeDtor_005829b0_3c Native_178; /* 0x178: C++ only (destroyed by its destructor) */
     FStringNoInit Native_1b4; /* 0x1b4: C++ only (destroyed by its destructor) */
@@ -63935,7 +63959,7 @@ struct UObjectProperty : public UProperty {
     /* Core.ObjectProperty (native only: no script package describes it) */
     DECLARE_CLASS(UObjectProperty, UProperty, 0x10000000, 0x10000, Core)
     void StaticConstructor(); /* 0x0062e630 */
-    BYTE _native[0x4]; /* C++-only members, to the registered size 0x74 */
+    class UClass* PropertyClass; /* 0x70 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -63968,7 +63992,7 @@ struct UClassProperty : public UObjectProperty {
     /* Core.ClassProperty (native only: no script package describes it) */
     DECLARE_CLASS(UClassProperty, UObjectProperty, 0x10000000, 0x400, Core)
     void StaticConstructor(); /* 0x0062e6e0 */
-    BYTE _native[0x4]; /* C++-only members, to the registered size 0x78 */
+    class UClass* MetaClass; /* 0x74 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -63988,7 +64012,10 @@ struct UClient : public UObject, public FExec {
     DECLARE_CLASS(UClient, UObject, 0x10000005, 0x0, Engine)
     void StaticConstructor(); /* 0x00c97230 */
     void InitializeIntrinsicPropertyValues(); /* 0x00c975e0 */
-    BYTE _native[0x1c]; /* C++-only members, to the registered size 0x50 */
+    BYTE _native_34[0x10];
+    FLOAT DisplayGamma; /* 0x44 */
+    FLOAT InitialButtonRepeatDelay; /* 0x48 */
+    FLOAT ButtonRepeatDelay; /* 0x4c */
     /* virtual functions this class introduces (vtable 0x02085930) */
     virtual void vf_10c(INT); /* 0x10c */
     virtual INT vf_110(INT); /* 0x110 */
@@ -64554,9 +64581,8 @@ struct ULevelBase : public UObject {
     DECLARE_CLASS(ULevelBase, UObject, 0x10000001, 0x0, Engine)
     ULevelBase(); /* 0x007ec9a0 */
     void StaticConstructor(); /* 0x007d7590 */
-    TArrayNoInit<class AActor*> Native_30; /* 0x30: C++ only (destroyed by its destructor) */
-    BYTE _native1[0x4];
-    FURL Native_40; /* 0x40: C++ only (destroyed by its destructor) */
+    TTransArray<class AActor*> Actors; /* 0x30: the level's actors, WorldInfo first (owner at 0x3c) */
+    FURL URL; /* 0x40 */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -64636,14 +64662,18 @@ struct UDemoRecConnection : public UNetConnection {
 };
 
 struct FNativeDtor_00c19590_48 { ~FNativeDtor_00c19590_48(); /* 0x00c19590 */ DWORD _data[18]; };  /* a C++-only member: only its destructor is known; size up to the next member */
-struct FNativeDtor_00c003b0_60 { ~FNativeDtor_00c003b0_60(); /* 0x00c003b0 */ DWORD _data[24]; };  /* a C++-only member: only its destructor is known; size up to the next member */
+struct FNativeDtor_00c003b0_60 : public TArrayNoInit<class UNetConnection*> { ~FNativeDtor_00c003b0_60(); /* 0x00c003b0 */ };  /* TArray<UNetConnection*> with its out-of-line destructor (the name keeps the old size so the destructor's symbol stays) */
 struct UNetDriver : public USubsystem, public FNetObjectNotify {
     /* Engine.NetDriver (native only: no script package describes it) */
     DECLARE_CLASS(UNetDriver, USubsystem, 0x1000000d, 0x0, Engine)
     UNetDriver(); /* 0x00e16060 */
     void StaticConstructor(); /* 0x00df4620 */
     void InitializeIntrinsicPropertyValues(); /* 0x00df4e20 */
-    FNativeDtor_00c003b0_60 Native_38; /* 0x38: C++ only (destroyed by its destructor) */
+    FNativeDtor_00c003b0_60 ClientConnections; /* 0x38 */
+    class UNetConnection* ServerConnection; /* 0x44 */
+    BYTE _native_48[0x24];
+    INT MaxClientRate; /* 0x6c */
+    BYTE _native_70[0x28];
     TArrayNoInit<FString> Native_98; /* 0x98: C++ only (destroyed by its destructor) */
     BYTE _native2[0x40];
     FNativeDtor_00c19590_48 Native_e4; /* 0xe4: C++ only (destroyed by its destructor) */
@@ -65456,7 +65486,9 @@ struct UStaticMesh : public UObject {
     TArrayNoInit<FNativeElem_007c81e0> Native_3c; /* 0x3c: C++ only (destroyed by its destructor) */
     BYTE _native2[0x20];
     TArrayNoInit<FNativeElem_007c5180> Native_68; /* 0x68: C++ only (destroyed by its destructor) */
-    BYTE _native3[0x2c];
+    BYTE _native3[0xc];
+    class URB_BodySetup* BodySetup; /* 0x80 */
+    BYTE _native_84[0x1c];
     TArrayNoInit<FPointer> Native_a0; /* 0xa0: C++ only (destroyed by its destructor) */
     TArrayNoInit<FVector> Native_ac; /* 0xac: C++ only (destroyed by its destructor) */
     BYTE _native5[0x20];
@@ -66874,7 +66906,7 @@ struct ULensFlareThumbnailRenderer : public UTextureThumbnailRenderer {
     /* registered size 0x38 */
 };
 
-struct FNativeDtor_007ee6e0_1c { ~FNativeDtor_007ee6e0_1c(); /* 0x007ee6e0 */ DWORD _data[7]; };  /* a C++-only member: only its destructor is known; size up to the next member */
+struct FNativeDtor_007ee6e0_1c { ~FNativeDtor_007ee6e0_1c(); /* 0x007ee6e0 */ DWORD _data[3]; };  /* a C++-only array member (0xc bytes): only its destructor is known (the name keeps the old size so the destructor's symbol stays) */
 struct FNativeDtor_007f5930_3c { ~FNativeDtor_007f5930_3c(); /* 0x007f5930 */ DWORD _data[15]; };  /* a C++-only member: only its destructor is known; size up to the next member */
 struct FNativeDtor_007f58c0_40 { ~FNativeDtor_007f58c0_40(); /* 0x007f58c0 */ DWORD _data[16]; };  /* a C++-only member: only its destructor is known; size up to the next member */
 struct FNativeDtor_007f5850_50 { ~FNativeDtor_007f5850_50(); /* 0x007f5850 */ DWORD _data[20]; };  /* a C++-only member: only its destructor is known; size up to the next member */
@@ -66885,9 +66917,9 @@ struct ULevel : public ULevelBase {
     DECLARE_CLASS(ULevel, ULevelBase, 0x10000000, 0x0, Engine)
     ULevel(); /* 0x007f89f0 */
     void StaticConstructor(); /* 0x007d7710 */
-    BYTE _native0[0x4];
+    class UModel* Model; /* 0x84 */
     FNativeDtor_007df800_c Native_88; /* 0x88: C++ only (destroyed by its destructor) */
-    TArrayNoInit<class USequence*> Native_94; /* 0x94: C++ only (destroyed by its destructor) */
+    TArrayNoInit<class USequence*> GameSequences; /* 0x94 */
     FNativeDtor_007f57e0_3c Native_a0; /* 0xa0: C++ only (destroyed by its destructor) */
     FNativeDtor_007f5850_50 Native_dc; /* 0xdc: C++ only (destroyed by its destructor) */
     TArrayNoInit<BYTE> Native_12c; /* 0x12c: C++ only (destroyed by its destructor) */
@@ -66896,6 +66928,10 @@ struct ULevel : public ULevelBase {
     TArrayNoInit<FKCachedConvexData> Native_17c; /* 0x17c: C++ only (destroyed by its destructor) */
     FNativeDtor_007f5930_3c Native_188; /* 0x188: C++ only (destroyed by its destructor) */
     FNativeDtor_007ee6e0_1c Native_1c4; /* 0x1c4: C++ only (destroyed by its destructor) */
+    class ANavigationPoint* NavListStart; /* 0x1d0 */
+    class ANavigationPoint* NavListEnd; /* 0x1d4 */
+    class ACoverLink* CoverListStart; /* 0x1d8 */
+    class ACoverLink* CoverListEnd; /* 0x1dc */
     TArrayNoInit<class AActor*> Native_1e0; /* 0x1e0: C++ only (destroyed by its destructor) */
     BYTE _native[0x38]; /* C++-only members, to the registered size 0x224 */
     /* virtual functions this class introduces (vtable 0x01f372c8) */
@@ -67971,7 +68007,9 @@ struct UPackage : public UObject {
     void StaticConstructor(); /* 0x0059c8c0 */
     BYTE _native0[0x30];
     TArrayNoInit<INT> Native_60; /* 0x60: C++ only (destroyed by its destructor) */
-    BYTE _native[0x10]; /* C++-only members, to the registered size 0x7c */
+    BYTE _native_6c[0x8];
+    DWORD PackageFlags; /* 0x74 */
+    BYTE _native[0x4]; /* C++-only members, to the registered size 0x7c */
     /* overrides */
     virtual INT vf_000(); /* 0x000 */
     virtual bool vf_004(); /* 0x004 */
@@ -71244,15 +71282,23 @@ struct UWorld : public UObject, public FNetworkNotify {
     UWorld(); /* 0x009c67c0 */
     void StaticConstructor(); /* 0x009b0650 */
     BYTE _native0[0x4];
-    TArrayNoInit<class ULevel*> Native_38; /* 0x38: C++ only (destroyed by its destructor) */
-    BYTE _native1[0x88];
-    FURL Native_cc; /* 0xcc: C++ only (destroyed by its destructor) */
-    BYTE _native2[0x14];
+    TArrayNoInit<class ULevel*> Levels; /* 0x38 */
+    class ULevel* PersistentLevel; /* 0x44 */
+    BYTE _native_48[0x80];
+    class UNetDriver* NetDriver; /* 0xc8 */
+    FURL URL; /* 0xcc */
+    class UDemoRecDriver* DemoRecDriver; /* 0x110 */
+    BYTE _native_114[0x10];
     TArrayNoInit<class AActor*> Native_124; /* 0x124: C++ only (destroyed by its destructor) */
-    BYTE _native3[0x34];
-    TArrayNoInit<class URB_BodyInstance*> Native_164; /* 0x164: C++ only (destroyed by its destructor) */
-    TArrayNoInit<class URB_ConstraintInstance*> Native_170; /* 0x170: C++ only (destroyed by its destructor) */
-    BYTE _native5[0xc];
+    BYTE _native3[0x1c];
+    class ULineBatchComponent* PersistentLineBatcher; /* 0x14c */
+    BYTE _native_150[0xc];
+    FRBPhysScene* RBPhysScene; /* 0x15c */
+    BYTE _native_160[0x4];
+    TArrayNoInit<class URB_BodyInstance*> BodyInstancePool; /* 0x164 */
+    TArrayNoInit<class URB_ConstraintInstance*> ConstraintInstancePool; /* 0x170 */
+    FLOAT TimeSinceLastPendingKillPurge; /* 0x17c */
+    BYTE _native_180[0x8];
     FNativeDtor_009c5ec0_10 Native_188; /* 0x188: C++ only (destroyed by its destructor) */
     FNativeDtor_009c5f90_30 Native_198; /* 0x198: C++ only (destroyed by its destructor) */
     FNativeDtor_009c5f90_30 Native_1c8; /* 0x1c8: C++ only (destroyed by its destructor) */

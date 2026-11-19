@@ -318,6 +318,15 @@ public:
     TArrayNoInit() : TArray<T>(E_NoInit) {}
 };
 
+/* TTransArray<T> (UnTemplate.h): an array that records its changes for undo, with the object that owns it.
+   This build's only use is ULevelBase::Actors. */
+template<typename T>
+class TTransArray : public TArrayNoInit<T> {
+public:
+    class UObject* Owner;
+    TTransArray() {}
+};
+
 /* TIndirectArray<T>: an array of pointers to T it owns. */
 template<typename T>
 class TIndirectArray : public TArray<void*> {
