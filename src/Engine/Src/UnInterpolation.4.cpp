@@ -147,12 +147,6 @@ void UInterpTrackParticleReplay::RemoveKeyframe(INT KeyIndex)
     }
 }
 
-/* Unnamed in the kit: UE3's FInterpCurveVector::AutoSetTangents(FLOAT Tension). */
-struct FInterpCurveVector_ : public FInterpCurveVector
-{
-    void sub_007bb200(FLOAT Tension);
-};
-
 // @baa 0x00cfb050
 /* UE3's UInterpTrackMove::PostEditChange(UProperty* PropertyThatChanged): reapply the randomiser (slot 0x178), then
  * rebuild both curves' tangents with their tensions. */
@@ -164,8 +158,8 @@ void UInterpTrackMove::PostEditChange(UProperty* PropertyThatChanged)
     }
 #line 3340 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnInterpolation.cpp"
     check((PosTrack.Points.Num() == EulerTrack.Points.Num()) && (PosTrack.Points.Num() == LookupTrack.Points.Num()));
-    ((FInterpCurveVector_&)PosTrack).sub_007bb200(LinCurveTension);
-    ((FInterpCurveVector_&)EulerTrack).sub_007bb200(AngCurveTension);
+    ((FInterpCurveVector&)PosTrack).AutoSetTangents(LinCurveTension);
+    ((FInterpCurveVector&)EulerTrack).AutoSetTangents(AngCurveTension);
     Super::PostEditChange(PropertyThatChanged);
 }
 

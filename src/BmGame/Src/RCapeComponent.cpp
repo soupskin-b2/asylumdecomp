@@ -702,14 +702,9 @@ UObject* URCapeConfigFactoryNew::FactoryCreateNew(UClass* InClass, UObject* InPa
 	return StaticConstructObject(InClass, InParent, InName, Flags);
 }
 
-struct URCapeComponent__016b20a0 : public URCapeComponent
-{
-    FLOAT sub_016b20a0();
-};
-
 int sub_0155df00(...);
 // @baa 0x016b20a0
-FLOAT URCapeComponent__016b20a0::sub_016b20a0()
+FLOAT URCapeComponent::CalculateAngularVelocity()
 {
     AActor* O = Owner;
     int P = sub_0155df00(O);

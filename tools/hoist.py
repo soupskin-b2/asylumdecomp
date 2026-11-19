@@ -15,7 +15,8 @@ Skipped (listed with the reason in the report): structs with data members, virtu
 methods whose address the headers already give another name or class; names that would hide or
 overload one already declared on the class or its bases; helpers in several files that disagree on a
 method's name or parameter types. A `sub_XXXXXXXX` header declaration is renamed when a helper gives
-the same parameter types a real name.
+the same parameter types a real name. A helper method whose address the headers already name on the class or a
+base, with the same types, is a stale alias: its calls take the header's name.
 
 A helper whose method is defined in the same file as a caller can change the code: on the real
 class the compiler may inline the definition into the caller (it couldn't through the helper). The
@@ -233,6 +234,9 @@ def header_addresses() -> dict[int, list[tuple[str, str, int]]]:
     return out
 
 
+HEADER_TEXT: set[str] = set()
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--only", action="append", default=[], help="src files to take helpers from (glob under src/)")
@@ -241,6 +245,8 @@ def main():
     a = ap.parse_args()
 
     lines, classes = slots.load()
+    global HEADER_TEXT
+    HEADER_TEXT = set(re.findall(r"\w+", "".join(lines)))
     known = known_types()
     load_symbols()
     above = classes_h_types()
@@ -284,6 +290,16 @@ def main():
         have = haddr.get(addr, [])
         if have:
             hc, hn, hl = have[0]
+            if len(have) == 1 and hn != name and not hn.startswith("sub_") and hc in slots.chain(classes, c) \
+                    and (name.startswith("sub_") or name not in HEADER_TEXT):
+                # the headers already name it (on the class or a base): the helper is a stale alias, so its
+                # calls take the header's name, as long as the types agree
+                hdecl = slots.split_decl(re.sub(r"\s*/\*.*$", "", lines[hl]).strip().rstrip(";"))
+                if hdecl and sig_key(hdecl[0], hdecl[2], hdecl[3]) == key:
+                    plan[(c, addr)] = ("have", hn)
+                else:
+                    verdict[(c, addr)] = "the headers call 0x%08x %s::%s, with other types" % (addr, hc, hn)
+                continue
             if len(have) > 1 or hc != c:
                 verdict[(c, addr)] = "the headers declare 0x%08x as %s::%s" % (addr, hc, hn)
                 continue

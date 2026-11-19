@@ -27,15 +27,10 @@ template<class T> struct TArray_ : public TArray<T>
 	}
 };
 
-struct UMeshComponent_ : public UMeshComponent
-{
-	void sub_006ea640(INT ElementIndex, UMaterialInterface* Material);
-};
-
 // @baa 0x006ea640
 /* UMeshComponent::SetMaterial: overrides the element's material (growing the override list as needed) and
  * reattaches the component when it changed. */
-void UMeshComponent_::sub_006ea640(INT ElementIndex, UMaterialInterface* Material)
+void UMeshComponent::SetMaterial(INT ElementIndex, UMaterialInterface* Material)
 {
 	if (Materials.Num() <= ElementIndex || Materials(ElementIndex) != Material)
 	{

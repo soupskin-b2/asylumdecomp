@@ -1510,29 +1510,17 @@ FVector APawn::sub_00866050()
     return MakeVector(0.f, 0.f, -1.f);
 }
 
-/* Unnamed in the kit: UE3's APawn::IsHumanControlled(). */
-struct APawn__00865070 : public APawn
-{
-    UBOOL sub_00865070();
-};
-
 // @baa 0x00865070
-UBOOL APawn__00865070::sub_00865070()
+UBOOL APawn::IsHumanControlled()
 {
     return Controller && Controller->GetAPlayerController();
 }
-
-/* Unnamed in the kit: UE3's APawn::IsLocallyControlled() (0x008650a0). */
-struct APawn__008038b0 : public APawn
-{
-    UBOOL sub_008650a0();
-};
 
 // @baa 0x008038b0
 /* APawn slot 0x1b8 (kit vf_1b8): UE3's IsLocalPlayerControlled(): locally controlled by a player controller. */
 UBOOL APawn::PlayerControlled()
 {
-    return ((APawn__008038b0*)this)->sub_008650a0() && Controller && Controller->GetAPlayerController();
+    return ((APawn*)this)->IsLocallyControlled() && Controller && Controller->GetAPlayerController();
 }
 
 // @baa 0x00867b30

@@ -38,12 +38,9 @@ void AController::execWaitForLanding(FFrame& Stack, RESULT_DECL)
 }
 
 // AController declares no method at this address.
-struct AController_007a0dc0 : public AController {
-    void sub_007a0dc0(); /* 0x007a0dc0 */
-};
 
 // @baa 0x007a0dc0
-void AController_007a0dc0::sub_007a0dc0()
+void AController::StopLatentExecution()
 {
     StateFrame->LatentAction = 0;
     LatentFloat = -1.f;

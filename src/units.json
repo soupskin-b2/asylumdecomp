@@ -14730,7 +14730,7 @@
     {
      "va": "016b20a0",
      "size": 36,
-     "symbol": "?sub_016b20a0@URCapeComponent__016b20a0@@QAEMXZ"
+     "symbol": "?CalculateAngularVelocity@URCapeComponent@@QAEMXZ"
     },
     {
      "va": "016ae830",
@@ -19031,7 +19031,7 @@
     {
      "va": "01618fe0",
      "size": 315,
-     "symbol": "?sub_01618fe0@ARPlayerController__01618fe0@@QAEHXZ"
+     "symbol": "?HaveRoomToCapeGlide@ARPlayerController@@QAEHXZ"
     }
    ]
   },
@@ -184074,7 +184074,7 @@
     {
      "va": "006ea640",
      "size": 220,
-     "symbol": "?sub_006ea640@UMeshComponent_@@QAEXHPAUUMaterialInterface@@@Z"
+     "symbol": "?SetMaterial@UMeshComponent@@QAEXHPAUUMaterialInterface@@@Z"
     },
     {
      "va": "006fef60",
@@ -201680,7 +201680,7 @@
     {
      "va": "00c560b0",
      "size": 131,
-     "symbol": "?ContainsBone@UAnimNodeAimOffset_@@QAEHABUFName@@@Z"
+     "symbol": "?ContainsBone@UAnimNodeAimOffset@@QAEHABUFName@@@Z"
     },
     {
      "va": "00c56530",
@@ -223896,7 +223896,7 @@
     {
      "va": "00865070",
      "size": 38,
-     "symbol": "?sub_00865070@APawn__00865070@@QAEHXZ"
+     "symbol": "?IsHumanControlled@APawn@@QAEHXZ"
     },
     {
      "va": "008650f0",
@@ -240453,7 +240453,7 @@
     {
      "va": "00913f30",
      "size": 115,
-     "symbol": "?sub_00913f30@USkeletalMeshComponent__00913f30@@QAEXPAUUActorComponent@@@Z"
+     "symbol": "?SetAttachmentOwnerVisibility@USkeletalMeshComponent@@QAEXPAUUActorComponent@@@Z"
     },
     {
      "va": "00913fb0",
@@ -240721,7 +240721,7 @@
     {
      "va": "00935bf0",
      "size": 100,
-     "symbol": "?execSetParentAnimComponent@USkeletalMeshComponent__00935bf0@@QAEXAAUFFrame@@QAX@Z"
+     "symbol": "?execSetParentAnimComponent@USkeletalMeshComponent@@QAEXAAUFFrame@@QAX@Z"
     },
     {
      "va": "00935ce0",
@@ -296985,7 +296985,7 @@
     {
      "va": "007a0dc0",
      "size": 26,
-     "symbol": "?sub_007a0dc0@AController_007a0dc0@@QAEXXZ"
+     "symbol": "?StopLatentExecution@AController@@QAEXXZ"
     },
     {
      "va": "007a4d70",
@@ -298230,7 +298230,7 @@
     {
      "va": "007ad5d0",
      "size": 62,
-     "symbol": "?sub_007ad5d0@AController__007ad5d0@@QAEXAAUFBasedPosition@@UFVector@@PAUAActor@@@Z"
+     "symbol": "?SetBasedPosition@AController@@QAEXAAUFBasedPosition@@UFVector@@PAUAActor@@@Z"
     },
     {
      "va": "007ad610",
@@ -298240,7 +298240,7 @@
     {
      "va": "007ad790",
      "size": 65,
-     "symbol": "?sub_007ad790@AController__007ad790@@QAEXUFVector@@H@Z"
+     "symbol": "?SetFocalPoint@AController@@QAEXUFVector@@H@Z"
     },
     {
      "va": "007ad7e0",
@@ -298250,7 +298250,7 @@
     {
      "va": "007ad9c0",
      "size": 65,
-     "symbol": "?sub_007ad9c0@AController__007ad9c0@@QAEXUFVector@@H@Z"
+     "symbol": "?SetDestinationPosition@AController@@QAEXUFVector@@H@Z"
     },
     {
      "va": "007ada10",
@@ -311272,7 +311272,7 @@
     {
      "va": "0090ec40",
      "size": 138,
-     "symbol": "?sub_0090ec40@USkeletalMeshComponent_@@QAE?AUFName@@U2@@Z"
+     "symbol": "?GetSocketBoneName@USkeletalMeshComponent@@QAE?AUFName@@U2@@Z"
     },
     {
      "va": "0090f170",

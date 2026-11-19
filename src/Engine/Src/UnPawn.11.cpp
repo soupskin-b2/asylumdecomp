@@ -6,14 +6,9 @@
 
 #undef GWorld
 #define GWorld ((UWorld*)g_026b62b8)
-/* Unnamed in the kit: UE3's APawn::IsLocallyControlled(). */
-struct APawn_ : public APawn
-{
-    UBOOL sub_008650a0();
-};
 
 // @baa 0x008650a0
-UBOOL APawn_::sub_008650a0()
+UBOOL APawn::IsLocallyControlled()
 {
     if (!Controller)
     {

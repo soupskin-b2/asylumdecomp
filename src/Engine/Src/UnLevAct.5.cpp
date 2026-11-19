@@ -4,12 +4,8 @@
 #include "ue3/Classes.h"
 #include "ue3/Cast.h"
 
-struct UWorld_ : public UWorld {
-    UBOOL sub_007ed180(AActor* ThisActor, UBOOL bShouldModifyLevel); // EditorDestroyActor
-};
-
 // @baa 0x007ed180
-UBOOL UWorld_::sub_007ed180(AActor* ThisActor, UBOOL bShouldModifyLevel)
+UBOOL UWorld::EditorDestroyActor(AActor* ThisActor, UBOOL bShouldModifyLevel)
 {
 #line 650 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnLevAct.cpp"
     check(ThisActor);

@@ -12,11 +12,6 @@ void USkeletalMeshComponent::execSetEnableClothSimulation(FFrame& Stack, RESULT_
 	SetEnableClothSimulation(bInEnable);
 }
 
-struct USkeletalMesh_ : public USkeletalMesh
-{
-    USkeletalMeshSocket* sub_00951be0(FName N);
-};
-
 // @baa 0x0090ebb0
 void USkeletalMeshComponent::execGetSocketByName(FFrame& Stack, RESULT_DECL)
 {
@@ -24,7 +19,7 @@ void USkeletalMeshComponent::execGetSocketByName(FFrame& Stack, RESULT_DECL)
     P_FINISH;
     USkeletalMeshSocket* S = NULL;
     if (SkeletalMesh != NULL)
-        S = ((USkeletalMesh_*)SkeletalMesh)->sub_00951be0(InSocketName);
+        S = ((USkeletalMesh*)SkeletalMesh)->FindSocket(InSocketName);
     *(USkeletalMeshSocket**)Result = S;
 }
 

@@ -15,12 +15,6 @@ struct FAnimNodeArray : public TArray<UAnimNode*>
 	~FAnimNodeArray();					/* 00920d10, TArray<UAnimNode*>::~TArray */
 };
 
-struct UAnimNodeSynch_ : public UAnimNodeSynch
-{
-	void sub_00c62830(UAnimNodeSequence* SeqNode, FName GroupName);	/* RemoveNodeFromGroup */
-	void sub_00c56250(UAnimNodeSequence* SeqNode, FName GroupName);	/* AddNodeToGroup */
-};
-
 /* Cast<UAnimNodeSynch> is the out-of-line instantiation at 00c7f910. */
 extern template UAnimNodeSynch* Cast<UAnimNodeSynch>(UObject* Src);
 /* UAnimNodeSlot::AddToSynchGroup isn't declared in Classes.h. */
@@ -56,13 +50,13 @@ void UAnimNodeSlot::AddToSynchGroup(FName GroupName)
 		// leave the old group
 		if (SeqNode->SynchGroupName != NAME_None_)
 		{
-			((UAnimNodeSynch_*)SynchNode)->sub_00c62830(SeqNode, SeqNode->SynchGroupName);
+			((UAnimNodeSynch*)SynchNode)->RemoveNodeFromGroup(SeqNode, SeqNode->SynchGroupName);
 		}
 
 		// and join the new one
 		if (GroupName != NAME_None_)
 		{
-			((UAnimNodeSynch_*)SynchNode)->sub_00c56250(SeqNode, GroupName);
+			((UAnimNodeSynch*)SynchNode)->AddNodeToGroup(SeqNode, GroupName);
 		}
 	}
 }

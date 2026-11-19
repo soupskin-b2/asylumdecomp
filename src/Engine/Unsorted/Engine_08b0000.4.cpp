@@ -6,13 +6,9 @@
 
 /* Unnamed in the kit: UE3's APlayerController::GetPlayerNetworkAddress() (execGetPlayerNetworkAddress's native):
  * the remote address of a network player, or an empty string. */
-struct APlayerController_ : public APlayerController
-{
-    FString sub_008b6e50();
-};
 
 // @baa 0x008b6e50
-FString APlayerController_::sub_008b6e50()
+FString APlayerController::GetPlayerNetworkAddress()
 {
     if (Player && ObjectIsA(Player, UNetConnection::StaticClass()))
     {

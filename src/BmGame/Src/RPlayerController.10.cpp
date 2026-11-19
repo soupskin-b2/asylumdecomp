@@ -79,15 +79,10 @@ struct FRotator_ : public FRotator
 static FORCEINLINE FVector_ operator*(FLOAT Scale, const FVector_& V) { return FVector_(V.X * Scale, V.Y * Scale, V.Z * Scale); }
 
 
-struct ARPlayerController__01618fe0 : public ARPlayerController
-{
-	UBOOL sub_01618fe0();
-};
-
 // @baa 0x01618fe0
 /* Probes whether the player could glide: with the fall speed capped at 200 and at least 500 units/s of
  * forward speed along the view direction, the probe must come back clear. Velocity is restored afterwards. */
-UBOOL ARPlayerController__01618fe0::sub_01618fe0()
+UBOOL ARPlayerController::HaveRoomToCapeGlide()
 {
 	ARPawnPlayer* Player = Cast<ARPawnPlayer>(Pawn);
 	if (Player)

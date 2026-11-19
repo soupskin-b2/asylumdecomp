@@ -1965,10 +1965,6 @@ void UAnimNodeSynch::SetGroupRateScale(FName GroupName, FLOAT NewRateScale)
 
 /* UAnimNodeBlend::SetBlendTarget (non-virtual in this build) and TickAnim (vtable 0x134, declared only as
  * vf_134), and UAnimNodeCrossfader::GetActiveChild; none is declared by name in Classes.h. */
-struct UAnimNodeBlend_ : public UAnimNodeBlend
-{
-	void sub_00c54040(FLOAT BlendTarget, FLOAT BlendTime);		/* SetBlendTarget */
-};
 
 
 // @baa 0x00c7dfd0
@@ -1985,13 +1981,13 @@ void UAnimNodeCrossfader::TickAnim(FLOAT DeltaSeconds, FLOAT TotalWeight)
 			// time to blend out
 			if (PendingBlendOutTimeOneShot >= CountDown)
 			{
-				((UAnimNodeBlend_*)this)->sub_00c54040(1.f - Child2WeightTarget, PendingBlendOutTimeOneShot);
+				((UAnimNodeBlend*)this)->SetBlendTarget(1.f - Child2WeightTarget, PendingBlendOutTimeOneShot);
 				PendingBlendOutTimeOneShot = 0.f;
 			}
 		}
 	}
 
-	((UAnimNodeBlend_*)this)->sub_00c53f20(DeltaSeconds, TotalWeight);
+	((UAnimNodeBlend*)this)->sub_00c53f20(DeltaSeconds, TotalWeight);
 }
 
 /* UAnimNodeBlendBase::GetChildWeightTotal isn't declared in Classes.h. */
@@ -2102,16 +2098,11 @@ void UAnimNode::GetBoneAtoms(TArray<FBoneAtom>& Atoms, const TArray<BYTE>& Desir
 #line 2164 "candidate.cpp"
 
 /* UAnimNodeAimOffset's bone lookup methods aren't declared in Classes.h. */
-struct UAnimNodeAimOffset_ : public UAnimNodeAimOffset
-{
-	FAimOffsetProfile* sub_00c55cc0();		/* GetCurrentProfile */
-	UBOOL ContainsBone(const FName& BoneName);
-};
 
 // @baa 0x00c560b0
-UBOOL UAnimNodeAimOffset_::ContainsBone(const FName& BoneName)
+UBOOL UAnimNodeAimOffset::ContainsBone(const FName& BoneName)
 {
-	FAimOffsetProfile* P = sub_00c55cc0();
+	FAimOffsetProfile* P = GetCurrentProfile();
 	if (!P)
 	{
 		return FALSE;

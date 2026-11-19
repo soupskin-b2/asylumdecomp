@@ -6,10 +6,6 @@
 
 /* Unnamed in the kit: UE3's UGameUISceneClient::GetNextScene/GetPreviousScene(const UUIScene* CurrentScene, UBOOL
  * bRequireMatchingPlayerOwner, UBOOL bIgnoreUnfocusedScenes). */
-struct UGameUISceneClient_ : public UGameUISceneClient
-{
-    UUIScene* sub_00de5640(UUIScene* CurrentScene, UBOOL bRequireMatchingPlayerOwner, UBOOL bIgnoreUnfocusedScenes);
-};
 
 // @baa 0x00da9b60
 /* UE3's UUIScene::GetNextScene(UBOOL bRequireMatchingPlayerOwner, UBOOL bIgnoreUnfocusedScenes): ask the game's scene
@@ -20,7 +16,7 @@ UUIScene* UUIScene::GetNextScene(UBOOL bRequireMatchingPlayerOwner, UBOOL bIgnor
     if (GEngine != NULL && GEngine->GameViewport != NULL && GEngine->GameViewport->UIController != NULL
         && GEngine->GameViewport->UIController->SceneClient != NULL)
     {
-        Result = ((UGameUISceneClient_*)GEngine->GameViewport->UIController->SceneClient)->sub_00de5640(this,
+        Result = ((UGameUISceneClient*)GEngine->GameViewport->UIController->SceneClient)->GetNextScene(this,
             bRequireMatchingPlayerOwner, bIgnoreUnfocusedScenes);
     }
     return Result;

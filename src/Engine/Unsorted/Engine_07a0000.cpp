@@ -1747,39 +1747,23 @@ struct FBasedPosition_ : public FBasedPosition
     void sub_007ab4e0(AActor* InBase, const FVector& InPosition);
 };
 
-/* Unnamed in the kit: UE3's AController::SetFocalPoint(FVector FP, UBOOL bOffsetFromBase). */
-struct AController__007ad790 : public AController
-{
-    void sub_007ad790(FVector FP, UBOOL bOffsetFromBase);
-};
-
 // @baa 0x007ad790
-void AController__007ad790::sub_007ad790(FVector FP, UBOOL bOffsetFromBase)
+void AController::SetFocalPoint(FVector FP, UBOOL bOffsetFromBase)
 {
     ((FBasedPosition_&)FocalPosition).sub_007ab4e0((bOffsetFromBase && Pawn) ? Pawn->Base : NULL, FP);
 }
 
-/* Unnamed in the kit: UE3's AController::SetDestinationPosition(FVector Dest, UBOOL bOffsetFromBase). */
-struct AController__007ad9c0 : public AController
-{
-    void sub_007ad9c0(FVector Dest, UBOOL bOffsetFromBase);
-};
-
 // @baa 0x007ad9c0
-void AController__007ad9c0::sub_007ad9c0(FVector Dest, UBOOL bOffsetFromBase)
+void AController::SetDestinationPosition(FVector Dest, UBOOL bOffsetFromBase)
 {
     ((FBasedPosition_&)DestinationPosition).sub_007ab4e0((bOffsetFromBase && Pawn) ? Pawn->Base : NULL, Dest);
 }
 
 /* Unnamed in the kit: UE3's AController::SetBasedPosition(FBasedPosition& BP, FVector Pos, AActor* ForcedBase):
  * base the position on ForcedBase, else on the pawn's base. */
-struct AController__007ad5d0 : public AController
-{
-    void sub_007ad5d0(FBasedPosition& BP, FVector Pos, AActor* ForcedBase);
-};
 
 // @baa 0x007ad5d0
-void AController__007ad5d0::sub_007ad5d0(FBasedPosition& BP, FVector Pos, AActor* ForcedBase)
+void AController::SetBasedPosition(FBasedPosition& BP, FVector Pos, AActor* ForcedBase)
 {
     if (!ForcedBase)
     {

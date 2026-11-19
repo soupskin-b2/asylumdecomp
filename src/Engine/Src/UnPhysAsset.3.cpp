@@ -5,11 +5,6 @@
 #include "ue3/Native.h"
 
 struct FRBPhysScene;
-/* Callees Classes.h doesn't declare. */
-struct URB_ConstraintInstance_ : public URB_ConstraintInstance
-{
-	UBOOL sub_00a3fe50(FRBPhysScene* Scene, UBOOL bFireBrokenEvent);	/* TermConstraint */
-};
 
 struct URB_BodyInstance_ : public URB_BodyInstance
 {
@@ -27,7 +22,7 @@ UBOOL UPhysicsAssetInstance::TermInstance(FRBPhysScene* Scene)
 	{
 #line 2480 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPhysAsset.cpp"
 		check(Constraints(i));
-		if (((URB_ConstraintInstance_*)Constraints(i))->sub_00a3fe50(Scene, FALSE))
+		if (((URB_ConstraintInstance*)Constraints(i))->TermConstraint(Scene, FALSE))
 		{
 			GWorld->sub_00a47a90(Constraints(i));
 			Constraints(i) = NULL;

@@ -35,11 +35,6 @@ FLOAT UInterpTrackParticleReplay::GetKeyframeTime(INT KeyIndex)
 
 /* Unnamed in the kit: UE3's FInterpCurveVector::MovePoint(INT PointIndex, FLOAT NewInVal) and AutoSetTangents(FLOAT
  * Tension), and FInterpLookupTrack::MovePoint(INT PointIndex, FLOAT NewTime) (0x00cfa320). */
-struct FInterpCurveVector_ : public FInterpCurveVector
-{
-    INT sub_007c3d10(INT PointIndex, FLOAT NewInVal);
-    void sub_007bb200(FLOAT Tension);
-};
 
 
 // @baa 0x00d03e30
@@ -58,8 +53,8 @@ INT UInterpTrackMove::SetKeyframeTime(INT KeyIndex, FLOAT NewKeyTime, UBOOL bUpd
     INT NewKeyIndex = KeyIndex;
     if (bUpdateOrder)
     {
-        NewKeyIndex = ((FInterpCurveVector_&)PosTrack).sub_007c3d10(KeyIndex, NewKeyTime);
-        INT NewEulerKeyIndex = ((FInterpCurveVector_&)EulerTrack).sub_007c3d10(KeyIndex, NewKeyTime);
+        NewKeyIndex = ((FInterpCurveVector&)PosTrack).MovePoint(KeyIndex, NewKeyTime);
+        INT NewEulerKeyIndex = ((FInterpCurveVector&)EulerTrack).MovePoint(KeyIndex, NewKeyTime);
         INT NewLookupKeyIndex = ((FInterpLookupTrack&)LookupTrack).sub_00cfa320(KeyIndex, NewKeyTime);
 #line 3165 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnInterpolation.cpp"
         check((NewKeyIndex == NewEulerKeyIndex) && (NewKeyIndex == NewLookupKeyIndex));
@@ -71,8 +66,8 @@ INT UInterpTrackMove::SetKeyframeTime(INT KeyIndex, FLOAT NewKeyTime, UBOOL bUpd
         LookupTrack.Points(KeyIndex).Time = NewKeyTime;
     }
 
-    ((FInterpCurveVector_&)PosTrack).sub_007bb200(LinCurveTension);
-    ((FInterpCurveVector_&)EulerTrack).sub_007bb200(AngCurveTension);
+    ((FInterpCurveVector&)PosTrack).AutoSetTangents(LinCurveTension);
+    ((FInterpCurveVector&)EulerTrack).AutoSetTangents(AngCurveTension);
 
     return NewKeyIndex;
 }

@@ -8,10 +8,6 @@
 extern template UAnimNodeSequence* Cast<UAnimNodeSequence>(UObject* Src);
 /* UAnimNodeBlend::SetBlendTarget (non-virtual in this build) and TickAnim (vtable 0x134, declared only as
  * vf_134); neither is declared by name in Classes.h. */
-struct UAnimNodeBlend_ : public UAnimNodeBlend
-{
-	void sub_00c54040(FLOAT BlendTarget, FLOAT BlendTime);	/* SetBlendTarget */
-};
 
 
 // @baa 0x00c7c810
@@ -47,8 +43,8 @@ void UAnimNodePlayCustomAnim::TickAnim(FLOAT DeltaSeconds, FLOAT TotalWeight)
 			CustomPendingBlendOutTime = -1.f;
 		}
 
-		((UAnimNodeBlend_*)this)->sub_00c54040(DesiredChild2Weight, BlendInTime);
+		((UAnimNodeBlend*)this)->SetBlendTarget(DesiredChild2Weight, BlendInTime);
 	}
 
-	((UAnimNodeBlend_*)this)->sub_00c53f20(DeltaSeconds, TotalWeight);
+	((UAnimNodeBlend*)this)->sub_00c53f20(DeltaSeconds, TotalWeight);
 }

@@ -543,13 +543,9 @@ struct USkeletalMesh_ : public USkeletalMesh
 /* Kit gap: FName has no comparison operators (UnName.h, inline). */
 /* Unnamed in the kit: UE3's USkeletalMeshComponent::GetSocketBoneName(FName InSocketName): the bone a socket is
  * on, the name itself when it's a bone, otherwise NAME_None. */
-struct USkeletalMeshComponent_ : public USkeletalMeshComponent
-{
-    FName sub_0090ec40(FName InSocketName);
-};
 
 // @baa 0x0090ec40
-FName USkeletalMeshComponent_::sub_0090ec40(FName InSocketName)
+FName USkeletalMeshComponent::GetSocketBoneName(FName InSocketName)
 {
     if (!SkeletalMesh)
     {

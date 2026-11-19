@@ -1996,25 +1996,14 @@ DWORD GetTypeHash(const FString& S)
 	return appStrihash(S.Num() ? &S(0) : TEXT(""));
 }
 
-/* Callees Classes.h doesn't declare. */
-struct USkeletalMesh_ : public USkeletalMesh
-{
-	USkeletalMeshSocket* sub_00951be0(FName InSocketName);	/* FindSocket */
-};
-
-struct USkeletalMeshComponent_ : public USkeletalMeshComponent
-{
-	void sub_0093fba0(UActorComponent* Component, FName BoneName, FVector RelativeLocation, FRotator RelativeRotation, FVector RelativeScale);	/* AttachComponent */
-};
-
 // @baa 0x0093fd60
 /* Attaches Component to the bone of the named socket, at the socket's offset. */
 void USkeletalMeshComponent::AttachComponentToSocket(UActorComponent* Component, FName SocketName)
 {
-	USkeletalMeshSocket* Socket = SkeletalMesh ? ((USkeletalMesh_*)SkeletalMesh)->sub_00951be0(SocketName) : NULL;
+	USkeletalMeshSocket* Socket = SkeletalMesh ? ((USkeletalMesh*)SkeletalMesh)->FindSocket(SocketName) : NULL;
 	if (Socket)
 	{
-		((USkeletalMeshComponent_*)this)->sub_0093fba0(Component, Socket->BoneName, Socket->RelativeLocation, Socket->RelativeRotation, Socket->RelativeScale);
+		((USkeletalMeshComponent*)this)->AttachComponent(Component, Socket->BoneName, Socket->RelativeLocation, Socket->RelativeRotation, Socket->RelativeScale);
 	}
 }
 

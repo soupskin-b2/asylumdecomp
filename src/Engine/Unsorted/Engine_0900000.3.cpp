@@ -20,18 +20,13 @@ void USkeletalMeshComponent::execIsBoneHidden(FFrame& Stack, RESULT_DECL)
 	*(UBOOL*)Result = this->IsBoneHidden(BoneIndex);
 }
 
-struct USkeletalMeshComponent__0090ed60 : public USkeletalMeshComponent
-{
-	void sub_00765d00();
-};
-
 // @baa 0x0090ed60
 void USkeletalMeshComponent::execSetForceRefPose(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bNewForceRefPose);
 	P_FINISH;
 	bForceRefpose = bNewForceRefPose;
-	((USkeletalMeshComponent__0090ed60*)this)->sub_00765d00();
+	((USkeletalMeshComponent*)this)->BeginDeferredReattach();
 }
 
 extern FName g_026c45a4;
