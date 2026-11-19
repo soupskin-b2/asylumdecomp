@@ -73,11 +73,6 @@ void AWorldInfo::execIsPreparingMapChange( FFrame& Stack, RESULT_DECL )
 	*(UBOOL*)Result = IsPreparingMapChange();
 }
 
-struct AWorldInfo__00c89a10 : public AWorldInfo
-{
-	USequence* GetGameSequence();
-};
-
 // @baa 0x00c89a10
 void AWorldInfo::execGetGameSequence(FFrame& Stack, RESULT_DECL)
 {
@@ -119,11 +114,6 @@ void APlayerReplicationInfo::execAreUniqueNetIdsEqual(FFrame& Stack, RESULT_DECL
 	*(UBOOL*)Result = ((APlayerReplicationInfo__00c89650*)this)->AreUniqueNetIdsEqual(OtherPRI);
 }
 
-struct AWorldInfo__00c89b00 : public AWorldInfo
-{
-	UBOOL IsConsoleBuild(BYTE);
-};
-
 // @baa 0x00c89b00
 void AWorldInfo::execIsConsoleBuild(FFrame& Stack, RESULT_DECL)
 {
@@ -131,11 +121,6 @@ void AWorldInfo::execIsConsoleBuild(FFrame& Stack, RESULT_DECL)
 	P_FINISH;
 	*(UBOOL*)Result = this->IsConsoleBuild(ConsoleType);
 }
-
-struct AWorldInfo__00c89a50 : public AWorldInfo
-{
-	void SetLevelRBGravity(FVector);
-};
 
 // @baa 0x00c89a50
 void AWorldInfo::execSetLevelRBGravity(FFrame& Stack, RESULT_DECL)
@@ -145,11 +130,6 @@ void AWorldInfo::execSetLevelRBGravity(FFrame& Stack, RESULT_DECL)
 	this->SetLevelRBGravity(NewGrav);
 }
 
-struct AWorldInfo__00c89bf0 : public AWorldInfo
-{
-	void ForceGarbageCollection(UBOOL);
-};
-
 // @baa 0x00c89bf0
 void AWorldInfo::execForceGarbageCollection(FFrame& Stack, RESULT_DECL)
 {
@@ -157,12 +137,6 @@ void AWorldInfo::execForceGarbageCollection(FFrame& Stack, RESULT_DECL)
 	P_FINISH;
 	this->ForceGarbageCollection(bFullPurge);
 }
-
-struct AWorldInfo__00c89980 : public AWorldInfo
-{
-    /* UpdateMusicTrack (UnLevel.cpp); Classes.h doesn't declare it. */
-    void UpdateMusicTrack(FMusicTrackStruct NewMusicTrack);
-};
 
 // @baa 0x00c89980
 void AWorldInfo::execUpdateMusicTrack(FFrame& Stack, RESULT_DECL)
@@ -204,12 +178,6 @@ void ARoute::execResolveRouteIndex(FFrame& Stack, RESULT_DECL)
     *(INT*)Result = ((ARoute_*)this)->ResolveRouteIndex(Idx, RouteDirection, out_bComplete, out_bReverse);
 }
 
-/* ARoute::MoveOntoRoutePath (0087a580) isn't declared in the kit. */
-struct ARoute__00c89870 : public ARoute
-{
-    INT MoveOntoRoutePath(APawn* P, BYTE RouteDirection, FLOAT DistFudgeFactor);
-};
-
 // @baa 0x00c89870
 void ARoute::execMoveOntoRoutePath(FFrame& Stack, RESULT_DECL)
 {
@@ -219,12 +187,6 @@ void ARoute::execMoveOntoRoutePath(FFrame& Stack, RESULT_DECL)
     P_FINISH;
     *(INT*)Result = this->MoveOntoRoutePath(P, RouteDirection, DistFudgeFactor);
 }
-
-/* AWorldInfo::NotifyMatchStarted (007dde10) isn't declared in the kit. */
-struct AWorldInfo__00c89ca0 : public AWorldInfo
-{
-    void NotifyMatchStarted(UBOOL bShouldPauseMovies, UBOOL bShouldAllowPausing, UBOOL bShouldSkipMovies);
-};
 
 // @baa 0x00c89ca0
 void AWorldInfo::execNotifyMatchStarted(FFrame& Stack, RESULT_DECL)

@@ -59,11 +59,6 @@ void ARSmashableProp::execSetupProp(FFrame& Stack, RESULT_DECL)
 	SetupProp(propSetupData);
 }
 
-struct ARSmashableProp__016ff4f0 : public ARSmashableProp
-{
-	void SetIsStatic(UBOOL);
-};
-
 // @baa 0x016ff4f0
 void ARSmashableProp::execSetIsStatic(FFrame& Stack, RESULT_DECL)
 {
@@ -71,11 +66,6 @@ void ARSmashableProp::execSetIsStatic(FFrame& Stack, RESULT_DECL)
 	P_FINISH;
 	this->SetIsStatic(isStatic);
 }
-
-struct ARSmashableProp__016ff980 : public ARSmashableProp
-{
-	void* GetDecalMaterialInstance(FName);
-};
 
 // @baa 0x016ff980
 void ARSmashableProp::execGetDecalMaterialInstance(FFrame& Stack, RESULT_DECL)
@@ -191,12 +181,6 @@ void ARSmashableProp::eventInitXRayMode()
 {
 	ProcessEvent(FindFunctionChecked(g_026e37cc), NULL);
 }
-
-/* ARSmashableProp::GetDecalData (0x1675110) isn't declared in the kit. */
-struct ARSmashableProp__016ff8e0 : public ARSmashableProp
-{
-    FRSmashablePropDecalData GetDecalData(FName DecalTypeName);
-};
 
 // @baa 0x016ff8e0
 void ARSmashableProp::execGetDecalData(FFrame& Stack, RESULT_DECL)

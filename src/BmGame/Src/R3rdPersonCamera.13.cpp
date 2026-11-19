@@ -30,11 +30,6 @@ void AR3rdPersonCamera__01709240::execFollowCameraRotation( FFrame& Stack, RESUL
 	*(UBOOL*)Result = FollowCameraRotation();
 }
 
-struct AR3rdPersonCamera__017090a0 : public AR3rdPersonCamera
-{
-	void UpdateCameraWander(FLOAT);
-};
-
 // @baa 0x017090a0
 void AR3rdPersonCamera::execUpdateCameraWander(FFrame& Stack, RESULT_DECL)
 {
@@ -42,11 +37,6 @@ void AR3rdPersonCamera::execUpdateCameraWander(FFrame& Stack, RESULT_DECL)
 	P_FINISH;
 	this->UpdateCameraWander(DeltaTime);
 }
-
-struct AR3rdPersonCamera__01709420 : public AR3rdPersonCamera
-{
-	void TransitionInterpolate(FLOAT);
-};
 
 // @baa 0x01709420
 void AR3rdPersonCamera::execTransitionInterpolate(FFrame& Stack, RESULT_DECL)
@@ -56,11 +46,6 @@ void AR3rdPersonCamera::execTransitionInterpolate(FFrame& Stack, RESULT_DECL)
 	this->TransitionInterpolate(DeltaTime);
 }
 
-struct AR3rdPersonCamera__01709880 : public AR3rdPersonCamera
-{
-	void UpdateZoomFocus(FLOAT);
-};
-
 // @baa 0x01709880
 void AR3rdPersonCamera::execUpdateZoomFocus(FFrame& Stack, RESULT_DECL)
 {
@@ -68,11 +53,6 @@ void AR3rdPersonCamera::execUpdateZoomFocus(FFrame& Stack, RESULT_DECL)
 	P_FINISH;
 	this->UpdateZoomFocus(DeltaTime);
 }
-
-struct AR3rdPersonCamera__01709710 : public AR3rdPersonCamera
-{
-	void DisableCameraDrag(FLOAT);
-};
 
 // @baa 0x01709710
 void AR3rdPersonCamera::execDisableCameraDrag(FFrame& Stack, RESULT_DECL)
@@ -82,11 +62,6 @@ void AR3rdPersonCamera::execDisableCameraDrag(FFrame& Stack, RESULT_DECL)
 	this->DisableCameraDrag(Time);
 }
 
-struct AR3rdPersonCamera__017098f0 : public AR3rdPersonCamera
-{
-	void HideClippingObjects(FTPOV&);
-};
-
 // @baa 0x017098f0
 void AR3rdPersonCamera::execHideClippingObjects(FFrame& Stack, RESULT_DECL)
 {
@@ -94,11 +69,6 @@ void AR3rdPersonCamera::execHideClippingObjects(FFrame& Stack, RESULT_DECL)
 	P_FINISH;
 	this->HideClippingObjects(NewPOV);
 }
-
-struct AR3rdPersonCamera__01709970 : public AR3rdPersonCamera
-{
-	void GetTunnelCameraDirection(FVector&);
-};
 
 // @baa 0x01709970
 void AR3rdPersonCamera::execGetTunnelCameraDirection(FFrame& Stack, RESULT_DECL)
@@ -244,12 +214,6 @@ void AR3rdPersonCamera::eventSettingsChanged()
 {
 	ProcessEvent(FindFunctionChecked(g_026e25a8), NULL);
 }
-
-/* AR3rdPersonCamera::UpdateFreeCam (0x16a3db0) isn't declared in the kit. */
-struct AR3rdPersonCamera__01709490 : public AR3rdPersonCamera
-{
-    void UpdateFreeCam(FVector DesiredCameraPosition, FRotator DesiredCameraRotation, FLOAT DesiredCameraFOV, FLOAT DeltaTime);
-};
 
 // @baa 0x01709490
 void AR3rdPersonCamera::execUpdateFreeCam(FFrame& Stack, RESULT_DECL)

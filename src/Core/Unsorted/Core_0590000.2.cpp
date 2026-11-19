@@ -1200,12 +1200,6 @@ void UObject::execMatrixGetOrigin(FFrame& Stack, RESULT_DECL)
 	*(FVector*)Result = ((FMatrix_&)TM).GetOrigin();
 }
 
-/* Kit gap: FMatrix::operator* (UnMath.h; out of line here, 561 callers) isn't declared. */
-struct FMatrix__005982f0 : public FMatrix
-{
-	FMatrix operator*(const FMatrix& Other) const;	/* 0x0058e560 */
-};
-
 // @baa 0x005982f0
 void UObject::execMultiply_MatrixMatrix(FFrame& Stack, RESULT_DECL)
 {

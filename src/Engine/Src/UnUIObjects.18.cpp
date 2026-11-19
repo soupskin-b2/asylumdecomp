@@ -280,11 +280,6 @@ void UUIScreenObject::sub_00d990d0(INT bReinitialize, INT bReviewNow)
 	PURE_VIRTUAL(UUIScreenObject::RequestPrimitiveReview,);
 }
 
-struct UUIScene__00ca69c0 : public UUIScene
-{
-	AWorldInfo* GetWorldInfo();
-};
-
 // @baa 0x00ca69c0
 void UUIScene::execGetWorldInfo(FFrame& Stack, RESULT_DECL)
 {
@@ -313,11 +308,6 @@ void UUIScreenObject::execIsInitialized(FFrame& Stack, RESULT_DECL)
 	*(UBOOL*)Result = bInitialized;
 }
 
-struct UUIScene__00ca6980 : public UUIScene
-{
-	BYTE GetSceneRenderMode(INT);
-};
-
 // @baa 0x00ca6980
 void UUIScene::execGetSceneRenderMode(FFrame& Stack, RESULT_DECL)
 {
@@ -332,11 +322,6 @@ void UUIScreenObject::execGetZDepth(FFrame& Stack, RESULT_DECL)
 	*(FLOAT*)Result = ZDepth;
 }
 
-struct UUIScreenObject__00cb3cd0 : public UUIScreenObject
-{
-	UObject* IsRuntimeInstance();
-};
-
 UObject* sub_005c1d70();
 // @baa 0x00cb3cd0
 void UUIScreenObject::execIsRuntimeInstance(FFrame& Stack, RESULT_DECL)
@@ -344,11 +329,6 @@ void UUIScreenObject::execIsRuntimeInstance(FFrame& Stack, RESULT_DECL)
 	P_FINISH;
 	*(UBOOL*)Result = this->IsRuntimeInstance() == sub_005c1d70();
 }
-
-struct UUIScreenObject__00ca44e0 : public UUIScreenObject
-{
-	void InvalidatePosition(BYTE);
-};
 
 // @baa 0x00ca44e0
 void UUIScreenObject::execInvalidatePosition(FFrame& Stack, RESULT_DECL)
@@ -358,11 +338,6 @@ void UUIScreenObject::execInvalidatePosition(FFrame& Stack, RESULT_DECL)
 	this->InvalidatePosition(Face);
 }
 
-struct UUIScene__00ca68a0 : public UUIScene
-{
-	void SetSceneInputMode(BYTE);
-};
-
 // @baa 0x00ca68a0
 void UUIScene::execSetSceneInputMode(FFrame& Stack, RESULT_DECL)
 {
@@ -370,11 +345,6 @@ void UUIScene::execSetSceneInputMode(FFrame& Stack, RESULT_DECL)
 	P_FINISH;
 	this->SetSceneInputMode(NewInputMode);
 }
-
-struct UUIObject__00ca50a0 : public UUIObject
-{
-	void ClearDefaultDataBinding(INT);
-};
 
 // @baa 0x00ca50a0
 void UUIObject::execClearDefaultDataBinding(FFrame& Stack, RESULT_DECL)
@@ -392,11 +362,6 @@ void UUIRoot::execGetFaceOrientation(FFrame& Stack, RESULT_DECL)
 	*(BYTE*)Result = Face % 2;
 }
 
-struct UUIScreenObject__00ca4180 : public UUIScreenObject
-{
-	UBOOL AcceptsPlayerInput(INT);
-};
-
 // @baa 0x00ca4180
 void UUIScreenObject::execAcceptsPlayerInput(FFrame& Stack, RESULT_DECL)
 {
@@ -404,11 +369,6 @@ void UUIScreenObject::execAcceptsPlayerInput(FFrame& Stack, RESULT_DECL)
 	P_FINISH;
 	*(UBOOL*)Result = this->AcceptsPlayerInput(PlayerIndex);
 }
-
-struct UUIObject__00ca5030 : public UUIObject
-{
-	UBOOL ResolveDefaultDataBinding(INT);
-};
 
 // @baa 0x00ca5030
 void UUIObject::execResolveDefaultDataBinding(FFrame& Stack, RESULT_DECL)
@@ -418,11 +378,6 @@ void UUIObject::execResolveDefaultDataBinding(FFrame& Stack, RESULT_DECL)
 	*(UBOOL*)Result = this->ResolveDefaultDataBinding(BindingIndex);
 }
 
-struct UUIObject__00ca5590 : public UUIObject
-{
-	UBOOL IsContainedBy(UUIObject*);
-};
-
 // @baa 0x00ca5590
 void UUIObject::execIsContainedBy(FFrame& Stack, RESULT_DECL)
 {
@@ -430,11 +385,6 @@ void UUIObject::execIsContainedBy(FFrame& Stack, RESULT_DECL)
 	P_FINISH;
 	*(UBOOL*)Result = this->IsContainedBy(TestWidget);
 }
-
-struct UUIObject__00ca5c80 : public UUIObject
-{
-	UBOOL IsPrivateBehaviorSet(INT);
-};
 
 // @baa 0x00ca5c80
 void UUIObject::execIsPrivateBehaviorSet(FFrame& Stack, RESULT_DECL)
@@ -468,11 +418,6 @@ void UUIScreenObject::execIsHoldingShift(FFrame& Stack, RESULT_DECL)
 	*(UBOOL*)Result = IsHoldingShift(ControllerId);
 }
 
-struct UUIScreenObject__00ca31d0 : public UUIScreenObject
-{
-	INT GetPlayerOwner(INT);
-};
-
 // @baa 0x00ca31d0
 void UUIScreenObject::execGetPlayerOwner(FFrame& Stack, RESULT_DECL)
 {
@@ -481,11 +426,6 @@ void UUIScreenObject::execGetPlayerOwner(FFrame& Stack, RESULT_DECL)
 	*(UObject**)Result = (UObject*)this->GetPlayerOwner(PlayerIndex);
 }
 
-struct UUIScreenObject__00ca3da0 : public UUIScreenObject
-{
-	INT GetCurrentState(INT);
-};
-
 // @baa 0x00ca3da0
 void UUIScreenObject::execGetCurrentState(FFrame& Stack, RESULT_DECL)
 {
@@ -493,11 +433,6 @@ void UUIScreenObject::execGetCurrentState(FFrame& Stack, RESULT_DECL)
 	P_FINISH;
 	*(UObject**)Result = (UObject*)this->GetCurrentState(PlayerIndex);
 }
-
-struct UUIScreenObject__00ca4f60 : public UUIScreenObject
-{
-	FLOAT GetAspectRatioAutoScaleFactor(INT);
-};
 
 // @baa 0x00ca4f60
 void UUIScreenObject::execGetAspectRatioAutoScaleFactor(FFrame& Stack, RESULT_DECL)
@@ -995,11 +930,6 @@ void UUIScene::execRegisterTickableObject(FFrame& Stack, RESULT_DECL)
 	*(UBOOL*)Result = RegisterTickableObject(ObjectToRegister, InsertIndex);
 }
 
-struct UUIObject__00cb3d20 : public UUIObject
-{
-	void AddStyleSubscriber(FName&);
-};
-
 // @baa 0x00cb3d20
 void UUIObject::execAddStyleSubscriber(FFrame& Stack, RESULT_DECL)
 {
@@ -1007,11 +937,6 @@ void UUIObject::execAddStyleSubscriber(FFrame& Stack, RESULT_DECL)
 	P_FINISH;
 	this->AddStyleSubscriber(Subscriber);
 }
-
-struct UUIObject__00cb3d90 : public UUIObject
-{
-	void RemoveStyleSubscriber(FName&);
-};
 
 // @baa 0x00cb3d90
 void UUIObject::execRemoveStyleSubscriber(FFrame& Stack, RESULT_DECL)

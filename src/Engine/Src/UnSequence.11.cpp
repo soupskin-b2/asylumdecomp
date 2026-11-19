@@ -85,11 +85,6 @@ void UPrefabSequence::execSetOwnerPrefab(FFrame& Stack, RESULT_DECL)
 	((UPrefabSequence__00c98350*)this)->SetOwnerPrefab(InOwner);
 }
 
-struct USequenceOp__00c98190 : public USequenceOp
-{
-	UBOOL ActivateOutputLink(INT);
-};
-
 // @baa 0x00c98190
 void USequenceOp::execActivateOutputLink(FFrame& Stack, RESULT_DECL)
 {

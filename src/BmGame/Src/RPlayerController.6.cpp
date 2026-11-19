@@ -275,22 +275,12 @@ void ARPlayerController::execLive_SetLoginStatusError(FFrame& Stack, RESULT_DECL
     Live_SetLoginStatusError(State);
 }
 
-struct ARPlayerController__016f9330 : public ARPlayerController
-{
-	AActor* GetAerialKickTarget();
-};
-
 // @baa 0x016f9330
 void ARPlayerController::execGetAerialKickTarget(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
 	*(AActor**)Result = this->GetAerialKickTarget();
 }
-
-struct ARPlayerController__016f9570 : public ARPlayerController
-{
-	ARPawnVillain* GetFallingAttackTarget();
-};
 
 // @baa 0x016f9570
 void ARPlayerController::execGetFallingAttackTarget(FFrame& Stack, RESULT_DECL)
@@ -1014,11 +1004,6 @@ void ARPlayerController::execSpecialMoveFinished(FFrame& Stack, RESULT_DECL)
 	((ARPlayerController__016f90b0*)this)->SpecialMoveFinished(FinishedMove);
 }
 
-struct ARPlayerController__016f9690 : public ARPlayerController
-{
-	void DoGrappleMovement(FLOAT);
-};
-
 // @baa 0x016f9690
 void ARPlayerController::execDoGrappleMovement(FFrame& Stack, RESULT_DECL)
 {
@@ -1026,11 +1011,6 @@ void ARPlayerController::execDoGrappleMovement(FFrame& Stack, RESULT_DECL)
 	P_FINISH;
 	this->DoGrappleMovement(DeltaTime);
 }
-
-struct ARPlayerController__016f97e0 : public ARPlayerController
-{
-	void UpdateSilentPredLookAt(FLOAT);
-};
 
 // @baa 0x016f97e0
 void ARPlayerController::execUpdateSilentPredLookAt(FFrame& Stack, RESULT_DECL)
@@ -1113,11 +1093,6 @@ void ARPlayerController::execProcessViewRotation(FFrame& Stack, RESULT_DECL)
     ProcessViewRotation(DeltaTime, out_ViewRotation, DeltaRot);
 }
 
-struct ARPlayerController__016f9850 : public ARPlayerController
-{
-	UBOOL AmIInSoftCover(FLOAT);
-};
-
 // @baa 0x016f9850
 void ARPlayerController::execAmIInSoftCover(FFrame& Stack, RESULT_DECL)
 {
@@ -1126,11 +1101,6 @@ void ARPlayerController::execAmIInSoftCover(FFrame& Stack, RESULT_DECL)
 	*(UBOOL*)Result = this->AmIInSoftCover(DeltaTime);
 }
 
-struct ARPlayerController__016f8540 : public ARPlayerController
-{
-	void SetUsingGamepad(UBOOL);
-};
-
 // @baa 0x016f8540
 void ARPlayerController::execSetUsingGamepad(FFrame& Stack, RESULT_DECL)
 {
@@ -1138,11 +1108,6 @@ void ARPlayerController::execSetUsingGamepad(FFrame& Stack, RESULT_DECL)
 	P_FINISH;
 	this->SetUsingGamepad(UsingGamepad);
 }
-
-struct ARPlayerController__016f8a60 : public ARPlayerController
-{
-	void SetOcclusion(UBOOL);
-};
 
 // @baa 0x016f8a60
 void ARPlayerController::execSetOcclusion(FFrame& Stack, RESULT_DECL)

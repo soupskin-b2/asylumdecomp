@@ -30,11 +30,6 @@ void URConstrainingComponent__01702fb0::execClearRBConstraints( FFrame& Stack, R
 	ClearRBConstraints();
 }
 
-struct URConstrainingComponent__01702f50 : public URConstrainingComponent
-{
-	void AddRBConstraint(URB_ConstraintSetup*);
-};
-
 // @baa 0x01702f50
 void URConstrainingComponent::execAddRBConstraint(FFrame& Stack, RESULT_DECL)
 {
@@ -42,11 +37,6 @@ void URConstrainingComponent::execAddRBConstraint(FFrame& Stack, RESULT_DECL)
 	P_FINISH;
 	this->AddRBConstraint(ConstraintSetup);
 }
-
-struct URConstrainingComponent__01702fe0 : public URConstrainingComponent
-{
-	UBOOL UpdateRBConstraints(UBOOL);
-};
 
 // @baa 0x01702fe0
 void URConstrainingComponent::execUpdateRBConstraints(FFrame& Stack, RESULT_DECL)

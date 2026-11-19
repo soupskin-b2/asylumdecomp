@@ -85,11 +85,6 @@ void URCapeStateController__01701e60::execSetCapeToBoneDataReferencePose( FFrame
 	SetCapeToBoneDataReferencePose();
 }
 
-struct URCapeStateController__01701750 : public URCapeStateController
-{
-	void Update(FLOAT);
-};
-
 // @baa 0x01701750
 void URCapeStateController::execUpdate(FFrame& Stack, RESULT_DECL)
 {
@@ -97,11 +92,6 @@ void URCapeStateController::execUpdate(FFrame& Stack, RESULT_DECL)
 	P_FINISH;
 	this->Update(DeltaTime);
 }
-
-struct URCapeStateController__01701680 : public URCapeStateController
-{
-	void Initialise(FName);
-};
 
 // @baa 0x01701680
 void URCapeStateController::execInitialise(FFrame& Stack, RESULT_DECL)
@@ -111,11 +101,6 @@ void URCapeStateController::execInitialise(FFrame& Stack, RESULT_DECL)
 	this->Initialise(InitialCapeStateName);
 }
 
-struct URCapeStateController__01701de0 : public URCapeStateController
-{
-	void SetCapeToCurrentAnimPose(UBOOL);
-};
-
 // @baa 0x01701de0
 void URCapeStateController::execSetCapeToCurrentAnimPose(FFrame& Stack, RESULT_DECL)
 {
@@ -123,12 +108,6 @@ void URCapeStateController::execSetCapeToCurrentAnimPose(FFrame& Stack, RESULT_D
 	P_FINISH;
 	this->SetCapeToCurrentAnimPose(IsEvaluateAnim);
 }
-
-/* URCapeStateController::SetCapeStateAndTime (0x16e7670) isn't declared in the kit. */
-struct URCapeStateController__01701960 : public URCapeStateController
-{
-    void SetCapeStateAndTime(FName NewCapeStateName, FLOAT NewCapeStateTime, FLOAT AnimPlayRate, UBOOL bMirrored, FName AnimName, FName SyncAnimNameOverride, FLOAT SyncAnimOffsetOverride);
-};
 
 // @baa 0x01701960
 void URCapeStateController::execSetCapeStateAndTime(FFrame& Stack, RESULT_DECL)
@@ -143,12 +122,6 @@ void URCapeStateController::execSetCapeStateAndTime(FFrame& Stack, RESULT_DECL)
     P_FINISH;
     this->SetCapeStateAndTime(NewCapeStateName, NewCapeStateTime, AnimPlayRate, bMirrored, AnimName, SyncAnimNameOverride, SyncAnimOffsetOverride);
 }
-
-/* URCapeStateController::BeginCinematicState (0x16e7910) isn't declared in the kit. */
-struct URCapeStateController__01701b20 : public URCapeStateController
-{
-    void BeginCinematicState(FName AnimName, class URCapeStateConfig* TemplateStateConfig, FLOAT AnimStartTime, FLOAT AnimPlayRate, FName SyncAnimName, FLOAT SyncAnimOffset, UBOOL bMirrored, UBOOL bClearVelocityOnExit, UBOOL bTeleportToInitialPose);
-};
 
 // @baa 0x01701b20
 void URCapeStateController::execBeginCinematicState(FFrame& Stack, RESULT_DECL)

@@ -304,11 +304,6 @@ S009d7e50* S009d7e50::sub_009d7e50(int R, int Unused)
     return this;
 }
 
-struct D009d7e50 : public S009d7e50
-{
-    void vf_030(int* P, int V); // keeps the vtable lookup out of line
-};
-
 // `this` starts with a vtable pointer; the call goes to virtual slot 12
 // (vtable offset 0x30), a thiscall taking an int by reference and an int.
 // The method returns `this`.

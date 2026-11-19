@@ -45,11 +45,6 @@ void URB_ConstraintInstance::execGetPhysicsAssetInstance(FFrame& Stack, RESULT_D
 	*(UPhysicsAssetInstance**)Result = ((URB_ConstraintInstance__00c95810*)this)->GetPhysicsAssetInstance();
 }
 
-struct URB_ConstraintInstance__00c96410 : public URB_ConstraintInstance
-{
-	void SetLinearLimitSize(FLOAT);
-};
-
 // @baa 0x00c96410
 void URB_ConstraintInstance::execSetLinearLimitSize(FFrame& Stack, RESULT_DECL)
 {
@@ -57,11 +52,6 @@ void URB_ConstraintInstance::execSetLinearLimitSize(FFrame& Stack, RESULT_DECL)
 	P_FINISH;
 	this->SetLinearLimitSize(NewLimitSize);
 }
-
-struct ARB_ConstraintActor__00c937d0 : public ARB_ConstraintActor
-{
-	void SetDisableCollision(UBOOL);
-};
 
 // @baa 0x00c937d0
 void ARB_ConstraintActor::execSetDisableCollision(FFrame& Stack, RESULT_DECL)
@@ -71,11 +61,6 @@ void ARB_ConstraintActor::execSetDisableCollision(FFrame& Stack, RESULT_DECL)
 	this->SetDisableCollision(NewDisableCollision);
 }
 
-struct URB_ConstraintInstance__00c95bc0 : public URB_ConstraintInstance
-{
-	void SetLinearPositionTarget(FVector);
-};
-
 // @baa 0x00c95bc0
 void URB_ConstraintInstance::execSetLinearPositionTarget(FFrame& Stack, RESULT_DECL)
 {
@@ -84,11 +69,6 @@ void URB_ConstraintInstance::execSetLinearPositionTarget(FFrame& Stack, RESULT_D
 	this->SetLinearPositionTarget(InPosTarget);
 }
 
-struct URB_ConstraintInstance__00c95c30 : public URB_ConstraintInstance
-{
-	void SetLinearVelocityTarget(FVector);
-};
-
 // @baa 0x00c95c30
 void URB_ConstraintInstance::execSetLinearVelocityTarget(FFrame& Stack, RESULT_DECL)
 {
@@ -96,11 +76,6 @@ void URB_ConstraintInstance::execSetLinearVelocityTarget(FFrame& Stack, RESULT_D
 	P_FINISH;
 	this->SetLinearVelocityTarget(InVelTarget);
 }
-
-struct URB_ConstraintInstance__00c95df0 : public URB_ConstraintInstance
-{
-	void SetAngularVelocityTarget(FVector);
-};
 
 // @baa 0x00c95df0
 void URB_ConstraintInstance::execSetAngularVelocityTarget(FFrame& Stack, RESULT_DECL)
@@ -329,12 +304,6 @@ void AActor::eventConstraintBrokenNotify(class AActor* ConOwner, class URB_Const
 	Parms.ConInstance = ConInstance;
 	ProcessEvent(FindFunctionChecked(g_026c4100), &Parms);
 }
-
-/* ARB_ConstraintActor::InitConstraint (0xa3fdc0) isn't declared in the kit. */
-struct ARB_ConstraintActor__00c93840 : public ARB_ConstraintActor
-{
-    void InitConstraint(class AActor* Actor1, class AActor* Actor2, FName Actor1Bone, FName Actor2Bone, FLOAT BreakThreshold);
-};
 
 // @baa 0x00c93840
 void ARB_ConstraintActor::execInitConstraint(FFrame& Stack, RESULT_DECL)

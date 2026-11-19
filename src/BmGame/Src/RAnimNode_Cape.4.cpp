@@ -56,11 +56,6 @@ void URAnimNode_Cape::execGetCurrentCapeAnimNode(FFrame& Stack, RESULT_DECL)
 	*(UAnimNode**)Result = ((URAnimNode_Cape__016ec150*)this)->GetCurrentCapeAnimNode();
 }
 
-struct URAnimNode_Cape__016ec190 : public URAnimNode_Cape
-{
-	void* GetStateAnimNode(FName);
-};
-
 // @baa 0x016ec190
 void URAnimNode_Cape::execGetStateAnimNode(FFrame& Stack, RESULT_DECL)
 {
@@ -69,11 +64,6 @@ void URAnimNode_Cape::execGetStateAnimNode(FFrame& Stack, RESULT_DECL)
 	*(void**)Result = this->GetStateAnimNode(AnimStateName);
 }
 
-struct URAnimNode_Cape__016ec210 : public URAnimNode_Cape
-{
-	FLOAT GetAnimTreeNodeBlendValue(FName);
-};
-
 // @baa 0x016ec210
 void URAnimNode_Cape::execGetAnimTreeNodeBlendValue(FFrame& Stack, RESULT_DECL)
 {
@@ -81,12 +71,6 @@ void URAnimNode_Cape::execGetAnimTreeNodeBlendValue(FFrame& Stack, RESULT_DECL)
 	P_FINISH;
 	*(FLOAT*)Result = this->GetAnimTreeNodeBlendValue(getNodeName);
 }
-
-/* URAnimNode_Cape::SetAnimTreeNodeBlendValue (0x1562480) isn't declared in the kit. */
-struct URAnimNode_Cape__016ec290 : public URAnimNode_Cape
-{
-    void SetAnimTreeNodeBlendValue(FName setNodeName, FLOAT blendValue);
-};
 
 // @baa 0x016ec290
 void URAnimNode_Cape::execSetAnimTreeNodeBlendValue(FFrame& Stack, RESULT_DECL)

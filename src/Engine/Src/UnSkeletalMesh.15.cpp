@@ -186,16 +186,6 @@ struct FStaticMeshFullVertex
     DWORD OpaqueVertexExtra;    /* 4 bytes this build adds ahead of the UVs (unknown) */
 };
 
-struct FStaticMeshFullVertexFloat16UVs : public FStaticMeshFullVertex
-{
-    FVector2DHalf UVs[MAX_TEXCOORDS];
-};
-
-struct FStaticMeshFullVertexFloat32UVs : public FStaticMeshFullVertex
-{
-    FVector2D UVs[MAX_TEXCOORDS];
-};
-
 /* FStaticMeshVertexBuffer (StaticMeshVertex.h): a static mesh's tangents and UVs. Not in the kit. */
 class FStaticMeshVertexBuffer : public FVertexBuffer
 {

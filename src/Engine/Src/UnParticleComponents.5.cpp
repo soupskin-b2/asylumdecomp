@@ -136,11 +136,6 @@ void UParticleSystemComponent::execRewindEmitterInstance(FFrame& Stack, RESULT_D
 	RewindEmitterInstance(EmitterIndex);
 }
 
-struct UParticleSystemComponent__00c9cd80 : public UParticleSystemComponent
-{
-	void SetTemplate(UParticleSystem*);
-};
-
 // @baa 0x00c9cd80
 void UParticleSystemComponent::execSetTemplate(FFrame& Stack, RESULT_DECL)
 {
@@ -148,11 +143,6 @@ void UParticleSystemComponent::execSetTemplate(FFrame& Stack, RESULT_DECL)
 	P_FINISH;
 	this->SetTemplate(NewTemplate);
 }
-
-struct UParticleSystemComponent__00c9da40 : public UParticleSystemComponent
-{
-	void SetLODLevel(INT);
-};
 
 // @baa 0x00c9da40
 void UParticleSystemComponent::execSetLODLevel(FFrame& Stack, RESULT_DECL)
@@ -171,11 +161,6 @@ void UParticleSystemComponent::execSetEditorLODLevel(FFrame& Stack, RESULT_DECL)
 	this->SetEditorLODLevel(InLODLevel);
 }
 
-struct UParticleSystemComponent__00c9cf30 : public UParticleSystemComponent
-{
-	void SetSkipUpdateDynamicDataDuringTick(UBOOL);
-};
-
 // @baa 0x00c9cf30
 void UParticleSystemComponent::execSetSkipUpdateDynamicDataDuringTick(FFrame& Stack, RESULT_DECL)
 {
@@ -183,11 +168,6 @@ void UParticleSystemComponent::execSetSkipUpdateDynamicDataDuringTick(FFrame& St
 	P_FINISH;
 	this->SetSkipUpdateDynamicDataDuringTick(bInSkipUpdateDynamicDataDuringTick);
 }
-
-struct UParticleSystemComponent__00c9e480 : public UParticleSystemComponent
-{
-	void SetActive(UBOOL);
-};
 
 // @baa 0x00c9e480
 void UParticleSystemComponent::execSetActive(FFrame& Stack, RESULT_DECL)

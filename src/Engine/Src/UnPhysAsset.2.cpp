@@ -63,11 +63,6 @@ void URB_BodyInstance::execGetPhysicsAssetInstance(FFrame& Stack, RESULT_DECL)
 	*(UPhysicsAssetInstance**)Result = ((URB_BodyInstance__00c94f10*)this)->GetPhysicsAssetInstance();
 }
 
-struct URB_BodyInstance__00c95580 : public URB_BodyInstance
-{
-	void UpdateMassProperties(URB_BodySetup*);
-};
-
 // @baa 0x00c95580
 void URB_BodyInstance::execUpdateMassProperties(FFrame& Stack, RESULT_DECL)
 {
@@ -83,11 +78,6 @@ void UPhysicsAssetInstance::execSetDampingRampupProportion(FFrame& Stack, RESULT
 	P_FINISH;
 	SetDampingRampupProportion(NewDampingRampupProportion);
 }
-
-struct URB_BodyInstance__00c95510 : public URB_BodyInstance
-{
-	void SetContactReportForceThreshold(FLOAT);
-};
 
 // @baa 0x00c95510
 void URB_BodyInstance::execSetContactReportForceThreshold(FFrame& Stack, RESULT_DECL)
@@ -115,11 +105,6 @@ void UPhysicsAssetInstance::execSetAllBodiesFixed(FFrame& Stack, RESULT_DECL)
 	this->SetAllBodiesFixed(bNewFixed);
 }
 
-struct URB_BodyInstance__00c94e20 : public URB_BodyInstance
-{
-	void SetFixed(UBOOL);
-};
-
 // @baa 0x00c94e20
 void URB_BodyInstance::execSetFixed(FFrame& Stack, RESULT_DECL)
 {
@@ -128,11 +113,6 @@ void URB_BodyInstance::execSetFixed(FFrame& Stack, RESULT_DECL)
 	this->SetFixed(bNewFixed);
 }
 
-struct URB_BodyInstance__00c953d0 : public URB_BodyInstance
-{
-	void SetBlockRigidBody(UBOOL);
-};
-
 // @baa 0x00c953d0
 void URB_BodyInstance::execSetBlockRigidBody(FFrame& Stack, RESULT_DECL)
 {
@@ -140,11 +120,6 @@ void URB_BodyInstance::execSetBlockRigidBody(FFrame& Stack, RESULT_DECL)
 	P_FINISH;
 	this->SetBlockRigidBody(bNewBlockRigidBody);
 }
-
-struct URB_BodyInstance__00c954a0 : public URB_BodyInstance
-{
-	void EnableCollisionResponse(UBOOL);
-};
 
 // @baa 0x00c954a0
 void URB_BodyInstance::execEnableCollisionResponse(FFrame& Stack, RESULT_DECL)

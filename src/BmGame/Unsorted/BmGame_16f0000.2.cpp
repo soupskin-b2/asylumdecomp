@@ -586,11 +586,6 @@ void ARPawnCombat::execFacePawn(FFrame& Stack, RESULT_DECL)
 	this->FacePawn(FaceTarget);
 }
 
-struct ARPawnCombat__016f5eb0 : public ARPawnCombat
-{
-	void SetDestRot(FLOAT);
-};
-
 // @baa 0x016f5eb0
 void ARPawnCombat::execSetDestRot(FFrame& Stack, RESULT_DECL)
 {
@@ -703,11 +698,6 @@ void ARBMDebugCameraController::execUpdateBatmansCapeInternal(FFrame& Stack, RES
 	UpdateBatmansCapeInternal(CapeComponent);
 }
 
-struct ARPawnCombat__016f5f20 : public ARPawnCombat
-{
-	void SetDestHeading(FVector);
-};
-
 // @baa 0x016f5f20
 void ARPawnCombat::execSetDestHeading(FFrame& Stack, RESULT_DECL)
 {
@@ -715,11 +705,6 @@ void ARPawnCombat::execSetDestHeading(FFrame& Stack, RESULT_DECL)
 	P_FINISH;
 	this->SetDestHeading(NewHeading);
 }
-
-struct ARPawnCombat__016f5f90 : public ARPawnCombat
-{
-	void FacePos(FVector);
-};
 
 // @baa 0x016f5f90
 void ARPawnCombat::execFacePos(FFrame& Stack, RESULT_DECL)
@@ -1261,12 +1246,6 @@ void ARPlayerController::eventOnLoadedSaveGame()
 	ProcessEvent(FindFunctionChecked(g_026e2eec), NULL);
 }
 
-/* ARSpecialMoveInstance_LineLauncher::LineLauncherMovement (0x1642870) isn't declared in the kit. */
-struct ARSpecialMoveInstance_LineLauncher__016fb780 : public ARSpecialMoveInstance_LineLauncher
-{
-    BYTE LineLauncherMovement(FLOAT DeltaTime, FLOAT HorizontalSpeed, FLOAT VerticalAccel, FLOAT MaxVerticalSpeed);
-};
-
 // @baa 0x016fb780
 void ARSpecialMoveInstance_LineLauncher::execLineLauncherMovement(FFrame& Stack, RESULT_DECL)
 {
@@ -1277,12 +1256,6 @@ void ARSpecialMoveInstance_LineLauncher::execLineLauncherMovement(FFrame& Stack,
     P_FINISH;
     *(BYTE*)Result = this->LineLauncherMovement(DeltaTime, HorizontalSpeed, VerticalAccel, MaxVerticalSpeed);
 }
-
-/* ARSpecialMoveInstance_LineLauncher::GetKickTarget (0x1642cd0) isn't declared in the kit. */
-struct ARSpecialMoveInstance_LineLauncher__016fb970 : public ARSpecialMoveInstance_LineLauncher
-{
-    ARPawnVillain* GetKickTarget(FLOAT KickTime, FLOAT LeftKickTime, FLOAT RightKickTime, FLOAT MinOffsetForFwdKick, FLOAT MaxSpeed, FLOAT LineLauncherAccel, BYTE& KickDir);
-};
 
 // @baa 0x016fb970
 void ARSpecialMoveInstance_LineLauncher::execGetKickTarget(FFrame& Stack, RESULT_DECL)
@@ -1315,12 +1288,6 @@ void ARSpecialMoveInstance_CatchLedge::execCorrectLedgeCatchVelocity(FFrame& Sta
     ((ARSpecialMoveInstance_CatchLedge_*)this)->CorrectLedgeCatchVelocity(Player, DesiredPosition, Max2DAccel, DeltaTime);
 }
 
-/* ARSpecialMoveInstance_ResonateObject::InterpThumb (0x1613630) isn't declared in the kit. */
-struct ARSpecialMoveInstance_ResonateObject__016fbee0 : public ARSpecialMoveInstance_ResonateObject
-{
-    FLOAT InterpThumb(FLOAT DesiredPos, FLOAT CurrentPos, FLOAT DeltaTime);
-};
-
 // @baa 0x016fbee0
 void ARSpecialMoveInstance_ResonateObject::execInterpThumb(FFrame& Stack, RESULT_DECL)
 {
@@ -1344,12 +1311,6 @@ void ARSpecialMoveInstance_ResonateObject::execGetLeftAndRightAngles(FFrame& Sta
     P_FINISH;
     this->GetLeftAndRightAngles(LeftAngle, RightAngle, RawLeftX, RawLeftY, RawRightX, RawRightY);
 }
-
-/* ARSpecialMoveInstance_ResonateObject::UpdatePCResonatorPos (0x1613720) isn't declared in the kit. */
-struct ARSpecialMoveInstance_ResonateObject__016fc160 : public ARSpecialMoveInstance_ResonateObject
-{
-    void UpdatePCResonatorPos(class URPlayerInput* Input, FLOAT DeltaTime, FLOAT TurnSpeed, FLOAT Accel, FLOAT Decel);
-};
 
 // @baa 0x016fc160
 void ARSpecialMoveInstance_ResonateObject::execUpdatePCResonatorPos(FFrame& Stack, RESULT_DECL)

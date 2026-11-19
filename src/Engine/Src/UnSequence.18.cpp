@@ -134,12 +134,6 @@ UBOOL USeqAct_MultiLevelStreaming::UpdateOp(FLOAT DeltaTime)
     return bAllComplete;
 }
 
-/* UWorld::GetTimeSeconds (0x009c8f80) isn't declared in Classes.h. */
-struct UWorld__008e6d80 : public UWorld
-{
-    FLOAT GetTimeSeconds();
-};
-
 // @baa 0x008e6d80
 void USeqAct_Timer::Activated()
 {

@@ -28,12 +28,6 @@ void UUISkin::execIsInheritedGroupName(FFrame& Stack, RESULT_DECL)
     *(UBOOL*)Result = ((UUISkin_*)this)->IsInheritedGroupName(StyleGroupName);
 }
 
-struct UUISkin__00cbd680 : public UUISkin
-{
-    /* AddStyleGroupName(const FString& StyleGroupName); Classes.h doesn't declare it. */
-    UBOOL AddStyleGroupName(const FString& StyleGroupName);
-};
-
 // @baa 0x00cbd680
 void UUISkin::execAddStyleGroupName(FFrame& Stack, RESULT_DECL)
 {
@@ -41,12 +35,6 @@ void UUISkin::execAddStyleGroupName(FFrame& Stack, RESULT_DECL)
     P_FINISH;
     *(UBOOL*)Result = this->AddStyleGroupName(StyleGroupName);
 }
-
-struct UUISkin__00cbd740 : public UUISkin
-{
-    /* RemoveStyleGroupName(const FString& StyleGroupName); Classes.h doesn't declare it. */
-    UBOOL RemoveStyleGroupName(const FString& StyleGroupName);
-};
 
 // @baa 0x00cbd740
 void UUISkin::execRemoveStyleGroupName(FFrame& Stack, RESULT_DECL)
@@ -56,12 +44,6 @@ void UUISkin::execRemoveStyleGroupName(FFrame& Stack, RESULT_DECL)
     *(UBOOL*)Result = this->RemoveStyleGroupName(StyleGroupName);
 }
 
-struct UUISkin__00cbd9c0 : public UUISkin
-{
-    /* FindStyleGroupIndex(const FString& StyleGroupName); Classes.h doesn't declare it. */
-    INT FindStyleGroupIndex(const FString& StyleGroupName);
-};
-
 // @baa 0x00cbd9c0
 void UUISkin::execFindStyleGroupIndex(FFrame& Stack, RESULT_DECL)
 {
@@ -69,12 +51,6 @@ void UUISkin::execFindStyleGroupIndex(FFrame& Stack, RESULT_DECL)
     P_FINISH;
     *(INT*)Result = this->FindStyleGroupIndex(StyleGroupName);
 }
-
-struct UUISkin__00cbd900 : public UUISkin
-{
-    /* FString GetStyleGroupAtIndex(INT Index); Classes.h doesn't declare it. */
-    FString GetStyleGroupAtIndex(INT Index);
-};
 
 // @baa 0x00cbd900
 void UUISkin::execGetStyleGroupAtIndex(FFrame& Stack, RESULT_DECL)
@@ -113,12 +89,6 @@ void UUIDataProvider::execGetProviderFieldType(FFrame& Stack, RESULT_DECL)
     *(UBOOL*)Result = ((UUIDataProvider_*)this)->GetProviderFieldType(DataTag, out_ProviderFieldType);
 }
 
-struct UUISkin__00cbd800 : public UUISkin
-{
-    /* UBOOL RenameStyleGroup(const FString& OldStyleGroupName, const FString& NewStyleGroupName); Classes.h doesn't declare it. */
-    UBOOL RenameStyleGroup(const FString& OldStyleGroupName, const FString& NewStyleGroupName);
-};
-
 // @baa 0x00cbd800
 void UUISkin::execRenameStyleGroup(FFrame& Stack, RESULT_DECL)
 {
@@ -135,12 +105,6 @@ static __forceinline FGuid MakeZeroGuid()
     Guid.Invalidate();
     return Guid;
 }
-
-struct AWorldInfo__00cb8000 : public AWorldInfo
-{
-    /* SeamlessTravel(const FString& URL, UBOOL bAbsolute, FGuid MapPackageGuid); Classes.h doesn't declare it. */
-    void SeamlessTravel(const FString& URL, UBOOL bAbsolute, FGuid MapPackageGuid);
-};
 
 // @baa 0x00cb8000
 void AWorldInfo::execSeamlessTravel(FFrame& Stack, RESULT_DECL)
@@ -160,12 +124,6 @@ void AWorldInfo::execSeamlessTravel(FFrame& Stack, RESULT_DECL)
     P_FINISH;
     this->SeamlessTravel(URL, bAbsolute, MapPackageGuid);
 }
-
-struct AWorldInfo__00cb8200 : public AWorldInfo
-{
-    /* AddOnScreenDebugMessage(INT Key, FLOAT TimeToDisplay, FColor DisplayColor, const FString& DebugMessage); Classes.h doesn't declare it. */
-    void AddOnScreenDebugMessage(INT Key, FLOAT TimeToDisplay, FColor DisplayColor, const FString& DebugMessage);
-};
 
 // @baa 0x00cb8200
 void AWorldInfo::execAddOnScreenDebugMessage(FFrame& Stack, RESULT_DECL)

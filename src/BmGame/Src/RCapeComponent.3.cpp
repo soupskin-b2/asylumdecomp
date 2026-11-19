@@ -119,22 +119,12 @@ void URCapeComponent::execDoubleFrameTeleport(FFrame& Stack, RESULT_DECL)
 	DoubleFrameTeleport();
 }
 
-struct URCapeComponent__01702750 : public URCapeComponent
-{
-	UAnimNode* GetCurrentCapeStateAnimTreeNode();
-};
-
 // @baa 0x01702750
 void URCapeComponent::execGetCurrentCapeStateAnimTreeNode(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
 	*(UAnimNode**)Result = this->GetCurrentCapeStateAnimTreeNode();
 }
-
-struct URCapeComponent__017026f0 : public URCapeComponent
-{
-	void UpdateDamageState(UMaterialInstance*);
-};
 
 // @baa 0x017026f0
 void URCapeComponent::execUpdateDamageState(FFrame& Stack, RESULT_DECL)
@@ -157,11 +147,6 @@ void URCapeComponent::execAddCinematicAnimSet(FFrame& Stack, RESULT_DECL)
 	((URCapeComponent__01702bf0*)this)->AddCinematicAnimSet(NewAnimSet);
 }
 
-struct URCapeComponent__01702a10 : public URCapeComponent
-{
-	void SetMaterialSpeedVariableOverride(FLOAT);
-};
-
 // @baa 0x01702a10
 void URCapeComponent::execSetMaterialSpeedVariableOverride(FFrame& Stack, RESULT_DECL)
 {
@@ -169,11 +154,6 @@ void URCapeComponent::execSetMaterialSpeedVariableOverride(FFrame& Stack, RESULT
 	P_FINISH;
 	this->SetMaterialSpeedVariableOverride(Speed);
 }
-
-struct URCapeComponent__01702cf0 : public URCapeComponent
-{
-	void CalculateWindProperties(FCapeWindAudioProperties&);
-};
 
 // @baa 0x01702cf0
 void URCapeComponent::execCalculateWindProperties(FFrame& Stack, RESULT_DECL)
@@ -183,11 +163,6 @@ void URCapeComponent::execCalculateWindProperties(FFrame& Stack, RESULT_DECL)
 	this->CalculateWindProperties(OutWindProperties);
 }
 
-struct URCapeComponent__01702790 : public URCapeComponent
-{
-	void* GetAnimStateTreeNode(FName);
-};
-
 // @baa 0x01702790
 void URCapeComponent::execGetAnimStateTreeNode(FFrame& Stack, RESULT_DECL)
 {
@@ -195,11 +170,6 @@ void URCapeComponent::execGetAnimStateTreeNode(FFrame& Stack, RESULT_DECL)
 	P_FINISH;
 	*(void**)Result = this->GetAnimStateTreeNode(CapeStateName);
 }
-
-struct URCapeComponent__01702810 : public URCapeComponent
-{
-	FLOAT GetAnimTreeNodeBlendValue(FName);
-};
 
 // @baa 0x01702810
 void URCapeComponent::execGetAnimTreeNodeBlendValue(FFrame& Stack, RESULT_DECL)
@@ -209,24 +179,12 @@ void URCapeComponent::execGetAnimTreeNodeBlendValue(FFrame& Stack, RESULT_DECL)
 	*(FLOAT*)Result = this->GetAnimTreeNodeBlendValue(getNodeName);
 }
 
-/* URCapeComponent::CalculateCapeLocalToWorld (016b1fe0) isn't declared in the kit. */
-struct URCapeComponent__01702d70 : public URCapeComponent
-{
-    FMatrix CalculateCapeLocalToWorld();
-};
-
 // @baa 0x01702d70
 void URCapeComponent::execCalculateCapeLocalToWorld(FFrame& Stack, RESULT_DECL)
 {
     P_FINISH;
     *(FMatrix*)Result = this->CalculateCapeLocalToWorld();
 }
-
-/* URCapeComponent::SetAnimTreeNodeBlendValue (0x16ae850) isn't declared in the kit. */
-struct URCapeComponent__01702890 : public URCapeComponent
-{
-    void SetAnimTreeNodeBlendValue(FName setNodeName, FLOAT blendValue);
-};
 
 // @baa 0x01702890
 void URCapeComponent::execSetAnimTreeNodeBlendValue(FFrame& Stack, RESULT_DECL)
@@ -237,12 +195,6 @@ void URCapeComponent::execSetAnimTreeNodeBlendValue(FFrame& Stack, RESULT_DECL)
     this->SetAnimTreeNodeBlendValue(setNodeName, blendValue);
 }
 
-/* URCapeComponent::SetCapeDebugRenderBone (0x16ae900) isn't declared in the kit. */
-struct URCapeComponent__01702b60 : public URCapeComponent
-{
-    void SetCapeDebugRenderBone(INT DebugRenderBoneChainIndex, INT DebugRenderBoneLinkIndex);
-};
-
 // @baa 0x01702b60
 void URCapeComponent::execSetCapeDebugRenderBone(FFrame& Stack, RESULT_DECL)
 {
@@ -252,12 +204,6 @@ void URCapeComponent::execSetCapeDebugRenderBone(FFrame& Stack, RESULT_DECL)
     this->SetCapeDebugRenderBone(DebugRenderBoneChainIndex, DebugRenderBoneLinkIndex);
 }
 
-/* URCapeComponent::ApplyWind (0x16c6430) isn't declared in the kit. */
-struct URCapeComponent__01702c50 : public URCapeComponent
-{
-    void ApplyWind(FRWindConfig WindConfig, FRWindState& WindState);
-};
-
 // @baa 0x01702c50
 void URCapeComponent::execApplyWind(FFrame& Stack, RESULT_DECL)
 {
@@ -266,12 +212,6 @@ void URCapeComponent::execApplyWind(FFrame& Stack, RESULT_DECL)
     P_FINISH;
     this->ApplyWind(WindConfig, WindState);
 }
-
-/* URCapeComponent::SetAutoCapeAnimBlendWeights (0x16ae870) isn't declared in the kit. */
-struct URCapeComponent__01702930 : public URCapeComponent
-{
-    void SetAutoCapeAnimBlendWeights(UBOOL IsBlendWeightSettingEnabled, FLOAT rootWeight, FLOAT childWeights);
-};
 
 // @baa 0x01702930
 void URCapeComponent::execSetAutoCapeAnimBlendWeights(FFrame& Stack, RESULT_DECL)
@@ -299,12 +239,6 @@ void URCapeComponent::execChangeCapeStateGeneral(FFrame& Stack, RESULT_DECL)
     P_FINISH;
     this->ChangeCapeStateGeneral(CapeStateName, CinematicStateTemplate, CinematicAnimName, CinematicStateExtraAnimSet, AnimStartTime, AnimPlayRate, SyncAnimName, SyncAnimOffset, MirroredType);
 }
-
-/* URCapeComponent::BeginCinematicState (0x16ae6d0) isn't declared in the kit. */
-struct URCapeComponent__017024a0 : public URCapeComponent
-{
-    void BeginCinematicState(FName AnimName, class UAnimSet* TemporaryAnimSet, FLOAT AnimStartTime, FLOAT AnimPlayRate, FName SyncAnimName, FLOAT SyncAnimOffset, BYTE MirroredType, class URCapeStateConfig* TemplateStateConfig, UBOOL ClearVelocityOnExit, UBOOL bTeleportToInitialPose);
-};
 
 // @baa 0x017024a0
 void URCapeComponent::execBeginCinematicState(FFrame& Stack, RESULT_DECL)

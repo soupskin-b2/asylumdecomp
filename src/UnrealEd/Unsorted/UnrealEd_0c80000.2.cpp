@@ -38,11 +38,6 @@ void AActor::execGetBaseMost(FFrame& Stack, RESULT_DECL)
 	*(AActor**)Result = (AActor*)GetBaseMost();
 }
 
-struct AActor__00c81570 : public AActor
-{
-	void SetOwner(AActor*);
-};
-
 // @baa 0x00c81570
 void AActor::execSetOwner(FFrame& Stack, RESULT_DECL)
 {
@@ -50,11 +45,6 @@ void AActor::execSetOwner(FFrame& Stack, RESULT_DECL)
 	P_FINISH;
 	this->SetOwner(NewOwner);
 }
-
-struct AActor__00c80ea0 : public AActor
-{
-	void SetCollisionType(BYTE);
-};
 
 // @baa 0x00c80ea0
 void AActor::execSetCollisionType(FFrame& Stack, RESULT_DECL)
@@ -77,11 +67,6 @@ void AActor::execFinishAnim(FFrame& Stack, RESULT_DECL)
 	((AActor__00c80da0*)this)->FinishAnim(SeqNode);
 }
 
-struct AActor__00c80d30 : public AActor
-{
-	void Sleep(FLOAT);
-};
-
 // @baa 0x00c80d30
 void AActor::execSleep(FFrame& Stack, RESULT_DECL)
 {
@@ -97,11 +82,6 @@ void AActor::execSetDrawScale(FFrame& Stack, RESULT_DECL)
 	P_FINISH;
 	SetDrawScale(NewScale);
 }
-
-struct AActor__00c81460 : public AActor
-{
-	void AutonomousPhysics(FLOAT);
-};
 
 // @baa 0x00c81460
 void AActor::execAutonomousPhysics(FFrame& Stack, RESULT_DECL)
@@ -119,11 +99,6 @@ void AActor::execSetDrawScale3D(FFrame& Stack, RESULT_DECL)
 	SetDrawScale3D(NewScale3D);
 }
 
-struct AActor__00c81060 : public AActor
-{
-	UBOOL SetLocation(FVector);
-};
-
 // @baa 0x00c81060
 void AActor::execSetLocation(FFrame& Stack, RESULT_DECL)
 {
@@ -131,11 +106,6 @@ void AActor::execSetLocation(FFrame& Stack, RESULT_DECL)
 	P_FINISH;
 	*(UBOOL*)Result = this->SetLocation(NewLocation);
 }
-
-struct AActor__00c810e0 : public AActor
-{
-	UBOOL SetRotation(FRotator);
-};
 
 // @baa 0x00c810e0
 void AActor::execSetRotation(FFrame& Stack, RESULT_DECL)
@@ -145,11 +115,6 @@ void AActor::execSetRotation(FFrame& Stack, RESULT_DECL)
 	*(UBOOL*)Result = this->SetRotation(NewRotation);
 }
 
-struct AActor__00c812a0 : public AActor
-{
-	UBOOL SetRelativeRotation(FRotator);
-};
-
 // @baa 0x00c812a0
 void AActor::execSetRelativeRotation(FFrame& Stack, RESULT_DECL)
 {
@@ -158,11 +123,6 @@ void AActor::execSetRelativeRotation(FFrame& Stack, RESULT_DECL)
 	*(UBOOL*)Result = this->SetRelativeRotation(NewRotation);
 }
 
-struct AActor__00c81320 : public AActor
-{
-	UBOOL SetRelativeLocation(FVector);
-};
-
 // @baa 0x00c81320
 void AActor::execSetRelativeLocation(FFrame& Stack, RESULT_DECL)
 {
@@ -170,11 +130,6 @@ void AActor::execSetRelativeLocation(FFrame& Stack, RESULT_DECL)
 	P_FINISH;
 	*(UBOOL*)Result = this->SetRelativeLocation(NewLocation);
 }
-
-struct AActor__00c80fe0 : public AActor
-{
-	UBOOL Move(FVector);
-};
 
 // @baa 0x00c80fe0
 void AActor::execMove(FFrame& Stack, RESULT_DECL)
@@ -208,12 +163,6 @@ void AActor::execSetCollisionSize(FFrame& Stack, RESULT_DECL)
     SetCollisionSize(NewRadius, NewHeight);
 }
 
-/* AActor::SetLocationForTest (0x8a7bd0) isn't declared in the kit. */
-struct AActor__00c811f0 : public AActor
-{
-    UBOOL SetLocationForTest(FVector NewLocation, UBOOL bNoCheck);
-};
-
 // @baa 0x00c811f0
 void AActor::execSetLocationForTest(FFrame& Stack, RESULT_DECL)
 {
@@ -222,12 +171,6 @@ void AActor::execSetLocationForTest(FFrame& Stack, RESULT_DECL)
     P_FINISH;
     *(UBOOL*)Result = this->SetLocationForTest(NewLocation, bNoCheck);
 }
-
-/* AActor::fixedTurn (0x873ba0) isn't declared in the kit. */
-struct AActor__00c813a0 : public AActor
-{
-    INT fixedTurn(INT Current, INT Desired, INT DeltaRate);
-};
 
 // @baa 0x00c813a0
 void AActor::execfixedTurn(FFrame& Stack, RESULT_DECL)
@@ -239,12 +182,6 @@ void AActor::execfixedTurn(FFrame& Stack, RESULT_DECL)
     *(INT*)Result = this->fixedTurn(Current, Desired, DeltaRate);
 }
 
-/* AActor::SetForcedInitialReplicatedProperty (0x77e1a0) isn't declared in the kit. */
-struct AActor__00c81650 : public AActor
-{
-    void SetForcedInitialReplicatedProperty(class UProperty* PropToReplicate, UBOOL bAdd);
-};
-
 // @baa 0x00c81650
 void AActor::execSetForcedInitialReplicatedProperty(FFrame& Stack, RESULT_DECL)
 {
@@ -253,12 +190,6 @@ void AActor::execSetForcedInitialReplicatedProperty(FFrame& Stack, RESULT_DECL)
     P_FINISH;
     this->SetForcedInitialReplicatedProperty(PropToReplicate, bAdd);
 }
-
-/* AActor::DrawDebugLine (0x8a9620) isn't declared in the kit. */
-struct AActor__00c81720 : public AActor
-{
-    void DrawDebugLine(FVector LineStart, FVector LineEnd, BYTE R, BYTE G, BYTE B, UBOOL bPersistentLines);
-};
 
 // @baa 0x00c81720
 void AActor::execDrawDebugLine(FFrame& Stack, RESULT_DECL)
@@ -272,12 +203,6 @@ void AActor::execDrawDebugLine(FFrame& Stack, RESULT_DECL)
     P_FINISH;
     this->DrawDebugLine(LineStart, LineEnd, R, G, B, bPersistentLines);
 }
-
-/* AActor::DrawDebugBox (0x8a96a0) isn't declared in the kit. */
-struct AActor__00c81880 : public AActor
-{
-    void DrawDebugBox(FVector Center, FVector Extent, BYTE R, BYTE G, BYTE B, UBOOL bPersistentLines);
-};
 
 // @baa 0x00c81880
 void AActor::execDrawDebugBox(FFrame& Stack, RESULT_DECL)

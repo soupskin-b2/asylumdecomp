@@ -712,12 +712,6 @@ INT URAnimNode_Pose::WillBeInTransition(FTransitionId Transition, FLOAT Time, BY
 	return PosePlayer.WillBeInTransition(Transition, Time, Fuzziness);
 }
 
-/* Kit gap: FPosePlayer's methods aren't declared (the node forwards to the one of the same name). */
-struct FPosePlayer__01595740 : public FPosePlayer
-{
-	INT sub_015c2b90(USkeletalMeshComponent* SkelComp, INT, FLOAT); /* 0x015c2b90 */
-};
-
 // @baa 0x01595740
 /* Slot 0x1c0 (unnamed in the kit). */
 INT URAnimNode_Pose::vf_1c0(INT Param, FLOAT Value)

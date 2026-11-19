@@ -389,11 +389,6 @@ struct FString__008c84a0 : public FString
 };
 
 /* UObject::GetName (0x0043bbb0); the kit doesn't declare it. */
-struct UObject__008c84a0 : public UObject
-{
-    FString GetName() const;
-};
-
 /* slot 0x194 (vf_194) is USequenceVariable::GetValueStr */
 struct USeqVar_Object_ : public USeqVar_Object
 {
@@ -433,12 +428,6 @@ void USeqAct_Latent::AbortFor(AActor* LatentActor)
 
 // The game keeps ~TArray<UObject**> out of line (0x008c26a0).
 extern template TArray<UObject**>::~TArray();
-/* USequenceOp::GetObjectVars (0x008e9100) isn't declared in Classes.h. */
-struct USequenceOp__008f7e00 : public USequenceOp
-{
-    void GetObjectVars(TArray<UObject**>& outObjVars, const TCHAR* inDesc = NULL);
-};
-
 /* slot 0x174 (vf_174) is USequenceOp::Activated */
 
 // @baa 0x008f7e00

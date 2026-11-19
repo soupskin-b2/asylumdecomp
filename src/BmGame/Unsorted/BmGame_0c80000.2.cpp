@@ -137,11 +137,6 @@ void APlayerController::execSetNetSpeed(FFrame& Stack, RESULT_DECL)
 	SetNetSpeed(NewSpeed);
 }
 
-struct AActor__00c82fd0 : public AActor
-{
-	void SetNetUpdateTime(FLOAT);
-};
-
 // @baa 0x00c82fd0
 void AActor::execSetNetUpdateTime(FFrame& Stack, RESULT_DECL)
 {
@@ -166,11 +161,6 @@ void AController::execRouteCache_AddItem(FFrame& Stack, RESULT_DECL)
     RouteCache_AddItem(Nav);
 }
 
-struct APlayerController__00c86d20 : public APlayerController
-{
-	UBOOL CheckSpeedHack(FLOAT);
-};
-
 // @baa 0x00c86d20
 void APlayerController::execCheckSpeedHack(FFrame& Stack, RESULT_DECL)
 {
@@ -179,11 +169,6 @@ void APlayerController::execCheckSpeedHack(FFrame& Stack, RESULT_DECL)
 	*(UBOOL*)Result = this->CheckSpeedHack(DeltaTime);
 }
 
-struct APlayerController__00c86d90 : public APlayerController
-{
-	INT FindStairRotation(FLOAT);
-};
-
 // @baa 0x00c86d90
 void APlayerController::execFindStairRotation(FFrame& Stack, RESULT_DECL)
 {
@@ -191,11 +176,6 @@ void APlayerController::execFindStairRotation(FFrame& Stack, RESULT_DECL)
 	P_FINISH;
 	*(INT*)Result = this->FindStairRotation(DeltaTime);
 }
-
-struct APlayerController__00c87280 : public APlayerController
-{
-	void ServerNotifyLoadedWorld(FName);
-};
 
 // @baa 0x00c87280
 void APlayerController::execServerNotifyLoadedWorld(FFrame& Stack, RESULT_DECL)
@@ -212,11 +192,6 @@ void AAnimatedCamera::execStopAllCameraAnims(FFrame& Stack, RESULT_DECL)
 	P_FINISH;
 	StopAllCameraAnims(bImmediate);
 }
-
-struct APlayerController__00c87660 : public APlayerController
-{
-	UBOOL IsPlayerMuted(FUniqueNetId&);
-};
 
 // @baa 0x00c87660
 void APlayerController::execIsPlayerMuted(FFrame& Stack, RESULT_DECL)
@@ -302,12 +277,6 @@ void AController::execGetDestinationPosition(FFrame& Stack, RESULT_DECL)
     *(FVector*)Result = this->GetDestinationPosition();
 }
 
-/* AActor::GetPackageGuid (0x8ef1d0) isn't declared in the kit. */
-struct AActor__00c83420 : public AActor
-{
-    FGuid GetPackageGuid(FName PackageName);
-};
-
 // @baa 0x00c83420
 void AActor::execGetPackageGuid(FFrame& Stack, RESULT_DECL)
 {
@@ -324,12 +293,6 @@ void AController::execGetBasedPosition(FFrame& Stack, RESULT_DECL)
     *(FVector*)Result = this->GetBasedPosition(BP);
 }
 
-/* APlayerController::ClientUpdateLevelStreamingStatus (0x7b4f70) isn't declared in the kit. */
-struct APlayerController__00c87470 : public APlayerController
-{
-    void ClientUpdateLevelStreamingStatus(FName PackageName, UBOOL bNewShouldBeLoaded, UBOOL bNewShouldBeVisible, UBOOL bNewShouldBlockOnLoad);
-};
-
 // @baa 0x00c87470
 void APlayerController::execClientUpdateLevelStreamingStatus(FFrame& Stack, RESULT_DECL)
 {
@@ -340,12 +303,6 @@ void APlayerController::execClientUpdateLevelStreamingStatus(FFrame& Stack, RESU
     P_FINISH;
     this->ClientUpdateLevelStreamingStatus(PackageName, bNewShouldBeLoaded, bNewShouldBeVisible, bNewShouldBlockOnLoad);
 }
-
-/* APlayerController::ServerUpdateLevelVisibility (0x7bf380) isn't declared in the kit. */
-struct APlayerController__00c87580 : public APlayerController
-{
-    void ServerUpdateLevelVisibility(FName PackageName, UBOOL bIsVisible);
-};
 
 // @baa 0x00c87580
 void APlayerController::execServerUpdateLevelVisibility(FFrame& Stack, RESULT_DECL)
@@ -383,12 +340,6 @@ void AController::execSetDestinationPosition(FFrame& Stack, RESULT_DECL)
     P_FINISH;
     this->SetDestinationPosition(Dest, bOffsetFromBase);
 }
-
-/* AActor::MakeNoise (0x8652a0) isn't declared in the kit. */
-struct AActor__00c82e10 : public AActor
-{
-    void MakeNoise(FLOAT Loudness, FName NoiseType);
-};
 
 // @baa 0x00c82e10
 void AActor::execMakeNoise(FFrame& Stack, RESULT_DECL)

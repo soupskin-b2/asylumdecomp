@@ -275,24 +275,12 @@ void URRopeComponentBase::execSetCollidesWithChannel(FFrame& Stack, RESULT_DECL)
     SetCollidesWithChannel(CollisionChannel, Value);
 }
 
-/* URRopeComponentBase::GetWorldSpaceEnd1AttachPos (01644d40) isn't declared in the kit. */
-struct URRopeComponentBase__01700340 : public URRopeComponentBase
-{
-    FVector GetWorldSpaceEnd1AttachPos();
-};
-
 // @baa 0x01700340
 void URRopeComponentBase::execGetWorldSpaceEnd1AttachPos(FFrame& Stack, RESULT_DECL)
 {
     P_FINISH;
     *(FVector*)Result = this->GetWorldSpaceEnd1AttachPos();
 }
-
-/* URRopeComponentBase::GetWorldSpaceEnd2AttachPos (01644da0) isn't declared in the kit. */
-struct URRopeComponentBase__01700390 : public URRopeComponentBase
-{
-    FVector GetWorldSpaceEnd2AttachPos();
-};
 
 // @baa 0x01700390
 void URRopeComponentBase::execGetWorldSpaceEnd2AttachPos(FFrame& Stack, RESULT_DECL)
