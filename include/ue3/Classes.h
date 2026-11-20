@@ -58638,9 +58638,10 @@ struct UState : public UStruct {
     /* registered size 0xd8 */
 };
 
-struct FNativeDtor_00570ff0_c { ~FNativeDtor_00570ff0_c(); /* 0x00570ff0 */ DWORD _data[3]; };  /* a C++-only member: only its destructor is known; size up to the next member */
-struct FNativeDtor_005829b0_3c { ~FNativeDtor_005829b0_3c(); /* 0x005829b0 */ DWORD _data[15]; };  /* a C++-only member: only its destructor is known; size up to the next member */
-struct FNativeDtor_00582940_3c { ~FNativeDtor_00582940_3c(); /* 0x00582940 */ DWORD _data[15]; };  /* a C++-only member: only its destructor is known; size up to the next member */
+/* UClass's containers, with their out-of-line destructors (the names keep the old sizes so the destructors' symbols stay) */
+struct FNativeDtor_00570ff0_c : public TArray<DWORD> { ~FNativeDtor_00570ff0_c(); /* 0x00570ff0 */ };  /* a TArray of DWORDs (FGCReferenceTokenStream's Tokens; the same folded destructor serves UClass 0x1c4) */
+struct FNativeDtor_005829b0_3c : public FMap_Mirror { ~FNativeDtor_005829b0_3c(); /* 0x005829b0 */ };  /* TMap<UClass*, UProperty*> Interfaces (Map.h; cast to it) */
+struct FNativeDtor_00582940_3c : public FMap_Mirror { ~FNativeDtor_00582940_3c(); /* 0x00582940 */ };  /* TMap<FName, UComponent*> ComponentNameToDefaultObjectMap (Map.h; cast to it) */
 struct UClass : public UState {
     /* Core.Class (native only: no script package describes it) */
     DECLARE_CLASS(UClass, UState, 0x10000000, 0x20, Core)
@@ -58655,20 +58656,22 @@ struct UClass : public UState {
     class UClass* ClassWithin; /* 0xe4 */
     FName ClassConfigName; /* 0xe8 */
     TArrayNoInit<FName> HideCategories; /* 0xf0 */
-    TArray<FName> Native_fc; /* 0xfc: C++ only (destroyed by its destructor) */
-    TArray<FName> Native_108; /* 0x108: C++ only (destroyed by its destructor) */
-    TArray<FName> Native_114; /* 0x114: C++ only (destroyed by its destructor) */
-    FString Native_120; /* 0x120: C++ only (destroyed by its destructor) */
+    /* UnClass.h's members as this build has them (Serialize: ClassFlags, ClassWithin, ClassConfigName, the two maps, the three
+     * category lists; Emit* append to ReferenceTokenStream; StaticConstructor sets bNeedsPropertiesLinked) */
+    TArray<FName> AutoExpandCategories; /* 0xfc */
+    TArray<FName> AutoCollapseCategories; /* 0x108 */
+    TArray<FName> DependentOn; /* 0x114 */
+    FString ClassHeaderFilename; /* 0x120 */
     class UObject* ClassDefaultObject; /* 0x12c */
     void (*ClassConstructor)(void*); /* 0x130 */
     void (UObject::*ClassStaticConstructor)(); /* 0x134 */
     void (UObject::*ClassStaticInitializer)(); /* 0x138 */
-    FNativeDtor_00582940_3c Native_13c; /* 0x13c: C++ only (destroyed by its destructor) */
-    FNativeDtor_005829b0_3c Native_178; /* 0x178: C++ only (destroyed by its destructor) */
-    FString Native_1b4; /* 0x1b4: C++ only (destroyed by its destructor) */
-    BYTE _native8[0x4];
-    FNativeDtor_00570ff0_c Native_1c4; /* 0x1c4: C++ only (destroyed by its destructor) */
-    FNativeDtor_00570ff0_c Native_1d0; /* 0x1d0: C++ only (destroyed by its destructor) */
+    FNativeDtor_00582940_3c ComponentNameToDefaultObjectMap; /* 0x13c */
+    FNativeDtor_005829b0_3c Interfaces; /* 0x178 */
+    FString DefaultPropText; /* 0x1b4 */
+    UBOOL bNeedsPropertiesLinked; /* 0x1c0 */
+    FNativeDtor_00570ff0_c Native_1c4; /* 0x1c4: a 4-byte-element TArray only constructed and destroyed; not identified */
+    FNativeDtor_00570ff0_c ReferenceTokenStream; /* 0x1d0: FGCReferenceTokenStream, its Tokens */
     UClass* GetSuperClass() const { return (UClass*)SuperField; }
     UClass(EStaticConstructor, DWORD InSize, DWORD InClassFlags, DWORD InClassCastFlags, const TCHAR* InNameStr,
            const TCHAR* InPackageName, const TCHAR* InClassConfigName, QWORD InFlags, void (*InClassConstructor)(void*),
@@ -61759,10 +61762,10 @@ struct ULensFlareThumbnailRenderer : public UTextureThumbnailRenderer {
 };
 
 struct FNativeDtor_007ee6e0_1c { ~FNativeDtor_007ee6e0_1c(); /* 0x007ee6e0 */ DWORD _data[3]; };  /* a C++-only array member (0xc bytes): only its destructor is known (the name keeps the old size so the destructor's symbol stays) */
-struct FNativeDtor_007f5930_3c { ~FNativeDtor_007f5930_3c(); /* 0x007f5930 */ DWORD _data[15]; };  /* a C++-only member: only its destructor is known; size up to the next member */
-struct FNativeDtor_007f58c0_40 { ~FNativeDtor_007f58c0_40(); /* 0x007f58c0 */ DWORD _data[16]; };  /* a C++-only member: only its destructor is known; size up to the next member */
-struct FNativeDtor_007f5850_50 { ~FNativeDtor_007f5850_50(); /* 0x007f5850 */ DWORD _data[20]; };  /* a C++-only member: only its destructor is known; size up to the next member */
-struct FNativeDtor_007f57e0_3c { ~FNativeDtor_007f57e0_3c(); /* 0x007f57e0 */ DWORD _data[15]; };  /* a C++-only member: only its destructor is known; size up to the next member */
+struct FNativeDtor_007f5930_3c : public FMap_Mirror { ~FNativeDtor_007f5930_3c(); /* 0x007f5930 */ };  /* ULevel::CachedPhysPerTriSMDataMap, a TMultiMap<UStaticMesh*, FCachedPerTriPhysSMData> (Map.h; cast to it) */
+struct FNativeDtor_007f58c0_40 : public FMap_Mirror { ~FNativeDtor_007f58c0_40(); /* 0x007f58c0 */ };  /* ULevel::CachedPhysSMDataMap, a TMultiMap<UStaticMesh*, FCachedPhysSMData> (the name keeps the old size so the symbol stays) */
+struct FNativeDtor_007f5850_50 : public FMap_Mirror { ~FNativeDtor_007f5850_50(); /* 0x007f5850 */ };  /* ULevel 0xdc, a second TMap (DynamicTextureInstances or ForceStreamTextures in UE3; not identified) */
+struct FNativeDtor_007f57e0_3c : public FMap_Mirror { ~FNativeDtor_007f57e0_3c(); /* 0x007f57e0 */ };  /* ULevel::TextureToInstancesMap, a TMap<UTexture2D*, TArray<FStreamableTextureInstance> > (Map.h; cast to it) */
 struct FNativeDtor_007df800_c { ~FNativeDtor_007df800_c(); /* 0x007df800 */ DWORD _data[3]; };  /* a C++-only member: only its destructor is known; size up to the next member */
 struct ULevel : public ULevelBase {
     /* Engine.Level (native only: no script package describes it) */
@@ -61772,14 +61775,23 @@ struct ULevel : public ULevelBase {
     class UModel* Model; /* 0x84 */
     FNativeDtor_007df800_c ModelComponents; /* 0x88 */
     TArrayNoInit<class USequence*> GameSequences; /* 0x94 */
-    FNativeDtor_007f57e0_3c Native_a0; /* 0xa0: C++ only (destroyed by its destructor) */
-    FNativeDtor_007f5850_50 Native_dc; /* 0xdc: C++ only (destroyed by its destructor) */
-    TArray<BYTE> Native_12c; /* 0x12c: C++ only (destroyed by its destructor) */
-    BYTE _native5[0x4];
-    FNativeDtor_007f58c0_40 Native_13c; /* 0x13c: C++ only (destroyed by its destructor) */
-    TArray<FKCachedConvexData> Native_17c; /* 0x17c: C++ only (destroyed by its destructor) */
-    FNativeDtor_007f5930_3c Native_188; /* 0x188: C++ only (destroyed by its destructor) */
-    FNativeDtor_007ee6e0_1c Native_1c4; /* 0x1c4: C++ only (destroyed by its destructor) */
+    /* UnLevel.h's members as this build has them: the constructor's containers, the physics BSP code (SceneIndex picks the
+     * Novodex scene; LevelBSPPhysMesh is built from CachedPhysBSPData when CachedPhysBSPDataVersion is current; LevelBSPActor
+     * is released into that scene) */
+    FNativeDtor_007f57e0_3c TextureToInstancesMap; /* 0xa0 */
+    FNativeDtor_007f5850_50 Native_dc; /* 0xdc */
+    INT iFirstNetRelevantActor; /* 0x118: UE3's order */
+    INT iFirstDynamicActor; /* 0x11c */
+    INT SceneIndex; /* 0x120 */
+    class NxTriangleMesh* LevelBSPPhysMesh; /* 0x124 */
+    class NxActor* LevelBSPActor; /* 0x128 */
+    TArray<BYTE> CachedPhysBSPData; /* 0x12c */
+    INT CachedPhysBSPDataVersion; /* 0x138 */
+    FNativeDtor_007f58c0_40 CachedPhysSMDataMap; /* 0x13c */
+    INT CachedPhysSMDataVersion; /* 0x178 */
+    TArray<FKCachedConvexData> CachedPhysSMDataStore; /* 0x17c */
+    FNativeDtor_007f5930_3c CachedPhysPerTriSMDataMap; /* 0x188 */
+    FNativeDtor_007ee6e0_1c CachedPhysPerTriSMDataStore; /* 0x1c4: TArray<FKCachedPerTriData> */
     class ANavigationPoint* NavListStart; /* 0x1d0 */
     class ANavigationPoint* NavListEnd; /* 0x1d4 */
     class ACoverLink* CoverListStart; /* 0x1d8 */
@@ -61884,14 +61896,15 @@ struct ULinker : public UObject {
     DECLARE_CLASS(ULinker, UObject, 0x10000008, 0x0, Core)
     ULinker(); /* 0x005b3c40 */
     void StaticConstructor(); /* 0x0059a3e0 */
-    BYTE _native0[0x4];
-    FNativeDtor_00557180_70 Native_34; /* 0x34: C++ only (destroyed by its destructor) */
-    TArray<FName> Native_a4; /* 0xa4: C++ only (destroyed by its destructor) */
-    FNativeDtor_0054f060_c Native_b0; /* 0xb0: C++ only (destroyed by its destructor) */
-    FNativeDtor_00557200_c Native_bc; /* 0xbc: C++ only (destroyed by its destructor) */
-    FNativeDtor_005ae120_c Native_c8; /* 0xc8: C++ only (destroyed by its destructor) */
-    FString Native_d4; /* 0xd4: C++ only (destroyed by its destructor) */
-    BYTE _native[0x8]; /* C++-only members, to the registered size 0xe8 */
+    /* UnLinker.h's members (UE3's order fits this build's offsets and destructors exactly) */
+    class UPackage* LinkerRoot; /* 0x30 */
+    FNativeDtor_00557180_70 Summary; /* 0x34: FPackageFileSummary (an FString at 0x10, TArrays at 0x3c, 0x58, 0x64; not recovered) */
+    TArray<FName> NameMap; /* 0xa4 */
+    FNativeDtor_0054f060_c ImportMap; /* 0xb0: TArray<FObjectImport> */
+    FNativeDtor_00557200_c ExportMap; /* 0xbc: TArray<FObjectExport> */
+    FNativeDtor_005ae120_c DependsMap; /* 0xc8: TArray<TArray<INT> > */
+    FString Filename; /* 0xd4 */
+    QWORD _ContextFlags; /* 0xe0: EObjectFlags */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -62371,39 +62384,54 @@ struct UMixBinLabelRenderer : public UThumbnailLabelRenderer {
     /* registered size 0x30 */
 };
 
-struct FNativeDtor_00821b60_10 { ~FNativeDtor_00821b60_10(); /* 0x00821b60 */ DWORD _data[4]; };  /* a C++-only member: only its destructor is known; size up to the next member */
-struct FNativeDtor_00807930_83c { ~FNativeDtor_00807930_83c(); /* 0x00807930 */ DWORD _data[527]; };  /* a C++-only member: only its destructor is known; size up to the next member */
-struct FNativeDtor_007c4070_c { ~FNativeDtor_007c4070_c(); /* 0x007c4070 */ DWORD _data[3]; };  /* a C++-only member: only its destructor is known; size up to the next member */
-struct FNativeDtor_00656790_240 { ~FNativeDtor_00656790_240(); /* 0x00656790 */ DWORD _data[144]; };  /* a C++-only member: only its destructor is known; size up to the next member */
-struct FNativeDtor_00820dc0_30 { ~FNativeDtor_00820dc0_30(); /* 0x00820dc0 */ DWORD _data[12]; };  /* a C++-only member: only its destructor is known; size up to the next member */
-struct FNativeDtor_008258a0_3c { ~FNativeDtor_008258a0_3c(); /* 0x008258a0 */ DWORD _data[15]; };  /* a C++-only member: only its destructor is known; size up to the next member */
-struct FNativeDtor_008182f0_c { ~FNativeDtor_008182f0_c(); /* 0x008182f0 */ DWORD _data[3]; };  /* a C++-only member: only its destructor is known; size up to the next member */
-struct FNativeDtor_00812720_10 { ~FNativeDtor_00812720_10(); /* 0x00812720 */ DWORD _data[4]; };  /* a C++-only member: only its destructor is known; size up to the next member */
-struct FNativeDtor_008126a0_10 { ~FNativeDtor_008126a0_10(); /* 0x008126a0 */ DWORD _data[4]; };  /* a C++-only member: only its destructor is known; size up to the next member */
-struct FNativeDtor_00812640_10 { ~FNativeDtor_00812640_10(); /* 0x00812640 */ DWORD _data[4]; };  /* a C++-only member: only its destructor is known; size up to the next member */
+struct FNativeDtor_00821b60_10 { ~FNativeDtor_00821b60_10(); /* 0x00821b60 */ DWORD _data[3]; };  /* UModel 0xba8: a TArray of 12-byte elements with destructors (not recovered); the name keeps the old size so the symbol stays */
+struct FNativeDtor_00807930_83c { ~FNativeDtor_00807930_83c(); /* 0x00807930 */ DWORD _data[128]; };  /* UModel 0x360 (UnModelRender.cpp): an FShadowMapVertexBufferBase-derived vertex buffer with an FLocalVertexFactory at 0x20 and its UModel* at 0x1fc; 0x200 bytes (the name keeps the old size so the symbol stays) */
+struct FNativeDtor_007c4070_c { ~FNativeDtor_007c4070_c(); /* 0x007c4070 */ DWORD _data[3]; };  /* UModel 0x354: a TArray of 8-byte elements, bulk-serialized (not recovered) */
+struct FNativeDtor_00656790_240 { ~FNativeDtor_00656790_240(); /* 0x00656790 */ DWORD _data[144]; };  /* an FLocalVertexFactory (only its destructor is known here) */
+struct FNativeDtor_00820dc0_30 { ~FNativeDtor_00820dc0_30(); /* 0x00820dc0 */ DWORD _data[12]; };  /* an FModelVertexBuffer: FVertexBuffer, Vertices TArray at 0x1c, its UModel* at 0x2c */
+struct FNativeDtor_008258a0_3c : public FMap_Mirror { ~FNativeDtor_008258a0_3c(); /* 0x008258a0 */ };  /* TMap<UMaterialInterface*, TScopedPointer<FRawIndexBuffer16or32> > (Map.h; cast to it) */
+struct FNativeDtor_008182f0_c { ~FNativeDtor_008182f0_c(); /* 0x008182f0 */ DWORD _data[3]; };  /* TArray<FLeaf> (element not recovered) */
+struct FNativeDtor_00812720_10 { ~FNativeDtor_00812720_10(); /* 0x00812720 */ DWORD _data[4]; };  /* TTransArray<FBspSurf> (0x40-byte elements, not recovered): array, then Owner */
+struct FNativeDtor_008126a0_10 { ~FNativeDtor_008126a0_10(); /* 0x008126a0 */ DWORD _data[4]; };  /* TTransArray<FVert> (8-byte elements, not recovered): array, then Owner */
+struct FNativeDtor_00812640_10 { ~FNativeDtor_00812640_10(); /* 0x00812640 */ DWORD _data[4]; };  /* TTransArray<FBspNode> (0x40-byte elements, not recovered): array, then Owner */
 struct UModel : public UObject {
     /* Engine.Model (native only: no script package describes it) */
     DECLARE_CLASS(UModel, UObject, 0x10000000, 0x0, Engine)
     UModel(); /* 0x0082ac50 */
     void StaticConstructor(); /* 0x008048c0 */
-    BYTE _native0[0x4];
-    FNativeDtor_00812640_10 Native_34; /* 0x34: C++ only (destroyed by its destructor) */
-    FNativeDtor_008126a0_10 Native_44; /* 0x44: C++ only (destroyed by its destructor) */
-    TArray<FVector> Native_54; /* 0x54: C++ only (destroyed by its destructor) */
-    BYTE _native3[0x4];
-    TArray<FVector> Native_64; /* 0x64: C++ only (destroyed by its destructor) */
-    BYTE _native4[0x4];
-    FNativeDtor_00812720_10 Native_74; /* 0x74: C++ only (destroyed by its destructor) */
-    TArray<INT> Native_84; /* 0x84: C++ only (destroyed by its destructor) */
-    FNativeDtor_008182f0_c Native_90; /* 0x90: C++ only (destroyed by its destructor) */
-    TArray<INT> Native_9c; /* 0x9c: C++ only (destroyed by its destructor) */
-    FNativeDtor_008258a0_3c Native_a8; /* 0xa8: C++ only (destroyed by its destructor) */
-    FNativeDtor_00820dc0_30 Native_e4; /* 0xe4: C++ only (destroyed by its destructor) */
-    FNativeDtor_00656790_240 Native_114; /* 0x114: C++ only (destroyed by its destructor) */
-    FNativeDtor_007c4070_c Native_354; /* 0x354: C++ only (destroyed by its destructor) */
-    FNativeDtor_00807930_83c Native_360; /* 0x360: C++ only (destroyed by its destructor) */
-    TArray<INT> Native_b9c; /* 0xb9c: C++ only (destroyed by its destructor) */
-    FNativeDtor_00821b60_10 Native_ba8; /* 0xba8: C++ only (destroyed by its destructor) */
+    /* UnModel.h's members as this build has them, placed by the constructor (each TTransArray's Owner = this, RootOutside = 1,
+     * 64 FZoneProperties of 0x18 bytes) and Serialize (Bounds, Vectors, Points, Nodes, Surfs, Verts, NumSharedSides, NumZones,
+     * Zones, Polys, LeafHulls, Leaves, RootOutside, Linked, PortalNodes, 0x354, NumVertices, VertexBuffer's vertices, 0xb9c,
+     * 0xba8, 0xbb4). The BSP element types aren't recovered. */
+    class UPolys* Polys; /* 0x30 */
+    FNativeDtor_00812640_10 Nodes; /* 0x34 */
+    FNativeDtor_008126a0_10 Verts; /* 0x44 */
+    TArray<FVector> Vectors; /* 0x54: a TTransArray<FVector> */
+    class UObject* VectorsOwner; /* 0x60: its Owner */
+    TArray<FVector> Points; /* 0x64: a TTransArray<FVector> */
+    class UObject* PointsOwner; /* 0x70: its Owner */
+    FNativeDtor_00812720_10 Surfs; /* 0x74 */
+    TArray<INT> LeafHulls; /* 0x84 */
+    FNativeDtor_008182f0_c Leaves; /* 0x90 */
+    TArray<INT> PortalNodes; /* 0x9c */
+    FNativeDtor_008258a0_3c MaterialIndexBuffers; /* 0xa8 */
+    FNativeDtor_00820dc0_30 VertexBuffer; /* 0xe4 */
+    FNativeDtor_00656790_240 VertexFactory; /* 0x114 */
+    FNativeDtor_007c4070_c Native_354; /* 0x354 */
+    FNativeDtor_00807930_83c ShadowMapVertexBuffer; /* 0x360 */
+    FRenderCommandFence ReleaseResourcesFence; /* 0x560 */
+    BYTE _native_564[0x4]; /* not identified */
+    UINT NumVertices; /* 0x568 */
+    UBOOL RootOutside; /* 0x56c */
+    UBOOL Linked; /* 0x570 */
+    INT MoverLink; /* 0x574 */
+    INT NumSharedSides; /* 0x578 */
+    INT NumZones; /* 0x57c */
+    BYTE Zones[64][0x18]; /* 0x580: FZoneProperties[MAX_ZONES] (ZoneActor, LastRenderTime, Connectivity, Visibility) */
+    FBoxSphereBounds Bounds; /* 0xb80 */
+    TArray<INT> Native_b9c; /* 0xb9c: serialized after the vertices; not identified */
+    FNativeDtor_00821b60_10 Native_ba8; /* 0xba8 */
+    DWORD Native_bb4; /* 0xbb4: serialized last (Ver >= 9); not identified */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -62685,7 +62713,10 @@ struct UPackage : public UObject {
     DECLARE_CLASS(UPackage, UObject, 0x10000000, 0x0, Core)
     UPackage(); /* 0x005aa2f0 */
     void StaticConstructor(); /* 0x0059c8c0 */
-    BYTE _native0[0x30];
+    BYTE _native0[0x4]; /* zeroed by the constructor; not identified */
+    UBOOL bDirty; /* 0x34: SetDirtyFlag's value, serialized when transacting */
+    UBOOL bDirtyForPIE; /* 0x38: set with bDirty, serialized after it */
+    BYTE _native_3c[0x24]; /* not identified (UE3 has FolderName, LoadTime, Guid, FileSize, NetObjects here; this build's offsets differ) */
     TArray<INT> Native_60; /* 0x60: C++ only (destroyed by its destructor) */
     BYTE _native_6c[0x8];
     DWORD PackageFlags; /* 0x74 */
