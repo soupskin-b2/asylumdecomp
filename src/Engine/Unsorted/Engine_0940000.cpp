@@ -231,19 +231,14 @@ void sub_009439c0(S* p, INT Value)
     p->vf_18(Value);
 }
 
-struct C_view_00944a00 {
-    int sub_00772150(int);
-    int sub_00759430(int);
-};
-
 // @baa 0x00944a00
 void ASkeletalMeshActor::ForceUpdateComponents(UBOOL param_2, UBOOL param_3)
 {
     int param_1 = (int)this;
-  ((C_view_00944a00 *)(this))->sub_00772150(param_3);
+  ((AActor*)(this))->MarkComponentsAsDirty(param_3);
   if (((param_2 == 0) || ((*(uint *)(*(int *)(param_1 + 0x1ac) + 0x334) & 0x1000) != 0)) ||
      ((*(byte *)(*(int *)(param_1 + 0x1ac) + 0x358) & 1) != 0)) {
-    ((C_view_00944a00 *)(this))->sub_00759430(param_2);
+    ((ATerrain*)(this))->sub_00759430(param_2);
   }
   return;
 }

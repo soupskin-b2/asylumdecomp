@@ -1278,8 +1278,6 @@ struct C_00b60ab0 { int sub_00b60ab0(void); };
 int C_00b60ab0::sub_00b60ab0(void) { return *(int*)((char*)this + 4); }
 
 struct C_view_00b63e50 {
-    int sub_00b5d240();
-    int sub_00b5cdb0(int, int);
     int sub_006e49d0(int);
 };
 
@@ -1288,9 +1286,9 @@ void UParticleSystemComponent::PostEditChange(UProperty* param_2)
 {
     int param_1 = (int)this;
   *(uint *)(param_1 + 0x1cc) = *(uint *)(param_1 + 0x1cc) | 0x10000;
-  ((C_view_00b63e50 *)(this))->sub_00b5d240();
+  ((UParticleSystemComponent*)(this))->InitializeSystem();
   if ((*(byte *)(param_1 + 0x1cc) & 1) != 0) {
-    ((C_view_00b63e50 *)(this))->sub_00b5cdb0(0, 0);
+    ((UParticleSystemComponent*)(this))->ActivateSystem(0, 0);
   }
   Super::PostEditChange(param_2);
   return;

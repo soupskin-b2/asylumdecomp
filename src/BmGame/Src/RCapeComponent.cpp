@@ -159,16 +159,12 @@ void URCapeComponent::PauseCape()
   return;
 }
 
-struct C_view_016ae8e0 {
-    int sub_016cec20();
-};
-
 // @baa 0x016ae8e0
 void URCapeComponent::ResumeCape()
 {
     int param_1 = (int)this;
   if (*(int *)(param_1 + 0xb8) != 0) {
-    ((C_view_016ae8e0 *)((*(char **)((char *)this + 0x64))))->sub_016cec20();
+    ((URCapeStateController *)(*(char **)((char *)this + 0x64)))->ResumeCape();
     *(uint *)(param_1 + 0x70) = *(uint *)(param_1 + 0x70) & 0xffffffbf;
   }
   return;
@@ -416,10 +412,6 @@ void URCapeComponent::DoubleFrameTeleport()
   return;
 }
 
-struct C_view_016b20d0 {
-    int sub_0090eb80(int, int);
-};
-
 int sub_016b0430(...);
 extern undefined4 g_02384c00;
 struct C_016b20d0 { int sub_016b20d0(void); };
@@ -429,7 +421,7 @@ int C_016b20d0::sub_016b20d0(void)
     int param_1 = (int)this;
   undefined4 uVar1;
   int iVar2;
-  uVar1 = ((C_view_016b20d0 *)((*(char **)((char *)this + 0x54))))->sub_0090eb80(*(undefined4 *)(*(int *)(param_1 + 0x50) + 0x134), *(undefined4 *)(*(int *)(param_1 + 0x50) + 0x138));
+  uVar1 = (undefined4)((USkeletalMeshComponent *)(*(char **)((char *)this + 0x54)))->FindAnimNode(*(FName *)(*(int *)(param_1 + 0x50) + 0x134));
   iVar2 = sub_016b0430(uVar1);
   if (iVar2 == 0) {
     sub_006311e0("pCapeAnimNode != NULL",
@@ -548,7 +540,6 @@ undefined4 C_016cd630::sub_016cd630(byte param_2)
 
 struct C_view_016d5a90 {
     int sub_00914900(int);
-    int sub_00935c60();
 };
 
 struct C_016d5a90 { void sub_016d5a90(int param_2); };
@@ -567,7 +558,7 @@ void C_016d5a90::sub_016d5a90(int param_2)
       }
     }
     ((C_view_016d5a90 *)(((char *)this + 0x290)))->sub_00914900((int)(&param_2));
-    ((C_view_016d5a90 *)(this))->sub_00935c60();
+    ((USkeletalMeshComponent *)(this))->UpdateAnimations();
   }
   return;
 }

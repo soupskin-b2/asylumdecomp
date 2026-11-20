@@ -122,7 +122,6 @@ UBOOL URSeqAct_DuckDialogue::HasParentClassChanged() const
 
 struct C_view_0157cf90 {
     int sub_00547da0(int);
-    int sub_00d201d0(int);
     int sub_008dc680(int, int);
 };
 

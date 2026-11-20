@@ -692,8 +692,6 @@ int C_00790a60::sub_00790a60(int param_2)
 }
 
 struct C_view_00791b10 {
-    int sub_00786580();
-    int sub_00791770();
     int sub_00783b70(int);
 };
 
@@ -702,9 +700,9 @@ void AAmbientSoundSimple::PostEditChange(UProperty* param_2)
 {
     int param_1 = (int)this;
   if (*(int *)(param_1 + 0x1ac) != 0) {
-    ((C_view_00791b10 *)(this))->sub_00786580();
+    ((AAmbientSoundSimple *)(this))->SyncUpInstantiatedObjects();
     if ((*(byte *)(*(int *)(param_1 + 0x1ac) + 0x60) & 0x80) != 0) {
-      ((C_view_00791b10 *)((*(char **)((char *)this + 0x1ac))))->sub_00791770();
+      ((UAudioComponent *)(*(char **)((char *)this + 0x1ac)))->Play();
     }
   }
   Super::PostEditChange(param_2);
@@ -1203,16 +1201,12 @@ IMPLEMENT_CLASS_AT(AAmbientSoundSimple, "e:\\Projects\\Amadeus\\AA\\Game\\Unreal
 IMPLEMENT_CLASS_AT(AAmbientSoundNonLoop, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAudio.cpp", 21);
 
 // @baa 0x00798480
-struct C_view_00798590 {
-    int sub_006db600(int);
-};
-
 // @baa 0x00798590
 void UBrushComponent::Serialize(FArchive& Ar)
 {
     undefined4 param_2 = (undefined4)&Ar;
     int param_1 = (int)this;
-  ((C_view_00798590 *)(this))->sub_006db600(param_2);
+  ((UPrimitiveComponent *)(this))->UPrimitiveComponent::Serialize(*(FArchive *)param_2);
   sub_00797660(param_2,param_1 + 0x1e4);
   return;
 }
@@ -1347,10 +1341,6 @@ void S_0079c6b0::sub_0079c6b0() {
     sub_005db340();
 }
 
-struct C_view_0079c720 {
-    int sub_00799e00();
-};
-
 int sub_006311e0(...);
 extern undefined4 g_01f10aa4;
 struct C_0079c720 { void sub_0079c720(undefined4 param_2); };
@@ -1363,7 +1353,7 @@ void C_0079c720::sub_0079c720(undefined4 param_2)
                  "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAudio.cpp"
                  ,0x8c6,&g_01f10aa4);
   }
-  ((C_view_0079c720 *)(this))->sub_00799e00();
+  ((UAudioComponent *)(this))->Stop();
   *(undefined4 *)(param_1 + 0x4c) = param_2;
   return;
 }

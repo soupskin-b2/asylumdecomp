@@ -3366,19 +3366,15 @@ void C_00ddb360::sub_00ddb360(int param_2)
   return;
 }
 
-struct C_view_00ddba40 {
-    int sub_00ddb3c0();
-};
-
 // @baa 0x00ddba40
 UBOOL UUIStyle_Combo::IsDirty()
 {
     int param_1 = (int)this;
   int iVar1;
   if ((*(byte *)(param_1 + 0x54) & 2) == 0) {
-    iVar1 = ((C_view_00ddba40 *)(((char *)this + 0x84)))->sub_00ddb3c0();
+    iVar1 = ((FStyleDataReference*)(((char *)this + 0x84)))->IsDirty();
     if (iVar1 == 0) {
-      iVar1 = ((C_view_00ddba40 *)(((char *)this + 0x64)))->sub_00ddb3c0();
+      iVar1 = ((FStyleDataReference*)(((char *)this + 0x64)))->IsDirty();
       if (iVar1 == 0) {
         return 0;
       }

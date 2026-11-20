@@ -30,10 +30,6 @@ void C_00f4d080::sub_00f4d080(void)
   return;
 }
 
-struct C_view_00f4d0c0 {
-    int sub_0076a230(int, int, int);
-};
-
 extern undefined4 g_02154498;
 extern undefined4 g_025d67c0;
 extern undefined4 g_026b62b8;
@@ -47,7 +43,7 @@ void C_00f4d0c0::sub_00f4d0c0(void)
                  "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnEdModes.cpp"
                  ,0xa0,&g_02154498);
   }
-  ((C_view_00f4d0c0 *)((*(char **)((char *)this + 0x1c))))->sub_0076a230(*(undefined4 *)(g_026b62b8 + 0x34), 0, (int)(&g_025d67c0));
+  ((UActorComponent *)(*(char **)((char *)this + 0x1c)))->ConditionalAttach(*(FSceneInterface **)(g_026b62b8 + 0x34), NULL, *(const FMatrix *)(&g_025d67c0));
   return;
 }
 

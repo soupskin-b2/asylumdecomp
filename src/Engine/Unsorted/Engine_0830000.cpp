@@ -591,10 +591,6 @@ undefined4 ADoorMarker::vf_2a8(int param_2)
   return 0;
 }
 
-struct C_view_00837890 {
-    int sub_00784170(int, int, int);
-};
-
 // @baa 0x00837890
 void ADoorMarker::CheckForErrors()
 {
@@ -606,7 +602,7 @@ void ADoorMarker::CheckForErrors()
     iVar1 = *(int *)(param_1 + 0x280);
     uVar2 = *(uint *)(iVar1 + 0x38) >> 2 & 1;
     if ((uVar2 != 0) && ((*(uint *)(iVar1 + 0x34) & 0x80000000) != 0)) {
-      ((C_view_00837890 *)((*(char **)((char *)this + 0x280))))->sub_00784170(0, uVar2, *(uint *)(iVar1 + 0x30) >> 0xe & 1);
+      ((AActor*)((*(char **)((char *)this + 0x280))))->SetCollision(0, uVar2, *(uint *)(iVar1 + 0x30) >> 0xe & 1);
       *(uint *)(param_1 + 0x28c) = *(uint *)(param_1 + 0x28c) | 0x10;
     }
   }

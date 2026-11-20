@@ -1764,7 +1764,6 @@ void C_0141c420::sub_0141c440() {}
 struct C_view_0141f900 {
     int sub_0141e7f0();
     int sub_0141f590();
-    int sub_006bbfd0();
 };
 
 int sub_006311e0(...);
@@ -1784,7 +1783,7 @@ void C_0141f900::sub_0141f900(int param_2)
   *(undefined4 *)(param_1 + 0x30) = *(undefined4 *)(param_2 + 0x40);
   ((C_view_0141f900 *)(this))->sub_0141e7f0();
   ((C_view_0141f900 *)(this))->sub_0141f590();
-  ((C_view_0141f900 *)((*(char **)((char *)this + 0x80))))->sub_006bbfd0();
+  ((UMaterialInstance*)((*(char **)((char *)this + 0x80))))->UpdateStaticPermutation();
   return;
 }
 

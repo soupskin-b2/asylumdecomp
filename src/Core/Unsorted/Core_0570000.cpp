@@ -766,7 +766,6 @@ FSparseArrayConstIt_00579410& FSparseArrayConstIt_00579410::operator++()
 }
 
 struct C_view_0057cb40 {
-    int sub_0056bfe0();
     int sub_005798d0(int);
     int sub_005679a0(int);
     int sub_00567b80(int);
@@ -778,7 +777,7 @@ struct C_0057cb40 { undefined4 sub_0057cb40(int param_2); };
 undefined4 C_0057cb40::sub_0057cb40(int param_2)
 {
     undefined4 param_1 = (undefined4)this;
-  ((C_view_0057cb40 *)(this))->sub_0056bfe0();
+  ((FUntypedBulkData_Mirror*)(this))->RemoveBulkData();
   ((C_view_0057cb40 *)(this))->sub_005798d0(2);
   ((C_view_0057cb40 *)(this))->sub_005679a0(*(undefined4 *)(param_2 + 8));
   ((C_view_0057cb40 *)(this))->sub_00567b80(param_2);
