@@ -57341,12 +57341,24 @@ struct UActorChannel : public UChannel {
     UActorChannel(); /* 0x00e07070 */
     void StaticConstructor(); /* 0x00df3770 */
     void InitializeIntrinsicPropertyValues(); /* 0x00df3110 */
-    BYTE _native0[0x28];
-    TArray<BYTE> Native_84; /* 0x84: C++ only (destroyed by its destructor) */
-    TArray<BYTE> Native_90; /* 0x90: C++ only (destroyed by its destructor) */
-    TArray<INT> Native_9c; /* 0x9c: C++ only (destroyed by its destructor) */
-    TArray<FNativeElem_00e04dc0> Native_a8; /* 0xa8: C++ only (destroyed by its destructor) */
-    TArray<FNativeElem_00dff480> Native_b4; /* 0xb4: C++ only (destroyed by its destructor) */
+    /* UnChan.h's members as this build has them: Actor and ActorClass from SetChannelActor (slot 0x128, which sizes Recent
+     * from the class), the bit flags from Init (slot 0x10c) and ReceivedBunch, the arrays from the constructor. */
+    BYTE _native_5c[0x4]; /* not identified (UE3 has World here) */
+    class AActor* Actor; /* 0x60 */
+    class UClass* ActorClass; /* 0x64 */
+    BYTE _native_68[0x10]; /* not identified (UE3 has the DOUBLEs RelevantTime and LastUpdateTime here) */
+    BYTE _native_78[0x8]; /* a DOUBLE Init sets to -1 (not identified) */
+    BITFIELD SpawnAcked : 1; /* 0x80: UE3's bit order; Init clears bits 2 and 3 and sets bit 1 */
+    BITFIELD ActorDirty : 1;
+    BITFIELD bActorMustStayDirty : 1;
+    BITFIELD bActorStillInitial : 1;
+    BITFIELD bClearRecentActorRefs : 1;
+    BITFIELD _bit20 : 1; /* tested by ReceivedBunch (not identified) */
+    TArray<BYTE> Recent; /* 0x84 */
+    TArray<BYTE> RepEval; /* 0x90 */
+    TArray<INT> Dirty; /* 0x9c */
+    TArray<FNativeElem_00e04dc0> Retirement; /* 0xa8: TArray<FPropertyRetirement> */
+    TArray<FNativeElem_00dff480> ReplicatedActorProperties; /* 0xb4: UE3's order (element not recovered) */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -62880,11 +62892,13 @@ struct UPackage : public UObject {
     BYTE _native0[0x4]; /* zeroed by the constructor; not identified */
     UBOOL bDirty; /* 0x34: SetDirtyFlag's value, serialized when transacting */
     UBOOL bDirtyForPIE; /* 0x38: set with bDirty, serialized after it */
-    BYTE _native_3c[0x24]; /* not identified (UE3 has FolderName, LoadTime, Guid, FileSize, NetObjects here; this build's offsets differ) */
-    TArray<INT> Native_60; /* 0x60: C++ only (destroyed by its destructor) */
+    BYTE _native_3c[0x1c]; /* not identified (UE3 has bHasBeenFullyLoaded .. FileSize here; this build's offsets differ) */
+    const FGuid* Guid; /* 0x58: FPackageInfo(UPackage*) copies it into FPackageInfo::Guid */
+    BYTE _native_5c[0x4];
+    TArray<INT> Native_60; /* 0x60: its count is FPackageInfo::NetObjectCount (UE3's GenerationNetObjectCount is the likely one) */
     BYTE _native_6c[0x8];
     DWORD PackageFlags; /* 0x74 */
-    BYTE _native[0x4]; /* C++-only members, to the registered size 0x7c */
+    class UMetaData* MetaData; /* 0x78: created by GetMetaData (0x005c1010), serialized for reference collectors */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -65633,9 +65647,9 @@ struct UWindowsClient : public UClient {
     virtual UBOOL Exec(const TCHAR* Cmd, FOutputDevice& Ar); /* 0x00eb5ef0 */
 };
 
-struct FNativeDtor_006d0eb0_3c { ~FNativeDtor_006d0eb0_3c(); /* 0x006d0eb0 */ DWORD _data[15]; };  /* a C++-only member: only its destructor is known; size up to the next member */
-struct FNativeDtor_009c5f90_30 { ~FNativeDtor_009c5f90_30(); /* 0x009c5f90 */ DWORD _data[12]; };  /* a C++-only member: only its destructor is known; size up to the next member */
-struct FNativeDtor_009c5ec0_10 { ~FNativeDtor_009c5ec0_10(); /* 0x009c5ec0 */ DWORD _data[4]; };  /* a C++-only member: only its destructor is known; size up to the next member */
+struct FNativeDtor_006d0eb0_3c : public FMap_Mirror { ~FNativeDtor_006d0eb0_3c(); /* 0x006d0eb0 */ };  /* a TMap (types not recovered) */
+struct FNativeDtor_009c5f90_30 : public FSparseArray_Mirror { ~FNativeDtor_009c5f90_30(); /* 0x009c5f90 */ };  /* a TSparseArray of component pointers (SparseArray.h; cast to it) */
+struct FNativeDtor_009c5ec0_10 { ~FNativeDtor_009c5ec0_10(); /* 0x009c5ec0 */ DWORD _data[3]; };  /* a TArray whose elements have a destructor (element not recovered); the name keeps the old size so the symbol stays */
 /* UnPrim.h: an actor in a list, and a collision query's result (0x50 bytes in this build) */
 struct FIteratorActorList
 {
@@ -65714,13 +65728,18 @@ struct UWorld : public UObject, public FNetworkNotify {
     FLOAT TimeSinceLastPendingKillPurge; /* 0x17c */
     UBOOL FullPurgeTriggered; /* 0x180 */
     UBOOL bShouldDelayGarbageCollect; /* 0x184 */
-    FNativeDtor_009c5ec0_10 Native_188; /* 0x188: C++ only (destroyed by its destructor) */
-    FNativeDtor_009c5f90_30 Native_198; /* 0x198: C++ only (destroyed by its destructor) */
-    FNativeDtor_009c5f90_30 Native_1c8; /* 0x1c8: C++ only (destroyed by its destructor) */
-    FNativeDtor_009c5f90_30 Native_1f8; /* 0x1f8: C++ only (destroyed by its destructor) */
-    FNativeDtor_006d0eb0_3c Native_228; /* 0x228: C++ only (destroyed by its destructor) */
-    TArray<class UObject*> Native_264; /* 0x264: C++ only (destroyed by its destructor) */
-    BYTE _native[0x8]; /* C++-only members, to the registered size 0x278 */
+    /* UnWorld.h's later members as this build has them: three sparse arrays, ExtraReferencedObjects,
+     * and the flag UpdateLevelStreaming (0x009d0be0) returns on first. UGameViewportClient::Draw processes the 0x188 array
+     * when 0x194 is set. */
+    FNativeDtor_009c5ec0_10 Native_188; /* 0x188: a TArray, C++ only */
+    BYTE _native_194[0x4]; /* a flag gating Native_188's use in UGameViewportClient::Draw */
+    FNativeDtor_009c5f90_30 Native_198; /* 0x198: a TSparseArray (UE3 has StaticLightList here; not confirmed) */
+    FNativeDtor_009c5f90_30 Native_1c8; /* 0x1c8: a TSparseArray (UE3 has DynamicLightList here; not confirmed) */
+    FNativeDtor_009c5f90_30 Native_1f8; /* 0x1f8: a TSparseArray (UE3 has LightEnvironmentList here; not confirmed) */
+    FNativeDtor_006d0eb0_3c Native_228; /* 0x228: a TMap, C++ only */
+    TArray<class UObject*> ExtraReferencedObjects; /* 0x264 */
+    UBOOL bIsLevelStreamingFrozen; /* 0x270 */
+    BYTE _native_274[0x4]; /* not identified */
     /* virtual functions this class introduces (vtable 0x01f9a9a0) */
     virtual bool vf_10c(); /* 0x10c */
     /* overrides */

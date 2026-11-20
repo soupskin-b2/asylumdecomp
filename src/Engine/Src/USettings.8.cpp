@@ -478,8 +478,6 @@ void ANxCylindricalForceFieldCapsule::TermRBPhys(FRBPhysScene* Scene)
 	Kernel.Dummy = 0;
 }
 
-/* Kit gaps: appMemCrc (0x00627f70), UObject::GetOutermost (0x005d7350), UPackage::Guid (0x58, inside the kit's
- * opaque UPackage) and UOnlineSubsystem::GetBuildUniqueId (UnOnlineSubsystem.h; only its exec calls it). */
 DWORD appMemCrc(const void* Data, INT Length, DWORD CRC = 0);
 struct UPackage_ : public UObject
 {
