@@ -137,8 +137,8 @@ FLOAT UAnimNodeSequenceBlendByAim::GetSliderPosition(INT SliderIndex, INT ValueI
 
 #line 189 "candidate.cpp"
 
-/* Kit gap: FString::Printf (VarArgs.h). VARARG_DECL makes typed overloads that forward to the variadic
- * implementation (00637b60); the (FLOAT, FLOAT) instance is out of line here (0084a140). */
+/* FString::Printf's link-time clone for (FLOAT, FLOAT) (0x0084a140; it forwards to the variadic 00637b60, see
+ * FString::Printf in Classes.h). */
 struct FString_ : public FString
 {
 	static FString Printf(const TCHAR* Fmt, FLOAT V1, FLOAT V2);

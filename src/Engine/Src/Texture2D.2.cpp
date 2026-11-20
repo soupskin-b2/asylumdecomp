@@ -5,11 +5,8 @@
 #include "ue3/AppMath.h"
 #include "ue3/Native.h"
 
-/* Unnamed in the kit: UE3's UTexture2D::IsFullyStreamedIn() (Mips.Num() is the mirror's ArrayNum, GetCachedLODBias() is
- * CachedCombinedLODBias). */
-
 // @baa 0x0071d2d0
-UBOOL UTexture2D::sub_0071d2d0()
+UBOOL UTexture2D::IsFullyStreamedIn()
 {
     UBOOL bIsFullyStreamedIn = TRUE;
     if (bIsStreamable)

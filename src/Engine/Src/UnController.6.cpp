@@ -4,8 +4,6 @@
 #include "ue3/Classes.h"
 #include "ue3/Native.h"
 
-/* Unnamed in the kit: UE3's UWorld::AddController(AController* Controller). */
-
 // @baa 0x007a1d70
 /* AController slot 0x1d8 (UE3 PostBeginPlay()): register with the world's controller list. */
 void AController::PostBeginPlay()
@@ -13,6 +11,6 @@ void AController::PostBeginPlay()
     AActor::PostBeginPlay();
     if (!bDeleteMe)
     {
-        GWorld->sub_009c8cc0(this);
+        GWorld->AddController(this);
     }
 }

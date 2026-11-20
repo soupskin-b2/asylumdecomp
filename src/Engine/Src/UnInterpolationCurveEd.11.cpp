@@ -118,11 +118,8 @@ void UInterpTrackAnimControl::PostLoad()
     }
 }
 
-/* Unnamed in the kit: UE3's UInterpTrackSound::GetSoundTrackKeyAtPosition(FLOAT InPosition): the last key starting
- * before InPosition (the first key if none does). */
-
 // @baa 0x00cf63a0
-FSoundTrackKey& UInterpTrackSound::sub_00cf63a0(FLOAT InPosition)
+FSoundTrackKey& UInterpTrackSound::GetSoundTrackKeyAtPosition(FLOAT InPosition)
 {
     INT SoundIndex;
     for (SoundIndex = -1; SoundIndex < Sounds.Num() - 1 && Sounds(SoundIndex + 1).Time < InPosition; SoundIndex++);
@@ -133,8 +130,7 @@ FSoundTrackKey& UInterpTrackSound::sub_00cf63a0(FLOAT InPosition)
     return Sounds(SoundIndex);
 }
 
-/* Unnamed in the kit (0x005a9fc0): FString::Printf with one FLOAT argument (non-variadic wrapper; this build's
- * typed Printf overload, which forwards to the variadic 0x00637b60). */
+/* FString::Printf's link-time clone for one FLOAT argument (0x005a9fc0; it forwards to the variadic 0x00637b60). */
 struct FString_ : public FString
 {
     static FString sub_005a9fc0(const TCHAR* Fmt, FLOAT Arg);

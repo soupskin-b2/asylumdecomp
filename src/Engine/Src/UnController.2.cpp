@@ -4,7 +4,7 @@
 
 class AController;
 struct G {
-    void sub_009c8d50(AController* c);
+    void RemoveController(AController* c);
 };
 
 extern G* g_026b62b8;
@@ -15,5 +15,5 @@ struct AController {
 // @baa 0x007a1d90
 void AController::sub_007a1d90()
 {
-    g_026b62b8->sub_009c8d50(this);
+    g_026b62b8->RemoveController(this);
 }

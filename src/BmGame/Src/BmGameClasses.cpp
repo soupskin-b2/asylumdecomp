@@ -1408,8 +1408,7 @@ extern FName g_026e315c;
 	/* BMGAME_SetFadeType */
 extern UBOOL g_0266e85c;
 	/* unnamed engine flag: set while capturing a movie */
-/* FSeqOpOutputLink::ActivateOutputLink, inline in UE3's header (not in the kit); its
- * out-of-line copy is 008aa370. */
+/* Inlined here: FSeqOpOutputLink::ActivateOutputLink (Classes.h declares the out-of-line copy, 0x008aa370). */
 struct FSeqOpOutputLink_ : public FSeqOpOutputLink
 {
 	UBOOL ActivateOutputLink()

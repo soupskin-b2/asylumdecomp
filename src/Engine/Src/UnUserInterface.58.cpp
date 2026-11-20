@@ -13,13 +13,8 @@ struct FUIScreenValue_Extent_ : public FUIScreenValue_Extent
 	}
 };
 
-struct FUIImageAdjustmentData_ : public FUIImageAdjustmentData
-{
-	UBOOL operator==(const FUIImageAdjustmentData& Other) const;
-};
-
 // @baa 0x00ddef70
-UBOOL FUIImageAdjustmentData_::operator==(const FUIImageAdjustmentData& Other) const
+UBOOL FUIImageAdjustmentData::operator==(const FUIImageAdjustmentData& Other) const
 {
 	return ((const FUIScreenValue_Extent_&)ProtectedRegion[0]) == Other.ProtectedRegion[0]
 		&&	((const FUIScreenValue_Extent_&)ProtectedRegion[1]) == Other.ProtectedRegion[1]

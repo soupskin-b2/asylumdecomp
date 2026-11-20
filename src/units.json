@@ -7891,7 +7891,7 @@
     {
      "va": "01595740",
      "size": 31,
-     "symbol": "?vf_1c0@URAnimNode_Pose@@UAEHHM@Z"
+     "symbol": "?vf_1c0@URAnimNode_Pose@@UAEXIM@Z"
     },
     {
      "va": "01595a00",
@@ -198981,7 +198981,7 @@
     {
      "va": "009ff9a0",
      "size": 23,
-     "symbol": "?sub_009ff9a0@UPrimitiveComponent_@@QAEXUFRBCollisionChannelContainer@@@Z"
+     "symbol": "?SetRBCollisionChannels@UPrimitiveComponent@@QAEXUFRBCollisionChannelContainer@@@Z"
     },
     {
      "va": "00c49f40",
@@ -203108,7 +203108,7 @@
     {
      "va": "0078e280",
      "size": 142,
-     "symbol": "?sub_0078e280@UAudioComponent__0078e280@@QAEHUFName@@AAM@Z"
+     "symbol": "?GetFloatParameter@UAudioComponent@@QAEHUFName@@AAM@Z"
     },
     {
      "va": "0078e310",
@@ -212465,7 +212465,7 @@
     {
      "va": "00cf3030",
      "size": 133,
-     "symbol": "?sub_00cf3030@UInterpData__00cf3030@@QAEHUFName@@@Z"
+     "symbol": "?FindGroupByName@UInterpData@@QAEHUFName@@@Z"
     },
     {
      "va": "00cf3ea0",
@@ -212510,7 +212510,7 @@
     {
      "va": "00d14410",
      "size": 107,
-     "symbol": "?sub_00d14410@USeqAct_Interp__00d14410@@QAEPAUAActor@@XZ"
+     "symbol": "?FindViewedActor@USeqAct_Interp@@QAEPAUAActor@@XZ"
     },
     {
      "va": "00d19a50",
@@ -212701,7 +212701,7 @@
     {
      "va": "00cf63a0",
      "size": 197,
-     "symbol": "?sub_00cf63a0@UInterpTrackSound_@@QAEAAUFSoundTrackKey@@M@Z"
+     "symbol": "?GetSoundTrackKeyAtPosition@UInterpTrackSound@@QAEAAUFSoundTrackKey@@M@Z"
     },
     {
      "va": "00cf6dd0",
@@ -217433,22 +217433,22 @@
     {
      "va": "00b5edb0",
      "size": 94,
-     "symbol": "?sub_00b5edb0@UParticleSystemComponent_@@QAEXAAUFName@@MAAUFVector@@1@Z"
+     "symbol": "?ReportEventSpawn@UParticleSystemComponent@@QAEXAAUFName@@MAAUFVector@@1@Z"
     },
     {
      "va": "00b5ee10",
      "size": 105,
-     "symbol": "?sub_00b5ee10@UParticleSystemComponent__00b5ee10@@QAEXAAUFName@@MAAUFVector@@1M@Z"
+     "symbol": "?ReportEventDeath@UParticleSystemComponent@@QAEXAAUFName@@MAAUFVector@@1M@Z"
     },
     {
      "va": "00b5ee80",
      "size": 180,
-     "symbol": "?sub_00b5ee80@UParticleSystemComponent__00b5ee80@@QAEXAAUFName@@MAAUFVector@@11M1MH0@Z"
+     "symbol": "?ReportEventCollision@UParticleSystemComponent@@QAEXAAUFName@@MAAUFVector@@11M1MH0@Z"
     },
     {
      "va": "00b5ef40",
      "size": 149,
-     "symbol": "?sub_00b5ef40@UParticleSystemComponent@@QAEXAAUFName@@MAAUFVector@@11H1@Z"
+     "symbol": "?ReportEventKismet@UParticleSystemComponent@@QAEXAAUFName@@MAAUFVector@@11H1@Z"
     }
    ]
   },
@@ -230528,7 +230528,7 @@
     {
      "va": "008aa370",
      "size": 22,
-     "symbol": "?sub_008aa370@C_008aa370@@QAEIXZ"
+     "symbol": "?ActivateOutputLink@FSeqOpOutputLink@@QAEHXZ"
     },
     {
      "va": "008aa390",
@@ -251952,7 +251952,7 @@
     {
      "va": "00db5ac0",
      "size": 59,
-     "symbol": "?GetDefaultDataStores@UUIObject_@@QAEXAAV?$TArray@PAVUUIDataStore@@@@@Z"
+     "symbol": "?GetDefaultDataStores@UUIObject@@QAEXAAV?$TArray@PAVUUIDataStore@@@@@Z"
     },
     {
      "va": "00db5b00",
@@ -517671,7 +517671,7 @@
     {
      "va": "00d10210",
      "size": 320,
-     "symbol": "?sub_00d10210@UInterpTrackAnimControl_@@QAEHMH@Z"
+     "symbol": "?CropKeyAtPosition@UInterpTrackAnimControl@@QAEHMH@Z"
     },
     {
      "va": "00d1ec60",

@@ -6,7 +6,7 @@
 #include "ue3/Classes.h"
 #include "ue3/Native.h"
 
-/* Unnamed in the kit: the USeqAct_Interp check whether a player controller should be driven by this matinee (UE3
+/* The USeqAct_Interp check whether a player controller should be driven by this matinee (UE3
  * leaves debug camera controllers alone and honours PreferredSplitScreenNum, 1-based into GEngine->GamePlayers). */
 
 // @baa 0x00cf33e0

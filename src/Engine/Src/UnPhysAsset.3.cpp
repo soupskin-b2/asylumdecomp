@@ -33,7 +33,7 @@ UBOOL UPhysicsAssetInstance::TermInstance(FRBPhysScene* Scene)
 	{
 #line 2499 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPhysAsset.cpp"
 		check(Bodies(i));
-		if (((URB_BodyInstance*)Bodies(i))->sub_00a09b60(Scene))
+		if (((URB_BodyInstance*)Bodies(i))->TermBody(Scene))
 		{
 			GWorld->sub_00a47a10(Bodies(i));
 			Bodies(i) = NULL;

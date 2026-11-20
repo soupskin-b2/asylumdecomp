@@ -19,7 +19,7 @@ void USeqAct_ForceGarbageCollection::Activated()
     }
 }
 
-/* Unnamed in the kit (0x008ac050): whether this event may fire now (enabled, right side of the network for
+/* Whether this event may fire now (enabled, right side of the network for
  * bClientSideOnly, trigger count left); unless only testing, it activates with no originator. */
 
 // @baa 0x008ac050

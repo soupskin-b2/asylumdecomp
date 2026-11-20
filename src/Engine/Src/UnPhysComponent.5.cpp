@@ -4,19 +4,12 @@
 #include "ue3/Classes.h"
 #include "ue3/Native.h"
 
-/* Unnamed in the kit (0x00a09b60): UE3's URB_BodyInstance::TermBody(FRBPhysScene* Scene); the scene is passed
- * through as the kit types it here (INT). */
-struct URB_BodyInstance_ : public URB_BodyInstance
-{
-    UBOOL sub_00a09b60(INT Scene);
-};
-
 // @baa 0x00a11080
 /* UPrimitiveComponent slot 0x13c (UE3's TermComponentRBPhys(FRBPhysScene* InScene)): shut down the body and hand it
  * back to the world once it has let go of its physics. */
 void UPrimitiveComponent::TermComponentRBPhys(FRBPhysScene* InScene)
 {
-    if (BodyInstance != NULL && ((URB_BodyInstance_*)BodyInstance)->sub_00a09b60((INT)InScene))
+    if (BodyInstance != NULL && BodyInstance->TermBody(InScene))
     {
         GWorld->sub_00a47a10(BodyInstance);
         BodyInstance = NULL;
@@ -28,7 +21,7 @@ void UPrimitiveComponent::TermComponentRBPhys(FRBPhysScene* InScene)
  * back to the world once it has let go of its physics. */
 void UStaticMeshComponent::TermComponentRBPhys(FRBPhysScene* InScene)
 {
-    if (BodyInstance != NULL && ((URB_BodyInstance_*)BodyInstance)->sub_00a09b60((INT)InScene))
+    if (BodyInstance != NULL && BodyInstance->TermBody(InScene))
     {
         GWorld->sub_00a47a10(BodyInstance);
         BodyInstance = NULL;

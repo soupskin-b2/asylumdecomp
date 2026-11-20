@@ -33,9 +33,6 @@ FLOAT UInterpTrackParticleReplay::GetKeyframeTime(INT KeyIndex)
     return TrackKeys(KeyIndex).Time;
 }
 
-/* Unnamed in the kit: UE3's FInterpCurveVector::MovePoint(INT PointIndex, FLOAT NewInVal) and AutoSetTangents(FLOAT
- * Tension), and FInterpLookupTrack::MovePoint(INT PointIndex, FLOAT NewTime) (0x00cfa320). */
-
 
 // @baa 0x00d03e30
 /* UE3's UInterpTrackMove::SetKeyframeTime(INT KeyIndex, FLOAT NewKeyTime, UBOOL bUpdateOrder): retime the key in all
@@ -55,7 +52,7 @@ INT UInterpTrackMove::SetKeyframeTime(INT KeyIndex, FLOAT NewKeyTime, UBOOL bUpd
     {
         NewKeyIndex = ((FInterpCurveVector&)PosTrack).MovePoint(KeyIndex, NewKeyTime);
         INT NewEulerKeyIndex = ((FInterpCurveVector&)EulerTrack).MovePoint(KeyIndex, NewKeyTime);
-        INT NewLookupKeyIndex = ((FInterpLookupTrack&)LookupTrack).sub_00cfa320(KeyIndex, NewKeyTime);
+        INT NewLookupKeyIndex = ((FInterpLookupTrack&)LookupTrack).MovePoint(KeyIndex, NewKeyTime);
 #line 3165 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnInterpolation.cpp"
         check((NewKeyIndex == NewEulerKeyIndex) && (NewKeyIndex == NewLookupKeyIndex));
     }

@@ -35,8 +35,7 @@ FLOAT UAnimNodeBlend::GetSliderPosition(INT param_2, INT param_3) {
   return (float10)*(float *)(param_1 + 200);
 }
 
-/* FString::Printf, as the linker specialised it for one FLOAT argument (0x005a9fc0); the kit declares
- * no FString::Printf. */
+/* FString::Printf's link-time clone for one FLOAT argument (0x005a9fc0; see FString::Printf in Classes.h). */
 struct FString_ : public FString
 {
 	static FString Printf(const TCHAR* Fmt, FLOAT Value);

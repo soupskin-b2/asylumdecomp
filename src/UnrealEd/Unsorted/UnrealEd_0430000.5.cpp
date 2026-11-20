@@ -107,7 +107,7 @@ void C_0043ccd0::sub_0043ccd0()
         Sub->sub_0043acc0();
 }
 
-/* FString::operator* (UnString.h), which the kit's FString lacks; the exe calls this copy out of line. */
+/* An out-of-line copy of FString::operator* (inline in Classes.h), which this code calls. */
 struct FString_ : public FString
 {
 	const TCHAR* sub_00439b40() const; /* 0x00439b40: FString::operator* */

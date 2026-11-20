@@ -39,7 +39,7 @@ inline AActor* GetGroupActorOf(UInterpGroupInst* GrInst)
     return GrInst->GroupActor;
 }
 
-/* Unnamed in the kit: UE3's AActor::eventGetActorFXAsset() (script event glue). */
+/* UE3's AActor::eventGetActorFXAsset() (script event glue). */
 
 // @baa 0x00d1c8c0
 /* UE3's UInterpTrackInstFaceFX::InitTrackInst(UInterpTrack* Track): mount the track's anim sets on the actor's FaceFX

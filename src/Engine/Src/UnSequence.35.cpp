@@ -8,7 +8,7 @@
 
 /* UnMath.h */
 #define SMALL_NUMBER (1.e-8f)
-/* Unnamed in the kit (0x008c09f0): force (or stop forcing) the materials' mips resident for Duration, here and on
+/* Force (or stop forcing) the materials' mips resident for Duration, here and on
  * every remote player. */
 
 // @baa 0x008cd200

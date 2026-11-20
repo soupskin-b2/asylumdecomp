@@ -558,7 +558,7 @@ static FORCEINLINE const TCHAR* GetText_(const FString& Str)
     return Str.Num() ? &Str(0) : TEXT("");
 }
 
-/* Unnamed in the kit: UE3's UCanvas::DrawText(const FString& Text) (execDrawText's native): print Text in the current
+/* UE3's UCanvas::DrawText(const FString& Text) (execDrawText's native): print Text in the current
  * font at unit scale, wrapped and centred as bCenter says. */
 
 // @baa 0x00aa9b90

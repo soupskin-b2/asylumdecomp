@@ -111,12 +111,9 @@ void __stdcall sub_00d1ede0(INT* Out, INT Unused)
     *Out = g_025e3b40;
 }
 
-/* Unnamed in the kit: UE3's UInterpTrackAnimControl::CropKeyAtPosition(FLOAT InPosition, UBOOL bCutAreaBeforePosition)
- * and FindAnimSequence(FName InSequenceName) (0x00d0fec0). */
-
 // @baa 0x00d10210
 /* Crop the key playing at InPosition: either start it there or end it there. */
-INT UInterpTrackAnimControl::sub_00d10210(FLOAT InPosition, UBOOL bCutAreaBeforePosition)
+INT UInterpTrackAnimControl::CropKeyAtPosition(FLOAT InPosition, UBOOL bCutAreaBeforePosition)
 {
     INT KeyIndex;
     for (KeyIndex = -1; KeyIndex < AnimSeqs.Num() - 1 && AnimSeqs(KeyIndex + 1).StartTime <= InPosition; KeyIndex++);
@@ -126,7 +123,7 @@ INT UInterpTrackAnimControl::sub_00d10210(FLOAT InPosition, UBOOL bCutAreaBefore
     }
 
     FAnimControlTrackKey& CropKey = AnimSeqs(KeyIndex);
-    UAnimSequence* Seq = sub_00d0fec0(CropKey.AnimSeqName);
+    UAnimSequence* Seq = FindAnimSequenceFromName(CropKey.AnimSeqName);
     if (!Seq)
     {
         return INDEX_NONE;

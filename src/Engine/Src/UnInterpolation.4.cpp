@@ -36,16 +36,11 @@ void USeqAct_Interp::sub_00ceb4f0()
     }
 }
 
-/* Unnamed in the kit: UE3's FName UInterpTrackDirector::GetViewedGroupName(FLOAT CurrentTime, FLOAT& CutTime,
- * FLOAT& CutTransitionTime) (this build has a trailing flag), and USeqAct_Interp::FindFirstGroupInstByName(FName)
- * (as the project binds it, 0x00cf3830); UInterpData::FindDirectorGroup and UInterpGroupDirector::GetDirectorTrack
- * are project stand-ins too (0x00d132d0, 0x00d0eb90). */
-
 
 // @baa 0x00d14410
 /* UE3's USeqAct_Interp::FindViewedActor(): the actor the director track is viewing through at the current position,
  * if it isn't being destroyed. */
-AActor* USeqAct_Interp::sub_00d14410()
+AActor* USeqAct_Interp::FindViewedActor()
 {
     UInterpGroupDirector* DirGroup = InterpData->FindDirectorGroup();
     if (DirGroup != NULL)
@@ -54,8 +49,8 @@ AActor* USeqAct_Interp::sub_00d14410()
         if (DirTrack != NULL)
         {
             FLOAT CutTime, CutTransitionTime;
-            FName ViewGroupName = DirTrack->sub_00d0f950(Position, CutTime, CutTransitionTime, FALSE);
-            UInterpGroupInst* ViewGroupInst = sub_00cf3830(ViewGroupName);
+            FName ViewGroupName = DirTrack->GetViewedGroupName(Position, CutTime, CutTransitionTime, FALSE);
+            UInterpGroupInst* ViewGroupInst = FindFirstGroupInstByName(ViewGroupName);
             if (ViewGroupInst != NULL && ViewGroupInst->GroupActor != NULL && !ViewGroupInst->GroupActor->bDeleteMe)
             {
                 return ViewGroupInst->GroupActor;
@@ -65,11 +60,8 @@ AActor* USeqAct_Interp::sub_00d14410()
     return NULL;
 }
 
-/* Unnamed in the kit: UE3's UInterpData::FindGroupByName(FName GroupName): the index of the group named GroupName,
- * INDEX_NONE if none (or for NAME_None). */
-
 // @baa 0x00cf3030
-INT UInterpData::sub_00cf3030(FName GroupName)
+INT UInterpData::FindGroupByName(FName GroupName)
 {
     if (GroupName.Index != 0 || GroupName.Number != 0)
     {
@@ -212,7 +204,7 @@ INT UInterpTrackToggle::AddKeyframe(FLOAT Time, UInterpTrackInst* TrInst, BYTE I
     return i;
 }
 
-/* Unnamed in the kit: the USeqAct_Interp member at 0x00d19950 taking one flag (UE3's UpdateInterp/ConditionalPersistent
+/* The USeqAct_Interp member at 0x00d19950 taking one flag (UE3's UpdateInterp/ConditionalPersistent
  * refresh after an edit). */
 
 // @baa 0x00d19a50

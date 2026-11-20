@@ -4,7 +4,7 @@
 #include "ue3/Classes.h"
 #include "ue3/Native.h"
 
-/* Callees the kit doesn't declare, under their addresses. */
+/* Out-of-line copies and clones this unit calls, under their addresses. */
 
 struct FString_ : public FString
 {

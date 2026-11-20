@@ -31,9 +31,6 @@ void USeqAct_SetMaterial::PostEditChange(UProperty* PropertyThatChanged)
     }
 }
 
-/* Unnamed in the kit: USeqAct_ParticleEventGenerator::HandleEnableInputs() (0x008bc130) and UE3's
- * UParticleSystemComponent::ReportEventKismet(...) (0x00b5ef40). */
-
 // @baa 0x008bee30
 /* UE3's USeqAct_ParticleEventGenerator::UpdateOp(FLOAT DeltaTime): while enabled, send every event name to the
  * particle system of each targeted emitter. */
@@ -51,7 +48,7 @@ UBOOL USeqAct_ParticleEventGenerator::UpdateOp(FLOAT DeltaTime)
                 for (INT NameIdx = 0; NameIdx < EventNames.Num(); NameIdx++)
                 {
                     FName EventName = EventNames(NameIdx);
-                    EmitterActor->ParticleSystemComponent->sub_00b5ef40(EventName, EventTime,
+                    EmitterActor->ParticleSystemComponent->ReportEventKismet(EventName, EventTime,
                         EventLocation, EventDirection, EventVelocity, bUseEmitterLocation, EventNormal);
                 }
             }

@@ -19,11 +19,6 @@ UBOOL APlayerController::IsLocalController()
 }
 
 
-/* Unnamed in the kit: UE3's static FLOAT FindRandomPath(ANavigationPoint* CurrentNode, APawn* seeker, FLOAT bestWeight)
- * (UnController.cpp's evaluator for FindRandomDest). */
-FLOAT sub_007a0670(ANavigationPoint* CurrentNode, APawn* seeker, FLOAT bestWeight);
-/* Unnamed in the kit: UE3's FLOAT APawn::findPathToward(AActor* goal, FVector GoalLocation, NodeEvaluator NodeEval,
- * FLOAT BestWeight, UBOOL bWeightDetours, INT MaxPathLength, UBOOL bReturnPartial, INT SoftMaxNodes). */
 
 // @baa 0x007ad390
 /* UE3's AController::FindRandomDest() (execFindRandomDest's native): a random reachable navigation point. */
@@ -35,7 +30,7 @@ ANavigationPoint* AController::FindRandomDest()
     }
     ANavigationPoint* bestPath = NULL;
     bPreparingMove = FALSE;
-    if (((APawn*)Pawn)->sub_008ce4d0(NULL, FVector(0.f, 0.f, 0.f), &sub_007a0670, 0.f, FALSE, 10000000, FALSE, 200) > 0.f)
+    if (((APawn*)Pawn)->findPathToward(NULL, FVector(0.f, 0.f, 0.f), &FindRandomPath, 0.f, FALSE, 10000000, FALSE, 200) > 0.f)
     {
         bestPath = Cast<ANavigationPoint>(RouteGoal);
     }

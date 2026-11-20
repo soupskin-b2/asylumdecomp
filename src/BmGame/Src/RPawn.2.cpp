@@ -10,7 +10,7 @@ void ARPawnCombat::SetDestHeading(FVector V)
     DestRot = atan2f(V.Y, V.X);
 }
 
-/* Unnamed in the kit: an ARPawnCombat helper that turns the pawn's DestRot towards a world location (the yaw, in
+/* An ARPawnCombat helper that turns the pawn's DestRot towards a world location (the yaw, in
  * radians, of TargetLocation - Location). */
 
 // @baa 0x01676b70

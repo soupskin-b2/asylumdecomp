@@ -33,7 +33,7 @@ FLOAT UAnimNodeSequence::GetAnimPlaybackLength()
     return 0.f;
 }
 
-/* Unnamed in the kit (as UnSkeletalAnim.cpp declares them): UE3's USkeletalMeshComponent::UpdateSkelPose(FLOAT DeltaTime,
+/* UE3's USkeletalMeshComponent::UpdateSkelPose(FLOAT DeltaTime,
  * UBOOL bTellChildren) (this build has a third flag), and UActorComponent's "if (bAttached) UpdateTransform()" through
  * slot 0x118. */
 

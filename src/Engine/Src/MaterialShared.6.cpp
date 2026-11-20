@@ -17,17 +17,11 @@ void* UMaterialInterface::sub_00703760(int Index)
   return (void*)0x40;
 }
 
-/* Kit gap: FRenderCommandFence::BeginFence (0x00719c60) isn't declared. */
-struct FRenderCommandFence_ : public FRenderCommandFence_Mirror
-{
-	void BeginFence();
-};
-
 // @baa 0x006d9260
 void UMaterialInterface::BeginDestroy()
 {
 	// Make sure the rendering thread is done with any references to the parent before finishing destruction.
-	((FRenderCommandFence_&)ParentRefFence).BeginFence();
+	((FRenderCommandFence&)ParentRefFence).BeginFence();
 	Super::BeginDestroy();
 }
 

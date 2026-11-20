@@ -46,7 +46,7 @@ void UUIObject::PostLoad()
     Children.RemoveItem(NULL);
 }
 
-/* Unnamed in the kit: UE3's FUIRotation::SetAnchorLocation(UUIObject* OwnerWidget, const FVector& AnchorPos, BYTE
+/* UE3's FUIRotation::SetAnchorLocation(UUIObject* OwnerWidget, const FVector& AnchorPos, BYTE
  * InputType)-style setter for the rotation anchor. */
 
 // @baa 0x00dc8f60
@@ -58,7 +58,7 @@ void UUIObject::SetAnchorPosition(FVector NewAnchorPosition, BYTE InputType)
     UpdateRotationMatrix();
 }
 
-/* Unnamed in the kit: a FUIDataStoreBinding refresh (UE3 FUIDataStoreBinding::ClearSubscriber/RefreshSubscriberValue
+/* A FUIDataStoreBinding refresh (UE3 FUIDataStoreBinding::ClearSubscriber/RefreshSubscriberValue
  * style, no arguments). */
 
 // @baa 0x00daa860
@@ -95,15 +95,9 @@ UBOOL UUIObject::IsContainedBy(UUIObject* Container)
     return bResult;
 }
 
-/* Unnamed in the kit: UE3's UUIObject::GetBoundDataStores(TArray<UUIDataStore*>& out_BoundDataStores)
- * (UIDataStoreSubscriber): the data stores the tooltip and context menu bindings resolved to. */
-struct UUIObject_ : public UUIObject
-{
-    void GetDefaultDataStores(TArray<UUIDataStore*>& out_BoundDataStores);
-};
-
 // @baa 0x00db5ac0
-void UUIObject_::GetDefaultDataStores(TArray<UUIDataStore*>& out_BoundDataStores)
+/* The data stores the tooltip and context menu bindings resolved to. */
+void UUIObject::GetDefaultDataStores(TArray<UUIDataStore*>& out_BoundDataStores)
 {
     if (ToolTip.ResolvedDataStore != NULL)
     {
@@ -128,7 +122,7 @@ INT UUIObject::CanAcceptFocus(INT PlayerIndex)
     return bResult;
 }
 
-/* Unnamed in the kit: a FUINavigationData helper taking (Face, Arg), and the UUIObject wrapper that skips
+/* A FUINavigationData helper taking (Face, Arg), and the UUIObject wrapper that skips
  * UIFACE_MAX (4). */
 
 
@@ -157,7 +151,7 @@ UBOOL UUIObject::ContainsPoint(const FVector2D& Coordinates)
     return FALSE;
 }
 
-/* Unnamed in the kit: UE3's FUINavigationData::SetNavigationTarget(Left, Top, Right, Bottom)-style setter for all
+/* UE3's FUINavigationData::SetNavigationTarget(Left, Top, Right, Bottom)-style setter for all
  * four faces; reports whether anything changed. */
 
 // @baa 0x00daa990
@@ -200,7 +194,7 @@ INT UUIObject::vf_23c(INT Arg)
     return bResult;
 }
 
-/* Unnamed in the kit: UE3's FUINavigationData::SetForcedNavigationTarget(Left, Top, Right, Bottom)-style setter for
+/* UE3's FUINavigationData::SetForcedNavigationTarget(Left, Top, Right, Bottom)-style setter for
  * all four faces; reports whether anything changed. */
 
 // @baa 0x00daaaa0
@@ -245,7 +239,7 @@ void UUIScene::CreatePlayerData(INT Arg1, ULocalPlayer* Arg2)
     RequestSceneUpdate(FALSE, TRUE, TRUE, FALSE);
 }
 
-/* Unnamed in the kit: whether any of the scene's pending-update requests (the first seven bUpdate/bRefresh/bRecalculate
+/* Whether any of the scene's pending-update requests (the first seven bUpdate/bRefresh/bRecalculate
  * flags) is set. */
 
 // @baa 0x00da9d70

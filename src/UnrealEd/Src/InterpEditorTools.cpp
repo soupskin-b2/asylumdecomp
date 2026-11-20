@@ -693,7 +693,7 @@ struct T {
 struct World {
     char pad_000[0x180];
     TArray<T*> Arr;
-    T* sub_00d14410();
+    T* FindViewedActor();
 };
 
 struct CSelf {
@@ -709,7 +709,7 @@ int sub_00787840(void);
 // @baa 0x012e48a0
 void CSelf::sub_012e48a0()
 {
-    T* saved = W->sub_00d14410();
+    T* saved = W->FindViewedActor();
     for (INT i = 0; i < W->Arr.Num(); i++)
     {
         T* e = W->Arr(i);

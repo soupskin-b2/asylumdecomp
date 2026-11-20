@@ -6,7 +6,7 @@
 #include "ue3/Cast.h"
 
 // @baa 0x0085d480
-/* Unnamed in the kit (0x0085d480): the cover slot a FCoverReference points at, or NULL when its link isn't loaded or
+/* The cover slot a FCoverReference points at, or NULL when its link isn't loaded or
  * the index is out of range. */
 FCoverSlot* sub_0085d480(FCoverReference& Ref)
 {

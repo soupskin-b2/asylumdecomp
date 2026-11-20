@@ -180,8 +180,6 @@ INT URCapeComponent::GetNumChainsInCape()
 
 #line 220 "candidate.cpp"
 
-/* Unnamed in the kit (0x015691f0): the skeleton bone index for a cape chain link. */
-
 // @baa 0x016ae900
 /* Pick the cape bone the state controller debug-renders (1-based chain number and link; 0 turns it off). */
 void URCapeComponent::SetCapeDebugRenderBone(INT ChainNumber, INT LinkNumber)

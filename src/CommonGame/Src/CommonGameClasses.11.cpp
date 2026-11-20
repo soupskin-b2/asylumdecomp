@@ -115,7 +115,7 @@ IMPLEMENT_CLASS_AT(URPlayerInputBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEn
 
 extern FName g_026e0f18;
  /* COMMONGAME_UpdateOpScript */
-/* FSeqOpOutputLink::ActivateOutputLink, inline in UE3's header (not in the kit). */
+/* Inlined here: FSeqOpOutputLink::ActivateOutputLink (Classes.h declares the out-of-line copy, 0x008aa370). */
 struct FSeqOpOutputLink_ : public FSeqOpOutputLink
 {
     UBOOL ActivateOutputLink()

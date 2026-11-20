@@ -974,11 +974,8 @@ UBOOL UActorFactoryCloth::HasParentClassChanged() const
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
-/* Unnamed in the kit: UE3's UPrimitiveComponent::SetRBCollisionChannels(FRBCollisionChannelContainer Channels)
- * (execSetRBCollisionChannels' native); slot 0x20c is UE3's UpdatePhysicsToRBChannels(). */
-
 // @baa 0x009ff9a0
-void UPrimitiveComponent::sub_009ff9a0(FRBCollisionChannelContainer Channels)
+void UPrimitiveComponent::SetRBCollisionChannels(FRBCollisionChannelContainer Channels)
 {
     RBCollideWithChannels = Channels;
     SetRBChannel();

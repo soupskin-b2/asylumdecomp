@@ -1093,7 +1093,7 @@ void UGameEngine::vf_188()
 		((UGameViewportClient_WindowViewport*)GameViewport)->WindowViewport->Render();
 }
 
-/* Undeclared in the kit: this TU's out-of-line copy of FString::operator=(const TCHAR*) and FURL's option helpers. */
+/* This TU's out-of-line copy of FString::operator=(const TCHAR*) (Classes.h's inline one calls 00544ab0). */
 struct FString_ : public FString
 {
 	FString_& operator=(const TCHAR* Other); /* 0x006b1140 */
@@ -1107,8 +1107,8 @@ void UGameEngine::SetClientTravel(const TCHAR* NextURL, ETravelType InTravelType
 	TravelType = InTravelType;
 
 	// Prevent crashing the game by attempting to connect to own listen server
-	if (((FURL&)LastURL).HasOption(TEXT("Listen")))
+	if (LastURL.HasOption(TEXT("Listen")))
 	{
-		((FURL&)LastURL).RemoveOption(TEXT("Listen"), NULL, NULL);
+		LastURL.RemoveOption(TEXT("Listen"), NULL, NULL);
 	}
 }

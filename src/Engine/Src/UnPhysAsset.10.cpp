@@ -68,8 +68,6 @@ void UPhysicsAssetInstance::SetAllBodiesFixed(UBOOL bNewFixed)
     }
 }
 
-/* Unnamed in the kit (0x00a2ca60): UE3's UKMeshProps::CopyMeshPropsFrom(UKMeshProps* FromProps). */
-
 // @baa 0x00a2d190
 /* UE3's URB_BodySetup::CopyBodyPropertiesFrom: take over another body's geometry and physical settings. */
 void URB_BodySetup::CopyBodyPropertiesFrom(URB_BodySetup* FromSetup)
@@ -91,8 +89,6 @@ void URB_BodySetup::CopyBodyPropertiesFrom(URB_BodySetup* FromSetup)
     MassScale = FromSetup->MassScale;
     SleepFamily = FromSetup->SleepFamily;
 }
-
-/* Unnamed in the kit (0x00a2c3b0): UE3's URB_BodySetup::ClearShapeCache(). */
 
 // @baa 0x00a2d130
 /* UE3's UPhysicsAsset::ClearShapeCaches: drop every body's cached physics shapes. */

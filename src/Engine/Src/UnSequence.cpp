@@ -107,20 +107,16 @@ undefined4 C::sub_008aa350(void)
   return 0;
 }
 
-struct C_008aa370 {
-    undefined4 sub_008aa370();
-};
-
 // @baa 0x008aa370
-undefined4 C_008aa370::sub_008aa370(void)
+/* Fires the link (sets bHasImpulse) unless it is disabled. */
+UBOOL FSeqOpOutputLink::ActivateOutputLink()
 {
-    int param_1 = (int)this;
-
-  if ((*(uint *)(param_1 + 0x18) & 2) == 0) {
-    *(uint *)(param_1 + 0x18) = *(uint *)(param_1 + 0x18) | 1;
-    return 1;
-  }
-  return 0;
+    if (!bDisabled)
+    {
+        bHasImpulse = TRUE;
+        return TRUE;
+    }
+    return FALSE;
 }
 
 struct C_008aa390 { C_008aa390* sub_008aa390(int a0); };

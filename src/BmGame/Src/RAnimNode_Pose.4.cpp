@@ -711,10 +711,10 @@ INT URAnimNode_Pose::WillBeInTransition(FTransitionId Transition, FLOAT Time, BY
 }
 
 // @baa 0x01595740
-/* Slot 0x1c0 (unnamed in the kit). */
-INT URAnimNode_Pose::vf_1c0(INT Param, FLOAT Value)
+/* Slot 0x1c0: set one directional weight on the pose player's head stance change. */
+void URAnimNode_Pose::vf_1c0(UINT Direction, FLOAT Weight)
 {
-	return PosePlayer.sub_015c2b90(SkelComponent, Param, Value);
+	PosePlayer.sub_015c2b90(SkelComponent, Direction, Weight);
 }
 
 // @baa 0x01595a00
@@ -722,13 +722,6 @@ INT URAnimNode_Pose::HasPose(FName MovementStance, FName WeaponStance, FName Idl
 {
 	return PosePlayer.HasPose(SkelComponent, MovementStance, WeaponStance, IdleStance);
 }
-
-/* The project's existing binding for FStanceChangeArray's find-by-transition-id (0x015c2830, bound as
- * C_015c8f00::sub_015c2830 returning INT*): the stance change with that id, or NULL. */
-struct C_015c8f00
-{
-    INT* sub_015c2830(INT TransitionId);
-};
 
 /* hoist: keep (on FPosePlayer itself MSVC would inline this into URAnimNode_Pose::WillBeInTransition above, 0x01595810) */
 struct FPosePlayer__015c8f00 : public FPosePlayer
@@ -740,7 +733,7 @@ struct FPosePlayer__015c8f00 : public FPosePlayer
 /* Whether the given transition will still be running at Time. */
 INT FPosePlayer__015c8f00::WillBeInTransition(FTransitionId Transition, FLOAT Time, INT Fuzziness)
 {
-    FStanceChange* Change = (FStanceChange*)((C_015c8f00*)this)->sub_015c2830(Transition.Id);
+    FStanceChange* Change = Changes.sub_015c2830(Transition.Id);
     if (Change != NULL && !Change->sub_015c6460(Time, Fuzziness))
     {
         return TRUE;
@@ -748,17 +741,11 @@ INT FPosePlayer__015c8f00::WillBeInTransition(FTransitionId Transition, FLOAT Ti
     return FALSE;
 }
 
-/* The project's existing binding for FStanceChangeArray's find-by-transition-id (0x015c2830). */
-struct C_015c2e90
-{
-    INT* sub_015c2830(INT TransitionId);
-};
-
 // @baa 0x015c2e90
-/* Unnamed in the kit: whether the transition has got past its translation meeting point (or is already gone). */
+/* Whether the transition has got past its translation meeting point (or is already gone). */
 INT FPosePlayer::sub_015c2e90(FTransitionId Transition)
 {
-    FStanceChange* Change = (FStanceChange*)((C_015c2e90*)this)->sub_015c2830(Transition.Id);
+    FStanceChange* Change = Changes.sub_015c2830(Transition.Id);
     if (Change != NULL && !(Change->Time.Current >= Change->Transition.MeetingPointEndTranslation))
     {
         return FALSE;
@@ -766,7 +753,8 @@ INT FPosePlayer::sub_015c2e90(FTransitionId Transition)
     return TRUE;
 }
 
-/* BmGameAnimNodeClasses.h's inline FDirectionalAnimState::BeginSetWeights (not in the kit's script struct). */
+/* Inlined here: FDirectionalAnimState::BeginSetWeights, which the kit doesn't define because its check() needs
+ * BmGameAnimNodeClasses.h's line number. */
 struct FDirectionalAnimState_ : public FDirectionalAnimState
 {
     void BeginSetWeights()
@@ -778,7 +766,7 @@ struct FDirectionalAnimState_ : public FDirectionalAnimState
 };
 
 // @baa 0x015c2b50
-/* Unnamed in the kit: start setting the current (head) stance change's directional weights. */
+/* Start setting the current (head) stance change's directional weights. */
 void FPosePlayer::sub_015c2b50()
 {
     FStanceChange* Head = Changes.Num ? &Changes.Data[0] : NULL;
@@ -790,34 +778,11 @@ void FPosePlayer::sub_015c2b50()
 
 #line 892 "candidate.cpp"
 
-/* BmGame's FWeight(FLOAT) constructor (inline; the kit's script struct has none). */
-struct FWeight_ : public FWeight
-{
-    FWeight_(FLOAT InValue)
-    {
-        Value = InValue;
-    }
-    FWeight_(const FWeight_& Other)
-    {
-        Value = Other.Value;
-    }
-};
-
-/* Unnamed in the kit (0x015be160): FDirectionalAnimState::SetWeight (checks it is inside BeginSetWeights). */
-struct FDirectionalAnimState__015c2b90 : public FDirectionalAnimState
-{
-    void sub_015be160(UINT Direction, FWeight_ Weight);
-};
-
-struct FPosePlayer__015c2b90 : public FPosePlayer
-{
-    void sub_015c2b90(INT Unused, UINT Direction, FLOAT Weight); /* 0x015c2b90 */
-};
-
+/* noinline: the exe keeps this out of line (URAnimNode_Pose::vf_1c0 in this file calls it). */
 // @baa 0x015c2b90
-/* Unnamed in the kit: set one directional weight (0..1) on the current (head) stance change; out-of-range input
+/* Set one directional weight (0..1) on the current (head) stance change; out-of-range input
  * is ignored. */
-void FPosePlayer__015c2b90::sub_015c2b90(INT Unused, UINT Direction, FLOAT Weight)
+__declspec(noinline) void FPosePlayer::sub_015c2b90(USkeletalMeshComponent* SkelComp, UINT Direction, FLOAT Weight)
 {
     if (Direction > 12 || 0.f > Weight || Weight > 1.f)
     {
@@ -826,6 +791,6 @@ void FPosePlayer__015c2b90::sub_015c2b90(INT Unused, UINT Direction, FLOAT Weigh
     FStanceChange* Head = Changes.Num ? &Changes.Data[0] : NULL;
     if (Head != NULL)
     {
-        ((FDirectionalAnimState__015c2b90&)Head->DirectionalAnimState).sub_015be160(Direction, FWeight_(Weight));
+        Head->DirectionalAnimState.SetWeight(Direction, FWeight(Weight));
     }
 }

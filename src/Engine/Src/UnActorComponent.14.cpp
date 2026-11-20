@@ -26,7 +26,7 @@ void AActor::MarkComponentsAsPendingKill(UBOOL bOnlyFiltered)
     }
 }
 
-/* Unnamed in the kit: re-runs the transform update (slot 0x118, UE3 UpdateTransform) when attached. */
+/* Re-runs the transform update (slot 0x118, UE3 UpdateTransform) when attached. */
 
 // @baa 0x00759620
 void UActorComponent::sub_00759620()

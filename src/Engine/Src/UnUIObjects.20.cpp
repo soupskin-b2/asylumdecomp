@@ -35,7 +35,7 @@ void UUIScreenObject::execGetDockClients(FFrame& Stack, RESULT_DECL)
     *(INT*)Result = this->GetDockClients(pDockClients, bDirectDockClientsOnly, TargetFace, SourceFace);
 }
 
-/* TArray<UUIDataStore*> with the out-of-line destructor (00cc4a60) the original calls. */
+/* TArray<UUIDataStore*> with the out-of-line destructor (00cc4a60) the original calls (TArray's own is inline). */
 struct FUIDataStoreArray : public TArray<UUIDataStore*>
 {
     FUIDataStoreArray() {}

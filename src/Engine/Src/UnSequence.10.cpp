@@ -207,8 +207,8 @@ void USequence::MarkSequencePendingKill()
     }
 }
 
-/* FString::operator* and the operator=(const TCHAR*) copy this unit links against (0x006b1140);
- * the kit's FString has neither. */
+/* FString::operator* as a plain inline (Classes.h's is FORCEINLINE) and the out-of-line operator=(const TCHAR*)
+ * copy this unit links against (0x006b1140). */
 struct FString_ : public FString
 {
     const TCHAR* operator*() const { return Num() ? &(*this)(0) : TEXT(""); }

@@ -84,7 +84,7 @@ INT UFracturedBaseComponent::GetNumVisibleFragments()
 
 
 // @baa 0x007b8070
-/* Unnamed in the kit: whether any fragment is hidden. */
+/* Whether any fragment is hidden. */
 UBOOL UFracturedBaseComponent::sub_007b8070()
 {
     UBOOL bHidden = FALSE;
@@ -105,7 +105,7 @@ struct C_007c5a40
     void sub_006db540();
 };
 
-/* Unnamed in the kit (0x007c3280): move one fragment of the skinned stand-in to the given transform. */
+/* Move one fragment of the skinned stand-in to the given transform. */
 
 // @baa 0x007c5a40
 /* UFracturedStaticMeshComponent slot 0x118 (kit vf_118, the transform update): after the primitive update, push

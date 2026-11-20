@@ -4,7 +4,7 @@
 #include "ue3/Classes.h"
 
 enum { kInvalidLookupTableBoneIndex = -1 };
-/* Unnamed in the kit: the skeleton bone index for a cape chain link. */
+/* The skeleton bone index for a cape chain link. */
 
 // @baa 0x015691f0
 INT URAnimNode_Cape::sub_015691f0(INT ChainIndex, INT LinkIndex)

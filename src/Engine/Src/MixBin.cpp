@@ -487,16 +487,10 @@ C_00bedff0::C_00bedff0(const C_00bedff0 &o) : a(o.a), b(o.b) {}
 // @baa 0x00bee080
 // @baa 0x00bee370
 
-/* Kit gap: FUntypedBulkData::RemoveBulkData (0x0056bfe0) isn't declared. */
-struct FUntypedBulkData_ : public FUntypedBulkData_Mirror
-{
-	void RemoveBulkData();
-};
-
 // @baa 0x00bed6a0
 /* Cooking drops both console FMOD payloads (the PC data stays). */
 void URFMODSound::StripData(UE3::EPlatformType TargetPlatform)
 {
-	((FUntypedBulkData_&)FMODPS3RawData).RemoveBulkData();
-	((FUntypedBulkData_&)FMODXboxRawData).RemoveBulkData();
+	FMODPS3RawData.RemoveBulkData();
+	FMODXboxRawData.RemoveBulkData();
 }

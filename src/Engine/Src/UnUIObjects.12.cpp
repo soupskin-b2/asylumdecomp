@@ -204,7 +204,7 @@ UBOOL UUIScreenObject::AcceptsPlayerInput(INT PlayerIndex)
     return bResult;
 }
 
-/* Unnamed in the kit: a FUIScreenValue_Bounds helper that reports whether Face changed (UE3 IsPositionCurrent-style
+/* A FUIScreenValue_Bounds helper that reports whether Face changed (UE3 IsPositionCurrent-style
  * check). */
 
 // @baa 0x00da94c0
@@ -283,15 +283,12 @@ FVector UUIScreenObject::DeProject(const FVector& PixelPosition)
     return ScreenToCanvas(ScreenPosition);
 }
 
-/* Unnamed in the kit: UE3's FLOAT FUIScreenValue_Bounds::GetBoundsExtent(UUIScreenObject* OwnerWidget, BYTE Dimension,
- * BYTE OutputType, UBOOL bIgnoreDockPadding) and FVector2D::operator[](INT) (out of line here). */
-
 // @baa 0x00dafc20
 /* UE3's UUIScreenObject::GetBounds(BYTE Dimension, BYTE OutputType, UBOOL bIgnoreDockPadding): the widget's extent
  * along Dimension, less the viewport origin. */
 FLOAT UUIScreenObject::GetBounds(BYTE Dimension, BYTE OutputType, UBOOL bIgnoreDockPadding)
 {
-    FLOAT Result = Position.sub_00de0540(this, Dimension, OutputType, bIgnoreDockPadding);
+    FLOAT Result = Position.GetBoundsExtent(this, Dimension, OutputType, bIgnoreDockPadding);
     FVector2D ViewportOrigin;
     ViewportOrigin.X = 0.f;
     ViewportOrigin.Y = 0.f;

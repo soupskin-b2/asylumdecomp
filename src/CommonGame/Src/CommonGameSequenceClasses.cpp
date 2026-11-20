@@ -330,8 +330,7 @@ void URSeqAct_WaitForAllInputs::Activated()
     }
 }
 
-/* Kit gap: FString::Printf isn't declared; this is the copy the linker specialised for six FLOAT arguments
- * (0x01541b70). */
+/* FString::Printf's link-time clone for six FLOAT arguments (0x01541b70; see FString::Printf in Classes.h). */
 struct FString_ : public FString
 {
 	static FString Printf(const TCHAR* Fmt, FLOAT A, FLOAT B, FLOAT C, FLOAT D, FLOAT E, FLOAT F);

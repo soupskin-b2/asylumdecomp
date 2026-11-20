@@ -396,8 +396,8 @@ void FPosePlayer::OverrideTransitionTime(FLOAT Time, UBOOL bDisableTimeAdvance)
     }
 }
 
-/* Unnamed in the kit (0x015e9fd0): resolves the pose for a weapon config and stances; returned by value
- * (12 bytes, first field non-NULL when found). Kit gap: the result type is unknown. */
+/* Resolves the pose for a weapon config and stances; returned by value
+ * (12 bytes, first field non-NULL when found). The result type is unknown. */
 struct FPoseLookup_
 {
     void* Pose;

@@ -11,12 +11,9 @@
 /* out of line in the exe */
 extern template INT TArray<UInterpGroupInst*>::AddItem(UInterpGroupInst* const& Item);
 
-/* Unnamed in the kit: UE3's USeqAct_Interp::AddPlayerToDirectorTracks(APlayerController* PC) (0x00d14240) and the
- * player filter it uses (0x00cf33e0). */
-
 // @baa 0x00d14240
 /* Give a newly joined player its own director group instances while the matinee is running. */
-void USeqAct_Interp::sub_00d14240(APlayerController* PC)
+void USeqAct_Interp::AddPlayerToDirectorTracks(APlayerController* PC)
 {
     if (PC != NULL && InterpData != NULL && GroupInst.Num() > 0)
     {

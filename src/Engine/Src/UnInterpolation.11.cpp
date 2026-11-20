@@ -5,14 +5,12 @@
 #include "ue3/Classes.h"
 #include "ue3/Native.h"
 
-/* Unnamed in the kit: UE3's USeqAct_Interp::TermInterp() (0x00cfa910). */
-
 // @baa 0x00d02f70
 /* USeqAct_Interp slot 0x154 (kit vf_154, UE3's CleanUp()): shut the matinee down, destroy its replication actor and
  * unhook it from every latent actor (USeqAct_Latent::CleanUp, inlined). */
 void USeqAct_Interp::vf_154()
 {
-    this->sub_00cfa910();
+    this->TermInterp();
 
     if (ReplicatedActor != NULL)
     {

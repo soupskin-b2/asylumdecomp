@@ -23,11 +23,8 @@ void UAudioComponent::SetParentToWorld(const FMatrix& ParentToWorld)
     ComponentLocation = Origin;
 }
 
-/* Unnamed in the kit: UE3's UAudioComponent::GetFloatParameter(FName InName, FLOAT& OutValue): the FloatParam of the instance
- * parameter named InName. */
-
 // @baa 0x0078e280
-UBOOL UAudioComponent::sub_0078e280(FName InName, FLOAT& OutValue)
+UBOOL UAudioComponent::GetFloatParameter(FName InName, FLOAT& OutValue)
 {
     if (InName.Index != 0 || InName.Number != 0)
     {
@@ -44,7 +41,7 @@ UBOOL UAudioComponent::sub_0078e280(FName InName, FLOAT& OutValue)
     return FALSE;
 }
 
-/* Unnamed in the kit: UE3's UAudioComponent::GetVelocityParameter-style(FName InName, FLOAT& OutValue): the Velocity of the instance
+/* UE3's UAudioComponent::GetVelocityParameter-style(FName InName, FLOAT& OutValue): the Velocity of the instance
  * parameter named InName. */
 
 // @baa 0x0078e310
@@ -65,7 +62,7 @@ UBOOL UAudioComponent::sub_0078e310(FName InName, FLOAT& OutValue)
     return FALSE;
 }
 
-/* Unnamed in the kit: UE3's UAudioComponent::GetSeekSpeedParameter-style(FName InName, FLOAT& OutValue): the SeekSpeed of the instance
+/* UE3's UAudioComponent::GetSeekSpeedParameter-style(FName InName, FLOAT& OutValue): the SeekSpeed of the instance
  * parameter named InName. */
 
 // @baa 0x0078e3a0

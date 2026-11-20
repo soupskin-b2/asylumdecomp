@@ -518,21 +518,19 @@ void UParticleSystemComponent::SetSkipUpdateDynamicDataDuringTick(UBOOL bInSkipU
     bSkipUpdateDynamicDataDuringTick = bInSkipUpdateDynamicDataDuringTick;
 }
 
-/* Unnamed in the kit: UE3's UParticleSystemComponent::ResetParticles(UBOOL bEmptyInstances). */
-
 // @baa 0x00b65d30
 /* UE3's UParticleSystemComponent::BeginDestroy(): free the emitter instances. */
 void UParticleSystemComponent::BeginDestroy()
 {
     Super::BeginDestroy();
-    this->sub_00b644b0(TRUE);
+    this->ResetParticles(TRUE);
 }
 
 // @baa 0x00b65e80
 /* UE3's UParticleSystemComponent::PreEditChange(UProperty* PropertyAboutToChange): drop the live particles first. */
 void UParticleSystemComponent::PreEditChange(UProperty* PropertyAboutToChange)
 {
-    this->sub_00b644b0(FALSE);
+    this->ResetParticles(FALSE);
     Super::PreEditChange(PropertyAboutToChange);
 }
 

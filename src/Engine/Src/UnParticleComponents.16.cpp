@@ -5,11 +5,8 @@
 #include "ue3/Classes.h"
 #include "ue3/Array.h"
 
-/* Unnamed in the kit: UE3's UParticleSystemComponent::ReportEventSpawn(FName& InEventName, FLOAT InEmitterTime,
- * FVector& InLocation, FVector& InVelocity) (called by UParticleModuleEventGenerator). */
-
 // @baa 0x00b5edb0
-void UParticleSystemComponent::sub_00b5edb0(FName& InEventName, FLOAT InEmitterTime, FVector& InLocation, FVector& InVelocity)
+void UParticleSystemComponent::ReportEventSpawn(FName& InEventName, FLOAT InEmitterTime, FVector& InLocation, FVector& InVelocity)
 {
     FParticleEventSpawnData* SpawnData = new(SpawnEvents) FParticleEventSpawnData;
     SpawnData->Type = EPET_Spawn;
@@ -19,11 +16,8 @@ void UParticleSystemComponent::sub_00b5edb0(FName& InEventName, FLOAT InEmitterT
     SpawnData->Velocity = InVelocity;
 }
 
-/* Unnamed in the kit: UE3's UParticleSystemComponent::ReportEventDeath(FName& InEventName, FLOAT InEmitterTime,
- * FVector& InLocation, FVector& InVelocity, FLOAT InParticleTime). */
-
 // @baa 0x00b5ee10
-void UParticleSystemComponent::sub_00b5ee10(FName& InEventName, FLOAT InEmitterTime, FVector& InLocation, FVector& InVelocity, FLOAT InParticleTime)
+void UParticleSystemComponent::ReportEventDeath(FName& InEventName, FLOAT InEmitterTime, FVector& InLocation, FVector& InVelocity, FLOAT InParticleTime)
 {
     FParticleEventDeathData* DeathData = new(DeathEvents) FParticleEventDeathData;
     DeathData->Type = EPET_Death;
@@ -34,12 +28,8 @@ void UParticleSystemComponent::sub_00b5ee10(FName& InEventName, FLOAT InEmitterT
     DeathData->ParticleTime = InParticleTime;
 }
 
-/* Unnamed in the kit: UE3's UParticleSystemComponent::ReportEventCollision(FName& InEventName, FLOAT InEmitterTime,
- * FVector& InLocation, FVector& InDirection, FVector& InVelocity, FLOAT InParticleTime, FVector& InNormal,
- * FLOAT InTime, INT InItem, FName& InBoneName). */
-
 // @baa 0x00b5ee80
-void UParticleSystemComponent::sub_00b5ee80(FName& InEventName, FLOAT InEmitterTime, FVector& InLocation, FVector& InDirection, FVector& InVelocity,
+void UParticleSystemComponent::ReportEventCollision(FName& InEventName, FLOAT InEmitterTime, FVector& InLocation, FVector& InDirection, FVector& InVelocity,
     FLOAT InParticleTime, FVector& InNormal, FLOAT InTime, INT InItem, FName& InBoneName)
 {
     FParticleEventCollideData* CollideData = new(CollisionEvents) FParticleEventCollideData;
@@ -56,11 +46,8 @@ void UParticleSystemComponent::sub_00b5ee80(FName& InEventName, FLOAT InEmitterT
     CollideData->BoneName = InBoneName;
 }
 
-/* Unnamed in the kit: UE3's UParticleSystemComponent::ReportEventKismet(FName& InEventName, FLOAT InEmitterTime,
- * FVector& InLocation, FVector& InDirection, FVector& InVelocity, UBOOL bUsePSysCompLocation, FVector& InNormal). */
-
 // @baa 0x00b5ef40
-void UParticleSystemComponent::sub_00b5ef40(FName& InEventName, FLOAT InEmitterTime, FVector& InLocation, FVector& InDirection, FVector& InVelocity,
+void UParticleSystemComponent::ReportEventKismet(FName& InEventName, FLOAT InEmitterTime, FVector& InLocation, FVector& InDirection, FVector& InVelocity,
     UBOOL bUsePSysCompLocation, FVector& InNormal)
 {
     FParticleEventKismetData* KismetData = new(KismetEvents) FParticleEventKismetData;

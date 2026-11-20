@@ -7,10 +7,6 @@
 
 extern INT g_026b55f8;
  /* overlap-claim recursion depth (UnCover.cpp file static) */
-/* Unnamed in the kit (0x009c8f80): UWorld::GetTimeSeconds(). */
-
-/* Unnamed in the kit (0x00860250, UE3's IsOverlapSlotClaimed). */
-
 // @baa 0x008603f0
 /* UE3's ACoverSlotMarker::IsValidClaim: whether ChkClaim may take this marker's slot (enabled, not owned by someone
  * alive, valid by now, no enemy-team claimer, no claimed overlapping slot). While an overlap check is recursing an
@@ -48,7 +44,7 @@ UBOOL ACoverSlotMarker::IsValidClaim(APawn* ChkClaim, UBOOL bSkipTeamCheck, UBOO
                 }
             }
         }
-        if (bResult && !bSkipOverlapCheck && Link->sub_00860250(ChkClaim, SlotIdx, bSkipTeamCheck))
+        if (bResult && !bSkipOverlapCheck && Link->IsOverlapSlotClaimed(ChkClaim, SlotIdx, bSkipTeamCheck))
         {
             bResult = FALSE;
         }

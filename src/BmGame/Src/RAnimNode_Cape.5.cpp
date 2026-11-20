@@ -52,7 +52,7 @@ INT URAnimNode_Cape::sub_01569700(INT BoneIndex)
 
 #line 108 "candidate.cpp"
 
-/* Unnamed in the kit: the parent anim component's space-base matrix for the bone the cape is attached to
+/* The parent anim component's space-base matrix for the bone the cape is attached to
  * (pre-physics bases when that component uses them). */
 
 // @baa 0x01569b90
@@ -71,19 +71,17 @@ FMatrix URAnimNode_Cape::sub_01569b90()
     return ParentBoneMatrix;
 }
 
-/* Unnamed in the kit: the parent of a cape bone. RefSkeleton(i)+0x38 is the parent index in this build; the kit's
- * FMeshBone calls it Unknown38. */
-struct URAnimNode_Cape__01569c40 : public URAnimNode_Cape
+/* Inlined here: GetNumBonesInCape (Classes.h declares the out-of-line copy, 0x01562420). */
+struct URAnimNode_Cape_ : public URAnimNode_Cape
 {
     FORCEINLINE INT GetNumBonesInCape() { return SkelComponent->SkeletalMesh->RefSkeleton.Num(); }
-    INT sub_01569c40(INT boneIndex);
 };
 
 // @baa 0x01569c40
-INT URAnimNode_Cape__01569c40::sub_01569c40(INT boneIndex)
+INT URAnimNode_Cape::sub_01569c40(INT boneIndex)
 {
 #line 888 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimNode_Cape.cpp"
-    check(boneIndex < (UINT)GetNumBonesInCape());
+    check(boneIndex < (UINT)((URAnimNode_Cape_*)this)->GetNumBonesInCape());
     USkeletalMeshComponent* pCapeSkeletalMeshComponent = SkelComponent;
 #line 891 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RAnimNode_Cape.cpp"
     check(pCapeSkeletalMeshComponent != NULL);
@@ -95,8 +93,7 @@ INT URAnimNode_Cape__01569c40::sub_01569c40(INT boneIndex)
 
 #line 155 "candidate.cpp"
 
-/* Unnamed in the kit: whether ParentBoneIndex is BoneIndex or one of its ancestors. RefSkeleton(i)+0x38 is the
- * parent index in this build (the kit's FMeshBone calls it Unknown38); the root is its own parent. */
+/* Whether ParentBoneIndex is BoneIndex or one of its ancestors (the root is its own parent). */
 
 // @baa 0x015697a0
 UBOOL URAnimNode_Cape::sub_015697a0(INT BoneIndex, INT ParentBoneIndex)
@@ -121,7 +118,7 @@ UBOOL URAnimNode_Cape::sub_015697a0(INT BoneIndex, INT ParentBoneIndex)
 
 #line 185 "candidate.cpp"
 
-/* Unnamed in the kit: a parent bone's reference-pose space base, from the cache when it has been built
+/* A parent bone's reference-pose space base, from the cache when it has been built
  * (otherwise computed by sub_0156a030). */
 
 // @baa 0x0156e6a0
@@ -141,7 +138,7 @@ void URAnimNode_Cape::sub_0156e6a0(INT boneIndex, FMatrix& OutSpaceBase)
 
 #line 210 "candidate.cpp"
 
-/* Unnamed in the kit: the cape node's per-tick update steps. */
+/* The cape node's per-tick update steps. */
 
 // @baa 0x01591bd0
 /* URAnimNode_Cape slot 0x134 (UE3 TickAnim(FLOAT DeltaSeconds, FLOAT TotalWeight)): the cape's own updates, then the

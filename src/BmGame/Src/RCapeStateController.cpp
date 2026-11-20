@@ -856,8 +856,8 @@ void URCapeStateController::UpdatePauseState()
 	}
 }
 
-/* The project's existing name for the cape physics object behind CapePhysicsRef (0x016af420 is bound as
- * S_016ceca0::sub_016af420). */
+/* The cape physics object behind CapePhysicsRef has no kit type (RCapePhysics.cpp binds its methods as S::);
+ * this declares the one called here. */
 struct S_016ceca0
 {
     UINT sub_016af420();
@@ -865,7 +865,7 @@ struct S_016ceca0
 
 
 // @baa 0x016ceca0
-/* Unnamed in the kit: forwards to the cape physics object. */
+/* Forwards to the cape physics object. */
 UINT URCapeStateController::sub_016ceca0()
 {
 #line 390 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RCapeStateController.cpp"

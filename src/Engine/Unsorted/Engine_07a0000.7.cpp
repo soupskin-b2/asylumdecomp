@@ -4,9 +4,6 @@
 #include "ue3/Classes.h"
 #include "ue3/Native.h"
 
-/* Unnamed in the kit: UE3's UWorld::RemoveController(AController* Controller) (AController's PostScriptDestroyed,
- * 007a1d90, calls it too). */
-
 // @baa 0x007af740
 /* APlayerController slot 0x194 (UE3 PostScriptDestroyed()): drop the input and cheat objects, then the controller's
  * own teardown (inlined): unregister from the world's controller list. */
@@ -14,7 +11,7 @@ void APlayerController::PostScriptDestroyed()
 {
     PlayerInput = NULL;
     CheatManager = NULL;
-    GWorld->sub_009c8d50(this);
+    GWorld->RemoveController(this);
 }
 
 // @baa 0x007a06b0

@@ -5,17 +5,6 @@
 #include "ue3/AppMath.h"
 #include "ue3/Cast.h"
 
-/* Kit gaps: DELTA (UnMath.h), the script structs' operator== and FGuid's operator== aren't declared. */
-struct FTextureCoordinates_ : public FTextureCoordinates
-{
-	UBOOL operator==(const FTextureCoordinates& Other) const;
-};
-
-struct FUIImageAdjustmentData_ : public FUIImageAdjustmentData
-{
-	UBOOL operator==(const FUIImageAdjustmentData& Other) const;
-};
-
 // @baa 0x00dd3b40
 /* UUIStyle_Image's comparison: the base properties, then image, coordinates and adjustments. */
 UBOOL UUIStyle_Image::MatchesStyleData(UUIStyle_Data* StyleToCompare)
@@ -35,9 +24,9 @@ UBOOL UUIStyle_Image::MatchesStyleData(UUIStyle_Data* StyleToCompare)
 		{
 			UUIStyle_Image* OtherImageStyle = Cast<UUIStyle_Image>(StyleToCompare);
 			bResult = DefaultImage == OtherImageStyle->DefaultImage
-				&&	((const FTextureCoordinates_&)Coordinates) == OtherImageStyle->Coordinates
-				&&	((const FUIImageAdjustmentData_&)AdjustmentType[0]) == OtherImageStyle->AdjustmentType[0]
-				&&	((const FUIImageAdjustmentData_&)AdjustmentType[1]) == OtherImageStyle->AdjustmentType[1];
+				&&	Coordinates == OtherImageStyle->Coordinates
+				&&	AdjustmentType[0] == OtherImageStyle->AdjustmentType[0]
+				&&	AdjustmentType[1] == OtherImageStyle->AdjustmentType[1];
 		}
 	}
 	return bResult;

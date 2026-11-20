@@ -77,9 +77,6 @@ void ACoverGroup::ToggleGroup()
     }
 }
 
-FCoverSlot* sub_00840460(FCoverInfo& Info);
-    /* 0x00840460 */
-FCoverSlot* sub_0085d480(FCoverReference& Ref);
 // @baa 0x00861350
  /* 0x0085d480 */
 /* UE3's ACoverSlotMarker::GetReachSpecClass: slot-to-slot specs between markers of the same link, swat-turn specs

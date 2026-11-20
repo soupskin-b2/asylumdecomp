@@ -4,7 +4,7 @@
 #include "ue3/Classes.h"
 
 // @baa 0x00840460
-/* Unnamed in the kit (0x00840460): the cover slot a FCoverInfo names, or NULL without a link or for a bad index. */
+/* The cover slot a FCoverInfo names, or NULL without a link or for a bad index. */
 FCoverSlot* sub_00840460(FCoverInfo& Info)
 {
     FCoverSlot* Slot = NULL;
@@ -37,7 +37,7 @@ UBOOL ACoverLink::HasFireLinkTo(INT SlotIdx, const FCoverInfo& ChkCover, UBOOL b
 }
 
 // @baa 0x00835e10
-/* Unnamed in the kit (0x00835e10, UnNavigationPoint.cpp file-level helper, no remaining callers): whether either
+/* UnNavigationPoint.cpp file-level helper with no remaining callers: whether either
  * end of the reach spec has a MaxPathSize no bigger than Nav's (radius and height). */
 UBOOL sub_00835e10(ANavigationPoint* Nav, UReachSpec* Spec)
 {
