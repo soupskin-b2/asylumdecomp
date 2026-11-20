@@ -57301,7 +57301,22 @@ struct UASVSkelComponent : public USkeletalMeshComponent {
 struct UChannel : public UObject {
     /* Engine.Channel (native only: no script package describes it) */
     DECLARE_CLASS(UChannel, UObject, 0x10000009, 0x0, Engine)
-    BYTE _native[0x2c]; /* C++-only members, to the registered size 0x5c */
+    /* UnChan.h's members (this build has no LastUnqueueTime; ReceivedNak walks OutRec at 0x58) */
+    class UNetConnection* Connection; /* 0x30 */
+    BITFIELD OpenAcked : 1; /* 0x34 */
+    BITFIELD Closing : 1; /* 0x34 */
+    BITFIELD OpenTemporary : 1; /* 0x34 */
+    BITFIELD Broken : 1; /* 0x34 */
+    BITFIELD bTornOff : 1; /* 0x34 */
+    INT ChIndex; /* 0x38 */
+    INT OpenedLocally; /* 0x3c */
+    INT OpenPacketId; /* 0x40 */
+    INT ChType; /* 0x44: EChannelType */
+    INT NumInRec; /* 0x48 */
+    INT NumOutRec; /* 0x4c */
+    INT NegotiatedVer; /* 0x50 */
+    struct FInBunch* InRec; /* 0x54 */
+    struct FOutBunch* OutRec; /* 0x58 */
     /* virtual functions this class introduces (vtable 0x020e2d80) */
     virtual void Init( UNetConnection* InConnection, INT InChIndex, UBOOL InOpenedLocally ); /* 0x10c */
     virtual void SetClosingFlag(); /* 0x110 */
@@ -59272,7 +59287,9 @@ struct UDemoRecConnection : public UNetConnection {
     /* registered size 0x4fb8 */
 };
 
-struct FNativeDtor_00c19590_48 { ~FNativeDtor_00c19590_48(); /* 0x00c19590 */ DWORD _data[18]; };  /* a C++-only member: only its destructor is known; size up to the next member */
+/* UNetDriver::ForcedInitialReplicationMap, a TMap<AActor*, TArray<UProperty*> > (Map.h; cast to it), with its out-of-line
+ * destructor (0x00c19590) */
+struct FNativeDtor_00c19590_48 : public FMap_Mirror { ~FNativeDtor_00c19590_48(); /* 0x00c19590 */ };
 struct FNativeDtor_00c003b0_60 : public TArrayNoInit<class UNetConnection*> { ~FNativeDtor_00c003b0_60(); /* 0x00c003b0 */ };  /* TArray<UNetConnection*> with its out-of-line destructor (the name keeps the old size so the destructor's symbol stays) */
 struct UNetDriver : public USubsystem, public FNetObjectNotify {
     /* Engine.NetDriver (native only: no script package describes it) */
@@ -59292,14 +59309,43 @@ struct UNetDriver : public USubsystem, public FNetObjectNotify {
     FLOAT SpawnPrioritySeconds; /* 0x64 */
     FLOAT ServerTravelPause; /* 0x68 */
     INT MaxClientRate; /* 0x6c */
-    BYTE _native_70[0x28];
-    TArrayNoInit<FString> Native_98; /* 0x98: C++ only (destroyed by its destructor) */
-    BYTE _native2[0x40];
-    FNativeDtor_00c19590_48 Native_e4; /* 0xe4: C++ only (destroyed by its destructor) */
-    FStringNoInit Native_12c; /* 0x12c: C++ only (destroyed by its destructor) */
-    BYTE _native[0x18]; /* C++-only members, to the registered size 0x150 */
+    /* the rest as UE3's UnNetDrv.h has them (StaticConstructor registers 0x70..0x7c, 0x94, 0x98 and 0x12c as config
+     * properties and 0x84, 0x88, 0x138 as object references; the build has no peer or voice-percent members) */
+    INT MaxInternetClientRate; /* 0x70 */
+    INT NetServerMaxTickRate; /* 0x74 */
+    UBOOL bClampListenServerTickRate; /* 0x78 */
+    UBOOL AllowDownloads; /* 0x7c */
+    UBOOL ProfileStats; /* 0x80 */
+    class UProperty* RoleProperty; /* 0x84 */
+    class UProperty* RemoteRoleProperty; /* 0x88 */
+    INT SendCycles; /* 0x8c */
+    INT RecvCycles; /* 0x90 */
+    INT MaxDownloadSize; /* 0x94 */
+    TArrayNoInit<FString> DownloadManagers; /* 0x98 */
+    DWORD InBytesPerSecond; /* 0xa4 */
+    DWORD OutBytesPerSecond; /* 0xa8 */
+    DWORD InBytes; /* 0xac */
+    DWORD OutBytes; /* 0xb0 */
+    DWORD InPackets; /* 0xb4 */
+    DWORD OutPackets; /* 0xb8 */
+    DWORD InBunches; /* 0xbc */
+    DWORD OutBunches; /* 0xc0 */
+    DWORD InPacketsLost; /* 0xc4 */
+    DWORD OutPacketsLost; /* 0xc8 */
+    DWORD InOutOfOrderPackets; /* 0xcc */
+    DWORD OutOutOfOrderPackets; /* 0xd0 */
+    DWORD VoicePacketsSent; /* 0xd4 */
+    DWORD VoiceBytesSent; /* 0xd8 */
+    DWORD VoicePacketsRecv; /* 0xdc */
+    DWORD VoiceBytesRecv; /* 0xe0 */
+    FNativeDtor_00c19590_48 ForcedInitialReplicationMap; /* 0xe4 */
+    DOUBLE StatUpdateTime; /* 0x120 */
+    FLOAT StatPeriod; /* 0x128 */
+    FStringNoInit NetConnectionClassName; /* 0x12c */
+    class UClass* NetConnectionClass; /* 0x138 */
+    BYTE _native[0x14]; /* C++-only members, to the registered size 0x150 (UE3's standby-cheat settings, which don't fit as UE3 has them) */
     /* virtual functions this class introduces (vtable 0x02031ee8) */
-    virtual bool vf_110(); /* 0x110 */
+    virtual UBOOL InitConnectionClass(void); /* 0x110 */
     virtual void LowLevelDestroy(); /* 0x114 */
     virtual FString LowLevelGetNetworkNumber(); /* 0x118 */
     virtual void AssertValid(); /* 0x11c */

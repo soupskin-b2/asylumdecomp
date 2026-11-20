@@ -13,7 +13,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 CODE = ROOT / "tools" / "asylum"
-DATA = ["functions", "names", "symbols", "imports", "fingerprints"]
+DATA = ["functions", "names", "symbols", "imports", "fingerprints", "vtables"]
 
 
 def main():

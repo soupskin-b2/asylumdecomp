@@ -240,13 +240,14 @@ def _screen(fs, keep_blocked=False):
     import blockers
     import listing
     L, img, funcs, nm = blockers.layout(ROOT), image(), data.functions(), names()
+    held = blockers.vtable_slots(data._load("vtables.json.gz"), img)
     keep, why = [], {}
     for f in fs:
         va = int(f["va"], 16)
         rec = funcs.get(va)
         reasons = []
         if rec:
-            reasons = blockers.blockers(L, f.get("class"), va, listing.listing(img, va, rec["size"], nm))
+            reasons = blockers.blockers(L, f.get("class"), va, listing.listing(img, va, rec["size"], nm), held.get(va))
         if reasons:
             why[f["va"]] = reasons
         if bool(reasons) == keep_blocked:

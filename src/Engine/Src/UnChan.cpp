@@ -489,7 +489,7 @@ void UChannel::ReceivedNak(INT param_2)
                      "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnChan.cpp"
                      ,0x1e5,&g_020dca58);
       }
-      ((C_view *)((*(char **)((char *)this + 0x30))))->sub_00e02d10(iVar1, 0);
+      ((C_view *)Connection)->sub_00e02d10(iVar1, 0);
     }
   }
   return;
