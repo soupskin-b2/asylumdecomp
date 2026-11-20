@@ -265,7 +265,7 @@ return;
 void __stdcall sub_00cc5b80(int a0) {  }
 
 // @baa 0x00cc5b90
-int USoundNode::vf_110(int a0) { return 1; }
+UBOOL USoundNode::IsFinished(class UAudioComponent* a0) { return 1; }
 
 // @baa 0x00cc5ba0
 UBOOL USoundNode::IsLoopingIndefinitely() { return 0; }
@@ -300,7 +300,7 @@ IMPLEMENT_CLASS_AT(USoundNodeAmbient, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEn
 INT USoundNodeAmbient::GetMaxChildNodes() { return 0; }
 
 // @baa 0x00cc5d00
-int USoundNodeAmbient::vf_110(int a0) { return 0; }
+UBOOL USoundNodeAmbient::IsFinished(class UAudioComponent* a0) { return 0; }
 
 // @baa 0x00cc5d10
 FLOAT USoundNodeAmbient::GetDuration() {

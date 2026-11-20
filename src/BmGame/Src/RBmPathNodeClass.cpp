@@ -7,7 +7,7 @@
 int ARBMPathNode_FenceJumpProxy::vf_188(void) { return 1; }
 
 // @baa 0x015e0130
-int ARBMPathNode_GapJump::vf_394(int a0, int a1) { return 0; }
+UBOOL ARBMPathNode_GapJump::CanConnectTo(class ANavigationPoint* a0, UBOOL a1) { return 0; }
 
 // @baa 0x015e01b0
 void ARBMPathNode_GapJump::vf_184(void)
@@ -204,7 +204,7 @@ UBOOL ARCornerWallMarker::HasUniqueStaticConfigName() const { return 1; }
 int ARBMPathNode_VariablePositionTraverse::vf_3bc(int a0) { return 0; }
 
 // @baa 0x015dfbc0
-int ARBMPathNode_FenceJump::vf_394(int a0, int a1) { return 0; }
+UBOOL ARBMPathNode_FenceJump::CanConnectTo(class ANavigationPoint* a0, UBOOL a1) { return 0; }
 
 // @baa 0x015dfc40
 void ARBMPathNode_FenceJump::vf_184(void)

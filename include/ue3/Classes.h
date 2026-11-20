@@ -4111,11 +4111,13 @@ struct FOctreeElementId {
 struct FRawDistributionFloat : public FRawDistribution {
     /* Core.RawDistributionFloat */
     class UDistributionFloat* Distribution; /* 0x18 */
+    FLOAT GetValue(FLOAT F = 0.f, UObject* Data = NULL); /* 0x0054fd50 */
 };
 
 struct FRawDistributionVector : public FRawDistribution {
     /* Core.RawDistributionVector */
     class UDistributionVector* Distribution; /* 0x18 */
+    FVector GetValue(FLOAT F = 0.f, UObject* Data = NULL, INT LastExtreme = 0); /* 0x00550260 */
 };
 
 struct FThought {
@@ -5367,8 +5369,8 @@ struct FUINavigationData {
     class UUIObject* ForcedNavigationTarget[4]; /* 0x10 */
     BYTE bNullOverride[4]; /* 0x20 */
     /* other member functions */
-    UBOOL sub_00ddee10(INT LeftTarget, INT TopTarget, INT RightTarget, INT BottomTarget); /* 0x00ddee10 */
-    UBOOL sub_00ddeeb0(INT LeftTarget, INT TopTarget, INT RightTarget, INT BottomTarget); /* 0x00ddeeb0 */
+    UBOOL sub_00ddee10(class UUIObject* LeftTarget, class UUIObject* TopTarget, class UUIObject* RightTarget, class UUIObject* BottomTarget); /* 0x00ddee10 */
+    UBOOL sub_00ddeeb0(class UUIObject* LeftTarget, class UUIObject* TopTarget, class UUIObject* RightTarget, class UUIObject* BottomTarget); /* 0x00ddeeb0 */
     UBOOL sub_00ddef10(INT Face, INT Arg); /* 0x00ddef10 */
 };
 
@@ -7295,6 +7297,7 @@ struct FStyleDataReference {
     UBOOL IsCustomStyleDataEnabled() const; /* 0x00ddb220 */
     void SetSourceStyle(UUIStyle* Style); /* 0x00ddb2e0 */
     UUIStyle_Data* GetStyleData() const; /* 0x00ddb270 */
+    UBOOL IsDirty() const; /* 0x00ddb3c0 */
 };
 
 struct FExternalTexture {
@@ -11557,7 +11560,8 @@ struct UActorComponent : public UComponent {
     void ConditionalAttach(FSceneInterface* InScene,AActor* InOwner,const FMatrix& ParentToWorld); /* 0x0076a230 */
     void sub_00759620(); /* 0x00759620 */
     void ConditionalDetach(UBOOL bWillReattach = FALSE); /* 0x00759640 */
-    void sub_00759670(); /* 0x00759670 */
+    void ConditionalUpdateTransform(); /* 0x00759670: UpdateTransform() if attached */
+    void ConditionalUpdateTransform(const FMatrix& ParentToWorld); /* 0x007595f0: SetParentToWorld, then UpdateTransform() if attached */
     void UpdateComponent(FSceneInterface* InScene, AActor* InOwner, const FMatrix& InLocalToWorld, UBOOL bCollisionUpdate = FALSE); /* 0x0076a330 */
     void BeginDeferredUpdateTransform(); /* 0x007596c0 */
     void DetachFromAny(); /* 0x00765c40 */
@@ -13116,9 +13120,9 @@ struct ANavigationPoint : public AActor {
     virtual INT vf_388(INT, INT, INT); /* 0x388 */
     virtual void vf_38c(INT); /* 0x38c */
     virtual INT vf_390(INT, INT); /* 0x390 */
-    virtual INT vf_394(INT, INT); /* 0x394 */
+    virtual UBOOL CanConnectTo(class ANavigationPoint* Nav, UBOOL bCheckDistance); /* 0x394 */
     virtual UBOOL GetUpDir( FVector &V ); /* 0x398 */
-    virtual INT vf_39c(INT); /* 0x39c */
+    virtual UBOOL PlaceScout(class AScout* Scout); /* 0x39c */
     virtual void AddToNavigationOctree(); /* 0x3a0 */
     virtual void vf_3a4(INT, INT); /* 0x3a4 */
     virtual void vf_3a8(INT, INT); /* 0x3a8 */
@@ -13180,7 +13184,7 @@ struct AAirNode : public APathNode {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual UBOOL ReachedBy(class APawn* P, const FVector& TestPosition, const FVector& Dest); /* 0x2ac */
     virtual void addReachSpecs(class AScout *Scout, UBOOL bOnlyChanged=0); /* 0x364 */
-    virtual INT vf_394(INT, INT); /* 0x394 */
+    virtual UBOOL CanConnectTo(class ANavigationPoint* Nav, UBOOL bCheckDistance); /* 0x394 */
     /* registered size 0x280 */
 };
 
@@ -13468,8 +13472,8 @@ struct USoundNode : public UObject {
     INT NodeUpdateHint; /* 0x30 */
     TArrayNoInit<class USoundNode*> ChildNodes; /* 0x34 */
     /* virtual functions this class introduces (vtable 0x020869a0) */
-    virtual void vf_10c(INT); /* 0x10c */
-    virtual INT vf_110(INT); /* 0x110 */
+    virtual void NotifyWaveInstanceFinished(struct FWaveInstance* WaveInstance); /* 0x10c */
+    virtual UBOOL IsFinished(class UAudioComponent* AudioComponent); /* 0x110 */
     virtual FLOAT GetDuration( void ); /* 0x114 */
     virtual UBOOL IsLoopingIndefinitely( void ); /* 0x118 */
     virtual void ParseNodes( UAudioDevice* AudioDevice, USoundNode* Parent, INT ChildIndex, class UAudioComponent* AudioComponent, TArray<FWaveInstance*>& WaveInstances ); /* 0x11c */
@@ -13540,8 +13544,8 @@ struct USoundNodeAmbient : public USoundNode {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual void vf_10c(INT); /* 0x10c */
-    virtual INT vf_110(INT); /* 0x110 */
+    virtual void NotifyWaveInstanceFinished(struct FWaveInstance* WaveInstance); /* 0x10c */
+    virtual UBOOL IsFinished(class UAudioComponent* AudioComponent); /* 0x110 */
     virtual FLOAT GetDuration( void ); /* 0x114 */
     virtual void ParseNodes( UAudioDevice* AudioDevice, USoundNode* Parent, INT ChildIndex, class UAudioComponent* AudioComponent, TArray<FWaveInstance*>& WaveInstances ); /* 0x11c */
     virtual void GetNodes( class UAudioComponent* AudioComponent, TArray<USoundNode*>& SoundNodes ); /* 0x120 */
@@ -13578,7 +13582,7 @@ struct USoundNodeAmbientNonLoop : public USoundNodeAmbient {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual void vf_10c(INT); /* 0x10c */
+    virtual void NotifyWaveInstanceFinished(struct FWaveInstance* WaveInstance); /* 0x10c */
     virtual FLOAT GetDuration( void ); /* 0x114 */
     virtual void ParseNodes( UAudioDevice* AudioDevice, USoundNode* Parent, INT ChildIndex, class UAudioComponent* AudioComponent, TArray<FWaveInstance*>& WaveInstances ); /* 0x11c */
     virtual void GetNodes( class UAudioComponent* AudioComponent, TArray<USoundNode*>& SoundNodes ); /* 0x120 */
@@ -15337,7 +15341,7 @@ struct ALadder : public ANavigationPoint {
     virtual void addReachSpecs(class AScout *Scout, UBOOL bOnlyChanged=0); /* 0x364 */
     virtual void InitForPathFinding(); /* 0x36c */
     virtual void ClearForPathFinding(); /* 0x370 */
-    virtual INT vf_394(INT, INT); /* 0x394 */
+    virtual UBOOL CanConnectTo(class ANavigationPoint* Nav, UBOOL bCheckDistance); /* 0x394 */
     /* registered size 0x288 */
 };
 
@@ -16030,7 +16034,7 @@ struct UUIScreenObject : public UUIRoot {
     virtual void vf_180(); /* 0x180 */
     virtual void GetSupportedUIActionKeyNames(TArray<FName>& out_KeyNames); /* 0x184 */
     virtual void vf_188(); /* 0x188 */
-    virtual INT vf_18c(); /* 0x18c */
+    virtual void vf_18c(); /* 0x18c */
     virtual BYTE GetInputMask(UBOOL bInheritedMaskOnly = FALSE, UBOOL bOverrideMaskOnly = FALSE); /* 0x190 */
     virtual void SetInputMask(BYTE NewInputMask, UBOOL bRecurse = FALSE, UBOOL bForcedOverride = FALSE); /* 0x194 */
     virtual INT vf_198(); /* 0x198 */
@@ -16250,8 +16254,8 @@ struct UUIObject : public UUIScreenObject {
     virtual void NotifyValueChanged(INT PlayerIndex, INT NotifyFlags); /* 0x1f0 */
     virtual UBOOL SetDockTarget(BYTE SourceFace, class UUIScreenObject* Target, BYTE TargetFace); /* 0x1f4 */
     virtual UBOOL SetDockPadding(BYTE SourceFace, FLOAT PaddingValue, BYTE PaddingInputType = 0, UBOOL bModifyPaddingScaleType = FALSE); /* 0x1f8 */
-    virtual INT vf_1fc(INT, INT, INT, INT); /* 0x1fc */
-    virtual INT vf_200(INT, INT, INT, INT); /* 0x200 */
+    virtual UBOOL vf_1fc(class UUIObject* LeftTarget, class UUIObject* TopTarget, class UUIObject* RightTarget, class UUIObject* BottomTarget); /* 0x1fc */
+    virtual UBOOL vf_200(class UUIObject* LeftTarget, class UUIObject* TopTarget, class UUIObject* RightTarget, class UUIObject* BottomTarget); /* 0x200 */
     virtual void SetActiveCursorUpdate(UBOOL bShouldReceiveCursorUpdates); /* 0x204 */
     virtual void vf_208(INT); /* 0x208 */
     virtual void vf_20c(INT); /* 0x20c */
@@ -16263,7 +16267,7 @@ struct UUIObject : public UUIScreenObject {
     virtual void vf_224(INT); /* 0x224 */
     virtual void vf_228(INT, INT); /* 0x228 */
     virtual void vf_22c(INT); /* 0x22c */
-    virtual UINT vf_230(INT, INT); /* 0x230 */
+    virtual UBOOL vf_230(INT Face, class UUIObject* NavTarget); /* 0x230 */
     virtual INT vf_234(); /* 0x234 */
     virtual INT vf_238(); /* 0x238 */
     virtual INT vf_23c(INT); /* 0x23c */
@@ -16589,8 +16593,8 @@ struct ACoverSlotMarker : public ANavigationPoint {
     virtual INT vf_374(INT); /* 0x374 */
     virtual UINT vf_378(); /* 0x378 */
     virtual void vf_38c(INT); /* 0x38c */
-    virtual INT vf_394(INT, INT); /* 0x394 */
-    virtual INT vf_39c(INT); /* 0x39c */
+    virtual UBOOL CanConnectTo(class ANavigationPoint* Nav, UBOOL bCheckDistance); /* 0x394 */
+    virtual UBOOL PlaceScout(class AScout* Scout); /* 0x39c */
     /* UnrealScript natives */
     void execGetSlotLocation(FFrame& Stack, RESULT_DECL); /* 0x00c88c90 */
     void execGetSlotRotation(FFrame& Stack, RESULT_DECL); /* 0x00c88cf0 */
@@ -22641,7 +22645,7 @@ struct AMantleMarker : public ANavigationPoint {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual INT vf_394(INT, INT); /* 0x394 */
+    virtual UBOOL CanConnectTo(class ANavigationPoint* Nav, UBOOL bCheckDistance); /* 0x394 */
     /* registered size 0x288 */
 };
 
@@ -27560,7 +27564,7 @@ struct APawn : public AActor {
     virtual UBOOL HasAudibleAmbientSound(const FVector& SrcLocation); /* 0x454 */
     virtual UBOOL HasReached( ANavigationPoint *Nav, UBOOL& bFinalDecision ); /* 0x458 */
     virtual FVector GetIdealCameraOrigin(); /* 0x45c */
-    virtual void vf_460(INT, INT); /* 0x460 */
+    virtual UBOOL vf_460(class ANavigationPoint* StartNav, class ANavigationPoint* EndNav); /* 0x460 */
     virtual void ApplyVelocityBraking(FLOAT DeltaTime, FLOAT Friction); /* 0x464 */
     virtual void CalcVelocity(FVector &AccelDir, FLOAT DeltaTime, FLOAT MaxSpeed, FLOAT Friction, INT bFluid, INT bBrake, INT bBuoyant); /* 0x468 */
     /* overrides */
@@ -28443,6 +28447,12 @@ struct USequenceOp : public USequenceObject {
     void ForceActivateInput(INT); /* 0x008be490 */
     void GetLinkedObjects(TArray<USequenceObject*>& out_Objects, UClass* ObjectType, UBOOL bRecurse); /* 0x008ca300 */
     void GetIntVars(TArray<INT*>& outInts, const TCHAR* inDesc = NULL); /* 0x008d6a00 */
+    void GetBoolVars(TArray<UBOOL*>& outBools, const TCHAR* inDesc = NULL) const; /* 0x008d65c0 */
+    void sub_008d6cf0(TArray<BYTE*>& outBytes, const TCHAR* inDesc = NULL) const; /* 0x008d6cf0 GetByteRef of each linked USeqVar_Byte */
+    void GetVectorVars(TArray<FVector*>& outVectors, const TCHAR* inDesc = NULL) const; /* 0x008d7140 */
+    void sub_008d7430(TArray<FLinearColor*>& outColours, const TCHAR* inDesc = NULL) const; /* 0x008d7430 GetColourRef of each linked USeqVar_Colour */
+    void sub_008d7720(TArray<FName*>& outNames, const TCHAR* inDesc = NULL) const; /* 0x008d7720 GetNameRef of each linked USeqVar_Name */
+    void GetStringVars(TArray<FString*>& outStrings, const TCHAR* inDesc = NULL) const; /* 0x008d7a10 */
     /* registered size 0xbc */
 };
 
@@ -30042,7 +30052,7 @@ struct USeqAct_CrowdSpawner : public USeqAct_Latent {
     virtual void KillAgents(); /* 0x1a4 */
     virtual void UpdateSpawning(FLOAT DeltaSeconds); /* 0x1a8 */
     virtual INT vf_1ac(INT, INT, INT, INT, INT); /* 0x1ac */
-    virtual INT vf_1b0(INT, INT, INT); /* 0x1b0 */
+    virtual FVector vf_1b0(class AActor* Agent, const FVector& Direction); /* 0x1b0 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -32616,8 +32626,8 @@ struct USoundNodeConcatenator : public USoundNode {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual void vf_10c(INT); /* 0x10c */
-    virtual INT vf_110(INT); /* 0x110 */
+    virtual void NotifyWaveInstanceFinished(struct FWaveInstance* WaveInstance); /* 0x10c */
+    virtual UBOOL IsFinished(class UAudioComponent* AudioComponent); /* 0x110 */
     virtual FLOAT GetDuration( void ); /* 0x114 */
     virtual void ParseNodes( UAudioDevice* AudioDevice, USoundNode* Parent, INT ChildIndex, class UAudioComponent* AudioComponent, TArray<FWaveInstance*>& WaveInstances ); /* 0x11c */
     virtual void GetNodes( class UAudioComponent* AudioComponent, TArray<USoundNode*>& SoundNodes ); /* 0x120 */
@@ -32663,8 +32673,8 @@ struct USoundNodeLooping : public USoundNode {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual void vf_10c(INT); /* 0x10c */
-    virtual INT vf_110(INT); /* 0x110 */
+    virtual void NotifyWaveInstanceFinished(struct FWaveInstance* WaveInstance); /* 0x10c */
+    virtual UBOOL IsFinished(class UAudioComponent* AudioComponent); /* 0x110 */
     virtual FLOAT GetDuration( void ); /* 0x114 */
     virtual UBOOL IsLoopingIndefinitely( void ); /* 0x118 */
     virtual void ParseNodes( UAudioDevice* AudioDevice, USoundNode* Parent, INT ChildIndex, class UAudioComponent* AudioComponent, TArray<FWaveInstance*>& WaveInstances ); /* 0x11c */
@@ -34734,6 +34744,7 @@ struct UUIStyle : public UUIRoot {
     UUIStyle_Data* GetArchetypeStyleForState(UUIState* StateObject) const; /* 0x00ddb7a0 */
     UUIStyle_Data* GetStyleForState(UUIState*); /* 0x00ddaa80 */
     UUIStyle_Data* GetStyleForStateByClass(UClass*); /* 0x00ddac00 */
+    UBOOL IsDirty(class UUIState* State); /* 0x00ddaf10 */
     /* registered size 0xa0 */
 };
 
@@ -34753,7 +34764,7 @@ struct UUIStyle_Data : public UUIRoot {
     virtual UBOOL IsDirty(); /* 0x118 */
     virtual void SetDirtiness(UBOOL bIsDirty); /* 0x11c */
     virtual UBOOL MatchesStyleData(class UUIStyle_Data* StyleToCompare); /* 0x120 */
-    virtual INT vf_124(INT); /* 0x124 */
+    virtual UBOOL vf_124(class UUIStyle* Style); /* 0x124 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -34779,7 +34790,7 @@ struct UUIStyle_Combo : public UUIStyle_Data {
     virtual UBOOL IsDirty(); /* 0x118 */
     virtual void SetDirtiness(UBOOL bIsDirty); /* 0x11c */
     virtual UBOOL MatchesStyleData(class UUIStyle_Data* StyleToCompare); /* 0x120 */
-    virtual INT vf_124(INT); /* 0x124 */
+    virtual UBOOL vf_124(class UUIStyle* Style); /* 0x124 */
     /* UnrealScript natives */
     void execGetComboTextStyle(FFrame& Stack, RESULT_DECL); /* 0x00ca7660 */
     void execGetComboImageStyle(FFrame& Stack, RESULT_DECL); /* 0x00ca76a0 */
@@ -34900,7 +34911,7 @@ struct AVolumePathNode : public APathNode {
     virtual INT vf_374(INT); /* 0x374 */
     virtual UINT vf_378(); /* 0x378 */
     virtual void ReviewPath(APawn* Scout); /* 0x37c */
-    virtual INT vf_394(INT, INT); /* 0x394 */
+    virtual UBOOL CanConnectTo(class ANavigationPoint* Nav, UBOOL bCheckDistance); /* 0x394 */
     /* UnrealScript natives */
     void execGetReachedPointFrom(FFrame& Stack, RESULT_DECL); /* 0x00c88f20 */
     /* registered size 0x288 */
@@ -36520,7 +36531,7 @@ struct ARPathNode : public APathNode {
     virtual INT AddMyMarker(AActor *S); /* 0x29c */
     virtual UBOOL ReachedBy(class APawn* P, const FVector& TestPosition, const FVector& Dest); /* 0x2ac */
     virtual INT vf_388(INT, INT, INT); /* 0x388 */
-    virtual INT vf_394(INT, INT); /* 0x394 */
+    virtual UBOOL CanConnectTo(class ANavigationPoint* Nav, UBOOL bCheckDistance); /* 0x394 */
     /* UnrealScript natives */
     void execIsSafe(FFrame& Stack, RESULT_DECL); /* 0x0150c350 */
     void execUpdateLastSeenTime(FFrame& Stack, RESULT_DECL); /* 0x0150c3c0 */
@@ -38398,7 +38409,7 @@ struct URAnimNode_Pose : public UAnimNodeBlendBase, public FTickableObject {
     virtual void FaceAtActor(class AActor* Actor, FName BoneName); /* 0x234 */
     virtual INT StopFaceAt(); /* 0x238 */
     virtual FVector vf_23c(); /* 0x23c */
-    virtual INT vf_240(INT); /* 0x240 */
+    virtual FVector vf_240(); /* 0x240 */
     virtual void AddTranslationVelocity(FVector Velocity); /* 0x244 */
     virtual void AddTranslation(FVector Translation); /* 0x248 */
     virtual void vf_24c(FLOAT); /* 0x24c */
@@ -38414,7 +38425,7 @@ struct URAnimNode_Pose : public UAnimNodeBlendBase, public FTickableObject {
     virtual INT vf_274(INT, INT, INT, INT, INT, INT, INT, BYTE, FLOAT, FLOAT, FLOAT); /* 0x274 */
     virtual void vf_278(); /* 0x278 */
     virtual INT vf_27c(FName); /* 0x27c */
-    virtual INT vf_280(); /* 0x280 */
+    virtual UBOOL vf_280(); /* 0x280 */
     virtual INT vf_284(BYTE); /* 0x284 */
     virtual INT IsInAnyAutomaticTransition(BYTE Fuzziness, FTransitionId* Transition); /* 0x288 */
     virtual INT vf_28c(BYTE); /* 0x28c */
@@ -42895,7 +42906,7 @@ struct ARBMPathNode_CrossLevel : public ARPathNode {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual INT vf_394(INT, INT); /* 0x394 */
+    virtual UBOOL CanConnectTo(class ANavigationPoint* Nav, UBOOL bCheckDistance); /* 0x394 */
     virtual void RemoveFromNavigationOctree(); /* 0x3ac */
     /* registered size 0x2b4 */
 };
@@ -42914,7 +42925,7 @@ struct ARBMPathNode_SpecialMove : public ARPathNode {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void addReachSpecs(class AScout *Scout, UBOOL bOnlyChanged=0); /* 0x364 */
-    virtual INT vf_394(INT, INT); /* 0x394 */
+    virtual UBOOL CanConnectTo(class ANavigationPoint* Nav, UBOOL bCheckDistance); /* 0x394 */
     /* registered size 0x2d4 */
     /* other member functions */
     UBOOL eventIsOnSamePath(class ARPathNode* TestNode); /* 0x0160db90 */
@@ -42964,7 +42975,7 @@ struct ARBMPathNode_FenceJump : public ARBMPathNode_VariablePositionTraverse {
     virtual void Spawned(); /* 0x180 */
     virtual void vf_184(); /* 0x184 */
     virtual INT AddMyMarker(AActor *S); /* 0x29c */
-    virtual INT vf_394(INT, INT); /* 0x394 */
+    virtual UBOOL CanConnectTo(class ANavigationPoint* Nav, UBOOL bCheckDistance); /* 0x394 */
     virtual INT vf_3bc(INT); /* 0x3bc */
     /* registered size 0x30c */
 };
@@ -42996,7 +43007,7 @@ struct ARBMPathNode_FenceJumpProxy : public ARBMPathNode_VariablePositionTravers
     virtual void PostEditMove(UBOOL bFinished); /* 0x17c */
     virtual INT vf_188(); /* 0x188 */
     virtual void addReachSpecs(class AScout *Scout, UBOOL bOnlyChanged=0); /* 0x364 */
-    virtual INT vf_394(INT, INT); /* 0x394 */
+    virtual UBOOL CanConnectTo(class ANavigationPoint* Nav, UBOOL bCheckDistance); /* 0x394 */
     /* registered size 0x2e8 */
 };
 
@@ -43012,7 +43023,7 @@ struct ARBMPathNode_GapJump : public ARBMPathNode_VariablePositionTraverse {
     virtual void Spawned(); /* 0x180 */
     virtual void vf_184(); /* 0x184 */
     virtual INT AddMyMarker(AActor *S); /* 0x29c */
-    virtual INT vf_394(INT, INT); /* 0x394 */
+    virtual UBOOL CanConnectTo(class ANavigationPoint* Nav, UBOOL bCheckDistance); /* 0x394 */
     virtual INT vf_3bc(INT); /* 0x3bc */
     /* other member functions */
     /* registered size 0x30c */
@@ -43027,7 +43038,7 @@ struct ARBMPathNode_GapJumpProxy : public ARBMPathNode_VariablePositionTraverseP
     virtual void PostEditMove(UBOOL bFinished); /* 0x17c */
     virtual INT vf_188(); /* 0x188 */
     virtual void addReachSpecs(class AScout *Scout, UBOOL bOnlyChanged=0); /* 0x364 */
-    virtual INT vf_394(INT, INT); /* 0x394 */
+    virtual UBOOL CanConnectTo(class ANavigationPoint* Nav, UBOOL bCheckDistance); /* 0x394 */
     /* registered size 0x2d8 */
 };
 
@@ -43040,7 +43051,7 @@ struct ARBMPathNode_Ladder : public ARBMPathNode_SpecialMove {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void addReachSpecs(class AScout *Scout, UBOOL bOnlyChanged=0); /* 0x364 */
-    virtual INT vf_394(INT, INT); /* 0x394 */
+    virtual UBOOL CanConnectTo(class ANavigationPoint* Nav, UBOOL bCheckDistance); /* 0x394 */
     /* registered size 0x2dc */
 };
 
@@ -50361,7 +50372,7 @@ struct ARPathNode_Pontoon : public ARPathNode {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual INT vf_394(INT, INT); /* 0x394 */
+    virtual UBOOL CanConnectTo(class ANavigationPoint* Nav, UBOOL bCheckDistance); /* 0x394 */
     /* registered size 0x2ac */
 };
 

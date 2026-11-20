@@ -4,8 +4,8 @@
 #include "ue3/Classes.h"
 #include "ue3/Native.h"
 
-/* Unnamed in the kit: UE3's UpdateLODStatus(), UpdateSkelPose(FLOAT DeltaTime, UBOOL bTickFaceFX) (this build
- * has a third flag) and UActorComponent::ConditionalUpdateTransform(). */
+/* UE3's UpdateLODStatus(), UpdateSkelPose(FLOAT DeltaTime, UBOOL bTickFaceFX) (this build has a third flag) and
+ * UActorComponent::ConditionalUpdateTransform(). */
 
 // @baa 0x0093c860
 /* UE3's USkeletalMeshComponent::ForceSkelUpdate(): tick the pose once as if just rendered. */

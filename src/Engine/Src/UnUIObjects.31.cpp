@@ -169,7 +169,7 @@ UBOOL UUIObject::ContainsPoint(const FVector2D& Coordinates)
 /* UUIObject slot 0x1fc (kit vf_1fc, UE3 SetNavigationTarget(LeftTarget, TopTarget, RightTarget, BottomTarget)): when
  * every face accepts its target (slot 0x230, UE3 CanSetNavigationTarget-style), store them and request a position
  * update (slot 0x164) if they changed. */
-INT UUIObject::vf_1fc(INT LeftTarget, INT TopTarget, INT RightTarget, INT BottomTarget)
+UBOOL UUIObject::vf_1fc(class UUIObject* LeftTarget, class UUIObject* TopTarget, class UUIObject* RightTarget, class UUIObject* BottomTarget)
 {
     if (vf_230(0, LeftTarget) && vf_230(1, TopTarget) && vf_230(2, RightTarget) && vf_230(3, BottomTarget))
     {
@@ -212,7 +212,7 @@ INT UUIObject::vf_23c(INT Arg)
 /* UUIObject slot 0x200 (kit vf_200, UE3 SetForcedNavigationTarget(LeftTarget, TopTarget, RightTarget, BottomTarget)):
  * when every face accepts its target (slot 0x230), mark the widget modified (slot 0x18, UE3 Modify), store them and request a position update
  * (slot 0x164) if they changed. */
-INT UUIObject::vf_200(INT LeftTarget, INT TopTarget, INT RightTarget, INT BottomTarget)
+UBOOL UUIObject::vf_200(class UUIObject* LeftTarget, class UUIObject* TopTarget, class UUIObject* RightTarget, class UUIObject* BottomTarget)
 {
     INT bResult = FALSE;
     if (vf_230(0, LeftTarget) && vf_230(1, TopTarget) && vf_230(2, RightTarget) && vf_230(3, BottomTarget))

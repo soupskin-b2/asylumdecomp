@@ -1477,14 +1477,14 @@ void UUIObject::vf_218(int a0, int a1, int a2, int a3) {  }
 void UUIObject::PostEditImport() {  }
 
 // @baa 0x00daab90
-undefined4 UUIObject::vf_230(int param_2, int param_3)
+UBOOL UUIObject::vf_230(INT param_2, class UUIObject* param_3)
 {
     int param_1 = (int)this;
 
   undefined4 uVar1;
   
   uVar1 = 0;
-  if ((param_2 != 4) && (param_3 != param_1)) {
+  if ((param_2 != 4) && (param_3 != this)) {
     uVar1 = 1;
   }
   return uVar1;

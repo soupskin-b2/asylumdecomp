@@ -682,7 +682,7 @@ void sub_00dcc230(void) { sub_00dcb520(); }
 
 // @baa 0x00dcc270
 // @baa 0x00dcc2e0
-int UUIStyle_Data::vf_124(int a0) { return 0; }
+UBOOL UUIStyle_Data::vf_124(class UUIStyle* a0) { return 0; }
 
 // @baa 0x00dcc2f0
 int sub_005c7a20(void);

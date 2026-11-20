@@ -12317,7 +12317,7 @@
     {
      "va": "015e0130",
      "size": 5,
-     "symbol": "?vf_394@ARBMPathNode_GapJump@@UAEHHH@Z"
+     "symbol": "?CanConnectTo@ARBMPathNode_GapJump@@UAEHPAUANavigationPoint@@H@Z"
     },
     {
      "va": "015e01b0",
@@ -12662,7 +12662,7 @@
     {
      "va": "015dfbc0",
      "size": 5,
-     "symbol": "?vf_394@ARBMPathNode_FenceJump@@UAEHHH@Z"
+     "symbol": "?CanConnectTo@ARBMPathNode_FenceJump@@UAEHPAUANavigationPoint@@H@Z"
     },
     {
      "va": "015dfc40",
@@ -204809,7 +204809,7 @@
     {
      "va": "00cc5b90",
      "size": 8,
-     "symbol": "?vf_110@USoundNode@@UAEHH@Z"
+     "symbol": "?IsFinished@USoundNode@@UAEHPAUUAudioComponent@@@Z"
     },
     {
      "va": "00cc5ba0",
@@ -204849,7 +204849,7 @@
     {
      "va": "00cc5d00",
      "size": 5,
-     "symbol": "?vf_110@USoundNodeAmbient@@UAEHH@Z"
+     "symbol": "?IsFinished@USoundNodeAmbient@@UAEHPAUUAudioComponent@@@Z"
     },
     {
      "va": "00cc5d10",
@@ -251872,12 +251872,12 @@
     {
      "va": "00daa990",
      "size": 153,
-     "symbol": "?vf_1fc@UUIObject@@UAEHHHHH@Z"
+     "symbol": "?vf_1fc@UUIObject@@UAEHPAU1@000@Z"
     },
     {
      "va": "00daaaa0",
      "size": 202,
-     "symbol": "?vf_200@UUIObject@@UAEHHHHH@Z"
+     "symbol": "?vf_200@UUIObject@@UAEHPAU1@000@Z"
     },
     {
      "va": "00daab70",
@@ -253074,7 +253074,7 @@
     {
      "va": "00daab90",
      "size": 23,
-     "symbol": "?vf_230@UUIObject@@UAEIHH@Z"
+     "symbol": "?vf_230@UUIObject@@UAEHHPAU1@@Z"
     },
     {
      "va": "00daabd0",
@@ -255678,7 +255678,7 @@
     {
      "va": "00dcc2e0",
      "size": 5,
-     "symbol": "?vf_124@UUIStyle_Data@@UAEHH@Z"
+     "symbol": "?vf_124@UUIStyle_Data@@UAEHPAUUUIStyle@@@Z"
     },
     {
      "va": "00dcc2f0",

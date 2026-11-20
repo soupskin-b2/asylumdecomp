@@ -2103,7 +2103,7 @@ void USkeletalMeshComponent::UpdateTransform()
 		FAttachment& Attachment = Attachments(AttachmentIndex);
 		if (Attachment.Component)
 		{
-			Attachment.Component->sub_00759670();
+			Attachment.Component->ConditionalUpdateTransform();
 		}
 	}
 }
