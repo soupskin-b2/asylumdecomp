@@ -18,18 +18,18 @@ const WORD& ATerrain::Height(INT X, INT Y) const
 
 // @baa 0x0098ba70
 /* UE3's ATerrain::GetInfoData: the info flags at a vertex, clamping the coordinates to the terrain. */
-BYTE* ATerrain::GetInfoData(INT X, INT Y)
+FTerrainInfoData* ATerrain::GetInfoData(INT X, INT Y)
 {
     X = Clamp(X, 0, NumVerticesX - 1);
     Y = Clamp(Y, 0, NumVerticesY - 1);
-    return &InfoData(Y * NumVerticesX + X).Data;
+    return &InfoData(Y * NumVerticesX + X);
 }
 
 // @baa 0x0098baf0
 /* UE3's ATerrain::GetInfoData (const): the info flags at a vertex, clamping the coordinates to the terrain. */
-const BYTE* ATerrain::GetInfoData(INT X, INT Y) const
+const FTerrainInfoData* ATerrain::GetInfoData(INT X, INT Y) const
 {
     X = Clamp(X, 0, NumVerticesX - 1);
     Y = Clamp(Y, 0, NumVerticesY - 1);
-    return &InfoData(Y * NumVerticesX + X).Data;
+    return &InfoData(Y * NumVerticesX + X);
 }

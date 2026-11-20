@@ -50,15 +50,6 @@ void ATerrain::BeginDestroy()
     }
 }
 
-/* Kit gap: FTerrainInfoData is empty in the kit; UE3's is { BYTE Data; } with TID_Visibility_Off = 1, so
- * GetInfoData is bound returning BYTE* (work/0098ba70.cpp). */
-#define TID_Visibility_Off 0x0001
-struct FTerrainInfoData_
-{
-    BYTE Data;
-    UBOOL IsVisible() const { return !(Data & TID_Visibility_Off); }
-};
-
 // @baa 0x0098be90
 /* UE3's ATerrain::IsTerrainComponentVisible: whether any vertex in the area is visible. */
 UBOOL ATerrain::IsTerrainComponentVisible(INT InBaseX, INT InBaseY, INT InSizeX, INT InSizeY)
@@ -67,8 +58,8 @@ UBOOL ATerrain::IsTerrainComponentVisible(INT InBaseX, INT InBaseY, INT InSizeX,
     {
         for (INT X = InBaseX; X < InBaseX + InSizeX; X++)
         {
-            BYTE* InfoData = GetInfoData(X, Y);
-            if (InfoData && ((FTerrainInfoData_*)InfoData)->IsVisible())
+            FTerrainInfoData* InfoData = GetInfoData(X, Y);
+            if (InfoData && InfoData->IsVisible())
             {
                 return TRUE;
             }
@@ -100,8 +91,8 @@ UBOOL ATerrain__0098bf00::IsTerrainComponentVisible(UTerrainComponent* InCompone
     {
         for (INT X = InComponent->SectionBaseX; X < InComponent->SectionBaseX + InComponent->SectionSizeX * MaxTesselationLevel; X++)
         {
-            BYTE* InfoData = GetInfoData(X, Y);
-            if (InfoData && ((FTerrainInfoData_*)InfoData)->IsVisible())
+            FTerrainInfoData* InfoData = GetInfoData(X, Y);
+            if (InfoData && InfoData->IsVisible())
             {
                 return TRUE;
             }
@@ -132,24 +123,15 @@ INT ATerrain::FindSelectedVertexInList(INT X, INT Y, FSelectedTerrainVertex*& Ou
 /* Whether the vertex (quad) at (X, Y) is visible. */
 UBOOL ATerrain::IsTerrainQuadVisible(INT X, INT Y) const
 {
-    return ((const FTerrainInfoData_*)GetInfoData(X, Y))->IsVisible();
+    return GetInfoData(X, Y)->IsVisible();
 }
-
-/* Kit gap: FNativeLightMap's slot 0x8 is declared without arguments; UE3's FLightMap::AddReferencedObjects takes
- * the object array (passed as the kit's INT here). */
-struct FLightMap_
-{
-    virtual void vf000();
-    virtual void vf004();
-    virtual void AddReferencedObjects(TArray<UObject*>& ObjectArray);
-};
 
 // @baa 0x00986fb0
 /* UTerrainComponent slot 0xe8 (UE3's AddReferencedObjects(TArray<UObject*>&)): the light map's objects too. */
 void UTerrainComponent::AddReferencedObjects(TArray<class UObject*>& ObjectArray)
 {
     Super::AddReferencedObjects(ObjectArray);
-    FLightMap_* LightMapPtr = (FLightMap_*)LightMap.Reference.Dummy;
+    FNativeLightMap* LightMapPtr = (FNativeLightMap*)LightMap.Reference.Dummy;
     if (LightMapPtr)
     {
         LightMapPtr->AddReferencedObjects(ObjectArray);

@@ -119523,7 +119523,7 @@
     {
      "va": "01063050",
      "size": 23,
-     "symbol": "??ETConstSetBitIterator_01063050@@QAEAAU0@XZ"
+     "symbol": "??E?$TBaseIterator@$00@?$TSparseArray@H@@QAEAAV01@XZ"
     },
     {
      "va": "010630f0",
@@ -119538,12 +119538,12 @@
     {
      "va": "01063190",
      "size": 23,
-     "symbol": "??ETConstSetBitIterator_01063190@@QAEAAU0@XZ"
+     "symbol": "??EFSparseArrayConstIt_01063050@@QAEAAU0@XZ"
     },
     {
      "va": "010631b0",
      "size": 23,
-     "symbol": "??ETConstSetBitIterator_010631b0@@QAEAAU0@XZ"
+     "symbol": "??EFSparseArrayConstIt_01063190@@QAEAAU0@XZ"
     },
     {
      "va": "010631d0",
@@ -119553,12 +119553,12 @@
     {
      "va": "01063230",
      "size": 23,
-     "symbol": "??ETConstSetBitIterator_01063230@@QAEAAU0@XZ"
+     "symbol": "??EFSparseArrayConstIt_010631b0@@QAEAAU0@XZ"
     },
     {
      "va": "01063250",
      "size": 23,
-     "symbol": "??ETConstSetBitIterator_01063250@@QAEAAU0@XZ"
+     "symbol": "??EFSparseArrayConstIt_01063230@@QAEAAU0@XZ"
     },
     {
      "va": "01063270",
@@ -119573,32 +119573,32 @@
     {
      "va": "010637f0",
      "size": 23,
-     "symbol": "??ETConstSetBitIterator_010637f0@@QAEAAU0@XZ"
+     "symbol": "??EFSparseArrayConstIt_01063250@@QAEAAU0@XZ"
     },
     {
      "va": "010639f0",
      "size": 23,
-     "symbol": "??ETConstSetBitIterator_010639f0@@QAEAAU0@XZ"
+     "symbol": "??EFSparseArrayConstIt_010637f0@@QAEAAU0@XZ"
     },
     {
      "va": "01063a10",
      "size": 23,
-     "symbol": "??ETConstSetBitIterator_01063a10@@QAEAAU0@XZ"
+     "symbol": "??EFSparseArrayConstIt_010639f0@@QAEAAU0@XZ"
     },
     {
      "va": "01063a30",
      "size": 23,
-     "symbol": "??ETConstSetBitIterator_01063a30@@QAEAAU0@XZ"
+     "symbol": "??EFSparseArrayConstIt_01063a10@@QAEAAU0@XZ"
     },
     {
      "va": "01063a50",
      "size": 23,
-     "symbol": "??ETConstSetBitIterator_01063a50@@QAEAAU0@XZ"
+     "symbol": "??EFSparseArrayConstIt_01063a30@@QAEAAU0@XZ"
     },
     {
      "va": "01063bb0",
      "size": 23,
-     "symbol": "??ETConstSetBitIterator_01063bb0@@QAEAAU0@XZ"
+     "symbol": "??EFSparseArrayConstIt_01063a50@@QAEAAU0@XZ"
     },
     {
      "va": "010688f0",
@@ -119608,7 +119608,7 @@
     {
      "va": "01068a20",
      "size": 23,
-     "symbol": "??ETConstSetBitIterator_01068a20@@QAEAAU0@XZ"
+     "symbol": "??EFSparseArrayConstIt_01063bb0@@QAEAAU0@XZ"
     },
     {
      "va": "01068a40",
@@ -119623,22 +119623,22 @@
     {
      "va": "01068b60",
      "size": 23,
-     "symbol": "??ETConstSetBitIterator_01068b60@@QAEAAU0@XZ"
+     "symbol": "??EFSparseArrayConstIt_01068a20@@QAEAAU0@XZ"
     },
     {
      "va": "01068b80",
      "size": 23,
-     "symbol": "??ETConstSetBitIterator_01068b80@@QAEAAU0@XZ"
+     "symbol": "??EFSparseArrayConstIt_01068b60@@QAEAAU0@XZ"
     },
     {
      "va": "01068ba0",
      "size": 23,
-     "symbol": "??ETConstSetBitIterator_01068ba0@@QAEAAU0@XZ"
+     "symbol": "??EFSparseArrayConstIt_01068b80@@QAEAAU0@XZ"
     },
     {
      "va": "01068bc0",
      "size": 23,
-     "symbol": "??ETConstSetBitIterator_01068bc0@@QAEAAU0@XZ"
+     "symbol": "??EFSparseArrayConstIt_01068ba0@@QAEAAU0@XZ"
     },
     {
      "va": "010768f0",
@@ -165137,52 +165137,52 @@
     {
      "va": "01063810",
      "size": 78,
-     "symbol": "??0TConstSetBitIterator_01063810@@QAE@ABUTBitArray@@H@Z"
+     "symbol": "??0?$TBaseIterator@$00@?$TSparseArray@H@@QAE@ABV1@H@Z"
     },
     {
      "va": "01063860",
      "size": 78,
-     "symbol": "??0TConstSetBitIterator_01063860@@QAE@ABUTBitArray@@H@Z"
+     "symbol": "??0TConstIterator@?$TSparseArray@H@@QAE@ABV1@H@Z"
     },
     {
      "va": "010638b0",
      "size": 78,
-     "symbol": "??0TConstSetBitIterator_010638b0@@QAE@ABUTBitArray@@H@Z"
+     "symbol": "??0FSparseArrayConstIt_01063810@@QAE@ABV?$TSparseArray@H@@H@Z"
     },
     {
      "va": "01063900",
      "size": 78,
-     "symbol": "??0TConstSetBitIterator_01063900@@QAE@ABUTBitArray@@H@Z"
+     "symbol": "??0FSparseArrayConstIt_01063860@@QAE@ABV?$TSparseArray@H@@H@Z"
     },
     {
      "va": "01063950",
      "size": 78,
-     "symbol": "??0TConstSetBitIterator_01063950@@QAE@ABUTBitArray@@H@Z"
+     "symbol": "??0FSparseArrayConstIt_010638b0@@QAE@ABV?$TSparseArray@H@@H@Z"
     },
     {
      "va": "010639a0",
      "size": 78,
-     "symbol": "??0TConstSetBitIterator_010639a0@@QAE@ABUTBitArray@@H@Z"
+     "symbol": "??0FSparseArrayConstIt_01063900@@QAE@ABV?$TSparseArray@H@@H@Z"
     },
     {
      "va": "01063a70",
      "size": 78,
-     "symbol": "??0TConstSetBitIterator_01063a70@@QAE@ABUTBitArray@@H@Z"
+     "symbol": "??0FSparseArrayConstIt_01063950@@QAE@ABV?$TSparseArray@H@@H@Z"
     },
     {
      "va": "01063ac0",
      "size": 78,
-     "symbol": "??0TConstSetBitIterator_01063ac0@@QAE@ABUTBitArray@@H@Z"
+     "symbol": "??0FSparseArrayConstIt_010639a0@@QAE@ABV?$TSparseArray@H@@H@Z"
     },
     {
      "va": "01063b10",
      "size": 78,
-     "symbol": "??0TConstSetBitIterator_01063b10@@QAE@ABUTBitArray@@H@Z"
+     "symbol": "??0FSparseArrayConstIt_01063a70@@QAE@ABV?$TSparseArray@H@@H@Z"
     },
     {
      "va": "01063b60",
      "size": 78,
-     "symbol": "??0TConstSetBitIterator_01063b60@@QAE@ABUTBitArray@@H@Z"
+     "symbol": "??0FSparseArrayConstIt_01063ac0@@QAE@ABV?$TSparseArray@H@@H@Z"
     },
     {
      "va": "010686d0",
@@ -173505,47 +173505,47 @@
     {
      "va": "006c9310",
      "size": 78,
-     "symbol": "??0TConstSetBitIterator_006c9310@@QAE@ABUTBitArray@@H@Z"
+     "symbol": "??0?$TBaseIterator@$00@?$TSparseArray@H@@QAE@ABV1@H@Z"
     },
     {
      "va": "006c9360",
      "size": 78,
-     "symbol": "??0TConstSetBitIterator_006c9360@@QAE@ABUTBitArray@@H@Z"
+     "symbol": "??0TConstIterator@?$TSparseArray@H@@QAE@ABV1@H@Z"
     },
     {
      "va": "006c93b0",
      "size": 78,
-     "symbol": "??0TConstSetBitIterator_006c93b0@@QAE@ABUTBitArray@@H@Z"
+     "symbol": "??0FSparseArrayConstIt_006c9310@@QAE@ABV?$TSparseArray@H@@H@Z"
     },
     {
      "va": "006c9400",
      "size": 23,
-     "symbol": "??ETConstSetBitIterator_006c9400@@QAEAAU0@XZ"
+     "symbol": "??E?$TBaseIterator@$00@?$TSparseArray@H@@QAEAAV01@XZ"
     },
     {
      "va": "006c9420",
      "size": 23,
-     "symbol": "??ETConstSetBitIterator_006c9420@@QAEAAU0@XZ"
+     "symbol": "??EFSparseArrayConstIt_006c9400@@QAEAAU0@XZ"
     },
     {
      "va": "006c94a0",
      "size": 78,
-     "symbol": "??0TConstSetBitIterator_006c94a0@@QAE@ABUTBitArray@@H@Z"
+     "symbol": "??0FSparseArrayConstIt_006c9360@@QAE@ABV?$TSparseArray@H@@H@Z"
     },
     {
      "va": "006c94f0",
      "size": 78,
-     "symbol": "??0TConstSetBitIterator_006c94f0@@QAE@ABUTBitArray@@H@Z"
+     "symbol": "??0FSparseArrayConstIt_006c93b0@@QAE@ABV?$TSparseArray@H@@H@Z"
     },
     {
      "va": "006c9540",
      "size": 78,
-     "symbol": "??0TConstSetBitIterator_006c9540@@QAE@ABUTBitArray@@H@Z"
+     "symbol": "??0FSparseArrayConstIt_006c94a0@@QAE@ABV?$TSparseArray@H@@H@Z"
     },
     {
      "va": "006cbc10",
      "size": 23,
-     "symbol": "??ETConstSetBitIterator_006cbc10@@QAEAAU0@XZ"
+     "symbol": "??EFSparseArrayConstIt_006c9420@@QAEAAU0@XZ"
     },
     {
      "va": "006cbc30",
@@ -173555,27 +173555,27 @@
     {
      "va": "006cbd40",
      "size": 78,
-     "symbol": "??0TConstSetBitIterator_006cbd40@@QAE@ABUTBitArray@@H@Z"
+     "symbol": "??0FSparseArrayConstIt_006c94f0@@QAE@ABV?$TSparseArray@H@@H@Z"
     },
     {
      "va": "006cbd90",
      "size": 78,
-     "symbol": "??0TConstSetBitIterator_006cbd90@@QAE@ABUTBitArray@@H@Z"
+     "symbol": "??0FSparseArrayConstIt_006c9540@@QAE@ABV?$TSparseArray@H@@H@Z"
     },
     {
      "va": "006cbde0",
      "size": 23,
-     "symbol": "??ETConstSetBitIterator_006cbde0@@QAEAAU0@XZ"
+     "symbol": "??EFSparseArrayConstIt_006cbc10@@QAEAAU0@XZ"
     },
     {
      "va": "006cbe00",
      "size": 78,
-     "symbol": "??0TConstSetBitIterator_006cbe00@@QAE@ABUTBitArray@@H@Z"
+     "symbol": "??0FSparseArrayConstIt_006cbd40@@QAE@ABV?$TSparseArray@H@@H@Z"
     },
     {
      "va": "006cc090",
      "size": 23,
-     "symbol": "??ETConstSetBitIterator_006cc090@@QAEAAU0@XZ"
+     "symbol": "??EFSparseArrayConstIt_006cbde0@@QAEAAU0@XZ"
     },
     {
      "va": "006cc0b0",
@@ -173590,7 +173590,7 @@
     {
      "va": "006cc260",
      "size": 23,
-     "symbol": "??ETConstSetBitIterator_006cc260@@QAEAAU0@XZ"
+     "symbol": "??EFSparseArrayConstIt_006cc090@@QAEAAU0@XZ"
     },
     {
      "va": "006cc280",
@@ -173605,27 +173605,27 @@
     {
      "va": "006cc2c0",
      "size": 78,
-     "symbol": "??0TConstSetBitIterator_006cc2c0@@QAE@ABUTBitArray@@H@Z"
+     "symbol": "??0FSparseArrayConstIt_006cbd90@@QAE@ABV?$TSparseArray@H@@H@Z"
     },
     {
      "va": "006cc310",
      "size": 78,
-     "symbol": "??0TConstSetBitIterator_006cc310@@QAE@ABUTBitArray@@H@Z"
+     "symbol": "??0FSparseArrayConstIt_006cbe00@@QAE@ABV?$TSparseArray@H@@H@Z"
     },
     {
      "va": "006cc360",
      "size": 78,
-     "symbol": "??0TConstSetBitIterator_006cc360@@QAE@ABUTBitArray@@H@Z"
+     "symbol": "??0FSparseArrayConstIt_006cc2c0@@QAE@ABV?$TSparseArray@H@@H@Z"
     },
     {
      "va": "006cd8d0",
      "size": 78,
-     "symbol": "??0TConstSetBitIterator_006cd8d0@@QAE@ABUTBitArray@@H@Z"
+     "symbol": "??0FSparseArrayConstIt_006cc310@@QAE@ABV?$TSparseArray@H@@H@Z"
     },
     {
      "va": "006cd920",
      "size": 78,
-     "symbol": "??0TConstSetBitIterator_006cd920@@QAE@ABUTBitArray@@H@Z"
+     "symbol": "??0FSparseArrayConstIt_006cc360@@QAE@ABV?$TSparseArray@H@@H@Z"
     },
     {
      "va": "006d1680",
@@ -173635,7 +173635,7 @@
     {
      "va": "006d16a0",
      "size": 78,
-     "symbol": "??0TConstSetBitIterator_006d16a0@@QAE@ABUTBitArray@@H@Z"
+     "symbol": "??0FSparseArrayConstIt_006cd8d0@@QAE@ABV?$TSparseArray@H@@H@Z"
     },
     {
      "va": "006d1800",
@@ -173690,7 +173690,7 @@
     {
      "va": "006d30c0",
      "size": 78,
-     "symbol": "??0TConstSetBitIterator_006d30c0@@QAE@ABUTBitArray@@H@Z"
+     "symbol": "??0FSparseArrayConstIt_006cd920@@QAE@ABV?$TSparseArray@H@@H@Z"
     },
     {
      "va": "006d3110",
@@ -173820,7 +173820,7 @@
     {
      "va": "006d4020",
      "size": 78,
-     "symbol": "??0TConstSetBitIterator_006d4020@@QAE@ABUTBitArray@@H@Z"
+     "symbol": "??0FSparseArrayConstIt_006d16a0@@QAE@ABV?$TSparseArray@H@@H@Z"
     },
     {
      "va": "006d4070",
@@ -240048,42 +240048,42 @@
     {
      "va": "00936430",
      "size": 23,
-     "symbol": "??ETConstSetBitIterator_00936430@@QAEAAU0@XZ"
+     "symbol": "??E?$TBaseIterator@$00@?$TSparseArray@H@@QAEAAV01@XZ"
     },
     {
      "va": "00936450",
      "size": 23,
-     "symbol": "??ETConstSetBitIterator_00936450@@QAEAAU0@XZ"
+     "symbol": "??EFSparseArrayConstIt_00936430@@QAEAAU0@XZ"
     },
     {
      "va": "00936470",
      "size": 23,
-     "symbol": "??ETConstSetBitIterator_00936470@@QAEAAU0@XZ"
+     "symbol": "??EFSparseArrayConstIt_00936450@@QAEAAU0@XZ"
     },
     {
      "va": "00936490",
      "size": 78,
-     "symbol": "??0TConstSetBitIterator_00936490@@QAE@ABUTBitArray@@H@Z"
+     "symbol": "??0?$TBaseIterator@$00@?$TSparseArray@H@@QAE@ABV1@H@Z"
     },
     {
      "va": "009364e0",
      "size": 78,
-     "symbol": "??0TConstSetBitIterator_009364e0@@QAE@ABUTBitArray@@H@Z"
+     "symbol": "??0TConstIterator@?$TSparseArray@H@@QAE@ABV1@H@Z"
     },
     {
      "va": "00936530",
      "size": 78,
-     "symbol": "??0TConstSetBitIterator_00936530@@QAE@ABUTBitArray@@H@Z"
+     "symbol": "??0FSparseArrayConstIt_00936490@@QAE@ABV?$TSparseArray@H@@H@Z"
     },
     {
      "va": "009365e0",
      "size": 78,
-     "symbol": "??0TConstSetBitIterator_009365e0@@QAE@ABUTBitArray@@H@Z"
+     "symbol": "??0FSparseArrayConstIt_009364e0@@QAE@ABV?$TSparseArray@H@@H@Z"
     },
     {
      "va": "00936690",
      "size": 78,
-     "symbol": "??0TConstSetBitIterator_00936690@@QAE@ABUTBitArray@@H@Z"
+     "symbol": "??0FSparseArrayConstIt_00936530@@QAE@ABV?$TSparseArray@H@@H@Z"
     },
     {
      "va": "00937e40",
@@ -240103,17 +240103,17 @@
     {
      "va": "00938270",
      "size": 23,
-     "symbol": "??ETConstSetBitIterator_00938270@@QAEAAU0@XZ"
+     "symbol": "??EFSparseArrayConstIt_00936470@@QAEAAU0@XZ"
     },
     {
      "va": "00938290",
      "size": 23,
-     "symbol": "??ETConstSetBitIterator_00938290@@QAEAAU0@XZ"
+     "symbol": "??EFSparseArrayConstIt_00938270@@QAEAAU0@XZ"
     },
     {
      "va": "009382b0",
      "size": 23,
-     "symbol": "??ETConstSetBitIterator_009382b0@@QAEAAU0@XZ"
+     "symbol": "??EFSparseArrayConstIt_00938290@@QAEAAU0@XZ"
     },
     {
      "va": "009382d0",
@@ -240133,22 +240133,22 @@
     {
      "va": "00938760",
      "size": 78,
-     "symbol": "??0TConstSetBitIterator_00938760@@QAE@ABUTBitArray@@H@Z"
+     "symbol": "??0FSparseArrayConstIt_009365e0@@QAE@ABV?$TSparseArray@H@@H@Z"
     },
     {
      "va": "009388b0",
      "size": 78,
-     "symbol": "??0TConstSetBitIterator_009388b0@@QAE@ABUTBitArray@@H@Z"
+     "symbol": "??0FSparseArrayConstIt_00936690@@QAE@ABV?$TSparseArray@H@@H@Z"
     },
     {
      "va": "0093cbf0",
      "size": 23,
-     "symbol": "??ETConstSetBitIterator_0093cbf0@@QAEAAU0@XZ"
+     "symbol": "??EFSparseArrayConstIt_009382b0@@QAEAAU0@XZ"
     },
     {
      "va": "0093cc10",
      "size": 23,
-     "symbol": "??ETConstSetBitIterator_0093cc10@@QAEAAU0@XZ"
+     "symbol": "??EFSparseArrayConstIt_0093cbf0@@QAEAAU0@XZ"
     },
     {
      "va": "0093cc30",
@@ -240158,17 +240158,17 @@
     {
      "va": "0093cec0",
      "size": 78,
-     "symbol": "??0TConstSetBitIterator_0093cec0@@QAE@ABUTBitArray@@H@Z"
+     "symbol": "??0FSparseArrayConstIt_00938760@@QAE@ABV?$TSparseArray@H@@H@Z"
     },
     {
      "va": "0093cfd0",
      "size": 78,
-     "symbol": "??0TConstSetBitIterator_0093cfd0@@QAE@ABUTBitArray@@H@Z"
+     "symbol": "??0FSparseArrayConstIt_009388b0@@QAE@ABV?$TSparseArray@H@@H@Z"
     },
     {
      "va": "0093d0e0",
      "size": 78,
-     "symbol": "??0TConstSetBitIterator_0093d0e0@@QAE@ABUTBitArray@@H@Z"
+     "symbol": "??0FSparseArrayConstIt_0093cec0@@QAE@ABV?$TSparseArray@H@@H@Z"
     },
     {
      "va": "0093d310",
@@ -240218,12 +240218,12 @@
     {
      "va": "0093e010",
      "size": 78,
-     "symbol": "??0TConstSetBitIterator_0093e010@@QAE@ABUTBitArray@@H@Z"
+     "symbol": "??0FSparseArrayConstIt_0093cfd0@@QAE@ABV?$TSparseArray@H@@H@Z"
     },
     {
      "va": "0093e060",
      "size": 78,
-     "symbol": "??0TConstSetBitIterator_0093e060@@QAE@ABUTBitArray@@H@Z"
+     "symbol": "??0FSparseArrayConstIt_0093d0e0@@QAE@ABV?$TSparseArray@H@@H@Z"
     },
     {
      "va": "0093e0b0",
@@ -240293,12 +240293,12 @@
     {
      "va": "00940380",
      "size": 78,
-     "symbol": "??0TConstSetBitIterator_00940380@@QAE@ABUTBitArray@@H@Z"
+     "symbol": "??0FSparseArrayConstIt_0093e010@@QAE@ABV?$TSparseArray@H@@H@Z"
     },
     {
      "va": "009403d0",
      "size": 78,
-     "symbol": "??0TConstSetBitIterator_009403d0@@QAE@ABUTBitArray@@H@Z"
+     "symbol": "??0FSparseArrayConstIt_0093e060@@QAE@ABV?$TSparseArray@H@@H@Z"
     },
     {
      "va": "00940420",
@@ -243241,12 +243241,12 @@
     {
      "va": "0098ba70",
      "size": 126,
-     "symbol": "?GetInfoData@ATerrain@@QAEPAEHH@Z"
+     "symbol": "?GetInfoData@ATerrain@@QAEPAUFTerrainInfoData@@HH@Z"
     },
     {
      "va": "0098baf0",
      "size": 126,
-     "symbol": "?GetInfoData@ATerrain@@QBEPBEHH@Z"
+     "symbol": "?GetInfoData@ATerrain@@QBEPBUFTerrainInfoData@@HH@Z"
     }
    ]
   },

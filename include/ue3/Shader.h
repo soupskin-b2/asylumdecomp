@@ -65,6 +65,8 @@ public:
 	virtual FMaterialShaderType* GetMaterialShaderType();
 	virtual FMeshMaterialShaderType* GetMeshMaterialShaderType();
 
+	const TCHAR* GetName() const { return Name; }
+
 private:
 	DWORD HashIndex;
 	const TCHAR* Name;
@@ -181,6 +183,53 @@ class FMaterialShader : public FShader
 
 class FMeshMaterialShader : public FMaterialShader
 {
+};
+
+/* RefCounting.h: a counted reference (only what the shader map's lookup uses). */
+template<typename ReferencedType>
+class TRefCountPtr
+{
+public:
+	FORCEINLINE operator ReferencedType*() const { return Reference; }
+	FORCEINLINE ReferencedType* GetReference() const { return Reference; }
+
+private:
+	ReferencedType* Reference;
+};
+
+/* ShaderManager.h: the shaders of one platform, by type. GetShader<T>() is instantiated out of line per shader
+ * class (e.g.  template TFilterPixelShader<1>* TShaderMap<FGlobalShaderType>::GetShader<TFilterPixelShader<1> >() const;). */
+template<typename ShaderMetaType>
+class TShaderMap
+{
+public:
+	/* Finds the shader of the given type; it is an error for the map not to have it. */
+	template<typename ShaderType>
+	ShaderType* GetShader() const
+	{
+		const TRefCountPtr<FShader>* ShaderRef = Shaders.Find(&ShaderType::StaticType);
+		if (!(ShaderRef != NULL && *ShaderRef != NULL))
+			appFailAssert("ShaderRef != NULL && *ShaderRef != NULL", "e:\\projects\\amadeus\\aa\\game\\unrealengine3\\development\\src\\engine\\inc\\ShaderManager.h", 647, TEXT("Failed to find shader type %s"), ShaderType::StaticType.GetName());
+		return (ShaderType*)(FShader*)*ShaderRef;
+	}
+
+private:
+	TMap<FShaderType*, TRefCountPtr<FShader> > Shaders;
+};
+
+/* GlobalShader.h: a reference to a shader of a shader map, found by its type. */
+template<typename ShaderType>
+class TShaderMapRef
+{
+public:
+	TShaderMapRef(const TShaderMap<typename ShaderType::ShaderMetaType>* ShaderIndex)
+	:	Shader(ShaderIndex->template GetShader<ShaderType>())
+	{}
+	FORCEINLINE ShaderType* operator->() const { return Shader; }
+	FORCEINLINE ShaderType* operator*() const { return Shader; }
+
+private:
+	ShaderType* Shader;
 };
 
 /* Gives a shader class its type. The two Construct functions are defined by this macro in the

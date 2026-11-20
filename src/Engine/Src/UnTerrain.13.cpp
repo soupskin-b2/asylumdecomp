@@ -14,7 +14,6 @@ void ATerrain::ClampVertex(INT& X, INT& Y) const
     Y = Clamp(Y, 0, NumVerticesY - 1);
 }
 
-#define PF_DXT1 5
 #define TERRAIN_PATCH_EXPAND_SCALAR 2
 // @baa 0x009a6780
 /* UTerrainComponent slot 0x158 (GetLightMapResolution; this build's returns void): the light map size, the

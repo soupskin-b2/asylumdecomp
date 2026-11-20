@@ -3,6 +3,7 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
 #include "ue3/Script.h"
+#include "ue3/Shader.h"
 
 /* SceneFilterRendering.cpp: binds the Gaussian-filter shaders for a number of samples.
  * The rendering types below are not in the headers; they are declared as far as this function
@@ -22,38 +23,8 @@ typedef FD3D9VertexDeclaration* FVertexDeclarationRHIRef;
 
 enum EShaderPlatform;
 extern EShaderPlatform GRHIShaderPlatform;
-class FShader
-{
-};
-
-class FGlobalShader : public FShader
-{
-};
-
-class FGlobalShaderType;
-/* The shaders of one platform, by type. */
-template<typename ShaderMetaType>
-class TShaderMap
-{
-public:
-	template<typename ShaderType> ShaderType* GetShader() const;
-};
 
 TShaderMap<FGlobalShaderType>* GetGlobalShaderMap(EShaderPlatform Platform = GRHIShaderPlatform);
-/* A reference to a shader of a shader map, found by its type. */
-template<typename ShaderType>
-class TShaderMapRef
-{
-public:
-	TShaderMapRef(const TShaderMap<typename ShaderType::ShaderMetaType>* ShaderIndex)
-	:	Shader(ShaderIndex->GetShader<ShaderType>())
-	{}
-	FORCEINLINE ShaderType* operator->() const { return Shader; }
-	FORCEINLINE ShaderType* operator*() const { return Shader; }
-
-private:
-	ShaderType* Shader;
-};
 
 /* A bound shader state that is created on first use and shared by every draw call of its site. */
 class FGlobalBoundShaderState
@@ -95,8 +66,7 @@ extern FFilterVertexDeclaration GFilterVertexDeclaration;
 template<UINT NumSamples>
 class TFilterPixelShader : public FGlobalShader
 {
-public:
-	typedef FGlobalShaderType ShaderMetaType;
+	DECLARE_SHADER_TYPE(TFilterPixelShader, Global);
 
 	void SetParameters(FSamplerStateRHIParamRef SamplerStateRHI, FTextureRHIParamRef TextureRHI, const FLinearColor* SampleWeights);
 };
@@ -104,8 +74,7 @@ public:
 template<UINT NumSamples>
 class TFilterVertexShader : public FGlobalShader
 {
-public:
-	typedef FGlobalShaderType ShaderMetaType;
+	DECLARE_SHADER_TYPE(TFilterVertexShader, Global);
 
 	void SetParameters(const FVector2D* SampleOffsets);
 };

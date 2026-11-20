@@ -2,155 +2,9 @@
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Core.h"
+#include "ue3/Shader.h"
 
-/* ShaderManager.h: TShaderMap::GetShader, the lookup of a shader by its type that a
- * TShaderMapRef<ShaderType> does. The containers and the shader classes are not in the headers;
- * they are declared here as far as the lookup uses them (UnSet.h, UnMap.h, RefCounting.h,
- * Shader.h). */
-#define checkf(expr, ...) { if (!(expr)) appFailAssert(#expr, __FILE__, __LINE__, ##__VA_ARGS__); }
-/* The index of an element of a set, INDEX_NONE for none. */
-class FSetElementId
-{
-public:
-	FSetElementId() : Index(INDEX_NONE) {}
-	UBOOL IsValidId() const { return Index != INDEX_NONE; }
-	operator INT() const { return Index; }
-
-private:
-	INT Index;
-};
-
-/* A set: its elements, each with the links of its hash bucket, and the buckets. */
-template<typename ElementType, typename KeyInitType>
-class TSet
-{
-public:
-	FSetElementId FindId(KeyInitType Key) const;
-
-	ElementType* Find(KeyInitType Key)
-	{
-		FSetElementId ElementId = FindId(Key);
-		if (ElementId.IsValidId())
-		{
-			return &Elements[ElementId].Value;
-		}
-		else
-		{
-			return NULL;
-		}
-	}
-	const ElementType* Find(KeyInitType Key) const
-	{
-		FSetElementId ElementId = FindId(Key);
-		if (ElementId.IsValidId())
-		{
-			return &Elements[ElementId].Value;
-		}
-		else
-		{
-			return NULL;
-		}
-	}
-
-private:
-	class FElement
-	{
-	public:
-		ElementType Value;
-		mutable FSetElementId HashNextId;
-		mutable INT HashIndex;
-	};
-
-	/* TSparseArray<FElement>: the elements, then the allocation flags and the free list. */
-	FElement* Elements;
-};
-
-/* A map: a set of key and value pairs. */
-template<typename KeyType, typename ValueType>
-class TMap
-{
-public:
-	ValueType* Find(KeyType Key)
-	{
-		FPair* Pair = Pairs.Find(Key);
-		return Pair ? &Pair->Value : NULL;
-	}
-	const ValueType* Find(KeyType Key) const
-	{
-		const FPair* Pair = Pairs.Find(Key);
-		return Pair ? &Pair->Value : NULL;
-	}
-
-private:
-	class FPair
-	{
-	public:
-		KeyType Key;
-		ValueType Value;
-	};
-
-	TSet<FPair, KeyType> Pairs;
-};
-
-/* A counted reference to an object. */
-template<typename ReferencedType>
-class TRefCountPtr
-{
-public:
-	FORCEINLINE operator ReferencedType*() const { return Reference; }
-
-private:
-	ReferencedType* Reference;
-};
-
-class FShaderType
-{
-public:
-	virtual ~FShaderType();
-
-	const TCHAR* GetName() const { return Name; }
-
-private:
-	DWORD HashIndex;
-	const TCHAR* Name;
-};
-
-class FShader
-{
-};
-
-/* The type of a shader that does not depend on a material. */
-class FGlobalShaderType : public FShaderType
-{
-};
-
-class FGlobalShader : public FShader
-{
-};
-
-/* Gives a shader class its type: the description its shaders are compiled and looked up by. */
-#define DECLARE_SHADER_TYPE(ShaderClass, ShaderMetaTypeShortcut) \
-	public: \
-	typedef F##ShaderMetaTypeShortcut##ShaderType ShaderMetaType; \
-	static ShaderMetaType StaticType
-/* The shaders of one platform, by type. */
-template<typename ShaderMetaType>
-class TShaderMap
-{
-public:
-	/* Finds the shader of the given type; it is an error for the map not to have it. */
-	template<typename ShaderType>
-	ShaderType* GetShader() const
-	{
-#line 646 "e:\\projects\\amadeus\\aa\\game\\unrealengine3\\development\\src\\engine\\inc\\ShaderManager.h"
-		const TRefCountPtr<FShader>* ShaderRef = Shaders.Find(&ShaderType::StaticType);
-		checkf(ShaderRef != NULL && *ShaderRef != NULL, TEXT("Failed to find shader type %s"), ShaderType::StaticType.GetName());
-		return (ShaderType*)(FShader*)*ShaderRef;
-	}
-
-private:
-	TMap<FShaderType*, TRefCountPtr<FShader> > Shaders;
-};
+/* The shader classes, as far as TShaderMap::GetShader<T> (Shader.h) needs them: their StaticType. */
 
 class TBranchingPCFModProjectionPixelShaderFDirectionalLightPolicyFMediumQualityFetch4PCF : public FGlobalShader
 {
@@ -783,15 +637,6 @@ template THeightFogVertexShader<4>* TShaderMap<FGlobalShaderType>::GetShader<THe
 // @baa 0x00a88380
 template THeightFogPixelShader<4>* TShaderMap<FGlobalShaderType>::GetShader<THeightFogPixelShader<4> >() const;
 
-/* The type of a shader that is compiled once per material. */
-class FMaterialShaderType : public FShaderType
-{
-};
-
-class FMaterialShader : public FShader
-{
-};
-
 class FLightFunctionVertexShader : public FMaterialShader
 {
 	DECLARE_SHADER_TYPE(FLightFunctionVertexShader, Material);
@@ -1061,15 +906,6 @@ class FLDRExtractPixelShader : public FGlobalShader
 
 // @baa 0x00b14680
 template FLDRExtractPixelShader* TShaderMap<FGlobalShaderType>::GetShader<FLDRExtractPixelShader >() const;
-
-/* The type of a shader that is compiled once per material and vertex factory. */
-class FMeshMaterialShaderType : public FShaderType
-{
-};
-
-class FMeshMaterialShader : public FMaterialShader
-{
-};
 
 class FVelocityVertexShader : public FMeshMaterialShader
 {

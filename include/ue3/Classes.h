@@ -3443,7 +3443,7 @@ struct IUITickableObject {
 };
 
 struct FNativeLightMap {
-    virtual void LightMap_vf000(); virtual void LightMap_vf004(); virtual void LightMap_vf008();
+    virtual void LightMap_vf000(); virtual void LightMap_vf004(); virtual void AddReferencedObjects(TArray<class UObject*>& ObjectArray); /* FLightMap's */
     virtual void LightMap_vf00c(); virtual void LightMap_vf010(); virtual void LightMap_vf014();
     virtual void LightMap_vf018(); virtual void LightMap_vf01c(); virtual void ReleaseResource();
     BYTE _data[0x10]; INT RefCount;
@@ -7311,8 +7311,19 @@ struct FTerrainHeight {
 };
 
 struct FTerrainInfoData {
-    /* Engine.TerrainInfoData */
+    /* Engine.TerrainInfoData (UnTerrain.h): a vertex's flags */
     BYTE Data; /* 0x0 */
+    enum InfoFlags
+    {
+        TID_Visibility_Off = 0x0001,
+        TID_OrientationFlip = 0x0002,
+        TID_Unreachable = 0x0004,
+        TID_Locked = 0x0008,
+    };
+    inline UBOOL IsVisible() const { return ((Data & TID_Visibility_Off) == 0); }
+    inline UBOOL IsOrientationFlipped() const { return ((Data & TID_OrientationFlip) != 0); }
+    inline UBOOL IsUnreachable() const { return ((Data & TID_Unreachable) != 0); }
+    inline UBOOL IsLocked() const { return ((Data & TID_Locked) != 0); }
 };
 
 struct FTerrainWeightedMaterial {
@@ -33784,8 +33795,8 @@ struct ATerrain : public AInfo {
     FRenderCommandFence* GetReleaseResourcesFence(); /* 0x00982010: created on first use */
     void sub_00759430(UBOOL); /* 0x00759430 */
     const WORD& Height(INT X, INT Y) const; /* 0x0098b970 */
-    BYTE* GetInfoData(INT X, INT Y); /* 0x0098ba70 */
-    const BYTE* GetInfoData(INT X, INT Y) const; /* 0x0098baf0 */
+    FTerrainInfoData* GetInfoData(INT X, INT Y); /* 0x0098ba70 */
+    const FTerrainInfoData* GetInfoData(INT X, INT Y) const; /* 0x0098baf0 */
     void CalcLayerBounds(); /* 0x00997960 */
     FVector GetLocalVertex(INT X, INT Y) const; /* 0x0098bfb0 */
     UBOOL IsTerrainQuadVisible(INT X, INT Y) const; /* 0x0098bb70 */
@@ -66388,7 +66399,8 @@ struct UUISceneManager : public UObject, public FGlobalDataStoreClientManager, p
     DECLARE_CLASS(UUISceneManager, UObject, 0xc, 0x0, UnrealEd)
     UUISceneManager(); /* 0x014bdca0 */
     static const TCHAR* StaticConfigName() { return TEXT("Editor"); }
-    BYTE _native0[0x8];
+    class UUISkin* ActiveSkin; /* 0x3c: Initialize (0x014bff10) loads one when NULL; SetActiveSkin (0x0149fe30) stores it */
+    class UDataStoreClient* DataStoreManager; /* 0x40: SetActiveSkin registers the skin with it */
     FNativeDtor_014a6fb0_c Native_44; /* 0x44: C++ only (destroyed by its destructor) */
     FNativeDtor_014b3980_c Native_50; /* 0x50: C++ only (destroyed by its destructor) */
     FNativeDtor_014b3a50_c Native_5c; /* 0x5c: C++ only (destroyed by its destructor) */
