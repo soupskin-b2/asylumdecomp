@@ -3333,19 +3333,15 @@ undefined4 C_009a41f0::sub_009a41f0(byte param_2)
 
 // @baa 0x009a4d00
 // @baa 0x009a4d10
-int sub_009a54b0(...);
 // @baa 0x009a6750
+/* The most triangles the component can draw: two per quad, none without a terrain. */
 UINT UTerrainComponent::GetMaxTriangleCount() const
 {
-    int param_1 = (int)this;
-
-  int iVar1;
-  
-  iVar1 = sub_009a54b0(*(undefined4 *)(param_1 + 0x1c));
-  if (iVar1 != 0) {
-    return *(int *)(param_1 + 0x1d4) * *(int *)(param_1 + 0x1d0) * 2;
-  }
-  return 0;
+    if (CastChecked<ATerrain>(GetOuter()) != NULL)
+    {
+        return TrueSectionSizeX * TrueSectionSizeY * 2;
+    }
+    return 0;
 }
 
 // @baa 0x009a9810

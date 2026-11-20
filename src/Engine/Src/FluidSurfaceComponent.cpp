@@ -1730,13 +1730,11 @@ undefined4 * C_00bddb40::sub_00bddb40(byte param_2)
 }
 
 // @baa 0x00bddbf0
-void UFluidSurfaceComponent::GetLightAndShadowMapMemoryUsage(UINT* param_2, UINT* param_3)
+/* Slot 0x158: the light map is LightMapResolution square. */
+void UFluidSurfaceComponent::GetLightMapResolution(INT& Width, INT& Height) const
 {
-    int param_1 = (int)this;
-
-  *param_2 = *(undefined4 *)(param_1 + 0x1a8);
-  *param_3 = *(undefined4 *)(param_1 + 0x1a8);
-  return;
+    Width = LightMapResolution;
+    Height = LightMapResolution;
 }
 
 struct FFluidSimulation {

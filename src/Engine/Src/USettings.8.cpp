@@ -66,6 +66,25 @@ UBOOL USettings::GetPropertyMappingType(INT PropertyId, BYTE& OutType)
 	return FALSE;
 }
 
+/* Inlined here, in the form that leaves OutData alone for a non-string: FSettingsData::GetData(FString&). */
+struct FSettingsData__00d75aa0 : public FSettingsData
+{
+	FORCEINLINE void GetData(FString& OutData) const
+	{
+		if (Type == SDT_String)
+		{
+			if (Value2.Dummy != 0)
+			{
+				OutData = (const TCHAR*)Value2.Dummy;
+			}
+			else
+			{
+				OutData = TEXT("");
+			}
+		}
+	}
+};
+
 // @baa 0x00d75aa0
 /* The value of a string property; FALSE when there's no such property or it isn't a string. */
 UBOOL USettings::GetStringProperty(INT PropertyId, FString& Value)
@@ -76,7 +95,7 @@ UBOOL USettings::GetStringProperty(INT PropertyId, FString& Value)
 	{
 		if (Property->Data.Type == SDT_String)
 		{
-			Property->Data.GetData(Value);
+			((FSettingsData__00d75aa0&)Property->Data).GetData(Value);
 			bFound = TRUE;
 		}
 	}

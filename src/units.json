@@ -174055,7 +174055,7 @@
     {
      "va": "00bddbf0",
      "size": 27,
-     "symbol": "?GetLightAndShadowMapMemoryUsage@UFluidSurfaceComponent@@UAEXPAI0@Z"
+     "symbol": "?GetLightMapResolution@UFluidSurfaceComponent@@UBEXAAH0@Z"
     },
     {
      "va": "00be48d0",
@@ -210989,6 +210989,11 @@
      "symbol": "?UpdateVisibleFragments@UFracturedBaseComponent@@UAEXABV?$TArray@E@@H@Z"
     },
     {
+     "va": "007cdd00",
+     "size": 207,
+     "symbol": "?GetFragmentBox@UFracturedStaticMeshComponent@@UAE?AUFBox@@H@Z"
+    },
+    {
      "va": "007ce040",
      "size": 30,
      "symbol": "?GetCoreFragmentIndex@UFracturedStaticMeshComponent@@UAEHXZ"
@@ -243265,7 +243270,7 @@
     {
      "va": "009a6780",
      "size": 163,
-     "symbol": "?GetLightAndShadowMapMemoryUsage@UTerrainComponent@@UAEXPAI0@Z"
+     "symbol": "?GetLightMapResolution@UTerrainComponent@@UBEXAAH0@Z"
     }
    ]
   },
@@ -280234,7 +280239,7 @@
     {
      "va": "006db240",
      "size": 23,
-     "symbol": "?GetLightAndShadowMapMemoryUsage@UPrimitiveComponent@@UAEXPAI0@Z"
+     "symbol": "?GetLightMapResolution@UPrimitiveComponent@@UBEXAAH0@Z"
     },
     {
      "va": "006db280",

@@ -16,15 +16,12 @@ void ATerrain::ClampVertex(INT& X, INT& Y) const
 
 #define PF_DXT1 5
 #define TERRAIN_PATCH_EXPAND_SCALAR 2
-/* The project's existing binding for the component's terrain lookup (0x009a54b0, a varargs placeholder; it
- * takes the component's outer and returns the ATerrain). */
-INT sub_009a54b0(...);
 // @baa 0x009a6780
-/* UTerrainComponent slot 0x158 (UE3's GetLightMapResolution(INT& Width, INT& Height)): the light map size, the
+/* UTerrainComponent slot 0x158 (GetLightMapResolution; this build's returns void): the light map size, the
  * section plus a DXT-block-sized border per side at the terrain's lighting resolution, aligned to DXT1 blocks. */
-void UTerrainComponent::GetLightAndShadowMapMemoryUsage(UINT* Width, UINT* Height)
+void UTerrainComponent::GetLightMapResolution(INT& Width, INT& Height) const
 {
-    ATerrain* Terrain = (ATerrain*)sub_009a54b0(Outer);
+    ATerrain* Terrain = CastChecked<ATerrain>(GetOuter()); /* 0x009a54b0 */
     if (Terrain)
     {
         const INT Resolution = Terrain->StaticLightingResolution;
@@ -33,16 +30,16 @@ void UTerrainComponent::GetLightAndShadowMapMemoryUsage(UINT* Width, UINT* Heigh
         INT PatchExpandCountY = GPixelFormats[PF_DXT1].BlockSizeY / Resolution;
         if (PatchExpandCountX <= 1) PatchExpandCountX = 1;
         if (PatchExpandCountY <= 1) PatchExpandCountY = 1;
-        *Width = (TrueSectionSizeX + TERRAIN_PATCH_EXPAND_SCALAR * PatchExpandCountX) * Resolution + 1;
-        *Height = (TrueSectionSizeY + TERRAIN_PATCH_EXPAND_SCALAR * PatchExpandCountY) * Resolution + 1;
+        Width = (TrueSectionSizeX + TERRAIN_PATCH_EXPAND_SCALAR * PatchExpandCountX) * Resolution + 1;
+        Height = (TrueSectionSizeY + TERRAIN_PATCH_EXPAND_SCALAR * PatchExpandCountY) * Resolution + 1;
         const INT AlignMask = BlockSize - 1;
-        *Width = (*Width + AlignMask) & ~AlignMask;
-        *Height = (*Height + AlignMask) & ~AlignMask;
+        Width = (Width + AlignMask) & ~AlignMask;
+        Height = (Height + AlignMask) & ~AlignMask;
     }
     else
     {
-        *Width = 0;
-        *Height = 0;
+        Width = 0;
+        Height = 0;
     }
 }
 

@@ -2367,12 +2367,11 @@ void UPrimitiveComponent::SetOwnerNoSee(UBOOL bNewOwnerNoSee)
 }
 
 // @baa 0x006db240
-/* UPrimitiveComponent slot 0x158 (UE3 GetLightAndShadowMapMemoryUsage(INT& LightMapMemoryUsage, INT&
- * ShadowMapMemoryUsage) const): a plain primitive has neither. */
-void UPrimitiveComponent::GetLightAndShadowMapMemoryUsage(UINT* LightMapMemoryUsage, UINT* ShadowMapMemoryUsage)
+/* UPrimitiveComponent slot 0x158 (GetLightMapResolution; this build's returns void): a plain primitive has no light map. */
+void UPrimitiveComponent::GetLightMapResolution(INT& Width, INT& Height) const
 {
-    *LightMapMemoryUsage = 0;
-    *ShadowMapMemoryUsage = 0;
+    Width = 0;
+    Height = 0;
 }
 
 // @baa 0x006db670

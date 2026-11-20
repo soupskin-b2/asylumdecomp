@@ -3845,6 +3845,7 @@ struct FBox {
     FORCEINLINE FVector GetCenter() const { return FVector((Min + Max) * 0.5f); }
     FORCEINLINE FVector GetExtent() const { return 0.5f * (Max - Min); }
     FORCEINLINE void GetCenterAndExtents(FVector& Center, FVector& Extents) const { Extents = GetExtent(); Center = Min + Extents; }
+    FBox TransformBy(const struct FMatrix& M) const; /* 0x005c9220 */
 };
 
 struct FSimpleBox {
@@ -4628,20 +4629,7 @@ struct FSettingsData {
     void GetData(FLOAT& OutData) const; /* 0x00d67b90 (copies at 00d67c30, 00d6e470) */
     void GetData(DOUBLE& OutData) const;
     void GetData(QWORD& OutData) const;
-    FORCEINLINE void GetData(FString& OutData) const
-    {
-        if (Type == SDT_String)
-        {
-            if (Value2.Dummy != 0)
-            {
-                OutData = (const TCHAR*)Value2.Dummy;
-            }
-            else
-            {
-                OutData = TEXT("");
-            }
-        }
-    }
+    void GetData(FString& OutData) const; /* inlined, in more than one form */
     void GetData(TArray<BYTE>& OutData) const; /* 0x00d79720 */
     FString ToString() const; /* 0x00d797a0 */
     /* the rest of the structcpptext (USettings.h); the exe has these inlined or as per-caller copies */
@@ -7265,7 +7253,19 @@ struct FTerrainInfoData {
 };
 
 struct FTerrainWeightedMaterial {
-    /* Engine.TerrainWeightedMaterial */
+    /* Engine.TerrainWeightedMaterial (UnTerrain.h): a terrain layer's weight map; 0x0 is the vtable (virtual destructor) */
+    TArray<BYTE> Data; /* 0x4 */
+    INT SizeX; /* 0x10 */
+    INT SizeY; /* 0x14 */
+    class ATerrain* Terrain; /* 0x18 */
+    UBOOL Highlighted; /* 0x1c */
+    FColor HighlightColor; /* 0x20 */
+    UBOOL bWireframeHighlighted; /* 0x24 */
+    FColor WireframeColor; /* 0x28 */
+    class UTerrainMaterial* Material; /* 0x2c */
+    INT WeightMapIndex; /* 0x30 */
+    INT WeightMapSubIndex; /* 0x34 */
+    virtual ~FTerrainWeightedMaterial();
 };
 
 struct FTerrainLayer {
@@ -10972,6 +10972,7 @@ struct UObject {
     INT sub_005cbd50(); /* 0x005cbd50 */
     UINT* sub_0154b270(); /* 0x0154b270 */
     void CallFunction(FFrame& Stack, RESULT_DECL, UFunction* Function); /* 0x005a6cd0 */
+    static void AddReferencedObject(TArray<UObject*>& ObjectArray, UObject* Object); /* 0x005ef6f0 */
     /* registered size 0x30 */
 };
 
@@ -11865,7 +11866,7 @@ struct UPrimitiveComponent : public UActorComponent {
     virtual INT vf_14c(INT); /* 0x14c */
     virtual INT vf_150(INT); /* 0x150 */
     virtual INT vf_154(); /* 0x154 */
-    virtual void GetLightAndShadowMapMemoryUsage(UINT* LightMapMemoryUsage, UINT* ShadowMapMemoryUsage); /* 0x158 */
+    virtual void GetLightMapResolution(INT& Width, INT& Height) const; /* 0x158 */
     virtual INT vf_15c(INT, INT); /* 0x15c */
     virtual void UpdateBounds(); /* 0x160 */
     virtual void GetStaticLightingInfo(struct FStaticLightingPrimitiveInfo& OutPrimitiveInfo,const TArray<ULightComponent*>& InRelevantLights,const struct FLightingBuildOptions& Options); /* 0x164 */
@@ -15743,7 +15744,7 @@ struct UStaticMeshComponent : public UMeshComponent {
     virtual INT vf_14c(INT); /* 0x14c */
     virtual INT vf_150(INT); /* 0x150 */
     virtual INT vf_154(); /* 0x154 */
-    virtual void GetLightAndShadowMapMemoryUsage(UINT* LightMapMemoryUsage, UINT* ShadowMapMemoryUsage); /* 0x158 */
+    virtual void GetLightMapResolution(INT& Width, INT& Height) const; /* 0x158 */
     virtual INT vf_15c(INT, INT); /* 0x15c */
     virtual void UpdateBounds(); /* 0x160 */
     virtual void GetStaticLightingInfo(struct FStaticLightingPrimitiveInfo& OutPrimitiveInfo,const TArray<ULightComponent*>& InRelevantLights,const struct FLightingBuildOptions& Options); /* 0x164 */
@@ -19750,7 +19751,7 @@ struct UFluidSurfaceComponent : public UPrimitiveComponent {
     virtual void Detach(UBOOL bWillReattach); /* 0x11c */
     virtual void Tick(FLOAT DeltaTime); /* 0x124 */
     virtual void InvalidateLightingCache(); /* 0x130 */
-    virtual void GetLightAndShadowMapMemoryUsage(UINT* LightMapMemoryUsage, UINT* ShadowMapMemoryUsage); /* 0x158 */
+    virtual void GetLightMapResolution(INT& Width, INT& Height) const; /* 0x158 */
     virtual INT vf_15c(INT, INT); /* 0x15c */
     virtual void UpdateBounds(); /* 0x160 */
     virtual void GetStaticLightingInfo(struct FStaticLightingPrimitiveInfo& OutPrimitiveInfo,const TArray<ULightComponent*>& InRelevantLights,const struct FLightingBuildOptions& Options); /* 0x164 */
@@ -24521,7 +24522,7 @@ struct UModelComponent : public UPrimitiveComponent {
     virtual void InvalidateLightingCache(); /* 0x130 */
     virtual INT vf_14c(INT); /* 0x14c */
     virtual INT vf_150(INT); /* 0x150 */
-    virtual void GetLightAndShadowMapMemoryUsage(UINT* LightMapMemoryUsage, UINT* ShadowMapMemoryUsage); /* 0x158 */
+    virtual void GetLightMapResolution(INT& Width, INT& Height) const; /* 0x158 */
     virtual INT vf_15c(INT, INT); /* 0x15c */
     virtual void UpdateBounds(); /* 0x160 */
     virtual void GetStaticLightingInfo(struct FStaticLightingPrimitiveInfo& OutPrimitiveInfo,const TArray<ULightComponent*>& InRelevantLights,const struct FLightingBuildOptions& Options); /* 0x164 */
@@ -33776,7 +33777,7 @@ struct UTerrainComponent : public UPrimitiveComponent {
     virtual void InvalidateLightingCache(); /* 0x130 */
     virtual void InitComponentRBPhys(UBOOL bFixed); /* 0x134 */
     virtual INT vf_150(INT); /* 0x150 */
-    virtual void GetLightAndShadowMapMemoryUsage(UINT* LightMapMemoryUsage, UINT* ShadowMapMemoryUsage); /* 0x158 */
+    virtual void GetLightMapResolution(INT& Width, INT& Height) const; /* 0x158 */
     virtual INT vf_15c(INT, INT); /* 0x15c */
     virtual void UpdateBounds(); /* 0x160 */
     virtual void GetStaticLightingInfo(struct FStaticLightingPrimitiveInfo& OutPrimitiveInfo,const TArray<ULightComponent*>& InRelevantLights,const struct FLightingBuildOptions& Options); /* 0x164 */
@@ -61345,6 +61346,7 @@ struct UFracturedStaticMesh : public UStaticMesh {
     virtual INT vf_10c(); /* 0x10c */
     virtual INT vf_110(); /* 0x110 */
     /* other member functions */
+    FBox GetFragmentBox(INT FragmentIndex) const; /* 0x007b8830 */
     /* registered size 0x1f0 */
 };
 

@@ -3,6 +3,7 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
 #include "ue3/Map.h"
+#include "ue3/Cast.h"
 
 struct C { void sub_0076b860(int); C *sub_00770500(int); };
 
@@ -1151,3 +1152,15 @@ struct C_00eaa380 { void sub_00ea5ad0(int); C_00eaa380 *sub_00eaa380(int); };
 
 // @baa 0x00eaa380
 C_00eaa380 *C_00eaa380::sub_00eaa380(int a) { sub_00ea5ad0(a); return this; }
+
+// @baa 0x007cdd00
+/* Slot 0x2a8: a fragment's world-space box; without a fractured mesh, the empty box at the component's origin. */
+FBox UFracturedStaticMeshComponent::GetFragmentBox(INT FragmentIndex)
+{
+    UFracturedStaticMesh* FracturedStaticMesh = Cast<UFracturedStaticMesh>(StaticMesh);
+    if (FracturedStaticMesh)
+    {
+        return FracturedStaticMesh->GetFragmentBox(FragmentIndex).TransformBy(LocalToWorld);
+    }
+    return FBox(LocalToWorld.GetOrigin(), LocalToWorld.GetOrigin());
+}

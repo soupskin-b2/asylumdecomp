@@ -156,19 +156,6 @@ void UTerrainComponent::AddReferencedObjects(TArray<class UObject*>& ObjectArray
     }
 }
 
-/* The project's existing binding for UObject::AddReferencedObject(TArray<UObject*>&, UObject*) (0x005ef6f0, a
- * varargs placeholder; the kit doesn't declare it). */
-INT sub_005ef6f0(...);
-/* Kit gap: FTerrainWeightedMaterial is empty in the kit (0x38 bytes); only the two object references are named. */
-struct FTerrainWeightedMaterial_
-{
-    BYTE Pad0[0x18];
-    UObject* Material; /* 0x18 */
-    BYTE Pad1[0x10];
-    UObject* Object2C; /* 0x2c */
-    BYTE Pad2[0x8];
-};
-
 // @baa 0x0098bc30
 /* ATerrain slot 0xe8 (UE3's AddReferencedObjects(TArray<UObject*>&)): the weighted materials' objects too. */
 void ATerrain::AddReferencedObjects(TArray<class UObject*>& ObjectArray)
@@ -176,8 +163,8 @@ void ATerrain::AddReferencedObjects(TArray<class UObject*>& ObjectArray)
     Super::AddReferencedObjects(ObjectArray);
     for (INT i = 0; i < WeightedMaterials.Num(); i++)
     {
-        FTerrainWeightedMaterial_& WeightedMaterial = ((TArray<FTerrainWeightedMaterial_>&)WeightedMaterials)(i);
-        sub_005ef6f0(&ObjectArray, WeightedMaterial.Material);
-        sub_005ef6f0(&ObjectArray, WeightedMaterial.Object2C);
+        FTerrainWeightedMaterial& WeightedMaterial = WeightedMaterials(i);
+        AddReferencedObject(ObjectArray, WeightedMaterial.Terrain);
+        AddReferencedObject(ObjectArray, WeightedMaterial.Material);
     }
 }

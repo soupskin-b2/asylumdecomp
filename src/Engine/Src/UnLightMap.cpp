@@ -9,7 +9,6 @@ struct C {
     void sub_00d1f560(undefined4);
 };
 
-int sub_005ef6f0(...);
 // @baa 0x00d1f560
 void C::sub_00d1f560(undefined4 param_2)
 {
@@ -21,7 +20,7 @@ void C::sub_00d1f560(undefined4 param_2)
   puVar1 = (undefined4 *)(param_1 + 0x18);
   iVar2 = 4;
   do {
-    sub_005ef6f0(param_2,*puVar1);
+    UObject::AddReferencedObject(*(TArray<UObject*>*)param_2,(UObject*)*puVar1);
     puVar1 = puVar1 + 1;
     iVar2 = iVar2 + -1;
   } while (iVar2 != 0);
