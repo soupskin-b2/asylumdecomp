@@ -261,8 +261,9 @@ undefined4 C_0065d420::sub_0065d420(byte param_2)
   return param_1;
 }
 
+struct C_0065e190 { undefined4 sub_0065e190(byte param_2); };
 // @baa 0x0065e190
-undefined4 UTexture2D::sub_0065e190(byte param_2)
+undefined4 C_0065e190::sub_0065e190(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

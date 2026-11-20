@@ -432,8 +432,9 @@ int C_019e61d0::sub_019e61d0(int param_2)
   return iVar1;
 }
 
+struct C_019e6200 { undefined4 sub_019e6200(void); };
 // @baa 0x019e6200
-undefined4 UGFxDataStoreSubscriber::sub_019e6200(void)
+undefined4 C_019e6200::sub_019e6200(void)
 {
     int * param_1 = (int *)this;
 

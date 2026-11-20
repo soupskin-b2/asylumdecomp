@@ -5,8 +5,9 @@
 
 int sub_0053d240(...);
 undefined4 sub_0053df70(...);
+struct C_00ff2350 { int sub_00ff2350(undefined4*param_2); };
 // @baa 0x00ff2350
-int UObject::sub_00ff2350(undefined4*param_2)
+int C_00ff2350::sub_00ff2350(undefined4*param_2)
 {
 int*param_1=(int*)this;
 

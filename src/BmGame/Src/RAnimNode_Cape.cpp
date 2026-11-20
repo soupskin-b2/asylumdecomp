@@ -103,8 +103,9 @@ struct C_0155d160 { int sub_0155d160(void); };
 // @baa 0x0155d160
 int C_0155d160::sub_0155d160(void) { return *(int*)((char*)this + 4); }
 
+struct C_01562420 { undefined4 sub_01562420(void); };
 // @baa 0x01562420
-undefined4 URAnimNode_Cape::sub_01562420(void)
+undefined4 C_01562420::sub_01562420(void)
 {
     int param_1 = (int)this;
   return *(undefined4 *)(*(int *)(*(int *)(param_1 + 0x50) + 0x1b0) + 0x84);

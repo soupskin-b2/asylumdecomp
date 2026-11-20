@@ -304,8 +304,9 @@ struct C_view {
 };
 
 extern undefined * g_01ea6c00;
+struct C_0062dc20 { undefined4 * sub_0062dc20(void); };
 // @baa 0x0062dc20
-undefined4 * UStrProperty::sub_0062dc20(void)
+undefined4 * C_0062dc20::sub_0062dc20(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view *)(this))->sub_00567f10(0);

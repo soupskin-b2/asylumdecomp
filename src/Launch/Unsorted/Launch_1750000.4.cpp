@@ -5,8 +5,9 @@
 
 int sub_0053dfa0(...);
 int sub_011ee210(void);
+struct C_01757600 { undefined4 sub_01757600(byte param_2); };
 // @baa 0x01757600
-undefined4 UTexture2D::sub_01757600(byte param_2)
+undefined4 C_01757600::sub_01757600(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

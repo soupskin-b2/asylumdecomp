@@ -123,8 +123,9 @@ int ULensFlare::sub_00abd240(void) { return *(int*)((char*)this + 4); }
 // @baa 0x00abd270
 int ULensFlare::sub_00abd270(void) { return *(int*)((char*)this + 4); }
 
+struct C_00abd280 { int sub_00abd280(undefined4*param_2); };
 // @baa 0x00abd280
-int ULensFlare::sub_00abd280(undefined4*param_2)
+int C_00abd280::sub_00abd280(undefined4*param_2)
 {
 int*param_1=(int*)this;
 

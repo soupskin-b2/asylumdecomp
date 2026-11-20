@@ -5,8 +5,9 @@
 
 int sub_0053dfa0(...);
 int sub_0146f3e0(void);
+struct C_01470590 { undefined4 sub_01470590(byte param_2); };
 // @baa 0x01470590
-undefined4 UUnrealEdEngine::sub_01470590(byte param_2)
+undefined4 C_01470590::sub_01470590(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -18,8 +19,9 @@ undefined4 UUnrealEdEngine::sub_01470590(byte param_2)
 }
 
 int sub_014744c0(void);
+struct C_014753b0 { undefined4 sub_014753b0(byte param_2); };
 // @baa 0x014753b0
-undefined4 UUnrealEdEngine::sub_014753b0(byte param_2)
+undefined4 C_014753b0::sub_014753b0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

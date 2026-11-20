@@ -482,8 +482,9 @@ C_00760aa0::C_00760aa0() {}
 void C_00760aa0::sub_007561c0() {}
 
 int sub_00760ab0(void);
+struct C_00760b30 { undefined4 sub_00760b30(byte param_2); };
 // @baa 0x00760b30
-undefined4 UTextureCube::sub_00760b30(byte param_2)
+undefined4 C_00760b30::sub_00760b30(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -495,8 +496,9 @@ undefined4 UTextureCube::sub_00760b30(byte param_2)
 }
 
 int sub_0075b2b0(void);
+struct C_00760b50 { undefined4 sub_00760b50(byte param_2); };
 // @baa 0x00760b50
-undefined4 UTextureCube::sub_00760b50(byte param_2)
+undefined4 C_00760b50::sub_00760b50(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

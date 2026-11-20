@@ -227,8 +227,9 @@ void sub_0128afd0(void)
 
 int sub_0053dfa0(...);
 int sub_0128ade0(void);
+struct C_0128eb30 { undefined4 sub_0128eb30(byte param_2); };
 // @baa 0x0128eb30
-undefined4 UUnrealEdEngine::sub_0128eb30(byte param_2)
+undefined4 C_0128eb30::sub_0128eb30(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

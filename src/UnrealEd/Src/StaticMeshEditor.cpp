@@ -489,8 +489,9 @@ FSparseArrayConstIt_01232e20::FSparseArrayConstIt_01232e20(const TSparseArray<IN
 }
 
 int sub_0122fd20(void);
+struct C_01233140 { undefined4 sub_01233140(byte param_2); };
 // @baa 0x01233140
-undefined4 UUnrealEdEngine::sub_01233140(byte param_2)
+undefined4 C_01233140::sub_01233140(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -619,8 +620,9 @@ IMPLEMENT_CLASS_AT(UStaticMeshEditorComponent, "e:\\Projects\\Amadeus\\AA\\Game\
 // @baa 0x01242890
 // @baa 0x01242b20
 int sub_01240b30(void);
+struct C_01242c50 { undefined4 sub_01242c50(byte param_2); };
 // @baa 0x01242c50
-undefined4 UUnrealEdEngine::sub_01242c50(byte param_2)
+undefined4 C_01242c50::sub_01242c50(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

@@ -396,8 +396,9 @@ FSparseArrayConstIt_0125f510::FSparseArrayConstIt_0125f510(const TSparseArray<IN
 }
 
 int sub_0125c0a0(void);
+struct C_0125f5a0 { undefined4 sub_0125f5a0(byte param_2); };
 // @baa 0x0125f5a0
-undefined4 UUnrealEdEngine::sub_0125f5a0(byte param_2)
+undefined4 C_0125f5a0::sub_0125f5a0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

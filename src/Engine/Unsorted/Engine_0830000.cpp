@@ -1513,8 +1513,9 @@ undefined4 sub_00839e10(float * param_1, float param_2, float * param_3)
 }
 
 int sub_007249d0(void);
+struct C_0083a2e0 { undefined4 sub_0083a2e0(byte param_2); };
 // @baa 0x0083a2e0
-undefined4 UMorphWeightSequence::sub_0083a2e0(byte param_2)
+undefined4 C_0083a2e0::sub_0083a2e0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -1525,8 +1526,9 @@ undefined4 UMorphWeightSequence::sub_0083a2e0(byte param_2)
   return param_1;
 }
 
+struct C_0083a370 { undefined4 sub_0083a370(byte param_2); };
 // @baa 0x0083a370
-undefined4 UMorphWeightSequence::sub_0083a370(byte param_2)
+undefined4 C_0083a370::sub_0083a370(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -1537,8 +1539,9 @@ undefined4 UMorphWeightSequence::sub_0083a370(byte param_2)
   return param_1;
 }
 
+struct C_0083a400 { undefined4 sub_0083a400(byte param_2); };
 // @baa 0x0083a400
-undefined4 UMorphWeightSequence::sub_0083a400(byte param_2)
+undefined4 C_0083a400::sub_0083a400(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

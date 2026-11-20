@@ -816,8 +816,9 @@ struct C_view {
 };
 
 void * sub_01a375f0(void *, void *, size_t);
+struct C_00e338f0 { undefined4 * sub_00e338f0(int * param_2); };
 // @baa 0x00e338f0
-undefined4 * UPartyBeaconHost::sub_00e338f0(int * param_2)
+undefined4 * C_00e338f0::sub_00e338f0(int * param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   undefined4 *puVar1;

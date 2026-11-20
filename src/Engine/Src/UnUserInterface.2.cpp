@@ -3863,8 +3863,9 @@ int sub_0053d240(...);
 void*sub_0053df30(void*,void*,size_t);
 int sub_006311e0(...);
 extern undefined2 g_01e3f3dc;
+struct C_00d20b10 { void sub_00d20b10(int param_2,int param_3); };
 // @baa 0x00d20b10
-void UGameUISceneClient::sub_00d20b10(int param_2,int param_3)
+void C_00d20b10::sub_00d20b10(int param_2,int param_3)
 {
 int*param_1=(int*)this;
 int iVar1;

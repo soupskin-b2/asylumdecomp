@@ -189,8 +189,9 @@ undefined4 C_00be1ad0::sub_00be1ad0(byte param_2)
 }
 
 int sub_007249d0(void);
+struct C_00be1da0 { undefined4 sub_00be1da0(byte param_2); };
 // @baa 0x00be1da0
-undefined4 ULensFlare::sub_00be1da0(byte param_2)
+undefined4 C_00be1da0::sub_00be1da0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -201,8 +202,9 @@ undefined4 ULensFlare::sub_00be1da0(byte param_2)
   return param_1;
 }
 
+struct C_00be1e30 { undefined4 sub_00be1e30(byte param_2); };
 // @baa 0x00be1e30
-undefined4 ULensFlare::sub_00be1e30(byte param_2)
+undefined4 C_00be1e30::sub_00be1e30(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -213,8 +215,9 @@ undefined4 ULensFlare::sub_00be1e30(byte param_2)
   return param_1;
 }
 
+struct C_00be1ec0 { undefined4 sub_00be1ec0(byte param_2); };
 // @baa 0x00be1ec0
-undefined4 ULensFlare::sub_00be1ec0(byte param_2)
+undefined4 C_00be1ec0::sub_00be1ec0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -225,8 +228,9 @@ undefined4 ULensFlare::sub_00be1ec0(byte param_2)
   return param_1;
 }
 
+struct C_00be1f50 { undefined4 sub_00be1f50(byte param_2); };
 // @baa 0x00be1f50
-undefined4 ULensFlare::sub_00be1f50(byte param_2)
+undefined4 C_00be1f50::sub_00be1f50(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -237,8 +241,9 @@ undefined4 ULensFlare::sub_00be1f50(byte param_2)
   return param_1;
 }
 
+struct C_00be1fe0 { undefined4 sub_00be1fe0(byte param_2); };
 // @baa 0x00be1fe0
-undefined4 ULensFlare::sub_00be1fe0(byte param_2)
+undefined4 C_00be1fe0::sub_00be1fe0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

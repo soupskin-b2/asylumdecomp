@@ -590,8 +590,9 @@ C_0120cd00::C_0120cd00() {}
 void C_0120cd00::sub_0120cdd0() {}
 
 int sub_0120cd10(void);
+struct C_0120cdd0 { undefined4 sub_0120cdd0(byte param_2); };
 // @baa 0x0120cdd0
-undefined4 UUnrealEdEngine::sub_0120cdd0(byte param_2)
+undefined4 C_0120cdd0::sub_0120cdd0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

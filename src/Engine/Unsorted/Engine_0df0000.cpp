@@ -1078,8 +1078,9 @@ undefined4 C_00df6140::sub_00df6140(byte param_2)
 }
 
 int sub_00df0260(void);
+struct C_00df65f0 { undefined4 sub_00df65f0(byte param_2); };
 // @baa 0x00df65f0
-undefined4 UMorphWeightSequence::sub_00df65f0(byte param_2)
+undefined4 C_00df65f0::sub_00df65f0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

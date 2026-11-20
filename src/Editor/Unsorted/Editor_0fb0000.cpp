@@ -1676,8 +1676,9 @@ FSparseArrayConstIt_00fbd0e0::FSparseArrayConstIt_00fbd0e0(const TSparseArray<IN
 }
 
 int sub_00fbb070(void);
+struct C_00fbd3e0 { undefined4 sub_00fbd3e0(byte param_2); };
 // @baa 0x00fbd3e0
-undefined4 UTexture2D::sub_00fbd3e0(byte param_2)
+undefined4 C_00fbd3e0::sub_00fbd3e0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

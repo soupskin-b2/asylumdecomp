@@ -7149,8 +7149,9 @@ UBOOL USeqAct_MultiLevelStreaming::HasParentClassChanged() const
 }
 
 int sub_00909b6f(...);
+struct C_00909b20 { undefined4 sub_00909b20(void); };
 // @baa 0x00909b20
-undefined4 USeqAct_Delay::sub_00909b20(void)
+undefined4 C_00909b20::sub_00909b20(void)
 {
     int param_1 = (int)this;
 

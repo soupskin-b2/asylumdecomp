@@ -123,8 +123,9 @@ UBOOL URCapeComponent::HasParentClassChanged() const
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
+struct C_016ae4d0 { bool sub_016ae4d0(void); };
 // @baa 0x016ae4d0
-bool URCapeComponent::sub_016ae4d0(void)
+bool C_016ae4d0::sub_016ae4d0(void)
 {
     int param_1 = (int)this;
 
@@ -553,8 +554,9 @@ struct C_view_016d5a90 {
     int sub_00935c60();
 };
 
+struct C_016d5a90 { void sub_016d5a90(int param_2); };
 // @baa 0x016d5a90
-void URCapeSkeletalMeshComponent::sub_016d5a90(int param_2)
+void C_016d5a90::sub_016d5a90(int param_2)
 {
     int param_1 = (int)this;
   int *piVar1;

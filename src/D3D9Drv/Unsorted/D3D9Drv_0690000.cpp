@@ -310,8 +310,9 @@ void*sub_0053df30(void*,void*,size_t);
 int sub_0053df70(...);
 int sub_006311e0(...);
 extern undefined2 g_01e3f3dc;
+struct C_0069c8d0 { void sub_0069c8d0(int param_2,int param_3); };
 // @baa 0x0069c8d0
-void UObject::sub_0069c8d0(int param_2,int param_3)
+void C_0069c8d0::sub_0069c8d0(int param_2,int param_3)
 {
 int*param_1=(int*)this;
 int iVar1;

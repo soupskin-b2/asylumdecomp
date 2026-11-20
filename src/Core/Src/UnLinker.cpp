@@ -3025,8 +3025,9 @@ undefined4 * C_005bb180::sub_005bb180(undefined4 * param_2)
 
 int sub_005bb1a0(void);
 int sub_005c7a70(...);
+struct C_005bb330 { undefined4 sub_005bb330(byte param_2); };
 // @baa 0x005bb330
-undefined4 ULinkerLoad::sub_005bb330(byte param_2)
+undefined4 C_005bb330::sub_005bb330(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

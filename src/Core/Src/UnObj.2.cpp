@@ -37,8 +37,9 @@ puVar1[4]=param_2[4];
 return iVar2;
 }
 
+struct C_005c8330 { int sub_005c8330(undefined4*param_2); };
 // @baa 0x005c8330
-int UObject::sub_005c8330(undefined4*param_2)
+int C_005c8330::sub_005c8330(undefined4*param_2)
 {
 int*param_1=(int*)this;
 

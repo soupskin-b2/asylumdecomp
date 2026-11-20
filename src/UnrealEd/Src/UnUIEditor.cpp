@@ -1920,8 +1920,9 @@ int C_014ba300::sub_014ba300(void)
 IMPLEMENT_CLASS_AT(UUISceneManager, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\UnUIEditor.cpp", 27);
 
 int sub_014bfd10(void);
+struct C_014bfe00 { undefined4 sub_014bfe00(byte param_2); };
 // @baa 0x014bfe00
-undefined4 UUISceneManager::sub_014bfe00(byte param_2)
+undefined4 C_014bfe00::sub_014bfe00(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -1933,8 +1934,9 @@ undefined4 UUISceneManager::sub_014bfe00(byte param_2)
 }
 
 int sub_014be900(void);
+struct C_014bfe30 { undefined4 sub_014bfe30(byte param_2); };
 // @baa 0x014bfe30
-undefined4 UUISceneManager::sub_014bfe30(byte param_2)
+undefined4 C_014bfe30::sub_014bfe30(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -1947,8 +1949,9 @@ undefined4 UUISceneManager::sub_014bfe30(byte param_2)
 
 // @baa 0x014bfe50
 int sub_014dbba0(void);
+struct C_014dc0d0 { undefined4 sub_014dc0d0(byte param_2); };
 // @baa 0x014dc0d0
-undefined4 UUnrealEdEngine::sub_014dc0d0(byte param_2)
+undefined4 C_014dc0d0::sub_014dc0d0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

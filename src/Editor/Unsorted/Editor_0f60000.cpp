@@ -544,8 +544,9 @@ UEditorEngine::UEditorEngine()
 
 int sub_005c7a70(...);
 int sub_00f68250(void);
+struct C_00f683a0 { undefined4 sub_00f683a0(byte param_2); };
 // @baa 0x00f683a0
-undefined4 UEditorEngine::sub_00f683a0(byte param_2)
+undefined4 C_00f683a0::sub_00f683a0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

@@ -102,8 +102,9 @@ IMPLEMENT_CLASS_AT(UPreviewMaterial, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEng
 
 // @baa 0x0144a310
 int sub_01444a80(void);
+struct C_0144a340 { undefined4 sub_0144a340(byte param_2); };
 // @baa 0x0144a340
-undefined4 UUnrealEdEngine::sub_0144a340(byte param_2)
+undefined4 C_0144a340::sub_0144a340(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

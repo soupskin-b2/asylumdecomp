@@ -717,8 +717,9 @@ extern undefined * g_022b9958;
 extern undefined * g_022b99e4;
 extern undefined4 g_022b99fc;
 extern undefined * g_022b9a08;
+struct C_014c97c0 { undefined4 * sub_014c97c0(byte param_2); };
 // @baa 0x014c97c0
-undefined4 * UUnrealEdEngine::sub_014c97c0(byte param_2)
+undefined4 * C_014c97c0::sub_014c97c0(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1432,8 +1433,9 @@ undefined4 * C_014c73e0::sub_014c73e0(void)
 }
 
 int sub_014c5f50(void);
+struct C_014c8a10 { undefined4 sub_014c8a10(byte param_2); };
 // @baa 0x014c8a10
-undefined4 USoundNodeWave::sub_014c8a10(byte param_2)
+undefined4 C_014c8a10::sub_014c8a10(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

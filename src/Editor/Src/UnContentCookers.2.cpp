@@ -4107,8 +4107,9 @@ int C_01091e70::sub_01091e70(int param_2)
   return param_2 * 0x2c + *param_1;
 }
 
+struct C_01091f20 { undefined4 * sub_01091f20(int * param_2); };
 // @baa 0x01091f20
-undefined4 * UTexture2D::sub_01091f20(int * param_2)
+undefined4 * C_01091f20::sub_01091f20(int * param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   undefined4 *puVar1;
@@ -4150,8 +4151,9 @@ int C_01091fa0::sub_01091fa0(int param_2)
   return *param_1 + param_2 * 0x28;
 }
 
+struct C_01092050 { undefined4 * sub_01092050(int * param_2); };
 // @baa 0x01092050
-undefined4 * UTexture2D::sub_01092050(int * param_2)
+undefined4 * C_01092050::sub_01092050(int * param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   undefined4 *puVar1;

@@ -33,8 +33,9 @@ undefined4 C_00726d80::sub_00726d80(byte param_2)
 }
 
 int sub_007249d0(void);
+struct C_0072f070 { undefined4 sub_0072f070(byte param_2); };
 // @baa 0x0072f070
-undefined4 UTexture2DComposite::sub_0072f070(byte param_2)
+undefined4 C_0072f070::sub_0072f070(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -45,8 +46,9 @@ undefined4 UTexture2DComposite::sub_0072f070(byte param_2)
   return param_1;
 }
 
+struct C_0072f190 { undefined4 sub_0072f190(byte param_2); };
 // @baa 0x0072f190
-undefined4 UTexture2DComposite::sub_0072f190(byte param_2)
+undefined4 C_0072f190::sub_0072f190(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -57,8 +59,9 @@ undefined4 UTexture2DComposite::sub_0072f190(byte param_2)
   return param_1;
 }
 
+struct C_0072f210 { undefined4 sub_0072f210(byte param_2); };
 // @baa 0x0072f210
-undefined4 UTexture2DComposite::sub_0072f210(byte param_2)
+undefined4 C_0072f210::sub_0072f210(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

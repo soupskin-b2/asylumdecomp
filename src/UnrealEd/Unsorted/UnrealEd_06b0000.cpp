@@ -348,8 +348,9 @@ void C_006b0ed0::sub_006b1d30() {}
 int sub_0053ec70(void);
 extern undefined * g_01e72a60;
 extern undefined * g_01ece5d8;
+struct C_006b0ee0 { undefined4 * sub_006b0ee0(int param_2); };
 // @baa 0x006b0ee0
-undefined4 * UTexture2D::sub_006b0ee0(int param_2)
+undefined4 * C_006b0ee0::sub_006b0ee0(int param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

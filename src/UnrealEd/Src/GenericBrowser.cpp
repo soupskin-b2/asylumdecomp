@@ -991,8 +991,9 @@ struct C_01396220 { void sub_0138d9d0(int); C_01396220 *sub_01396220(int); };
 C_01396220 *C_01396220::sub_01396220(int a) { sub_0138d9d0(a); return this; }
 
 int sub_0138fd40(void);
+struct C_01396610 { undefined4 sub_01396610(byte param_2); };
 // @baa 0x01396610
-undefined4 UUnrealEdEngine::sub_01396610(byte param_2)
+undefined4 C_01396610::sub_01396610(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

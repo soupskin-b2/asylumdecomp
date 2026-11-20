@@ -114,8 +114,9 @@ uint C_016cebf0::sub_016cebf0(void)
   return *(uint *)(param_1 + 0x34) & 1;
 }
 
+struct C_016cec10 { void sub_016cec10(void); };
 // @baa 0x016cec10
-void URCapeStateController::sub_016cec10(void)
+void C_016cec10::sub_016cec10(void)
 {
     int param_1 = (int)this;
 
@@ -125,8 +126,9 @@ void URCapeStateController::sub_016cec10(void)
   return;
 }
 
+struct C_016cec20 { void sub_016cec20(void); };
 // @baa 0x016cec20
-void URCapeStateController::sub_016cec20(void)
+void C_016cec20::sub_016cec20(void)
 {
     int param_1 = (int)this;
 

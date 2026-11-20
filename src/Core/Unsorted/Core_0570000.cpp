@@ -773,8 +773,9 @@ struct C_view_0057cb40 {
     int sub_00567a20();
 };
 
+struct C_0057cb40 { undefined4 sub_0057cb40(int param_2); };
 // @baa 0x0057cb40
-undefined4 UTexture2D::sub_0057cb40(int param_2)
+undefined4 C_0057cb40::sub_0057cb40(int param_2)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view_0057cb40 *)(this))->sub_0056bfe0();

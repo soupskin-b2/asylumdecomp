@@ -42,8 +42,9 @@ undefined4 C_01419ab0::sub_01419ab0(byte param_2)
 }
 
 int sub_01407f00(void);
+struct C_0141c440 { undefined4 sub_0141c440(byte param_2); };
 // @baa 0x0141c440
-undefined4 UMaterialEditorInstanceConstant::sub_0141c440(byte param_2)
+undefined4 C_0141c440::sub_0141c440(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

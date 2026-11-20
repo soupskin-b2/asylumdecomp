@@ -114,8 +114,9 @@ undefined4 C_0163f860::sub_0163f860(void)
 }
 
 extern undefined4 g_02353a24;
+struct C_0163f890 { undefined4 sub_0163f890(void); };
 // @baa 0x0163f890
-undefined4 URSimpleRopeComponent::sub_0163f890(void)
+undefined4 C_0163f890::sub_0163f890(void)
 {
     int param_1 = (int)this;
 

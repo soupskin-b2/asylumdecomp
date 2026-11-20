@@ -8,8 +8,9 @@ IMPLEMENT_CLASS_AT(UAmbientOcclusionEffect, "e:\\Projects\\Amadeus\\AA\\Game\\Un
 
 int sub_0053dfa0(...);
 int sub_007249d0(void);
+struct C_00a656f0 { undefined4 sub_00a656f0(byte param_2); };
 // @baa 0x00a656f0
-undefined4 UObject::sub_00a656f0(byte param_2)
+undefined4 C_00a656f0::sub_00a656f0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -20,8 +21,9 @@ undefined4 UObject::sub_00a656f0(byte param_2)
   return param_1;
 }
 
+struct C_00a65780 { undefined4 sub_00a65780(byte param_2); };
 // @baa 0x00a65780
-undefined4 UObject::sub_00a65780(byte param_2)
+undefined4 C_00a65780::sub_00a65780(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -32,8 +34,9 @@ undefined4 UObject::sub_00a65780(byte param_2)
   return param_1;
 }
 
+struct C_00a659b0 { undefined4 sub_00a659b0(byte param_2); };
 // @baa 0x00a659b0
-undefined4 UObject::sub_00a659b0(byte param_2)
+undefined4 C_00a659b0::sub_00a659b0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -44,8 +47,9 @@ undefined4 UObject::sub_00a659b0(byte param_2)
   return param_1;
 }
 
+struct C_00a65a40 { undefined4 sub_00a65a40(byte param_2); };
 // @baa 0x00a65a40
-undefined4 UObject::sub_00a65a40(byte param_2)
+undefined4 C_00a65a40::sub_00a65a40(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

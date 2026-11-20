@@ -705,8 +705,9 @@ void C_00a61920::sub_00a61920(undefined4 param_2, undefined4 param_3)
 // @baa 0x00a619b0
 void __stdcall sub_00a619b0(int a0, int a1, int a2, int a3) {  }
 
+struct C_00a61b00 { void sub_00a61b00(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00a61b00
-void UTexture2D::sub_00a61b00(undefined4 param_2, undefined4 param_3)
+void C_00a61b00::sub_00a61b00(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   undefined4 *puVar1;
@@ -720,8 +721,9 @@ void UTexture2D::sub_00a61b00(undefined4 param_2, undefined4 param_3)
 // @baa 0x00a61b90
 void __stdcall sub_00a61b90(int a0, int a1, int a2, int a3) {  }
 
+struct C_00a61ce0 { void sub_00a61ce0(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00a61ce0
-void UTexture2D::sub_00a61ce0(undefined4 param_2, undefined4 param_3)
+void C_00a61ce0::sub_00a61ce0(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   undefined4 *puVar1;
@@ -735,8 +737,9 @@ void UTexture2D::sub_00a61ce0(undefined4 param_2, undefined4 param_3)
 // @baa 0x00a61d70
 void __stdcall sub_00a61d70(int a0, int a1, int a2, int a3) {  }
 
+struct C_00a61ec0 { void sub_00a61ec0(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00a61ec0
-void UTexture2D::sub_00a61ec0(undefined4 param_2, undefined4 param_3)
+void C_00a61ec0::sub_00a61ec0(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   undefined4 *puVar1;
@@ -750,8 +753,9 @@ void UTexture2D::sub_00a61ec0(undefined4 param_2, undefined4 param_3)
 // @baa 0x00a61f50
 void __stdcall sub_00a61f50(int a0, int a1, int a2, int a3) {  }
 
+struct C_00a620a0 { void sub_00a620a0(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00a620a0
-void UTexture2D::sub_00a620a0(undefined4 param_2, undefined4 param_3)
+void C_00a620a0::sub_00a620a0(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   undefined4 *puVar1;
@@ -1183,8 +1187,9 @@ C_00a62de0::C_00a62de0() : a(0), b(0), c(0) {}
 // @baa 0x00a62df0
 void __stdcall sub_00a62df0(int a0, int a1, int a2, int a3) {  }
 
+struct C_00a62f40 { void sub_00a62f40(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00a62f40
-void UTexture2D::sub_00a62f40(undefined4 param_2, undefined4 param_3)
+void C_00a62f40::sub_00a62f40(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   undefined4 *puVar1;
@@ -1198,8 +1203,9 @@ void UTexture2D::sub_00a62f40(undefined4 param_2, undefined4 param_3)
 // @baa 0x00a62fd0
 void __stdcall sub_00a62fd0(int a0, int a1, int a2, int a3) {  }
 
+struct C_00a63120 { void sub_00a63120(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00a63120
-void UTexture2D::sub_00a63120(undefined4 param_2, undefined4 param_3)
+void C_00a63120::sub_00a63120(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   undefined4 *puVar1;
@@ -1213,8 +1219,9 @@ void UTexture2D::sub_00a63120(undefined4 param_2, undefined4 param_3)
 // @baa 0x00a631b0
 void __stdcall sub_00a631b0(int a0, int a1, int a2, int a3) {  }
 
+struct C_00a63310 { void sub_00a63310(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00a63310
-void UTexture2D::sub_00a63310(undefined4 param_2, undefined4 param_3)
+void C_00a63310::sub_00a63310(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   undefined4 *puVar1;

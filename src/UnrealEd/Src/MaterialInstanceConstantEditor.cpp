@@ -1587,8 +1587,9 @@ undefined4 C_0141a370::sub_0141a370(byte param_2)
 }
 
 int sub_014176b0(void);
+struct C_0141b390 { undefined4 sub_0141b390(byte param_2); };
 // @baa 0x0141b390
-undefined4 UUnrealEdEngine::sub_0141b390(byte param_2)
+undefined4 C_0141b390::sub_0141b390(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -1605,8 +1606,9 @@ struct C_0141b940 { void sub_0141b810(); void sub_0141b940(int); };
 void C_0141b940::sub_0141b940(int) { sub_0141b810(); }
 
 int sub_01417f60(void);
+struct C_0141b950 { undefined4 sub_0141b950(byte param_2); };
 // @baa 0x0141b950
-undefined4 UUnrealEdEngine::sub_0141b950(byte param_2)
+undefined4 C_0141b950::sub_0141b950(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

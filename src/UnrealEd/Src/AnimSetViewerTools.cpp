@@ -114,8 +114,9 @@ int sub_0053dfa0(...);
 int sub_01284da0(void);
 extern undefined4 g_02257110;
 extern undefined * g_02257118;
+struct C_013381a0 { undefined4 * sub_013381a0(byte param_2); };
 // @baa 0x013381a0
-undefined4 * UUnrealEdEngine::sub_013381a0(byte param_2)
+undefined4 * C_013381a0::sub_013381a0(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

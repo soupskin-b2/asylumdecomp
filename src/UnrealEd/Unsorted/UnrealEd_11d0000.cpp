@@ -268,8 +268,9 @@ void C_011d5d70::sub_011d5d70(void)
 }
 
 int sub_011d2ba0(void);
+struct C_011d6010 { undefined4 sub_011d6010(byte param_2); };
 // @baa 0x011d6010
-undefined4 UFracturedStaticMeshComponent::sub_011d6010(byte param_2)
+undefined4 C_011d6010::sub_011d6010(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

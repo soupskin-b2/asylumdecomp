@@ -12,8 +12,9 @@ FString sub_00638790()
 
 int sub_0053d240(...);
 undefined4 sub_0053df70(...);
+struct C_0071d9e0 { int sub_0071d9e0(undefined4*param_2); };
 // @baa 0x0071d9e0
-int UTexture2D::sub_0071d9e0(undefined4*param_2)
+int C_0071d9e0::sub_0071d9e0(undefined4*param_2)
 {
 int*param_1=(int*)this;
 
@@ -422,8 +423,9 @@ void C_007309b0::sub_007309b0(void)
 
 int sub_0053dfa0(...);
 int sub_0072ce90(void);
+struct C_007309d0 { undefined4 sub_007309d0(byte param_2); };
 // @baa 0x007309d0
-undefined4 UTexture2D::sub_007309d0(byte param_2)
+undefined4 C_007309d0::sub_007309d0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -435,8 +437,9 @@ undefined4 UTexture2D::sub_007309d0(byte param_2)
 }
 
 int sub_0072cef0(void);
+struct C_007309f0 { undefined4 sub_007309f0(byte param_2); };
 // @baa 0x007309f0
-undefined4 UTexture2D::sub_007309f0(byte param_2)
+undefined4 C_007309f0::sub_007309f0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -448,8 +451,9 @@ undefined4 UTexture2D::sub_007309f0(byte param_2)
 }
 
 int sub_0072cf50(void);
+struct C_00730a10 { undefined4 sub_00730a10(byte param_2); };
 // @baa 0x00730a10
-undefined4 UTexture2D::sub_00730a10(byte param_2)
+undefined4 C_00730a10::sub_00730a10(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -461,8 +465,9 @@ undefined4 UTexture2D::sub_00730a10(byte param_2)
 }
 
 int sub_0072cfb0(void);
+struct C_00730a30 { undefined4 sub_00730a30(byte param_2); };
 // @baa 0x00730a30
-undefined4 UTexture2D::sub_00730a30(byte param_2)
+undefined4 C_00730a30::sub_00730a30(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -474,8 +479,9 @@ undefined4 UTexture2D::sub_00730a30(byte param_2)
 }
 
 int sub_0072d010(void);
+struct C_00730a50 { undefined4 sub_00730a50(byte param_2); };
 // @baa 0x00730a50
-undefined4 UTexture2D::sub_00730a50(byte param_2)
+undefined4 C_00730a50::sub_00730a50(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -487,8 +493,9 @@ undefined4 UTexture2D::sub_00730a50(byte param_2)
 }
 
 int sub_0072d070(void);
+struct C_00730a70 { undefined4 sub_00730a70(byte param_2); };
 // @baa 0x00730a70
-undefined4 UTexture2D::sub_00730a70(byte param_2)
+undefined4 C_00730a70::sub_00730a70(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

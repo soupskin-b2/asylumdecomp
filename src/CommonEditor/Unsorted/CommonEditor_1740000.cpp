@@ -623,8 +623,9 @@ IMPLEMENT_CLASS_AT(URGenericBrowserType, "e:\\Projects\\Amadeus\\AA\\Game\\Unrea
 
 // @baa 0x017444c0
 int sub_01742f80(void);
+struct C_01745700 { undefined4 sub_01745700(byte param_2); };
 // @baa 0x01745700
-undefined4 UUnrealEdEngine::sub_01745700(byte param_2)
+undefined4 C_01745700::sub_01745700(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

@@ -23,8 +23,9 @@ UBOOL UMCPBase::IsTickableWhenPaused() const { return TRUE; }
 
 int sub_005c7a70(...);
 int sub_00e34670(void);
+struct C_00e34760 { undefined4 sub_00e34760(byte param_2); };
 // @baa 0x00e34760
-undefined4 UMCPBase::sub_00e34760(byte param_2)
+undefined4 C_00e34760::sub_00e34760(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

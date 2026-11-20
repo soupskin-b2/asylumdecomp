@@ -104,8 +104,9 @@ UBOOL UPartyBeacon::IsTickableWhenPaused() const { return TRUE; }
 
 int sub_005c7a70(...);
 int sub_00e34810(void);
+struct C_00e348e0 { undefined4 sub_00e348e0(byte param_2); };
 // @baa 0x00e348e0
-undefined4 UPartyBeacon::sub_00e348e0(byte param_2)
+undefined4 C_00e348e0::sub_00e348e0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

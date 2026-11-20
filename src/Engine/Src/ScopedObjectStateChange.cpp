@@ -4,8 +4,9 @@
 #include "ue3/Classes.h"
 
 int sub_006311e0(...);
+struct C_00715e40 { void sub_00715e40(int param_2); };
 // @baa 0x00715e40
-void UTexture2DComposite::sub_00715e40(int param_2)
+void C_00715e40::sub_00715e40(int param_2)
 {
     int * param_1 = (int *)this;
 

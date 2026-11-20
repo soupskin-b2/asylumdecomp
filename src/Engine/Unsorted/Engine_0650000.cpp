@@ -5640,8 +5640,9 @@ int C_0065e100::sub_0065e100(int param_2)
   return param_1 + 0x158 + param_2 * 0xc;
 }
 
+struct C_0065e120 { undefined4 sub_0065e120(undefined4 param_2); };
 // @baa 0x0065e120
-undefined4 UTexture2D::sub_0065e120(undefined4 param_2)
+undefined4 C_0065e120::sub_0065e120(undefined4 param_2)
 {
     int param_1 = (int)this;
   undefined4 uVar1;
@@ -5668,8 +5669,9 @@ C_0065e230::C_0065e230() {}
 // @baa 0x0065e230
 void C_0065e230::sub_0065e190() {}
 
+struct C_0065e370 { undefined4 sub_0065e370(undefined4 param_2); };
 // @baa 0x0065e370
-undefined4 UTexture2D::sub_0065e370(undefined4 param_2)
+undefined4 C_0065e370::sub_0065e370(undefined4 param_2)
 {
     int param_1 = (int)this;
   undefined4 uVar1;

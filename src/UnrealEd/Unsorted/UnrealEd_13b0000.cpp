@@ -120,8 +120,9 @@ struct C_013b2920 { void sub_013b2000(); void sub_013b2920(int); };
 void C_013b2920::sub_013b2920(int) { sub_013b2000(); }
 
 int sub_011202d0(void);
+struct C_013b2fc0 { undefined4 sub_013b2fc0(byte param_2); };
 // @baa 0x013b2fc0
-undefined4 UUnrealEdEngine::sub_013b2fc0(byte param_2)
+undefined4 C_013b2fc0::sub_013b2fc0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -557,8 +558,9 @@ C_013b94f0::C_013b94f0() {}
 void C_013b94f0::sub_013b9590() {}
 
 int sub_013b9500(void);
+struct C_013b9590 { undefined4 sub_013b9590(byte param_2); };
 // @baa 0x013b9590
-undefined4 UUnrealEdEngine::sub_013b9590(byte param_2)
+undefined4 C_013b9590::sub_013b9590(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -624,8 +626,9 @@ C_013bacf0::C_013bacf0() {}
 void C_013bacf0::sub_013bad90() {}
 
 int sub_013bad00(void);
+struct C_013bad90 { undefined4 sub_013bad90(byte param_2); };
 // @baa 0x013bad90
-undefined4 UUnrealEdEngine::sub_013bad90(byte param_2)
+undefined4 C_013bad90::sub_013bad90(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

@@ -10,8 +10,9 @@ struct C_view {
 };
 
 void * sub_01a375f0(void *, void *, size_t);
+struct C_00b60110 { undefined4 * sub_00b60110(int * param_2); };
 // @baa 0x00b60110
-undefined4 * UObject::sub_00b60110(int * param_2)
+undefined4 * C_00b60110::sub_00b60110(int * param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   undefined4 *puVar1;

@@ -591,8 +591,9 @@ UBOOL UDemoRecDriver::IsDemoDriver() { return 1; }
 
 int sub_005c7a70(...);
 int sub_00c1a6f0(void);
+struct C_00c1a7a0 { undefined4 sub_00c1a7a0(byte param_2); };
 // @baa 0x00c1a7a0
-undefined4 UDemoRecDriver::sub_00c1a7a0(byte param_2)
+undefined4 C_00c1a7a0::sub_00c1a7a0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

@@ -1576,8 +1576,9 @@ int C_01160670::sub_01160670(int param_2)
 }
 
 int sub_0115c2c0(void);
+struct C_01160a30 { undefined4 sub_01160a30(byte param_2); };
 // @baa 0x01160a30
-undefined4 UOptionsProxy::sub_01160a30(byte param_2)
+undefined4 C_01160a30::sub_01160a30(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

@@ -2326,8 +2326,9 @@ undefined4 C_0111b390::sub_0111b390(byte param_2)
 }
 
 int sub_011ba1b0(void);
+struct C_0111b3b0 { undefined4 * sub_0111b3b0(byte param_2); };
 // @baa 0x0111b3b0
-undefined4 * UUnrealEdEngine::sub_0111b3b0(byte param_2)
+undefined4 * C_0111b3b0::sub_0111b3b0(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

@@ -10807,37 +10807,10 @@ struct UObject {
     INT sub_00540c50(); /* 0x00540c50 */
     INT sub_00540c60(); /* 0x00540c60 */
     INT sub_00540c70(); /* 0x00540c70 */
-    INT sub_00540da0(); /* 0x00540da0 */
-    INT sub_00540db0(); /* 0x00540db0 */
-    INT sub_00540dc0(INT); /* 0x00540dc0 */
-    INT sub_00540dd0(); /* 0x00540dd0 */
-    INT sub_00540de0(INT); /* 0x00540de0 */
-    UINT sub_00540e20(); /* 0x00540e20 */
-    INT sub_00540e30(); /* 0x00540e30 */
-    INT sub_00540e40(); /* 0x00540e40 */
-    INT sub_00540e50(); /* 0x00540e50 */
-    INT sub_00540e60(); /* 0x00540e60 */
-    INT sub_00540e70(); /* 0x00540e70 */
-    INT sub_00540e80(); /* 0x00540e80 */
-    INT sub_00540e90(); /* 0x00540e90 */
-    INT sub_00540f50(); /* 0x00540f50 */
     INT sub_00543e40(); /* 0x00543e40 */
     INT sub_00543f30(); /* 0x00543f30 */
     INT sub_00544130(); /* 0x00544130 */
     INT sub_00544280(); /* 0x00544280 */
-    INT sub_005443b0(INT); /* 0x005443b0 */
-    INT sub_005443c0(INT); /* 0x005443c0 */
-    INT sub_005443d0(); /* 0x005443d0 */
-    INT sub_005443e0(INT); /* 0x005443e0 */
-    INT sub_00546750(INT); /* 0x00546750 */
-    INT sub_00546760(INT); /* 0x00546760 */
-    INT sub_005473c0(INT); /* 0x005473c0 */
-    INT sub_00547440(INT); /* 0x00547440 */
-    INT sub_00547500(INT); /* 0x00547500 */
-    INT sub_005479a0(); /* 0x005479a0 */
-    INT sub_00547ac0(INT); /* 0x00547ac0 */
-    INT sub_00547ad0(INT); /* 0x00547ad0 */
-    void sub_00547ae0(); /* 0x00547ae0 */
     INT sub_005a9dd0(); /* 0x005a9dd0 */
     INT sub_005c1d10(); /* 0x005c1d10 */
     INT sub_005c1e60(); /* 0x005c1e60 */
@@ -10850,7 +10823,6 @@ struct UObject {
     INT sub_005c21a0(); /* 0x005c21a0 */
     INT sub_005c21e0(); /* 0x005c21e0 */
     INT sub_005c2260(); /* 0x005c2260 */
-    INT sub_005c8330(UINT*); /* 0x005c8330 */
     INT sub_005cbd50(); /* 0x005cbd50 */
     INT sub_005d1cc0(); /* 0x005d1cc0 */
     INT sub_005fc3a0(); /* 0x005fc3a0 */
@@ -10862,10 +10834,7 @@ struct UObject {
     INT sub_005fc430(); /* 0x005fc430 */
     INT sub_006042f0(); /* 0x006042f0 */
     INT sub_00655090(); /* 0x00655090 */
-    void sub_0069c8d0(INT, INT); /* 0x0069c8d0 */
     INT sub_00722fb0(); /* 0x00722fb0 */
-    void sub_00765d90(); /* 0x00765d90 */
-    UINT sub_00765df0(); /* 0x00765df0 */
     INT sub_00805490(); /* 0x00805490 */
     INT sub_00805550(); /* 0x00805550 */
     INT sub_00805560(); /* 0x00805560 */
@@ -10886,80 +10855,19 @@ struct UObject {
     INT sub_00805b80(); /* 0x00805b80 */
     INT sub_00805c30(); /* 0x00805c30 */
     INT sub_00808a20(); /* 0x00808a20 */
-    UINT sub_009939e0(BYTE); /* 0x009939e0 */
-    UINT sub_00a656f0(BYTE); /* 0x00a656f0 */
-    UINT sub_00a65780(BYTE); /* 0x00a65780 */
-    UINT sub_00a659b0(BYTE); /* 0x00a659b0 */
-    UINT sub_00a65a40(BYTE); /* 0x00a65a40 */
     UINT* sub_00b40d20(); /* 0x00b40d20 */
     UINT* sub_00b43870(); /* 0x00b43870 */
-    UINT* sub_00b60110(INT*); /* 0x00b60110 */
     INT sub_00b60ab0(); /* 0x00b60ab0 */
     char* sub_00b65220(); /* 0x00b65220 */
-    void sub_00c63570(); /* 0x00c63570 */
-    UINT sub_00c6a9f0(BYTE); /* 0x00c6a9f0 */
-    DWORD sub_00ce8810(DWORD); /* 0x00ce8810 */
-    UINT* sub_00ce9520(); /* 0x00ce9520 */
-    UINT* sub_00ce9550(); /* 0x00ce9550 */
-    UINT* sub_00ce9600(); /* 0x00ce9600 */
-    UINT* sub_00ce96b0(); /* 0x00ce96b0 */
-    UINT* sub_00ce9760(); /* 0x00ce9760 */
-    UINT* sub_00ce9810(); /* 0x00ce9810 */
-    UINT* sub_00ce98c0(); /* 0x00ce98c0 */
-    UINT* sub_00ce9970(); /* 0x00ce9970 */
-    UINT* sub_00ce9a20(); /* 0x00ce9a20 */
-    UINT* sub_00ce9ad0(); /* 0x00ce9ad0 */
-    UINT* sub_00ce9b80(); /* 0x00ce9b80 */
-    UINT* sub_00ce9c30(); /* 0x00ce9c30 */
-    UINT* sub_00ce9ce0(); /* 0x00ce9ce0 */
-    UINT* sub_00ce9da0(); /* 0x00ce9da0 */
-    UINT* sub_00ce9ed0(); /* 0x00ce9ed0 */
-    UINT* sub_00ce9f00(); /* 0x00ce9f00 */
-    UINT* sub_00ce9fb0(); /* 0x00ce9fb0 */
-    UINT* sub_00cea060(); /* 0x00cea060 */
-    UINT* sub_00cea110(); /* 0x00cea110 */
-    UINT* sub_00cea1c0(); /* 0x00cea1c0 */
-    UINT* sub_00cea270(); /* 0x00cea270 */
-    UINT* sub_00cea320(); /* 0x00cea320 */
-    UINT* sub_00cea3d0(); /* 0x00cea3d0 */
-    UINT* sub_00cea480(); /* 0x00cea480 */
-    UINT* sub_00cea530(); /* 0x00cea530 */
-    UINT* sub_00cfa210(); /* 0x00cfa210 */
-    UINT* sub_00d00cb0(); /* 0x00d00cb0 */
-    UINT* sub_00d063e0(); /* 0x00d063e0 */
-    UINT* sub_00d18b10(); /* 0x00d18b10 */
-    UINT sub_00d29170(BYTE); /* 0x00d29170 */
     INT sub_00ddd560(); /* 0x00ddd560 */
     INT sub_00f7da30(); /* 0x00f7da30 */
     INT sub_00f7dbf0(); /* 0x00f7dbf0 */
-    INT sub_00ff2350(UINT*); /* 0x00ff2350 */
-    INT sub_00ff6a30(INT); /* 0x00ff6a30 */
-    INT sub_00ff6a40(INT); /* 0x00ff6a40 */
-    INT sub_00ff6be0(); /* 0x00ff6be0 */
-    INT sub_00ff6c00(); /* 0x00ff6c00 */
-    UINT sub_00ff6c10(BYTE); /* 0x00ff6c10 */
     INT sub_0105fe90(); /* 0x0105fe90 */
     INT sub_0105fea0(); /* 0x0105fea0 */
     INT sub_0105feb0(); /* 0x0105feb0 */
-    void* sub_01084500(); /* 0x01084500 */
-    void sub_01084610(); /* 0x01084610 */
-    void sub_01084630(); /* 0x01084630 */
-    INT sub_010c34f0(INT); /* 0x010c34f0 */
     UINT* sub_0154b270(); /* 0x0154b270 */
-    UINT* sub_01572130(); /* 0x01572130 */
-    UINT* sub_01572150(); /* 0x01572150 */
-    UINT* sub_01572390(); /* 0x01572390 */
-    UINT* sub_01572440(); /* 0x01572440 */
-    UINT* sub_015724f0(); /* 0x015724f0 */
-    UINT* sub_015725c0(); /* 0x015725c0 */
-    UINT* sub_01572680(); /* 0x01572680 */
-    UINT* sub_01572730(); /* 0x01572730 */
-    UINT* sub_015727e0(); /* 0x015727e0 */
-    UINT* sub_01574520(); /* 0x01574520 */
-    UINT* sub_015a6d80(UINT*); /* 0x015a6d80 */
     INT sub_015a6f70(); /* 0x015a6f70 */
     UINT sub_01638350(UINT); /* 0x01638350 */
-    UINT sub_016c6920(BYTE); /* 0x016c6920 */
     void CallFunction(FFrame& Stack, RESULT_DECL, UFunction* Function); /* 0x005a6cd0 */
     /* registered size 0x30 */
 };
@@ -11001,12 +10909,8 @@ struct USubsystem : public UObject, public FExec {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     /* other member functions */
-    UBOOL sub_0059d8a0(); /* 0x0059d8a0 */
-    void* sub_0053e930(INT); /* 0x0053e930 */
-    void* sub_0053e940(INT); /* 0x0053e940 */
     INT sub_0053ea60(); /* 0x0053ea60 */
     INT sub_0053eb20(); /* 0x0053eb20 */
-    void sub_00544880(INT, INT); /* 0x00544880 */
     INT sub_0059d820(); /* 0x0059d820 */
     INT sub_0059d830(); /* 0x0059d830 */
     FString sub_005a1730(); /* 0x005a1730 */
@@ -11975,11 +11879,9 @@ struct UPrimitiveComponent : public UActorComponent {
     void AddTorque(FVector Torque, FName BoneName); /* 0x009ff330 */
     void AddTorqueForce(FVector Torgue, FName BoneName); /* 0x009ff470 */
     void AddTorqueImpulse(FVector Torgue, FName BoneName); /* 0x009ff5b0 */
-    void sub_006db370(FMatrix& OutTransform, FVector& OutScale); /* 0x006db370 */
     void sub_009feb00(UBOOL); /* 0x009feb00 */
     void sub_009ff970(INT, INT); /* 0x009ff970 */
     UBOOL HasStaticShadowing() const; /* 0x006db280 */
-    UINT sub_00a158b0(BYTE); /* 0x00a158b0 */
     void DetachDecal(UDecalComponent* Decal); /* 0x006eff50 */
     /* registered size 0x1b0 */
 };
@@ -12120,7 +12022,6 @@ struct UTexture2D : public UTexture {
     void sub_00733310(FArchive& Ar); /* 0x00733310 */
     void* sub_014d79d0(void); /* 0x014d79d0 */
     void SetForceMipLevelsToBeResident(FLOAT); /* 0x00717d50 */
-    void sub_0053ec70(); /* 0x0053ec70 */
     void sub_00545d10(INT); /* 0x00545d10 */
     INT sub_00545d20(); /* 0x00545d20 */
     INT sub_00567190(); /* 0x00567190 */
@@ -12135,501 +12036,21 @@ struct UTexture2D : public UTexture {
     INT sub_00567970(); /* 0x00567970 */
     INT sub_00567980(); /* 0x00567980 */
     INT sub_00567990(); /* 0x00567990 */
-    void sub_00567a20(); /* 0x00567a20 */
     INT sub_00567a90(); /* 0x00567a90 */
     INT sub_00567ab0(); /* 0x00567ab0 */
     void sub_00570840(INT); /* 0x00570840 */
     INT sub_00570850(); /* 0x00570850 */
     void sub_00570860(); /* 0x00570860 */
-    INT sub_005726f0(); /* 0x005726f0 */
-    void sub_00572700(INT); /* 0x00572700 */
-    INT sub_00572710(); /* 0x00572710 */
-    UINT sub_00572720(UINT); /* 0x00572720 */
-    UINT sub_0057cb40(INT); /* 0x0057cb40 */
-    UINT sub_0065e120(UINT); /* 0x0065e120 */
-    UINT sub_0065e190(BYTE); /* 0x0065e190 */
-    UINT sub_0065e370(UINT); /* 0x0065e370 */
-    UINT sub_00668330(BYTE); /* 0x00668330 */
-    INT sub_00669880(INT); /* 0x00669880 */
-    void sub_0067fda0(); /* 0x0067fda0 */
-    INT sub_0067fff0(INT); /* 0x0067fff0 */
-    void sub_00680010(); /* 0x00680010 */
-    void sub_00680070(INT); /* 0x00680070 */
-    void sub_006800b0(); /* 0x006800b0 */
-    void sub_00680110(); /* 0x00680110 */
-    void sub_00680b20(INT); /* 0x00680b20 */
-    void* sub_0068a660(INT); /* 0x0068a660 */
-    UINT sub_0068b3f0(BYTE); /* 0x0068b3f0 */
-    UINT sub_0068b410(BYTE); /* 0x0068b410 */
-    UINT sub_0068b430(BYTE); /* 0x0068b430 */
-    UINT sub_0068b450(BYTE); /* 0x0068b450 */
-    INT sub_006938f0(); /* 0x006938f0 */
-    UINT sub_00693f20(BYTE); /* 0x00693f20 */
-    UINT sub_00693f40(BYTE); /* 0x00693f40 */
-    UINT sub_00693f60(BYTE); /* 0x00693f60 */
-    void sub_0069ff80(INT*); /* 0x0069ff80 */
-    void sub_0069ffe0(INT*); /* 0x0069ffe0 */
-    UINT sub_006a0ae0(BYTE); /* 0x006a0ae0 */
-    UINT sub_006a0b00(BYTE); /* 0x006a0b00 */
-    UINT sub_006a0b20(BYTE); /* 0x006a0b20 */
-    INT sub_006a1aa0(UINT); /* 0x006a1aa0 */
-    INT sub_006a1bf0(UINT); /* 0x006a1bf0 */
-    INT sub_006a1d40(UINT); /* 0x006a1d40 */
-    UINT* sub_006b0ee0(INT); /* 0x006b0ee0 */
-    UINT sub_006ec620(BYTE); /* 0x006ec620 */
-    INT sub_0070ee60(UINT); /* 0x0070ee60 */
-    INT sub_0070efb0(UINT); /* 0x0070efb0 */
-    INT sub_0070f100(UINT); /* 0x0070f100 */
-    INT sub_0071d810(UINT*); /* 0x0071d810 */
     INT sub_0071d980(); /* 0x0071d980 */
     INT sub_0071d990(); /* 0x0071d990 */
-    INT sub_0071d9e0(UINT*); /* 0x0071d9e0 */
     INT sub_0071dae0(); /* 0x0071dae0 */
     INT sub_0071db10(); /* 0x0071db10 */
     INT sub_0071dc30(); /* 0x0071dc30 */
     INT sub_0071dcd0(); /* 0x0071dcd0 */
-    INT sub_00726fe0(INT); /* 0x00726fe0 */
-    INT sub_007270a0(); /* 0x007270a0 */
-    INT sub_007270b0(INT); /* 0x007270b0 */
-    void sub_00727e40(); /* 0x00727e40 */
-    void sub_00727ea0(); /* 0x00727ea0 */
-    void sub_00727f00(); /* 0x00727f00 */
-    void sub_00727f60(); /* 0x00727f60 */
-    void sub_00727fc0(); /* 0x00727fc0 */
-    void sub_00728020(); /* 0x00728020 */
-    UINT sub_0072cdd0(BYTE); /* 0x0072cdd0 */
-    UINT sub_0072cdf0(BYTE); /* 0x0072cdf0 */
-    UINT sub_0072ce10(BYTE); /* 0x0072ce10 */
-    UINT sub_0072ce30(BYTE); /* 0x0072ce30 */
-    UINT sub_0072ce50(BYTE); /* 0x0072ce50 */
-    UINT sub_0072ce70(BYTE); /* 0x0072ce70 */
-    void sub_007306b0(); /* 0x007306b0 */
-    void sub_00730740(); /* 0x00730740 */
-    void sub_007307d0(); /* 0x007307d0 */
-    void sub_00730860(); /* 0x00730860 */
-    void sub_007308f0(); /* 0x007308f0 */
-    UINT sub_007309d0(BYTE); /* 0x007309d0 */
-    UINT sub_007309f0(BYTE); /* 0x007309f0 */
-    UINT sub_00730a10(BYTE); /* 0x00730a10 */
-    UINT sub_00730a30(BYTE); /* 0x00730a30 */
-    UINT sub_00730a50(BYTE); /* 0x00730a50 */
-    UINT sub_00730a70(BYTE); /* 0x00730a70 */
-    UINT sub_00730a90(BYTE); /* 0x00730a90 */
-    UINT sub_00730ab0(BYTE); /* 0x00730ab0 */
-    UINT sub_00730ad0(BYTE); /* 0x00730ad0 */
-    UINT sub_00730af0(BYTE); /* 0x00730af0 */
-    UINT sub_00730b10(BYTE); /* 0x00730b10 */
-    UINT sub_00730b30(BYTE); /* 0x00730b30 */
-    void sub_00734e60(); /* 0x00734e60 */
-    void sub_00734ee0(); /* 0x00734ee0 */
-    void sub_00734f60(); /* 0x00734f60 */
-    void sub_00734fe0(); /* 0x00734fe0 */
-    void sub_00735060(); /* 0x00735060 */
-    void sub_007350e0(); /* 0x007350e0 */
-    void sub_00735160(); /* 0x00735160 */
-    void sub_007351e0(); /* 0x007351e0 */
-    void sub_00735260(); /* 0x00735260 */
-    void sub_00735280(); /* 0x00735280 */
-    UINT sub_007352a0(BYTE); /* 0x007352a0 */
-    UINT sub_007352c0(BYTE); /* 0x007352c0 */
-    UINT sub_007352e0(BYTE); /* 0x007352e0 */
-    UINT sub_00735300(BYTE); /* 0x00735300 */
-    UINT sub_00735320(BYTE); /* 0x00735320 */
-    UINT sub_00735340(BYTE); /* 0x00735340 */
-    UINT sub_00735360(BYTE); /* 0x00735360 */
-    UINT sub_00735380(BYTE); /* 0x00735380 */
-    UINT sub_007353a0(BYTE); /* 0x007353a0 */
-    UINT sub_007378a0(BYTE); /* 0x007378a0 */
-    UINT sub_007378c0(BYTE); /* 0x007378c0 */
-    UINT sub_007378e0(BYTE); /* 0x007378e0 */
-    UINT sub_00737900(BYTE); /* 0x00737900 */
-    UINT sub_00737920(BYTE); /* 0x00737920 */
-    UINT sub_00737940(BYTE); /* 0x00737940 */
-    UINT sub_00743390(BYTE); /* 0x00743390 */
-    UINT sub_007433b0(BYTE); /* 0x007433b0 */
-    UINT sub_007433d0(BYTE); /* 0x007433d0 */
-    INT sub_00744790(UINT); /* 0x00744790 */
-    INT sub_007448e0(UINT); /* 0x007448e0 */
-    INT sub_00744a30(UINT); /* 0x00744a30 */
-    UINT sub_0074b480(BYTE); /* 0x0074b480 */
-    UINT sub_0074b4a0(BYTE); /* 0x0074b4a0 */
-    UINT sub_0074b4c0(BYTE); /* 0x0074b4c0 */
-    INT sub_0074c8b0(UINT); /* 0x0074c8b0 */
-    INT sub_0074ca00(UINT); /* 0x0074ca00 */
-    INT sub_0074cb50(UINT); /* 0x0074cb50 */
-    void* sub_00818650(INT); /* 0x00818650 */
-    void* sub_0081e7d0(INT); /* 0x0081e7d0 */
-    UINT* sub_00946e40(); /* 0x00946e40 */
-    UINT sub_00946e60(BYTE); /* 0x00946e60 */
-    void sub_00a61b00(UINT, UINT); /* 0x00a61b00 */
-    void sub_00a61ce0(UINT, UINT); /* 0x00a61ce0 */
-    void sub_00a61ec0(UINT, UINT); /* 0x00a61ec0 */
-    void sub_00a620a0(UINT, UINT); /* 0x00a620a0 */
-    void sub_00a62f40(UINT, UINT); /* 0x00a62f40 */
-    void sub_00a63120(UINT, UINT); /* 0x00a63120 */
-    void sub_00a63310(UINT, UINT); /* 0x00a63310 */
-    UINT sub_00a66290(BYTE); /* 0x00a66290 */
-    UINT sub_00a663c0(BYTE); /* 0x00a663c0 */
-    UINT sub_00a66500(BYTE); /* 0x00a66500 */
-    INT sub_00acbfd0(INT); /* 0x00acbfd0 */
-    INT sub_00ae0f80(); /* 0x00ae0f80 */
-    INT sub_00ae8fe0(); /* 0x00ae8fe0 */
-    void* sub_00c18c40(INT); /* 0x00c18c40 */
-    INT sub_00cfce70(UINT*, INT); /* 0x00cfce70 */
-    bool sub_00ec13f0(); /* 0x00ec13f0 */
-    INT sub_00f252f0(INT); /* 0x00f252f0 */
-    UINT sub_00f79470(UINT); /* 0x00f79470 */
-    UINT sub_00f7e820(UINT); /* 0x00f7e820 */
     INT sub_00f9dd30(); /* 0x00f9dd30 */
     char* sub_00f9dee0(); /* 0x00f9dee0 */
     INT sub_00f9def0(); /* 0x00f9def0 */
-    UINT sub_00fa2830(UINT*); /* 0x00fa2830 */
-    void sub_00fbb060(); /* 0x00fbb060 */
-    UINT sub_00fbd3e0(BYTE); /* 0x00fbd3e0 */
-    UINT sub_01017e50(UINT); /* 0x01017e50 */
-    INT sub_0101c520(INT); /* 0x0101c520 */
-    INT sub_0101c5d0(INT); /* 0x0101c5d0 */
-    INT sub_0101c680(INT); /* 0x0101c680 */
-    INT sub_0101c730(INT); /* 0x0101c730 */
-    INT sub_0101c7e0(INT); /* 0x0101c7e0 */
-    INT sub_0101c890(INT); /* 0x0101c890 */
-    INT sub_0101c940(INT); /* 0x0101c940 */
-    INT sub_0101c9f0(INT); /* 0x0101c9f0 */
-    INT sub_0101caa0(INT); /* 0x0101caa0 */
-    INT sub_0101cb50(INT); /* 0x0101cb50 */
-    INT sub_0101cc00(INT); /* 0x0101cc00 */
-    INT sub_0101cda0(INT); /* 0x0101cda0 */
-    UINT* sub_0101ce20(INT*); /* 0x0101ce20 */
-    UINT* sub_0101ce50(INT*); /* 0x0101ce50 */
-    INT sub_0101ce80(); /* 0x0101ce80 */
-    INT sub_0101ce90(INT); /* 0x0101ce90 */
-    INT sub_0101cf00(INT); /* 0x0101cf00 */
-    INT sub_0101cf70(INT); /* 0x0101cf70 */
-    INT sub_0101d050(INT); /* 0x0101d050 */
-    UINT sub_0101db20(BYTE); /* 0x0101db20 */
-    UINT sub_0101db50(BYTE); /* 0x0101db50 */
-    UINT* sub_0101db80(UINT*); /* 0x0101db80 */
-    INT sub_0101dbb0(); /* 0x0101dbb0 */
-    INT sub_0101dbd0(); /* 0x0101dbd0 */
-    INT sub_0101dbf0(); /* 0x0101dbf0 */
-    INT sub_0101dc10(); /* 0x0101dc10 */
-    INT sub_0101dc30(); /* 0x0101dc30 */
-    INT sub_0101dc50(); /* 0x0101dc50 */
-    INT sub_0101dc70(); /* 0x0101dc70 */
-    INT sub_0101dc90(); /* 0x0101dc90 */
-    INT sub_0101dcb0(); /* 0x0101dcb0 */
-    INT sub_0101dcd0(); /* 0x0101dcd0 */
-    INT sub_0101dcf0(); /* 0x0101dcf0 */
-    INT sub_0101dd10(); /* 0x0101dd10 */
-    INT sub_0101dd30(); /* 0x0101dd30 */
-    INT sub_0101dec0(INT); /* 0x0101dec0 */
-    INT sub_0101ded0(); /* 0x0101ded0 */
-    INT sub_0101def0(INT); /* 0x0101def0 */
-    INT sub_0101df00(); /* 0x0101df00 */
-    INT sub_0101df20(INT); /* 0x0101df20 */
-    INT sub_0101df30(); /* 0x0101df30 */
-    INT sub_0101df50(INT); /* 0x0101df50 */
-    INT sub_0101df60(); /* 0x0101df60 */
-    INT sub_0101df80(INT); /* 0x0101df80 */
-    INT sub_0101df90(); /* 0x0101df90 */
-    INT sub_0101dfb0(); /* 0x0101dfb0 */
-    INT sub_0101dfc0(); /* 0x0101dfc0 */
-    INT sub_0101dfd0(); /* 0x0101dfd0 */
-    INT sub_0101dfe0(); /* 0x0101dfe0 */
-    INT sub_0101dff0(); /* 0x0101dff0 */
-    INT sub_0101e000(); /* 0x0101e000 */
-    INT sub_0101e010(); /* 0x0101e010 */
-    INT sub_0101e020(); /* 0x0101e020 */
-    INT sub_0101e030(); /* 0x0101e030 */
-    INT sub_0101e040(); /* 0x0101e040 */
-    INT sub_0101e050(); /* 0x0101e050 */
-    INT sub_0101e060(); /* 0x0101e060 */
-    INT sub_0101e0f0(INT); /* 0x0101e0f0 */
-    void sub_0101e740(); /* 0x0101e740 */
-    void sub_0101e7a0(); /* 0x0101e7a0 */
-    void sub_0101e800(); /* 0x0101e800 */
-    void sub_0101e860(); /* 0x0101e860 */
-    void sub_0101e8c0(); /* 0x0101e8c0 */
-    void sub_0101e920(); /* 0x0101e920 */
-    void sub_0101e980(); /* 0x0101e980 */
-    void sub_0101e9e0(); /* 0x0101e9e0 */
-    void sub_0101ea40(); /* 0x0101ea40 */
-    void sub_0101eaa0(); /* 0x0101eaa0 */
-    INT sub_010213b0(); /* 0x010213b0 */
-    INT sub_010214f0(INT); /* 0x010214f0 */
-    INT sub_01021970(); /* 0x01021970 */
-    UINT sub_01021a00(BYTE); /* 0x01021a00 */
-    void sub_01021a30(); /* 0x01021a30 */
-    UINT sub_01022260(BYTE); /* 0x01022260 */
-    UINT* sub_01022290(UINT*); /* 0x01022290 */
-    UINT sub_010222e0(BYTE); /* 0x010222e0 */
-    void sub_01022310(); /* 0x01022310 */
-    UINT* sub_010230c0(UINT*); /* 0x010230c0 */
-    INT sub_01023100(); /* 0x01023100 */
-    INT sub_01023120(); /* 0x01023120 */
-    INT sub_01023140(); /* 0x01023140 */
-    INT sub_01023160(); /* 0x01023160 */
-    INT sub_01023180(); /* 0x01023180 */
-    INT sub_010231c0(); /* 0x010231c0 */
-    INT sub_010231f0(); /* 0x010231f0 */
-    INT sub_01023220(); /* 0x01023220 */
-    INT sub_01023250(); /* 0x01023250 */
-    INT sub_01023280(); /* 0x01023280 */
-    INT sub_010232b0(); /* 0x010232b0 */
-    INT sub_010232e0(); /* 0x010232e0 */
-    INT sub_01023310(); /* 0x01023310 */
-    INT sub_01023340(); /* 0x01023340 */
-    INT sub_01023370(); /* 0x01023370 */
-    INT sub_010233a0(); /* 0x010233a0 */
-    INT sub_010233d0(); /* 0x010233d0 */
-    INT sub_010233e0(INT); /* 0x010233e0 */
-    INT sub_01023410(); /* 0x01023410 */
-    INT sub_01023420(INT); /* 0x01023420 */
-    INT sub_01023450(); /* 0x01023450 */
-    INT sub_01023460(INT); /* 0x01023460 */
-    INT sub_01023490(); /* 0x01023490 */
-    INT sub_010234a0(INT); /* 0x010234a0 */
-    INT sub_010234d0(); /* 0x010234d0 */
-    INT sub_010234e0(INT); /* 0x010234e0 */
-    INT sub_01023510(); /* 0x01023510 */
-    INT sub_01027510(); /* 0x01027510 */
-    INT sub_01027520(); /* 0x01027520 */
-    INT sub_010276f0(INT); /* 0x010276f0 */
-    INT sub_01027730(INT); /* 0x01027730 */
-    INT sub_01027760(INT); /* 0x01027760 */
-    INT sub_01027790(INT); /* 0x01027790 */
-    INT sub_010277c0(INT); /* 0x010277c0 */
-    INT sub_010277f0(INT); /* 0x010277f0 */
-    INT sub_01027820(INT); /* 0x01027820 */
-    INT sub_01027850(INT); /* 0x01027850 */
-    INT sub_01027880(INT); /* 0x01027880 */
-    INT sub_010278b0(INT); /* 0x010278b0 */
-    INT sub_010278e0(INT); /* 0x010278e0 */
-    INT sub_01027910(INT); /* 0x01027910 */
-    INT sub_01027940(INT); /* 0x01027940 */
-    INT sub_010279d0(INT); /* 0x010279d0 */
-    INT sub_01027a40(INT); /* 0x01027a40 */
-    UINT* sub_01028930(UINT*); /* 0x01028930 */
-    UINT* sub_01028a60(UINT*); /* 0x01028a60 */
-    UINT* sub_01028b30(UINT*); /* 0x01028b30 */
-    UINT* sub_01028c40(UINT*); /* 0x01028c40 */
-    UINT sub_01028c70(BYTE); /* 0x01028c70 */
-    INT sub_010298b0(); /* 0x010298b0 */
-    INT sub_010298f0(); /* 0x010298f0 */
-    INT sub_01029930(); /* 0x01029930 */
-    INT sub_01029970(); /* 0x01029970 */
-    INT sub_010299b0(); /* 0x010299b0 */
-    INT sub_010299f0(); /* 0x010299f0 */
-    INT sub_01029a30(); /* 0x01029a30 */
-    INT sub_01029a70(); /* 0x01029a70 */
-    INT sub_01029ab0(); /* 0x01029ab0 */
-    INT sub_01029af0(); /* 0x01029af0 */
-    INT sub_01029b30(); /* 0x01029b30 */
-    INT sub_01029b70(); /* 0x01029b70 */
-    INT sub_01029bd0(); /* 0x01029bd0 */
-    INT sub_01029be0(); /* 0x01029be0 */
-    INT sub_01029c30(); /* 0x01029c30 */
-    INT sub_01029c40(); /* 0x01029c40 */
-    INT sub_01029c90(); /* 0x01029c90 */
-    INT sub_01029ca0(); /* 0x01029ca0 */
-    INT sub_01029cf0(); /* 0x01029cf0 */
-    INT sub_01029d00(); /* 0x01029d00 */
-    INT sub_01029d50(); /* 0x01029d50 */
-    INT sub_01029d60(); /* 0x01029d60 */
-    void* sub_0102ab40(INT); /* 0x0102ab40 */
-    INT sub_0102fca0(INT); /* 0x0102fca0 */
-    INT sub_0102fd60(INT); /* 0x0102fd60 */
-    INT sub_0102fe70(INT); /* 0x0102fe70 */
-    UINT sub_010344c0(BYTE); /* 0x010344c0 */
-    INT sub_01035af0(); /* 0x01035af0 */
-    INT sub_01035b10(); /* 0x01035b10 */
-    INT sub_01035b30(); /* 0x01035b30 */
-    INT sub_01035b50(); /* 0x01035b50 */
-    void sub_01037c40(); /* 0x01037c40 */
-    UINT sub_01037dd0(UINT, UINT); /* 0x01037dd0 */
-    void sub_01037e80(); /* 0x01037e80 */
-    UINT sub_01037f90(UINT, UINT); /* 0x01037f90 */
-    void sub_01038060(); /* 0x01038060 */
-    UINT sub_01038190(UINT, UINT); /* 0x01038190 */
-    INT sub_010381b0(UINT, UINT); /* 0x010381b0 */
-    INT sub_010381d0(UINT, UINT); /* 0x010381d0 */
-    INT sub_010381f0(UINT, UINT); /* 0x010381f0 */
-    INT sub_01038210(UINT, UINT); /* 0x01038210 */
-    INT sub_01038230(UINT, UINT); /* 0x01038230 */
-    INT sub_01038250(UINT, UINT); /* 0x01038250 */
-    INT sub_01038270(UINT, UINT); /* 0x01038270 */
-    INT sub_01038290(UINT, UINT); /* 0x01038290 */
-    INT sub_010382b0(UINT, UINT); /* 0x010382b0 */
-    INT sub_010382d0(UINT, UINT); /* 0x010382d0 */
-    INT sub_010382f0(UINT, UINT); /* 0x010382f0 */
-    INT sub_01038310(UINT, UINT); /* 0x01038310 */
-    INT sub_01038330(UINT, UINT); /* 0x01038330 */
-    UINT sub_01038350(UINT, UINT); /* 0x01038350 */
-    INT sub_01038370(UINT, UINT); /* 0x01038370 */
-    INT sub_01038390(UINT, UINT); /* 0x01038390 */
-    INT sub_010383b0(); /* 0x010383b0 */
-    INT sub_010383d0(); /* 0x010383d0 */
-    INT sub_010383f0(); /* 0x010383f0 */
-    INT sub_01038410(); /* 0x01038410 */
-    INT sub_01038e50(UINT, UINT, UINT); /* 0x01038e50 */
-    void sub_01038e80(); /* 0x01038e80 */
-    INT sub_010391e0(UINT, UINT, UINT); /* 0x010391e0 */
-    INT sub_010392f0(UINT, UINT, UINT); /* 0x010392f0 */
-    void sub_01039320(); /* 0x01039320 */
-    INT sub_01039340(); /* 0x01039340 */
-    INT sub_01039360(); /* 0x01039360 */
-    INT sub_01039380(); /* 0x01039380 */
-    INT sub_010393a0(); /* 0x010393a0 */
-    INT sub_0103d810(); /* 0x0103d810 */
-    INT sub_0103d830(); /* 0x0103d830 */
-    INT sub_0103d850(); /* 0x0103d850 */
-    INT sub_0103d870(); /* 0x0103d870 */
-    void sub_0104f6c0(); /* 0x0104f6c0 */
-    void sub_0104f6e0(); /* 0x0104f6e0 */
-    void sub_0104f700(); /* 0x0104f700 */
-    void sub_0104f720(); /* 0x0104f720 */
-    void sub_0104f740(); /* 0x0104f740 */
-    void sub_0104f760(); /* 0x0104f760 */
-    void sub_0104f780(); /* 0x0104f780 */
-    void sub_0104f7a0(); /* 0x0104f7a0 */
-    void sub_0104f7c0(); /* 0x0104f7c0 */
-    void sub_0104f7e0(); /* 0x0104f7e0 */
-    void sub_0104f800(); /* 0x0104f800 */
-    void sub_0104f820(); /* 0x0104f820 */
-    INT sub_01050060(); /* 0x01050060 */
-    INT sub_01050080(); /* 0x01050080 */
-    INT sub_010500a0(); /* 0x010500a0 */
-    INT sub_010500c0(); /* 0x010500c0 */
-    INT sub_010500e0(); /* 0x010500e0 */
-    INT sub_01050e40(); /* 0x01050e40 */
-    INT sub_01050e60(); /* 0x01050e60 */
-    INT sub_01050e80(); /* 0x01050e80 */
-    INT sub_01050ea0(); /* 0x01050ea0 */
-    INT sub_01050ec0(); /* 0x01050ec0 */
-    INT sub_01054050(); /* 0x01054050 */
-    INT sub_01054070(); /* 0x01054070 */
-    INT sub_01054090(); /* 0x01054090 */
-    INT sub_010540b0(); /* 0x010540b0 */
-    INT sub_010540d0(); /* 0x010540d0 */
-    INT sub_01054670(); /* 0x01054670 */
-    INT sub_01054690(); /* 0x01054690 */
-    INT sub_010546b0(); /* 0x010546b0 */
-    INT sub_010546d0(); /* 0x010546d0 */
-    INT sub_010546f0(); /* 0x010546f0 */
     INT sub_01091a80(); /* 0x01091a80 */
-    UINT* sub_01091f20(INT*); /* 0x01091f20 */
-    UINT* sub_01092050(INT*); /* 0x01092050 */
-    INT sub_010952b0(INT); /* 0x010952b0 */
-    UINT* sub_01095f70(UINT*); /* 0x01095f70 */
-    UINT* sub_01095f90(UINT*); /* 0x01095f90 */
-    UINT sub_0109ad90(INT); /* 0x0109ad90 */
-    INT sub_0109add0(INT); /* 0x0109add0 */
-    INT sub_0109b0a0(INT); /* 0x0109b0a0 */
-    INT sub_0109b0d0(INT); /* 0x0109b0d0 */
-    INT sub_0109b100(INT); /* 0x0109b100 */
-    INT sub_0109b130(INT); /* 0x0109b130 */
-    INT sub_0109b160(INT); /* 0x0109b160 */
-    INT sub_0109b280(INT); /* 0x0109b280 */
-    INT sub_0109ed80(INT); /* 0x0109ed80 */
-    INT sub_0109edc0(INT); /* 0x0109edc0 */
-    INT sub_0109ee00(INT); /* 0x0109ee00 */
-    INT sub_0109ee40(INT); /* 0x0109ee40 */
-    INT sub_0109ee80(INT); /* 0x0109ee80 */
-    void sub_0109f120(); /* 0x0109f120 */
-    void sub_0109f140(); /* 0x0109f140 */
-    void sub_0109f160(); /* 0x0109f160 */
-    void sub_0109f180(); /* 0x0109f180 */
-    void sub_0109fe50(); /* 0x0109fe50 */
-    void sub_0109fe70(); /* 0x0109fe70 */
-    INT sub_010a1b40(); /* 0x010a1b40 */
-    INT sub_010a1b60(); /* 0x010a1b60 */
-    INT sub_010a1b80(); /* 0x010a1b80 */
-    INT sub_010a1ba0(); /* 0x010a1ba0 */
-    INT sub_010a1bc0(); /* 0x010a1bc0 */
-    INT sub_010a1be0(); /* 0x010a1be0 */
-    UINT sub_010a3010(UINT, UINT); /* 0x010a3010 */
-    UINT sub_010a3030(UINT, UINT); /* 0x010a3030 */
-    UINT sub_010a3050(UINT, UINT); /* 0x010a3050 */
-    UINT sub_010a3070(UINT, UINT); /* 0x010a3070 */
-    void sub_010a3090(); /* 0x010a3090 */
-    void sub_010a30b0(); /* 0x010a30b0 */
-    void sub_010a30d0(); /* 0x010a30d0 */
-    void sub_010a30f0(); /* 0x010a30f0 */
-    void sub_010a3110(); /* 0x010a3110 */
-    void sub_010a3130(); /* 0x010a3130 */
-    void sub_010a3150(); /* 0x010a3150 */
-    void sub_010a3170(); /* 0x010a3170 */
-    INT sub_010a39d0(); /* 0x010a39d0 */
-    INT sub_010a3bd0(); /* 0x010a3bd0 */
-    INT sub_010a4520(); /* 0x010a4520 */
-    INT sub_010a4600(); /* 0x010a4600 */
-    INT sub_010a46e0(); /* 0x010a46e0 */
-    INT sub_010a4800(); /* 0x010a4800 */
-    INT sub_010a4820(); /* 0x010a4820 */
-    INT sub_010a4cc0(); /* 0x010a4cc0 */
-    INT sub_010a4e30(); /* 0x010a4e30 */
-    INT sub_010a4e50(); /* 0x010a4e50 */
-    INT sub_010a4e70(); /* 0x010a4e70 */
-    INT sub_010a4e90(); /* 0x010a4e90 */
-    INT sub_010a4eb0(); /* 0x010a4eb0 */
-    INT sub_010a4ed0(); /* 0x010a4ed0 */
-    INT sub_010a58d0(); /* 0x010a58d0 */
-    INT sub_010a59d0(UINT, UINT, UINT); /* 0x010a59d0 */
-    INT sub_010a5a00(UINT, UINT, UINT); /* 0x010a5a00 */
-    INT sub_010a5a30(UINT, UINT, UINT); /* 0x010a5a30 */
-    INT sub_010a5a60(UINT, UINT, UINT); /* 0x010a5a60 */
-    UINT sub_010a5a90(BYTE); /* 0x010a5a90 */
-    UINT sub_010a5ab0(BYTE); /* 0x010a5ab0 */
-    void sub_010a5c10(); /* 0x010a5c10 */
-    void sub_010a5d90(); /* 0x010a5d90 */
-    void sub_010a5eb0(); /* 0x010a5eb0 */
-    void sub_010a6240(); /* 0x010a6240 */
-    void sub_010a6550(); /* 0x010a6550 */
-    INT sub_010a6620(); /* 0x010a6620 */
-    UINT sub_010a66c0(UINT, UINT); /* 0x010a66c0 */
-    void sub_010a66e0(); /* 0x010a66e0 */
-    INT sub_010a67b0(); /* 0x010a67b0 */
-    UINT sub_010a6850(UINT, UINT); /* 0x010a6850 */
-    void sub_010a6870(); /* 0x010a6870 */
-    UINT sub_010a6940(UINT, UINT); /* 0x010a6940 */
-    INT sub_010a6c20(); /* 0x010a6c20 */
-    INT sub_010a6cc0(); /* 0x010a6cc0 */
-    INT sub_010a6d60(); /* 0x010a6d60 */
-    INT sub_010a6ec0(); /* 0x010a6ec0 */
-    INT sub_010a6ee0(); /* 0x010a6ee0 */
-    INT sub_010a7dc0(); /* 0x010a7dc0 */
-    INT sub_010a7e50(); /* 0x010a7e50 */
-    INT sub_010a7ee0(); /* 0x010a7ee0 */
-    INT sub_010a7fe0(); /* 0x010a7fe0 */
-    INT sub_010a8000(); /* 0x010a8000 */
-    INT sub_010a8350(); /* 0x010a8350 */
-    INT sub_010a8370(); /* 0x010a8370 */
-    INT sub_010a8390(); /* 0x010a8390 */
-    INT sub_010a83b0(); /* 0x010a83b0 */
-    INT sub_010a83d0(); /* 0x010a83d0 */
-    INT sub_010a83f0(); /* 0x010a83f0 */
-    void sub_010ac9b0(); /* 0x010ac9b0 */
-    INT sub_010ac9c0(); /* 0x010ac9c0 */
-    INT sub_010acd20(); /* 0x010acd20 */
-    INT sub_010ad080(); /* 0x010ad080 */
-    INT sub_010ad0a0(); /* 0x010ad0a0 */
-    INT sub_010ad0c0(); /* 0x010ad0c0 */
-    void* sub_010ad0e0(INT); /* 0x010ad0e0 */
-    void* sub_010af2d0(INT); /* 0x010af2d0 */
-    void sub_010af2f0(); /* 0x010af2f0 */
-    void* sub_010b1c20(INT); /* 0x010b1c20 */
-    void sub_010b59e0(); /* 0x010b59e0 */
-    INT sub_01485d00(INT); /* 0x01485d00 */
-    INT sub_01489910(INT); /* 0x01489910 */
-    INT sub_014d7940(INT); /* 0x014d7940 */
-    INT sub_014d8850(INT); /* 0x014d8850 */
-    INT sub_014d8f40(); /* 0x014d8f40 */
-    INT sub_014d9220(); /* 0x014d9220 */
-    INT sub_014d9270(); /* 0x014d9270 */
-    INT sub_014d9a50(); /* 0x014d9a50 */
-    void sub_017573c0(); /* 0x017573c0 */
-    UINT sub_017573d0(BYTE); /* 0x017573d0 */
-    UINT sub_01757600(BYTE); /* 0x01757600 */
     /* registered size 0x100 */
 };
 
@@ -12826,11 +12247,6 @@ struct AInfo : public AActor {
     AInfo* sub_015771d0(); /* 0x015771d0 */
     AInfo* sub_01577230(); /* 0x01577230 */
     AInfo* sub_015773f0(); /* 0x015773f0 */
-    AInfo* sub_01577750(); /* 0x01577750 */
-    AInfo* sub_01577870(); /* 0x01577870 */
-    AInfo* sub_015778d0(); /* 0x015778d0 */
-    AInfo* sub_01577990(); /* 0x01577990 */
-    AInfo* sub_01577ad0(); /* 0x01577ad0 */
     AInfo* sub_01577be0(); /* 0x01577be0 */
     AInfo* sub_01577ca0(); /* 0x01577ca0 */
     AInfo* sub_01579070(); /* 0x01579070 */
@@ -14865,7 +14281,6 @@ struct UAnimNode : public UAnimObject {
     void GetNodesByClass(TArray<UAnimNode*>& Nodes, UClass* BaseClass); /* 0x00c5ed80 */
     void GetAnimSeqNodes(TArray<UAnimNodeSequence*>& Nodes, FName InSynchGroupName); /* 0x00c7a3d0 */
     void sub_00c4b530(TArray<UAnimNode*>& Nodes); /* 0x00c4b530 */
-    static void sub_00c52e80(TArray<BYTE>& BoneIndices, USkeletalMesh* SkelMesh); /* 0x00c52e80 */
     UAnimNode* FindAnimNode(FName InNodeName); /* 0x00c5ef30 */
     /* registered size 0xb4 */
 };
@@ -14978,7 +14393,6 @@ struct UAnimNodeAimOffset : public UAnimNodeBlendBase {
     FAimOffsetProfile* GetCurrentProfile(); /* 0x00c55cc0 */
     void SetBoneAimQuaternion(INT CompIndex, INT AimDir, FQuat InQuat); /* 0x00c56030 */
     void UpdateListOfRequiredBones(); /* 0x00c62170 */
-    void sub_00c7bab0(); /* 0x00c7bab0 */
     /* registered size 0x110 */
 };
 
@@ -16355,7 +15769,6 @@ struct UBrushComponent : public UPrimitiveComponent {
     virtual FPrimitiveSceneProxy* CreateSceneProxy(); /* 0x1fc */
     /* other member functions */
     void sub_00787610(); /* 0x00787610 */
-    void sub_00a2aa30(); /* 0x00a2aa30 */
     /* registered size 0x200 */
 };
 
@@ -16518,11 +15931,6 @@ struct UStaticMeshComponent : public UMeshComponent {
     void execDisableRBCollisionWithSMC(FFrame& Stack, RESULT_DECL); /* 0x00a01d30 */
     /* other member functions */
     void DisableRBCollisionWithSMC(UStaticMeshComponent* OtherSMC, UBOOL bDisabled); /* 0x00a01cc0 */
-    DOUBLE sub_00bce250(FLOAT); /* 0x00bce250 */
-    void* sub_00bce2b0(); /* 0x00bce2b0 */
-    INT sub_00bce310(); /* 0x00bce310 */
-    INT sub_00bce4e0(); /* 0x00bce4e0 */
-    void sub_00bcebc0(UINT); /* 0x00bcebc0 */
     /* registered size 0x1f0 */
 };
 
@@ -16592,7 +16000,6 @@ struct UInterpGroupInst : public UObject {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     /* other member functions */
-    INT sub_00ceb6c0(); /* 0x00ceb6c0 */
     /* registered size 0x44 */
 };
 
@@ -16702,8 +16109,6 @@ struct UFont : public UObject {
     void execGetMaxCharHeight(FFrame& Stack, RESULT_DECL); /* 0x00c8cb50 */
     void execStrWidth(FFrame& Stack, RESULT_DECL); /* 0x00cb8360 */
     /* other member functions */
-    UINT sub_00d192e0(BYTE); /* 0x00d192e0 */
-    UINT* sub_00d19310(); /* 0x00d19310 */
     /* registered size 0x124 */
 };
 
@@ -18068,10 +17473,8 @@ struct USkeletalMeshComponent : public UMeshComponent {
     void UpdatePermanentFixing(); /* 0x009401b0 */
     void EnableClothValidBounds(UBOOL); /* 0x00a00500 */
     void SetHasPhysicsAssetInstance(UBOOL); /* 0x00a01980 */
-    void sub_00a01b60(UBOOL); /* 0x00a01b60 */
     void UpdateClothParams(); /* 0x00a06350 */
     void SetClothValidBounds(const FVector& ClothValidBoundsMin, const FVector& ClothValidBoundsMax); /* 0x00a130e0 */
-    void sub_00a13fc0(UBOOL); /* 0x00a13fc0 */
     void UnHideBone(INT); /* 0x00a14870 */
     UBOOL IsBoneHidden(INT); /* 0x00a14920 */
     void ResetClothVertsToRefPose(); /* 0x00a1c3d0 */
@@ -18083,16 +17486,7 @@ struct USkeletalMeshComponent : public UMeshComponent {
     void sub_0090f260(); /* 0x0090f260 */
     void sub_0090f2e0(); /* 0x0090f2e0 */
     INT sub_00921700(); /* 0x00921700 */
-    INT sub_0092f080(); /* 0x0092f080 */
-    INT sub_0092f0e0(); /* 0x0092f0e0 */
-    INT sub_0092f100(); /* 0x0092f100 */
-    INT sub_0092f110(INT); /* 0x0092f110 */
-    INT sub_0092f120(); /* 0x0092f120 */
-    INT sub_0092f140(INT); /* 0x0092f140 */
-    INT sub_0092f150(); /* 0x0092f150 */
     INT sub_00935ef0(); /* 0x00935ef0 */
-    UINT* sub_0093e1b0(UINT*); /* 0x0093e1b0 */
-    UINT* sub_0093e2c0(UINT*); /* 0x0093e2c0 */
     /* registered size 0x5b0 */
 };
 
@@ -18506,8 +17900,6 @@ struct UInput : public UInteraction {
     void execResetInput(FFrame& Stack, RESULT_DECL); /* 0x00ca0a60 */
     void execGetBind(FFrame& Stack, RESULT_DECL); /* 0x00cbd140 */
     /* other member functions */
-    void sub_00d8bbe0(); /* 0x00d8bbe0 */
-    void sub_00d8bbf0(); /* 0x00d8bbf0 */
     /* registered size 0xcc */
 };
 
@@ -18903,7 +18295,6 @@ struct UMaterial : public UMaterialInterface {
     /* other member functions */
     INT sub_006d72b0(INT* bInUse, INT Usage); /* 0x006d72b0 */
     void sub_006ae080(); /* 0x006ae080 */
-    UINT sub_006ae0c0(); /* 0x006ae0c0 */
     UBOOL GetUsageByFlag(INT Usage); /* 0x006b56e0 */
     /* registered size 0x2a4 */
 };
@@ -20995,22 +20386,13 @@ struct UFracturedStaticMeshComponent : public UFracturedBaseComponent {
     void execGetFragmentGroups(FFrame& Stack, RESULT_DECL); /* 0x00cd2470 */
     /* other member functions */
     void sub_007b1890(); /* 0x007b1890 */
-    INT sub_0060baf0(INT); /* 0x0060baf0 */
-    void sub_0060bb30(INT*); /* 0x0060bb30 */
     INT sub_00805dc0(); /* 0x00805dc0 */
     INT sub_0081e880(); /* 0x0081e880 */
-    INT sub_0096df00(INT); /* 0x0096df00 */
-    INT sub_00975170(INT); /* 0x00975170 */
     INT sub_00ac1da0(); /* 0x00ac1da0 */
     INT sub_00ac1e10(); /* 0x00ac1e10 */
     INT sub_00ac1e80(); /* 0x00ac1e80 */
     INT sub_00ac2010(); /* 0x00ac2010 */
     INT sub_00ac2020(); /* 0x00ac2020 */
-    void sub_011c23a0(INT); /* 0x011c23a0 */
-    INT sub_011c23f0(); /* 0x011c23f0 */
-    UINT sub_011c46d0(); /* 0x011c46d0 */
-    void sub_011d32e0(); /* 0x011d32e0 */
-    UINT sub_011d6010(BYTE); /* 0x011d6010 */
     /* registered size 0x280 */
 };
 
@@ -21678,42 +21060,9 @@ struct UGameUISceneClient : public UUISceneClient {
     class UUIScene* GetNextScene(class UUIScene* SourceScene, UBOOL bRequireMatchingPlayerOwner, UBOOL bIgnoreUnfocusedScenes); /* 0x00de5640 */
     UBOOL sub_00de6e90(DWORD Flags, UUIScene* Scene); /* 0x00de6e90 */
     INT FindSceneIndex(const UUIScene* Scene) const; /* 0x00de2590 */
-    INT sub_005744a0(INT); /* 0x005744a0 */
-    INT sub_005744b0(); /* 0x005744b0 */
-    INT sub_005744c0(); /* 0x005744c0 */
-    void sub_00d20b10(INT, INT); /* 0x00d20b10 */
-    INT sub_00d78dc0(INT); /* 0x00d78dc0 */
-    INT sub_00d78e70(INT); /* 0x00d78e70 */
-    INT sub_00d78e80(INT); /* 0x00d78e80 */
-    INT sub_00d78f20(INT); /* 0x00d78f20 */
-    INT sub_00d78f30(); /* 0x00d78f30 */
-    INT sub_00d78f40(); /* 0x00d78f40 */
-    INT sub_00d7c910(INT); /* 0x00d7c910 */
-    INT sub_00d7c920(INT); /* 0x00d7c920 */
-    INT sub_00d7c930(); /* 0x00d7c930 */
-    void sub_00d7c940(); /* 0x00d7c940 */
-    void sub_00d7cd00(INT); /* 0x00d7cd00 */
-    void sub_00d80990(); /* 0x00d80990 */
-    void sub_00d809a0(); /* 0x00d809a0 */
-    INT sub_00d855b0(); /* 0x00d855b0 */
-    INT sub_00d85a30(); /* 0x00d85a30 */
-    INT sub_00d85a50(); /* 0x00d85a50 */
-    UINT sub_00d86c70(UINT, UINT); /* 0x00d86c70 */
-    void sub_00d86ce0(); /* 0x00d86ce0 */
-    INT sub_00d86ee0(); /* 0x00d86ee0 */
-    INT sub_00d87150(); /* 0x00d87150 */
-    INT sub_00d87170(); /* 0x00d87170 */
-    INT sub_00d88060(UINT, UINT, UINT); /* 0x00d88060 */
-    void sub_00d88090(); /* 0x00d88090 */
-    INT sub_00d88200(); /* 0x00d88200 */
-    INT sub_00d88340(); /* 0x00d88340 */
-    INT sub_00d88360(); /* 0x00d88360 */
-    INT sub_00d8a830(); /* 0x00d8a830 */
-    INT sub_00d8a850(); /* 0x00d8a850 */
     void sub_00dde4f0(); /* 0x00dde4f0 */
     void sub_00dde500(); /* 0x00dde500 */
     INT sub_00de6190(); /* 0x00de6190 */
-    UINT* sub_00de7970(UINT*); /* 0x00de7970 */
     /* registered size 0x160 */
     /* FExec */
     virtual UBOOL Exec(const TCHAR* Cmd, FOutputDevice& Ar); /* 0x00de4d10 */
@@ -23335,20 +22684,11 @@ struct ULensFlare : public UObject {
     void sub_006b42d0(); /* 0x006b42d0 */
     void sub_0075f680(); /* 0x0075f680 */
     INT sub_0075f690(); /* 0x0075f690 */
-    UINT sub_00955990(BYTE); /* 0x00955990 */
-    UINT sub_00955aa0(BYTE); /* 0x00955aa0 */
-    UINT sub_009d41a0(BYTE); /* 0x009d41a0 */
-    UINT sub_00abc780(BYTE); /* 0x00abc780 */
-    UINT sub_00abc810(BYTE); /* 0x00abc810 */
     INT sub_00abd180(); /* 0x00abd180 */
     INT sub_00abd1b0(); /* 0x00abd1b0 */
     INT sub_00abd240(); /* 0x00abd240 */
     INT sub_00abd270(); /* 0x00abd270 */
-    INT sub_00abd280(UINT*); /* 0x00abd280 */
     INT sub_00abd400(); /* 0x00abd400 */
-    UINT sub_00b03080(BYTE); /* 0x00b03080 */
-    UINT sub_00b03110(BYTE); /* 0x00b03110 */
-    UINT sub_00b031a0(BYTE); /* 0x00b031a0 */
     INT sub_00bda350(); /* 0x00bda350 */
     INT sub_00bda360(); /* 0x00bda360 */
     INT sub_00bded00(); /* 0x00bded00 */
@@ -23365,11 +22705,6 @@ struct ULensFlare : public UObject {
     INT sub_00bdf310(); /* 0x00bdf310 */
     INT sub_00bdf320(); /* 0x00bdf320 */
     void sub_00bdf8f0(); /* 0x00bdf8f0 */
-    UINT sub_00be1da0(BYTE); /* 0x00be1da0 */
-    UINT sub_00be1e30(BYTE); /* 0x00be1e30 */
-    UINT sub_00be1ec0(BYTE); /* 0x00be1ec0 */
-    UINT sub_00be1f50(BYTE); /* 0x00be1f50 */
-    UINT sub_00be1fe0(BYTE); /* 0x00be1fe0 */
     void sub_00be20c0(); /* 0x00be20c0 */
     char* sub_00be2500(); /* 0x00be2500 */
     INT sub_00e9d5a0(); /* 0x00e9d5a0 */
@@ -24976,9 +24311,6 @@ struct UTextureCube : public UTexture {
     virtual INT GetMaterialType(); /* 0x120 */
     /* other member functions */
     void sub_0075b630(); /* 0x0075b630 */
-    UINT sub_00760b30(BYTE); /* 0x00760b30 */
-    UINT sub_00760b50(BYTE); /* 0x00760b50 */
-    UINT sub_00762340(BYTE); /* 0x00762340 */
     /* registered size 0xdc */
 };
 
@@ -25195,7 +24527,6 @@ struct UMaterialInstanceConstant : public UMaterialInstance {
     void sub_006d8a60(); /* 0x006d8a60 */
     void sub_006d8ae0(); /* 0x006d8ae0 */
     void sub_006d8b60(); /* 0x006d8b60 */
-    void sub_00711880(); /* 0x00711880 */
     /* registered size 0xa0 */
 };
 
@@ -25480,18 +24811,11 @@ struct UMorphWeightSequence : public UObject {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual FString GetDesc(); /* 0x0b8 */
     /* other member functions */
-    void sub_00839d80(); /* 0x00839d80 */
-    void sub_00839d90(); /* 0x00839d90 */
-    void sub_00839da0(); /* 0x00839da0 */
-    UINT sub_0083a2e0(BYTE); /* 0x0083a2e0 */
-    UINT sub_0083a370(BYTE); /* 0x0083a370 */
-    UINT sub_0083a400(BYTE); /* 0x0083a400 */
     UINT sub_00a59240(UINT); /* 0x00a59240 */
     UINT sub_00a59330(UINT); /* 0x00a59330 */
     UINT sub_00a59400(UINT); /* 0x00a59400 */
     UINT* sub_00a59460(UINT); /* 0x00a59460 */
     INT sub_00afb350(); /* 0x00afb350 */
-    UINT sub_00df65f0(BYTE); /* 0x00df65f0 */
     /* registered size 0x30 */
 };
 
@@ -26147,7 +25471,6 @@ struct USettings : public UObject {
     void SetSettingsData(FSettingsData& Data, FSettingsData& Data2Copy); /* 0x00d74300 */
     void GetSettingsDataBlob(FSettingsData& Data, TArray<BYTE>& OutBlob); /* 0x00d799d0 */
     INT sub_00d88680(); /* 0x00d88680 */
-    void sub_00d88690(); /* 0x00d88690 */
     /* registered size 0x78 */
 };
 
@@ -27850,7 +27173,6 @@ struct UParticleModuleTypeDataBeam2 : public UParticleModuleTypeDataBase {
     virtual void vf_16c(); /* 0x16c */
     virtual void PreUpdate(FParticleEmitterInstance* Owner, INT Offset, FLOAT DeltaTime); /* 0x174 */
     /* other member functions */
-    void sub_00b69cf0(); /* 0x00b69cf0 */
     /* registered size 0xd4 */
 };
 
@@ -30360,8 +29682,6 @@ struct URFMODSound : public UObject {
     virtual INT GetResourceSize(); /* 0x0d4 */
     virtual UBOOL IsLocalizedResource(); /* 0x0dc */
     /* other member functions */
-    INT sub_00544c70(); /* 0x00544c70 */
-    void* sub_00544ca0(INT); /* 0x00544ca0 */
     /* registered size 0x13c */
 };
 
@@ -31183,7 +30503,6 @@ struct USeqAct_Delay : public USeqAct_Latent {
     virtual void Activated(); /* 0x174 */
     virtual void DeActivated(); /* 0x178 */
     /* other member functions */
-    UINT sub_00909b20(); /* 0x00909b20 */
     /* registered size 0xf8 */
 };
 
@@ -31433,10 +30752,6 @@ struct USeqAct_Interp : public USeqAct_Latent {
     void sub_00d19950(UBOOL bFlag); /* 0x00d19950 */
     void sub_00d14240(APlayerController*); /* 0x00d14240 */
     void SetPosition(FLOAT NewPosition, UBOOL bJump); /* 0x00d1df50 */
-    void sub_00ceb4b0(); /* 0x00ceb4b0 */
-    void sub_00ceb4d0(); /* 0x00ceb4d0 */
-    void sub_00ceb510(); /* 0x00ceb510 */
-    UINT sub_00d194b0(BYTE); /* 0x00d194b0 */
     /* registered size 0x1a8 */
 };
 
@@ -33881,7 +33196,6 @@ struct USoundNodeRandom : public USoundNode {
     /* UnrealScript natives */
     void execPickNextNodeInAdvance(FFrame& Stack, RESULT_DECL); /* 0x00c92ec0 */
     /* other member functions */
-    void sub_00cc6500(); /* 0x00cc6500 */
     /* registered size 0x68 */
 };
 
@@ -33956,7 +33270,6 @@ struct USoundNodeWave : public USoundNode {
     virtual const FString GetEdHelperClassName( void ) const; /* 0x134 */
     /* other member functions */
     void sub_0129d670(INT); /* 0x0129d670 */
-    UINT sub_014c8a10(BYTE); /* 0x014c8a10 */
     /* registered size 0x1f8 */
 };
 
@@ -33997,8 +33310,6 @@ struct USpeechRecognition : public UObject {
     virtual FString GetDetailedDescription(INT InIndex); /* 0x0bc */
     virtual INT GetResourceSize(); /* 0x0d4 */
     /* other member functions */
-    void sub_00c448e0(); /* 0x00c448e0 */
-    INT sub_00c44910(); /* 0x00c44910 */
     /* registered size 0xb8 */
 };
 
@@ -34291,7 +33602,6 @@ struct UStaticMeshComponentFactory : public UMeshComponentFactory {
     virtual UBOOL FactoryIsValid(); /* 0x10c */
     virtual UPrimitiveComponent* CreatePrimitiveComponent(UObject* InOuter); /* 0x110 */
     /* other member functions */
-    void sub_0076ea90(); /* 0x0076ea90 */
     /* registered size 0x48 */
 };
 
@@ -34571,7 +33881,6 @@ struct UTerrainLayerSetup : public UObject {
     void execSetMaterials(FFrame& Stack, RESULT_DECL); /* 0x00cc6a40 */
     /* other member functions */
     void SetMaterials(const FTerrainFilteredMaterialArray& NewMaterials); /* 0x009a9810 */
-    INT sub_00989d80(UINT); /* 0x00989d80 */
     /* registered size 0x3c */
 };
 
@@ -34634,13 +33943,6 @@ struct UTexture2DComposite : public UTexture {
     /* other member functions */
     UBOOL SourceTexturesFullyStreamedIn(); /* 0x00722360 */
     void UpdateCompositeTexture(INT); /* 0x00733600 */
-    void sub_00715e40(INT); /* 0x00715e40 */
-    void sub_00729250(); /* 0x00729250 */
-    void sub_00729590(); /* 0x00729590 */
-    void sub_00729600(); /* 0x00729600 */
-    UINT sub_0072f070(BYTE); /* 0x0072f070 */
-    UINT sub_0072f190(BYTE); /* 0x0072f190 */
-    UINT sub_0072f210(BYTE); /* 0x0072f210 */
     INT sub_00831840(); /* 0x00831840 */
     /* registered size 0xc0 */
 };
@@ -35486,10 +34788,8 @@ struct UUIInteraction : public UInteraction, public FExec, public FGlobalDataSto
     void execPlayUISound(FFrame& Stack, RESULT_DECL); /* 0x00ca0c70 */
     void execCreateScene(FFrame& Stack, RESULT_DECL); /* 0x00ca0df0 */
     class UUIScene* CreateScene(class UClass* SceneClass, FName SceneTag, class UUIScene* SceneTemplate); /* 0x00d707e0 */
-    static INT sub_00d78350(INT ControllerId); /* 0x00d78350 */
     static UDataStoreClient* GetDataStoreClient(); /* 0x00d8dee0 */
     UBOOL PlayUISound( FName SoundCueName, INT PlayerIndex ); /* 0x00d78470 */
-    UINT sub_00d8bfb0(BYTE); /* 0x00d8bfb0 */
     /* registered size 0x1a0 */
     /* FCallbackEventDevice */
     virtual void Send(ECallbackEventType InType, FViewport* InViewport, UINT InMessage); /* 0x00d6c150 */
@@ -36480,28 +35780,6 @@ struct UGFxDataStoreSubscriber : public UObject, public IUIDataStorePublisher {
     INT sub_0196e740(); /* 0x0196e740 */
     bool sub_01978400(); /* 0x01978400 */
     void sub_0197ecd0(UINT Count, UINT Count2); /* 0x0197ecd0 */
-    void sub_00e48c10(INT); /* 0x00e48c10 */
-    void* sub_018e5390(); /* 0x018e5390 */
-    void sub_018e53a0(INT, INT); /* 0x018e53a0 */
-    INT sub_018e53c0(INT); /* 0x018e53c0 */
-    bool sub_018e53d0(); /* 0x018e53d0 */
-    INT sub_018e5410(INT); /* 0x018e5410 */
-    INT sub_018e5470(); /* 0x018e5470 */
-    INT sub_018f6970(INT); /* 0x018f6970 */
-    void sub_018f6980(UINT*); /* 0x018f6980 */
-    INT sub_018f69a0(INT); /* 0x018f69a0 */
-    INT sub_018f69b0(INT); /* 0x018f69b0 */
-    void sub_018f69c0(UINT*); /* 0x018f69c0 */
-    bool sub_018f6aa0(); /* 0x018f6aa0 */
-    INT sub_018f6ab0(INT); /* 0x018f6ab0 */
-    void sub_018f6ac0(INT); /* 0x018f6ac0 */
-    void* sub_018f6b00(); /* 0x018f6b00 */
-    UINT sub_018f6b40(); /* 0x018f6b40 */
-    INT sub_018f6bb0(); /* 0x018f6bb0 */
-    BYTE sub_018f6bc0(void*); /* 0x018f6bc0 */
-    UINT* sub_018f6c80(UINT*); /* 0x018f6c80 */
-    INT sub_018f6ca0(INT); /* 0x018f6ca0 */
-    INT sub_018f6cc0(INT); /* 0x018f6cc0 */
     void* sub_01903a10(); /* 0x01903a10 */
     INT sub_01903b10(); /* 0x01903b10 */
     INT sub_01903cd0(); /* 0x01903cd0 */
@@ -36512,24 +35790,6 @@ struct UGFxDataStoreSubscriber : public UObject, public IUIDataStorePublisher {
     INT sub_01904020(); /* 0x01904020 */
     INT sub_01904030(); /* 0x01904030 */
     INT sub_01904190(); /* 0x01904190 */
-    void sub_0190a040(UINT*); /* 0x0190a040 */
-    UINT sub_0190a050(INT*); /* 0x0190a050 */
-    INT sub_0190a120(); /* 0x0190a120 */
-    INT sub_0190a130(); /* 0x0190a130 */
-    INT sub_0190a140(); /* 0x0190a140 */
-    UINT sub_0190c3c0(UINT); /* 0x0190c3c0 */
-    void sub_0190cc00(); /* 0x0190cc00 */
-    void sub_0190ef80(); /* 0x0190ef80 */
-    void sub_0190f300(UINT); /* 0x0190f300 */
-    void sub_0190f320(UINT); /* 0x0190f320 */
-    void sub_0190fa50(); /* 0x0190fa50 */
-    void* sub_0190faa0(); /* 0x0190faa0 */
-    void sub_019103b0(); /* 0x019103b0 */
-    void* sub_01910670(); /* 0x01910670 */
-    void sub_019106f0(); /* 0x019106f0 */
-    UINT* sub_01912990(UINT); /* 0x01912990 */
-    UINT* sub_019129b0(UINT); /* 0x019129b0 */
-    INT sub_01919e40(INT); /* 0x01919e40 */
     UINT sub_01921d20(); /* 0x01921d20 */
     UINT sub_01921d30(); /* 0x01921d30 */
     UINT sub_01921d70(); /* 0x01921d70 */
@@ -36540,102 +35800,8 @@ struct UGFxDataStoreSubscriber : public UObject, public IUIDataStorePublisher {
     INT sub_019220e0(); /* 0x019220e0 */
     INT sub_01922110(); /* 0x01922110 */
     INT sub_01929370(); /* 0x01929370 */
-    INT sub_0192eab0(INT); /* 0x0192eab0 */
-    INT sub_0192eac0(INT); /* 0x0192eac0 */
-    INT sub_0192ead0(); /* 0x0192ead0 */
-    void sub_0192eae0(); /* 0x0192eae0 */
-    UINT sub_0192eaf0(); /* 0x0192eaf0 */
-    UINT sub_0192eb00(); /* 0x0192eb00 */
-    UINT sub_0192eb10(); /* 0x0192eb10 */
-    UINT sub_0192eb20(); /* 0x0192eb20 */
-    void sub_0192eb30(UINT); /* 0x0192eb30 */
-    UINT sub_0192ed50(); /* 0x0192ed50 */
-    UINT sub_01950020(UINT); /* 0x01950020 */
-    UINT sub_01951c40(INT*); /* 0x01951c40 */
-    UINT sub_01951c70(INT*); /* 0x01951c70 */
-    void sub_01953940(INT); /* 0x01953940 */
-    void* sub_01953b50(); /* 0x01953b50 */
-    void sub_01954810(); /* 0x01954810 */
-    void sub_01954850(); /* 0x01954850 */
-    void sub_01954940(); /* 0x01954940 */
-    void sub_01954960(); /* 0x01954960 */
-    void* sub_019549d0(); /* 0x019549d0 */
-    void* sub_01955520(); /* 0x01955520 */
-    void sub_01955540(); /* 0x01955540 */
-    void sub_01955570(); /* 0x01955570 */
-    void sub_019555a0(); /* 0x019555a0 */
-    void sub_01955910(); /* 0x01955910 */
-    void sub_01963ce0(); /* 0x01963ce0 */
-    void sub_01963d80(); /* 0x01963d80 */
-    void sub_01964300(); /* 0x01964300 */
-    void sub_01964330(); /* 0x01964330 */
-    UINT sub_0196e480(UINT*); /* 0x0196e480 */
-    UINT sub_0196e4c0(INT*); /* 0x0196e4c0 */
-    UINT* sub_0196ebe0(UINT); /* 0x0196ebe0 */
-    UINT* sub_0196eda0(UINT*); /* 0x0196eda0 */
-    UINT* sub_0196edd0(UINT); /* 0x0196edd0 */
-    UINT* sub_019735f0(UINT); /* 0x019735f0 */
-    UINT* sub_01973900(UINT); /* 0x01973900 */
-    INT sub_019781b0(UINT); /* 0x019781b0 */
-    INT sub_019799e0(); /* 0x019799e0 */
-    INT sub_01979ba0(); /* 0x01979ba0 */
-    UINT sub_01979be0(); /* 0x01979be0 */
-    UINT sub_01979c20(); /* 0x01979c20 */
-    void sub_01979c30(UINT*); /* 0x01979c30 */
-    void sub_01979c80(INT*); /* 0x01979c80 */
-    void sub_01979ca0(INT*); /* 0x01979ca0 */
-    INT sub_01979ce0(INT); /* 0x01979ce0 */
-    void sub_01979cf0(UINT*); /* 0x01979cf0 */
-    void sub_01979fb0(UINT*); /* 0x01979fb0 */
-    INT sub_0197a070(INT); /* 0x0197a070 */
-    INT sub_0197a690(INT); /* 0x0197a690 */
-    INT sub_0197aa00(); /* 0x0197aa00 */
-    INT sub_0197aa10(); /* 0x0197aa10 */
-    void sub_0197aa20(UINT*); /* 0x0197aa20 */
-    INT sub_0197ab80(); /* 0x0197ab80 */
-    INT sub_0197ab90(); /* 0x0197ab90 */
-    INT sub_0197aba0(); /* 0x0197aba0 */
-    void sub_0197ac40(); /* 0x0197ac40 */
-    void sub_0197b1f0(INT*); /* 0x0197b1f0 */
-    void sub_0197b210(INT*); /* 0x0197b210 */
-    INT* sub_0197b5d0(INT*, INT, INT*); /* 0x0197b5d0 */
-    INT* sub_0197b630(INT*, INT, INT*); /* 0x0197b630 */
-    UINT* sub_0197d1b0(UINT); /* 0x0197d1b0 */
-    void sub_0197d3d0(UINT); /* 0x0197d3d0 */
-    void sub_0197d3f0(UINT); /* 0x0197d3f0 */
-    void sub_0197d7f0(); /* 0x0197d7f0 */
-    void sub_0197dea0(); /* 0x0197dea0 */
-    UINT* sub_0197deb0(UINT); /* 0x0197deb0 */
-    void sub_0197eb20(); /* 0x0197eb20 */
-    UINT* sub_0197eb90(UINT); /* 0x0197eb90 */
-    void sub_01980100(); /* 0x01980100 */
-    void sub_01980230(); /* 0x01980230 */
-    void sub_019802f0(UINT, UINT*); /* 0x019802f0 */
-    void sub_019813d0(); /* 0x019813d0 */
-    void sub_01981730(UINT, UINT, UINT); /* 0x01981730 */
-    void sub_01981750(UINT, UINT, UINT); /* 0x01981750 */
-    void sub_01981800(UINT, UINT, UINT, UINT); /* 0x01981800 */
-    UINT sub_01985a70(UINT*); /* 0x01985a70 */
-    void* sub_01988350(); /* 0x01988350 */
-    void* sub_019885e0(); /* 0x019885e0 */
-    void* sub_01988780(); /* 0x01988780 */
-    void sub_0198caf0(UINT); /* 0x0198caf0 */
-    UINT sub_01990ee0(INT*); /* 0x01990ee0 */
-    UINT sub_01990f10(INT*); /* 0x01990f10 */
-    void* sub_019912a0(); /* 0x019912a0 */
-    void* sub_01991880(); /* 0x01991880 */
-    void* sub_019918d0(); /* 0x019918d0 */
-    void* sub_019920c0(); /* 0x019920c0 */
-    void* sub_01992240(); /* 0x01992240 */
-    void* sub_019928e0(); /* 0x019928e0 */
-    UINT* sub_0199c8a0(UINT); /* 0x0199c8a0 */
     void sub_019e6040(INT); /* 0x019e6040 */
     INT sub_019e60b0(); /* 0x019e60b0 */
-    UINT sub_019e6200(); /* 0x019e6200 */
-    void sub_019f1590(UINT*); /* 0x019f1590 */
-    INT sub_019f16a0(INT); /* 0x019f16a0 */
-    void sub_019f1a70(); /* 0x019f1a70 */
-    void* sub_019f24a0(); /* 0x019f24a0 */
     /* registered size 0x38 */
     /* IUIDataStorePublisher */
     virtual class UObject* GetUObjectInterfaceUIDataStoreSubscriber(); /* 0x00e425f0 */
@@ -36682,7 +35848,6 @@ struct UGFxFSCmdHandler : public UObject {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     /* other member functions */
     UBOOL eventFSCommand(class UGFxMovie* Movie, const FString& cmd, const FString& arg); /* 0x00e58af0 */
-    void sub_00e48460(); /* 0x00e48460 */
     /* registered size 0x30 */
 };
 
@@ -36872,7 +36037,6 @@ struct UMCPBase : public UObject, public FTickableObject {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     /* other member functions */
-    UINT sub_00e34760(BYTE); /* 0x00e34760 */
     /* registered size 0x34 */
     /* FTickableObject */
     virtual void Tick(FLOAT DeltaTime); /* 0x00e34730 */
@@ -37000,8 +36164,6 @@ struct UOnlineNewsInterfaceMcp : public UMCPBase {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     /* other member functions */
-    void sub_00e3d0b0(); /* 0x00e3d0b0 */
-    void sub_00e3f640(); /* 0x00e3f640 */
     /* registered size 0x5c */
     /* FTickableObject */
     virtual void Tick(FLOAT DeltaTime); /* 0x00e3df80 */
@@ -37066,8 +36228,6 @@ struct UPartyBeacon : public UObject, public FTickableObject {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     /* other member functions */
-    UINT sub_00e348e0(BYTE); /* 0x00e348e0 */
-    void sub_00e38190(); /* 0x00e38190 */
     /* registered size 0x50 */
     /* FTickableObject */
     virtual void Tick(FLOAT DeltaTime); /* 0x00e2cb50 */
@@ -37143,22 +36303,6 @@ struct UPartyBeaconHost : public UPartyBeacon {
     void delegateOnReservationsFull(); /* 0x00e29900 */
     void delegateOnReservationChange(); /* 0x00e29930 */
     INT sub_00e33440(); /* 0x00e33440 */
-    UINT* sub_00e338f0(INT*); /* 0x00e338f0 */
-    INT sub_00e395f0(INT); /* 0x00e395f0 */
-    INT sub_00e3ac20(INT); /* 0x00e3ac20 */
-    void sub_00e3b280(); /* 0x00e3b280 */
-    void sub_00e3b2a0(); /* 0x00e3b2a0 */
-    INT sub_00e3cd90(); /* 0x00e3cd90 */
-    void sub_00e3ced0(); /* 0x00e3ced0 */
-    void sub_00e3e2e0(); /* 0x00e3e2e0 */
-    UINT sub_00e3e3c0(UINT, UINT); /* 0x00e3e3c0 */
-    INT sub_00e3e3e0(UINT, UINT); /* 0x00e3e3e0 */
-    INT sub_00e3e400(UINT, UINT); /* 0x00e3e400 */
-    INT sub_00e3e420(); /* 0x00e3e420 */
-    INT sub_00e3f4e0(UINT, UINT, UINT); /* 0x00e3f4e0 */
-    void sub_00e3f510(); /* 0x00e3f510 */
-    INT sub_00e3f530(); /* 0x00e3f530 */
-    INT sub_00e40890(); /* 0x00e40890 */
     /* registered size 0xb8 */
     /* FTickableObject */
     virtual void Tick(FLOAT DeltaTime); /* 0x00e40710 */
@@ -39494,7 +38638,6 @@ struct URAnimNode_Cape : public UAnimNodeBlendBase {
     INT sub_01569700(INT BoneIndex); /* 0x01569700 */
     UBOOL sub_015697a0(INT BoneIndex, INT ParentBoneIndex); /* 0x015697a0 */
     FMatrix sub_01569b90(); /* 0x01569b90 */
-    INT sub_01569c40(INT boneIndex); /* 0x01569c40 */
     UBOOL sub_01569e10(FName AnimName); /* 0x01569e10 */
     void sub_0156e6a0(INT boneIndex, FMatrix& OutSpaceBase); /* 0x0156e6a0 */
     void SetAnimTreeNodeBlendValue(FName setNodeName, FLOAT blendValue); /* 0x01562480 */
@@ -39506,10 +38649,8 @@ struct URAnimNode_Cape : public UAnimNodeBlendBase {
     FLOAT GetAnimTreeNodeBlendValue(FName); /* 0x01562440 */
     void sub_01569870(FMatrix& OutLocalToWorld); /* 0x01569870 */
     void* GetStateAnimNode(FName); /* 0x01575620 */
-    UINT sub_01562420(); /* 0x01562420 */
     UINT GetCurrentCapeAnimNode(); /* 0x01579fb0 */
     FName GetNewCapeAnimName(); /* 0x0155cff0 */
-    UINT sub_01586c20(BYTE); /* 0x01586c20 */
     /* registered size 0x1d0 */
 };
 
@@ -45426,13 +44567,7 @@ struct URCapeStateController : public UObject {
     /* other member functions */
     UINT sub_016ceca0(); /* 0x016ceca0 */
     void sub_016cece0(float Value); /* 0x016cece0 */
-    void sub_016e68f0(FLOAT DeltaTime, INT Param2, INT Param3); /* 0x016e68f0 */
-    void sub_016e7520(FName StateName); /* 0x016e7520 */
-    void sub_016db6c0(UINT BoneIndex, FCapeStateData* pCapeStateData); /* 0x016db6c0 */
-    FCapeStateData* sub_016deb60(FName StateName); /* 0x016deb60 */
-    void sub_016e7050(UINT BoneIndex, FCapeStateData* pCapeStateData); /* 0x016e7050 */
     void sub_016e72b0(UBOOL bStateChanged); /* 0x016e72b0 */
-    void sub_016e7490(UINT BoneIndex, FCapeStateData* pCapeStateData); /* 0x016e7490 */
     void sub_016e75b0(UBOOL bStateChanged); /* 0x016e75b0 */
     void SetCapeStateAndTime(FName NewCapeStateName, FLOAT NewCapeStateTime, FLOAT AnimPlayRate, UBOOL bMirrored, FName AnimName, FName SyncAnimNameOverride, FLOAT SyncAnimOffsetOverride); /* 0x016e7670 */
     void BeginCinematicState(FName AnimName, class URCapeStateConfig* TemplateStateConfig, FLOAT AnimStartTime, FLOAT AnimPlayRate, FName SyncAnimName, FLOAT SyncAnimOffset, UBOOL bMirrored, UBOOL bClearVelocityOnExit, UBOOL bTeleportToInitialPose); /* 0x016e7910 */
@@ -45445,8 +44580,6 @@ struct URCapeStateController : public UObject {
     void UpdatePauseState(); /* 0x016e7610 */
     void Initialise(FName); /* 0x016e7ba0 */
     void Update(FLOAT); /* 0x016e7ce0 */
-    void sub_016cec10(); /* 0x016cec10 */
-    void sub_016cec20(); /* 0x016cec20 */
     void sub_016ced50(INT); /* 0x016ced50 */
     INT FindBoneStateCacheIndex(URCapeStateBoneConfig* BoneConfig) const; /* 0x016d6050 */
     /* registered size 0x1c0 */
@@ -45581,10 +44714,8 @@ struct URCapeComponent : public UActorComponent {
     void SetMaterialSpeedVariableOverride(FLOAT); /* 0x016b1f80 */
     FLOAT CalculateAngularVelocity(); /* 0x016b20a0 */
     UBOOL UpdateSkeletalMeshDepthBias(); /* 0x016b8cd0 */
-    void sub_016b93f0(); /* 0x016b93f0 */
     void CalculateWindProperties(FCapeWindAudioProperties&); /* 0x016be930 */
     void InitEnable(BYTE Mode, UBOOL bEnable); /* 0x016cd7b0 */
-    bool sub_016ae4d0(); /* 0x016ae4d0 */
     void AddCinematicAnimSet(UINT); /* 0x016ae940 */
     UBOOL GetBoneCollisionWithWorld(INT StateIndex, INT BoneIndex) const; /* 0x016ba4a0 */
     UBOOL sub_016b21c0(); /* 0x016b21c0 */
@@ -45692,7 +44823,6 @@ struct URCapeSkeletalMeshComponent : public URDepthBiasSkeletalMeshComponent {
     void eventUpdateDamageLevel(class UMaterialInstance* NewMat); /* 0x016ad7e0 */
     void eventSetupMaterialConstants(); /* 0x016cdac0 */
     UBOOL sub_016d59d0() const; /* 0x016d59d0 */
-    void sub_016d5a90(INT); /* 0x016d5a90 */
     /* registered size 0x5d0 */
 };
 
@@ -47034,8 +46164,6 @@ struct ARControllableChatteringTeethBase : public APawn {
     void eventPlayPreExplodeAnim(); /* 0x01707e50 */
     class UAnimNodeCrossfader* eventGetJumpBlenderAnimNode(); /* 0x01707e80 */
     void sub_01714f10(FLOAT DeltaTime); /* 0x01714f10 */
-    void sub_01714fa0(FLOAT DeltaTime); /* 0x01714fa0 */
-    void sub_0171a4b0(FLOAT DeltaTime); /* 0x0171a4b0 */
     UBOOL sub_0171f1a0(); /* 0x0171f1a0 */
     /* registered size 0x4cc */
 };
@@ -49272,10 +48400,6 @@ struct ARGameRI : public ARGameReplicationInfoBase {
     /* other member functions */
     void eventRecordRoomMetrics(FName GoingToLevel); /* 0x0154b040 */
     void eventSetCurrentLevel(FName Level, class AActor* Originator, UBOOL BlockOnLoad); /* 0x016e92d0 */
-    void sub_0155aa00(); /* 0x0155aa00 */
-    void sub_0155aa20(); /* 0x0155aa20 */
-    UINT* sub_0155aa30(BYTE); /* 0x0155aa30 */
-    UINT* sub_0155aa50(BYTE); /* 0x0155aa50 */
     /* registered size 0x44c */
 };
 
@@ -49833,7 +48957,6 @@ struct URSimpleRopeComponent : public URRopeComponentBase {
     void execFinaliseRope(FFrame& Stack, RESULT_DECL); /* 0x01700bc0 */
     /* other member functions */
     void sub_016857b0(); /* 0x016857b0 */
-    UINT sub_0163f890(); /* 0x0163f890 */
     void sub_0166a9d0(); /* 0x0166a9d0 */
     /* registered size 0x240 */
 };
@@ -58847,20 +57970,6 @@ struct UAnalyzeFallbackMaterialsCommandlet : public UCommandlet {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
     /* other member functions */
-    INT sub_010ca5f0(); /* 0x010ca5f0 */
-    INT sub_010ca650(); /* 0x010ca650 */
-    INT sub_010ca6b0(); /* 0x010ca6b0 */
-    INT sub_010ca6d0(); /* 0x010ca6d0 */
-    INT sub_010ca6f0(); /* 0x010ca6f0 */
-    INT sub_010ca700(); /* 0x010ca700 */
-    INT sub_010ca760(); /* 0x010ca760 */
-    INT sub_010ca780(); /* 0x010ca780 */
-    INT sub_010ca7a0(); /* 0x010ca7a0 */
-    INT sub_010ca7c0(); /* 0x010ca7c0 */
-    INT sub_010ca7d0(); /* 0x010ca7d0 */
-    UINT sub_010ef280(UINT, UINT); /* 0x010ef280 */
-    INT sub_010f2840(UINT, UINT, UINT); /* 0x010f2840 */
-    UINT sub_010f2d90(BYTE); /* 0x010f2d90 */
     /* registered size 0xac */
 };
 
@@ -58974,8 +58083,6 @@ struct UAnimObjectFactory : public UFactory {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual UObject* FactoryCreateText( UClass* InClass, UObject* InParent, FName InName, EObjectFlags Flags, UObject* Context, const TCHAR* Type, const TCHAR*& Buffer, const TCHAR* BufferEnd, FFeedbackContext* Warn ); /* 0x110 */
     /* other member functions */
-    void sub_00f33420(); /* 0x00f33420 */
-    void sub_00f33580(); /* 0x00f33580 */
     /* registered size 0x64 */
 };
 
@@ -59223,7 +58330,6 @@ struct UProperty : public UField {
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     /* registered size 0x70 */
     /* other member functions */
-    UBOOL sub_0062ddd0(INT Index, FString& ValueStr, BYTE* Data, BYTE* Delta, UObject* Parent, INT PortFlags); /* 0x0062ddd0 */
 };
 
 struct UArrayProperty : public UProperty {
@@ -59429,7 +58535,6 @@ struct __declspec(align(16)) UEditorEngine : public UEngine, public FCallbackEve
     virtual void vf_188(); /* 0x188 */
     virtual void vf_18c(); /* 0x18c */
     /* other member functions */
-    UINT sub_00f683a0(BYTE); /* 0x00f683a0 */
     /* registered size 0x620 */
     /* FCallbackEventDevice */
     virtual void Send(ECallbackEventType InType, DWORD InFlag); /* 0x00ed9c20 */
@@ -59534,60 +58639,12 @@ struct UUnrealEdEngine : public UEditorEngine, public FNotifyHook {
     virtual void SentinelInputKey(FEditorLevelViewportClient* ViewportClient, FName Key,EInputEvent Event); /* 0x310 */
     /* other member functions */
     FLinearColor* sub_012c0300(FLinearColor* OutColor); /* 0x012c0300 */
-    INT sub_00551c40(INT); /* 0x00551c40 */
-    INT sub_00551c70(INT); /* 0x00551c70 */
-    INT sub_00555610(INT); /* 0x00555610 */
-    INT sub_00555650(INT); /* 0x00555650 */
-    void sub_00946da0(INT); /* 0x00946da0 */
-    UINT sub_00ec4700(); /* 0x00ec4700 */
-    UINT* sub_0111b3b0(BYTE); /* 0x0111b3b0 */
-    UINT sub_01120400(BYTE); /* 0x01120400 */
-    UINT sub_011367d0(BYTE); /* 0x011367d0 */
-    UINT sub_0114a280(BYTE); /* 0x0114a280 */
-    UINT sub_011765d0(BYTE); /* 0x011765d0 */
-    UINT sub_011ba770(BYTE); /* 0x011ba770 */
-    UINT sub_0120cdd0(BYTE); /* 0x0120cdd0 */
     void sub_012202f0(); /* 0x012202f0 */
     INT sub_01220310(); /* 0x01220310 */
-    UINT sub_01233140(BYTE); /* 0x01233140 */
-    UINT sub_01241200(BYTE); /* 0x01241200 */
-    void sub_01241220(UINT); /* 0x01241220 */
-    UINT sub_01242c50(BYTE); /* 0x01242c50 */
-    UINT sub_0124a550(BYTE); /* 0x0124a550 */
-    UINT sub_0125f5a0(BYTE); /* 0x0125f5a0 */
-    UINT sub_0128c6b0(BYTE); /* 0x0128c6b0 */
-    UINT sub_0128c710(BYTE); /* 0x0128c710 */
-    UINT sub_0128c770(BYTE); /* 0x0128c770 */
-    UINT sub_0128eb30(BYTE); /* 0x0128eb30 */
-    UINT* sub_012a06a0(BYTE); /* 0x012a06a0 */
-    UINT sub_012b7360(BYTE); /* 0x012b7360 */
-    UINT sub_012bfcb0(); /* 0x012bfcb0 */
-    void sub_012c0330(UINT); /* 0x012c0330 */
-    UINT sub_012c5550(BYTE); /* 0x012c5550 */
-    UINT* sub_012c5c00(BYTE); /* 0x012c5c00 */
     INT sub_012de880(); /* 0x012de880 */
     INT sub_012de9f0(); /* 0x012de9f0 */
     void sub_012dea00(INT); /* 0x012dea00 */
     char* sub_012dea10(); /* 0x012dea10 */
-    INT sub_01311e60(INT); /* 0x01311e60 */
-    const void* sub_01311e90(INT) const; /* 0x01311e90 */
-    QWORD* sub_01311ee0(INT); /* 0x01311ee0 */
-    const void* sub_01311f30(INT) const; /* 0x01311f30 */
-    INT sub_01311f80(INT); /* 0x01311f80 */
-    INT sub_01311fa0(UINT*); /* 0x01311fa0 */
-    INT sub_01312020(INT); /* 0x01312020 */
-    INT sub_013120d0(INT); /* 0x013120d0 */
-    INT sub_0131ae40(INT); /* 0x0131ae40 */
-    INT sub_0131af30(INT); /* 0x0131af30 */
-    INT sub_0131e760(INT); /* 0x0131e760 */
-    INT sub_0131e790(INT); /* 0x0131e790 */
-    INT sub_0131e7c0(INT); /* 0x0131e7c0 */
-    INT sub_013216f0(INT); /* 0x013216f0 */
-    INT sub_01321730(INT); /* 0x01321730 */
-    UINT sub_0132d630(BYTE); /* 0x0132d630 */
-    UINT sub_01333c20(BYTE); /* 0x01333c20 */
-    UINT* sub_013381a0(BYTE); /* 0x013381a0 */
-    UINT sub_01353870(BYTE); /* 0x01353870 */
     FLOAT sub_01367a80(); /* 0x01367a80 */
     void sub_01367a90(INT); /* 0x01367a90 */
     INT sub_01367aa0(); /* 0x01367aa0 */
@@ -59603,23 +58660,9 @@ struct UUnrealEdEngine : public UEditorEngine, public FNotifyHook {
     INT sub_01367c90(); /* 0x01367c90 */
     char* sub_01367cb0(); /* 0x01367cb0 */
     char* sub_01367cc0(); /* 0x01367cc0 */
-    UINT sub_0137e440(BYTE); /* 0x0137e440 */
-    UINT sub_01387400(BYTE); /* 0x01387400 */
-    UINT sub_01396610(BYTE); /* 0x01396610 */
     INT sub_013a3160(); /* 0x013a3160 */
     void sub_013a3740(); /* 0x013a3740 */
-    void sub_013abe80(); /* 0x013abe80 */
-    void sub_013abe90(); /* 0x013abe90 */
-    UINT sub_013b2fc0(BYTE); /* 0x013b2fc0 */
-    UINT sub_013b9590(BYTE); /* 0x013b9590 */
-    UINT sub_013baae0(BYTE); /* 0x013baae0 */
-    UINT sub_013bad90(BYTE); /* 0x013bad90 */
     void sub_013d2770(INT); /* 0x013d2770 */
-    UINT sub_013d3930(BYTE); /* 0x013d3930 */
-    UINT sub_0141b390(BYTE); /* 0x0141b390 */
-    UINT sub_0141b950(BYTE); /* 0x0141b950 */
-    UINT sub_0144a340(BYTE); /* 0x0144a340 */
-    void sub_0144eb40(UINT); /* 0x0144eb40 */
     INT sub_0144efe0(); /* 0x0144efe0 */
     INT sub_0144eff0(); /* 0x0144eff0 */
     INT sub_0144f000(); /* 0x0144f000 */
@@ -59627,12 +58670,6 @@ struct UUnrealEdEngine : public UEditorEngine, public FNotifyHook {
     INT sub_0144f020(); /* 0x0144f020 */
     INT sub_0144f050(); /* 0x0144f050 */
     INT sub_0144f0f0(); /* 0x0144f0f0 */
-    UINT sub_01460630(BYTE); /* 0x01460630 */
-    UINT sub_01470590(BYTE); /* 0x01470590 */
-    UINT sub_014753b0(BYTE); /* 0x014753b0 */
-    UINT* sub_014c97c0(BYTE); /* 0x014c97c0 */
-    UINT sub_014dc0d0(BYTE); /* 0x014dc0d0 */
-    UINT sub_01745700(BYTE); /* 0x01745700 */
     /* registered size 0x690 */
     /* FNotifyHook */
     virtual void NotifyDestroy(void* Src); /* 0x011368d0 */
@@ -60107,8 +59144,6 @@ struct UState : public UStruct {
     virtual UBOOL MergeBools(); /* 0x110 */
     virtual UStruct* GetInheritanceSuper() const; /* 0x11c */
     /* other member functions */
-    void sub_005828b0(); /* 0x005828b0 */
-    UINT sub_00587200(BYTE); /* 0x00587200 */
     INT sub_00587300(); /* 0x00587300 */
     void sub_00588900(INT); /* 0x00588900 */
     INT sub_00588910(); /* 0x00588910 */
@@ -60427,7 +59462,6 @@ struct UContentTagIndex : public UObject {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     /* other member functions */
-    UINT sub_01083ab0(BYTE); /* 0x01083ab0 */
     /* registered size 0x4c */
 };
 
@@ -60685,7 +59719,6 @@ struct UCustomPropertyItemBindings : public UObject {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     /* other member functions */
-    void sub_011ee2c0(); /* 0x011ee2c0 */
     /* registered size 0x78 */
 };
 
@@ -60840,7 +59873,6 @@ struct UDemoRecConnection : public UNetConnection {
     virtual void vf_148(INT, INT, INT, INT); /* 0x148 */
     virtual UBOOL ClientHasInitializedLevelFor(UObject* TestObject); /* 0x150 */
     /* other member functions */
-    void sub_00c1a560(); /* 0x00c1a560 */
     /* registered size 0x4fb8 */
 };
 
@@ -60890,7 +59922,6 @@ struct UNetDriver : public USubsystem, public FNetObjectNotify {
     virtual void FinishDestroy(); /* 0x02c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     /* other member functions */
-    UINT sub_00c1a5d0(BYTE); /* 0x00c1a5d0 */
     /* registered size 0x150 */
     /* FNetObjectNotify */
     virtual void NotifyNetPackageAdded(class UPackage* Package); /* 0x00e04ad0 */
@@ -60929,7 +59960,6 @@ struct UDemoRecDriver : public UNetDriver {
     virtual void TickFlush(); /* 0x128 */
     virtual void TickDispatch( FLOAT DeltaTime ); /* 0x12c */
     /* other member functions */
-    UINT sub_00c1a7a0(BYTE); /* 0x00c1a7a0 */
     /* registered size 0x214 */
     /* FNetObjectNotify */
     virtual void NotifyNetPackageAdded(class UPackage* Package); /* 0x00c00050 */
@@ -62156,7 +61186,6 @@ struct UGenericBrowserType_GFxMovie : public UGenericBrowserType {
     virtual void vf_120(INT, INT); /* 0x120 */
     virtual void DoubleClick(); /* 0x12c */
     /* other member functions */
-    void sub_014fd170(); /* 0x014fd170 */
     /* registered size 0x4c */
 };
 
@@ -62662,7 +61691,6 @@ struct UGetFlagsCommandlet : public UCommandlet {
     /* UnrealScript natives */
     void execMain(FFrame& Stack, RESULT_DECL); /* 0x005a14a0 */
     /* other member functions */
-    void sub_0175efb0(); /* 0x0175efb0 */
     /* registered size 0x70 */
 };
 
@@ -62678,7 +61706,6 @@ struct UGuidCache : public UObject {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     /* other member functions */
-    void sub_00e13ea0(DWORD, DWORD, FLOAT, BYTE); /* 0x00e13ea0 */
     /* registered size 0x78 */
 };
 
@@ -62702,7 +61729,6 @@ struct UHTTPDownload : public UDownload {
     virtual void ReceiveFile( UNetConnection* InConnection, INT PackageIndex, const TCHAR *Params=NULL, UBOOL InCompression=0 ); /* 0x110 */
     virtual void Tick(); /* 0x118 */
     /* other member functions */
-    void sub_00e3cdd0(); /* 0x00e3cdd0 */
     /* registered size 0xb5c */
 };
 
@@ -62996,10 +62022,6 @@ struct UKismetBindings : public UObject {
     INT sub_011167c0(); /* 0x011167c0 */
     INT sub_0118fff0(); /* 0x0118fff0 */
     INT sub_011925c0(); /* 0x011925c0 */
-    void sub_011ba390(); /* 0x011ba390 */
-    void sub_011ba3a0(); /* 0x011ba3a0 */
-    void sub_011ba3b0(); /* 0x011ba3b0 */
-    void sub_011ba3c0(); /* 0x011ba3c0 */
     /* registered size 0x48 */
 };
 
@@ -63251,7 +62273,6 @@ struct ULinkerLoad : public ULinker {
     INT Ver() const { return ArVer; } /* FArchive::Ver */
     /* other member functions */
     void sub_0059a560(); /* 0x0059a560 */
-    UINT sub_005bb330(BYTE); /* 0x005bb330 */
     void sub_005bfa70(); /* 0x005bfa70 */
     /* registered size 0x690 */
 };
@@ -63489,8 +62510,6 @@ struct UMaterialEditorInstanceConstant : public UObject {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     /* other member functions */
-    void sub_0141c420(); /* 0x0141c420 */
-    UINT sub_0141c440(BYTE); /* 0x0141c440 */
     /* registered size 0x90 */
 };
 
@@ -63548,7 +62567,6 @@ struct UMaterialEditorOptions : public UObject {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     /* other member functions */
-    void sub_01444270(); /* 0x01444270 */
     FString sub_014443f0(); /* 0x014443f0 */
     /* registered size 0x40 */
 };
@@ -63832,7 +62850,6 @@ struct UNetPendingLevel : public UPendingLevel {
     void sub_00e178c0(); /* 0x00e178c0 */
     void sub_00e17b60(); /* 0x00e17b60 */
     void sub_00e17bb0(); /* 0x00e17bb0 */
-    void sub_00e182b0(INT); /* 0x00e182b0 */
     INT sub_00e18380(); /* 0x00e18380 */
     INT sub_00e183a0(); /* 0x00e183a0 */
     INT sub_00e183c0(); /* 0x00e183c0 */
@@ -63927,9 +62944,6 @@ struct UOptionsProxy : public UObject {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     /* other member functions */
-    void sub_0115c3b0(); /* 0x0115c3b0 */
-    void sub_0115c3c0(); /* 0x0115c3c0 */
-    UINT sub_01160a30(BYTE); /* 0x01160a30 */
     /* registered size 0x30 */
 };
 
@@ -64135,25 +63149,9 @@ struct UPackageMap : public UObject {
     void* sub_00623550(void* Obj); /* 0x00623550 */
     void* sub_00622120(void* Obj, INT B); /* 0x00622120 */
     INT sub_0053f590(); /* 0x0053f590 */
-    INT sub_0054d690(); /* 0x0054d690 */
-    INT sub_00555530(INT); /* 0x00555530 */
     void sub_005fb100(); /* 0x005fb100 */
     void sub_005fb110(); /* 0x005fb110 */
     INT sub_005fb120(); /* 0x005fb120 */
-    void* sub_005fc4b0(INT); /* 0x005fc4b0 */
-    void sub_005fc4e0(); /* 0x005fc4e0 */
-    INT sub_005fc4f0(); /* 0x005fc4f0 */
-    void sub_005fc500(); /* 0x005fc500 */
-    INT sub_005fc510(); /* 0x005fc510 */
-    INT sub_005fc570(); /* 0x005fc570 */
-    INT sub_005fc580(); /* 0x005fc580 */
-    void* sub_005fc590(INT); /* 0x005fc590 */
-    INT sub_005fc660(); /* 0x005fc660 */
-    INT sub_005fc670(); /* 0x005fc670 */
-    void sub_005fc6d0(); /* 0x005fc6d0 */
-    INT sub_005fc6e0(); /* 0x005fc6e0 */
-    UBOOL sub_005fc6f0(INT); /* 0x005fc6f0 */
-    void sub_005fc710(INT, INT); /* 0x005fc710 */
     INT sub_005fee50(); /* 0x005fee50 */
     INT sub_005fee70(); /* 0x005fee70 */
     INT sub_005ff2a0(); /* 0x005ff2a0 */
@@ -64164,57 +63162,6 @@ struct UPackageMap : public UObject {
     INT sub_00602640(); /* 0x00602640 */
     INT sub_00607610(); /* 0x00607610 */
     INT sub_00607620(); /* 0x00607620 */
-    void sub_00dd3ec0(); /* 0x00dd3ec0 */
-    void sub_00dd4310(); /* 0x00dd4310 */
-    INT sub_013a7e80(INT); /* 0x013a7e80 */
-    INT sub_013a7e90(); /* 0x013a7e90 */
-    INT sub_013a7eb0(); /* 0x013a7eb0 */
-    INT sub_013af320(INT); /* 0x013af320 */
-    INT sub_013af3a0(INT); /* 0x013af3a0 */
-    UINT* sub_013c5c90(UINT*); /* 0x013c5c90 */
-    void sub_013c99b0(); /* 0x013c99b0 */
-    void sub_013c99c0(); /* 0x013c99c0 */
-    UINT sub_013c99d0(UINT, UINT); /* 0x013c99d0 */
-    UINT sub_013c99f0(UINT, UINT); /* 0x013c99f0 */
-    INT sub_013c9a10(UINT, UINT); /* 0x013c9a10 */
-    INT sub_013c9a30(UINT, UINT); /* 0x013c9a30 */
-    INT sub_013c9a50(UINT, UINT); /* 0x013c9a50 */
-    INT sub_013c9a70(UINT, UINT); /* 0x013c9a70 */
-    INT sub_013c9a90(UINT, UINT); /* 0x013c9a90 */
-    INT sub_013c9ab0(UINT, UINT); /* 0x013c9ab0 */
-    INT sub_013c9ad0(UINT, UINT); /* 0x013c9ad0 */
-    UINT sub_013c9af0(UINT, UINT); /* 0x013c9af0 */
-    INT sub_013c9b10(); /* 0x013c9b10 */
-    INT sub_013c9b40(); /* 0x013c9b40 */
-    INT sub_013c9b60(); /* 0x013c9b60 */
-    INT sub_013ca470(UINT, UINT, UINT); /* 0x013ca470 */
-    INT sub_013ca4c0(UINT, UINT, UINT); /* 0x013ca4c0 */
-    INT sub_013ca510(); /* 0x013ca510 */
-    INT sub_013ca550(); /* 0x013ca550 */
-    INT sub_013ca570(); /* 0x013ca570 */
-    INT sub_013d17e0(); /* 0x013d17e0 */
-    INT sub_013d1820(); /* 0x013d1820 */
-    INT sub_013d1840(); /* 0x013d1840 */
-    INT sub_013d7a30(); /* 0x013d7a30 */
-    INT sub_013d7a50(); /* 0x013d7a50 */
-    INT sub_013d7c70(); /* 0x013d7c70 */
-    INT sub_013d7c90(); /* 0x013d7c90 */
-    INT sub_013d8140(); /* 0x013d8140 */
-    INT sub_013d8160(); /* 0x013d8160 */
-    void* sub_013d8180(INT); /* 0x013d8180 */
-    INT sub_013d84f0(); /* 0x013d84f0 */
-    INT sub_013d8510(); /* 0x013d8510 */
-    void* sub_013d8530(INT); /* 0x013d8530 */
-    void sub_013d87f0(); /* 0x013d87f0 */
-    void sub_013d8810(); /* 0x013d8810 */
-    void sub_013d8820(); /* 0x013d8820 */
-    void* sub_013d8830(INT); /* 0x013d8830 */
-    UINT sub_013d8850(BYTE); /* 0x013d8850 */
-    UINT* sub_013d8880(UINT*); /* 0x013d8880 */
-    UINT sub_013d8a00(BYTE); /* 0x013d8a00 */
-    UINT* sub_013d8b90(UINT*); /* 0x013d8b90 */
-    UINT* sub_013d8bb0(UINT*); /* 0x013d8bb0 */
-    UINT sub_013d8be0(BYTE); /* 0x013d8be0 */
     /* registered size 0xb4 */
 };
 
@@ -64569,7 +63516,6 @@ struct UPreviewMaterial : public UMaterial {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual class FMaterialResource* AllocateResource(); /* 0x148 */
     /* other member functions */
-    void sub_01449fc0(); /* 0x01449fc0 */
     /* registered size 0x2a4 */
 };
 
@@ -65005,7 +63951,6 @@ struct URFMODSoundFactory : public UFactory {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual UObject* FactoryCreateBinary( UClass* InClass, UObject* InParent, FName InName, EObjectFlags Flags, UObject* Context, const TCHAR* Type, const BYTE*& Buffer, const BYTE* BufferEnd, FFeedbackContext* Warn ); /* 0x114 */
     /* other member functions */
-    void sub_0110ed20(); /* 0x0110ed20 */
     /* registered size 0x64 */
 };
 
@@ -65042,7 +63987,6 @@ struct URGenericBrowserType_FMODReverb : public UGenericBrowserType {
     virtual void vf_10c(); /* 0x10c */
     virtual UBOOL ShowObjectEditor( UObject* InObject ); /* 0x114 */
     /* other member functions */
-    void sub_0148fd30(); /* 0x0148fd30 */
     /* registered size 0x4c */
 };
 
@@ -65268,7 +64212,6 @@ struct UReimportSkeletalMeshFactory : public USkeletalMeshFactory {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     /* other member functions */
-    void sub_00f33840(); /* 0x00f33840 */
     /* registered size 0x78 */
 };
 
@@ -65331,7 +64274,6 @@ struct UReimportStaticMeshFactory : public UStaticMeshFactory {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     /* other member functions */
-    void sub_00f336e0(); /* 0x00f336e0 */
     /* registered size 0x7c */
 };
 
@@ -65873,7 +64815,6 @@ struct UStrProperty : public UProperty {
     virtual UBOOL RequiresInit() const; /* 0x160 */
     virtual INT GetMinAlignment() const; /* 0x168 */
     /* other member functions */
-    UINT* sub_0062dc20(); /* 0x0062dc20 */
     /* registered size 0x70 */
 };
 
@@ -66310,8 +65251,6 @@ struct UTextBuffer : public UObject, public FOutputDevice {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     /* other member functions */
-    void sub_005aa1e0(); /* 0x005aa1e0 */
-    UINT sub_005aa270(BYTE); /* 0x005aa270 */
     /* registered size 0x54 */
     /* FOutputDevice */
     virtual void Serialize(const TCHAR* V, EName Event); /* 0x005a1200 */
@@ -66338,10 +65277,6 @@ struct UTextBufferFactory : public UFactory {
     virtual UObject* FactoryCreateText( UClass* InClass, UObject* InParent, FName InName, EObjectFlags Flags, UObject* Context, const TCHAR* Type, const TCHAR*& Buffer, const TCHAR* BufferEnd, FFeedbackContext* Warn ); /* 0x110 */
     /* other member functions */
     FString sub_005749e0(); /* 0x005749e0 */
-    void sub_0059a640(INT); /* 0x0059a640 */
-    void sub_0059a650(); /* 0x0059a650 */
-    void sub_0059a660(INT); /* 0x0059a660 */
-    void sub_005b3d90(); /* 0x005b3d90 */
     /* registered size 0x64 */
 };
 
@@ -66600,7 +65535,6 @@ struct UUIPreviewString : public UUIString {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     /* other member functions */
     void sub_0149b250(INT); /* 0x0149b250 */
-    void sub_0149d8f0(); /* 0x0149d8f0 */
     /* registered size 0x3c */
 };
 
@@ -66613,8 +65547,6 @@ struct UUISceneExporter : public UExporter {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual UBOOL ExportText(const struct FExportObjectInnerContext* Context, class UObject* Object, const TCHAR* Type, FOutputDevice& Ar, FFeedbackContext* Warn, DWORD PortFlags = 0); /* 0x10c */
     /* other member functions */
-    void sub_014bdd40(); /* 0x014bdd40 */
-    void sub_014bdd50(); /* 0x014bdd50 */
     /* registered size 0x58 */
 };
 
@@ -66674,9 +65606,6 @@ struct UUISceneManager : public UObject, public FGlobalDataStoreClientManager, p
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     /* other member functions */
-    void sub_014be9b0(); /* 0x014be9b0 */
-    UINT sub_014bfe00(BYTE); /* 0x014bfe00 */
-    UINT sub_014bfe30(BYTE); /* 0x014bfe30 */
     /* registered size 0xc8 */
     /* FCallbackEventDevice */
     virtual void Send(ECallbackEventType InType, class UObject* InObject); /* 0x014a0160 */
@@ -66866,25 +65795,6 @@ struct UWindowsClient : public UClient {
     virtual void ForceClearForceFeedback(); /* 0x128 */
     virtual FName GetVirtualKey(INT KeyCode); /* 0x12c */
     /* other member functions */
-    UINT sub_00eb6b90(BYTE); /* 0x00eb6b90 */
-    INT sub_00eb7a80(INT); /* 0x00eb7a80 */
-    INT sub_00eb7a90(INT); /* 0x00eb7a90 */
-    INT sub_00eb7b90(INT); /* 0x00eb7b90 */
-    INT sub_00eb7ba0(); /* 0x00eb7ba0 */
-    INT sub_00eb7bb0(); /* 0x00eb7bb0 */
-    INT sub_00eb7bc0(); /* 0x00eb7bc0 */
-    INT sub_00eb96a0(INT); /* 0x00eb96a0 */
-    INT sub_00eb9740(INT); /* 0x00eb9740 */
-    INT sub_00eb9750(INT); /* 0x00eb9750 */
-    INT sub_00eb9c30(INT); /* 0x00eb9c30 */
-    INT sub_00eb9c70(INT); /* 0x00eb9c70 */
-    INT sub_00eb9ca0(INT); /* 0x00eb9ca0 */
-    INT sub_00ebb2d0(INT); /* 0x00ebb2d0 */
-    INT sub_00ebb310(INT); /* 0x00ebb310 */
-    void sub_00ebb3d0(); /* 0x00ebb3d0 */
-    void sub_00ebb3f0(); /* 0x00ebb3f0 */
-    INT sub_00ebd090(UINT, UINT); /* 0x00ebd090 */
-    INT sub_00ebd0b0(UINT, UINT); /* 0x00ebd0b0 */
     /* registered size 0x1d0 */
     /* FExec */
     virtual UBOOL Exec(const TCHAR* Cmd, FOutputDevice& Ar); /* 0x00eb5ef0 */
@@ -66997,7 +65907,6 @@ struct UWorld : public UObject, public FNetworkNotify {
     void sub_00a47a10(URB_BodyInstance* Body); /* 0x00a47a10 */
     void sub_00a47a90(URB_ConstraintInstance* Constraint); /* 0x00a47a90 */
     UBOOL DestroyActor(AActor* Actor, UBOOL bNetForce = FALSE, UBOOL bShouldModifyLevel = TRUE); /* 0x007e72a0 */
-    URB_BodyInstance* sub_00a49820(UPrimitiveComponent* Owner); /* 0x00a49820 */
     /* registered size 0x278 */
     /* FNetworkNotify */
     virtual EAcceptConnection NotifyAcceptingConnection(); /* 0x009c6d40 */

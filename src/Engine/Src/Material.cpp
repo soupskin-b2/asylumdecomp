@@ -59,8 +59,9 @@ struct C_006ae0b0 { C_006ae0b0* sub_006ae0b0(void); };
 C_006ae0b0* C_006ae0b0::sub_006ae0b0(void) { return this; }
 
 int sub_006d9710(...);
+struct C_006ae0c0 { undefined4 sub_006ae0c0(void); };
 // @baa 0x006ae0c0
-undefined4 UMaterial::sub_006ae0c0(void)
+undefined4 C_006ae0c0::sub_006ae0c0(void)
 {
     int param_1 = (int)this;
 

@@ -5,8 +5,9 @@
 
 int sub_0053dfa0(...);
 int sub_0116c5b0(void);
+struct C_011765d0 { undefined4 sub_011765d0(byte param_2); };
 // @baa 0x011765d0
-undefined4 UUnrealEdEngine::sub_011765d0(byte param_2)
+undefined4 C_011765d0::sub_011765d0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

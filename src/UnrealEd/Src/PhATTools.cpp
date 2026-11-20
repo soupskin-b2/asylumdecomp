@@ -434,8 +434,9 @@ C_0132d620::C_0132d620() {}
 void C_0132d620::sub_01333c20() {}
 
 int sub_0132c0e0(void);
+struct C_0132d630 { undefined4 sub_0132d630(byte param_2); };
 // @baa 0x0132d630
-undefined4 UUnrealEdEngine::sub_0132d630(byte param_2)
+undefined4 C_0132d630::sub_0132d630(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

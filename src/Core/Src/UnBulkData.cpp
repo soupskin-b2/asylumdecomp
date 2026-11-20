@@ -25,8 +25,9 @@ undefined4 * C_00545d80::sub_00545d80(undefined4 param_2, undefined4 param_3)
 int sub_0053dfa0(...);
 int sub_006311e0(...);
 extern undefined4 g_01e78da8;
+struct C_00567a20 { void sub_00567a20(void); };
 // @baa 0x00567a20
-void UTexture2D::sub_00567a20(void)
+void C_00567a20::sub_00567a20(void)
 {
     int param_1 = (int)this;
 

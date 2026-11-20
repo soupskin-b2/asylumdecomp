@@ -77,8 +77,9 @@ void C_011203f0::sub_01120400() {}
 
 int sub_0053dfa0(...);
 int sub_011202d0(void);
+struct C_01120400 { undefined4 sub_01120400(byte param_2); };
 // @baa 0x01120400
-undefined4 UUnrealEdEngine::sub_01120400(byte param_2)
+undefined4 C_01120400::sub_01120400(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

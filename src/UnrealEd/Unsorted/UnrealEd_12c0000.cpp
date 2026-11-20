@@ -590,8 +590,9 @@ undefined4 C_012c5530::sub_012c5530(byte param_2)
 }
 
 int sub_012c3350(void);
+struct C_012c5550 { undefined4 sub_012c5550(byte param_2); };
 // @baa 0x012c5550
-undefined4 UUnrealEdEngine::sub_012c5550(byte param_2)
+undefined4 C_012c5550::sub_012c5550(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -608,8 +609,9 @@ extern undefined4 g_02231c34;
 extern undefined * g_02231c3c;
 extern undefined4 g_02231c54;
 extern undefined * g_02231c60;
+struct C_012c5c00 { undefined4 * sub_012c5c00(byte param_2); };
 // @baa 0x012c5c00
-undefined4 * UUnrealEdEngine::sub_012c5c00(byte param_2)
+undefined4 * C_012c5c00::sub_012c5c00(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
